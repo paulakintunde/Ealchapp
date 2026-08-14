@@ -2457,3 +2457,209 @@ carries ZERO** — somebody cleared them between a2.04 and this build, so the
   and change the canDo instead. Proposed wording in `CANDO_OVERCLAIM`. Editing a
   unit row is a curriculum decision, not a lesson build's, so it was reported
   rather than applied.
+
+---
+
+## a2.19 amendments, 2026-08-14
+
+Written by the `a2.19` build, which is **seq 15 and the fourth lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger because it opens a block above
+everything this file reserved, and because four of the findings below bind every
+remaining lesson in the band.
+
+Full report: `A2-19-BUILD-REPORT.md`.
+
+### 0. THE BLOCK HELD, AND THE COUNT IS STILL THE ONLY REASON WE KNOW
+
+`fr.a2.verbes` held exactly **374** rows when a2.19 claimed `.501`, which is this
+file's own figure after a2.15, unchanged because a2.03, a2.16, a2.17, a2.04 and
+a2.18 all wrote into other themes. **403** after, which is 374 plus its 29 and
+nothing else. Zero rows were inside `.501..540`. The maximum is still useless.
+
+```
+seq  id      block                          status
+15   a2.19   fr.a2.verbes.501 .. .540       TAKEN, 501-529 used, 530-540 free
+     374 rows before, 403 after
+```
+
+`.487..500` is a2.10.l2's unused tail and was NOT backfilled: ids are the SRS key.
+
+### 1. A UNIT ID IN THE POSSESSIVE IS INVISIBLE TO `hasPhrase`, AND EVERY LESSON IN THIS BAND WRITES ONE
+
+**Corrections §9 gains a SIXTH hole, and it is in the guard every lesson from
+seq 14 onward has to run.** a2.17 §3 measured that the house boundary excludes
+the apostrophe and cannot see `j'ai`, and fixed the LEFT side. The RIGHT side has
+the same hole:
+
+```
+« a2.04's card »      does NOT match `a2.04`
+« a2.13's reframe »   does NOT match `a2.13`
+```
+
+The character after the id is an apostrophe and `(?![\p{L}\p{N}'’-])` counts it
+as a word character. **Doctrine §B.7 tells every lesson from seq 14 onward to
+credit the earlier instances BY UNIT ID, and the natural English for that is
+possessive**, so a presence check built on `hasPhrase` reports the credit absent
+while it is on the screen. a2.19 names five units and writes four of them
+possessively; four of the five read as missing on its second dry run.
+
+The fix is a `namesUnit()` that drops the apostrophe from BOTH boundaries, in the
+batch, the merge and the test. **Copy it.** a2.18's own guard has the same shape
+and happens to write its references without possessives.
+
+### 2. THE HOUSE GOALS HEADING IS A ONE-WORD FUTURE, AND 36 LESSONS PRINT IT UNEXPLAINED
+
+a2.14 §4 settled that « Ce que vous saurez faire » stays and recorded the rider
+that the future form is *"permitted in the goals heading and nowhere else"*.
+a2.19 is the lesson where that rider stops being administrative: **it is the
+lesson that names the synthetic future and refuses to conjugate it**, and its
+first dry run died on its own goals card.
+
+Exempted BY THE EXACT STRING, asserted to appear EXACTLY ONCE, and asserted to be
+in the goals `frSub` and nowhere else. **a2.05, a2.20, a2.21, a2.22 and a2.23 all
+inherit a guard that will fire on that heading if they write one about tense.**
+
+### 3. THE SIXTH WIDTH DEFECT: A REFERENCE SHEET'S OWN TITLE
+
+Found on a Pixel 6, v1 to v2. **A sheet's title is drawn in the sheet's HEADER
+BAR and ellipsises there**, while rendering in full on the card that opens it,
+which is why nothing looks wrong anywhere else.
+
+```
+mission-row title        27 characters        a2.13, a2.14 §13
+term-chip row            37 characters        a2.03 §3
+tapTable header           6 at five columns   a2.16 §2
+tapTable cell             6 at five, 11 at three   a2.16, a2.17 §4
+reference-sheet table     3 columns           a2.04 §1
+reference-sheet TITLE   ~37 characters        a2.19
+reference-sheet CELL     12 at three columns  a2.19, and it is a CEILING RAISED
+```
+
+**a2.18's sheet title is 44 characters and is cut today.** Not repaired from
+inside this build: repairing a neighbour's lesson from here is how a2.16 broke
+a2.03. Whoever touches a2.18 next should shorten it.
+
+**And the cell measurement went the other way.** a2.17 measured a three-column
+tapTable cell at eleven; a three-column SHEET table cell takes **twelve**
+(`n'allons pas` renders on one line). The two are different renderers and the
+tapTable number does not bind a sheet.
+
+### 4. THE BREAK CARD CLIPPED TWICE, AND THE SECOND TIME WAS TWO CORRECT FIELDS
+
+Ledger §7 and a2.14 §9.1 again: the budget is LINES and a right-hand row carrying
+an `ipa` AND a `respell` is four lines on its own, so **the French is the only
+lever and 31 characters wraps**. a2.19 v1 had three things over at once (31-char
+French, 27-char gloss, 33-word body).
+
+**v2 FIXED ALL THREE AND IT STILL CLIPPED**, which is the part worth having:
+
+> The break's `coach` and the scene's `closing` **both render on that screen**.
+> Both held the reframe, so eleven words printed twice one paragraph apart.
+
+Two fields owned by two different objects, each correct on its own, and no gate
+in any layer compares them. Invariants §7 names chrome repeated on one screen as
+one of the four classes only a device finds. v3 drops the coach. **The guard
+worth copying is one line: no string on the break card may equal the scene's
+`closing.text`.**
+
+The measured budget, now a constant (`BREAK_BUDGET`):
+
+```
+heading            13 characters
+reading-row fr     28 characters      31 wrapped
+reading-row en     24 characters      27 pushed it over
+body               26 words
+coach              12 words, and prefer none if the scene closes on the reframe
+```
+
+### 5. CORRECTIONS §3 GETS ITS SECOND COUNTEREXAMPLE, IN THE OTHER POLARITY
+
+a2.18 found the first (four published cards in one frame). a2.19 found that
+**the corpus published the negative this lesson exists to teach THIRTEEN times
+and respelled NONE of them**:
+
+```
+ne...pas round a conjugated aller with a naming form   13 published sentences
+                                  carrying a respelling  0
+eleven of the thirteen in ONE theme, five persons, eleven verbs, seven with an IPA
+the affirmative:  721 published sentences, 10 with a respelling
+```
+
+**a2.13 §1 is the half that holds**: evidence is not cards, so the importable
+pool was zero until this build supplied four respellings. The paradigm is still
+authored, because those thirteen share no frame.
+
+**The general shape for the past-tense arc, which is next:** a2.05, a2.20, a2.21
+and a2.23 are all about a form the corpus is full of. Count the rows AND the
+respellings before planning around either.
+
+### 6. THE DICTÉE COSTS A NEGATIVE FIVE LETTERS
+
+Corrections §4 in a shape the past-tense lessons will meet immediately. `ne` and
+`pas` are five letters, so measured through the real `dicteeMode` across all
+eight persons with any six-letter naming form:
+
+```
+the affirmative spells letter by letter in ALL EIGHT persons
+the negative in THREE: tu, il and on
+je is SEVENTEEN letters against a limit of sixteen, and stays over for every
+   six-letter naming form in the language
+```
+
+**The person a learner most wants to produce is the one the dictée cannot test.**
+a2.05's auxiliary plus participle will be longer still; budget for the frame
+before the content.
+
+### 7. FIVE OF THIRTY-SIX MUTATIONS FOUND A WEAKNESS
+
+Above the two-in-eleven rate corrections §9 records. Four of the five are one
+shape: **a claim stated in ONE constant rendered on THREE screens cannot be
+guarded by looking for that constant** (a2.16 §3), and **a threshold is not a
+location** — the reframe was reworded in one section and eight still carried it,
+so a `>= 6` guard passed. Pin the load-bearing half as a LITERAL and pin the
+places it must appear.
+
+**And one bad mutation cost a diagnosis cycle** (a2.15 §9): its seed replacement
+put the guarded phrase back inside a negative frame, so the test reported MISS
+while the assertion was working correctly.
+
+### 8. a2.19 IS A LEAF
+
+No unit at any level declares it as a prerequisite. a2.05 (seq 16) rests on
+a2.01 and a1.07. The batch reports it rather than dying on it. Four builds in
+this band, four different answers; probe your own unit.
+
+### 9. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3644   pass 3644   fail 0        measured 2026-08-14, before a2.19
+  tests 3683   pass 3683   fail 0        after a2.19 (+39)
+a1-03-genre.test.ts   ending population 1890 both ways, unchanged
+seed.json             version 37, 9081 items, 56 lessons, 75 units (before)
+                      version 37, 9115 items, 57 lessons, 75 units (after,
+                        NOT published; the merge left the version alone)
+pnpm content:parity   ONE pre-existing divergence (b2.01.l1, database-only,
+                        in_review). Nothing in the seed is at risk.
+mutation harness      36 mutations, 0 caught by nothing, 0 skipped, FIVE of them
+                        finding a weakness rather than confirming a strength
+```
+
+**a2.04's report records seed.version as 37 and it is still 37.** a2.18 merged
+without publishing and so did this build, so TWO lessons are now sitting in the
+seed above the last published snapshot.
+
+### 10. WHAT a2.05 INHERITS
+
+- **The negation rule, verbatim**, exported as `REFRAME` from
+  `data/futur-proche-corpus.ts`: *"Wrap the verb that changed, not the one
+  carrying the meaning."* a2.05 extends it to the auxiliary and the two wordings
+  must match. Its first three words are a1.18's first three, deliberately.
+- **The compound past is conjugated NOWHERE in a2.19**, guarded as a shape that
+  requires a French subject pronoun AND a participle from a list.
+- **`il y a` from a2.18 and the futur proche from a2.19 both land in a2.05.**
+  a2.18 hands it « il y a trois jours » to anchor a past; a2.19 hands it the
+  placement rule and a learner who has already run it on two different first
+  verbs.
+- **a2.17's compound-tense deferral is still open** and a2.05 is still told to
+  close it by naming a2.17.

@@ -975,7 +975,9 @@
       "level": "a2",
       "title": "The Near Future",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.19.l1"
+      ],
       "prereqUnitIds": [
         "a2.02"
       ]
@@ -166840,6 +166842,2700 @@
               "Et le soir, tu fais quoi ?",
               "Il pleut encore ?",
               "Le film commence quand ?"
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
+    },
+    {
+      "id": "a2.19.l1",
+      "unitId": "a2.19",
+      "seq": 1,
+      "title": "Le futur proche",
+      "level": "a2",
+      "tag": "A2 · LEÇON 15",
+      "intro": "Somebody is going to ask you what you are doing later, and the answer is two words long: a verb you already have, and the name of whatever you are planning. Nothing about it is new. What is new arrives the moment you want to say you are NOT doing it, because there are two verbs in the sentence now and only one of them takes the negative. English puts it round the other one, quietly enough that you will not notice until the answer comes out meaning the opposite of what you meant.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "Yes, By Accident",
+          "frSub": "Au bureau, vendredi",
+          "render": "screens",
+          "layer": "core",
+          "setting": {
+            "place": "The office door",
+            "city": "Lille",
+            "time": "Friday evening"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "Friday, ten past six, coat already on. Your colleague catches you at the door with one hand on the light switch.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Tu vas travailler ce soir ?",
+              "en": "Are you going to work tonight?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-19-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Je vais travailler... euh...",
+              "en": "I am going to work... uh...",
+              "stage": "You have the first three words and you know both halves of the negative. What you are hunting for is where they go, and the sentence is already moving.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "She is holding the door. What comes out?",
+              "options": [
+                {
+                  "fr": "Je ne vais pas travailler.",
+                  "respell": "[zhuh nuh veh pah trah-vah-YAY]",
+                  "en": "both halves, round the verb that changed",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "Je vais travailler.",
+                  "en": "correct French, and the opposite of what you meant",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "She says « ah, d'accord » and goes home, and so do you.",
+                "breaks": "Nothing goes wrong at all. That is the problem."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Ah, d'accord. À ce soir, alors.",
+              "en": "Ah, all right. See you tonight, then.",
+              "stage": "She books you in, cheerfully, on the strength of a sentence that was correct. Nobody corrected anything, so nothing was learned, and you are now expected.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "Two verbs now",
+              "body": "You did not stall on a word and you did not get a form wrong. The sentence ran out before the negative arrived.",
+              "wrong": {
+                "fr": "Je vais travailler.",
+                "ipa": "/ʒə vɛ tʁa.va.je/",
+                "respell": "[zhuh veh trah-vah-YAY]",
+                "en": "the half that arrived"
+              },
+              "right": {
+                "fr": "Je ne vais pas travailler.",
+                "ipa": "/ʒə nə vɛ pa tʁa.va.je/",
+                "respell": "[zhuh nuh veh pah trah-vah-YAY]",
+                "en": "what you meant"
+              }
+            }
+          ],
+          "closing": {
+            "text": "Wrap the verb that changed, not the one carrying the meaning.",
+            "size": "md"
+          },
+          "terms": [
+            "whichVerb",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Say what you are going to do",
+              "s": "Aller in the present, then the naming form of whatever you are planning. Six forms you already have and no new endings at all."
+            },
+            {
+              "t": "Put the negative in the right place",
+              "s": "Two verbs, and only one of them gets wrapped. The two halves go round aller, which is the one that changed for you, and the verb carrying the meaning stays outside them."
+            },
+            {
+              "t": "Tell a plan from a journey",
+              "s": "A place after aller is where you are going. A naming form after it is what you are going to do."
+            },
+            {
+              "t": "Recognise it without the ne",
+              "s": "In writing, both halves every time. In speech the ne very often goes, and you need to hear it."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s03-shape",
+          "title": "One Verb Moves",
+          "frSub": "Un seul verbe bouge",
+          "layer": "core",
+          "say": "One column changes and one column does not. Aller moves for the person you are talking about; the verb behind it is the naming form and it is the same six letters in all six rows. Tap a row to hear the whole sentence.",
+          "cols": [
+            "Person",
+            "Aller",
+            "Then"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "je",
+                "vais",
+                "partir"
+              ],
+              "say": "Je vais partir.",
+              "detail": {
+                "title": "Je vais partir.",
+                "body": "[zhuh veh par-TEER] I am going to leave. The frame, and twelve letters, so the dictée can take it. Aller in the present and the naming form behind it, untouched.",
+                "say": "Je vais partir."
+              }
+            },
+            {
+              "cells": [
+                "tu",
+                "vas",
+                "partir"
+              ],
+              "say": "Tu vas partir.",
+              "detail": {
+                "title": "Tu vas partir.",
+                "body": "[tü vah par-TEER] You are going to leave. The person moved and the second verb did not. Eleven letters.",
+                "say": "Tu vas partir."
+              }
+            },
+            {
+              "cells": [
+                "il",
+                "va",
+                "partir"
+              ],
+              "say": "Il va partir.",
+              "detail": {
+                "title": "Il va partir.",
+                "body": "[eel vah par-TEER] He is going to leave. The shortest of the six, ten letters, and the one the dictée uses for the pair because its negative also fits.",
+                "say": "Il va partir."
+              }
+            },
+            {
+              "cells": [
+                "nous",
+                "allons",
+                "partir"
+              ],
+              "say": "Nous allons partir.",
+              "detail": {
+                "title": "Nous allons partir.",
+                "body": "[noo za-lohⁿ par-TEER] We are going to leave. Sixteen letters, exactly at the limit. The liaison pulls a z across into allons and the nasal survives it.",
+                "say": "Nous allons partir."
+              }
+            },
+            {
+              "cells": [
+                "vous",
+                "allez",
+                "partir"
+              ],
+              "say": "Vous allez partir.",
+              "detail": {
+                "title": "Vous allez partir.",
+                "body": "[voo za-lay par-TEER] You are going to leave. (to more than one person, or politely) The same liaison, and the ending nobody hears any difference in.",
+                "say": "Vous allez partir."
+              }
+            },
+            {
+              "cells": [
+                "ils",
+                "vont",
+                "partir"
+              ],
+              "say": "Ils vont partir.",
+              "detail": {
+                "title": "Ils vont partir.",
+                "body": "[eel vohⁿ par-TEER] They are going to leave. Thirteen letters. The plural of the form the singular already had, and partir has still not moved.",
+                "say": "Ils vont partir."
+              }
+            }
+          ],
+          "terms": [
+            "goingTo",
+            "neverChanges"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s04-pair",
+          "title": "Both, Side By Side",
+          "frSub": "Les deux, côte à côte",
+          "layer": "core",
+          "say": "Wrap the verb that changed, not the one carrying the meaning. Three pairs. Read each one down rather than across, and watch where the two extra words land.",
+          "examples": [
+            {
+              "fr": "Je vais partir.",
+              "en": "I am going to leave.",
+              "note": "[zhuh veh par-TEER] Aller changed for je. Partir did not, and it is not going to."
+            },
+            {
+              "fr": "Je ne vais pas partir.",
+              "en": "I am not going to leave.",
+              "note": "[zhuh nuh veh pah par-TEER] Ne in front of aller, pas straight after it, and the naming form outside both. Nothing else in the sentence moves at all."
+            },
+            {
+              "fr": "Il va partir.",
+              "en": "He is going to leave.",
+              "note": "[eel vah par-TEER] The same two words with il in front."
+            },
+            {
+              "fr": "Il ne va pas partir.",
+              "en": "He is not going to leave.",
+              "note": "[eel nuh vah pah par-TEER] And the same two extra words, in the same two places."
+            },
+            {
+              "fr": "Ils vont partir.",
+              "en": "They are going to leave.",
+              "note": "[eel vohⁿ par-TEER] The plural, and partir has still not moved."
+            },
+            {
+              "fr": "Ils ne vont pas partir.",
+              "en": "They are not going to leave.",
+              "note": "[eel nuh vohⁿ pah par-TEER] Ne, vont, pas, partir. Every negative in this lesson is that shape."
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "goingTo",
+            "neverChanges"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s05-english",
+          "title": "Where English Puts It",
+          "frSub": "Là où l’anglais le met",
+          "layer": "core",
+          "hint": "Swipe. Five cards, and the last one is the measurement rather than an opinion.",
+          "cards": [
+            {
+              "label": "the English",
+              "head": "I am not going to eat.",
+              "body": "The \"not\" sits beside \"going\", which is the word that changed. English does the same thing French does, and it does it quietly enough that nobody notices."
+            },
+            {
+              "label": "what you produce",
+              "head": "Je ne vais manger pas.",
+              "body": "The pas has gone past the wrong verb. English puts \"not\" beside the word carrying the meaning and French puts it beside the word that changed, and those are two different words as soon as there are two verbs."
+            },
+            {
+              "label": "the French",
+              "head": "Je ne vais pas manger.",
+              "sub": "[zhuh nuh veh pah mahⁿ-ZHAY]",
+              "body": "Ne in front of vais, pas straight after it, and manger outside both. Wrap the verb that changed, not the one carrying the meaning."
+            },
+            {
+              "label": "the other one",
+              "head": "Je vais ne pas partir.",
+              "body": "Both halves have travelled together and landed round the naming form. They are not a unit that moves: the ne goes in front of the verb that changed and the pas goes straight after it."
+            },
+            {
+              "label": "the evidence",
+              "head": "thirteen to nothing",
+              "body": "13 sentences in this app already put the two halves round aller with another verb behind it, in 5 different people and 11 different verbs, and every one of them puts the pas in the same place."
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "neverChanges"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s06-six",
+          "title": "Six People, One Place",
+          "frSub": "Six personnes, une place",
+          "layer": "core",
+          "say": "Every person, negative, one after another. Aller changes six times and the position of the two halves does not change once.",
+          "examples": [
+            {
+              "fr": "Je ne vais pas partir.",
+              "en": "I am not going to leave.",
+              "note": "[zhuh nuh veh pah par-TEER] je"
+            },
+            {
+              "fr": "Tu ne vas pas partir.",
+              "en": "You are not going to leave.",
+              "note": "[tü nuh vah pah par-TEER] tu"
+            },
+            {
+              "fr": "Nous n'allons pas partir.",
+              "en": "We are not going to leave.",
+              "note": "[noo na-lohⁿ pah par-TEER] nous, and the ne shortens in front of the vowel. The liaison z goes with it: noo na, not noo za."
+            },
+            {
+              "fr": "Vous n'allez pas partir.",
+              "en": "You are not going to leave. (to more than one person, or politely)",
+              "note": "[voo na-lay pah par-TEER] vous, the same shortening and the same lost liaison."
+            },
+            {
+              "fr": "Ils ne vont pas partir.",
+              "en": "They are not going to leave.",
+              "note": "[eel nuh vohⁿ pah par-TEER] ils"
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s07-where",
+          "title": "Which Verb Gets Wrapped",
+          "frSub": "Quel verbe on entoure",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Both verbs are right in every one of the six and the only thing being asked about is where the two little words went.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-19-where"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "The One That Changed"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "Two Routes, One Sentence"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Wrong, Then Right"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Where Does Pas Go",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "Wrap the one that moved",
+            "body": "Wrap the verb that changed, not the one carrying the meaning. Two verbs, and only one of them gets wrapped. The two halves go round aller, which is the one that changed for you, and the verb carrying the meaning stays outside them."
+          },
+          "cards": [
+            {
+              "promptLabel": "the English order",
+              "promptSound": "Je ne vais manger pas.",
+              "fr": "Je ne vais manger pas.",
+              "ipa": "/ʒə nə vɛ mɑ̃.ʒe pa/",
+              "tip": "The pas has gone past the wrong verb. English puts \"not\" beside the word carrying the meaning and French puts it beside the word that changed, and those are two different words as soon as there are two verbs."
+            },
+            {
+              "promptLabel": "the French",
+              "promptSound": "Je ne vais pas manger.",
+              "fr": "Je ne vais pas manger.",
+              "ipa": "/ʒə nə vɛ pa mɑ̃.ʒe/",
+              "tip": "Ne in front of vais and pas straight after it. Manger is outside both and has not been touched."
+            },
+            {
+              "promptLabel": "both halves travelling",
+              "promptSound": "Je vais ne pas partir.",
+              "fr": "Je vais ne pas partir.",
+              "ipa": "/ʒə vɛ nə pa paʁ.tiʁ/",
+              "tip": "Both halves have travelled together and landed round the naming form. They are not a unit that moves: the ne goes in front of the verb that changed and the pas goes straight after it."
+            },
+            {
+              "promptLabel": "the French",
+              "promptSound": "Je ne vais pas partir.",
+              "fr": "Je ne vais pas partir.",
+              "ipa": "/ʒə nə vɛ pa paʁ.tiʁ/",
+              "tip": "The same sentence with the halves where they belong, and it is the shape all six persons take."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Je ne vais pas partir.",
+              "opts": [
+                "Je ne vais partir pas.",
+                "Je ne vais pas partir.",
+                "Je vais ne partir pas."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il ne va pas partir.",
+              "opts": [
+                "Il ne va pas partir.",
+                "Il ne va partir pas.",
+                "Il va ne pas partir."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Ils ne vont pas partir.",
+              "opts": [
+                "Ils ne vont partir pas.",
+                "Ils vont ne pas partir.",
+                "Ils ne vont pas partir."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "Tu ne vas pas partir.",
+              "opts": [
+                "Tu ne vas partir pas.",
+                "Tu ne vas pas partir.",
+                "Tu vas ne pas partir."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Nous n'allons pas partir.",
+              "opts": [
+                "Nous n'allons pas partir.",
+                "Nous n'allons partir pas.",
+                "Nous allons ne pas partir."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Je ne vais pas travailler.",
+              "opts": [
+                "Je ne vais travailler pas.",
+                "Je vais ne pas travailler.",
+                "Je ne vais pas travailler."
+              ],
+              "correct": 2
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "neverChanges",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-produce",
+          "title": "Say It About Tonight",
+          "frSub": "Parlez de ce soir",
+          "layer": "core",
+          "size": "lg",
+          "say": "Four things that are true of your own evening. Build each one out loud before you pick, and put the two halves round the verb that moved.",
+          "groups": [
+            {
+              "label": "you are staying in",
+              "items": [
+                {
+                  "fr": "Elle va sortir ce soir.",
+                  "ipa": "/ɛl va sɔʁ.tiʁ sə swaʁ/",
+                  "note": "[ehl va sor-TEER suh SWAR] She is going to go out tonight."
+                }
+              ],
+              "check": {
+                "q": "You are not going out tonight.",
+                "opts": [
+                  "Je ne vais sortir pas ce soir.",
+                  "Je vais ne pas sortir ce soir.",
+                  "Je ne vais pas sortir ce soir."
+                ],
+                "correct": 2,
+                "why": "Round vais, which is the verb that moved for je. Sortir sits outside both halves and stays as it is."
+              }
+            },
+            {
+              "label": "nobody is coming",
+              "items": [
+                {
+                  "fr": "Il va venir ce soir.",
+                  "ipa": "/il va və.niʁ sə swaʁ/",
+                  "note": "[eel va vuh-NEER suh SWAR] He is going to come tonight."
+                }
+              ],
+              "check": {
+                "q": "He is not coming tonight.",
+                "opts": [
+                  "Il ne va pas venir ce soir.",
+                  "Il ne va venir pas ce soir.",
+                  "Il va ne pas venir ce soir."
+                ],
+                "correct": 0,
+                "why": "Va is the form that changed for il, so both halves go round it and venir is untouched."
+              }
+            },
+            {
+              "label": "you are not paying",
+              "items": [
+                {
+                  "fr": "Je vais payer.",
+                  "ipa": "/ʒə vɛ pe.je/",
+                  "note": "[zhuh veh pay-YAY] I am going to pay."
+                }
+              ],
+              "check": {
+                "q": "You are not going to pay.",
+                "opts": [
+                  "Je vais ne pas payer.",
+                  "Je ne vais pas payer.",
+                  "Je ne vais payer pas."
+                ],
+                "correct": 1,
+                "why": "The same shape with a different naming form behind it. One verb changes for the person, and the next one never does."
+              }
+            },
+            {
+              "label": "we are not leaving",
+              "items": [
+                {
+                  "fr": "Nous n'allons pas partir.",
+                  "ipa": "/nu na.lɔ̃ pa paʁ.tiʁ/",
+                  "note": "[noo na-lohⁿ pah par-TEER] We are not going to leave."
+                }
+              ],
+              "check": {
+                "q": "We are not going to leave.",
+                "opts": [
+                  "Nous n'allons partir pas.",
+                  "Nous allons ne pas partir.",
+                  "Nous n'allons pas partir."
+                ],
+                "correct": 2,
+                "why": "The ne shortens in front of the vowel and nothing else moves. The pas is still straight after the form of aller."
+              }
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "goingTo",
+            "neverChanges"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s09-any",
+          "title": "Any Verb At All",
+          "frSub": "N’importe quel verbe",
+          "layer": "core",
+          "say": "Six sentences and six different verbs behind aller. Nothing about the front of the sentence changes and nothing about the naming form changes either.",
+          "examples": [
+            {
+              "fr": "Je vais payer.",
+              "en": "I am going to pay.",
+              "note": "[zhuh veh pay-YAY] payer"
+            },
+            {
+              "fr": "Tu vas travailler demain.",
+              "en": "You are going to work tomorrow.",
+              "note": "[tü vah trah-vah-YAY duh-MAⁿ] travailler, four syllables, and the slot does not care."
+            },
+            {
+              "fr": "Il va venir ce soir.",
+              "en": "He is going to come tonight.",
+              "note": "[eel va vuh-NEER suh SWAR] venir, which is the other verb a2.02 taught you."
+            },
+            {
+              "fr": "Nous allons manger tôt.",
+              "en": "We are going to eat early.",
+              "note": "[noo za-lohⁿ mahⁿ-ZHAY TOH] manger, and a word for early you have spelled twice already."
+            },
+            {
+              "fr": "Je vais rester ici.",
+              "en": "I am going to stay here.",
+              "note": "[zhuh veh res-TAY ee-SEE] rester, which is the one plan in the set that is about not moving."
+            },
+            {
+              "fr": "Elle ne va pas finir le rapport ce soir.",
+              "en": "She isn't going to finish the report tonight.",
+              "note": "[ehl nuh va pah fee-NEER luh ra-POR suh SWAR] finir, negative, and a sentence somebody published years ago with the pas in exactly this place."
+            }
+          ],
+          "terms": [
+            "neverChanges",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s10-modals",
+          "title": "You Have Done This Before",
+          "frSub": "Vous connaissez déjà",
+          "layer": "core",
+          "hint": "Swipe. Five cards, and the last two are lessons you have not reached yet.",
+          "cards": [
+            {
+              "label": "you have seen this",
+              "head": "Je peux payer.",
+              "sub": "[zhuh PUH pay-YAY]",
+              "body": "a2.13's own card. A first verb that changed for je, and payer behind it in its naming form. One verb changes for the person, and the next one never does."
+            },
+            {
+              "label": "this lesson",
+              "head": "Je vais payer.",
+              "sub": "[zhuh veh pay-YAY]",
+              "body": "The same naming form behind a different first verb. Nothing about payer is different, because nothing ever is."
+            },
+            {
+              "label": "the negative",
+              "head": "Je ne peux pas payer.",
+              "body": "a2.13 again, negative. The two halves went round peux, which is the verb that changed, and payer stayed outside them. That is this lesson's rule on a different first verb."
+            },
+            {
+              "label": "the same rule",
+              "head": "Je ne vais pas partir.",
+              "sub": "[zhuh nuh veh pah par-TEER]",
+              "body": "Wrap the verb that changed, not the one carrying the meaning. One rule, and you have now seen it work on two different first verbs."
+            },
+            {
+              "label": "and next",
+              "head": "the lesson after this one",
+              "body": "The next lesson puts a past tense in front of a second verb the same way this one puts aller there, and the negative behaves exactly as it does here. That is a2.05."
+            }
+          ],
+          "terms": [
+            "sameShape",
+            "neverChanges"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s11-errors",
+          "title": "The Five You Will Make",
+          "frSub": "Les cinq erreurs",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "errors": [
+            {
+              "wrong": "Je ne vais manger pas.",
+              "right": "Je ne vais pas manger.",
+              "why": "The pas has gone past the wrong verb. English puts \"not\" beside the word carrying the meaning and French puts it beside the word that changed, and those are two different words as soon as there are two verbs."
+            },
+            {
+              "wrong": "Je vais ne pas partir.",
+              "right": "Je ne vais pas partir.",
+              "why": "Both halves have travelled together and landed round the naming form. They are not a unit that moves: the ne goes in front of the verb that changed and the pas goes straight after it."
+            },
+            {
+              "wrong": "Tu vas travailler pas demain.",
+              "right": "Tu ne vas pas travailler demain.",
+              "why": "The pas arrived after the sentence had already gone past the verb it belongs to, and the ne never arrived at all. A listener hears the front of the sentence, which says you are going to work."
+            },
+            {
+              "wrong": "Je ne vais pas partirai.",
+              "right": "Je ne vais pas partir.",
+              "why": "The second verb has been given an ending. It never takes one: whatever goes behind aller goes in as the naming form and comes out the same way."
+            },
+            {
+              "wrong": "Je ne vais pas partir pas.",
+              "right": "Je ne vais pas partir.",
+              "why": "One pair per verb. The pas is not a word you add for emphasis, it is one half of a pair, and the pair goes round one verb once."
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "neverChanges",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s12-when",
+          "title": "Say When, And It Is Fixed",
+          "frSub": "Dites quand",
+          "layer": "core",
+          "say": "A plan with no time on it can be read as somebody walking towards the kitchen. Put a time on it and there is nothing left to work out. French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is a2.19, which is next.",
+          "examples": [
+            {
+              "fr": "Je pars dans dix minutes.",
+              "en": "I am leaving in ten minutes.",
+              "note": "[zhuh PAR dAHⁿ dee mee-NÜT] a2.18's own sentence, and it is correct as it stands."
+            },
+            {
+              "fr": "Je vais partir dans dix minutes.",
+              "en": "I am going to leave in ten minutes.",
+              "note": "[zhuh veh par-TEER dAHⁿ dee mee-NÜT] a2.18 taught the left one: a present tense about something ahead, which is ordinary French. The right one is the same fact with a verb in front, and both are correct."
+            },
+            {
+              "fr": "dans dix minutes",
+              "en": "in ten minutes",
+              "note": "[dAHⁿ dee mee-NÜT] The phrase on its own, already a card, and this lesson spells it exactly as that one does."
+            },
+            {
+              "fr": "On va manger dans une heure.",
+              "en": "We are going to eat in an hour.",
+              "note": "[ohⁿ va mahⁿ-ZHAY dAHⁿ zün UHR] a2.18 published « On mange dans une heure ? » as a question and this is the same plan with a verb in front of it."
+            },
+            {
+              "fr": "Tu vas travailler demain.",
+              "en": "You are going to work tomorrow.",
+              "note": "[tü vah trah-vah-YAY duh-MAⁿ] And a day instead of a length, which works exactly the same way."
+            }
+          ],
+          "terms": [
+            "timeWord",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s13-place",
+          "title": "A Place Or A Plan",
+          "frSub": "Un lieu ou un projet",
+          "layer": "core",
+          "say": "Aller has two jobs and the next word decides which. Before you look at the cards: what kind of word do you think you are looking for?",
+          "examples": [
+            {
+              "fr": "Je vais à Paris.",
+              "en": "I am going to Paris.",
+              "note": "[zhuh veh a pa-REE] a2.04's card. A place, so this is a journey."
+            },
+            {
+              "fr": "Je vais partir.",
+              "en": "I am going to leave.",
+              "note": "[zhuh veh par-TEER] Three words in common and the fourth settles it. A place on the left, a naming form on the right, and « je vais » is doing something completely different in the two."
+            },
+            {
+              "fr": "Je vais au parc.",
+              "en": "I go to the park.",
+              "note": "[zhuh veh oh PARK] a2.02's own card on the left, from the lesson that conjugated this verb, and this lesson's on the right. Same two words, and nobody has to decide anything until the third arrives."
+            },
+            {
+              "fr": "Je vais payer.",
+              "en": "I am going to pay.",
+              "note": "[zhuh veh pay-YAY] A naming form, so this is a plan. Two words in common with the card above it."
+            },
+            {
+              "fr": "Ils vont au parc.",
+              "en": "They go to the park.",
+              "note": "[eel vohⁿ oh PARK] And in the plural, where the two are still one form apart and still separated by nothing but what follows."
+            },
+            {
+              "fr": "Ils vont partir.",
+              "en": "They are going to leave.",
+              "note": "[eel vohⁿ par-TEER] And the plan in the plural. A place after aller is where you are going. A naming form after it is what you are going to do."
+            }
+          ],
+          "terms": [
+            "whatNext",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s14-twice",
+          "title": "Aller, Twice",
+          "frSub": "Aller, deux fois",
+          "layer": "core",
+          "swipe": true,
+          "say": "The third time. a2.02 called it what comes next decides, on venir de, and a2.18 met it again on il y a. Four cards and then six to prove it.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-19-twice"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "What Comes Next Decides"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "A Place Or A Naming Form"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Same Two Words"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Journey Or Plan",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "what comes next decides",
+            "body": "The third time. a2.02 called it what comes next decides, on venir de, and a2.18 met it again on il y a. A place after aller is where you are going. A naming form after it is what you are going to do."
+          },
+          "cards": [
+            {
+              "promptLabel": "a journey",
+              "promptSound": "Je vais à Paris.",
+              "fr": "Je vais à Paris.",
+              "ipa": "/ʒə vɛ a pa.ʁi/",
+              "tip": "A place behind it, so you are going somewhere."
+            },
+            {
+              "promptLabel": "a plan",
+              "promptSound": "Je vais partir.",
+              "fr": "Je vais partir.",
+              "ipa": "/ʒə vɛ paʁ.tiʁ/",
+              "tip": "A naming form behind it, so you are going to do something. The first two words are identical."
+            },
+            {
+              "promptLabel": "a journey",
+              "promptSound": "Je vais au parc.",
+              "fr": "Je vais au parc.",
+              "ipa": "/ʒə vɛ o paʁk/",
+              "tip": "a2.02's own card, from the lesson that conjugated this verb."
+            },
+            {
+              "promptLabel": "a plan",
+              "promptSound": "Je vais payer.",
+              "fr": "Je vais payer.",
+              "ipa": "/ʒə vɛ pe.je/",
+              "tip": "And the plan beside it. Nothing about « je vais » tells you which one you are in."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Je vais partir.",
+              "opts": [
+                "a journey",
+                "a plan"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Je vais à Paris.",
+              "opts": [
+                "a journey",
+                "a plan"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Elle va sortir ce soir.",
+              "opts": [
+                "a plan",
+                "a journey"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Ils vont au parc.",
+              "opts": [
+                "a plan",
+                "a journey"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Je vais rester ici.",
+              "opts": [
+                "a journey",
+                "a plan"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Je vais au parc.",
+              "opts": [
+                "a journey",
+                "a plan"
+              ],
+              "correct": 0
+            }
+          ],
+          "terms": [
+            "whatNext",
+            "goingTo",
+            "whichVerb"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s15-hear",
+          "title": "What You Will Hear",
+          "frSub": "Ce que vous entendrez",
+          "layer": "core",
+          "hint": "Swipe. Five cards, and this lesson is not asking you to say any of it.",
+          "cards": [
+            {
+              "label": "in writing",
+              "head": "Je ne vais pas sortir.",
+              "sub": "[zhuh nuh veh pah sor-TEER]",
+              "body": "I am not going to go out. Both halves, every time, which is what a1.18 told you and it has not changed."
+            },
+            {
+              "label": "in speech",
+              "head": "Je vais pas sortir.",
+              "sub": "[zhuh veh pah sor-TEER]",
+              "body": "In ordinary speech the ne is very often just not said. « Je vais pas sortir » is what you will hear, and the pas behind aller is carrying the whole negative on its own. Recognise it. In writing, both halves every time."
+            },
+            {
+              "label": "what stays",
+              "head": "pas",
+              "body": "The half that disappears is the half that was not doing the work. Pas is still straight after the form of aller and it is now carrying the whole negative on its own."
+            },
+            {
+              "label": "the second future",
+              "head": "one word instead of two",
+              "body": "There is a second future in French, one word instead of two, and it comes after this level. You will see it in writing before anybody teaches it to you. What you have here is the one people actually say."
+            },
+            {
+              "label": "and the one after",
+              "head": "the same rule again",
+              "body": "The next lesson puts a past tense in front of a second verb the same way this one puts aller there, and the negative behaves exactly as it does here. That is a2.05."
+            }
+          ],
+          "terms": [
+            "neGoes",
+            "laterOn",
+            "sameShape"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s16-unseen",
+          "title": "Five You Have Not Met",
+          "frSub": "Cinq cas nouveaux",
+          "layer": "core",
+          "size": "lg",
+          "say": "Five verbs this lesson has never put behind aller, and you can build all five without being told. Read what is true before you read the options.",
+          "groups": [
+            {
+              "label": "the shop",
+              "items": [
+                {
+                  "fr": "Il va partir.",
+                  "ipa": "/il va paʁ.tiʁ/",
+                  "note": "[eel vah par-TEER] He is going to leave."
+                }
+              ],
+              "check": {
+                "q": "The shop is not going to open today. Le magasin ___ ouvrir aujourd'hui.",
+                "opts": [
+                  "ne va pas",
+                  "va ne pas",
+                  "ne va ouvrir pas"
+                ],
+                "correct": 0,
+                "why": "Round va, which is the verb that changed for le magasin. Ouvrir is a verb this lesson never showed you and it behaves exactly like the six that it did."
+              }
+            },
+            {
+              "label": "the letter",
+              "items": [
+                {
+                  "fr": "Je ne vais pas partir.",
+                  "ipa": "/ʒə nə vɛ pa paʁ.tiʁ/",
+                  "note": "[zhuh nuh veh pah par-TEER] I am not going to leave."
+                }
+              ],
+              "check": {
+                "q": "I am going to write to them tomorrow. Je ___ leur écrire demain.",
+                "opts": [
+                  "vais ne",
+                  "ne vais",
+                  "vais"
+                ],
+                "correct": 2,
+                "why": "Nothing negative in the sentence at all, so nothing wraps anything. Aller in the present and the naming form behind it."
+              }
+            },
+            {
+              "label": "the film",
+              "items": [
+                {
+                  "fr": "Il ne va pas partir.",
+                  "ipa": "/il nə va pa paʁ.tiʁ/",
+                  "note": "[eel nuh vah pah par-TEER] He is not going to leave."
+                }
+              ],
+              "check": {
+                "q": "She is not going to watch that film. Elle ___ regarder ce film.",
+                "opts": [
+                  "va ne pas",
+                  "ne va regarder pas",
+                  "ne va pas"
+                ],
+                "correct": 2,
+                "why": "The same two halves in the same two places, on a verb the lesson has not used. That is the whole of it."
+              }
+            },
+            {
+              "label": "the keys",
+              "items": [
+                {
+                  "fr": "Ils ne vont pas partir.",
+                  "ipa": "/il nə vɔ̃ pa paʁ.tiʁ/",
+                  "note": "[eel nuh vohⁿ pah par-TEER] They are not going to leave."
+                }
+              ],
+              "check": {
+                "q": "They are not going to find the keys. Ils ___ trouver les clés.",
+                "opts": [
+                  "ne vont pas",
+                  "ne vont trouver pas",
+                  "vont ne pas"
+                ],
+                "correct": 0,
+                "why": "Vont is the form that changed for ils. Trouver is outside both halves and takes no ending."
+              }
+            },
+            {
+              "label": "the answer",
+              "items": [
+                {
+                  "fr": "Nous n'allons pas partir.",
+                  "ipa": "/nu na.lɔ̃ pa paʁ.tiʁ/",
+                  "note": "[noo na-lohⁿ pah par-TEER] We are not going to leave."
+                }
+              ],
+              "check": {
+                "q": "We are not going to answer tonight. Nous ___ répondre ce soir.",
+                "opts": [
+                  "n'allons répondre pas",
+                  "allons ne pas",
+                  "n'allons pas"
+                ],
+                "correct": 2,
+                "why": "The ne shortens in front of the vowel, which is the only thing that is different about nous and vous, and the pas has not moved."
+              }
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "neverChanges",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s17-reading",
+          "title": "Friday, And Nobody Asks",
+          "frSub": "Vendredi soir",
+          "layer": "core",
+          "questionsInModal": true,
+          "text": "Ce soir, je ne vais pas travailler. Je vais rentrer, je vais manger quelque chose, et je vais dormir tôt. Demain, ma collègue va venir à huit heures, parce que nous allons finir le rapport ensemble. Elle dit toujours qu’elle va arriver en avance, et elle arrive toujours en retard. Samedi, je ne vais pas ouvrir mon ordinateur. Mon frère va passer dimanche, et nous allons manger dehors s’il fait beau. Il ne va pas croire que je ne vais pas travailler le week-end.",
+          "glossary": [
+            {
+              "word": "quelque chose",
+              "en": "something",
+              "ipa": "/kɛl.kə ʃoz/",
+              "note": "A thing without a name on it. Nothing about it is this lesson."
+            },
+            {
+              "word": "ensemble",
+              "en": "together",
+              "ipa": "/ɑ̃.sɑ̃bl/",
+              "note": "Two people doing one thing."
+            },
+            {
+              "word": "en avance",
+              "en": "early, ahead of time",
+              "ipa": "/ɑ̃.na.vɑ̃s/",
+              "note": "A third job for en, and it belongs to another lesson."
+            },
+            {
+              "word": "dehors",
+              "en": "outside",
+              "ipa": "/də.ɔʁ/",
+              "note": "Where the eating happens, and nothing to do with when."
+            },
+            {
+              "word": "croire",
+              "en": "to believe",
+              "ipa": "/kʁwaʁ/",
+              "note": "A naming form behind aller, like all the others here."
+            }
+          ],
+          "questions": [
+            {
+              "q": "The passage holds four negatives. What do all four have in common?",
+              "a": "The two halves are round the form of aller every time, and the second verb is untouched every time: ne vais pas travailler, ne vais pas ouvrir, ne va pas croire, ne vais pas travailler again. Four different verbs behind them and not one of them changes."
+            },
+            {
+              "q": "« Il ne va pas croire que je ne vais pas travailler le week-end. » There are two negatives in that sentence. Are they doing the same thing?",
+              "a": "Yes, twice, on two different verbs. The first pair goes round va and leaves croire alone; the second goes round vais and leaves travailler alone. One pair per verb, and the rule is the same both times."
+            },
+            {
+              "q": "Two sentences in the passage are about tomorrow and one is about Saturday. What are the time words doing?",
+              "a": "Fixing the reading. « Je vais manger » on its own could be somebody walking to the kitchen; « demain » or « samedi » on the end makes it a plan and nobody has to decide anything."
+            },
+            {
+              "q": "« Elle dit toujours qu’elle va arriver en avance. » Is that a plan or a journey?",
+              "a": "A plan. Arriver is a naming form, not a place, and that is the only thing that decides it. « Elle va en avance » with no verb behind it would be something else entirely."
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "goingTo",
+            "timeWord"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s18-scenario",
+          "title": "Making A Plan",
+          "frSub": "On fait des projets",
+          "layer": "core",
+          "setting": "The same colleague, the following Monday, and this time she is asking about the weekend rather than about tonight. Every answer is a plan, and two of them are refusals.",
+          "turns": [
+            {
+              "ai": "Tu vas faire quoi ce soir ?",
+              "en": "What are you going to do tonight?",
+              "user": "Je vais manger avec des amis.",
+              "userEn": "I am going to eat with friends.",
+              "alts": [
+                {
+                  "fr": "Je vais rester ici.",
+                  "en": "I am going to stay here."
+                },
+                {
+                  "fr": "Je vais sortir ce soir.",
+                  "en": "I am going to go out tonight."
+                }
+              ]
+            },
+            {
+              "ai": "Tu vas travailler ce soir ?",
+              "en": "Are you going to work tonight?",
+              "user": "Je ne vais pas travailler.",
+              "userEn": "No, I am not going to work.",
+              "alts": [
+                {
+                  "fr": "Je ne vais pas sortir.",
+                  "en": "I am not going to go out."
+                },
+                {
+                  "fr": "Non, je ne vais pas rester.",
+                  "en": "No, I am not going to stay."
+                }
+              ]
+            },
+            {
+              "ai": "Tu vas venir avec nous samedi ?",
+              "en": "Are you going to come with us on Saturday?",
+              "user": "Non, je ne vais pas venir.",
+              "userEn": "No, I am not going to come.",
+              "alts": [
+                {
+                  "fr": "Oui, je vais venir.",
+                  "en": "Yes, I am going to come."
+                },
+                {
+                  "fr": "Non, je ne vais pas venir samedi.",
+                  "en": "No, I am not going to come on Saturday."
+                }
+              ]
+            },
+            {
+              "ai": "On mange à quelle heure ?",
+              "en": "What time are we eating?",
+              "user": "On va manger dans une heure.",
+              "userEn": "We are going to eat in an hour.",
+              "alts": [
+                {
+                  "fr": "Nous allons manger tôt.",
+                  "en": "We are going to eat early."
+                },
+                {
+                  "fr": "On va manger à huit heures.",
+                  "en": "We are going to eat at eight."
+                }
+              ]
+            },
+            {
+              "ai": "Et le rapport, il est prêt ?",
+              "en": "And the report, is it ready?",
+              "user": "Elle ne va pas finir le rapport ce soir.",
+              "userEn": "She isn't going to finish the report tonight.",
+              "alts": [
+                {
+                  "fr": "Elle va le finir demain.",
+                  "en": "She is going to finish it tomorrow."
+                },
+                {
+                  "fr": "Non, elle ne va pas le finir.",
+                  "en": "No, she is not going to finish it."
+                }
+              ]
+            },
+            {
+              "ai": "Tu pars quand ?",
+              "en": "When are you leaving?",
+              "user": "Je vais partir dans dix minutes.",
+              "userEn": "I am going to leave in ten minutes.",
+              "alts": [
+                {
+                  "fr": "Je vais partir.",
+                  "en": "I am going to leave."
+                },
+                {
+                  "fr": "Je ne vais pas partir tout de suite.",
+                  "en": "I am not going to leave straight away."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "goingTo",
+            "whichVerb",
+            "timeWord"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s19-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "itemIds": [
+            "fr.a2.verbes.501",
+            "fr.a2.verbes.502",
+            "fr.a2.verbes.503",
+            "fr.a2.verbes.504",
+            "fr.a2.verbes.505",
+            "fr.a2.verbes.506",
+            "fr.a2.verbes.508",
+            "fr.a2.verbes.509",
+            "fr.a2.verbes.513"
+          ],
+          "say": "The affirmative spells letter by letter in all eight persons and the negative in three. Ne and pas cost five letters and je is one letter over, for every six-letter naming form in the language.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-19-dictee"
+          },
+          "terms": [
+            "whichVerb",
+            "goingTo"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s20-speak",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.verbes.501",
+            "fr.a2.verbes.502",
+            "fr.a2.verbes.503",
+            "fr.a2.verbes.504",
+            "fr.a2.verbes.505",
+            "fr.a2.verbes.506",
+            "fr.a2.verbes.507",
+            "fr.a2.verbes.508",
+            "fr.a2.verbes.509",
+            "fr.a2.verbes.510",
+            "fr.a2.verbes.511",
+            "fr.a2.verbes.512",
+            "fr.a2.verbes.513",
+            "fr.a2.verbes.514",
+            "fr.a2.verbes.515",
+            "fr.a2.verbes.516",
+            "fr.a2.verbes.517",
+            "fr.a2.verbes.518",
+            "fr.a2.verbes.519",
+            "fr.a2.verbes.520",
+            "fr.a2.verbes.521",
+            "fr.a2.verbes.523",
+            "fr.a2.verbes.524",
+            "fr.a2.verbes.525",
+            "fr.a2.verbes.526",
+            "fr.a2.verbes.527",
+            "fr.a2.verbes.528",
+            "fr.a2.verbes.529"
+          ],
+          "terms": [
+            "goingTo",
+            "whichVerb"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s21-review",
+          "title": "The Whole Thing",
+          "frSub": "Tout, d’un coup",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "Which verb do the two halves go round?",
+              "back": "Wrap the verb that changed, not the one carrying the meaning.",
+              "say": "Je ne vais pas partir."
+            },
+            {
+              "front": "What happens to the verb behind aller?",
+              "back": "One verb changes for the person, and the next one never does. It takes no ending and agrees with nothing.",
+              "say": "Je vais payer."
+            },
+            {
+              "front": "Je vais à Paris. Je vais partir. What is the difference?",
+              "back": "A place after aller is where you are going. A naming form after it is what you are going to do.",
+              "say": "Je vais partir."
+            },
+            {
+              "front": "Where exactly does the pas go?",
+              "back": "Ne in front of aller, pas straight after it, and the naming form outside both. Nothing else in the sentence moves at all.",
+              "say": "Il ne va pas partir."
+            },
+            {
+              "front": "You hear « Je vais pas sortir ». What has happened?",
+              "back": "In writing, both halves every time. In speech the ne very often goes, and you need to hear it.",
+              "say": "Je vais pas sortir."
+            },
+            {
+              "front": "Is this the only future in French?",
+              "back": "There is a second future in French, one word instead of two, and it comes after this level. You will see it in writing before anybody teaches it to you. What you have here is the one people actually say.",
+              "say": "Tu vas travailler demain."
+            },
+            {
+              "front": "Nous. What is different about it?",
+              "back": "The ne shortens in front of the vowel and takes the liaison with it. Nothing else about the sentence changes.",
+              "say": "Nous n'allons pas partir."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s22-progress",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "Wrap the verb that changed, not the one carrying the meaning. The exam has five rounds. Everything in it you can say out loud today, except one listening question, which is about a sentence you are only being asked to recognise.",
+          "stats": [
+            {
+              "k": "New verb forms",
+              "v": "0. a2.02 gave you all six."
+            },
+            {
+              "k": "New endings",
+              "v": "0. The verb behind aller never takes one."
+            },
+            {
+              "k": "The rule",
+              "v": "Wrap the verb that changed, not the one carrying the meaning."
+            },
+            {
+              "k": "Used again in",
+              "v": "a2.05, which is the next lesson."
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s23-quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Five rounds of six. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-where-it-goes",
+              "label": "Where the two halves go",
+              "targets": [
+                "err-pas-position",
+                "err-wrong-verb"
+              ],
+              "say": "Six on the position. Both verbs are already right in every one of them.",
+              "questions": [
+                {
+                  "q": "You are not going to leave. Which one is French?",
+                  "format": "mcq",
+                  "opts": [
+                    "Je ne vais partir pas.",
+                    "Je vais ne pas partir.",
+                    "Je ne vais pas partir.",
+                    "Je ne pas vais partir."
+                  ],
+                  "correct": 2,
+                  "why": "Ne in front of aller, pas straight after it, and the naming form outside both. Nothing else in the sentence moves at all. Wrap the verb that changed, not the one carrying the meaning.",
+                  "ref": "s04-pair"
+                },
+                {
+                  "q": "Make this negative. Il va partir.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Il ne va pas partir.",
+                    "Il ne va pas partir"
+                  ],
+                  "answer": "Il ne va pas partir.",
+                  "why": "Ne in front of va, pas straight after it, and partir untouched.",
+                  "ref": "s04-pair"
+                },
+                {
+                  "q": "Fix this. You mean that you are not going to eat.",
+                  "format": "errorSpot",
+                  "prompt": "Je ne vais manger pas.",
+                  "accept": [
+                    "Je ne vais pas manger.",
+                    "Je ne vais pas manger"
+                  ],
+                  "answer": "Je ne vais pas manger.",
+                  "why": "The pas has gone past the wrong verb. English puts \"not\" beside the word carrying the meaning and French puts it beside the word that changed, and those are two different words as soon as there are two verbs.",
+                  "ref": "s07-where"
+                },
+                {
+                  "q": "Which verb do ne and pas go round?",
+                  "format": "mcq",
+                  "opts": [
+                    "The one carrying the meaning",
+                    "Whichever comes last",
+                    "The one that changed for the person",
+                    "Both of them"
+                  ],
+                  "correct": 2,
+                  "why": "Wrap the verb that changed, not the one carrying the meaning. It is a fact about which word moved rather than a rule about grammar, which is why it can be run mid-sentence.",
+                  "ref": "s07-where"
+                },
+                {
+                  "q": "Make this negative. Tu vas partir.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Tu ne vas pas partir.",
+                    "Tu ne vas pas partir"
+                  ],
+                  "answer": "Tu ne vas pas partir.",
+                  "why": "The same two words in the same two places, this time with tu.",
+                  "ref": "s06-six"
+                },
+                {
+                  "q": "Fix this. Both halves have travelled together.",
+                  "format": "errorSpot",
+                  "prompt": "Je vais ne pas partir.",
+                  "accept": [
+                    "Je ne vais pas partir.",
+                    "Je ne vais pas partir"
+                  ],
+                  "answer": "Je ne vais pas partir.",
+                  "why": "Both halves have travelled together and landed round the naming form. They are not a unit that moves: the ne goes in front of the verb that changed and the pas goes straight after it.",
+                  "ref": "s05-english"
+                }
+              ]
+            },
+            {
+              "id": "r2-which-verb",
+              "label": "Which verb",
+              "targets": [
+                "err-wrong-verb",
+                "err-second-verb-changed"
+              ],
+              "say": "Six on the verb the halves go round, and one of them has three verbs in it.",
+              "questions": [
+                {
+                  "q": "Nous ___ partir.   (and we are not)",
+                  "format": "typeIn",
+                  "accept": [
+                    "n'allons pas",
+                    "n allons pas",
+                    "nallons pas"
+                  ],
+                  "answer": "n'allons pas",
+                  "why": "The ne shortens in front of the vowel. The pas has not moved and neither has partir.",
+                  "ref": "s06-six"
+                },
+                {
+                  "q": "In « Je ne vais pas travailler », which word changed because the subject is je?",
+                  "format": "mcq",
+                  "opts": [
+                    "travailler",
+                    "ne",
+                    "pas",
+                    "vais"
+                  ],
+                  "correct": 3,
+                  "why": "Vais, and that is why the two halves are round it. Wrap the verb that changed, not the one carrying the meaning.",
+                  "ref": "s07-where"
+                },
+                {
+                  "q": "Which of these is NOT true of the verb behind aller?",
+                  "format": "mcq",
+                  "opts": [
+                    "It takes no ending",
+                    "It agrees with nobody",
+                    "It changes for the person",
+                    "It is the naming form"
+                  ],
+                  "correct": 2,
+                  "why": "One verb changes for the person, and the next one never does. a2.02 called it the form that never changes about what follows de, and it is the same fact here.",
+                  "ref": "s10-modals"
+                },
+                {
+                  "q": "Make this negative. Elle va sortir ce soir.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Elle ne va pas sortir ce soir.",
+                    "Elle ne va pas sortir ce soir"
+                  ],
+                  "answer": "Elle ne va pas sortir ce soir.",
+                  "why": "Round va, and the time on the end is not part of the decision at all.",
+                  "ref": "s09-any"
+                },
+                {
+                  "q": "Fix this. The second verb has been given an ending.",
+                  "format": "errorSpot",
+                  "prompt": "Je ne vais pas partirai.",
+                  "accept": [
+                    "Je ne vais pas partir.",
+                    "Je ne vais pas partir"
+                  ],
+                  "answer": "Je ne vais pas partir.",
+                  "why": "Nothing behind aller ever takes an ending. It goes in as the naming form and comes out the same way.",
+                  "ref": "s11-errors"
+                },
+                {
+                  "q": "a2.13 taught « Je ne peux pas venir ». What is the same about it?",
+                  "format": "mcq",
+                  "opts": [
+                    "The verb it wraps is the one that changed",
+                    "It has no negative in it",
+                    "Venir takes an ending",
+                    "The pas comes last"
+                  ],
+                  "correct": 0,
+                  "why": "Wrap the verb that changed, not the one carrying the meaning. One rule on two different first verbs, and it is about to be three.",
+                  "ref": "s10-modals"
+                }
+              ]
+            },
+            {
+              "id": "r3-place-or-plan",
+              "label": "A place or a plan",
+              "targets": [
+                "err-two-jobs",
+                "err-pas-position"
+              ],
+              "say": "Six on the shape a2.02 named. The verb never changes and the word after it always does.",
+              "questions": [
+                {
+                  "q": "Je vais à Paris.",
+                  "format": "mcq",
+                  "opts": [
+                    "I am going to Paris.",
+                    "I am going to leave.",
+                    "I am going to arrive.",
+                    "I went to Paris."
+                  ],
+                  "correct": 0,
+                  "why": "A place behind it, so it is a journey. Nothing about « je vais » had to be decided until the next word arrived.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "Je vais partir.",
+                  "format": "mcq",
+                  "opts": [
+                    "I am going to Paris.",
+                    "I am leaving for a place.",
+                    "I am going to leave.",
+                    "I go often."
+                  ],
+                  "correct": 2,
+                  "why": "A place after aller is where you are going. A naming form after it is what you are going to do.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "What tells you which job aller is doing?",
+                  "format": "mcq",
+                  "opts": [
+                    "The tense",
+                    "The person",
+                    "How it is said",
+                    "The word straight after it"
+                  ],
+                  "correct": 3,
+                  "why": "a2.02 named this pattern what comes next decides, on venir de, and a2.18 met it again on il y a. This is the third one.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "Which of these is a plan rather than a journey?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ils vont au parc.",
+                    "Ils vont partir.",
+                    "Je vais à Paris.",
+                    "Nous allons au marché."
+                  ],
+                  "correct": 1,
+                  "why": "A naming form behind vont. The other three all have a place behind them.",
+                  "ref": "s13-place"
+                },
+                {
+                  "q": "Je ___ rester ici.   (and I am)",
+                  "format": "typeIn",
+                  "accept": [
+                    "vais"
+                  ],
+                  "answer": "vais",
+                  "why": "Aller in the present, and the naming form goes straight behind it with nothing in between.",
+                  "ref": "s13-place"
+                },
+                {
+                  "q": "Fix this. You mean you are not going to work tomorrow.",
+                  "format": "errorSpot",
+                  "prompt": "Tu vas travailler pas demain.",
+                  "accept": [
+                    "Tu ne vas pas travailler demain.",
+                    "Tu ne vas pas travailler demain"
+                  ],
+                  "answer": "Tu ne vas pas travailler demain.",
+                  "why": "The pas arrived after the sentence had already gone past the verb it belongs to, and the ne never arrived at all. A listener hears the front of the sentence, which says you are going to work.",
+                  "ref": "s11-errors"
+                }
+              ]
+            },
+            {
+              "id": "r4-anything-slots-in",
+              "label": "Anything slots in",
+              "targets": [
+                "err-second-verb-changed",
+                "err-two-jobs"
+              ],
+              "say": "Six on verbs this lesson did not put behind aller. You can answer all six without being told.",
+              "questions": [
+                {
+                  "q": "They are not going to find the keys. Ils ___ trouver les clés.",
+                  "format": "typeIn",
+                  "accept": [
+                    "ne vont pas"
+                  ],
+                  "answer": "ne vont pas",
+                  "why": "Vont is the form that changed for ils, so both halves go round it and trouver is left alone.",
+                  "ref": "s16-unseen"
+                },
+                {
+                  "q": "We are going to answer tonight. Nous ___ répondre ce soir.",
+                  "format": "typeIn",
+                  "accept": [
+                    "allons"
+                  ],
+                  "answer": "allons",
+                  "why": "No negative in the sentence, so nothing wraps anything, and répondre goes in untouched.",
+                  "ref": "s16-unseen"
+                },
+                {
+                  "q": "Which of these could NOT go behind aller?",
+                  "format": "mcq",
+                  "opts": [
+                    "ouvrir",
+                    "écrire",
+                    "boire",
+                    "partirai"
+                  ],
+                  "correct": 3,
+                  "why": "The third one already has an ending on it. Only the naming form goes there, and it goes there whatever the verb is.",
+                  "ref": "s11-errors"
+                },
+                {
+                  "q": "Which verbs can go behind aller?",
+                  "format": "mcq",
+                  "opts": [
+                    "The common ones",
+                    "The ones this lesson showed you",
+                    "Any of them, in the naming form",
+                    "Only verbs of movement"
+                  ],
+                  "correct": 2,
+                  "why": "Any of them. That is the whole argument: the slot takes the naming form of anything, so the six in this lesson are examples rather than a list to learn.",
+                  "ref": "s09-any"
+                },
+                {
+                  "q": "Fix this. One negative per verb.",
+                  "format": "errorSpot",
+                  "prompt": "Je ne vais pas ne pas partir.",
+                  "accept": [
+                    "Je ne vais pas partir.",
+                    "Je ne vais pas partir"
+                  ],
+                  "answer": "Je ne vais pas partir.",
+                  "why": "The two halves are a pair and the pair goes round one verb once. Doubling them says nothing extra and stops being French.",
+                  "ref": "s11-errors"
+                },
+                {
+                  "q": "The film starts in an hour, so we are eating in an hour. Which is right?",
+                  "format": "mcq",
+                  "opts": [
+                    "On va manger dans une heure.",
+                    "On va manger il y a une heure.",
+                    "On manger va dans une heure.",
+                    "On va dans une heure manger."
+                  ],
+                  "correct": 0,
+                  "why": "Aller, then the naming form, then the time. a2.18 gave you the time phrase and it has not changed.",
+                  "ref": "s12-when"
+                }
+              ]
+            },
+            {
+              "id": "r5-what-you-hear",
+              "label": "What you hear, and what comes next",
+              "targets": [
+                "err-ne-drop",
+                "err-pas-position"
+              ],
+              "say": "Six on the half that disappears in speech, and on the two lessons this one hands things to.",
+              "questions": [
+                {
+                  "q": "Listen. Which one did you hear?",
+                  "format": "listenChoose",
+                  "say": "Je vais pas sortir.",
+                  "opts": [
+                    "Je ne vais pas sortir.",
+                    "Je vais pas sortir."
+                  ],
+                  "correct": 1,
+                  "why": "The ne is gone, which is what ordinary speech does with it. In writing, both halves every time. In speech the ne very often goes, and you need to hear it.",
+                  "ref": "s15-hear"
+                },
+                {
+                  "q": "You hear « Je vais pas sortir ». What does it mean?",
+                  "format": "mcq",
+                  "opts": [
+                    "I am going to go out.",
+                    "I am not going to go out.",
+                    "I was going to go out.",
+                    "I have to go out."
+                  ],
+                  "correct": 1,
+                  "why": "A negative with the ne dropped. The pas behind vais is carrying the whole thing, which is why missing it costs you the meaning rather than a mark.",
+                  "ref": "s15-hear"
+                },
+                {
+                  "q": "Should you drop the ne when you write?",
+                  "format": "mcq",
+                  "opts": [
+                    "Yes, everybody does",
+                    "Only in the negative",
+                    "Only after aller",
+                    "No, writing keeps both halves"
+                  ],
+                  "correct": 3,
+                  "why": "In writing, both halves every time. In speech the ne very often goes, and you need to hear it.",
+                  "ref": "s15-hear"
+                },
+                {
+                  "q": "You are reading and you meet « je partirai ». What has happened?",
+                  "format": "mcq",
+                  "opts": [
+                    "A mistake",
+                    "The second future, which comes later",
+                    "The same thing with an ending",
+                    "A past tense"
+                  ],
+                  "correct": 1,
+                  "why": "There is a second future in French, one word instead of two, and it comes after this level. You will see it in writing before anybody teaches it to you. What you have here is the one people actually say.",
+                  "ref": "s15-hear"
+                },
+                {
+                  "q": "Write what the neighbour said, with both halves in it. « Je vais pas venir. »",
+                  "format": "typeIn",
+                  "accept": [
+                    "Je ne vais pas venir.",
+                    "Je ne vais pas venir"
+                  ],
+                  "answer": "Je ne vais pas venir.",
+                  "why": "The ne goes back in front of the verb that changed. Nothing else about the sentence moves, because the pas was already where it belongs.",
+                  "ref": "s15-hear"
+                },
+                {
+                  "q": "Fix this. She is not going to finish it tonight.",
+                  "format": "errorSpot",
+                  "prompt": "Elle ne va finir pas le rapport ce soir.",
+                  "accept": [
+                    "Elle ne va pas finir le rapport ce soir.",
+                    "Elle ne va pas finir le rapport ce soir"
+                  ],
+                  "answer": "Elle ne va pas finir le rapport ce soir.",
+                  "why": "A published sentence with the pas put back where the corpus already had it. Round va, and finir outside.",
+                  "ref": "s09-any"
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "whatNext",
+            "neGoes"
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "Find the verb that moved for the person you are talking about. Both halves of the negative go round that one, and everything after it stays exactly as it is. a1.18 gave you the two halves and where they go. a2.02 gave you the six forms of aller. This lesson is those two facts standing next to each other, and the only new thing is which of two verbs the halves go round.",
+          "points": [
+            "Wrap the verb that changed, not the one carrying the meaning. Two verbs, and only one of them gets wrapped. The two halves go round aller, which is the one that changed for you, and the verb carrying the meaning stays outside them.",
+            "Ne in front of aller, pas straight after it, and the naming form outside both. Nothing else in the sentence moves at all.",
+            "One verb changes for the person, and the next one never does. That is a2.13's line and it is exactly as true behind aller.",
+            "The third time. a2.02 called it what comes next decides, on venir de, and a2.18 met it again on il y a. A place after aller is where you are going. A naming form after it is what you are going to do.",
+            "a2.18 taught the left one: a present tense about something ahead, which is ordinary French. The right one is the same fact with a verb in front, and both are correct.",
+            "In ordinary speech the ne is very often just not said. « Je vais pas sortir » is what you will hear, and the pas behind aller is carrying the whole negative on its own. Recognise it. In writing, both halves every time. a1.18 said it first and this lesson says nothing different.",
+            "There is a second future in French, one word instead of two, and it comes after this level. You will see it in writing before anybody teaches it to you. What you have here is the one people actually say. The next lesson puts a past tense in front of a second verb the same way this one puts aller there, and the negative behaves exactly as it does here. That is a2.05."
+          ],
+          "sheetId": "sheet.a2.19.futur"
+        }
+      ],
+      "itemIds": [
+        "fr.a2.verbes.501",
+        "fr.a2.verbes.502",
+        "fr.a2.verbes.503",
+        "fr.a2.verbes.504",
+        "fr.a2.verbes.505",
+        "fr.a2.verbes.506",
+        "fr.a2.verbes.507",
+        "fr.a2.verbes.508",
+        "fr.a2.verbes.509",
+        "fr.a2.verbes.510",
+        "fr.a2.verbes.511",
+        "fr.a2.verbes.512",
+        "fr.a2.verbes.513",
+        "fr.a2.verbes.514",
+        "fr.a2.verbes.515",
+        "fr.a2.verbes.516",
+        "fr.a2.verbes.517",
+        "fr.a2.verbes.518",
+        "fr.a2.verbes.519",
+        "fr.a2.verbes.520",
+        "fr.a2.verbes.521",
+        "fr.a2.verbes.522",
+        "fr.a2.verbes.523",
+        "fr.a2.verbes.524",
+        "fr.a2.verbes.525",
+        "fr.a2.verbes.526",
+        "fr.a2.verbes.527",
+        "fr.a2.verbes.528",
+        "fr.a2.verbes.529",
+        "fr.sons.verbes-essentiels.003",
+        "fr.sons.consonnes.098",
+        "fr.sons.muettes.037",
+        "fr.a2.verbes.031",
+        "fr.sons.verbes-essentiels.041",
+        "fr.sons.verbes-essentiels.059",
+        "fr.sons.verbes-essentiels.010",
+        "fr.a2.verbes.261",
+        "fr.a2.verbes.266",
+        "fr.a2.prepositions-essentielles.130",
+        "fr.a2.verbes.347",
+        "fr.a2.prepositions-essentielles.184",
+        "fr.a2.prepositions-essentielles.172",
+        "fr.a2.negation-et-restriction.107",
+        "fr.a2.negation-et-restriction.152",
+        "fr.a2.negation-et-restriction.158",
+        "fr.a2.negation-et-restriction.164"
+      ],
+      "version": 3,
+      "grammarAssumed": [
+        "The full present of aller, in six persons, introduced in a2.02",
+        "ne … pas round a single verb, and the reduction of the article after it, introduced in a1.18",
+        "The nine subject pronouns, and that on takes the il form, introduced in a1.05",
+        "That a first verb is followed by the naming form of the second, introduced in a2.13",
+        "The naming form after venir de, introduced in a2.02",
+        "dans plus a length as a point ahead, introduced in a2.18",
+        "à, au and chez in front of a place after a verb of movement, introduced in a2.04"
+      ],
+      "grammarIntroduced": [
+        "aller in the present plus an infinitive as the periphrastic future, for a plan or a prediction anchored to the moment of speaking",
+        "That the infinitive in that construction is invariable and takes no person marking",
+        "That ne … pas encloses the finite auxiliary aller and not the infinitive, extending a1.18's rule from a single verb to a two-verb predicate",
+        "The elision of ne to n' before allons and allez, and the loss of the liaison that goes with it",
+        "That the same placement rule governs the modal constructions of a2.13 and will govern the compound past of a2.05",
+        "aller plus an infinitive against aller plus a locative complement, disambiguated solely by the following constituent",
+        "The existence of the synthetic future as a second exponent of futurity, named and reserved beyond this level",
+        "ne-drop in colloquial spoken French applied to this construction, for RECEPTION ONLY and produced nowhere"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "The Near Future",
+        "subFr": "Le futur proche",
+        "introFr": "Deux mots pour un projet, et un seul des deux bouge.",
+        "minutes": 28,
+        "difficulty": 2,
+        "glyph": "🗓️",
+        "screens": 220
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The answer that came out right",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-shape"
+          ],
+          "milestone": "You can build a plan out of two words, and you know that only the first of them ever moves.",
+          "estScreens": 20,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Where the two halves go",
+          "sections": [
+            "s04-pair",
+            "s05-english",
+            "s06-six",
+            "s07-where",
+            "s08-produce"
+          ],
+          "milestone": "You can make any plan negative, in any person, and put both halves where French puts them rather than where English does.",
+          "estScreens": 46,
+          "restPoints": [
+            "s05-english/after",
+            "s07-where/after"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Anything slots in",
+          "sections": [
+            "s09-any",
+            "s10-modals",
+            "s11-errors",
+            "s12-when"
+          ],
+          "milestone": "You can put any verb in the language behind aller, and you know the rule you just learned is one you have already used once.",
+          "estScreens": 34,
+          "restPoints": [
+            "s10-modals/after"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "One verb, two jobs",
+          "sections": [
+            "s13-place",
+            "s14-twice",
+            "s15-hear",
+            "s16-unseen"
+          ],
+          "milestone": "You can tell a journey from a plan by looking at one word, and you answered for five verbs the lesson never showed you.",
+          "estScreens": 38,
+          "restPoints": [
+            "s14-twice/after"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Out loud",
+          "sections": [
+            "s17-reading",
+            "s18-scenario",
+            "s19-dictation",
+            "s20-speak",
+            "s21-review"
+          ],
+          "milestone": "You held the conversation the office door lost, and every answer in it was a plan you had to decide the shape of before the verb came out.",
+          "estScreens": 44,
+          "restPoints": [
+            "s18-scenario/after",
+            "s19-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "You built negatives for verbs this lesson never listed, which is the half of it a list could never have taught you.",
+          "estScreens": 38,
+          "restPoints": [
+            "s23-quiz/r3-place-or-plan"
+          ]
+        }
+      ],
+      "reframe": "Wrap the verb that changed, not the one carrying the meaning.",
+      "errorTriggers": [
+        {
+          "id": "err-pas-position",
+          "description": "Puts the pas after the naming form, which is where English puts \"not\": beside the word carrying the meaning. The error this lesson exists to prevent, and the one an English speaker makes first.",
+          "detectOn": [
+            "s04-pair",
+            "s07-where",
+            "s23-quiz/r1-where-it-goes"
+          ],
+          "drill": "drill-where-pas-goes",
+          "retest": "retest-where-pas-goes"
+        },
+        {
+          "id": "err-wrong-verb",
+          "description": "Sends both halves round the wrong verb, usually as a unit: « je vais ne pas partir ». The learner has the pair and has not worked out that the two words are placed separately, one either side of the verb that changed.",
+          "detectOn": [
+            "s06-six",
+            "s08-produce",
+            "s23-quiz/r2-which-verb"
+          ],
+          "drill": "drill-which-verb",
+          "retest": "retest-which-verb"
+        },
+        {
+          "id": "err-two-jobs",
+          "description": "Reads aller plus a place as a plan, or aller plus a naming form as a journey. Doctrine §B.7's shape and the third of its four instances, and by this point the learner should be predicting it.",
+          "detectOn": [
+            "s13-place",
+            "s14-twice",
+            "s23-quiz/r3-place-or-plan"
+          ],
+          "drill": "drill-place-or-plan",
+          "retest": "retest-place-or-plan"
+        },
+        {
+          "id": "err-second-verb-changed",
+          "description": "Conjugates the second verb, or gives it an ending it never takes. It comes from treating the construction as one tense with two words in it rather than as one verb followed by a naming form.",
+          "detectOn": [
+            "s09-any",
+            "s16-unseen",
+            "s23-quiz/r4-anything-slots-in"
+          ],
+          "drill": "drill-naming-form",
+          "retest": "retest-naming-form"
+        },
+        {
+          "id": "err-ne-drop",
+          "description": "Misses a negative whose ne has been dropped and hears agreement. Costs comprehension rather than accuracy, and the learner has no way of finding out, which is why a1.18 gave it its own drill and why this lesson gives it another.",
+          "detectOn": [
+            "s15-hear",
+            "s23-quiz/r5-what-you-hear"
+          ],
+          "drill": "drill-ne-dropped",
+          "retest": "retest-ne-dropped"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-where-pas-goes",
+          "title": "Both halves, one place",
+          "format": "flashcard",
+          "coach": "Ne in front of aller, pas straight after it, and the naming form outside both. Nothing else in the sentence moves at all. The English is on the front. Say the French out loud before you turn it over.",
+          "pairs": [
+            [
+              "I am not going to leave.",
+              "Je ne vais pas partir."
+            ],
+            [
+              "He is not going to leave.",
+              "Il ne va pas partir."
+            ],
+            [
+              "They are not going to leave.",
+              "Ils ne vont pas partir."
+            ],
+            [
+              "I am not going to work.",
+              "Je ne vais pas travailler."
+            ]
+          ]
+        },
+        {
+          "id": "retest-where-pas-goes",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "She is not going out tonight.",
+          "opts": [
+            "Elle ne va sortir pas ce soir.",
+            "Elle ne va pas sortir ce soir.",
+            "Elle va ne pas sortir ce soir."
+          ],
+          "correct": 1,
+          "why": "Round va, and sortir outside both halves."
+        },
+        {
+          "id": "drill-which-verb",
+          "title": "The one that moved",
+          "format": "sort",
+          "buckets": [
+            "a plan",
+            "a plan, negative"
+          ],
+          "items": [
+            "fr.a2.verbes.501",
+            "fr.a2.verbes.507",
+            "fr.a2.verbes.503",
+            "fr.a2.verbes.509",
+            "fr.a2.verbes.506",
+            "fr.a2.verbes.512"
+          ],
+          "coach": "Wrap the verb that changed, not the one carrying the meaning. Read the front of each sentence and find the word that changed."
+        },
+        {
+          "id": "retest-which-verb",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "In « Nous n'allons pas partir », which word changed because the subject is nous?",
+          "opts": [
+            "partir",
+            "allons",
+            "pas"
+          ],
+          "correct": 1,
+          "why": "Allons. The two halves are round it and partir has not moved."
+        },
+        {
+          "id": "drill-place-or-plan",
+          "title": "A journey or a plan",
+          "format": "sort",
+          "buckets": [
+            "a journey",
+            "a plan"
+          ],
+          "items": [
+            "fr.a2.prepositions-essentielles.130",
+            "fr.a2.verbes.501",
+            "fr.a2.verbes.261",
+            "fr.a2.verbes.513",
+            "fr.a2.verbes.266",
+            "fr.a2.verbes.506"
+          ],
+          "coach": "A place after aller is where you are going. A naming form after it is what you are going to do. a2.02 named this pattern what comes next decides."
+        },
+        {
+          "id": "retest-place-or-plan",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Nous allons manger tôt.",
+          "opts": [
+            "a journey",
+            "a plan"
+          ],
+          "correct": 1,
+          "why": "A naming form behind allons, so it is a plan. There is no place in the sentence at all."
+        },
+        {
+          "id": "drill-naming-form",
+          "title": "It never takes an ending",
+          "format": "flashcard",
+          "coach": "One verb changes for the person, and the next one never does.",
+          "pairs": [
+            [
+              "I am going to pay.",
+              "Je vais payer."
+            ],
+            [
+              "You are going to work tomorrow.",
+              "Tu vas travailler demain."
+            ],
+            [
+              "He is going to come tonight.",
+              "Il va venir ce soir."
+            ],
+            [
+              "We are going to eat early.",
+              "Nous allons manger tôt."
+            ]
+          ]
+        },
+        {
+          "id": "retest-naming-form",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Which one can go behind aller?",
+          "opts": [
+            "travaillerai",
+            "travaille",
+            "travailler"
+          ],
+          "correct": 2,
+          "why": "The naming form, always. The other two have already been changed for somebody."
+        },
+        {
+          "id": "drill-ne-dropped",
+          "title": "The half that disappears",
+          "format": "sort",
+          "buckets": [
+            "both halves",
+            "the ne is gone"
+          ],
+          "items": [
+            "fr.a2.verbes.521",
+            "fr.a2.verbes.522",
+            "fr.a2.verbes.507",
+            "fr.a2.verbes.524"
+          ],
+          "coach": "In writing, both halves every time. In speech the ne very often goes, and you need to hear it. Look for the pas rather than for the ne."
+        },
+        {
+          "id": "retest-ne-dropped",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "You hear « On va pas manger ici ». Is that a negative?",
+          "opts": [
+            "No, there is no ne",
+            "Yes, and the ne has been dropped",
+            "Only in writing"
+          ],
+          "correct": 1,
+          "why": "The pas behind va is carrying the whole negative. This is what most spoken negatives look like."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.19.futur",
+          "title": "A plan, and where the negative goes",
+          "layer": "deep",
+          "contains": [
+            "The six",
+            "The negative",
+            "The rule",
+            "Two jobs",
+            "In speech",
+            "What is coming"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-six",
+              "title": "The six",
+              "layer": "deep",
+              "cols": [
+                "Person",
+                "Aller",
+                "Then"
+              ],
+              "rows": [
+                [
+                  "je",
+                  "vais",
+                  "partir"
+                ],
+                [
+                  "tu",
+                  "vas",
+                  "partir"
+                ],
+                [
+                  "il",
+                  "va",
+                  "partir"
+                ],
+                [
+                  "nous",
+                  "allons",
+                  "partir"
+                ],
+                [
+                  "vous",
+                  "allez",
+                  "partir"
+                ],
+                [
+                  "ils",
+                  "vont",
+                  "partir"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-negative",
+              "title": "And the negative",
+              "layer": "deep",
+              "cols": [
+                "Person",
+                "Aller",
+                "Then"
+              ],
+              "rows": [
+                [
+                  "je",
+                  "ne vais pas",
+                  "partir"
+                ],
+                [
+                  "tu",
+                  "ne vas pas",
+                  "partir"
+                ],
+                [
+                  "il",
+                  "ne va pas",
+                  "partir"
+                ],
+                [
+                  "nous",
+                  "n'allons pas",
+                  "partir"
+                ],
+                [
+                  "vous",
+                  "n'allez pas",
+                  "partir"
+                ],
+                [
+                  "ils",
+                  "ne vont pas",
+                  "partir"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-rule",
+              "title": "Which verb the halves go round",
+              "layer": "deep",
+              "body": "Wrap the verb that changed, not the one carrying the meaning. Two verbs, and only one of them gets wrapped. The two halves go round aller, which is the one that changed for you, and the verb carrying the meaning stays outside them. Ne in front of aller, pas straight after it, and the naming form outside both. Nothing else in the sentence moves at all."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-two-jobs",
+              "title": "A place or a plan",
+              "layer": "deep",
+              "body": "A place after aller is where you are going. A naming form after it is what you are going to do. The third time. a2.02 called it what comes next decides, on venir de, and a2.18 met it again on il y a."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-speech",
+              "title": "What happens in speech",
+              "layer": "deep",
+              "body": "In ordinary speech the ne is very often just not said. « Je vais pas sortir » is what you will hear, and the pas behind aller is carrying the whole negative on its own. Recognise it. In writing, both halves every time. In writing, both halves every time. In speech the ne very often goes, and you need to hear it."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-coming",
+              "title": "What is still coming",
+              "layer": "deep",
+              "body": "There is a second future in French, one word instead of two, and it comes after this level. You will see it in writing before anybody teaches it to you. What you have here is the one people actually say. The next lesson puts a past tense in front of a second verb the same way this one puts aller there, and the negative behaves exactly as it does here. That is a2.05."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.sons.verbes-essentiels.003",
+          "fr.sons.consonnes.098",
+          "fr.a2.verbes.501",
+          "fr.a2.verbes.502",
+          "fr.a2.verbes.503",
+          "fr.a2.verbes.504",
+          "fr.a2.verbes.505",
+          "fr.a2.verbes.506",
+          "fr.a2.verbes.523",
+          "fr.a2.verbes.524",
+          "fr.a2.verbes.525"
+        ],
+        [
+          "fr.a2.verbes.507",
+          "fr.a2.verbes.508",
+          "fr.a2.verbes.509",
+          "fr.a2.verbes.510",
+          "fr.a2.verbes.511",
+          "fr.a2.verbes.512"
+        ],
+        [
+          "fr.sons.muettes.037",
+          "fr.a2.verbes.031",
+          "fr.sons.verbes-essentiels.041",
+          "fr.sons.verbes-essentiels.059",
+          "fr.sons.verbes-essentiels.010",
+          "fr.a2.verbes.347",
+          "fr.a2.prepositions-essentielles.184",
+          "fr.a2.prepositions-essentielles.172",
+          "fr.a2.verbes.513",
+          "fr.a2.verbes.514",
+          "fr.a2.verbes.515",
+          "fr.a2.verbes.516",
+          "fr.a2.verbes.517",
+          "fr.a2.verbes.518",
+          "fr.a2.verbes.519",
+          "fr.a2.verbes.520",
+          "fr.a2.negation-et-restriction.107",
+          "fr.a2.negation-et-restriction.152",
+          "fr.a2.negation-et-restriction.158",
+          "fr.a2.negation-et-restriction.164"
+        ],
+        [
+          "fr.a2.prepositions-essentielles.130",
+          "fr.a2.verbes.261",
+          "fr.a2.verbes.266",
+          "fr.a2.verbes.521",
+          "fr.a2.verbes.522"
+        ],
+        [
+          "fr.a2.verbes.526",
+          "fr.a2.verbes.527",
+          "fr.a2.verbes.528",
+          "fr.a2.verbes.529"
+        ],
+        []
+      ],
+      "terms": {
+        "whichVerb": {
+          "term": "which verb",
+          "title": "The one that moved for you",
+          "body": "Two verbs, and only one of them gets wrapped. The two halves go round aller, which is the one that changed for you, and the verb carrying the meaning stays outside them. Wrap the verb, then ask what the verb was. is what a1.18 told you, and it was enough while there was only one verb in the sentence to wrap. Now there are two, and only one of them changed when you picked the person you are talking about. That is the one. The other is sitting there in its naming form and it has not moved at all, so there is nothing about it for the two halves to go round.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.501",
+              "note": "Aller moved for je. Partir did not."
+            },
+            {
+              "itemId": "fr.a2.verbes.507",
+              "note": "So both halves went round aller, and partir stayed outside them."
+            }
+          ]
+        },
+        "neverChanges": {
+          "term": "never changes",
+          "title": "The verb behind aller",
+          "body": "One verb changes for the person, and the next one never does. That is a2.13's line, about pouvoir and vouloir and devoir, and it is exactly as true here. a2.02 said the same thing about what follows de and called it the form that never changes. Whatever you put behind aller goes in untouched: it does not agree with anybody, it does not take an ending, and it is the same word in all six rows of the table.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.347",
+              "note": "a2.13's card. Payer, behind a modal."
+            },
+            {
+              "itemId": "fr.a2.verbes.513",
+              "note": "The same payer, behind aller. Nothing about it is different."
+            }
+          ]
+        },
+        "whatNext": {
+          "term": "what next",
+          "title": "You have had this shape twice",
+          "body": "a2.02 gave this pattern its name on venir de and called it what comes next decides. a2.18 met it again on il y a. This is the third one and it is on aller: a place behind it is where you are going, and a naming form behind it is what you are going to do. Nothing about the verb changes and nothing ever will, so there is no spelling to learn and no sound to catch. There is only the next word.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.130",
+              "note": "A place. Where you are going."
+            },
+            {
+              "itemId": "fr.a2.verbes.501",
+              "note": "A naming form. What you are going to do."
+            }
+          ]
+        },
+        "goingTo": {
+          "term": "going to",
+          "title": "Two words for something ahead",
+          "body": "Aller in the present, then the naming form of whatever you are planning. That is the whole construction and there is nothing else to it: no new endings, no new verb, and the six forms of aller are the ones you already had. English does the same thing with \"going to\", which is why this is the one piece of French grammar that costs an English speaker nothing at all.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.503",
+              "note": "Aller, then the naming form. Two words and a plan."
+            },
+            {
+              "itemId": "fr.a2.verbes.519",
+              "note": "And with a time on the end, which is a2.18's phrase, unchanged."
+            }
+          ]
+        },
+        "neGoes": {
+          "term": "the ne goes",
+          "title": "What you will hear",
+          "body": "In ordinary speech the ne is very often just not said. « Je vais pas sortir » is what you will hear, and the pas behind aller is carrying the whole negative on its own. Recognise it. In writing, both halves every time. a1.18 said this first and said it the same way: In writing, both halves every time. In speech the ne very often goes, and you need to hear it. Nothing about where the pas lands changes when the ne disappears. It is still straight after aller, and it is now carrying the entire negative on its own, which is why missing it costs you the meaning of the sentence rather than a mark.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.521",
+              "note": "Both halves. This is the one you write."
+            },
+            {
+              "itemId": "fr.a2.verbes.522",
+              "note": "The ne is gone. This is the one you hear. Recognise it and keep writing the other."
+            }
+          ]
+        },
+        "laterOn": {
+          "term": "later on",
+          "title": "There is a second future",
+          "body": "There is a second future in French, one word instead of two, and it comes after this level. You will see it in writing before anybody teaches it to you. What you have here is the one people actually say. It is one word rather than two and it belongs to the level after this one, so when you meet it in something you are reading, nothing has gone wrong and you were not taught a shortcut. Both are ordinary French. The one in this lesson is the one that comes out of people's mouths.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.514",
+              "note": "Two words, a naming form, and tomorrow on the end."
+            },
+            {
+              "itemId": "fr.a2.verbes.520",
+              "note": "The same construction with a time phrase rather than a day."
+            }
+          ]
+        },
+        "timeWord": {
+          "term": "when",
+          "title": "Say when, and the reading is fixed",
+          "body": "« Je vais manger » on its own can be a plan or it can be somebody walking towards a kitchen. Put a time on it and there is nothing left to work out. a2.18 gave you dans plus a length one lesson ago and taught it with a present-tense verb, which is correct on its own; a2.18 taught the left one: a present tense about something ahead, which is ordinary French. The right one is the same fact with a verb in front, and both are correct.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.172",
+              "note": "a2.18's sentence. A present tense about something ahead."
+            },
+            {
+              "itemId": "fr.a2.verbes.519",
+              "note": "The same fact with a verb in front of it. Both are right."
+            }
+          ]
+        },
+        "sameShape": {
+          "term": "same shape",
+          "title": "Where this rule turns up again",
+          "body": "Ne in front of aller, pas straight after it, and the naming form outside both. Nothing else in the sentence moves at all. You have already seen it once, behind a2.13's three verbs: « je ne peux pas venir » puts the two halves round peux and leaves venir alone. You will see it again in the very next lesson, on a past tense, and it behaves the same way there. One rule, three places, and the third one is a2.05.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.509",
+              "note": "Round aller, and partir is outside."
+            },
+            {
+              "itemId": "fr.a2.negation-et-restriction.164",
+              "note": "A published sentence, another verb, and the pas is in the same place."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-19-six",
+            "desc": "THE SIX PERSONS, ONE TAKE, ONE VOICE, IN THE ORDER THE TABLE PRINTS THEM AND AT AN EVEN PACE: « Je vais partir. » « Tu vas partir. » « Il va partir. » « Nous allons partir. » « Vous allez partir. » « Ils vont partir. » THE LAST WORD OF ALL SIX MUST BE IDENTICAL. `partir` is the constant and the entire claim of the screen is that it does not move, so a reader who gives it a different shape in the plural is teaching the opposite of what the table says. THE LIAISONS IN nous allons AND vous allez ARE OBLIGATORY: /nu.za.lɔ̃/ and /vu.za.le/, one word each. KEEP THE NASALS CLOSED: allons is /a.lɔ̃/ and vont is /vɔ̃/, with no n sound behind either vowel.",
+            "clipIds": [
+              "Je vais partir.",
+              "Tu vas partir.",
+              "Il va partir.",
+              "Nous allons partir.",
+              "Vous allez partir.",
+              "Ils vont partir."
+            ]
+          },
+          {
+            "id": "rec-a2-19-pair",
+            "desc": "THE AFFIRMATIVE AND THE NEGATIVE, ADJACENT, ONE TAKE, THREE PAIRS: « Je vais partir. » then « Je ne vais pas partir. », « Il va partir. » then « Il ne va pas partir. », « Ils vont partir. » then « Ils ne vont pas partir. » EACH PAIR IS TWO SYLLABLES APART AND NO MORE, and the learner is being asked to hear WHERE those two syllables land rather than that they are there. Do not lean on « pas » and do not pause before it: it is an ordinary unstressed word sitting between two others. NOTHING MAY BE STRESSED IN THE NEGATIVE THAT IS NOT STRESSED IN THE AFFIRMATIVE. A lift on the two extra words would teach that the negative is louder, and it is not; it is the same sentence with two small words in it.",
+            "clipIds": [
+              "Je vais partir.",
+              "Je ne vais pas partir.",
+              "Il va partir.",
+              "Il ne va pas partir.",
+              "Ils vont partir.",
+              "Ils ne vont pas partir."
+            ]
+          },
+          {
+            "id": "rec-a2-19-where",
+            "desc": "THE AUDIO STEP OF THE POSITION TRAP, AND IT IS A WRONG-THEN-RIGHT TAKE. Four lines, one take, in this order: « Je ne vais manger pas. » then « Je ne vais pas manger. », then « Je vais ne pas partir. » then « Je ne vais pas partir. » READ THE WRONG ONES PLAINLY AND AT ORDINARY PACE rather than comically or hesitantly. They are perfectly pronounceable and they are what a fluent English speaker produces on their first attempt; a reading that signals the error teaches that the error is audible. IT IS NOT AUDIBLE. Both wrong lines hold exactly the same words as the right one beside them, in a different order, and the whole point of the take is that nothing about the sound tells you which is which. DO NOT PAUSE AT THE SEAM. A break before « pas » in the wrong lines would mark it, and the learner would learn to listen for a pause that is not there in the wild.",
+            "clipIds": [
+              "Je ne vais manger pas.",
+              "Je ne vais pas manger.",
+              "Je vais ne pas partir.",
+              "Je ne vais pas partir."
+            ]
+          },
+          {
+            "id": "rec-a2-19-twice",
+            "desc": "THE AUDIO STEP OF THE TWO-JOBS TRAP, FOUR LINES, ONE TAKE: « Je vais à Paris. », « Je vais partir. », « Je vais au parc. », « Je vais payer. » THE FIRST TWO WORDS OF ALL FOUR ARE IDENTICAL AND MUST SOUND IDENTICAL. That is the entire point of the take: « je vais » carries no signal at all about which job it is doing, and everything is decided by what comes after it. A reader who puts more weight on « vais » in the plan lines, or pauses after it in the place lines, is inventing a distinction French does not make. THE LIAISON IN « vais à » IS OPTIONAL AND SHOULD NOT BE MADE HERE, because the two place lines and the two plan lines have to be separated by their last word and by nothing else.",
+            "clipIds": [
+              "Je vais à Paris.",
+              "Je vais partir.",
+              "Je vais au parc.",
+              "Je vais payer."
+            ]
+          },
+          {
+            "id": "rec-a2-19-scene",
+            "desc": "THE OFFICE DOOR ON A FRIDAY. She has her coat on, she is halfway out, and the question is ordinary friendliness rather than a request: she is checking whether she will see him. THE LEARNER'S OWN LINE IS THE TAKE THAT HAS TO BE RIGHT: « Je vais travailler... euh... » is somebody who has the first half of a sentence and is still deciding where the second half goes. The « euh » is the sound of a decision being made too late, not of somebody being unsure of a word, and it must not sound apologetic. HER LAST LINE IS THE EXPENSIVE ONE. « Ah, d'accord. À ce soir, alors. » is cheerful and completely unremarkable: she has heard a correct sentence and believed it. Any hint of doubt, checking or kindness-about-a-mistake turns the scene into a correction and loses the whole point, which is that nothing visibly went wrong.",
+            "clipIds": [
+              "Tu vas travailler ce soir ?",
+              "Je vais travailler... euh...",
+              "Je ne vais pas travailler.",
+              "Ah, d'accord. À ce soir, alors."
+            ]
+          },
+          {
+            "id": "rec-a2-19-dictee",
+            "desc": "THE DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to rec-a2-19-pair: here the learner is spelling rather than comparing, and a paired reading would hand them the answer. Read each line as though it were the only line. THE TWO NEGATIVES ARE THE ONES THAT MATTER. « Tu ne vas pas partir. » and « Il ne va pas partir. » are the only negatives in the whole lesson short enough to spell letter by letter, and the learner has to hear four separate words between the subject and the naming form. Do not run « ne vas » together and do not run « pas partir » together either. SAY IT THE WAY SOMEBODY WOULD SAY IT, at the pace of somebody dictating a phone number to a friend.",
+            "clipIds": [
+              "Je vais partir.",
+              "Tu vas partir.",
+              "Il va partir.",
+              "Nous allons partir.",
+              "Vous allez partir.",
+              "Ils vont partir.",
+              "Tu ne vas pas partir.",
+              "Il ne va pas partir.",
+              "Je vais payer."
+            ]
+          },
+          {
+            "id": "rec-a2-19-talk",
+            "desc": "THE CONVERSATION, HER LINES ONLY, ONE TAKE, AS ONE CONTINUOUS EXCHANGE RATHER THAN AS SIX SEPARATE PROMPTS. She is the same colleague on the Monday, she has more time, and she is making plans rather than checking on anybody. « Tu vas faire quoi ce soir ? » IS THE SPOKEN WORD ORDER and it should sound completely ordinary: the question word is at the end because that is where it goes in speech, and reading it as though it were a careful sentence would make it sound like a lesson. NEITHER « vas » NOR « va » MAY BE STRESSED anywhere in the take. She is not testing him, and a lift on the verb would turn a conversation into an exercise.",
+            "clipIds": [
+              "Tu vas faire quoi ce soir ?",
+              "Tu vas travailler ce soir ?",
+              "Tu vas venir avec nous samedi ?",
+              "On mange à quelle heure ?",
+              "Et le rapport, il est prêt ?",
+              "Tu pars quand ?"
             ]
           }
         ],
@@ -348183,9 +350879,9 @@
         "singular"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
+        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -348483,9 +351179,9 @@
         "nasal"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
+        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -350470,9 +353166,9 @@
         "singular"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
+        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -354490,11 +357186,11 @@
         "ville"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
-        "review",
-        "dictation"
+        "dictation",
+        "sentence",
+        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -355397,11 +358093,12 @@
         "dans"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
+        "sentence",
         "review"
       ],
+      "audioRef": null,
       "version": 1
     },
     {
@@ -355670,9 +358367,10 @@
       "drills": [
         "flashcard",
         "voiceflash",
-        "review",
-        "dictation"
+        "dictation",
+        "review"
       ],
+      "audioRef": null,
       "version": 1
     },
     {
@@ -355963,6 +358661,780 @@
         "prepositions",
         "temps",
         "en"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.107",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Je ne vais pas sortir ce soir.",
+      "en": "I am not going to go out tonight.",
+      "notes": "In futur proche, ne and pas wrap around the conjugated verb aller, right before the infinitive.",
+      "tags": [
+        "negation",
+        "ne-pas",
+        "futur-proche",
+        "word-order"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "zhuh nuh veh pah sor-TEER suh SWAR"
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.152",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Ils ne vont pas venir à la fête.",
+      "en": "They aren't going to come to the party.",
+      "ipa": "/il nə vɔ̃ pa və.niʁ a la fɛt/",
+      "notes": "Vont is easy to confuse with on or ont by sound, so check the subject ils carefully.",
+      "tags": [
+        "homophone"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "eel nuh vohⁿ pah vuh-NEER a la FEHT"
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.158",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Je ne vais pas manger de viande ce soir.",
+      "en": "I'm not going to eat meat tonight.",
+      "ipa": "/ʒə nə vɛ pa mɑ̃.ʒe də vjɑ̃d sə swaʁ/",
+      "notes": "After the negation, de la viande shortens to de viande, losing the article.",
+      "tags": [
+        "orthographe"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "zhuh nuh veh pah mahⁿ-ZHAY duh VYAHⁿD suh SWAR"
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.164",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Elle ne va pas finir le rapport ce soir.",
+      "en": "She isn't going to finish the report tonight.",
+      "ipa": "/ɛl nə va pa fi.niʁ lə ʁa.pɔʁ sə swaʁ/",
+      "notes": "Rapport doubles its p in spelling though it is pronounced as a single consonant.",
+      "tags": [
+        "orthographe"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "ehl nuh va pah fee-NEER luh ra-POR suh SWAR"
+    },
+    {
+      "id": "fr.sons.consonnes.098",
+      "kind": "word",
+      "level": "sons",
+      "theme": "consonnes",
+      "fr": "partir",
+      "en": "to leave",
+      "ipa": "/paʁ.tiʁ/",
+      "respell": "par-TEER",
+      "tags": [
+        "r",
+        "r-medial",
+        "r-final"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.501",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je vais partir.",
+      "en": "I am going to leave.",
+      "ipa": "/ʒə vɛ paʁ.tiʁ/",
+      "respell": "zhuh veh par-TEER",
+      "notes": "The frame, and twelve letters, so the dictée can take it. Aller in the present and the naming form behind it, untouched.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.502",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu vas partir.",
+      "en": "You are going to leave.",
+      "ipa": "/ty va paʁ.tiʁ/",
+      "respell": "tü vah par-TEER",
+      "notes": "The person moved and the second verb did not. Eleven letters.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.503",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il va partir.",
+      "en": "He is going to leave.",
+      "ipa": "/il va paʁ.tiʁ/",
+      "respell": "eel vah par-TEER",
+      "notes": "The shortest of the six, ten letters, and the one the dictée uses for the pair because its negative also fits.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.504",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous allons partir.",
+      "en": "We are going to leave.",
+      "ipa": "/nu.za.lɔ̃ paʁ.tiʁ/",
+      "respell": "noo za-lohⁿ par-TEER",
+      "notes": "Sixteen letters, exactly at the limit. The liaison pulls a z across into allons and the nasal survives it.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.505",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous allez partir.",
+      "en": "You are going to leave. (to more than one person, or politely)",
+      "ipa": "/vu.za.le paʁ.tiʁ/",
+      "respell": "voo za-lay par-TEER",
+      "notes": "The same liaison, and the ending nobody hears any difference in.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.506",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils vont partir.",
+      "en": "They are going to leave.",
+      "ipa": "/il vɔ̃ paʁ.tiʁ/",
+      "respell": "eel vohⁿ par-TEER",
+      "notes": "Thirteen letters. The plural of the form the singular already had, and partir has still not moved.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.507",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je ne vais pas partir.",
+      "en": "I am not going to leave.",
+      "ipa": "/ʒə nə vɛ pa paʁ.tiʁ/",
+      "respell": "zhuh nuh veh pah par-TEER",
+      "notes": "SEVENTEEN LETTERS, so dicteeMode puts it in WORD mode and it carries no dictation drill. Its affirmative is twelve and does. One letter decides which half of the pair the dictée can test.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.508",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu ne vas pas partir.",
+      "en": "You are not going to leave.",
+      "ipa": "/ty nə va pa paʁ.tiʁ/",
+      "respell": "tü nuh vah pah par-TEER",
+      "notes": "Sixteen letters, at the limit, and one of the three negatives the dictée can take.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.509",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il ne va pas partir.",
+      "en": "He is not going to leave.",
+      "ipa": "/il nə va pa paʁ.tiʁ/",
+      "respell": "eel nuh vah pah par-TEER",
+      "notes": "Fifteen letters. The pair with row 503 is the one the dictée runs, because both halves of it fit.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.510",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous n'allons pas partir.",
+      "en": "We are not going to leave.",
+      "ipa": "/nu na.lɔ̃ pa paʁ.tiʁ/",
+      "respell": "noo na-lohⁿ pah par-TEER",
+      "notes": "The ne elides in front of the vowel and the liaison z goes with it: noo na-lohⁿ, not noo za-lohⁿ. Twenty letters.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.511",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous n'allez pas partir.",
+      "en": "You are not going to leave. (to more than one person, or politely)",
+      "ipa": "/vu na.le pa paʁ.tiʁ/",
+      "respell": "voo na-lay pah par-TEER",
+      "notes": "The same elision and the same lost liaison. Nineteen letters.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.512",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils ne vont pas partir.",
+      "en": "They are not going to leave.",
+      "ipa": "/il nə vɔ̃ pa paʁ.tiʁ/",
+      "respell": "eel nuh vohⁿ pah par-TEER",
+      "notes": "Eighteen letters. Six persons, one position for the two halves, and the naming form has not moved once.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.513",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je vais payer.",
+      "en": "I am going to pay.",
+      "ipa": "/ʒə vɛ pe.je/",
+      "respell": "zhuh veh pay-YAY",
+      "notes": "The same naming form as a2.13's own card « Je peux payer. », behind a different first verb. Eleven letters.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.514",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu vas travailler demain.",
+      "en": "You are going to work tomorrow.",
+      "ipa": "/ty va tʁa.va.je də.mɛ̃/",
+      "respell": "tü vah trah-vah-YAY duh-MAⁿ",
+      "notes": "A four-syllable naming form, and the slot does not care. Twenty-one letters, so no dictée.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.515",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il va venir ce soir.",
+      "en": "He is going to come tonight.",
+      "ipa": "/il va və.niʁ sə swaʁ/",
+      "respell": "eel va vuh-NEER suh SWAR",
+      "notes": "Venir behind aller, which is the other verb a2.02 taught, and a time frame that fixes the reading.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.516",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle va sortir ce soir.",
+      "en": "She is going to go out tonight.",
+      "ipa": "/ɛl va sɔʁ.tiʁ sə swaʁ/",
+      "respell": "ehl va sor-TEER suh SWAR",
+      "notes": "The affirmative of a published negative this lesson imports, in another person, so the pair crosses two themes.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.517",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous allons manger tôt.",
+      "en": "We are going to eat early.",
+      "ipa": "/nu.za.lɔ̃ mɑ̃.ʒe to/",
+      "respell": "noo za-lohⁿ mahⁿ-ZHAY TOH",
+      "notes": "Tôt is a2.10 and a2.10.l2's dictée frame word, reused on purpose: the learner has spelled it twice already.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.518",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je vais rester ici.",
+      "en": "I am going to stay here.",
+      "ipa": "/ʒə vɛ ʁɛs.te i.si/",
+      "respell": "zhuh veh res-TAY ee-SEE",
+      "notes": "The answer to the question the trap asks, and the one sentence in the set that is about not moving.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.519",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je vais partir dans dix minutes.",
+      "en": "I am going to leave in ten minutes.",
+      "ipa": "/ʒə vɛ paʁ.tiʁ dɑ̃ di mi.nyt/",
+      "respell": "zhuh veh par-TEER dAHⁿ dee mee-NÜT",
+      "notes": "The verb-in-front version of a2.18's own « Je pars dans dix minutes. », which is imported and sits beside it. The respelling of the time phrase is that lesson's, unchanged.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.520",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "On va manger dans une heure.",
+      "en": "We are going to eat in an hour.",
+      "ipa": "/ɔ̃ va mɑ̃.ʒe dɑ̃.zyn œʁ/",
+      "respell": "ohⁿ va mahⁿ-ZHAY dAHⁿ zün UHR",
+      "notes": "a2.18 published « On mange dans une heure ? » as a question and this is the same plan with a verb in front. On rather than nous, which is a2.01's rule for the whole level.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.521",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je ne vais pas sortir.",
+      "en": "I am not going to go out.",
+      "ipa": "/ʒə nə vɛ pa sɔʁ.tiʁ/",
+      "respell": "zhuh nuh veh pah sor-TEER",
+      "notes": "The written form, both halves, which is what a1.18 says to keep.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.522",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je vais pas sortir.",
+      "en": "I am not going to go out. (spoken French, with the ne dropped)",
+      "ipa": "/ʒə vɛ pa sɔʁ.tiʁ/",
+      "respell": "zhuh veh pah sor-TEER",
+      "notes": "THE ONE RECEPTIVE ROW. Fifteen letters, so the dictée COULD take it and must not: a1.18 introduced the dropped ne for reception only and produces it nowhere. No voiceflash, no dictation, no typed answer, and one ear question.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif",
+        "receptive"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.523",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu vas travailler ce soir ?",
+      "en": "Are you going to work tonight?",
+      "ipa": "/ty va tʁa.va.je sə swaʁ/",
+      "respell": "tü vah trah-vah-YAY suh SWAR",
+      "notes": "Her question, and every word in it is one the learner has had since a2.01. The answer is one word longer than the question.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.524",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je ne vais pas travailler.",
+      "en": "No, I am not going to work.",
+      "ipa": "/ʒə nə vɛ pa tʁa.va.je/",
+      "respell": "zhuh nuh veh pah trah-vah-YAY",
+      "notes": "What he meant, in full. Twenty letters, so it is not a dictée target either.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.525",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ah, d'accord. À ce soir, alors.",
+      "en": "Ah, all right. See you tonight, then.",
+      "ipa": "/a da.kɔʁ a sə swaʁ a.lɔʁ/",
+      "respell": "ah da-KOR · a suh SWAR ah-LOR",
+      "notes": "She books him in, cheerfully, on the strength of a sentence that was correct. Nobody corrected anything, so nothing was learned and he is now expected.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.526",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu vas faire quoi ce soir ?",
+      "en": "What are you going to do tonight?",
+      "ipa": "/ty va fɛʁ kwa sə swaʁ/",
+      "respell": "tü vah FEHR kwah suh SWAR",
+      "notes": "The commonest question in the language after « ça va ? », and it is this construction with a question word dropped into the slot.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.527",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je vais manger avec des amis.",
+      "en": "I am going to eat with friends.",
+      "ipa": "/ʒə vɛ mɑ̃.ʒe a.vɛk de.za.mi/",
+      "respell": "zhuh veh mahⁿ-ZHAY ah-VEK day-za-MEE",
+      "notes": "A plan with something after the naming form, which nothing about the rule minds.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.528",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu vas venir avec nous samedi ?",
+      "en": "Are you going to come with us on Saturday?",
+      "ipa": "/ty va və.niʁ a.vɛk nu sam.di/",
+      "respell": "tü vah vuh-NEER ah-VEK noo sam-DEE",
+      "notes": "The invitation, with the day on the end. Samedi rather than the weekend, which is respelled four different ways in this corpus and is nobody's decision to make here.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.529",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Non, je ne vais pas venir.",
+      "en": "No, I am not going to come.",
+      "ipa": "/nɔ̃ ʒə nə vɛ pa və.niʁ/",
+      "respell": "nohⁿ zhuh nuh veh pah vuh-NEER",
+      "notes": "The refusal, in full, which is the sentence the scene never reached.",
+      "tags": [
+        "verbes",
+        "futur-proche",
+        "negatif"
       ],
       "drills": [
         "sentence",
