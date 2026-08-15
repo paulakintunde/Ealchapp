@@ -3475,3 +3475,160 @@ v41 carried a2.20 and everything before it.
 - **The fifteen, with their four cells each, are in `ETRE_VERBS`** in
   `data/passe-compose-etre-corpus.ts`, and `NO_EAR_QUESTION` holds the 86 pairs no
   ear question may separate.
+
+---
+
+## a2.22 amendments, 2026-08-15
+
+Written by the `a2.22` build, which is **seq 19 and the eighth lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger for the same reason a2.04's,
+a2.18's, a2.05's, a2.20's and a2.21's are.
+
+Full report: `A2-22-BUILD-REPORT.md`.
+
+### 0. THE ID BLOCK HELD EXACTLY AS a2.21 RESERVED IT
+
+```
+seq  id      block                          status
+19   a2.22   fr.a2.verbes.721 .. .790       31 rows, 721-751 used
+     528 rows before, 559 after, exactly +31
+```
+
+`.752..790` is the tail and is not backfilled. **a2.23 should take
+`.791..860`**, as a2.21 §0 reserved. a2.21's block still holds exactly 46.
+
+### 1. THE "ACCEPTS THE ANSWER IT DISPLAYS" GUARD IS A TAUTOLOGY, IN EVERY LESSON
+
+The most transferable finding in this build. Every lesson from a2.01 to a2.21
+runs some version of
+
+```ts
+for (const a of q.accept) ok(matchesAccept(a, q.accept));
+```
+
+which asks whether the accept list accepts **itself**. It cannot fail for any
+value at all. Mutating an accept entry to a completely different sentence walked
+through the batch AND the merge, and was caught only because the mutated lesson
+then tripped the version check.
+
+**The check with content is that a multi-word answer is a sentence the lesson
+OWNS** — an authored row, or a form it explicitly teaches. Invariants §4's
+sentence *"every free-text question must accept the answer it displays"* is
+right; the implementation the band copied does not implement it.
+
+### 2. `cards` IS THE ENTIRE LEARNER SURFACE AND MUST NEVER BE A MACHINE KEY
+
+On a `cardDeck`, a `flashcards` section, a `reviewDeck` and a `trapDrill`,
+`cards` holds everything the learner reads. This build's first draft listed it as
+a machine key and hid every card body from the jargon walk, the compound-tense
+guard and the house-copy rules at once.
+
+**It was found by the reframe count refusing to match its own constant**, which
+is exactly what invariants §5 says an explicit constant is for, and is the
+strongest argument yet for keeping that assertion.
+
+### 3. A COUNT TAKEN OVER A DEDUPED SET UNDER-REPORTS
+
+The reviewDeck card back is the reframe and nothing else, and so is
+`Lesson.reframe`. `[...new Set(surface)]` collapses the two, and the count came
+out at seven for eight authored occurrences. **Any lesson counting a short quoted
+line over a deduped walk has this today.** Counting needs the raw array;
+membership tests can keep the Set.
+
+### 4. THE DOUBLE-STOP GUARD IS HALF THE SHAPE, AND THE BAND SHOULD WIDEN IT
+
+a2.20 found « peur.. » on a Pixel 6 and every guard since checks for two
+consecutive DOTS. **That is half of it.** A corpus row quoted mid-sentence keeps
+its own full stop and the sentence continues with whatever came next, so
+`s06-doubled` shipped
+
+> « ... tard le dimanche., beside a verb that carries no little word at all. »
+
+past the batch, the merge, the lesson test and the density validator, and it was
+found on a device. The general defect is **a sentence-final stop with punctuation
+after it**:
+
+```ts
+/(?<!\.)\.[.,;:](?!\.)/u        // ellipsis still passes
+```
+
+**a2.05, a2.20 and a2.21 all quote corpus rows inside sentences and should be
+swept with this before the next build.**
+
+### 5. `unit.themes` IS DECLARED, VALIDATED AND READ BY NOTHING
+
+`a2.22` is the only unit in batch 2 with a `themes` array and it names
+`routine`, which holds **0** rows. `routines` holds 339. The declaration is
+inert: `schema.ts:1697` declares it, `schema.ts:3626` validates it, and no
+component reads it. Invariants §1's authored-valid-invisible shape at the UNIT
+level.
+
+Not repaired here, because `spine-drift.test.ts:105` pins spine and seed together
+and it is a spine change. The one-line fix is in `THEME_DEFECT` in
+`data/pronominaux-corpus.ts`, and the lesson's test pins the current state so a
+fix goes red and the fixer reads the note.
+
+### 6. THE NEGATION LINE IS ONE STRING ACROSS FOUR LESSONS, AND IT PRODUCES THE TRAP HERE
+
+a1.18, a2.19, a2.05 and a2.21 agree completely. Applied literally to a reflexive
+it puts `ne` in front of the verb, which is `je me ne lave pas` — the error. The
+extension a2.22 shipped, and a2.23 inherits:
+
+> « Both words changed for the subject, so both go inside the wrap. »
+
+**AND a2.21 SHIPS A DOUBLED « That is That is » ON `s04-recap`**, in v3, on a
+learner surface. Reported, not fixed: another lesson's body.
+
+### 7. THE CORPUS STORES REFLEXIVES FRAMED WITH `se`. SETTLED.
+
+Doctrine §E's open question, measured: eight of eight exist as `se lever`,
+`se coucher`, `se laver`, `s'habiller`, `se réveiller`, `se doucher`,
+`se reposer`, `se dépêcher`; two of eight exist bare. **The manifest re-measures
+both counts on every regeneration and refuses if the bare set overtakes the
+framed one.** a2.23 inherits this without reopening it.
+
+### 8. `fold()` DECIDES THE FRAME VERB, AND IT KILLED THE BRIEF'S
+
+`fold('je me lève') === fold('je me leve')`. No typed surface can test the
+accent, so `se lever` cannot carry a lesson whose whole claim is that the learner
+PRODUCES the form. `se laver` has no stem change and all six cells are distinct.
+**A brief naming a frame verb should be checked against `fold` before anything
+else is planned.**
+
+### 9. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3860   pass 3860   fail 0        measured 2026-08-15, before a2.22
+  tests 3906   pass 3906   fail 0        after a2.22 (+46)
+a1-03-genre.test.ts   ending population 1890 both ways, measured off the SEED.
+                      0 gendered rows authored OR carried; two were REFUSED
+                      (both copies of « le souvenir »).
+npx tsc --noEmit      0 in ealch-v2 AND 0 in ealch-admin
+seed.json             version 42, 9267 items, 60 lessons, 75 units (before)
+                      version 42, 9301 items, 61 lessons, 75 units (after, NOT
+                        published; the merge left the version alone)
+                      +31 authored, +3 CARRIED through the cut (predicted 3)
+mutation harness      35 mutations, 0 caught by nothing, 0 skipped, SEVEN
+                        finding a weakness rather than confirming a strength
+```
+
+**TWO lessons now sit in the seed above the last published snapshot: a2.22 at
+v2.** v42 carried a2.21 and everything before it.
+
+### 10. WHAT a2.23 INHERITS, AND IT IS NEXT
+
+- **The negation pair**, both literals, five lessons deep. §6.
+- **`PRESENT_NO_AGREEMENT`**, worded so it can be quoted rather than re-derived.
+  It is the clean background a2.23 changes.
+- **The reciprocal is LEFT OUT**, named once receptively on `s13-later`. Its
+  brief already says to follow whatever a2.22 did.
+- **Not one compound form anywhere in a2.22**, guarded on every surface rather
+  than only production, so a2.23's whole subject is untouched.
+- **`se laver` is the frame verb**, and `fold` is why — which matters more there,
+  since its agreement is orthographic and typed.
+- **The `les mains` case is named receptively and not taught**, so a2.23 inherits
+  an open question rather than a half-taught rule.
+- **`ne` does not elide in the present**, and it will again in the compound past:
+  « il ne s'est pas lavé » elides the PRONOUN rather than the `ne`.
+- **Widen the double-stop guard (§4) before authoring, not after.**

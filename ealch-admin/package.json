@@ -64,6 +64,7 @@
     "content:faire-dire-lire": "tsx scripts/author-faire-dire-lire-batch.ts",
     "content:modaux": "tsx scripts/author-modaux-batch.ts",
     "content:parity": "tsx scripts/check-seed-db-parity.ts",
+    "content:pronominaux": "tsx scripts/author-pronominaux-batch.ts",
     "corpus:probe": "tsx scripts/probe-corpus.ts",
     "content:publish": "tsx scripts/publish-content.ts",
     "content:generate": "tsx scripts/generate-content.ts",
