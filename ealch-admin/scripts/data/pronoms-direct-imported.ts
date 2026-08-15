@@ -1,0 +1,98 @@
+// The imported half of a2.06.
+//
+// pronoms-direct-rows.gen.ts is a RECORDED READ of Postgres: it holds what the
+// database said on the day the manifest was regenerated, byte for byte, and
+// nothing in it is edited by hand. This file is the layer between that record
+// and a screen.
+//
+// ── WHY A LAYER IS NEEDED ──────────────────────────────────────────────────
+//
+// Two reasons here, and the first is the one a2.21, a2.22 and a2.23 all met:
+//
+//   THE TWO IMPORTED SENTENCES CARRY NO RESPELLING. Normal for a published
+//   sentence and fatal on a card that prints one. `respell()` THROWS rather
+//   than returning undefined, so a card wanting a respelling for a row that has
+//   none fails in the batch instead of drawing an empty bracket on a phone.
+//
+//     respell present   the seven headwords
+//     respell absent    both sentences, without exception
+//
+//   AND THIS BUILD ACTUALLY REPAIRS SOMETHING, which a2.22 and a2.23 did not.
+//   Eight rows across six themes. `APPLIED` is the map from id to the value a
+//   screen must print, and it is DERIVED from RESPELL_REPAIRS rather than
+//   retyped, so the repair table and the display layer cannot drift apart.
+//
+// ── AND THE FIELD THAT IS NOT A RESPELLING AND LOOKS LIKE ONE ──────────────
+//
+// a2.22 found `fr.a1.cuisine.228` carrying a `notes` field holding a JSON tile
+// breakdown rather than a teaching note, and that a screen reading `row.notes`
+// for a hint would print raw JSON. `note()` refuses anything that parses as
+// JSON. Kept rather than dropped: the shape is a property of the corpus, not of
+// that row, and this build imports from `cuisine` territory too.
+
+import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { IMPORTED, IMPORTED_SENTENCES, RESPELL_REPAIRS } from './pronoms-direct-corpus.ts';
+import { PRONOMS_DIRECT_IMPORT_ROWS, STORED_RESPELL } from './pronoms-direct-rows.gen.ts';
+
+/** id -> the value a screen must print, DERIVED from the repair table. A row
+ *  this build repairs displays the repaired value everywhere, including before
+ *  the batch has run, so the lesson and the database agree by construction. */
+const APPLIED: Record<string, string> = Object.fromEntries(
+  RESPELL_REPAIRS.map((r) => [r.id, r.to]),
+);
+
+const BY_ID = new Map(PRONOMS_DIRECT_IMPORT_ROWS.map((r) => [r.id, r]));
+
+export function row(id: string): Item {
+  const r = BY_ID.get(id);
+  if (!r) throw new Error(`a2.06: imported row ${id} is not in the manifest. Re-run scripts/_a206_manifest.ts.`);
+  return r;
+}
+
+export const importedFr = (id: string): string => row(id).fr;
+export const importedEn = (id: string): string => row(id).en;
+
+/** THROWS rather than returning undefined. A card that wants a respelling for a
+ *  row that has none is an authoring error, and the batch is where it should
+ *  surface. */
+export function respell(id: string): string {
+  const applied = APPLIED[id];
+  if (applied) return applied;
+  const r = row(id);
+  if (!r.respell) {
+    throw new Error(
+      `a2.06: ${id} « ${r.fr} » has no respelling and a card asked for one. ` +
+      'Published sentences usually carry none. Use importedFr() or pick a headword.',
+    );
+  }
+  return r.respell;
+}
+
+/** A teaching note, refusing anything that parses as JSON. */
+export function note(id: string): string | undefined {
+  const n = row(id).notes;
+  if (!n) return undefined;
+  const t = n.trim();
+  if ((t.startsWith('{') && t.endsWith('}')) || (t.startsWith('[') && t.endsWith(']'))) {
+    try { JSON.parse(t); return undefined; } catch { /* real prose that happens to start with a brace */ }
+  }
+  return n;
+}
+
+/** The bracketed form a card prints under the French. */
+export const respellCard = (id: string): string => `[${respell(id)}]`;
+
+/** Every id this lesson imports, in one list, for the merge and the guards. */
+export const IMPORTED_IDS: readonly string[] = [
+  ...IMPORTED.map((i) => i.id),
+  ...IMPORTED_SENTENCES.map((i) => i.id),
+];
+
+/** The rows whose stored respelling this build changes. Exported so the merge
+ *  can carry the REPAIRED value rather than the recorded one, and so the test
+ *  can assert the two agree. */
+export const REPAIRED_IDS: readonly string[] = RESPELL_REPAIRS.map((r) => r.id);
+
+/** What the database held before the repair, for the guard that asserts the
+ *  repair table has not drifted from the recorded read. */
+export { STORED_RESPELL };

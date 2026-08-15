@@ -990,7 +990,9 @@
       "level": "a2",
       "title": "Direct Object Pronouns",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.06.l1"
+      ],
       "prereqUnitIds": [
         "a2.01"
       ]
@@ -183791,6 +183793,2461 @@
         "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
         "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
       ]
+    },
+    {
+      "id": "a2.06.l1",
+      "unitId": "a2.06",
+      "seq": 1,
+      "title": "Pronoms d'objet direct",
+      "tag": "A2 · LEÇON 21",
+      "level": "a2",
+      "version": 3,
+      "intro": "You have known le, la and les since your fourth lesson, and you have been using them in front of nouns ever since. This is the other job they do. The words are the same, the choice between them is the same, and the only new thing is where they sit: French puts this one in front of the verb, where English puts it behind. That is the whole lesson, and it is worth a whole lesson because word order is the last thing anybody gives up.",
+      "grammarAssumed": [
+        "The definite article in all four forms, introduced in a1.04",
+        "Noun gender as a stored property of the noun, introduced in a1.03",
+        "The present tense of regular -ER verbs and its silent endings, introduced in a2.01",
+        "Standard negation with ne … pas around a finite verb, introduced in a1.18",
+        "That ne … pas encloses the verb that changed rather than the one carrying the meaning, introduced in a2.19 and quoted by a2.05, a2.21, a2.22 and a2.23",
+        "Elision of le and la to l' before a vowel sound, introduced in sons.07",
+        "The preverbal reflexive clitic and its position, introduced in a2.22",
+        "The passé composé as auxiliary plus past participle, introduced in a2.05",
+        "The irregular past participle groups, introduced in a2.20",
+        "That -é, -ée, -és and -ées are homophonous, introduced in a2.01 and paid off in a2.21"
+      ],
+      "grammarIntroduced": [
+        "The third-person direct object pronouns le, la, les and their elided form l', as a paradigm distinct from the homophonous definite articles",
+        "Obligatory preverbal placement of the direct object pronoun in a finite clause, against the postverbal object position of English",
+        "That the direct object pronoun agrees in gender and number with its antecedent and is invariant with respect to the subject, in explicit contrast with the reflexive clitic of a2.22",
+        "Neutralisation of the gender contrast under elision before a vowel-initial verb, and the consequent unrecoverability of the antecedent's gender from the clause alone",
+        "That ne … pas encloses the clitic together with the finite verb, extending a1.18, a2.19 and a2.22 to a clitic that is not subject-agreeing",
+        "Placement of the clitic before the auxiliary rather than between auxiliary and participle in compound tenses",
+        "Past participle agreement with a PRECEDING direct object, taught here in one act after a2.23 met the suspended case receptively and a2.24's brief deferred it to this unit",
+        "That the four written agreement forms are homophonous, so the rule is realised orthographically only",
+        "Indirect object pronouns lui and leur are reserved entirely for a2.24, and pronominal y and en for a2.25",
+        "Co-occurrence of two object pronouns in one clause is reserved beyond this unit"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "Direct Object Pronouns",
+        "subFr": "Pronoms d'objet direct",
+        "introFr": "Le mot passe devant le verbe.",
+        "minutes": 30,
+        "difficulty": 3,
+        "glyph": "🔁",
+        "screens": 212
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The word with nowhere to go",
+          "sections": [
+            "s01-scene",
+            "s02-order",
+            "s03-goals"
+          ],
+          "milestone": "You have seen the two orders side by side and know which one French uses.",
+          "estScreens": 20,
+          "restPoints": [
+            "s02-order/after-the-orders"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Three words you already have",
+          "sections": [
+            "s04-article",
+            "s05-table",
+            "s06-persons"
+          ],
+          "milestone": "You can tell a1.04's job from this one by looking at the word beside it, and pick between the three.",
+          "estScreens": 18
+        },
+        {
+          "id": "act3",
+          "title": "In front of the verb",
+          "sections": [
+            "s07-move",
+            "s08-build",
+            "s09-trap",
+            "s10-unseen",
+            "s11-errors"
+          ],
+          "milestone": "You can replace a noun and place the word, at speed, on verbs this lesson never showed you.",
+          "estScreens": 62,
+          "restPoints": [
+            "s08-build/after-the-build",
+            "s09-trap/after-the-trap"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Two things that go wrong",
+          "sections": [
+            "s12-elision",
+            "s13-listening",
+            "s14-negation"
+          ],
+          "milestone": "You know which gender the shortened form carries, which is none, and where ne and pas close.",
+          "estScreens": 26,
+          "restPoints": [
+            "s13-listening/after-the-listening"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "And in the past",
+          "sections": [
+            "s15-past",
+            "s16-agreement",
+            "s17-flash",
+            "s18-dictation"
+          ],
+          "milestone": "You can put the word in front of a two-word verb and write the ending nobody can hear.",
+          "estScreens": 40,
+          "restPoints": [
+            "s18-dictation/after-the-dictee"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s19-talk",
+            "s20-speak",
+            "s21-review",
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "Thirty questions, and most of them asked for a whole sentence rather than a choice between four.",
+          "estScreens": 46,
+          "restPoints": [
+            "s20-speak/after-the-speaking",
+            "s21-review/before-the-exam"
+          ]
+        }
+      ],
+      "reframe": "The pronoun goes in front of the verb, not after it.",
+      "errorTriggers": [
+        {
+          "id": "err-after-verb",
+          "description": "Puts the word where English puts it, behind the verb. « Je vois le. » THE error of this lesson: the brief predicts it will be produced consistently rather than occasionally, because word order is the last thing a second language gives up, and it is the sentence the opening scene dies on.",
+          "detectOn": [
+            "s02-order",
+            "s08-build",
+            "s09-trap",
+            "s10-unseen",
+            "s23-quiz"
+          ],
+          "drill": "drill-position",
+          "retest": "retest-position"
+        },
+        {
+          "id": "err-wrong-gender",
+          "description": "Places the word correctly and picks the wrong one of the three, usually le for a feminine noun. « Je le regarde » for la photo. The position is this lesson's and the gender is a1.03's, so this is a prerequisite failing rather than a new one, and the drill sends the learner back to the noun.",
+          "detectOn": [
+            "s05-table",
+            "s08-build",
+            "s23-quiz"
+          ],
+          "drill": "drill-gender",
+          "retest": "retest-gender"
+        },
+        {
+          "id": "err-wrap-narrow",
+          "description": "Closes the wrap round the verb alone and strands the word outside it. « Je ne vois pas le. » a2.22's extension is about a word that changes with the subject and does not by itself cover a word that does not.",
+          "detectOn": [
+            "s14-negation",
+            "s23-quiz"
+          ],
+          "drill": "drill-wrap",
+          "retest": "retest-wrap"
+        },
+        {
+          "id": "err-no-ending",
+          "description": "Leaves the second word bare when the pronoun has come before it. « Je l'ai vu. » for a feminine thing. Nothing in the sound ever asked for the ending, so there is no reason inside the learner's ear to add one.",
+          "detectOn": [
+            "s16-agreement",
+            "s18-dictation",
+            "s23-quiz"
+          ],
+          "drill": "drill-ending",
+          "retest": "retest-ending"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-position",
+          "title": "Which side of the verb",
+          "format": "sort",
+          "buckets": [
+            "French: in front of the verb",
+            "English order, not French"
+          ],
+          "items": [
+            "fr.a2.pronoms-essentiels.190",
+            "fr.a2.pronoms-essentiels.196",
+            "fr.a2.pronoms-essentiels.200",
+            "fr.a2.pronoms-essentiels.197",
+            "fr.a2.pronoms-essentiels.192",
+            "fr.a2.pronoms-essentiels.204"
+          ],
+          "coach": "The pronoun goes in front of the verb, not after it. Every card in the left bucket is subject, word, verb. If you can say the three in that order without stopping, the rule has landed."
+        },
+        {
+          "id": "retest-position",
+          "title": "One more",
+          "format": "mcq",
+          "q": "« Je vois le film. » Say it without the noun.",
+          "opts": [
+            "Je le vois.",
+            "Je vois le.",
+            "Le je vois."
+          ],
+          "correct": 0,
+          "why": "The word goes in front of the verb. The third option is what happens if you take \"first\" too literally: it comes after the subject, not before it."
+        },
+        {
+          "id": "drill-gender",
+          "title": "Which of the three",
+          "format": "sort",
+          "buckets": [
+            "le",
+            "la",
+            "les"
+          ],
+          "items": [
+            "fr.a2.pronoms-essentiels.190",
+            "fr.a2.pronoms-essentiels.201",
+            "fr.a2.pronoms-essentiels.200",
+            "fr.a2.pronoms-essentiels.192",
+            "fr.a2.pronoms-essentiels.197",
+            "fr.a2.pronoms-essentiels.199"
+          ],
+          "coach": "Read the noun, not the sentence. a1.03 taught you to store it and a1.04 taught you to say it; this lesson only decides where it goes."
+        },
+        {
+          "id": "retest-gender",
+          "title": "One more",
+          "format": "mcq",
+          "q": "La photo. Which word replaces it?",
+          "opts": [
+            "la",
+            "le",
+            "les"
+          ],
+          "correct": 0,
+          "why": "Feminine and singular, so la. The gender is the noun's and it never becomes a guess."
+        },
+        {
+          "id": "drill-wrap",
+          "title": "Where pas stops",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "Je le vois.",
+              "Je ne le vois pas."
+            ],
+            [
+              "Je la connais.",
+              "Je ne la connais pas."
+            ],
+            [
+              "Je les achète.",
+              "Je ne les achète pas."
+            ]
+          ],
+          "coach": "Wrap the verb that changed, not the one carrying the meaning. The wrap goes round the pronoun and the verb together. Ne outside both, pas behind both, and the word never leaves the verb."
+        },
+        {
+          "id": "retest-wrap",
+          "title": "One more",
+          "format": "mcq",
+          "q": "Make « Je le vois. » negative.",
+          "opts": [
+            "Je ne le vois pas.",
+            "Je ne vois pas le.",
+            "Ne je le vois pas."
+          ],
+          "correct": 0,
+          "why": "The wrap goes round the pronoun and the verb together."
+        },
+        {
+          "id": "drill-ending",
+          "title": "The ending nobody hears",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "J'ai vu le film.",
+              "Je l'ai vu."
+            ],
+            [
+              "J'ai vu la photo.",
+              "Je l'ai vue."
+            ],
+            [
+              "J'ai acheté les livres.",
+              "Je les ai achetés."
+            ]
+          ],
+          "coach": "When the pronoun comes before the verb, the second word takes its ending. Nothing in the sound changes. The ending is written and it is never heard. Each pair names the thing on the left and says it first on the right, and only the right-hand one can take an ending."
+        },
+        {
+          "id": "retest-ending",
+          "title": "One more",
+          "format": "mcq",
+          "q": "« J'ai vu la photo. » Replace the noun. Which one?",
+          "opts": [
+            "Je l'ai vue.",
+            "Je l'ai vu.",
+            "J'ai vue la photo."
+          ],
+          "correct": 0,
+          "why": "When the pronoun comes before the verb, the second word takes its ending. Feminine, in front of the verb, so an e. And you will never hear it."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet-pronoms-direct",
+          "layer": "deep",
+          "title": "Where the word goes",
+          "contains": [
+            "The rule",
+            "The four forms",
+            "The three places",
+            "Saying no",
+            "Next"
+          ],
+          "sections": [
+            {
+              "id": "sheet-rule",
+              "type": "teach",
+              "layer": "deep",
+              "title": "The rule, in one line",
+              "body": "The pronoun goes in front of the verb, not after it. Say the verb and ask what, or who; whatever answers is the word you replace, and in English it sits behind the verb. In French it sits in front, between the subject and the verb, and nothing else in the sentence moves."
+            },
+            {
+              "id": "sheet-forms",
+              "type": "table",
+              "layer": "deep",
+              "title": "The four forms",
+              "cols": [
+                "word",
+                "stands for",
+                "example"
+              ],
+              "rows": [
+                [
+                  "le",
+                  "one, masculine",
+                  "Je le vois"
+                ],
+                [
+                  "la",
+                  "one, feminine",
+                  "Je la vois"
+                ],
+                [
+                  "les",
+                  "more than one",
+                  "Je les vois"
+                ],
+                [
+                  "l'",
+                  "before a vowel, either gender",
+                  "Je l'aime"
+                ]
+              ]
+            },
+            {
+              "id": "sheet-places",
+              "type": "table",
+              "layer": "deep",
+              "title": "The three places, and they are one place",
+              "cols": [
+                "when",
+                "the shape",
+                "example"
+              ],
+              "rows": [
+                [
+                  "present",
+                  "subject · word · verb",
+                  "Je le vois"
+                ],
+                [
+                  "negative",
+                  "subject · ne · word · verb · pas",
+                  "Je ne le vois pas"
+                ],
+                [
+                  "past",
+                  "subject · word · first word · second word",
+                  "Je l'ai vu"
+                ],
+                [
+                  "past, negative",
+                  "subject · ne · word · first word · pas · second word",
+                  "Je ne les ai pas vues"
+                ]
+              ]
+            },
+            {
+              "id": "sheet-no",
+              "type": "teach",
+              "layer": "deep",
+              "title": "Saying no",
+              "body": "« Wrap the verb, then ask what the verb was. » from a1.18, and « Wrap the verb that changed, not the one carrying the meaning. » from a2.19. There is one verb in a present-tense sentence, so the second question never arises here. The wrap goes round the pronoun and the verb together."
+            },
+            {
+              "id": "sheet-ending",
+              "type": "teach",
+              "layer": "deep",
+              "title": "The ending in the past",
+              "body": "When the pronoun comes before the verb, the second word takes its ending. Nothing in the sound changes. The ending is written and it is never heard. « J'ai vu la photo » names the thing afterwards and nothing goes on. « Je l'ai vue » says it first and an e goes on. Four spellings, one sound, so this is a writing rule and the dictée is the only place it is real. This is a2.06's rule and nowhere else's."
+            },
+            {
+              "id": "sheet-next",
+              "type": "teach",
+              "layer": "deep",
+              "title": "What comes next",
+              "body": "a2.24 puts a different kind of word into this same slot, and a2.25 puts two more. None of them changes the position; the position is what you learned here and all three lessons share it. a2.22's me, te and se were already in it before you started."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.pronoms-essentiels.190",
+          "fr.a2.pronoms-essentiels.194",
+          "fr.a2.pronoms-essentiels.196"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.189",
+          "fr.a2.pronoms-essentiels.191",
+          "fr.a2.pronoms-essentiels.192",
+          "fr.a2.pronoms-essentiels.193",
+          "fr.a2.pronoms-essentiels.197",
+          "fr.a2.pronoms-essentiels.200",
+          "fr.a2.pronoms-essentiels.201",
+          "fr.a2.pronoms-essentiels.202",
+          "fr.a2.pronoms-essentiels.203",
+          "fr.a2.pronoms-essentiels.204",
+          "fr.a2.pronoms-essentiels.205",
+          "fr.a2.pronoms-essentiels.206",
+          "fr.a2.pronoms-essentiels.207"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.195",
+          "fr.a2.pronoms-essentiels.212",
+          "fr.a2.pronoms-essentiels.218",
+          "fr.a2.pronoms-essentiels.219",
+          "fr.a2.pronoms-essentiels.220",
+          "fr.a2.pronoms-essentiels.221",
+          "fr.a1.pronoms-essentiels.096",
+          "fr.a1.pronoms-essentiels.087"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.208",
+          "fr.a2.pronoms-essentiels.209",
+          "fr.a2.pronoms-essentiels.211",
+          "fr.a2.pronoms-essentiels.213",
+          "fr.a2.pronoms-essentiels.216",
+          "fr.sons.verbes-essentiels.016"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.198",
+          "fr.a2.pronoms-essentiels.199",
+          "fr.a2.pronoms-essentiels.222",
+          "fr.a2.pronoms-essentiels.223",
+          "fr.a2.pronoms-essentiels.224",
+          "fr.a2.pronoms-essentiels.225",
+          "fr.a2.pronoms-essentiels.226",
+          "fr.a2.pronoms-essentiels.227",
+          "fr.a2.pronoms-essentiels.228",
+          "fr.a2.pronoms-essentiels.229",
+          "fr.a2.pronoms-essentiels.234",
+          "fr.sons.verbes-essentiels.011",
+          "fr.sons.verbes-essentiels.024",
+          "fr.sons.verbes-essentiels.048",
+          "fr.a2.courses.020",
+          "fr.a1.routines.185",
+          "fr.a1.amis.019"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.210",
+          "fr.a2.pronoms-essentiels.214",
+          "fr.a2.pronoms-essentiels.215",
+          "fr.a2.pronoms-essentiels.217",
+          "fr.a2.pronoms-essentiels.230",
+          "fr.a2.pronoms-essentiels.231",
+          "fr.a2.pronoms-essentiels.232",
+          "fr.a2.pronoms-essentiels.233",
+          "fr.a2.pronoms-essentiels.235",
+          "fr.a2.pronoms-essentiels.236"
+        ]
+      ],
+      "terms": {
+        "whatOrWho": {
+          "term": "the what or the who",
+          "title": "How to find the word this lesson is about",
+          "body": "Say the verb, then ask what, or who. See what? The film. Know who? Marie. Whatever answers that question is the word this lesson replaces, and in English it sits directly after the verb every time. That position is the only thing you have to give up. The pronoun goes in front of the verb, not after it. Not every verb has one. « I sleep » answers nothing, and a verb with no answer to what or who has nothing for a pronoun to stand in place of.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.189",
+              "note": "See what? The film. It is sitting where English always puts it."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.195",
+              "note": "Know who? Marie. A person answers the question exactly as a thing does."
+            }
+          ]
+        },
+        "inFront": {
+          "term": "the word after the verb",
+          "title": "The one thing that changes, and it changes every time",
+          "body": "English has one place for this word and it is behind the verb. French has one place for it and it is in front. Nothing else about the sentence moves: the subject stays first, the verb keeps its ending, and the word you would have said last is said second instead. The pronoun goes in front of the verb, not after it. The reason this is worth a whole lesson rather than a footnote is that word order is the last thing a second language gives up. You will know this rule and still say it the English way under pressure, and the only cure is having said it the French way often enough that it arrives first.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.190",
+              "note": "Three words, and the middle one is the one English would have put last."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.202",
+              "note": "Two words that look alike in a row, and only the second is the verb."
+            }
+          ]
+        },
+        "sameWords": {
+          "term": "one word, two jobs",
+          "title": "The shape you have met four times, and a2.02 named it",
+          "body": "« what comes next decides » is the line a2.02 gave this pattern, and you have met it four times: venir de, il y a, aller, and prendre. This is the fifth and it works slightly differently, so it is worth saying rather than leaving you to notice. Here the word after it decides, and so does where it sits: an article leans on a noun, a pronoun leans on a verb. In « Je vois le film » the le is holding up a noun and you met it in a1.04. In « Je le vois » there is no noun for it to hold up, and the word straight after it is a verb. Same three letters, and the thing beside them tells you which job is being done.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.189",
+              "note": "The a1.04 job. A noun follows, so it is the article."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.190",
+              "note": "This lesson's job. A verb follows, so it is the pronoun."
+            }
+          ]
+        },
+        "whichOne": {
+          "term": "which of the three",
+          "title": "A question a1.03 already answered",
+          "body": "The choice between le, la and les is not a new decision. It is the noun's gender and number, which is exactly what a1.03 taught you to store and what a1.04 taught you to say. Plural takes les and the gender is not consulted at all. Singular takes le or la, and if you cannot gender the noun you cannot pick, which is why this lesson keeps the noun visible on every card that asks you to choose. Nothing here re-teaches gender. It simply becomes the thing you are spending, rather than the thing you are learning.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.191",
+              "note": "La photo is feminine, and the card shows you the noun so you are not guessing."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.199",
+              "note": "Plural, so the question never arrives."
+            }
+          ]
+        },
+        "shortened": {
+          "term": "l'",
+          "title": "The form that loses the gender, and sons.07 owns why",
+          "body": "Before a vowel both le and la become l', and at that point nothing in the sentence tells you which one it was. You have met this before: sons.07 teaches it properly and at length, and nothing about it is new here. What IS new is what it costs you in this lesson. You spend the first half learning that le is masculine and la is feminine, and then meet a form where that distinction is gone from the sound and gone from the page. « Je l'aime » is him or it is her, and the sentence does not say. Nobody can be tested on it and nobody can hear it. It is not a gap in your French; it is a gap in the language, and the surrounding conversation is what fills it.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.207",
+              "note": "Him or her. The English gloss carries both because the French carries both."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.211",
+              "note": "And the plural does not shorten. Les keeps its shape and adds a z sound, so the plural survives where the two singulars do not."
+            }
+          ]
+        },
+        "theWrap": {
+          "term": "the wrap",
+          "title": "What ne and pas go round, now that there is an extra word",
+          "body": "« Wrap the verb that changed, not the one carrying the meaning. » is the line you have carried since the near future, and it still holds. There is only one verb in these sentences, so the question of which verb never arises. The question that does arise is what counts as the verb, and the answer is that the pronoun has joined it. The wrap goes round the pronoun and the verb together. Ne goes outside both, pas goes after both, and the pronoun never leaves the verb's side. a2.22 taught you the same thing about its own small word one lesson before this, so this is one habit rather than two.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.212",
+              "note": "Ne outside, then the pronoun and the verb together, then pas."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.216",
+              "note": "And the shortened form behaves no differently inside the wrap."
+            }
+          ]
+        },
+        "theEnding": {
+          "term": "the ending you cannot hear",
+          "title": "What happens in the past, and why only writing shows it",
+          "body": "When the pronoun comes before the verb, the second word takes its ending. Nothing in the sound changes. The ending is written and it is never heard. « J'ai vu la photo » names the thing afterwards and nothing happens. « Je l'ai vue » says it first, and an e goes on the end of the second word. Both sentences sound exactly the same, which is not a quirk of these two verbs: vu, vue, vus and vues are one sound, the way you were told endings would be back in the very first A2 lesson. So this is a writing rule, and the only place in this lesson that can prove you have it is the dictée and the one typed question in the exam.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.224",
+              "note": "Named after the verb, so nothing goes on the end."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.225",
+              "note": "Said before the verb, so the e goes on. The respelling is identical to the row above it on purpose."
+            }
+          ]
+        },
+        "frontOfBoth": {
+          "term": "in front of the first word",
+          "title": "Where the pronoun goes when the verb is two words long",
+          "body": "In the past the verb arrives as two words, and there is an obvious place to put a small word: between them. That is the wrong place. The pronoun goes in front of BOTH of them, which is the rule you already have applied to a verb that happens to start earlier than you expected. The pronoun goes in front of the verb, not after it. « Je l'ai vu », never « J'ai le vu ». Say the person, say the pronoun, and only then start the verb.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.223",
+              "note": "The pronoun, then ai, then vu. Everything verb-shaped is behind it."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.234",
+              "note": "And with the wrap as well: ne, pronoun, first word, pas, second word."
+            }
+          ]
+        }
+      },
+      "sections": [
+        {
+          "id": "s01-scene",
+          "type": "scene",
+          "title": "The Word That Came Late",
+          "frSub": "Le mot qui arrive trop tard",
+          "layer": "core",
+          "render": "screens",
+          "setting": {
+            "place": "A kitchen with too many people in it",
+            "city": "Marseille",
+            "time": "A Friday, late"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A friend of a friend's kitchen, somewhere off the Cours Julien, and six people around a table that seats four. You have been doing well. Two hours of French and nobody has switched to English for you once.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "The woman beside you is refilling glasses. She has just been talking about somebody who is running late, and she turns and asks you something with an easy answer.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Ta voisine de table",
+              "fr": "Tu connais Camille ?",
+              "en": "Do you know Camille?",
+              "size": "md",
+              "reveal": "tap",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "fr": "Oui, je connais… la ?",
+              "en": "Yes, I know… her?",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "Three words arrive on time and the fourth does not. You know the word. You know it is la, because Camille is a woman and you have been storing genders since your third lesson. Where to put it is the part with nowhere to go.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Ta voisine de table",
+              "fr": "Tu la connais d'où ?",
+              "en": "Where do you know her from?",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "She is not correcting you. She heard « oui, je connais » and a name she did not catch, and she is asking the obvious follow-up. The conversation has moved and your sentence has not.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "Which of these is the sentence you meant?",
+              "options": [
+                {
+                  "fr": "Oui, je la connais.",
+                  "en": "Yes, I know her.",
+                  "outcome": "works"
+                },
+                {
+                  "fr": "Oui, je connais… la ?",
+                  "en": "Yes, I know… her?",
+                  "outcome": "breaks"
+                }
+              ],
+              "followUp": {
+                "works": "That is it, and the only difference is which side of the verb one word sits on. Everything else you already had.",
+                "breaks": "That is what came out, and every word in it is a word you know. The order is the whole problem, and the order is what this lesson is."
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "You had the word. You did not have the place",
+              "body": "Every word there was one you know, and they arrived in the order English hands them to you. French had already passed the place that word goes, and by the time you reached for it the slot was gone.",
+              "wrong": {
+                "fr": "Oui, je connais… la ?",
+                "ipa": "/wi ʒə kɔ.nɛ la/",
+                "respell": "[wee, zhuh koh-NEH lah]",
+                "en": "Yes, I know… her?"
+              },
+              "right": {
+                "fr": "Oui, je la connais.",
+                "ipa": "/wi ʒə la kɔ.nɛ/",
+                "respell": "[wee, zhuh lah koh-NEH]",
+                "en": "Yes, I know her."
+              },
+              "coach": "The pronoun goes in front of the verb, not after it.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "Nothing in that sentence was vocabulary and nothing in it was gender. The pronoun goes in front of the verb, not after it. That is the lesson, and the rest of it is practice at doing it before you have time to think."
+            }
+          ]
+        },
+        {
+          "id": "s02-order",
+          "type": "cardDeck",
+          "title": "Two Orders, One Sentence",
+          "frSub": "Avant ou après",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Three pairs, and in each one the English is above and the French is below. Watch one word change sides. The pronoun goes in front of the verb, not after it.",
+          "hint": "The word moves. Nothing else does.",
+          "terms": [
+            "inFront",
+            "whatOrWho",
+            "sameWords"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-06-order"
+          },
+          "cards": [
+            {
+              "head": "I see it",
+              "label": "English: after · French: before",
+              "fr": "I see it.  →  Je le vois.",
+              "sub": "[zhuh luh VWAH] subject, then the word, then the verb",
+              "body": "English says the verb and then the word. French says the word and then the verb. Both sentences are three words long, and one of them is in a different place."
+            },
+            {
+              "head": "I know her",
+              "label": "English: after · French: before",
+              "fr": "I know her.  →  Je la connais.",
+              "sub": "[zhuh lah koh-NEH] and a person behaves exactly like a thing",
+              "body": "English changes the word itself here, from Marie to \"her\". French changes it too, from Marie to la, and then puts it somewhere English never would."
+            },
+            {
+              "head": "I buy them",
+              "label": "English: after · French: before",
+              "fr": "I buy them.  →  Je les achète.",
+              "sub": "[zhuh lay zah-SHEHT] plural, and the same place",
+              "body": "Three sentences, three different words, one place. the word after the verb in English is the one thing you have to give up, and you give it up every time rather than sometimes."
+            }
+          ]
+        },
+        {
+          "id": "s03-goals",
+          "type": "goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Put the word in front of the verb",
+              "s": "The pronoun goes in front of the verb, not after it. This is the whole lesson and everything else on the list is something you already own."
+            },
+            {
+              "t": "Pick between three words you have",
+              "s": "le, la and les are a1.04's and the choice between them is a1.03's. Nothing here re-teaches either; you spend them."
+            },
+            {
+              "t": "Say no without moving it",
+              "s": "The wrap goes round the pronoun and the verb together. One negation rule, five lessons old, and this adds a sentence to it rather than a rule."
+            },
+            {
+              "t": "Write the ending in the past",
+              "s": "When the pronoun comes before the verb, the second word takes its ending. Nothing in the sound changes. The ending is written and it is never heard."
+            }
+          ]
+        },
+        {
+          "id": "s04-article",
+          "type": "cardDeck",
+          "title": "The Same Three Words",
+          "frSub": "Article ou pronom",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "You have met these three words before and they were doing something else. « what comes next decides » is how a2.02 put it, and this is the fifth time it has come up.",
+          "hint": "Look at the word straight after it.",
+          "terms": [
+            "sameWords",
+            "whatOrWho",
+            "whichOne"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-06-article"
+          },
+          "cards": [
+            {
+              "head": "le, twice",
+              "label": "a noun follows · a verb follows",
+              "fr": "Je vois le film.  ·  Je le vois.",
+              "sub": "[zhuh vwah luh FEELM] then [zhuh luh VWAH]",
+              "body": "« what comes next decides » is a2.02's line. In the first sentence film follows, so it is a1.04's word. In the second vois follows, so it is this lesson's."
+            },
+            {
+              "head": "la, twice",
+              "label": "a noun follows · a verb follows",
+              "fr": "Je regarde la photo.  ·  Je la regarde.",
+              "sub": "[zhuh ruh-GARD lah foh-TOH] then [zhuh lah ruh-GARD]",
+              "body": "The same test on the feminine. « When English says nothing, French says le. » is what a1.04 taught you and it is about the first sentence only. The second one is not English saying nothing; it is English saying \"it\", in the other place."
+            },
+            {
+              "head": "les, twice",
+              "label": "a noun follows · a verb follows",
+              "fr": "J'achète les livres.  ·  Je les achète.",
+              "sub": "[zhah-SHEHT lay LEEVR] then [zhuh lay zah-SHEHT]",
+              "body": "And the plural. By the fifth time this shape has come round you should be looking for it: one form, two jobs, and the thing beside it settles which. a2.02, a2.19 and two others have all been a version of this."
+            }
+          ]
+        },
+        {
+          "id": "s05-table",
+          "type": "tapTable",
+          "title": "Four Forms, One Place",
+          "frSub": "le · la · les · l'",
+          "layer": "core",
+          "say": "Four words and one position. Tap any row to hear it. The choice between them is a1.03's and a1.04's, and it is the only part of this lesson that is not new.",
+          "terms": [
+            "whichOne",
+            "inFront",
+            "shortened"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-06-table"
+          },
+          "cols": [
+            "word",
+            "stands for",
+            "example"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "le",
+                "one, masculine",
+                "Je le vois"
+              ],
+              "say": "Je le vois.",
+              "detail": {
+                "title": "« le »",
+                "say": "Je le vois.",
+                "body": "[zhuh luh VWAH] I see it. One masculine noun, or one man. a1.03 taught you to store the gender and this is where you spend it."
+              }
+            },
+            {
+              "cells": [
+                "la",
+                "one, feminine",
+                "Je la vois"
+              ],
+              "say": "Je la vois.",
+              "detail": {
+                "title": "« la »",
+                "say": "Je la vois.",
+                "body": "[zhuh lah VWAH] I see her. One feminine noun, or one woman. Same place in the sentence, and the only thing that changed is the vowel."
+              }
+            },
+            {
+              "cells": [
+                "les",
+                "more than one",
+                "Je les vois"
+              ],
+              "say": "Je les vois.",
+              "detail": {
+                "title": "« les »",
+                "say": "Je les vois.",
+                "body": "[zhuh lay VWAH] I see them. More than one, of either gender or both. The gender is not consulted, exactly as a1.04 said of the article."
+              }
+            },
+            {
+              "cells": [
+                "l'",
+                "before a vowel",
+                "Je l'aime"
+              ],
+              "say": "Je l'aime.",
+              "detail": {
+                "title": "« l' »",
+                "say": "Je l'aime.",
+                "body": "[zhuh LEM] I love him. Or her. Before a vowel both le and la become l', and at that point nothing in the sentence tells you which one it was. sons.07 owns it."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s06-persons",
+          "type": "examples",
+          "title": "The Subject Has No Say",
+          "frSub": "Le sujet ne change rien",
+          "layer": "core",
+          "say": "Six sentences, six different subjects, and the word in front of the verb does not respond to any of them. a2.22 was the opposite and it was one lesson ago, so this is worth a screen.",
+          "terms": [
+            "whichOne",
+            "inFront"
+          ],
+          "examples": [
+            {
+              "fr": "Il le regarde.",
+              "en": "He looks at him.",
+              "note": "[eel luh ruh-GARD] Two le-shaped words in a row, and only the second one belongs to the verb."
+            },
+            {
+              "fr": "Elle la connaît.",
+              "en": "She knows her.",
+              "note": "[ehl lah koh-NEH] A feminine subject and a feminine pronoun with nothing to do with each other. La is the gender of the person known, not of the person knowing."
+            },
+            {
+              "fr": "Nous les invitons.",
+              "en": "We invite them.",
+              "note": "[noo lay zaⁿ-vee-TOHⁿ] And the s of les is audible here, because a vowel follows it."
+            },
+            {
+              "fr": "Vous le voyez.",
+              "en": "You see it.",
+              "note": "[voo luh vwah-YAY] Vous, and le is unchanged."
+            },
+            {
+              "fr": "Ils les achètent.",
+              "en": "They buy them.",
+              "note": "[eel lay zah-SHEHT] Ils, and les is unchanged. The verb ending is silent, which is a2.01's business and not this lesson's."
+            },
+            {
+              "fr": "Tu le connais.",
+              "en": "You know him.",
+              "note": "[tü luh koh-NEH] « The pronoun changes with the subject, because it is the subject. » is a2.22's line about ITS small word. This one is the other kind: it takes the gender of the thing it stands for and ignores the subject entirely."
+            }
+          ]
+        },
+        {
+          "id": "s07-move",
+          "type": "examples",
+          "title": "Name It, Then Replace It",
+          "frSub": "Du nom au pronom",
+          "layer": "core",
+          "say": "Four sentences that name the thing, and the same four with it replaced. Read across rather than down: the word gets shorter and it moves.",
+          "terms": [
+            "whatOrWho",
+            "inFront",
+            "whichOne"
+          ],
+          "examples": [
+            {
+              "fr": "Je vois le film.  ·  Je le vois.",
+              "en": "I see the film. / I see it.",
+              "note": "[zhuh luh VWAH] See what? Le film. That is the what or the who, and it goes from four words after the verb to one word before it."
+            },
+            {
+              "fr": "Je regarde la photo.  ·  Je la regarde.",
+              "en": "I look at the photo. / I look at it.",
+              "note": "[zhuh lah ruh-GARD] Look at what? La photo. Feminine, so la, and a1.03 is the only reason you know that."
+            },
+            {
+              "fr": "J'achète les livres.  ·  Je les achète.",
+              "en": "I buy the books. / I buy them.",
+              "note": "[zhuh lay zah-SHEHT] Buy what? Les livres. Plural, so les, and the gender never comes up."
+            },
+            {
+              "fr": "Je connais Marie.  ·  Je la connais.",
+              "en": "I know Marie. / I know her.",
+              "note": "[zhuh lah koh-NEH] Know who? Marie. A person, and nothing about the rule changes for one."
+            },
+            {
+              "fr": "Je le vois chaque semaine.",
+              "en": "I see him every week.",
+              "note": "Published, in this lesson's own theme, and written by somebody who was not teaching this. The word is in front of the verb because that is where it goes, not because a lesson said so."
+            },
+            {
+              "fr": "Je la vois tous les jours.",
+              "en": "I see her every day.",
+              "note": "The feminine, same shape, same theme. Two sentences the rule did not produce and which obey it anyway."
+            }
+          ]
+        },
+        {
+          "id": "s08-build",
+          "type": "groupDrill",
+          "title": "Say It Before You Think",
+          "frSub": "On construit la phrase",
+          "layer": "core",
+          "size": "lg",
+          "say": "Three rounds. Say the subject, then reach for the word, and it goes in before the verb every time. The pronoun goes in front of the verb, not after it.",
+          "terms": [
+            "inFront",
+            "whatOrWho",
+            "whichOne"
+          ],
+          "groups": [
+            {
+              "label": "find the word first",
+              "items": [
+                {
+                  "fr": "Je vois le film.",
+                  "en": "I see the film.",
+                  "sub": "[zhuh vwah luh FEELM]"
+                },
+                {
+                  "fr": "Je le vois.",
+                  "en": "I see it.",
+                  "sub": "[zhuh luh VWAH]"
+                }
+              ],
+              "check": {
+                "q": "« Je vois le film. » See what? Now say it without the noun.",
+                "opts": [
+                  "Je le vois.",
+                  "Je vois le.",
+                  "Je vois le film."
+                ],
+                "correct": 0,
+                "why": "Le film is the what or the who, so it becomes le, and le goes in front of vois. The second option is the English order with French words in it."
+              }
+            },
+            {
+              "label": "and the gender decides which",
+              "items": [
+                {
+                  "fr": "Je regarde la photo.",
+                  "en": "I look at the photo.",
+                  "sub": "[zhuh ruh-GARD lah foh-TOH]"
+                },
+                {
+                  "fr": "Je la regarde.",
+                  "en": "I look at it.",
+                  "sub": "[zhuh lah ruh-GARD]"
+                }
+              ],
+              "check": {
+                "q": "« Je regarde la photo. » Replace the noun.",
+                "opts": [
+                  "Je le regarde.",
+                  "Je la regarde.",
+                  "Je regarde la."
+                ],
+                "correct": 1,
+                "why": "La photo is feminine, so la, not le. a1.03 is doing the work here and this lesson only decides where the word lands."
+              }
+            },
+            {
+              "label": "and it never goes on the end",
+              "items": [
+                {
+                  "fr": "Je connais Marie.",
+                  "en": "I know Marie.",
+                  "sub": "[zhuh koh-NEH mah-REE]"
+                },
+                {
+                  "fr": "Je la connais.",
+                  "en": "I know her.",
+                  "sub": "[zhuh lah koh-NEH]"
+                }
+              ],
+              "check": {
+                "q": "« Je connais Marie. » Replace the name.",
+                "opts": [
+                  "Je connais la.",
+                  "Je connais elle.",
+                  "Je la connais."
+                ],
+                "correct": 2,
+                "why": "A person replaces exactly like a thing. Both wrong answers put the word where English puts it, and the first of them is the sentence the scene opened on."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s09-trap",
+          "type": "trapDrill",
+          "title": "Which Side Of The Verb",
+          "frSub": "Avant le verbe",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. The first card is the sentence your own language will hand you every time you stop concentrating.",
+          "terms": [
+            "inFront",
+            "whatOrWho",
+            "theWrap"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "wrongThenRight": true,
+            "recordingId": "rec-a2-06-trap"
+          },
+          "rule": {
+            "title": "In front of the verb, every time",
+            "body": "The pronoun goes in front of the verb, not after it. Not sometimes, and not the way English does it. The word goes between the subject and the verb, and there is nothing else to decide once you know which word it is."
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Where The Word Goes"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "One Wrong, Three Right"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Before The Verb"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Pick The Right Order",
+              "gate": true
+            }
+          ],
+          "cards": [
+            {
+              "fr": "Je vois le.",
+              "ipa": "/ʒə vwa lə/",
+              "promptLabel": "the order English hands you gives",
+              "promptSound": "Je vois le.",
+              "tip": "Every word correct and the sentence stops dead. Le at the end is a word waiting for a noun that never comes, which is why a French ear hears it as unfinished rather than as wrong."
+            },
+            {
+              "fr": "Je le vois.",
+              "ipa": "/ʒə lə vwa/",
+              "promptLabel": "and the same three words in the French order",
+              "promptSound": "Je le vois.",
+              "tip": "Subject, word, verb. Nothing was added and nothing was removed."
+            },
+            {
+              "fr": "Je la connais.",
+              "ipa": "/ʒə la kɔ.nɛ/",
+              "promptLabel": "a person, and it behaves the same",
+              "promptSound": "Je la connais.",
+              "tip": "The scene ended on the other version of this one. Knowing the gender was never the problem."
+            },
+            {
+              "fr": "Je les vois.",
+              "ipa": "/ʒə le vwa/",
+              "promptLabel": "and the plural, in the same place",
+              "promptSound": "Je les vois.",
+              "tip": "Three forms and one position. The position is what this lesson is for."
+            }
+          ],
+          "drill": [
+            {
+              "opts": [
+                "Je le vois.",
+                "Je vois le."
+              ],
+              "correct": 0,
+              "promptSay": "Je le vois."
+            },
+            {
+              "opts": [
+                "Je connais la.",
+                "Je la connais."
+              ],
+              "correct": 1,
+              "promptSay": "Je la connais."
+            },
+            {
+              "opts": [
+                "Je les vois.",
+                "Je vois les."
+              ],
+              "correct": 0,
+              "promptSay": "Je les vois."
+            },
+            {
+              "opts": [
+                "Tu connais le.",
+                "Tu le connais."
+              ],
+              "correct": 1,
+              "promptSay": "Tu le connais."
+            },
+            {
+              "opts": [
+                "Je la regarde.",
+                "Je regarde la."
+              ],
+              "correct": 0,
+              "promptSay": "Je la regarde."
+            },
+            {
+              "opts": [
+                "Nous invitons les.",
+                "Nous les invitons."
+              ],
+              "correct": 1,
+              "promptSay": "Nous les invitons."
+            }
+          ]
+        },
+        {
+          "id": "s10-unseen",
+          "type": "groupDrill",
+          "title": "Verbs Not Taught Here",
+          "frSub": "Des verbes jamais montrés",
+          "layer": "core",
+          "size": "lg",
+          "say": "Four verbs this lesson has not conjugated once. Nothing about them is new and nothing about the rule changes, which is the point of asking.",
+          "terms": [
+            "inFront",
+            "whatOrWho"
+          ],
+          "groups": [
+            {
+              "label": "a verb from your routine",
+              "items": [
+                {
+                  "fr": "Je l'écoute.",
+                  "en": "I listen to it.",
+                  "sub": "[zhuh lay-KOOT]"
+                },
+                {
+                  "fr": "Tu les cherches.",
+                  "en": "You are looking for them.",
+                  "sub": "[tü lay SHEHRSH]"
+                }
+              ],
+              "check": {
+                "q": "« Tu cherches les clés. » Replace the noun.",
+                "opts": [
+                  "Tu cherches les.",
+                  "Tu les cherches.",
+                  "Tu les cherche."
+                ],
+                "correct": 1,
+                "why": "Chercher was never on a screen here and did not need to be. The third option moved the word correctly and dropped the verb ending, which is a2.01's rule."
+              }
+            },
+            {
+              "label": "and an irregular one",
+              "items": [
+                {
+                  "fr": "Elle le prend.",
+                  "en": "She takes it.",
+                  "sub": "[ehl luh PRAHⁿ]"
+                },
+                {
+                  "fr": "Nous la finissons.",
+                  "en": "We finish it.",
+                  "sub": "[noo lah fee-nee-SOHⁿ]"
+                }
+              ],
+              "check": {
+                "q": "« Elle prend le train. » Replace the noun.",
+                "opts": [
+                  "Elle le prend.",
+                  "Elle prend le.",
+                  "Elle le prends."
+                ],
+                "correct": 0,
+                "why": "Prendre is irregular and belongs to another lesson, and carrying a pronoun is no different for it than for any other verb. The word goes in front, and the verb keeps whatever ending it always had."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s11-errors",
+          "type": "commonErrors",
+          "title": "What Goes Wrong",
+          "frSub": "Les erreurs fréquentes",
+          "layer": "core",
+          "size": "lg",
+          "swipe": true,
+          "say": "Four, one per screen, and the first one is the sentence the lesson opened on.",
+          "terms": [
+            "inFront",
+            "whichOne",
+            "theWrap"
+          ],
+          "errors": [
+            {
+              "wrong": "Je connais la.",
+              "right": "Je la connais.",
+              "why": "The word in the English place. This is the error the scene ends on, and it is not carelessness: it is what happens when the sentence is already moving and the place has gone past."
+            },
+            {
+              "wrong": "Je connais elle.",
+              "right": "Je la connais.",
+              "why": "Reaching for the word that means \"her\" on its own. French has one of those and it is not used here. The word that goes in front of the verb is la, and it looks exactly like the article."
+            },
+            {
+              "wrong": "Je le regarde la photo.",
+              "right": "Je la regarde.",
+              "why": "Both the pronoun and the noun in one sentence. You replace the noun or you keep it; you never say both. If the noun is still there, you did not need the word at all."
+            },
+            {
+              "wrong": "Je ne vois pas le.",
+              "right": "Je ne le vois pas.",
+              "why": "The wrap closed round the verb alone and left the word outside it. The wrap goes round the pronoun and the verb together."
+            }
+          ]
+        },
+        {
+          "id": "s12-elision",
+          "type": "cardDeck",
+          "title": "When The Gender Goes",
+          "frSub": "l'",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Three cards, and the first one takes something away from you. sons.07 owns this rule and teaches it properly; this is only what it costs here.",
+          "hint": "Two of the three words become the same word.",
+          "terms": [
+            "shortened",
+            "whichOne",
+            "inFront"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-06-elision"
+          },
+          "cards": [
+            {
+              "head": "him, or her",
+              "label": "and the sentence does not say",
+              "fr": "Je l'aime.",
+              "sub": "[zhuh LEM] I love him. Or her.",
+              "body": "Before a vowel both le and la become l', and at that point nothing in the sentence tells you which one it was. Half a lesson on le being masculine and la feminine, and now it is gone. Not hidden: absent. The conversation tells you."
+            },
+            {
+              "head": "and it is not just aimer",
+              "label": "any verb starting on a vowel",
+              "fr": "Je l'invite.  ·  Je l'achète.",
+              "sub": "[zhuh laⁿ-VEET] then [zhuh lah-SHEHT]",
+              "body": "Two more verbs and the same thing happens. It is a property of the vowel that follows, not of any particular word, which is exactly what sons.07 says about every other place this happens."
+            },
+            {
+              "head": "the plural survives",
+              "label": "les does not shorten",
+              "fr": "Je les invite.",
+              "sub": "[zhuh lay zaⁿ-VEET] I invite them.",
+              "body": "Les keeps its shape in front of a vowel and gains a z sound instead. So the plural is still audible when both singulars have stopped being, and that asymmetry is worth noticing: the form that never carried gender is the one that survives intact."
+            }
+          ]
+        },
+        {
+          "id": "s13-listening",
+          "type": "listening",
+          "title": "What Listening Settles",
+          "frSub": "Ce que l'oreille décide",
+          "layer": "core",
+          "say": "Four lines. Two of them differ by one sound and listening will separate them. The third pair does not differ at all, and no question in this lesson will ever ask you about it.",
+          "terms": [
+            "shortened",
+            "whichOne"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-06-listening"
+          },
+          "lines": [
+            {
+              "fr": "Je le vois.",
+              "en": "I see it."
+            },
+            {
+              "fr": "Je la vois.",
+              "en": "I see her."
+            },
+            {
+              "fr": "Je les vois.",
+              "en": "I see them."
+            },
+            {
+              "fr": "Je l'aime.",
+              "en": "I love him. Or her."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Je le vois against Je la vois. What separates them?",
+              "opts": [
+                "One vowel, and it carries the gender",
+                "Nothing at all",
+                "The verb"
+              ],
+              "correct": 0,
+              "why": "Luh against lah. One sound, and it is the whole gender. This is the one place in the lesson where the ear does the work for you."
+            },
+            {
+              "q": "And Je l'aime. Which gender is it?",
+              "opts": [
+                "Masculine",
+                "Feminine",
+                "The sentence does not say"
+              ],
+              "correct": 2,
+              "why": "Before a vowel both le and la become l', and at that point nothing in the sentence tells you which one it was. A question offering only masculine and feminine would have no correct option, so this lesson asks none."
+            }
+          ]
+        },
+        {
+          "id": "s14-negation",
+          "type": "cardDeck",
+          "title": "Saying No",
+          "frSub": "ne … pas",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "One negation rule, five lessons old, and this adds a sentence to it rather than a rule. « Wrap the verb that changed, not the one carrying the meaning. »",
+          "hint": "The word and the verb travel together.",
+          "terms": [
+            "theWrap",
+            "inFront"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-06-negation"
+          },
+          "cards": [
+            {
+              "head": "both inside",
+              "label": "ne · le vois · pas",
+              "fr": "Je le vois.  ·  Je ne le vois pas.",
+              "sub": "[zhuh luh VWAH] then [zhuh nuh luh vwah PAH]",
+              "body": "« Wrap the verb, then ask what the verb was. » from a1.18, and « Wrap the verb that changed, not the one carrying the meaning. » from a2.19. One verb here, so the second question never arises. The wrap goes round the pronoun and the verb together."
+            },
+            {
+              "head": "not this",
+              "label": "the word pushed out of the wrap",
+              "fr": "Je ne vois pas le.  ·  Je ne le vois pas.",
+              "sub": "the first one leaves the word stranded behind pas",
+              "body": "If the word were an ordinary object it would sit after the verb and outside the wrap, which is what the first sentence does. It is not an ordinary object; it belongs to the verb. So it goes where the verb goes, inside."
+            },
+            {
+              "head": "you have done this before",
+              "label": "a2.22, one lesson ago",
+              "fr": "Je ne la connais pas.  ·  Je ne l'aime pas.",
+              "sub": "[zhuh nuh lah koh-neh PAH] then [zhuh nuh lem PAH]",
+              "body": "« Both words changed for the subject, so both go inside the wrap. » is how a2.22 put it, and that reason does not apply here: this word does not change with the subject. Same behaviour, different cause."
+            }
+          ]
+        },
+        {
+          "id": "s15-past",
+          "type": "cardDeck",
+          "title": "In Front Of Both",
+          "frSub": "Au passé composé",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "The verb arrives as two words in the past, and there is an obvious place to put a small word between them. It is the wrong place. The pronoun goes in front of the verb, not after it.",
+          "hint": "The whole verb, not half of it.",
+          "terms": [
+            "frontOfBoth",
+            "inFront",
+            "theWrap"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-06-past"
+          },
+          "cards": [
+            {
+              "head": "name it, or replace it",
+              "label": "the noun after · the word in front",
+              "fr": "J'ai vu le film.  ·  Je l'ai vu.",
+              "sub": "[zhay vü luh FEELM] then [zhuh lay VÜ]",
+              "body": "a2.05 gave you the two-word past and a2.20 gave you the second words. Neither of them is new. The only new thing is that the small word goes in front of the FIRST of the two, so everything verb-shaped ends up behind it."
+            },
+            {
+              "head": "not between them",
+              "label": "the place that looks right",
+              "fr": "J'ai le vu.  ·  Je l'ai vu.",
+              "sub": "the first one splits the verb in half",
+              "body": "Ai and vu are one verb wearing two words, and nothing goes between them. Say the subject, say the small word, and only then start the verb. That is the same instruction as the present tense; the verb has just started earlier than you expected."
+            },
+            {
+              "head": "and saying no",
+              "label": "ne · word · first word · pas · second word",
+              "fr": "Je ne les ai pas vues.",
+              "sub": "[zhuh nuh lay zay pah VÜ] I did not see them.",
+              "body": "The wrap goes round the pronoun and the verb together. The second word stays outside, which is exactly what a2.23 settled one lesson ago about a three-part verb. Nothing here is a new negation rule."
+            }
+          ]
+        },
+        {
+          "id": "s16-agreement",
+          "type": "examples",
+          "title": "The Ending Nobody Hears",
+          "frSub": "L'accord du participe",
+          "layer": "core",
+          "say": "When the pronoun comes before the verb, the second word takes its ending. Nothing in the sound changes. The ending is written and it is never heard. Four pairs. In each one the left sentence names the thing afterwards and the right one says it first.",
+          "terms": [
+            "theEnding",
+            "frontOfBoth",
+            "whichOne"
+          ],
+          "examples": [
+            {
+              "fr": "J'ai vu le film.  ·  Je l'ai vu.",
+              "en": "I saw the film. / I saw it.",
+              "note": "[zhuh lay VÜ] Masculine and singular, so nothing goes on. This is the form the other three are built from and the one that hides the rule."
+            },
+            {
+              "fr": "J'ai vu la photo.  ·  Je l'ai vue.",
+              "en": "I saw the photo. / I saw it.",
+              "note": "[zhuh lay VÜ] Feminine, so an e. Look at the respelling: it is the same as the line above, character for character, and that is not an oversight."
+            },
+            {
+              "fr": "J'ai acheté les livres.  ·  Je les ai achetés.",
+              "en": "I bought the books. / I bought them.",
+              "note": "[zhuh lay zay ahsh-TAY] Plural and masculine, so an s. Still nothing to hear."
+            },
+            {
+              "fr": "J'ai regardé les photos.  ·  Je les ai regardées.",
+              "en": "I looked at the photos. / I looked at them.",
+              "note": "[zhuh lay zay ruh-gar-DAY] Feminine and plural, so both letters. Four spellings, one sound, which is the rule a2.01 stated and a2.21 paid off."
+            }
+          ]
+        },
+        {
+          "id": "s17-flash",
+          "type": "flashcards",
+          "title": "The Verbs, Banked",
+          "frSub": "Les verbes",
+          "layer": "core",
+          "say": "Seven verbs, none of them authored by this lesson and all of them already in your corpus. The lesson borrowed them; the deck is where they stay.",
+          "cards": [
+            {
+              "front": "voir",
+              "back": "[VWAR] to see",
+              "say": "voir"
+            },
+            {
+              "front": "regarder",
+              "back": "[ruh-gar-DAY] to watch, to look at",
+              "say": "regarder"
+            },
+            {
+              "front": "aimer",
+              "back": "[eh-MAY] to like, to love",
+              "say": "aimer"
+            },
+            {
+              "front": "connaître",
+              "back": "[koh-NEHTR] to know (people, places)",
+              "say": "connaître"
+            },
+            {
+              "front": "acheter",
+              "back": "[ahsh-TAY] to buy",
+              "say": "acheter"
+            },
+            {
+              "front": "manger",
+              "back": "[mahⁿ-ZHAY] to eat",
+              "say": "manger"
+            },
+            {
+              "front": "inviter",
+              "back": "[aⁿ-vee-TAY] to invite",
+              "say": "inviter"
+            }
+          ]
+        },
+        {
+          "id": "s18-dictation",
+          "type": "dictation",
+          "title": "Write Where It Goes",
+          "frSub": "La dictée",
+          "layer": "core",
+          "say": "Twelve lines. Nothing here is long, because a long line hands you the words already spelled and this is the one part of the lesson that has to be built from nothing.",
+          "terms": [
+            "inFront",
+            "theWrap",
+            "theEnding"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-06-dictee"
+          },
+          "itemIds": [
+            "fr.a2.pronoms-essentiels.190",
+            "fr.a2.pronoms-essentiels.192",
+            "fr.a2.pronoms-essentiels.200",
+            "fr.a2.pronoms-essentiels.201",
+            "fr.a2.pronoms-essentiels.197",
+            "fr.a2.pronoms-essentiels.198",
+            "fr.a2.pronoms-essentiels.199",
+            "fr.a2.pronoms-essentiels.207",
+            "fr.a2.pronoms-essentiels.211",
+            "fr.a2.pronoms-essentiels.212",
+            "fr.a2.pronoms-essentiels.213",
+            "fr.a2.pronoms-essentiels.225"
+          ]
+        },
+        {
+          "id": "s19-talk",
+          "type": "scenario",
+          "title": "Who Do You Know",
+          "frSub": "On parle des gens",
+          "layer": "core",
+          "terms": [
+            "inFront",
+            "whichOne",
+            "theWrap"
+          ],
+          "setting": "The same kitchen, later, and this time the sentences finish. Every question is about a person or a thing, which is the only situation this whole lesson is for.",
+          "turns": [
+            {
+              "ai": "Tu connais Camille, alors ?",
+              "en": "So you know Camille?",
+              "user": "Oui, je la connais bien.",
+              "userEn": "Yes, I know her well.",
+              "alts": [
+                {
+                  "fr": "Je la connais.",
+                  "en": "I know her."
+                },
+                {
+                  "fr": "Elle la connaît.",
+                  "en": "She knows her."
+                }
+              ]
+            },
+            {
+              "ai": "Et son frère, tu le connais ?",
+              "en": "And her brother, do you know him?",
+              "user": "Non, je ne le connais pas.",
+              "userEn": "No, I do not know him.",
+              "alts": [
+                {
+                  "fr": "Tu le connais.",
+                  "en": "You know him."
+                },
+                {
+                  "fr": "Je ne la connais pas.",
+                  "en": "I do not know her."
+                }
+              ]
+            },
+            {
+              "ai": "Tu vois les voisins ce week-end ?",
+              "en": "Are you seeing the neighbours this weekend?",
+              "user": "Je les invite ce soir.",
+              "userEn": "I am inviting them tonight.",
+              "alts": [
+                {
+                  "fr": "Je les vois.",
+                  "en": "I see them."
+                },
+                {
+                  "fr": "Je les invite.",
+                  "en": "I invite them."
+                }
+              ]
+            },
+            {
+              "ai": "Tu as vu Paul récemment ?",
+              "en": "Have you seen Paul recently?",
+              "user": "Je l'ai vu hier.",
+              "userEn": "I saw him yesterday.",
+              "alts": [
+                {
+                  "fr": "Je l'ai vu.",
+                  "en": "I saw it."
+                },
+                {
+                  "fr": "J'ai vu le film.",
+                  "en": "I saw the film."
+                }
+              ]
+            },
+            {
+              "ai": "Et les photos de la fête ?",
+              "en": "And the photos from the party?",
+              "user": "Je ne les ai pas vues.",
+              "userEn": "I did not see them.",
+              "alts": [
+                {
+                  "fr": "Je les ai regardées.",
+                  "en": "I looked at them."
+                },
+                {
+                  "fr": "J'ai regardé les photos.",
+                  "en": "I looked at the photos."
+                }
+              ]
+            },
+            {
+              "ai": "Voilà Camille qui arrive.",
+              "en": "Here comes Camille.",
+              "user": "Tu la connais aussi ?",
+              "userEn": "Do you know her too?",
+              "alts": [
+                {
+                  "fr": "Oui, je la connais bien.",
+                  "en": "Yes, I know her well."
+                },
+                {
+                  "fr": "Tu la connais.",
+                  "en": "You know her."
+                }
+              ]
+            },
+            {
+              "ai": "Il reste un verre. Tu le veux ?",
+              "en": "There is one glass left. Do you want it?",
+              "user": "Je le prends.",
+              "userEn": "I will take it.",
+              "alts": [
+                {
+                  "fr": "Elle le prend.",
+                  "en": "She takes it."
+                },
+                {
+                  "fr": "Je le vois.",
+                  "en": "I see it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s20-speak",
+          "type": "practice",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "terms": [
+            "inFront",
+            "whichOne"
+          ],
+          "itemIds": [
+            "fr.a2.pronoms-essentiels.190",
+            "fr.a2.pronoms-essentiels.192",
+            "fr.a2.pronoms-essentiels.194",
+            "fr.a2.pronoms-essentiels.196",
+            "fr.a2.pronoms-essentiels.197",
+            "fr.a2.pronoms-essentiels.198",
+            "fr.a2.pronoms-essentiels.199",
+            "fr.a2.pronoms-essentiels.200",
+            "fr.a2.pronoms-essentiels.201",
+            "fr.a2.pronoms-essentiels.202",
+            "fr.a2.pronoms-essentiels.203",
+            "fr.a2.pronoms-essentiels.204",
+            "fr.a2.pronoms-essentiels.205",
+            "fr.a2.pronoms-essentiels.206",
+            "fr.a2.pronoms-essentiels.207",
+            "fr.a2.pronoms-essentiels.208",
+            "fr.a2.pronoms-essentiels.209",
+            "fr.a2.pronoms-essentiels.210",
+            "fr.a2.pronoms-essentiels.211",
+            "fr.a2.pronoms-essentiels.212",
+            "fr.a2.pronoms-essentiels.213",
+            "fr.a2.pronoms-essentiels.214",
+            "fr.a2.pronoms-essentiels.215",
+            "fr.a2.pronoms-essentiels.216",
+            "fr.a2.pronoms-essentiels.217",
+            "fr.a2.pronoms-essentiels.218",
+            "fr.a2.pronoms-essentiels.219",
+            "fr.a2.pronoms-essentiels.220",
+            "fr.a2.pronoms-essentiels.221",
+            "fr.a2.pronoms-essentiels.223",
+            "fr.a2.pronoms-essentiels.225",
+            "fr.a2.pronoms-essentiels.227"
+          ]
+        },
+        {
+          "id": "s21-review",
+          "type": "reviewDeck",
+          "title": "Everything, Once More",
+          "frSub": "Tout, encore une fois",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "Where does the word go?",
+              "back": "The pronoun goes in front of the verb, not after it.",
+              "say": "Je le vois."
+            },
+            {
+              "front": "Je vois le film. Say it without the noun.",
+              "back": "Je le vois. Le film is the what or the who, so it becomes le, and le goes in front.",
+              "say": "Je le vois."
+            },
+            {
+              "front": "La photo is feminine. Which word replaces it?",
+              "back": "La. a1.03 decides which, and this lesson decides where.",
+              "say": "Je la regarde."
+            },
+            {
+              "front": "Je l'aime. Him or her?",
+              "back": "Before a vowel both le and la become l', and at that point nothing in the sentence tells you which one it was.",
+              "say": "Je l'aime."
+            },
+            {
+              "front": "Make « Je le vois. » negative.",
+              "back": "Je ne le vois pas. The wrap goes round the pronoun and the verb together.",
+              "say": "Je ne le vois pas."
+            },
+            {
+              "front": "Where does the word go when the verb is two words long?",
+              "back": "In front of both of them. Je l'ai vu, never J'ai le vu.",
+              "say": "Je l'ai vu."
+            },
+            {
+              "front": "J'ai vu la photo. Now replace the noun.",
+              "back": "Je l'ai vue. When the pronoun comes before the verb, the second word takes its ending.",
+              "say": "Je l'ai vue."
+            },
+            {
+              "front": "Does the word change when the subject changes?",
+              "back": "No. It takes the gender of the thing it stands for and ignores the subject. a2.22's small word was the opposite.",
+              "say": "Elle la connaît."
+            }
+          ]
+        },
+        {
+          "id": "s22-progress",
+          "type": "progressCheck",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "The exam has six rounds and most of it is typed or corrected rather than picked, because a word-order mistake is a whole-sentence mistake and four options cannot show one.",
+          "stats": [
+            {
+              "k": "New rules",
+              "v": "1. The word goes in front of the verb."
+            },
+            {
+              "k": "Words to learn",
+              "v": "0. le, la and les are a1.04's and you have had them since A1."
+            },
+            {
+              "k": "Verbs authored",
+              "v": "0. All seven were already in your corpus, and four more were never shown at all."
+            },
+            {
+              "k": "What the ear can settle",
+              "v": "1 of 2. Le against la, yes. The shortened form, never."
+            }
+          ]
+        },
+        {
+          "id": "s23-quiz",
+          "type": "quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "say": "Six rounds of five. Most of it asks you to produce or repair a whole sentence, because that is the only shape a word-order error has.",
+          "terms": [
+            "inFront",
+            "whichOne",
+            "theWrap"
+          ],
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "r1-position",
+              "label": "Where it goes",
+              "say": "Five on the one decision in the sentence.",
+              "targets": [
+                "err-after-verb",
+                "err-wrong-gender"
+              ],
+              "questions": [
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the order: « Je vois le. »",
+                  "accept": [
+                    "Je le vois."
+                  ],
+                  "ref": "s09-trap",
+                  "why": "The pronoun goes in front of the verb, not after it. Every word was already right and only the order was not, which is what makes this the hardest kind of mistake to hear yourself make."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "« Je vois le film. » Type it again with the noun replaced.",
+                  "accept": [
+                    "Je le vois."
+                  ],
+                  "ref": "s07-move",
+                  "why": "See what? Le film. So le, and it goes in front of vois rather than after it."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which one is French?",
+                  "opts": [
+                    "Je connais la.",
+                    "Je connais elle.",
+                    "Je la connais.",
+                    "Je la connais Marie."
+                  ],
+                  "correct": 2,
+                  "ref": "s08-build",
+                  "why": "The first is the English order, the second reaches for a word French does not use here, and the fourth keeps the noun as well as the word. You replace the noun or you keep it."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the order: « Tu connais le. »",
+                  "accept": [
+                    "Tu le connais."
+                  ],
+                  "ref": "s09-trap",
+                  "why": "The same mistake in another person. The place does not depend on who is speaking."
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Which one did you hear?",
+                  "opts": [
+                    "Je le vois.",
+                    "Je les vois."
+                  ],
+                  "correct": 1,
+                  "ref": "s13-listening",
+                  "why": "Luh against lay. Singular against plural, and that difference is genuinely audible, unlike almost everything else this lesson turns on."
+                }
+              ]
+            },
+            {
+              "id": "r2-which",
+              "label": "Which of the three",
+              "say": "Five on a choice a1.03 already taught you to make.",
+              "targets": [
+                "err-wrong-gender",
+                "err-after-verb"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "q": "« Je regarde la photo. » Which word replaces la photo?",
+                  "opts": [
+                    "le",
+                    "la",
+                    "les",
+                    "l'"
+                  ],
+                  "correct": 1,
+                  "ref": "s05-table",
+                  "why": "Photo is feminine and singular, so la. The noun is on the screen so the gender is there to be read rather than remembered."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "« J'achète les livres. » Type it again with the noun replaced.",
+                  "accept": [
+                    "Je les achète."
+                  ],
+                  "ref": "s07-move",
+                  "why": "Plural, so les, and the gender is not consulted at all."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which of these does NOT tell you which word to use?",
+                  "opts": [
+                    "Whether the noun is plural",
+                    "Whether the noun is masculine",
+                    "Who the subject is",
+                    "Whether the verb starts on a vowel"
+                  ],
+                  "correct": 2,
+                  "ref": "s06-persons",
+                  "why": "The subject has no say. It takes the gender of the thing it stands for, which is the opposite of a2.22's small word and worth keeping separate."
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Which one did you hear?",
+                  "opts": [
+                    "Tu le connais.",
+                    "Tu la connais."
+                  ],
+                  "correct": 0,
+                  "ref": "s13-listening",
+                  "why": "Luh against lah. One vowel, and it carries the whole gender. This is the one thing in the lesson listening will settle."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "The thing looked at is la photo. Fix the word: « Je le regarde. »",
+                  "accept": [
+                    "Je la regarde."
+                  ],
+                  "ref": "s08-build",
+                  "why": "The position was right and the gender was not. Both have to be, and only one of them is this lesson's."
+                }
+              ]
+            },
+            {
+              "id": "r3-negative",
+              "label": "Saying no",
+              "say": "Five on a rule you have had for five lessons.",
+              "targets": [
+                "err-wrap-narrow",
+                "err-after-verb"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "Make « Je le vois. » negative. Type the whole sentence.",
+                  "accept": [
+                    "Je ne le vois pas."
+                  ],
+                  "ref": "s14-negation",
+                  "why": "The wrap goes round the pronoun and the verb together. Ne outside, pas after, and the word stays where it was."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix it: « Je ne vois pas le. »",
+                  "accept": [
+                    "Je ne le vois pas."
+                  ],
+                  "ref": "s14-negation",
+                  "why": "The word was left outside the wrap, behind pas. It belongs to the verb, so it goes where the verb goes."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which one is right?",
+                  "opts": [
+                    "Je ne la connais pas.",
+                    "Je ne connais pas la.",
+                    "Ne je la connais pas.",
+                    "Je la ne connais pas."
+                  ],
+                  "correct": 0,
+                  "ref": "s14-negation",
+                  "why": "« Wrap the verb that changed, not the one carrying the meaning. » There is one verb here, so the only question is what counts as the verb, and the word in front has joined it."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Make « Je les achète. » negative. Type the whole sentence.",
+                  "accept": [
+                    "Je ne les achète pas."
+                  ],
+                  "ref": "s14-negation",
+                  "why": "The plural behaves no differently. Ne, then both words, then pas."
+                },
+                {
+                  "format": "mcq",
+                  "q": "a2.22 said « Both words changed for the subject, so both go inside the wrap. » Why does that sentence not explain this lesson?",
+                  "opts": [
+                    "Because the wrap is different here",
+                    "Because this word does not change with the subject at all",
+                    "Because there are two verbs",
+                    "Because ne elides"
+                  ],
+                  "correct": 1,
+                  "ref": "s14-negation",
+                  "why": "The behaviour is identical and the reason is not. a2.22's word is the subject said twice; this one is the thing acted on. Both belong to the verb, so both go inside."
+                }
+              ]
+            },
+            {
+              "id": "r4-shortened",
+              "label": "The shortened form",
+              "say": "Five on the form that takes something away.",
+              "targets": [
+                "err-after-verb",
+                "err-wrong-gender"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "q": "« Je l'aime. » Is the person a man or a woman?",
+                  "opts": [
+                    "A man",
+                    "A woman",
+                    "The sentence does not say"
+                  ],
+                  "correct": 2,
+                  "ref": "s12-elision",
+                  "why": "Before a vowel both le and la become l', and at that point nothing in the sentence tells you which one it was. No question anywhere in this lesson asks it the other way, because there would be no correct answer to mark."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "« J'invite Marie. » Type it again with the name replaced.",
+                  "accept": [
+                    "Je l'invite.",
+                    "Je l'invite."
+                  ],
+                  "ref": "s12-elision",
+                  "why": "Inviter starts on a vowel, so la shortens, and the gender disappears with it. Nothing you can do about that and nothing you need to."
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Which one did you hear?",
+                  "opts": [
+                    "Je l'invite.",
+                    "Je les invite."
+                  ],
+                  "correct": 0,
+                  "ref": "s13-listening",
+                  "why": "The singular shortens and the plural does not. Lan-VEET against lay zan-VEET, and the plural is the longer of the two because les kept its shape."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which of these never shortens in front of a vowel?",
+                  "opts": [
+                    "le",
+                    "la",
+                    "les"
+                  ],
+                  "correct": 2,
+                  "ref": "s05-table",
+                  "why": "Les keeps its shape and adds a z sound instead. The form that never carried a gender is the one that survives intact."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "The person is Camille. Fix the order: « J'aime la. »",
+                  "accept": [
+                    "Je l'aime."
+                  ],
+                  "ref": "s09-trap",
+                  "why": "Two things wrong and only one of them is a choice. The word goes in front, and once it is in front of a vowel it shortens whether you meant it to or not."
+                }
+              ]
+            },
+            {
+              "id": "r5-past",
+              "label": "In the past",
+              "say": "Five on a tense you already have, with one word added.",
+              "targets": [
+                "err-no-ending",
+                "err-after-verb"
+              ],
+              "questions": [
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the order: « J'ai le vu. »",
+                  "accept": [
+                    "Je l'ai vu."
+                  ],
+                  "ref": "s15-past",
+                  "why": "The word went between the two halves of the verb. It goes in front of both, which is the same instruction as the present tense on a verb that starts earlier."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "« J'ai vu la photo. » Type it again with the noun replaced. Watch the ending.",
+                  "accept": [
+                    "Je l'ai vue."
+                  ],
+                  "ref": "s16-agreement",
+                  "why": "When the pronoun comes before the verb, the second word takes its ending. La photo is feminine and it is now in front of the verb, so vu takes an e. Nothing in the sound changes. The ending is written and it is never heard."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Why does « J'ai vu la photo. » have no ending on vu?",
+                  "opts": [
+                    "Because avoir never takes one",
+                    "Because the thing seen is named after the verb, not before it",
+                    "Because photo is feminine",
+                    "Because vu is irregular"
+                  ],
+                  "correct": 1,
+                  "ref": "s16-agreement",
+                  "why": "When the pronoun comes before the verb, the second word takes its ending. The first option is nearly a rule and it is not this one; the ending appears precisely when the word has moved in front."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "« J'ai acheté les livres. » Type it again with the noun replaced.",
+                  "accept": [
+                    "Je les ai achetés."
+                  ],
+                  "ref": "s16-agreement",
+                  "why": "Plural and masculine in front of the verb, so an s goes on acheté. Still nothing to hear."
+                },
+                {
+                  "format": "mcq",
+                  "q": "How many of vu, vue, vus and vues sound different from each other?",
+                  "opts": [
+                    "All four",
+                    "Two",
+                    "None of them"
+                  ],
+                  "correct": 2,
+                  "ref": "s16-agreement",
+                  "why": "One sound, four spellings. Nothing in the sound changes. The ending is written and it is never heard. That is why the dictée exists and why no listening question in this lesson goes near an ending."
+                }
+              ]
+            },
+            {
+              "id": "r6-all",
+              "label": "All of it",
+              "say": "Five that ask for more than one rule at once.",
+              "targets": [
+                "err-after-verb",
+                "err-no-ending",
+                "err-wrap-narrow"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "« Je connais Marie. » Make it negative and replace the name.",
+                  "accept": [
+                    "Je ne la connais pas."
+                  ],
+                  "ref": "s14-negation",
+                  "why": "Two rules at once: the word in front, and both of them inside the wrap. Neither was new by this point."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix it: « Nous invitons les pas. »",
+                  "accept": [
+                    "Nous ne les invitons pas."
+                  ],
+                  "ref": "s14-negation",
+                  "why": "The word after the verb and the negation half-built. Ne, then the word and the verb together, then pas."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which one is right?",
+                  "opts": [
+                    "Je ne l'ai pas vues.",
+                    "Je ne les ai pas vues.",
+                    "Je ne les ai vues pas.",
+                    "Je n'ai pas les vues."
+                  ],
+                  "correct": 1,
+                  "ref": "s15-past",
+                  "why": "The word in front of the first half, the wrap round the word and the first half, and the ending on the second. Every part of that is a rule you already had."
+                },
+                {
+                  "format": "tapSilent",
+                  "q": "Tap the letter you do not say.",
+                  "word": "regardées",
+                  "correct": "s",
+                  "ref": "s16-agreement",
+                  "why": "Nothing in the sound changes. The ending is written and it is never heard. The s is the plural and nobody says it, which is why the whole rule has to be written rather than heard."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the order: « Elle prend le. »",
+                  "accept": [
+                    "Elle le prend."
+                  ],
+                  "ref": "s10-unseen",
+                  "why": "A verb this lesson never conjugated, and the rule runs on it unchanged. That is what it means for this to be a system rather than three words."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s24-roundup",
+          "type": "roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "The pronoun goes in front of the verb, not after it. Everything else in this lesson was something you already owned, spent in a new place.",
+          "points": [
+            "The pronoun goes in front of the verb, not after it.",
+            "le, la and les are a1.04's three words and the choice between them is a1.03's. Neither was re-taught here, and both were needed on every screen.",
+            "« what comes next decides » is a2.02's line, and this was the fifth time. Here the word after it decides, and so does where it sits: an article leans on a noun, a pronoun leans on a verb.",
+            "Before a vowel both le and la become l', and at that point nothing in the sentence tells you which one it was. sons.07 owns the rule itself.",
+            "The wrap goes round the pronoun and the verb together. One negation rule, five lessons old, and this added a sentence rather than a rule.",
+            "When the pronoun comes before the verb, the second word takes its ending. Nothing in the sound changes. The ending is written and it is never heard.",
+            "a2.22 gave you me, te and se in this same slot, so the small words you already carry and these are one system rather than two.",
+            "Next: a2.24 takes the other kind of word into the same slot, and a2.25 takes two more. The position you learned today is the position all of them use."
+          ],
+          "sheetId": "sheet-pronoms-direct"
+        }
+      ],
+      "itemIds": [
+        "fr.a2.pronoms-essentiels.190",
+        "fr.a2.pronoms-essentiels.194",
+        "fr.a2.pronoms-essentiels.196",
+        "fr.a2.pronoms-essentiels.189",
+        "fr.a2.pronoms-essentiels.191",
+        "fr.a2.pronoms-essentiels.192",
+        "fr.a2.pronoms-essentiels.193",
+        "fr.a2.pronoms-essentiels.197",
+        "fr.a2.pronoms-essentiels.200",
+        "fr.a2.pronoms-essentiels.201",
+        "fr.a2.pronoms-essentiels.202",
+        "fr.a2.pronoms-essentiels.203",
+        "fr.a2.pronoms-essentiels.204",
+        "fr.a2.pronoms-essentiels.205",
+        "fr.a2.pronoms-essentiels.206",
+        "fr.a2.pronoms-essentiels.207",
+        "fr.a2.pronoms-essentiels.195",
+        "fr.a2.pronoms-essentiels.212",
+        "fr.a2.pronoms-essentiels.218",
+        "fr.a2.pronoms-essentiels.219",
+        "fr.a2.pronoms-essentiels.220",
+        "fr.a2.pronoms-essentiels.221",
+        "fr.a1.pronoms-essentiels.096",
+        "fr.a1.pronoms-essentiels.087",
+        "fr.a2.pronoms-essentiels.208",
+        "fr.a2.pronoms-essentiels.209",
+        "fr.a2.pronoms-essentiels.211",
+        "fr.a2.pronoms-essentiels.213",
+        "fr.a2.pronoms-essentiels.216",
+        "fr.sons.verbes-essentiels.016",
+        "fr.a2.pronoms-essentiels.198",
+        "fr.a2.pronoms-essentiels.199",
+        "fr.a2.pronoms-essentiels.222",
+        "fr.a2.pronoms-essentiels.223",
+        "fr.a2.pronoms-essentiels.224",
+        "fr.a2.pronoms-essentiels.225",
+        "fr.a2.pronoms-essentiels.226",
+        "fr.a2.pronoms-essentiels.227",
+        "fr.a2.pronoms-essentiels.228",
+        "fr.a2.pronoms-essentiels.229",
+        "fr.a2.pronoms-essentiels.234",
+        "fr.sons.verbes-essentiels.011",
+        "fr.sons.verbes-essentiels.024",
+        "fr.sons.verbes-essentiels.048",
+        "fr.a2.courses.020",
+        "fr.a1.routines.185",
+        "fr.a1.amis.019",
+        "fr.a2.pronoms-essentiels.210",
+        "fr.a2.pronoms-essentiels.214",
+        "fr.a2.pronoms-essentiels.215",
+        "fr.a2.pronoms-essentiels.217",
+        "fr.a2.pronoms-essentiels.230",
+        "fr.a2.pronoms-essentiels.231",
+        "fr.a2.pronoms-essentiels.232",
+        "fr.a2.pronoms-essentiels.233",
+        "fr.a2.pronoms-essentiels.235",
+        "fr.a2.pronoms-essentiels.236"
+      ],
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-06-order",
+            "desc": "The two orders. Each card is ONE TAKE: the English gloss read at conversational pace, then the French, with no pause long enough to sound like two examples. The learner must hear one sentence becoming another rather than two sentences being compared."
+          },
+          {
+            "id": "rec-a2-06-article",
+            "desc": "The article against the pronoun. ONE TAKE PER CARD, both sentences in it, and NO extra stress on le, la or les. Stressing the shared word would teach that the difference is audible, and the entire point is that it is not: what follows it is the only signal."
+          },
+          {
+            "id": "rec-a2-06-table",
+            "desc": "Four rows, four short sentences, read separately. Luh, lah and lay must be clearly distinct from one another; the fourth row is the elided form and must NOT be read in a way that hints at a gender."
+          },
+          {
+            "id": "rec-a2-06-trap",
+            "desc": "wrongThenRight. The wrong sentence « Je vois le. » must be read at NORMAL pace and NOT trailed off, because a French ear hears it as an unfinished sentence rather than a mistake and the learner needs to hear it sounding almost right."
+          },
+          {
+            "id": "rec-a2-06-elision",
+            "desc": "The shortened form. « Je l'aime. » is read ONCE and neutrally. Any reading that leans towards a man or a woman would contradict the card, which says the sentence carries neither."
+          },
+          {
+            "id": "rec-a2-06-listening",
+            "desc": "audioFirst. Four lines, ONE TAKE, one voice, no gaps that let the learner rehearse between them. Lines 1 and 2 differ by one vowel and that difference is the whole question; line 4 must sound exactly as neutral as it does on the elision card."
+          },
+          {
+            "id": "rec-a2-06-negation",
+            "desc": "The wrap. ONE TAKE per card holding both sentences. Ne must NOT be given extra length: it is unstressed in speech and often barely there, and a recording that pronounces it carefully teaches a register nobody uses."
+          },
+          {
+            "id": "rec-a2-06-past",
+            "desc": "The two-word verb. Read so that « je l'ai » is one breath group and the participle follows, because the pronoun leaning on the auxiliary is exactly what the card claims and the rhythm is the only evidence for it."
+          },
+          {
+            "id": "rec-a2-06-dictee",
+            "desc": "Twelve lines, ONE VOICE, read at dictation pace with the same interval before each. « Je l'ai vue. » must be read IDENTICALLY to « Je l'ai vu. » would be: the whole point of the line is that the ending is not there to hear, and a reader who distinguishes them makes the exercise measure something that is not there."
+          }
+        ]
+      }
     }
   ],
   "items": [
@@ -195028,7 +197485,7 @@
       "theme": "cuisine",
       "fr": "manger",
       "en": "to eat",
-      "respell": "mahn-ZHAY",
+      "respell": "mahⁿ-ZHAY",
       "tags": [
         "verb"
       ],
@@ -218550,7 +221007,7 @@
       "fr": "inviter",
       "en": "to invite",
       "ipa": "ɛ̃.vi.te",
-      "respell": "an-vee-TAY",
+      "respell": "aⁿ-vee-TAY",
       "example": {
         "en": "I am going to invite the whole family.",
         "fr": "Je vais inviter toute la famille."
@@ -379507,6 +381964,1291 @@
       ],
       "audioRef": null,
       "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.189",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je vois le film.",
+      "en": "I see the film.",
+      "ipa": "/ʒə vwa lə film/",
+      "respell": "zhuh vwah luh FEELM",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The article half. le leans on a noun and sits after the verb, which is where English puts it too."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.190",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je le vois.",
+      "en": "I see it.",
+      "ipa": "/ʒə lə vwa/",
+      "respell": "zhuh luh VWAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE FRAME. Eight letters, so the dictée takes it in LETTERS mode, which is the only mode that can test a position."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.191",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je regarde la photo.",
+      "en": "I look at the photo.",
+      "ipa": "/ʒə ʁə.ɡaʁd la fɔ.to/",
+      "respell": "zhuh ruh-GARD lah foh-TOH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The feminine article half. la photo is feminine and the card shows the noun, so the gender is derivable rather than remembered."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.192",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je la regarde.",
+      "en": "I look at it.",
+      "ipa": "/ʒə la ʁə.ɡaʁd/",
+      "respell": "zhuh lah ruh-GARD",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The pronoun half. Same verb, same meaning, and the word has moved to the other side of it."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.193",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'achète les livres.",
+      "en": "I buy the books.",
+      "ipa": "/ʒa.ʃɛt le livʁ/",
+      "respell": "zhah-SHEHT lay LEEVR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The plural article half."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.194",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je les achète.",
+      "en": "I buy them.",
+      "ipa": "/ʒə le za.ʃɛt/",
+      "respell": "zhuh lay zah-SHEHT",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The plural pronoun half, and the s of les is heard here because a vowel follows it."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.195",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je connais Marie.",
+      "en": "I know Marie.",
+      "ipa": "/ʒə kɔ.nɛ ma.ʁi/",
+      "respell": "zhuh koh-NEH mah-REE",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "A person rather than a thing, so the learner cannot read the rule as being about objects in the everyday sense."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.196",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je la connais.",
+      "en": "I know her.",
+      "ipa": "/ʒə la kɔ.nɛ/",
+      "respell": "zhuh lah koh-NEH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "And la covers a person as readily as a thing. English changes word here, from \"Marie\" to \"her\"; French does not."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.197",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu le connais.",
+      "en": "You know him.",
+      "ipa": "/ty lə kɔ.nɛ/",
+      "respell": "tü luh koh-NEH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Masculine, a person. The probe found this exact frame zero times in 27,999 published sentences."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.198",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu la connais.",
+      "en": "You know her.",
+      "ipa": "/ty la kɔ.nɛ/",
+      "respell": "tü lah koh-NEH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Feminine. One letter apart from the row above and one sound apart, which is what makes the pair askable by ear."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.199",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu les connais.",
+      "en": "You know them.",
+      "ipa": "/ty le kɔ.nɛ/",
+      "respell": "tü lay koh-NEH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Plural, and the gender is not consulted. a1.04 taught that about the article and it is true of the pronoun for the same reason."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.200",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je les vois.",
+      "en": "I see them.",
+      "ipa": "/ʒə le vwa/",
+      "respell": "zhuh lay VWAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Nine letters. The third cell of the frame, and the probe found it zero times."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.201",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je la vois.",
+      "en": "I see her.",
+      "ipa": "/ʒə la vwa/",
+      "respell": "zhuh lah VWAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The second cell. fr.a1.pronoms-essentiels.087 holds « Je la vois tous les jours. », which is this frame inside a longer sentence."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.202",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Il le regarde.",
+      "en": "He looks at him.",
+      "ipa": "/il lə ʁə.ɡaʁd/",
+      "respell": "eel luh ruh-GARD",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Third person subject, and the pronoun is unchanged. Two le-shaped words in a row and only the second one is the verb's."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.203",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Elle la connaît.",
+      "en": "She knows her.",
+      "ipa": "/ɛl la kɔ.nɛ/",
+      "respell": "ehl lah koh-NEH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Feminine subject and feminine pronoun, and they have nothing to do with each other. The pronoun takes the gender of the noun it stands for."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.204",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Nous les invitons.",
+      "en": "We invite them.",
+      "ipa": "/nu le zɛ̃.vi.tɔ̃/",
+      "respell": "noo lay zaⁿ-vee-TOHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fifteen letters, inside the dictée limit. The liaison on les is audible before the vowel of invitons."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.205",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Vous le voyez.",
+      "en": "You see it.",
+      "ipa": "/vu lə vwa.je/",
+      "respell": "voo luh vwah-YAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The vous cell. Nothing about the pronoun responds to the subject changing."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.206",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Ils les achètent.",
+      "en": "They buy them.",
+      "ipa": "/il le za.ʃɛt/",
+      "respell": "eel lay zah-SHEHT",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The ils cell, and the verb ending is silent, which a2.01 owns and this lesson does not re-teach."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.207",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je l'aime.",
+      "en": "I love him. Or her.",
+      "ipa": "/ʒə lɛm/",
+      "respell": "zhuh LEM",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE TRAP. Seven letters. The gloss carries both readings because the sentence does: nothing in it says which. Respelled LEM after sons.07's own ZHEM at fr.sons.elision.001, not LEHM, which the real hasPlainNasal flags."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.208",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je l'invite.",
+      "en": "I invite him.",
+      "ipa": "/ʒə lɛ̃.vit/",
+      "respell": "zhuh laⁿ-VEET",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "A second elided verb, so the learner does not read the rule as a fact about aimer."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.209",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je l'achète.",
+      "en": "I buy it.",
+      "ipa": "/ʒə la.ʃɛt/",
+      "respell": "zhuh lah-SHEHT",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "And a third, on a verb whose own vowel is the one causing the elision."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.210",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu l'aimes.",
+      "en": "You love her. Or him.",
+      "ipa": "/ty lɛm/",
+      "respell": "tü LEM",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The same ambiguity in another person, so it is visibly a property of the form rather than of one sentence."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.211",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je les invite.",
+      "en": "I invite them.",
+      "ipa": "/ʒə le zɛ̃.vit/",
+      "respell": "zhuh lay zaⁿ-VEET",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The one that does NOT elide. les keeps its shape in front of a vowel and adds a z sound instead, so the plural survives where the singulars lose their gender."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.212",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je ne le vois pas.",
+      "en": "I do not see it.",
+      "ipa": "/ʒə nə lə vwa pa/",
+      "respell": "zhuh nuh luh vwah PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THIRTEEN LETTERS, so the dictée takes it. The probe found this exact sentence zero times published. ne outside, pronoun and verb inside."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.213",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je ne la connais pas.",
+      "en": "I do not know her.",
+      "ipa": "/ʒə nə la kɔ.nɛ pa/",
+      "respell": "zhuh nuh lah koh-neh PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Sixteen letters, exactly at the dictée limit and still in LETTERS mode. Verified through the real dicteeMode."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.214",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je ne les achète pas.",
+      "en": "I do not buy them.",
+      "ipa": "/ʒə nə le za.ʃɛt pa/",
+      "respell": "zhuh nuh lay zah-sheht PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Sixteen letters. The plural inside the wrap."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.215",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu ne le regardes pas.",
+      "en": "You do not look at it.",
+      "ipa": "/ty nə lə ʁə.ɡaʁd pa/",
+      "respell": "tü nuh luh ruh-gard PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "SEVENTEEN LETTERS, so dicteeMode puts it in WORD mode and it carries NO dictation drill. Word mode hands every word over pre-spelled and would give the position away, which is the one thing this lesson tests."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.216",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je ne l'aime pas.",
+      "en": "I do not love him.",
+      "ipa": "/ʒə nə lɛm pa/",
+      "respell": "zhuh nuh lem PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The elided form inside the wrap. Twelve letters."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.217",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Nous ne les invitons pas.",
+      "en": "We do not invite them.",
+      "ipa": "/nu nə le zɛ̃.vi.tɔ̃ pa/",
+      "respell": "noo nuh lay zaⁿ-vee-tohⁿ PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Twenty letters, word mode, no dictation drill. Kept for the reading and the speak list, where length is not a problem."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.218",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je l'écoute.",
+      "en": "I listen to it.",
+      "ipa": "/ʒə le.kut/",
+      "respell": "zhuh lay-KOOT",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "écouter is not taught here and not imported as a headword. The learner has it from a1.25 and the position rule runs on it unchanged."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.219",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu les cherches.",
+      "en": "You are looking for them.",
+      "ipa": "/ty le ʃɛʁʃ/",
+      "respell": "tü lay SHEHRSH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "chercher, and the English needs a preposition where the French does not. Worth meeting once inside a sentence whose shape is already familiar."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.220",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Elle le prend.",
+      "en": "She takes it.",
+      "ipa": "/ɛl lə pʁɑ̃/",
+      "respell": "ehl luh PRAHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "prendre is a2.15's, cell for cell, and nothing about carrying a pronoun is different for an irregular verb."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.221",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Nous la finissons.",
+      "en": "We finish it.",
+      "ipa": "/nu la fi.ni.sɔ̃/",
+      "respell": "noo lah fee-nee-SOHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "finir is a2.10's, and its -iss- is a2.10's business and not this lesson's. The pronoun sits where it always sits."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.222",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'ai vu le film.",
+      "en": "I saw the film.",
+      "ipa": "/ʒe vy lə film/",
+      "respell": "zhay vü luh FEELM",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The noun after the verb, so nothing happens to the second word. This is the baseline the agreement is measured against and it is a2.05's sentence, not a new one."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.223",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je l'ai vu.",
+      "en": "I saw it.",
+      "ipa": "/ʒə le vy/",
+      "respell": "zhuh lay VÜ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE POSITION FACT, in the past: the pronoun goes in front of the FIRST word, not between the two. Seven letters. Masculine, so the ending is invisible and the pair below is what makes it visible."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.224",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'ai vu la photo.",
+      "en": "I saw the photo.",
+      "ipa": "/ʒe vy la fɔ.to/",
+      "respell": "zhay vü lah foh-TOH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The feminine noun, still after the verb, still no ending."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.225",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je l'ai vue.",
+      "en": "I saw it.",
+      "ipa": "/ʒə le vy/",
+      "respell": "zhuh lay VÜ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE AGREEMENT. Same respelling as fr.a2.pronoms-essentiels.223 and the same IPA, deliberately: the two rows are one sound and the e is the only difference. Eight letters."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.226",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'ai acheté les livres.",
+      "en": "I bought the books.",
+      "ipa": "/ʒe a.ʃə.te le livʁ/",
+      "respell": "zhay ahsh-TAY lay LEEVR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Plural noun after the verb, no ending."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.227",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je les ai achetés.",
+      "en": "I bought them.",
+      "ipa": "/ʒə le ze a.ʃə.te/",
+      "respell": "zhuh lay zay ahsh-TAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Plural masculine before the verb, so the s goes on. Fourteen letters. RECEPTIVE-ONLY companions aside, this one is typed in the quiz because fold() keeps a final s."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.228",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'ai regardé les photos.",
+      "en": "I looked at the photos.",
+      "ipa": "/ʒe ʁə.ɡaʁ.de le fɔ.to/",
+      "respell": "zhay ruh-gar-DAY lay foh-TOH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Feminine plural noun, after the verb, no ending. The fourth and last baseline."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.229",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je les ai regardées.",
+      "en": "I looked at them.",
+      "ipa": "/ʒə le ze ʁə.ɡaʁ.de/",
+      "respell": "zhuh lay zay ruh-gar-DAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Feminine plural before the verb: two letters go on and neither is heard. RECEPTIVE ONLY, so no flashcard, no voiceflash and no dictation. A speak drill on this row would score a sound that carries none of the information."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.230",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, je la connais bien.",
+      "en": "Yes, I know her well.",
+      "ipa": "/wi ʒə la kɔ.nɛ bjɛ̃/",
+      "respell": "wee, zhuh lah koh-neh BYEHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Role play turn 1. The answer to a question about a person, which is where an English speaker reaches for \"her\" and puts it last."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.231",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Non, je ne le connais pas.",
+      "en": "No, I do not know him.",
+      "ipa": "/nɔ̃ ʒə nə lə kɔ.nɛ pa/",
+      "respell": "nohⁿ, zhuh nuh luh koh-neh PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn 2, the negative, on a verb the paradigm carried."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.232",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je les invite ce soir.",
+      "en": "I am inviting them tonight.",
+      "ipa": "/ʒə le zɛ̃.vit sə swaʁ/",
+      "respell": "zhuh lay zaⁿ-VEET suh SWAR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn 3. The plural, with something after the verb that is not the object, so the pronoun is visibly not just \"the word before the full stop\"."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.233",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je l'ai vu hier.",
+      "en": "I saw him yesterday.",
+      "ipa": "/ʒə le vy jɛʁ/",
+      "respell": "zhuh lay vü YEHR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn 4, and the past. The pronoun in front of the first word, in a sentence somebody would actually say."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.234",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je ne les ai pas vues.",
+      "en": "I did not see them.",
+      "ipa": "/ʒə nə le ze pa vy/",
+      "respell": "zhuh nuh lay zay pah VÜ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn 5. The wrap and the agreement in one sentence: ne and pas go round the pronoun and the first word, and the ending goes on the second. Both rules, neither of them new by this point."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.235",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu la connais aussi ?",
+      "en": "Do you know her too?",
+      "ipa": "/ty la kɔ.nɛ o.si/",
+      "respell": "tü lah koh-NEH oh-SEE",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn 6, and the learner asks rather than answers. a1.19 owns the rising question and this borrows it without teaching it."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.236",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je le prends.",
+      "en": "I will take it.",
+      "ipa": "/ʒə lə pʁɑ̃/",
+      "respell": "zhuh luh PRAHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "position",
+        "present"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn 7. Ten letters, and the present tense used for a decision made on the spot, which is what French does here and English does with \"will\"."
+    },
+    {
+      "id": "fr.a1.pronoms-essentiels.087",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "pronoms-essentiels",
+      "fr": "Je la vois tous les jours.",
+      "en": "I see her every day.",
+      "ipa": "/ʒə la vwa tu le ʒuʁ/",
+      "notes": "The object pronoun 'la' has no accent, unlike the adverb 'là', though both sound the same.",
+      "tags": [
+        "homophone"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.pronoms-essentiels.096",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "pronoms-essentiels",
+      "fr": "Je le vois chaque semaine.",
+      "en": "I see him every week.",
+      "ipa": "/ʒə lə vwa ʃak sə.mɛn/",
+      "notes": "Three weak schwa sounds in a row, je, le, se, can trick the ear into hearing fewer syllables than exist.",
+      "tags": [
+        "e-muet"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.courses.020",
+      "kind": "word",
+      "level": "a2",
+      "theme": "courses",
+      "fr": "acheter",
+      "en": "to buy",
+      "respell": "ahsh-TAY",
+      "tags": [
+        "verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
     }
   ],
   "scenarios": [
