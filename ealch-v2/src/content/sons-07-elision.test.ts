@@ -733,49 +733,64 @@ test('once published, the seed copy matches what was authored', () => {
 
 /* ─── Layout regression ───────────────────────────────────────────────────── */
 
-test('scene text carries its flex on a wrapper, never on the Text itself', () => {
+test('nothing sits beside the scene bubble French in a row', () => {
   // Runs unconditionally: this checks SOURCE, not content, so it must fail even
   // when the admin repo is absent.
   //
-  // The bug this exists to catch, reported on sons.07 mission 1: the scene
-  // bubble showed "Ah, à Lyon. Très" while the audio said "Très bien". Every
-  // clipped string was the beat's French line, and every intact one was a plain
-  // column child.
+  // The bug, reported on sons.07 mission 1: the scene bubble showed
+  // "Ah, à Lyon. Très" while the audio said "Très bien". Audio is unaffected
+  // because the play call takes the string and not the layout, which is exactly
+  // why this reads as a content bug and is not one.
   //
-  // Mechanism. The bubble hugs its content and is capped at maxWidth 92%. Yoga
-  // measures the Text at its natural single-line width during the hug pass,
-  // caps the box, then shrinks the text box, and the already-measured text does
-  // not re-wrap: the tail is cut. Audio is unaffected because the play call
-  // takes the string, not the layout, which is exactly why this reads as a
-  // content bug and is not one.
+  // Mechanism, MEASURED ON A PIXEL 6 in a bench of five markups against the same
+  // strings rather than reasoned from the source. The bubble hugs its content
+  // and is capped at maxWidth 92%, so it has no resolved width; Yoga measures
+  // the Text at its natural single-line width during the hug pass and the
+  // measured text does not re-wrap.
   //
-  // It has now regressed twice in the same file. `flex: 1` collapsed the text to
-  // its shortest word ("Pardon ?" became "Pa"); `flexShrink: 1` was the first
-  // fix and shrank the same unwrapped measurement, so short strings survived and
-  // longer ones still clipped. Neither is correct. The flex has to sit on a
-  // WRAPPER VIEW so the Text has a resolved width to wrap inside, which is what
-  // FrenchLine (LessonDeck) already does.
+  //   icon in the row, flexShrink: 1   CLIPS
+  //   icon in the row, flex: 1         CLIPS, and collapses "Pardon ?" to "Pa"
+  //   icon in the row, row wraps       CLIPS
+  //   icon in the row, no flex at all  CLIPS
+  //   ICON OUT OF THE ROW              WHOLE, at every length
+  //
+  // This test previously required a `flexShrink: 1` wrapper and called it "the
+  // working shape". It was not working: it was the third of four markups that
+  // clip, and it shipped the defect through a2.05 while passing. The clip is
+  // also not deterministic — the identical string rendered whole in one position
+  // and clipped in another on the same screen — so no assertion about a
+  // particular string can stand in for this one.
   //
   // Seven lessons render a scene, so this is mission 1 of sons.02, .03, .05,
-  // .06, .07, .08 and .10.
+  // .06, .07, .08 and .10, plus every A1 and A2 lesson that opens on one.
   const src = readFileSync(resolve(here, '../components/ScenePlayer.tsx'), 'utf8');
-  // Matched across the whole tag rather than from `<TX` to the first `{{`: the
-  // offending line carries font/role attributes before its style prop, and an
-  // earlier version of this check anchored too tightly and passed while the bug
-  // was reintroduced. Verified by putting the bug back and watching it fail.
-  const offenders = (src.match(/<TX\b[^>]*>/g) ?? [])
-    .filter((tag) => /style=\{\{[^}]*\bflex(?:Shrink)?\s*:/.test(tag))
+
+  // 1. Flex on a <TX> directly is still wrong, for the same reason.
+  const offenders = (src.match(/<TX[^>]*>/g) ?? [])
+    .filter((tag) => /style=\{\{[^}]*flex(?:Shrink)?\s*:/.test(tag))
     .map((tag) => tag.replace(/\s+/g, ' ').slice(0, 90));
   strictEqual(
     offenders.length,
     0,
-    `ScenePlayer puts flex on a <TX> directly, which clips the tail of a long line. ` +
-      `Wrap it in a <View> that carries the flex instead: ${offenders.join(' | ')}`,
+    `ScenePlayer puts flex on a <TX> directly, which clips the tail of a long line: ${offenders.join(' | ')}`,
   );
-  // And the working shape must still be present, so the rule above cannot be
-  // satisfied by deleting the row altogether.
+
+  // 2. THE RULE THE DEVICE ACTUALLY ESTABLISHED: the French line has no sibling
+  //    in a row. Checked by looking at the source between the start of the
+  //    bubble's Press body and the French itself — a row opened in that window
+  //    means something was put beside it again.
+  //    ANCHORED ON THE RENDER SITE, not on the string. The first `{beat.fr}` in
+  //    this file is `accessibilityLabel={beat.fr}`, hundreds of lines above the
+  //    markup, and anchoring there made this check pass while the bug was put
+  //    back — the same way the version of this test it replaced passed while the
+  //    defect shipped through a2.05. Verified by reintroducing the row and
+  //    watching it fail.
+  const at = src.indexOf('>{beat.fr}<');
+  ok(at > 0, 'ScenePlayer no longer renders {beat.fr} as element content, so this test is measuring nothing');
+  const window = src.slice(Math.max(0, at - 400), at);
   ok(
-    /<View style=\{\{ flexShrink: 1 \}\}>\s*<TX/.test(src),
-    'the bubble line still wraps its Text in a flexShrink wrapper',
+    !/flexDirection:\s*'row'/.test(window),
+    'a row was reopened around the scene bubble French. Anything beside it in a row clips its tail: '
+      + 'keep the speaker icon on the gloss line.',
   );
 });

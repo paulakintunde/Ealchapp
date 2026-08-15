@@ -321,7 +321,7 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   strictEqual(L!.tag, 'A2 · LEÇON 16');
   strictEqual(L!.title, u!.sub);
   strictEqual((L!.overview as { titleEn?: string }).titleEn, u!.title);
-  // v4. Four versions, and every bump is a defect a layer below it could not
+  // v5. Five versions, and every bump is a defect a layer below it could not
   // see:
   //   v2  two SEED-WIDE tests: a glossary entry that underlined nothing, and
   //       the banned word "honestly" inside an audio brief, which no
@@ -329,9 +329,13 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   //   v3  a PIXEL 6: the intro named a unit id on the lesson cover, and a
   //       scene bubble silently lost its own tail.
   //   v4  the v3 fix for that bubble DID NOT WORK and the device said so. The
-  //       theory was that the bubble hugs its widest child; the measured
-  //       trigger is a spaced exclamation mark.
-  strictEqual(L!.version, 4);
+  //       theory was that the bubble hugs its widest child.
+  //   v5  NOR DID v4. The "spaced exclamation mark" reading was an artifact of
+  //       one sample; a bench of five markups showed the same string clipping
+  //       in one position and not another. The APP was fixed instead, the
+  //       content workaround was reverted, and the guard was deleted rather
+  //       than rewritten.
+  strictEqual(L!.version, 5);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1055,39 +1059,33 @@ test('the reference sheet is three columns wide, holds no cheatSheet, and its ti
   deepStrictEqual(tables[2]!.rows, GRID_ROWS.map((r) => [...r]));
 });
 
-/** A SCENE BUBBLE ENDING IN A SPACED EXCLAMATION MARK LOSES ITS TAIL.
+/** THE SCENE BUBBLE THAT CLIPPED, AND WHY THERE IS NO CONTENT RULE HERE.
  *
- *  FOUND ON A PIXEL 6, and it is an APP bug rather than a content one.
  *  fr.a2.verbes.572 was authored « Ah, ce soir alors ! » and the bubble rendered
- *  « Ah, ce soir » while the gloss under it still read "Ah, tonight then!" — a
- *  French line missing a word its own English translates.
+ *  « Ah, ce soir » on a Pixel 6 while the gloss still read "Ah, tonight then!".
+ *  This file previously carried a test banning a spaced exclamation mark on any
+ *  scene bubble. THAT TEST WAS WRONG AND HAS BEEN DELETED.
  *
- *  ScenePlayer.tsx:276 documents the mechanism and a prior instance on sons.07
- *  mission 1. THE FIRST FIX TRIED HERE DID NOT WORK: v3 widened the gloss on the
- *  theory that the bubble hugs its widest child, the bubble got wider, and the
- *  French still clipped. The `you` bubble in this same scene carries a
- *  26-character French against a 21-character gloss and renders in full, so
- *  length is not the predictor either.
+ *  A bench of five markups against the same strings (ealch-v2/app/bubblelab.tsx,
+ *  since removed) rendered the identical string whole in one position and
+ *  clipped in another on the same screen, and clipped all four punctuations
+ *  alike. The exclamation mark was an artifact of a single sample. The real
+ *  trigger is any sibling in a row beside the French, and ScenePlayer now keeps
+ *  the speaker icon off that row.
  *
- *  MEASURED: with a full stop the identical sentence renders complete, and the
- *  other `them` bubble in this scene ends in a spaced QUESTION mark and renders
- *  complete. The spaced exclamation mark is the form that clips.
- *
- *  This build does not fix app code from a content lesson. What it controls is
- *  not triggering it. */
-test('no scene bubble ends in a spaced exclamation mark', { skip: noLesson }, () => {
+ *  No test in this file can catch that class: Node does not lay out. What is
+ *  asserted instead is only that the string is back to what the author wrote,
+ *  so the workaround cannot survive the bug it was working around. */
+test('the scene bubble carries the line its author wrote', { skip: noLesson }, () => {
   const scene = sec('s01-scene') as { beats?: { kind?: string; from?: string; fr?: string; en?: string }[] } | undefined;
   const bubbles = (scene?.beats ?? []).filter((b) => b.kind === 'bubble');
   ok(bubbles.length >= 3, `${bubbles.length} bubbles in the scene`);
-  for (const b of bubbles) {
-    ok(!(b.fr ?? '').includes(' !'),
-      `${JSON.stringify(b.fr)} ends on a spaced exclamation mark, which is the form measured to clip on a Pixel 6`);
-  }
-  // AND THE ROW THAT CLIPPED CARRIES ITS REPAIRED FORM.
   const row = byIdItem.get('fr.a2.verbes.572');
   ok(row, 'fr.a2.verbes.572 is not in the seed');
-  strictEqual(row!.fr, 'Ah, ce soir alors.');
+  strictEqual(row!.fr, 'Ah, ce soir alors !');
   strictEqual(row!.en, 'Ah, tonight then!');
+  ok(bubbles.some((b) => b.fr === 'Ah, ce soir alors !'),
+    'the scene no longer carries the repaired line as a bubble');
 });
 
 test('every role-play turn has a userEn and two alternatives', { skip: noLesson }, () => {

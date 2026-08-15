@@ -833,21 +833,21 @@ if (INTRO_NAMES_NO_UNIT.test(LESSON.intro ?? '')) {
    FOUND ON A PIXEL 6. App bug (ScenePlayer.tsx:276), not fixed from a content
    build; what a content build controls is not triggering it. */
 {
-  /* SCOPED TO THE `them` SIDE, AND THE SCOPE IS MEASURED RATHER THAN ASSUMED.
-     The `you` bubble in this scene carries « Hier soir, j'ai... j'ai... » (26)
-     against a 21-character gloss and renders IN FULL on a Pixel 6, so "French
-     longer than gloss" is NOT the predictor on that side, and a guard that said
-     so would block correct content. What was observed to clip is a `them`
-     bubble, which is also the side that draws a speaker label above it. The
-     mechanism is not fully characterised and this build does not pretend it is:
-     the rule guards the side the defect was actually seen on. */
-  const bubbles = PASSE_COMPOSE_SCENE_BEATS.filter((b) => b.kind === 'bubble' && (b as { from?: string }).from === 'them') as unknown as { fr?: string; en?: string }[];
-  const carrier = bubbles.find((b) => b.fr === SCENE_BUBBLE_CLIP.fr);
-  if (!carrier) die(`${SCENE_BUBBLE_CLIP.row} is named as the row that clipped and its line is in no bubble`);
-  for (const b of bubbles) {
-    if ((b.fr ?? '').includes(' !')) {
-      die(`a scene bubble ends on a spaced exclamation mark: ${JSON.stringify(b.fr)}. That is the form measured to clip on a Pixel 6 (${SCENE_BUBBLE_CLIP.clippedFr} rendered as ${SCENE_BUBBLE_CLIP.clippedTo}); a full stop and a spaced question mark both render in full.`);
-    }
+  /* THE PUNCTUATION GUARD THAT USED TO LIVE HERE IS GONE, AND ITS REMOVAL IS
+     THE FINDING. It refused a spaced exclamation mark on any `them` bubble,
+     on the strength of one sample. The bench (ealch-v2/app/bubblelab.tsx)
+     later rendered that very string whole in one position and clipped in
+     another, and clipped all four punctuations equally: the trigger was never
+     the glyph, it was any sibling in a row beside the French. ScenePlayer now
+     ships the fix, so the guard was banning correct French to dodge a bug that
+     no longer exists — which is worse than no guard, because it reads like
+     knowledge.
+
+     What is still worth asserting is only that the row named in the record is
+     really in the scene, so the record cannot rot silently. */
+  const bubbles = PASSE_COMPOSE_SCENE_BEATS.filter((b) => b.kind === 'bubble') as unknown as { fr?: string; en?: string }[];
+  if (!bubbles.some((b) => b.fr === SCENE_BUBBLE_CLIP.fr)) {
+    die(`${SCENE_BUBBLE_CLIP.row} is named in SCENE_BUBBLE_CLIP as ${JSON.stringify(SCENE_BUBBLE_CLIP.fr)} and no bubble carries that line`);
   }
 }
 

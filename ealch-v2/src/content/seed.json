@@ -1,5 +1,5 @@
 {
-  "version": 39,
+  "version": 40,
   "units": [
     {
       "id": "sons.04",
@@ -58587,7 +58587,7 @@
               "Hier soir, j'ai... j'ai...",
               "J'ai mangé avec des amis.",
               "Je mange avec des amis.",
-              "Ah, ce soir alors."
+              "Ah, ce soir alors !"
             ]
           },
           {
@@ -59194,7 +59194,7 @@
         "fr.a2.negation-et-restriction.142"
       ],
       "reframe": "One verb, two words, and the small ones go in between.",
-      "version": 4,
+      "version": 5,
       "features": [
         "roleplay",
         "voiceflash"
@@ -59285,7 +59285,7 @@
             },
             {
               "en": "Ah, tonight then!",
-              "fr": "Ah, ce soir alors.",
+              "fr": "Ah, ce soir alors !",
               "from": "them",
               "kind": "bubble",
               "size": "md",
@@ -362521,6 +362521,55 @@
       "version": 1
     },
     {
+      "id": "fr.a2.verbes.554",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il a vendu.",
+      "en": "He sold.",
+      "ipa": "/il a vɑ̃.dy/",
+      "respell": "eel ah vahⁿ-DÜ",
+      "notes": "The -RE group, and a2.11's own frame verb. The naming form loses its -re and takes -u, and this is the only one of the three where the ending is not already on the naming form somewhere.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "re"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.555",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous avons choisi.",
+      "en": "We chose.",
+      "ipa": "/nu.za.vɔ̃ ʃwa.zi/",
+      "respell": "noo za-vohⁿ shwah-ZEE",
+      "notes": "A second -IR verb, in another person, so the ending is clearly the group and not the verb.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "ir"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
       "id": "fr.a2.verbes.552",
       "kind": "sentence",
       "level": "a2",
@@ -362571,19 +362620,18 @@
       "version": 1
     },
     {
-      "id": "fr.a2.verbes.554",
+      "id": "fr.a2.verbes.541",
       "kind": "sentence",
       "level": "a2",
       "theme": "verbes",
-      "fr": "Il a vendu.",
-      "en": "He sold.",
-      "ipa": "/il a vɑ̃.dy/",
-      "respell": "eel ah vahⁿ-DÜ",
-      "notes": "The -RE group, and a2.11's own frame verb. The naming form loses its -re and takes -u, and this is the only one of the three where the ending is not already on the naming form somewhere.",
+      "fr": "J'ai mangé.",
+      "en": "I ate. / I have eaten.",
+      "ipa": "/ʒe mɑ̃.ʒe/",
+      "respell": "zhay mahⁿ-ZHAY",
+      "notes": "The frame, and eight letters, so the dictée can take it. One English form covers both of these and French has one form for both, which is the piece of luck in this lesson.",
       "tags": [
         "verbes",
-        "passe-compose",
-        "re"
+        "passe-compose"
       ],
       "drills": [
         "sentence",
@@ -362591,30 +362639,6 @@
         "voiceflash",
         "review",
         "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a2.verbes.555",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Nous avons choisi.",
-      "en": "We chose.",
-      "ipa": "/nu.za.vɔ̃ ʃwa.zi/",
-      "respell": "noo za-vohⁿ shwah-ZEE",
-      "notes": "A second -IR verb, in another person, so the ending is clearly the group and not the verb.",
-      "tags": [
-        "verbes",
-        "passe-compose",
-        "ir"
-      ],
-      "drills": [
-        "sentence",
-        "flashcard",
-        "voiceflash",
-        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -362805,30 +362829,6 @@
         "flashcard",
         "voiceflash",
         "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a2.verbes.541",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "J'ai mangé.",
-      "en": "I ate. / I have eaten.",
-      "ipa": "/ʒe mɑ̃.ʒe/",
-      "respell": "zhay mahⁿ-ZHAY",
-      "notes": "The frame, and eight letters, so the dictée can take it. One English form covers both of these and French has one form for both, which is the piece of luck in this lesson.",
-      "tags": [
-        "verbes",
-        "passe-compose"
-      ],
-      "drills": [
-        "sentence",
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
       ],
       "audioRef": null,
       "version": 1
@@ -363336,11 +363336,11 @@
       "kind": "sentence",
       "level": "a2",
       "theme": "verbes",
-      "fr": "Ah, ce soir alors.",
+      "fr": "Ah, ce soir alors !",
       "en": "Ah, tonight then!",
       "ipa": "/a sə swaʁ a.lɔʁ/",
       "respell": "ah suh SWAR ah-LOR",
-      "notes": "She has moved his evening to tonight, cheerfully, because the tense told her to. Nobody corrected anything and he is now expected. THE FINAL PUNCTUATION IS A FULL STOP AND NOT « ! »: see SCENE_BUBBLE_CLIP.",
+      "notes": "She has moved his evening to tonight, cheerfully, because the tense told her to. Nobody corrected anything and he is now expected. The exclamation mark is back: it was flattened to a full stop under a theory the device refuted, see SCENE_BUBBLE_CLIP.",
       "tags": [
         "verbes",
         "passe-compose"

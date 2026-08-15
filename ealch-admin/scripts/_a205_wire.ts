@@ -47,8 +47,12 @@ async function main() {
   const bubble = snap.items.find((i) => i.id === 'fr.a2.verbes.572');
   console.log(`  authored rows .541..576    ${rows.length} of 36`);
   console.log(`  the scene bubble .572      « ${bubble?.fr ?? 'ABSENT'} »`);
-  const clips = (bubble?.fr ?? '').includes(' !');
-  console.log(`  ends in a spaced "!"      ${clips ? 'YES — it will clip on a Pixel 6' : 'no'}`);
+  // The exclamation mark is CORRECT and expected here. It was flattened to a
+  // full stop under a theory the device later refuted, and restored in v5 once
+  // ScenePlayer was fixed: the clip needs a sibling in a row beside the French,
+  // not a particular glyph. Reported so a reader sees the restoration landed.
+  const restored = (bubble?.fr ?? '').endsWith('alors !');
+  console.log(`  its exclamation restored  ${restored ? 'yes (v5)' : 'NO — still carrying the v4 workaround'}`);
 
   const reserved = snap.items.filter((i) => {
     const m = /^fr\.a2\.verbes\.(\d+)$/.exec(i.id);

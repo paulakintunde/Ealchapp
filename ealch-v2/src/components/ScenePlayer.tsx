@@ -272,30 +272,41 @@ function BubbleBeat({
           gap: 5,
         }}
       >
-        {/* The flex lives on a WRAPPER VIEW, never on the Text itself.
-            This bubble hugs its content and is capped at 92%, and that pair is
-            what breaks text measurement: Yoga measures the Text at its natural
-            single-line width during the hug pass, caps the box, then shrinks
-            the text box, and the already-measured text does NOT re-wrap. The
-            tail is simply cut off. Reported on sons.07 mission 1 as
-            "Ah, à Lyon. Très bien." rendering without "bien", while the audio
-            spoke the whole line, because onPlay gets the string and not the
-            layout.
-            `flex: 1` here collapsed the text to the shortest word ("Pardon ?"
-            became "Pa"). `flexShrink: 1` was the first fix and was better but
-            still wrong: it shrank the same unwrapped measurement, so short
-            strings survived and longer ones kept clipping.
-            Wrapping in a View gives the Text a RESOLVED width to wrap inside,
-            which is the idiom FrenchLine already uses (LessonDeck) and the same
-            reason MissionRich's story bubble keeps its play control on its own
-            line instead of beside the text. */}
+        {/* THE FRENCH IS ALONE ON ITS LINE, AND THAT IS THE FIX.
+            This bubble hugs its content and is capped at 92%, so it has no
+            resolved width. Put ANY sibling beside the French in a row and Yoga
+            measures the Text at its natural single-line width during the hug
+            pass, caps the box, and the already-measured text does not re-wrap:
+            the tail is silently cut. The audio still speaks the whole line,
+            because onPlay gets the string and not the layout, so the learner
+            hears words the screen never showed. First reported on sons.07
+            mission 1 as "Ah, à Lyon. Très bien." rendering without "bien".
+
+            Measured on a Pixel 6 (a scratch bench, five markups against the
+            same strings) rather than reasoned about, because reasoning got it
+            wrong three times:
+
+              icon in the row, flexShrink: 1   CLIPS  (what shipped)
+              icon in the row, flex: 1         CLIPS, and collapses "Pardon ?"
+                                               to "Pa"
+              icon in the row, row wraps       CLIPS
+              icon in the row, no flex at all  CLIPS
+              ICON OUT OF THE ROW              WHOLE, at every length
+
+            The clip is also NOT deterministic: the identical string rendered
+            whole in one position and clipped in another on the same screen,
+            which is why no content rule can dodge it and why the earlier
+            "it is the spaced exclamation mark" reading was an artifact of a
+            single sample. It is the row, and only the row.
+
+            So the speaker rides with the GLOSS, which is free to sit beside it
+            because a wrapping Text with no flex property in a row measures
+            correctly — that is the observation this fix was derived from. */}
+        <TX font="serifI" role="titleSm">{beat.fr}</TX>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          <View style={{ flexShrink: 1 }}>
-            <TX font="serifI" role="titleSm">{beat.fr}</TX>
-          </View>
+          <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
           {speakable ? <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} /> : null}
         </View>
-        <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
         {beat.ipa ? <TX role="meta" color={t.txSubtle}>{beat.ipa}</TX> : null}
       </Press>
       {beat.stage ? (

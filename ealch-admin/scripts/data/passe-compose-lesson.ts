@@ -1728,29 +1728,29 @@ export const PASSE_COMPOSE_LESSON: Lesson = {
   //      whose intro does it. Doctrine §B.7 asks for unit ids in the teaching
   //      BODY, where the reference has context; the cover is not that. Reworded
   //      to « for fifteen lessons » and guarded.
-  //   2  THE SCENE BUBBLE CLIPPED ITS OWN TAIL. fr.a2.verbes.572 is stored as
-  //      « Ah, ce soir alors ! » and the bubble rendered « Ah, ce soir », while
-  //      the gloss still read "Ah, tonight then!". This is an APP bug that
-  //      ScenePlayer.tsx:276 documents in as many words, with a prior instance
-  //      on sons.07 mission 1 ("Ah, à Lyon. Très bien." losing "bien"): the
-  //      bubble hugs its content, is capped at 92%, and the already-measured
-  //      Text does not re-wrap. It is app code, so it is not fixed from a
-  //      content build; what IS in this build's hands is not triggering it, and
-  //      the trigger is a French line wider than its own gloss. See
-  //      SCENE_BUBBLE_CLIP.
+  //   2  THE SCENE BUBBLE CLIPPED ITS OWN TAIL, and this build then explained
+  //      it wrongly twice before the app was fixed. See the v5 note below and
+  //      SCENE_BUBBLE_CLIP; nothing about it is a content rule any more.
   //
   // The counter moves rather than the body being corrected under v2: Postgres
   // already held v2, and two different bodies under one number is the drift
   // ledger §10 exists to prevent.
   // v4: THE v3 FIX FOR THE BUBBLE CLIP DID NOT WORK, AND THE DEVICE SAID SO.
   //      v3 widened the gloss on fr.a2.verbes.572 on the theory that the bubble
-  //      hugs its widest child, so a French line longer than its English gets
-  //      squeezed. On a Pixel 6 the bubble DID get wider and the French still
-  //      read « Ah, ce soir ». The theory was wrong and the guard built on it
-  //      was refuted by its own first test: the `you` bubble in this same scene
-  //      carries a 26-character French against a 21-character gloss and renders
-  //      in full. The measured trigger is the SPACED EXCLAMATION MARK.
-  version: 4,
+  //      hugs its widest child. On a Pixel 6 the bubble DID get wider and the
+  //      French still read « Ah, ce soir ». v4 then read the trigger as the
+  //      spaced exclamation mark and flattened 572 to a full stop.
+  // v5: THAT WAS WRONG TOO, AND THE APP IS NOW FIXED INSTEAD.
+  //      A bench rendering five markups against the same strings on a Pixel 6
+  //      (ealch-v2/app/bubblelab.tsx) showed the identical string rendering
+  //      whole in one position and clipped in another, and all four
+  //      punctuations clipping alike: the exclamation mark was an artifact of a
+  //      single sample. The real trigger is any sibling in a row beside the
+  //      French, and ScenePlayer now keeps the speaker icon off that row. So
+  //      572 gets its « ! » back, the content guard is deleted rather than
+  //      rewritten, and the lesson stops carrying a workaround for a bug that
+  //      no longer exists.
+  version: 5,
 
   grammarAssumed: [
     'The full present of avoir, in six persons, introduced in a1.07',

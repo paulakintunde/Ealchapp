@@ -882,37 +882,45 @@ export const INTRO_NAMES_NO_UNIT = /(?:sons|a1|a2|b1|b2|c1)\.\d{2}/i;
 export const INTRO_UNIT_ID_LESSONS = 0;
 export const INTRO_UNIT_ID_MEASURED_ACROSS = 58;
 
-/** A SCENE BUBBLE CLIPS ITS OWN TAIL WHEN THE FRENCH IS WIDER THAN ITS GLOSS.
+/** A SCENE BUBBLE CLIPPED ITS OWN TAIL. THE APP IS NOW FIXED, AND EVERY
+ *  CONTENT-SIDE THEORY THIS BUILD HELD ABOUT IT WAS WRONG.
  *
- *  FOUND ON A PIXEL 6, v2 to v3, and it is an APP bug rather than a content
- *  one. `fr.a2.verbes.572` is stored as « Ah, ce soir alors ! » and the bubble
- *  rendered « Ah, ce soir » while the gloss still read "Ah, tonight then!" —
- *  a French line missing a word its own English translates.
+ *  `fr.a2.verbes.572` was authored « Ah, ce soir alors ! » and rendered
+ *  « Ah, ce soir » on a Pixel 6, while the gloss still read "Ah, tonight then!".
+ *  This build then produced two explanations and both were refuted on the phone:
  *
- *  `ScenePlayer.tsx:276` documents the mechanism in as many words: the bubble
- *  hugs its content and is capped at 92%, Yoga measures the Text at its natural
- *  single-line width during the hug pass, caps the box, and the already-measured
- *  text does NOT re-wrap. Its own recorded instance is sons.07 mission 1,
- *  « Ah, à Lyon. Très bien. » rendering without "bien". A `flexShrink: 1`
- *  wrapper is already in place and is not enough.
+ *    v3  "the bubble hugs its widest child, so a French wider than its gloss
+ *         gets squeezed"     -> widening the gloss made the bubble wider and the
+ *                               French still clipped
+ *    v4  "the trigger is the spaced exclamation mark"
+ *                            -> an artifact of ONE sample. In the bench the very
+ *                               same string rendered whole in one position and
+ *                               clipped in another, and all four punctuations
+ *                               clipped equally
  *
- *  **This build does not fix app code from a content lesson** — that is the call
- *  the ledger made for `TrapAudioStep` and it holds here. What is in a content
- *  build's hands is not TRIGGERING it, and the trigger is a bubble whose French
- *  is wider than the English under it, because the hug width comes from the
- *  widest child. The gloss on 572 is deliberately longer than the French.
+ *  Measured properly in `ealch-v2/app/bubblelab.tsx` (five markups, same
+ *  strings, one screen): the clip needs a SIBLING BESIDE THE FRENCH IN A ROW.
+ *  Row plus flexShrink, plus flex, plus flexWrap, and plus no flex property at
+ *  all — all four clip. Icon out of the row renders whole at every length.
+ *  `ScenePlayer.tsx` now ships that, so there is nothing left for a content
+ *  author to avoid and NO CONTENT GUARD BELONGS HERE.
  *
- *  Guarded as a rule over every bubble beat in the scene, and the rule is
- *  stated in characters because that is what a content author can check. */
+ *  Kept as a record because the next build to see a clipped line will otherwise
+ *  reinvent the two wrong theories, and because it is the case for measuring a
+ *  layout bug on a device instead of reasoning about it from a comment. */
 export const SCENE_BUBBLE_CLIP = {
   row: 'fr.a2.verbes.572',
-  fr: 'Ah, ce soir alors.',
-  clippedFr: 'Ah, ce soir alors !',
+  fr: 'Ah, ce soir alors !',
+  wasWorkedAroundAs: 'Ah, ce soir alors.',
   clippedTo: 'Ah, ce soir',
-  gloss: 'Ah, tonight then!',
   priorInstance: 'sons.07 mission 1, « Ah, à Lyon. Très bien. » rendering without "bien"',
-  appCode: 'ScenePlayer.tsx:276',
-  why: 'The bubble hugs its content and is capped at 92%. The Text is measured at its natural single-line width, the box is capped, and the measured text does not re-wrap, so the tail is cut. The hug width comes from the widest child, so a French line wider than its own gloss clips.',
+  appCode: 'ScenePlayer.tsx, BubbleBeat',
+  fixedInApp: true,
+  refuted: [
+    'the French being wider than its gloss (refuted on device: widening the gloss widened the bubble and the French still clipped)',
+    'the spaced exclamation mark (refuted in the bench: the same string clipped in one position and not another, and all four punctuations behaved alike)',
+  ],
+  cause: 'Any sibling in a row beside the French. The bubble hugs and is capped at 92%, so it has no resolved width; the Text is measured at its natural single-line width and the measured text does not re-wrap. Moving the speaker icon off that row fixes it at every length.',
 } as const;
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1181,7 +1189,7 @@ export const PASSE_COMPOSE: PCRow[] = [
    * complete sentence about tonight. */
   S(570, 'Et hier soir, alors ?', 'And last night, then?', 'ay yehr SWAR ah-LOR', '/e jɛʁ swaʁ a.lɔʁ/', 'scene', NO_D, T, 'Her question, and it has no verb in it at all, which is why he cannot copy a form out of it.'),
   S(571, "J'ai mangé avec des amis.", 'I ate with friends.', 'zhay mahⁿ-ZHAY ah-VEK day-za-MEE', '/ʒe mɑ̃.ʒe a.vɛk de.za.mi/', 'scene', NO_D, T, `What he meant, in full. ${FUTUR_UNIT} published « Je vais manger avec des amis. » and this is the same evening in the other direction.`, 'je'),
-  S(572, 'Ah, ce soir alors.', 'Ah, tonight then!', 'ah suh SWAR ah-LOR', '/a sə swaʁ a.lɔʁ/', 'scene', NO_D, T, 'She has moved his evening to tonight, cheerfully, because the tense told her to. Nobody corrected anything and he is now expected. THE FINAL PUNCTUATION IS A FULL STOP AND NOT « ! »: see SCENE_BUBBLE_CLIP.'),
+  S(572, 'Ah, ce soir alors !', 'Ah, tonight then!', 'ah suh SWAR ah-LOR', '/a sə swaʁ a.lɔʁ/', 'scene', NO_D, T, 'She has moved his evening to tonight, cheerfully, because the tense told her to. Nobody corrected anything and he is now expected. The exclamation mark is back: it was flattened to a full stop under a theory the device refuted, see SCENE_BUBBLE_CLIP.'),
 
   /* ── The conversation, for the role play ─────────────────────────────────*/
   S(573, 'Et toi, tu as travaillé samedi ?', 'And you, did you work on Saturday?', 'ay TWAH · tü ah trah-vah-YAY sam-DEE', '/e twa ty a tʁa.va.je sam.di/', 'talk', NO_D, T, 'A question in the past with no inversion, which is how it is asked.', 'tu'),
