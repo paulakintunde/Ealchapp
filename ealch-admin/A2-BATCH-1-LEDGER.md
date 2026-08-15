@@ -3261,3 +3261,217 @@ measure it*, and this is that in the other direction.
 - **The thirty-three, by group, are in `data/participes-corpus.ts`'s `FORMS`**,
   each with its naming form, its import id and the row that teaches it. a2.21
   needs `venu`, `né` and `mort` from it and nothing else.
+
+---
+
+## a2.21 amendments, 2026-08-15
+
+Written by the `a2.21` build, which is **seq 18 and the seventh lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger for the same reason a2.04's,
+a2.18's, a2.05's and a2.20's are.
+
+Full report: `A2-21-BUILD-REPORT.md`.
+
+### 0. THE ID BLOCK, CLAIMED HERE BECAUSE NO BATCH-2 LEDGER EXISTS
+
+```
+seq  id      block                          status
+16   a2.05   fr.a2.verbes.541 .. .590       36 rows, 541-576 used
+17   a2.20   fr.a2.verbes.591 .. .650       43 rows, 591-633 used
+18   a2.21   fr.a2.verbes.651 .. .720       46 rows, 651-696 used
+     482 rows before, 528 after, exactly +46
+```
+
+Seventy wide because the paradigm needed four cells of one verb, six persons, two
+contrast pairs, two transitive pairs, four cells of the audible one, four
+negatives, a scene, a conversation and a generalisation. Forty-six used;
+`.697..720` is the tail and is not backfilled.
+
+**a2.22 and a2.23 should take `.721..790` and `.791..860`.** a2.23 is a pronominal
+past and will need at least as many rows as this one.
+
+### 1. CORRECTIONS §11's "NASALS THE CHECKER CANNOT SEE" IS WRONG ON FOUR ROWS
+
+§11 lists eleven rows under *"rows carrying a nasal the checker cannot see, which
+the remaining lessons will import and must repair by name"*, and four of them are
+this lesson's. Measured through the real `hasPlainNasalFor`:
+
+```
+monter     mohn-TAY          FLAGGED
+tomber     tohn-BAY          FLAGGED
+descendre  day-SAHN-druh     FLAGGED
+entrer     ahn-TRAY          FLAGGED
+rentrer    rahn-TRAY         FLAGGED
+```
+
+**ALL FIVE ARE VISIBLE.** The blind shape a2.11 measured is a nasal followed by a
+consonant INSIDE a token (`PRAHNDR`); in `mohn-TAY` the n ends the token `mohn`
+because a hyphen follows it, so the checker sees it perfectly.
+
+**A build that trusted the list would have shipped an empty INVISIBLE table
+believing it had found four**, which is §6's failure mode pointing the other way:
+§6 warns that repairing what the checker reports can leave a wrong value, and this
+is a document telling an author that a value the checker DOES report is invisible.
+
+**And three of the six the brief names were already repaired**, which is a2.20 §4
+for the second build running: `entrer` holds `ahⁿ-TRAY`, `rentrer` holds
+`rahⁿ-TRAY`, and a2.11 repaired `descendre` to `day-SAHⁿDR`. Two repairs, not six.
+
+### 2. THE FALSE POSITIVE IS REAL AND `nous sommes` IS A NEW ONE
+
+Invariants §3 records `jaune`, `automne` and `la saison`. Corrections §6 says the
+shape is real but rarer and asks builds to report the absence. **This build met
+it.**
+
+```
+Nous sommes partis tôt.   noo sohm  pahr-TEE TOH   FLAGGED
+                          noo som   pahr-TEE TOH   clean
+                          noo somm  pahr-TEE TOH   clean, and the house shape
+```
+
+`sommes` is /sɔm/ with a real m and **no nasal vowel in it at all**, so a
+superscript there teaches a sound the word does not have. The repair is the one
+invariants §3 prescribes for `automne`: DOUBLE THE CONSONANT. Four rows carry it,
+and every lesson from here to the end of A2 uses `nous sommes`.
+
+**And the single-m form is clean too**, so the trigger is not simply "a vowel then
+an m at the end of a token". `som` passes and `sohm` does not, and nobody has
+chased why.
+
+### 3. EVERY RESPELLING GUARD IN THIS BAND IS PHRASED THE WRONG WAY ROUND
+
+Found by mutation, and it is the most transferable thing in this build.
+
+Every layer of every lesson in this band asserts *"the respelling must not be
+FLAGGED"*. Putting a superscript on `sommes` produces `sohⁿm`, which the checker
+calls **clean** — because its complaint about that word was a false positive in
+the first place. **It walks through all of them.** Only the lesson's own test,
+which pins the string, caught it.
+
+**A false-positive entry needs the ROW checked against the FIXED VALUE, not
+against the checker's opinion of it.** Any lesson carrying a `FALSE_POSITIVES`
+table has this hole today.
+
+### 4. §9's LIST OF HOLES IN THE GUARDS YOU WILL COPY GAINS FIVE MORE
+
+All five found by mutation, and four of the five are a guard reading a constant
+the CONTENT is built from, which is a2.18 §6 spreading rather than being fixed.
+
+1. **THE FOUR-CELL GUARD READ THE WHOLE SECTION.** A `check.why` saying « allés
+   and allées are one sound » satisfied the assertion that « allées » is ON A
+   CARD, and an option reading « Nothing at all » satisfied the assertion that the
+   screen calls them one sound. **One hole with three faces**: dropping the form
+   from the card and removing the card from the group both walked through it.
+   **Read `groups[].items[].fr`, and read `say` plus `check.why` for a claim,
+   never `strings(section)`.** This is a2.20 §5.3 in a new place and it is now the
+   third time the same shape has been found.
+2. **`AGREEMENT_RULE` COMPARED AGAINST ITSELF.** It is the string a2.23 is told to
+   inherit, so it is a cross-lesson contract and belongs on the same footing as
+   a2.01's reframe: a LITERAL in all three layers.
+3. **THE MERGE'S SCENE GUARD READ `SCENE_ERROR`**, the constant the scene is built
+   from. Repairing the French repaired both sides. The batch caught it only
+   because its copy was already a literal.
+4. **NEITHER LAYER CHECKED THE ROLE PLAY'S ALTERNATIVES.** The only thing that
+   does is the seed-wide `scenario.logic.test.ts`, which runs AFTER the merge,
+   which is exactly how a2.03 shipped three one-alt turns with every gate green.
+   Two lines in each layer.
+5. **THE MERGE NEVER CHECKED THE AUDIBLE PAIR'S RESPELLINGS**, which is
+   lesson-specific but generalises: a merge that checks a claim is on a screen
+   without checking the notation that makes it true is half a guard.
+
+**AND ONE CONTENT DRIFT OF THE SAME SHAPE.** The bookend deck's `hint` hardcoded
+`a2.01` while its own cards used `${ER_UNIT}`, so renaming the constant left the
+hint still crediting a2.01 and satisfied the guard. **A unit id on a learner
+surface comes from the constant, everywhere, including the places that feel too
+small to matter.**
+
+### 5. THE MUTATION HARNESS AND CRLF
+
+**Twelve of forty-seven rows reported SKIPPED on the first run and every one of
+the anchors was correct.** Every source file in this repo is CRLF and every anchor
+in a harness is written with LF, so any multi-line anchor misses.
+
+A skipped row looks exactly like a stale harness, which is the failure mode the
+harness header's own point 2 exists to prevent. `pick()` tries the LF form and
+then the CRLF form. **Copy it.**
+
+### 6. THE SEED CUT HAS NOW BEEN MISPREDICTED THREE BUILDS RUNNING
+
+```
+a2.05   predicted right, and its report says predict nothing
+a2.20   predicted 11, measured 15
+a2.21   predicted 9,  measured 6
+```
+
+Both directions, both times. **The surprise check is the deliverable, not a better
+prediction**, and it should stay in every merge in this band.
+
+### 7. a2.11's descendre LOOP CANNOT BE CLOSED BY BACK-REFERENCE
+
+`a2.11.l1` names `descendre` eleven times and names neither auxiliary once, so
+there is nothing on that lesson's surfaces to answer. Corrections §7 had already
+softened the finding; this measures it.
+
+**Closed FORWARD instead**, which is assertable: `s16-object` names `descendre`,
+names `a2.11` by unit id, and states the split. And a2.21's test asserts the
+NEGATIVE as well, so if a2.11 ever opens the loop properly this lesson fails and
+it gets closed both ways.
+
+**The general point: a brief that says "close the loop by back-reference" is
+assuming the earlier lesson opened one on a LEARNER SURFACE. Read the shipped body
+before believing it.**
+
+### 8. A REFRAME QUOTED FROM A NEIGHBOUR MUST BE READ OFF THE SHIPPED LESSON
+
+This build's `A215_REFRAME` was **invented**: it quoted « One verb, and everything
+in front of it comes along. » and a2.15 shipped « Cover the front of the verb.
+Build what is left. »
+
+**Neither the batch nor the merge could see it**, because both compared the
+constant to itself. The lesson's own test caught it on its first run, because that
+file reads `seed.json` and holds the literal by hand.
+
+Four quotes were literals from the start (a2.01, a2.03, a2.05, a2.19) and two were
+not (a2.15, a2.20). **Every quoted line needs a literal on the guard side**, and
+the cheapest way to get one is to assert the neighbour's own `reframe` off the
+seed, which this lesson's test now does for all six.
+
+### 9. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3779   pass 3779   fail 0        measured 2026-08-14, before a2.21
+  tests 3860   pass 3860   fail 0        after a2.21 (+81)
+a1-03-genre.test.ts   ending population 1890 both ways, measured off the SEED.
+                      0 gendered rows authored OR carried; TWO were wanted and
+                      refused (la nature morte, and the gendered copy of tomber).
+npx tsc --noEmit      0 in ealch-v2 AND 0 in ealch-admin
+seed.json             version 41, 9215 items, 59 lessons, 75 units (before)
+                      version 41, 9267 items, 60 lessons, 75 units (after, NOT
+                        published; the merge left the version alone)
+                      +46 authored, +6 CARRIED through the cut
+mutation harness      47 mutations, 0 caught by nothing, 0 skipped, SEVEN finding
+                        a weakness rather than confirming a strength
+```
+
+**ONE lesson now sits in the seed above the last published snapshot: a2.21.**
+v41 carried a2.20 and everything before it.
+
+### 10. WHAT a2.22 AND a2.23 INHERIT, AND a2.22 IS NEXT
+
+- **The agreement rule is worded once and exported** as `AGREEMENT_RULE`. a2.23
+  should quote it rather than reword it, and the one place it does NOT run there,
+  a reflexive with a direct object after it, is that lesson's to state.
+- **No reflexive appears anywhere in a2.21.** Eleven verbs and fifteen markers are
+  refused by four layers, and no authored row contains one. The background is
+  clean for a2.22 to introduce them and for a2.23 to agree them.
+- **The transitive split is NAMED and NOT TAUGHT**, so a2.23 inherits an open
+  question rather than a half-taught rule. The measurement is in `TRANSITIVE` and
+  the manifest re-runs it.
+- **`reduceNegative()` is here and it is plainer than a2.05's**, because `ne`
+  elides in only three of the six persons and never touches the subject.
+- **The one audible feminine is `mourir` and nothing else**, so a2.23's reflexive
+  agreement is inaudible everywhere without exception.
+- **The fifteen, with their four cells each, are in `ETRE_VERBS`** in
+  `data/passe-compose-etre-corpus.ts`, and `NO_EAR_QUESTION` holds the 86 pairs no
+  ear question may separate.

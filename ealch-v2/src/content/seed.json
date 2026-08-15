@@ -975,7 +975,9 @@
       "level": "a2",
       "title": "The Passé Composé with Être",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.21.l1"
+      ],
       "prereqUnitIds": [
         "a2.05"
       ]
@@ -175956,6 +175958,2973 @@
         "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
         "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
       ]
+    },
+    {
+      "id": "a2.21.l1",
+      "unitId": "a2.21",
+      "seq": 1,
+      "title": "Le passé composé avec être",
+      "level": "a2",
+      "tag": "A2 · LEÇON 18",
+      "intro": "Almost every verb in French builds its past with a form of avoir. Fifteen of them use être instead, and once you have done that, something happens that has never happened to a verb before: the second word changes for who the sentence is about, exactly the way a describing word does. A man who left and a woman who left are spelled differently and sound identical. Nobody can hear this and everybody who reads it can see it, which makes writing the only place it can be checked and the dictée the longest part of the lesson.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "She Waited For The Thing",
+          "frSub": "Lundi, à la machine à café",
+          "render": "screens",
+          "layer": "core",
+          "setting": {
+            "place": "The office kitchen",
+            "city": "Lyon",
+            "time": "Monday morning"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "Monday, the same office kitchen, and a colleague who actually wants to know. You had a good weekend and you have been looking forward to saying so.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Tu es allée où hier soir ?",
+              "en": "Where did you go last night?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-21-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Hier soir, j'ai... je suis... j'ai...",
+              "en": "Last night, I... I... I...",
+              "stage": "You know the verb and you know the past. What you do not know is which of the two first words this one takes, and you have started the sentence. a2.05 gave you avoir and nothing else, so avoir is what arrives.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "She is still waiting. What comes out?",
+              "options": [
+                {
+                  "fr": "Je suis sortie avec des amis.",
+                  "respell": "[zhuh swee sor-TEE ah-vehk day zah-MEE]",
+                  "en": "être, and the evening gets told",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "J’ai sorti avec des amis.",
+                  "en": "what the other first word gives",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "She asks who you went with and the conversation carries on.",
+                "breaks": "She heard a sentence about carrying something out of the house, and stopped to find out what."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Tu as sorti quoi ?",
+              "en": "You took out what?",
+              "stage": "Nobody has been rude and nothing has been mispronounced. With avoir in front of it, sortir means taking something out, so she waited for the thing. The sentence was fine French about something you did not do.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Ah, avec des amis. Je comprends.",
+              "en": "Ah, with friends. I see.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "One word wrong",
+              "body": "The verb was right and the tense was right. The first word was avoir, and with avoir in front of it that verb means something else entirely.",
+              "wrong": {
+                "fr": "J’ai sorti avec des amis.",
+                "ipa": "/ʒe sɔʁ.ti a.vɛk de za.mi/",
+                "respell": "[ZHAY sor-TEE ah-vehk day zah-MEE]",
+                "en": "what avoir gives"
+              },
+              "right": {
+                "fr": "Je suis sortie avec des amis.",
+                "ipa": "/ʒə sɥi sɔʁ.ti a.vɛk de za.mi/",
+                "respell": "[zhuh swee sor-TEE ah-vehk day zah-MEE]",
+                "en": "what the language has"
+              }
+            }
+          ],
+          "closing": {
+            "text": "After être, the second word ends like a describing word.",
+            "size": "md"
+          },
+          "terms": [
+            "firstWord",
+            "theObject",
+            "movement"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Reach for the right first word",
+              "s": "Fifteen verbs take être instead of avoir, and twelve of the fifteen have one thing in common that you can check in half a second."
+            },
+            {
+              "t": "Put the ending on",
+              "s": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman."
+            },
+            {
+              "t": "Write what nobody can hear",
+              "s": "All four spellings are one sound, so the dictée is the only place this can be tested and it is where most of the work is."
+            },
+            {
+              "t": "Decide about a verb nobody showed you",
+              "s": "a2.15's move, one step further: cover the front of a verb and you inherit the first word as well as the second."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s03-twohalves",
+          "title": "Two Halves",
+          "frSub": "Deux moitiés",
+          "layer": "core",
+          "swipe": true,
+          "hint": "Swipe. Six cards, and the second one is the lesson.",
+          "cards": [
+            {
+              "label": "the first half",
+              "head": "which first word",
+              "body": "Fifteen verbs put a form of être where every other verb puts avoir. These are not rare. Four hundred and sixty-six sentences in this app already put être in front of one of these second words, and all four spellings of allé are among them."
+            },
+            {
+              "label": "and the second",
+              "head": "After être, the second word ends like a describing word.",
+              "body": "After avoir the second word never moves. After être it changes for who the sentence is about, and that has never happened to a verb before now."
+            },
+            {
+              "label": "what does not change",
+              "head": "a2.05 still holds",
+              "body": "« One verb, two words, and the small ones go in between. » Two words, a gap between them, and the small ones in the gap. Nothing on this screen touches any of that."
+            },
+            {
+              "label": "and what you cannot hear",
+              "head": "four spellings, one sound",
+              "body": "You cannot check this by listening. For fourteen of the fifteen, all four spellings are one sound."
+            },
+            {
+              "label": "the pattern",
+              "head": "Twelve of the fifteen move, and the other three change what is true rather than where you are.",
+              "body": "rester is the one that breaks it. Nothing moves and nothing changes, and it is the one people forget, which is the reason the mnemonic exists at all."
+            },
+            {
+              "label": "where you have seen this",
+              "head": "a2.03 taught the endings",
+              "body": "« The plain form tells you the other three. » The four endings on the second word are that lesson's four, and the only new thing is that a verb is doing it."
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "whoDidIt"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s04-recap",
+          "title": "The Shape Has Not Moved",
+          "frSub": "La forme ne bouge pas",
+          "layer": "core",
+          "say": "a2.05 said it two lessons ago: « One verb, two words, and the small ones go in between. » The first word, the gap, the second word. All this lesson changes is which first word, and what happens to the second one afterwards.",
+          "examples": [
+            {
+              "fr": "Elle a mangé au restaurant.",
+              "en": "She ate at the restaurant.",
+              "note": "[ehl ah mahⁿ-ZHAY oh res-toh-RAHⁿ] avoir, and the second word does not move. a2.05's rule exactly."
+            },
+            {
+              "fr": "Elle est allée au restaurant.",
+              "en": "She went to the restaurant.",
+              "note": "[ehl eh tah-LAY oh res-toh-RAHⁿ] être, same woman, same restaurant, and an e has appeared. One word different in the whole sentence."
+            },
+            {
+              "fr": "Elle n’est pas allée au bureau.",
+              "en": "She did not go to the office.",
+              "note": "[ehl neh pah zah-LAY oh bü-ROH] And the negative, in the same place it has always been. « Wrap the verb that changed, not the one carrying the meaning. » That is That is a2.19's line, quoted by a2.05 and again here."
+            },
+            {
+              "fr": "Je ne suis pas allé au bureau.",
+              "en": "I did not go to the office.",
+              "note": "[zhuh nuh swee pah zah-LAY oh bü-ROH] a2.05's ne shortened in front of every person and this one shortens in front of three. suis, sommes and sont start on a consonant, so the ne stays whole."
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "whoDidIt"
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s05-pattern",
+          "title": "Fifteen Verbs, Four Kinds",
+          "frSub": "Quinze verbes",
+          "layer": "core",
+          "say": "Twelve of the fifteen move, and the other three change what is true rather than where you are. Four rows, and the number beside each is how many verbs are in it. Tap a row to hear its first member.",
+          "cols": [
+            "Kind",
+            "How many",
+            "Like"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "going/coming",
+                "5",
+                "aller"
+              ],
+              "say": "aller",
+              "detail": {
+                "title": "going and coming",
+                "body": "aller, venir, arriver, partir and passer. aller gives allé, venir gives venu, arriver gives arrivé, partir gives parti, passer gives passé. aller [ah-LAY]",
+                "say": "aller"
+              }
+            },
+            {
+              "cells": [
+                "in/out",
+                "4",
+                "entrer"
+              ],
+              "say": "entrer",
+              "detail": {
+                "title": "in and out",
+                "body": "entrer, sortir, rentrer and retourner. entrer gives entré, sortir gives sorti, rentrer gives rentré, retourner gives retourné. entrer [ahⁿ-TRAY]",
+                "say": "entrer"
+              }
+            },
+            {
+              "cells": [
+                "up/down",
+                "3",
+                "monter"
+              ],
+              "say": "monter",
+              "detail": {
+                "title": "up and down",
+                "body": "monter, descendre and tomber. monter gives monté, descendre gives descendu, tomber gives tombé. monter [mohⁿ-TAY]",
+                "say": "monter"
+              }
+            },
+            {
+              "cells": [
+                "no moving",
+                "3",
+                "rester"
+              ],
+              "say": "rester",
+              "detail": {
+                "title": "and three that do not move",
+                "body": "rester, naître and mourir. rester gives resté, naître gives né, mourir gives mort. rester [res-TAY]",
+                "say": "rester"
+              }
+            }
+          ],
+          "terms": [
+            "movement",
+            "firstWord",
+            "theEnding"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s06-crutch",
+          "title": "The Crutch",
+          "frSub": "Le moyen mnémotechnique",
+          "layer": "core",
+          "swipe": true,
+          "hint": "Swipe. Five cards, and the last one is the catch.",
+          "cards": [
+            {
+              "label": "the crutch",
+              "head": "DR MRS VANDERTRAMP",
+              "body": "Sixteen letters for sixteen verbs, and it is an accident of English spelling rather than anything about French. Sixteen initials of sixteen verbs, in English, arranged into a name."
+            },
+            {
+              "label": "the pattern",
+              "head": "Twelve of the fifteen move, and the other three change what is true rather than where you are.",
+              "body": "Going, coming, arriving, leaving, going in, going out, going up, going down, falling, being born and dying. That is the thing they have in common and it is checkable on a verb the crutch does not list."
+            },
+            {
+              "label": "the one that breaks it",
+              "head": "rester",
+              "body": "rester is the one that breaks it. Nothing moves and nothing changes, and it is the one people forget, which is the reason the mnemonic exists at all."
+            },
+            {
+              "label": "what it misses",
+              "head": "passer",
+              "body": "passer is not one of its letters, and it takes être twenty-six times in this app."
+            },
+            {
+              "label": "so",
+              "head": "have both",
+              "body": "The pattern tells you about a verb nobody has listed for you. The crutch tells you about the sixteen it holds, quickly, when you are in the middle of a sentence. Neither one does the other one's job."
+            }
+          ],
+          "terms": [
+            "theCrutch",
+            "movement",
+            "firstWord"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s07-fourforms",
+          "title": "Four Spellings, One Sound",
+          "frSub": "Quatre orthographes",
+          "layer": "core",
+          "size": "lg",
+          "say": "After être, the second word ends like a describing word. Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. Four cards, one verb, and the only thing that changes is who it is about. Read the respellings: all four end the same way.",
+          "groups": [
+            {
+              "label": "one man, and one woman",
+              "items": [
+                {
+                  "fr": "Il est allé.",
+                  "ipa": "/il ɛ ta.le/",
+                  "note": "[eel eh tah-LAY] He went."
+                },
+                {
+                  "fr": "Elle est allée.",
+                  "ipa": "/ɛl ɛ ta.le/",
+                  "note": "[ehl eh tah-LAY] She went."
+                }
+              ],
+              "check": {
+                "q": "Il est allé against Elle est allée. What is different when you say them?",
+                "opts": [
+                  "The last syllable",
+                  "Only the first word",
+                  "Nothing at all"
+                ],
+                "correct": 1,
+                "why": "The second word is identical: both are the same three sounds. Il and elle are different and the ending is not, which is the whole difficulty of this lesson."
+              }
+            },
+            {
+              "label": "and more than one",
+              "items": [
+                {
+                  "fr": "Ils sont allés.",
+                  "ipa": "/il sɔ̃ ta.le/",
+                  "note": "[eel sohⁿ tah-LAY] They went."
+                },
+                {
+                  "fr": "Elles sont allées.",
+                  "ipa": "/ɛl sɔ̃ ta.le/",
+                  "note": "[ehl sohⁿ tah-LAY] They went, and they are all women."
+                }
+              ],
+              "check": {
+                "q": "Ils sont allés against Elles sont allées. And here?",
+                "opts": [
+                  "Nothing at all",
+                  "The last syllable",
+                  "The number of letters"
+                ],
+                "correct": 0,
+                "why": "Ils and elles are one sound, sont is one sound, and allés and allées are one sound. These two sentences are completely identical out loud and two letters apart on paper."
+              }
+            },
+            {
+              "label": "so where is the difference",
+              "items": [
+                {
+                  "fr": "Elle est allée.",
+                  "ipa": "/ɛl ɛ ta.le/",
+                  "note": "[ehl eh tah-LAY] She went."
+                },
+                {
+                  "fr": "Elles sont allées.",
+                  "ipa": "/ɛl sɔ̃ ta.le/",
+                  "note": "[ehl sohⁿ tah-LAY] They went, and they are all women."
+                }
+              ],
+              "check": {
+                "q": "Where can you see which of the four a sentence is?",
+                "opts": [
+                  "In the sound of the second word",
+                  "In the last two letters, in writing",
+                  "In the first word only"
+                ],
+                "correct": 1,
+                "why": "You cannot check this by listening. For fourteen of the fifteen, all four spellings are one sound. That is why the dictée in this lesson is longer than usual and why most of the exam is typed."
+              }
+            }
+          ],
+          "terms": [
+            "theEnding",
+            "oneSound",
+            "whoDidIt"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s08-bookend",
+          "title": "Seventeen Lessons Ago",
+          "frSub": "On vous l’avait dit",
+          "layer": "core",
+          "swipe": true,
+          "hint": "Swipe. Four cards, and the first is a line from a2.01.",
+          "cards": [
+            {
+              "label": "the first lesson of this level",
+              "head": "Four of the six forms sound the same, so the pronoun carries the person.",
+              "body": "a2.01 said it in the first lesson of this level, about six forms of the present. Seventeen lessons later it is four forms of the past and the same sentence covers them."
+            },
+            {
+              "label": "there",
+              "head": "je parle, tu parles, ils parlent",
+              "body": "a2.01 had six forms and three spellings that are one sound, and the pronoun in front settled which one you meant."
+            },
+            {
+              "label": "here",
+              "head": "Il est allé. Elles sont allées.",
+              "body": "There the pronoun did the work the ending could not. Here the subject does, and there is nothing left for the ear at all: all four are one sound."
+            },
+            {
+              "label": "so",
+              "head": "French writes what it does not say",
+              "body": "It has been doing this since the first lesson of this level, and this is the fourth time you have met it. Once you expect it, a silent ending stops being a surprise and starts being something you check."
+            }
+          ],
+          "terms": [
+            "oneSound",
+            "theEnding",
+            "whoDidIt"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s09-borrowed",
+          "title": "You Know These Endings",
+          "frSub": "Vous connaissez déjà ces terminaisons",
+          "layer": "core",
+          "say": "a2.03 taught this on describing words and the endings are the same four. « The plain form tells you the other three. » The only new thing is that a verb is now doing it.",
+          "examples": [
+            {
+              "fr": "mort · morte",
+              "en": "dead, and dead about a woman",
+              "note": "[MOR] This one is published in this app as an ordinary describing word, and it is also the past form of mourir. The same word doing both jobs."
+            },
+            {
+              "fr": "Il est mort en mars.",
+              "en": "He died in March.",
+              "note": "[eel eh MOR ahⁿ MARSS] As a past form, with être in front of it, and nothing on the end."
+            },
+            {
+              "fr": "Elle est morte en mars.",
+              "en": "She died in March.",
+              "note": "[ehl eh MORT ahⁿ MARSS] And with the ending, which is where a describing word would have put it too."
+            },
+            {
+              "fr": "Le verre est tombé.",
+              "en": "The glass fell.",
+              "note": "[luh VEHR eh tohⁿ-BAY] The subject does not have to be a person. Le verre is masculine and singular, so nothing goes on."
+            }
+          ],
+          "terms": [
+            "describing",
+            "theEnding",
+            "oneSound"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s10-persons",
+          "title": "All Six Persons",
+          "frSub": "Les six personnes",
+          "layer": "core",
+          "size": "lg",
+          "say": "Six persons, one verb, and a2.10's frame word so the two lessons sit against each other. Watch the last two letters and nothing else.",
+          "groups": [
+            {
+              "label": "me and you",
+              "items": [
+                {
+                  "fr": "Je suis parti tôt.",
+                  "ipa": "/ʒə sɥi paʁ.ti to/",
+                  "note": "[zhuh swee pahr-TEE TOH] I left early."
+                },
+                {
+                  "fr": "Tu es partie tôt.",
+                  "ipa": "/ty ɛ paʁ.ti to/",
+                  "note": "[tü eh pahr-TEE TOH] You left early."
+                }
+              ],
+              "check": {
+                "q": "The second one is addressed to a woman. How do you know?",
+                "opts": [
+                  "From the verb",
+                  "From the e on the end",
+                  "From tu"
+                ],
+                "correct": 1,
+                "why": "Only the ending says so. Tu is the same for anybody and the sound is the same either way, so this is a fact you can only get in writing."
+              }
+            },
+            {
+              "label": "him, and us",
+              "items": [
+                {
+                  "fr": "Il est parti tôt.",
+                  "ipa": "/il ɛ paʁ.ti to/",
+                  "note": "[eel eh pahr-TEE TOH] He left early."
+                },
+                {
+                  "fr": "Nous sommes partis tôt.",
+                  "ipa": "/nu sɔm paʁ.ti to/",
+                  "note": "[noo somm pahr-TEE TOH] We left early."
+                }
+              ],
+              "check": {
+                "q": "Nous sommes partis. What would change if everyone in the group were a woman?",
+                "opts": [
+                  "Nothing",
+                  "An e before the s",
+                  "The first word"
+                ],
+                "correct": 1,
+                "why": "It becomes parties, with the e for the women and the s for the number. Two letters, and still not a sound."
+              }
+            },
+            {
+              "label": "and the two plurals",
+              "items": [
+                {
+                  "fr": "Vous êtes parties tôt.",
+                  "ipa": "/vu zɛt paʁ.ti to/",
+                  "note": "[voo zeht pahr-TEE TOH] You left early, and you are all women."
+                },
+                {
+                  "fr": "Elles sont parties tôt.",
+                  "ipa": "/ɛl sɔ̃ paʁ.ti to/",
+                  "note": "[ehl sohⁿ pahr-TEE TOH] They left early, and they are all women."
+                }
+              ],
+              "check": {
+                "q": "Vous êtes parties. What does the ending tell you that the words do not?",
+                "opts": [
+                  "When they left",
+                  "That they are all women",
+                  "How many there are"
+                ],
+                "correct": 1,
+                "why": "The s is the number and the e is the gender. Vous alone tells you neither, which is why the ending is worth writing."
+              }
+            }
+          ],
+          "terms": [
+            "whoDidIt",
+            "theEnding",
+            "firstWord"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s11-contrast",
+          "title": "One Agrees, One Does Not",
+          "frSub": "L’un s’accorde, l’autre non",
+          "layer": "core",
+          "say": "After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it. Two pairs, and inside each pair only the verb is different.",
+          "examples": [
+            {
+              "fr": "Elle a mangé au restaurant.",
+              "en": "She ate at the restaurant.",
+              "note": "[ehl ah mahⁿ-ZHAY oh res-toh-RAHⁿ] avoir. Nothing on the end, and nothing would go on it in any person."
+            },
+            {
+              "fr": "Elle est allée au restaurant.",
+              "en": "She went to the restaurant.",
+              "note": "[ehl eh tah-LAY oh res-toh-RAHⁿ] être. Same subject, same place, and the ending appears."
+            },
+            {
+              "fr": "Ils ont mangé au restaurant.",
+              "en": "They ate at the restaurant.",
+              "note": "[eel zohⁿ mahⁿ-ZHAY oh res-toh-RAHⁿ] avoir. Nothing on the end, and nothing would go on it in any person."
+            },
+            {
+              "fr": "Ils sont allés au restaurant.",
+              "en": "They went to the restaurant.",
+              "note": "[eel sohⁿ tah-LAY oh res-toh-RAHⁿ] être. Same subject, same place, and the ending appears."
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "describing"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s12-audible",
+          "title": "The One You Can Hear",
+          "frSub": "Celui qu’on entend",
+          "layer": "core",
+          "questionsInModal": true,
+          "say": "mort and morte are the one pair in this lesson you can hear apart. Listen to all four and then answer. This is the only place in the lesson where listening tells you anything.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-21-audible"
+          },
+          "lines": [
+            {
+              "fr": "Il est mort en mars.",
+              "en": "He died in March."
+            },
+            {
+              "fr": "Elle est morte en mars.",
+              "en": "She died in March."
+            },
+            {
+              "fr": "Ils sont morts en mars.",
+              "en": "They died in March."
+            },
+            {
+              "fr": "Elles sont mortes en mars.",
+              "en": "They died in March, and they are all women."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Il est mort en mars against Elle est morte en mars. What did you hear?",
+              "opts": [
+                "Nothing different",
+                "A t at the end of the second word",
+                "A different first word"
+              ],
+              "correct": 1,
+              "why": "mort ends on the r and morte ends on a t. The e wakes the t up, which is what an e does everywhere else in French and does not do to any of the other fourteen verbs here."
+            },
+            {
+              "q": "Ils sont morts en mars against Elles sont mortes en mars. And here?",
+              "opts": [
+                "The same t",
+                "An s on the end",
+                "Nothing at all"
+              ],
+              "correct": 0,
+              "why": "The number is still silent: morts is the first sound and mortes the second. The plural adds a letter and no sound, exactly as it does on the other fourteen."
+            },
+            {
+              "q": "Why does this one verb behave differently from the other fourteen?",
+              "opts": [
+                "It is irregular",
+                "Its past form ends in a consonant, so an e after it can be heard",
+                "It is used more often"
+              ],
+              "correct": 1,
+              "why": "The other fourteen end in a vowel sound, and an e after a vowel adds nothing. mort ends on a consonant, so the e gives it something to say."
+            },
+            {
+              "q": "What can you check by ear in the rest of this lesson?",
+              "opts": [
+                "The ending",
+                "The first word",
+                "Both"
+              ],
+              "correct": 1,
+              "why": "Être and avoir are completely different words, so the first word is audible everywhere. You cannot check this by listening. For fourteen of the fifteen, all four spellings are one sound."
+            }
+          ],
+          "terms": [
+            "oneSound",
+            "describing",
+            "theEnding"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s13-unseen",
+          "title": "Three Nobody Listed",
+          "frSub": "Trois cas nouveaux",
+          "layer": "core",
+          "size": "lg",
+          "say": "Cover the front of the verb. Build what is left. That is a2.15's line, and here it settles the first word as well as the second. Three verbs this lesson has not listed, and one of them is not in the crutch either.",
+          "groups": [
+            {
+              "label": "to become",
+              "items": [
+                {
+                  "fr": "devenir",
+                  "ipa": "/dəvəniʁ/",
+                  "note": "[duh-vuh-NEER] to become"
+                },
+                {
+                  "fr": "Il est devenu professeur.",
+                  "ipa": "/il ɛ dəv.ny pʁɔ.fɛ.sœʁ/",
+                  "note": "[eel eh duhv-NÜ proh-feh-SUHR] He became a teacher."
+                }
+              ],
+              "check": {
+                "q": "Devenir. He became a teacher. Il ___ professeur.",
+                "opts": [
+                  "a devenu",
+                  "est devenu",
+                  "est devenue"
+                ],
+                "correct": 1,
+                "why": "Cover the de and venir is underneath. venir takes être, so devenir takes être, and the form is venu with de in front. Il is masculine and singular, so nothing goes on the end."
+              }
+            },
+            {
+              "label": "to come back",
+              "items": [
+                {
+                  "fr": "revenir",
+                  "ipa": "/ʁəvəniʁ/",
+                  "note": "[ruh-vuh-NEER] to come back"
+                },
+                {
+                  "fr": "Elle est revenue lundi.",
+                  "ipa": "/ɛl ɛ ʁəv.ny lœ̃.di/",
+                  "note": "[ehl eh ruhv-NÜ luhⁿ-DEE] She came back on Monday."
+                }
+              ],
+              "check": {
+                "q": "Revenir, about a woman. Elle est ___ lundi.",
+                "opts": [
+                  "revenu",
+                  "revenue",
+                  "revenus"
+                ],
+                "correct": 1,
+                "why": "The same move again, and then the ending. venir gives venu, re goes on the front, and elle puts an e on the back."
+              }
+            },
+            {
+              "label": "and one the crutch has no letter for",
+              "items": [
+                {
+                  "fr": "repartir",
+                  "ipa": "/ʁəpaʁtiʁ/",
+                  "note": "[ruh-par-TEER] to leave again"
+                },
+                {
+                  "fr": "Elles sont reparties lundi.",
+                  "ipa": "/ɛl sɔ̃ ʁə.paʁ.ti lœ̃.di/",
+                  "note": "[ehl sohⁿ ruh-pahr-TEE luhⁿ-DEE] They left again on Monday."
+                }
+              ],
+              "check": {
+                "q": "Repartir, about several women. Elles sont ___ lundi.",
+                "opts": [
+                  "reparties",
+                  "reparti",
+                  "repartis"
+                ],
+                "correct": 0,
+                "why": "Cover the re and partir is underneath, which takes être. Then both endings, because they are more than one and they are women. DR MRS VANDERTRAMP has no letter for this verb and covering the front settles it anyway."
+              }
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "theCrutch"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s14-boundary",
+          "title": "What Is Still Coming",
+          "frSub": "Ce qui arrive ensuite",
+          "layer": "core",
+          "swipe": true,
+          "hint": "Swipe. Three cards, and none of them is work for today.",
+          "cards": [
+            {
+              "label": "more verbs with être",
+              "head": "a2.22 and a2.23",
+              "body": "A whole family of verbs carries a little word in front of it and they take être as well. That is a2.22 and then a2.23, and the rule on this screen is the one they will use."
+            },
+            {
+              "label": "the one case with avoir",
+              "head": "a2.06",
+              "body": "There is one case where a past form agrees after avoir, and it needs the words that stand in for an object. That is a2.06 and nothing here depends on it."
+            },
+            {
+              "label": "and the forms themselves",
+              "head": "a2.20 did those",
+              "body": "« Do not build these. Reach for the group it is in. » That lesson gave you venu, né, mort and said the first word was this one's. Here it is, and the ending goes on all three."
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "movement"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s15-whichfirst",
+          "title": "Which First Word",
+          "frSub": "Quel premier mot",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Every one of the six is a verb where the wrong first word produces a sentence that is fine French and means something else.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-21-which",
+            "wrongThenRight": true
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Twelve Move, Three Do Not"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "What It Looks Like"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Wrong, Then Right"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Pick The First Word",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "The verb decides, and the meaning is the clue",
+            "body": "Twelve of the fifteen move, and the other three change what is true rather than where you are. If the sentence is about getting somewhere, leaving somewhere, or starting or stopping existing, check for être first."
+          },
+          "cards": [
+            {
+              "promptLabel": "avoir would give",
+              "promptSound": "Elle a allé au marché.",
+              "fr": "Elle a allé au marché.",
+              "ipa": "/ɛl a a.le o maʁ.ʃe/",
+              "tip": "avoir on a verb that takes être, which is the error the whole lesson exists to prevent. It comes from having used avoir for one lesson and nothing else."
+            },
+            {
+              "promptLabel": "and it is être",
+              "promptSound": "Elle est allée au marché.",
+              "fr": "Elle est allée au marché.",
+              "ipa": "/ɛl ɛ ta.le o maʁ.ʃe/",
+              "tip": "Going to the market is going somewhere, which is the commonest of the four kinds."
+            },
+            {
+              "promptLabel": "and this one is avoir",
+              "promptSound": "Elle a mangé au restaurant.",
+              "fr": "Elle a mangé au restaurant.",
+              "ipa": "/ɛl a mɑ̃.ʒe o ʁɛs.to.ʁɑ̃/",
+              "tip": "She ate at the restaurant. Eating is not going anywhere, so it is an ordinary verb and nothing goes on the end."
+            },
+            {
+              "promptLabel": "and so is this",
+              "promptSound": "Elle a passé un examen.",
+              "fr": "Elle a passé un examen.",
+              "ipa": "/ɛl a pɑ.se œ̃ nɛɡ.za.mɛ̃/",
+              "tip": "She took an exam. There is something after the verb that is being done rather than moving, so avoir. This is the one exception you will meet."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Elle est allée au marché.",
+              "opts": [
+                "avoir",
+                "être"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Elle a mangé au restaurant.",
+              "opts": [
+                "avoir",
+                "être"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Il est entré sans frapper.",
+              "opts": [
+                "être",
+                "avoir"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "J’ai sorti la poubelle.",
+              "opts": [
+                "avoir, because the bin is being carried out",
+                "être"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Elle est restée à la maison.",
+              "opts": [
+                "avoir, because nothing moves",
+                "être"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Le verre est tombé.",
+              "opts": [
+                "être",
+                "avoir"
+              ],
+              "correct": 0
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "movement",
+            "theObject"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s16-object",
+          "title": "When It Takes Avoir Instead",
+          "frSub": "Quand c’est avoir",
+          "layer": "core",
+          "swipe": true,
+          "hint": "Swipe. Five cards, and none of them is asked for later.",
+          "cards": [
+            {
+              "label": "the split",
+              "head": "A few of them take avoir instead when something is being moved rather than moving. You will meet it; you are not being asked to produce it.",
+              "body": "A few of the fifteen can have something after them that is being moved. When they do, the first word is avoir and nothing goes on the end."
+            },
+            {
+              "label": "sortir",
+              "head": "Je suis sorti hier soir. J’ai sorti la poubelle.",
+              "body": "I went out last night against I took the bin out. sortir on its own is going out and sortir with something after it is carrying that thing out. [zhay sor-TEE lah poo-BELL]"
+            },
+            {
+              "label": "passer",
+              "head": "Elle est passée devant la gare. Elle a passé un examen.",
+              "body": "She went past the station against She took an exam. passer is the one you will actually meet: forty-five sentences in this app put avoir in front of it and almost all of them are about taking an exam."
+            },
+            {
+              "label": "going down",
+              "head": "descendre",
+              "body": "a2.11 taught descendre in the present and did not say which first word it takes. It takes être when you go down and avoir when you take something down, and this lesson owns that."
+            },
+            {
+              "label": "and what to do about it",
+              "head": "nothing, today",
+              "body": "Recognise it when you read it. Nothing later in this lesson asks you to produce one, because the thing you are learning is which verbs need être, and these are the places where they do not."
+            }
+          ],
+          "terms": [
+            "theObject",
+            "firstWord",
+            "movement"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s17-notpresent",
+          "title": "It Is Not A Description",
+          "frSub": "Ce n’est pas le présent",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Every one of these looks like a sentence about how somebody is, and every one of them is about something that happened.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-21-past"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Est Plus A Second Word"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "Happened, Not Is"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Four Things That Happened"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Happened Or Is",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "A form of être plus a second word is a past",
+            "body": "Elle est fatiguée describes her now. Elle est partie says she left. The shape is the same and the second word decides: a describing word describes, and a past form reports."
+          },
+          "cards": [
+            {
+              "promptLabel": "this happened",
+              "promptSound": "Il est allé.",
+              "fr": "Il est allé.",
+              "ipa": "/il ɛ ta.le/",
+              "tip": "He went. Not \"he is gone\". Something he did, and it is finished."
+            },
+            {
+              "promptLabel": "and this happened",
+              "promptSound": "Elle est née ici.",
+              "fr": "Elle est née ici.",
+              "ipa": "/ɛl ɛ ne i.si/",
+              "tip": "She was born here. A single event, on a day, however long ago it was."
+            },
+            {
+              "promptLabel": "and this",
+              "promptSound": "Elle est restée à la maison.",
+              "fr": "Elle est restée à la maison.",
+              "ipa": "/ɛl ɛ ʁɛs.te a la mɛ.zɔ̃/",
+              "tip": "She stayed at home. Staying is not a description either. It is what she did with the afternoon."
+            },
+            {
+              "promptLabel": "and even this",
+              "promptSound": "Le verre est tombé.",
+              "fr": "Le verre est tombé.",
+              "ipa": "/lə vɛʁ ɛ tɔ̃.be/",
+              "tip": "The glass fell. One event, over. Not a glass that is in a fallen state."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Il est allé.",
+              "opts": [
+                "it happened",
+                "it is a description"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Elle est fatiguée.",
+              "opts": [
+                "it is a description",
+                "it happened"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Elle est restée à la maison.",
+              "opts": [
+                "it is a description",
+                "it happened"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il est content.",
+              "opts": [
+                "it happened",
+                "it is a description"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Elle est descendue à midi.",
+              "opts": [
+                "it happened",
+                "it is a description"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Elle est morte en mars.",
+              "opts": [
+                "it is a description",
+                "it happened"
+              ],
+              "correct": 1
+            }
+          ],
+          "terms": [
+            "describing",
+            "firstWord",
+            "theEnding"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s18-errors",
+          "title": "The Five You Will Make",
+          "frSub": "Les cinq erreurs",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "errors": [
+            {
+              "wrong": "Elle a allé au marché.",
+              "right": "Elle est allée au marché.",
+              "why": "avoir on a verb that takes être, which is the error the whole lesson exists to prevent. It comes from having used avoir for one lesson and nothing else."
+            },
+            {
+              "wrong": "Elle est allé au marché.",
+              "right": "Elle est allée au marché.",
+              "why": "The right first word and no ending. Nobody hears this and everybody who reads it sees it, which is why it survives so long."
+            },
+            {
+              "wrong": "Elle a mangée au marché.",
+              "right": "Elle a mangé au marché.",
+              "why": "The rule applied where it does not run. After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it."
+            },
+            {
+              "wrong": "Ils sont allé au marché.",
+              "right": "Ils sont allés au marché.",
+              "why": "The plural forgotten. More than one person and the s goes on, exactly as it would on a describing word."
+            },
+            {
+              "wrong": "Je suis sorti la poubelle.",
+              "right": "J'ai sorti la poubelle.",
+              "why": "être where the verb has something after it that is being moved. This is the split, and it is the one case in the lesson where avoir is right."
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "theObject"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s19-talk",
+          "title": "The Evening, Properly",
+          "frSub": "On raconte la soirée",
+          "layer": "core",
+          "setting": "The same colleague, later in the week, and this time you have both halves. Every answer is something that is over, and every one of them takes être.",
+          "turns": [
+            {
+              "ai": "Tu es allée où hier soir ?",
+              "en": "Where did you go last night?",
+              "user": "Je suis sortie avec des amis.",
+              "userEn": "I went out with friends.",
+              "alts": [
+                {
+                  "fr": "Elle est allée au restaurant.",
+                  "en": "She went to the restaurant."
+                },
+                {
+                  "fr": "Nous sommes passés devant chez toi.",
+                  "en": "We went past your place."
+                }
+              ]
+            },
+            {
+              "ai": "Tu es rentrée à quelle heure ?",
+              "en": "What time did you get home?",
+              "user": "Je suis rentrée vers minuit.",
+              "userEn": "I got home around midnight.",
+              "alts": [
+                {
+                  "fr": "Elle est restée à la maison.",
+                  "en": "She stayed at home."
+                },
+                {
+                  "fr": "Elle est descendue à midi.",
+                  "en": "She came down at midday."
+                }
+              ]
+            },
+            {
+              "ai": "Vous êtes arrivés ensemble ?",
+              "en": "Did you arrive together?",
+              "user": "Nous sommes arrivés à huit heures.",
+              "userEn": "We arrived at eight.",
+              "alts": [
+                {
+                  "fr": "Elles sont parties tôt.",
+                  "en": "They left early, and they are all women."
+                },
+                {
+                  "fr": "Ils sont retournés en France.",
+                  "en": "They went back to France."
+                }
+              ]
+            },
+            {
+              "ai": "Et Marie, elle est venue ?",
+              "en": "And Marie, did she come?",
+              "user": "Non, elle n’est pas venue.",
+              "userEn": "No, she did not come.",
+              "alts": [
+                {
+                  "fr": "Elle est revenue lundi.",
+                  "en": "She came back on Monday."
+                },
+                {
+                  "fr": "Elles ne sont pas allées au bureau.",
+                  "en": "They did not go to the office, and they are all women."
+                }
+              ]
+            },
+            {
+              "ai": "Tu as sorti quoi ?",
+              "en": "You took out what?",
+              "user": "Je suis sorti hier soir.",
+              "userEn": "I went out last night.",
+              "alts": [
+                {
+                  "fr": "Il est entré sans frapper.",
+                  "en": "He came in without knocking."
+                },
+                {
+                  "fr": "Je suis parti tôt.",
+                  "en": "I left early."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "whoDidIt"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s20-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "itemIds": [
+            "fr.a2.verbes.651",
+            "fr.a2.verbes.652",
+            "fr.a2.verbes.653",
+            "fr.a2.verbes.654",
+            "fr.a2.verbes.673",
+            "fr.a2.verbes.693"
+          ],
+          "say": "Six lines, and the first four are the same verb four times. Nothing you hear will tell you which of the four you are writing. The words in front of it will.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-21-dictee"
+          },
+          "terms": [
+            "theEnding",
+            "oneSound",
+            "whoDidIt"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s21-speak",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.verbes.651",
+            "fr.a2.verbes.652",
+            "fr.a2.verbes.653",
+            "fr.a2.verbes.654",
+            "fr.a2.verbes.655",
+            "fr.a2.verbes.656",
+            "fr.a2.verbes.657",
+            "fr.a2.verbes.658",
+            "fr.a2.verbes.659",
+            "fr.a2.verbes.660",
+            "fr.a2.verbes.661",
+            "fr.a2.verbes.662",
+            "fr.a2.verbes.663",
+            "fr.a2.verbes.664",
+            "fr.a2.verbes.669",
+            "fr.a2.verbes.670",
+            "fr.a2.verbes.671",
+            "fr.a2.verbes.672",
+            "fr.a2.verbes.673",
+            "fr.a2.verbes.674",
+            "fr.a2.verbes.675",
+            "fr.a2.verbes.676",
+            "fr.a2.verbes.677",
+            "fr.a2.verbes.678",
+            "fr.a2.verbes.679",
+            "fr.a2.verbes.690",
+            "fr.a2.verbes.691",
+            "fr.a2.verbes.692",
+            "fr.a2.verbes.693",
+            "fr.a2.verbes.694",
+            "fr.a2.verbes.695",
+            "fr.a2.verbes.696"
+          ],
+          "terms": [
+            "firstWord",
+            "movement"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s22-review",
+          "title": "The Whole Thing",
+          "frSub": "Tout, d’un coup",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "Which first word do these fifteen take?",
+              "back": "être. Twelve of the fifteen move, and the other three change what is true rather than where you are.",
+              "say": "Il est allé."
+            },
+            {
+              "front": "And what happens to the second word?",
+              "back": "After être, the second word ends like a describing word. Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman.",
+              "say": "Elle est allée."
+            },
+            {
+              "front": "How many of the four spellings can you hear?",
+              "back": "You cannot check this by listening. For fourteen of the fifteen, all four spellings are one sound.",
+              "say": "Elles sont allées."
+            },
+            {
+              "front": "Elle a mangé. Why is there no e on mangé?",
+              "back": "After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it.",
+              "say": "Elle a mangé au restaurant."
+            },
+            {
+              "front": "Which verb here has a feminine you can hear?",
+              "back": "mort and morte are the one pair in this lesson you can hear apart. The number is still silent: morts is the first sound and mortes the second.",
+              "say": "Elle est morte en mars."
+            },
+            {
+              "front": "Which one takes être and does not move?",
+              "back": "rester is the one that breaks it. Nothing moves and nothing changes, and it is the one people forget, which is the reason the mnemonic exists at all.",
+              "say": "Elle est restée à la maison."
+            },
+            {
+              "front": "DR MRS VANDERTRAMP. What is it for and what does it miss?",
+              "back": "Sixteen letters for sixteen verbs, and it is an accident of English spelling rather than anything about French. passer is not one of its letters, and it takes être twenty-six times in this app.",
+              "say": "Nous sommes passés devant chez toi."
+            },
+            {
+              "front": "You meet a verb with something on the front. What do you do?",
+              "back": "Cover the front of the verb. Build what is left. And the first word comes with it, so devenir takes être because venir does.",
+              "say": "Il est devenu professeur."
+            },
+            {
+              "front": "Where does the negative go?",
+              "back": "Wrap the verb that changed, not the one carrying the meaning. a2.05's ne shortened in front of every person and this one shortens in front of three. suis, sommes and sont start on a consonant, so the ne stays whole.",
+              "say": "Elle n’est pas allée au bureau."
+            },
+            {
+              "front": "Je suis sorti hier soir against J’ai sorti la poubelle. Why the different first word?",
+              "back": "A few of them take avoir instead when something is being moved rather than moving. You will meet it; you are not being asked to produce it.",
+              "say": "J’ai sorti la poubelle."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s23-progress",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "After être, the second word ends like a describing word. The exam has six rounds and most of it is typed, because the ending is a written thing and picking it out of four is a different job.",
+          "stats": [
+            {
+              "k": "Verbs",
+              "v": "15, and 12 of them have one thing in common."
+            },
+            {
+              "k": "Endings",
+              "v": "4, and they are a2.03's four."
+            },
+            {
+              "k": "New constructions",
+              "v": "0. a2.05 gave you the whole shape and it has not moved."
+            },
+            {
+              "k": "Used again in",
+              "v": "a2.22 and a2.23, which declares this lesson as a prerequisite."
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s24-quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Six rounds of six. Most of it is typed, because writing the ending is the thing this lesson claims you can do.",
+          "rounds": [
+            {
+              "id": "r1-which-first",
+              "label": "Which first word",
+              "targets": [
+                "err-wrong-first",
+                "err-mnemonic-only"
+              ],
+              "say": "Six on avoir against être.",
+              "questions": [
+                {
+                  "q": "Elle ___ allée au marché. Which first word?",
+                  "format": "mcq",
+                  "opts": [
+                    "est",
+                    "a",
+                    "ont",
+                    "sont"
+                  ],
+                  "correct": 0,
+                  "why": "aller is one of the fifteen and elle is one person, so est. The first option is what a learner who has only met a2.05 reaches for.",
+                  "ref": "s05-pattern"
+                },
+                {
+                  "q": "Elle ___ mangé au marché. And here?",
+                  "format": "mcq",
+                  "opts": [
+                    "est",
+                    "a",
+                    "sont",
+                    "ont"
+                  ],
+                  "correct": 1,
+                  "why": "manger is an ordinary verb, so avoir, and nothing goes on the end of mangé either.",
+                  "ref": "s11-contrast"
+                },
+                {
+                  "q": "rester. Does it take être?",
+                  "format": "mcq",
+                  "opts": [
+                    "No, nothing moves",
+                    "Only in the plural",
+                    "Yes"
+                  ],
+                  "correct": 2,
+                  "why": "rester is the one that breaks it. Nothing moves and nothing changes, and it is the one people forget, which is the reason the mnemonic exists at all.",
+                  "ref": "s06-crutch"
+                },
+                {
+                  "q": "Fix this. You mean that she went to the market.",
+                  "format": "errorSpot",
+                  "prompt": "Elle a allé au marché.",
+                  "accept": [
+                    "Elle est allée au marché.",
+                    "Elle est allee au marche"
+                  ],
+                  "answer": "Elle est allée au marché.",
+                  "why": "avoir on a verb that takes être, which is the error the whole lesson exists to prevent. It comes from having used avoir for one lesson and nothing else.",
+                  "ref": "s15-whichfirst"
+                },
+                {
+                  "q": "tomber. Which first word does it take?",
+                  "format": "mcq",
+                  "opts": [
+                    "être",
+                    "avoir",
+                    "either"
+                  ],
+                  "correct": 0,
+                  "why": "Falling is going down, which is one of the four kinds. It is also a letter of the crutch, so both ways of checking give the same answer.",
+                  "ref": "s05-pattern"
+                },
+                {
+                  "q": "Nous ___ arrivés à huit heures.",
+                  "format": "typeIn",
+                  "accept": [
+                    "sommes"
+                  ],
+                  "answer": "sommes",
+                  "why": "arriver takes être and nous takes sommes. The s on arrivés is already there because there is more than one of you.",
+                  "ref": "s10-persons"
+                }
+              ]
+            },
+            {
+              "id": "r2-the-ending",
+              "label": "Write the ending",
+              "targets": [
+                "err-no-ending",
+                "err-wrong-first"
+              ],
+              "say": "Six on the last two letters, and the subject is fixed in every one.",
+              "questions": [
+                {
+                  "q": "A woman speaking. Je suis ___ au marché. (aller)",
+                  "format": "typeIn",
+                  "accept": [
+                    "allée"
+                  ],
+                  "answer": "allée",
+                  "why": "She is one woman, so the e and nothing else. It sounds exactly like allé and it is not spelled like it.",
+                  "ref": "s07-fourforms"
+                },
+                {
+                  "q": "Two men. Ils sont ___ tôt. (partir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "partis"
+                  ],
+                  "answer": "partis",
+                  "why": "More than one, and not all women, so the s alone. Two men, or a man and a woman, take the same ending.",
+                  "ref": "s10-persons"
+                },
+                {
+                  "q": "Three women. Elles sont ___ à midi. (descendre)",
+                  "format": "typeIn",
+                  "accept": [
+                    "descendues"
+                  ],
+                  "answer": "descendues",
+                  "why": "The past form of descendre is descendu, then the e for the women and the s for the number. Both, in that order.",
+                  "ref": "s10-persons"
+                },
+                {
+                  "q": "One woman. Elle est ___ à la maison. (rester)",
+                  "format": "typeIn",
+                  "accept": [
+                    "restée"
+                  ],
+                  "answer": "restée",
+                  "why": "rester takes être even though nothing moves, and the ending goes on exactly as it does on the twelve that do.",
+                  "ref": "s06-crutch"
+                },
+                {
+                  "q": "Which one is written about a group of women?",
+                  "format": "mcq",
+                  "opts": [
+                    "venus",
+                    "venu",
+                    "venues",
+                    "venue"
+                  ],
+                  "correct": 2,
+                  "why": "The e is the women and the s is the number, so both. All four of these are one sound, which is why this is a reading question and not a listening one.",
+                  "ref": "s07-fourforms"
+                },
+                {
+                  "q": "Le verre est ___. (tomber)",
+                  "format": "typeIn",
+                  "accept": [
+                    "tombé"
+                  ],
+                  "answer": "tombé",
+                  "why": "The subject is a thing rather than a person and the rule is the same: le verre is masculine and singular, so nothing goes on.",
+                  "ref": "s09-borrowed"
+                }
+              ]
+            },
+            {
+              "id": "r3-not-after-avoir",
+              "label": "Not after avoir",
+              "targets": [
+                "err-ending-after-avoir",
+                "err-no-ending"
+              ],
+              "say": "Six on where the ending does not go, which is everywhere avoir is.",
+              "questions": [
+                {
+                  "q": "Fix this. You mean that she ate at the market.",
+                  "format": "errorSpot",
+                  "prompt": "Elle a mangée au marché.",
+                  "accept": [
+                    "Elle a mangé au marché.",
+                    "Elle a mange au marche"
+                  ],
+                  "answer": "Elle a mangé au marché.",
+                  "why": "The rule applied where it does not run. After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it.",
+                  "ref": "s11-contrast"
+                },
+                {
+                  "q": "Elle a ___ un examen. (passer)",
+                  "format": "typeIn",
+                  "accept": [
+                    "passé"
+                  ],
+                  "answer": "passé",
+                  "why": "avoir, because there is an exam after the verb, and after avoir nothing goes on the end however many women there are.",
+                  "ref": "s16-object"
+                },
+                {
+                  "q": "Which of these is right?",
+                  "format": "mcq",
+                  "opts": [
+                    "Elles ont mangées.",
+                    "Elles sont mangé.",
+                    "Elles sont mangées.",
+                    "Elles ont mangé."
+                  ],
+                  "correct": 3,
+                  "why": "After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it. Three women and an ordinary verb, so avoir and a bare second word.",
+                  "ref": "s11-contrast"
+                },
+                {
+                  "q": "Fix this. You mean that they went to the market.",
+                  "format": "errorSpot",
+                  "prompt": "Ils sont allé au marché.",
+                  "accept": [
+                    "Ils sont allés au marché.",
+                    "Ils sont alles au marche"
+                  ],
+                  "answer": "Ils sont allés au marché.",
+                  "why": "The plural forgotten. More than one person and the s goes on, exactly as it would on a describing word.",
+                  "ref": "s10-persons"
+                },
+                {
+                  "q": "Elle est ___ au restaurant. (aller)",
+                  "format": "typeIn",
+                  "accept": [
+                    "allée"
+                  ],
+                  "answer": "allée",
+                  "why": "être this time, so the e goes on. The same woman and the same restaurant as the avoir sentence, and one word decides it.",
+                  "ref": "s11-contrast"
+                },
+                {
+                  "q": "What tells you whether to put an ending on at all?",
+                  "format": "mcq",
+                  "opts": [
+                    "The verb",
+                    "The first word",
+                    "The subject",
+                    "The tense"
+                  ],
+                  "correct": 1,
+                  "why": "être puts it on and avoir never does. The subject then tells you WHICH ending, but only once être has already decided that there is one.",
+                  "ref": "s03-twohalves"
+                }
+              ]
+            },
+            {
+              "id": "r4-the-plural",
+              "label": "Both endings",
+              "targets": [
+                "err-only-feminine",
+                "err-no-ending"
+              ],
+              "say": "Six where more than one of the letters is needed.",
+              "questions": [
+                {
+                  "q": "Two women. Elles sont ___ ensemble. (arriver)",
+                  "format": "typeIn",
+                  "accept": [
+                    "arrivées"
+                  ],
+                  "answer": "arrivées",
+                  "why": "The e and the s, in that order. Forgetting the s is the commonest of the two, because the e is the one people are told about.",
+                  "ref": "s10-persons"
+                },
+                {
+                  "q": "A man and a woman. Ils sont ___ tôt. (partir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "partis"
+                  ],
+                  "answer": "partis",
+                  "why": "One woman in a group does not make the group feminine. Anything other than all women takes the s alone.",
+                  "ref": "s10-persons"
+                },
+                {
+                  "q": "Which of these is a group of women?",
+                  "format": "mcq",
+                  "opts": [
+                    "sortis",
+                    "sortie",
+                    "sorties",
+                    "sorti"
+                  ],
+                  "correct": 2,
+                  "why": "Both letters. The second option is one woman and the first is a mixed group, and all four are one sound.",
+                  "ref": "s07-fourforms"
+                },
+                {
+                  "q": "Vous êtes ___ tôt, said to several women. (partir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "parties"
+                  ],
+                  "answer": "parties",
+                  "why": "Vous is plural here, so both letters. Said to one person it would be parti or partie, and vous alone never tells you which.",
+                  "ref": "s10-persons"
+                },
+                {
+                  "q": "Elles sont ___ en mars. (mourir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "mortes"
+                  ],
+                  "answer": "mortes",
+                  "why": "The past form of mourir is mort, then both letters. The number is still silent: morts is the first sound and mortes the second.",
+                  "ref": "s12-audible"
+                },
+                {
+                  "q": "How many of these four endings can you hear on aller?",
+                  "format": "mcq",
+                  "opts": [
+                    "None",
+                    "All four",
+                    "Two"
+                  ],
+                  "correct": 0,
+                  "why": "None. allé, allée, allés and allées are one sound, and that is true of fourteen of the fifteen verbs in this lesson.",
+                  "ref": "s07-fourforms"
+                }
+              ]
+            },
+            {
+              "id": "r5-unlisted",
+              "label": "Verbs nobody listed",
+              "targets": [
+                "err-mnemonic-only",
+                "err-wrong-first"
+              ],
+              "say": "Six on verbs this lesson never listed, and two of them are not in the crutch.",
+              "questions": [
+                {
+                  "q": "Devenir, about a woman. Elle est ___ professeur.",
+                  "format": "typeIn",
+                  "accept": [
+                    "devenue"
+                  ],
+                  "answer": "devenue",
+                  "why": "Cover the de and venir is underneath, which gives venu and takes être. Then the e, because it is about a woman.",
+                  "ref": "s13-unseen"
+                },
+                {
+                  "q": "Repartir. Which first word?",
+                  "format": "mcq",
+                  "opts": [
+                    "avoir",
+                    "être"
+                  ],
+                  "correct": 1,
+                  "why": "partir is underneath and partir takes être, so this does too. DR MRS VANDERTRAMP has no letter for it, which is what the pattern is for.",
+                  "ref": "s13-unseen"
+                },
+                {
+                  "q": "Repasser, \"to go past again\", about two women. Elles sont ___ devant la gare.",
+                  "format": "typeIn",
+                  "accept": [
+                    "repassées"
+                  ],
+                  "answer": "repassées",
+                  "why": "passer is underneath, which takes être when nothing is after it, and then both endings. Neither this verb nor passer is in the crutch.",
+                  "ref": "s13-unseen"
+                },
+                {
+                  "q": "Which of these tells you about a verb the crutch does not list?",
+                  "format": "mcq",
+                  "opts": [
+                    "Whether it is about moving or about starting or stopping",
+                    "The letters of the crutch",
+                    "How long the verb is"
+                  ],
+                  "correct": 0,
+                  "why": "passer is not one of its letters, and it takes être twenty-six times in this app.",
+                  "ref": "s06-crutch"
+                },
+                {
+                  "q": "Rentrer, about a woman. Elle est ___ vers minuit.",
+                  "format": "typeIn",
+                  "accept": [
+                    "rentrée"
+                  ],
+                  "answer": "rentrée",
+                  "why": "Going home is going somewhere, so être, and one woman takes the e.",
+                  "ref": "s19-talk"
+                },
+                {
+                  "q": "Redescendre, about a man. Il est ___.",
+                  "format": "typeIn",
+                  "accept": [
+                    "redescendu"
+                  ],
+                  "answer": "redescendu",
+                  "why": "Cover the re and descendre is underneath, which gives descendu and takes être. One man, so nothing on the end.",
+                  "ref": "s13-unseen"
+                }
+              ]
+            },
+            {
+              "id": "r6-what-it-means",
+              "label": "What it means",
+              "targets": [
+                "err-reads-as-present",
+                "err-ending-after-avoir"
+              ],
+              "say": "Six on what these sentences are actually saying.",
+              "questions": [
+                {
+                  "q": "Je suis allé à Paris. What does it mean?",
+                  "format": "mcq",
+                  "opts": [
+                    "I am gone to Paris",
+                    "I am in Paris",
+                    "I went to Paris"
+                  ],
+                  "correct": 2,
+                  "why": "A form of être plus a second word is a past tense, not a description. The first option is what the words look like one at a time and it is not what the sentence says.",
+                  "ref": "s17-notpresent"
+                },
+                {
+                  "q": "Elle est fatiguée. Is this the same shape?",
+                  "format": "mcq",
+                  "opts": [
+                    "It is the same shape and it describes her now",
+                    "Yes, and it is a past tense too"
+                  ],
+                  "correct": 0,
+                  "why": "The shape is identical and the second word decides. fatiguée describes her and partie reports something she did.",
+                  "ref": "s17-notpresent"
+                },
+                {
+                  "q": "Listen to the second word. Which one is it?",
+                  "format": "listenChoose",
+                  "say": "morte",
+                  "opts": [
+                    "mort",
+                    "morte"
+                  ],
+                  "correct": 1,
+                  "why": "mort and morte are the one pair in this lesson you can hear apart. This is the only question in the exam your ear can answer, and it works because mort ends on a consonant and an e after it can be heard.",
+                  "ref": "s12-audible"
+                },
+                {
+                  "q": "Je suis sorti. What did I do?",
+                  "format": "mcq",
+                  "opts": [
+                    "I took something out",
+                    "I went out"
+                  ],
+                  "correct": 1,
+                  "why": "Nothing after the verb, so it is the ordinary one. A few of them take avoir instead when something is being moved rather than moving. You will meet it; you are not being asked to produce it.",
+                  "ref": "s16-object"
+                },
+                {
+                  "q": "Fix this. You mean that the glass fell.",
+                  "format": "errorSpot",
+                  "prompt": "Le verre a tombé.",
+                  "accept": [
+                    "Le verre est tombé.",
+                    "Le verre est tombe"
+                  ],
+                  "answer": "Le verre est tombé.",
+                  "why": "Falling is going down, which is one of the four kinds, so être. And le verre is masculine and singular, so nothing goes on the end.",
+                  "ref": "s17-notpresent"
+                },
+                {
+                  "q": "Elle est descendue à midi. What does it say?",
+                  "format": "mcq",
+                  "opts": [
+                    "She is downstairs now",
+                    "She is on her way down at midday",
+                    "She came down at midday"
+                  ],
+                  "correct": 2,
+                  "why": "A form of être plus a second word is a past tense. The other two options are what the shape looks like from English, and neither is what the sentence means.",
+                  "ref": "s17-notpresent"
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "whoDidIt"
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s25-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "After être, the second word ends like a describing word. a2.05 gave you the whole shape two lessons ago and a2.20 gave you the forms that could not be built. Both of those stay exactly as they were. What is new is which first word you reach for, and what happens to the second one afterwards.",
+          "points": [
+            "Twelve of the fifteen move, and the other three change what is true rather than where you are. rester is the one that breaks it. Nothing moves and nothing changes, and it is the one people forget, which is the reason the mnemonic exists at all.",
+            "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman.",
+            "After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it.",
+            "You cannot check this by listening. For fourteen of the fifteen, all four spellings are one sound.",
+            "mort and morte are the one pair in this lesson you can hear apart. The number is still silent: morts is the first sound and mortes the second.",
+            "Cover the front of the verb. Build what is left. And with it comes the first word, so devenir, revenir and repartir all arrive free.",
+            "Sixteen letters for sixteen verbs, and it is an accident of English spelling rather than anything about French. passer is not one of its letters, and it takes être twenty-six times in this app.",
+            "A few of them take avoir instead when something is being moved rather than moving. You will meet it; you are not being asked to produce it. A whole family of verbs carries a little word in front of it and they take être as well. That is a2.22 and then a2.23, and the rule on this screen is the one they will use."
+          ],
+          "sheetId": "sheet-a2-21-etre"
+        }
+      ],
+      "itemIds": [
+        "fr.a2.verbes.651",
+        "fr.a2.verbes.652",
+        "fr.a2.verbes.653",
+        "fr.a2.verbes.654",
+        "fr.a2.verbes.655",
+        "fr.a2.verbes.656",
+        "fr.a2.verbes.657",
+        "fr.a2.verbes.658",
+        "fr.a2.verbes.659",
+        "fr.a2.verbes.660",
+        "fr.a2.verbes.661",
+        "fr.a2.verbes.662",
+        "fr.a2.verbes.663",
+        "fr.a2.verbes.664",
+        "fr.a2.verbes.665",
+        "fr.a2.verbes.666",
+        "fr.a2.verbes.667",
+        "fr.a2.verbes.668",
+        "fr.a2.verbes.669",
+        "fr.a2.verbes.670",
+        "fr.a2.verbes.671",
+        "fr.a2.verbes.672",
+        "fr.a2.verbes.673",
+        "fr.a2.verbes.674",
+        "fr.a2.verbes.675",
+        "fr.a2.verbes.676",
+        "fr.a2.verbes.677",
+        "fr.a2.verbes.678",
+        "fr.a2.verbes.679",
+        "fr.a2.verbes.680",
+        "fr.a2.verbes.681",
+        "fr.a2.verbes.682",
+        "fr.a2.verbes.683",
+        "fr.a2.verbes.684",
+        "fr.a2.verbes.685",
+        "fr.a2.verbes.686",
+        "fr.a2.verbes.687",
+        "fr.a2.verbes.688",
+        "fr.a2.verbes.689",
+        "fr.a2.verbes.690",
+        "fr.a2.verbes.691",
+        "fr.a2.verbes.692",
+        "fr.a2.verbes.693",
+        "fr.a2.verbes.694",
+        "fr.a2.verbes.695",
+        "fr.a2.verbes.696",
+        "fr.sons.verbes-essentiels.003",
+        "fr.sons.verbes-essentiels.010",
+        "fr.sons.verbes-essentiels.040",
+        "fr.sons.verbes-essentiels.041",
+        "fr.a1.transports-quotidiens.044",
+        "fr.a1.transports-quotidiens.045",
+        "fr.sons.verbes-essentiels.021",
+        "fr.sons.verbes-essentiels.044",
+        "fr.sons.verbes-essentiels.081",
+        "fr.sons.verbes-essentiels.082",
+        "fr.sons.verbes-essentiels.043",
+        "fr.a2.verbes.016",
+        "fr.sons.verbes-essentiels.085",
+        "fr.a2.verbes.013",
+        "fr.sons.verbes-essentiels.017",
+        "fr.sons.verbes-essentiels.001",
+        "fr.sons.verbes-essentiels.002",
+        "fr.sons.verbes-essentiels.083",
+        "fr.sons.verbes-essentiels.084",
+        "fr.sons.verbes-essentiels.086",
+        "fr.sons.adjectifs-essentiels.161",
+        "fr.a2.maison.022"
+      ],
+      "version": 3,
+      "grammarAssumed": [
+        "The passé composé with avoir, in six persons, introduced in a2.05",
+        "That the participle is invariable after avoir, introduced in a2.05",
+        "That ne … pas encloses the auxiliary and not the participle, introduced in a2.19 and extended in a2.05",
+        "The irregular past participles, including venu, né and mort, introduced in a2.20",
+        "Adjective agreement as four inflectional classes, introduced in a2.03",
+        "That -e, -es and -ent are silent, and that silent agreement is a systematic property of French orthography, introduced in a2.01",
+        "The present of aller and venir, introduced in a2.02",
+        "The present of partir and sortir, introduced in a2.10",
+        "The present of descendre, introduced in a2.11",
+        "The compound-verb principle, that a prefixed verb inflects like its base, introduced in a2.15"
+      ],
+      "grammarIntroduced": [
+        "être as the auxiliary of the passé composé for a closed class of fifteen intransitive verbs of motion and change of state",
+        "Participle agreement with the subject under être, in gender and number, using the same four exponents as adjectival agreement in a2.03",
+        "That the agreement is orthographic only for fourteen of the fifteen, and phonologically realised for mourir alone, where the feminine exponent licenses the final /t/",
+        "That number is not phonologically realised for any of the fifteen, which is the converse of the adjectival system a2.03 introduced",
+        "The semantic generalisation behind the class: movement, and change of state, with rester as the sole member that is neither",
+        "The DR MRS VANDERTRAMP mnemonic, taught explicitly as a memory aid rather than as a generalisation, with passer named as a member it does not cover",
+        "That the compound-verb principle of a2.15 selects the auxiliary as well as the participle, so devenir, revenir and repartir are derivable without instruction",
+        "The transitive uses of sortir, monter, descendre, passer, rentrer and retourner, which take avoir and do not agree, for RECEPTION ONLY and produced nowhere",
+        "That a form of être plus a participle is a compound past rather than a copula plus a predicative adjective, an ambiguity English reproduces in \"I am gone\"",
+        "Reflexive verbs also take être and their agreement is named and reserved for a2.22 and a2.23"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "The Passé Composé with Être",
+        "subFr": "Le passé composé avec être",
+        "introFr": "Quinze verbes, un autre premier mot, et une terminaison que personne n’entend.",
+        "minutes": 32,
+        "difficulty": 3,
+        "glyph": "🚪",
+        "screens": 240
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The sentence that meant something else",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-twohalves"
+          ],
+          "milestone": "You know that fifteen verbs take a different first word, and that after that first word the second one changes for who the sentence is about.",
+          "estScreens": 22,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Which fifteen",
+          "sections": [
+            "s04-recap",
+            "s05-pattern",
+            "s06-crutch"
+          ],
+          "milestone": "You can check a verb against what it means rather than against a list, and you know what DR MRS VANDERTRAMP is for and what it leaves out.",
+          "estScreens": 20,
+          "restPoints": [
+            "s05-pattern/after"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "The ending nobody hears",
+          "sections": [
+            "s07-fourforms",
+            "s08-bookend",
+            "s09-borrowed",
+            "s10-persons",
+            "s11-contrast",
+            "s12-audible",
+            "s13-unseen",
+            "s14-boundary"
+          ],
+          "milestone": "You can put the right ending on any of the fifteen, in any person, and you can do it for verbs this lesson never listed.",
+          "estScreens": 72,
+          "restPoints": [
+            "s07-fourforms/after",
+            "s10-persons/after",
+            "s12-audible/after"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "The three ways it goes wrong",
+          "sections": [
+            "s15-whichfirst",
+            "s16-object",
+            "s17-notpresent",
+            "s18-errors"
+          ],
+          "milestone": "You have seen the wrong first word, the missing ending and the ending in the wrong place, each beside the version that works.",
+          "estScreens": 42,
+          "restPoints": [
+            "s15-whichfirst/after",
+            "s17-notpresent/after"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "On paper",
+          "sections": [
+            "s19-talk",
+            "s20-dictation",
+            "s21-speak"
+          ],
+          "milestone": "You held the conversation the kitchen lost, and you wrote six endings you could not hear.",
+          "estScreens": 38,
+          "restPoints": [
+            "s19-talk/after",
+            "s20-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s22-review",
+            "s23-progress",
+            "s24-quiz",
+            "s25-roundup"
+          ],
+          "milestone": "You wrote endings for verbs that appear nowhere in this lesson, which is the half of it a list could never have taught you.",
+          "estScreens": 46,
+          "restPoints": [
+            "s22-review/after",
+            "s24-quiz/r3-not-after-avoir",
+            "s24-quiz/r5-unlisted"
+          ]
+        }
+      ],
+      "reframe": "After être, the second word ends like a describing word.",
+      "errorTriggers": [
+        {
+          "id": "err-wrong-first",
+          "description": "Uses avoir on a verb that takes être: « elle a allé ». THE ERROR THIS LESSON EXISTS TO PREVENT, and it comes from a2.05 having taught avoir and nothing else, so it is produced by a learner doing exactly what they were told.",
+          "detectOn": [
+            "s15-whichfirst",
+            "s05-pattern",
+            "s24-quiz/r1-which-first"
+          ],
+          "drill": "drill-which-first",
+          "retest": "retest-which-first"
+        },
+        {
+          "id": "err-no-ending",
+          "description": "Picks être correctly and writes nothing on the end: « elle est allé ». It survives longer than any other error in the lesson, because nobody hears it and the learner never gets a signal that anything is wrong.",
+          "detectOn": [
+            "s07-fourforms",
+            "s10-persons",
+            "s24-quiz/r2-the-ending"
+          ],
+          "drill": "drill-the-ending",
+          "retest": "retest-the-ending"
+        },
+        {
+          "id": "err-ending-after-avoir",
+          "description": "Learns the ending and then puts it everywhere: « elle a mangée ». It is the rule being applied where it does not run, and it appears the moment the lesson has worked, which is what makes it worth a round of its own.",
+          "detectOn": [
+            "s11-contrast",
+            "s18-errors",
+            "s24-quiz/r3-not-after-avoir"
+          ],
+          "drill": "drill-not-after-avoir",
+          "retest": "retest-not-after-avoir"
+        },
+        {
+          "id": "err-only-feminine",
+          "description": "Remembers the e and forgets the s: « elles sont allée ». The e is the ending people are told about and the s is the one that gets lost, and both are needed in the cell a learner writes most often about a group.",
+          "detectOn": [
+            "s10-persons",
+            "s07-fourforms",
+            "s24-quiz/r4-the-plural"
+          ],
+          "drill": "drill-both-endings",
+          "retest": "retest-both-endings"
+        },
+        {
+          "id": "err-mnemonic-only",
+          "description": "Has DR MRS VANDERTRAMP and nothing else, so a verb outside it produces a guess. It is the predictable cost of teaching a list of initials as though it were a rule, and it is why the pattern is taught beside it.",
+          "detectOn": [
+            "s06-crutch",
+            "s13-unseen",
+            "s24-quiz/r5-unlisted"
+          ],
+          "drill": "drill-unlisted",
+          "retest": "retest-unlisted"
+        },
+        {
+          "id": "err-reads-as-present",
+          "description": "Reads « je suis allé » as a description of how somebody is rather than as a report of what they did, because the shape is identical to « je suis fatigué ». English says \"I am gone\" and means something else by it, which makes the misreading feel right.",
+          "detectOn": [
+            "s17-notpresent",
+            "s04-recap",
+            "s24-quiz/r6-what-it-means"
+          ],
+          "drill": "drill-happened",
+          "retest": "retest-happened"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-which-first",
+          "title": "Avoir or être",
+          "format": "sort",
+          "buckets": [
+            "être",
+            "avoir"
+          ],
+          "items": [
+            "fr.a2.verbes.662",
+            "fr.a2.verbes.661",
+            "fr.a2.verbes.674",
+            "fr.a2.verbes.690",
+            "fr.a2.verbes.668",
+            "fr.a2.verbes.693"
+          ],
+          "coach": "Twelve of the fifteen move, and the other three change what is true rather than where you are. Ask what the sentence is about before you ask what the verb is. rester is the one that breaks it. Nothing moves and nothing changes, and it is the one people forget, which is the reason the mnemonic exists at all."
+        },
+        {
+          "id": "retest-which-first",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "tomber. Which first word?",
+          "opts": [
+            "être, because falling is going down",
+            "avoir",
+            "either one"
+          ],
+          "correct": 0,
+          "why": "Falling is one of the four kinds, and it is a letter of the crutch as well, so both ways of checking agree."
+        },
+        {
+          "id": "drill-the-ending",
+          "title": "The last two letters",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "one man",
+              "allé"
+            ],
+            [
+              "one woman",
+              "allée"
+            ],
+            [
+              "more than one",
+              "allés"
+            ],
+            [
+              "more than one woman",
+              "allées"
+            ]
+          ],
+          "coach": "After être, the second word ends like a describing word. Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. Nothing about the sound will tell you."
+        },
+        {
+          "id": "retest-the-ending",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Spoken to a woman. Tu es ___ tôt. (partir)",
+          "opts": [
+            "parti",
+            "partie",
+            "partis"
+          ],
+          "correct": 1,
+          "why": "One woman, so the e alone. Tu is the same for anybody and the sound is the same either way."
+        },
+        {
+          "id": "drill-not-after-avoir",
+          "title": "Where it does not go",
+          "format": "sort",
+          "buckets": [
+            "an ending goes on",
+            "nothing goes on"
+          ],
+          "items": [
+            "fr.a2.verbes.662",
+            "fr.a2.verbes.661",
+            "fr.a2.verbes.664",
+            "fr.a2.verbes.663",
+            "fr.a2.verbes.692",
+            "fr.a2.verbes.668"
+          ],
+          "coach": "After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it. The moment the first word is a form of avoir, the second word is finished."
+        },
+        {
+          "id": "retest-not-after-avoir",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Elles ont ___ au restaurant. (manger)",
+          "opts": [
+            "mangées",
+            "mangé",
+            "mangés"
+          ],
+          "correct": 1,
+          "why": "avoir, so nothing goes on the end however many women there are."
+        },
+        {
+          "id": "drill-both-endings",
+          "title": "The e and the s",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "two men",
+              "partis"
+            ],
+            [
+              "two women",
+              "parties"
+            ],
+            [
+              "a man and a woman",
+              "partis"
+            ],
+            [
+              "one woman",
+              "partie"
+            ]
+          ],
+          "coach": "The e is the gender and the s is the number. A group that is not all women takes the s alone, however many women are in it."
+        },
+        {
+          "id": "retest-both-endings",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Two women. Elles sont ___ ensemble. (arriver)",
+          "opts": [
+            "arrivés",
+            "arrivée",
+            "arrivées"
+          ],
+          "correct": 2,
+          "why": "Both letters, in that order. The s is the one that gets forgotten, because the e is the one people are told about."
+        },
+        {
+          "id": "drill-unlisted",
+          "title": "Cover the front",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "devenir",
+              "est devenu"
+            ],
+            [
+              "revenir",
+              "est revenue"
+            ],
+            [
+              "repartir",
+              "sont reparties"
+            ],
+            [
+              "redescendre",
+              "est redescendu"
+            ]
+          ],
+          "coach": "Cover the front of the verb. Build what is left. Find the verb underneath and you have both halves at once. passer is not one of its letters, and it takes être twenty-six times in this app."
+        },
+        {
+          "id": "retest-unlisted",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Repasser, \"to go past again\". Which first word?",
+          "opts": [
+            "avoir",
+            "être",
+            "either one"
+          ],
+          "correct": 1,
+          "why": "passer is underneath and it takes être when nothing follows it. Neither verb is in the crutch and covering the front settles both."
+        },
+        {
+          "id": "drill-happened",
+          "title": "It happened",
+          "format": "sort",
+          "buckets": [
+            "it happened",
+            "it describes"
+          ],
+          "items": [
+            "fr.a2.verbes.651",
+            "fr.a2.verbes.674",
+            "fr.a2.verbes.693",
+            "fr.a2.verbes.692",
+            "fr.a2.verbes.670",
+            "fr.a2.verbes.673"
+          ],
+          "coach": "A form of être plus a second word can be two things. A describing word says how somebody is now; a past form reports something that is over."
+        },
+        {
+          "id": "retest-happened",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Elle est partie. What does it say?",
+          "opts": [
+            "She is away",
+            "She left",
+            "She is leaving"
+          ],
+          "correct": 1,
+          "why": "A form of être plus a second word is a past tense. The other two are what the shape looks like from English."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet-a2-21-etre",
+          "title": "The fifteen, and the endings",
+          "layer": "deep",
+          "contains": [
+            "The fifteen",
+            "Six persons",
+            "The endings",
+            "Avoir",
+            "The crutch",
+            "Next"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-verbs",
+              "title": "The fifteen, by what they mean",
+              "layer": "deep",
+              "cols": [
+                "Verb",
+                "Second word",
+                "Means"
+              ],
+              "rows": [
+                [
+                  "aller",
+                  "allé",
+                  "to go"
+                ],
+                [
+                  "venir",
+                  "venu",
+                  "to come"
+                ],
+                [
+                  "arriver",
+                  "arrivé",
+                  "to arrive"
+                ],
+                [
+                  "partir",
+                  "parti",
+                  "to leave"
+                ],
+                [
+                  "passer",
+                  "passé",
+                  "to go past"
+                ],
+                [
+                  "entrer",
+                  "entré",
+                  "to go in"
+                ],
+                [
+                  "sortir",
+                  "sorti",
+                  "to go out"
+                ],
+                [
+                  "rentrer",
+                  "rentré",
+                  "to go home"
+                ],
+                [
+                  "retourner",
+                  "retourné",
+                  "to go back"
+                ],
+                [
+                  "monter",
+                  "monté",
+                  "to go up"
+                ],
+                [
+                  "descendre",
+                  "descendu",
+                  "to go down"
+                ],
+                [
+                  "tomber",
+                  "tombé",
+                  "to fall"
+                ],
+                [
+                  "rester",
+                  "resté",
+                  "to stay"
+                ],
+                [
+                  "naître",
+                  "né",
+                  "to be born"
+                ],
+                [
+                  "mourir",
+                  "mort",
+                  "to die"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-persons",
+              "title": "All six persons, with partir",
+              "layer": "deep",
+              "cols": [
+                "Person",
+                "First word",
+                "Add"
+              ],
+              "rows": [
+                [
+                  "je",
+                  "suis",
+                  "nothing or e"
+                ],
+                [
+                  "tu",
+                  "es",
+                  "nothing or e"
+                ],
+                [
+                  "il · elle",
+                  "est",
+                  "nothing or e"
+                ],
+                [
+                  "nous",
+                  "sommes",
+                  "s or es"
+                ],
+                [
+                  "vous",
+                  "êtes",
+                  "s or es"
+                ],
+                [
+                  "ils · elles",
+                  "sont",
+                  "s or es"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-endings",
+              "title": "The four endings",
+              "layer": "deep",
+              "cols": [
+                "Who",
+                "Add",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "one man",
+                  "nothing",
+                  "allé"
+                ],
+                [
+                  "one woman",
+                  "e",
+                  "allée"
+                ],
+                [
+                  "several",
+                  "s",
+                  "allés"
+                ],
+                [
+                  "all women",
+                  "es",
+                  "allées"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-rule",
+              "title": "The rule",
+              "layer": "deep",
+              "body": "After être, the second word ends like a describing word. Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. a2.03 taught this on describing words and the endings are the same four. « The plain form tells you the other three. » The only new thing is that a verb is now doing it."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-avoir",
+              "title": "And never after avoir",
+              "layer": "deep",
+              "body": "After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it. There is one case where a past form agrees after avoir, and it needs the words that stand in for an object. That is a2.06 and nothing here depends on it."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-ear",
+              "title": "What nothing here can test",
+              "layer": "deep",
+              "body": "You cannot check this by listening. For fourteen of the fifteen, all four spellings are one sound. mort and morte are the one pair in this lesson you can hear apart. The number is still silent: morts is the first sound and mortes the second."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-crutch",
+              "title": "The crutch, and the pattern",
+              "layer": "deep",
+              "body": "DR MRS VANDERTRAMP. Sixteen letters for sixteen verbs, and it is an accident of English spelling rather than anything about French. passer is not one of its letters, and it takes être twenty-six times in this app. Twelve of the fifteen move, and the other three change what is true rather than where you are."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-object",
+              "title": "The ones that also take avoir",
+              "layer": "deep",
+              "body": "sortir appears with avoir 1 times in this app, monter appears with avoir 4 times in this app, passer appears with avoir 45 times in this app. The other three never do. A few of them take avoir instead when something is being moved rather than moving. You will meet it; you are not being asked to produce it."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-next",
+              "title": "What is still coming",
+              "layer": "deep",
+              "body": "A whole family of verbs carries a little word in front of it and they take être as well. That is a2.22 and then a2.23, and the rule on this screen is the one they will use. There is one case where a past form agrees after avoir, and it needs the words that stand in for an object. That is a2.06 and nothing here depends on it."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.verbes.680",
+          "fr.a2.verbes.681",
+          "fr.a2.verbes.682",
+          "fr.a2.verbes.683",
+          "fr.a2.verbes.661",
+          "fr.a2.verbes.662"
+        ],
+        [
+          "fr.sons.verbes-essentiels.003",
+          "fr.sons.verbes-essentiels.010",
+          "fr.a2.verbes.013",
+          "fr.sons.verbes-essentiels.040",
+          "fr.sons.verbes-essentiels.017",
+          "fr.sons.verbes-essentiels.043",
+          "fr.sons.verbes-essentiels.041",
+          "fr.a2.verbes.016",
+          "fr.sons.verbes-essentiels.085",
+          "fr.a1.transports-quotidiens.044",
+          "fr.a1.transports-quotidiens.045",
+          "fr.sons.verbes-essentiels.044",
+          "fr.sons.verbes-essentiels.021",
+          "fr.sons.verbes-essentiels.081",
+          "fr.sons.verbes-essentiels.082",
+          "fr.sons.verbes-essentiels.001",
+          "fr.sons.verbes-essentiels.002"
+        ],
+        [
+          "fr.a2.verbes.651",
+          "fr.a2.verbes.652",
+          "fr.a2.verbes.653",
+          "fr.a2.verbes.654",
+          "fr.a2.verbes.655",
+          "fr.a2.verbes.656",
+          "fr.a2.verbes.657",
+          "fr.a2.verbes.658",
+          "fr.a2.verbes.659",
+          "fr.a2.verbes.660",
+          "fr.a2.verbes.663",
+          "fr.a2.verbes.664",
+          "fr.a2.verbes.669",
+          "fr.a2.verbes.670",
+          "fr.a2.verbes.671",
+          "fr.a2.verbes.672",
+          "fr.a2.verbes.673",
+          "fr.a2.verbes.674",
+          "fr.a2.verbes.675",
+          "fr.a2.verbes.690",
+          "fr.a2.verbes.691",
+          "fr.a2.verbes.692",
+          "fr.a2.verbes.693",
+          "fr.a2.verbes.694",
+          "fr.a2.verbes.695",
+          "fr.a2.verbes.696",
+          "fr.sons.verbes-essentiels.083",
+          "fr.sons.verbes-essentiels.084",
+          "fr.sons.verbes-essentiels.086",
+          "fr.sons.adjectifs-essentiels.161"
+        ],
+        [
+          "fr.a2.verbes.665",
+          "fr.a2.verbes.666",
+          "fr.a2.verbes.667",
+          "fr.a2.verbes.668",
+          "fr.a2.maison.022"
+        ],
+        [
+          "fr.a2.verbes.676",
+          "fr.a2.verbes.677",
+          "fr.a2.verbes.678",
+          "fr.a2.verbes.679",
+          "fr.a2.verbes.684",
+          "fr.a2.verbes.685",
+          "fr.a2.verbes.686",
+          "fr.a2.verbes.687",
+          "fr.a2.verbes.688",
+          "fr.a2.verbes.689"
+        ],
+        []
+      ],
+      "terms": {
+        "firstWord": {
+          "term": "first word",
+          "title": "avoir for almost everything, être for fifteen",
+          "body": "One verb, two words, and the small ones go in between. That is a2.05's line and the shape has not moved. What moves is the first word: for fifteen verbs it is a form of être rather than a form of avoir, and there is no way to hear which one a sentence needs until you know the verb.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.661",
+              "note": "avoir, on a verb that takes it, which is almost all of them."
+            },
+            {
+              "itemId": "fr.a2.verbes.662",
+              "note": "And être, on the same woman going to the same place."
+            }
+          ]
+        },
+        "theEnding": {
+          "term": "the ending",
+          "title": "The last two letters, and nobody hears them",
+          "body": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. It goes on the second word and only after être. After avoir the second word never changes, in any person. a2.05 taught that and this lesson does not touch it.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.652",
+              "note": "A woman, so an e. The sound is identical to the plain form."
+            },
+            {
+              "itemId": "fr.a2.verbes.654",
+              "note": "More than one woman, so both letters. Still identical."
+            }
+          ]
+        },
+        "describing": {
+          "term": "describing",
+          "title": "The second word is doing an adjective's job",
+          "body": "a2.03 taught this on describing words and the endings are the same four. « The plain form tells you the other three. » The only new thing is that a verb is now doing it.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.669",
+              "note": "The past form of mourir, and the corpus publishes the same word as an ordinary describing word meaning \"dead\"."
+            },
+            {
+              "itemId": "fr.a2.verbes.670",
+              "note": "And with the e on it, which is where you can hear one for once."
+            }
+          ]
+        },
+        "whoDidIt": {
+          "term": "who did it",
+          "title": "The subject decides, not the verb",
+          "body": "The ending is not about the verb and not about what happened. It is about who or what the sentence is about: one man, one woman, several people, several women. a2.01 said « Four of the six forms sound the same, so the pronoun carries the person. » in the first lesson of this level, and this is the same thing seventeen lessons later.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.693",
+              "note": "The subject is a glass rather than a person, and the rule is the same: masculine and singular, so nothing goes on."
+            },
+            {
+              "itemId": "fr.a2.verbes.653",
+              "note": "More than one, so the s. The verb has not changed at all."
+            }
+          ]
+        },
+        "movement": {
+          "term": "movement",
+          "title": "Twelve of them move, and three do not",
+          "body": "Twelve of the fifteen move, and the other three change what is true rather than where you are. rester is the one that breaks it. Nothing moves and nothing changes, and it is the one people forget, which is the reason the mnemonic exists at all.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.690",
+              "note": "Going in, which is movement of the plainest kind."
+            },
+            {
+              "itemId": "fr.a2.verbes.674",
+              "note": "And staying, which is not movement and takes être anyway."
+            }
+          ]
+        },
+        "oneSound": {
+          "term": "one sound",
+          "title": "What the ear cannot separate",
+          "body": "You cannot check this by listening. For fourteen of the fifteen, all four spellings are one sound.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.651",
+              "note": "The plain form."
+            },
+            {
+              "itemId": "fr.a2.verbes.654",
+              "note": "And both endings at once, four letters longer and identical to say."
+            }
+          ]
+        },
+        "theCrutch": {
+          "term": "the crutch",
+          "title": "DR MRS VANDERTRAMP, and what it is for",
+          "body": "Sixteen letters for sixteen verbs, and it is an accident of English spelling rather than anything about French. passer is not one of its letters, and it takes être twenty-six times in this app.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.694",
+              "note": "passer, which the crutch has no letter for and which takes être here."
+            },
+            {
+              "itemId": "fr.a2.verbes.696",
+              "note": "And repartir, which it has no letter for either. Covering the front settles both."
+            }
+          ]
+        },
+        "theObject": {
+          "term": "the object",
+          "title": "Something after the verb changes the first word",
+          "body": "A few of them take avoir instead when something is being moved rather than moving. You will meet it; you are not being asked to produce it. When one of them has something after it that is being moved rather than moving itself, the first word is avoir and nothing goes on the end. You will see two of them and you are not asked to produce either.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.665",
+              "note": "Nothing after the verb, so être and the ordinary meaning."
+            },
+            {
+              "itemId": "fr.a2.verbes.666",
+              "note": "Something after it that is being carried out of the house, so avoir."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-21-scene",
+            "desc": "THE KETTLE ON A MONDAY, AND THE SAME COLLEAGUE AS a2.05 AND a2.20. She has asked a friendly question and is expecting a short answer. THE LEARNER'S OWN LINE IS THE TAKE THAT HAS TO BE RIGHT. « Hier soir, j'ai... je suis... j'ai... » is somebody deciding out loud, twice, and settling on the wrong one. THE TWO FALSE STARTS MUST NOT BE RUSHED TOGETHER. There is a real pause after each, and the second « j'ai » should sound like a decision rather than like a stumble: he has chosen, and he has chosen wrongly. HER LINE « Tu as sorti quoi ? » IS THE EXPENSIVE ONE AND IT IS NOT A CORRECTION. She heard a complete, well-formed sentence about carrying something out of the house and she is asking what the something was. Read it as a genuine question with real interest in the answer. Any note of patience, puzzlement at a foreigner, or gentle correction turns the scene into somebody being helped, and the whole point is that nothing went wrong that she could hear.",
+            "clipIds": [
+              "Tu es allée où hier soir ?",
+              "Hier soir, j'ai... je suis... j'ai...",
+              "Je suis sortie avec des amis.",
+              "J’ai sorti avec des amis.",
+              "Tu as sorti quoi ?",
+              "Ah, avec des amis. Je comprends."
+            ]
+          },
+          {
+            "id": "rec-a2-21-which",
+            "desc": "THE AUDIO STEP OF THE FIRST-WORD TRAP, AND IT IS A WRONG-THEN-RIGHT TAKE. Four lines, one take, in this order: « Elle a allé au marché. » then « Elle est allée au marché. », then « Elle a mangé au restaurant. » then « Elle a passé un examen. » READ THE FIRST LINE PLAINLY AND AT ORDINARY PACE rather than comically or hesitantly. It is a perfectly pronounceable French shape and it is exactly what a careful learner produces; a reading that signals the error teaches that the error is audible. LINES TWO AND THREE MUST NOT HAVE THEIR SECOND WORDS COLOURED DIFFERENTLY. « allée » and « mangé » are both ordinary middles of ordinary sentences and the learner is being asked to attend to the FIRST word, not the second. DO NOT SEPARATE THE FIRST TWO LINES WITH A LONG PAUSE. The pair is the teaching and it works when the two lines sit against each other.",
+            "clipIds": [
+              "Elle a allé au marché.",
+              "Elle est allée au marché.",
+              "Elle a mangé au restaurant.",
+              "Elle a passé un examen."
+            ]
+          },
+          {
+            "id": "rec-a2-21-cells",
+            "desc": "THE FOUR SPELLINGS, ONE TAKE, ONE VOICE, AND THIS IS THE MOST IMPORTANT TAKE IN THE LESSON. Four lines in this order: « Il est allé. » « Elle est allée. » « Ils sont allés. » « Elles sont allées. » THE SECOND WORD MUST BE IDENTICAL IN ALL FOUR. Not similar: identical. The whole lesson rests on the learner hearing that there is nothing to hear, and any difference at all in length, weight or vowel colour teaches that the ending is audible when it is not. THE THIRD AND FOURTH LINES ARE COMPLETELY IDENTICAL OUT LOUD except for il against elle, and they must be read that way: « sont » is the same word twice and « allés » and « allées » are the same three sounds. RECORD THEM AS ONE CONTINUOUS TAKE. Four separate recordings are four performances and the learner will hear the performances.",
+            "clipIds": [
+              "Il est allé.",
+              "Elle est allée.",
+              "Ils sont allés.",
+              "Elles sont allées."
+            ]
+          },
+          {
+            "id": "rec-a2-21-audible",
+            "desc": "THE ONE PAIR IN THIS LESSON THAT IS NOT IDENTICAL, ONE TAKE, ONE VOICE, FOUR LINES: « Il est mort en mars. » « Elle est morte en mars. » « Ils sont morts en mars. » « Elles sont mortes en mars. » THIS TAKE IS THE OPPOSITE INSTRUCTION TO rec-a2-21-cells AND THE TWO MUST NOT BE RECORDED IN THE SAME FRAME OF MIND. THE T AT THE END OF « morte » AND « mortes » MUST BE CLEARLY AUDIBLE. It is the only ending in the lesson a learner can hear and the whole mission is built on hearing it. AND THE PLURAL MUST STILL BE INAUDIBLE. « mort » and « morts » are the same, « morte » and « mortes » are the same. Lines one and three are one sound and so are lines two and four; the learner is being taught that gender arrives here and number never does. THE SUBJECT IS A DEATH IN A FAMILY. Read it plainly and without weight. It is a fact in a sentence, not an occasion.",
+            "clipIds": [
+              "Il est mort en mars.",
+              "Elle est morte en mars.",
+              "Ils sont morts en mars.",
+              "Elles sont mortes en mars."
+            ]
+          },
+          {
+            "id": "rec-a2-21-past",
+            "desc": "THE SECOND TRAP, ONE TAKE, FOUR LINES: « Il est allé. » « Elle est née ici. » « Elle est restée à la maison. » « Le verre est tombé. » NOT A WRONG-THEN-RIGHT TAKE. All four are correct French and none is an error being demonstrated. EVERY ONE OF THESE IS A REPORT OF SOMETHING THAT HAPPENED and the reading has to carry that. A learner meeting « il est allé » on paper hears an English shape, \"he is gone\", and reads it as a description. The take should sound like somebody telling you what happened, at the pace of ordinary speech, with the second word given no more weight than the rest of the sentence. DO NOT STRESS « est ». It is the word carrying the tense and the learner has to get used to catching it unstressed, because that is the only way it will ever arrive.",
+            "clipIds": [
+              "Il est allé.",
+              "Elle est née ici.",
+              "Elle est restée à la maison.",
+              "Le verre est tombé."
+            ]
+          },
+          {
+            "id": "rec-a2-21-dictee",
+            "desc": "THE DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to rec-a2-21-cells: there the learner is comparing and here they are spelling, and a paired reading would hand them the answer. Read each line as though it were the only line. FOUR OF THE SIX LINES ARE THE SAME VERB AND THEY WILL SOUND ALMOST THE SAME. That is correct and must not be corrected for. The learner works out which cell is meant from the words in front of the verb, and the take must not help by leaning on the ending. THE FIRST TWO WORDS ARE WHERE THE INFORMATION IS. « Il est », « Elle est », « Ils sont », « Elles sont »: these must be clearly and evenly said, because they are the only thing distinguishing four of the six lines. SAY IT THE WAY SOMEBODY WOULD SAY IT, at the pace of somebody dictating an address to a friend.",
+            "clipIds": [
+              "Il est allé.",
+              "Elle est allée.",
+              "Ils sont allés.",
+              "Elles sont allées.",
+              "Elle est née ici.",
+              "Le verre est tombé."
+            ]
+          },
+          {
+            "id": "rec-a2-21-talk",
+            "desc": "THE CONVERSATION, HER LINES ONLY, ONE TAKE, AS ONE CONTINUOUS EXCHANGE RATHER THAN AS FIVE SEPARATE PROMPTS. She is the same colleague, later in the week, and this time the exchange works. EVERY QUESTION IS ASKED WITHOUT INVERSION and should sound completely ordinary: « Tu es rentrée à quelle heure ? » is a statement with a question mark on it, which is what people say. NEITHER « es » NOR « est » NOR « êtes » MAY BE STRESSED anywhere in the take. They are the words carrying the tense and the learner has to get used to catching them unstressed. AND HER OWN ENDINGS ARE AGREED THROUGHOUT. « Tu es rentrée » and « elle est venue » both carry one and neither is audible; nothing in the reading should mark them.",
+            "clipIds": [
+              "Tu es allée où hier soir ?",
+              "Tu es rentrée à quelle heure ?",
+              "Vous êtes arrivés ensemble ?",
+              "Et Marie, elle est venue ?",
+              "Tu as sorti quoi ?"
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
     }
   ],
   "items": [
@@ -368289,6 +371258,1230 @@
       "audioRef": null,
       "version": 1,
       "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.transports-quotidiens.044",
+      "kind": "word",
+      "level": "a1",
+      "theme": "transports-quotidiens",
+      "fr": "monter",
+      "en": "to get on",
+      "ipa": "/mɔ̃.te/",
+      "respell": "mohⁿ-TAY",
+      "tags": [
+        "verb",
+        "movement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.017",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "passer",
+      "en": "to pass, to spend (time)",
+      "ipa": "/pase/",
+      "respell": "pah-SAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.021",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "rester",
+      "en": "to stay",
+      "ipa": "/ʁɛste/",
+      "respell": "res-TAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.044",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "tomber",
+      "en": "to fall",
+      "ipa": "/tɔ̃be/",
+      "respell": "tohⁿ-BAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.085",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "retourner",
+      "en": "to go back",
+      "ipa": "/ʁətuʁne/",
+      "respell": "ruh-toor-NAY",
+      "notes": "regular er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.086",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "repartir",
+      "en": "to leave again",
+      "ipa": "/ʁəpaʁtiʁ/",
+      "respell": "ruh-par-TEER",
+      "notes": "irregular · je repars, like partir",
+      "tags": [
+        "irregular",
+        "ir-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.verbes.651",
+      "fr": "Il est allé.",
+      "en": "He went.",
+      "respell": "eel eh tah-LAY",
+      "ipa": "/il ɛ ta.le/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "cell",
+        "aller"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.652",
+      "fr": "Elle est allée.",
+      "en": "She went.",
+      "respell": "ehl eh tah-LAY",
+      "ipa": "/ɛl ɛ ta.le/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "cell",
+        "aller"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.653",
+      "fr": "Ils sont allés.",
+      "en": "They went.",
+      "respell": "eel sohⁿ tah-LAY",
+      "ipa": "/il sɔ̃ ta.le/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "cell",
+        "aller"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.654",
+      "fr": "Elles sont allées.",
+      "en": "They went, and they are all women.",
+      "respell": "ehl sohⁿ tah-LAY",
+      "ipa": "/ɛl sɔ̃ ta.le/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "cell",
+        "aller"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.655",
+      "fr": "Je suis parti tôt.",
+      "en": "I left early.",
+      "respell": "zhuh swee pahr-TEE TOH",
+      "ipa": "/ʒə sɥi paʁ.ti to/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "person",
+        "partir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.656",
+      "fr": "Tu es partie tôt.",
+      "en": "You left early.",
+      "respell": "tü eh pahr-TEE TOH",
+      "ipa": "/ty ɛ paʁ.ti to/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "person",
+        "partir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.657",
+      "fr": "Il est parti tôt.",
+      "en": "He left early.",
+      "respell": "eel eh pahr-TEE TOH",
+      "ipa": "/il ɛ paʁ.ti to/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "person",
+        "partir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.658",
+      "fr": "Nous sommes partis tôt.",
+      "en": "We left early.",
+      "respell": "noo somm pahr-TEE TOH",
+      "ipa": "/nu sɔm paʁ.ti to/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "person",
+        "partir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.659",
+      "fr": "Vous êtes parties tôt.",
+      "en": "You left early, and you are all women.",
+      "respell": "voo zeht pahr-TEE TOH",
+      "ipa": "/vu zɛt paʁ.ti to/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "person",
+        "partir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.660",
+      "fr": "Elles sont parties tôt.",
+      "en": "They left early, and they are all women.",
+      "respell": "ehl sohⁿ pahr-TEE TOH",
+      "ipa": "/ɛl sɔ̃ paʁ.ti to/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "person",
+        "partir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.661",
+      "fr": "Elle a mangé au restaurant.",
+      "en": "She ate at the restaurant.",
+      "respell": "ehl ah mahⁿ-ZHAY oh res-toh-RAHⁿ",
+      "ipa": "/ɛl a mɑ̃.ʒe o ʁɛs.to.ʁɑ̃/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "contrast",
+        "avoir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.662",
+      "fr": "Elle est allée au restaurant.",
+      "en": "She went to the restaurant.",
+      "respell": "ehl eh tah-LAY oh res-toh-RAHⁿ",
+      "ipa": "/ɛl ɛ ta.le o ʁɛs.to.ʁɑ̃/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "contrast",
+        "etre"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.663",
+      "fr": "Ils ont mangé au restaurant.",
+      "en": "They ate at the restaurant.",
+      "respell": "eel zohⁿ mahⁿ-ZHAY oh res-toh-RAHⁿ",
+      "ipa": "/il zɔ̃ mɑ̃.ʒe o ʁɛs.to.ʁɑ̃/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "contrast",
+        "avoir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.664",
+      "fr": "Ils sont allés au restaurant.",
+      "en": "They went to the restaurant.",
+      "respell": "eel sohⁿ tah-LAY oh res-toh-RAHⁿ",
+      "ipa": "/il sɔ̃ ta.le o ʁɛs.to.ʁɑ̃/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "contrast",
+        "etre"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.665",
+      "fr": "Je suis sorti hier soir.",
+      "en": "I went out last night.",
+      "respell": "zhuh swee sor-TEE yehr SWAHR",
+      "ipa": "/ʒə sɥi sɔʁ.ti jɛʁ swaʁ/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "transitive",
+        "etre"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.666",
+      "fr": "J’ai sorti la poubelle.",
+      "en": "I took the bin out.",
+      "respell": "zhay sor-TEE lah poo-BELL",
+      "ipa": "/ʒe sɔʁ.ti la pu.bɛl/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "transitive",
+        "avoir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.667",
+      "fr": "Elle est passée devant la gare.",
+      "en": "She went past the station.",
+      "respell": "ehl eh pah-SAY duh-VAHⁿ lah GAHR",
+      "ipa": "/ɛl ɛ pɑ.se də.vɑ̃ la ɡaʁ/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "transitive",
+        "etre"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.668",
+      "fr": "Elle a passé un examen.",
+      "en": "She took an exam.",
+      "respell": "ehl ah pah-SAY uhⁿ neg-zah-MEHⁿ",
+      "ipa": "/ɛl a pɑ.se œ̃ nɛɡ.za.mɛ̃/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "transitive",
+        "avoir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.669",
+      "fr": "Il est mort en mars.",
+      "en": "He died in March.",
+      "respell": "eel eh MOR ahⁿ MARSS",
+      "ipa": "/il ɛ mɔʁ ɑ̃ maʁs/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "audible",
+        "mourir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.670",
+      "fr": "Elle est morte en mars.",
+      "en": "She died in March.",
+      "respell": "ehl eh MORT ahⁿ MARSS",
+      "ipa": "/ɛl ɛ mɔʁt ɑ̃ maʁs/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "audible",
+        "mourir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.671",
+      "fr": "Ils sont morts en mars.",
+      "en": "They died in March.",
+      "respell": "eel sohⁿ MOR ahⁿ MARSS",
+      "ipa": "/il sɔ̃ mɔʁ ɑ̃ maʁs/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "audible",
+        "mourir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.672",
+      "fr": "Elles sont mortes en mars.",
+      "en": "They died in March, and they are all women.",
+      "respell": "ehl sohⁿ MORT ahⁿ MARSS",
+      "ipa": "/ɛl sɔ̃ mɔʁt ɑ̃ maʁs/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "audible",
+        "mourir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.673",
+      "fr": "Elle est née ici.",
+      "en": "She was born here.",
+      "respell": "ehl eh NAY ee-SEE",
+      "ipa": "/ɛl ɛ ne i.si/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "still",
+        "naitre"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.674",
+      "fr": "Elle est restée à la maison.",
+      "en": "She stayed at home.",
+      "respell": "ehl eh res-TAY ah lah meh-ZOHⁿ",
+      "ipa": "/ɛl ɛ ʁɛs.te a la mɛ.zɔ̃/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "still",
+        "rester"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.675",
+      "fr": "Elle est revenue lundi.",
+      "en": "She came back on Monday.",
+      "respell": "ehl eh ruhv-NÜ luhⁿ-DEE",
+      "ipa": "/ɛl ɛ ʁəv.ny lœ̃.di/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "venir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.676",
+      "fr": "Je ne suis pas allé au bureau.",
+      "en": "I did not go to the office.",
+      "respell": "zhuh nuh swee pah zah-LAY oh bü-ROH",
+      "ipa": "/ʒə nə sɥi pa za.le o by.ʁo/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "negative"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.677",
+      "fr": "Elle n’est pas allée au bureau.",
+      "en": "She did not go to the office.",
+      "respell": "ehl neh pah zah-LAY oh bü-ROH",
+      "ipa": "/ɛl nɛ pa za.le o by.ʁo/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "negative"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.678",
+      "fr": "Nous ne sommes pas allés au bureau.",
+      "en": "We did not go to the office.",
+      "respell": "noo nuh somm pah zah-LAY oh bü-ROH",
+      "ipa": "/nu nə sɔm pa za.le o by.ʁo/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "negative"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.679",
+      "fr": "Elles ne sont pas allées au bureau.",
+      "en": "They did not go to the office, and they are all women.",
+      "respell": "ehl nuh sohⁿ pah zah-LAY oh bü-ROH",
+      "ipa": "/ɛl nə sɔ̃ pa za.le o by.ʁo/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "negative"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.680",
+      "fr": "Tu es allée où hier soir ?",
+      "en": "Where did you go last night?",
+      "respell": "tü eh tah-LAY oo yehr SWAHR",
+      "ipa": "/ty ɛ ta.le u jɛʁ swaʁ/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "scene"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.681",
+      "fr": "Je suis sortie avec des amis.",
+      "en": "I went out with friends.",
+      "respell": "zhuh swee sor-TEE ah-vehk day zah-MEE",
+      "ipa": "/ʒə sɥi sɔʁ.ti a.vɛk de za.mi/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "scene"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.682",
+      "fr": "Tu as sorti quoi ?",
+      "en": "You took out what?",
+      "respell": "tü ah sor-TEE KWAH",
+      "ipa": "/ty a sɔʁ.ti kwa/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "scene"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.683",
+      "fr": "Ah, avec des amis. Je comprends.",
+      "en": "Ah, with friends. I see.",
+      "respell": "ah ah-vehk day zah-MEE. zhuh kohⁿ-PRAHⁿ",
+      "ipa": "/a a.vɛk de za.mi ʒə kɔ̃.pʁɑ̃/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "scene"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.684",
+      "fr": "Tu es rentrée à quelle heure ?",
+      "en": "What time did you get home?",
+      "respell": "tü eh rahⁿ-TRAY ah keh-LUHR",
+      "ipa": "/ty ɛ ʁɑ̃.tʁe a kɛ.lœʁ/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.685",
+      "fr": "Je suis rentrée vers minuit.",
+      "en": "I got home around midnight.",
+      "respell": "zhuh swee rahⁿ-TRAY vehr mee-NWEE",
+      "ipa": "/ʒə sɥi ʁɑ̃.tʁe vɛʁ mi.nɥi/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.686",
+      "fr": "Vous êtes arrivés ensemble ?",
+      "en": "Did you arrive together?",
+      "respell": "voo zeht zah-ree-VAY ahⁿ-SAHⁿBL",
+      "ipa": "/vu zɛt za.ʁi.ve ɑ̃.sɑ̃bl/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.687",
+      "fr": "Nous sommes arrivés à huit heures.",
+      "en": "We arrived at eight.",
+      "respell": "noo somm zah-ree-VAY ah wee TUHR",
+      "ipa": "/nu sɔm za.ʁi.ve a ɥi tœʁ/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.688",
+      "fr": "Et Marie, elle est venue ?",
+      "en": "And Marie, did she come?",
+      "respell": "ay mah-REE, ehl eh vuh-NÜ",
+      "ipa": "/e ma.ʁi ɛl ɛ və.ny/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.689",
+      "fr": "Non, elle n’est pas venue.",
+      "en": "No, she did not come.",
+      "respell": "nohⁿ, ehl neh pah vuh-NÜ",
+      "ipa": "/nɔ̃ ɛl nɛ pa və.ny/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.690",
+      "fr": "Il est entré sans frapper.",
+      "en": "He came in without knocking.",
+      "respell": "eel eh tahⁿ-TRAY sahⁿ frah-PAY",
+      "ipa": "/il ɛ tɑ̃.tʁe sɑ̃ fʁa.pe/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "family",
+        "inout"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.691",
+      "fr": "Ils sont retournés en France.",
+      "en": "They went back to France.",
+      "respell": "eel sohⁿ ruh-toor-NAY ahⁿ FRAHⁿSS",
+      "ipa": "/il sɔ̃ ʁə.tuʁ.ne ɑ̃ fʁɑ̃s/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "family",
+        "inout"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.692",
+      "fr": "Elle est descendue à midi.",
+      "en": "She came down at midday.",
+      "respell": "ehl eh day-sahⁿ-DÜ ah mee-DEE",
+      "ipa": "/ɛl ɛ de.sɑ̃.dy a mi.di/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "family",
+        "updown"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.693",
+      "fr": "Le verre est tombé.",
+      "en": "The glass fell.",
+      "respell": "luh VEHR eh tohⁿ-BAY",
+      "ipa": "/lə vɛʁ ɛ tɔ̃.be/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "family",
+        "updown"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.694",
+      "fr": "Nous sommes passés devant chez toi.",
+      "en": "We went past your place.",
+      "respell": "noo somm pah-SAY duh-VAHⁿ shay TWAH",
+      "ipa": "/nu sɔm pɑ.se də.vɑ̃ ʃe twa/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "family",
+        "going"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.695",
+      "fr": "Il est devenu professeur.",
+      "en": "He became a teacher.",
+      "respell": "eel eh duhv-NÜ proh-feh-SUHR",
+      "ipa": "/il ɛ dəv.ny pʁɔ.fɛ.sœʁ/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "venir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.696",
+      "fr": "Elles sont reparties lundi.",
+      "en": "They left again on Monday.",
+      "respell": "ehl sohⁿ ruh-pahr-TEE luhⁿ-DEE",
+      "ipa": "/ɛl sɔ̃ ʁə.paʁ.ti lœ̃.di/",
+      "drills": [
+        "flashcard",
+        "sentence",
+        "voiceflash",
+        "review"
+      ],
+      "tags": [
+        "a2.21",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "partir"
+      ],
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "version": 1
     }
   ],
   "scenarios": [
