@@ -371,13 +371,30 @@ test('this lesson authors sentences only, and no bare past form exists as a head
   deepStrictEqual(bare.map((i) => `${i.fr} (${i.id})`), []);
 });
 
-test(`${IRREGULAR_UNIT}'s block is reserved and empty`, { skip: noLesson }, () => {
+test(`${IRREGULAR_UNIT}'s block belongs to ${IRREGULAR_UNIT} and holds nothing of this lesson's`, { skip: noLesson }, () => {
   // a2.20 is the next lesson and it had to agree the split. Its range is
   // recorded here so its author finds the number without reading the ledger.
-  const inA220 = seed.items.filter((i) => isA220(i.id));
-  deepStrictEqual(inA220.map((i) => i.id), []);
+  //
+  // AMENDED BY THE a2.20 BUILD, 2026-08-14. This assertion read « the block is
+  // reserved and EMPTY » and it went red the moment a2.20 applied its
+  // forty-three rows into it, which is the reservation working rather than
+  // failing. The durable claim is the one this lesson can actually make: NOT ONE
+  // ROW OF a2.05 IS INSIDE a2.20's BLOCK. Whether that block is empty is a2.20's
+  // business and it is asserted in a2-20-participes.test.ts.
+  const mineInA220 = myRows().filter((r) => isA220(r.id));
+  deepStrictEqual(mineInA220.map((r) => r.id), []);
   strictEqual(A220_BLOCK.from, 591);
   strictEqual(A220_BLOCK.to, 650);
+  // And every row that IS in there belongs to the lesson the block was reserved
+  // for, so a third party landing inside it is still caught here.
+  const occupants = seed.items.filter((i) => isA220(i.id));
+  const a220Lesson = seed.lessons.find((l) => l.id === 'a2.20.l1');
+  if (a220Lesson) {
+    const owned = new Set(a220Lesson.itemIds ?? []);
+    deepStrictEqual(occupants.map((i) => i.id).filter((id) => !owned.has(id)), []);
+  } else {
+    deepStrictEqual(occupants.map((i) => i.id), []);
+  }
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

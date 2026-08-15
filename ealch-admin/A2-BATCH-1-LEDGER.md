@@ -3040,3 +3040,224 @@ the superscript ⁿ             renders correctly everywhere; no U+203F anywhere
 - **`reduceNegative()` and the elision finding** (§2) are needed by any lesson
   whose negative elides, which is a2.21, a2.22 and a2.23.
 - **Do not copy a2.19's manifest regex** (§1).
+
+---
+
+## a2.20 amendments, 2026-08-14
+
+Written by the `a2.20` build, which is **seq 17 and the sixth lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger for the same reason a2.04's,
+a2.18's and a2.05's are.
+
+Full report: `A2-20-BUILD-REPORT.md`.
+
+### 0. THE SPLIT IS AGREED BY BOTH SIDES NOW, AND THAT WAS THE OPEN ITEM
+
+a2.05 §0 settled doctrine §E — a past form is not a corpus item, zero rows on
+both sides — and its own report §11 named the one thing it could not verify:
+*"Whether a2.20's author agrees the split. a2.20 has not started ... it is one
+author's decision written down rather than two authors agreeing."*
+
+**It is two authors agreeing now.** a2.20 re-measured the decision over its own
+thirty-three forms rather than over a2.05's list and reached the same answer.
+
+```
+                  block                        rows      headwords   bare forms
+a2.05  seq 16     fr.a2.verbes.541 .. .590      36           0            0
+a2.20  seq 17     fr.a2.verbes.591 .. .650      43           0            0
+                  591..633 used, 634..650 the tail, not backfilled
+fr.a2.verbes      439 before, 482 after         +43 exactly
+```
+
+Re-measured over a2.20's own list rather than a2.05's:
+
+```
+bare rows whose fr is one of the thirty-three                  28
+of those, glossed IN SO MANY WORDS as a past participle          4
+of those four, carrying a respelling                             0
+```
+
+a2.05 counted nine such rows and a2.20 counts four; both are right, and the
+difference is the five minimal-pair copies whose glosses name no form. **The
+figure the decision rests on is the third one and it is zero either way.**
+
+**AND a2.05's OWN TEST WENT RED THE MOMENT a2.20 APPLIED.** Its assertion read
+« a2.20's block is reserved and EMPTY », which is a reservation working rather
+than failing. It has been AMENDED rather than deleted, to the durable claim a
+lesson can actually make about a block it does not own:
+
+- not one row of a2.05 is inside a2.20's block, and
+- every row that IS inside it belongs to `a2.20.l1`'s own `itemIds`.
+
+**A reservation assertion should be written that way from the start.** a2.19's
+`.530..540` tail and a2.20's `.634..650` tail are the next two that will trip
+somebody.
+
+### 1. THE `sub` HAS NOW MISLED TWO CONSECUTIVE BUILDS WITH A NUMBER
+
+a2.05 found "the sub says sixty" resting on a `sub` that exists nowhere in the
+database. a2.20's brief says "forty" nine times and asks the test to assert
+"all forty participles ... by name". **The database `sub` is « Participes passés
+irréguliers » and carries no number. Neither does the `canDo`.**
+
+The real figure is **thirty-three**: a2.05's `IRREGULAR_PAST` (35 names) minus
+`refait` and `aperçu`, whose verbs exist as headwords at NO level and which
+occur twice and zero times respectively in the whole published corpus. Both are
+derived on a2.20's reference sheet from a form it does teach, and `refait` is
+one of four the exam asks for cold, so nothing a2.05 handed forward is orphaned.
+
+**Corrections §1 is worth more than it looks, for the second time.** It does not
+only swap two fields: on two consecutive lessons it has deleted a design
+question that would otherwise have shaped the whole build.
+
+### 2. A SEVENTH WIDTH DEFECT, ON A FIELD NO DOCUMENT IN THIS BAND MEASURES
+
+**FOUND ON A PIXEL 6, and no host gate could ever have found it.**
+
+A `cardDeck`'s `hint` is drawn as ONE LINE under the card stack and ellipsises.
+a2.20 shipped « Swipe. Six cards, and the first one is a sentence you have
+already read. » and the phone drew « ...you have alread… », losing the sentence
+the hint exists to make.
+
+```
+64 characters shown of a 71-character string
+```
+
+The budget is set at **HINT_MAX = 60**, below the measurement rather than at it,
+and guarded in all three layers. The band's measured widths are now:
+
+```
+mission-row title       27      a2.13, corrected to a WIDTH by a2.14 §13
+term-chip row           37      a2.03 §3
+tapTable cell, 3-col    11      a2.17 §4
+sheet table cell, 3-col 12      a2.19
+sheet title             37      a2.19 §3
+break card              lines   a2.19 §4
+cardDeck hint           60      a2.20   <- new
+```
+
+**Nobody has bisected the real cut**; it is between 64 and 71.
+
+### 3. A QUOTED FRENCH SENTENCE KEEPS ITS OWN FULL STOP
+
+Also found on the phone. a2.20's eu listening asked
+
+> J'ai bu un café. against J'ai eu peur.. What is the difference?
+
+because both quoted lines already end in one. The fix is a `noStop()` helper and
+a guard refusing **exactly two** consecutive dots on a learner surface — exactly
+two, so a three-dot ellipsis like the scene's « Samedi, j'ai... j'ai prendu... »
+is left alone.
+
+**The guard immediately found a second instance** in a card that concatenated
+two sentence-length English glosses. Any lesson that quotes a corpus row inside
+a question has this shape, and every lesson in this band quotes corpus rows
+inside questions.
+
+### 4. THE BLIND NASAL IS EXERCISED FOR THE FIRST TIME SINCE a2.11
+
+a2.05 measured 39 nasals seen and 0 missed and both repair tables empty.
+a2.20's frame needs two the checker cannot see, both the same shape:
+
+```
+ZHAY kohⁿs-TRWEE uhⁿ MÜR    an s follows the nasal inside the token
+ZHAY SÜ la ray-POHⁿSS       two S's follow it
+seen 12, missed 2
+```
+
+Corrections §6 and a2.17 §14.1. Both are asserted **BY NAME and in both
+directions**: the stored value is clean, and breaking the superscript produces a
+value the checker STILL calls clean, so the day it improves the assertion goes
+red instead of the list going quietly dead.
+
+**And the repair a2.20 expected to make was already made.** Its brief warns that
+"several prendre-family respellings are broken in the way Corrections §6
+describes", and the house value already exists in every row the lesson displays:
+`fr.sons.verbes-essentiels.012` holds `PRAHⁿDR`, `.030` holds `kohⁿ-PRAHⁿDR`,
+`fr.a2.disciplines.051` holds `a-PRAHⁿDR`, `fr.a1.routines.107` holds
+`kohⁿ-DWEER`. The build made ONE repair, `construire`, which is in no family the
+brief names, and recorded seven broken copies it does not display.
+
+### 5. §9's LIST OF HOLES IN THE GUARDS YOU WILL COPY GAINS FOUR MORE
+
+All four found by mutation, all four after the lesson had already been applied,
+and all four are the MERGE being thinner than the batch (a2.16 §4):
+
+1. **The carry cannot refuse a row it never sees.** `manifest.filter(id in
+   imports)` silently drops an import that is not in the manifest, and the
+   manifest is the only layer that refuses a gendered row. Swapping `écrire` for
+   its gendered copy made the batch throw and left the merge green. **Assert
+   that every import IS in the manifest.**
+2. **A pair guard satisfied by one thing.** Setting a trap's `wrong` equal to
+   its `right` makes "both on one card" trivially true. A pair of one thing is
+   not a pair.
+3. **A scene guard that walks every string** passes on a repaired scene, because
+   the English gloss still names the error. **Check the FRENCH the scene
+   speaks.**
+4. **`namesUnit(text, UNIT_CONST)` is a2.18 §6 in a new place.** Renaming the
+   constant renames both sides and the guard stays green while the credit
+   vanishes from every screen. **Unit ids are literals in a guard.**
+
+### 6. AND a2.14 §8 APPLIES TO THE MUTATION HARNESS, NOT ONLY TO THE CONTENT
+
+Two of a2.20's thirty-eight rows reported a layer BLIND while the layer was
+correct, both because the seed half of the mutation did not remove the claim:
+one changed a question's capitalisation instead of dropping the form, and one
+moved a `q` and left the `accept` list, which is the field the guard reads.
+
+**A mutation that does not remove the claim proves nothing, and it looks exactly
+like a hole.** Budget the same three or four anchors in the harness that you
+budget in the content, and give the harness an `alsoSeed`/`thirdSeed` path.
+
+Final: **38 mutations, 0 caught by nothing, 0 skipped, FIVE finding a weakness.**
+
+### 7. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3730   pass 3730   fail 0        measured 2026-08-14, before a2.20
+  tests 3779   pass 3779   fail 0        after a2.20 (+49)
+a1-03-genre.test.ts   ending population 1890 both ways, measured off the SEED.
+                      0 gendered rows authored OR carried; FOUR were wanted and
+                      refused (le reçu twice, and the gendered copies of écrire
+                      and lire).
+npx tsc --noEmit      0 in ealch-v2 AND 0 in ealch-admin
+seed.json             version 40, 9157 items, 58 lessons, 75 units (before)
+                      version 40, 9215 items, 59 lessons, 75 units (after, NOT
+                        published; the merge left the version alone)
+                      +43 authored, +15 CARRIED through the cut
+pnpm content:parity   ONE pre-existing divergence (b2.01.l1, database-only,
+                        in_review). Nothing in the seed is at risk.
+```
+
+**FOUR lessons now sit in the seed above the last published snapshot**: a2.18,
+a2.19, a2.05 and a2.20.
+
+**And the cut was mispredicted by four.** a2.20's first `ABSENT_FROM_SEED` list
+held eleven and the merge's surprise check found FIFTEEN; all four extras are
+the already-a-word rows, in themes nobody thinks of as verb themes
+(`examens-et-diplomes`, `courses`, `meteo`, `adjectifs-essentiels`), which is
+exactly where a cut is thinnest. a2.05 §6 says *predict nothing about the cut,
+measure it*, and this is that in the other direction.
+
+### 8. WHAT a2.21 INHERITS, AND IT IS NEXT
+
+- **The forms are done and the choice is untouched.** `venu`, `né` and `mort`
+  are taught as FORMS on `s14-firstword`, which names a2.21 and says in one line
+  that which verbs take être, and what happens to the form afterwards, is that
+  lesson's. No production surface in a2.20 asks a learner to pick an auxiliary,
+  and a guard refuses an instruction to choose in English or French, including
+  the three mnemonics people teach the rule with.
+- **The background is clean for agreement.** No authored sentence in a2.20
+  agrees a past form with anything, and the two authored être rows are masculine
+  singular deliberately. One trap card had to be reworded from « Elle est due. »
+  to « la somme due » because the agreement guard refused it, correctly.
+- **And the reason agreement will be HARD is stated in a2.20 rather than left to
+  a2.21**: `pris` and `prise` are one sound, and so are the other nine pairs in
+  `NO_EAR_QUESTION`. A learner will never hear the change a2.21 teaches.
+- **`reduceNegative()` and a2.05 §2's elision finding** are still needed by any
+  lesson whose negative elides, which is a2.21, a2.22 and a2.23.
+- **Do not copy a2.19's manifest regex** (a2.05 §1).
+- **The thirty-three, by group, are in `data/participes-corpus.ts`'s `FORMS`**,
+  each with its naming form, its import id and the row that teaches it. a2.21
+  needs `venu`, `né` and `mort` from it and nothing else.
