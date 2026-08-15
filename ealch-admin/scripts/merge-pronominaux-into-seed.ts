@@ -431,8 +431,30 @@ if (qs.length !== EXPECTED_QUESTIONS) die(`${qs.length} questions and EXPECTED_Q
 
 /* ─── The items: authored, then carried ────────────────────────────────────*/
 
-const drillOrder = (ds: readonly string[]): string[] =>
-  [...ds].sort((a, b) => DRILL_KINDS.indexOf(a as never) - DRILL_KINDS.indexOf(b as never));
+/** THE ORDER THE DATABASE ACTUALLY HOLDS, WHICH IS INSERTION ORDER.
+ *
+ * MEASURED AFTER THE v43 PUBLISH. a2.12's finding is that sorting `drills` as
+ * STRINGS ships a different order from the database, and the fix the band
+ * adopted was to sort by `DRILL_KINDS` declaration order instead. **That is
+ * still a sort, and the database does not sort at all**: `content_items.drills`
+ * comes back in the order it was written, and `content:publish` regenerates the
+ * seed with that order verbatim.
+ *
+ * So this merge was rewriting 29 rows into an order the database did not hold,
+ * and the next publish silently corrected all 29 back. Harmless in content
+ * terms — membership never changed — and it made every publish after a merge
+ * show a spurious diff.
+ *
+ * The order is therefore PRESERVED rather than imposed. `DRILL_KINDS` is still
+ * imported, to validate membership rather than to reorder.
+ *
+ * EVERY MERGE IN THIS BAND SORTS HERE AND SHOULD NOT. */
+const drillOrder = (ds: readonly string[]): string[] => {
+  for (const d of ds) {
+    if (!DRILL_KINDS.includes(d as never)) throw new Error(`unknown drill kind "${d}"`);
+  }
+  return [...ds];
+};
 
 const itemsById = new Map(seed.items.map((i) => [i.id, i] as const));
 let added = 0;

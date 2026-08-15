@@ -1,5 +1,5 @@
 {
-  "version": 42,
+  "version": 43,
   "units": [
     {
       "id": "sons.04",
@@ -983,24 +983,6 @@
       ]
     },
     {
-      "id": "a2.22",
-      "seq": 19,
-      "sub": "Les verbes pronominaux",
-      "canDo": "Can describe their routine with reflexive verbs in the present",
-      "level": "a2",
-      "title": "Pronominal (Reflexive) Verbs",
-      "track": "a2",
-      "themes": [
-        "routine"
-      ],
-      "lessonIds": [
-        "a2.22.l1"
-      ],
-      "prereqUnitIds": [
-        "a2.01"
-      ]
-    },
-    {
       "id": "a2.23",
       "seq": 20,
       "sub": "Pronominaux au passé composé",
@@ -1165,6 +1147,24 @@
       ],
       "prereqUnitIds": [
         "a2.05"
+      ]
+    },
+    {
+      "id": "a2.22",
+      "seq": 19,
+      "sub": "Les verbes pronominaux",
+      "canDo": "Can describe their routine with reflexive verbs in the present",
+      "level": "a2",
+      "title": "Pronominal (Reflexive) Verbs",
+      "track": "a2",
+      "themes": [
+        "routine"
+      ],
+      "lessonIds": [
+        "a2.22.l1"
+      ],
+      "prereqUnitIds": [
+        "a2.01"
       ]
     },
     {
@@ -195082,6 +195082,28 @@
       "cardType": "vocab"
     },
     {
+      "id": "fr.sons.verbes-essentiels.056",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "se souvenir",
+      "en": "to remember",
+      "ipa": "/sə suvniʁ/",
+      "respell": "SUH soov-NEER",
+      "notes": "reflexive, irregular · je me souviens, conjugates like venir",
+      "tags": [
+        "irregular",
+        "reflexive"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
       "id": "fr.a1.maison.068",
       "kind": "word",
       "level": "a1",
@@ -226951,6 +226973,24 @@
         "sentence",
         "flashcard",
         "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.presentation-personnelle.001",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "presentation-personnelle",
+      "fr": "Je m'appelle Sophie.",
+      "en": "My name is Sophie.",
+      "ipa": "ʒə ma.pɛl sɔ.fi",
+      "notes": "“appelle” doubles both the p and the l, unlike the infinitive “appeler”.",
+      "tags": [
+        "orthographe"
+      ],
+      "drills": [
+        "dictation"
       ],
       "audioRef": null,
       "version": 1
@@ -266136,8 +266176,8 @@
       "notes": "{\"tiles\":[{\"w\":\"Je lave\",\"t\":\"i wash\"},{\"w\":\"les légumes\",\"t\":\"the vegetables\"},{\"w\":\"avant de cuisiner.\",\"t\":\"before cooking\"}]}",
       "tags": [],
       "drills": [
-        "flashcard",
         "sentence",
+        "flashcard",
         "review"
       ],
       "audioRef": null,
@@ -272146,8 +272186,8 @@
       "notes": "{\"tiles\":[{\"w\":\"Il se lève\",\"t\":\"he gets up\"},{\"w\":\"tout de suite\",\"t\":\"right away\"},{\"w\":\"après le réveil.\",\"t\":\"after the alarm\"}]}",
       "tags": [],
       "drills": [
-        "flashcard",
         "sentence",
+        "flashcard",
         "review"
       ],
       "audioRef": null,
@@ -272197,8 +272237,8 @@
       "notes": "{\"tiles\":[{\"w\":\"Tu te douches\",\"t\":\"you shower\"},{\"w\":\"rapidement\",\"t\":\"quickly\"},{\"w\":\"avant l'école.\",\"t\":\"before school\"}]}",
       "tags": [],
       "drills": [
-        "flashcard",
         "sentence",
+        "flashcard",
         "review"
       ],
       "audioRef": null,
@@ -272571,8 +272611,8 @@
       "notes": "{\"tiles\":[{\"w\":\"Nous nous levons\",\"t\":\"we get up\"},{\"w\":\"tard\",\"t\":\"late\"},{\"w\":\"le dimanche.\",\"t\":\"on sundays\"}]}",
       "tags": [],
       "drills": [
-        "flashcard",
         "sentence",
+        "flashcard",
         "review"
       ],
       "audioRef": null,
@@ -302204,6 +302244,29 @@
       "example": {
         "en": "We often share a meal between neighbors.",
         "fr": "On partage souvent un repas entre voisins."
+      },
+      "tags": [],
+      "drills": [
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "skill": "PO",
+      "register": "courant"
+    },
+    {
+      "id": "fr.a1.rencontres.105",
+      "kind": "word",
+      "level": "a1",
+      "theme": "rencontres",
+      "fr": "s'appeler",
+      "en": "to be called / named",
+      "ipa": "sa.p(ə).le",
+      "respell": "sah-PLAY",
+      "example": {
+        "en": "What is your name?",
+        "fr": "Comment vous appelez-vous ?"
       },
       "tags": [],
       "drills": [
@@ -374937,11 +375000,11 @@
         "paradigm"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -374964,11 +375027,11 @@
         "paradigm"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -374991,11 +375054,11 @@
         "paradigm"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375019,11 +375082,11 @@
         "doubled"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375047,11 +375110,11 @@
         "doubled"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375074,11 +375137,11 @@
         "paradigm"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375102,9 +375165,9 @@
         "no-clitic"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375128,11 +375191,11 @@
         "negation"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375155,9 +375218,9 @@
         "negation"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375181,11 +375244,11 @@
         "negation"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375209,9 +375272,9 @@
         "doubled"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375235,9 +375298,9 @@
         "stem-change"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375261,9 +375324,9 @@
         "stem-change"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375287,9 +375350,9 @@
         "stem-change"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375314,9 +375377,9 @@
         "stem-still"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375341,11 +375404,11 @@
         "stem-still"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375368,11 +375431,11 @@
         "stem-change"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375396,9 +375459,9 @@
         "doubled"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375422,11 +375485,11 @@
         "not-reflexive"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375474,9 +375537,9 @@
         "unseen"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375501,9 +375564,9 @@
         "doubled"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375528,9 +375591,9 @@
         "doubled"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375555,11 +375618,11 @@
         "elision"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "dictation",
-        "sentence",
-        "review"
+        "review",
+        "dictation"
       ],
       "audioRef": null,
       "version": 1,
@@ -375583,9 +375646,9 @@
         "elision"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375609,9 +375672,9 @@
         "unseen"
       ],
       "drills": [
+        "sentence",
         "flashcard",
         "voiceflash",
-        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -375746,69 +375809,6 @@
       "audioRef": null,
       "version": 1,
       "notes": "Role play turn 5, and it is one of the ones that is not reflexive at all."
-    },
-    {
-      "id": "fr.a1.rencontres.105",
-      "kind": "word",
-      "level": "a1",
-      "theme": "rencontres",
-      "fr": "s'appeler",
-      "en": "to be called / named",
-      "ipa": "sa.p(ə).le",
-      "respell": "sah-PLAY",
-      "example": {
-        "en": "What is your name?",
-        "fr": "Comment vous appelez-vous ?"
-      },
-      "tags": [],
-      "drills": [
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1,
-      "skill": "PO",
-      "register": "courant"
-    },
-    {
-      "id": "fr.sons.verbes-essentiels.056",
-      "kind": "word",
-      "level": "sons",
-      "theme": "verbes-essentiels",
-      "fr": "se souvenir",
-      "en": "to remember",
-      "ipa": "/sə suvniʁ/",
-      "respell": "SUH soov-NEER",
-      "notes": "reflexive, irregular · je me souviens, conjugates like venir",
-      "tags": [
-        "irregular",
-        "reflexive"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash"
-      ],
-      "audioRef": null,
-      "version": 1,
-      "cardType": "vocab"
-    },
-    {
-      "id": "fr.a1.presentation-personnelle.001",
-      "kind": "sentence",
-      "level": "a1",
-      "theme": "presentation-personnelle",
-      "fr": "Je m'appelle Sophie.",
-      "en": "My name is Sophie.",
-      "ipa": "ʒə ma.pɛl sɔ.fi",
-      "notes": "“appelle” doubles both the p and the l, unlike the infinitive “appeler”.",
-      "tags": [
-        "orthographe"
-      ],
-      "drills": [
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
     }
   ],
   "scenarios": [
