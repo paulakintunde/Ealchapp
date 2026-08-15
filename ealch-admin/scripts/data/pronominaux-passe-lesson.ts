@@ -320,7 +320,10 @@ const SECTIONS: LessonSection[] = [
   {
     id: RECAP_SECTION_ID,
     type: 'cardDeck',
-    title: 'You Already Have Four Of The Five',
+    /* RETITLED IN v2. « You Already Have Four Of The Five » is 16.01 em and the
+     * mission row cuts at 13.2, so it shipped as « You Already Have Four Of
+     * Th… » on a Pixel 6. */
+    title: 'Four Are Already Yours',
     frSub: 'Ce que vous savez déjà',
     layer: 'core',
     size: 'lg',
@@ -379,14 +382,20 @@ const SECTIONS: LessonSection[] = [
     say: `One sentence, read down rather than across. Every one of these six you have met before, and the fourth one is the only thing this lesson adds. Tap any row to hear the whole sentence.`,
     terms: ['littleWord', 'firstWord', 'theWrap'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-23-slots' },
-    cols: ['where', 'the word', 'what it is doing'],
+    /* THE HEADER IS SHORT FOR THE SAME REASON THE CELLS ARE. « what it is
+     * doing » wrapped to two lines and pushed the whole table down a row. */
+    cols: ['where', 'the word', 'what it does'],
     rows: SLOTS.map((slot) => ({
+      /* `job` IS THE CELL AND IT IS SHORT. v1 put the unit-id credits in here
+       * and the six-row diagram spanned two screens on a Pixel 6; the credit
+       * now rides the detail body, which is where a learner who taps the row
+       * already goes. Corpus file, SLOTS. */
       cells: [slot.pos, slot.word, slot.job],
       say: SLOT_SENTENCE,
       detail: {
         title: `« ${slot.word} »`,
         say: SLOT_SENTENCE,
-        body: `${SLOT_SENTENCE} ${sub(A(810))} ${en(A(810))} In this sentence « ${slot.word} » is ${slot.job}.`,
+        body: `${SLOT_SENTENCE} ${sub(A(810))} ${en(A(810))} ${slot.credit}`,
       },
     })),
   },
@@ -537,7 +546,10 @@ const SECTIONS: LessonSection[] = [
   {
     id: NEWVERBS_SECTION_ID,
     type: 'groupDrill',
-    title: 'Verbs You Were Never Shown',
+    /* RETITLED IN v2. « Verbs You Were Never Shown » is 13.64 em against a 13.2
+     * budget and clipped on a Pixel 6, at TWENTY-SIX characters — while « Build
+     * It, One Word At A Time » fits at twenty-eight. The cut is a width. */
+    title: 'Verbs You Never Saw',
     frSub: 'Des verbes nouveaux',
     layer: 'core',
     size: 'lg',
@@ -1624,9 +1636,29 @@ export const LESSON: Lesson = {
   title: UNIT.sub,
   tag: `A2 · LEÇON ${String(UNIT.seq).padStart(2, '0')}`,
   level: 'a2',
-  /** FIRST BUILD. `content_units` gives a2.23 `lessonIds: []`, measured, so this
-   *  is v1 and there is nothing to replace. */
-  version: 1,
+  /** v1 was the first build. v2 REPAIRS TWO DEFECTS FOUND ON A PIXEL 6 AND
+   *  NOWHERE ELSE, both of them layout and both invisible to every host gate:
+   *
+   *  1. `s05-slots` SPANNED TWO SCREENS. The unit-id credits were inside the
+   *     table cells, so the third column wrapped to four, five and six lines
+   *     and the six-row diagram would not fit one screen. The brief's whole
+   *     requirement is that the six positions are read down the page as one
+   *     sentence. Every layer asserted the six rows, the six words and the six
+   *     jobs, and every one of those was true: HEIGHT IS INVISIBLE TO ALL OF
+   *     THEM. The credits moved to the row's `detail` body and the cells are
+   *     now bounded by `SLOT_CELL_MAX`.
+   *  2. TWO MISSION TITLES CLIPPED. « You Already Have Four Of The Five » and
+   *     « Verbs You Were Never Shown ». a2.13 recorded 27 and a2.14 §13
+   *     corrected it to a WIDTH; this build carried the number as a character
+   *     count, asserted it nowhere, and shipped a 26-character title that
+   *     clipped beside a 28-character one that did not. Now a real em budget
+   *     with the three measured cases walked as calibration.
+   *
+   *  THE COUNTER MOVES RATHER THAN THE BODY BEING CORRECTED UNDER v1. Ledger
+   *  §10: two different bodies under one number is the drift this project has
+   *  lost work to twice. a2.09 set the precedent, a2.20 followed it twice and
+   *  a2.22 did the same thing for the same reason one lesson ago. */
+  version: 2,
 
   intro:
     `You can already say what you did yesterday, and you can already say what you do every morning with a small word in front of the verb. Putting those two together needs one fact and it is not the one people expect: the small word decides which of the two past helpers you reach for. Laver takes avoir and se laver takes être, and nothing about the meaning or the movement has a say in it. This is that fact, the order the words go in, and the ending that nobody can hear.`,

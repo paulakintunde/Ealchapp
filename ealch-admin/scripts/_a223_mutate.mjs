@@ -90,7 +90,26 @@ const M = [
   },
   {
     label: 'drop a position out of the slot diagram',
-    src: [CORPUS, "  { pos: 'then', word: 'pas', job: 'the second half of the wrap, and it closes after the first word' },\n", ''],
+    src: [CORPUS, "  { pos: 'then', word: 'pas', job: 'the wrap shuts', credit: 'The second half of the wrap, and it closes straight after the first word.' },\n", ''],
+  },
+  {
+    // THE DEFECT v2 EXISTS FOR. v1 shipped four cells over 44 characters and
+    // the six-row diagram spanned two screens on a Pixel 6. Every layer
+    // asserted the six rows, the six words and the six jobs, and every one of
+    // those was true: HEIGHT IS INVISIBLE TO ALL OF THEM.
+    label: 'put the unit credits back inside a slot cell, as v1 had them',
+    src: [CORPUS, "job: 'the little word', credit:", "job: 'the little word, and it is the person again, which is a2.22\\'s', credit:"],
+  },
+  {
+    // THE SECOND DEFECT v2 EXISTS FOR. A 26-character title clipped while a
+    // 28-character one did not, so the cut is a WIDTH.
+    label: 'restore a mission title that clipped on the device',
+    src: [LESSON, "title: 'Verbs You Never Saw',", "title: 'Verbs You Were Never Shown',"],
+    seed: ['"title": "Verbs You Never Saw"', '"title": "Verbs You Were Never Shown"'],
+  },
+  {
+    label: 'widen the title budget until a measured clip passes',
+    src: [CORPUS, 'export const TITLE_WIDTH_MAX = 13.55;', 'export const TITLE_WIDTH_MAX = 99;'],
   },
   {
     label: 'build the slot diagram from an affirmative rather than a negative',

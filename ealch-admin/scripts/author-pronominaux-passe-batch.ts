@@ -76,7 +76,8 @@ import {
   NEGATION_OUTSIDE, NEGATION_RULE, OBJECT_CLAIM, OBJECT_DECISION,
   OBJECT_PAIR, OBJECT_TERMS, OWNS_SECTIONS, PARADIGM_SECTIONS,
   PERSON_IDS, PLAIN_OVER_TECHNICAL, PRESENT_NO_AGREEMENT,
-  READ_NOT_IMPORTED, RECIPROCAL_MARKERS, RECIPROCAL_MUST_FIRE,
+  READ_NOT_IMPORTED, RECIPROCAL_MARKERS, RECIPROCAL_MUST_FIRE, SLOT_CELL_MAX,
+  TITLE_MUST_CLIP, TITLE_MUST_FIT, TITLE_WIDTH_MAX, titleWidth,
   RECIPROCAL_MUST_NOT_FIRE, REFRAME, REFRAME_COUNT,
   RESPELL_REPAIRS_INVISIBLE, RESPELL_REPAIRS_VISIBLE, ROUTINE_IDS,
   ROW_COUNT_BEFORE, SLOTS, SLOT_SENTENCE, THEME, UNIT, fr, isA221, isA222,
@@ -401,6 +402,22 @@ if (OWNS_SECTIONS <= PARADIGM_SECTIONS) die('the paradigm has at least as many s
     if (cells[1] !== slot.word) die(`${SLOTS_SECTION_ID} row ${i} column 1 is "${cells[1]}" and position ${i} is "${slot.word}".`);
     if (cells[2] !== slot.job) die(`${SLOTS_SECTION_ID} row ${i} does not say what "${slot.word}" is doing.`);
     if (s.rows[i]!.say !== SLOT_SENTENCE) die(`${SLOTS_SECTION_ID} row ${i} does not speak the whole sentence. A word said on its own is not the word said in place.`);
+  }
+  /* THE CELL BUDGET, WHICH IS WHY v2 EXISTS. The third column of a
+   * three-column tapTable is about eleven characters wide on a Pixel 6, so a
+   * 60-character cell wraps to six lines and the six-row diagram spans two
+   * screens. v1 shipped four cells over 44 characters and every host layer
+   * passed, because all three assert the six rows, the six words and the six
+   * jobs and HEIGHT IS INVISIBLE TO ALL OF THEM. */
+  for (const [i, slot] of SLOTS.entries()) {
+    if (slot.job.length > SLOT_CELL_MAX) {
+      die(`slot ${i} « ${slot.word} » has a ${slot.job.length}-character cell and the budget is ${SLOT_CELL_MAX}. `
+        + 'A cell over that wraps past two lines and the six-row diagram stops fitting one screen, which is the '
+        + 'one thing the brief requires of this section. Put the long version in `credit`, which rides the detail body.');
+    }
+    if (!slot.credit || slot.credit.length < 20) {
+      die(`slot ${i} « ${slot.word} » has no credit, so shortening the cell threw the explanation away rather than moving it.`);
+    }
   }
   /* AND THE FULL NEGATIVE IS WHAT THE DIAGRAM IS BUILT FROM. */
   const words = SLOTS.map((x) => x.word).join(' ');
@@ -811,6 +828,36 @@ for (const s of LESSON.sections) {
 for (const s of LESSON.sections) {
   const hint = (s as { hint?: string }).hint;
   if (hint && hint.length > HINT_MAX) die(`${s.id}'s hint is ${hint.length} characters and ellipsises above ${HINT_MAX}.`);
+}
+
+/* THE MISSION-ROW TITLE BUDGET, AND IT IS A WIDTH. THE SECOND REASON v2 EXISTS.
+ *
+ * a2.13 recorded 27 and a2.14 §13 corrected it to a WIDTH. v1 of this lesson
+ * carried the number as a CHARACTER COUNT, asserted it nowhere, and shipped a
+ * 26-character title that clipped beside a 28-character one that did not.
+ *
+ * The model is proved against the device rather than asserted: the three cases
+ * measured on the Pixel 6 are walked every run, so a change to `titleWidth` or
+ * to the budget that stops separating them fails here. */
+{
+  for (const s of TITLE_MUST_FIT) {
+    if (titleWidth(s) > TITLE_WIDTH_MAX) {
+      die(`the title model says « ${s} » clips at ${titleWidth(s)} em and it was MEASURED FITTING on a Pixel 6. The model no longer describes the device.`);
+    }
+  }
+  for (const s of TITLE_MUST_CLIP) {
+    if (titleWidth(s) <= TITLE_WIDTH_MAX) {
+      die(`the title model says « ${s} » fits at ${titleWidth(s)} em and it was MEASURED CLIPPING on a Pixel 6. The model no longer describes the device.`);
+    }
+  }
+  for (const s of LESSON.sections) {
+    const t = s.title ?? '';
+    const w = titleWidth(t);
+    if (w > TITLE_WIDTH_MAX) {
+      die(`${s.id}'s title « ${t} » is ${w} em and the mission row cuts at ${TITLE_WIDTH_MAX}. `
+        + 'It will ship ellipsised. This is a WIDTH, not a character count: 26 characters clipped in v1 while 28 did not.');
+    }
+  }
 }
 
 /* ═══ 12. THE trapDrill SHAPE ════════════════════════════════════════════*/

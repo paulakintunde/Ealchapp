@@ -455,15 +455,39 @@ export const THE_NEW_FACT =
 
 /** THE SLOT ORDER, which is the required layout. Six positions, and the learner
  *  has met all six. Read by the slot section, the sheet and all three guards, so
- *  the diagram and the assertion cannot disagree. */
-export const SLOTS: readonly { pos: string; word: string; job: string }[] = [
-  { pos: 'first', word: 'Je', job: 'the person' },
-  { pos: 'then', word: 'ne', job: `the first half of the wrap, which is ${NEGATION_UNIT}'s` },
-  { pos: 'then', word: 'me', job: `the little word, and it is the person again, which is ${REFLEXIVE_UNIT}'s` },
-  { pos: 'then', word: 'suis', job: `the first word, and it is always être, which is the one new thing here` },
-  { pos: 'then', word: 'pas', job: 'the second half of the wrap, and it closes after the first word' },
-  { pos: 'last', word: 'levé', job: `the second word, ending for the person, which is ${ETRE_UNIT}'s` },
+ *  the diagram and the assertion cannot disagree.
+ *
+ *  ── `job` IS THE CELL AND IT IS SHORT ON PURPOSE. FOUND ON A PIXEL 6. ──────
+ *
+ *  v1 put the unit-id credits INSIDE the cells, so `job` ran to 44, 61, 63 and
+ *  70 characters. The third column of a three-column `tapTable` is about ELEVEN
+ *  characters wide on a Pixel 6, so those wrapped to four, five and six lines
+ *  and the six-row diagram spanned TWO FULL SCREENS. Nothing was lost — it
+ *  scrolls — but the brief's requirement is all six positions on ONE screen, so
+ *  the learner can read « Je ne me suis pas levé » down the page as a sentence.
+ *  That is the entire reason the section exists and v1 did not deliver it.
+ *
+ *  No host gate could see it: the batch, the merge and the test all asserted the
+ *  six rows, the six words and the six jobs, and every one of those was true.
+ *  Height is invisible to all three.
+ *
+ *  So `job` is now the CELL — short enough for two lines — and `credit` carries
+ *  what used to be crammed in beside it, on the row's `detail` body, which is
+ *  where a learner who taps the row already goes. `SLOT_CELL_MAX` is the budget
+ *  and all three layers assert it. */
+export const SLOTS: readonly { pos: string; word: string; job: string; credit: string }[] = [
+  { pos: 'first', word: 'Je', job: 'the person', credit: 'The person the sentence is about, and everything after it agrees with this word.' },
+  { pos: 'then', word: 'ne', job: 'the wrap opens', credit: `The first half of the wrap, which is ${NEGATION_UNIT}'s and has not moved in five lessons.` },
+  { pos: 'then', word: 'me', job: 'the little word', credit: `The little word, and it is the person again, which is ${REFLEXIVE_UNIT}'s.` },
+  { pos: 'then', word: 'suis', job: 'always être', credit: 'The first word, and it is always être. This is the one new thing in the lesson.' },
+  { pos: 'then', word: 'pas', job: 'the wrap shuts', credit: 'The second half of the wrap, and it closes straight after the first word.' },
+  { pos: 'last', word: 'levé', job: 'the ending', credit: `The second word, ending for the person, which is ${ETRE_UNIT}'s.` },
 ];
+
+/** The cell budget for the third column of a three-column `tapTable`, measured
+ *  on a Pixel 6 by shipping v1 over it. Roughly eleven characters render per
+ *  line, so twenty is two lines and the six-row diagram fits one screen. */
+export const SLOT_CELL_MAX = 20;
 
 /** The full negative the slot diagram is built from, spelled once. */
 export const SLOT_SENTENCE = 'Je ne me suis pas levé.';
@@ -1028,8 +1052,66 @@ export const HINT_MAX = 60;
 export const DICTEE_MAX_LETTERS = 16;
 /** a2.03 §3: three term chips fit if the labels plus separators come to 37. */
 export const CHIP_ROW_BUDGET = 37;
-/** a2.13, corrected to a WIDTH by a2.14 §13: a mission-row title is cut at 27. */
-export const TITLE_MAX = 27;
+/* ─── THE MISSION-ROW TITLE BUDGET, AND IT IS A WIDTH ──────────────────────
+ *
+ * a2.13 recorded a mission-row title cut at 27 and a2.14 §13 corrected it to a
+ * WIDTH. **This build shipped `TITLE_MAX = 27` as a CHARACTER COUNT, asserted
+ * it nowhere, and two titles clipped on a Pixel 6.** Measured on the device:
+ *
+ *     "Build It, One Word At A Time"        28 ch   FITS
+ *     "Verbs You Were Never Shown"          26 ch   CLIPPED
+ *     "You Already Have Four Of The Five"    33 ch   CLIPPED
+ *
+ * Twenty-six clips while twenty-eight fits, so a character count cannot model
+ * it at all: the difference is that `V Y W N S w` are wide glyphs and
+ * `i l t , space` are narrow ones. a2.14 §13 said exactly this and this build
+ * carried the number without carrying the meaning.
+ *
+ * `titleWidth()` is an em estimate with the ordinary proportions of a sans
+ * face. It does not have to be exact — it has to separate the three measured
+ * cases, and `TITLE_MUST_FIT` and `TITLE_MUST_CLIP` are walked by all three
+ * layers so the model is PROVED against the device rather than asserted.       */
+
+const EM: Readonly<Record<string, number>> = {
+  i: 0.28, l: 0.28, j: 0.28, I: 0.28, '.': 0.28, ',': 0.28, "'": 0.2, '’': 0.2, ' ': 0.28,
+  t: 0.35, f: 0.35, r: 0.35,
+  m: 0.85, w: 0.85, W: 0.9, M: 0.9,
+  O: 0.72, N: 0.72, Q: 0.72, G: 0.72,
+  v: 0.5, s: 0.5, y: 0.5, z: 0.5, c: 0.5, x: 0.5,
+};
+/** The width of a mission-row title, in ems, on a Pixel 6. */
+export const titleWidth = (s: string): number => {
+  let w = 0;
+  for (const ch of s) w += EM[ch] ?? (ch >= 'A' && ch <= 'Z' ? 0.65 : 0.55);
+  return Math.round(w * 100) / 100;
+};
+
+/** The budget, set BETWEEN the widest measured pass and the narrowest measured
+ *  clip rather than at either.
+ *
+ *  THE BAND IS NARROW AND THAT IS AN HONEST LIMIT OF THE MODEL. The widest
+ *  title measured FITTING is « One Word Changes The Other » at 13.46 and the
+ *  narrowest measured CLIPPING is « Verbs You Were Never Shown » at 13.64, so
+ *  the true boundary is somewhere in 0.18 em. The first draft of this budget
+ *  was 13.20 and it refused `s02-flip`, which the device renders in full —
+ *  caught by this guard on its first run, which is the guard doing its job in
+ *  the direction nobody plans for.
+ *
+ *  A title landing inside that band should be checked on a device rather than
+ *  trusted either way. */
+export const TITLE_WIDTH_MAX = 13.55;
+
+/** The measured cases, all four observed on a Pixel 6. Any change to
+ *  `titleWidth` or to the budget that stops separating these has stopped
+ *  modelling the device. */
+export const TITLE_MUST_FIT: readonly string[] = [
+  'Build It, One Word At A Time',
+  'One Word Changes The Other',
+];
+export const TITLE_MUST_CLIP: readonly string[] = [
+  'Verbs You Were Never Shown',
+  'You Already Have Four Of The Five',
+];
 
 /** a2.20 found « peur.. » on a Pixel 6 and a2.22 §4 widened it: the general
  *  defect is A SENTENCE-FINAL STOP WITH PUNCTUATION AFTER IT, which is what a

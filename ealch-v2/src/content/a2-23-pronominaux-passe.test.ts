@@ -124,6 +124,55 @@ const SLOTS: readonly { pos: string; word: string }[] = [
 ];
 const SLOT_SENTENCE = 'Je ne me suis pas levé.';
 
+/** THE CELL BUDGET FOR THE THIRD COLUMN, AND WHY v2 EXISTS.
+ *
+ *  v1 put the unit-id credits inside the cells, so `job` ran to 44, 61, 63 and
+ *  70 characters. The third column of a three-column `tapTable` is about eleven
+ *  characters wide on a Pixel 6, so those wrapped to four, five and six lines
+ *  and the six-row diagram SPANNED TWO FULL SCREENS. Nothing was lost — it
+ *  scrolls — but the brief requires the six positions on ONE screen so the
+ *  learner reads them down the page as a sentence, and that is the only reason
+ *  the section exists.
+ *
+ *  Every layer asserted the six rows, the six words and the six jobs, and every
+ *  one of those was true. HEIGHT IS INVISIBLE TO ALL OF THEM, and this budget
+ *  is the nearest thing to seeing it that a host gate can have. */
+const SLOT_CELL_MAX = 20;
+
+/* ─── THE MISSION-ROW TITLE BUDGET, AND IT IS A WIDTH ──────────────────────
+ *
+ * a2.13 recorded 27 and a2.14 §13 corrected it to a WIDTH. **v1 of this lesson
+ * carried the number as a CHARACTER COUNT, asserted it nowhere, and two titles
+ * clipped on a Pixel 6.** Measured on the device:
+ *
+ *     "Build It, One Word At A Time"        28 ch   13.05 em   FITS
+ *     "One Word Changes The Other"          26 ch   13.46 em   FITS
+ *     "Verbs You Were Never Shown"          26 ch   13.64 em   CLIPPED
+ *     "You Already Have Four Of The Five"   33 ch   16.01 em   CLIPPED
+ *
+ * Twenty-six clips while twenty-eight fits, so a character count cannot model
+ * it: `V Y W N S w` are wide glyphs and `i l t , space` are narrow.
+ *
+ * THE BAND IS NARROW (13.46 to 13.64) AND THAT IS AN HONEST LIMIT. The first
+ * budget was 13.20 and it refused `s02-flip`, which the device renders in full;
+ * the guard caught its own over-tightness on the first run. A title inside that
+ * band should be checked on a device rather than trusted either way. */
+const EM: Readonly<Record<string, number>> = {
+  i: 0.28, l: 0.28, j: 0.28, I: 0.28, '.': 0.28, ',': 0.28, "'": 0.2, '’': 0.2, ' ': 0.28,
+  t: 0.35, f: 0.35, r: 0.35,
+  m: 0.85, w: 0.85, W: 0.9, M: 0.9,
+  O: 0.72, N: 0.72, Q: 0.72, G: 0.72,
+  v: 0.5, s: 0.5, y: 0.5, z: 0.5, c: 0.5, x: 0.5,
+};
+const titleWidth = (s: string): number => {
+  let w = 0;
+  for (const ch of s) w += EM[ch] ?? (ch >= 'A' && ch <= 'Z' ? 0.65 : 0.55);
+  return Math.round(w * 100) / 100;
+};
+const TITLE_WIDTH_MAX = 13.55;
+const TITLE_MUST_FIT: readonly string[] = ['Build It, One Word At A Time', 'One Word Changes The Other'];
+const TITLE_MUST_CLIP: readonly string[] = ['Verbs You Were Never Shown', 'You Already Have Four Of The Five'];
+
 /** THE FOUR CELLS, in cell order. The agreement layout. */
 const CELLS: readonly { fr: string; ending: string }[] = [
   { fr: "Il s'est lavé.", ending: '' },
@@ -279,7 +328,7 @@ const PRODUCTION_SECTIONS = ['s18-dictation', 's20-speak', 's19-talk', 's07-asse
 /* ══ IDENTITY ═══════════════════════════════════════════════════════════ */
 
 test('a2.23.l1 is in the seed at v1', { skip: noLesson }, () => {
-  strictEqual(L!.version, 1, 'first build: content_units gave a2.23 lessonIds [] and there is nothing to replace');
+  strictEqual(L!.version, 2, 'v2 repairs two Pixel 6 layout defects no host gate could see: the slot diagram spanning two screens, and two mission titles clipping. The counter moves rather than the body changing under v1');
   strictEqual(L!.unitId, 'a2.23');
   strictEqual(L!.title, 'Pronominaux au passé composé');
   strictEqual(L!.tag, 'A2 · LEÇON 20');
@@ -436,6 +485,42 @@ test('the six positions are in ONE section, built from a full negative, cell by 
   ok(/\bne\b/u.test(SLOT_SENTENCE) && /\bpas\b/u.test(SLOT_SENTENCE),
     'the brief requires all the positions WITH a full negative example');
   ok(seed.items.some((i) => i.fr === SLOT_SENTENCE), 'the slot sentence is not an authored row');
+  /* THE CELL BUDGET, AND THE REASON v2 EXISTS. Every assertion above was true
+   * in v1 while the diagram spanned two screens: height is invisible to all of
+   * them and this is the nearest a host gate gets to seeing it. */
+  for (const [i, row] of s.rows.entries()) {
+    ok(row.cells[2]!.length <= SLOT_CELL_MAX,
+      `slot ${i} has a ${row.cells[2]!.length}-character cell and the budget is ${SLOT_CELL_MAX}; over that it wraps past two lines and the six rows stop fitting one screen`);
+  }
+  /* AND THE CREDIT MOVED RATHER THAN BEING THROWN AWAY: the detail body still
+   * names the lesson each position came from. */
+  const details = s.rows.map((r) => (r as { detail?: { body?: string } }).detail?.body ?? '');
+  ok(details.some((b) => namesUnit(b, 'a1.18')), 'the ne row no longer credits a1.18');
+  ok(details.some((b) => namesUnit(b, 'a2.22')), 'the little-word row no longer credits a2.22');
+  ok(details.some((b) => namesUnit(b, 'a2.21')), 'the ending row no longer credits a2.21');
+});
+
+test('every mission title fits the row, and the width model matches the device', { skip: noLesson }, () => {
+  /* PROVED AGAINST THE DEVICE RATHER THAN ASSERTED. All four cases were
+   * observed on a Pixel 6; a change to the model or the budget that stops
+   * separating them has stopped describing the phone. */
+  for (const s of TITLE_MUST_FIT) {
+    ok(titleWidth(s) <= TITLE_WIDTH_MAX,
+      `the model says « ${s} » clips at ${titleWidth(s)} em and it was MEASURED FITTING on a Pixel 6`);
+  }
+  for (const s of TITLE_MUST_CLIP) {
+    ok(titleWidth(s) > TITLE_WIDTH_MAX,
+      `the model says « ${s} » fits at ${titleWidth(s)} em and it was MEASURED CLIPPING on a Pixel 6`);
+  }
+  /* AND A CHARACTER COUNT CANNOT DO THIS JOB, which is the whole finding: the
+   * 26-character title clipped and the 28-character one did not. */
+  ok('Verbs You Were Never Shown'.length < 'Build It, One Word At A Time'.length,
+    'the two calibration titles no longer demonstrate that the cut is a width rather than a count');
+  for (const s of L!.sections) {
+    const t = s.title ?? '';
+    ok(titleWidth(t) <= TITLE_WIDTH_MAX,
+      `${s.id}'s title « ${t} » is ${titleWidth(t)} em and the mission row cuts at ${TITLE_WIDTH_MAX}; it will ship ellipsised`);
+  }
 });
 
 /* ══ LAYOUT 2: THE AUXILIARY FLIP, WHICH IS THE OWNS ════════════════════ */

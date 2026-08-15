@@ -3879,3 +3879,84 @@ a2.23 after the fix: **63 of 63 rows identical in Postgres and the seed.**
 **SWEEP THE BAND FOR THIS.** The symptom is invisible to every existing gate:
 `content:parity` does not compare item drill order, no test does, and a publish
 silently heals it — which is exactly why it has survived this long.
+
+---
+
+## v2, 2026-08-15 — the device pass, and the two defects it found
+
+The build shipped v1 with the device half undone, said so, and named `s05-slots`
+as the most likely place a defect was hiding. A Pixel 6 became available after
+the publish. **Both named risks were real and one of them was the section the
+brief exists to require.**
+
+### 1. THE SLOT DIAGRAM SPANNED TWO SCREENS
+
+v1 put the unit-id credits INSIDE the table cells, so `job` ran to 44, 61, 63 and
+70 characters. The third column of a three-column `tapTable` is about ELEVEN
+characters wide on a Pixel 6, so those wrapped to four, five and six lines.
+
+Nothing was lost — it scrolls, all six rows are there — but the brief requires
+all six positions on ONE screen so the learner reads « Je ne me suis pas levé »
+down the page as a sentence. That is the only reason the section exists.
+
+**AND EVERY HOST LAYER PASSED.** The batch, the merge and the test each assert
+the six rows, the six words and the six jobs, cell by cell, and every one of
+those assertions was TRUE. **HEIGHT IS INVISIBLE TO ALL OF THEM.** The nearest a
+host gate can get is a length budget on the cell, which is what v2 adds
+(`SLOT_CELL_MAX = 20`), with the credits moved to the row's `detail` body where
+a learner who taps the row already goes.
+
+### 2. TWO MISSION TITLES CLIPPED, AND A CHARACTER COUNT CANNOT MODEL IT
+
+a2.13 recorded a mission-row title cut at 27 and **a2.14 §13 corrected it to a
+WIDTH**. This build carried the number as `TITLE_MAX = 27`, a CHARACTER COUNT,
+and asserted it nowhere. Measured on the device:
+
+```
+"Build It, One Word At A Time"        28 ch   13.05 em   FITS
+"One Word Changes The Other"          26 ch   13.46 em   FITS
+"Verbs You Were Never Shown"          26 ch   13.64 em   CLIPPED
+"You Already Have Four Of The Five"   33 ch   16.01 em   CLIPPED
+```
+
+**Twenty-six clips while twenty-eight fits.** `V Y W N S w` are wide glyphs and
+`i l t , space` are narrow ones, so no count can separate these. v2 ships
+`titleWidth()`, an em estimate, with all four measured cases walked as
+calibration in three layers: a change to the model or the budget that stops
+separating them fails.
+
+**AND THE FIRST BUDGET WAS TOO TIGHT AND THE GUARD CAUGHT ITSELF.** 13.20
+refused `s02-flip`, which the device renders in full. The band between the widest
+measured pass (13.46) and the narrowest measured clip (13.64) is 0.18 em, so the
+budget sits at 13.55 and a title landing inside that band should be checked on a
+device rather than trusted either way. That is an honest limit, not a solved
+problem.
+
+### 3. WHAT WAS FINE, WHICH IS MOST OF IT
+
+The trail card, the overview and intro, the missions list, the term chips, the
+resume interstitial, the superscript `ⁿ` — and **both other required layouts are
+perfect**: `s02-flip` (the Owns) and `s11-object` (the exception) each put their
+pair on one card with nothing clipped.
+
+### 4. WHAT v2 COULD NOT VERIFY
+
+**The fixed screens were never seen on the device.** The Pixel locked between the
+publish and the re-check and the keyguard cannot be cleared over adb. The fix is
+verified by its guards — cells at or under 20, every title under budget, the four
+calibration cases separating — and by nothing on a phone.
+
+**So v2 carries exactly the gap v1 did, one step smaller**: v1 had never been
+opened at all, v2 has been opened and its repair has not. The next person with
+the phone unlocked should open mission 5 and confirm the six rows sit on one
+screen.
+
+### 5. THE GENERAL POINT
+
+a2.21 §10 says a completely green host does not mean a clean screen. This is the
+sharpest instance yet: **three layers, forty-four mutations, 3950 passing tests
+and two `tsc` at zero, and the lesson's central layout did not do the one thing
+it was built to do.** Both defects were geometry, and geometry is the class of
+defect this project's gates cannot see. Budget the things that stand in for it —
+cell length, title width, hint length, chip-row width — and treat every one of
+them as a proxy that has to be re-measured on a device, not a rule.

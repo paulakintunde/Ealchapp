@@ -70,6 +70,7 @@ import {
   IMPORTED_IDS, JARGON, LESSON_ID, OBJECT_CLAIM, OBJECT_PAIR, OBJECT_TERMS,
   OWNS_SECTIONS, PARADIGM_SECTIONS, PERSON_IDS, READ_NOT_IMPORTED,
   RECIPROCAL_MARKERS, RECIPROCAL_MUST_FIRE, RECIPROCAL_MUST_NOT_FIRE, REFRAME,
+  SLOT_CELL_MAX, TITLE_MUST_CLIP, TITLE_MUST_FIT, TITLE_WIDTH_MAX, titleWidth,
   REFRAME_COUNT, ROUTINE_IDS, SLOTS, SLOT_SENTENCE, THEME, UNIT, fr,
 } from './data/pronominaux-passe-corpus.ts';
 import { PRONOMINAUX_PASSE_TERMS, chipRowWidth } from './data/pronominaux-passe-terms.ts';
@@ -271,6 +272,33 @@ if (OWNS_SECTIONS <= PARADIGM_SECTIONS) die('the positions act has at least as m
   }
   if (`${SLOTS.map((x) => x.word).join(' ')}.` !== SLOT_SENTENCE) die('the six positions do not read as the slot sentence.');
   if (!/\bne\b/u.test(SLOT_SENTENCE) || !/\bpas\b/u.test(SLOT_SENTENCE)) die('the slot diagram is not built from a full negative.');
+  /* THE CELL BUDGET, WHICH IS WHY v2 EXISTS. v1 shipped four cells over 44
+   * characters; the third column is ~11 characters wide on a Pixel 6, so the
+   * six-row diagram spanned two screens. Height is invisible to every other
+   * assertion in all three layers. */
+  for (const [i, slot] of SLOTS.entries()) {
+    if (slot.job.length > SLOT_CELL_MAX) {
+      die(`slot ${i} « ${slot.word} » has a ${slot.job.length}-character cell and the budget is ${SLOT_CELL_MAX}.`);
+    }
+    if (!slot.credit || slot.credit.length < 20) die(`slot ${i} « ${slot.word} » has no credit.`);
+  }
+}
+
+/* THE MISSION-ROW TITLE BUDGET, AND IT IS A WIDTH. THE SECOND REASON v2 EXISTS.
+ * a2.14 §13 said this and v1 carried the number as a character count. */
+{
+  for (const s of TITLE_MUST_FIT) {
+    if (titleWidth(s) > TITLE_WIDTH_MAX) die(`the title model says « ${s} » clips and it was MEASURED FITTING on a Pixel 6.`);
+  }
+  for (const s of TITLE_MUST_CLIP) {
+    if (titleWidth(s) <= TITLE_WIDTH_MAX) die(`the title model says « ${s} » fits and it was MEASURED CLIPPING on a Pixel 6.`);
+  }
+  for (const s of LESSON.sections) {
+    const t = s.title ?? '';
+    if (titleWidth(t) > TITLE_WIDTH_MAX) {
+      die(`${s.id}'s title « ${t} » is ${titleWidth(t)} em and the mission row cuts at ${TITLE_WIDTH_MAX}. It will ship ellipsised.`);
+    }
+  }
 }
 
 /* THE AUXILIARY FLIP, both halves on one card. THE OWNS. */
