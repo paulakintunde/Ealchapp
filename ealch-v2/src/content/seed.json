@@ -990,7 +990,9 @@
       "level": "a2",
       "title": "Pronominal Verbs in the Passé Composé",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.23.l1"
+      ],
       "prereqUnitIds": [
         "a2.22",
         "a2.21"
@@ -181311,6 +181313,2479 @@
               "Ta famille se lève en même temps que toi ?",
               "Tu te couches tard, toi ?",
               "Et tes collègues, ils ont le temps le matin ?"
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
+    },
+    {
+      "id": "a2.23.l1",
+      "unitId": "a2.23",
+      "seq": 1,
+      "title": "Pronominaux au passé composé",
+      "tag": "A2 · LEÇON 20",
+      "level": "a2",
+      "version": 1,
+      "intro": "You can already say what you did yesterday, and you can already say what you do every morning with a small word in front of the verb. Putting those two together needs one fact and it is not the one people expect: the small word decides which of the two past helpers you reach for. Laver takes avoir and se laver takes être, and nothing about the meaning or the movement has a say in it. This is that fact, the order the words go in, and the ending that nobody can hear.",
+      "grammarAssumed": [
+        "The passé composé as an auxiliary plus a past participle, introduced in a2.05",
+        "The irregular past participle groups, introduced in a2.20",
+        "Être as the auxiliary for a closed class of intransitive verbs, and participle agreement with the subject, introduced in a2.21",
+        "The reflexive clitic paradigm in all six persons, and its preverbal position, introduced in a2.22",
+        "That the clitic elides before a vowel, introduced in a2.22 and extending sons.07",
+        "Standard negation with ne … pas around a finite verb, introduced in a1.18",
+        "That ne … pas encloses the verb that changed rather than the one carrying the meaning, introduced in a2.19 and quoted by a2.05, a2.21 and a2.22",
+        "That -é, -ée, -és and -ées are homophonous, introduced in a2.01 and paid off in a2.21",
+        "The daily-routine vocabulary and the reflexive infinitives, introduced in a1.25"
+      ],
+      "grammarIntroduced": [
+        "That every pronominal verb selects être as its auxiliary in compound tenses, irrespective of the auxiliary its non-pronominal counterpart selects: laver/avoir against se laver/être",
+        "The full linear order of the reflexive compound past: subject, clitic, auxiliary, participle, with the clitic obligatorily preverbal and adjacent to the auxiliary",
+        "Participle agreement with the subject in reflexive compounds, as an extension of a2.21 rather than a new rule",
+        "That ne … pas encloses the clitic and the auxiliary and excludes the participle, extending a1.18, a2.19 and a2.22 to a three-element verbal complex",
+        "That ne does not elide in any person here, because every clitic form is consonant-initial, while the clitic itself elides in the second and third person singular",
+        "That inherently pronominal verbs with no reflexive semantics select être on the same grounds: se dépêcher, se reposer, se souvenir",
+        "That a participle from any group, including a2.20's irregular sets, agrees identically: souvenue off venir",
+        "The suspension of agreement before a following direct object, NAMED FOR RECOGNITION ONLY and produced nowhere, with the reason reserved for a2.24",
+        "The reciprocal reading is left out entirely, as a2.22 left it, because its agreement behaviour depends on the same distinction a2.24 owns",
+        "The imperfect and any contrast between past tenses is reserved beyond A2's first twenty units"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "Pronominal Verbs in the Passé Composé",
+        "subFr": "Pronominaux au passé composé",
+        "introFr": "Le petit mot choisit le premier mot.",
+        "minutes": 32,
+        "difficulty": 3,
+        "glyph": "🕰️",
+        "screens": 223
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "Four seconds apart",
+          "sections": [
+            "s01-scene",
+            "s02-flip",
+            "s03-goals",
+            "s04-recap"
+          ],
+          "milestone": "You know that the small word in front of the verb is what decides which first word comes next.",
+          "estScreens": 34,
+          "restPoints": [
+            "s02-flip/after-the-pairs"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Where everything lands",
+          "sections": [
+            "s05-slots",
+            "s06-persons"
+          ],
+          "milestone": "Six positions in one order, and the six people who fill them.",
+          "estScreens": 18
+        },
+        {
+          "id": "act3",
+          "title": "The little word decides",
+          "sections": [
+            "s07-assembly",
+            "s08-agreement",
+            "s09-silent",
+            "s10-newverbs",
+            "s11-object",
+            "s12-nomeaning",
+            "s13-later"
+          ],
+          "milestone": "You can build the whole form, for a verb the lesson never showed you, and put the ending on in writing.",
+          "estScreens": 72,
+          "restPoints": [
+            "s07-assembly/after-the-build",
+            "s09-silent/after-the-listening",
+            "s11-object/after-the-exception"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "The two that go wrong",
+          "sections": [
+            "s14-negative",
+            "s15-wrap",
+            "s16-errors"
+          ],
+          "milestone": "One negation rule, five lessons long, and one sentence added to it.",
+          "estScreens": 35,
+          "restPoints": [
+            "s15-wrap/after-the-trap"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Your own morning, in the past",
+          "sections": [
+            "s17-flash",
+            "s18-dictation",
+            "s19-talk",
+            "s20-speak"
+          ],
+          "milestone": "You have written thirteen of them down, which is the only place the ending is real.",
+          "estScreens": 44,
+          "restPoints": [
+            "s18-dictation/after-the-dictee"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s21-review",
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "Thirty questions, and most of them asked you to build the whole sentence rather than pick it out of four.",
+          "estScreens": 20
+        }
+      ],
+      "reframe": "If the little word is there, the first word is être.",
+      "errorTriggers": [
+        {
+          "id": "err-avoir-aux",
+          "description": "Reaches for avoir on a verb carrying the little word, because the plain verb takes avoir and it worked a sentence ago. « Je m'ai levé. » It is the error the opening scene ends on and the single most likely real one in the lesson.",
+          "detectOn": [
+            "s02-flip",
+            "s07-assembly",
+            "s15-wrap",
+            "s23-quiz"
+          ],
+          "drill": "drill-first-word",
+          "retest": "retest-first-word"
+        },
+        {
+          "id": "err-no-ending",
+          "description": "Leaves the second word bare whatever the subject is, because nothing about the sound ever asked for anything. « Elle s'est levé. »",
+          "detectOn": [
+            "s08-agreement",
+            "s09-silent",
+            "s18-dictation",
+            "s23-quiz"
+          ],
+          "drill": "drill-ending",
+          "retest": "retest-ending"
+        },
+        {
+          "id": "err-wrap-late",
+          "description": "Closes the wrap after the second word rather than after the first. « Je ne me suis levé pas. » a2.22's extension is true here and does not by itself say where pas stops.",
+          "detectOn": [
+            "s14-negative",
+            "s15-wrap",
+            "s23-quiz"
+          ],
+          "drill": "drill-wrap",
+          "retest": "retest-wrap"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-first-word",
+          "title": "Little word, then first word",
+          "format": "sort",
+          "buckets": [
+            "a little word, so être",
+            "no little word, so avoir"
+          ],
+          "items": [
+            "fr.a2.verbes.802",
+            "fr.a2.verbes.801",
+            "fr.a2.verbes.804",
+            "fr.a2.verbes.803",
+            "fr.a2.verbes.806",
+            "fr.a2.verbes.805"
+          ],
+          "coach": "Look at what is between the person and the verb before you reach for anything. Every verb that carries the little word takes être, including the ones that take avoir without it. The verb on its own tells you nothing, and neither does the meaning."
+        },
+        {
+          "id": "retest-first-word",
+          "title": "One more",
+          "format": "mcq",
+          "q": "Je me ___ couché. Which one?",
+          "opts": [
+            "suis",
+            "ai",
+            "est"
+          ],
+          "correct": 0,
+          "why": "Every verb that carries the little word takes être, including the ones that take avoir without it. Coucher takes avoir on its own and se coucher takes être."
+        },
+        {
+          "id": "drill-ending",
+          "title": "Four spellings, one sound",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "Il s'est lavé.",
+              "Elle s'est lavée."
+            ],
+            [
+              "Ils se sont lavés.",
+              "Elles se sont lavées."
+            ],
+            [
+              "Il s'est douché.",
+              "Elle s'est habillée."
+            ]
+          ],
+          "coach": "Each pair is one sound and two spellings. Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. You cannot check this one by listening. All four spellings are the same sound, on every verb here, and a2.21 had one verb where you could hear it. This lesson has none."
+        },
+        {
+          "id": "retest-ending",
+          "title": "One more",
+          "format": "mcq",
+          "q": "Elle s'est habill___. Which ending?",
+          "opts": [
+            "ée",
+            "é",
+            "és"
+          ],
+          "correct": 0,
+          "why": "One woman, so e, and nothing about the sound will ever tell you."
+        },
+        {
+          "id": "drill-wrap",
+          "title": "Where pas stops",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "Je me suis lavé.",
+              "Je ne me suis pas levé."
+            ],
+            [
+              "Il ne s'est pas levé.",
+              "Il s'est levé tôt."
+            ],
+            [
+              "Elle s'est levée.",
+              "Elle ne s'est pas levée."
+            ]
+          ],
+          "coach": "Wrap the verb that changed, not the one carrying the meaning. Both words changed for the subject, so both go inside the wrap. The wrap goes round the little word and the first word. The second word sits outside it."
+        },
+        {
+          "id": "retest-wrap",
+          "title": "One more",
+          "format": "mcq",
+          "q": "Make « Je me suis levé. » negative.",
+          "opts": [
+            "Je ne me suis pas levé.",
+            "Je ne me suis levé pas.",
+            "Ne je me suis pas levé."
+          ],
+          "correct": 0,
+          "why": "The wrap goes round the little word and the first word. The second word sits outside it."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet-a2-23-pronominaux-passe",
+          "layer": "deep",
+          "title": "The past of the little word",
+          "contains": [
+            "The rule",
+            "The order",
+            "The endings",
+            "Saying no",
+            "Next"
+          ],
+          "sections": [
+            {
+              "id": "sheet-rule",
+              "type": "teach",
+              "layer": "deep",
+              "title": "The rule, in one line",
+              "body": "If the little word is there, the first word is être. Every verb that carries the little word takes être, including the ones that take avoir without it. Laver takes avoir and se laver takes être; coucher takes avoir and se coucher takes être. The verb does not decide it, the meaning does not decide it, and whether anybody moved does not decide it."
+            },
+            {
+              "id": "sheet-order",
+              "type": "table",
+              "layer": "deep",
+              "title": "Six places, one order",
+              "cols": [
+                "where",
+                "the word",
+                "what it is doing"
+              ],
+              "rows": [
+                [
+                  "first",
+                  "Je",
+                  "the person"
+                ],
+                [
+                  "then",
+                  "ne",
+                  "the first half of the wrap, which is a1.18's"
+                ],
+                [
+                  "then",
+                  "me",
+                  "the little word, and it is the person again, which is a2.22's"
+                ],
+                [
+                  "then",
+                  "suis",
+                  "the first word, and it is always être, which is the one new thing here"
+                ],
+                [
+                  "then",
+                  "pas",
+                  "the second half of the wrap, and it closes after the first word"
+                ],
+                [
+                  "last",
+                  "levé",
+                  "the second word, ending for the person, which is a2.21's"
+                ]
+              ]
+            },
+            {
+              "id": "sheet-endings",
+              "type": "teach",
+              "layer": "deep",
+              "title": "The four endings",
+              "body": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. You cannot check this one by listening. All four spellings are the same sound, on every verb here, and a2.21 had one verb where you could hear it. This lesson has none. And after avoir nothing goes on at all, in any person, which is a2.21's rule and has not changed. When something is named straight after the second word, the ending goes away again. You will meet this and you are not being asked to produce it."
+            },
+            {
+              "id": "sheet-negative",
+              "type": "teach",
+              "layer": "deep",
+              "title": "Saying no",
+              "body": "Wrap the verb that changed, not the one carrying the meaning. Both words changed for the subject, so both go inside the wrap. The wrap goes round the little word and the first word. The second word sits outside it. Je me suis lavé becomes Je ne me suis pas levé. And ne never shortens here, in any person, because every form of the little word starts on a consonant."
+            },
+            {
+              "id": "sheet-next",
+              "type": "teach",
+              "layer": "deep",
+              "title": "What is not here",
+              "body": "The same little words do a second job later, standing in for a thing rather than pointing back at the person. That is a2.06 and a2.24, and the reason the ending disappears on this screen is waiting there too. This is the only past you need for now. a2.20 gave you the second words and a2.21 gave you the endings, and nothing after this changes either of them."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.verbes.820",
+          "fr.a2.verbes.821",
+          "fr.a2.verbes.822",
+          "fr.a2.verbes.823",
+          "fr.a2.verbes.801",
+          "fr.a2.verbes.802",
+          "fr.a2.verbes.803",
+          "fr.a2.verbes.804",
+          "fr.a2.verbes.805",
+          "fr.a2.verbes.806",
+          "fr.a2.verbes.830",
+          "fr.a1.rp-recits-temps.066",
+          "fr.a2.routines.049",
+          "fr.sons.verbes-essentiels.001",
+          "fr.sons.verbes-essentiels.002"
+        ],
+        [
+          "fr.a2.verbes.810",
+          "fr.a2.verbes.795",
+          "fr.a2.verbes.796",
+          "fr.a2.verbes.797",
+          "fr.a2.verbes.798",
+          "fr.a2.verbes.799",
+          "fr.a2.verbes.800",
+          "fr.a2.routines.032"
+        ],
+        [
+          "fr.a2.verbes.791",
+          "fr.a2.verbes.792",
+          "fr.a2.verbes.793",
+          "fr.a2.verbes.794",
+          "fr.a2.verbes.809",
+          "fr.a2.verbes.807",
+          "fr.a2.verbes.808",
+          "fr.a2.verbes.816",
+          "fr.a2.verbes.817",
+          "fr.a2.verbes.818",
+          "fr.a2.verbes.819",
+          "fr.a2.verbes.829",
+          "fr.a2.verbes.833",
+          "fr.a1.routines.028",
+          "fr.a1.routines.001",
+          "fr.a1.cuisine.183",
+          "fr.a2.corps.001",
+          "fr.a1.corps.209",
+          "fr.a1.routines.019"
+        ],
+        [
+          "fr.a2.verbes.811",
+          "fr.a2.verbes.812",
+          "fr.a2.verbes.813",
+          "fr.a2.verbes.814",
+          "fr.a2.verbes.815"
+        ],
+        [
+          "fr.a2.verbes.824",
+          "fr.a2.verbes.825",
+          "fr.a2.verbes.826",
+          "fr.a2.verbes.827",
+          "fr.a2.verbes.828",
+          "fr.a2.verbes.831",
+          "fr.a2.verbes.832",
+          "fr.a1.routines.010",
+          "fr.a1.routines.011",
+          "fr.a1.routines.012",
+          "fr.a1.routines.020",
+          "fr.a1.routines.034",
+          "fr.a1.routines.087"
+        ],
+        [
+          "fr.a1.rp-recits-temps.180",
+          "fr.a1.rp-recits-temps.199",
+          "fr.a2.routines.039"
+        ]
+      ],
+      "terms": {
+        "littleWord": {
+          "term": "little word",
+          "title": "The one that decides everything else",
+          "body": "a2.22 taught you that about half the verbs in a day carry a small word between the person and the verb, and that it is the person said a second time: « The pronoun changes with the subject, because it is the subject. » In the past it does one more thing. If the little word is there, the first word is être. It is the only part of the sentence you have to look at."
+        },
+        "firstWord": {
+          "term": "first word",
+          "title": "It is être, and nothing else decides it",
+          "body": "a2.05 gave you a past made of two words and a2.21 gave you the choice between them. Every verb that carries the little word takes être, including the ones that take avoir without it. Laver takes avoir on its own and se laver takes être, and the only thing that changed is the little word in front."
+        },
+        "secondWord": {
+          "term": "second word",
+          "title": "It ends for the person, exactly as before",
+          "body": "« After être, the second word ends like a describing word. » is a2.21's line and it has not changed here. Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. a2.20 gave you the second words themselves, group by group: « Do not build these. Reach for the group it is in. »"
+        },
+        "theEnding": {
+          "term": "the ending",
+          "title": "Four spellings, one sound",
+          "body": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. You cannot check this one by listening. All four spellings are the same sound, on every verb here, and a2.21 had one verb where you could hear it. This lesson has none. So this is the one thing in the lesson you can only get right in writing, and it is the reason the dictée is the longest part."
+        },
+        "silent": {
+          "term": "silent",
+          "title": "Nothing here can be checked by ear",
+          "body": "« Four of the six forms sound the same, so the pronoun carries the person. » is a2.01's line, from the first lesson of this level, and a2.21 quoted it for the same reason. Levé, levée, levés and levées are one sound. You cannot check this one by listening. All four spellings are the same sound, on every verb here, and a2.21 had one verb where you could hear it. This lesson has none."
+        },
+        "theWrap": {
+          "term": "the wrap",
+          "title": "It closes after the first word",
+          "body": "a1.18 gave you two words either side of the verb: « Wrap the verb, then ask what the verb was. » a2.19 said which verb: « Wrap the verb that changed, not the one carrying the meaning. » a2.22 added the little word: « Both words changed for the subject, so both go inside the wrap. » And now there is a third word. The wrap goes round the little word and the first word. The second word sits outside it."
+        },
+        "afterIt": {
+          "term": "after it",
+          "title": "Something named after the second word",
+          "body": "When something is named straight after the second word, the ending goes away again. You will meet this and you are not being asked to produce it. Elle s'est lavée has nothing after it and takes the ending. Elle s'est lavé les mains names something, and it does not. You will read both and only the first one is being asked of you today."
+        },
+        "later": {
+          "term": "later",
+          "title": "What is waiting after this",
+          "body": "The same little words do a second job later, standing in for a thing rather than pointing back at the person. That is a2.06 and a2.24, and the reason the ending disappears on this screen is waiting there too. This is the only past you need for now. a2.20 gave you the second words and a2.21 gave you the endings, and nothing after this changes either of them."
+        },
+        "onlyPast": {
+          "term": "the present",
+          "title": "What the present did not do",
+          "body": "In the present nothing on the end of the verb knows who the subject is. Only the extra word changes. That is a2.22's sentence, and it is exactly what stops being true here: in the past there is a second word, and it does know. a1.25 gave you these verbs and neither of those lessons put an ending on one."
+        }
+      },
+      "sections": [
+        {
+          "id": "s01-scene",
+          "type": "scene",
+          "title": "Four Seconds Apart",
+          "frSub": "Quatre secondes plus tard",
+          "layer": "core",
+          "render": "screens",
+          "setting": {
+            "place": "The same café table, the same two coffees",
+            "city": "Lyon",
+            "time": "A Saturday, a month later"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "The same language exchange, a month on. You can tell her what you did yesterday now, and you have been doing it all evening without a single stumble.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "fr": "Ce matin, j'ai lavé la voiture.",
+              "en": "This morning, I washed the car.",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "Fluent, and correct. Nothing about this sentence is going to go wrong, and it is the sentence that causes what happens next.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-23-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Ton binôme",
+              "fr": "Et ce matin ?",
+              "en": "And this morning?",
+              "size": "md",
+              "reveal": "tap",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "fr": "Ce matin, je... j'ai... je me...",
+              "en": "This morning, I... I... I...",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "Two false starts. The words are all there and one decision is not, and it is the decision that comes third in the sentence.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "fr": "J'ai levé à six heures.",
+              "en": "I lifted at six.",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "And it lands on the one he has just used. It worked four seconds ago on the same kind of sentence, so there is no reason in his head for it not to work now.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Ton binôme",
+              "fr": "Tu as levé quoi ?",
+              "en": "You lifted what?",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "She is not correcting him. She heard a complete sentence about lifting something and she is waiting to be told what.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "md",
+              "prompt": "Which of these is the sentence he meant?",
+              "options": [
+                {
+                  "fr": "Je me suis levé à six heures.",
+                  "en": "I got up at six.",
+                  "outcome": "works"
+                },
+                {
+                  "fr": "J'ai levé à six heures.",
+                  "en": "I lifted at six.",
+                  "outcome": "breaks"
+                }
+              ],
+              "followUp": {
+                "works": "That is the one. Two little words in front of the verb instead of one, and the first of them changes which word comes next.",
+                "breaks": "That is what was said, and it is correct French about lifting something. Nobody could hear a mistake because there was not one to hear."
+              }
+            },
+            {
+              "kind": "break",
+              "size": "md",
+              "heading": "The sentence before it was right, and that is why this one is wrong",
+              "body": "Ce matin, j'ai lavé la voiture takes j'ai, and it is correct. Je me suis levé à six heures takes je suis, and it is correct too. The verb is not what decides it and the meaning is not what decides it.",
+              "wrong": {
+                "fr": "J'ai levé à six heures.",
+                "ipa": "/ʒe lə.ve a si zœʁ/",
+                "respell": "[zhay luh-VAY ah see ZUHR]",
+                "en": "I lifted at six."
+              },
+              "right": {
+                "fr": "Je me suis levé à six heures.",
+                "ipa": "/ʒə mə sɥi lə.ve a si zœʁ/",
+                "respell": "[zhuh muh swee luh-VAY ah see ZUHR]",
+                "en": "I got up at six."
+              },
+              "coach": "If the little word is there, the first word is être."
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "a2.22 opened on « Je lève à sept heures. »: the same verb, the same missing word, the same person waiting. This is what happens to it in the past. Every verb that carries the little word takes être, including the ones that take avoir without it."
+            }
+          ]
+        },
+        {
+          "id": "s02-flip",
+          "type": "cardDeck",
+          "title": "One Word Changes The Other",
+          "frSub": "Avoir, être",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Three pairs. In each one the verb is the same, the person is the same, and the first word is not.",
+          "hint": "Same verb twice. The first word is what moved.",
+          "terms": [
+            "littleWord",
+            "firstWord"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-23-flip"
+          },
+          "cards": [
+            {
+              "head": "Wash the car, or wash",
+              "label": "laver · se laver",
+              "fr": "J'ai lavé la voiture · Je me suis lavé",
+              "sub": "[zhuh muh swee lah-VAY] I washed.",
+              "body": "The app has published « j'ai lavé la voiture » twice and « je me suis lavé » not once. The sentence that causes the mistake is the one you already own. Every verb that carries the little word takes être, including the ones that take avoir without it."
+            },
+            {
+              "head": "Put them to bed, or go to bed",
+              "label": "coucher · se coucher",
+              "fr": "J'ai couché les enfants · Je me suis couché",
+              "sub": "[zhuh muh swee koo-SHAY] I went to bed.",
+              "body": "Nothing about the meaning tells you which. Putting a child to bed and going to bed are the same action, and the two sentences take different first words."
+            },
+            {
+              "head": "Wake him up, or wake up",
+              "label": "réveiller · se réveiller",
+              "fr": "J'ai réveillé mon frère · Je me suis réveillé",
+              "sub": "[zhuh muh swee ray-veh-YAY] I woke up.",
+              "body": "Three verbs, three pairs, and the only thing that changed in any of them is the small word between the person and the verb. If the little word is there, the first word is être."
+            }
+          ]
+        },
+        {
+          "id": "s03-goals",
+          "type": "goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Reach for the right first word",
+              "s": "Every verb that carries the little word takes être, including the ones that take avoir without it. It is the only decision in the sentence and the little word makes it for you."
+            },
+            {
+              "t": "Put the parts in one order",
+              "s": "Person, little word, first word, second word. a2.22 gave you the first two and a2.21 gave you the last two, and this is where they go together."
+            },
+            {
+              "t": "Put the ending on in writing",
+              "s": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. You will never hear it, so the only way to prove you can do it is to write it down."
+            },
+            {
+              "t": "Say no without moving anything",
+              "s": "a1.18, a2.19, a2.05, a2.21 and a2.22 all built this rule and none of it changes. There is just a third word now, and it stays outside."
+            }
+          ]
+        },
+        {
+          "id": "s04-recap",
+          "type": "cardDeck",
+          "title": "You Already Have Four Of The Five",
+          "frSub": "Ce que vous savez déjà",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Four cards, and not one of them is new. Read them as a checklist rather than as teaching.",
+          "hint": "Four things you own, and one you do not.",
+          "terms": [
+            "littleWord",
+            "firstWord"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-23-recap"
+          },
+          "cards": [
+            {
+              "head": "The little word, from a2.22",
+              "label": "you have this",
+              "fr": "je me · tu te · il se · nous nous · vous vous · ils se",
+              "sub": "the person, said a second time",
+              "body": "« The pronoun changes with the subject, because it is the subject. » That is a2.22's line and it has not changed. The six little words are the same six."
+            },
+            {
+              "head": "The ending, from a2.21",
+              "label": "you have this too",
+              "fr": "levé · levée · levés · levées",
+              "sub": "and all four are one sound",
+              "body": "« After être, the second word ends like a describing word. » Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman."
+            },
+            {
+              "head": "The shape and the wrap, from a2.05",
+              "label": "and this",
+              "fr": "Je me suis lavé",
+              "sub": "[zhuh muh swee lah-VAY] I washed.",
+              "body": "« One verb, two words, and the small ones go in between. » Two words for one verb, and the small ones in the middle. Nothing about that changes when the first word does."
+            },
+            {
+              "head": "The second words, from a2.20",
+              "label": "and this",
+              "fr": "Elle s'est souvenue de mon nom",
+              "sub": "[ehl seh soov-NÜ duh mohⁿ NOHⁿ] She remembered my name.",
+              "body": "« Do not build these. Reach for the group it is in. » Souvenue is not built out of anything on this screen. It comes off venir, in the group a2.20 put it in, and the ending goes on it the same way."
+            }
+          ]
+        },
+        {
+          "id": "s05-slots",
+          "type": "tapTable",
+          "title": "Six Places, In One Order",
+          "frSub": "Je ne me suis pas levé.",
+          "layer": "core",
+          "say": "One sentence, read down rather than across. Every one of these six you have met before, and the fourth one is the only thing this lesson adds. Tap any row to hear the whole sentence.",
+          "terms": [
+            "littleWord",
+            "firstWord",
+            "theWrap"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-23-slots"
+          },
+          "cols": [
+            "where",
+            "the word",
+            "what it is doing"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "first",
+                "Je",
+                "the person"
+              ],
+              "say": "Je ne me suis pas levé.",
+              "detail": {
+                "title": "« Je »",
+                "say": "Je ne me suis pas levé.",
+                "body": "Je ne me suis pas levé. [zhuh nuh muh swee pah luh-VAY] I did not get up. In this sentence « Je » is the person."
+              }
+            },
+            {
+              "cells": [
+                "then",
+                "ne",
+                "the first half of the wrap, which is a1.18's"
+              ],
+              "say": "Je ne me suis pas levé.",
+              "detail": {
+                "title": "« ne »",
+                "say": "Je ne me suis pas levé.",
+                "body": "Je ne me suis pas levé. [zhuh nuh muh swee pah luh-VAY] I did not get up. In this sentence « ne » is the first half of the wrap, which is a1.18's."
+              }
+            },
+            {
+              "cells": [
+                "then",
+                "me",
+                "the little word, and it is the person again, which is a2.22's"
+              ],
+              "say": "Je ne me suis pas levé.",
+              "detail": {
+                "title": "« me »",
+                "say": "Je ne me suis pas levé.",
+                "body": "Je ne me suis pas levé. [zhuh nuh muh swee pah luh-VAY] I did not get up. In this sentence « me » is the little word, and it is the person again, which is a2.22's."
+              }
+            },
+            {
+              "cells": [
+                "then",
+                "suis",
+                "the first word, and it is always être, which is the one new thing here"
+              ],
+              "say": "Je ne me suis pas levé.",
+              "detail": {
+                "title": "« suis »",
+                "say": "Je ne me suis pas levé.",
+                "body": "Je ne me suis pas levé. [zhuh nuh muh swee pah luh-VAY] I did not get up. In this sentence « suis » is the first word, and it is always être, which is the one new thing here."
+              }
+            },
+            {
+              "cells": [
+                "then",
+                "pas",
+                "the second half of the wrap, and it closes after the first word"
+              ],
+              "say": "Je ne me suis pas levé.",
+              "detail": {
+                "title": "« pas »",
+                "say": "Je ne me suis pas levé.",
+                "body": "Je ne me suis pas levé. [zhuh nuh muh swee pah luh-VAY] I did not get up. In this sentence « pas » is the second half of the wrap, and it closes after the first word."
+              }
+            },
+            {
+              "cells": [
+                "last",
+                "levé",
+                "the second word, ending for the person, which is a2.21's"
+              ],
+              "say": "Je ne me suis pas levé.",
+              "detail": {
+                "title": "« levé »",
+                "say": "Je ne me suis pas levé.",
+                "body": "Je ne me suis pas levé. [zhuh nuh muh swee pah luh-VAY] I did not get up. In this sentence « levé » is the second word, ending for the person, which is a2.21's."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s06-persons",
+          "type": "cardDeck",
+          "title": "The Same Six People",
+          "frSub": "Se lever, six personnes",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Three cards, two people each. Nothing here is new: it is a1.06's six forms of être with a2.22's six little words in front of them.",
+          "hint": "Two little words, then the verb, every time.",
+          "terms": [
+            "littleWord",
+            "firstWord"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-23-persons"
+          },
+          "cards": [
+            {
+              "head": "And two of them shorten",
+              "label": "je · tu",
+              "fr": "Je me suis levé tôt · Tu t'es levé tôt",
+              "sub": "[tü teh luh-VAY TOH] You got up early.",
+              "body": "Te becomes t in front of es, which is the elision you have had since sons.07. a2.05 shortened ne in front of every person and a2.21 in front of three. Here it never shortens at all, and the little word shortens instead, in two."
+            },
+            {
+              "head": "And so does the third",
+              "label": "il · nous",
+              "fr": "Il s'est levé tôt · Nous nous sommes levés tôt",
+              "sub": "[noo noo somm luh-VAY TOH] We got up early.",
+              "body": "Se becomes s in front of est, and then nothing else shortens anywhere. Nous nous sommes is four words and every one of them is written out in full."
+            },
+            {
+              "head": "The two that are written twice",
+              "label": "vous · ils",
+              "fr": "Vous vous êtes levés tôt · Ils se sont levés tôt",
+              "sub": "[voo voo zeht luh-VAY TOH] You got up early.",
+              "body": "Vous vous êtes looks like a slip and is not, exactly as it did in the present. The app publishes two hundred and nineteen sentences starting a verb with s'est, and not one of them is a verb you have been shown how to build."
+            }
+          ]
+        },
+        {
+          "id": "s07-assembly",
+          "type": "groupDrill",
+          "title": "Build It, One Word At A Time",
+          "frSub": "On construit la phrase",
+          "layer": "core",
+          "size": "lg",
+          "say": "If the little word is there, the first word is être. Three rounds. Say the person, then the little word, and the first word is decided before you get to it.",
+          "terms": [
+            "littleWord",
+            "firstWord",
+            "theEnding"
+          ],
+          "groups": [
+            {
+              "label": "the person, and then the little word",
+              "items": [
+                {
+                  "fr": "Je me suis lavé.",
+                  "ipa": "/ʒə mə sɥi la.ve/",
+                  "note": "[zhuh muh swee lah-VAY] I washed."
+                },
+                {
+                  "fr": "Je me suis couché.",
+                  "ipa": "/ʒə mə sɥi ku.ʃe/",
+                  "note": "[zhuh muh swee koo-SHAY] I went to bed."
+                }
+              ],
+              "check": {
+                "q": "Je, and se laver. What comes next?",
+                "opts": [
+                  "me",
+                  "ai",
+                  "suis"
+                ],
+                "correct": 0,
+                "why": "The little word comes before the first word, always, and it has done since the present tense. Je takes me. « The pronoun changes with the subject, because it is the subject. »"
+              }
+            },
+            {
+              "label": "and the little word decides the first word",
+              "items": [
+                {
+                  "fr": "Je me suis réveillé.",
+                  "ipa": "/ʒə mə sɥi ʁe.vɛ.je/",
+                  "note": "[zhuh muh swee ray-veh-YAY] I woke up."
+                },
+                {
+                  "fr": "Je me suis levé tôt.",
+                  "ipa": "/ʒə mə sɥi lə.ve to/",
+                  "note": "[zhuh muh swee luh-VAY TOH] I got up early."
+                }
+              ],
+              "check": {
+                "q": "Je me ___ levé. Which one?",
+                "opts": [
+                  "ai",
+                  "suis",
+                  "est"
+                ],
+                "correct": 1,
+                "why": "Every verb that carries the little word takes être, including the ones that take avoir without it. Lever on its own takes avoir and se lever takes être, and the small word in front is the only thing that changed."
+              }
+            },
+            {
+              "label": "and the second word finishes it",
+              "items": [
+                {
+                  "fr": "Elle s'est lavée.",
+                  "ipa": "/ɛl sɛ la.ve/",
+                  "note": "[ehl seh lah-VAY] She washed."
+                },
+                {
+                  "fr": "Ils se sont lavés.",
+                  "ipa": "/il sə sɔ̃ la.ve/",
+                  "note": "[eel suh sohⁿ lah-VAY] They washed."
+                }
+              ],
+              "check": {
+                "q": "Elle s'est lav___. What goes on the end?",
+                "opts": [
+                  "é",
+                  "ée",
+                  "és"
+                ],
+                "correct": 1,
+                "why": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. Elle is one woman, so e. And you will not hear it, which is why it has to be written."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s08-agreement",
+          "type": "examples",
+          "title": "Four Spellings Of One Word",
+          "frSub": "Lavé, lavée, lavés, lavées",
+          "layer": "core",
+          "say": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. Read the four together. Everything is held still except the person and the last two letters.",
+          "terms": [
+            "secondWord",
+            "theEnding",
+            "silent"
+          ],
+          "examples": [
+            {
+              "fr": "Il s'est lavé.",
+              "en": "He washed.",
+              "note": "[eel seh lah-VAY] A man on his own, so nothing goes on. This is the form the other three are built from."
+            },
+            {
+              "fr": "Elle s'est lavée.",
+              "en": "She washed.",
+              "note": "[ehl seh lah-VAY] One letter more, and not one sound more. That is the whole of this screen."
+            },
+            {
+              "fr": "Ils se sont lavés.",
+              "en": "They washed.",
+              "note": "[eel suh sohⁿ lah-VAY] More than one, so s. The first word changed too, and only that change is audible."
+            },
+            {
+              "fr": "Elles se sont lavées.",
+              "en": "They washed, and they are all women.",
+              "note": "[ehl suh sohⁿ lah-VAY] Both endings at once, and it is the longest of the four to write and the same length to say."
+            },
+            {
+              "fr": "Elle a lavé la voiture.",
+              "en": "She washed the car.",
+              "note": "[ehl ah lah-VAY lah vwah-TÜR] The same woman and the same verb, with the other first word. After avoir nothing goes on the end, in any person, ever. a2.21 taught that and this lesson does not touch it."
+            }
+          ]
+        },
+        {
+          "id": "s09-silent",
+          "type": "listening",
+          "title": "Nothing To Hear",
+          "frSub": "Rien à entendre",
+          "layer": "core",
+          "say": "Four lines, and two of them are the same sound end to end. This is the only mission in the lesson where the right answer is that you heard nothing.",
+          "terms": [
+            "silent",
+            "theEnding",
+            "secondWord"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-23-silent"
+          },
+          "lines": [
+            {
+              "fr": "Il s'est lavé.",
+              "en": "He washed."
+            },
+            {
+              "fr": "Elle s'est lavée.",
+              "en": "She washed."
+            },
+            {
+              "fr": "J'ai lavé la voiture.",
+              "en": "I washed the car."
+            },
+            {
+              "fr": "Je me suis lavé.",
+              "en": "I washed."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Il s'est lavé against Elle s'est lavée. What did you hear?",
+              "opts": [
+                "A longer ending on the second one",
+                "Nothing at all",
+                "A different verb"
+              ],
+              "correct": 1,
+              "why": "« Four of the six forms sound the same, so the pronoun carries the person. » That is a2.01's line, and a2.21 quoted it for exactly this. All four spellings are one sound."
+            },
+            {
+              "q": "J'ai lavé la voiture against Je me suis lavé. And here?",
+              "opts": [
+                "Nothing at all",
+                "A whole extra word in the second one",
+                "The ending of the verb"
+              ],
+              "correct": 1,
+              "why": "The one thing in this lesson you can hear is the little word, and it is the thing that decides everything else. The ending is silent and the decision is not."
+            }
+          ]
+        },
+        {
+          "id": "s10-newverbs",
+          "type": "groupDrill",
+          "title": "Verbs You Were Never Shown",
+          "frSub": "Des verbes nouveaux",
+          "layer": "core",
+          "size": "lg",
+          "say": "Three rounds, and not one of these verbs was in the six. You are not remembering them. You are building them from two rules and a list you already had.",
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "littleWord"
+          ],
+          "groups": [
+            {
+              "label": "getting dressed, and hurrying",
+              "items": [
+                {
+                  "fr": "Elle s'est habillée.",
+                  "ipa": "/ɛl sɛ ta.bi.je/",
+                  "note": "[ehl seh tah-bee-YAY] She got dressed."
+                },
+                {
+                  "fr": "Nous nous sommes dépêchés.",
+                  "ipa": "/nu nu sɔm de.pɛ.ʃe/",
+                  "note": "[noo noo somm day-peh-SHAY] We hurried."
+                }
+              ],
+              "check": {
+                "q": "Nous, and se dépêcher. Which two words go in the middle?",
+                "opts": [
+                  "nous sommes",
+                  "nous avons",
+                  "se sont"
+                ],
+                "correct": 0,
+                "why": "Nous takes nous, and the little word means être. Nothing about se dépêcher had to be learned separately, and nobody hurries themselves."
+              }
+            },
+            {
+              "label": "resting, and showering",
+              "items": [
+                {
+                  "fr": "Vous vous êtes reposés.",
+                  "ipa": "/vu vu zɛt ʁə.po.ze/",
+                  "note": "[voo voo zeht ruh-poh-ZAY] You rested."
+                },
+                {
+                  "fr": "Ils se sont douchés.",
+                  "ipa": "/il sə sɔ̃ du.ʃe/",
+                  "note": "[eel suh sohⁿ doo-SHAY] They showered."
+                }
+              ],
+              "check": {
+                "q": "Ils se sont douch___. What goes on the end?",
+                "opts": [
+                  "é",
+                  "és",
+                  "ées"
+                ],
+                "correct": 1,
+                "why": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. Ils is more than one, so s, and you cannot hear any of it."
+              }
+            },
+            {
+              "label": "and one that comes from somewhere else",
+              "items": [
+                {
+                  "fr": "Elle s'est reposée un peu.",
+                  "ipa": "/ɛl sɛ ʁə.po.ze œ̃ pø/",
+                  "note": "[ehl seh ruh-poh-ZAY uhⁿ PUH] She rested a little."
+                },
+                {
+                  "fr": "Elle s'est souvenue de mon nom.",
+                  "ipa": "/ɛl sɛ suv.ny də mɔ̃ nɔ̃/",
+                  "note": "[ehl seh soov-NÜ duh mohⁿ NOHⁿ] She remembered my name."
+                }
+              ],
+              "check": {
+                "q": "Se souvenir. Where does souvenue come from?",
+                "opts": [
+                  "From the ending on this screen",
+                  "From venir, and its own group",
+                  "It has no second word"
+                ],
+                "correct": 1,
+                "why": "« Do not build these. Reach for the group it is in. » a2.20 put it in the group that ends in u. The ending still goes on it exactly the same way, which is the point of putting it here."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s11-object",
+          "type": "cardDeck",
+          "title": "When The Ending Goes Away",
+          "frSub": "Elle s’est lavé les mains",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Three cards to read and nothing to do. These are sentences you will meet, and the point is that they are correct.",
+          "hint": "Recognise these. You are not asked to build them.",
+          "terms": [
+            "afterIt",
+            "theEnding",
+            "later"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-23-object"
+          },
+          "cards": [
+            {
+              "head": "The same woman, twice",
+              "label": "and one has no ending",
+              "fr": "Elle s'est lavée · Elle s'est lavé les mains",
+              "sub": "[ehl seh lah-VAY lay MAHⁿ] She washed her hands.",
+              "body": "The first has nothing after the second word and takes the ending. The second names her hands, and it does not. Both are correct."
+            },
+            {
+              "head": "And it happens on the ones you know",
+              "label": "se brosser les dents",
+              "fr": "Elle s'est levée · Elle s'est brossé les dents",
+              "sub": "[ehl seh bro-SAY lay DAHⁿ] She brushed her teeth.",
+              "body": "a1.25 taught both of these as whole phrases, so they are the two you are most likely to want. When you write one, leave the ending off."
+            },
+            {
+              "head": "This is already in the app",
+              "label": "not a special case",
+              "fr": "Elle s'est cassé le bras en tombant du vélo.",
+              "sub": "She broke her arm falling off her bike.",
+              "body": "Written for a different lesson, by somebody who was not teaching this, and the second word carries no ending. a2.24 is where the reason for it lives. Today it is enough to know it is not a mistake."
+            }
+          ]
+        },
+        {
+          "id": "s12-nomeaning",
+          "type": "cardDeck",
+          "title": "It Is Not About The Meaning",
+          "frSub": "Ce n’est pas le sens",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Three cards on why the rule is about the small word and not about what the sentence is saying.",
+          "hint": "Nobody hurries themselves, and it still takes être.",
+          "terms": [
+            "littleWord",
+            "firstWord"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-23-nomeaning"
+          },
+          "cards": [
+            {
+              "head": "Nobody hurries themselves",
+              "label": "se dépêcher",
+              "fr": "Nous nous sommes dépêchés",
+              "sub": "[noo noo somm day-peh-SHAY] We hurried.",
+              "body": "a2.22 taught that some of these point at nothing at all. The action does not come back to anybody and the little word is obligatory anyway, and it still means être."
+            },
+            {
+              "head": "And nothing here moves",
+              "label": "se reposer",
+              "fr": "Vous vous êtes reposés",
+              "sub": "[voo voo zeht ruh-poh-ZAY] You rested.",
+              "body": "a2.21 gave you fifteen verbs that take être and twelve of them move. Resting is not one of them, and it does not need to be: the little word decided this before the meaning got a vote."
+            },
+            {
+              "head": "The one that gives it away",
+              "label": "laver · se laver",
+              "fr": "Elle a lavé la voiture · Elle s'est lavée",
+              "sub": "[ehl seh lah-VAY] She washed.",
+              "body": "Same woman, same verb, same washing. One takes avoir and one takes être, and the difference between them is two letters at the front of the verb."
+            }
+          ]
+        },
+        {
+          "id": "s13-later",
+          "type": "cardDeck",
+          "title": "Three Things This Is Not",
+          "frSub": "Pas ici",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Three cards, none of which you have to do anything with today. They are here so meeting one does not look like an error.",
+          "hint": "Read these. Nothing to build.",
+          "terms": [
+            "onlyPast",
+            "later",
+            "afterIt"
+          ],
+          "cards": [
+            {
+              "head": "The present did none of this",
+              "label": "a2.22",
+              "fr": "Elle s'est levée · Elle se lave",
+              "sub": "past, then present",
+              "body": "In the present nothing on the end of the verb knows who the subject is. Only the extra word changes. That was true and it stops being true the moment there is a second word to put something on."
+            },
+            {
+              "head": "Why the ending disappears",
+              "label": "a2.06 · a2.24",
+              "fr": "Elle s'est lavé les mains",
+              "sub": "[ehl seh lah-VAY lay MAHⁿ] She washed her hands.",
+              "body": "The same little words do a second job later, standing in for a thing rather than pointing back at the person. That is a2.06 and a2.24, and the reason the ending disappears on this screen is waiting there too."
+            },
+            {
+              "head": "And there is another past",
+              "label": "not yet",
+              "fr": "Je me suis levé tôt",
+              "sub": "[zhuh muh swee luh-VAY TOH] I got up early.",
+              "body": "This is the only past you need for now. a2.20 gave you the second words and a2.21 gave you the endings, and nothing after this changes either of them."
+            }
+          ]
+        },
+        {
+          "id": "s14-negative",
+          "type": "cardDeck",
+          "title": "Where The Wrap Closes",
+          "frSub": "Ne … pas",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Wrap the verb that changed, not the one carrying the meaning. Three cards, and the third one is what that rule does not by itself tell you.",
+          "terms": [
+            "theWrap",
+            "firstWord",
+            "secondWord"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-23-negative"
+          },
+          "cards": [
+            {
+              "head": "Both halves, round the first two",
+              "label": "the pair",
+              "fr": "Je me suis lavé · Je ne me suis pas levé",
+              "sub": "[zhuh nuh muh swee pah luh-VAY] I did not get up.",
+              "body": "Ne in front of me, pas straight after suis. Both words changed for the subject, so both go inside the wrap. That is a2.22's sentence and it still holds."
+            },
+            {
+              "head": "And the third word stays outside",
+              "label": "what is new",
+              "fr": "Il ne s'est pas levé · Elle ne s'est pas levée",
+              "sub": "[ehl nuh seh pah luh-VAY] She did not get up.",
+              "body": "The wrap goes round the little word and the first word. The second word sits outside it. The ending goes on exactly as it would with no negative at all, because the wrap shut before it got there."
+            },
+            {
+              "head": "And ne does not shorten here",
+              "label": "a1.18 · a2.19 · a2.05 · a2.21",
+              "fr": "Tu ne t'es pas levé · Nous ne nous sommes pas levés",
+              "sub": "[tü nuh teh pah luh-VAY] · [noo nuh noo somm pah luh-VAY]",
+              "body": "« Wrap the verb, then ask what the verb was. » is a1.18's. « Wrap the verb that changed, not the one carrying the meaning. » is a2.19's, quoted by a2.05, a2.21 and a2.22. Five lessons, and neither line has moved."
+            }
+          ]
+        },
+        {
+          "id": "s15-wrap",
+          "type": "trapDrill",
+          "title": "Which First Word",
+          "frSub": "Avoir ou être",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. The first card is what four correct sentences in a row will produce if you let them.",
+          "terms": [
+            "firstWord",
+            "littleWord",
+            "theWrap"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "wrongThenRight": true,
+            "recordingId": "rec-a2-23-trap"
+          },
+          "rule": {
+            "title": "The little word decides, and nothing else does",
+            "body": "Every verb that carries the little word takes être, including the ones that take avoir without it. If the little word is there, the first word is être. Not the meaning, not whether anybody moved, and not what the verb takes on its own."
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "What Decides The First Word"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "One Wrong, Three Right"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "The Word That Changes"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Pick The First Word",
+              "gate": true
+            }
+          ],
+          "cards": [
+            {
+              "fr": "Je m'ai levé.",
+              "ipa": "/ʒə me lə.ve/",
+              "promptLabel": "reaching for the one that just worked gives",
+              "promptSound": "Je m'ai levé.",
+              "tip": "The verb takes avoir on its own, so avoir is what comes to hand. It is a careful learner's error rather than a careless one, and it is the sentence the café scene ended on."
+            },
+            {
+              "fr": "Je me suis levé tôt.",
+              "ipa": "/ʒə mə sɥi lə.ve to/",
+              "promptLabel": "and the little word means the other one",
+              "promptSound": "Je me suis levé tôt.",
+              "tip": "Two little words in front of the verb, and the first of them settled the second. Nothing else in the sentence had a say."
+            },
+            {
+              "fr": "Je me suis lavé.",
+              "ipa": "/ʒə mə sɥi la.ve/",
+              "promptLabel": "same verb, same person, no little word missing",
+              "promptSound": "Je me suis lavé.",
+              "tip": "Laver takes avoir and se laver takes être, and the two sentences are four letters apart."
+            },
+            {
+              "fr": "J'ai lavé la voiture.",
+              "ipa": "/ʒe la.ve la vwa.tyʁ/",
+              "promptLabel": "and with no little word at all",
+              "promptSound": "J'ai lavé la voiture.",
+              "tip": "Nothing between the person and the verb, so avoir, and the sentence names what was washed. This is the one the learner already had right."
+            }
+          ],
+          "drill": [
+            {
+              "opts": [
+                "Je me suis levé tôt.",
+                "Je m'ai levé."
+              ],
+              "correct": 0,
+              "promptSay": "Je me suis levé tôt."
+            },
+            {
+              "opts": [
+                "Je suis me levé.",
+                "Je me suis lavé."
+              ],
+              "correct": 1,
+              "promptSay": "Je me suis lavé."
+            },
+            {
+              "opts": [
+                "J'ai lavé la voiture.",
+                "J'ai me lavé la voiture."
+              ],
+              "correct": 0,
+              "promptSay": "J'ai lavé la voiture."
+            },
+            {
+              "opts": [
+                "Je ne me suis levé pas.",
+                "Je ne me suis pas levé."
+              ],
+              "correct": 1,
+              "promptSay": "Je ne me suis pas levé."
+            },
+            {
+              "opts": [
+                "Je me suis couché.",
+                "Je m'ai couché."
+              ],
+              "correct": 0,
+              "promptSay": "Je me suis couché."
+            },
+            {
+              "opts": [
+                "Elle s'a levée.",
+                "Elle s'est levée."
+              ],
+              "correct": 1,
+              "promptSay": "Elle s'est levée."
+            }
+          ]
+        },
+        {
+          "id": "s16-errors",
+          "type": "commonErrors",
+          "title": "What Goes Wrong",
+          "frSub": "Les erreurs fréquentes",
+          "layer": "core",
+          "size": "lg",
+          "swipe": true,
+          "say": "Four, one per screen, and the first one is the sentence the lesson opened on.",
+          "terms": [
+            "firstWord",
+            "theWrap",
+            "theEnding"
+          ],
+          "errors": [
+            {
+              "wrong": "Je m'ai levé.",
+              "right": "Je me suis levé.",
+              "why": "avoir on a verb carrying the little word. It comes from having just said « j'ai levé la main » correctly, and it is the error this whole lesson exists to prevent."
+            },
+            {
+              "wrong": "Je suis me levé.",
+              "right": "Je me suis lavé.",
+              "why": "The right first word and the little word behind it. It goes in front, never after, and that has been true since the present tense."
+            },
+            {
+              "wrong": "Elle s'est levé.",
+              "right": "Elle s'est levée.",
+              "why": "The first word right and no ending. Nobody hears it and every reader sees it. Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman."
+            },
+            {
+              "wrong": "Je ne me suis levé pas.",
+              "right": "Je ne me suis pas levé.",
+              "why": "The wrap closed round the second word instead of the first. The wrap goes round the little word and the first word. The second word sits outside it."
+            }
+          ]
+        },
+        {
+          "id": "s17-flash",
+          "type": "flashcards",
+          "title": "The Verbs, Banked",
+          "frSub": "Les verbes",
+          "layer": "core",
+          "say": "Ten verbs, and every one of them takes être in the past because every one of them arrives with the little word attached.",
+          "terms": [
+            "littleWord",
+            "firstWord"
+          ],
+          "cards": [
+            {
+              "front": "se laver",
+              "back": "[suh lah-VAY] to wash up",
+              "say": "se laver"
+            },
+            {
+              "front": "se lever",
+              "back": "[suh luh-VAY] to get up",
+              "say": "se lever"
+            },
+            {
+              "front": "se coucher",
+              "back": "[suh koo-SHAY] to go to bed",
+              "say": "se coucher"
+            },
+            {
+              "front": "se réveiller",
+              "back": "[suh ray-veh-YAY] to wake up",
+              "say": "se réveiller"
+            },
+            {
+              "front": "se doucher",
+              "back": "[suh doo-SHAY] to take a shower",
+              "say": "se doucher"
+            },
+            {
+              "front": "s'habiller",
+              "back": "[sah-bee-YAY] to get dressed",
+              "say": "s'habiller"
+            },
+            {
+              "front": "se reposer",
+              "back": "[suh ruh-poh-ZAY] to rest",
+              "say": "se reposer"
+            },
+            {
+              "front": "se dépêcher",
+              "back": "[suh day-peh-SHAY] to hurry",
+              "say": "se dépêcher"
+            },
+            {
+              "front": "se brosser les dents",
+              "back": "[suh bro-SAY lay DAHⁿ] to brush one's teeth",
+              "say": "se brosser les dents"
+            },
+            {
+              "front": "laver",
+              "back": "[lah-VAY] to wash",
+              "say": "laver"
+            }
+          ]
+        },
+        {
+          "id": "s18-dictation",
+          "type": "dictation",
+          "title": "Write What You Cannot Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "say": "Thirteen lines, and this is the longest part of the lesson on purpose. The ending is silent, so writing it down is the only way anybody can tell whether you know it.",
+          "terms": [
+            "theEnding",
+            "silent",
+            "secondWord"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-23-dictee"
+          },
+          "itemIds": [
+            "fr.a2.verbes.791",
+            "fr.a2.verbes.792",
+            "fr.a2.verbes.793",
+            "fr.a2.verbes.802",
+            "fr.a2.verbes.804",
+            "fr.a2.verbes.806",
+            "fr.a2.verbes.811",
+            "fr.a2.verbes.812",
+            "fr.a2.verbes.816",
+            "fr.a2.verbes.819",
+            "fr.a2.verbes.831",
+            "fr.a2.verbes.832",
+            "fr.a2.verbes.833"
+          ]
+        },
+        {
+          "id": "s19-talk",
+          "type": "scenario",
+          "title": "Tell Her About This Morning",
+          "frSub": "On raconte sa matinée",
+          "layer": "core",
+          "terms": [
+            "littleWord",
+            "firstWord",
+            "theEnding"
+          ],
+          "setting": "The same café, the same question, and this time the sentence gets finished. Every answer is about a morning that has already happened.",
+          "turns": [
+            {
+              "ai": "Alors, ce matin ? Tu t'es réveillé à quelle heure ?",
+              "en": "So, this morning? What time did you wake up?",
+              "user": "Je me suis réveillé à sept heures.",
+              "userEn": "I woke up at seven.",
+              "alts": [
+                {
+                  "fr": "Je me suis levé à six heures.",
+                  "en": "I got up at six."
+                },
+                {
+                  "fr": "Je me suis levé tôt.",
+                  "en": "I got up early."
+                }
+              ]
+            },
+            {
+              "ai": "Et ensuite ?",
+              "en": "And then?",
+              "user": "Je me suis douché et je me suis habillé.",
+              "userEn": "I showered and got dressed.",
+              "alts": [
+                {
+                  "fr": "Je me suis lavé.",
+                  "en": "I washed."
+                },
+                {
+                  "fr": "Je me suis réveillé.",
+                  "en": "I woke up."
+                }
+              ]
+            },
+            {
+              "ai": "Ta famille aussi ?",
+              "en": "Your family too?",
+              "user": "Nous nous sommes levés en même temps.",
+              "userEn": "We got up at the same time.",
+              "alts": [
+                {
+                  "fr": "Vous vous êtes reposés.",
+                  "en": "You rested."
+                },
+                {
+                  "fr": "Elle s'est habillée.",
+                  "en": "She got dressed."
+                }
+              ]
+            },
+            {
+              "ai": "Tu t'es couché tard hier ?",
+              "en": "Did you go to bed late yesterday?",
+              "user": "Non, je ne me suis pas couché tard.",
+              "userEn": "No, I did not go to bed late.",
+              "alts": [
+                {
+                  "fr": "Je me suis couché.",
+                  "en": "I went to bed."
+                },
+                {
+                  "fr": "Je ne me suis pas levé.",
+                  "en": "I did not get up."
+                }
+              ]
+            },
+            {
+              "ai": "Et tes collègues, ils sont arrivés à l'heure ?",
+              "en": "And your colleagues, did they arrive on time?",
+              "user": "Ils se sont dépêchés ce matin.",
+              "userEn": "They hurried this morning.",
+              "alts": [
+                {
+                  "fr": "Ils se sont douchés.",
+                  "en": "They showered."
+                },
+                {
+                  "fr": "Ils se sont levés tôt.",
+                  "en": "They got up early."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s20-speak",
+          "type": "practice",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "terms": [
+            "littleWord",
+            "firstWord"
+          ],
+          "itemIds": [
+            "fr.a2.verbes.791",
+            "fr.a2.verbes.792",
+            "fr.a2.verbes.793",
+            "fr.a2.verbes.794",
+            "fr.a2.verbes.795",
+            "fr.a2.verbes.796",
+            "fr.a2.verbes.797",
+            "fr.a2.verbes.798",
+            "fr.a2.verbes.799",
+            "fr.a2.verbes.800",
+            "fr.a2.verbes.801",
+            "fr.a2.verbes.802",
+            "fr.a2.verbes.803",
+            "fr.a2.verbes.804",
+            "fr.a2.verbes.805",
+            "fr.a2.verbes.806",
+            "fr.a2.verbes.810",
+            "fr.a2.verbes.811",
+            "fr.a2.verbes.812",
+            "fr.a2.verbes.813",
+            "fr.a2.verbes.814",
+            "fr.a2.verbes.815",
+            "fr.a2.verbes.816",
+            "fr.a2.verbes.817",
+            "fr.a2.verbes.818",
+            "fr.a2.verbes.819",
+            "fr.a2.verbes.829",
+            "fr.a2.verbes.830",
+            "fr.a2.verbes.831",
+            "fr.a2.verbes.832",
+            "fr.a2.verbes.833"
+          ]
+        },
+        {
+          "id": "s21-review",
+          "type": "reviewDeck",
+          "title": "Everything, Once More",
+          "frSub": "Tout, encore une fois",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "Laver takes avoir. What does se laver take?",
+              "back": "If the little word is there, the first word is être.",
+              "say": "J'ai lavé la voiture · Je me suis lavé"
+            },
+            {
+              "front": "Je, se lever, in the past. What are the first three words?",
+              "back": "Je me suis. The person, then the little word, then the first word, and the little word is what settled the first one. Every verb that carries the little word takes être, including the ones that take avoir without it.",
+              "say": "Je me suis levé tôt."
+            },
+            {
+              "front": "Elle. What goes on the end of the second word?",
+              "back": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman.",
+              "say": "Elle s'est levée."
+            },
+            {
+              "front": "Can you hear the ending?",
+              "back": "You cannot check this one by listening. All four spellings are the same sound, on every verb here, and a2.21 had one verb where you could hear it. This lesson has none.",
+              "say": "Il s'est lavé · Elle s'est lavée"
+            },
+            {
+              "front": "Where do ne and pas go?",
+              "back": "Both words changed for the subject, so both go inside the wrap. The wrap goes round the little word and the first word. The second word sits outside it.",
+              "say": "Je ne me suis pas levé."
+            },
+            {
+              "front": "Elle s'est lavé les mains. Why is there no e on it?",
+              "back": "When something is named straight after the second word, the ending goes away again. You will meet this and you are not being asked to produce it.",
+              "say": "Elle s'est lavé les mains."
+            },
+            {
+              "front": "Se dépêcher. Nobody hurries themselves, so which first word?",
+              "back": "Être, because the little word is there. The meaning gets no vote and neither does whether anybody moved.",
+              "say": "Nous nous sommes dépêchés."
+            }
+          ]
+        },
+        {
+          "id": "s22-progress",
+          "type": "progressCheck",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "The exam has six rounds and most of it is typed, because this is one of the few things in the level that writing can prove and listening cannot.",
+          "stats": [
+            {
+              "k": "New rules",
+              "v": "1. The little word decides the first word."
+            },
+            {
+              "k": "Rules you already had",
+              "v": "4, from a2.22, a2.21, a2.05 and a2.20."
+            },
+            {
+              "k": "Endings",
+              "v": "4 spellings, 1 sound. You will not hear any of them."
+            },
+            {
+              "k": "Verbs you were shown",
+              "v": "2, and the last act asked for four you were not."
+            }
+          ]
+        },
+        {
+          "id": "s23-quiz",
+          "type": "quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "say": "Six rounds of five. Most of it is typed, because the whole claim of this lesson is that you can build the form rather than recognise it.",
+          "terms": [
+            "firstWord",
+            "theEnding",
+            "theWrap"
+          ],
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "r1-first-word",
+              "label": "Which first word",
+              "say": "Five on the one decision in the sentence.",
+              "targets": [
+                "err-avoir-aux",
+                "err-no-ending"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "Je me ___ levé. Type the missing word.",
+                  "accept": [
+                    "suis"
+                  ],
+                  "ref": "s02-flip",
+                  "why": "Every verb that carries the little word takes être, including the ones that take avoir without it. The little word is in front of it, so it is être, and je takes suis."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which one is right?",
+                  "opts": [
+                    "Je m'ai lavé.",
+                    "J'ai me lavé.",
+                    "Je me suis lavé.",
+                    "Je suis me lavé."
+                  ],
+                  "correct": 2,
+                  "ref": "s05-slots",
+                  "why": "The little word first, then the first word, and the first word is être because the little word is there."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Put this into the past: « Je lave la voiture. » Type the whole sentence.",
+                  "accept": [
+                    "J'ai lavé la voiture."
+                  ],
+                  "ref": "s02-flip",
+                  "why": "No little word, so avoir, and nothing goes on the end after avoir. This is the sentence the other one is so easy to confuse with."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the first word: « Je m'ai levé. »",
+                  "accept": [
+                    "Je me suis levé."
+                  ],
+                  "ref": "s15-wrap",
+                  "why": "Lever on its own takes avoir and se lever takes être. Every verb that carries the little word takes être, including the ones that take avoir without it."
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Which one did you hear?",
+                  "opts": [
+                    "J'ai lavé la voiture.",
+                    "Je me suis lavé."
+                  ],
+                  "correct": 1,
+                  "ref": "s09-silent",
+                  "why": "A whole extra word, and it is the only thing in this lesson listening will settle for you. The endings are all one sound."
+                }
+              ]
+            },
+            {
+              "id": "r2-assemble",
+              "label": "Build the whole thing",
+              "say": "Five that ask for every part at once.",
+              "targets": [
+                "err-avoir-aux",
+                "err-wrap-late"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: I got up early. Use se lever.",
+                  "accept": [
+                    "Je me suis levé tôt."
+                  ],
+                  "ref": "s07-assembly",
+                  "why": "Person, little word, first word, second word, and then the time. Four decisions and you had three of them before this lesson."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: I went to bed. Use se coucher.",
+                  "accept": [
+                    "Je me suis couché."
+                  ],
+                  "ref": "s07-assembly",
+                  "why": "Coucher on its own takes avoir and se coucher takes être, and nothing about going to bed rather than putting somebody to bed tells you that."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: he showered. Use se doucher.",
+                  "accept": [
+                    "Il s'est douché."
+                  ],
+                  "ref": "s10-newverbs",
+                  "why": "Il takes se, se becomes s in front of est, and a man on his own gets nothing on the end."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which of these is not French?",
+                  "opts": [
+                    "Je me suis lavé.",
+                    "Je me suis couché.",
+                    "Je suis me levé.",
+                    "Je me suis réveillé."
+                  ],
+                  "correct": 2,
+                  "ref": "s05-slots",
+                  "why": "The little word goes in front of the first word. It has never gone behind it, in any tense."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the word order: « Je suis me levé. »",
+                  "accept": [
+                    "Je me suis lavé."
+                  ],
+                  "ref": "s05-slots",
+                  "why": "Person, little word, first word. The little word has been in that position since the present tense and the past does not move it."
+                }
+              ]
+            },
+            {
+              "id": "r3-ending",
+              "label": "The ending",
+              "say": "Five on the two letters nobody can hear.",
+              "targets": [
+                "err-no-ending"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: she got up. Use se lever.",
+                  "accept": [
+                    "Elle s'est levée."
+                  ],
+                  "ref": "s08-agreement",
+                  "why": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. One woman, so e, and it makes no sound at all."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: they washed. They are all men. Use se laver.",
+                  "accept": [
+                    "Ils se sont lavés."
+                  ],
+                  "ref": "s08-agreement",
+                  "why": "More than one, so s. The first word changed too, and that is the only part anybody will hear."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Elles se sont lav___. Which ending?",
+                  "opts": [
+                    "ées",
+                    "é",
+                    "ée",
+                    "és"
+                  ],
+                  "correct": 0,
+                  "ref": "s08-agreement",
+                  "why": "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman. More than one woman, so both letters go on."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the ending: « Elle s'est levé. »",
+                  "accept": [
+                    "Elle s'est levée."
+                  ],
+                  "ref": "s08-agreement",
+                  "why": "The first word is right and the ending is missing. This is the error nobody can hear and everybody who reads it can see."
+                },
+                {
+                  "format": "mcq",
+                  "q": "« Elle a lavé la voiture ». Why is there no ending here?",
+                  "opts": [
+                    "Because the subject is singular",
+                    "Because it is not in the past",
+                    "Because the first word is avoir",
+                    "Because the verb is laver"
+                  ],
+                  "correct": 2,
+                  "ref": "s08-agreement",
+                  "why": "After avoir the second word never changes, in any person. a2.21 taught that and this lesson does not touch it."
+                }
+              ]
+            },
+            {
+              "id": "r4-wrap",
+              "label": "Saying no",
+              "say": "Five on where the two halves land.",
+              "targets": [
+                "err-wrap-late",
+                "err-avoir-aux"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "Make it negative: « Je me suis levé. »",
+                  "accept": [
+                    "Je ne me suis pas levé."
+                  ],
+                  "ref": "s14-negative",
+                  "why": "Ne in front of the little word, pas straight after the first word. Both words changed for the subject, so both go inside the wrap."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the word order: « Je ne me suis levé pas. »",
+                  "accept": [
+                    "Je ne me suis pas levé."
+                  ],
+                  "ref": "s14-negative",
+                  "why": "The wrap goes round the little word and the first word. The second word sits outside it."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Make it negative: « Il s'est levé. »",
+                  "accept": [
+                    "Il ne s'est pas levé."
+                  ],
+                  "ref": "s14-negative",
+                  "why": "The little word still shortens in front of est, and the ne in front of it does not. Nothing about the negative changes that."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which line is the rule these five lessons share?",
+                  "opts": [
+                    "Put ne and pas round the whole sentence.",
+                    "Put ne and pas round the word that carries the meaning.",
+                    "Negatives go at the end.",
+                    "Wrap the verb that changed, not the one carrying the meaning."
+                  ],
+                  "correct": 3,
+                  "ref": "s14-negative",
+                  "why": "a2.19 said it, a2.05 quoted it, a2.21 quoted it and a2.22 quoted it. It has not been reworded once."
+                },
+                {
+                  "format": "mcq",
+                  "q": "« Elle ne s'est pas levée ». Where is the ending in relation to the wrap?",
+                  "opts": [
+                    "Inside it",
+                    "Outside it",
+                    "There is no ending",
+                    "Between ne and pas"
+                  ],
+                  "correct": 1,
+                  "ref": "s14-negative",
+                  "why": "The wrap goes round the little word and the first word. The second word sits outside it."
+                }
+              ]
+            },
+            {
+              "id": "r5-build",
+              "label": "Verbs you were not shown",
+              "say": "Five on verbs the lesson never conjugated for you.",
+              "targets": [
+                "err-avoir-aux",
+                "err-no-ending"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: she got dressed. Use s'habiller.",
+                  "accept": [
+                    "Elle s'est habillée."
+                  ],
+                  "ref": "s10-newverbs",
+                  "why": "Elle takes se, se becomes s in front of est, and one woman takes e. Three rules and none of them is about this verb."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: they showered. They are all men. Use se doucher.",
+                  "accept": [
+                    "Ils se sont douchés."
+                  ],
+                  "ref": "s10-newverbs",
+                  "why": "Nothing about se doucher had to be learned separately. The little word means être and more than one means s."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Nobody hurries themselves. So which first word does se dépêcher take?",
+                  "opts": [
+                    "avoir, because nobody moves",
+                    "Either one",
+                    "avoir, because the meaning is not reflexive",
+                    "être, because the little word is there"
+                  ],
+                  "correct": 3,
+                  "ref": "s12-nomeaning",
+                  "why": "The meaning gets no vote. Every verb that carries the little word takes être, including the ones that take avoir without it."
+                },
+                {
+                  "format": "mcq",
+                  "q": "« Elle s'est souvenue de mon nom ». Where does souvenue come from?",
+                  "opts": [
+                    "The ending this lesson teaches",
+                    "venir, and the group a2.20 put it in",
+                    "It is not a real form",
+                    "se souvenir has no second word"
+                  ],
+                  "correct": 1,
+                  "ref": "s10-newverbs",
+                  "why": "« Do not build these. Reach for the group it is in. » The second word comes from its own group and the ending goes on it exactly the same way."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: you rested. Speaking to more than one person. Use se reposer.",
+                  "accept": [
+                    "Vous vous êtes reposés."
+                  ],
+                  "ref": "s10-newverbs",
+                  "why": "Vous takes vous, which is written twice, and more than one takes s."
+                }
+              ]
+            },
+            {
+              "id": "r6-mixed",
+              "label": "All of it",
+              "say": "Five that could be any of the above.",
+              "targets": [
+                "err-no-ending",
+                "err-avoir-aux"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: he washed. Use se laver.",
+                  "accept": [
+                    "Il s'est lavé."
+                  ],
+                  "ref": "s08-agreement",
+                  "why": "Il, se, est, and nothing on the end. The shortest full sentence this lesson can ask for."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix the first word: « Je m'ai couché. »",
+                  "accept": [
+                    "Je me suis couché."
+                  ],
+                  "ref": "s15-wrap",
+                  "why": "Coucher takes avoir and se coucher takes être, and the little word in front is the whole of the difference."
+                },
+                {
+                  "format": "mcq",
+                  "q": "« Elle s'est lavé les mains ». Is this correct French?",
+                  "opts": [
+                    "No, it needs an e on the end",
+                    "No, it needs avoir",
+                    "Yes, and the ending is missing on purpose",
+                    "Yes, but only if she is a man"
+                  ],
+                  "correct": 2,
+                  "ref": "s11-object",
+                  "why": "When something is named straight after the second word, the ending goes away again. You will meet this and you are not being asked to produce it."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Type the French for: you went to bed late. Speaking to one friend. Use se coucher.",
+                  "accept": [
+                    "Tu t'es couché tard."
+                  ],
+                  "ref": "s07-assembly",
+                  "why": "Tu takes te, te becomes t in front of es, and nothing goes on the end for one man."
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Which one did you hear?",
+                  "opts": [
+                    "J'ai couché les enfants.",
+                    "Je me suis couché."
+                  ],
+                  "correct": 1,
+                  "ref": "s09-silent",
+                  "why": "Two little words against none, which you can hear. If this question had asked between two endings there would have been no right answer at all."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s24-roundup",
+          "type": "roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "If the little word is there, the first word is être. Four lessons gave you the pieces of this. a2.22 gave you the little word, a2.21 gave you être and the ending, a2.05 gave you the two-part shape, and a2.20 gave you the second words. Nothing here is new except which first word to reach for.",
+          "points": [
+            "Every verb that carries the little word takes être, including the ones that take avoir without it.",
+            "Person, little word, first word, second word. Six positions with a negative, and you had met all six before today.",
+            "Add nothing for a man on his own, e for a woman, s for more than one, and es for more than one woman.",
+            "You cannot check this one by listening. All four spellings are the same sound, on every verb here, and a2.21 had one verb where you could hear it. This lesson has none.",
+            "Both words changed for the subject, so both go inside the wrap. The wrap goes round the little word and the first word. The second word sits outside it.",
+            "When something is named straight after the second word, the ending goes away again. You will meet this and you are not being asked to produce it. a2.24 is where the reason for it lives.",
+            "Any verb that arrives with the little word works this way, so the four the lesson never conjugated cost nothing extra. This is the only past you need for now. a2.20 gave you the second words and a2.21 gave you the endings, and nothing after this changes either of them."
+          ],
+          "sheetId": "sheet-a2-23-pronominaux-passe"
+        }
+      ],
+      "itemIds": [
+        "fr.a2.verbes.820",
+        "fr.a2.verbes.821",
+        "fr.a2.verbes.822",
+        "fr.a2.verbes.823",
+        "fr.a2.verbes.801",
+        "fr.a2.verbes.802",
+        "fr.a2.verbes.803",
+        "fr.a2.verbes.804",
+        "fr.a2.verbes.805",
+        "fr.a2.verbes.806",
+        "fr.a2.verbes.830",
+        "fr.a1.rp-recits-temps.066",
+        "fr.a2.routines.049",
+        "fr.sons.verbes-essentiels.001",
+        "fr.sons.verbes-essentiels.002",
+        "fr.a2.verbes.810",
+        "fr.a2.verbes.795",
+        "fr.a2.verbes.796",
+        "fr.a2.verbes.797",
+        "fr.a2.verbes.798",
+        "fr.a2.verbes.799",
+        "fr.a2.verbes.800",
+        "fr.a2.routines.032",
+        "fr.a2.verbes.791",
+        "fr.a2.verbes.792",
+        "fr.a2.verbes.793",
+        "fr.a2.verbes.794",
+        "fr.a2.verbes.809",
+        "fr.a2.verbes.807",
+        "fr.a2.verbes.808",
+        "fr.a2.verbes.816",
+        "fr.a2.verbes.817",
+        "fr.a2.verbes.818",
+        "fr.a2.verbes.819",
+        "fr.a2.verbes.829",
+        "fr.a2.verbes.833",
+        "fr.a1.routines.028",
+        "fr.a1.routines.001",
+        "fr.a1.cuisine.183",
+        "fr.a2.corps.001",
+        "fr.a1.corps.209",
+        "fr.a1.routines.019",
+        "fr.a2.verbes.811",
+        "fr.a2.verbes.812",
+        "fr.a2.verbes.813",
+        "fr.a2.verbes.814",
+        "fr.a2.verbes.815",
+        "fr.a2.verbes.824",
+        "fr.a2.verbes.825",
+        "fr.a2.verbes.826",
+        "fr.a2.verbes.827",
+        "fr.a2.verbes.828",
+        "fr.a2.verbes.831",
+        "fr.a2.verbes.832",
+        "fr.a1.routines.010",
+        "fr.a1.routines.011",
+        "fr.a1.routines.012",
+        "fr.a1.routines.020",
+        "fr.a1.routines.034",
+        "fr.a1.routines.087",
+        "fr.a1.rp-recits-temps.180",
+        "fr.a1.rp-recits-temps.199",
+        "fr.a2.routines.039"
+      ],
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-23-scene",
+            "desc": "THE SAME TWO PEOPLE AS a2.22's SCENE, A MONTH ON, AND THIS EXCHANGE IS GOING WELL UNTIL IT IS NOT. HIS FIRST LINE « Ce matin, j'ai lavé la voiture. » IS THE MOST IMPORTANT TAKE IN THE SCENE AND IT MUST SOUND COMPLETELY ORDINARY. It is fluent, correct and unremarkable, and it is what makes the next one happen. Any weight on it teaches that something was already wrong. HER LINE « Et ce matin ? » IS AN ORDINARY FOLLOW-UP, warm and short. HIS SECOND LINE « Ce matin, je... j'ai... je me... » IS TWO REAL FALSE STARTS. The pauses are actual pauses and he is deciding, not performing hesitation. HIS THIRD LINE « J'ai levé à six heures. » IS SAID FLUENTLY AND WITH CONFIDENCE. This is the single most important instruction in the take: it is a complete, well-formed French sentence and he believes he has said what he meant. Any hesitation on it teaches that the error is audible, and the whole point of the scene is that it is not. HER LAST LINE « Tu as levé quoi ? » IS A GENUINE QUESTION rather than a correction. She is waiting to be told what he lifted. There is no note of doubt in it and nobody is embarrassed.",
+            "clipIds": [
+              "Ce matin, j'ai lavé la voiture.",
+              "Et ce matin ?",
+              "Ce matin, je... j'ai... je me...",
+              "J'ai levé à six heures.",
+              "Tu as levé quoi ?",
+              "Je me suis levé à six heures."
+            ]
+          },
+          {
+            "id": "rec-a2-23-flip",
+            "desc": "THE THREE PAIRS, ONE TAKE, ONE VOICE, AND THIS IS THE TAKE THE LESSON RESTS ON. Six lines in this order: « J'ai lavé la voiture. » « Je me suis lavé. » « J'ai couché les enfants. » « Je me suis couché. » « J'ai réveillé mon frère. » « Je me suis réveillé. » THE VERB MUST SOUND IDENTICAL IN EACH PAIR. « lavé » is the same syllable in lines one and two and nothing about it may change; the same for « couché » and « réveillé ». The learner is being taught that the verb is not what moved. READ EACH PAIR AT THE SAME PACE AS ITS PARTNER. Slowing the second one hands the learner the answer for the wrong reason. DO NOT LEAN ON « me » OR ON « suis ». They are the two words that carry the whole lesson and a reading that marks them teaches that they are strange. They are not strange; they are simply there. RECORD ALL SIX AS ONE CONTINUOUS TAKE. Six recordings are six performances.",
+            "clipIds": [
+              "J'ai lavé la voiture.",
+              "Je me suis lavé.",
+              "J'ai couché les enfants.",
+              "Je me suis couché.",
+              "J'ai réveillé mon frère.",
+              "Je me suis réveillé."
+            ]
+          },
+          {
+            "id": "rec-a2-23-recap",
+            "desc": "FOUR SHORT LINES, ONE TAKE, PLAINLY, AND NONE OF THEM IS BEING TAUGHT. « je me · tu te · il se · nous nous · vous vous · ils se » read as a list at an even pace, with a real boundary inside « nous nous » and « vous vous ». Then « levé · levée · levés · levées », WHICH MUST BE FOUR IDENTICAL SOUNDS. Not similar: identical. This is the card that claims the learner already owns the endings and the claim is that they sound the same. Then « Je me suis lavé. » and « Elle s'est souvenue de mon nom. », both entirely ordinary. THE WHOLE TAKE IS A CHECKLIST RATHER THAN A LESSON and should sound like somebody reminding you of something you know.",
+            "clipIds": [
+              "levé · levée · levés · levées",
+              "Je me suis lavé.",
+              "Elle s'est souvenue de mon nom."
+            ]
+          },
+          {
+            "id": "rec-a2-23-slots",
+            "desc": "ONE SENTENCE, SIX TIMES, AND IT IS THE SAME SENTENCE EVERY TIME: « Je ne me suis pas levé. » EVERY ROW OF THIS TABLE PLAYS THE WHOLE SENTENCE rather than its own word, because a word said on its own is not the word said in place. READ IT AT ORDINARY CONVERSATIONAL SPEED, ONCE, and let the slow speed do the rest. A reading that separates the six words teaches six words rather than one sentence. THE « ne » MUST BE AUDIBLE AND UNSTRESSED. It is the word whose POSITION the screen is about, so it cannot be swallowed the way ordinary speech swallows it, and it cannot be leaned on either. THERE IS NO PAUSE ANYWHERE INSIDE « ne me suis pas ». Those four words are one run.",
+            "clipIds": [
+              "Je ne me suis pas levé."
+            ]
+          },
+          {
+            "id": "rec-a2-23-persons",
+            "desc": "THE SIX PERSONS, ONE TAKE, ONE VOICE, IN THIS ORDER: « Je me suis levé tôt. » « Tu t'es levé tôt. » « Il s'est levé tôt. » « Nous nous sommes levés tôt. » « Vous vous êtes levés tôt. » « Ils se sont levés tôt. » THE VERB IS THE SAME SOUND IN ALL SIX and so is « tôt ». The only thing that changes is the two or three words at the front. LINES TWO AND THREE ELIDE AND MUST NOT BE BROKEN AT THE APOSTROPHE. « t'es » and « s'est » are each one syllable and a pause there teaches a boundary that is not in the language. THE DOUBLED WORDS IN LINES FOUR AND FIVE MUST NOT BE RUN TOGETHER. « Nous nous » is two words with a real boundary between them, at ordinary pace and with no emphasis on either. « sommes » IS /sɔm/ WITH A REAL M AND NO NASAL IN IT. It does not rhyme with « sont ». RECORD ALL SIX AS ONE CONTINUOUS TAKE.",
+            "clipIds": [
+              "Je me suis levé tôt.",
+              "Tu t'es levé tôt.",
+              "Il s'est levé tôt.",
+              "Nous nous sommes levés tôt.",
+              "Vous vous êtes levés tôt.",
+              "Ils se sont levés tôt."
+            ]
+          },
+          {
+            "id": "rec-a2-23-silent",
+            "desc": "THE TAKE THAT HAS TO PROVE A NEGATIVE, ONE VOICE, FOUR LINES: « Il s'est lavé. » « Elle s'est lavée. » « J'ai lavé la voiture. » « Je me suis lavé. » LINES ONE AND TWO MUST BE COMPLETELY IDENTICAL. Same speed, same weight, same length, same everything. The mission asks the learner to hear no difference and it only works if there is none, so these two are recorded in one breath and not spliced. LINES THREE AND FOUR ARE THE OPPOSITE INSTRUCTION AND THEY ARE IN THE SAME TAKE DELIBERATELY. They differ by a whole word and should be read at the same pace so that word is the only difference. DO NOT COMPENSATE. The temptation on line two is to help the learner by lengthening the ending. That is the exact thing the lesson says is impossible and doing it teaches a sound that is not in French.",
+            "clipIds": [
+              "Il s'est lavé.",
+              "Elle s'est lavée.",
+              "J'ai lavé la voiture.",
+              "Je me suis lavé."
+            ]
+          },
+          {
+            "id": "rec-a2-23-object",
+            "desc": "THE EXCEPTION, ONE TAKE, FOUR LINES, AND NOTHING IN THE READING MAY MARK ANY OF THEM AS UNUSUAL: « Elle s'est lavée. » « Elle s'est lavé les mains. » « Elle s'est levée. » « Elle s'est brossé les dents. » ALL FOUR ARE ORDINARY, CORRECT FRENCH and the card's whole claim is that the second and fourth are not mistakes. A reading that hesitates on them argues the opposite. LINES ONE AND TWO ARE ONE SOUND UP TO « lavé » and then one of them continues. That is the only difference and it is the difference the learner is being asked to notice. THERE IS NO PAUSE BEFORE « les mains » OR « les dents ». The sentence runs straight through.",
+            "clipIds": [
+              "Elle s'est lavée.",
+              "Elle s'est lavé les mains.",
+              "Elle s'est levée.",
+              "Elle s'est brossé les dents."
+            ]
+          },
+          {
+            "id": "rec-a2-23-nomeaning",
+            "desc": "FOUR LINES, ONE TAKE, ENTIRELY PLAINLY: « Nous nous sommes dépêchés. » « Vous vous êtes reposés. » « Elle a lavé la voiture. » « Elle s'est lavée. » THE FIRST TWO CARRY NO TEACHING INTENT AT ALL. They are two ordinary sentences and the card's point is that nothing about them is special. LINES THREE AND FOUR ARE THE PAIR and they must be read at the same pace. The difference is « a lavé » against « s'est lavée » and the learner is meant to hear the first half change and the second half not. THE ENDING ON « lavée » IS SILENT AND MUST STAY SILENT. Line four ends on exactly the same sound as line three.",
+            "clipIds": [
+              "Nous nous sommes dépêchés.",
+              "Vous vous êtes reposés.",
+              "Elle a lavé la voiture.",
+              "Elle s'est lavée."
+            ]
+          },
+          {
+            "id": "rec-a2-23-negative",
+            "desc": "THE NEGATIVE, ONE TAKE, FOUR LINES: « Je me suis levé. » « Je ne me suis pas levé. » « Il ne s'est pas levé. » « Nous ne nous sommes pas levés. » NOT A WRONG-THEN-RIGHT TAKE. All four are correct French. THE « ne » MUST BE AUDIBLE AND UNSTRESSED IN ALL THREE NEGATIVES. It is the word whose position the mission is about, so it cannot be swallowed and it cannot be leaned on. THERE IS NO PAUSE BETWEEN « ne » AND THE LITTLE WORD. « ne me » is one run and « ne s'est » is one run. A break there is exactly the reading that makes the error sound plausible. « pas » CLOSES STRAIGHT AFTER THE FIRST WORD and the second word follows it without a gap. The learner has to hear that the sentence does not stop at « pas ».",
+            "clipIds": [
+              "Je me suis lavé.",
+              "Je ne me suis pas levé.",
+              "Il ne s'est pas levé.",
+              "Nous ne nous sommes pas levés."
+            ]
+          },
+          {
+            "id": "rec-a2-23-trap",
+            "desc": "THE AUDIO STEP OF THE TRAP, AND IT IS A WRONG-THEN-RIGHT TAKE. Four lines, one take, in this order: « Je m'ai levé. » then « Je me suis levé tôt. », then « Je me suis lavé. » then « J'ai lavé la voiture. » READ THE FIRST LINE PLAINLY AND AT ORDINARY PACE rather than comically or hesitantly. It is perfectly pronounceable and it is what a careful learner produces from a correct sentence they said four seconds earlier; a reading that signals the error teaches that the error announces itself, and it does not. DO NOT SEPARATE THE FIRST TWO LINES WITH A LONG PAUSE. The pair is the teaching and it works when the two sit against each other. LINES THREE AND FOUR ARE THE SECOND PAIR and the verb « lavé » is the same syllable in both. Nothing about it may change.",
+            "clipIds": [
+              "Je m'ai levé.",
+              "Je me suis levé tôt.",
+              "Je me suis lavé.",
+              "J'ai lavé la voiture."
+            ]
+          },
+          {
+            "id": "rec-a2-23-dictee",
+            "desc": "THE DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to rec-a2-23-silent: there the learner is comparing and here they are spelling, and a paired reading would hand them the answer. Read each line as though it were the only line. MANY OF THESE END ON THE SAME SYLLABLE AND SEVERAL PAIRS ARE ONE SOUND END TO END. That is correct and must not be corrected for. « Il s'est lavé. » and « Ils se sont lavés. » differ in writing only, and the learner works out which from the two or three words at the front. THE FRONT OF THE SENTENCE IS WHERE ALL THE INFORMATION IS. « Il s'est », « Ils se sont », « Elle s'est », « Je me suis », « Tu t'es »: these must be clearly and evenly said, because they are the only thing distinguishing most of the thirteen. THE ELIDED FORMS ARE ONE SYLLABLE. « t'es » and « s'est » are not broken at the apostrophe. SAY IT THE WAY SOMEBODY WOULD SAY IT, at the pace of somebody dictating an address to a friend.",
+            "clipIds": [
+              "Il s'est lavé.",
+              "Elle s'est lavée.",
+              "Ils se sont lavés.",
+              "Je me suis lavé.",
+              "Je me suis couché.",
+              "Je me suis réveillé.",
+              "Tu ne t'es pas levé.",
+              "Il ne s'est pas levé.",
+              "Elle s'est habillée.",
+              "Ils se sont douchés.",
+              "Tu t'es couché tard.",
+              "Il s'est douché.",
+              "Elle s'est levée."
+            ]
+          },
+          {
+            "id": "rec-a2-23-talk",
+            "desc": "THE CONVERSATION, HER LINES ONLY, ONE TAKE, AS ONE CONTINUOUS EXCHANGE RATHER THAN AS FIVE SEPARATE PROMPTS. She is the same binôme from the opening scene and this time the exchange works. EVERY QUESTION IS ASKED WITHOUT INVERSION and should sound completely ordinary: « Tu t'es couché tard hier ? » is a statement with a question mark on it, which is what people say. HER OWN LINES CARRY THE STRUCTURE TWICE and neither may be marked or slowed. She is using it, not demonstrating it. THERE IS NO PAUSE INSIDE « t'es réveillé » OR « t'es couché ». The little word and the first word are one run.",
+            "clipIds": [
+              "Alors, ce matin ? Tu t'es réveillé à quelle heure ?",
+              "Et ensuite ?",
+              "Ta famille aussi ?",
+              "Tu t'es couché tard hier ?",
+              "Et tes collègues, ils sont arrivés à l'heure ?"
             ]
           }
         ],
@@ -375809,6 +378284,1229 @@
       "audioRef": null,
       "version": 1,
       "notes": "Role play turn 5, and it is one of the ones that is not reflexive at all."
+    },
+    {
+      "id": "fr.a2.verbes.791",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il s'est lavé.",
+      "en": "He washed.",
+      "ipa": "/il sɛ la.ve/",
+      "respell": "eel seh lah-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "cell",
+        "laver"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The plain form, and the one the other three are built off. Ten letters, so the dictée takes it in LETTERS mode."
+    },
+    {
+      "id": "fr.a2.verbes.792",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle s'est lavée.",
+      "en": "She washed.",
+      "ipa": "/ɛl sɛ la.ve/",
+      "respell": "ehl seh lah-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "cell",
+        "laver"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "One letter more and not one sound more. THE HALF OF THE PAIR the exception is set against."
+    },
+    {
+      "id": "fr.a2.verbes.793",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils se sont lavés.",
+      "en": "They washed.",
+      "ipa": "/il sə sɔ̃ la.ve/",
+      "respell": "eel suh sohⁿ lah-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "cell",
+        "laver"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The first word changes for the plural and so does the second, and neither change is audible."
+    },
+    {
+      "id": "fr.a2.verbes.794",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elles se sont lavées.",
+      "en": "They washed, and they are all women.",
+      "ipa": "/ɛl sə sɔ̃ la.ve/",
+      "respell": "ehl suh sohⁿ lah-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "cell",
+        "laver"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Both endings at once. SEVENTEEN LETTERS, so dicteeMode puts it in word mode and it carries no dictation drill."
+    },
+    {
+      "id": "fr.a2.verbes.795",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je me suis levé tôt.",
+      "en": "I got up early.",
+      "ipa": "/ʒə mə sɥi lə.ve to/",
+      "respell": "zhuh muh swee luh-VAY TOH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "person",
+        "lever"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The first person, and the sentence the whole lesson assembles."
+    },
+    {
+      "id": "fr.a2.verbes.796",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu t'es levé tôt.",
+      "en": "You got up early.",
+      "ipa": "/ty tɛ lə.ve to/",
+      "respell": "tü teh luh-VAY TOH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "person",
+        "lever",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE LITTLE WORD ELIDES. te becomes t before es, which is one of only two persons where anything elides at all."
+    },
+    {
+      "id": "fr.a2.verbes.797",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il s'est levé tôt.",
+      "en": "He got up early.",
+      "ipa": "/il sɛ lə.ve to/",
+      "respell": "eel seh luh-VAY TOH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "person",
+        "lever",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "And se becomes s. The other elided person, and the commonest sentence shape in the corpus."
+    },
+    {
+      "id": "fr.a2.verbes.798",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous nous sommes levés tôt.",
+      "en": "We got up early.",
+      "ipa": "/nu nu sɔm lə.ve to/",
+      "respell": "noo noo somm luh-VAY TOH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "person",
+        "lever",
+        "doubled"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE DOUBLED WORD AND THE FALSE POSITIVE. somm rather than sohm: sommes is a real m and a superscript there teaches a sound the word has not got. a2.21 §2."
+    },
+    {
+      "id": "fr.a2.verbes.799",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous vous êtes levés tôt.",
+      "en": "You got up early.",
+      "ipa": "/vu vu zɛt lə.ve to/",
+      "respell": "voo voo zeht luh-VAY TOH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "person",
+        "lever",
+        "doubled"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Doubled again, and nothing elides here even though êtes opens on a vowel: vous does not shorten."
+    },
+    {
+      "id": "fr.a2.verbes.800",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils se sont levés tôt.",
+      "en": "They got up early.",
+      "ipa": "/il sə sɔ̃ lə.ve to/",
+      "respell": "eel suh sohⁿ luh-VAY TOH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "person",
+        "lever"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "ZERO published sentences in the whole corpus, which is §5 for the sixth cell running."
+    },
+    {
+      "id": "fr.a2.verbes.801",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai lavé la voiture.",
+      "en": "I washed the car.",
+      "ipa": "/ʒe la.ve la vwa.tyʁ/",
+      "respell": "zhay lah-VAY lah vwah-TÜR",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "flip",
+        "avoir",
+        "laver"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "NO LITTLE WORD, SO avoir. Something is being washed and the sentence names it. This shape is published twice and the reflexive one not at all."
+    },
+    {
+      "id": "fr.a2.verbes.802",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je me suis lavé.",
+      "en": "I washed.",
+      "ipa": "/ʒə mə sɥi la.ve/",
+      "respell": "zhuh muh swee lah-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "flip",
+        "etre",
+        "laver"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE LITTLE WORD ARRIVES AND THE FIRST WORD FLIPS. Same verb, same person, same morning. This is the whole lesson on one card."
+    },
+    {
+      "id": "fr.a2.verbes.803",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai couché les enfants.",
+      "en": "I put the children to bed.",
+      "ipa": "/ʒe ku.ʃe le zɑ̃.fɑ̃/",
+      "respell": "zhay koo-SHAY lay zahⁿ-FAHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "flip",
+        "avoir",
+        "coucher"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Second pair, and coucher without the little word means putting somebody else to bed."
+    },
+    {
+      "id": "fr.a2.verbes.804",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je me suis couché.",
+      "en": "I went to bed.",
+      "ipa": "/ʒə mə sɥi ku.ʃe/",
+      "respell": "zhuh muh swee koo-SHAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "flip",
+        "etre",
+        "coucher"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "And it flips again, on a verb where nobody would guess it from the meaning."
+    },
+    {
+      "id": "fr.a2.verbes.805",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai réveillé mon frère.",
+      "en": "I woke my brother up.",
+      "ipa": "/ʒe ʁe.vɛ.je mɔ̃ fʁɛʁ/",
+      "respell": "zhay ray-veh-YAY mohⁿ FREHR",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "flip",
+        "avoir",
+        "reveiller"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Third pair. Waking somebody else is avoir and it names who."
+    },
+    {
+      "id": "fr.a2.verbes.806",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je me suis réveillé.",
+      "en": "I woke up.",
+      "ipa": "/ʒə mə sɥi ʁe.vɛ.je/",
+      "respell": "zhuh muh swee ray-veh-YAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "flip",
+        "etre",
+        "reveiller"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three verbs, three flips, and not one of them has anything to do with movement. Sixteen letters, the last value LETTERS mode allows."
+    },
+    {
+      "id": "fr.a2.verbes.807",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle s'est lavé les mains.",
+      "en": "She washed her hands.",
+      "ipa": "/ɛl sɛ la.ve le mɛ̃/",
+      "respell": "ehl seh lah-VAY lay MAHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "object",
+        "receptive"
+      ],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "NAMED, NOT TAUGHT. Something is named after the second word and the ending goes. The reason is a2.24s. Receptive drills only: no flashcard, no voiceflash, no dictation."
+    },
+    {
+      "id": "fr.a2.verbes.808",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle s'est brossé les dents.",
+      "en": "She brushed her teeth.",
+      "ipa": "/ɛl sɛ bʁɔ.se le dɑ̃/",
+      "respell": "ehl seh bro-SAY lay DAHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "object",
+        "receptive"
+      ],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The second of the two shapes a1.25 taught, so the learner meets both in week one. Receptive only, for the same reason."
+    },
+    {
+      "id": "fr.a2.verbes.809",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle a lavé la voiture.",
+      "en": "She washed the car.",
+      "ipa": "/ɛl a la.ve la vwa.tyʁ/",
+      "respell": "ehl ah lah-VAY lah vwah-TÜR",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "avoir",
+        "laver"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "A WOMAN, avoir, AND NOTHING ON THE END. a2.21 taught that and this lesson does not touch it. Set against 792, which is the same woman and the same verb."
+    },
+    {
+      "id": "fr.a2.verbes.810",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je ne me suis pas levé.",
+      "en": "I did not get up.",
+      "ipa": "/ʒə nə mə sɥi pa lə.ve/",
+      "respell": "zhuh nuh muh swee pah luh-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE SLOT SENTENCE. Six words, six positions, and the learner has met all six. Seventeen letters, so the dictée cannot take this one."
+    },
+    {
+      "id": "fr.a2.verbes.811",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu ne t'es pas levé.",
+      "en": "You did not get up.",
+      "ipa": "/ty nə tɛ pa lə.ve/",
+      "respell": "tü nuh teh pah luh-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "negation",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "ne WHOLE AND THE LITTLE WORD SHORTENED, which is the opposite of every earlier lesson in the arc. Fourteen letters."
+    },
+    {
+      "id": "fr.a2.verbes.812",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il ne s'est pas levé.",
+      "en": "He did not get up.",
+      "ipa": "/il nə sɛ pa lə.ve/",
+      "respell": "eel nuh seh pah luh-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "negation",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The same again in the third person. Fifteen letters, and the dictée runs it against the affirmative."
+    },
+    {
+      "id": "fr.a2.verbes.813",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle ne s'est pas levée.",
+      "en": "She did not get up.",
+      "ipa": "/ɛl nə sɛ pa lə.ve/",
+      "respell": "ehl nuh seh pah luh-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE ENDING SITS OUTSIDE THE WRAP and goes on exactly as it would without one. Eighteen letters, so it is not dictated."
+    },
+    {
+      "id": "fr.a2.verbes.814",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous ne nous sommes pas levés.",
+      "en": "We did not get up.",
+      "ipa": "/nu nə nu sɔm pa lə.ve/",
+      "respell": "noo nuh noo somm pah luh-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "negation",
+        "doubled"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four little words in a row and nothing shortens. Twenty-four letters, the longest row in the lesson."
+    },
+    {
+      "id": "fr.a2.verbes.815",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils ne se sont pas levés.",
+      "en": "They did not get up.",
+      "ipa": "/il nə sə sɔ̃ pa lə.ve/",
+      "respell": "eel nuh suh sohⁿ pah luh-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "ZERO published sentences for this shape in any person. §5."
+    },
+    {
+      "id": "fr.a2.verbes.816",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle s'est habillée.",
+      "en": "She got dressed.",
+      "ipa": "/ɛl sɛ ta.bi.je/",
+      "respell": "ehl seh tah-bee-YAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "habiller"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "s habiller, built rather than shown, and the ending is on it. Sixteen letters exactly."
+    },
+    {
+      "id": "fr.a2.verbes.817",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous nous sommes dépêchés.",
+      "en": "We hurried.",
+      "ipa": "/nu nu sɔm de.pɛ.ʃe/",
+      "respell": "noo noo somm day-peh-SHAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "depecher",
+        "doubled"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Nobody hurries themselves and it takes être anyway, because the little word is there. a2.22 taught that this one means nothing by it."
+    },
+    {
+      "id": "fr.a2.verbes.818",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous vous êtes reposés.",
+      "en": "You rested.",
+      "ipa": "/vu vu zɛt ʁə.po.ze/",
+      "respell": "voo voo zeht ruh-poh-ZAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "reposer",
+        "doubled"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The doubled shape on a verb the table never carried, in the past."
+    },
+    {
+      "id": "fr.a2.verbes.819",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils se sont douchés.",
+      "en": "They showered.",
+      "ipa": "/il sə sɔ̃ du.ʃe/",
+      "respell": "eel suh sohⁿ doo-SHAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "doucher"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Sixteen letters, so the dictée can ask for the plural ending on a verb that was never conjugated on a screen."
+    },
+    {
+      "id": "fr.a2.verbes.820",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Et ce matin ?",
+      "en": "And this morning?",
+      "ipa": "/e sə ma.tɛ̃/",
+      "respell": "ay suh mah-TAHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "scene"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Her question, and it asks for nothing the learner has not got."
+    },
+    {
+      "id": "fr.a2.verbes.821",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je me suis levé à six heures.",
+      "en": "I got up at six.",
+      "ipa": "/ʒə mə sɥi lə.ve a si zœʁ/",
+      "respell": "zhuh muh swee luh-VAY ah see ZUHR",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "scene"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "What works, and what the sentence was supposed to be."
+    },
+    {
+      "id": "fr.a2.verbes.822",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu as levé quoi ?",
+      "en": "You lifted what?",
+      "ipa": "/ty a lə.ve kwa/",
+      "respell": "tü ah luh-VAY KWAH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "scene",
+        "avoir"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "WHAT THE OTHER FIRST WORD GIVES. She did not hear a mistake. She heard a different sentence and waited for the missing thing."
+    },
+    {
+      "id": "fr.a2.verbes.823",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ah, tu t'es levé. Je comprends.",
+      "en": "Ah, you got up. I see.",
+      "ipa": "/a ty tɛ lə.ve ʒə kɔ̃.pʁɑ̃/",
+      "respell": "ah, tü teh luh-VAY. zhuh kohⁿ-PRAHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "scene"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The repair, which costs the story its opening. Nobody was rude and the sentence was told twice."
+    },
+    {
+      "id": "fr.a2.verbes.824",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je me suis réveillé à sept heures.",
+      "en": "I woke up at seven.",
+      "ipa": "/ʒə mə sɥi ʁe.vɛ.je a sɛ tœʁ/",
+      "respell": "zhuh muh swee ray-veh-YAY ah seh TUHR",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Role play turn 1."
+    },
+    {
+      "id": "fr.a2.verbes.825",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je me suis douché et je me suis habillé.",
+      "en": "I showered and got dressed.",
+      "ipa": "/ʒə mə sɥi du.ʃe e ʒə mə sɥi za.bi.je/",
+      "respell": "zhuh muh swee doo-SHAY ay zhuh muh swee zah-bee-YAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Role play turn 2. Two of them in one sentence, and the first word is repeated rather than shared."
+    },
+    {
+      "id": "fr.a2.verbes.826",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous nous sommes levés en même temps.",
+      "en": "We got up at the same time.",
+      "ipa": "/nu nu sɔm lə.ve ɑ̃ mɛm tɑ̃/",
+      "respell": "noo noo somm luh-VAY ahⁿ mem TAHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "talk",
+        "doubled"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Role play turn 3. The doubled form and the plural ending, produced rather than read."
+    },
+    {
+      "id": "fr.a2.verbes.827",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Non, je ne me suis pas couché tard.",
+      "en": "No, I did not go to bed late.",
+      "ipa": "/nɔ̃ ʒə nə mə sɥi pa ku.ʃe taʁ/",
+      "respell": "nohⁿ, zhuh nuh muh swee pah koo-SHAY TAR",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "talk",
+        "negation"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Role play turn 4. The negative, on a verb the six-person walk never carried."
+    },
+    {
+      "id": "fr.a2.verbes.828",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils se sont dépêchés ce matin.",
+      "en": "They hurried this morning.",
+      "ipa": "/il sə sɔ̃ de.pɛ.ʃe sə ma.tɛ̃/",
+      "respell": "eel suh sohⁿ day-peh-SHAY suh mah-TAHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "talk"
+      ],
+      "drills": [
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Role play turn 5, on the verb that carries the little word and means nothing by it."
+    },
+    {
+      "id": "fr.a2.verbes.829",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle s'est reposée un peu.",
+      "en": "She rested a little.",
+      "ipa": "/ɛl sɛ ʁə.po.ze œ̃ pø/",
+      "respell": "ehl seh ruh-poh-ZAY uhⁿ PUH",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "reposer"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "A fourth verb the lesson never conjugated, with the ending on it."
+    },
+    {
+      "id": "fr.a2.verbes.830",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle s'est souvenue de mon nom.",
+      "en": "She remembered my name.",
+      "ipa": "/ɛl sɛ suv.ny də mɔ̃ nɔ̃/",
+      "respell": "ehl seh soov-NÜ duh mohⁿ NOHⁿ",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "unseen",
+        "souvenir"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE SECOND WORD IS NOT BUILT FROM THE ENDING THIS LESSON USES. souvenue comes off venir, which is a2.20s -u group, and the ending goes on it exactly the same way."
+    },
+    {
+      "id": "fr.a2.verbes.831",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu t'es couché tard.",
+      "en": "You went to bed late.",
+      "ipa": "/ty tɛ ku.ʃe taʁ/",
+      "respell": "tü teh koo-SHAY TAR",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "extra",
+        "coucher",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fifteen letters, and the elided little word in a sentence with nothing else going on."
+    },
+    {
+      "id": "fr.a2.verbes.832",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il s'est douché.",
+      "en": "He showered.",
+      "ipa": "/il sɛ du.ʃe/",
+      "respell": "eel seh doo-SHAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "extra",
+        "doucher",
+        "elision"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Twelve letters. The singular against 819s plural, and only the writing tells them apart."
+    },
+    {
+      "id": "fr.a2.verbes.833",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle s'est levée.",
+      "en": "She got up.",
+      "ipa": "/ɛl sɛ lə.ve/",
+      "respell": "ehl seh luh-VAY",
+      "tags": [
+        "a2",
+        "pronominal",
+        "passe-compose",
+        "etre",
+        "extra",
+        "lever"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Thirteen letters, and the one the dictée uses to ask for the e on the verb the six-person walk ran on."
+    },
+    {
+      "id": "fr.a1.rp-recits-temps.180",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "rp-recits-temps",
+      "fr": "Le lendemain matin, elle s'est levée à cinq heures.",
+      "en": "The next morning, she got up at five o'clock.",
+      "ipa": "lə lɑ̃d.mɛ̃ ma.tɛ̃ ɛl sɛ lə.ve a sɛ̃k œʁ",
+      "notes": "Levée agrees with the feminine subject elle in this reflexive verb.",
+      "tags": [
+        "accord-genre"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.rp-recits-temps.199",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "rp-recits-temps",
+      "fr": "Ce matin, nous nous sommes levés très tôt pour partir.",
+      "en": "This morning, we got up very early to leave.",
+      "ipa": "sə ma.tɛ̃ nu nu sɔm lə.ve tʁɛ to puʁ paʁ.tiʁ",
+      "notes": "Levés takes an s to agree with the plural subject nous.",
+      "tags": [
+        "accord-nombre"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.rp-recits-temps.066",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "rp-recits-temps",
+      "fr": "Ce matin, j'ai lavé la voiture.",
+      "en": "This morning, I washed the car.",
+      "notes": "passé composé avec avoir",
+      "tags": [
+        "maison"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
     }
   ],
   "scenarios": [

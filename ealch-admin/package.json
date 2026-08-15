@@ -83,7 +83,8 @@
     "content:futur-proche": "tsx scripts/author-futur-proche-batch.ts",
     "content:passe-compose": "tsx scripts/author-passe-compose-batch.ts",
     "content:participes": "tsx scripts/author-participes-batch.ts",
-    "content:passe-compose-etre": "tsx scripts/author-passe-compose-etre-batch.ts"
+    "content:passe-compose-etre": "tsx scripts/author-passe-compose-etre-batch.ts",
+    "content:pronominaux-passe": "tsx scripts/author-pronominaux-passe-batch.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",

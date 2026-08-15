@@ -3632,3 +3632,250 @@ v2.** v42 carried a2.21 and everything before it.
 - **`ne` does not elide in the present**, and it will again in the compound past:
   « il ne s'est pas lavé » elides the PRONOUN rather than the `ne`.
 - **Widen the double-stop guard (§4) before authoring, not after.**
+
+---
+
+## a2.23 amendments, 2026-08-15
+
+Written by the `a2.23` build, which is **seq 20, the LAST lesson of batch 2 and
+the capstone of the past-tense arc**. Recorded here rather than in a batch-2
+ledger for the same reason a2.04's, a2.18's, a2.05's, a2.20's, a2.21's and
+a2.22's are.
+
+Full report: `A2-23-BUILD-REPORT.md`.
+
+### 0. THE ID BLOCK HELD EXACTLY AS a2.21 AND a2.22 RESERVED IT
+
+```
+seq  id      block                          status
+20   a2.23   fr.a2.verbes.791 .. .860       43 rows, 791-833 used
+     559 rows before, 602 after, exactly +43
+```
+
+`.834..860` is the tail and is not backfilled. a2.21's block still holds exactly
+46 and a2.22's exactly 31, both re-measured by this build's manifest and batch.
+
+**BATCH 2 IS COMPLETE.** seq 11 to 20 are all shipped. **The next lesson to write
+into `verbes` should take `.861..930`.**
+
+### 1. THE NEGATION ARC IS TWO STRINGS, NOT ONE, AND NEITHER HAS DRIFTED
+
+a2.23's brief asked the fifth and last lesson in the chain to settle whether the
+five statements are one string. Measured off the shipped bodies:
+
+```
+a1.18  « Wrap the verb, then ask what the verb was. »               x13, its reframe
+a2.19  « Wrap the verb that changed, not the one carrying the
+         meaning. »                                                 x16, its reframe
+a2.05 · a2.21 · a2.22   quote a2.19's, x5, x2, x8
+a2.19 · a2.22           also quote a1.18's, x1 each
+```
+
+**Two strings, deliberately.** a1.18 said which words go round the verb; a2.19
+said which verb. Nothing has been reworded in five lessons.
+
+**So the assertion to copy is not "one string". It is that BOTH are quoted
+verbatim AND that they are still different from each other**, because the failure
+mode from here is somebody "harmonising" them and losing the distinction.
+
+a2.23 adds the third sentence the three-word verb needs:
+
+> « The wrap goes round the little word and the first word. The second word sits
+> outside it. »
+
+**And the elision has now moved four times in four lessons**: a2.05 elided `ne`
+in six of six persons, a2.21 in three of six, a2.22 in none, and a2.23 in none —
+with the elision on a DIFFERENT WORD, the pronoun, in two persons. Write
+`reduceNegative()` fresh every time; do not inherit it.
+
+### 2. §14.3's APOSTROPHE FIX HAS A MIRROR ON THE RIGHT, AND IT IS A LIVE HOLE IN EVERY LESSON IN THIS BAND
+
+Corrections §14.3 records that the house boundary excludes the apostrophe on the
+LEFT, so a shape cannot see `j'ai` or `s'est`. **The same exclusion on the RIGHT
+makes every `hasPhrase(surface, '<unit id>')` check blind to the possessive**, and
+« a2.01's line » is how this band names a neighbour almost every time. Measured:
+
+```
+"That is a2.01's line."          hasPhrase(_, 'a2.01')   BLIND
+"That is a2.01 and nothing."     hasPhrase(_, 'a2.01')   MATCH
+"a2.24's lesson owns it."        hasPhrase(_, 'a2.24')   BLIND
+```
+
+A check that a neighbour is credited therefore passes **only by accident**, on
+whichever screen happens to name it without a possessive. Found when a2.23's test
+went red on a card reading « That is a2.01's line » while the batch's version of
+the same check, which used `.includes()`, passed.
+
+**The fix is `namesUnit()`: the same boundary with the apostrophe dropped from the
+RIGHT and kept on the left** — the exact opposite of §14.3's fix, right for the
+same reason. It is in all three of a2.23's layers. **Sweep the band with it.**
+
+### 3. §14.4 RUNS BOTH WAYS: AN ENGLISH GLOSS FIRES ON ENGLISH PROSE
+
+§14.4 records a shape built from FRENCH morphology firing on the English half of
+a card. The mirror is real too. a2.23's first reciprocal marker list held the
+bare phrase `each other` and refused an audio brief reading *« the pair is the
+teaching and it works when the two sit against each other »*.
+
+The gloss that would actually teach a reciprocal is **`to each other`**. Narrow to
+that, and walk a MUST_FIRE and a MUST_NOT_FIRE list with the sentence that broke
+it pinned by name.
+
+### 4. §14.5's RATIO ANSWER DOES NOT COVER A UNIT TITLE THAT IS ITSELF JARGON
+
+§14.5 says to guard the RATIO rather than ban a part-of-speech name, so that
+`overview.titleEn` can stay the unit's own English name. That works when the
+technical word is avoidable elsewhere.
+
+**a2.23's English title is « Pronominal Verbs in the Passé Composé ».** The phrase
+is unambiguously jargon on a card and contractually fixed in that one field, so a
+ratio guard would either let it onto every card or refuse the title.
+
+**The shape that works is a NARROW EXEMPTION plus an EQUALITY ASSERTION**: one
+string, checked to BE `UNIT.title`, plus a second assertion that the title's own
+jargon appears nowhere else. a2.22 has the same title shape and did not hit it
+only because « Pronominal (Reflexive) Verbs » puts a bracket between the two
+words. It is latent there, not absent.
+
+### 5. THE MERGE WAS THINNER THAN THE BATCH IN FIVE PLACES, WHICH IS a2.16 §4 FOR THE FIFTH BUILD RUNNING
+
+Of a2.23's 41 mutations, SEVEN found a weakness. Six were the merge:
+
+```
+give the exception a production drill        the merge did not read its drills
+stop naming a2.24                            the merge did not check at all
+author a headword instead of importing it    the merge had no kind check
+author a participle as a corpus item         nor a2.05 §4's whitespace rule
+take the error off the trap's first card     the merge had no literal for it
+```
+
+**Every one of those is a guard the batch had and the merge did not.** The merge
+is the layer that runs when somebody re-merges without re-applying, so this keeps
+mattering. Copy the batch's guards into the merge by construction rather than by
+memory.
+
+**And the seventh was the one inherited line that was not a literal.**
+`PRESENT_NO_AGREEMENT` was quoted from a2.22 and compared against its own
+constant, so paraphrasing it renamed both sides and walked past batch AND merge.
+a2.18 §6 and a2.21 §4.2 for the SIXTH time in this band. **When you list the
+strings you inherit, list ALL of them, including the ones that do not feel like
+reframes.**
+
+### 6. THE EXCEPTION WAS ALREADY PUBLISHED, UNAGREED, IN THE SEED
+
+a2.23's largest judgement call was whether to teach agreement with a preceding
+direct object. The measurement decided it:
+
+```
+fr.a2.corps.001  « Elle s'est cassé le bras en tombant du vélo. »     inSeed=Y
+fr.a2.corps.002  « Elle s'est cassé la jambe ... »                    inSeed=Y
+fr.a2.corps.006  « Elle s'est fait mal au genou en courant. »         inSeed=Y
+```
+
+Three A2 cards in the cut, feminine subject, **`cassé` and not `cassée`**, with 51
+published `elle s'est` sentences behind them. A lesson teaching « agree with the
+subject » and stopping would make a learner read shipped cards as typos.
+
+**So: OPTION 1, named receptively, reason left to a2.24, and RECOGNITION tested
+while production never is.** The manifest re-measures those three rows on every
+regeneration and refuses if any has been "corrected" into agreement.
+
+**The general point for anyone deciding what to defer: probe whether the corpus
+has already shipped the thing you are thinking of leaving out.** a2.23's brief
+argued from what the learner would meet in week one; the corpus said they had met
+it already.
+
+### 7. THE RECIPROCAL IS NOW OUT ENTIRELY
+
+a2.22 named it once, receptively. a2.23 left it out of everything, because its
+agreement behaviour depends on the same distinction option 1 declines to explain,
+so naming it would teach a2.24's rule by the back door. Measured: `se sont parlé`
+has ONE published sentence in the whole corpus, at B1, and no unit at any level
+owns the reciprocal. **a2.24 gets it clean.**
+
+### 8. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3906   pass 3906   fail 0        measured 2026-08-15, before a2.23
+  tests 3950   pass 3950   fail 0        after a2.23 (+44)
+a1-03-genre.test.ts   ending population 1890 both ways, measured off the SEED.
+                      0 gendered rows authored OR carried; ONE was refused
+                      (« la tête », for the exception card).
+npx tsc --noEmit      0 in ealch-v2 AND 0 in ealch-admin
+seed.json             version 43, 9304 items, 61 lessons, 75 units (before)
+                      version 43, 9347 items, 62 lessons, 75 units (after, NOT
+                        published; the merge left the version alone)
+                      +43 authored, +3 CARRIED through the cut (predicted 3,
+                        and the prediction held EXACTLY, which is the first
+                        time in five builds)
+mutation harness      41 mutations, 0 caught by nothing, 0 skipped, SEVEN
+                        finding a weakness rather than confirming a strength
+content:parity        clean; only the known pre-existing b2.01.l1
+```
+
+**NOTE ON THE SEED VERSION.** It moved from 42 to 43 partway through this session,
+by a publish this build did not run: the whole file was regenerated from the
+database and a2.22 went in with it. Parity is clean and nothing was lost, but
+**whoever publishes next should check `git log` on `seed.json` first** — this
+build merged onto a working tree that had already moved under it.
+
+### 9. WHAT THE NEXT LESSON INHERITS
+
+- **Batch 2 is finished.** seq 21 to 32 are the pronoun block and the situational
+  block, and none of them is briefed.
+- **`fr.a2.verbes.861..930`** is the next free block. 602 rows now.
+- **`namesUnit()` (§2) should be swept across the band before anything else.**
+- **a2.24 owns the reason the ending disappears**, named on a2.23's `s11-object`
+  and in two of its terms, and it has a clean reciprocal to introduce.
+- **`sommes` is a false positive whose WRONG fix the checker calls clean**
+  (a2.21 §3). Four a2.23 rows carry it and all four are asserted by name. Any
+  lesson using `nous sommes` has this today.
+- **The six inherited strings a2.23 quotes**, all literals in three layers:
+  a2.21's `AGREEMENT_RULE`, a2.01's reframe, a1.18's and a2.19's negation lines,
+  a2.22's extension and `PRESENT_NO_AGREEMENT`.
+
+### 10. `drillOrder()` DOES NOT DO WHAT ITS COMMENT SAYS, AND EVERY MERGE IN THIS BAND COPIES IT
+
+**Found by a2.23 while preparing its commit, after every gate was already green.
+It is the most transferable thing in that build.**
+
+a2.12's trap, quoted in every merge in this band, says `drills` is a Postgres
+enum array ordered by DECLARATION and that a merge sorting it as strings ships a
+different order into the seed from the one the database holds. The inherited fix
+is `drillOrder()`, which sorts by `DRILL_KINDS`.
+
+**It matches the database only by luck.** The batch writes `it.drills` to
+Postgres VERBATIM, so the database holds whatever the corpus file declared. The
+merge writes `drillOrder(it.drills)`. The two agree only if the declaration was
+already in `DRILL_KINDS` order.
+
+```
+a2.21   declared its arrays in DRILL_KINDS order  ->  diverged on nothing
+a2.22   declared sentence-first                   ->  diverged on ALL 31 rows,
+                                                       healed only when the v43
+                                                       publish regenerated the
+                                                       seed from the database
+a2.23   declared sentence-first                   ->  38 of 63 diverged
+```
+
+**And it was also being applied to the CARRIED rows**, which is strictly wrong:
+the manifest IS a recorded read of Postgres, so an imported row's array already
+holds what the database holds, and sorting it can only break the match. a2.23 was
+rewriting `fr.a2.corps.001` and `fr.a2.routines.049` — rows it does not own the
+content of — from « sentence, flashcard, review » to « flashcard, sentence,
+review ».
+
+**Two fixes, both at the source rather than in the repair:**
+
+1. Declare the drill sets in `DRILL_KINDS` order and have **the batch assert it**,
+   where the array is written, rather than leaving the merge to patch it.
+2. **Carry imported rows byte-faithfully.** Do not call `drillOrder()` on a row
+   read out of the database; refuse if the carried array differs from the
+   recorded one.
+
+a2.23 after the fix: **63 of 63 rows identical in Postgres and the seed.**
+
+**SWEEP THE BAND FOR THIS.** The symptom is invisible to every existing gate:
+`content:parity` does not compare item drill order, no test does, and a publish
+silently heals it — which is exactly why it has survived this long.
