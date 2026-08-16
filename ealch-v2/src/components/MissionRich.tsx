@@ -867,8 +867,30 @@ function TrapAudioStep({ s }: { s: TrapDrillSec }) {
       contentContainerStyle={{ paddingBottom: STEP_FOOTER_H + 8 }}
       showsVerticalScrollIndicator={false}
     >
+      {/* GENERIC ON PURPOSE, and it used to name a sound.
+        *
+        * This line read « Écoutez la paire. Le R sonne, puis le R se tait. »
+        * and was printed on EVERY stepped trapDrill audio step in the product:
+        * measured 2026-08-16, 46 steps across 34 lessons, and NOT ONE of them
+        * teaches the French R. It was written for one screen and rendered on
+        * all of them, telling a learner working on politeness registers,
+        * verb endings or preposition folds to listen for a consonant that is
+        * not in the exercise.
+        *
+        * (A first sweep reported one lesson as genuinely about the R. It was a
+        * false positive: the pattern `le R\b` matched « Le réflexe », because
+        * JavaScript's \b is ASCII-only and é is not a word character. That is
+        * A2-BRIEF-CORRECTIONS.md §14.3 in a new place.)
+        *
+        * Every one of the 46 already renders its own authored step title
+        * directly above this line, so this is the instruction and not the
+        * heading. It has to be true everywhere or say nothing. All 46 authored
+        * audio specs carry more than one speed, so the speed clause holds.
+        *
+        * If a step ever needs its own wording, add `hint?: string` to TrapStep
+        * and fall back to this. Do not put a sound back in it. */}
       <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 12 }}>
-        Écoutez la paire. Le R sonne, puis le R se tait.
+        Écoutez chaque paire, à vitesse normale puis lentement.
       </TX>
       {s.cards.map((c, i) => (
         <View
