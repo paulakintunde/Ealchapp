@@ -1027,7 +1027,20 @@ test('a1.03\'s ending population is untouched, and no row this build owns is in 
   // a2.04 §0: the population is measured off THE SEED, so a CARRY puts a row
   // there even when Postgres already had it. Run through the REAL function.
   const pop = endingPopulation(seed.items as never);
-  strictEqual(pop.length, 1890);
+  // MEASURED AS A DIFFERENTIAL RATHER THAN AS A CONSTANT, 2026-08-15. This read
+  // 1890 until a2.07 « Au restaurant » published one gendered single-word noun
+  // (fr.a1.au-restaurant.010 « le pourboire »), which joined the population on
+  // the next publish and turned this assertion red in a lesson that had changed
+  // nothing — along with five others exactly like it. Invariants §6: a hardcoded
+  // count fails on itself the first time content legitimately changes, and
+  // editing the number is how a test comes to certify a bug. The claim here is
+  // "THIS LESSON did not move it", so it is asked that way and is now immune to
+  // anybody else's rows.
+  strictEqual(
+    endingPopulation(seed.items as never).length,
+    endingPopulation(seed.items.filter((i) => !isMine(i.id)) as never).length,
+    'a row this lesson owns is in a1.03\'s ending population',
+  );
   const mine = new Set(myRows().map((r) => r.id));
   deepStrictEqual(pop.filter((p) => mine.has((p as { id: string }).id)).map((p) => (p as { id: string }).id), []);
 });

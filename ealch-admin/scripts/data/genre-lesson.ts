@@ -1759,7 +1759,24 @@ export const GENRE_LESSON: Lesson = {
   // The general point, for whoever moves the cut next: what ships offline is a
   // packaging decision in seed-cut.config.ts, and it silently owns numbers this
   // lesson prints on cards. Widening the cut is never only a size change.
-  version: 4,
+  //
+  // v5: ONE figure moved on 2026-08-15, and one row moved it. a2.07 « Au
+  // restaurant » published `fr.a1.au-restaurant.010` « le pourboire » — a
+  // gendered single-word noun in a theme already inside SEED_CUT.themes — and
+  // it joined this population on the next publish:
+  //
+  //     -e     904 -> 905   worthless, still 70%
+  //
+  // Nothing else moved: all thirteen endings were re-measured through the real
+  // `measureEnding` and only -e changed, in n and not in accuracy. So the
+  // taught set, the sheet and the worthless list all say exactly what they said
+  // before, and one printed count is one higher.
+  //
+  // It was caught by v48 going out at rollout 10 and turning nine tests red
+  // across the suite, which is invariants §5's "gendered single-word nouns are
+  // radioactive" arriving on schedule. Corrections §10: THE COUNTER MOVES
+  // rather than the body being corrected under v4.
+  version: 5,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it

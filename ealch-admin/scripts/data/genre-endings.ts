@@ -362,7 +362,23 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // This figure is MEASURED (a1-03-genre.test.ts recomputes it from the seed
     // on every run), so a corpus edit anywhere in the app moves it and the card
     // has to move with it.
-    items: 904,
+    //
+    // 905 since 2026-08-15, and it moved by ONE ROW: a2.07 « Au restaurant »
+    // published `fr.a1.au-restaurant.010` « le pourboire », a gendered
+    // single-word noun in a theme inside SEED_CUT.themes. Invariants §5 calls
+    // that shape radioactive and it is: one row, nine red tests across the
+    // suite, and a number on this card that stopped being true.
+    //
+    // WHAT WAS DECIDED, AND WHY IT IS NOT A WITHDRAWAL. Invariants §5 says
+    // "withdraw rather than argue", and that is the right default when a build
+    // is about to add a row it does not need. `le pourboire` is not that: it is
+    // ordinary restaurant vocabulary that a2.07 exists to teach, its gender is
+    // real, and the population is the SEED rather than the corpus. So the row
+    // stays and the card moves, which is what the paragraph above already says
+    // has to happen. The accuracy did not move: 70% before, 70% after, and no
+    // other ending moved at all — measured through the real measureEnding
+    // across all thirteen.
+    items: 905,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },

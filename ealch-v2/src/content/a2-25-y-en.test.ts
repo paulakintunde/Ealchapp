@@ -273,8 +273,16 @@ test('NO CARD JOINS TWO SENTENCES ON ONE fr LINE', { skip: noLesson }, () => {
 
 test('50 rows in the claimed block, and nobody else is inside it', { skip: noLesson }, () => {
   strictEqual(MINE.length, 50, `${MINE.length} rows inside ${MY_BLOCK.from}..${MY_BLOCK.to}`);
-  strictEqual(MINE[0]!.id, A(287));
-  strictEqual(MINE[MINE.length - 1]!.id, A(336));
+  /* THE BLOCK IS A SET OF IDS, NOT AN ARRAY POSITION. The first version asserted
+   * `MINE[0].id === A(287)`, which reads the ORDER `seed.items` happens to be in
+   * — and `content:publish` regenerates the seed from the database in its own
+   * order, so the assertion went red on a publish that had changed nothing about
+   * this lesson. A test that fails on a legitimate change is how a test comes to
+   * certify a bug (invariants §6). Sorted, so it asserts the block. */
+  const ids = MINE.map((i) => i.id).sort();
+  strictEqual(ids[0], A(287));
+  strictEqual(ids[ids.length - 1], A(336));
+  strictEqual(new Set(ids).size, 50, 'an id inside the block appears twice');
   /* AND THE TWO BLOCKS BELOW ARE UNTOUCHED. */
   const a206 = seed.items.filter((i) => /^fr\.a2\.pronoms-essentiels\.(1[89]\d|2[0-3]\d)$/.test(i.id));
   ok(a206.length >= 48, `a2.06's block holds ${a206.length} rows and it applied 48`);

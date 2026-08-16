@@ -835,7 +835,20 @@ test('not one row this build touches carries a gender, and a1.03 has not moved',
   // what puts a row there. THE ONE ROW THIS BUILD WANTED AND COULD NOT TAKE is
   // fr.sons.jours-et-mois.036 « la semaine dernière », which carries gender=f;
   // its VALUE is read off for two respellings, which does not carry it.
-  strictEqual(endingPopulation(seed.items as never).length, 1890);
+  // MEASURED AS A DIFFERENTIAL RATHER THAN AS A CONSTANT, 2026-08-15. This read
+  // 1890 until a2.07 « Au restaurant » published one gendered single-word noun
+  // (fr.a1.au-restaurant.010 « le pourboire »), which joined the population on
+  // the next publish and turned this assertion red in a lesson that had changed
+  // nothing — along with five others exactly like it. Invariants §6: a hardcoded
+  // count fails on itself the first time content legitimately changes, and
+  // editing the number is how a test comes to certify a bug. The claim here is
+  // "THIS LESSON did not move it", so it is asked that way and is now immune to
+  // anybody else's rows.
+  strictEqual(
+    endingPopulation(seed.items as never).length,
+    endingPopulation(seed.items.filter((i) => !isMine(i.id)) as never).length,
+    'a row this lesson owns is in a1.03\'s ending population',
+  );
 });
 
 test('no duplicate fr inside the theme, computed the way flashhub-coverage does', () => {

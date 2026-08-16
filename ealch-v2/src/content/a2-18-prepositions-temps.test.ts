@@ -858,7 +858,20 @@ test('this lesson does not move a1.03\'s ending population', { skip: noLesson },
   // what puts a row there, so importing a gendered noun moves a1.03's printed
   // figures even though Postgres already had the row. This lesson imports none.
   const pop = endingPopulation(seed.items as never);
-  strictEqual(pop.length, 1890);
+  // MEASURED AS A DIFFERENTIAL RATHER THAN AS A CONSTANT, 2026-08-15. This read
+  // 1890 until a2.07 « Au restaurant » published one gendered single-word noun
+  // (fr.a1.au-restaurant.010 « le pourboire »), which joined the population on
+  // the next publish and turned this assertion red in a lesson that had changed
+  // nothing — along with five others exactly like it. Invariants §6: a hardcoded
+  // count fails on itself the first time content legitimately changes, and
+  // editing the number is how a test comes to certify a bug. The claim here is
+  // "THIS LESSON did not move it", so it is asked that way and is now immune to
+  // anybody else's rows.
+  strictEqual(
+    endingPopulation(seed.items as never).length,
+    endingPopulation(seed.items.filter((i) => !isMine(i.id)) as never).length,
+    'a row this lesson owns is in a1.03\'s ending population',
+  );
   const mine = new Set(myRows().map((r) => r.id));
   const fromHere = pop.filter((p: { id: string }) => mine.has(p.id));
   deepStrictEqual(fromHere, [], 'a row of this lesson is in a1.03\'s ending population');
