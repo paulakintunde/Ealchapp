@@ -654,6 +654,26 @@ export type SectionExtras = {
   /** Open this section's questions in a modal, one at a time, rather than
    *  listing them under the content they ask about. */
   questionsInModal?: boolean;
+  /** `listening` only: hide the passage until the learner has answered.
+   *
+   *  `ListeningView` renders every line's `fr` and `en` beside its PlayDot, so
+   *  every listening section in the product has been answerable by READING.
+   *  That is fine for a section whose questions are about the words, and it
+   *  quietly voids one whose questions are about what the ear caught. The A2
+   *  situations band (seq 24-31) weights hard toward reception and is the first
+   *  content that needs the distinction.
+   *
+   *  When true the line card keeps its box and its PlayDot and replaces the
+   *  text with a neutral placeholder. Once every question is answered the lines
+   *  REVEAL — the reveal is not gated on getting them right, because the point
+   *  is to let the learner check what they heard, not to withhold it as a
+   *  prize.
+   *
+   *  This is the same idea as `questionsInModal`, in the same grammatical
+   *  shape, on the same section type: that one stops the learner reading the
+   *  QUESTIONS early, this one stops them reading the PASSAGE. Absent means
+   *  today's behaviour, so all 63 shipped listening sections are unchanged. */
+  hideLines?: boolean;
   /** How this section sounds: which recording it wants, at what speeds, and
    *  whether the audio leads the text.
    *
@@ -2445,8 +2465,14 @@ function validateSection(s: unknown, path: string): Issue[] {
       push('terms must be an array of glossary keys when present');
     }
   }
-  for (const flag of ['swipe', 'questionsInModal'] as const) {
+  for (const flag of ['swipe', 'questionsInModal', 'hideLines'] as const) {
     if (sec[flag] !== undefined && typeof sec[flag] !== 'boolean') push(`${flag} must be a boolean when present`);
+  }
+  // `hideLines` only means anything on a listening section. Authored anywhere
+  // else it is a field that validates, publishes and does nothing, which is the
+  // exact shape of the five dead audio fields the seed already carries 31 of.
+  if (sec.hideLines !== undefined && sec.type !== 'listening') {
+    push("hideLines is only read on a 'listening' section");
   }
   // The French-audio spec. Only checked on section types that do NOT already
   // own an `audio` field of their own shape (the 'audio' section's is a

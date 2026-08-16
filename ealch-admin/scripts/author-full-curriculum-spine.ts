@@ -751,13 +751,22 @@ const A2: SpineUnit[] = [
     prereqUnitIds: ['a2.24'],
   },
   {
+    // A2 SITUATIONS BAND THEME RE-MAP, 2026-08-15. Collation §5, blocking step 2.
+    // Five spine themes were phantoms: `nourriture`, `sante`, `voyage`,
+    // `technologie` and `transport` hold ZERO published rows in Postgres, zero in
+    // the seed, and have no `themeMeta` entry among the 124 keys. Re-measured
+    // against Postgres before this edit, all five confirmed 0 and 0. An item id is
+    // `fr.a2.<theme>.<nnn>`, so no id could be minted until this landed.
+    // DO NOT RE-RUN THIS SCRIPT to apply it: `spine-drift.test.ts` exists because
+    // a naive re-run would have reverted 74 of 75 unit titles. The `themes` arrays
+    // are edited by hand and each unit's own merge script carries its unit row.
     id: 'a2.07',
     seq: 24,
     title: 'At the Restaurant',
     sub: 'Au restaurant',
     gloss: 'ordering — the partitive in real use',
     canDo: 'Can order a full meal, ask for the bill and handle the waiter’s questions',
-    themes: ['nourriture', 'cafe'],
+    themes: ['au-restaurant', 'cafe'],
     prereqUnitIds: ['a1.29'],
   },
   {
@@ -767,7 +776,7 @@ const A2: SpineUnit[] = [
     sub: 'Les courses & l’argent',
     gloss: 'shopping, money & prices',
     canDo: 'Can shop, ask a price, count change and complete a purchase',
-    themes: ['courses'],
+    themes: ['courses', 'argent-quotidien'],
     prereqUnitIds: ['a1.28'],
   },
   {
@@ -777,7 +786,7 @@ const A2: SpineUnit[] = [
     sub: 'Les transports',
     gloss: 'getting around, directions & transport modes',
     canDo: 'Can buy a ticket, ask for directions and follow the answer',
-    themes: ['transport', 'deplacements'],
+    themes: ['transports-quotidiens', 'deplacements'],
     prereqUnitIds: ['a2.04'],
   },
   {
@@ -787,7 +796,7 @@ const A2: SpineUnit[] = [
     sub: 'Chez le médecin',
     gloss: 'health — symptoms & the body',
     canDo: 'Can describe a symptom, say what hurts and understand simple medical advice',
-    themes: ['sante', 'corps'],
+    themes: ['symptomes', 'corps'],
     prereqUnitIds: ['a1.24'],
   },
   {
@@ -797,7 +806,7 @@ const A2: SpineUnit[] = [
     sub: "À l'hôtel",
     gloss: 'check-in, requests & complaints',
     canDo: 'Can check in, make a request and raise a problem politely',
-    themes: ['voyage'],
+    themes: ['hebergement'],
     prereqUnitIds: ['a2.13'],
   },
   {
@@ -827,7 +836,7 @@ const A2: SpineUnit[] = [
     sub: 'La technologie',
     gloss: 'smartphone, internet & digital life',
     canDo: 'Can talk about their phone, the internet and everyday digital tasks',
-    themes: ['technologie'],
+    themes: ['internet'],
     prereqUnitIds: ['a2.01'],
   },
   {

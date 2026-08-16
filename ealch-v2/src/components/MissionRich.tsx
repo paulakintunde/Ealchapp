@@ -1948,15 +1948,64 @@ export function ScenarioView({ s, active = true }: { s: ScenarioSec; active?: bo
 
 export function ListeningView({ s }: { s: ListeningSec }) {
   const t = useTheme();
+  const T = useT();
   const [answers, setAnswers] = useState<Record<number, number>>({});
+
+  // `hideLines`: the passage stays masked until every question is answered,
+  // then reveals. Without it this component prints `fr` and `en` beside the
+  // PlayDot, so a section whose questions are about what the EAR caught is
+  // answerable by reading and tests nothing.
+  //
+  // The reveal is deliberately NOT gated on answering correctly. A learner who
+  // guessed wrong is exactly the one who needs to see what was actually said,
+  // and withholding it turns a comprehension exercise into a punishment.
+  //
+  // Absent (the shipped default) means today's behaviour, so all 63 existing
+  // listening sections render unchanged.
+  const answered = Object.keys(answers).length;
+  const masked = s.hideLines === true && answered < s.questions.length;
+
   return (
     <View>
       <View style={{ gap: 8, marginBottom: 18 }}>
         {s.lines.map((l, i) => (
           <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            {/* The flex belongs on this WRAPPER, never on the TX: a flexed Text
+                drops its last words while the audio speaks them in full. */}
             <View style={{ flex: 1 }}>
-              <TX role="body">{l.fr}</TX>
-              <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{l.en}</TX>
+              {masked ? (
+                // ONE ROW, AND IT SAYS WHY IT IS EMPTY.
+                //
+                // The first version drew two anonymous grey bars per card. On a
+                // Pixel 6 that is the universal "content failed to load" signal
+                // repeated six times down the screen, with nothing anywhere
+                // saying the words were withheld deliberately or that they come
+                // back. The label removes that ambiguity in one word.
+                //
+                // The number keeps the six clips distinguishable, which the
+                // questions rely on: they refer to a line by number precisely so
+                // they do not have to reprint it.
+                //
+                // MEASURED, so the next person does not repeat the reasoning:
+                // this does NOT make the card shorter. The PlayDot is ~44dp and
+                // is the tallest thing in the row, so card height is set by the
+                // control and not by the text, and it is identical masked or
+                // revealed. That is the reason the reveal does not make the list
+                // jump — not the two-line placeholder the first version used.
+                <View
+                  style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}
+                  accessibilityLabel={`Line ${i + 1}, hidden until you have answered`}
+                >
+                  <TX role="bodySm" color={t.txSubtle}>{i + 1}</TX>
+                  <TX role="bodySm" color={t.txMuted} style={{ fontStyle: 'italic' }}>{T.lsHidden}</TX>
+                  <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
+                </View>
+              ) : (
+                <>
+                  <TX role="body">{l.fr}</TX>
+                  <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{l.en}</TX>
+                </>
+              )}
             </View>
             <PlayDot text={l.fr} />
           </View>

@@ -947,7 +947,7 @@
       "title": "Technology",
       "track": "a2",
       "themes": [
-        "technologie"
+        "internet"
       ],
       "lessonIds": [],
       "prereqUnitIds": [
@@ -1006,10 +1006,12 @@
       "title": "At the Restaurant",
       "track": "a2",
       "themes": [
-        "nourriture",
+        "au-restaurant",
         "cafe"
       ],
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.07.l1"
+      ],
       "prereqUnitIds": [
         "a1.29"
       ]
@@ -1023,7 +1025,8 @@
       "title": "Shopping and Money",
       "track": "a2",
       "themes": [
-        "courses"
+        "courses",
+        "argent-quotidien"
       ],
       "lessonIds": [],
       "prereqUnitIds": [
@@ -1039,7 +1042,7 @@
       "title": "Transportation",
       "track": "a2",
       "themes": [
-        "transport",
+        "transports-quotidiens",
         "deplacements"
       ],
       "lessonIds": [],
@@ -1056,7 +1059,7 @@
       "title": "At the Doctor's",
       "track": "a2",
       "themes": [
-        "sante",
+        "symptomes",
         "corps"
       ],
       "lessonIds": [],
@@ -1073,7 +1076,7 @@
       "title": "At the Hotel",
       "track": "a2",
       "themes": [
-        "voyage"
+        "hebergement"
       ],
       "lessonIds": [],
       "prereqUnitIds": [
@@ -191502,6 +191505,3338 @@
           }
         ]
       }
+    },
+    {
+      "id": "a2.07.l1",
+      "unitId": "a2.07",
+      "seq": 24,
+      "level": "a2",
+      "track": "a2",
+      "tag": "restaurant",
+      "version": 1,
+      "title": "At the Restaurant",
+      "intro": "Twenty-three lessons have taught you how to order. This one is about everything he says back.",
+      "canDo": "Can order a full meal, ask for the bill and handle the waiter’s questions",
+      "teaches": [
+        "The eight-stage structure of a French restaurant encounter, received in the server's voice rather than produced in the learner's",
+        "Recognition of the server's eight canonical questions, including the four that contain no verb the learner can anchor on",
+        "The adjacency-pair principle: that a short question takes a short answer, and that reusing the server's own frame is the native response",
+        "A five-rung ordering gradient inside the restaurant frame, from je prendrais to ce sera, with je veux identified as the one register error",
+        "The repair move as a six-rung ladder ordered by face cost, owned here for the whole A2 situations band and cited by unit id elsewhere",
+        "Recovery from a script deviation by handing the choice back rather than rebuilding the sentence",
+        "Reading a French menu board for its layout: what a formule includes, what its conditions are, and what is excluded",
+        "The partitive at the point of ordering as RECALL of a1.29, with no new claim made about it",
+        "That l'addition, le service and le pourboire are stages of the script; the amount, the change and the coins are reserved for a2.26",
+        "That il n'y en a plus is recognised as unanalysed lexis, with y and en reserved entirely for a2.25"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "At the Restaurant",
+        "subFr": "Au restaurant",
+        "introFr": "Vous ne commencez jamais.",
+        "minutes": 32,
+        "difficulty": 3,
+        "glyph": "🍽️",
+        "screens": 158
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The encounter you cannot start",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-stages"
+          ],
+          "milestone": "You have seen all eight stages in order and know you start none of them.",
+          "estScreens": 20,
+          "restPoints": [
+            "s01-scene/after-the-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "His half",
+          "sections": [
+            "s04-his-open",
+            "s05-his-order",
+            "s06-his-check",
+            "s07-his-close",
+            "s08-fast",
+            "s09-place-it"
+          ],
+          "milestone": "You can place any line he says in the evening it belongs to.",
+          "estScreens": 34,
+          "restPoints": [
+            "s07-his-close/after-the-cards"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Your slot, and the register in it",
+          "sections": [
+            "s10-fit",
+            "s11-gradient",
+            "s12-some",
+            "s13-trap",
+            "s14-errors"
+          ],
+          "milestone": "You can answer each of his questions with the amount of French it actually wants.",
+          "estScreens": 30,
+          "restPoints": [
+            "s11-gradient/after-the-gradient"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "When the script breaks",
+          "sections": [
+            "s15-break",
+            "s16-offscript",
+            "s17-repair",
+            "s18-deploy"
+          ],
+          "milestone": "You have six ways to say you missed it, and you know which one to reach for.",
+          "estScreens": 28,
+          "restPoints": [
+            "s16-offscript/after-the-offscript"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "The whole encounter",
+          "sections": [
+            "s19-menu",
+            "s20-write",
+            "s21-say",
+            "s22-service"
+          ],
+          "milestone": "You have read a real board and run the whole evening end to end.",
+          "estScreens": 28,
+          "restPoints": [
+            "s19-menu/after-the-board"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Measure",
+          "sections": [
+            "s23-deck",
+            "s24-check",
+            "s25-quiz",
+            "s26-roundup"
+          ],
+          "milestone": "Thirty questions, and the repair move is the part you keep.",
+          "estScreens": 24,
+          "restPoints": [
+            "s24-check/before-the-exam"
+          ]
+        }
+      ],
+      "reframe": "You never start. He asks, you answer.",
+      "errorTriggers": [
+        {
+          "id": "err-je-veux",
+          "drill": "drill-gradient",
+          "description": "Orders with je veux, which is grammatical, understood, and one rung too blunt for a table. Nobody corrects it, so nobody learns it.",
+          "detectOn": [
+            "s11-gradient",
+            "s14-errors",
+            "s25-quiz/r4-register"
+          ]
+        },
+        {
+          "id": "err-register",
+          "drill": "drill-gradient",
+          "description": "Reaches for the wrong point on the ordering gradient for the situation, usually by building a long sentence where a short one is expected.",
+          "detectOn": [
+            "s11-gradient",
+            "s13-trap",
+            "s25-quiz/r4-register"
+          ]
+        },
+        {
+          "id": "err-lost-in-script",
+          "drill": "drill-stage",
+          "description": "Cannot say which part of the meal a line belongs to, so answers the wrong question or answers nothing.",
+          "detectOn": [
+            "s03-stages",
+            "s09-place-it",
+            "s25-quiz/r1-stage"
+          ]
+        },
+        {
+          "id": "err-missed-stage",
+          "drill": "drill-stage",
+          "description": "Hears the words but not the stage, most often on Ça a été ? and Et ensuite ?, which carry no noun to anchor on.",
+          "detectOn": [
+            "s08-fast",
+            "s09-place-it",
+            "s25-quiz/r2-ear"
+          ]
+        },
+        {
+          "id": "err-overlong-answer",
+          "drill": "drill-short",
+          "description": "Answers a two-word question with a full sentence, which is understood and marks the speaker as translating rather than talking.",
+          "detectOn": [
+            "s10-fit",
+            "s13-trap",
+            "s25-quiz/r3-fit"
+          ]
+        },
+        {
+          "id": "err-yes-to-a-choice",
+          "drill": "drill-short",
+          "description": "Answers oui to a two-way question such as Plate ou gazeuse ?, which selects nothing and forces him to ask again.",
+          "detectOn": [
+            "s10-fit",
+            "s14-errors",
+            "s25-quiz/r3-fit"
+          ]
+        },
+        {
+          "id": "err-no-verb",
+          "drill": "drill-stage",
+          "description": "Fails on the four questions with no verb to anchor on: Plate ou gazeuse ?, Et ensuite ?, Un café pour finir ?, Ensemble ou séparément ?",
+          "detectOn": [
+            "s08-fast",
+            "s04-his-open",
+            "s25-quiz/r2-ear"
+          ]
+        },
+        {
+          "id": "err-freeze",
+          "drill": "drill-repair",
+          "description": "Says nothing when the script deviates, rebuilding the sentence internally while the turn is lost.",
+          "detectOn": [
+            "s15-break",
+            "s18-deploy",
+            "s25-quiz/r5-repair"
+          ]
+        },
+        {
+          "id": "err-wrong-rung",
+          "drill": "drill-repair",
+          "description": "Reaches too high or too low on the repair ladder: asking for a repeat when the speed was the problem, or asking for it in writing when Pardon would have done.",
+          "detectOn": [
+            "s17-repair",
+            "s18-deploy",
+            "s25-quiz/r5-repair"
+          ]
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-gradient",
+          "title": "The one rung to drop",
+          "format": "flashcard",
+          "coach": "Read the English. Say the French, out loud, and never reach for je veux at a table.",
+          "pairs": [
+            [
+              "I would like the chicken",
+              "Je voudrais le poulet."
+            ],
+            [
+              "I'll have the dish of the day",
+              "Je prends le plat du jour."
+            ],
+            [
+              "I'm going to have the fish",
+              "Je vais prendre le poisson."
+            ],
+            [
+              "For me, it'll be the steak",
+              "Pour moi, ce sera l'entrecôte."
+            ],
+            [
+              "I'd rather have the fish",
+              "Je prendrais plutôt le poisson."
+            ]
+          ]
+        },
+        {
+          "id": "drill-stage",
+          "title": "Which stage is he on",
+          "format": "flashcard",
+          "coach": "Read what he says. Say which part of the evening you are in.",
+          "pairs": [
+            [
+              "Do you have a reservation?",
+              "Bonsoir, vous avez réservé ?"
+            ],
+            [
+              "And to drink?",
+              "Et comme boisson ?"
+            ],
+            [
+              "Have you decided?",
+              "Vous avez choisi ?"
+            ],
+            [
+              "Was everything OK?",
+              "Ça a été ?"
+            ],
+            [
+              "How are you paying?",
+              "Vous réglez comment ?"
+            ]
+          ]
+        },
+        {
+          "id": "drill-short",
+          "title": "Answer it short",
+          "format": "flashcard",
+          "coach": "He asked two words. Give one of them back and stop talking.",
+          "pairs": [
+            [
+              "Still or sparkling? (still)",
+              "Plate."
+            ],
+            [
+              "How would you like it cooked? (medium)",
+              "À point, s'il vous plaît."
+            ],
+            [
+              "How are you paying? (card)",
+              "Par carte, s'il vous plaît."
+            ],
+            [
+              "How many of you? (two)",
+              "Deux, s'il vous plaît."
+            ],
+            [
+              "Will that be all? (yes)",
+              "Ce sera tout, merci."
+            ]
+          ]
+        },
+        {
+          "id": "drill-repair",
+          "title": "The six rungs",
+          "format": "flashcard",
+          "coach": "Cheapest first. Say each one out loud and notice how little the first two give away.",
+          "pairs": [
+            [
+              "Sorry?",
+              "Pardon ?"
+            ],
+            [
+              "Can you say that again, please?",
+              "Vous pouvez répéter, s'il vous plaît ?"
+            ],
+            [
+              "More slowly, please.",
+              "Plus lentement, s'il vous plaît."
+            ],
+            [
+              "I didn't quite catch that.",
+              "Je n'ai pas bien compris."
+            ],
+            [
+              "What does that mean?",
+              "Qu'est-ce que ça veut dire ?"
+            ],
+            [
+              "Could you write it down for me, please?",
+              "Vous pouvez me l'écrire, s'il vous plaît ?"
+            ]
+          ]
+        }
+      ],
+      "sheets": [],
+      "deckTranche": [
+        [
+          "fr.a2.au-restaurant.138",
+          "fr.a2.au-restaurant.139",
+          "fr.a2.au-restaurant.140",
+          "fr.a2.au-restaurant.141",
+          "fr.a2.au-restaurant.142",
+          "fr.a1.au-restaurant.111",
+          "fr.a1.au-restaurant.039",
+          "fr.a1.au-restaurant.043"
+        ],
+        [
+          "fr.a2.au-restaurant.143",
+          "fr.a2.au-restaurant.144",
+          "fr.a2.au-restaurant.145",
+          "fr.a2.au-restaurant.146",
+          "fr.a2.au-restaurant.147",
+          "fr.a2.au-restaurant.148",
+          "fr.a2.au-restaurant.149",
+          "fr.a2.au-restaurant.150",
+          "fr.a2.au-restaurant.151",
+          "fr.a2.au-restaurant.152",
+          "fr.a2.au-restaurant.153",
+          "fr.a2.au-restaurant.154",
+          "fr.a2.au-restaurant.155",
+          "fr.a2.au-restaurant.156",
+          "fr.a2.au-restaurant.157",
+          "fr.a2.au-restaurant.158",
+          "fr.a2.au-restaurant.159",
+          "fr.a2.au-restaurant.160",
+          "fr.a2.au-restaurant.161",
+          "fr.a2.au-restaurant.162",
+          "fr.a2.au-restaurant.163",
+          "fr.a2.au-restaurant.164",
+          "fr.a2.au-restaurant.165",
+          "fr.a2.au-restaurant.166",
+          "fr.a2.au-restaurant.167",
+          "fr.a1.au-restaurant.116",
+          "fr.a2.au-restaurant.054",
+          "fr.a1.cafe.005",
+          "fr.a2.quebec-et-francophonie.197",
+          "fr.a2.quebec-et-francophonie.198"
+        ],
+        [
+          "fr.a2.au-restaurant.178",
+          "fr.a2.au-restaurant.179",
+          "fr.a2.au-restaurant.180",
+          "fr.a2.au-restaurant.181",
+          "fr.a2.au-restaurant.182",
+          "fr.a2.au-restaurant.183",
+          "fr.a1.au-restaurant.102",
+          "fr.a1.au-restaurant.112",
+          "fr.a1.au-restaurant.020",
+          "fr.a1.au-restaurant.021",
+          "fr.a1.au-restaurant.022",
+          "fr.a2.au-restaurant.063"
+        ],
+        [
+          "fr.a2.au-restaurant.132",
+          "fr.a2.au-restaurant.133",
+          "fr.a2.au-restaurant.134",
+          "fr.a2.au-restaurant.135",
+          "fr.a2.au-restaurant.136",
+          "fr.a2.au-restaurant.137",
+          "fr.a2.au-restaurant.168",
+          "fr.a2.au-restaurant.169",
+          "fr.a2.au-restaurant.170",
+          "fr.a2.au-restaurant.171",
+          "fr.a2.au-restaurant.172",
+          "fr.a2.au-restaurant.173",
+          "fr.a2.au-restaurant.174",
+          "fr.a2.au-restaurant.175",
+          "fr.a2.au-restaurant.176",
+          "fr.a2.au-restaurant.177",
+          "fr.a2.au-restaurant.184",
+          "fr.a2.au-restaurant.185",
+          "fr.a2.au-restaurant.186",
+          "fr.a2.au-restaurant.187",
+          "fr.a2.au-restaurant.188",
+          "fr.a2.au-restaurant.189",
+          "fr.a1.au-restaurant.193",
+          "fr.a1.au-restaurant.194"
+        ],
+        [
+          "fr.a1.au-restaurant.103",
+          "fr.a1.au-restaurant.096",
+          "fr.a1.au-restaurant.098",
+          "fr.a1.au-restaurant.190",
+          "fr.a1.au-restaurant.186",
+          "fr.a2.au-restaurant.058",
+          "fr.a2.au-restaurant.061",
+          "fr.a2.au-restaurant.051",
+          "fr.a2.au-restaurant.052",
+          "fr.a2.au-restaurant.053",
+          "fr.a2.au-restaurant.057",
+          "fr.a2.au-restaurant.062"
+        ],
+        [
+          "fr.a1.au-restaurant.010",
+          "fr.a1.au-restaurant.198",
+          "fr.a1.au-restaurant.040"
+        ]
+      ],
+      "terms": {
+        "stage": {
+          "term": "stage",
+          "title": "A stage of the encounter",
+          "body": "A restaurant meal runs in a fixed order and each step has its own question. There are eight of them, from the greeting to the bill, and they arrive in the same order almost every time.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.138",
+              "note": "Stage 1, the greeting."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.147",
+              "note": "Stage 4, the order."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.161",
+              "note": "Stage 8, the bill."
+            }
+          ]
+        },
+        "hisHalf": {
+          "term": "his half",
+          "title": "The half you did not learn",
+          "body": "Everything the waiter says. You have been taught how to order for twenty-three units; almost nothing has been said about what gets said to you.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.143",
+              "note": "You are being asked, not asking."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.146",
+              "note": "Two words, no verb."
+            }
+          ]
+        },
+        "rung": {
+          "term": "rung",
+          "title": "A rung of the repair ladder",
+          "body": "Six ways of saying you did not catch that, ordered from the cheapest to the most explicit. Rung 1 costs you nothing. Rung 6 admits the spoken word has failed and asks for it in writing.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.132",
+              "note": "Rung 1, one word."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.135",
+              "note": "Rung 4, and it says so outright."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.137",
+              "note": "Rung 6, the last one."
+            }
+          ]
+        },
+        "faceCost": {
+          "term": "face cost",
+          "title": "What a rung costs you",
+          "body": "How much you give away by saying it. Pardon gives away nothing. Je n'ai pas bien compris says plainly that you did not follow. Neither is rude; one is just more expensive than the other."
+        },
+        "gradient": {
+          "term": "gradient",
+          "title": "The ordering gradient",
+          "body": "Five ways of saying what you want, from the softest to the flattest. All five are ordinary French. Only one of them, je veux, is the wrong one at a table.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.178",
+              "note": "The softest."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.179",
+              "note": "The flattest, and still polite."
+            }
+          ]
+        },
+        "secondPart": {
+          "term": "second part",
+          "title": "The answer that fits",
+          "body": "A question and its answer come as a pair. When somebody asks « Et comme boisson ? » a French speaker does not say a sentence; they say a drink. Knowing the pair is faster than building a reply.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.143",
+              "note": "The question."
+            },
+            {
+              "itemId": "fr.a1.au-restaurant.096",
+              "note": "The whole answer."
+            }
+          ]
+        },
+        "deviation": {
+          "term": "deviation",
+          "title": "When the script breaks",
+          "body": "The moment the encounter stops following the order you rehearsed. Something is off the menu, something is wrong, and the sentence you prepared no longer fits.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.168",
+              "note": "The line that breaks it."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.170",
+              "note": "Handing the choice back."
+            }
+          ]
+        },
+        "handBack": {
+          "term": "hand back",
+          "title": "Handing the choice back",
+          "body": "When you cannot choose, make him choose. It keeps the turn moving and it is what a French speaker does too.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.170",
+              "note": "The whole move, in one sentence."
+            }
+          ]
+        },
+        "someOfIt": {
+          "term": "some of it",
+          "title": "Du, de la, de l'",
+          "body": "a1.29 settled this: un is one of them, du is some of it. This lesson only asks you to run it at the moment of ordering, where the two are a syllable apart and mean different things.",
+          "examples": [
+            {
+              "itemId": "fr.a1.au-restaurant.184",
+              "note": "Some of it."
+            },
+            {
+              "itemId": "fr.a1.au-restaurant.185",
+              "note": "And again, with bread."
+            }
+          ]
+        },
+        "binary": {
+          "term": "binary",
+          "title": "A two-way question",
+          "body": "Plate ou gazeuse ? En terrasse ou à l'intérieur ? Two options and no frame around them. They are the easiest questions to answer and the easiest to miss, because there is no verb to hold on to.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.146",
+              "note": "Two words."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.140",
+              "note": "Four, and still no verb you need."
+            }
+          ]
+        },
+        "chunk": {
+          "term": "chunk",
+          "title": "A whole phrase, learned whole",
+          "body": "Some phrases are worth recognising without taking them apart. « Il n'y en a plus » is one of them: you meet it as a single sound that means there is none left, and the pieces inside it are somebody else's lesson.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.168",
+              "note": "Recognise it whole."
+            }
+          ]
+        }
+      },
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "The Half You Did Not Rehearse",
+          "frSub": "Ce qu'il dit, lui",
+          "render": "screens",
+          "layer": "core",
+          "terms": [
+            "hisHalf",
+            "stage"
+          ],
+          "say": {
+            "text": "You have practised ordering for twenty-three lessons. Nobody has practised him.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "A bistro with eleven tables and no menu in English",
+            "city": "Lyon",
+            "time": "Thursday, just after eight",
+            "ambience": "room-tone-lobby"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A bistro in Lyon, a Thursday evening. You have been practising one sentence since the tram, and it is a good sentence.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "He arrives with the pad already open. You get your sentence out cleanly, all of it, no hesitation.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "You have rehearsed it. Which one did you rehearse?",
+              "options": [
+                {
+                  "fr": "Je veux le poulet.",
+                  "en": "the one that says what you want",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts"
+                  },
+                  "outcome": "breaks"
+                },
+                {
+                  "fr": "Je voudrais le poulet.",
+                  "en": "the one that says what you would like",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts"
+                  },
+                  "outcome": "works"
+                }
+              ],
+              "followUp": {
+                "works": "Yes. One syllable longer, and it is the one a French speaker actually says at a table.",
+                "breaks": "Every word is correct and he understood you perfectly. Watch what happens next anyway."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Je veux le poulet.",
+              "en": "(I want the chicken.)",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "The waiter",
+              "fr": "Quelle cuisson ?",
+              "en": "How would you like it cooked?",
+              "stage": "Two words. He is already writing. The pad does not stop moving.",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "You rehearsed the easy half",
+              "body": "You got your order out and he answered with a question you had not planned for. It is not the chicken and it is not your accent. You prepared what you would say, and everything he says back is a thing nobody taught you.",
+              "coach": "You rehearsed your half. He has a half too, and it is the half that decides how the evening goes.",
+              "right": {
+                "fr": "Je voudrais le poulet.",
+                "en": "what a French speaker says at a table",
+                "ipa": "/ʒə vu.dʁɛ lə pu.lɛ/",
+                "respell": "[zhuh voo-DREH luh poo-LEH]"
+              },
+              "wrong": {
+                "fr": "Je veux le poulet.",
+                "en": "understood perfectly, and one rung too blunt",
+                "ipa": "/ʒə vø lə pu.lɛ/",
+                "respell": "[zhuh VEU luh poo-LEH]"
+              },
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "audioFirst": true
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "The waiter",
+              "fr": "Et comme boisson ?",
+              "en": "And to drink?",
+              "stage": "He has not finished. There are six more of these coming.",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "He asked four questions before the food arrived. You answered one of them."
+            }
+          ],
+          "closing": {
+            "size": "md",
+            "text": "You never start. He asks, you answer."
+          }
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "terms": [
+            "hisHalf"
+          ],
+          "say": "Four goals, and every one of them is about catching something rather than saying it.",
+          "goals": [
+            {
+              "t": "Place any line he says",
+              "s": "Catch which stage of the meal you are in, from one short question and nothing else."
+            },
+            {
+              "t": "Catch the verbless ones",
+              "s": "Plate ou gazeuse ? Et ensuite ? Four of his questions have no verb you can anchor on."
+            },
+            {
+              "t": "Survive the deviation",
+              "s": "When the dish is off and your sentence no longer fits, say something rather than freeze."
+            },
+            {
+              "t": "Ask him to say it again",
+              "s": "Six ways of saying you missed it, and what each one costs you to say."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s03-stages",
+          "title": "The Eight Stages, In Order",
+          "frSub": "Les huit étapes",
+          "layer": "core",
+          "terms": [
+            "stage",
+            "hisHalf"
+          ],
+          "say": "You never start. He asks, you answer. Eight stages, arriving in this order almost every time.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-stages"
+          },
+          "cols": [
+            "stage",
+            "he says",
+            "you say"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "1 · 2  arrive",
+                "Vous avez réservé ?",
+                "Une table pour deux"
+              ],
+              "say": "Bonsoir, vous avez réservé ?",
+              "detail": {
+                "title": "Stages 1 and 2",
+                "body": "The greeting and the seating. He asks whether you booked, how many you are, and where you want to sit. Three questions before you have taken your coat off.",
+                "say": "Vous êtes combien ?"
+              }
+            },
+            {
+              "cells": [
+                "3  drinks",
+                "Et comme boisson ?",
+                "Une carafe d'eau"
+              ],
+              "say": "Et comme boisson ?",
+              "detail": {
+                "title": "Stage 3",
+                "body": "Drinks come before food and they come fast. Plate ou gazeuse ? is two words with no verb in it, and it is the question learners miss most.",
+                "say": "Plate ou gazeuse ?"
+              }
+            },
+            {
+              "cells": [
+                "4  order",
+                "Vous avez choisi ?",
+                "Je voudrais..."
+              ],
+              "say": "Vous avez choisi ?",
+              "detail": {
+                "title": "Stage 4",
+                "body": "The pivot of the whole meal, and it arrives in the passé composé. Et ensuite ? means what is your main course, and nothing in those two words says so.",
+                "say": "Et ensuite ?"
+              }
+            },
+            {
+              "cells": [
+                "5  check",
+                "Tout se passe bien ?",
+                "Oui, très bien"
+              ],
+              "say": "Tout se passe bien ?",
+              "detail": {
+                "title": "Stage 5",
+                "body": "Asked mid-meal with your mouth full. It wants oui or a problem, nothing else. Ça a été ? is the same move said while clearing your plate.",
+                "say": "Ça a été ?"
+              }
+            },
+            {
+              "cells": [
+                "6  more",
+                "Ce sera tout ?",
+                "Ce sera tout, merci"
+              ],
+              "say": "Ce sera tout ?",
+              "detail": {
+                "title": "Stage 6",
+                "body": "The upsell. Dessert, coffee, a digestif. Un café pour finir ? has no verb either, and saying nothing gets you the dessert menu anyway.",
+                "say": "Un café pour finir ?"
+              }
+            },
+            {
+              "cells": [
+                "7 · 8  bill",
+                "Vous réglez comment ?",
+                "Par carte"
+              ],
+              "say": "Vous réglez comment ?",
+              "detail": {
+                "title": "Stages 7 and 8",
+                "body": "Service and the bill. Ensemble ou séparément ? decides how the table pays, and it is asked once, quickly, while he is holding the card machine.",
+                "say": "Ensemble ou séparément ?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s04-his-open",
+          "title": "Arriving, Sitting, Drinking",
+          "frSub": "Stages 1 à 3",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "stage",
+            "binary"
+          ],
+          "say": "Five things he says before the food is even discussed.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-open"
+          },
+          "cards": [
+            {
+              "head": "Stage 1",
+              "fr": "Bonsoir, vous avez réservé ?",
+              "sub": "[bohⁿ-SWAR voo-z a-vay ray-zehr-VAY]",
+              "body": "The first thing said to you, and it is a yes or no question in the passé composé. Non, on n'a pas réservé is the whole answer.",
+              "label": "he asks · you answer"
+            },
+            {
+              "head": "Stage 1",
+              "fr": "Vous êtes combien ?",
+              "sub": "[voo-z eht kohⁿ-BYEHⁿ]",
+              "body": "How many of you. He may also say C'est pour combien de personnes ?, which is the same question with more words in it. Answer with a number and nothing else.",
+              "label": "a number is a whole answer"
+            },
+            {
+              "head": "Stage 2",
+              "fr": "En terrasse ou à l'intérieur ?",
+              "sub": "[ahⁿ teh-RASS oo a lehⁿ-tay-RYEUR]",
+              "body": "A two-way question with no verb you need. Pick one of the two words he gave you and hand it straight back.",
+              "label": "two-way"
+            },
+            {
+              "head": "Stage 3",
+              "fr": "Et comme boisson ?",
+              "sub": "[ay kom bwa-SOHⁿ]",
+              "body": "Comme here means by way of, a use you have not met. Et comme entrée ? at stage 4 is the same frame with a different noun.",
+              "label": "the comme frame"
+            },
+            {
+              "head": "Stage 3",
+              "fr": "Une carafe d'eau, ça ira ?",
+              "sub": "[ün ka-RAF DOH sa ee-RA]",
+              "body": "This is a check, not an offer. Ça ira means will that do, and answering it wrongly is how you end up paying for a bottle.",
+              "label": "a check, not an offer"
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s05-his-order",
+          "title": "Taking The Order",
+          "frSub": "Stage 4",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "stage",
+            "secondPart"
+          ],
+          "say": "The pivot of the meal, and he has four ways of getting to it.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-order"
+          },
+          "cards": [
+            {
+              "head": "Stage 4",
+              "fr": "Vous avez choisi ?",
+              "sub": "[voo-z a-vay shwa-ZEE]",
+              "body": "The question you have been waiting for, and it arrives in the passé composé rather than the present. Have you chosen, not are you choosing.",
+              "label": "the pivot"
+            },
+            {
+              "head": "Stage 4",
+              "fr": "Vous avez fait votre choix ?",
+              "sub": "[voo-z a-vay FEH votr SHWA]",
+              "body": "The same move in different words. A script is not a fixed string, and this is the proof: two forms, one question.",
+              "label": "same move, other words"
+            },
+            {
+              "head": "Stage 4",
+              "fr": "Et ensuite ?",
+              "sub": "[ay ahⁿ-SÜEET]",
+              "body": "Two words that mean what is your main course. Nothing in them says so. He says it the moment you finish naming your starter.",
+              "label": "two words, one meaning"
+            },
+            {
+              "head": "Stage 4",
+              "fr": "Quelle cuisson ?",
+              "sub": "[kehl kü-ee-SOHⁿ]",
+              "body": "Only ever asked about meat, and there are three answers: saignant, à point, bien cuit. He will not offer them to you.",
+              "label": "three answers, none offered"
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s06-his-check",
+          "title": "Checking, And Selling",
+          "frSub": "Stages 5 et 6",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "stage"
+          ],
+          "say": "Mid-meal, and then the part where he wants you to order more.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-check"
+          },
+          "cards": [
+            {
+              "head": "Stage 5",
+              "fr": "Tout se passe bien ?",
+              "sub": "[too suh pass BYEHⁿ]",
+              "body": "Asked mid-meal, mouth full. It wants oui merci or a problem, and it does not want a sentence.",
+              "label": "oui, or a problem"
+            },
+            {
+              "head": "Stage 5",
+              "fr": "Ça a été ?",
+              "sub": "[sa a ay-TAY]",
+              "body": "Three syllables, said while clearing your plate. A passé composé with no subject you recognise, and it is the hardest short question of the evening.",
+              "label": "the hardest three syllables"
+            },
+            {
+              "head": "Stage 5",
+              "fr": "Je vous débarrasse ?",
+              "sub": "[zhuh voo day-ba-RASS]",
+              "body": "Shall I clear these away. A question shaped exactly like a statement, marked only by his voice going up at the end.",
+              "label": "a question by intonation alone"
+            },
+            {
+              "head": "Stage 6",
+              "fr": "Ce sera tout ?",
+              "sub": "[suh suh-ra TOO]",
+              "body": "Will that be all. The answer that fits is his own words handed back: Ce sera tout, merci.",
+              "label": "hand his words back"
+            },
+            {
+              "head": "Stage 6",
+              "fr": "Un café pour finir ?",
+              "sub": "[uhⁿ ka-FAY poor fee-NEER]",
+              "body": "No verb at all. Most of the upsell is said this way, and Vous prendrez un dessert ? is the same move with a verb put back in.",
+              "label": "no verb"
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s07-his-close",
+          "title": "Serving, And The Bill",
+          "frSub": "Stages 7 et 8",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "stage"
+          ],
+          "say": "The last two stages, and one card that is not about France.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-close"
+          },
+          "cards": [
+            {
+              "head": "Stage 7",
+              "fr": "Je vous apporte ça tout de suite.",
+              "sub": "[zhuh voo-z a-port sa too duh SÜEET]",
+              "body": "Nothing is being asked. He is closing the ordering stage, and the only thing required of you is merci.",
+              "label": "nothing is asked"
+            },
+            {
+              "head": "Stage 8",
+              "fr": "Vous réglez comment ?",
+              "sub": "[voo ray-glay ko-MAHⁿ]",
+              "body": "How are you paying. Par carte or en espèces, and he is already holding the machine. What the total actually is belongs to another lesson.",
+              "label": "how, not how much"
+            },
+            {
+              "head": "Stage 8",
+              "fr": "Ensemble ou séparément ?",
+              "sub": "[ahⁿ-SAHⁿBL oo say-pa-ray-MAHⁿ]",
+              "body": "Together or separately, asked once and quickly. If you miss it he will ask again as Je vous fais une seule addition ?",
+              "label": "asked once"
+            },
+            {
+              "head": "Stage 8",
+              "fr": "Le service est compris.",
+              "sub": "[luh sehr-VEESS eh kohⁿ-PREE]",
+              "body": "Service is included, and it is a statement of fact rather than a hint. Le pourboire on top is yours to decide and nobody is waiting for it.",
+              "label": "a fact, not a hint"
+            },
+            {
+              "head": "Au Québec",
+              "fr": "l'addition · la facture",
+              "sub": "France · Québec",
+              "body": "In Quebec the bill is often la facture, the evening meal is le souper rather than le dîner, and the tip is not included the way it is in France. Colour only: everything this lesson drills and quizzes is France-standard French.",
+              "label": "colour, never scored"
+            }
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s08-fast",
+          "title": "Which Stage Was That",
+          "frSub": "À quelle étape ?",
+          "layer": "core",
+          "terms": [
+            "stage",
+            "binary"
+          ],
+          "say": "Six lines at the speed he actually says them. The question is never what the words were.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-fast",
+            "audioFirst": true
+          },
+          "questionsInModal": true,
+          "hideLines": true,
+          "lines": [
+            {
+              "fr": "Bonsoir, vous avez réservé ?",
+              "en": "Good evening, do you have a reservation?"
+            },
+            {
+              "fr": "Plate ou gazeuse ?",
+              "en": "Still or sparkling?"
+            },
+            {
+              "fr": "Et ensuite ?",
+              "en": "And then?"
+            },
+            {
+              "fr": "Ça a été ?",
+              "en": "Was everything OK?"
+            },
+            {
+              "fr": "Un café pour finir ?",
+              "en": "A coffee to finish?"
+            },
+            {
+              "fr": "Ensemble ou séparément ?",
+              "en": "Together or separately?"
+            }
+          ],
+          "questions": [
+            {
+              "q": "Line 1. Where in the evening are you?",
+              "opts": [
+                "You have just walked in",
+                "You are halfway through the main course",
+                "He is clearing your plate",
+                "You are paying"
+              ],
+              "correct": 0,
+              "why": "Stage 1. It is the first thing said to you, before you have sat down or seen a menu."
+            },
+            {
+              "q": "Line 2. What is he asking about?",
+              "opts": [
+                "The steak",
+                "The bill",
+                "Water",
+                "The table"
+              ],
+              "correct": 2,
+              "why": "Stage 3, drinks. Plate is still and gazeuse is sparkling, and there is no noun in the question to tell you it is about water."
+            },
+            {
+              "q": "Line 3. What does he want to know?",
+              "opts": [
+                "Whether you enjoyed it",
+                "Your main course",
+                "How you are paying",
+                "Whether you booked"
+              ],
+              "correct": 1,
+              "why": "Stage 4. Two words meaning what is next, said the moment you finish naming a starter."
+            },
+            {
+              "q": "Line 4. When is this said?",
+              "opts": [
+                "Before you order",
+                "As you arrive",
+                "While you read the menu",
+                "While he clears your plate"
+              ],
+              "correct": 3,
+              "why": "Stage 5, and it is a passé composé of être. It is asked after eating, never before."
+            },
+            {
+              "q": "Line 5. Which stage?",
+              "opts": [
+                "The greeting",
+                "The drinks order at the start",
+                "The end of the meal",
+                "Paying"
+              ],
+              "correct": 2,
+              "why": "Stage 6, the upsell. Pour finir is what places it: it only makes sense once the food is done."
+            },
+            {
+              "q": "Line 6. What is being decided?",
+              "opts": [
+                "How the table pays",
+                "Where you sit",
+                "What you drink",
+                "How the meat is cooked"
+              ],
+              "correct": 0,
+              "why": "Stage 8. It decides whether one bill comes or several, and it is asked once, quickly."
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s09-place-it",
+          "title": "Put It Where It Belongs",
+          "frSub": "Chaque phrase à sa place",
+          "layer": "core",
+          "terms": [
+            "stage",
+            "hisHalf"
+          ],
+          "say": "You never start. He asks, you answer. Six groups, one per part of the evening, and no clock on any of them.",
+          "groups": [
+            {
+              "label": "as you arrive",
+              "items": [
+                {
+                  "fr": "Bonsoir, vous avez réservé ?",
+                  "en": "Good evening, do you have a reservation?",
+                  "sub": "stage 1"
+                },
+                {
+                  "fr": "Vous êtes combien ?",
+                  "en": "How many of you are there?",
+                  "sub": "stage 1"
+                },
+                {
+                  "fr": "En terrasse ou à l'intérieur ?",
+                  "en": "On the terrace or inside?",
+                  "sub": "stage 2"
+                }
+              ],
+              "check": {
+                "q": "He says « Suivez-moi, je vous prie. » What is happening?",
+                "opts": [
+                  "He is taking your order",
+                  "He is bringing the bill",
+                  "He is asking what you want to drink",
+                  "He is walking you to a table"
+                ],
+                "correct": 3,
+                "why": "Stage 2. It is an instruction rather than a question, and no answer is wanted."
+              }
+            },
+            {
+              "label": "drinks first",
+              "items": [
+                {
+                  "fr": "Et comme boisson ?",
+                  "en": "And to drink?",
+                  "sub": "stage 3"
+                },
+                {
+                  "fr": "Plate ou gazeuse ?",
+                  "en": "Still or sparkling?",
+                  "sub": "stage 3"
+                },
+                {
+                  "fr": "Une carafe d'eau, ça ira ?",
+                  "en": "A jug of water, will that do?",
+                  "sub": "stage 3"
+                }
+              ],
+              "check": {
+                "q": "Which of these is a check rather than an offer?",
+                "opts": [
+                  "Et comme boisson ?",
+                  "Une carafe d'eau, ça ira ?",
+                  "Plate ou gazeuse ?",
+                  "Vous prendrez un apéritif ?"
+                ],
+                "correct": 1,
+                "why": "Ça ira means will that do. He has already decided; he is confirming, and saying nothing means yes."
+              }
+            },
+            {
+              "label": "ordering",
+              "items": [
+                {
+                  "fr": "Vous avez choisi ?",
+                  "en": "Have you decided?",
+                  "sub": "stage 4"
+                },
+                {
+                  "fr": "Et ensuite ?",
+                  "en": "And then?",
+                  "sub": "stage 4"
+                },
+                {
+                  "fr": "Quelle cuisson ?",
+                  "en": "How would you like it cooked?",
+                  "sub": "stage 4"
+                }
+              ],
+              "check": {
+                "q": "You have just said your starter. He says « Et ensuite ? »",
+                "opts": [
+                  "He wants your main course",
+                  "He wants to know if you are finished",
+                  "He is offering dessert",
+                  "He is asking how you will pay"
+                ],
+                "correct": 0,
+                "why": "Stage 4. Ensuite is next, and at this point in the evening next means the main course."
+              }
+            },
+            {
+              "label": "during the meal",
+              "items": [
+                {
+                  "fr": "Tout se passe bien ?",
+                  "en": "Is everything all right?",
+                  "sub": "stage 5"
+                },
+                {
+                  "fr": "Ça a été ?",
+                  "en": "Was everything OK?",
+                  "sub": "stage 5"
+                },
+                {
+                  "fr": "Je vous débarrasse ?",
+                  "en": "Shall I clear these away?",
+                  "sub": "stage 5"
+                }
+              ],
+              "check": {
+                "q": "Which one is asked AFTER you have finished eating?",
+                "opts": [
+                  "Tout se passe bien ?",
+                  "Et comme boisson ?",
+                  "Ça a été ?",
+                  "Vous avez réservé ?"
+                ],
+                "correct": 2,
+                "why": "Ça a été is a past tense. Tout se passe bien is a present, and it is asked while you are still eating."
+              }
+            },
+            {
+              "label": "the upsell",
+              "items": [
+                {
+                  "fr": "Ce sera tout ?",
+                  "en": "Will that be all?",
+                  "sub": "stage 6"
+                },
+                {
+                  "fr": "Vous prendrez un dessert ?",
+                  "en": "Will you have a dessert?",
+                  "sub": "stage 6"
+                },
+                {
+                  "fr": "Un café pour finir ?",
+                  "en": "A coffee to finish?",
+                  "sub": "stage 6"
+                }
+              ],
+              "check": {
+                "q": "What answers « Ce sera tout ? » with the least effort?",
+                "opts": [
+                  "Je voudrais un dessert et un café.",
+                  "Ce sera tout, merci.",
+                  "Combien ça coûte ?",
+                  "Plate, s'il vous plaît."
+                ],
+                "correct": 1,
+                "why": "His own words handed back. Repeating the frame you were given is faster and more natural than building a new sentence."
+              }
+            },
+            {
+              "label": "paying",
+              "items": [
+                {
+                  "fr": "Vous réglez comment ?",
+                  "en": "How are you paying?",
+                  "sub": "stage 8"
+                },
+                {
+                  "fr": "Ensemble ou séparément ?",
+                  "en": "Together or separately?",
+                  "sub": "stage 8"
+                },
+                {
+                  "fr": "Le service est compris.",
+                  "en": "Service is included.",
+                  "sub": "stage 8"
+                }
+              ],
+              "check": {
+                "q": "« Vous réglez comment ? » is asking about",
+                "opts": [
+                  "The amount",
+                  "The tip",
+                  "Which dish was yours",
+                  "The method"
+                ],
+                "correct": 3,
+                "why": "Comment is how, not how much. Par carte answers it in two words."
+              }
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s10-fit",
+          "title": "The Answer That Fits",
+          "frSub": "La réponse qui va avec",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "secondPart",
+            "binary"
+          ],
+          "say": "You never start. He asks, you answer. His question on top, what a French speaker says underneath.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-fit"
+          },
+          "cards": [
+            {
+              "head": "Et comme boisson ?",
+              "fr": "Une carafe d'eau, s'il vous plaît.",
+              "sub": "or just: De l'eau, merci.",
+              "body": "A drink, not a sentence about drinks. The shortest answer that names the thing is the right one.",
+              "label": "name the thing"
+            },
+            {
+              "head": "Plate ou gazeuse ?",
+              "fr": "Plate.",
+              "sub": "one word, and it is enough",
+              "body": "He gave you both words. Give one of them back. Adding s'il vous plaît is plenty of politeness for a two-word question.",
+              "label": "hand one word back"
+            },
+            {
+              "head": "Vous avez choisi ?",
+              "fr": "Je voudrais le plat du jour.",
+              "sub": "or: Je vais prendre le plat du jour.",
+              "body": "This is the one slot where you produce a full sentence, and it is the sentence you have been rehearsing since a1.29.",
+              "label": "your one full sentence"
+            },
+            {
+              "head": "Quelle cuisson ?",
+              "fr": "À point, s'il vous plaît.",
+              "sub": "saignant · à point · bien cuit",
+              "body": "Three words exist and he will offer none of them. À point is the middle one and the safe one.",
+              "label": "three words, unoffered"
+            },
+            {
+              "head": "Ce sera tout ?",
+              "fr": "Ce sera tout, merci.",
+              "sub": "his frame, handed back",
+              "body": "Or Non, je voudrais aussi un café. Either way you are reusing his words rather than building your own.",
+              "label": "reuse the frame"
+            },
+            {
+              "head": "Vous réglez comment ?",
+              "fr": "Par carte, s'il vous plaît.",
+              "sub": "or: En espèces.",
+              "body": "Two words. The amount is not being discussed and you do not need to discuss it.",
+              "label": "two words"
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s11-gradient",
+          "title": "Five Ways To Order",
+          "frSub": "Du plus doux au plus direct",
+          "layer": "core",
+          "terms": [
+            "gradient"
+          ],
+          "say": "Five rungs. Four of them are fine. One of them is the reason the waiter paused.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-grad"
+          },
+          "cols": [
+            "you say",
+            "what it means",
+            "where it is safe"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "je voudrais",
+                "I would like",
+                "anywhere, always"
+              ],
+              "say": "Je voudrais le poulet.",
+              "detail": {
+                "title": "« je voudrais »",
+                "body": "The default, and the one to reach for if you only keep one. It is soft, it is short, and no French speaker has ever been surprised by it.",
+                "say": "Je voudrais le poulet."
+              }
+            },
+            {
+              "cells": [
+                "je prendrais",
+                "I would rather have",
+                "anywhere, slightly softer"
+              ],
+              "say": "Je prendrais plutôt le poisson.",
+              "detail": {
+                "title": "« je prendrais »",
+                "body": "Softer still, and useful when you are changing your mind out loud. Learn it as one fixed phrase; the family it comes from is another lesson.",
+                "say": "Je prendrais plutôt le poisson."
+              }
+            },
+            {
+              "cells": [
+                "je prends",
+                "I'll have",
+                "anywhere, brisk"
+              ],
+              "say": "Je prends le plat du jour.",
+              "detail": {
+                "title": "« je prends »",
+                "body": "Present tense, brisk, completely normal. This is what people at the next table are saying.",
+                "say": "Je prends le plat du jour."
+              }
+            },
+            {
+              "cells": [
+                "je vais prendre",
+                "I'm going to have",
+                "anywhere, decided"
+              ],
+              "say": "Je vais prendre le plat du jour.",
+              "detail": {
+                "title": "« je vais prendre »",
+                "body": "The futur proche, which a2.19 already gave you. It sounds like a decision just made, which at a table is exactly what it is.",
+                "say": "Je vais prendre le plat du jour."
+              }
+            },
+            {
+              "cells": [
+                "ce sera",
+                "it'll be",
+                "anywhere, confident"
+              ],
+              "say": "Ce sera le menu du jour.",
+              "detail": {
+                "title": "« ce sera »",
+                "body": "The flattest of the five and still perfectly polite. Pour moi, ce sera l'entrecôte is how it is said at a table of four.",
+                "say": "Pour moi, ce sera l'entrecôte."
+              }
+            },
+            {
+              "cells": [
+                "je veux",
+                "I want",
+                "not at a table"
+              ],
+              "say": "Je voudrais le poulet.",
+              "detail": {
+                "title": "« je veux » is the one to drop",
+                "body": "Grammatical, understood, and wrong here. It is what a child says about a toy. Nobody will correct you, and that is exactly why nobody has told you.",
+                "say": "Je voudrais le poulet."
+              }
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s12-some",
+          "title": "Un Or Du, At The Table",
+          "frSub": "Au moment de commander",
+          "layer": "core",
+          "terms": [
+            "someOfIt"
+          ],
+          "say": "a1.29 settled this one: Un is one of them. Du is some of it. Nothing new here, just the moment you have to run it.",
+          "groups": [
+            {
+              "label": "one of them",
+              "items": [
+                {
+                  "fr": "un café",
+                  "en": "a coffee",
+                  "sub": "one cup, countable"
+                },
+                {
+                  "fr": "une carafe d'eau",
+                  "en": "a jug of water",
+                  "sub": "one jug"
+                },
+                {
+                  "fr": "un verre de vin",
+                  "en": "a glass of wine",
+                  "sub": "one glass"
+                }
+              ],
+              "check": {
+                "q": "You want one cup of coffee. Which one?",
+                "opts": [
+                  "du café",
+                  "de le café",
+                  "un café",
+                  "des café"
+                ],
+                "correct": 2,
+                "why": "A cup is one of them, and un is the word for one of them. This is a1.29 unchanged."
+              }
+            },
+            {
+              "label": "some of it",
+              "items": [
+                {
+                  "fr": "du pain",
+                  "en": "some bread",
+                  "sub": "an amount, uncounted"
+                },
+                {
+                  "fr": "de l'eau",
+                  "en": "some water",
+                  "sub": "before a vowel sound"
+                },
+                {
+                  "fr": "de la salade",
+                  "en": "some salad",
+                  "sub": "feminine"
+                }
+              ],
+              "check": {
+                "q": "He asks if you want bread with the meal. You do, and not a specific loaf.",
+                "opts": [
+                  "du pain",
+                  "un pain",
+                  "le pain",
+                  "des pain"
+                ],
+                "correct": 0,
+                "why": "An amount nobody has counted. Du is some of it, and un pain would be one whole loaf on the table."
+              }
+            },
+            {
+              "label": "and after a negative",
+              "items": [
+                {
+                  "fr": "Je ne mange pas de viande.",
+                  "en": "I don't eat meat.",
+                  "sub": "de, not du"
+                },
+                {
+                  "fr": "Il n'y a plus de saumon.",
+                  "en": "There's no more salmon.",
+                  "sub": "de, not du"
+                },
+                {
+                  "fr": "Sans sucre, merci.",
+                  "en": "Without sugar, thanks.",
+                  "sub": "no article at all"
+                }
+              ],
+              "check": {
+                "q": "You are telling him you do not eat meat.",
+                "opts": [
+                  "Je ne mange pas du viande.",
+                  "Je ne mange pas de la viande.",
+                  "Je ne mange pas la viande.",
+                  "Je ne mange pas de viande."
+                ],
+                "correct": 3,
+                "why": "After a negative it is de, never du. a1.29 taught this one; this is the table it happens at."
+              }
+            }
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s13-trap",
+          "title": "What English Hands You",
+          "frSub": "Les réflexes anglais",
+          "layer": "core",
+          "swipe": true,
+          "terms": [
+            "gradient",
+            "secondPart"
+          ],
+          "say": "Four reflexes, and every one of them is grammatical French that lands wrong at a table.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-trap"
+          },
+          "rule": {
+            "title": "He asked a short question. Answer it short.",
+            "body": "English answers a question at a table with a sentence. French answers it with the thing. When he says two words, two words back is not rude, it is the register."
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Short Question, Short Answer"
+            },
+            {
+              "kind": "cards",
+              "label": "The four",
+              "title": "What Goes Wrong"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Both Versions"
+            },
+            {
+              "kind": "drill",
+              "label": "Now you",
+              "title": "Pick The One That Fits",
+              "gate": true
+            }
+          ],
+          "cards": [
+            {
+              "promptLabel": "the sentence English wants",
+              "promptSound": "Je veux le poulet.",
+              "fr": "Je veux le poulet.",
+              "ipa": "/ʒə vø lə pu.lɛ/",
+              "tip": "Every word correct. It is what a child says about a toy, and at a table it is the one rung too far down."
+            },
+            {
+              "promptLabel": "answering two words with twelve",
+              "promptSound": "Je voudrais de l'eau plate, s'il vous plaît, merci beaucoup.",
+              "fr": "Plate.",
+              "ipa": "/plat/",
+              "tip": "He said Plate ou gazeuse ?. One of his own two words is the whole answer."
+            },
+            {
+              "promptLabel": "answering the wrong question",
+              "promptSound": "Ça fait combien ?",
+              "fr": "Par carte.",
+              "ipa": "/paʁ kaʁt/",
+              "tip": "Vous réglez comment ? is how, not how much. The amount is on the bill in front of you."
+            },
+            {
+              "promptLabel": "silence when the script breaks",
+              "promptSound": "...",
+              "fr": "Alors qu'est-ce que vous me conseillez ?",
+              "ipa": "/a.lɔʁ kɛs kə vu mə kɔ̃.sɛ.je/",
+              "tip": "The dish is off. Freezing costs you the turn; handing the choice back keeps it."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Plate ou gazeuse ?",
+              "opts": [
+                "Je voudrais de l'eau qui n'est pas gazeuse.",
+                "Plate.",
+                "Oui, s'il vous plaît."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Vous avez choisi ?",
+              "opts": [
+                "Je voudrais le poulet.",
+                "Je veux le poulet.",
+                "Le poulet, oui."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Vous réglez comment ?",
+              "opts": [
+                "Ça fait combien ?",
+                "Oui, merci.",
+                "Par carte, s'il vous plaît."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "Quelle cuisson ?",
+              "opts": [
+                "Oui, s'il vous plaît.",
+                "À point, s'il vous plaît.",
+                "Je ne sais pas."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Je suis désolé, il n'y en a plus.",
+              "opts": [
+                "Alors qu'est-ce que vous me conseillez ?",
+                "Oui.",
+                "Je veux le poulet."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Ce sera tout ?",
+              "opts": [
+                "Combien ?",
+                "Je ne comprends pas le menu.",
+                "Ce sera tout, merci."
+              ],
+              "correct": 2
+            }
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s14-errors",
+          "title": "What Goes Wrong",
+          "frSub": "Les erreurs fréquentes",
+          "layer": "core",
+          "size": "lg",
+          "swipe": true,
+          "terms": [
+            "gradient",
+            "secondPart"
+          ],
+          "say": "Four, one per screen. None of them stops you being understood, and that is the problem.",
+          "errors": [
+            {
+              "wrong": "Je veux le poulet.",
+              "right": "Je voudrais le poulet.",
+              "why": "Understood perfectly and one rung too blunt for a table. Nobody corrects it, so nobody learns it."
+            },
+            {
+              "wrong": "Oui, s'il vous plaît.",
+              "right": "Plate.",
+              "why": "He asked Plate ou gazeuse ?, which is not a yes or no question. Yes answers nothing and he has to ask again."
+            },
+            {
+              "wrong": "Ça fait combien ?",
+              "right": "Par carte.",
+              "why": "Vous réglez comment ? asks the method. Comment is how; combien is how much, and it is a different question at a different moment."
+            },
+            {
+              "wrong": "Je ne mange pas du viande.",
+              "right": "Je ne mange pas de viande.",
+              "why": "After a negative it is de, never du. a1.29 taught this one; the table is just where you have to run it fast."
+            }
+          ]
+        },
+        {
+          "type": "scene",
+          "id": "s15-break",
+          "title": "When It Goes Off Script",
+          "frSub": "Quand ça déraille",
+          "render": "screens",
+          "layer": "core",
+          "terms": [
+            "deviation",
+            "handBack",
+            "chunk"
+          ],
+          "say": {
+            "text": "Everything so far assumed the evening goes to plan. This one does not.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "The same bistro, forty minutes later",
+            "city": "Lyon",
+            "time": "Thursday, nearly nine",
+            "ambience": "room-tone-lobby"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "Later the same evening. You have caught his questions, you have answered them, and it has gone well.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Je voudrais le saumon, s'il vous plaît.",
+              "en": "(I would like the salmon, please.)",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "The waiter",
+              "fr": "Je suis désolé, il n'y en a plus.",
+              "en": "I'm sorry, there's none left.",
+              "stage": "He is not going anywhere. He is waiting, and so is the table behind you.",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "Your script has no slot for this. What comes out of your mouth?",
+              "options": [
+                {
+                  "fr": "...",
+                  "en": "nothing, while you rebuild the sentence",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts"
+                  },
+                  "outcome": "breaks"
+                },
+                {
+                  "fr": "Alors qu'est-ce que vous me conseillez ?",
+                  "en": "hand the choice back to him",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts"
+                  },
+                  "outcome": "works"
+                }
+              ],
+              "followUp": {
+                "works": "Yes. You cannot choose, so make him choose. It keeps the turn and it is what the table next to you would do.",
+                "breaks": "Six seconds of silence, and then he starts suggesting things at full speed. You have lost the turn."
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "Learn the shape, not the pieces",
+              "body": "Il n'y en a plus is one sound that means there is none left. Take it whole. What is inside it belongs to another lesson, and pulling it apart at a table costs you the six seconds you needed.",
+              "coach": "Recognise the chunk, reach for the hand-back. That is the whole of act four.",
+              "right": {
+                "fr": "Alors qu'est-ce que vous me conseillez ?",
+                "en": "hand the choice back, and keep the turn",
+                "ipa": "/a.lɔʁ kɛs kə vu mə kɔ̃.sɛ.je/",
+                "respell": "[a-LOR kess kuh voo muh kohⁿ-seh-YAY]"
+              },
+              "wrong": {
+                "fr": "Euh... je voudrais... euh...",
+                "en": "rebuilding the sentence while he waits",
+                "ipa": "/ø ʒə vu.dʁɛ ø/",
+                "respell": "[EU zhuh voo-DREH EU]"
+              },
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "audioFirst": true
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "The waiter",
+              "fr": "Le bar est très bien ce soir.",
+              "en": "The sea bass is very good tonight.",
+              "stage": "He had an answer ready the whole time.",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "You did not need the salmon sentence. You needed one question, and it is the same question every time."
+            }
+          ],
+          "closing": {
+            "size": "md",
+            "text": "You cannot choose, so make him choose."
+          }
+        },
+        {
+          "type": "listening",
+          "id": "s16-offscript",
+          "title": "None Of The Eight",
+          "frSub": "Hors script",
+          "layer": "core",
+          "terms": [
+            "deviation",
+            "rung",
+            "stage"
+          ],
+          "say": "Six more lines, and not one of them is on the map you just learned. The question is what he wants from you.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-offscript",
+            "audioFirst": true
+          },
+          "questionsInModal": true,
+          "hideLines": true,
+          "lines": [
+            {
+              "fr": "C'est à quel nom ?",
+              "en": "What name is it under?"
+            },
+            {
+              "fr": "Vous permettez ?",
+              "en": "May I?"
+            },
+            {
+              "fr": "Attention, c'est très chaud.",
+              "en": "Careful, it's very hot."
+            },
+            {
+              "fr": "Il vous faut autre chose ?",
+              "en": "Do you need anything else?"
+            },
+            {
+              "fr": "On ferme la cuisine dans dix minutes.",
+              "en": "The kitchen closes in ten minutes."
+            },
+            {
+              "fr": "Je reviens tout de suite.",
+              "en": "I'll be right back."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Line 1. What does he want from you?",
+              "opts": [
+                "A name",
+                "A number",
+                "Your order",
+                "A drink choice"
+              ],
+              "correct": 0,
+              "why": "He is looking for a booking. Your surname is the whole answer, and it is the word learners are least ready to say aloud."
+            },
+            {
+              "q": "Line 2. What should you do?",
+              "opts": [
+                "Move your arm and say je vous en prie",
+                "Answer the question",
+                "Order something",
+                "Ask for the bill"
+              ],
+              "correct": 0,
+              "why": "It is a courtesy said while already reaching past you. Nothing is really being asked, and the only wrong answer is a long one."
+            },
+            {
+              "q": "Line 3. Is he asking you anything?",
+              "opts": [
+                "No, he is warning you",
+                "Yes, about your order",
+                "Yes, about the bill",
+                "Yes, about the temperature you want"
+              ],
+              "correct": 0,
+              "why": "A warning, not a question. A learner running the script hears a question in it and answers oui, which is how you burn your hand."
+            },
+            {
+              "q": "Line 4. Which stage does this belong to?",
+              "opts": [
+                "None, it is asked mid-meal",
+                "Stage 6, the upsell",
+                "Stage 1, arriving",
+                "Stage 8, paying"
+              ],
+              "correct": 0,
+              "why": "It looks like the upsell and is not: this is about bread or water while you eat, not about buying another course."
+            },
+            {
+              "q": "Line 5. What does it mean for you?",
+              "opts": [
+                "Order now or not at all",
+                "The restaurant is closing now",
+                "Your food is ready",
+                "You must pay now"
+              ],
+              "correct": 0,
+              "why": "A statement that is really an instruction. Nothing in it is a question and everything in it is urgent."
+            },
+            {
+              "q": "Line 6. You did not catch it at all. Which rung?",
+              "opts": [
+                "Pardon ?",
+                "Vous pouvez me l'écrire, s'il vous plaît ?",
+                "Qu'est-ce que ça veut dire ?",
+                "Say nothing and wait"
+              ],
+              "correct": 0,
+              "why": "Rung 1, and it costs nothing. He is walking away mid-turn, so a cheap rung now beats an expensive one later."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s17-repair",
+          "title": "Six Ways To Say You Missed It",
+          "frSub": "Les six barreaux",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "rung",
+            "faceCost"
+          ],
+          "say": "Six rungs, cheapest first. Every one of them is ordinary French and none of them is an apology.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-repair"
+          },
+          "itemIds": [
+            "fr.a2.au-restaurant.132",
+            "fr.a2.au-restaurant.133",
+            "fr.a2.au-restaurant.134",
+            "fr.a2.au-restaurant.135",
+            "fr.a2.au-restaurant.136",
+            "fr.a2.au-restaurant.137"
+          ],
+          "cards": [
+            {
+              "head": "Rung 1",
+              "fr": "Pardon ?",
+              "sub": "[par-DOHⁿ]",
+              "body": "One word, and it gives away nothing about why you missed it. It is also the one a French speaker uses without thinking, which is why it is first.",
+              "label": "costs you nothing"
+            },
+            {
+              "head": "Rung 2",
+              "fr": "Vous pouvez répéter, s'il vous plaît ?",
+              "sub": "[voo poo-VAY ray-pay-TAY seel voo PLEH]",
+              "body": "Asks for the whole thing again and still says nothing about what went wrong. If rung 1 got you a repeat at the same speed, this is the next one.",
+              "label": "the whole thing again"
+            },
+            {
+              "head": "Rung 3",
+              "fr": "Plus lentement, s'il vous plaît.",
+              "sub": "[plü lahⁿt-MAHⁿ seel voo PLEH]",
+              "body": "The first rung that names the problem: it was the speed. Use it when you caught the shape of the sentence but none of the words.",
+              "label": "names the problem"
+            },
+            {
+              "head": "Rung 4",
+              "fr": "Je n'ai pas bien compris.",
+              "sub": "[zhuh nay pah byehⁿ kohⁿ-PREE]",
+              "body": "Says outright that you did not follow. Bien is what softens it: without bien you are saying you understood nothing at all.",
+              "label": "says it outright"
+            },
+            {
+              "head": "Rung 5",
+              "fr": "Qu'est-ce que ça veut dire ?",
+              "sub": "[kess kuh sa veu DEER]",
+              "body": "Narrows it to one word rather than the whole turn. Point at the thing on the menu and this question does the rest.",
+              "label": "one word, not the turn"
+            },
+            {
+              "head": "Rung 6",
+              "fr": "Vous pouvez me l'écrire, s'il vous plaît ?",
+              "sub": "[voo poo-VAY muh lay-KREER seel voo PLEH]",
+              "body": "The most expensive rung, and the one that always works. It concedes that listening has failed and asks to change medium.",
+              "label": "always works"
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s18-deploy",
+          "title": "Which Rung",
+          "frSub": "Quel barreau ?",
+          "layer": "core",
+          "terms": [
+            "rung",
+            "faceCost"
+          ],
+          "say": "He says something. Which rung do you reach for, and why not the one above it.",
+          "groups": [
+            {
+              "label": "you heard it, it was just fast",
+              "items": [
+                {
+                  "fr": "Pardon ?",
+                  "en": "Sorry?",
+                  "sub": "rung 1"
+                },
+                {
+                  "fr": "Vous pouvez répéter, s'il vous plaît ?",
+                  "en": "Can you say that again, please?",
+                  "sub": "rung 2"
+                }
+              ],
+              "check": {
+                "q": "He said something at full speed and you caught nothing. First move?",
+                "opts": [
+                  "Pardon ?",
+                  "Vous pouvez me l'écrire, s'il vous plaît ?",
+                  "Qu'est-ce que ça veut dire ?",
+                  "Je n'ai pas bien compris."
+                ],
+                "correct": 0,
+                "why": "Rung 1 costs nothing and usually works. Starting at rung 6 gives away far more than the situation needs."
+              }
+            },
+            {
+              "label": "it was the speed",
+              "items": [
+                {
+                  "fr": "Plus lentement, s'il vous plaît.",
+                  "en": "More slowly, please.",
+                  "sub": "rung 3"
+                },
+                {
+                  "fr": "Je n'ai pas bien compris.",
+                  "en": "I didn't quite catch that.",
+                  "sub": "rung 4"
+                }
+              ],
+              "check": {
+                "q": "He repeated it once, at exactly the same speed. Now what?",
+                "opts": [
+                  "Pardon ?",
+                  "Vous pouvez répéter, s'il vous plaît ?",
+                  "Oui.",
+                  "Plus lentement, s'il vous plaît."
+                ],
+                "correct": 3,
+                "why": "Rung 1 and rung 2 both ask for a repeat. Only rung 3 tells him what to change, and he cannot fix a problem you have not named."
+              }
+            },
+            {
+              "label": "one word is the problem",
+              "items": [
+                {
+                  "fr": "Qu'est-ce que ça veut dire ?",
+                  "en": "What does that mean?",
+                  "sub": "rung 5"
+                },
+                {
+                  "fr": "Vous pouvez me l'écrire, s'il vous plaît ?",
+                  "en": "Could you write it down for me, please?",
+                  "sub": "rung 6"
+                }
+              ],
+              "check": {
+                "q": "You caught the whole sentence except one word on the menu.",
+                "opts": [
+                  "Plus lentement, s'il vous plaît.",
+                  "Qu'est-ce que ça veut dire ?",
+                  "Pardon ?",
+                  "Vous pouvez répéter, s'il vous plaît ?"
+                ],
+                "correct": 1,
+                "why": "Repeating the sentence will not help: you heard it. Rung 5 narrows the problem to the one word that is actually stopping you."
+              }
+            }
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s19-menu",
+          "title": "Reading The Board",
+          "frSub": "La carte",
+          "layer": "core",
+          "terms": [
+            "someOfIt"
+          ],
+          "say": "A real board, written the way they are written. The questions are about how it is laid out, not what the words mean.",
+          "questionsInModal": true,
+          "text": "CHEZ MARTHE · ARDOISE DU JOUR\n\nFORMULE MIDI · 22 €\nentrée + plat  ou  plat + dessert\nServie du mardi au vendredi, jusqu'à 14h.\n\nENTRÉES\nSoupe à l'oignon gratinée · 9 €\nSalade de chèvre chaud · 11 €\nTerrine maison, cornichons · 10 €\n\nPLATS\nEntrecôte, sauce au poivre, frites · 24 €\nSaumon à l'oseille, riz · 21 €\nRisotto aux champignons · 18 €   sans viande\n\nDESSERTS\nTarte Tatin · 8 €\nMousse au chocolat · 7 €\n\nBoissons non comprises. Service compris.\nLes plats sont susceptibles de contenir des fruits à coque.",
+          "glossary": [
+            {
+              "word": "l'ardoise",
+              "en": "the board",
+              "note": "The slate the day's dishes are chalked on. If it is on the ardoise it is today only."
+            },
+            {
+              "word": "formule",
+              "en": "the set deal",
+              "note": "Two courses for one price, usually at lunch and usually on weekdays only."
+            },
+            {
+              "word": "gratinée",
+              "en": "browned on top",
+              "note": "Finished under the grill with cheese. It describes how, not what."
+            },
+            {
+              "word": "terrine",
+              "en": "a coarse pâté",
+              "note": "Served cold in a slice, with cornichons. It is meat."
+            },
+            {
+              "word": "l'oseille",
+              "en": "sorrel",
+              "note": "A sharp green leaf cooked down into a sauce, almost always with fish."
+            },
+            {
+              "word": "viande",
+              "en": "without meat",
+              "note": "The board's own marking. Only one dish carries it."
+            },
+            {
+              "word": "non comprises",
+              "en": "not included",
+              "note": "What the price does NOT cover. Read it next to service compris, which is the opposite."
+            },
+            {
+              "word": "coque",
+              "en": "nuts",
+              "note": "The formal term used on allergy notices. Not the same as les noix, which is walnuts."
+            }
+          ],
+          "questions": [
+            {
+              "q": "It is Thursday at one o'clock and you take the formule at 22 €. How many courses do you get, and why?",
+              "a": "Two, not three. The line under the price reads entrée + plat OU plat + dessert, so you take two of the three and choose which two."
+            },
+            {
+              "q": "You want the risotto and then a tarte Tatin, on the formule. Does the board allow it?",
+              "a": "Yes. The risotto is a plat and the tarte is a dessert, which is one of the two pairings offered. Nothing on the board excludes either dish."
+            },
+            {
+              "q": "You come back on Saturday and want the same deal. What does the board say?",
+              "a": "It is not available. Servie du mardi au vendredi puts Saturday outside it, and the jusqu'à 14h limit is a second condition on top of that rather than instead of it."
+            },
+            {
+              "q": "You are allergic to nuts. What does the board tell you, and what does it not?",
+              "a": "It warns that any dish might contain them: les plats sont susceptibles de contenir des fruits à coque. It does not tell you which ones, which is exactly why you still have to ask."
+            },
+            {
+              "q": "You order the entrecôte and a glass of wine. What is in the price and what is not?",
+              "a": "The service is in it and the drinks are not. Boissons non comprises. Service compris. The two lines sit together and say opposite things."
+            },
+            {
+              "q": "You do not eat meat. Which dish is safe on this board, and which one looks safe and is not?",
+              "a": "The risotto is marked sans viande. The terrine is meat despite reading like a vegetable dish, and the soupe à l'oignon is not marked either way, so it is not a safe read."
+            }
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s20-write",
+          "title": "Write What He Said",
+          "frSub": "La dictée",
+          "layer": "core",
+          "terms": [
+            "hisHalf",
+            "stage"
+          ],
+          "say": "Eight lines, all of them his. You have heard every one of them four times by now.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-07-write"
+          },
+          "itemIds": [
+            "fr.a2.au-restaurant.138",
+            "fr.a2.au-restaurant.142",
+            "fr.a2.au-restaurant.147",
+            "fr.a2.au-restaurant.151",
+            "fr.a2.au-restaurant.160",
+            "fr.a2.au-restaurant.168",
+            "fr.a2.au-restaurant.169",
+            "fr.a2.au-restaurant.174"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s21-say",
+          "title": "Say Your Half",
+          "frSub": "À vous",
+          "layer": "core",
+          "skill": "speak",
+          "terms": [
+            "gradient",
+            "rung"
+          ],
+          "say": "Your slot in the script, and the six rungs. Say them to the phone before you say them to a waiter.",
+          "itemIds": [
+            "fr.a2.au-restaurant.132",
+            "fr.a2.au-restaurant.133",
+            "fr.a2.au-restaurant.134",
+            "fr.a2.au-restaurant.135",
+            "fr.a2.au-restaurant.136",
+            "fr.a2.au-restaurant.137",
+            "fr.a2.au-restaurant.170",
+            "fr.a2.au-restaurant.178",
+            "fr.a2.au-restaurant.179",
+            "fr.a2.au-restaurant.181",
+            "fr.a2.au-restaurant.183",
+            "fr.a1.au-restaurant.102",
+            "fr.a1.au-restaurant.112",
+            "fr.a1.au-restaurant.103"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s22-service",
+          "title": "The Whole Evening",
+          "frSub": "Du bonsoir à l'addition",
+          "layer": "core",
+          "terms": [
+            "stage",
+            "rung",
+            "handBack"
+          ],
+          "say": "Ten turns, start to finish. You never start. He asks, you answer, and he deviates once.",
+          "setting": "Chez Marthe, Lyon, a Thursday evening. Two of you, no reservation.",
+          "turns": [
+            {
+              "ai": "Bonsoir. Vous avez réservé ?",
+              "en": "Good evening. Do you have a reservation?",
+              "user": "Non, on n'a pas réservé.",
+              "userEn": "No, we haven't booked.",
+              "alts": [
+                {
+                  "fr": "Non, désolé.",
+                  "en": "No, sorry."
+                },
+                {
+                  "fr": "Non. Vous avez une table ?",
+                  "en": "No. Do you have a table?"
+                }
+              ]
+            },
+            {
+              "ai": "Vous êtes combien ?",
+              "en": "How many of you are there?",
+              "user": "Deux, s'il vous plaît.",
+              "userEn": "Two, please.",
+              "alts": [
+                {
+                  "fr": "On est deux.",
+                  "en": "There are two of us."
+                },
+                {
+                  "fr": "Une table pour deux.",
+                  "en": "A table for two."
+                }
+              ]
+            },
+            {
+              "ai": "En terrasse ou à l'intérieur ?",
+              "en": "On the terrace or inside?",
+              "user": "À l'intérieur, merci.",
+              "userEn": "Inside, thanks.",
+              "alts": [
+                {
+                  "fr": "En terrasse, s'il vous plaît.",
+                  "en": "On the terrace, please."
+                },
+                {
+                  "fr": "À l'intérieur.",
+                  "en": "Inside."
+                }
+              ]
+            },
+            {
+              "ai": "Et comme boisson ?",
+              "en": "And to drink?",
+              "user": "Une carafe d'eau, s'il vous plaît.",
+              "userEn": "A jug of water, please.",
+              "alts": [
+                {
+                  "fr": "De l'eau, merci.",
+                  "en": "Some water, thanks."
+                },
+                {
+                  "fr": "Un verre de vin rouge.",
+                  "en": "A glass of red wine."
+                }
+              ]
+            },
+            {
+              "ai": "Plate ou gazeuse ?",
+              "en": "Still or sparkling?",
+              "user": "Plate.",
+              "userEn": "Still.",
+              "alts": [
+                {
+                  "fr": "Gazeuse, s'il vous plaît.",
+                  "en": "Sparkling, please."
+                },
+                {
+                  "fr": "Plate, merci.",
+                  "en": "Still, thanks."
+                }
+              ]
+            },
+            {
+              "ai": "Vous avez choisi ?",
+              "en": "Have you decided?",
+              "user": "Je voudrais le saumon, s'il vous plaît.",
+              "userEn": "I would like the salmon, please.",
+              "alts": [
+                {
+                  "fr": "Je vais prendre le saumon.",
+                  "en": "I'll have the salmon."
+                },
+                {
+                  "fr": "Pour moi, ce sera le saumon.",
+                  "en": "For me, it'll be the salmon."
+                }
+              ]
+            },
+            {
+              "ai": "Je suis désolé, il n'y en a plus.",
+              "en": "I'm sorry, there's none left.",
+              "user": "Alors qu'est-ce que vous me conseillez ?",
+              "userEn": "So what do you recommend?",
+              "alts": [
+                {
+                  "fr": "Pardon ?",
+                  "en": "Sorry?"
+                },
+                {
+                  "fr": "Je n'ai pas bien compris.",
+                  "en": "I didn't quite catch that."
+                }
+              ]
+            },
+            {
+              "ai": "Le bar est très bien ce soir. Quelle cuisson pour l'entrecôte ?",
+              "en": "The sea bass is very good tonight. How would you like the steak cooked?",
+              "user": "À point, s'il vous plaît.",
+              "userEn": "Medium, please.",
+              "alts": [
+                {
+                  "fr": "Bien cuit.",
+                  "en": "Well done."
+                },
+                {
+                  "fr": "Saignant, merci.",
+                  "en": "Rare, thanks."
+                }
+              ]
+            },
+            {
+              "ai": "Ça a été ? Vous prendrez un dessert ?",
+              "en": "Was everything OK? Will you have a dessert?",
+              "user": "C'était très bien, merci. Ce sera tout.",
+              "userEn": "It was very good, thanks. That'll be all.",
+              "alts": [
+                {
+                  "fr": "Une tarte Tatin, s'il vous plaît.",
+                  "en": "A tarte Tatin, please."
+                },
+                {
+                  "fr": "Juste un café, merci.",
+                  "en": "Just a coffee, thanks."
+                }
+              ]
+            },
+            {
+              "ai": "Alors ça nous fait quarante-six euros. Vous réglez comment ? Ensemble ou séparément ?",
+              "en": "So that comes to forty-six euros. How are you paying? Together or separately?",
+              "user": "Ensemble, par carte.",
+              "userEn": "Together, by card.",
+              "alts": [
+                {
+                  "fr": "Séparément, s'il vous plaît.",
+                  "en": "Separately, please."
+                },
+                {
+                  "fr": "Par carte, ensemble.",
+                  "en": "By card, together."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s23-deck",
+          "title": "Everything He Said",
+          "frSub": "Révision",
+          "render": "deck",
+          "layer": "core",
+          "terms": [
+            "stage",
+            "rung"
+          ],
+          "say": "His half and your half, together, one last time.",
+          "cards": [
+            {
+              "front": "You have just walked in and he speaks first",
+              "back": "Bonsoir, vous avez réservé ? Stage 1, and it is a yes or no.",
+              "say": "Bonsoir, vous avez réservé ?"
+            },
+            {
+              "front": "Two words, no verb, and it is about water",
+              "back": "Plate ou gazeuse ? Hand one of his two words back.",
+              "say": "Plate ou gazeuse ?"
+            },
+            {
+              "front": "The question you have been waiting for",
+              "back": "Vous avez choisi ? Stage 4, and it arrives in the passé composé.",
+              "say": "Vous avez choisi ?"
+            },
+            {
+              "front": "You have named your starter. He says two words.",
+              "back": "Et ensuite ? He wants your main course.",
+              "say": "Et ensuite ?"
+            },
+            {
+              "front": "He is clearing your plate and asks three syllables",
+              "back": "Ça a été ? A past tense, so the eating is over.",
+              "say": "Ça a été ?"
+            },
+            {
+              "front": "The upsell, with no verb in it at all",
+              "back": "Un café pour finir ? Ce sera tout, merci is the whole answer.",
+              "say": "Un café pour finir ?"
+            },
+            {
+              "front": "He is holding the card machine",
+              "back": "Vous réglez comment ? Comment is how, not how much. Par carte.",
+              "say": "Vous réglez comment ?"
+            },
+            {
+              "front": "Asked once, quickly, about the bill",
+              "back": "Ensemble ou séparément ? It decides whether one bill comes or several.",
+              "say": "Ensemble ou séparément ?"
+            },
+            {
+              "front": "The cheapest way to say you missed it",
+              "back": "Pardon ? Rung 1, and it gives away nothing.",
+              "say": "Pardon ?"
+            },
+            {
+              "front": "He repeated it at exactly the same speed",
+              "back": "Plus lentement, s'il vous plaît. Rung 3 names the problem.",
+              "say": "Plus lentement, s'il vous plaît."
+            },
+            {
+              "front": "You did not quite follow, and you want to say so",
+              "back": "Je n'ai pas bien compris. Rung 4, and bien is what softens it.",
+              "say": "Je n'ai pas bien compris."
+            },
+            {
+              "front": "The dish you wanted is off",
+              "back": "Alors qu'est-ce que vous me conseillez ? You cannot choose, so make him choose.",
+              "say": "Alors qu'est-ce que vous me conseillez ?"
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s24-check",
+          "title": "Where You Are",
+          "frSub": "Le point",
+          "layer": "core",
+          "say": "Twenty-three missions. Here is what changed.",
+          "body": "You came in able to order and left able to be spoken to. The eight stages are the same eight almost everywhere in France, so the next bistro is not a new problem. And when a sentence goes past you, you no longer have to smile and hope: there are six things to say and you know what each one costs.",
+          "stats": [
+            {
+              "k": "Stages of the encounter",
+              "v": "8"
+            },
+            {
+              "k": "Lines in his voice",
+              "v": "34"
+            },
+            {
+              "k": "Rungs on the repair ladder",
+              "v": "6"
+            },
+            {
+              "k": "Questions you now start",
+              "v": "0"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s25-quiz",
+          "title": "The Exam",
+          "frSub": "L'examen",
+          "layer": "core",
+          "terms": [
+            "stage",
+            "rung",
+            "gradient"
+          ],
+          "say": "Six rounds of five. Most of it is catching what he said.",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "r1-stage",
+              "label": "Which stage",
+              "say": "Five on where in the evening you are.",
+              "targets": [
+                "err-lost-in-script",
+                "err-missed-stage"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "ref": "s03-stages",
+                  "q": "He says « Ça a été ? ». Where are you?",
+                  "opts": [
+                    "He is clearing your plate",
+                    "You have just walked in",
+                    "You are ordering",
+                    "You are paying"
+                  ],
+                  "correct": 0,
+                  "why": "A past tense, so the eating is over. Tout se passe bien ? is the present-tense version asked mid-meal."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s03-stages",
+                  "q": "He says « Et ensuite ? ». What does he want?",
+                  "opts": [
+                    "Your payment method",
+                    "To clear the table",
+                    "Your main course",
+                    "Your name"
+                  ],
+                  "correct": 2,
+                  "why": "Stage 4. Ensuite means next, and next at this point is the main course."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s04-his-open",
+                  "q": "« Une carafe d'eau, ça ira ? » is",
+                  "opts": [
+                    "An offer of two options",
+                    "A check on a decision he has made",
+                    "A question about the bill",
+                    "An apology"
+                  ],
+                  "correct": 1,
+                  "why": "Ça ira means will that do. He is confirming rather than offering, and silence counts as yes."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s07-his-close",
+                  "q": "« Vous réglez comment ? » asks about",
+                  "opts": [
+                    "The amount owed",
+                    "The tip",
+                    "Whose dish was whose",
+                    "The method of payment"
+                  ],
+                  "correct": 3,
+                  "why": "Comment is how. Combien would be how much, and that is a different question at a different moment."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s03-stages",
+                  "q": "Which of these comes FIRST in the evening?",
+                  "opts": [
+                    "Vous avez choisi ?",
+                    "Ce sera tout ?",
+                    "Vous avez réservé ?",
+                    "Vous réglez comment ?"
+                  ],
+                  "correct": 2,
+                  "why": "Stage 1. The other three are stages 4, 6 and 8, in that order."
+                }
+              ]
+            },
+            {
+              "id": "r2-ear",
+              "label": "What he said",
+              "say": "Five you have to hear rather than read.",
+              "targets": [
+                "err-missed-stage",
+                "err-no-verb"
+              ],
+              "questions": [
+                {
+                  "format": "listenChoose",
+                  "ref": "s08-fast",
+                  "say": "Plate ou gazeuse ?",
+                  "q": "Listen. What is he asking about?",
+                  "opts": [
+                    "Water",
+                    "The steak",
+                    "The bill",
+                    "Dessert"
+                  ],
+                  "correct": 0,
+                  "why": "There is no noun in the question at all. It is a drinks question and the two words are the two kinds of bottled water."
+                },
+                {
+                  "format": "listenChoose",
+                  "ref": "s08-fast",
+                  "say": "Ensemble ou séparément ?",
+                  "q": "Listen. What is being decided?",
+                  "opts": [
+                    "Where you sit",
+                    "How the meat is cooked",
+                    "What you drink",
+                    "Whether one bill comes or several"
+                  ],
+                  "correct": 3,
+                  "why": "Stage 8. It is asked once, quickly, while he is holding the card machine."
+                },
+                {
+                  "format": "listenChoose",
+                  "ref": "s08-fast",
+                  "say": "Je vous débarrasse ?",
+                  "q": "Listen. Is this a question?",
+                  "opts": [
+                    "No, it is a statement about the bill",
+                    "Yes, and it asks to clear your plate",
+                    "Yes, and it asks what you want",
+                    "No, it is a greeting"
+                  ],
+                  "correct": 1,
+                  "why": "It is shaped exactly like a statement and marked only by his voice going up at the end."
+                },
+                {
+                  "format": "listenChoose",
+                  "ref": "s04-his-open",
+                  "say": "Et comme boisson ?",
+                  "q": "Listen. What does comme mean here?",
+                  "opts": [
+                    "By way of",
+                    "Like, similar to",
+                    "How",
+                    "As soon as"
+                  ],
+                  "correct": 0,
+                  "why": "Comme frames a category: by way of a drink. Et comme entrée ? at stage 4 is the same frame with a different noun."
+                },
+                {
+                  "format": "listenChoose",
+                  "ref": "s15-break",
+                  "say": "Je suis désolé, il n'y en a plus.",
+                  "q": "Listen. What has happened?",
+                  "opts": [
+                    "The kitchen is closed",
+                    "He did not hear you",
+                    "What you ordered is unavailable",
+                    "The bill is wrong"
+                  ],
+                  "correct": 2,
+                  "why": "Take it whole: it is one sound meaning there is none left. Taking it apart at the table costs you the seconds you needed."
+                }
+              ]
+            },
+            {
+              "id": "r3-fit",
+              "label": "The answer that fits",
+              "say": "Five on saying the right amount, which is usually less than you think.",
+              "targets": [
+                "err-overlong-answer",
+                "err-yes-to-a-choice"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "ref": "s10-fit",
+                  "q": "He says « Plate ou gazeuse ? ». Best answer?",
+                  "opts": [
+                    "Oui, s'il vous plaît.",
+                    "Plate.",
+                    "Je voudrais de l'eau qui n'est pas gazeuse.",
+                    "Non, merci."
+                  ],
+                  "correct": 1,
+                  "why": "He gave you two words. Hand one back. It is not curt; it is the register."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s10-fit",
+                  "q": "He says « Ce sera tout ? » and you want nothing else.",
+                  "opts": [
+                    "Oui.",
+                    "Combien ?",
+                    "Je ne comprends pas.",
+                    "Ce sera tout, merci."
+                  ],
+                  "correct": 3,
+                  "why": "Reusing his frame is faster and more natural than building a new sentence."
+                },
+                {
+                  "format": "errorSpot",
+                  "ref": "s14-errors",
+                  "q": "He asked « Vous réglez comment ? ». Fix the answer.",
+                  "prompt": "Ça fait combien ?",
+                  "accept": [
+                    "Par carte.",
+                    "par carte",
+                    "Par carte, s'il vous plaît.",
+                    "En espèces.",
+                    "en espèces"
+                  ],
+                  "answer": "Par carte, s'il vous plaît.",
+                  "why": "Comment asks the method, not the amount. Answering with a price question means he has to ask again."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s10-fit",
+                  "q": "He says « Quelle cuisson ? ». Which is an actual answer?",
+                  "opts": [
+                    "Oui, merci.",
+                    "Je voudrais le poulet.",
+                    "À point, s'il vous plaît.",
+                    "Par carte."
+                  ],
+                  "correct": 2,
+                  "why": "Three words exist and he will offer none of them: saignant, à point, bien cuit."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s04-his-open",
+                  "q": "He says « Vous êtes combien ? ». Best answer?",
+                  "opts": [
+                    "Deux, s'il vous plaît.",
+                    "Oui, deux.",
+                    "Nous sommes ici pour manger.",
+                    "Une table."
+                  ],
+                  "correct": 0,
+                  "why": "A number is a whole answer to a number question. Nothing else needs to be built around it."
+                }
+              ]
+            },
+            {
+              "id": "r4-register",
+              "label": "How you ask",
+              "say": "Five on the one rung that is wrong at a table.",
+              "targets": [
+                "err-je-veux",
+                "err-register"
+              ],
+              "questions": [
+                {
+                  "format": "errorSpot",
+                  "ref": "s11-gradient",
+                  "q": "You are at a table ordering. Fix this.",
+                  "prompt": "Je veux le poulet.",
+                  "accept": [
+                    "Je voudrais le poulet.",
+                    "je voudrais le poulet",
+                    "Je prends le poulet.",
+                    "Je vais prendre le poulet."
+                  ],
+                  "answer": "Je voudrais le poulet.",
+                  "why": "Je veux is grammatical and understood, and it is one rung too blunt at a table. Nobody corrects it, which is why nobody learns it."
+                },
+                {
+                  "format": "typeIn",
+                  "ref": "s11-gradient",
+                  "q": "Write the softest of the five ways to order, using vouloir. Three words, then the dish: « ... le poulet. »",
+                  "accept": [
+                    "Je voudrais le poulet.",
+                    "je voudrais le poulet",
+                    "Je voudrais le poulet"
+                  ],
+                  "answer": "Je voudrais le poulet.",
+                  "why": "Voudrais against veux is one syllable and the whole difference in register. Both survive folding, so this is a real contrast rather than a spelling test."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s11-gradient",
+                  "q": "Which of these would you NOT say at a restaurant table?",
+                  "opts": [
+                    "Je vais prendre le poulet.",
+                    "Ce sera le poulet.",
+                    "Je prendrais plutôt le poulet.",
+                    "Je veux le poulet."
+                  ],
+                  "correct": 3,
+                  "why": "The other three sit at different points on the gradient and all four are grammatical. Only the first one lands wrong."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s11-gradient",
+                  "q": "« Pour moi, ce sera l'entrecôte. » Where does this sit?",
+                  "opts": [
+                    "Rude",
+                    "Flat and confident, and perfectly polite",
+                    "A question",
+                    "Only used in Quebec"
+                  ],
+                  "correct": 1,
+                  "why": "Ce sera is the flattest of the five rungs and it carries no rudeness at all. It is how it is said at a table of four."
+                },
+                {
+                  "format": "errorSpot",
+                  "ref": "s12-some",
+                  "q": "You are telling him what you do not eat. Fix this.",
+                  "prompt": "Je ne mange pas du viande.",
+                  "accept": [
+                    "Je ne mange pas de viande.",
+                    "je ne mange pas de viande",
+                    "de viande"
+                  ],
+                  "answer": "Je ne mange pas de viande.",
+                  "why": "After a negative it is de, never du. a1.29 taught this one; the table is where you have to run it fast."
+                }
+              ]
+            },
+            {
+              "id": "r5-repair",
+              "label": "When you miss it",
+              "say": "Five on the six rungs, and this is the part the rest of the course quotes.",
+              "targets": [
+                "err-freeze",
+                "err-wrong-rung"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "ref": "s17-repair",
+                  "q": "The cheapest thing you can say when you catch nothing. One word.",
+                  "accept": [
+                    "Pardon",
+                    "Pardon ?",
+                    "pardon"
+                  ],
+                  "answer": "Pardon ?",
+                  "why": "Rung 1. It gives away nothing about why you missed it, and it is what a French speaker says without thinking."
+                },
+                {
+                  "format": "typeIn",
+                  "ref": "s17-repair",
+                  "q": "Say that you did not QUITE catch it. Five words: « Je n'ai pas ... compris. »",
+                  "accept": [
+                    "Je n'ai pas bien compris.",
+                    "je n'ai pas bien compris",
+                    "bien"
+                  ],
+                  "answer": "Je n'ai pas bien compris.",
+                  "why": "Bien is what softens it. Without bien you are saying you understood nothing at all, and the two do not fold together, so the word is genuinely being tested."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s18-deploy",
+                  "q": "He repeated it once at exactly the same speed. Which rung now?",
+                  "opts": [
+                    "Plus lentement, s'il vous plaît.",
+                    "Pardon ?",
+                    "Vous pouvez répéter, s'il vous plaît ?",
+                    "Merci."
+                  ],
+                  "correct": 0,
+                  "why": "Rungs 1 and 2 both just ask for a repeat. Only rung 3 tells him what to change, and he cannot fix a problem you have not named."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s18-deploy",
+                  "q": "You caught the whole sentence except one word on the board.",
+                  "opts": [
+                    "Plus lentement, s'il vous plaît.",
+                    "Pardon ?",
+                    "Qu'est-ce que ça veut dire ?",
+                    "Vous pouvez répéter, s'il vous plaît ?"
+                  ],
+                  "correct": 2,
+                  "why": "Repeating it will not help, because you heard it. Rung 5 narrows the problem to the one word actually stopping you."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s15-break",
+                  "q": "He says the dish is off. What keeps the turn?",
+                  "opts": [
+                    "Saying nothing while you rebuild the sentence",
+                    "Alors qu'est-ce que vous me conseillez ?",
+                    "Je veux le saumon.",
+                    "Pardon ?"
+                  ],
+                  "correct": 1,
+                  "why": "You cannot choose, so make him choose. Freezing costs you the turn and he starts suggesting things at full speed."
+                }
+              ]
+            },
+            {
+              "id": "r6-whole",
+              "label": "The whole evening",
+              "say": "Five that need more than one part of the lesson.",
+              "targets": [
+                "err-lost-in-script",
+                "err-freeze"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "ref": "s19-menu",
+                  "q": "The formule is 22 € for entrée + plat or plat + dessert. You want all three courses.",
+                  "opts": [
+                    "It is included",
+                    "It costs 22 € either way",
+                    "Only at lunch",
+                    "The formule does not cover it"
+                  ],
+                  "correct": 3,
+                  "why": "The board says OU: two of the three, and you pick which two. A third course is off the deal."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s07-his-close",
+                  "q": "« Le service est compris. » What does this mean for you?",
+                  "opts": [
+                    "You must leave a tip",
+                    "The drinks are free",
+                    "The service charge is already in the price",
+                    "You pay at the bar"
+                  ],
+                  "correct": 2,
+                  "why": "It is a statement of fact, not a hint. Anything on top is yours to decide and nobody is waiting for it."
+                },
+                {
+                  "format": "speak",
+                  "ref": "s21-say",
+                  "target": "Alors qu'est-ce que vous me conseillez ?",
+                  "ipa": "/a.lɔʁ kɛs kə vu mə kɔ̃.sɛ.je/",
+                  "q": "Say it out loud. The dish you wanted is off and the queue behind you is waiting.",
+                  "why": "Alors buys you the half-second and the rest is one fixed question. Said whole, it sounds like a decision rather than a stall."
+                },
+                {
+                  "format": "speak",
+                  "ref": "s21-say",
+                  "target": "Je n'ai pas bien compris.",
+                  "ipa": "/ʒə ne pa bjɛ̃ kɔ̃.pʁi/",
+                  "q": "Say rung 4 out loud, to a waiter who has just said something fast.",
+                  "why": "Four rhythmic beats and no pause in the middle. Said as one block it sounds ordinary; said word by word it sounds like an apology."
+                },
+                {
+                  "format": "mcq",
+                  "ref": "s22-service",
+                  "q": "Across the whole evening, how many questions does he ask before the food arrives?",
+                  "opts": [
+                    "Six or more",
+                    "One",
+                    "Two",
+                    "None, you order first"
+                  ],
+                  "correct": 0,
+                  "why": "Reservation, how many, where, drink, still or sparkling, chosen, and the cooking. You start none of them, which is the whole reframe."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s26-roundup",
+          "title": "What You Take With You",
+          "frSub": "Le bilan",
+          "layer": "core",
+          "say": "Three things, and the third one works everywhere, not just at a table.",
+          "body": "You never start. He asks, you answer, and there are eight stages that arrive in the same order almost every time. Answer short: when he gives you two words, one of them back is the whole answer. And when a sentence goes past you, there are six rungs from Pardon ? to Vous pouvez me l'écrire ?, and you now know what each one costs. That last one is not about restaurants. It is the thing you will use in a pharmacy, at a station, and on the phone.",
+          "points": [
+            "You never start. He asks, you answer.",
+            "Eight stages, in the same order almost every time.",
+            "A short question wants a short answer. Two words back is not curt, it is the register.",
+            "Je veux is the one rung too far down. Je voudrais costs you one syllable.",
+            "Six rungs from Pardon ? to Vous pouvez me l'écrire ?, and the ladder works anywhere."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.au-restaurant.138",
+        "fr.a2.au-restaurant.139",
+        "fr.a2.au-restaurant.140",
+        "fr.a2.au-restaurant.141",
+        "fr.a2.au-restaurant.142",
+        "fr.a1.au-restaurant.111",
+        "fr.a1.au-restaurant.039",
+        "fr.a1.au-restaurant.043",
+        "fr.a2.au-restaurant.143",
+        "fr.a2.au-restaurant.144",
+        "fr.a2.au-restaurant.145",
+        "fr.a2.au-restaurant.146",
+        "fr.a2.au-restaurant.147",
+        "fr.a2.au-restaurant.148",
+        "fr.a2.au-restaurant.149",
+        "fr.a2.au-restaurant.150",
+        "fr.a2.au-restaurant.151",
+        "fr.a2.au-restaurant.152",
+        "fr.a2.au-restaurant.153",
+        "fr.a2.au-restaurant.154",
+        "fr.a2.au-restaurant.155",
+        "fr.a2.au-restaurant.156",
+        "fr.a2.au-restaurant.157",
+        "fr.a2.au-restaurant.158",
+        "fr.a2.au-restaurant.159",
+        "fr.a2.au-restaurant.160",
+        "fr.a2.au-restaurant.161",
+        "fr.a2.au-restaurant.162",
+        "fr.a2.au-restaurant.163",
+        "fr.a2.au-restaurant.164",
+        "fr.a2.au-restaurant.165",
+        "fr.a2.au-restaurant.166",
+        "fr.a2.au-restaurant.167",
+        "fr.a1.au-restaurant.116",
+        "fr.a2.au-restaurant.054",
+        "fr.a1.cafe.005",
+        "fr.a2.quebec-et-francophonie.197",
+        "fr.a2.quebec-et-francophonie.198",
+        "fr.a2.au-restaurant.178",
+        "fr.a2.au-restaurant.179",
+        "fr.a2.au-restaurant.180",
+        "fr.a2.au-restaurant.181",
+        "fr.a2.au-restaurant.182",
+        "fr.a2.au-restaurant.183",
+        "fr.a1.au-restaurant.102",
+        "fr.a1.au-restaurant.112",
+        "fr.a1.au-restaurant.020",
+        "fr.a1.au-restaurant.021",
+        "fr.a1.au-restaurant.022",
+        "fr.a2.au-restaurant.063",
+        "fr.a2.au-restaurant.132",
+        "fr.a2.au-restaurant.133",
+        "fr.a2.au-restaurant.134",
+        "fr.a2.au-restaurant.135",
+        "fr.a2.au-restaurant.136",
+        "fr.a2.au-restaurant.137",
+        "fr.a2.au-restaurant.168",
+        "fr.a2.au-restaurant.169",
+        "fr.a2.au-restaurant.170",
+        "fr.a2.au-restaurant.171",
+        "fr.a2.au-restaurant.172",
+        "fr.a2.au-restaurant.173",
+        "fr.a2.au-restaurant.174",
+        "fr.a2.au-restaurant.175",
+        "fr.a2.au-restaurant.176",
+        "fr.a2.au-restaurant.177",
+        "fr.a2.au-restaurant.184",
+        "fr.a2.au-restaurant.185",
+        "fr.a2.au-restaurant.186",
+        "fr.a2.au-restaurant.187",
+        "fr.a2.au-restaurant.188",
+        "fr.a2.au-restaurant.189",
+        "fr.a1.au-restaurant.193",
+        "fr.a1.au-restaurant.194",
+        "fr.a1.au-restaurant.103",
+        "fr.a1.au-restaurant.096",
+        "fr.a1.au-restaurant.098",
+        "fr.a1.au-restaurant.190",
+        "fr.a1.au-restaurant.186",
+        "fr.a2.au-restaurant.058",
+        "fr.a2.au-restaurant.061",
+        "fr.a2.au-restaurant.051",
+        "fr.a2.au-restaurant.052",
+        "fr.a2.au-restaurant.053",
+        "fr.a2.au-restaurant.057",
+        "fr.a2.au-restaurant.062",
+        "fr.a1.au-restaurant.010",
+        "fr.a1.au-restaurant.198",
+        "fr.a1.au-restaurant.040"
+      ],
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm"
+      }
     }
   ],
   "items": [
@@ -191650,7 +194985,6 @@
         "flashcard",
         "review"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -218726,7 +222060,6 @@
         "flashcard",
         "voiceflash"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -255711,7 +259044,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -255734,7 +259066,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -255757,7 +259088,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -255780,7 +259110,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -255803,7 +259132,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -275395,7 +278723,6 @@
         "flashcard",
         "review"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -349452,7 +352779,6 @@
         "flashcard",
         "review"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -350915,7 +354241,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -350937,7 +354262,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -350956,7 +354280,6 @@
         "flashcard",
         "review"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -350974,7 +354297,6 @@
         "flashcard",
         "review"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -350992,7 +354314,6 @@
         "flashcard",
         "review"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -351010,7 +354331,6 @@
         "flashcard",
         "review"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -351033,7 +354353,6 @@
         "voiceflash",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -351052,7 +354371,6 @@
       "drills": [
         "dictation"
       ],
-      "audioRef": null,
       "version": 1
     },
     {
@@ -354491,7 +357809,6 @@
         "flashcard",
         "voiceflash"
       ],
-      "audioRef": null,
       "version": 1,
       "cardType": "vocab"
     },
@@ -359297,7 +362614,6 @@
         "sentence",
         "review"
       ],
-      "audioRef": null,
       "version": 1,
       "skill": "PE",
       "register": "courant",
@@ -391433,6 +394749,1962 @@
       "audioRef": null,
       "version": 1,
       "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.au-restaurant.010",
+      "kind": "word",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "le pourboire",
+      "en": "the tip",
+      "ipa": "/lə puʁbwaʁ/",
+      "respell": "luh poor-BWAHR",
+      "notes": "Optional in France since service is included in the bill.",
+      "tags": [
+        "restaurant",
+        "argent"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.020",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "à point",
+      "en": "medium, for steak",
+      "ipa": "/a pwɛ̃/",
+      "respell": "ah PWAN",
+      "notes": "How the server asks: quelle cuisson ? Answer: à point.",
+      "tags": [
+        "restaurant",
+        "cuisson"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.021",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "bien cuit",
+      "en": "well done, for steak",
+      "ipa": "/bjɛ̃ kɥi/",
+      "respell": "byan KWEE",
+      "notes": "The final t of cuit stays silent.",
+      "tags": [
+        "restaurant",
+        "cuisson"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.022",
+      "kind": "word",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "saignant",
+      "en": "rare, for steak",
+      "ipa": "/sɛɲɑ̃/",
+      "respell": "seh-NYAHN",
+      "notes": "Literally bleeding; French rare is quite red.",
+      "tags": [
+        "restaurant",
+        "cuisson"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.039",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Une table pour deux, s'il vous plaît",
+      "en": "A table for two, please",
+      "ipa": "/yn tabl puʁ dø sil vu plɛ/",
+      "respell": "ün TAHBL poor DUH seel voo PLEH",
+      "notes": "The first thing to say when you walk in.",
+      "tags": [
+        "restaurant",
+        "expression"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.040",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Qu'est-ce que vous me conseillez ?",
+      "en": "What do you recommend?",
+      "ipa": "/kɛs kə vu mə kɔ̃seje/",
+      "respell": "kehs-kuh voo muh kohn-seh-YAY",
+      "notes": "A polite way to ask the server for a suggestion.",
+      "tags": [
+        "restaurant",
+        "expression"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.043",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Une table pour deux, s'il vous plaît.",
+      "en": "A table for two, please.",
+      "notes": "{\"tiles\":[{\"w\":\"Une table\",\"t\":\"a table\"},{\"w\":\"pour deux,\",\"t\":\"for two,\"},{\"w\":\"s'il vous plaît.\",\"t\":\"please\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.096",
+      "kind": "word",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "la carafe d'eau",
+      "en": "the jug of water",
+      "ipa": "/ka.ʁaf do/",
+      "respell": "lah kah-RAHF doh",
+      "tags": [
+        "noun",
+        "tableware",
+        "drink"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.103",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "L'addition, s'il vous plaît.",
+      "en": "The bill, please.",
+      "ipa": "/la.di.sjɔ̃ sil vu plɛ/",
+      "respell": "lah-dee-see-OHN, seel voo PLEH",
+      "tags": [
+        "phrase",
+        "payment"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.111",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "C'est pour combien de personnes ?",
+      "en": "How many people is it for?",
+      "ipa": "/sɛ puʁ kɔ̃.bjɛ̃ də pɛʁ.sɔn/",
+      "respell": "seh poor kohn-byihn duh pehr-SOHN",
+      "tags": [
+        "phrase",
+        "reservation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.116",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Qu'est-ce que vous prenez ?",
+      "en": "What will you have?",
+      "ipa": "/kɛs kə vu pʁə.ne/",
+      "respell": "kess kuh voo pruh-NAY",
+      "tags": [
+        "phrase",
+        "service",
+        "ordering"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.190",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Avez-vous des plats végétariens ?",
+      "en": "Do you have vegetarian dishes?",
+      "notes": "{\"tiles\":[{\"w\":\"Avez-vous\",\"t\":\"do you have\"},{\"w\":\"des plats\",\"t\":\"dishes\"},{\"w\":\"végétariens ?\",\"t\":\"vegetarian\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.193",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Ce n'est pas ce que j'ai commandé.",
+      "en": "This is not what I ordered.",
+      "notes": "{\"tiles\":[{\"w\":\"Ce n'est pas\",\"t\":\"this is not\"},{\"w\":\"ce que\",\"t\":\"what\"},{\"w\":\"j'ai commandé.\",\"t\":\"i ordered\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.194",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Pouvez-vous réchauffer mon plat ?",
+      "en": "Can you reheat my dish?",
+      "notes": "{\"tiles\":[{\"w\":\"Pouvez-vous\",\"t\":\"can you\"},{\"w\":\"réchauffer\",\"t\":\"reheat\"},{\"w\":\"mon plat ?\",\"t\":\"my dish\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.au-restaurant.198",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Le service est compris dans le prix.",
+      "en": "Service is included in the price.",
+      "notes": "{\"tiles\":[{\"w\":\"Le service\",\"t\":\"the service\"},{\"w\":\"est compris\",\"t\":\"is included\"},{\"w\":\"dans le prix.\",\"t\":\"in the price\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.051",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "être allergique à",
+      "en": "to be allergic to",
+      "ipa": "/ɛtʁ a.lɛʁ.ʒik a/",
+      "respell": "eh-truh ah-lehr-ZHEEK ah",
+      "tags": [
+        "verb",
+        "phrase",
+        "dietary"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.052",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je suis allergique aux fruits de mer.",
+      "en": "I'm allergic to seafood.",
+      "ipa": "/ʒə sɥi a.lɛʁ.ʒik o fʁɥi də mɛʁ/",
+      "respell": "zhuh swee ah-lehr-ZHEEK oh frwee duh MEHR",
+      "tags": [
+        "phrase",
+        "dietary"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.053",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "sans oignons, s'il vous plaît",
+      "en": "without onions, please",
+      "ipa": "/sɑ̃ zɔ.ɲɔ̃ sil vu plɛ/",
+      "respell": "sahn zoh-NYOHN, seel voo PLEH",
+      "tags": [
+        "phrase",
+        "ordering"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.054",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "avec ou sans sucre ?",
+      "en": "with or without sugar?",
+      "ipa": "/a.vɛk u sɑ̃ sykʁ/",
+      "respell": "ah-VEK oo sahn SÜKR",
+      "tags": [
+        "phrase",
+        "ordering"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.057",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je suis au régime.",
+      "en": "I'm on a diet.",
+      "ipa": "/ʒə sɥi.z‿o ʁe.ʒim/",
+      "respell": "zhuh swee-zoh ray-ZHEEM",
+      "tags": [
+        "phrase",
+        "dietary"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.058",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Pouvez-vous m'apporter du pain ?",
+      "en": "Can you bring me some bread?",
+      "ipa": "/pu.ve vu ma.pɔʁ.te dy pɛ̃/",
+      "respell": "poo-vay voo mah-por-TAY dü PIHN",
+      "tags": [
+        "phrase",
+        "service"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.061",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "C'est fait maison ?",
+      "en": "Is it homemade?",
+      "ipa": "/sɛ fɛ mɛ.zɔ̃/",
+      "respell": "seh feh meh-ZOHN",
+      "tags": [
+        "phrase",
+        "ordering"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.062",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je n'aime pas les plats épicés.",
+      "en": "I don't like spicy dishes.",
+      "ipa": "/ʒə nɛm pa le pla e.pi.se/",
+      "respell": "zhuh nehm pah lay plah zay-pee-SAY",
+      "tags": [
+        "phrase",
+        "dietary"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.063",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Prenez votre temps pour choisir.",
+      "en": "Take your time to choose.",
+      "ipa": "/pʁə.ne vɔtʁ tɑ̃ puʁ ʃwa.ziʁ/",
+      "respell": "pruh-NAY vutr tahn poor shwah-ZEER",
+      "tags": [
+        "phrase",
+        "service"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.132",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Pardon ?",
+      "en": "Sorry?",
+      "ipa": "/paʁ.dɔ̃/",
+      "respell": "par-DOHⁿ",
+      "notes": "RUNG 1, the cheapest rung on the ladder. One word, and it admits nothing about why you did not catch it. It is also the only rung a French speaker uses without thinking, which is why it is first.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "repair",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.133",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous pouvez répéter, s'il vous plaît ?",
+      "en": "Can you say that again, please?",
+      "ipa": "/vu pu.ve ʁe.pe.te sil vu plɛ/",
+      "respell": "voo poo-VAY ray-pay-TAY seel voo PLEH",
+      "notes": "RUNG 2. Asks for the whole thing again and still says nothing about what went wrong. An exact twin is published at fr.a1.expressions-frequentes.123; this is the au-restaurant copy the band cites, and cross-theme duplication is settled precedent.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "repair",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.134",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Plus lentement, s'il vous plaît.",
+      "en": "More slowly, please.",
+      "ipa": "/ply lɑ̃t.mɑ̃ sil vu plɛ/",
+      "respell": "plü lahⁿt-MAHⁿ seel voo PLEH",
+      "notes": "RUNG 3. The first rung that names the problem: it was the speed. Exact twin at fr.a1.expressions-frequentes.124. Note plus is /ply/ here, s silent, which is the sons.10 rule quoted rather than taught.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "repair",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.135",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je n'ai pas bien compris.",
+      "en": "I didn't quite catch that.",
+      "ipa": "/ʒə ne pa bjɛ̃ kɔ̃.pʁi/",
+      "respell": "zhuh nay pah byehⁿ kohⁿ-PREE",
+      "notes": "RUNG 4. Admits the comprehension failure outright. bien is what separates it from the blunter Je n'ai pas compris, which is published at fr.a2.verbes.633; the two do NOT fold together, so bien is testable in a typeIn.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "repair",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.136",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Qu'est-ce que ça veut dire ?",
+      "en": "What does that mean?",
+      "ipa": "/kɛs kə sa vø diʁ/",
+      "respell": "kess kuh sa veu DEER",
+      "notes": "RUNG 5. Narrows the failure to one word rather than the whole turn. Twins at fr.sons.questions.022 and fr.a2.questions-du-quotidien.008. The domain-neutral form is the citable one: the restaurant-flavoured variant naming a cuisson is deliberately NOT authored.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "repair",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.137",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous pouvez me l'écrire, s'il vous plaît ?",
+      "en": "Could you write it down for me, please?",
+      "ipa": "/vu pu.ve mə le.kʁiʁ sil vu plɛ/",
+      "respell": "voo poo-VAY muh lay-KREER seel voo PLEH",
+      "notes": "RUNG 6, the most explicit and the most expensive. It concedes that the spoken channel has failed and asks to change medium. Genuinely new: 0 rows corpus-wide before this build.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "repair",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.138",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Bonsoir, vous avez réservé ?",
+      "en": "Good evening, do you have a reservation?",
+      "ipa": "/bɔ̃.swaʁ vu.z‿a.ve ʁe.zɛʁ.ve/",
+      "respell": "bohⁿ-SWAR voo-z a-vay ray-zehr-VAY",
+      "notes": "STAGE 1. The first thing said to you, and the learner has rehearsed none of it. Liaison vous_avez written without the U+203F tie, per the band rule.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.139",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous êtes combien ?",
+      "en": "How many of you are there?",
+      "ipa": "/vu.z‿ɛt kɔ̃.bjɛ̃/",
+      "respell": "voo-z eht kohⁿ-BYEHⁿ",
+      "notes": "STAGE 1, the spoken register. fr.a1.au-restaurant.111 C'est pour combien de personnes ? is the fuller form and is IMPORTED beside this one, so the learner meets both. An EXACT twin is published at fr.a1.cafe.160: same utterance, adjacent situation, different theme. Legal, and collation §7.5 says do not \"fix\" it.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.140",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "En terrasse ou à l'intérieur ?",
+      "en": "On the terrace or inside?",
+      "ipa": "/ɑ̃ tɛ.ʁas u a lɛ̃.te.ʁjœʁ/",
+      "respell": "ahⁿ teh-RASS oo a lehⁿ-tay-RYEUR",
+      "notes": "STAGE 2. A binary question, which is the easiest kind to answer and the easiest kind to miss entirely if you are not expecting to be asked anything.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.141",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Suivez-moi, je vous prie.",
+      "en": "Follow me, please.",
+      "ipa": "/sɥi.ve mwa ʒə vu pʁi/",
+      "respell": "sü-ee-vay MWA zhuh voo PREE",
+      "notes": "STAGE 2. An instruction, not a question, and the learner has to recognise that no answer is wanted. je vous prie is the formal register and carries no teaching load here.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.142",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Installez-vous, je vous apporte la carte.",
+      "en": "Take a seat, I'll bring you the menu.",
+      "ipa": "/ɛ̃s.ta.le vu ʒə vu.z‿a.pɔʁt la kaʁt/",
+      "respell": "ehⁿs-ta-lay VOO zhuh voo-z a-port la KART",
+      "notes": "STAGE 3. Two moves in one turn, which is what makes a real encounter harder than a phrase list.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.143",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Et comme boisson ?",
+      "en": "And to drink?",
+      "ipa": "/e kɔm bwa.sɔ̃/",
+      "respell": "ay kom bwa-SOHⁿ",
+      "notes": "STAGE 3, and claimed at 0 rows corpus-wide before this build. Confirmed: 0. comme here means \"by way of\", a use the learner has not met.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.144",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Une carafe d'eau, ça ira ?",
+      "en": "A jug of water, will that do?",
+      "ipa": "/yn ka.ʁaf do sa i.ʁa/",
+      "respell": "ün ka-RAF DOH sa ee-RA",
+      "notes": "STAGE 3. ça ira is a check, not an offer, and answering it wrongly gets you a bottle you pay for. fr.a1.au-restaurant.096 la carafe d'eau is IMPORTED beside it.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.145",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous prendrez un apéritif ?",
+      "en": "Will you have an aperitif?",
+      "ipa": "/vu pʁɑ̃.dʁe œ̃.n‿a.pe.ʁi.tif/",
+      "respell": "voo prahⁿ-DRAY uhⁿ-n a-pay-ree-TEEF",
+      "notes": "STAGE 3. The futur simple in the waiter's mouth, which the learner receives without being asked to produce it. Doctrine §B.3: the corpus may carry tenses the lesson body does not teach.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.146",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Plate ou gazeuse ?",
+      "en": "Still or sparkling?",
+      "ipa": "/plat u ɡa.zøz/",
+      "respell": "PLAT oo ga-ZEUZ",
+      "notes": "STAGE 3. Two words, no verb, no frame, and it is the single most common thing a learner fails to catch at a French table.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.147",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous avez choisi ?",
+      "en": "Have you decided?",
+      "ipa": "/vu.z‿a.ve ʃwa.zi/",
+      "respell": "voo-z a-vay shwa-ZEE",
+      "notes": "STAGE 4, and the pivot of the whole encounter. Claimed at 0 corpus-wide; confirmed 0. This is the question the learner has been waiting for and it arrives in the passé composé. Carries `dictation` because s20-write names it: a dictée item without the drill is the defect A1-BUILD-INVARIANTS §6 asks every build to assert, and this build's first pass had it.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.148",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous avez fait votre choix ?",
+      "en": "Have you made your choice?",
+      "ipa": "/vu.z‿a.ve fɛ vɔtʁ ʃwa/",
+      "respell": "voo-z a-vay FEH votr SHWA",
+      "notes": "STAGE 4, the same move in different words. Two forms of one question is the point: a script is not a fixed string.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.149",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Et ensuite ?",
+      "en": "And then?",
+      "ipa": "/e ɑ̃.sɥit/",
+      "respell": "ay ahⁿ-SÜEET",
+      "notes": "STAGE 4. Two words that mean \"what is your main course\", and nothing in them says so.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.150",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Quelle cuisson ?",
+      "en": "How would you like it cooked?",
+      "ipa": "/kɛl kɥi.sɔ̃/",
+      "respell": "kehl kü-ee-SOHⁿ",
+      "notes": "STAGE 4. The cuissons themselves (à point, bien cuit, saignant) are IMPORTED from fr.a1.au-restaurant.020 to .022 rather than re-authored.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.151",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vous conseille le plat du jour.",
+      "en": "I recommend the dish of the day.",
+      "ipa": "/ʒə vu kɔ̃.sɛj lə pla dy ʒuʁ/",
+      "respell": "zhuh voo kohⁿ-SEHY luh pla dü ZHOOR",
+      "notes": "STAGE 4. The mirror of the learner's imported fr.a1.au-restaurant.040 Qu'est-ce que vous me conseillez ?, and the pair is what makes it an exchange.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.152",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Et comme entrée ?",
+      "en": "And for a starter?",
+      "ipa": "/e kɔm ɑ̃.tʁe/",
+      "respell": "ay kom ahⁿ-TRAY",
+      "notes": "STAGE 4, and the same comme frame as .143. Naming the repeat is the teaching.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.153",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Tout se passe bien ?",
+      "en": "Is everything all right?",
+      "ipa": "/tu sə pas bjɛ̃/",
+      "respell": "too suh pass BYEHⁿ",
+      "notes": "STAGE 5. Asked mid-meal, mouth full, and it wants only oui or a problem.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.154",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Ça a été ?",
+      "en": "Was everything OK?",
+      "ipa": "/sa a e.te/",
+      "respell": "sa a ay-TAY",
+      "notes": "STAGE 5, said while clearing. Three syllables, a passé composé of être with no subject the learner recognises, and it is the hardest short question in the encounter.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.155",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vous débarrasse ?",
+      "en": "Shall I clear these away?",
+      "ipa": "/ʒə vu de.ba.ʁas/",
+      "respell": "zhuh voo day-ba-RASS",
+      "notes": "STAGE 5. A question shaped like a statement, marked only by intonation, which is why it lands in the listening act rather than a card.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.156",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Ce sera tout ?",
+      "en": "Will that be all?",
+      "ipa": "/sə sə.ʁa tu/",
+      "respell": "suh suh-ra TOO",
+      "notes": "STAGE 6. Claimed at 0 corpus-wide. Measured: TWO rows exist, both in the CUSTOMER's voice and both in rp-repas, which is import-only. fr.a2.rp-repas.004 « ce sera tout » is a bare fragment and .007 is « Non merci, ce sera tout. ». The waiter's QUESTION is genuinely new; the fold collides with .004 only because it strips case and the question mark.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.157",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous prendrez un dessert ?",
+      "en": "Will you have a dessert?",
+      "ipa": "/vu pʁɑ̃.dʁe œ̃ de.sɛʁ/",
+      "respell": "voo prahⁿ-DRAY uhⁿ day-SEHR",
+      "notes": "STAGE 6, the upsell, and the same futur simple frame as .145. A learner who caught .145 catches this one.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.158",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Un café pour finir ?",
+      "en": "A coffee to finish?",
+      "ipa": "/œ̃ ka.fe puʁ fi.niʁ/",
+      "respell": "uhⁿ ka-FAY poor fee-NEER",
+      "notes": "STAGE 6. No verb at all, which is how most of the upsell is actually said.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.159",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vous laisse la carte des desserts.",
+      "en": "I'll leave you the dessert menu.",
+      "ipa": "/ʒə vu lɛs la kaʁt de de.sɛʁ/",
+      "respell": "zhuh voo LESS la kart day day-SEHR",
+      "notes": "STAGE 6. A statement that is functionally a question, and the learner who says nothing gets the menu anyway.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.160",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vous apporte ça tout de suite.",
+      "en": "I'll bring you that right away.",
+      "ipa": "/ʒə vu.z‿a.pɔʁt sa tu d(ə) sɥit/",
+      "respell": "zhuh voo-z a-port sa too duh SÜEET",
+      "notes": "STAGE 7. Closes the ordering stage. Nothing is asked, and the learner needs to recognise that too.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.161",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous réglez comment ?",
+      "en": "How are you paying?",
+      "ipa": "/vu ʁe.ɡle kɔ.mɑ̃/",
+      "respell": "voo ray-glay ko-MAHⁿ",
+      "notes": "STAGE 8, and the boundary with a2.26 runs right here. This is the waiter's CLOSING QUESTION and belongs to a2.07. The money it is about, the total, the change and the coins, belong to a2.26. Claimed 0 corpus-wide; confirmed 0.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.162",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Ensemble ou séparément ?",
+      "en": "Together or separately?",
+      "ipa": "/ɑ̃.sɑ̃bl u se.pa.ʁe.mɑ̃/",
+      "respell": "ahⁿ-SAHⁿBL oo say-pa-ray-MAHⁿ",
+      "notes": "STAGE 8. Claimed 0 corpus-wide; confirmed 0. Two nasals in one short question and both are marked with the superscript, checked through the real hasPlainNasalFor rather than by eye.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.163",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Le service est compris.",
+      "en": "Service is included.",
+      "ipa": "/lə sɛʁ.vis ɛ kɔ̃.pʁi/",
+      "respell": "luh sehr-VEESS eh kohⁿ-PREE",
+      "notes": "STAGE 8, and a BILL FACT, which collation §C5 assigns to a2.07. fr.a1.au-restaurant.198 is the fuller published form and is IMPORTED beside it. The tip itself, fr.a1.au-restaurant.010 le pourboire, is imported too.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.164",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vous fais une seule addition ?",
+      "en": "Shall I make it one bill?",
+      "ipa": "/ʒə vu fɛ yn sœl a.di.sjɔ̃/",
+      "respell": "zhuh voo FEH ün seul a-dee-SYOHⁿ",
+      "notes": "STAGE 8. The follow-up to .162, and the learner who did not catch .162 gets asked again in different words. FIRST DRAFT read « sur la même note » and was reworded, not because the respelling was wrong but because `mehm` is a measured FALSE POSITIVE of hasPlainNasalFor. See header §10: the exemption that exists for exactly this shape is unreachable. Rewording keeps a known-flagged row out of a theme seven other units import from.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.165",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Bonne soirée, merci de votre visite.",
+      "en": "Have a good evening, thank you for coming.",
+      "ipa": "/bɔn swa.ʁe mɛʁ.si də vɔtʁ vi.zit/",
+      "respell": "bon swa-RAY mehr-SEE duh votr vee-ZEET",
+      "notes": "STAGE 8, the close. The encounter has an end and the learner should recognise it rather than hovering.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.166",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Voilà pour vous.",
+      "en": "Here you are.",
+      "ipa": "/vwa.la puʁ vu/",
+      "respell": "vwa-LA poor VOO",
+      "notes": "Said on every delivery, at any stage, and it is the single most frequent thing a waiter says. Deliberately not tied to one stage.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.167",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Excusez-moi pour l'attente.",
+      "en": "Sorry for the wait.",
+      "ipa": "/ɛks.ky.ze mwa puʁ la.tɑ̃t/",
+      "respell": "ehks-kü-zay MWA poor la-TAHⁿT",
+      "notes": "An apology from the other side, which the corpus had none of. The learner has to recognise that nothing is being asked of them.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "script",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.168",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je suis désolé, il n'y en a plus.",
+      "en": "I'm sorry, there's none left.",
+      "ipa": "/ʒə sɥi de.zɔ.le il njɑ̃.n‿a ply/",
+      "respell": "zhuh süee day-zo-LAY eel nyahⁿ-n a PLÜ",
+      "notes": "THE DEVIATION, and the line the whole of act 4 turns on. UNANALYSED LEXIS: il n'y en a plus contains both y and en, which belong to a2.25 (which HAS shipped). It is never glossed, never decomposed, and never in a scored surface that turns on the pronouns. The learner recognises the chunk and reaches for a rung.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.169",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Nous n'avons plus de saumon ce soir.",
+      "en": "We have no more salmon tonight.",
+      "ipa": "/nu na.vɔ̃ ply də so.mɔ̃ sə swaʁ/",
+      "respell": "noo na-VOHⁿ plü duh so-MOHⁿ suh SWAR",
+      "notes": "The same deviation without the pronouns, so the learner has a version they can parse. plus de is the a1.29 reduction under negation, quoted as recall, not retaught.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.170",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Alors qu'est-ce que vous me conseillez ?",
+      "en": "So what do you recommend?",
+      "ipa": "/a.lɔʁ kɛs kə vu mə kɔ̃.sɛ.je/",
+      "respell": "a-LOR kess kuh voo muh kohⁿ-seh-YAY",
+      "notes": "The hand-back, and the whole point of act 4: the learner who freezes loses the turn, and the learner who hands the choice back keeps it. Built on the imported fr.a1.au-restaurant.040 with alors doing the repair work.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.171",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Il manque un plat.",
+      "en": "A dish is missing.",
+      "ipa": "/il mɑ̃k œ̃ pla/",
+      "respell": "eel MAHⁿK uhⁿ PLA",
+      "notes": "Authored in place of Ce n'est pas ce que j'ai commandé, which already exists at fr.a1.au-restaurant.193 and is IMPORTED instead. See header §4.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.172",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je crois qu'il y a une erreur sur l'addition.",
+      "en": "I think there's a mistake on the bill.",
+      "ipa": "/ʒə kʁwa kil j‿a yn e.ʁœʁ syʁ la.di.sjɔ̃/",
+      "respell": "zhuh KRWA keel ya ün ay-REUR sür la-dee-SYOHⁿ",
+      "notes": "A BILL problem, which is a2.07's under §C5, and not a MONEY problem, which would be a2.26's. No figure appears in it and none may be added.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.173",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Le plat est froid.",
+      "en": "The dish is cold.",
+      "ipa": "/lə pla ɛ fʁwa/",
+      "respell": "luh PLA eh FRWA",
+      "notes": "Four words and a fact. Deliberately not a complaint LADDER, which is a2.29's Owns; this is one statement, said once.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.174",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vous le remplace tout de suite.",
+      "en": "I'll replace it for you right away.",
+      "ipa": "/ʒə vu lə ʁɑ̃.plas tu d(ə) sɥit/",
+      "respell": "zhuh voo luh rahⁿ-PLASS too duh SÜEET",
+      "notes": "The repair from his side, and it carries the a2.06 direct-object pronoun le in front of the verb. Exposure, not instruction: a2.06 shipped at seq 21 and owns it.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.175",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je suis allergique aux arachides, c'est important.",
+      "en": "I'm allergic to peanuts, it's important.",
+      "ipa": "/ʒə sɥi.z‿a.lɛʁ.ʒik o.z‿a.ʁa.ʃid sɛ.t‿ɛ̃.pɔʁ.tɑ̃/",
+      "respell": "zhuh süee-z a-lehr-ZHEEK oh-z a-ra-SHEED seh-t ehⁿ-por-TAHⁿ",
+      "notes": "The escalation that matters. fr.a2.au-restaurant.051 être allergique à and .052 are IMPORTED; this adds the insistence, which is the part a learner drops under pressure.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.176",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Est-ce qu'il y a des fruits à coque dedans ?",
+      "en": "Are there nuts in it?",
+      "ipa": "/ɛs kil j‿a de fʁɥi a kɔk də.dɑ̃/",
+      "respell": "ess keel ya day frü-ee a KOK duh-DAHⁿ",
+      "notes": "The formal allergen term, beside the imported everyday fr.a1.au-restaurant.186 Y a-t-il des noix dans ce plat ?. Both are on the menu card in s19.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.177",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vais demander en cuisine.",
+      "en": "I'll go and ask in the kitchen.",
+      "ipa": "/ʒə vɛ də.mɑ̃.de ɑ̃ kɥi.zin/",
+      "respell": "zhuh veh duh-mahⁿ-DAY ahⁿ kü-ee-ZEEN",
+      "notes": "His answer to .175 and .176, and it closes the exchange without answering it, which is what actually happens.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.178",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je prendrais plutôt le poisson.",
+      "en": "I'd rather have the fish.",
+      "ipa": "/ʒə pʁɑ̃.dʁɛ ply.to lə pwa.sɔ̃/",
+      "respell": "zhuh prahⁿ-DREH plü-TOH luh pwa-SOHⁿ",
+      "notes": "The softest rung, and genuinely new lexis: the conditional of prendre in this use is at 0 restaurant rows. Carried as an unnamed fixed form. The conditional as a FAMILY is a2.29's and is not named, conjugated or grouped here.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "gradient",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.179",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Ce sera le menu du jour.",
+      "en": "I'll have the set menu of the day.",
+      "ipa": "/sə sə.ʁa lə mə.ny dy ʒuʁ/",
+      "respell": "suh suh-RA luh muh-NÜ dü ZHOOR",
+      "notes": "The flattest and most confident rung. FIRST DRAFT read « le menu à vingt-deux euros » and the build's own money guard caught it: collation §C5 gives money to a2.26 and this unit authors no row carrying a figure. The frame is what this row is for, and it survives the price coming out.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "gradient",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.180",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Pour moi, ce sera l'entrecôte.",
+      "en": "For me, it'll be the rib steak.",
+      "ipa": "/puʁ mwa sə sə.ʁa lɑ̃.tʁə.kot/",
+      "respell": "poor MWA suh suh-RA lahⁿ-truh-KOHT",
+      "notes": "The same frame with the person restored, which is how it is said at a table of four.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "gradient",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.181",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je vais prendre le plat du jour.",
+      "en": "I'll have the dish of the day.",
+      "ipa": "/ʒə vɛ pʁɑ̃dʁ lə pla dy ʒuʁ/",
+      "respell": "zhuh veh PRAHⁿDR luh pla dü ZHOOR",
+      "notes": "The futur proche, which a2.19 shipped at seq 15, applied to ordering. fr.a1.au-restaurant.098 le plat du jour is IMPORTED and is one of a1.29's nine deckTranche ids, which this build names and does not touch.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "gradient",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.182",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "On va prendre deux menus.",
+      "en": "We'll have two set menus.",
+      "ipa": "/ɔ̃ va pʁɑ̃dʁ dø mə.ny/",
+      "respell": "ohⁿ va PRAHⁿDR deu muh-NÜ",
+      "notes": "Ordering for the table, and on rather than nous per Doctrine §B.6, which a2.01 owns and every A2 lesson inherits.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "gradient",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.183",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Ce sera tout pour moi, merci.",
+      "en": "That'll be all for me, thanks.",
+      "ipa": "/sə sə.ʁa tu puʁ mwa mɛʁ.si/",
+      "respell": "suh suh-ra TOO poor MWA mehr-SEE",
+      "notes": "The learner's answer to the waiter's .156 Ce sera tout ?, and the pair is authored deliberately so the adjacency shows.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "gradient",
+        "learner"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.184",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "C'est à quel nom ?",
+      "en": "What name is it under?",
+      "ipa": "/sɛ.t‿a kɛl nɔ̃/",
+      "respell": "seh-t a kehl NOHⁿ",
+      "notes": "OFF SCRIPT. Only ever asked if you said you had booked, so it belongs to no stage of a walk-in. Four words and the answer is your surname, which is the one word a learner is least ready to say aloud in French.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.185",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Vous permettez ?",
+      "en": "May I?",
+      "ipa": "/vu pɛʁ.mɛ.te/",
+      "respell": "voo pehr-meh-TAY",
+      "notes": "OFF SCRIPT. Said while already reaching past you for a plate. It is a courtesy, not a question, and the only wrong answer is a long one.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.186",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Attention, c'est très chaud.",
+      "en": "Careful, it's very hot.",
+      "ipa": "/a.tɑ̃.sjɔ̃ sɛ tʁɛ ʃo/",
+      "respell": "a-tahⁿ-SYOHⁿ seh treh SHOH",
+      "notes": "OFF SCRIPT. A warning, and nothing is being asked. A learner running the script hears a question in it and answers oui, which is how you burn your hand.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.187",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Il vous faut autre chose ?",
+      "en": "Do you need anything else?",
+      "ipa": "/il vu fo otʁ ʃoz/",
+      "respell": "eel voo FOH otr SHOHZ",
+      "notes": "OFF SCRIPT, and it looks like stage 6 without being it: this is asked mid-meal about bread or water, not about a dessert you might buy.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.188",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "On ferme la cuisine dans dix minutes.",
+      "en": "The kitchen closes in ten minutes.",
+      "ipa": "/ɔ̃ fɛʁm la kɥi.zin dɑ̃ di mi.nyt/",
+      "respell": "ohⁿ fehrm la kü-ee-ZEEN dahⁿ dee mee-NÜT",
+      "notes": "OFF SCRIPT. A statement that is really an instruction: order now or do not order. Nothing in it is a question and everything in it is urgent.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.au-restaurant.189",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "au-restaurant",
+      "fr": "Je reviens tout de suite.",
+      "en": "I'll be right back.",
+      "ipa": "/ʒə ʁə.vjɛ̃ tu d(ə) sɥit/",
+      "respell": "zhuh ruh-VYEHⁿ too duh SÜEET",
+      "notes": "OFF SCRIPT. He is leaving mid-turn and will finish the exchange later. The learner who does not catch it thinks they have been forgotten.",
+      "tags": [
+        "a2",
+        "restaurant",
+        "situation",
+        "failure",
+        "server"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.quebec-et-francophonie.197",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "quebec-et-francophonie",
+      "fr": "On soupe à quelle heure ?",
+      "en": "What time are we having dinner?",
+      "ipa": "/ɔ̃ sup a kɛ.l‿œʁ/",
+      "respell": "ohⁿ SOOP a keh-LEUR",
+      "notes": "Quebec colour only. souper is the evening meal in Quebec and the midday one in parts of France; the France-standard dîner is what every scored surface in this lesson uses. Never drilled, never quizzed.",
+      "tags": [
+        "a2",
+        "quebec",
+        "restaurant",
+        "colour"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.quebec-et-francophonie.198",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "quebec-et-francophonie",
+      "fr": "Je peux avoir la facture, s'il vous plaît ?",
+      "en": "Can I have the bill, please?",
+      "ipa": "/ʒə pø a.vwaʁ la fak.tyʁ sil vu plɛ/",
+      "respell": "zhuh peu a-VWAR la fak-TÜR seel voo PLEH",
+      "notes": "Quebec colour only. la facture against France's l'addition. fr.a1.au-restaurant.103 L'addition, s'il vous plaît. is the form this lesson drills and quizzes; this one appears on one card and nowhere else.",
+      "tags": [
+        "a2",
+        "quebec",
+        "restaurant",
+        "colour"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
     }
   ],
   "scenarios": [

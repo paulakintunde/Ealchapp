@@ -81,7 +81,7 @@ export const SEED_CUT: SeedCut = {
   // about eleven percent, and buys the same day-one property the ten themes
   // above were added for. An id list would have bought only a green test.
   themes: [
-    'cafe', 'objets', 'dictee', 'marche', 'salutations', 'nombres', 'transport',
+    'cafe', 'objets', 'dictee', 'marche', 'salutations', 'nombres',
     'cuisine', 'ecole', 'deplacements', 'metiers', 'corps', 'maison', 'animaux',
     'routines', 'famille', 'sports-et-loisirs',
     'jours-et-mois', 'heure-et-date',
