@@ -85,7 +85,8 @@
     "content:participes": "tsx scripts/author-participes-batch.ts",
     "content:passe-compose-etre": "tsx scripts/author-passe-compose-etre-batch.ts",
     "content:pronominaux-passe": "tsx scripts/author-pronominaux-passe-batch.ts",
-    "content:pronoms-direct": "tsx scripts/author-pronoms-direct-batch.ts"
+    "content:pronoms-direct": "tsx scripts/author-pronoms-direct-batch.ts",
+    "content:pronoms-indirect": "tsx scripts/author-pronoms-indirect-batch.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",
