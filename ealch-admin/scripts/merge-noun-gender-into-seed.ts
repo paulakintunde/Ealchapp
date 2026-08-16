@@ -193,7 +193,28 @@ if (existing && JSON.stringify(existing) !== JSON.stringify(LESSON)) {
     `\n  Overwriting with the authored copy. If the seed copy was newer, restore it from git first.\n`
   );
 }
-const nextLessons = [...seed.lessons.filter((l) => l.id !== LESSON.id), LESSON];
+// REPLACE IN PLACE. The previous line was
+//
+//     [...seed.lessons.filter((l) => l.id !== LESSON.id), LESSON]
+//
+// which FILTERS THE LESSON OUT AND PUSHES IT ONTO THE END. a1.03.l1 sits near
+// the front of the array, so every lesson after it shifted up one index and
+// `JSON.stringify` rewrote all of them: a 297,768-line diff for a change that
+// touches five printed numbers.
+//
+// The content was correct and the whole suite was green, which is why this
+// survived several re-renders. The cost is a diff nobody can review and a
+// guaranteed conflict with every other author writing seed.json, and a2.26
+// found it while re-rendering a1.03 with three sibling builds in flight.
+//
+// a2.07 wrote the same fix for `items` in `merge-restaurant-into-seed.ts` and
+// documented a 512,711-line diff there. This is that hazard in the `lessons`
+// array, in a script that predates the finding. Existing lessons keep their
+// position and are updated in place; a genuinely new lesson still appends.
+const nextLessons = [...seed.lessons];
+const lessonIx = nextLessons.findIndex((l) => l.id === LESSON.id);
+if (lessonIx >= 0) nextLessons[lessonIx] = LESSON;
+else nextLessons.push(LESSON);
 
 const nextUnit: Unit = { ...unit, lessonIds: [...new Set([...(unit.lessonIds ?? []), LESSON.id])] };
 const unitIssues = validateUnit(nextUnit, nextUnit.id);
