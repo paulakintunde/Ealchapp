@@ -441,9 +441,35 @@ A test pins that so it stays true.
   is not this build's to make — but the standing warning that has blocked it
   since the sons.09 incident no longer applies, and the next person does not need
   `content:masterclass` to get past it.
-- **No device verification.** Every bubble ending in `!` or `?` is a tail-clip
-  risk and the three question-final scene bubbles were kept short for it, but
-  none of this has been on a Pixel 6.
+- **Device-verified on a Pixel 6 (oriole), 2026-08-16.** The sections with prior
+  form for shipping blank were the point of the pass, and all of them draw:
+
+  | checked | result |
+  |---|---|
+  | `s16-errors` | RENDERS. 3 term chips, the article trap side by side with ×/✓, the full `why` citing a1.06, and **5 swipe dots**. `swipe: true` is live, so this is not sons.08 m22 / a1.01 m5. |
+  | `s15-trap` | RENDERS **STEPPED**. Step 1 is THE RULE with its body and a `Continue`, not the stacked shape. |
+  | reference sheet | RENDERS. All four `table` sections draw with headers and rows. NOT the a1.13 / a1.17 `cheatSheet`-in-a-sheet defect: using `table` was correct. |
+  | overview | Title, sub, 24 missions, `introFr`, difficulty 3/5, 32 min, and the prereq resolving to "The Verb Être (To Be)". |
+  | missions list | All 24, correct titles and mechanic labels (PIÈGES, ERREURS, LECTURE, ÉCRIT, BULLES, MICRO, BILAN, QUIZ, BADGE). |
+
+  **A sheet table wider than the screen scrolls horizontally, per table, and
+  independently of its neighbours.** The third column of the feminines table is
+  off-screen until swiped. Nothing is lost and nothing is broken, but a learner
+  who does not swipe sees `un avocat, une avoca…`. Worth knowing before anyone
+  authors a four-column sheet table.
+
+  **THE PASS PAID FOR ITSELF: it found the `tag`.** Authored `A2 · LEÇON 30`
+  from the unit id; the house convention is the TRAIL SEQ, and a2.30 is seq 29.
+  The missions header derives its eyebrow from `seq` and showed 29, while the
+  in-flow mission header renders `tag` VERBATIM and showed 30 — the two screens
+  disagreed and no test compared them. Fixed to `A2 · LEÇON 29`, re-applied to
+  Postgres and re-merged, and pinned by a test that derives it from `UNIT.seq`
+  and also checks every A2 neighbour at seq >= 22.
+
+  **Still unverified on device:** the tag fix itself. The bundle on the phone
+  predates the re-merge, and Metro runs with `CI=1` (file watching off), so
+  confirming it needs a full restart with `--clear` and a ~3-minute cold
+  rebundle. It is verified in Postgres, in the seed and by the suite.
 - **`s15-trap`'s audio step** plays each card's `fr` via TTS. No studio take was
   briefed, so `recordingId` names nothing yet and the step falls back to TTS.
 - **Act 3 is the heaviest act** and contains the two sections least connected to
