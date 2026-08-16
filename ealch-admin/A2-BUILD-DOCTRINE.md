@@ -357,9 +357,41 @@ package.json                            "content:<name>"
 ealch-v2/src/content/<test-filename>    the guard
 ```
 
-Mission count: the standard is the 20-mission journey shipped by sons.02 and sons.03,
-and recent A1 lessons run 19 to 24. **19 to 24 is your range.** The weight belongs on
-the Owns.
+Mission count: **23 to 32 is your range, and 24 is the shape to beat.** Every section
+is a mission — the renderer numbers one per section and the design distinction between
+"missions" and "sections" does not exist (a2.07 verified it on a device). The weight
+belongs on the Owns.
+
+> **CORRECTED 2026-08-16, measured across all 70 shipped lessons.** This line read
+> *"recent A1 lessons run 19 to 24. **19 to 24 is your range.**"* Both halves were
+> wrong for this track, and five builds in a row wrote themselves an apology for
+> exceeding a ceiling that was never the ceiling.
+>
+> | track | lessons | range | median |
+> |---|---|---|---|
+> | SONS | 10 | 19 – 31 | 24 |
+> | A1 | 31 | 21 – 30 (plus two assessment stubs at 4 and 5) | 26 |
+> | **A2** | **29** | **23 – 32** | **24** |
+>
+> Three things the old figure got wrong:
+>
+> 1. **The floor is not 19.** No A2 lesson has ever shipped under 23. A build
+>    aiming at 19 is aiming below anything the track has ever produced.
+> 2. **24 is the MEDIAN, not the ceiling.** Ten of the 29 A2 lessons exceed it, and
+>    a2.13 ships 32. "19 to 24" described the middle of the distribution as if it
+>    were the whole of it.
+> 3. **It was an A1 figure quoted at an A2 audience**, and A1's own median is 26.
+>
+> The A2 distribution is tight around 24 (19 of 29 lessons sit exactly there), so
+> **24 remains the number to design toward.** What changed is that 25 to 32 is now
+> ordinary rather than an overrun needing a justification, and that under 23 is the
+> shape actually worth questioning.
+>
+> Consequence for the A2 situations band, whose prompts and designs all quote the
+> old line: `22-A2-27-TRANSPORTS-PROMPT.md`, `27-a2.28-medecin-DESIGN.md`,
+> `29-a2.30-travail-metiers-DESIGN.md`, `30-a2.31-ecole-etudes-DESIGN.md` and
+> `40-A2-07-BUILD-REPORT.md` each measure themselves against "19 to 24". None of
+> them was over the real range. a2.07 at 25 and a2.29 at 25 were both **inside** it.
 
 Act structure, adapt but do not shrink:
 
