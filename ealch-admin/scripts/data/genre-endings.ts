@@ -159,7 +159,11 @@ const MASCULINE: EndingRule[] = [
     ending: 'ment',
     predicts: 'm',
     accuracy: 100,
-    items: 20,
+    // 20 until since a2.27 « Les transports » CARRIED `le stationnement` into the seed on
+    // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
+    // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
+    // The accuracy did not move.
+    items: 21,
     article: 'un',
     // Elided on the card, deliberately: the ending is the only thing that gives
     // the article back, which is the act after next, previewed here on a word
@@ -226,7 +230,11 @@ const FEMININE: EndingRule[] = [
     ending: 'tion',
     predicts: 'f',
     accuracy: 100,
-    items: 36,
+    // 36 until since a2.27 « Les transports » CARRIED `la direction` and `la station` into the seed on
+    // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
+    // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
+    // The accuracy did not move.
+    items: 37,
     article: 'une',
     example: { id: 'fr.a1.ecole.046', fr: 'la question', en: 'the question' },
     sheetExamples: ['la direction', 'la natation', 'la récréation', 'la destination'],
@@ -395,7 +403,11 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // The accuracy did not move: 70% before, 70% after. Four other counts moved
     // with it and none of their accuracies did either, so every rule this
     // lesson teaches says exactly what it said before.
-    items: 912,
+    // 912 until since a2.27 « Les transports » CARRIED thirteen landmark and station nouns into the seed on
+    // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
+    // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
+    // The accuracy did not move.
+    items: 919,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -409,7 +421,11 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // move and the ending is still dismissed for being under the floor.
     // 142 until a1.22 imported `le Japon`, 144 since a2.26 carried its shop
     // nouns on 2026-08-15. The accuracy did not move either time.
-    items: 144,
+    // 144 until since a2.27 « Les transports » CARRIED `le stationnement` into the seed on
+    // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
+    // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
+    // The accuracy did not move.
+    items: 145,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -467,9 +483,9 @@ export const MORE_ENDINGS: SheetEnding[] = [
   // gained a point of accuracy, neither crossed a threshold, no prediction
   // flipped. See the note on -e in WORTHLESS_ENDINGS for why a packaging
   // decision moves figures printed on cards.
-  { ending: 'in', predicts: 'm', accuracy: 98, items: 45 },
-  { ending: 'ent', predicts: 'm', accuracy: 97, items: 29 },
-  { ending: 'ard', predicts: 'm', accuracy: 100, items: 17 },
+  { ending: 'in', predicts: 'm', accuracy: 98, items: 46 },   // 45 until a2.27 carried `le chemin`, 2026-08-16
+  { ending: 'ent', predicts: 'm', accuracy: 97, items: 30 },  // 29 until a2.27 carried `l'abonnement`, 2026-08-16
+  { ending: 'ard', predicts: 'm', accuracy: 100, items: 18 }, // 17 until a2.27 carried `le retard`, 2026-08-16
   { ending: 'ant', predicts: 'm', accuracy: 100, items: 20 },   // 18 until a2.26, 2026-08-15
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 16 },
   { ending: 'ot', predicts: 'm', accuracy: 100, items: 16 },
@@ -477,7 +493,7 @@ export const MORE_ENDINGS: SheetEnding[] = [
   { ending: 'al', predicts: 'm', accuracy: 100, items: 12 },   // 11 until a2.26 authored le sous-total
   { ending: 'ail', predicts: 'm', accuracy: 100, items: 7 },
   { ending: 'ité', predicts: 'f', accuracy: 94, items: 16 },
-  { ending: 'ance', predicts: 'f', accuracy: 100, items: 10 },
+  { ending: 'ance', predicts: 'f', accuracy: 100, items: 11 },// 10 until a2.27 carried `la correspondance`, 2026-08-16
   { ending: 'sion', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'euse', predicts: 'f', accuracy: 100, items: 7 },    // 6 until a2.26 carried la vendeuse

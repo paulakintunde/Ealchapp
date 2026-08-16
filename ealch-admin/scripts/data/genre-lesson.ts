@@ -1789,7 +1789,32 @@ export const GENRE_LESSON: Lesson = {
   // promotion), because those moved -et and -tion and it did not need them.
   // Invariants §5's "withdraw rather than argue" was applied where it fit and
   // not where it would have gutted the lesson.
-  version: 6,
+  //
+  // v7, 2026-08-16. a2.27 « Les transports » carried its imported landmark,
+  // station and transport nouns into the seed and moved EIGHT printed counts:
+  // -e 912 -> 919, -tion 36 -> 37, -ment 20 -> 21, -on 144 -> 145,
+  // -in 45 -> 46, -ent 29 -> 30, -ard 17 -> 18, -ance 10 -> 11.
+  //
+  // NOT ONE ACCURACY MOVED (100/100 x4, 70/70, 60/60, 98/98, 97/97), so every
+  // rule this lesson teaches is exactly as true as it was and only the counters
+  // changed.
+  //
+  // Measured rather than guessed, through the real `endingPopulation`, in
+  // `ealch-admin/scripts/_a227_genre_impact.ts`: of the 25 rows a2.27 put into
+  // this population, ZERO were authored and all 25 were CARRIED imports. That
+  // is a1.23's finding for the fourth time, and it is why an authored-only
+  // guard cannot see this class of drift.
+  //
+  // WITHDRAWAL DID NOT FIT THIS TIME, and a2.26's three prunes are the contrast.
+  // a2.26 withdrew `le billet`, `une réduction` and `la promotion` because they
+  // were tranche-only releases it did not need. Every one of a2.27's 25 is a
+  // landmark named inside a direction chain (la pharmacie, la poste, la banque,
+  // le pont, le parc, la place), a station noun its counter scenario needs
+  // (la gare, le quai, le guichet, un aller-retour), or a row in its OWN theme
+  // (la correspondance, le contrôleur, la ligne). Pruning any of them would
+  // render a card blank in a transport lesson. Invariants §5's "withdraw rather
+  // than argue" applies where it fits, and here it does not.
+  version: 7,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it
