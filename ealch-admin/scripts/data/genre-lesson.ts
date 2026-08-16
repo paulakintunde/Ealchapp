@@ -1833,7 +1833,39 @@ export const GENRE_LESSON: Lesson = {
   // Withdrawal did not fit here either: `la fièvre`, `la toux`, `le médicament`
   // and `un médecin` are the vocabulary a doctor's-visit lesson exists to put in
   // front of a learner, and every one of them is named by a card.
-  version: 8,
+  //
+  // v9, 2026-08-16: a2.29 « À l'hôtel » moved six more. Measured through the
+  // real `endingPopulation` in `ealch-admin/scripts/_a229_genre_impact.ts`:
+  //
+  //   -age  29 -> 30    -tion  37 -> 40    -ette  37 -> 38
+  //   -e   928 -> 933   -on   146 -> 149 (60% -> 59%)   -é  54 -> 55 (54% -> 53%)
+  //
+  // The last of the -e moves landed after the flashcard-reachability repair the
+  // same day: `la douche` had never carried a flashcard drill, so a2.29 could
+  // not release it and did not carry it. Given the drill, it was carried, and
+  // it is an -e noun. TWELVE joiners now, still zero authored.
+  //
+  // ELEVEN rows joined the population and ZERO of them were authored. a2.29
+  // authored 59 rows and not one is a noun: it authored no hotel headword at
+  // all, because every one it needed was already published. All eleven joiners
+  // are CARRIED imports — `l'hôtel`, `la chambre`, `la réception`, `la clé`,
+  // `l'ascenseur`, `l'étage`, `le rez-de-chaussée`, `la réservation`,
+  // `la climatisation`, `la serviette`, `l'oreiller`. That is a1.23's finding
+  // for the fourth consecutive build: AN IMPORT IS NOT INERT.
+  //
+  // Withdrawal does not fit: these eleven are the entire hotel noun set the
+  // lesson's cards, scenarios and trap are built on, and the unit cannot name
+  // them without carrying them into the seed.
+  //
+  // Two accuracies moved a point, both DOWNWARD, and both on endings the lesson
+  // already dismisses for being under the 90% floor. The dismissal is unchanged
+  // and the teaching is unchanged; only the printed counts moved.
+  //
+  // v10, same day: -e moved once more, 932 -> 933. v9 had already been applied
+  // to Postgres when the flashcard repair carried `la douche` into the seed, so
+  // correcting under v9 would have left TWO BODIES UNDER ONE VERSION, which is
+  // the drift this project has lost work to twice. The counter moves instead.
+  version: 10,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it

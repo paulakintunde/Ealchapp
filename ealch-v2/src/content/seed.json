@@ -205,7 +205,9 @@
       "themes": [
         "hebergement"
       ],
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.29.l1"
+      ],
       "prereqUnitIds": [
         "a2.13"
       ]
@@ -25237,7 +25239,7 @@
               "head": "Nouns ending in e are feminine",
               "fr": "la table · la porte · la voiture",
               "sub": "three that obey it",
-              "body": "You have almost certainly been given this one. Over the 928 nouns in this app that end in e, it is right 70% of the time."
+              "body": "You have almost certainly been given this one. Over the 933 nouns in this app that end in e, it is right 70% of the time."
             },
             {
               "label": "What that costs",
@@ -25284,7 +25286,7 @@
               "cells": [
                 "-e",
                 "70%",
-                "928"
+                "933"
               ],
               "say": "le livre, la table",
               "detail": {
@@ -25296,8 +25298,8 @@
             {
               "cells": [
                 "-on",
-                "60%",
-                "146"
+                "59%",
+                "149"
               ],
               "say": "le poisson, la maison",
               "detail": {
@@ -25309,8 +25311,8 @@
             {
               "cells": [
                 "-é",
-                "54%",
-                "54"
+                "53%",
+                "55"
               ],
               "say": "le café, la clé",
               "detail": {
@@ -25341,7 +25343,7 @@
             ],
             "recordingId": "rec-a1-03-endings"
           },
-          "say": "Ten endings, 321 nouns between them, right 97 times in a hundred. Tap a row for what breaks it.",
+          "say": "Ten endings, 326 nouns between them, right 97 times in a hundred. Tap a row for what breaks it.",
           "cols": [
             "Ending",
             "Takes",
@@ -25409,7 +25411,7 @@
               "say": "le fromage",
               "detail": {
                 "title": "-age",
-                "body": "The weakest of the ten, and still nine in ten. La page and la cage are the ones to store. Worked example: le fromage, the cheese. 29 nouns here end this way.",
+                "body": "The weakest of the ten, and still nine in ten. La page and la cage are the ones to store. Worked example: le fromage, the cheese. 30 nouns here end this way.",
                 "say": "le fromage"
               }
             },
@@ -25422,7 +25424,7 @@
               "say": "la question",
               "detail": {
                 "title": "-tion",
-                "body": "Thirty-six nouns, no exception. It is -tion that works and not -on: le poisson takes un. Worked example: la question, the question. 37 nouns here end this way.",
+                "body": "Thirty-six nouns, no exception. It is -tion that works and not -on: le poisson takes un. Worked example: la question, the question. 40 nouns here end this way.",
                 "say": "la question"
               }
             },
@@ -25448,7 +25450,7 @@
               "say": "une baguette",
               "detail": {
                 "title": "-ette",
-                "body": "Wrong once in thirty-seven, on le squelette. Its partner -et goes the other way: le ticket. Worked example: une baguette, a baguette. 37 nouns here end this way.",
+                "body": "Wrong once in thirty-seven, on le squelette. Its partner -et goes the other way: le ticket. Worked example: une baguette, a baguette. 38 nouns here end this way.",
                 "say": "une baguette"
               }
             },
@@ -26896,7 +26898,7 @@
         "fr.a1.objets.149",
         "fr.a1.dictee.262"
       ],
-      "version": 8,
+      "version": 10,
       "grammarAssumed": [
         "Gender agreement on the number one: un / une"
       ],
@@ -27263,14 +27265,14 @@
                   "-age",
                   "un",
                   "90%",
-                  "29",
+                  "30",
                   "la page, la cage"
                 ],
                 [
                   "-tion",
                   "une",
                   "100%",
-                  "37",
+                  "40",
                   "le poisson"
                 ],
                 [
@@ -27284,7 +27286,7 @@
                   "-ette",
                   "une",
                   "97%",
-                  "37",
+                  "38",
                   "le squelette"
                 ],
                 [
@@ -203660,6 +203662,2606 @@
         ],
         "coachVoice": "coach-en-warm"
       }
+    },
+    {
+      "id": "a2.29.l1",
+      "unitId": "a2.29",
+      "seq": 1,
+      "title": "À l'hôtel",
+      "level": "a2",
+      "tag": "A2 · LEÇON 28",
+      "intro": "Most people have two settings at a hotel desk: apologise, or lose your temper. French has a step in the middle, and this is it.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "render": "screens",
+          "layer": "core",
+          "title": "No hot water, and one sentence to fix it",
+          "setting": {
+            "place": "The front desk of a small hotel",
+            "city": "Lyon",
+            "time": "Eleven at night"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "text": "Eleven at night. You have been travelling since six in the morning, the room is yours, and there is no hot water.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "narration",
+              "text": "You went down to the desk an hour ago and asked. Somebody said they would look into it. Nobody came.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "La réception",
+              "fr": "Oui ? Je peux vous aider ?",
+              "en": "Yes? Can I help you?",
+              "respell": "[wee zhuh puh voo zay-DAY]",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "choice",
+              "prompt": "You have one sentence. Which one do you say?",
+              "size": "lg",
+              "options": [
+                {
+                  "fr": "Vous devez réparer la douche.",
+                  "respell": "[voo day-VAY ray-pah-RAY lah DOOSH]",
+                  "en": "You have to fix the shower.",
+                  "outcome": "breaks",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  }
+                },
+                {
+                  "fr": "Excusez-moi, il y a un problème avec la douche.",
+                  "respell": "[ex-kü-ZAY mwah eel ee ah uhⁿ proh-BLEM ah-vek lah DOOSH]",
+                  "en": "Excuse me, there is a problem with the shower.",
+                  "outcome": "works",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "break",
+              "heading": "Both of those are correct French",
+              "wrong": {
+                "fr": "Vous devez réparer la douche.",
+                "ipa": "/vu də.ve ʁe.pa.ʁe la duʃ/",
+                "respell": "[voo day-VAY ray-pah-RAY lah DOOSH]",
+                "en": "You have to fix the shower."
+              },
+              "right": {
+                "fr": "Excusez-moi, il y a un problème avec la douche.",
+                "ipa": "/ɛks.ky.ze.mwa il i.a œ̃ pʁɔ.blɛm a.vɛk la duʃ/",
+                "respell": "[ex-kü-ZAY mwah eel ee ah uhⁿ proh-BLEM ah-vek lah DOOSH]",
+                "en": "Excuse me, there is a problem with the shower."
+              },
+              "body": "The first is built out of devoir, which a2.13 taught you, and it is a perfectly formed sentence. It also hands a stranger an instruction at eleven at night. The second says the same thing about the same shower and mentions nobody at all.",
+              "coach": "Neither of these is a grammar mistake. That is what makes this hard to notice and worth a whole lesson.",
+              "size": "lg",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "resolve",
+              "text": "One of those gets the shower looked at tonight. The other gets you a form to fill in.",
+              "size": "md"
+            }
+          ],
+          "closing": {
+            "text": "You are about to learn the sentence in the middle, and the two either side of it.",
+            "size": "md"
+          },
+          "terms": [
+            "impersonal"
+          ],
+          "say": "You have said this in English a hundred times. In French there is a step between apologising and shouting, and nobody teaches it."
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "layer": "core",
+          "title": "By the end of this one",
+          "goals": [
+            {
+              "t": "Check in without rehearsing it first",
+              "s": "Understand the four things the desk always says, and answer them."
+            },
+            {
+              "t": "Ask for something and get it",
+              "s": "Five ways in, learned whole, and you pick the one that fits."
+            },
+            {
+              "t": "Say it a second time without a row",
+              "s": "Say it again, without the person."
+            },
+            {
+              "t": "Ask for the manager, and know when not to",
+              "s": "The top rung works once. Spend it late."
+            }
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s03-arrival",
+          "layer": "core",
+          "hideLines": true,
+          "title": "The desk, at the speed the desk talks",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true
+          },
+          "lines": [
+            {
+              "fr": "Bonsoir, vous avez une réservation ?",
+              "en": "Good evening, do you have a booking?"
+            },
+            {
+              "fr": "C'est à quel nom, s'il vous plaît ?",
+              "en": "Under what name, please?"
+            },
+            {
+              "fr": "Votre chambre est au troisième étage.",
+              "en": "Your room is on the third floor."
+            },
+            {
+              "fr": "Le petit déjeuner est servi de sept heures à dix heures.",
+              "en": "Breakfast is served from seven to ten."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Which floor is the room on?",
+              "opts": [
+                "The ground floor",
+                "The second",
+                "The third",
+                "The fourth"
+              ],
+              "correct": 2,
+              "why": "Troisième. And in a French building the ground floor is le rez-de-chaussée and is not counted, so the third floor is four flights up."
+            },
+            {
+              "q": "What is the last hour you can still get breakfast?",
+              "opts": [
+                "Seven",
+                "Nine",
+                "Ten",
+                "Eleven"
+              ],
+              "correct": 2,
+              "why": "De sept heures à dix heures. The de … à pair carries both ends, and the second number is the one that costs you a meal."
+            },
+            {
+              "q": "What is the desk asking for in the second line?",
+              "opts": [
+                "Your room number",
+                "The name the booking is under",
+                "Your passport",
+                "How many nights"
+              ],
+              "correct": 1,
+              "why": "À quel nom means under what name. It is asked at every desk in France and it is four words long, so it goes past easily."
+            },
+            {
+              "q": "What does the first line want from you?",
+              "opts": [
+                "Yes or no",
+                "A room number",
+                "A price",
+                "A date"
+              ],
+              "correct": 0,
+              "why": "Vous avez une réservation ? is a yes-or-no question said as a plain statement with the voice going up at the end. Nothing is added to the front and nothing is swapped round."
+            }
+          ],
+          "terms": [
+            "desk"
+          ],
+          "say": "Nothing here is difficult French. It is fast, and it arrives whole."
+        },
+        {
+          "type": "tapTable",
+          "id": "s04-ladder",
+          "layer": "core",
+          "title": "Three rungs, three moves",
+          "cols": [
+            "Ask once, softly.",
+            "Say it again, without the person.",
+            "Ask for the person who can fix it."
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Est-ce que je peux avoir une serviette, s'il vous plaît ?",
+                "Je vous ai demandé une serviette il y a une heure.",
+                "Je voudrais parler au responsable, s'il vous plaît."
+              ],
+              "say": "Est-ce que je peux avoir une serviette, s'il vous plaît ?",
+              "detail": {
+                "title": "Asking for a thing",
+                "body": "The same towel, three rungs apart. Rung 1 asks. Rung 2 says when you asked before, and says nothing about whose fault that is. Rung 3 stops asking the person in front of you.",
+                "say": "Est-ce que je peux avoir une serviette, s'il vous plaît ?"
+              }
+            },
+            {
+              "cells": [
+                "Il y a un problème avec la douche.",
+                "L'eau chaude ne fonctionne toujours pas.",
+                "Est-ce que quelqu'un peut venir voir ?"
+              ],
+              "say": "Excusez-moi, il y a un problème avec la douche.",
+              "detail": {
+                "title": "Reporting a fault",
+                "body": "The shower is the subject of all three. Nobody is accused at any rung, and that is what lets you climb without the conversation turning.",
+                "say": "L'eau chaude ne fonctionne toujours pas."
+              }
+            },
+            {
+              "cells": [
+                "Est-ce que ce serait possible d'avoir une autre chambre ?",
+                "Ça ne marche toujours pas.",
+                "Est-ce que je peux parler à quelqu'un d'autre ?"
+              ],
+              "say": "Est-ce que ce serait possible d'avoir une autre chambre ?",
+              "detail": {
+                "title": "When it is still not fixed",
+                "body": "Toujours pas is the whole of rung 2 in two words. It says this has happened before without saying who let it happen.",
+                "say": "Ça ne marche toujours pas."
+              }
+            }
+          ],
+          "terms": [
+            "rung",
+            "move"
+          ],
+          "say": "Three rungs across the top, and three things you might be trying to do down the side. Nine sentences and then we stop."
+        },
+        {
+          "type": "table",
+          "id": "s05-grid",
+          "layer": "more",
+          "title": "The whole ladder, on one page",
+          "cols": [
+            "Rung",
+            "What you say",
+            "What it costs"
+          ],
+          "rows": [
+            [
+              "1",
+              "Est-ce que je peux avoir une serviette ?",
+              "Nothing"
+            ],
+            [
+              "1",
+              "Excusez-moi, il y a un problème avec la douche.",
+              "Nothing"
+            ],
+            [
+              "1",
+              "Est-ce que ce serait possible d'avoir une autre chambre ?",
+              "Nothing"
+            ],
+            [
+              "2",
+              "Je vous ai demandé une serviette il y a une heure.",
+              "A little"
+            ],
+            [
+              "2",
+              "L'eau chaude ne fonctionne toujours pas.",
+              "A little"
+            ],
+            [
+              "2",
+              "Ça ne marche toujours pas.",
+              "A little"
+            ],
+            [
+              "3",
+              "Je voudrais parler au responsable.",
+              "A lot"
+            ],
+            [
+              "3",
+              "Est-ce que quelqu'un peut venir voir ?",
+              "Less"
+            ],
+            [
+              "3",
+              "Est-ce que je peux parler à quelqu'un d'autre ?",
+              "A lot"
+            ]
+          ],
+          "rowDetails": [
+            {
+              "title": "Rung 1, the request",
+              "body": "Est-ce que je peux is the asking-permission pouvoir, which a2.13 taught. It is the cheapest opening you have and it gives away nothing.",
+              "say": "Est-ce que je peux avoir une serviette, s'il vous plaît ?"
+            },
+            {
+              "title": "Rung 1, the fault",
+              "body": "Il y a un problème avec puts the fault on the thing. The shower has the problem. You are simply the person mentioning it.",
+              "say": "Excusez-moi, il y a un problème avec la douche."
+            },
+            {
+              "title": "Rung 1, the softest",
+              "body": "Nobody is in this sentence at all. No I wanting and no you doing, just a room and whether it is possible. Keep it for the ask you think might be refused.",
+              "say": "Est-ce que ce serait possible d'avoir une autre chambre ?"
+            },
+            {
+              "title": "Rung 2, the request again",
+              "body": "This is the one people cannot do. It states a fact about the past hour and stops. No blame, no adjective, no raised voice, and the other person now knows exactly where they stand.",
+              "say": "Je vous ai demandé une serviette il y a une heure."
+            },
+            {
+              "title": "Rung 2, the fault again",
+              "body": "Toujours pas is doing all the work: still not. It carries the whole history of the complaint in two words and names nobody.",
+              "say": "L'eau chaude ne fonctionne toujours pas."
+            },
+            {
+              "title": "Rung 2, the short version",
+              "body": "When you have already named the thing once, ça is enough. Shorter is stronger here, and it is easier to say without your voice climbing.",
+              "say": "Ça ne marche toujours pas."
+            },
+            {
+              "title": "Rung 3, and it works once",
+              "body": "Je voudrais is already yours from a2.13. What is new is where you spend it. This sentence ends the conversation you were having and starts a different one.",
+              "say": "Je voudrais parler au responsable, s'il vous plaît."
+            },
+            {
+              "title": "Rung 3, the cheaper door",
+              "body": "This asks for a person without asking for the boss. Quelqu'un leaves the desk somewhere to go, which the manager sentence does not.",
+              "say": "Est-ce que quelqu'un peut venir voir ?"
+            },
+            {
+              "title": "Rung 3, said plainly",
+              "body": "Somebody else. It is direct and it is not rude, and it is the sentence to reach for when the person in front of you has said no twice.",
+              "say": "Est-ce que je peux parler à quelqu'un d'autre ?"
+            }
+          ],
+          "terms": [
+            "rung",
+            "brake"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s06-rung1",
+          "layer": "core",
+          "size": "lg",
+          "title": "Rung 1: ask once, softly",
+          "groups": [
+            {
+              "label": "Asking for a thing",
+              "items": [
+                {
+                  "fr": "Est-ce que je peux avoir une serviette, s'il vous plaît ?",
+                  "itemId": "fr.a2.hebergement.074",
+                  "en": "Could I have a towel, please?",
+                  "note": "a2.13's asking-permission pouvoir, and it is the plain everyday form you already use."
+                },
+                {
+                  "fr": "Pourriez-vous m'apporter une serviette, s'il vous plaît ?",
+                  "itemId": "fr.a2.hebergement.075",
+                  "en": "Could you bring me a towel, please?",
+                  "note": "One piece, learned whole. Do not take it apart."
+                },
+                {
+                  "fr": "Est-ce que je peux avoir un oreiller de plus ?",
+                  "itemId": "fr.a2.hebergement.080",
+                  "en": "Could I have one more pillow?",
+                  "note": "De plus, at the end, is how you ask for one more of something."
+                }
+              ]
+            },
+            {
+              "label": "Reporting a fault",
+              "items": [
+                {
+                  "fr": "Excusez-moi, il y a un problème avec la douche.",
+                  "itemId": "fr.a2.hebergement.076",
+                  "en": "Excuse me, there is a problem with the shower.",
+                  "note": "The shower has the problem. Nobody caused it."
+                },
+                {
+                  "fr": "Excusez-moi, il y a beaucoup de bruit dans le couloir.",
+                  "itemId": "fr.a2.hebergement.081",
+                  "en": "Excuse me, there is a lot of noise in the corridor.",
+                  "note": "The corridor is noisy. Not the people in it, and not the person you are telling."
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "items": [],
+              "check": {
+                "q": "Your room is freezing. You have not mentioned it before. Which one is rung 1?",
+                "opts": [
+                  "Il fait très froid dans la chambre.",
+                  "Vous devez monter le chauffage.",
+                  "Ça fait deux fois que je le dis."
+                ],
+                "correct": 0,
+                "why": "The room is cold. That is a fact about a room, and it is the first time you have said it. The second puts a stranger under an instruction; the third is rung 2 and you have not earned it yet."
+              }
+            }
+          ],
+          "terms": [
+            "rung",
+            "softener"
+          ],
+          "say": "Take the person out of the sentence."
+        },
+        {
+          "type": "groupDrill",
+          "id": "s07-rung2",
+          "layer": "core",
+          "size": "lg",
+          "title": "Rung 2: say it again, without the person",
+          "groups": [
+            {
+              "label": "The same towel, an hour later",
+              "items": [
+                {
+                  "fr": "Je vous ai demandé une serviette il y a une heure.",
+                  "itemId": "fr.a2.hebergement.084",
+                  "en": "I asked you for a towel an hour ago.",
+                  "note": "A fact about the last hour, and then a full stop."
+                },
+                {
+                  "fr": "Ça fait deux fois que je demande.",
+                  "itemId": "fr.a2.hebergement.083",
+                  "en": "That is twice I have asked.",
+                  "note": "Counting is not complaining. Say the number and stop talking."
+                },
+                {
+                  "fr": "J'ai appelé la réception hier soir, et personne n'est venu.",
+                  "itemId": "fr.a2.hebergement.088",
+                  "en": "I called the front desk last night, and nobody came.",
+                  "note": "Personne n'est venu. Nobody came, and no one is named."
+                }
+              ]
+            },
+            {
+              "label": "The same fault, still there",
+              "items": [
+                {
+                  "fr": "L'eau chaude ne fonctionne toujours pas.",
+                  "itemId": "fr.a2.hebergement.085",
+                  "en": "The hot water still is not working.",
+                  "note": "Toujours pas is the whole rung, in two words."
+                },
+                {
+                  "fr": "Ça ne marche toujours pas.",
+                  "itemId": "fr.a2.hebergement.087",
+                  "en": "It still does not work.",
+                  "note": "Once the thing has been named, ça is enough."
+                },
+                {
+                  "fr": "C'est toujours le même problème.",
+                  "itemId": "fr.a2.hebergement.082",
+                  "en": "It is still the same problem.",
+                  "note": "Le même problème. The problem is the same one; nobody has become the problem."
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "items": [],
+              "check": {
+                "q": "You reported the broken lift this morning. It is evening and it is still broken. What is rung 2?",
+                "opts": [
+                  "Vous ne faites rien pour cet ascenseur.",
+                  "L'ascenseur ne fonctionne toujours pas.",
+                  "Je voudrais parler au responsable."
+                ],
+                "correct": 1,
+                "why": "Toujours pas carries the whole day without accusing anybody of anything. The first makes the desk the subject of a failure. The third is rung 3, and you have only said this once."
+              }
+            }
+          ],
+          "terms": [
+            "rung",
+            "impersonal"
+          ],
+          "say": "Take the person out of the sentence."
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-rung3",
+          "layer": "core",
+          "size": "lg",
+          "title": "Rung 3: ask for the person who can fix it",
+          "groups": [
+            {
+              "label": "Getting somebody else involved",
+              "items": [
+                {
+                  "fr": "Je voudrais parler au responsable, s'il vous plaît.",
+                  "itemId": "fr.a2.hebergement.091",
+                  "en": "I would like to speak to the manager, please.",
+                  "note": "Je voudrais is already yours. What is new is when you spend it."
+                },
+                {
+                  "fr": "Est-ce que quelqu'un peut venir voir ?",
+                  "itemId": "fr.a2.hebergement.092",
+                  "en": "Could somebody come and look?",
+                  "note": "Quelqu'un asks for a person without asking for the boss."
+                },
+                {
+                  "fr": "Qui est-ce que je peux voir pour ce problème ?",
+                  "itemId": "fr.a2.hebergement.094",
+                  "en": "Who can I see about this problem?",
+                  "note": "Still about the problem. The question is who, and the answer is somebody, not you."
+                }
+              ]
+            },
+            {
+              "label": "The brake: what you say instead",
+              "items": [
+                {
+                  "fr": "Je repasse dans une heure, alors.",
+                  "itemId": "fr.a2.hebergement.132",
+                  "en": "I will come back in an hour, then.",
+                  "note": "This is what rung 2 sounds like when it ends well, and it costs you nothing."
+                },
+                {
+                  "fr": "Le responsable est là ce soir ?",
+                  "itemId": "fr.a2.hebergement.095",
+                  "en": "Is the manager here this evening?",
+                  "note": "A question, not a demand. It finds out whether rung 3 is even available before you spend it."
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "items": [],
+              "check": {
+                "q": "It is your first sentence of the evening. The shower is cold. What happens if you open with Je voudrais parler au responsable ?",
+                "opts": [
+                  "It is the strongest opening, so the problem gets fixed fastest.",
+                  "You have spent your last move on somebody who would have fixed it anyway.",
+                  "It is grammatically wrong at the start of a conversation."
+                ],
+                "correct": 1,
+                "why": "It is perfectly correct French and it is the wrong first move. The person at the desk can almost always fix a cold shower, and once you have gone over their head there is nowhere left to go."
+              }
+            }
+          ],
+          "terms": [
+            "rung",
+            "brake"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s09-register",
+          "layer": "core",
+          "title": "The same want, four distances",
+          "examples": [
+            {
+              "fr": "Donnez-moi une serviette.",
+              "en": "Give me a towel.",
+              "note": "Correct, and it is what you say to a machine. Nobody at a desk hears it as neutral."
+            },
+            {
+              "fr": "Je voudrais une serviette, s'il vous plaît.",
+              "en": "I would like a towel, please.",
+              "note": "Yours already, from a2.13. This is the floor, and it is fine everywhere."
+            },
+            {
+              "fr": "Est-ce que je peux avoir une serviette ?",
+              "en": "Could I have a towel?",
+              "note": "Also a2.13's, and it is the same everyday pouvoir you have been using since then."
+            },
+            {
+              "fr": "Pourriez-vous m'apporter une serviette ?",
+              "en": "Could you bring me a towel?",
+              "note": "A piece you learn whole. It is the softest of the four and it costs one extra word."
+            },
+            {
+              "fr": "Est-ce que ce serait possible d'avoir une autre chambre ?",
+              "en": "Would it be possible to have a different room?",
+              "note": "Notice there is no you and no I doing anything. The room is what is being discussed."
+            }
+          ],
+          "terms": [
+            "softener"
+          ],
+          "say": "You met the middle two in a2.13. The outside two are new, and neither of them is a rule you have to build."
+        },
+        {
+          "type": "cardDeck",
+          "id": "s10-softeners",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "Five ways in, learned whole",
+          "hint": "Swipe. None of these come apart.",
+          "cards": [
+            {
+              "label": "a2.13, and already yours",
+              "head": "The two you have",
+              "fr": "je voudrais · est-ce que je peux",
+              "sub": "I would like · could I",
+              "body": "a2.13 gave you these two and told you to learn them the way you learned bonjour. That was right, and they are still the two you will use most. Nothing below replaces them."
+            },
+            {
+              "label": "New, and one piece",
+              "head": "j'aimerais",
+              "fr": "J'aimerais changer de chambre, si c'est possible.",
+              "sub": "I would like to change rooms, if possible.",
+              "body": "Interchangeable with je voudrais almost everywhere, and it sounds a shade warmer. Si c'est possible on the end is what turns a want into a question."
+            },
+            {
+              "label": "New, and one piece",
+              "head": "pourriez-vous",
+              "fr": "Pourriez-vous m'apporter une serviette ?",
+              "sub": "Could you bring me a towel?",
+              "body": "You have met this already without being told: it is in the alphabet lessons, asking you to spell a street name. It puts the asking on the other person instead of on your own wanting, and that is why it lands softly."
+            },
+            {
+              "label": "New, and the rarest",
+              "head": "ce serait possible de",
+              "fr": "Est-ce que ce serait possible d'avoir une autre chambre ?",
+              "sub": "Would it be possible to have a different room?",
+              "body": "The longest of the five and the one with nobody in it. No I wanting, no you doing. Keep it for the ask you think might be refused."
+            },
+            {
+              "label": "The rule for all five",
+              "head": "Do not take them apart",
+              "fr": "Un bloc, pas une règle.",
+              "sub": "A block, not a rule.",
+              "body": "These are five fixed pieces. You will meet where they come from much later and it has a name you do not need tonight. Until then they go on the front of a sentence exactly as written."
+            }
+          ],
+          "terms": [
+            "softener"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s11-impersonal",
+          "layer": "core",
+          "size": "lg",
+          "title": "Take the person out",
+          "groups": [
+            {
+              "label": "Accusation in, report out",
+              "items": [
+                {
+                  "fr": "La chambre n'a pas été faite.",
+                  "itemId": "fr.a2.hebergement.096",
+                  "en": "The room has not been made up.",
+                  "note": "The room was not made up. Whoever did not make it stays out of the sentence."
+                },
+                {
+                  "fr": "Il n'y a pas de serviettes dans la salle de bain.",
+                  "itemId": "fr.a2.hebergement.097",
+                  "en": "There are no towels in the bathroom.",
+                  "note": "The towels are absent. Who forgot them is not the news and saying so gets them no faster."
+                },
+                {
+                  "fr": "Il manque une couverture dans la chambre.",
+                  "itemId": "fr.a2.hebergement.103",
+                  "en": "There is a blanket missing in the room.",
+                  "note": "Il manque. Something is missing. Nobody lost it."
+                }
+              ]
+            },
+            {
+              "label": "The thing is the subject",
+              "items": [
+                {
+                  "fr": "La fenêtre ne ferme pas.",
+                  "itemId": "fr.a2.hebergement.098",
+                  "en": "The window does not close.",
+                  "note": "The window is doing the failing."
+                },
+                {
+                  "fr": "La clé ne marche pas.",
+                  "itemId": "fr.a2.hebergement.104",
+                  "en": "The key does not work.",
+                  "note": "The key is doing the failing, not whoever handed it across the desk."
+                },
+                {
+                  "fr": "L'ascenseur ne fonctionne pas.",
+                  "itemId": "fr.a2.hebergement.101",
+                  "en": "The lift is not working.",
+                  "note": "Ne fonctionne pas and ne marche pas are the same news. Use either."
+                }
+              ]
+            },
+            {
+              "label": "Loud, cold, and still nobody's fault",
+              "items": [
+                {
+                  "fr": "Les voisins font du bruit toute la nuit.",
+                  "itemId": "fr.a2.hebergement.102",
+                  "en": "The people next door make noise all night.",
+                  "note": "The one place a person is allowed in: they are not the person you are talking to."
+                },
+                {
+                  "fr": "Il fait très froid dans la chambre.",
+                  "itemId": "fr.a2.hebergement.100",
+                  "en": "It is very cold in the room.",
+                  "note": "Il fait, with no real subject at all. The most impersonal sentence in the lesson."
+                },
+                {
+                  "fr": "Le chauffage est trop fort.",
+                  "itemId": "fr.a2.hebergement.099",
+                  "en": "The heating is too high.",
+                  "note": "Trop fort, not too hot. The heating is the thing that is too much."
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "items": [],
+              "check": {
+                "q": "You want to say: you gave me a dirty room. Which version gets it fixed?",
+                "opts": [
+                  "Vous m'avez donné une chambre sale.",
+                  "La chambre n'a pas été faite.",
+                  "C'est votre faute, la chambre est sale."
+                ],
+                "correct": 1,
+                "why": "Both of the others are true and both put the person in front of you at the end of an accusation. The middle one describes the same room and asks for the same repair, and it leaves them somewhere to stand."
+              }
+            }
+          ],
+          "terms": [
+            "impersonal",
+            "move"
+          ],
+          "say": "Take the person out of the sentence."
+        },
+        {
+          "type": "cardDeck",
+          "id": "s12-opener",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "Sorry to bother you, and where it goes",
+          "hint": "Swipe. Three cards.",
+          "cards": [
+            {
+              "label": "The opener",
+              "head": "Excusez-moi de vous déranger.",
+              "fr": "Excusez-moi de vous déranger.",
+              "sub": "Sorry to bother you.",
+              "body": "It goes first, before you have said what you want. English usually buries the apology halfway in: sorry, but the shower is broken. French puts it on the front, finishes it, and then starts the real sentence."
+            },
+            {
+              "label": "Warmer, and just as fixed",
+              "head": "désolé de vous déranger",
+              "fr": "Désolé de vous déranger, il y a un problème avec la douche.",
+              "sub": "Sorry to bother you, there is a problem with the shower.",
+              "body": "Same job, slightly less formal, and it joins straight onto the complaint with a comma. Say it as one breath and the whole sentence lands as one polite thing rather than two."
+            },
+            {
+              "label": "Where it does not go",
+              "head": "s'il vous plaît",
+              "fr": "Une serviette, s'il vous plaît.",
+              "sub": "A towel, please.",
+              "body": "Not everything polite goes at the front. S'il vous plaît goes at the END, and putting it first is one of the few word-order mistakes that sounds odd rather than merely foreign."
+            }
+          ],
+          "terms": [
+            "softener"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s13-repair",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "When you did not catch the answer",
+          "hint": "Swipe. a2.07 taught these.",
+          "cards": [
+            {
+              "label": "a2.07, rung 1",
+              "head": "Pardon ?",
+              "fr": "Pardon ?",
+              "sub": "[par-DOHⁿ]",
+              "body": "a2.07 authored six of these, ordered by what each one costs you. This is the cheapest thing you can say and it gives away nothing at all."
+            },
+            {
+              "label": "a2.07, rung 3",
+              "head": "Plus lentement, s'il vous plaît.",
+              "fr": "Plus lentement, s'il vous plaît.",
+              "sub": "[plü lahⁿt-MAHⁿ seel voo PLEH]",
+              "body": "The first of the six that names what actually went wrong. Asking for a repeat gets you the same sentence at the same speed; asking for slower gets you a different one."
+            },
+            {
+              "label": "a2.07, rung 6",
+              "head": "Vous pouvez me l'écrire ?",
+              "fr": "Vous pouvez me l'écrire, s'il vous plaît ?",
+              "sub": "[voo poo-VAY muh lay-KREER seel voo PLEH]",
+              "body": "The last one. It concedes that speaking has failed and changes medium, which at a hotel desk is often exactly right: a room number and a breakfast time are easier read than heard."
+            },
+            {
+              "label": "Why it belongs here",
+              "head": "The desk answers fast",
+              "fr": "Vous avez bien noté ? Chambre quatre-vingt-cinq.",
+              "sub": "Got that? Room eighty-five.",
+              "body": "You will climb the whole ladder correctly and then lose the answer, because the reply comes back at the speed the desk always talks. Reach for the lowest of a2.07's six that will actually fix it."
+            }
+          ],
+          "terms": [
+            "repairMove",
+            "desk"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s14-quebec",
+          "render": "deck",
+          "layer": "more",
+          "size": "lg",
+          "title": "One word that moves a meal",
+          "hint": "One card. Nothing here is tested.",
+          "cards": [
+            {
+              "label": "Quebec",
+              "head": "le déjeuner",
+              "fr": "Le petit déjeuner est servi de sept heures à dix heures.",
+              "sub": "In Quebec that sign would say le déjeuner.",
+              "body": "In France le déjeuner is lunch and breakfast is le petit déjeuner. In Quebec le déjeuner is breakfast, le dîner is lunch and le souper is the evening meal. Everything scored in this lesson uses the French of France; this is the one place the two split in a way that changes which door you walk through in the morning."
+            }
+          ],
+          "terms": [
+            "quebec"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s15-trap",
+          "layer": "core",
+          "swipe": true,
+          "title": "The politeness trap",
+          "rule": {
+            "title": "A correct sentence can still be the wrong move",
+            "body": "English says you need to fix this and means please fix this. French hears vous devez as an instruction from a stranger, because that is what it is. Every trap below is a perfect sentence from a2.13, and every one costs you the room."
+          },
+          "cards": [
+            {
+              "promptLabel": "You need to fix the shower",
+              "promptSound": "Vous devez réparer la douche.",
+              "fr": "Excusez-moi, il y a un problème avec la douche.",
+              "ipa": "/ɛks.ky.ze.mwa il i.a œ̃ pʁɔ.blɛm a.vɛk la duʃ/",
+              "tip": "Take the person out. The shower has the problem."
+            },
+            {
+              "promptLabel": "You have to change my room",
+              "promptSound": "Vous devez changer ma chambre.",
+              "fr": "Est-ce que ce serait possible d'avoir une autre chambre ?",
+              "ipa": "/ɛs.kə sə sə.ʁɛ pɔ.sibl da.vwaʁ yn otʁ ʃɑ̃bʁ/",
+              "tip": "Ask whether it is possible. Do not tell them it is required."
+            },
+            {
+              "promptLabel": "You forgot the towels",
+              "promptSound": "Vous avez oublié les serviettes.",
+              "fr": "Il n'y a pas de serviettes dans la salle de bain.",
+              "ipa": "/il nja pa də sɛʁ.vjɛt dɑ̃ la sal də bɛ̃/",
+              "tip": "The towels are absent. Who forgot them is not the news."
+            },
+            {
+              "promptLabel": "You gave me a dirty room",
+              "promptSound": "Vous m'avez donné une chambre sale.",
+              "fr": "La chambre n'a pas été faite.",
+              "ipa": "/la ʃɑ̃bʁ na pa e.te fɛt/",
+              "tip": "The room was not made up. Say that, and it gets made up."
+            },
+            {
+              "promptLabel": "Send someone up now",
+              "promptSound": "Envoyez quelqu'un maintenant.",
+              "fr": "Est-ce que quelqu'un peut venir voir ?",
+              "ipa": "/ɛs.kə kɛl.kœ̃ pø və.niʁ vwaʁ/",
+              "tip": "Rung 3 asks. It does not dispatch."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Vous devez réparer la douche.",
+              "opts": [
+                "Excusez-moi, il y a un problème avec la douche.",
+                "Vous devez réparer la douche tout de suite.",
+                "Réparez la douche."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Vous avez oublié les serviettes.",
+              "opts": [
+                "Vous n'avez pas apporté les serviettes.",
+                "Il n'y a pas de serviettes dans la salle de bain.",
+                "Apportez les serviettes."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Vous m'avez donné une chambre sale.",
+              "opts": [
+                "C'est votre faute, la chambre est sale.",
+                "Nettoyez la chambre.",
+                "La chambre n'a pas été faite."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "Vous devez changer ma chambre.",
+              "opts": [
+                "Est-ce que ce serait possible d'avoir une autre chambre ?",
+                "Changez ma chambre.",
+                "Vous devez me donner une autre chambre."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Envoyez quelqu'un maintenant.",
+              "opts": [
+                "Quelqu'un doit venir tout de suite.",
+                "Est-ce que quelqu'un peut venir voir ?",
+                "Vous devez envoyer quelqu'un."
+              ],
+              "correct": 1
+            }
+          ],
+          "steps": [
+            {
+              "label": "The rule",
+              "kind": "rule",
+              "title": "Correct, and still the wrong move"
+            },
+            {
+              "label": "The five traps",
+              "kind": "cards",
+              "title": "What English hands you"
+            },
+            {
+              "label": "Hear them",
+              "kind": "audio",
+              "title": "The two, side by side"
+            },
+            {
+              "label": "Now you pick",
+              "kind": "drill",
+              "title": "Five in a row",
+              "gate": true
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "impersonal"
+          ],
+          "say": "Take the person out of the sentence."
+        },
+        {
+          "type": "commonErrors",
+          "id": "s16-errors",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "title": "Four ways this comes apart",
+          "errors": [
+            {
+              "wrong": "Vous devez réparer la douche.",
+              "right": "Excusez-moi, il y a un problème avec la douche.",
+              "why": "Devoir is not wrong and this is not a grammar mistake. It is an instruction handed to a stranger, and the reply you get back will be shaped by that rather than by the shower."
+            },
+            {
+              "wrong": "S'il vous plaît, une serviette.",
+              "right": "Une serviette, s'il vous plaît.",
+              "why": "S'il vous plaît goes at the end. Excusez-moi goes at the front. There is no single rule that covers both, which is why the polite word going first is a habit worth unlearning one word at a time."
+            },
+            {
+              "wrong": "Je voudrais parler au responsable.",
+              "right": "Excusez-moi, il y a un problème avec la douche.",
+              "why": "Only wrong as an opening. Rung 3 works once, and spending it on your first sentence leaves you nothing when the first two rungs have genuinely failed."
+            },
+            {
+              "wrong": "L'eau chaude ne fonctionne pas encore.",
+              "right": "L'eau chaude ne fonctionne toujours pas.",
+              "why": "Pas encore is not yet, which says you are still waiting patiently. Toujours pas is still not, which says this has already happened once. Rung 2 needs the second one."
+            }
+          ],
+          "terms": [
+            "rung",
+            "brake"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s17-numbers",
+          "layer": "core",
+          "hideLines": true,
+          "title": "Four numbers, at desk speed",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true
+          },
+          "lines": [
+            {
+              "fr": "Vous êtes au deuxième étage, chambre quatre-vingt-cinq.",
+              "en": "You are on the second floor, room eighty-five."
+            },
+            {
+              "fr": "Non, quatre-vingt-cinq, pas soixante-quinze.",
+              "en": "No, eighty-five, not seventy-five."
+            },
+            {
+              "fr": "Votre chambre sera prête à quatorze heures.",
+              "en": "Your room will be ready at two in the afternoon."
+            },
+            {
+              "fr": "Le départ est avant onze heures.",
+              "en": "Check-out is before eleven."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Which room number is it, in the end?",
+              "opts": [
+                "65",
+                "75",
+                "85",
+                "95"
+              ],
+              "correct": 2,
+              "why": "Quatre-vingt-cinq. Both numbers in that correction end in a number word you know, and the difference is at the front, which is the half you stop listening to."
+            },
+            {
+              "q": "What time can you get into the room?",
+              "opts": [
+                "4pm",
+                "2pm",
+                "11am",
+                "10am"
+              ],
+              "correct": 1,
+              "why": "Quatorze heures is 2pm. An English speaker hears fourteen and reaches for four, and the room is then empty for two hours you spent in the lobby."
+            },
+            {
+              "q": "How many flights of stairs up is the room?",
+              "opts": [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+              ],
+              "correct": 2,
+              "why": "Le deuxième étage is three flights, because le rez-de-chaussée is not counted as a floor. This is the same counting a2.26 does not cover and it catches people at every hotel in France."
+            },
+            {
+              "q": "By what time must you be out?",
+              "opts": [
+                "Onze heures",
+                "Quatorze heures",
+                "Dix heures",
+                "Sept heures"
+              ],
+              "correct": 0,
+              "why": "Avant onze heures. Avant is doing the work: not at eleven, before it."
+            }
+          ],
+          "terms": [
+            "desk"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s18-checkin",
+          "layer": "core",
+          "title": "Checking in",
+          "setting": "A small hotel in Lyon. Eleven at night, and you have been travelling since six.",
+          "turns": [
+            {
+              "ai": "Bonsoir, vous avez une réservation ?",
+              "en": "Good evening, do you have a booking?",
+              "user": "Oui, j'ai réservé une chambre pour deux nuits.",
+              "userEn": "Yes, I booked a room for two nights.",
+              "alts": [
+                {
+                  "fr": "Oui, pour deux nuits.",
+                  "en": "Yes, for two nights."
+                },
+                {
+                  "fr": "Oui, j'ai une réservation.",
+                  "en": "Yes, I have a booking."
+                }
+              ]
+            },
+            {
+              "ai": "C'est à quel nom, s'il vous plaît ?",
+              "en": "Under what name, please?",
+              "user": "Au nom de Bertrand.",
+              "userEn": "Under Bertrand.",
+              "alts": [
+                {
+                  "fr": "Bertrand.",
+                  "en": "Bertrand."
+                },
+                {
+                  "fr": "C'est au nom de Bertrand.",
+                  "en": "It is under Bertrand."
+                }
+              ]
+            },
+            {
+              "ai": "Vous pouvez épeler votre nom, madame ?",
+              "en": "Could you spell your name, madam?",
+              "user": "B, E, R, T, R, A, N, D.",
+              "userEn": "B, E, R, T, R, A, N, D.",
+              "alts": [
+                {
+                  "fr": "Oui : B, E, R, T, R, A, N, D.",
+                  "en": "Yes: B, E, R, T, R, A, N, D."
+                },
+                {
+                  "fr": "Bien sûr. B, E, R, T, R, A, N, D.",
+                  "en": "Of course. B, E, R, T, R, A, N, D."
+                }
+              ]
+            },
+            {
+              "ai": "Voici votre clé, chambre soixante-quinze. Votre chambre est au troisième étage.",
+              "en": "Here is your key, room seventy-five. Your room is on the third floor.",
+              "user": "Merci. L'ascenseur est où, s'il vous plaît ?",
+              "userEn": "Thank you. Where is the lift, please?",
+              "alts": [
+                {
+                  "fr": "Merci beaucoup. Où est l'ascenseur ?",
+                  "en": "Thank you very much. Where is the lift?"
+                },
+                {
+                  "fr": "Merci. Il y a un ascenseur ?",
+                  "en": "Thank you. Is there a lift?"
+                }
+              ]
+            },
+            {
+              "ai": "L'ascenseur est au fond du couloir, à droite. Le petit déjeuner est servi de sept heures à dix heures.",
+              "en": "The lift is at the end of the corridor, on the right. Breakfast is served from seven to ten.",
+              "user": "Très bien, merci. Bonne soirée.",
+              "userEn": "Very good, thank you. Have a good evening.",
+              "alts": [
+                {
+                  "fr": "D'accord, merci beaucoup. Bonne soirée.",
+                  "en": "All right, thank you very much. Have a good evening."
+                },
+                {
+                  "fr": "Parfait, merci. Bonne nuit.",
+                  "en": "Perfect, thank you. Good night."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "desk"
+          ],
+          "say": "Five turns. The desk will spell-check your name, so sons.alphabet is about to earn its keep."
+        },
+        {
+          "type": "scenario",
+          "id": "s19-complaint",
+          "layer": "core",
+          "title": "The complaint, one rung at a time",
+          "setting": "The same desk, the next morning. You reported the cold shower last night and nothing has been done.",
+          "turns": [
+            {
+              "ai": "Bonjour, je peux vous aider ?",
+              "en": "Good morning, can I help you?",
+              "user": "Excusez-moi, il y a un problème avec la douche.",
+              "userEn": "Excuse me, there is a problem with the shower.",
+              "alts": [
+                {
+                  "fr": "Excusez-moi de vous déranger, il y a un problème avec la douche.",
+                  "en": "Sorry to bother you, there is a problem with the shower."
+                },
+                {
+                  "fr": "Bonjour. Il n'y a pas d'eau chaude dans ma chambre.",
+                  "en": "Good morning. There is no hot water in my room."
+                }
+              ]
+            },
+            {
+              "ai": "Je suis désolée, c'est complet ce soir. Je ne peux rien faire ce matin.",
+              "en": "I am sorry, we are full this evening. There is nothing I can do this morning.",
+              "user": "L'eau chaude ne fonctionne toujours pas.",
+              "userEn": "The hot water still is not working.",
+              "alts": [
+                {
+                  "fr": "Ça ne marche toujours pas.",
+                  "en": "It still does not work."
+                },
+                {
+                  "fr": "C'est toujours le même problème.",
+                  "en": "It is still the same problem."
+                }
+              ]
+            },
+            {
+              "ai": "Vous avez appelé la réception hier ?",
+              "en": "Did you call the front desk yesterday?",
+              "user": "J'ai appelé la réception hier soir, et personne n'est venu.",
+              "userEn": "I called the front desk last night, and nobody came.",
+              "alts": [
+                {
+                  "fr": "Ça fait deux fois que je demande.",
+                  "en": "That is twice I have asked."
+                },
+                {
+                  "fr": "Oui, hier soir. Personne n'est venu.",
+                  "en": "Yes, last night. Nobody came."
+                }
+              ]
+            },
+            {
+              "ai": "Je vais voir ce que je peux faire.",
+              "en": "I will see what I can do.",
+              "user": "Est-ce que quelqu'un peut venir voir ce matin ?",
+              "userEn": "Could somebody come and look this morning?",
+              "alts": [
+                {
+                  "fr": "Est-ce que quelqu'un peut venir voir ?",
+                  "en": "Could somebody come and look?"
+                },
+                {
+                  "fr": "Qui est-ce que je peux voir pour ce problème ?",
+                  "en": "Who can I see about this problem?"
+                }
+              ]
+            },
+            {
+              "ai": "Le responsable arrive à huit heures demain.",
+              "en": "The manager gets in at eight tomorrow.",
+              "user": "Je voudrais parler au responsable, s'il vous plaît.",
+              "userEn": "I would like to speak to the manager, please.",
+              "alts": [
+                {
+                  "fr": "Le responsable est là ce soir ?",
+                  "en": "Is the manager here this evening?"
+                },
+                {
+                  "fr": "Est-ce que je peux parler à quelqu'un d'autre ?",
+                  "en": "Could I speak to somebody else?"
+                }
+              ]
+            },
+            {
+              "ai": "Je note le problème et je préviens quelqu'un. Je suis vraiment désolée pour le dérangement.",
+              "en": "I am making a note of the problem and telling somebody. I am very sorry for the trouble.",
+              "user": "Merci. Je repasse dans une heure, alors.",
+              "userEn": "Thank you. I will come back in an hour, then.",
+              "alts": [
+                {
+                  "fr": "D'accord, merci. Je repasse dans une heure.",
+                  "en": "All right, thank you. I will come back in an hour."
+                },
+                {
+                  "fr": "Merci beaucoup. À tout à l'heure.",
+                  "en": "Thank you very much. See you shortly."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "rung",
+            "brake"
+          ],
+          "say": "She is going to say no. That is not a failure of your French, and the next rung is what it is for."
+        },
+        {
+          "type": "dictation",
+          "id": "s20-dictation",
+          "layer": "core",
+          "title": "Write down what the desk said",
+          "itemIds": [
+            "fr.a2.hebergement.106",
+            "fr.a2.hebergement.110",
+            "fr.a2.hebergement.112",
+            "fr.a2.hebergement.114"
+          ],
+          "terms": [
+            "desk"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s21-speak",
+          "layer": "core",
+          "skill": "speak",
+          "title": "Say all nine",
+          "itemIds": [
+            "fr.a2.hebergement.074",
+            "fr.a2.hebergement.084",
+            "fr.a2.hebergement.091",
+            "fr.a2.hebergement.076",
+            "fr.a2.hebergement.085",
+            "fr.a2.hebergement.092",
+            "fr.a2.hebergement.078",
+            "fr.a2.hebergement.087",
+            "fr.a2.hebergement.093"
+          ],
+          "terms": [
+            "rung",
+            "move"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s22-review",
+          "layer": "core",
+          "title": "Before the test",
+          "cards": [
+            {
+              "front": "Ask once, softly.",
+              "back": "Est-ce que je peux avoir une serviette, s'il vous plaît ?",
+              "say": "Est-ce que je peux avoir une serviette, s'il vous plaît ?"
+            },
+            {
+              "front": "Say it again, without the person.",
+              "back": "L'eau chaude ne fonctionne toujours pas.",
+              "say": "L'eau chaude ne fonctionne toujours pas."
+            },
+            {
+              "front": "Ask for the person who can fix it.",
+              "back": "Je voudrais parler au responsable, s'il vous plaît.",
+              "say": "Je voudrais parler au responsable, s'il vous plaît."
+            },
+            {
+              "front": "Sorry to bother you",
+              "back": "Excusez-moi de vous déranger.",
+              "say": "Excusez-moi de vous déranger."
+            },
+            {
+              "front": "Would it be possible to…",
+              "back": "Est-ce que ce serait possible d'avoir une autre chambre ?",
+              "say": "Est-ce que ce serait possible d'avoir une autre chambre ?"
+            },
+            {
+              "front": "Still not working",
+              "back": "Ça ne marche toujours pas.",
+              "say": "Ça ne marche toujours pas."
+            },
+            {
+              "front": "Breakfast, seven to ten",
+              "back": "Le petit déjeuner est servi de sept heures à dix heures.",
+              "say": "Le petit déjeuner est servi de sept heures à dix heures."
+            },
+            {
+              "front": "The room will be ready at 2pm",
+              "back": "Votre chambre sera prête à quatorze heures.",
+              "say": "Votre chambre sera prête à quatorze heures."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s23-progress",
+          "layer": "core",
+          "title": "Where you stand",
+          "body": "You came in with two settings and you are leaving with three. The one in the middle is the one you will use most, and it is the one almost nobody who learns French from a book ever gets taught.",
+          "stats": [
+            {
+              "k": "Rungs",
+              "v": "3"
+            },
+            {
+              "k": "Ways in",
+              "v": "5"
+            },
+            {
+              "k": "Desk formulas",
+              "v": "24"
+            },
+            {
+              "k": "People blamed",
+              "v": "0"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s24-quiz",
+          "layer": "core",
+          "title": "À l'hôtel",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "r1-rungs",
+              "label": "Which rung is this?",
+              "targets": [
+                "et-rung-order"
+              ],
+              "say": "Three rungs. Say which one you are on.",
+              "questions": [
+                {
+                  "q": "You have just arrived and there is no soap. Which rung?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ask once, softly.",
+                    "Say it again, without the person.",
+                    "Ask for the person who can fix it."
+                  ],
+                  "correct": 0,
+                  "why": "First time you have mentioned it, so it is rung 1. Nothing has failed yet.",
+                  "ref": "s06-rung1"
+                },
+                {
+                  "q": "You asked for soap an hour ago and there is still none. Which rung?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ask once, softly.",
+                    "Say it again, without the person.",
+                    "Ask for the person who can fix it."
+                  ],
+                  "correct": 1,
+                  "why": "Something has already been asked and not delivered. That is exactly what rung 2 is for.",
+                  "ref": "s07-rung2"
+                },
+                {
+                  "q": "Two requests, two promises, and still no soap. Which rung?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ask once, softly.",
+                    "Say it again, without the person.",
+                    "Ask for the person who can fix it."
+                  ],
+                  "correct": 2,
+                  "why": "The first two rungs have genuinely been tried, so rung 3 is now the right move rather than an overreaction.",
+                  "ref": "s08-rung3"
+                },
+                {
+                  "q": "Fill the gap so this is rung 2: L'eau chaude ne fonctionne ___ pas.",
+                  "format": "typeIn",
+                  "prompt": "L'eau chaude ne fonctionne ___ pas.",
+                  "answer": "toujours",
+                  "accept": [
+                    "toujours"
+                  ],
+                  "why": "Toujours pas is still not. Pas encore would be not yet, which says you are content to keep waiting.",
+                  "ref": "s07-rung2"
+                },
+                {
+                  "q": "What does rung 3 cost you that rungs 1 and 2 do not?",
+                  "format": "mcq",
+                  "opts": [
+                    "Nothing, it is just longer",
+                    "It is less polite French",
+                    "It only works in writing",
+                    "It ends the conversation you were having"
+                  ],
+                  "correct": 3,
+                  "why": "It moves the problem to somebody who is not there yet, and you cannot un-ask for the manager.",
+                  "ref": "s08-rung3"
+                }
+              ]
+            },
+            {
+              "id": "r2-person",
+              "label": "Take the person out",
+              "targets": [
+                "et-accusation"
+              ],
+              "say": "The room is the subject. Not the human.",
+              "questions": [
+                {
+                  "q": "Fix this so nobody is accused.",
+                  "format": "errorSpot",
+                  "prompt": "Vous n'avez pas fait la chambre.",
+                  "answer": "La chambre n'a pas été faite.",
+                  "accept": [
+                    "La chambre n'a pas été faite."
+                  ],
+                  "why": "Same room, same repair, and the person behind the desk is no longer the subject of a failure.",
+                  "ref": "s11-impersonal"
+                },
+                {
+                  "q": "Fix this so nobody is accused.",
+                  "format": "errorSpot",
+                  "prompt": "Vous avez oublié les serviettes.",
+                  "answer": "Il n'y a pas de serviettes dans la salle de bain.",
+                  "accept": [
+                    "Il n'y a pas de serviettes dans la salle de bain."
+                  ],
+                  "why": "The towels are absent. Who forgot them is not the news and saying so does not get them delivered faster.",
+                  "ref": "s11-impersonal"
+                },
+                {
+                  "q": "Fix this so nobody is accused.",
+                  "format": "errorSpot",
+                  "prompt": "Vous devez réparer la douche.",
+                  "answer": "Excusez-moi, il y a un problème avec la douche.",
+                  "accept": [
+                    "Excusez-moi, il y a un problème avec la douche."
+                  ],
+                  "why": "This is the sentence the whole lesson is built around. Devoir is correct French and it hands a stranger an instruction.",
+                  "ref": "s01-scene"
+                },
+                {
+                  "q": "Which of these puts nobody in the sentence at all?",
+                  "format": "mcq",
+                  "opts": [
+                    "Il fait très froid dans la chambre.",
+                    "Vous m'avez donné une chambre froide.",
+                    "Vous devez monter le chauffage.",
+                    "C'est votre faute s'il fait froid."
+                  ],
+                  "correct": 0,
+                  "why": "Il fait has no real subject. It is the most impersonal sentence in the lesson and it says exactly as much.",
+                  "ref": "s11-impersonal"
+                },
+                {
+                  "q": "Type the impersonal version: the key does not work.",
+                  "format": "typeIn",
+                  "prompt": "The key does not work.",
+                  "answer": "La clé ne marche pas.",
+                  "accept": [
+                    "La clé ne marche pas."
+                  ],
+                  "why": "The key is the subject. Not the person who handed it to you.",
+                  "ref": "s11-impersonal"
+                }
+              ]
+            },
+            {
+              "id": "r3-softeners",
+              "label": "Five ways in",
+              "targets": [
+                "et-softener"
+              ],
+              "say": "Whole pieces. They do not come apart.",
+              "questions": [
+                {
+                  "q": "Which one asks whether a thing is possible, rather than saying what you want?",
+                  "format": "mcq",
+                  "opts": [
+                    "Je voudrais une autre chambre.",
+                    "J'aimerais une autre chambre.",
+                    "Est-ce que ce serait possible d'avoir une autre chambre ?",
+                    "Donnez-moi une autre chambre."
+                  ],
+                  "correct": 2,
+                  "why": "It has no I wanting and no you doing. It is the one to keep for an ask you think might be refused.",
+                  "ref": "s10-softeners"
+                },
+                {
+                  "q": "Complete the softener: ___-vous m'apporter une serviette ?",
+                  "format": "typeIn",
+                  "prompt": "___-vous m'apporter une serviette ?",
+                  "answer": "Pourriez",
+                  "accept": [
+                    "Pourriez"
+                  ],
+                  "why": "One fixed piece. You have already met it in the alphabet lessons without being told it was anything special.",
+                  "ref": "s10-softeners"
+                },
+                {
+                  "q": "Listen. Which softener is this?",
+                  "format": "listenChoose",
+                  "say": "J'aimerais changer de chambre, si c'est possible.",
+                  "opts": [
+                    "je voudrais",
+                    "j'aimerais",
+                    "pourriez-vous",
+                    "est-ce que je peux"
+                  ],
+                  "correct": 1,
+                  "why": "J'aimerais. Interchangeable with je voudrais almost everywhere, and a shade warmer.",
+                  "ref": "s10-softeners"
+                },
+                {
+                  "q": "Listen. Which softener is this?",
+                  "format": "listenChoose",
+                  "say": "Est-ce que je peux avoir un oreiller de plus ?",
+                  "opts": [
+                    "ce serait possible de",
+                    "est-ce que je peux",
+                    "j'aimerais",
+                    "pourriez-vous"
+                  ],
+                  "correct": 1,
+                  "why": "Est-ce que je peux, the asking-permission pouvoir that a2.13 taught, in its plain everyday form.",
+                  "ref": "s10-softeners"
+                },
+                {
+                  "q": "What are you meant to do with these five?",
+                  "format": "mcq",
+                  "opts": [
+                    "Learn them whole and use them as written",
+                    "Learn the rule that builds them",
+                    "Use them only in writing",
+                    "Use them only with strangers"
+                  ],
+                  "correct": 0,
+                  "why": "They are fixed pieces. Where they come from is a much later lesson and you do not need it tonight.",
+                  "ref": "s10-softeners"
+                }
+              ]
+            },
+            {
+              "id": "r4-desk",
+              "label": "What the desk said",
+              "targets": [
+                "et-desk-numbers"
+              ],
+              "say": "Numbers, at the speed they actually arrive.",
+              "questions": [
+                {
+                  "q": "Listen. Which floor?",
+                  "format": "listenChoose",
+                  "say": "Votre chambre est au troisième étage.",
+                  "opts": [
+                    "Ground floor",
+                    "Second",
+                    "Third",
+                    "Fifth"
+                  ],
+                  "correct": 2,
+                  "why": "Troisième. And le rez-de-chaussée is not counted, so it is four flights of stairs.",
+                  "ref": "s03-arrival"
+                },
+                {
+                  "q": "Listen. What time will the room be ready?",
+                  "format": "listenChoose",
+                  "say": "Votre chambre sera prête à quatorze heures.",
+                  "opts": [
+                    "4pm",
+                    "2pm",
+                    "10am",
+                    "11am"
+                  ],
+                  "correct": 1,
+                  "why": "Quatorze heures is 2pm. Hearing fourteen and reaching for four costs two hours in the lobby.",
+                  "ref": "s17-numbers"
+                },
+                {
+                  "q": "Listen. Which room number is correct?",
+                  "format": "listenChoose",
+                  "say": "Non, quatre-vingt-cinq, pas soixante-quinze.",
+                  "opts": [
+                    "65",
+                    "75",
+                    "85",
+                    "95"
+                  ],
+                  "correct": 2,
+                  "why": "Quatre-vingt-cinq. The two numbers differ at the front, which is the half that arrives first and gets least attention.",
+                  "ref": "s17-numbers"
+                },
+                {
+                  "q": "Breakfast is served de sept heures à dix heures. What is the last moment you can go down?",
+                  "format": "mcq",
+                  "opts": [
+                    "Seven",
+                    "Nine",
+                    "Ten",
+                    "Half past ten"
+                  ],
+                  "correct": 2,
+                  "why": "The de … à pair carries both ends and the second number is the one that costs you a meal.",
+                  "ref": "s03-arrival"
+                },
+                {
+                  "q": "What is the desk asking: C'est à quel nom ?",
+                  "format": "mcq",
+                  "opts": [
+                    "Your room number",
+                    "The name the booking is under",
+                    "Your nationality",
+                    "How many nights"
+                  ],
+                  "correct": 1,
+                  "why": "Under what name. Four words long, asked at every desk in France, and easy to walk straight past.",
+                  "ref": "s03-arrival"
+                }
+              ]
+            },
+            {
+              "id": "r5-order",
+              "label": "Where the polite word goes",
+              "targets": [
+                "et-word-order"
+              ],
+              "say": "Some go at the front. One goes at the end.",
+              "questions": [
+                {
+                  "q": "Fix the word order.",
+                  "format": "errorSpot",
+                  "prompt": "S'il vous plaît, une serviette.",
+                  "answer": "Une serviette, s'il vous plaît.",
+                  "accept": [
+                    "Une serviette, s'il vous plaît."
+                  ],
+                  "why": "S'il vous plaît goes at the end. It is one of the few word-order slips in French that sounds odd rather than merely foreign.",
+                  "ref": "s12-opener"
+                },
+                {
+                  "q": "Which word goes at the FRONT, before you say what you want?",
+                  "format": "mcq",
+                  "opts": [
+                    "s'il vous plaît",
+                    "merci",
+                    "de plus",
+                    "Excusez-moi"
+                  ],
+                  "correct": 3,
+                  "why": "Excusez-moi opens. It finishes, and then the real sentence starts.",
+                  "ref": "s12-opener"
+                },
+                {
+                  "q": "Type the opener that apologises before you have asked for anything.",
+                  "format": "typeIn",
+                  "prompt": "___ de vous déranger.",
+                  "answer": "Excusez-moi",
+                  "accept": [
+                    "Excusez-moi",
+                    "Désolé",
+                    "Désolée"
+                  ],
+                  "why": "Excusez-moi de vous déranger, or désolé de vous déranger. Both are fixed and both go first.",
+                  "ref": "s12-opener"
+                },
+                {
+                  "q": "You did not catch the room number. Which is the cheapest thing to say?",
+                  "format": "mcq",
+                  "opts": [
+                    "Pardon ?",
+                    "Vous pouvez me l'écrire, s'il vous plaît ?",
+                    "Je voudrais parler au responsable.",
+                    "Plus lentement, s'il vous plaît."
+                  ],
+                  "correct": 0,
+                  "why": "Rung 1 of a2.07's six. It gives away nothing. Reach for the lowest one that will actually fix the problem.",
+                  "ref": "s13-repair"
+                },
+                {
+                  "q": "Listen. Which repair move is this?",
+                  "format": "listenChoose",
+                  "say": "Plus lentement, s'il vous plaît.",
+                  "opts": [
+                    "Ask for a repeat",
+                    "Ask for it slower",
+                    "Ask for it in writing",
+                    "Ask what a word means"
+                  ],
+                  "correct": 1,
+                  "why": "The first of a2.07's six that names what actually went wrong. A repeat gets you the same speed again.",
+                  "ref": "s13-repair"
+                }
+              ]
+            },
+            {
+              "id": "r6-brake",
+              "label": "When not to climb",
+              "targets": [
+                "et-brake"
+              ],
+              "say": "The top rung works once.",
+              "questions": [
+                {
+                  "q": "Fix this: the corridor is loud and it is the first you have said of it.",
+                  "format": "errorSpot",
+                  "prompt": "Je voudrais parler au responsable, s'il vous plaît.",
+                  "answer": "Excusez-moi, il y a beaucoup de bruit dans le couloir.",
+                  "accept": [
+                    "Excusez-moi, il y a beaucoup de bruit dans le couloir."
+                  ],
+                  "why": "Nothing is wrong with the French. It is rung 3 on a first sentence, and the person at the desk could almost certainly have moved you.",
+                  "ref": "s16-errors"
+                },
+                {
+                  "q": "Type what you say when rung 2 has been answered with a promise and you are willing to wait.",
+                  "format": "typeIn",
+                  "prompt": "I will come back in an hour, then.",
+                  "answer": "Je repasse dans une heure, alors.",
+                  "accept": [
+                    "Je repasse dans une heure, alors.",
+                    "Je repasse dans une heure"
+                  ],
+                  "why": "The brake. It accepts the promise, sets a time, and keeps rung 3 in your pocket.",
+                  "ref": "s08-rung3"
+                },
+                {
+                  "q": "What is wrong with pas encore in L'eau chaude ne fonctionne pas encore ?",
+                  "format": "mcq",
+                  "opts": [
+                    "It is not correct French",
+                    "It is too formal for a hotel",
+                    "It means not yet, so it sounds like you are still content to wait",
+                    "It can only be used about people"
+                  ],
+                  "correct": 2,
+                  "why": "Perfectly correct, and it undoes the rung. Toujours pas is what carries the fact that this has already happened once.",
+                  "ref": "s16-errors"
+                },
+                {
+                  "q": "Which of these is rung 3 without asking for the boss?",
+                  "format": "mcq",
+                  "opts": [
+                    "Je voudrais parler au responsable, s'il vous plaît.",
+                    "Est-ce que quelqu'un peut venir voir ?",
+                    "Vous devez envoyer quelqu'un.",
+                    "C'est toujours le même problème."
+                  ],
+                  "correct": 1,
+                  "why": "Quelqu'un asks for a person and leaves the desk somewhere to go. The manager sentence does not.",
+                  "ref": "s08-rung3"
+                },
+                {
+                  "q": "Fix this so it asks rather than instructs.",
+                  "format": "errorSpot",
+                  "prompt": "Envoyez quelqu'un maintenant.",
+                  "answer": "Est-ce que quelqu'un peut venir voir ?",
+                  "accept": [
+                    "Est-ce que quelqu'un peut venir voir ?"
+                  ],
+                  "why": "Rung 3 asks. It does not dispatch, and a dispatched receptionist is a receptionist who stops helping.",
+                  "ref": "s08-rung3"
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "rung",
+            "impersonal"
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s25-roundup",
+          "layer": "core",
+          "title": "Three settings, not two",
+          "body": "You arrived with apologetic and furious and nothing in between, which is why the argument at the desk always went one of two ways. Take the person out of the sentence. That is the middle setting, and it is the one that gets the shower fixed.",
+          "points": [
+            "Ask once, softly.",
+            "Say it again, without the person.",
+            "Ask for the person who can fix it.",
+            "Five ways in, learned whole, and none of them come apart.",
+            "The desk speaks in formulas with no je in them. That is why they are fast, not why they are hard.",
+            "Rung 3 works once. Spend it late."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.hebergement.106",
+        "fr.a2.hebergement.107",
+        "fr.a2.hebergement.110",
+        "fr.a2.hebergement.112",
+        "fr.a2.hebergement.074",
+        "fr.a2.hebergement.075",
+        "fr.a2.hebergement.076",
+        "fr.a2.hebergement.078",
+        "fr.a2.hebergement.080",
+        "fr.a2.hebergement.081",
+        "fr.a2.hebergement.082",
+        "fr.a2.hebergement.083",
+        "fr.a2.hebergement.084",
+        "fr.a2.hebergement.085",
+        "fr.a2.hebergement.087",
+        "fr.a2.hebergement.088",
+        "fr.a2.hebergement.089",
+        "fr.a2.hebergement.090",
+        "fr.a2.hebergement.091",
+        "fr.a2.hebergement.092",
+        "fr.a2.hebergement.093",
+        "fr.a2.hebergement.094",
+        "fr.a2.hebergement.095",
+        "fr.a2.hebergement.132",
+        "fr.a2.hebergement.079",
+        "fr.a2.hebergement.077",
+        "fr.a2.hebergement.130",
+        "fr.a2.hebergement.131",
+        "fr.a2.hebergement.096",
+        "fr.a2.hebergement.097",
+        "fr.a2.hebergement.098",
+        "fr.a2.hebergement.099",
+        "fr.a2.hebergement.100",
+        "fr.a2.hebergement.101",
+        "fr.a2.hebergement.102",
+        "fr.a2.hebergement.103",
+        "fr.a2.hebergement.104",
+        "fr.a2.hebergement.105",
+        "fr.a2.expressions-frequentes.072",
+        "fr.a2.expressions-frequentes.077",
+        "fr.sons.alphabet.282",
+        "fr.a2.au-restaurant.132",
+        "fr.a2.au-restaurant.133",
+        "fr.a2.au-restaurant.134",
+        "fr.a2.au-restaurant.135",
+        "fr.a2.au-restaurant.136",
+        "fr.a2.au-restaurant.137",
+        "fr.a2.hebergement.125",
+        "fr.a2.hebergement.126",
+        "fr.a2.hebergement.114",
+        "fr.a2.hebergement.115",
+        "fr.a2.hebergement.108",
+        "fr.a2.hebergement.109",
+        "fr.a2.hebergement.111",
+        "fr.a2.hebergement.113",
+        "fr.a2.hebergement.116",
+        "fr.a2.hebergement.117",
+        "fr.a2.hebergement.118",
+        "fr.a2.hebergement.119",
+        "fr.a2.hebergement.120",
+        "fr.a2.hebergement.121",
+        "fr.a2.hebergement.122",
+        "fr.a2.hebergement.123",
+        "fr.a2.hebergement.124",
+        "fr.a2.hebergement.127",
+        "fr.a2.hebergement.128",
+        "fr.a2.hebergement.129",
+        "fr.a2.hebergement.001",
+        "fr.a2.hebergement.002",
+        "fr.a2.hebergement.003",
+        "fr.a2.hebergement.015",
+        "fr.a2.hebergement.016",
+        "fr.a2.hebergement.017",
+        "fr.a2.hebergement.018",
+        "fr.a2.hebergement.019",
+        "fr.a2.hebergement.021",
+        "fr.a2.hebergement.026",
+        "fr.a2.hebergement.027",
+        "fr.a2.hebergement.028",
+        "fr.a2.hebergement.053",
+        "fr.a2.hebergement.022",
+        "fr.a2.hebergement.023",
+        "fr.a2.hebergement.006",
+        "fr.a2.hebergement.009",
+        "fr.a2.quebec-et-francophonie.121",
+        "fr.a2.bricolage.041",
+        "fr.a1.au-restaurant.209",
+        "fr.a2.hebergement.062",
+        "fr.a2.hebergement.068",
+        "fr.a1.salutations.353",
+        "fr.a1.salutations.355",
+        "fr.a1.expressions-frequentes.002",
+        "fr.a1.questions.328",
+        "fr.sons.alphabet.219",
+        "fr.sons.alphabet.422",
+        "fr.sons.alphabet.431"
+      ],
+      "version": 1,
+      "grammarAssumed": [
+        "vouloir, pouvoir and devoir in the present (a2.13)",
+        "est-ce que questions (a1.19)",
+        "il y a (a1.21)",
+        "the passé composé with avoir (a2.05)",
+        "numbers to a hundred (a1.27)",
+        "the clock (a1.12)"
+      ],
+      "grammarIntroduced": [
+        "toujours pas as the marker that something has already been asked once",
+        "il manque and impersonal il fait as ways to report without a subject"
+      ],
+      "features": [
+        "voiceflash",
+        "roleplay"
+      ],
+      "skill": "PO",
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The sentence that cost you the room",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-arrival"
+          ],
+          "milestone": "You have heard the desk at full speed and picked the sentence that works.",
+          "estScreens": 9,
+          "restPoints": [
+            "s02-goals"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "The ladder",
+          "sections": [
+            "s04-ladder",
+            "s05-grid",
+            "s06-rung1",
+            "s07-rung2",
+            "s08-rung3"
+          ],
+          "milestone": "Three rungs, nine sentences, and the middle one is yours.",
+          "estScreens": 16,
+          "restPoints": [
+            "s05-grid"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "The pieces you do not take apart",
+          "sections": [
+            "s09-register",
+            "s10-softeners",
+            "s11-impersonal",
+            "s12-opener",
+            "s13-repair",
+            "s14-quebec"
+          ],
+          "milestone": "Five ways in, and a rule for turning any accusation into a report.",
+          "estScreens": 20,
+          "restPoints": [
+            "s12-opener",
+            "s14-quebec"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Correct, and still wrong",
+          "sections": [
+            "s15-trap",
+            "s16-errors",
+            "s17-numbers"
+          ],
+          "milestone": "The English reflex is named, drilled and beaten.",
+          "estScreens": 12,
+          "restPoints": [
+            "s16-errors"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "At the desk",
+          "sections": [
+            "s18-checkin",
+            "s19-complaint",
+            "s20-dictation",
+            "s21-speak"
+          ],
+          "milestone": "You have checked in and climbed the whole ladder out loud.",
+          "estScreens": 15,
+          "restPoints": [
+            "s20-dictation"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Measure and close",
+          "sections": [
+            "s22-review",
+            "s23-progress",
+            "s24-quiz",
+            "s25-roundup"
+          ],
+          "milestone": "Thirty questions, and the middle setting is a habit.",
+          "estScreens": 12,
+          "restPoints": [
+            "s23-progress"
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.hebergement.106",
+          "fr.a2.hebergement.107",
+          "fr.a2.hebergement.110",
+          "fr.a2.hebergement.112"
+        ],
+        [
+          "fr.a2.hebergement.074",
+          "fr.a2.hebergement.075",
+          "fr.a2.hebergement.076",
+          "fr.a2.hebergement.078",
+          "fr.a2.hebergement.080",
+          "fr.a2.hebergement.081",
+          "fr.a2.hebergement.082",
+          "fr.a2.hebergement.083",
+          "fr.a2.hebergement.084",
+          "fr.a2.hebergement.085",
+          "fr.a2.hebergement.087",
+          "fr.a2.hebergement.088",
+          "fr.a2.hebergement.089",
+          "fr.a2.hebergement.090",
+          "fr.a2.hebergement.091",
+          "fr.a2.hebergement.092",
+          "fr.a2.hebergement.093",
+          "fr.a2.hebergement.094",
+          "fr.a2.hebergement.095",
+          "fr.a2.hebergement.132"
+        ],
+        [
+          "fr.a2.hebergement.079",
+          "fr.a2.hebergement.077",
+          "fr.a2.hebergement.130",
+          "fr.a2.hebergement.131",
+          "fr.a2.hebergement.096",
+          "fr.a2.hebergement.097",
+          "fr.a2.hebergement.098",
+          "fr.a2.hebergement.099",
+          "fr.a2.hebergement.100",
+          "fr.a2.hebergement.101",
+          "fr.a2.hebergement.102",
+          "fr.a2.hebergement.103",
+          "fr.a2.hebergement.104",
+          "fr.a2.hebergement.105",
+          "fr.a2.expressions-frequentes.072",
+          "fr.a2.expressions-frequentes.077",
+          "fr.sons.alphabet.282",
+          "fr.a2.au-restaurant.132",
+          "fr.a2.au-restaurant.133",
+          "fr.a2.au-restaurant.134",
+          "fr.a2.au-restaurant.135",
+          "fr.a2.au-restaurant.136",
+          "fr.a2.au-restaurant.137"
+        ],
+        [
+          "fr.a2.hebergement.125",
+          "fr.a2.hebergement.126",
+          "fr.a2.hebergement.114",
+          "fr.a2.hebergement.115"
+        ],
+        [
+          "fr.a2.hebergement.108",
+          "fr.a2.hebergement.109",
+          "fr.a2.hebergement.111",
+          "fr.a2.hebergement.113",
+          "fr.a2.hebergement.116",
+          "fr.a2.hebergement.117",
+          "fr.a2.hebergement.118",
+          "fr.a2.hebergement.119",
+          "fr.a2.hebergement.120",
+          "fr.a2.hebergement.121",
+          "fr.a2.hebergement.122",
+          "fr.a2.hebergement.123",
+          "fr.a2.hebergement.124",
+          "fr.a2.hebergement.127",
+          "fr.a2.hebergement.128",
+          "fr.a2.hebergement.129"
+        ],
+        [
+          "fr.a2.hebergement.001",
+          "fr.a2.hebergement.002",
+          "fr.a2.hebergement.003",
+          "fr.a2.hebergement.015",
+          "fr.a2.hebergement.016",
+          "fr.a2.hebergement.017",
+          "fr.a2.hebergement.018",
+          "fr.a2.hebergement.019",
+          "fr.a2.hebergement.021",
+          "fr.a2.hebergement.026",
+          "fr.a2.hebergement.027",
+          "fr.a2.hebergement.028",
+          "fr.a2.hebergement.053",
+          "fr.a2.hebergement.022",
+          "fr.a2.hebergement.023",
+          "fr.a2.hebergement.006",
+          "fr.a2.hebergement.009"
+        ]
+      ],
+      "terms": {
+        "rung": {
+          "term": "a rung",
+          "title": "One step on the ladder",
+          "body": "Three of them, and they go in order. Ask once, softly. Say it again, without the person. Ask for the person who can fix it. Most people have only the bottom one and the top one, and the whole of this lesson is the middle.",
+          "examples": [
+            {
+              "itemId": "fr.a2.hebergement.074",
+              "note": "Rung 1, and it costs you nothing."
+            },
+            {
+              "itemId": "fr.a2.hebergement.082",
+              "note": "Rung 2, which is the one nobody taught you."
+            }
+          ]
+        },
+        "move": {
+          "term": "a move",
+          "title": "What you are actually doing",
+          "body": "Asking for a thing, reporting a fault, or getting somebody else involved. Each one can be made at any of the three rungs, and choosing the rung is a separate decision from choosing the move.",
+          "examples": [
+            {
+              "itemId": "fr.a2.hebergement.080",
+              "note": "Asking for a thing."
+            },
+            {
+              "itemId": "fr.a2.hebergement.098",
+              "note": "Reporting a fault."
+            }
+          ]
+        },
+        "impersonal": {
+          "term": "taking the person out",
+          "title": "The room is the subject, not the human",
+          "body": "French complaints put the fault where it happened rather than on the person in front of you. La douche ne marche pas is a fact about a shower. Vous devez réparer la douche is an instruction to a stranger, and it lands like one.",
+          "examples": [
+            {
+              "itemId": "fr.a2.hebergement.076",
+              "note": "The problem has a place, and no owner."
+            },
+            {
+              "itemId": "fr.a2.hebergement.085",
+              "note": "Still no owner, one rung further up."
+            }
+          ]
+        },
+        "softener": {
+          "term": "a softener",
+          "title": "The words you put in front",
+          "body": "Short pieces you learn whole and never take apart, the way you learned bonjour. They go at the front of a request and they buy you room. You get five of them here and you are not expected to build any of them yourself.",
+          "examples": [
+            {
+              "itemId": "fr.a2.hebergement.130",
+              "note": "The one this course had never published."
+            },
+            {
+              "itemId": "fr.a2.expressions-frequentes.072",
+              "note": "This one you have already met, well before now."
+            }
+          ]
+        },
+        "brake": {
+          "term": "the brake",
+          "title": "Why you do not start at the top",
+          "body": "Rung 3 works once. Ask for the manager on your first sentence and you have spent the only move you had, in front of somebody who would have fixed it anyway. Start low, and keep the top rung for when the bottom two have failed.",
+          "examples": [
+            {
+              "itemId": "fr.a2.hebergement.132",
+              "note": "What you say instead, when you have only asked once."
+            },
+            {
+              "itemId": "fr.a2.hebergement.091",
+              "note": "And this is what you keep in reserve."
+            }
+          ]
+        },
+        "desk": {
+          "term": "the desk",
+          "title": "The half of the conversation you never hear",
+          "body": "The person behind the counter speaks in fixed formulas with no je in them, delivered fast because they say them forty times a day. They are not hard French. They are hard because they arrive whole and you were listening for words.",
+          "examples": [
+            {
+              "itemId": "fr.a2.hebergement.112",
+              "note": "A formula, and the numbers are the only part that changes."
+            },
+            {
+              "itemId": "fr.a2.hebergement.117",
+              "note": "The refusal, and it is short."
+            }
+          ]
+        },
+        "repairMove": {
+          "term": "asking again",
+          "title": "a2.07's six ways to say you did not catch it",
+          "body": "a2.07 authored six, ordered by what each one costs you. Rung 1 gives away nothing; the last one concedes that speaking has failed and asks for it in writing. Reach for the lowest one that will actually fix the problem.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.132",
+              "note": "The cheapest thing you can say."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.134",
+              "note": "The first one that names what went wrong."
+            }
+          ]
+        },
+        "quebec": {
+          "term": "le déjeuner",
+          "title": "The word that moves one meal along",
+          "body": "In France it is lunch. In Quebec it is breakfast, and the evening meal is le souper. The sign on the dining room door is the same word either side of the Atlantic and it does not mean the same sitting.",
+          "examples": [
+            {
+              "itemId": "fr.a2.quebec-et-francophonie.121",
+              "note": "A Quebec morning, with the maple syrup to prove it."
+            }
+          ]
+        }
+      },
+      "errorTriggers": [
+        {
+          "id": "et-rung-order",
+          "description": "Reaches for the wrong rung for where the conversation actually is.",
+          "detectOn": [
+            "s06-rung1",
+            "s07-rung2",
+            "s08-rung3"
+          ],
+          "drill": "d-rung-sort"
+        },
+        {
+          "id": "et-accusation",
+          "description": "Puts the person in front of them at the end of the sentence.",
+          "detectOn": [
+            "s11-impersonal",
+            "s15-trap",
+            "s16-errors"
+          ],
+          "drill": "d-depersonalise"
+        },
+        {
+          "id": "et-softener",
+          "description": "Tries to build a softener out of a rule instead of using it whole.",
+          "detectOn": [
+            "s10-softeners",
+            "s09-register"
+          ],
+          "drill": "d-softener-flash"
+        },
+        {
+          "id": "et-desk-numbers",
+          "description": "Loses the floor, the room number or the hour in the desk formula carrying it.",
+          "detectOn": [
+            "s03-arrival",
+            "s17-numbers"
+          ],
+          "drill": "d-numbers"
+        },
+        {
+          "id": "et-word-order",
+          "description": "Fronts s'il vous plaît, or buries Excusez-moi mid-sentence.",
+          "detectOn": [
+            "s12-opener",
+            "s16-errors"
+          ],
+          "drill": "d-order"
+        },
+        {
+          "id": "et-brake",
+          "description": "Opens at rung 3, or softens rung 2 back down to rung 1 with pas encore.",
+          "detectOn": [
+            "s08-rung3",
+            "s16-errors"
+          ],
+          "drill": "d-brake"
+        }
+      ],
+      "drills": [
+        {
+          "id": "d-rung-sort",
+          "title": "Which rung is this?",
+          "format": "sort",
+          "buckets": [
+            "Ask once, softly.",
+            "Say it again, without the person.",
+            "Ask for the person who can fix it."
+          ],
+          "pairs": [
+            [
+              "Est-ce que je peux avoir une serviette, s'il vous plaît ?",
+              "Ask once, softly."
+            ],
+            [
+              "Excusez-moi, il y a un problème avec la douche.",
+              "Ask once, softly."
+            ],
+            [
+              "Ça fait deux fois que je demande.",
+              "Say it again, without the person."
+            ],
+            [
+              "L'eau chaude ne fonctionne toujours pas.",
+              "Say it again, without the person."
+            ],
+            [
+              "Je voudrais parler au responsable, s'il vous plaît.",
+              "Ask for the person who can fix it."
+            ],
+            [
+              "Est-ce que quelqu'un peut venir voir ?",
+              "Ask for the person who can fix it."
+            ]
+          ],
+          "coach": "Ask how many times this has come up. Once is rung 1. Twice is rung 2. Twice and a broken promise is rung 3."
+        },
+        {
+          "id": "d-depersonalise",
+          "title": "Take the person out",
+          "format": "mcq",
+          "q": "You want to say: you did not clean the room.",
+          "opts": [
+            "Vous n'avez pas nettoyé la chambre.",
+            "La chambre n'a pas été faite.",
+            "Nettoyez la chambre."
+          ],
+          "correct": 1,
+          "why": "The room is the subject. Nobody is accused, and the same repair gets requested.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "d-softener-flash",
+          "title": "Five ways in",
+          "format": "flashcard",
+          "items": [
+            "fr.a2.hebergement.130",
+            "fr.a2.hebergement.131",
+            "fr.a2.hebergement.075",
+            "fr.a2.hebergement.079",
+            "fr.a2.hebergement.078"
+          ],
+          "coach": "Read each one whole. If you find yourself working out why it is built that way, stop and just say it."
+        },
+        {
+          "id": "d-numbers",
+          "title": "Which number was it?",
+          "format": "listenChoose",
+          "q": "Listen and pick the room number.",
+          "opts": [
+            "65",
+            "75",
+            "85",
+            "95"
+          ],
+          "correct": 2,
+          "why": "Quatre-vingt-cinq. The difference is at the front of the word, which is the half that arrives first.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "clip": "Non, quatre-vingt-cinq, pas soixante-quinze."
+          }
+        },
+        {
+          "id": "d-order",
+          "title": "Front or end?",
+          "format": "sort",
+          "buckets": [
+            "Goes at the front",
+            "Goes at the end"
+          ],
+          "pairs": [
+            [
+              "Excusez-moi",
+              "Goes at the front"
+            ],
+            [
+              "Excusez-moi de vous déranger",
+              "Goes at the front"
+            ],
+            [
+              "Désolé de vous déranger",
+              "Goes at the front"
+            ],
+            [
+              "s'il vous plaît",
+              "Goes at the end"
+            ],
+            [
+              "si possible",
+              "Goes at the end"
+            ]
+          ],
+          "coach": "The apology opens. The please closes. There is no single rule that covers both, so learn them as two habits."
+        },
+        {
+          "id": "d-brake",
+          "title": "Climb or wait?",
+          "format": "mcq",
+          "q": "You reported it once. They said they would look into it, ten minutes ago.",
+          "opts": [
+            "Je voudrais parler au responsable, s'il vous plaît.",
+            "Je repasse dans une heure, alors.",
+            "L'eau chaude ne fonctionne toujours pas."
+          ],
+          "correct": 1,
+          "why": "Ten minutes is not a broken promise yet. The brake accepts it, sets a time, and keeps rung 3 for when you need it.",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "d-desk-flash",
+          "title": "What the desk always says",
+          "format": "flashcard",
+          "items": [
+            "fr.a2.hebergement.106",
+            "fr.a2.hebergement.107",
+            "fr.a2.hebergement.110",
+            "fr.a2.hebergement.112",
+            "fr.a2.hebergement.114",
+            "fr.a2.hebergement.115"
+          ],
+          "coach": "Six formulas. They never change, which is what makes them learnable and what makes them fast."
+        },
+        {
+          "id": "d-repair-flash",
+          "title": "When you did not catch it",
+          "format": "flashcard",
+          "items": [
+            "fr.a2.au-restaurant.132",
+            "fr.a2.au-restaurant.133",
+            "fr.a2.au-restaurant.134",
+            "fr.a2.au-restaurant.135",
+            "fr.a2.au-restaurant.136",
+            "fr.a2.au-restaurant.137"
+          ],
+          "coach": "a2.07 authored these six, ordered by what each one costs you."
+        }
+      ],
+      "reframe": "Take the person out of the sentence.",
+      "overview": {
+        "titleEn": "At the Hotel",
+        "subFr": "À l'hôtel",
+        "introFr": "La plupart des gens ont deux modes à la réception : s'excuser, ou se fâcher. Le français a une marche au milieu, et c'est celle-ci.",
+        "minutes": 26,
+        "difficulty": 3
+      }
     }
   ],
   "items": [
@@ -325099,7 +327701,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CO",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.salutations.354",
@@ -325139,7 +327742,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CO",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.salutations.356",
@@ -353729,7 +356333,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "PE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.alphabet.220",
@@ -354993,12 +357598,14 @@
       "tags": [],
       "drills": [
         "sentence",
-        "review"
+        "review",
+        "flashcard"
       ],
       "audioRef": null,
       "version": 1,
       "skill": "PE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.alphabet.283",
@@ -355992,7 +358599,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.alphabet.423",
@@ -356154,7 +358762,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.alphabet.432",
@@ -412879,6 +415488,1805 @@
       "example": {
         "en": "He blows his nose every five minutes.",
         "fr": "Il se mouche toutes les cinq minutes."
+      },
+      "skill": "PO",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a1.au-restaurant.209",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "au-restaurant",
+      "fr": "Puis-je avoir une serviette, s'il vous plaît ?",
+      "en": "May I have a napkin, please?",
+      "notes": "{\"tiles\":[{\"w\":\"Puis-je avoir\",\"t\":\"may i have\"},{\"w\":\"une serviette,\",\"t\":\"a napkin,\"},{\"w\":\"s'il vous plaît ?\",\"t\":\"please\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.002",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "Excusez-moi de vous déranger.",
+      "en": "Excuse me for bothering you.",
+      "ipa": "ɛkskyzemwa də vu deʁɑ̃ʒe",
+      "notes": "“Excusez” (command) and “excusé” (excused) sound identical despite their different endings.",
+      "tags": [
+        "homophone"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a1.questions.328",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "questions",
+      "fr": "Pourriez-vous répéter la question, s'il vous plaît ?",
+      "en": "Could you repeat the question, please?",
+      "notes": "{\"tiles\":[{\"w\":\"Pourriez-vous répéter\",\"t\":\"could you repeat\"},{\"w\":\"la question,\",\"t\":\"the question,\"},{\"w\":\"s'il vous plaît ?\",\"t\":\"please\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.bricolage.041",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "bricolage",
+      "fr": "Il y a un problème avec la douche.",
+      "en": "There's a problem with the shower.",
+      "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there is\"},{\"w\":\"un problème\",\"t\":\"a problem\"},{\"w\":\"avec la douche.\",\"t\":\"with the shower\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.expressions-frequentes.072",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "expressions-frequentes",
+      "fr": "Pourriez-vous m'aider, s'il vous plaît ?",
+      "en": "Could you help me, please?",
+      "notes": "{\"tiles\":[{\"w\":\"Pourriez-vous m'aider,\",\"t\":\"could you help me,\"},{\"w\":\"s'il vous plaît ?\",\"t\":\"please?\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.001",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "l'hôtel",
+      "en": "the hotel",
+      "ipa": "otɛl",
+      "respell": "loh-TEHL",
+      "notes": "The h is silent: l'hôtel, à l'hôtel.",
+      "tags": [
+        "accommodation",
+        "noun",
+        "places"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "m",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.002",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la chambre",
+      "en": "the room, the bedroom",
+      "ipa": "ʃɑ̃bʁ",
+      "respell": "lah SHAHN-bruh",
+      "tags": [
+        "accommodation",
+        "noun",
+        "hotel"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.003",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la réception",
+      "en": "the front desk, reception",
+      "respell": "lah ray-sehp-SYOHN",
+      "tags": [
+        "accommodation",
+        "noun",
+        "hotel"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.006",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le petit déjeuner est compris dans le prix.",
+      "en": "Breakfast is included in the price.",
+      "notes": "Compris means included; a very common check-in question.",
+      "tags": [
+        "accommodation",
+        "hotel",
+        "check-in"
+      ],
+      "drills": [
+        "flashcard"
+      ],
+      "prompt": "Le petit déjeuner est ___ dans le prix.",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "gapfill",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.009",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je voudrais une chambre avec une salle de bain.",
+      "en": "I would like a room with a bathroom.",
+      "notes": "Salle is feminine: une salle de bain.",
+      "tags": [
+        "accommodation",
+        "gender",
+        "articles"
+      ],
+      "drills": [
+        "flashcard"
+      ],
+      "prompt": "Je voudrais une chambre avec un salle de bain.",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "error",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.015",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la clé",
+      "en": "the key",
+      "ipa": "/kle/",
+      "respell": "lah KLAY",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.016",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "l'ascenseur",
+      "en": "the elevator",
+      "ipa": "/asɑ̃sœʁ/",
+      "respell": "lah-sahn-SUHR",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "m",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.017",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "l'étage",
+      "en": "the floor",
+      "ipa": "/etaʒ/",
+      "respell": "lay-TAHZH",
+      "notes": "Le premier étage is one level above the ground floor.",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "m",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.018",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "le rez-de-chaussée",
+      "en": "the ground floor",
+      "ipa": "/ʁe də ʃose/",
+      "respell": "luh ray-duh-shoh-SAY",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "m",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.019",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la réservation",
+      "en": "the booking",
+      "ipa": "/ʁezɛʁvasjɔ̃/",
+      "respell": "lah ray-zehr-vah-SYOHN",
+      "notes": "J'ai une réservation means I have a booking.",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.021",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la salle de bain",
+      "en": "the bathroom",
+      "ipa": "/sal də bɛ̃/",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.022",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "le petit déjeuner compris",
+      "en": "breakfast included",
+      "ipa": "/pəti deʒœne kɔ̃pʁi/",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.023",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "C'est combien par nuit ?",
+      "en": "How much is it per night?",
+      "ipa": "/sɛ kɔ̃bjɛ̃ paʁ nɥi/",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.026",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la climatisation",
+      "en": "the air conditioning",
+      "ipa": "/klimatizasjɔ̃/",
+      "respell": "lah klee-mah-tee-zah-SYOHN",
+      "notes": "Often shortened to la clim.",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.027",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la serviette",
+      "en": "the towel",
+      "ipa": "/sɛʁvjɛt/",
+      "respell": "lah sehr-VYEHT",
+      "notes": "Also means napkin at the table.",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.028",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "l'oreiller",
+      "en": "the pillow",
+      "ipa": "/ɔʁeje/",
+      "respell": "loh-ray-YAY",
+      "tags": [
+        "voyage",
+        "hebergement"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "m",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.062",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le chauffage ne fonctionne pas bien dans cette pièce.",
+      "en": "The heating doesn't work well in this room.",
+      "ipa": "lə ʃo.faʒ nə fɔ̃k.sjɔn pa bjɛ̃ dɑ̃ sɛt pjɛs",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "skill": "PE",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.068",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Il y a un problème avec l'eau chaude dans la salle de bain.",
+      "en": "There is a problem with the hot water in the bathroom.",
+      "ipa": "il i a œ̃ pʁɔ.blɛm a.vɛk lo ʃod dɑ̃ la sal də bɛ̃",
+      "notes": "\"bain\" se termine par un n muet nasalisé, ne pas ajouter de e final.",
+      "tags": [],
+      "drills": [
+        "dictation"
+      ],
+      "skill": "CO",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.074",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Est-ce que je peux avoir une serviette, s'il vous plaît ?",
+      "en": "Could I have a towel, please?",
+      "tags": [
+        "rung1",
+        "request",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.075",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Pourriez-vous m'apporter une serviette, s'il vous plaît ?",
+      "en": "Could you bring me a towel, please?",
+      "tags": [
+        "rung1",
+        "request",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.076",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Excusez-moi, il y a un problème avec la douche.",
+      "en": "Excuse me, there is a problem with the shower.",
+      "tags": [
+        "rung1",
+        "fault",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.077",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Excusez-moi de vous déranger.",
+      "en": "Sorry to bother you.",
+      "tags": [
+        "rung1",
+        "opener",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.078",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Est-ce que ce serait possible d'avoir une autre chambre ?",
+      "en": "Would it be possible to have a different room?",
+      "tags": [
+        "rung1",
+        "request",
+        "ladder",
+        "softener"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.079",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "J'aimerais changer de chambre, si c'est possible.",
+      "en": "I would like to change rooms, if possible.",
+      "tags": [
+        "rung1",
+        "request",
+        "ladder",
+        "softener"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.080",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Est-ce que je peux avoir un oreiller de plus ?",
+      "en": "Could I have one more pillow?",
+      "tags": [
+        "rung1",
+        "request",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.081",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Excusez-moi, il y a beaucoup de bruit dans le couloir.",
+      "en": "Excuse me, there is a lot of noise in the corridor.",
+      "tags": [
+        "rung1",
+        "fault",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.082",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "C'est toujours le même problème.",
+      "en": "It is still the same problem.",
+      "tags": [
+        "rung2",
+        "restate",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.083",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Ça fait deux fois que je demande.",
+      "en": "That is twice I have asked.",
+      "tags": [
+        "rung2",
+        "restate",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.084",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je vous ai demandé une serviette il y a une heure.",
+      "en": "I asked you for a towel an hour ago.",
+      "tags": [
+        "rung2",
+        "restate",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.085",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "L'eau chaude ne fonctionne toujours pas.",
+      "en": "The hot water still is not working.",
+      "tags": [
+        "rung2",
+        "fault",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.086",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le problème n'est pas réglé.",
+      "en": "The problem is not sorted out.",
+      "tags": [
+        "rung2",
+        "restate",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.087",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Ça ne marche toujours pas.",
+      "en": "It still does not work.",
+      "tags": [
+        "rung2",
+        "fault",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.088",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "J'ai appelé la réception hier soir, et personne n'est venu.",
+      "en": "I called the front desk last night, and nobody came.",
+      "tags": [
+        "rung2",
+        "restate",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.089",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "La climatisation ne marche pas non plus.",
+      "en": "The air conditioning does not work either.",
+      "tags": [
+        "rung2",
+        "fault",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.090",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "C'est la deuxième nuit avec le même bruit.",
+      "en": "This is the second night with the same noise.",
+      "tags": [
+        "rung2",
+        "restate",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.091",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je voudrais parler au responsable, s'il vous plaît.",
+      "en": "I would like to speak to the manager, please.",
+      "tags": [
+        "rung3",
+        "escalate",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.092",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Est-ce que quelqu'un peut venir voir ?",
+      "en": "Could somebody come and look?",
+      "tags": [
+        "rung3",
+        "escalate",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.093",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Est-ce que je peux parler à quelqu'un d'autre ?",
+      "en": "Could I speak to somebody else?",
+      "tags": [
+        "rung3",
+        "escalate",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.094",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Qui est-ce que je peux voir pour ce problème ?",
+      "en": "Who can I see about this problem?",
+      "tags": [
+        "rung3",
+        "escalate",
+        "ladder",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.095",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le responsable est là ce soir ?",
+      "en": "Is the manager here this evening?",
+      "tags": [
+        "rung3",
+        "escalate",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.096",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "La chambre n'a pas été faite.",
+      "en": "The room has not been made up.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.097",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Il n'y a pas de serviettes dans la salle de bain.",
+      "en": "There are no towels in the bathroom.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.098",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "La fenêtre ne ferme pas.",
+      "en": "The window does not close.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.099",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le chauffage est trop fort.",
+      "en": "The heating is too high.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.100",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Il fait très froid dans la chambre.",
+      "en": "It is very cold in the room.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.101",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "L'ascenseur ne fonctionne pas.",
+      "en": "The lift is not working.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.102",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Les voisins font du bruit toute la nuit.",
+      "en": "The people next door make noise all night.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.103",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Il manque une couverture dans la chambre.",
+      "en": "There is a blanket missing in the room.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.104",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "La clé ne marche pas.",
+      "en": "The key does not work.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.105",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Il n'y a plus d'eau chaude.",
+      "en": "There is no hot water left.",
+      "tags": [
+        "impersonal",
+        "fault"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.106",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Bonsoir, vous avez une réservation ?",
+      "en": "Good evening, do you have a booking?",
+      "tags": [
+        "desk",
+        "checkin"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.107",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "C'est à quel nom, s'il vous plaît ?",
+      "en": "Under what name, please?",
+      "tags": [
+        "desk",
+        "checkin"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.108",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Vous avez une pièce d'identité ?",
+      "en": "Do you have some ID?",
+      "tags": [
+        "desk",
+        "checkin"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.109",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Voici votre clé, chambre soixante-quinze.",
+      "en": "Here is your key, room seventy-five.",
+      "tags": [
+        "desk",
+        "checkin",
+        "numbers"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.110",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Votre chambre est au troisième étage.",
+      "en": "Your room is on the third floor.",
+      "tags": [
+        "desk",
+        "checkin",
+        "numbers"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.111",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "L'ascenseur est au fond du couloir, à droite.",
+      "en": "The lift is at the end of the corridor, on the right.",
+      "tags": [
+        "desk",
+        "checkin"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.112",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le petit déjeuner est servi de sept heures à dix heures.",
+      "en": "Breakfast is served from seven to ten.",
+      "tags": [
+        "desk",
+        "numbers",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.113",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le petit déjeuner est servi au rez-de-chaussée.",
+      "en": "Breakfast is served on the ground floor.",
+      "tags": [
+        "desk",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.114",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Votre chambre sera prête à quatorze heures.",
+      "en": "Your room will be ready at two in the afternoon.",
+      "tags": [
+        "desk",
+        "numbers",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.115",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le départ est avant onze heures.",
+      "en": "Check-out is before eleven.",
+      "tags": [
+        "desk",
+        "numbers",
+        "impersonal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.116",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Vous partez à quelle heure demain ?",
+      "en": "What time are you leaving tomorrow?",
+      "tags": [
+        "desk",
+        "numbers"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.117",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je suis désolée, c'est complet ce soir.",
+      "en": "I am sorry, we are full this evening.",
+      "tags": [
+        "desk",
+        "refusal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.118",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je ne peux rien faire ce soir, monsieur.",
+      "en": "There is nothing I can do this evening, sir.",
+      "tags": [
+        "desk",
+        "refusal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.119",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je vais voir ce que je peux faire.",
+      "en": "I will see what I can do.",
+      "tags": [
+        "desk",
+        "deflect"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.120",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je vais prévenir le responsable.",
+      "en": "I will let the manager know.",
+      "tags": [
+        "desk",
+        "deflect",
+        "escalate"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.121",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Le responsable arrive à huit heures demain.",
+      "en": "The manager gets in at eight tomorrow.",
+      "tags": [
+        "desk",
+        "deflect",
+        "numbers"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.122",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je suis vraiment désolée pour le dérangement.",
+      "en": "I am very sorry for the trouble.",
+      "tags": [
+        "desk",
+        "repairnote"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.123",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Vous pouvez épeler votre nom, madame ?",
+      "en": "Could you spell your name, madam?",
+      "tags": [
+        "desk",
+        "checkin",
+        "alphabet"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.124",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Quelqu'un va monter dans dix minutes.",
+      "en": "Somebody will come up in ten minutes.",
+      "tags": [
+        "desk",
+        "deflect",
+        "numbers"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.125",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Vous êtes au deuxième étage, chambre quatre-vingt-cinq.",
+      "en": "You are on the second floor, room eighty-five.",
+      "tags": [
+        "desk",
+        "numbers"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.126",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Non, quatre-vingt-cinq, pas soixante-quinze.",
+      "en": "No, eighty-five, not seventy-five.",
+      "tags": [
+        "desk",
+        "numbers"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.127",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je vous mets dans une chambre plus calme.",
+      "en": "I am putting you in a quieter room.",
+      "tags": [
+        "desk",
+        "deflect"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.128",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je note le problème et je préviens quelqu'un.",
+      "en": "I am making a note of the problem and telling somebody.",
+      "tags": [
+        "desk",
+        "deflect"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.129",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Il y a un autre ascenseur au fond, à gauche.",
+      "en": "There is another lift at the end, on the left.",
+      "tags": [
+        "desk",
+        "checkin"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.130",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "ce serait possible de",
+      "en": "would it be possible to",
+      "respell": "suh suh-REH poh-SEE-bluh duh",
+      "tags": [
+        "softener",
+        "chunk"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.131",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "désolé de vous déranger",
+      "en": "sorry to bother you",
+      "respell": "day-zoh-LAY duh voo day-rahⁿ-ZHAY",
+      "tags": [
+        "softener",
+        "chunk",
+        "opener"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.132",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "Je repasse dans une heure, alors.",
+      "en": "I will come back in an hour, then.",
+      "tags": [
+        "rung2",
+        "brake",
+        "ladder"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.quebec-et-francophonie.121",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "quebec-et-francophonie",
+      "fr": "Le matin, je prends un déjeuner avec du sirop d'érable.",
+      "en": "In the morning, I have breakfast with maple syrup.",
+      "ipa": "lə ma.tɛ̃ ʒə pʁɑ̃.z‿œ̃ de.ʒœ.ne a.vɛk dy si.ʁo de.ʁabl",
+      "tags": [
+        "québec",
+        "langue"
+      ],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "skill": "PE",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.expressions-frequentes.077",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "expressions-frequentes",
+      "fr": "Excusez-moi, pourriez-vous répéter la question ?",
+      "en": "Excuse me, could you repeat the question?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "flashcard"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.hebergement.053",
+      "kind": "word",
+      "level": "a2",
+      "theme": "hebergement",
+      "fr": "la douche",
+      "en": "the shower",
+      "ipa": "la duʃ",
+      "respell": "lah DOOSH",
+      "tags": [],
+      "drills": [
+        "voiceflash",
+        "review",
+        "flashcard"
+      ],
+      "gender": "f",
+      "example": {
+        "en": "The shower is very hot this morning.",
+        "fr": "La douche est très chaude ce matin."
       },
       "skill": "PO",
       "register": "courant",

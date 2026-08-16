@@ -91,7 +91,8 @@
     "content:restaurant": "tsx scripts/author-restaurant-batch.ts",
     "content:courses": "tsx scripts/author-courses-batch.ts",
     "content:transports": "tsx scripts/author-transports-batch.ts",
-    "content:medecin": "tsx scripts/author-medecin-batch.ts"
+    "content:medecin": "tsx scripts/author-medecin-batch.ts",
+    "content:hotel": "tsx scripts/author-hotel-batch.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",

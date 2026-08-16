@@ -213,7 +213,11 @@ const MASCULINE: EndingRule[] = [
     ending: 'age',
     predicts: 'm',
     accuracy: 90,
-    items: 29,
+    // 29 until a2.29 « À l'hôtel » CARRIED `l'étage` into the seed on
+    // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
+    // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
+    // The accuracy did not move.
+    items: 30,
     article: 'un',
     example: { id: 'fr.a1.cuisine.011', fr: 'le fromage', en: 'the cheese' },
     sheetExamples: ['le voyage', 'le garage', 'le visage', 'le mariage', 'le bagage'],
@@ -237,7 +241,11 @@ const FEMININE: EndingRule[] = [
     // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
     // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
     // The accuracy did not move.
-    items: 37,
+    // 37 until a2.29 « À l'hôtel » CARRIED `la réception`, `la réservation` and `la climatisation` into the seed on
+    // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
+    // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
+    // The accuracy did not move.
+    items: 40,
     article: 'une',
     example: { id: 'fr.a1.ecole.046', fr: 'la question', en: 'the question' },
     sheetExamples: ['la direction', 'la natation', 'la récréation', 'la destination'],
@@ -266,7 +274,11 @@ const FEMININE: EndingRule[] = [
     ending: 'ette',
     predicts: 'f',
     accuracy: 97,
-    items: 37,
+    // 37 until a2.29 « À l'hôtel » CARRIED `la serviette` into the seed on
+    // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
+    // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
+    // The accuracy did not move.
+    items: 38,
     article: 'une',
     example: { id: 'fr.a1.cafe.012', fr: 'une baguette', en: 'a baguette' },
     sheetExamples: ['une assiette', 'la fourchette', 'la serviette', 'la courgette'],
@@ -416,7 +428,18 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // 919 until a2.28 « Chez le médecin » CARRIED nine symptom and profession nouns into the
     // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
     // population; all 18 joiners are IMPORTS. The accuracy did not move.
-    items: 928,
+    // 928 until a2.29 « À l'hôtel » CARRIED four hotel nouns into the seed on
+    // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
+    // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
+    // The accuracy did not move.
+    //
+    // 933 since the same day: `scripts/repair-flashcard-reachability.ts` gave
+    // `fr.a2.hebergement.053` « la douche » the flashcard drill it had never
+    // carried, and a2.29's merge then carried it into the seed. A REPAIR to a
+    // drill array moved a1.03's printed count, which is the carry finding one
+    // step further out: it was not an authoring, and it was not even an import
+    // the lesson chose — it was a row becoming reachable.
+    items: 933,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -425,7 +448,7 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
   },
   {
     ending: 'on',
-    accuracy: 60,
+    accuracy: 59,
     // 142 until a1.22 imported `le Japon` on 2026-08-07. The accuracy did not
     // move and the ending is still dismissed for being under the floor.
     // 142 until a1.22 imported `le Japon`, 144 since a2.26 carried its shop
@@ -437,7 +460,12 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // 145 until a2.28 « Chez le médecin » CARRIED `le frisson` into the
     // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
     // population; all 18 joiners are IMPORTS. The accuracy did not move.
-    items: 146,
+    // 146 until a2.29 « À l'hôtel » CARRIED `la réception`, `la réservation` and `la climatisation` into the seed on
+    // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
+    // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
+    // All three are feminine and the ending predicts masculine, so the accuracy
+    // fell one point. Still far under the floor, so the dismissal is unchanged.
+    items: 149,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -454,8 +482,13 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // 54 since 2026-08-09: the two themes added to SEED_CUT.themes brought two
     // more -é nouns into the seed. Accuracy held at 54%, still far under the
     // floor, so the lesson's dismissal of this ending is unchanged.
-    accuracy: 54,
-    items: 54,
+    // 54 until a2.29 « À l'hôtel » CARRIED `la clé` into the seed on
+    // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
+    // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
+    // It is feminine and the ending predicts masculine, so the accuracy fell one
+    // point. Still far under the floor, so the lesson's dismissal is unchanged.
+    accuracy: 53,
+    items: 55,
     bothWays: [
       { id: 'fr.a1.routines.103', fr: 'le café', en: 'the coffee' },
       { id: 'fr.a1.maison.022', fr: 'la clé', en: 'the key' },
