@@ -32,7 +32,7 @@
 // and the `break` beat with its full body, then resolved. The single-section
 // fallback in the prompt is NOT taken. See the corpus header, §8.
 
-import type { Lesson, LessonAct, LessonSection } from '../../../ealch-v2/src/content/schema.ts';
+import type { Lesson, LessonAct, LessonDrill, LessonSection } from '../../../ealch-v2/src/content/schema.ts';
 import { RESTAURANT_TERMS } from './restaurant-terms.ts';
 import { UNIT, LESSON_ID, REFRAME, A, Q, REPAIR_IDS, IMPORTED, A129_TRANCHE, PARTITIVE_UNIT, A129_REFRAME, MONEY_UNIT, REGISTER_UNIT, ELISION_UNIT } from './restaurant-corpus.ts';
 
@@ -80,7 +80,7 @@ const FR = { lang: 'fr-FR' as const, mode: 'tts' as const, speeds: [1, 0.65] };
  *  it (the shipped defect this lesson was warned about), and restaurant copy is
  *  unusually dense with Bonsoir !, Voilà !. Every bubble here ends in a full
  *  stop or a question mark. */
-const SCENE_BEATS: LessonSection['beats'] = [
+const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
   {
     kind: 'narration', size: 'md',
     text: 'A bistro in Lyon, a Thursday evening. You have been practising one sentence since the tram, and it is a good sentence.',
@@ -334,54 +334,54 @@ const S_PLACE: LessonSection = {
     {
       label: 'as you arrive',
       items: [
-        { fr: 'Bonsoir, vous avez réservé ?', en: 'Good evening, do you have a reservation?', sub: 'stage 1' },
-        { fr: 'Vous êtes combien ?', en: 'How many of you are there?', sub: 'stage 1' },
-        { fr: 'En terrasse ou à l\'intérieur ?', en: 'On the terrace or inside?', sub: 'stage 2' },
+        { fr: 'Bonsoir, vous avez réservé ?', en: 'Good evening, do you have a reservation?', note: 'stage 1' },
+        { fr: 'Vous êtes combien ?', en: 'How many of you are there?', note: 'stage 1' },
+        { fr: 'En terrasse ou à l\'intérieur ?', en: 'On the terrace or inside?', note: 'stage 2' },
       ],
       check: { q: 'He says « Suivez-moi, je vous prie. » What is happening?', opts: ['He is taking your order', 'He is bringing the bill', 'He is asking what you want to drink', 'He is walking you to a table'], correct: 3, why: 'Stage 2. It is an instruction rather than a question, and no answer is wanted.' },
     },
     {
       label: 'drinks first',
       items: [
-        { fr: 'Et comme boisson ?', en: 'And to drink?', sub: 'stage 3' },
-        { fr: 'Plate ou gazeuse ?', en: 'Still or sparkling?', sub: 'stage 3' },
-        { fr: 'Une carafe d\'eau, ça ira ?', en: 'A jug of water, will that do?', sub: 'stage 3' },
+        { fr: 'Et comme boisson ?', en: 'And to drink?', note: 'stage 3' },
+        { fr: 'Plate ou gazeuse ?', en: 'Still or sparkling?', note: 'stage 3' },
+        { fr: 'Une carafe d\'eau, ça ira ?', en: 'A jug of water, will that do?', note: 'stage 3' },
       ],
       check: { q: 'Which of these is a check rather than an offer?', opts: ['Et comme boisson ?', 'Une carafe d\'eau, ça ira ?', 'Plate ou gazeuse ?', 'Vous prendrez un apéritif ?'], correct: 1, why: 'Ça ira means will that do. He has already decided; he is confirming, and saying nothing means yes.' },
     },
     {
       label: 'ordering',
       items: [
-        { fr: 'Vous avez choisi ?', en: 'Have you decided?', sub: 'stage 4' },
-        { fr: 'Et ensuite ?', en: 'And then?', sub: 'stage 4' },
-        { fr: 'Quelle cuisson ?', en: 'How would you like it cooked?', sub: 'stage 4' },
+        { fr: 'Vous avez choisi ?', en: 'Have you decided?', note: 'stage 4' },
+        { fr: 'Et ensuite ?', en: 'And then?', note: 'stage 4' },
+        { fr: 'Quelle cuisson ?', en: 'How would you like it cooked?', note: 'stage 4' },
       ],
       check: { q: 'You have just said your starter. He says « Et ensuite ? »', opts: ['He wants your main course', 'He wants to know if you are finished', 'He is offering dessert', 'He is asking how you will pay'], correct: 0, why: 'Stage 4. Ensuite is next, and at this point in the evening next means the main course.' },
     },
     {
       label: 'during the meal',
       items: [
-        { fr: 'Tout se passe bien ?', en: 'Is everything all right?', sub: 'stage 5' },
-        { fr: 'Ça a été ?', en: 'Was everything OK?', sub: 'stage 5' },
-        { fr: 'Je vous débarrasse ?', en: 'Shall I clear these away?', sub: 'stage 5' },
+        { fr: 'Tout se passe bien ?', en: 'Is everything all right?', note: 'stage 5' },
+        { fr: 'Ça a été ?', en: 'Was everything OK?', note: 'stage 5' },
+        { fr: 'Je vous débarrasse ?', en: 'Shall I clear these away?', note: 'stage 5' },
       ],
       check: { q: 'Which one is asked AFTER you have finished eating?', opts: ['Tout se passe bien ?', 'Et comme boisson ?', 'Ça a été ?', 'Vous avez réservé ?'], correct: 2, why: 'Ça a été is a past tense. Tout se passe bien is a present, and it is asked while you are still eating.' },
     },
     {
       label: 'the upsell',
       items: [
-        { fr: 'Ce sera tout ?', en: 'Will that be all?', sub: 'stage 6' },
-        { fr: 'Vous prendrez un dessert ?', en: 'Will you have a dessert?', sub: 'stage 6' },
-        { fr: 'Un café pour finir ?', en: 'A coffee to finish?', sub: 'stage 6' },
+        { fr: 'Ce sera tout ?', en: 'Will that be all?', note: 'stage 6' },
+        { fr: 'Vous prendrez un dessert ?', en: 'Will you have a dessert?', note: 'stage 6' },
+        { fr: 'Un café pour finir ?', en: 'A coffee to finish?', note: 'stage 6' },
       ],
       check: { q: 'What answers « Ce sera tout ? » with the least effort?', opts: ['Je voudrais un dessert et un café.', 'Ce sera tout, merci.', 'Combien ça coûte ?', 'Plate, s\'il vous plaît.'], correct: 1, why: 'His own words handed back. Repeating the frame you were given is faster and more natural than building a new sentence.' },
     },
     {
       label: 'paying',
       items: [
-        { fr: 'Vous réglez comment ?', en: 'How are you paying?', sub: 'stage 8' },
-        { fr: 'Ensemble ou séparément ?', en: 'Together or separately?', sub: 'stage 8' },
-        { fr: 'Le service est compris.', en: 'Service is included.', sub: 'stage 8' },
+        { fr: 'Vous réglez comment ?', en: 'How are you paying?', note: 'stage 8' },
+        { fr: 'Ensemble ou séparément ?', en: 'Together or separately?', note: 'stage 8' },
+        { fr: 'Le service est compris.', en: 'Service is included.', note: 'stage 8' },
       ],
       check: { q: '« Vous réglez comment ? » is asking about', opts: ['The amount', 'The tip', 'Which dish was yours', 'The method'], correct: 3, why: 'Comment is how, not how much. Par carte answers it in two words.' },
     },
@@ -443,27 +443,27 @@ const S_SOME: LessonSection = {
     {
       label: 'one of them',
       items: [
-        { fr: 'un café', en: 'a coffee', sub: 'one cup, countable' },
-        { fr: 'une carafe d\'eau', en: 'a jug of water', sub: 'one jug' },
-        { fr: 'un verre de vin', en: 'a glass of wine', sub: 'one glass' },
+        { fr: 'un café', en: 'a coffee', note: 'one cup, countable' },
+        { fr: 'une carafe d\'eau', en: 'a jug of water', note: 'one jug' },
+        { fr: 'un verre de vin', en: 'a glass of wine', note: 'one glass' },
       ],
       check: { q: 'You want one cup of coffee. Which one?', opts: ['du café', 'de le café', 'un café', 'des café'], correct: 2, why: 'A cup is one of them, and un is the word for one of them. This is a1.29 unchanged.' },
     },
     {
       label: 'some of it',
       items: [
-        { fr: 'du pain', en: 'some bread', sub: 'an amount, uncounted' },
-        { fr: 'de l\'eau', en: 'some water', sub: 'before a vowel sound' },
-        { fr: 'de la salade', en: 'some salad', sub: 'feminine' },
+        { fr: 'du pain', en: 'some bread', note: 'an amount, uncounted' },
+        { fr: 'de l\'eau', en: 'some water', note: 'before a vowel sound' },
+        { fr: 'de la salade', en: 'some salad', note: 'feminine' },
       ],
       check: { q: 'He asks if you want bread with the meal. You do, and not a specific loaf.', opts: ['du pain', 'un pain', 'le pain', 'des pain'], correct: 0, why: 'An amount nobody has counted. Du is some of it, and un pain would be one whole loaf on the table.' },
     },
     {
       label: 'and after a negative',
       items: [
-        { fr: 'Je ne mange pas de viande.', en: 'I don\'t eat meat.', sub: 'de, not du' },
-        { fr: 'Il n\'y a plus de saumon.', en: 'There\'s no more salmon.', sub: 'de, not du' },
-        { fr: 'Sans sucre, merci.', en: 'Without sugar, thanks.', sub: 'no article at all' },
+        { fr: 'Je ne mange pas de viande.', en: 'I don\'t eat meat.', note: 'de, not du' },
+        { fr: 'Il n\'y a plus de saumon.', en: 'There\'s no more salmon.', note: 'de, not du' },
+        { fr: 'Sans sucre, merci.', en: 'Without sugar, thanks.', note: 'no article at all' },
       ],
       check: { q: 'You are telling him you do not eat meat.', opts: ['Je ne mange pas du viande.', 'Je ne mange pas de la viande.', 'Je ne mange pas la viande.', 'Je ne mange pas de viande.'], correct: 3, why: 'After a negative it is de, never du. a1.29 taught this one; this is the table it happens at.' },
     },
@@ -530,7 +530,7 @@ const S_ERRORS: LessonSection = {
  *  HAS shipped. The chunk is never glossed, never decomposed, and never in a
  *  scored surface that turns on the pronouns. The `.169` row gives the same
  *  news without them, so a learner who wants to parse something can. */
-const BREAK_BEATS: LessonSection['beats'] = [
+const BREAK_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
   {
     kind: 'narration', size: 'md',
     text: 'Later the same evening. You have caught his questions, you have answered them, and it has gone well.',
@@ -641,7 +641,10 @@ const S_REPAIR: LessonSection = {
   render: 'deck', layer: 'core', size: 'lg', terms: ['rung', 'faceCost'],
   say: 'Six rungs, cheapest first. Every one of them is ordinary French and none of them is an apology.',
   audio: { ...FR, recordingId: 'rec-a2-07-repair' },
-  itemIds: [...REPAIR_IDS],
+  // NO itemIds HERE. No renderer reads itemIds on a cardDeck — this was the only
+  // one of 285 shipped cardDecks that carried the field, and it drew nothing.
+  // The six frozen rows reach the learner two ways that DO work: the cards below
+  // print the strings, and act 4's deckTranche releases the ids to the SRS.
   cards: [
     { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: 'One word, and it gives away nothing about why you missed it. It is also the one a French speaker uses without thinking, which is why it is first.', label: 'costs you nothing' },
     { head: 'Rung 2', fr: 'Vous pouvez répéter, s\'il vous plaît ?', sub: '[voo poo-VAY ray-pay-TAY seel voo PLEH]', body: 'Asks for the whole thing again and still says nothing about what went wrong. If rung 1 got you a repeat at the same speed, this is the next one.', label: 'the whole thing again' },
@@ -660,24 +663,24 @@ const S_DEPLOY: LessonSection = {
     {
       label: 'you heard it, it was just fast',
       items: [
-        { fr: 'Pardon ?', en: 'Sorry?', sub: 'rung 1' },
-        { fr: 'Vous pouvez répéter, s\'il vous plaît ?', en: 'Can you say that again, please?', sub: 'rung 2' },
+        { fr: 'Pardon ?', en: 'Sorry?', note: 'rung 1' },
+        { fr: 'Vous pouvez répéter, s\'il vous plaît ?', en: 'Can you say that again, please?', note: 'rung 2' },
       ],
       check: { q: 'He said something at full speed and you caught nothing. First move?', opts: ['Pardon ?', 'Vous pouvez me l\'écrire, s\'il vous plaît ?', 'Qu\'est-ce que ça veut dire ?', 'Je n\'ai pas bien compris.'], correct: 0, why: 'Rung 1 costs nothing and usually works. Starting at rung 6 gives away far more than the situation needs.' },
     },
     {
       label: 'it was the speed',
       items: [
-        { fr: 'Plus lentement, s\'il vous plaît.', en: 'More slowly, please.', sub: 'rung 3' },
-        { fr: 'Je n\'ai pas bien compris.', en: 'I didn\'t quite catch that.', sub: 'rung 4' },
+        { fr: 'Plus lentement, s\'il vous plaît.', en: 'More slowly, please.', note: 'rung 3' },
+        { fr: 'Je n\'ai pas bien compris.', en: 'I didn\'t quite catch that.', note: 'rung 4' },
       ],
       check: { q: 'He repeated it once, at exactly the same speed. Now what?', opts: ['Pardon ?', 'Vous pouvez répéter, s\'il vous plaît ?', 'Oui.', 'Plus lentement, s\'il vous plaît.'], correct: 3, why: 'Rung 1 and rung 2 both ask for a repeat. Only rung 3 tells him what to change, and he cannot fix a problem you have not named.' },
     },
     {
       label: 'one word is the problem',
       items: [
-        { fr: 'Qu\'est-ce que ça veut dire ?', en: 'What does that mean?', sub: 'rung 5' },
-        { fr: 'Vous pouvez me l\'écrire, s\'il vous plaît ?', en: 'Could you write it down for me, please?', sub: 'rung 6' },
+        { fr: 'Qu\'est-ce que ça veut dire ?', en: 'What does that mean?', note: 'rung 5' },
+        { fr: 'Vous pouvez me l\'écrire, s\'il vous plaît ?', en: 'Could you write it down for me, please?', note: 'rung 6' },
       ],
       check: { q: 'You caught the whole sentence except one word on the menu.', opts: ['Plus lentement, s\'il vous plaît.', 'Qu\'est-ce que ça veut dire ?', 'Pardon ?', 'Vous pouvez répéter, s\'il vous plaît ?'], correct: 1, why: 'Repeating the sentence will not help: you heard it. Rung 5 narrows the problem to the one word that is actually stopping you.' },
     },
@@ -1082,9 +1085,9 @@ const ITEM_IDS: string[] = [
 
 /** The drills an error trigger can send a learner back to. `format: 'flashcard'`
  *  and a `pairs` array of [English, French]. */
-const DRILLS = [
+const DRILLS: LessonDrill[] = [
   {
-    id: 'drill-gradient', title: 'The one rung to drop', format: 'flashcard',
+    id: 'drill-gradient', title: 'The one rung to drop', format: 'flashcard' as const,
     coach: 'Read the English. Say the French, out loud, and never reach for je veux at a table.',
     pairs: [
       ['I would like the chicken', 'Je voudrais le poulet.'],
@@ -1095,7 +1098,7 @@ const DRILLS = [
     ],
   },
   {
-    id: 'drill-stage', title: 'Which stage is he on', format: 'flashcard',
+    id: 'drill-stage', title: 'Which stage is he on', format: 'flashcard' as const,
     coach: 'Read what he says. Say which part of the evening you are in.',
     pairs: [
       ['Do you have a reservation?', 'Bonsoir, vous avez réservé ?'],
@@ -1106,7 +1109,7 @@ const DRILLS = [
     ],
   },
   {
-    id: 'drill-short', title: 'Answer it short', format: 'flashcard',
+    id: 'drill-short', title: 'Answer it short', format: 'flashcard' as const,
     coach: 'He asked two words. Give one of them back and stop talking.',
     pairs: [
       ['Still or sparkling? (still)', 'Plate.'],
@@ -1117,7 +1120,7 @@ const DRILLS = [
     ],
   },
   {
-    id: 'drill-repair', title: 'The six rungs', format: 'flashcard',
+    id: 'drill-repair', title: 'The six rungs', format: 'flashcard' as const,
     coach: 'Cheapest first. Say each one out loud and notice how little the first two give away.',
     pairs: [
       ['Sorry?', 'Pardon ?'],
@@ -1183,14 +1186,12 @@ export const RESTAURANT_LESSON: Lesson = {
   unitId: UNIT.id,
   seq: UNIT.seq,
   level: 'a2',
-  track: 'a2',
   tag: 'restaurant',
   version: 1,
   title: UNIT.title,
   intro: 'Twenty-three lessons have taught you how to order. This one is about everything he says back.',
 
-  canDo: UNIT.canDo,
-  teaches: [
+  grammarIntroduced: [
     'The eight-stage structure of a French restaurant encounter, received in the server\'s voice rather than produced in the learner\'s',
     'Recognition of the server\'s eight canonical questions, including the four that contain no verb the learner can anchor on',
     'The adjacency-pair principle: that a short question takes a short answer, and that reusing the server\'s own frame is the native response',
@@ -1201,6 +1202,17 @@ export const RESTAURANT_LESSON: Lesson = {
     'The partitive at the point of ordering as RECALL of a1.29, with no new claim made about it',
     'That l\'addition, le service and le pourboire are stages of the script; the amount, the change and the coins are reserved for a2.26',
     'That il n\'y en a plus is recognised as unanalysed lexis, with y and en reserved entirely for a2.25',
+  ],
+
+  /** What this lesson takes as already held. 59 of 66 shipped lessons carry it;
+   *  without it a2.07 would be the outlier. Everything here is shipped and is
+   *  RECALLED rather than retaught (see the corpus header, §C). */
+  grammarAssumed: [
+    "The partitive du, de la, de l' and its reduction to de under negation, delivered whole by a1.29 at seq 8",
+    'The futur proche as a way of stating a decision just made, from a2.19 at seq 15',
+    'The passé composé with avoir, from a2.05, which the server uses in Vous avez choisi ? and Ça a été ?',
+    'The third-person direct object pronoun before the verb, from a2.06 at seq 21, met here only as exposure in Je vous le remplace',
+    'Yes/no question formation and est-ce que, from a1.19',
   ],
 
   features: ['roleplay', 'voiceflash'],

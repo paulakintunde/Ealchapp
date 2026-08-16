@@ -1,8 +1,14 @@
 # a2.07 « Au restaurant » — build report
 
 Trail seq 24. The first of the eight-unit A2 situations band (seq 24 to 31).
-Built 2026-08-15. **Applied to Postgres and merged into `seed.json`. Not
-published** — publishing is not part of a lesson build.
+Built 2026-08-15. Applied to Postgres and merged into `seed.json`.
+
+> **PUBLISHED, but not by this build.** a2.07 did not publish and did not bump
+> `seed.version`: publishing is not part of a lesson build. A publish ran from
+> elsewhere at 2026-08-16T05:17:43Z and swept a2.07 up in it. `content_snapshots`
+> now holds **v48** (`seed_counts`: 9,599 items, 66 lessons), which matches this
+> tree. **a2.07 is therefore in the OTA channel** — check the rollout percentage
+> before assuming learners have it.
 
 Seven units read this report before they start. The parts they need are §1
 (the frozen ids), §2 (the two gates), §3 (the waiter's-voice number) and §9
@@ -151,8 +157,8 @@ at `07-BAND-ID-LEDGER.md`.
 |---|---|---|
 | `au-restaurant` published in Postgres | 346 | **404** (+58) |
 | `quebec-et-francophonie` | 593 | 595 (+2) |
-| `au-restaurant` in `seed.json` | 17 | **102** |
-| `seed.json` items | 9,515 | **9,602** |
+| `au-restaurant` in `seed.json` | 17 | **99** |
+| `seed.json` items | 9,515 | **9,599** |
 | `seed.json` lessons | 65 | 66 |
 
 **Counted, not maximised.** The maximum has been useless since a2.10.l2 took
@@ -404,9 +410,12 @@ everything the design numbered after it moves down one.)
 3. **The a2.13 amendment is specified and not applied**
    (`05-A2-13-AMENDMENT-SPEC.md`). `pourriez-vous` therefore appears nowhere in
    this lesson and a test asserts it.
-4. **Not published.** `content:publish` is blocked (it would delete `sons.09.l1`,
-   which is seed-only). I did not run `content:parity` and did not publish.
-   `seed.version` is untouched at 47.
+4. **This build did not publish**, did not run `content:publish` and did not
+   bump `seed.version`. A publish ran from elsewhere mid-build and produced
+   **v48**, which includes a2.07. So the "publish is blocked by `sons.09.l1`"
+   warning either no longer holds or was worked around by whoever ran it; worth
+   confirming `sons.09.l1` survived. Verified after the fact: all 89 rows a2.07
+   references agree between the seed and Postgres, none unpublished, no drift.
 5. **I did not capture a pre-build test baseline before authoring**, which
    Doctrine §F asks for. What I can state precisely: with this build's content
    merged, the suite runs **4,155 pass / 0 fail without my test file** and

@@ -34,6 +34,14 @@ type Seed = { version: number; units: Unit[]; lessons: Lesson[]; items: Item[]; 
 const toArray = (d: unknown): string[] =>
   Array.isArray(d) ? d as string[] : String(d ?? '').replace(/[{}"]/g, '').split(',').filter(Boolean);
 
+/** Optional item fields the seed OMITS when empty rather than writing as null.
+ *   is deliberately NOT here: it is present on all 9,599 seed rows and
+ *  null on all of them, so it is always emitted. */
+const OMIT_IF_NULL = [
+  'ipa', 'respell', 'notes', 'gender', 'example',
+  'cardType', 'prompt', 'skill', 'register', 'verbCheck', 'grammarPoints',
+];
+
 async function main() {
   const seed = JSON.parse(readFileSync(SEED, 'utf8')) as Seed;
   const beforeItems = seed.items.length;
@@ -49,23 +57,46 @@ async function main() {
     // Every id the lesson can put in front of a learner: what it authored, plus
     // every id any section names or any deckTranche releases.
     const wanted = [...new Set([...ALL_ROWS.map((r) => r.id), ...ITEM_IDS])];
+    // EVERY FIELD THE SEED CARRIES, ALIASED TO THE SEED'S CASING.
+    //
+    // The first version named twelve columns and thereby DROPPED three the seed
+    // does carry: `gender`, `audioRef` and `cardType`. Rows imported fresh
+    // landed without them, and 19 rows already in the seed had them stripped by
+    // the upsert below. Nothing failed — the fields are optional, the suite
+    // stayed green — and the loss was visible only by diffing against a seed
+    // regenerated from the database.
+    //
+    // `select *` is NOT the fix: `content_items` has 38 columns, the seed
+    // carries 21 of them, and the database is snake_case (`audio_ref`,
+    // `card_type`, `verb_check`, `grammar_points`) where the seed is camelCase.
+    // So the list is explicit AND complete, and aliased.
     const r = await c.query<Item & { status: string }>(
-      `select id, kind, level, theme, fr, en, ipa, respell, notes, tags, drills, version, status
+      `select id, kind, level, theme, fr, en, ipa, respell, notes, tags, drills,
+              gender, example, prompt, skill, register, version, status,
+              audio_ref as "audioRef", card_type as "cardType",
+              verb_check as "verbCheck", grammar_points as "grammarPoints"
          from content_items where id = any($1::text[])`, [wanted]);
     const unpublished = r.rows.filter((x) => x.status !== 'published');
     if (unpublished.length) die(`${unpublished.length} referenced row(s) are not published: ${unpublished.map((x) => x.id).join(', ')}`);
     const missing = wanted.filter((w) => !r.rows.some((x) => x.id === w));
     if (missing.length) die(`${missing.length} referenced row(s) are not in Postgres at all: ${missing.join(', ')}`);
-    // Drop null-valued optional columns rather than writing them through.
-    // Postgres returns `respell: null` for a row that has none; the schema says
-    // "respell must be a non-empty string WHEN PRESENT", so a null key fails
-    // seed validation where an absent key passes. This build wrote ten such
-    // rows on its first merge and `the real, committed seed.json validates`
-    // went red on imported rows it had not authored.
-    const NULLABLE = ['respell', 'ipa', 'notes', 'audioRef', 'en'];
+    // THE SEED'S NULL CONVENTION, MEASURED RATHER THAN ASSUMED.
+    //
+    // Across all 9,599 seed items: `audioRef` is present on every single row and
+    // is `null` on every single row. Every OTHER optional field is OMITTED when
+    // it has no value and is never null-valued — 0 rows carry a null `respell`,
+    // `ipa`, `gender`, `cardType`, `skill`, `register`, `example`, `prompt` or
+    // `verbCheck`.
+    //
+    // Both halves matter. A null `respell` fails seed validation ("must be a
+    // non-empty string when present"), which is how this build first went red;
+    // and dropping `audioRef` because it is null diverges from every other row
+    // in the file, which is how it went wrong the second time.
     carried = r.rows.map(({ status, ...rest }) => {
       const row: Record<string, unknown> = { ...rest, drills: toArray(rest.drills) };
-      for (const k of NULLABLE) if (row[k] === null || row[k] === undefined) delete row[k];
+      for (const k of OMIT_IF_NULL) if (row[k] === null || row[k] === undefined) delete row[k];
+      // Always present, always null. Not optional, not omitted.
+      row.audioRef = row.audioRef ?? null;
       return row as Item;
     });
     console.log(`  pulled ${carried.length} referenced rows from Postgres (authored ${ALL_ROWS.length}, imported ${carried.length - ALL_ROWS.length})`);
@@ -77,7 +108,6 @@ async function main() {
   // Upsert items by id. A seed row this lesson does not touch is left alone.
   const byId = new Map(seed.items.map((i) => [i.id, i]));
   let added = 0, updated = 0;
-  const NULLABLE = ['respell', 'ipa', 'notes', 'audioRef', 'en'];
   for (const row of carried) {
     if (byId.has(row.id)) {
       const target = byId.get(row.id)! as Record<string, unknown>;
@@ -85,7 +115,8 @@ async function main() {
       // Object.assign cannot REMOVE a key, so a `respell: null` written by an
       // earlier run of this script survives an overwrite that simply omits it.
       // Clear them explicitly or the seed stays invalid after the fix.
-      for (const k of NULLABLE) if (target[k] === null || target[k] === undefined) delete target[k];
+      for (const k of OMIT_IF_NULL) if (target[k] === null || target[k] === undefined) delete target[k];
+      target.audioRef = target.audioRef ?? null;
       updated++;
     } else { byId.set(row.id, row); added++; }
   }
@@ -100,7 +131,7 @@ async function main() {
   for (const it of byId.values()) {
     if (it.theme !== THEME && it.theme !== 'quebec-et-francophonie') continue;
     const row = it as Record<string, unknown>;
-    for (const k of NULLABLE) if (row[k] === null) { delete row[k]; sanitised++; }
+    for (const k of OMIT_IF_NULL) if (row[k] === null) { delete row[k]; sanitised++; }
   }
   if (sanitised) console.log(`  sanitised ${sanitised} null optional field(s) written by an earlier run`);
 
@@ -128,7 +159,7 @@ async function main() {
   // Carry the unit row: lessonIds only. The `themes` array is band blocking
   // step 2 and is deliberately NOT touched here.
   const unit = seed.units.find((u) => u.id === UNIT.id);
-  if (!unit) die(`${UNIT.id} is not in the seed`);
+  if (!unit) return die(`${UNIT.id} is not in the seed`);
   unit.lessonIds = [...new Set([...(unit.lessonIds ?? []), LESSON.id])];
   if ((unit.themes ?? []).includes('nourriture')) {
     console.log('  NOTE: the unit row still carries the phantom theme `nourriture`.');

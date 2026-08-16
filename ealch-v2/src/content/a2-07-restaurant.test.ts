@@ -98,8 +98,16 @@ test('every repair string is domain-neutral, asserted by word list rather than b
 test('the repair ladder is monotonic in face cost, and s17 renders all six in order', () => {
   const s = byId(L!, 's17-repair');
   ok(s, 's17-repair is missing: the band Owns lives there');
-  const ids = (s as { itemIds?: string[] }).itemIds ?? [];
-  deepStrictEqual(ids, REPAIR.map((r) => r.id), 's17-repair no longer names the six ids in rung order');
+  // NOT via itemIds: no renderer reads itemIds on a cardDeck, and a2.07 was the
+  // only one of 285 shipped cardDecks that carried the field. The six rows reach
+  // the learner through the cards below and the SRS through act 4's deckTranche,
+  // so those are what this asserts.
+  ok(!('itemIds' in (s as Record<string, unknown>)),
+    's17-repair carries itemIds, which draws nothing on a cardDeck');
+  const act4Tranche = (L!.deckTranche ?? [])[3] ?? [];
+  for (const r of REPAIR) {
+    ok(act4Tranche.includes(r.id), `${r.id} is not released by act 4's deckTranche, so it never reaches the SRS`);
+  }
   const cards = (s as { cards?: Array<{ head?: string; fr?: string }> }).cards ?? [];
   strictEqual(cards.length, 6, 's17-repair must show exactly six cards, one per rung');
   cards.forEach((card, i) => {
@@ -128,8 +136,14 @@ test('the unit and the lesson agree, and there is exactly one lesson', () => {
   strictEqual(UNIT!.seq, 24, 'a2.07 is seq 24 on the A2 trail');
   deepStrictEqual(UNIT!.lessonIds, [LESSON_ID], 'den.tsx opens lessonIds[0] and nothing else; a second lesson is unreachable');
   strictEqual(L!.unitId, UNIT_ID);
-  // The canDo carries a CURLY apostrophe. Quoted off the seed unit row.
-  strictEqual(L!.canDo, UNIT!.canDo, 'the lesson canDo drifted from the unit row');
+  // The canDo lives on the UNIT and nowhere else. An earlier draft copied it onto
+  // the lesson too; `canDo` is not a Lesson field, a2.07 was the only lesson of 66
+  // carrying it, and nothing read it. Note the CURLY apostrophe: quoted off the
+  // seed unit row rather than retyped.
+  ok(!('canDo' in (L as unknown as Record<string, unknown>)),
+    'canDo belongs to the unit; a lesson-level copy is a field no renderer reads');
+  ok(UNIT!.canDo?.includes('waiter\u2019s questions'),
+    'the unit canDo lost its curly apostrophe or its third clause');
 });
 
 test('the lesson validates, and its density is clean', () => {
@@ -466,4 +480,36 @@ test('s16-offscript shipped, and it is hidden or it tests nothing', () => {
 test('two scene sections ship, which is device-proven and not a mistake', () => {
   const scenes = sectionsOf(L!).filter((s) => s.type === 'scene').map((s) => (s as { id?: string }).id);
   deepStrictEqual(scenes, ['s01-scene', 's15-break'], 'the repeated scene is deliberate and was device-checked before authoring');
+});
+
+test('groupDrill items use note, not sub: sub draws nothing', () => {
+  // FOUND BY THE ADMIN TYPECHECK, not by any content test. The groupDrill item
+  // type is { fr, ipa?, note?, itemId?, respell?, en?, silent?, pair? } and
+  // GroupDrillView builds its second line from note/respell/en. `sub` is not in
+  // the type and is read by nothing.
+  //
+  // a2.07 first shipped `sub` on 33 group items, so 33 second lines rendered
+  // blank while validateLesson stayed green: it tolerates unknown keys. The
+  // admin `tsc --noEmit` is the only thing that sees this class of defect.
+  for (const sec of sectionsOf(L!)) {
+    if (sec.type !== 'groupDrill') continue;
+    for (const g of (sec as { groups?: Array<{ items?: Array<Record<string, unknown>> }> }).groups ?? []) {
+      for (const it of g.items ?? []) {
+        ok(!('sub' in it), `${(sec as { id?: string }).id}: a group item carries \`sub\`, which draws nothing. Use \`note\`.`);
+      }
+    }
+  }
+});
+
+test('the lesson carries no field the shipped corpus does not', () => {
+  // a2.07 invented four: canDo, track, teaches and a cardDeck itemIds. Each
+  // validated, published and drew nothing. The real field for what a lesson
+  // teaches is `grammarIntroduced` (62 of 66 lessons) with `grammarAssumed` (59).
+  const others = seed.lessons.filter((l) => l.id !== LESSON_ID);
+  const known = new Set(others.flatMap((l) => Object.keys(l)));
+  const mine = Object.keys(L as unknown as Record<string, unknown>);
+  const invented = mine.filter((k) => !known.has(k));
+  deepStrictEqual(invented, [], `a2.07 carries field(s) no other lesson has: ${invented.join(', ')}`);
+  ok(known.has('grammarIntroduced') && mine.includes('grammarIntroduced'),
+    'grammarIntroduced is the house field for what a lesson teaches');
 });
