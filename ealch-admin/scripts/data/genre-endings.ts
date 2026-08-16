@@ -378,7 +378,24 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // has to happen. The accuracy did not move: 70% before, 70% after, and no
     // other ending moved at all — measured through the real measureEnding
     // across all thirteen.
-    items: 905,
+    //
+    // 912 since 2026-08-15, and it moved by SEVEN ROWS in one step: a2.26
+    // « Les courses & l'argent » carried its imported shop and money nouns
+    // into the seed (la caisse, la vendeuse, la balance, la pièce, l'article,
+    // l'heure de fermeture, la monnaie and the rest). Every one is an IMPORT
+    // rather than a new row, which is a1.23's finding: a CARRY moves this
+    // population even when an authoring does not, and an authored-only guard
+    // cannot see it.
+    //
+    // a2.26 pruned three carries whose only effect was here (le billet, une
+    // réduction, la promotion) because it did not need them. It kept these,
+    // because a shopping lesson that cannot name la caisse or la vendeuse is
+    // not a shopping lesson. Same judgement a2.07 made about `le pourboire`.
+    //
+    // The accuracy did not move: 70% before, 70% after. Four other counts moved
+    // with it and none of their accuracies did either, so every rule this
+    // lesson teaches says exactly what it said before.
+    items: 912,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -390,7 +407,9 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     accuracy: 60,
     // 142 until a1.22 imported `le Japon` on 2026-08-07. The accuracy did not
     // move and the ending is still dismissed for being under the floor.
-    items: 143,
+    // 142 until a1.22 imported `le Japon`, 144 since a2.26 carried its shop
+    // nouns on 2026-08-15. The accuracy did not move either time.
+    items: 144,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -451,17 +470,17 @@ export const MORE_ENDINGS: SheetEnding[] = [
   { ending: 'in', predicts: 'm', accuracy: 98, items: 45 },
   { ending: 'ent', predicts: 'm', accuracy: 97, items: 29 },
   { ending: 'ard', predicts: 'm', accuracy: 100, items: 17 },
-  { ending: 'ant', predicts: 'm', accuracy: 100, items: 18 },
+  { ending: 'ant', predicts: 'm', accuracy: 100, items: 20 },   // 18 until a2.26, 2026-08-15
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 16 },
   { ending: 'ot', predicts: 'm', accuracy: 100, items: 16 },
   { ending: 'ien', predicts: 'm', accuracy: 100, items: 15 },
-  { ending: 'al', predicts: 'm', accuracy: 100, items: 11 },
+  { ending: 'al', predicts: 'm', accuracy: 100, items: 12 },   // 11 until a2.26 authored le sous-total
   { ending: 'ail', predicts: 'm', accuracy: 100, items: 7 },
   { ending: 'ité', predicts: 'f', accuracy: 94, items: 16 },
   { ending: 'ance', predicts: 'f', accuracy: 100, items: 10 },
   { ending: 'sion', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
-  { ending: 'euse', predicts: 'f', accuracy: 100, items: 6 },
+  { ending: 'euse', predicts: 'f', accuracy: 100, items: 7 },    // 6 until a2.26 carried la vendeuse
 ];
 
 /** The floor an ending has to clear to be written down at all, in the flow or

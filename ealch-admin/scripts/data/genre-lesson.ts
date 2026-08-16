@@ -1776,7 +1776,20 @@ export const GENRE_LESSON: Lesson = {
   // across the suite, which is invariants §5's "gendered single-word nouns are
   // radioactive" arriving on schedule. Corrections §10: THE COUNTER MOVES
   // rather than the body being corrected under v4.
-  version: 5,
+  //
+  // v6, 2026-08-15. a2.26 « Les courses & l'argent » carried its imported shop
+  // and money nouns into the seed and moved FIVE printed counts: -e 905 -> 912,
+  // -on 143 -> 144, -ant 18 -> 20, -al 11 -> 12, -euse 6 -> 7. Not one
+  // accuracy moved, so every rule this lesson teaches is as true as it was and
+  // only the counters changed. Same decision as v5, for the same reason: the
+  // rows are ordinary shopping vocabulary a2.26 exists to teach, their genders
+  // are real, and the population is the SEED rather than the corpus.
+  //
+  // a2.26 did withdraw three of its carries (le billet, une réduction, la
+  // promotion), because those moved -et and -tion and it did not need them.
+  // Invariants §5's "withdraw rather than argue" was applied where it fit and
+  // not where it would have gutted the lesson.
+  version: 6,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it
