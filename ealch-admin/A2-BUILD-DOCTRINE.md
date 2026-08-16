@@ -46,8 +46,29 @@ seq  id      title                                        prereq          brief
 20   a2.23   Pronominaux au passé composé                 a2.22, a2.21    A2-23-PRONOMINAUX-PASSE
 ```
 
-Twelve units remain after these twenty: seq 21 to 32, the pronoun block and the
-situational block. They are not briefed yet.
+**Batch 3, seq 21 to 23.** The pronoun block. Briefed 2026-08-15 against a real probe
+(`scripts/_a2_preflight_pronouns.ts`), so unlike batches 1 and 2 these three carry
+measured corpus claims rather than assumptions.
+
+```
+seq  id      title (db)                     sub (db)                    prereq   brief
+21   a2.06   Direct Object Pronouns         Pronoms d'objet direct      a2.01    A2-06-PRONOMS-OBJET-DIRECT
+22   a2.24   Indirect Object Pronouns       Pronoms d'objet indirect    a2.06    A2-24-PRONOMS-OBJET-INDIRECT
+23   a2.25   The Pronouns Y and EN          Y et EN                     a2.24    A2-25-Y-ET-EN
+```
+
+All three write into **`pronoms-essentiels`** (486 published; `pronoms` bare is dead —
+Corrections §14.2), and they are a strict chain: build 21, then 22, then 23.
+
+**A2 runs to seq 35, not 32.** Measured against the spine 2026-08-15: `a2.33`
+Démonstratifs (33), `a2.34` Pronoms possessifs (34), `a2.35` Bilan A2 (35). **Twelve units
+remain after these twenty-three: seq 24 to 35**, the situational block plus comparatives,
+demonstratives, possessive pronouns and the capstone. They are not briefed yet.
+
+**Identity blocks in the batch-1 and batch-2 tables above are the spine's, and the spine
+disagrees with the database.** See `A2-BRIEF-CORRECTIONS.md` §1 and §11: the database
+`title` is English and its `sub` is the French name, and the spine's `sub` exists nowhere.
+Take yours from §11, from your own brief's measured Identity block, or from the probe.
 
 ---
 
