@@ -88,7 +88,8 @@
     "content:pronoms-direct": "tsx scripts/author-pronoms-direct-batch.ts",
     "content:pronoms-indirect": "tsx scripts/author-pronoms-indirect-batch.ts",
     "content:y-en": "tsx scripts/author-y-en-batch.ts",
-    "content:restaurant": "tsx scripts/author-restaurant-batch.ts"
+    "content:restaurant": "tsx scripts/author-restaurant-batch.ts",
+    "content:courses": "tsx scripts/author-courses-batch.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",

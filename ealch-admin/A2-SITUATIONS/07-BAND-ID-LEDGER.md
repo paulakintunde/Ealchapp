@@ -111,6 +111,25 @@ without a highest-id check seeing it. Two units in this band can land inside ano
 range without either collision guard noticing: a2.26 on payment ground and a2.29 on
 booking ground both touch restaurant-adjacent content.
 
+### Blocks confirmed on use
+
+| unit | theme | allocated | USED | held? |
+|---|---|---|---|---|
+| a2.07 | `au-restaurant` | `.132`–`.199` | `.132`–`.189` | yes |
+| a2.26 | `courses` | `.168`–`.239` | `.168`–`.204` | yes |
+| a2.26 | `argent-quotidien` | `.071`–`.100` | `.071`–`.086` | yes |
+| a2.26 | `quebec-et-francophonie` | (not allocated) | `.199`–`.200` | see below |
+
+**a2.26 took `fr.a2.quebec-et-francophonie.199`–`.200`**, following a2.07's
+convention rather than a ledger allocation: §3 allocates one author-into block
+per unit and the band's Quebec rows go to a shared theme. a2.07 took `.197` and
+`.198`; a2.26 took the next two. **The next unit to author a Quebec row starts
+at `.201`.** The cap of two authored Quebec rows per unit is the convention
+a2.07 set and a2.26 kept.
+
+Row counts after each apply moved by exactly the authored count in every theme,
+so nothing landed inside anybody's block.
+
 ## 4. The head of a2.07's block is frozen
 
 `fr.a2.au-restaurant.132` through `.137` are **the six repair-move rows**, authored
