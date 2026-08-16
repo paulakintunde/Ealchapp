@@ -163,7 +163,10 @@ const MASCULINE: EndingRule[] = [
     // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
     // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
     // The accuracy did not move.
-    items: 21,
+    // 21 until a2.28 « Chez le médecin » CARRIED `le médicament` into the
+    // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
+    // population; all 18 joiners are IMPORTS. The accuracy did not move.
+    items: 22,
     article: 'un',
     // Elided on the card, deliberately: the ending is the only thing that gives
     // the article back, which is the act after next, previewed here on a word
@@ -278,7 +281,10 @@ const FEMININE: EndingRule[] = [
     // two themes added is feminine, so the accuracy rose a point rather than
     // fell — the only taught ending whose percentage moved at all.
     accuracy: 97,
-    items: 29,
+    // 29 until a2.28 « Chez le médecin » CARRIED `la migraine` into the
+    // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
+    // population; all 18 joiners are IMPORTS. The accuracy did not move.
+    items: 30,
     article: 'une',
     example: { id: 'fr.a1.cuisine.001', fr: 'la cuisine', en: 'the kitchen' },
     sheetExamples: ['la piscine', 'la cantine', 'la farine', 'la cousine'],
@@ -407,7 +413,10 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
     // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
     // The accuracy did not move.
-    items: 919,
+    // 919 until a2.28 « Chez le médecin » CARRIED nine symptom and profession nouns into the
+    // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
+    // population; all 18 joiners are IMPORTS. The accuracy did not move.
+    items: 928,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -425,7 +434,10 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // 2026-08-16. Zero of that unit's 106 AUTHORED rows join this population;
     // every one of the 25 joiners is an IMPORT, which is a1.23's finding again.
     // The accuracy did not move.
-    items: 145,
+    // 145 until a2.28 « Chez le médecin » CARRIED `le frisson` into the
+    // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
+    // population; all 18 joiners are IMPORTS. The accuracy did not move.
+    items: 146,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -484,7 +496,7 @@ export const MORE_ENDINGS: SheetEnding[] = [
   // flipped. See the note on -e in WORTHLESS_ENDINGS for why a packaging
   // decision moves figures printed on cards.
   { ending: 'in', predicts: 'm', accuracy: 98, items: 46 },   // 45 until a2.27 carried `le chemin`, 2026-08-16
-  { ending: 'ent', predicts: 'm', accuracy: 97, items: 30 },  // 29 until a2.27 carried `l'abonnement`, 2026-08-16
+  { ending: 'ent', predicts: 'm', accuracy: 97, items: 31 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16
   { ending: 'ard', predicts: 'm', accuracy: 100, items: 18 }, // 17 until a2.27 carried `le retard`, 2026-08-16
   { ending: 'ant', predicts: 'm', accuracy: 100, items: 20 },   // 18 until a2.26, 2026-08-15
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 16 },

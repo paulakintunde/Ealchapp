@@ -1814,7 +1814,26 @@ export const GENRE_LESSON: Lesson = {
   // (la correspondance, le contrôleur, la ligne). Pruning any of them would
   // render a card blank in a transport lesson. Invariants §5's "withdraw rather
   // than argue" applies where it fits, and here it does not.
-  version: 7,
+  //
+  // v8, 2026-08-16. a2.28 « Chez le médecin » carried its imported symptom and
+  // profession nouns into the seed and moved FIVE printed counts: -e 919 -> 928,
+  // -ment 21 -> 22, -ine 29 -> 30, -on 145 -> 146, -ent 30 -> 31.
+  //
+  // NOT ONE ACCURACY MOVED, so every rule this lesson teaches is exactly as
+  // true as it was and only the counters changed.
+  //
+  // THIS IS THE THIRD CONSECUTIVE BUILD WITH THE SAME SHAPE, and the shape is
+  // now the finding rather than the incident: a2.26 moved five counts, a2.27
+  // moved eight, a2.28 moves five, and in ALL THREE the number of AUTHORED rows
+  // joining this population was ZERO. Every joiner has been an import. An
+  // authored-only guard cannot see this class of drift and four builds have now
+  // proved it. Measured through the real `endingPopulation` in
+  // `ealch-admin/scripts/_a228_genre_impact.ts`.
+  //
+  // Withdrawal did not fit here either: `la fièvre`, `la toux`, `le médicament`
+  // and `un médecin` are the vocabulary a doctor's-visit lesson exists to put in
+  // front of a learner, and every one of them is named by a card.
+  version: 8,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it
