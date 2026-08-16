@@ -67,7 +67,10 @@ function quizQs(): Array<Record<string, unknown>> {
 test('a2.26.l1 is in the seed, and the unit row points at it', () => {
   ok(LESSON, 'a2.26.l1 is missing from seed.json');
   strictEqual(LESSON.unitId, 'a2.26');
-  strictEqual(LESSON.seq, 25);
+  // The trail position is the UNIT's. `Lesson.seq` is the index within the
+  // unit, and this assertion originally asserted 25, which was the defect.
+  strictEqual(LESSON.seq, 1);
+  strictEqual(UNIT.seq, 25);
   strictEqual(LESSON.level, 'a2');
   deepStrictEqual(UNIT.lessonIds, ['a2.26.l1'], 'the unit row must name exactly this lesson');
   // One lesson per unit, band-wide (collation §C6). `den.tsx:169` opens
@@ -578,4 +581,19 @@ test('nothing this lesson carries moves a1.03\'s ending population', () => {
     ok(!named.has(id), `${id} is named again; it moves a1.03's ending counts and was pruned for that reason`);
     ok(!ITEMS.has(id), `${id} is back in the seed; the merge script's PRUNE list did not run`);
   }
+});
+
+test('the header tag agrees with the seq the renderer computes from', () => {
+  // FOUND ON DEVICE. The mission header read « courses », because `tag` shipped
+  // as a slug. `missions.ts` draws `${level} · LEÇON ${unit.seq}` at render
+  // time and `tag` is the stored fallback, so all 65 other lessons show a
+  // formatted label and this one showed a lowercase word.
+  //
+  // a1-10-meteo.test.ts documents the same class of bug from the other
+  // direction: a1.03 shipped LEÇON 03 at seq 5 and the header drew LEÇON 05.
+  strictEqual(LESSON.tag, `A2 · LEÇON ${String(UNIT.seq).padStart(2, '0')}`);
+  // `Lesson.seq` is the index WITHIN the unit, not the trail position. This
+  // unit has one lesson, so it is 1. It shipped as 25 alongside the tag defect.
+  strictEqual(LESSON.seq, 1);
+  strictEqual(UNIT.seq, 25, 'the trail position lives on the UNIT, not the lesson');
 });

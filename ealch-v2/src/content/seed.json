@@ -194840,9 +194840,9 @@
     {
       "id": "a2.26.l1",
       "unitId": "a2.26",
-      "seq": 25,
+      "seq": 1,
       "level": "a2",
-      "tag": "courses",
+      "tag": "A2 · LEÇON 25",
       "version": 1,
       "title": "Shopping and Money",
       "intro": "You have been taught how to ask for things. This one is about the number that comes back at you, once, at her speed.",
@@ -196125,7 +196125,7 @@
           "rows": [
             {
               "cells": [
-                "...dix-sept euros trente",
+                "…dix-sept euros trente",
                 "17,30",
                 "trente is cents"
               ],
@@ -196138,9 +196138,9 @@
             },
             {
               "cells": [
-                "...quarante-deux euros",
+                "…quarante-deux",
                 "42,00",
-                "nothing follows"
+                "euros, then nothing"
               ],
               "say": "Le total est de quarante-deux euros.",
               "detail": {
@@ -196151,7 +196151,7 @@
             },
             {
               "cells": [
-                "...six euros quatre-vingt-quinze",
+                "…six euros quatre-vingt-quinze",
                 "6,95",
                 "cents run longer"
               ],
@@ -196164,7 +196164,7 @@
             },
             {
               "cells": [
-                "...cinquante euros pile",
+                "…cinquante euros pile",
                 "50,00",
                 "pile ends it"
               ],
@@ -196177,7 +196177,7 @@
             },
             {
               "cells": [
-                "...dix-neuf euros quatre-vingt-dix",
+                "…dix-neuf euros quatre-vingt-dix",
                 "19,90",
                 "two nineties"
               ],
@@ -196190,7 +196190,7 @@
             },
             {
               "cells": [
-                "...deux euros quarante",
+                "…deux euros quarante",
                 "2,40",
                 "the short one"
               ],

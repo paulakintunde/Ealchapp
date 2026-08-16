@@ -360,32 +360,39 @@ const S_TAIL: LessonSection = {
   cols: ['she says', 'on paper', 'the trap'],
   rows: [
     {
-      cells: ['...dix-sept euros trente', '17,30', 'trente is cents'],
+      cells: ['…dix-sept euros trente', '17,30', 'trente is cents'],
       say: 'Ça fait dix-sept euros trente.',
       detail: { title: 'The bare cents', body: 'a1.28 §15 taught this: no word for centimes, no et joining the halves, and the only clue the price has finished is that she stops. Here the run starts mid-sentence, so there is no pause in front of it either.', say: 'Ça fait dix-sept euros trente.' },
     },
     {
-      cells: ['...quarante-deux euros', '42,00', 'nothing follows'],
+      // FOUND ON DEVICE. This cell read '...quarante-deux euros' and the first
+      // column is narrow enough that the renderer character-broke the token
+      // « quarante-deux » into « quaran / te-deux », mid-word and with no
+      // hyphen shown. It was the only bad break in three six-row tapTables.
+      // Shortening the cell gives the layout room to break at the real hyphen,
+      // and the currency word moves into the trap column, where it carries the
+      // teaching better anyway: the point is the silence AFTER euros.
+      cells: ['…quarante-deux', '42,00', 'euros, then nothing'],
       say: 'Le total est de quarante-deux euros.',
       detail: { title: 'No cents at all', body: 'When the sentence ends on the currency word there are no cents. The silence after euros is information, and it is the only kind of pause the price gives you.', say: 'Le total est de quarante-deux euros.' },
     },
     {
-      cells: ['...six euros quatre-vingt-quinze', '6,95', 'cents run longer'],
+      cells: ['…six euros quatre-vingt-quinze', '6,95', 'cents run longer'],
       say: 'Ça fait six euros quatre-vingt-quinze.',
       detail: { title: 'The cents outrun the euros', body: 'Two syllables of euros and five of cents. a1.27 already ran quatre-vingt-quinze against quatre-vingt-dix-neuf at speed; the difference here is that you are past the currency word before it starts.', say: 'Ça fait six euros quatre-vingt-quinze.' },
     },
     {
-      cells: ['...cinquante euros pile', '50,00', 'pile ends it'],
+      cells: ['…cinquante euros pile', '50,00', 'pile ends it'],
       say: 'Ça fait cinquante euros pile.',
       detail: { title: 'The word that closes it', body: 'Pile means on the nose. It is the one word that tells you no cents are coming, so you can stop listening a syllable early.', say: 'Ça fait cinquante euros pile.' },
     },
     {
-      cells: ['...dix-neuf euros quatre-vingt-dix', '19,90', 'two nineties'],
+      cells: ['…dix-neuf euros quatre-vingt-dix', '19,90', 'two nineties'],
       say: 'Ça vous fait dix-neuf euros quatre-vingt-dix.',
       detail: { title: 'Nineteen and ninety in one breath', body: 'Dix-neuf and quatre-vingt-dix both end on a form of ten, and the currency word between them is the only thing separating the euros from the cents.', say: 'Ça vous fait dix-neuf euros quatre-vingt-dix.' },
     },
     {
-      cells: ['...deux euros quarante', '2,40', 'the short one'],
+      cells: ['…deux euros quarante', '2,40', 'the short one'],
       say: 'Alors, deux baguettes, ça fait deux euros quarante.',
       detail: { title: 'The order counted back first', body: 'She lists what you bought before she gives the figure. Alors and the list are your warning that a number is next, and it is the only warning a French counter offers.', say: 'Alors, deux baguettes, ça fait deux euros quarante.' },
     },
@@ -1176,9 +1183,24 @@ const ERROR_TRIGGERS = [
 export const COURSES_LESSON: Lesson = {
   id: LESSON_ID,
   unitId: UNIT.id,
-  seq: UNIT.seq,
+  // `Lesson.seq` is the lesson's index WITHIN its unit, not its trail position.
+  // Every shipped lesson is 1 except a1.30.l2 and a2.10.l2, which are 2, and
+  // `lessonsOf` sorts siblings by it (app/lessonoverview.tsx:51).
+  seq: 1,
   level: 'a2',
-  tag: 'courses',
+  // FOUND ON DEVICE: the mission header read « courses ».
+  //
+  // `missions.ts` draws `${level} · LEÇON ${unit.seq}` at render time and `tag`
+  // is the stored fallback, so a slug here shows the learner a lowercase word
+  // where all 65 other lessons show a formatted label. a1-10-meteo.test.ts
+  // documents the same class of bug: a1.03 shipped LEÇON 03 at seq 5 and the
+  // header above it drew LEÇON 05.
+  //
+  // a2.07 carries the identical defect (`restaurant`, and seq 24) and is
+  // already live at rollout 10. Reported rather than fixed here: it is another
+  // unit's shipped content and it needs the publish decision that 42-FIX-PLAN
+  // step 2 owns.
+  tag: 'A2 · LEÇON 25',
   version: 1,
   title: UNIT.title,
   intro: 'You have been taught how to ask for things. This one is about the number that comes back at you, once, at her speed.',
