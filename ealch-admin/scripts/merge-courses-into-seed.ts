@@ -59,6 +59,17 @@ const OMIT_IF_NULL = [
   'cardType', 'prompt', 'skill', 'register', 'verbCheck', 'grammarPoints',
 ];
 
+/** An optional field is dropped when it is null, undefined OR AN EMPTY ARRAY.
+ *  The empty-array case was found by the v50 publish: this script wrote
+ *  `grammarPoints: []` on 183 carried rows where the canonical generator
+ *  (`publish-content.ts`) omits the key entirely. Nothing broke — the field is
+ *  optional — but the seed carried 183 rows that differed from what a publish
+ *  would produce, which is exactly the source/generated drift seed.json exists
+ *  to avoid. The publish has since normalised them. This keeps a re-run from
+ *  putting them back. */
+const isEmpty = (v: unknown): boolean =>
+  v === null || v === undefined || (Array.isArray(v) && v.length === 0);
+
 const MY_THEMES = [THEME, MONEY_THEME, QC_THEME];
 
 async function main() {
@@ -99,7 +110,7 @@ async function main() {
     // other row in the file. Both halves matter and a2.07 hit both.
     carried = r.rows.map(({ status, ...rest }) => {
       const row: Record<string, unknown> = { ...rest, drills: toArray(rest.drills) };
-      for (const k of OMIT_IF_NULL) if (row[k] === null || row[k] === undefined) delete row[k];
+      for (const k of OMIT_IF_NULL) if (isEmpty(row[k])) delete row[k];
       row.audioRef = row.audioRef ?? null;
       return row as Item;
     });
@@ -168,7 +179,7 @@ async function main() {
   for (const it of byId.values()) {
     if (!MY_THEMES.includes(it.theme ?? '')) continue;
     const row = it as Record<string, unknown>;
-    for (const k of OMIT_IF_NULL) if (row[k] === null) { delete row[k]; sanitised++; }
+    for (const k of OMIT_IF_NULL) if (isEmpty(row[k])) { delete row[k]; sanitised++; }
   }
   if (sanitised) console.log(`  sanitised ${sanitised} null optional field(s) written by an earlier run`);
 
