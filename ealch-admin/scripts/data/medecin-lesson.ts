@@ -404,7 +404,7 @@ const S_PAIRS: LessonSection = {
  *  repeat gets you the same question again. When the missing word is a symptom,
  *  no amount of repetition supplies it, because the word is not in the room. */
 const S_REPAIR: LessonSection = {
-  type: 'cardDeck', id: REPAIR, title: 'When Asking Again Will Not Help', frSub: 'Redemander, ou décrire',
+  type: 'cardDeck', id: REPAIR, title: 'Asking Again Will Not Help', frSub: 'Redemander, ou décrire',
   render: 'deck', layer: 'core', size: 'lg', terms: ['rung', 'describeAround'],
   say: `${REPAIR_UNIT} authored six ways to ask again, once, for the whole band, and this lesson adds none of them. What it adds is the case where asking again gets you nothing.`,
   audio: { ...FR, recordingId: 'rec-a2-28-repair' },
@@ -511,7 +511,7 @@ const S_DOSE: LessonSection = {
  *  far apart, so the contrast is safe to score. A numeral written two ways
  *  would fold together and none is authored. */
 const S_DOSETRAP: LessonSection = {
-  type: 'trapDrill', id: DOSETRAP, title: 'Three Times, Or Every Three Hours', frSub: 'Le piège de la posologie',
+  type: 'trapDrill', id: DOSETRAP, title: 'Three Times, Or Eight', frSub: 'Le piège de la posologie',
   layer: 'core', swipe: true, terms: ['dosage'],
   say: 'Four pairs that share a word and mean different amounts. This is the one place in the app where getting it wrong matters outside the app.',
   audio: { ...FR, recordingId: 'rec-a2-28-dosetrap' },
@@ -560,7 +560,7 @@ const S_DOSETRAP: LessonSection = {
  *  It ends on French the learner can USE, which is what makes it teaching
  *  rather than a notice. */
 const S_NOTMEDICAL: LessonSection = {
-  type: 'cardDeck', id: NOTMEDICAL, title: 'Understanding It, And Deciding It', frSub: 'Deux choses différentes',
+  type: 'cardDeck', id: NOTMEDICAL, title: 'Understanding, Not Deciding', frSub: 'Deux choses différentes',
   render: 'deck', layer: 'more', size: 'lg', terms: ['dosage'],
   say: 'One card, and then back to the French.',
   cards: [
@@ -632,7 +632,7 @@ const S_ORDONNANCE: LessonSection = {
  *  The design doc planned a whole `examples` section of France/Quebec service
  *  pairs and it was overruled to this one card. */
 const S_QUEBEC: LessonSection = {
-  type: 'cardDeck', id: QUEBEC, title: 'The Same Words, A Different System', frSub: 'Au Québec',
+  type: 'cardDeck', id: QUEBEC, title: 'Same Words, Other System', frSub: 'Au Québec',
   render: 'deck', layer: 'more', size: 'lg', terms: ['ordonnance'],
   say: 'One card. Nothing here is ever the answer to a question in this lesson.',
   cards: [
@@ -729,7 +729,7 @@ const S_PHARMA: LessonSection = {
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const S_REVIEW: LessonSection = {
-  type: 'reviewDeck', id: REVIEW, title: 'The Three Shapes, And The Way Out', frSub: 'Révision',
+  type: 'reviewDeck', id: REVIEW, title: 'Three Shapes, One Way Out', frSub: 'Révision',
   render: 'deck', layer: 'core', terms: ['construction', 'describeAround'],
   say: 'His half and yours, one last time.',
   cards: [

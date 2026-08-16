@@ -155,7 +155,7 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
 ];
 
 const S_SCENE: LessonSection = {
-  type: 'scene', id: SCENE, title: 'The Answer You Could Not Hold', frSub: 'La réponse qui ne s\'arrête pas',
+  type: 'scene', id: SCENE, title: 'The Reply That Ran Past You', frSub: 'La réponse qui ne s\'arrête pas',
   render: 'screens', layer: 'core', terms: ['move', 'joint'],
   say: 'You have been taught how to ask where things are. Nobody has taught you what comes back.',
   setting: { place: 'The concourse at the foot of the escalators, at rush hour', city: 'Lyon', time: 'Thursday, half past six' },
@@ -287,7 +287,7 @@ const S_JOINTS: LessonSection = {
  *  are here because neither has a one-word English equivalent, which is the
  *  reason a learner drops them and loses a whole move. */
 const S_VERBS: LessonSection = {
-  type: 'tapTable', id: VERBS, title: 'The Verbs, And What They Do To You', frSub: 'Les verbes du trajet',
+  type: 'tapTable', id: VERBS, title: 'What The Verbs Actually Do', frSub: 'Les verbes du trajet',
   layer: 'core', terms: ['move', 'chain'],
   say: 'Four of these mean go. Sorting a direction by its verb sorts it by nothing, which is why the four kinds of move come first.',
   audio: { ...FR, recordingId: 'rec-a2-27-verbs' },
@@ -675,7 +675,7 @@ const S_ANNONCE: LessonSection = {
  *  which street", and that question is built out of this unit's own ordinal
  *  content rather than out of a repair formula. */
 const S_REPAIR: LessonSection = {
-  type: 'cardDeck', id: REPAIR, title: 'Asking For The Piece You Missed', frSub: 'Redemander, mais quoi',
+  type: 'cardDeck', id: REPAIR, title: 'Ask For The Piece You Lost', frSub: 'Redemander, mais quoi',
   render: 'deck', layer: 'core', size: 'lg', terms: ['rung', 'ordinal'],
   say: `${REPAIR_UNIT} authored six ways to ask again, once, for the whole band, and this lesson adds none of them. What it adds is the case where you only lost one word.`,
   audio: { ...FR, recordingId: 'rec-a2-27-repair' },
