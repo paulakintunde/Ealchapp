@@ -46,6 +46,7 @@
 // to the publish step, which is not part of a lesson build.
 import './env';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { measureGenreImpact, reportGenreImpact } from './lib/genre-impact.ts';
 import { ALL_ROWS, UNIT, THEME, REPAIR_IDS, LADDER_IDS, IMPORT_ONLY_THEMES } from './data/travail-metiers-corpus.ts';
 import { LESSON, ITEM_IDS } from './data/travail-metiers-lesson.ts';
 
@@ -174,6 +175,31 @@ async function main() {
   }
   unit.lessonIds = [...new Set([...(unit.lessonIds ?? []), LESSON.id])];
 
+  // a1.03's PRINTED ENDING FIGURES, MEASURED BEFORE THIS WRITES.
+  //
+  // Thirty of the sixty-one merge scripts carry this check and thirty-one do
+  // not, and EVERY script in the A2 situational band was in the second group.
+  // That is the whole explanation for a1.03 having been re-rendered six times
+  // in this band without a single build being warned in advance.
+  //
+  // THIS BUILD IS THE SEVENTH, AND IT PAID FOR THE GAP. a2.30 moved three
+  // figures (-e 933->946 and 70%->71%, -ure 26->28, -euse 7->8), reconciled
+  // `genre-endings.ts`, and did NOT re-render a1.03 — leaving seven stale
+  // strings on the shipped card under an unchanged version. Nothing failed:
+  // `a1-03-genre.test.ts` compares the CONSTANTS to `seed.items` and never
+  // reads the rendered body. Had this warning fired on the first merge, the
+  // remedy it prints below is exactly what was eventually done by hand.
+  //
+  // It WARNS rather than dies, because in a2.26, a2.27 and a2.28 every joiner
+  // was a carried import named by a card, and a hard gate would block correct
+  // work. a2.30 is the first in the band where part of the contribution was
+  // authored: eight minted feminines plus five carried.
+  reportGenreImpact(measureGenreImpact(
+    JSON.parse(readFileSync(SEED, 'utf8')).items,
+    seed.items,
+    ALL_ROWS.map((r) => r.id),
+  ));
+
   writeFileSync(SEED, `${JSON.stringify(seed, null, 2)}\n`, 'utf8');
 
   // Read back and prove it: every id the lesson names resolves to an item in
@@ -191,7 +217,14 @@ async function main() {
   console.log(`  every one of the ${ITEM_IDS.length} ids the lesson names resolves in this file`);
   console.log(`  a2.07's six repair rows and all ${LADDER_IDS.length} ladder rows are in the seed and citable`);
   console.log(`  seed.version left at ${after.version} (the publish step owns it)`);
-  console.log('\n  NEXT: reconcile genre-endings.ts (-euse, -ure, -e) and re-run the suite.\n');
+  // NOT a hardcoded list of endings. The three this build moved (-e, -ure,
+  // -euse) are already reconciled and a1.03 is re-rendered at v11, so naming
+  // them here would send the next runner to fix something already fixed. The
+  // genre-impact report above is the live answer: if it says "unmoved", there
+  // is nothing to do.
+  console.log('\n  NEXT: re-run the suite. If the a1.03 report above says its figures MOVED,');
+  console.log('  follow the remedy it printed BEFORE committing, or the shipped card and its');
+  console.log('  source end up as two bodies under one version.\n');
 }
 
 main();

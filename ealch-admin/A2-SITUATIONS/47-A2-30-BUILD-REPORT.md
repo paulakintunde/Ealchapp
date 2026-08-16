@@ -187,6 +187,45 @@ same three endings, same numbers:
 note on each, matching the convention a2.26/a2.27/a2.28 already left in that
 file. a1.03 back to **35/35**.
 
+### AND THAT WAS ONLY HALF THE OPERATION. The half that has no test.
+
+**Reconciling `genre-endings.ts` was not enough, and this build shipped the gap
+before catching it.** `genre-lesson.ts` RENDERS a1.03's card body from those
+same constants (`:392`, `:499`), so changing the constants without re-rendering
+leaves the shipped card printing the old numbers:
+
+| the card said | the source said |
+|---|---|
+| "Over the **933** nouns … right **70%** of the time" | 946 … 71% |
+| "Ten endings, **326** nouns between them" | 328 |
+| `-ure` **26** nouns | 28 |
+| `-euse` **7** | 8 |
+
+**Seven strings, two bodies, ONE VERSION** — precisely the drift `genre-lesson.ts`'s
+own v10 note warns about ("the drift this project has lost work to twice").
+
+**Nothing failed.** `a1-03-genre.test.ts` passed 35/35 throughout, because it
+compares the CONSTANTS to `seed.items` and never reads the rendered body; its
+"once published, the seed copy matches what was authored" test checks `version`,
+section/act/drill/sheet counts and the section-id spine, and no body text at
+all. **There is no test in the repo that catches this**, and a naive "get the
+suite green" pass would have shipped it with full confidence.
+
+Fixed by completing the operation the way `7404b7d` (a2.26) and `58bcc9e`
+(a2.29) both did it: **`genre-lesson.ts` bumped to v11** with the reason
+in-source, `pnpm content:gender`, `merge-noun-gender-into-seed.ts`. Verified by
+a **source-vs-seed string diff**, which went 7 → **0**. That diff, not the test
+suite, is the check — and it is now the last step of §4's protocol for anyone
+who moves a printed figure.
+
+**The warning that would have caught it now exists and is wired in.**
+`scripts/lib/genre-impact.ts` measures a1.03's printed figures BEFORE a merge
+writes and reports which rows joined, split by authored vs carried. It was
+missing from all six A2 situational merge scripts, which is the whole
+explanation for a1.03 having been re-rendered six times in this band with nobody
+warned in advance. `merge-travail-metiers-into-seed.ts` now carries it and
+reports `a1.03 ending figures: unmoved (population 1964)` on a re-run.
+
 Two things worth carrying forward:
 
 - **A carry moves a population even when an authoring does not.** Two thirds of

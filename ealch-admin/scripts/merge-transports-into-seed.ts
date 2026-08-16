@@ -30,6 +30,7 @@
 // the publish step, which is not part of a lesson build.
 import './env';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { measureGenreImpact, reportGenreImpact } from './lib/genre-impact.ts';
 import { ALL_ROWS, UNIT, THEME, QC_THEME, REPAIR_IDS } from './data/transports-corpus.ts';
 import { LESSON, ITEM_IDS } from './data/transports-lesson.ts';
 
@@ -154,6 +155,21 @@ async function main() {
   if ((unit.themes ?? []).includes('transport')) die("the seed unit row still carries the phantom theme 'transport'");
   unit.lessonIds = [...new Set([...(unit.lessonIds ?? []), LESSON.id])];
 
+  // a1.03's PRINTED ENDING FIGURES, MEASURED BEFORE THIS WRITES.
+  //
+  // Thirty of the sixty-one merge scripts carry this check and thirty-one do
+  // not, and EVERY script in the A2 situational band was in the second group.
+  // That is the whole reason a1.03 has been re-rendered six times in this band
+  // with no build warned in advance. See scripts/lib/genre-impact.ts.
+  //
+  // It WARNS rather than dies: in a2.26, a2.27 and a2.28 the authored
+  // contribution was zero every time and every joiner was a carried import
+  // named by a card, so a hard gate would block correct work.
+  reportGenreImpact(measureGenreImpact(
+    JSON.parse(readFileSync(SEED, 'utf8')).items,
+    seed.items,
+    ALL_ROWS.map((r) => r.id),
+  ));
   writeFileSync(SEED, `${JSON.stringify(seed, null, 2)}\n`, 'utf8');
 
   // Read back and prove it. THE ASSERTION THE COLLATION ASKED FOR: every id the

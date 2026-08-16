@@ -16,11 +16,17 @@
 //   author-noun-gender-batch.ts    → Postgres   (needs DATABASE_URL)
 //   merge-noun-gender-into-seed.ts → seed.json  (no DB, runs anywhere)
 //
-// A publish today would still destroy content unrelated to this lesson. Run
-// `pnpm content:parity` and it says so: sons.09.l1 is in the seed and not in
-// Postgres, so regenerating the seed from the database deletes the masterclass.
-// Merging touches this lesson and its unit, and nothing else, which is the only
-// safe move while that split is open.
+// A publish regenerates seed.json FROM the database, so anything that is
+// seed-only is deleted by one. Merging touches this lesson and its unit and
+// nothing else, which is the safe move whether or not such a split is open.
+//
+// This file used to assert that `sons.09.l1` was seed-only and would be
+// destroyed. THAT WAS TRUE WHEN WRITTEN AND IS NOT TRUE NOW: `content:parity`
+// on 2026-08-16 reports 71 lessons in both, with only `b2.01.l1` database-only
+// and `in_review`. A hardcoded claim about publish safety goes stale silently
+// and talks the next author out of a publish that is actually fine, so the
+// claim has been replaced by the instruction to run parity. THIS SCRIPT HAS NO
+// DATABASE CONNECTION BY DESIGN and genuinely cannot know the answer itself.
 //
 // ── The hazard this script is careful about (incident 2026-07-31) ──────────
 //
@@ -272,8 +278,8 @@ console.log(
   `\n` +
   `\n  a1.03.l1 is now in BOTH Postgres and the seed, so this lesson is safe.` +
   `\n` +
-  `\n  STILL OPEN, and unrelated to this lesson: sons.09.l1 is in the seed and` +
-  `\n  NOT in Postgres. \`pnpm content:publish\` regenerates seed.json from the` +
-  `\n  database and would delete it. Run \`pnpm content:parity\` before anyone` +
-  `\n  publishes.\n`
+  `\n  BEFORE ANY PUBLISH, run \`pnpm content:parity\`. \`content:publish\`` +
+  `\n  regenerates seed.json from the database, so anything seed-only is DELETED` +
+  `\n  by one. This script has no database connection by design, so it cannot` +
+  `\n  tell you whether that is true today — only parity can.\n`
 );
