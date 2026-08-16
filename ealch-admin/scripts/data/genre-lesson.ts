@@ -1865,7 +1865,40 @@ export const GENRE_LESSON: Lesson = {
   // to Postgres when the flashcard repair carried `la douche` into the seed, so
   // correcting under v9 would have left TWO BODIES UNDER ONE VERSION, which is
   // the drift this project has lost work to twice. The counter moves instead.
-  version: 10,
+  //
+  // v11, 2026-08-16, a2.30 « Le travail & les métiers ». THIRTEEN joiners, and
+  // for the first time in this band SOME OF THEM WERE AUTHORED. a2.30 owns the
+  // A2 band's feminisation rule (collation C4) and minted EIGHT feminine job
+  // titles — `une coiffeuse`, `une traductrice`, `une informaticienne`,
+  // `une ouvrière`, `une mécanicienne`, `une pâtissière`, `une jardinière`,
+  // `une factrice` — plus FIVE carried: `une pharmacienne`, `une infirmière`,
+  // `une employée`, `une professeure`, `une ingénieure`. Every one of the
+  // thirteen ends in -e, and all thirteen are feminine.
+  //
+  // So a1.23's "an import is not inert" holds for the fifth consecutive build,
+  // and this time the authored half is not zero. Three figures moved:
+  //
+  //   -e     933 -> 946   AND 70% -> 71%.  The only accuracy this band has
+  //                       moved UPWARD, because all thirteen joiners are
+  //                       feminine. Still 19 points under the 90% floor, so the
+  //                       lesson's dismissal of -e is unchanged.
+  //   -ure    26 ->  28   `professeure` and `ingénieure`, both CARRIED, both
+  //                       -eure. 100% either way.
+  //   -euse    7 ->   8   `une coiffeuse`, MINTED. 100% either way.
+  //
+  // Withdrawal does not fit, for the same reason as v10: the eight minted rows
+  // ARE the feminisation rule this unit owns for seven other units, and each is
+  // half of a pair whose masculine is an existing `metiers` row.
+  //
+  // THE FAILURE THIS BUMP EXISTS TO PREVENT, met for real: `genre-endings.ts`
+  // was reconciled on its own and a1.03 was NOT re-rendered, leaving 933/70%,
+  // 326, 26 and 7 on the shipped card while the source said 946/71%, 328, 28
+  // and 8. SEVEN STRINGS, TWO BODIES, ONE VERSION — precisely the drift the v10
+  // note above warns about. `a1-03-genre.test.ts` passed 35/35 throughout,
+  // because it compares the CONSTANTS to `seed.items` and never reads the
+  // rendered card. Nothing in the repo catches it; the check is a source-vs-seed
+  // string diff, and it belongs in the build report of whoever moves a figure.
+  version: 11,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it

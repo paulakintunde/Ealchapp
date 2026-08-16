@@ -260,7 +260,15 @@ const FEMININE: EndingRule[] = [
     predicts: 'f',
     accuracy: 100,
     // 26 since 2026-08-09, same cause as -ier above. Still 100%.
-    items: 26,
+    //
+    // 28 since a2.30 CARRIED `une professeure` (fr.a2.examens-et-diplomes.058)
+    // and `une ingénieure` (fr.b2.decouvertes.152) into the seed on 2026-08-16.
+    // Neither was authored: a2.30 owns the band's feminisation rule and its
+    // first clause is IMPORT BEFORE YOU MINT, so both are existing rows pulled
+    // in by the merge because the lesson references them. Both end -eure, which
+    // ends -ure. The accuracy did not move and both are feminine, so the rule
+    // is unaffected in every respect except its count.
+    items: 28,
     article: 'une',
     example: { id: 'fr.a1.deplacements.018', fr: 'la voiture', en: 'the car' },
     sheetExamples: ['la confiture', 'la peinture', 'la ceinture', 'la couverture'],
@@ -351,7 +359,8 @@ export type WorthlessEnding = {
 export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
   {
     ending: 'e',
-    accuracy: 70,
+    // 70 until a2.30 on 2026-08-16. See the note above `items` below.
+    accuracy: 71,
     // 871 until a1.11 authored `une chambre` and `une avocate` into the shared
     // corpus on 2026-08-05, and 873 until a1.22 IMPORTED twenty-four country and
     // nationality headwords on 2026-08-07. Seven of those twenty-four end in -e:
@@ -439,7 +448,16 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // drill array moved a1.03's printed count, which is the carry finding one
     // step further out: it was not an authoring, and it was not even an import
     // the lesson chose — it was a row becoming reachable.
-    items: 933,
+    // 946 since a2.30 landed on 2026-08-16: eight MINTED feminine job titles
+    // (coiffeuse, traductrice, informaticienne, ouvrière, mécanicienne,
+    // pâtissière, jardinière, factrice) plus five CARRIED ones (pharmacienne,
+    // infirmière, employée, professeure, ingénieure). Every one ends in -e.
+    // THE ACCURACY MOVED, 70 -> 71, and this is the only pinned figure in this
+    // file that a2.30 changed by more than a count: thirteen new rows are all
+    // feminine, which nudges a bucket the lesson calls worthless very slightly
+    // more feminine. It is still 19 points under the 90% floor, so it stays
+    // correctly filed as worthless and the lesson's claim about it is unchanged.
+    items: 946,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -541,7 +559,7 @@ export const MORE_ENDINGS: SheetEnding[] = [
   { ending: 'ance', predicts: 'f', accuracy: 100, items: 11 },// 10 until a2.27 carried `la correspondance`, 2026-08-16
   { ending: 'sion', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
-  { ending: 'euse', predicts: 'f', accuracy: 100, items: 7 },    // 6 until a2.26 carried la vendeuse
+  { ending: 'euse', predicts: 'f', accuracy: 100, items: 8 },    // 6 until a2.26 carried la vendeuse; 8 since a2.30 MINTED une coiffeuse, 2026-08-16
 ];
 
 /** The floor an ending has to clear to be written down at all, in the flow or

@@ -661,8 +661,14 @@ test('no cardDeck carries itemIds: only practice reads it', () => {
  *
  *  So a2.29 is the FIRST lesson in the product to set it, and the exam-skill
  *  deep-link has had no lesson to resolve to until now. That is worth knowing
- *  and it is not a defect. Anything else new still fails. */
-const NEW_BUT_READ = new Set(['skill']);
+ *  and it is not a defect. Anything else new still fails.
+ *
+ *  EMPTIED 2026-08-16 by the a2.30 build, which is the event the test below
+ *  was written to detect: a2.30.l1 sets `skill: 'PO'`, so `skill` is no longer
+ *  unique to this lesson and no longer needs an exemption. Emptying the set
+ *  makes the first test STRICTER rather than weaker, which is why this is the
+ *  one edit a neighbouring build may make to this file. */
+const NEW_BUT_READ = new Set<string>([]);
 
 test('the lesson carries no field the shipped corpus does not, except a named one', () => {
   const others = S.lessons.filter((l) => l.id !== LESSON.id);

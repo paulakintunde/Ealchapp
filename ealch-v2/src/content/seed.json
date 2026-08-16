@@ -1052,7 +1052,9 @@
       "themes": [
         "metiers"
       ],
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.30.l1"
+      ],
       "prereqUnitIds": [
         "a1.06"
       ]
@@ -25239,7 +25241,7 @@
               "head": "Nouns ending in e are feminine",
               "fr": "la table · la porte · la voiture",
               "sub": "three that obey it",
-              "body": "You have almost certainly been given this one. Over the 933 nouns in this app that end in e, it is right 70% of the time."
+              "body": "You have almost certainly been given this one. Over the 946 nouns in this app that end in e, it is right 71% of the time."
             },
             {
               "label": "What that costs",
@@ -25285,8 +25287,8 @@
             {
               "cells": [
                 "-e",
-                "70%",
-                "933"
+                "71%",
+                "946"
               ],
               "say": "le livre, la table",
               "detail": {
@@ -25343,7 +25345,7 @@
             ],
             "recordingId": "rec-a1-03-endings"
           },
-          "say": "Ten endings, 326 nouns between them, right 97 times in a hundred. Tap a row for what breaks it.",
+          "say": "Ten endings, 328 nouns between them, right 97 times in a hundred. Tap a row for what breaks it.",
           "cols": [
             "Ending",
             "Takes",
@@ -25437,7 +25439,7 @@
               "say": "la voiture",
               "detail": {
                 "title": "-ure",
-                "body": "No exception. The final e does the work: le mur ends in -ur and takes un. Worked example: la voiture, the car. 26 nouns here end this way.",
+                "body": "No exception. The final e does the work: le mur ends in -ur and takes un. Worked example: la voiture, the car. 28 nouns here end this way.",
                 "say": "la voiture"
               }
             },
@@ -26898,7 +26900,7 @@
         "fr.a1.objets.149",
         "fr.a1.dictee.262"
       ],
-      "version": 10,
+      "version": 11,
       "grammarAssumed": [
         "Gender agreement on the number one: un / une"
       ],
@@ -27279,7 +27281,7 @@
                   "-ure",
                   "une",
                   "100%",
-                  "26",
+                  "28",
                   "le mur"
                 ],
                 [
@@ -27399,7 +27401,7 @@
                   "-euse",
                   "une",
                   "100%",
-                  "7"
+                  "8"
                 ]
               ]
             },
@@ -206262,6 +206264,2606 @@
         "minutes": 26,
         "difficulty": 3
       }
+    },
+    {
+      "id": "a2.30.l1",
+      "unitId": "a2.30",
+      "seq": 1,
+      "title": "Work and Jobs",
+      "level": "a2",
+      "tag": "A2 · LEÇON 29",
+      "intro": "Somebody asks what you do. You answer in four words, correctly, and then the room waits. This lesson is the three sentences that come after the first one, and the question at the end that hands the conversation back.",
+      "skill": "PO",
+      "grammarAssumed": [
+        "a1.06",
+        "a2.18",
+        "a1.05",
+        "a2.04",
+        "a2.01",
+        "a2.22",
+        "a2.13"
+      ],
+      "grammarIntroduced": [
+        "the four-move answer",
+        "the hand-back question",
+        "feminine job titles",
+        "the spoken question forms of work"
+      ],
+      "overview": {
+        "titleEn": "Work and Jobs",
+        "subFr": "Le travail & les métiers",
+        "introFr": "Quatre mouvements, et le dernier rend la parole.",
+        "minutes": 32,
+        "difficulty": 3,
+        "glyph": "💼",
+        "screens": 90
+      },
+      "reframe": "The first sentence is the anchor, not the answer.",
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The answer that stopped at one sentence",
+          "sections": [
+            "s01-scene",
+            "s02-fourmoves",
+            "s03-goals",
+            "s04-twoanswers"
+          ],
+          "milestone": "You can name the four moves and say why one sentence is not an answer",
+          "estScreens": 14,
+          "restPoints": [
+            "s04-twoanswers"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Moves 1 and 2, which you already have",
+          "sections": [
+            "s05-anchor",
+            "s06-jobwords",
+            "s07-duration",
+            "s08-build2"
+          ],
+          "milestone": "You can join the anchor to how long, for your own job",
+          "estScreens": 16,
+          "restPoints": [
+            "s08-build2"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Move 3, and what a workplace actually is",
+          "sections": [
+            "s09-daily",
+            "s10-workplace",
+            "s11-fem",
+            "s12-listen",
+            "s13-build3",
+            "s14-hook"
+          ],
+          "milestone": "You can describe one real part of your day, and hand the question back",
+          "estScreens": 22,
+          "restPoints": [
+            "s12-listen",
+            "s14-hook"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Three ways it comes apart",
+          "sections": [
+            "s15-trap",
+            "s16-errors",
+            "s17-register"
+          ],
+          "milestone": "You keep the gap, keep the present tense, and keep going",
+          "estScreens": 12,
+          "restPoints": [
+            "s17-register"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Doing it",
+          "sections": [
+            "s18-posting",
+            "s19-dictation",
+            "s20-interview",
+            "s21-deliver",
+            "s22-check"
+          ],
+          "milestone": "You read an advert, wrote the moves, and delivered all four in a room",
+          "estScreens": 18,
+          "restPoints": [
+            "s22-check"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Close",
+          "sections": [
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "Fifteen questions, and the four moves one last time",
+          "estScreens": 8,
+          "restPoints": [
+            "s24-roundup"
+          ]
+        }
+      ],
+      "errorTriggers": [
+        {
+          "id": "stops-at-one",
+          "description": "Delivers the anchor as the whole answer and waits for another question.",
+          "detectOn": [
+            "s01-scene",
+            "s02-fourmoves",
+            "s13-build3",
+            "s16-errors"
+          ],
+          "drill": "d-fourmoves"
+        },
+        {
+          "id": "article-back",
+          "description": "Puts the article back after être. a1.06's rule, re-tested here and not re-taught.",
+          "detectOn": [
+            "s15-trap",
+            "s16-errors"
+          ],
+          "drill": "d-gap"
+        },
+        {
+          "id": "depuis-past",
+          "description": "Uses a past tense with depuis. a2.18's rule, re-tested here and not re-taught.",
+          "detectOn": [
+            "s07-duration",
+            "s15-trap",
+            "s16-errors"
+          ],
+          "drill": "d-depuis"
+        },
+        {
+          "id": "no-detail",
+          "description": "Repeats the job title in longer words instead of naming a concrete task.",
+          "detectOn": [
+            "s09-daily",
+            "s10-workplace",
+            "s13-build3"
+          ],
+          "drill": "d-detail"
+        },
+        {
+          "id": "misses-question",
+          "description": "Cannot tell which question was asked, so answers with the wrong move.",
+          "detectOn": [
+            "s07-duration",
+            "s12-listen",
+            "s20-interview"
+          ],
+          "drill": "d-theirs"
+        }
+      ],
+      "drills": [
+        {
+          "id": "d-fourmoves",
+          "title": "Four moves, in order",
+          "format": "sort",
+          "buckets": [
+            "l'ancrage",
+            "la durée",
+            "le détail",
+            "l'ouverture"
+          ],
+          "items": [
+            "fr.a2.metiers.020",
+            "fr.a2.metiers.024",
+            "fr.a2.metiers.028",
+            "fr.a2.metiers.032"
+          ],
+          "coach": "Anchor, clock, detail, question. The fourth is the one that gets left out."
+        },
+        {
+          "id": "d-gap",
+          "title": "Keep the gap",
+          "format": "mcq",
+          "q": "Which one is right?",
+          "opts": [
+            "Je suis un professeur.",
+            "Je suis professeur."
+          ],
+          "correct": 1,
+          "why": "a1.06 taught this. English needs the article and French does not."
+        },
+        {
+          "id": "d-depuis",
+          "title": "Still going",
+          "format": "mcq",
+          "q": "You started six years ago and you are still there. Which one?",
+          "opts": [
+            "J'ai travaillé là-bas depuis six ans.",
+            "Je travaille là-bas depuis six ans."
+          ],
+          "correct": 1,
+          "why": "a2.18 owns this and taught it at seq 14."
+        },
+        {
+          "id": "d-detail",
+          "title": "One concrete thing",
+          "format": "flashcard",
+          "items": [
+            "fr.a2.metiers.028",
+            "fr.a2.metiers.029",
+            "fr.a2.metiers.030",
+            "fr.a2.metiers.031",
+            "fr.a2.metiers.066",
+            "fr.a2.metiers.068"
+          ],
+          "coach": "Something you could point at. Not the job title again in longer words."
+        },
+        {
+          "id": "d-theirs",
+          "title": "Which move answers it",
+          "format": "flashcard",
+          "items": [
+            "fr.a2.metiers.036",
+            "fr.a2.metiers.038",
+            "fr.a2.metiers.039",
+            "fr.a2.metiers.048",
+            "fr.a2.metiers.051",
+            "fr.a2.metiers.045"
+          ],
+          "coach": "Their question first. The move you answer with comes second."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.30.parcours",
+          "title": "The four moves, with the slots empty",
+          "layer": "deep",
+          "contains": [
+            "The four moves",
+            "Fill in your own",
+            "Job words and their feminines",
+            "What they ask you"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-moves",
+              "title": "The four moves",
+              "layer": "deep",
+              "cols": [
+                "Move",
+                "What it does",
+                "The shape"
+              ],
+              "rows": [
+                [
+                  "l'ancrage",
+                  "What you are",
+                  "Je suis ____."
+                ],
+                [
+                  "la durée",
+                  "For how long",
+                  "Je travaille là-bas depuis ____ ans."
+                ],
+                [
+                  "le détail",
+                  "What that means daily",
+                  "Je m'occupe de ____."
+                ],
+                [
+                  "l'ouverture",
+                  "A hook back to them",
+                  "Et vous, vous faites quoi ?"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-yours",
+              "title": "Yours, filled in",
+              "layer": "deep",
+              "cols": [
+                "Move",
+                "Write it once, here"
+              ],
+              "rows": [
+                [
+                  "l'ancrage",
+                  "Je suis ________________."
+                ],
+                [
+                  "la durée",
+                  "Je ______________ depuis ______."
+                ],
+                [
+                  "le détail",
+                  "Je ______________________."
+                ],
+                [
+                  "l'ouverture",
+                  "Et vous, vous faites quoi ?"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-feminines",
+              "title": "How a job word changes for a woman",
+              "layer": "deep",
+              "cols": [
+                "If it ends in",
+                "It becomes",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "a consonant",
+                  "add -e",
+                  "un avocat, une avocate"
+                ],
+                [
+                  "-ien",
+                  "-ienne",
+                  "un pharmacien, une pharmacienne"
+                ],
+                [
+                  "-ier",
+                  "-ière",
+                  "un infirmier, une infirmière"
+                ],
+                [
+                  "-eur (from a verb)",
+                  "-euse",
+                  "un vendeur, une vendeuse"
+                ],
+                [
+                  "-teur",
+                  "-trice",
+                  "un directeur, une directrice"
+                ],
+                [
+                  "-eur (otherwise)",
+                  "add -e",
+                  "un ingénieur, une ingénieure"
+                ],
+                [
+                  "nothing changes",
+                  "only the article",
+                  "un médecin, une médecin"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-theirs",
+              "title": "What they ask, and which move answers it",
+              "layer": "deep",
+              "cols": [
+                "They say",
+                "You answer with"
+              ],
+              "rows": [
+                [
+                  "Parlez-moi de votre parcours.",
+                  "All four, in order"
+                ],
+                [
+                  "Vous faites quoi dans la vie ?",
+                  "l'ancrage, then keep going"
+                ],
+                [
+                  "Depuis combien de temps ?",
+                  "la durée"
+                ],
+                [
+                  "Vous vous occupez de quoi ?",
+                  "le détail"
+                ],
+                [
+                  "Vous avez des questions pour moi ?",
+                  "Yes. Always yes."
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-not-here",
+              "title": "What is not on this sheet",
+              "layer": "deep",
+              "body": "The gap after suis belongs to a1.06 and depuis belongs to a2.18, so neither rule is written out here. What you studied and the paper that proves it are a2.31, which comes next. The six ways to ask somebody to repeat themselves are a2.07's, and the three rungs for getting something fixed are a2.29's."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.metiers.020",
+          "fr.a2.metiers.024",
+          "fr.a2.metiers.028",
+          "fr.a2.metiers.032"
+        ],
+        [
+          "fr.a2.metiers.021",
+          "fr.a2.metiers.022",
+          "fr.a2.metiers.023",
+          "fr.a2.metiers.025",
+          "fr.a2.metiers.026",
+          "fr.a2.metiers.027"
+        ],
+        [
+          "fr.a2.metiers.029",
+          "fr.a2.metiers.030",
+          "fr.a2.metiers.031",
+          "fr.a2.metiers.066",
+          "fr.a2.metiers.067",
+          "fr.a2.metiers.068",
+          "fr.a2.metiers.069",
+          "fr.a2.metiers.070",
+          "fr.a2.metiers.071",
+          "fr.a2.metiers.072",
+          "fr.a2.metiers.073",
+          "fr.a2.metiers.074",
+          "fr.a2.metiers.075",
+          "fr.a2.metiers.076",
+          "fr.a2.metiers.077",
+          "fr.a2.metiers.078",
+          "fr.a2.metiers.079",
+          "fr.a2.metiers.080",
+          "fr.a2.metiers.081",
+          "fr.a2.metiers.082",
+          "fr.a2.metiers.083",
+          "fr.a2.metiers.084",
+          "fr.a2.metiers.085",
+          "fr.a2.metiers.086",
+          "fr.a2.metiers.087"
+        ],
+        [
+          "fr.a2.metiers.033",
+          "fr.a2.metiers.034",
+          "fr.a2.metiers.035",
+          "fr.a2.au-restaurant.132",
+          "fr.a2.au-restaurant.133",
+          "fr.a2.au-restaurant.134",
+          "fr.a2.au-restaurant.135",
+          "fr.a2.au-restaurant.136",
+          "fr.a2.au-restaurant.137",
+          "fr.a2.hebergement.074",
+          "fr.a2.hebergement.082",
+          "fr.a2.hebergement.091"
+        ],
+        [
+          "fr.a2.metiers.036",
+          "fr.a2.metiers.037",
+          "fr.a2.metiers.038",
+          "fr.a2.metiers.039",
+          "fr.a2.metiers.040",
+          "fr.a2.metiers.041",
+          "fr.a2.metiers.042",
+          "fr.a2.metiers.043",
+          "fr.a2.metiers.044",
+          "fr.a2.metiers.045",
+          "fr.a2.metiers.046",
+          "fr.a2.metiers.047",
+          "fr.a2.metiers.048",
+          "fr.a2.metiers.049",
+          "fr.a2.metiers.050",
+          "fr.a2.metiers.051",
+          "fr.a2.metiers.052"
+        ],
+        [
+          "fr.a2.metiers.053",
+          "fr.a2.metiers.054",
+          "fr.a2.metiers.055",
+          "fr.a2.metiers.056",
+          "fr.a2.metiers.057",
+          "fr.a2.metiers.058",
+          "fr.a2.metiers.059",
+          "fr.a2.metiers.060",
+          "fr.a2.metiers.061",
+          "fr.a2.metiers.062",
+          "fr.a2.metiers.063",
+          "fr.a2.metiers.064",
+          "fr.a2.metiers.065"
+        ]
+      ],
+      "terms": {
+        "move": {
+          "term": "a move",
+          "title": "One of the four things your answer does",
+          "body": "Four of them, and they go in order. What you are, for how long, what that means on a normal day, and a question back. Most people have the first one and stop, which is why the room goes quiet.",
+          "examples": [
+            {
+              "itemId": "fr.a2.metiers.020",
+              "note": "Move 1, and on its own it is not an answer."
+            },
+            {
+              "itemId": "fr.a2.metiers.032",
+              "note": "Move 4, which is the one nobody teaches."
+            }
+          ]
+        },
+        "anchor": {
+          "term": "the anchor",
+          "title": "The sentence everything else hangs off",
+          "body": "It names the job and nothing else. It is short on purpose, and it is finished in under two seconds, which is exactly why it cannot be the whole turn. a1.06 taught you how to say it. This lesson is about what comes next.",
+          "examples": [
+            {
+              "itemId": "fr.a2.metiers.021",
+              "note": "Two words after the verb, and then a decision."
+            },
+            {
+              "itemId": "fr.a2.metiers.023",
+              "note": "Same shape, different kitchen."
+            }
+          ]
+        },
+        "handback": {
+          "term": "the hand-back",
+          "title": "Turning an answer into a conversation",
+          "body": "A short question at the end that puts the turn back on the other person. Without it you have made a statement and they have to think of something. With it you have started something that runs by itself.",
+          "examples": [
+            {
+              "itemId": "fr.a2.metiers.032",
+              "note": "Four words, and the other person is now talking."
+            },
+            {
+              "itemId": "fr.a2.metiers.045",
+              "note": "The interviewer doing it to you, at the end."
+            }
+          ]
+        },
+        "detail": {
+          "term": "the detail",
+          "title": "What you actually do between nine and five",
+          "body": "Not the job title again in longer words. One concrete thing you handle, manage, or are responsible for. This is the half of the answer that tells somebody whether they can picture your day.",
+          "examples": [
+            {
+              "itemId": "fr.a2.metiers.028",
+              "note": "A thing you can point at."
+            },
+            {
+              "itemId": "fr.a2.metiers.030",
+              "note": "And a thing you are answerable for."
+            }
+          ]
+        },
+        "pair": {
+          "term": "a pair",
+          "title": "The same job, said about a man and about a woman",
+          "body": "Most job words in French have two written forms and you only ever need one of them about yourself. Where the corpus already had a form, this lesson uses that one rather than inventing a rival.",
+          "examples": [
+            {
+              "itemId": "fr.a1.metiers.248",
+              "note": "This one the course already had."
+            },
+            {
+              "itemId": "fr.a2.metiers.075",
+              "note": "And this one it did not, so it was built the ordinary way."
+            }
+          ]
+        },
+        "posting": {
+          "term": "an offre",
+          "title": "What a job advert is made of",
+          "body": "A handful of fixed headings that repeat across every advert in the language. Once you can find the hours, the contract and the start date, you can read one you have never seen in about thirty seconds.",
+          "examples": [
+            {
+              "itemId": "fr.a2.metiers.006",
+              "note": "The thing itself."
+            },
+            {
+              "itemId": "fr.a1.metiers.139",
+              "note": "And the heading everybody reads first."
+            }
+          ]
+        },
+        "repairMove": {
+          "term": "asking again",
+          "title": "a2.07's six ways to say you did not catch it",
+          "body": "a2.07 authored six, ordered by what each one costs you. The cheapest gives away nothing; the last one concedes that speaking has failed and asks for it in writing. Reach for the lowest one that will actually fix the problem.",
+          "examples": [
+            {
+              "itemId": "fr.a2.au-restaurant.132",
+              "note": "The cheapest thing you can say."
+            },
+            {
+              "itemId": "fr.a2.au-restaurant.134",
+              "note": "The first one that names what went wrong."
+            }
+          ]
+        },
+        "poste": {
+          "term": "un poste",
+          "title": "One word, three completely different things",
+          "body": "A position at work, a television set, and a police station. The work sense is the one this lesson means and it is the one you will meet in an advert. Nothing about the word tells you which; the sentence around it does.",
+          "examples": [
+            {
+              "itemId": "fr.a1.metiers.136",
+              "note": "The work sense, which is the one you want."
+            },
+            {
+              "itemId": "fr.a2.metiers.046",
+              "note": "And an interviewer using it about you."
+            }
+          ]
+        }
+      },
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "render": "screens",
+          "layer": "core",
+          "title": "The four words that ended the answer",
+          "setting": {
+            "place": "A meeting room",
+            "city": "Lyon",
+            "time": "Tuesday, 10am",
+            "ambience": "office-quiet"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "text": "A small meeting room in Lyon. Two people, one table, and a folder nobody has opened yet.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "The interviewer",
+              "fr": "Alors, parlez-moi de votre parcours.",
+              "en": "So, tell me about your background.",
+              "respell": "[a-LOR par-lay-MWAH duh vo-truh par-KOOR]",
+              "stage": "She sits back. This is the easy one.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "fr": "Je suis ingénieur.",
+              "en": "I am an engineer.",
+              "respell": "[zhuh swee-zaⁿ-zhay-NYUR]",
+              "stage": "Correct. Every word of it.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "narration",
+              "text": "And then nothing. She waits. You have finished and she does not know that yet.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "choice",
+              "prompt": "Four seconds have gone. What do you do?",
+              "size": "lg",
+              "options": [
+                {
+                  "fr": "Wait for the next question",
+                  "en": "Wait for the next question",
+                  "outcome": "breaks"
+                },
+                {
+                  "fr": "Keep going, without being asked",
+                  "en": "Keep going, without being asked",
+                  "outcome": "works"
+                }
+              ],
+              "followUp": {
+                "works": "Nobody asked you a second question. That is the point: you take it.",
+                "breaks": "She will ask another one. It will be smaller, and so will the next."
+              }
+            },
+            {
+              "kind": "break",
+              "heading": "The silence was not a mistake",
+              "body": "You said something true and correct, and then you stopped. She was waiting for a second sentence because in this room an answer is four of them, not one. Nothing you said was wrong.",
+              "wrong": {
+                "fr": "Je suis ingénieur.",
+                "ipa": "/ʒə sɥi ɛ̃.ʒe.njœʁ/",
+                "respell": "[zhuh swee-zaⁿ-zhay-NYUR]",
+                "en": "I am an engineer."
+              },
+              "right": {
+                "fr": "Je suis ingénieur. Je travaille là-bas depuis six ans.",
+                "ipa": "/ʒə sɥi ɛ̃.ʒe.njœʁ ʒə tʁa.vaj la.ba də.pɥi si zɑ̃/",
+                "respell": "[zhuh swee-zaⁿ-zhay-NYUR zhuh trah-VAHY lah-BAH duh-pwee see ZAHⁿ]",
+                "en": "I am an engineer. I have worked there for six years."
+              },
+              "coach": "Two sentences and the room changes. There are two more after that.",
+              "size": "lg",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "resolve",
+              "text": "She writes nothing down. She asks a bigger question. That is what you were after.",
+              "size": "md"
+            }
+          ],
+          "closing": {
+            "text": "One sentence is where the answer starts. This lesson is the other three.",
+            "size": "md"
+          },
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move",
+            "anchor"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s02-fourmoves",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "Four moves, and the fourth is the one nobody teaches",
+          "hint": "Swipe. The last card is all four joined.",
+          "cards": [
+            {
+              "label": "Move 1 · l'ancrage",
+              "head": "What you are",
+              "fr": "Je suis ingénieur.",
+              "sub": "zhuh swee-zaⁿ-zhay-NYUR",
+              "body": "a1.06 already taught you how to say this one. Here it is doing a job: it opens, and it is finished in two seconds."
+            },
+            {
+              "label": "Move 2 · la durée",
+              "head": "For how long",
+              "fr": "Je travaille là-bas depuis six ans.",
+              "sub": "zhuh trah-VAHY lah-BAH duh-pwee see ZAHⁿ",
+              "body": "a2.18 owns depuis and you have had it since seq 14. It is here because time is what turns a label into a history."
+            },
+            {
+              "label": "Move 3 · le détail",
+              "head": "What that means daily",
+              "fr": "Je m'occupe des dossiers clients.",
+              "sub": "zhuh mo-KÜP day do-SYAY klee-YAHⁿ",
+              "body": "One concrete thing you handle. Not the title again in longer words. This is the half that lets somebody picture your day."
+            },
+            {
+              "label": "Move 4 · l'ouverture",
+              "head": "A hook back to them",
+              "fr": "Et vous, vous faites quoi ?",
+              "sub": "ay VOO voo feht KWAH",
+              "body": "Four words, and the other person is now talking. Without this you made a statement. With it you started a conversation."
+            },
+            {
+              "label": "All four",
+              "head": "What the whole answer sounds like",
+              "fr": "Je suis ingénieur. Je travaille là-bas depuis six ans. Je m'occupe des dossiers clients. Et vous, vous faites quoi ?",
+              "sub": "Four moves, in order, about twelve seconds",
+              "body": "Nobody asked four questions. You answered as though they had, and that is the whole trick."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "The first sentence is the anchor, not the answer.",
+          "terms": [
+            "move",
+            "anchor",
+            "handback"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s03-goals",
+          "layer": "core",
+          "title": "By the end of this lesson",
+          "goals": [
+            {
+              "t": "Open with the job, and keep going",
+              "s": "Move 1 stops being the whole answer"
+            },
+            {
+              "t": "Say how long, without being asked",
+              "s": "Move 2, using depuis rather than explaining it"
+            },
+            {
+              "t": "Describe one real part of the day",
+              "s": "Move 3, which is what a workplace actually is"
+            },
+            {
+              "t": "Hand the question back",
+              "s": "Move 4, and the conversation runs itself"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "type": "tapTable",
+          "id": "s04-twoanswers",
+          "layer": "core",
+          "title": "The same job, said twice",
+          "cols": [
+            "What you say",
+            "Moves",
+            "What it does"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Je suis ingénieur.",
+                "1",
+                "Names it, then stops"
+              ],
+              "say": "Je suis ingénieur.",
+              "detail": {
+                "title": "Correct, and it ends the turn",
+                "body": "Nothing is wrong with this sentence. a1.06 taught you to build it. It is simply finished, and the other person now has to think of a new question. Most will think of a smaller one.",
+                "say": "Je suis ingénieur."
+              }
+            },
+            {
+              "cells": [
+                "... depuis six ans.",
+                "1 + 2",
+                "Adds a history"
+              ],
+              "say": "Je suis ingénieur. Je travaille là-bas depuis six ans.",
+              "detail": {
+                "title": "Two moves, and it already sounds different",
+                "body": "Time is the cheapest thing you can add. a2.18 gave you depuis at seq 14 and this lesson only puts it in position two.",
+                "say": "Je travaille là-bas depuis six ans."
+              }
+            },
+            {
+              "cells": [
+                "... et vous ?",
+                "All four",
+                "Hands the turn back"
+              ],
+              "say": "Je suis ingénieur. Je travaille là-bas depuis six ans. Je m'occupe des dossiers clients. Et vous, vous faites quoi ?",
+              "detail": {
+                "title": "And now they are answering you",
+                "body": "The fourth move costs four words and changes who is doing the work. It is the difference between being interviewed and having a conversation.",
+                "say": "Et vous, vous faites quoi ?"
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "The first sentence is the anchor, not the answer.",
+          "terms": [
+            "move",
+            "handback"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s05-anchor",
+          "layer": "core",
+          "title": "Move 1: the anchor",
+          "examples": [
+            {
+              "fr": "Je suis ingénieur.",
+              "en": "I am an engineer.",
+              "note": "No un. The gap after suis is the grammar. a1.06 taught it. Here it is move 1."
+            },
+            {
+              "fr": "Je suis infirmière.",
+              "en": "I am a nurse.",
+              "note": "Same shape, a1.06, and the word itself changes for a woman. Move 3 comes back to that."
+            },
+            {
+              "fr": "Je suis professeur.",
+              "en": "I am a teacher.",
+              "note": "a1.06 again. Two seconds, and you are not finished."
+            },
+            {
+              "fr": "Je suis cuisinier.",
+              "en": "I am a cook.",
+              "note": "a1.06. Notice how fast it is over. That speed is the problem this lesson solves."
+            },
+            {
+              "fr": "Je suis comptable.",
+              "en": "I am an accountant.",
+              "note": "a1.06. Five jobs, five anchors, and not one of them is an answer yet."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "anchor",
+            "move"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s06-jobwords",
+          "layer": "core",
+          "size": "lg",
+          "title": "Find yours",
+          "groups": [
+            {
+              "label": "Santé",
+              "items": [
+                {
+                  "fr": "un médecin",
+                  "itemId": "fr.a1.metiers.001",
+                  "note": "And a woman is une médecin. Only the article moves."
+                },
+                {
+                  "fr": "un infirmier",
+                  "itemId": "fr.a1.metiers.002",
+                  "note": "Une infirmière for a woman."
+                },
+                {
+                  "fr": "un pharmacien",
+                  "itemId": "fr.a1.metiers.020",
+                  "note": "Une pharmacienne."
+                },
+                {
+                  "fr": "un dentiste",
+                  "itemId": "fr.a1.metiers.021",
+                  "note": "Same word either way."
+                },
+                {
+                  "fr": "un chirurgien",
+                  "itemId": "fr.a1.metiers.052",
+                  "note": "Une chirurgienne."
+                }
+              ]
+            },
+            {
+              "label": "Éducation",
+              "items": [
+                {
+                  "fr": "un professeur",
+                  "itemId": "fr.a1.metiers.005",
+                  "note": "Une professeure, and the corpus already had it."
+                },
+                {
+                  "fr": "un bibliothécaire",
+                  "itemId": "fr.a1.metiers.054",
+                  "note": "Same word either way."
+                },
+                {
+                  "fr": "le directeur",
+                  "itemId": "fr.a1.metiers.135",
+                  "note": "La directrice."
+                }
+              ]
+            },
+            {
+              "label": "Bâtiment",
+              "items": [
+                {
+                  "fr": "un électricien",
+                  "itemId": "fr.a1.metiers.028",
+                  "note": "Une électricienne."
+                },
+                {
+                  "fr": "un plombier",
+                  "itemId": "fr.a1.metiers.029",
+                  "note": "Une plombière is rare. Most say une plombier."
+                },
+                {
+                  "fr": "un maçon",
+                  "itemId": "fr.a1.metiers.030",
+                  "note": "Une maçonne."
+                },
+                {
+                  "fr": "un jardinier",
+                  "itemId": "fr.a1.metiers.026",
+                  "note": "Une jardinière, which is also a window box."
+                }
+              ]
+            },
+            {
+              "label": "Bureau",
+              "items": [
+                {
+                  "fr": "un ingénieur",
+                  "itemId": "fr.a1.metiers.034",
+                  "note": "Une ingénieure."
+                },
+                {
+                  "fr": "un architecte",
+                  "itemId": "fr.a1.metiers.035",
+                  "note": "Same word either way."
+                },
+                {
+                  "fr": "un informaticien",
+                  "itemId": "fr.a1.metiers.044",
+                  "note": "Une informaticienne."
+                },
+                {
+                  "fr": "un comptable",
+                  "itemId": "fr.a1.metiers.045",
+                  "note": "Same word either way."
+                }
+              ]
+            },
+            {
+              "label": "Service",
+              "items": [
+                {
+                  "fr": "un vendeur",
+                  "itemId": "fr.a1.metiers.004",
+                  "note": "Une vendeuse."
+                },
+                {
+                  "fr": "un cuisinier",
+                  "itemId": "fr.a1.metiers.006",
+                  "note": "Une cuisinière, which is also a stove."
+                },
+                {
+                  "fr": "un serveur",
+                  "itemId": "fr.a1.metiers.007",
+                  "note": "Une serveuse."
+                },
+                {
+                  "fr": "un coiffeur",
+                  "itemId": "fr.a1.metiers.022",
+                  "note": "Une coiffeuse, which is also a dressing table."
+                },
+                {
+                  "fr": "un caissier",
+                  "itemId": "fr.a1.metiers.047",
+                  "note": "Une caissière."
+                }
+              ],
+              "check": {
+                "q": "You are a woman and you cut hair. What do you say?",
+                "opts": [
+                  "Je suis un coiffeur.",
+                  "Je suis coiffeuse.",
+                  "Je suis la coiffeuse."
+                ],
+                "correct": 1,
+                "why": "The word changes for a woman and the gap stays a gap."
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "pair",
+            "anchor"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s07-duration",
+          "layer": "core",
+          "title": "Move 2: how long",
+          "examples": [
+            {
+              "fr": "Je travaille là-bas depuis six ans.",
+              "en": "I have worked there for six years.",
+              "note": "a2.18 gave you depuis at seq 14. This lesson only puts it in second position."
+            },
+            {
+              "fr": "Je fais ce métier depuis trois ans.",
+              "en": "I have done this job for three years.",
+              "note": "The job, then the clock. a2.18 owns the word."
+            },
+            {
+              "fr": "Depuis combien de temps vous travaillez là-bas ?",
+              "en": "How long have you been working there?",
+              "note": "THIS is new, and it is theirs, not yours. It is what the interviewer asks."
+            },
+            {
+              "fr": "Ça fait combien de temps ?",
+              "en": "How long has it been?",
+              "note": "The shorter one, and the one you will actually hear at a party."
+            },
+            {
+              "fr": "Je suis dans cette entreprise depuis deux ans.",
+              "en": "I have been at this company for two years.",
+              "note": "Two moves joined, and you have not been asked a second question."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-build2",
+          "layer": "core",
+          "size": "lg",
+          "title": "Two moves, joined",
+          "groups": [
+            {
+              "label": "Say both, out loud, for a job you have not seen here",
+              "items": [
+                {
+                  "fr": "Je suis boulanger. Je fais ça depuis quatre ans.",
+                  "en": "I am a baker. I have done that for four years.",
+                  "note": "Anchor, then clock. No pause between them."
+                },
+                {
+                  "fr": "Je suis vendeuse. Je travaille là-bas depuis un an.",
+                  "en": "I am a salesperson. I have worked there for a year.",
+                  "note": "A woman, and the word changed. The gap did not."
+                },
+                {
+                  "fr": "Je suis mécanicien. Je fais ce métier depuis dix ans.",
+                  "en": "I am a mechanic. I have done this job for ten years.",
+                  "note": "Ten years is a history. Say it in the present."
+                },
+                {
+                  "fr": "Je suis architecte. Je suis dans cette entreprise depuis deux ans.",
+                  "en": "I am an architect. I have been at this company for two years.",
+                  "note": "Same word for a man or a woman."
+                }
+              ],
+              "check": {
+                "q": "Which one is finished?",
+                "opts": [
+                  "Je suis pharmacien.",
+                  "Je suis pharmacien. Je fais ça depuis six ans.",
+                  "Pharmacien, six ans."
+                ],
+                "correct": 1,
+                "why": "Two moves, both full sentences. The third is a note to yourself, not an answer."
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move",
+            "anchor"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s09-daily",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "The five verbs that carry a workday",
+          "hint": "Swipe. Every one of these is grammar you already have.",
+          "cards": [
+            {
+              "label": "Handle",
+              "head": "s'occuper de",
+              "fr": "Je m'occupe des dossiers clients.",
+              "sub": "zhuh mo-KÜP day do-SYAY klee-YAHⁿ",
+              "body": "The workhorse. It covers anything you are the person for, from customers to a machine to the post."
+            },
+            {
+              "label": "Manage",
+              "head": "gérer",
+              "fr": "Je gère une petite équipe.",
+              "sub": "zhuh ZHEHR ün puh-TEET ay-KEEP",
+              "body": "Use it for people, budgets and orders. It is heavier than s occuper de and it says you decide."
+            },
+            {
+              "label": "Be answerable",
+              "head": "être responsable de",
+              "fr": "Je suis responsable de la sécurité.",
+              "sub": "zhuh swee ray-spohⁿ-SAHBL duh lah say-kü-ree-TAY",
+              "body": "The one an interviewer listens for. It names the thing that is your fault if it goes wrong."
+            },
+            {
+              "label": "Work with",
+              "head": "travailler avec",
+              "fr": "Je travaille avec des enfants tous les jours.",
+              "sub": "zhuh trah-VAHY ah-vek day-zahⁿ-FAHⁿ too lay ZHOOR",
+              "body": "Who is in the room. It is the fastest way to make a job sound like a place rather than a title."
+            },
+            {
+              "label": "Help",
+              "head": "aider",
+              "fr": "Il aide le chef en cuisine.",
+              "sub": "ee-LED luh SHEF ahⁿ kwee-ZEEN",
+              "body": "The plain one, for a job where you are not yet the person who decides. Nobody marks you down for it."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "detail",
+            "move"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s10-workplace",
+          "layer": "core",
+          "size": "lg",
+          "title": "Where, and with whom",
+          "groups": [
+            {
+              "label": "Where you are",
+              "items": [
+                {
+                  "fr": "dans un bureau",
+                  "itemId": "fr.a2.metiers.082",
+                  "note": "The preposition is a2.04's. Take the whole phrase."
+                },
+                {
+                  "fr": "à l'hôpital",
+                  "itemId": "fr.a2.metiers.083",
+                  "note": "Not dans. This one you learn whole."
+                },
+                {
+                  "fr": "sur un chantier",
+                  "itemId": "fr.a2.metiers.084",
+                  "note": "Sur, because a building site is a surface."
+                },
+                {
+                  "fr": "derrière un comptoir",
+                  "itemId": "fr.a2.metiers.087",
+                  "note": "Shops, bars, reception desks."
+                }
+              ]
+            },
+            {
+              "label": "Who is with you",
+              "items": [
+                {
+                  "fr": "en équipe",
+                  "itemId": "fr.a2.metiers.085",
+                  "note": "No article. The whole phrase is the answer."
+                },
+                {
+                  "fr": "avec des clients",
+                  "itemId": "fr.a2.metiers.086",
+                  "note": "Swap clients for enfants, patients, collègues."
+                },
+                {
+                  "fr": "une équipe",
+                  "itemId": "fr.a1.metiers.131",
+                  "note": "The noun on its own, which you already had."
+                },
+                {
+                  "fr": "un collègue",
+                  "itemId": "fr.a1.metiers.129",
+                  "note": "Une collègue for a woman. Only the article moves."
+                }
+              ],
+              "check": {
+                "q": "You work in a factory, on the floor. Which one?",
+                "opts": [
+                  "dans une usine",
+                  "à une usine",
+                  "sur une usine"
+                ],
+                "correct": 0,
+                "why": "Dans for an enclosed place. Sur was for the building site, which has no roof yet."
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "detail"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s11-fem",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "The same job, about a woman",
+          "hint": "Swipe. Both forms are on each card.",
+          "cards": [
+            {
+              "label": "Add -e",
+              "head": "un avocat · une avocate",
+              "fr": "Je suis avocate.",
+              "sub": "zhuh swee-za-vo-KAT",
+              "body": "The commonest shape, and the course already had this pair. You hear the t in the second one and not in the first. The gap after suis is a1.06's and it does not move."
+            },
+            {
+              "label": "Add -e",
+              "head": "un employé · une employée",
+              "fr": "Je suis employée dans une banque.",
+              "sub": "zhuh swee-zahⁿ-plwah-YAY dahⁿ-zün BAHⁿK",
+              "body": "Written differently, said the same. Nobody hears the difference and you still write it."
+            },
+            {
+              "label": "-ien becomes -ienne",
+              "head": "un pharmacien · une pharmacienne",
+              "fr": "Je suis pharmacienne.",
+              "sub": "zhuh swee far-ma-SYENN",
+              "body": "Here you do hear it. The nasal opens up and an n arrives at the end."
+            },
+            {
+              "label": "-ier becomes -ière",
+              "head": "un infirmier · une infirmière",
+              "fr": "Je suis infirmière.",
+              "sub": "zhuh swee-zaⁿ-feer-MYEHR",
+              "body": "The ending opens from ee-ay to ee-ehr. Same again for caissier and caissière."
+            },
+            {
+              "label": "-eur becomes -euse",
+              "head": "un vendeur · une vendeuse",
+              "fr": "Je suis vendeuse.",
+              "sub": "zhuh swee vahⁿ-DUHZ",
+              "body": "Works when the word came from a verb you can still see: vendre, coiffer, servir."
+            },
+            {
+              "label": "-teur becomes -trice",
+              "head": "un agriculteur · une agricultrice",
+              "fr": "Je suis agricultrice.",
+              "sub": "zhuh swee-za-gree-kül-TREES",
+              "body": "The other big one. Directeur and directrice, traducteur and traductrice, acteur and actrice."
+            },
+            {
+              "label": "Just the -e",
+              "head": "un ingénieur · une ingénieure",
+              "fr": "Je suis ingénieure.",
+              "sub": "zhuh swee-zaⁿ-zhay-NYUR",
+              "body": "Said exactly the same. The written e is the whole change, and professeure works the same way."
+            },
+            {
+              "label": "Nothing moves",
+              "head": "un médecin · une médecin",
+              "fr": "Je suis médecin.",
+              "sub": "zhuh swee mayd-SAⁿ",
+              "body": "Some words have no second form. Only the article in front of them changes, and about yourself you say neither."
+            },
+            {
+              "label": "The trap",
+              "head": "NOT la médecine",
+              "fr": "une médecin",
+              "sub": "la médecine is the subject you study",
+              "body": "La médecine is a field, not a doctor. La physique is not a physicist and la politique is not a politician either."
+            },
+            {
+              "label": "The rule",
+              "head": "Which form do I use?",
+              "fr": "Use the one the language already has.",
+              "sub": "And if it has none, build it the ordinary way",
+              "body": "If a form already exists, that is the one. If it does not, add the ending you just saw. If the word has none, only the article moves."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "pair",
+            "anchor"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s12-listen",
+          "layer": "core",
+          "hideLines": true,
+          "title": "The follow-up you did not expect",
+          "lines": [
+            {
+              "fr": "Parlez-moi de votre parcours.",
+              "en": "Tell me about your background."
+            },
+            {
+              "fr": "Depuis combien de temps vous travaillez là-bas ?",
+              "en": "How long have you been working there?"
+            },
+            {
+              "fr": "Vous vous occupez de quoi, exactement ?",
+              "en": "What do you handle, exactly?"
+            },
+            {
+              "fr": "Vous travaillez avec combien de personnes ?",
+              "en": "How many people do you work with?"
+            },
+            {
+              "fr": "Vous préférez travailler seul ou en équipe ?",
+              "en": "Do you prefer working alone or in a team?"
+            },
+            {
+              "fr": "Vous avez des questions pour moi ?",
+              "en": "Do you have any questions for me?"
+            }
+          ],
+          "questions": [
+            {
+              "q": "The second question is asking about",
+              "opts": [
+                "how long",
+                "how many people",
+                "what you handle"
+              ],
+              "correct": 0,
+              "why": "Depuis combien de temps is a length of time. Combien de personnes would be the number."
+            },
+            {
+              "q": "Two of these ask about the same thing. Which two?",
+              "opts": [
+                "the first and the last",
+                "the third and the fourth",
+                "the second and the sixth"
+              ],
+              "correct": 1,
+              "why": "Both the third and the fourth are asking you to describe the daily job, one by task and one by people."
+            },
+            {
+              "q": "You did not catch the fifth one. What do you say?",
+              "opts": [
+                "Vous pouvez répéter, s'il vous plaît ?",
+                "Je ne sais pas.",
+                "Oui."
+              ],
+              "correct": 0,
+              "why": "a2.07 authored six ways to say this, ordered by what each one costs you. This is the second cheapest."
+            },
+            {
+              "q": "The last line is the interviewer doing which move?",
+              "opts": [
+                "the anchor",
+                "the detail",
+                "the hand-back"
+              ],
+              "correct": 2,
+              "why": "She is giving the turn back to you. That is move 4, and she does it to you before you do it to her."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "repairMove",
+            "handback"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s13-build3",
+          "layer": "core",
+          "size": "lg",
+          "title": "Three moves, joined",
+          "groups": [
+            {
+              "label": "Anchor, clock, detail. Out loud, no pauses.",
+              "items": [
+                {
+                  "fr": "Je suis infirmière. Je travaille à l'hôpital depuis cinq ans. Je m'occupe des urgences.",
+                  "en": "I am a nurse. I have worked at the hospital for five years. I handle emergencies.",
+                  "note": "Three sentences, about nine seconds. The gap after suis is still a1.06's."
+                },
+                {
+                  "fr": "Je suis électricien. Je fais ça depuis huit ans. Je travaille sur un chantier.",
+                  "en": "I am an electrician. I have done that for eight years. I work on a building site.",
+                  "note": "The third move can be a place instead of a task."
+                },
+                {
+                  "fr": "Je suis vendeur. Je suis dans ce magasin depuis un an. Je m'occupe de la caisse.",
+                  "en": "I am a salesperson. I have been in this shop for a year. I handle the till.",
+                  "note": "One year is still a history. Say it."
+                },
+                {
+                  "fr": "Je suis traductrice. Je fais ce métier depuis six ans. Je travaille avec des clients étrangers.",
+                  "en": "I am a translator. I have done this job for six years. I work with foreign clients.",
+                  "note": "And the fourth move is still missing."
+                }
+              ],
+              "check": {
+                "q": "Three moves are done. What is left?",
+                "opts": [
+                  "a longer detail",
+                  "a question back to them",
+                  "the job title again"
+                ],
+                "correct": 1,
+                "why": "Move 4. Without it you have finished talking and they have to start again."
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "detail",
+            "move"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s14-hook",
+          "layer": "core",
+          "title": "Move 4: the hand-back",
+          "examples": [
+            {
+              "fr": "Et vous, vous faites quoi ?",
+              "en": "And you, what do you do?",
+              "note": "Four words. The course had never published this sentence, and it is the one that changes the room."
+            },
+            {
+              "fr": "Et vous, vous faites quoi dans la vie ?",
+              "en": "And you, what do you do for a living?",
+              "note": "Dans la vie is what people actually add. It softens it into small talk."
+            },
+            {
+              "fr": "Et vous, c'est quoi votre métier ?",
+              "en": "And you, what is your job?",
+              "note": "Slightly more direct. Fine at a party, fine with somebody your own age."
+            },
+            {
+              "fr": "Et vous, vous travaillez dans quoi ?",
+              "en": "And you, what field do you work in?",
+              "note": "Asks for the sector rather than the title, which is easier for them to answer."
+            },
+            {
+              "fr": "Vous avez des questions pour moi ?",
+              "en": "Do you have any questions for me?",
+              "note": "The interviewer doing it to you. Say yes. Always say yes."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "handback",
+            "move"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s15-trap",
+          "layer": "core",
+          "swipe": true,
+          "title": "Three ways this comes apart",
+          "rule": {
+            "title": "Two of these are grammar. The third is not.",
+            "body": "The article and the tense are things a1.06 and a2.18 already taught you, and they are tested here rather than explained again. The third trap is not a mistake in any sentence. It is a sentence that stopped."
+          },
+          "cards": [
+            {
+              "promptLabel": "I am an engineer",
+              "promptSound": "Je suis un ingénieur.",
+              "fr": "Je suis ingénieur.",
+              "ipa": "/ʒə sɥi ɛ̃.ʒe.njœʁ/",
+              "tip": "a1.06 taught this. The gap is the grammar."
+            },
+            {
+              "promptLabel": "I am a nurse",
+              "promptSound": "Je suis une infirmière.",
+              "fr": "Je suis infirmière.",
+              "ipa": "/ʒə sɥi ɛ̃.fiʁ.mjɛʁ/",
+              "tip": "Same gap for a woman. a1.06."
+            },
+            {
+              "promptLabel": "I have worked there for six years",
+              "promptSound": "J'ai travaillé là-bas depuis six ans.",
+              "fr": "Je travaille là-bas depuis six ans.",
+              "ipa": "/ʒə tʁa.vaj la.ba də.pɥi si zɑ̃/",
+              "tip": "a2.18 owns this one. It is still going, so it is not finished."
+            },
+            {
+              "promptLabel": "I have been here for two years",
+              "promptSound": "J'ai été ici depuis deux ans.",
+              "fr": "Je suis ici depuis deux ans.",
+              "ipa": "/ʒə sɥi i.si də.pɥi dø zɑ̃/",
+              "tip": "a2.18 again. Same word, same rule."
+            },
+            {
+              "promptLabel": "So, tell me about your background",
+              "promptSound": "Je suis ingénieur.",
+              "fr": "Je suis ingénieur. Je travaille là-bas depuis six ans.",
+              "ipa": "/ʒə sɥi ɛ̃.ʒe.njœʁ ʒə tʁa.vaj la.ba də.pɥi si zɑ̃/",
+              "tip": "Not wrong. Just finished too early, and the room notices."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Je suis un ingénieur.",
+              "opts": [
+                "Je suis ingénieur.",
+                "Je suis un ingénieur.",
+                "Je suis l'ingénieur."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "J'ai travaillé là-bas depuis six ans.",
+              "opts": [
+                "J'ai travaillé là-bas depuis six ans.",
+                "Je travaille là-bas depuis six ans.",
+                "Je travaillais là-bas depuis six ans."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Je suis une infirmière.",
+              "opts": [
+                "Je suis la infirmière.",
+                "Je suis une infirmière.",
+                "Je suis infirmière."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "Alors, parlez-moi de votre parcours.",
+              "opts": [
+                "Je suis ingénieur. Je travaille là-bas depuis six ans.",
+                "Je suis ingénieur.",
+                "Ingénieur."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "J'ai été ici depuis deux ans.",
+              "opts": [
+                "J'ai été ici depuis deux ans.",
+                "J'étais ici depuis deux ans.",
+                "Je suis ici depuis deux ans."
+              ],
+              "correct": 2
+            }
+          ],
+          "steps": [
+            {
+              "label": "The rule",
+              "kind": "rule",
+              "title": "Two are grammar, one is not"
+            },
+            {
+              "label": "The five traps",
+              "kind": "cards",
+              "title": "What English hands you"
+            },
+            {
+              "label": "Hear them",
+              "kind": "audio",
+              "title": "Wrong and right, side by side"
+            },
+            {
+              "label": "Now you pick",
+              "kind": "drill",
+              "title": "Five in a row",
+              "gate": true
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "The first sentence is the anchor, not the answer.",
+          "terms": [
+            "anchor",
+            "move"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s16-errors",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "title": "Five ways the answer goes wrong",
+          "errors": [
+            {
+              "wrong": "Je suis un ingénieur.",
+              "right": "Je suis ingénieur.",
+              "why": "a1.06 taught this and it is being re-tested rather than re-explained. English needs the article and French does not, and that pull does not go away with practice."
+            },
+            {
+              "wrong": "J'ai travaillé là-bas depuis six ans.",
+              "right": "Je travaille là-bas depuis six ans.",
+              "why": "a2.18 owns this rule and taught it at seq 14. The sentence you produce under pressure is the past one, because in English it is a past one."
+            },
+            {
+              "wrong": "Je suis ingénieur.",
+              "right": "Je suis ingénieur. Je travaille là-bas depuis six ans. Je m'occupe des dossiers clients.",
+              "why": "Only wrong as a whole answer. One sentence is the anchor and the other person is still waiting for the rest of it."
+            },
+            {
+              "wrong": "Je suis la médecine.",
+              "right": "Je suis médecin.",
+              "why": "La médecine is the subject you study, not the person who practises it. The same trap catches la physique and la politique."
+            },
+            {
+              "wrong": "Je suis ingénieur depuis six ans et je m'occupe des dossiers et voilà.",
+              "right": "Je suis ingénieur. Je travaille là-bas depuis six ans. Et vous, vous faites quoi ?",
+              "why": "Four moves, four sentences. Running them into one long line loses the shape, and et voilà tells the room you have run out."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "anchor",
+            "move",
+            "detail"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s17-register",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "Same four moves, two rooms",
+          "hint": "Swipe. The moves do not change. The clothes do.",
+          "cards": [
+            {
+              "label": "The interview",
+              "head": "vous, and full sentences",
+              "fr": "Je suis ingénieur. Je travaille là-bas depuis six ans.",
+              "sub": "Complete, unhurried, four moves",
+              "body": "a1.05 taught you the form and a1.06 the gap after suis. What this room adds is that you finish every sentence, because half of what is judged is whether you can."
+            },
+            {
+              "label": "The party",
+              "head": "tu, and shorter",
+              "fr": "Ingénieur. Ça fait six ans. Et toi ?",
+              "sub": "Same four moves, half the words",
+              "body": "The moves survive. The full sentences do not, and nobody minds. Move 4 arrives faster here because it has to."
+            },
+            {
+              "label": "Which room",
+              "head": "How you tell",
+              "fr": "They opened with vous. So do you.",
+              "sub": "Mirror what you were given",
+              "body": "You almost never have to choose. Whoever spoke first has chosen, and matching them is right often enough that it is a rule."
+            },
+            {
+              "label": "a2.29's ladder",
+              "head": "When something needs asking",
+              "fr": "Ask once, softly.",
+              "sub": "a2.29 authored three rungs, in order",
+              "body": "a2.29 owns this and taught it at seq 28. The three rungs are Ask once, softly. Say it again, without the person. Ask for the person who can fix it. Nothing here re-teaches them."
+            },
+            {
+              "label": "A fourth column",
+              "head": "The workplace request",
+              "fr": "Est-ce que je peux commencer le quinze ?",
+              "sub": "A new column on a2.29's three rungs",
+              "body": "a2.29's ladder has three rungs and any number of columns. This is ours: asking for something at work, at the lowest rung that will do."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move",
+            "repairMove"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s18-posting",
+          "layer": "core",
+          "questionsInModal": true,
+          "title": "An advert, read in thirty seconds",
+          "text": "BOULANGERIE MARTIN, Lyon 3e\n\nNous cherchons un vendeur ou une vendeuse pour notre magasin du centre-ville.\n\nPoste : vente et caisse. Vous vous occupez des clients et vous aidez en cuisine le matin.\n\nHoraires : 35 heures par semaine, du mardi au samedi. Pas de travail le dimanche.\n\nContrat : CDI après trois mois.\n\nExpérience : deux ans minimum dans la vente.\n\nDébut : à partir du 15 septembre.\n\nEnvoyez votre CV à martin.lyon@exemple.fr",
+          "glossary": [
+            {
+              "word": "Poste",
+              "en": "position",
+              "note": "Also a television set and a police station. Here it is the job."
+            },
+            {
+              "word": "Horaires",
+              "en": "hours",
+              "note": "The heading everybody reads second, after the money."
+            },
+            {
+              "word": "Contrat",
+              "en": "contract",
+              "note": "CDI is permanent. CDD is fixed-term."
+            },
+            {
+              "word": "Expérience",
+              "en": "experience",
+              "note": "Almost always written as a number of years."
+            },
+            {
+              "word": "Début",
+              "en": "start date",
+              "note": "À partir du means from this date onward."
+            },
+            {
+              "word": "CV",
+              "en": "resume",
+              "note": "Said as two letters, say-VAY."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Which days would you work?",
+              "a": "Tuesday to Saturday. Not Sunday, and not Monday."
+            },
+            {
+              "q": "How much experience do they want?",
+              "a": "Two years minimum, in sales."
+            },
+            {
+              "q": "Is the job permanent from day one?",
+              "a": "No. It becomes a CDI after three months."
+            },
+            {
+              "q": "The advert names the job twice. Why?",
+              "a": "Un vendeur and une vendeuse, so that both forms are in the advert."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "posting",
+            "poste"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s19-dictation",
+          "layer": "core",
+          "title": "Write what you hear",
+          "itemIds": [
+            "fr.a2.metiers.020",
+            "fr.a2.metiers.022",
+            "fr.a2.metiers.028",
+            "fr.a2.metiers.032",
+            "fr.a2.metiers.039",
+            "fr.a2.metiers.048"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "anchor",
+            "handback"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s20-interview",
+          "layer": "core",
+          "title": "The interview, all four moves",
+          "setting": "A meeting room in Lyon. She has your CV and has not read it closely.",
+          "turns": [
+            {
+              "ai": "Bonjour, asseyez-vous. Merci d'être venu.",
+              "en": "Hello, have a seat. Thank you for coming.",
+              "user": "Bonjour, merci de me recevoir.",
+              "userEn": "Hello, thank you for seeing me.",
+              "alts": [
+                {
+                  "fr": "Bonjour, merci beaucoup.",
+                  "en": "Hello, thank you very much."
+                },
+                {
+                  "fr": "Bonjour madame, merci de me recevoir.",
+                  "en": "Hello, thank you for seeing me."
+                }
+              ]
+            },
+            {
+              "ai": "Alors, parlez-moi de votre parcours.",
+              "en": "So, tell me about your background.",
+              "user": "Bien sûr.",
+              "userEn": "Of course.",
+              "alts": [
+                {
+                  "fr": "Avec plaisir.",
+                  "en": "Gladly."
+                },
+                {
+                  "fr": "Oui, bien sûr.",
+                  "en": "Yes, of course."
+                }
+              ]
+            },
+            {
+              "ai": "Je vous écoute.",
+              "en": "I am listening.",
+              "user": "Je suis ingénieur.",
+              "userEn": "I am an engineer. (Move 1: the anchor)",
+              "alts": [
+                {
+                  "fr": "Je suis infirmière.",
+                  "en": "I am a nurse."
+                },
+                {
+                  "fr": "Je suis cuisinier.",
+                  "en": "I am a cook."
+                },
+                {
+                  "fr": "Je suis vendeuse.",
+                  "en": "I am a salesperson."
+                }
+              ]
+            },
+            {
+              "ai": "Très bien.",
+              "en": "Very good.",
+              "user": "Je travaille là-bas depuis six ans.",
+              "userEn": "I have worked there for six years. (Move 2: how long)",
+              "alts": [
+                {
+                  "fr": "Je fais ce métier depuis trois ans.",
+                  "en": "I have done this job for three years."
+                },
+                {
+                  "fr": "Je suis dans cette entreprise depuis deux ans.",
+                  "en": "I have been at this company for two years."
+                },
+                {
+                  "fr": "Je travaille dans un hôpital depuis dix ans.",
+                  "en": "I have worked in a hospital for ten years."
+                }
+              ]
+            },
+            {
+              "ai": "Hm-hm.",
+              "en": "Mm-hm.",
+              "user": "Je m'occupe des dossiers clients.",
+              "userEn": "I handle the client files. (Move 3: the detail)",
+              "alts": [
+                {
+                  "fr": "Je gère une petite équipe.",
+                  "en": "I manage a small team."
+                },
+                {
+                  "fr": "Je suis responsable de la sécurité.",
+                  "en": "I am responsible for safety."
+                },
+                {
+                  "fr": "Je travaille avec des enfants tous les jours.",
+                  "en": "I work with children every day."
+                }
+              ]
+            },
+            {
+              "ai": "D'accord.",
+              "en": "All right.",
+              "user": "Et vous, vous faites quoi ?",
+              "userEn": "And you, what do you do? (Move 4: the hand-back)",
+              "alts": [
+                {
+                  "fr": "Et vous, vous faites quoi dans la vie ?",
+                  "en": "And you, what do you do for a living?"
+                },
+                {
+                  "fr": "Et vous, vous travaillez dans quoi ?",
+                  "en": "And you, what field do you work in?"
+                },
+                {
+                  "fr": "Vous avez des questions pour moi ?",
+                  "en": "Do you have any questions for me?"
+                }
+              ]
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move",
+            "handback"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s21-deliver",
+          "layer": "core",
+          "skill": "speak",
+          "title": "Say all four",
+          "itemIds": [
+            "fr.a2.metiers.020",
+            "fr.a2.metiers.024",
+            "fr.a2.metiers.028",
+            "fr.a2.metiers.032"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move"
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s22-check",
+          "layer": "core",
+          "title": "Four things you can now do",
+          "body": "Say the four moves out loud, once, for your own job. Nothing here is listening, so this one is on you: the point is to find out whether you can get from the anchor to the question without stopping, not whether a machine agrees that you did. If you dry up, it will be at move 3, and the fix is to have one concrete task ready before you start.",
+          "stats": [
+            {
+              "k": "Move 1",
+              "v": "You name the job, with no article"
+            },
+            {
+              "k": "Move 2",
+              "v": "You add how long, in the present"
+            },
+            {
+              "k": "Move 3",
+              "v": "You name one real thing you handle"
+            },
+            {
+              "k": "Move 4",
+              "v": "You give the question back"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move",
+            "handback"
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s23-quiz",
+          "layer": "core",
+          "title": "The exam",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "r1-shape",
+              "label": "What is missing",
+              "targets": [
+                "stops-at-one"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "q": "Je suis ingénieur. Je travaille là-bas depuis six ans. What is missing?",
+                  "opts": [
+                    "the detail and the question",
+                    "the job title",
+                    "how long"
+                  ],
+                  "correct": 0,
+                  "why": "Moves 1 and 2 are there. Move 3 and move 4 are not, and move 4 is the one that hands the turn back.",
+                  "ref": "s02-fourmoves"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which one is a finished answer?",
+                  "opts": [
+                    "Je suis vendeuse.",
+                    "Je suis vendeuse. Je fais ça depuis deux ans. Je m'occupe de la caisse. Et vous ?",
+                    "Vendeuse, deux ans."
+                  ],
+                  "correct": 1,
+                  "why": "Four moves. The first stops at the anchor and the third is a note to yourself.",
+                  "ref": "s02-fourmoves"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Why is move 4 worth four words?",
+                  "opts": [
+                    "It shows off a question form",
+                    "It is required by grammar",
+                    "It puts the turn back on the other person"
+                  ],
+                  "correct": 2,
+                  "why": "Without it you have made a statement and they have to invent the next question. With it, they are talking.",
+                  "ref": "s14-hook"
+                }
+              ]
+            },
+            {
+              "id": "r2-anchor",
+              "label": "The anchor and the clock",
+              "targets": [
+                "article-back",
+                "depuis-past"
+              ],
+              "questions": [
+                {
+                  "format": "errorSpot",
+                  "q": "One word should not be there. Write it out corrected.",
+                  "prompt": "Je suis un ingénieur.",
+                  "answer": "Je suis ingénieur.",
+                  "accept": [
+                    "Je suis ingénieur",
+                    "je suis ingenieur"
+                  ],
+                  "why": "a1.06 taught this. The article is the extra word, and writing it out is the only place the missing word is visible.",
+                  "ref": "s15-trap"
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "The tense is wrong. Write it out corrected.",
+                  "prompt": "J'ai travaillé là-bas depuis six ans.",
+                  "answer": "Je travaille là-bas depuis six ans.",
+                  "accept": [
+                    "Je travaille là-bas depuis six ans",
+                    "je travaille la-bas depuis six ans"
+                  ],
+                  "why": "a2.18 owns this rule. You are still there, so the sentence is not finished either.",
+                  "ref": "s15-trap"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Write moves 1 and 2 joined, for an engineer of six years.",
+                  "answer": "Je suis ingénieur. Je travaille là-bas depuis six ans.",
+                  "accept": [
+                    "Je suis ingénieur. Je travaille là-bas depuis six ans",
+                    "je suis ingenieur je travaille la-bas depuis six ans"
+                  ],
+                  "why": "Two moves, not four. Four is a paragraph, and a paragraph typed on a phone is a test of patience.",
+                  "ref": "s08-build2"
+                }
+              ]
+            },
+            {
+              "id": "r3-detail",
+              "label": "The detail",
+              "targets": [
+                "no-detail"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "q": "Which one is move 3?",
+                  "opts": [
+                    "Je suis comptable.",
+                    "Je m'occupe des dossiers clients.",
+                    "Je travaille depuis six ans."
+                  ],
+                  "correct": 1,
+                  "why": "Move 3 names one concrete thing you handle. The first is the anchor and the third is the clock.",
+                  "ref": "s09-daily"
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Listen. Is the speaker a man or a woman?",
+                  "say": "Je suis infirmière.",
+                  "opts": [
+                    "a woman",
+                    "a man",
+                    "you cannot tell"
+                  ],
+                  "correct": 0,
+                  "why": "Infirmière ends in the -ière shape. You can hear this one, which is not true of ingénieure.",
+                  "ref": "s11-fem"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which pair is written differently and said the same?",
+                  "opts": [
+                    "infirmier and infirmière",
+                    "ingénieur and ingénieure",
+                    "vendeur and vendeuse"
+                  ],
+                  "correct": 1,
+                  "why": "The written e is the whole change. The other two you can hear.",
+                  "ref": "s11-fem"
+                }
+              ]
+            },
+            {
+              "id": "r4-theirs",
+              "label": "What they ask you",
+              "targets": [
+                "misses-question"
+              ],
+              "questions": [
+                {
+                  "format": "listenChoose",
+                  "q": "Listen. What are they asking about?",
+                  "say": "Depuis combien de temps vous travaillez là-bas ?",
+                  "opts": [
+                    "how many people",
+                    "how long",
+                    "what you handle"
+                  ],
+                  "correct": 1,
+                  "why": "Depuis combien de temps is a length of time. It is the question move 2 answers.",
+                  "ref": "s07-duration"
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Listen. What are they asking about?",
+                  "say": "Vous vous occupez de quoi, exactement ?",
+                  "opts": [
+                    "what you handle",
+                    "how long",
+                    "where you work"
+                  ],
+                  "correct": 0,
+                  "why": "This is the question move 3 answers, and it is the one people are least ready for.",
+                  "ref": "s12-listen"
+                },
+                {
+                  "format": "mcq",
+                  "q": "You did not catch the question. What do you say?",
+                  "opts": [
+                    "Je ne sais pas.",
+                    "Oui, d'accord.",
+                    "Vous pouvez répéter, s'il vous plaît ?"
+                  ],
+                  "correct": 2,
+                  "why": "a2.07 authored six ways to say this, ordered by what each costs you. Reach for the lowest one that fixes it.",
+                  "ref": "s12-listen"
+                }
+              ]
+            },
+            {
+              "id": "r5-handback",
+              "label": "Giving it back",
+              "targets": [
+                "stops-at-one"
+              ],
+              "questions": [
+                {
+                  "format": "speak",
+                  "q": "You have just finished move 3. Say move 4.",
+                  "target": "Et vous, vous faites quoi ?",
+                  "why": "What is being scored here is that you asked a question at all. Any of the four hand-backs works.",
+                  "ref": "s14-hook"
+                },
+                {
+                  "format": "mcq",
+                  "q": "At a party, with somebody your own age, which fits?",
+                  "opts": [
+                    "Et toi, tu fais quoi ?",
+                    "Et vous, vous faites quoi ?",
+                    "Quelle est votre profession ?"
+                  ],
+                  "correct": 0,
+                  "why": "a1.05 taught the form. The room chooses it, and here the room is a party.",
+                  "ref": "s17-register"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "Write move 4, the plain version.",
+                  "answer": "Et vous, vous faites quoi ?",
+                  "accept": [
+                    "Et vous vous faites quoi",
+                    "et vous, vous faites quoi"
+                  ],
+                  "why": "Four words after et vous. This is the sentence the course had never published before this lesson.",
+                  "ref": "s14-hook"
+                }
+              ]
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "terms": [
+            "move",
+            "handback"
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "layer": "core",
+          "title": "What you can do now",
+          "body": "The first sentence is the anchor, not the answer. You came in able to say what you are, because a1.06 taught you that and it is not this lesson's to teach. You leave able to keep going: how long, what that means on a normal day, and a question back that makes the other person do some of the work. Nobody asked you four questions. You answered as though they had.",
+          "points": [
+            "l'ancrage: the job, no article, two seconds",
+            "la durée: how long, in the present, because you are still there",
+            "le détail: one concrete thing you handle",
+            "l'ouverture: four words, and they are talking",
+            "And if you miss what they asked, a2.07 gave you six ways to ask again"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "The first sentence is the anchor, not the answer.",
+          "terms": [
+            "move",
+            "handback"
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.metiers.020",
+        "fr.a2.metiers.021",
+        "fr.a2.metiers.022",
+        "fr.a2.metiers.023",
+        "fr.a2.metiers.024",
+        "fr.a2.metiers.025",
+        "fr.a2.metiers.026",
+        "fr.a2.metiers.027",
+        "fr.a2.metiers.028",
+        "fr.a2.metiers.029",
+        "fr.a2.metiers.030",
+        "fr.a2.metiers.031",
+        "fr.a2.metiers.032",
+        "fr.a2.metiers.033",
+        "fr.a2.metiers.034",
+        "fr.a2.metiers.035",
+        "fr.a2.metiers.036",
+        "fr.a2.metiers.037",
+        "fr.a2.metiers.038",
+        "fr.a2.metiers.039",
+        "fr.a2.metiers.040",
+        "fr.a2.metiers.041",
+        "fr.a2.metiers.042",
+        "fr.a2.metiers.043",
+        "fr.a2.metiers.044",
+        "fr.a2.metiers.045",
+        "fr.a2.metiers.046",
+        "fr.a2.metiers.047",
+        "fr.a2.metiers.048",
+        "fr.a2.metiers.049",
+        "fr.a2.metiers.050",
+        "fr.a2.metiers.051",
+        "fr.a2.metiers.052",
+        "fr.a2.metiers.053",
+        "fr.a2.metiers.054",
+        "fr.a2.metiers.055",
+        "fr.a2.metiers.056",
+        "fr.a2.metiers.057",
+        "fr.a2.metiers.058",
+        "fr.a2.metiers.059",
+        "fr.a2.metiers.060",
+        "fr.a2.metiers.061",
+        "fr.a2.metiers.062",
+        "fr.a2.metiers.063",
+        "fr.a2.metiers.064",
+        "fr.a2.metiers.065",
+        "fr.a2.metiers.066",
+        "fr.a2.metiers.067",
+        "fr.a2.metiers.068",
+        "fr.a2.metiers.069",
+        "fr.a2.metiers.070",
+        "fr.a2.metiers.071",
+        "fr.a2.metiers.072",
+        "fr.a2.metiers.073",
+        "fr.a2.metiers.074",
+        "fr.a2.metiers.075",
+        "fr.a2.metiers.076",
+        "fr.a2.metiers.077",
+        "fr.a2.metiers.078",
+        "fr.a2.metiers.079",
+        "fr.a2.metiers.080",
+        "fr.a2.metiers.081",
+        "fr.a2.metiers.082",
+        "fr.a2.metiers.083",
+        "fr.a2.metiers.084",
+        "fr.a2.metiers.085",
+        "fr.a2.metiers.086",
+        "fr.a2.metiers.087",
+        "fr.a1.metiers.001",
+        "fr.a1.metiers.002",
+        "fr.a1.metiers.020",
+        "fr.a1.metiers.021",
+        "fr.a1.metiers.052",
+        "fr.a1.metiers.005",
+        "fr.a1.metiers.054",
+        "fr.a1.metiers.135",
+        "fr.a1.metiers.028",
+        "fr.a1.metiers.029",
+        "fr.a1.metiers.030",
+        "fr.a1.metiers.026",
+        "fr.a1.metiers.034",
+        "fr.a1.metiers.035",
+        "fr.a1.metiers.044",
+        "fr.a1.metiers.045",
+        "fr.a1.metiers.004",
+        "fr.a1.metiers.006",
+        "fr.a1.metiers.007",
+        "fr.a1.metiers.022",
+        "fr.a1.metiers.047",
+        "fr.a1.metiers.127",
+        "fr.a1.metiers.131",
+        "fr.a1.metiers.140",
+        "fr.a1.metiers.145",
+        "fr.a1.metiers.151",
+        "fr.a1.metiers.136",
+        "fr.a1.metiers.141",
+        "fr.a1.metiers.129",
+        "fr.a1.metiers.150",
+        "fr.a1.metiers.153",
+        "fr.a1.metiers.003",
+        "fr.a1.metiers.159",
+        "fr.a1.metiers.019",
+        "fr.a1.metiers.024",
+        "fr.a1.metiers.025",
+        "fr.a1.metiers.027",
+        "fr.a1.metiers.043",
+        "fr.a1.metiers.056",
+        "fr.a1.metiers.248",
+        "fr.a2.collegues.017",
+        "fr.a1.rp-sante.010",
+        "fr.a1.rp-sante.011",
+        "fr.a1.cafe.063",
+        "fr.a1.marche.011",
+        "fr.a2.marche.009",
+        "fr.a1.ecole.020",
+        "fr.b2.decouvertes.152",
+        "fr.a2.examens-et-diplomes.058",
+        "fr.a2.metiers.006",
+        "fr.a2.metiers.007",
+        "fr.a1.metiers.139",
+        "fr.a1.metiers.133",
+        "fr.a1.metiers.146",
+        "fr.a1.metiers.125",
+        "fr.a1.metiers.244",
+        "fr.a1.metiers.260",
+        "fr.a2.au-restaurant.132",
+        "fr.a2.au-restaurant.133",
+        "fr.a2.au-restaurant.134",
+        "fr.a2.au-restaurant.135",
+        "fr.a2.au-restaurant.136",
+        "fr.a2.au-restaurant.137",
+        "fr.a2.hebergement.074",
+        "fr.a2.hebergement.082",
+        "fr.a2.hebergement.091"
+      ],
+      "version": 1,
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm"
+      }
     }
   ],
   "items": [
@@ -207800,7 +210402,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.marche.012",
@@ -209487,7 +212090,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.004",
@@ -209509,7 +212113,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.cuisine.095",
@@ -209577,7 +212182,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.010",
@@ -213976,7 +216582,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.cuisine.142",
@@ -214043,7 +216650,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.027",
@@ -214066,7 +216674,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.028",
@@ -214089,7 +216698,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.030",
@@ -214112,7 +216722,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.031",
@@ -214204,7 +216815,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.035",
@@ -214227,7 +216839,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.036",
@@ -214411,7 +217024,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.045",
@@ -214434,7 +217048,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.046",
@@ -214480,7 +217095,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.048",
@@ -214548,7 +217164,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.052",
@@ -214571,7 +217188,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.053",
@@ -214617,7 +217235,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.055",
@@ -214662,7 +217281,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.deplacements.018",
@@ -215961,7 +218581,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.ecole.021",
@@ -222989,7 +225610,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.routines.018",
@@ -223291,7 +225913,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.023",
@@ -223337,7 +225960,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.043",
@@ -223360,7 +225984,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.deplacements.020",
@@ -238182,7 +240807,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.deplacements.005",
@@ -238356,7 +240982,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.050",
@@ -240049,7 +242676,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.126",
@@ -240097,7 +242725,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.128",
@@ -240145,7 +242774,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.130",
@@ -240193,7 +242823,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.132",
@@ -240241,7 +242872,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.134",
@@ -268573,7 +271205,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a2.marche.010",
@@ -272216,7 +274849,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.cafe.064",
@@ -336756,7 +339390,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.136",
@@ -336780,7 +339415,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.137",
@@ -336852,7 +339488,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.140",
@@ -336876,7 +339513,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.141",
@@ -336900,7 +339538,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.144",
@@ -336948,7 +339587,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.146",
@@ -336972,7 +339612,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.147",
@@ -337068,7 +339709,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.151",
@@ -337092,7 +339734,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.152",
@@ -337140,7 +339783,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.154",
@@ -337283,7 +339927,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "PO",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.160",
@@ -337883,7 +340528,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "CE",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.a2.metiers.007",
@@ -337906,7 +340552,8 @@
       "audioRef": null,
       "version": 1,
       "skill": "PO",
-      "register": "courant"
+      "register": "courant",
+      "grammarPoints": []
     },
     {
       "id": "fr.b1.metiers.033",
@@ -365805,7 +368452,8 @@
         "review"
       ],
       "audioRef": null,
-      "version": 1
+      "version": 1,
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.objets.211",
@@ -366181,7 +368829,8 @@
         "review"
       ],
       "audioRef": null,
-      "version": 1
+      "version": 1,
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.245",
@@ -367967,7 +370616,8 @@
         "review"
       ],
       "audioRef": null,
-      "version": 1
+      "version": 1,
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.metiers.261",
@@ -417287,6 +419937,1568 @@
       "example": {
         "en": "The shower is very hot this morning.",
         "fr": "La douche est très chaude ce matin."
+      },
+      "skill": "PO",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a1.rp-sante.010",
+      "kind": "word",
+      "level": "a1",
+      "theme": "rp-sante",
+      "fr": "une pharmacienne",
+      "en": "the pharmacist (f)",
+      "ipa": "yn faʁ.ma.sjɛn",
+      "respell": "far-ma-SYENN",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "gender": "f",
+      "example": {
+        "en": "The pharmacist gives me my medication.",
+        "fr": "La pharmacienne me donne mon médicament."
+      },
+      "skill": "CE",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a1.rp-sante.011",
+      "kind": "word",
+      "level": "a1",
+      "theme": "rp-sante",
+      "fr": "une infirmière",
+      "en": "the nurse (f)",
+      "ipa": "yn ɛ̃.fiʁ.mjɛʁ",
+      "respell": "an-feer-MYEHR",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "gender": "f",
+      "example": {
+        "en": "The nurse takes my temperature.",
+        "fr": "L'infirmière prend ma température."
+      },
+      "skill": "CE",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.collegues.017",
+      "kind": "word",
+      "level": "a2",
+      "theme": "collegues",
+      "fr": "une employée",
+      "en": "an employee (female)",
+      "ipa": "/y.nɑ̃.plwa.je/",
+      "respell": "ü-nahn-plwah-YAY",
+      "notes": "Same sound as the masculine form.",
+      "tags": [
+        "collegues",
+        "noun"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.examens-et-diplomes.058",
+      "kind": "word",
+      "level": "a2",
+      "theme": "examens-et-diplomes",
+      "fr": "une professeure",
+      "en": "the teacher (female)",
+      "ipa": "yn pʁɔ.fɛ.sœʁ",
+      "respell": "ün pro-feh-SUR",
+      "tags": [],
+      "drills": [
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "example": {
+        "en": "The teacher supervises the exam.",
+        "fr": "La professeure surveille l'examen."
+      },
+      "skill": "PO",
+      "register": "courant",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.020",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je suis ingénieur.",
+      "en": "I am an engineer.",
+      "tags": [
+        "move1",
+        "ancrage",
+        "noArticle"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.021",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je suis infirmière.",
+      "en": "I am a nurse.",
+      "tags": [
+        "move1",
+        "ancrage",
+        "noArticle",
+        "feminine"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.022",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je suis comptable.",
+      "en": "I am an accountant.",
+      "tags": [
+        "move1",
+        "ancrage",
+        "noArticle"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.023",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je suis cuisinier.",
+      "en": "I am a cook.",
+      "tags": [
+        "move1",
+        "ancrage",
+        "noArticle"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.024",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je travaille là-bas depuis six ans.",
+      "en": "I have worked there for six years.",
+      "tags": [
+        "move2",
+        "duree",
+        "depuis"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.025",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je fais ce métier depuis trois ans.",
+      "en": "I have done this job for three years.",
+      "tags": [
+        "move2",
+        "duree",
+        "depuis"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.026",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je suis dans cette entreprise depuis deux ans.",
+      "en": "I have been at this company for two years.",
+      "tags": [
+        "move2",
+        "duree",
+        "depuis"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.027",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je travaille dans un hôpital depuis dix ans.",
+      "en": "I have worked in a hospital for ten years.",
+      "tags": [
+        "move2",
+        "duree",
+        "depuis"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.028",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je m'occupe des dossiers clients.",
+      "en": "I handle the client files.",
+      "tags": [
+        "move3",
+        "detail",
+        "workday"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.029",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je gère une petite équipe.",
+      "en": "I manage a small team.",
+      "tags": [
+        "move3",
+        "detail",
+        "workday"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.030",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je suis responsable de la sécurité.",
+      "en": "I am responsible for safety.",
+      "tags": [
+        "move3",
+        "detail",
+        "workday"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.031",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je travaille avec des enfants tous les jours.",
+      "en": "I work with children every day.",
+      "tags": [
+        "move3",
+        "detail",
+        "workday"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.032",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Et vous, vous faites quoi ?",
+      "en": "And you, what do you do?",
+      "tags": [
+        "move4",
+        "ouverture",
+        "handback"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.033",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Et vous, vous faites quoi dans la vie ?",
+      "en": "And you, what do you do for a living?",
+      "tags": [
+        "move4",
+        "ouverture",
+        "handback"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.034",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Et vous, c'est quoi votre métier ?",
+      "en": "And you, what is your job?",
+      "tags": [
+        "move4",
+        "ouverture",
+        "handback"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.035",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Et vous, vous travaillez dans quoi ?",
+      "en": "And you, what field do you work in?",
+      "tags": [
+        "move4",
+        "ouverture",
+        "handback"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.036",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Parlez-moi de votre parcours.",
+      "en": "Tell me about your background.",
+      "tags": [
+        "interview",
+        "opener",
+        "parcours"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.037",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Qu'est-ce que vous faites en ce moment ?",
+      "en": "What are you doing at the moment?",
+      "tags": [
+        "interview",
+        "opener"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.038",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Depuis combien de temps vous travaillez là-bas ?",
+      "en": "How long have you been working there?",
+      "tags": [
+        "interview",
+        "duree",
+        "depuis"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.039",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous faites quoi exactement ?",
+      "en": "What exactly do you do?",
+      "tags": [
+        "interview",
+        "detail"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.040",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Racontez-moi une journée typique.",
+      "en": "Tell me about a typical day.",
+      "tags": [
+        "interview",
+        "detail"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.041",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous travaillez avec combien de personnes ?",
+      "en": "How many people do you work with?",
+      "tags": [
+        "interview",
+        "detail"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.042",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Qu'est-ce qui vous plaît dans ce travail ?",
+      "en": "What do you like about this job?",
+      "tags": [
+        "interview",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.043",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Pourquoi vous voulez changer ?",
+      "en": "Why do you want to change?",
+      "tags": [
+        "interview",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.044",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous êtes disponible à partir de quand ?",
+      "en": "When are you available from?",
+      "tags": [
+        "interview",
+        "closing"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.045",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous avez des questions pour moi ?",
+      "en": "Do you have any questions for me?",
+      "tags": [
+        "interview",
+        "closing",
+        "handback"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.046",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Parlez-moi de votre poste actuel.",
+      "en": "Tell me about your current position.",
+      "tags": [
+        "interview",
+        "opener",
+        "poste"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.047",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous êtes responsable de quoi ?",
+      "en": "What are you responsible for?",
+      "tags": [
+        "interview",
+        "detail"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.048",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Ça fait combien de temps ?",
+      "en": "How long has it been?",
+      "tags": [
+        "interview",
+        "duree"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.049",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous préférez travailler seul ou en équipe ?",
+      "en": "Do you prefer working alone or in a team?",
+      "tags": [
+        "interview",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.050",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Et après, vous avez fait quoi ?",
+      "en": "And after that, what did you do?",
+      "tags": [
+        "interview",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.051",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous vous occupez de quoi, exactement ?",
+      "en": "What do you handle, exactly?",
+      "tags": [
+        "interview",
+        "detail"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.052",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Merci, on vous rappelle la semaine prochaine.",
+      "en": "Thank you, we will call you back next week.",
+      "tags": [
+        "interview",
+        "closing"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.053",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous travaillez dans quoi ?",
+      "en": "What field do you work in?",
+      "tags": [
+        "party",
+        "opener"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.054",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Alors, vous faites quoi dans la vie ?",
+      "en": "So, what do you do for a living?",
+      "tags": [
+        "party",
+        "opener"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.055",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Ah bon ? Et ça vous plaît ?",
+      "en": "Really? And do you enjoy it?",
+      "tags": [
+        "party",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.056",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous êtes là depuis longtemps ?",
+      "en": "Have you been there long?",
+      "tags": [
+        "party",
+        "duree",
+        "depuis"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.057",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "C'est un grand bureau ?",
+      "en": "Is it a big office?",
+      "tags": [
+        "party",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.058",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Vous commencez à quelle heure le matin ?",
+      "en": "What time do you start in the morning?",
+      "tags": [
+        "party",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.059",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Et vous voulez faire ça toute votre vie ?",
+      "en": "And do you want to do that all your life?",
+      "tags": [
+        "party",
+        "followup"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.060",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "vous faites quoi",
+      "en": "what do you do",
+      "respell": "voo feht KWAH",
+      "tags": [
+        "question",
+        "spoken"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.061",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "dans la vie",
+      "en": "for a living",
+      "respell": "dahⁿ lah VEE",
+      "tags": [
+        "question",
+        "spoken"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.062",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "depuis combien de temps",
+      "en": "for how long",
+      "respell": "duh-pwee kohⁿ-byaⁿ duh TAHⁿ",
+      "tags": [
+        "question",
+        "spoken",
+        "depuis"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.063",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "ça fait combien de temps",
+      "en": "how long has it been",
+      "respell": "sah feh kohⁿ-byaⁿ duh TAHⁿ",
+      "tags": [
+        "question",
+        "spoken"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.064",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "c'est quoi votre métier",
+      "en": "what is your job",
+      "respell": "seh kwah vo-truh may-TYAY",
+      "tags": [
+        "question",
+        "spoken"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.065",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "vous travaillez dans quoi",
+      "en": "what field do you work in",
+      "respell": "voo trah-vah-yay dahⁿ KWAH",
+      "tags": [
+        "question",
+        "spoken"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.066",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je m'occupe des clients toute la journée.",
+      "en": "I look after customers all day.",
+      "tags": [
+        "workday",
+        "soccuper"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.067",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Elle gère une équipe de huit personnes.",
+      "en": "She manages a team of eight people.",
+      "tags": [
+        "workday",
+        "gerer"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.068",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Il est responsable du planning.",
+      "en": "He is responsible for the schedule.",
+      "tags": [
+        "workday",
+        "responsable"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.069",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Nous travaillons avec des clients étrangers.",
+      "en": "We work with foreign clients.",
+      "tags": [
+        "workday",
+        "travailler"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.070",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "J'aide les nouveaux pendant leur première semaine.",
+      "en": "I help the new ones during their first week.",
+      "tags": [
+        "workday",
+        "aider"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.071",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Je m'occupe de la caisse le samedi.",
+      "en": "I look after the till on Saturdays.",
+      "tags": [
+        "workday",
+        "soccuper"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.072",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Elle gère les commandes et les livraisons.",
+      "en": "She handles the orders and the deliveries.",
+      "tags": [
+        "workday",
+        "gerer"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.073",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "Il aide le chef en cuisine.",
+      "en": "He helps the chef in the kitchen.",
+      "tags": [
+        "workday",
+        "aider"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.074",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une coiffeuse",
+      "en": "a hairdresser (f)",
+      "respell": "ün kwah-FUHZ",
+      "tags": [
+        "feminine",
+        "pair",
+        "euse"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.075",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une traductrice",
+      "en": "a translator (f)",
+      "respell": "ün trah-dük-TREES",
+      "tags": [
+        "feminine",
+        "pair",
+        "trice"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.076",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une informaticienne",
+      "en": "a computer specialist (f)",
+      "respell": "ü-naⁿ-for-ma-tee-SYENN",
+      "tags": [
+        "feminine",
+        "pair",
+        "ienne"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.077",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une ouvrière",
+      "en": "a factory worker (f)",
+      "respell": "ü-noo-vree-YEHR",
+      "tags": [
+        "feminine",
+        "pair",
+        "iere"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.078",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une mécanicienne",
+      "en": "a mechanic (f)",
+      "respell": "ün may-ka-nee-SYENN",
+      "tags": [
+        "feminine",
+        "pair",
+        "ienne"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.079",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une pâtissière",
+      "en": "a pastry chef (f)",
+      "respell": "ün pah-tee-SYEHR",
+      "tags": [
+        "feminine",
+        "pair",
+        "iere"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.080",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une jardinière",
+      "en": "a gardener (f)",
+      "respell": "ün zhar-dee-NYEHR",
+      "tags": [
+        "feminine",
+        "pair",
+        "iere"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.081",
+      "kind": "word",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "une factrice",
+      "en": "a mail carrier (f)",
+      "respell": "ün fak-TREES",
+      "tags": [
+        "feminine",
+        "pair",
+        "trice"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.082",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "dans un bureau",
+      "en": "in an office",
+      "respell": "dahⁿ-zaⁿ bü-ROH",
+      "tags": [
+        "place",
+        "move3"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.083",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "à l'hôpital",
+      "en": "at the hospital",
+      "respell": "ah loh-pee-TAL",
+      "tags": [
+        "place",
+        "move3"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.084",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "sur un chantier",
+      "en": "on a building site",
+      "respell": "sü-raⁿ shahⁿ-TYAY",
+      "tags": [
+        "place",
+        "move3"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.085",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "en équipe",
+      "en": "as a team",
+      "respell": "ahⁿ-nay-KEEP",
+      "tags": [
+        "place",
+        "move3"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.086",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "avec des clients",
+      "en": "with clients",
+      "respell": "ah-vek day klee-YAHⁿ",
+      "tags": [
+        "place",
+        "move3"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.metiers.087",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "metiers",
+      "fr": "derrière un comptoir",
+      "en": "behind a counter",
+      "respell": "deh-ryeh-raⁿ kohⁿ-TWAR",
+      "tags": [
+        "place",
+        "move3"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.b2.decouvertes.152",
+      "kind": "word",
+      "level": "b2",
+      "theme": "decouvertes",
+      "fr": "une ingénieure",
+      "en": "the engineer (f)",
+      "ipa": "yn ɛ̃.ʒe.njœʁ",
+      "respell": "ün en-zhay-NYUR",
+      "tags": [],
+      "drills": [
+        "voiceflash",
+        "review"
+      ],
+      "gender": "f",
+      "example": {
+        "en": "This engineer led the design of the new sensor.",
+        "fr": "Cette ingénieure a dirigé la conception du nouveau capteur."
       },
       "skill": "PO",
       "register": "courant",
