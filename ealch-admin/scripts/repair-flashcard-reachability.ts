@@ -15,34 +15,40 @@
 // `flashcard` drill releases NOTHING. a2.29 had to drop all four from its
 // tranche rather than ship four lines that look like they work and do not.
 //
-// ── WHY THE SUITE WAS GREEN, WHICH IS THE PART WORTH KEEPING ──────────────
+// ── CORRECTED 2026-08-16, AND THE CORRECTION IS THE POINT ─────────────────
 //
-// `flashhub-coverage.test.ts` exists precisely to catch this class: its own
-// header calls it "REACHABILITY — items authored for other drills (voiceflash,
-// sentence) before the hub existed carried no 'flashcard' drill, so no deck
-// could ever select them." It did not catch these four, for two different
-// reasons, and only one of them is correct behaviour.
+// The first version of this script claimed `flashhub-coverage.test.ts`'s
+// `SEPARATE_POOL_SIGNATURES` escape hatch was "keyed on a signature and
+// therefore broader than the batch it was written for", and repaired all four
+// rows on that basis. **That claim was false, and it was measured false against
+// Postgres provenance, which the seed withholds:**
 //
-//   `la douche` — `kind: 'word'`, level a2, drills {voiceflash, review}. Its
-//   drill SIGNATURE is `review+voiceflash`, which sits in that test's
-//   `SEPARATE_POOL_SIGNATURES` escape hatch. That hatch was built for the
-//   2026-07 exam-vocab expansion, which deliberately authored distinct
-//   flashcard-pool and voiceflash-pool vocabulary. `la douche` is not part of
-//   that batch. It merely shares its drill signature, and the exemption
-//   swallowed it. **The exemption is keyed on a signature and is therefore
-//   broader than the batch it was written for.**
+//   a1/a2 vocab rows with no flashcard drill        2055
+//   of those, prompt_version = exam-vocab-2026-07   2055
+//   genuinely stranded                                 0
 //
-//   The three sentences — exempt because `kind: 'sentence'` is exempt by
-//   design, on the reasoning that dictation sentences are spelling exercises
-//   that legitimately live outside the flashcard decks. That reasoning is
-//   right in general and wrong for these three: they are not dictation rows,
-//   they are the published `pourriez-vous` evidence a cardDeck wants to show,
-//   and they carry `sentence` rather than `dictation`.
+// The exemption has ZERO false negatives across the whole corpus. It does
+// exactly its job. And two of the four rows this script first touched are
+// themselves `exam-vocab-2026-07` rows:
 //
-// This script repairs the four rows. It does NOT widen the test's exemption —
-// that is a judgement about the exam-vocab batch and belongs to whoever owns
-// it. What it does do is remove the four rows from behind the exemption, so a
-// future narrowing has less to find.
+//   fr.a2.hebergement.053   la douche              prompt_version = exam-vocab-2026-07
+//   fr.sons.alphabet.282    Pourriez-vous répéter… prompt_version = exam-vocab-2026-07
+//
+// Those two were NOT stranded. They were deliberately assigned to the
+// voiceflash pool by a batch whose whole design is distinct vocabulary per
+// drill, approved per batch. Adding `flashcard` to them reversed a decision
+// somebody made on purpose, on a premise that did not hold.
+//
+// So this script now does two things, and re-running it is idempotent either
+// way:
+//
+//   REPAIR the two rows that are genuinely stranded (prompt_version null).
+//   REVERT the two rows that were deliberately pooled.
+//
+// The lesson worth keeping is not about drills. It is that "the guard did not
+// catch it" and "the guard is wrong" are different claims, and the second one
+// needs the provenance the seed does not carry. Check Postgres before calling
+// an exemption over-broad.
 //
 // ── SAFETY ─────────────────────────────────────────────────────────────────
 //
@@ -57,14 +63,22 @@ import './env';
 const die: (m: string) => never = (m) => { console.error(`\n  STOP: ${m}\n`); process.exit(1); };
 const DRY_RUN = process.argv.includes('--dry');
 
-/** The four, with the drills each is expected to hold BEFORE the repair. Stated
- *  so the script refuses to run against rows that have moved since it was
- *  written, rather than blindly adding a drill to whatever is there now. */
+/** The rows that are GENUINELY stranded: `prompt_version` is null, so no batch
+ *  deliberately pooled them. `before` is what each must hold for the repair to
+ *  run, so the script refuses against a row that has moved since it was written
+ *  rather than blindly adding a drill to whatever is there now. */
 const TARGETS: Array<{ id: string; before: string[]; why: string }> = [
-  { id: 'fr.a2.hebergement.053', before: ['voiceflash', 'review'], why: 'la douche — the noun a2.29\'s scene, trap and six authored rows are built on' },
-  { id: 'fr.a2.expressions-frequentes.072', before: ['sentence'], why: 'published pourriez-vous, cited by a2.29\'s softener term chip' },
-  { id: 'fr.a2.expressions-frequentes.077', before: ['sentence'], why: 'published pourriez-vous' },
-  { id: 'fr.sons.alphabet.282', before: ['sentence', 'review'], why: 'published pourriez-vous, upstream of a2.13 — the evidence behind decision item 1' },
+  { id: 'fr.a2.expressions-frequentes.072', before: ['sentence'], why: 'published pourriez-vous, prompt_version null — genuinely stranded' },
+  { id: 'fr.a2.expressions-frequentes.077', before: ['sentence'], why: 'published pourriez-vous, prompt_version null — genuinely stranded' },
+];
+
+/** The two this script should never have touched. `exam-vocab-2026-07` assigned
+ *  them to the voiceflash pool deliberately; the first version of this script
+ *  gave them `flashcard` on a premise that measured false. Restored here rather
+ *  than left, because a wrong repair nobody reverses becomes the new baseline. */
+const REVERT: Array<{ id: string; to: string[]; why: string }> = [
+  { id: 'fr.a2.hebergement.053', to: ['voiceflash', 'review'], why: 'la douche — exam-vocab voiceflash pool, not stranded' },
+  { id: 'fr.sons.alphabet.282', to: ['sentence', 'review'], why: 'exam-vocab pool, not stranded' },
 ];
 
 /** `drills` is a Postgres enum array and node-postgres can hand it back as the
@@ -121,12 +135,43 @@ async function main() {
       console.log(`      ${t.why}`);
     }
 
-    if (!plan.length) { console.log('\n  Nothing to repair: all four already carry flashcard.\n'); return; }
-    if (DRY_RUN) { console.log(`\n  DRY RUN: ${plan.length} row(s) would be updated, nothing written.\n`); return; }
+    // THE REVERT. Two rows this script wrongly gave `flashcard` on a premise
+    // that measured false. Restore the exam-vocab pooling they were authored
+    // with. Idempotent: a row already at its target is skipped.
+    const undo: Array<{ id: string; next: string[] }> = [];
+    const rev = await c.query<{ id: string; fr: string; drills: unknown; prompt_version: string | null }>(
+      'select id, fr, drills, prompt_version from content_items where id = any($1::text[]) order by id',
+      [REVERT.map((r) => r.id)]);
+    for (const t of REVERT) {
+      const r = rev.rows.find((x) => x.id === t.id);
+      if (!r) die(`${t.id} is not in Postgres`);
+      // Only revert what the exam-vocab batch actually owns. If provenance ever
+      // says otherwise, stop rather than undo somebody else's deliberate work.
+      if (!String(r.prompt_version ?? '').includes('exam-vocab')) {
+        die(`${t.id} is not an exam-vocab row (prompt_version=${r.prompt_version}); the reason for reverting it does not hold`);
+      }
+      const have = toArray(r.drills);
+      const sameSet = have.length === t.to.length && t.to.every((d) => have.includes(d));
+      if (sameSet) { console.log(`  ${t.id.padEnd(34)} already back at {${t.to.join(', ')}} — nothing to undo`); continue; }
+      if (!have.includes('flashcard')) {
+        die(`${t.id} holds {${have.join(', ')}} and carries no flashcard, so this is not the state this script created`);
+      }
+      undo.push({ id: t.id, next: t.to });
+      console.log(`  ${t.id.padEnd(34)} {${have.join(', ')}} -> {${t.to.join(', ')}}   REVERT: ${t.why}`);
+    }
+
+    if (!plan.length && !undo.length) {
+      console.log('\n  Nothing to do: both repairs and both reverts are already in place.\n');
+      return;
+    }
+    if (DRY_RUN) {
+      console.log(`\n  DRY RUN: ${plan.length} repair(s) and ${undo.length} revert(s), nothing written.\n`);
+      return;
+    }
 
     await c.query('begin');
     try {
-      for (const p of plan) {
+      for (const p of [...plan, ...undo]) {
         const res = await c.query('update content_items set drills=$1::drill_kind[], updated_at=now() where id=$2', [p.next, p.id]);
         if (res.rowCount !== 1) throw new Error(`${p.id} update touched ${res.rowCount} rows`);
       }
@@ -138,10 +183,13 @@ async function main() {
 
     // Read back rather than trust the write.
     const after = await c.query<{ id: string; drills: unknown }>(
-      'select id, drills from content_items where id = any($1::text[]) order by id', [TARGETS.map((t) => t.id)]);
-    const bad = after.rows.filter((r) => !toArray(r.drills).includes('flashcard'));
-    if (bad.length) die(`${bad.length} row(s) still carry no flashcard after the write: ${bad.map((r) => r.id).join(', ')}`);
-    console.log(`\n  Repaired ${plan.length} row(s). All four read back carrying flashcard.`);
+      'select id, drills from content_items where id = any($1::text[]) order by id',
+      [[...TARGETS.map((t) => t.id), ...REVERT.map((r) => r.id)]]);
+    const wantFC = new Set<string>(TARGETS.map((t) => t.id));
+    const bad = after.rows.filter((r) => wantFC.has(r.id) !== toArray(r.drills).includes('flashcard'));
+    if (bad.length) die(`${bad.length} row(s) are not in their intended state: ${bad.map((r) => `${r.id} {${toArray(r.drills).join(',')}}`).join(', ')}`);
+    console.log(`
+  Repaired ${plan.length}, reverted ${undo.length}. All four read back in their intended state.`);
     console.log('  Next: pnpm tsx scripts/merge-hotel-into-seed.ts  (carries them into the seed)\n');
   } finally {
     c.release();

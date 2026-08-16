@@ -455,39 +455,49 @@ test('zero hotel nouns authored: every headword was already published', () => {
   }
 });
 
-test('the four repaired rows carry flashcard and are released', () => {
-  // A CORPUS DEFECT THIS BUILD FOUND, AND THE REPAIR THAT CLOSED IT.
+test('two rows were repaired, and two were deliberately left alone', () => {
+  // A DEFECT THIS BUILD FOUND, A REPAIR THAT WAS RIGHT FOR HALF OF IT, AND THE
+  // MEASUREMENT THAT SEPARATED THEM.
   //
-  // All four were published and unservable: a `deckTranche` releases through
-  // the flashcard deck, so an id with no `flashcard` drill releases NOTHING.
+  // All four were published and unreachable by any flashcard deck: a
+  // `deckTranche` releases through that deck, so an id with no `flashcard`
+  // drill releases NOTHING. The first repair gave all four the drill, arguing
+  // that `flashhub-coverage.test.ts`'s `SEPARATE_POOL_SIGNATURES` exemption was
+  // over-broad.
   //
-  //   fr.a2.hebergement.053              la douche                     was {voiceflash, review}
-  //   fr.a2.expressions-frequentes.072   Pourriez-vous m'aider…        was {sentence}
-  //   fr.a2.expressions-frequentes.077   Excusez-moi, pourriez-vous…   was {sentence}
-  //   fr.sons.alphabet.282               Pourriez-vous répéter…        was {sentence, review}
+  // THAT ARGUMENT WAS FALSE, and Postgres provenance says so. Of 2,055 a1/a2
+  // vocab rows with no flashcard drill, 2,055 carry
+  // `prompt_version = 'exam-vocab-2026-07'`. The exemption has zero false
+  // negatives corpus-wide. Two of these four are themselves exam-vocab rows:
   //
-  // `la douche` is the noun this lesson's scene, trap and six authored rows are
-  // built on. The other three are the published `pourriez-vous` evidence that
-  // decided Paul's decision item 1 — the form is already live upstream of a2.13
-  // — and not one of them could be served as a card.
+  //   fr.a2.expressions-frequentes.072   prompt_version null                STRANDED  -> repaired
+  //   fr.a2.expressions-frequentes.077   prompt_version null                STRANDED  -> repaired
+  //   fr.a2.hebergement.053              prompt_version exam-vocab-2026-07  DELIBERATE -> reverted
+  //   fr.sons.alphabet.282               prompt_version exam-vocab-2026-07  DELIBERATE -> reverted
   //
-  // Repaired 2026-08-16 by `ealch-admin/scripts/repair-flashcard-reachability.ts`,
-  // which checks per row that the theme does not already serve that string as a
-  // card before adding the drill. This test now guards the repair rather than
-  // the defect: if a later publish regenerates the seed from a database where
-  // the drill was lost, this goes red.
-  const REPAIRED = [
-    'fr.a2.hebergement.053',
-    'fr.a2.expressions-frequentes.072',
-    'fr.a2.expressions-frequentes.077',
-    'fr.sons.alphabet.282',
+  // The seed cannot make this distinction: publish withholds every provenance
+  // column. So this test pins the OUTCOME rather than re-deriving the reason,
+  // and `scripts/repair-flashcard-reachability.ts` holds the measurement.
+  const REPAIRED = ['fr.a2.expressions-frequentes.072', 'fr.a2.expressions-frequentes.077'];
+  const LEFT_POOLED: Array<[string, string[]]> = [
+    ['fr.a2.hebergement.053', ['voiceflash', 'review']],
+    ['fr.sons.alphabet.282', ['sentence', 'review']],
   ];
   const released = new Set((LESSON.deckTranche ?? []).flat());
+
   for (const id of REPAIRED) {
     const it = ITEMS.get(id);
     ok(it, `${id} is not in the seed`);
     ok((it!.drills ?? []).includes('flashcard'), `${id} lost its flashcard drill again, so it releases nothing`);
     ok(released.has(id), `${id} is servable and this lesson no longer releases it`);
+  }
+
+  for (const [id, drills] of LEFT_POOLED) {
+    const it = ITEMS.get(id);
+    ok(it, `${id} is not in the seed; it is carried on purpose so its drills stay true here`);
+    deepStrictEqual(it!.drills ?? [], drills,
+      `${id} is an exam-vocab pool row. If it now carries flashcard, somebody has overturned that batch's pooling — check provenance before accepting it.`);
+    ok(!released.has(id), `${id} carries no flashcard and is released by a tranche, so the release draws nothing`);
   }
 });
 

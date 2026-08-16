@@ -205636,7 +205636,6 @@
         "fr.a2.hebergement.105",
         "fr.a2.expressions-frequentes.072",
         "fr.a2.expressions-frequentes.077",
-        "fr.sons.alphabet.282",
         "fr.a2.au-restaurant.132",
         "fr.a2.au-restaurant.133",
         "fr.a2.au-restaurant.134",
@@ -205675,7 +205674,6 @@
         "fr.a2.hebergement.026",
         "fr.a2.hebergement.027",
         "fr.a2.hebergement.028",
-        "fr.a2.hebergement.053",
         "fr.a2.hebergement.022",
         "fr.a2.hebergement.023",
         "fr.a2.hebergement.006",
@@ -205691,7 +205689,9 @@
         "fr.a1.questions.328",
         "fr.sons.alphabet.219",
         "fr.sons.alphabet.422",
-        "fr.sons.alphabet.431"
+        "fr.sons.alphabet.431",
+        "fr.a2.hebergement.053",
+        "fr.sons.alphabet.282"
       ],
       "version": 1,
       "grammarAssumed": [
@@ -205851,7 +205851,6 @@
           "fr.a2.hebergement.105",
           "fr.a2.expressions-frequentes.072",
           "fr.a2.expressions-frequentes.077",
-          "fr.sons.alphabet.282",
           "fr.a2.au-restaurant.132",
           "fr.a2.au-restaurant.133",
           "fr.a2.au-restaurant.134",
@@ -205896,7 +205895,6 @@
           "fr.a2.hebergement.026",
           "fr.a2.hebergement.027",
           "fr.a2.hebergement.028",
-          "fr.a2.hebergement.053",
           "fr.a2.hebergement.022",
           "fr.a2.hebergement.023",
           "fr.a2.hebergement.006",
@@ -360245,8 +360243,7 @@
       "tags": [],
       "drills": [
         "sentence",
-        "review",
-        "flashcard"
+        "review"
       ],
       "audioRef": null,
       "version": 1,
@@ -419930,8 +419927,7 @@
       "tags": [],
       "drills": [
         "voiceflash",
-        "review",
-        "flashcard"
+        "review"
       ],
       "gender": "f",
       "example": {

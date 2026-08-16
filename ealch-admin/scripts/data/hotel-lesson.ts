@@ -1185,32 +1185,42 @@ export const DECK_TRANCHE: string[][] = [
   [H(74), H(75), H(76), H(78), H(80), H(81), H(82), H(83), H(84), H(85), H(87), H(88), H(89), H(90), H(91), H(92), H(93), H(94), H(95), H(132)],
   // act 3 — the softeners, the impersonal frames, the openers, and a2.07's six.
   //
-  // THE THREE `pourriez-vous` IDS HERE WERE UNRELEASABLE UNTIL 2026-08-16, and
-  // the repair is why they are back. A `deckTranche` releases through the
-  // flashcard deck, so an id with no `flashcard` drill releases NOTHING:
+  // TWO OF THE THREE `pourriez-vous` IDS ARE RELEASED HERE, AND THE THIRD IS
+  // NOT, WHICH IS A DISTINCTION WORTH THE PARAGRAPH.
   //
-  //   fr.a2.expressions-frequentes.072   Pourriez-vous m'aider…        was {sentence}
-  //   fr.a2.expressions-frequentes.077   Excusez-moi, pourriez-vous…   was {sentence}
-  //   fr.sons.alphabet.282               Pourriez-vous répéter…        was {sentence, review}
+  // A `deckTranche` releases through the flashcard deck, so an id with no
+  // `flashcard` drill releases NOTHING. All three lacked it. Measured against
+  // Postgres provenance, which the seed withholds, they are not the same case:
   //
-  // These are the exact rows that make Paul's decision item 1 true — the form
-  // is already published upstream of a2.13 — and not one of them could be
-  // served as a card. `scripts/repair-flashcard-reachability.ts` added the
-  // drill, with the duplicate check the flashcard hub needs, and they are
-  // released here so the learner meets the upstream exposure the lesson's
-  // softener deck talks about.
+  //   fr.a2.expressions-frequentes.072   prompt_version null              STRANDED, repaired
+  //   fr.a2.expressions-frequentes.077   prompt_version null              STRANDED, repaired
+  //   fr.sons.alphabet.282               prompt_version exam-vocab-2026-07  DELIBERATE
+  //
+  // `.282` was assigned to its pool on purpose by a batch whose whole design is
+  // distinct vocabulary per drill. This build briefly gave it a `flashcard`
+  // drill and reverted it: a lesson does not get to overturn another batch's
+  // pooling decision to make its own tranche tidier.
+  //
+  // So `.282` stays in `ITEM_IDS` — the term chips and prose resolve against
+  // it and the merge carries it — and is released by nothing.
   [H(79), H(77), H(130), H(131), H(96), H(97), H(98), H(99), H(100), H(101), H(102), H(103), H(104), H(105),
-    'fr.a2.expressions-frequentes.072', 'fr.a2.expressions-frequentes.077', 'fr.sons.alphabet.282',
+    'fr.a2.expressions-frequentes.072', 'fr.a2.expressions-frequentes.077',
     ...REPAIR_IDS],
   // act 4 — the numbers, and the two rows the number trap is built on
   [H(125), H(126), H(114), H(115)],
   // act 5 — the rest of the desk's voice, met in the two scenarios
   [H(108), H(109), H(111), H(113), H(116), H(117), H(118), H(119), H(120), H(121), H(122), H(123), H(124), H(127), H(128), H(129)],
   // act 6 — the hotel nouns the whole lesson leaned on, released last.
-  // `H(53)` (la douche) is back: it carried {voiceflash, review} and no
-  // flashcard until 2026-08-16, so a tranche release would have drawn nothing.
-  // See the act 3 note and `scripts/repair-flashcard-reachability.ts`.
-  [H(1), H(2), H(3), H(15), H(16), H(17), H(18), H(19), H(21), H(26), H(27), H(28), H(53), H(22), H(23), H(6), H(9)],
+  //
+  // `H(53)` (la douche) is NOT here, and that is deliberate rather than an
+  // oversight. It carries {voiceflash, review} and no flashcard, so a tranche
+  // release would draw nothing — and its `prompt_version` is
+  // `exam-vocab-2026-07`, meaning that pooling is a decision somebody made,
+  // not a gap. This build gave it a flashcard drill on a premise that measured
+  // false and reverted it. The word still reaches the learner: it is named by
+  // six authored rows, the scene and the trap, and it is carried into the seed
+  // through `ITEM_IDS`. It is simply not a card in this deck.
+  [H(1), H(2), H(3), H(15), H(16), H(17), H(18), H(19), H(21), H(26), H(27), H(28), H(22), H(23), H(6), H(9)],
 ];
 
 /** Every corpus item this lesson can put in front of a learner: what a section
@@ -1225,6 +1235,10 @@ export const ITEM_IDS: string[] = [...new Set([
   'fr.a2.bricolage.041', 'fr.a1.au-restaurant.209', 'fr.a2.hebergement.062', 'fr.a2.hebergement.068',
   'fr.a1.salutations.353', 'fr.a1.salutations.355', 'fr.a1.expressions-frequentes.002',
   'fr.a1.questions.328', 'fr.sons.alphabet.219', 'fr.sons.alphabet.422', 'fr.sons.alphabet.431',
+  // Carried but released by nothing: both are exam-vocab pool rows with no
+  // flashcard drill. Named here so the merge re-pulls them from Postgres and
+  // the seed keeps their real drills rather than a stale copy.
+  H(53), 'fr.sons.alphabet.282',
   QUEBEC_CITE,
   ...IMPORTED.repair,
 ])];

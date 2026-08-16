@@ -208,15 +208,41 @@ cannot hear. `a2.01` states the reframe; `a2.21` and `a2.23` pay it off. Bookend
 
 ```
 A1 leans on:      story/scene · tapTable · vocabThemes · scenario · useCases · examples
-A2 adds:          table (the paradigm) · trapDrill (form choice, stem changes)
+A2 adds:          tapTable (the paradigm) · trapDrill (form choice, stem changes)
                   listening (the silent-ending homophones) · commonErrors (heavier)
                   groupDrill (production against the clock)
 shared spine:     goals · cardDeck · flashcards · practice · reading · reviewDeck
                   progressCheck · quiz · roundup · dictation
 ```
 
-`table` renders a paradigm and `tapTable` makes it audible. Use each once and stop; the
-fifth table in a lesson is where the learner closes the app.
+**`tapTable` is the paradigm surface. `table` cannot be used in the flow at all.**
+Use `tapTable` once and stop; the fifth grid in a lesson is where the learner closes
+the app.
+
+> **CORRECTED 2026-08-16.** This section read *"`table` renders a paradigm and
+> `tapTable` makes it audible"* and listed `table` as what A2 adds. **A `table` at
+> `layer: 'core'` is refused outright**, and has been the whole time:
+>
+> ```ts
+> // density.logic.ts:423, under a heading reading « Tables never appear in the flow »
+> if (s.type === 'table' && layer === 'core') {
+>   push('table-in-core', sid, 'a table in a core section — tables belong in a reference sheet (layer deep)');
+> }
+> ```
+>
+> That is why **0 of 70 shipped lessons carry a `table` in `sections`** while **152**
+> render inside reference sheets. It is an enforced rule, not a convention and not a
+> renderer gap: a2.29 device-checked a probe `table` inside a mission on a Pixel 6 and
+> all nine cells drew correctly, then `validateDensity` refused it on the first batch
+> run. **A device check cannot find this one.**
+>
+> What to use instead. A `tapTable` at `core` carries the identical layout — same
+> `cols`, same grid, one screen — and is audible as well, which is the half of the old
+> sentence that was true. If you also want a consultable grid, ship the `table` at
+> `layer: 'more'`; any layer but `core` passes. a2.29 does both: `s04-ladder` is the
+> tapTable that carries the required layout, `s05-grid` is the table at `more`.
+>
+> Five builds designed around the old sentence before anyone measured it.
 
 `trapDrill` is the A2 workhorse the A1 track barely used. a1.30 shipped the first one in
 the project. Read it before writing yours.

@@ -257,27 +257,44 @@ contiguous, single-theme and single-owner — a2.07 authored six rows with exact
 twins for the same reason. Cross-theme duplication is settled legal precedent
 (collation §7.5). The twin is named, imported and reported, not "fixed".
 
-### A corpus defect found and NOT repaired
+### A corpus defect found, half repaired, and half of my own repair reverted
 
-Four published rows carry no `flashcard` drill, so **no deck in the product can
-serve them**, and a `deckTranche` release would be a line that looks like it
-works and does nothing:
+Four published rows carried no `flashcard` drill, so **no deck in the product
+could serve them** and a `deckTranche` release would have drawn nothing.
+
+**I first repaired all four, and the argument I gave was wrong.** I claimed
+`flashhub-coverage.test.ts`'s `SEPARATE_POOL_SIGNATURES` exemption was
+"keyed on a signature and therefore broader than the batch it was written for".
+Measured against Postgres provenance, which the seed withholds:
 
 ```
-fr.a2.hebergement.053            la douche                       {voiceflash, review}
-fr.a2.expressions-frequentes.072 Pourriez-vous m'aider…          {sentence}
-fr.a2.expressions-frequentes.077 Excusez-moi, pourriez-vous…     {sentence}
-fr.sons.alphabet.282             Pourriez-vous répéter…          {sentence, review}
+a1/a2 vocab rows with no flashcard drill        2055
+of those, prompt_version = exam-vocab-2026-07   2055
+genuinely stranded                                 0
 ```
 
-`la douche` is the noun this lesson's scene, trap and six authored rows are all
-built on. The three `pourriez-vous` rows are the published evidence that decided
-Paul's item 1 — the form is already live upstream of a2.13 — and not one of them
-is servable as a card. **Repairing another theme's drill arrays is a repair pass,
-not a lesson build.** Pinned by a test that goes red on purpose if they are ever
-fixed.
+**The exemption has zero false negatives corpus-wide.** It does exactly its job.
+And two of the four rows are themselves `exam-vocab-2026-07`:
 
----
+| row | prompt_version | verdict |
+|---|---|---|
+| `fr.a2.expressions-frequentes.072` | null | stranded → **repaired** |
+| `fr.a2.expressions-frequentes.077` | null | stranded → **repaired** |
+| `fr.a2.hebergement.053` `la douche` | exam-vocab-2026-07 | deliberate → **reverted** |
+| `fr.sons.alphabet.282` | exam-vocab-2026-07 | deliberate → **reverted** |
+
+`la douche` and `.282` were assigned to the voiceflash pool on purpose by a batch
+whose whole design is distinct vocabulary per drill. Giving them `flashcard` let
+a2.29 tidy its own tranche by overturning another batch's decision. Both are
+restored; `scripts/repair-flashcard-reachability.ts` now repairs two and reverts
+two, and refuses to revert anything whose provenance does not say exam-vocab.
+
+Both still reach the learner: they are named by the lesson, carried into the seed
+through `ITEM_IDS`, and released by nothing.
+
+**The lesson is not about drills.** "The guard did not catch it" and "the guard is
+wrong" are different claims, and the second needs provenance the seed does not
+carry. Check Postgres before calling an exemption over-broad.
 
 ## 9. a1.03 MOVED, AND AN IMPORT IS NOT INERT — for the fourth build running
 
@@ -556,10 +573,14 @@ remediation loop (`roundFailThreshold` firing a drill), and the scenario's live
 - **`seed.version` left at 50.** Not hand-bumped.
 - **The a2.13 amendment is specified and not applied.** §3.
 - **Four unservable published rows**, §8, awaiting a repair pass.
-- **`A2-BUILD-DOCTRINE.md` §B.8 still needs editing**: it names `table` as the
-  A2 paradigm surface when the validator forbids it in the flow.
-  **§F is DONE** — the mission range was corrected on 2026-08-16 to 23 to 32,
-  median 24, measured across all 70 shipped lessons.
+- **`A2-BUILD-DOCTRINE.md` is DONE, both sections.** §F's mission range was
+  corrected on 2026-08-16 to 23 to 32, median 24, measured across all 70 shipped
+  lessons; §B.8 now names `tapTable` as the paradigm surface and records that a
+  `table` at `layer: 'core'` is refused outright.
+- **The ladder contract has its own file**: `47-LADDER-RUNG-IDS.md`, on
+  `04-REPAIR-MOVE-IDS.md`'s model, so a2.31 and a2.32 do not have to find it
+  inside this report. a2.30 found it without the file and quoted all three names
+  verbatim, reusing `.074`, `.082` and `.091`.
 - **`MissionRich.tsx:871`'s hardcoded R line** is live on 46 trapDrill audio
   steps across 34 lessons and reads as nonsense on every lesson that is not
   about pronunciation. One line to fix, and three more band units are coming.
