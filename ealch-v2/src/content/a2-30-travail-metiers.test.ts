@@ -589,6 +589,56 @@ test('no learner-facing surface carries grammatical jargon', { skip: noSrc }, ()
   }
 });
 
+test('nothing addressed to the learner agrees with a man', { skip: noSrc }, () => {
+  // FOUND BY SELF-AUDIT, twice. The scenario opened `Merci d'être venu.` and
+  // fr.a2.metiers.049 asked `Vous préférez travailler seul ou en équipe ?`.
+  // Both are the interviewer speaking TO THE LEARNER, so half of them were
+  // handed a participle or adjective that does not agree with them — by the one
+  // unit in this band that owns feminine forms and teaches them in act 3.
+  //
+  // Scoped to the OTHER party's voice and to second-person surfaces. A learner
+  // model sentence may of course be masculine: `Je suis ingénieur.` is one of
+  // four, and `Je suis infirmière.` is another.
+  const AGREES_MASC = /\b(seul|content|prêt|sûr|inscrit|venu|allé|assis|fatigué|payé|embauché|licencié|reçu|attendu)\b(?!e)/;
+  for (const r of ROWS) {
+    if (r.voice !== 'other') continue;
+    ok(!AGREES_MASC.test(r.fr), `${r.id} addresses the learner and agrees with a man: « ${r.fr} »`);
+  }
+  const sc = S('s20-interview') as Any as { turns: Array<{ ai: string }> };
+  for (const t of sc.turns) {
+    ok(!AGREES_MASC.test(t.ai), `an interviewer turn agrees with a man: « ${t.ai} »`);
+  }
+});
+
+test('no elision is written as a bare space', { skip: noSrc }, () => {
+  // FOUND BY SELF-AUDIT. A cardDeck body read « heavier than s occuper de »,
+  // because the string was single-quoted in TypeScript and the apostrophe was
+  // dropped rather than the quoting changed. It renders exactly as written.
+  const ELIDED = /\b(s|j|l|d|c|n|m|t|qu)\s+(occup|ai|hôp|équip|est|avez|aime|ouvert|entend|écri|embauch)/i;
+  for (const s of SECTIONS) {
+    for (const str of strs(s)) {
+      ok(!ELIDED.test(str), `${s.id}: an elision is written with a space: "${str.slice(0, 70)}"`);
+    }
+  }
+  for (const r of ROWS) ok(!ELIDED.test(r.fr), `${r.id}: an elision is written with a space`);
+});
+
+test('the lesson never contradicts the feminisation rule it owns', { skip: noSrc }, () => {
+  // FOUND BY SELF-AUDIT. s06-jobwords told the learner « Une plombière is rare.
+  // Most say une plombier. » while §5 rule 3 sends -ier to -ière and s11-fem's
+  // closing card says to build it the ordinary way. Seven other units are bound
+  // to that rule, so a hedge inside this lesson is the worst place to put one.
+  //
+  // No learner-facing surface may present `une` + a masculine job form as the
+  // feminine. Checked by shape rather than by a list of words.
+  const HEDGE = /\bune (plombier|ingénieur|professeur|vendeur|serveur|coiffeur|caissier|infirmier|boulanger|facteur|traducteur|jardinier|ouvrier|mécanicien|pâtissier|informaticien|pharmacien|électricien)\b/;
+  for (const s of SECTIONS) {
+    for (const str of strs(s)) {
+      ok(!HEDGE.test(str), `${s.id}: presents a masculine form behind « une »: "${str.slice(0, 70)}"`);
+    }
+  }
+});
+
 test('no section declares more than three term chips', { skip: noSrc }, () => {
   // MissionSection caps the chips shown at THREE; a fourth pushes content down.
   for (const s of SECTIONS) {

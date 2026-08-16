@@ -590,7 +590,12 @@ export const INTERVIEWER_ROWS: Row[] = [
   sent(46, 'Parlez-moi de votre poste actuel.', 'Tell me about your current position.', 'other', ['interview', 'opener', 'poste'], FCVR),
   sent(47, 'Vous êtes responsable de quoi ?', 'What are you responsible for?', 'other', ['interview', 'detail'], FCVDR),
   sent(48, 'Ça fait combien de temps ?', 'How long has it been?', 'other', ['interview', 'duree'], FCVDR),
-  sent(49, 'Vous préférez travailler seul ou en équipe ?', 'Do you prefer working alone or in a team?', 'other', ['interview', 'followup'], FCVR),
+  // NOT "travailler seul ou en équipe". `seul` agrees with a MAN and the
+  // interviewer is saying it TO THE LEARNER, so half of them are handed a
+  // masculine default by the one unit in the band that owns feminine forms.
+  // `de votre côté` carries the same contrast and has no agreement to get
+  // wrong. Same correction as the scenario's opening turn.
+  sent(49, 'Vous préférez travailler en équipe ou de votre côté ?', 'Do you prefer working in a team or on your own?', 'other', ['interview', 'followup'], FCVR),
   sent(50, 'Et après, vous avez fait quoi ?', 'And after that, what did you do?', 'other', ['interview', 'followup'], FCVR),
   sent(51, 'Vous vous occupez de quoi, exactement ?', 'What do you handle, exactly?', 'other', ['interview', 'detail'], FCVR),
   sent(52, 'Merci, on vous rappelle la semaine prochaine.', 'Thank you, we will call you back next week.', 'other', ['interview', 'closing'], FCVR),

@@ -198465,7 +198465,7 @@
         {
           "type": "scene",
           "id": "s01-scene",
-          "title": "The Answer You Could Not Hold",
+          "title": "The Reply That Ran Past You",
           "frSub": "La réponse qui ne s'arrête pas",
           "render": "screens",
           "layer": "core",
@@ -198853,7 +198853,7 @@
         {
           "type": "tapTable",
           "id": "s06-verbs",
-          "title": "The Verbs, And What They Do To You",
+          "title": "What The Verbs Actually Do",
           "frSub": "Les verbes du trajet",
           "layer": "core",
           "terms": [
@@ -199833,7 +199833,7 @@
         {
           "type": "cardDeck",
           "id": "s16-repair",
-          "title": "Asking For The Piece You Missed",
+          "title": "Ask For The Piece You Lost",
           "frSub": "Redemander, mais quoi",
           "render": "deck",
           "layer": "core",
@@ -202223,7 +202223,7 @@
         {
           "type": "cardDeck",
           "id": "s09-repair",
-          "title": "When Asking Again Will Not Help",
+          "title": "Asking Again Will Not Help",
           "frSub": "Redemander, ou décrire",
           "render": "deck",
           "layer": "core",
@@ -202623,7 +202623,7 @@
         {
           "type": "trapDrill",
           "id": "s13-dosetrap",
-          "title": "Three Times, Or Every Three Hours",
+          "title": "Three Times, Or Eight",
           "frSub": "Le piège de la posologie",
           "layer": "core",
           "swipe": true,
@@ -202757,7 +202757,7 @@
         {
           "type": "cardDeck",
           "id": "s14-notmedical",
-          "title": "Understanding It, And Deciding It",
+          "title": "Understanding, Not Deciding",
           "frSub": "Deux choses différentes",
           "render": "deck",
           "layer": "more",
@@ -202889,7 +202889,7 @@
         {
           "type": "cardDeck",
           "id": "s17-quebec",
-          "title": "The Same Words, A Different System",
+          "title": "Same Words, Other System",
           "frSub": "Au Québec",
           "render": "deck",
           "layer": "more",
@@ -203058,7 +203058,7 @@
         {
           "type": "reviewDeck",
           "id": "s21-review",
-          "title": "The Three Shapes, And The Way Out",
+          "title": "Three Shapes, One Way Out",
           "frSub": "Révision",
           "render": "deck",
           "layer": "core",
@@ -207308,7 +207308,7 @@
                 {
                   "fr": "un plombier",
                   "itemId": "fr.a1.metiers.029",
-                  "note": "Une plombière is rare. Most say une plombier."
+                  "note": "Une plombière."
                 },
                 {
                   "fr": "un maçon",
@@ -207522,7 +207522,7 @@
               "head": "gérer",
               "fr": "Je gère une petite équipe.",
               "sub": "zhuh ZHEHR ün puh-TEET ay-KEEP",
-              "body": "Use it for people, budgets and orders. It is heavier than s occuper de and it says you decide."
+              "body": "Use it for people, budgets and orders. It is heavier than s'occuper de and it says you decide."
             },
             {
               "label": "Be answerable",
@@ -207756,8 +207756,8 @@
               "en": "How many people do you work with?"
             },
             {
-              "fr": "Vous préférez travailler seul ou en équipe ?",
-              "en": "Do you prefer working alone or in a team?"
+              "fr": "Vous préférez travailler en équipe ou de votre côté ?",
+              "en": "Do you prefer working in a team or on your own?"
             },
             {
               "fr": "Vous avez des questions pour moi ?",
@@ -208261,8 +208261,8 @@
           "setting": "A meeting room in Lyon. She has your CV and has not read it closely.",
           "turns": [
             {
-              "ai": "Bonjour, asseyez-vous. Merci d'être venu.",
-              "en": "Hello, have a seat. Thank you for coming.",
+              "ai": "Bonjour, asseyez-vous. Merci d'être là.",
+              "en": "Hello, have a seat. Thank you for being here.",
               "user": "Bonjour, merci de me recevoir.",
               "userEn": "Hello, thank you for seeing me.",
               "alts": [
@@ -420664,8 +420664,8 @@
       "kind": "sentence",
       "level": "a2",
       "theme": "metiers",
-      "fr": "Vous préférez travailler seul ou en équipe ?",
-      "en": "Do you prefer working alone or in a team?",
+      "fr": "Vous préférez travailler en équipe ou de votre côté ?",
+      "en": "Do you prefer working in a team or on your own?",
       "tags": [
         "interview",
         "followup"

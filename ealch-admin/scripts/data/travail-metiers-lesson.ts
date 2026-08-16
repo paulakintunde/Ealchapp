@@ -427,7 +427,13 @@ const S_JOBWORDS: LessonSection = {
       label: 'Bâtiment',
       items: [
         { fr: 'un électricien', itemId: 'fr.a1.metiers.028', note: 'Une électricienne.' },
-        { fr: 'un plombier', itemId: 'fr.a1.metiers.029', note: 'Une plombière is rare. Most say une plombier.' },
+        // NOT "une plombière is rare, most say une plombier". That was authored
+        // in the first pass and it CONTRADICTS THE RULE THIS UNIT OWNS FOR THE
+        // BAND: §5 rule 3 sends -ier to -ière, and s11-fem's closing card tells
+        // the learner to build it the ordinary way when the corpus has nothing.
+        // A hedge here teaches the opposite of the card two acts later, on the
+        // one point seven other units are bound to.
+        { fr: 'un plombier', itemId: 'fr.a1.metiers.029', note: 'Une plombière.' },
         { fr: 'un maçon', itemId: 'fr.a1.metiers.030', note: 'Une maçonne.' },
         { fr: 'un jardinier', itemId: 'fr.a1.metiers.026', note: 'Une jardinière, which is also a window box.' },
       ],
@@ -547,7 +553,7 @@ const S_DAILY: LessonSection = {
       head: 'gérer',
       fr: 'Je gère une petite équipe.',
       sub: 'zhuh ZHEHR ün puh-TEET ay-KEEP',
-      body: 'Use it for people, budgets and orders. It is heavier than s occuper de and it says you decide.',
+      body: "Use it for people, budgets and orders. It is heavier than s'occuper de and it says you decide.",
     },
     {
       label: 'Be answerable',
@@ -729,7 +735,7 @@ const S_LISTEN: LessonSection = {
     { fr: 'Depuis combien de temps vous travaillez là-bas ?', en: 'How long have you been working there?' },
     { fr: 'Vous vous occupez de quoi, exactement ?', en: 'What do you handle, exactly?' },
     { fr: 'Vous travaillez avec combien de personnes ?', en: 'How many people do you work with?' },
-    { fr: 'Vous préférez travailler seul ou en équipe ?', en: 'Do you prefer working alone or in a team?' },
+    { fr: 'Vous préférez travailler en équipe ou de votre côté ?', en: 'Do you prefer working in a team or on your own?' },
     { fr: 'Vous avez des questions pour moi ?', en: 'Do you have any questions for me?' },
   ],
   questions: [
@@ -1113,8 +1119,13 @@ const S_INTERVIEW: LessonSection = {
   setting: 'A meeting room in Lyon. She has your CV and has not read it closely.',
   turns: [
     {
-      ai: "Bonjour, asseyez-vous. Merci d'être venu.",
-      en: 'Hello, have a seat. Thank you for coming.',
+      // NOT "Merci d'être venu." — that participle agrees with a MAN, and the
+      // interviewer is saying it TO THE LEARNER. Half of them would be told a
+      // sentence that does not agree with them, in the one section of this
+      // lesson where the learner is cast as themselves. `être là` sidesteps the
+      // agreement entirely rather than authoring venu(e).
+      ai: "Bonjour, asseyez-vous. Merci d'être là.",
+      en: 'Hello, have a seat. Thank you for being here.',
       user: 'Bonjour, merci de me recevoir.',
       userEn: 'Hello, thank you for seeing me.',
       alts: [
