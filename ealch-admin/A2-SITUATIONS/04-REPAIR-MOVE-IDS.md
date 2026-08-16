@@ -52,6 +52,12 @@ flashcard + voiceflash + dictation triple appears on **861** published rows, and
 
 ## How to cite them
 
+> **CORRECTED 2026-08-15.** This section first showed `itemIds: [...REPAIR_IDS]`
+> on the `cardDeck`. **No renderer reads `itemIds` on a cardDeck** — only
+> `practice` reads it — so that line validates, publishes and does nothing.
+> a2.07 shipped it, a2.26 copied it from here, and both are now fixed. Release
+> the ids through `deckTranche` instead, which is the mechanism that works.
+
 ```ts
 // In your lesson file. Do NOT re-type the strings.
 const REPAIR_IDS = [
@@ -59,12 +65,26 @@ const REPAIR_IDS = [
   'fr.a2.au-restaurant.135', 'fr.a2.au-restaurant.136', 'fr.a2.au-restaurant.137',
 ] as const;
 
+// 1. The CARDS carry the strings the learner reads. `sub` IS legitimate on a
+//    cardDeck card (it is not, on a groupDrill item — see 41-DEAD-FIELDS-WARNING).
 const S_REPAIR: LessonSection = {
   type: 'cardDeck', id: 's-repair', title: '...',
-  itemIds: [...REPAIR_IDS],
-  // and quote a2.07 by UNIT ID in prose: "a2.07 taught these six."
+  // NO itemIds here. It draws nothing.
+  cards: [
+    { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: '...', label: 'a2.07, rung 1' },
+    // ... and quote a2.07 by UNIT ID in prose: "a2.07 taught these six."
+  ],
 };
+
+// 2. The SRS gets them from your deckTranche, in whichever act the section sits.
+const DECK_TRANCHE: string[][] = [
+  [ /* act 1 */ ],
+  [ /* act 2 ... */ ...REPAIR_IDS ],
+];
 ```
+
+Assert the release, not the field: `ok(tranche.includes(id))` for each of the
+six. That is what a2.07's own test does after the correction.
 
 **Your merge script must carry these rows into the seed.** They live in
 `au-restaurant`, which is almost certainly not your theme, and the seed is a
