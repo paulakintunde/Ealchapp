@@ -990,7 +990,9 @@
       "level": "a2",
       "title": "The Pronouns Y and EN",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.25.l1"
+      ],
       "prereqUnitIds": [
         "a2.24"
       ]
@@ -188839,6 +188841,2667 @@
         "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
         "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
       ]
+    },
+    {
+      "id": "a2.25.l1",
+      "unitId": "a2.25",
+      "seq": 1,
+      "title": "Y et EN",
+      "tag": "A2 · LEÇON 23",
+      "level": "a2",
+      "version": 1,
+      "intro": "Two lessons ago you learned where a small word goes, and last lesson you learned that à plus a person turns into one. This lesson finishes the set, and the two words in it work in a way nothing you have met so far does: they do not stand in for a noun, they stand in for a little word AND the noun behind it, both at once. That is why nothing is left over afterwards, and it is why the mistake everybody makes is saying the little word one more time. The second half is harder and English gives you no help with it at all: French will not let you leave these words out, so the two-word answer your own language closes on does not close anything here.",
+      "grammarAssumed": [
+        "The third-person direct object pronouns le, la and les and their obligatory preverbal placement, introduced in a2.06",
+        "The third-person indirect object pronouns lui and leur, and the absorption of dative à, introduced in a2.24",
+        "The partitive articles du, de la and des, introduced in a1.29",
+        "Expressions of quantity governing de: beaucoup de, un peu de, assez de, trop de, introduced in a1.29",
+        "The preposition à and its contraction with the definite article, introduced in a1.21 and a2.04",
+        "The preposition en in front of a country, introduced in a2.04",
+        "The preposition en in front of a duration, and il y a in both its existential and its temporal sense, introduced in a2.18",
+        "Standard negation with ne … pas around a finite verb, introduced in a1.18",
+        "That ne … pas encloses the verb that changed rather than the one carrying the meaning, introduced in a2.19",
+        "The passé composé as auxiliary plus past participle, introduced in a2.05",
+        "The rising-intonation question, introduced in a1.19"
+      ],
+      "grammarIntroduced": [
+        "The pronoun y, as the replacement of à plus a non-human complement, whether locative or not, in explicit contrast with the lui of a2.24 which replaces à plus a human one",
+        "The pronoun en, as the replacement of de plus a complement, covering the partitive articles of a1.29, the de of quantity expressions, and the de governed lexically by a verb",
+        "That both pronouns absorb the preposition itself rather than only its complement, which distinguishes them from every pronoun set introduced before this unit and is the source of the preposition-doubling error",
+        "The obligatoriness of en and y where English permits ellipsis, so that « Oui, j'ai » and « Oui, je vais » are ungrammatical rather than merely marked",
+        "That a numeral or a quantity expression is retained after en while the noun is not, a construction with no English equivalent",
+        "The three homophonous ens of this level, disambiguated exclusively by position, as the seventh instance of the one-form-several-jobs pattern named by a2.02 and the first with three readings rather than two",
+        "That il y a is lexicalised and does not decompose, although the y in it is the pronoun taught here",
+        "The fixed order y before en, as the only multiple-clitic sequence this unit's own inventory can generate. THE ORDER OF ANY OTHER PAIR OF OBJECT PRONOUNS IS RESERVED AND IS OWNED BY NO A2 UNIT AT THE TIME OF WRITING: see the build report, which escalates it as a curriculum gap rather than resolving it here."
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "The Pronouns Y and EN",
+        "subFr": "Y et EN",
+        "introFr": "Le petit mot entre dans le pronom.",
+        "minutes": 32,
+        "difficulty": 4,
+        "glyph": "🎯",
+        "screens": 246
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The answer that had nowhere to go",
+          "sections": [
+            "s01-scene",
+            "s02-two",
+            "s03-goals"
+          ],
+          "milestone": "You have seen both words with the little word visible inside each of them.",
+          "estScreens": 22,
+          "restPoints": [
+            "s02-two/after-the-two"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "A person, a place, a thing",
+          "sections": [
+            "s04-person",
+            "s05-there",
+            "s06-listening"
+          ],
+          "milestone": "You can tell which of the three pronouns a sentence wants, and you know y is not the English there.",
+          "estScreens": 40,
+          "restPoints": [
+            "s04-person/after-the-split"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "The word you cannot leave out",
+          "sections": [
+            "s07-de",
+            "s08-must",
+            "s09-quantity",
+            "s10-unseen"
+          ],
+          "milestone": "You can answer a question about a quantity, and you know why the two-word answer does not work.",
+          "estScreens": 54,
+          "restPoints": [
+            "s08-must/after-the-must",
+            "s09-quantity/after-the-quantity"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "One word, three jobs",
+          "sections": [
+            "s11-threeens",
+            "s12-trap",
+            "s13-frozen",
+            "s14-errors"
+          ],
+          "milestone": "You can tell the three ens apart by what follows them, and you know that il y a does not come apart.",
+          "estScreens": 42,
+          "restPoints": [
+            "s12-trap/after-the-trap"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Saying no, and the order",
+          "sections": [
+            "s15-negation",
+            "s16-order",
+            "s17-flash",
+            "s18-dictation"
+          ],
+          "milestone": "You can wrap the negation round both words and you know which of the two goes first.",
+          "estScreens": 40,
+          "restPoints": [
+            "s18-dictation/after-the-dictee"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s19-talk",
+            "s20-speak",
+            "s21-review",
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "Thirty questions, and half of them asked for a whole sentence rather than a choice between four.",
+          "estScreens": 48,
+          "restPoints": [
+            "s20-speak/after-the-speaking",
+            "s21-review/before-the-exam"
+          ]
+        }
+      ],
+      "reframe": "The preposition goes inside the pronoun, so it does not get said twice.",
+      "errorTriggers": [
+        {
+          "id": "err-keeps-prep",
+          "description": "Replaces the noun and keeps the little word, so it is said twice. « J'y vais à Paris. » THE error this lesson's own reframe predicts: the learner builds the English sentence, swaps the noun for the pronoun and leaves the preposition where it was, because in English the preposition is a separate word and stays.",
+          "detectOn": [
+            "s02-two",
+            "s07-de",
+            "s12-trap",
+            "s14-errors",
+            "s23-quiz"
+          ],
+          "drill": "drill-prep",
+          "retest": "retest-prep"
+        },
+        {
+          "id": "err-drops-en",
+          "description": "Leaves the word out altogether and answers with two words. « Oui, j'ai. » The error the scene dies on, and it is the hardest one to notice because nothing in English is missing: the English answer really is two words and neither of them stands for anything.",
+          "detectOn": [
+            "s01-scene",
+            "s08-must",
+            "s09-quantity",
+            "s23-quiz"
+          ],
+          "drill": "drill-must",
+          "retest": "retest-must"
+        },
+        {
+          "id": "err-wrong-en",
+          "description": "Reads the little word in front of a place or a length of time as this lesson's pronoun, or the other way round. Three jobs for one word across three lessons of one level, and the only distinguisher is position.",
+          "detectOn": [
+            "s11-threeens",
+            "s12-trap",
+            "s23-quiz"
+          ],
+          "drill": "drill-ens",
+          "retest": "retest-ens"
+        },
+        {
+          "id": "err-breaks-frozen",
+          "description": "Takes « il y a » apart and builds « il en a » for \"there is some\". The phrase is frozen, the y inside it is this lesson's y, and a learner who decomposes it produces a correct sentence that means something else, so nobody corrects it.",
+          "detectOn": [
+            "s13-frozen",
+            "s16-order",
+            "s23-quiz"
+          ],
+          "drill": "drill-frozen",
+          "retest": "retest-frozen"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-prep",
+          "title": "Once, never twice",
+          "format": "sort",
+          "buckets": [
+            "the little word is inside",
+            "the little word is said twice"
+          ],
+          "items": [
+            "fr.a2.pronoms-essentiels.288",
+            "fr.a2.pronoms-essentiels.292",
+            "fr.a2.pronoms-essentiels.294",
+            "fr.a2.pronoms-essentiels.305",
+            "fr.a2.pronoms-essentiels.316",
+            "fr.a2.pronoms-essentiels.330"
+          ],
+          "coach": "The preposition goes inside the pronoun, so it does not get said twice. Every card in the left bucket has nothing after the verb that repeats what is already inside the pronoun."
+        },
+        {
+          "id": "retest-prep",
+          "title": "One more",
+          "format": "mcq",
+          "q": "« Je vais à Paris. » Say it without the city.",
+          "opts": [
+            "J'y vais.",
+            "J'y vais à Paris.",
+            "Je vais y."
+          ],
+          "correct": 0,
+          "why": "The little word is already inside the pronoun, so saying it again says it twice. The second says it twice and the third puts the word where English would put it."
+        },
+        {
+          "id": "drill-must",
+          "title": "The word that has to be there",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "Tu as du sucre ?",
+              "Oui, j'en ai."
+            ],
+            [
+              "Tu prends du sucre ?",
+              "Oui, j'en prends."
+            ],
+            [
+              "Tu vas au bureau ?",
+              "Oui, j'y vais."
+            ]
+          ],
+          "coach": "French will not let you leave it out. « Oui, j'ai. » is not a sentence. Read across: the thing is named on the left and gone on the right, and the word that stands for it is not optional on either side."
+        },
+        {
+          "id": "retest-must",
+          "title": "One more",
+          "format": "mcq",
+          "q": "« Tu as du sucre ? » Answer yes.",
+          "opts": [
+            "Oui, j'en ai.",
+            "Oui, j'ai.",
+            "Oui, j'ai du."
+          ],
+          "correct": 0,
+          "why": "French will not let you leave it out. « Oui, j'ai. » is not a sentence."
+        },
+        {
+          "id": "drill-ens",
+          "title": "Which en is it",
+          "format": "sort",
+          "buckets": [
+            "a verb comes next, so it is the pronoun",
+            "a thing comes next, so it is the little word"
+          ],
+          "items": [
+            "fr.a2.pronoms-essentiels.311",
+            "fr.a2.pronoms-essentiels.312",
+            "fr.a2.pronoms-essentiels.292",
+            "fr.a2.pronoms-essentiels.322",
+            "fr.a2.pronoms-essentiels.294",
+            "fr.a2.pronoms-essentiels.323"
+          ],
+          "coach": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. Look at the word straight after it and nothing else. The meaning will not help you and neither will the sound."
+        },
+        {
+          "id": "retest-ens",
+          "title": "One more",
+          "format": "mcq",
+          "q": "In « Elle en parle. », what is en doing?",
+          "opts": [
+            "It is the pronoun, because a verb comes next",
+            "It is the little word in front of a place",
+            "It is part of the verb"
+          ],
+          "correct": 0,
+          "why": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them."
+        },
+        {
+          "id": "drill-frozen",
+          "title": "Three words that stay together",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "Il y a du pain.",
+              "Il y en a."
+            ],
+            [
+              "Il y en a.",
+              "Il y en a trois."
+            ],
+            [
+              "il y a trois jours",
+              "Il y a du pain."
+            ]
+          ],
+          "coach": "Il y a is three words that arrived together, and they do not come apart. When both turn up, y comes first. Il y en a. Nothing in the phrase moves; a second small word simply goes in behind the first."
+        },
+        {
+          "id": "retest-frozen",
+          "title": "One more",
+          "format": "mcq",
+          "q": "There is some. Which one?",
+          "opts": [
+            "Il y en a.",
+            "Il en a.",
+            "Il y a en."
+          ],
+          "correct": 0,
+          "why": "When both turn up, y comes first. Il y en a. Real French, and it means he has some. The y in il y a is the y on this screen and the phrase still does not come apart."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet-y-en",
+          "layer": "deep",
+          "title": "The two little words, and the order",
+          "contains": [
+            "The rule",
+            "What each one swallows",
+            "The three ens",
+            "Both at once",
+            "Next"
+          ],
+          "sections": [
+            {
+              "id": "sheet-rule",
+              "type": "teach",
+              "layer": "deep",
+              "title": "The rule, in one line",
+              "body": "The preposition goes inside the pronoun, so it does not get said twice. À plus a thing becomes y, and the à disappears with it. De plus a thing becomes en, and the de disappears with it. And the place it goes is not new: « The pronoun goes in front of the verb, not after it. » is a2.06's line and it has been true of three sets of small words in three lessons. French will not let you leave it out. « Oui, j'ai. » is not a sentence."
+            },
+            {
+              "id": "sheet-two",
+              "type": "table",
+              "layer": "deep",
+              "title": "What each one swallows",
+              "cols": [
+                "the word",
+                "what goes inside it",
+                "named",
+                "replaced"
+              ],
+              "rows": [
+                [
+                  "y",
+                  "à plus a thing or a place",
+                  "Je vais à Paris",
+                  "J'y vais"
+                ],
+                [
+                  "y",
+                  "à plus something that is not a place at all",
+                  "Je pense à mon examen",
+                  "J'y pense souvent"
+                ],
+                [
+                  "en",
+                  "de plus a thing",
+                  "Je parle de mon travail",
+                  "J'en parle"
+                ],
+                [
+                  "en",
+                  "du, de la or des plus a thing",
+                  "Je bois du café",
+                  "J'en bois"
+                ],
+                [
+                  "en",
+                  "de plus a quantity, and the quantity stays",
+                  "Tu as des enfants ?",
+                  "Oui, j'en ai trois"
+                ]
+              ]
+            },
+            {
+              "id": "sheet-ens",
+              "type": "table",
+              "layer": "deep",
+              "title": "The three ens",
+              "cols": [
+                "example",
+                "what comes next",
+                "whose lesson"
+              ],
+              "rows": [
+                [
+                  "Je vais en France",
+                  "a country",
+                  "a2.04"
+                ],
+                [
+                  "Je finis en deux heures",
+                  "a length of time",
+                  "a2.18"
+                ],
+                [
+                  "Elle en parle",
+                  "a verb",
+                  "a2.25"
+                ]
+              ]
+            },
+            {
+              "id": "sheet-order",
+              "type": "teach",
+              "layer": "deep",
+              "title": "Both at once",
+              "body": "When both turn up, y comes first. Il y en a. Il y a is three words that arrived together, and they do not come apart. That is the only pair these two words can make, and it is worth having because « Il y en a » is one of the commonest answers in the language. Two of these small words in one sentence is a further question, and it is not answered here. You now have three sets of these small words and there are more ways of stacking them than this one; that question belongs to a later lesson and nothing here answers it."
+            },
+            {
+              "id": "sheet-next",
+              "type": "teach",
+              "layer": "deep",
+              "title": "What comes next",
+              "body": "a2.24 taught « À plus a person becomes lui or leur, and the à disappears with it. » and this lesson took the other half of it: « à plus a thing » becomes y. Between the three lessons you now have every small word that goes in front of a verb in this language except the ones you use for yourself, which a2.22 already gave you. French will not let you leave it out. « Oui, j'ai. » is not a sentence."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.pronoms-essentiels.295",
+          "fr.a2.pronoms-essentiels.296",
+          "fr.a2.pronoms-essentiels.325",
+          "fr.a2.pronoms-essentiels.288",
+          "fr.a2.pronoms-essentiels.291",
+          "fr.a2.pronoms-essentiels.292",
+          "fr.a2.pronoms-essentiels.190",
+          "fr.a2.prepositions-essentielles.130"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.287",
+          "fr.a2.pronoms-essentiels.237",
+          "fr.a2.pronoms-essentiels.238",
+          "fr.a2.pronoms-essentiels.331",
+          "fr.a2.pronoms-essentiels.289",
+          "fr.a2.pronoms-essentiels.290",
+          "fr.a2.pronoms-essentiels.304",
+          "fr.a2.pronoms-essentiels.305",
+          "fr.a2.pronoms-essentiels.306",
+          "fr.a2.pronoms-essentiels.307",
+          "fr.a2.pronoms-essentiels.308",
+          "fr.a2.pronoms-essentiels.320",
+          "fr.a2.pronoms-essentiels.321",
+          "fr.a2.pronoms-essentiels.324",
+          "fr.a2.pronoms-essentiels.311",
+          "fr.a2.pronoms-essentiels.312",
+          "fr.a2.pronoms-essentiels.028",
+          "fr.a2.pronoms-essentiels.029",
+          "fr.a2.pronoms-essentiels.030"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.293",
+          "fr.a2.pronoms-essentiels.294",
+          "fr.a1.cuisine.268",
+          "fr.a1.cafe.151",
+          "fr.a2.pronoms-essentiels.032",
+          "fr.a2.pronoms-essentiels.033",
+          "fr.a2.pronoms-essentiels.297",
+          "fr.a2.pronoms-essentiels.298",
+          "fr.a2.pronoms-essentiels.309",
+          "fr.a2.pronoms-essentiels.310",
+          "fr.a2.pronoms-essentiels.299",
+          "fr.a2.pronoms-essentiels.300",
+          "fr.a2.pronoms-essentiels.301",
+          "fr.a2.pronoms-essentiels.302",
+          "fr.a2.pronoms-essentiels.303",
+          "fr.a2.pronoms-essentiels.322",
+          "fr.a2.pronoms-essentiels.323",
+          "fr.a1.expressions-de-quantite.001",
+          "fr.a2.pronoms-essentiels.031",
+          "fr.a2.pronoms-essentiels.329",
+          "fr.a2.pronoms-essentiels.330",
+          "fr.a2.pronoms-essentiels.332"
+        ],
+        [
+          "fr.a2.prepositions-essentielles.131",
+          "fr.a2.prepositions-essentielles.173",
+          "fr.a2.prepositions-essentielles.185",
+          "fr.a2.pronoms-essentiels.313",
+          "fr.a2.pronoms-essentiels.314",
+          "fr.a2.pronoms-essentiels.315",
+          "fr.sons.jours-et-mois.081",
+          "fr.a2.prepositions-essentielles.186",
+          "fr.a2.rp-voyage.007"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.316",
+          "fr.a2.pronoms-essentiels.317",
+          "fr.a2.pronoms-essentiels.318",
+          "fr.a2.pronoms-essentiels.319",
+          "fr.a2.pronoms-essentiels.326",
+          "fr.a2.pronoms-essentiels.327",
+          "fr.sons.expressions-utiles.158",
+          "fr.sons.verbes-essentiels.003",
+          "fr.sons.verbes-essentiels.020",
+          "fr.sons.verbes-essentiels.023",
+          "fr.sons.verbes-essentiels.007",
+          "fr.sons.verbes-essentiels.002",
+          "fr.a1.cuisine.042",
+          "fr.sons.verbes-essentiels.012"
+        ],
+        [
+          "fr.a2.pronoms-essentiels.328",
+          "fr.a2.pronoms-essentiels.333",
+          "fr.a2.pronoms-essentiels.334",
+          "fr.a2.pronoms-essentiels.335",
+          "fr.a2.pronoms-essentiels.336"
+        ]
+      ],
+      "terms": {
+        "inside": {
+          "term": "the little word inside",
+          "title": "What these two words are made of",
+          "body": "The preposition goes inside the pronoun, so it does not get said twice. À plus a thing becomes y, and the à disappears with it. De plus a thing becomes en, and the de disappears with it. Every pronoun you have met so far stood in for a noun and left everything else alone. These two swallow the little word in front of the noun as well, which is why nothing about them looks like the pronouns you already have. It is also why the mistake everybody makes is saying the little word again: you can hear that something is missing, and the thing that is missing is already there.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.287",
+              "note": "The place is named and the little word is in front of it, where you can see it."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.288",
+              "note": "And now there is no Paris and no à either. Both went into one letter."
+            }
+          ]
+        },
+        "twoWords": {
+          "term": "y and en",
+          "title": "Two words, and which one is decided before you speak",
+          "body": "À plus a thing becomes y, and the à disappears with it. De plus a thing becomes en, and the de disappears with it. That is the whole of the choice, and it is made by the little word rather than by the meaning: if the sentence had à in it you want y, and if it had de, du, de la or des in it you want en. Neither word changes for anything. Not for the subject, not for the verb, not for the tense, and not for how many things you are talking about.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.288",
+              "note": "à went in, so y came out."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.292",
+              "note": "de went in, so en came out. Same verb as the lesson before this one, and a different little word in front of it."
+            }
+          ]
+        },
+        "sameSlot": {
+          "term": "the same place",
+          "title": "The one thing you do not have to learn, and a2.06 taught it",
+          "body": "« The pronoun goes in front of the verb, not after it. » is a2.06's line and it is true of these two words without a word changed. Je le vois. Je lui parle. J'y vais. J'en ai. Four sentences, three lessons, one position. That is worth saying out loud rather than leaving you to notice, because a learner who thinks each new pair of small words has its own placement rule ends up with three rules where there is one. There is one, it was learned two lessons ago, and this lesson spends it.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.288",
+              "note": "Subject, word, verb, exactly as it was for le and for lui."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.326",
+              "note": "And in front of BOTH words when the verb arrives as two, which is also not new."
+            }
+          ]
+        },
+        "mustSayIt": {
+          "term": "the word English leaves out",
+          "title": "Why the sentence stops without it",
+          "body": "French will not let you leave it out. « Oui, j'ai. » is not a sentence. English answers do you have any with two words and neither of them stands for the sugar. French cannot do that: the verb needs something after it and en is the something. English drops the word here and French keeps it. J'y vais is I am going. The same is true on the other side, and it catches people less often only because y sounds a little like there. Neither word is decoration and neither is ever optional.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.296",
+              "note": "Three words in English and none of them is en, and French will not accept the two-word version."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.310",
+              "note": "And the same thing on the other word. « Oui, je vais. » is not a sentence either."
+            }
+          ]
+        },
+        "threeEns": {
+          "term": "the three ens",
+          "title": "One word, three jobs, three lessons",
+          "body": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. a2.04 taught the one in front of a country and a2.18 taught the one in front of a length of time, and this lesson teaches neither of them again. « À folds the article in. En throws it out. Chez leaves it alone. » is a2.04's line and « Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both. » is a2.18's. What is new here is only the third one, and the only thing that separates it from the other two is where it sits. « what comes next decides » is a2.02's name for this shape and you have met it six times before.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.311",
+              "note": "A verb straight after it, so it is the pronoun."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.312",
+              "note": "A country straight after it, so it is the little word, and it is not this lesson."
+            }
+          ]
+        },
+        "theQuantity": {
+          "term": "the thing you already said",
+          "title": "How much, without saying what of",
+          "body": "« Un is one of them. Du is some of it. » is a1.29's line and you have had du, de la and des since then. En takes all three of them away, and it takes the noun with them. What stays is the number or the amount: j'en ai trois, j'en ai beaucoup, j'en veux un peu. English has nothing like this. I have three says nothing at all about what three of, and a French speaker hearing it would still be waiting.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.300",
+              "note": "The number stayed and des enfants went. Nothing in the sentence says children any more."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.301",
+              "note": "beaucoup de, and the de went inside en along with the noun."
+            }
+          ]
+        },
+        "frozen": {
+          "term": "il y a",
+          "title": "The y you have been reading since the beginning",
+          "body": "Il y a is three words that arrived together, and they do not come apart. The middle word is the y on these screens, which is a good thing to know and a bad thing to act on. a2.18 taught the phrase in both its jobs and neither of them is re-taught here. What matters for this lesson is only that you can see your own word inside it, and that taking the phrase to pieces produces real French that means something else.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.313",
+              "note": "Three words that arrived together, with your y in the middle of them."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.314",
+              "note": "And the one place they take a passenger: y first, en second, and that order does not move."
+            }
+          ]
+        },
+        "theWrap": {
+          "term": "the wrap",
+          "title": "What ne and pas go round, and it has not changed",
+          "body": "« Wrap the verb that changed, not the one carrying the meaning. » is the line you have carried since the near future, and there is one verb in these sentences so the question of which verb never arises. The wrap goes round the pronoun and the verb together. That sentence is a2.06's, word for word, and a2.24 quoted it unchanged one lesson ago. It holds here for the same reason it held there: the small word belongs to the verb, so it goes where the verb goes. Ne outside both, pas after both.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.316",
+              "note": "Ne outside, then the pronoun and the verb together, then pas."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.327",
+              "note": "And with a two-word verb: ne, pronoun, first word, pas, second word."
+            }
+          ]
+        },
+        "theOrder": {
+          "term": "y before en",
+          "title": "When both of them turn up",
+          "body": "When both turn up, y comes first. Il y en a. These are the only two small words this lesson gives you, so this is the only order it can produce, and it is worth having because il y en a is one of the commonest answers in the language. Two of these small words in one sentence is a further question, and it is not answered here. You have three sets of these small words now and there are more ways of stacking them than this; that question is somebody else's and it is not answered on any screen here.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.314",
+              "note": "Both of them, in the one order they take."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.315",
+              "note": "And a number after them, which is where the answer usually goes."
+            }
+          ]
+        },
+        "personOrThing": {
+          "term": "a person or a thing",
+          "title": "What a2.24 left for this lesson",
+          "body": "« À plus a person becomes lui or leur, and the à disappears with it. » is a2.24's line, from last lesson, and it is only half of what à does. À plus a thing becomes y, and the à disappears with it. Same little word, same disappearance, and the only thing that decides which pronoun comes out is whether what sat behind à was a person or not. Je parle à Marie becomes je lui parle. Je vais à Paris becomes j'y vais. Nothing else in either sentence changed.",
+          "examples": [
+            {
+              "itemId": "fr.a2.pronoms-essentiels.287",
+              "note": "A place behind à, so it will be y."
+            },
+            {
+              "itemId": "fr.a2.pronoms-essentiels.331",
+              "note": "And the same verb last lesson used, with a letter behind à instead of a person."
+            }
+          ]
+        }
+      },
+      "sections": [
+        {
+          "id": "s01-scene",
+          "type": "scene",
+          "title": "The Answer That Stopped",
+          "frSub": "La réponse en deux mots",
+          "layer": "core",
+          "render": "screens",
+          "setting": {
+            "place": "A friend's kitchen",
+            "city": "Lyon",
+            "time": "Saturday morning"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A Saturday morning, a friend's kitchen in Lyon, and she is making something that needs three things she has run out of. You are the one nearest the cupboard.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "You have been doing this for months now and you have stopped rehearsing. She asks over her shoulder, the way people ask when the answer is obviously yes or obviously no.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Ton amie",
+              "fr": "Tu as du sucre ?",
+              "en": "Do you have any sugar?",
+              "size": "md",
+              "reveal": "tap",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "fr": "Oui, j'ai.",
+              "en": "Yes, I do.",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "Two words, and then nothing. You know the answer, you know both words, and the sentence will not close. In English it closes on its own: yes, I do. Here it hangs, and you can hear that it is hanging.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Ton amie",
+              "fr": "Tu en as ?",
+              "en": "You have some?",
+              "size": "md",
+              "reveal": "tap",
+              "stage": "She has not corrected you. She thinks she misheard, so she asks again, and she uses the word you were missing. It has been in front of you all morning and you have never had to say it.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "Which of these closes the sentence?",
+              "options": [
+                {
+                  "fr": "Oui, j'en ai.",
+                  "en": "Yes, I do.",
+                  "outcome": "works"
+                },
+                {
+                  "fr": "Oui, j'ai.",
+                  "en": "Yes, I do.",
+                  "outcome": "breaks"
+                }
+              ],
+              "followUp": {
+                "works": "One extra letter, and the sentence has somewhere to end. Nothing else about it changed.",
+                "breaks": "That is what came out, and it is not a sentence in French. The verb has nothing after it and the listener is still waiting."
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "The word that has to be there",
+              "body": "You had every word you needed and one of them does not exist in your language. Yes I do is a whole answer in English. In French the sentence stops in the middle, and there is nothing to hear.",
+              "wrong": {
+                "fr": "Oui, j'ai.",
+                "ipa": "/wi ʒe/",
+                "respell": "[wee, ZHAY]",
+                "en": "Yes, I do."
+              },
+              "right": {
+                "fr": "Oui, j'en ai.",
+                "ipa": "/wi ʒɑ̃.n‿e/",
+                "respell": "[wee, zhahⁿ NAY]",
+                "en": "Yes, I do."
+              },
+              "coach": "The preposition goes inside the pronoun, so it does not get said twice.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "There are two small words that go in the place you already know, and each of them has a little word folded inside it. The preposition goes inside the pronoun, so it does not get said twice."
+            }
+          ]
+        },
+        {
+          "id": "s02-two",
+          "type": "cardDeck",
+          "title": "Two Words, One Job",
+          "frSub": "Y et EN",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Two rows, and each one has a little word hidden inside it. The preposition goes inside the pronoun, so it does not get said twice.",
+          "hint": "Read the right-hand side of each row first.",
+          "terms": [
+            "inside",
+            "twoWords",
+            "sameSlot"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-two"
+          },
+          "cards": [
+            {
+              "head": "What each one is made of",
+              "label": "the pronoun · and what went into it",
+              "fr": "y  =  à + a thing",
+              "sub": "en  =  de + a thing",
+              "body": "The preposition goes inside the pronoun, so it does not get said twice. Every small word before these stood in for the noun and left the rest alone. These two take the little word as well, so nothing is left of it."
+            },
+            {
+              "head": "and the place is the one you know",
+              "label": "a2.06's sentence · this lesson's",
+              "fr": "Je le vois.",
+              "sub": "J'y vais.",
+              "body": "[zhee VEH] « The pronoun goes in front of the verb, not after it. » is a2.06's line and it is true of these two without a word changed. The first line is that lesson's own sentence, borrowed rather than copied."
+            },
+            {
+              "head": "the little word goes in",
+              "label": "named · and gone",
+              "fr": "Je vais à Paris.",
+              "sub": "J'y vais.",
+              "body": "[zhuh veh a pa-REE] then [zhee VEH] À plus a thing becomes y, and the à disappears with it. Paris is gone and so is the à, and the second sentence is two words long. The first line is a2.04's own published row."
+            },
+            {
+              "head": "and the same thing on the other side",
+              "label": "de went in · with the noun",
+              "fr": "Je parle de mon travail.",
+              "sub": "J'en parle.",
+              "body": "[zhuh PARL duh mohⁿ trah-VAHY] then [zhahⁿ PARL] De plus a thing becomes en, and the de disappears with it. Same verb as last lesson, and a different little word in front of it."
+            }
+          ]
+        },
+        {
+          "id": "s03-goals",
+          "type": "goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Swap a whole phrase for one small word",
+              "s": "The preposition goes inside the pronoun, so it does not get said twice. That is the one new idea in this lesson and everything else is something you already have."
+            },
+            {
+              "t": "Say how many without saying what of",
+              "s": "À plus a thing becomes y, and the à disappears with it. De plus a thing becomes en, and the de disappears with it. A number can stay behind it and the noun still goes."
+            },
+            {
+              "t": "Stop leaving it out",
+              "s": "French will not let you leave it out. « Oui, j'ai. » is not a sentence. English answers with two words and French will not."
+            },
+            {
+              "t": "Tell the three ens apart",
+              "s": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. a2.04 and a2.18 taught the other two and this lesson teaches neither of them again."
+            }
+          ]
+        },
+        {
+          "id": "s04-person",
+          "type": "cardDeck",
+          "title": "A Person Or A Place",
+          "frSub": "lui ou y",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "« À plus a person becomes lui or leur, and the à disappears with it. » is a2.24's line, from last lesson, and it is half of what à does. À plus a thing becomes y, and the à disappears with it.",
+          "hint": "Look at what was sitting behind à.",
+          "terms": [
+            "personOrThing",
+            "inside",
+            "twoWords"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-person"
+          },
+          "cards": [
+            {
+              "head": "the same little word, twice",
+              "label": "a person behind it · a place behind it",
+              "fr": "Je parle à Marie.",
+              "sub": "Tu vas à Paris ?",
+              "body": "[zhuh PARL ah mah-REE] then [tü VAH ah pah-REE] Both sentences have à in them and there is nothing else to go on. What decides is whether the thing behind it breathes. The first line is a2.24's own row."
+            },
+            {
+              "head": "and two different answers",
+              "label": "a person becomes lui · a place becomes y",
+              "fr": "Je lui parle.",
+              "sub": "J'y vais.",
+              "body": "[zhuh lwee PARL] then [zhee VEH] « À plus a person becomes lui or leur, and the à disappears with it. » À plus a thing becomes y, and the à disappears with it. One little word, two lessons, and only what sat behind it differs."
+            },
+            {
+              "head": "and the same verb settles it",
+              "label": "a2.24 answered lui · here it is y",
+              "fr": "Elle y répond.",
+              "sub": "[ehl ee ray-POHⁿ] She answers it.",
+              "body": "Répondre à is one of the ten verbs a2.24 gave you, and its answer there was lui because a person was behind à. A letter is not a person, so it is y. Nothing about the verb changed and nothing about the rule did either."
+            },
+            {
+              "head": "and it is not always a place",
+              "label": "an exam behind à · so still y",
+              "fr": "Je pense à mon examen.",
+              "sub": "J'y pense souvent.",
+              "body": "[zhuh PAHⁿSS ah mohⁿ nehg-zah-MEHⁿ] then [zhee PAHⁿSS soo-VAHⁿ] An exam is not somewhere you can stand, and y is still the answer. That is worth meeting early, because the English word this looks like is « there » and it is about to stop helping."
+            }
+          ]
+        },
+        {
+          "id": "s05-there",
+          "type": "cardDeck",
+          "title": "Not Always There",
+          "frSub": "Pas seulement un lieu",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "English drops the word here and French keeps it. J'y vais is I am going. Five pairs, and only two of them are about a place at all.",
+          "hint": "Try translating the second line without the word \"there\".",
+          "terms": [
+            "twoWords",
+            "inside",
+            "sameSlot"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-there"
+          },
+          "cards": [
+            {
+              "head": "a place, and English drops the word",
+              "label": "au marché · and then nothing",
+              "fr": "Tu vas au marché ?",
+              "sub": "Oui, j'y vais demain.",
+              "body": "[tü VAH oh mar-SHAY] then [wee, zhee VEH duh-MEHⁿ] au is à plus le, which a2.04 owns, and y swallows the whole of it. Read the English answer again: there is no market in it, and no « there » either."
+            },
+            {
+              "head": "a game, which is not a place",
+              "label": "au tennis · and it is still y",
+              "fr": "Je joue au tennis.",
+              "sub": "J'y joue le samedi.",
+              "body": "[zhuh ZHOO oh tay-NEESS] then [zhee ZHOO luh sam-DEE] Jouer à, and the thing behind à is a game. Nobody stands in tennis, and y is still what comes out."
+            },
+            {
+              "head": "and the corpus said so first",
+              "label": "published, by somebody not teaching this",
+              "fr": "Tu penses à ton examen ? Oui, j'y pense souvent.",
+              "sub": "Je vais à Paris ; j'y vais en train.",
+              "body": "Two published sentences, both in this lesson's own theme, both written years ago for somebody else's screen. The second one holds the whole of this lesson's opening in eight words, and the phrase « j'y pense » is published beside them as a card of its own."
+            },
+            {
+              "head": "and the subject makes no difference",
+              "label": "nous · elle",
+              "fr": "Nous y allons ensemble.",
+              "sub": "Elle y va tous les jours.",
+              "body": "[noo zee ah-LOHⁿ ahⁿ-SAHⁿBL] then [ehl ee VAH too lay ZHOOR] The word does not agree with anything, does not change for anything, and sits in the same place every time. a2.01 owns the nous form and this borrows it."
+            },
+            {
+              "head": "a question, and a plural subject",
+              "label": "tu · ils",
+              "fr": "Tu y vas souvent ?",
+              "sub": "Ils y pensent.",
+              "body": "[tü ee VAH soo-VAHⁿ] then [eel ee PAHⁿSS] The pronoun does not move for a question, which a1.19 owns. And pensent sounds exactly like pense, which is a2.01's business rather than this lesson's."
+            }
+          ]
+        },
+        {
+          "id": "s06-listening",
+          "type": "listening",
+          "title": "One Sound Apart",
+          "frSub": "Ce que l'oreille décide",
+          "layer": "core",
+          "say": "Four lines. The ear can tell you whether the word is there at all, which is the thing that matters most. The two ens are one sound, so no listening question in this lesson ever asks you which is which.",
+          "terms": [
+            "twoWords",
+            "mustSayIt",
+            "threeEns"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-25-listening"
+          },
+          "lines": [
+            {
+              "fr": "J'y vais.",
+              "en": "I am going."
+            },
+            {
+              "fr": "J'en parle.",
+              "en": "I talk about it."
+            },
+            {
+              "fr": "Elle en parle.",
+              "en": "She talks about it."
+            },
+            {
+              "fr": "Elle habite en France.",
+              "en": "She lives in France."
+            }
+          ],
+          "questions": [
+            {
+              "q": "« J'y vais » against « Je vais ». What separates them?",
+              "opts": [
+                "One sound, and it is the whole meaning",
+                "Nothing at all",
+                "The verb"
+              ],
+              "correct": 0,
+              "why": "Zhee against zhuh. One vowel, and the second sentence is missing the word this lesson is about. That difference is genuinely audible, which is more than can be said for the one below."
+            },
+            {
+              "q": "« Elle en parle » against « Elle habite en France ». What separates the two ens?",
+              "opts": [
+                "One vowel",
+                "One consonant",
+                "Nothing you can hear"
+              ],
+              "correct": 2,
+              "why": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. The two ens are one sound, so no listening question in this lesson ever asks you which is which."
+            }
+          ]
+        },
+        {
+          "id": "s07-de",
+          "type": "examples",
+          "title": "The Other Little Word",
+          "frSub": "de, du, de la, des",
+          "layer": "core",
+          "say": "De plus a thing becomes en, and the de disappears with it. « Un is one of them. Du is some of it. » is a1.29's line and you have had du, de la and des since then. En takes all three of them away, and the noun with them.",
+          "terms": [
+            "inside",
+            "theQuantity",
+            "twoWords"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-de"
+          },
+          "examples": [
+            {
+              "fr": "Je parle de mon travail.",
+              "en": "I talk about my work.",
+              "note": "[zhuh PARL duh mohⁿ trah-VAHY] de, on its own, in front of a thing."
+            },
+            {
+              "fr": "J'en parle.",
+              "en": "I talk about it.",
+              "note": "[zhahⁿ PARL] And the de is gone with it. Same verb a2.24 used, and a different little word."
+            },
+            {
+              "fr": "Je bois du café.",
+              "en": "I drink coffee.",
+              "note": "Published at a1, in the kitchen theme, by somebody teaching food. The word du is de plus le, and the de inside it counts."
+            },
+            {
+              "fr": "Tu bois du café ?",
+              "en": "Do you drink coffee?",
+              "note": "[tü BWAH dü ka-FAY] The same du, as a question."
+            },
+            {
+              "fr": "J'en bois.",
+              "en": "I drink some.",
+              "note": "[zhahⁿ BWAH] And du café is gone. The English needs « some » and the French needs nothing at all."
+            },
+            {
+              "fr": "du café",
+              "en": "some coffee",
+              "note": "[dü ka-FAY] a1.29's own card, and the thing en stands in for. It is not re-taught here."
+            },
+            {
+              "fr": "Tu veux du café ? Oui, j'en veux bien.",
+              "en": "Do you want some coffee? Yes, I'd like some.",
+              "note": "Published, in this theme, and it is a question and an answer with the whole rule in it."
+            },
+            {
+              "fr": "Elle a trois frères ; elle en parle souvent.",
+              "en": "She has three brothers; she talks about them often.",
+              "note": "Also published, also here, and the subject is not je. Three brothers are named and then they are not."
+            }
+          ]
+        },
+        {
+          "id": "s08-must",
+          "type": "cardDeck",
+          "title": "You Cannot Drop It",
+          "frSub": "Jamais facultatif",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "French will not let you leave it out. « Oui, j'ai. » is not a sentence. This is the half of the lesson English gives you no help with at all.",
+          "hint": "Read the second line and then try to finish it.",
+          "terms": [
+            "mustSayIt",
+            "inside",
+            "twoWords"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-must"
+          },
+          "cards": [
+            {
+              "head": "the answer, and the one that is not one",
+              "label": "a sentence · and two words that stop",
+              "fr": "Oui, j'en ai.",
+              "sub": "Oui, j'ai.",
+              "body": "[wee, zhahⁿ NAY] for the first line. French will not let you leave it out. « Oui, j'ai. » is not a sentence. English says « Yes, I do. » and none of it stands for the sugar."
+            },
+            {
+              "head": "and the question it answers",
+              "label": "the sugar is named · and then it is not",
+              "fr": "Tu as du sucre ?",
+              "sub": "Oui, j'en ai.",
+              "body": "[tü AH dü SÜKR] then [wee, zhahⁿ NAY] du sucre in the question, and nothing at all in the answer except the word that stands for it."
+            },
+            {
+              "head": "a second verb, and the same gap",
+              "label": "prendre · and English still says nothing",
+              "fr": "Tu prends du sucre ?",
+              "sub": "Oui, j'en prends.",
+              "body": "[tü PRAHⁿ dü SÜKR] then [wee, zhahⁿ PRAHⁿ] The English answer is the same three words again. It is a fact about English rather than about avoir."
+            },
+            {
+              "head": "and the other word does it too",
+              "label": "the office is named · and then it is not",
+              "fr": "Tu vas au bureau ?",
+              "sub": "Oui, j'y vais.",
+              "body": "[tü VAH oh bü-ROH] then [wee, zhee VEH] English drops the word here and French keeps it. J'y vais is I am going. « Oui, je vais. » is not a sentence either."
+            }
+          ]
+        },
+        {
+          "id": "s09-quantity",
+          "type": "examples",
+          "title": "How Many, Not What",
+          "frSub": "La quantité reste",
+          "layer": "core",
+          "say": "The thing you already said goes, and the amount stays behind. That shape has no equivalent in English at all: « I have three » says nothing about what three of.",
+          "terms": [
+            "theQuantity",
+            "mustSayIt",
+            "inside"
+          ],
+          "examples": [
+            {
+              "fr": "Tu as des enfants ?",
+              "en": "Do you have children?",
+              "note": "[tü AH day zahⁿ-FAHⁿ] des, which a1.29 owns."
+            },
+            {
+              "fr": "Oui, j'en ai trois.",
+              "en": "Yes, I have three.",
+              "note": "[wee, zhahⁿ nay TRWAH] The number stayed and des enfants went. Nothing in the French says children any more and a French speaker still knows."
+            },
+            {
+              "fr": "J'en ai beaucoup.",
+              "en": "I have a lot.",
+              "note": "[zhahⁿ nay boh-KOO] beaucoup de, and the de went inside en along with the noun."
+            },
+            {
+              "fr": "J'en veux un peu.",
+              "en": "I want a little.",
+              "note": "[zhahⁿ VUH uhⁿ PUH] un peu de, and the same disappearance."
+            },
+            {
+              "fr": "J'en ai assez.",
+              "en": "I have enough.",
+              "note": "[zhahⁿ nay ah-SAY] assez de. Four quantity words and one behaviour between them."
+            },
+            {
+              "fr": "beaucoup de",
+              "en": "a lot of, many, much",
+              "note": "[boh-koo duh] a1.29's own card. The de on the end of it is the de that goes inside."
+            },
+            {
+              "fr": "j'en veux",
+              "en": "I want some",
+              "note": "[zhahⁿ VUH] Published in this theme as a card of its own, and this build repairs its respelling: the nasal was written with a plain n."
+            },
+            {
+              "fr": "Nous en prenons.",
+              "en": "We take some.",
+              "note": "[noo zahⁿ pruh-NOHⁿ] A different subject, and the z you hear is a liaison you never write."
+            },
+            {
+              "fr": "Vous en voulez ?",
+              "en": "Do you want some?",
+              "note": "[voo zahⁿ voo-LAY] And as a question, with the same two words in the same place."
+            }
+          ]
+        },
+        {
+          "id": "s10-unseen",
+          "type": "groupDrill",
+          "title": "Verbs Not Listed Here",
+          "frSub": "Des verbes jamais montrés",
+          "layer": "core",
+          "size": "lg",
+          "say": "Four things this lesson never showed you. The rule is about the little word in front of the thing, so it does not care which verb put the little word there.",
+          "terms": [
+            "inside",
+            "twoWords",
+            "theQuantity"
+          ],
+          "groups": [
+            {
+              "label": "one where English points at the wrong word",
+              "items": [
+                {
+                  "fr": "Il en rêve.",
+                  "en": "He dreams about it.",
+                  "sub": "[eel ahⁿ REHV]"
+                },
+                {
+                  "fr": "J'en ai besoin.",
+                  "en": "I need it.",
+                  "sub": "[zhahⁿ nay buh-ZWEHⁿ]"
+                }
+              ],
+              "check": {
+                "q": "« Il rêve de cette maison. » Replace the house.",
+                "opts": [
+                  "Il y rêve.",
+                  "Il en rêve.",
+                  "Il en rêve de cette maison."
+                ],
+                "correct": 1,
+                "why": "Rêver DE, so it is en. English says « dreams ABOUT it » and points at the wrong little word. The little word is already inside the pronoun, so saying it again says it twice."
+              }
+            },
+            {
+              "label": "and one where the thing behind de is a place",
+              "items": [
+                {
+                  "fr": "Nous en revenons.",
+                  "en": "We are coming back from there.",
+                  "sub": "[noo zahⁿ ruh-vuh-NOHⁿ]"
+                },
+                {
+                  "fr": "Elle y répond.",
+                  "en": "She answers it.",
+                  "sub": "[ehl ee ray-POHⁿ]"
+                }
+              ],
+              "check": {
+                "q": "« Nous revenons de Paris. » Replace the city.",
+                "opts": [
+                  "Nous en revenons.",
+                  "Nous y revenons.",
+                  "Nous en revenons de Paris."
+                ],
+                "correct": 0,
+                "why": "THE CASE THAT CATCHES EVERYBODY. Paris is a place, and the answer is still en, because revenir takes de and the little word decides rather than the meaning. A learner holding « y is there and en is some » gets this one wrong every time."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s11-threeens",
+          "type": "tapTable",
+          "title": "One Word, Three Jobs",
+          "frSub": "Les trois EN",
+          "layer": "core",
+          "say": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. « what comes next decides » is a2.02's name for this shape and you have met it six times. The seventh time, and the first with three answers rather than two. Tap any row to hear it.",
+          "terms": [
+            "threeEns",
+            "twoWords",
+            "inside"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-ens"
+          },
+          "cols": [
+            "French",
+            "what comes next",
+            "whose lesson"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Je vais en France",
+                "a country",
+                "a2.04"
+              ],
+              "say": "Je vais en France.",
+              "detail": {
+                "title": "a little word in front of a place",
+                "say": "Je vais en France.",
+                "body": "I am going to France. Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. a2.04 owns this one and nothing about it is re-taught here."
+              }
+            },
+            {
+              "cells": [
+                "Je finis en deux heures",
+                "a length of time",
+                "a2.18"
+              ],
+              "say": "Je finis en deux heures.",
+              "detail": {
+                "title": "a little word in front of a length of time",
+                "say": "Je finis en deux heures.",
+                "body": "I finish in two hours. Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. a2.18 owns this one and nothing about it is re-taught here."
+              }
+            },
+            {
+              "cells": [
+                "Elle en parle",
+                "a verb",
+                "a2.25"
+              ],
+              "say": "Elle en parle.",
+              "detail": {
+                "title": "the word this lesson is about",
+                "say": "Elle en parle.",
+                "body": "She talks about it. Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. A verb comes next, so this is the one this lesson is about."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s12-trap",
+          "type": "trapDrill",
+          "title": "Said Twice",
+          "frSub": "Le mot en double",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. The first card is a sentence nobody says, and it is the one the rule you just learned will build for you if you stop halfway.",
+          "terms": [
+            "inside",
+            "threeEns",
+            "twoWords"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-trap"
+          },
+          "rule": {
+            "title": "It is already in there",
+            "body": "The preposition goes inside the pronoun, so it does not get said twice. The little word is already inside the pronoun, so saying it again says it twice. Look for it: if you can still see it, the pronoun should not be there."
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Once, Never Twice"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "Two Wrong, Two Right"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "The Extra Word"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Pick The Right One",
+              "gate": true
+            }
+          ],
+          "cards": [
+            {
+              "fr": "J'y vais à Paris.",
+              "ipa": "/ʒi vɛ a pa.ʁi/",
+              "promptLabel": "the little word said twice",
+              "promptSound": "J'y vais à Paris.",
+              "tip": "The little word is already inside the pronoun, so saying it again says it twice. The sentence sounds like it is finishing something and it is repeating something. Nothing in the sound will stop you."
+            },
+            {
+              "fr": "J'y vais.",
+              "ipa": "/ʒi vɛ/",
+              "promptLabel": "and the whole of it, in two words",
+              "promptSound": "J'y vais.",
+              "tip": "Paris and the à both went into one letter. There is nothing missing from this sentence."
+            },
+            {
+              "fr": "J'en veux du café.",
+              "ipa": "/ʒɑ̃ vø dy ka.fe/",
+              "promptLabel": "and the same mistake on the other word",
+              "promptSound": "J'en veux du café.",
+              "tip": "The du is de plus le, so the de is in this sentence twice. Once inside en and once out loud."
+            },
+            {
+              "fr": "J'en bois.",
+              "ipa": "/ʒɑ̃ bwa/",
+              "promptLabel": "and the right one, which is shorter",
+              "promptSound": "J'en bois.",
+              "tip": "Two words, and one of them is doing the work of three."
+            }
+          ],
+          "drill": [
+            {
+              "opts": [
+                "J'y vais.",
+                "J'y vais à Paris."
+              ],
+              "correct": 0,
+              "promptSay": "J'y vais."
+            },
+            {
+              "opts": [
+                "J'en veux du café.",
+                "J'en bois."
+              ],
+              "correct": 1,
+              "promptSay": "J'en bois."
+            },
+            {
+              "opts": [
+                "Oui, j'y vais demain.",
+                "Oui, j'y vais au marché."
+              ],
+              "correct": 0,
+              "promptSay": "Oui, j'y vais demain."
+            },
+            {
+              "opts": [
+                "J'en ai des enfants.",
+                "Oui, j'en ai trois."
+              ],
+              "correct": 1,
+              "promptSay": "Oui, j'en ai trois."
+            },
+            {
+              "opts": [
+                "Je n'y vais pas.",
+                "Je n'y vais pas à Paris."
+              ],
+              "correct": 0,
+              "promptSay": "Je n'y vais pas."
+            },
+            {
+              "opts": [
+                "J'en parle de mon travail.",
+                "J'en parle."
+              ],
+              "correct": 1,
+              "promptSay": "J'en parle."
+            }
+          ]
+        },
+        {
+          "id": "s13-frozen",
+          "type": "cardDeck",
+          "title": "The Y You Knew",
+          "frSub": "Il y a",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "Il y a is three words that arrived together, and they do not come apart. You have been reading this y since your first month and nobody told you what it was.",
+          "hint": "Look at the middle word.",
+          "terms": [
+            "frozen",
+            "theOrder",
+            "twoWords"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-frozen"
+          },
+          "cards": [
+            {
+              "head": "it has been there all along",
+              "label": "three words · and the middle one is yours",
+              "fr": "Il y a du pain.",
+              "sub": "[eel ee ah dü PEHⁿ] There is bread.",
+              "body": "Il y a is three words that arrived together, and they do not come apart. a2.18 owns both of its jobs and neither is re-taught here. What is new is that your own word is in the middle of it."
+            },
+            {
+              "head": "and the phrase does not come apart",
+              "label": "a2.18 owns both of its jobs",
+              "fr": "il y a trois jours",
+              "sub": "il y a une heure",
+              "body": "[EEL EE AH trwah ZHOOR] then [EEL EE AH ÜN UHR] Both are a2.18's own cards, spelled its way. « Il en a. » is what taking the phrase to pieces gives you: real French, and it means he has some."
+            },
+            {
+              "head": "and there is one thing it does take",
+              "label": "y first · en second",
+              "fr": "Il y en a.",
+              "sub": "[eel ee ahⁿ NAH] There is some.",
+              "body": "When both turn up, y comes first. Il y en a. It still does not come apart; a second word goes in behind the first. Two of these small words in one sentence is a further question, and it is not answered here."
+            },
+            {
+              "head": "and a number goes after both",
+              "label": "published, by somebody selling train tickets",
+              "fr": "Il y en a trois.",
+              "sub": "Il y en a un à quatorze heures, quai trois.",
+              "body": "[eel ee ahⁿ nah TRWAH] The second line is published at a2 in the travel theme, and its own note says out loud that it is « il y a » with this lesson's word added. Nobody wrote it to teach you that."
+            }
+          ]
+        },
+        {
+          "id": "s14-errors",
+          "type": "commonErrors",
+          "title": "What Goes Wrong",
+          "frSub": "Les erreurs fréquentes",
+          "layer": "core",
+          "size": "lg",
+          "swipe": true,
+          "say": "Four, one per screen, and the first one is the sentence the lesson opened on.",
+          "terms": [
+            "mustSayIt",
+            "inside",
+            "personOrThing"
+          ],
+          "errors": [
+            {
+              "wrong": "Oui, j'ai.",
+              "right": "Oui, j'en ai.",
+              "why": "French will not let you leave it out. « Oui, j'ai. » is not a sentence. This is the error the scene ends on, and it is not carelessness: English closes the sentence with two words and there is nothing in it to translate."
+            },
+            {
+              "wrong": "J'y vais à Paris.",
+              "right": "J'y vais.",
+              "why": "The little word is already inside the pronoun, so saying it again says it twice. The rule was applied and then applied again, which is what happens when you build the English sentence first and repair it afterwards."
+            },
+            {
+              "wrong": "J'en veux du café.",
+              "right": "J'en bois.",
+              "why": "The same thing on the other word. The du is de plus le, so the de is in that sentence twice: once inside en and once out loud."
+            },
+            {
+              "wrong": "J'y parle.",
+              "right": "Je lui parle.",
+              "why": "A person went into y, and a person never does. That is a2.24's word, and this one only takes a thing or a place. a2.24 spent a whole lesson on which verbs put a person behind à and this is what that lesson was for."
+            }
+          ]
+        },
+        {
+          "id": "s15-negation",
+          "type": "cardDeck",
+          "title": "Saying No",
+          "frSub": "ne … pas",
+          "layer": "core",
+          "size": "lg",
+          "render": "deck",
+          "say": "One negation rule, seven lessons old, and this adds nothing to it. « Wrap the verb that changed, not the one carrying the meaning. »",
+          "terms": [
+            "theWrap",
+            "sameSlot",
+            "twoWords"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-25-negation"
+          },
+          "cards": [
+            {
+              "head": "both inside",
+              "label": "ne · y vais · pas",
+              "fr": "J'y vais.",
+              "sub": "Je n'y vais pas.",
+              "body": "[zhee VEH] then [zhuh nee VEH PAH] « Wrap the verb, then ask what the verb was. » from a1.18, and « Wrap the verb that changed, not the one carrying the meaning. » from a2.19. One verb here, so the second question never arises."
+            },
+            {
+              "head": "and the other word is no different",
+              "label": "ne · en veux · pas",
+              "fr": "J'en parle.",
+              "sub": "Je n'en veux pas.",
+              "body": "[zhahⁿ PARL] then [zhuh nahⁿ VUH PAH] The wrap goes round the pronoun and the verb together. That sentence is a2.06's, word for word, and a2.24 quoted it unchanged one lesson ago. Three lessons, one sentence."
+            },
+            {
+              "head": "a different subject, and a different verb",
+              "label": "il · nous",
+              "fr": "Il n'y pense pas.",
+              "sub": "Nous n'en parlons pas.",
+              "body": "[eel nee PAHⁿSS PAH] then [noo nahⁿ par-LOHⁿ PAH] Nothing about the wrap responds to either of them."
+            },
+            {
+              "head": "and with two words of verb",
+              "label": "ne · word · first word · pas · second word",
+              "fr": "J'en ai parlé.",
+              "sub": "Je n'en ai pas parlé.",
+              "body": "[zhahⁿ nay par-LAY] then [zhuh nahⁿ nay pah par-LAY] The pronoun goes in front of BOTH halves, which is a2.06's rule on a2.05's tense, and the second word takes nothing at all, which is a2.24's. Neither is new here."
+            }
+          ]
+        },
+        {
+          "id": "s16-order",
+          "type": "examples",
+          "title": "Y Comes First",
+          "frSub": "L'ordre",
+          "layer": "core",
+          "say": "When both turn up, y comes first. Il y en a. These are the only two small words this lesson gives you, so this is the only order it can make. Two of these small words in one sentence is a further question, and it is not answered here.",
+          "terms": [
+            "theOrder",
+            "frozen",
+            "twoWords"
+          ],
+          "examples": [
+            {
+              "fr": "Il y en a.",
+              "en": "There is some.",
+              "note": "[eel ee ahⁿ NAH] Both of them, and the order does not move."
+            },
+            {
+              "fr": "Il y en a trois.",
+              "en": "There are three.",
+              "note": "[eel ee ahⁿ nah TRWAH] And a number after them, which is where the answer usually goes."
+            },
+            {
+              "fr": "il y en a encore",
+              "en": "there's still some left",
+              "note": "[EEL YAHⁿ NAH ahⁿ-KOR] Published, and this build repairs the two nasals in that respelling."
+            },
+            {
+              "fr": "Il y en a un à quatorze heures, quai trois.",
+              "en": "There's one at 2pm, platform three.",
+              "note": "Published at a2 by somebody writing a train timetable. The order was already in the corpus and nobody had taught it."
+            }
+          ]
+        },
+        {
+          "id": "s17-flash",
+          "type": "flashcards",
+          "title": "The Seven Verbs",
+          "frSub": "Les verbes et les phrases",
+          "layer": "core",
+          "say": "Seven verbs and eight phrases, none of them authored by this lesson and all of them already in your corpus. The lesson borrowed them; the deck is where they stay.",
+          "cards": [
+            {
+              "front": "aller",
+              "back": "[ah-LAY] to go",
+              "say": "aller"
+            },
+            {
+              "front": "penser",
+              "back": "[pahⁿ-SAY] to think",
+              "say": "penser"
+            },
+            {
+              "front": "jouer",
+              "back": "[ZHWAY] to play",
+              "say": "jouer"
+            },
+            {
+              "front": "vouloir",
+              "back": "[voo-LWAR] to want",
+              "say": "vouloir"
+            },
+            {
+              "front": "avoir",
+              "back": "[ah-VWAR] to have",
+              "say": "avoir"
+            },
+            {
+              "front": "boire",
+              "back": "[BWAHR] to drink",
+              "say": "boire"
+            },
+            {
+              "front": "prendre",
+              "back": "[PRAHⁿDR] to take",
+              "say": "prendre"
+            },
+            {
+              "front": "j'y pense",
+              "back": "[zhee PAHⁿSS] I think about it",
+              "say": "j'y pense"
+            },
+            {
+              "front": "j'en veux",
+              "back": "[zhahⁿ VUH] I want some",
+              "say": "j'en veux"
+            },
+            {
+              "front": "il y en a encore",
+              "back": "[EEL YAHⁿ NAH ahⁿ-KOR] there's still some left",
+              "say": "il y en a encore"
+            },
+            {
+              "front": "en deux heures",
+              "back": "[AHⁿ duh ZUHR] in two hours, that is how long it took",
+              "say": "en deux heures"
+            },
+            {
+              "front": "il y a une heure",
+              "back": "[EEL EE AH ÜN UHR] an hour ago",
+              "say": "il y a une heure"
+            },
+            {
+              "front": "il y a trois jours",
+              "back": "[EEL EE AH trwah ZHOOR] three days ago",
+              "say": "il y a trois jours"
+            },
+            {
+              "front": "du café",
+              "back": "[dü ka-FAY] some coffee",
+              "say": "du café"
+            },
+            {
+              "front": "beaucoup de",
+              "back": "[boh-koo duh] a lot of, many, much",
+              "say": "beaucoup de"
+            }
+          ]
+        },
+        {
+          "id": "s18-dictation",
+          "type": "dictation",
+          "title": "Write It Down",
+          "frSub": "La dictée",
+          "layer": "core",
+          "say": "Fourteen lines, and every one of them is short, because a long line hands you the words already spelled and the whole of this lesson is one or two letters in the right place.",
+          "terms": [
+            "inside",
+            "mustSayIt",
+            "theWrap"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-25-dictee"
+          },
+          "itemIds": [
+            "fr.a2.pronoms-essentiels.288",
+            "fr.a2.pronoms-essentiels.290",
+            "fr.a2.pronoms-essentiels.292",
+            "fr.a2.pronoms-essentiels.294",
+            "fr.a2.pronoms-essentiels.296",
+            "fr.a2.pronoms-essentiels.298",
+            "fr.a2.pronoms-essentiels.300",
+            "fr.a2.pronoms-essentiels.310",
+            "fr.a2.pronoms-essentiels.314",
+            "fr.a2.pronoms-essentiels.316",
+            "fr.a2.pronoms-essentiels.317",
+            "fr.a2.pronoms-essentiels.325",
+            "fr.a2.pronoms-essentiels.326",
+            "fr.a2.pronoms-essentiels.328"
+          ]
+        },
+        {
+          "id": "s19-talk",
+          "type": "scenario",
+          "title": "At The Market",
+          "frSub": "Au marché",
+          "layer": "core",
+          "terms": [
+            "mustSayIt",
+            "theQuantity",
+            "inside"
+          ],
+          "setting": "The same Saturday, an hour later, at the stall on the corner. Every answer here is about something that has already been named, which is the only situation these two words are for.",
+          "turns": [
+            {
+              "ai": "Tu as du sucre chez toi ?",
+              "en": "Do you have sugar at home?",
+              "user": "Oui, j'en ai.",
+              "userEn": "Yes, I do.",
+              "alts": [
+                {
+                  "fr": "Oui, j'en prends.",
+                  "en": "Yes, I do."
+                },
+                {
+                  "fr": "J'en ai assez.",
+                  "en": "I have enough."
+                }
+              ]
+            },
+            {
+              "ai": "Et des enfants, tu en as ?",
+              "en": "And children, do you have any?",
+              "user": "Oui, j'en ai trois.",
+              "userEn": "Yes, I have three.",
+              "alts": [
+                {
+                  "fr": "J'en ai beaucoup.",
+                  "en": "I have a lot."
+                },
+                {
+                  "fr": "J'en veux un peu.",
+                  "en": "I want a little."
+                }
+              ]
+            },
+            {
+              "ai": "Tu vas au marché le samedi ?",
+              "en": "Do you go to the market on Saturdays?",
+              "user": "Oui, j'y vais tous les samedis.",
+              "userEn": "Yes, I go every Saturday.",
+              "alts": [
+                {
+                  "fr": "Oui, j'y vais demain.",
+                  "en": "Yes, I am going tomorrow."
+                },
+                {
+                  "fr": "Tu y vas souvent ?",
+                  "en": "Do you go there often?"
+                }
+              ]
+            },
+            {
+              "ai": "Il reste du café à la maison ?",
+              "en": "Is there any coffee left at home?",
+              "user": "Non, je n'en ai plus.",
+              "userEn": "No, I do not have any left.",
+              "alts": [
+                {
+                  "fr": "Je n'en veux pas.",
+                  "en": "I do not want any."
+                },
+                {
+                  "fr": "J'en bois.",
+                  "en": "I drink some."
+                }
+              ]
+            },
+            {
+              "ai": "Vous voulez un croissant ?",
+              "en": "Would you like a croissant?",
+              "user": "J'en prends un, merci.",
+              "userEn": "I will take one, thanks.",
+              "alts": [
+                {
+                  "fr": "J'en veux un peu.",
+                  "en": "I want a little."
+                },
+                {
+                  "fr": "Vous en voulez ?",
+                  "en": "Do you want some?"
+                }
+              ]
+            },
+            {
+              "ai": "Tu as parlé du problème à ton amie ?",
+              "en": "Did you talk to your friend about the problem?",
+              "user": "Oui, j'en ai parlé hier.",
+              "userEn": "Yes, I talked about it yesterday.",
+              "alts": [
+                {
+                  "fr": "J'en ai parlé.",
+                  "en": "I talked about it."
+                },
+                {
+                  "fr": "Je n'en ai pas parlé.",
+                  "en": "I did not talk about it."
+                }
+              ]
+            },
+            {
+              "ai": "Il y a encore des tomates ?",
+              "en": "Are there any tomatoes left?",
+              "user": "Tu en as ?",
+              "userEn": "Do you have any?",
+              "alts": [
+                {
+                  "fr": "Il y en a.",
+                  "en": "There is some."
+                },
+                {
+                  "fr": "Il y en a trois.",
+                  "en": "There are three."
+                }
+              ]
+            },
+            {
+              "ai": "Tu vas à la boulangerie après ?",
+              "en": "Are you going to the bakery afterwards?",
+              "user": "Oui, j'y vais demain.",
+              "userEn": "Yes, I am going tomorrow.",
+              "alts": [
+                {
+                  "fr": "Oui, j'y vais.",
+                  "en": "Yes, I am."
+                },
+                {
+                  "fr": "Je n'y vais pas.",
+                  "en": "I am not going."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s20-speak",
+          "type": "practice",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "terms": [
+            "twoWords",
+            "inside"
+          ],
+          "itemIds": [
+            "fr.a2.pronoms-essentiels.287",
+            "fr.a2.pronoms-essentiels.288",
+            "fr.a2.pronoms-essentiels.289",
+            "fr.a2.pronoms-essentiels.290",
+            "fr.a2.pronoms-essentiels.291",
+            "fr.a2.pronoms-essentiels.292",
+            "fr.a2.pronoms-essentiels.293",
+            "fr.a2.pronoms-essentiels.294",
+            "fr.a2.pronoms-essentiels.295",
+            "fr.a2.pronoms-essentiels.296",
+            "fr.a2.pronoms-essentiels.297",
+            "fr.a2.pronoms-essentiels.298",
+            "fr.a2.pronoms-essentiels.299",
+            "fr.a2.pronoms-essentiels.300",
+            "fr.a2.pronoms-essentiels.301",
+            "fr.a2.pronoms-essentiels.302",
+            "fr.a2.pronoms-essentiels.303",
+            "fr.a2.pronoms-essentiels.304",
+            "fr.a2.pronoms-essentiels.305",
+            "fr.a2.pronoms-essentiels.306",
+            "fr.a2.pronoms-essentiels.307",
+            "fr.a2.pronoms-essentiels.308",
+            "fr.a2.pronoms-essentiels.309",
+            "fr.a2.pronoms-essentiels.310",
+            "fr.a2.pronoms-essentiels.311",
+            "fr.a2.pronoms-essentiels.312",
+            "fr.a2.pronoms-essentiels.313",
+            "fr.a2.pronoms-essentiels.314",
+            "fr.a2.pronoms-essentiels.315",
+            "fr.a2.pronoms-essentiels.316",
+            "fr.a2.pronoms-essentiels.317",
+            "fr.a2.pronoms-essentiels.318",
+            "fr.a2.pronoms-essentiels.319",
+            "fr.a2.pronoms-essentiels.320",
+            "fr.a2.pronoms-essentiels.321",
+            "fr.a2.pronoms-essentiels.322",
+            "fr.a2.pronoms-essentiels.323",
+            "fr.a2.pronoms-essentiels.324",
+            "fr.a2.pronoms-essentiels.325",
+            "fr.a2.pronoms-essentiels.326",
+            "fr.a2.pronoms-essentiels.327",
+            "fr.a2.pronoms-essentiels.328",
+            "fr.a2.pronoms-essentiels.329",
+            "fr.a2.pronoms-essentiels.330",
+            "fr.a2.pronoms-essentiels.331",
+            "fr.a2.pronoms-essentiels.332",
+            "fr.a2.pronoms-essentiels.333",
+            "fr.a2.pronoms-essentiels.334",
+            "fr.a2.pronoms-essentiels.335",
+            "fr.a2.pronoms-essentiels.336"
+          ]
+        },
+        {
+          "id": "s21-review",
+          "type": "reviewDeck",
+          "title": "Everything, Once More",
+          "frSub": "Tout, encore une fois",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "What is inside these two words?",
+              "back": "The preposition goes inside the pronoun, so it does not get said twice. À plus a thing becomes y, and the à disappears with it. De plus a thing becomes en, and the de disappears with it.",
+              "say": "J'y vais."
+            },
+            {
+              "front": "« Je vais à Paris » Say it without the city.",
+              "back": "J'y vais. À plus a thing becomes y, and the à disappears with it.",
+              "say": "J'y vais."
+            },
+            {
+              "front": "« Je parle de mon travail » Say it without the work.",
+              "back": "J'en parle. De plus a thing becomes en, and the de disappears with it.",
+              "say": "J'en parle."
+            },
+            {
+              "front": "Do you have any sugar? Answer yes.",
+              "back": "Oui, j'en ai. French will not let you leave it out. « Oui, j'ai. » is not a sentence.",
+              "say": "Oui, j'en ai."
+            },
+            {
+              "front": "Where does the word go?",
+              "back": "The pronoun goes in front of the verb, not after it. a2.06's line, unchanged, for the third lesson.",
+              "say": "J'y vais."
+            },
+            {
+              "front": "Make « J'en parle » negative.",
+              "back": "Je n'en veux pas. The wrap goes round the pronoun and the verb together.",
+              "say": "Je n'en veux pas."
+            },
+            {
+              "front": "A person is behind à. Which word?",
+              "back": "Lui, and a2.24 owns it. À plus a person becomes lui or leur, and the à disappears with it. À plus a thing becomes y, and the à disappears with it.",
+              "say": "Je lui parle."
+            },
+            {
+              "front": "Which en is « Elle habite en France »?",
+              "back": "The little word, because a country comes next. Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them.",
+              "say": "Elle habite en France."
+            },
+            {
+              "front": "Does « il y a » come apart?",
+              "back": "Il y a is three words that arrived together, and they do not come apart. « Il en a. » is real French and means he has some.",
+              "say": "Il y a du pain."
+            },
+            {
+              "front": "Both words in one sentence. Which order?",
+              "back": "When both turn up, y comes first. Il y en a. Two of these small words in one sentence is a further question, and it is not answered here.",
+              "say": "Il y en a."
+            },
+            {
+              "front": "And in the past, does anything go on the end?",
+              "back": "Nothing, and a2.24 settled that one lesson ago.",
+              "say": "J'y ai pensé."
+            }
+          ]
+        },
+        {
+          "id": "s22-progress",
+          "type": "progressCheck",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "The exam has six rounds and half of it is typed or corrected rather than picked, because both of the things this lesson turns on can be written down and neither can be heard.",
+          "stats": [
+            {
+              "k": "New rules",
+              "v": "1. The preposition goes inside the pronoun, so it does not get said twice."
+            },
+            {
+              "k": "New words",
+              "v": "2, and neither of them changes for anything, ever."
+            },
+            {
+              "k": "Verbs authored",
+              "v": "0. All seven were already in your corpus, and five more were never listed."
+            },
+            {
+              "k": "What the ear can settle",
+              "v": "1 of 2. Whether the word is there, yes. Which en it is, never."
+            }
+          ]
+        },
+        {
+          "id": "s23-quiz",
+          "type": "quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "say": "Six rounds of five. Half of it asks you to write, because both halves of this lesson can be typed and neither can be heard.",
+          "terms": [
+            "inside",
+            "mustSayIt",
+            "threeEns"
+          ],
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "r1-replace",
+              "label": "Swap the whole phrase",
+              "say": "Five on the one new idea.",
+              "targets": [
+                "err-keeps-prep",
+                "err-drops-en"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "« Je vais à Paris. » Type it again without the city.",
+                  "accept": [
+                    "J'y vais."
+                  ],
+                  "ref": "s02-two",
+                  "why": "À plus a thing becomes y, and the à disappears with it. Paris went and the à went with it, so two words are left and neither of them is à."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "« Je parle de mon travail. » Type it again without the work.",
+                  "accept": [
+                    "J'en parle."
+                  ],
+                  "ref": "s07-de",
+                  "why": "De plus a thing becomes en, and the de disappears with it. Same verb as last lesson, and this time the little word in front was de."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix it: « J'y vais à Paris. »",
+                  "accept": [
+                    "J'y vais."
+                  ],
+                  "ref": "s12-trap",
+                  "why": "The little word is already inside the pronoun, so saying it again says it twice. The à is already inside y, so this sentence says it twice."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which one replaces the whole of « au marché »?",
+                  "opts": [
+                    "Oui, j'y vais au marché.",
+                    "Oui, je vais y.",
+                    "Oui, je vais au.",
+                    "Oui, j'y vais demain."
+                  ],
+                  "correct": 3,
+                  "ref": "s02-two",
+                  "why": "The preposition goes inside the pronoun, so it does not get said twice. The first says it twice, the second puts the word where English would put it, and the third leaves half of a little word at the end."
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Which one did you hear?",
+                  "opts": [
+                    "J'y vais.",
+                    "Je vais."
+                  ],
+                  "correct": 0,
+                  "ref": "s06-listening",
+                  "why": "Zhee against zhuh. One vowel, and it is the difference between a sentence that says where and one that does not. This is the one thing about these two words the ear can settle for you."
+                }
+              ]
+            },
+            {
+              "id": "r2-must",
+              "label": "The word you cannot drop",
+              "say": "Five on the half English gives you no help with.",
+              "targets": [
+                "err-drops-en",
+                "err-keeps-prep"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "« Tu as du sucre ? » Answer yes.",
+                  "accept": [
+                    "Oui, j'en ai."
+                  ],
+                  "ref": "s08-must",
+                  "why": "French will not let you leave it out. « Oui, j'ai. » is not a sentence. English closes on two words and French needs the one that stands for the sugar."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Why is « Oui, j'ai. » not a sentence?",
+                  "opts": [
+                    "Because oui cannot start a sentence",
+                    "Because the verb has nothing after it, and en is the something",
+                    "Because avoir is irregular",
+                    "Because the question was in the tu form"
+                  ],
+                  "correct": 1,
+                  "ref": "s08-must",
+                  "why": "French will not let you leave it out. « Oui, j'ai. » is not a sentence. It is not a spelling mistake and it is not rude. It is unfinished, and a French speaker waits for the rest."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "« Tu vas au bureau ? » Answer yes.",
+                  "accept": [
+                    "Oui, j'y vais."
+                  ],
+                  "ref": "s08-must",
+                  "why": "English drops the word here and French keeps it. J'y vais is I am going. « Oui, je vais. » is unfinished in exactly the same way, and this one catches people less often only because y sounds a little like there."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix it: « Oui, je prends. » You are answering a question about sugar.",
+                  "accept": [
+                    "Oui, j'en prends."
+                  ],
+                  "ref": "s08-must",
+                  "why": "A second verb and the same gap. The English answer is three words again and none of them is a translation of anything."
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Which one did you hear?",
+                  "opts": [
+                    "Oui, j'en ai.",
+                    "Oui, j'ai."
+                  ],
+                  "correct": 0,
+                  "ref": "s06-listening",
+                  "why": "The whole of the difference is one syllable in the middle, and it is audible. Whether the word is THERE is the one thing the ear settles in this lesson."
+                }
+              ]
+            },
+            {
+              "id": "r3-ens",
+              "label": "Which en is it",
+              "say": "Five on one word with three jobs.",
+              "targets": [
+                "err-wrong-en",
+                "err-keeps-prep"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "q": "In « Elle habite en France. », what is en doing?",
+                  "opts": [
+                    "It is the little word in front of a place, which a2.04 taught",
+                    "It is the pronoun this lesson is about",
+                    "It is the little word in front of a length of time, which a2.18 taught",
+                    "It is part of the verb"
+                  ],
+                  "correct": 0,
+                  "ref": "s11-threeens",
+                  "why": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. A country comes next, so it is the little word, and a2.04 owns it."
+                },
+                {
+                  "format": "mcq",
+                  "q": "And in « Je finis en deux heures. »?",
+                  "opts": [
+                    "The little word in front of a place, which a2.04 taught",
+                    "The pronoun this lesson is about",
+                    "The little word in front of a length of time, which a2.18 taught",
+                    "A mistake"
+                  ],
+                  "correct": 2,
+                  "ref": "s11-threeens",
+                  "why": "« Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both. » is a2.18's line, and this is that lesson's own sentence."
+                },
+                {
+                  "format": "mcq",
+                  "q": "And in « Elle en parle. »?",
+                  "opts": [
+                    "The little word in front of a place",
+                    "The pronoun this lesson is about",
+                    "The little word in front of a length of time",
+                    "It could be any of them"
+                  ],
+                  "correct": 1,
+                  "ref": "s11-threeens",
+                  "why": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. « what comes next decides » is a2.02's name for this shape, and this is the seventh time it has come round."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which of these tells you which en you are looking at?",
+                  "opts": [
+                    "The meaning of the sentence",
+                    "The word straight after it",
+                    "The subject",
+                    "The tense"
+                  ],
+                  "correct": 1,
+                  "ref": "s11-threeens",
+                  "why": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. There is nothing in the sound and nothing in the meaning that separates them, which is why the position is the whole answer."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix it: « J'en veux du café. »",
+                  "accept": [
+                    "J'en bois."
+                  ],
+                  "ref": "s12-trap",
+                  "why": "The du is de plus le, so the de is in that sentence twice: once inside en and once out loud. The little word is already inside the pronoun, so saying it again says it twice."
+                }
+              ]
+            },
+            {
+              "id": "r4-frozen",
+              "label": "The phrase that does not come apart",
+              "say": "Five on three words you have had since the beginning.",
+              "targets": [
+                "err-breaks-frozen",
+                "err-wrong-en"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "q": "Which word in « Il y a du pain » is the one this lesson is about?",
+                  "opts": [
+                    "il",
+                    "y",
+                    "a",
+                    "du"
+                  ],
+                  "correct": 1,
+                  "ref": "s13-frozen",
+                  "why": "Il y a is three words that arrived together, and they do not come apart. The middle word is the y on these screens, which is worth seeing and is not worth acting on."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Somebody wants to say « there is some » and says « Il en a. ». What is wrong?",
+                  "opts": [
+                    "Nothing, and it means something else",
+                    "It is not French",
+                    "En cannot come after il",
+                    "The verb is wrong"
+                  ],
+                  "correct": 0,
+                  "ref": "s13-frozen",
+                  "why": "Real French, and it means he has some. The y in il y a is the y on this screen and the phrase still does not come apart. Il y a is three words that arrived together, and they do not come apart."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "There is some. Type it.",
+                  "accept": [
+                    "Il y en a."
+                  ],
+                  "ref": "s13-frozen",
+                  "why": "When both turn up, y comes first. Il y en a. The three words stay together and the second small word goes in behind the first."
+                },
+                {
+                  "format": "mcq",
+                  "q": "The little word here is à with its accent, and the accent is the only thing between it and the verb form a. Which sentence is right?",
+                  "opts": [
+                    "Je vais a Paris.",
+                    "Je vais à Paris.",
+                    "Je vais Paris.",
+                    "Je vais de Paris."
+                  ],
+                  "correct": 1,
+                  "ref": "s02-two",
+                  "why": "This has to be a choice rather than something you type, because the app compares typed answers with the accents stripped and would accept the first one. The fourth is real French and means coming FROM Paris."
+                },
+                {
+                  "format": "tapSilent",
+                  "q": "Tap the letter you do not say.",
+                  "word": "pensent",
+                  "correct": "t",
+                  "ref": "s05-there",
+                  "why": "The ending is silent, which a2.01 taught you, so pense and pensent are one sound. Nothing about the small word in front responds to the subject either."
+                }
+              ]
+            },
+            {
+              "id": "r5-order",
+              "label": "Saying no, and the order",
+              "say": "Five on two rules you already had.",
+              "targets": [
+                "err-keeps-prep",
+                "err-breaks-frozen"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "« J'y vais » Make it negative. Type the whole sentence.",
+                  "accept": [
+                    "Je n'y vais pas."
+                  ],
+                  "ref": "s15-negation",
+                  "why": "The wrap goes round the pronoun and the verb together. Ne outside both, pas after both, and the word stays exactly where it was."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "I do not want any. Type it.",
+                  "accept": [
+                    "Je n'en veux pas."
+                  ],
+                  "ref": "s15-negation",
+                  "why": "The wrap goes round the pronoun and the verb together. And the English still needs a word the French keeps inside the pronoun."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Both small words in one sentence. Which order?",
+                  "opts": [
+                    "Il en y a.",
+                    "Il y a en.",
+                    "Il en a y.",
+                    "Il y en a."
+                  ],
+                  "correct": 3,
+                  "ref": "s16-order",
+                  "why": "When both turn up, y comes first. Il y en a. It is a fixed fact rather than a preference. Two of these small words in one sentence is a further question, and it is not answered here."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix it: « J'y parle. » You are talking about a person.",
+                  "accept": [
+                    "Je lui parle."
+                  ],
+                  "ref": "s04-person",
+                  "why": "A person went into y, and a person never does. That is a2.24's word, and this one only takes a thing or a place. One preposition, two answers, and only the thing behind it decides."
+                },
+                {
+                  "format": "tapSilent",
+                  "q": "Tap the letter you do not say.",
+                  "word": "vais",
+                  "correct": "s",
+                  "ref": "s06-listening",
+                  "why": "The s is silent, so the only thing the ear has to go on in « J'y vais » is the vowel at the front. That is exactly the sound the word this lesson teaches lives in."
+                }
+              ]
+            },
+            {
+              "id": "r6-all",
+              "label": "All of it",
+              "say": "Five that ask for more than one thing at once.",
+              "targets": [
+                "err-drops-en",
+                "err-wrong-en",
+                "err-keeps-prep"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "« Tu as des enfants ? » Answer yes, and say how many.",
+                  "accept": [
+                    "Oui, j'en ai trois."
+                  ],
+                  "ref": "s09-quantity",
+                  "why": "The number stays and the noun goes. English cannot do that at all: « I have three » leaves a French speaker still waiting."
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "Fix it: « Nous en revenons de Paris. »",
+                  "accept": [
+                    "Nous en revenons."
+                  ],
+                  "ref": "s10-unseen",
+                  "why": "Revenir DE, so the answer is en even though Paris is a place, and the de is inside it already. The little word is already inside the pronoun, so saying it again says it twice."
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which one is right?",
+                  "opts": [
+                    "J'en ai des.",
+                    "J'y ai trois.",
+                    "Oui, j'en ai trois.",
+                    "Oui, j'ai trois."
+                  ],
+                  "correct": 2,
+                  "ref": "s09-quantity",
+                  "why": "The first keeps the little word, the second uses the word for à on a sentence that had de in it, and the fourth leaves out the one word that cannot be left out."
+                },
+                {
+                  "format": "typeIn",
+                  "q": "I talked about it. Type it.",
+                  "accept": [
+                    "J'en ai parlé."
+                  ],
+                  "ref": "s15-negation",
+                  "why": "The pronoun goes in front of the verb, not after it. The word goes in front of both halves of the verb, which is a2.06's rule on a tense you already have, and nothing goes on the end of parlé."
+                },
+                {
+                  "format": "mcq",
+                  "q": "In « Nous en prenons. », what is en doing?",
+                  "opts": [
+                    "The little word in front of a place",
+                    "The little word in front of a length of time",
+                    "Agreeing with nous",
+                    "The pronoun, because a verb comes next"
+                  ],
+                  "correct": 3,
+                  "ref": "s11-threeens",
+                  "why": "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. And the third is the one thing these two words never do: nothing about either of them changes for a subject."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s24-roundup",
+          "type": "roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "The preposition goes inside the pronoun, so it does not get said twice. That is one idea, and the reason this lesson was the hardest of the three is that the little word is invisible once it is inside.",
+          "points": [
+            "The preposition goes inside the pronoun, so it does not get said twice.",
+            "À plus a thing becomes y, and the à disappears with it. De plus a thing becomes en, and the de disappears with it. Two words, and which one you need was decided before you opened your mouth, by the little word that was already in the sentence.",
+            "French will not let you leave it out. « Oui, j'ai. » is not a sentence. English drops the word here and French keeps it. J'y vais is I am going. Neither of them is ever optional, and English will not remind you.",
+            "Before a thing it is a little word. Before a verb it is the pronoun. Nothing else separates them. a2.04 and a2.18 own the other two ens and this lesson taught neither of them again.",
+            "Il y a is three words that arrived together, and they do not come apart. You have been reading that y since a1 and now you know what it is.",
+            "« The pronoun goes in front of the verb, not after it. » is a2.06's line and it has now been true of three sets of small words in three lessons without a word changed.",
+            "When both turn up, y comes first. Il y en a. Two of these small words in one sentence is a further question, and it is not answered here."
+          ],
+          "sheetId": "sheet-y-en"
+        }
+      ],
+      "itemIds": [
+        "fr.a2.pronoms-essentiels.295",
+        "fr.a2.pronoms-essentiels.296",
+        "fr.a2.pronoms-essentiels.325",
+        "fr.a2.pronoms-essentiels.288",
+        "fr.a2.pronoms-essentiels.291",
+        "fr.a2.pronoms-essentiels.292",
+        "fr.a2.pronoms-essentiels.190",
+        "fr.a2.prepositions-essentielles.130",
+        "fr.a2.pronoms-essentiels.287",
+        "fr.a2.pronoms-essentiels.237",
+        "fr.a2.pronoms-essentiels.238",
+        "fr.a2.pronoms-essentiels.331",
+        "fr.a2.pronoms-essentiels.289",
+        "fr.a2.pronoms-essentiels.290",
+        "fr.a2.pronoms-essentiels.304",
+        "fr.a2.pronoms-essentiels.305",
+        "fr.a2.pronoms-essentiels.306",
+        "fr.a2.pronoms-essentiels.307",
+        "fr.a2.pronoms-essentiels.308",
+        "fr.a2.pronoms-essentiels.320",
+        "fr.a2.pronoms-essentiels.321",
+        "fr.a2.pronoms-essentiels.324",
+        "fr.a2.pronoms-essentiels.311",
+        "fr.a2.pronoms-essentiels.312",
+        "fr.a2.pronoms-essentiels.028",
+        "fr.a2.pronoms-essentiels.029",
+        "fr.a2.pronoms-essentiels.030",
+        "fr.a2.pronoms-essentiels.293",
+        "fr.a2.pronoms-essentiels.294",
+        "fr.a1.cuisine.268",
+        "fr.a1.cafe.151",
+        "fr.a2.pronoms-essentiels.032",
+        "fr.a2.pronoms-essentiels.033",
+        "fr.a2.pronoms-essentiels.297",
+        "fr.a2.pronoms-essentiels.298",
+        "fr.a2.pronoms-essentiels.309",
+        "fr.a2.pronoms-essentiels.310",
+        "fr.a2.pronoms-essentiels.299",
+        "fr.a2.pronoms-essentiels.300",
+        "fr.a2.pronoms-essentiels.301",
+        "fr.a2.pronoms-essentiels.302",
+        "fr.a2.pronoms-essentiels.303",
+        "fr.a2.pronoms-essentiels.322",
+        "fr.a2.pronoms-essentiels.323",
+        "fr.a1.expressions-de-quantite.001",
+        "fr.a2.pronoms-essentiels.031",
+        "fr.a2.pronoms-essentiels.329",
+        "fr.a2.pronoms-essentiels.330",
+        "fr.a2.pronoms-essentiels.332",
+        "fr.a2.prepositions-essentielles.131",
+        "fr.a2.prepositions-essentielles.173",
+        "fr.a2.prepositions-essentielles.185",
+        "fr.a2.pronoms-essentiels.313",
+        "fr.a2.pronoms-essentiels.314",
+        "fr.a2.pronoms-essentiels.315",
+        "fr.sons.jours-et-mois.081",
+        "fr.a2.prepositions-essentielles.186",
+        "fr.a2.rp-voyage.007",
+        "fr.a2.pronoms-essentiels.316",
+        "fr.a2.pronoms-essentiels.317",
+        "fr.a2.pronoms-essentiels.318",
+        "fr.a2.pronoms-essentiels.319",
+        "fr.a2.pronoms-essentiels.326",
+        "fr.a2.pronoms-essentiels.327",
+        "fr.sons.expressions-utiles.158",
+        "fr.sons.verbes-essentiels.003",
+        "fr.sons.verbes-essentiels.020",
+        "fr.sons.verbes-essentiels.023",
+        "fr.sons.verbes-essentiels.007",
+        "fr.sons.verbes-essentiels.002",
+        "fr.a1.cuisine.042",
+        "fr.sons.verbes-essentiels.012",
+        "fr.a2.pronoms-essentiels.328",
+        "fr.a2.pronoms-essentiels.333",
+        "fr.a2.pronoms-essentiels.334",
+        "fr.a2.pronoms-essentiels.335",
+        "fr.a2.pronoms-essentiels.336"
+      ],
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-25-two",
+            "desc": "The two rows and the frame pairs. Read the two rows as WORDS rather than as sentences, at an even pace. The sentence pairs are ONE TAKE each, both halves in it, so the learner hears one sentence becoming another rather than two being compared. The pronoun must carry NO extra weight: it is unstressed in speech and a reader who leans on it teaches that the learner will hear it coming."
+          },
+          {
+            "id": "rec-a2-25-person",
+            "desc": "The a2.24 handshake. ONE TAKE PER CARD holding both lines. « Je parle à Marie. » and « Tu vas à Paris ? » must be read with IDENTICAL treatment of the à, because the whole card says the little word is the same and only what sits behind it differs."
+          },
+          {
+            "id": "rec-a2-25-there",
+            "desc": "Five pairs, ONE TAKE each. The English glosses are not recorded. In « J'y joue le samedi. » the y must not be lengthened: it is one sound inside the first syllable and a reader who separates it teaches a pronunciation nobody uses."
+          },
+          {
+            "id": "rec-a2-25-listening",
+            "desc": "audioFirst. Four lines, ONE TAKE, one voice, no gaps that let the learner rehearse between them. Lines 3 and 4 both carry en and THE TWO MUST BE INDISTINGUISHABLE: they are the same word doing two jobs and the second question exists to make the learner hear that the ear cannot settle it."
+          },
+          {
+            "id": "rec-a2-25-de",
+            "desc": "Eight lines, read separately at a steady pace. The de and the du must sound exactly as unstressed as they do in ordinary speech; this screen is about a word disappearing and a reader who emphasises it before it goes makes the disappearance sound like a loss."
+          },
+          {
+            "id": "rec-a2-25-must",
+            "desc": "THE MOST IMPORTANT TAKE IN THE LESSON. « Oui, j'ai. » must be read as a COMPLETE utterance with a falling intonation and no trailing hesitation, exactly as an English speaker would say it, and « Oui, j'en ai. » must be read the same way. The learner has to hear that the wrong one sounds finished, because that is why nobody corrects it. Do NOT read the wrong one as though it were being cut off."
+          },
+          {
+            "id": "rec-a2-25-ens",
+            "desc": "Three lines and three frames, read separately. THE en IN ALL THREE MUST BE INDISTINGUISHABLE. They are the same word and the same sound and the entire teaching point is that only the next word separates them; a reader who marks the pronoun differently makes the exercise measure something that is not in the language."
+          },
+          {
+            "id": "rec-a2-25-trap",
+            "desc": "The four trap cards, in order: « J'y vais à Paris. », « J'y vais. », « J'en veux du café. », « J'en bois. » The two wrong ones must be read FLUENTLY and without hesitation, because a learner who says them says them fluently and nothing in the sound is wrong. Do not signal the error."
+          },
+          {
+            "id": "rec-a2-25-frozen",
+            "desc": "il y a and il y en a. « Il y a » is three syllables run together at speed, as it is in speech, and « Il y en a » adds one without slowing down. The learner must hear that the phrase is one lump and that the extra word goes inside it rather than beside it."
+          },
+          {
+            "id": "rec-a2-25-negation",
+            "desc": "The wrap. ONE TAKE per card holding both lines. Ne must NOT be given extra length: it is unstressed and often barely there, and a recording that pronounces it carefully teaches a register nobody uses."
+          },
+          {
+            "id": "rec-a2-25-dictee",
+            "desc": "Fourteen lines, ONE VOICE, read at dictation pace with the same interval before each. Several of them are three or four syllables long and the interval matters more than usual for that reason. « J'y vais. » and « J'en ai. » must be read at ordinary conversational speed rather than slowly: the whole exercise is whether the learner can hear a word that takes a tenth of a second to say."
+          }
+        ]
+      }
     }
   ],
   "items": [
@@ -387263,6 +389926,1513 @@
       ],
       "audioRef": null,
       "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.287",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu vas à Paris ?",
+      "en": "Are you going to Paris?",
+      "ipa": "/ty va a pa.ʁi/",
+      "respell": "tü VAH ah pah-REE",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The à half, as a question, so the pronoun half below is an ANSWER rather than a restatement. Eleven letters. The statement form « Je vais à Paris. » is NOT authored: it is already published as fr.a2.prepositions-essentielles.130, a2.04's own row, and the manifest refused the first draft for exactly that reason. It is imported instead, and so is the row beside it, so this lesson's opening contrast is a2.04's two sentences."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.288",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'y vais.",
+      "en": "I am going.",
+      "ipa": "/ʒi vɛ/",
+      "respell": "zhee VEH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE Y FRAME. SIX letters through the real dicteeMode, so the dictée takes it in LETTERS mode; the brief says seven. The English has no word for y in it at all, which is the whole of the second thing this lesson teaches."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.289",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je pense à mon examen.",
+      "en": "I am thinking about my exam.",
+      "ipa": "/ʒə pɑ̃s a mɔ̃.n‿ɛɡ.za.mɛ̃/",
+      "respell": "zhuh PAHⁿSS ah mohⁿ nehg-zah-MEHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The à half on a verb where the thing behind à is not a place at all. Seventeen letters, so word mode and no dictation drill. penser à is the second frame and fr.a2.pronoms-essentiels.030 publishes the question form."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.290",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'y pense souvent.",
+      "en": "I think about it often.",
+      "ipa": "/ʒi pɑ̃s su.vɑ̃/",
+      "respell": "zhee PAHⁿSS soo-VAHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fourteen letters. A THING rather than a place, so the learner cannot read y as \"there\". The bare « J'y pense. » is NOT authored: it is already the published phrase card fr.a2.pronoms-essentiels.028, and the manifest refused the first draft as a duplicate fr inside this theme, which is the flashcard hub serving one card twice. That row is imported and its respelling repaired instead, and this sentence is the bare form of what fr.a2.pronoms-essentiels.030 already publishes as an answer."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.291",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je parle de mon travail.",
+      "en": "I talk about my work.",
+      "ipa": "/ʒə paʁl də mɔ̃ tʁa.vaj/",
+      "respell": "zhuh PARL duh mohⁿ trah-VAHY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The de half, on a2.24's frame verb. Nineteen letters, word mode. Reusing parler across the block is a cross-lesson claim in two sentences: à plus a person gave lui, de plus a thing gives en, same verb."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.292",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en parle.",
+      "en": "I talk about it.",
+      "ipa": "/ʒɑ̃ paʁl/",
+      "respell": "zhahⁿ PARL",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE EN FRAME. Eight letters. The same verb as a2.24's « Je lui parle. », which is why the two lessons can be put side by side without a third sentence in between."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.293",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu bois du café ?",
+      "en": "Do you drink coffee?",
+      "ipa": "/ty bwa dy ka.fe/",
+      "respell": "tü BWAH dü ka-FAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The de half again, and this time the de is hiding inside du. Twelve letters. a1.29 owns du, de la and des and this lesson re-teaches none of them; it only says that en takes all three away. The statement form « Je bois du café. » is fr.a1.cuisine.268 and is IMPORTED rather than re-authored: the manifest refused the first draft, which is the generator working."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.294",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en bois.",
+      "en": "I drink some.",
+      "ipa": "/ʒɑ̃ bwa/",
+      "respell": "zhahⁿ BWAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Seven letters. The English needs \"some\" and the French does not need anything else, which is the opposite of the sentence two rows down."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.295",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu as du sucre ?",
+      "en": "Do you have any sugar?",
+      "ipa": "/ty a dy sykʁ/",
+      "respell": "tü AH dü SÜKR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The question the scene opens on. Eleven letters. a1.19 owns the rising question and this borrows it."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.296",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, j'en ai.",
+      "en": "Yes, I do.",
+      "ipa": "/wi ʒɑ̃.n‿e/",
+      "respell": "wee, zhahⁿ NAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE OBLIGATORY ANSWER, and the sentence this whole lesson is for. Eight letters. The English is three words and none of them is a translation of en. Measured through the real fold(): it does NOT collapse with « J'ai. », so this is testable by typing."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.297",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu prends du sucre ?",
+      "en": "Do you take sugar?",
+      "ipa": "/ty pʁɑ̃ dy sykʁ/",
+      "respell": "tü PRAHⁿ dü SÜKR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fifteen letters. A second verb, so the learner does not read the rule as a fact about avoir."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.298",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, j'en prends.",
+      "en": "Yes, I do.",
+      "ipa": "/wi ʒɑ̃ pʁɑ̃/",
+      "respell": "wee, zhahⁿ PRAHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Twelve letters, and the same three English words again. English answers this question with the auxiliary and French answers it with the object."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.299",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu as des enfants ?",
+      "en": "Do you have children?",
+      "ipa": "/ty a de.z‿ɑ̃.fɑ̃/",
+      "respell": "tü AH day zahⁿ-FAHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fourteen letters. des, which a1.29 owns, and which en takes away along with the noun."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.300",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, j'en ai trois.",
+      "en": "Yes, I have three.",
+      "ipa": "/wi ʒɑ̃.n‿e tʁwa/",
+      "respell": "wee, zhahⁿ nay TRWAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Thirteen letters. THE NUMBER STAYS AND THE NOUN GOES, which is the shape English has no equivalent for at all: \"I have three\" says nothing about what three of."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.301",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en ai beaucoup.",
+      "en": "I have a lot.",
+      "ipa": "/ʒɑ̃.n‿e bo.ku/",
+      "respell": "zhahⁿ nay boh-KOO",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Thirteen letters. beaucoup de is a1.29's and the de went inside en with the noun."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.302",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en veux un peu.",
+      "en": "I want a little.",
+      "ipa": "/ʒɑ̃ vø œ̃ pø/",
+      "respell": "zhahⁿ VUH uhⁿ PUH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Twelve letters. VUH rather than VEU: twelve published rows spell veux that way against one, and §10 records that the /ø/ question is unsettled corpus-wide and is not this build's to settle."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.303",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en ai assez.",
+      "en": "I have enough.",
+      "ipa": "/ʒɑ̃.n‿e a.se/",
+      "respell": "zhahⁿ nay ah-SAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Ten letters. assez de, and the de is gone again. Four quantity words and the same disappearance each time."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.304",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu vas au marché ?",
+      "en": "Are you going to the market?",
+      "ipa": "/ty va o maʁ.ʃe/",
+      "respell": "tü VAH oh mar-SHAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Thirteen letters. au is à plus le, which a1.21 and a2.04 own, and y swallows the whole of it."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.305",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, j'y vais demain.",
+      "en": "Yes, I am going tomorrow.",
+      "ipa": "/wi ʒi vɛ də.mɛ̃/",
+      "respell": "wee, zhee VEH duh-MEHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fifteen letters. The English answer has no word for the market in it either, so this is the one place the two languages agree."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.306",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je joue au tennis.",
+      "en": "I play tennis.",
+      "ipa": "/ʒə ʒu o tɛ.nis/",
+      "respell": "zhuh ZHOO oh tay-NEESS",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fourteen letters. jouer à, and the thing behind à is a game rather than a place, which is why y is not \"there\"."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.307",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'y joue le samedi.",
+      "en": "I play on Saturdays.",
+      "ipa": "/ʒi ʒu lə sam.di/",
+      "respell": "zhee ZHOO luh sam-DEE",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fourteen letters. Nothing in the English is y and nothing in it is \"there\" either. a1.08 owns the days."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.308",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Nous y allons ensemble.",
+      "en": "We go there together.",
+      "ipa": "/nu.z‿i a.lɔ̃ ɑ̃.sɑ̃bl/",
+      "respell": "noo zee ah-LOHⁿ ahⁿ-SAHⁿBL",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Nineteen letters, word mode. A subject that is not je, and the pronoun still sits between it and the verb. a2.01 owns the nous form."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.309",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu vas au bureau ?",
+      "en": "Are you going to the office?",
+      "ipa": "/ty va o by.ʁo/",
+      "respell": "tü VAH oh bü-ROH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Thirteen letters."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.310",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, j'y vais.",
+      "en": "Yes, I am.",
+      "ipa": "/wi ʒi vɛ/",
+      "respell": "wee, zhee VEH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Nine letters, and THE Y HALF OF THE OBLIGATORY PAIR. The English is « Yes, I am » with nothing after it; French cannot stop at « Oui, je vais. » any more than it can stop at « Oui, j'ai. »"
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.311",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Elle en parle.",
+      "en": "She talks about it.",
+      "ipa": "/ɛl ɑ̃ paʁl/",
+      "respell": "ehl ahⁿ PARL",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Eleven letters. THE PRONOUN, with a verb straight after it. The row below is the same word with a thing after it, and there is nothing else between them."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.312",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Elle habite en France.",
+      "en": "She lives in France.",
+      "ipa": "/ɛ.l‿a.bit ɑ̃ fʁɑ̃s/",
+      "respell": "ehl ah-BEET ahⁿ FRAHⁿSS",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "preposition"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE LITTLE WORD, with a country after it. Eighteen letters, word mode. a2.04 owns this one and this lesson teaches none of it. The respelling is a2.04's own value, ahⁿ, because the two are one sound and spelling them apart would claim a difference that is not there."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.313",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Il y a du pain.",
+      "en": "There is bread.",
+      "ipa": "/il i a dy pɛ̃/",
+      "respell": "eel ee ah dü PEHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "frozen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Ten letters. The y in the middle is this lesson's y and the three words still do not come apart. a2.18 owns the phrase in both its senses and neither is re-taught here."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.314",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Il y en a.",
+      "en": "There is some.",
+      "ipa": "/il i ɑ̃.n‿a/",
+      "respell": "eel ee ahⁿ NAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "frozen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "SIX LETTERS, AND THE ONLY TWO-PRONOUN SENTENCE IN THIS LESSON. y first, en second, and the order is fixed. fr.sons.expressions-utiles.158 and fr.a2.rp-voyage.007 both publish it and this build imports both."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.315",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Il y en a trois.",
+      "en": "There are three.",
+      "ipa": "/il i ɑ̃.n‿a tʁwa/",
+      "respell": "eel ee ahⁿ nah TRWAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "frozen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Eleven letters. The frozen phrase, the pronoun and a number, and still nothing says what three of."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.316",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je n'y vais pas.",
+      "en": "I am not going.",
+      "ipa": "/ʒə ni vɛ pa/",
+      "respell": "zhuh nee VEH PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Eleven letters. ne outside, pronoun and verb inside, pas after both. Exactly a2.06's sentence and no new rule."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.317",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je n'en veux pas.",
+      "en": "I do not want any.",
+      "ipa": "/ʒə nɑ̃ vø pa/",
+      "respell": "zhuh nahⁿ VUH PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Twelve letters. And the English still needs a word French puts inside the pronoun."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.318",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Il n'y pense pas.",
+      "en": "He does not think about it.",
+      "ipa": "/il ni pɑ̃s pa/",
+      "respell": "eel nee PAHⁿSS PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Twelve letters. A different subject and a different verb, and nothing about the wrap responds to either."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.319",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Nous n'en parlons pas.",
+      "en": "We do not talk about it.",
+      "ipa": "/nu nɑ̃ paʁ.lɔ̃ pa/",
+      "respell": "noo nahⁿ par-LOHⁿ PAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Seventeen letters, word mode."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.320",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu y vas souvent ?",
+      "en": "Do you go there often?",
+      "ipa": "/ty i va su.vɑ̃/",
+      "respell": "tü ee VAH soo-VAHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Thirteen letters. The pronoun does not move for a question. a1.19 owns the rising question."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.321",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Elle y va tous les jours.",
+      "en": "She goes there every day.",
+      "ipa": "/ɛ.l‿i va tu le ʒuʁ/",
+      "respell": "ehl ee VAH too lay ZHOOR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Nineteen letters, word mode. A feminine subject, and nothing about y responds to it."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.322",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Nous en prenons.",
+      "en": "We take some.",
+      "ipa": "/nu.z‿ɑ̃ pʁə.nɔ̃/",
+      "respell": "noo zahⁿ pruh-NOHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Thirteen letters. The z is a liaison the learner hears and never writes, which sons.10 owns."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.323",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Vous en voulez ?",
+      "en": "Do you want some?",
+      "ipa": "/vu.z‿ɑ̃ vu.le/",
+      "respell": "voo zahⁿ voo-LAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Twelve letters."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.324",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Ils y pensent.",
+      "en": "They think about it.",
+      "ipa": "/il i pɑ̃s/",
+      "respell": "eel ee PAHⁿSS",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Eleven letters, and the verb ending is silent, which is a2.01's business. pense and pensent are one sound and no listening question here offers you both."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.325",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu en as ?",
+      "en": "Do you have any?",
+      "ipa": "/ty ɑ̃.n‿a/",
+      "respell": "tü ahⁿ NAH",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "SIX letters, and the question the other person asks in the scene without correcting anybody. fr.a2.entraide.008 publishes the same three words inside a longer sentence."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.326",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en ai parlé.",
+      "en": "I talked about it.",
+      "ipa": "/ʒɑ̃.n‿e paʁ.le/",
+      "respell": "zhahⁿ nay par-LAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Ten letters. The pronoun goes in front of both halves of the verb, which is a2.06's rule and a2.05's tense and neither is new here."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.327",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je n'en ai pas parlé.",
+      "en": "I did not talk about it.",
+      "ipa": "/ʒə nɑ̃.n‿e pa paʁ.le/",
+      "respell": "zhuh nahⁿ nay pah par-LAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "passe-compose",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Fifteen letters. The wrap and the past together: ne, pronoun, first word, pas, second word. Both rules, neither of them new."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.328",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'y ai pensé.",
+      "en": "I thought about it.",
+      "ipa": "/ʒi e pɑ̃.se/",
+      "respell": "zhee ay pahⁿ-SAY",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "passe-compose"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Nine letters. The other pronoun, the same position, and the second word takes nothing at all, which is a2.24's rule and holds here too."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.329",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Il en rêve.",
+      "en": "He dreams about it.",
+      "ipa": "/i.l‿ɑ̃ ʁɛv/",
+      "respell": "eel ahⁿ REHV",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "rêver DE quelque chose, and rêver is on no list in this lesson. Eight letters. English says \"dreams ABOUT it\", so the learner has a signal and it points at the wrong little word."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.330",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Nous en revenons.",
+      "en": "We are coming back from there.",
+      "ipa": "/nu.z‿ɑ̃ ʁə.və.nɔ̃/",
+      "respell": "noo zahⁿ ruh-vuh-NOHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "revenir DE, and the thing behind de is a PLACE, which is the case a learner holding \"y is there and en is some\" gets wrong every time. Fourteen letters."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.331",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Elle y répond.",
+      "en": "She answers it.",
+      "ipa": "/ɛ.l‿i ʁe.pɔ̃/",
+      "respell": "ehl ee ray-POHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "THE SHARPEST CASE IN THE LESSON. répondre à is a2.24's verb and a2.24's answer was lui, because the thing behind à was a person. Here it is a letter, so it is y. Same verb, same little word, two different pronouns, and only the thing behind à decides."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.332",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en ai besoin.",
+      "en": "I need it.",
+      "ipa": "/ʒɑ̃.n‿e bə.zwɛ̃/",
+      "respell": "zhahⁿ nay buh-ZWEHⁿ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "unseen"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "avoir besoin DE, which is a fixed expression rather than a verb and behaves exactly the same. Eleven letters. fr.sons.expressions-utiles.136 publishes the phrase and its respelling is flagged twice; §11 records why it is not imported."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.333",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, j'y vais tous les samedis.",
+      "en": "Yes, I go every Saturday.",
+      "ipa": "/wi ʒi vɛ tu le sam.di/",
+      "respell": "wee, zhee VEH too lay sam-DEE",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Role play turn. Twenty-three letters, word mode, so no dictation drill."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.334",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Non, je n'en ai plus.",
+      "en": "No, I do not have any left.",
+      "ipa": "/nɔ̃ ʒə nɑ̃.n‿e ply/",
+      "respell": "nohⁿ, zhuh nahⁿ nay PLÜ",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present",
+        "negation"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn. Fourteen letters. The negative and the quantity in one answer, and « Non, je n'ai plus. » is not a sentence either."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.335",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "J'en prends un, merci.",
+      "en": "I will take one, thanks.",
+      "ipa": "/ʒɑ̃ pʁɑ̃.z‿œ̃ mɛʁ.si/",
+      "respell": "zhahⁿ PRAHⁿ ZUHⁿ, mehr-SEE",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn. SIXTEEN letters, exactly at the dictée limit and still in LETTERS mode. un stays and the noun goes, same as trois."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.336",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Oui, j'en ai parlé hier.",
+      "en": "Yes, I talked about it yesterday.",
+      "ipa": "/wi ʒɑ̃.n‿e paʁ.le jɛʁ/",
+      "respell": "wee, zhahⁿ nay par-LAY YEHR",
+      "tags": [
+        "a2",
+        "pronoun",
+        "neutral",
+        "present"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "roleplay",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Turn. Seventeen letters, word mode. The past straight away, because that is what somebody actually answers."
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.028",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "j'y pense",
+      "en": "I think about it",
+      "ipa": "/ʒi pɑ̃s/",
+      "respell": "zhee PAHⁿSS",
+      "notes": "Y replaces à + a place or a thing already mentioned, and it goes right before the verb.",
+      "tags": [
+        "pronoun",
+        "y"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.029",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Je vais à Paris ; j'y vais en train.",
+      "en": "I'm going to Paris; I'm going there by train.",
+      "tags": [
+        "pronoun",
+        "y"
+      ],
+      "drills": [
+        "flashcard",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.030",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu penses à ton examen ? Oui, j'y pense souvent.",
+      "en": "Are you thinking about your exam? Yes, I think about it often.",
+      "tags": [
+        "pronoun",
+        "y"
+      ],
+      "drills": [
+        "flashcard",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.031",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "j'en veux",
+      "en": "I want some",
+      "ipa": "/ʒɑ̃ vø/",
+      "respell": "zhahⁿ VUH",
+      "notes": "En replaces de + a noun already mentioned, often showing a quantity.",
+      "tags": [
+        "pronoun",
+        "en"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.032",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Tu veux du café ? Oui, j'en veux bien.",
+      "en": "Do you want some coffee? Yes, I'd like some.",
+      "tags": [
+        "pronoun",
+        "en"
+      ],
+      "drills": [
+        "flashcard",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.033",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "Elle a trois frères ; elle en parle souvent.",
+      "en": "She has three brothers; she talks about them often.",
+      "tags": [
+        "pronoun",
+        "en"
+      ],
+      "drills": [
+        "flashcard",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.rp-voyage.007",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "rp-voyage",
+      "fr": "Il y en a un à quatorze heures, quai trois.",
+      "en": "There's one at 2pm, platform three.",
+      "ipa": "i.li.ɑ̃.n‿a œ̃.n‿a ka.tɔʁ.z‿œʁ kɛ tʁwa",
+      "notes": "Il y en a combines il y a with the pronoun en, referring back to trains.",
+      "tags": [
+        "il-y-a"
+      ],
+      "drills": [
+        "dictation",
+        "sentence"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.expressions-utiles.158",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "expressions-utiles",
+      "fr": "il y en a encore",
+      "en": "there's still some left",
+      "ipa": "/il jɑ̃n a ɑ̃kɔʁ/",
+      "respell": "EEL YAHⁿ NAH ahⁿ-KOR",
+      "notes": "The happy answer to is there any left.",
+      "tags": [
+        "expression"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.020",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "penser",
+      "en": "to think",
+      "ipa": "/pɑ̃se/",
+      "respell": "pahⁿ-SAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.023",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "jouer",
+      "en": "to play",
+      "ipa": "/ʒwe/",
+      "respell": "ZHWAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
     }
   ],
   "scenarios": [
