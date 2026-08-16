@@ -76,8 +76,16 @@ export function measureGenreImpact(
   before: Item[], after: Item[], authored: Iterable<string> = [],
 ): GenreImpact {
   const own = new Set(authored);
-  const popBefore = (endingPopulation(before as never) as unknown[]).length;
-  const popAfter = (endingPopulation(after as never) as unknown[]).length;
+
+  // Each population is walked ONCE and reused. The first version called
+  // `endingPopulation` four times — twice for the counts and twice again for
+  // the joiner diff — which is two full walks of a ten-megabyte seed for
+  // nothing. Correct either way; this is the version that can sit in front of
+  // every merge without anybody noticing it is there.
+  const popBeforeRows = endingPopulation(before as never) as Array<{ id: string; fr: string }>;
+  const popAfterRows = endingPopulation(after as never) as Array<{ id: string; fr: string }>;
+  const popBefore = popBeforeRows.length;
+  const popAfter = popAfterRows.length;
 
   const moved: string[] = [];
   for (const e of PRINTED_ENDINGS) {
@@ -88,8 +96,8 @@ export function measureGenreImpact(
     if (fa !== fb) moved.push(`-${e}: ${fa} -> ${fb}`);
   }
 
-  const wasIn = new Set((endingPopulation(before as never) as Array<{ id: string }>).map((i) => i.id));
-  const joiners = (endingPopulation(after as never) as Array<{ id: string; fr: string }>)
+  const wasIn = new Set(popBeforeRows.map((i) => i.id));
+  const joiners = popAfterRows
     .filter((i) => !wasIn.has(i.id))
     .map((i) => ({ id: i.id, fr: i.fr, authored: own.has(i.id) }));
 

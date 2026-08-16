@@ -59,7 +59,19 @@ const OMIT_IF_NULL = [
 const MY_THEMES = [THEME, QC_THEME];
 
 async function main() {
-  const seed = JSON.parse(readFileSync(SEED, 'utf8')) as Seed;
+  // ONE RAW READ, REUSED AS THE BASELINE. The gate below needs the seed as it
+  // was BEFORE this script mutated it, and it cannot take a shallow copy of
+  // `seed.items`: the upsert loop mutates item objects IN PLACE, so a copy of
+  // the array shares the mutated objects and would read as "nothing moved".
+  //
+  // A second `readFileSync` would give an unmutated baseline too, and that is
+  // what the first version did. It is wrong here: FOUR agents write this file
+  // concurrently, and a re-read picks up whatever landed in between, so the
+  // gate would compare a mutated tree against somebody else's newer file.
+  // Capturing the text once is the only version that is correct under the
+  // concurrency this repo actually has.
+  const seedRaw = readFileSync(SEED, 'utf8');
+  const seed = JSON.parse(seedRaw) as Seed;
   const beforeItems = seed.items.length;
   const before = Object.fromEntries(MY_THEMES.map((t) => [t, seed.items.filter((i) => i.theme === t).length]));
   console.log(`\n  seed v${seed.version}: ${beforeItems} items, ${seed.lessons.length} lessons`);
@@ -166,7 +178,7 @@ async function main() {
   // contribution was zero every time and every joiner was a carried import
   // named by a card, so a hard gate would block correct work.
   reportGenreImpact(measureGenreImpact(
-    JSON.parse(readFileSync(SEED, 'utf8')).items,
+    JSON.parse(seedRaw).items,
     seed.items,
     ALL_ROWS.map((r) => r.id),
   ));
