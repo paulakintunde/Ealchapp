@@ -1005,7 +1005,9 @@
       "level": "a2",
       "title": "Comparatives and Superlatives",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.08.l1"
+      ],
       "prereqUnitIds": [
         "a2.03"
       ]
@@ -214287,6 +214289,2763 @@
         "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
         "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
       ]
+    },
+    {
+      "id": "a2.08.l1",
+      "unitId": "a2.08",
+      "seq": 1,
+      "title": "Comparatives and Superlatives",
+      "level": "a2",
+      "tag": "A2 · LEÇON 32",
+      "intro": "Comparing two things in French is one sentence shape with one word in the middle of it, and that word is the whole choice. Get the shape once and it takes any describing word you will ever learn. Then the article arrives, and it brings an ending nobody can hear.",
+      "skill": "PE",
+      "grammarAssumed": [
+        "a2.03",
+        "a2.17",
+        "a1.06",
+        "a1.04",
+        "a1.16"
+      ],
+      "grammarIntroduced": [
+        "The comparative as a single frame with one variable slot, so that a describing word never met before is comparable without further instruction",
+        "The three degrees plus, moins and aussi as one closed choice rather than as three constructions",
+        "That que and its object are obligatory, and that dropping them yields a well-formed sentence with a different meaning rather than an error",
+        "The superlative as the same frame with a definite article prefixed, and the article rather than the describing word as the carrier of agreement",
+        "That the four superlative forms are realised as two phonological forms, so the number contrast is undetectable by ear and testable only in writing",
+        "The suppletive comparatives meilleur and mieux, split by the category of what they modify, against a corpus in which mieux outnumbers meilleur six and a half to one",
+        "That mauvais admits both pire and plus mauvais, so the constraint is lexical to bon and bien rather than a general prohibition on plus",
+        "de, not dans, as the complement of a superlative"
+      ],
+      "overview": {
+        "titleEn": "Comparatives and Superlatives",
+        "subFr": "Comparatifs & superlatifs",
+        "introFr": "Un seul cadre, trois mots au milieu. Choisissez le mot, gardez le cadre.",
+        "minutes": 34,
+        "difficulty": 3,
+        "glyph": "⇄",
+        "screens": 96
+      },
+      "reframe": "Pick the middle word and keep the frame.",
+      "acts": [
+        {
+          "id": "act1",
+          "title": "Le mot du milieu",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-three"
+          ],
+          "milestone": "You have seen a correct sentence die on its last word, and you have the three that replace it",
+          "estScreens": 15,
+          "restPoints": [
+            "s02-goals"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Le cadre ne bouge pas",
+          "sections": [
+            "s04-middle",
+            "s05-swap",
+            "s06-hear",
+            "s07-plus",
+            "s08-unseen",
+            "s09-flash"
+          ],
+          "milestone": "You compared two things with a describing word this lesson never showed you",
+          "estScreens": 24,
+          "restPoints": [
+            "s05-swap",
+            "s07-plus"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "L'article arrive",
+          "sections": [
+            "s10-super",
+            "s11-four",
+            "s12-of",
+            "s13-read",
+            "s14-sort"
+          ],
+          "milestone": "You can say which one is the most of a group, and spell the ending you cannot hear",
+          "estScreens": 22,
+          "restPoints": [
+            "s11-four",
+            "s13-read"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Deux mots pour « better »",
+          "sections": [
+            "s15-pair",
+            "s16-trap",
+            "s17-errors",
+            "s18-dictee"
+          ],
+          "milestone": "You can pick between meilleur and mieux from the verb in front of them",
+          "estScreens": 18,
+          "restPoints": [
+            "s16-trap"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Production",
+          "sections": [
+            "s19-talk",
+            "s20-speak",
+            "s21-check"
+          ],
+          "milestone": "You compared two flats out loud, six turns, without stopping mid-sentence",
+          "estScreens": 12,
+          "restPoints": [
+            "s20-speak"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "L'examen",
+          "sections": [
+            "s22-quiz",
+            "s23-review",
+            "s24-roundup"
+          ],
+          "milestone": "Thirty questions, and the frame one last time",
+          "estScreens": 10,
+          "restPoints": [
+            "s23-review"
+          ]
+        }
+      ],
+      "errorTriggers": [
+        {
+          "id": "wrong-middle",
+          "description": "Picks the wrong middle word, or puts it somewhere other than in front of the describing word.",
+          "detectOn": [
+            "s03-three",
+            "s06-hear",
+            "s08-unseen"
+          ],
+          "drill": "d-middle",
+          "retest": "d-que"
+        },
+        {
+          "id": "no-que",
+          "description": "Stops the sentence after the describing word, producing a correct sentence that is not a comparison.",
+          "detectOn": [
+            "s05-swap",
+            "s17-errors",
+            "s19-talk"
+          ],
+          "drill": "d-que"
+        },
+        {
+          "id": "no-agree",
+          "description": "Leaves the superlative in its plain form, or agrees the describing word and not the article.",
+          "detectOn": [
+            "s11-four",
+            "s14-sort",
+            "s18-dictee"
+          ],
+          "drill": "d-agree",
+          "retest": "d-agree"
+        },
+        {
+          "id": "plus-bon",
+          "description": "Builds plus bon or plus bien, or gives a verb meilleur and a noun mieux.",
+          "detectOn": [
+            "s15-pair",
+            "s16-trap",
+            "s17-errors"
+          ],
+          "drill": "d-better"
+        }
+      ],
+      "drills": [
+        {
+          "id": "d-middle",
+          "title": "Three words, one slot",
+          "format": "flashcard",
+          "coach": "The frame is already right. Read the English and pick which of the three goes in the middle.",
+          "items": [
+            "fr.a2.comparaisons.133",
+            "fr.a2.comparaisons.134",
+            "fr.a2.comparaisons.135",
+            "fr.a2.comparaisons.156"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "d-que",
+          "title": "And the second thing",
+          "format": "mcq",
+          "coach": "A comparison names both things. If you can only find one of them, it is not a comparison yet.",
+          "q": "He meant he is taller than his brother. Which one says that?",
+          "opts": [
+            "Il est plus grand.",
+            "Il est plus grand que son frère.",
+            "Il est le plus grand."
+          ],
+          "correct": 1,
+          "why": "The first is correct French and means he is tall. The third makes him the tallest of a group. Only the second compares two people.",
+          "items": [
+            "fr.a2.comparaisons.136",
+            "fr.a2.comparaisons.145",
+            "fr.a2.comparaisons.152",
+            "fr.a2.comparaisons.133"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "d-agree",
+          "title": "The last letter",
+          "format": "sort",
+          "coach": "Two piles. One thing, or several. The ending is the only thing that tells you, and only in writing.",
+          "buckets": [
+            "one of them",
+            "several of them"
+          ],
+          "items": [
+            "fr.a2.comparaisons.142",
+            "fr.a2.comparaisons.144",
+            "fr.a2.comparaisons.086",
+            "fr.a2.comparaisons.103"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "d-better",
+          "title": "Which better word",
+          "format": "mcq",
+          "coach": "Look at the word in front of the gap. est, or something being done.",
+          "q": "Ce gâteau est ... que l'autre. Which word?",
+          "opts": [
+            "plus bon",
+            "meilleur",
+            "mieux"
+          ],
+          "correct": 1,
+          "why": "est, so it is describing the cake and it is meilleur. mieux would be describing an action, and there is no action here.",
+          "items": [
+            "fr.a2.comparaisons.009",
+            "fr.a2.comparaisons.034",
+            "fr.a2.comparaisons.036",
+            "fr.a2.comparaisons.078"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.comparaisons.133",
+          "fr.a2.comparaisons.134",
+          "fr.a2.comparaisons.135"
+        ],
+        [
+          "fr.a2.comparaisons.113",
+          "fr.a2.comparaisons.114",
+          "fr.a2.comparaisons.115",
+          "fr.a2.comparaisons.116",
+          "fr.a2.comparaisons.120",
+          "fr.a2.comparaisons.121",
+          "fr.a2.comparaisons.122",
+          "fr.a2.comparaisons.123",
+          "fr.a2.comparaisons.124",
+          "fr.a2.comparaisons.125",
+          "fr.a2.comparaisons.129",
+          "fr.a2.comparaisons.130",
+          "fr.a2.comparaisons.131",
+          "fr.a2.comparaisons.132",
+          "fr.a2.comparaisons.136",
+          "fr.a2.comparaisons.137",
+          "fr.a2.comparaisons.145",
+          "fr.a2.comparaisons.151",
+          "fr.a2.comparaisons.152",
+          "fr.a2.comparaisons.153",
+          "fr.a2.comparaisons.154",
+          "fr.a2.comparaisons.155",
+          "fr.a2.comparaisons.156",
+          "fr.a2.comparaisons.157",
+          "fr.a2.comparaisons.158",
+          "fr.a2.comparaisons.159",
+          "fr.a2.comparaisons.161",
+          "fr.a2.comparaisons.162",
+          "fr.a2.comparaisons.163",
+          "fr.sons.adjectifs-essentiels.001",
+          "fr.sons.adjectifs-essentiels.002",
+          "fr.sons.adjectifs-essentiels.003",
+          "fr.sons.adjectifs-essentiels.004",
+          "fr.sons.adjectifs-essentiels.018",
+          "fr.sons.adjectifs-essentiels.019",
+          "fr.sons.adjectifs-essentiels.020",
+          "fr.sons.adjectifs-essentiels.176"
+        ],
+        [
+          "fr.a2.comparaisons.138",
+          "fr.a2.comparaisons.141",
+          "fr.a2.comparaisons.142",
+          "fr.a2.comparaisons.143",
+          "fr.a2.comparaisons.144"
+        ],
+        [
+          "fr.a2.comparaisons.117",
+          "fr.a2.comparaisons.118",
+          "fr.a2.comparaisons.119",
+          "fr.a2.comparaisons.139",
+          "fr.a2.comparaisons.140",
+          "fr.a2.comparaisons.146",
+          "fr.a2.comparaisons.147",
+          "fr.a2.comparaisons.148",
+          "fr.a2.comparaisons.149",
+          "fr.a2.comparaisons.150",
+          "fr.a2.comparaisons.160",
+          "fr.sons.adjectifs-essentiels.062",
+          "fr.sons.adjectifs-essentiels.063",
+          "fr.sons.mots-essentiels.045",
+          "fr.sons.mots-essentiels.046"
+        ],
+        [],
+        []
+      ],
+      "sheets": [
+        {
+          "id": "sheet-cadre",
+          "title": "The whole frame, on one page",
+          "layer": "deep",
+          "contains": [
+            "the three middle words",
+            "the four superlative forms",
+            "the two that refuse plus"
+          ],
+          "sections": [
+            {
+              "type": "teach",
+              "id": "sheet-teach",
+              "layer": "deep",
+              "render": "sheet",
+              "title": "How to read this",
+              "body": "The left column is the only thing that changes. Everything to the right of it is the frame, and the frame is the same for every describing word in the language. The bottom three rows are the two words that refuse the frame and the one that does not, which is the part worth screenshotting."
+            },
+            {
+              "type": "table",
+              "id": "sheet-table",
+              "layer": "deep",
+              "render": "sheet",
+              "title": "Comparatifs et superlatifs",
+              "cols": [
+                "Middle",
+                "Comparative",
+                "Superlative"
+              ],
+              "rows": [
+                [
+                  "plus",
+                  "plus grand que",
+                  "le plus grand"
+                ],
+                [
+                  "moins",
+                  "moins grand que",
+                  "le moins grand"
+                ],
+                [
+                  "aussi",
+                  "aussi grand que",
+                  "(none)"
+                ],
+                [
+                  "m sing",
+                  "plus grand",
+                  "le plus grand"
+                ],
+                [
+                  "f sing",
+                  "plus grande",
+                  "la plus grande"
+                ],
+                [
+                  "m plur",
+                  "plus grands",
+                  "les plus grands"
+                ],
+                [
+                  "f plur",
+                  "plus grandes",
+                  "les plus grandes"
+                ],
+                [
+                  "bon",
+                  "meilleur",
+                  "le meilleur"
+                ],
+                [
+                  "bien",
+                  "mieux",
+                  "le mieux"
+                ],
+                [
+                  "mauvais",
+                  "pire / plus mauvais",
+                  "le pire"
+                ]
+              ],
+              "rowDetails": [
+                {
+                  "title": "plus, and what it means",
+                  "body": "The s is silent in front of a describing word and comes back when nothing follows it. plü grand, and PLÜSS on its own."
+                },
+                {
+                  "title": "moins, and what it means",
+                  "body": "English usually flips it and says shorter. French says less tall and is happy with it."
+                },
+                {
+                  "title": "aussi, and what it means",
+                  "body": "There is no superlative of aussi. Nothing can be the most equal, so the third column is empty on purpose."
+                },
+                {
+                  "title": "One masculine thing",
+                  "body": "The plain form. Nothing is added, and this is the one every other cell is built from."
+                },
+                {
+                  "title": "One feminine thing, and you can hear it",
+                  "body": "grande and grandes are the only forms of the four where the d is pronounced. The e wakes it up; the s changes nothing."
+                },
+                {
+                  "title": "Several masculine things",
+                  "body": "An s on the article and an s on the describing word, and neither of them is said. It sounds exactly like the singular."
+                },
+                {
+                  "title": "Several feminine things, and it exists only on paper",
+                  "body": "les plus grandes sounds exactly like la plus grande. Nothing in speech separates them, which is why every scored question on this rule is typed."
+                },
+                {
+                  "title": "bon: good, better, best",
+                  "body": "Refuses plus. meilleur has all four endings: meilleur, meilleure, meilleurs, meilleures."
+                },
+                {
+                  "title": "bien: well, better, best",
+                  "body": "Refuses plus. mieux never changes, for anybody. It is the one the corpus uses six and a half times as often as meilleur."
+                },
+                {
+                  "title": "mauvais: bad, worse, worst",
+                  "body": "Takes BOTH, and both are ordinary. So the rule is not that plus is forbidden; it is that exactly two words have their own form."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "terms": {
+        "frame": {
+          "term": "frame",
+          "title": "The part that never moves",
+          "body": "Something, then a middle word, then a describing word, then que, then the thing you are comparing it to. Those five slots stay where they are for every comparison you will ever make in French. You are never building a new sentence shape, only dropping different words into the same one.",
+          "examples": [
+            {
+              "itemId": "fr.a2.comparaisons.133",
+              "note": "more"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.134",
+              "note": "less"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.135",
+              "note": "the same"
+            }
+          ]
+        },
+        "middle": {
+          "term": "middle",
+          "title": "The one word that changes",
+          "body": "plus, moins or aussi. Three words, and picking one of them is the entire decision. Everything before it and everything after it stays exactly as it was, which is why you can do this at speed with a describing word you have only just learned.",
+          "examples": [
+            {
+              "itemId": "fr.a2.comparaisons.001",
+              "note": "plus, in the corpus long before this lesson"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.004",
+              "note": "aussi, and the describing word agrees"
+            }
+          ]
+        },
+        "than": {
+          "term": "than",
+          "title": "que, and it is not optional",
+          "body": "English lets you stop early: \"he is taller\" is a whole thought. French does not. Il est plus grand. is a complete, correct sentence, and it means he is tall, not that he is taller than anybody. If you mean a comparison, que and the other thing have to follow it.",
+          "examples": [
+            {
+              "itemId": "fr.a2.comparaisons.136",
+              "note": "complete, and not a comparison"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.133",
+              "note": "the same sentence, finished"
+            }
+          ]
+        },
+        "most": {
+          "term": "most",
+          "title": "The article does the work",
+          "body": "Put le, la or les in front of the same frame and you have gone from more than that one to more than all of them. Nothing else changes. The article is also what carries the agreement, so it is the word to pick first and the word that decides the ending.",
+          "examples": [
+            {
+              "itemId": "fr.a2.comparaisons.145",
+              "note": "bigger than the other one"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.141",
+              "note": "the biggest of the lot"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.037",
+              "note": "and it works for the worst as well"
+            }
+          ]
+        },
+        "agree": {
+          "term": "agree",
+          "title": "The ending still follows the noun",
+          "body": "a2.03 taught that a describing word matches what it describes. Nothing about the frame suspends that. le plus grand jardin, la plus grande maison, les plus grands jardins, les plus grandes maisons: four spellings, and two of them sound identical, so this is a thing you can only get right in writing.",
+          "examples": [
+            {
+              "itemId": "fr.a2.comparaisons.142",
+              "note": "one house"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.144",
+              "note": "several houses"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.035",
+              "note": "and meilleure agrees the same way"
+            }
+          ]
+        },
+        "better": {
+          "term": "better",
+          "title": "Two words for one English one",
+          "body": "English has one better and French splits it. meilleur goes with a noun and behaves like any describing word, with four endings. mieux goes with a verb and never changes. The corpus says mieux about six and a half times as often as meilleur, so if you can only keep one, keep that one.",
+          "examples": [
+            {
+              "itemId": "fr.a2.comparaisons.146",
+              "note": "with est: meilleur"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.066",
+              "note": "with travaille: mieux"
+            },
+            {
+              "itemId": "fr.a2.comparaisons.092",
+              "note": "with chante, and the article in front: le mieux"
+            }
+          ]
+        }
+      },
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "render": "screens",
+          "layer": "core",
+          "title": "The word that had no plus",
+          "setting": {
+            "place": "Un étal de fromages, au marché",
+            "city": "Lyon",
+            "time": "10 h",
+            "ambience": "a covered market, quiet"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "text": "Saturday morning at the cheese counter. Two wedges on the paper, one from each end of the case. The woman behind it has already cut a sliver off each and is waiting to hear which one goes in the bag.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "La fromagère",
+              "fr": "Alors, lequel vous préférez ?",
+              "en": "So, which one do you prefer?",
+              "respell": "[a-LOR luh-KEL voo pray-fay-RAY]",
+              "stage": "She is not in a hurry. There is nobody behind you.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "narration",
+              "text": "He has the words. He has had grand and bon and fort since his first month. He starts, and four words in he hears himself.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "speaker": "You",
+              "fr": "Le premier est plus bon...",
+              "en": "The first one is more good...",
+              "respell": "[luh pruh-MYAY eh plü BOHⁿ]",
+              "stage": "The sentence stops there. He does not finish it and he does not start again.",
+              "size": "md",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "choice",
+              "prompt": "He has one more go at it. Which one does he say?",
+              "size": "lg",
+              "options": [
+                {
+                  "fr": "Le premier est plus bon.",
+                  "respell": "[luh pruh-MYAY eh plü BOHⁿ]",
+                  "en": "The first one is more good.",
+                  "outcome": "breaks",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  }
+                },
+                {
+                  "fr": "Le premier est meilleur.",
+                  "respell": "[luh pruh-MYAY eh meh-YUHR]",
+                  "en": "The first one is better.",
+                  "outcome": "works",
+                  "audio": {
+                    "lang": "fr-FR",
+                    "mode": "tts",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "She wraps the first one. Eleven euros the kilo, and a sliver of a third thing he did not ask about.",
+                "breaks": "She waits. Then she wraps both, because she has no idea which he meant, and he pays for two."
+              }
+            },
+            {
+              "kind": "break",
+              "heading": "The sentence was right until the last word",
+              "body": "Nothing went wrong with the frame. Le premier est plus... was correct and would have carried any describing word in the language. One word out of five has no plus form at all, and it is the one he reached for.",
+              "wrong": {
+                "fr": "Le premier est plus bon.",
+                "ipa": "/lə pʁə.mje ɛ ply bɔ̃/",
+                "respell": "[luh pruh-MYAY eh plü BOHⁿ]",
+                "en": "The first one is more good."
+              },
+              "right": {
+                "fr": "Le premier est meilleur.",
+                "ipa": "/lə pʁə.mje ɛ mɛ.jœʁ/",
+                "respell": "[luh pruh-MYAY eh meh-YUHR]",
+                "en": "The first one is better."
+              },
+              "coach": "Two words in French have their own comparison and refuse to take plus. The frame is fine. Learn the two.",
+              "size": "lg",
+              "audio": {
+                "lang": "fr-FR",
+                "mode": "tts",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "resolve",
+              "text": "He ate both. The one he could not name was the better one, and he still cannot say so.",
+              "size": "md"
+            }
+          ],
+          "closing": {
+            "text": "One frame, three middle words, and two words in the whole language that will not take any of them.",
+            "size": "md"
+          },
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "frame",
+            "better"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "layer": "core",
+          "title": "By the end of this lesson",
+          "goals": [
+            {
+              "t": "Compare any two things, with any describing word you own",
+              "s": "Act 2: one frame, three middle words"
+            },
+            {
+              "t": "Say which one is the most or the least",
+              "s": "Act 3: the same frame with the article in front"
+            },
+            {
+              "t": "Get the ending right when nobody can hear it",
+              "s": "Act 3, and it is a writing job, not a listening one"
+            },
+            {
+              "t": "Pick between meilleur and mieux without stopping",
+              "s": "Act 4: the two words that refuse plus"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame."
+        },
+        {
+          "type": "tapTable",
+          "id": "s03-three",
+          "layer": "core",
+          "title": "One frame, three middle words",
+          "cols": [
+            "Middle",
+            "The whole sentence",
+            "It means"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "plus",
+                "Il est plus grand que moi.",
+                "more"
+              ],
+              "say": "Il est plus grand que moi.",
+              "detail": {
+                "title": "plus",
+                "body": "More than. The one you will reach for first and the one you will use most. Before a describing word the final s is not said, which is why it never sounds like the plus on a calculator.",
+                "say": "Il est plus grand que moi."
+              }
+            },
+            {
+              "cells": [
+                "moins",
+                "Il est moins grand que moi.",
+                "less"
+              ],
+              "say": "Il est moins grand que moi.",
+              "detail": {
+                "title": "moins",
+                "body": "Less than. English usually goes the other way round and says shorter rather than less tall, so this one feels like a translation until you have used it a dozen times. French is happy with it.",
+                "say": "Il est moins grand que moi."
+              }
+            },
+            {
+              "cells": [
+                "aussi",
+                "Il est aussi grand que moi.",
+                "the same"
+              ],
+              "say": "Il est aussi grand que moi.",
+              "detail": {
+                "title": "aussi",
+                "body": "As tall as. The same aussi that means also, doing a completely different job because of where it sits. Between est and the describing word it can only mean one thing.",
+                "say": "Il est aussi grand que moi."
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "frame",
+            "middle",
+            "than"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s04-middle",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "Four words, and only one of them is a choice",
+          "hint": "Swipe. Three of these are the choice. The fourth is not optional.",
+          "cards": [
+            {
+              "label": "MORE",
+              "head": "the one you will use most",
+              "fr": "plus",
+              "sub": "[plü]",
+              "body": "Before a describing word the s stays silent. On its own, with nothing after it, the s comes back and it is said PLÜSS."
+            },
+            {
+              "label": "LESS",
+              "head": "English goes the other way",
+              "fr": "moins",
+              "sub": "[MWEHⁿ]",
+              "body": "You would say shorter; French says less tall. Both are ordinary. This one takes a fortnight to stop feeling translated."
+            },
+            {
+              "label": "THE SAME",
+              "head": "also, doing another job",
+              "fr": "aussi",
+              "sub": "[oh-SEE]",
+              "body": "The same word that means also. Sitting between est and a describing word, it can only mean as much as."
+            },
+            {
+              "label": "THAN",
+              "head": "and it is not optional",
+              "fr": "que",
+              "sub": "[kuh]",
+              "body": "English lets you stop at taller. French does not. If you mean a comparison, que and the other thing have to be there or you have said something else."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "middle",
+            "than"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s05-swap",
+          "layer": "core",
+          "title": "Same frame, different word",
+          "examples": [
+            {
+              "fr": "Il est plus grand que moi.",
+              "en": "He is taller than me.",
+              "note": "grand"
+            },
+            {
+              "fr": "Le train est plus rapide que le bus.",
+              "en": "The train is faster than the bus.",
+              "note": "rapide"
+            },
+            {
+              "fr": "Ce café est aussi fort que le thé.",
+              "en": "This coffee is as strong as the tea.",
+              "note": "fort"
+            },
+            {
+              "fr": "Cette rue est moins longue que l'avenue.",
+              "en": "This street is shorter than the avenue.",
+              "note": "longue, and it agrees"
+            },
+            {
+              "fr": "Ce livre est aussi intéressant que le film.",
+              "en": "This book is as interesting as the film.",
+              "note": "intéressant"
+            },
+            {
+              "fr": "Il fait aussi froid qu'hier.",
+              "en": "It is as cold as yesterday.",
+              "note": "froid, and que becomes qu before a vowel"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "frame"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s06-hear",
+          "layer": "core",
+          "hideLines": true,
+          "title": "Which middle word was it",
+          "lines": [
+            {
+              "fr": "Il est plus grand que moi.",
+              "en": "He is taller than me."
+            },
+            {
+              "fr": "Il est moins grand que moi.",
+              "en": "He is less tall than me."
+            },
+            {
+              "fr": "Il est aussi grand que moi.",
+              "en": "He is as tall as me."
+            },
+            {
+              "fr": "Cette rue est moins longue que l'avenue.",
+              "en": "This street is shorter than the avenue."
+            }
+          ],
+          "questions": [
+            {
+              "q": "The first one. Who is taller?",
+              "opts": [
+                "he is",
+                "you are",
+                "they are the same"
+              ],
+              "correct": 0,
+              "why": "plus puts him above you. The two words on either side of it are identical in all three of the first lines, so the middle one is the whole message."
+            },
+            {
+              "q": "The second one. Who is taller?",
+              "opts": [
+                "he is",
+                "you are",
+                "they are the same"
+              ],
+              "correct": 1,
+              "why": "moins puts him below you, so you are the taller one. English would have said he is shorter and French does not have to."
+            },
+            {
+              "q": "The third one. Who is taller?",
+              "opts": [
+                "he is",
+                "you are",
+                "they are the same"
+              ],
+              "correct": 2,
+              "why": "aussi is level pegging. Nobody is more or less anything."
+            },
+            {
+              "q": "The fourth one. Which is longer?",
+              "opts": [
+                "the street",
+                "the avenue",
+                "the same length"
+              ],
+              "correct": 1,
+              "why": "moins again, and this time the describing word has an ending on it because rue is feminine. The ending changes nothing about which one is longer."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "middle"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s07-plus",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "The s on plus comes and goes",
+          "hint": "Four cards. The spelling never changes and the sound does.",
+          "cards": [
+            {
+              "label": "SILENT",
+              "head": "in front of a describing word",
+              "fr": "plus grand",
+              "sub": "[plü GRAHⁿ]",
+              "body": "This is the comparison. The s is not said and the two words run together. It is the one you will meet ninety times out of a hundred."
+            },
+            {
+              "label": "SILENT",
+              "head": "and again, with a longer word",
+              "fr": "plus intéressant",
+              "sub": "[plü ahⁿ-tay-reh-SAHⁿ]",
+              "body": "Nothing about the length of the describing word changes it. If something follows plus, the s stays down."
+            },
+            {
+              "label": "SOUNDED",
+              "head": "with nothing after it",
+              "fr": "Il en veut plus.",
+              "sub": "[EEL ahⁿ VEU PLÜSS]",
+              "body": "He wants more. Nothing follows plus, so the s comes back and you can hear it. This is not a comparison at all."
+            },
+            {
+              "label": "SOUNDED",
+              "head": "and in the fixed pair",
+              "fr": "en plus",
+              "sub": "[AHⁿ PLÜSS]",
+              "body": "On top of that, as well. Learned whole, and it keeps its s the same way. So does de plus."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "middle"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-unseen",
+          "layer": "core",
+          "size": "lg",
+          "title": "Now do it with a word we never gave you",
+          "groups": [
+            {
+              "label": "The frame, with words you have already seen",
+              "items": [
+                {
+                  "fr": "Il est plus grand que moi.",
+                  "itemId": "fr.a2.comparaisons.133",
+                  "note": "more",
+                  "en": "He is taller than me."
+                },
+                {
+                  "fr": "Il est moins grand que moi.",
+                  "itemId": "fr.a2.comparaisons.134",
+                  "note": "less",
+                  "en": "He is less tall than me."
+                },
+                {
+                  "fr": "Il est aussi grand que moi.",
+                  "itemId": "fr.a2.comparaisons.135",
+                  "note": "the same",
+                  "en": "He is as tall as me."
+                },
+                {
+                  "fr": "Ce livre est plus intéressant que le film.",
+                  "itemId": "fr.a2.comparaisons.005",
+                  "note": "a longer word, same five slots",
+                  "en": "This book is more interesting than the film."
+                },
+                {
+                  "fr": "Il fait moins froid qu'hier.",
+                  "itemId": "fr.a2.comparaisons.006",
+                  "note": "que becomes qu before a vowel",
+                  "en": "It is less cold than yesterday."
+                }
+              ],
+              "check": {
+                "q": "What is the same in all five?",
+                "opts": [
+                  "the describing word",
+                  "everything except the middle word and the two things",
+                  "the thing being compared"
+                ],
+                "correct": 1,
+                "why": "Five slots, and only two of them ever hold anything new. That is the whole of it, and it is why the next group is possible."
+              }
+            },
+            {
+              "label": "And now one nobody has shown you",
+              "items": [],
+              "check": {
+                "q": "poli means polite. He is more polite than me is",
+                "opts": [
+                  "Il est plus poli que moi.",
+                  "Il est poli plus que moi.",
+                  "Il est plus poli."
+                ],
+                "correct": 0,
+                "why": "This word appears nowhere else in this lesson and you have just used it correctly. The middle word goes in front of the describing word, and que and the other person finish it. The third option stops early and is not a comparison."
+              }
+            },
+            {
+              "label": "One more, and the ending moves this time",
+              "items": [
+                {
+                  "fr": "Cette rue est plus longue que l'avenue.",
+                  "itemId": "fr.a2.comparaisons.014",
+                  "note": "rue is feminine, so longue",
+                  "en": "This street is longer than the avenue."
+                },
+                {
+                  "fr": "Cette rue est aussi longue que l'avenue.",
+                  "itemId": "fr.a2.comparaisons.152",
+                  "note": "the ending does not care which middle word",
+                  "en": "This street is as long as the avenue."
+                },
+                {
+                  "fr": "Le train est plus rapide que le bus.",
+                  "itemId": "fr.a2.comparaisons.063",
+                  "note": "rapide already ends in e",
+                  "en": "The train is faster than the bus."
+                },
+                {
+                  "fr": "Ce café est aussi fort que le thé.",
+                  "itemId": "fr.a2.comparaisons.155",
+                  "note": "café is masculine, so fort",
+                  "en": "This coffee is as strong as the tea."
+                },
+                {
+                  "fr": "Ce livre est aussi intéressant que le film.",
+                  "itemId": "fr.a2.comparaisons.153",
+                  "note": "the aussi the corpus was missing",
+                  "en": "This book is as interesting as the film."
+                }
+              ],
+              "check": {
+                "q": "The describing word takes its ending from",
+                "opts": [
+                  "the middle word",
+                  "what is being described",
+                  "the word after que"
+                ],
+                "correct": 1,
+                "why": "a2.03 taught this and nothing about the frame suspends it. rue is feminine so longue, café is masculine so fort. The middle word has no say in it at all."
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "frame",
+            "agree"
+          ]
+        },
+        {
+          "type": "flashcards",
+          "id": "s09-flash",
+          "layer": "core",
+          "title": "Build it from the English",
+          "cards": [
+            {
+              "front": "He is taller than me",
+              "back": "Il est plus grand que moi.",
+              "say": "Il est plus grand que moi."
+            },
+            {
+              "front": "He is less tall than me",
+              "back": "Il est moins grand que moi.",
+              "say": "Il est moins grand que moi."
+            },
+            {
+              "front": "He is as tall as me",
+              "back": "Il est aussi grand que moi.",
+              "say": "Il est aussi grand que moi."
+            },
+            {
+              "front": "faster",
+              "back": "plus rapide",
+              "say": "plus rapide"
+            },
+            {
+              "front": "slower",
+              "back": "moins rapide",
+              "say": "moins rapide"
+            },
+            {
+              "front": "just as fast",
+              "back": "aussi rapide",
+              "say": "aussi rapide"
+            },
+            {
+              "front": "cheaper",
+              "back": "moins cher",
+              "say": "moins cher"
+            },
+            {
+              "front": "just as expensive",
+              "back": "aussi cher",
+              "say": "aussi cher"
+            },
+            {
+              "front": "faster, said of how somebody moves",
+              "back": "plus vite",
+              "say": "plus vite"
+            },
+            {
+              "front": "more slowly",
+              "back": "moins vite",
+              "say": "moins vite"
+            },
+            {
+              "front": "just as quickly",
+              "back": "aussi vite",
+              "say": "aussi vite"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "middle"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s10-super",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "One word arrives and the meaning moves",
+          "hint": "Two pairs. Read the top line, then the bottom, and watch what changed.",
+          "cards": [
+            {
+              "label": "MORE THAN ONE OTHER",
+              "head": "Ce jardin est plus grand que l'autre.",
+              "fr": "C'est le plus grand jardin du quartier.",
+              "sub": "[SEH luh plü GRAHⁿ zhar-DEHⁿ dü kar-TYAY]",
+              "body": "Bigger than that one, against the biggest of all of them. The frame did not move. le arrived in front of it."
+            },
+            {
+              "label": "AND THE OTHER WAY",
+              "head": "Cette veste coûte moins cher que le manteau.",
+              "fr": "C'est le moins cher des deux hôtels.",
+              "sub": "[SEH luh mwehⁿ SHEHR day deu-zoh-TEL]",
+              "body": "moins works the same way. le moins is the least of them, and nothing else about the sentence changed either."
+            },
+            {
+              "label": "WHERE THE ARTICLE GOES",
+              "head": "in front of plus or moins",
+              "fr": "le plus grand",
+              "sub": "[luh plü GRAHⁿ]",
+              "body": "Not in front of the describing word. le plus grand, never plus le grand. The article and the middle word travel as a pair."
+            },
+            {
+              "label": "AND WHAT COMES AFTER",
+              "head": "de, not dans",
+              "fr": "du quartier",
+              "sub": "[dü kar-TYAY]",
+              "body": "The biggest IN the neighbourhood is de le quartier, which contracts to du. English says in and French says of, every time."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "most",
+            "frame"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s11-four",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "sheetId": "sheet-cadre",
+          "title": "Four spellings, two sounds",
+          "hint": "One garden, one house, then several of each. Watch the last letter.",
+          "cards": [
+            {
+              "label": "ONE, MASCULINE",
+              "head": "le plus grand",
+              "fr": "C'est le plus grand jardin du quartier.",
+              "sub": "[SEH luh plü GRAHⁿ zhar-DEHⁿ dü kar-TYAY]",
+              "body": "The plain form. jardin is masculine and singular, so nothing is added to grand at all."
+            },
+            {
+              "label": "ONE, FEMININE",
+              "head": "la plus grande",
+              "fr": "C'est la plus grande maison du quartier.",
+              "sub": "[SEH la plü GRAHⁿD meh-ZOHⁿ dü kar-TYAY]",
+              "body": "maison is feminine, so grande, and this one you CAN hear: the d wakes up. It is the only one of the four that is audible."
+            },
+            {
+              "label": "SEVERAL, MASCULINE",
+              "head": "les plus grands",
+              "fr": "Ce sont les plus grands jardins du quartier.",
+              "sub": "[suh SOHⁿ lay plü GRAHⁿ zhar-DEHⁿ dü kar-TYAY]",
+              "body": "An s on the article and an s on grand, and neither of them is said. This sounds exactly like the first card."
+            },
+            {
+              "label": "SEVERAL, FEMININE",
+              "head": "les plus grandes",
+              "fr": "Ce sont les plus grandes maisons du quartier.",
+              "sub": "[suh SOHⁿ lay plü GRAHⁿD meh-ZOHⁿ dü kar-TYAY]",
+              "body": "The e and the s together. It sounds exactly like the second card, so the only place this one exists is on paper."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "agree",
+            "most"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s12-of",
+          "layer": "core",
+          "title": "The biggest OF, never the biggest IN",
+          "examples": [
+            {
+              "fr": "C'est le plus grand bâtiment de la ville.",
+              "en": "It's the tallest building in the city.",
+              "note": "de la"
+            },
+            {
+              "fr": "C'est la plus grande fenêtre de la pièce.",
+              "en": "It's the biggest window in the room.",
+              "note": "de la"
+            },
+            {
+              "fr": "Ce sont les plus grands arbres du parc.",
+              "en": "They are the tallest trees in the park.",
+              "note": "de + le = du"
+            },
+            {
+              "fr": "Elle est la plus jeune de la famille.",
+              "en": "She is the youngest in the family.",
+              "note": "de la, and a person this time"
+            },
+            {
+              "fr": "Il est le plus rapide de l'équipe.",
+              "en": "He is the fastest on the team.",
+              "note": "de l' before a vowel"
+            },
+            {
+              "fr": "C'est la question la plus difficile de l'examen.",
+              "en": "It's the hardest question on the exam.",
+              "note": "and here the whole thing sits after the noun"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "most"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s13-read",
+          "layer": "core",
+          "questionsInModal": true,
+          "title": "Two flats, one afternoon",
+          "text": "Nous avons visité deux appartements samedi. Le premier est plus grand que le second, mais il est aussi plus cher. Le second est moins lumineux, et la cuisine y est plus petite. En revanche, il est beaucoup plus proche de la gare, ce qui compte plus que tout le reste pour nous. Le premier a la plus belle vue du quartier, il faut le dire. Le second a le loyer le moins élevé des deux. Nous avons pris le second. C'est le meilleur choix pour cette année, même si ce n'est pas le plus agréable des deux appartements.",
+          "glossary": [
+            {
+              "word": "lumineux",
+              "en": "bright, full of light",
+              "note": "Said of a room, and it is the first thing a French listing mentions."
+            },
+            {
+              "word": "En revanche",
+              "en": "on the other hand",
+              "note": "The word that tells you a comparison is about to turn round."
+            },
+            {
+              "word": "proche",
+              "en": "close, nearby",
+              "note": "plus proche de is nearer to. The de is the same de the superlative uses."
+            },
+            {
+              "word": "le loyer",
+              "en": "the rent",
+              "note": "What you pay every month. Not the price of the flat."
+            },
+            {
+              "word": "élevé",
+              "en": "high",
+              "note": "Used of a number rather than of a building. le moins élevé is the lowest."
+            },
+            {
+              "word": "vue",
+              "en": "view",
+              "note": "What you can see out of the window, and a thing French listings price."
+            },
+            {
+              "word": "choix",
+              "en": "choice",
+              "note": "From choisir. le meilleur choix is the best choice, with meilleur because choix is a noun."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Which flat is bigger?",
+              "a": "The first. Le premier est plus grand que le second, and the frame does the whole job in five words."
+            },
+            {
+              "q": "Which one costs more?",
+              "a": "The first again. il est aussi plus cher, where aussi means as well rather than as much as, because there is no que after it."
+            },
+            {
+              "q": "Which has the lower rent?",
+              "a": "The second. Le second a le loyer le moins élevé des deux, which is the superlative with moins and the de that always follows it."
+            },
+            {
+              "q": "They took the second one. Was it the nicer one?",
+              "a": "No, and the passage says so: ce n'est pas le plus agréable des deux. It was the best choice, which is a different claim and uses a different word."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "most",
+            "frame"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s14-sort",
+          "layer": "core",
+          "size": "lg",
+          "title": "More than one thing, or more than all of them",
+          "groups": [
+            {
+              "label": "More than ONE other thing",
+              "items": [
+                {
+                  "fr": "Ce jardin est plus grand que l'autre.",
+                  "itemId": "fr.a2.comparaisons.145",
+                  "note": "than that one",
+                  "en": "This garden is bigger than the other one."
+                },
+                {
+                  "fr": "Il est plus grand que moi.",
+                  "itemId": "fr.a2.comparaisons.133",
+                  "note": "than me",
+                  "en": "He is taller than me."
+                },
+                {
+                  "fr": "Cette rue est moins longue que l'avenue.",
+                  "itemId": "fr.a2.comparaisons.151",
+                  "note": "than the avenue",
+                  "en": "This street is shorter than the avenue."
+                },
+                {
+                  "fr": "Le train est plus rapide que le bus.",
+                  "itemId": "fr.a2.comparaisons.063",
+                  "note": "than the bus",
+                  "en": "The train is faster than the bus."
+                },
+                {
+                  "fr": "Ce fromage sent plus fort que l'autre.",
+                  "itemId": "fr.a2.comparaisons.083",
+                  "note": "than the other one",
+                  "en": "This cheese smells stronger than the other one."
+                }
+              ],
+              "check": {
+                "q": "What tells you every one of these is a comparison and not a superlative?",
+                "opts": [
+                  "the word plus",
+                  "que and a second thing after it",
+                  "the describing word"
+                ],
+                "correct": 1,
+                "why": "plus is in both. What separates them is that a comparison names the other thing and a superlative does not have one to name."
+              }
+            },
+            {
+              "label": "More than ALL the others, masculine",
+              "items": [
+                {
+                  "fr": "C'est le plus grand jardin du quartier.",
+                  "itemId": "fr.a2.comparaisons.141",
+                  "note": "one garden",
+                  "en": "It's the biggest garden in the neighbourhood."
+                },
+                {
+                  "fr": "Ce sont les plus grands jardins du quartier.",
+                  "itemId": "fr.a2.comparaisons.143",
+                  "note": "several gardens",
+                  "en": "They are the biggest gardens in the neighbourhood."
+                },
+                {
+                  "fr": "C'est le plus grand bâtiment de la ville.",
+                  "itemId": "fr.a2.comparaisons.029",
+                  "note": "de la ville",
+                  "en": "It's the tallest building in the city."
+                },
+                {
+                  "fr": "Ce sont les plus grands arbres du parc.",
+                  "itemId": "fr.a2.comparaisons.031",
+                  "note": "du parc",
+                  "en": "They are the tallest trees in the park."
+                },
+                {
+                  "fr": "Il est le plus rapide de l'équipe.",
+                  "itemId": "fr.a2.comparaisons.088",
+                  "note": "de l'équipe",
+                  "en": "He is the fastest on the team."
+                }
+              ],
+              "check": {
+                "q": "Two of these five sound exactly the same as each other. Which pair?",
+                "opts": [
+                  "the first two",
+                  "the third and the fourth",
+                  "the last two"
+                ],
+                "correct": 0,
+                "why": "le plus grand and les plus grands are one sound and two spellings. Neither the s on les nor the s on grands is said, so only writing separates them."
+              }
+            },
+            {
+              "label": "More than ALL the others, feminine",
+              "items": [
+                {
+                  "fr": "C'est la plus grande maison du quartier.",
+                  "itemId": "fr.a2.comparaisons.142",
+                  "note": "one house",
+                  "en": "It's the biggest house in the neighbourhood."
+                },
+                {
+                  "fr": "Ce sont les plus grandes maisons du quartier.",
+                  "itemId": "fr.a2.comparaisons.144",
+                  "note": "several houses",
+                  "en": "They are the biggest houses in the neighbourhood."
+                },
+                {
+                  "fr": "C'est la plus grande fenêtre de la pièce.",
+                  "itemId": "fr.a2.comparaisons.055",
+                  "note": "de la pièce",
+                  "en": "It's the biggest window in the room."
+                },
+                {
+                  "fr": "C'est le moins cher des deux hôtels.",
+                  "itemId": "fr.a2.comparaisons.041",
+                  "note": "moins, and des deux",
+                  "en": "It's the cheaper of the two hotels."
+                },
+                {
+                  "fr": "C'est la question la plus difficile de l'examen.",
+                  "itemId": "fr.a2.comparaisons.103",
+                  "note": "after the noun this time",
+                  "en": "It's the hardest question on the exam."
+                }
+              ],
+              "check": {
+                "q": "grande has a d you can hear. Where does grandes have one?",
+                "opts": [
+                  "nowhere, the s kills it",
+                  "in exactly the same place",
+                  "only in the plural"
+                ],
+                "correct": 1,
+                "why": "The e is what wakes the d up and the s changes nothing. So grande and grandes are one sound, and the pair is invisible to the ear in both genders."
+              }
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "most",
+            "agree"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s15-pair",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "title": "English has one better. French has two.",
+          "hint": "The first two cards are the same sentence twice. Look at the verb.",
+          "cards": [
+            {
+              "label": "AFTER A VERB",
+              "head": "Il travaille mieux que son collègue.",
+              "fr": "mieux",
+              "sub": "[MYUH]",
+              "body": "travaille is a verb, so mieux. It never changes shape, for anybody, ever. This is the one the corpus uses six and a half times as often."
+            },
+            {
+              "label": "AFTER EST",
+              "head": "Il est meilleur que son collègue.",
+              "fr": "meilleur",
+              "sub": "[meh-YUHR]",
+              "body": "est, so meilleur, and it behaves like any describing word: meilleure, meilleurs, meilleures. Same sentence as the card before, one word apart."
+            },
+            {
+              "label": "REFUSED",
+              "head": "French has no plus bon",
+              "fr": "plus bon",
+              "sub": "not a thing",
+              "body": "bon has its own comparison and will not take plus. There is no version of this that is merely informal or regional. It is the word from the market stall."
+            },
+            {
+              "label": "REFUSED",
+              "head": "and no plus bien either",
+              "fr": "plus bien",
+              "sub": "not a thing",
+              "body": "bien is the other one. Its comparison is mieux and plus bien is the same mistake in the other half of the pair."
+            },
+            {
+              "label": "AND THE ONE THAT DOES",
+              "head": "mauvais takes both",
+              "fr": "plus mauvais",
+              "sub": "[plü moh-VEH]",
+              "body": "pire and plus mauvais are both ordinary French and both correct. So the rule is not never say plus. It is that two words have their own form."
+            },
+            {
+              "label": "THE SUPERLATIVE",
+              "head": "and the article still arrives",
+              "fr": "le mieux de tous",
+              "sub": "[luh MYUH duh TOOS]",
+              "body": "le meilleur for a noun, le mieux after a verb. Elle chante le mieux de toute la classe: chante is a verb, so it is mieux with le in front, and de follows it the same way."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "better",
+            "most"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s16-trap",
+          "layer": "core",
+          "swipe": true,
+          "title": "Which of the two better words",
+          "rule": {
+            "title": "Look at the word in front of it",
+            "body": "If the sentence has est, or any form of être, you are describing a thing and it is meilleur. If it has a verb doing something, you are describing the doing and it is mieux. One question, asked once, and it decides."
+          },
+          "cards": [
+            {
+              "promptLabel": "Elle chante ...",
+              "promptSound": "Elle chante plus bien.",
+              "fr": "Elle chante mieux.",
+              "ipa": "/ɛl ʃɑ̃t mjø/",
+              "tip": "chante is a verb. mieux, and it never changes."
+            },
+            {
+              "promptLabel": "Ce gâteau est ...",
+              "promptSound": "Ce gâteau est plus bon.",
+              "fr": "Ce gâteau est meilleur.",
+              "ipa": "/sə ɡa.to ɛ mɛ.jœʁ/",
+              "tip": "est, and gâteau is masculine. meilleur."
+            },
+            {
+              "promptLabel": "Cette tarte est ...",
+              "promptSound": "Cette tarte est plus bonne.",
+              "fr": "Cette tarte est meilleure.",
+              "ipa": "/sɛt taʁt ɛ mɛ.jœʁ/",
+              "tip": "est again, and tarte is feminine. meilleure, and it sounds identical."
+            },
+            {
+              "promptLabel": "Il travaille ...",
+              "promptSound": "Il travaille meilleur.",
+              "fr": "Il travaille mieux.",
+              "ipa": "/il tʁa.vaj mjø/",
+              "tip": "The other way round: a verb has been given the describing word. mieux."
+            },
+            {
+              "promptLabel": "Elle parle ...",
+              "promptSound": "Elle parle plus bien que moi.",
+              "fr": "Elle parle mieux que moi.",
+              "ipa": "/ɛl paʁl mjø kə mwa/",
+              "tip": "parle is a verb, and que moi finishes it properly."
+            },
+            {
+              "promptLabel": "Ce fromage est ...",
+              "promptSound": "Ce fromage est plus fort.",
+              "fr": "Ce fromage est plus fort.",
+              "ipa": "/sə fʁɔ.maʒ ɛ ply fɔʁ/",
+              "tip": "Nothing wrong with this one. fort takes plus like almost every word does."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Elle chante ...",
+              "opts": [
+                "mieux",
+                "meilleur"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Ce gâteau est ...",
+              "opts": [
+                "mieux",
+                "meilleur"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il travaille ...",
+              "opts": [
+                "mieux",
+                "meilleur"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Cette tarte est ...",
+              "opts": [
+                "mieux",
+                "meilleure"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Elle parle ... que moi.",
+              "opts": [
+                "mieux",
+                "meilleur"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Elle chante ... de la classe.",
+              "opts": [
+                "le mieux",
+                "le meilleur"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Ce fromage est ... que l'autre.",
+              "opts": [
+                "plus fort",
+                "plus bon"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Ce vin est ... que l'autre.",
+              "opts": [
+                "meilleur",
+                "plus bon"
+              ],
+              "correct": 0
+            }
+          ],
+          "steps": [
+            {
+              "label": "The rule",
+              "kind": "rule",
+              "title": "Look at the word in front of it"
+            },
+            {
+              "label": "Six sentences",
+              "kind": "cards",
+              "title": "What the verb decides"
+            },
+            {
+              "label": "Hear them",
+              "kind": "audio",
+              "title": "Wrong and right, side by side"
+            },
+            {
+              "label": "Now you pick",
+              "kind": "drill",
+              "title": "Eight in a row",
+              "gate": true
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "better"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s17-errors",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "title": "The five that catch people",
+          "errors": [
+            {
+              "wrong": "Ce gâteau est plus bon que l'autre.",
+              "right": "Ce gâteau est meilleur que l'autre.",
+              "why": "Reasonable, because plus works with every other describing word you own and there is no warning on this one. bon is one of exactly two words in the language that refuse it."
+            },
+            {
+              "wrong": "Elle chante plus bien que moi.",
+              "right": "Elle chante mieux que moi.",
+              "why": "Reasonable, and it is the same mistake as the one above wearing different clothes. bien is the other of the two, and its own form is mieux."
+            },
+            {
+              "wrong": "Il est plus grand. (meaning: taller than his brother)",
+              "right": "Il est plus grand que son frère.",
+              "why": "Reasonable, because English finishes there and nothing sounds broken. The French sentence is correct and it simply says he is tall. Without que and a second thing, no comparison has been made."
+            },
+            {
+              "wrong": "Elle est le plus jeune de la famille.",
+              "right": "Elle est la plus jeune de la famille.",
+              "why": "Reasonable, because the ending on jeune does not change and it feels as though nothing has to. The article is carrying the agreement here, which is a2.03 working in a position it never showed you."
+            },
+            {
+              "wrong": "C'est le plus grand bâtiment dans la ville.",
+              "right": "C'est le plus grand bâtiment de la ville.",
+              "why": "Reasonable, because English says in the city and dans is in. After a superlative French says of, every time, and de la contracts to du in front of a masculine one."
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "better",
+            "than",
+            "agree"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s18-dictee",
+          "layer": "core",
+          "title": "Write the middle word",
+          "itemIds": [
+            "fr.a2.comparaisons.136",
+            "fr.a2.comparaisons.137",
+            "fr.a2.comparaisons.138",
+            "fr.a2.comparaisons.139",
+            "fr.a2.comparaisons.140"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "middle",
+            "most"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s19-talk",
+          "layer": "core",
+          "title": "Which of the two",
+          "setting": "A friend is deciding between two flats and has sent you both listings. She wants an opinion, not a summary.",
+          "turns": [
+            {
+              "ai": "Alors, tu en penses quoi ? Le premier ou le second ?",
+              "en": "So, what do you reckon? The first or the second?",
+              "user": "Le premier est plus grand que le second.",
+              "userEn": "The first is bigger than the second. (Start with the frame. Name both things.)",
+              "alts": [
+                {
+                  "fr": "Le second est moins grand que le premier.",
+                  "en": "The second is smaller than the first."
+                },
+                {
+                  "fr": "Le premier est plus lumineux que le second.",
+                  "en": "The first is brighter than the second."
+                }
+              ]
+            },
+            {
+              "ai": "Oui, mais le premier est à huit cents euros. C'est beaucoup.",
+              "en": "Yes, but the first one is eight hundred euros. That is a lot.",
+              "user": "C'est vrai. Il est plus cher que le second.",
+              "userEn": "True. It is more expensive than the second. (Same frame, different word in the slot.)",
+              "alts": [
+                {
+                  "fr": "Le second est moins cher, oui.",
+                  "en": "The second is cheaper, yes."
+                },
+                {
+                  "fr": "Il est beaucoup plus cher que l'autre.",
+                  "en": "It is a lot more expensive than the other one."
+                }
+              ]
+            },
+            {
+              "ai": "Et pour aller au travail ? Le second est près de la gare.",
+              "en": "And for getting to work? The second is near the station.",
+              "user": "Alors le second est plus proche que le premier.",
+              "userEn": "So the second is closer than the first. (You have the frame. proche is just another word in the slot.)",
+              "alts": [
+                {
+                  "fr": "Le premier est moins proche de la gare.",
+                  "en": "The first is less close to the station."
+                },
+                {
+                  "fr": "Le second est plus pratique, alors.",
+                  "en": "The second is more practical, then."
+                }
+              ]
+            },
+            {
+              "ai": "Et les cuisines ? Elles se valent, non ?",
+              "en": "And the kitchens? They are about the same, are they not?",
+              "user": "La cuisine du premier est aussi grande que l'autre.",
+              "userEn": "The first flat's kitchen is as big as the other. (aussi, and grande because cuisine is feminine.)",
+              "alts": [
+                {
+                  "fr": "Oui, la cuisine du second est aussi bonne.",
+                  "en": "Yes, the second one's kitchen is just as good."
+                },
+                {
+                  "fr": "Non, celle du premier est plus petite.",
+                  "en": "No, the first one's is smaller."
+                }
+              ]
+            },
+            {
+              "ai": "Bon. Et si tu devais choisir, tu prendrais lequel ?",
+              "en": "Right. And if you had to choose, which would you take?",
+              "user": "Le second. C'est le meilleur choix pour cette année.",
+              "userEn": "The second. It is the best choice for this year. (meilleur, because choix is a noun.)",
+              "alts": [
+                {
+                  "fr": "Le second, c'est le moins cher des deux.",
+                  "en": "The second, it is the cheaper of the two."
+                },
+                {
+                  "fr": "Le premier. Il est plus agréable, tout simplement.",
+                  "en": "The first. It is nicer, quite simply."
+                }
+              ]
+            },
+            {
+              "ai": "D'accord. Et tu dormirais mieux dans lequel ?",
+              "en": "All right. And which would you sleep better in?",
+              "user": "Je dormirais mieux dans le second.",
+              "userEn": "I would sleep better in the second. (dormirais is a verb, so mieux and not meilleur.)",
+              "alts": [
+                {
+                  "fr": "Dans le second, je pense. Il est plus calme.",
+                  "en": "In the second, I think. It is quieter."
+                },
+                {
+                  "fr": "Dans le premier, il est moins bruyant.",
+                  "en": "In the first, it is less noisy."
+                }
+              ]
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "frame",
+            "better",
+            "most"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s20-speak",
+          "layer": "core",
+          "title": "Say the whole frame, out loud",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.comparaisons.133",
+            "fr.a2.comparaisons.134",
+            "fr.a2.comparaisons.135",
+            "fr.a2.comparaisons.141",
+            "fr.a2.comparaisons.142",
+            "fr.a2.comparaisons.143",
+            "fr.a2.comparaisons.144",
+            "fr.a2.comparaisons.145",
+            "fr.a2.comparaisons.146",
+            "fr.a2.comparaisons.149",
+            "fr.a2.comparaisons.150",
+            "fr.a2.comparaisons.151",
+            "fr.a2.comparaisons.152",
+            "fr.a2.comparaisons.153",
+            "fr.a2.comparaisons.155",
+            "fr.a2.comparaisons.120",
+            "fr.a2.comparaisons.121",
+            "fr.a2.comparaisons.122",
+            "fr.a2.comparaisons.123",
+            "fr.a2.comparaisons.129",
+            "fr.a2.comparaisons.156",
+            "fr.a2.comparaisons.157",
+            "fr.a2.comparaisons.158",
+            "fr.a2.comparaisons.159",
+            "fr.a2.comparaisons.161",
+            "fr.a2.comparaisons.162",
+            "fr.a2.comparaisons.163"
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "frame"
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s21-check",
+          "layer": "core",
+          "title": "Where you stand",
+          "body": "You can compare two things with any describing word you own, including ones this lesson never listed, and you can say which one is the most or the least of a group. The thing to check is the ending. Two of the four superlative forms are one sound, so you will never catch them by listening and you will never be told you got them wrong out loud. Go back to the four cards in act 3 and write all four out, from the English, without looking. If the last letter comes out right four times, the lesson has landed.",
+          "stats": [
+            {
+              "k": "Middle words",
+              "v": "three, one frame"
+            },
+            {
+              "k": "Superlative forms",
+              "v": "four spellings, two sounds"
+            },
+            {
+              "k": "Words that refuse plus",
+              "v": "two, and only two"
+            },
+            {
+              "k": "Written, not heard",
+              "v": "the ending, every time"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame."
+        },
+        {
+          "type": "quiz",
+          "id": "s22-quiz",
+          "layer": "core",
+          "title": "The exam",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "r1-middle",
+              "label": "Pick the middle word",
+              "targets": [
+                "wrong-middle"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "He is taller than me. Write the whole sentence, starting with Il.",
+                  "answer": "Il est plus grand que moi",
+                  "accept": [
+                    "Il est plus grand que moi",
+                    "Il est plus grand que moi."
+                  ],
+                  "why": "Five slots and you filled all five. plus goes in front of the describing word and que brings the other person in.",
+                  "ref": "s03-three"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "He is less tall than me. Same sentence, one word different.",
+                  "answer": "Il est moins grand que moi",
+                  "accept": [
+                    "Il est moins grand que moi",
+                    "Il est moins grand que moi."
+                  ],
+                  "why": "Only the middle word moved. English would have reached for shorter and French does not have to.",
+                  "ref": "s03-three"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "He is as tall as me. One word different again.",
+                  "answer": "Il est aussi grand que moi",
+                  "accept": [
+                    "Il est aussi grand que moi",
+                    "Il est aussi grand que moi."
+                  ],
+                  "why": "aussi is the level one. The same aussi that means also, in a position where it can only mean this.",
+                  "ref": "s03-three"
+                },
+                {
+                  "format": "mcq",
+                  "q": "poli means polite. He is more polite than me is",
+                  "opts": [
+                    "Il est poli plus que moi.",
+                    "Il est plus que poli moi.",
+                    "Il est plus poli que moi."
+                  ],
+                  "correct": 2,
+                  "why": "You have never seen this word in this lesson and the frame handled it anyway. That is what the frame is for.",
+                  "ref": "s08-unseen"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "poli means polite. Write: she is less polite than me. Start with Elle.",
+                  "answer": "Elle est moins polie que moi",
+                  "accept": [
+                    "Elle est moins polie que moi",
+                    "Elle est moins polie que moi."
+                  ],
+                  "why": "The frame took a word the lesson never listed, and the feminine -e came from a2.03 rather than from here.",
+                  "ref": "s08-unseen"
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Listen. Is there a describing word after plus?",
+                  "say": "Il est plus grand.",
+                  "opts": [
+                    "yes, something follows plus",
+                    "no, plus ends the sentence"
+                  ],
+                  "correct": 0,
+                  "why": "grand follows, so the s on plus stays silent and the two words run together as plü grand.",
+                  "ref": "s07-plus"
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Listen again. Is there a describing word after plus?",
+                  "say": "Il en veut plus.",
+                  "opts": [
+                    "yes, something follows plus",
+                    "no, plus ends the sentence"
+                  ],
+                  "correct": 1,
+                  "why": "Nothing follows it, so the s comes back and you hear PLÜSS. He wants more, and no comparison has been made.",
+                  "ref": "s07-plus"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which of these three is NOT a comparison?",
+                  "opts": [
+                    "Il en veut plus.",
+                    "Il est plus grand que moi.",
+                    "Ce jardin est plus grand que l'autre."
+                  ],
+                  "correct": 0,
+                  "why": "No describing word and no que. It means he wants more of something, which is a different job for the same word.",
+                  "ref": "s07-plus"
+                }
+              ]
+            },
+            {
+              "id": "r2-que",
+              "label": "And finish it",
+              "targets": [
+                "no-que"
+              ],
+              "questions": [
+                {
+                  "format": "errorSpot",
+                  "q": "He meant: taller than his brother. Write what he should have said.",
+                  "prompt": "Il est plus grand.",
+                  "answer": "Il est plus grand que son frère.",
+                  "accept": [
+                    "Il est plus grand que son frère.",
+                    "Il est plus grand que son frère",
+                    "Il est plus grand que son frere"
+                  ],
+                  "why": "The sentence he wrote is correct French and it says he is tall. Without que and a second thing, no comparison has been made at all.",
+                  "ref": "s17-errors"
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "She meant: as long as the avenue. Write it out.",
+                  "prompt": "Cette rue est aussi longue.",
+                  "answer": "Cette rue est aussi longue que l'avenue.",
+                  "accept": [
+                    "Cette rue est aussi longue que l'avenue.",
+                    "Cette rue est aussi longue que l'avenue",
+                    "Cette rue est aussi longue que lavenue"
+                  ],
+                  "why": "aussi on its own means the street is also long, which is not what she meant. que carries the other half.",
+                  "ref": "s05-swap"
+                },
+                {
+                  "format": "mcq",
+                  "q": "What does Il est plus grand. actually mean?",
+                  "opts": [
+                    "he is taller than somebody",
+                    "he is tall",
+                    "he has grown"
+                  ],
+                  "correct": 1,
+                  "why": "It is complete and it is not a comparison. English lets you stop early; French reads the sentence as finished and takes it at face value.",
+                  "ref": "s17-errors"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "The train is faster than the bus. Write it, starting with Le train.",
+                  "answer": "Le train est plus rapide que le bus",
+                  "accept": [
+                    "Le train est plus rapide que le bus",
+                    "Le train est plus rapide que le bus."
+                  ],
+                  "why": "Both things named, and que between them. rapide already ends in e so nothing is added to it.",
+                  "ref": "s05-swap"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "It is as cold as yesterday. Write it, starting with Il fait.",
+                  "answer": "Il fait aussi froid qu'hier",
+                  "accept": [
+                    "Il fait aussi froid qu'hier",
+                    "Il fait aussi froid qu'hier.",
+                    "Il fait aussi froid quhier"
+                  ],
+                  "why": "que loses its e in front of a vowel and hier starts with a silent h, so qu'hier. The frame is otherwise untouched.",
+                  "ref": "s05-swap"
+                },
+                {
+                  "format": "mcq",
+                  "q": "This coffee is as strong as the tea. Which is right?",
+                  "opts": [
+                    "Ce café est aussi fort le thé.",
+                    "Ce café est aussi fort que le thé.",
+                    "Ce café est aussi que fort le thé."
+                  ],
+                  "correct": 1,
+                  "why": "que sits between the describing word and the second thing, never anywhere else and never missing.",
+                  "ref": "s05-swap"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Which sentence has everything the frame needs?",
+                  "opts": [
+                    "Cette rue est moins longue.",
+                    "Cette rue est moins longue que l'avenue.",
+                    "Cette rue moins longue que l'avenue."
+                  ],
+                  "correct": 1,
+                  "why": "Five slots filled: the thing, est, the middle word, the describing word, then que and the other thing. The third option has lost its verb.",
+                  "ref": "s03-three"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "This street is as long as the avenue. Write it, starting with Cette rue.",
+                  "answer": "Cette rue est aussi longue que l'avenue",
+                  "accept": [
+                    "Cette rue est aussi longue que l'avenue",
+                    "Cette rue est aussi longue que l'avenue.",
+                    "Cette rue est aussi longue que lavenue"
+                  ],
+                  "why": "aussi this time, and longue keeps its ending because rue is feminine whichever middle word you pick.",
+                  "ref": "s08-unseen"
+                }
+              ]
+            },
+            {
+              "id": "r3-article",
+              "label": "The article, and the ending",
+              "targets": [
+                "no-agree"
+              ],
+              "questions": [
+                {
+                  "format": "typeIn",
+                  "q": "It's the biggest garden in the neighbourhood. Write it, starting with C'est.",
+                  "answer": "C'est le plus grand jardin du quartier",
+                  "accept": [
+                    "C'est le plus grand jardin du quartier",
+                    "C'est le plus grand jardin du quartier.",
+                    "Cest le plus grand jardin du quartier"
+                  ],
+                  "why": "le in front of the same frame, and du because de la contracts in front of a masculine word.",
+                  "ref": "s11-four"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "It's the biggest house in the neighbourhood. maison is feminine.",
+                  "answer": "C'est la plus grande maison du quartier",
+                  "accept": [
+                    "C'est la plus grande maison du quartier",
+                    "C'est la plus grande maison du quartier.",
+                    "Cest la plus grande maison du quartier"
+                  ],
+                  "why": "la and grande. This is the one of the four you can actually hear, because the e wakes up the d.",
+                  "ref": "s11-four"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "They are the biggest gardens in the neighbourhood. Several of them.",
+                  "answer": "Ce sont les plus grands jardins du quartier",
+                  "accept": [
+                    "Ce sont les plus grands jardins du quartier",
+                    "Ce sont les plus grands jardins du quartier."
+                  ],
+                  "why": "An s on les, an s on grands, an s on jardins, and not one of the three is said. This sounds exactly like the singular.",
+                  "ref": "s11-four"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "They are the biggest houses in the neighbourhood. Several, and feminine.",
+                  "answer": "Ce sont les plus grandes maisons du quartier",
+                  "accept": [
+                    "Ce sont les plus grandes maisons du quartier",
+                    "Ce sont les plus grandes maisons du quartier."
+                  ],
+                  "why": "The e and the s together, and it sounds identical to the singular feminine. This form exists only in writing, which is why you are typing it.",
+                  "ref": "s11-four"
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "famille is feminine, and so is she. One word is wrong. Write it out.",
+                  "prompt": "Elle est le plus jeune de la famille.",
+                  "answer": "Elle est la plus jeune de la famille.",
+                  "accept": [
+                    "Elle est la plus jeune de la famille.",
+                    "Elle est la plus jeune de la famille"
+                  ],
+                  "why": "jeune does not change shape at all, so the article is doing the whole job. That is where the agreement lives in this frame.",
+                  "ref": "s17-errors"
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "One word is English wearing a French coat. Write it out.",
+                  "prompt": "C'est le plus grand bâtiment dans la ville.",
+                  "answer": "C'est le plus grand bâtiment de la ville.",
+                  "accept": [
+                    "C'est le plus grand bâtiment de la ville.",
+                    "C'est le plus grand bâtiment de la ville",
+                    "Cest le plus grand batiment de la ville"
+                  ],
+                  "why": "English says in the city and French says of it. After a superlative it is de, and de plus le contracts to du.",
+                  "ref": "s12-of"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Where does the article go?",
+                  "opts": [
+                    "plus le grand",
+                    "plus grand le",
+                    "le plus grand"
+                  ],
+                  "correct": 2,
+                  "why": "In front of the middle word, always. The article and plus travel as a pair and nothing gets between them.",
+                  "ref": "s10-super"
+                }
+              ]
+            },
+            {
+              "id": "r4-better",
+              "label": "The two better words",
+              "targets": [
+                "plus-bon"
+              ],
+              "questions": [
+                {
+                  "format": "mcq",
+                  "q": "Il travaille ... que son collègue. Which word?",
+                  "opts": [
+                    "meilleur",
+                    "plus bien",
+                    "mieux"
+                  ],
+                  "correct": 2,
+                  "why": "travaille is a verb, so mieux. It never changes shape and it is the one you will need most.",
+                  "ref": "s15-pair"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Il est ... que son collègue. Same sentence, different verb. Which word?",
+                  "opts": [
+                    "mieux",
+                    "plus bon",
+                    "meilleur"
+                  ],
+                  "correct": 2,
+                  "why": "est, so meilleur. One word of difference from the question before it, and the verb is what decided.",
+                  "ref": "s15-pair"
+                },
+                {
+                  "format": "mcq",
+                  "q": "Elle chante ... de toute la classe. Which one?",
+                  "opts": [
+                    "le mieux",
+                    "la meilleure",
+                    "le meilleur"
+                  ],
+                  "correct": 0,
+                  "why": "chante is a verb, so mieux, and the article still arrives to make it the superlative. le mieux, and le does not change for her.",
+                  "ref": "s15-pair"
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "gâteau is masculine. One word is not French. Write it out.",
+                  "prompt": "Ce gâteau est plus bon que l'autre.",
+                  "answer": "Ce gâteau est meilleur que l'autre.",
+                  "accept": [
+                    "Ce gâteau est meilleur que l'autre.",
+                    "Ce gâteau est meilleur que l'autre",
+                    "Ce gateau est meilleur que lautre"
+                  ],
+                  "why": "bon has its own comparison and refuses plus. This is the sentence from the market stall, finished.",
+                  "ref": "s15-pair"
+                },
+                {
+                  "format": "errorSpot",
+                  "q": "chante is a verb. One word is not French. Write it out.",
+                  "prompt": "Elle chante plus bien que moi.",
+                  "answer": "Elle chante mieux que moi.",
+                  "accept": [
+                    "Elle chante mieux que moi.",
+                    "Elle chante mieux que moi"
+                  ],
+                  "why": "bien is the other of the two, and its own form is mieux. Same mistake as the one before, in the other half of the pair.",
+                  "ref": "s16-trap"
+                },
+                {
+                  "format": "listenChoose",
+                  "q": "Listen. Which of the two better words is it?",
+                  "say": "Elle parle mieux que moi.",
+                  "opts": [
+                    "mieux",
+                    "meilleure"
+                  ],
+                  "correct": 0,
+                  "why": "parle is a verb, and the two words sound nothing alike, so this one the ear can settle. mieux.",
+                  "ref": "s15-pair"
+                },
+                {
+                  "format": "typeIn",
+                  "q": "She cooks better than me. Write it, starting with Elle.",
+                  "answer": "Elle cuisine mieux que moi",
+                  "accept": [
+                    "Elle cuisine mieux que moi",
+                    "Elle cuisine mieux que moi."
+                  ],
+                  "why": "cuisine is what she does, so mieux. If you wrote meilleure you gave a verb a describing word.",
+                  "ref": "s15-pair"
+                }
+              ]
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame."
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s23-review",
+          "layer": "core",
+          "title": "The frame, one last time",
+          "cards": [
+            {
+              "front": "taller than me",
+              "back": "plus grand que moi",
+              "say": "Il est plus grand que moi."
+            },
+            {
+              "front": "less tall than me",
+              "back": "moins grand que moi",
+              "say": "Il est moins grand que moi."
+            },
+            {
+              "front": "as tall as me",
+              "back": "aussi grand que moi",
+              "say": "Il est aussi grand que moi."
+            },
+            {
+              "front": "the biggest garden of the lot",
+              "back": "le plus grand jardin du quartier",
+              "say": "C'est le plus grand jardin du quartier."
+            },
+            {
+              "front": "the biggest house of the lot",
+              "back": "la plus grande maison du quartier",
+              "say": "C'est la plus grande maison du quartier."
+            },
+            {
+              "front": "better, after est",
+              "back": "meilleur",
+              "say": "Il est meilleur."
+            },
+            {
+              "front": "better, after a verb",
+              "back": "mieux",
+              "say": "Il travaille mieux."
+            },
+            {
+              "front": "the best, after a verb",
+              "back": "le mieux",
+              "say": "le mieux"
+            }
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame."
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "layer": "core",
+          "title": "One frame, one middle word",
+          "body": "Pick the middle word and keep the frame. Three words go in the middle and everything else stays where it is, which is why a describing word you learn next month will already work in it. Put an article in front and you have the most or the least of a group. Two words refuse all of this and have their own forms, and that is the same shape a2.14 taught you with savoir and connaître: English merges what French splits, and the split is the whole lesson. One warning for later: ne ... plus is a completely different plus and it means no longer, not more. a1.18 owns it and it is not this.",
+          "points": [
+            "plus, moins, aussi. The frame never moves.",
+            "que and the other thing, or you have not compared anything.",
+            "The article arrives and it carries the ending.",
+            "meilleur after est, mieux after a verb. a2.17 left mieux here."
+          ],
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "Pick the middle word and keep the frame.",
+          "terms": [
+            "frame",
+            "better"
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.comparaisons.133",
+        "fr.a2.comparaisons.134",
+        "fr.a2.comparaisons.135",
+        "fr.a2.comparaisons.136",
+        "fr.a2.comparaisons.137",
+        "fr.a2.comparaisons.138",
+        "fr.a2.comparaisons.139",
+        "fr.a2.comparaisons.140",
+        "fr.a2.comparaisons.141",
+        "fr.a2.comparaisons.142",
+        "fr.a2.comparaisons.143",
+        "fr.a2.comparaisons.144",
+        "fr.a2.comparaisons.145",
+        "fr.a2.comparaisons.146",
+        "fr.a2.comparaisons.147",
+        "fr.a2.comparaisons.148",
+        "fr.a2.comparaisons.149",
+        "fr.a2.comparaisons.150",
+        "fr.a2.comparaisons.151",
+        "fr.a2.comparaisons.152",
+        "fr.a2.comparaisons.153",
+        "fr.a2.comparaisons.154",
+        "fr.a2.comparaisons.155",
+        "fr.a2.comparaisons.156",
+        "fr.a2.comparaisons.157",
+        "fr.a2.comparaisons.158",
+        "fr.a2.comparaisons.159",
+        "fr.a2.comparaisons.160",
+        "fr.a2.comparaisons.161",
+        "fr.a2.comparaisons.162",
+        "fr.a2.comparaisons.163",
+        "fr.a2.comparaisons.113",
+        "fr.a2.comparaisons.114",
+        "fr.a2.comparaisons.115",
+        "fr.a2.comparaisons.116",
+        "fr.a2.comparaisons.117",
+        "fr.a2.comparaisons.118",
+        "fr.a2.comparaisons.119",
+        "fr.a2.comparaisons.120",
+        "fr.a2.comparaisons.121",
+        "fr.a2.comparaisons.122",
+        "fr.a2.comparaisons.123",
+        "fr.a2.comparaisons.124",
+        "fr.a2.comparaisons.125",
+        "fr.a2.comparaisons.129",
+        "fr.a2.comparaisons.130",
+        "fr.a2.comparaisons.131",
+        "fr.a2.comparaisons.132",
+        "fr.sons.adjectifs-essentiels.001",
+        "fr.sons.adjectifs-essentiels.002",
+        "fr.sons.adjectifs-essentiels.003",
+        "fr.sons.adjectifs-essentiels.004",
+        "fr.sons.adjectifs-essentiels.018",
+        "fr.sons.adjectifs-essentiels.019",
+        "fr.sons.adjectifs-essentiels.020",
+        "fr.sons.adjectifs-essentiels.176",
+        "fr.sons.adjectifs-essentiels.062",
+        "fr.sons.adjectifs-essentiels.063",
+        "fr.sons.mots-essentiels.045",
+        "fr.sons.mots-essentiels.046",
+        "fr.a2.comparaisons.001",
+        "fr.a2.comparaisons.004",
+        "fr.a2.comparaisons.005",
+        "fr.a2.comparaisons.006",
+        "fr.a2.comparaisons.014",
+        "fr.a2.comparaisons.063",
+        "fr.a2.comparaisons.083",
+        "fr.a2.comparaisons.029",
+        "fr.a2.comparaisons.031",
+        "fr.a2.comparaisons.055",
+        "fr.a2.comparaisons.041",
+        "fr.a2.comparaisons.086",
+        "fr.a2.comparaisons.088",
+        "fr.a2.comparaisons.103",
+        "fr.a2.comparaisons.009",
+        "fr.a2.comparaisons.034",
+        "fr.a2.comparaisons.035",
+        "fr.a2.comparaisons.036",
+        "fr.a2.comparaisons.066",
+        "fr.a2.comparaisons.092",
+        "fr.a2.comparaisons.037",
+        "fr.a2.comparaisons.078"
+      ],
+      "version": 1,
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm"
+      }
     }
   ],
   "items": [
@@ -228453,7 +231212,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.mots-essentiels.053",
@@ -228538,7 +231298,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.mots-essentiels.042",
@@ -229601,7 +232362,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.adjectifs-essentiels.019",
@@ -229623,7 +232385,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.maison.069",
@@ -233716,7 +236479,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.adjectifs-essentiels.037",
@@ -235851,7 +238615,7 @@
       "fr": "moins",
       "en": "minus",
       "ipa": "mwɛ̃",
-      "respell": "MWAN",
+      "respell": "MWEHⁿ",
       "notes": "dix moins trois = 10 - 3.",
       "tags": [
         "number",
@@ -235863,7 +238627,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.nombres.100",
@@ -388355,7 +391120,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.adjectifs-essentiels.005",
@@ -389029,7 +391795,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.famille.235",
@@ -390564,7 +393331,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.sons.adjectifs-essentiels.003",
@@ -390586,7 +393354,8 @@
       ],
       "audioRef": null,
       "version": 1,
-      "cardType": "vocab"
+      "cardType": "vocab",
+      "grammarPoints": []
     },
     {
       "id": "fr.a1.famille.259",
@@ -430687,6 +433456,1395 @@
       ],
       "audioRef": null,
       "version": 1
+    },
+    {
+      "id": "fr.a2.comparaisons.001",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Mon frère est plus grand que moi.",
+      "en": "My brother is taller than me.",
+      "ipa": "mɔ̃ fʁɛʁ ɛ ply ɡʁɑ̃ kə mwa",
+      "notes": "The s in “plus” stays silent before a consonant like “grand”.",
+      "tags": [
+        "silent-letter"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.004",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ma sœur est aussi grande que moi.",
+      "en": "My sister is just as tall as me.",
+      "ipa": "ma sœʁ ɛ o.si ɡʁɑ̃d kə mwa",
+      "notes": "“Grande” takes a final e to agree with the feminine “sœur”.",
+      "tags": [
+        "accord-genre"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.005",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce livre est plus intéressant que le film.",
+      "en": "This book is more interesting than the movie.",
+      "ipa": "sə livʁ ɛ plyz‿ɛ̃.te.ʁɛ.sɑ̃ kə lə film",
+      "notes": "Liaison makes “plus” sound like “plyz” before “intéressant”.",
+      "tags": [
+        "liaison"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.006",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il fait moins froid qu'hier.",
+      "en": "It is less cold than yesterday.",
+      "ipa": "il fɛ mwɛ̃ fʁwa kjɛʁ",
+      "notes": "“Que” drops its e and becomes “qu'” before the vowel sound of “hier”.",
+      "tags": [
+        "elision"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.009",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce gâteau est meilleur que l'autre.",
+      "en": "This cake is better than the other one.",
+      "ipa": "sə ɡɑ.to ɛ mɛ.jœʁ kə lotʁ",
+      "notes": "“Meilleur” is the irregular comparative of “bon”; never write “plus bon”.",
+      "tags": [
+        "grammaire"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.014",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Cette rue est plus longue que l'avenue.",
+      "en": "This street is longer than the avenue.",
+      "ipa": "sɛt ʁy ɛ ply lɔ̃ɡ kə lav.ny",
+      "notes": "“Longue” keeps the u after g to preserve the hard sound before the feminine e.",
+      "tags": [
+        "orthographe"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.029",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est le plus grand bâtiment de la ville.",
+      "en": "It's the tallest building in the city.",
+      "ipa": "sɛ lə ply ɡʁɑ̃ bɑ.ti.mɑ̃ də la vil",
+      "notes": "After a superlative, “de” introduces the group, not “dans”.",
+      "tags": [
+        "grammaire"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.031",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce sont les plus grands arbres du parc.",
+      "en": "These are the tallest trees in the park.",
+      "ipa": "sə sɔ̃ le ply ɡʁɑ̃z‿aʁbʁ dy paʁk",
+      "notes": "Liaison links “grands” and “arbres” with a z sound.",
+      "tags": [
+        "liaison"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.034",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est le meilleur restaurant du quartier.",
+      "en": "It's the best restaurant in the neighborhood.",
+      "ipa": "sɛ lə mɛ.jœʁ ʁɛs.to.ʁɑ̃ dy kaʁ.tje",
+      "notes": "“Le meilleur” is the superlative of “bon” and never becomes “le plus bon”.",
+      "tags": [
+        "grammaire"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.035",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est la meilleure boulangerie de la rue.",
+      "en": "It's the best bakery on the street.",
+      "ipa": "sɛ la mɛ.jœʁ bu.lɑ̃.ʒʁi də la ʁy",
+      "notes": "“Meilleure” needs the final e to agree with the feminine “boulangerie”.",
+      "tags": [
+        "accord-genre"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.036",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce sont les meilleurs joueurs de l'équipe.",
+      "en": "They are the best players on the team.",
+      "ipa": "sə sɔ̃ le mɛ.jœʁ ʒwœʁ də le.kip",
+      "notes": "“Meilleurs” takes an s in the plural to agree with “joueurs”.",
+      "tags": [
+        "accord-nombre"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.037",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est le pire moment pour partir.",
+      "en": "It's the worst time to leave.",
+      "ipa": "sɛ lə piʁ mɔ.mɑ̃ puʁ paʁ.tiʁ",
+      "notes": "“Le pire” is the superlative of “mauvais” and is never replaced by “le plus mauvais” here.",
+      "tags": [
+        "grammaire"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.041",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est le moins cher des deux hôtels.",
+      "en": "It's the cheaper of the two hotels.",
+      "ipa": "sɛ lə mwɛ̃ ʃɛʁ de dø.z‿o.tɛl",
+      "notes": "Even with only two items, French keeps the superlative form “le moins cher” rather than a plain comparative.",
+      "tags": [
+        "grammaire"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.055",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est la plus grande fenêtre de la pièce.",
+      "en": "It's the biggest window in the room.",
+      "ipa": "sɛ la ply ɡʁɑ̃d fə.nɛtʁ də la pjɛs",
+      "notes": "“Fenêtre” keeps its circumflex accent and is never written “fenetre”.",
+      "tags": [
+        "accent"
+      ],
+      "drills": [
+        "dictation"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.063",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Le train est plus rapide que le bus.",
+      "en": "The train is faster than the bus.",
+      "notes": "{\"tiles\":[{\"w\":\"Le train est\",\"t\":\"\"},{\"w\":\"plus rapide que\",\"t\":\"\"},{\"w\":\"le bus.\",\"t\":\"\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.066",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il travaille mieux que son collègue.",
+      "en": "He works better than his colleague.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.078",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Elle parle aussi bien anglais que moi.",
+      "en": "She speaks English as well as I do.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.083",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce fromage sent plus fort que l'autre.",
+      "en": "This cheese smells stronger than the other one.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.086",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Elle est la plus jeune de la famille.",
+      "en": "She is the youngest in the family.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.088",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est le plus rapide de l'équipe.",
+      "en": "He is the fastest on the team.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.092",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Elle chante le mieux de toute la classe.",
+      "en": "She sings the best in the whole class.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.103",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est la question la plus difficile de l'examen.",
+      "en": "It's the hardest question on the exam.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.113",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus",
+      "en": "more",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.114",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "moins",
+      "en": "less",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.115",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "aussi",
+      "en": "as / also",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.116",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "que",
+      "en": "than / as",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.117",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "meilleur",
+      "en": "better",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.118",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "meilleure",
+      "en": "better",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.119",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "pire",
+      "en": "worse",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.120",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus grand",
+      "en": "bigger",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.121",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus petit",
+      "en": "smaller",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.122",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "moins cher",
+      "en": "cheaper",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.123",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus cher",
+      "en": "more expensive",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.124",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "aussi bon",
+      "en": "as good",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.125",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "aussi bonne",
+      "en": "as good",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.129",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus rapide",
+      "en": "faster",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.130",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus facile",
+      "en": "easier",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.131",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus difficile",
+      "en": "more difficult",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.132",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "aussi grand",
+      "en": "as big",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.133",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est plus grand que moi.",
+      "en": "He is taller than me.",
+      "respell": "EEL EH plü GRAHⁿ kuh MWAH",
+      "tags": [
+        "triple",
+        "plus"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.134",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est moins grand que moi.",
+      "en": "He is less tall than me.",
+      "respell": "EEL EH mwehⁿ GRAHⁿ kuh MWAH",
+      "tags": [
+        "triple",
+        "moins"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.135",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est aussi grand que moi.",
+      "en": "He is as tall as me.",
+      "respell": "EEL EH oh-see GRAHⁿ kuh MWAH",
+      "tags": [
+        "triple",
+        "aussi"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.136",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est plus grand.",
+      "en": "He is taller.",
+      "respell": "EEL EH plü GRAHⁿ",
+      "tags": [
+        "dictee",
+        "no-que"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.137",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est moins grand.",
+      "en": "He is less tall.",
+      "respell": "EEL EH mwehⁿ GRAHⁿ",
+      "tags": [
+        "dictee",
+        "moins"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.138",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est le plus grand.",
+      "en": "He is the tallest.",
+      "respell": "EEL EH luh plü GRAHⁿ",
+      "tags": [
+        "dictee",
+        "super"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.139",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il travaille mieux.",
+      "en": "He works better.",
+      "respell": "EEL trah-VAHY MYUH",
+      "tags": [
+        "dictee",
+        "mieux"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.140",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est meilleur.",
+      "en": "He is better.",
+      "respell": "EEL EH meh-YUHR",
+      "tags": [
+        "dictee",
+        "meilleur"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.141",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est le plus grand jardin du quartier.",
+      "en": "It's the biggest garden in the neighbourhood.",
+      "respell": "SEH luh plü GRAHⁿ zhar-DEHⁿ dü kar-TYAY",
+      "tags": [
+        "grid",
+        "ms"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.142",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "C'est la plus grande maison du quartier.",
+      "en": "It's the biggest house in the neighbourhood.",
+      "respell": "SEH la plü GRAHⁿD meh-ZOHⁿ dü kar-TYAY",
+      "tags": [
+        "grid",
+        "fs"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.143",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce sont les plus grands jardins du quartier.",
+      "en": "They are the biggest gardens in the neighbourhood.",
+      "respell": "suh SOHⁿ lay plü GRAHⁿ zhar-DEHⁿ dü kar-TYAY",
+      "tags": [
+        "grid",
+        "mp"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.144",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce sont les plus grandes maisons du quartier.",
+      "en": "They are the biggest houses in the neighbourhood.",
+      "respell": "suh SOHⁿ lay plü GRAHⁿD meh-ZOHⁿ dü kar-TYAY",
+      "tags": [
+        "grid",
+        "fp"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.145",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce jardin est plus grand que l'autre.",
+      "en": "This garden is bigger than the other one.",
+      "respell": "suh zhar-DEHⁿ eh plü GRAHⁿ kuh LOHTR",
+      "tags": [
+        "adjacent",
+        "plus"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.146",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il est meilleur que son collègue.",
+      "en": "He is better than his colleague.",
+      "respell": "EEL EH meh-YUHR kuh sohⁿ koh-LEHG",
+      "tags": [
+        "better",
+        "meilleur"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.147",
+      "kind": "word",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "mieux",
+      "en": "better (after a verb)",
+      "respell": "MYUH",
+      "tags": [
+        "better",
+        "mieux"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.148",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "le mieux de tous",
+      "en": "the best of all (after a verb)",
+      "respell": "luh MYUH duh TOOS",
+      "tags": [
+        "better",
+        "mieux"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.149",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Elle parle mieux que moi.",
+      "en": "She speaks better than me.",
+      "respell": "EL PARL MYUH kuh MWAH",
+      "tags": [
+        "better",
+        "mieux"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.150",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Elle cuisine mieux que moi.",
+      "en": "She cooks better than me.",
+      "respell": "EL kwee-ZEEN MYUH kuh MWAH",
+      "tags": [
+        "better",
+        "mieux"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.151",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Cette rue est moins longue que l'avenue.",
+      "en": "This street is shorter than the avenue.",
+      "respell": "set RÜ eh mwehⁿ LOHⁿG kuh lav-NÜ",
+      "tags": [
+        "aussi-gap",
+        "moins",
+        "fem"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.152",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Cette rue est aussi longue que l'avenue.",
+      "en": "This street is as long as the avenue.",
+      "respell": "set RÜ eh oh-see LOHⁿG kuh lav-NÜ",
+      "tags": [
+        "aussi-gap",
+        "aussi",
+        "fem"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.153",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce livre est aussi intéressant que le film.",
+      "en": "This book is as interesting as the film.",
+      "respell": "suh LEEVR eh oh-see ahⁿ-tay-reh-SAHⁿ kuh luh FEELM",
+      "tags": [
+        "aussi-gap",
+        "aussi"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.154",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Il fait aussi froid qu'hier.",
+      "en": "It is as cold as yesterday.",
+      "respell": "EEL FEH oh-see FRWAH KYEHR",
+      "tags": [
+        "aussi-gap",
+        "aussi"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.155",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "Ce café est aussi fort que le thé.",
+      "en": "This coffee is as strong as the tea.",
+      "respell": "suh ka-FAY eh oh-see FOR kuh luh TAY",
+      "tags": [
+        "aussi-gap",
+        "aussi"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.156",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "moins grand",
+      "en": "less big",
+      "respell": "mwehⁿ GRAHⁿ",
+      "tags": [
+        "card",
+        "moins"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.157",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "aussi cher",
+      "en": "just as expensive",
+      "respell": "oh-see SHEHR",
+      "tags": [
+        "card",
+        "aussi"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.158",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "moins rapide",
+      "en": "slower",
+      "respell": "mwehⁿ rah-PEED",
+      "tags": [
+        "card",
+        "moins"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.159",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "aussi rapide",
+      "en": "just as fast",
+      "respell": "oh-see rah-PEED",
+      "tags": [
+        "card",
+        "aussi"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.160",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus mauvais",
+      "en": "worse",
+      "respell": "plü moh-VEH",
+      "tags": [
+        "card",
+        "plus",
+        "asymmetry"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.161",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "plus vite",
+      "en": "faster",
+      "respell": "plü VEET",
+      "tags": [
+        "card",
+        "adverb",
+        "a2.17"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.162",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "moins vite",
+      "en": "more slowly",
+      "respell": "mwehⁿ VEET",
+      "tags": [
+        "card",
+        "adverb",
+        "a2.17"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.a2.comparaisons.163",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "comparaisons",
+      "fr": "aussi vite",
+      "en": "just as fast",
+      "respell": "oh-see VEET",
+      "tags": [
+        "card",
+        "adverb",
+        "a2.17"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.sons.adjectifs-essentiels.062",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adjectifs-essentiels",
+      "fr": "meilleur",
+      "en": "better, best",
+      "ipa": "/mɛjœʁ/",
+      "respell": "meh-YUHR",
+      "notes": "Feminine: meilleure. Opposite: pire. The comparative of bon: ce café est meilleur.",
+      "tags": [
+        "adjective",
+        "opposites"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.sons.adjectifs-essentiels.063",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adjectifs-essentiels",
+      "fr": "pire",
+      "en": "worse, worst",
+      "ipa": "/piʁ/",
+      "respell": "PEER",
+      "notes": "Same form for both genders. Opposite: meilleur. The comparative of mauvais: c'est encore pire.",
+      "tags": [
+        "adjective",
+        "opposites"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
+    },
+    {
+      "id": "fr.sons.adjectifs-essentiels.176",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adjectifs-essentiels",
+      "fr": "cher",
+      "en": "expensive",
+      "ipa": "/ʃɛʁ/",
+      "respell": "SHEHR",
+      "notes": "Feminine: chère. Also means dear in letters.",
+      "tags": [
+        "adjective"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "audioRef": null,
+      "cardType": "vocab",
+      "grammarPoints": []
     }
   ],
   "scenarios": [
