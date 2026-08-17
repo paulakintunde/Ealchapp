@@ -558,10 +558,10 @@ test('the metalinguistic rows are named by nothing', () => {
 
 /* ── The shape of the lesson ────────────────────────────────────────────── */
 
-test('25 sections, six acts, act 3 the heaviest', () => {
-  strictEqual(LESSON.sections.length, 25);
+test('24 sections, six acts, act 3 the heaviest', () => {
+  strictEqual(LESSON.sections.length, 24);
   const sizes = (LESSON.acts ?? []).map((a) => a.sections.length);
-  deepStrictEqual(sizes, [3, 5, 6, 3, 4, 4]);
+  deepStrictEqual(sizes, [3, 4, 6, 3, 4, 4]);
   ok(sizes[2] > sizes[1], 'act 3 must outweigh act 2');
   ok(sizes.every((n) => n <= sizes[2]));
 });
@@ -591,10 +591,31 @@ test('the ladder is a tapTable, because a table at core is refused', () => {
   strictEqual((sec('s04-ladder') as { layer?: string }).layer, 'core');
 });
 
-test('the table ships at layer more, which is the only layer that passes', () => {
-  const grid = sec('s05-grid') as { type: string; layer?: string };
-  strictEqual(grid.type, 'table');
-  ok(grid.layer && grid.layer !== 'core', "a table at layer 'core' is refused by validateDensity");
+test('this lesson ships zero table sections, and that is the answer', () => {
+  // `validateDensity` refuses a `table` at `layer: 'core'`. This build shipped
+  // one at `layer: 'more'` — the only layer that passes — and then measured
+  // that `layer` IS READ BY NO RENDERER: three consumers in the product, two in
+  // the density validator and one in the schema's enum check, and no `=== 'more'`
+  // anywhere in render code.
+  //
+  // So `more` draws exactly like `core`. The table was a full numbered mission
+  // showing the same nine lines as the tapTable one mission earlier. There is no
+  // layer that puts a table out of the flow, so a lesson has no usable home for
+  // one, and the tapTable already carries the layout, the nine cells and the audio.
+  strictEqual(LESSON.sections.filter((s) => s.type === 'table').length, 0);
+  ok(!sec('s05-grid'), 's05-grid is back; see the note in hotel-lesson.ts');
+});
+
+test("layer 'more' is a declared contract, not a rendering behaviour", () => {
+  // The Quebec card keeps `layer: 'more'` because C3 declares it and this test
+  // asserts it. What it does NOT do is keep the card off the teaching path:
+  // it is a numbered mission like any other. C3's substance — ONE card, never
+  // scored — is what makes Quebec colour rather than curriculum, and neither
+  // half depends on `layer`.
+  const q = sec('s14-quebec') as { layer?: string };
+  strictEqual(q.layer, 'more');
+  const moreSections = LESSON.sections.filter((s) => (s as { layer?: string }).layer === 'more');
+  strictEqual(moreSections.length, 1, 'only the Quebec card declares more; the table that also did has been removed');
 });
 
 test('commonErrors sets swipe, or it renders blank', () => {

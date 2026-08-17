@@ -87,7 +87,6 @@ const SCENE = 's01-scene';
 const GOALS = 's02-goals';
 const ARRIVAL = 's03-arrival';
 const LADDER = 's04-ladder';
-const HEARD = 's05-grid';
 const RUNG1 = 's06-rung1';
 const RUNG2 = 's07-rung2';
 const RUNG3 = 's08-rung3';
@@ -342,50 +341,32 @@ const S_LADDER: LessonSection = {
   say: 'Three rungs across the top, and three things you might be trying to do down the side. Nine sentences and then we stop.',
 };
 
-/** THE `table`, AND THE ONLY LAYER IT CAN SHIP AT.
+/* s05-grid, the `table`, WAS HERE AND IS DELETED. The reason is worth keeping.
  *
- *  `layer: 'more'` is what makes this legal: `density.logic.ts:423` refuses a
- *  `table` at `core` and allows it anywhere else. So this is the first `table`
- *  in a lesson's `sections` across all 69 shipped lessons, and it is off the
- *  core path by necessity rather than by choice.
+ * `validateDensity` refuses a `table` at `layer: 'core'`
+ * (`density.logic.ts:423`, « Tables never appear in the flow »), so this build
+ * shipped one at `layer: 'more'` — the only layer that passes — and argued it
+ * was "off the core path" as a consultable grid.
  *
- *  Its job is the consultable grid — the thing the prompt's fallback would have
- *  put in a reference sheet. It costs no sheet, and a sheet would have been
- *  worse: a `cheatSheet` inside one draws its title and nothing else.
+ * `layer` IS READ BY NO RENDERER. Measured 2026-08-16: three consumers in the
+ * whole product, two in the density validator and one in the schema's enum
+ * check. No component and no route reads it, and there is no `=== 'more'`
+ * anywhere in render code. So `layer: 'more'` draws exactly like `core`: a full
+ * numbered mission, counted in the lesson total.
  *
- *  The same nine, one row per rung this time so the climb is what the columns
- *  show. */
-const S_HEARD: LessonSection = {
-  type: 'table', id: HEARD, layer: 'more',
-  title: 'The whole ladder, on one page',
-  cols: ['Rung', 'What you say', 'What it costs'],
-  // THE SAME NINE as s04-ladder, in the same order, grouped by rung so the
-  // climb is audible. `NINE_CELLS` is the single source and the batch asserts
-  // both sections resolve to it.
-  rows: [
-    ['1', 'Est-ce que je peux avoir une serviette ?', 'Nothing'],
-    ['1', 'Excusez-moi, il y a un problème avec la douche.', 'Nothing'],
-    ['1', "Est-ce que ce serait possible d'avoir une autre chambre ?", 'Nothing'],
-    ['2', 'Je vous ai demandé une serviette il y a une heure.', 'A little'],
-    ['2', "L'eau chaude ne fonctionne toujours pas.", 'A little'],
-    ['2', 'Ça ne marche toujours pas.', 'A little'],
-    ['3', 'Je voudrais parler au responsable.', 'A lot'],
-    ['3', "Est-ce que quelqu'un peut venir voir ?", 'Less'],
-    ['3', "Est-ce que je peux parler à quelqu'un d'autre ?", 'A lot'],
-  ],
-  rowDetails: [
-    { title: 'Rung 1, the request', body: 'Est-ce que je peux is the asking-permission pouvoir, which a2.13 taught. It is the cheapest opening you have and it gives away nothing.', say: "Est-ce que je peux avoir une serviette, s'il vous plaît ?" },
-    { title: 'Rung 1, the fault', body: 'Il y a un problème avec puts the fault on the thing. The shower has the problem. You are simply the person mentioning it.', say: 'Excusez-moi, il y a un problème avec la douche.' },
-    { title: 'Rung 1, the softest', body: 'Nobody is in this sentence at all. No I wanting and no you doing, just a room and whether it is possible. Keep it for the ask you think might be refused.', say: "Est-ce que ce serait possible d'avoir une autre chambre ?" },
-    { title: 'Rung 2, the request again', body: 'This is the one people cannot do. It states a fact about the past hour and stops. No blame, no adjective, no raised voice, and the other person now knows exactly where they stand.', say: 'Je vous ai demandé une serviette il y a une heure.' },
-    { title: 'Rung 2, the fault again', body: 'Toujours pas is doing all the work: still not. It carries the whole history of the complaint in two words and names nobody.', say: "L'eau chaude ne fonctionne toujours pas." },
-    { title: 'Rung 2, the short version', body: 'When you have already named the thing once, ça is enough. Shorter is stronger here, and it is easier to say without your voice climbing.', say: 'Ça ne marche toujours pas.' },
-    { title: 'Rung 3, and it works once', body: 'Je voudrais is already yours from a2.13. What is new is where you spend it. This sentence ends the conversation you were having and starts a different one.', say: "Je voudrais parler au responsable, s'il vous plaît." },
-    { title: 'Rung 3, the cheaper door', body: "This asks for a person without asking for the boss. Quelqu'un leaves the desk somewhere to go, which the manager sentence does not.", say: "Est-ce que quelqu'un peut venir voir ?" },
-    { title: 'Rung 3, said plainly', body: 'Somebody else. It is direct and it is not rude, and it is the sentence to reach for when the person in front of you has said no twice.', say: "Est-ce que je peux parler à quelqu'un d'autre ?" },
-  ],
-  terms: ['rung', 'brake'],
-};
+ * Which means the table was never off the path. It was mission 5, immediately
+ * after the tapTable at mission 4, showing THE SAME NINE LINES in the same 3x3
+ * shape — the "fifth grid is where the learner closes the app" that doctrine
+ * §B.8 warns about, two missions apart.
+ *
+ * The tapTable carries the required layout, the nine cells and the audio, and
+ * each row opens a detail card. The table added a second look at identical
+ * content. Deleted rather than moved: there is nowhere to move it to.
+ *
+ * a2.29 therefore ships ZERO `table` sections, and the honest answer to the
+ * band's doctrine question is that `table` has no usable home in a lesson at
+ * all — not that it belongs at `more`.
+ */
 
 /** RUNG 1. Groups named by FUNCTION, not by form. Hand-randomised: missions
  *  render authored order exactly, so a check whose answer is always in the same
@@ -699,6 +680,17 @@ const S_REPAIR: LessonSection = {
 
 /** QUEBEC. ONE CARD, `layer: 'more'`, and nothing on it is ever the answer to a
  *  scored question. Collation C3.
+ *
+ *  `layer: 'more'` DOES NOT put this off the teaching path. It is read by no
+ *  renderer (three consumers, all in the validator and the schema), so this is
+ *  a full numbered mission like any other. C3's "a learner on the core path
+ *  walks past it" describes a mechanism that does not exist.
+ *
+ *  The card stays exactly as it is, and the substance of C3 is untouched: ONE
+ *  card, and nothing on it is ever scored. Those two are what keep Quebec as
+ *  colour rather than curriculum, and neither depends on `layer`. The field is
+ *  kept because it is the declared contract and the test asserts it; it simply
+ *  earns nothing at render time.
  *
  *  This build authors ZERO Quebec corpus rows: the divergence is already
  *  published (see the corpus header), so the card carries prose and the term
@@ -1156,7 +1148,7 @@ const S_ROUNDUP: LessonSection = {
 
 export const SECTIONS: LessonSection[] = [
   S_SCENE, S_GOALS, S_ARRIVAL,
-  S_LADDER, S_HEARD, S_RUNG1, S_RUNG2, S_RUNG3,
+  S_LADDER, S_RUNG1, S_RUNG2, S_RUNG3,
   S_REGISTER, S_SOFTENERS, S_IMPERSONAL, S_OPENER, S_REPAIR, S_QUEBEC,
   S_TRAP, S_ERRORS, S_NUMBERS,
   S_CHECKIN, S_COMPLAINT, S_DICTATION, S_SPEAK,
@@ -1165,7 +1157,7 @@ export const SECTIONS: LessonSection[] = [
 
 const ACTS: LessonAct[] = [
   { id: 'act1', title: 'The sentence that cost you the room', sections: [SCENE, GOALS, ARRIVAL], milestone: 'You have heard the desk at full speed and picked the sentence that works.', estScreens: 9, restPoints: [GOALS] },
-  { id: 'act2', title: 'The ladder', sections: [LADDER, HEARD, RUNG1, RUNG2, RUNG3], milestone: 'Three rungs, nine sentences, and the middle one is yours.', estScreens: 16, restPoints: [HEARD] },
+  { id: 'act2', title: 'The ladder', sections: [LADDER, RUNG1, RUNG2, RUNG3], milestone: 'Three rungs, nine sentences, and the middle one is yours.', estScreens: 13, restPoints: [RUNG1] },
   { id: 'act3', title: 'The pieces you do not take apart', sections: [REGISTER, SOFTENERS, IMPERSONAL, OPENER, REPAIR, QUEBEC], milestone: 'Five ways in, and a rule for turning any accusation into a report.', estScreens: 20, restPoints: [OPENER, QUEBEC] },
   { id: 'act4', title: 'Correct, and still wrong', sections: [TRAP, ERRORS, NUMBERS], milestone: 'The English reflex is named, drilled and beaten.', estScreens: 12, restPoints: [ERRORS] },
   { id: 'act5', title: 'At the desk', sections: [CHECKIN, COMPLAINT, DICTATION, SPEAK], milestone: 'You have checked in and climbed the whole ladder out loud.', estScreens: 15, restPoints: [DICTATION] },

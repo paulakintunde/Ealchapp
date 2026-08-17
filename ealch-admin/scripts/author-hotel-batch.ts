@@ -146,11 +146,18 @@ function offlineGuards() {
   }
   if ((ladder.rows ?? []).length !== 3) die(`the ladder has ${(ladder.rows ?? []).length} rows and the contract is three rungs by three moves, nine cells and stop`);
   for (const row of (ladder.rows ?? [])) if (row.cells.length !== 3) die(`a ladder row has ${row.cells.length} cells and the contract is three`);
-  // The grid, at the only layer a table can ship at.
-  const grid = SECTIONS.find((s) => s.id === 's05-grid') as { type?: string; layer?: string } | undefined;
-  if (!grid) die('s05-grid is missing');
-  if (grid.type !== 'table') die(`s05-grid is a ${grid.type}; it is this build's answer to the doctrine question and it must be a table`);
-  if (grid.layer === 'core') die("s05-grid is a table at layer 'core', which validateDensity refuses");
+  // ZERO `table` SECTIONS, and that is the answer to the band's doctrine
+  // question rather than an omission.
+  //
+  // `validateDensity` refuses a `table` at `layer: 'core'`. This build shipped
+  // one at `layer: 'more'` and then measured that `layer` is read by NO
+  // renderer, so `more` draws exactly like `core`: the table was a full
+  // numbered mission showing the same nine lines as the tapTable one mission
+  // earlier. There is no layer that puts a table out of the flow, so there is
+  // no usable home for one in a lesson.
+  if (SECTIONS.some((s) => s.type === 'table')) {
+    die('a table section is back. `layer` is read by no renderer, so there is no layer that keeps one out of the flow, and the tapTable already carries the nine cells and the audio.');
+  }
   // No fourth rung anywhere, and no renaming.
   if (/\brung 4\b|\bfourth rung\b/i.test(learnerText)) die('a fourth rung is named. The contract is three, and a2.30, a2.31 and a2.32 are built on that.');
 

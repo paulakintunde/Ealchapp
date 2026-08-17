@@ -236,13 +236,28 @@ the app.
 > all nine cells drew correctly, then `validateDensity` refused it on the first batch
 > run. **A device check cannot find this one.**
 >
-> What to use instead. A `tapTable` at `core` carries the identical layout — same
+> What to use instead: a `tapTable` at `core`. It carries the identical layout — same
 > `cols`, same grid, one screen — and is audible as well, which is the half of the old
-> sentence that was true. If you also want a consultable grid, ship the `table` at
-> `layer: 'more'`; any layer but `core` passes. a2.29 does both: `s04-ladder` is the
-> tapTable that carries the required layout, `s05-grid` is the table at `more`.
+> sentence that was true.
 >
-> Five builds designed around the old sentence before anyone measured it.
+> **AMENDED the same day, and this half was my own bad advice.** This box first said
+> "if you also want a consultable grid, ship the `table` at `layer: 'more'`; any layer
+> but `core` passes", and a2.29 shipped one that way. **`layer` is read by NO renderer**
+> — three consumers in the product, two in the density validator and one in the
+> schema's enum check, and no `=== 'more'` anywhere in render code. So `more` draws
+> exactly like `core`: a full numbered mission, counted in the lesson total.
+>
+> A `table` at `more` is therefore still *in the flow*. a2.29's was mission 5, one after
+> the tapTable at mission 4, showing the same nine lines in the same 3x3 shape — the
+> "fifth grid is where the learner closes the app" this very section warns about. It has
+> been deleted and a2.29 ships zero tables.
+>
+> **So the honest answer is that `table` has no usable home in a lesson at all.** Not
+> "use it at `more`". Use `tapTable`, or a reference sheet via `render: 'sheet'`, which
+> is the only part of the three-layer model that works.
+>
+> Five builds designed around the old sentence before anyone measured it, and the
+> replacement was wrong for half a day before anyone measured `layer`.
 
 `trapDrill` is the A2 workhorse the A1 track barely used. a1.30 shipped the first one in
 the project. Read it before writing yours.
