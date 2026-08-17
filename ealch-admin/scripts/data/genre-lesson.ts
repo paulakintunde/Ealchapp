@@ -132,6 +132,8 @@ import type {
 } from '../../../ealch-v2/src/content/schema.ts';
 import { GENRE_TERMS, REFRAME } from './genre-terms.ts';
 import {
+  COUNT,
+  COUNT_CAP,
   ENDING_ITEM_IDS,
   ENDING_RULES,
   ENDINGS_ACCURACY,
@@ -139,6 +141,7 @@ import {
   FEMININE_RULES,
   MASCULINE_RULES,
   MORE_ENDINGS,
+  WORTHLESS_COUNT,
   WORTHLESS_ENDINGS,
   type EndingRule,
   type Noun,
@@ -747,7 +750,7 @@ const SECTIONS: LessonSection[] = [
         q: 'L’escalier. Which one, and how could you have worked it out?',
         opts: ['la, from the sentence', 'le, from the ending -ier', 'le, from the sound', 'there is no way'],
         correct: 1,
-        why: 'Escalier ends in -ier, which takes un across all fifty-five here. The ending gives back what l’ hid.',
+        why: `Escalier ends in -ier, which takes un across all ${COUNT('ier')} here. The ending gives back what l’ hid.`,
       },
       {
         q: 'You meet a new noun written l’usine. What do you know about it?',
@@ -887,7 +890,7 @@ const SECTIONS: LessonSection[] = [
       {
         wrong: 'Trusting « ends in e, so feminine » on le livre.',
         right: 'Treating the final e as a lean and checking anything you are about to say.',
-        why: 'It is right seven times in ten over eight hundred nouns, which makes you wrong about one in three.',
+        why: `It is right seven times in ten over ${WORTHLESS_COUNT('e')} nouns, which makes you wrong about one in three.`,
       },
       {
         wrong: 'Reading « l’escalier » and moving straight on.',
@@ -1069,7 +1072,13 @@ const SECTIONS: LessonSection[] = [
     say: 'Rate each card as again, hard or easy. The ones you mark again come back.',
     cards: [
       { front: 'What do you store with a noun?', back: 'Its article. Une armoire, never armoire.', say: 'une armoire' },
-      { front: '-tion takes:', back: 'une. Thirty-six nouns here, no exception.', say: 'la question' },
+      // A SECOND STALE COPY OF THE SAME FIGURE, in a different field. The
+      // ENDINGS card and this review card both state the -tion count, and only
+      // the first is derived from `genre-endings.ts`. Four merges moved the
+      // population from 36 to 43 and nothing caught either string, because
+      // `a1-03-genre.test.ts` compares the CONSTANTS to `seed.items` and never
+      // reads a rendered body. Found by a2.31's bundle grep, not by a test.
+      { front: '-tion takes:', back: `une. ${COUNT_CAP('tion')} nouns here, no exception.`, say: 'la question' },
       { front: '-eau takes:', back: 'un, except l’eau and la peau.', say: 'le tableau' },
       { front: '-age takes:', back: 'un, except la page and la cage.', say: 'le fromage' },
       { front: '-et and -ette take:', back: 'un and une. Two letters apart, opposite ways.', say: 'le ticket, une baguette' },
@@ -1173,7 +1182,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['almost always', 'about half', 'about seven times in ten', 'it is never right'],
             correct: 2,
-            why: 'Seven in ten across eight hundred nouns, which makes you wrong about one noun in three.',
+            why: `Seven in ten across ${WORTHLESS_COUNT('e')} nouns, which makes you wrong about one noun in three.`,
             ref: 's04-finale',
           },
           {
@@ -1181,7 +1190,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['une question'],
             answer: 'une question',
-            why: '-tion has no exception in this corpus across thirty-six nouns. It takes une every time.',
+            why: `-tion has no exception in this corpus across ${COUNT('tion')} nouns. It takes une every time.`,
             ref: 's09-fem',
           },
           {
@@ -1213,7 +1222,7 @@ const SECTIONS: LessonSection[] = [
             format: 'errorSpot',
             accept: ['le ticket'],
             answer: 'le ticket',
-            why: '-et takes un across all twenty-nine of them here. Two letters more and -ette flips it to une.',
+            why: `-et takes un across all ${COUNT('et')} of them here. Two letters more and -ette flips it to une.`,
             ref: 's07-masc',
           },
         ],
@@ -1239,7 +1248,7 @@ const SECTIONS: LessonSection[] = [
             audio: { mode: 'tts', lang: 'fr-FR', clip: 'l’escalier' },
             opts: ['la', 'le', 'les', 'du'],
             correct: 1,
-            why: 'Escalier ends in -ier, which takes un across all fifty-five of them here, so the article is le.',
+            why: `Escalier ends in -ier, which takes un across all ${COUNT('ier')} of them here, so the article is le.`,
             ref: 's07-masc',
           },
           {
@@ -1545,7 +1554,7 @@ const DRILLS: LessonDrill[] = [
     q: 'A word you have never seen ends in -tion. Which article?',
     opts: ['un', 'une', 'you cannot tell'],
     correct: 1,
-    why: '-tion takes une across all thirty-six of them in this corpus. It is the most reliable ending here.',
+    why: `-tion takes une across all ${COUNT('tion')} of them in this corpus. It is the most reliable ending here.`,
   },
   {
     id: 'drill-hidden',
@@ -1898,7 +1907,53 @@ export const GENRE_LESSON: Lesson = {
   // because it compares the CONSTANTS to `seed.items` and never reads the
   // rendered card. Nothing in the repo catches it; the check is a source-vs-seed
   // string diff, and it belongs in the build report of whoever moves a figure.
-  version: 11,
+  // v12, 2026-08-16. a2.31 « L'école & les études » moved -tion from 40 to 43:
+  // one MINTED row (`une mention`) and three CARRIED (`une inscription`,
+  // `une session`, `une attestation`). It is the first unit in the A2
+  // situations band to move this population with an authored row rather than
+  // only with carries, so the "every joiner is an import" finding a1.23 made
+  // and a2.27 and a2.29 repeated does NOT hold for this one.
+  //
+  // AND THE -tion LINE WAS ALREADY STALE BEFORE THIS BUILD TOUCHED IT. It read
+  // "Thirty-six nouns" while the pinned count had moved to 40 across two
+  // earlier merges. That is the two-bodies-one-version drift the v11 note above
+  // describes, shipped again and caught here. Both the count and the prose are
+  // corrected and the version moves with them.
+  // v13: a SECOND stale copy of the -tion figure was found in the review deck
+  // by a2.31's bundle grep, in a field no test reads. Both strings now say 43.
+  //
+  // v14, 2026-08-16. a2.32 « La technologie » moved ELEVEN endings, the largest
+  // single move any unit has made to this lesson, because it is the first unit
+  // in the product to pull a whole theme across the seed cut: `internet` held
+  // 336 published rows in Postgres and ZERO in `seed.json`, so all 99 of its
+  // carries are new here. 33 rows joined a1.03's population and only FOUR were
+  // authored, which is a1.23's carry finding for the sixth time.
+  //
+  //   -ier  56 -> 58   -et   29 -> 31   -age  30 -> 32, 90% -> 91%
+  //   -tion 43 -> 45   -ette 38 -> 39   -e   952 -> 961
+  //   -on  153 -> 157, 58% -> 56%       -ant  20 -> 22
+  //   -ien  15 -> 17   -ail   7 ->  8   -sion  8 ->  9
+  //
+  // TWO ACCURACIES MOVED IN OPPOSITE DIRECTIONS, which is worth keeping. -age
+  // rose a point because both joiners are masculine. -on fell TWO, its largest
+  // move in the band, because the -on a technology vocabulary produces is -tion
+  // and -xion: `une connexion`, `l'application`, `une notification`,
+  // `la baladodiffusion`. That is the reliable FEMININE slice, so a unit like
+  // this one drives -on further from the masculine reading a learner guesses.
+  // Both stay on the right side of the 90% floor, so no rule was added, dropped
+  // or reclassified.
+  //
+  // AND FOUR MORE STALE PROSE COPIES, in fields no test reads. v13 fixed two
+  // copies of the -tion figure and there were SIX in the family: the -tion
+  // count appeared THREE more times (two still saying "thirty-six", which v13
+  // missed), the -ier count twice as "fifty-five", and the -et count once as
+  // "twenty-nine". All are now derived-figure prose corrected by hand, and the
+  // -e bucket's "eight hundred nouns" is now "nine hundred", which had been
+  // wrong since the count passed 900. `a1-03-genre.test.ts` compares the
+  // CONSTANTS to `seed.items` and reads no rendered body, so every one of these
+  // was green while being wrong. THE REAL FIX IS TO DERIVE THE PROSE, and that
+  // is a code change with its own review, not this build's.
+  version: 14,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it

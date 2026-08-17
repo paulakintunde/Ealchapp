@@ -145,14 +145,23 @@ const MASCULINE: EndingRule[] = [
     accuracy: 100,
     // 56 since 2026-08-09: 'jours-et-mois' and 'heure-et-date' joined
     // SEED_CUT.themes and one -ier noun entered the seed with them. Still 100%.
-    items: 56,
+    // 58 since a2.32 « La technologie » CARRIED `un fichier` and `un clavier`
+    // on 2026-08-16. Both masculine, so the accuracy did not move. a2.32 is the
+    // first unit to pull a whole theme across: `internet` held 336 published
+    // rows and ZERO in the seed, so all 99 of its carries are new to this file.
+    items: 58,
     article: 'un',
     example: { id: 'fr.a1.ecole.003', fr: 'le cahier', en: 'notebook' },
     sheetExamples: ['le papier', 'le quartier', 'l’escalier', 'un policier', 'un pompier'],
     // The feminine of the same job, one letter longer. This is what actually
     // goes wrong with -ier, and it goes wrong constantly.
     breaks: [{ id: 'fr.a1.marche.029', fr: 'la caissière', en: 'the cashier', kind: 'lookalike' }],
-    line: 'Fifty-five nouns, no exception here. The feminine of a job is -ière, which is a different word.',
+    // THE LINE WAS STALE BEFORE a2.32 TOUCHED IT: it read "Fifty-five" while
+    // the pinned count had been 56 since 2026-08-09. `a1-03-genre.test.ts`
+    // compares the CONSTANTS to `seed.items` and never reads the rendered body,
+    // so a spelled-out figure can drift for a week with every gate green. Same
+    // defect a2.31 fixed on -tion and a2.30's merge script names.
+    line: 'Fifty-eight nouns, no exception here. The feminine of a job is -ière, which is a different word.',
   },
   {
     id: 'ment',
@@ -182,14 +191,16 @@ const MASCULINE: EndingRule[] = [
     ending: 'et',
     predicts: 'm',
     accuracy: 100,
-    items: 29,
+    // 29 until a2.32 « La technologie » CARRIED `Internet` and `un onglet` on
+    // 2026-08-16. Both masculine, so the accuracy did not move.
+    items: 31,
     article: 'un',
     example: { id: 'fr.a1.deplacements.031', fr: 'le ticket', en: 'the ticket' },
     sheetExamples: ['le billet', 'le poulet', 'le guichet', 'le bracelet', 'le carnet'],
     // -et and -ette are two letters apart and go opposite ways, which is the
     // thing that actually goes wrong here. The lookalike is the other rule.
     breaks: [{ id: 'fr.a1.cafe.012', fr: 'une baguette', en: 'a baguette', kind: 'lookalike' }],
-    line: 'Twenty-nine nouns, no exception. Two letters more and it flips: -ette takes une.',
+    line: 'Thirty-one nouns, no exception. Two letters more and it flips: -ette takes une.',
   },
   {
     id: 'eau',
@@ -212,12 +223,18 @@ const MASCULINE: EndingRule[] = [
     id: 'age',
     ending: 'age',
     predicts: 'm',
-    accuracy: 90,
+    // 90 until a2.32 on 2026-08-16. See the note on `items`: both joiners are
+    // masculine, so this is the rare case where a carry makes a rule MORE true.
+    accuracy: 91,
     // 29 until a2.29 « À l'hôtel » CARRIED `l'étage` into the seed on
     // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
     // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
     // The accuracy did not move.
-    items: 30,
+    // 32 since a2.32 « La technologie » CARRIED `un message` and AUTHORED
+    // `le clavardage` on 2026-08-16. Both masculine, and the accuracy rose a
+    // point. `le clavardage` is one of only four a2.32 rows that join this
+    // population at all: 29 of its 33 joiners are carries.
+    items: 32,
     article: 'un',
     example: { id: 'fr.a1.cuisine.011', fr: 'le fromage', en: 'the cheese' },
     sheetExamples: ['le voyage', 'le garage', 'le visage', 'le mariage', 'le bagage'],
@@ -245,14 +262,28 @@ const FEMININE: EndingRule[] = [
     // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
     // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
     // The accuracy did not move.
-    items: 40,
+    // 40 until a2.31 « L'école & les études » on 2026-08-16, which is the FIRST
+    // unit in this band to move this population with an AUTHORED row rather
+    // than only with carries: `une mention` is minted, and `une inscription`,
+    // `une session` and `une attestation` are carried. Four joiners, three of
+    // them imports. The accuracy did not move.
+    // 45 since a2.32 « La technologie » CARRIED `l'application` and
+    // `une notification` on 2026-08-16. Both feminine, so the accuracy did not
+    // move. Back to a carries-only move: neither joiner is authored.
+    items: 45,
     article: 'une',
     example: { id: 'fr.a1.ecole.046', fr: 'la question', en: 'the question' },
     sheetExamples: ['la direction', 'la natation', 'la récréation', 'la destination'],
     // -on predicts nothing at 60%. -tion is the reliable slice inside it, and
     // saying which slice is the whole value of the rule.
     breaks: [{ id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish', kind: 'lookalike' }],
-    line: 'Thirty-six nouns, no exception. It is -tion that works and not -on: le poisson takes un.',
+    // THE LINE WAS STALE AND NOTHING FAILED. It read "Thirty-six nouns" while
+    // the pinned count had already moved to 40 across a2.27 and a2.29, because
+    // `a1-03-genre.test.ts` compares the CONSTANTS to `seed.items` and never
+    // reads the rendered body. a2.30's merge script names this exact defect.
+    // Corrected here to the live figure, and the version moves with it.
+    // 43 -> 45 with a2.32, 2026-08-16.
+    line: 'Forty-five nouns, no exception. It is -tion that works and not -on: le poisson takes un.',
   },
   {
     id: 'ure',
@@ -286,7 +317,9 @@ const FEMININE: EndingRule[] = [
     // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
     // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
     // The accuracy did not move.
-    items: 38,
+    // 39 since a2.32 « La technologie » CARRIED `une tablette` on 2026-08-16.
+    // Feminine, so the accuracy did not move.
+    items: 39,
     article: 'une',
     example: { id: 'fr.a1.cafe.012', fr: 'une baguette', en: 'a baguette' },
     sheetExamples: ['une assiette', 'la fourchette', 'la serviette', 'la courgette'],
@@ -304,24 +337,28 @@ const FEMININE: EndingRule[] = [
     // 29 until a2.28 « Chez le médecin » CARRIED `la migraine` into the
     // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
     // population; all 18 joiners are IMPORTS. The accuracy did not move.
-    items: 30,
+    // 30 until a2.31 « L'école & les études » CARRIED `la médecine` on 2026-08-16.
+    // The accuracy did not move.
+    items: 31,
     article: 'une',
     example: { id: 'fr.a1.cuisine.001', fr: 'la cuisine', en: 'the kitchen' },
     sheetExamples: ['la piscine', 'la cantine', 'la farine', 'la cousine'],
     breaks: [{ id: 'fr.a1.metiers.165', fr: 'un capitaine', en: 'a captain', kind: 'exception' }],
-    line: 'Twenty-seven of twenty-eight. The one that breaks it is a job: un capitaine.',
+    line: 'Thirty of thirty-one. The one that breaks it is a job: un capitaine.',
   },
   {
     id: 'ise',
     ending: 'ise',
     predicts: 'f',
-    accuracy: 94,
-    items: 18,
+    // 94 until a2.31 CARRIED `une maîtrise` on 2026-08-16, which is feminine, so
+    // the accuracy rose a point.
+    accuracy: 95,
+    items: 19,
     article: 'une',
     example: { id: 'fr.a1.maison.016', fr: 'la chaise', en: 'the chair' },
     sheetExamples: ['la valise', 'la fraise', 'la cerise', 'la framboise', 'l’ardoise'],
     breaks: [{ id: 'fr.a1.deplacements.077', fr: 'le pare-brise', en: 'windshield, windscreen', kind: 'exception' }],
-    line: 'Seventeen of eighteen. The one that breaks it is a car part: le pare-brise.',
+    line: 'Eighteen of nineteen. The one that breaks it is a car part: le pare-brise.',
   },
 ];
 
@@ -457,16 +494,31 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // feminine, which nudges a bucket the lesson calls worthless very slightly
     // more feminine. It is still 19 points under the 90% floor, so it stays
     // correctly filed as worthless and the lesson's claim about it is unchanged.
-    items: 946,
+    // 946 until a2.31, which added six: one MINTED (`une mention`) and five
+    // CARRIED. Still far under the 90% floor, so the bucket stays correctly
+    // filed as worthless and the lesson's claim about it is unchanged.
+    // 961 since a2.32 « La technologie » on 2026-08-16, which added NINE, the
+    // largest single move this bucket has taken from one unit in the band. Two
+    // are authored (`la baladodiffusion`, `le clavardage`) and seven carried.
+    // The accuracy did not move: 71% before and after. Still 19 points under
+    // the floor, so the bucket stays correctly filed as worthless and the
+    // lesson's claim about it is unchanged.
+    items: 961,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
     ],
+    // AN EIGHTH STALE COPY, found by `a1-03-derived-figures.test.ts` on its
+    // first run. The sweep that preceded it fixed seven and missed this one,
+    // which is the argument for the test rather than for another sweep.
+    // Interpolated below, in WORTHLESS_LINE, so it cannot be the ninth.
     line: 'The rule every course gives you. Right seven times in ten, across eight hundred nouns.',
   },
   {
     ending: 'on',
-    accuracy: 59,
+    // 58 until a2.32 on 2026-08-16. See the note above `items`: four feminine
+    // joiners against an ending that predicts masculine.
+    accuracy: 56,
     // 142 until a1.22 imported `le Japon` on 2026-08-07. The accuracy did not
     // move and the ending is still dismissed for being under the floor.
     // 142 until a1.22 imported `le Japon`, 144 since a2.26 carried its shop
@@ -483,7 +535,20 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
     // All three are feminine and the ending predicts masculine, so the accuracy
     // fell one point. Still far under the floor, so the dismissal is unchanged.
-    items: 149,
+    // 149 until a2.31, which added four: `une mention` MINTED plus
+    // `une inscription`, `une session` and `une attestation` CARRIED. All four
+    // are feminine and the ending predicts masculine, so the accuracy fell one
+    // more point. Still far under the floor, so the dismissal is unchanged.
+    // 157 since a2.32 « La technologie » on 2026-08-16: `une connexion`,
+    // `l'application` and `une notification` CARRIED, plus `la baladodiffusion`
+    // AUTHORED. All four are feminine and the ending predicts masculine, so the
+    // accuracy fell TWO points, which is the largest single move this ending has
+    // taken in the band. Still far under the floor, so the dismissal is
+    // unchanged, and the reason is worth keeping: the -on that a technology
+    // vocabulary actually produces is -tion and -xion, which is the reliable
+    // FEMININE slice, so every unit like this one drives -on further from the
+    // masculine reading a learner would guess.
+    items: 157,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -549,15 +614,18 @@ export const MORE_ENDINGS: SheetEnding[] = [
   { ending: 'in', predicts: 'm', accuracy: 98, items: 46 },   // 45 until a2.27 carried `le chemin`, 2026-08-16
   { ending: 'ent', predicts: 'm', accuracy: 97, items: 31 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16
   { ending: 'ard', predicts: 'm', accuracy: 100, items: 18 }, // 17 until a2.27 carried `le retard`, 2026-08-16
-  { ending: 'ant', predicts: 'm', accuracy: 100, items: 20 },   // 18 until a2.26, 2026-08-15
+  { ending: 'ant', predicts: 'm', accuracy: 100, items: 22 },   // 18 until a2.26, 2026-08-15; 22 since a2.32 carried `un identifiant` from BOTH internet and rp-technologie, 2026-08-16
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 16 },
   { ending: 'ot', predicts: 'm', accuracy: 100, items: 16 },
-  { ending: 'ien', predicts: 'm', accuracy: 100, items: 15 },
+  { ending: 'ien', predicts: 'm', accuracy: 100, items: 17 },   // 15 until a2.32 carried `un lien` and `un technicien`, 2026-08-16
   { ending: 'al', predicts: 'm', accuracy: 100, items: 12 },   // 11 until a2.26 authored le sous-total
-  { ending: 'ail', predicts: 'm', accuracy: 100, items: 7 },
+  // 7 until a2.32 AUTHORED `un mail`, 2026-08-16. An English borrowing that
+  // happens to end in the letters -ail and happens to be masculine, so the rule
+  // holds by luck rather than by morphology. Worth knowing if it ever moves.
+  { ending: 'ail', predicts: 'm', accuracy: 100, items: 8 },
   { ending: 'ité', predicts: 'f', accuracy: 94, items: 16 },
   { ending: 'ance', predicts: 'f', accuracy: 100, items: 11 },// 10 until a2.27 carried `la correspondance`, 2026-08-16
-  { ending: 'sion', predicts: 'f', accuracy: 100, items: 7 },
+  { ending: 'sion', predicts: 'f', accuracy: 100, items: 9 },   // 8 until a2.32 AUTHORED `la baladodiffusion`, 2026-08-16
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'euse', predicts: 'f', accuracy: 100, items: 8 },    // 6 until a2.26 carried la vendeuse; 8 since a2.30 MINTED une coiffeuse, 2026-08-16
 ];
@@ -594,3 +662,101 @@ export const WORTHLESS_NOUNS: Noun[] = WORTHLESS_ENDINGS.flatMap((w) => w.bothWa
 export const ENDING_ITEM_IDS = [
   ...new Set([...ENDING_EXAMPLES, ...ENDING_BREAKS, ...WORTHLESS_NOUNS].map((n) => n.id)),
 ];
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  THE FIGURES, SPELLED OUT, DERIVED
+ *
+ *  Added 2026-08-17, after a2.32's merge moved eleven endings and the sweep
+ *  that followed found SEVEN hand-typed copies of figures that had drifted:
+ *  the -tion count appeared four times and two of them still said
+ *  "thirty-six" against a live count of 45; -ier appeared three times saying
+ *  "fifty-five" against 58, stale since 2026-08-09; and the -e bucket said
+ *  "eight hundred" against 961.
+ *
+ *  `a1-03-genre.test.ts` compares the CONSTANTS to `seed.items` and reads no
+ *  rendered body, so every one of those was green while being wrong. Six
+ *  re-renders shipped that way.
+ *
+ *  THE FIX IS TO STOP TYPING THEM. A card that wants a figure interpolates it
+ *  from the rule, so the count and the prose are one value and cannot
+ *  disagree. `a1-03-derived-figures.test.ts` asserts no spelled-out numeral
+ *  survives in the lesson body that contradicts a live count.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+const ONES = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
+  'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen',
+  'eighteen', 'nineteen'];
+const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+/** A cardinal, in words, in the register these cards use: `fifty-eight`,
+ *  `forty-five`, `nine hundred`. Above 999 it gives up and returns digits,
+ *  because no figure on these cards is ever that large and a wrong word is
+ *  worse than a numeral. */
+export function spellNumber(n: number): string {
+  if (!Number.isFinite(n) || n < 0) return String(n);
+  if (n < 20) return ONES[n];
+  if (n < 100) {
+    const t = TENS[Math.floor(n / 10)];
+    const o = n % 10;
+    return o ? `${t}-${ONES[o]}` : t;
+  }
+  if (n < 1000) {
+    // The cards round the big bucket down rather than reading it out: "nine
+    // hundred nouns" is what a learner needs from a 961-noun population, and
+    // the exact figure is on the card that states the rule.
+    //
+    // FLOOR, not round. 961 rounds to ten hundred, which is not English.
+    return `${ONES[Math.floor(n / 100)]} hundred`;
+  }
+  return String(n);
+}
+
+/** Capitalised, for a sentence opening: `Fifty-eight`. */
+export const spellCap = (n: number): string => {
+  const s = spellNumber(n);
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
+/** Look a rule up by its ending, so a card interpolates a live count instead
+ *  of restating one. Throws rather than returning undefined: a card that
+ *  silently loses its figure is exactly the failure this exists to stop. */
+export function ruleFor(ending: string): EndingRule {
+  const r = ENDING_RULES.find((x) => x.ending === ending);
+  if (!r) throw new Error(`no ENDING_RULE for -${ending}; a card is asking for a figure this file does not hold`);
+  return r;
+}
+
+/** The same, for the dismissed buckets. */
+export function worthlessFor(ending: string): WorthlessEnding {
+  const w = WORTHLESS_ENDINGS.find((x) => x.ending === ending);
+  if (!w) throw new Error(`no WORTHLESS_ENDING for -${ending}`);
+  return w;
+}
+
+/** How many nouns carry an ending, in words. `COUNT('ier')` -> `fifty-eight`. */
+export const COUNT = (ending: string): string => spellNumber(ruleFor(ending).items);
+export const COUNT_CAP = (ending: string): string => spellCap(ruleFor(ending).items);
+/** The same for a dismissed bucket, rounded the way the cards read it. */
+export const WORTHLESS_COUNT = (ending: string): string => spellNumber(worthlessFor(ending).items);
+
+/* ── The one `line` that states a population, rebuilt from that population ──
+ *
+ * `line` is authored inside the array literals above, and those are evaluated
+ * before `spellNumber` has its lookup tables, so the figure cannot be
+ * interpolated where the string is written. It is rebuilt here instead, once,
+ * at module load.
+ *
+ * Only the -e bucket needs it: it is the only dismissed ending whose card
+ * states its own size, and it is the one that had been reading "eight hundred"
+ * since the count passed 900. Every other figure on these cards is
+ * interpolated at the point of use through COUNT() and COUNT_CAP().
+ *
+ * The nine ENDING_RULES lines are left as authored prose on purpose. Their
+ * counts are checked against the seed by `a1-03-genre.test.ts` and their
+ * spelled-out figures by `a1-03-derived-figures.test.ts`, so a drift is caught
+ * rather than silently rendered — and their wording carries teaching that a
+ * template would flatten ("The weakest of the ten, and still nine in ten"). */
+for (const w of WORTHLESS_ENDINGS) {
+  if (w.ending !== 'e') continue;
+  w.line = `The rule every course gives you. Right seven times in ten, across ${spellNumber(w.items)} nouns.`;
+}
