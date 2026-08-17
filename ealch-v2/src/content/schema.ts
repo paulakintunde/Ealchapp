@@ -245,7 +245,31 @@ export type RenderMode = (typeof RENDER_MODES)[number];
 
 /** How deep in the lesson a section sits. `core` is the flow every learner
  *  walks and is density-capped; `more` is optional depth; `deep` is reference
- *  material, scrollable, and the one place tables are allowed. */
+ *  material, scrollable, and the one place tables are allowed.
+ *
+ *  ── `more` DOES NOT HIDE A SECTION. MEASURED 2026-08-16. ──
+ *
+ *  `layer` has exactly three consumers in the product and none of them draws
+ *  anything: `isDeep` in density.logic.ts (the word-cap exemption), the same
+ *  validator, and the enum check below. **Zero components read it and zero app
+ *  routes read it.** There is no `=== 'more'` anywhere in render code.
+ *
+ *  So a `more` section renders EXACTLY like a `core` one: numbered in the
+ *  mission rail, counted in the lesson's mission total, tappable and
+ *  completable. Confirmed on a Pixel 6 before it was confirmed by grep, on
+ *  a2.28.l1's two `more` sections inside a header reading "24 missions".
+ *
+ *  What `more` DOES do is opt the section out of the `core-words` and
+ *  `core-list-items` density caps, because `isDeep` is false but the
+ *  `layer === 'core'` test that gates those rules is also false. That is the
+ *  whole of its effect: **it relaxes the density budget on a section the
+ *  learner still walks.** That is close to the opposite of what an author
+ *  reading "optional depth" expects, and seven shipped sections were authored
+ *  on the expectation.
+ *
+ *  Use `render: 'sheet'` plus a `sheetId` if you want a section genuinely off
+ *  the main path. `layer-is-not-read.test.ts` pins the seven so a new one is a
+ *  deliberate decision rather than an assumption. */
 export const LAYERS = ['core', 'more', 'deep'] as const;
 export type Layer = (typeof LAYERS)[number];
 

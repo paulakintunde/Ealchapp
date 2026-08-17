@@ -988,7 +988,20 @@ const SECTIONS: LessonSection[] = [
     terms: ['thePolite'],
     sheetId: 'sheet.a2.13.modaux',
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-13-register' },
-    say: 'Two cards, and that is the whole of this family you are getting. Learn them the way you learned bonjour.',
+    // AMENDED 2026-08-17 per `A2-SITUATIONS/05-A2-13-AMENDMENT-SPEC.md`, which
+    // Paul accepted as option A on 2026-08-15.
+    //
+    // It read « that is the whole of this family you are getting ». That was a
+    // promise about the rest of the level, and it was false when it shipped:
+    // `pourriez-vous` is published UPSTREAM of this lesson, in three SONS rows
+    // (fr.sons.alphabet.219, .282, .422). a2.29 then teaches the softener
+    // ladder as fixed lexis, which a learner would have met as a contradiction.
+    //
+    // The boundary moves from "and nothing else, ever" to "and the family and
+    // its name come later". The TEACHING does not change: still two cards,
+    // still learned whole, still not buildable from anything in this lesson,
+    // and the mood is still never named.
+    say: 'Two cards, and they are the two you carry from here. The family they come from, and what it is called, comes later. Learn them the way you learned bonjour.',
     groups: [
       {
         label: 'The only two worth carrying',
@@ -997,7 +1010,9 @@ const SECTIONS: LessonSection[] = [
           q: `Can you build ${POLITE_FORMS[0]} out of anything in this lesson?`,
           opts: ['Yes, from the je form', 'Yes, from the nous stem', 'No, it is a fixed form to learn whole', 'Yes, by adding -rais'],
           correct: 2,
-          why: `No. It belongs to a family this course has not reached and its name comes much later. Two forms, learned as pieces, and nothing else from that family until then.`,
+          // AMENDED 2026-08-17, spec string 2. « nothing else from that family
+          // until then » -> « the rest of that family waits until then ».
+          why: `No. It belongs to a family this course has not reached and its name comes much later. Two forms, learned as pieces, and the rest of that family waits until then.`,
         },
       },
     ],
@@ -1271,7 +1286,16 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'The polite family',
         head: `Where ${POLITE_FORMS[0]} comes from`,
-        body: `You have two forms of it and they are the two you need. The family they belong to, and what it is for, is past the end of this level entirely. Nothing here needs it.`,
+        // AMENDED 2026-08-17, spec string 3, and it is the ONLY one of the four
+        // that admits new lexis exists. It does so in the weakest terms the
+        // constraint allows: no form, no unit id and no family name. It says
+        // "a situation" rather than "a2.29" on purpose, because a card that
+        // cites a unit is a promise, and CITED_UNITS in the suite would then
+        // need a new entry.
+        //
+        // 41 words, against a core-words cap of 45. Four words of headroom. Do
+        // not pad it.
+        body: `You have two forms of it and they are the two you need. The family they belong to, and what it is for, comes later than this level. A couple more pieces like these turn up in a situation, learned whole.`,
       },
       {
         label: 'The words in the sentences',
@@ -1743,7 +1767,11 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: [POLITE_FORMS[1], `nous ${POLITE_FORMS[1]}`],
             answer: POLITE_FORMS[1],
-            why: 'The only other one worth carrying. Two fixed forms, and nothing else from that family until much later.',
+            // AMENDED 2026-08-17, spec string 4. Round 4 question 4's `why` is
+            // deliberately NOT touched: « all you are carrying for now » is
+            // already a statement about the present rather than a promise
+            // about the level, so it does not contradict a2.29.
+            why: 'The only other one worth carrying. Two fixed forms now, and the family they come from waits until later.',
             ref: 's17-polite',
           },
           {
@@ -2347,7 +2375,17 @@ export const MODAUX_LESSON: Lesson = {
 
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 2,
+  // v3, 2026-08-17. The four "nothing else from that family" strings, amended
+  // per `A2-SITUATIONS/05-A2-13-AMENDMENT-SPEC.md` (Paul, option A, 2026-08-15).
+  //
+  // The spec's apply procedure says to edit `seed.json` by section id. THIS
+  // BUILD DID NOT: a2.13 has a source file, a batch and a merge, so a
+  // seed-direct edit would leave Postgres holding the old strings and the seed
+  // holding the new ones. That is the 2026-07-31 hazard the spec's own §4.4
+  // names first. Verified before editing: the DB body and the seed body were
+  // byte-identical and both carried all four stale strings, so the source is
+  // authoritative and the normal batch-then-merge path applies cleanly.
+  version: 3,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

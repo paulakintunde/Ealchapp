@@ -226,6 +226,80 @@ export function hasPlainNasalFor(fr: string, respell: string): boolean {
   return !/[aeiouyàâäéèêëîïôöûüù][nm]e/i.test(fr);
 }
 
+/* ─── The three ways `hasPlainNasalFor` is wrong, named ────────────────────
+ *
+ * MEASURED 2026-08-17 against all 17,367 published respelled rows. This block
+ * adds NO behaviour: `hasPlainNasalFor` above is byte-for-byte what it was.
+ * What it adds is a DIAGNOSIS, so a build gets a named hole instead of a
+ * silent clear, and so the next person does not re-derive this from scratch.
+ * Every A2 build since a2.11 has hand-rolled a plain/half/to table to work
+ * around it.
+ *
+ * ── Why this is a diagnosis and not a fix ──
+ *
+ * The obvious fix is to scope the two "clear" tests from the whole `fr` string
+ * down to the WORD that produced the flag. That was implemented and measured,
+ * and it is WRONG: it clears 193 rows that must stay flagged, because
+ * `vraiment` contains the letters `ime` and `-ment` is a nasal ending.
+ *
+ * Refining it so the clearing `e` may not be the `-ent`/`-ment` ending fixes
+ * `vraiment`, and still wrongly clears 68 rows, because ONE WORD CAN HOLD BOTH
+ * a real consonant and a nasal vowel:
+ *
+ *     centième     sahn-TYEHM     `ième` is real, `sahn` is a nasal
+ *     apparemment  a-pa-ra-MAHN   `mm` is real, `MAHN` is a nasal
+ *     ennuyer      ahn-nwee-YAY   `nn` is real, `ahn` is a nasal
+ *
+ * So a correct clear has to be per-SYLLABLE, aligned to the grapheme that
+ * produced each respelling token. That is a real piece of work with its own
+ * review, not a regex patch, and shipping a half-fix would trade 2 known false
+ * positives for 68 silent false clears. Hence: named, not changed.        */
+
+/** Which known blind spot applies to this pair, if any.
+ *
+ *  `null` means the verdict from `hasPlainNasalFor` is trustworthy for this
+ *  row. Anything else means the verdict is an artifact of one of the three
+ *  measured holes and must be asserted by hand.
+ *
+ *  - `'digraph-early-return'`  the digraph rule at the top of
+ *    `hasPlainNasalFor` fires and returns TRUE before the French is ever
+ *    consulted, so a genuinely pronounced consonant cannot clear itself.
+ *    `diplôme` respelled `dee-PLOHM` is the case: `ôme` is a real /m/ and the
+ *    repair below is unreachable.
+ *  - `'cross-word-clear'`  the clear was granted by a DIFFERENT WORD in the
+ *    same string. `Sélectionnez une option` respelled `...ü-nop-SYON`: the
+ *    flagged token is `option`, which has one `n`, and `Sélectionnez` carries
+ *    the `nn` that clears it from several words away.
+ *  - `'token-internal'`  a nasal followed by a CONSONANT inside the token, so
+ *    neither pattern can see it in either direction. `compte` respelled
+ *    `KOHNT` matches nothing, because both patterns require the N to end the
+ *    token. This is the hole the invariants already document.
+ */
+export type NasalBlindSpot = 'digraph-early-return' | 'cross-word-clear' | 'token-internal';
+
+export function nasalBlindSpot(fr: string, respell: string): NasalBlindSpot | null {
+  const inner = respell.replace(/^\[|\]$/g, '');
+  const digraph = /(?:AH|OH|EH|UH|EU|AI|OU)[NM](?![A-Za-zÀ-ÿ])/iu.test(inner);
+  const lone = /(?:^|[\s-])[A-ZÀ-Ý]*[AEIOUY][NM](?![A-Za-zÀ-ÿ])/iu.test(inner);
+  const words = fr.split(/[\s'’]+/u).map((w) => w.replace(/[^A-Za-zÀ-ÿ]/gu, '')).filter(Boolean);
+  const realConsonant = (w: string) => /(?:nn|mm)/i.test(w) || /[aeiouyàâäéèêëîïôöûüù][nm]e/i.test(w);
+
+  // A nasal the respelling closes with a consonant that is not at a token
+  // boundary: invisible to both patterns, in both directions.
+  if (!digraph && !lone && /(?:AH|OH|EH|UH|EU|AI|OU|[AEIOUY])[NM][A-Za-zÀ-ÿ]/iu.test(inner)) return 'token-internal';
+
+  if (!digraph && !lone) return null;
+
+  // The digraph rule short-circuits, so a real consonant in the source cannot
+  // rescue the row.
+  if (digraph && words.some(realConsonant)) return 'digraph-early-return';
+
+  // The clear exists, but not in every word: it was granted across a boundary.
+  if (words.length > 1 && words.some(realConsonant) && !words.every(realConsonant)) return 'cross-word-clear';
+
+  return null;
+}
+
 /** Words that are all-caps for reasons other than being a respelling: acronyms
  *  the copy legitimately uses, and the CaReFuL mnemonic, whose whole point is
  *  its capitalisation. Without this the rule fires on ordinary prose. */
