@@ -434,12 +434,39 @@ test('no em dash in any authored string', () => {
 
 /* ── The corpus ─────────────────────────────────────────────────────────── */
 
+/** THE ONE AUTHORED ROW NOTHING REACHES, and the seed is right to drop it.
+ *
+ *  `fr.a2.hebergement.086` « Le problème n'est pas réglé. » is a rung-2 row that
+ *  NO LESSON references: not this one, not a2.30, a2.31 or a2.32, which cite
+ *  .074/.082/.087/.091/.092 and never this. Doctrine §E: every item must be
+ *  reachable, named by a section or released by a deckTranche.
+ *
+ *  It survived in the seed only while the seed was a HAND MERGE. `hebergement`
+ *  is not in `SEED_CUT.themes`, so when v51 regenerated the file from the
+ *  database the cut kept the referenced rows and dropped this one. That is the
+ *  cut working, and this test had been masking an unreachable row by asserting
+ *  all 59 were present.
+ *
+ *  NOT A LEARNER-FACING LOSS: the row is still published in Postgres and ships
+ *  in the OTA snapshot's 48,888 items. It is absent from the offline binary
+ *  only, which is exactly what a cut is for.
+ *
+ *  a2.29's owner may want to make it reachable instead, which would be a
+ *  lesson edit, a re-merge and a republish. Until then this names it. */
+const UNREACHABLE = 86;
+
 test('59 rows authored, contiguous, all in hebergement at a2', () => {
-  strictEqual(MINE.length, 59);
+  // The BLOCK is 74..132 inclusive, 59 ids. What reaches the seed is that block
+  // minus whatever no lesson references, so the count is asserted against the
+  // named exception rather than against a number that hides it.
+  strictEqual(MINE.length, 58, 'the block is 59 ids and .086 is referenced by nothing, so 58 reach the seed');
   const ns = MINE.map((r) => Number(r.id.slice(-3))).sort((a, b) => a - b);
   strictEqual(ns[0], 74);
   strictEqual(ns[ns.length - 1], 132);
-  ok(ns.every((n, i) => i === 0 || n === ns[i - 1] + 1), 'the id block is not contiguous');
+  ok(!ns.includes(UNREACHABLE), `.${UNREACHABLE} is in the seed again. If it was made reachable, drop UNREACHABLE and restore 59.`);
+  const withGap = [...ns, UNREACHABLE].sort((a, b) => a - b);
+  ok(withGap.every((n, i) => i === 0 || n === withGap[i - 1] + 1),
+    'the id block is not contiguous, counting the one row the cut drops');
   for (const r of MINE) {
     strictEqual(r.theme, THEME, `${r.id} is in ${r.theme}`);
     strictEqual(r.level, 'a2');

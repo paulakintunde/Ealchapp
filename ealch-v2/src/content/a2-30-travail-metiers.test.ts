@@ -701,7 +701,26 @@ test('once merged, the seed copy is the authored copy', () => {
   const s = seed as Any as { lessons: Array<Any & { id: string }>; items: Array<{ id: string }>; units: Array<{ id: string; lessonIds?: string[] }> };
   const shipped = s.lessons.find((l) => l.id === LESSON_ID);
   if (!shipped || noSrc) return;   // not merged yet; the invariants above still ran
-  strictEqual(JSON.stringify(shipped), JSON.stringify(L), 'the seed copy has drifted from the authored source');
+  /* DEEP-EQUAL IGNORING KEY ORDER, not a JSON string compare.
+   *
+   * This read `strictEqual(JSON.stringify(shipped), JSON.stringify(L))` and went
+   * green for weeks, because until v51 nobody had run `content:publish` since it
+   * was written. A publish REGENERATES seed.json from the database rather than
+   * carrying the merge's copy, and the generator normalises: key order changes,
+   * and empty arrays like `grammarPoints: []` are omitted rather than written.
+   * 667 item bodies changed that way in v51 and not one of them changed content.
+   *
+   * So a byte comparison against the seed asserts the serialiser, not the
+   * lesson. What this test is for is drift in the CONTENT, and that is what it
+   * compares now. */
+  const sortDeep = (v: unknown): unknown => (Array.isArray(v) ? v.map(sortDeep)
+    : (v && typeof v === 'object')
+      ? Object.fromEntries(Object.keys(v as object).sort()
+        .map((k) => [k, sortDeep((v as Record<string, unknown>)[k])])
+        .filter(([, x]) => x !== undefined))
+      : v);
+  strictEqual(JSON.stringify(sortDeep(shipped)), JSON.stringify(sortDeep(L)),
+    'the seed copy has drifted from the authored source (compared ignoring key order and undefined)');
   const ids = new Set(s.items.map((i) => i.id));
   for (const id of L.itemIds as string[]) ok(ids.has(id), `${id} is referenced and not in the seed, so its card renders empty`);
   const unit = s.units.find((u) => u.id === UNIT_ID);
