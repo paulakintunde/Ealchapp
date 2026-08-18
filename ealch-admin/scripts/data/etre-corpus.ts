@@ -122,6 +122,13 @@
 // hasPlainNasal alone cannot.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
+
 
 /** A corpus entry plus the lesson-facing display data the renderer needs. */
 export type EtreSentence = Omit<Item, 'drills'> & {
@@ -189,7 +196,7 @@ export const ETRE: EtreSentence[] = [
   // and agrees; de plus a place is a PREPOSITION and never moves. Nothing in the
   // corpus taught either, so all seven are authored.
   { id: 'fr.a1.metiers.264', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Je suis français.', en: 'I am French. (said by a man)', ipa: '/ʒə sɥi fʁɑ̃.sɛ/', respell: 'zhuh swee frahⁿ-SEH', form: 'suis', use: 'origin', family: 'origin', tags: ['etre', 'origin', 'adjective', 'agreement', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Lowercase f. The adjective is not capitalised in French the way the English is.' },
-  { id: 'fr.a1.metiers.265', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Je suis française.', en: 'I am French. (said by a woman)', ipa: '/ʒə sɥi fʁɑ̃.sɛz/', respell: 'zhuh swee frahⁿ-SEZ', form: 'suis', use: 'origin', family: 'origin', tags: ['etre', 'origin', 'adjective', 'agreement', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'The e wakes the s, and the two are audibly different. This is the agreement a1.01 taught on enchanté.' },
+  { id: 'fr.a1.metiers.265', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Je suis française.', en: 'I am French. (said by a woman)', ipa: '/ʒə sɥi fʁɑ̃.sɛz/', respell: 'zhuh swee frahⁿ-SEZ', form: 'suis', use: 'origin', family: 'origin', tags: ['etre', 'origin', 'adjective', 'agreement', 'nasal'], drills: S, audioRef: null, version: 1, notes: `The e wakes the s, and the two are audibly different. This is the agreement ${unitRef('a1.01')} taught on enchanté.` },
   { id: 'fr.a1.metiers.266', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Elle est espagnole.', en: 'She is Spanish.', ipa: '/ɛ lɛ tɛs.pa.ɲɔl/', respell: 'el eh tes-pa-NYOL', form: 'est', use: 'origin', family: 'origin', tags: ['etre', 'origin', 'adjective', 'agreement'], drills: S, audioRef: null, version: 1 },
   { id: 'fr.a1.metiers.267', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Ils sont canadiens.', en: 'They are Canadian.', ipa: '/il sɔ̃ ka.na.djɛ̃/', respell: 'eel sohⁿ ka-na-DYAⁿ', form: 'sont', use: 'origin', family: 'origin', tags: ['etre', 'origin', 'adjective', 'agreement', 'plural', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Plural group, plural adjective. The s is silent and the agreement is only on the page.' },
   { id: 'fr.a1.metiers.268', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Je suis de Lyon.', en: 'I am from Lyon.', ipa: '/ʒə sɥi də ljɔ̃/', respell: 'zhuh swee duh LYOHⁿ', form: 'suis', use: 'origin', family: 'origin', tags: ['etre', 'origin', 'preposition', 'no-agreement', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'de plus a town. Nothing agrees with anything, whoever is saying it.' },
@@ -202,7 +209,7 @@ export const ETRE: EtreSentence[] = [
   // it earns a mission rather than an act: see the header of etre-lesson.ts for
   // why it is here at all.
   { id: 'fr.a1.metiers.271', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Je suis fatigué.', en: 'I am tired. (said by a man)', ipa: '/ʒə sɥi fa.ti.ɡe/', respell: 'zhuh swee fa-tee-GAY', form: 'suis', use: 'description', family: 'description', tags: ['etre', 'description', 'adjective', 'agreement'], drills: S, audioRef: null, version: 1 },
-  { id: 'fr.a1.metiers.272', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Je suis fatiguée.', en: 'I am tired. (said by a woman)', ipa: '/ʒə sɥi fa.ti.ɡe/', respell: 'zhuh swee fa-tee-GAY', form: 'suis', use: 'description', family: 'description', tags: ['etre', 'description', 'adjective', 'agreement', 'silent-agreement'], drills: S, audioRef: null, version: 1, notes: 'Identical out loud to the masculine. The agreement is real and it is silent, exactly like désolé and désolée in a1.01.' },
+  { id: 'fr.a1.metiers.272', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Je suis fatiguée.', en: 'I am tired. (said by a woman)', ipa: '/ʒə sɥi fa.ti.ɡe/', respell: 'zhuh swee fa-tee-GAY', form: 'suis', use: 'description', family: 'description', tags: ['etre', 'description', 'adjective', 'agreement', 'silent-agreement'], drills: S, audioRef: null, version: 1, notes: `Identical out loud to the masculine. The agreement is real and it is silent, exactly like désolé and désolée in ${unitRef('a1.01')}.` },
   { id: 'fr.a1.metiers.273', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Elle est grande.', en: 'She is tall.', ipa: '/ɛ lɛ ɡʁɑ̃d/', respell: 'el eh GRAHⁿD', form: 'est', use: 'description', family: 'description', tags: ['etre', 'description', 'adjective', 'agreement', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Here the agreement IS audible: the e wakes the d. Compare fatiguée, where it stays silent.' },
 
   // ── The contrast: c'est against il est, which is the act this lesson is for ─
@@ -221,7 +228,7 @@ export const ETRE: EtreSentence[] = [
 
   // ── The liaison, and the pair that points at a1.07 ───────────────────────
   { id: 'fr.a1.metiers.279', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Vous êtes en retard.', en: 'You are late.', ipa: '/vu zɛt ɑ̃ ʁə.taʁ/', respell: 'voo zet ahⁿ ruh-TAR', form: 'êtes', use: 'description', family: 'liaison', tags: ['etre', 'liaison', 'vous', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Two joins in four words, and the first one is the one nobody hears themselves miss.' },
-  { id: 'fr.a1.metiers.280', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Ils sont en retard.', en: 'They are late.', ipa: '/il sɔ̃ tɑ̃ ʁə.taʁ/', respell: 'eel sohⁿ tahⁿ ruh-TAR', form: 'sont', use: 'description', family: 'liaison', tags: ['etre', 'liaison', 'ils', 'contrast-pair', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'The half of the ils sont / ils ont pair that belongs to this lesson. The other half is a1.07.' },
+  { id: 'fr.a1.metiers.280', kind: 'sentence', level: 'a1', theme: 'metiers', fr: 'Ils sont en retard.', en: 'They are late.', ipa: '/il sɔ̃ tɑ̃ ʁə.taʁ/', respell: 'eel sohⁿ tahⁿ ruh-TAR', form: 'sont', use: 'description', family: 'liaison', tags: ['etre', 'liaison', 'ils', 'contrast-pair', 'nasal'], drills: S, audioRef: null, version: 1, notes: `The half of the ils sont / ils ont pair that belongs to this lesson. The other half is ${unitRef('a1.07')}.` },
 ];
 
 /** Lookup by id. The lesson body builds every screen through this. */
@@ -287,18 +294,18 @@ export const CONTRAST_PAIRS: [string, string][] = [
  *  against `C'est un professeur.` is the contrast act's opening pair, already
  *  met, already drilled. */
 export const REUSED: { id: string; fr: string; why: string }[] = [
-  { id: 'fr.a1.metiers.244', fr: 'Je suis professeur.', why: "a1.11's bare profession, and half of the c'est pair" },
-  { id: 'fr.a1.metiers.245', fr: 'Elle est avocate.', why: 'a1.11, bare profession with a feminine job noun' },
-  { id: 'fr.a1.metiers.246', fr: 'Il est boulanger.', why: 'a1.11, bare profession' },
-  { id: 'fr.a1.metiers.247', fr: "C'est un professeur.", why: "a1.11's exception, and the other half of the pair" },
+  { id: 'fr.a1.metiers.244', fr: 'Je suis professeur.', why: `${Cap(unitRef('a1.11'))}'s bare profession, and half of the c'est pair` },
+  { id: 'fr.a1.metiers.245', fr: 'Elle est avocate.', why: `${Cap(unitRef('a1.11'))}, bare profession with a feminine job noun` },
+  { id: 'fr.a1.metiers.246', fr: 'Il est boulanger.', why: `${Cap(unitRef('a1.11'))}, bare profession` },
+  { id: 'fr.a1.metiers.247', fr: "C'est un professeur.", why: `${Cap(unitRef('a1.11'))}'s exception, and the other half of the pair` },
   { id: 'fr.a1.metiers.014', fr: 'Elle est médecin.', why: 'the bare form of the médecin pair authored above' },
-  { id: 'fr.a1.cafe.177', fr: 'Vous êtes prêt ?', why: 'a1.05, the liaison with a description adjective behind it' },
-  { id: 'fr.a1.cafe.160', fr: 'Vous êtes combien ?', why: 'a1.05, the liaison in the question every learner hears' },
-  { id: 'fr.a1.cafe.154', fr: 'Je suis à la terrasse.', why: 'a1.05, je suis met as a carrier before the verb was the subject' },
-  { id: 'fr.a1.cafe.159', fr: 'Nous sommes trois à la terrasse.', why: 'a1.05, nous sommes already met' },
-  { id: 'fr.a1.cafe.167', fr: 'On est là.', why: 'a1.05, on takes the il form, which is the collapse this lesson inherits' },
-  { id: 'fr.a1.cafe.164', fr: 'Ils sont là.', why: 'a1.05, the shortest ils sont in the corpus' },
-  { id: 'fr.a1.cafe.166', fr: 'Elles sont là.', why: 'a1.05, elles sharing the sont row' },
+  { id: 'fr.a1.cafe.177', fr: 'Vous êtes prêt ?', why: `${Cap(unitRef('a1.05'))}, the liaison with a description adjective behind it` },
+  { id: 'fr.a1.cafe.160', fr: 'Vous êtes combien ?', why: `${Cap(unitRef('a1.05'))}, the liaison in the question every learner hears` },
+  { id: 'fr.a1.cafe.154', fr: 'Je suis à la terrasse.', why: `${Cap(unitRef('a1.05'))}, je suis met as a carrier before the verb was the subject` },
+  { id: 'fr.a1.cafe.159', fr: 'Nous sommes trois à la terrasse.', why: `${Cap(unitRef('a1.05'))}, nous sommes already met` },
+  { id: 'fr.a1.cafe.167', fr: 'On est là.', why: `${Cap(unitRef('a1.05'))}, on takes the il form, which is the collapse this lesson inherits` },
+  { id: 'fr.a1.cafe.164', fr: 'Ils sont là.', why: `${Cap(unitRef('a1.05'))}, the shortest ils sont in the corpus` },
+  { id: 'fr.a1.cafe.166', fr: 'Elles sont là.', why: `${Cap(unitRef('a1.05'))}, elles sharing the sont row` },
   { id: 'fr.a1.corps.216', fr: 'Tu dois te reposer si tu es fatigué.', why: 'one of only four tu es sentences in the whole corpus' },
 ];
 

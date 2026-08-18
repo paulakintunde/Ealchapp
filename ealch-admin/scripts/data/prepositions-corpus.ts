@@ -470,9 +470,9 @@ const CONTRACTION: PrepSentence[] = [
  * each other rather than learned twice. */
 const DE_ARTICLE: PrepSentence[] = [
   S(134, 'Le chat est à côté du lit.', 'The cat is next to the bed.', 'lə ʃa ɛ a ko.te dy li', 'de-article', SFVR,
-    'de + le = du. This is the du a1.29 already named, arriving with a place behind it.'),
+    `de + le = du. This is the du ${unitRef('a1.29')} already named, arriving with a place behind it.`),
   S(135, 'Le chat est près des arbres.', 'The cat is near the trees.', 'lə ʃa ɛ pʁɛ de.zaʁbʁ', 'de-article', SFVR,
-    'de + les = des. The same two letters as the a1.11 des, doing a different job.'),
+    `de + les = des. The same two letters as the ${unitRef('a1.11')} des, doing a different job.`),
   S(136, 'Le chat est à côté de la porte.', 'The cat is next to the door.', 'lə ʃa ɛ a ko.te də la pɔʁt', 'de-article', SFVR,
     'de + la does NOT contract.'),
   S(137, "Le chat est à côté de l'arbre.", 'The cat is next to the tree.', 'lə ʃa ɛ a ko.te də laʁbʁ', 'de-article', SFVR,
@@ -600,6 +600,7 @@ export function toItem(s: PrepSentence): Item {
 
 export { IMPORTED, IMPORTED_SPATIAL, IMPORTED_COMPOUND, IMPORTED_CONTRACTION, IMPORTED_BOUNDED } from './prepositions-imported.ts';
 import { IMPORTED } from './prepositions-imported.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /* ─── The respelling repairs ───────────────────────────────────────────────
  *

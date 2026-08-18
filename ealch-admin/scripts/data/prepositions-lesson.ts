@@ -67,6 +67,12 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { PREPOSITIONS_TERMS, REFRAME } from './prepositions-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 import {
   AUTHORED_SENTENCE_IDS, AUTHORED_WORD_IDS, DE_TAKING, DIRECT, ENTRE_REPAIR,
   PREPOSITIONS, THE_FIVE, THE_SIXTH, enOf, frOf, glossOf, roleIds, sub,
@@ -781,7 +787,7 @@ const SECTIONS: LessonSection[] = [
     type: 'cardDeck',
     id: 's12-du',
     title: 'You Have Met This Du Before',
-    frSub: 'Le du de a1.29',
+    frSub: `Le du de ${unitRef('a1.29')}`,
     hint: 'Four cards, and the first one is a reminder rather than a rule.',
     render: 'deck',
     layer: 'core',
@@ -1766,7 +1772,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-du-collision',
-    description: 'Merges the de + le du with the partitive du taught in a1.29, or the de + les des with the indefinite plural des from a1.11. Reads à côté du lit as some of the bed, or simply stops trusting either word.',
+    description: `Merges the de + le du with the partitive du taught in ${unitRef('a1.29')}, or the de + les des with the indefinite plural des from ${unitRef('a1.11')}. Reads à côté du lit as some of the bed, or simply stops trusting either word.`,
     detectOn: ['s12-du', 's13-de-table', 's25-quiz/r4-the-other-du'],
     drill: 'drill-which-du',
     retest: 'retest-which-du',
@@ -2266,7 +2272,7 @@ export const PREPOSITIONS_LESSON: Lesson = {
  * green, read the assertion before believing it.                              */
 
 export const HANDOVER = {
-  toA122: 'a1.22 shipped mid-build. No id collision. a1.21 teaches no en + country and asserts the absence; it does teach à + place and the full à-contraction, so au/aux can be named rather than re-introduced.',
+  toA122: `${Cap(unitRef('a1.22'))} shipped mid-build. No id collision. ${Cap(unitRef('a1.21'))} teaches no en + country and asserts the absence; it does teach à + place and the full à-contraction, so au/aux can be named rather than re-introduced.`,
   toA126: 'Rooms and furniture used as objects only, no house-vocabulary act. Two reference sheets are wired and should be linked rather than restated. au-dessus de and en dessous de are deliberately NOT taught.',
   respellings: `entre is repaired to ${ENTRE_REPAIR.now} and the shared checker cannot see the fault; the test asserts it by name.`,
 };

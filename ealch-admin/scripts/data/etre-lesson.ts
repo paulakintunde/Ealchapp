@@ -106,6 +106,12 @@ import type {
 } from '../../../ealch-v2/src/content/schema.ts';
 import { ETRE_TERMS, REFRAME } from './etre-terms.ts';
 import { withScenarioAlts } from '../scenario-alts.logic.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 import {
   CONTRAST_PAIRS,
   ETRE_IDS,
@@ -415,7 +421,7 @@ const SECTIONS: LessonSection[] = [
         say: fr(m('251')),
         detail: {
           title: 'The row that does the work',
-          body: 'Three pronouns, one form, and the T is silent. on means we and still takes this form, which is the mismatch a1.05 spent a mission on.',
+          body: `Three pronouns, one form, and the T is silent. on means we and still takes this form, which is the mismatch ${unitRef('a1.05')} spent a mission on.`,
           say: fr('fr.a1.cafe.167'),
         },
       },
@@ -493,7 +499,7 @@ const SECTIONS: LessonSection[] = [
           q: 'Which of these is the form that follows on?',
           opts: ['suis', 'sommes', 'est', 'sont'],
           correct: 2,
-          why: 'on means we and takes the form il takes, so it is est. That collapse was a1.05\'s and it holds for every verb.',
+          why: `on means we and takes the form il takes, so it is est. That collapse was ${unitRef('a1.05')}\'s and it holds for every verb.`,
         },
       },
       {
@@ -652,7 +658,7 @@ const SECTIONS: LessonSection[] = [
     say: 'Nothing. English needs a word here and French forbids one, so this error is guaranteed and it is audible. Tap any line.',
     examples: [
       { fr: fr(m('260')), en: 'I am an architect.', note: 'No un. The gap after suis is the grammar.' },
-      { fr: fr('fr.a1.metiers.244'), en: 'I am a teacher.', note: 'a1.11 taught you this one. It holds for every form of the verb, not only for je suis.' },
+      { fr: fr('fr.a1.metiers.244'), en: 'I am a teacher.', note: `${Cap(unitRef('a1.11'))} taught you this one. It holds for every form of the verb, not only for je suis.` },
       { fr: fr(m('261')), en: 'She is a nurse.', note: 'Same after elle est. The job noun changes for a woman; nothing appears in front of it.' },
       { fr: fr(m('262')), en: 'Are you a student?', note: 'And after tu es. Being a student counts as a job for this rule.' },
       { fr: fr(m('263')), en: 'Are you an engineer?', note: 'And after vous êtes, with the liaison running straight into it.' },
@@ -753,7 +759,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     terms: ['silentAgreement', 'originShapes'],
-    say: 'You already do this. a1.01 had you writing enchantée with an extra e and saying nothing different.',
+    say: `You already do this. ${Cap(unitRef('a1.01'))} had you writing enchantée with an extra e and saying nothing different.`,
     cards: [
       {
         label: 'Already yours',
@@ -802,7 +808,7 @@ const SECTIONS: LessonSection[] = [
     examples: [
       { fr: fr(m('271')), en: 'I am tired.', note: 'A man says this. A woman writes fatiguée and says the same thing.' },
       { fr: fr(m('273')), en: 'She is tall.', note: 'And here the agreement sounds: the e wakes the d.' },
-      { fr: fr('fr.a1.cafe.177'), en: 'Are you ready?', note: 'You met this in a1.05. It was this use of the verb all along.' },
+      { fr: fr('fr.a1.cafe.177'), en: 'Are you ready?', note: `You met this in ${unitRef('a1.05')}. It was this use of the verb all along.` },
       { fr: fr(m('279')), en: 'You are late.', note: 'en retard does not agree with anyone. Not every state is an adjective.' },
       { fr: fr('fr.a1.corps.216'), en: 'You should rest if you are tired.', note: 'One of only four tu es sentences in the whole corpus, and it hides inside a longer one.' },
     ],
@@ -846,7 +852,7 @@ const SECTIONS: LessonSection[] = [
         head: 'An adjective counts as bare',
         fr: fr(m('273')),
         sub: 'grande is not a noun',
-        body: 'Describing rather than naming, so il est or elle est. This is the half a1.11 could not reach.',
+        body: `Describing rather than naming, so il est or elle est. This is the half ${unitRef('a1.11')} could not reach.`,
       },
       {
         label: 'The one to remember',
@@ -899,11 +905,11 @@ const SECTIONS: LessonSection[] = [
         },
       },
       {
-        cells: [fr(CONTRAST_PAIRS[2][0]), fr(CONTRAST_PAIRS[2][1]), 'a1.11 taught this pair'],
+        cells: [fr(CONTRAST_PAIRS[2][0]), fr(CONTRAST_PAIRS[2][1]), `${Cap(unitRef('a1.11'))} taught this pair`],
         say: `${fr(CONTRAST_PAIRS[2][0])} ${fr(CONTRAST_PAIRS[2][1])}`,
         detail: {
           title: 'The pair you already met',
-          body: 'a1.11 gave you these two as a fact about professions. They are really one instance of the little-word test, which also covers things, ideas and names.',
+          body: `${Cap(unitRef('a1.11'))} gave you these two as a fact about professions. They are really one instance of the little-word test, which also covers things, ideas and names.`,
           say: fr(CONTRAST_PAIRS[2][0]),
         },
       },
@@ -1224,7 +1230,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['un or une', 'le or la', 'de', 'Nothing at all'],
             correct: 3,
-            why: 'Nothing. a1.11 gave you this as a fact about professions; it is really a fact about what follows être.',
+            why: `Nothing. ${Cap(unitRef('a1.11'))} gave you this as a fact about professions; it is really a fact about what follows être.`,
             ref: 's10-jobs',
           },
         ],
@@ -1842,7 +1848,7 @@ const ETRE_LESSON_AUTHORED: Lesson = {
   // first paint, and s16-contrast headed a column `il est` above a row whose
   // bare half is a1.11's first-person `Je suis professeur.` Both are content
   // fixes; see the notes at each site.
-  version: 4,
+  version: 7,
 
   grammarAssumed: [
     'The nine subject pronouns, and the six verb forms they sit behind, introduced in a1.05',
@@ -1904,7 +1910,7 @@ const ETRE_LESSON_AUTHORED: Lesson = {
       },
       {
         id: 'rec-a1-06-sont-ont',
-        desc: 'ils sont AND ils ont RECORDED IN THE SAME TAKE, back to back, by one voice at one speed, so the contrast is real rather than an artefact of two sessions. ils sont opens on a clear S; ils ont carries a Z over from the silent S of ils. That single sound is the whole difference between this lesson and a1.07, so the two must be comparable against each other and not against a memory of a different recording. Do not sound the S of ils in either, and do not sound the T of sont.',
+        desc: `ils sont AND ils ont RECORDED IN THE SAME TAKE, back to back, by one voice at one speed, so the contrast is real rather than an artefact of two sessions. ils sont opens on a clear S; ils ont carries a Z over from the silent S of ils. That single sound is the whole difference between this lesson and ${unitRef('a1.07')}, so the two must be comparable against each other and not against a memory of a different recording. Do not sound the S of ils in either, and do not sound the T of sont.`,
         clipIds: ['Ils sont en retard.', 'Ils ont un rendez-vous.', 'Ils sont ici pour la conférence.'],
       },
       {

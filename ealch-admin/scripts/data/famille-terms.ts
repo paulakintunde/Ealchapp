@@ -12,6 +12,12 @@
 // addressed to the curriculum and may use the precise words; cards may not.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 /** The line this lesson hangs on.
  *
@@ -82,7 +88,7 @@ export const FAMILLE_TERMS: Record<string, LessonTerm> = {
     term: 'le and la, for once, match',
     title: 'With people, the article follows the actual person.',
     body:
-      'a1.03 asked you to learn the article with the noun, because for most words nothing about the word '
+      `${Cap(unitRef('a1.03'))} asked you to learn the article with the noun, because for most words nothing about the word `
       + 'tells you which one it takes. Family is the one corner of the language where it does. Le père and '
       + 'la mère, le frère and la sœur, le fils and la fille, l\'oncle and la tante, le cousin and la '
       + 'cousine, le neveu and la nièce. Twelve words, six pairs, and you never have to guess at one of '

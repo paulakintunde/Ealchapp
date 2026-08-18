@@ -89,6 +89,7 @@ import type {
 import { display as d } from './articles-indefinis-corpus.ts';
 import { INDEFINIS_TERMS, REFRAME } from './articles-indefinis-terms.ts';
 import { withScenarioAlts } from '../scenario-alts.logic.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export { REFRAME };
 
@@ -1616,7 +1617,7 @@ const INDEFINIS_LESSON_AUTHORED: Lesson = {
   // The unit shipped with lessonIds: [], so this is the first lesson here and
   // the counter starts at 1. It moves forward on every rebuild: the merge
   // script prints both sides, and "replacing v3 with v1" reads as a rollback.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Every noun carries a gender, and the article in front of it is the choice that gender makes',
@@ -1675,7 +1676,7 @@ const INDEFINIS_LESSON_AUTHORED: Lesson = {
         id: 'rec-a1-11-pairs',
         desc:
           'The two minimal pairs, un against une and des against les, each pair recorded BACK TO BACK IN ONE TAKE ' +
-          'by the same voice at the same speed, in the same way sons.07 pins rec-h-pairs. Both pairs are one vowel ' +
+          `by the same voice at the same speed, in the same way ${unitRef('sons.07')} pins rec-h-pairs. Both pairs are one vowel ` +
           'apart. Also the four passage lines at natural pace, then again at 0.65, so the learner can hear where ' +
           'un ends and hôtel begins without a gap being inserted between them.',
         clipIds: [

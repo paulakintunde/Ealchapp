@@ -161,6 +161,7 @@
 // expects. Same contract as a1.08's four.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /* ─── What the screens display ─────────────────────────────────────────────
  *
@@ -247,21 +248,21 @@ export const RESPELL: Record<string, Display> = {
  *  that never wanted one. */
 export function sub(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.12: no respelling authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.12')}: no respelling authored for "${fr}". Add it to RESPELL.`);
   return d.respell;
 }
 
 /** The IPA of a French form this lesson displays, in slashes. */
 export function ipaOf(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.12: no IPA authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.12')}: no IPA authored for "${fr}". Add it to RESPELL.`);
   return d.ipa;
 }
 
 /** The English gloss of a display string this lesson shows. */
 export function glossOf(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.12: no gloss authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.12')}: no gloss authored for "${fr}". Add it to RESPELL.`);
   return d.en;
 }
 
@@ -1270,13 +1271,13 @@ const BY_ID = new Map<string, { fr: string; en: string }>([
 
 export function frOf(id: string): string {
   const row = BY_ID.get(id);
-  if (!row) throw new Error(`a1.12: no row for "${id}" in the corpus manifest. Add it, or name an id that exists.`);
+  if (!row) throw new Error(`${unitRef('a1.12')}: no row for "${id}" in the corpus manifest. Add it, or name an id that exists.`);
   return row.fr;
 }
 
 export function enOf(id: string): string {
   const row = BY_ID.get(id);
-  if (!row) throw new Error(`a1.12: no row for "${id}" in the corpus manifest`);
+  if (!row) throw new Error(`${unitRef('a1.12')}: no row for "${id}" in the corpus manifest`);
   return row.en;
 }
 

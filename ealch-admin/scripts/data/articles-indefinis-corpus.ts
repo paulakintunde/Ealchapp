@@ -72,6 +72,7 @@
 // runs hasPlainNasalFor over the whole map.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** A corpus entry plus the lesson-facing data the screens need. */
 export type ArticleWord = Omit<Item, 'drills'> & {
@@ -463,7 +464,7 @@ export const RESPELL: Record<string, Display> = {
  *  nothing says so. */
 export function display(fr: string): Display {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.11 corpus: no display data for "${fr}"`);
+  if (!d) throw new Error(`${unitRef('a1.11')} corpus: no display data for "${fr}"`);
   return d;
 }
 

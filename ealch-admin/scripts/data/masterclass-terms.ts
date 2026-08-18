@@ -1,4 +1,5 @@
-// sons.09.l1 glossary — every term the masterclass uses more than once,
+
+import { unitRef } from './_unit-ref.ts';// sons.09.l1 glossary — every term the masterclass uses more than once,
 // defined ONCE, exactly as elision-terms.ts and muettes-terms.ts do it.
 //
 // This lesson has a harder glossary problem than any before it. Five earlier
@@ -66,7 +67,7 @@ export const TERMS: Record<string, LessonTerm> = {
     term: 'a sleeping letter',
     title: 'Silent, or silent for now',
     body:
-      'A final consonant in French is written and not said, which is what sons.06 called silent unless there is a reason. This lesson is where the reason arrives. The letter is not absent, it is asleep, and a vowel sound immediately after it in the same group wakes it. The S of les says nothing in les copains and says a Z in les amis. The T of petit says nothing in un petit chien and says a T in un petit ami. Nothing about the word changed. What changed is what came next. So there is no such thing as a permanently silent final consonant: there are letters that happen to have nothing after them, and letters that do.',
+      `A final consonant in French is written and not said, which is what ${unitRef('sons.06')} called silent unless there is a reason. This lesson is where the reason arrives. The letter is not absent, it is asleep, and a vowel sound immediately after it in the same group wakes it. The S of les says nothing in les copains and says a Z in les amis. The T of petit says nothing in un petit chien and says a T in un petit ami. Nothing about the word changed. What changed is what came next. So there is no such thing as a permanently silent final consonant: there are letters that happen to have nothing after them, and letters that do.`,
     examples: [
       { itemId: 'fr.sons.masterclass.001', note: 'awake' },
       { itemId: 'fr.sons.masterclass.002', note: 'asleep, same letter' },

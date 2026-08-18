@@ -43,6 +43,12 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { NEGATION_TERMS, REFRAME } from './negation-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 import {
   AUTHORED_IDS, BORROWED_IDS, CONTRAST_LIVRE, DROPPED_NE, IMPORTED_IDS, NEGATIVE_IDS,
   PAIRS, POSITIVE_IDS, REUSED_IDS, enOf, frOf, pairsIn, pairsWith, re, sub,
@@ -2007,7 +2013,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-no-elision',
-    description: "Writes « je ne ai pas » or « il ne est pas », leaving ne whole in front of a vowel. sons.07 taught the rule and this is it failing to transfer to a new word.",
+    description: `Writes « je ne ai pas » or « il ne est pas », leaving ne whole in front of a vowel. ${Cap(unitRef('sons.07'))} taught the rule and this is it failing to transfer to a new word.`,
     detectOn: ['s06-elision', 's07-elision-table', 's15-traps', 's27-quiz/r2-in-front-of-a-vowel'],
     drill: 'drill-elision',
     retest: 'retest-elision',
@@ -2388,7 +2394,7 @@ export const NEGATION_LESSON: Lesson = {
   //   defect exactly: an assertion over strings(section) cannot tell "on the
   //   screen" from "one tap away". The English is now in the cell under the
   //   French, which TapTableView draws as a second line.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',

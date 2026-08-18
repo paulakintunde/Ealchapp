@@ -103,6 +103,7 @@
 import type { Lesson, LessonAct, LessonDrill, LessonSection, ErrorTrigger, ReferenceSheet, SceneBeat } from '../../../ealch-v2/src/content/schema.ts';
 import { REFRAME, NOMBRES21_TERMS } from './nombres21-terms.ts';
 import { withScenarioAlts } from '../scenario-alts.logic.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   EASY_IDS,
   HARD_IDS,
@@ -1801,7 +1802,7 @@ const SHEETS: ReferenceSheet[] = [
         title: 'The tens, and the two rules',
         layer: 'deep',
         rows: [
-          { k: 'vingt', v: 'twenty. Taught in a1.02; everything to twenty-nine is built on it.', say: 'vingt' },
+          { k: 'vingt', v: `twenty. Taught in ${unitRef('a1.02')}; everything to twenty-nine is built on it.`, say: 'vingt' },
           { k: 'trente', v: 'thirty.', say: 'trente' },
           { k: 'quarante', v: 'forty.', say: 'quarante' },
           { k: 'cinquante', v: 'fifty.', say: 'cinquante' },

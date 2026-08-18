@@ -41,7 +41,7 @@ import { unitRef } from './_unit-ref.ts';
 /** A citation that OPENS a sentence needs a capital, and the label is built at
  *  interpolation time rather than typed, so the capital has to be applied here.
  *  « lesson 22 said this first » is not a sentence. */
-const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 import {
   IMPORTED_INFINITIVE_ROWS, IMPORTED_REGISTER_ROWS, IMPORTED_SENTENCE_ROWS,
   IMPORTED_VERB_ROWS, IMPORTABLE_IDS, INFINITIVE_ROW_IDS, READ_ONLY_ROWS,

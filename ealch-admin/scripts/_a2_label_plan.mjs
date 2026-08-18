@@ -16,7 +16,12 @@
 import { readdirSync, readFileSync } from 'node:fs';
 
 const unit = process.argv[2];
-if (!/^a2\.\d\d$/.test(unit ?? '')) { console.error('usage: _a2_label_plan.mjs a2.NN'); process.exit(1); }
+// BAND-AGNOSTIC. Written for A2 and generalised when A1 and sons turned out to
+// carry the same defect; nothing in the resolution is A2-specific.
+if (!/^(a1|a2|b1|b2|c1|sons)\.\d\d$/.test(unit ?? '')) {
+  console.error('usage: _a2_label_plan.mjs <track>.NN');
+  process.exit(1);
+}
 
 const rd = (p) => { try { return readFileSync(p, 'utf8'); } catch { return ''; } };
 const esc = unit.replace('.', '\\.');
@@ -36,7 +41,11 @@ const owner = data.find((f) => OWNS.test(rd(`scripts/data/${f}`)))
 if (!owner) { console.error(`no owning data file for ${unit}`); process.exit(2); }
 
 const stem = owner.replace(/-(corpus|lesson|terms|quiz|drills|sheet)\.ts$/, '').replace(/\.ts$/, '');
-const family = data.filter((f) => f === `${stem}.ts` || f.startsWith(`${stem}-`));
+// ONLY THE STEM'S OWN SUFFIXES. `startsWith(`${stem}-`)` let the stem
+// `prepositions` (a1.21) swallow `prepositions-lieu-*` (a2.04) and
+// `prepositions-temps-*` (a2.18), so a run for one lesson rewrote two others.
+const PARTS = ['corpus', 'lesson', 'terms', 'imported', 'display', 'quiz', 'drills', 'sheet', 'wanted', 'rows.gen'];
+const family = data.filter((f) => f === `${stem}.ts` || PARTS.some((x) => f === `${stem}-${x}.ts`));
 
 const scripts = readdirSync('scripts');
 const batch = scripts.find((f) => new RegExp(`^author-${stem}(-batch)?\\.ts$`).test(f))

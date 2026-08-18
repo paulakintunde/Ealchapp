@@ -131,6 +131,7 @@
 // unlike the U+203F tie that shipped broken in sons.10.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** A corpus entry plus the teaching data the lesson's screens need. */
 export type AvoirSentence = Omit<Item, 'drills'> & {
@@ -697,8 +698,8 @@ export const REUSED: { id: string; fr: string; why: string }[] = [
   { id: 'fr.a1.nombres.025', fr: 'Quel âge a-t-il ?', why: 'the same for a man' },
   { id: 'fr.a1.nombres.026', fr: 'Il a soixante ans.', why: 'the plainest age sentence in the corpus' },
   { id: 'fr.a1.nombres.027', fr: 'Mon père a soixante-cinq ans.', why: 'an age about somebody else, in a family frame' },
-  { id: 'fr.a1.nombres.043', fr: 'Mon frère a vingt et un ans.', why: 'the et un that a1.27 taught, reused rather than re-explained' },
-  { id: 'fr.a1.nombres.051', fr: "Elle a quatre-vingt-un ans aujourd'hui.", why: 'quatre-vingt-un, which is a1.27 material carried into a real frame' },
+  { id: 'fr.a1.nombres.043', fr: 'Mon frère a vingt et un ans.', why: `the et un that ${unitRef('a1.27')} taught, reused rather than re-explained` },
+  { id: 'fr.a1.nombres.051', fr: "Elle a quatre-vingt-un ans aujourd'hui.", why: `quatre-vingt-un, which is ${unitRef('a1.27')} material carried into a real frame` },
   { id: 'fr.a1.nombres.056', fr: 'Ma grand-mère a quatre-vingt-dix ans.', why: 'the hardest number in French, in the easiest frame' },
   { id: 'fr.a1.nombres.121', fr: 'Mon voisin a soixante-dix-sept ans mais il court encore.', why: 'an age inside a longer sentence, so it is not only ever a two-word answer' },
   { id: 'fr.a1.nombres.175', fr: 'Le chien de mon grand-père a treize ans.', why: 'an age that is not a person, which is where a learner stops expecting avoir' },
@@ -855,7 +856,7 @@ export const RESPELL: Record<string, Display> = {
  *  nothing says so. */
 export function display(fr: string): Display {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.07 corpus: no display data for "${fr}"`);
+  if (!d) throw new Error(`${unitRef('a1.07')} corpus: no display data for "${fr}"`);
   return d;
 }
 
@@ -872,7 +873,7 @@ export const frOf = (id: string): string => {
   const imported = IMPORTED.find((r) => r.id === id);
   if (imported) return imported.fr;
   const reused = REUSED.find((r) => r.id === id);
-  if (!reused) throw new Error(`a1.07 corpus: unknown id "${id}"`);
+  if (!reused) throw new Error(`${unitRef('a1.07')} corpus: unknown id "${id}"`);
   return reused.fr;
 };
 

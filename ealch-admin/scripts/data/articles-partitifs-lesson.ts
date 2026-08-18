@@ -113,6 +113,7 @@ import type {
 import { display as d } from './articles-partitifs-corpus.ts';
 import { PARTITIFS_TERMS, REFRAME } from './articles-partitifs-terms.ts';
 import { withScenarioAlts } from '../scenario-alts.logic.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export { REFRAME };
 
@@ -1739,7 +1740,7 @@ const PARTITIFS_LESSON_AUTHORED: Lesson = {
         id: 'rec-a1-29-pairs',
         desc:
           'The two minimal pairs this lesson turns on, un against du and du against de, each pair recorded BACK TO ' +
-          'BACK IN ONE TAKE by the same voice at the same speed, in the same way sons.07 pins rec-h-pairs and a1.11 ' +
+          `BACK IN ONE TAKE by the same voice at the same speed, in the same way ${unitRef('sons.07')} pins rec-h-pairs and ${unitRef('a1.11')} ` +
           'pins rec-a1-11-pairs. Both pairs are one vowel and both carry the whole meaning. Then the four listening ' +
           'lines at natural pace and again at 0.65. The warning that matters: DO NOT OVER-ROUND du. Lengthened or ' +
           'relaxed it becomes deux, which is a real word a learner could plausibly have heard, and the exercise ' +

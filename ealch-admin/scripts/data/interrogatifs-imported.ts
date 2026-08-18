@@ -58,6 +58,11 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
+
 export type ImportedRow = Item;
 
 export const IMPORTED: ImportedRow[] = [
@@ -255,7 +260,7 @@ export const REUSED: { id: string; fr: string; en: string; why: string }[] = [
     id: "fr.sons.questions.019",
     fr: "quelle heure est-il ?",
     en: "what time is it?",
-    why: "a1.12 shipped this as a frozen chunk and says so in its own grammarIntroduced: \"Quelle heure "
+    why: `a1.12 shipped this as a frozen chunk and says so in its own grammarIntroduced: \"Quelle heure `
       + "est-il and Vous avez l'heure, as fixed question chunks\". This lesson takes it apart, which is a "
       + "promise a shipped lesson made and could not keep on its own",
   },

@@ -131,6 +131,7 @@ import type {
   SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { GENRE_TERMS, REFRAME } from './genre-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   COUNT,
   COUNT_CAP,
@@ -1363,7 +1364,7 @@ const SECTIONS: LessonSection[] = [
       'The exceptions are short and worth storing: l’eau, la peau, la page, la cage, le squelette, le pare-brise.',
       'L apostrophe hides le and la completely. Switch to un or une in your head, because nothing else will ask.',
       'Le livre is a book and la livre is a pound. The article is not decoration.',
-      'The article you store here is the same choice a1.04 calls le or la, so the next lesson arrives half done.',
+      `The article you store here is the same choice ${unitRef('a1.04')} calls le or la, so the next lesson arrives half done.`,
     ],
   },
 ];

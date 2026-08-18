@@ -46,7 +46,28 @@ const DECL = /^\s*(export\s+)?const\s+[A-Z][A-Z0-9_]*\s*(:[^=]+)?=/;
 // guard then compares against `UNIT.id`. Rewriting it to a label broke that
 // comparison while the card it feeds never showed the id at all.
 const META = /(\b(grammarAssumed|grammarIntroduced|prereqUnitIds|unitId|slug|lessonIds|itemId|itemIds|items|retest|drill|tag)\b|(^|[\s,{])(?:id|unit|owner|track|level)\s*:)/;
-const STRING = /(['"])((?:[^'"\\]|\\.)*)\1/g;
+// A SCANNER, NOT A REGEX. The regex form required the body to hold no quote of
+// either kind, so on
+//   body: "J'aime le café … That is a1.04's rule …"
+// it could not match the double-quoted string, matched `'aime … a1.04'` inside
+// it instead, and rewrapped that in backticks — two French apostrophes
+// destroyed and a `${unitRef(…)}` left inside a plain string, where it never
+// interpolates. It shipped to the seed before the band-wide guard caught it.
+//
+// This walks the line once, so a quote is only a delimiter when nothing else
+// has opened, and returns each string's span with the quote that opened it.
+function stringSpans(line) {
+  const spans = [];
+  let quote = null;
+  let start = -1;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '\\') { i++; continue; }
+    if (quote === null && (c === "'" || c === '"' || c === '`')) { quote = c; start = i; continue; }
+    if (c === quote) { spans.push({ quote, start, end: i, body: line.slice(start + 1, i) }); quote = null; }
+  }
+  return spans;
+}
 
 // Does a MACHINE KEY sit immediately in front of this string? Anchored to the
 // end, so it looks only at what the string is the value OF.
@@ -111,22 +132,27 @@ for (const f of files) {
     // it pairs the apostrophe of one possessive with the apostrophe of the
     // next, calls the text between them a string, and rewraps it in backticks.
     // That produced `}`s rule on ${...`, which does not parse.
-    if (!DECL.test(L) && !L.includes('`')) {
-      L = L.replace(STRING, (m, q, body, off, whole) => {
+    if (!DECL.test(L)) {
+      // Right to left, so an earlier span's offsets stay valid as we rewrite.
+      for (const sp of stringSpans(L).reverse()) {
+        if (sp.quote === '`') continue;               // already a template
         RAW_ID.lastIndex = 0;
-        if (!RAW_ID.test(body)) return m;
+        if (!RAW_ID.test(sp.body)) continue;
         RAW_ID.lastIndex = 0;
         // PER STRING, NOT PER LINE. An examples row puts a machine key and a
         // note on the SAME line — `{ fr: '…', itemId: H(74), note: "a2.13's …" }`
         // — so skipping the whole line because `itemId` appears on it left the
         // note's citation as a raw id. Only the value of a machine key is
         // exempt, and that is decided by what sits immediately in front of it.
-        if (KEY_BEFORE.test(whole.slice(0, off))) return m;
-        // A quoted string cannot interpolate, so it becomes a template literal.
-        const rebuilt = body.replace(RAW_ID, (id) => "${unitRef('" + id + "')}");
+        if (KEY_BEFORE.test(L.slice(0, sp.start))) continue;
+        // A QUOTED OBJECT KEY IS NOT PROSE, and it cannot become a template
+        // literal without brackets: `'the thread, from sons.06': [` parses,
+        // and its backtick form does not. Decided by what follows the string.
+        if (/^\s*:/.test(L.slice(sp.end + 1))) continue;
+        const rebuilt = sp.body.replace(RAW_ID, (id) => "${unitRef('" + id + "')}");
+        L = L.slice(0, sp.start) + '`' + rebuilt.replace(/`/g, '\`') + '`' + L.slice(sp.end + 1);
         n++;
-        return '`' + rebuilt.replace(/`/g, '\\`') + '`';
-      });
+      }
     }
 
     // ONE REPLACEMENT, NOT TWO. Rewriting the opening `${unitRef(` and then
@@ -147,7 +173,7 @@ for (const f of files) {
         '\n\n/** A citation that OPENS a sentence needs a capital, and the label is built at\n' +
         ' *  interpolation time rather than typed, so the capital has to be applied here.\n' +
         ' *  « lesson 22 said this first » is not a sentence. */\n' +
-        'const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);');
+        'function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }');
     }
   }
 

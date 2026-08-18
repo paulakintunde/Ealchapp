@@ -68,6 +68,7 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { PAYS_TERMS, REFRAME } from './pays-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   AUTHORED_SENTENCES, FEMININE, GRID_COUNTRY, GRID_SLOTS, MASCULINE, PLURAL, READING_ONLY_IDS,
   THE_TWELVE, VOWEL_MASCULINE, authoredIds, country, enOf, frOf, gridCell, sub,
@@ -1956,7 +1957,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-agreement',
-    description: 'Leaves the nationality unchanged for a woman, or adds an article after être, or capitalises the description. All three were introduced in a1.06 and all three survive into this lesson on a new set of words.',
+    description: `Leaves the nationality unchanged for a woman, or adds an article after être, or capitalises the description. All three were introduced in ${unitRef('a1.06')} and all three survive into this lesson on a new set of words.`,
     detectOn: ['s17-agreement', 's18-ear', 's19-capital', 's27-quiz/r6-what-you-are'],
     drill: 'drill-agreement',
     retest: 'retest-agreement',
@@ -2291,7 +2292,7 @@ export const PAYS_LESSON: Lesson = {
   //   the role play offered « Je viens de France, de Lyon. » as an alternative
   //   answer. A city takes de with NO article, which is a different rule and
   //   a1.21's, and an alternative is an answer the learner is told is right.
-  version: 2,
+  version: 4,
 
   grammarAssumed: [
     'Noun gender, and that the article in front of a noun is the choice that gender makes, introduced in a1.03',

@@ -149,7 +149,10 @@ const MASCULINE: EndingRule[] = [
     // on 2026-08-16. Both masculine, so the accuracy did not move. a2.32 is the
     // first unit to pull a whole theme across: `internet` held 336 published
     // rows and ZERO in the seed, so all 99 of its carries are new to this file.
-    items: 58,
+    // 57 since 2026-08-18: four orphan rows in `sons.jours-et-mois`,
+    // referenced by no lesson, were removed from the seed by the merges that
+    // own them. The accuracy did not move.
+    items: 57,
     article: 'un',
     example: { id: 'fr.a1.ecole.003', fr: 'le cahier', en: 'notebook' },
     sheetExamples: ['le papier', 'le quartier', 'l’escalier', 'un policier', 'un pompier'],
@@ -161,7 +164,7 @@ const MASCULINE: EndingRule[] = [
     // compares the CONSTANTS to `seed.items` and never reads the rendered body,
     // so a spelled-out figure can drift for a week with every gate green. Same
     // defect a2.31 fixed on -tion and a2.30's merge script names.
-    line: 'Fifty-eight nouns, no exception here. The feminine of a job is -ière, which is a different word.',
+    line: 'Fifty-seven nouns, no exception here. The feminine of a job is -ière, which is a different word.',
   },
   {
     id: 'ment',
@@ -339,7 +342,10 @@ const FEMININE: EndingRule[] = [
     // population; all 18 joiners are IMPORTS. The accuracy did not move.
     // 30 until a2.31 « L'école & les études » CARRIED `la médecine` on 2026-08-16.
     // The accuracy did not move.
-    items: 31,
+    // 30 since 2026-08-18: four orphan rows in `sons.jours-et-mois`,
+    // referenced by no lesson, were removed from the seed by the merges that
+    // own them. The accuracy did not move.
+    items: 30,
     article: 'une',
     example: { id: 'fr.a1.cuisine.001', fr: 'la cuisine', en: 'the kitchen' },
     sheetExamples: ['la piscine', 'la cantine', 'la farine', 'la cousine'],
@@ -503,7 +509,10 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // The accuracy did not move: 71% before and after. Still 19 points under
     // the floor, so the bucket stays correctly filed as worthless and the
     // lesson's claim about it is unchanged.
-    items: 961,
+    // 960 since 2026-08-18: four orphan rows in `sons.jours-et-mois`,
+    // referenced by no lesson, were removed from the seed by the merges that
+    // own them. The accuracy did not move.
+    items: 960,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },

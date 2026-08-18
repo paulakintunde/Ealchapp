@@ -95,6 +95,7 @@
 // the gender of `pain` is a1.03's subject rather than this lesson's.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** A corpus entry plus the teaching data the lesson's screens need. */
 export type PartitiveWord = Omit<Item, 'drills'> & {
@@ -321,7 +322,7 @@ export const IMPORTED: ImportedRow[] = [
     ipa: '/de le.gym/', respell: 'day lay-güm',
     notes: 'Des is the plural partitive article, used the same way for masculine and feminine nouns.',
     tags: ['partitif', 'quantity'], drills: ['flashcard', 'voiceflash'], version: 1,
-    why: 'THE HANDOVER FROM a1.11. Already authored, already glossed as the plural of this family, and the learner already owns the word',
+    why: `THE HANDOVER FROM ${unitRef('a1.11')}. Already authored, already glossed as the plural of this family, and the learner already owns the word`,
   },
   {
     id: 'fr.a1.expressions-de-quantite.069', kind: 'phrase', level: 'a1',
@@ -663,7 +664,7 @@ export const RESPELL: Record<string, Display> = {
  *  nothing says so. */
 export function display(fr: string): Display {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.29 corpus: no display data for "${fr}"`);
+  if (!d) throw new Error(`${unitRef('a1.29')} corpus: no display data for "${fr}"`);
   return d;
 }
 

@@ -218,6 +218,7 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { AVOIR_TERMS, REFRAME } from './avoir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   AVOIR_IDS, FOURTEEN, IMPORTED_IDS, REUSED_IDS, THE_ELEVEN, THE_SIX, THE_THREE,
   familyIds, frOf, sub,
@@ -603,7 +604,7 @@ const SECTIONS: LessonSection[] = [
         say: frOf('fr.a1.famille.223'),
         detail: {
           title: 'The row that does the work',
-          body: 'One letter, and it takes no accent: à with an accent is a different word meaning to or at. Three pronouns share this form, and on means we and still takes it, which is the mismatch a1.05 spent a mission on.',
+          body: `One letter, and it takes no accent: à with an accent is a different word meaning to or at. Three pronouns share this form, and on means we and still takes it, which is the mismatch ${unitRef('a1.05')} spent a mission on.`,
           say: frOf('fr.a1.emotions.042'),
         },
       },
@@ -692,7 +693,7 @@ const SECTIONS: LessonSection[] = [
           q: 'Which of these is the form that follows on?',
           opts: ['ai', 'avons', 'a', 'ont'],
           correct: 2,
-          why: 'on means we and takes the form il takes, so it is a. That collapse was a1.05\'s and it holds for every verb in the language.',
+          why: `on means we and takes the form il takes, so it is a. That collapse was ${unitRef('a1.05')}\'s and it holds for every verb in the language.`,
         },
       },
       {
@@ -829,7 +830,7 @@ const SECTIONS: LessonSection[] = [
         say: frOf('fr.a1.presentation-personnelle.009'),
         detail: {
           title: 'The question, both ways',
-          body: 'Quel âge as-tu to somebody you would call tu, and quel âge avez-vous to anybody else. The register split is a1.01\'s and nothing here changes it. Answer either one the same way.',
+          body: `Quel âge as-tu to somebody you would call tu, and quel âge avez-vous to anybody else. The register split is ${unitRef('a1.01')}\'s and nothing here changes it. Answer either one the same way.`,
           say: frOf('fr.a1.presentation-personnelle.010'),
         },
       },
@@ -2330,7 +2331,7 @@ export const AVOIR_LESSON: Lesson = {
   // a cloze test. s22-scenario was authored before that existed and had neither.
   // Caught by the suite rather than by a device, which is what a seed-wide
   // contract is for.
-  version: 6,
+  version: 8,
 
   grammarAssumed: [
     'The nine subject pronouns, and the six verb forms they sit behind, introduced in a1.05',
@@ -2410,7 +2411,7 @@ export const AVOIR_LESSON: Lesson = {
         id: 'rec-a1-07-pairs',
         desc:
           'The two minimal pairs this lesson turns on, EACH PAIR RECORDED BACK TO BACK IN ONE TAKE by the same voice ' +
-          'at the same speed, in the way sons.07 pins rec-h-pairs and a1.11 pins rec-a1-11-pairs. ils ont against ' +
+          `at the same speed, in the way ${unitRef('sons.07')} pins rec-h-pairs and ${unitRef('a1.11')} pins rec-a1-11-pairs. ils ont against ` +
           'ils sont is a liaison z against an s and it is the same take or it is nothing: recorded apart, the learner ' +
           'compares two performances instead of two verbs. il a against ils ont is a liaison that exists against one ' +
           'that does not, and the temptation is to lean on the ils to make it clearer. DO NOT. The whole difficulty ' +

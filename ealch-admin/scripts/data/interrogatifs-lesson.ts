@@ -212,6 +212,7 @@ const SPEAK_IDS = [
 /** Measured, not chosen. See DICTATION_IDS in interrogatifs-corpus.ts for the
  *  two rows that landed in word mode and were withdrawn. */
 import { DICTATION_IDS } from './interrogatifs-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /* ─── Mission 1 · Scene ────────────────────────────────────────────────────
  *
@@ -2308,7 +2309,7 @@ export const INTERROGATIFS_LESSON: Lesson = {
   // interstitial both drew "One Frame, And It Is Borrowed" above a card saying
   // the learner already has it. Every test stayed green, because the assertion
   // looks for the credit anywhere in the section and the body carried it.
-  version: 2,
+  version: 4,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2512,7 +2513,7 @@ export const INTERROGATIFS_LESSON: Lesson = {
           'One question in three positions, ONE TAKE, adjacent: « Qu\'est-ce que tu fais ? », « Tu fais '
           + 'quoi ? », « Que fais-tu ? ». The learner has to hear that these are the same question, so read '
           + 'all three at the same pace and with the same weight. Do NOT read the third one more formally '
-          + 'than the others: register is a1.19\'s lesson and this one does not teach it, and a performed '
+          + `than the others: register is ${unitRef('a1.19')}\'s lesson and this one does not teach it, and a performed `
           + 'formality would teach it by accident. '
           + 'The subject and object pair, in the same take: « Qu\'est-ce qui est dans le sac ? » and '
           + '« Qu\'est-ce que tu as dans le sac ? ». Everything from dans onwards is identical and must '

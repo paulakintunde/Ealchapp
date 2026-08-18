@@ -151,7 +151,7 @@ import { unitRef } from './_unit-ref.ts';
 
 /** A citation that OPENS a sentence needs a capital, and the label is built at
  *  interpolation time rather than typed, so the capital has to be applied here. */
-const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 /** Every authored row lands in `verbes`, the batch-1 home. Ledger §2. */
 export const THEME = 'verbes';

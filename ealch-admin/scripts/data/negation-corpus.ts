@@ -255,12 +255,12 @@ export const NOT_NASAL_FORMS = [
 
 export function sub(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.18: no respelling for "${fr}"`);
+  if (!d) throw new Error(`${unitRef('a1.18')}: no respelling for "${fr}"`);
   return `${d.ipa} ${d.respell}`;
 }
 export function ipaOf(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.18: no ipa for "${fr}"`);
+  if (!d) throw new Error(`${unitRef('a1.18')}: no ipa for "${fr}"`);
   return d.ipa;
 }
 
@@ -274,12 +274,12 @@ export function ipaOf(fr: string): string {
  *  how this lesson first failed the density validator. */
 export function re(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.18: no respelling for "${fr}"`);
+  if (!d) throw new Error(`${unitRef('a1.18')}: no respelling for "${fr}"`);
   return d.respell;
 }
 export function respellOf(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.18: no respelling for "${fr}"`);
+  if (!d) throw new Error(`${unitRef('a1.18')}: no respelling for "${fr}"`);
   return unbracket(d.respell);
 }
 
@@ -364,7 +364,7 @@ export const PAIRS: Pair[] = [
   P(45, 1, 'être', 'nothing-to-collapse', true,
     'Il est là.', 'He is there.', 'il ɛ la',
     "Il n'est pas là.", 'He is not there.', 'il nɛ pɑ la',
-    "The same wrap, and ne has lost its e because est starts on a vowel. That is the elision rule from sons.07, not a new one.",
+    `The same wrap, and ne has lost its e because est starts on a vowel. That is the elision rule from ${unitRef('sons.07')}, not a new one.`,
     ['negation', 'etre', 'wrap', 'elision']),
   P(47, 1, 'être', 'nothing-to-collapse', false,
     'Nous sommes prêts.', 'We are ready.', 'nu sɔm pʁɛ',
@@ -683,6 +683,7 @@ export const FORBIDDEN_FORMS = [
  * twenty-four borrowed rows are absent from seed.json today.                  */
 
 import { IMPORTED as IMPORTED_ROWS, REUSED as REUSED_ROWS } from './negation-imported.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export const IMPORTED = IMPORTED_ROWS;
 export const REUSED = REUSED_ROWS;
@@ -707,11 +708,11 @@ const BY_ID = new Map<string, { fr: string; en: string }>([
 
 export function frOf(id: string): string {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a1.18: no French for ${id}. It is neither authored, imported nor reused.`);
+  if (!r) throw new Error(`${unitRef('a1.18')}: no French for ${id}. It is neither authored, imported nor reused.`);
   return r.fr;
 }
 export function enOf(id: string): string {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a1.18: no gloss for ${id}. It is neither authored, imported nor reused.`);
+  if (!r) throw new Error(`${unitRef('a1.18')}: no gloss for ${id}. It is neither authored, imported nor reused.`);
   return r.en;
 }

@@ -91,6 +91,7 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { HEURE_TERMS, REFRAME } from './heure-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   CLOCK_PAIRS, HOUR_IDS, QUARTER_PHRASES, QUARTER_WITH_ARTICLE, THE_TWELVE,
   enOf, frOf, glossOf, ipaOf, sub,
@@ -1486,7 +1487,7 @@ const SECTIONS: LessonSection[] = [
       { front: 'Half past noon, written down.', back: 'Il est midi et demi. Midi is masculine, so the half loses its e.', say: frOf('fr.a1.heure-et-date.036') },
       { front: 'Half past eight, written down.', back: 'Il est huit heures et demie. Heure is feminine, so the e is there.', say: frOf('fr.a1.heure-et-date.032') },
       { front: 'You want to ask a stranger the time.', back: 'Quelle heure est-il ? Four words, taken whole, no parts to assemble.', say: frOf('fr.sons.questions.019') },
-      { front: 'The other way to ask, the one you can see inside.', back: "Vous avez l'heure ? The verb from a1.07, with the hour as its object.", say: frOf('fr.a1.heure-et-date.003') },
+      { front: 'The other way to ask, the one you can see inside.', back: `Vous avez l'heure ? The verb from ${unitRef('a1.07')}, with the hour as its object.`, say: frOf('fr.a1.heure-et-date.003') },
       { front: 'You are arranging to meet at ten.', back: `Nous avons rendez-vous à dix heures. ${REFRAME}`, say: frOf('fr.a1.heure-et-date.077') },
       { front: 'You do not want to promise a minute.', back: 'Vers trois heures. Around three, and it replaces à rather than joining it.', say: frOf('fr.sons.jours-et-mois.073') },
       { front: 'The class lasts an hour. Is that a time?', back: 'La classe dure une heure. Same noun, and it answers how long rather than when.', say: frOf('fr.a1.heure-et-date.081') },
@@ -2396,7 +2397,7 @@ export const HEURE_LESSON: Lesson = {
   //   whether an id is RELEASED and not whether it is SHOWN. The test asks the
   //   second question, on content rather than on ids, because this lesson names
   //   its corpus through frOf() and writes no ids into its sections at all.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'The numbers from one to a hundred, introduced in a1.02 and a1.27',

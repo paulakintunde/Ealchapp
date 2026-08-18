@@ -22,6 +22,7 @@
 // and is better for using the precise words. The test pins it.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** The line this lesson hangs on.
  *
@@ -123,7 +124,7 @@ export const PARTITIFS_TERMS: Record<string, LessonTerm> = {
     term: 'le / la / les',
     title: 'The word for the whole of something',
     body:
-      "J'aime le café is I like coffee, all of it, for the rest of your life. That is a1.04's rule and it is here only so you can see it is not the answer to this lesson's question. Le names the whole category or the particular one you have both been talking about. Du names part of it, right now, on this table. Both look wrong to an English speaker and only one of them is what you meant.",
+      `J'aime le café is I like coffee, all of it, for the rest of your life. That is ${unitRef('a1.04')}'s rule and it is here only so you can see it is not the answer to this lesson's question. Le names the whole category or the particular one you have both been talking about. Du names part of it, right now, on this table. Both look wrong to an English speaker and only one of them is what you meant.`,
     examples: [
       { itemId: 'fr.a1.cafe.153', note: 'Some of what is in the pot, now.' },
       { itemId: 'fr.a1.marche.005', note: 'Buying cheese, so an amount of it, even though aimer is in the sentence.' },

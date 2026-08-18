@@ -169,6 +169,12 @@
 import type { Lesson, LessonAct, LessonDrill, LessonSection, ErrorTrigger, ReferenceSheet, SceneBeat } from '../../../ealch-v2/src/content/schema.ts';
 import { REFRAME, ARTICLES_TERMS } from './articles-terms.ts';
 import { withScenarioAlts } from '../scenario-alts.logic.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 export { REFRAME };
 
@@ -435,7 +441,7 @@ const SECTIONS: LessonSection[] = [
     goals: [
       { t: 'Never leave a noun bare', s: 'Put the article where English gives you nothing, which is where you currently lose the sentence.' },
       { t: 'Pick between the four', s: 'Choose le, la, l apostrophe or les for any noun you know, in three questions.' },
-      { t: 'Know when gender stops counting', s: 'Two of those three questions never ask what a1.03 taught you to store.' },
+      { t: 'Know when gender stops counting', s: `Two of those three questions never ask what ${unitRef('a1.03')} taught you to store.` },
       { t: 'Recognise the h that lies', s: 'Tell l heure from le hibou, which is the only place the difference ever shows.' },
     ],
   },
@@ -479,7 +485,7 @@ const SECTIONS: LessonSection[] = [
         head: 'Where French drops it',
         fr: 'Elle est infirmière et elle travaille la nuit.',
         sub: 'She is a nurse and she works nights',
-        body: 'This one runs both ways in a single sentence. French refuses an article in front of a job after être, where English insists on one, and then adds la in front of a time where English gives nothing. a1.11 owns the first half.',
+        body: `This one runs both ways in one sentence. French refuses an article in front of a job after être, where English insists on one, and then adds la in front of a time where English gives nothing. ${Cap(unitRef('a1.11'))} owns the first half.`,
       },
       {
         label: 'What le stands for',
@@ -546,14 +552,14 @@ const SECTIONS: LessonSection[] = [
         head: 'la',
         fr: 'la maison',
         sub: 'the house',
-        body: 'For a feminine noun that starts on a consonant sound. Nothing in the word maison tells you it is feminine, which is a1.03\'s whole subject and the reason you were asked to store the article with the noun.',
+        body: `For a feminine noun that starts on a consonant sound. Nothing in the word maison tells you it is feminine, which is ${unitRef('a1.03')}\'s whole subject and the reason you were asked to store the article with the noun.`,
       },
       {
         label: 'Before a vowel sound',
         head: 'l\'',
         fr: 'l\'eau',
         sub: 'the water',
-        body: 'Le and la both shorten to this in front of a vowel sound, and the two become one word. Water is feminine and the card no longer says so, which is exactly the concealment a1.03 warned about.',
+        body: `Le and la both shorten to this in front of a vowel sound, and the two become one word. Water is feminine and the card no longer says so, which is exactly the concealment ${unitRef('a1.03')} warned about.`,
       },
       {
         label: 'Any plural',
@@ -576,7 +582,7 @@ const SECTIONS: LessonSection[] = [
     steps: [
       'Is the noun plural? Then it is les, whatever its gender. You are done, and you never had to know whether it was masculine or feminine.',
       'Does the noun start on a vowel sound? Then it is l apostrophe, whatever its gender. Done again, and again the gender never came up.',
-      'Neither? Then it is le or la, and only now do you need the gender you stored in a1.03. This is the one branch of the three that asks.',
+      `Neither? Then it is le or la, and only now do you need the gender you stored in ${unitRef('a1.03')}. This is the one branch of the three that asks.`,
     ],
   },
 
@@ -772,7 +778,7 @@ const SECTIONS: LessonSection[] = [
         head: 'Convert it as it arrives',
         fr: 'l\'huile',
         sub: 'so which is it?',
-        body: 'a1.03 asked you to switch a new l apostrophe noun to un or une in your head before storing it. This is where that pays: oil is feminine, you will need la for it eventually, and nothing on this card says so.',
+        body: `${Cap(unitRef('a1.03'))} asked you to switch a new l apostrophe noun to un or une in your head before storing it. This is where that pays: oil is feminine, you will need la for it eventually, and nothing on this card says so.`,
       },
     ],
   },
@@ -1007,7 +1013,7 @@ const SECTIONS: LessonSection[] = [
     // learner taps the noun and the entry tells them the article they can see
     // is the part English would never have said.
     glossary: [
-      { word: 'l\'appartement', en: 'the flat', note: 'Masculine, and the card refuses to say so. Store it as un appartement, the way a1.03 asked.' },
+      { word: 'l\'appartement', en: 'the flat', note: `Masculine, and the card refuses to say so. Store it as un appartement, the way ${unitRef('a1.03')} asked.` },
       { word: 'le boulanger', en: 'the baker', note: 'The baker is masculine and the shop downstairs is la boulangerie, which is feminine. Nobody can tell you why.' },
       { word: 'les voisins', en: 'the neighbours', note: 'Plural, so les, and the gender never entered into it.' },
       { word: 'été', en: 'summer', note: 'The passage says l\'été. The noun on its own is été, and the article in front of it is the word an English speaker would not have said at all.' },
@@ -1169,7 +1175,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['le livre'],
             answer: 'le livre',
-            why: 'Masculine, singular, consonant sound. The one branch of the three where what a1.03 taught you is doing the work.',
+            why: `Masculine, singular, consonant sound. The one branch where ${unitRef('a1.03')} does the work.`,
             ref: 's07-grid',
           },
           {
@@ -1312,9 +1318,9 @@ const SECTIONS: LessonSection[] = [
       'Plural takes les, whatever the gender. A vowel sound takes l apostrophe, whatever the gender.',
       'Only le and la need the gender, which makes it one branch of three rather than the whole decision.',
       'Every French h is silent, and only the article ever tells you which kind you are holding.',
-      'Store the noun with its article, the way a1.03 asked. This lesson is where that habit gets paid.',
+      `Store the noun with its article, the way ${unitRef('a1.03')} asked. This lesson is where that habit gets paid.`,
       'The Z you heard in les amis is a system of its own, and the sons track has a whole lesson on it.',
-      'du, au and aux are these same articles wearing a disguise. a1.29 takes them apart.',
+      `du, au and aux are these same articles wearing a disguise. ${Cap(unitRef('a1.29'))} takes them apart.`,
     ],
   },
 ];
@@ -1493,7 +1499,7 @@ const DRILLS: LessonDrill[] = [
     // plays the same audio and reads the same spelling as every other card
     // teaching these. Display strings here validate as broken ids.
     items: [...LE, ...LA],
-    coach: 'Nothing in the word tells you. This is the fact you stored in a1.03, being asked for.',
+    coach: `Nothing in the word tells you. This is the fact you stored in ${unitRef('a1.03')}, being asked for.`,
   },
   {
     id: 'retest-le-or-la',
@@ -1637,7 +1643,7 @@ const ARTICLES_LESSON_AUTHORED: Lesson = {
   // The shipped lesson is v2, so this rebuild is v3. The counter moves forward
   // rather than restarting: the merge script prints "replacing vX with vY" and
   // a rebuild that renumbers itself reads as a rollback in the log.
-  version: 3,
+  version: 7,
 
   grammarAssumed: [
     'Every noun carries a gender, and it is stored with the noun rather than derived from it',

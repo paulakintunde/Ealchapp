@@ -145,6 +145,7 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { METEO_TERMS, REFRAME } from './meteo-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   BORROWED_IDS, CLOCK_WORDS, DAY_WORDS, FAIRE_FORMS, IMPORTED_IDS, IN_ENGLISH, MONTH_WORDS,
   REUSED_IDS, SEASON_FRAME, SEASON_IDS, SHAPES, THE_FOUR, enFor, enOf, frOf, ipaOf, seasonsIn, sub,
@@ -1860,7 +1861,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-personal-il',
-    description: 'Reads « il fait du vent » as a man doing something, because a1.05 taught that il means he and nothing has said where that stops.',
+    description: `Reads « il fait du vent » as a man doing something, because ${unitRef('a1.05')} taught that il means he and nothing has said where that stops.`,
     detectOn: ['s01-scene', 's03-nobody', 's04-collision', 's15-traps', 's25-quiz/r6-who-is-it-about'],
     drill: 'drill-collision',
     retest: 'retest-collision',
@@ -2203,7 +2204,7 @@ export const METEO_LESSON: Lesson = {
   // sounds" cheat sheet, and two tapTable detail titles carry the pair they
   // describe. a1-10-meteo.test.ts now refuses a RESPELL entry no section
   // displays.
-  version: 4,
+  version: 6,
 
   grammarAssumed: [
     'The full present of être, introduced in a1.06',

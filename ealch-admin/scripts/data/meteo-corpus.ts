@@ -120,6 +120,7 @@
 // contradicts. See the header above for the other three.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /* ─── What the screens display ─────────────────────────────────────────────
  *
@@ -220,7 +221,7 @@ export const RESPELL: Record<string, Display> = {
  *  that never wanted one. */
 export function sub(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.10: no respelling authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.10')}: no respelling authored for "${fr}". Add it to RESPELL.`);
   return d.respell;
 }
 
@@ -229,14 +230,14 @@ export function sub(fr: string): string {
  *  means. */
 export function enFor(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.10: no gloss authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.10')}: no gloss authored for "${fr}". Add it to RESPELL.`);
   return d.en;
 }
 
 /** The IPA of a French form this lesson displays, in slashes. */
 export function ipaOf(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.10: no IPA authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.10')}: no IPA authored for "${fr}". Add it to RESPELL.`);
   return d.ipa;
 }
 
@@ -621,13 +622,13 @@ export const REUSED: ReusedRow[] = [
   { id: 'fr.sons.nasales.018', fr: 'Il fait du vent dehors.', en: 'It is windy outside.', why: 'The weather half of the personal-il pair, and it already ships the correct nasal respelling EEL FEH DÜ VAHⁿ.' },
   { id: 'fr.a1.sports-et-loisirs.156', fr: 'Il fait du yoga tous les matins.', en: 'He does yoga every morning.', why: 'The person half of the same pair. Four words of identical shape and nothing else in common.' },
   { id: 'fr.a1.sports-et-loisirs.169', fr: 'Il fait de la pêche près de la rivière.', en: 'He goes fishing near the river.', why: 'The de la version of the personal reading, so the pair is not a single lucky example.' },
-  { id: 'fr.a1.emotions.017', fr: 'avoir froid', en: 'to be cold', why: 'The fixed expression a1.07 taught. Named here so the bridge is to a card the learner has already rated.' },
-  { id: 'fr.a1.emotions.018', fr: 'avoir chaud', en: 'to be hot', why: 'The other half of a1.07 fixed expressions, and the headword behind the person column.' },
+  { id: 'fr.a1.emotions.017', fr: 'avoir froid', en: 'to be cold', why: `The fixed expression ${unitRef('a1.07')} taught. Named here so the bridge is to a card the learner has already rated.` },
+  { id: 'fr.a1.emotions.018', fr: 'avoir chaud', en: 'to be hot', why: `The other half of ${unitRef('a1.07')} fixed expressions, and the headword behind the person column.` },
   { id: 'fr.a1.famille.230', fr: 'Tu as froid ?', en: 'Are you cold?', why: 'The person frame in the second person, which is the form a learner is asked rather than says.' },
   { id: 'fr.a1.corps.107', fr: "J'ai froid aux pieds.", en: 'My feet are cold.', why: 'The person frame with a body part, showing it is about the person and not about the room.' },
   { id: 'fr.a1.emotions.091', fr: "Elle a chaud dans la salle d'attente.", en: 'She is hot in the waiting room.', why: 'A person who is hot in a room, which is the sentence most likely to be built with être by mistake.' },
   { id: 'fr.a1.emotions.096', fr: 'Il a froid dans le bureau.', en: 'He is cold in the office.', why: 'The il that IS a man, in the avoir frame. It sits against il fait froid and only the verb moves.' },
-  { id: 'fr.a1.nombres.061', fr: 'Il fait moins cinq degrés ce matin.', en: 'It is minus five degrees this morning.', why: 'The weather frame carrying a number, which is where a1.02 and a1.27 pay off inside this lesson.' },
+  { id: 'fr.a1.nombres.061', fr: 'Il fait moins cinq degrés ce matin.', en: 'It is minus five degrees this morning.', why: `The weather frame carrying a number, which is where ${unitRef('a1.02')} and ${unitRef('a1.27')} pay off inside this lesson.` },
 ];
 
 /* ─── Lookups ──────────────────────────────────────────────────────────────*/
@@ -641,14 +642,14 @@ const BY_ID = new Map<string, { fr: string; en: string }>([
  *  undefined, for the same reason `sub` does. */
 export function frOf(id: string): string {
   const row = BY_ID.get(id);
-  if (!row) throw new Error(`a1.10: no corpus row for "${id}". Add it to IMPORTED or REUSED.`);
+  if (!row) throw new Error(`${unitRef('a1.10')}: no corpus row for "${id}". Add it to IMPORTED or REUSED.`);
   return row.fr;
 }
 
 /** The English gloss of a row this lesson names. */
 export function enOf(id: string): string {
   const row = BY_ID.get(id);
-  if (!row) throw new Error(`a1.10: no corpus row for "${id}". Add it to IMPORTED or REUSED.`);
+  if (!row) throw new Error(`${unitRef('a1.10')}: no corpus row for "${id}". Add it to IMPORTED or REUSED.`);
   return row.en;
 }
 

@@ -99,6 +99,12 @@ import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 // The REAL checker, not a copy of it. RESPELL_REPAIRS asks it which repairs it
 // can see rather than inferring that from the repair's own description.
 import { hasPlainNasalFor } from '../../../ealch-v2/src/content/density.logic.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 const C = (n: string) => `fr.a1.corps.${n}`;
 
@@ -428,7 +434,7 @@ export const AUTHORED: AuthoredRow[] = [
     audioRef: null,
     version: V,
     role: 'compound',
-    why: '"châtain clair" returns pg=0. a1.13 taught the compound rule; this is the one place an A1 learner meets it on a person.',
+    why: `"châtain clair" returns pg=0. ${Cap(unitRef('a1.13'))} taught the compound rule; this is the one place an A1 learner meets it on a person.`,
   },
   {
     id: C('299'),

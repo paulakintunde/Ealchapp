@@ -21,6 +21,12 @@
 // behaviour plainly instead. a1-04-articles.test.ts pins that.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 /** The line this lesson hangs on.
  *
@@ -74,7 +80,7 @@ export const ARTICLES_TERMS: Record<string, LessonTerm> = {
   },
   plural: {
     term: 'les',
-    title: 'The form that ignores the question a1.03 taught you to ask',
+    title: `The form that ignores the question ${unitRef('a1.03')} taught you to ask`,
     body:
       'Les is the plural for everything. Masculine, feminine, mixed, it makes no difference, and this is the one place in the language where the gender you worked to store is simply not consulted. It is also the form you will have met least: this app teaches nouns in the singular almost everywhere, so les gets a fraction of the exposure le does, and a learner can finish several lessons having barely seen it. Worth knowing too that the S on the end of the noun is usually silent, so les is the only part of the phrase a listener hears carrying the plural.',
     examples: [
@@ -86,7 +92,7 @@ export const ARTICLES_TERMS: Record<string, LessonTerm> = {
     term: 'a vowel sound',
     title: 'Not a vowel letter, which is where the shipped rule was wrong',
     body:
-      'Le and la both shorten to l apostrophe in front of a noun that STARTS ON A VOWEL SOUND. The distinction between sound and letter looks pedantic and costs a learner a whole category of nouns, because the letter h is written and never pronounced, so whether it counts depends on the word and not on the spelling. l heure and le hibou are both spelled with an h and only one of them shortens. a1.03 taught you that l apostrophe conceals the gender and that you should convert it to un or une before storing it. This lesson is the other half: how to know it was coming.',
+      `Le and la both shorten to l apostrophe in front of a noun that STARTS ON A VOWEL SOUND. The distinction between sound and letter looks pedantic and costs a learner a whole category of nouns, because the letter h is written and never pronounced, so whether it counts depends on the word and not on the spelling. l heure and le hibou are both spelled with an h and only one of them shortens. ${Cap(unitRef('a1.03'))} taught you that l apostrophe conceals the gender and that you should convert it to un or une before storing it. This lesson is the other half: how to know it was coming.`,
     examples: [
       { itemId: 'fr.a1.cuisine.010', note: 'A vowel letter and a vowel sound, so it shortens.' },
       { itemId: 'fr.sons.elision.016', note: 'An h on the page, a vowel sound in the mouth, so it shortens too.' },
@@ -106,9 +112,9 @@ export const ARTICLES_TERMS: Record<string, LessonTerm> = {
   },
   storeIt: {
     term: 'the noun and its article',
-    title: 'The habit a1.03 started, and what this lesson adds to it',
+    title: `The habit ${unitRef('a1.03')} started, and what this lesson adds to it`,
     body:
-      'a1.03 asked you to store every noun with un or une in front of it, because the gender is not recoverable from the word. Keep doing that. What this lesson adds is that the definite article is where the storage gets tested: it is the form you reach for most, it is the one the h words only reveal themselves in, and it is the one English will keep tempting you to leave out. Nearly every noun in this app already carries an article in its own entry, so a card showing you the bare word has quietly taught you to store it bare.',
+      `${Cap(unitRef('a1.03'))} asked you to store every noun with un or une in front of it, because the gender is not recoverable from the word. Keep doing that. What this lesson adds is that the definite article is where the storage gets tested: it is the form you reach for most, it is the one the h words only reveal themselves in, and it is the one English will keep tempting you to leave out. Nearly every noun in this app already carries an article in its own entry, so a card showing you the bare word has quietly taught you to store it bare.`,
     examples: [
       { itemId: 'fr.a1.objets.004', note: 'Stored the way you will need it.' },
       { itemId: 'fr.sons.voyelles.008', note: 'And its opposite number, whose gender is just as arbitrary.' },

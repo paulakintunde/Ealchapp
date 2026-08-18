@@ -120,7 +120,7 @@ import { unitRef } from './_unit-ref.ts';
 /** A citation that OPENS a sentence needs a capital, and the label is built at
  *  interpolation time rather than typed, so the capital has to be applied here.
  *  « lesson 22 said this first » is not a sentence. */
-const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 /** Read from Postgres 2026-08-17 by `corpus:probe --unit a2.08`, not from the
  *  spine and not from the prompt. It agreed with the prompt's block byte for

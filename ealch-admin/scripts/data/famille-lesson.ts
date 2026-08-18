@@ -161,6 +161,7 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { FAMILLE_TERMS, REFRAME } from './famille-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   AUTHORED_IDS, DOUBLE_DUTY, EXTENDED, FILS_PAIR, GENERATIONS, MARRIED, MATCHED_PAIRS,
   THE_TWELVE, WHERE_IT_STOPS, enOf, frOf, glossOf, ipaOf, sub,
@@ -1678,7 +1679,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-guesses-gender',
-    description: 'Guesses at le or la on a family word, having learned in a1.03 that gender mostly has to '
+    description: `Guesses at le or la on a family word, having learned in ${unitRef('a1.03')} that gender mostly has to `
       + 'be memorised, and does not notice that for twelve of these it simply follows the person. The '
       + 'mirror error is applying that rule to le bebe and les parents, where it stops.',
     detectOn: ['s09-truth', 's10-stops', 's11-sort', 's25-quiz/r3-le-or-la'],
@@ -1988,7 +1989,7 @@ export const FAMILLE_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 4,
+  version: 6,
 
   grammarAssumed: [
     'Noun gender, and that le and la follow it, introduced in a1.03',

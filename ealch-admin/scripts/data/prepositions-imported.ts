@@ -119,7 +119,7 @@ export const IMPORTED_COMPOUND: ImportedRow[] = [
   { id: 'fr.a1.prepositions-essentielles.010', fr: 'Le café est à côté de la banque.', en: 'The café is next to the bank.', why: 'à côté de la. The de before a feminine noun, uncontracted.' },
   { id: 'fr.a1.prepositions-essentielles.057', fr: 'Le chien dort à côté du feu.', en: 'The dog sleeps next to the fire.', why: 'à côté du. The contraction firing inside a compound preposition.' },
   { id: 'fr.a1.prepositions-essentielles.096', fr: "La pharmacie est à côté de l'école.", en: 'The pharmacy is next to the school.', why: "à côté de l'. The third article shape, uncontracted, and built on être." },
-  { id: 'fr.a1.maison.124', fr: 'La cuisine est à côté du salon.', en: 'The kitchen is next to the living room.', why: 'à côté du, built on être. ALSO USED BY a1.29, which owns the de + le rule; shown here with a place behind it rather than re-taught.' },
+  { id: 'fr.a1.maison.124', fr: 'La cuisine est à côté du salon.', en: 'The kitchen is next to the living room.', why: `à côté du, built on être. ALSO USED BY a1.29, which owns the de + le rule; shown here with a place behind it rather than re-taught.` },
   { id: 'fr.a1.objets.122', fr: 'Le stylo est à côté du cahier.', en: 'The pen is next to the notebook.', why: 'à côté du, être, and two objects a learner can see on a table.' },
 
   { id: 'fr.a1.prepositions-essentielles.009', fr: 'La pharmacie est en face de la boulangerie.', en: 'The pharmacy is across from the bakery.', why: 'en face de la, être.' },
@@ -150,7 +150,7 @@ export const IMPORTED_CONTRACTION: ImportedRow[] = [
     en: 'The children are playing cards.',
     why: 'aux, and NOT A PLACE. Kept because it is the clearest published `aux` in the corpus and the contraction act needs one; `aux toilettes` returns 0. It appears ONLY on the contraction table, labelled as not being about position, and never on a spatial surface. The test asserts that.',
   },
-  { id: 'fr.a1.prepositions-essentielles.100', fr: 'Il revient du travail à six heures.', en: 'He comes back from work at six o\'clock.', why: 'du = de + le, in the wild, which is the a1.29 collision arriving from the direction this lesson cares about.' },
+  { id: 'fr.a1.prepositions-essentielles.100', fr: 'Il revient du travail à six heures.', en: 'He comes back from work at six o\'clock.', why: `du = de + le, in the wild, which is the a1.29 collision arriving from the direction this lesson cares about.` },
 ];
 
 /* ─── The two that are shown and not drilled ───────────────────────────────
@@ -207,6 +207,6 @@ export const REJECTED: { id: string; fr: string; why: string }[] = [
   {
     id: 'fr.a1.amis.009',
     fr: 'Devant une voyelle, « ma » devient « mon », même pour un nom féminin.',
-    why: 'devant = BEFORE. Also unnamed by the brief, and it belongs to a1.17.',
+    why: `devant = BEFORE. Also unnamed by the brief, and it belongs to a1.17.`,
   },
 ];

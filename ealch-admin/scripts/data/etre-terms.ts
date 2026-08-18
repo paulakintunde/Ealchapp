@@ -9,6 +9,13 @@
 // rest, which is how seven sons.06 sections came to declare chips nobody sees.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
+
 
 /** The line this lesson hangs on.
  *
@@ -57,7 +64,7 @@ export const ETRE_TERMS: Record<string, LessonTerm> = {
     term: 'the six forms',
     title: 'suis, es, est, sommes, êtes, sont',
     body:
-      'Six forms for nine pronouns, because il, elle and on share one and ils and elles share another. That collapse is a1.05\'s and it holds for every verb in the language. What is particular to être is that the six cannot be derived from each other, so this is the one table you memorise rather than work out.',
+      `Six forms for nine pronouns, because il, elle and on share one and ils and elles share another. That collapse is ${unitRef('a1.05')}\'s and it holds for every verb in the language. What is particular to être is that the six cannot be derived from each other, so this is the one table you memorise rather than work out.`,
     examples: [
       { itemId: 'fr.a1.metiers.251', note: 'est, the form three of the nine pronouns take.' },
       { itemId: 'fr.a1.metiers.254', note: 'sont, the form the other two share.' },
@@ -77,10 +84,10 @@ export const ETRE_TERMS: Record<string, LessonTerm> = {
     term: 'the missing article',
     title: 'What a job takes after être',
     body:
-      'Nothing. Je suis professeur, elle est avocate, il est boulanger. English requires a word there and French forbids it, which makes this the one grammatical error a beginner produces out loud in the first minute of every introduction. You met this in a1.11 as a rule about professions; it is really a rule about what follows être.',
+      `Nothing. Je suis professeur, elle est avocate, il est boulanger. English requires a word there and French forbids it, which makes this the one grammatical error a beginner produces out loud in the first minute of every introduction. You met this in ${unitRef('a1.11')} as a rule about professions; it is really a rule about what follows être.`,
     examples: [
       { itemId: 'fr.a1.metiers.260', note: 'No un before architecte.' },
-      { itemId: 'fr.a1.metiers.244', note: "a1.11's sentence, and the one c'est is the exception to." },
+      { itemId: 'fr.a1.metiers.244', note: `${Cap(unitRef('a1.11'))}'s sentence, and the one c'est is the exception to.` },
     ],
   },
   originShapes: {
@@ -100,14 +107,14 @@ export const ETRE_TERMS: Record<string, LessonTerm> = {
       'The one form in the six where the pronoun and the verb bind out loud. The silent s of vous wakes up in front of the vowel and the two words are said as one: voo-ZET, with no gap. Saying them separately is understood and marks you immediately, and it is the kind of error a learner cannot hear in their own mouth.',
     examples: [
       { itemId: 'fr.a1.metiers.253', note: 'The paradigm row, with the join in it.' },
-      { itemId: 'fr.a1.cafe.160', note: 'a1.05\'s question, which you have already heard in a restaurant.' },
+      { itemId: 'fr.a1.cafe.160', note: `${Cap(unitRef('a1.05'))}\'s question, which you have already heard in a restaurant.` },
     ],
   },
   silentAgreement: {
     term: 'silent agreement',
     title: 'An e you write and never say',
     body:
-      'An adjective after être agrees with whoever it describes, and often that agreement makes no sound. fatigué and fatiguée are one word out loud and two on the page, exactly like enchanté and enchantée in a1.01. Sometimes it is audible instead: the e in grande wakes the d, and the one in française wakes the s.',
+      `An adjective after être agrees with whoever it describes, and often that agreement makes no sound. fatigué and fatiguée are one word out loud and two on the page, exactly like enchanté and enchantée in ${unitRef('a1.01')}. Sometimes it is audible instead: the e in grande wakes the d, and the one in française wakes the s.`,
     examples: [
       { itemId: 'fr.a1.metiers.272', note: 'Written agreement, no sound.' },
       { itemId: 'fr.a1.metiers.273', note: 'The same rule, and here you can hear it.' },

@@ -24,7 +24,7 @@ import { unitRef } from './_unit-ref.ts';
 /** A citation that OPENS a sentence needs a capital, and the label is built at
  *  interpolation time rather than typed, so the capital has to be applied here.
  *  « lesson 22 said this first » is not a sentence. */
-const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 import {
   A201_REFRAME, A203_REFRAME, A205_REFRAME, ADJ_UNIT, AGREEMENT_CREDIT,
   AGREEMENT_RULE, AVOIR_CLAIM, EAR_CLAIM, ER_UNIT, FAMILY_UNIT, IRREGULAR_UNIT,

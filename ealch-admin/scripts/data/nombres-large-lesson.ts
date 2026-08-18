@@ -118,6 +118,12 @@
 import type { Lesson, LessonAct, LessonDrill, LessonSection, ErrorTrigger, ReferenceSheet, SceneBeat } from '../../../ealch-v2/src/content/schema.ts';
 import { REFRAME, NOMBRES_LARGE_TERMS } from './nombres-large-terms.ts';
 import { withScenarioAlts } from '../scenario-alts.logic.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 import {
   CENT_ANCHOR_ID,
   CENT_IDS,
@@ -611,7 +617,7 @@ const SECTIONS: LessonSection[] = [
         say: 'mille neuf cent quatre-vingt-dix-neuf',
         detail: {
           title: 'mille neuf cent quatre-vingt-dix-neuf',
-          body: 'Nineteen ninety-nine. Six words, and every rule in this lesson is in it: mille bare, cent with no S because a number follows, and a1.27 doing the last two.',
+          body: `Nineteen ninety-nine. Six words, and every rule in this lesson is in it: mille bare, cent with no S because a number follows, and ${unitRef('a1.27')} doing the last two.`,
           say: 'mille neuf cent quatre-vingt-dix-neuf',
         },
       },
@@ -725,7 +731,7 @@ const SECTIONS: LessonSection[] = [
         say: 'cent',
         detail: {
           title: 'cent',
-          body: 'The rung you arrived with. a1.27 taught it as a ceiling and this lesson uses it as a floor.',
+          body: `The rung you arrived with. ${Cap(unitRef('a1.27'))} taught it as a ceiling and this lesson uses it as a floor.`,
           say: 'cent',
         },
       },
@@ -1409,7 +1415,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['mille never takes one', 'it is not multiplied', 'a number follows it', 'eighty never takes one'],
             correct: 2,
-            why: 'mille is a number and it follows quatre-vingt, which takes the S off exactly as un does in quatre-vingt-un. That is a1.27 rule meeting this one on a single line.',
+            why: `mille is a number and it follows quatre-vingt, which takes the S off exactly as un does in quatre-vingt-un. That is ${unitRef('a1.27')} rule meeting this one on a single line.`,
             ref: 's08-milletable',
           },
           {
@@ -1997,7 +2003,7 @@ const NOMBRES_LARGE_LESSON_AUTHORED: Lesson = {
   // does not draw, so ten rows of reference material rendered as a title and an
   // empty screen. Rebuilt as `teach` blocks plus one short table, and pinned by
   // a test that reads the renderer's own switch. See the note on that sheet.
-  version: 7,
+  version: 8,
 
   grammarAssumed: [
     'Every number from un to cent, including the S on quatre-vingts and where et appears',

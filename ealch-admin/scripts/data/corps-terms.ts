@@ -16,6 +16,7 @@
 // split.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** The line this lesson hangs on.
  *
@@ -122,7 +123,7 @@ export const CORPS_TERMS: Record<string, LessonTerm> = {
     body:
       'Hair is one thing in English and many in French, and so is the pair of eyes. Both take les, '
       + 'and any colour or shape word after them takes an s to match. You cannot hear that s, which '
-      + 'is exactly what a1.13 warned you about.',
+      + `is exactly what ${unitRef('a1.13')} warned you about.`,
     examples: [
       { itemId: 'fr.a1.corps.104', note: 'bleus, with an s you never pronounce.' },
       { itemId: 'fr.a1.corps.106', note: 'longs, same silent s.' },

@@ -399,7 +399,7 @@ export const VOWEL_MASCULINE = bySlot('mv');
  *  wanted one. */
 export function country(bare: string): Country {
   const c = THE_TWELVE.find((x) => x.bare === bare);
-  if (!c) throw new Error(`a1.22: no country authored for "${bare}". Add it to THE_TWELVE.`);
+  if (!c) throw new Error(`${unitRef('a1.22')}: no country authored for "${bare}". Add it to THE_TWELVE.`);
   return c;
 }
 
@@ -463,14 +463,14 @@ export const RESPELL: Record<string, Display> = {
  *  never wanted one. */
 export function sub(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.22: no respelling authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.22')}: no respelling authored for "${fr}". Add it to RESPELL.`);
   return d.respell;
 }
 
 /** The IPA of a French form this lesson displays, in slashes. */
 export function ipaOf(fr: string): string {
   const d = RESPELL[fr];
-  if (!d) throw new Error(`a1.22: no IPA authored for "${fr}". Add it to RESPELL.`);
+  if (!d) throw new Error(`${unitRef('a1.22')}: no IPA authored for "${fr}". Add it to RESPELL.`);
   return d.ipa;
 }
 
@@ -507,7 +507,7 @@ export const GRID_CELLS: GridCell[] = [
 
 export const gridCell = (slot: 'f' | 'm' | 'pl', dir: 'to' | 'from'): GridCell => {
   const c = GRID_CELLS.find((x) => x.slot === slot && x.dir === dir);
-  if (!c) throw new Error(`a1.22: no grid cell for ${slot}/${dir}`);
+  if (!c) throw new Error(`${unitRef('a1.22')}: no grid cell for ${slot}/${dir}`);
   return c;
 };
 
@@ -919,6 +919,7 @@ export const WITHDRAWN_IDS: string[] = [
 ];
 
 import { IMPORTED as IMPORTED_ROWS, REUSED as REUSED_ROWS } from './pays-imported.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export const IMPORTED = IMPORTED_ROWS;
 export const REUSED = REUSED_ROWS;
@@ -943,13 +944,13 @@ const BY_ID = new Map(ALL_ROWS.map((r) => [r.id, r] as const));
 
 export function frOf(id: string): string {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a1.22: no French authored or recorded for "${id}"`);
+  if (!r) throw new Error(`${unitRef('a1.22')}: no French authored or recorded for "${id}"`);
   return r.fr;
 }
 
 export function enOf(id: string): string {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a1.22: no gloss authored or recorded for "${id}"`);
+  if (!r) throw new Error(`${unitRef('a1.22')}: no gloss authored or recorded for "${id}"`);
   return r.en;
 }
 

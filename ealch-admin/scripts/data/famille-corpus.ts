@@ -149,6 +149,12 @@
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { IMPORTED, type ImportedRow } from './famille-imported.ts';
 import { WANTED, WANTED_IDS } from './famille-wanted.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 export { IMPORTED, WANTED, WANTED_IDS };
 export type { ImportedRow };
@@ -284,7 +290,7 @@ export const RESPELL_REPAIRS: RespellRepair[] = [
   {
     id: 'fr.a1.famille.014', fr: 'les parents',
     from: 'LAY pah-RAHN', to: unbracket(RESPELL['les parents'].respell), caughtByChecker: true,
-    why: 'a plain n closes the genuine nasal /ɑ̃/ in -ents. Same class as a1.13\'s blanc BLAHN.',
+    why: `a plain n closes the genuine nasal /ɑ̃/ in -ents. Same class as ${unitRef('a1.13')}\'s blanc BLAHN.`,
   },
   {
     id: 'fr.a1.famille.018', fr: 'la femme',
@@ -296,7 +302,7 @@ export const RESPELL_REPAIRS: RespellRepair[] = [
       + 'sound that is not there, and it is NOT flagged, so the checker cannot protect this row in either '
       + 'direction. LAH FAM passes, is verified in scripts/_famille_probe.ts, and matches the plain-A '
       + 'convention already shipped in this theme at .048 (luh pa-PA) and .053 (la ta-TA). Do not "fix" '
-      + 'this into a superscript. Same class as a1.13\'s jaune ZHOHN -> ZHON.',
+      + `this into a superscript. Same class as ${unitRef('a1.13')}\'s jaune ZHOHN -> ZHON.`,
   },
   {
     id: 'fr.a1.famille.020', fr: "l'enfant",
@@ -427,7 +433,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     ipa: ipaOf('la mère de Paul'), respell: unbracket(sub('la mère de Paul')),
     notes: 'English puts the owner first and adds an apostrophe. French puts the relationship first and '
       + 'joins it with de. The two names come out in the opposite order.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash', 'dictation'], version: 1, cardType: 'vocab',
   },
   {
@@ -435,7 +441,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'le père de Marie', en: "Marie's father",
     ipa: ipaOf('le père de Marie'), respell: unbracket(sub('le père de Marie')),
     notes: 'The relationship first, then de, then the owner.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash'], version: 1, cardType: 'vocab',
   },
   {
@@ -443,7 +449,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'le frère de Paul', en: "Paul's brother",
     ipa: ipaOf('le frère de Paul'), respell: unbracket(sub('le frère de Paul')),
     notes: 'Pairs with .235: same owner, different relationship, so only the first word moves.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash'], version: 1, cardType: 'vocab',
   },
   {
@@ -451,7 +457,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'la sœur de Marie', en: "Marie's sister",
     ipa: ipaOf('la sœur de Marie'), respell: unbracket(sub('la sœur de Marie')),
     notes: 'Pairs with .236: same owner, different relationship.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash', 'dictation'], version: 1, cardType: 'vocab',
   },
   {
@@ -459,7 +465,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'la fille de Paul', en: "Paul's daughter",
     ipa: ipaOf('la fille de Paul'), respell: unbracket(sub('la fille de Paul')),
     notes: 'Daughter, not girl. With de and a name behind it, la fille is a relationship.',
-    tags: ['famille', 'de-possession', 'double-meaning', 'a1.15'],
+    tags: ['famille', 'de-possession', 'double-meaning', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash'], version: 1, cardType: 'vocab',
   },
   {
@@ -467,7 +473,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'le fils de Marie', en: "Marie's son",
     ipa: ipaOf('le fils de Marie'), respell: unbracket(sub('le fils de Marie')),
     notes: 'The l in fils is silent and the s is said: FEES, not FEELS.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash', 'dictation'], version: 1, cardType: 'vocab',
   },
 
@@ -477,14 +483,14 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'Marie est la sœur de Paul.', en: "Marie is Paul's sister.",
     notes: 'Half of the pair. Only the name after de changes between this and .242, and the meaning '
       + 'changes with it.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review', 'dictation'], version: 1, cardType: 'vocab',
   },
   {
     id: 'fr.a1.famille.242', kind: 'sentence', level: 'a1', theme: 'famille',
     fr: 'Paul est le frère de Marie.', en: "Paul is Marie's brother.",
     notes: 'The other half. The same two people, and de now points at Marie.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review'], version: 1, cardType: 'vocab',
   },
 
@@ -492,16 +498,16 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
   {
     id: 'fr.a1.famille.243', kind: 'sentence', level: 'a1', theme: 'famille',
     fr: 'Voici la mère de Paul.', en: "This is Paul's mother.",
-    notes: 'Voici puts somebody in front of the person you are talking to. a1.01 already used it at '
+    notes: `Voici puts somebody in front of the person you are talking to. ${Cap(unitRef('a1.01'))} already used it at `
       + 'fr.a1.salutations.073.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review'], version: 1, cardType: 'vocab',
   },
   {
     id: 'fr.a1.famille.244', kind: 'sentence', level: 'a1', theme: 'famille',
     fr: 'Voici le grand-père de Marie.', en: "This is Marie's grandfather.",
     notes: 'The same frame with a longer relationship word in it. Nothing about the order changes.',
-    tags: ['famille', 'de-possession', 'a1.15'],
+    tags: ['famille', 'de-possession', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review'], version: 1, cardType: 'vocab',
   },
 
@@ -509,9 +515,9 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
   {
     id: 'fr.a1.famille.245', kind: 'sentence', level: 'a1', theme: 'famille',
     fr: "J'ai un frère et deux sœurs.", en: 'I have one brother and two sisters.',
-    notes: 'avoir plus a number. a1.07 owns the verb and a1.02 owns the numbers, so this sentence needs '
+    notes: `avoir plus a number. ${Cap(unitRef('a1.07'))} owns the verb and ${unitRef('a1.02')} owns the numbers, so this sentence needs `
       + 'nothing new.',
-    tags: ['famille', 'avoir', 'a1.15'],
+    tags: ['famille', 'avoir', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review'], version: 1, cardType: 'vocab',
   },
   {
@@ -519,7 +525,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: "Je n'ai pas de frère.", en: 'I do not have a brother.',
     notes: 'After a negative, un and une flatten to de. The same frame as fr.a1.famille.233, '
       + '« Je n\'ai pas de voiture. »',
-    tags: ['famille', 'avoir', 'negation', 'a1.15'],
+    tags: ['famille', 'avoir', 'negation', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review', 'dictation'], version: 1, cardType: 'vocab',
   },
   {
@@ -527,7 +533,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'Tu as des frères et sœurs ?', en: 'Do you have any brothers and sisters?',
     notes: 'The question you will be asked. Rising intonation, no inversion, which is how it is really '
       + 'said.',
-    tags: ['famille', 'avoir', 'question', 'a1.15'],
+    tags: ['famille', 'avoir', 'question', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review'], version: 1, cardType: 'vocab',
   },
 
@@ -537,7 +543,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'mon père', en: 'my father',
     ipa: ipaOf('mon père'), respell: unbracket(sub('mon père')),
     notes: 'Learn it as one word. Mon goes with the words that take le.',
-    tags: ['famille', 'frozen-possessive', 'a1.15'],
+    tags: ['famille', 'frozen-possessive', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash'], version: 1, cardType: 'vocab',
   },
   {
@@ -545,7 +551,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'ma mère', en: 'my mother',
     ipa: ipaOf('ma mère'), respell: unbracket(sub('ma mère')),
     notes: 'Ma goes with the words that take la.',
-    tags: ['famille', 'frozen-possessive', 'a1.15'],
+    tags: ['famille', 'frozen-possessive', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash'], version: 1, cardType: 'vocab',
   },
   {
@@ -553,7 +559,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: 'mes parents', en: 'my parents',
     ipa: ipaOf('mes parents'), respell: unbracket(sub('mes parents')),
     notes: 'Mes goes with anything plural, whichever kind of word it is.',
-    tags: ['famille', 'frozen-possessive', 'a1.15'],
+    tags: ['famille', 'frozen-possessive', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash'], version: 1, cardType: 'vocab',
   },
 
@@ -564,7 +570,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     ipa: ipaOf('les enfants'), respell: unbracket(sub('les enfants')), gender: 'm',
     notes: 'Masculine plural, whatever mix of boys and girls it covers. The theme holds the singular '
       + 'l\'enfant and has never held the plural.',
-    tags: ['famille', 'noun', 'plural', 'a1.15'],
+    tags: ['famille', 'noun', 'plural', `${Cap(unitRef('a1.15'))}`],
     drills: ['flashcard', 'voiceflash'], version: 1, cardType: 'vocab',
   },
 
@@ -574,7 +580,7 @@ export const AUTHORED_ROWS: AuthoredRow[] = [
     fr: "C'est la fille de Paul.", en: "That is Paul's daughter.",
     notes: 'La fille is girl or daughter. With de and a name behind it, only one reading is available, '
       + 'and that is what de buys you.',
-    tags: ['famille', 'de-possession', 'double-meaning', 'a1.15'],
+    tags: ['famille', 'de-possession', 'double-meaning', `${Cap(unitRef('a1.15'))}`],
     drills: ['sentence', 'flashcard', 'review'], version: 1, cardType: 'vocab',
   },
 ];
@@ -723,7 +729,7 @@ export const WITHDRAWN: { fr: string; where: string; why: string }[] = [
   {
     fr: 'la personne', where: 'fr.sons.noms-essentiels.009',
     why: 'the brief asks for it as the second exception to the matching rule. Authoring it into famille '
-      + 'as a gendered singular word joins a1.03\'s measured ending population and moves the printed -e '
+      + `as a gendered singular word joins ${unitRef('a1.03')}\'s measured ending population and moves the printed -e `
       + 'figure from 873 to 874, which a1-03-genre.test.ts compares exactly. MEASURED in '
       + 'scripts/_famille_probe.ts through the real endingPopulation. The rule ships with le bébé and the '
       + 'masculine plurals instead, both already in the theme, both costing nothing.',

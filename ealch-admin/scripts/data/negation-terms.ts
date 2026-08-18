@@ -31,6 +31,7 @@
 // are the other half.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** The line this lesson hangs on.
  *
@@ -133,7 +134,7 @@ export const NEGATION_TERMS: Record<string, LessonTerm> = {
       + 'happening. J\'ai le livre becomes je n\'ai pas le livre. There is no version of this where they collapse '
       + 'and no verb that makes them. That is worth knowing for its own sake and it is also useful backwards: if '
       + 'a de turned up, the sentence had a un, une or des in it, and if nothing changed, it did not. This is the '
-      + 'same asymmetry a1.11 and a1.29 pointed at, arriving here with a second reason to trust it.',
+      + `same asymmetry ${unitRef('a1.11')} and ${unitRef('a1.29')} pointed at, arriving here with a second reason to trust it.`,
     examples: [
       { itemId: 'fr.a1.negation-et-restriction.060', note: 'Le survived, and the verb was avoir, which collapses the other kind.' },
       { itemId: 'fr.a1.expressions-utiles.095', note: 'The same survival in an ordinary published sentence.' },

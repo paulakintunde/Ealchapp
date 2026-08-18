@@ -148,6 +148,12 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { JOURS_TERMS, REFRAME } from './jours-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 import {
   BORROWED_IDS, CHUNK_IDS, CONTRAST_PAIRS, DAY_IDS, FRAME_IDS, IMPORTED_IDS, JOURS_IDS,
   MONTH_IDS, ORIGINS, REUSED_IDS, THE_SEVEN, enOf, frOf, ipaOf, sideIds, sub,
@@ -676,7 +682,7 @@ const SECTIONS: LessonSection[] = [
         head: 'The same le as le café',
         fr: "J'aime le café.",
         sub: 'I like coffee',
-        body: 'a1.04 taught this le: coffee in general rather than one cup, where English uses no article at all. A day works the same way, and this lesson is that rule pointed at a Monday.',
+        body: `${Cap(unitRef('a1.04'))} taught this le: coffee in general rather than one cup, where English uses no article at all. A day works the same way, and this lesson is that rule pointed at a Monday.`,
       },
       {
         label: 'The line',
@@ -2097,7 +2103,7 @@ export const JOURS_LESSON: Lesson = {
   // Tuesday that was only ever a drill item. The two are released where they are
   // shown instead, and the third is dropped and replaced in drill-lowercase by a
   // sentence the lesson actually puts on a screen.
-  version: 7,
+  version: 10,
 
   grammarAssumed: [
     'le, la, l\' and les, including le in front of a general noun, introduced in a1.04',
