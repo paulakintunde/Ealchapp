@@ -101,6 +101,27 @@ const OMIT_IF_NULL = [
   'cardType', 'prompt', 'skill', 'register', 'verbCheck', 'grammarPoints',
 ];
 
+/** WHAT "EMPTY" MEANS, AND IT IS NOT JUST `null`.
+ *
+ *  The first version of this file tested `=== null || === undefined`, so an
+ *  EMPTY ARRAY went straight through and this merge wrote `grammarPoints: []`
+ *  onto all 27 authored rows. Nothing rendered differently, and the cost was a
+ *  merge that fights every other author's: a2.32's merge strips the field, so
+ *  the two scripts rewrote the same 27 rows back and forth and produced diff
+ *  churn on a file several builds are writing at once.
+ *
+ *  MEASURED ACROSS ALL 10,357 SEED ITEMS, and the convention is absolute: of
+ *  the eleven optional fields above, NOT ONE is ever null, an empty array or an
+ *  empty string anywhere in the file. An optional field is populated or it is
+ *  absent. `ipa` 8624 present · `respell` 5750 · `grammarPoints` 1, and zero
+ *  empties of any kind in any of them.
+ *
+ *  `audioRef` is deliberately NOT subject to this: it is present and null on
+ *  every row in the seed, so it is always emitted. `tags` and `drills` are not
+ *  on the list at all and are untouched. */
+const isEmptyOptional = (v: unknown): boolean =>
+  v === null || v === undefined || v === '' || (Array.isArray(v) && v.length === 0);
+
 /** THE LESSONS THIS MERGE MUST NOT DISTURB, NAMED RATHER THAN COUNTED.
  *  Invariants §5: a count alone lets a one-for-one swap through. These six are
  *  the ones whose content this build is nearest to: the three pronoun lessons
@@ -196,7 +217,7 @@ async function main() {
     // diverges from every other row in the file. Both halves matter.
     carried = r.rows.map(({ status, ...rest }) => {
       const row: Record<string, unknown> = { ...rest, drills: toArray(rest.drills) };
-      for (const k of OMIT_IF_NULL) if (row[k] === null || row[k] === undefined) delete row[k];
+      for (const k of OMIT_IF_NULL) if (isEmptyOptional(row[k])) delete row[k];
       row.audioRef = row.audioRef ?? null;
       return row as Item;
     });
@@ -224,7 +245,7 @@ async function main() {
       Object.assign(target, row);
       // Object.assign cannot REMOVE a key, so a `respell: null` written by an
       // earlier run survives an overwrite that simply omits it.
-      for (const k of OMIT_IF_NULL) if (target[k] === null || target[k] === undefined) delete target[k];
+      for (const k of OMIT_IF_NULL) if (isEmptyOptional(target[k])) delete target[k];
       target.audioRef = target.audioRef ?? null;
       updated++;
     } else { byId.set(row.id, row); added++; }
@@ -236,7 +257,9 @@ async function main() {
   for (const it of byId.values()) {
     if (it.theme !== THEME) continue;
     const row = it as Record<string, unknown>;
-    for (const k of OMIT_IF_NULL) if (row[k] === null) { delete row[k]; sanitised++; }
+    // WAS `=== null` ONLY, which is a third spelling of the same rule in one
+    // file. All three call sites now share `isEmptyOptional`.
+    for (const k of OMIT_IF_NULL) if (k in row && isEmptyOptional(row[k])) { delete row[k]; sanitised++; }
   }
   if (sanitised) console.log(`  sanitised ${sanitised} null optional field(s) written by an earlier run`);
 
@@ -248,9 +271,45 @@ async function main() {
   seed.items = [...byId.values()];
 
   // Upsert the lesson. Not sorted, for the same reason.
+  //
+  // AND NOT REWRITTEN WHEN NOTHING CHANGED, WHICH IS THE SAME LESSON AS
+  // `grammarPoints` ONE LEVEL UP.
+  //
+  // `content:publish` regenerates the seed FROM Postgres, where the body is
+  // `jsonb` — and jsonb NORMALISES KEY ORDER. This script writes the body from
+  // the TypeScript object literal, in source order. So after any publish the
+  // two orders differ, and an unconditional assignment rewrites every line of
+  // the lesson to say exactly what it already said: measured at 1,216
+  // insertions and 1,216 deletions for ZERO semantic change, on a file several
+  // builds are writing at once.
+  //
+  // That is the same "unreviewable diff and a guaranteed conflict with every
+  // other author" this file already warns about for sorting. So the comparison
+  // is order-insensitive and an unchanged lesson is left exactly as it is.
+  const orderInsensitiveEqual = (a: unknown, b: unknown): boolean => {
+    if (a === b) return true;
+    if (Array.isArray(a) || Array.isArray(b)) {
+      if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+      return a.every((x, i) => orderInsensitiveEqual(x, b[i]));
+    }
+    if (a && b && typeof a === 'object' && typeof b === 'object') {
+      const ka = Object.keys(a as object), kb = Object.keys(b as object);
+      if (ka.length !== kb.length) return false;
+      return ka.every((k) => k in (b as object)
+        && orderInsensitiveEqual((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[k]));
+    }
+    return false;
+  };
   const li = seed.lessons.findIndex((l) => l.id === LESSON.id);
-  if (li >= 0) seed.lessons[li] = LESSON as unknown as Lesson;
-  else seed.lessons.push(LESSON as unknown as Lesson);
+  if (li < 0) {
+    seed.lessons.push(LESSON as unknown as Lesson);
+    console.log(`\n  ${LESSON.id} added to the seed`);
+  } else if (orderInsensitiveEqual(seed.lessons[li], LESSON)) {
+    console.log(`\n  ${LESSON.id} is already in the seed and identical; left untouched (no key-order churn)`);
+  } else {
+    seed.lessons[li] = LESSON as unknown as Lesson;
+    console.log(`\n  ${LESSON.id} differs from the seed and was rewritten`);
+  }
 
   // Carry the unit row: lessonIds only. `themes` is null on this unit in
   // Postgres, in the spine and here, and this build does not create a themes
