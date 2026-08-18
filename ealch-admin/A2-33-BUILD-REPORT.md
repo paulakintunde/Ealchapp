@@ -437,13 +437,14 @@ Verified on the phone:
 - **the reference sheet** — `teach` body and the eight-row three-column table,
   every cell on one line, no horizontal clipping
 
-**The gaps I did not close, named precisely.** I walked missions 3, 4, 6 and 15
-and the reference sheet. I did **not** walk **mission 12 (the reading passage)**
-or **mission 19 (the scenario)** at any version, and I did not sit the quiz or
-the dictée, so I have not seen a typed answer scored end to end. The `fold()`
-path is asserted through the real function in both the batch and the test, and
-every free-text item is proved to accept what it displays — but that is
-host-side. §13 says why the re-check could not be run.
+**Missions walked:** 3, 4, 6 and 15 plus the reference sheet on the first pass;
+**12 and 19 on the audit pass** (§13), which is every section this build or the
+audit touched structurally.
+
+**The gap that remains:** the quiz and the dictée were not sat, so no typed
+answer has been scored end to end on a device. The `fold()` path is asserted
+through the real function in both the batch and the test, and every free-text
+item is proved to accept what it displays — but that is host-side.
 
 **One observation, not a defect of this lesson:** the floating dev gear button
 overlaps body text on every screen, including the sheet. It is app chrome and
@@ -576,45 +577,60 @@ npx tsc --noEmit         ealch-v2 0 · ealch-admin 0
 node --test              4768 pass, 0 fail   (a2.33 guard: 111 -> 118)
 pnpm content:parity      clean; the same one pre-existing divergence
 pnpm content:publish --dry-run   ✓ dry run — valid, nothing written
-device                   NOT RE-RUN. See below.
+device                   missions 12 and 19 re-walked on a Pixel 6, both confirmed
 ```
 
-### The device re-check could not be run, and this is the honest version
+### The device re-check RAN, and both fixed sections are confirmed
 
-Both sections v3 changes — the reading passage and the scenario — are **exactly
-the two missions the original device pass did not reach**, so the audit's fixes
-are host-verified only.
+Re-run once the machine had room. **Both v3 sections were walked on a Pixel 6 —
+and they are exactly the two missions the original build never reached, so this
+closes that gap as well as the audit's.**
 
-The re-check was attempted and the machine could not carry it. The Metro on
-8082 accepted connections and then timed out on both the manifest and the
-bundle; a second instance on 8083 bound and crashed inside
-`DependencyGraph.js` (`Cannot read properties of undefined (reading 'get')`),
-which is two Metro instances contending for one project cache. The cause is
-underneath both: **0.4 GB free of 15.7 GB, with 21 node processes running.**
-The same pressure produced `0xC0000142` fork failures in the shell.
+**Mission 12, the reading passage.** The card renders and the fix is visible:
+« À côté des deux sacs, il y a **une valise** qui n'est pas à vendre », then
+« Il touche celui de gauche, puis **celle** de sa femme ». All seven glossary
+keys underline, including the new `une valise`, so `segmentSentence` resolves
+every one against the passage's own tokens. Six per-line audio buttons and the
+« Text understood » gate draw.
 
-Those processes belong to the other author who is live in this tree, so killing
-them was not mine to do. I stopped only the 8083 instance I had started, so it
-would stop contending for their Metro cache.
+**The passage grew in v3 and I checked what that cost.** On first paint the last
+line sits under the card's bottom edge. **The card scrolls** — scrolling reveals
+« …Elle enveloppe le sac en toile. » and the card's own bottom border, and the
+« Text understood », Back and Next buttons do not move. So the growth is safe;
+this is not the sized-by-guessing overflow invariants §7 warns about.
 
-**What IS verified host-side on v3**, read back out of the merged seed:
+**Mission 19, the scenario.** All three fixed turns confirmed live:
 
 ```
-lesson version 3 · passage is ONE block, no authored newline
-`valise` appears BEFORE `celle`, so the pronoun has its antecedent
-all six glossary keys appear in the passage verbatim
-6 scenario turns, every one with a userEn and two alts
-no `vouliez`, no `J'en` anywhere in the scenario
-.350 -> pah suh-lwee-SEE suh-lwee-LAH   .351 -> pah sehl-SEE sehl-LAH
+turn 2   « Bien sûr. Le brun ou le noir ? »            the pronominal en is gone
+turn 3   « …Vous voulez autre chose ? »                the imparfait is gone
+turn 6   « Oui, je prends celui-ci, ceux-là et celle-là. »
+         "…(Three things, and not one noun among them.)"
 ```
 
-plus the seed-wide suites that read those two sections directly —
-`glossary-resolves.test.ts`, `scenario.logic.test.ts` and
-`lesson-contract.test.ts` — all green.
+Every turn draws its model reply, its gloss and both alts, each with its own
+play button, and the last one ends on « End the scene ».
 
-**What is NOT verified:** that the longer passage still fits its card without
-running past the bottom, and that the six-turn scenario renders and scores. Both
-need a phone.
+### Two things the device pass taught, worth keeping
+
+**The cold manifest takes 81 seconds and the dev launcher gives up first.** The
+bundle endpoint served 200 / 27.7 MB while `/` timed out at 30s, which looks
+exactly like a wedged Metro and is not one: a plain `curl` with a four-minute
+timeout returned 200 in **81.7s**, and the app then loaded first try. **Warm the
+manifest from the host before pointing the phone at Metro** — invariants §7 says
+this about the bundle and it is truer of the manifest.
+
+**A red warning toast covers the pager's Next button.** « Can't perform a React
+state update on a component… » was already on the home screen before this lesson
+opened, so it is not a2.33's, but it swallows taps at the bottom of the screen
+and has to be dismissed before the pager can be driven at all.
+
+### What is still not verified
+
+The quiz and the dictée were not sat, so no typed answer has been scored end to
+end on a device. That path is asserted through the real `fold()` in the batch
+and the test, and every free-text item is proved to accept what it displays —
+but that is host-side.
 
 ### One more thing the audit disturbed, and put back
 
