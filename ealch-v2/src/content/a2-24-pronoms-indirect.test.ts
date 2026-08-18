@@ -247,10 +247,12 @@ test('the shape is 24 sections, 6 acts, one quiz of 30', { skip: noLesson }, () 
   strictEqual((L!.acts ?? []).length, 6);
   strictEqual(L!.sections.filter((s) => s.type === 'quiz').length, 1, 'a second quiz section is silently never rendered');
   strictEqual(quizQuestions(L!.sections.find((s) => s.type === 'quiz') as never).length, 30);
-  strictEqual(L!.version, 3,
+  strictEqual(L!.version, 4,
     'v1 was the first build; v2 repaired twelve cards whose two-sentence `fr` line clipped on a Pixel 6; '
-    + 'v3 repaired five sentences that opened on a lowercase fragment. Corrections §10: the counter moves '
-    + 'rather than the body being corrected under one number');
+    + 'v3 repaired five sentences that opened on a lowercase fragment; v4 reworded a quiz `why` that said '
+    + '"with the same auxiliary", which is grammar jargon on a drawn surface, to "with the same first word" '
+    + '(found by a2.35 sweeping the band, five such words across four lessons). Corrections §10: the counter '
+    + 'moves rather than the body being corrected under one number');
 });
 
 test('NO CARD REBUILDS THE ONE-LINE PAIR THAT CLIPPED', { skip: noLesson }, () => {

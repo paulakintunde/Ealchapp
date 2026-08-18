@@ -424,13 +424,47 @@ test('the homophone list is assembled from the band, not invented here', () => {
 test('no group in the assembled list holds one form twice', () => {
   if (!SRC) return;
   // `pronoms-direct-corpus.ts` ships ["Je l'aime.", "Je l'aime."] as its first
-  // group: two identical strings. Every guard in this band fires only when the
-  // two forms DIFFER, so that group has been inert since a2.06 shipped. It is
-  // deliberately not carried into the union, and this asserts that no other
-  // degenerate group arrived with it.
+  // group: two identical strings. Under the SWAP shape a repeated form can
+  // never fire, so a duplicate in this union would be dead weight. Under
+  // a2.06's whole-option shape it is not dead, which is why that group stays
+  // where it is and is not carried here. See homophoneClashes' header.
   for (const g of SRC.HOMOPHONE_FORMS) {
     strictEqual(new Set(g).size, g.length, `a homophone group repeats a form: ${g.join(' / ')}`);
   }
+});
+
+test('homophoneClashes fires on BOTH shapes, and on neither false positive', () => {
+  if (!SRC) return;
+  const round = (opts: string[]) => ([{
+    id: 'r01-a2-01-probe',
+    label: 'probe',
+    questions: [{ q: 'Listen.', format: 'listenChoose', opts, correct: 0, why: 'w', ref: 'r' }],
+  }] as never[]);
+
+  // SWAP SHAPE: two sentences differing only by a member of one group.
+  ok(
+    SRC.homophoneClashes(round(['Je parle français.', 'Je parles français.'])).length > 0,
+    'the swap shape does not fire on two options differing only by parle/parles',
+  );
+  // WHOLE-OPTION SHAPE: two options that ARE members of one group.
+  ok(
+    SRC.homophoneClashes(round(['le mien', 'mien', 'miens'])).length > 0,
+    'the whole-option shape does not fire on two bare members of one group',
+  );
+  // AND NEITHER MAY FIRE ON THESE. All three are answerable, and the
+  // containment version of the second shape refused all three.
+  deepStrictEqual(
+    SRC.homophoneClashes(round(['Je parle français.', 'Tu parles français.'])), [],
+    'fires on two options separated by their subject pronoun',
+  );
+  deepStrictEqual(
+    SRC.homophoneClashes(round(['le mien', 'les miens'])), [],
+    'fires on two options separated by their article',
+  );
+  deepStrictEqual(
+    SRC.homophoneClashes(round(['Three times a day', 'Three at a time'])), [],
+    'fires on two English options that merely both contain the letter a',
+  );
 });
 
 test('no listenChoose offers two members of one homophone group', () => {

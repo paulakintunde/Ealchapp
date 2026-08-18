@@ -335,7 +335,11 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   //       in one position and not another. The APP was fixed instead, the
   //       content workaround was reverted, and the guard was deleted rather
   //       than rewritten.
-  strictEqual(L!.version, 5);
+  //   v6  the reading answer said "a little word you conjugate", and `conjugate`
+  //       is grammar jargon on a drawn surface. a2.35 swept the whole band for
+  //       these and found five across four lessons; this was one. Reworded to
+  //       "a little word that changes for the person". Nothing else moved.
+  strictEqual(L!.version, 6);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

@@ -127,7 +127,12 @@ a2.01's ids were resolved against the corpus, a2.17's suffixes expanded onto the
 adverbs the band prints, and a2.13's triples flattened. The union is 95 groups
 in `bilan-a2-spread.ts`.
 
-### 3.2 `pronoms-direct-corpus.ts` ships a homophone group that cannot fire
+### 3.2 The band has two incompatible homophone-guard shapes
+
+**This section said something false in the first draft of this report and the
+correction is the more useful finding.**
+
+`pronoms-direct-corpus.ts` ships
 
 ```ts
 export const HOMOPHONE_FORMS: readonly (readonly string[])[] = [
@@ -135,14 +140,71 @@ export const HOMOPHONE_FORMS: readonly (readonly string[])[] = [
   ...
 ```
 
-Every guard in this band, including this one, fires only when the two forms
-differ (`if (x !== y && opts[i].replace(x, y) === opts[j])`). **That group has
-been inert since a2.06 shipped.** It is not carried into the union, and the test
-asserts no group repeats a form so another one cannot arrive unnoticed.
+The first draft called that group inert, on the grounds that every guard in the
+band fires only when the two forms differ. **That is true of the shape
+Corrections §5 prescribes and false of the shape a2.06 actually uses.**
 
-Worth noting the shape of the mistake rather than the instance: a2.06's own
-TEST file carries a copy of the list with that group removed, so the source and
-the test have disagreed since the day it landed and nothing compares them.
+```ts
+// §5, and a2.10 / a2.11 / a2.35            SWAP
+if (x !== y && opts[i].replace(x, y) === opts[j]) bad.push(...)
+
+// a2.06's own batch                        WHOLE-OPTION
+const hits = opts.filter((o) => g.some((f) => o === f || hasPhrase(o, f)));
+if (hits.length > 1) die(...)
+```
+
+The swap shape asks whether substituting one member for another turns one option
+INTO another; a repeated form can never satisfy it. The whole-option shape asks
+whether two options ARE members of one group, and does not care whether the
+members differ. Under a2.06's shape that group says *one string is ambiguous
+with itself*, because the elided `l'` carries no gender — which is exactly what
+a2.06's own header claims. **It is correct where it lives and must not be
+deleted.**
+
+So the real finding is that the band holds two guard shapes making different
+claims, and **a group written for one is dead in the other**. `homophoneClashes`
+in `bilan-a2-spread.ts` now runs both.
+
+**And porting a2.06's shape naively makes it refuse everything.** a2.06 compares
+with `hasPhrase`, which is right there because all of its groups hold whole
+options. Run against a union whose groups hold bare forms, the containment test
+rejected sixteen legal questions in this build alone:
+
+```
+« Je parle français. » against « Tu parles français. »   je and tu differ
+« le mien » against « les miens »                        le and les differ
+« Three times a day » against « Three at a time »        both contain `a`,
+                                                         a member of a2.25's a/à
+```
+
+The second shape has to test **equality**, not containment. This is
+Corrections §14.4 one level down: guard the THING, not the letters. A test now
+fires each shape and asserts all three of those stay legal.
+
+The one thing the first draft got right: a2.06's TEST file carries a copy of the
+list with that group removed, so the source and the test have disagreed since
+the day it landed and nothing compares them.
+
+### 3.2b Three scripts take three different dry-run flags, and an unrecognised one WRITES
+
+Found while re-applying the four lessons in §3.3.
+
+```
+--dry-run   author-passe-compose, author-pronoms-indirect, author-bilan,
+            merge-passe-compose, merge-pronoms-indirect
+--dry       author-medecin, author-technologie
+(none)      merge-medecin, merge-technologie      they always write
+```
+
+`process.argv.includes('--dry')` is an exact match, so **`--dry-run` handed to a
+`--dry` script is silently a LIVE RUN.** This build did exactly that to a2.28
+and a2.32 while intending to dry-run them.
+
+**The damage was nil and I am reporting it anyway.** The write was the one I
+intended to make a minute later, both reported `+0` corpus rows, and the section
+counts did not move. But nothing distinguished that from a run that would have
+been wrong, and a dry-run flag that is not recognised should fail rather than
+write.
 
 ### 3.3 Five grammar words are live on drawn learner surfaces across the band
 
@@ -156,9 +218,29 @@ Measured across every shipped A2 lesson's drawn surfaces:
 | `a2.32.l1` sections[19].stats[0].v | referent | "three, one referent" |
 | `a2.24.l1` round why | auxiliary | "an ending appearing with the same auxiliary" |
 
-None is mine to fix and none is catastrophic. They are recorded because each
-passed its own lesson's jargon walk, which means five separate JARGON lists each
-happened not to hold the word its own lesson reached for.
+Each passed its own lesson's jargon walk, which means five separate JARGON lists
+each happened not to hold the word its own lesson reached for.
+
+**All five are now fixed**, at source, with the version counter moved rather
+than the body corrected under the same number:
+
+| unit | now reads | version |
+|---|---|---|
+| a2.28 `cards[].tip` | "the article that means an amount" | v1 → **v2** |
+| a2.28 quiz `why` | "with the de la a1.29 owns" | " |
+| a2.05 reading `a` | "a little word that changes for the person" | v5 → **v6** |
+| a2.32 `stats[].v` | "three, one device" | v2 → **v3** |
+| a2.24 quiz `why` | "with the same first word" | v3 → **v4** |
+
+Applied to Postgres and merged into the seed. `content_items` unchanged at
+48,995 and every section count unchanged; the four re-runs moved nothing but
+the five strings and the four version numbers.
+
+**Two things that look like leaks and are not**, both left alone deliberately:
+`a2.20.l1`'s `overview.titleEn` is "Irregular Past Participles", which
+`content_units` requires it to match, and `errorTriggers[].description` has no
+reader anywhere in the product (`quizRounds.logic.ts` consumes only
+`{ id, drill, retest }`), so a2.24's `auxiliary` in one is invisible.
 
 ### 3.4 A RAW walk over-reports jargon by a factor of five, and Corrections §13 does not say where to stop
 
@@ -384,12 +466,31 @@ Publishing was not asked for and was not done.
 ## 8. What is unresolved, and for whom
 
 - **A2 is complete.** Thirty-five units, thirty-six lesson bodies, all shipped.
-- **§3.4's `display()` definition belongs in `A2-BRIEF-CORRECTIONS.md` §13.**
-  Every lesson after this one writes the same walk and there is now a measured
-  answer to what it should exclude.
-- **§3.2's degenerate homophone group in `pronoms-direct-corpus.ts`** is a2.06's
-  to fix or to leave. It is inert either way, and the fact that a2.06's test
-  carries a divergent copy of the same list is the more interesting half.
-- **The five jargon leaks in §3.3** belong to a2.05, a2.24, a2.28 and a2.32.
+
+**Closed by this build:**
+
+- The five jargon leaks in §3.3, fixed at source in a2.05, a2.24, a2.28 and
+  a2.32, versions moved, applied and merged.
+- §3.4's `display()` definition and everything else in §3, written into
+  `A2-BRIEF-CORRECTIONS.md` **§16** so the next author inherits it rather than
+  rediscovering it.
+- §3.6's Metro finding, written into `A1-BUILD-INVARIANTS.md` §7 directly under
+  the paragraph that says the opposite, with the tell that separates them.
+- §3.2's guard-shape split, with `homophoneClashes` now running both shapes and
+  a test that fires each and pins the three false positives the naive port
+  produced.
+
+**Left open, deliberately:**
+
+- **§3.5's dead `accept` twins** across a1.30 and the rest of A2. Provably
+  behaviour-neutral to strip, but it would touch ~35 lesson bodies and move ~35
+  version counters for no learner-visible change. Documented in §16.4 with the
+  three-line check that finds them; not swept.
+- **a2.06's `["Je l'aime.", "Je l'aime."]`** stays. It is correct under a2.06's
+  own guard shape. What is worth someone's time is that a2.06's test carries a
+  divergent copy of the same list and nothing compares the two.
+- **§3.2b's dry-run flag inconsistency.** Three scripts, three conventions, and
+  an unrecognised flag writes. Making the band consistent is a sweep across
+  ~40 scripts and is not this build's to make.
 - **Whether a learner sits 170 questions** is not a question a device can answer
   and is not a question this build should answer alone.

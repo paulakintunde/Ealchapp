@@ -304,7 +304,7 @@ const S_PICK: LessonSection = {
   ],
   cards: [
     { promptLabel: 'a cough', promptSound: 'Je tousse.', fr: 'verb, not noun', ipa: '/ʒə tus/', tip: 'English gives you a noun and French gives you a verb. J\'ai une toux is understood and marks you out immediately.' },
-    { promptLabel: 'a fever', promptSound: 'J\'ai de la fièvre.', fr: 'noun, with de la', ipa: '/ʒe də la fjɛvʁ/', tip: 'Here the noun IS right. De la is the partitive and a1.29 owns it; nothing new is claimed about it here.' },
+    { promptLabel: 'a fever', promptSound: 'J\'ai de la fièvre.', fr: 'noun, with de la', ipa: '/ʒe də la fjɛvʁ/', tip: 'Here the noun IS right. De la is the article that means an amount, and a1.29 owns it; nothing new is claimed about it here.' },
     { promptLabel: 'my head', promptSound: 'J\'ai mal à la tête.', fr: 'shape 1', ipa: '/ʒe mal a la tɛt/', tip: `English uses a verb, French uses avoir mal. ${BODY_UNIT} owns this shape and everything that follows it.` },
     { promptLabel: 'dizzy', promptSound: 'J\'ai des vertiges.', fr: 'noun, plural', ipa: '/ʒe de vɛʁ.tiʒ/', tip: 'English uses an adjective. None of the three French shapes is an adjective, so je suis vertige is not a near miss, it is a different language.' },
     { promptLabel: 'nauseous', promptSound: 'J\'ai la nausée.', fr: 'noun', ipa: '/ʒe la no.ze/', tip: 'Another English adjective that becomes a French noun. Je suis nauséeux exists and is not what a person says at a counter.' },
@@ -835,7 +835,7 @@ const S_QUIZ: LessonSection = {
       say: 'Four you type. Word choice is what is being tested, never the spelling.',
       targets: ['err-noun-for-verb', 'err-etre'],
       questions: [
-        { format: 'typeIn', ref: THREE, q: 'Say you have a fever. Four words: « J\'ai ... »', accept: ['J\'ai de la fièvre.', 'jai de la fievre', 'de la fièvre', 'J\'ai de la fievre'], answer: 'J\'ai de la fièvre.', why: 'Shape 2, a noun you have, with the partitive a1.29 owns. The accent is not being tested because it folds away; the shape is.' },
+        { format: 'typeIn', ref: THREE, q: 'Say you have a fever. Four words: « J\'ai ... »', accept: ['J\'ai de la fièvre.', 'jai de la fievre', 'de la fièvre', 'J\'ai de la fievre'], answer: 'J\'ai de la fièvre.', why: 'Shape 2, a noun you have, with the de la a1.29 owns. The accent is not being tested because it folds away; the shape is.' },
         { format: 'typeIn', ref: THREE, q: 'Say you have a cough, the way a French speaker does. Two words.', accept: ['Je tousse.', 'je tousse'], answer: 'Je tousse.', why: 'The bare verb. J\'ai une toux folds to a completely different string, so this item genuinely tests which shape you reached for.' },
         { format: 'typeIn', ref: REPAIR, q: 'You do not have the word. Say what it is like: « C\'est comme ... »', accept: ['C\'est comme une brûlure.', 'cest comme une brulure', 'comme une brûlure', 'C\'est comme une brulure.'], answer: 'C\'est comme une brûlure.', why: 'C\'est comme plus a word you already have. It answers the question without the word he used, which is the move this lesson exists for.' },
         { format: 'typeIn', ref: SLOTS, q: 'Answer « Depuis quand ? » WITHOUT using depuis. « Ça a commencé ... »', accept: ['Ça a commencé il y a trois jours.', 'ca a commence il y a trois jours', 'il y a trois jours'], answer: 'Ça a commencé il y a trois jours.', why: `Il y a fills the slot and sidesteps the word entirely. ${DEPUIS_UNIT} owns depuis and nothing here asks you to get its tense right.` },
@@ -1088,7 +1088,7 @@ export const MEDECIN_LESSON: Lesson = {
   seq: 1,
   level: 'a2',
   tag: 'A2 · LEÇON 27',
-  version: 1,
+  version: 2,
   title: UNIT.title,
   intro: 'You can already say what hurts. This lesson is about the question that comes back at you, and about what to say when the word will not come.',
 

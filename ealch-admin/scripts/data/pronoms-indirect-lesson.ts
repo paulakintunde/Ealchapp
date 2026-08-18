@@ -1119,7 +1119,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 1,
             ref: ENDING,
-            why: `${ENDING_RULE} The first option is nearly a rule and is not this one: ${DIRECT_UNIT} showed an ending appearing with the same auxiliary, when the thing acted on came first.`,
+            why: `${ENDING_RULE} The first option is nearly a rule and is not this one: ${DIRECT_UNIT} showed an ending appearing with the same first word, when the thing acted on came first.`,
           },
           {
             format: 'errorSpot',
@@ -1565,7 +1565,7 @@ const LESSON_AUTHORED: Lesson = {
    *  under one number. Two different bodies under one number is the drift this
    *  project has lost work to twice, and the batch's own version guard refused
    *  the re-apply at v2, which is the guard working. */
-  version: 3,
+  version: 4,
 
   /** DRAWN ON THE LESSON OVERVIEW CARD AND ON THE LESSON COVER, and corrections
    *  §9 records that a2.11 shipped grammar jargon here while every host gate was

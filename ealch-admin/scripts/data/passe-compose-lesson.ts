@@ -772,7 +772,7 @@ const SECTIONS: LessonSection[] = [
       { q: 'The passage holds four negatives. What do all four have in common?', a: "The ne has shortened to n' every time, because every form of avoir starts on a vowel, and the pas is in the gap every time: n'ai pas payé, n'ai pas trouvé, n'ai pas encore fini, and the encore is in the gap with it. Four verbs, four gaps, one position." },
       { q: '« Je n\'ai pas encore fini le rapport. » There are two words in the gap. Is that allowed?', a: 'Yes. The gap takes small words and pas encore is two of them, sitting together in front of the past form. What it does not take is the report, which is what the sentence is about and which sits after fini where it belongs.' },
       { q: 'Count the groups. How many different endings are in the passage?', a: 'Three, and they are the three you have: travaillé, mangé, parlé, payé, cherché, trouvé, commencé and insisté are all -ER verbs ending in -é; choisi and fini are -IR verbs ending in -i; and there is no -RE verb in it at all. Eight of the ten are the commonest group in the language.' },
-      { q: 'The last sentence has two tenses in it. What are they and what is the difference?', a: "« J'ai commencé » is over and « je vais finir » has not happened. The two constructions are the same shape: a little word you conjugate, then a word you do not. The little word is the entire difference. Ai against vais." },
+      { q: 'The last sentence has two tenses in it. What are they and what is the difference?', a: "« J'ai commencé » is over and « je vais finir » has not happened. The two constructions are the same shape: a little word that changes for the person, then a word that does not. The little word is the entire difference. Ai against vais." },
     ],
     terms: ['twoWords', 'inBetween', 'endings'],
   },
@@ -1750,7 +1750,7 @@ export const PASSE_COMPOSE_LESSON: Lesson = {
   //      572 gets its « ! » back, the content guard is deleted rather than
   //      rewritten, and the lesson stops carrying a workaround for a bug that
   //      no longer exists.
-  version: 5,
+  version: 6,
 
   grammarAssumed: [
     'The full present of avoir, in six persons, introduced in a1.07',

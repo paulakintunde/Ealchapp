@@ -439,6 +439,41 @@ remedy for a release build holding something bad. Both are pinned by tests in
 **So a device test now means what it says.** If content still does not appear
 after a rebuild, look for a genuine cause rather than assuming the cache.
 
+### But Metro's OWN cache does go stale on `seed.json`. Measured 2026-08-18.
+
+The paragraph above is about the AsyncStorage overlay and it is right. It is not
+a licence to stop suspecting the host, and a2.35 lost twenty minutes to the
+difference.
+
+After merging two lessons into the seed, the **served bundle** was missing every
+new string while the file on disk held them:
+
+```
+seed.json on disk    "a2.35.l1"  3 hits
+served bundle        "a2.35.l1"  0 hits    (a2.34's reframe present 25 times)
+```
+
+Metro was caching the JSON module. `--clear` fixed it:
+
+```bash
+node node_modules/expo/bin/cli start --port 8082 --clear
+```
+
+**The two look nothing alike once you know the tell.** AsyncStorage: a newly
+ADDED lesson appears and an EDITED one does not, because a new id has nothing to
+lose to. Metro: nothing new appears at all while everything old is correct.
+
+**One curl and one grep settles which layer is stale, before you open
+`content.logic.ts`:**
+
+```bash
+curl -s -o /tmp/entry.bundle \
+ "http://127.0.0.1:8082/.expo/.virtual-metro-entry.bundle?platform=android&dev=true&hot=false&transform.engine=hermes&transform.routerRoot=app"
+grep -c "your.new.lesson.id" /tmp/entry.bundle
+```
+
+Zero there means the host never built it and the phone is innocent.
+
 ---
 
 ## 8. House rules

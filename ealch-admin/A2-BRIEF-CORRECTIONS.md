@@ -794,3 +794,190 @@ the screen edge with no affordance**, because a sheet does not scroll sideways.
 `validateDensity` exempts a sheet, the schema takes any number of `cols`, and
 the seed is correct either way. Only the phone finds it. Sits beside
 `tapTable`'s six-row ceiling in §8.
+
+---
+
+## §16. What a2.35 found wrong or incomplete in THIS file
+
+§12 asks every build to say what in here it measured wrong. a2.35 is the
+capstone and the first thing to read all thirty-four lessons at once, which is a
+different vantage point from a lesson's: what it found is mostly about the
+GUARDS the band copies, not about the corpus.
+
+### 1. §13's `display()` WALK HAS NO DEFINITION, AND A RAW ONE OVER-REPORTS 23 TO 0
+
+§13 hole 3 says `prose()` drops `sub`, which holds prose on a `cardDeck` card,
+so run the house-copy and jargon checks over a `display()` walk instead. **It
+does not say what a `display()` walk keeps OUT**, and every build since has
+written its own, most of them raw.
+
+A raw walk over the shipped A2 band reports:
+
+```
+paradigm  13 hits   ALL of them: audio.recordingId `rec-a2-10-paradigm` (x5),
+                    sheets[].sections[].id `sheet-endings-paradigm`
+clitic    10 hits   ALL of them: a quiz round's targets[] `err-wrong-clitic`,
+                    drills[].id `drill-pick-clitic`
+```
+
+**Twenty-three false positives and zero real ones.** None of those strings is
+drawn anywhere. A guard that fails on correct content is how a build comes to
+relax a guard that was working.
+
+`bilan-a2-spread.ts` defines the missing half and it is copyable:
+
+```ts
+export const MACHINE_KEYS: ReadonlySet<string> = new Set([
+  'id', 'ref', 'refs', 'sheetId', 'itemId', 'itemIds', 'targets', 'drill',
+  'retest', 'detectOn', 'sections', 'recordingId', 'audioRef', 'imageRef',
+  'clip', 'mode', 'voice', 'lang', 'timing', 'ambience', 'format', 'type',
+  'kind', 'outcome', 'glyph', 'practiceOn', 'deckTranche', 'restPoints',
+  'features', 'level', 'track', 'unitId', 'tag', 'grammarAssumed',
+  'grammarIntroduced', 'scoreSegment', 'ipa',
+]);
+```
+
+Keeps `sub`, which `prose()` drops. Drops the keys above, which a raw walk
+keeps. Pinned by a test that probes all three behaviours.
+
+**And `errorTriggers[].description` is NOT a learner surface.** Only
+`{ id, drill, retest }` are ever read, by `quizRounds.logic.ts`; `description`
+has no reader anywhere in the product. It is documentation, and a jargon walk
+should not include it. a2.24 carries `auxiliary` in one and it is correctly
+invisible.
+
+**Related, and it is NOT a leak**: `a2.20.l1`'s `overview.titleEn` is
+"Irregular Past Participles". §14.5 makes this point about `adjective`; it holds
+for a unit title, which `content_units` requires `titleEn` to match.
+
+### 2. FIVE GRAMMAR WORDS WERE LIVE ON DRAWN SURFACES, PAST FIVE JARGON LISTS
+
+Each passed its own lesson's walk, which means five separate JARGON lists each
+happened not to hold the word its own lesson reached for. **Fixed in this
+build**, with the version counters moved rather than corrected under the same
+number:
+
+| unit | was | now | version |
+|---|---|---|---|
+| a2.28 `cards[].tip` | "De la is the partitive" | "the article that means an amount" | v1 to v2 |
+| a2.28 quiz `why` | "with the partitive a1.29 owns" | "with the de la a1.29 owns" | same |
+| a2.05 reading `a` | "a little word you conjugate" | "that changes for the person" | v5 to v6 |
+| a2.32 `stats[].v` | "three, one referent" | "three, one device" | v2 to v3 |
+| a2.24 quiz `why` | "with the same auxiliary" | "with the same first word" | v3 to v4 |
+
+The house's plain register, measured across the band's drawn surfaces, is what
+they were reworded into: `verb` 2026 · `plural` 374 · `noun` 326 ·
+`pronoun` 313 · `stem` 264 · `feminine` 214 · `tense` 196 · `naming form` 186 ·
+`past form` 175 · `describing word` 99. Those are house vocabulary and banning
+one is a build inventing a rule (§14.5).
+
+### 3. THE BAND HAS TWO INCOMPATIBLE HOMOPHONE-GUARD SHAPES
+
+§5 gives one and calls it the shape to copy:
+
+```ts
+if (x !== y && opts[i].replace(x, y) === opts[j]) bad.push(...)   // SWAP
+```
+
+**a2.06 uses a different one** and it is not a variant, it is a different claim:
+
+```ts
+const hits = opts.filter((o) => g.some((f) => o === f || hasPhrase(o, f)));
+if (hits.length > 1) die(...)                                     // WHOLE-OPTION
+```
+
+The swap shape asks whether substituting one member for another turns one
+option INTO another. The whole-option shape asks whether two options ARE members
+of one group. **A group written for one is dead in the other**, which is how
+a2.06's
+
+```ts
+["Je l'aime.", "Je l'aime."]      // two identical strings
+```
+
+reads as inert to anyone holding §5's shape: a repeated form can never satisfy
+`x !== y`. It is not inert. Under a2.06's own shape it says *one string is
+ambiguous with itself*, because the elided `l'` carries no gender, and that is
+exactly what its own header claims. **It is correct where it lives and must not
+be deleted.** It was in an earlier draft of a2.35's report as a defect; that was
+wrong and is corrected here.
+
+**AND THE SECOND SHAPE MUST TEST EQUALITY, NOT CONTAINMENT.** a2.06 compares
+with `hasPhrase`, which is right THERE because all of its groups hold whole
+options. Transplanted onto a union whose groups hold bare forms it refuses
+almost everything, because an option merely CONTAINING a member says nothing
+about whether the ear can separate it from another:
+
+```
+« Je parle français. » against « Tu parles français. »   je and tu differ
+« le mien » against « les miens »                        le and les differ
+« Three times a day » against « Three at a time »        both contain `a`,
+                                                         a member of a2.25's a/à
+```
+
+All three are answerable and the containment version refused all three. This is
+§14.4 one level down: guard the THING, not the letters. `homophoneClashes` in
+`bilan-a2-spread.ts` runs both shapes, the second on equality, with a test that
+fires each and asserts the three above stay legal.
+
+**Also: the band names the list five different ways.** Thirteen lessons carry
+one, as `HOMOPHONE_FORMS`, `HOMOPHONE_GROUPS`, `HOMOPHONE_PAIRS` (which holds
+ITEM IDS), `SUFFIX_HOMOPHONES` (which holds SUFFIXES) and `SINGULAR_TRIPLES`.
+Anyone told to "assemble the list from the lessons' own lists" is being asked
+for more than one grep.
+
+### 4. EVERY `accept` LIST IN THE BAND CARRIES ENTRIES THAT DO NOTHING
+
+a1.30 and every A2 lesson list an accent-free twin beside the real answer:
+
+```ts
+accept: ['Enchanté', 'Enchante']
+accept: ['J’ai mangé à midi', 'jai mange a midi']
+```
+
+`fold()` strips accents, case, punctuation **and all whitespace** before the
+comparison, so both entries are one string. They are not merely redundant: they
+make a question LOOK as though it tests an accent, which is the misreading §5
+exists to prevent. **85 were written into a2.35 and stripped**; the rest of the
+band still carries them and they are harmless, so this is a note rather than a
+task.
+
+Worth stealing: assert that no `accept` list holds two entries that fold to one.
+It costs three lines and it is the check that finds them.
+
+### 5. "NO TYPED SURFACE CAN TEST A DIACRITIC" IS NOT A BANNED-WORD LIST
+
+a2.35's first version of this guard banned five diacritic-carrying words from
+any open-format question, and it fired on « Je préfère celui », a legitimate
+`errorSpot` whose correction is `celui-ci` and whose accent is incidental. The
+mechanical form is general and has no list in it:
+
+```ts
+// An errorSpot whose prompt and answer fold to one string is unanswerable:
+// the learner can retype the mistake and be marked right.
+ok(fold(q.prompt) !== fold(q.answer), ...)
+```
+
+That is what §5's sentence means in code, and it covers the capital and the
+space as well as the accent, without naming a single word.
+
+### 6. THREE SCRIPTS IN THIS BAND TAKE THREE DIFFERENT DRY-RUN FLAGS, AND AN UNRECOGNISED ONE WRITES
+
+Measured while re-applying four lessons:
+
+```
+--dry-run   author-passe-compose, author-pronoms-indirect, author-bilan,
+            merge-passe-compose, merge-pronoms-indirect
+--dry       author-medecin, author-technologie
+(none)      merge-medecin, merge-technologie      they always write
+```
+
+`process.argv.includes('--dry')` is an exact match, so **`--dry-run` passed to a
+`--dry` script is silently a LIVE RUN.** a2.35 did exactly that to a2.28 and
+a2.32 while intending to dry-run them. The damage was nil, because the write was
+the one intended a minute later and both reported `+0` corpus rows, but the next
+one will not be so lucky.
+
+**A dry-run flag that is not recognised should fail, not write.** Until the band
+is made consistent, read the header comment of the script you are about to run
+rather than assuming, and check `const DRY_RUN =` before trusting a flag.

@@ -1135,7 +1135,7 @@ const S20_CHECK: LessonSection = {
   title: 'Where you stand',
   body: 'You can do what a French screen tells you without translating it first, you can hear a recorded menu once and know which number to press, and you can describe a fault to somebody who has nothing to look at. The last thing is the one to check: when you said it to the agent and then said it again to your friend, did the words change? If they did not, the lesson has not landed yet, and the two conversations in act 5 are the place to go back to.',
   stats: [
-    { k: 'Voices', v: 'three, one referent' },
+    { k: 'Voices', v: 'three, one device' },
     { k: 'Screen strings', v: 'six, learned whole' },
     { k: 'Heard once', v: 'a menu and four prompts' },
     { k: 'Told twice', v: 'vous, then tu' },
@@ -1539,7 +1539,7 @@ export const LESSON: Lesson = {
   terms: TECHNOLOGIE_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 2,
+  version: 3,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

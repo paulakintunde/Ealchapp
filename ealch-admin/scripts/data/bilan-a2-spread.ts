@@ -247,12 +247,46 @@ export const HOMOPHONE_FORMS: readonly (readonly string[])[] = [
 ];
 
 /**
- * Option pairs in `rounds` that differ ONLY by two members of one homophone
- * group, which is a question with no correct answer.
+ * Ear questions whose options cannot be told apart, by EITHER of the two shapes
+ * this band uses.
  *
- * The forms-must-differ test is what keeps « Il vend ici. » against
- * « Je vends ici. » legal: those two differ by their subject pronoun as well,
- * so substituting one form for the other does not produce the other option.
+ * THE BAND HAS TWO INCOMPATIBLE GUARD SHAPES AND A GROUP THAT WORKS IN ONE IS
+ * DEAD IN THE OTHER. This was found by assembling the union and is the reason
+ * this function runs both.
+ *
+ *   SWAP SHAPE      a2.10, a2.11 and Corrections §5's worked example. Fires when
+ *                   substituting one member of a group for another turns one
+ *                   option INTO another. Requires the two forms to differ, and
+ *                   that requirement is what keeps « Il vend ici. » against
+ *                   « Je vends ici. » legal: those differ by their subject
+ *                   pronoun as well, so the substitution does not produce the
+ *                   other option.
+ *
+ *   WHOLE-OPTION    a2.06. Fires when two or more options ARE members of one
+ *   SHAPE           group outright. It does not care whether the members
+ *                   differ, so a2.06's `["Je l'aime.", "Je l'aime."]` is doing
+ *                   real work under it: the claim is that ONE string is
+ *                   ambiguous with itself, because the elided l' carries no
+ *                   gender, and two options both being it has no answer.
+ *
+ * Under the swap shape alone that group can never fire, which is how a lone
+ * reader concludes it is dead. It is not dead; it is written for the other
+ * shape. Running both is the only way to hold both claims.
+ *
+ * AND THE SECOND SHAPE MUST TEST EQUALITY, NOT CONTAINMENT. a2.06 compares with
+ * `hasPhrase`, which is right THERE because every one of its groups holds whole
+ * options. Transplanted onto a union whose groups hold bare forms it fires on
+ * almost everything, because a longer option merely CONTAINING a member says
+ * nothing about whether the ear can separate it from another one:
+ *
+ *   « Je parle français. » against « Tu parles français. »   je and tu differ
+ *   « le mien » against « les miens »                        le and les differ
+ *   « Three times a day » against « Three at a time »        both contain `a`,
+ *                                                            which is a member
+ *                                                            of a2.25's a/à
+ *
+ * All three are answerable and the containment version refused all three. This
+ * is Corrections §14.4 one level down: guard the THING and not the letters.
  */
 export function homophoneClashes(rounds: readonly QuizRound[]): string[] {
   const bad: string[] = [];
@@ -260,6 +294,8 @@ export function homophoneClashes(rounds: readonly QuizRound[]): string[] {
     for (const q of round.questions) {
       if (q.format !== 'listenChoose') continue;
       const opts = q.opts ?? [];
+
+      // Swap shape.
       for (let i = 0; i < opts.length; i++) {
         for (let j = i + 1; j < opts.length; j++) {
           for (const group of HOMOPHONE_FORMS) {
@@ -272,6 +308,14 @@ export function homophoneClashes(rounds: readonly QuizRound[]): string[] {
               }
             }
           }
+        }
+      }
+
+      // Whole-option shape. Equality, not containment; see the header.
+      for (const group of HOMOPHONE_FORMS) {
+        const hits = opts.filter((o) => group.some((form) => o.trim() === form));
+        if (hits.length > 1) {
+          bad.push(`${round.id}: "${hits.join('" and "')}" are each a whole member of one group, so the ear cannot separate them`);
         }
       }
     }
