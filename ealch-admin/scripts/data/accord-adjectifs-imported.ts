@@ -63,7 +63,7 @@ export { SOURCE_THEMES, CARRIED_IDS, READ_ONLY_ROWS, FAMILY_MEASURED };
 
 const must = (id: string): Item => {
   const r = IMPORTED_BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.03')}: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.`);
+  if (!r) throw new Error(`a2.03: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.`);
   return r;
 };
 
@@ -113,7 +113,7 @@ export const namingId = (word: string): string => {
     const extra = UNSEEN_MASCULINES.includes(word)
       ? ` "${word}" is one of the three adjectives the exam gives cold and it must appear on no teaching card.`
       : '';
-    throw new Error(`${unitRef('a2.03')}: no imported row for "${word}".${extra}`);
+    throw new Error(`a2.03: no imported row for "${word}".${extra}`);
   }
   return id;
 };
@@ -127,7 +127,7 @@ const EVIDENCE_ID = new Map(EVIDENCE_ROW_IDS);
 
 export const evidenceId = (frText: string): string => {
   const id = EVIDENCE_ID.get(frText);
-  if (!id) throw new Error(`${unitRef('a2.03')}: no evidence row for ${JSON.stringify(frText)}`);
+  if (!id) throw new Error(`a2.03: no evidence row for ${JSON.stringify(frText)}`);
   return id;
 };
 export const evidenceCard = (frText: string) => importedCard(evidenceId(frText));

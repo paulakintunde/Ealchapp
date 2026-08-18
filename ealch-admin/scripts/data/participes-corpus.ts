@@ -471,7 +471,7 @@ export const formsOf = (g: Group): readonly Form[] => FORMS.filter((f) => f.grou
 
 export const formOf = (past: string): Form => {
   const f = FORMS.find((x) => x.past === past);
-  if (!f) throw new Error(`${Cap(unitRef('a2.20'))}: ${past} is not one of the thirty-three.`);
+  if (!f) throw new Error(`a2.20: ${past} is not one of the thirty-three.`);
   return f;
 };
 
@@ -1095,7 +1095,7 @@ export const EXPECTED_AUTHORED = 43;
  *  like a card that never wanted one. */
 export function row(fr: string): PCRow {
   const r = PARTICIPES.find((x) => x.fr === fr);
-  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: no authored row for "${fr}".`);
+  if (!r) throw new Error(`a2.20: no authored row for "${fr}".`);
   return r;
 }
 
@@ -1193,7 +1193,7 @@ export const ABSENT_FROM_SEED: readonly string[] = [
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`a2.20: ${id} is not in IMPORTED.`);
   return i;
 };
 

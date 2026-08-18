@@ -81,23 +81,23 @@ const BY_ID = new Map(PARTICIPES.map((r) => [r.id, r]));
 
 const fr = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
   return r.fr;
 };
 const en = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
   return r.en;
 };
 const bare = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
   return r.respell!;
 };
 const sub = (id: string): string => `[${bare(id)}]`;
 const ipaOf = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
   return r.ipa!;
 };
 
@@ -113,7 +113,7 @@ const noStop = (s: string): string => s.replace(/\.$/, '');
  *  `mort`, which are the two taught from an imported card. */
 const rowOf = (past: string): string => {
   const f = FORMS.find((x) => x.past === past);
-  if (!f?.rowId) throw new Error(`${Cap(unitRef('a2.20'))}: « ${past} » has no authored row.`);
+  if (!f?.rowId) throw new Error(`a2.20: « ${past} » has no authored row.`);
   return f.rowId;
 };
 

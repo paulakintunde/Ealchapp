@@ -926,7 +926,7 @@ async function main() {
     if (bad.length) die(`a raw unit id reaches a learner surface: ${bad.slice(0, 6).join(' · ')}`);
     // AND THE INTERNAL WORD FOR A TRAIL POSITION GOES WITH IT.
     for (const t of strs(LESSON.sections)) {
-      if (/(?<![\p{L}])seq\s+\d/i.test(t)) die(`"seq N" is the internal word for a trail position and reaches a learner: "${t.slice(0, 70)}"`);
+      if (/(?<![\p{L}])seq\s+\d/iu.test(t)) die(`"seq N" is the internal word for a trail position and reaches a learner: "${t.slice(0, 70)}"`);
     }
     console.log(`  no raw unit id and no seq on any of ${strs(LESSON.sections).length} section strings`);
   }

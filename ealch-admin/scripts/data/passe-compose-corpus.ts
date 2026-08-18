@@ -1280,7 +1280,7 @@ export const reduceNegative = (neg: string): string =>
  *  looks like a card that never wanted one. */
 export function row(fr: string): PCRow {
   const r = PASSE_COMPOSE.find((x) => x.fr === fr);
-  if (!r) throw new Error(`${unitRef('a2.05')}: no authored row for "${fr}".`);
+  if (!r) throw new Error(`a2.05: no authored row for "${fr}".`);
   return r;
 }
 
@@ -1401,7 +1401,7 @@ export const ABSENT_FROM_SEED: readonly string[] = [
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`${unitRef('a2.05')}: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`a2.05: ${id} is not in IMPORTED.`);
   return i;
 };
 

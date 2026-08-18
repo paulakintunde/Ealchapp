@@ -777,7 +777,7 @@ export const AUTHORED_IDS: string[] = PREPOSITIONS_LIEU.map((r) => r.id);
  *  wanted one. */
 export function row(fr: string): PrepRow {
   const r = PREPOSITIONS_LIEU.find((x) => x.fr === fr);
-  if (!r) throw new Error(`${unitRef('a2.04')}: no authored row for "${fr}".`);
+  if (!r) throw new Error(`a2.04: no authored row for "${fr}".`);
   return r;
 }
 
@@ -785,7 +785,7 @@ export function row(fr: string): PrepRow {
  *  second copy of the same four sentences. a2.13 §6.2. */
 export function sortRow(k: Kind): PrepRow {
   const r = SORT_ROWS.find((x) => x.placeKind === k);
-  if (!r) throw new Error(`${unitRef('a2.04')}: no sort row for kind "${k}".`);
+  if (!r) throw new Error(`a2.04: no sort row for kind "${k}".`);
   return r;
 }
 
@@ -977,7 +977,7 @@ export const A103_FIGURES_MOVED = [
 /** One imported row by id, for a section that names it. */
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`${unitRef('a2.04')}: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`a2.04: ${id} is not in IMPORTED.`);
   return i;
 };
 

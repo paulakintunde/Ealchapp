@@ -65,7 +65,7 @@ const must = (id: string): Item => {
     const extra = unseen
       ? ` ${JSON.stringify(id)} is one of the UNSEEN words: it exists in the corpus and this lesson must never import it, because it is the answer to a generalisation question.`
       : '';
-    throw new Error(`${unitRef('a2.17')}: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.${extra}`);
+    throw new Error(`a2.17: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.${extra}`);
   }
   return r;
 };
@@ -128,7 +128,7 @@ export const namingId = (word: string): string => {
     const unseen = UNSEEN.some((u) => u.adj === word || u.fem === word || u.adverb === word)
       ? ` ${JSON.stringify(word)} is one of the UNSEEN words. It must appear on no screen except the exam question that asks for it.`
       : '';
-    throw new Error(`${unitRef('a2.17')}: no imported row for "${word}".${authored}${unseen}`);
+    throw new Error(`a2.17: no imported row for "${word}".${authored}${unseen}`);
   }
   return id;
 };
@@ -142,7 +142,7 @@ const EVIDENCE_ID = new Map(EVIDENCE_ROW_IDS);
 
 export const evidenceId = (frText: string): string => {
   const id = EVIDENCE_ID.get(frText);
-  if (!id) throw new Error(`${unitRef('a2.17')}: no evidence row for ${JSON.stringify(frText)}`);
+  if (!id) throw new Error(`a2.17: no evidence row for ${JSON.stringify(frText)}`);
   return id;
 };
 export const evidenceCard = (frText: string) => importedCard(evidenceId(frText));
@@ -173,15 +173,15 @@ for (const a of ADJ_ORDER) {
   for (const s of ['masc', 'fem', 'adverb'] as const) {
     if (chainIsAuthored(a, s)) continue;
     const row = IMPORTED_BY_ID.get(chainId(a, s));
-    if (!row) throw new Error(`${unitRef('a2.17')}: the chain cell ${a}/${s} resolves to ${chainId(a, s)}, which is not an importable row`);
+    if (!row) throw new Error(`a2.17: the chain cell ${a}/${s} resolves to ${chainId(a, s)}, which is not an importable row`);
     if (row.fr !== step(a, s)) {
       throw new Error(
-        `${unitRef('a2.17')}: the chain says ${a}/${s} is "${step(a, s)}" and ${chainId(a, s)} holds ${JSON.stringify(row.fr)}. One of the two has moved.`,
+        `a2.17: the chain says ${a}/${s} is "${step(a, s)}" and ${chainId(a, s)} holds ${JSON.stringify(row.fr)}. One of the two has moved.`,
       );
     }
     if (chainRespell(a, s) !== stepRespell(a, s)) {
       throw new Error(
-        `${unitRef('a2.17')}: the chain says ${a}/${s} respells as ${JSON.stringify(stepRespell(a, s))} and the repaired row gives ${JSON.stringify(chainRespell(a, s))}.`,
+        `a2.17: the chain says ${a}/${s} respells as ${JSON.stringify(stepRespell(a, s))} and the repaired row gives ${JSON.stringify(chainRespell(a, s))}.`,
       );
     }
   }

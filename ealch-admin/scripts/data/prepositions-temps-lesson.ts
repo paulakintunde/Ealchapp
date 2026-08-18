@@ -70,17 +70,17 @@ const BY_ID = new Map(PREPOSITIONS_TEMPS.map((r) => [r.id, r]));
 
 const fr = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
   return r.fr;
 };
 const en = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
   return r.en;
 };
 const bare = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
   return r.respell!;
 };
 const sub = (id: string): string => `[${bare(id)}]`;
@@ -91,7 +91,7 @@ const noStop = (s: string): string => s.replace(/[.?!]\s*$/u, '');
  *  the gloss go in `note`. Ledger §a2.14-12. */
 const authoredCard = (id: string) => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
   return { fr: r.fr, ipa: r.ipa!, note: `[${r.respell}] ${r.en}` };
 };
 

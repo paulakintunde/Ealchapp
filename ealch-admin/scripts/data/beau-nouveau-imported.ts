@@ -65,7 +65,7 @@ export { SOURCE_THEMES, CARRIED_IDS, READ_ONLY_ROWS, BLOCK_MEASURED, ONE_SOUND_E
 
 const must = (id: string): Item => {
   const r = IMPORTED_BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.16')}: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.`);
+  if (!r) throw new Error(`a2.16: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.`);
   return r;
 };
 
@@ -116,7 +116,7 @@ export const namingId = (word: string): string => {
     const extra = word === 'nouvel'
       ? ' `nouvel` is the one form the corpus did not hold. It is AUTHORED: read it from the corpus, not from here.'
       : '';
-    throw new Error(`${unitRef('a2.16')}: no imported row for "${word}".${extra}`);
+    throw new Error(`a2.16: no imported row for "${word}".${extra}`);
   }
   return id;
 };
@@ -130,7 +130,7 @@ const EVIDENCE_ID = new Map(EVIDENCE_ROW_IDS);
 
 export const evidenceId = (frText: string): string => {
   const id = EVIDENCE_ID.get(frText);
-  if (!id) throw new Error(`${unitRef('a2.16')}: no evidence row for ${JSON.stringify(frText)}`);
+  if (!id) throw new Error(`a2.16: no evidence row for ${JSON.stringify(frText)}`);
   return id;
 };
 export const evidenceCard = (frText: string) => importedCard(evidenceId(frText));
@@ -166,7 +166,7 @@ for (const a of ADJ_ORDER) {
   const re = new RegExp(`(?<![\\p{L}\\p{N}'’-])${onGrid}(?![\\p{L}\\p{N}'’-])`, 'u');
   if (!re.test(inSentence)) {
     throw new Error(
-      `${unitRef('a2.16')}: the grid says the form before a vowel for "${a}" is "${onGrid}", and the row it resolves to is ${JSON.stringify(inSentence)}. One of the two has moved.`,
+      `a2.16: the grid says the form before a vowel for "${a}" is "${onGrid}", and the row it resolves to is ${JSON.stringify(inSentence)}. One of the two has moved.`,
     );
   }
 }

@@ -660,7 +660,7 @@ export function toItem(r: ModalRow): Item {
 
 const must = (id: string): ModalRow => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.13'))}: no authored row ${id}. A screen is quoting a row that does not exist.`);
+  if (!r) throw new Error(`a2.13: no authored row ${id}. A screen is quoting a row that does not exist.`);
   return r;
 };
 

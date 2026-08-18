@@ -39,7 +39,6 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { IMPORTED_SENTENCE_ROWS, IMPORTED_VERB_ROWS, VERB_ROW_IDS } from './verbes-er-rows.gen.ts';
-import { unitRef } from './_unit-ref.ts';
 
 export { IMPORTED_SENTENCE_ROWS, IMPORTED_VERB_ROWS };
 
@@ -76,7 +75,7 @@ export const REUSED_SENTENCES = IMPORTED_SENTENCE_ROWS.map((r) => ({
   drills: r.drills ?? [],
   why: r.id === 'fr.a2.verbes.001'
     ? 'the je row of the paradigm; its respelling is repaired by this build'
-    : `reading only: an -ent ending in the wild, and depuis belongs to ${unitRef('a2.18')}`,
+    : `reading only: an -ent ending in the wild, and depuis belongs to a2.18`,
 }));
 
 /** Reading-only ids: named by a section the learner READS and by no surface the

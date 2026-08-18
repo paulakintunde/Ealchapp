@@ -913,7 +913,7 @@ export const DICTEE_PERSONS = DICTEE_MATRIX.filter((d) => d.negativeFits).map((d
  *  looks like a card that never wanted one. */
 export function row(fr: string): FuturRow {
   const r = FUTUR_PROCHE.find((x) => x.fr === fr);
-  if (!r) throw new Error(`${Cap(unitRef('a2.19'))}: no authored row for "${fr}".`);
+  if (!r) throw new Error(`a2.19: no authored row for "${fr}".`);
   return r;
 }
 
@@ -1003,7 +1003,7 @@ export const ABSENT_FROM_SEED: readonly string[] = [
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`${Cap(unitRef('a2.19'))}: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`a2.19: ${id} is not in IMPORTED.`);
   return i;
 };
 

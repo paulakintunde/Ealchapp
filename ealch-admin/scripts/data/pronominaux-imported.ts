@@ -46,7 +46,7 @@ export function imported(id: string): Item {
   const r = PRONOMINAUX_IMPORT_ROWS[id];
   if (!r) {
     throw new Error(
-      `${unitRef('a2.22')}: ${id} is not in the recorded read. Add it to IMPORTED in pronominaux-corpus.ts `
+      `a2.22: ${id} is not in the recorded read. Add it to IMPORTED in pronominaux-corpus.ts `
       + 'and re-run scripts/_a222_manifest.ts; never hand-edit the .gen file.',
     );
   }
@@ -64,7 +64,7 @@ export function respell(id: string): string {
   const stored = imported(id).respell;
   if (!stored) {
     throw new Error(
-      `${unitRef('a2.22')}: ${id} « ${importedFr(id)} » has no respelling in the database, and a screen is asking for one. `
+      `a2.22: ${id} « ${importedFr(id)} » has no respelling in the database, and a screen is asking for one. `
       + 'Either read it off a row that has one, declare a RESPELL_ADDITIONS entry with the reason, '
       + 'or write the card so it does not print a respelling.',
     );

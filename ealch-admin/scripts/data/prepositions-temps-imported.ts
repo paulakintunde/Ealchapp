@@ -62,7 +62,7 @@ const APPLIED: Record<string, string> = {
  *  missing its row looks like a card that never wanted one. */
 export function imported(id: string): Item {
   const r = PREPOSITIONS_TEMPS_ROWS[id];
-  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not in the manifest. Re-run scripts/_a218_manifest.ts.`);
+  if (!r) throw new Error(`a2.18: ${id} is not in the manifest. Re-run scripts/_a218_manifest.ts.`);
   return r;
 }
 

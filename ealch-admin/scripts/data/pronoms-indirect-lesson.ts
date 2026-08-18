@@ -77,7 +77,7 @@ const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const BY_ID = new Map(ROWS.map((r) => [r.id, r]));
 const row = (id: string) => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.24')}: no authored row ${id}`);
+  if (!r) throw new Error(`a2.24: no authored row ${id}`);
   return r;
 };
 const fr = (id: string) => row(id).fr;

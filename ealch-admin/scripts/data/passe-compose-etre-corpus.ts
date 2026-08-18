@@ -500,7 +500,7 @@ export const FAMILY_SIZES: Record<Family, number> = {
 export const verbsIn = (f: Family): readonly EtreVerb[] => ETRE_VERBS.filter((v) => v.family === f);
 export const verbOf = (name: string): EtreVerb => {
   const v = ETRE_VERBS.find((x) => x.verb === name);
-  if (!v) throw new Error(`${Cap(unitRef('a2.21'))}: « ${name} » is not one of the fifteen.`);
+  if (!v) throw new Error(`a2.21: « ${name} » is not one of the fifteen.`);
   return v;
 };
 
@@ -859,7 +859,7 @@ export const rowsWithRole = (role: Role): readonly Row[] => ETRE_ROWS.filter((r)
 
 export const rowById = (id: string): Row => {
   const r = ETRE_ROWS.find((x) => x.id === id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.21'))}: ${id} is not an authored row.`);
+  if (!r) throw new Error(`a2.21: ${id} is not an authored row.`);
   return r;
 };
 

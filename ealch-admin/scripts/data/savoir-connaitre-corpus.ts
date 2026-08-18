@@ -937,7 +937,7 @@ export function toItem(r: ScRow): Item {
 
 const must = (id: string): ScRow => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.14'))}: no authored row ${id}. A screen is quoting a row that does not exist.`);
+  if (!r) throw new Error(`a2.14: no authored row ${id}. A screen is quoting a row that does not exist.`);
   return r;
 };
 

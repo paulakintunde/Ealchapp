@@ -427,7 +427,7 @@ export const IL_Y_A_ROW_INDEX = 2;
 
 export const gridRow = (p: Prep): GridRow => {
   const r = GRID.find((x) => x.prep === p);
-  if (!r) throw new Error(`${Cap(unitRef('a2.18'))}: no grid row for "${p}".`);
+  if (!r) throw new Error(`a2.18: no grid row for "${p}".`);
   return r;
 };
 
@@ -1062,7 +1062,7 @@ export const AUTHORED_IDS: string[] = PREPOSITIONS_TEMPS.map((r) => r.id);
  *  wanted one. */
 export function row(fr: string): TempsRow {
   const r = PREPOSITIONS_TEMPS.find((x) => x.fr === fr);
-  if (!r) throw new Error(`${Cap(unitRef('a2.18'))}: no authored row for "${fr}".`);
+  if (!r) throw new Error(`a2.18: no authored row for "${fr}".`);
   return r;
 }
 
@@ -1130,7 +1130,7 @@ export const A103_SEED_POPULATION = 1890;
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`${Cap(unitRef('a2.18'))}: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`a2.18: ${id} is not in IMPORTED.`);
   return i;
 };
 

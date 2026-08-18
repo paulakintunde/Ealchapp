@@ -61,7 +61,7 @@ const APPLIED: Record<string, string> = {
  *  missing its row looks like a card that never wanted one. */
 export function imported(id: string): Item {
   const r = PASSE_COMPOSE_ROWS[id];
-  if (!r) throw new Error(`${unitRef('a2.05')}: ${id} is not in the manifest. Re-run scripts/_a205_manifest.ts.`);
+  if (!r) throw new Error(`a2.05: ${id} is not in the manifest. Re-run scripts/_a205_manifest.ts.`);
   return r;
 }
 

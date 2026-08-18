@@ -727,14 +727,14 @@ export function toItem(r: Row): Item {
 
 export const rowById = (id: string): Row => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: no authored row ${id}. The corpus file is the source of truth and it does not have this id.`);
+  if (!r) throw new Error(`a2.23: no authored row ${id}. The corpus file is the source of truth and it does not have this id.`);
   return r;
 };
 
 export const bucketIds = (b: Bucket): string[] => PRONOMINAUX_PASSE.filter((r) => r.bucket === b).map((r) => r.id);
 export const personId = (b: Bucket, p: Person): string => {
   const r = PRONOMINAUX_PASSE.find((x) => x.bucket === b && x.person === p);
-  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: no ${b} row for ${p}.`);
+  if (!r) throw new Error(`a2.23: no ${b} row for ${p}.`);
   return r.id;
 };
 
@@ -1229,12 +1229,12 @@ export const fr = (id: string): string => rowById(id).fr;
 export const en = (id: string): string => rowById(id).en;
 export const respellOf = (id: string): string => {
   const r = rowById(id).respell;
-  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: ${id} has no respelling and a card wants one.`);
+  if (!r) throw new Error(`a2.23: ${id} has no respelling and a card wants one.`);
   return r;
 };
 export const ipaOf = (id: string): string => {
   const r = rowById(id).ipa;
-  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: ${id} has no ipa and a card wants one.`);
+  if (!r) throw new Error(`a2.23: ${id} has no ipa and a card wants one.`);
   return r;
 };
 export const sub = (id: string): string => `[${respellOf(id)}]`;

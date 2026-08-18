@@ -14,7 +14,7 @@ const learner = (v: unknown, out: string[] = []): string[] => {
 // digit is part of a longer id — a lesson id like `a1.30.l2`, or an item id —
 // and a trailing dot on its own is a full stop.
 const idRx = /(?<![\p{L}\p{N}.])((?:a1|a2|b1|b2|c1|sons)\.\d{2})(?![\p{L}\p{N}])(?!\.[\p{L}\p{N}])/giu;
-const seqRx = /(?<![\p{L}])seq\s+\d/i;
+const seqRx = /(?<![\p{L}])seq\s+\d/iu;
 
 const files = readdirSync('scripts');
 const units = seed.units as { id: string; seq: number; lessonIds?: string[] }[];

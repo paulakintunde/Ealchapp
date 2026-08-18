@@ -65,7 +65,7 @@ export { SOURCE_THEMES, CARRIED_THEMES, CARRIED_IDS, READ_ONLY_ROWS, REPAIR_ONLY
 
 const must = (id: string): Item => {
   const r = IMPORTED_BY_ID.get(id);
-  if (!r) throw new Error(`${unitRef('a2.15')}: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.`);
+  if (!r) throw new Error(`a2.15: ${id} is not an importable row. Regenerate the manifest, or stop quoting it.`);
   return r;
 };
 
@@ -109,7 +109,7 @@ export const namingId = (word: string): string => {
     const extra = UNSEEN_INFINITIVES.includes(word)
       ? ` "${word}" is one of the two compounds the exam gives cold and it must appear on no teaching card.`
       : '';
-    throw new Error(`${unitRef('a2.15')}: "${word}" is not an imported naming form.${extra}`);
+    throw new Error(`a2.15: "${word}" is not an imported naming form.${extra}`);
   }
   return id;
 };
@@ -126,7 +126,7 @@ const EV_ID = new Map(EVIDENCE_ROW_IDS);
  *  a caller cannot cite an id that has moved. */
 export const evidenceId = (frText: string): string => {
   const id = EV_ID.get(frText);
-  if (!id) throw new Error(`${unitRef('a2.15')}: ${JSON.stringify(frText)} is not imported evidence`);
+  if (!id) throw new Error(`a2.15: ${JSON.stringify(frText)} is not imported evidence`);
   return id;
 };
 export const evidenceCard = (frText: string) => importedCard(evidenceId(frText));
