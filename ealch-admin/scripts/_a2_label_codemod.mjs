@@ -149,8 +149,16 @@ for (const f of files) {
         // literal without brackets: `'the thread, from sons.06': [` parses,
         // and its backtick form does not. Decided by what follows the string.
         if (/^\s*:/.test(L.slice(sp.end + 1))) continue;
-        const rebuilt = sp.body.replace(RAW_ID, (id) => "${unitRef('" + id + "')}");
-        L = L.slice(0, sp.start) + '`' + rebuilt.replace(/`/g, '\`') + '`' + L.slice(sp.end + 1);
+        // ESCAPE FIRST, SUBSTITUTE SECOND. A backtick or a `${` that was inert
+        // inside a quoted string becomes syntax once the string is a template:
+        //   'The `ün` is a1.11's'  ->  `The `ün` is …`   <- terminates early
+        // Doing it in this order also means the `${unitRef(…)}` inserted below
+        // is never itself escaped. The previous form wrote '\`', which in a
+        // single-quoted JS string is just a backtick, so it escaped nothing and
+        // broke a1.23's corpus.
+        const safe = sp.body.replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
+        const rebuilt = safe.replace(RAW_ID, (id) => "${unitRef('" + id + "')}");
+        L = L.slice(0, sp.start) + '`' + rebuilt + '`' + L.slice(sp.end + 1);
         n++;
       }
     }

@@ -181,6 +181,7 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { ADJECTIFS_TERMS, REFRAME } from './adjectifs-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   AUTHORED_WORD_IDS, BOTH_ORDERS_IDS, COLOUR_CONTRAST_ID, DICTEE_IDS, EAR_PAIRS, FAMILY_LABEL,
   FEMININE_AUDIBLE, FEMININE_ID, FEMININE_OF, FORM_ORDER, FORM_WORD, HEADWORD_ID, HEADWORD_IDS,
@@ -521,7 +522,7 @@ const SECTIONS: LessonSection[] = [
     say: 'The clearest proof of this is one sentence with a word at each end. Here are three of them.',
     cards: [
       {
-        label: 'What a1.13 gave you',
+        label: `What ${unitRef('a1.13')} gave you`,
         head: 'The colour goes last',
         fr: frOf(COLOUR_CONTRAST_ID),
         sub: `${sub('petite')} · ${enOf(COLOUR_CONTRAST_ID)}`,
@@ -1784,7 +1785,7 @@ const DECK_TRANCHE: string[][] = [
 const ERROR_TRIGGERS: ErrorTrigger[] = [
   {
     id: 'err-adjective-after',
-    description: 'Puts one of the six behind the noun, the way a colour goes. The default error on this lesson, because a1.13 taught the opposite order on every screen and nobody ever corrects this one out loud.',
+    description: `Puts one of the six behind the noun, the way a colour goes. The default error on this lesson, because ${unitRef('a1.13')} taught the opposite order on every screen and nobody ever corrects this one out loud.`,
     detectOn: ['s01-scene', 's03-sides', 's04-both', 's16-reading', 's24-quiz/r1-where-they-go'],
     drill: 'drill-order',
     retest: 'retest-order',
@@ -1798,7 +1799,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-regular-feminine',
-    description: 'Applies a1.13\'s rule to the half of this set it does not reach: writes vieuxe for vieille, beaue for belle, or bone for bonne.',
+    description: `Applies ${unitRef('a1.13')}\'s rule to the half of this set it does not reach: writes vieuxe for vieille, beaue for belle, or bone for bonne.`,
     detectOn: ['s08-table', 's09-families', 's10-bonne', 's12-check', 's24-quiz/r3-her-form'],
     drill: 'drill-feminine',
     retest: 'retest-feminine',
@@ -1819,7 +1820,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-hears-the-ending',
-    description: 'Carries a1.13\'s conclusion across unchanged and stops listening, or listens for the plural and concludes their ear is at fault. Costs confidence rather than accuracy, which is why it gets its own drill.',
+    description: `Carries ${unitRef('a1.13')}\'s conclusion across unchanged and stops listening, or listens for the plural and concludes their ear is at fault. Costs confidence rather than accuracy, which is why it gets its own drill.`,
     detectOn: ['s08-table', 's11-ear', 's24-quiz/r6-heard-or-written'],
     drill: 'drill-ear',
     retest: 'retest-ear',
@@ -2076,7 +2077,7 @@ export const ADJECTIFS_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2146,13 +2147,13 @@ export const ADJECTIFS_LESSON: Lesson = {
           + 'grand / grande, petit / petite, mauvais / mauvaise, bon / bonne, beau / belle, vieux / vieille. '
           + 'The ONLY difference the learner may hear is the ending. Recorded apart these become two '
           + 'performances and the learner compares the performances instead of the forms. '
-          + 'UNLIKE a1.13, ALL SIX OF THESE PAIRS GENUINELY DIFFER, so there is no silent pair to protect '
+          + `UNLIKE ${unitRef('a1.13')}, ALL SIX OF THESE PAIRS GENUINELY DIFFER, so there is no silent pair to protect `
           + 'here and the risk runs the other way: do not EXAGGERATE the difference to make it audible. It '
           + 'already is. Read every pair at ordinary conversational pace. '
           + 'bon / bonne is the one to get right. bon is a nasal vowel with NO n sound behind it at all, and '
           + 'bonne is a plain oral o followed by a clearly pronounced n. That is a vowel change and a '
           + 'consonant arriving in one step, it is the largest change in the set, and it must not be '
-          + 'softened into a half-nasal. This is the brun / brune shape from sons.03 and should be read the '
+          + `softened into a half-nasal. This is the brun / brune shape from ${unitRef('sons.03')} and should be read the `
           + 'same way. '
           + 'beau / belle and vieux / vieille are not endings and must not be read as though they were: they '
           + 'are two different words and should sound like two different words.',

@@ -48,6 +48,7 @@
 // them.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export type ImportedRow = Item;
 
@@ -154,16 +155,16 @@ export const IMPORTED: ImportedRow[] = [
 
   // ── the third form, in front of a real vowel, and its consonant partner (5) ──
   {
-    id: "fr.a1.adjectifs-essentiels.026", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "C'est un bel homme.", en: "He is a handsome man.", ipa: "sɛ.tœ̃ bɛl ɔm", notes: "'Bel' replaces 'beau' before a masculine noun starting with a vowel.", tags: ["grammaire"], drills: ["dictation"], version: 1,
+    id: "fr.a1.adjectifs-essentiels.026", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "C'est un bel homme.", en: "He is a handsome man.", ipa: "sɛ.tœ̃ bɛl ɔm", notes: "'Bel' replaces 'beau' before a masculine noun starting with a vowel.", tags: ["grammaire"], drills: ["dictation","flashcard","review","sentence","voiceflash"], respell: "seh-tuhⁿ beh-LOM", version: 1,
   },
   {
-    id: "fr.a1.adjectifs-essentiels.204", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "C'est un bel arbre.", en: "It's a beautiful tree.", notes: "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's a\"},{\"w\":\"bel\",\"t\":\"beautiful\"},{\"w\":\"arbre.\",\"t\":\"tree\"}]}", tags: [], drills: ["sentence","flashcard","review"], version: 1,
+    id: "fr.a1.adjectifs-essentiels.204", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "C'est un bel arbre.", en: "It's a beautiful tree.", notes: "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's a\"},{\"w\":\"bel\",\"t\":\"beautiful\"},{\"w\":\"arbre.\",\"t\":\"tree\"}]}", tags: [], drills: ["dictation","flashcard","review","sentence","voiceflash"], respell: "seh-tuhⁿ beh-LAHRBR", version: 1,
   },
   {
     id: "fr.a1.adjectifs-essentiels.044", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "Mon grand-père a un vieil ami à Lyon.", en: "My grandfather has an old friend in Lyon.", ipa: "mɔ̃ ɡʁɑ̃.pɛʁ a œ̃ vjɛj a.mi a ljɔ̃", notes: "'Vieil' replaces 'vieux' before a vowel-starting masculine noun.", tags: ["grammaire"], drills: ["dictation"], version: 1,
   },
   {
-    id: "fr.a1.adjectifs-essentiels.214", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "C'est un vieil immeuble.", en: "It's an old building.", notes: "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's an\"},{\"w\":\"vieil\",\"t\":\"old\"},{\"w\":\"immeuble.\",\"t\":\"building\"}]}", tags: [], drills: ["sentence","flashcard","review"], version: 1,
+    id: "fr.a1.adjectifs-essentiels.214", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "C'est un vieil immeuble.", en: "It's an old building.", notes: "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's an\"},{\"w\":\"vieil\",\"t\":\"old\"},{\"w\":\"immeuble.\",\"t\":\"building\"}]}", tags: [], drills: ["flashcard","review","sentence","voiceflash"], respell: "seh-tuhⁿ vyeh-yee-MUHBL", version: 1,
   },
   {
     id: "fr.a1.adjectifs-essentiels.043", kind: "sentence", level: "a1", theme: "adjectifs-essentiels", fr: "C'est un vieux château.", en: "It's an old castle.", ipa: "sɛ.tœ̃ vjø ʃa.to", notes: "'Vieux' precedes the noun 'château'.", tags: ["grammaire"], drills: ["dictation"], version: 1,
@@ -206,21 +207,21 @@ export const REUSED: { id: string; fr: string; en: string; why: string }[] = [
     fr: "grande",
     en: "big, tall (feminine)",
     why:
-      'grande, authored by sons.06 as [\"e-switch\",\"gender-audible\",\"nasal\"] with the note \"The E stays silent. The D wakes up.\" That is this lesson\'s own teaching, already written, so the row is reused rather than re-authored: a second grande would be one card the learner rates twice in the SRS',
+      `grande, authored by ${unitRef('sons.06')} as [\"e-switch\",\"gender-audible\",\"nasal\"] with the note \"The E stays silent. The D wakes up.\" That is this lesson\'s own teaching, already written, so the row is reused rather than re-authored: a second grande would be one card the learner rates twice in the SRS`,
   },
   {
     id: "fr.sons.muettes.048",
     fr: "petite",
     en: "small (feminine)",
     why:
-      'petite, the other half of the same sons.06 pair, noted \"Now you can hear which one it is.\" Its respelling carries a schwa, which is why this lesson repairs fr.sons.adjectifs-essentiels.002 from puh-TEE to the matching form: the masculine and the feminine sit on one card here',
+      `petite, the other half of the same ${unitRef('sons.06')} pair, noted \"Now you can hear which one it is.\" Its respelling carries a schwa, which is why this lesson repairs fr.sons.adjectifs-essentiels.002 from puh-TEE to the matching form: the masculine and the feminine sit on one card here`,
   },
   {
     id: "fr.sons.nasales.167",
     fr: "bonne",
     en: "good (f.)",
     why:
-      'bonne, the biggest sound change of the six, and sons.03 already carries the reason: \"The doubled N blocks nasalization.\" Its stored respelling BON is the VERIFIED PASSING FORM and is deliberately not a superscript. See the note on the nasal checker in adjectifs-corpus.ts',
+      `bonne, the biggest sound change of the six, and ${unitRef('sons.03')} already carries the reason: \"The doubled N blocks nasalization.\" Its stored respelling BON is the VERIFIED PASSING FORM and is deliberately not a superscript. See the note on the nasal checker in adjectifs-corpus.ts`,
   },
 
   // ── the colour side of the placement contrast, already in the seed (1) ──
@@ -229,7 +230,7 @@ export const REUSED: { id: string; fr: string; en: string; why: string }[] = [
     fr: "Elle porte une jupe verte.",
     en: "She is wearing a green skirt.",
     why:
-      'the colour half of the placement contrast, already in the seed because a1.13 imported it. It sits in the SAME FRAME as this lesson\'s \"Elle porte une petite robe rouge.\", so the two word orders can be shown with exactly one thing moving between them',
+      `the colour half of the placement contrast, already in the seed because ${unitRef('a1.13')} imported it. It sits in the SAME FRAME as this lesson\'s \"Elle porte une petite robe rouge.\", so the two word orders can be shown with exactly one thing moving between them`,
   },
 
   // ── the only voiceflash sentences in the corpus this lesson can use (3) ──

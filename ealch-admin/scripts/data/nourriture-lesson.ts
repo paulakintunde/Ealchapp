@@ -73,6 +73,7 @@ import type {
   ErrorTrigger, Lesson, LessonAct, LessonDrill, LessonSection, ReferenceSheet, SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { NOURRITURE_TERMS, REFRAME, REFRAME_COUNT } from './nourriture-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   ELIDED, EAT_COLUMN, FOODS, LIKE_COLUMN, NEGATION_PAIR, PLURAL_ONLY, SHELF_LABEL, SHELVES,
   THE_PAIR, enOf, food, frOf, onShelf, sub,
@@ -1570,7 +1571,7 @@ const DECK_TRANCHE: string[][] = [
     throw new Error(`a1.23.l1: tranche(s) release item(s) the lesson does not teach: ${stray.join(', ')}`);
   }
   for (const id of BORROWED_NOT_RELEASED) {
-    if (released.has(id)) throw new Error(`a1.23.l1: ${id} belongs to a1.29 and must be shown but not released`);
+    if (released.has(id)) throw new Error(`a1.23.l1: ${id} belongs to ${unitRef('a1.29')} and must be shown but not released`);
   }
 }
 
@@ -1607,7 +1608,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-like-partitive',
-    description: 'Says « j\'aime du pain », applying a1.29\'s partitive rule to a verb it does not reach. THE CENTRAL ERROR OF THIS LESSON, and it is created by the lesson immediately upstream rather than by carelessness.',
+    description: `Says « j\'aime du pain », applying ${unitRef('a1.29')}\'s partitive rule to a verb it does not reach. THE CENTRAL ERROR OF THIS LESSON, and it is created by the lesson immediately upstream rather than by carelessness.`,
     detectOn: ['s12-like', 's14-like-drill', 's18-pair', 's28-quiz/r3-what-you-like'],
     drill: 'drill-like',
     retest: 'retest-like',

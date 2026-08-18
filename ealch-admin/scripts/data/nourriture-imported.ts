@@ -58,6 +58,12 @@
 // check could never catch.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 export type ImportedRow = Item;
 
@@ -119,20 +125,20 @@ export const REUSED: { id: string; fr: string; en: string; why: string }[] = [
   },
   {
     id: 'fr.a1.cuisine.268', fr: 'Je bois du café.', en: 'I drink coffee.',
-    why: 'THE EAT COLUMN, on the same noun, from a1.29\'s partitive block. Borrowed for the contrast screen '
-      + 'and deliberately NOT released to spaced repetition, because a1.29 owns it.',
+    why: `THE EAT COLUMN, on the same noun, from ${unitRef('a1.29')}\'s partitive block. Borrowed for the contrast screen `
+      + `and deliberately NOT released to spaced repetition, because ${unitRef('a1.29')} owns it.`,
   },
 
   // ── the negation pair, which neither upstream lesson could show ──
   {
     id: 'fr.a1.cafe.150', fr: "Je n'aime pas le café.", en: 'I do not like coffee.',
-    why: 'le SURVIVES the negative after aimer. a1.18 taught ne...pas and a1.29 taught the collapse to de, and '
+    why: `le SURVIVES the negative after aimer. ${Cap(unitRef('a1.18'))} taught ne...pas and ${unitRef('a1.29')} taught the collapse to de, and `
       + 'neither could show this, because neither had both columns.',
   },
   {
     id: 'fr.a1.cuisine.264', fr: 'Je ne mange pas de pain.', en: 'I do not eat bread.',
     why: 'and du COLLAPSES to de after manger. The two rows side by side are the deeper half of the lesson. '
-      + 'a1.29\'s row, borrowed and not re-released.',
+      + `${Cap(unitRef('a1.29'))}\'s row, borrowed and not re-released.`,
   },
 
   // ── the like column, widened past one verb and one person ──
@@ -158,7 +164,7 @@ export const REUSED: { id: string; fr: string; en: string; why: string }[] = [
   },
   {
     id: 'fr.a1.questions.077', fr: 'Est-ce que tu préfères le thé ou le café ?', en: 'Do you prefer tea or coffee?',
-    why: 'the like column inside a question, using a1.19\'s est-ce que. The reading passage needs one question '
+    why: `the like column inside a question, using ${unitRef('a1.19')}\'s est-ce que. The reading passage needs one question `
       + 'that is not this lesson\'s own invention.',
   },
   {
@@ -186,7 +192,7 @@ export const REUSED: { id: string; fr: string; en: string; why: string }[] = [
   {
     id: 'fr.a1.cuisine.205', fr: 'Vous mangez du poulet rôti ce soir.', en: 'You are eating roast chicken tonight.',
     why: 'second person plural. Between this and the rows above, manger is seen in four of its six persons '
-      + 'without this lesson conjugating anything, which is a2.02\'s job.',
+      + `without this lesson conjugating anything, which is ${unitRef('a2.02')}\'s job.`,
   },
   {
     id: 'fr.a1.cuisine.209', fr: 'Ils mangent des légumes verts chaque soir.', en: 'They eat green vegetables every evening.',
@@ -199,7 +205,7 @@ export const REUSED: { id: string; fr: string; en: string; why: string }[] = [
   },
   {
     id: 'fr.sons.liaisons.122', fr: 'On mange des œufs et du pain le matin.', en: 'We eat eggs and bread in the morning.',
-    why: 'des and du in one sentence, with the liaison on « des œufs » that sons.10 already teaches.',
+    why: `des and du in one sentence, with the liaison on « des œufs » that ${unitRef('sons.10')} already teaches.`,
   },
 ];
 

@@ -321,12 +321,12 @@ export const REPAIRS_INVISIBLE_TO_CHECKER = RESPELL_REPAIRS.filter((r) => !r.cau
 export const NOT_REPAIRED: { id: string; fr: string; is: string; shouldBe: string; why: string }[] = [
   {
     id: 'fr.sons.adjectifs-essentiels.010', fr: 'long', is: 'LOHN', shouldBe: 'LOHⁿ',
-    why: 'a genuine nasal closed with a plain n. Not displayed by a1.14, so not repaired here.',
+    why: `a genuine nasal closed with a plain n. Not displayed by ${unitRef('a1.14')}, so not repaired here.`,
   },
   {
     id: 'fr.sons.adjectifs-essentiels.009', fr: 'jeune', is: 'ZHUHN', shouldBe: 'ZHÖN',
     why: 'the jaune shape: a REAL /n/ and no nasal vowel, so the superscript would be wrong. Not displayed '
-      + 'by a1.14, so not repaired here. ZHÖN and ZHUN both verified passing; ZHEUN is NOT.',
+      + `by ${unitRef('a1.14')}, so not repaired here. ZHÖN and ZHUN both verified passing; ZHEUN is NOT.`,
   },
 ];
 
@@ -884,6 +884,7 @@ export const NOT_TAUGHT_IDS = [
 /* ─── The import and reuse manifests ───────────────────────────────────────*/
 
 import { IMPORTED as IMPORTED_ROWS, REUSED as REUSED_ROWS } from './adjectifs-imported.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export const IMPORTED = IMPORTED_ROWS;
 export const REUSED = REUSED_ROWS;

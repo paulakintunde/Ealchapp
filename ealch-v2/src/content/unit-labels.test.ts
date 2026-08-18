@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- *  A2 — NO LESSON NAMES ANOTHER LESSON BY ITS UNIT ID
+ *  NO LESSON NAMES ANOTHER LESSON BY ITS UNIT ID, IN ANY BAND
  *
  *  A2-BUILD-DOCTRINE.md:199 used to say « name the earlier instance by unit
  *  id », and every A2 build followed it, so 35 of 36 lesson bodies printed
@@ -7,13 +7,17 @@
  *  look it up, and it means nothing to them. They read « lesson 22 in A2 », and
  *  « lesson 22's line » where a possessive reads better.
  *
- *  ── WHY A BAND-WIDE TEST AND NOT A PER-LESSON ONE ─────────────────────────
+ *  Written for A2 and widened once A1 and Sounds turned out to carry the same
+ *  defect: 1,382 raw ids across the corpus, now none. It walks EVERY band, so
+ *  B1, B2 and C1 are covered before they are authored rather than after.
+ *
+ *  ── WHY A CORPUS-WIDE TEST AND NOT A PER-LESSON ONE ───────────────────────
  *
  *  Each lesson's own suite asserts the units IT cites. None of them can see a
  *  citation nobody thought to assert, and the migration found those in every
  *  shape the per-lesson guards missed: a `note` sharing a line with an
  *  `itemId`, a constant holding a whole sentence, a tapTable column built by
- *  `.map()`, a `why` on an exam question. This walks every string of every A2
+ *  `.map()`, a `why` on an exam question. This walks every string of every
  *  lesson instead of the ones a build remembered to name.
  *
  *  ── THE TRAP THIS ALSO GUARDS ─────────────────────────────────────────────
@@ -41,7 +45,11 @@ import { unitLabel } from './unit-label.ts';
 type Unit = { id: string; seq: number; lessonIds?: string[] };
 type Lesson = { id: string };
 
-const UNITS = (seed.units as unknown as Unit[]).filter((u) => u.id.startsWith('a2.'));
+/** Every band with a trail. A unit whose id is not one of these is not a
+ *  lesson unit and has no seq to cite. */
+const TRACKS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1'] as const;
+const UNITS = (seed.units as unknown as Unit[])
+  .filter((u) => TRACKS.some((t) => u.id.startsWith(`${t}.`)));
 const LESSONS = seed.lessons as unknown as Lesson[];
 
 /** Machine keys, whose values are addressed to the curriculum or to code. */
@@ -71,7 +79,7 @@ const RAW_ID = /(?<![\p{L}\p{N}.])((?:a1|a2|b1|b2|c1|sons)\.\d{2})(?![\p{L}\p{N}
  *  a2.24 for months, as « since seq 17 of A1 », which is both jargon and wrong. */
 const SEQ_WORD = /(?<![\p{L}])seq\s+\d/i;
 
-const a2Lessons = (): Array<{ id: string; body: Lesson }> => {
+const allLessons = (): Array<{ id: string; body: Lesson }> => {
   const out: Array<{ id: string; body: Lesson }> = [];
   for (const u of UNITS.sort((a, b) => Number(a.seq) - Number(b.seq))) {
     for (const lid of u.lessonIds ?? []) {
@@ -82,17 +90,17 @@ const a2Lessons = (): Array<{ id: string; body: Lesson }> => {
   return out;
 };
 
-test('the A2 band is in the seed and this test is actually reading it', () => {
-  ok(UNITS.length >= 35, `only ${UNITS.length} A2 units in the seed`);
-  const ls = a2Lessons();
-  ok(ls.length >= 36, `only ${ls.length} A2 lessons found, so the walk is not reaching the band`);
+test('the corpus is in the seed and this test is actually reading it', () => {
+  ok(UNITS.length >= 70, `only ${UNITS.length} units in the seed`);
+  const ls = allLessons();
+  ok(ls.length >= 75, `only ${ls.length} lessons found, so the walk is not reaching the corpus`);
   const total = ls.reduce((n, l) => n + learnerStrings(l.body).length, 0);
-  ok(total > 20000, `the walk found only ${total} strings across the band`);
+  ok(total > 40000, `the walk found only ${total} strings across the corpus`);
 });
 
-test('no A2 lesson prints a raw unit id on a learner surface', () => {
+test('no lesson prints a raw unit id on a learner surface', () => {
   const offences: string[] = [];
-  for (const { id, body } of a2Lessons()) {
+  for (const { id, body } of allLessons()) {
     for (const s of learnerStrings(body)) {
       for (const m of s.matchAll(RAW_ID)) {
         offences.push(`${id}: ${m[1]} in "${s.slice(Math.max(0, m.index - 30), m.index + 40).replace(/\s+/g, ' ')}"`);
@@ -104,9 +112,9 @@ test('no A2 lesson prints a raw unit id on a learner surface', () => {
     + 'interpolate `unitRef(X_UNIT)` from ealch-admin/scripts/data/_unit-ref.ts.');
 });
 
-test('no A2 lesson uses the word "seq" on a learner surface', () => {
+test('no lesson uses the word "seq" on a learner surface', () => {
   const offences: string[] = [];
-  for (const { id, body } of a2Lessons()) {
+  for (const { id, body } of allLessons()) {
     for (const s of learnerStrings(body)) {
       if (SEQ_WORD.test(s)) offences.push(`${id}: "${s.slice(0, 70).replace(/\s+/g, ' ')}"`);
     }
@@ -133,7 +141,7 @@ test('a citation is capitalised iff it opens a sentence', () => {
   };
 
   const offences: string[] = [];
-  for (const { id, body } of a2Lessons()) {
+  for (const { id, body } of allLessons()) {
     for (const s of learnerStrings(body)) {
       if (isTitleCase(s)) continue;
       for (const m of s.matchAll(LOWER_AFTER_STOP)) {
@@ -161,7 +169,7 @@ test('every lesson label a learner reads resolves to a unit that exists, at that
   }
 
   const offences: string[] = [];
-  for (const { id, body } of a2Lessons()) {
+  for (const { id, body } of allLessons()) {
     for (const s of learnerStrings(body)) {
       for (const m of s.matchAll(LABEL)) {
         const track = TRACKS[m[2][0].toUpperCase() + m[2].slice(1).toLowerCase()] ?? TRACKS[m[2].toUpperCase()];
@@ -174,16 +182,20 @@ test('every lesson label a learner reads resolves to a unit that exists, at that
 });
 
 test('a unit whose id number differs from its seq is never cited by its id number', () => {
-  // 31 of 35 A2 units disagree with their own id number, so a label built by
-  // slicing the digits off the id is wrong five times in six. a2.24 shipped
-  // exactly that, as « since seq 17 of A1 » about a unit that is seq 20.
+  // Measured across the shipped units: 31 of 35 in A2 disagree with their own
+  // id number, 27 of 30 in A1 and 4 of 10 in sons, so a label built by slicing
+  // the digits off the id is wrong five times in six. a2.24 shipped exactly
+  // that, as « since seq 17 of A1 » about a unit that is seq 20.
   const disagreeing = UNITS.filter((u) => Number(u.id.split('.')[1]) !== Number(u.seq));
-  ok(disagreeing.length > 25,
-    `only ${disagreeing.length} A2 units disagree with their id number; if the trail was resequenced this test needs re-reading`);
+  ok(disagreeing.length > 55,
+    `only ${disagreeing.length} units disagree with their id number; if the trail was resequenced this test needs re-reading`);
 
   for (const u of disagreeing) {
     const label = unitLabel(u.id);
-    const idNumberLabel = `lesson ${Number(u.id.split('.')[1])} in A2`;
+    // The label its ID NUMBER would produce, in its own track, which is the
+    // string this rule exists to keep off a card.
+    const TRACK: Record<string, string> = { sons: 'Sounds', a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1' };
+    const idNumberLabel = `lesson ${Number(u.id.split('.')[1])} in ${TRACK[u.id.split('.')[0]]}`;
     ok(label !== idNumberLabel, `${u.id} resolves to "${label}", which is its id number rather than its seq`);
   }
 });

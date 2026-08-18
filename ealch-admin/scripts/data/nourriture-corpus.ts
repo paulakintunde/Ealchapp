@@ -74,6 +74,12 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { IMPORTED as IMPORTED_ROWS, REUSED as REUSED_ROWS } from './nourriture-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 /* ─── The theme decision ───────────────────────────────────────────────────
  *
@@ -107,7 +113,7 @@ export const THEME_DECISION = {
   was: ['nourriture'],
   now: ['cuisine', 'marche'],
   why: 'nourriture holds 0 rows in Postgres and 0 in the seed; cuisine and marche are populated and inside the seed cut',
-  leavesDeadFor: 'a2.07',
+  leavesDeadFor: `${Cap(unitRef('a2.07'))}`,
 } as const;
 
 export const UNIT_THEMES: string[] = [...THEME_DECISION.now];
@@ -386,8 +392,8 @@ export const TWIN_REPAIRS: TwinRepair[] = [
 
   // The two indefinite rows, NOUN repaired, ARTICLE PRESERVED. a1.11 owns the
   // article and it is not a defect.
-  { id: C('021'), fr: 'une banane', from: 'ün bah-NAHN', to: 'ün bah-NAN', caughtByChecker: true, kind: 'nasal', theme: 'cuisine', why: 'the final n of banane is a REAL /n/, so AHN teaches a nasal that is not there. Repaired to AN, matching the marche row. The `ün` is a1.11\'s and stays.' },
-  { id: C('022'), fr: 'une orange', from: 'ün oh-RAHNZH', to: 'ün oh-RAHⁿZH', caughtByChecker: false, kind: 'nasal', theme: 'cuisine', why: 'the same word-internal nasal a1.13 repaired on the colour row fr.sons.couleurs.009. The `ün` is a1.11\'s and stays.' },
+  { id: C('021'), fr: 'une banane', from: 'ün bah-NAHN', to: 'ün bah-NAN', caughtByChecker: true, kind: 'nasal', theme: 'cuisine', why: `the final n of banane is a REAL /n/, so AHN teaches a nasal that is not there. Repaired to AN, matching the marche row. The \`ün\` is ${unitRef('a1.11')}\'s and stays.` },
+  { id: C('022'), fr: 'une orange', from: 'ün oh-RAHNZH', to: 'ün oh-RAHⁿZH', caughtByChecker: false, kind: 'nasal', theme: 'cuisine', why: `the same word-internal nasal ${unitRef('a1.13')} repaired on the colour row fr.sons.couleurs.009. The \`ün\` is ${unitRef('a1.11')}\'s and stays.` },
 ];
 
 /** Rows a twin repair touches that this lesson does NOT display. Named so the
@@ -435,7 +441,7 @@ export const RESPELL_REPAIRS: RespellRepair[] = [
     id: C('002'), fr: 'le pain', from: 'luh PAN', to: to('pain'), caughtByChecker: true, kind: 'nasal',
     why: 'a plain n closes /ɛ̃/. fr.a1.cuisine.265 « du pain » ALREADY CARRIES dü PAⁿ in this very theme, so '
       + 'the corpus contradicts itself on one word two rows apart. This repair makes the headword agree with '
-      + 'the partitive row a1.29 ships rather than inventing a third value.',
+      + `the partitive row ${unitRef('a1.29')} ships rather than inventing a third value.`,
   },
   {
     id: C('114'), fr: 'le croissant', from: 'LUH krwah-SAHN', to: to('croissant'), caughtByChecker: true, kind: 'nasal',
@@ -495,7 +501,7 @@ export const RESPELL_REPAIRS: RespellRepair[] = [
   {
     id: M('048'), fr: "l'orange", from: 'lo-RAHNJ', to: to('orange'), caughtByChecker: false, kind: 'nasal',
     why: 'INVISIBLE TO THE CHECKER, and carrying a second defect: ZH is the house spelling for /ʒ/ and this row '
-      + 'used a bare J. a1.13 hit the same word on the colour row (fr.sons.couleurs.009) and repaired it to '
+      + `used a bare J. ${Cap(unitRef('a1.13'))} hit the same word on the colour row (fr.sons.couleurs.009) and repaired it to `
       + 'oh-RAHⁿZH; this lands on lo-RAHⁿZH, the same value with the elided article, so the fruit and the '
       + 'colour finally agree.',
   },
@@ -561,7 +567,7 @@ export const NOT_REPAIRED: { id: string; fr: string; respell: string; why: strin
   {
     id: M('047'), fr: 'la banane', respell: 'lah bah-NAN',
     why: 'the final N is a REAL /n/: /banan/. Correct as it stands. Note that the cuisine twin '
-      + 'fr.a1.cuisine.021 « une banane » carries bah-NAHN and IS flagged, but that row belongs to a1.11 and '
+      + `fr.a1.cuisine.021 « une banane » carries bah-NAHN and IS flagged, but that row belongs to ${unitRef('a1.11')} and `
       + 'is not displayed here, so it is reported rather than repaired.',
   },
   {
@@ -739,13 +745,13 @@ for (const r of REUSED_ROWS) if (!DISPLAY.has(r.id)) DISPLAY.set(r.id, { fr: r.f
 
 export function frOf(id: string): string {
   const d = DISPLAY.get(id);
-  if (!d) throw new Error(`a1.23: no display string for "${id}". Add it to FOODS, IMPORTED or REUSED.`);
+  if (!d) throw new Error(`${unitRef('a1.23')}: no display string for "${id}". Add it to FOODS, IMPORTED or REUSED.`);
   return d.fr;
 }
 
 export function enOf(id: string): string {
   const d = DISPLAY.get(id);
-  if (!d) throw new Error(`a1.23: no display string for "${id}".`);
+  if (!d) throw new Error(`${unitRef('a1.23')}: no display string for "${id}".`);
   return d.en;
 }
 
@@ -753,7 +759,7 @@ export function enOf(id: string): string {
  *  because that is how every A1 lesson renders a respelling under a card. */
 export function sub(fr: string): string {
   const f = FOODS.find((x) => x.fr === fr);
-  if (!f) throw new Error(`a1.23: no food with fr "${fr}", so no transcription to show.`);
+  if (!f) throw new Error(`${unitRef('a1.23')}: no food with fr "${fr}", so no transcription to show.`);
   return `[${f.respell}]`;
 }
 

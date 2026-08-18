@@ -28,3 +28,17 @@ __pycache__/
 # Scratch scripts. `_tmp_` is the prefix for something written to answer one
 # question and not meant to survive it.
 ealch-admin/scripts/_tmp_*.ts
+
+# Seed snapshots taken around a migration. A copy of seed.json is ~15 MB and
+# carries the SAME `version` field as the real one while holding an older body,
+# so a stray `git add -A` commits 30 MB and a stray copy silently restores a
+# state the counter says is current. Two of them are sitting beside seed.json
+# right now, from the band-wide unit-label migration that was rolled back in
+# favour of the source-first one.
+ealch-v2/src/content/seed.*.bak
+ealch-v2/src/content/seed.*.migrated.json
+
+# The rolled-back migration's own script. Kept as a record of what was tried;
+# ignored because its `--write` still writes seed.json AND Postgres directly,
+# bypassing the batch-then-merge pipeline every lesson goes through.
+ealch-admin/scripts/_a2_unit_label_migration.ts
