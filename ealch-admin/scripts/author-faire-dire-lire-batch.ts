@@ -66,6 +66,7 @@ import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
 import { normalizeFr } from '../../ealch-v2/src/utils/score.ts';
 import { Pool } from 'pg';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ALLER_UNIT, AUTHORED_EXPRESSION_IDS, AUTHORED_IDS, AVOIR_UNIT, BLIND_NASALS,
   BREAKS, CONTROL_BREAKS, DICTATION_IDS, DICTEE_NEAR_MISS, DRILL_ADDITIONS,
@@ -749,7 +750,7 @@ if (jargon.length) die(`grammar vocabulary reached a learner surface: ${jargon.j
   }
   const carrying = LESSON.sections.filter((s) => strings(s).some((x) => hasPhrase(x, WHAT_FOLLOWS)));
   if (carrying.length < 2) die(`"${WHAT_FOLLOWS}" reaches ${carrying.length} sections, expected at least 2`);
-  if (!hasPhrase(learnerText, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} is cited nowhere, so the name is quoted without saying where it came from`);
+  if (!namesUnitLabel(learnerText, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} is cited nowhere, so the name is quoted without saying where it came from`);
   /** AND THE LOWERCASE TERM NAME NEVER OPENS A SENTENCE.
    *
    *  a2.02 found this on a Pixel 6 after v2 had shipped. Term names are
@@ -782,7 +783,7 @@ if (jargon.length) die(`grammar vocabulary reached a learner surface: ${jargon.j
 
 /* ── THE a1.10 LOOP, CLOSED BY UNFREEZING THE PHRASES ────────────────────── */
 {
-  if (!hasPhrase(learnerText, WEATHER_UNIT)) {
+  if (!namesUnitLabel(learnerText, WEATHER_UNIT)) {
     die(
       `${WEATHER_UNIT} is named by no section.\n`
       + `  It taught \`il fait\` + an adjective "as one frozen form and never conjugated" — its own grammarIntroduced\n`
@@ -922,7 +923,7 @@ if (PRODUCTION_SURFACES.length < 300) die(`the production-surface scope collapse
    *  search for `a2.26`. Both the boundary card and the `notTheNouns` term were
    *  written with an apostrophe-s and this guard is what found it. */
   const CITED = [ETRE_UNIT, AVOIR_UNIT, ALLER_UNIT, WEATHER_UNIT, SHOPPING_UNIT, MODAL_UNIT, WHAT_FOLLOWS_UNIT];
-  const uncited = CITED.filter((u) => !hasPhrase(learnerText, u));
+  const uncited = CITED.filter((u) => !namesUnitLabel(learnerText, u));
   if (uncited.length) {
     die(
       `unit(s) cited on no screen: ${uncited.join(', ')}\n`

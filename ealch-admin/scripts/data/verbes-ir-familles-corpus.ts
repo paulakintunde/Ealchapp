@@ -126,6 +126,7 @@
 // - NO PAST TENSE.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /* ─── The id block ─────────────────────────────────────────────────────────
  *
@@ -182,7 +183,7 @@ export const VERBES_IR_FAM: IrFamSentence[] = [
   { id: 'fr.a2.verbes.469', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il couvre tout.', en: 'He covers everything.', ipa: '/il kuvʁ tu/', respell: 'eel koovr TOO', person: 'il', audible: false, family: 'ercase', tags: ['ir-verb', 'er-endings', 'silent-ending'], drills: SD, audioRef: null, version: 1, notes: 'Said exactly like Ils couvrent tout. Nothing in the sound separates them.' },
   { id: 'fr.a2.verbes.470', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils couvrent tout.', en: 'They cover everything.', ipa: '/il kuvʁ tu/', respell: 'eel koovr TOO', person: 'ils', audible: false, family: 'ercase', tags: ['ir-verb', 'er-endings', 'silent-ending'], drills: SD, audioRef: null, version: 1, notes: 'Seven letters at the end and not one of them sounds. Identical to Il couvre tout.' },
   { id: 'fr.a2.verbes.471', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous couvrons tout.', en: 'We cover everything.', ipa: '/nu ku.vʁɔ̃ tu/', respell: 'noo koo-vrohⁿ TOO', person: 'nous', audible: true, family: 'ercase', tags: ['ir-verb', 'er-endings', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'One of the two the ear gets, and it is the -ons of an -er verb.' },
-  { id: 'fr.a2.verbes.472', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous couvrez tout.', en: 'You cover everything.', ipa: '/vu ku.vʁe tu/', respell: 'voo koo-vray TOO', person: 'vous', audible: true, family: 'ercase', tags: ['ir-verb', 'er-endings'], drills: S, audioRef: null, version: 1, notes: 'The other one, and it is -ez. Two audible out of six, exactly as in a2.01.' },
+  { id: 'fr.a2.verbes.472', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous couvrez tout.', en: 'You cover everything.', ipa: '/vu ku.vʁe tu/', respell: 'voo koo-vray TOO', person: 'vous', audible: true, family: 'ercase', tags: ['ir-verb', 'er-endings'], drills: S, audioRef: null, version: 1, notes: `The other one, and it is -ez. Two audible out of six, exactly as in ${unitRef('a2.01')}.` },
 
   /* ── liaison: the two most common of the family, where the rule bends ──────
    *

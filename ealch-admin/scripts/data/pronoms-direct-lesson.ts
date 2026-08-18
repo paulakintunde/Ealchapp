@@ -54,13 +54,19 @@ import {
 } from './pronoms-direct-corpus.ts';
 import { PRONOMS_DIRECT_TERMS } from './pronoms-direct-terms.ts';
 import { importedFr, importedEn, respell as impRespell } from './pronoms-direct-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the corpus, never restating it ─────────────────────────────── */
 
 const BY_ID = new Map(ROWS.map((r) => [r.id, r]));
 const row = (id: string) => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.06: no authored row ${id}`);
+  if (!r) throw new Error(`${unitRef('a2.06')}: no authored row ${id}`);
   return r;
 };
 const fr = (id: string) => row(id).fr;
@@ -270,7 +276,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     goals: [
       { t: 'Put the word in front of the verb', s: `${REFRAME} This is the whole lesson and everything else on the list is something you already own.` },
-      { t: 'Pick between three words you have', s: `le, la and les are ${ARTICLE_UNIT}'s and the choice between them is ${GENDER_UNIT}'s. Nothing here re-teaches either; you spend them.` },
+      { t: 'Pick between three words you have', s: `le, la and les are ${unitRef(ARTICLE_UNIT, 'a2')}'s and the choice between them is ${unitRef(GENDER_UNIT, 'a2')}'s. Nothing here re-teaches either; you spend them.` },
       { t: 'Say no without moving it', s: `${NEGATION_EXTENSION} One negation rule, five lessons old, and this adds a sentence to it rather than a rule.` },
       { t: 'Write the ending in the past', s: `${AGREEMENT_RULE} ${AGREEMENT_SILENT}` },
     ],
@@ -286,7 +292,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     render: 'deck',
-    say: `You have met these three words before and they were doing something else. « ${WHAT_FOLLOWS} » is how ${WHAT_FOLLOWS_UNIT} put it, and this is the fifth time it has come up.`,
+    say: `You have met these three words before and they were doing something else. « ${WHAT_FOLLOWS} » is how ${unitRef(WHAT_FOLLOWS_UNIT)} put it, and this is the fifth time it has come up.`,
     hint: 'Look at the word straight after it.',
     terms: ['sameWords', 'whatOrWho', 'whichOne'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-06-article' },
@@ -296,21 +302,21 @@ const SECTIONS: LessonSection[] = [
         label: 'a noun follows · a verb follows',
         fr: pair(A(189), A(190)),
         sub: `${sub(A(189))} then ${sub(A(190))}`,
-        body: `« ${WHAT_FOLLOWS} » is ${WHAT_FOLLOWS_UNIT}'s line. In the first sentence film follows, so it is ${ARTICLE_UNIT}'s word. In the second vois follows, so it is this lesson's.`,
+        body: `« ${WHAT_FOLLOWS} » is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s line. In the first sentence film follows, so it is ${unitRef(ARTICLE_UNIT, 'a2')}'s word. In the second vois follows, so it is this lesson's.`,
       },
       {
         head: 'la, twice',
         label: 'a noun follows · a verb follows',
         fr: pair(A(191), A(192)),
         sub: `${sub(A(191))} then ${sub(A(192))}`,
-        body: `The same test on the feminine. « ${A104_REFRAME} » is what ${ARTICLE_UNIT} taught you and it is about the first sentence only. The second one is not English saying nothing; it is English saying "it", in the other place.`,
+        body: `The same test on the feminine. « ${A104_REFRAME} » is what ${unitRef(ARTICLE_UNIT)} 's, and it is about the first sentence only. The second one is not English saying nothing; it is English saying "it", in the other place.`,
       },
       {
         head: 'les, twice',
         label: 'a noun follows · a verb follows',
         fr: pair(A(193), A(194)),
         sub: `${sub(A(193))} then ${sub(A(194))}`,
-        body: `And the plural. By the fifth time this shape has come round you should be looking for it: one form, two jobs, and the thing beside it settles which. ${WHAT_FOLLOWS_UNIT}, ${FUTUR_UNIT} and two others have all been a version of this.`,
+        body: `And the plural. By the fifth time you should be looking for it: one form, two jobs, and the thing beside it settles which. ${Cap(unitRef(WHAT_FOLLOWS_UNIT))}, ${unitRef(FUTUR_UNIT)} and two others have all been a version of this.`,
       },
     ],
   },
@@ -324,7 +330,7 @@ const SECTIONS: LessonSection[] = [
     title: 'Four Forms, One Place',
     frSub: 'le · la · les · l\'',
     layer: 'core',
-    say: `Four words and one position. Tap any row to hear it. The choice between them is ${GENDER_UNIT}'s and ${ARTICLE_UNIT}'s, and it is the only part of this lesson that is not new.`,
+    say: `Four words and one position. Tap any row to hear it. The choice between them is ${unitRef(GENDER_UNIT, 'a2')}'s and ${unitRef(ARTICLE_UNIT, 'a2')}'s, and it is the only part of this lesson that is not new.`,
     terms: ['whichOne', 'inFront', 'shortened'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-06-table' },
     cols: ['word', 'stands for', 'example'],
@@ -332,7 +338,7 @@ const SECTIONS: LessonSection[] = [
       {
         cells: ['le', 'one, masculine', noStop(fr(A(190)))],
         say: fr(A(190)),
-        detail: { title: '« le »', say: fr(A(190)), body: `${sub(A(190))} ${en(A(190))} One masculine noun, or one man. ${GENDER_UNIT} taught you to store the gender and this is where you spend it.` },
+        detail: { title: '« le »', say: fr(A(190)), body: `${sub(A(190))} ${en(A(190))} One masculine noun, or one man. ${Cap(unitRef(GENDER_UNIT))} taught you to store the gender and this is where you spend it.` },
       },
       {
         cells: ['la', 'one, feminine', noStop(fr(A(201)))],
@@ -342,12 +348,12 @@ const SECTIONS: LessonSection[] = [
       {
         cells: ['les', 'more than one', noStop(fr(A(200)))],
         say: fr(A(200)),
-        detail: { title: '« les »', say: fr(A(200)), body: `${sub(A(200))} ${en(A(200))} More than one, of either gender or both. The gender is not consulted, exactly as ${ARTICLE_UNIT} said of the article.` },
+        detail: { title: '« les »', say: fr(A(200)), body: `${sub(A(200))} ${en(A(200))} More than one, of either gender or both. The gender is not consulted, exactly as ${unitRef(ARTICLE_UNIT)} said of the article.` },
       },
       {
         cells: ["l'", 'before a vowel', noStop(fr(A(207)))],
         say: fr(A(207)),
-        detail: { title: "« l' »", say: fr(A(207)), body: `${sub(A(207))} ${en(A(207))} ${ELISION_LIMIT} ${ELISION_UNIT} owns it.` },
+        detail: { title: "« l' »", say: fr(A(207)), body: `${sub(A(207))} ${en(A(207))} ${ELISION_LIMIT} ${Cap(unitRef(ELISION_UNIT))} owns it.` },
       },
     ],
   },
@@ -360,15 +366,15 @@ const SECTIONS: LessonSection[] = [
     title: 'The Subject Has No Say',
     frSub: 'Le sujet ne change rien',
     layer: 'core',
-    say: `Six sentences, six different subjects, and the word in front of the verb does not respond to any of them. ${REFLEXIVE_UNIT} was the opposite and it was one lesson ago, so this is worth a screen.`,
+    say: `Six sentences, six different subjects, and the word in front of the verb does not respond to any of them. ${Cap(unitRef(REFLEXIVE_UNIT))} was the opposite and it was one lesson ago, so this is worth a screen.`,
     terms: ['whichOne', 'inFront'],
     examples: [
       { fr: fr(A(202)), en: en(A(202)), note: `${sub(A(202))} Two le-shaped words in a row, and only the second one belongs to the verb.` },
       { fr: fr(A(203)), en: en(A(203)), note: `${sub(A(203))} A feminine subject and a feminine pronoun with nothing to do with each other. La is the gender of the person known, not of the person knowing.` },
       { fr: fr(A(204)), en: en(A(204)), note: `${sub(A(204))} And the s of les is audible here, because a vowel follows it.` },
       { fr: fr(A(205)), en: en(A(205)), note: `${sub(A(205))} Vous, and le is unchanged.` },
-      { fr: fr(A(206)), en: en(A(206)), note: `${sub(A(206))} Ils, and les is unchanged. The verb ending is silent, which is ${ER_UNIT}'s business and not this lesson's.` },
-      { fr: fr(A(197)), en: en(A(197)), note: `${sub(A(197))} « ${A222_REFRAME} » is ${REFLEXIVE_UNIT}'s line about ITS small word. This one is the other kind: it takes the gender of the thing it stands for and ignores the subject entirely.` },
+      { fr: fr(A(206)), en: en(A(206)), note: `${sub(A(206))} Ils, and les is unchanged. The verb ending is silent, which is ${unitRef(ER_UNIT, 'a2')}'s business and not this lesson's.` },
+      { fr: fr(A(197)), en: en(A(197)), note: `${sub(A(197))} « ${A222_REFRAME} » is ${unitRef(REFLEXIVE_UNIT, 'a2')}'s line about ITS small word. This one is the other kind: it takes the gender of the thing it stands for and ignores the subject entirely.` },
     ],
   },
 
@@ -388,7 +394,7 @@ const SECTIONS: LessonSection[] = [
     terms: ['whatOrWho', 'inFront', 'whichOne'],
     examples: [
       { fr: pair(A(189), A(190)), en: `${en(A(189))} / ${en(A(190))}`, note: `${sub(A(190))} See what? Le film. That is ${PLAIN_PHRASE}, and it goes from four words after the verb to one word before it.` },
-      { fr: pair(A(191), A(192)), en: `${en(A(191))} / ${en(A(192))}`, note: `${sub(A(192))} Look at what? La photo. Feminine, so la, and ${GENDER_UNIT} is the only reason you know that.` },
+      { fr: pair(A(191), A(192)), en: `${en(A(191))} / ${en(A(192))}`, note: `${sub(A(192))} Look at what? La photo. Feminine, so la, and ${unitRef(GENDER_UNIT)} is the only reason you know that.` },
       { fr: pair(A(193), A(194)), en: `${en(A(193))} / ${en(A(194))}`, note: `${sub(A(194))} Buy what? Les livres. Plural, so les, and the gender never comes up.` },
       { fr: pair(A(195), A(196)), en: `${en(A(195))} / ${en(A(196))}`, note: `${sub(A(196))} Know who? Marie. A person, and nothing about the rule changes for one.` },
       { fr: importedFr('fr.a1.pronoms-essentiels.096'), en: importedEn('fr.a1.pronoms-essentiels.096'), note: 'Published, in this lesson\'s own theme, and written by somebody who was not teaching this. The word is in front of the verb because that is where it goes, not because a lesson said so.' },
@@ -425,7 +431,7 @@ const SECTIONS: LessonSection[] = [
           q: '« Je regarde la photo. » Replace the noun.',
           opts: [GENDER_TRAP, fr(A(192)), 'Je regarde la.'],
           correct: 1,
-          why: `La photo is feminine, so la, not le. ${GENDER_UNIT} is doing the work here and this lesson only decides where the word lands.`,
+          why: `La photo is feminine, so la, not le. ${Cap(unitRef(GENDER_UNIT))} is doing the work here and this lesson only decides where the word lands.`,
         },
       },
       {
@@ -523,7 +529,7 @@ const SECTIONS: LessonSection[] = [
           q: '« Tu cherches les clés. » Replace the noun.',
           opts: ['Tu cherches les.', fr(A(219)), 'Tu les cherche.'],
           correct: 1,
-          why: `Chercher was never on a screen here and did not need to be. The third option moved the word correctly and dropped the verb ending, which is ${ER_UNIT}'s rule.`,
+          why: `Chercher was never on a screen here and did not need to be. The third option moved the word correctly and dropped the verb ending, which is ${unitRef(ER_UNIT, 'a2')}'s rule.`,
         },
       },
       {
@@ -585,7 +591,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     render: 'deck',
-    say: `Three cards, and the first one takes something away from you. ${ELISION_UNIT} owns this rule and teaches it properly; this is only what it costs here.`,
+    say: `Three cards, and the first one takes something away from you. ${Cap(unitRef(ELISION_UNIT))} owns this rule and teaches it properly; this is only what it costs here.`,
     hint: 'Two of the three words become the same word.',
     terms: ['shortened', 'whichOne', 'inFront'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-06-elision' },
@@ -602,7 +608,7 @@ const SECTIONS: LessonSection[] = [
         label: 'any verb starting on a vowel',
         fr: pair(A(208), A(209)),
         sub: `${sub(A(208))} then ${sub(A(209))}`,
-        body: `Two more verbs and the same thing happens. It is a property of the vowel that follows, not of any particular word, which is exactly what ${ELISION_UNIT} says about every other place this happens.`,
+        body: `Two more verbs and the same thing happens. It is a property of the vowel that follows, not of any particular word, which is exactly what ${unitRef(ELISION_UNIT)} says about every other place this happens.`,
       },
       {
         head: 'the plural survives',
@@ -669,7 +675,7 @@ const SECTIONS: LessonSection[] = [
         label: 'ne · le vois · pas',
         fr: pair(A(190), A(212)),
         sub: `${sub(A(190))} then ${sub(A(212))}`,
-        body: `« ${A118_REFRAME} » from ${NEGATION_UNIT}, and « ${NEGATION_RULE} » from ${FUTUR_UNIT}. One verb here, so the second question never arises. ${NEGATION_EXTENSION}`,
+        body: `« ${A118_REFRAME} » from ${unitRef(NEGATION_UNIT)}, and « ${NEGATION_RULE} » is ${unitRef(FUTUR_UNIT, 'a2')}'s. One verb, so neither arises. ${NEGATION_EXTENSION}`,
       },
       {
         head: 'not this',
@@ -680,10 +686,10 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'you have done this before',
-        label: `${REFLEXIVE_UNIT}, one lesson ago`,
+        label: `${Cap(unitRef(REFLEXIVE_UNIT))}, one lesson ago`,
         fr: pair(A(213), A(216)),
         sub: `${sub(A(213))} then ${sub(A(216))}`,
-        body: `« ${A222_NEGATION_EXTENSION} » is how ${REFLEXIVE_UNIT} put it, and that reason does not apply here: this word does not change with the subject. Same behaviour, different cause.`,
+        body: `« ${A222_NEGATION_EXTENSION} » is how ${unitRef(REFLEXIVE_UNIT)} put it, and that reason does not apply here: this word does not change with the subject. Same behaviour, different cause.`,
       },
     ],
   },
@@ -714,7 +720,7 @@ const SECTIONS: LessonSection[] = [
         label: 'the noun after · the word in front',
         fr: pair(A(222), A(223)),
         sub: `${sub(A(222))} then ${sub(A(223))}`,
-        body: `${PASSE_UNIT} gave you the two-word past and ${PARTICIPLE_UNIT} gave you the second words. Neither of them is new. The only new thing is that the small word goes in front of the FIRST of the two, so everything verb-shaped ends up behind it.`,
+        body: `${Cap(unitRef(PASSE_UNIT))} gave you the two-word past and ${unitRef(PARTICIPLE_UNIT)} gave you the second words. Neither is new. What is new: the small word goes in front of the FIRST, so everything verb-shaped ends up behind it.`,
       },
       {
         head: 'not between them',
@@ -728,7 +734,7 @@ const SECTIONS: LessonSection[] = [
         label: 'ne · word · first word · pas · second word',
         fr: fr(A(234)),
         sub: `${sub(A(234))} ${en(A(234))}`,
-        body: `${NEGATION_EXTENSION} The second word stays outside, which is exactly what ${REFLEXIVE_PAST_UNIT} settled one lesson ago about a three-part verb. Nothing here is a new negation rule.`,
+        body: `${NEGATION_EXTENSION} The second word stays outside, which is exactly what ${unitRef(REFLEXIVE_PAST_UNIT)} settled one lesson ago about a three-part verb. Nothing here is a new negation rule.`,
       },
     ],
   },
@@ -746,7 +752,7 @@ const SECTIONS: LessonSection[] = [
       { fr: pair(A(222), A(223)), en: `${en(A(222))} / ${en(A(223))}`, note: `${sub(A(223))} Masculine and singular, so nothing goes on. This is the form the other three are built from and the one that hides the rule.` },
       { fr: pair(A(224), A(225)), en: `${en(A(224))} / ${en(A(225))}`, note: `${sub(A(225))} Feminine, so an e. Look at the respelling: it is the same as the line above, character for character, and that is not an oversight.` },
       { fr: pair(A(226), A(227)), en: `${en(A(226))} / ${en(A(227))}`, note: `${sub(A(227))} Plural and masculine, so an s. Still nothing to hear.` },
-      { fr: pair(A(228), A(229)), en: `${en(A(228))} / ${en(A(229))}`, note: `${sub(A(229))} Feminine and plural, so both letters. Four spellings, one sound, which is the rule ${ER_UNIT} stated and ${ETRE_UNIT} paid off.` },
+      { fr: pair(A(228), A(229)), en: `${en(A(228))} / ${en(A(229))}`, note: `${sub(A(229))} Feminine and plural, so both letters. Four spellings, one sound, which is the rule ${unitRef(ER_UNIT)} stated and ${unitRef(ETRE_UNIT)} paid off.` },
     ],
   },
 
@@ -847,12 +853,12 @@ const SECTIONS: LessonSection[] = [
     cards: [
       { front: 'Where does the word go?', back: REFRAME, say: fr(A(190)) },
       { front: 'Je vois le film. Say it without the noun.', back: `${fr(A(190))} Le film is ${PLAIN_PHRASE}, so it becomes le, and le goes in front.`, say: fr(A(190)) },
-      { front: 'La photo is feminine. Which word replaces it?', back: `La. ${GENDER_UNIT} decides which, and this lesson decides where.`, say: fr(A(192)) },
+      { front: 'La photo is feminine. Which word replaces it?', back: `La. ${Cap(unitRef(GENDER_UNIT))} decides which, and this lesson decides where.`, say: fr(A(192)) },
       { front: "Je l'aime. Him or her?", back: ELISION_LIMIT, say: fr(A(207)) },
       { front: 'Make « Je le vois. » negative.', back: `${fr(A(212))} ${NEGATION_EXTENSION}`, say: fr(A(212)) },
       { front: 'Where does the word go when the verb is two words long?', back: `In front of both of them. ${noStop(fr(A(223)))}, never ${noStop(PAST_TRAP)}.`, say: fr(A(223)) },
       { front: "J'ai vu la photo. Now replace the noun.", back: `${fr(A(225))} ${AGREEMENT_RULE}`, say: fr(A(225)) },
-      { front: 'Does the word change when the subject changes?', back: `No. It takes the gender of the thing it stands for and ignores the subject. ${REFLEXIVE_UNIT}'s small word was the opposite.`, say: fr(A(203)) },
+      { front: 'Does the word change when the subject changes?', back: `No. It takes the gender of the thing it stands for and ignores the subject. ${Cap(unitRef(REFLEXIVE_UNIT, 'a2'))}'s small word was the opposite.`, say: fr(A(203)) },
     ],
   },
 
@@ -865,7 +871,7 @@ const SECTIONS: LessonSection[] = [
     body: 'The exam has six rounds and most of it is typed or corrected rather than picked, because a word-order mistake is a whole-sentence mistake and four options cannot show one.',
     stats: [
       { k: 'New rules', v: '1. The word goes in front of the verb.' },
-      { k: 'Words to learn', v: `0. le, la and les are ${ARTICLE_UNIT}'s and you have had them since A1.` },
+      { k: 'Words to learn', v: `0. le, la and les are ${unitRef(ARTICLE_UNIT, 'a2')}'s and you have had them since A1.` },
       { k: 'Verbs authored', v: '0. All seven were already in your corpus, and four more were never shown at all.' },
       { k: 'What the ear can settle', v: '1 of 2. Le against la, yes. The shortened form, never.' },
     ],
@@ -930,7 +936,7 @@ const SECTIONS: LessonSection[] = [
       {
         id: 'r2-which',
         label: 'Which of the three',
-        say: `Five on a choice ${GENDER_UNIT} already taught you to make.`,
+        say: `Five on a choice ${unitRef(GENDER_UNIT)} already taught you to make.`,
         targets: ['err-wrong-gender', 'err-after-verb'],
         questions: [
           {
@@ -954,7 +960,7 @@ const SECTIONS: LessonSection[] = [
             opts: ['Whether the noun is plural', 'Whether the noun is masculine', 'Who the subject is', 'Whether the verb starts on a vowel'],
             correct: 2,
             ref: PERSONS,
-            why: `The subject has no say. It takes the gender of the thing it stands for, which is the opposite of ${REFLEXIVE_UNIT}'s small word and worth keeping separate.`,
+            why: `The subject has no say. It takes the gender of the thing it stands for, which is the opposite of ${unitRef(REFLEXIVE_UNIT, 'a2')}'s small word and worth keeping separate.`,
           },
           {
             format: 'listenChoose',
@@ -1010,7 +1016,7 @@ const SECTIONS: LessonSection[] = [
           },
           {
             format: 'mcq',
-            q: `${REFLEXIVE_UNIT} said « ${A222_NEGATION_EXTENSION} » Why does that sentence not explain this lesson?`,
+            q: `${Cap(unitRef(REFLEXIVE_UNIT))} said « ${A222_NEGATION_EXTENSION} » Why does that sentence not explain this lesson?`,
             opts: [
               'Because the wrap is different here',
               'Because this word does not change with the subject at all',
@@ -1019,7 +1025,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 1,
             ref: NEGATION,
-            why: `The behaviour is identical and the reason is not. ${REFLEXIVE_UNIT}'s word is the subject said twice; this one is the thing acted on. Both belong to the verb, so both go inside.`,
+            why: `The behaviour is identical and the reason is not. ${Cap(unitRef(REFLEXIVE_UNIT, 'a2'))}'s word is the subject said twice; this one is the thing acted on. Both belong to the verb, so both go inside.`,
           },
         ],
       },
@@ -1176,13 +1182,13 @@ const SECTIONS: LessonSection[] = [
     body: `${REFRAME} Everything else in this lesson was something you already owned, spent in a new place.`,
     points: [
       REFRAME,
-      `le, la and les are ${ARTICLE_UNIT}'s three words and the choice between them is ${GENDER_UNIT}'s. Neither was re-taught here, and both were needed on every screen.`,
-      `« ${WHAT_FOLLOWS} » is ${WHAT_FOLLOWS_UNIT}'s line, and this was the fifth time. ${SHAPE_EXTENSION}`,
-      `${ELISION_LIMIT} ${ELISION_UNIT} owns the rule itself.`,
+      `le, la and les are ${unitRef(ARTICLE_UNIT, 'a2')}'s three words and the choice between them is ${unitRef(GENDER_UNIT, 'a2')}'s. Neither was re-taught here, and both were needed on every screen.`,
+      `« ${WHAT_FOLLOWS} » is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s line, and this was the fifth time. ${SHAPE_EXTENSION}`,
+      `${ELISION_LIMIT} ${Cap(unitRef(ELISION_UNIT))} owns the rule itself.`,
       `${NEGATION_EXTENSION} One negation rule, five lessons old, and this added a sentence rather than a rule.`,
       `${AGREEMENT_RULE} ${AGREEMENT_SILENT}`,
-      `${REFLEXIVE_UNIT} gave you me, te and se in this same slot, so the small words you already carry and these are one system rather than two.`,
-      `Next: ${INDIRECT_UNIT} takes the other kind of word into the same slot, and ${Y_EN_UNIT} takes two more. The position you learned today is the position all of them use.`,
+      `${Cap(unitRef(REFLEXIVE_UNIT))} gave you me, te and se in this same slot, so the small words you already carry and these are one system rather than two.`,
+      `Next: ${unitRef(INDIRECT_UNIT)} takes the other kind of word into the same slot, and ${unitRef(Y_EN_UNIT)} takes two more. The position you learned today is the position all of them use.`,
     ],
     sheetId: SHEET_ID,
   },
@@ -1205,7 +1211,7 @@ const ACTS: LessonAct[] = [
     id: 'act2',
     title: 'Three words you already have',
     sections: [ARTICLE, TABLE, PERSONS],
-    milestone: `You can tell ${ARTICLE_UNIT}'s job from this one by looking at the word beside it, and pick between the three.`,
+    milestone: `You can tell ${unitRef(ARTICLE_UNIT, 'a2')}'s job from this one by looking at the word beside it, and pick between the three.`,
     estScreens: 18,
   },
   {
@@ -1266,14 +1272,14 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-wrong-gender',
-    description: 'Places the word correctly and picks the wrong one of the three, usually le for a feminine noun. « Je le regarde » for la photo. The position is this lesson\'s and the gender is a1.03\'s, so this is a prerequisite failing rather than a new one, and the drill sends the learner back to the noun.',
+    description: `Places the word correctly and picks the wrong one of the three, usually le for a feminine noun. « Je le regarde » for la photo. The position is this lesson\'s and the gender is ${unitRef('a1.03')}\'s, so this is a prerequisite failing rather than a new one, and the drill sends the learner back to the noun.`,
     detectOn: [TABLE, BUILD, QUIZ],
     drill: 'drill-gender',
     retest: 'retest-gender',
   },
   {
     id: 'err-wrap-narrow',
-    description: 'Closes the wrap round the verb alone and strands the word outside it. « Je ne vois pas le. » a2.22\'s extension is about a word that changes with the subject and does not by itself cover a word that does not.',
+    description: `Closes the wrap round the verb alone and strands the word outside it. « Je ne vois pas le. » ${unitRef('a2.22')}\'s extension is about a word that changes with the subject and does not by itself cover a word that does not.`,
     detectOn: [NEGATION, QUIZ],
     drill: 'drill-wrap',
     retest: 'retest-wrap',
@@ -1311,7 +1317,7 @@ const DRILLS: LessonDrill[] = [
     format: 'sort',
     buckets: ['le', 'la', 'les'],
     items: [A(190), A(201), A(200), A(192), A(197), A(199)],
-    coach: `Read the noun, not the sentence. ${GENDER_UNIT} taught you to store it and ${ARTICLE_UNIT} taught you to say it; this lesson only decides where it goes.`,
+    coach: `Read the noun, not the sentence. ${Cap(unitRef(GENDER_UNIT))} taught you to store it and ${unitRef(ARTICLE_UNIT)} taught you to say it; this lesson only decides where it goes.`,
   },
   {
     id: 'retest-gender',
@@ -1422,21 +1428,21 @@ const SHEETS: ReferenceSheet[] = [
         type: 'teach',
         layer: 'deep',
         title: 'Saying no',
-        body: `« ${A118_REFRAME} » from ${NEGATION_UNIT}, and « ${NEGATION_RULE} » from ${FUTUR_UNIT}. There is one verb in a present-tense sentence, so the second question never arises here. ${NEGATION_EXTENSION}`,
+        body: `« ${A118_REFRAME} » from ${unitRef(NEGATION_UNIT)}, and « ${NEGATION_RULE} » from ${unitRef(FUTUR_UNIT)}. There is one verb in a present-tense sentence, so the second question never arises here. ${NEGATION_EXTENSION}`,
       },
       {
         id: 'sheet-ending',
         type: 'teach',
         layer: 'deep',
         title: 'The ending in the past',
-        body: `${AGREEMENT_RULE} ${AGREEMENT_SILENT} « J'ai vu la photo » names the thing afterwards and nothing goes on. « Je l'ai vue » says it first and an e goes on. Four spellings, one sound, so this is a writing rule and the dictée is the only place it is real. This is ${AGREEMENT_OWNER}'s rule and nowhere else's.`,
+        body: `${AGREEMENT_RULE} ${AGREEMENT_SILENT} « J'ai vu la photo » names the thing afterwards and nothing goes on. « Je l'ai vue » says it first and an e goes on. Four spellings, one sound, so this is a writing rule and the dictée is the only place it is real. This is ${unitRef(AGREEMENT_OWNER, 'a2')}'s rule and nowhere else's.`,
       },
       {
         id: 'sheet-next',
         type: 'teach',
         layer: 'deep',
         title: 'What comes next',
-        body: `${INDIRECT_UNIT} puts a different kind of word into this same slot, and ${Y_EN_UNIT} puts two more. None of them changes the position; the position is what you learned here and all three lessons share it. ${REFLEXIVE_UNIT}'s me, te and se were already in it before you started.`,
+        body: `${Cap(unitRef(INDIRECT_UNIT))} puts a different kind of word into this same slot, and ${unitRef(Y_EN_UNIT)} puts two more. None of them changes the position; the position is what you learned here and all three lessons share it. ${Cap(unitRef(REFLEXIVE_UNIT, 'a2'))}'s me, te and se were already in it before you started.`,
       },
     ],
   },
@@ -1533,7 +1539,7 @@ const LESSON_AUTHORED: Lesson = {
    *  it separated this lesson's one clip from its twenty-three passes on the
    *  first run, which is an independent validation of that model on content it
    *  was not calibrated against. */
-  version: 3,
+  version: 5,
 
   /** DRAWN ON THE LESSON OVERVIEW CARD AND ON THE LESSON COVER, and corrections
    *  §9 records that a2.11 shipped grammar jargon here while every host gate was

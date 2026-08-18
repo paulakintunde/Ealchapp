@@ -185,6 +185,12 @@
 //     `GRAHⁿD` is asserted by name in all three layers, in both rows.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** Every authored row lands in `adjectifs-essentiels`, which is where a1.14 and
  *  a1.16 already live. Ledger §3, decided by this build. */
@@ -407,7 +413,7 @@ export const ADVERB_FEEDS = ['sérieuse', 'sportive', 'heureuse', 'active'] as c
 
 /** a1.16, seq 18 at A1, fully shipped. One recap line and a pointer, no more. */
 export const PLACEMENT_UNIT = 'a1.16';
-export const PLACEMENT_LINE = 'Where the adjective goes is a1.16 and it has not changed: after the noun unless it is one of the ten that go in front.';
+export const PLACEMENT_LINE = `Where the adjective goes is ${unitRef('a1.16')} and it has not changed: after the noun unless it is one of the ten that go in front.`;
 
 /** a2.08, seq 32. Not here. */
 export const COMPARATIVE_UNIT = 'a2.08';
@@ -438,7 +444,7 @@ export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
   },
   {
     text: 'When in doubt, put it after.',
-    why: 'a1.16\'s reframe verbatim. Placement is not this lesson\'s subject.',
+    why: `${Cap(unitRef('a1.16'))}\'s reframe verbatim. Placement is not this lesson\'s subject.`,
   },
   {
     text: 'Four forms, two sounds.',
@@ -596,7 +602,7 @@ export const DICTATION_IDS = ACCORD_ADJECTIFS.filter((r) => r.drills.includes('d
 export const AUTHORED_HEADWORDS: Record<string, string> = {
   sportif: 'ABSENT at any status in any theme. Corrections §2 lists it.',
   sportive: 'ABSENT at any status in any theme. Corrections §2 lists it.',
-  sérieuse: 'ABSENT at any status in any theme, and NEITHER the brief NOR corrections §2 lists it. a2.17 needs it.',
+  sérieuse: `ABSENT at any status in any theme, and NEITHER the brief NOR corrections §2 lists it. ${Cap(unitRef('a2.17'))} needs it.`,
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -627,7 +633,7 @@ export const VISIBLE_NASALS = ACCORD_ADJECTIFS.filter((r) => (r.respell ?? '').i
  *  superscripts, 27 seen, 2 missed, and the two are one token in two rows. */
 export const BLIND_NASAL_ROWS: readonly { id: string; token: string; why: string }[] = [
   { id: 'fr.a2.adjectifs-essentiels.002', token: 'GRAHⁿD', why: 'The nasal is followed by D inside the token, and it is the only nasal in the row.' },
-  { id: 'fr.a2.adjectifs-essentiels.004', token: 'GRAHⁿD', why: 'The row IS flagged, but on sohⁿ. Break only the GRAHⁿD and the checker stays quiet. a2.11 met this on entendre.' },
+  { id: 'fr.a2.adjectifs-essentiels.004', token: 'GRAHⁿD', why: `The row IS flagged, but on sohⁿ. Break only the GRAHⁿD and the checker stays quiet. ${Cap(unitRef('a2.11'))} met this on entendre.` },
 ];
 export const BLIND_NASALS: readonly string[] = BLIND_NASAL_ROWS.map((r) => r.token);
 
@@ -731,7 +737,7 @@ export const DRILL_ADDITIONS: readonly { id: string; fr: string; add: string; wh
 /** Read, considered, and NOT repaired. Invariants §9: repair only what breaks a
  *  stated rule; a variant is not a violation. */
 export const NOT_REPAIRED: readonly { id: string; respell: string; why: string }[] = [
-  { id: 'fr.sons.faux-amis.024', respell: 'GRAHN', why: 'A genuine plain-n violation on `grand`, and the checker DOES see it. It is in faux-amis, this lesson neither imports nor displays it, and repairing a row you do not show is how a build acquires a defect it cannot test. Reported for whoever owns that theme.' },
+  { id: 'fr.sons.faux-amis.024', respell: 'GRAHⁿ', why: 'A genuine plain-n violation on `grand`, and the checker DOES see it. It is in faux-amis, this lesson neither imports nor displays it, and repairing a row you do not show is how a build acquires a defect it cannot test. Reported for whoever owns that theme.' },
   { id: 'fr.sons.consonnes.055', respell: 'oh-RAHⁿZH', why: 'A second `orange` carrying gender=f in a different theme. Correct notation, wrong for this lesson because of the gender. fr.sons.couleurs.009 is imported instead.' },
   { id: 'fr.a1.emotions.057', respell: 'zhwa-YEU', why: '`joyeux` spelled EU against fr.sons.adjectifs-essentiels.266\'s UH. A variant, in a theme this lesson does not touch, and the home-theme row is the one imported.' },
   { id: 'fr.sons.voyelles.757', respell: '', why: 'A second `heureuse` with no respelling at all, glossed as an IPA demonstration rather than as vocabulary. Not this lesson\'s row and not repairable into one.' },
@@ -747,13 +753,13 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   { id: 'fr.a1.metiers.273', fr: 'Elle est grande.', why: 'The f.sg cell, published, and respelled `el eh GRAHⁿD` — which is exactly the value this build authored independently, so the house form was confirmed rather than invented. Left where it is: a grid assembled out of metiers, description-personnes-objets and adjectifs-essentiels would carry three subjects and two missing respellings.' },
   { id: 'fr.a1.adjectifs-essentiels.268', fr: 'Il est heureux avec elle.', why: 'The home theme already holds a four-cell heureux paradigm at .268 to .271, in four different frames (avec elle, de vivre ici, ce matin, de leur voyage) and with no respellings. Corrections §3 exactly: the forms exist and the minimal pair does not.' },
   { id: 'fr.a1.adjectifs-essentiels.271', fr: 'Elles sont heureuses de leur voyage.', why: 'The f.pl of that paradigm. Same reason.' },
-  { id: 'fr.a1.couleurs.269', fr: 'Mes sacs sont marron.', why: 'a1.13 authored a four-cell marron paradigm at .267 to .271 and this lesson does not restate it. Act 4 names a1.13 and moves to colours it never released.' },
+  { id: 'fr.a1.couleurs.269', fr: 'Mes sacs sont marron.', why: `${Cap(unitRef('a1.13'))} authored a four-cell marron paradigm at .267 to .271 and this lesson does not restate it. Act 4 names ${unitRef('a1.13')} and moves to colours it never released.` },
   { id: 'fr.sons.couleurs.013', fr: 'turquoise', why: 'RESERVED. It is one of the three cold adjectives and importing it would delete the mission it is the point of.' },
   { id: 'fr.sons.adjectifs-essentiels.094', fr: 'courageux', why: 'RESERVED, same reason.' },
   { id: 'fr.sons.muettes.027', fr: 'actif', why: 'RESERVED, same reason. Three other `actif` rows exist and none is imported.' },
-  { id: 'fr.sons.adjectifs-essentiels.314', fr: 'bel', why: 'a2.16\'s, at seq 11. Both prerequisites already teach it and this lesson prints no form of it.' },
-  { id: 'fr.sons.adjectifs-essentiels.315', fr: 'vieil', why: 'a2.16\'s.' },
-  { id: 'fr.sons.adjectifs-essentiels.312', fr: 'vieille', why: 'a2.16\'s.' },
+  { id: 'fr.sons.adjectifs-essentiels.314', fr: 'bel', why: `${Cap(unitRef('a2.16'))}\'s,. Both prerequisites already teach it and this lesson prints no form of it.` },
+  { id: 'fr.sons.adjectifs-essentiels.315', fr: 'vieil', why: `${Cap(unitRef('a2.16'))}\'s.` },
+  { id: 'fr.sons.adjectifs-essentiels.312', fr: 'vieille', why: `${Cap(unitRef('a2.16'))}\'s.` },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════

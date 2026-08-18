@@ -46,6 +46,12 @@ export { WHAT_FOLLOWS, WHAT_FOLLOWS_UNIT };
 
 export { REFRAME, REFRAME_REJECTED, THE_TEST } from './savoir-connaitre-corpus.ts';
 import { REFRAME } from './savoir-connaitre-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** The claim the Owns act makes. Derived from the paradigm so the figure cannot
  *  drift away from the grid. */
@@ -54,7 +60,7 @@ export const CHOICE_CLAIM = `${VERB_ORDER.length} verbs, ${PARADIGM.length * VER
 /** The arithmetic of the singular, stated once. BOTH verbs do what a2.13 named
  *  on all three of its own, so this lesson states it and points rather than
  *  re-deriving it across a mission. */
-export const SINGULAR_CLAIM = `${SINGULAR_PERSONS} persons, ${SINGULAR_SPELLINGS} spellings, one sound. ${SINGULAR_UNIT} found the same thing on three other verbs.`;
+export const SINGULAR_CLAIM = `${SINGULAR_PERSONS} persons, ${SINGULAR_SPELLINGS} spellings, one sound. ${Cap(unitRef(SINGULAR_UNIT))} found the same thing on three other verbs.`;
 
 /** What English does not give the learner, said plainly once. */
 export const NO_INSTINCT = 'English has one verb here and French has two, so nothing you already own tells you which to reach for.';
@@ -66,7 +72,7 @@ export const FRAME_CLAIM = VERB_ORDER
 
 /** Why the two paradigms do NOT share a frame, which is the design decision of
  *  the lesson and the one place it departs from a2.13's best idea. */
-export const TWO_FRAMES = `a2.13 put eighteen sentences on one verb so that nothing at the back would move. Here the back of the sentence is the whole point, so the two sides cannot share one.`;
+export const TWO_FRAMES = `${Cap(unitRef('a2.13'))} put eighteen sentences on one verb so that nothing at the back would move. Here the back of the sentence is the whole point, so the two sides cannot share one.`;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE GLOSSARY
@@ -86,9 +92,9 @@ export const SAVOIR_CONNAITRE_TERMS: Record<string, LessonTerm> = {
 
   whatFollows: {
     term: WHAT_FOLLOWS,
-    title: 'You met this shape at ' + WHAT_FOLLOWS_UNIT,
+    title: `You met this shape at ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}`,
     body:
-      `${WHAT_FOLLOWS}. ${WHAT_FOLLOWS_UNIT} named that at seq 5, on one verb doing two jobs. This lesson is the same shape turned round: two verbs doing one job, and again it is the next word that picks. French does this often enough that it is worth learning the habit rather than the instance. The instinct to decide what a sentence means before it has finished is a hard one to switch off, and it is exactly the instinct that produces the wrong verb here.`,
+      `${WHAT_FOLLOWS}. ${Cap(unitRef(WHAT_FOLLOWS_UNIT))} named that, on one verb doing two jobs. This lesson is the same shape turned round: two verbs doing one job, and again it is the next word that picks. French does this often enough that it is worth learning the habit rather than the instance. The instinct to decide what a sentence means before it has finished is a hard one to switch off, and it is exactly the instinct that produces the wrong verb here.`,
     examples: [
       { itemId: 'fr.a2.verbes.393', note: 'Keeps going into a whole sentence. savoir.' },
       { itemId: 'fr.a2.verbes.398', note: 'Stops on a thing. connaître.' },
@@ -133,9 +139,9 @@ export const SAVOIR_CONNAITRE_TERMS: Record<string, LessonTerm> = {
 
   theThirdVerb: {
     term: 'and the third one',
-    title: `${CONTRAST_UNIT} gave you a verb that also becomes can`,
+    title: `${Cap(unitRef(CONTRAST_UNIT))} gave you a verb that also becomes can`,
     body:
-      `Je sais nager and je peux nager are both I can swim in English, and they are not the same claim. sais is about having learned: at some point somebody taught you and now you can do it. peux is about nothing standing in the way: the pool is open, the water is warm, nobody has stopped you. ${CONTRAST_UNIT} built pouvoir in full and this lesson does not build it again; what it does is put the two side by side, because a learner who has these three straight has something most English speakers never fully sort out.`,
+      `Je sais nager and je peux nager are both I can swim in English, and they are not the same claim. sais is about having learned: at some point somebody taught you and now you can do it. peux is about nothing standing in the way: the pool is open, the water is warm, nobody has stopped you. ${Cap(unitRef(CONTRAST_UNIT))} built pouvoir in full and this lesson does not build it again; what it does is put the two side by side, because a learner who has these three straight has something most English speakers never fully sort out.`,
     examples: [
       { itemId: 'fr.a2.verbes.381', note: 'Somebody taught me.' },
       { itemId: 'fr.a2.verbes.403', note: 'Nothing is stopping me. It says nothing about lessons.' },
@@ -147,7 +153,7 @@ export const SAVOIR_CONNAITRE_TERMS: Record<string, LessonTerm> = {
     term: 'why je, tu and il sound the same',
     title: SINGULAR_CLAIM,
     body:
-      `Je sais, tu sais, il sait. Two of those are spelled identically and the third differs by one silent letter, and all three are one sound in the mouth. connais, connais, connaît does exactly the same thing. ${SINGULAR_UNIT} spent a whole screen proving it on vouloir, pouvoir and devoir, so this lesson is not going to prove it again: it is simply true of these two as well. In writing you must pick the right one; in speech there is nothing to pick, and the word in front is carrying all of it.`,
+      `Je sais, tu sais, il sait. Two of those are spelled identically and the third differs by one silent letter, and all three are one sound in the mouth. connais, connais, connaît does exactly the same thing. ${Cap(unitRef(SINGULAR_UNIT))} spent a whole screen proving it on vouloir, pouvoir and devoir, so this lesson is not going to prove it again: it is simply true of these two as well. In writing you must pick the right one; in speech there is nothing to pick, and the word in front is carrying all of it.`,
     examples: [
       { itemId: 'fr.a2.verbes.381', note: 'sais' },
       { itemId: 'fr.a2.verbes.383', note: 'sait, and not one sound different.' },
@@ -158,7 +164,7 @@ export const SAVOIR_CONNAITRE_TERMS: Record<string, LessonTerm> = {
     term: 'the double s',
     title: 'Where connaître grows',
     body:
-      `The three plural forms of connaître all take a double s: ${PARADIGM[3].forms.connaître}, ${PARADIGM[4].forms.connaître}, ${PARADIGM[5].forms.connaître}. It arrives with nous and it never leaves. savoir does the opposite and gets shorter: ${PARADIGM[3].forms.savoir}, ${PARADIGM[4].forms.savoir}, ${PARADIGM[5].forms.savoir}, and the last of those is four letters. The endings themselves are the ones you have had since a2.01 and none of them is new. What is new is which stem they land on.`,
+      `The three plural forms of connaître all take a double s: ${PARADIGM[3].forms.connaître}, ${PARADIGM[4].forms.connaître}, ${PARADIGM[5].forms.connaître}. It arrives with nous and it never leaves. savoir does the opposite and gets shorter: ${PARADIGM[3].forms.savoir}, ${PARADIGM[4].forms.savoir}, ${PARADIGM[5].forms.savoir}, and the last of those is four letters. The endings themselves are the ones you have had since ${unitRef('a2.01')} and none of them is new. What is new is which stem they land on.`,
     examples: [
       { itemId: 'fr.a2.verbes.390', note: 'The double s, and the ordinary -ons.' },
       { itemId: 'fr.a2.verbes.392', note: 'The -ent is silent, so what you hear is the double s.' },
@@ -191,7 +197,7 @@ export const SAVOIR_CONNAITRE_TERMS: Record<string, LessonTerm> = {
     term: FAMILY_MEMBER.fr,
     title: 'The same endings, three letters longer',
     body:
-      `${FAMILY_MEMBER.fr} [${FAMILY_MEMBER.respell}] means to recognise, and it takes every ending connaître takes: je ${'reconnais'}, nous ${'reconnaissons'}, ils ${'reconnaissent'}. That is all you need from it here, and it is recognition rather than something to produce. What it can take AFTER it is a different question and a more interesting one, and it belongs to ${FAMILY_UNIT}, which is the very next lesson. Do not assume it takes the same things after it, because it does not.`,
+      `${FAMILY_MEMBER.fr} [${FAMILY_MEMBER.respell}] means to recognise, and it takes every ending connaître takes: je ${'reconnais'}, nous ${'reconnaissons'}, ils ${'reconnaissent'}. That is all you need from it here, and it is recognition rather than something to produce. What it can take AFTER it is a different question and a more interesting one, and it belongs to ${unitRef(FAMILY_UNIT)}, which is the very next lesson. Do not assume it takes the same things after it, because it does not.`,
     examples: [
       { itemId: FAMILY_MEMBER.id, note: 'The naming form. Recognition only.' },
       { itemId: 'fr.a2.verbes.410', note: 'Same endings. Do not read anything else into it yet.' },

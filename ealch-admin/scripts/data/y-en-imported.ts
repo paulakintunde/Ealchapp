@@ -51,7 +51,7 @@ const BY_ID = new Map(Y_EN_IMPORT_ROWS.map((r) => [r.id, r]));
 
 export function row(id: string): Item {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.25: imported row ${id} is not in the manifest. Re-run scripts/_a225_manifest.ts.`);
+  if (!r) throw new Error(`${unitRef('a2.25')}: imported row ${id} is not in the manifest. Re-run scripts/_a225_manifest.ts.`);
   return r;
 }
 
@@ -67,7 +67,7 @@ export function respell(id: string): string {
   const r = row(id);
   if (!r.respell) {
     throw new Error(
-      `a2.25: ${id} « ${r.fr} » has no respelling and a card asked for one. `
+      `${unitRef('a2.25')}: ${id} « ${r.fr} » has no respelling and a card asked for one. `
       + 'Published sentences usually carry none. Use importedFr() or pick a headword.',
     );
   }

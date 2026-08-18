@@ -35,6 +35,7 @@ import { fold } from './answer.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { hasPlainNasalFor } from './density.logic.ts';
 import { quizQuestions } from './schema.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const LESSON_ID = 'a2.08.l1';
 const UNIT_ID = 'a2.08';
@@ -751,20 +752,20 @@ test('the ONE repair inside the seed cut reached the device; the five outside it
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
- *  7. THE CITATIONS, BY UNIT ID
+ *  7. THE CITATIONS, BY ITS LESSON LABEL
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-test('a2.03 and a2.17 are named by unit id, on a learner surface and in grammarAssumed', () => {
+test('a2.03 and a2.17 are named by its lesson label, on a learner surface and in grammarAssumed', () => {
   const assumed = (L?.grammarAssumed as string[]) ?? [];
   for (const u of ['a2.03', 'a2.17']) {
     ok(assumed.includes(u), `${u} is not in grammarAssumed, and this lesson extends it`);
-    ok(LEARNER_TEXT.includes(u), `${u} is never named on a learner surface. The prompt asks for the loop to be closed BY NAME.`);
+    ok(namesUnitLabel(LEARNER_TEXT, u), `${u} is never named on a learner surface. The prompt asks for the loop to be closed BY NAME.`);
   }
   // a2.14, because bon/bien is savoir/connaître a second time and the prompt
   // asks for that unit to be named.
-  ok(LEARNER_TEXT.includes('a2.14'), 'a2.14 is not named, and bon/bien is its meaning-split shape a second time');
+  ok(namesUnitLabel(LEARNER_TEXT, 'a2.14'), 'a2.14 is not named, and bon/bien is its meaning-split shape a second time');
   // a1.18 owns `ne … plus` and gets the one line.
-  ok(LEARNER_TEXT.includes('a1.18'), 'a1.18 owns `ne … plus` and is not named');
+  ok(namesUnitLabel(LEARNER_TEXT, 'a1.18'), 'a1.18 owns `ne … plus` and is not named');
 });
 
 test("a2.17's four reserved forms are all taken here, each by a row that exists", () => {

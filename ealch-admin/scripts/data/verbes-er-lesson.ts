@@ -110,6 +110,7 @@ import {
 } from './verbes-er-corpus.ts';
 import { IMPORTED_IDS, READING_ONLY_IDS, verbEn, verbId } from './verbes-er-imported.ts';
 import { REPAIRED_RESPELL, verbCard } from './verbes-er-display.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export { NOUS_ON, REFRAME };
 
@@ -468,7 +469,7 @@ const SECTIONS: LessonSection[] = [
         say: fr('fr.a2.verbes.102'),
         detail: {
           title: 'The row that does the most work',
-          body: 'Three pronouns, one form, and the ending is silent. on means we and still takes this form, which is the collapse a1.05 spent a mission on and the reason on costs you no new ending.',
+          body: `Three pronouns, one form, and the ending is silent. on means we and still takes this form, which is the collapse ${unitRef('a1.05')} spent a mission on and the reason on costs you no new ending.`,
           say: fr('fr.a2.verbes.107'),
         },
       },
@@ -1189,7 +1190,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['Four', 'Nine', 'It depends on the verb', 'Six'],
             correct: 3,
-            why: 'Six endings for nine pronouns, because il, elle and on share one and ils and elles share another. That collapse is a1.05\'s and it holds for every verb.',
+            why: `Six endings for nine pronouns, because il, elle and on share one and ils and elles share another. That collapse is ${unitRef('a1.05')}\'s and it holds for every verb.`,
             ref: 's05-six',
           },
         ],
@@ -1692,7 +1693,7 @@ const DRILLS: LessonDrill[] = [
     q: 'Which form does on take?',
     opts: ['on regardons', 'on regarde', 'on regardent'],
     correct: 1,
-    why: 'The il form, every time. on means we and takes third-person singular, which is the collapse a1.05 taught.',
+    why: `The il form, every time. on means we and takes third-person singular, which is the collapse ${unitRef('a1.05')} taught.`,
   },
   {
     id: 'drill-flat-ending',
@@ -1862,7 +1863,7 @@ export const VERBES_ER_LESSON: Lesson = {
   // lines. One line of heading was all that stood between Continue and the fold.
   // Three device passes on one card, and every one of them found something no
   // test could see.
-  version: 8,
+  version: 9,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

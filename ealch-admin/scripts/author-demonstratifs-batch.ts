@@ -44,6 +44,7 @@ import { validateLesson, quizQuestions } from '../../ealch-v2/src/content/schema
 import { validateDensity, formatDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { fold } from '../../ealch-v2/src/content/answer.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry');
 const REAPPLY = process.argv.includes('--reapply');
@@ -323,7 +324,7 @@ async function main() {
   // The string is IMPORTED from a2.06's own corpus file, so "verbatim" is
   // mechanical: a paraphrase cannot pass and a2.06 rewording fails this build.
   if (!LEARNER_TEXT.includes(A206_SHAPE)) die(`${OBJECT_UNIT}'s article-against-pronoun wording is not quoted verbatim on any learner surface`);
-  if (!hasWord(LEARNER_TEXT, OBJECT_UNIT)) die(`${OBJECT_UNIT} is quoted and not named`);
+  if (!namesUnitLabel(LEARNER_TEXT, OBJECT_UNIT)) die(`${OBJECT_UNIT} is quoted and not named`);
   // AND ITS EXTENSION, because a2.06's sentence ends "leans on a verb", which
   // is false of these pronouns. Corpus §C.
   if (!A206_ENDS_ON_A_VERB) die(`${OBJECT_UNIT}'s sentence no longer ends on "a verb", so ${A233_SHAPE ? 'A233_SHAPE' : ''} may be quoting a sentence it no longer needs to correct. Re-read corpus §C.`);
@@ -336,20 +337,20 @@ async function main() {
 
   // a2.02's RECURRING SHAPE, quoted and attributed (doctrine §B.7).
   if (!LEARNER_TEXT.includes(WHAT_FOLLOWS)) die(`« ${WHAT_FOLLOWS} » is not quoted, and this is the shape's next turn`);
-  if (!hasWord(LEARNER_TEXT, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} owns that line and is not named`);
+  if (!namesUnitLabel(LEARNER_TEXT, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} owns that line and is not named`);
 
-  // a2.16 NAMED BY UNIT ID AS THE REASON FOR `cet`, and sons.07 beside it.
+  // a2.16 NAMED BY ITS LESSON LABEL AS THE REASON FOR `cet`, and sons.07 beside it.
   {
     const why = sec('s07-why');
     if (!why) die('s07-why is missing, and it is where the reason for cet lives');
     const t = strs(why).join('\n');
-    if (!hasWord(t, VOWEL_UNIT)) die(`${VOWEL_UNIT} is not named by unit id as the reason for cet`);
-    if (!hasWord(t, ELISION_UNIT)) die(`${ELISION_UNIT} is not named beside it, and it is the same pressure a third time`);
+    if (!namesUnitLabel(t, VOWEL_UNIT)) die(`${VOWEL_UNIT} is not named as the reason for cet`);
+    if (!namesUnitLabel(t, ELISION_UNIT)) die(`${ELISION_UNIT} is not named beside it, and it is the same pressure a third time`);
     if (!t.includes(ELISION_REFRAME)) die(`${ELISION_UNIT}'s reframe is not quoted verbatim`);
     if (!t.includes(A216_REFRAME)) die(`${VOWEL_UNIT}'s reframe is not quoted verbatim`);
     if (!t.includes('cet homme')) die('the card naming a2.16 does not show the form it is explaining');
     // PER CARD, NOT PER SECTION, AND THE MUTATION HARNESS ASKED FOR IT. The
-    // section-wide check above passes while the unit id sits on any one of the
+    // section-wide check above passes while the label sits on any one of the
     // three cards, so blanking it from the card that carries a2.16's reframe
     // left the guard green. The unit that owns a quotation has to be named
     // beside it, on the same card, or the learner is told a rule with no owner.
@@ -358,7 +359,7 @@ async function main() {
     for (const [quote, owner] of pairs) {
       const card = cards.find((cd) => strs(cd).some((x) => x.includes(quote)));
       if (!card) die(`no card in s07-why quotes ${owner}'s reframe`);
-      if (!hasWord(strs(card).join('\n'), owner)) die(`the card quoting ${owner}'s reframe does not name ${owner}`);
+      if (!namesUnitLabel(strs(card).join('\n'), owner)) die(`the card quoting ${owner}'s reframe does not name ${owner}`);
     }
   }
   // AND a2.16's THREE ADJECTIVES ARE QUOTED, NOT TAUGHT: `bel` appears once,
@@ -556,7 +557,7 @@ async function main() {
   console.log(`  tense + en/y ceiling: ${FRENCH.length} French strings clear`);
   // The next unit and the three previous ones are NAMED, once each.
   for (const u of [POSSESSIVE_UNIT, INDIRECT_UNIT, Y_EN_UNIT, GENDER_UNIT]) {
-    if (!hasWord(LEARNER_TEXT, u)) die(`${u} is a boundary this lesson leans on and is never named`);
+    if (!namesUnitLabel(LEARNER_TEXT, u)) die(`${u} is a boundary this lesson leans on and is never named`);
   }
 
   /* ══════════════════════════════════════════════════════════════════════

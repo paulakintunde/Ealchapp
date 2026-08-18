@@ -179,6 +179,12 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { WHAT_FOLLOWS, WHAT_FOLLOWS_UNIT } from './aller-venir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  IDENTITY, THE BLOCK, AND THE COUNTS THE BATCH REFUSES TO DISAGREE WITH
@@ -302,7 +308,7 @@ export const PAST_UNIT = 'a2.05';
  *  resolved. a2.16 §3: assert the literal, because a back-reference to a unit
  *  id is not a variable. */
 export const A204_DEFERRAL =
-  'En also means how long something takes and dans also means how far ahead something is, and both of those are a2.18, which is the very next lesson.';
+  `En also means how long something takes and dans also means how far ahead something is, and both of those are ${unitRef('a2.18')}, which is the very next lesson.`;
 
 /** a2.04's own reframe, verbatim, so the roundup can point back at the lesson
  *  the learner did yesterday without paraphrasing it. */
@@ -398,7 +404,7 @@ export const GRID: readonly GridRow[] = [
   {
     prep: 'il y a', tense: 'a past', measures: 'behind you', example: 'il y a une heure',
     producible: false,
-    detail: `A single point, measured backwards from now. It needs a past tense to sit in, and that tense is ${PAST_UNIT}. You will meet this one here and produce it there.`,
+    detail: `A single point, measured backwards from now. It needs a past tense to sit in, and that tense is ${unitRef(PAST_UNIT)}. You will meet this one here and produce it there.`,
   },
   {
     prep: 'dans', tense: 'present', measures: 'ahead', example: 'dans une heure',
@@ -421,7 +427,7 @@ export const IL_Y_A_ROW_INDEX = 2;
 
 export const gridRow = (p: Prep): GridRow => {
   const r = GRID.find((x) => x.prep === p);
-  if (!r) throw new Error(`a2.18: no grid row for "${p}".`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.18'))}: no grid row for "${p}".`);
   return r;
 };
 
@@ -542,7 +548,7 @@ export const DEPUIS_EVIDENCE = {
  *  seq 14 onward, name the earlier instance, and the recognition is worth more
  *  than the trapDrill. */
 export const PATTERN_CLAIM =
-  `You have had this shape before. ${WHAT_FOLLOWS_UNIT} called it ${WHAT_FOLLOWS}, on venir de, and it is the same job here.`;
+  `You have had this shape before. ${Cap(unitRef(WHAT_FOLLOWS_UNIT))} called it ${WHAT_FOLLOWS}, on venir de, and it is the same job here.`;
 
 /** What the lesson teaches, as one line, and it is sharper than the brief's
  *  because of the published counterexample in header claim 3. */
@@ -682,7 +688,7 @@ export const POUR_MUST_NOT_FIRE: readonly string[] = [
  *  thinking it was forgotten, which is the shape a2.04 used for its own
  *  deferral and a2.17 used for the adverb one. */
 export const PAST_DEFERRAL =
-  `Il y a for "ago" wants a past tense, and you do not have one yet. It arrives in ${PAST_UNIT}, and this is the phrase it will arrive holding.`;
+  `Il y a for "ago" wants a past tense, and you do not have one yet. It arrives in ${unitRef(PAST_UNIT)}, and this is the phrase it will arrive holding.`;
 
 /** The one receptive example. It is SHOWN and never asked for, and the guards
  *  assert it appears on exactly one screen and in no drill, no dictée and no
@@ -731,7 +737,7 @@ export const COMPOUND_MUST_NOT_FIRE: readonly string[] = [
  *  IT. This lesson uses the present with future meaning and names the handover.
  *  Guarded as a SHAPE: `aller` conjugated plus an infinitive. */
 export const FUTURE_DEFERRAL =
-  `French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is ${FUTURE_UNIT}, which is next.`;
+  `French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is ${unitRef(FUTURE_UNIT)}, which is next.`;
 
 export const FUTUR_PROCHE_SHAPE =
   /(?<![\p{L}\p{N}-])(?:vais|vas|va|allons|allez|vont)\s+(?:pas\s+|bientôt\s+)?[\p{L}]{3,}(?:er|ir|re|oir)(?![\p{L}\p{N}'’-])/iu;
@@ -792,7 +798,7 @@ export const PLACE_MUST_NOT_FIRE: readonly string[] = [
   'On mange dans une heure ?',
   'Il pleut pendant la nuit.',
   'It rains during the night and the streets are wet.',
-  'A place behind dans is a2.04, which you did yesterday.',
+  `A place behind dans is ${unitRef('a2.04')}, which you did yesterday.`,
 ];
 
 /** Vocabulary that belongs to the clock and the calendar lessons. This lesson
@@ -1056,7 +1062,7 @@ export const AUTHORED_IDS: string[] = PREPOSITIONS_TEMPS.map((r) => r.id);
  *  wanted one. */
 export function row(fr: string): TempsRow {
   const r = PREPOSITIONS_TEMPS.find((x) => x.fr === fr);
-  if (!r) throw new Error(`a2.18: no authored row for "${fr}".`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.18'))}: no authored row for "${fr}".`);
   return r;
 }
 
@@ -1085,8 +1091,8 @@ export const IMPORTED: readonly Import[] = [
   // The four headwords. Two need a repair.
   { id: 'fr.sons.mots-essentiels.027', fr: 'depuis', use: 'preposition', why: `The headword, [${DEPUIS_RESPELL}], clean, and the row that settles the glide spelling for the whole lesson. fr.sons.voyelles.208 is a second copy in a second theme and is deliberately not taken.` },
   { id: 'fr.sons.mots-essentiels.028', fr: 'pendant', use: 'preposition', why: 'FLAGGED at [pahn-DAHN], TWO nasals and the checker sees both. Repaired to [pahⁿ-DAHⁿ], which seven published sentences already hold.' },
-  { id: 'fr.sons.mots-essentiels.013', fr: 'dans', use: 'preposition', why: 'The headword, [DAHⁿ], ALREADY CORRECT. a2.04 named this word as one of the five a1.21 gave the learner in its place sense; this lesson takes the time sense and the card is one card.' },
-  { id: 'fr.sons.mots-essentiels.088', fr: 'en', use: 'preposition', why: 'FLAGGED at [AHN], one nasal, visible. Repaired to [AHⁿ]. Its stored gloss is « some, of it », which is the PRONOUN en and neither this lesson\'s sense nor a2.04\'s; the card replaces the gloss and the row keeps it.' },
+  { id: 'fr.sons.mots-essentiels.013', fr: 'dans', use: 'preposition', why: `The headword, [DAHⁿ], ALREADY CORRECT. ${Cap(unitRef('a2.04'))} named this word as one of the five ${unitRef('a1.21')} gave the learner in its place sense; this lesson takes the time sense and the card is one card.` },
+  { id: 'fr.sons.mots-essentiels.088', fr: 'en', use: 'preposition', why: `FLAGGED at [AHN], one nasal, visible. Repaired to [AHⁿ]. Its stored gloss is « some, of it », which is the PRONOUN en and neither this lesson\'s sense nor ${unitRef('a2.04')}\'s; the card replaces the gloss and the row keeps it.` },
 
   // THE QUADRUPLE. Four consecutive published phrase cards, one duration.
   { id: 'fr.sons.jours-et-mois.080', fr: 'dans une heure', use: 'quadruple', why: 'FLAGGED at [DAHN ZÜN UHR]. Repaired to [DAHⁿ ZÜN UHR], read off the headword. First of the four.' },
@@ -1124,7 +1130,7 @@ export const A103_SEED_POPULATION = 1890;
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`a2.18: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`${Cap(unitRef('a2.18'))}: ${id} is not in IMPORTED.`);
   return i;
 };
 
@@ -1153,7 +1159,7 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   { id: 'fr.sons.jours-et-mois.076', fr: 'en avance', why: 'FLAGGED at [AHN na-VAHNS], and it holds a THIRD sense of en — early — which is neither a time preposition nor a place. Importing it would put a third en on a screen that says there are two.' },
   { id: 'fr.a2.recits-au-passe.118', fr: 'il y a deux ans', why: 'NO RESPELLING. A published "ago" phrase card with nothing to say it with, which is a2.13 §1 in this lesson\'s own subject.' },
   { id: 'fr.a2.temps-et-frequence.099', fr: 'il y a une semaine', why: 'NO RESPELLING, and it is in the theme this build rejected.' },
-  { id: 'fr.a2.prepositions-essentielles.006', fr: 'Elle vit ici depuis trois ans.', why: 'NO RESPELLING, and it is in this lesson\'s own theme and its own namespace. 560 published depuis sentences and 20 of them carry a respelling: the corpus is rich in evidence and poor in cards (a2.13 §1) and this is the row that proves it closest to home.' },
+  { id: 'fr.a2.prepositions-essentielles.006', fr: 'Elle vit ici depuis trois ans.', why: `NO RESPELLING, and it is in this lesson\'s own theme and its own namespace. 560 published depuis sentences and 20 of them carry a respelling: the corpus is rich in evidence and poor in cards (${unitRef('a2.13')} §1) and this is the row that proves it closest to home.` },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1188,13 +1194,13 @@ export const REPAIRS: readonly Repair[] = [
     id: 'fr.sons.mots-essentiels.028', fr: 'pendant',
     from: 'pahn-DAHN', half: 'pahⁿ-DAHⁿ', to: 'pahⁿ-DAHⁿ', blind: false, house: false,
     readOff: 'fr.sons.nasales.039', readOffToken: 'pahⁿ-DAHⁿ',
-    why: 'TWO NASALS AND THE CHECKER SEES BOTH, because each n is followed by a hyphen or by nothing rather than by a letter. SEVEN published sentences already hold pahⁿ-DAHⁿ (fr.sons.nasales.030, .039, .042, .051, .052, .054, .059) and the HEADWORD is the outlier, which is a2.17 §3 in a second subject.',
+    why: `TWO NASALS AND THE CHECKER SEES BOTH, because each n is followed by a hyphen or by nothing rather than by a letter. SEVEN published sentences already hold pahⁿ-DAHⁿ (fr.sons.nasales.030, .039, .042, .051, .052, .054, .059) and the HEADWORD is the outlier, which is ${unitRef('a2.17')} §3 in a second subject.`,
   },
   {
     id: 'fr.sons.mots-essentiels.088', fr: 'en',
     from: 'AHN', half: AHN, to: AHN, blind: false, house: false,
     readOff: 'fr.sons.nasales.029', readOffToken: 'AHⁿ',
-    why: 'One nasal, visible, at the end of a two-character string. fr.sons.nasales.029 publishes « travaille en France » as tra-VAY AHⁿ FRAHⁿS, which is the same word unstressed, and a2.04 imported that row one lesson ago and read EN_RESPELL off it.',
+    why: `One nasal, visible, at the end of a two-character string. fr.sons.nasales.029 publishes « travaille en France » as tra-VAY AHⁿ FRAHⁿS, which is the same word unstressed, and ${unitRef('a2.04')} imported that row one lesson ago and read EN_RESPELL off it.`,
   },
   {
     id: 'fr.sons.jours-et-mois.080', fr: 'dans une heure',
@@ -1250,7 +1256,7 @@ export const PROBLEME_FALSE_POSITIVE = {
   rowsFlagged: 4,
   rowsClean: 3,
   readOff: 'fr.a2.conflits-reconciliation.090',
-  why: 'The first branch of hasPlainNasal matches a two-letter house vowel plus M or N with no rescue path. The bare-vowel spelling takes the second branch and is rescued by the vowel behind the m in the French. a2.04 found this on même and listed five nouns; the predictor is the SHAPE and not the list.',
+  why: `The first branch of hasPlainNasal matches a two-letter house vowel plus M or N with no rescue path. The bare-vowel spelling takes the second branch and is rescued by the vowel behind the m in the French. ${Cap(unitRef('a2.04'))} found this on même and listed five nouns; the predictor is the SHAPE and not the list.`,
 } as const;
 
 export const RESPELL_REPAIRS_VISIBLE: readonly Repair[] = REPAIRS.filter((r) => !r.blind);
@@ -1273,10 +1279,10 @@ export const NO_BLIND_NO_HOUSE_CLAIM =
 export const NOT_REPAIRED: readonly { id: string; fr: string; respell: string; why: string }[] = [
   { id: 'fr.sons.jours-et-mois.076', fr: 'en avance', respell: 'AHN na-VAHNS', why: 'FLAGGED twice, and NOT DISPLAYED. It is four ids from the quadruple this lesson imports, so it will be the first thing the next author sees; it holds a third sense of en and repairing a row nobody shows is how a build acquires a defect it cannot test.' },
   { id: 'fr.sons.mots-essentiels.164', fr: 'pendant que', respell: 'pahn-DAHN KUH', why: 'FLAGGED twice. A conjunction rather than a preposition, so it takes a clause and not a duration, and it is nothing this lesson teaches.' },
-  { id: 'fr.sons.mots-essentiels.121', fr: 'dedans', respell: 'duh-DAHN', why: 'FLAGGED. A place adverb, and a2.04\'s subject rather than this one\'s.' },
+  { id: 'fr.sons.mots-essentiels.121', fr: 'dedans', respell: 'duh-DAHN', why: `FLAGGED. A place adverb, and ${unitRef('a2.04')}\'s subject rather than this one\'s.` },
   { id: 'fr.sons.mots-essentiels.061', fr: 'maintenant', respell: 'mant-NAHN', why: 'FLAGGED, and there is a second copy at fr.a1.rp-voyage.056 [mahn-tuh-NAHN]. Neither is displayed. Worth naming because `mant-NAHⁿ` PASSES the checker and is still wrong in its first syllable, which is corrections §14.1 exactly.' },
   { id: 'fr.b1.verbes-essentiels.010', fr: 'Nous avons dépensé beaucoup pendant le voyage.', respell: 'nooz ah-VOHN day-pahn-SAY boh-KOO pahn-DAHN luh vwah-YAHZH', why: 'FLAGGED three times, b1, and not displayed.' },
-  { id: 'fr.sons.jours-et-mois.077', fr: 'tôt le matin', respell: 'TOH LUH ma-TUHN', why: 'FLAGGED, and it spells /ɛ̃/ as UHN where this lesson and a2.04 both use EHⁿ. Not displayed.' },
+  { id: 'fr.sons.jours-et-mois.077', fr: 'tôt le matin', respell: 'TOH LUH ma-TUHN', why: `FLAGGED, and it spells /ɛ̃/ as UHN where this lesson and ${unitRef('a2.04')} both use EHⁿ. Not displayed.` },
   { id: 'fr.a1.rp-societe.046', fr: 'un problème', respell: 'uhn-pro-BLEHM', why: 'FLAGGED twice, and one of the two flags is the FALSE POSITIVE described above. Not displayed, and not repairable in the notation the house prefers.' },
 ];
 

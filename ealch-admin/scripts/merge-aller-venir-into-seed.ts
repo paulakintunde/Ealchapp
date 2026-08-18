@@ -46,8 +46,9 @@ import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2
 import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { normalizeFr } from '../../ealch-v2/src/utils/score.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
-  A210_BACKREF, ALLER_VENIR, AUTHORED_IDS as CORPUS_AUTHORED_IDS, BLIND_NASALS,
+  A210_BACKREF, A210_BACKREF_UNIT, ALLER_VENIR, AUTHORED_IDS as CORPUS_AUTHORED_IDS, BLIND_NASALS,
   COMPOUNDS, DICTATION_IDS, DICTEE_NEAR_MISS, DOUBLE_N, DRILL_ADDITIONS,
   FAMILY_UNIT, FRAME_WORD, FUTUR_PROCHE_SHAPE, FUTUR_PROCHE_UNIT,
   HALF_REPAIRED_NANTES, NUMBER_PAIRS, PARADIGM, PASSE_COMPOSE_PHRASES,
@@ -232,7 +233,7 @@ for (const [sing, plur] of NUMBER_PAIRS) {
   const inIntro = JARGON.filter((j) => hasPhrase(LESSON.intro ?? '', j));
   if (inIntro.length) die(`grammar vocabulary in Lesson.intro, drawn on TWO learner surfaces: ${inIntro.join(', ')}`);
 
-  if (!hasPhrase(learner, A210_BACKREF)) die(`${A210_BACKREF} is named nowhere, and this lesson is the payoff of two of its lessons`);
+  if (!namesUnitLabel(learner, A210_BACKREF_UNIT)) die(`${A210_BACKREF} is named nowhere, and this lesson is the payoff of two of its lessons`);
   if (!hasPhrase(learner, WHAT_FOLLOWS)) die(`"${WHAT_FOLLOWS}" appears on no screen, and three later lessons are told to quote it`);
   if (!learner.includes(TENIR_CLAIM)) die(`"${TENIR_CLAIM}" appears on no screen, and without it the third verb is arbitrary`);
   if (!learner.includes(TIMELINE)) die(`"${TIMELINE}" appears on no screen, and it is where this lesson says what the Owns is worth`);
@@ -250,14 +251,14 @@ for (const [sing, plur] of NUMBER_PAIRS) {
     if (LESSON.itemIds.includes(ro.id)) die(`${ro.id} (${ro.verb}) is in itemIds and is released to nothing`);
   }
   const family = LESSON.sections.find((s) => (s as { id?: string }).id === FAMILY_SECTION_ID);
-  if (!family || !strings(family).join('\n').includes(FAMILY_UNIT)) die(`${FAMILY_SECTION_ID} no longer says where the family principle is taught. It is ${FAMILY_UNIT}.`);
+  if (!family || !namesUnitLabel(strings(family).join('\n'), FAMILY_UNIT)) die(`${FAMILY_SECTION_ID} no longer says where the family principle is taught. It is ${FAMILY_UNIT}.`);
   const boundary = LESSON.sections.find((s) => (s as { id?: string }).id === BOUNDARY_SECTION_ID);
   if (!boundary) die(`${BOUNDARY_SECTION_ID} is gone, and with it the acknowledgement that aller has a second job`);
   const bText = strings(boundary).join('\n');
-  if (!bText.includes(FUTUR_PROCHE_UNIT)) die(`${BOUNDARY_SECTION_ID} does not name ${FUTUR_PROCHE_UNIT}`);
-  if (!bText.includes(WHAT_FOLLOWS_UNIT)) die(`${BOUNDARY_SECTION_ID} does not carry the unit id ${WHAT_FOLLOWS_UNIT} that three later lessons are told to cite`);
+  if (!namesUnitLabel(bText, FUTUR_PROCHE_UNIT)) die(`${BOUNDARY_SECTION_ID} does not name ${FUTUR_PROCHE_UNIT}`);
+  if (!namesUnitLabel(bText, WHAT_FOLLOWS_UNIT)) die(`${BOUNDARY_SECTION_ID} does not name ${WHAT_FOLLOWS_UNIT}, which three later lessons are told to cite`);
   if (FUTUR_PROCHE_SHAPE.test(bText)) die(`${BOUNDARY_SECTION_ID} shows the futur proche in order to defer it, which is teaching it`);
-  if (!hasPhrase(learner, PASSE_COMPOSE_UNIT)) die(`${PASSE_COMPOSE_UNIT} is named nowhere, so "a past tense, early" has nothing behind it`);
+  if (!namesUnitLabel(learner, PASSE_COMPOSE_UNIT)) die(`${PASSE_COMPOSE_UNIT} is named nowhere, so "a past tense, early" has nothing behind it`);
 
   const pcShaped = learnerProse.filter((s) => PASSE_COMPOSE_SHAPE.test(s));
   const pcPhrased = PASSE_COMPOSE_PHRASES.filter((p) => learnerProse.some((s) => hasPhrase(s, p)));

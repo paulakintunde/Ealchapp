@@ -55,6 +55,7 @@ import {
 } from '../../ealch-v2/src/content/schema.ts';
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   A211_LINE, A211_UNIT, AUTHORED_IDS as AUTHORED_ID_LIST, AUTHORED_INFINITIVES,
   BATTRE_SHAPE, BLIND_NASALS, BLIND_NASAL_ROWS, CITED_UNITS, COMPOUND_ROWS,
@@ -328,7 +329,7 @@ const hits = countPhrase(learnerText, REFRAME);
 if (hits !== EXPECTED_REFRAME_USES) die(`the reframe appears ${hits} times, expected exactly ${EXPECTED_REFRAME_USES}`);
 if (LESSON.reframe !== REFRAME) die('the lesson reframe field disagrees with the corpus');
 
-const uncited = CITED_UNITS.filter((u) => !hasPhrase(learnerText, u));
+const uncited = CITED_UNITS.filter((u) => !namesUnitLabel(learnerText, u));
 if (uncited.length) die(`cited units that appear nowhere: ${uncited.join(', ')}`);
 
 /* ── THE FAMILY RULE, RE-DERIVED. The merge re-checks rather than trusting the
@@ -538,13 +539,13 @@ if (!identity) die(`${IDENTITY_SECTION_ID} is missing`);
   const ia = frs.indexOf(PRENDRE_METTRE.find((r) => r.id === ADJACENT_PAIR[0])!.fr);
   const ib = frs.indexOf(PRENDRE_METTRE.find((r) => r.id === ADJACENT_PAIR[1])!.fr);
   if (ia < 0 || ib < 0 || ib - ia !== 1) die(`${DOUBLED_SECTION_ID} does not put the two halves of the doubling pair adjacent (${ia}, ${ib})`);
-  if (!hasPhrase(prose(doubled).join('  '), STEM_UNIT)) die(`${DOUBLED_SECTION_ID} does not name ${STEM_UNIT}`);
+  if (!namesUnitLabel(prose(doubled).join('  '), STEM_UNIT)) die(`${DOUBLED_SECTION_ID} does not name ${STEM_UNIT}`);
   /* AND THE MECHANISM IS STATED, NOT JUST THE UNIT NUMBER. Mutation harness. */
   if (!strings(LESSON).some((x) => x.includes(STEM_PRINCIPLE))) {
     die(`the sentence tying the doubled n to the silent ending appears nowhere:
   ${JSON.stringify(STEM_PRINCIPLE)}`);
   }
-  if (!hasPhrase(STEM_PRINCIPLE, STEM_UNIT)) die(`STEM_PRINCIPLE no longer names ${STEM_UNIT}`);
+  if (!namesUnitLabel(STEM_PRINCIPLE, STEM_UNIT)) die(`STEM_PRINCIPLE no longer names ${STEM_UNIT}`);
 }
 if (!strings(byId(NOTVENDRE_SECTION_ID)).some((s) => s.includes(A211_LINE))) {
   die(`${NOTVENDRE_SECTION_ID} does not carry the line that closes ${A211_UNIT}'s loop`);

@@ -59,6 +59,7 @@ import {
   THEME, THE_TEN, VERBES_IR, afterPronoun, toItem,
 } from './data/verbes-ir-corpus.ts';
 import { IMPORTED_ROWS, IMPORTED_VERBS } from './data/verbes-ir-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   A201_BACKREF, A201_REFRAME, BOTH_HALVES, BOUNDARY_SECTION_ID, CONTRAST_ROW_IDS,
   CONTRAST_SECTION_ID, NOUS_ON, NOUS_ON_SECTION_ID, REFRAME, VERBES_IR_LESSON,
@@ -413,7 +414,7 @@ if (jargon.length) die(`grammar vocabulary reached a learner surface: ${jargon.j
 /* ── THE BACK-REFERENCE, AND a2.01's OWN REFRAME QUOTED VERBATIM ─────────── */
 {
   const holders = LESSON.sections
-    .filter((s) => strings(s).some((x) => hasPhrase(x, A201_BACKREF)))
+    .filter((s) => strings(s).some((x) => namesUnitLabel(x, A201_BACKREF)))
     .map((s) => (s as { id?: string }).id ?? '?');
   if (holders.length < 2) {
     die(
@@ -538,7 +539,7 @@ const PRODUCTION_SURFACES = [...producedStrings(), ...deckStrings()];
   const cardText = strings(card).join('\n');
   const notOnCard = NOT_THIS_FAMILY.filter((v) => !hasPhrase(cardText, v));
   if (notOnCard.length) die(`${BOUNDARY_SECTION_ID} does not name ${notOnCard.join(', ')}. The whole class belongs on one screen.`);
-  if (!cardText.includes(NOT_THIS_FAMILY_UNIT)) {
+  if (!namesUnitLabel(cardText, NOT_THIS_FAMILY_UNIT)) {
     die(`${BOUNDARY_SECTION_ID} does not say where ${NOT_THIS_FAMILY_HOMED.join(' and ')} are taught. A boundary with no destination is a warning, not a teaching.`);
   }
   console.log(`  the boundary: all ${NOT_THIS_FAMILY.length} named on ${BOUNDARY_SECTION_ID}, 0 forms on a production surface, 0 invented forms anywhere`);

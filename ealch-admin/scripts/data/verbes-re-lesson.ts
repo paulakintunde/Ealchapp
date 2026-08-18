@@ -99,7 +99,7 @@ import type {
   SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import {
-  BACKREFS,
+  BACKREFS, BACKREFS_SHORT,
   NOUS_ON,
   REFRAME,
   THREE_GROUPS,
@@ -129,8 +129,14 @@ import {
 } from './verbes-re-corpus.ts';
 import { IMPORTED_IDS, verbEn, verbId } from './verbes-re-imported.ts';
 import { REPAIRED_RESPELL, bareThirdPerson, verbCard, verbRespellBare, verbStem } from './verbes-re-display.ts';
+import { unitRef } from './_unit-ref.ts';
 
-export { BACKREFS, NOUS_ON, REFRAME, THREE_GROUPS, A201_REFRAME, A210_REFRAME };
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+export { BACKREFS, BACKREFS_SHORT, NOUS_ON, REFRAME, THREE_GROUPS, A201_REFRAME, A210_REFRAME };
 
 /* ─── The items this lesson touches ────────────────────────────────────────
  *
@@ -437,7 +443,7 @@ const SECTIONS: LessonSection[] = [
         head: 'Five endings you have met',
         fr: '-s · -s · -ons · -ez · -ent',
         sub: 'je · tu · nous · vous · ils',
-        body: 'The plural three are the ones a2.01 gave you, unchanged. The -s on je and tu is the one you already write on tu es and tu parles.',
+        body: `The plural three are the ones ${unitRef('a2.01')} gave you, unchanged. The -s on je and tu is the one you already write on tu es and tu parles.`,
       },
       {
         label: 'Step 3, the one you have not',
@@ -545,13 +551,13 @@ const SECTIONS: LessonSection[] = [
     say: `${REFRAME} Tap all three. They are the same length out loud and they are not on the page.`,
     cols: ['Group', 'He does it', 'What you write'],
     rows: THREE_CELLS.map((c) => ({
-      cells: [`${c.group} · ${c.unit}`, form(c.id), written(c.ending)],
+      cells: [`${c.group} · ${unitRef(c.unit, 'a2')}`, form(c.id), written(c.ending)],
       say: fr(c.id),
       detail: {
         title: form(c.id),
         body: c.ending === ''
           ? 'The stem, and then the page stops. Tap the two rows above it: all three are said the same way, so nothing you can hear will ever tell you which of the three endings to write.'
-          : `${c.ending} after the stem, and it makes no sound. You have had this one since ${c.unit}, and it is here so the cell below it has something to be different from.`,
+          : `${c.ending} after the stem, and it makes no sound. You have had this one since ${unitRef(c.unit, 'a2')}, and it is here so the cell below it has something to be different from.`,
         say: fr(c.id),
       },
     })),
@@ -940,7 +946,7 @@ const SECTIONS: LessonSection[] = [
         head: 'Which brings five more with them',
         fr: NOT_THIS_FAMILY_COMPOUNDS.join(' · '),
         sub: 'built like the verb inside them',
-        body: `Each one is one of the three with something on the front, and it behaves like the verb it is made of. All eight have a unit of their own at ${NOT_THIS_FAMILY_UNIT}.`,
+        body: `Each one is one of the three with something on the front, and it behaves like the verb it is made of. All eight have a unit of their own at ${unitRef(NOT_THIS_FAMILY_UNIT)}.`,
       },
       {
         label: 'How to tell',
@@ -1125,7 +1131,7 @@ const SECTIONS: LessonSection[] = [
       { front: 'Several women, giving the book back', back: fr('fr.a2.verbes.237'), say: fr('fr.a2.verbes.237') },
       { front: 'Why is il vend a page problem and not a sound problem?', back: 'Because je vends, tu vends and il vend are one sound. Only the page separates them.' },
       { front: 'A verb you were never taught: elle fond', back: 'Stem fond-, and the il cell writes nothing. The machine works on anything in the family.' },
-      { front: 'Three verbs end in -re and are not this. Name them.', back: `${NOT_THIS_FAMILY.join(', ')}. With their compounds that is eight, and they are ${NOT_THIS_FAMILY_UNIT}.` },
+      { front: 'Three verbs end in -re and are not this. Name them.', back: `${NOT_THIS_FAMILY.join(', ')}. With their compounds that is eight, and they are ${unitRef(NOT_THIS_FAMILY_UNIT)}.` },
     ],
   },
 
@@ -1411,9 +1417,9 @@ const SECTIONS: LessonSection[] = [
           {
             q: 'prendre, mettre and battre all end in -re. Where are they taught?',
             format: 'mcq',
-            opts: [NOT_THIS_FAMILY_UNIT, 'Here, in this lesson', 'a2.01', 'Nowhere, they are learned one at a time'],
+            opts: [Cap(unitRef(NOT_THIS_FAMILY_UNIT, 'a2')), 'Here, in this lesson', `${Cap(unitRef('a2.01'))}`, 'Nowhere, they are learned one at a time'],
             correct: 0,
-            why: `${NOT_THIS_FAMILY_UNIT} takes all three and their compounds together. Until then, recognising that a verb is not in this family is the whole of what you need.`,
+            why: `${Cap(unitRef(NOT_THIS_FAMILY_UNIT))} takes all three and their compounds together. Until then, recognising that a verb is not in this family is the whole of what you need.`,
             ref: 's16-notmine',
           },
           {
@@ -1606,7 +1612,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-wrong-group',
-    description: "Carries another group's third-person ending across: il vende with a2.01's -e, or il vendit with a2.10's -it.",
+    description: `Carries another group's third-person ending across: il vende with ${unitRef('a2.01', 'a2')}'s -e, or il vendit with ${unitRef('a2.10', 'a2')}'s -it.`,
     detectOn: ['s03-third', 's07-cells', 's23-quiz/r3-three-groups'],
     drill: 'drill-three-groups',
     retest: 'retest-three-groups',
@@ -1798,7 +1804,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-three-groups',
         title: 'All three groups, every pronoun',
         layer: 'deep',
-        cols: ['Person', `-er · ${BACKREFS[0]}`, `-ir · ${BACKREFS[1]}`, '-re · here'],
+        cols: ['Person', `-er · ${BACKREFS_SHORT[0]}`, `-ir · ${BACKREFS_SHORT[1]}`, '-re · here'],
         rows: [
           ['je', 'parle', 'finis', 'vends'],
           ['tu', 'parles', 'finis', 'vends'],
@@ -1821,14 +1827,14 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-why-one-sheet',
         title: 'Why this sheet holds three patterns and not one',
         layer: 'deep',
-        body: `${THREE_GROUPS} The two earlier units each shipped a sheet of their own: ${BACKREFS[0]} holds the -er endings in full and ${BACKREFS[1]} holds the -ir endings in full, and both are still the place to go for one pattern on its own. Neither of them could hold the table above, because neither of them knew the other two patterns existed yet. This one does, and it is the last one that will be needed, because there is no fourth regular group. Read the third row of it and nothing else if you are in a hurry: parle, finit, vend. One letter, two letters, none, and not one of the three reaches the ear. That is the whole of what the three regular patterns disagree about on the il form, and it is why this lesson spends its weight on writing rather than on listening. The rest of the table is the part you could have worked out: the plural endings are the same three you have had since ${BACKREFS[0]}, and the -s on je and tu is the same silent -s you have been writing since a1.06.`,
+        body: `${THREE_GROUPS} The two earlier units each shipped a sheet of their own: ${BACKREFS[0]} holds the -er endings in full and ${BACKREFS[1]} holds the -ir endings in full, and both are still the place to go for one pattern on its own. Neither of them could hold the table above, because neither of them knew the other two patterns existed yet. This one does, and it is the last one that will be needed, because there is no fourth regular group. Read the third row of it and nothing else if you are in a hurry: parle, finit, vend. One letter, two letters, none, and not one of the three reaches the ear. That is the whole of what the three regular patterns disagree about on the il form, and it is why this lesson spends its weight on writing rather than on listening. The rest of the table is the part you could have worked out: the plural endings are the same three you have had since ${BACKREFS[0]}, and the -s on je and tu is the same silent -s you have been writing since ${unitRef('a1.06')}.`,
       },
       {
         type: 'teach',
         id: 'sheet-what-carries-forward',
         title: 'What carries forward',
         layer: 'deep',
-        body: `The method has not changed across three units and it will not change again: find the stem, add the person. What each unit gave you was a different short set of endings to add, and with this one the set is complete. Everything after it in this level is a verb that has to be memorised outright, starting with the three that end in -re and are built another way. ${NOT_THIS_FAMILY.join(', ')} and their compounds ${NOT_THIS_FAMILY_COMPOUNDS.join(', ')} are all at ${NOT_THIS_FAMILY_UNIT}, and one of them is among the most common verbs in the language, so you will meet it long before you are taught it. The habit worth carrying out of this lesson is a writing habit rather than a listening one. You have now met a form that is complete while looking unfinished, and the thing to do about it is to stop. The one thing your ear will give you here is the d: silent at the end of a word, said whenever letters follow it, which means the three plural forms have it and the three singular forms do not.`,
+        body: `The method has not changed across three units and it will not change again: find the stem, add the person. What each unit gave you was a different short set of endings to add, and with this one the set is complete. Everything after it in this level is a verb that has to be memorised outright, starting with the three that end in -re and are built another way. ${NOT_THIS_FAMILY.join(', ')} and their compounds ${NOT_THIS_FAMILY_COMPOUNDS.join(', ')} are all at ${unitRef(NOT_THIS_FAMILY_UNIT)}, and one of them is among the most common verbs in the language, so you will meet it long before you are taught it. The habit worth carrying out of this lesson is a writing habit rather than a listening one. You have now met a form that is complete while looking unfinished, and the thing to do about it is to stop. The one thing your ear will give you here is the d: silent at the end of a word, said whenever letters follow it, which means the three plural forms have it and the three singular forms do not.`,
       },
     ],
   },
@@ -1869,7 +1875,7 @@ export const VERBES_RE_LESSON: Lesson = {
   // Pixel 6 after v1 was applied. The counter moves rather than the content being
   // corrected under the same number, because two different bodies under one
   // version is the drift that has made Postgres and seed.json disagree twice.
-  version: 2,
+  version: 6,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

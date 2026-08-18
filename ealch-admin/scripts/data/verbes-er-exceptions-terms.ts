@@ -11,6 +11,12 @@
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { NOUS_ON } from './verbes-er-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** a2.01's nous/on statement, re-exported rather than retyped.
  *
@@ -77,7 +83,10 @@ export const TWO_MECHANISMS = 'Four patterns, two reasons.';
  *
  *  Exported so the test can assert its presence and an edit that cuts it goes
  *  red. */
-export const A201_BACKREF = 'a2.01';
+export const A201_BACKREF_UNIT = 'a2.01';
+/** BY LABEL. This is interpolated straight into card bodies, and a learner has
+ *  never seen `a2.01`. The `_UNIT` constant keeps the id for the guards. */
+export const A201_BACKREF = unitRef(A201_BACKREF_UNIT, 'a2');
 
 export const VERBES_ER_EXC_TERMS: Record<string, LessonTerm> = {
   softC: {
@@ -94,7 +103,7 @@ export const VERBES_ER_EXC_TERMS: Record<string, LessonTerm> = {
     term: 'when the ending goes quiet',
     title: 'The stem becomes the last thing you hear',
     body:
-      'a2.01 taught that four of the six endings make no sound: -e, -es and -ent. When one of those is on the end, the last sound in the word is the stem, and a French stem in that position takes an open vowel rather than a closed one. That is why je préfère and elle achète move and nous préférons and nous achetons do not. The change is not about the verb. It is about which ending happens to be on it.',
+      `${Cap(unitRef('a2.01'))} taught that four of the six endings make no sound: -e, -es and -ent. When one of those is on the end, the last sound in the word is the stem, and a French stem in that position takes an open vowel rather than a closed one. That is why je préfère and elle achète move and nous préférons and nous achetons do not. The change is not about the verb. It is about which ending happens to be on it.`,
     examples: [
       { itemId: 'fr.a2.verbes.147', note: 'Silent ending, so fère is the last sound and the vowel opens.' },
       { itemId: 'fr.a2.verbes.148', note: 'Audible ending, so nothing moves.' },
@@ -124,7 +133,7 @@ export const VERBES_ER_EXC_TERMS: Record<string, LessonTerm> = {
     term: 'the part that stays',
     title: 'What is left when -er comes off',
     body:
-      'manger gives mang-. commencer gives commenc-. appeler gives appel-. a2.01 taught that the stem does not move, and for the thirty verbs it taught that was exactly true. For the seventeen here it is nearly true: the endings are the same six, the method is the same, and one letter in the stem answers to what the ending is doing. Nothing about a2.01 has been taken back.',
+      `manger gives mang-. commencer gives commenc-. appeler gives appel-. ${Cap(unitRef('a2.01'))} taught that the stem does not move, and for the thirty verbs it taught that was exactly true. For the seventeen here it is nearly true: the endings are the same six, the method is the same, and one letter in the stem answers to what the ending is doing. Nothing about ${unitRef('a2.01')} has been taken back.`,
     examples: [
       { itemId: 'fr.a2.verbes.141', note: 'mang- with the je ending, untouched.' },
       { itemId: 'fr.a2.verbes.142', note: 'The same stem with an e added, and only because of the o after it.' },

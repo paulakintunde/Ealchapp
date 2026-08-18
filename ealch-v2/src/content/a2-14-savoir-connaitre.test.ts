@@ -69,6 +69,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { fold, matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -604,7 +605,7 @@ test('the impossible sentence and its repair differ only in the verb', skip, () 
 test('the savoir/pouvoir contrast is present and NAMES a2.13', skip, () => {
   const s = byIdSec('s16-pouvoir');
   ok(s, 's16-pouvoir is missing');
-  ok(hasPhrase(prose(s).join('  '), CONTRAST_UNIT), `s16-pouvoir does not name ${CONTRAST_UNIT}`);
+  ok(namesUnitLabel(prose(s).join('  '), CONTRAST_UNIT), `s16-pouvoir does not name ${CONTRAST_UNIT}`);
   const both = strings(s).join('\n');
   ok(both.includes(item(TRAP_SKILL)!.fr), 'the savoir half of the pair is not on the screen');
   ok(both.includes(item(TRAP_PERMISSION)!.fr), 'the pouvoir half of the pair is not on the screen');
@@ -700,7 +701,7 @@ test('the family is named ONCE and its principle is handed to a2.15', skip, () =
   const f = byIdSec('s20-family');
   ok(f, 's20-family is missing');
   const text = prose(f).join('  ').toLowerCase();
-  ok(hasPhrase(text, FAMILY_UNIT), `s20-family does not hand the principle to ${FAMILY_UNIT}`);
+  ok(namesUnitLabel(text, FAMILY_UNIT), `s20-family does not hand the principle to ${FAMILY_UNIT}`);
   // THE CLAIM CAN BE MADE IN THE TERM AS WELL AS IN THE SECTION, and the first
   // version of this test only read the section. A mutation put "It behaves like
   // connaître in every way." into the theFamily term body and walked straight
@@ -1095,10 +1096,10 @@ test('no em dash, no "honest", no U+203F anywhere', skip, () => {
 test('the units this lesson cites are all findable', skip, () => {
   const text = prose(L).join('  ');
   for (const u of ['a2.01', CONTRAST_UNIT, FAMILY_UNIT]) {
-    ok(hasPhrase(text, u), `${u} is cited by the corpus and appears nowhere a search can see`);
+    ok(namesUnitLabel(text, u), `${u} is cited by the corpus and appears nowhere a search can see`);
   }
   ok(hasPhrase(text, WHAT_FOLLOWS), 'a2.02\'s pattern name is not quoted');
-  ok(hasPhrase(text, WHAT_FOLLOWS_UNIT), 'the unit that named the pattern is not cited');
+  ok(namesUnitLabel(text, WHAT_FOLLOWS_UNIT), 'the unit that named the pattern is not cited');
 });
 
 test('NO groupDrill ITEM CARRIES A FIELD THE lg BRANCH DOES NOT DRAW', skip, () => {

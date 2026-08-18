@@ -49,6 +49,7 @@ import { dicteeMode } from './dictee.logic.ts';
 import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel, unitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -549,11 +550,13 @@ test("a2.01's OWN REFRAME IS QUOTED VERBATIM", { skip: noLesson }, () => {
 
 test('the source imports it rather than restating it', { skip: noSrc }, () => {
   strictEqual(SRC_A201_REFRAME, A201_REFRAME);
-  strictEqual(SRC_BACKREF, A201_BACKREF);
+  // The source exports the LABEL a learner reads; this file names the unit by
+  // id and resolves it.
+  strictEqual(SRC_BACKREF, unitLabel(A201_BACKREF, 'a2'));
 });
 
 test('THE a2.01 BACK-REFERENCE REACHES MORE THAN ONE SECTION', { skip: noLesson }, () => {
-  const holders = L!.sections.filter((s) => strings(s).some((x) => hasPhrase(x, A201_BACKREF)));
+  const holders = L!.sections.filter((s) => strings(s).some((x) => namesUnitLabel(x, A201_BACKREF)));
   ok(
     holders.length >= 2,
     `${A201_BACKREF} is named by ${holders.length} section(s). This lesson inverts it and keeps half of it, and`
@@ -629,7 +632,7 @@ test('and all ten are on ONE card, with a destination for the two that have one'
   const text = strings(card).join('\n');
   for (const v of NOT_THIS_FAMILY) ok(hasPhrase(text, v), `${BOUNDARY_SECTION} does not name ${v}`);
   ok(
-    text.includes(NOT_THIS_FAMILY_UNIT),
+    namesUnitLabel(text, NOT_THIS_FAMILY_UNIT),
     `${BOUNDARY_SECTION} does not say where venir and tenir are taught. A boundary with no destination is a`
     + ' warning, not a teaching.',
   );
@@ -716,7 +719,7 @@ test('one listening question names the pair a2.01 could NOT settle', { skip: noL
   const qs = ears.flatMap((s) => (s.type === 'listening' ? s.questions : []));
   const q = qs.find((x) => x.q.includes('Elle choisit') && x.q.includes('Elles choisissent'));
   ok(q, 'the elle/elles question is gone. In a2.01 that pronoun pair was undecidable and here the verb decides it.');
-  ok(q!.why?.includes(A201_BACKREF), 'the elle/elles question no longer says which lesson it is inverting');
+  ok(namesUnitLabel(q!.why ?? '', A201_BACKREF), 'the elle/elles question no longer says which lesson it is inverting');
 });
 
 test('every listening question has a why', { skip: noLesson }, () => {

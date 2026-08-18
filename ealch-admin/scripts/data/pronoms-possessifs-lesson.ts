@@ -63,14 +63,20 @@ import type { Lesson, LessonSection, LessonDrill, SectionAudio, ReferenceSheet }
 import {
   UNIT, LESSON_ID, REFRAME, E,
   ALL_ROWS, IMPORT_IDS, IMPORTED, NOT_DECK_ABLE, DICTEE_IDS,
-  A117_REFRAME, A117_TEST, POSSESSIVE_ADJ_UNIT,
-  GENDER_LOST, LEUR_RULE, LEUR_RULE_SCOPE, INDIRECT_UNIT,
-  A233_REFRAME, A234_SHAPE, DEMONSTRATIVE_UNIT,
-  WHAT_FOLLOWS, WHAT_FOLLOWS_UNIT,
-  COMPARATIVE_UNIT, GENDER_UNIT, AGREEMENT_UNIT, REGISTER_UNIT,
+  A117_REFRAME, A117_TEST, POSSESSIVE_ADJ_UNIT, POSSESSIVE_ADJ_REF,
+  GENDER_LOST, LEUR_RULE, LEUR_RULE_SCOPE, INDIRECT_UNIT, INDIRECT_REF, INDIRECT_POSS,
+  A233_REFRAME, A234_SHAPE, DEMONSTRATIVE_UNIT, DEMONSTRATIVE_REF, DEMONSTRATIVE_POSS,
+  WHAT_FOLLOWS, WHAT_FOLLOWS_UNIT, WHAT_FOLLOWS_REF, Y_EN_REF,
+  COMPARATIVE_UNIT, COMPARATIVE_REF, GENDER_UNIT, GENDER_REF,
+  AGREEMENT_UNIT, AGREEMENT_REF, REGISTER_UNIT, REGISTER_REF,
   UNSEEN, AUDIBLE_CLAIM, SPOKEN_MARK, WRITTEN_MARK, NO_SUCH_FORM,
 } from './pronoms-possessifs-corpus.ts';
 import { POSSESSIFS_PRONOMS_TERMS } from './pronoms-possessifs-terms.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** NOT `as const`. A readonly `speeds` tuple is not assignable to
  *  `SectionAudio['speeds']`, which is a mutable `number[]`, and the admin
@@ -119,7 +125,7 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
   },
   {
     kind: 'narration',
-    text: 'He knows the word. He has known it since a1.17, on a card, with a picture of a bag beside a house. He opens his mouth and the sentence starts moving.',
+    text: 'He knows the word. He has known it since ${POSSESSIVE_ADJ_REF}, on a card, with a picture of a bag beside a house. He opens his mouth and the sentence starts moving.',
     size: 'md',
     audio: AUDIO,
   },
@@ -178,7 +184,7 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
       respell: '[seh lah MYENN]',
       en: "It's mine.",
     },
-    coach: `${A117_REFRAME} That is ${POSSESSIVE_ADJ_UNIT}'s line and it has not changed. What has changed is that there are two words to point it at.`,
+    coach: `${A117_REFRAME} That is ${POSSESSIVE_ADJ_REF}'s line and it has not changed. What has changed is that there are two words to point it at.`,
     size: 'lg',
     audio: AUDIO,
   },
@@ -209,7 +215,7 @@ const S02_GOALS: LessonSection = {
   layer: 'core',
   title: 'By the end of this lesson',
   goals: [
-    { t: 'Say mine about a thing you have not named', s: `Act 2: ${POSSESSIVE_ADJ_UNIT}'s rule, two words instead of one` },
+    { t: 'Say mine about a thing you have not named', s: `Act 2: ${POSSESSIVE_ADJ_REF}'s rule, two words instead of one` },
     { t: 'Pick the form from the thing, never from yourself', s: 'Act 2, and it is the mistake from the counter' },
     { t: 'Know where French stops splitting them', s: 'Act 3: three of the six have three forms, not four' },
     { t: 'Keep the three leurs apart', s: 'Act 4, and two of the three are already yours' },
@@ -241,7 +247,7 @@ const S03_ADJ: LessonSection = {
   title: 'The word you have, and the word you need',
   frSub: 'Un mot, puis deux',
   hint: 'Four cards. Each one is the same thing said twice.',
-  say: `« ${WHAT_FOLLOWS} » is how ${WHAT_FOLLOWS_UNIT} put it, and ${DEMONSTRATIVE_UNIT} said it again last lesson. Here it is the noun once more.`,
+  say: `« ${WHAT_FOLLOWS} » is how ${WHAT_FOLLOWS_REF} put it, and ${DEMONSTRATIVE_REF} said it again last lesson. Here it is the noun once more.`,
   audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-34-adj' },
   terms: ['twoWords', 'owned'],
   cards: [
@@ -250,14 +256,14 @@ const S03_ADJ: LessonSection = {
       label: 'a noun follows · nothing follows',
       fr: "C'est mon sac. / C'est le mien.",
       sub: '[seh mohⁿ SAK] then [seh luh MYEHⁿ]',
-      body: `« ${A233_REFRAME} » is ${DEMONSTRATIVE_UNIT}'s line. ${A234_SHAPE}`,
+      body: `« ${A233_REFRAME} » is ${DEMONSTRATIVE_POSS}'s line. ${A234_SHAPE}`,
     },
     {
       head: 'one feminine thing',
       label: 'a noun follows · nothing follows',
       fr: "C'est ma valise. / C'est la mienne.",
       sub: '[seh mah vah-LEEZ] then [seh lah MYENN]',
-      body: `The same move on a feminine noun, and this time the second word changes as well as the first. You had to know valise was feminine to say either one. ${GENDER_UNIT} is where that came from.`,
+      body: `The same move on a feminine noun, and this time the second word changes as well as the first. You had to know valise was feminine to say either one. ${Cap(GENDER_REF)} is where that came from.`,
     },
     {
       head: 'several masculine things',
@@ -345,7 +351,7 @@ const S05_A117: LessonSection = {
   layer: 'core',
   title: 'The rule you already have',
   examples: [
-    { fr: "C'est mon sac.", en: "It's my bag.", note: `${POSSESSIVE_ADJ_UNIT}: one word, and no le in front of it` },
+    { fr: "C'est mon sac.", en: "It's my bag.", note: `${Cap(POSSESSIVE_ADJ_REF)}: one word, and no le in front of it` },
     { fr: "C'est le mien.", en: "It's mine.", note: 'the noun leaves and le comes back to fill the space' },
     { fr: 'La valise est la mienne.', en: 'The suitcase is mine.', note: 'feminine, so both words are feminine' },
     { fr: 'Ma valise pèse plus que la tienne.', en: 'My suitcase weighs more than yours.', note: 'one of each, in one sentence, and both agree with valise' },
@@ -667,11 +673,11 @@ const S10_THIRD: LessonSection = {
       body: 'The bag is his. The bag is hers. Both, from the same three words, and there is no version of this sentence that says which.',
     },
     {
-      head: `${INDIRECT_UNIT} said this first`,
-      label: 'seq 22, and the same fact',
+      head: `${Cap(INDIRECT_REF)} said this first`,
+      label: 'the same fact, one family along',
       fr: 'le sien · lui',
       sub: '[luh SYEHⁿ] · [LWEE]',
-      body: `« ${GENDER_LOST} » is ${INDIRECT_UNIT}'s line about lui, and it holds here word for word.`,
+      body: `« ${GENDER_LOST} » is ${INDIRECT_POSS}'s line about lui, and it holds here word for word.`,
     },
     {
       head: 'and here it is on one line',
@@ -749,7 +755,7 @@ const S12_CIRC: LessonSection = {
       label: 'a noun follows',
       fr: 'Notre valise est ici.',
       sub: '[noh-truh vah-LEEZ eh tee-SEE]',
-      body: 'Our suitcase. The noun is right there, so this is the one word a1.17 gave you and it takes no article of its own.',
+      body: 'Our suitcase. The noun is right there, so this is the one word ${POSSESSIVE_ADJ_REF} gave you and it takes no article of its own.',
     },
     {
       head: 'la nôtre, hat',
@@ -804,7 +810,7 @@ const S13_READ: LessonSection = {
     { word: 'partageons', en: 'we share', note: 'From partager. This is why the bag is ours and not either one of theirs.' },
     { word: 'un ticket', en: 'a ticket', note: 'The paper stub you get in exchange for leaving a bag.' },
     { word: 'chaque bagage', en: 'each piece of luggage', note: 'chaque takes a singular noun even when there are several things.' },
-    { word: 'sa poche', en: 'her pocket', note: 'sa because poche is feminine, not because the person is a woman. a1.17, one more time.' },
+    { word: 'sa poche', en: 'her pocket', note: 'sa because poche is feminine, not because the person is a woman. ${Cap(POSSESSIVE_ADJ_REF)}, one more time.' },
   ],
   questions: [
     { q: 'Whose is the black suitcase on the left?', a: "The speaker's. La valise noire de gauche est la mienne, and la mienne is feminine because valise is." },
@@ -875,11 +881,11 @@ const S15_TRAP: LessonSection = {
   title: 'Three words, four letters each',
   rule: {
     title: 'Only one of the three never grows',
-    body: `« ${LEUR_RULE} » is ${INDIRECT_UNIT}'s line, and ${LEUR_RULE_SCOPE} is the whole of it. The other two do take one. ${POSSESSIVE_ADJ_UNIT}'s test sorts them: « ${A117_TEST} ».`,
+    body: `« ${LEUR_RULE} » is ${INDIRECT_POSS}'s line, and ${LEUR_RULE_SCOPE}. The other two take one. ${Cap(POSSESSIVE_ADJ_REF)}'s test sorts them: « ${A117_TEST} ».`,
   },
   cards: [
-    { promptLabel: 'a verb behind it', promptSound: 'Je leurs parle.', fr: 'Je leur parle.', ipa: '/ʒə lœʁ paʁl/', tip: `${INDIRECT_UNIT}'s word. A verb is not a thing, so this one can never grow an s however many people you mean.` },
-    { promptLabel: 'one thing behind it', promptSound: 'Voici leurs maison.', fr: 'Voici leur maison.', ipa: '/vwa.si lœʁ mɛ.zɔ̃/', tip: `${POSSESSIVE_ADJ_UNIT}'s word. One house, so no s, however many people live in it.` },
+    { promptLabel: 'a verb behind it', promptSound: 'Je leurs parle.', fr: 'Je leur parle.', ipa: '/ʒə lœʁ paʁl/', tip: `${INDIRECT_POSS}'s word. A verb is not a thing, so this one can never grow an s however many people you mean.` },
+    { promptLabel: 'one thing behind it', promptSound: 'Voici leurs maison.', fr: 'Voici leur maison.', ipa: '/vwa.si lœʁ mɛ.zɔ̃/', tip: `${POSSESSIVE_ADJ_REF}'s word. One house, so no s, however many people live in it.` },
     { promptLabel: 'several things behind it', promptSound: 'Voici leur clés.', fr: 'Voici leurs clés.', ipa: '/vwa.si lœʁ kle/', tip: 'The same word as the card before, and now there are several keys, so the s goes on.' },
     { promptLabel: 'nothing behind it', promptSound: 'Le sac est leur.', fr: 'Le sac est le leur.', ipa: '/lə sak ɛ lə lœʁ/', tip: "This lesson's word. Nothing follows it at all, so the article comes back in front." },
     { promptLabel: 'nothing behind it, several things', promptSound: `Les sacs sont ${NO_SUCH_FORM}.`, fr: 'Les sacs sont les leurs.', ipa: '/le sak sɔ̃ le lœʁ/', tip: 'And the plural puts an s on both words. There is no version of this with the s on only one of them.' },
@@ -938,7 +944,7 @@ const S16_ERRORS: LessonSection = {
     {
       wrong: 'Les sacs sont les leur.',
       right: 'Les sacs sont les leurs.',
-      why: `Reasonable, because ${INDIRECT_UNIT} spent a whole lesson on a leur that never takes an s. That one has a verb behind it. This one has nothing behind it, and its plural puts an s on both words.`,
+      why: `Reasonable, because ${INDIRECT_REF} spent a whole lesson on a leur that never takes an s. That one has a verb behind it. This one has nothing behind it, and its plural puts an s on both words.`,
     },
     {
       wrong: 'La valise est la notre.',
@@ -1266,8 +1272,8 @@ const S22_QUIZ: LessonSection = {
       label: 'The three leurs',
       targets: ['leur-mix'],
       questions: [
-        { format: 'errorSpot', q: 'A verb sits behind this one. Write it correctly.', prompt: 'Je leurs parle.', answer: 'Je leur parle.', accept: ['Je leur parle.', 'Je leur parle'], why: `${INDIRECT_UNIT}'s word. A verb is not a thing, so this leur can never take an s however many people you mean.`, ref: 's15-trap' },
-        { format: 'typeIn', q: 'Several keys, and they belong to several people. Here are their keys. Start with Voici.', answer: 'Voici leurs clés', accept: ['Voici leurs clés', 'Voici leurs clés.', 'Voici leurs cles'], why: `${POSSESSIVE_ADJ_UNIT}'s word, and the s is there because there are several keys. How many people own them never came into it.`, ref: 's15-trap' },
+        { format: 'errorSpot', q: 'A verb sits behind this one. Write it correctly.', prompt: 'Je leurs parle.', answer: 'Je leur parle.', accept: ['Je leur parle.', 'Je leur parle'], why: `${INDIRECT_POSS}'s word. A verb is not a thing, so this leur can never take an s however many people you mean.`, ref: 's15-trap' },
+        { format: 'typeIn', q: 'Several keys, and they belong to several people. Here are their keys. Start with Voici.', answer: 'Voici leurs clés', accept: ['Voici leurs clés', 'Voici leurs clés.', 'Voici leurs cles'], why: `${POSSESSIVE_ADJ_REF}'s word, and the s is there because there are several keys. How many people own them never came into it.`, ref: 's15-trap' },
         { format: 'typeIn', q: 'One house, several people. Here is their house.', answer: 'Voici leur maison', accept: ['Voici leur maison', 'Voici leur maison.'], why: 'One house, so no s. The same word as the question before it and the thing behind it decided.', ref: 's15-trap' },
         { format: 'typeIn', q: 'sac is masculine. The bag is theirs. Start with Le sac.', answer: 'Le sac est le leur', accept: ['Le sac est le leur', 'Le sac est le leur.'], why: "This lesson's word. Nothing follows it, so the article comes back in front, exactly as it does for le mien.", ref: 's09-table' },
         { format: 'errorSpot', q: 'Several bags, several owners. One word is short of a letter.', prompt: 'Les sacs sont les leur.', answer: 'Les sacs sont les leurs.', accept: ['Les sacs sont les leurs.', 'Les sacs sont les leurs'], why: 'The plural puts an s on both words. There is no version of this with the s on only one of them, whatever you remember from the other leur.', ref: 's15-trap' },
@@ -1282,7 +1288,7 @@ const S22_QUIZ: LessonSection = {
       questions: [
         { format: 'typeIn', q: 'valise is feminine. The suitcase is ours. Start with La valise.', answer: 'La valise est la nôtre', accept: ['La valise est la nôtre', 'La valise est la nôtre.', 'La valise est la notre'], why: 'la nôtre, and the accepted answers here include the version with no accent, because nothing you type can show one.', ref: 's11-three' },
         { format: 'mcq', q: 'Which one of these is spelled correctly?', opts: ['La valise est la notre.', 'La valise est le nôtre.', 'La valise est la nôtre.'], correct: 2, why: 'The accent goes on when nothing follows the word. This has to be a picked question, because a typed one strips the accent before it marks you.', ref: 's12-circ' },
-        { format: 'mcq', q: 'Notre valise est ici. Why is there no accent on this one?', opts: ['because a noun follows it', 'because it is the plural', 'because it is informal'], correct: 0, why: 'valise is right behind it, so this is the one word a1.17 gave you. The accent belongs to the version with nothing behind it.', ref: 's12-circ' },
+        { format: 'mcq', q: 'Notre valise est ici. Why is there no accent on this one?', opts: ['because a noun follows it', 'because it is the plural', 'because it is informal'], correct: 0, why: 'valise is right behind it, so this is the one word ${POSSESSIVE_ADJ_REF} gave you. The accent belongs to the version with nothing behind it.', ref: 's12-circ' },
         { format: 'typeIn', q: 'valise is feminine, and you are speaking to more than one person. The suitcase is yours.', answer: 'La valise est la vôtre', accept: ['La valise est la vôtre', 'La valise est la vôtre.', 'La valise est la votre'], why: 'The vous version, and it has the same three cells as ours. The accent is there and nothing you type can prove it.', ref: 's11-three' },
         { format: 'typeIn', q: "It's mine, said the way people actually say it. Three words, and none of them agrees with anything.", answer: "C'est à moi", accept: ["C'est à moi", "C'est à moi.", "C'est a moi", 'Cest a moi'], why: 'You will hear this far more often than the two-word version, and it works for a bag, a suitcase, gloves and keys without changing.', ref: 's17-amoi' },
         { format: 'mcq', q: "You have already named the suitcase. Somebody asks whose it is. Which answer is the written one?", opts: ["C'est à moi.", "C'est la mienne.", "Elle est à moi."], correct: 1, why: 'The two-word version stands in for a noun that was already said, which is what it is for. The other two name you instead and are what you will hear.', ref: 's17-amoi' },
@@ -1328,12 +1334,12 @@ const S24_ROUNDUP: LessonSection = {
   id: 's24-roundup',
   layer: 'core',
   title: 'The thing decided, every time',
-  body: `${REFRAME} ${COMPARATIVE_UNIT}, ${DEMONSTRATIVE_UNIT} and this lesson all put a small word where a noun used to be, and this is the last of the three. One thing to leave alone: a possessive pronoun does not sit in front of the verb, which is where ${INDIRECT_UNIT} and a2.25 put theirs. And ${AGREEMENT_UNIT}'s idea is under all of it: a French word takes its shape from a noun, and here the noun is not even in the sentence.`,
+  body: `${REFRAME} ${Cap(COMPARATIVE_REF)}, ${DEMONSTRATIVE_REF} and this lesson all put a small word where a noun used to be, and this is the last of the three. One thing to leave alone: a possessive pronoun does not sit in front of the verb, which is where ${INDIRECT_REF} and ${Y_EN_REF} put theirs. And ${AGREEMENT_REF}'s idea is under all of it: a French word takes its shape from a noun, and here the noun is not even in the sentence.`,
   points: [
-    `${POSSESSIVE_ADJ_UNIT}'s question, still the only one: what kind of word is the thing, and how many.`,
+    `${Cap(POSSESSIVE_ADJ_REF)}'s question, still the only one: what kind of word is the thing, and how many.`,
     'Six families. Three of them have four forms and three have three.',
     'le sien is his and hers, and les leurs is masculine and feminine.',
-    `${REGISTER_UNIT} set the register axis, and C'est à moi sits on it beside on.`,
+    `${Cap(REGISTER_REF)} set the register axis, and C'est à moi sits on it beside on.`,
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1373,7 +1379,7 @@ const SHEET_SIX: ReferenceSheet = {
       render: 'sheet',
       title: 'How to read this',
       // `layer: 'deep'` is exempt from the 45-word core cap.
-      body: `Read across a row and you are reading one owner. Read down a column and you are reading one kind of thing. The owner picks the row and you knew that before this lesson started; the thing picks the column, and that is the part ${POSSESSIVE_ADJ_UNIT} taught you and this lesson spends on two words instead of one. The bottom three rows stop after three cells, because their plural covers both kinds of thing at once. And every form on this page has an article in front of it, which is the single thing that separates the whole table from ${POSSESSIVE_ADJ_UNIT}.`,
+      body: `Read across a row and you are reading one owner. Read down a column and you are reading one kind of thing. The owner picks the row and you knew that before this lesson started; the thing picks the column, and that is the part ${POSSESSIVE_ADJ_REF} taught you and this lesson spends on two words instead of one. The bottom three rows stop after three cells, because their plural covers both kinds of thing at once. And every form on this page has an article in front of it, which is the single thing that separates the whole table from ${POSSESSIVE_ADJ_REF}.`,
     },
     {
       type: 'table',
@@ -1417,10 +1423,10 @@ const SHEET_SIX: ReferenceSheet = {
       rowDetails: [
         { title: 'mine, and the one to learn first', body: 'le mien for a masculine thing, la mienne for a feminine one, and les miens or les miennes for several. The article and the ending both move, and they move together.' },
         { title: 'yours, to one person you know', body: 'le tien, la tienne, les tiens, les tiennes. Exactly the same four cells as mine. Use it with anyone you would say tu to.' },
-        { title: 'his or hers, and it will not say which', body: 'le sien, la sienne, les siens, les siennes. One set for both, so the sentence around it has to say whose. a2.24 met the same collapse with lui.' },
+        { title: 'his or hers, and it will not say which', body: 'le sien, la sienne, les siens, les siennes. One set for both, so the sentence around it has to say whose. ${Cap(INDIRECT_REF)} met the same collapse with lui.' },
         { title: 'ours, and there is no fourth cell', body: 'le nôtre, la nôtre, les nôtres. The plural covers masculine and feminine at once. The accent is only ever on the pronoun; notre with a noun behind it has none.' },
         { title: 'yours, to more than one person', body: 'le vôtre, la vôtre, les vôtres. Three cells again. Same accent rule: votre takes a noun, le vôtre does not.' },
-        { title: 'theirs, and the s goes on both words', body: 'le leur, la leur, les leurs. Three cells, and there is no les leur. The leur that never takes an s is the one in front of a verb, which belongs to a2.24.' },
+        { title: 'theirs, and the s goes on both words', body: 'le leur, la leur, les leurs. Three cells, and there is no les leur. The leur that never takes an s is the one in front of a verb, which belongs to ${INDIRECT_REF}.' },
       ],
     },
   ],
@@ -1661,7 +1667,7 @@ export const LESSON: Lesson = {
       // mention. This is a2.33's "a lesson cannot teach four words it is
       // forbidden to list" one lesson along, and the answer there was the same:
       // reword, rather than widen the guard.
-      description: "Carries the invariable leur of a2.24 into the possessive, where the plural puts an -s on both words.",
+      description: `Carries the invariable leur of ${INDIRECT_REF} into the possessive, where the plural puts an -s on both words.`,
       detectOn: ['s15-trap', 's16-errors', 's11-three'],
       drill: 'd-leur',
       retest: 'd-leur',
@@ -1686,6 +1692,16 @@ export const LESSON: Lesson = {
   terms: POSSESSIFS_PRONOMS_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
+  // v5: THE UNIT-ID MIGRATION. Every citation on a learner surface named the
+  // unit by id — « a2.24's line » — which is a string a learner has never seen
+  // and cannot look up. They now read « lesson 22's line », resolved through
+  // the shipped `unit.seq` rather than the id, because 31 of 35 A2 units
+  // disagree with their own id number and this lesson's own neighbour shipped
+  // « since seq 17 of A1 » about a unit that is seq 20.
+  //
+  // The batch now refuses a raw id, and the word « seq », on any learner
+  // surface, so this cannot come back.
+  //
   // v4: THE DEVICE PASS, AND ITS OWN CORRECTION. v3 trimmed the sheet table's
   // cells to the masculine after seeing the third column past the screen edge
   // on a Pixel 6, and moved the feminine into `rowDetails`. Reading
@@ -1706,7 +1722,7 @@ export const LESSON: Lesson = {
   // one and the source — which is the drift this project has lost work to
   // twice. NOT `seed.version`, which is the OTA snapshot number and belongs to
   // the publish step.
-  version: 4,
+  version: 5,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`, and
   // it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

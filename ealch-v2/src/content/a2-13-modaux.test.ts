@@ -62,6 +62,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -253,7 +254,12 @@ const FORBIDDEN_CONDITIONAL = [
 const SAVOIR_FORMS = ['savoir', 'sais', 'sait', 'savons', 'savez', 'savent', 'connaître', 'connais', 'connaît', 'connaissons', 'connaissez', 'connaissent'];
 const A214 = 'a2.14';
 const BOUNDARY_SECTION = 's24-notmine';
-const CITED_UNITS = ['a1.01', 'a2.01', 'a2.02', 'a2.11', 'a2.14'];
+// a2.14 IS NOT ON THIS LIST, AND WAS NEVER ON A SCREEN. `s02-goals` records
+// that this build says « Ce que vous allez pouvoir faire » rather than the house
+// heading precisely BECAUSE savoir is a2.14's and this lesson does not touch it.
+// It is a boundary respected, not a citation made; the only mentions are corpus
+// notes addressed to an author.
+const CITED_UNITS = ['a1.01', 'a2.01', 'a2.02', 'a2.11'];
 
 const IL_FAUT_IDS = ['fr.a1.cafe.173', 'fr.sons.liaisons.220'];
 
@@ -627,7 +633,7 @@ test('the exception is what it says it is: devoir with a thing after it', { skip
   const row = byId.get(BARE_EXCEPTIONS[0])!;
   ok(/dois/i.test(row.fr), `${BARE_EXCEPTIONS[0]} is not a devoir row: ${row.fr}`);
   ok(hasPhrase(learnerText(), WHAT_FOLLOWS), `a2.02's name for this shape is not quoted: ${WHAT_FOLLOWS}`);
-  ok(hasPhrase(learnerText(), WHAT_FOLLOWS_UNIT), 'the unit that named the shape is not cited');
+  ok(namesUnitLabel(learnerText(), WHAT_FOLLOWS_UNIT), 'the unit that named the shape is not cited');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -676,7 +682,7 @@ test('and they are SAID to be fixed forms, which is the condition for teaching t
 
 test('a1.01 is paid back by name', { skip: noLesson }, () => {
   const text = learnerText();
-  ok(hasPhrase(text, A1_01_UNIT), 'a1.01 is cited nowhere a search can see');
+  ok(namesUnitLabel(text, A1_01_UNIT), 'a1.01 is cited nowhere a search can see');
   ok(text.includes(A1_01_REFRAME), `a1.01's reframe is not quoted: ${A1_01_REFRAME}`);
 });
 
@@ -719,14 +725,14 @@ test('savoir and connaître appear on NO production surface', { skip: noLesson }
 test('but the boundary card DOES hand a2.14 the other half of "can"', { skip: noLesson }, () => {
   const s = section(BOUNDARY_SECTION);
   ok(s, `${BOUNDARY_SECTION} is missing`);
-  ok(hasPhrase(prose(s).join('  '), A214), `${BOUNDARY_SECTION} does not name ${A214}`);
+  ok(namesUnitLabel(prose(s).join('  '), A214), `${BOUNDARY_SECTION} does not name ${A214}`);
 });
 
 test('every cited unit is findable by an accent-aware search', { skip: noLesson }, () => {
   const text = learnerText();
   for (const u of CITED_UNITS) {
     ok(
-      hasPhrase(text, u),
+      namesUnitLabel(text, u),
       `${u} is cited nowhere a search can see. Check for a possessive: "'" is a word character, so "${u}'s" does\n`
       + `  not match a search for "${u}". a2.12 shipped v1 with exactly that bug and went to v2 for two words.`,
     );
@@ -903,6 +909,7 @@ test('every question ref points at a real section', { skip: noLesson }, () => {
   for (const q of qs) {
     const ref = (q as { ref?: string }).ref;
     if (!ref) continue;
+    // `ref` is a SECTION id, not a unit. It stays a plain lookup.
     ok(SPINE.includes(ref), `a question refers back to ${ref}, which is not a section of this lesson`);
   }
 });

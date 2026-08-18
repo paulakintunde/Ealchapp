@@ -11,6 +11,7 @@
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { NOUS_ON } from './verbes-er-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 import {
   A210_BACKREF, COMPOUNDS, COMPOUND_BASE, FAMILY_UNIT, FUTUR_PROCHE_UNIT,
   PASSE_COMPOSE_DISTANCE, THE_THREE,
@@ -175,7 +176,7 @@ export const ALLER_VENIR_TERMS: Record<string, LessonTerm> = {
     term: 'the ones built on top',
     title: `${COMPOUNDS.join(', ')}`,
     body:
-      `${COMPOUNDS[0]} is ${COMPOUND_BASE[COMPOUNDS[0]]} with re- on the front, and it takes exactly the same forms. So do ${COMPOUNDS[1]} and ${COMPOUNDS[2]}. Il revient is Il vient with two letters added and nothing else changed. That is worth knowing here because it is why the two verbs above are worth the trouble at all, and where it stops being a handy coincidence and starts being a rule is ${FAMILY_UNIT}.`,
+      `${COMPOUNDS[0]} is ${COMPOUND_BASE[COMPOUNDS[0]]} with re- on the front, and it takes exactly the same forms. So do ${COMPOUNDS[1]} and ${COMPOUNDS[2]}. Il revient is Il vient with two letters added and nothing else changed. That is worth knowing here because it is why the two verbs above are worth the trouble at all, and where it stops being a handy coincidence and starts being a rule is ${unitRef(FAMILY_UNIT)}.`,
     examples: [
       { itemId: 'fr.a2.verbes.288', note: 'Il vient tôt, with re- on it.' },
       { itemId: 'fr.a2.verbes.289', note: 'And Il tient la clé, with ob- on it.' },
@@ -195,7 +196,7 @@ export const ALLER_VENIR_TERMS: Record<string, LessonTerm> = {
     term: 'what aller does next',
     title: 'One job of aller is not in this lesson',
     body:
-      `aller with a place after it is where you are going, and that is what this lesson uses it for. Put something else after it and it does another job entirely, which is ${FUTUR_PROCHE_UNIT}'s lesson and not this one. Which small word goes in front of the place is a question of its own and it is ${'a2.04'}. Here there is one place and one small word, used six times without variation, so that the only thing on the screen is the verb.`,
+      `aller with a place after it is where you are going, and that is what this lesson uses it for. Put something else after it and it does another job entirely, which is ${unitRef(FUTUR_PROCHE_UNIT, 'a2')}'s lesson and not this one. Which small word goes in front of the place is a question of its own and it is ${unitRef('a2.04', 'a2')}. Here there is one place and one small word, used six times without variation, so that the only thing on the screen is the verb.`,
     examples: [
       { itemId: 'fr.a2.verbes.263', note: 'A place after it. That is this lesson.' },
       { itemId: 'fr.a2.verbes.266', note: 'The same, in the plural.' },

@@ -68,6 +68,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode, letterCount } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -296,10 +297,10 @@ test('the il y a row names the tense it is waiting for, and nothing else does', 
   const g = sec('s03-grid') as { rows?: { cells: string[]; detail?: { body?: string } }[] };
   const ilya = g.rows!.find((r) => r.cells[0] === 'il y a')!;
   strictEqual(ilya.cells[1], 'a past');
-  ok(hasPhrase(ilya.detail?.body ?? '', PAST_UNIT), `the il y a row does not name ${PAST_UNIT}`);
+  ok(namesUnitLabel(ilya.detail?.body ?? '', PAST_UNIT), `the il y a row does not name ${PAST_UNIT}`);
   for (const r of g.rows!) {
     if (r.cells[0] === 'il y a') continue;
-    ok(!hasPhrase(r.detail?.body ?? '', PAST_UNIT), `${r.cells[0]} defers to ${PAST_UNIT} and it is producible today`);
+    ok(!namesUnitLabel(r.detail?.body ?? '', PAST_UNIT), `${r.cells[0]} defers to ${PAST_UNIT} and it is producible today`);
   }
 });
 
@@ -437,7 +438,7 @@ test('the two il y a uses are contrasted in one section', { skip: noLesson }, ()
 test('a2.02\'s term is quoted verbatim and the unit is named by id', { skip: noLesson }, () => {
   const text = learnerText();
   ok(hasPhrase(text, WHAT_FOLLOWS), `the ${PATTERN_UNIT} term ${JSON.stringify(WHAT_FOLLOWS)} is not quoted anywhere. A paraphrase is not a quotation.`);
-  ok(hasPhrase(text, PATTERN_UNIT), `${PATTERN_UNIT} owns the first instance of this shape and is never named by id`);
+  ok(namesUnitLabel(text, PATTERN_UNIT), `${PATTERN_UNIT} owns the first instance of this shape and is never named by id`);
   // AND IT TITLES THE TRAP'S RULE CARD, which is the screen the recognition
   // happens on.
   const trap = sec('s14-twice') as { rule?: { title?: string } };
@@ -494,7 +495,7 @@ test('exactly one authored row holds a compound tense, and it is asked for nowhe
 
 test('the deferral to a2.05 is on a learner surface, in its own words', { skip: noLesson }, () => {
   const text = learnerText();
-  ok(hasPhrase(text, PAST_UNIT), `${PAST_UNIT} is never named and a whole row of the grid waits for it`);
+  ok(namesUnitLabel(text, PAST_UNIT), `${PAST_UNIT} is never named and a whole row of the grid waits for it`);
   // BY ITS OWN WORDING, not by a loose match. Found by mutation: the loose
   // version was satisfied by the grid row's detail alone, so gutting the
   // deferral sentence went through this layer and through the merge, and only
@@ -546,7 +547,7 @@ test('the futur proche is not taught, and a2.19 is named', { skip: noLesson }, (
   for (const line of strings(L!.sections).concat(strings(L!.sheets ?? []), strings(L!.terms ?? {}), [L!.intro ?? ''])) {
     ok(!fires(FUTUR_PROCHE_SHAPE, line), `the futur proche reached a screen: ${JSON.stringify(line)}`);
   }
-  ok(hasPhrase(learnerText(), FUTURE_UNIT), `${FUTURE_UNIT} is never named and this lesson teaches dans with the present instead of it`);
+  ok(namesUnitLabel(learnerText(), FUTURE_UNIT), `${FUTURE_UNIT} is never named and this lesson teaches dans with the present instead of it`);
 });
 
 test('no place sense of en or dans on a production surface, and a2.04 is named', { skip: noLesson }, () => {
@@ -565,7 +566,7 @@ test('no place sense of en or dans on a production surface, and a2.04 is named',
     for (const line of display(s)) ok(!fires(PLACE_SHAPE, line), `${sid} drills a place sense: ${JSON.stringify(line)}`);
   }
   for (const r of myRows()) ok(!fires(PLACE_SHAPE, r.fr), `${r.id} carries a place sense of en or dans`);
-  ok(hasPhrase(learnerText(), PLACE_UNIT), `${PLACE_UNIT} handed both temporal senses here by name and is never credited`);
+  ok(namesUnitLabel(learnerText(), PLACE_UNIT), `${PLACE_UNIT} handed both temporal senses here by name and is never credited`);
 });
 
 test('the clock and the calendar are used and not re-taught', { skip: noLesson }, () => {
@@ -573,8 +574,8 @@ test('the clock and the calendar are used and not re-taught', { skip: noLesson }
   for (const w of ['et quart', 'et demie', 'moins le quart', 'midi', 'minuit', 'Quelle heure est-il']) {
     ok(!hasPhrase(text, w), `${JSON.stringify(w)} is on a learner surface and it is ${CLOCK_UNIT}'s`);
   }
-  ok(hasPhrase(text, CLOCK_UNIT), `${CLOCK_UNIT} is the prerequisite and is never named`);
-  ok(hasPhrase(text, MONTH_UNIT), `${MONTH_UNIT} owns en in front of a month, a third sense of a word this lesson teaches, and is never named`);
+  ok(namesUnitLabel(text, CLOCK_UNIT), `${CLOCK_UNIT} is the prerequisite and is never named`);
+  ok(namesUnitLabel(text, MONTH_UNIT), `${MONTH_UNIT} owns en in front of a month, a third sense of a word this lesson teaches, and is never named`);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

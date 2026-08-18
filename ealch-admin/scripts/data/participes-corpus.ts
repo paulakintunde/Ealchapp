@@ -159,6 +159,12 @@ import {
   REFRAME as A205_REFRAME,
 } from './passe-compose-corpus.ts';
 import { REFRAME as A215_REFRAME } from './prendre-mettre-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  IDENTITY, THE BLOCK, AND THE COUNTS THE BATCH REFUSES TO DISAGREE WITH
@@ -243,11 +249,11 @@ export const isA205 = (id: string): boolean => {
  *  ledger. */
 export const PARTICIPLE_DECISION = {
   isCorpusItem: false,
-  settledBy: 'a2.05',
-  agreedBy: 'a2.20',
+  settledBy: `${Cap(unitRef('a2.05'))}`,
+  agreedBy: `${Cap(unitRef('a2.20'))}`,
   authoredHere: 0,
   authoredByA205: 0,
-  rule: 'A past form is a conjugated form, and a2.01 settled that a conjugated form is never a corpus item. Only infinitives and full sentences.',
+  rule: `A past form is a conjugated form, and ${unitRef('a2.01')} settled that a conjugated form is never a corpus item. Only infinitives and full sentences.`,
   /** Bare rows whose `fr` is one of the thirty-three, measured over THIS list. */
   lookalikeRows: 28,
   /** Of those, glossed in so many words as a past participle. All four are in
@@ -344,11 +350,11 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'Learn the head of the family and the rest come free.',
-    why: 'a2.15 REJECTED THIS ITSELF, as a reframe, and was right: it promises a payoff instead of telling the learner what to do, and there is no moment mid-sentence at which it can be run. It ships there as FAMILY_CLAIM and it ships here as the claim of the -is group, quoted with a2.15 credited by unit id, which is what it is.',
+    why: `${Cap(unitRef('a2.15'))} REJECTED THIS ITSELF, as a reframe, and was right: it promises a payoff instead of telling the learner what to do, and there is no moment mid-sentence at which it can be run. It ships there as FAMILY_CLAIM and it ships here as the claim of the -is group, quoted with ${unitRef('a2.15')} credited by unit id, which is what it is.`,
   },
   {
     candidate: A215_REFRAME,
-    why: 'a2.15\'s own, and taking it would spend this lesson\'s one carried line restating a neighbour\'s. It is quoted verbatim on the screen where the -is compounds arrive, credited by unit id, and it answers a different question: it says how to get the PRESENT of a compound verb, and this lesson says what to do when the past form cannot be built at all.',
+    why: `${Cap(unitRef('a2.15'))}\'s own, and taking it would spend this lesson\'s one carried line restating a neighbour\'s. It is quoted verbatim on the screen where the -is compounds arrive, credited by unit id, and it answers a different question: it says how to get the PRESENT of a compound verb, and this lesson says what to do when the past form cannot be built at all.`,
   },
   {
     candidate: A205_REFRAME,
@@ -372,7 +378,7 @@ export const THE_MOVE =
  *  a2.16 §3: a back-reference to another unit\'s line is a literal, not a
  *  variable, so `A215_REFRAME` is imported AND asserted as a string. */
 export const A215_CREDIT =
-  `${FAMILY_UNIT} said it about the present: « ${A215_REFRAME} » Cover the front of apprendre and prendre is underneath. The past form works the same way: appris is pris with ap in front, compris is pris with com in front, and remis and promis are mis with a front on them. Four of the seven in this group are free the moment you have the other three.`;
+  `${Cap(unitRef(FAMILY_UNIT))} said it about the present: « ${A215_REFRAME} » Cover the front of apprendre and prendre is underneath. The past form works the same way: appris is pris with ap in front, compris is pris with com in front, and remis and promis are mis with a front on them. Four of the seven in this group are free the moment you have the other three.`;
 
 export const GROUP_CLAIM =
   'They are not thirty-three separate facts. Twenty-eight of them fall into four groups by their ending, and five are in no group at all.';
@@ -418,31 +424,31 @@ export const FORMS: readonly Form[] = [
   // ── -is. Seven, and four of them are three with a front on. ──────────────
   { past: 'pris', verb: 'prendre', verbId: 'fr.sons.verbes-essentiels.012', group: '-is', en: 'taken', rowId: V(591), from: FAMILY_UNIT, note: 'The head of the group and the one the regular machine gets most wrong: an -RE verb "should" give prendu, and prendu is not a word.' },
   { past: 'mis', verb: 'mettre', verbId: 'fr.sons.verbes-essentiels.014', group: '-is', en: 'put', rowId: V(592), from: FAMILY_UNIT, note: 'The second head. Mettre is an -RE verb too and it does the same thing, which is what makes the group a group rather than two exceptions.' },
-  { past: 'appris', verb: 'apprendre', verbId: 'fr.a2.disciplines.051', group: '-is', en: 'learned', rowId: V(593), from: FAMILY_UNIT, note: `pris with ap in front. ${FAMILY_UNIT} taught the naming form the same way.` },
+  { past: 'appris', verb: 'apprendre', verbId: 'fr.a2.disciplines.051', group: '-is', en: 'learned', rowId: V(593), from: FAMILY_UNIT, note: `pris with ap in front. ${Cap(unitRef(FAMILY_UNIT))} taught the naming form the same way.` },
   { past: 'compris', verb: 'comprendre', verbId: 'fr.sons.verbes-essentiels.030', group: '-is', en: 'understood', rowId: V(594), from: FAMILY_UNIT, note: 'pris with com in front, and the front changes the meaning and nothing else.' },
-  { past: 'remis', verb: 'remettre', verbId: 'fr.a2.verbes.423', group: '-is', en: 'handed back', rowId: V(595), from: FAMILY_UNIT, note: `mis with re in front, on the row ${FAMILY_UNIT} authored itself. It is the only naming form in this lesson that another A2 lesson had to write from scratch.` },
+  { past: 'remis', verb: 'remettre', verbId: 'fr.a2.verbes.423', group: '-is', en: 'handed back', rowId: V(595), from: FAMILY_UNIT, note: `mis with re in front, on the row ${unitRef(FAMILY_UNIT)} authored itself. It is the only naming form in this lesson that another A2 lesson had to write from scratch.` },
   { past: 'promis', verb: 'promettre', verbId: 'fr.sons.verbes-essentiels.191', group: '-is', en: 'promised', rowId: V(596), from: FAMILY_UNIT, note: 'mis with pro in front, and it has nothing to do with putting anything anywhere. The meaning of the front is a vocabulary question and the ending is not.' },
-  { past: 'assis', verb: "s'asseoir", verbId: 'fr.sons.verbes-essentiels.100', group: '-is', en: 'seated', rowId: null, note: `The seventh, and the only one with no sentence of its own here. Its full past needs the little word in front of the verb, which is ${REFLEXIVE_UNIT}, so this lesson teaches the form and stops.` },
+  { past: 'assis', verb: "s'asseoir", verbId: 'fr.sons.verbes-essentiels.100', group: '-is', en: 'seated', rowId: null, note: `The seventh, and the only one with no sentence of its own here. Its full past needs the little word in front of the verb, which is ${unitRef(REFLEXIVE_UNIT)}, so this lesson teaches the form and stops.` },
 
   // ── -it. Four, and two of them are the same verb with a front. ───────────
-  { past: 'dit', verb: 'dire', verbId: 'fr.sons.verbes-essentiels.005', group: '-it', en: 'said', rowId: V(597), from: FAIRE_UNIT, note: `The head of the group, and ${FAIRE_UNIT} taught the naming form. It is also the same sound as « il dit », which is the present, so the ear cannot separate them.` },
+  { past: 'dit', verb: 'dire', verbId: 'fr.sons.verbes-essentiels.005', group: '-it', en: 'said', rowId: V(597), from: FAIRE_UNIT, note: `The head of the group, and ${unitRef(FAIRE_UNIT)} taught the naming form. It is also the same sound as « il dit », which is the present, so the ear cannot separate them.` },
   { past: 'écrit', verb: 'écrire', verbId: 'fr.sons.consonnes.110', group: '-it', en: 'written', rowId: V(598), note: 'Already published as a word in its own right, meaning "written". See ALSO_A_WORD.' },
   { past: 'conduit', verb: 'conduire', verbId: 'fr.a1.routines.107', group: '-it', en: 'driven', rowId: V(599), note: 'Every -uire verb does this: the -re comes off and a t goes on.' },
   { past: 'construit', verb: 'construire', verbId: 'fr.sons.verbes-essentiels.118', group: '-it', en: 'built', rowId: V(600), note: 'The second -uire verb, so the pattern inside the group is visible rather than asserted. Its naming form carries this build\'s one repair.' },
 
   // ── -u. Thirteen, and every irregular verb batch 1 taught is in here. ────
   { past: 'vu', verb: 'voir', verbId: 'fr.sons.verbes-essentiels.011', group: '-u', en: 'seen', rowId: V(601), note: 'Two letters off a five-letter verb, and there is nothing in voir that predicts the v-u.' },
-  { past: 'lu', verb: 'lire', verbId: 'fr.a1.dictee.091', group: '-u', en: 'read', rowId: V(602), from: FAIRE_UNIT, note: `${FAIRE_UNIT}'s third verb, and its past form is two letters.` },
+  { past: 'lu', verb: 'lire', verbId: 'fr.a1.dictee.091', group: '-u', en: 'read', rowId: V(602), from: FAIRE_UNIT, note: `${Cap(unitRef(FAIRE_UNIT, 'a2'))}'s third verb, and its past form is two letters.` },
   { past: 'bu', verb: 'boire', verbId: 'fr.a1.cuisine.042', group: '-u', en: 'drunk', rowId: V(603), note: 'One of the four the corpus already publishes as a bare form with no respelling on it, in a theme about vowels.' },
-  { past: 'su', verb: 'savoir', verbId: 'fr.sons.verbes-essentiels.009', group: '-u', en: 'found out', rowId: V(604), from: SAVOIR_UNIT, note: `${SAVOIR_UNIT}'s first verb. Savoir goes to su and connaître goes to connu, and the two of them stay apart in the past exactly as they did in the present.` },
-  { past: 'pu', verb: 'pouvoir', verbId: 'fr.sons.verbes-essentiels.006', group: '-u', en: 'been able to', rowId: V(605), from: MODAUX_UNIT, note: `${MODAUX_UNIT}'s. Two letters again, and the verb behind it has seven.` },
+  { past: 'su', verb: 'savoir', verbId: 'fr.sons.verbes-essentiels.009', group: '-u', en: 'found out', rowId: V(604), from: SAVOIR_UNIT, note: `${Cap(unitRef(SAVOIR_UNIT, 'a2'))}'s first verb. Savoir goes to su and connaître goes to connu, and the two of them stay apart in the past exactly as they did in the present.` },
+  { past: 'pu', verb: 'pouvoir', verbId: 'fr.sons.verbes-essentiels.006', group: '-u', en: 'been able to', rowId: V(605), from: MODAUX_UNIT, note: `${Cap(unitRef(MODAUX_UNIT, 'a2'))}'s. Two letters again, and the verb behind it has seven.` },
   { past: 'voulu', verb: 'vouloir', verbId: 'fr.sons.verbes-essentiels.007', group: '-u', en: 'wanted', rowId: V(606), from: MODAUX_UNIT, note: 'The one -oir verb in the group that keeps most of itself: voul- is still there.' },
   { past: 'dû', verb: 'devoir', verbId: 'fr.sons.verbes-essentiels.008', group: '-u', en: 'had to', rowId: V(607), from: MODAUX_UNIT, note: 'THE ONE WITH THE ACCENT, and the only form in the set where an accent does semantic work. See CIRCUMFLEX.' },
-  { past: 'connu', verb: 'connaître', verbId: 'fr.sons.verbes-essentiels.048', group: '-u', en: 'known', rowId: V(608), from: SAVOIR_UNIT, note: `${SAVOIR_UNIT}'s second verb, and the î of the naming form is gone.` },
-  { past: 'venu', verb: 'venir', verbId: 'fr.sons.verbes-essentiels.010', group: '-u', en: 'come', rowId: V(620), etre: true, from: ALLER_UNIT, note: `${ALLER_UNIT}'s. The form is regular for this group and the first word in front of it is not avoir, which is ${ETRE_UNIT}.` },
-  { past: 'tenu', verb: 'tenir', verbId: 'fr.sons.verbes-essentiels.052', group: '-u', en: 'held', rowId: V(609), from: ALLER_UNIT, note: `${ALLER_UNIT}'s other one, and it behaves like venu without the different first word.` },
+  { past: 'connu', verb: 'connaître', verbId: 'fr.sons.verbes-essentiels.048', group: '-u', en: 'known', rowId: V(608), from: SAVOIR_UNIT, note: `${Cap(unitRef(SAVOIR_UNIT, 'a2'))}'s second verb, and the î of the naming form is gone.` },
+  { past: 'venu', verb: 'venir', verbId: 'fr.sons.verbes-essentiels.010', group: '-u', en: 'come', rowId: V(620), etre: true, from: ALLER_UNIT, note: `${Cap(unitRef(ALLER_UNIT, 'a2'))}'s. The form is regular for this group and the first word in front of it is not avoir, which is ${unitRef(ETRE_UNIT)}.` },
+  { past: 'tenu', verb: 'tenir', verbId: 'fr.sons.verbes-essentiels.052', group: '-u', en: 'held', rowId: V(609), from: ALLER_UNIT, note: `${Cap(unitRef(ALLER_UNIT, 'a2'))}'s other one, and it behaves like venu without the different first word.` },
   { past: 'reçu', verb: 'recevoir', verbId: 'fr.sons.verbes-essentiels.047', group: '-u', en: 'received', rowId: V(610), note: 'The cedilla survives into the past form. Nothing in this app can test a cedilla, so it is never asked for typed.' },
-  { past: 'couru', verb: 'courir', verbId: 'fr.sons.verbes-essentiels.045', group: '-u', en: 'run', rowId: V(611), note: 'An -IR verb whose past form is NOT -i. This is the one that looks regular from the other direction: a2.05 said -IR goes to -i, and courir does not.' },
+  { past: 'couru', verb: 'courir', verbId: 'fr.sons.verbes-essentiels.045', group: '-u', en: 'run', rowId: V(611), note: `An -IR verb whose past form is NOT -i. This is the one that looks regular from the other direction: ${unitRef('a2.05')} said -IR goes to -i, and courir does not.` },
   { past: 'cru', verb: 'croire', verbId: 'fr.sons.verbes-essentiels.049', group: '-u', en: 'believed', rowId: V(612), note: 'Already published as a word meaning "raw", which is a different word that happens to be spelled the same. See ALSO_A_WORD.' },
 
   // ── -ert. Four, and all four are -IR verbs that refuse -i. ───────────────
@@ -452,11 +458,11 @@ export const FORMS: readonly Form[] = [
   { past: 'souffert', verb: 'souffrir', verbId: 'fr.b1.verbes.054', group: '-ert', en: 'suffered', rowId: V(616), note: 'The fourth, and the group is now closed: these four are all of it in the language a learner meets.' },
 
   // ── The five that are in no group. ───────────────────────────────────────
-  { past: 'fait', verb: 'faire', verbId: 'fr.sons.verbes-essentiels.004', group: 'odd', en: 'done, made', rowId: V(617), from: FAIRE_UNIT, note: `${FAIRE_UNIT}'s headline verb, and its past form is the same sound as « il fait », which is the present. The commonest verb in the set and it is in no group.` },
+  { past: 'fait', verb: 'faire', verbId: 'fr.sons.verbes-essentiels.004', group: 'odd', en: 'done, made', rowId: V(617), from: FAIRE_UNIT, note: `${Cap(unitRef(FAIRE_UNIT, 'a2'))}'s headline verb, and its past form is the same sound as « il fait », which is the present. The commonest verb in the set and it is in no group.` },
   { past: 'été', verb: 'être', verbId: 'fr.sons.verbes-essentiels.001', group: 'odd', en: 'been', rowId: V(618), note: 'From nowhere. There is no route from être to été, and the same three letters are also the word for summer.' },
   { past: 'eu', verb: 'avoir', verbId: 'fr.sons.verbes-essentiels.002', group: 'odd', en: 'had', rowId: V(619), note: 'THE ONE THAT LOOKS NOTHING LIKE IT SOUNDS. Two letters, one sound, and the sound is not the one either letter suggests. See EU.' },
-  { past: 'né', verb: 'naître', verbId: 'fr.sons.verbes-essentiels.081', group: 'odd', en: 'born', rowId: V(621), etre: true, note: `Shorter than the verb it comes from, which nothing else in the set is. Its first word is not avoir either, which is ${ETRE_UNIT}.` },
-  { past: 'mort', verb: 'mourir', verbId: 'fr.sons.verbes-essentiels.082', group: 'odd', en: 'died', rowId: null, etre: true, note: `A different word entirely, and it is published as an ordinary adjective meaning "dead". Its first word is ${ETRE_UNIT}'s, so this lesson shows the form on the published cards and authors no sentence for it.` },
+  { past: 'né', verb: 'naître', verbId: 'fr.sons.verbes-essentiels.081', group: 'odd', en: 'born', rowId: V(621), etre: true, note: `Shorter than the verb it comes from, which nothing else in the set is. Its first word is not avoir either, which is ${unitRef(ETRE_UNIT)}.` },
+  { past: 'mort', verb: 'mourir', verbId: 'fr.sons.verbes-essentiels.082', group: 'odd', en: 'died', rowId: null, etre: true, note: `A different word entirely, and it is published as an ordinary adjective meaning "dead". Its first word is ${unitRef(ETRE_UNIT, 'a2')}'s, so this lesson shows the form on the published cards and authors no sentence for it.` },
 ];
 
 export const GROUPS: readonly Group[] = ['-is', '-it', '-u', '-ert', 'odd'];
@@ -465,7 +471,7 @@ export const formsOf = (g: Group): readonly Form[] => FORMS.filter((f) => f.grou
 
 export const formOf = (past: string): Form => {
   const f = FORMS.find((x) => x.past === past);
-  if (!f) throw new Error(`a2.20: ${past} is not one of the thirty-three.`);
+  if (!f) throw new Error(`${Cap(unitRef('a2.20'))}: ${past} is not one of the thirty-three.`);
   return f;
 };
 
@@ -491,7 +497,7 @@ export const GROUP_SIZES: Readonly<Record<Group, number>> = {
 export const ETRE_FORMS: readonly string[] = FORMS.filter((f) => f.etre).map((f) => f.past);
 
 export const ETRE_DEFERRAL =
-  `Three of these put a different word in front instead of avoir, and the form is all this lesson teaches you about them. Which verbs do it, and what happens to the form afterwards, is ${ETRE_UNIT}.`;
+  `Three of these put a different word in front instead of avoir, and the form is all this lesson teaches you about them. Which verbs do it, and what happens to the form afterwards, is ${unitRef(ETRE_UNIT)}.`;
 
 /** a2.05's list of thirty-five, imported so the coverage claim can be checked
  *  against the real thing rather than against a second copy of it. */
@@ -548,11 +554,11 @@ export const DERIVABLE: readonly { verb: string; wrong: string; right: string; w
   { verb: 'faire', wrong: 'faisu', right: 'fait', why: 'Faire ends in -re, so the machine reaches for -u again. Nothing about fait can be got from faire and it is the commonest verb in the whole set.' },
   { verb: 'ouvrir', wrong: 'ouvri', right: 'ouvert', why: 'An -IR verb, so the machine says -i, and this time the real form ends in a t. Four verbs do this and they are the whole -ert group.' },
   { verb: 'courir', wrong: 'couri', right: 'couru', why: 'Another -IR verb, and the machine says -i again. This one lands in the -u group instead, which is the group that takes members from everywhere.' },
-  { verb: 'voir', wrong: 'voiri', right: 'vu', why: 'There is no rule at all for an -OIR verb in a2.05, so the machine has nothing to run and the learner guesses. Every -OIR verb in this lesson is in the -u group.' },
+  { verb: 'voir', wrong: 'voiri', right: 'vu', why: `There is no rule at all for an -OIR verb in ${unitRef('a2.05')}, so the machine has nothing to run and the learner guesses. Every -OIR verb in this lesson is in the -u group.` },
 ];
 
 export const DERIVABLE_CLAIM =
-  'The wrong one is on the left of each pair, and it is what you get by doing the thing a2.05 taught you. It is not carelessness. It is a rule being applied correctly to a verb it does not cover.';
+  `The wrong one is on the left of each pair, and it is what you get by doing the thing ${unitRef('a2.05')} taught you. It is not carelessness. It is a rule being applied correctly to a verb it does not cover.`;
 
 /** THE ERRORS, in the shape `commonErrors` wants. The first four are the
  *  derivable ones in a sentence; the fifth is the one that is not about a form
@@ -581,7 +587,7 @@ export const WRONG: readonly { wrong: string; right: string; why: string }[] = [
   {
     wrong: "J'ai prendre le bus.",
     right: "J'ai pris le bus.",
-    why: 'The naming form has been left behind avoir untouched. This is a2.05\'s error rather than this lesson\'s, and it happens here because the learner has looked for the past form, not found one, and shipped the verb as it stands.',
+    why: `The naming form has been left behind avoir untouched. This is ${unitRef('a2.05')}\'s error rather than this lesson\'s, and it happens here because the learner has looked for the past form, not found one, and shipped the verb as it stands.`,
   },
 ];
 
@@ -678,7 +684,7 @@ export const MACHINE_MUST_NOT_FIRE: readonly string[] = [
   // letters-only version of this shape fires on all of them.
   'You did not stall on a word you had not learned.',
   'The jargon is on a learner surface.',
-  'a2.19 measured it on a Pixel 6.',
+  `${Cap(unitRef('a2.19'))} measured it on a Pixel 6.`,
   'Everything on a card comes from the corpus.',
 ];
 
@@ -816,8 +822,8 @@ export const CHOICE_MUST_NOT_FIRE: readonly string[] = [
   'Which group is it in?',
   'Pick the spelling with the little roof on it.',
   'Do not build these. Reach for the group it is in.',
-  'The first word is avoir and you have had it since a1.07.',
-  'Which verbs do it, and what happens to the form afterwards, is a2.21.',
+  `The first word is avoir and you have had it since ${unitRef('a1.07')}.`,
+  `Which verbs do it, and what happens to the form afterwards, is ${unitRef('a2.21')}.`,
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1006,7 +1012,7 @@ export const PARTICIPES: PCRow[] = [
   S(592, "J'ai mis la table.", 'I set the table.', 'ZHAY MEE la TABL', '/ʒe mi la tabl/', 'group', D, [...T, 'is'], 'The second head. Thirteen letters. Mettre and prendre are both -RE verbs and both refuse -u, which is what makes this a group.', 'mis'),
   S(593, "J'ai appris le mot.", 'I learned the word.', 'ZHAY ah-PREE luh MOH', '/ʒe a.pʁi lə mo/', 'group', NO_D, [...T, 'is'], 'pris with ap in front. Fourteen letters, and it is not a dictée target because the group already has two.', 'appris'),
   S(594, "J'ai compris la question.", 'I understood the question.', 'ZHAY kohⁿ-PREE la kehs-TYOHⁿ', '/ʒe kɔ̃.pʁi la kɛs.tjɔ̃/', 'group', NO_D, [...T, 'is'], 'Twenty letters, so WORD mode and no dictation drill. Two nasals, both closing at a token boundary and both seen by the checker.', 'compris'),
-  S(595, "J'ai remis la clé.", 'I handed the key back.', 'ZHAY ruh-MEE la KLAY', '/ʒe ʁə.mi la kle/', 'group', NO_D, [...T, 'is'], `mis with re in front, on the naming form ${FAMILY_UNIT} authored itself at fr.a2.verbes.423.`, 'remis'),
+  S(595, "J'ai remis la clé.", 'I handed the key back.', 'ZHAY ruh-MEE la KLAY', '/ʒe ʁə.mi la kle/', 'group', NO_D, [...T, 'is'], `mis with re in front, on the naming form ${unitRef(FAMILY_UNIT)} authored itself at fr.a2.verbes.423.`, 'remis'),
   S(596, "J'ai promis de venir.", 'I promised to come.', 'ZHAY proh-MEE duh vuh-NEER', '/ʒe pʁɔ.mi də və.niʁ/', 'group', NO_D, [...T, 'is'], 'mis with pro in front, and the meaning has nothing to do with putting anything anywhere. Sixteen letters, exactly at the limit, and it is left off the dictée because « venir » on the end would be a second thing to spell.', 'promis'),
 
   /* ── The -it group. Four forms, four rows. ────────────────────────────────*/
@@ -1017,23 +1023,23 @@ export const PARTICIPES: PCRow[] = [
 
   /* ── The -u group. Thirteen forms; venu is at 620 with the être rows. ─────*/
   S(601, "J'ai vu Marie.", 'I saw Marie.', 'ZHAY VÜ ma-REE', '/ʒe vy ma.ʁi/', 'group', D, [...T, 'u'], 'Ten letters. Two letters off a five-letter verb, and nothing in voir predicts them.', 'vu'),
-  S(602, "J'ai lu le journal.", 'I read the newspaper.', 'ZHAY LÜ luh zhoor-NAL', '/ʒe ly lə ʒuʁ.nal/', 'group', NO_D, [...T, 'u'], `Fourteen letters. ${FAIRE_UNIT}'s third verb, and its past form is two letters long.`, 'lu'),
+  S(602, "J'ai lu le journal.", 'I read the newspaper.', 'ZHAY LÜ luh zhoor-NAL', '/ʒe ly lə ʒuʁ.nal/', 'group', NO_D, [...T, 'u'], `Fourteen letters. ${Cap(unitRef(FAIRE_UNIT, 'a2'))}'s third verb, and its past form is two letters long.`, 'lu'),
   S(603, "J'ai bu un café.", 'I had a coffee.', 'ZHAY BÜ uhⁿ ka-FAY', '/ʒe by ɛ̃ ka.fe/', 'group', D, [...T, 'u'], 'Eleven letters. The corpus already publishes « bu » bare, in a theme about vowels, with no respelling on it at all.', 'bu'),
   S(604, "J'ai su la réponse.", 'I knew the answer.', 'ZHAY SÜ la ray-POHⁿSS', '/ʒe sy la ʁe.pɔ̃s/', 'group', NO_D, [...T, 'u'], 'THE SECOND ROW THE NASAL CHECKER IS BLIND TO: an S follows the nasal inside the token. See BLIND_NASALS.', 'su'),
-  S(605, "J'ai pu venir.", 'I was able to come.', 'ZHAY PÜ vuh-NEER', '/ʒe py və.niʁ/', 'group', NO_D, [...T, 'u'], `Ten letters. ${MODAUX_UNIT}'s verb, and the past form is two letters against the naming form's seven.`, 'pu'),
+  S(605, "J'ai pu venir.", 'I was able to come.', 'ZHAY PÜ vuh-NEER', '/ʒe py və.niʁ/', 'group', NO_D, [...T, 'u'], `Ten letters. ${Cap(unitRef(MODAUX_UNIT, 'a2'))}'s verb, and the past form is two letters against the naming form's seven.`, 'pu'),
   S(606, "J'ai voulu partir.", 'I wanted to leave.', 'ZHAY voo-LÜ par-TEER', '/ʒe vu.ly paʁ.tiʁ/', 'group', NO_D, [...T, 'u'], 'The one -oir verb in the group that keeps most of itself.', 'voulu'),
   S(607, "J'ai dû partir.", 'I had to leave.', 'ZHAY DÜ par-TEER', '/ʒe dy paʁ.tiʁ/', 'group', D, [...T, 'u', 'accent'], 'ELEVEN LETTERS AND THE DICTÉE CANNOT TEST ITS ACCENT. normalizeFr strips the circumflex, so « J\'ai du partir. » is marked right. The row is a dictée target for its other letters and the accent is asked about by mcq. See DICTEE_NEAR_MISS.', 'dû'),
-  S(608, "J'ai connu son frère.", 'I knew his brother.', 'ZHAY koh-NÜ sohⁿ FREHR', '/ʒe kɔ.ny sɔ̃ fʁɛʁ/', 'group', NO_D, [...T, 'u'], `${SAVOIR_UNIT}'s second verb, and the circumflex of connaître is gone in the past form.`, 'connu'),
-  S(609, "J'ai tenu la porte.", 'I held the door.', 'ZHAY tuh-NÜ la PORT', '/ʒe tə.ny la pɔʁt/', 'group', NO_D, [...T, 'u'], `${ALLER_UNIT}'s other verb, and it behaves like venu without the different first word.`, 'tenu'),
+  S(608, "J'ai connu son frère.", 'I knew his brother.', 'ZHAY koh-NÜ sohⁿ FREHR', '/ʒe kɔ.ny sɔ̃ fʁɛʁ/', 'group', NO_D, [...T, 'u'], `${Cap(unitRef(SAVOIR_UNIT, 'a2'))}'s second verb, and the circumflex of connaître is gone in the past form.`, 'connu'),
+  S(609, "J'ai tenu la porte.", 'I held the door.', 'ZHAY tuh-NÜ la PORT', '/ʒe tə.ny la pɔʁt/', 'group', NO_D, [...T, 'u'], `${Cap(unitRef(ALLER_UNIT, 'a2'))}'s other verb, and it behaves like venu without the different first word.`, 'tenu'),
   S(610, "J'ai reçu ton message.", 'I got your message.', 'ZHAY ruh-SÜ tohⁿ meh-SAHZH', '/ʒe ʁə.sy tɔ̃ me.saʒ/', 'group', NO_D, [...T, 'u'], 'Seventeen letters, so WORD mode. The cedilla survives into the past form and nothing in this app can test a cedilla.', 'reçu'),
-  S(611, "J'ai couru vite.", 'I ran fast.', 'ZHAY koo-RÜ VEET', '/ʒe ku.ʁy vit/', 'group', NO_D, [...T, 'u'], 'AN -IR VERB WHOSE PAST FORM IS NOT -i. a2.05 taught -IR to -i and courir is one of the verbs that refuses it.', 'couru'),
+  S(611, "J'ai couru vite.", 'I ran fast.', 'ZHAY koo-RÜ VEET', '/ʒe ku.ʁy vit/', 'group', NO_D, [...T, 'u'], `AN -IR VERB WHOSE PAST FORM IS NOT -i. ${Cap(unitRef('a2.05'))} taught -IR to -i and courir is one of the verbs that refuses it.`, 'couru'),
   S(612, "J'ai cru ça.", 'I believed that.', 'ZHAY KRÜ SA', '/ʒe kʁy sa/', 'group', NO_D, [...T, 'u'], 'Eight letters. Cru is also published as a word meaning "raw", which is a different word with the same spelling.', 'cru'),
 
   /* ── The -ert group. Four forms, four rows. ───────────────────────────────*/
   S(613, "J'ai ouvert la porte.", 'I opened the door.', 'ZHAY oo-VEHR la PORT', '/ʒe u.vɛʁ la pɔʁt/', 'group', D, [...T, 'ert'], 'SIXTEEN LETTERS, exactly at the limit, so it is in LETTERS mode by one character. The head of the group and the one whose near miss « ouvri » the dictée can see.', 'ouvert'),
   S(614, "J'ai offert des fleurs.", 'I gave flowers.', 'ZHAY oh-FEHR day FLEUR', '/ʒe ɔ.fɛʁ de flœʁ/', 'group', NO_D, [...T, 'ert'], 'Eighteen letters, so WORD mode. The same three letters on a verb that has nothing to do with opening.', 'offert'),
   S(615, "J'ai couvert le plat.", 'I covered the dish.', 'ZHAY koo-VEHR luh PLA', '/ʒe ku.vɛʁ lə pla/', 'group', NO_D, [...T, 'ert'], 'Ouvert with a c on the front, and the corpus publishes it as a weather word meaning "overcast".', 'couvert'),
-  S(616, "J'ai beaucoup souffert.", 'I suffered a lot.', 'ZHAY boh-KOO soo-FEHR', '/ʒe bo.ku su.fɛʁ/', 'group', NO_D, [...T, 'ert'], 'The fourth and last member, with a2.05\'s adverb sitting in the gap where that lesson put it.', 'souffert'),
+  S(616, "J'ai beaucoup souffert.", 'I suffered a lot.', 'ZHAY boh-KOO soo-FEHR', '/ʒe bo.ku su.fɛʁ/', 'group', NO_D, [...T, 'ert'], `The fourth and last member, with ${unitRef('a2.05')}\'s adverb sitting in the gap where that lesson put it.`, 'souffert'),
 
   /* ── The five in no group. `mort` has no row: see FORMS. ──────────────────*/
   S(617, "J'ai fait le ménage.", 'I did the housework.', 'ZHAY FEH luh may-NAZH', '/ʒe fɛ lə me.naʒ/', 'group', D, [...T, 'odd'], 'Fifteen letters. The commonest verb in the whole set and it is in no group at all.', 'fait'),
@@ -1042,8 +1048,8 @@ export const PARTICIPES: PCRow[] = [
 
   /* ── The three with a different first word. ONE SECTION, and no production
    *    surface anywhere in the lesson asks a learner to choose it. ──────────*/
-  S(620, 'Il est venu hier.', 'He came yesterday.', 'eel eh vuh-NÜ YEHR', '/il ɛ və.ny jɛʁ/', 'etre', NO_D, [...T, 'u', 'etre'], `The form is an ordinary member of the -u group. The first word is ${ETRE_UNIT}'s and this row carries no dictation drill for that reason.`, 'venu'),
-  S(621, 'Il est né ici.', 'He was born here.', 'eel eh NAY ee-SEE', '/il ɛ ne i.si/', 'etre', NO_D, [...T, 'odd', 'etre'], `Shorter than the verb it comes from, which nothing else in the set is. Masculine singular, deliberately: agreement is ${ETRE_UNIT}'s and no row here shows one.`, 'né'),
+  S(620, 'Il est venu hier.', 'He came yesterday.', 'eel eh vuh-NÜ YEHR', '/il ɛ və.ny jɛʁ/', 'etre', NO_D, [...T, 'u', 'etre'], `The form is an ordinary member of the -u group. The first word is ${unitRef(ETRE_UNIT, 'a2')}'s and this row carries no dictation drill for that reason.`, 'venu'),
+  S(621, 'Il est né ici.', 'He was born here.', 'eel eh NAY ee-SEE', '/il ɛ ne i.si/', 'etre', NO_D, [...T, 'odd', 'etre'], `Shorter than the verb it comes from, which nothing else in the set is. Masculine singular, deliberately: agreement is ${unitRef(ETRE_UNIT, 'a2')}'s and no row here shows one.`, 'né'),
 
   /* ── The two contrast rows. ───────────────────────────────────────────────*/
   S(622, "J'ai eu froid.", 'I was cold.', 'ZHAY Ü FRWA', '/ʒe y fʁwa/', 'contrast', NO_D, [...T, 'odd'], 'The second eu row, so the ear question has three options that differ by the consonant in front of one pure vowel rather than by the vowel itself.', 'eu'),
@@ -1067,7 +1073,7 @@ export const PARTICIPES: PCRow[] = [
   S(632, "Oui, il a fait très chaud.", 'Yes, it was very hot.', 'WEE · eel a FEH treh SHOH', '/wi il a fɛ tʁɛ ʃo/', 'talk', NO_D, [...T, 'odd'], 'And the closing line, where « il a fait » is the weather rather than a person doing something.'),
 
   /* ── The one recap of a2.05's negative, with an irregular form in it. ─────*/
-  S(633, "Je n'ai pas compris.", 'I did not understand.', 'zhuh nay pa kohⁿ-PREE', '/ʒə ne pa kɔ̃.pʁi/', 'negative', D, [...T, 'is', 'negatif'], 'FIFTEEN LETTERS, so the dictée takes it. The gap is a2.05\'s and unchanged; the only thing this lesson has done to it is put a form in the second slot that could not be built.', 'compris'),
+  S(633, "Je n'ai pas compris.", 'I did not understand.', 'zhuh nay pa kohⁿ-PREE', '/ʒə ne pa kɔ̃.pʁi/', 'negative', D, [...T, 'is', 'negatif'], `FIFTEEN LETTERS, so the dictée takes it. The gap is ${unitRef('a2.05')}\'s and unchanged; the only thing this lesson has done to it is put a form in the second slot that could not be built.`, 'compris'),
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1089,7 +1095,7 @@ export const EXPECTED_AUTHORED = 43;
  *  like a card that never wanted one. */
 export function row(fr: string): PCRow {
   const r = PARTICIPES.find((x) => x.fr === fr);
-  if (!r) throw new Error(`a2.20: no authored row for "${fr}".`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: no authored row for "${fr}".`);
   return r;
 }
 
@@ -1187,7 +1193,7 @@ export const ABSENT_FROM_SEED: readonly string[] = [
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`a2.20: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not in IMPORTED.`);
   return i;
 };
 
@@ -1201,12 +1207,12 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   {
     id: 'fr.sons.accents.058',
     fr: 'le reçu',
-    why: 'CARRIES gender=m. « reçu » is one of the seven past forms this lesson wanted as an already-a-word card and both published copies (this and fr.sons.consonnes.086) are gendered. a2.04 §0: a1.03\'s ending population is measured off the SEED and a CARRY is what puts a row there. Refused, and ALSO_A_WORD is five rather than seven for this reason.',
+    why: `CARRIES gender=m. « reçu » is one of the seven past forms this lesson wanted as an already-a-word card and both published copies (this and fr.sons.consonnes.086) are gendered. ${Cap(unitRef('a2.04'))} §0: ${unitRef('a1.03')}\'s ending population is measured off the SEED and a CARRY is what puts a row there. Refused, and ALSO_A_WORD is five rather than seven for this reason.`,
   },
   {
     id: 'fr.sons.accents.002',
     fr: 'été',
-    why: 'CARRIES gender=m, and it is the season rather than the past form. The ungendered copies at fr.sons.voyelles.542 and .576 carry NO RESPELLING, which is a2.13 §1: a row without one reaches a card the learner cannot say. So « été » gets no already-a-word card and the fact is stated on the odd-group deck instead.',
+    why: `CARRIES gender=m, and it is the season rather than the past form. The ungendered copies at fr.sons.voyelles.542 and .576 carry NO RESPELLING, which is ${unitRef('a2.13')} §1: a row without one reaches a card the learner cannot say. So « été » gets no already-a-word card and the fact is stated on the odd-group deck instead.`,
   },
   {
     id: 'fr.a1.ecole.049',
@@ -1221,7 +1227,7 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   {
     id: 'fr.a1.deplacements.042',
     fr: 'conduire',
-    why: 'FLAGGED at [kohn-DWEER], and it is a genuine violation rather than a false positive. It is NOT repaired, because fr.a1.routines.107 already holds the house value [kohⁿ-DWEER] and that is the row this lesson displays. Repairing a row nobody shows is how a build acquires a defect it cannot test (a2.17 §1, a2.18\'s rule).',
+    why: `FLAGGED at [kohn-DWEER], and it is a genuine violation rather than a false positive. It is NOT repaired, because fr.a1.routines.107 already holds the house value [kohⁿ-DWEER] and that is the row this lesson displays. Repairing a row nobody shows is how a build acquires a defect it cannot test (${unitRef('a2.17')} §1, ${unitRef('a2.18')}\'s rule).`,
   },
   {
     id: 'fr.a1.cafe.112',

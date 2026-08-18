@@ -50,6 +50,7 @@ import {
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   AUTHORED_IDS as AUTHORED_ID_LIST, BLIND_NASALS, CITED_UNITS, DICTATION_IDS,
   DRILL_ADDITIONS, ENDINGS, FORBIDDEN_CONDITIONAL_SHAPE, FRAME_ROWS, FRAME_VERB,
@@ -348,7 +349,7 @@ if ((LESSON.deckTranche ?? []).flat().includes(UNSEEN_VERB.sourceId)) die(`${UNS
   const politeRows = MODAUX.filter((r) => POLITE_FORMS.some((f) => hasPhrase(r.fr, f)));
   if (politeRows.length !== POLITE_FORMS.length) die(`${politeRows.length} polite rows, expected ${POLITE_FORMS.length}`);
   const learner = [...prose(LESSON.sections), ...prose(LESSON.sheets), ...prose(LESSON.terms), LESSON.intro ?? ''].join('  ');
-  const uncited = CITED_UNITS.filter((u) => !hasPhrase(learner, u));
+  const uncited = CITED_UNITS.filter((u) => !namesUnitLabel(learner, u));
   if (uncited.length) die(`cited units findable nowhere: ${uncited.join(', ')} (check for a possessive: "'" is a word character)`);
   if (learner.includes('—')) die('an em dash reached a learner surface');
   if (strings(LESSON).some((s) => s.includes('‿'))) die('U+203F UNDERTIE reached the lesson');

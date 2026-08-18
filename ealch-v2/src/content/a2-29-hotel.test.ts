@@ -17,6 +17,7 @@ import { strictEqual, deepStrictEqual, ok } from 'node:assert';
 import seed from './seed.json' with { type: 'json' };
 import { hasPlainNasalFor } from './density.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 type Item = { id: string; kind: string; level: string; theme: string; fr: string; en: string; respell?: string; drills?: string[]; tags?: string[] };
 type Section = Record<string, unknown> & { id: string; type: string };
@@ -305,7 +306,7 @@ test('the accusation guard still fires on a card body (the stripper has no hole)
 test('zero repair rows are authored, and a2.07 is cited by id', () => {
   const repairFolds = new Set(REPAIR_FR.map(fold));
   for (const r of MINE) ok(!repairFolds.has(fold(r.fr)), `${r.id} re-authors one of a2.07's six frozen repair rows`);
-  ok(/a2\.07/.test(ALL_TEXT), 'a2.07 is never named by unit id, so its repair move is used without attribution');
+  ok(namesUnitLabel(ALL_TEXT, 'a2.07'), 'a2.07 is never named by its lesson label, so its repair move is used without attribution');
 });
 
 test("a2.07's six repair rows reach the seed and are released by a tranche", () => {
@@ -434,27 +435,6 @@ test('no em dash in any authored string', () => {
 
 /* ── The corpus ─────────────────────────────────────────────────────────── */
 
-/** THE ONE AUTHORED ROW NOTHING REACHES, and the seed is right to drop it.
- *
- *  `fr.a2.hebergement.086` « Le problème n'est pas réglé. » is a rung-2 row that
- *  NO LESSON references: not this one, not a2.30, a2.31 or a2.32, which cite
- *  .074/.082/.087/.091/.092 and never this. Doctrine §E: every item must be
- *  reachable, named by a section or released by a deckTranche.
- *
- *  It survived in the seed only while the seed was a HAND MERGE. `hebergement`
- *  is not in `SEED_CUT.themes`, so when v51 regenerated the file from the
- *  database the cut kept the referenced rows and dropped this one. That is the
- *  cut working, and this test had been masking an unreachable row by asserting
- *  all 59 were present.
- *
- *  NOT A LEARNER-FACING LOSS: the row is still published in Postgres and ships
- *  in the OTA snapshot's 48,888 items. It is absent from the offline binary
- *  only, which is exactly what a cut is for.
- *
- *  a2.29's owner may want to make it reachable instead, which would be a
- *  lesson edit, a re-merge and a republish. Until then this names it. */
-const UNREACHABLE = 86;
-
 /** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
  *
  *  Part B of SEED-IS-GENERATED-FIX-PLAN.md. Counting in the seed is what broke
@@ -477,17 +457,19 @@ test('59 rows authored, contiguous, all in hebergement at a2', { skip: noSrc }, 
   strictEqual(src[src.length - 1], 132);
   ok(src.every((n, i) => i === 0 || n === src[i - 1] + 1), 'the authored id block is not contiguous');
 
-  // AND THE SEED, separately: the block minus whatever no lesson references.
-  // Naming the exception is what stops it hiding, which is the whole lesson of
-  // this suite going red on v51.
-  strictEqual(MINE.length, 58, 'the block is 59 ids and .086 is referenced by nothing, so 58 reach the seed');
+  // AND THE SEED, separately. It used to be 58: `.086` was authored into the
+  // rung-2 block and then left out of the act-2 deckTranche, which lists 82 to
+  // 90 and skipped only it. Reachable from nothing, so the merge never carried
+  // it and the row taught nobody.
+  //
+  // Released in the v2 pass. The row carries a `flashcard` drill, so a tranche
+  // release actually draws it; nothing else about the block changed.
+  strictEqual(MINE.length, 59, 'the whole authored block should now reach the seed');
   const ns = MINE.map((r) => Number(r.id.slice(-3))).sort((a, b) => a - b);
   strictEqual(ns[0], 74);
   strictEqual(ns[ns.length - 1], 132);
-  ok(!ns.includes(UNREACHABLE), `.${UNREACHABLE} is in the seed again. If it was made reachable, drop UNREACHABLE and restore 59.`);
-  const withGap = [...ns, UNREACHABLE].sort((a, b) => a - b);
-  ok(withGap.every((n, i) => i === 0 || n === withGap[i - 1] + 1),
-    'the id block is not contiguous, counting the one row the cut drops');
+  ok(ns.every((n, i) => i === 0 || n === ns[i - 1] + 1),
+    'the id block is not contiguous');
   for (const r of MINE) {
     strictEqual(r.theme, THEME, `${r.id} is in ${r.theme}`);
     strictEqual(r.level, 'a2');
@@ -937,7 +919,7 @@ test('zero Scenario.exam values and zero ExamTask rows', () => {
   }
   ok(!(sec('s24-quiz') as { exam?: boolean }).exam, 'the quiz sets exam: true, which is a1.30.l2 only');
   const tasks = (seed as unknown as { examTasks?: unknown[] }).examTasks ?? [];
-  ok(!tasks.some((t) => JSON.stringify(t).includes('a2.29')), 'an ExamTask row references a2.29');
+  ok(!tasks.some((t) => namesUnitLabel(JSON.stringify(t), 'a2.29')), 'an ExamTask row references a2.29');
 });
 
 test('Lesson.skill is PO, so dueExamSkills() can deep-link in', () => {

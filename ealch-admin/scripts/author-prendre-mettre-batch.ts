@@ -65,6 +65,7 @@ import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode, letterCount } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
 import { Pool } from 'pg';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   A211_LINE, A211_UNIT, AUTHORED_IDS, AUTHORED_INFINITIVES, BATTRE_EVIDENCE,
   BATTRE_SHAPE, BLIND_NASALS, BLIND_NASAL_ROWS, CITED_UNITS, COMPOUND_ROWS,
@@ -504,16 +505,16 @@ console.log(`  boundaries    0 reserved participles · 0 neighbour nouns on a pr
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
- *  THE TWO BACK-REFERENCES THE BRIEF ASKS FOR BY UNIT ID
+ *  THE TWO BACK-REFERENCES THE BRIEF ASKS FOR BY ITS LESSON LABEL
  * ═══════════════════════════════════════════════════════════════════════ */
 
 {
   const doubled = byId(DOUBLED_SECTION_ID);
   if (!doubled) die(`${DOUBLED_SECTION_ID} is missing`);
   const text = prose(doubled).join('  ');
-  if (!hasPhrase(text, STEM_UNIT)) {
+  if (!namesUnitLabel(text, STEM_UNIT)) {
     die(`${DOUBLED_SECTION_ID} shows the doubled n and does not name ${STEM_UNIT}.\n`
-      + `  The brief: "Point back at a2.09 by unit id. A learner who sees two lessons connect stops believing French\n`
+      + `  The brief: "Point back at a2.09 by its lesson label. A learner who sees two lessons connect stops believing French\n`
       + `  is arbitrary, and this is the clearest connection available in batch 1."`);
   }
   /* AND THE PAIR IS ADJACENT, BY INDEX. */
@@ -542,7 +543,7 @@ console.log(`  boundaries    0 reserved participles · 0 neighbour nouns on a pr
 `
       + `  Naming ${STEM_UNIT} without it is a citation. The brief asks for the connection, not the reference.`);
   }
-  if (!hasPhrase(STEM_PRINCIPLE, STEM_UNIT)) {
+  if (!namesUnitLabel(STEM_PRINCIPLE, STEM_UNIT)) {
     die(`STEM_PRINCIPLE no longer names ${STEM_UNIT}, so the sentence that carries the connection has stopped carrying it`);
   }
   console.log(`  backrefs      ${STEM_UNIT} in ${DOUBLED_SECTION_ID} · ${A211_UNIT} in ${NOTVENDRE_SECTION_ID} · pair adjacent at ${ia},${ib}`);
@@ -831,7 +832,7 @@ const reframeSections = LESSON.sections.filter((s) => strings(s).some((x) => x.i
 if (reframeSections < 3) die(`the density validator requires the reframe in at least three sections; found ${reframeSections}`);
 
 /* EVERY CITED UNIT IS FINDABLE. */
-const uncited = CITED_UNITS.filter((u) => !hasPhrase(learnerText, u));
+const uncited = CITED_UNITS.filter((u) => !namesUnitLabel(learnerText, u));
 if (uncited.length) {
   die(`these units are named in the corpus as cited and appear nowhere a search can see: ${uncited.join(', ')}\n`
     + `  Check for a possessive: hasPhrase treats "'" as a word character, so "a2.20's" does not match "a2.20".`);

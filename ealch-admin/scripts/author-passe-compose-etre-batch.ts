@@ -68,6 +68,7 @@ import {
 } from './data/passe-compose-etre-corpus.ts';
 import { ETRE_TERMS, TERM_ROWS, rowWidth } from './data/passe-compose-etre-terms.ts';
 import { MEASURED, TRANSITIVE_MEASURED, displayRespell, stored } from './data/passe-compose-etre-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   AUDIBLE_SECTION_ID, BOOKEND_SECTION_ID, BORROWED_SECTION_ID,
   CONTRAST_SECTION_ID, DICTATION_SECTION_ID, ETRE_ACTS, ETRE_DICTEE_IDS,
@@ -144,22 +145,16 @@ function hasPhrase(hay: string, needle: string): boolean {
   return false;
 }
 
-/** A UNIT ID IS ALMOST ALWAYS WRITTEN POSSESSIVELY, AND `hasPhrase` CANNOT SEE
- *  ONE THAT IS. a2.19 §1. THE ID PASSED IN IS ALWAYS A LITERAL: a2.18 §6 and
- *  a2.20 §5.4 both found that `namesUnit(text, UNIT_CONST)` renames both sides
- *  when the constant moves, so the guard stays green while the credit vanishes
- *  from every screen. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number, and a2.24 shipped « since seq 17
+ *  of A1 » about a unit that is seq 20, which is somebody reading the id as the
+ *  position.
+ *
+ *  Case-insensitive, and it does NOT also accept the raw id: a guard taking
+ *  either would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;

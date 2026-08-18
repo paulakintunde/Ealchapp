@@ -46,13 +46,14 @@ import {
   JARGON, PLAIN_PHRASE, TECHNICAL_WORD, BANNED_SUBSTRINGS, FORBIDDEN_CLAIMS,
   DEAD_AUDIO_FIELDS, DEAD_LESSON_FIELDS,
   NEAR_MISSES, FOLD_COLLISIONS, HOMOPHONE_FORMS, ACCENT_PAIRS, DISPLAY_PARITY,
-  UNSEEN, REFRAME, REFRAME_COUNT, STRESSED_USED,
+  UNSEEN, REFRAME, REFRAME_COUNT, STRESSED_USED, UNIT_REFS,
 } from './data/pronoms-possessifs-corpus.ts';
 import { LESSON, ITEM_IDS, DECK_TRANCHE } from './data/pronoms-possessifs-lesson.ts';
 import { validateLesson, quizQuestions } from '../../ealch-v2/src/content/schema.ts';
 import { validateDensity, formatDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { fold } from '../../ealch-v2/src/content/answer.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry');
 const REAPPLY = process.argv.includes('--reapply');
@@ -89,22 +90,13 @@ const hasWord = (hay: string, needle: string): boolean =>
 const countOf = (hay: string, needle: string): number =>
   (hay.match(new RegExp(`(?<![\\p{L}\\p{N}])${esc(needle)}(?![\\p{L}\\p{N}'’])`, 'giu')) ?? []).length;
 
-/** A UNIT ID IS NOT A FRENCH WORD, AND THE HOUSE BOUNDARY IS THE WRONG SHAPE
- *  FOR ONE. `hasWord` keeps the apostrophe in the RIGHT-hand class so that `l'`
- *  cannot match a bare `l`, and that same clause makes « a2.24's line »
- *  invisible to a check for `a2.24`.
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
  *
- *  EVERY CITATION IN THIS BAND IS WRITTEN AS "<unit>'s line", so a guard built
- *  on `hasWord` was asking for the one form the house never writes. It caught
- *  this build on `s15-trap`, where a2.24 is named twice and both times with an
- *  apostrophe after it.
- *
- *  Corrections §14.3 records the MIRROR IMAGE of this: the LEFT-hand class
- *  excludes `'`, so a shape cannot see `c'est`, and the fix there is to drop it
- *  from the left. Here it has to come off BOTH sides, and only for a unit id,
- *  which can never be part of an elided French word. */
-const namesUnit = (hay: string, unit: string): boolean =>
-  new RegExp(`(?<![\\p{L}\\p{N}])${esc(unit)}(?![\\p{L}\\p{N}])`, 'iu').test(hay);
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number. Case-insensitive, and it does
+ *  NOT also accept the raw id: a guard taking either would pass on exactly the
+ *  thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 
 /** THE BARE-POSSESSIVE SHAPE, AND IT TOOK FOUR CHECKS RATHER THAN ONE.
  *
@@ -912,6 +904,32 @@ async function main() {
   /* ══════════════════════════════════════════════════════════════════════
    *  HOUSE COPY
    * ══════════════════════════════════════════════════════════════════════ */
+
+  // NO RAW UNIT ID REACHES A LEARNER, AND THE LABELS ARE THE RIGHT ONES.
+  //
+  // The doctrine used to ask for « name the earlier instance by unit id », so
+  // 36 of 37 A2 lessons printed strings like « a2.24's line » on a card. A
+  // learner has never seen that string and cannot look it up.
+  //
+  // THE ID NUMBER IS NOT THE LESSON NUMBER: 31 of 35 A2 units disagree with
+  // their own seq, and a2.24 shipped « since seq 17 of A1 » about a1.17, which
+  // is seq 20. So every label is asserted against the SHIPPED unit rather than
+  // derived from the id, and a resequenced trail fails here rather than
+  // printing a number that has moved.
+  {
+    const idRx = /(?<![\p{L}\p{N}])((?:a1|a2|b1|b2|c1|sons)\.\d{2})(?![\p{L}\p{N}])/giu;
+    const bad: string[] = [];
+    for (const t of [...strs(LESSON.sections), ...strs(LESSON.terms), ...strs(LESSON.sheets ?? []),
+      LESSON.intro ?? '', ...strs(OVERVIEW_REST), ...strs(LESSON.drills ?? []), ...strs(LESSON.acts ?? [])]) {
+      for (const m of t.matchAll(idRx)) bad.push(`"${m[1]}" in "${t.slice(0, 60)}"`);
+    }
+    if (bad.length) die(`a raw unit id reaches a learner surface: ${bad.slice(0, 6).join(' · ')}`);
+    // AND THE INTERNAL WORD FOR A TRAIL POSITION GOES WITH IT.
+    for (const t of strs(LESSON.sections)) {
+      if (/(?<![\p{L}])seq\s+\d/i.test(t)) die(`"seq N" is the internal word for a trail position and reaches a learner: "${t.slice(0, 70)}"`);
+    }
+    console.log(`  no raw unit id and no seq on any of ${strs(LESSON.sections).length} section strings`);
+  }
 
   // THE JARGON WALK COVERS `intro` AND `overview` (Corrections §9), runs over a
   // RAW walk so it sees `sub` (Corrections §13), and checks the `-s` PLURAL of

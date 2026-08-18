@@ -21,6 +21,12 @@
 // RATIO, which is what lets `overview.titleEn` stay the unit's own English name.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A205_REFRAME, A215_CREDIT, ALSO_A_WORD_CLAIM, CIRCUMFLEX, ETRE_DEFERRAL,
   ETRE_UNIT, EU, FAMILY_UNIT, GROUP_CLAIM, ODD_CLAIM, PASSE_UNIT,
@@ -37,7 +43,7 @@ export { REFRAME } from './participes-corpus.ts';
 /** What a learner already owns, named by unit, so this lesson reads as one new
  *  thing standing on five they have rather than as a list to be memorised. */
 export const ALREADY_YOURS =
-  `${PASSE_UNIT} gave you the whole shape one lesson ago: a form of avoir, then the second word, and the small ones in the gap. Nothing about that changes here and none of it is taught again. What changes is the second word, for thirty-three verbs, and twenty-eight of the thirty-three fall into four groups by their ending.`;
+  `${Cap(unitRef(PASSE_UNIT))} gave you the whole shape one lesson ago: a form of avoir, then the second word, and the small ones in the gap. Nothing about that changes here and none of it is taught again. What changes is the second word, for thirty-three verbs, and twenty-eight of the thirty-three fall into four groups by their ending.`;
 
 /** The measured margin, as one sentence, so the evidence reaches a screen rather
  *  than living only in a header. Every figure in it is re-measured by the
@@ -61,7 +67,7 @@ export const PARTICIPES_TERMS: Record<string, LessonTerm> = {
     term: 'past form',
     title: 'The second word, when you cannot build it',
     body:
-      `${PASSE_UNIT} showed you how to build the second word out of the group the verb is in: -er to -é, -ir to -i, -re to -u. That is true of almost every verb in the language and false of the thirty-three in this lesson. For these, the second word is not built. It is a word in its own right, and the only thing you can do with it is know it.`,
+      `${Cap(unitRef(PASSE_UNIT))} showed you how to build the second word out of the group the verb is in: -er to -é, -ir to -i, -re to -u. That is true of almost every verb in the language and false of the thirty-three in this lesson. For these, the second word is not built. It is a word in its own right, and the only thing you can do with it is know it.`,
     // The notes here do NOT print the form the rule invents. A term chip is
     // surfaced at every point of use, so a non-word in one is a non-word a
     // learner meets on nine screens; the invented forms live in the eleven
@@ -76,7 +82,7 @@ export const PARTICIPES_TERMS: Record<string, LessonTerm> = {
     term: 'the machine',
     title: 'The rule that produces a word that does not exist',
     body:
-      `${A205_REFRAME} That is ${PASSE_UNIT}'s line and it still holds: the shape has not changed. What has changed is that for these verbs the second word cannot be worked out from the first. Run the regular rule on prendre and it gives you « prendu », which is not a word; run it on ouvrir and it gives you « ouvri », which is not one either. The rule is not being applied carelessly. It is being applied correctly to verbs it does not cover.`,
+      `${A205_REFRAME} That is ${unitRef(PASSE_UNIT, 'a2')}'s line and it still holds: the shape has not changed. What has changed is that for these verbs the second word cannot be worked out from the first. Run the regular rule on prendre and it gives you « prendu », which is not a word; run it on ouvrir and it gives you « ouvri », which is not one either. The rule is not being applied carelessly. It is being applied correctly to verbs it does not cover.`,
     // Both notes name the form the rule gives AND say that it is not a word, in
     // the same string. A term chip is surfaced on every section that declares
     // it, so an unmarked non-word here is one a learner meets on nine screens.
@@ -92,7 +98,7 @@ export const PARTICIPES_TERMS: Record<string, LessonTerm> = {
     body: A215_CREDIT,
     examples: [
       { itemId: 'fr.a2.verbes.593', note: 'appris. Cover the ap and pris is underneath.' },
-      { itemId: 'fr.a2.verbes.595', note: 'remis. Cover the re and mis is underneath, on the naming form a2.15 wrote itself.' },
+      { itemId: 'fr.a2.verbes.595', note: `remis. Cover the re and mis is underneath, on the naming form ${unitRef('a2.15')} wrote itself.` },
     ],
   },
 
@@ -120,7 +126,7 @@ export const PARTICIPES_TERMS: Record<string, LessonTerm> = {
     term: 'one sound',
     title: 'What the ear cannot separate',
     body:
-      `Dû and du are one sound. So are « il dit » and « j'ai dit », and « il fait » and « j'ai fait ». And so is every one of these forms against the version of itself that agrees, which is why the change ${ETRE_UNIT} is about to teach you will be invisible when you hear it. The ear is useful in this lesson for the shape of a short second word and for nothing else.`,
+      `Dû and du are one sound. So are « il dit » and « j'ai dit », and « il fait » and « j'ai fait ». And so is every one of these forms against the version of itself that agrees, which is why the change ${unitRef(ETRE_UNIT)} is about to teach you will be invisible when you hear it. The ear is useful in this lesson for the shape of a short second word and for nothing else.`,
     examples: [
       { itemId: 'fr.a2.verbes.607', note: 'The one with the roof.' },
       { itemId: 'fr.a2.verbes.623', note: 'And the one without, in a sentence where nothing else is the same.' },
@@ -142,7 +148,7 @@ export const PARTICIPES_TERMS: Record<string, LessonTerm> = {
     term: 'first word',
     title: 'Three of them do not use avoir',
     body:
-      `${ETRE_DEFERRAL} There is nothing to decide here and nothing to learn about it: venu, né and mort have the forms they have, and this lesson shows them the way they actually appear so that you recognise them. ${ODD_CLAIM} You will need all of this again at ${SCHOOL_UNIT}, where the whole conversation is about what you studied and how it went.`,
+      `${ETRE_DEFERRAL} There is nothing to decide here and nothing to learn about it: venu, né and mort have the forms they have, and this lesson shows them the way they actually appear so that you recognise them. ${ODD_CLAIM} You will need all of this again at ${unitRef(SCHOOL_UNIT)}, where the whole conversation is about what you studied and how it went.`,
     examples: [
       { itemId: 'fr.a2.verbes.620', note: 'An ordinary -u form with a first word that is not avoir.' },
       { itemId: 'fr.a2.verbes.621', note: 'And the one that is shorter than the verb it comes from.' },
@@ -172,13 +178,13 @@ export const rowWidth = (keys: readonly string[]): number =>
  *  the same thing. */
 export const HANDOVER = {
   [ETRE_UNIT]:
-    'THE FORMS ARE DONE AND THE CHOICE IS NOT TOUCHED. venu, né and mort are taught as forms on one screen, which names a2.21 and says in one line that which verbs take être, and what happens to the form afterwards, is that lesson\'s. No production surface anywhere in a2.20 asks a learner to pick an auxiliary, and no authored sentence agrees a past form with anything: the three être rows are masculine singular deliberately, so a2.21 can introduce agreement against a clean background. And the reason agreement will be hard is stated here rather than there: pris and prise are one sound.',
+    `THE FORMS ARE DONE AND THE CHOICE IS NOT TOUCHED. venu, né and mort are taught as forms on one screen, which names ${unitRef('a2.21')} and says in one line that which verbs take être, and what happens to the form afterwards, is that lesson\'s. No production surface anywhere in ${unitRef('a2.20')} asks a learner to pick an auxiliary, and no authored sentence agrees a past form with anything: the three être rows are masculine singular deliberately, so ${unitRef('a2.21')} can introduce agreement against a clean background. And the reason agreement will be hard is stated here rather than there: pris and prise are one sound.`,
   [REFLEXIVE_UNIT]:
     '`assis` is the one form in the -is group with no sentence of its own, because a full past for s\'asseoir needs the little word in front of the verb as well as the first word. The form is on the group table and nothing else about it is taught.',
   [PRONOUN_UNIT]:
-    'The one case where a past form DOES agree after avoir is the preceding direct object. a2.05 measured 81 published rows holding it and neither that lesson nor this one teaches it.',
+    `The one case where a past form DOES agree after avoir is the preceding direct object. ${Cap(unitRef('a2.05'))} measured 81 published rows holding it and neither that lesson nor this one teaches it.`,
   [SCHOOL_UNIT]:
-    'a2.05 found this dependent and no other document in this band names it. Its whole canDo is a conversation in this tense, and half the verbs such a conversation needs — appris, compris, écrit, lu, su, dû — are in this lesson rather than in a2.05.',
+    `${Cap(unitRef('a2.05'))} found this dependent and no other document in this band names it. Its whole canDo is a conversation in this tense, and half the verbs such a conversation needs — appris, compris, écrit, lu, su, dû — are in this lesson rather than in ${unitRef('a2.05')}.`,
   [FAMILY_UNIT]:
-    'Its family principle is borrowed rather than restated: a2.15\'s own reframe is quoted verbatim on the screen where appris, compris, remis and promis arrive, and the naming form of remettre that this lesson imports is the row a2.15 authored from scratch.',
+    `Its family principle is borrowed rather than restated: ${unitRef('a2.15')}\'s own reframe is quoted verbatim on the screen where appris, compris, remis and promis arrive, and the naming form of remettre that this lesson imports is the row ${unitRef('a2.15')} authored from scratch.`,
 } as const;

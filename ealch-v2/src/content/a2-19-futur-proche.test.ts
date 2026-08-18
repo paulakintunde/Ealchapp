@@ -68,6 +68,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode, letterCount } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -148,21 +149,11 @@ function hasPhrase(hay: string, needle: string): boolean {
   }
   return false;
 }
-/** A UNIT ID IS ALMOST ALWAYS WRITTEN POSSESSIVELY AND `hasPhrase` CANNOT SEE
- *  ONE THAT IS. a2.17 §3 fixed the LEFT boundary; the RIGHT one has the same
- *  hole, and « a2.04's card » does not match `a2.04` because the house boundary
- *  counts an apostrophe as a word character. Found by this build's second dry
- *  run, and this lesson writes four of its five unit references possessively. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase(); const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID. Resolved
+ *  through the shipped `unit.seq`, never by slicing the id: 31 of 35 A2 units
+ *  disagree with their own id number. It does not also accept the raw id, or it
+ *  would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;
   const h = hay.toLowerCase(); const q = needle.toLowerCase();
@@ -261,7 +252,7 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   // v2, not v1. A Pixel 6 found the scene's break card running past the bottom
   // and the reference sheet's own title cut in its header bar, and the counter
   // moved rather than the body being corrected under v1 (ledger §10).
-  strictEqual(L!.version, 3);
+  strictEqual(L!.version, 5, 'the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -385,8 +376,8 @@ test('no corpus row in this block puts pas after the naming form', { skip: noLes
 test('a2.02\'s term is quoted verbatim and the unit is credited by id', { skip: noLesson }, () => {
   const text = learnerText();
   ok(hasPhrase(text, WHAT_FOLLOWS), `the ${PATTERN_UNIT} term is not quoted`);
-  ok(namesUnit(text, PATTERN_UNIT), `${PATTERN_UNIT} is never named by id`);
-  ok(namesUnit(text, TIME_UNIT), `${TIME_UNIT} met the same shape at seq 14 and is never named by id`);
+  ok(namesUnitLabel(text, PATTERN_UNIT), `${PATTERN_UNIT} is never named by its lesson label`);
+  ok(namesUnitLabel(text, TIME_UNIT), `${TIME_UNIT} met the same shape at seq 14 and is never named by its lesson label`);
   const trap = sec('s14-twice') as { rule?: { title?: string } } | undefined;
   strictEqual(trap?.rule?.title, WHAT_FOLLOWS, 'the trap\'s rule card is not titled with the term');
 });
@@ -394,11 +385,11 @@ test('a2.02\'s term is quoted verbatim and the unit is credited by id', { skip: 
 test('a2.13\'s reframe is quoted verbatim and a1.18\'s line about the ne is too', { skip: noLesson }, () => {
   const text = learnerText();
   ok(hasPhrase(text, A213_REFRAME), 'a2.13\'s reframe is not quoted');
-  ok(namesUnit(text, MODAL_UNIT), 'a2.13 is never named by id');
+  ok(namesUnitLabel(text, MODAL_UNIT), 'a2.13 is never named by its lesson label');
   ok(hasPhrase(text, A118_NE_DROP), 'a1.18\'s line about the dropped ne is not quoted');
-  ok(namesUnit(text, NEGATION_UNIT), 'a1.18 is never named by id');
+  ok(namesUnitLabel(text, NEGATION_UNIT), 'a1.18 is never named by its lesson label');
   // AND THE BACK-REFERENCE SECTION IS THE ONE THAT NAMES a2.13.
-  ok(strings(sec('s10-modals')).some((s) => namesUnit(s, MODAL_UNIT)), 's10-modals does not name a2.13');
+  ok(strings(sec('s10-modals')).some((s) => namesUnitLabel(s, MODAL_UNIT)), 's10-modals does not name a2.13');
 });
 
 test('this lesson\'s reframe extends a1.18\'s rather than contradicting it', { skip: noLesson }, () => {
@@ -417,8 +408,8 @@ test('this lesson\'s reframe extends a1.18\'s rather than contradicting it', { s
 
 test('a2.04 and a2.05 are named, and the dans loop a2.18 asked for is closed', { skip: noLesson }, () => {
   const text = learnerText();
-  ok(namesUnit(text, PLACE_UNIT), 'a2.04 owns the place sense and is never named');
-  ok(namesUnit(text, PAST_UNIT), 'a2.05 is told to extend this rule and is never named');
+  ok(namesUnitLabel(text, PLACE_UNIT), 'a2.04 owns the place sense and is never named');
+  ok(namesUnitLabel(text, PAST_UNIT), 'a2.05 is told to extend this rule and is never named');
   // THE HAND-OFF BY ITS OWN WORDING, NOT BY THE UNIT ID BEING SOMEWHERE.
   // FOUND BY MUTATION: gutting the sentence left a2.05 named on the progress
   // card, so every presence check stayed green while the hand-off was gone.
@@ -430,7 +421,7 @@ test('a2.04 and a2.05 are named, and the dans loop a2.18 asked for is closed', {
   const when = strings(sec('s12-when')).join('\n');
   ok(hasPhrase(when, 'Je pars dans dix minutes.'), 'a2.18\'s present-with-future sentence is not on the screen that closes its loop');
   ok(hasPhrase(when, 'Je vais partir dans dix minutes.'), 'this lesson\'s verb-in-front version is not beside it');
-  ok(namesUnit(when, TIME_UNIT), 'the screen that closes a2.18\'s loop does not name a2.18');
+  ok(namesUnitLabel(when, TIME_UNIT), 'the screen that closes a2.18\'s loop does not name a2.18');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

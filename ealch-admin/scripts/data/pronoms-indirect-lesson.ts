@@ -65,13 +65,19 @@ import {
 } from './pronoms-indirect-corpus.ts';
 import { PRONOMS_INDIRECT_TERMS } from './pronoms-indirect-terms.ts';
 import { importedFr, importedEn, respell as impRespell } from './pronoms-indirect-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the corpus, never restating it ─────────────────────────────── */
 
 const BY_ID = new Map(ROWS.map((r) => [r.id, r]));
 const row = (id: string) => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.24: no authored row ${id}`);
+  if (!r) throw new Error(`${unitRef('a2.24')}: no authored row ${id}`);
   return r;
 };
 const fr = (id: string) => row(id).fr;
@@ -266,7 +272,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     render: 'deck',
-    say: `Two rows of words and one position between them. « ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it is true of both rows without a word changed.`,
+    say: `Two rows of words and one position between them. « ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it is true of both rows without a word changed.`,
     hint: 'The place is the same. Only the words differ.',
     terms: ['sameSlot', 'twoWords', 'behindA'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-24-sets' },
@@ -280,10 +286,10 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'and the same sentence, twice',
-        label: `${DIRECT_UNIT}'s sentence · this lesson's`,
+        label: `${Cap(unitRef(DIRECT_UNIT, 'a2'))}'s sentence · this lesson's`,
         fr: importedFr(A206_FRAME_ID),
         sub: fr(A(238)),
-        body: `${sub(A(238))} The first line is ${DIRECT_UNIT}'s own sentence, borrowed rather than copied. Three words each, and the small word is second in both.`,
+        body: `${sub(A(238))} The first line is ${unitRef(DIRECT_UNIT, 'a2')}'s own sentence, borrowed rather than copied. Three words each, and the small word is second in both.`,
       },
       {
         head: 'what you lose crossing over',
@@ -304,8 +310,8 @@ const SECTIONS: LessonSection[] = [
     goals: [
       { t: 'Know which verbs put a person behind à', s: `${REFRAME} There are ten of them here and there is no rule behind the list, which is why the list is the lesson.` },
       { t: 'Pick between two words', s: `One person or several, and nothing else comes into it. ${GENDER_LOST}` },
-      { t: 'Keep the leur that never takes an s apart from the one that does', s: `${LEUR_RULE} ${POSSESSIVE_UNIT} gave you the test and it still works: ${A117_TEST}.` },
-      { t: 'Put it where you already put the other one', s: `« ${POSITION_RULE} » ${DIRECT_UNIT}'s line, unchanged, and this lesson teaches none of it.` },
+      { t: 'Keep the leur that never takes an s apart from the one that does', s: `${LEUR_RULE} ${Cap(unitRef(POSSESSIVE_UNIT))} gave you the test and it still works: ${A117_TEST}.` },
+      { t: 'Put it where you already put the other one', s: `« ${POSITION_RULE} » ${unitRef(DIRECT_UNIT, 'a2')}'s line, unchanged, and this lesson teaches none of it.` },
     ],
   },
 
@@ -329,7 +335,7 @@ const SECTIONS: LessonSection[] = [
       { fr: fr(A(252)), en: en(A(252)), note: `${sub(A(252))} Two words beginning with l in a row, and only the second one is the verb.` },
       { fr: fr(A(253)), en: en(A(253)), note: `${sub(A(253))} A woman speaking about a man, and lui carries neither fact. That is the point rather than an oversight.` },
       { fr: fr(A(257)), en: en(A(257)), note: `${sub(A(257))} The same word, and this time a woman. One form for both, and the conversation tells you which.` },
-      { fr: fr(A(254)), en: en(A(254)), note: `${sub(A(254))} More than one person, so leur. The verb ending is ${'a2.01'}'s business and not this lesson's.` },
+      { fr: fr(A(254)), en: en(A(254)), note: `${sub(A(254))} More than one person, so leur. The verb ending is ${unitRef('a2.01', 'a2')}'s business and not this lesson's.` },
       { fr: fr(A(255)), en: en(A(255)), note: `${sub(A(255))} And leur again, with no s on it, which is the whole of the next act.` },
     ],
   },
@@ -403,9 +409,9 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'not the à you met before',
-        label: `${PLACE_UNIT} taught the other one`,
+        label: `${Cap(unitRef(PLACE_UNIT))} taught the other one`,
         ...pairRows(A(241), A(242)),
-        body: `${bothRespells(A(241), A(242))} « ${A204_REFRAME} » is ${PLACE_UNIT}'s line, and it is about à in front of a place, which stays put. This à does not stay at all.`,
+        body: `${bothRespells(A(241), A(242))} « ${A204_REFRAME} » is ${unitRef(PLACE_UNIT, 'a2')}'s line, and it is about à in front of a place, which stays put. This à does not stay at all.`,
       },
     ],
   },
@@ -496,7 +502,7 @@ const SECTIONS: LessonSection[] = [
           q: `« ${fr(A(239))} » Replace them.`,
           opts: ['Je parle à eux.', fr(A(240)), LEURS_TRAP],
           correct: 1,
-          why: `Several people behind à, so leur. The third option is a1.17's habit reaching into a place it cannot go: ${LEUR_RULE}`,
+          why: `Several people behind à, so leur. The third option is ${unitRef('a1.17')}'s habit reaching into a place it cannot go: ${LEUR_RULE}`,
         },
       },
     ],
@@ -551,7 +557,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     render: 'deck',
-    say: `You have had leur since ${POSSESSIVE_UNIT} and it meant their. This is a different word spelled the same, and it behaves in the one way the other one does not. ${LEUR_RULE}`,
+    say: `You have had leur since ${unitRef(POSSESSIVE_UNIT)} and it meant their. This is a different word spelled the same, and it behaves in the one way the other one does not. ${LEUR_RULE}`,
     hint: 'Look at what comes after it.',
     terms: ['theirWord', 'twoWords', 'sameSlot'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-24-leurs' },
@@ -560,13 +566,13 @@ const SECTIONS: LessonSection[] = [
         head: 'side by side',
         label: 'a verb behind it · a thing behind it',
         ...pairRows(A(240), A(259)),
-        body: `${bothRespells(A(240), A(259))} ${POSSESSIVE_UNIT} gave you the test: ${A117_TEST}. The first has a verb behind leur, so it can never take an s. The second has keys.`,
+        body: `${bothRespells(A(240), A(259))} ${Cap(unitRef(POSSESSIVE_UNIT))} gave you the test: ${A117_TEST}. The first has a verb behind leur, so it can never take an s. The second has keys.`,
       },
       {
         head: 'and the s counts the things',
         label: 'one house · several keys',
         ...pairRows(A(258), A(259)),
-        body: `${bothRespells(A(258), A(259))} Both are ${POSSESSIVE_UNIT}'s word and nothing here re-teaches it. One house and several keys, and the s went on because of the keys rather than the people.`,
+        body: `${bothRespells(A(258), A(259))} Both are ${unitRef(POSSESSIVE_UNIT, 'a2')}'s word and nothing here re-teaches it. One house and several keys, and the s went on because of the keys rather than the people.`,
       },
       {
         head: 'both jobs, one sentence',
@@ -622,7 +628,7 @@ const SECTIONS: LessonSection[] = [
         ipa: ipaOf(A(259)),
         promptLabel: 'the s that belongs',
         promptSound: fr(A(259)),
-        tip: 'Keys behind it, and several of them, so the s goes on. a1.17\'s word, a1.17\'s rule, and nothing about it is new.',
+        tip: `Keys behind it, and several of them, so the s goes on. ${Cap(unitRef('a1.17'))}\'s word, ${unitRef('a1.17')}\'s rule, and nothing about it is new.`,
       },
       {
         fr: fr(A(258)),
@@ -652,7 +658,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     render: 'deck',
-    say: `« ${WHAT_FOLLOWS} » is ${WHAT_FOLLOWS_UNIT}'s line for this pattern and this is the sixth time it has come round. ${DIRECT_UNIT} had the fifth one lesson ago. ${SHAPE_EXTENSION}`,
+    say: `« ${WHAT_FOLLOWS} » is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s line for this pattern and this is the sixth time it has come round. ${Cap(unitRef(DIRECT_UNIT))} had the fifth one lesson ago. ${SHAPE_EXTENSION}`,
     hint: 'One word, and what sits beside it decides.',
     terms: ['onItsOwn', 'theLittleWord', 'sameSlot'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-24-stressed' },
@@ -667,7 +673,7 @@ const SECTIONS: LessonSection[] = [
         head: 'and it is not just avec',
         label: 'sans · pour',
         ...pairRows(A(262), A(263)),
-        body: `${bothRespells(A(262), A(263))} Three little words and the same behaviour, which is what makes it a rule rather than an idiom. ${WHAT_FOLLOWS_UNIT} named the pattern and ${DIRECT_UNIT} met it one lesson ago.`,
+        body: `${bothRespells(A(262), A(263))} Three little words and the same behaviour, which is what makes it a rule rather than an idiom. ${Cap(unitRef(WHAT_FOLLOWS_UNIT))} named the pattern and ${unitRef(DIRECT_UNIT)} met it one lesson ago.`,
       },
       {
         head: 'and the one that is real French',
@@ -698,17 +704,17 @@ const SECTIONS: LessonSection[] = [
       {
         wrong: 'Je téléphone lui.',
         right: fr(A(243)),
-        why: `The word left at the end, where English puts it. « ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it is true of this row of words too. Nothing about the position changed today.`,
+        why: `The word left at the end, where English puts it. « ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it is true of this row of words too. Nothing about the position changed today.`,
       },
       {
         wrong: LEURS_TRAP,
         right: fr(A(240)),
-        why: `The s from ${POSSESSIVE_UNIT}, on a word that can never take one. ${LEUR_RULE} No sound will correct you, so this is settled in writing or not at all.`,
+        why: `The s from ${unitRef(POSSESSIVE_UNIT)}, on a word that can never take one. ${LEUR_RULE} No sound will correct you, so this is settled in writing or not at all.`,
       },
       {
         wrong: A_KEPT_TRAP,
         right: fr(A(238)),
-        why: `${A_FRAMING} Keeping it gives you real French that means something else, and nobody will stop you. ${PLACE_UNIT} taught the à that stays; this is not that one.`,
+        why: `${A_FRAMING} Keeping it gives you real French that means something else, and nobody will stop you. ${Cap(unitRef(PLACE_UNIT))} taught the à that stays; this is not that one.`,
       },
     ],
   },
@@ -733,20 +739,20 @@ const SECTIONS: LessonSection[] = [
         head: 'both inside',
         label: 'ne · lui parle · pas',
         ...pairRows(A(238), A(264)),
-        body: `${bothRespells(A(238), A(264))} « ${A118_REFRAME} » from ${NEGATION_UNIT}, and « ${NEGATION_RULE} » from ${FUTUR_UNIT}. One verb here, so the second question never arises.`,
+        body: `${bothRespells(A(238), A(264))} « ${A118_REFRAME} » from ${unitRef(NEGATION_UNIT)}, and « ${NEGATION_RULE} » is ${unitRef(FUTUR_UNIT, 'a2')}'s. One verb, so it never arises.`,
       },
       {
         head: 'and the plural is no different',
         label: 'and still no s on it',
         ...pairRows(A(240), A(265)),
-        body: `${bothRespells(A(240), A(265))} ${NEGATION_EXTENSION} That sentence is ${DIRECT_UNIT}'s, word for word, and it holds for the same reason: the small word belongs to the verb.`,
+        body: `${bothRespells(A(240), A(265))} ${NEGATION_EXTENSION} That sentence is ${unitRef(DIRECT_UNIT, 'a2')}'s, word for word, and it holds for the same reason: the small word belongs to the verb.`,
       },
       {
         head: 'and with two words of verb',
         label: 'ne · word · first word · pas · second word',
         fr: fr(A(271)),
         sub: `${sub(A(271))} ${en(A(271))}`,
-        body: `The same order ${DIRECT_UNIT} gave you and ${REFLEXIVE_PAST_UNIT} settled for a three-part verb. Nothing here is a new negation rule and nothing here is worth memorising twice.`,
+        body: `The same order ${unitRef(DIRECT_UNIT)} gave you and ${unitRef(REFLEXIVE_PAST_UNIT)} settled for a three-part verb. Nothing here is a new negation rule and nothing here is worth memorising twice.`,
       },
     ],
   },
@@ -761,14 +767,14 @@ const SECTIONS: LessonSection[] = [
     title: 'Nothing On The End',
     frSub: "Pas d'accord",
     layer: 'core',
-    say: `${ENDING_RULE} Five sentences and not one ending between them. ${REFLEXIVE_PAST_UNIT} told you the reason was waiting here, and this is it.`,
+    say: `${ENDING_RULE} Five sentences and not one ending between them. ${Cap(unitRef(REFLEXIVE_PAST_UNIT))} told you the reason was waiting here, and this is it.`,
     terms: ['noEnding', 'twoWords', 'sameSlot'],
     examples: [
       { fr: fr(A(268)), en: en(A(268)), note: `${sub(A(268))} One person, and parlé is bare.` },
       { fr: fr(A(269)), en: en(A(269)), note: `${sub(A(269))} Several people, and parlé is still bare. Nothing was ever going to change it, which is unusually kind for a rule about endings.` },
       { fr: fr(A(283)), en: en(A(283)), note: `${sub(A(283))} A woman speaking, several people spoken to, and still nothing. The second word is not responding to anybody in the sentence.` },
       { fr: fr(A(270)), en: en(A(270)), note: `${sub(A(270))} A different verb, so it is not a fact about parler.` },
-      { fr: importedFr(A223_ROW_ID), en: importedEn(A223_ROW_ID), note: `${REFLEXIVE_PAST_UNIT}'s own sentence, borrowed rather than copied. It promised that « ${A223_POINTER_TAIL} », and this is it: the hands got washed, and they are named after the verb.` },
+      { fr: importedFr(A223_ROW_ID), en: importedEn(A223_ROW_ID), note: `${Cap(unitRef(REFLEXIVE_PAST_UNIT, 'a2'))}'s own sentence, borrowed rather than copied. It promised that « ${A223_POINTER_TAIL} », and this is it: the hands got washed, and they are named after the verb.` },
     ],
   },
 
@@ -869,10 +875,10 @@ const SECTIONS: LessonSection[] = [
       { front: `« ${fr(A(237))} » Say it without the name.`, back: `${fr(A(238))} ${A_FRAMING}`, say: fr(A(238)) },
       { front: 'Several people. Which word?', back: `Leur. ${LEUR_RULE}`, say: fr(A(240)) },
       { front: 'Is lui a man or a woman?', back: GENDER_LOST, say: fr(A(238)) },
-      { front: 'Where does the word go?', back: `${POSITION_RULE} ${DIRECT_UNIT}'s line, unchanged.`, say: fr(A(238)) },
+      { front: 'Where does the word go?', back: `${POSITION_RULE} ${Cap(unitRef(DIRECT_UNIT, 'a2'))}'s line, unchanged.`, say: fr(A(238)) },
       { front: `Make « ${fr(A(238))} » negative.`, back: `${fr(A(264))} ${NEGATION_EXTENSION}`, say: fr(A(264)) },
       { front: 'Which leur can take an s?', back: `« ${A117_TEST} ». ${noStop(fr(A(259)))} counts keys. ${noStop(fr(A(240)))} counts nothing and never could.`, say: fr(A(259)) },
-      { front: 'Is the lui in « Je parle avec lui » the same word as the one in « Je lui parle »?', back: `Yes, and ${WHAT_FOLLOWS_UNIT}'s test settles it: ${STRESSED_RULE}`, say: fr(A(261)) },
+      { front: 'Is the lui in « Je parle avec lui » the same word as the one in « Je lui parle »?', back: `Yes, and ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s test settles it: ${STRESSED_RULE}`, say: fr(A(261)) },
       { front: 'Does anything go on the end of the second word in the past?', back: ENDING_RULE, say: fr(A(268)) },
     ],
   },
@@ -1012,7 +1018,7 @@ const SECTIONS: LessonSection[] = [
             q: 'Several friends, several sets of keys. Type: Here are their keys.',
             accept: [fr(A(259))],
             ref: LEURS,
-            why: `${POSSESSIVE_UNIT}'s word and ${POSSESSIVE_UNIT}'s rule. The s counts the keys, never the friends, and there are several of both here.`,
+            why: `${Cap(unitRef(POSSESSIVE_UNIT, 'a2'))}'s word and ${unitRef(POSSESSIVE_UNIT, 'a2')}'s rule. The s counts the keys, never the friends, and there are several of both here.`,
           },
           {
             format: 'mcq',
@@ -1119,7 +1125,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 1,
             ref: ENDING,
-            why: `${ENDING_RULE} The first option is nearly a rule and is not this one: ${DIRECT_UNIT} showed an ending appearing with the same first word, when the thing acted on came first.`,
+            why: `${ENDING_RULE} The first option is nearly a rule and is not this one: ${unitRef(DIRECT_UNIT)} showed an ending appearing with the same first word, when the thing acted on came first.`,
           },
           {
             format: 'errorSpot',
@@ -1130,7 +1136,7 @@ const SECTIONS: LessonSection[] = [
           },
           {
             format: 'mcq',
-            q: `${REFLEXIVE_PAST_UNIT} showed you « ${importedFr(A223_ROW_ID)} » with no ending on lavé. Why not?`,
+            q: `${Cap(unitRef(REFLEXIVE_PAST_UNIT))} showed you « ${importedFr(A223_ROW_ID)} » with no ending on lavé. Why not?`,
             opts: [
               'Because elle is feminine',
               'Because there are two hands',
@@ -1139,7 +1145,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 2,
             ref: ENDING,
-            why: `« ${A206_AGREEMENT_RULE} » is ${DIRECT_UNIT}'s line and it needs the thing acted on to be in front. Les mains comes after, so nothing goes on.`,
+            why: `« ${A206_AGREEMENT_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it needs the thing acted on to be in front. Les mains comes after, so nothing goes on.`,
           },
           {
             format: 'typeIn',
@@ -1184,7 +1190,7 @@ const SECTIONS: LessonSection[] = [
             word: 'parlent',
             correct: 't',
             ref: TWO,
-            why: 'The ending is silent, which a2.01 taught you and this lesson leans on: nothing about the small word in front responds to the subject, and nothing about the verb ending is audible either.',
+            why: `The ending is silent, which ${unitRef('a2.01')} taught you and this lesson leans on: nothing about the small word in front responds to the subject, and nothing about the verb ending is audible either.`,
           },
           {
             format: 'errorSpot',
@@ -1208,12 +1214,12 @@ const SECTIONS: LessonSection[] = [
     points: [
       REFRAME,
       `${A_FRAMING} Six of the ten verbs give you no warning at all in English, and four of them say "to" and let you off.`,
-      `« ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it was true of these two words without a word changed. One position, two sets of words.`,
+      `« ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it was true of these two words without a word changed. One position, two sets of words.`,
       `${GENDER_LOST}`,
-      `${LEUR_RULE} ${POSSESSIVE_UNIT} gave you the test and it still works: ${A117_TEST}.`,
-      `${STRESSED_RULE} That is ${WHAT_FOLLOWS_UNIT}'s shape for the sixth time, and ${DIRECT_UNIT} had the fifth.`,
-      `${ENDING_RULE} ${REFLEXIVE_PAST_UNIT} said the reason was waiting here and it was.`,
-      `Next: ${Y_EN_UNIT} takes ${A_FRAMING_NEXT} into the same place, which is this lesson's little word with something that is not a person behind it. And two of these small words in one sentence is a question nobody has answered yet.`,
+      `${LEUR_RULE} ${Cap(unitRef(POSSESSIVE_UNIT))} gave you the test and it still works: ${A117_TEST}.`,
+      `${STRESSED_RULE} That is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s shape for the sixth time, and ${unitRef(DIRECT_UNIT)} had the fifth.`,
+      `${ENDING_RULE} ${Cap(unitRef(REFLEXIVE_PAST_UNIT))} said the reason was waiting here and it was.`,
+      `Next: ${unitRef(Y_EN_UNIT)} takes ${A_FRAMING_NEXT} into the same place, which is this lesson's little word with something that is not a person behind it. And two of these small words in one sentence is a question nobody has answered yet.`,
     ],
     sheetId: SHEET_ID,
   },
@@ -1293,28 +1299,28 @@ const ACTS: LessonAct[] = [
 const ERROR_TRIGGERS: ErrorTrigger[] = [
   {
     id: 'err-wrong-set',
-    description: 'Reaches into a2.06\'s row of words for a person who sits behind à. « Je l\'ai téléphoné. » THE error of this lesson, and it is worse than the one a2.06 predicted because the sentence is grammatical: the position rule was applied perfectly and the result means something else, so nobody corrects it.',
+    description: `Reaches into ${unitRef('a2.06')}\'s row of words for a person who sits behind à. « Je l\'ai téléphoné. » THE error of this lesson, and it is worse than the one ${unitRef('a2.06')} predicted because the sentence is grammatical: the position rule was applied perfectly and the result means something else, so nobody corrects it.`,
     detectOn: [SETS, BEHIND, VERBS, PICK, QUIZ],
     drill: 'drill-set',
     retest: 'retest-set',
   },
   {
     id: 'err-keeps-a',
-    description: 'Keeps the à and writes « Je parle à lui. » Grammatical, and it is the stressed pronoun singling the person out rather than the plain sentence the learner was building. a2.04 taught an à that stays in the sentence and this one does not, so the habit is transferred rather than invented.',
+    description: `Keeps the à and writes « Je parle à lui. » Grammatical, and it is the stressed pronoun singling the person out rather than the plain sentence the learner was building. ${Cap(unitRef('a2.04'))} taught an à that stays in the sentence and this one does not, so the habit is transferred rather than invented.`,
     detectOn: [BEHIND, STRESSED, ERRORS, QUIZ],
     drill: 'drill-a',
     retest: 'retest-a',
   },
   {
     id: 'err-leurs',
-    description: 'Puts a1.17\'s s on a word that can never take one. « Je leurs parle. » The learner has had leur/leurs as an agreeing possessive since seq 17 of A1 and there are several people in the sentence, so the s looks right and nothing in the sound argues.',
+    description: `Puts ${unitRef('a1.17')}\'s s on a word that can never take one. « Je leurs parle. » The learner has had leur/leurs as an agreeing possessive since ${unitRef('a1.17')} and there are several people in the sentence, so the s looks right and nothing in the sound argues.`,
     detectOn: [LEURS, TRAP, DICTATION, QUIZ],
     drill: 'drill-leurs',
     retest: 'retest-leurs',
   },
   {
     id: 'err-added-ending',
-    description: 'Adds an ending to the second word after lui or leur, carrying a2.06\'s preceding-object rule into a place it does not reach. « Je leur ai parlés. » a2.06 taught an ending appearing with the same auxiliary one lesson ago, so this is a rule generalising rather than a rule forgotten.',
+    description: `Adds an ending to the second word after lui or leur, carrying ${unitRef('a2.06')}\'s preceding-object rule into a place it does not reach. « Je leur ai parlés. » ${unitRef('a2.06')} taught an ending appearing with the same auxiliary one lesson ago, so this is a rule generalising rather than a rule forgotten.`,
     detectOn: [ENDING, QUIZ],
     drill: 'drill-ending',
     retest: 'retest-ending',
@@ -1421,7 +1427,7 @@ const SHEETS: ReferenceSheet[] = [
         type: 'teach',
         layer: 'deep',
         title: 'The rule, in one line',
-        body: `${REFRAME} ${A_FRAMING} And the place it goes is not new: « ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it is true of these two words unchanged. The only thing you have to hold is which verbs put the person behind à, and that is a list rather than a rule.`,
+        body: `${REFRAME} ${A_FRAMING} And the place it goes is not new: « ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it is true of these two words unchanged. The only thing you have to hold is which verbs put the person behind à, and that is a list rather than a rule.`,
       },
       {
         /* THE ONE REAL `table`, and it is here because a table at layer core is a
@@ -1455,14 +1461,14 @@ const SHEETS: ReferenceSheet[] = [
         type: 'teach',
         layer: 'deep',
         title: 'The other leur',
-        body: `${LEUR_RULE} ${POSSESSIVE_UNIT} owns the possessive and this lesson re-teaches none of it. Its test is the one to keep: ${A117_TEST}. ${noStop(fr(A(240)))} has a verb behind it. ${noStop(fr(A(259)))} has keys behind it, and there are several, so the s goes on. How many people there are never enters into either decision.`,
+        body: `${LEUR_RULE} ${Cap(unitRef(POSSESSIVE_UNIT))} owns the possessive and this lesson re-teaches none of it. Its test is the one to keep: ${A117_TEST}. ${noStop(fr(A(240)))} has a verb behind it. ${noStop(fr(A(259)))} has keys behind it, and there are several, so the s goes on. How many people there are never enters into either decision.`,
       },
       {
         id: 'sheet-next',
         type: 'teach',
         layer: 'deep',
         title: 'What comes next',
-        body: `${Y_EN_UNIT} puts ${A_FRAMING_NEXT} into this same place, which is the little word you learned today with something that is not a person behind it. Two of these small words in one sentence is a further question and nobody has answered it yet. ${ENDING_RULE}`,
+        body: `${Cap(unitRef(Y_EN_UNIT))} puts ${A_FRAMING_NEXT} into this same place, which is the little word you learned today with something that is not a person behind it. Two of these small words in one sentence is a further question and nobody has answered it yet. ${ENDING_RULE}`,
       },
     ],
   },
@@ -1565,7 +1571,7 @@ const LESSON_AUTHORED: Lesson = {
    *  under one number. Two different bodies under one number is the drift this
    *  project has lost work to twice, and the batch's own version guard refused
    *  the re-apply at v2, which is the guard working. */
-  version: 4,
+  version: 7,
 
   /** DRAWN ON THE LESSON OVERVIEW CARD AND ON THE LESSON COVER, and corrections
    *  §9 records that a2.11 shipped grammar jargon here while every host gate was

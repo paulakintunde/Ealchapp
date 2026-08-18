@@ -294,6 +294,12 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── IDENTITY ──────────────────────────────────────────────────────────────
  *
@@ -433,7 +439,7 @@ export const REFRAME = 'The pronoun changes with the subject, because it is the 
 export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   {
     candidate: 'Reflexive verbs take an extra pronoun.',
-    why: 'THE BRIEF NAMES THIS AS THE THING TO REJECT and it is right: it gives the learner a fixed particle, which is the error. It is also what a1.25 deliberately taught — « Learn it as part of the verb » — so shipping it here would restate the misconception instead of removing it.',
+    why: `THE BRIEF NAMES THIS AS THE THING TO REJECT and it is right: it gives the learner a fixed particle, which is the error. It is also what ${unitRef('a1.25')} deliberately taught — « Learn it as part of the verb » — so shipping it here would restate the misconception instead of removing it.`,
   },
   {
     candidate: 'The action comes back to the subject.',
@@ -441,7 +447,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'Store the small word with the verb.',
-    why: 'a1.25\'s own term, correct at A1 where three persons are lexical items, and now the obstacle. Naming it as rejected is this lesson\'s opening move rather than a footnote.',
+    why: `${Cap(unitRef('a1.25'))}\'s own term, correct at A1 where three persons are lexical items, and now the obstacle. Naming it as rejected is this lesson\'s opening move rather than a footnote.`,
   },
   {
     candidate: 'Me, te, se, nous, vous, se.',
@@ -471,7 +477,7 @@ export const PRESENT_NO_AGREEMENT =
 
 /** The stem-change credit. §1: the MECHANISM is a2.09's and the verb is not. */
 export const A209_CREDIT =
-  'The vowel moves for the reason a2.09 gave, in the four cells where the ending goes silent. That is a different rule running at the same time as this one, and it is not part of carrying a pronoun.';
+  `The vowel moves for the reason ${unitRef('a2.09')} gave, in the four cells where the ending goes silent. That is a different rule running at the same time as this one, and it is not part of carrying a pronoun.`;
 
 /* ─── THE AUTHORED ROWS ─────────────────────────────────────────────────────*/
 
@@ -505,7 +511,7 @@ export const PRONOMINAUX: Row[] = [
   { id: 'fr.a2.verbes.721', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je me lave.', en: 'I wash.', ipa: '/ʒə mə lav/', respell: 'zhuh muh LAHV', person: 'je', bucket: 'paradigm', clitic: 'me', tags: [...T, 'paradigm'], drills: SD, audioRef: null, version: 1, notes: 'The frame cell. Eight letters, so the dictée can take it in LETTERS mode.' },
   { id: 'fr.a2.verbes.722', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu te laves.', en: 'You wash.', ipa: '/ty tə lav/', respell: 'tü tuh LAHV', person: 'tu', bucket: 'paradigm', clitic: 'te', tags: [...T, 'paradigm'], drills: SD, audioRef: null, version: 1, notes: 'The verb is the same sound as the je cell. Only the two little words changed.' },
   { id: 'fr.a2.verbes.723', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il se lave.', en: 'He washes.', ipa: '/il sə lav/', respell: 'eel suh LAHV', person: 'il', bucket: 'paradigm', clitic: 'se', tags: [...T, 'paradigm'], drills: SD, audioRef: null, version: 1, notes: 'se is the form the naming word carries, which is why it looks like the default and is not.' },
-  { id: 'fr.a2.verbes.724', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous lavons.', en: 'We wash.', ipa: '/nu nu la.vɔ̃/', respell: 'noo noo lah-VOHⁿ', person: 'nous', bucket: 'paradigm', clitic: 'nous', tags: [...T, 'paradigm', 'doubled'], drills: SD, audioRef: null, version: 1, notes: 'THE DOUBLED WORD. Same word twice, two different jobs. a1.25 already put it on a screen once.' },
+  { id: 'fr.a2.verbes.724', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous lavons.', en: 'We wash.', ipa: '/nu nu la.vɔ̃/', respell: 'noo noo lah-VOHⁿ', person: 'nous', bucket: 'paradigm', clitic: 'nous', tags: [...T, 'paradigm', 'doubled'], drills: SD, audioRef: null, version: 1, notes: `THE DOUBLED WORD. Same word twice, two different jobs. ${Cap(unitRef('a1.25'))} already put it on a screen once.` },
   { id: 'fr.a2.verbes.725', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous vous lavez.', en: 'You wash.', ipa: '/vu vu la.ve/', respell: 'voo voo lah-VAY', person: 'vous', bucket: 'paradigm', clitic: 'vous', tags: [...T, 'paradigm', 'doubled'], drills: SD, audioRef: null, version: 1, notes: 'Doubled again, and the corpus has ZERO published sentences in this person. §5.' },
   { id: 'fr.a2.verbes.726', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils se lavent.', en: 'They wash.', ipa: '/il sə lav/', respell: 'eel suh LAHV', person: 'ils', bucket: 'paradigm', clitic: 'se', tags: [...T, 'paradigm'], drills: SD, audioRef: null, version: 1, notes: 'Identical to the il cell out loud, end to end. Also ZERO published sentences. §5, §7.' },
 
@@ -523,7 +529,7 @@ export const PRONOMINAUX: Row[] = [
    *     calls reusing a neighbour's frame word a feature; a2.10, a2.10.l2 and
    *     a2.21 all use tôt.                                                   */
   { id: 'fr.a2.verbes.732', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je me lève tôt.', en: 'I get up early.', ipa: '/ʒə mə lɛv to/', respell: 'zhuh muh LEHV TOH', person: 'je', bucket: 'stem', clitic: 'me', tags: [...T, 'stem-change'], drills: S, audioRef: null, version: 1, notes: 'The vowel moved and the pronoun did what it always does. Two rules, one sentence.' },
-  { id: 'fr.a2.verbes.733', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu te lèves tôt.', en: 'You get up early.', ipa: '/ty tə lɛv to/', respell: 'tü tuh LEHV TOH', person: 'tu', bucket: 'stem', clitic: 'te', tags: [...T, 'stem-change'], drills: S, audioRef: null, version: 1, notes: 'Moved. The ending is silent here, which is the condition a2.09 gave.' },
+  { id: 'fr.a2.verbes.733', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu te lèves tôt.', en: 'You get up early.', ipa: '/ty tə lɛv to/', respell: 'tü tuh LEHV TOH', person: 'tu', bucket: 'stem', clitic: 'te', tags: [...T, 'stem-change'], drills: S, audioRef: null, version: 1, notes: `Moved. The ending is silent here, which is the condition ${unitRef('a2.09')} gave.` },
   { id: 'fr.a2.verbes.734', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il se lève tôt.', en: 'He gets up early.', ipa: '/il sə lɛv to/', respell: 'eel suh LEHV TOH', person: 'il', bucket: 'stem', clitic: 'se', tags: [...T, 'stem-change'], drills: S, audioRef: null, version: 1, notes: 'Moved.' },
   { id: 'fr.a2.verbes.735', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous levons tôt.', en: 'We get up early.', ipa: '/nu nu lə.vɔ̃ to/', respell: 'noo noo luh-VOHⁿ TOH', person: 'nous', bucket: 'stem', clitic: 'nous', tags: [...T, 'stem-change', 'stem-still'], drills: S, audioRef: null, version: 1, notes: 'STILL. The ending is a syllable of its own, so the stem is not the last thing heard. Seventeen letters, word mode, no dictation drill.' },
   { id: 'fr.a2.verbes.736', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous vous levez tôt.', en: 'You get up early.', ipa: '/vu vu lə.ve to/', respell: 'voo voo luh-VAY TOH', person: 'vous', bucket: 'stem', clitic: 'vous', tags: [...T, 'stem-change', 'stem-still'], drills: SD, audioRef: null, version: 1, notes: 'STILL, and sixteen letters exactly, which is the last value dicteeMode leaves in LETTERS mode.' },
@@ -543,13 +549,13 @@ export const PRONOMINAUX: Row[] = [
   { id: 'fr.a2.verbes.743', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous reposons le soir.', en: 'We rest in the evening.', ipa: '/nu nu ʁə.po.zɔ̃ lə swaʁ/', respell: 'noo noo ruh-poh-ZOHⁿ luh SWAHR', person: 'nous', bucket: 'unseen', clitic: 'nous', tags: [...T, 'unseen', 'doubled'], drills: S, audioRef: null, version: 1, notes: 'se reposer, and the time expression is a1.25s.' },
   { id: 'fr.a2.verbes.744', kind: 'sentence', level: 'a2', theme: THEME, fr: "Je m'habille vite.", en: 'I get dressed quickly.', ipa: '/ʒə ma.bij vit/', respell: 'zhuh mah-BEEY VEET', person: 'je', bucket: 'unseen', clitic: "m'", tags: [...T, 'unseen', 'elision'], drills: SD, audioRef: null, version: 1, notes: 'THE PRONOUN ELIDES. me becomes m before a vowel, which is sons.07s rule arriving on a word the learner now has to choose.' },
   { id: 'fr.a2.verbes.745', kind: 'sentence', level: 'a2', theme: THEME, fr: "Ils s'habillent vite.", en: 'They get dressed quickly.', ipa: '/il sa.bij vit/', respell: 'eel sah-BEEY VEET', person: 'ils', bucket: 'unseen', clitic: "s'", tags: [...T, 'unseen', 'elision'], drills: S, audioRef: null, version: 1, notes: 'And se becomes s. The same rule, and it is the only thing the pronoun ever does besides change.' },
-  { id: 'fr.a2.verbes.746', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu te réveilles tard.', en: 'You wake up late.', ipa: '/ty tə ʁe.vɛj taʁ/', respell: 'tü tuh ray-VEY TAR', person: 'tu', bucket: 'unseen', clitic: 'te', tags: [...T, 'unseen'], drills: S, audioRef: null, version: 1, notes: 'se réveiller, and a1.25 taught the je cell of it as a whole phrase.' },
+  { id: 'fr.a2.verbes.746', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu te réveilles tard.', en: 'You wake up late.', ipa: '/ty tə ʁe.vɛj taʁ/', respell: 'tü tuh ray-VEY TAR', person: 'tu', bucket: 'unseen', clitic: 'te', tags: [...T, 'unseen'], drills: S, audioRef: null, version: 1, notes: `se réveiller, and ${unitRef('a1.25')} taught the je cell of it as a whole phrase.` },
 
   /* ── H. THE ROLE PLAY. Every user turn is a corpus row, as a2.21's are; the
    *     alternates are rows this lesson has already taught, so a learner can
    *     answer with anything the lesson gave them.                           */
   { id: 'fr.a2.verbes.747', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je me réveille à six heures.', en: 'I wake up at six.', ipa: '/ʒə mə ʁe.vɛj a si zœʁ/', respell: 'zhuh muh ray-VEY ah see ZUHR', person: 'je', bucket: 'talk', clitic: 'me', tags: [...T, 'talk'], drills: SR, audioRef: null, version: 1, notes: 'Role play turn 1.' },
-  { id: 'fr.a2.verbes.748', kind: 'sentence', level: 'a2', theme: THEME, fr: "Je me douche et je m'habille.", en: 'I shower and get dressed.', ipa: '/ʒə mə duʃ e ʒə ma.bij/', respell: 'zhuh muh DOOSH ay zhuh mah-BEEY', person: 'je', bucket: 'talk', clitic: 'me', tags: [...T, 'talk', 'elision'], drills: SR, audioRef: null, version: 1, notes: 'Role play turn 2. Two pronominal verbs in one sentence, one of them elided. a1.25 ships the same shape.' },
+  { id: 'fr.a2.verbes.748', kind: 'sentence', level: 'a2', theme: THEME, fr: "Je me douche et je m'habille.", en: 'I shower and get dressed.', ipa: '/ʒə mə duʃ e ʒə ma.bij/', respell: 'zhuh muh DOOSH ay zhuh mah-BEEY', person: 'je', bucket: 'talk', clitic: 'me', tags: [...T, 'talk', 'elision'], drills: SR, audioRef: null, version: 1, notes: `Role play turn 2. Two pronominal verbs in one sentence, one of them elided. ${Cap(unitRef('a1.25'))} ships the same shape.` },
   { id: 'fr.a2.verbes.749', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous levons à la même heure.', en: 'We get up at the same time.', ipa: '/nu nu lə.vɔ̃ a la mɛm œʁ/', respell: 'noo noo luh-VOHⁿ ah lah mem UHR', person: 'nous', bucket: 'talk', clitic: 'nous', tags: [...T, 'talk', 'doubled'], drills: SR, audioRef: null, version: 1, notes: 'Role play turn 3. The doubled form produced rather than read.' },
   { id: 'fr.a2.verbes.750', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Non, je ne me couche pas tard.', en: 'No, I do not go to bed late.', ipa: '/nɔ̃ ʒə nə mə kuʃ pa taʁ/', respell: 'nohⁿ, zhuh nuh muh koosh pah TAR', person: 'je', bucket: 'talk', clitic: 'me', tags: [...T, 'talk', 'negation'], drills: SR, audioRef: null, version: 1, notes: 'Role play turn 4. The negative, on a verb the paradigm never carried.' },
   { id: 'fr.a2.verbes.751', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils se dépêchent le matin.', en: 'They hurry in the morning.', ipa: '/il sə de.pɛʃ lə ma.tɛ̃/', respell: 'eel suh day-PESH luh mah-TAHⁿ', person: 'ils', bucket: 'talk', clitic: 'se', tags: [...T, 'talk', 'not-reflexive'], drills: SR, audioRef: null, version: 1, notes: 'Role play turn 5, and it is one of the ones that is not reflexive at all.' },
@@ -562,14 +568,14 @@ export const AUTHORED_IDS: string[] = PRONOMINAUX.map((r) => r.id);
 
 export const rowById = (id: string): Row => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.22: no authored row ${id}. The corpus file is the source of truth and it does not have this id.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.22'))}: no authored row ${id}. The corpus file is the source of truth and it does not have this id.`);
   return r;
 };
 
 export const bucketIds = (b: Bucket): string[] => PRONOMINAUX.filter((r) => r.bucket === b).map((r) => r.id);
 export const personId = (b: Bucket, p: Person): string => {
   const r = PRONOMINAUX.find((x) => x.bucket === b && x.person === p);
-  if (!r) throw new Error(`a2.22: no ${b} row for ${p}.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.22'))}: no ${b} row for ${p}.`);
   return r.id;
 };
 
@@ -652,8 +658,8 @@ export const RECIPROCAL_ID = 'fr.a2.verbes.740';
 export const RECIPROCAL_DECISION = {
   decision: 'named once, receptive, no mission, no quiz question, no production surface',
   ownedBy: 'nobody, at any level, measured over all 76 unit bodies and the twenty A2 briefs',
-  why: 'The forms are identical to the ones being taught, so a learner meeting « ils se parlent » with only this lesson reads it as « they talk to themselves » and cannot resolve it. Naming it costs one card. Teaching it needs the indirect object a2.24 owns.',
-  handsTo: 'a2.23, whose brief says: if a2.22 left reciprocals out, leave them out',
+  why: `The forms are identical to the ones being taught, so a learner meeting « ils se parlent » with only this lesson reads it as « they talk to themselves » and cannot resolve it. Naming it costs one card. Teaching it needs the indirect object ${unitRef('a2.24')} owns.`,
+  handsTo: `${Cap(unitRef('a2.23'))}, whose brief says: if ${unitRef('a2.22')} left reciprocals out, leave them out`,
 } as const;
 
 /* ─── WHAT IS DEFERRED, BY UNIT ID ─────────────────────────────────────────*/
@@ -735,30 +741,30 @@ export type Imported = {
 /** THE TWELVE HEADWORDS. All infinitives, all framed with `se` except `laver`,
  *  which is the bare form the meaning contrast needs and which exists. */
 export const IMPORTED_HEADWORDS: readonly Imported[] = [
-  { id: 'fr.a1.routines.028', fr: 'se laver', why: 'The frame verb of the whole paradigm. a1.25 taught it as a whole lexical item.', inSeed: true },
+  { id: 'fr.a1.routines.028', fr: 'se laver', why: `The frame verb of the whole paradigm. ${Cap(unitRef('a1.25'))} taught it as a whole lexical item.`, inSeed: true },
   { id: 'fr.a1.cuisine.183', fr: 'laver', why: 'THE BARE FORM, and the reason the meaning contrast is real rather than invented. The same verb with nothing in front of it is published and means washing something else.', inSeed: true },
   { id: 'fr.a1.routines.001', fr: 'se lever', why: 'The second verb, where the stem change runs at the same time as the pronoun.', inSeed: true },
   { id: 'fr.a1.routines.020', fr: 'se coucher', why: 'One of the verbs the paradigm never walks, used where the learner builds a form from a verb the lesson did not show.', inSeed: true },
-  { id: 'fr.a1.routines.010', fr: 'se réveiller', why: 'Same. a1.25 taught its je cell as a whole phrase.', inSeed: true },
+  { id: 'fr.a1.routines.010', fr: 'se réveiller', why: `Same. ${Cap(unitRef('a1.25'))} taught its je cell as a whole phrase.`, inSeed: true },
   { id: 'fr.a1.routines.011', fr: 'se doucher', why: 'Same, and it is in the role play.', inSeed: true },
   { id: 'fr.a1.routines.012', fr: "s'habiller", why: 'THE ELISION. me becomes m and se becomes s in front of a vowel, which is the only other thing the pronoun ever does.', inSeed: true },
   { id: 'fr.a1.routines.034', fr: 'se reposer', why: 'Same as se coucher, and it carries the doubled nous shape.', inSeed: true },
   { id: 'fr.a1.routines.087', fr: 'se dépêcher', why: 'THE se THAT IS NOT REFLEXIVE. Nobody hurries themselves.', inSeed: true },
-  { id: 'fr.a1.rencontres.105', fr: "s'appeler", why: 'THE OPENER. sons.01 ships « Je m\'appelle Paul. » and the learner has been saying a pronominal verb since the first lesson in the product.', inSeed: false },
-  { id: 'fr.sons.verbes-essentiels.056', fr: 'se souvenir', why: 'The third member of the not-reflexive group. NAMED AS AN INFINITIVE AND NEVER CONJUGATED: its forms follow venir, which is a2.02, and conjugating it here would teach a second paradigm inside a lesson that owns a pronoun.', inSeed: false },
-  { id: 'fr.a1.routines.019', fr: 'se brosser les dents', why: 'a1.25\'s own phrase, and it is the shape with a direct object after the reflexive. Named receptively so a learner does not read « je me lave les mains » as an error; the rule that turns on it is a2.23\'s.', inSeed: true },
+  { id: 'fr.a1.rencontres.105', fr: "s'appeler", why: `THE OPENER. ${Cap(unitRef('sons.01'))} ships « Je m\'appelle Paul. » and the learner has been saying a pronominal verb since the first lesson in the product.`, inSeed: false },
+  { id: 'fr.sons.verbes-essentiels.056', fr: 'se souvenir', why: `The third member of the not-reflexive group. NAMED AS AN INFINITIVE AND NEVER CONJUGATED: its forms follow venir, which is ${unitRef('a2.02')}, and conjugating it here would teach a second paradigm inside a lesson that owns a pronoun.`, inSeed: false },
+  { id: 'fr.a1.routines.019', fr: 'se brosser les dents', why: `${Cap(unitRef('a1.25'))}\'s own phrase, and it is the shape with a direct object after the reflexive. Named receptively so a learner does not read « je me lave les mains » as an error; the rule that turns on it is ${unitRef('a2.23')}\'s.`, inSeed: true },
 ];
 
 /** THE PUBLISHED SENTENCES, imported as evidence beside the authored paradigm
  *  rather than used as paradigm cells. §5: no two of them differ by one thing. */
 export const IMPORTED_SENTENCES: readonly Imported[] = [
-  { id: 'fr.a1.routines.003', fr: 'Je me lève à sept heures.', why: 'The sentence a1.25 taught whole. It is the one the learner already owns, and the lesson opens the paradigm by taking it apart.', inSeed: true },
-  { id: 'fr.a1.routines.181', fr: 'Nous nous levons tard le dimanche.', why: 'THE DOUBLED FORM, ALREADY SHIPPED. a1.25 put this exact string on s12-persons, which is why this lesson calls the nous cell a reveal rather than a first sighting. §2.', inSeed: true },
-  { id: 'fr.a1.routines.154', fr: 'Il se lève tout de suite après le réveil.', why: 'The third of a1.25\'s three attested persons.', inSeed: true },
+  { id: 'fr.a1.routines.003', fr: 'Je me lève à sept heures.', why: `The sentence ${unitRef('a1.25')} taught whole. It is the one the learner already owns, and the lesson opens the paradigm by taking it apart.`, inSeed: true },
+  { id: 'fr.a1.routines.181', fr: 'Nous nous levons tard le dimanche.', why: `THE DOUBLED FORM, ALREADY SHIPPED. ${Cap(unitRef('a1.25'))} put this exact string on s12-persons, which is why this lesson calls the nous cell a reveal rather than a first sighting. §2.`, inSeed: true },
+  { id: 'fr.a1.routines.154', fr: 'Il se lève tout de suite après le réveil.', why: `The third of ${unitRef('a1.25')}\'s three attested persons.`, inSeed: true },
   { id: 'fr.a1.cuisine.228', fr: 'Je lave les légumes avant de cuisiner.', why: 'THE BARE VERB IN A PUBLISHED SENTENCE. Proof that « je lave » is ordinary French rather than a broken version of « je me lave ».', inSeed: true },
-  { id: 'fr.a1.corps.209', fr: 'Je me lave les mains avant de manger.', why: 'The reflexive with a direct object after it. Receptive only; it is the case a2.23 owns.', inSeed: true },
-  { id: 'fr.a1.routines.157', fr: "Tu te douches rapidement avant l'école.", why: 'a1.25\'s tu cell, reused in the role play so the learner meets a shape they have heard.', inSeed: true },
-  { id: 'fr.a1.routines.144', fr: "Je me douche avant de m'habiller.", why: 'TWO PRONOMINAL VERBS IN ONE SENTENCE, one of them elided. a1.25 shipped it and said the rest was a whole band away.', inSeed: true },
+  { id: 'fr.a1.corps.209', fr: 'Je me lave les mains avant de manger.', why: `The reflexive with a direct object after it. Receptive only; it is the case ${unitRef('a2.23')} owns.`, inSeed: true },
+  { id: 'fr.a1.routines.157', fr: "Tu te douches rapidement avant l'école.", why: `${Cap(unitRef('a1.25'))}\'s tu cell, reused in the role play so the learner meets a shape they have heard.`, inSeed: true },
+  { id: 'fr.a1.routines.144', fr: "Je me douche avant de m'habiller.", why: `TWO PRONOMINAL VERBS IN ONE SENTENCE, one of them elided. ${Cap(unitRef('a1.25'))} shipped it and said the rest was a whole band away.`, inSeed: true },
   { id: 'fr.a1.presentation-personnelle.001', fr: "Je m'appelle Sophie.", why: 'The opener in a full sentence, from the theme a learner meets first.', inSeed: false },
 ];
 
@@ -776,11 +782,11 @@ export const ROUTINE_IDS: string[] = IMPORTED.filter((i) => i.id.includes('.rout
 export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
   { id: 'fr.sons.verbes-essentiels.101', fr: 'se promener', why: 'FALSE POSITIVE. [suh prohm-NAY] is flagged and correct; see FALSE_POSITIVES and §8. Not imported and not repaired.' },
   { id: 'fr.a1.animaux-domestiques.100', fr: 'promener', why: 'The same false positive on the bare form.' },
-  { id: 'fr.a1.tourisme.006', fr: 'le souvenir', why: 'GENDERED single-word row. It would join a1.03\'s measured ending population the moment the merge carried it (a2.04 ledger §0). The lesson names the verb, not the noun.' },
+  { id: 'fr.a1.tourisme.006', fr: 'le souvenir', why: `GENDERED single-word row. It would join ${unitRef('a1.03')}\'s measured ending population the moment the merge carried it (${unitRef('a2.04')} ledger §0). The lesson names the verb, not the noun.` },
   { id: 'fr.sons.noms-essentiels.052', fr: 'le souvenir', why: 'The same noun, the same refusal, and it carries a competing respelling besides.' },
   { id: 'fr.a1.verbes-du-quotidien.104', fr: 'se lever', why: 'NO RESPELLING. A row is imported for its respelling and this theme stores none; fr.a1.routines.001 is the row with a home in the lesson\'s own vocabulary theme.' },
-  { id: 'fr.sons.elision.041', fr: "s'habiller", why: 'A COMPETING RESPELLING, [sa-bee-YAY] against routines\' [sah-bee-YAY]. Invariants §9: a variant is not a violation and only what breaks a stated rule is repaired. The routines row is imported because it is the one a1.25 taught from.' },
-  { id: 'fr.a2.verbes.050', fr: 'appeler', why: 'The bare infinitive, which is a2.09\'s. This lesson needs the framed s\'appeler and takes it from rencontres.' },
+  { id: 'fr.sons.elision.041', fr: "s'habiller", why: `A COMPETING RESPELLING, [sa-bee-YAY] against routines\' [sah-bee-YAY]. Invariants §9: a variant is not a violation and only what breaks a stated rule is repaired. The routines row is imported because it is the one ${unitRef('a1.25')} taught from.` },
+  { id: 'fr.a2.verbes.050', fr: 'appeler', why: `The bare infinitive, which is ${unitRef('a2.09')}\'s. This lesson needs the framed s\'appeler and takes it from rencontres.` },
 ];
 
 /* ─── RESPELLING REPAIRS ───────────────────────────────────────────────────
@@ -801,7 +807,7 @@ export const FALSE_POSITIVES: readonly { id: string; fr: string; stored: string;
     id: 'fr.sons.verbes-essentiels.101',
     fr: 'se promener',
     stored: 'suh prohm-NAY',
-    why: 'promener is /pʁɔm.ne/. The o is a real /ɔ/ and the m is a real /m/, so there is no nasal vowel and a superscript would teach a sound the word does not have. Same shape as jaune in invariants §3 and nous sommes in a2.21 §2. NOT IMPORTED and NOT REPAIRED: a2.21 §3 measured that a false-positive row checked against the checker rather than against the fixed value is a hole in every layer, and the cheapest way not to have it is not to carry the row.',
+    why: `promener is /pʁɔm.ne/. The o is a real /ɔ/ and the m is a real /m/, so there is no nasal vowel and a superscript would teach a sound the word does not have. Same shape as jaune in invariants §3 and nous sommes in ${unitRef('a2.21')} §2. NOT IMPORTED and NOT REPAIRED: ${unitRef('a2.21')} §3 measured that a false-positive row checked against the checker rather than against the fixed value is a hole in every layer, and the cheapest way not to have it is not to carry the row.`,
   },
   {
     id: 'fr.a1.animaux-domestiques.100',
@@ -937,12 +943,12 @@ export const fr = (id: string): string => rowById(id).fr;
 export const en = (id: string): string => rowById(id).en;
 export const respellOf = (id: string): string => {
   const r = rowById(id).respell;
-  if (!r) throw new Error(`a2.22: ${id} has no respelling and a card wants one.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.22'))}: ${id} has no respelling and a card wants one.`);
   return r;
 };
 export const ipaOf = (id: string): string => {
   const r = rowById(id).ipa;
-  if (!r) throw new Error(`a2.22: ${id} has no ipa and a card wants one.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.22'))}: ${id} has no ipa and a card wants one.`);
   return r;
 };
 export const sub = (id: string): string => `[${respellOf(id)}]`;

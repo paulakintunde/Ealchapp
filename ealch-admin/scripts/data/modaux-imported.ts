@@ -36,6 +36,12 @@
 // cannot invent one.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   IMPORTED_INFINITIVE_ROWS, IMPORTED_REGISTER_ROWS, IMPORTED_SENTENCE_ROWS,
   IMPORTED_VERB_ROWS, IMPORTABLE_IDS, INFINITIVE_ROW_IDS, READ_ONLY_ROWS,
@@ -60,7 +66,7 @@ export { SOURCE_THEMES, READ_ONLY_ROWS, UNSEEN_VERB_ROW };
 
 const must = (id: string): Item => {
   const r = IMPORTED_BY_ID.get(id);
-  if (!r) throw new Error(`a2.13: ${id} is not an imported row. Regenerate the manifest, or stop quoting it.`);
+  if (!r) throw new Error(`${unitRef('a2.13')}: ${id} is not an imported row. Regenerate the manifest, or stop quoting it.`);
   return r;
 };
 
@@ -112,7 +118,7 @@ const VERB_ID = new Map(VERB_ROW_IDS);
 /** The row id for one of the three verbs. */
 export const verbId = (m: Modal | string): string => {
   const id = VERB_ID.get(String(m));
-  if (!id) throw new Error(`a2.13: ${m} is not one of the three naming forms`);
+  if (!id) throw new Error(`${unitRef('a2.13')}: ${m} is not one of the three naming forms`);
   return id;
 };
 
@@ -128,7 +134,7 @@ const INF_ID = new Map(INFINITIVE_ROW_IDS);
  *  screen wants a verb, the verb has to have come from somewhere else. */
 export const infinitiveId = (verb: string): string => {
   const id = INF_ID.get(verb);
-  if (!id) throw new Error(`a2.13: "${verb}" is not an imported infinitive. Every infinitive here is imported, never authored.`);
+  if (!id) throw new Error(`${unitRef('a2.13')}: "${verb}" is not an imported infinitive. Every infinitive here is imported, never authored.`);
   return id;
 };
 
@@ -146,7 +152,7 @@ const SENT_ID = new Map(SENTENCE_ROW_IDS);
  *  French so a caller cannot cite an id that has moved. */
 export const sentenceId = (frText: string): string => {
   const id = SENT_ID.get(frText);
-  if (!id) throw new Error(`a2.13: ${JSON.stringify(frText)} is not an imported sentence`);
+  if (!id) throw new Error(`${unitRef('a2.13')}: ${JSON.stringify(frText)} is not an imported sentence`);
   return id;
 };
 
@@ -155,7 +161,7 @@ const REG_ID = new Map(REGISTER_ROW_IDS);
 /** The row id for one half of the register pair. */
 export const registerId = (frText: string): string => {
   const id = REG_ID.get(frText);
-  if (!id) throw new Error(`a2.13: ${JSON.stringify(frText)} is not half of the register pair`);
+  if (!id) throw new Error(`${unitRef('a2.13')}: ${JSON.stringify(frText)} is not half of the register pair`);
   return id;
 };
 
@@ -174,10 +180,10 @@ export const RESPELL_ADDED_IDS: string[] = RESPELL_ADDITIONS.map((a) => a.id);
 export function unseenRespell(): string {
   const row = UNSEEN_VERB_ROW[0];
   if (!row || row.fr !== UNSEEN_VERB.fr) {
-    throw new Error('a2.13: the unseen verb row is missing or is not the verb the corpus names');
+    throw new Error(`${Cap(unitRef('a2.13'))}: the unseen verb row is missing or is not the verb the corpus names`);
   }
   if (row.respell !== UNSEEN_VERB.respell) {
-    throw new Error(`a2.13: the unseen verb respelling moved. Postgres says ${JSON.stringify(row.respell)}, the corpus says ${JSON.stringify(UNSEEN_VERB.respell)}.`);
+    throw new Error(`${unitRef('a2.13')}: the unseen verb respelling moved. Postgres says ${JSON.stringify(row.respell)}, the corpus says ${JSON.stringify(UNSEEN_VERB.respell)}.`);
   }
   return UNSEEN_VERB.respell;
 }

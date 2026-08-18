@@ -129,6 +129,12 @@
 //     ticket.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const UNIT = {
   id: 'a2.26',
@@ -525,7 +531,7 @@ export const COURSES_ROWS: readonly Row[] = [
     'Asked while the total is already on the screen, which is why it arrives as an interruption rather than a question.'),
   R(175, 'Combien je vous mets ?', 'How much shall I give you?', '/kɔ̃.bjɛ̃ ʒə vu mɛ/', 'kohⁿ-byehⁿ zhuh voo MEH',
     'vendor', 'vendor', 'phrase', PD,
-    'The market stall\'s quantity question, and the one a1.29\'s containers answer. Mettre is a2.15\'s verb, used whole here.'),
+    `The market stall\'s quantity question, and the one ${unitRef('a1.29')}\'s containers answer. Mettre is ${unitRef('a2.15')}\'s verb, used whole here.`),
   R(176, 'Ce sera quoi pour vous ?', 'What will it be for you?', '/sə sə.ʁa kwa puʁ vu/', 'suh suh-ra kwa poor VOO',
     'vendor', 'vendor', 'phrase', PD,
     'Your turn in the queue has arrived. Said fast, and often with nothing else, so there is no greeting to catch first.'),
@@ -569,7 +575,7 @@ export const COURSES_ROWS: readonly Row[] = [
   R(186, 'Ça fait six euros quatre-vingt-quinze.', 'That comes to six euros ninety-five.',
     '/sa fɛ si.z‿ø.ʁo ka.tʁə.vɛ̃.kɛ̃z/', 'sa feh see-z eu-ro ka-truh-vaⁿ-KAⁿZ',
     'total', 'vendor', 'sentence', SD,
-    'The cents run longer than the euros. a1.27 taught quatre-vingt-quinze against quatre-vingt-dix-neuf; here it arrives after a currency word.'),
+    `The cents run longer than the euros. ${Cap(unitRef('a1.27'))} taught quatre-vingt-quinze against quatre-vingt-dix-neuf; here it arrives after a currency word.`),
   R(187, 'Ça vous fait dix-neuf euros quatre-vingt-dix.', 'That comes to nineteen euros ninety.',
     '/sa vu fɛ diz.nœ.v‿ø.ʁo ka.tʁə.vɛ̃.dis/', 'sa voo feh deez-NUH-v eu-ro ka-truh-vaⁿ-DEESS',
     'total', 'vendor', 'sentence', SD,
@@ -617,7 +623,7 @@ export const COURSES_ROWS: readonly Row[] = [
   R(198, 'Je vais réfléchir, merci.', 'I will think about it, thanks.',
     '/ʒə vɛ ʁe.fle.ʃiʁ mɛʁ.si/', 'zhuh veh ray-flay-SHEER mehr-SEE',
     'refusal', 'learner', 'phrase', PD,
-    'The exit that closes the conversation without refusing anything. A futur proche, which is a2.19\'s and is used whole here.'),
+    `The exit that closes the conversation without refusing anything. A futur proche, which is ${unitRef('a2.19')}\'s and is used whole here.`),
   R(199, 'Vous avez ça en trente-huit ?', 'Do you have this in a thirty-eight?',
     '/vu.z‿a.ve sa ɑ̃ tʁɑ̃t.ɥit/', 'voo-z a-vay sa ahⁿ trahⁿt-WEET',
     'refusal', 'learner', 'phrase', PD,
@@ -640,7 +646,7 @@ export const COURSES_ROWS: readonly Row[] = [
     'The clothing shop swaps this in where the market stall asks a quantity. la taille is published in vetements and rp-achats and is not re-authored here.'),
   R(204, 'Vous réglez comment ?', 'How are you paying?', '/vu ʁe.ɡle kɔ.mɑ̃/', 'voo ray-glay ko-MAHⁿ',
     'payment', 'vendor', 'phrase', PD,
-    'Comment is how, not how much. a2.07 taught this at a restaurant table; the till asks it the same way and the answer is still three words.'),
+    `Comment is how, not how much. ${Cap(unitRef('a2.07'))} taught this at a restaurant table; the till asks it the same way and the answer is still three words.`),
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -658,7 +664,7 @@ export const MONEY_ROWS: readonly Row[] = [
   RM(71, 'Je vous rends deux euros soixante.', 'Here is two euros sixty change.',
     '/ʒə vu ʁɑ̃ dø.z‿ø.ʁo swa.sɑ̃t/', 'zhuh voo rahⁿ deu-z eu-ro swa-SAHⁿT',
     'change', 'vendor', 'sentence', SD,
-    'The second number of the transaction, and it arrives once, faster than the first. Rendre is a2.11\'s verb, used whole.'),
+    `The second number of the transaction, and it arrives once, faster than the first. Rendre is ${unitRef('a2.11')}\'s verb, used whole.`),
   RM(72, 'Voilà votre monnaie.', 'Here is your change.', '/vwa.la vɔtʁ mɔ.nɛ/', 'vwa-LA votr mo-NEH',
     'change', 'vendor', 'phrase', PD,
     'No figure at all. The coins are counted into your hand and you are expected to have been listening to the first number.'),
@@ -686,7 +692,7 @@ export const MONEY_ROWS: readonly Row[] = [
   RM(79, 'Vous avez cinquante centimes ?', 'Have you got fifty cents?',
     '/vu.z‿a.ve sɛ̃.kɑ̃t sɑ̃.tim/', 'voo-z a-vay saⁿ-KAHⁿT sahⁿ-TEEM',
     'change', 'vendor', 'phrase', PD,
-    'Centimes is said here and never in a price. a1.28 taught that the cents in a price are a bare number; the coin itself keeps its name.'),
+    `Centimes is said here and never in a price. ${Cap(unitRef('a1.28'))} taught that the cents in a price are a bare number; the coin itself keeps its name.`),
   RM(80, 'Désolé, je n\'ai pas de monnaie.', 'Sorry, I have no change.',
     '/de.zɔ.le ʒə ne pa də mɔ.nɛ/', 'day-zo-LAY zhuh nay pah duh mo-NEH',
     'change', 'vendor', 'sentence', SD,

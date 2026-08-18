@@ -86,7 +86,8 @@ import type {
   SceneBeat,
 } from '../../../ealch-v2/src/content/schema.ts';
 import {
-  A201_BACKREF, A201_REFRAME, A202_BACKREF, A210_BACKREF, A210_REFRAME, A211_BACKREF,
+  A201_BACKREF, A201_REFRAME, A202_BACKREF, A202_BACKREF_UNIT, A210_BACKREF, A210_REFRAME,
+  A211_BACKREF, A211_BACKREF_UNIT,
   BOTH_RULES, REFRAME, VERBES_IR_FAM_TERMS,
 } from './verbes-ir-familles-terms.ts';
 import {
@@ -96,10 +97,16 @@ import {
 } from './verbes-ir-familles-corpus.ts';
 import { IMPORTED_IDS, l1Fr, verbEn, verbId } from './verbes-ir-familles-imported.ts';
 import { FAMILY_LABEL, REPAIRED_RESPELL, verbCard, verbRespell } from './verbes-ir-familles-display.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export {
   A201_BACKREF, A201_REFRAME, A202_BACKREF, A210_BACKREF, A210_REFRAME, A211_BACKREF,
   BOTH_RULES, REFRAME,
+  A202_BACKREF_UNIT, A211_BACKREF_UNIT,
 };
 
 /* ─── The items this lesson touches ──────────────────────────────────────── */
@@ -1332,7 +1339,7 @@ const ACTS: LessonAct[] = [
     id: 'act6',
     title: 'Prove it',
     sections: ['s20-review', 's21-progress', 's22-quiz', 's23-roundup'],
-    milestone: 'Lesson complete. The unit is done, and the mechanism carries into a2.02 and a2.11.',
+    milestone: `Lesson complete. The unit is done, and the mechanism carries into ${unitRef('a2.02')} and ${unitRef('a2.11')}.`,
     estScreens: 48,
     restPoints: ['s20-review/halfway', 's22-quiz/after-r2', 's22-quiz/after-r4'],
   },
@@ -1556,7 +1563,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-fam-next',
         title: 'What carries forward',
         layer: 'deep',
-        body: `The shedding mechanism is the one that keeps coming back. ${A202_BACKREF} teaches venir and tenir, which shed a consonant and change the vowel of the stem as well: je viens against ils viennent is the same movement with more happening. ${A211_BACKREF} teaches the regular -RE verbs, and il vend against ils vendent is exactly this lesson's first table with a different letter. So the six verbs you held as a list here are the entry price for three later units rather than a dead end. What does NOT carry forward is the -iss- of the previous lesson: it belongs to that family and to no other, and knowing where it stops is worth as much as knowing where it applies.`,
+        body: `The shedding mechanism is the one that keeps coming back. ${Cap(A202_BACKREF)} teaches venir and tenir, which shed a consonant and change the vowel of the stem as well: je viens against ils viennent is the same movement with more happening. ${Cap(A211_BACKREF)} teaches the regular -RE verbs, and il vend against ils vendent is exactly this lesson's first table with a different letter. So the six verbs you held as a list here are the entry price for three later units rather than a dead end. What does NOT carry forward is the -iss- of the previous lesson: it belongs to that family and to no other, and knowing where it stops is worth as much as knowing where it applies.`,
       },
     ],
   },
@@ -1611,7 +1618,7 @@ export const VERBES_IR_FAM_LESSON: Lesson = {
 
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  version: 3,
 
   grammarAssumed: [
     'The present tense of regular -er verbs, introduced in a2.01',

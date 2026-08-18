@@ -54,7 +54,7 @@ const REPAIRED: Record<string, string> = Object.fromEntries(
  *  missing its row looks like a card that never wanted one. */
 export function imported(id: string): Item {
   const r = PREPOSITIONS_LIEU_ROWS[id];
-  if (!r) throw new Error(`a2.04: ${id} is not in the manifest. Re-run scripts/_a204_manifest.ts.`);
+  if (!r) throw new Error(`${unitRef('a2.04')}: ${id} is not in the manifest. Re-run scripts/_a204_manifest.ts.`);
   return r;
 }
 

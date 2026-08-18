@@ -27,7 +27,7 @@ export const POSSESSIFS_PRONOMS_TERMS: Record<string, LessonTerm> = {
   twoWords: {
     term: 'two words',
     title: 'An article, and then the rest',
-    body: 'mon sac is one word and a noun. le mien is two words and no noun at all. The article is the part that surprises people, because a1.17 spent a whole lesson teaching that a possessive goes where le goes. It still does. It just brings le back with it when the noun leaves.',
+    body: 'mon sac is one word and a noun. le mien is two words and no noun at all. The article is the part that surprises people, because lesson 20 in A1 spent a whole lesson teaching that a possessive goes where le goes. It still does. It just brings le back with it when the noun leaves.',
     examples: [
       { itemId: E(364), note: 'one word, and the bag is named' },
       { itemId: E(365), note: 'two words, and it is not' },
@@ -40,7 +40,7 @@ export const POSSESSIFS_PRONOMS_TERMS: Record<string, LessonTerm> = {
   owned: {
     term: 'the thing owned',
     title: 'It was never about you',
-    body: 'A bag is masculine, so a man and a woman both say le mien about it. A suitcase is feminine, so both say la mienne. Nothing in the sentence changes for who is speaking, which is the opposite of what English does with his and hers. a1.17 gave you this rule and this lesson spends it on two words instead of one.',
+    body: 'A bag is masculine, so a man and a woman both say le mien about it. A suitcase is feminine, so both say la mienne. Nothing in the sentence changes for who is speaking, which is the opposite of what English does with his and hers. Lesson 20 in A1 gave you this rule and this lesson spends it on two words instead of one.',
     examples: [
       { itemId: E(372), note: 'sac is masculine, whoever owns it' },
       { itemId: E(373), note: 'valise is feminine, whoever owns it' },
@@ -52,7 +52,7 @@ export const POSSESSIFS_PRONOMS_TERMS: Record<string, LessonTerm> = {
   third: {
     term: 'his or hers',
     title: 'The one place French tells you less',
-    body: 'le sien is his and it is also hers. There is no third-person form that says which, and everything up to now has taught you that French cares about gender more as you go rather than less. It is a real loss of information and it is also one less thing to get wrong. a2.24 met the same collapse with lui at seq 22.',
+    body: 'le sien is his and it is also hers. There is no third-person form that says which, and everything up to now has taught you that French cares about gender more as you go rather than less. It is a real loss of information and it is also one less thing to get wrong. Lesson 22 in A2 met the same collapse with lui.',
     examples: [
       { itemId: E(376), note: 'the bag is his, or hers' },
       { itemId: E(378), note: 'Paul and Marie, same three words' },
@@ -64,7 +64,7 @@ export const POSSESSIFS_PRONOMS_TERMS: Record<string, LessonTerm> = {
   threeLeurs: {
     term: 'the three leurs',
     title: 'Same four letters, three jobs',
-    body: 'leur in front of a verb is a2.24 and never takes an s. leur in front of a noun is a1.17 and takes one when there are several things. le leur is this lesson, and its plural puts an s on both words: les leurs. a1.17 handed you the test and it still sorts the first two: a possessive has a thing behind it. This one has nothing behind it at all, which is the new case.',
+    body: 'leur in front of a verb is lesson 22 in A2 and never takes an s. leur in front of a noun is lesson 20 in A1 and takes one when there are several things. le leur is this lesson, and its plural puts an s on both words: les leurs. Lesson 20 in A1 handed you the test and it still sorts the first two: a possessive has a thing behind it. This one has nothing behind it at all, which is the new case.',
     examples: [
       { itemId: 'fr.a2.pronoms-essentiels.240', note: 'a verb behind it, so never an s' },
       { itemId: 'fr.a2.pronoms-essentiels.259', note: 'keys behind it, and there are several' },

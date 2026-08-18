@@ -71,6 +71,7 @@ import {
 } from './data/pronominaux-corpus.ts';
 import { CHIP_ROW_BUDGET, PRONOMINAUX_TERMS, chipRowWidth } from './data/pronominaux-terms.ts';
 import { PRONOMINAUX_IMPORT_ROWS } from './data/pronominaux-rows.gen.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   CONTRAST_SECTION_ID, DICTATION_SECTION_ID, LATER_SECTION_ID,
   LESSON as PRON_LESSON, NEGATIVE_SECTION_ID, NOMEANING_SECTION_ID,
@@ -286,7 +287,7 @@ if (OWNS_SECTIONS <= PARADIGM_SECTIONS) die('the paradigm has at least as many s
   for (const v of ["s'appeler", 'se dépêcher', 'se souvenir']) if (!s.includes(v)) die(`${NOMEANING_SECTION_ID} does not name « ${v} ».`);
   if (!display(section(VOWEL_SECTION_ID)).join('\n').includes(A209_CREDIT)) die(`${VOWEL_SECTION_ID} does not carry the a2.09 credit.`);
   for (const u of ['a2.09', 'a1.25', 'a2.01', 'a2.19', 'a2.23', 'a2.06', 'a2.24', 'sons.01']) {
-    if (!ALL_SURFACE.some((t) => hasPhrase(t, u))) die(`${u} is named on no learner surface.`);
+    if (!ALL_SURFACE.some((t) => namesUnitLabel(t, u))) die(`${u} is named on no learner surface.`);
   }
 }
 

@@ -82,6 +82,7 @@ import {
 } from './data/prepositions-temps-lesson.ts';
 import { PREPOSITIONS_TEMPS_ROWS, MEASURED } from './data/prepositions-temps-rows.gen.ts';
 import { displayRespell } from './data/prepositions-temps-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const LESSON: Lesson = PREPOSITIONS_TEMPS_LESSON;
@@ -295,7 +296,7 @@ const notProducible = GRID.filter((g) => !g.producible);
 if (notProducible.length !== 1 || notProducible[0]!.prep !== 'il y a') die('exactly one of the five is receptive-only at seq 14 and it is il y a');
 if (GRID[IL_Y_A_ROW_INDEX]!.prep !== 'il y a') die(`IL_Y_A_ROW_INDEX points at ${GRID[IL_Y_A_ROW_INDEX]!.prep}`);
 // AND ITS ROW NAMES THE LESSON IT IS WAITING FOR.
-if (!hasPhrase(grid.rows![IL_Y_A_ROW_INDEX]!.detail?.body ?? '', PAST_UNIT)) {
+if (!namesUnitLabel(grid.rows![IL_Y_A_ROW_INDEX]!.detail?.body ?? '', PAST_UNIT)) {
   die(`the il y a row does not name ${PAST_UNIT}, and it is the one row the learner cannot produce here`);
 }
 // THE FOUR PUBLISHED CARDS ARE THE EXAMPLES. Four of the five examples are the
@@ -407,7 +408,7 @@ const learnerText = [
   LESSON.intro ?? '', ...strings(LESSON.overview ?? {}),
   ...strings(LESSON.acts ?? []), ...strings(LESSON.drills ?? []),
 ].join('\n');
-if (!hasPhrase(learnerText, PAST_UNIT)) die(`${PAST_UNIT} is never named and this lesson defers a whole row of its grid to it`);
+if (!namesUnitLabel(learnerText, PAST_UNIT)) die(`${PAST_UNIT} is never named and this lesson defers a whole row of its grid to it`);
 console.log(`  ${PAST_UNIT}         1 receptive row (${receptiveId}), in no dictée, no speak list, no drill and no quiz answer; deferral named`);
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -419,7 +420,7 @@ for (const line of FUTUR_PROCHE_MUST_NOT_FIRE) if (fires(FUTUR_PROCHE_SHAPE, lin
 for (const line of strings(LESSON.sections).concat(strings(LESSON.sheets ?? []), strings(LESSON.terms ?? {}), [LESSON.intro ?? ''])) {
   if (fires(FUTUR_PROCHE_SHAPE, line)) die(`the futur proche reached a screen: ${JSON.stringify(line)}. ${FUTURE_UNIT} owns it and it is the very next lesson.`);
 }
-if (!hasPhrase(learnerText, FUTURE_UNIT)) die(`${FUTURE_UNIT} is never named and this lesson teaches dans with the present instead of it`);
+if (!namesUnitLabel(learnerText, FUTURE_UNIT)) die(`${FUTURE_UNIT} is never named and this lesson teaches dans with the present instead of it`);
 
 for (const line of PLACE_MUST_FIRE) if (!fires(PLACE_SHAPE, line)) die(`PLACE_SHAPE does not fire on ${JSON.stringify(line)}`);
 for (const line of PLACE_MUST_NOT_FIRE) if (fires(PLACE_SHAPE, line)) die(`PLACE_SHAPE fires on ${JSON.stringify(line)}, which is one of this lesson's own cards or its copy`);
@@ -435,7 +436,7 @@ for (const s of LESSON.sections) {
   }
 }
 for (const r of PREPOSITIONS_TEMPS) if (fires(PLACE_SHAPE, r.fr)) die(`${r.id} is a corpus row carrying a place sense of en or dans: ${JSON.stringify(r.fr)}`);
-if (!hasPhrase(learnerText, PLACE_UNIT)) die(`${PLACE_UNIT} is never named and it handed both temporal senses to this lesson by name`);
+if (!namesUnitLabel(learnerText, PLACE_UNIT)) die(`${PLACE_UNIT} is never named and it handed both temporal senses to this lesson by name`);
 console.log(`  neighbours    futur proche absent (${FUTURE_UNIT} named), place senses off every production surface (${PLACE_UNIT} named), ${CLOCK_UNIT} and ${MONTH_UNIT} credited`);
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -445,8 +446,8 @@ console.log(`  neighbours    futur proche absent (${FUTURE_UNIT} named), place s
 for (const w of CLOCK_FORBIDDEN) {
   if (hasPhrase(learnerText, w)) die(`${JSON.stringify(w)} is on a learner surface and it is ${CLOCK_UNIT}'s`);
 }
-if (!hasPhrase(learnerText, CLOCK_UNIT)) die(`${CLOCK_UNIT} is the prerequisite and is never named`);
-if (!hasPhrase(learnerText, MONTH_UNIT)) die(`${MONTH_UNIT} owns en in front of a month, which is a third sense of a word this lesson teaches, and it is never named`);
+if (!namesUnitLabel(learnerText, CLOCK_UNIT)) die(`${CLOCK_UNIT} is the prerequisite and is never named`);
+if (!namesUnitLabel(learnerText, MONTH_UNIT)) die(`${MONTH_UNIT} owns en in front of a month, which is a third sense of a word this lesson teaches, and it is never named`);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  pour: NAMED ONCE, TAUGHT NOWHERE
@@ -473,10 +474,10 @@ console.log(`  pour          not one of the five, named exactly once (${POUR_DEC
 
 const twice = byId(ILYA_TRAP_SECTION_ID) as { rule?: { title?: string; body?: string } } | undefined;
 if (!twice) die(`${ILYA_TRAP_SECTION_ID} is missing`);
-// QUOTED VERBATIM AND CREDITED BY UNIT ID. Doctrine §B.7 and a2.16 §3: a
+// QUOTED VERBATIM AND CREDITED BY ITS LESSON LABEL. Doctrine §B.7 and a2.16 §3: a
 // back-reference to a unit id is not a variable, so assert the literal.
 if (!hasPhrase(learnerText, WHAT_FOLLOWS)) die(`the a2.02 term ${JSON.stringify(WHAT_FOLLOWS)} is not quoted anywhere. Doctrine §B.7 tells this lesson to quote it verbatim.`);
-if (!hasPhrase(learnerText, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} owns the first instance of this shape and is never named by id`);
+if (!namesUnitLabel(learnerText, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} owns the first instance of this shape and is never named by id`);
 if (twice.rule?.title !== WHAT_FOLLOWS) die(`the trap's rule card is titled ${JSON.stringify(twice.rule?.title)} and the term is ${JSON.stringify(WHAT_FOLLOWS)}`);
 // THE TWO USES ARE CONTRASTED IN ONE SECTION.
 const trapText = strings(byId(ILYA_TRAP_SECTION_ID)).join('\n');

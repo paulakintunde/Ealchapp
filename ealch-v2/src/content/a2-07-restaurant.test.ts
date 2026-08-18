@@ -16,6 +16,7 @@ import { test } from 'node:test';
 import { quizQuestions, validateLesson, type Lesson, type LessonSection } from './schema.ts';
 import { hasPlainNasalFor, validateDensity } from './density.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 /** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
  *
@@ -237,7 +238,7 @@ test('the partitive is recalled and never retaught, and a1.29 is named', () => {
   const s = byId(L!, 's12-some');
   ok(s, 's12-some is missing');
   const say = typeof s!.say === 'string' ? s!.say : (s!.say as { text?: string })?.text ?? '';
-  ok(/a1\.29/.test(say), 's12-some must name a1.29, whose lesson this recalls');
+  ok(namesUnitLabel(say, 'a1.29'), 's12-some must name a1.29, whose lesson this recalls');
   // No section other than s12-some may make a partitive claim in its body copy.
   const CLAIM = /\b(partitive|du is|de la is|de l’ is|some of it)\b/i;
   for (const sec of sectionsOf(L!)) {

@@ -15,6 +15,12 @@
 // the guard walks it.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   AGO_RULE, DEPUIS_CLAIM, DEPUIS_EVIDENCE, EN_DANS_CLAIM, FUTURE_UNIT,
   GRID, IL_Y_A_EVIDENCE, PAIR_CLAIM, PAST_UNIT, PLACE_UNIT, POUR_LINE,
@@ -89,7 +95,7 @@ export const PREPOSITIONS_TEMPS_TERMS: Record<string, LessonTerm> = {
     term: 'what next',
     title: 'You have had this shape before',
     body:
-      `${WHAT_FOLLOWS_UNIT} gave this pattern its name on venir de: one form, two jobs, and the word after it settles which. Here it is three words instead of two. « Il y a » with a thing behind it says that thing exists. « Il y a » with a measurement behind it, and nothing after the measurement, says how far back. Nothing about the three words changes and nothing ever will, so there is no spelling to learn and no sound to catch. There is only the next word.`,
+      `${Cap(unitRef(WHAT_FOLLOWS_UNIT))} gave this pattern its name on venir de: one form, two jobs, and the word after it settles which. Here it is three words instead of two. « Il y a » with a thing behind it says that thing exists. « Il y a » with a measurement behind it, and nothing after the measurement, says how far back. Nothing about the three words changes and nothing ever will, so there is no spelling to learn and no sound to catch. There is only the next word.`,
     examples: [
       { itemId: 'fr.a2.prepositions-essentielles.188', note: 'A thing. So it exists.' },
       { itemId: 'fr.a2.prepositions-essentielles.189', note: 'A measurement, and then a full stop. So it is a distance back.' },
@@ -111,7 +117,7 @@ export const PREPOSITIONS_TEMPS_TERMS: Record<string, LessonTerm> = {
     term: 'not yet',
     title: 'Il y a is waiting for something',
     body:
-      `Ago points at a moment behind you, so the sentence around it has to be in a past tense, and you do not have one. That is not an oversight: the past tense is ${PAST_UNIT}, two lessons from here. You will meet il y a in this lesson, recognise it when you hear it, and pick it up to use on the day the tense arrives. Everything else here you can say today.`,
+      `Ago points at a moment behind you, so the sentence around it has to be in a past tense, and you do not have one. That is not an oversight: the past tense is ${unitRef(PAST_UNIT)}, two lessons from here. You will meet il y a in this lesson, recognise it when you hear it, and pick it up to use on the day the tense arrives. Everything else here you can say today.`,
     examples: [
       { itemId: 'fr.a2.prepositions-essentielles.174', note: 'Shown once, asked for nowhere. Read it and move on.' },
       { itemId: 'fr.a2.prepositions-essentielles.186', note: 'The phrase on its own, which needs no verb and is yours now.' },
@@ -122,7 +128,7 @@ export const PREPOSITIONS_TEMPS_TERMS: Record<string, LessonTerm> = {
     term: 'ahead',
     title: 'Dans, and a present tense doing future work',
     body:
-      `${gridRow('dans').detail} So « le film commence dans une heure » is a present tense about something that has not happened, and no French speaker hears it as odd. There is another way to say it, with a verb in front, and that is ${FUTURE_UNIT}, which is the very next lesson. ${PLACE_UNIT} owns dans in front of a place, which you did yesterday, and this is the other job.`,
+      `${gridRow('dans').detail} So « le film commence dans une heure » is a present tense about something that has not happened, and no French speaker hears it as odd. There is another way to say it, with a verb in front, and that is ${unitRef(FUTURE_UNIT)}, which is the very next lesson. ${Cap(unitRef(PLACE_UNIT))} owns dans in front of a place, which you did yesterday, and this is the other job.`,
     examples: [
       { itemId: 'fr.sons.jours-et-mois.080', note: 'One hour from now, and the film has not started.' },
       { itemId: 'fr.a2.prepositions-essentielles.187', note: 'The verb is present and the event is not.' },

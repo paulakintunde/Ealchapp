@@ -34,6 +34,12 @@ import {
   POSSESSIVE_UNIT, ADVERB_UNIT, cellId, form,
 } from './beau-nouveau-corpus.ts';
 import { vowelRowId } from './beau-nouveau-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE CLAIMS
@@ -43,7 +49,7 @@ import { vowelRowId } from './beau-nouveau-imported.ts';
  *  arc has four forms; these three have five, and the fifth is not a fifth
  *  sound. */
 export const FORM_ARITHMETIC =
-  `${FORM_COUNT} ways to write each of these three, and ${SOUND_COUNT} ways to say them. ${AGREEMENT_UNIT} gave you four of the five and this is the one it could not.`;
+  `${FORM_COUNT} ways to write each of these three, and ${SOUND_COUNT} ways to say them. ${Cap(unitRef(AGREEMENT_UNIT))} gave you four of the five and this is the one it could not.`;
 
 /** The Owns, spelled out, and it is the sentence the whole build turns on.
  *  Quoted on the grid, in act 3, in the sheet and in the roundup. */
@@ -54,7 +60,7 @@ export const BORROW_ARITHMETIC =
  *  the reframe is the RULE; the brief offered the reason as the reframe and
  *  REFRAME_REJECTED records why that was turned down. */
 export const REASON_CLAIM =
-  `${ELISION_UNIT} put it this way: ${ELISION_REFRAME} ${ELISION_CLAIM}`;
+  `${Cap(unitRef(ELISION_UNIT))} put it this way: ${ELISION_REFRAME} ${ELISION_CLAIM}`;
 
 /** The chain. Nine lessons have taught a version of this and none of them said
  *  it was the same thing. a1.17's is the one that matters, because it swaps a
@@ -67,7 +73,7 @@ export const CHAIN_CLAIM =
  *  core screens and PLURAL_X_CLAIM alone is 35 words. The long version is in
  *  the term and in the sheet. */
 export const PLURAL_CLAIM =
-  `${PLURAL_X_FORMS.join(' and ')} take an x. ${form(PLURAL_UNCHANGED, 'plain')} already ends in one, so it takes nothing at all, and ${PLURAL_UNCHANGED_UNITS.join(' and ')} both told you so.`;
+  `${PLURAL_X_FORMS.join(' and ')} take an x. ${form(PLURAL_UNCHANGED, 'plain')} already ends in one, so it takes nothing at all, and ${PLURAL_UNCHANGED_UNITS.map((u) => unitRef(u)).join(' and ')} both told you so.`;
 
 /** The invented feminine, which is unhearable and therefore only a written
  *  surface can catch it. Short on purpose: it is quoted on two CORE screens and
@@ -77,7 +83,7 @@ export const INVENTED_ARITHMETIC =
 
 /** The silent h, and it is sons.07's rule rather than a new one. */
 export const SILENT_H_ARITHMETIC =
-  `${SILENT_H_CLAIM} ${ELISION_UNIT} already gave you the two kinds of h and this is the ordinary kind.`;
+  `${SILENT_H_CLAIM} ${Cap(unitRef(ELISION_UNIT))} already gave you the two kinds of h and this is the ordinary kind.`;
 
 /** The one-line version of the reframe, for the roundup. */
 export const CARRY_FORWARD = `${REFRAME} ${THE_MOVE}`;
@@ -85,7 +91,7 @@ export const CARRY_FORWARD = `${REFRAME} ${THE_MOVE}`;
 /** What is deliberately not here. Named, once, so the learner knows it is
  *  coming rather than thinking it was forgotten. */
 export const NEXT_LESSON_LINE =
-  `${ADVERB_UNIT} is next and it is built on the woman form, which you have now used more than any other shape of these three. Nothing here expires when you get there.`;
+  `${Cap(unitRef(ADVERB_UNIT))} is next and it is built on the woman form, which you have now used more than any other shape of these three. Nothing here expires when you get there.`;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE GLOSSARY
@@ -98,7 +104,7 @@ export const BEAU_NOUVEAU_TERMS: Record<string, LessonTerm> = {
     term: 'five forms',
     title: 'Three words that have one more shape than the rest',
     body:
-      `${FORM_ARITHMETIC} ${SOUND_CLAIM} The extra shape is the one you use in front of a word that starts with a vowel sound, and it is only ever used about a man or about a masculine thing. Everything else on the grid you already know how to build, because ${AGREEMENT_UNIT} taught you the system these three sit inside.`,
+      `${FORM_ARITHMETIC} ${SOUND_CLAIM} The extra shape is the one you use in front of a word that starts with a vowel sound, and it is only ever used about a man or about a masculine thing. Everything else on the grid you already know how to build, because ${unitRef(AGREEMENT_UNIT)} taught you the system these three sit inside.`,
     examples: [
       { itemId: cellId('beau', 'plain'), note: 'The plain one.' },
       { itemId: vowelRowId('beau'), note: 'The extra one, and the reason the other four are not enough.' },
@@ -150,7 +156,7 @@ export const BEAU_NOUVEAU_TERMS: Record<string, LessonTerm> = {
     examples: [
       { itemId: cellId('beau', 'plainPl'), note: 'An x. Not an s, and not for any reason you could work out.' },
       { itemId: cellId('nouveau', 'plainPl'), note: 'The second one, same ending.' },
-      { itemId: cellId('vieux', 'plainPl'), note: `And the third, which is the same four letters as the singular. ${BASICS_UNIT} told you about this word by name.` },
+      { itemId: cellId('vieux', 'plainPl'), note: `And the third, which is the same four letters as the singular. ${Cap(unitRef(BASICS_UNIT))} told you about this word by name.` },
     ],
   },
 

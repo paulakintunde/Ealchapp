@@ -42,6 +42,7 @@ import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
 import { lessonsOfUnit } from '../services/content.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -431,7 +432,7 @@ test('the source imports both rather than restating them', { skip: noSrc }, () =
 
 test('both units are named by a section', { skip: noLesson }, () => {
   for (const ref of ['a2.10', 'a2.01']) {
-    ok(L!.sections.some((s) => strings(s).some((x) => hasPhrase(x, ref))), `${ref} is named by no section`);
+    ok(L!.sections.some((s) => strings(s).some((x) => namesUnitLabel(x, ref))), `${ref} is named by no section`);
   }
 });
 
@@ -554,7 +555,7 @@ test('and the hand-over card says WHERE each one goes', { skip: noLesson }, () =
   const card = section(NOTMINE_SECTION);
   ok(card, `${NOTMINE_SECTION} is gone`);
   const text = strings(card).join('\n');
-  for (const ref of ['a2.02', 'a2.11']) ok(text.includes(ref), `${NOTMINE_SECTION} does not name ${ref}; a boundary with no destination is a warning`);
+  for (const ref of ['a2.02', 'a2.11']) ok(namesUnitLabel(text, ref), `${NOTMINE_SECTION} does not name ${ref}; a boundary with no destination is a warning`);
   ok(hasPhrase(text, 'mourir'), 'mourir is not on the hand-over card, and it is the one with no unit at all');
 });
 

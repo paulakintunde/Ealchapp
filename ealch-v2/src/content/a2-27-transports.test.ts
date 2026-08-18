@@ -11,6 +11,7 @@
 import { test } from 'node:test';
 import { strictEqual, ok, deepStrictEqual } from 'node:assert';
 import seed from './seed.json' with { type: 'json' };
+import { namesUnitLabel } from './unit-label.ts';
 
 /** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
  *
@@ -210,7 +211,7 @@ test('a2.07 owns the repair move and this unit authored none of it', () => {
   for (const id of REPAIR_IDS) {
     ok(tranche.has(id), `${id} is not released by any deckTranche. NO RENDERER READS itemIds ON A cardDeck, so a tranche is the only mechanism that works.`);
   }
-  ok(/a2\.07/.test(ALL_TEXT), 'a2.07 must be named by unit id in the copy');
+  ok(namesUnitLabel(ALL_TEXT, 'a2.07'), 'a2.07 must be named by its lesson label in the copy');
 });
 
 test('NO renderer-dead itemIds on a cardDeck', () => {
@@ -365,7 +366,7 @@ test('this unit does not reteach the preposition system', () => {
   // the contraction; a1.22 owns en/au/aux with countries. What is genuinely
   // unowned is en against à with transport MODES, which is one card, and the
   // rule is quoted from a published corpus row rather than restated.
-  ok(/a2\.04/.test(ALL_TEXT) && /a1\.21/.test(ALL_TEXT),
+  ok(namesUnitLabel(ALL_TEXT, 'a2.04') && namesUnitLabel(ALL_TEXT, 'a1.21'),
     'a2.04 and a1.21 must be named as where the preposition system was taught');
   const mode = sec('s07-mode') as { cards?: Array<{ label?: string }> } | undefined;
   ok(mode, 's07-mode is missing');

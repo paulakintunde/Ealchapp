@@ -59,6 +59,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept, fold } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -305,9 +306,9 @@ const hasPhrase = (hay: string, needle: string) => bounded(needle).test(hay);
  *  `hasPhrase(surface, '<unit id>')` check in this band blind to the possessive,
  *  and « a2.01's line » is how this whole band names a neighbour. Measured:
  *
- *      "That is a2.01's line."        hasPhrase(_, 'a2.01')  BLIND
- *      "That is a2.01 and nothing."   hasPhrase(_, 'a2.01')  MATCH
- *      "a2.24's lesson owns it."      hasPhrase(_, 'a2.24')  BLIND
+ *      "That is a2.01's line."        namesUnitLabel(_, 'a2.01')  BLIND
+ *      "That is a2.01 and nothing."   namesUnitLabel(_, 'a2.01')  MATCH
+ *      "a2.24's lesson owns it."      namesUnitLabel(_, 'a2.24')  BLIND
  *
  *  A check that a unit is credited therefore passes only by accident, on
  *  whichever screen happens to name it without a possessive. This one drops the
@@ -328,7 +329,7 @@ const PRODUCTION_SECTIONS = ['s18-dictation', 's20-speak', 's19-talk', 's07-asse
 /* ══ IDENTITY ═══════════════════════════════════════════════════════════ */
 
 test('a2.23.l1 is in the seed at v1', { skip: noLesson }, () => {
-  strictEqual(L!.version, 2, 'v2 repairs two Pixel 6 layout defects no host gate could see: the slot diagram spanning two screens, and two mission titles clipping. The counter moves rather than the body changing under v1');
+  strictEqual(L!.version, 3, 'v2 repairs two Pixel 6 layout defects no host gate could see: the slot diagram spanning two screens, and two mission titles clipping. The counter moves rather than the body changing under v1');
   strictEqual(L!.unitId, 'a2.23');
   strictEqual(L!.title, 'Pronominaux au passé composé');
   strictEqual(L!.tag, 'A2 · LEÇON 20');
@@ -508,9 +509,9 @@ test('the six positions are in ONE section, built from a full negative, cell by 
   /* AND THE CREDIT MOVED RATHER THAN BEING THROWN AWAY: the detail body still
    * names the lesson each position came from. */
   const details = s.rows.map((r) => (r as { detail?: { body?: string } }).detail?.body ?? '');
-  ok(details.some((b) => namesUnit(b, 'a1.18')), 'the ne row no longer credits a1.18');
-  ok(details.some((b) => namesUnit(b, 'a2.22')), 'the little-word row no longer credits a2.22');
-  ok(details.some((b) => namesUnit(b, 'a2.21')), 'the ending row no longer credits a2.21');
+  ok(details.some((b) => namesUnitLabel(b, 'a1.18')), 'the ne row no longer credits a1.18');
+  ok(details.some((b) => namesUnitLabel(b, 'a2.22')), 'the little-word row no longer credits a2.22');
+  ok(details.some((b) => namesUnitLabel(b, 'a2.21')), 'the ending row no longer credits a2.21');
 });
 
 test('every mission title fits the row, and the width model matches the device', { skip: noLesson }, () => {
@@ -587,7 +588,7 @@ test('the direct and indirect object distinction is explained NOWHERE', { skip: 
       ok(!hasPhrase(s, t), `the object system is explained: « ${t} » in « ${s.slice(0, 90) }»`);
     }
   }
-  ok(ALL.some((s) => namesUnit(s, 'a2.24')), 'a2.24 is named nowhere, so the exception is left to a lesson nobody is pointed at');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.24')), 'a2.24 is named nowhere, so the exception is left to a lesson nobody is pointed at');
 });
 
 test('the exception is recognised and never produced', { skip: noLesson }, () => {
@@ -677,7 +678,7 @@ test("a2.01's reframe is quoted, through a2.21, because it is why nothing here c
     ok(display(a221.sections).some((s) => s.includes(A201_REFRAME)),
       'a2.21 does not quote a2.01, so this lesson is not quoting the same string it did and the brief asked for one version');
   }
-  ok(display(sec('s09-silent')).some((s) => namesUnit(s, 'a2.01')), 's09-silent does not credit a2.01');
+  ok(display(sec('s09-silent')).some((s) => namesUnitLabel(s, 'a2.01')), 's09-silent does not credit a2.01');
 });
 
 test("a2.22's reframe and its clean background are both quoted as shipped", { skip: noLesson }, () => {

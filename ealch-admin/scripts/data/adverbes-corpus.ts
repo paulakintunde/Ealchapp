@@ -186,6 +186,12 @@
 //     sentence and a2.05 is named. Nothing here conjugates a compound tense.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE THEME, AND IT IS A LEDGER DECISION THIS BUILD HAD TO MAKE
@@ -485,7 +491,7 @@ export const ENGLISH_ORDER = [
 export const AGREEMENT_UNIT = 'a2.03';
 export const A203_REFRAME = 'The plain form tells you the other three.';
 export const AGREEMENT_CLAIM =
-  `${AGREEMENT_UNIT} said the plain form tells you the other three, and you have been building the woman form ever since without being told what it was for. This is what it was for.`;
+  `${Cap(unitRef(AGREEMENT_UNIT))} said the plain form tells you the other three, and you have been building the woman form ever since without being told what it was for. This is what it was for.`;
 
 /** a1.18, seq 21 at A1, shipped. Negation is NOT re-taught. Its own wording is
  *  quoted rather than paraphrased, because a paraphrase that drifts is how two
@@ -493,7 +499,7 @@ export const AGREEMENT_CLAIM =
 export const NEGATION_UNIT = 'a1.18';
 export const A118_REFRAME = 'Wrap the verb, then ask what the verb was.';
 export const NEGATION_LINE =
-  `${NEGATION_UNIT} wraps the verb in two words, and the word for how waits outside it: « Je ne mange pas souvent. »`;
+  `${Cap(unitRef(NEGATION_UNIT))} wraps the verb in two words, and the word for how waits outside it: « Je ne mange pas souvent. »`;
 /** The one sentence the negation line prints, so a guard can pin it to that one
  *  location rather than banning the word `pas` from the lesson. */
 export const NEGATION_EXAMPLE = 'Je ne mange pas souvent.';
@@ -501,7 +507,7 @@ export const NEGATION_EXAMPLE = 'Je ne mange pas souvent.';
 /** a2.05, seq 16, four lessons after this one. THE DEFERRAL. */
 export const PASSE_UNIT = 'a2.05';
 export const DEFERRAL_LINE =
-  `In a past tense the short ones move, and that rule arrives with the tense in ${PASSE_UNIT}. If you meet « j'ai bien mangé » before then, nothing here is wrong: it is a rule you have not been given yet.`;
+  `In a past tense the short ones move, and that rule arrives with the tense in ${unitRef(PASSE_UNIT)}. If you meet « j'ai bien mangé » before then, nothing here is wrong: it is a rule you have not been given yet.`;
 /** Nothing in this lesson may conjugate a compound tense. The auxiliaries plus a
  *  participle, as a shape rather than a word list. */
 /** THE PARTICIPLES, AS A LIST RATHER THAN AS A SUFFIX, AND THAT IS a2.14 §6:
@@ -576,7 +582,7 @@ export const PREVIOUS_UNIT = 'a2.16';
 export const UNSEEN: readonly { adj: string; fem: string; adverb: string; why: string }[] = [
   {
     adj: 'parfait', fem: 'parfaite', adverb: 'parfaitement',
-    why: 'The adjective is fr.sons.adjectifs-essentiels.047 and is NOT imported by this lesson; the adverb is fr.sons.adverbes-essentiels.014 and is not imported either. Its feminine is the regular -e, so a2.03 supplies step two and this lesson supplies step three.',
+    why: `The adjective is fr.sons.adjectifs-essentiels.047 and is NOT imported by this lesson; the adverb is fr.sons.adverbes-essentiels.014 and is not imported either. Its feminine is the regular -e, so ${unitRef('a2.03')} supplies step two and this lesson supplies step three.`,
   },
   {
     adj: 'certain', fem: 'certaine', adverb: 'certainement',
@@ -634,11 +640,11 @@ export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
   },
   {
     text: 'The plain form tells you the other three.',
-    why: 'a2.03\'s reframe verbatim. It is still true and it is the reason this lesson can exist at all, which is exactly why it cannot be this one. AGREEMENT_CLAIM quotes it and says what the other three were for.',
+    why: `${Cap(unitRef('a2.03'))}\'s reframe verbatim. It is still true and it is the reason this lesson can exist at all, which is exactly why it cannot be this one. AGREEMENT_CLAIM quotes it and says what the other three were for.`,
   },
   {
     text: 'Wrap the verb, then ask what the verb was.',
-    why: 'a1.18\'s, verbatim. Negation is named in one line and re-taught nowhere; taking its reframe would claim its work.',
+    why: `${Cap(unitRef('a1.18'))}\'s, verbatim. Negation is named in one line and re-taught nowhere; taking its reframe would claim its work.`,
   },
   {
     text: 'The adverb goes after the verb.',
@@ -950,7 +956,7 @@ export const REPAIRS: readonly Repair[] = [
     id: 'fr.sons.mots-essentiels.045', fr: 'bien',
     from: 'BYAN', half: 'BYAⁿ', to: 'BYEHⁿ', blind: false, house: true,
     readOff: 'fr.sons.nasales.078',
-    why: 'FLAGGED, SO IT IS A VIOLATION AND NOT A VARIANT. The minimal repair is BYAⁿ and the house value is BYEHⁿ: /ɛ̃/ is written EHⁿ across the sons themes (a-LEHⁿ, PEHⁿ, LWEHⁿ, TREHⁿ) and fr.sons.nasales.078 — which this lesson IMPORTS and prints on the same screen — already holds BYEHⁿ. a2.16 §7: bringing one row into line with several is not inventing a spelling.',
+    why: `FLAGGED, SO IT IS A VIOLATION AND NOT A VARIANT. The minimal repair is BYAⁿ and the house value is BYEHⁿ: /ɛ̃/ is written EHⁿ across the sons themes (a-LEHⁿ, PEHⁿ, LWEHⁿ, TREHⁿ) and fr.sons.nasales.078 — which this lesson IMPORTS and prints on the same screen — already holds BYEHⁿ. ${Cap(unitRef('a2.16'))} §7: bringing one row into line with several is not inventing a spelling.`,
   },
   {
     id: 'fr.sons.adverbes-essentiels.021', fr: 'sérieusement',
@@ -1021,7 +1027,7 @@ export const NOT_REPAIRED: readonly { id: string; respell: string; why: string }
 /** Rows read during the build and deliberately left alone, with the reason. */
 export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
   { id: 'fr.sons.voyelles.174', fr: 'le mieux', why: 'THE COMPARATIVE OF bien, WHICH IS a2.08\'s (seq 32). It is gendered m as well, so importing it would join a1.03\'s ending population. The guards assert `mieux` appears on no learner surface in this lesson at all.' },
-  { id: 'fr.a1.adverbes-essentiels.055', fr: "Franchement, ce film m'a beaucoup déçu.", why: 'A COMPOUND TENSE WITH A SHORT ADVERB BETWEEN THE AUXILIARY AND THE PARTICIPLE, in this lesson\'s own theme. It is the rule this lesson defers to a2.05 and 82 published sentences carry it. Named in the report rather than shown.' },
+  { id: 'fr.a1.adverbes-essentiels.055', fr: "Franchement, ce film m'a beaucoup déçu.", why: `A COMPOUND TENSE WITH A SHORT ADVERB BETWEEN THE AUXILIARY AND THE PARTICIPLE, in this lesson\'s own theme. It is the rule this lesson defers to ${unitRef('a2.05')} and 82 published sentences carry it. Named in the report rather than shown.` },
   { id: 'fr.sons.rythme.180', fr: 'Elle chante, très bien.', why: 'A `bien` sentence in a good frame, and its respelling is wrapped in DOUBLE brackets ([[ehl SHAHⁿT | treh BYAⁿ]]) and uses BYAⁿ rather than BYEHⁿ. Two reasons to leave it alone and one authored row to write instead.' },
   { id: 'fr.sons.rythme.181', fr: 'Elle chante très bien.', why: 'The same, and the same double brackets.' },
   { id: 'fr.sons.alphabet.385', fr: 'Notez bien chaque lettre.', why: 'Correctly respelled with BYEHⁿ and a clean verb-then-adverb shape, and it is an IMPERATIVE. The placement table holds five rows in the same declarative frame and a command in the sixth would make the frame the variable.' },
@@ -1194,7 +1200,7 @@ export const pairId = (adj: Adj, s: 'masc' | 'fem'): string => {
   const r = PAIR_ROWS.find((x) => x.adj === adj && x.step === s);
   if (!r) {
     const extra = adj === 'serieux'
-      ? ` The sérieux pair is a2.03's: ${A203_ROWS.mascSentence} and ${A203_ROWS.femSentence}. Read them from the imported set.`
+      ? ` The sérieux pair is ${unitRef('a2.03')}'s: ${A203_ROWS.mascSentence} and ${A203_ROWS.femSentence}. Read them from the imported set.`
       : '';
     throw new Error(`adverbes-corpus: no authored pair row for ${adj}/${s}.${extra}`);
   }

@@ -18,6 +18,12 @@
 // RATIO rather than banning a word, which is corrections §14.5's method.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A, AGREEMENT_RULE, AGREEMENT_SILENT, ARTICLE_UNIT, ELISION_LIMIT, ELISION_UNIT,
   GENDER_UNIT, NEGATION_EXTENSION, NEGATION_RULE, PLAIN_PHRASE, PLAIN_POSITION,
@@ -54,11 +60,11 @@ export const PRONOMS_DIRECT_TERMS: Record<string, LessonTerm> = {
    * unit is named, which is what the doctrine asks for from seq 14 onward. */
   sameWords: {
     term: 'one word, two jobs',
-    title: `The shape you have met four times, and ${WHAT_FOLLOWS_UNIT} named it`,
+    title: `The shape you have met four times, and ${unitRef(WHAT_FOLLOWS_UNIT)} named it`,
     body:
-      `« ${WHAT_FOLLOWS} » is the line ${WHAT_FOLLOWS_UNIT} gave this pattern, and you have met it four times: venir de, il y a, aller, and prendre. This is the fifth and it works slightly differently, so it is worth saying rather than leaving you to notice. ${SHAPE_EXTENSION} In « Je vois le film » the le is holding up a noun and you met it in ${ARTICLE_UNIT}. In « Je le vois » there is no noun for it to hold up, and the word straight after it is a verb. Same three letters, and the thing beside them tells you which job is being done.`,
+      `« ${WHAT_FOLLOWS} » is the line ${unitRef(WHAT_FOLLOWS_UNIT)} gave this pattern, and you have met it four times: venir de, il y a, aller, and prendre. This is the fifth and it works slightly differently, so it is worth saying rather than leaving you to notice. ${SHAPE_EXTENSION} In « Je vois le film » the le is holding up a noun and you met it in ${unitRef(ARTICLE_UNIT)}. In « Je le vois » there is no noun for it to hold up, and the word straight after it is a verb. Same three letters, and the thing beside them tells you which job is being done.`,
     examples: [
-      { itemId: A(189), note: `The ${ARTICLE_UNIT} job. A noun follows, so it is the article.` },
+      { itemId: A(189), note: `The ${unitRef(ARTICLE_UNIT)} job. A noun follows, so it is the article.` },
       { itemId: A(190), note: 'This lesson\'s job. A verb follows, so it is the pronoun.' },
     ],
   },
@@ -66,9 +72,9 @@ export const PRONOMS_DIRECT_TERMS: Record<string, LessonTerm> = {
   /* GENDER: NAMED, LEANED ON, NOT RE-TAUGHT. */
   whichOne: {
     term: 'which of the three',
-    title: `A question ${GENDER_UNIT} already answered`,
+    title: `A question ${unitRef(GENDER_UNIT)} already answered`,
     body:
-      `The choice between le, la and les is not a new decision. It is the noun's gender and number, which is exactly what ${GENDER_UNIT} taught you to store and what ${ARTICLE_UNIT} taught you to say. Plural takes les and the gender is not consulted at all. Singular takes le or la, and if you cannot gender the noun you cannot pick, which is why this lesson keeps the noun visible on every card that asks you to choose. Nothing here re-teaches gender. It simply becomes the thing you are spending, rather than the thing you are learning.`,
+      `The choice between le, la and les is not a new decision. It is the noun's gender and number, which is exactly what ${unitRef(GENDER_UNIT)} taught you to store and what ${unitRef(ARTICLE_UNIT)} taught you to say. Plural takes les and the gender is not consulted at all. Singular takes le or la, and if you cannot gender the noun you cannot pick, which is why this lesson keeps the noun visible on every card that asks you to choose. Nothing here re-teaches gender. It simply becomes the thing you are spending, rather than the thing you are learning.`,
     examples: [
       { itemId: A(191), note: 'La photo is feminine, and the card shows you the noun so you are not guessing.' },
       { itemId: A(199), note: 'Plural, so the question never arrives.' },
@@ -78,9 +84,9 @@ export const PRONOMS_DIRECT_TERMS: Record<string, LessonTerm> = {
   /* TRAP ONE. sons.07 is QUOTED AND TAUGHT NOWHERE. */
   shortened: {
     term: "l'",
-    title: `The form that loses the gender, and ${ELISION_UNIT} owns why`,
+    title: `The form that loses the gender, and ${unitRef(ELISION_UNIT)} owns why`,
     body:
-      `${ELISION_LIMIT} You have met this before: ${ELISION_UNIT} teaches it properly and at length, and nothing about it is new here. What IS new is what it costs you in this lesson. You spend the first half learning that le is masculine and la is feminine, and then meet a form where that distinction is gone from the sound and gone from the page. « Je l'aime » is him or it is her, and the sentence does not say. Nobody can be tested on it and nobody can hear it. It is not a gap in your French; it is a gap in the language, and the surrounding conversation is what fills it.`,
+      `${ELISION_LIMIT} You have met this before: ${unitRef(ELISION_UNIT)} teaches it properly and at length, and nothing about it is new here. What IS new is what it costs you in this lesson. You spend the first half learning that le is masculine and la is feminine, and then meet a form where that distinction is gone from the sound and gone from the page. « Je l'aime » is him or it is her, and the sentence does not say. Nobody can be tested on it and nobody can hear it. It is not a gap in your French; it is a gap in the language, and the surrounding conversation is what fills it.`,
     examples: [
       { itemId: A(207), note: 'Him or her. The English gloss carries both because the French carries both.' },
       { itemId: A(211), note: 'And the plural does not shorten. Les keeps its shape and adds a z sound, so the plural survives where the two singulars do not.' },
@@ -92,7 +98,7 @@ export const PRONOMS_DIRECT_TERMS: Record<string, LessonTerm> = {
     term: 'the wrap',
     title: 'What ne and pas go round, now that there is an extra word',
     body:
-      `« ${NEGATION_RULE} » is the line you have carried since the near future, and it still holds. There is only one verb in these sentences, so the question of which verb never arises. The question that does arise is what counts as the verb, and the answer is that the pronoun has joined it. ${NEGATION_EXTENSION} Ne goes outside both, pas goes after both, and the pronoun never leaves the verb's side. ${REFLEXIVE_UNIT} taught you the same thing about its own small word one lesson before this, so this is one habit rather than two.`,
+      `« ${NEGATION_RULE} » is the line you have carried since the near future, and it still holds. There is only one verb in these sentences, so the question of which verb never arises. The question that does arise is what counts as the verb, and the answer is that the pronoun has joined it. ${NEGATION_EXTENSION} Ne goes outside both, pas goes after both, and the pronoun never leaves the verb's side. ${Cap(unitRef(REFLEXIVE_UNIT))} taught you the same thing about its own small word one lesson before this, so this is one habit rather than two.`,
     examples: [
       { itemId: A(212), note: 'Ne outside, then the pronoun and the verb together, then pas.' },
       { itemId: A(216), note: 'And the shortened form behaves no differently inside the wrap.' },

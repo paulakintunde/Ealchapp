@@ -20,6 +20,12 @@
 // fourteen, and this lesson cannot say what it is about without it.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   ARTICLE_TABLE, CHEZ_CLAIM, CHEZ_EVIDENCE, CHEZ_FOLLOWERS, CONTRACTION_CLAIM,
   CONTRACTION_UNIT, COUNTRY_CLAIM, COUNTRY_UNIT, DOCTOR_UNIT, KIND_EXAMPLE,
@@ -44,11 +50,11 @@ export const ARTICLE_ARITHMETIC =
 /** Which of the four rows the learner already owns, and from where. Two of four,
  *  named by unit id, which is the difference between a synthesis and a repeat. */
 export const OWED_CLAIM =
-  `Two of these four are not new. ${CONTRACTION_UNIT} gave you what à and de do to an article and ${COUNTRY_UNIT} gave you what en does to a country's. What nobody has told you is that they are the same question asked four times.`;
+  `Two of these four are not new. ${Cap(unitRef(CONTRACTION_UNIT))} gave you what à and de do to an article and ${unitRef(COUNTRY_UNIT)} gave you what en does to a country's. What nobody has told you is that they are the same question asked four times.`;
 
 /** The payoff, and the reason this lesson sits at seq 13. */
 export const PAYOFF_CLAIM =
-  `« au Japon » is « à » plus « le Japon ». ${CONTRACTION_UNIT} taught the fold and ${COUNTRY_UNIT} taught the country, eleven lessons apart, and neither of them said they were the same operation.`;
+  `« au Japon » is « à » plus « le Japon ». ${Cap(unitRef(CONTRACTION_UNIT))} taught the fold and ${unitRef(COUNTRY_UNIT)} taught the country, eleven lessons apart, and neither of them said they were the same operation.`;
 
 /** The chez rule with its measurement behind it. */
 export const CHEZ_ARITHMETIC =
@@ -60,7 +66,7 @@ export const CHEZ_FOLLOWERS_LINE =
 
 /** The half of chez a learner who has done a1.21 gets wrong for a good reason. */
 export const NO_FOLD_CLAIM =
-  `À plus le is au and de plus le is du, and ${CONTRACTION_UNIT} gave you both. Chez does none of that: chez le, chez la, chez les, two words every time.`;
+  `À plus le is au and de plus le is du, and ${unitRef(CONTRACTION_UNIT)} gave you both. Chez does none of that: chez le, chez la, chez les, two words every time.`;
 
 /** The one-line version for the roundup. */
 export const CARRY_FORWARD = `${REFRAME} ${THE_MOVE}`;
@@ -68,12 +74,12 @@ export const CARRY_FORWARD = `${REFRAME} ${THE_MOVE}`;
 /** What is deliberately not here. Three units named, and each of them owns
  *  something this lesson refuses. */
 export const NEXT_LESSON_LINE =
-  `${TIME_DEFERRAL} And when you want to ask the way to somewhere rather than say you are going there, that is ${TRANSPORT_UNIT}.`;
+  `${TIME_DEFERRAL} And when you want to ask the way to somewhere rather than say you are going there, that is ${unitRef(TRANSPORT_UNIT)}.`;
 
 /** The unit that USES this rule rather than teaching it, named so the learner
  *  sees the payoff coming. */
 export const DOCTOR_LINE =
-  `${DOCTOR_UNIT} is called « Chez le médecin » and it is fourteen lessons ahead of you. Its whole title is this lesson's third card.`;
+  `${Cap(unitRef(DOCTOR_UNIT))} is called « Chez le médecin » and it is fourteen lessons ahead of you. Its whole title is this lesson's third card.`;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE GLOSSARY
@@ -133,7 +139,7 @@ export const PREPOSITIONS_LIEU_TERMS: Record<string, LessonTerm> = {
     term: 'à plus le',
     title: 'The fold you already have, with a country behind it',
     body:
-      `${PAYOFF_CLAIM} ${CONTRACTION_CLAIM} ${PARTITIVE_UNIT} owns the other du, the one that means an amount of something, and its test still separates them: put some in front of the English and see whether it survives.`,
+      `${PAYOFF_CLAIM} ${CONTRACTION_CLAIM} ${Cap(unitRef(PARTITIVE_UNIT))} owns the other du, the one that means an amount of something, and its test still separates them: put some in front of the English and see whether it survives.`,
     examples: [
       { itemId: 'fr.a1.routines.064', note: 'À and le marché. Somebody wrote this card for a routine lesson.' },
       { itemId: 'fr.a2.prepositions-essentielles.145', note: 'À and le Japon, which is the same thing with a country in it.' },
@@ -145,11 +151,11 @@ export const PREPOSITIONS_LIEU_TERMS: Record<string, LessonTerm> = {
     term: 'en drops it',
     title: 'The one that leaves nothing behind',
     body:
-      `${COUNTRY_CLAIM} En is the only one of the four that gets rid of the article rather than doing something to it, which is why « en la France » is not a mistake anybody has to be corrected out of: there is no version of it. ${COUNTRY_UNIT} is where the gender rule lives and this lesson does not repeat it.`,
+      `${COUNTRY_CLAIM} En is the only one of the four that gets rid of the article rather than doing something to it, which is why « en la France » is not a mistake anybody has to be corrected out of: there is no version of it. ${Cap(unitRef(COUNTRY_UNIT))} is where the gender rule lives and this lesson does not repeat it.`,
     examples: [
       { itemId: 'fr.a2.prepositions-essentielles.131', note: 'The article on la France is simply gone.' },
       { itemId: 'fr.sons.nasales.029', note: 'The same thing in somebody else\'s sentence, written for a pronunciation lesson.' },
-      { itemId: 'fr.a1.pays-et-nationalites.001', note: 'And the word with its article, which is how a1.22 asked you to store it.' },
+      { itemId: 'fr.a1.pays-et-nationalites.001', note: `And the word with its article, which is how ${unitRef('a1.22')} asked you to store it.` },
     ],
   },
 
@@ -169,10 +175,10 @@ export const PREPOSITIONS_LIEU_TERMS: Record<string, LessonTerm> = {
     term: 'not yet',
     title: 'The other en, and the other dans',
     body:
-      `${NEXT_LESSON_LINE} Everything on the other screens is about where somebody is or where they are going. ${TIME_UNIT} is the very next lesson and it takes both of those words back and does something else with them, and that is worth knowing now so you do not think you have met them twice. ${DOCTOR_LINE}`,
+      `${NEXT_LESSON_LINE} Everything on the other screens is about where somebody is or where they are going. ${Cap(unitRef(TIME_UNIT))} is the very next lesson and it takes both of those words back and does something else with them, and that is worth knowing now so you do not think you have met them twice. ${DOCTOR_LINE}`,
     examples: [
       { itemId: 'fr.a2.prepositions-essentielles.131', note: 'En with a place, which is this lesson.' },
-      { itemId: 'fr.a2.prepositions-essentielles.129', note: 'And chez with a person, which a2.28 is named after.' },
+      { itemId: 'fr.a2.prepositions-essentielles.129', note: `And chez with a person, which ${unitRef('a2.28')} is named after.` },
       { itemId: 'fr.a2.prepositions-essentielles.148', note: 'The afternoon in her question is a time and no word in this lesson touches it.' },
     ],
   },

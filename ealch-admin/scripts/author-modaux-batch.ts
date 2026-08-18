@@ -78,6 +78,7 @@ import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2
 import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { Pool } from 'pg';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   AUTHORED_IDS, BARE_MODAL_EXCEPTIONS, BARE_MODAL_SHAPE, BLIND_NASALS,
   CITED_UNITS, DEVOIR_OWE_ID, DICTATION_IDS, DRILL_ADDITIONS, ENDINGS,
@@ -644,7 +645,7 @@ if (strings(LESSON).some((s) => s.includes('‿'))) die('U+203F UNDERTIE reached
 
 /* ── EVERY CITED UNIT IS FINDABLE ────────────────────────────────────────── */
 
-const uncited = CITED_UNITS.filter((u) => !hasPhrase(learnerText, u));
+const uncited = CITED_UNITS.filter((u) => !namesUnitLabel(learnerText, u));
 if (uncited.length) {
   die(`these units are named in the corpus as cited and appear nowhere a search can see: ${uncited.join(', ')}\n`
     + `  Check for a possessive: hasPhrase treats "'" as a word character, so "a2.14's" does not match "a2.14".`);
@@ -652,7 +653,7 @@ if (uncited.length) {
 /* AND THE BOUNDARY SECTION MUST NAME THE NEIGHBOUR IT HANDS OVER TO. */
 const boundary = byId(BOUNDARY_SECTION_ID);
 if (!boundary) die(`${BOUNDARY_SECTION_ID} is missing`);
-if (!hasPhrase(prose(boundary).join('  '), RESERVED_FOR_NEIGHBOURS[0].unit)) {
+if (!namesUnitLabel(prose(boundary).join('  '), RESERVED_FOR_NEIGHBOURS[0].unit)) {
   die(`${BOUNDARY_SECTION_ID} does not name ${RESERVED_FOR_NEIGHBOURS[0].unit}, which owns the other half of "can"`);
 }
 

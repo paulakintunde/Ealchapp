@@ -178,6 +178,7 @@ import { REPAIRED_RESPELL, verbCard } from './verbes-er-exceptions-display.ts';
 // THESE, so a2.09 cannot come to disagree with a2.01 about what the six endings
 // are or which of them the ear receives.
 import { AUDIBLE_ENDINGS, ENDINGS, SILENT_ENDINGS } from './verbes-er-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export { A201_BACKREF, NOUS_ON, REFRAME, TWO_MECHANISMS };
 
@@ -1016,7 +1017,7 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'What you have',
         head: 'The -ER family is finished',
-        body: `${REFRAME} Two more sets of endings are ahead of you and neither one changes what you learned here. Every verb ending in -er is now either one of a2.01's, one of these seventeen, or aller.`,
+        body: `${REFRAME} Two more sets of endings are ahead of you and neither one changes what you learned here. Every verb ending in -er is now either one of ${unitRef('a2.01')}'s, one of these seventeen, or aller.`,
       },
     ],
   },
@@ -1409,7 +1410,7 @@ const SECTIONS: LessonSection[] = [
             format: 'tapSilent',
             word: 'répètent',
             correct: 'ent',
-            why: 'The whole ending, exactly as a2.01 taught it. That silence is the condition: because nothing is said after the stem, the stem is the last sound and its vowel opens.',
+            why: `The whole ending, exactly as ${unitRef('a2.01')} taught it. That silence is the condition: because nothing is said after the stem, the stem is the last sound and its vowel opens.`,
             ref: 's04-recap',
           },
         ],
@@ -1964,7 +1965,7 @@ export const VERBES_ER_EXC_LESSON: Lesson = {
   // card WITHOUT the two-line "you got it" chrome that a break following a choice
   // beat carries above its heading, so anything added to this card has to be
   // re-measured on a device rather than checked against the budget.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',
@@ -2035,7 +2036,7 @@ export const VERBES_ER_EXC_LESSON: Lesson = {
       },
       {
         id: 'rec-a2-09-verbs',
-        desc: `The ${THE_SEVENTEEN.length} naming forms, read as a flat list at conversational pace, one voice, roughly a second between them so a learner can repeat into the gap. Every one ends in the same AY sound and that sameness is worth keeping: nothing in how these verbs are SAID marks them out from the thirty in a2.01, which is exactly why the lesson has to be about the page. Do not vary the intonation to keep the list interesting.`,
+        desc: `The ${THE_SEVENTEEN.length} naming forms, read as a flat list at conversational pace, one voice, roughly a second between them so a learner can repeat into the gap. Every one ends in the same AY sound and that sameness is worth keeping: nothing in how these verbs are SAID marks them out from the thirty in ${unitRef('a2.01')}, which is exactly why the lesson has to be about the page. Do not vary the intonation to keep the list interesting.`,
         clipIds: [...THE_SEVENTEEN],
       },
       {

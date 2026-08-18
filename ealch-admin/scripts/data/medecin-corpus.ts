@@ -80,6 +80,12 @@
 // `a1-24-corps.test.ts` pins it at zero GLOBALLY, so the first row authored
 // there turns another unit's test red. Nobody edits that test.
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const UNIT = {
   id: 'a2.28',
@@ -390,7 +396,7 @@ const DOCTOR_ROWS: readonly Row[] = [
     'The consultation opens with this and nothing else. It is not a question about travel and a learner who parses amener loses the whole turn.'),
   R(195, 'Où avez-vous mal exactement ?', 'Where exactly does it hurt?', '/u a.ve vu mal ɛɡ.zak.tə.mɑ̃/', 'oo ah-vay VOO mal eg-zakt-MAHⁿ',
     'doctor-question', 'doctor', 'sentence', SD, 'CO', 'courant',
-    'The question that wants construction 1. a1.24 taught the answer shape; nobody had authored the question that asks for it.'),
+    `The question that wants construction 1. ${Cap(unitRef('a1.24'))} taught the answer shape; nobody had authored the question that asks for it.`),
   R(196, 'Ça vous lance ou ça vous brûle ?', 'Is it a shooting pain or a burning one?', '/sa vu lɑ̃s u sa vu bʁyl/', 'sa voo LAHⁿSS oo sa voo BRÜL',
     'doctor-question', 'doctor', 'sentence', SV, 'CO', 'courant',
     'Zero rows in the corpus used lancer for pain. This is the question that kills the rehearsed opening, and it is the scene\'s whole point.'),
@@ -408,13 +414,13 @@ const DOCTOR_ROWS: readonly Row[] = [
     'Asked while the doctor is already pressing, so the learner answers under a second kind of pressure. Short answers only.'),
   R(201, 'Vous avez mal la nuit aussi ?', 'Does it hurt at night too?', '/vu.za.ve mal la nɥi o.si/', 'voo-zah-VAY mal lah NWEE oh-SEE',
     'doctor-question', 'doctor', 'sentence', SV, 'CO', 'courant',
-    'A yes-or-no question that sounds like the previous one and wants a different fact. a1.19 owns the question form.'),
+    `A yes-or-no question that sounds like the previous one and wants a different fact. ${Cap(unitRef('a1.19'))} owns the question form.`),
   R(202, 'Montrez-moi où ça fait mal.', 'Show me where it hurts.', '/mɔ̃.tʁe mwa u sa fɛ mal/', 'mohⁿ-tray MWAH oo sa feh MAL',
     'doctor-move', 'doctor', 'sentence', SD, 'CO', 'courant',
     'An instruction rather than a question, and the one turn where the learner does not have to produce French at all.'),
   R(203, 'Je vais vous examiner.', 'I am going to examine you.', '/ʒə vɛ vu.zɛɡ.za.mi.ne/', 'zhuh veh voo-zeg-za-mee-NAY',
     'doctor-move', 'doctor', 'sentence', SV, 'CO', 'courant',
-    'The futur proche is a2.01\'s and is used here, not taught. It signals the talking part is over.'),
+    `The futur proche is ${unitRef('a2.01')}\'s and is used here, not taught. It signals the talking part is over.`),
   R(204, 'Ce n\'est pas grave.', 'It is nothing serious.', '/sə nɛ pa ɡʁav/', 'suh neh pah GRAHV',
     'doctor-move', 'doctor', 'phrase', PD, 'CO', 'courant',
     'The sentence a patient is listening for, and four words long. Reassurance in French is short and can be missed entirely.'),
@@ -508,7 +514,7 @@ const AROUND_ROWS: readonly Row[] = [
     'Buys a second attempt rather than ending the turn. A doctor hearing it waits; a doctor hearing silence moves on.'),
   R(223, 'C\'est combien de fois par jour ?', 'How many times a day is that?', '/sɛ kɔ̃.bjɛ̃ də fwa paʁ ʒuʁ/', 'seh kohⁿ-byehⁿ duh fwah par ZHOOR',
     'describe-around', 'learner', 'sentence', SD, 'PO', 'courant',
-    'The targeted question the disclaimer card ends on. It asks about the dose specifically rather than asking for the sentence again, which is a2.07\'s move.'),
+    `The targeted question the disclaimer card ends on. It asks about the dose specifically rather than asking for the sentence again, which is ${unitRef('a2.07')}\'s move.`),
 ];
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -522,16 +528,16 @@ const AROUND_ROWS: readonly Row[] = [
 const BODY_ROWS: readonly Row[] = [
   RB(21, 'J\'ai mal ici, sous les côtes.', 'It hurts here, under the ribs.', '/ʒe mal i.si su le kot/', 'zhay mal ee-SEE soo lay KOHT',
     'body-report', 'learner', 'sentence', SV, 'PO', 'courant',
-    'Construction 1 with a location the learner points at. Sous is a2.04\'s preposition and is used, not taught.'),
+    `Construction 1 with a location the learner points at. Sous is ${unitRef('a2.04')}\'s preposition and is used, not taught.`),
   RB(22, 'J\'ai mal partout.', 'I ache all over.', '/ʒe mal paʁ.tu/', 'zhay mal par-TOO',
     'body-report', 'learner', 'phrase', PD, 'PO', 'courant',
-    'Construction 1 with no body part at all, which is the shape a1.24 never showed and the one a feverish person actually produces.'),
+    `Construction 1 with no body part at all, which is the shape ${unitRef('a1.24')} never showed and the one a feverish person actually produces.`),
   RB(23, 'La douleur descend dans la jambe.', 'The pain goes down into the leg.', '/la du.lœʁ de.sɑ̃ dɑ̃ la ʒɑ̃b/', 'lah doo-leur day-SAHⁿ dahⁿ lah ZHAHⁿB',
     'body-report', 'learner', 'sentence', SV, 'PO', 'courant',
     'A symptom that moves, which none of the three constructions handles and which a doctor asks about directly.'),
   RB(24, 'Ça a commencé il y a trois jours.', 'It started three days ago.', '/sa a kɔ.mɑ̃.se i.lja tʁwa ʒuʁ/', 'sa ah ko-mahⁿ-SAY eel-yah trwah ZHOOR',
     'body-report', 'learner', 'sentence', SD, 'PO', 'courant',
-    'The answer to depuis quand ? that AVOIDS depuis entirely. a2.18 owns depuis and this row lets the slot be filled without touching it.'),
+    `The answer to depuis quand ? that AVOIDS depuis entirely. ${Cap(unitRef('a2.18'))} owns depuis and this row lets the slot be filled without touching it.`),
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════

@@ -45,6 +45,12 @@ import {
 } from './futur-proche-corpus.ts';
 import { ALREADY_YOURS, EVIDENCE_LINE, FUTUR_PROCHE_TERMS } from './futur-proche-terms.ts';
 import { impCard, importedEn, importedFr, rowCard, sub as impSub } from './futur-proche-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the authored rows ────────────────────────────────────────────
  *
@@ -57,23 +63,23 @@ const BY_ID = new Map(FUTUR_PROCHE.map((r) => [r.id, r]));
 
 const fr = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.19: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.19'))}: ${id} is not an authored row.`);
   return r.fr;
 };
 const en = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.19: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.19'))}: ${id} is not an authored row.`);
   return r.en;
 };
 const bare = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.19: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.19'))}: ${id} is not an authored row.`);
   return r.respell!;
 };
 const sub = (id: string): string => `[${bare(id)}]`;
 const ipaOf = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.19: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.19'))}: ${id} is not an authored row.`);
   return r.ipa!;
 };
 
@@ -483,7 +489,7 @@ const SECTIONS: LessonSection[] = [
     examples: [
       { fr: fr(A(513)), en: en(A(513)), note: `${sub(A(513))} payer` },
       { fr: fr(A(514)), en: en(A(514)), note: `${sub(A(514))} travailler, four syllables, and the slot does not care.` },
-      { fr: fr(A(515)), en: en(A(515)), note: `${sub(A(515))} venir, which is the other verb ${ALLER_UNIT} taught you.` },
+      { fr: fr(A(515)), en: en(A(515)), note: `${sub(A(515))} venir, which is the other verb ${unitRef(ALLER_UNIT)} taught you.` },
       { fr: fr(A(517)), en: en(A(517)), note: `${sub(A(517))} manger, and a word for early you have spelled twice already.` },
       { fr: fr(A(518)), en: en(A(518)), note: `${sub(A(518))} rester, which is the one plan in the set that is about not moving.` },
       { fr: importedFr('fr.a2.negation-et-restriction.164'), en: importedEn('fr.a2.negation-et-restriction.164'), note: `${impSub('fr.a2.negation-et-restriction.164')} finir, negative, and a sentence somebody published years ago with the pas in exactly this place.` },
@@ -499,9 +505,9 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     hint: 'Swipe. Five cards, and the last two are lessons you have not reached yet.',
     cards: [
-      impCard('fr.a2.verbes.347', 'you have seen this', `${MODAL_UNIT}'s own card. A first verb that changed for je, and payer behind it in its naming form. ${A213_REFRAME}`),
+      impCard('fr.a2.verbes.347', 'you have seen this', `${Cap(unitRef(MODAL_UNIT, 'a2'))}'s own card. A first verb that changed for je, and payer behind it in its naming form. ${A213_REFRAME}`),
       { label: 'this lesson', head: fr(A(513)), sub: sub(A(513)), body: 'The same naming form behind a different first verb. Nothing about payer is different, because nothing ever is.' },
-      { label: 'the negative', head: 'Je ne peux pas payer.', body: `${MODAL_UNIT} again, negative. The two halves went round peux, which is the verb that changed, and payer stayed outside them. That is this lesson's rule on a different first verb.` },
+      { label: 'the negative', head: 'Je ne peux pas payer.', body: `${Cap(unitRef(MODAL_UNIT))} again, negative. The two halves went round peux, which is the verb that changed, and payer stayed outside them. That is this lesson's rule on a different first verb.` },
       { label: 'the same rule', head: fr(A(507)), sub: sub(A(507)), body: `${REFRAME} One rule, and you have now seen it work on two different first verbs.` },
       { label: 'and next', head: 'the lesson after this one', body: PAST_DEFERRAL },
     ],
@@ -544,10 +550,10 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     say: `A plan with no time on it can be read as somebody walking towards the kitchen. Put a time on it and there is nothing left to work out. ${A218_DEFERRAL}`,
     examples: [
-      { fr: importedFr(DANS_PAIR.theirsId), en: importedEn(DANS_PAIR.theirsId), note: `${impSub(DANS_PAIR.theirsId)} ${TIME_UNIT}'s own sentence, and it is correct as it stands.` },
+      { fr: importedFr(DANS_PAIR.theirsId), en: importedEn(DANS_PAIR.theirsId), note: `${impSub(DANS_PAIR.theirsId)} ${Cap(unitRef(TIME_UNIT, 'a2'))}'s own sentence, and it is correct as it stands.` },
       { fr: fr(A(519)), en: en(A(519)), note: `${sub(A(519))} ${DANS_PAIR.why}` },
       { fr: importedFr('fr.a2.prepositions-essentielles.184'), en: importedEn('fr.a2.prepositions-essentielles.184'), note: `${impSub('fr.a2.prepositions-essentielles.184')} The phrase on its own, already a card, and this lesson spells it exactly as that one does.` },
-      { fr: fr(A(520)), en: en(A(520)), note: `${sub(A(520))} ${TIME_UNIT} published « ${DANS_PAIR_TWO.theirs} » as a question and this is the same plan with a verb in front of it.` },
+      { fr: fr(A(520)), en: en(A(520)), note: `${sub(A(520))} ${Cap(unitRef(TIME_UNIT))} published « ${DANS_PAIR_TWO.theirs} » as a question and this is the same plan with a verb in front of it.` },
       { fr: fr(A(514)), en: en(A(514)), note: `${sub(A(514))} And a day instead of a length, which works exactly the same way.` },
     ],
     terms: ['timeWord', 'goingTo'],
@@ -563,7 +569,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     say: `${PATTERN_PREDICTION}`,
     examples: [
-      { fr: importedFr('fr.a2.prepositions-essentielles.130'), en: importedEn('fr.a2.prepositions-essentielles.130'), note: `${impSub('fr.a2.prepositions-essentielles.130')} ${PLACE_UNIT}'s card. A place, so this is a journey.` },
+      { fr: importedFr('fr.a2.prepositions-essentielles.130'), en: importedEn('fr.a2.prepositions-essentielles.130'), note: `${impSub('fr.a2.prepositions-essentielles.130')} ${Cap(unitRef(PLACE_UNIT, 'a2'))}'s card. A place, so this is a journey.` },
       { fr: fr(A(501)), en: en(A(501)), note: `${sub(A(501))} ${TWO_JOBS[0]!.why}` },
       { fr: importedFr('fr.a2.verbes.261'), en: importedEn('fr.a2.verbes.261'), note: `${impSub('fr.a2.verbes.261')} ${TWO_JOBS[1]!.why}` },
       { fr: fr(A(513)), en: en(A(513)), note: `${sub(A(513))} A naming form, so this is a plan. Two words in common with the card above it.` },
@@ -600,7 +606,7 @@ const SECTIONS: LessonSection[] = [
     cards: [
       { promptLabel: 'a journey', promptSound: importedFr('fr.a2.prepositions-essentielles.130'), fr: importedFr('fr.a2.prepositions-essentielles.130'), ipa: '/ʒə vɛ a pa.ʁi/', tip: 'A place behind it, so you are going somewhere.' },
       { promptLabel: 'a plan', promptSound: fr(A(501)), fr: fr(A(501)), ipa: ipaOf(A(501)), tip: 'A naming form behind it, so you are going to do something. The first two words are identical.' },
-      { promptLabel: 'a journey', promptSound: importedFr('fr.a2.verbes.261'), fr: importedFr('fr.a2.verbes.261'), ipa: '/ʒə vɛ o paʁk/', tip: `${ALLER_UNIT}'s own card, from the lesson that conjugated this verb.` },
+      { promptLabel: 'a journey', promptSound: importedFr('fr.a2.verbes.261'), fr: importedFr('fr.a2.verbes.261'), ipa: '/ʒə vɛ o paʁk/', tip: `${Cap(unitRef(ALLER_UNIT, 'a2'))}'s own card, from the lesson that conjugated this verb.` },
       { promptLabel: 'a plan', promptSound: fr(A(513)), fr: fr(A(513)), ipa: ipaOf(A(513)), tip: 'And the plan beside it. Nothing about « je vais » tells you which one you are in.' },
     ],
     drill: [
@@ -622,7 +628,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     hint: 'Swipe. Five cards, and this lesson is not asking you to say any of it.',
     cards: [
-      { label: 'in writing', head: fr(A(521)), sub: sub(A(521)), body: `${en(A(521))} Both halves, every time, which is what ${NEGATION_UNIT} told you and it has not changed.` },
+      { label: 'in writing', head: fr(A(521)), sub: sub(A(521)), body: `${en(A(521))} Both halves, every time, which is what ${unitRef(NEGATION_UNIT)} told you and it has not changed.` },
       { label: 'in speech', head: fr(A(522)), sub: sub(A(522)), body: NE_DROP },
       { label: 'what stays', head: 'pas', body: 'The half that disappears is the half that was not doing the work. Pas is still straight after the form of aller and it is now carrying the whole negative on its own.' },
       { label: 'the second future', head: 'one word instead of two', body: OTHER_FUTURE },
@@ -860,10 +866,10 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     body: `${REFRAME} The exam has five rounds. Everything in it you can say out loud today, except one listening question, which is about a sentence you are only being asked to recognise.`,
     stats: [
-      { k: 'New verb forms', v: `0. ${ALLER_UNIT} gave you all six.` },
+      { k: 'New verb forms', v: `0. ${Cap(unitRef(ALLER_UNIT))} gave you all six.` },
       { k: 'New endings', v: '0. The verb behind aller never takes one.' },
       { k: 'The rule', v: REFRAME },
-      { k: 'Used again in', v: `${PAST_UNIT}, which is the next lesson.` },
+      { k: 'Used again in', v: `${Cap(unitRef(PAST_UNIT))}, which is the next lesson.` },
     ],
   },
 
@@ -966,7 +972,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['It takes no ending', 'It agrees with nobody', 'It changes for the person', 'It is the naming form'],
             correct: 2,
-            why: `${A213_REFRAME} ${ALLER_UNIT} called it ${A202_NAMING_FORM} about what follows de, and it is the same fact here.`,
+            why: `${A213_REFRAME} ${Cap(unitRef(ALLER_UNIT))} called it ${A202_NAMING_FORM} about what follows de, and it is the same fact here.`,
             ref: MODALS_SECTION_ID,
           },
           {
@@ -987,7 +993,7 @@ const SECTIONS: LessonSection[] = [
             ref: ERRORS_SECTION_ID,
           },
           {
-            q: 'a2.13 taught « Je ne peux pas venir ». What is the same about it?',
+            q: `${Cap(unitRef('a2.13'))} taught « Je ne peux pas venir ». What is the same about it?`,
             format: 'mcq',
             opts: ['The verb it wraps is the one that changed', 'It has no negative in it', 'Venir takes an ending', 'The pas comes last'],
             correct: 0,
@@ -1000,7 +1006,7 @@ const SECTIONS: LessonSection[] = [
         id: 'r3-place-or-plan',
         label: 'A place or a plan',
         targets: ['err-two-jobs', 'err-pas-position'],
-        say: `Six on the shape ${WHAT_FOLLOWS_UNIT} named. The verb never changes and the word after it always does.`,
+        say: `Six on the shape ${unitRef(WHAT_FOLLOWS_UNIT)} named. The verb never changes and the word after it always does.`,
         questions: [
           {
             q: 'Je vais à Paris.',
@@ -1023,7 +1029,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['The tense', 'The person', 'How it is said', 'The word straight after it'],
             correct: 3,
-            why: `${WHAT_FOLLOWS_UNIT} named this pattern ${WHAT_FOLLOWS}, on venir de, and ${TIME_UNIT} met it again on il y a. This is the third one.`,
+            why: `${Cap(unitRef(WHAT_FOLLOWS_UNIT))} named this pattern ${WHAT_FOLLOWS}, on venir de, and ${unitRef(TIME_UNIT)} met it again on il y a. This is the third one.`,
             ref: TWICE_TRAP_SECTION_ID,
           },
           {
@@ -1105,7 +1111,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: [fr(A(520)), 'On va manger il y a une heure.', 'On manger va dans une heure.', 'On va dans une heure manger.'],
             correct: 0,
-            why: `Aller, then the naming form, then the time. ${TIME_UNIT} gave you the time phrase and it has not changed.`,
+            why: `Aller, then the naming form, then the time. ${Cap(unitRef(TIME_UNIT))} gave you the time phrase and it has not changed.`,
             ref: WHEN_SECTION_ID,
           },
         ],
@@ -1188,10 +1194,10 @@ const SECTIONS: LessonSection[] = [
     points: [
       `${REFRAME} ${OWNS_CLAIM}`,
       POSITION_CLAIM,
-      `${A213_REFRAME} That is ${MODAL_UNIT}'s line and it is exactly as true behind aller.`,
+      `${A213_REFRAME} That is ${unitRef(MODAL_UNIT, 'a2')}'s line and it is exactly as true behind aller.`,
       `${PATTERN_CLAIM} ${TRAP_RULE}`,
       DANS_PAIR.why,
-      `${NE_DROP} ${NEGATION_UNIT} said it first and this lesson says nothing different.`,
+      `${NE_DROP} ${Cap(unitRef(NEGATION_UNIT))} said it first and this lesson says nothing different.`,
       `${OTHER_FUTURE} ${PAST_DEFERRAL}`,
     ],
     sheetId: SHEET_ID,
@@ -1334,7 +1340,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-ne-drop',
-    description: 'Misses a negative whose ne has been dropped and hears agreement. Costs comprehension rather than accuracy, and the learner has no way of finding out, which is why a1.18 gave it its own drill and why this lesson gives it another.',
+    description: `Misses a negative whose ne has been dropped and hears agreement. Costs comprehension rather than accuracy, and the learner has no way of finding out, which is why ${unitRef('a1.18')} gave it its own drill and why this lesson gives it another.`,
     detectOn: [HEAR_SECTION_ID, `${QUIZ_SECTION_ID}/r5-what-you-hear`],
     drill: 'drill-ne-dropped',
     retest: 'retest-ne-dropped',
@@ -1390,7 +1396,7 @@ const DRILLS = [
     format: 'sort' as const,
     buckets: ['a journey', 'a plan'],
     items: ['fr.a2.prepositions-essentielles.130', A(501), 'fr.a2.verbes.261', A(513), 'fr.a2.verbes.266', A(506)],
-    coach: `${TRAP_RULE} ${WHAT_FOLLOWS_UNIT} named this pattern ${WHAT_FOLLOWS}.`,
+    coach: `${TRAP_RULE} ${Cap(unitRef(WHAT_FOLLOWS_UNIT))} named this pattern ${WHAT_FOLLOWS}.`,
   },
   {
     id: 'retest-place-or-plan',
@@ -1558,7 +1564,7 @@ export const FUTUR_PROCHE_LESSON: Lesson = {
   //      `coach` and the scene's `closing` both render on that screen and both
   //      held the reframe, so eleven words printed twice one paragraph apart.
   //      The coach came off. Invariants §7: chrome repeated on one screen.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'The full present of aller, in six persons, introduced in a2.02',

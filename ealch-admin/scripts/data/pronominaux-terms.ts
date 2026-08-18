@@ -21,6 +21,12 @@
 // own English name — which `content_units` requires it to match.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A118_REFRAME, A125_HANDOFF, A125_REFRAME, A201_REFRAME, A209_CREDIT,
   A209_REFRAME, A221_REFRAME, A205_REFRAME, ALPHABET_UNIT, DIRECT_OBJECT_UNIT,
@@ -39,7 +45,7 @@ export { REFRAME } from './pronominaux-corpus.ts';
 /** What a learner already owns, named by unit, so this lesson reads as one new
  *  thing standing on things they have rather than as a fresh topic. */
 export const ALREADY_YOURS =
-  `${ROUTINE_UNIT} gave you these verbs and three of the six people to use them with, and said the rest was a whole band away. This is the rest. Nothing about the endings changes: ${ER_UNIT} still gives you every one of them.`;
+  `${Cap(unitRef(ROUTINE_UNIT))} gave you these verbs and three of the six people to use them with, and said the rest was a whole band away. This is the rest. Nothing about the endings changes: ${unitRef(ER_UNIT)} still gives you every one of them.`;
 
 /** The measured evidence, as one sentence, so it reaches a screen rather than
  *  living only in the report. */
@@ -51,7 +57,7 @@ export const PRONOMINAUX_TERMS: Record<string, LessonTerm> = {
     term: 'extra word',
     title: 'It is the subject again, in a different shape',
     body:
-      `About half the verbs in a day carry a second little word between the person and the verb: je ME lave, tu TE laves, il SE lave. ${ROUTINE_UNIT} asked you to store it with the verb, which was the right thing to do while you only needed three of them. It is not a fixed piece of the verb. It is the person you already named, said a second time, and that is why it changes every time they do.`,
+      `About half the verbs in a day carry a second little word between the person and the verb: je ME lave, tu TE laves, il SE lave. ${Cap(unitRef(ROUTINE_UNIT))} asked you to store it with the verb, which was the right thing to do while you only needed three of them. It is not a fixed piece of the verb. It is the person you already named, said a second time, and that is why it changes every time they do.`,
   },
   samePerson: {
     term: 'same person',
@@ -63,19 +69,19 @@ export const PRONOMINAUX_TERMS: Record<string, LessonTerm> = {
     term: 'twice',
     title: 'nous nous, and vous vous, are not typos',
     body:
-      `Four of the six little words are different from the person in front of them and two are identical. Nous nous levons has the same word twice doing two different jobs, and ${ROUTINE_UNIT} already put that exact sentence on a screen. It looks like a mistake in a way the others do not, and it is the form learners quietly drop.`,
+      `Four of the six little words are different from the person in front of them and two are identical. Nous nous levons has the same word twice doing two different jobs, and ${unitRef(ROUTINE_UNIT)} already put that exact sentence on a screen. It looks like a mistake in a way the others do not, and it is the form learners quietly drop.`,
   },
   theWrap: {
     term: 'the wrap',
     title: 'Both little words go inside it',
     body:
-      `${NEGATION_UNIT} gave you two words either side of the verb and ${FUTUR_UNIT} said which verb: « ${NEGATION_RULE} » ${PASSE_UNIT} and ${ETRE_UNIT} both quote that line and it has not changed. ${NEGATION_EXTENSION} So the first half goes in front of the little word, not behind it.`,
+      `${Cap(unitRef(NEGATION_UNIT))} gave you two words either side of the verb and ${unitRef(FUTUR_UNIT)} said which verb: « ${NEGATION_RULE} » ${unitRef(PASSE_UNIT)} and ${unitRef(ETRE_UNIT)} both quote that line and it has not changed. ${NEGATION_EXTENSION} So the first half goes in front of the little word, not behind it.`,
   },
   notAboutSelf: {
     term: 'no meaning',
     title: 'Some of them point at nothing at all',
     body:
-      `S'appeler, se souvenir and se dépêcher carry the little word and mean nothing reflexive by it. Nobody hurries themselves. The word is simply part of how the verb is built, and it still changes for the person, which is the only thing you have to get right. ${ALPHABET_UNIT} taught « Je m'appelle » in the first lesson in the app, so you have been saying one of these all along.`,
+      `S'appeler, se souvenir and se dépêcher carry the little word and mean nothing reflexive by it. Nobody hurries themselves. The word is simply part of how the verb is built, and it still changes for the person, which is the only thing you have to get right. ${Cap(unitRef(ALPHABET_UNIT))} taught « Je m'appelle » in the first lesson in the app, so you have been saying one of these all along.`,
   },
   vowelMoves: {
     term: 'the vowel',
@@ -93,13 +99,13 @@ export const PRONOMINAUX_TERMS: Record<string, LessonTerm> = {
     term: 'later',
     title: 'The same words come back doing something else',
     body:
-      `${OBJECT_DEFERRAL} ${DIRECT_OBJECT_UNIT} and ${INDIRECT_OBJECT_UNIT} are where that happens. Everything on these screens points back at the person doing it, and that is the only use you need today.`,
+      `${OBJECT_DEFERRAL} ${Cap(unitRef(DIRECT_OBJECT_UNIT))} and ${unitRef(INDIRECT_OBJECT_UNIT)} are where that happens. Everything on these screens points back at the person doing it, and that is the only use you need today.`,
   },
   eachOther: {
     term: 'each other',
     title: 'A third thing the same word can mean',
     body:
-      `Ils se parlent can mean they talk to each other rather than to themselves, and nothing in the spelling tells you which. It is worth recognising so it does not read as an error, and it is not part of what you are asked to produce. ${PAST_UNIT} and ${INDIRECT_OBJECT_UNIT} are where it gets its own treatment.`,
+      `Ils se parlent can mean they talk to each other rather than to themselves, and nothing in the spelling tells you which. It is worth recognising so it does not read as an error, and it is not part of what you are asked to produce. ${Cap(unitRef(PAST_UNIT))} and ${unitRef(INDIRECT_OBJECT_UNIT)} are where it gets its own treatment.`,
   },
 };
 

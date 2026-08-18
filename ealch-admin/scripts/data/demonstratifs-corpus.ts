@@ -131,6 +131,12 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { SHAPE_EXTENSION as A206_SHAPE_LOCAL } from './pronoms-direct-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  §B. IDENTITY, THE THEME AND THE ID BLOCK
@@ -455,7 +461,7 @@ export const NOT_DECK_ABLE = [...IMPORTED.adjectives];
  *  search, and asserted absent in both the batch and the test. */
 export const B1_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
   { id: 'fr.b1.pronoms-essentiels.043', fr: "Cette chanson, c'est celle que j'écoute tout le temps.", why: "carries c'est, which is trap 4's third job" },
-  { id: 'fr.b1.pronoms-essentiels.051', fr: "Ce sont celles que j'ai achetées hier.", why: 'carries ce sont, which is trap 4 outright, plus a preceding-direct-object agreement that belongs to a2.06' },
+  { id: 'fr.b1.pronoms-essentiels.051', fr: "Ce sont celles que j'ai achetées hier.", why: `carries ce sont, which is trap 4 outright, plus a preceding-direct-object agreement that belongs to ${unitRef('a2.06')}` },
   { id: 'fr.b1.pronoms-essentiels.046', fr: 'Choisis ceux qui te semblent les plus utiles.', why: 'sembler is not A2 vocabulary and the sentence needs it to parse' },
   { id: 'fr.b1.pronoms-essentiels.047', fr: 'Parmi tous les élèves, ceux qui travaillent réussissent.', why: 'parmi is b1, and the sentence is generic rather than deictic, which is the opposite of what a demonstrative does' },
 ];
@@ -839,7 +845,7 @@ export const ELISION_UNIT = 'sons.07';
 export const VOWEL_UNIT = 'a2.16';
 export const VOWEL_FORMS = ['bel', 'nouvel', 'vieil'] as const;
 export const VOWEL_CLAIM =
-  `${VOWEL_UNIT} swapped a whole form so a consonant would land in front of the vowel. This swaps a whole word for the same reason, and ${ELISION_UNIT} deleted one.`;
+  `${Cap(unitRef(VOWEL_UNIT))} swapped a whole form so a consonant would land in front of the vowel. This swaps a whole word for the same reason, and ${unitRef(ELISION_UNIT)} deleted one.`;
 
 /** a2.24 and a2.25, seq 22 and 23, both shipped. `celui` is NOT an object
  *  pronoun and does not sit in front of the verb, and the learner has just
@@ -887,7 +893,7 @@ export const OBJECT_IN_IMPORTS: readonly { id: string; form: string }[] = [
   { id: 'fr.b1.pronoms-essentiels.039', form: "m'" },
 ];
 export const NOT_AN_OBJECT_CLAIM =
-  `${OBJECT_UNIT}, ${INDIRECT_UNIT} and ${Y_EN_UNIT} all put a small word in front of the verb. This one is not that word and it does not go there.`;
+  `${Cap(unitRef(OBJECT_UNIT))}, ${unitRef(INDIRECT_UNIT)} and ${unitRef(Y_EN_UNIT)} all put a small word in front of the verb. This one is not that word and it does not go there.`;
 
 /** a2.34, Pronoms possessifs, seq 34, IMMEDIATELY AFTER. `le mien` has the
  *  same article-plus-form shape as `celui`. Named as coming next and NOT ONE

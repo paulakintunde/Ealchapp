@@ -42,8 +42,9 @@ import {
   THEME, THE_TWELVE, VERBES_IR_FAM, VOWEL_INITIAL, afterPronoun, toItem,
 } from './data/verbes-ir-familles-corpus.ts';
 import { IMPORTED_ROWS, IMPORTED_VERBS } from './data/verbes-ir-familles-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
-  A201_BACKREF, A201_REFRAME, A202_BACKREF, A210_BACKREF, A210_REFRAME, A211_BACKREF,
+  A201_BACKREF, A201_REFRAME, A202_BACKREF, A202_BACKREF_UNIT, A210_BACKREF, A210_REFRAME, A211_BACKREF, A211_BACKREF_UNIT,
   BOTH_RULES, ER_ROW_ORDER, ER_SECTION_ID, NOPREDICT_SECTION_ID, NOTMINE_SECTION_ID, REFRAME,
   SHED_ROW_ORDER, SHED_SECTION_ID, VERBES_IR_FAM_DICTATION_IDS, VERBES_IR_FAM_LESSON,
   VERBES_IR_FAM_SPEAK_IDS, WAKING_SECTION_ID,
@@ -405,8 +406,10 @@ const REJECT_SURFACES = rejectStrings();
   const card = LESSON.sections.find((s) => (s as { id?: string }).id === NOTMINE_SECTION_ID);
   if (!card) die(`${NOTMINE_SECTION_ID} is gone, and with it the hand-over`);
   const cardText = strings(card).join('\n');
-  for (const ref of [A202_BACKREF, A211_BACKREF]) {
-    if (!cardText.includes(ref)) die(`${NOTMINE_SECTION_ID} does not name ${ref}. A boundary with no destination is a warning, not a teaching.`);
+  // BY ID, resolved to the label. The `_BACKREF` constants already hold the
+  // label, and passing a label to `namesUnitLabel` asks it to resolve a label.
+  for (const ref of [A202_BACKREF_UNIT, A211_BACKREF_UNIT]) {
+    if (!namesUnitLabel(cardText, ref)) die(`${NOTMINE_SECTION_ID} does not name ${ref}. A boundary with no destination is a warning, not a teaching.`);
   }
   const RE_VERBS = ['vendent', 'attendent', 'répondent'];
   const re = RE_VERBS.filter((v) => PRODUCTION_SURFACES.some((s) => hasPhrase(s, v)));

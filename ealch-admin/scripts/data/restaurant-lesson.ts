@@ -35,6 +35,12 @@
 import type { Lesson, LessonAct, LessonDrill, LessonSection } from '../../../ealch-v2/src/content/schema.ts';
 import { RESTAURANT_TERMS } from './restaurant-terms.ts';
 import { UNIT, LESSON_ID, REFRAME, A, Q, REPAIR_IDS, IMPORTED, A129_TRANCHE, PARTITIVE_UNIT, A129_REFRAME, MONEY_UNIT, REGISTER_UNIT, ELISION_UNIT } from './restaurant-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ── Section ids, named once so acts, quiz refs and rest points cannot drift ── */
 const SCENE = 's01-scene';
@@ -401,7 +407,7 @@ const S_FIT: LessonSection = {
   cards: [
     { head: 'Et comme boisson ?', fr: 'Une carafe d\'eau, s\'il vous plaît.', sub: 'or just: De l\'eau, merci.', body: 'A drink, not a sentence about drinks. The shortest answer that names the thing is the right one.', label: 'name the thing' },
     { head: 'Plate ou gazeuse ?', fr: 'Plate.', sub: 'one word, and it is enough', body: 'He gave you both words. Give one of them back. Adding s\'il vous plaît is plenty of politeness for a two-word question.', label: 'hand one word back' },
-    { head: 'Vous avez choisi ?', fr: 'Je voudrais le plat du jour.', sub: 'or: Je vais prendre le plat du jour.', body: 'This is the one slot where you produce a full sentence, and it is the sentence you have been rehearsing since a1.29.', label: 'your one full sentence' },
+    { head: 'Vous avez choisi ?', fr: 'Je voudrais le plat du jour.', sub: 'or: Je vais prendre le plat du jour.', body: `This is the one slot where you produce a full sentence, and it is the sentence you have been rehearsing since ${unitRef('a1.29')}.`, label: 'your one full sentence' },
     { head: 'Quelle cuisson ?', fr: 'À point, s\'il vous plaît.', sub: 'saignant · à point · bien cuit', body: 'Three words exist and he will offer none of them. À point is the middle one and the safe one.', label: 'three words, unoffered' },
     { head: 'Ce sera tout ?', fr: 'Ce sera tout, merci.', sub: 'his frame, handed back', body: 'Or Non, je voudrais aussi un café. Either way you are reusing his words rather than building your own.', label: 'reuse the frame' },
     { head: 'Vous réglez comment ?', fr: 'Par carte, s\'il vous plaît.', sub: 'or: En espèces.', body: 'Two words. The amount is not being discussed and you do not need to discuss it.', label: 'two words' },
@@ -423,7 +429,7 @@ const S_GRAD: LessonSection = {
     { cells: ['je voudrais', 'I would like', 'anywhere, always'], say: 'Je voudrais le poulet.', detail: { title: '« je voudrais »', body: 'The default, and the one to reach for if you only keep one. It is soft, it is short, and no French speaker has ever been surprised by it.', say: 'Je voudrais le poulet.' } },
     { cells: ['je prendrais', 'I would rather have', 'anywhere, slightly softer'], say: 'Je prendrais plutôt le poisson.', detail: { title: '« je prendrais »', body: 'Softer still, and useful when you are changing your mind out loud. Learn it as one fixed phrase; the family it comes from is another lesson.', say: 'Je prendrais plutôt le poisson.' } },
     { cells: ['je prends', 'I\'ll have', 'anywhere, brisk'], say: 'Je prends le plat du jour.', detail: { title: '« je prends »', body: 'Present tense, brisk, completely normal. This is what people at the next table are saying.', say: 'Je prends le plat du jour.' } },
-    { cells: ['je vais prendre', 'I\'m going to have', 'anywhere, decided'], say: 'Je vais prendre le plat du jour.', detail: { title: '« je vais prendre »', body: 'The futur proche, which a2.19 already gave you. It sounds like a decision just made, which at a table is exactly what it is.', say: 'Je vais prendre le plat du jour.' } },
+    { cells: ['je vais prendre', 'I\'m going to have', 'anywhere, decided'], say: 'Je vais prendre le plat du jour.', detail: { title: '« je vais prendre »', body: `The futur proche, which ${unitRef('a2.19')} already gave you. It sounds like a decision just made, which at a table is exactly what it is.`, say: 'Je vais prendre le plat du jour.' } },
     { cells: ['ce sera', 'it\'ll be', 'anywhere, confident'], say: 'Ce sera le menu du jour.', detail: { title: '« ce sera »', body: 'The flattest of the five and still perfectly polite. Pour moi, ce sera l\'entrecôte is how it is said at a table of four.', say: 'Pour moi, ce sera l\'entrecôte.' } },
     { cells: ['je veux', 'I want', 'not at a table'], say: 'Je voudrais le poulet.', detail: { title: '« je veux » is the one to drop', body: 'Grammatical, understood, and wrong here. It is what a child says about a toy. Nobody will correct you, and that is exactly why nobody has told you.', say: 'Je voudrais le poulet.' } },
   ],
@@ -438,7 +444,7 @@ const S_GRAD: LessonSection = {
 const S_SOME: LessonSection = {
   type: 'groupDrill', id: SOME, title: 'Un Or Du, At The Table', frSub: 'Au moment de commander',
   layer: 'core', terms: ['someOfIt'],
-  say: `${PARTITIVE_UNIT} settled this one: ${A129_REFRAME} Nothing new here, just the moment you have to run it.`,
+  say: `${Cap(unitRef(PARTITIVE_UNIT))} settled this one: ${A129_REFRAME} Nothing new here, just the moment you have to run it.`,
   groups: [
     {
       label: 'one of them',
@@ -447,7 +453,7 @@ const S_SOME: LessonSection = {
         { fr: 'une carafe d\'eau', en: 'a jug of water', note: 'one jug' },
         { fr: 'un verre de vin', en: 'a glass of wine', note: 'one glass' },
       ],
-      check: { q: 'You want one cup of coffee. Which one?', opts: ['du café', 'de le café', 'un café', 'des café'], correct: 2, why: 'A cup is one of them, and un is the word for one of them. This is a1.29 unchanged.' },
+      check: { q: 'You want one cup of coffee. Which one?', opts: ['du café', 'de le café', 'un café', 'des café'], correct: 2, why: `A cup is one of them, and un is the word for one of them. This is ${unitRef('a1.29')} unchanged.` },
     },
     {
       label: 'some of it',
@@ -465,7 +471,7 @@ const S_SOME: LessonSection = {
         { fr: 'Il n\'y a plus de saumon.', en: 'There\'s no more salmon.', note: 'de, not du' },
         { fr: 'Sans sucre, merci.', en: 'Without sugar, thanks.', note: 'no article at all' },
       ],
-      check: { q: 'You are telling him you do not eat meat.', opts: ['Je ne mange pas du viande.', 'Je ne mange pas de la viande.', 'Je ne mange pas la viande.', 'Je ne mange pas de viande.'], correct: 3, why: 'After a negative it is de, never du. a1.29 taught this one; this is the table it happens at.' },
+      check: { q: 'You are telling him you do not eat meat.', opts: ['Je ne mange pas du viande.', 'Je ne mange pas de la viande.', 'Je ne mange pas la viande.', 'Je ne mange pas de viande.'], correct: 3, why: `After a negative it is de, never du. ${Cap(unitRef('a1.29'))} taught this one; this is the table it happens at.` },
     },
   ],
 };
@@ -514,7 +520,7 @@ const S_ERRORS: LessonSection = {
     { wrong: 'Je veux le poulet.', right: 'Je voudrais le poulet.', why: 'Understood perfectly and one rung too blunt for a table. Nobody corrects it, so nobody learns it.' },
     { wrong: 'Oui, s\'il vous plaît.', right: 'Plate.', why: 'He asked Plate ou gazeuse ?, which is not a yes or no question. Yes answers nothing and he has to ask again.' },
     { wrong: 'Ça fait combien ?', right: 'Par carte.', why: 'Vous réglez comment ? asks the method. Comment is how; combien is how much, and it is a different question at a different moment.' },
-    { wrong: 'Je ne mange pas du viande.', right: 'Je ne mange pas de viande.', why: 'After a negative it is de, never du. a1.29 taught this one; the table is just where you have to run it fast.' },
+    { wrong: 'Je ne mange pas du viande.', right: 'Je ne mange pas de viande.', why: `After a negative it is de, never du. ${Cap(unitRef('a1.29'))} taught this one; the table is just where you have to run it fast.` },
   ],
 };
 
@@ -944,7 +950,7 @@ const S_QUIZ: LessonSection = {
         { format: 'typeIn', ref: GRAD, q: 'Write the softest of the five ways to order, using vouloir. Three words, then the dish: « ... le poulet. »', accept: ['Je voudrais le poulet.', 'je voudrais le poulet', 'Je voudrais le poulet'], answer: 'Je voudrais le poulet.', why: 'Voudrais against veux is one syllable and the whole difference in register. Both survive folding, so this is a real contrast rather than a spelling test.' },
         { format: 'mcq', ref: GRAD, q: 'Which of these would you NOT say at a restaurant table?', opts: ['Je vais prendre le poulet.', 'Ce sera le poulet.', 'Je prendrais plutôt le poulet.', 'Je veux le poulet.'], correct: 3, why: 'The other three sit at different points on the gradient and all four are grammatical. Only the first one lands wrong.' },
         { format: 'mcq', ref: GRAD, q: '« Pour moi, ce sera l\'entrecôte. » Where does this sit?', opts: ['Rude', 'Flat and confident, and perfectly polite', 'A question', 'Only used in Quebec'], correct: 1, why: 'Ce sera is the flattest of the five rungs and it carries no rudeness at all. It is how it is said at a table of four.' },
-        { format: 'errorSpot', ref: SOME, q: 'You are telling him what you do not eat. Fix this.', prompt: 'Je ne mange pas du viande.', accept: ['Je ne mange pas de viande.', 'je ne mange pas de viande', 'de viande'], answer: 'Je ne mange pas de viande.', why: 'After a negative it is de, never du. a1.29 taught this one; the table is where you have to run it fast.' },
+        { format: 'errorSpot', ref: SOME, q: 'You are telling him what you do not eat. Fix this.', prompt: 'Je ne mange pas du viande.', accept: ['Je ne mange pas de viande.', 'je ne mange pas de viande', 'de viande'], answer: 'Je ne mange pas de viande.', why: `After a negative it is de, never du. ${Cap(unitRef('a1.29'))} taught this one; the table is where you have to run it fast.` },
       ],
     },
     {

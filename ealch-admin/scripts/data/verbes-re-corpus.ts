@@ -195,6 +195,12 @@
 // - NO STEM-CHANGING -ER VERB. a2.09 owns those.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── The id block ─────────────────────────────────────────────────────────
  *
@@ -258,7 +264,7 @@ export const VERBES_RE: ReSentence[] = [
   { id: 'fr.a2.verbes.221', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je vends ici.', en: 'I sell here.', ipa: '/ʒə vɑ̃ i.si/', respell: 'zhuh vahⁿ ee-SEE', person: 'je', ending: '-s', dSounds: false, family: 'paradigm', tags: ['re-verb', 'paradigm', 'singular', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'Said exactly like Tu vends ici and Il vend ici. Three spellings, one sound, and the d is silent in all three.' },
   { id: 'fr.a2.verbes.222', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu vends ici.', en: 'You sell here.', ipa: '/ty vɑ̃ i.si/', respell: 'tü vahⁿ ee-SEE', person: 'tu', ending: '-s', dSounds: false, family: 'paradigm', tags: ['re-verb', 'paradigm', 'singular', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'The same -s tu took on an -er and an -ir verb, and it is silent here too.' },
   { id: 'fr.a2.verbes.223', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il vend ici.', en: 'He sells here.', ipa: '/il vɑ̃ i.si/', respell: 'eel vahⁿ ee-SEE', person: 'il', ending: '', dSounds: false, family: 'paradigm', tags: ['re-verb', 'paradigm', 'singular', 'bare', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'THE BARE FORM. Nothing is written after the stem, and nothing is missing.' },
-  { id: 'fr.a2.verbes.224', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous vendons ici.', en: 'We sell here.', ipa: '/nu vɑ̃.dɔ̃ i.si/', respell: 'noo vahⁿ-dohⁿ ee-SEE', person: 'nous', ending: '-ons', dSounds: true, family: 'paradigm', tags: ['re-verb', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'The same -ons as a2.01 and a2.10, and the d in front of it is said. Out loud most rooms say on vend instead.' },
+  { id: 'fr.a2.verbes.224', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous vendons ici.', en: 'We sell here.', ipa: '/nu vɑ̃.dɔ̃ i.si/', respell: 'noo vahⁿ-dohⁿ ee-SEE', person: 'nous', ending: '-ons', dSounds: true, family: 'paradigm', tags: ['re-verb', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: `The same -ons as ${unitRef('a2.01')} and ${unitRef('a2.10')}, and the d in front of it is said. Out loud most rooms say on vend instead.` },
   { id: 'fr.a2.verbes.225', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous vendez ici.', en: 'You sell here.', ipa: '/vu vɑ̃.de i.si/', respell: 'voo vahⁿ-day ee-SEE', person: 'vous', ending: '-ez', dSounds: true, family: 'paradigm', tags: ['re-verb', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'The same -ez, and the d is said in front of it as well.' },
   { id: 'fr.a2.verbes.226', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils vendent ici.', en: 'They sell here.', ipa: '/il vɑ̃d i.si/', respell: 'eel vahⁿd ee-SEE', person: 'ils', ending: '-ent', dSounds: true, family: 'paradigm', tags: ['re-verb', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'The -ent is silent and the d in front of it is not, so this is the one plural you can hear against Il vend ici.' },
 
@@ -276,8 +282,8 @@ export const VERBES_RE: ReSentence[] = [
    * field means what it says rather than "is the ending audible": `il parle` ends
    * on an audible L and `il finit` on an audible vowel, and neither has anything
    * to do with the d that makes the -RE plural audible. */
-  { id: 'fr.a2.verbes.227', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il parle ici.', en: 'He speaks here.', ipa: '/il paʁl i.si/', respell: 'eel parl ee-SEE', person: 'il', ending: '-e', dSounds: false, family: 'cross', tags: ['er-verb', 'cross-group', 'singular'], drills: SD, audioRef: null, version: 1, notes: 'The -ER third person, from a2.01. One letter after the stem, and it is silent.' },
-  { id: 'fr.a2.verbes.228', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il finit ici.', en: 'He finishes here.', ipa: '/il fi.ni i.si/', respell: 'eel fee-nee ee-SEE', person: 'il', ending: '-it', dSounds: false, family: 'cross', tags: ['ir-verb', 'cross-group', 'singular'], drills: SD, audioRef: null, version: 1, notes: 'The -IR third person, from a2.10. Two letters after the stem, and they are silent as well.' },
+  { id: 'fr.a2.verbes.227', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il parle ici.', en: 'He speaks here.', ipa: '/il paʁl i.si/', respell: 'eel parl ee-SEE', person: 'il', ending: '-e', dSounds: false, family: 'cross', tags: ['er-verb', 'cross-group', 'singular'], drills: SD, audioRef: null, version: 1, notes: `The -ER third person, from ${unitRef('a2.01')}. One letter after the stem, and it is silent.` },
+  { id: 'fr.a2.verbes.228', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il finit ici.', en: 'He finishes here.', ipa: '/il fi.ni i.si/', respell: 'eel fee-nee ee-SEE', person: 'il', ending: '-it', dSounds: false, family: 'cross', tags: ['ir-verb', 'cross-group', 'singular'], drills: SD, audioRef: null, version: 1, notes: `The -IR third person, from ${unitRef('a2.10')}. Two letters after the stem, and they are silent as well.` },
 
   /* ── hidden: the singular triple, on a second verb ────────────────────────
    *
@@ -708,6 +714,8 @@ export const SHEET_DECISION = {
   count: 1,
   /** The units whose sheets this one completes rather than competes with. Named
    *  on the sheet itself, and asserted. */
+  // RAW IDS, because this list is what the GUARD compares with. The sheet text
+  // carries the labels; `namesUnitLabel` resolves an id to them.
   names: ['a2.01', 'a2.10'],
 } as const;
 

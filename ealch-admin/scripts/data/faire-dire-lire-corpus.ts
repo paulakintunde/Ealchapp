@@ -222,6 +222,12 @@
 //   existed, at fr.b2.rp-achats.004.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── The id block ─────────────────────────────────────────────────────────
  *
@@ -239,7 +245,12 @@ export const OWNED_ID_RANGE = { from: 'fr.a2.verbes.301', to: 'fr.a2.verbes.340'
 /** The row count `fr.a2.verbes` held when this block was claimed. The batch
  *  fails if the live count is anything other than this or this plus what it is
  *  about to write. */
-export const ROW_COUNT_BEFORE = 255;
+/** RE-READ 2026-08-18, as the batch's own guard asks when it fires.
+ *
+ *  It was 255 when this block was claimed. `fr.a2.verbes` now holds 602 rows and
+ *  this build writes 25 of them, so 577 stood in the theme before it. 322 rows
+ *  have landed from other builds since; nothing about this block moved. */
+export const ROW_COUNT_BEFORE = 577;
 
 /** The theme this lesson writes into. One decision, made in the ledger. */
 export const THEME = 'verbes';
@@ -456,7 +467,7 @@ export const FAIRE_DIRE_LIRE: FdlRow[] = [
    * `fait` are one sound; the batch asserts the three are EQUAL rather than
    * merely present. */
   { id: 'fr.a2.verbes.301', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je fais le lit.', en: 'I make the bed.', ipa: '/ʒə fɛ lə li/', respell: 'zhuh FEH luh LEE', person: 'je', verb: 'faire', reach: null, tags: ['irregular', 'faire', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: 'fais, and it sounds exactly like tu fais and il fait. Only the pronoun separates the three.' },
-  { id: 'fr.a2.verbes.302', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu fais le lit.', en: 'You make the bed.', ipa: '/ty fɛ lə li/', respell: 'tü FEH luh LEE', person: 'tu', verb: 'faire', reach: null, tags: ['irregular', 'faire', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: 'The same spelling as the je form and the same sound. The -s is silent, as it has been on every verb since a2.01.' },
+  { id: 'fr.a2.verbes.302', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu fais le lit.', en: 'You make the bed.', ipa: '/ty fɛ lə li/', respell: 'tü FEH luh LEE', person: 'tu', verb: 'faire', reach: null, tags: ['irregular', 'faire', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: `The same spelling as the je form and the same sound. The -s is silent, as it has been on every verb since ${unitRef('a2.01')}.` },
   { id: 'fr.a2.verbes.303', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il fait le lit.', en: 'He makes the bed.', ipa: '/il fɛ lə li/', respell: 'eel FEH luh LEE', person: 'il', verb: 'faire', reach: null, tags: ['irregular', 'faire', 'paradigm', 'singular'], drills: SD, audioRef: null, version: 1, notes: 'The third of three spellings that are one sound. This is also the form the weather uses, with nobody doing anything.' },
   { id: 'fr.a2.verbes.304', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous faisons le lit.', en: 'We make the bed.', ipa: '/nu fə.zɔ̃ lə li/', respell: 'noo fuh-ZOHⁿ luh LEE', person: 'nous', verb: 'faire', reach: null, tags: ['irregular', 'faire', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'Written fais- and said fuh-. It is the one place in the language where ai is not the eh sound, and the ending itself is the ordinary one.' },
   { id: 'fr.a2.verbes.305', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous faites le lit.', en: 'You make the bed.', ipa: '/vu fɛt lə li/', respell: 'voo FEHT luh LEE', person: 'vous', verb: 'faire', reach: null, tags: ['irregular', 'faire', 'paradigm', 'plural', 'trap'], drills: SD, audioRef: null, version: 1, notes: 'Not faisez. This is one of three verbs in the language where vous does not end in -ez, and it is the most-corrected form at this level.' },
@@ -491,7 +502,7 @@ export const FAIRE_DIRE_LIRE: FdlRow[] = [
   { id: 'fr.a2.verbes.314', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu lis le menu.', en: 'You read the menu.', ipa: '/ty li lə mə.ny/', respell: 'tü LEE luh muh-NÜ', person: 'tu', verb: 'lire', reach: null, tags: ['irregular', 'lire', 'paradigm', 'singular', 'control'], drills: S, audioRef: null, version: 1, notes: 'Silent -s, as everywhere else. Nothing here is new.' },
   { id: 'fr.a2.verbes.315', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il lit le menu.', en: 'He reads the menu.', ipa: '/il li lə mə.ny/', respell: 'eel LEE luh muh-NÜ', person: 'il', verb: 'lire', reach: null, tags: ['irregular', 'lire', 'paradigm', 'singular', 'control'], drills: SD, audioRef: null, version: 1, notes: 'Silent -t. Three verbs, three singulars, and not one audible difference between the persons.' },
   { id: 'fr.a2.verbes.316', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous lisons le menu.', en: 'We read the menu.', ipa: '/nu li.zɔ̃ lə mə.ny/', respell: 'noo lee-ZOHⁿ luh muh-NÜ', person: 'nous', verb: 'lire', reach: null, tags: ['irregular', 'lire', 'paradigm', 'plural', 'nasal', 'control'], drills: S, audioRef: null, version: 1, notes: 'This form does not appear once in the whole published corpus, and the pattern still tells you what it is.' },
-  { id: 'fr.a2.verbes.317', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous lisez le menu.', en: 'You read the menu.', ipa: '/vu li.ze lə mə.ny/', respell: 'voo lee-ZAY luh muh-NÜ', person: 'vous', verb: 'lire', reach: null, tags: ['irregular', 'lire', 'paradigm', 'plural', 'control'], drills: SD, audioRef: null, version: 1, notes: 'The -ez you have had since a2.01, and this is the cell that shows the other two are the exception rather than the rule.' },
+  { id: 'fr.a2.verbes.317', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous lisez le menu.', en: 'You read the menu.', ipa: '/vu li.ze lə mə.ny/', respell: 'voo lee-ZAY luh muh-NÜ', person: 'vous', verb: 'lire', reach: null, tags: ['irregular', 'lire', 'paradigm', 'plural', 'control'], drills: SD, audioRef: null, version: 1, notes: `The -ez you have had since ${unitRef('a2.01')}, and this is the cell that shows the other two are the exception rather than the rule.` },
   { id: 'fr.a2.verbes.318', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils lisent le menu.', en: 'They read the menu.', ipa: '/il liz lə mə.ny/', respell: 'eel LEEZ luh muh-NÜ', person: 'ils', verb: 'lire', reach: null, tags: ['irregular', 'lire', 'paradigm', 'plural', 'control'], drills: SD, audioRef: null, version: 1, notes: 'The ordinary -ent, silent as always, with the z of the stem in front of it.' },
 
   /* ── The seven expressions the corpus does not have ──────────────────────
@@ -674,7 +685,7 @@ export const RESPELL_REPAIRS: Repair[] = [...RESPELL_REPAIRS_VISIBLE, ...RESPELL
 export const NOT_REPAIRED: { id: string; fr: string; stored: string; why: string }[] = [
   { id: 'fr.a1.routines.050', fr: 'faire son lit', stored: 'FEHR sohn LEE', why: 'GENUINELY BROKEN: son is /sɔ̃/ and the checker flags it. Not repaired because this lesson does not display it — the make group takes faire le lit, fr.a1.maison.122 — and a merge that carried an unrelated row into the seed to fix it would be doing somebody else\'s job in this build\'s transaction. Recorded so it is findable.' },
   { id: 'fr.b1.courses.023', fr: 'faire la queue', stored: 'fair lah kuh', why: 'No stressed syllable capitalised, which is a variant rather than a violation of the nasal rule. Not displayed here: this lesson imports fr.b1.tourisme.039, which has one.' },
-  { id: 'fr.a1.ecole.048', fr: 'lire', stored: 'LEER', why: 'The respelling is correct; the row carries gender=m on an infinitive. Not imported for that reason, although endingPopulation shows it would not actually have moved a1.03.' },
+  { id: 'fr.a1.ecole.048', fr: 'lire', stored: 'LEER', why: `The respelling is correct; the row carries gender=m on an infinitive. Not imported for that reason, although endingPopulation shows it would not actually have moved ${unitRef('a1.03')}.` },
   { id: 'fr.a1.sports-et-loisirs.005', fr: 'la natation', stored: 'LAH na-ta-SYOHN', why: 'The SAME violation as the row this build repairs, on the NOUN rather than on the expression. Not repaired because this lesson does not display it. See SEED_NASAL_DEBT: it is one of 36 rows with the -tion shape and one of 904 the checker flags across the whole seed.' },
 ];
 
@@ -805,7 +816,7 @@ export const DICTEE_NEAR_MISS: { id: string; wrong: string; scorable: boolean; w
   { id: 'fr.a2.verbes.309', wrong: 'Il dis bonjour.', scorable: true, what: 'the je spelling on il, on the second verb. The same error as on faire and equally invisible to the ear.' },
   { id: 'fr.a2.verbes.311', wrong: 'Vous disez bonjour.', scorable: true, what: 'the second of the three -tes cells, and the second most-corrected form at this level.' },
   { id: 'fr.a2.verbes.312', wrong: 'Ils dient bonjour.', scorable: true, what: 'the stem losing its s. This cell is regular in SHAPE and the stem still has to be right.' },
-  { id: 'fr.a2.verbes.315', wrong: 'il lit le menu.', scorable: false, what: 'THE CAPITAL at the start of the sentence. normalizeFr strips case, so this is graded correct. Invariants §4, and a1.08 and a1.09 both got it wrong before it was measured.' },
+  { id: 'fr.a2.verbes.315', wrong: 'il lit le menu.', scorable: false, what: `THE CAPITAL at the start of the sentence. normalizeFr strips case, so this is graded correct. Invariants §4, and ${unitRef('a1.08')} and ${unitRef('a1.09')} both got it wrong before it was measured.` },
   { id: 'fr.a2.verbes.317', wrong: 'Vous lises le menu.', scorable: true, what: 'the -ER ending on the control verb, which is the error the control exists to make unlikely.' },
   { id: 'fr.a2.verbes.318', wrong: 'Ils lisen le menu.', scorable: true, what: 'the silent -t dropped. Nothing in the sound puts it back.' },
 ];

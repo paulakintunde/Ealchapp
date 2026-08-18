@@ -175,6 +175,7 @@
 // - NO -iss-. That is a2.10's and it is closed here rather than taught.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /* ─── The id block ─────────────────────────────────────────────────────────
  *
@@ -263,7 +264,7 @@ export const ALLER_VENIR: AvSentence[] = [
   { id: 'fr.a2.verbes.268', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu viens tôt.', en: 'You come early.', ipa: '/ty vjɛ̃ to/', respell: 'tü vyaⁿ TOH', person: 'tu', verb: 'venir', afterDe: null, family: 'venir', tags: ['irregular', 'venir', 'paradigm', 'singular', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Spelled the same as the je form and said the same way too.' },
   { id: 'fr.a2.verbes.269', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il vient tôt.', en: 'He comes early.', ipa: '/il vjɛ̃ to/', respell: 'eel vyaⁿ TOH', person: 'il', verb: 'venir', afterDe: null, family: 'venir', tags: ['irregular', 'venir', 'paradigm', 'singular', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'Put this beside Il finit tôt and Il part tôt. All three stop dead, and for three different reasons.' },
   { id: 'fr.a2.verbes.270', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous venons tôt.', en: 'We come early.', ipa: '/nu və.nɔ̃ to/', respell: 'noo vuh-nohⁿ TOH', person: 'nous', verb: 'venir', afterDe: null, family: 'venir', tags: ['irregular', 'venir', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'ven- comes back and nothing is inserted between it and the ending. Out loud most rooms say on vient instead.' },
-  { id: 'fr.a2.verbes.271', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous venez tôt.', en: 'You come early.', ipa: '/vu və.ne to/', respell: 'voo vuh-nay TOH', person: 'vous', verb: 'venir', afterDe: null, family: 'venir', tags: ['irregular', 'venir', 'paradigm', 'plural'], drills: S, audioRef: null, version: 1, notes: 'The same ven-, the same two endings you have had since a2.01.' },
+  { id: 'fr.a2.verbes.271', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous venez tôt.', en: 'You come early.', ipa: '/vu və.ne to/', respell: 'voo vuh-nay TOH', person: 'vous', verb: 'venir', afterDe: null, family: 'venir', tags: ['irregular', 'venir', 'paradigm', 'plural'], drills: S, audioRef: null, version: 1, notes: `The same ven-, the same two endings you have had since ${unitRef('a2.01')}.` },
   { id: 'fr.a2.verbes.272', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils viennent tôt.', en: 'They come early.', ipa: '/il vjɛn to/', respell: 'eel vyenn TOH', person: 'ils', verb: 'venir', afterDe: null, family: 'venir', tags: ['irregular', 'venir', 'paradigm', 'plural'], drills: SD, audioRef: null, version: 1, notes: 'An n arrives at the end of the verb and the vowel comes out of the nose. That is the one plural in this lesson you can hear.' },
 
   /* ── tenir: the reason venir is a family ──────────────────────────────────
@@ -343,7 +344,7 @@ export const ALLER_VENIR: AvSentence[] = [
 {
   const row = ALLER_VENIR.find((w) => w.id === 'fr.a2.verbes.284')!;
   row.fr = "Ils viennent d'arriver.";
-  row.notes = 'The de elides in front of a vowel, which sons.07 already taught. The construction did not change; the spelling of one word did.';
+  row.notes = `The de elides in front of a vowel, which ${unitRef('sons.07')} already taught. The construction did not change; the spelling of one word did.`;
 }
 
 /* ─── The three verbs ──────────────────────────────────────────────────────
@@ -391,8 +392,11 @@ export const PASSE_COMPOSE_UNIT = 'a2.05';
  *  cards say venir and tenir "run the shedders' mechanism with a vowel change on
  *  top", and it declares A202_BACKREF = 'a2.02' in its own terms file. Both are
  *  paid off here, and the second is much the sharper of the two. */
-export const A210_BACKREF = 'a2.10';
-export const A201_BACKREF = 'a2.01';
+export const A210_BACKREF_UNIT = 'a2.10';
+/** The label a learner reads. The id above is what the guards resolve. */
+export const A210_BACKREF = unitRef(A210_BACKREF_UNIT, 'a2');
+export const A201_BACKREF_UNIT = 'a2.01';
+export const A201_BACKREF = unitRef(A201_BACKREF_UNIT, 'a2');
 
 /* ─── The paradigms ────────────────────────────────────────────────────────
  *
@@ -574,7 +578,7 @@ export const RESPELL_REPAIRS: Repair[] = [...RESPELL_REPAIRS_VISIBLE, ...RESPELL
 export const NOT_REPAIRED: { id: string; fr: string; stored: string; why: string }[] = [
   { id: 'fr.sons.consonnes.143', fr: 'aller', stored: 'a-LAY', why: 'a variant of ah-LAY, not a violation. Invariants §9. Not displayed here: this lesson imports fr.sons.verbes-essentiels.003.' },
   { id: 'fr.b1.verbes.058', fr: 'obtenir', stored: 'ob-tuh-NEER', why: 'a variant of ohb-tuh-NEER, and a b1 row. This lesson imports the a2 row.' },
-  { id: 'fr.b2.philosophie.136', fr: 'le devenir', stored: 'luh duhv-NEER', why: 'a NOUN carrying gender=m, not the verb. Importing it would join a1.03 ending population.' },
+  { id: 'fr.b2.philosophie.136', fr: 'le devenir', stored: 'luh duhv-NEER', why: `a NOUN carrying gender=m, not the verb. Importing it would join ${unitRef('a1.03')} ending population.` },
 ];
 
 /* ─── Drill additions ──────────────────────────────────────────────────────
@@ -663,7 +667,7 @@ export const DICTEE_NEAR_MISS: { id: string; wrong: string; scorable: boolean; w
   { id: 'fr.a2.verbes.279', wrong: 'Je viens manger.', scorable: true, what: 'THE ERROR THE LESSON EXISTS TO STOP. Drop the de and the sentence stops being a past at all.' },
   { id: 'fr.a2.verbes.281', wrong: 'Il vient partir.', scorable: true, what: 'the dropped de again, on the sentence a learner will use most' },
   { id: 'fr.a2.verbes.282', wrong: 'On viens de finir.', scorable: true, what: 'on given the je spelling. on takes the il form and this is the one place a learner meets that on an irregular verb.' },
-  { id: 'fr.a2.verbes.285', wrong: 'Je viens de paris.', scorable: false, what: 'THE CAPITAL on Paris. fold() strips case, so this is graded correct. Invariants §4, and a1.08 and a1.09 both got it wrong before it was measured.' },
+  { id: 'fr.a2.verbes.285', wrong: 'Je viens de paris.', scorable: false, what: `THE CAPITAL on Paris. fold() strips case, so this is graded correct. Invariants §4, and ${unitRef('a1.08')} and ${unitRef('a1.09')} both got it wrong before it was measured.` },
   { id: 'fr.a2.verbes.286', wrong: 'Il vient de Nante.', scorable: true, what: 'a dropped s at the end of a place name, which does survive a fold' },
   { id: 'fr.a2.verbes.288', wrong: 'Il reviens tôt.', scorable: true, what: 'the compound taking the je spelling, so the family claim is tested and not only stated' },
   { id: 'fr.a2.verbes.289', wrong: 'Il obtiens la clé.', scorable: true, what: 'and the same on the tenir compound' },

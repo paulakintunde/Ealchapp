@@ -55,6 +55,12 @@ import {
 } from './passe-compose-corpus.ts';
 import { ALREADY_YOURS, EVIDENCE_LINE, PASSE_COMPOSE_TERMS } from './passe-compose-terms.ts';
 import { impCard, importedEn, importedFr, importedIpa, rowCard, sub as impSub } from './passe-compose-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the authored rows ────────────────────────────────────────────
  *
@@ -67,23 +73,23 @@ const BY_ID = new Map(PASSE_COMPOSE.map((r) => [r.id, r]));
 
 const fr = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.05: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.05')}: ${id} is not an authored row.`);
   return r.fr;
 };
 const en = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.05: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.05')}: ${id} is not an authored row.`);
   return r.en;
 };
 const bare = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.05: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.05')}: ${id} is not an authored row.`);
   return r.respell!;
 };
 const sub = (id: string): string => `[${bare(id)}]`;
 const ipaOf = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.05: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.05')}: ${id} is not an authored row.`);
   return r.ipa!;
 };
 
@@ -407,7 +413,7 @@ const SECTIONS: LessonSection[] = [
       { promptLabel: 'the English order', promptSound: WRONG[0]!.wrong, fr: WRONG[0]!.wrong, ipa: '/ʒə ne mɑ̃.ʒe pa/', tip: WRONG[0]!.why },
       { promptLabel: 'the French', promptSound: WRONG[0]!.right, fr: WRONG[0]!.right, ipa: ipaOf(A(547)), tip: 'Ne in front of avoir and pas straight after it. Mangé is outside both and has not been touched.' },
       { promptLabel: 'on the end again', promptSound: WRONG[3]!.wrong, fr: WRONG[3]!.wrong, ipa: '/ʒe mɑ̃.ʒe bjɛ̃/', tip: WRONG[3]!.why },
-      { promptLabel: 'in the gap', promptSound: fr(A(558)), fr: fr(A(558)), ipa: ipaOf(A(558)), tip: `The same gap with something other than pas in it. ${ADVERB_UNIT} taught this placement for one-word verbs and handed the two-word case here.` },
+      { promptLabel: 'in the gap', promptSound: fr(A(558)), fr: fr(A(558)), ipa: ipaOf(A(558)), tip: `The same gap with something other than pas in it. ${Cap(unitRef(ADVERB_UNIT))} taught this placement for one-word verbs and handed the two-word case here.` },
     ],
     // Hand-randomised: MissionRich renders authored order exactly, so a correct
     // answer sitting at index 0 six times running gives itself away.
@@ -452,7 +458,7 @@ const SECTIONS: LessonSection[] = [
           q: 'You worked well.',
           opts: ["J'ai bien travaillé.", "J'ai travaillé bien.", 'Bien, j\'ai travaillé.'],
           correct: 0,
-          why: `A short adverb goes in the same gap the pas goes in. ${ADVERB_UNIT} put it straight after the verb when there was one verb, and this is where straight-after has gone.`,
+          why: `A short adverb goes in the same gap the pas goes in. ${Cap(unitRef(ADVERB_UNIT))} put it straight after the verb when there was one verb, and this is where straight-after has gone.`,
         },
       },
       {
@@ -487,7 +493,7 @@ const SECTIONS: LessonSection[] = [
     title: 'Only The First Word Moves',
     frSub: 'Seul le premier bouge',
     layer: 'core',
-    say: `${GRID_CLAIM} ${AVOIR_UNIT} gave you all six of these forms and you are not learning one new one here.`,
+    say: `${GRID_CLAIM} ${Cap(unitRef(AVOIR_UNIT))} gave you all six of these forms and you are not learning one new one here.`,
     examples: [
       { fr: fr(A(541)), en: en(A(541)), note: `${sub(A(541))} j'ai` },
       { fr: fr(A(542)), en: en(A(542)), note: `${sub(A(542))} tu as` },
@@ -505,13 +511,13 @@ const SECTIONS: LessonSection[] = [
     title: 'One Ending Per Group',
     frSub: 'Une fin par groupe',
     layer: 'core',
-    say: `Six sentences, three groups, and the ending is the group rather than the verb. ${ER_UNIT}, ${IR_UNIT} and ${RE_UNIT} taught you all three of these classes and they have not changed.`,
+    say: `Six sentences, three groups, and the ending is the group rather than the verb. ${Cap(unitRef(ER_UNIT))}, ${unitRef(IR_UNIT)} and ${unitRef(RE_UNIT)} taught you all three of these classes and they have not changed.`,
     examples: [
-      { fr: fr(A(552)), en: en(A(552)), note: `${sub(A(552))} ${ER_UNIT}'s own verb. -er goes to -é, and the two are the same sound.` },
+      { fr: fr(A(552)), en: en(A(552)), note: `${sub(A(552))} ${Cap(unitRef(ER_UNIT, 'a2'))}'s own verb. -er goes to -é, and the two are the same sound.` },
       { fr: fr(A(557)), en: en(A(557)), note: `${sub(A(557))} A four-syllable -ER verb, and the ending does not care how long it is.` },
-      { fr: fr(A(553)), en: en(A(553)), note: `${sub(A(553))} ${IR_UNIT}'s frame verb. Beside its own « Il finit tôt. » it is one verb in two tenses.` },
+      { fr: fr(A(553)), en: en(A(553)), note: `${sub(A(553))} ${Cap(unitRef(IR_UNIT, 'a2'))}'s frame verb. Beside its own « Il finit tôt. » it is one verb in two tenses.` },
       { fr: fr(A(555)), en: en(A(555)), note: `${sub(A(555))} A second -IR verb, in another person, so the -i is clearly the group.` },
-      { fr: fr(A(554)), en: en(A(554)), note: `${sub(A(554))} ${RE_UNIT}'s frame verb. The -re comes off and -u goes on.` },
+      { fr: fr(A(554)), en: en(A(554)), note: `${sub(A(554))} ${Cap(unitRef(RE_UNIT, 'a2'))}'s frame verb. The -re comes off and -u goes on.` },
       { fr: fr(A(556)), en: en(A(556)), note: `${sub(A(556))} And a second -RE verb, which behaves exactly like the first.` },
     ],
     terms: ['endings', 'pastForm', 'twoWords'],
@@ -531,7 +537,7 @@ const SECTIONS: LessonSection[] = [
       { label: 'where it goes', head: 'the apple is outside', body: 'And this is what stops the rule being « everything goes in the gap ». The thing you ate is not a small word, so it sits after the past form, where objects sit.' },
       { label: 'the wrong one', head: "J'ai mangée une pomme.", body: 'Nobody can hear this and everybody writes it, because English speakers who have learned French adjectives expect agreement to be everywhere. After avoir it is not.' },
       { label: 'the other first word', head: 'a short list of verbs', body: ETRE_DEFERRAL },
-      { label: 'and the one case', head: 'that does agree', body: `There is exactly one case where a past form agrees with avoir, and it needs the little words that replace an object. That is ${PRONOUN_UNIT}, five lessons after this one, and until then the rule above has no exceptions you can meet.` },
+      { label: 'and the one case', head: 'that does agree', body: `There is exactly one case where a past form agrees with avoir, and it needs the little words that replace an object. That is ${unitRef(PRONOUN_UNIT)}, five lessons after this one, and until then the rule above has no exceptions you can meet.` },
     ],
     // `laterOn` lives here rather than on a later screen because this is the
     // deck that names a2.20 and a2.21, and a chip is surfaced at the point of
@@ -561,9 +567,9 @@ const SECTIONS: LessonSection[] = [
     title: 'Going To, Or Already Gone',
     frSub: 'Projet ou souvenir',
     layer: 'core',
-    say: `${TENSE_CONTRAST_CLAIM} ${FUTUR_UNIT} was one lesson ago and these two are going to arrive in the same conversation for the rest of your life.`,
+    say: `${TENSE_CONTRAST_CLAIM} ${Cap(unitRef(FUTUR_UNIT))} was one lesson ago and these two are going to arrive in the same conversation for the rest of your life.`,
     examples: [
-      { fr: fr(A(566)), en: en(A(566)), note: `${sub(A(566))} ${FUTUR_UNIT}'s construction. Vais, and then the naming form.` },
+      { fr: fr(A(566)), en: en(A(566)), note: `${sub(A(566))} ${Cap(unitRef(FUTUR_UNIT, 'a2'))}'s construction. Vais, and then the naming form.` },
       { fr: fr(A(541)), en: en(A(541)), note: `${sub(A(541))} This lesson. Ai, and then the past form, and the last word is the same sound in both.` },
       { fr: importedFr(TENSE_PAIR.futureId), en: importedEn(TENSE_PAIR.futureId), note: `${impSub(TENSE_PAIR.futureId)} ${TENSE_PAIR.why}` },
       { fr: fr(A(571)), en: en(A(571)), note: `${sub(A(571))} And the same evening, over. Five words in common with the card above it.` },
@@ -602,9 +608,9 @@ const SECTIONS: LessonSection[] = [
       body: TENSE_CONTRAST_CLAIM,
     },
     cards: [
-      { promptLabel: 'a plan', promptSound: fr(A(566)), fr: fr(A(566)), ipa: ipaOf(A(566)), tip: `${FUTUR_UNIT}'s construction, and the last word is the naming form.` },
+      { promptLabel: 'a plan', promptSound: fr(A(566)), fr: fr(A(566)), ipa: ipaOf(A(566)), tip: `${Cap(unitRef(FUTUR_UNIT, 'a2'))}'s construction, and the last word is the naming form.` },
       { promptLabel: 'a memory', promptSound: fr(A(541)), fr: fr(A(541)), ipa: ipaOf(A(541)), tip: 'This lesson, and the last word is the past form. It is the same sound and it is a different word.' },
-      { promptLabel: 'a plan', promptSound: importedFr(TENSE_PAIR.futureId), fr: importedFr(TENSE_PAIR.futureId), ipa: importedIpa(TENSE_PAIR.futureId), tip: `${FUTUR_UNIT}'s own published card, from the lesson you did last.` },
+      { promptLabel: 'a plan', promptSound: importedFr(TENSE_PAIR.futureId), fr: importedFr(TENSE_PAIR.futureId), ipa: importedIpa(TENSE_PAIR.futureId), tip: `${Cap(unitRef(FUTUR_UNIT, 'a2'))}'s own published card, from the lesson you did last.` },
       { promptLabel: 'a memory', promptSound: fr(A(571)), fr: fr(A(571)), ipa: ipaOf(A(571)), tip: 'And the same evening in the other direction. Nothing after the second word tells you anything.' },
     ],
     drill: [
@@ -647,7 +653,7 @@ const SECTIONS: LessonSection[] = [
     frSub: 'Cinq cas nouveaux',
     layer: 'core',
     size: 'lg',
-    say: 'Five verbs whose past form this lesson has never printed. You can build all five without being told, because the group decides the ending and you have had the groups since a2.01.',
+    say: `Five verbs whose past form this lesson has never printed. You can build all five without being told, because the group decides the ending and you have had the groups since ${unitRef('a2.01')}.`,
     groups: [
       {
         label: 'the keys',
@@ -714,7 +720,7 @@ const SECTIONS: LessonSection[] = [
     title: 'Not Only Pas',
     frSub: 'Pas seulement « pas »',
     layer: 'core',
-    say: `${ADVERB_UNIT} taught you where a short adverb goes and then said this: « ${A217_DEFERRAL} » This is the tense, and this is the rule. ${ADVERB_PAIR.why}`,
+    say: `${Cap(unitRef(ADVERB_UNIT))} taught you where a short adverb goes and then said this: « ${A217_DEFERRAL} » This is the tense, and this is the rule. ${ADVERB_PAIR.why}`,
     examples: [
       { fr: fr(A(558)), en: en(A(558)), note: `${sub(A(558))} Bien in the gap, where the pas goes.` },
       { fr: fr(A(559)), en: en(A(559)), note: `${sub(A(559))} Déjà in the gap, on an -IR verb.` },
@@ -738,9 +744,9 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     say: `${AGO_PAIR.why} ${TIME_CLAIM}`,
     examples: [
-      { fr: importedFr(AGO_PAIR.theirsPhraseId), en: importedEn(AGO_PAIR.theirsPhraseId), note: `${impSub(AGO_PAIR.theirsPhraseId)} ${TIME_UNIT}'s phrase card, and this lesson spells it exactly as that one does.` },
-      { fr: importedFr(AGO_PAIR.theirsId), en: importedEn(AGO_PAIR.theirsId), note: `${impSub(AGO_PAIR.theirsId)} That lesson's own sentence, and it already holds this tense: it is the one past-referring row a2.18 authored and it flagged it for this build by name.` },
-      { fr: fr(A(564)), en: en(A(564)), note: `${sub(A(564))} The same shape with an hour instead of three days. On rather than nous, which is a2.01's rule for the whole level.` },
+      { fr: importedFr(AGO_PAIR.theirsPhraseId), en: importedEn(AGO_PAIR.theirsPhraseId), note: `${impSub(AGO_PAIR.theirsPhraseId)} ${Cap(unitRef(TIME_UNIT, 'a2'))}'s phrase card, and this lesson spells it exactly as that one does.` },
+      { fr: importedFr(AGO_PAIR.theirsId), en: importedEn(AGO_PAIR.theirsId), note: `${impSub(AGO_PAIR.theirsId)} That lesson's own sentence, and it already holds this tense: it is the one past-referring row ${unitRef('a2.18')} authored and it flagged it for this build by name.` },
+      { fr: fr(A(564)), en: en(A(564)), note: `${sub(A(564))} The same shape with an hour instead of three days. On rather than nous, which is ${unitRef('a2.01')}'s rule for the whole level.` },
       { fr: fr(A(562)), en: en(A(562)), note: `${sub(A(562))} And the ordinary way, with a day word rather than a length.` },
       { fr: fr(A(563)), en: en(A(563)), note: `${sub(A(563))} A longer one, spelled the way fr.sons.jours-et-mois.036 spells it.` },
       { fr: fr(A(565)), en: en(A(565)), note: `${sub(A(565))} And a question, with no inversion, which is how it is actually asked.` },
@@ -896,7 +902,7 @@ const SECTIONS: LessonSection[] = [
       { front: 'Which word do the two halves go round?', back: `${A219_REFRAME} Here that is avoir, because avoir is the one that changed.`, say: fr(A(551)) },
       { front: '-ER, -IR, -RE. What are the three endings?', back: ENDINGS_CLAIM, say: fr(A(554)) },
       { front: 'Elle a mangé une pomme. Why not mangée?', back: 'After avoir the past form does not agree with anybody. One shape, every person, every gender.', say: fr(A(569)) },
-      { front: 'What else goes in the gap?', back: `Short adverbs: bien, mal, déjà, encore, beaucoup. ${ADVERB_UNIT} taught the placement and this is where it went.`, say: fr(A(558)) },
+      { front: 'What else goes in the gap?', back: `Short adverbs: bien, mal, déjà, encore, beaucoup. ${Cap(unitRef(ADVERB_UNIT))} taught the placement and this is where it went.`, say: fr(A(558)) },
       { front: 'You hear something ending in /mɑ̃.ʒe/. How do you know the tense?', back: SOUND_CLAIM, say: fr(A(566)) },
       { front: 'What is still coming?', back: IRREGULAR_DEFERRAL, say: fr(A(543)) },
       { front: 'Does every verb use avoir?', back: ETRE_DEFERRAL, say: fr(A(546)) },
@@ -913,10 +919,10 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     body: `${REFRAME} The exam has six rounds. Everything in it you can say out loud today, and one round is about a difference you can only see, which is why it is written rather than heard.`,
     stats: [
-      { k: 'New verb forms', v: `0. ${AVOIR_UNIT} gave you all six.` },
-      { k: 'New endings', v: `3, and one per group you already had from ${ER_UNIT}, ${IR_UNIT} and ${RE_UNIT}.` },
+      { k: 'New verb forms', v: `0. ${Cap(unitRef(AVOIR_UNIT))} gave you all six.` },
+      { k: 'New endings', v: `3, and one per group you already had from ${unitRef(ER_UNIT)}, ${unitRef(IR_UNIT)} and ${unitRef(RE_UNIT)}.` },
       { k: 'The rule', v: REFRAME },
-      { k: 'Used again in', v: `${IRREGULAR_UNIT}, ${ETRE_UNIT} and ${SCHOOL_UNIT}.` },
+      { k: 'Used again in', v: `${Cap(unitRef(IRREGULAR_UNIT))}, ${unitRef(ETRE_UNIT)} and ${unitRef(SCHOOL_UNIT)}.` },
     ],
   },
 
@@ -1019,7 +1025,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['vendu'],
             answer: 'vendu',
-            why: `An -RE verb, so -u. ${RE_UNIT} taught this group and the past form is the only place its ending is not already visible on the naming form.`,
+            why: `An -RE verb, so -u. ${Cap(unitRef(RE_UNIT))} taught this group and the past form is the only place its ending is not already visible on the naming form.`,
             ref: GROUPS_SECTION_ID,
           },
           {
@@ -1084,7 +1090,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['manger'],
             answer: 'manger',
-            why: `Behind aller it is the naming form, which is ${FUTUR_UNIT}'s rule and has not changed. Behind avoir it is the past form. Same sound, two different words, and the little word in front decides.`,
+            why: `Behind aller it is the naming form, which is ${unitRef(FUTUR_UNIT, 'a2')}'s rule and has not changed. Behind avoir it is the past form. Same sound, two different words, and the little word in front decides.`,
             ref: LISTEN_SECTION_ID,
           },
           {
@@ -1110,7 +1116,7 @@ const SECTIONS: LessonSection[] = [
         id: 'r4-no-agreement',
         label: 'It never agrees',
         targets: ['err-agreed-past-form', 'err-wrong-ending'],
-        say: 'Six on the thing that does not happen, because a2.21 is about to say the opposite for a short list of verbs and you want this side of it clean.',
+        say: `Six on the thing that does not happen, because ${unitRef('a2.21')} is about to say the opposite for a short list of verbs and you want this side of it clean.`,
         questions: [
           {
             q: 'Elle a ___ une pomme.',
@@ -1188,7 +1194,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['Ahead of him', 'Yesterday', 'Right now', 'Every day'],
             correct: 0,
-            why: `Va, so it has not happened. ${FUTUR_UNIT} taught this one lesson ago and the two constructions are the same shape.`,
+            why: `Va, so it has not happened. ${Cap(unitRef(FUTUR_UNIT))} taught this one lesson ago and the two constructions are the same shape.`,
             ref: LISTEN_SECTION_ID,
           },
           {
@@ -1245,7 +1251,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['Il a déjà fini.', 'Il a déjà fini', 'Il a deja fini'],
             answer: fr(A(559)),
-            why: `Déjà in the gap. ${ADVERB_UNIT} put the short ones straight after the verb, and with two words straight-after means in between.`,
+            why: `Déjà in the gap. ${Cap(unitRef(ADVERB_UNIT))} put the short ones straight after the verb, and with two words straight-after means in between.`,
             ref: INSIDE_SECTION_ID,
           },
           {
@@ -1253,7 +1259,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['il y a'],
             answer: 'il y a',
-            why: `${TIME_UNIT} taught « il y a » as a length of time behind you and could not finish the job, because saying how long ago something happened needs this tense.`,
+            why: `${Cap(unitRef(TIME_UNIT))} taught « il y a » as a length of time behind you and could not finish the job, because saying how long ago something happened needs this tense.`,
             ref: AGO_SECTION_ID,
           },
           {
@@ -1299,12 +1305,12 @@ const SECTIONS: LessonSection[] = [
     points: [
       `${REFRAME} ${OWNS_CLAIM}`,
       POSITION_CLAIM,
-      `${A219_REFRAME} That is ${FUTUR_UNIT}'s line and it is exactly as true with avoir in front as it was with aller.`,
+      `${A219_REFRAME} That is ${unitRef(FUTUR_UNIT, 'a2')}'s line and it is exactly as true with avoir in front as it was with aller.`,
       ENDINGS_CLAIM,
       'After avoir the past form does not agree with anybody, in any person and any gender.',
       `${ADVERB_PAIR.why} ${A217_DEFERRAL}`,
       AGO_PAIR.why,
-      `${IRREGULAR_DEFERRAL} ${ETRE_DEFERRAL} You will want all of it again at ${SCHOOL_UNIT}, where the whole conversation is about what you studied and how it went.`,
+      `${IRREGULAR_DEFERRAL} ${ETRE_DEFERRAL} You will want all of it again at ${unitRef(SCHOOL_UNIT)}, where the whole conversation is about what you studied and how it went.`,
     ],
     sheetId: SHEET_ID,
   },
@@ -1351,7 +1357,7 @@ const ACTS: LessonAct[] = [
     id: 'act5',
     title: 'What the last two lessons left here',
     sections: [INSIDE_SECTION_ID, AGO_SECTION_ID],
-    milestone: `You closed ${ADVERB_UNIT}'s question about where a short adverb goes in a two-word verb, and ${TIME_UNIT}'s about how to say how long ago something happened.`,
+    milestone: `You closed ${unitRef(ADVERB_UNIT, 'a2')}'s question about where a short adverb goes in a two-word verb, and ${unitRef(TIME_UNIT, 'a2')}'s about how to say how long ago something happened.`,
     estScreens: 18,
     restPoints: [`${INSIDE_SECTION_ID}/after`],
   },
@@ -1448,7 +1454,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-agreed-past-form',
-    description: 'Agrees the past form with the subject or the object: « elle a mangée ». It comes from a2.03 and a2.16, where agreeing everything was the correct instinct, and it is about to come back as the correct instinct again at a2.21.',
+    description: `Agrees the past form with the subject or the object: « elle a mangée ». It comes from ${unitRef('a2.03')} and ${unitRef('a2.16')}, where agreeing everything was the correct instinct, and it is about to come back as the correct instinct again at ${unitRef('a2.21')}.`,
     detectOn: [NOAGREE_SECTION_ID, `${QUIZ_SECTION_ID}/r4-no-agreement`],
     drill: 'drill-no-agreement',
     retest: 'retest-no-agreement',
@@ -1669,7 +1675,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-coming',
         title: 'What is still coming',
         layer: 'deep',
-        body: `${IRREGULAR_DEFERRAL} And the one case where a past form does agree with avoir needs the little words that replace an object, which is ${PRONOUN_UNIT}.`,
+        body: `${IRREGULAR_DEFERRAL} And the one case where a past form does agree with avoir needs the little words that replace an object, which is ${unitRef(PRONOUN_UNIT)}.`,
       },
     ],
   },
@@ -1750,7 +1756,7 @@ export const PASSE_COMPOSE_LESSON: Lesson = {
   //      572 gets its « ! » back, the content guard is deleted rather than
   //      rewritten, and the lesson stops carrying a workaround for a bug that
   //      no longer exists.
-  version: 6,
+  version: 7,
 
   grammarAssumed: [
     'The full present of avoir, in six persons, introduced in a1.07',

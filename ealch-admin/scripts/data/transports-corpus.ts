@@ -99,6 +99,12 @@
 // `quebec-et-francophonie`, which is the convention a2.07 set and a2.26
 // followed, at most two rows, recognition only.
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const UNIT = {
   id: 'a2.27',
@@ -385,7 +391,7 @@ const A_ROWS: readonly Row[] = [
     'Traverser is published as an infinitive at fr.a1.deplacements.124 and as an instruction nowhere.'),
   R(144, 'Passez devant la mairie.', 'Go past the town hall.', '/pa.se də.vɑ̃ la mɛ.ʁi/', 'pah-SAY duh-VAHⁿ lah meh-REE',
     'move-pass', 'passerby', 1, 'sentence', SV,
-    'PASS names a landmark you do not act on. Devant is a2.04\'s preposition and is used, not taught.'),
+    `PASS names a landmark you do not act on. Devant is ${unitRef('a2.04')}\'s preposition and is used, not taught.`),
   R(145, 'Longez le parc.', 'Follow the edge of the park.', '/lɔ̃.ʒe lə paʁk/', 'lohⁿ-ZHAY luh PARK',
     'move-pass', 'passerby', 1, 'sentence', SV,
     'Longer has no one-word English equivalent, which is why a learner drops it and loses the whole move.'),
@@ -439,7 +445,7 @@ const B_ROWS: readonly Row[] = [
   R(162, 'Allez au bout de la rue, puis tournez à gauche.', 'Go to the end of the street, then turn left.', '/a.le o bu də la ʁy pɥi tuʁ.ne a ɡoʃ/', 'ah-LAY oh BOO duh lah RÜ pwee toor-NAY ah GOHSH',
     'chain2', 'passerby', 2, 'sentence', SD, 'Au bout de is a joint of four words. Heard fast it is one syllable and a learner hears only bout.'),
   R(163, 'Traversez la place, ensuite c\'est juste en face.', 'Cross the square, then it is just opposite.', '/tʁa.vɛʁ.se la plas ɑ̃.sɥit sɛ ʒyst ɑ̃ fas/', 'trah-vehr-SAY lah PLAHSS ahⁿ-SWEET seh zhüst ahⁿ FAHSS',
-    'chain2', 'passerby', 2, 'sentence', SV, 'En face is the preposition en, not the pronoun. a2.25 owns the pronoun and this unit does not touch it.'),
+    'chain2', 'passerby', 2, 'sentence', SV, `En face is the preposition en, not the pronoun. ${Cap(unitRef('a2.25'))} owns the pronoun and this unit does not touch it.`),
   R(164, 'Prenez la deuxième à gauche, puis longez le canal.', 'Take the second on the left, then follow the canal.', '/pʁə.ne la dø.zjɛm a ɡoʃ pɥi lɔ̃.ʒe lə ka.nal/', 'pruh-NAY lah deu-ZYEM ah GOHSH pwee lohⁿ-ZHAY luh ka-NAL',
     'chain2', 'passerby', 2, 'sentence', SV, 'The ordinal and the verb with no English equivalent, in one chain. Both are droppable and dropping either loses the route.'),
 ];
@@ -535,7 +541,7 @@ const E_ROWS: readonly Row[] = [
   R(195, 'la première rue à gauche', 'the first street on the left', '/la pʁə.mjɛʁ ʁy a ɡoʃ/', 'lah pruh-MYEHR RÜ ah GOHSH',
     'ordinal', 'neutral', 1, 'phrase', PV, 'With rue put back in. The full form is easier and is not what is said in a hurry.'),
   R(196, 'Ce n\'est pas la première, c\'est la deuxième.', 'It is not the first, it is the second.', '/sə nɛ pa la pʁə.mjɛʁ sɛ la dø.zjɛm/', 'suh neh pah lah pruh-MYEHR seh lah deu-ZYEM',
-    'ordinal', 'passerby', 1, 'sentence', SV, 'A correction, which is what a passer-by says when they see you set off wrong. Negation is a1.18\'s and is used here, not taught.'),
+    'ordinal', 'passerby', 1, 'sentence', SV, `A correction, which is what a passer-by says when they see you set off wrong. Negation is ${unitRef('a1.18')}\'s and is used here, not taught.`),
   R(197, 'Prenez la troisième, pas la deuxième.', 'Take the third, not the second.', '/pʁə.ne la tʁwa.zjɛm pa la dø.zjɛm/', 'pruh-NAY lah trwah-ZYEM pah lah deu-ZYEM',
     'ordinal', 'passerby', 1, 'sentence', SV, 'Both ordinals in one line so the contrast is audible rather than described.'),
   R(198, 'C\'est la deuxième rue, après le feu.', 'It is the second street, after the lights.', '/sɛ la dø.zjɛm ʁy a.pʁɛ lə fø/', 'seh lah deu-ZYEM RÜ ah-PREH luh FEU',
@@ -592,7 +598,7 @@ const F_ROWS: readonly Row[] = [
   R(214, 'Attention à la marche en descendant du train.', 'Mind the step when getting off the train.', '/a.tɑ̃.sjɔ̃ a la maʁʃ ɑ̃ de.sɑ̃.dɑ̃ dy tʁɛ̃/', 'ah-tahⁿ-SYOHⁿ ah lah MARSH ahⁿ day-sahⁿ-DAHⁿ dü TREHⁿ',
     'announcement', 'announcer', 0, 'sentence', SV, 'The French of mind the gap. La marche is the step, not walking, and the two are the same word.'),
   R(215, 'Les portes vont se fermer, éloignez-vous.', 'The doors are closing, stand back.', '/le pɔʁt vɔ̃ sə fɛʁ.me e.lwa.ɲe vu/', 'lay PORT vohⁿ suh fer-MAY ay-lwah-NYAY VOO',
-    'announcement', 'announcer', 0, 'sentence', SV, 'Two moves in six words, both instructions. The futur proche is a2.01\'s and is used, not taught.'),
+    'announcement', 'announcer', 0, 'sentence', SV, `Two moves in six words, both instructions. The futur proche is ${unitRef('a2.01')}\'s and is used, not taught.`),
   R(216, 'Le train à destination de Lille partira du quai numéro huit.', 'The train for Lille will leave from platform eight.', '/lə tʁɛ̃ a dɛs.ti.na.sjɔ̃ də lil paʁ.ti.ʁa dy kɛ ny.me.ʁo ɥit/', 'luh TREHⁿ ah des-tee-nah-SYOHⁿ duh LEEL par-tee-RA dü KEH nü-may-ROH ÜEET',
     'announcement', 'announcer', 0, 'sentence', SV, 'Quai numéro rather than voie. Both mean platform and a station uses whichever it uses.'),
 ];
@@ -616,7 +622,7 @@ const G_ROWS: readonly Row[] = [
   R(219, 'Vous voyagez seul ?', 'Are you travelling alone?', '/vu vwa.ja.ʒe sœl/', 'voo vwah-yah-ZHAY SEUL',
     'counter', 'agent', 0, 'phrase', PV, 'Asked to price the ticket. It sounds personal and it is administrative.'),
   R(220, 'Il y a un train à quatorze heures dix.', 'There is a train at ten past two.', '/i.lja œ̃ tʁɛ̃ a ka.tɔʁz œʁ dis/', 'ee-lyah uhⁿ TREHⁿ ah ka-TORZ eur DEESS',
-    'counter', 'agent', 0, 'sentence', SV, 'The twenty-four hour clock is a1.12\'s and arrives here inside somebody else\'s turn, at speed.'),
+    'counter', 'agent', 0, 'sentence', SV, `The twenty-four hour clock is ${unitRef('a1.12')}\'s and arrives here inside somebody else\'s turn, at speed.`),
   R(221, 'C\'est complet, il reste des places à seize heures.', 'That one is full, there are seats at four.', '/sɛ kɔ̃.plɛ il ʁɛst de plas a sɛz œʁ/', 'seh kohⁿ-PLEH eel rest day PLAHSS ah sez EUR',
     'counter', 'agent', 0, 'sentence', SV, 'The refusal and the alternative in one breath. A learner listening for oui or non hears neither.'),
   R(222, 'Vous avez une carte de réduction ?', 'Do you have a discount card?', '/vu.za.ve yn kaʁt də ʁe.dyk.sjɔ̃/', 'voo-zah-VAY ün KART duh ray-dük-SYOHⁿ',
@@ -632,9 +638,9 @@ const G_ROWS: readonly Row[] = [
   R(226, 'Un aller simple pour Nantes, s\'il vous plaît.', 'A single to Nantes, please.', '/œ̃.na.le sɛ̃pl puʁ nɑ̃t sil vu plɛ/', 'uhⁿ-nah-LAY SEHⁿPL poor NAHⁿT seel voo PLEH',
     'counter', 'learner', 0, 'sentence', SV, 'Elliptical, with no verb. The counter form is shorter than the street form and that is the whole contrast.'),
   R(227, 'Je voudrais un billet pour demain matin.', 'I would like a ticket for tomorrow morning.', '/ʒə vu.dʁɛ œ̃ bi.jɛ puʁ də.mɛ̃ ma.tɛ̃/', 'zhuh voo-DREH uhⁿ bee-YEH poor duh-MEHⁿ ma-TEHⁿ',
-    'counter', 'learner', 0, 'sentence', SV, 'Je voudrais, stored whole, as a softer je veux. a2.13 shipped the form; the family that explains it comes later and not here.'),
+    'counter', 'learner', 0, 'sentence', SV, `Je voudrais, stored whole, as a softer je veux. ${Cap(unitRef('a2.13'))} shipped the form; the family that explains it comes later and not here.`),
   R(228, 'C\'est quel quai, s\'il vous plaît ?', 'Which platform is it, please?', '/sɛ kɛl kɛ sil vu plɛ/', 'seh kel KEH seel voo PLEH',
-    'counter', 'learner', 0, 'phrase', PV, 'Quel is a1.20\'s question word. The useful part here is that this is the question you ask AFTER he has already told you.'),
+    'counter', 'learner', 0, 'phrase', PV, `Quel is ${unitRef('a1.20')}\'s question word. The useful part here is that this is the question you ask AFTER he has already told you.`),
   R(229, 'Le prochain train est à quelle heure ?', 'What time is the next train?', '/lə pʁɔ.ʃɛ̃ tʁɛ̃ ɛ.ta kɛ.lœʁ/', 'luh pro-SHEHⁿ TREHⁿ eh-tah keh-LEUR',
     'counter', 'learner', 0, 'sentence', SV, 'Rising intonation on a full sentence. TCF EO caps a candidate who produces only one question form, which is why the scenario carries three.'),
   R(230, 'Pardon, je cherche l\'arrêt du bus quarante-deux.', 'Sorry, I am looking for the number forty-two bus stop.', '/paʁ.dɔ̃ ʒə ʃɛʁʃ la.ʁɛ dy bys ka.ʁɑ̃t dø/', 'par-DOHⁿ zhuh SHERSH lah-REH dü büss ka-rahⁿt-DEU',
@@ -657,9 +663,9 @@ const H_ROWS: readonly Row[] = [
   R(231, 'C\'est la deuxième ou la troisième ?', 'Is it the second or the third?', '/sɛ la dø.zjɛm u la tʁwa.zjɛm/', 'seh lah deu-ZYEM oo lah trwah-ZYEM',
     'repair-targeted', 'learner', 0, 'sentence', SD, 'The unit\'s signature line. It names the one thing you missed and gets back four words instead of fourteen.'),
   R(232, 'À gauche ou à droite, pardon ?', 'Left or right, sorry?', '/a ɡoʃ u a dʁwat paʁ.dɔ̃/', 'ah GOHSH oo ah DRWAHT par-DOHⁿ',
-    'repair-targeted', 'learner', 0, 'sentence', SV, 'Pardon on the end rather than the front. It is a2.07\'s rung 1 used as a tag, which costs less than using it alone.'),
+    'repair-targeted', 'learner', 0, 'sentence', SV, `Pardon on the end rather than the front. It is ${unitRef('a2.07')}\'s rung 1 used as a tag, which costs less than using it alone.`),
   R(233, 'Après le pont ou avant ?', 'After the bridge or before?', '/a.pʁɛ lə pɔ̃ u a.vɑ̃/', 'ah-PREH luh POHⁿ oo ah-VAHⁿ',
-    'repair-targeted', 'learner', 0, 'sentence', SV, 'The joint is what you missed, so the joint is what you ask about. Avant is a2.18\'s and is used here, not taught.'),
+    'repair-targeted', 'learner', 0, 'sentence', SV, `The joint is what you missed, so the joint is what you ask about. Avant is ${unitRef('a2.18')}\'s and is used here, not taught.`),
   R(234, 'C\'est quelle rue, pardon ?', 'Which street, sorry?', '/sɛ kɛl ʁy paʁ.dɔ̃/', 'seh kel RÜ par-DOHⁿ',
     'repair-targeted', 'learner', 0, 'phrase', PV, 'For when you held the moves and lost the name. Narrower than rung 5 and it does the same job.'),
 ];
@@ -676,7 +682,7 @@ const H_ROWS: readonly Row[] = [
 
 const I_ROWS: readonly Row[] = [
   R(235, 'en bus', 'by bus', '/ɑ̃ bys/', 'ahⁿ BÜSS',
-    'mode', 'neutral', 0, 'phrase', PV, 'A closed vehicle takes en. This is the preposition en; the pronoun en is a2.25\'s and does not appear in this lesson.'),
+    'mode', 'neutral', 0, 'phrase', PV, `A closed vehicle takes en. This is the preposition en; the pronoun en is ${unitRef('a2.25')}\'s and does not appear in this lesson.`),
   R(236, 'en voiture', 'by car', '/ɑ̃ vwa.tyʁ/', 'ahⁿ vwah-TÜR',
     'mode', 'neutral', 0, 'phrase', PV, 'Closed, so en. You are inside it, which is the whole of the rule fr.a1.deplacements.014 states.'),
   R(237, 'à vélo', 'by bike', '/a ve.lo/', 'ah vay-LOH',

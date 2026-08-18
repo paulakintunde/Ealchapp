@@ -41,6 +41,7 @@ import {
   THEME, THE_TEN, VERBES_IR, afterPronoun, toItem,
 } from './data/verbes-ir-corpus.ts';
 import { IMPORTED_ROWS, IMPORTED_VERBS } from './data/verbes-ir-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   A201_BACKREF, A201_REFRAME, BOTH_HALVES, BOUNDARY_SECTION_ID, CONTRAST_ROW_IDS,
   CONTRAST_SECTION_ID, NOUS_ON, REFRAME, VERBES_IR_LESSON,
@@ -154,7 +155,7 @@ for (const [sing, plur] of NUMBER_PAIRS) {
 }
 {
   const learner = [...strings(LESSON.sections), ...strings(LESSON.sheets ?? []), ...strings(LESSON.terms ?? {})].join('\n');
-  if (!learner.includes(A201_BACKREF)) die(`${A201_BACKREF} is named nowhere. The back-reference is the teaching, not a citation.`);
+  if (!namesUnitLabel(learner, A201_BACKREF)) die(`${A201_BACKREF} is named nowhere. The back-reference is the teaching, not a citation.`);
   if (!learner.includes(A201_REFRAME)) die("a2.01's reframe no longer appears verbatim, and the opening act rests on quoting it");
   if (!learner.includes(BOTH_HALVES)) die(`"${BOTH_HALVES}" appears on no screen, and it is where the line between the two lessons is drawn`);
   if (!learner.includes(NOUS_ON)) die("the nous/on statement no longer appears verbatim. It is a2.01's constant and it is imported, not reworded.");
@@ -164,7 +165,7 @@ for (const [sing, plur] of NUMBER_PAIRS) {
   if (unnamed.length) die(`non--iss- verb(s) named by no screen: ${unnamed.join(', ')}`);
   const card = LESSON.sections.find((s) => (s as { id?: string }).id === BOUNDARY_SECTION_ID);
   if (!card) die(`${BOUNDARY_SECTION_ID} is gone, and with it the only place the boundary is named`);
-  if (!strings(card).join('\n').includes(NOT_THIS_FAMILY_UNIT)) die(`${BOUNDARY_SECTION_ID} no longer says where venir and tenir are taught`);
+  if (!namesUnitLabel(strings(card).join('\n'), NOT_THIS_FAMILY_UNIT)) die(`${BOUNDARY_SECTION_ID} no longer says where venir and tenir are taught`);
   if (GROWING_ENDINGS.length !== 3) die(`${GROWING_ENDINGS.length} endings put a sound on the end and every screen says three`);
 }
 

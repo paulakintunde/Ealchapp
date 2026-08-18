@@ -25,6 +25,7 @@ import { fold } from './answer.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { hasPlainNasalFor } from './density.logic.ts';
 import { quizQuestions } from './schema.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const LESSON_ID = 'a2.32.l1';
 const UNIT_ID = 'a2.32';
@@ -258,10 +259,12 @@ test("a2.29's cited ladder rows reached the seed, and its ladder is NOT re-taugh
   }
 });
 
-test('a2.01 is cited as a prereq and the band units are named by unit id, not re-taught', () => {
+test('a2.01 is cited as a prereq and the band units are named by its lesson label, not re-taught', () => {
   const assumed = (L?.grammarAssumed as string[]) ?? [];
-  ok(assumed.includes('a2.01'), 'a2.01 is the declared prereq and belongs in grammarAssumed');
-  ok(assumed.includes('a2.18'), 'depuis is used in four fault descriptions and a2.18 owns it');
+  ok(assumed.some((g: string) => g.includes('a2.01')), 'a2.01 is the declared prereq and belongs in grammarAssumed');
+  // grammarAssumed holds curriculum sentences ending « introduced in a2.18 »,
+  // which keep the raw id; only prose carries the label.
+  ok(assumed.some((g: string) => g.includes('a2.18')), 'depuis is used in four fault descriptions and a2.18 owns it');
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -595,11 +598,15 @@ test('NO CONSOLIDATION ACT: the roundup does not review the band', () => {
   ok(r, 's23-roundup is missing');
   const text = strs(r).join('\n');
   // It may hand off to a2.35. It may NOT summarise the other seven units.
+  //
+  // BY LABEL, NOT BY ID. A learner surface names a lesson by its trail
+  // position, so after the migration `text.includes('a2.07')` is a check that
+  // cannot fail however many times the roundup names that unit.
   for (const other of ['a2.07', 'a2.26', 'a2.27', 'a2.28', 'a2.29', 'a2.30', 'a2.31']) {
-    ok(!text.includes(other), `the roundup names ${other}. Being last is a position, not a job: `
+    ok(!namesUnitLabel(text, other), `the roundup names ${other}. Being last is a position, not a job: `
       + 'a consolidation act across the other seven would be a ninth unit hiding inside the eighth.');
   }
-  ok(text.includes('a2.35'), 'the roundup must hand off to a2.35, which names this unit as one of its four prereqs');
+  ok(namesUnitLabel(text, 'a2.35'), 'the roundup must hand off to a2.35, which names this unit as one of its four prereqs');
   ok((r!.points ?? []).length <= 4, 'core-list-items caps `points` at four on a core screen');
 });
 

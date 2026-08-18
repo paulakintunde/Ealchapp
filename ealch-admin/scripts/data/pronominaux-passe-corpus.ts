@@ -258,6 +258,12 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── IDENTITY ──────────────────────────────────────────────────────────────
  *
@@ -405,7 +411,7 @@ export const REFRAME = 'If the little word is there, the first word is être.';
 export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   {
     candidate: 'Reflexive verbs are conjugated with être in the passé composé.',
-    why: 'THE BRIEF NAMES THIS AS THE THING TO REJECT and it is right: it is a rule about the tense, and a learner mid-sentence has not got a tense in front of them, they have got a little word. It also opens on two grammar nouns, where a2.17 §5 measured that the house prefers the plain phrase.',
+    why: `THE BRIEF NAMES THIS AS THE THING TO REJECT and it is right: it is a rule about the tense, and a learner mid-sentence has not got a tense in front of them, they have got a little word. It also opens on two grammar nouns, where ${unitRef('a2.17')} §5 measured that the house prefers the plain phrase.`,
   },
   {
     candidate: 'A reflexive verb always takes être, whatever the plain verb takes.',
@@ -417,7 +423,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'The little word goes in front of the first word.',
-    why: 'True, and it is a2.22\'s rule about position moved one tense along rather than this lesson\'s. It says nothing about WHICH first word, and choosing it is the whole Owns.',
+    why: `True, and it is ${unitRef('a2.22')}\'s rule about position moved one tense along rather than this lesson\'s. It says nothing about WHICH first word, and choosing it is the whole Owns.`,
   },
 ];
 
@@ -477,11 +483,11 @@ export const THE_NEW_FACT =
  *  and all three layers assert it. */
 export const SLOTS: readonly { pos: string; word: string; job: string; credit: string }[] = [
   { pos: 'first', word: 'Je', job: 'the person', credit: 'The person the sentence is about, and everything after it agrees with this word.' },
-  { pos: 'then', word: 'ne', job: 'the wrap opens', credit: `The first half of the wrap, which is ${NEGATION_UNIT}'s and has not moved in five lessons.` },
-  { pos: 'then', word: 'me', job: 'the little word', credit: `The little word, and it is the person again, which is ${REFLEXIVE_UNIT}'s.` },
+  { pos: 'then', word: 'ne', job: 'the wrap opens', credit: `The first half of the wrap, which is ${unitRef(NEGATION_UNIT, 'a2')}'s and has not moved in five lessons.` },
+  { pos: 'then', word: 'me', job: 'the little word', credit: `The little word, and it is the person again, which is ${unitRef(REFLEXIVE_UNIT, 'a2')}'s.` },
   { pos: 'then', word: 'suis', job: 'always être', credit: 'The first word, and it is always être. This is the one new thing in the lesson.' },
   { pos: 'then', word: 'pas', job: 'the wrap shuts', credit: 'The second half of the wrap, and it closes straight after the first word.' },
-  { pos: 'last', word: 'levé', job: 'the ending', credit: `The second word, ending for the person, which is ${ETRE_UNIT}'s.` },
+  { pos: 'last', word: 'levé', job: 'the ending', credit: `The second word, ending for the person, which is ${unitRef(ETRE_UNIT, 'a2')}'s.` },
 ];
 
 /** The cell budget for the third column of a three-column `tapTable`, measured
@@ -501,9 +507,9 @@ export const OBJECT_DECISION = {
   reasonStated: false,
   ownedBy: INDIRECT_OBJECT_UNIT,
   why:
-    'The brief offers three options and recommends the first. §6 makes it the only one: three A2 cards ALREADY IN THE SEED show « Elle s\'est cassé le bras », feminine subject and an unagreed second word, and forty-nine published « elle s\'est » sentences sit behind them. A lesson teaching « agree with the subject » and stopping would make a learner read three shipped cards as typos. Teaching the full rule costs a2.24 its lesson, because the reason is the direct and indirect object distinction and that unit owns it.',
+    `The brief offers three options and recommends the first. §6 makes it the only one: three A2 cards ALREADY IN THE SEED show « Elle s\'est cassé le bras », feminine subject and an unagreed second word, and forty-nine published « elle s\'est » sentences sit behind them. A lesson teaching « agree with the subject » and stopping would make a learner read three shipped cards as typos. Teaching the full rule costs ${unitRef('a2.24')} its lesson, because the reason is the direct and indirect object distinction and that unit owns it.`,
   handsTo:
-    'a2.24, seq 22. The pattern is named here and the reason is not. That unit explains why se stops being the thing agreed with the moment something follows the second word.',
+    `${Cap(unitRef('a2.24'))}, seq 22. The pattern is named here and the reason is not. That unit explains why se stops being the thing agreed with the moment something follows the second word.`,
 } as const;
 
 /** The claim the exception card makes. It describes WHAT happens and never WHY,
@@ -525,7 +531,7 @@ export const OBJECT_TERMS: readonly string[] = [
 export const RECIPROCAL_DECISION = {
   named: false,
   why:
-    'a2.22 §9 named it on one receptive card and its brief says: if a2.22 left reciprocals out, leave them out. It did leave them out of everything it taught, and here the case is stronger. The reciprocal past ALSO declines to agree (« ils se sont parlé »), for the same reason the les mains case does, so naming it here would be teaching a2.24\'s rule twice over by the back door in a lesson that has already decided not to teach it once.',
+    `${Cap(unitRef('a2.22'))} §9 named it on one receptive card and its brief says: if ${unitRef('a2.22')} left reciprocals out, leave them out. It did leave them out of everything it taught, and here the case is stronger. The reciprocal past ALSO declines to agree (« ils se sont parlé »), for the same reason the les mains case does, so naming it here would be teaching ${unitRef('a2.24')}\'s rule twice over by the back door in a lesson that has already decided not to teach it once.`,
   measured: '« se sont parlé » has ONE published sentence in the whole corpus, at B1. No unit at any level owns the reciprocal.',
 } as const;
 
@@ -578,10 +584,10 @@ export const IMPERFECT_MARKERS: readonly string[] = [
 ];
 
 export const PAST_TENSE_DEFERRAL =
-  `This is the only past you need for now. ${IRREGULAR_UNIT} gave you the second words and ${ETRE_UNIT} gave you the endings, and nothing after this changes either of them.`;
+  `This is the only past you need for now. ${Cap(unitRef(IRREGULAR_UNIT))} gave you the second words and ${unitRef(ETRE_UNIT)} gave you the endings, and nothing after this changes either of them.`;
 
 export const OBJECT_DEFERRAL =
-  `The same little words do a second job later, standing in for a thing rather than pointing back at the person. That is ${DIRECT_OBJECT_UNIT} and ${INDIRECT_OBJECT_UNIT}, and the reason the ending disappears on this screen is waiting there too.`;
+  `The same little words do a second job later, standing in for a thing rather than pointing back at the person. That is ${unitRef(DIRECT_OBJECT_UNIT)} and ${unitRef(INDIRECT_OBJECT_UNIT)}, and the reason the ending disappears on this screen is waiting there too.`;
 
 /* ─── THE AUTHORED ROWS ─────────────────────────────────────────────────────*/
 
@@ -645,7 +651,7 @@ export const PRONOMINAUX_PASSE: Row[] = [
   { id: 'fr.a2.verbes.795', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je me suis levé tôt.', en: 'I got up early.', ipa: '/ʒə mə sɥi lə.ve to/', respell: 'zhuh muh swee luh-VAY TOH', person: 'je', bucket: 'person', aux: 'etre', ending: '', tags: [...T, 'person', 'lever'], drills: S, audioRef: null, version: 1, notes: 'The first person, and the sentence the whole lesson assembles.' },
   { id: 'fr.a2.verbes.796', kind: 'sentence', level: 'a2', theme: THEME, fr: "Tu t'es levé tôt.", en: 'You got up early.', ipa: '/ty tɛ lə.ve to/', respell: 'tü teh luh-VAY TOH', person: 'tu', bucket: 'person', aux: 'etre', ending: '', tags: [...T, 'person', 'lever', 'elision'], drills: S, audioRef: null, version: 1, notes: 'THE LITTLE WORD ELIDES. te becomes t before es, which is one of only two persons where anything elides at all.' },
   { id: 'fr.a2.verbes.797', kind: 'sentence', level: 'a2', theme: THEME, fr: "Il s'est levé tôt.", en: 'He got up early.', ipa: '/il sɛ lə.ve to/', respell: 'eel seh luh-VAY TOH', person: 'il', bucket: 'person', aux: 'etre', ending: '', tags: [...T, 'person', 'lever', 'elision'], drills: S, audioRef: null, version: 1, notes: 'And se becomes s. The other elided person, and the commonest sentence shape in the corpus.' },
-  { id: 'fr.a2.verbes.798', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous sommes levés tôt.', en: 'We got up early.', ipa: '/nu nu sɔm lə.ve to/', respell: 'noo noo somm luh-VAY TOH', person: 'nous', bucket: 'person', aux: 'etre', ending: 's', tags: [...T, 'person', 'lever', 'doubled'], drills: S, audioRef: null, version: 1, notes: 'THE DOUBLED WORD AND THE FALSE POSITIVE. somm rather than sohm: sommes is a real m and a superscript there teaches a sound the word has not got. a2.21 §2.' },
+  { id: 'fr.a2.verbes.798', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous sommes levés tôt.', en: 'We got up early.', ipa: '/nu nu sɔm lə.ve to/', respell: 'noo noo somm luh-VAY TOH', person: 'nous', bucket: 'person', aux: 'etre', ending: 's', tags: [...T, 'person', 'lever', 'doubled'], drills: S, audioRef: null, version: 1, notes: `THE DOUBLED WORD AND THE FALSE POSITIVE. somm rather than sohm: sommes is a real m and a superscript there teaches a sound the word has not got. ${Cap(unitRef('a2.21'))} §2.` },
   { id: 'fr.a2.verbes.799', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous vous êtes levés tôt.', en: 'You got up early.', ipa: '/vu vu zɛt lə.ve to/', respell: 'voo voo zeht luh-VAY TOH', person: 'vous', bucket: 'person', aux: 'etre', ending: 's', tags: [...T, 'person', 'lever', 'doubled'], drills: S, audioRef: null, version: 1, notes: 'Doubled again, and nothing elides here even though êtes opens on a vowel: vous does not shorten.' },
   { id: 'fr.a2.verbes.800', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils se sont levés tôt.', en: 'They got up early.', ipa: '/il sə sɔ̃ lə.ve to/', respell: 'eel suh sohⁿ luh-VAY TOH', person: 'ils', bucket: 'person', aux: 'etre', ending: 's', tags: [...T, 'person', 'lever'], drills: S, audioRef: null, version: 1, notes: 'ZERO published sentences in the whole corpus, which is §5 for the sixth cell running.' },
 
@@ -662,10 +668,10 @@ export const PRONOMINAUX_PASSE: Row[] = [
   /* ── D. THE EXCEPTION. §6, RECEPTIVE ONLY. The required pair, and 792 is its
    *     other half rather than a fifth row.                                   */
   { id: 'fr.a2.verbes.807', kind: 'sentence', level: 'a2', theme: THEME, fr: "Elle s'est lavé les mains.", en: 'She washed her hands.', ipa: '/ɛl sɛ la.ve le mɛ̃/', respell: 'ehl seh lah-VAY lay MAHⁿ', person: 'elle', bucket: 'object', aux: 'etre', ending: null, tags: [...T, 'object', 'receptive'], drills: RO, audioRef: null, version: 1, notes: 'NAMED, NOT TAUGHT. Something is named after the second word and the ending goes. The reason is a2.24s. Receptive drills only: no flashcard, no voiceflash, no dictation.' },
-  { id: 'fr.a2.verbes.808', kind: 'sentence', level: 'a2', theme: THEME, fr: "Elle s'est brossé les dents.", en: 'She brushed her teeth.', ipa: '/ɛl sɛ bʁɔ.se le dɑ̃/', respell: 'ehl seh bro-SAY lay DAHⁿ', person: 'elle', bucket: 'object', aux: 'etre', ending: null, tags: [...T, 'object', 'receptive'], drills: RO, audioRef: null, version: 1, notes: 'The second of the two shapes a1.25 taught, so the learner meets both in week one. Receptive only, for the same reason.' },
+  { id: 'fr.a2.verbes.808', kind: 'sentence', level: 'a2', theme: THEME, fr: "Elle s'est brossé les dents.", en: 'She brushed her teeth.', ipa: '/ɛl sɛ bʁɔ.se le dɑ̃/', respell: 'ehl seh bro-SAY lay DAHⁿ', person: 'elle', bucket: 'object', aux: 'etre', ending: null, tags: [...T, 'object', 'receptive'], drills: RO, audioRef: null, version: 1, notes: `The second of the two shapes ${unitRef('a1.25')} taught, so the learner meets both in week one. Receptive only, for the same reason.` },
 
   /* ── E. THE OTHER SIDE OF THE AGREEMENT, which is a2.21s rule unchanged.    */
-  { id: 'fr.a2.verbes.809', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Elle a lavé la voiture.', en: 'She washed the car.', ipa: '/ɛl a la.ve la vwa.tyʁ/', respell: 'ehl ah lah-VAY lah vwah-TÜR', person: 'elle', bucket: 'avoir', aux: 'avoir', ending: '', tags: [...T, 'avoir', 'laver'], drills: S, audioRef: null, version: 1, notes: 'A WOMAN, avoir, AND NOTHING ON THE END. a2.21 taught that and this lesson does not touch it. Set against 792, which is the same woman and the same verb.' },
+  { id: 'fr.a2.verbes.809', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Elle a lavé la voiture.', en: 'She washed the car.', ipa: '/ɛl a la.ve la vwa.tyʁ/', respell: 'ehl ah lah-VAY lah vwah-TÜR', person: 'elle', bucket: 'avoir', aux: 'avoir', ending: '', tags: [...T, 'avoir', 'laver'], drills: S, audioRef: null, version: 1, notes: `A WOMAN, avoir, AND NOTHING ON THE END. ${Cap(unitRef('a2.21'))} taught that and this lesson does not touch it. Set against 792, which is the same woman and the same verb.` },
 
   /* ── F. THE NEGATIVE. §3. ne never elides; the little word does, in two
    *     persons, and the second word sits outside the wrap in all six.        */
@@ -680,7 +686,7 @@ export const PRONOMINAUX_PASSE: Row[] = [
    *     makes the learner produce a form from a verb the lesson never showed
    *     them has taught the system.                                           */
   { id: 'fr.a2.verbes.816', kind: 'sentence', level: 'a2', theme: THEME, fr: "Elle s'est habillée.", en: 'She got dressed.', ipa: '/ɛl sɛ ta.bi.je/', respell: 'ehl seh tah-bee-YAY', person: 'elle', bucket: 'unseen', aux: 'etre', ending: 'e', tags: [...T, 'unseen', 'habiller'], drills: SD, audioRef: null, version: 1, notes: 's habiller, built rather than shown, and the ending is on it. Sixteen letters exactly.' },
-  { id: 'fr.a2.verbes.817', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous sommes dépêchés.', en: 'We hurried.', ipa: '/nu nu sɔm de.pɛ.ʃe/', respell: 'noo noo somm day-peh-SHAY', person: 'nous', bucket: 'unseen', aux: 'etre', ending: 's', tags: [...T, 'unseen', 'depecher', 'doubled'], drills: S, audioRef: null, version: 1, notes: 'Nobody hurries themselves and it takes être anyway, because the little word is there. a2.22 taught that this one means nothing by it.' },
+  { id: 'fr.a2.verbes.817', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous nous sommes dépêchés.', en: 'We hurried.', ipa: '/nu nu sɔm de.pɛ.ʃe/', respell: 'noo noo somm day-peh-SHAY', person: 'nous', bucket: 'unseen', aux: 'etre', ending: 's', tags: [...T, 'unseen', 'depecher', 'doubled'], drills: S, audioRef: null, version: 1, notes: `Nobody hurries themselves and it takes être anyway, because the little word is there. ${Cap(unitRef('a2.22'))} taught that this one means nothing by it.` },
   { id: 'fr.a2.verbes.818', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous vous êtes reposés.', en: 'You rested.', ipa: '/vu vu zɛt ʁə.po.ze/', respell: 'voo voo zeht ruh-poh-ZAY', person: 'vous', bucket: 'unseen', aux: 'etre', ending: 's', tags: [...T, 'unseen', 'reposer', 'doubled'], drills: S, audioRef: null, version: 1, notes: 'The doubled shape on a verb the table never carried, in the past.' },
   { id: 'fr.a2.verbes.819', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils se sont douchés.', en: 'They showered.', ipa: '/il sə sɔ̃ du.ʃe/', respell: 'eel suh sohⁿ doo-SHAY', person: 'ils', bucket: 'unseen', aux: 'etre', ending: 's', tags: [...T, 'unseen', 'doucher'], drills: SD, audioRef: null, version: 1, notes: 'Sixteen letters, so the dictée can ask for the plural ending on a verb that was never conjugated on a screen.' },
 
@@ -721,14 +727,14 @@ export function toItem(r: Row): Item {
 
 export const rowById = (id: string): Row => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.23: no authored row ${id}. The corpus file is the source of truth and it does not have this id.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: no authored row ${id}. The corpus file is the source of truth and it does not have this id.`);
   return r;
 };
 
 export const bucketIds = (b: Bucket): string[] => PRONOMINAUX_PASSE.filter((r) => r.bucket === b).map((r) => r.id);
 export const personId = (b: Bucket, p: Person): string => {
   const r = PRONOMINAUX_PASSE.find((x) => x.bucket === b && x.person === p);
-  if (!r) throw new Error(`a2.23: no ${b} row for ${p}.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: no ${b} row for ${p}.`);
   return r.id;
 };
 
@@ -766,7 +772,7 @@ export const CLITIC_ELIDES: readonly string[] = ["tu t'es", "il s'est", "elle s'
 export const NOTHING_ELIDES: readonly string[] = ['je me suis', 'nous nous sommes', 'vous vous êtes', 'ils se sont', 'elles se sont'];
 export const NE_NEVER_ELIDES = true;
 export const ELISION_CLAIM =
-  `${PASSE_UNIT} shortened ne in front of every person and ${ETRE_UNIT} in front of three. Here it never shortens at all, and the little word shortens instead, in two.`;
+  `${Cap(unitRef(PASSE_UNIT, 'a2'))} shortened ne for every person and ${unitRef(ETRE_UNIT, 'a2')} for three. Here ne never shortens, and the little word shortens instead, in two.`;
 
 /* ─── THE NEGATIVE, AND THE PAIR CHECK ──────────────────────────────────────*/
 
@@ -805,7 +811,7 @@ export const HOMOPHONE_GROUPS: readonly (readonly string[])[] = [
 /** The claim about the ear, in one string. a2.21 §10 handed this forward: its
  *  own audible feminine was `mourir` and no reflexive has one. */
 export const EAR_CLAIM =
-  `You cannot check this one by listening. All four spellings are the same sound, on every verb here, and ${ETRE_UNIT} had one verb where you could hear it. This lesson has none.`;
+  `You cannot check this one by listening. All four spellings are the same sound, on every verb here, and ${unitRef(ETRE_UNIT)} had one verb where you could hear it. This lesson has none.`;
 
 /** Every four-cell set that is one sound, for the report and the guards. */
 export const EXPECTED_ONE_SOUND_SETS = 6;
@@ -910,7 +916,7 @@ export type Imported = {
  *  `laver`, which is the bare form the auxiliary flip needs, plus the two
  *  auxiliaries, because the whole lesson is a choice between them. */
 export const IMPORTED_HEADWORDS: readonly Imported[] = [
-  { id: 'fr.a1.routines.028', fr: 'se laver', why: 'The frame verb of the four cells and of the flip. a2.22 built its whole paradigm on it.', inSeed: true },
+  { id: 'fr.a1.routines.028', fr: 'se laver', why: `The frame verb of the four cells and of the flip. ${Cap(unitRef('a2.22'))} built its whole paradigm on it.`, inSeed: true },
   { id: 'fr.a1.cuisine.183', fr: 'laver', why: 'THE BARE FORM, and the other half of the flip. The same verb with nothing in front of it takes avoir, and it is published.', inSeed: true },
   { id: 'fr.a1.routines.001', fr: 'se lever', why: 'The six-person walk runs on it, and it is the verb the scene fails on.', inSeed: true },
   { id: 'fr.a1.routines.020', fr: 'se coucher', why: 'The second flip pair, where nothing about the meaning predicts the first word.', inSeed: true },
@@ -919,9 +925,9 @@ export const IMPORTED_HEADWORDS: readonly Imported[] = [
   { id: 'fr.a1.routines.012', fr: "s'habiller", why: 'Same, and the one where the second word carries the ending on a screen.', inSeed: true },
   { id: 'fr.a1.routines.034', fr: 'se reposer', why: 'Same again, in the doubled person.', inSeed: true },
   { id: 'fr.a1.routines.087', fr: 'se dépêcher', why: 'The verb that carries the little word and means nothing by it, and takes être anyway. That is the reframe at its strongest.', inSeed: true },
-  { id: 'fr.a1.routines.019', fr: 'se brosser les dents', why: 'a1.25\'s own phrase, and the second of the two shapes the exception turns on.', inSeed: true },
+  { id: 'fr.a1.routines.019', fr: 'se brosser les dents', why: `${Cap(unitRef('a1.25'))}\'s own phrase, and the second of the two shapes the exception turns on.`, inSeed: true },
   { id: 'fr.sons.verbes-essentiels.001', fr: 'être', why: 'The first word this lesson is about, in every sentence it authors.', inSeed: true },
-  { id: 'fr.sons.verbes-essentiels.002', fr: 'avoir', why: 'The one it is not, so the flip has a card. a2.05\'s.', inSeed: true },
+  { id: 'fr.sons.verbes-essentiels.002', fr: 'avoir', why: `The one it is not, so the flip has a card. ${Cap(unitRef('a2.05'))}\'s.`, inSeed: true },
 ];
 
 /** THE PUBLISHED SENTENCES, imported as evidence beside the authored paradigm
@@ -936,7 +942,7 @@ export const IMPORTED_SENTENCES: readonly Imported[] = [
   { id: 'fr.a1.rp-recits-temps.199', fr: 'Ce matin, nous nous sommes levés très tôt pour partir.', why: 'The doubled word and the plural ending together, published.', inSeed: false },
   { id: 'fr.a1.rp-recits-temps.066', fr: 'Ce matin, j\'ai lavé la voiture.', why: 'THE AVOIR SIDE OF THE FLIP, PUBLISHED. The sentence the learner already owns, and the one the scene\'s error is derived from.', inSeed: false },
   { id: 'fr.a2.corps.001', fr: 'Elle s\'est cassé le bras en tombant du vélo.', why: 'THE EXCEPTION, ALREADY SHIPPED AND ALREADY UNAGREED. §6: a feminine subject, a second word with no ending, an A2 card in the cut. It is why the exception is named rather than left out.', inSeed: true },
-  { id: 'fr.a1.corps.209', fr: 'Je me lave les mains avant de manger.', why: 'The same shape in the present, which a2.22 imported receptively and said was this lesson\'s. It is, and this is where it is named.', inSeed: true },
+  { id: 'fr.a1.corps.209', fr: 'Je me lave les mains avant de manger.', why: `The same shape in the present, which ${unitRef('a2.22')} imported receptively and said was this lesson\'s. It is, and this is where it is named.`, inSeed: true },
 ];
 
 export const IMPORTED: readonly Imported[] = [...IMPORTED_HEADWORDS, ...IMPORTED_SENTENCES];
@@ -957,8 +963,8 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   { id: 'fr.a1.heure-et-date.050', fr: 'Ce matin, je me suis réveillé tôt.', why: 'A shorter copy of fr.a2.routines.049 without the avoir half. The longer one is imported because the flip is what this lesson needs it for.' },
   { id: 'fr.a2.salutations.002', fr: "Nous nous sommes vus hier soir, c'était sympa.", why: 'CARRIES THE IMPERFECT. « c\'était » is a tense beyond A2\'s first twenty, and « vus » is a reciprocal, which §9 leaves out entirely. Two refusals in one row.' },
   { id: 'fr.b1.conflits-reconciliation.018', fr: "Depuis qu'ils se sont parlé, la tension a beaucoup diminué.", why: 'THE ONLY PUBLISHED RECIPROCAL PAST IN THE CORPUS, and it is B1. §9 leaves reciprocals out and this row is the measurement behind that, not a card.' },
-  { id: 'fr.a1.corps.001', fr: 'la tête', why: 'GENDERED single-word row. It would join a1.03\'s measured ending population the moment the merge carried it (a2.04 ledger §0). The exception card names the body part inside a sentence and needs no headword for it.' },
-  { id: 'fr.sons.elision.041', fr: "s'habiller", why: 'A COMPETING RESPELLING, [sa-bee-YAY] against routines\' [sah-bee-YAY]. Invariants §9: a variant is not a violation. a2.22 refused the same row for the same reason and this build does not reopen it.' },
+  { id: 'fr.a1.corps.001', fr: 'la tête', why: `GENDERED single-word row. It would join ${unitRef('a1.03')}\'s measured ending population the moment the merge carried it (${unitRef('a2.04')} ledger §0). The exception card names the body part inside a sentence and needs no headword for it.` },
+  { id: 'fr.sons.elision.041', fr: "s'habiller", why: `A COMPETING RESPELLING, [sa-bee-YAY] against routines\' [sah-bee-YAY]. Invariants §9: a variant is not a violation. ${Cap(unitRef('a2.22'))} refused the same row for the same reason and this build does not reopen it.` },
 ];
 
 /* ─── RESPELLING REPAIRS ───────────────────────────────────────────────────
@@ -1223,12 +1229,12 @@ export const fr = (id: string): string => rowById(id).fr;
 export const en = (id: string): string => rowById(id).en;
 export const respellOf = (id: string): string => {
   const r = rowById(id).respell;
-  if (!r) throw new Error(`a2.23: ${id} has no respelling and a card wants one.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: ${id} has no respelling and a card wants one.`);
   return r;
 };
 export const ipaOf = (id: string): string => {
   const r = rowById(id).ipa;
-  if (!r) throw new Error(`a2.23: ${id} has no ipa and a card wants one.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.23'))}: ${id} has no ipa and a card wants one.`);
   return r;
 };
 export const sub = (id: string): string => `[${respellOf(id)}]`;

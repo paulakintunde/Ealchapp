@@ -61,6 +61,7 @@ import seed from './seed.json' with { type: 'json' };
 import { fold, matchesAccept } from './answer.logic.ts';
 import { quizQuestions } from './schema.ts';
 import { validateDensity } from './density.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const UNIT_ID = 'a2.35';
 const REVIEW_ID = 'a2.35.l1';
@@ -282,7 +283,9 @@ test('the exam why strings DO name units, because they are read after the paper'
   // missed question and prints its `why`, and a `why` that did not name the
   // unit would leave the learner with a score and nowhere to go.
   const whys = questionsOf(exam).map((q) => q.why ?? '').join('\n');
-  const named = TRAIL.filter(([, id]) => whys.includes(id)).length;
+  // BY LABEL. The `why` says « lesson 22 in A2 » now, which is the string a
+  // learner can act on; an id search here would count nothing.
+  const named = TRAIL.filter(([, id]) => namesUnitLabel(whys, id)).length;
   ok(named >= 20, `only ${named} of the 34 units are named in an exam why; the result card cannot point anywhere`);
 });
 

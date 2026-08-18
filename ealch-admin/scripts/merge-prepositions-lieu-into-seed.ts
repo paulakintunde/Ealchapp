@@ -87,6 +87,7 @@ import {
   SCENARIO_SECTION_ID, UNSEEN_SECTION_ID, WRONG_FORM_SECTIONS,
 } from './data/prepositions-lieu-lesson.ts';
 import { PREPOSITIONS_LIEU_ROWS } from './data/prepositions-lieu-rows.gen.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = join(here, '../../ealch-v2/src/content/seed.json');
@@ -358,7 +359,7 @@ if (LESSON.sections.filter((s) => s.type === 'trapDrill').length !== EXPECTED_TR
       die(`grid row ${i} is ${JSON.stringify(cells)} and the corpus says ${JSON.stringify([KIND_LABEL[k], KIND_WORD[k], KIND_EXAMPLE[k]])}`);
     }
     const owner = KIND_OWNER[k];
-    if (owner && !hasPhrase(four.rows![i]!.detail?.body ?? '', owner)) die(`grid row ${i} is ${owner}'s and does not name it`);
+    if (owner && !namesUnitLabel(four.rows![i]!.detail?.body ?? '', owner)) die(`grid row ${i} is ${owner}'s and does not name it`);
   });
   const credited = KIND_ORDER.filter((k) => KIND_OWNER[k] !== null).length;
   if (credited !== 3) die(`${credited} of the four kinds credit another unit and three of them are somebody else's`);
@@ -440,7 +441,7 @@ const learnerText = [
   ...strings(LESSON.acts ?? []), ...strings(LESSON.drills ?? []),
 ].join('\n');
 for (const w of COUNTRY_FORBIDDEN) if (hasPhrase(learnerText, w)) die(`${JSON.stringify(w)} is on a learner surface and it is ${COUNTRY_UNIT}'s`);
-if (!hasPhrase(learnerText, COUNTRY_UNIT)) die(`no surface names ${COUNTRY_UNIT}`);
+if (!namesUnitLabel(learnerText, COUNTRY_UNIT)) die(`no surface names ${COUNTRY_UNIT}`);
 
 /* a2.18's ground. */
 for (const s of TIME_MUST_FIRE) if (!TIME_SHAPE.test(s)) die(`TIME_SHAPE does not fire on ${JSON.stringify(s)}`);
@@ -449,7 +450,7 @@ for (const line of strings(LESSON.sections).concat(strings(LESSON.sheets ?? []),
   if (TIME_SHAPE.test(line)) die(`a temporal en or dans reached a screen: ${JSON.stringify(line)}`);
   for (const t of TIME_FORBIDDEN) if (hasPhrase(line, t)) die(`${JSON.stringify(t)} is ${TIME_UNIT}'s`);
 }
-if (!hasPhrase(learnerText, TIME_UNIT)) die(`${TIME_UNIT} is never named`);
+if (!namesUnitLabel(learnerText, TIME_UNIT)) die(`${TIME_UNIT} is never named`);
 
 /* a1.21's five, on production surfaces only. */
 {

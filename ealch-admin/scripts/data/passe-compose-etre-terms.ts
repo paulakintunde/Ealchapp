@@ -19,6 +19,12 @@
 // RATIO, which is what lets `overview.titleEn` stay the unit's own English name.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A201_REFRAME, A203_REFRAME, A205_REFRAME, ADJ_UNIT, AGREEMENT_CREDIT,
   AGREEMENT_RULE, AVOIR_CLAIM, EAR_CLAIM, ER_UNIT, FAMILY_UNIT, IRREGULAR_UNIT,
@@ -32,7 +38,7 @@ export { REFRAME } from './passe-compose-etre-corpus.ts';
 /** What a learner already owns, named by unit, so this lesson reads as one new
  *  thing standing on three they have. */
 export const ALREADY_YOURS =
-  `${PASSE_UNIT} gave you the whole shape two lessons ago and ${IRREGULAR_UNIT} gave you the forms that could not be built. Both of those stay exactly as they were. What is new is which first word you reach for, and what happens to the second one afterwards.`;
+  `${Cap(unitRef(PASSE_UNIT))} gave you the whole shape two lessons ago and ${unitRef(IRREGULAR_UNIT)} gave you the forms that could not be built. Both of those stay exactly as they were. What is new is which first word you reach for, and what happens to the second one afterwards.`;
 
 /** The measured margin as one sentence, so the evidence reaches a screen. */
 export { EVIDENCE_LINE } from './passe-compose-etre-corpus.ts';
@@ -42,7 +48,7 @@ export const ETRE_TERMS: Record<string, LessonTerm> = {
     term: 'first word',
     title: 'avoir for almost everything, être for fifteen',
     body:
-      `${A205_REFRAME} That is ${PASSE_UNIT}'s line and the shape has not moved. What moves is the first word: for fifteen verbs it is a form of être rather than a form of avoir, and there is no way to hear which one a sentence needs until you know the verb.`,
+      `${A205_REFRAME} That is ${unitRef(PASSE_UNIT, 'a2')}'s line and the shape has not moved. What moves is the first word: for fifteen verbs it is a form of être rather than a form of avoir, and there is no way to hear which one a sentence needs until you know the verb.`,
     examples: [
       { itemId: 'fr.a2.verbes.661', note: 'avoir, on a verb that takes it, which is almost all of them.' },
       { itemId: 'fr.a2.verbes.662', note: 'And être, on the same woman going to the same place.' },
@@ -74,7 +80,7 @@ export const ETRE_TERMS: Record<string, LessonTerm> = {
     term: 'who did it',
     title: 'The subject decides, not the verb',
     body:
-      `The ending is not about the verb and not about what happened. It is about who or what the sentence is about: one man, one woman, several people, several women. ${ER_UNIT} said « ${A201_REFRAME} » in the first lesson of this level, and this is the same thing seventeen lessons later.`,
+      `The ending is not about the verb and not about what happened. It is about who or what the sentence is about: one man, one woman, several people, several women. ${Cap(unitRef(ER_UNIT))} said « ${A201_REFRAME} » in the first lesson of this level, and this is the same thing seventeen lessons later.`,
     examples: [
       { itemId: 'fr.a2.verbes.693', note: 'The subject is a glass rather than a person, and the rule is the same: masculine and singular, so nothing goes on.' },
       { itemId: 'fr.a2.verbes.653', note: 'More than one, so the s. The verb has not changed at all.' },
@@ -146,11 +152,11 @@ export const rowWidth = (keys: readonly string[]): number =>
  *  the ledger amendment say the same thing. */
 export const HANDOVER = {
   [REFLEXIVE_PAST_UNIT]:
-    `THE AGREEMENT RULE IS WORDED ONCE AND a2.23 IS TOLD TO INHERIT IT: « ${AGREEMENT_RULE} » It is exported as AGREEMENT_RULE from passe-compose-etre-corpus.ts so that lesson can quote it rather than reword it. Everything a reflexive past needs on top of it is the little word in front of the verb, and the one place the rule does NOT run there — a reflexive with a direct object after it — is a2.23's to state, not this lesson's. No reflexive verb, and no reflexive marker, appears anywhere in a2.21: the batch, the merge and the test all walk the list.`,
+    `THE AGREEMENT RULE IS WORDED ONCE AND ${unitRef('a2.23')} IS TOLD TO INHERIT IT: « ${AGREEMENT_RULE} » It is exported as AGREEMENT_RULE from passe-compose-etre-corpus.ts so that lesson can quote it rather than reword it. Everything a reflexive past needs on top of it is the little word in front of the verb, and the one place the rule does NOT run there — a reflexive with a direct object after it — is ${unitRef('a2.23')}'s to state, not this lesson's. No reflexive verb, and no reflexive marker, appears anywhere in ${unitRef('a2.21')}: the batch, the merge and the test all walk the list.`,
   [REFLEXIVE_UNIT]:
     'The present of the pronominal verbs is untouched here and none of the eleven commonest appears on any screen.',
   [ADJ_UNIT]:
-    `Its rule is borrowed rather than restated: « ${A203_REFRAME} » is quoted verbatim on the screen where the four endings arrive, and the lesson says in one line that the endings are a2.03's four and the only new thing is that a verb is doing it.`,
+    `Its rule is borrowed rather than restated: « ${A203_REFRAME} » is quoted verbatim on the screen where the four endings arrive, and the lesson says in one line that the endings are ${unitRef('a2.03')}'s four and the only new thing is that a verb is doing it.`,
   [FAMILY_UNIT]:
-    'Its front-covering move is extended ONE STEP FURTHER than a2.20 extended it. a2.20 used it to get the FORM of a compound verb; this lesson uses it to get the FIRST WORD as well, so devenir, revenir and repartir all arrive free, and two of the three are outside the mnemonic.',
+    `Its front-covering move is extended ONE STEP FURTHER than ${unitRef('a2.20')} extended it. ${Cap(unitRef('a2.20'))} used it to get the FORM of a compound verb; this lesson uses it to get the FIRST WORD as well, so devenir, revenir and repartir all arrive free, and two of the three are outside the mnemonic.`,
 } as const;

@@ -196,9 +196,37 @@ aller + infinitive     vs  aller + place           seq 15
 prendre "take"         vs  prendre in idiom        seq 9
 ```
 
-Each brief teaches its own instance. From seq 14 onward, **name the earlier instance by
-unit id.** A learner who sees the pattern repeat stops believing French is arbitrary,
-and that is worth more than any single trapDrill.
+Each brief teaches its own instance. From seq 14 onward, **name the earlier instance.**
+A learner who sees the pattern repeat stops believing French is arbitrary, and that is
+worth more than any single trapDrill.
+
+**NAME IT BY ITS TRAIL POSITION, NEVER BY ITS UNIT ID.** This line used to say « by unit
+id », and every A2 build followed it, so 35 of 36 lesson bodies printed strings like
+`a2.24` on a card. A learner has never seen that string and cannot look it up. The card
+says « lesson 22 in A2 » instead, and « lesson 22's line » where a possessive reads
+better.
+
+**The id number is not the lesson number.** Ids were assigned before the trails were
+sequenced: 31 of 35 A2 units disagree with their own id number, 27 of 30 A1, and 4 of 10
+sons. `a2.12` is lesson 6, `a1.17` is lesson 20, `sons.07` is lesson 8. So a label is
+ALWAYS resolved through `seq` and never by reading the digits off the id — `a2.24`
+shipped « since seq 17 of A1 » about a unit that is seq 20, which is exactly that
+mistake reaching a learner.
+
+Authoring side, interpolate `unitRef(X_UNIT)` from `scripts/data/_unit-ref.ts`; guard
+side, compare with `namesUnitLabel` from `ealch-v2/src/content/unit-label.ts`. Both read
+the shipped units, so a resequenced trail moves the content and the assertion together.
+A guard that accepts EITHER the label or the raw id is worthless: it passes on the thing
+this rule exists to remove.
+
+`grammarAssumed`, `grammarIntroduced` and `prereqUnitIds` are addressed to the
+curriculum, are resolved against `content_units`, and keep the raw id. So does any `id:`
+or `unit:` field a guard compares against `UNIT.id`. The split is exactly prose against
+metadata.
+
+A label is longer than an id — three words against one — so a body that sat at 44 words
+will fail the 45-word core cap. Trim the prose. Never raise the cap, and never shorten a
+verbatim carry: a quotation is quoted because another lesson owns the words.
 
 The second recurring shape is **silent agreement**: `parle/parles/parlent`,
 `allé/allée/allés/allées`, `lavé/lavée/lavés/lavées` are spelling distinctions the ear

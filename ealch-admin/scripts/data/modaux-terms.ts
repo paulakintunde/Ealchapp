@@ -12,6 +12,12 @@
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { NOUS_ON } from './verbes-er-terms.ts';
 import { WHAT_FOLLOWS, WHAT_FOLLOWS_UNIT } from './aller-venir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A1_01_REFRAME, A1_01_UNIT, ENDINGS, FRAME_VERB, IL_FAUT, MODAL_ORDER,
   POLITE_FORMS, POUVOIR_SENSES, SINGULAR_PERSONS, SINGULAR_SPELLINGS, STEMS,
@@ -139,7 +145,7 @@ export const MODAUX_TERMS: Record<string, LessonTerm> = {
     term: `the -${THE_NEW_ENDING} ending`,
     title: `${THE_NEW_ENDING_FORMS.join(' and ')}, and nothing else in the language you have met`,
     body:
-      `${ENDINGS_CLAIM} That letter is the -${THE_NEW_ENDING} on ${THE_NEW_ENDING_FORMS.join(' and ')}. It is silent, exactly as the -s has been silent on every verb since a2.01, so it changes nothing you say and one thing you write. dois takes an ordinary -s instead, which is the singular you already met on the -RE verbs in a2.11.`,
+      `${ENDINGS_CLAIM} That letter is the -${THE_NEW_ENDING} on ${THE_NEW_ENDING_FORMS.join(' and ')}. It is silent, exactly as the -s has been silent on every verb since ${unitRef('a2.01')}, so it changes nothing you say and one thing you write. dois takes an ordinary -s instead, which is the singular you already met on the -RE verbs in ${unitRef('a2.11')}.`,
     examples: [
       { itemId: 'fr.a2.verbes.341', note: 'A -x, and you hear nothing.' },
       { itemId: 'fr.a2.verbes.353', note: 'A plain -s here. Same silence.' },
@@ -167,12 +173,12 @@ export const MODAUX_TERMS: Record<string, LessonTerm> = {
 
   theRegister: {
     term: 'why the polite one matters',
-    title: `${A1_01_UNIT} already gave you this`,
+    title: `${Cap(unitRef(A1_01_UNIT))} already gave you this`,
     body:
-      `${A1_01_REFRAME} That was ${A1_01_UNIT}, and it also put ${POLITE_FORMS[0]} in your mouth in the very first lesson without saying what it was. This is where that is paid off. The difference between the blunt form and the polite one is not correctness, because both are correct French. It is whether the interaction goes well, and in a shop, a station or a doorway that is the only thing being measured.`,
+      `${A1_01_REFRAME} That was ${unitRef(A1_01_UNIT)}, and it also put ${POLITE_FORMS[0]} in your mouth in the very first lesson without saying what it was. This is where that is paid off. The difference between the blunt form and the polite one is not correctness, because both are correct French. It is whether the interaction goes well, and in a shop, a station or a doorway that is the only thing being measured.`,
     examples: [
       { itemId: 'fr.a1.verbes-du-quotidien.035', note: 'Correct French, and it lands as a demand.' },
-      { itemId: 'fr.a1.cafe.051', note: 'The sentence a1.01 handed you before you could build it.' },
+      { itemId: 'fr.a1.cafe.051', note: `The sentence ${unitRef('a1.01')} handed you before you could build it.` },
     ],
   },
 
@@ -182,8 +188,8 @@ export const MODAUX_TERMS: Record<string, LessonTerm> = {
     body:
       `${FRAME_VERB}, commander, attendre, choisir, boire, acheter, aider, chercher, conduire, arriver. Every one of those came from another lesson, and every one arrives here in exactly the shape the dictionary gives it. It does not matter whether it is an -ER verb, an -IR verb or an -RE verb; after one of these three, nothing happens to it at all. That is not a simplification for beginners. That is the rule, and it does not change later.`,
     examples: [
-      { itemId: 'fr.a2.verbes.367', note: 'attendre is an -RE verb from a2.11, and it does not move.' },
-      { itemId: 'fr.a2.verbes.368', note: 'choisir is an -IR verb from a2.10, and it does not move either.' },
+      { itemId: 'fr.a2.verbes.367', note: `attendre is an -RE verb from ${unitRef('a2.11')}, and it does not move.` },
+      { itemId: 'fr.a2.verbes.368', note: `choisir is an -IR verb from ${unitRef('a2.10')}, and it does not move either.` },
     ],
   },
 
@@ -191,7 +197,7 @@ export const MODAUX_TERMS: Record<string, LessonTerm> = {
     term: 'devoir with no verb after it',
     title: 'The same word, owing money',
     body:
-      `${WHAT_FOLLOWS}. a2.02 named that shape and this is another one of it. Put a verb after dois and it means have to. Put a thing after it and it means owe. Tu me dois de l'argent is not about obligation in general; it is about ten euros. You will not need to produce this for a while, and you should recognise it, because the two sentences look identical until the word after the verb.`,
+      `${WHAT_FOLLOWS}. ${Cap(unitRef('a2.02'))} named that shape and this is another one of it. Put a verb after dois and it means have to. Put a thing after it and it means owe. Tu me dois de l'argent is not about obligation in general; it is about ten euros. You will not need to produce this for a while, and you should recognise it, because the two sentences look identical until the word after the verb.`,
     examples: [
       { itemId: 'fr.a2.verbes.353', note: 'A verb follows. Obligation.' },
       { itemId: 'fr.a2.verbes.364', note: 'A thing follows. Money.' },
@@ -218,7 +224,7 @@ export const MODAUX_TERMS: Record<string, LessonTerm> = {
     term: WHAT_FOLLOWS,
     title: 'One form, two sentences',
     body:
-      `${WHAT_FOLLOWS} You met that shape at ${WHAT_FOLLOWS_UNIT}, and this lesson holds the cleanest example of it in the level. dois with a verb after it means having to. dois with a thing after it means owing money. Same verb, same person, nothing to tell them apart until the next word arrives. It is worth knowing that French does this at all, because you will meet it again and the instinct to decide what a word means before the sentence has finished is a hard one to switch off.`,
+      `${WHAT_FOLLOWS} You met that shape at ${unitRef(WHAT_FOLLOWS_UNIT)}, and this lesson holds the cleanest example of it in the level. dois with a verb after it means having to. dois with a thing after it means owing money. Same verb, same person, nothing to tell them apart until the next word arrives. It is worth knowing that French does this at all, because you will meet it again and the instinct to decide what a word means before the sentence has finished is a hard one to switch off.`,
     examples: [
       { itemId: 'fr.a2.verbes.353', note: 'A verb follows. Obligation.' },
       { itemId: 'fr.a2.verbes.364', note: 'A thing follows. Ten euros.' },

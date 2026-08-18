@@ -44,6 +44,12 @@
 
 import type { Lesson, LessonAct, LessonSection, LessonDrill } from '../../../ealch-v2/src/content/schema.ts';
 import { TRANSPORT_TERMS } from './transports-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   UNIT, LESSON_ID, REFRAME, T, Q, REPAIR_IDS, REPAIR_UNIT, REPAIR_ASSESSED_IN, IMPORTED,
   MODE_RULE_ID, EXISTING_CHAIN_ID, PRIOR_INSTRUCTIONS, DICTEE_IDS,
@@ -170,8 +176,8 @@ const S_GOALS: LessonSection = {
   goals: [
     { t: 'Hear where one instruction ends', s: 'Puis, ensuite, après, jusqu\'à and au bout de. Five small words, and a comma that has no sound at all.' },
     { t: 'Hold four moves in the order they arrived', s: 'Three correct moves in the wrong order put you on a different street entirely.' },
-    { t: 'Follow an answer you did not write', s: 'The question is A1 and shipped at a1.20. The reply is fourteen words nobody rehearsed with you.' },
-    { t: 'Ask for the one piece you missed', s: 'a2.07 gave you six ways to ask again. This unit adds the case where you only lost one word of four.' },
+    { t: 'Follow an answer you did not write', s: `The question is A1 and shipped at ${unitRef('a1.20')}. The reply is fourteen words nobody rehearsed with you.` },
+    { t: 'Ask for the one piece you missed', s: `${Cap(unitRef('a2.07'))} gave you six ways to ask again. This unit adds the case where you only lost one word of four.` },
   ],
 };
 
@@ -195,7 +201,7 @@ const S_ASKEE: LessonSection = {
     { head: 'A stranger in the street', fr: 'Pardon, madame. Je cherche la gare, s\'il vous plaît.', sub: '[par-DOHⁿ mah-DAM zhuh SHERSH lah GAHR seel voo PLEH]', body: 'Apology first, then the goal, and no verb of demand anywhere in it. You are interrupting somebody who was not waiting for you, and that is what the apology buys.', label: 'apology, then the goal' },
     { head: 'Staff behind a counter', fr: 'Bonjour. Un aller-retour pour Lyon, s\'il vous plaît.', sub: '[bohⁿ-ZHOOR uhⁿ-nah-lay-ruh-TOOR poor lee-OHⁿ seel voo PLEH]', body: 'Greeting first, then the transaction, and it is elliptical because a counter is short. He is at work and you are the next in the queue.', label: 'greeting, then the business' },
     { head: 'The two swapped over', fr: 'Un aller-retour pour Lyon ?', sub: '[uhⁿ-nah-lay-ruh-TOOR poor lee-OHⁿ]', body: 'Said to somebody walking past, this is nonsense: they do not sell tickets. Said at a counter, Pardon, je cherche un billet reads as lost rather than transacting. The failure is not rudeness, it is using the wrong shape.', label: 'the failure, both ways' },
-    { head: 'One softener, learned whole', fr: 'Je voudrais un billet pour demain matin.', sub: '[zhuh voo-DREH uhⁿ bee-YEH poor duh-MEHⁿ ma-TEHⁿ]', body: `A softer je veux, and nothing more is claimed about it here. ${MODAL_UNIT} shipped the form as a fixed piece and the family it belongs to arrives later.`, label: `${MODAL_UNIT} shipped this form` },
+    { head: 'One softener, learned whole', fr: 'Je voudrais un billet pour demain matin.', sub: '[zhuh voo-DREH uhⁿ bee-YEH poor duh-MEHⁿ ma-TEHⁿ]', body: `A softer je veux, and nothing more is claimed about it here. ${Cap(unitRef(MODAL_UNIT))} shipped the form as a fixed piece and the family it belongs to arrives later.`, label: `${Cap(unitRef(MODAL_UNIT))} shipped this form` },
     { head: 'Vous, to both of them', fr: 'Vous partez quand ?', sub: '[voo par-TAY KAHⁿ]', body: 'The counter agent uses vous to you and you use vous to a stranger in the street. There is no situation in this lesson where either of you would use tu.', label: 'vous throughout' },
   ],
 };
@@ -342,14 +348,14 @@ const S_VERBS: LessonSection = {
 const S_MODE: LessonSection = {
   type: 'cardDeck', id: MODE, title: 'In It, Or On It', frSub: 'en bus, à vélo',
   render: 'deck', layer: 'core', size: 'lg', terms: ['move'],
-  say: `${PLACE_PREP_UNIT} and ${A_PLACE_UNIT} already taught the preposition system. This is the one corner of it they left, and the corpus states the rule better than a card could.`,
+  say: `${Cap(unitRef(PLACE_PREP_UNIT))} and ${unitRef(A_PLACE_UNIT)} already taught the preposition system. This is the one corner of it they left, and the corpus states the rule better than a card could.`,
   audio: { ...FR, recordingId: 'rec-a2-27-mode' },
   cards: [
     { head: 'The rule, in the corpus', fr: 'On utilise en pour les transports fermés et à pour les transports ouverts.', sub: 'closed takes en, open takes à', body: `This is a published corpus row, not a rule written for this card. If you are inside it, en. If you are on it, à. That is the whole of it.`, label: MODE_RULE_ID },
     { head: 'Closed', fr: 'en bus · en voiture · en métro', sub: '[ahⁿ BÜSS · ahⁿ vwah-TÜR · ahⁿ may-TROH]', body: 'You get in. The metro takes en too, even though it is a network rather than a thing you own.', label: 'you are inside it' },
     { head: 'Open', fr: 'à pied · à vélo', sub: '[ah PYAY · ah vay-LOH]', body: 'You are on it, or you are it. À pied has been in this corpus since a1 and is the one everybody already knows.', label: 'you are on it' },
     { head: 'Not the little word', fr: 'en bus', sub: '[ahⁿ BÜSS]', body: `The en here is a preposition and it means by. It is not the pronoun of the same spelling, which belongs to another unit and does not appear anywhere in this lesson.`, label: 'preposition, not pronoun' },
-    { head: 'Where the system was taught', fr: 'à la gare · au guichet', sub: '[ah lah GAHR · oh ghee-SHEH]', body: `${PLACE_PREP_UNIT} sorted these four ways and left you a lookup you can come back to. ${A_PLACE_UNIT} owns à with a place by name. Neither is retaught here.`, label: `${PLACE_PREP_UNIT} and ${A_PLACE_UNIT}` },
+    { head: 'Where the system was taught', fr: 'à la gare · au guichet', sub: '[ah lah GAHR · oh ghee-SHEH]', body: `${Cap(unitRef(PLACE_PREP_UNIT))} sorted these four ways and left you a lookup you can come back to. ${Cap(unitRef(A_PLACE_UNIT))} owns à with a place by name. Neither is retaught here.`, label: `${Cap(unitRef(PLACE_PREP_UNIT))} and ${unitRef(A_PLACE_UNIT)}` },
     // THE ONE QUEBEC CARD THIS UNIT IS ALLOWED, and it is here rather than in
     // its own section so the count stays at one. Collation C3, confirmed by
     // Paul 2026-08-15: France-standard in every scored, drilled and quizzed
@@ -560,7 +566,7 @@ const S_ORDINALS: LessonSection = {
     { head: 'The noun is not there', fr: 'la première à gauche', sub: '[lah pruh-MYEHR ah GOHSH]', body: 'La première rue à gauche is the full form and it is not what is said in a hurry. With rue dropped, the ordinal is carrying the whole meaning on its own.', label: 'rue is dropped' },
     { head: 'Counted from where', fr: 'C\'est la deuxième rue, après le feu.', sub: '[seh lah deu-ZYEM RÜ ah-PREH luh FEU]', body: 'The counting starts at the lights, not where you are standing. Nothing in the sentence says so and a French speaker would not think to.', label: 'not from where you stand' },
     { head: 'Two streets is the third', fr: 'Comptez deux rues, puis tournez à droite.', sub: '[kohⁿ-TAY deu RÜ pwee toor-NAY ah DRWAHT]', body: 'Count two and turn at the next one, which is the third. An ordinal and a cardinal doing the same job land you one street apart, and both are said.', label: 'the off-by-one is real' },
-    { head: 'When you only lost this', fr: 'C\'est la deuxième ou la troisième ?', sub: '[seh lah deu-ZYEM oo lah trwah-ZYEM]', body: `You held the route and lost one word of it. Asking about that word gets you four words back. Asking ${REPAIR_UNIT}'s rung 2 gets you all fourteen again at the same speed.`, label: 'ask about the word, not the sentence' },
+    { head: 'When you only lost this', fr: 'C\'est la deuxième ou la troisième ?', sub: '[seh lah deu-ZYEM oo lah trwah-ZYEM]', body: `You held the route and lost one word of it. Asking about that word gets you four words back. Asking ${unitRef(REPAIR_UNIT, 'a2')}'s rung 2 gets you all fourteen again at the same speed.`, label: 'ask about the word, not the sentence' },
   ],
 };
 
@@ -677,15 +683,15 @@ const S_ANNONCE: LessonSection = {
 const S_REPAIR: LessonSection = {
   type: 'cardDeck', id: REPAIR, title: 'Ask For The Piece You Lost', frSub: 'Redemander, mais quoi',
   render: 'deck', layer: 'core', size: 'lg', terms: ['rung', 'ordinal'],
-  say: `${REPAIR_UNIT} authored six ways to ask again, once, for the whole band, and this lesson adds none of them. What it adds is the case where you only lost one word.`,
+  say: `${Cap(unitRef(REPAIR_UNIT))} authored six ways to ask again, once, for the whole band, and this lesson adds none of them. What it adds is the case where you only lost one word.`,
   audio: { ...FR, recordingId: 'rec-a2-27-repair' },
   cards: [
-    { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: `One word, and it gives away nothing about why you missed it. ${REPAIR_UNIT} put it first because it costs you nothing at all and because it is what a French speaker says without thinking.`, label: `${REPAIR_UNIT}, rung 1` },
-    { head: 'Rung 2', fr: 'Vous pouvez répéter, s\'il vous plaît ?', sub: '[voo poo-VAY ray-pay-TAY seel voo PLEH]', body: 'Asks for the whole thing again. In the street the whole thing is fourteen words, so this is a much bigger ask here than it was at a restaurant table.', label: `${REPAIR_UNIT}, rung 2` },
-    { head: 'Rung 3', fr: 'Plus lentement, s\'il vous plaît.', sub: '[plü lahⁿt-MAHⁿ seel voo PLEH]', body: `The first rung that names the fault. Reach for it when she has already repeated the route at exactly the same speed, which is what happens if you used rung 1.`, label: `${REPAIR_UNIT}, rung 3` },
-    { head: 'The state a2.07 does not cover', fr: 'C\'est la deuxième ou la troisième ?', sub: '[seh lah deu-ZYEM oo lah trwah-ZYEM]', body: 'You held the route. You lost one word of it. A targeted question gets you four words back; a generic one gets you the whole route again at the speed that defeated you the first time.', label: 'name what you missed' },
+    { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: `One word, and it gives away nothing about why you missed it. ${Cap(unitRef(REPAIR_UNIT))} put it first because it costs you nothing at all and because it is what a French speaker says without thinking.`, label: `${Cap(unitRef(REPAIR_UNIT))}, rung 1` },
+    { head: 'Rung 2', fr: 'Vous pouvez répéter, s\'il vous plaît ?', sub: '[voo poo-VAY ray-pay-TAY seel voo PLEH]', body: 'Asks for the whole thing again. In the street the whole thing is fourteen words, so this is a much bigger ask here than it was at a restaurant table.', label: `${Cap(unitRef(REPAIR_UNIT))}, rung 2` },
+    { head: 'Rung 3', fr: 'Plus lentement, s\'il vous plaît.', sub: '[plü lahⁿt-MAHⁿ seel voo PLEH]', body: `The first rung that names the fault. Reach for it when she has already repeated the route at exactly the same speed, which is what happens if you used rung 1.`, label: `${Cap(unitRef(REPAIR_UNIT))}, rung 3` },
+    { head: `The state ${unitRef('a2.07')} does not cover`, fr: 'C\'est la deuxième ou la troisième ?', sub: '[seh lah deu-ZYEM oo lah trwah-ZYEM]', body: 'You held the route. You lost one word of it. A targeted question gets you four words back; a generic one gets you the whole route again at the speed that defeated you the first time.', label: 'name what you missed' },
     { head: 'Three more of the same shape', fr: 'À gauche ou à droite, pardon ?', sub: '[ah GOHSH oo ah DRWAHT par-DOHⁿ]', body: 'Après le pont ou avant ? and C\'est quelle rue, pardon ? do the same job for the joint and for the name. Each one names the missing piece and asks for that piece only.', label: 'the joint, or the name' },
-    { head: 'Where you are already tested on this', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: `${REPAIR_ASSESSED_IN} has been assessing the repair move in an exam round since the A1 capstone shipped, and no lesson taught it until ${REPAIR_UNIT} did. Reach for the lowest rung that will actually fix the problem.`, label: `${REPAIR_ASSESSED_IN} assesses it` },
+    { head: 'Where you are already tested on this', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: `The A1 capstone has been assessing the repair move in an exam round since it shipped, and no lesson taught it until ${unitRef(REPAIR_UNIT)} did. Reach for the lowest rung that will actually fix the problem.`, label: 'The A1 capstone assesses it' },
   ],
 };
 
@@ -798,7 +804,7 @@ const S_REVIEW: LessonSection = {
     { front: 'A train that is arriving, not leaving', back: 'en provenance de. À destination de is the one that leaves.', say: 'Le train en provenance de Marseille entre en gare.' },
     { front: 'How a station says a train is late', back: 'Aura un retard d\'environ vingt minutes. The delay is a noun.', say: 'Le train aura un retard d\'environ vingt minutes.' },
     { front: 'You held the route and lost one word', back: 'Ask about that word. C\'est la deuxième ou la troisième ?', say: 'C\'est la deuxième ou la troisième ?' },
-    { front: 'You caught nothing at all', back: 'Pardon ? One word, and it costs you nothing. a2.07 owns the six.', say: 'Pardon ?' },
+    { front: 'You caught nothing at all', back: `Pardon ? One word, and it costs you nothing. ${Cap(unitRef('a2.07'))} owns the six.`, say: 'Pardon ?' },
   ],
 };
 
@@ -816,7 +822,7 @@ const S_PROGRESS: LessonSection = {
     { k: 'Joints, plus the silent one', v: '5 and a comma' },
     { k: 'Moves in the longest chain', v: '4' },
     { k: 'Announcements in the corpus before this lesson', v: '0' },
-    { k: 'Ways to ask again', v: '6, and they are a2.07\'s' },
+    { k: 'Ways to ask again', v: `6, and they are ${unitRef('a2.07')}\'s` },
   ],
 };
 
@@ -928,7 +934,7 @@ const S_QUIZ: LessonSection = {
       targets: ['err-announcement-shape', 'err-mode-preposition'],
       questions: [
         { format: 'mcq', ref: ANNONCE, q: '« Le train en provenance de Marseille » means the train is', opts: ['Leaving for Marseille', 'Cancelled', 'Delayed', 'Arriving from Marseille'], correct: 3, why: 'En provenance de is arriving and à destination de is leaving. Four syllables apart, opposite platforms, and both are fronted before you have understood anything else.' },
-        { format: 'mcq', ref: ANNONCE, q: '« Le train à destination de Lyon partira voie douze. » Which platform?', opts: ['Two', 'Ten', 'Twelve', 'Twenty'], correct: 2, why: 'Douze. a1.27 owns the numbers and this is what they sound like read as a block at the end of a long official sentence, which is the only place they get hard.' },
+        { format: 'mcq', ref: ANNONCE, q: '« Le train à destination de Lyon partira voie douze. » Which platform?', opts: ['Two', 'Ten', 'Twelve', 'Twenty'], correct: 2, why: `Douze. ${Cap(unitRef('a1.27'))} owns the numbers and this is what they sound like read as a block at the end of a long official sentence, which is the only place they get hard.` },
         { format: 'mcq', ref: ANNONCE, q: '« Ce train ne dessert pas la gare de Massy. » What does it tell you?', opts: ['The train does not stop at Massy', 'The train stops at Massy', 'Massy is the end of the line', 'The train is running late'], correct: 0, why: 'The negative announcement is the expensive one and it has the same shape as every other line. Ne and pas are the two quietest words in it.' },
         { format: 'mcq', ref: ANNONCE, q: 'Which of these is NOT how a station announces a delay?', opts: ['Le train aura un retard d\'environ vingt minutes.', 'Le train est annoncé avec dix minutes de retard.', 'En raison d\'un incident, le trafic est interrompu.', 'Le train est un peu en retard, désolé.'], correct: 3, why: 'The first three nominalise the delay or give a reason, which is what makes them sound official. The fourth is what a person says, and a station never apologises in the first person.' },
         { format: 'errorSpot', ref: MODE, q: 'A closed vehicle. Fix this.', prompt: 'Je vais au travail à bus.', accept: ['Je vais au travail en bus.', 'je vais au travail en bus', 'en bus'], answer: 'Je vais au travail en bus.', why: 'You are inside a bus, so en. The corpus states the rule at fr.a1.deplacements.014 and this lesson quotes it rather than restating it. À bus and en bus do not fold together, so the preposition is genuinely being tested.' },
@@ -943,7 +949,7 @@ const S_QUIZ: LessonSection = {
       questions: [
         { format: 'typeIn', ref: ASKEE, q: 'At a ticket window. Ask for a return to Lyon, starting with the greeting.', accept: ['Bonjour. Un aller-retour pour Lyon, s\'il vous plaît.', 'bonjour un aller retour pour lyon sil vous plait', 'Un aller-retour pour Lyon, s\'il vous plaît.', 'un aller retour pour lyon'], answer: 'Bonjour. Un aller-retour pour Lyon, s\'il vous plaît.', why: 'Greeting first, then the transaction, no verb of demand. Aller-retour and aller simple are the real test here; the hyphen is not, because it folds away and un aller retour is the same answer.' },
         { format: 'typeIn', ref: ASKEE, q: 'You stop somebody in the street. Say you are looking for the station.', accept: ['Pardon, madame. Je cherche la gare, s\'il vous plaît.', 'pardon madame je cherche la gare sil vous plait', 'Pardon, je cherche la gare.', 'je cherche la gare'], answer: 'Pardon, madame. Je cherche la gare, s\'il vous plaît.', why: 'Apology first, then the goal. Je cherche and un aller-retour do not fold together, so what is being tested is which shape you reached for and not how you spelled it.' },
-        { format: 'typeIn', ref: GUICHET, q: 'He told you the platform and you missed it. Ask which one. « C\'est quel ... ? »', accept: ['C\'est quel quai, s\'il vous plaît ?', 'cest quel quai sil vous plait', 'C\'est quel quai ?', 'quel quai'], answer: 'C\'est quel quai, s\'il vous plaît ?', why: `Quel is a1.20's question word and the useful part is that this is what you ask AFTER he has already told you. It names one thing, so you get one thing back.` },
+        { format: 'typeIn', ref: GUICHET, q: 'He told you the platform and you missed it. Ask which one. « C\'est quel ... ? »', accept: ['C\'est quel quai, s\'il vous plaît ?', 'cest quel quai sil vous plait', 'C\'est quel quai ?', 'quel quai'], answer: 'C\'est quel quai, s\'il vous plaît ?', why: `Quel is ${unitRef('a1.20')}'s question word and the useful part is that this is what you ask AFTER he has already told you. It names one thing, so you get one thing back.` },
         { format: 'typeIn', ref: GUICHET, q: 'Ask what time the next train is. Six words: « Le prochain train ... ? »', accept: ['Le prochain train est à quelle heure ?', 'le prochain train est a quelle heure', 'à quelle heure', 'a quelle heure'], answer: 'Le prochain train est à quelle heure ?', why: 'Rising intonation on a full sentence. TCF caps a candidate who produces only one question form, which is why the scenario shows three ways to ask the same thing.' },
         { format: 'typeIn', ref: ASKEE, q: 'Ask for a single to Nantes.', accept: ['Un aller simple pour Nantes, s\'il vous plaît.', 'un aller simple pour nantes sil vous plait', 'Un aller simple pour Nantes.', 'un aller simple'], answer: 'Un aller simple pour Nantes, s\'il vous plaît.', why: 'Simple, not retour. The two fold to different strings, which is what makes this item worth setting: it tests the word you chose rather than the punctuation you used.' },
         { format: 'mcq', ref: ASKEE, q: 'You stop a stranger in the street. Which opening?', opts: ['Un aller-retour pour Lyon, s\'il vous plaît.', 'Pardon, madame. Je cherche la gare, s\'il vous plaît.', 'Bonjour. Je voudrais un billet.', 'Vous partez quand ?'], correct: 1, why: 'The first and third are counter forms and a passer-by does not sell tickets. The fourth is the agent\'s line, not yours. The failure is not rudeness, it is using the wrong shape.' },
@@ -952,13 +958,13 @@ const S_QUIZ: LessonSection = {
     {
       id: 'r5-wrong',
       label: 'When it goes wrong',
-      say: 'Six on asking again. The six rungs are a2.07\'s; the last two are what this unit adds.',
+      say: `Six on asking again. The six rungs are ${unitRef('a2.07')}\'s; the last two are what this unit adds.`,
       targets: ['err-freeze', 'err-repair-too-wide'],
       questions: [
-        { format: 'mcq', ref: REPAIR, q: 'You asked again and it came back at the same speed. Which rung now?', opts: ['Pardon ?', 'Vous pouvez répéter, s\'il vous plaît ?', 'Plus lentement, s\'il vous plaît.', 'Merci, au revoir.'], correct: 2, why: 'Rungs 1 and 2 both just ask for a repeat, and she cannot fix a fault you have not named. Rung 3 is the first that says it was the speed, and a2.07 owns the repair ladder.' },
-        { format: 'typeIn', ref: REPAIR, q: 'The cheapest thing you can say when you caught nothing at all. One word.', accept: ['Pardon', 'Pardon ?', 'pardon'], answer: 'Pardon ?', why: 'a2.07 put it at rung 1 because it gives away nothing about why you missed it and because it is what a French speaker says without thinking about it.' },
-        { format: 'typeIn', ref: REPAIR, q: 'You held the route and lost only the number of the street. Ask about it. « C\'est la ... ou la ... ? »', accept: ['C\'est la deuxième ou la troisième ?', 'cest la deuxieme ou la troisieme', 'la deuxième ou la troisième', 'deuxieme ou troisieme'], answer: 'C\'est la deuxième ou la troisième ?', why: 'This is the state a2.07 does not cover, because in a restaurant you either caught it or you did not. Here you routinely catch three moves of four, and naming the missing one gets you four words back instead of fourteen.' },
-        { format: 'errorSpot', ref: REPAIR, q: 'You caught everything except which side. This asks for all fourteen words again. Ask for the one you lost.', prompt: 'Vous pouvez répéter, s\'il vous plaît ?', accept: ['À gauche ou à droite, pardon ?', 'a gauche ou a droite pardon', 'à gauche ou à droite', 'a gauche ou a droite'], answer: 'À gauche ou à droite, pardon ?', why: 'Rung 2 is not wrong, it is over-wide for this state. a2.07 taught you to reach for the lowest rung that will actually fix the problem, and a targeted question is lower than any of the six.' },
+        { format: 'mcq', ref: REPAIR, q: 'You asked again and it came back at the same speed. Which rung now?', opts: ['Pardon ?', 'Vous pouvez répéter, s\'il vous plaît ?', 'Plus lentement, s\'il vous plaît.', 'Merci, au revoir.'], correct: 2, why: `Rungs 1 and 2 both just ask for a repeat, and she cannot fix a fault you have not named. Rung 3 is the first that says it was the speed, and ${unitRef('a2.07')} owns the repair ladder.` },
+        { format: 'typeIn', ref: REPAIR, q: 'The cheapest thing you can say when you caught nothing at all. One word.', accept: ['Pardon', 'Pardon ?', 'pardon'], answer: 'Pardon ?', why: `${Cap(unitRef('a2.07'))} put it at rung 1 because it gives away nothing about why you missed it and because it is what a French speaker says without thinking about it.` },
+        { format: 'typeIn', ref: REPAIR, q: 'You held the route and lost only the number of the street. Ask about it. « C\'est la ... ou la ... ? »', accept: ['C\'est la deuxième ou la troisième ?', 'cest la deuxieme ou la troisieme', 'la deuxième ou la troisième', 'deuxieme ou troisieme'], answer: 'C\'est la deuxième ou la troisième ?', why: `This is the state ${unitRef('a2.07')} does not cover, because in a restaurant you either caught it or you did not. Here you routinely catch three moves of four, and naming the missing one gets you four words back instead of fourteen.` },
+        { format: 'errorSpot', ref: REPAIR, q: 'You caught everything except which side. This asks for all fourteen words again. Ask for the one you lost.', prompt: 'Vous pouvez répéter, s\'il vous plaît ?', accept: ['À gauche ou à droite, pardon ?', 'a gauche ou a droite pardon', 'à gauche ou à droite', 'a gauche ou a droite'], answer: 'À gauche ou à droite, pardon ?', why: `Rung 2 is not wrong, it is over-wide for this state. ${Cap(unitRef('a2.07'))} taught you to reach for the lowest rung that will actually fix the problem, and a targeted question is lower than any of the six.` },
         { format: 'errorSpot', ref: REPAIR, q: 'You held both moves and lost the joint between them. Ask about the joint.', prompt: 'Je n\'ai pas bien compris.', accept: ['Après le pont ou avant ?', 'apres le pont ou avant', 'après le pont ou avant'], answer: 'Après le pont ou avant ?', why: 'Saying you understood nothing is false and expensive: it gets the whole route back at the same speed. You understood almost all of it, and the joint is the one word worth asking for.' },
         { format: 'speak', ref: SAY, target: 'Tournez à gauche, puis tout droit.', ipa: '/tuʁ.ne a ɡoʃ pɥi tu dʁwa/', q: 'Say it back. Two moves and the joint between them.', why: 'Repeating a short chain back is what a French speaker does to confirm they have it, and it is scored generously here because the point is holding the order rather than the accent.' },
       ],
@@ -976,7 +982,7 @@ const S_ROUNDUP: LessonSection = {
     'GO, TURN, PASS, ARRIVE. Four kinds of move, and ARRIVE is the one with no verb of motion in it.',
     'puis, ensuite, après, jusqu\'à, au bout de. And a comma, which does the same job and has no sound.',
     'The ordinal is the most-missed word in a direction: short, unstressed, and between two words you already know.',
-    'Ask for the piece you lost, not for the sentence. a2.07 owns the six ways to ask again.',
+    `Ask for the piece you lost, not for the sentence. ${Cap(unitRef('a2.07'))} owns the six ways to ask again.`,
   ],
 };
 
@@ -1196,7 +1202,7 @@ export const TRANSPORTS_LESSON: Lesson = {
   // drew a lowercase word where all other lessons draw a formatted label; a2.26
   // fixed its own. This is the formatted form from the start.
   tag: 'A2 · LEÇON 26',
-  version: 1,
+  version: 2,
   title: UNIT.title,
   intro: 'You already know how to ask where something is. This lesson is about the fourteen words that come back at you, and about holding them long enough to walk.',
 

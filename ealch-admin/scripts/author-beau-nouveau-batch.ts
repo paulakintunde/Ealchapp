@@ -78,6 +78,7 @@ import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
 import { Pool } from 'pg';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ADJ_ORDER, ADVERB_MUST_FIRE, ADVERB_MUST_NOT_FIRE, ADVERB_SHAPE, ADVERB_UNIT,
   ALL_REPAIRS, AUDIBLE_PAIR, AUTHORED_HEADWORDS, AUTHORED_IDS, BEAU_NOUVEAU,
@@ -637,7 +638,7 @@ if (!pluralSection) die(`${PLURAL_SECTION_ID} does not exist and it is the secti
 // renders is comparing the content to itself, and the mutation harness renamed
 // it to 'the earlier lessons' and passed every layer.
 for (const u of PLURAL_OWNERS_LITERAL) {
-  if (!strings(pluralSection).some((s) => hasPhrase(s, u))) {
+  if (!strings(pluralSection).some((s) => namesUnitLabel(s, u))) {
     die(`${PLURAL_SECTION_ID} does not name ${u}, and pointing at the lesson that already owns two thirds of this is the teaching`);
   }
 }
@@ -657,7 +658,7 @@ console.log(`  the plural    ${PLURAL_X_FORMS.join('/')} take -x, ${form(PLURAL_
 
 const reason = byId(REASON_SECTION_ID);
 if (!reason) die(`${REASON_SECTION_ID} does not exist and it is where sons.07 is quoted`);
-if (!strings(reason).some((s) => hasPhrase(s, ELISION_UNIT))) die(`${REASON_SECTION_ID} does not name ${ELISION_UNIT} by unit id, and the brief asks for it by name`);
+if (!strings(reason).some((s) => namesUnitLabel(s, ELISION_UNIT))) die(`${REASON_SECTION_ID} does not name ${ELISION_UNIT} by its lesson label, and the brief asks for it by name`);
 /* AND IT QUOTES THE REFRAME VERBATIM. A paraphrase is not the connection: the
    whole value is that the learner recognises a sentence they have already read
    in a pronunciation lesson. */
@@ -665,10 +666,10 @@ const s07Reframe = 'Two vowels collide, the little word gives way.';
 if (!strings(reason).some((s) => s.includes(s07Reframe))) die(`${REASON_SECTION_ID} does not quote sons.07's reframe verbatim: ${JSON.stringify(s07Reframe)}`);
 const chain = byId(CHAIN_SECTION_ID);
 if (!chain) die(`${CHAIN_SECTION_ID} does not exist`);
-if (!strings(chain).some((s) => hasPhrase(s, 'a1.17'))) die(`${CHAIN_SECTION_ID} does not name a1.17, whose ma-to-mon is the same operation in the other direction`);
+if (!strings(chain).some((s) => namesUnitLabel(s, 'a1.17'))) die(`${CHAIN_SECTION_ID} does not name a1.17, whose ma-to-mon is the same operation in the other direction`);
 const silentH = byId(SILENT_H_SECTION_ID);
 if (!silentH) die(`${SILENT_H_SECTION_ID} does not exist`);
-if (!strings(silentH).some((s) => hasPhrase(s, ELISION_UNIT))) die(`${SILENT_H_SECTION_ID} does not name ${ELISION_UNIT}, which owns h muet against h aspiré`);
+if (!strings(silentH).some((s) => namesUnitLabel(s, ELISION_UNIT))) die(`${SILENT_H_SECTION_ID} does not name ${ELISION_UNIT}, which owns h muet against h aspiré`);
 /* The silent-h section shows the two rows that make the point, and shows them
    in that order: the vowel-letter row first, then the silent-h one. */
 const hEx = silentH as { examples?: { fr: string }[] };
@@ -1264,7 +1265,7 @@ async function main() {
   for (const u of CITED_UNITS) if (!foundUnits.has(u)) die(`this lesson names ${u} and no such unit exists`);
   const surfaces = display(LESSON.sections).concat(display(LESSON.sheets ?? []), display(LESSON.terms ?? {}));
   for (const u of CITED_UNITS) {
-    if (!surfaces.some((s) => hasPhrase(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
+    if (!surfaces.some((s) => namesUnitLabel(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
   }
 
   /* DEPENDENTS. Probed rather than copied: a2.12 had none, a2.13 had two,

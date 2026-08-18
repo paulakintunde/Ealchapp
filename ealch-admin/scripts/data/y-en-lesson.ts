@@ -68,13 +68,19 @@ import {
 } from './y-en-corpus.ts';
 import { Y_EN_TERMS } from './y-en-terms.ts';
 import { importedFr, importedEn, respell as impRespell, hasRespell } from './y-en-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the corpus, never restating it ─────────────────────────────── */
 
 const BY_ID = new Map(ROWS.map((r) => [r.id, r]));
 const row = (id: string) => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.25: no authored row ${id}`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.25'))}: no authored row ${id}`);
   return r;
 };
 const fr = (id: string) => row(id).fr;
@@ -274,16 +280,16 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'and the place is the one you know',
-        label: `${DIRECT_UNIT}'s sentence · this lesson's`,
+        label: `${Cap(unitRef(DIRECT_UNIT, 'a2'))}'s sentence · this lesson's`,
         fr: importedFr(A206_FRAME_ID),
         sub: fr(A(288)),
-        body: `${sub(A(288))} « ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it is true of these two without a word changed. The first line is that lesson's own sentence, borrowed rather than copied.`,
+        body: `${sub(A(288))} « ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it is true of these two without a word changed. The first line is that lesson's own sentence, borrowed rather than copied.`,
       },
       {
         head: 'the little word goes in',
         label: 'named · and gone',
         ...pairImported(A204_CITY_ID, A(288)),
-        body: `${importedThen(A204_CITY_ID, A(288))} ${A_FRAMING_MINE} Paris is gone and so is the à, and the second sentence is two words long. The first line is ${PLACE_UNIT}'s own published row.`,
+        body: `${importedThen(A204_CITY_ID, A(288))} ${A_FRAMING_MINE} Paris is gone and so is the à, and the second sentence is two words long. The first line is ${unitRef(PLACE_UNIT, 'a2')}'s own published row.`,
       },
       {
         head: 'and the same thing on the other side',
@@ -304,7 +310,7 @@ const SECTIONS: LessonSection[] = [
       { t: 'Swap a whole phrase for one small word', s: `${REFRAME} That is the one new idea in this lesson and everything else is something you already have.` },
       { t: 'Say how many without saying what of', s: `${A_FRAMING_MINE} ${DE_FRAMING} A number can stay behind it and the noun still goes.` },
       { t: 'Stop leaving it out', s: `${MUST_RULE} English answers with two words and French will not.` },
-      { t: 'Tell the three ens apart', s: `${EN_POSITION_RULE} ${PLACE_UNIT} and ${TIME_UNIT} taught the other two and this lesson teaches neither of them again.` },
+      { t: 'Tell the three ens apart', s: `${EN_POSITION_RULE} ${Cap(unitRef(PLACE_UNIT))} and ${unitRef(TIME_UNIT)} taught the other two and this lesson teaches neither of them again.` },
     ],
   },
 
@@ -324,7 +330,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     render: 'deck',
-    say: `« ${A_FRAMING} » is ${INDIRECT_UNIT}'s line, from last lesson, and it is half of what à does. ${A_FRAMING_MINE}`,
+    say: `« ${A_FRAMING} » is ${unitRef(INDIRECT_UNIT, 'a2')}'s line, from last lesson, and it is half of what à does. ${A_FRAMING_MINE}`,
     hint: 'Look at what was sitting behind à.',
     terms: ['personOrThing', 'inside', 'twoWords'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-25-person' },
@@ -334,7 +340,7 @@ const SECTIONS: LessonSection[] = [
         label: 'a person behind it · a place behind it',
         fr: importedFr(A224_NAMED_ID),
         sub: fr(A(287)),
-        body: `[${impRespell(A224_NAMED_ID)}] then ${sub(A(287))} Both sentences have à in them and there is nothing else to go on. What decides is whether the thing behind it breathes. The first line is ${INDIRECT_UNIT}'s own row.`,
+        body: `[${impRespell(A224_NAMED_ID)}] then ${sub(A(287))} Both sentences have à in them and there is nothing else to go on. What decides is whether the thing behind it breathes. The first line is ${unitRef(INDIRECT_UNIT, 'a2')}'s own row.`,
       },
       {
         head: 'and two different answers',
@@ -345,10 +351,10 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'and the same verb settles it',
-        label: `${INDIRECT_UNIT} answered lui · here it is y`,
+        label: `${Cap(unitRef(INDIRECT_UNIT))} answered lui · here it is y`,
         fr: fr(A(331)),
         sub: `${sub(A(331))} ${en(A(331))}`,
-        body: `Répondre à is one of the ten verbs ${INDIRECT_UNIT} gave you, and its answer there was lui because a person was behind à. A letter is not a person, so it is y. Nothing about the verb changed and nothing about the rule did either.`,
+        body: `Répondre à is one of the verbs ${unitRef(INDIRECT_UNIT)} gave you, and its answer there was lui because a person was behind à. A letter is not a person, so it is y. Nothing about the verb or the rule changed.`,
       },
       {
         head: 'and it is not always a place',
@@ -376,7 +382,7 @@ const SECTIONS: LessonSection[] = [
         head: 'a place, and English drops the word',
         label: 'au marché · and then nothing',
         ...pairRows(A(304), A(305)),
-        body: `${bothRespells(A(304), A(305))} au is à plus le, which ${PLACE_UNIT} owns, and y swallows the whole of it. Read the English answer again: there is no market in it, and no « there » either.`,
+        body: `${bothRespells(A(304), A(305))} au is à plus le, which ${unitRef(PLACE_UNIT)} owns, and y swallows the whole of it. Read the English answer again: there is no market in it, and no « there » either.`,
       },
       {
         head: 'a game, which is not a place',
@@ -395,13 +401,13 @@ const SECTIONS: LessonSection[] = [
         head: 'and the subject makes no difference',
         label: 'nous · elle',
         ...pairRows(A(308), A(321)),
-        body: `${bothRespells(A(308), A(321))} The word does not agree with anything, does not change for anything, and sits in the same place every time. a2.01 owns the nous form and this borrows it.`,
+        body: `${bothRespells(A(308), A(321))} The word does not agree with anything, does not change for anything, and sits in the same place every time. ${Cap(unitRef('a2.01'))} owns the nous form and this borrows it.`,
       },
       {
         head: 'a question, and a plural subject',
         label: 'tu · ils',
         ...pairRows(A(320), A(324)),
-        body: `${bothRespells(A(320), A(324))} The pronoun does not move for a question, which a1.19 owns. And pensent sounds exactly like pense, which is a2.01's business rather than this lesson's.`,
+        body: `${bothRespells(A(320), A(324))} The pronoun does not move for a question, which ${unitRef('a1.19')} owns. And pensent sounds exactly like pense, which is ${unitRef('a2.01')}'s business rather than this lesson's.`,
       },
     ],
   },
@@ -454,16 +460,16 @@ const SECTIONS: LessonSection[] = [
     title: 'The Other Little Word',
     frSub: 'de, du, de la, des',
     layer: 'core',
-    say: `${DE_FRAMING} « ${A129_REFRAME} » is ${PARTITIVE_UNIT}'s line and you have had du, de la and des since then. En takes all three of them away, and the noun with them.`,
+    say: `${DE_FRAMING} « ${A129_REFRAME} » is ${unitRef(PARTITIVE_UNIT, 'a2')}'s line and you have had du, de la and des since then. En takes all three of them away, and the noun with them.`,
     terms: ['inside', 'theQuantity', 'twoWords'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-25-de' },
     examples: [
       { fr: fr(A(291)), en: en(A(291)), note: `${sub(A(291))} de, on its own, in front of a thing.` },
-      { fr: fr(A(292)), en: en(A(292)), note: `${sub(A(292))} And the de is gone with it. Same verb ${INDIRECT_UNIT} used, and a different little word.` },
+      { fr: fr(A(292)), en: en(A(292)), note: `${sub(A(292))} And the de is gone with it. Same verb ${unitRef(INDIRECT_UNIT)} used, and a different little word.` },
       { fr: importedFr(PARTITIVE_ROW_ID), en: importedEn(PARTITIVE_ROW_ID), note: 'Published at a1, in the kitchen theme, by somebody teaching food. The word du is de plus le, and the de inside it counts.' },
       { fr: fr(A(293)), en: en(A(293)), note: `${sub(A(293))} The same du, as a question.` },
       { fr: fr(A(294)), en: en(A(294)), note: `${sub(A(294))} And du café is gone. The English needs « some » and the French needs nothing at all.` },
-      { fr: importedFr('fr.a1.cafe.151'), en: importedEn('fr.a1.cafe.151'), note: `[${impRespell('fr.a1.cafe.151')}] ${PARTITIVE_UNIT}'s own card, and the thing en stands in for. It is not re-taught here.` },
+      { fr: importedFr('fr.a1.cafe.151'), en: importedEn('fr.a1.cafe.151'), note: `[${impRespell('fr.a1.cafe.151')}] ${unitRef(PARTITIVE_UNIT, 'a2')}'s own card, and the thing en stands in for. It is not re-taught here.` },
       { fr: importedFr('fr.a2.pronoms-essentiels.032'), en: importedEn('fr.a2.pronoms-essentiels.032'), note: 'Published, in this theme, and it is a question and an answer with the whole rule in it.' },
       { fr: importedFr('fr.a2.pronoms-essentiels.033'), en: importedEn('fr.a2.pronoms-essentiels.033'), note: 'Also published, also here, and the subject is not je. Three brothers are named and then they are not.' },
     ],
@@ -521,12 +527,12 @@ const SECTIONS: LessonSection[] = [
     say: `${PLAIN_TARGET.replace(/^t/u, 'T')} goes, and the amount stays behind. That shape has no equivalent in English at all: « I have three » says nothing about what three of.`,
     terms: ['theQuantity', 'mustSayIt', 'inside'],
     examples: [
-      { fr: fr(A(299)), en: en(A(299)), note: `${sub(A(299))} des, which ${PARTITIVE_UNIT} owns.` },
+      { fr: fr(A(299)), en: en(A(299)), note: `${sub(A(299))} des, which ${unitRef(PARTITIVE_UNIT)} owns.` },
       { fr: fr(A(300)), en: en(A(300)), note: `${sub(A(300))} The number stayed and des enfants went. Nothing in the French says children any more and a French speaker still knows.` },
       { fr: fr(A(301)), en: en(A(301)), note: `${sub(A(301))} beaucoup de, and the de went inside en along with the noun.` },
       { fr: fr(A(302)), en: en(A(302)), note: `${sub(A(302))} un peu de, and the same disappearance.` },
       { fr: fr(A(303)), en: en(A(303)), note: `${sub(A(303))} assez de. Four quantity words and one behaviour between them.` },
-      { fr: importedFr('fr.a1.expressions-de-quantite.001'), en: importedEn('fr.a1.expressions-de-quantite.001'), note: `[${impRespell('fr.a1.expressions-de-quantite.001')}] ${PARTITIVE_UNIT}'s own card. The de on the end of it is the de that goes inside.` },
+      { fr: importedFr('fr.a1.expressions-de-quantite.001'), en: importedEn('fr.a1.expressions-de-quantite.001'), note: `[${impRespell('fr.a1.expressions-de-quantite.001')}] ${unitRef(PARTITIVE_UNIT, 'a2')}'s own card. The de on the end of it is the de that goes inside.` },
       { fr: importedFr('fr.a2.pronoms-essentiels.031'), en: importedEn('fr.a2.pronoms-essentiels.031'), note: `[${impRespell('fr.a2.pronoms-essentiels.031')}] Published in this theme as a card of its own, and this build repairs its respelling: the nasal was written with a plain n.` },
       { fr: fr(A(322)), en: en(A(322)), note: `${sub(A(322))} A different subject, and the z you hear is a liaison you never write.` },
       { fr: fr(A(323)), en: en(A(323)), note: `${sub(A(323))} And as a question, with the same two words in the same place.` },
@@ -583,7 +589,7 @@ const SECTIONS: LessonSection[] = [
     title: 'One Word, Three Jobs',
     frSub: 'Les trois EN',
     layer: 'core',
-    say: `${EN_POSITION_RULE} « ${WHAT_FOLLOWS} » is ${WHAT_FOLLOWS_UNIT}'s name for this shape and you have met it six times. ${SHAPE_EXTENSION} Tap any row to hear it.`,
+    say: `${EN_POSITION_RULE} « ${WHAT_FOLLOWS} » is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s name for this shape and you have met it six times. ${SHAPE_EXTENSION} Tap any row to hear it.`,
     terms: ['threeEns', 'twoWords', 'inside'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-25-ens' },
     cols: ['French', 'what comes next', 'whose lesson'],
@@ -592,14 +598,14 @@ const SECTIONS: LessonSection[] = [
       const gloss = typeof j.id === 'number' ? en(A(j.id)) : importedEn(j.id);
       const say = line;
       return {
-        cells: [noStop(line), j.after, j.owner],
+        cells: [noStop(line), j.after, unitRef(j.owner, 'a2')],
         say,
         detail: {
           title: j.label,
           say,
           body: `${gloss} ${EN_POSITION_RULE} ${j.owner === UNIT.id
             ? 'A verb comes next, so this is the one this lesson is about.'
-            : `${j.owner} owns this one and nothing about it is re-taught here.`}`,
+            : `${Cap(unitRef(j.owner))} owns this one and nothing about it is re-taught here.`}`,
         },
       };
     }),
@@ -693,14 +699,14 @@ const SECTIONS: LessonSection[] = [
         label: 'three words · and the middle one is yours',
         fr: fr(A(313)),
         sub: `${sub(A(313))} ${en(A(313))}`,
-        body: `${FROZEN_RULE} ${TIME_UNIT} owns both of its jobs and neither is re-taught here. What is new is that your own word is in the middle of it.`,
+        body: `${FROZEN_RULE} ${Cap(unitRef(TIME_UNIT))} owns both of its jobs and neither is re-taught here. What is new is that your own word is in the middle of it.`,
       },
       {
         head: 'and the phrase does not come apart',
-        label: `${FROZEN_UNIT} owns both of its jobs`,
+        label: `${Cap(unitRef(FROZEN_UNIT))} owns both of its jobs`,
         fr: importedFr(A218_ILYA_ROW_ID),
         sub: importedFr(A218_ILYA_AGO_ID),
-        body: `[${impRespell(A218_ILYA_ROW_ID)}] then [${impRespell(A218_ILYA_AGO_ID)}] Both are ${TIME_UNIT}'s own cards, spelled its way. « ${FROZEN_ERROR} » is what taking the phrase to pieces gives you: real French, and it means he has some.`,
+        body: `[${impRespell(A218_ILYA_ROW_ID)}] then [${impRespell(A218_ILYA_AGO_ID)}] Both are ${unitRef(TIME_UNIT, 'a2')}'s own cards, spelled its way. « ${FROZEN_ERROR} » is what taking the phrase to pieces gives you: real French, and it means he has some.`,
       },
       {
         head: 'and there is one thing it does take',
@@ -748,7 +754,7 @@ const SECTIONS: LessonSection[] = [
       {
         wrong: PERSON_ERROR,
         right: importedFr(A224_PRONOUN_ID),
-        why: `${PERSON_ERROR_WHY} ${INDIRECT_UNIT} spent a whole lesson on which verbs put a person behind à and this is what that lesson was for.`,
+        why: `${PERSON_ERROR_WHY} ${Cap(unitRef(INDIRECT_UNIT))} spent itself on which verbs put a person behind à.`,
       },
     ],
   },
@@ -773,13 +779,13 @@ const SECTIONS: LessonSection[] = [
         head: 'both inside',
         label: 'ne · y vais · pas',
         ...pairRows(A(288), A(316)),
-        body: `${bothRespells(A(288), A(316))} « ${A118_REFRAME} » from ${NEGATION_UNIT}, and « ${NEGATION_RULE} » from ${FUTUR_UNIT}. One verb here, so the second question never arises.`,
+        body: `${bothRespells(A(288), A(316))} « ${A118_REFRAME} » from ${unitRef(NEGATION_UNIT)}, and « ${NEGATION_RULE} » from ${unitRef(FUTUR_UNIT)}. One verb, so neither arises.`,
       },
       {
         head: 'and the other word is no different',
         label: 'ne · en veux · pas',
         ...pairRows(A(292), A(317)),
-        body: `${bothRespells(A(292), A(317))} ${NEGATION_EXTENSION} That sentence is ${DIRECT_UNIT}'s, word for word, and ${INDIRECT_UNIT} quoted it unchanged one lesson ago. Three lessons, one sentence.`,
+        body: `${bothRespells(A(292), A(317))} ${NEGATION_EXTENSION} That sentence is ${unitRef(DIRECT_UNIT, 'a2')}'s, word for word, and ${unitRef(INDIRECT_UNIT)} quoted it unchanged one lesson ago. Three lessons, one sentence.`,
       },
       {
         head: 'a different subject, and a different verb',
@@ -791,7 +797,7 @@ const SECTIONS: LessonSection[] = [
         head: 'and with two words of verb',
         label: 'ne · word · first word · pas · second word',
         ...pairRows(A(326), A(327)),
-        body: `${bothRespells(A(326), A(327))} The pronoun goes in front of BOTH halves, which is ${DIRECT_UNIT}'s rule on a2.05's tense, and the second word takes nothing at all, which is ${INDIRECT_UNIT}'s. Neither is new here.`,
+        body: `${bothRespells(A(326), A(327))} The pronoun goes in front of BOTH halves, which is ${unitRef(DIRECT_UNIT, 'a2')}'s rule on ${unitRef('a2.05', 'a2')}'s tense, and the second word takes nothing at all, which is ${unitRef(INDIRECT_UNIT, 'a2')}'s. Neither is new here.`,
       },
     ],
   },
@@ -902,13 +908,13 @@ const SECTIONS: LessonSection[] = [
       { front: `« ${noStop(importedFr(A204_CITY_ID))} » Say it without the city.`, back: `${fr(A(288))} ${A_FRAMING_MINE}`, say: fr(A(288)) },
       { front: `« ${noStop(fr(A(291)))} » Say it without the work.`, back: `${fr(A(292))} ${DE_FRAMING}`, say: fr(A(292)) },
       { front: 'Do you have any sugar? Answer yes.', back: `${MUST_RIGHT} ${MUST_RULE}`, say: MUST_RIGHT },
-      { front: 'Where does the word go?', back: `${POSITION_RULE} ${DIRECT_UNIT}'s line, unchanged, for the third lesson.`, say: fr(A(288)) },
+      { front: 'Where does the word go?', back: `${POSITION_RULE} ${Cap(unitRef(DIRECT_UNIT, 'a2'))}'s line, unchanged, for the third lesson.`, say: fr(A(288)) },
       { front: `Make « ${noStop(fr(A(292)))} » negative.`, back: `${fr(A(317))} ${NEGATION_EXTENSION}`, say: fr(A(317)) },
-      { front: 'A person is behind à. Which word?', back: `Lui, and ${INDIRECT_UNIT} owns it. ${A_FRAMING} ${A_FRAMING_MINE}`, say: importedFr(A224_PRONOUN_ID) },
+      { front: 'A person is behind à. Which word?', back: `Lui, and ${unitRef(INDIRECT_UNIT)} owns it. ${A_FRAMING} ${A_FRAMING_MINE}`, say: importedFr(A224_PRONOUN_ID) },
       { front: 'Which en is « Elle habite en France »?', back: `The little word, because a country comes next. ${EN_POSITION_RULE}`, say: fr(A(312)) },
       { front: 'Does « il y a » come apart?', back: `${FROZEN_RULE} « ${FROZEN_ERROR} » is real French and means he has some.`, say: fr(A(313)) },
       { front: 'Both words in one sentence. Which order?', back: `${ORDER_RULE} ${ORDER_DEFERRED}`, say: fr(A(314)) },
-      { front: 'And in the past, does anything go on the end?', back: `Nothing, and ${INDIRECT_UNIT} settled that one lesson ago.`, say: fr(A(328)) },
+      { front: 'And in the past, does anything go on the end?', back: `Nothing, and ${unitRef(INDIRECT_UNIT)} settled that one lesson ago.`, say: fr(A(328)) },
     ],
   },
 
@@ -1043,27 +1049,27 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             q: `In « ${fr(A(312))} », what is en doing?`,
             opts: [
-              `It is the little word in front of a place, which ${PLACE_UNIT} taught`,
+              `It is the little word in front of a place, which ${unitRef(PLACE_UNIT)} taught`,
               'It is the pronoun this lesson is about',
-              `It is the little word in front of a length of time, which ${TIME_UNIT} taught`,
+              `It is the little word in front of a length of time, which ${unitRef(TIME_UNIT)} taught`,
               'It is part of the verb',
             ],
             correct: 0,
             ref: THREEENS,
-            why: `${EN_POSITION_RULE} A country comes next, so it is the little word, and ${PLACE_UNIT} owns it.`,
+            why: `${EN_POSITION_RULE} A country comes next, so it is the little word, and ${unitRef(PLACE_UNIT)} owns it.`,
           },
           {
             format: 'mcq',
             q: `And in « ${importedFr(A218_EN_ROW_ID)} »?`,
             opts: [
-              `The little word in front of a place, which ${PLACE_UNIT} taught`,
+              `The little word in front of a place, which ${unitRef(PLACE_UNIT)} taught`,
               'The pronoun this lesson is about',
-              `The little word in front of a length of time, which ${TIME_UNIT} taught`,
+              `The little word in front of a length of time, which ${unitRef(TIME_UNIT)} taught`,
               'A mistake',
             ],
             correct: 2,
             ref: THREEENS,
-            why: `« ${A218_EN_CLAIM} » is ${TIME_UNIT}'s line, and this is that lesson's own sentence.`,
+            why: `« ${A218_EN_CLAIM} » is ${unitRef(TIME_UNIT, 'a2')}'s line, and this is that lesson's own sentence.`,
           },
           {
             format: 'mcq',
@@ -1076,7 +1082,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 1,
             ref: THREEENS,
-            why: `${EN_POSITION_RULE} « ${WHAT_FOLLOWS} » is ${WHAT_FOLLOWS_UNIT}'s name for this shape, and this is the seventh time it has come round.`,
+            why: `${EN_POSITION_RULE} « ${WHAT_FOLLOWS} » is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s name for this shape, and this is the seventh time it has come round.`,
           },
           {
             format: 'mcq',
@@ -1143,7 +1149,7 @@ const SECTIONS: LessonSection[] = [
             word: 'pensent',
             correct: 't',
             ref: THERE,
-            why: 'The ending is silent, which a2.01 taught you, so pense and pensent are one sound. Nothing about the small word in front responds to the subject either.',
+            why: `The ending is silent, which ${unitRef('a2.01')} taught you, so pense and pensent are one sound. Nothing about the small word in front responds to the subject either.`,
           },
         ],
       },
@@ -1225,7 +1231,7 @@ const SECTIONS: LessonSection[] = [
             q: 'I talked about it. Type it.',
             accept: [fr(A(326))],
             ref: NEGATION,
-            why: `${POSITION_RULE} The word goes in front of both halves of the verb, which is ${DIRECT_UNIT}'s rule on a tense you already have, and nothing goes on the end of parlé.`,
+            why: `${POSITION_RULE} The word goes in front of both halves of the verb, which is ${unitRef(DIRECT_UNIT, 'a2')}'s rule on a tense you already have, and nothing goes on the end of parlé.`,
           },
           {
             format: 'mcq',
@@ -1256,9 +1262,9 @@ const SECTIONS: LessonSection[] = [
       REFRAME,
       `${A_FRAMING_MINE} ${DE_FRAMING} Two words, and which one you need was decided before you opened your mouth, by the little word that was already in the sentence.`,
       `${MUST_RULE} ${MUST_RULE_Y} Neither of them is ever optional, and English will not remind you.`,
-      `${EN_POSITION_RULE} ${PLACE_UNIT} and ${TIME_UNIT} own the other two ens and this lesson taught neither of them again.`,
+      `${EN_POSITION_RULE} ${Cap(unitRef(PLACE_UNIT))} and ${unitRef(TIME_UNIT)} own the other two ens and this lesson taught neither of them again.`,
       `${FROZEN_RULE} You have been reading that y since a1 and now you know what it is.`,
-      `« ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it has now been true of three sets of small words in three lessons without a word changed.`,
+      `« ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it has now been true of three sets of small words in three lessons without a word changed.`,
       `${ORDER_RULE} ${ORDER_DEFERRED}`,
     ],
     sheetId: SHEET_ID,
@@ -1466,7 +1472,7 @@ const SHEETS: ReferenceSheet[] = [
         type: 'teach',
         layer: 'deep',
         title: 'The rule, in one line',
-        body: `${REFRAME} ${A_FRAMING_MINE} ${DE_FRAMING} And the place it goes is not new: « ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it has been true of three sets of small words in three lessons. ${MUST_RULE}`,
+        body: `${REFRAME} ${A_FRAMING_MINE} ${DE_FRAMING} And the place it goes is not new: « ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it has been true of three sets of small words in three lessons. ${MUST_RULE}`,
       },
       {
         /* THE FIRST OF THE TWO REAL `table`s, and the thing neither neighbour's
@@ -1493,7 +1499,7 @@ const SHEETS: ReferenceSheet[] = [
         rows: EN_JOBS.map((j) => [
           noStop(typeof j.id === 'number' ? fr(A(j.id)) : importedFr(j.id)),
           j.after,
-          j.owner,
+          unitRef(j.owner, 'a2'),
         ]),
       },
       {
@@ -1508,7 +1514,7 @@ const SHEETS: ReferenceSheet[] = [
         type: 'teach',
         layer: 'deep',
         title: 'What comes next',
-        body: `${INDIRECT_UNIT} taught « ${A_FRAMING} » and this lesson took the other half of it: « ${A_FRAMING_NEXT} » becomes y. Between the three lessons you now have every small word that goes in front of a verb in this language except the ones you use for yourself, which ${'a2.22'} already gave you. ${MUST_RULE}`,
+        body: `${Cap(unitRef(INDIRECT_UNIT))} taught « ${A_FRAMING} » and this lesson took the other half of it: « ${A_FRAMING_NEXT} » becomes y. Between the three lessons you now have every small word that goes in front of a verb in this language except the ones you use for yourself, which ${unitRef('a2.22')} already gave you. ${MUST_RULE}`,
       },
     ],
   },
@@ -1583,7 +1589,7 @@ const LESSON_AUTHORED: Lesson = {
    *  under one version is the drift this project has lost work to twice, and the
    *  batch's own version guard refuses a re-apply at the same number with
    *  different content. */
-  version: 1,
+  version: 4,
 
   /** DRAWN ON THE LESSON OVERVIEW CARD AND ON THE LESSON COVER, and corrections
    *  §9 records that a2.11 shipped grammar jargon here while every host gate was
@@ -1659,7 +1665,7 @@ const LESSON_AUTHORED: Lesson = {
     // the moment the clip is delivered.
     recorded: [
       { id: 'rec-a2-25-two', desc: 'The two rows and the frame pairs. Read the two rows as WORDS rather than as sentences, at an even pace. The sentence pairs are ONE TAKE each, both halves in it, so the learner hears one sentence becoming another rather than two being compared. The pronoun must carry NO extra weight: it is unstressed in speech and a reader who leans on it teaches that the learner will hear it coming.' },
-      { id: 'rec-a2-25-person', desc: 'The a2.24 handshake. ONE TAKE PER CARD holding both lines. « Je parle à Marie. » and « Tu vas à Paris ? » must be read with IDENTICAL treatment of the à, because the whole card says the little word is the same and only what sits behind it differs.' },
+      { id: 'rec-a2-25-person', desc: `The ${unitRef('a2.24')} handshake. ONE TAKE PER CARD holding both lines. « Je parle à Marie. » and « Tu vas à Paris ? » must be read with IDENTICAL treatment of the à, because the whole card says the little word is the same and only what sits behind it differs.` },
       { id: 'rec-a2-25-there', desc: 'Five pairs, ONE TAKE each. The English glosses are not recorded. In « J\'y joue le samedi. » the y must not be lengthened: it is one sound inside the first syllable and a reader who separates it teaches a pronunciation nobody uses.' },
       { id: 'rec-a2-25-listening', desc: 'audioFirst. Four lines, ONE TAKE, one voice, no gaps that let the learner rehearse between them. Lines 3 and 4 both carry en and THE TWO MUST BE INDISTINGUISHABLE: they are the same word doing two jobs and the second question exists to make the learner hear that the ear cannot settle it.' },
       { id: 'rec-a2-25-de', desc: 'Eight lines, read separately at a steady pace. The de and the du must sound exactly as unstressed as they do in ordinary speech; this screen is about a word disappearing and a reader who emphasises it before it goes makes the disappearance sound like a loss.' },

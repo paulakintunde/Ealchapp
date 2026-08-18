@@ -6,6 +6,7 @@
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { REFRAME as A201_REFRAME } from './verbes-er-terms.ts';
 import { REFRAME as A210_REFRAME, BOTH_HALVES } from './verbes-ir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** a2.01's and a2.10.l1's reframes, imported verbatim.
  *
@@ -15,13 +16,22 @@ import { REFRAME as A210_REFRAME, BOTH_HALVES } from './verbes-ir-terms.ts';
  *  misquoting a lesson the learner finished twenty minutes ago. */
 export { A201_REFRAME, A210_REFRAME, BOTH_HALVES };
 
-/** The back-references this lesson owes, by unit id. a2.01 for the -ER-ending
- *  family, a2.10 for the shedders, a2.02 for venir and tenir, a2.11 for the -RE
- *  verbs whose mechanism is the shedders'. */
-export const A201_BACKREF = 'a2.01';
-export const A210_BACKREF = 'a2.10';
-export const A202_BACKREF = 'a2.02';
-export const A211_BACKREF = 'a2.11';
+/** The back-references this lesson owes. a2.01 for the -ER-ending family, a2.10
+ *  for the shedders, a2.02 for venir and tenir, a2.11 for the -RE verbs whose
+ *  mechanism is the shedders'.
+ *
+ *  BY LABEL, NOT BY ID. These are interpolated straight into card bodies, and a
+ *  learner has never seen `a2.10`. The `_UNIT` constants keep the id for the
+ *  guards, which resolve it back to the label. */
+export const A201_BACKREF_UNIT = 'a2.01';
+export const A210_BACKREF_UNIT = 'a2.10';
+export const A202_BACKREF_UNIT = 'a2.02';
+export const A211_BACKREF_UNIT = 'a2.11';
+
+export const A201_BACKREF = unitRef(A201_BACKREF_UNIT, 'a2');
+export const A210_BACKREF = unitRef(A210_BACKREF_UNIT, 'a2');
+export const A202_BACKREF = unitRef(A202_BACKREF_UNIT, 'a2');
+export const A211_BACKREF = unitRef(A211_BACKREF_UNIT, 'a2');
 
 /** The line this lesson hangs on.
  *

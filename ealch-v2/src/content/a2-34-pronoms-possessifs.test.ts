@@ -39,6 +39,7 @@ import { fold } from './answer.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { hasPlainNasalFor } from './density.logic.ts';
 import { quizQuestions } from './schema.ts';
+import { unitLabels, namesUnitLabel } from './unit-label.ts';
 
 const LESSON_ID = 'a2.34.l1';
 const UNIT_ID = 'a2.34';
@@ -219,8 +220,11 @@ const countOf = (hay: string, needle: string): number =>
 /** THE SIXTH HOLE, AND IT IS THE MIRROR OF CORRECTIONS §14.3. A unit id is not
  *  a French word, and every citation in this band is written "<unit>'s line",
  *  which the right-hand apostrophe class makes invisible. */
-const namesUnit = (hay: string, unit: string): boolean =>
-  new RegExp(`(?<![\\p{L}\\p{N}])${esc(unit)}(?![\\p{L}\\p{N}])`, 'iu').test(hay);
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID. Resolved
+ *  through the shipped `unit.seq`, never by slicing the id: 31 of 35 A2 units
+ *  disagree with their own id number. It does not also accept the raw id, or it
+ *  would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 
 /** The four-check bare-possessive shape, reimplemented here ONLY because it is
  *  the guard itself rather than app logic. Every clause is asserted against
@@ -284,7 +288,7 @@ test('a2.34.l1 is in the seed, and the unit claims it', () => {
   // v2: v1 shipped `la leur` on the tapTable detail and in no corpus row, and
   // the guard below found it. Corrections §10: move the counter rather than
   // correcting under the number that was applied.
-  strictEqual(L!.version, 4, 'v3 trimmed the sheet table on a misreading of the renderer; v4 puts it back');
+  strictEqual(L!.version, 5, 'v5 replaced every raw unit id on a learner surface with its lesson label');
   const unit = (seed.units as Array<{ id: string; lessonIds?: string[]; seq?: number; title?: string; sub?: string }>).find((u) => u.id === UNIT_ID);
   ok(unit, `${UNIT_ID} is not in the seed`);
   ok((unit!.lessonIds ?? []).includes(LESSON_ID), `${UNIT_ID} does not claim ${LESSON_ID}`);
@@ -429,14 +433,14 @@ test('every est+vowel frame in the authored rows is in the liaison table', { ski
 
 test("a1.17's reframe is quoted VERBATIM, and it is the rule the learner already has", { skip: noSeed }, () => {
   ok(LEARNER.includes(A117_REFRAME), `${ADJ_UNIT}'s reframe is not quoted verbatim`);
-  ok(namesUnit(LEARNER, ADJ_UNIT), `${ADJ_UNIT} is quoted and never named`);
+  ok(namesUnitLabel(LEARNER, ADJ_UNIT), `${ADJ_UNIT} is quoted and never named`);
 });
 
 test("a1.17's reframe and a1.17 are on the SAME section", { skip: noSeed }, () => {
   const carriers = (L!.sections ?? []).filter((s) => strs(s).some((t) => t.includes(A117_REFRAME)));
   ok(carriers.length > 0, 'the reframe reaches no section');
   for (const c of carriers) {
-    ok(namesUnit(strs(c).join('\n'), ADJ_UNIT), `${c.id} quotes ${ADJ_UNIT} and does not name it`);
+    ok(namesUnitLabel(strs(c).join('\n'), ADJ_UNIT), `${c.id} quotes ${ADJ_UNIT} and does not name it`);
   }
 });
 
@@ -451,14 +455,14 @@ test("a2.24's lui framing is quoted VERBATIM and a2.24 is named beside it", { sk
   ok(LEARNER.includes(GENDER_LOST), `${INDIRECT_UNIT}'s lui framing is not quoted verbatim`);
   const carriers = (L!.sections ?? []).filter((s) => strs(s).some((t) => t.includes(GENDER_LOST)));
   ok(carriers.length > 0);
-  for (const c of carriers) ok(namesUnit(strs(c).join('\n'), INDIRECT_UNIT), `${c.id} quotes it and does not name ${INDIRECT_UNIT}`);
+  for (const c of carriers) ok(namesUnitLabel(strs(c).join('\n'), INDIRECT_UNIT), `${c.id} quotes it and does not name ${INDIRECT_UNIT}`);
 });
 
 test("a2.24's leur rule is quoted VERBATIM and never restated in this build's own words", { skip: noSeed }, () => {
   ok(LEARNER.includes(LEUR_RULE), `${INDIRECT_UNIT}'s leur wording is not quoted verbatim`);
   const carriers = (L!.sections ?? []).filter((s) => strs(s).some((t) => t.includes(LEUR_RULE)));
   ok(carriers.length > 0);
-  for (const c of carriers) ok(namesUnit(strs(c).join('\n'), INDIRECT_UNIT), `${c.id} quotes it and does not name ${INDIRECT_UNIT}`);
+  for (const c of carriers) ok(namesUnitLabel(strs(c).join('\n'), INDIRECT_UNIT), `${c.id} quotes it and does not name ${INDIRECT_UNIT}`);
 });
 
 test("a2.24's leur rule is SCOPED wherever it is quoted, or it would teach the prompt's error", { skip: noSeed }, () => {
@@ -474,19 +478,19 @@ test("a2.24's leur rule is SCOPED wherever it is quoted, or it would teach the p
 
 test("a2.33's reframe is quoted VERBATIM and this lesson's extension follows it", { skip: noSeed }, () => {
   ok(LEARNER.includes(A233_REFRAME), `${DEM_UNIT}'s reframe is not quoted verbatim`);
-  ok(namesUnit(LEARNER, DEM_UNIT), `${DEM_UNIT} is quoted and never named`);
+  ok(namesUnitLabel(LEARNER, DEM_UNIT), `${DEM_UNIT} is quoted and never named`);
   ok(LEARNER.includes(A234_SHAPE), "a2.33's line is quoted and the extension that makes it true here is not");
   ok(LEARNER.indexOf(A234_SHAPE) > LEARNER.indexOf(A233_REFRAME), 'the extension appears before the quotation it extends');
 });
 
 test("a2.02's recurring shape is quoted and attributed (doctrine §B.7)", { skip: noSeed }, () => {
   ok(LEARNER.includes(WHAT_FOLLOWS), `« ${WHAT_FOLLOWS} » is not quoted`);
-  ok(namesUnit(LEARNER, SHAPE_UNIT), `${SHAPE_UNIT} owns that line and is not named`);
+  ok(namesUnitLabel(LEARNER, SHAPE_UNIT), `${SHAPE_UNIT} owns that line and is not named`);
 });
 
 test('the three units this lesson quotes are all named, and so are the boundaries', { skip: noSeed }, () => {
   for (const u of [ADJ_UNIT, INDIRECT_UNIT, DEM_UNIT, SHAPE_UNIT, COMPARATIVE_UNIT, GENDER_UNIT, 'a2.25', 'a2.03', 'a2.01']) {
-    ok(namesUnit(LEARNER, u), `${u} is leaned on and never named`);
+    ok(namesUnitLabel(LEARNER, u), `${u} is leaned on and never named`);
   }
 });
 
@@ -601,7 +605,7 @@ test('only moi and toi are authored, and no stressed paradigm is built', { skip:
 
 test('the stressed-pronoun gap is recorded, not left as a silence', { skip: !SRC }, () => {
   ok(SRC!.STRESSED_GAP.length > 80, 'the gap the prompt asks to be named is not named');
-  ok(SRC!.STRESSED_GAP.includes('a2.24'), 'the gap statement does not say which unit owns the half that IS owned');
+  ok(namesUnitLabel(SRC!.STRESSED_GAP, 'a2.24'), 'the gap statement does not say which unit owns the half that IS owned');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -731,7 +735,7 @@ test('a2.08 lends nine rows and no comparison is taught on a teaching surface', 
   for (const f of ['plus grand', 'moins grand', 'aussi grand', 'meilleur', 'le plus', 'le moins', 'mieux que', 'pire']) {
     ok(!teachText.includes(f), `"${f}" is ${COMPARATIVE_UNIT}'s and is on a teaching surface`);
   }
-  ok(namesUnit(LEARNER, COMPARATIVE_UNIT), `${COMPARATIVE_UNIT} lends nine rows and is never named`);
+  ok(namesUnitLabel(LEARNER, COMPARATIVE_UNIT), `${COMPARATIVE_UNIT} lends nine rows and is never named`);
 });
 
 test('a2.33 reserved twenty-one forms for this unit, and this unit teaches them', { skip: noSeed || !SRC }, () => {
@@ -1239,7 +1243,7 @@ test('the reframe is NOT a1.17 reframe reworded, which is what the prompt propos
   notStrictEqual(REFRAME, A117_REFRAME);
   const rejected = SRC!.REFRAME_REJECTED.find((r) => r.text === 'It agrees with what is owned, never with who owns it.');
   ok(rejected, "the prompt's own reframe is not recorded as rejected");
-  ok(rejected!.why.includes('a1.17'), 'the rejection does not say it restates the prerequisite');
+  ok(namesUnitLabel(rejected!.why, 'a1.17'), 'the rejection does not say it restates the prerequisite');
 });
 
 test('the rejected reframes are recorded with reasons', { skip: !SRC }, () => {
@@ -1606,4 +1610,65 @@ test('the id block starts above what a2.33 applied, which is what the prompt ask
   ok(a233.length > 20, 'a2.33 block is not in the seed, so the collision this build avoided cannot be shown');
   ok(Math.min(...authored().map((r) => +r.id.split('.').pop()!)) > Math.max(...a233),
     'this block overlaps a2.33');
+});
+
+/** ── NO RAW UNIT ID, AND NO "seq", ON A LEARNER SURFACE ────────────────────
+ *
+ *  The mirror of the batch's own guard, on the SHIPPED body rather than on the
+ *  source, so a hand-edit to the seed or a merge that reinstates an old body
+ *  fails here rather than on a device.
+ *
+ *  `a2.34` is the id a learner never sees; `lesson 34 in A2` is what they read.
+ *  `seq` is the internal word for a trail position and it shipped inside a2.24
+ *  for months, as « since seq 17 of A1 » about a unit that is seq 20.
+ *
+ *  Scoped to what a learner READS. `grammarAssumed`, `grammarIntroduced` and
+ *  `prereqUnitIds` are addressed to the curriculum, are resolved against
+ *  content_units, and MUST keep the raw id, so they are walked around. */
+test('no raw unit id and no "seq" reaches a learner surface', () => {
+  const CURRICULUM_KEYS = new Set(['grammarAssumed', 'grammarIntroduced', 'prereqUnitIds', 'id', 'lessonIds', 'unitId', 'itemId', 'examples']);
+  const learnerStrings = (v: unknown, out: string[] = []): string[] => {
+    if (typeof v === 'string') out.push(v);
+    else if (Array.isArray(v)) v.forEach((x) => learnerStrings(x, out));
+    else if (v && typeof v === 'object') {
+      for (const [k, x] of Object.entries(v)) {
+        if (CURRICULUM_KEYS.has(k)) continue;
+        learnerStrings(x, out);
+      }
+    }
+    return out;
+  };
+
+  const surfaces = learnerStrings(L);
+  ok(surfaces.length > 500, `the walk found only ${surfaces.length} strings, so it is not reaching the body`);
+
+  const idRx = /(?<![\p{L}\p{N}])((?:a1|a2|b1|b2|c1|sons)\.\d{2})(?![\p{L}\p{N}])/giu;
+  const ids = surfaces.flatMap((s) => [...s.matchAll(idRx)].map((m) => `${m[1]} in "${s.slice(0, 60)}"`));
+  deepStrictEqual(ids, [], 'a raw unit id reaches a learner surface; cite the lesson label instead');
+
+  const seqs = surfaces.filter((s) => /(?<![\p{L}])seq\s+\d/i.test(s)).map((s) => s.slice(0, 70));
+  deepStrictEqual(seqs, [], '"seq N" is the internal word for a trail position and a learner reads it');
+});
+
+/** THE LABEL IS RESOLVED THROUGH `seq`, NOT SLICED OUT OF THE ID.
+ *
+ *  This is the mistake a2.24 shipped. 31 of 35 A2 units disagree with their own
+ *  id number, so a label built by reading the digits off the id is wrong five
+ *  times in six. The three this lesson cites are all in that majority. */
+test('every lesson this build cites is cited by its trail position, not its id number', () => {
+  const CITED = ['a1.17', 'a1.03', 'a2.24', 'a2.33', 'a2.08', 'a2.03', 'a2.01', 'a2.02', 'a2.25'];
+  const body = strs(L).join(' ').toLowerCase();
+
+  for (const unit of CITED) {
+    const u = (seed.units as { id: string; seq: number }[]).find((x) => x.id === unit);
+    ok(u, `${unit} is not in the seed, so its label cannot be resolved`);
+    ok(namesUnitLabel(body, unit), `${unit} is cited by this build but its label never appears`);
+
+    const idNumber = Number(unit.split('.')[1]);
+    if (idNumber === Number(u!.seq)) continue;
+    const wrong = `lesson ${idNumber} in ${unit.startsWith('a1') ? 'A1' : 'A2'}`;
+    ok(!body.includes(wrong.toLowerCase()) || CITED.some((o) => o !== unit
+      && Number((seed.units as { id: string; seq: number }[]).find((x) => x.id === o)?.seq) === idNumber),
+      `"${wrong}" is ${unit}'s id number read as a lesson number; it is lesson ${u!.seq}`);
+  }
 });

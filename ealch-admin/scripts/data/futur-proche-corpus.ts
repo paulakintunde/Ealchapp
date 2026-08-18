@@ -136,6 +136,12 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { WHAT_FOLLOWS, WHAT_FOLLOWS_UNIT } from './aller-venir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  IDENTITY, THE BLOCK, AND THE COUNTS THE BATCH REFUSES TO DISAGREE WITH
@@ -247,7 +253,7 @@ export const A218_HANDOVER =
  *  FUTURE_DEFERRAL with its unit reference resolved. a2.16 §3: assert the
  *  literal, because a back-reference to a unit id is not a variable. */
 export const A218_DEFERRAL =
-  'French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is a2.19, which is next.';
+  `French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is ${unitRef('a2.19')}, which is next.`;
 
 /** a2.04, Prépositions de lieu, seq 13. It owns which preposition follows a
  *  verb of movement, and this lesson needs `aller` + place for the trap without
@@ -290,7 +296,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'The second verb never moves.',
-    why: 'True, useful, and already shipped: a2.13\'s reframe is « One verb changes for the person, and the next one never does », which says it better and says it first. Taking it would spend this lesson\'s one carried line restating a neighbour\'s. It is quoted instead, credited by id, and it is the OTHER half of the pair: a2.13 owns what happens to the infinitive and this lesson owns what happens to the negative.',
+    why: `True, useful, and already shipped: ${unitRef('a2.13')}\'s reframe is « One verb changes for the person, and the next one never does », which says it better and says it first. Taking it would spend this lesson\'s one carried line restating a neighbour\'s. It is quoted instead, credited by id, and it is the OTHER half of the pair: ${unitRef('a2.13')} owns what happens to the infinitive and this lesson owns what happens to the negative.`,
   },
   {
     candidate: 'Pas goes where the ending went.',
@@ -463,7 +469,7 @@ export const POSITION_CLAIM =
  *  a2.18 quoted this same string on `il y a` and this lesson is the third of
  *  four; a2.15's `prendre` is the fourth. */
 export const PATTERN_CLAIM =
-  `The third time. ${WHAT_FOLLOWS_UNIT} called it ${WHAT_FOLLOWS}, on venir de, and ${TIME_UNIT} met it again on il y a.`;
+  `The third time. ${Cap(unitRef(WHAT_FOLLOWS_UNIT, 'a2'))} called it ${WHAT_FOLLOWS}, on venir de, and ${unitRef(TIME_UNIT, 'a2')} met it again on il y a.`;
 
 /** The prediction the trap opens on, before it shows anything. A mission that
  *  asks the learner to predict the shape is stronger than one that explains it,
@@ -485,7 +491,7 @@ export const TWO_JOBS: readonly { place: string; action: string; why: string }[]
   {
     place: 'Je vais au parc.',
     action: 'Je vais payer.',
-    why: `${WHAT_FOLLOWS_UNIT}'s own card on the left, from the lesson that conjugated this verb, and this lesson's on the right. Same two words, and nobody has to decide anything until the third arrives.`,
+    why: `${Cap(unitRef(WHAT_FOLLOWS_UNIT, 'a2'))}'s own card on the left, from the lesson that conjugated this verb, and this lesson's on the right. Same two words, and nobody has to decide anything until the third arrives.`,
   },
   {
     place: 'Ils vont au parc.',
@@ -578,7 +584,7 @@ export const FUTUR_SIMPLE_MUST_NOT_FIRE: readonly string[] = [
  *  two wordings have to match. The rule is exported and a2.05 can compare it
  *  rather than remember it. */
 export const PAST_DEFERRAL =
-  `The next lesson puts a past tense in front of a second verb the same way this one puts aller there, and the negative behaves exactly as it does here. That is ${PAST_UNIT}.`;
+  `The next lesson puts a past tense in front of a second verb the same way this one puts aller there, and the negative behaves exactly as it does here. That is ${unitRef(PAST_UNIT)}.`;
 
 const PARTICIPLE = '(?:fini|finis|finie|finies|choisi|choisis|dormi|parti|partis|partie|parties|sorti|sortis|servi|senti|v[ée]cu|plu|attendu|vendu|entendu|r[ée]pondu|perdu|rendu|descendu|re[çc]u|aper[çc]u|voulu|pu|d[ûu]|su|connu|lu|relu|vu|revu|venu|revenu|devenu|tenu|couru|bu|cru|eu|[ée]t[ée]|mis|remis|promis|assis|pris|appris|compris|surpris|dit|redit|[ée]crit|d[ée]crit|conduit|produit|construit|fait|refait|ouvert|offert|couvert|d[ée]couvert|souffert|mort|morts|morte)';
 const ER_PARTICIPLE = '[\\p{L}]{2,}(?:é|és|ée|ées)';
@@ -649,7 +655,7 @@ export const DANS_PAIR = {
   theirs: 'Je pars dans dix minutes.',
   theirsId: 'fr.a2.prepositions-essentielles.172',
   mine: 'Je vais partir dans dix minutes.',
-  why: `${TIME_UNIT} taught the left one: a present tense about something ahead, which is ordinary French. The right one is the same fact with a verb in front, and both are correct.`,
+  why: `${Cap(unitRef(TIME_UNIT))} taught the left one: a present tense about something ahead, which is ordinary French. The right one is the same fact with a verb in front, and both are correct.`,
 } as const;
 
 /** And the second one, which is a2.18's own question turned into a plan. */
@@ -838,27 +844,27 @@ export const FUTUR_PROCHE: FuturRow[] = [
    * on four of them so the future reading is not left to be guessed. The whole
    * argument of the lesson is that the slot takes anything, so these reach
    * across themes rather than repeating the frame. */
-  S(513, 'Je vais payer.', 'I am going to pay.', 'zhuh veh pay-YAY', '/ʒə vɛ pe.je/', 'any', D, T, `The same naming form as ${MODAL_UNIT}'s own card « Je peux payer. », behind a different first verb. Eleven letters.`, 'je'),
+  S(513, 'Je vais payer.', 'I am going to pay.', 'zhuh veh pay-YAY', '/ʒə vɛ pe.je/', 'any', D, T, `The same naming form as ${unitRef(MODAL_UNIT, 'a2')}'s own card « Je peux payer. », behind a different first verb. Eleven letters.`, 'je'),
   S(514, 'Tu vas travailler demain.', 'You are going to work tomorrow.', 'tü vah trah-vah-YAY duh-MAⁿ', '/ty va tʁa.va.je də.mɛ̃/', 'any', NO_D, T, 'A four-syllable naming form, and the slot does not care. Twenty-one letters, so no dictée.', 'tu'),
-  S(515, 'Il va venir ce soir.', 'He is going to come tonight.', 'eel va vuh-NEER suh SWAR', '/il va və.niʁ sə swaʁ/', 'any', NO_D, T, `Venir behind aller, which is the other verb ${ALLER_UNIT} taught, and a time frame that fixes the reading.`, 'il'),
+  S(515, 'Il va venir ce soir.', 'He is going to come tonight.', 'eel va vuh-NEER suh SWAR', '/il va və.niʁ sə swaʁ/', 'any', NO_D, T, `Venir behind aller, which is the other verb ${unitRef(ALLER_UNIT)} taught, and a time frame that fixes the reading.`, 'il'),
   S(516, 'Elle va sortir ce soir.', 'She is going to go out tonight.', 'ehl va sor-TEER suh SWAR', '/ɛl va sɔʁ.tiʁ sə swaʁ/', 'any', NO_D, T, 'The affirmative of a published negative this lesson imports, in another person, so the pair crosses two themes.', 'elle'),
-  S(517, 'Nous allons manger tôt.', 'We are going to eat early.', 'noo za-lohⁿ mahⁿ-ZHAY TOH', '/nu.za.lɔ̃ mɑ̃.ʒe to/', 'any', NO_D, T, 'Tôt is a2.10 and a2.10.l2\'s dictée frame word, reused on purpose: the learner has spelled it twice already.', 'nous'),
+  S(517, 'Nous allons manger tôt.', 'We are going to eat early.', 'noo za-lohⁿ mahⁿ-ZHAY TOH', '/nu.za.lɔ̃ mɑ̃.ʒe to/', 'any', NO_D, T, `Tôt is ${unitRef('a2.10')} and a2.10.l2\'s dictée frame word, reused on purpose: the learner has spelled it twice already.`, 'nous'),
   S(518, 'Je vais rester ici.', 'I am going to stay here.', 'zhuh veh res-TAY ee-SEE', '/ʒə vɛ ʁɛs.te i.si/', 'any', NO_D, T, 'The answer to the question the trap asks, and the one sentence in the set that is about not moving.', 'je'),
 
   /* ── The time frames, and the loop a2.18 asked for ───────────────────────*/
-  S(519, 'Je vais partir dans dix minutes.', 'I am going to leave in ten minutes.', `zhuh veh par-TEER ${DANS_RESPELL} dee mee-NÜT`, '/ʒə vɛ paʁ.tiʁ dɑ̃ di mi.nyt/', 'when', NO_D, T, `The verb-in-front version of ${TIME_UNIT}'s own « Je pars dans dix minutes. », which is imported and sits beside it. The respelling of the time phrase is that lesson's, unchanged.`, 'je'),
-  S(520, 'On va manger dans une heure.', 'We are going to eat in an hour.', `ohⁿ va mahⁿ-ZHAY ${DANS_RESPELL} zün UHR`, '/ɔ̃ va mɑ̃.ʒe dɑ̃.zyn œʁ/', 'when', NO_D, T, `${TIME_UNIT} published « On mange dans une heure ? » as a question and this is the same plan with a verb in front. On rather than nous, which is a2.01's rule for the whole level.`, 'on'),
+  S(519, 'Je vais partir dans dix minutes.', 'I am going to leave in ten minutes.', `zhuh veh par-TEER ${DANS_RESPELL} dee mee-NÜT`, '/ʒə vɛ paʁ.tiʁ dɑ̃ di mi.nyt/', 'when', NO_D, T, `The verb-in-front version of ${unitRef(TIME_UNIT, 'a2')}'s own « Je pars dans dix minutes. », which is imported and sits beside it. The respelling of the time phrase is that lesson's, unchanged.`, 'je'),
+  S(520, 'On va manger dans une heure.', 'We are going to eat in an hour.', `ohⁿ va mahⁿ-ZHAY ${DANS_RESPELL} zün UHR`, '/ɔ̃ va mɑ̃.ʒe dɑ̃.zyn œʁ/', 'when', NO_D, T, `${Cap(unitRef(TIME_UNIT))} published « On mange dans une heure ? » as a question and this is the same plan with a verb in front. On rather than nous, which is ${unitRef('a2.01')}'s rule for the whole level.`, 'on'),
 
   /* ── The register pair, and the second one is RECEPTIVE ──────────────────*/
-  S(521, NE_DROP_FULL_FR, 'I am not going to go out.', 'zhuh nuh veh pah sor-TEER', '/ʒə nə vɛ pa sɔʁ.tiʁ/', 'register', NO_D, TN, 'The written form, both halves, which is what a1.18 says to keep.', 'je'),
-  S(522, NE_DROP_FR, 'I am not going to go out. (spoken French, with the ne dropped)', 'zhuh veh pah sor-TEER', '/ʒə vɛ pa sɔʁ.tiʁ/', 'register', RECEPTIVE, [...TN, 'receptive'], 'THE ONE RECEPTIVE ROW. Fifteen letters, so the dictée COULD take it and must not: a1.18 introduced the dropped ne for reception only and produces it nowhere. No voiceflash, no dictation, no typed answer, and one ear question.', 'je'),
+  S(521, NE_DROP_FULL_FR, 'I am not going to go out.', 'zhuh nuh veh pah sor-TEER', '/ʒə nə vɛ pa sɔʁ.tiʁ/', 'register', NO_D, TN, `The written form, both halves, which is what ${unitRef('a1.18')} says to keep.`, 'je'),
+  S(522, NE_DROP_FR, 'I am not going to go out. (spoken French, with the ne dropped)', 'zhuh veh pah sor-TEER', '/ʒə vɛ pa sɔʁ.tiʁ/', 'register', RECEPTIVE, [...TN, 'receptive'], `THE ONE RECEPTIVE ROW. Fifteen letters, so the dictée COULD take it and must not: ${unitRef('a1.18')} introduced the dropped ne for reception only and produces it nowhere. No voiceflash, no dictation, no typed answer, and one ear question.`, 'je'),
 
   /* ── The scene ───────────────────────────────────────────────────────────
    *
    * Doctrine §B.2. He has the first half and goes looking for where the
    * negative belongs; the sentence ends before either half arrives, and what
    * comes out is perfect French meaning the opposite. */
-  S(523, 'Tu vas travailler ce soir ?', 'Are you going to work tonight?', 'tü vah trah-vah-YAY suh SWAR', '/ty va tʁa.va.je sə swaʁ/', 'scene', NO_D, T, 'Her question, and every word in it is one the learner has had since a2.01. The answer is one word longer than the question.', 'tu'),
+  S(523, 'Tu vas travailler ce soir ?', 'Are you going to work tonight?', 'tü vah trah-vah-YAY suh SWAR', '/ty va tʁa.va.je sə swaʁ/', 'scene', NO_D, T, `Her question, and every word in it is one the learner has had since ${unitRef('a2.01')}. The answer is one word longer than the question.`, 'tu'),
   // v2: THE « Non, » CAME OFF, AND A PIXEL 6 IS THE ONLY REASON WE KNOW.
   // « Non, je ne vais pas travailler. » is 31 characters and WRAPPED to two
   // lines in the scene's break card, which pushed the card's own Continue under
@@ -907,7 +913,7 @@ export const DICTEE_PERSONS = DICTEE_MATRIX.filter((d) => d.negativeFits).map((d
  *  looks like a card that never wanted one. */
 export function row(fr: string): FuturRow {
   const r = FUTUR_PROCHE.find((x) => x.fr === fr);
-  if (!r) throw new Error(`a2.19: no authored row for "${fr}".`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.19'))}: no authored row for "${fr}".`);
   return r;
 }
 
@@ -937,29 +943,29 @@ export const IMPORTED: readonly Import[] = [
   { id: 'fr.sons.verbes-essentiels.003', fr: 'aller', use: 'headword', why: 'The headword, [ah-LAY], clean. fr.sons.consonnes.143 is a second copy at [a-LAY] and is deliberately not taken: one spelling per word inside one lesson.' },
   { id: 'fr.sons.consonnes.098', fr: 'partir', use: 'headword', why: 'THE FRAME NAMING FORM, [par-TEER], clean, and it carries a dictation drill already. ABSENT FROM THE SEED, so the merge has to carry it or every card in the paradigm draws blank. fr.a2.verbes.014 is a second copy at [pahr-TEER] IN THIS LESSON\'S OWN THEME and is left alone: a variant is not a violation.' },
   { id: 'fr.sons.muettes.037', fr: 'manger', use: 'headword', why: 'Clean at [mahⁿ-ZHAY], from the theme that already went through the nasals. fr.a1.cuisine.041 and fr.a1.rp-repas.013 publish [mahn-ZHAY], which the checker flags, and neither is displayed or repaired.' },
-  { id: 'fr.a2.verbes.031', fr: 'travailler', use: 'headword', why: 'Clean at [trah-vah-YAY], and already in this lesson\'s own theme, imported by a2.01. Five published rows spell it this way and two spell it [tra-va-YAY].' },
+  { id: 'fr.a2.verbes.031', fr: 'travailler', use: 'headword', why: `Clean at [trah-vah-YAY], and already in this lesson\'s own theme, imported by ${unitRef('a2.01')}. Five published rows spell it this way and two spell it [tra-va-YAY].` },
   { id: 'fr.sons.verbes-essentiels.041', fr: 'sortir', use: 'headword', why: 'Clean at [sor-TEER]. fr.a1.amis.025 publishes [sohr-TEER] and is not taken.' },
-  { id: 'fr.sons.verbes-essentiels.059', fr: 'payer', use: 'headword', why: 'Clean at [pay-YAY], and it is the spelling a2.13\'s own « Je peux payer. » carries, which this lesson imports. Three rows publish [peh-YAY], one of them in this theme, and none is repaired.' },
-  { id: 'fr.sons.verbes-essentiels.010', fr: 'venir', use: 'headword', why: 'Clean at [vuh-NEER]. The other verb a2.02 taught, and the one the role play refuses an invitation with.' },
+  { id: 'fr.sons.verbes-essentiels.059', fr: 'payer', use: 'headword', why: `Clean at [pay-YAY], and it is the spelling ${unitRef('a2.13')}\'s own « Je peux payer. » carries, which this lesson imports. Three rows publish [peh-YAY], one of them in this theme, and none is repaired.` },
+  { id: 'fr.sons.verbes-essentiels.010', fr: 'venir', use: 'headword', why: `Clean at [vuh-NEER]. The other verb ${unitRef('a2.02')} taught, and the one the role play refuses an invitation with.` },
 
   // a2.02's OWN PARADIGM, which is the other job of the same verb.
-  { id: 'fr.a2.verbes.261', fr: 'Je vais au parc.', use: 'paradigm', why: `${ALLER_UNIT}'s own card, [zhuh veh oh PARK], in this lesson's theme. The place job in the first person, and the left half of the trap.` },
-  { id: 'fr.a2.verbes.266', fr: 'Ils vont au parc.', use: 'paradigm', why: `${ALLER_UNIT}'s plural, [eel vohⁿ oh PARK]. Two of its six are taken rather than all six: the contrast needs a pair in two persons and the paradigm itself is that lesson's to teach.` },
-  { id: 'fr.a2.prepositions-essentielles.130', fr: 'Je vais à Paris.', use: 'place', why: `${PLACE_UNIT}'s own card, [zhuh veh a pa-REE], published one seq position back. THE BRIEF'S EXACT TRAP SENTENCE, already written, already respelled, and imported rather than authored a second time.` },
+  { id: 'fr.a2.verbes.261', fr: 'Je vais au parc.', use: 'paradigm', why: `${Cap(unitRef(ALLER_UNIT, 'a2'))}'s own card, [zhuh veh oh PARK], in this lesson's theme. The place job in the first person, and the left half of the trap.` },
+  { id: 'fr.a2.verbes.266', fr: 'Ils vont au parc.', use: 'paradigm', why: `${Cap(unitRef(ALLER_UNIT, 'a2'))}'s plural, [eel vohⁿ oh PARK]. Two of its six are taken rather than all six: the contrast needs a pair in two persons and the paradigm itself is that lesson's to teach.` },
+  { id: 'fr.a2.prepositions-essentielles.130', fr: 'Je vais à Paris.', use: 'place', why: `${Cap(unitRef(PLACE_UNIT, 'a2'))}'s own card, [zhuh veh a pa-REE], published one seq position back. THE BRIEF'S EXACT TRAP SENTENCE, already written, already respelled, and imported rather than authored a second time.` },
 
   // a2.13's card, so the back-reference is two cards with one naming form.
-  { id: 'fr.a2.verbes.347', fr: 'Je peux payer.', use: 'modal', why: `${MODAL_UNIT}'s own frame row, [zhuh PUH pay-YAY]. Its lesson's rule and this lesson's rule are two halves of one thing, and putting its card beside « Je vais payer. » says so with two cards instead of a sentence about a neighbouring unit.` },
+  { id: 'fr.a2.verbes.347', fr: 'Je peux payer.', use: 'modal', why: `${Cap(unitRef(MODAL_UNIT, 'a2'))}'s own frame row, [zhuh PUH pay-YAY]. Its lesson's rule and this lesson's rule are two halves of one thing, and putting its card beside « Je vais payer. » says so with two cards instead of a sentence about a neighbouring unit.` },
 
   // a2.18's two, which close the loop it asked for by name.
-  { id: 'fr.a2.prepositions-essentielles.184', fr: 'dans dix minutes', use: 'time', why: `${TIME_UNIT}'s phrase card, [${DANS_RESPELL} dee mee-NÜT]. Every time phrase this lesson prints uses that lesson's spelling, unchanged.` },
-  { id: 'fr.a2.prepositions-essentielles.172', fr: 'Je pars dans dix minutes.', use: 'time', why: `${TIME_UNIT}'s own sentence, [zhuh PAR ${DANS_RESPELL} dee mee-NÜT]. The present tense doing future work, which that lesson taught and named this one for. It sits beside « Je vais partir dans dix minutes. » so both halves of the hand-off are on one screen.` },
+  { id: 'fr.a2.prepositions-essentielles.184', fr: 'dans dix minutes', use: 'time', why: `${Cap(unitRef(TIME_UNIT, 'a2'))}'s phrase card, [${DANS_RESPELL} dee mee-NÜT]. Every time phrase this lesson prints uses that lesson's spelling, unchanged.` },
+  { id: 'fr.a2.prepositions-essentielles.172', fr: 'Je pars dans dix minutes.', use: 'time', why: `${Cap(unitRef(TIME_UNIT, 'a2'))}'s own sentence, [zhuh PAR ${DANS_RESPELL} dee mee-NÜT]. The present tense doing future work, which that lesson taught and named this one for. It sits beside « Je vais partir dans dix minutes. » so both halves of the hand-off are on one screen.` },
 
   // THE PUBLISHED NEGATIVES. Four of eleven, and every one gets a respelling
   // it never had. See RESPELL_ADDITIONS.
-  { id: 'fr.a2.negation-et-restriction.107', fr: 'Je ne vais pas sortir ce soir.', use: 'negative', why: 'NO RESPELLING and no IPA. Published with a flashcard and a dictation drill and nothing to say it with, which is a2.13 §1 in this lesson\'s own subject. ABSENT FROM THE SEED.' },
-  { id: 'fr.a2.negation-et-restriction.152', fr: 'Ils ne vont pas venir à la fête.', use: 'negative', why: 'NO RESPELLING. The plural, in a theme this lesson does not write into, with a verb a2.02 taught. ABSENT FROM THE SEED.' },
+  { id: 'fr.a2.negation-et-restriction.107', fr: 'Je ne vais pas sortir ce soir.', use: 'negative', why: `NO RESPELLING and no IPA. Published with a flashcard and a dictation drill and nothing to say it with, which is ${unitRef('a2.13')} §1 in this lesson\'s own subject. ABSENT FROM THE SEED.` },
+  { id: 'fr.a2.negation-et-restriction.152', fr: 'Ils ne vont pas venir à la fête.', use: 'negative', why: `NO RESPELLING. The plural, in a theme this lesson does not write into, with a verb ${unitRef('a2.02')} taught. ABSENT FROM THE SEED.` },
   { id: 'fr.a2.negation-et-restriction.158', fr: 'Je ne vais pas manger de viande ce soir.', use: 'negative', why: 'NO RESPELLING, and it holds the one nasal in this lesson the checker cannot see. See BLIND_NASAL. ABSENT FROM THE SEED.' },
-  { id: 'fr.a2.negation-et-restriction.164', fr: 'Elle ne va pas finir le rapport ce soir.', use: 'negative', why: 'NO RESPELLING. An -IR verb from a2.10 behind the same construction, in a person the paradigm does not use. ABSENT FROM THE SEED.' },
+  { id: 'fr.a2.negation-et-restriction.164', fr: 'Elle ne va pas finir le rapport ce soir.', use: 'negative', why: `NO RESPELLING. An -IR verb from ${unitRef('a2.10')} behind the same construction, in a person the paradigm does not use. ABSENT FROM THE SEED.` },
 ];
 
 export const IMPORTED_IDS: readonly string[] = IMPORTED.map((i) => i.id);
@@ -997,7 +1003,7 @@ export const ABSENT_FROM_SEED: readonly string[] = [
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`a2.19: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`${Cap(unitRef('a2.19'))}: ${id} is not in IMPORTED.`);
   return i;
 };
 
@@ -1019,7 +1025,7 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   { id: 'fr.a1.expressions-utiles.220', fr: 'À mon avis, ce plan ne va pas marcher.', why: 'NO RESPELLING, and its `va` is not a plan at all: « ce plan ne va pas marcher » is a prediction about a thing, which is a third job for this construction and one this lesson does not teach.' },
   { id: 'fr.b1.projets-et-futur.012', fr: "Tant qu'il n'aura pas son visa, il ne va pas pouvoir voyager.", why: 'B1, and it holds `n\'aura pas`, which is the one-word future this lesson names and refuses. The only published sentence in the corpus that puts both futures in one line, and it is the reason the OTHER_FUTURE card exists.' },
   { id: 'fr.a2.verbes.014', fr: 'partir', why: 'A second copy of the frame naming form IN THIS LESSON\'S OWN THEME, at [pahr-TEER] against the [par-TEER] seven other rows carry. Neither is flagged and neither breaks a stated rule, so invariants §9 forbids repairing either; this lesson displays the one the seven agree on.' },
-  { id: 'fr.a2.verbes.025', fr: 'payer', why: 'The same shape on the other frame verb: [peh-YAY] in this theme against the [pay-YAY] a2.13 published on its own card. Not repaired and not displayed.' },
+  { id: 'fr.a2.verbes.025', fr: 'payer', why: `The same shape on the other frame verb: [peh-YAY] in this theme against the [pay-YAY] ${unitRef('a2.13')} published on its own card. Not repaired and not displayed.` },
   { id: 'fr.a1.verbes-essentiels.016', fr: 'Le cours commence dans dix minutes.', why: 'FLAGGED at [... dahn dee mee-NEWT], and it spells /y/ as NEW rather than Ü. a2.18 is the lesson that owns `dans` and it did not take this row either.' },
 ];
 

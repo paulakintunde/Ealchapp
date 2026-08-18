@@ -200,6 +200,12 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  §B. IDENTITY, THE THEME AND THE ID BLOCK
@@ -321,6 +327,78 @@ export const AGREEMENT_UNIT = 'a2.03';
 export const REGISTER_UNIT = 'a2.01';
 
 /* ══════════════════════════════════════════════════════════════════════════
+ *  §C-bis. HOW THIS LESSON NAMES ITS NEIGHBOURS ON A LEARNER SURFACE
+ *
+ *  A card used to read « a2.24's line ». A learner has never seen `a2.24`,
+ *  cannot look it up, and the string is meaningless to them. It now reads
+ *  « lesson 22's line ».
+ *
+ *  **THE ID NUMBER IS NOT THE LESSON NUMBER.** Ids were assigned before the
+ *  trails were sequenced. Measured across the shipped units: 31 of 35 A2
+ *  disagree with their own seq, 27 of 30 A1, and 4 of 10 sons.
+ *
+ *      a2.24 is lesson 22      a2.33 is lesson 33      a2.08 is lesson 32
+ *      a2.03 is lesson 10      a2.01 is lesson 1       a2.02 is lesson 5
+ *      a1.17 is lesson 20      a1.03 is lesson 5
+ *
+ *  a2.24 itself shipped « since seq 17 of A1 » about a1.17, and a1.17 is seq
+ *  20. Somebody read the id as the position. That is the whole reason these
+ *  are constants with a guard behind them rather than numbers typed into prose.
+ *
+ *  TWO FORMS, AND THE POSSESSIVE IS THE REASON.
+ *
+ *    `_REF`   « lesson 22 in A2 »  ordinary prose, and every cross-track use
+ *    `_POSS`  « lesson 22 »        before an apostrophe-s, SAME TRACK ONLY
+ *
+ *  « lesson 22 in A2's line » puts a possessive on a prepositional phrase and
+ *  repeats the track at a reader who is already in A2. Across tracks the track
+ *  is kept in both forms, because there it is the whole point.
+ *
+ *  THE IDS BELOW STAY IDS. `grammarAssumed`, `grammarIntroduced` and
+ *  `prereqUnitIds` are addressed to the curriculum and are resolved against
+ *  `content_units`, so they use `*_UNIT` and never `*_REF`. That separation is
+ *  what makes this change mechanical: prose interpolates a `_REF`, metadata
+ *  holds a `_UNIT`.
+ *
+ *  Every pair is asserted against the shipped `unit.seq` in the batch and in
+ *  the guard, so a resequenced trail fails the build instead of printing a
+ *  lesson number that moved.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+/** id -> the label a learner sees. Asserted against seed units, both ends. */
+export const UNIT_REFS: readonly { unit: string; ref: string; poss: string }[] = [
+  { unit: 'a1.17', ref: 'lesson 20 in A1', poss: 'lesson 20 in A1' },
+  { unit: 'a1.03', ref: 'lesson 5 in A1', poss: 'lesson 5 in A1' },
+  { unit: 'a2.24', ref: 'lesson 22 in A2', poss: 'lesson 22' },
+  { unit: 'a2.33', ref: 'lesson 33 in A2', poss: 'lesson 33' },
+  { unit: 'a2.08', ref: 'lesson 32 in A2', poss: 'lesson 32' },
+  { unit: 'a2.03', ref: 'lesson 10 in A2', poss: 'lesson 10' },
+  { unit: 'a2.01', ref: 'lesson 1 in A2', poss: 'lesson 1' },
+  { unit: 'a2.02', ref: 'lesson 5 in A2', poss: 'lesson 5' },
+  { unit: 'a2.25', ref: 'lesson 23 in A2', poss: 'lesson 23' },
+];
+
+/** RESOLVED, NOT TYPED. `UNIT_REFS` above is the table this lesson was built
+ *  against and it stays as the record of what was cited; the labels themselves
+ *  come from `unitRef`, which reads the shipped `unit.seq`. Two hand-maintained
+ *  copies of the same fact is one copy too many: a resequenced trail would move
+ *  the content and leave the table behind. */
+const refOf = (id: string) => unitRef(id);
+const possOf = (id: string) => unitRef(id, 'a2');
+
+export const POSSESSIVE_ADJ_REF = refOf('a1.17');
+export const GENDER_REF = refOf('a1.03');
+export const INDIRECT_REF = refOf('a2.24');
+export const INDIRECT_POSS = possOf('a2.24');
+export const DEMONSTRATIVE_REF = refOf('a2.33');
+export const DEMONSTRATIVE_POSS = possOf('a2.33');
+export const COMPARATIVE_REF = refOf('a2.08');
+export const AGREEMENT_REF = refOf('a2.03');
+export const REGISTER_REF = refOf('a2.01');
+export const WHAT_FOLLOWS_REF = refOf('a2.02');
+export const Y_EN_REF = refOf('a2.25');
+
+/* ══════════════════════════════════════════════════════════════════════════
  *  §D. THE REFRAME
  *
  *  Doctrine §B.4: a production rule short enough to run in the half-second
@@ -344,7 +422,7 @@ export const REFRAME = 'Two words, and the thing owned picks them both.';
 export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
   {
     text: 'It agrees with what is owned, never with who owns it.',
-    why: "the prompt's, and it is a1.17's reframe reworded. a1.17 shipped « Ask what is owned, not who owns it. » and this unit declares a1.17 as its prerequisite. A reframe that restates the prerequisite spends the lesson on revision. a1.17's line is quoted instead, in s05-a117, and this one covers what a1.17 does not.",
+    why: `the prompt's, and it is ${unitRef('a1.17')}'s reframe reworded. ${Cap(unitRef('a1.17'))} shipped « Ask what is owned, not who owns it. » and this unit declares it as its prerequisite. A reframe that restates the prerequisite spends the lesson on revision. That line is quoted instead, in s05-a117, and this one covers what it does not.`,
   },
   {
     text: 'Say the article, then the owner, and agree both with the thing.',
@@ -534,7 +612,7 @@ export const REPAIR_SOURCES = [
 export const NOT_REPAIRED: readonly { id: string; fr: string; respell: string; why: string }[] = [
   {
     id: 'fr.a1.jardinage.079', fr: 'les gants', respell: 'leh GAHN',
-    why: 'a plain n closing a nasal AND leh for les, but it is in jardinage, which this unit does not touch, and this build does not import it. The gants here are inside authored sentences and use a2.33 GAHⁿ.',
+    why: `a plain n closing a nasal AND leh for les, but it is in jardinage, which this unit does not touch, and this build does not import it. The gants here are inside authored sentences and use ${unitRef('a2.33')} GAHⁿ.`,
   },
   {
     id: 'fr.sons.mots-essentiels.103', fr: 'votre', respell: 'voh-TRUH',
@@ -640,12 +718,12 @@ export const NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = 
   {
     id: 'fr.a2.conflits-reconciliation.002',
     fr: "Mon frère a dit que c'était sa faute, pas la mienne.",
-    why: "carries c'était, the imparfait, which the A2 trail never teaches at any of its 35 seq positions. This is seq 34, so nothing downstream rescues it (a2.33's self-audit found the same class on its own scenario)",
+    why: `carries c'était, the imparfait, which the A2 trail never teaches at any of its 35 positions. This is the second from last, so nothing downstream rescues it (${unitRef('a2.33', 'a2')}'s self-audit found the same class on its own scenario)`,
   },
   {
     id: 'fr.a2.comparaisons.003',
     fr: 'Cette voiture est moins rapide que la mienne.',
-    why: 'the same shape as .064 and .075 and it opens on a demonstrative adjective, which a2.33 owns and this lesson has no reason to print',
+    why: `the same shape as .064 and .075 and it opens on a demonstrative adjective, which ${unitRef('a2.33')} owns and this lesson has no reason to print`,
   },
   {
     id: 'fr.b1.immigration-et-citoyennete.238',
@@ -1066,7 +1144,7 @@ export const FOLD_COLLISIONS: [string, string][] = [
 export const WANTED_AND_IMPOSSIBLE: readonly { want: string; why: string }[] = [
   { want: 'a typeIn keyed on the circumflex in le nôtre', why: 'fold() strips every combining mark, so « le notre » is accepted as « le nôtre » and the learner is told they spelled it right. Written as an mcq instead, and the batch refuses any typed question whose answer ends on a circumflex form' },
   { want: 'a listenChoose between notre and nôtre', why: 'the corpus respells the adjective voh-TRUH and the pronoun VOH-truh, so the possessive word is the same noise and only the article differs. The prompt says mcq is preferable; it is the only option' },
-  { want: 'a listenChoose between le mien and les miens', why: 'legal but weak: the two differ only in the article, luh against lay, which is a2.33 ce/ces one paradigm along rather than anything this lesson teaches. The two ear items ask about the STEM instead' },
+  { want: 'a listenChoose between le mien and les miens', why: `legal but weak: the two differ only in the article, luh against lay, which is ${unitRef('a2.33')} ce/ces one paradigm along rather than anything this lesson teaches. The two ear items ask about the STEM instead` },
   { want: 'a typeIn on the capital in Ce sont', why: 'fold() lowercases, and only mcq can test a capital. Nothing in this lesson turns on one, so no question asks' },
   { want: 'an errorSpot on a bare mien with no article', why: '« C\'est mien. » is the error English speakers actually produce and errorSpot is the right surface, so it IS written. Recorded here because the first draft assumed fold() would merge it with « C\'est le mien. » and it does not: cestmien and cestlemien are different strings' },
 ];
@@ -1233,7 +1311,18 @@ export const FALSE_LEUR_CLAIMS = [
 /** a2.24's sentence is TRUE and is quoted verbatim, and it is about the OTHER
  *  leur. This is the clause that keeps the two apart, so the quotation cannot
  *  be read as covering the possessive. */
-export const LEUR_RULE_SCOPE = 'in front of a verb';
+/** THE CLAUSE THAT KEEPS a2.24's SENTENCE OFF THE POSSESSIVE.
+ *
+ *  It used to read « in front of a verb », which is a phrase already inside the
+ *  quotation, so the guard requiring it was satisfied by the quote itself and
+ *  could never fail. It now says the thing the quote does NOT say, which is
+ *  that the verb is the entire condition, and the guard is no longer a
+ *  tautology.
+ *
+ *  It is also four words shorter, and after the unit-id migration the labels
+ *  are longer than the ids they replaced: this card hit the 45-word core cap
+ *  the moment « a2.24 » became « lesson 22 ». */
+export const LEUR_RULE_SCOPE = 'the verb is the whole of it';
 
 export const OUT_OF_BAND_TENSES: readonly { name: string; stems: readonly string[]; endings: readonly string[] }[] = [
   {
@@ -1440,4 +1529,4 @@ export const DEAD_LESSON_FIELDS = ['teaches', 'canDo', 'track'] as const;
 
 export const STRESSED_USED = ['moi', 'toi'] as const;
 export const STRESSED_GAP =
-  'moi, toi, lui, elle, nous, vous, eux and elles as a stressed set are owned by no unit at A1 or A2. a2.24 teaches the shape for lui alone, as its trap 2. This lesson uses moi and toi and builds no paradigm.';
+  `moi, toi, lui, elle, nous, vous, eux and elles as a stressed set are owned by no unit at A1 or A2. ${Cap(unitRef('a2.24'))} teaches the shape for lui alone, as its trap 2. This lesson uses moi and toi and builds no paradigm.`;

@@ -13,6 +13,12 @@
 // appear.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const RESTAURANT_TERMS: Record<string, LessonTerm> = {
   stage: {
@@ -85,7 +91,7 @@ export const RESTAURANT_TERMS: Record<string, LessonTerm> = {
   someOfIt: {
     term: 'some of it',
     title: 'Du, de la, de l\'',
-    body: 'a1.29 settled this: un is one of them, du is some of it. This lesson only asks you to run it at the moment of ordering, where the two are a syllable apart and mean different things.',
+    body: `${Cap(unitRef('a1.29'))} settled this: un is one of them, du is some of it. This lesson only asks you to run it at the moment of ordering, where the two are a syllable apart and mean different things.`,
     examples: [
       { itemId: 'fr.a1.au-restaurant.184', note: 'Some of it.' },
       { itemId: 'fr.a1.au-restaurant.185', note: 'And again, with bread.' },

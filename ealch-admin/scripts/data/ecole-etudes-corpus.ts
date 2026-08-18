@@ -87,6 +87,12 @@
 // measurement. That is what makes the theme-ownership rule below cheap.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  §A. IDENTITY
@@ -872,7 +878,7 @@ export const EXAM_POLICY = {
  *  `practice` renders the SPEAKING drill regardless of `skill`, and
  *  `reading.questions` are tap-to-reveal. */
 export const WRITTEN_CLAIM =
-  'a2.31 produces every sentence a written account would need, at clause level, '
+  `${Cap(unitRef('a2.31'))} produces every sentence a written account would need, at clause level, `
   + 'on graded surfaces. It does not produce a graded text. The only surface in the '
   + 'app that can grade a free composition is app/exam-task.tsx via '
   + 'services/examGrader.ts, it is not inside a lesson, and nothing routes a lesson to it.';

@@ -85,6 +85,12 @@
 // ════════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ═══════════════════════════════════════════════════════════════════════════
  *  §1. IDENTITY, MEASURED
@@ -622,7 +628,7 @@ export const RESPELL_LEFT_ALONE: readonly { fr: string; variants: string; why: s
   {
     fr: 'aime, inside a phrase',
     variants: 'nehm (fr.a2.au-restaurant.062) · EHM (fr.sons.questions.054)',
-    why: 'Both FLAGGED by the real function and both pre-existing in themes this lesson does not touch. Named because this build authors « Je l\'aime. » and had to pick a value: sons.07, which owns elision, ships ZHEM at fr.sons.elision.001, so the house form for /ɛm/ after an elided l is EM and this lesson follows the lesson that owns the rule rather than the two flagged phrase rows.',
+    why: `Both FLAGGED by the real function and both pre-existing in themes this lesson does not touch. Named because this build authors « Je l\'aime. » and had to pick a value: ${unitRef('sons.07')}, which owns elision, ships ZHEM at fr.sons.elision.001, so the house form for /ɛm/ after an elided l is EM and this lesson follows the lesson that owns the rule rather than the two flagged phrase rows.`,
   },
 ];
 
@@ -744,7 +750,7 @@ export const ROWS: readonly Row[] = [
   R(198, 'Tu la connais.', 'You know her.', '/ty la kɔ.nɛ/', 'tü lah koh-NEH',
     'paradigm', 'la', SD, 'Feminine. One letter apart from the row above and one sound apart, which is what makes the pair askable by ear.'),
   R(199, 'Tu les connais.', 'You know them.', '/ty le kɔ.nɛ/', 'tü lay koh-NEH',
-    'paradigm', 'les', SD, 'Plural, and the gender is not consulted. a1.04 taught that about the article and it is true of the pronoun for the same reason.'),
+    'paradigm', 'les', SD, `Plural, and the gender is not consulted. ${Cap(unitRef('a1.04'))} taught that about the article and it is true of the pronoun for the same reason.`),
   R(200, 'Je les vois.', 'I see them.', '/ʒə le vwa/', 'zhuh lay VWAH',
     'paradigm', 'les', SD, 'Nine letters. The third cell of the frame, and the probe found it zero times.'),
   R(201, 'Je la vois.', 'I see her.', '/ʒə la vwa/', 'zhuh lah VWAH',
@@ -758,7 +764,7 @@ export const ROWS: readonly Row[] = [
   R(205, 'Vous le voyez.', 'You see it.', '/vu lə vwa.je/', 'voo luh vwah-YAY',
     'paradigm', 'le', S, 'The vous cell. Nothing about the pronoun responds to the subject changing.'),
   R(206, 'Ils les achètent.', 'They buy them.', '/il le za.ʃɛt/', 'eel lay zah-SHEHT',
-    'paradigm', 'les', S, 'The ils cell, and the verb ending is silent, which a2.01 owns and this lesson does not re-teach.'),
+    'paradigm', 'les', S, `The ils cell, and the verb ending is silent, which ${unitRef('a2.01')} owns and this lesson does not re-teach.`),
 
   /* ── Elision. THE TRAP THE LESSON CANNOT TEST BY EAR. ────────────────── */
   R(207, "Je l'aime.", 'I love him. Or her.', '/ʒə lɛm/', 'zhuh LEM',
@@ -794,7 +800,7 @@ export const ROWS: readonly Row[] = [
    *    able to say things the lesson never said. These four verbs belong to
    *    a2.15, a2.10 and a1.25 and the rule is applied to them cold. ─────── */
   R(218, "Je l'écoute.", 'I listen to it.', '/ʒə le.kut/', 'zhuh lay-KOOT',
-    'unseen', "l'", S, 'écouter is not taught here and not imported as a headword. The learner has it from a1.25 and the position rule runs on it unchanged.',
+    'unseen', "l'", S, `écouter is not taught here and not imported as a headword. The learner has it from ${unitRef('a1.25')} and the position rule runs on it unchanged.`,
     ['unseen']),
   R(219, 'Tu les cherches.', 'You are looking for them.', '/ty le ʃɛʁʃ/', 'tü lay SHEHRSH',
     'unseen', 'les', S, 'chercher, and the English needs a preposition where the French does not. Worth meeting once inside a sentence whose shape is already familiar.',
@@ -803,12 +809,12 @@ export const ROWS: readonly Row[] = [
     'unseen', 'le', S, "prendre is a2.15's, cell for cell, and nothing about carrying a pronoun is different for an irregular verb.",
     ['unseen']),
   R(221, 'Nous la finissons.', 'We finish it.', '/nu la fi.ni.sɔ̃/', 'noo lah fee-nee-SOHⁿ',
-    'unseen', 'la', S, "finir is a2.10's, and its -iss- is a2.10's business and not this lesson's. The pronoun sits where it always sits.",
+    'unseen', 'la', S, `finir is ${unitRef('a2.10', 'a2')}'s, and its -iss- is its business and not this lesson's. The pronoun sits where it always sits.`,
     ['unseen']),
 
   /* ── ACT 5. The past, and the ending. §6. ───────────────────────────── */
   R(222, "J'ai vu le film.", 'I saw the film.', '/ʒe vy lə film/', 'zhay vü luh FEELM',
-    'past', null, S, 'The noun after the verb, so nothing happens to the second word. This is the baseline the agreement is measured against and it is a2.05\'s sentence, not a new one.'),
+    'past', null, S, `The noun after the verb, so nothing happens to the second word. This is the baseline the agreement is measured against and it is ${unitRef('a2.05')}\'s sentence, not a new one.`),
   R(223, "Je l'ai vu.", 'I saw it.', '/ʒə le vy/', 'zhuh lay VÜ',
     'past', "l'", SD, 'THE POSITION FACT, in the past: the pronoun goes in front of the FIRST word, not between the two. Seven letters. Masculine, so the ending is invisible and the pair below is what makes it visible.'),
   R(224, "J'ai vu la photo.", 'I saw the photo.', '/ʒe vy la fɔ.to/', 'zhay vü lah foh-TOH',
@@ -838,7 +844,7 @@ export const ROWS: readonly Row[] = [
     'talk', 'les', SR, 'Turn 5. The wrap and the agreement in one sentence: ne and pas go round the pronoun and the first word, and the ending goes on the second. Both rules, neither of them new by this point.',
     ['negation']),
   R(235, 'Tu la connais aussi ?', 'Do you know her too?', '/ty la kɔ.nɛ o.si/', 'tü lah koh-NEH oh-SEE',
-    'talk', 'la', SR, 'Turn 6, and the learner asks rather than answers. a1.19 owns the rising question and this borrows it without teaching it.'),
+    'talk', 'la', SR, `Turn 6, and the learner asks rather than answers. ${Cap(unitRef('a1.19'))} owns the rising question and this borrows it without teaching it.`),
   R(236, 'Je le prends.', 'I will take it.', '/ʒə lə pʁɑ̃/', 'zhuh luh PRAHⁿ',
     'talk', 'le', SR, 'Turn 7. Ten letters, and the present tense used for a decision made on the spot, which is what French does here and English does with "will".'),
 ];
@@ -934,7 +940,7 @@ export const UNTESTABLE: readonly { wanted: string; why: string }[] = [
   },
   {
     wanted: 'A typed question on the apostrophe in l\'.',
-    why: 'fold() strips punctuation and all whitespace, so « je laime », « je l\'aime » and « jel aime » are one answer. Corrections §5. The elision is taught as recognition and sons.07 owns it anyway.',
+    why: `fold() strips punctuation and all whitespace, so « je laime », « je l\'aime » and « jel aime » are one answer. Corrections §5. The elision is taught as recognition and ${unitRef('sons.07')} owns it anyway.`,
   },
   {
     wanted: 'A typed question turning on the accent in achète or the circumflex in connaître.',
@@ -942,6 +948,6 @@ export const UNTESTABLE: readonly { wanted: string; why: string }[] = [
   },
   {
     wanted: 'A typed question on the capital in « Marie » against the pronoun that replaces her.',
-    why: 'fold() cannot test a capital letter. Both the a1.08 and a1.09 briefs recommended errorSpot for a capital and both were wrong. Only mcq can, and the question was not worth an mcq slot.',
+    why: `fold() cannot test a capital letter. Both the ${unitRef('a1.08')} and ${unitRef('a1.09')} briefs recommended errorSpot for a capital and both were wrong. Only mcq can, and the question was not worth an mcq slot.`,
   },
 ];

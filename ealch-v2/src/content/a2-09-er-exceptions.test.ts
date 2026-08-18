@@ -51,6 +51,7 @@ import { dicteeMode } from './dictee.logic.ts';
 import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel, unitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -573,7 +574,7 @@ test('the source imports a2.01\'s constant rather than restating it', { skip: no
 });
 
 test('THE a2.01 BACK-REFERENCE EXISTS', { skip: noLesson }, () => {
-  const holders = L!.sections.filter((s) => strings(s).some((x) => x.includes(A201_BACKREF)));
+  const holders = L!.sections.filter((s) => strings(s).some((x) => namesUnitLabel(x, A201_BACKREF)));
   ok(
     holders.length > 0,
     `${A201_BACKREF} is named by no section. This is seq 2 of 32 and the second half of the lesson rests on a`
@@ -585,14 +586,16 @@ test('the recap mission prints a2.01\'s endings and does not restate them', { sk
   const recap = section('s04-recap');
   ok(recap, 's04-recap is gone');
   const text = strings(recap).join('\n');
-  ok(text.includes(A201_BACKREF), 'the recap no longer names the unit it is recapping');
+  ok(namesUnitLabel(text, A201_BACKREF), 'the recap no longer names the unit it is recapping');
   for (const ending of ['-e', '-es', '-ons', '-ez', '-ent']) {
     ok(text.includes(ending), `the recap no longer prints ${ending}`);
   }
 });
 
 test('the source back-reference constant matches', { skip: noSrc }, () => {
-  strictEqual(SRC_BACKREF, A201_BACKREF);
+  // The source exports the LABEL a learner reads; this file names the unit by
+  // id and resolves it.
+  strictEqual(SRC_BACKREF, unitLabel(A201_BACKREF, 'a2'));
 });
 
 /* ═══ 5. THE -yer DECISION, ASSERTED BOTH WAYS ══════════════════════════ */

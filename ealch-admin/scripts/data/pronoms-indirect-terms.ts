@@ -20,6 +20,12 @@
 // Everywhere else the plain phrase does the work: « the person behind à ».
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A, A117_TEST, A_FRAMING, DIRECT_UNIT, ENDING_RULE, GENDER_LOST, LEUR_RULE,
   NEGATION_EXTENSION, NEGATION_RULE, PLACE_UNIT, PLAIN_PHRASE, PLAIN_TARGET,
@@ -56,9 +62,9 @@ export const PRONOMS_INDIRECT_TERMS: Record<string, LessonTerm> = {
   /* a2.06's POSITION, QUOTED AND TAUGHT NOWHERE. */
   sameSlot: {
     term: 'the same place',
-    title: `The one thing you do not have to learn, and ${DIRECT_UNIT} taught it`,
+    title: `The one thing you do not have to learn, and ${unitRef(DIRECT_UNIT)} taught it`,
     body:
-      `« ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it is true of these two words without a word changed. Je le vois. Je lui parle. Same position, same distance from the subject, and the only difference is which set of words you reached into. That is worth saying out loud rather than leaving you to notice, because a learner who thinks each new pair of pronouns has its own placement rule ends up with three rules where there is one. There is one, it was learned last lesson, and this lesson spends it.`,
+      `« ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it is true of these two words without a word changed. Je le vois. Je lui parle. Same position, same distance from the subject, and the only difference is which set of words you reached into. That is worth saying out loud rather than leaving you to notice, because a learner who thinks each new pair of pronouns has its own placement rule ends up with three rules where there is one. There is one, it was learned last lesson, and this lesson spends it.`,
     examples: [
       { itemId: A(238), note: 'Subject, word, verb, exactly as last lesson.' },
       { itemId: A(268), note: 'And in front of BOTH words when the verb arrives as two, which is also last lesson\'s.' },
@@ -68,9 +74,9 @@ export const PRONOMS_INDIRECT_TERMS: Record<string, LessonTerm> = {
   /* THE TRAP THAT IS TESTABLE ON A TYPED SURFACE. */
   theirWord: {
     term: 'the other leur',
-    title: `The word ${POSSESSIVE_UNIT} gave you, doing something else`,
+    title: `The word ${unitRef(POSSESSIVE_UNIT)} gave you, doing something else`,
     body:
-      `You have had leur since ${POSSESSIVE_UNIT} and it meant their. That word is still there and this is a different one, spelled the same. ${LEUR_RULE} The possessive counts things and takes an s when there are several of them; this one counts nothing and never takes one, no matter how many people you are talking to. ${POSSESSIVE_UNIT} handed you the test on the last card of its own lesson and it still works: ${A117_TEST}. Leur maison has a thing behind it. Je leur parle has a verb. That is the whole difference and you can see it without knowing a single term.`,
+      `You have had leur since ${unitRef(POSSESSIVE_UNIT)} and it meant their. That word is still there and this is a different one, spelled the same. ${LEUR_RULE} The possessive counts things and takes an s when there are several of them; this one counts nothing and never takes one, no matter how many people you are talking to. ${Cap(unitRef(POSSESSIVE_UNIT))} handed you the test on the last card of its own lesson and it still works: ${A117_TEST}. Leur maison has a thing behind it. Je leur parle has a verb. That is the whole difference and you can see it without knowing a single term.`,
     examples: [
       { itemId: A(258), note: 'A thing behind it, so it is the possessive, and it would take an s if there were several houses.' },
       { itemId: A(260), note: 'Both jobs in one sentence. The first has a verb behind it and can never take an s; the second has a house behind it.' },
@@ -80,9 +86,9 @@ export const PRONOMS_INDIRECT_TERMS: Record<string, LessonTerm> = {
   /* THE SECOND TRAP, AND DOCTRINE §B.7's SIXTH OCCURRENCE. */
   onItsOwn: {
     term: 'lui on its own',
-    title: `The sixth time this shape has come round, and ${WHAT_FOLLOWS_UNIT} named it`,
+    title: `The sixth time this shape has come round, and ${unitRef(WHAT_FOLLOWS_UNIT)} named it`,
     body:
-      `« ${WHAT_FOLLOWS} » is ${WHAT_FOLLOWS_UNIT}'s line for this pattern and you have met it five times. Here it is again on lui. ${STRESSED_RULE} Je lui parle has a verb straight after it, so it is this lesson's word. Je parle avec lui has avec straight before it, so it is the other one, and it sits where English would put it rather than in front of the verb. Same three letters, two jobs, and the thing beside it settles which. ${DIRECT_UNIT} had exactly this one lesson ago, on le and la against the article.`,
+      `« ${WHAT_FOLLOWS} » is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s line for this pattern and you have met it five times. Here it is again on lui. ${STRESSED_RULE} Je lui parle has a verb straight after it, so it is this lesson's word. Je parle avec lui has avec straight before it, so it is the other one, and it sits where English would put it rather than in front of the verb. Same three letters, two jobs, and the thing beside it settles which. ${Cap(unitRef(DIRECT_UNIT))} had exactly this one lesson ago, on le and la against the article.`,
     examples: [
       { itemId: A(238), note: 'A verb after it, so it belongs to the verb and goes in front of it.' },
       { itemId: A(261), note: 'Avec before it, so it stands alone and stays at the end, where English puts it.' },
@@ -92,9 +98,9 @@ export const PRONOMS_INDIRECT_TERMS: Record<string, LessonTerm> = {
   /* THE THIRD TRAP. a2.04's à is a different job. */
   theLittleWord: {
     term: 'the à that disappears',
-    title: `Not the à ${PLACE_UNIT} taught you`,
+    title: `Not the à ${unitRef(PLACE_UNIT)} taught you`,
     body:
-      `${PLACE_UNIT} spent a whole lesson on à in front of a place. That à stays in the sentence and folds itself into whatever follows. This one marks a person instead, and it does not stay at all. ${A_FRAMING} Je parle à Marie becomes Je lui parle, and there is no à left anywhere. Learners keep it and write Je parle à lui, which is real French and means something else.`,
+      `${Cap(unitRef(PLACE_UNIT))} spent a whole lesson on à in front of a place. That à stays in the sentence and folds itself into whatever follows. This one marks a person instead, and it does not stay at all. ${A_FRAMING} Je parle à Marie becomes Je lui parle, and there is no à left anywhere. Learners keep it and write Je parle à lui, which is real French and means something else.`,
     examples: [
       { itemId: A(237), note: 'The à is there because the person is named.' },
       { itemId: A(238), note: 'The person is not named any more, and the à went with them.' },
@@ -106,7 +112,7 @@ export const PRONOMS_INDIRECT_TERMS: Record<string, LessonTerm> = {
     term: 'the wrap',
     title: 'What ne and pas go round, and it has not changed',
     body:
-      `« ${NEGATION_RULE} » is the line you have carried since the near future, and there is one verb in these sentences so the question of which verb never arises. ${NEGATION_EXTENSION} That sentence is ${DIRECT_UNIT}'s, word for word, and it holds here for the same reason: the pronoun belongs to the verb, so it goes where the verb goes. Ne outside both, pas after both. Nothing about this is new and it is on a screen because the sentence is longer now and a longer sentence is where a learner starts wondering whether the rule still applies.`,
+      `« ${NEGATION_RULE} » is the line you have carried since the near future, and there is one verb in these sentences so the question of which verb never arises. ${NEGATION_EXTENSION} That sentence is ${unitRef(DIRECT_UNIT, 'a2')}'s, word for word, and it holds here for the same reason: the pronoun belongs to the verb, so it goes where the verb goes. Ne outside both, pas after both. Nothing about this is new and it is on a screen because the sentence is longer now and a longer sentence is where a learner starts wondering whether the rule still applies.`,
     examples: [
       { itemId: A(264), note: 'Ne outside, then the pronoun and the verb together, then pas.' },
       { itemId: A(271), note: 'And with a two-word verb: ne, pronoun, first word, pas, second word.' },

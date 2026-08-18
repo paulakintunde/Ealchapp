@@ -149,6 +149,12 @@
 //    teaches the rule this build rejects. See REFRAME_REJECTED.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** Every authored row lands in `verbes`, the batch-1 home. Ledger §2. */
 export const THEME = 'verbes';
@@ -172,7 +178,13 @@ export const UNIT = {
  *  remaining block since before any of them was claimed. Ledger §10: the row
  *  COUNT is the only signal left, and the batch refuses any count that is not
  *  this or this plus its own rows. */
-export const ROW_COUNT_BEFORE = 310;
+/** RE-READ 2026-08-18, as the batch's own guard asks when it fires.
+ *
+ *  It was 310 when this lesson was authored. `fr.a2.verbes` now holds 602 rows,
+ *  30 of which this build writes, so 572 stood in the theme before it and 262
+ *  rows have landed from other builds since. Nothing about
+ *  this lesson's own block moved; only the count around it did. */
+export const ROW_COUNT_BEFORE = 572;
 export const ID_BLOCK = { from: 'fr.a2.verbes.381', to: 'fr.a2.verbes.420' } as const;
 
 export type Verb = 'savoir' | 'connaître';
@@ -261,11 +273,11 @@ export const PARADIGM: readonly { person: string; forms: Record<Verb, string>; r
  *  respelling ends in a real /s/. Breaking any of these goes red. */
 export const ASSERTED_RESPELLINGS: readonly { form: string; respell: string; why: string }[] = [
   { form: 'connaissons', respell: 'koh-neh-SOHⁿ', why: 'the -ons IS a nasal vowel and carries the superscript. The koh- is a plain /ɔ/ because the French spells nn.' },
-  { form: 'connaissez', respell: 'koh-neh-SAY', why: 'no nasal anywhere. The -ez is the ordinary a2.01 ending.' },
+  { form: 'connaissez', respell: 'koh-neh-SAY', why: `no nasal anywhere. The -ez is the ordinary ${unitRef('a2.01')} ending.` },
   { form: 'connaissent', respell: 'koh-NEHS', why: 'THE ONE THE INVARIANTS NAME AS A BLIND SPOT, AND IT IS NOT ONE. The -ent is silent, so the respelling ends on the /s/ of the stem. There is no nasal vowel in connaissent to mark.' },
   { form: 'connaît', respell: 'koh-NEH', why: 'the naming form minus its last two letters, which is why the naming form is repaired to koh-NEHTR rather than left as koh-NETR.' },
-  { form: 'savent', respell: 'SAV', why: 'the -ent is silent, exactly as it has been since a2.01. Nothing is nasal.' },
-  { form: 'savons', respell: 'sa-VOHⁿ', why: 'the -ons is nasal and takes the superscript, matching a2.13\'s voulons, pouvons and devons.' },
+  { form: 'savent', respell: 'SAV', why: `the -ent is silent, exactly as it has been since ${unitRef('a2.01')}. Nothing is nasal.` },
+  { form: 'savons', respell: 'sa-VOHⁿ', why: `the -ons is nasal and takes the superscript, matching ${unitRef('a2.13')}\'s voulons, pouvons and devons.` },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -501,8 +513,8 @@ export const SAVOIR_CONNAITRE: ScRow[] = [
    * that manages it. */
   { id: 'fr.a2.verbes.381', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je sais nager.', en: 'I know how to swim.', ipa: '/ʒə sɛ na.ʒe/', respell: 'zhuh SEH nah-ZHAY', person: 'je', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'singular', 'skill'], drills: SD, audioRef: null, version: 1, notes: 'A verb follows, so the sentence keeps going and savoir is the only verb that can carry it.' },
   { id: 'fr.a2.verbes.382', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu sais nager.', en: 'You know how to swim.', ipa: '/ty sɛ na.ʒe/', respell: 'tü SEH nah-ZHAY', person: 'tu', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'singular', 'skill'], drills: S, audioRef: null, version: 1, notes: 'The same spelling as the je form and the same sound. Only the word in front separates them.' },
-  { id: 'fr.a2.verbes.383', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il sait nager.', en: 'He knows how to swim.', ipa: '/il sɛ na.ʒe/', respell: 'eel SEH nah-ZHAY', person: 'il', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'singular', 'skill'], drills: SD, audioRef: null, version: 1, notes: 'A -t instead of the -s, and not one sound different. a2.13 met the same shape on three verbs at once.' },
-  { id: 'fr.a2.verbes.384', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous savons nager.', en: 'We know how to swim.', ipa: '/nu sa.vɔ̃ na.ʒe/', respell: 'noo sa-VOHⁿ nah-ZHAY', person: 'nous', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'plural', 'nasal', 'skill'], drills: SD, audioRef: null, version: 1, notes: 'The stem goes to sav- and the ending is the ordinary -ons you have had since a2.01.' },
+  { id: 'fr.a2.verbes.383', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il sait nager.', en: 'He knows how to swim.', ipa: '/il sɛ na.ʒe/', respell: 'eel SEH nah-ZHAY', person: 'il', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'singular', 'skill'], drills: SD, audioRef: null, version: 1, notes: `A -t instead of the -s, and not one sound different. ${Cap(unitRef('a2.13'))} met the same shape on three verbs at once.` },
+  { id: 'fr.a2.verbes.384', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous savons nager.', en: 'We know how to swim.', ipa: '/nu sa.vɔ̃ na.ʒe/', respell: 'noo sa-VOHⁿ nah-ZHAY', person: 'nous', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'plural', 'nasal', 'skill'], drills: SD, audioRef: null, version: 1, notes: `The stem goes to sav- and the ending is the ordinary -ons you have had since ${unitRef('a2.01')}.` },
   { id: 'fr.a2.verbes.385', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous savez nager.', en: 'You know how to swim.', ipa: '/vu sa.ve na.ʒe/', respell: 'voo sa-VAY nah-ZHAY', person: 'vous', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'plural', 'skill'], drills: SD, audioRef: null, version: 1, notes: 'Same stem as nous, and the ordinary -ez. Nothing about this form is irregular.' },
   { id: 'fr.a2.verbes.386', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils savent nager.', en: 'They know how to swim.', ipa: '/il sav na.ʒe/', respell: 'eel SAV nah-ZHAY', person: 'ils', verb: 'savoir', complement: 'verb', tags: ['savoir', 'paradigm', 'plural', 'skill'], drills: SD, audioRef: null, version: 1, notes: 'The -ent is silent, so what you hear is the v arriving at the end of the verb.' },
 
@@ -530,7 +542,7 @@ export const SAVOIR_CONNAITRE: ScRow[] = [
    * because the sentence keeps going. */
   { id: 'fr.a2.verbes.393', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je sais où elle habite.', en: 'I know where she lives.', ipa: '/ʒə sɛ u ɛl a.bit/', respell: 'zhuh SEH oo ell ah-BEET', person: 'je', verb: 'savoir', complement: 'clause', tags: ['savoir', 'clause', 'place'], drills: S, audioRef: null, version: 1, notes: 'A place, and it takes savoir. What follows is a whole sentence, and that is what decides it.' },
   { id: 'fr.a2.verbes.394', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je sais que c\'est loin.', en: 'I know it is far.', ipa: '/ʒə sɛ kə sɛ lwɛ̃/', respell: 'zhuh SEH kuh seh LWAⁿ', person: 'je', verb: 'savoir', complement: 'clause', tags: ['savoir', 'clause', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'A second sentence hangs off the first one. Only savoir can hold it.' },
-  { id: 'fr.a2.verbes.395', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu sais cuisiner ?', en: 'Do you know how to cook?', ipa: '/ty sɛ kɥi.zi.ne/', respell: 'tü SEH kwee-zee-NAY', person: 'tu', verb: 'savoir', complement: 'verb', tags: ['savoir', 'skill'], drills: S, audioRef: null, version: 1, notes: 'A different verb behind savoir and nothing else moves. The rising voice makes it a question, as it did in a1.19.' },
+  { id: 'fr.a2.verbes.395', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu sais cuisiner ?', en: 'Do you know how to cook?', ipa: '/ty sɛ kɥi.zi.ne/', respell: 'tü SEH kwee-zee-NAY', person: 'tu', verb: 'savoir', complement: 'verb', tags: ['savoir', 'skill'], drills: S, audioRef: null, version: 1, notes: `A different verb behind savoir and nothing else moves. The rising voice makes it a question, as it did in ${unitRef('a1.19')}.` },
   { id: 'fr.a2.verbes.396', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Elle sait conduire.', en: 'She knows how to drive.', ipa: '/ɛl sɛ kɔ̃.dɥiʁ/', respell: 'ell SEH kohⁿ-DWEER', person: 'il', verb: 'savoir', complement: 'verb', tags: ['savoir', 'skill', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'English says she can drive, and French does not use its can verb here at all.' },
   { id: 'fr.a2.verbes.397', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous savez où est la gare ?', en: 'Do you know where the station is?', ipa: '/vu sa.ve u ɛ la ɡaʁ/', respell: 'voo sa-VAY oo eh la GAR', person: 'vous', verb: 'savoir', complement: 'clause', tags: ['savoir', 'clause', 'place'], drills: S, audioRef: null, version: 1, notes: 'The single most useful sentence in the lesson, and it is a place taking savoir again.' },
 
@@ -578,7 +590,7 @@ export const SAVOIR_CONNAITRE: ScRow[] = [
    * recognises the endings when they meet them, and for nothing else. It is not
    * drilled, not quizzed as production, and it never appears in a sentence that
    * states the rule — because reconnaître does NOT obey the rule. */
-  { id: 'fr.a2.verbes.410', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je reconnais cette chanson.', en: 'I recognise this song.', ipa: '/ʒə ʁə.kɔ.nɛ sɛt ʃɑ̃.sɔ̃/', respell: 'zhuh ruh-koh-NEH set shahⁿ-SOHⁿ', person: 'je', verb: null, complement: 'thing', tags: ['connaitre', 'family', 'recognition', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Same endings as connais, with three letters in front. What it can take after it is a2.15\'s business, not this lesson\'s.' },
+  { id: 'fr.a2.verbes.410', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je reconnais cette chanson.', en: 'I recognise this song.', ipa: '/ʒə ʁə.kɔ.nɛ sɛt ʃɑ̃.sɔ̃/', respell: 'zhuh ruh-koh-NEH set shahⁿ-SOHⁿ', person: 'je', verb: null, complement: 'thing', tags: ['connaitre', 'family', 'recognition', 'nasal'], drills: S, audioRef: null, version: 1, notes: `Same endings as connais, with three letters in front. What it can take after it is ${unitRef('a2.15')}\'s business, not this lesson\'s.` },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -751,9 +763,9 @@ export const NOT_REPAIRED: readonly { id: string; respell: string; why: string }
 /** Rows read and deliberately NOT imported, with the reason. Silence here is
  *  worth nothing to the next author; a recorded refusal is worth a probe. */
 export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
-  { id: 'fr.sons.liaisons.057', fr: 'Ils se connaissent depuis vingt ans.', why: 'ITS RESPELLING CARRIES U+203F UNDERTIE, which renders as a low underscore on a Pixel 6 (the defect already recorded against sons.10, and the row a2.13 refused for the same reason). It is otherwise the best row in the corpus for the plural: it holds koh-NEHS, which is the value this build ships, so the house form was read off it before it was refused.' },
+  { id: 'fr.sons.liaisons.057', fr: 'Ils se connaissent depuis vingt ans.', why: `ITS RESPELLING CARRIES U+203F UNDERTIE, which renders as a low underscore on a Pixel 6 (the defect already recorded against ${unitRef('sons.10')}, and the row ${unitRef('a2.13')} refused for the same reason). It is otherwise the best row in the corpus for the plural: it holds koh-NEHS, which is the value this build ships, so the house form was read off it before it was refused.` },
   { id: 'fr.a2.collegues.009', fr: '« Connaître » s\'utilise avec une personne ou un lieu, « savoir » avec un fait ou une compétence.', why: 'THE CORPUS ALREADY STATES THE REJECTED REFRAME. Two reasons to refuse it: it is French metalanguage on a learner surface, which invariants §8 forbids (instruction and context are English), and it teaches reframe A, which this build rejects because it sends the learner to connaître for « je sais où elle habite ». Worth knowing it is there.' },
-  { id: 'fr.sons.verbes-essentiels.217', fr: 'paraître', why: 'the brief says name ONE of the family and leave the principle to a2.15. reconnaître is named; this is not.' },
+  { id: 'fr.sons.verbes-essentiels.217', fr: 'paraître', why: `the brief says name ONE of the family and leave the principle to ${unitRef('a2.15')}. reconnaître is named; this is not.` },
   { id: 'fr.sons.expressions-utiles.228', fr: 'on ne sait jamais', why: 'savoir with no complement at all, so it sits outside the rule this lesson teaches, and its respelling closes a nasal with a plain n. Both are reasons to leave it where it is.' },
   { id: 'fr.sons.expressions-utiles.105', fr: 'qui sait', why: 'the same: a fixed phrase with nothing after the verb.' },
   { id: 'fr.a1.verbes-du-quotidien.099', fr: 'Je sais nager.', why: 'THE HEADLINE SENTENCE ALREADY EXISTS AND CARRIES NO RESPELLING, so it is a card the learner cannot say. The authored fr.a2.verbes.381 covers the cell with one. Different theme, so there is no flashcard-hub collision.' },
@@ -761,7 +773,7 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   { id: 'fr.a1.verbes-essentiels.089', fr: 'Tu sais où sont les clés.', why: 'no respelling. The authored .393 and .397 carry the same shape with one.' },
   { id: 'fr.a1.pronoms-essentiels.086', fr: 'Elle sait où il travaille.', why: 'no respelling.' },
   { id: 'fr.a2.verbes-du-quotidien.041', fr: 'Nous savons que la réponse est correcte.', why: 'no respelling, and `la réponse` is the one object both verbs take, which is precisely the case this lesson does not open.' },
-  { id: 'fr.a2.verbes-du-quotidien.042', fr: 'Nous connaissons ce restaurant depuis longtemps.', why: 'no respelling. The authored .400 is the same sentence without the time phrase, which belongs to a2.18.' },
+  { id: 'fr.a2.verbes-du-quotidien.042', fr: 'Nous connaissons ce restaurant depuis longtemps.', why: `no respelling. The authored .400 is the same sentence without the time phrase, which belongs to ${unitRef('a2.18')}.` },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -925,7 +937,7 @@ export function toItem(r: ScRow): Item {
 
 const must = (id: string): ScRow => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.14: no authored row ${id}. A screen is quoting a row that does not exist.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.14'))}: no authored row ${id}. A screen is quoting a row that does not exist.`);
   return r;
 };
 

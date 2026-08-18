@@ -42,6 +42,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from '../../ealch-v2
 import { fold } from '../../ealch-v2/src/content/answer.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { assertReachable } from './lib/reachability.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry');
 const REAPPLY = process.argv.includes('--reapply');
@@ -502,7 +503,7 @@ async function main() {
   const assumed = LESSON.grammarAssumed ?? [];
   for (const u of [AGREEMENT_UNIT, ADVERB_UNIT]) {
     if (!assumed.includes(u)) die(`${u} is not in grammarAssumed, and this lesson extends it`);
-    if (!LEARNER_TEXT.includes(u)) die(`${u} is never named on a learner surface. The prompt asks for the loop to be closed BY NAME.`);
+    if (!namesUnitLabel(LEARNER_TEXT, u)) die(`${u} is never named on a learner surface. The prompt asks for the loop to be closed BY NAME.`);
   }
   // a2.17's reservation, taken. All four, each by the row that takes it.
   for (const form of A217_RESERVED) {

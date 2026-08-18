@@ -68,6 +68,7 @@ import {
   SINGULAR_TRIPLES, THEME, THE_SEVEN, THREE_CELLS, VERBES_RE, afterPronoun, personIds, toItem,
 } from './data/verbes-re-corpus.ts';
 import { BOUNDARY_VERBS, IMPORTED_ROWS, IMPORTED_VERBS } from './data/verbes-re-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   A201_REFRAME, A210_REFRAME, BACKREFS, BOUNDARY_SECTION_ID, CELLS_ROW_IDS,
   CELLS_SECTION_ID, NOUS_ON, NOUS_ON_SECTION_ID, REFRAME, SHEET_ID, THREE_GROUPS,
@@ -721,7 +722,7 @@ const PRODUCTION_SURFACES = [...producedStrings(), ...deckStrings()];
   const cardText = strings(card).join('\n');
   const notOnCard = named.filter((v) => !hasPhrase(cardText, v));
   if (notOnCard.length) die(`${BOUNDARY_SECTION_ID} does not name ${notOnCard.join(', ')}. The whole class belongs on one screen.`);
-  if (!cardText.includes(NOT_THIS_FAMILY_UNIT)) {
+  if (!namesUnitLabel(cardText, NOT_THIS_FAMILY_UNIT)) {
     die(`${BOUNDARY_SECTION_ID} does not say where ${NOT_THIS_FAMILY.join(', ')} are taught. A boundary with no destination is a warning, not a teaching.`);
   }
   console.log(`  the boundary: ${named.length} named on ${BOUNDARY_SECTION_ID}, 0 forms on a production surface, 0 invented forms anywhere`);
@@ -983,7 +984,7 @@ for (const q of qs) {
   /** AND IT NAMES THE TWO SHEETS IT COMPLETES, so a learner and a future author
    *  both know the set is finished rather than competing. */
   const sheetText = strings(sheet).join('\n');
-  const unnamed = SHEET_DECISION.names.filter((u) => !hasPhrase(sheetText, u));
+  const unnamed = SHEET_DECISION.names.filter((u) => !namesUnitLabel(sheetText, u));
   if (unnamed.length) die(`${SHEET_ID} does not name ${unnamed.join(', ')}. Two competing sheets is worse than one incomplete sheet, and this one says which is which.`);
   /** AND THE CANONICAL PRONOUN ORDER IS IN THE SHEET. */
   const paradigm = (sheet.sections ?? []).find((s) => (s as { id?: string }).id === 'sheet-re-paradigm');

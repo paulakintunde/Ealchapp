@@ -54,6 +54,12 @@
 
 import type { Lesson, LessonAct, LessonSection, LessonDrill } from '../../../ealch-v2/src/content/schema.ts';
 import { MEDECIN_TERMS } from './medecin-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   UNIT, LESSON_ID, REFRAME, S, B, REPAIR_IDS, REPAIR_UNIT, IMPORTED, DICTEE_IDS, NOT_RELEASABLE,
   BODY_UNIT, DEPUIS_UNIT, MODAL_UNIT,
@@ -114,7 +120,7 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
     kind: 'bubble', from: 'you', reveal: 'auto', size: 'md',
     fr: 'J\'ai mal au ventre depuis trois jours.',
     en: '(I have had stomach pain for three days.)',
-    stage: 'Clean, correct, and exactly what you practised. a1.24 gave you this sentence.',
+    stage: `Clean, correct, and exactly what you practised. ${Cap(unitRef('a1.24'))} gave you this sentence.`,
     audio: { lang: 'fr-FR', mode: 'tts' },
   },
   {
@@ -168,7 +174,7 @@ const S_GOALS: LessonSection = {
     { t: 'Pick the right shape for a symptom', s: 'French has three and English has one. The choice happens before the word arrives.' },
     { t: 'Answer the questions you did not prepare for', s: 'A doctor asks about where, since when and how bad, in any order, using words the lesson never taught.' },
     { t: 'Get a dosage right by ear', s: 'Three times a day and every three hours are not the same instruction, and nobody writes it down for you.' },
-    { t: 'Keep going when the word is missing', s: `Describe around it. ${REPAIR_UNIT} gave you six ways to ask again; this adds what to say when asking again will not help.` },
+    { t: 'Keep going when the word is missing', s: `Describe around it. ${Cap(unitRef(REPAIR_UNIT))} gave you six ways to ask again; this adds what to say when asking again will not help.` },
   ],
 };
 
@@ -185,7 +191,7 @@ const S_THREE: LessonSection = {
   say: REFRAME,
   audio: { ...FR, recordingId: 'rec-a2-28-three' },
   cards: [
-    { head: 'Shape 1 · a body part', fr: 'J\'ai mal à la tête.', sub: 'My head hurts.', body: `You already have this one. ${BODY_UNIT} built five sections on it and you are not going to walk them again. It is here because the other two only make sense against it.`, label: `${BODY_UNIT} owns this` },
+    { head: 'Shape 1 · a body part', fr: 'J\'ai mal à la tête.', sub: 'My head hurts.', body: `You already have this one. ${Cap(unitRef(BODY_UNIT))} built five sections on it and you are not going to walk them again. It is here because the other two only make sense against it.`, label: `${Cap(unitRef(BODY_UNIT))} owns this` },
     { head: 'Shape 2 · a symptom noun', fr: 'J\'ai de la fièvre.', sub: 'I have a fever.', body: 'A noun you HAVE. La fièvre, la grippe, un rhume, la nausée, des frissons. English also uses a noun here, which is why this one feels safe and is not always right.', label: 'avoir plus a noun' },
     { head: 'Shape 3 · a bare verb', fr: 'Je tousse.', sub: 'I have a cough.', body: 'A verb, on its own, where English hands you a noun. Je tousse, je saigne, j\'éternue, je vomis. This is the shape anglophones almost never reach for and it is the commonest one in a clinic.', label: 'the verb, alone' },
     { head: 'The choice is not translatable', fr: 'J\'ai mal à la tête · J\'ai de la fièvre · Je tousse', sub: 'my head hurts · I have a fever · I have a cough', body: 'English uses a verb for the first, a noun for the second and a noun for the third. French uses three different shapes and none of them lines up. That is why the choice has to be made before the word arrives.', label: 'nothing predicts it' },
@@ -214,12 +220,12 @@ const S_SLOTS: LessonSection = {
     {
       cells: ['where', 'Où avez-vous mal ?', 'J\'ai mal ici.'],
       say: 'Où avez-vous mal exactement ?',
-      detail: { title: 'The slot you are ready for', body: `${BODY_UNIT} built this answer for you. What is new is only that somebody asked, and that ici plus a finger is a complete answer when the body part will not come.`, say: 'Où avez-vous mal exactement ?' },
+      detail: { title: 'The slot you are ready for', body: `${Cap(unitRef(BODY_UNIT))} built this answer for you. What is new is only that somebody asked, and that ici plus a finger is a complete answer when the body part will not come.`, say: 'Où avez-vous mal exactement ?' },
     },
     {
       cells: ['since when', 'Depuis quand ?', 'Ça a commencé il y a trois jours.'],
       say: 'Ça a commencé il y a trois jours.',
-      detail: { title: 'Two ways to fill it', body: `${DEPUIS_UNIT} owns depuis and everything about the tense it wants. You can also answer with il y a and sidestep it entirely, which is what the second answer here does.`, say: 'Ça a commencé il y a trois jours.' },
+      detail: { title: 'Two ways to fill it', body: `${Cap(unitRef(DEPUIS_UNIT))} owns depuis and everything about the tense it wants. You can also answer with il y a and sidestep it entirely, which is what the second answer here does.`, say: 'Ça a commencé il y a trois jours.' },
     },
     {
       cells: ['how bad', 'Ça vous lance ou ça vous brûle ?', 'C\'est comme une brûlure.'],
@@ -246,11 +252,11 @@ const S_SORT: LessonSection = {
     {
       label: 'a body part hurts',
       items: [
-        { fr: 'avoir mal à la tête', en: 'to have a headache', note: BODY_UNIT, itemId: 'fr.a2.symptomes.023' },
-        { fr: 'avoir mal au ventre', en: 'to have stomach ache', note: BODY_UNIT, itemId: 'fr.a2.symptomes.024' },
+        { fr: 'avoir mal à la tête', en: 'to have a headache', note: unitRef(BODY_UNIT), itemId: 'fr.a2.symptomes.023' },
+        { fr: 'avoir mal au ventre', en: 'to have stomach ache', note: unitRef(BODY_UNIT), itemId: 'fr.a2.symptomes.024' },
         { fr: 'J\'ai mal partout.', en: 'I ache all over.', note: 'no body part at all', itemId: B(22) },
       ],
-      check: { q: 'Why does « J\'ai mal partout » still count as shape 1?', opts: ['Because partout is a body part', 'Because avoir mal is the shape, and what follows it can be a place instead', 'Because it has mal in it', 'It does not, it is shape 2'], correct: 1, why: `Avoir mal is what makes it shape 1. ${BODY_UNIT} taught what comes after it; here the point is only that the shape survives when the body part does not.` },
+      check: { q: 'Why does « J\'ai mal partout » still count as shape 1?', opts: ['Because partout is a body part', 'Because avoir mal is the shape, and what follows it can be a place instead', 'Because it has mal in it', 'It does not, it is shape 2'], correct: 1, why: `Avoir mal is what makes it shape 1. ${Cap(unitRef(BODY_UNIT))} taught what comes after it; here the point is only that the shape survives when the body part does not.` },
     },
     {
       label: 'you HAVE a noun',
@@ -304,8 +310,8 @@ const S_PICK: LessonSection = {
   ],
   cards: [
     { promptLabel: 'a cough', promptSound: 'Je tousse.', fr: 'verb, not noun', ipa: '/ʒə tus/', tip: 'English gives you a noun and French gives you a verb. J\'ai une toux is understood and marks you out immediately.' },
-    { promptLabel: 'a fever', promptSound: 'J\'ai de la fièvre.', fr: 'noun, with de la', ipa: '/ʒe də la fjɛvʁ/', tip: 'Here the noun IS right. De la is the article that means an amount, and a1.29 owns it; nothing new is claimed about it here.' },
-    { promptLabel: 'my head', promptSound: 'J\'ai mal à la tête.', fr: 'shape 1', ipa: '/ʒe mal a la tɛt/', tip: `English uses a verb, French uses avoir mal. ${BODY_UNIT} owns this shape and everything that follows it.` },
+    { promptLabel: 'a fever', promptSound: 'J\'ai de la fièvre.', fr: 'noun, with de la', ipa: '/ʒe də la fjɛvʁ/', tip: `Here the noun IS right. De la is the article that means an amount, and ${unitRef('a1.29')} owns it; nothing new is claimed about it here.` },
+    { promptLabel: 'my head', promptSound: 'J\'ai mal à la tête.', fr: 'shape 1', ipa: '/ʒe mal a la tɛt/', tip: `English uses a verb, French uses avoir mal. ${Cap(unitRef(BODY_UNIT))} owns this shape and everything that follows it.` },
     { promptLabel: 'dizzy', promptSound: 'J\'ai des vertiges.', fr: 'noun, plural', ipa: '/ʒe de vɛʁ.tiʒ/', tip: 'English uses an adjective. None of the three French shapes is an adjective, so je suis vertige is not a near miss, it is a different language.' },
     { promptLabel: 'nauseous', promptSound: 'J\'ai la nausée.', fr: 'noun', ipa: '/ʒe la no.ze/', tip: 'Another English adjective that becomes a French noun. Je suis nauséeux exists and is not what a person says at a counter.' },
     { promptLabel: 'I am bleeding', promptSound: 'Je saigne.', fr: 'verb', ipa: '/ʒə sɛɲ/', tip: 'English uses a verb too, so this one is free. It is here to prove the rule is not simply the opposite of English.' },
@@ -406,12 +412,12 @@ const S_PAIRS: LessonSection = {
 const S_REPAIR: LessonSection = {
   type: 'cardDeck', id: REPAIR, title: 'Asking Again Will Not Help', frSub: 'Redemander, ou décrire',
   render: 'deck', layer: 'core', size: 'lg', terms: ['rung', 'describeAround'],
-  say: `${REPAIR_UNIT} authored six ways to ask again, once, for the whole band, and this lesson adds none of them. What it adds is the case where asking again gets you nothing.`,
+  say: `${Cap(unitRef(REPAIR_UNIT))} authored six ways to ask again, once, for the whole band, and this lesson adds none of them. What it adds is the case where asking again gets you nothing.`,
   audio: { ...FR, recordingId: 'rec-a2-28-repair' },
   cards: [
-    { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: `One word, and it gives away nothing about why you missed it. ${REPAIR_UNIT} put it first because it costs you nothing at all.`, label: `${REPAIR_UNIT}, rung 1` },
-    { head: 'Rung 3', fr: 'Plus lentement, s\'il vous plaît.', sub: '[plü lahⁿt-MAHⁿ seel voo PLEH]', body: 'The first rung that names the fault. A doctor will slow down without a flicker; it is a thing patients ask for several times a day.', label: `${REPAIR_UNIT}, rung 3` },
-    { head: 'Rung 5', fr: 'Qu\'est-ce que ça veut dire ?', sub: '[kess kuh sa veu DEER]', body: 'Narrows the failure to one word rather than the whole turn. In a clinic this is often the right rung, because usually only one word was missing.', label: `${REPAIR_UNIT}, rung 5` },
+    { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: `One word, and it gives away nothing about why you missed it. ${Cap(unitRef(REPAIR_UNIT))} put it first because it costs you nothing at all.`, label: `${Cap(unitRef(REPAIR_UNIT))}, rung 1` },
+    { head: 'Rung 3', fr: 'Plus lentement, s\'il vous plaît.', sub: '[plü lahⁿt-MAHⁿ seel voo PLEH]', body: 'The first rung that names the fault. A doctor will slow down without a flicker; it is a thing patients ask for several times a day.', label: `${Cap(unitRef(REPAIR_UNIT))}, rung 3` },
+    { head: 'Rung 5', fr: 'Qu\'est-ce que ça veut dire ?', sub: '[kess kuh sa veu DEER]', body: 'Narrows the failure to one word rather than the whole turn. In a clinic this is often the right rung, because usually only one word was missing.', label: `${Cap(unitRef(REPAIR_UNIT))}, rung 5` },
     { head: 'When none of the six helps', fr: 'Je ne connais pas le mot. C\'est comme une brûlure.', sub: '[zhuh nuh ko-neh PAH luh MOH]', body: 'The six rungs all ask the other person for something. Here the missing word is YOURS, not his, and no amount of repeating supplies it. Say what it is like instead, using a word you already have.', label: 'the word is yours, not his' },
     { head: 'Buy yourself a second try', fr: 'C\'est difficile à expliquer.', sub: '[seh dee-fee-SEEL ah eks-plee-KAY]', body: 'Five words that stop the silence from ending the turn. A doctor who hears it waits. A doctor who hears nothing moves on and starts guessing.', label: 'keeps the turn open' },
   ],
@@ -466,7 +472,7 @@ const S_COUNTER: LessonSection = {
   say: 'The pharmacy is three moves: say what you need, hand over the paper, understand the answer. The third one is the only hard part.',
   audio: { ...FR, recordingId: 'rec-a2-28-counter' },
   cards: [
-    { head: 'You open', fr: 'Je voudrais quelque chose contre la toux.', sub: '[zhuh voo-DREH kel-kuh shohz kohⁿtr lah TOO]', body: `Contre plus the symptom. It works for anything you can name, and ${MODAL_UNIT} shipped je voudrais as a fixed form you use whole.`, label: 'contre plus a symptom' },
+    { head: 'You open', fr: 'Je voudrais quelque chose contre la toux.', sub: '[zhuh voo-DREH kel-kuh shohz kohⁿtr lah TOO]', body: `Contre plus the symptom. It works for anything you can name, and ${unitRef(MODAL_UNIT)} shipped je voudrais as a fixed form you use whole.`, label: 'contre plus a symptom' },
     { head: 'You hand it over', fr: 'Voici mon ordonnance.', sub: '[vwah-SEE mohⁿ-nor-do-NAHⁿSS]', body: 'Two words and a piece of paper. From here the pharmacist leads and you are listening rather than producing.', label: 'the paper does the talking' },
     { head: 'He asks first', fr: 'Vous avez une ordonnance ?', sub: '[voo-zah-VAY ün or-do-NAHⁿSS]', body: 'The counter usually opens with this rather than with a greeting question. Oui or non answers it completely.', label: 'his opener' },
     { head: 'The refusal, and it is short', fr: 'C\'est sur ordonnance.', sub: '[seh sür or-do-NAHⁿSS]', body: 'Four words meaning he cannot sell it to you without a prescription. A learner waiting for a longer explanation misses the whole answer.', label: 'four words, and it is a no' },
@@ -585,9 +591,9 @@ const S_ERRORS: LessonSection = {
   errors: [
     { wrong: 'J\'ai une toux.', right: 'Je tousse.', why: 'English hands you a noun and French wants the verb. La toux exists and is what you call the symptom in the abstract, not what you say when you have it.' },
     { wrong: 'Je suis chaud.', right: 'J\'ai de la fièvre.', why: 'Je suis chaud does not mean you have a temperature, and what it does mean is not something to say to a doctor. Fever is a noun you HAVE.' },
-    { wrong: 'Ma tête fait mal.', right: 'J\'ai mal à la tête.', why: `A word-for-word translation of my head hurts. French puts the person first and the part second. ${BODY_UNIT} built five sections on this shape and this is the only place it is worth naming the error.` },
+    { wrong: 'Ma tête fait mal.', right: 'J\'ai mal à la tête.', why: `A word-for-word translation of my head hurts. French puts the person first and the part second. ${Cap(unitRef(BODY_UNIT))} built five sections on this shape and this is the only place it is worth naming the error.` },
     { wrong: 'Je suis malade au ventre.', right: 'J\'ai mal au ventre.', why: 'Être malade is being ill in general. Avoir mal is a specific pain in a specific place, and the two are not interchangeable even though English blurs them.' },
-    { wrong: 'Pour trois jours.', right: 'depuis trois jours', why: `Pour is how long something WILL last. For a thing that started and is still going, French wants depuis, and ${DEPUIS_UNIT} owns that word and everything about it. You can also sidestep it: ça a commencé il y a trois jours.` },
+    { wrong: 'Pour trois jours.', right: 'depuis trois jours', why: `Pour is how long something WILL last. For a thing that started and is still going, French wants depuis, and ${unitRef(DEPUIS_UNIT)} owns that word and everything about it. You can also sidestep it: ça a commencé il y a trois jours.` },
     { wrong: 'Je me sens malade.', right: 'Je ne me sens pas bien.', why: 'Je me sens malade is heard as being about to be sick. Je ne me sens pas bien is the general one, and it is what you say in a waiting room.' },
   ],
 };
@@ -733,7 +739,7 @@ const S_REVIEW: LessonSection = {
   render: 'deck', layer: 'core', terms: ['construction', 'describeAround'],
   say: 'His half and yours, one last time.',
   cards: [
-    { front: 'English says my head hurts', back: 'J\'ai mal à la tête. Shape 1, and a1.24 owns it.', say: 'J\'ai mal à la tête.' },
+    { front: 'English says my head hurts', back: `J\'ai mal à la tête. Shape 1, and ${unitRef('a1.24')} owns it.`, say: 'J\'ai mal à la tête.' },
     { front: 'English says I have a fever', back: 'J\'ai de la fièvre. Shape 2: a noun you have.', say: 'J\'ai de la fièvre.' },
     { front: 'English says I have a cough', back: 'Je tousse. Shape 3: a bare verb where English used a noun.', say: 'Je tousse.' },
     { front: 'English says I feel dizzy', back: 'J\'ai des vertiges. An English adjective becomes a French noun.', say: 'J\'ai des vertiges.' },
@@ -758,7 +764,7 @@ const S_PROGRESS: LessonSection = {
     { k: 'Slots a doctor asks for', v: '4' },
     { k: 'Doctor questions in the corpus before this lesson', v: '0 in vous' },
     { k: 'Times a day for toutes les trois heures', v: '8, not 3' },
-    { k: 'Ways to ask again', v: '6, and they are a2.07\'s' },
+    { k: 'Ways to ask again', v: `6, and they are ${unitRef('a2.07')}\'s` },
   ],
 };
 
@@ -835,10 +841,10 @@ const S_QUIZ: LessonSection = {
       say: 'Four you type. Word choice is what is being tested, never the spelling.',
       targets: ['err-noun-for-verb', 'err-etre'],
       questions: [
-        { format: 'typeIn', ref: THREE, q: 'Say you have a fever. Four words: « J\'ai ... »', accept: ['J\'ai de la fièvre.', 'jai de la fievre', 'de la fièvre', 'J\'ai de la fievre'], answer: 'J\'ai de la fièvre.', why: 'Shape 2, a noun you have, with the de la a1.29 owns. The accent is not being tested because it folds away; the shape is.' },
+        { format: 'typeIn', ref: THREE, q: 'Say you have a fever. Four words: « J\'ai ... »', accept: ['J\'ai de la fièvre.', 'jai de la fievre', 'de la fièvre', 'J\'ai de la fievre'], answer: 'J\'ai de la fièvre.', why: `Shape 2, a noun you have, with the de la ${unitRef('a1.29')} owns. The accent is not being tested because it folds away; the shape is.` },
         { format: 'typeIn', ref: THREE, q: 'Say you have a cough, the way a French speaker does. Two words.', accept: ['Je tousse.', 'je tousse'], answer: 'Je tousse.', why: 'The bare verb. J\'ai une toux folds to a completely different string, so this item genuinely tests which shape you reached for.' },
         { format: 'typeIn', ref: REPAIR, q: 'You do not have the word. Say what it is like: « C\'est comme ... »', accept: ['C\'est comme une brûlure.', 'cest comme une brulure', 'comme une brûlure', 'C\'est comme une brulure.'], answer: 'C\'est comme une brûlure.', why: 'C\'est comme plus a word you already have. It answers the question without the word he used, which is the move this lesson exists for.' },
-        { format: 'typeIn', ref: SLOTS, q: 'Answer « Depuis quand ? » WITHOUT using depuis. « Ça a commencé ... »', accept: ['Ça a commencé il y a trois jours.', 'ca a commence il y a trois jours', 'il y a trois jours'], answer: 'Ça a commencé il y a trois jours.', why: `Il y a fills the slot and sidesteps the word entirely. ${DEPUIS_UNIT} owns depuis and nothing here asks you to get its tense right.` },
+        { format: 'typeIn', ref: SLOTS, q: 'Answer « Depuis quand ? » WITHOUT using depuis. « Ça a commencé ... »', accept: ['Ça a commencé il y a trois jours.', 'ca a commence il y a trois jours', 'il y a trois jours'], answer: 'Ça a commencé il y a trois jours.', why: `Il y a fills the slot and sidesteps the word entirely. ${Cap(unitRef(DEPUIS_UNIT))} owns depuis and nothing here asks you to get its tense right.` },
       ],
     },
     {
@@ -856,10 +862,10 @@ const S_QUIZ: LessonSection = {
     {
       id: 'r5-stuck',
       label: 'When the word will not come',
-      say: 'Four on getting through it. The six rungs are a2.07\'s.',
+      say: `Four on getting through it. The six rungs are ${unitRef('a2.07')}\'s.`,
       targets: ['err-freeze', 'err-wrong-move'],
       questions: [
-        { format: 'mcq', ref: REPAIR, q: 'He uses a word you do not know and you need HIM to say it again more slowly. Which rung?', opts: ['Pardon ?', 'Plus lentement, s\'il vous plaît.', 'C\'est comme une brûlure.', 'Je ne connais pas le mot.'], correct: 1, why: 'Rung 3 is the first that names the fault. a2.07 owns the repair ladder and the principle is to reach for the lowest rung that will actually fix the problem.' },
+        { format: 'mcq', ref: REPAIR, q: 'He uses a word you do not know and you need HIM to say it again more slowly. Which rung?', opts: ['Pardon ?', 'Plus lentement, s\'il vous plaît.', 'C\'est comme une brûlure.', 'Je ne connais pas le mot.'], correct: 1, why: `Rung 3 is the first that names the fault. ${Cap(unitRef('a2.07'))} owns the repair ladder and the principle is to reach for the lowest rung that will actually fix the problem.` },
         { format: 'mcq', ref: REPAIR, q: 'YOU do not have the French for your own symptom. Why will asking him to repeat not help?', opts: ['Because he will be annoyed', 'Because he speaks too fast', 'Because it is not polite', 'Because the missing word is yours, not his'], correct: 3, why: 'The six rungs all ask the other person for something. Repeating a question you understood does not supply a word you never had, and no amount of it will.' },
         { format: 'mcq', ref: PAIRS, q: 'He offers « lance ou brûle » and neither fits. Best answer?', opts: ['Pick the closer one', 'Say nothing', 'C\'est plutôt une douleur sourde.', 'Ask him to repeat'], correct: 2, why: 'Plutôt is the hedge that makes an approximate answer acceptable. Picking one on purpose gives him something untrue, which is worse than hedging.' },
         { format: 'mcq', ref: SCENE, q: 'What does silence cost you in a consultation?', opts: ['He asks something simpler and starts guessing', 'Nothing, he will wait', 'He ends the appointment', 'He speaks English'], correct: 0, why: 'He moves on. You have lost the one piece of information only you had, and the rest of the consultation is built on his guess instead of your answer.' },
@@ -873,8 +879,8 @@ const S_QUIZ: LessonSection = {
       questions: [
         { format: 'errorSpot', ref: ERRORS, q: 'You are telling a doctor you have a cough. Fix this.', prompt: 'J\'ai une toux.', accept: ['Je tousse.', 'je tousse'], answer: 'Je tousse.', why: 'The bare verb. The two fold to completely different strings, so what is being tested is the shape you chose and not how you typed it.' },
         { format: 'errorSpot', ref: ERRORS, q: 'You mean you have a temperature. Fix this.', prompt: 'Je suis chaud.', accept: ['J\'ai de la fièvre.', 'jai de la fievre', 'J\'ai de la fievre'], answer: 'J\'ai de la fièvre.', why: 'Je suis chaud does not mean you have a fever, and what it does mean is not for a consulting room. Fever is a noun you have.' },
-        { format: 'errorSpot', ref: ERRORS, q: 'Word-for-word from English. Fix this.', prompt: 'Ma tête fait mal.', accept: ['J\'ai mal à la tête.', 'jai mal a la tete', 'J\'ai mal a la tete'], answer: 'J\'ai mal à la tête.', why: `French puts the person first and the part second. ${BODY_UNIT} built five sections on this shape; this question only asks you to reach for it, not to explain it.` },
-        { format: 'errorSpot', ref: ERRORS, q: 'It started three days ago and it is still going. Fix this.', prompt: 'J\'ai mal au ventre pour trois jours.', accept: ['J\'ai mal au ventre depuis trois jours.', 'jai mal au ventre depuis trois jours', 'depuis trois jours'], answer: 'J\'ai mal au ventre depuis trois jours.', why: `Pour is how long something will last. ${DEPUIS_UNIT} owns depuis and everything about the tense it wants; all this question asks is which of the two words goes in the gap.` },
+        { format: 'errorSpot', ref: ERRORS, q: 'Word-for-word from English. Fix this.', prompt: 'Ma tête fait mal.', accept: ['J\'ai mal à la tête.', 'jai mal a la tete', 'J\'ai mal a la tete'], answer: 'J\'ai mal à la tête.', why: `French puts the person first and the part second. ${Cap(unitRef(BODY_UNIT))} built five sections on this shape; this question only asks you to reach for it, not to explain it.` },
+        { format: 'errorSpot', ref: ERRORS, q: 'It started three days ago and it is still going. Fix this.', prompt: 'J\'ai mal au ventre pour trois jours.', accept: ['J\'ai mal au ventre depuis trois jours.', 'jai mal au ventre depuis trois jours', 'depuis trois jours'], answer: 'J\'ai mal au ventre depuis trois jours.', why: `Pour is how long something will last. ${Cap(unitRef(DEPUIS_UNIT))} owns depuis and everything about the tense it wants; all this question asks is which of the two words goes in the gap.` },
       ],
     },
   ],
@@ -891,7 +897,7 @@ const S_ROUNDUP: LessonSection = {
     'Four slots: what, where, since when, how bad. He asks them in any order.',
     'C\'est comme une brûlure. You cannot point at a pain, so say what it is like.',
     'Trois fois par jour is three. Toutes les trois heures is eight.',
-    `The six ways to ask again are ${REPAIR_UNIT}'s, and they do not help when the missing word is yours.`,
+    `The six ways to ask again are ${unitRef(REPAIR_UNIT, 'a2')}'s, and they do not help when the missing word is yours.`,
   ],
 };
 
@@ -1088,7 +1094,7 @@ export const MEDECIN_LESSON: Lesson = {
   seq: 1,
   level: 'a2',
   tag: 'A2 · LEÇON 27',
-  version: 2,
+  version: 3,
   title: UNIT.title,
   intro: 'You can already say what hurts. This lesson is about the question that comes back at you, and about what to say when the word will not come.',
 

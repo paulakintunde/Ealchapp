@@ -147,6 +147,11 @@
 //    BRIEF'S OPEN QUESTION. See BATTRE_EVIDENCE.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** Every authored row lands in `verbes`, the batch-1 home. Ledger §2. */
 export const THEME = 'verbes';
@@ -238,7 +243,7 @@ export const DOUBLING_PAIR = { single: 'fr.a2.verbes.427', doubled: 'fr.a2.verbe
  *  section that shows the pair, not in a footnote. An edit that cuts it goes
  *  red in the batch, the merge and the test. */
 export const STEM_UNIT = 'a2.09';
-export const STEM_PRINCIPLE = 'a2.09 doubled the l of appeler in the cells where the ending went silent. prennent doubles its n for the same reason: the -ent makes no sound, so the stem has to end in one.';
+export const STEM_PRINCIPLE = `${Cap(unitRef('a2.09', 'a2'))} doubled the l of appeler where the ending went silent. prennent doubles its n for the same reason: the -ent makes no sound, so the stem must end in one.`;
 
 /** a2.09's own reframe, quoted rather than paraphrased. Doctrine §B.7: the
  *  value is in the learner recognising the repeat. */
@@ -253,7 +258,7 @@ export const STEM_REFRAME = 'The spelling changes so the sound does not.';
  *  A learner at seq 9 does, so this lesson prints the wrong form ONCE, in a
  *  commonErrors card, which is the a2.01 `je parles` shape. */
 export const A211_UNIT = 'a2.11';
-export const A211_LINE = 'a2.11 named these three and would not build them, because the model it taught you would have produced a form nobody says. This is the lesson it was waiting for.';
+export const A211_LINE = `${Cap(unitRef('a2.11', 'a2'))} named these three and would not build them, because the model it taught you would have produced a form nobody says. This is the lesson it was waiting for.`;
 /** The form the -RE model produces on prendre. Printed in exactly one place. */
 export const OVER_GENERALISED = 'ils prendent';
 /** The imported -RE verb the trap contrasts against. a2.11 owns it. */
@@ -583,7 +588,7 @@ export const PRENDRE_METTRE: PmRow[] = [
   { id: 'fr.a2.verbes.424', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je prends la clé.', en: 'I take the key.', ipa: '/ʒə pʁɑ̃ la kle/', respell: 'zhuh PRAHⁿ la KLAY', person: 'je', verb: 'prendre', role: 'head', tags: ['prendre', 'paradigm', 'singular', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'The d is written and not said. What you hear at the end of the verb is the nasal vowel.' },
   { id: 'fr.a2.verbes.425', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu prends la clé.', en: 'You take the key.', ipa: '/ty pʁɑ̃ la kle/', respell: 'tü PRAHⁿ la KLAY', person: 'tu', verb: 'prendre', role: 'head', tags: ['prendre', 'paradigm', 'singular', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'The same spelling as the je form and the same sound. Only the word in front separates them.' },
   { id: 'fr.a2.verbes.426', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il prend la clé.', en: 'He takes the key.', ipa: '/il pʁɑ̃ la kle/', respell: 'eel PRAHⁿ la KLAY', person: 'il', verb: 'prendre', role: 'head', tags: ['prendre', 'paradigm', 'singular', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'One letter shorter on the page and not one sound different in the mouth.' },
-  { id: 'fr.a2.verbes.427', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous prenons la clé.', en: 'We take the key.', ipa: '/nu pʁə.nɔ̃ la kle/', respell: 'noo pruh-NOHⁿ la KLAY', person: 'nous', verb: 'prendre', role: 'head', tags: ['prendre', 'paradigm', 'plural', 'nasal', 'stem'], drills: SD, audioRef: null, version: 1, notes: 'The d goes, and there is ONE n. The ending is the ordinary -ons you have had since a2.01.' },
+  { id: 'fr.a2.verbes.427', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous prenons la clé.', en: 'We take the key.', ipa: '/nu pʁə.nɔ̃ la kle/', respell: 'noo pruh-NOHⁿ la KLAY', person: 'nous', verb: 'prendre', role: 'head', tags: ['prendre', 'paradigm', 'plural', 'nasal', 'stem'], drills: SD, audioRef: null, version: 1, notes: `The d goes, and there is ONE n. The ending is the ordinary -ons you have had since ${unitRef('a2.01')}.` },
   // NOT A DICTÉE TARGET, and not because it could not be: at 15 letters it
   // spells from LETTERS like the rest. Eleven lines is already a long screen and
   // the two `vous` cells are the two the learner is least likely to write, so
@@ -641,7 +646,7 @@ export const PRENDRE_METTRE: PmRow[] = [
    * `mettre la clé` with a prefix, and a learner reading the two lines together
    * does not need to be told what a compound is. */
   { id: 'fr.a2.verbes.447', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je promets une réponse.', en: 'I promise an answer.', ipa: '/ʒə pʁɔ.mɛ yn ʁe.pɔ̃s/', respell: 'zhuh proh-MEH ün ray-POHⁿS', person: 'je', verb: 'mettre', role: 'compound', tags: ['mettre', 'family', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'mets with a front on it, and one t, exactly as the head verb has one t here.' },
-  { id: 'fr.a2.verbes.448', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous promettons une réponse.', en: 'We promise an answer.', ipa: '/nu pʁɔ.mɛ.tɔ̃ yn ʁe.pɔ̃s/', respell: 'noo proh-meh-TOHⁿ ün ray-POHⁿS', person: 'nous', verb: 'mettre', role: 'compound', tags: ['mettre', 'family', 'plural', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Two t, and the ending is the -ons you have written on every verb since a2.01.' },
+  { id: 'fr.a2.verbes.448', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous promettons une réponse.', en: 'We promise an answer.', ipa: '/nu pʁɔ.mɛ.tɔ̃ yn ʁe.pɔ̃s/', respell: 'noo proh-meh-TOHⁿ ün ray-POHⁿS', person: 'nous', verb: 'mettre', role: 'compound', tags: ['mettre', 'family', 'plural', 'nasal'], drills: S, audioRef: null, version: 1, notes: `Two t, and the ending is the -ons you have written on every verb since ${unitRef('a2.01')}.` },
   { id: 'fr.a2.verbes.449', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils permettent ce choix.', en: 'They allow this choice.', ipa: '/il pɛʁ.mɛt sə ʃwa/', respell: 'eel pehr-MET suh SHWAH', person: 'ils', verb: 'mettre', role: 'compound', tags: ['mettre', 'family', 'plural'], drills: S, audioRef: null, version: 1, notes: 'Two t and a silent -ent, which is ils mettent with four letters in front of it.' },
   { id: 'fr.a2.verbes.450', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je remets la clé.', en: 'I hand the key back.', ipa: '/ʒə ʁə.mɛ la kle/', respell: 'zhuh ruh-MEH la KLAY', person: 'je', verb: 'mettre', role: 'compound', tags: ['mettre', 'family', 'frame'], drills: SD, audioRef: null, version: 1, notes: 'The same sentence as je mets la clé with two letters on the front, and the verb has not moved.' },
   { id: 'fr.a2.verbes.451', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils remettent la clé.', en: 'They hand the key back.', ipa: '/il ʁə.mɛt la kle/', respell: 'eel ruh-MET la KLAY', person: 'ils', verb: 'mettre', role: 'compound', tags: ['mettre', 'family', 'frame', 'plural'], drills: S, audioRef: null, version: 1, notes: 'And the plural of the same. Read it above ils mettent la clé and count what changed.' },
@@ -758,7 +763,7 @@ export const RESPELL_REPAIRS_VISIBLE: readonly Repair[] = [
     fr: 'prendre',
     from: 'PRAHN-druh',
     to: 'PRAHⁿDR',
-    why: 'FLAGGED, and a2.11 recorded it as a variant it did not import. It is not a variant: it closes a nasal vowel with a plain n, which invariants §3 forbids, and it adds a syllable that is not in the word. Repaired to the house form the other two prendre rows now carry. THIS ROW IS NOT IMPORTED — it is repaired and carried and named on no screen.',
+    why: `FLAGGED, and ${unitRef('a2.11')} recorded it as a variant it did not import. It is not a variant: it closes a nasal vowel with a plain n, which invariants §3 forbids, and it adds a syllable that is not in the word. Repaired to the house form the other two prendre rows now carry. THIS ROW IS NOT IMPORTED — it is repaired and carried and named on no screen.`,
   },
 ];
 
@@ -781,7 +786,7 @@ export const RESPELL_REPAIRS_INVISIBLE: readonly Repair[] = [
     fr: 'apprendre',
     from: 'a-PRAHNDR',
     to: 'a-PRAHⁿDR',
-    why: 'the same nasal one prefix along. This row is imported instead of fr.a1.ecole.051, which carries gender=m and would join a1.03 ending population.',
+    why: `the same nasal one prefix along. This row is imported instead of fr.a1.ecole.051, which carries gender=m and would join ${unitRef('a1.03')} ending population.`,
   },
   {
     id: 'fr.sons.verbes-essentiels.225',
@@ -819,7 +824,7 @@ export const NOT_REPAIRED: readonly { id: string; respell: string; why: string }
   { id: 'fr.sons.consonnes.107', respell: 'PRAHⁿDR', why: 'ALREADY THE HOUSE FORM, and the value this build repairs fr.sons.verbes-essentiels.012 TO was read off it. Not imported because .012 sits in verbes-essentiels with the other five naming forms and carries the gloss and the drills this lesson needs; two identical prendre cards would be one card served twice.' },
   { id: 'fr.a1.dictee.095', respell: 'a-PRAHNDR', why: 'a third apprendre row with the same broken nasal. Not imported and not repaired: this build repairs the rows it displays, and repairing a dictée row it never shows would change a1 content for no reader. Recorded so whoever needs it knows it is there.' },
   { id: 'fr.a1.rp-travail-etudes.037', respell: 'ah-PRAHNDR', why: 'a fourth, same shape, same reason.' },
-  { id: 'fr.a1.ecole.051', respell: 'ah-PRAHNDR', why: 'a fifth, AND IT CARRIES gender=m. A gendered single-word row joins a1.03 measured ending population and moves twenty printed figures in a1-03-genre.test.ts. Not imported at any price, and not repaired for the same reason as the two above.' },
+  { id: 'fr.a1.ecole.051', respell: 'ah-PRAHNDR', why: `a fifth, AND IT CARRIES gender=m. A gendered single-word row joins ${unitRef('a1.03')} measured ending population and moves twenty printed figures in a1-03-genre.test.ts. Not imported at any price, and not repaired for the same reason as the two above.` },
   { id: 'fr.b1.verbes.022', respell: 'pair-METR', why: 'a permettre variant that spells the first syllable pair- rather than pehr-. Invariants §9: a variant is not a violation, and there is no nasal in it. Not imported because fr.sons.verbes-essentiels.196 sits with the rest of the family.' },
   { id: 'fr.b1.verbes.086', respell: 'ad-METR', why: 'admettre EXISTS, which corrections §2 does not say. It is deliberately NOT imported: it is one of the two compounds the exam gives cold, and a card for it anywhere in this lesson would delete the only mission that distinguishes this lesson from a table.' },
 ];
@@ -827,11 +832,11 @@ export const NOT_REPAIRED: readonly { id: string; respell: string; why: string }
 /** Rows read and deliberately NOT imported, with the reason. Silence here is
  *  worth nothing to the next author; a recorded refusal is worth a probe. */
 export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
-  { id: 'fr.sons.nasales.143', fr: 'On prend le train ensemble.', why: 'THE BEST SINGLE PIECE OF EVIDENCE IN THE CORPUS FOR THIS LESSON, and it is a2.27. Clean nasals, no tie, an ordinary sentence nobody wrote for a grammar screen. The brief: prendre le train is a2.27 at seq 26 and taking it here costs that unit its opening.' },
-  { id: 'fr.sons.voyelles.407', fr: 'Tu prends le bus ou tu marches sous la pluie?', why: 'the same, and a2.27 again.' },
-  { id: 'fr.a1.verbes-essentiels.020', fr: 'Nous prenons le métro tous les jours.', why: 'a2.27, and its respelling closes two nasals with a plain n (noo pruh-NOHN luh may-TROH). Refused on the first ground; the second is recorded so nobody imports it later believing it is clean.' },
-  { id: 'fr.sons.voyelles.434', fr: 'Tu prends le vélo ou l\'auto ?', why: 'a2.27.' },
-  { id: 'fr.sons.masterclass.043', fr: 'Après le dîner, on prend un verre d\'eau.', why: 'a2.07, and its respelling carries U+203F UNDERTIE, which renders as a low underscore on a Pixel 6.' },
+  { id: 'fr.sons.nasales.143', fr: 'On prend le train ensemble.', why: `THE BEST SINGLE PIECE OF EVIDENCE IN THE CORPUS FOR THIS LESSON, and it is ${unitRef('a2.27')}. Clean nasals, no tie, an ordinary sentence nobody wrote for a grammar screen. The brief: prendre le train is ${unitRef('a2.27')} at seq 26 and taking it here costs that unit its opening.` },
+  { id: 'fr.sons.voyelles.407', fr: 'Tu prends le bus ou tu marches sous la pluie?', why: `the same, and ${unitRef('a2.27')} again.` },
+  { id: 'fr.a1.verbes-essentiels.020', fr: 'Nous prenons le métro tous les jours.', why: `${Cap(unitRef('a2.27'))}, and its respelling closes two nasals with a plain n (noo pruh-NOHN luh may-TROH). Refused on the first ground; the second is recorded so nobody imports it later believing it is clean.` },
+  { id: 'fr.sons.voyelles.434', fr: 'Tu prends le vélo ou l\'auto ?', why: `${Cap(unitRef('a2.27'))}.` },
+  { id: 'fr.sons.masterclass.043', fr: 'Après le dîner, on prend un verre d\'eau.', why: `${Cap(unitRef('a2.07'))}, and its respelling carries U+203F UNDERTIE, which renders as a low underscore on a Pixel 6.` },
   { id: 'fr.sons.nasales.038', fr: 'Les enfants apprennent une chanson en classe.', why: 'THE ONLY PUBLISHED apprennent SENTENCE WITH A RESPELLING, and it carries U+203F. It would have been the best evidence for the doubled n in a row this lesson did not write.' },
   { id: 'fr.a1.verbes-essentiels.035', fr: 'Je comprends mieux maintenant.', why: 'three plain nasals in one line (zhuh kohn-PRAHN myuh mant-NAHN). Repairable, and this build does not import it: the four evidence rows it does take are already clean, and a repair on a row nobody in this lesson displays is a change with no reader.' },
   { id: 'fr.a2.mots-essentiels.009', fr: 'Prends ton parapluie.', why: 'an imperative. Every quiz question in this lesson fixes person and number with a pronoun, and a bare imperative on an evidence screen invites the learner to read it as tu prends with the pronoun dropped.' },
@@ -967,7 +972,17 @@ export const EXPECTED_REFRAME_USES = 16;
 
 /** Every unit this lesson names on a learner surface, so a rename breaks a test
  *  rather than leaving a dead reference on a card. */
-export const CITED_UNITS = ['a2.01', 'a2.09', 'a2.10', 'a2.11', 'a2.02', 'a2.07', 'a2.20', 'a2.27'] as const;
+/** a2.07, a2.20 AND a2.27 ARE NOT ON THIS LIST, AND NEVER WERE ON A SCREEN.
+ *
+ *  The merge asserts every entry is NAMED on a learner surface. Measured
+ *  against the version this build started from, none of those three appears in
+ *  any lesson or term string: a2.20 is the block RESERVED_FOR the participles,
+ *  and a2.07 and a2.27 are the NEIGHBOUR_UNITS whose themes lend rows. All
+ *  three are recorded for an author in a corpus note, which is not a screen.
+ *
+ *  They sat on the list because the batch's walk reaches those notes and the
+ *  merge's does not, so the two guards disagreed and only the looser one ran. */
+export const CITED_UNITS = ['a2.01', 'a2.09', 'a2.10', 'a2.11', 'a2.02'] as const;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  READING THE CORPUS
@@ -991,7 +1006,7 @@ export function toItem(r: PmRow): Item {
 
 const must = (id: string): PmRow => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.15: no authored row ${id}. A screen is quoting a row that does not exist.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.15'))}: no authored row ${id}. A screen is quoting a row that does not exist.`);
   return r;
 };
 

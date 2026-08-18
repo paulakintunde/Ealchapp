@@ -100,6 +100,12 @@ import {
 } from './modaux-terms.ts';
 import { REFRAME as A201_REFRAME } from './verbes-er-terms.ts';
 import { REFRAME as A202_REFRAME } from './aller-venir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A1_01_REFRAME,
   A1_01_UNIT,
@@ -419,7 +425,7 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'What you have',
         head: 'Six lessons of building',
-        body: `${A201_REFRAME} ${A202_REFRAME} And a2.12 gave you three more that had to be learned whole.`,
+        body: `${A201_REFRAME} ${A202_REFRAME} And ${unitRef('a2.12')} gave you three more that had to be learned whole.`,
       },
       {
         label: 'What is different',
@@ -512,7 +518,7 @@ const SECTIONS: LessonSection[] = [
         ? 'One sound across all three of these lines. Only the word in front tells them apart.'
         : (i === 5
           ? 'The short stem, plus one letter borrowed from the line above it.'
-          : 'The long stem, and an ending you have had since a2.01.'),
+          : `The long stem, and an ending you have had since ${unitRef('a2.01')}.`),
     })),
   },
 
@@ -574,7 +580,7 @@ const SECTIONS: LessonSection[] = [
           q: `What does the -${THE_NEW_ENDING} on ${THE_NEW_ENDING_FORMS.join(' and ')} sound like?`,
           opts: ['A soft s', 'A k', 'Nothing at all', 'It lengthens the vowel'],
           correct: 2,
-          why: `Nothing. It is silent, exactly as the -s has been silent on every verb since a2.01. One new letter to write and nothing new to say.`,
+          why: `Nothing. It is silent, exactly as the -s has been silent on every verb since ${unitRef('a2.01')}. One new letter to write and nothing new to say.`,
         },
       },
       {
@@ -969,7 +975,7 @@ const SECTIONS: LessonSection[] = [
       { fr: fr('fr.a2.verbes.341'), en: 'correct, and it lands as a demand', note: 'Nothing is wrong with this sentence. It is what a small child says, and an adult saying it sounds like one.' },
       { fr: fr('fr.a2.verbes.362'), en: 'the same sentence, asking', note: 'One word changed and the whole exchange changed with it. Everything after it held still.' },
       { fr: importedFr(registerId('Je veux un café, s\'il vous plaît.')), en: 'even with please on the end', note: `[${repairedRespell(registerId('Je veux un café, s\'il vous plaît.'))}] The please does not rescue it. The verb has already done the damage.` },
-      { fr: importedFr(registerId('Je voudrais un café, s\'il vous plaît.')), en: 'and this is what people say', note: `[${repairedRespell(registerId('Je voudrais un café, s\'il vous plaît.'))}] ${A1_01_UNIT} put this in your mouth in the first lesson without telling you what it was.` },
+      { fr: importedFr(registerId('Je voudrais un café, s\'il vous plaît.')), en: 'and this is what people say', note: `[${repairedRespell(registerId('Je voudrais un café, s\'il vous plaît.'))}] ${unitRef(A1_01_UNIT)} put this in your mouth in the first lesson without telling you what it was.` },
     ],
   },
 
@@ -1027,20 +1033,20 @@ const SECTIONS: LessonSection[] = [
     type: 'cardDeck',
     id: 's18-a101',
     title: 'Since Your First Lesson',
-    frSub: `Depuis ${A1_01_UNIT}`,
+    frSub: `Depuis ${unitRef(A1_01_UNIT)}`,
     hint: 'Three cards.',
     render: 'deck',
     layer: 'core',
     size: 'lg',
     terms: ['theRegister', 'thePolite'],
-    say: `${A1_01_REFRAME} That was ${A1_01_UNIT}, and it handed you something it did not explain.`,
+    say: `${A1_01_REFRAME} That was ${unitRef(A1_01_UNIT)}, and it handed you something it did not explain.`,
     cards: [
       {
         label: 'What you were given',
         head: 'A sentence with no lesson',
         fr: importedFr(registerId('Je voudrais un café, s\'il vous plaît.')),
         sub: `[${repairedRespell(registerId('Je voudrais un café, s\'il vous plaît.'))}]`,
-        body: `${A1_01_UNIT} taught this as a whole phrase and moved on, because there was no way to explain it yet. There is now.`,
+        body: `${Cap(unitRef(A1_01_UNIT))} taught this as a whole phrase and moved on, because there was no way to explain it yet. There is now.`,
       },
       {
         label: 'What it actually is',
@@ -1201,7 +1207,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     terms: ['theOwing', 'whatFollows'],
-    say: `${WHAT_FOLLOWS} You met that shape at ${WHAT_FOLLOWS_UNIT} and here it is again, on a verb you learned twenty minutes ago.`,
+    say: `${WHAT_FOLLOWS} You met that shape at ${unitRef(WHAT_FOLLOWS_UNIT)} and here it is again, on a verb you learned twenty minutes ago.`,
     cards: [
       {
         label: 'A verb follows',
@@ -1281,7 +1287,7 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'The other kind of can',
         head: 'Knowing how to do something',
-        body: `There is a second French verb that also becomes can in English, for things you have learned to do. That split is ${RESERVED_FOR_NEIGHBOURS[0].unit}, which is the next lesson on this trail, and it brings pouvoir back to stand against it.`,
+        body: `There is a second French verb that also becomes can in English, for things you have learned to do. That split is ${unitRef(RESERVED_FOR_NEIGHBOURS[0].unit, 'a2')}, which is the next lesson on this trail, and it brings pouvoir back to stand against it.`,
       },
       {
         label: 'The polite family',
@@ -1556,7 +1562,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['voulez', 'vous voulez'],
             answer: 'voulez',
-            why: 'The ordinary -ez from a2.01, on the long stem. Nothing about the vous form here is strange.',
+            why: `The ordinary -ez from ${unitRef('a2.01')}, on the long stem. Nothing about the vous form here is strange.`,
             ref: 's10-frames',
           },
         ],
@@ -1662,7 +1668,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['dois', 'je dois'],
             answer: 'dois',
-            why: 'A plain -s. This is the singular you already met on the -RE verbs in a2.11, arriving on a verb that is not one.',
+            why: `A plain -s. This is the singular you already met on the -RE verbs in ${unitRef('a2.11')}, arriving on a verb that is not one.`,
             ref: 's07-newletter',
           },
           {
@@ -1670,7 +1676,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['A soft s', 'Nothing at all', 'A k', 'It lengthens the vowel'],
             correct: 1,
-            why: 'Nothing, exactly as the -s has been silent since a2.01.',
+            why: `Nothing, exactly as the -s has been silent since ${unitRef('a2.01')}.`,
             ref: 's07-newletter',
           },
           {
@@ -1775,7 +1781,7 @@ const SECTIONS: LessonSection[] = [
             ref: 's17-polite',
           },
           {
-            q: `${A1_01_UNIT} already put one of these in your mouth. Which?`,
+            q: `${Cap(unitRef(A1_01_UNIT))} already put one of these in your mouth. Which?`,
             format: 'mcq',
             opts: [
               importedFr(registerId('Je veux un café, s\'il vous plaît.')),
@@ -1816,7 +1822,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['peux', 'je peux'],
             answer: 'peux',
-            why: 'Asking to be allowed, and the rising voice makes it a question exactly as it did in a1.19.',
+            why: `Asking to be allowed, and the rising voice makes it a question exactly as it did in ${unitRef('a1.19')}.`,
             ref: 's19-senses',
           },
           {
@@ -1904,7 +1910,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['Say what you want', 'Ask permission', 'Say you have learned how to do something', 'Say what you must do'],
             correct: 2,
-            why: `That is a different verb and it is the whole payload of ${RESERVED_FOR_NEIGHBOURS[0].unit}, which is the next lesson on this trail.`,
+            why: `That is a different verb and it is the whole payload of ${unitRef(RESERVED_FOR_NEIGHBOURS[0].unit, 'a2')}, which is the next lesson on this trail.`,
             ref: 's24-notmine',
           },
         ],
@@ -1919,7 +1925,7 @@ const SECTIONS: LessonSection[] = [
     // See s02-goals. The house heading uses savoir and a2.14 owns that verb.
     frSub: 'Ce que vous pouvez faire maintenant',
     say: 'Four things, and the second one is bigger than the whole rest of the lesson.',
-    body: `You can build three more verbs that will not come apart, and you found a recipe that produces the hardest row of all three of them from the two rows above it. ${ENDINGS_CLAIM} That was the short half. ${REFRAME} You proved that on a verb this course has never taught you and never will, thirty seconds after meeting it, and it works the same way on every other verb in the language. You also know which sentence gets you served and which one gets you a baguette you did not ask for. ${RESERVED_FOR_NEIGHBOURS[0].unit} is next, and it brings one of these three back to stand against a verb you have not met.`,
+    body: `You can build three more verbs that will not come apart, and you found a recipe that produces the hardest row of all three of them from the two rows above it. ${ENDINGS_CLAIM} That was the short half. ${REFRAME} You proved that on a verb this course has never taught you and never will, thirty seconds after meeting it, and it works the same way on every other verb in the language. You also know which sentence gets you served and which one gets you a baguette you did not ask for. ${Cap(unitRef(RESERVED_FOR_NEIGHBOURS[0].unit, 'a2'))} is next, and it brings one of these three back to stand against a verb you have not met.`,
     points: [
       `${REFRAME}`,
       `${STEM_CLAIM}`,
@@ -2339,14 +2345,14 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-why-recipe',
         title: 'Why this sheet gives you a recipe and not a list',
         layer: 'deep',
-        body: `Every reference sheet before this one in the level lists ENDINGS, because every pattern before it had them: a2.01 holds the -er set in full, a2.10 the -ir set, a2.11 all three regular sets at once, and a2.02 lists forms because its verbs have none. This lesson has eighteen forms, and only one of them is worth memorising as a shape, the plural, and even that one is produced by a rule. ${STEM_CLAIM} Read the third table if you want to know why an ending looks familiar; read the second one if you have forgotten a plural. The first table is the one to photograph, because it is the only place in the course where three verbs sit on a single sentence and the difference between them is two letters wide. ${SINGULAR_CLAIM}`,
+        body: `Every reference sheet before this one in the level lists ENDINGS, because every pattern before it had them: ${unitRef('a2.01')} holds the -er set in full, ${unitRef('a2.10')} the -ir set, ${unitRef('a2.11')} all three regular sets at once, and ${unitRef('a2.02')} lists forms because its verbs have none. This lesson has eighteen forms, and only one of them is worth memorising as a shape, the plural, and even that one is produced by a rule. ${STEM_CLAIM} Read the third table if you want to know why an ending looks familiar; read the second one if you have forgotten a plural. The first table is the one to photograph, because it is the only place in the course where three verbs sit on a single sentence and the difference between them is two letters wide. ${SINGULAR_CLAIM}`,
       },
       {
         type: 'teach',
         id: 'sheet-carries-forward',
         title: 'What carries forward',
         layer: 'deep',
-        body: `Three things leave this lesson. The first is the big one: ${REFRAME} Any verb at all goes behind these three in the shape a dictionary gives it, including verbs nobody has taught you, and nothing later in the course takes that back. The fourth table above is a starting set and it is not a limit. The second is that ${POLITE_FORMS[0]} and ${POLITE_FORMS[1]} are fixed forms worth carrying whole, and that the choice between them and veux is about how an exchange lands rather than about being correct, which is the same thing ${A1_01_UNIT} was telling you with ${A1_01_REFRAME} The third is smaller and it will come back: ${WHAT_FOLLOWS}. dois followed by a verb and dois followed by a thing are two unrelated sentences, and you met that shape at ${WHAT_FOLLOWS_UNIT} on a different pair. ${RESERVED_FOR_NEIGHBOURS[0].unit} is next and it brings pouvoir back to stand against a verb that also becomes can in English, so the eighteen cells you have just built are about to be worth more than they were.`,
+        body: `Three things leave this lesson. The first is the big one: ${REFRAME} Any verb at all goes behind these three in the shape a dictionary gives it, including verbs nobody has taught you, and nothing later in the course takes that back. The fourth table above is a starting set and it is not a limit. The second is that ${POLITE_FORMS[0]} and ${POLITE_FORMS[1]} are fixed forms worth carrying whole, and that the choice between them and veux is about how an exchange lands rather than about being correct, which is the same thing ${unitRef(A1_01_UNIT)} was telling you with ${A1_01_REFRAME} The third is smaller and it will come back: ${WHAT_FOLLOWS}. dois followed by a verb and dois followed by a thing are two unrelated sentences, and you met that shape at ${unitRef(WHAT_FOLLOWS_UNIT)} on a different pair. ${Cap(unitRef(RESERVED_FOR_NEIGHBOURS[0].unit, 'a2'))} is next and it brings pouvoir back to stand against a verb that also becomes can in English, so the eighteen cells you have just built are about to be worth more than they were.`,
       },
     ],
   },
@@ -2385,7 +2391,7 @@ export const MODAUX_LESSON: Lesson = {
   // names first. Verified before editing: the DB body and the seed body were
   // byte-identical and both carried all four stale strings, so the source is
   // authoritative and the normal batch-then-merge path applies cleanly.
-  version: 3,
+  version: 6,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

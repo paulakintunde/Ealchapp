@@ -25,6 +25,7 @@ import { validateLesson, quizQuestions } from '../../ealch-v2/src/content/schema
 import { validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { assertReachable } from './lib/reachability.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry');
 const REAPPLY = process.argv.includes('--reapply');
@@ -104,7 +105,7 @@ function offlineGuards() {
   for (const id of REPAIR_IDS) {
     if (!id.startsWith('fr.a2.au-restaurant.')) die(`${id} is not in au-restaurant; the frozen block is ${REPAIR_UNIT}'s`);
   }
-  if (!bounded(REPAIR_UNIT).test(allText)) die(`${REPAIR_UNIT} is never named by unit id, so its repair move is being used without attribution`);
+  if (!namesUnitLabel(allText, REPAIR_UNIT)) die(`${REPAIR_UNIT} is never named, so its repair move is being used without attribution`);
   // And the tranche RELEASES all six, which is the mechanism that works.
   const tranche = new Set(DECK_TRANCHE.flat());
   for (const id of REPAIR_IDS) if (!tranche.has(id)) die(`${id} is cited but never released by a deckTranche, so it reaches the SRS through nothing`);

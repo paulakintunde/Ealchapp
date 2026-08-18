@@ -70,6 +70,7 @@ import {
 import { CHIP_ROW_BUDGET, PRONOMINAUX_TERMS, chipRowWidth } from './data/pronominaux-terms.ts';
 import { IMPORTED_ITEMS, imported } from './data/pronominaux-imported.ts';
 import { MEASURED_ROWS } from './data/pronominaux-rows.gen.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   CONTRAST_SECTION_ID, DICTATION_SECTION_ID, LATER_SECTION_ID,
   LESSON as PRON_LESSON, LISTEN_SECTION_ID, NEGATIVE_SECTION_ID,
@@ -410,7 +411,7 @@ if (!ALL_SURFACE.some((s) => s.includes(PRESENT_NO_AGREEMENT))) {
     }
   }
   /* AND IT IS NAMED AS DEFERRED SOMEWHERE, so the overlap is flagged. */
-  if (!ALL_SURFACE.some((s) => hasPhrase(s, 'a2.06')) || !ALL_SURFACE.some((s) => hasPhrase(s, 'a2.24'))) {
+  if (!ALL_SURFACE.some((s) => namesUnitLabel(s, 'a2.06')) || !ALL_SURFACE.some((s) => namesUnitLabel(s, 'a2.24'))) {
     die('neither a2.06 nor a2.24 is named, so the overlap the brief asks to be flagged reaches no screen.');
   }
 }
@@ -445,7 +446,7 @@ if (!ALL_SURFACE.some((s) => s.includes(PRESENT_NO_AGREEMENT))) {
     if (!s.includes(v)) die(`${NOMEANING_SECTION_ID} does not name « ${v} ». The brief asks for the group, with s'appeler at minimum.`);
   }
   /* THE OPENER: the learner has been saying one since sons.01. */
-  if (!ALL_SURFACE.some((t) => hasPhrase(t, 'sons.01'))) {
+  if (!ALL_SURFACE.some((t) => namesUnitLabel(t, 'sons.01'))) {
     die('sons.01 is named on no screen, so the opener the brief asks for is not credited to the lesson that shipped it.');
   }
 }
@@ -467,7 +468,7 @@ if (!ALL_SURFACE.some((s) => s.includes(PRESENT_NO_AGREEMENT))) {
     die(`A125_HANDOFF is « ${A125_HANDOFF} » and a1.25 shipped a different sentence on s11-se.`);
   }
   if (!ALL_SURFACE.some((t) => t.includes(A209_REFRAME))) die("a2.09's reframe is quoted nowhere, and it is the rule the vowel change belongs to.");
-  if (!ALL_SURFACE.some((t) => hasPhrase(t, 'a2.09'))) die('a2.09 is named on no screen.');
+  if (!ALL_SURFACE.some((t) => namesUnitLabel(t, 'a2.09'))) die('a2.09 is named on no screen.');
   /* AND a1.25 IS CREDITED, because it owns the theme and shipped the hand-off. */
   if (!ALL_SURFACE.some((t) => t.includes(A125_HANDOFF))) die("a1.25's hand-off sentence is quoted nowhere.");
   if (!ALL_SURFACE.some((t) => t.includes(A201_REFRAME))) die("a2.01's reframe is quoted nowhere, and it is why four of the six cells are one sound.");

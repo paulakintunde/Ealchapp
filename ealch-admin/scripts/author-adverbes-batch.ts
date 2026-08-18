@@ -76,6 +76,7 @@ import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
 import { Pool } from 'pg';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ADJ_ORDER, ADVERBES, AGREEMENT_UNIT, ALREADY_E, ALL_REPAIRS, AMMENT,
   AUTHORED_HEADWORDS, AUTHORED_IDS, A203_REFRAME, A203_ROWS, BON_BIEN_SHAPE,
@@ -465,7 +466,7 @@ console.log(`  chain         ${ADJ_ORDER.length}x${STEP_ORDER.length} agrees acr
 
 const payoff = byId(PAYOFF_SECTION_ID);
 if (!payoff) die(`${PAYOFF_SECTION_ID} does not exist and it is where a2.03 is named`);
-if (!strings(payoff).some((s) => hasPhrase(s, 'a2.03'))) die(`${PAYOFF_SECTION_ID} does not name a2.03 by unit id, and the brief asks for it by name`);
+if (!strings(payoff).some((s) => namesUnitLabel(s, 'a2.03'))) die(`${PAYOFF_SECTION_ID} does not name a2.03 by its lesson label, and the brief asks for it by name`);
 if (!strings(payoff).some((s) => s.includes('The plain form tells you the other three.'))) {
   die(`${PAYOFF_SECTION_ID} does not quote a2.03's reframe verbatim. A paraphrase is not the connection: the value is that the learner recognises a sentence they have already read.`);
 }
@@ -713,10 +714,10 @@ for (const f of COMPOUND_MUST_NOT_FIRE) if (COMPOUND_SHAPE.test(f)) die(`COMPOUN
   if (!COMPOUND_SHAPE.test(DEFERRAL_LINE)) {
     die('the deferral line no longer holds the compound-tense example. It is the one thing the learner needs it for: they will meet the form before they meet the tense.');
   }
-  /* AND IT NAMES a2.05 BY UNIT ID. LITERAL, not the constant the sheet renders:
+  /* AND IT NAMES a2.05 BY ITS LESSON LABEL. LITERAL, not the constant the sheet renders:
      ledger §a2.16-3, where looping over the constant the content prints passed
      every layer. */
-  if (!hasPhrase(DEFERRAL_LINE, 'a2.05')) die('the deferral line does not name a2.05 by unit id');
+  if (!namesUnitLabel(DEFERRAL_LINE, 'a2.05')) die('the deferral line does not name a2.05 by its lesson label');
   if (!/in a past tense the short ones move/i.test(DEFERRAL_LINE)) {
     die('the deferral line must say that the rule changes in a past tense and that the tense arrives later, in one sentence.');
   }
@@ -1408,7 +1409,7 @@ async function main() {
   for (const u of CITED_UNITS) if (!foundUnits.has(u)) die(`this lesson names ${u} and no such unit exists`);
   const surfaces = display(LESSON.sections).concat(display(LESSON.sheets ?? []), display(LESSON.terms ?? {}));
   for (const u of CITED_UNITS) {
-    if (!surfaces.some((s) => hasPhrase(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
+    if (!surfaces.some((s) => namesUnitLabel(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
   }
 
   /* THE PLACEMENT MEASUREMENT, RE-RUN. The lesson prints "76 times out of 76"

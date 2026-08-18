@@ -1,4 +1,10 @@
-// a2.17.l1 "Les adverbes" , the mission journey.
+
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+import { unitRef } from './_unit-ref.ts';// a2.17.l1 "Les adverbes" , the mission journey.
 //
 // ── THIS IS A FIRST BUILD ──────────────────────────────────────────────────
 //
@@ -632,10 +638,10 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     say: PAYOFF_CLAIM,
     examples: [
-      { fr: importedFr(A203_ROWS.mascSentence), en: importedEn(A203_ROWS.mascSentence), note: `${AGREEMENT_UNIT} taught you this one and the x on the end of it is silent.` },
-      { fr: importedFr(A203_ROWS.femSentence), en: importedEn(A203_ROWS.femSentence), note: `${AGREEMENT_UNIT} taught you this one too, on the same screen, and told you the x becomes se. It did not say what for.` },
+      { fr: importedFr(A203_ROWS.mascSentence), en: importedEn(A203_ROWS.mascSentence), note: `${Cap(unitRef(AGREEMENT_UNIT))} taught you this one and the x on the end of it is silent.` },
+      { fr: importedFr(A203_ROWS.femSentence), en: importedEn(A203_ROWS.femSentence), note: `${Cap(unitRef(AGREEMENT_UNIT))} taught you this one too, on the same screen, and told you the x becomes se. It did not say what for.` },
       { fr: fr(adverbSentenceId('serieux')), en: en(adverbSentenceId('serieux')), note: 'This is what for. The buzz on the end of the middle word is now in the middle of this one, and nobody had to teach you the word.' },
-      { fr: `${A203_UNIT_QUOTE}`, en: `${AGREEMENT_UNIT}`, note: 'That sentence was the whole of the last lesson but one, and it is still true. Every one of the other three was a step you have already taken.' },
+      { fr: `${A203_UNIT_QUOTE}`, en: `${Cap(unitRef(AGREEMENT_UNIT))}`, note: 'That sentence was the whole of the last lesson but one, and it is still true. Every one of the other three was a step you have already taken.' },
     ],
     terms: ['theChain', 'unseen'],
   },
@@ -729,7 +735,7 @@ const SECTIONS: LessonSection[] = [
       { word: 'crie', en: 'shouts', note: 'From crier. The word after it in this sentence tells you how somebody else speaks instead.' },
       { word: 'bureau', en: 'desk, office', note: 'Both meanings, and here it is the desk.' },
       { word: 'prend son temps', en: 'takes his time', note: 'Three words and a fixed phrase. Nothing in it is this lesson.' },
-      { word: 'vendredi', en: 'Friday', note: 'One of the seven you had in a1.08.' },
+      { word: 'vendredi', en: 'Friday', note: `One of the seven you had in ${unitRef('a1.08')}.` },
     ],
     questions: [
       { q: 'Six words in this passage say how somebody does something. Where does every single one of them sit?', a: 'After the verb. Not one of them comes in front of it, and that is true of all six.' },
@@ -1144,7 +1150,7 @@ const SECTIONS: LessonSection[] = [
             ref: PLACE_SECTION_ID,
           },
           {
-            q: `Where does the word go when the sentence is negative?   (${NEGATION_UNIT})`,
+            q: `Where does the word go when the sentence is negative?   (${unitRef(NEGATION_UNIT)})`,
             format: 'mcq',
             opts: [
               'Between the two negative words',
@@ -1193,7 +1199,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: [UNSEEN[1].adverb],
             answer: UNSEEN[1].adverb,
-            why: `${UNSEEN[1].fem} plus the ending. Two rules run one after the other, one from ${AGREEMENT_UNIT} and one from here, on a word neither lesson listed.`,
+            why: `${UNSEEN[1].fem} plus the ending. Two rules run one after the other, one from ${unitRef(AGREEMENT_UNIT)} and one from here, on a word neither lesson listed.`,
             ref: UNSEEN_SECTION_ID,
           },
           {
@@ -1391,7 +1397,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: [step('serieux', 'adverb'), fr(adverbSentenceId('serieux'))],
             answer: step('serieux', 'adverb'),
-            why: `${step('serieux', 'fem')} plus the ending, and ${AGREEMENT_UNIT} gave you the middle word.`,
+            why: `${step('serieux', 'fem')} plus the ending, and ${unitRef(AGREEMENT_UNIT)} gave you the middle word.`,
             ref: PAYOFF_SECTION_ID,
           },
           {
@@ -1432,12 +1438,12 @@ const SECTIONS: LessonSection[] = [
       PLACEMENT_ARITHMETIC,
       CHAIN_ARITHMETIC,
       SOUND_ARITHMETIC,
-      `${AGREEMENT_UNIT} said it first: ${A203_REFRAME} You have been building the middle step since then.`,
+      `${Cap(unitRef(AGREEMENT_UNIT))} said it first: ${A203_REFRAME} You have been building the middle step since then.`,
       IRREGULAR_ARITHMETIC,
       AMMENT_ARITHMETIC,
       ALREADY_E_CLAIM,
       NEXT_LESSON_LINE,
-      `${NEGATION_UNIT} owns the wrap and ${COMPARATIVE_UNIT} owns saying somebody does it better. Neither of them is this.`,
+      `${Cap(unitRef(NEGATION_UNIT))} owns the wrap and ${unitRef(COMPARATIVE_UNIT)} owns saying somebody does it better. Neither of them is this.`,
     ],
   },
 ];
@@ -1809,7 +1815,7 @@ export const ADVERBES_LESSON: Lesson = {
   // shape the sweep repaired in a2.03 and a2.16 on the same day. Found by
   // reading the ledger section that the contract came from rather than by a
   // gate, which is why the batch now asserts it.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',

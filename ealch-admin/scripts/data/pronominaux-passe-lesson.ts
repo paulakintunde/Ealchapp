@@ -77,6 +77,12 @@ import {
   ALREADY_YOURS, ASYMMETRY_LINE, EVIDENCE_LINE, PRONOMINAUX_PASSE_TERMS,
 } from './pronominaux-passe-terms.ts';
 import { importedEn, importedFr, rowCard } from './pronominaux-passe-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the rows ─────────────────────────────────────────────────────
  *
@@ -240,7 +246,7 @@ const SCENE_BEATS: SceneBeat[] = [
   {
     kind: 'resolve',
     size: 'md',
-    text: `${REFLEXIVE_UNIT} opened on « ${A222_SCENE_ERROR} »: the same verb, the same missing word, the same person waiting. This is what happens to it in the past. ${THE_NEW_FACT}`,
+    text: `${Cap(unitRef(REFLEXIVE_UNIT))} opened on « ${A222_SCENE_ERROR} »: same verb, same missing word, same person waiting. Here it is in the past. ${THE_NEW_FACT}`,
   },
 ];
 
@@ -309,9 +315,9 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     goals: [
       { t: 'Reach for the right first word', s: `${THE_NEW_FACT} It is the only decision in the sentence and the little word makes it for you.` },
-      { t: 'Put the parts in one order', s: `Person, little word, first word, second word. ${REFLEXIVE_UNIT} gave you the first two and ${ETRE_UNIT} gave you the last two, and this is where they go together.` },
+      { t: 'Put the parts in one order', s: `Person, little word, first word, second word. ${Cap(unitRef(REFLEXIVE_UNIT))} gave you the first two and ${unitRef(ETRE_UNIT)} gave you the last two, and this is where they go together.` },
       { t: 'Put the ending on in writing', s: `${AGREEMENT_RULE} You will never hear it, so the only way to prove you can do it is to write it down.` },
-      { t: 'Say no without moving anything', s: `${NEGATION_UNIT}, ${FUTUR_UNIT}, ${PASSE_UNIT}, ${ETRE_UNIT} and ${REFLEXIVE_UNIT} all built this rule and none of it changes. There is just a third word now, and it stays outside.` },
+      { t: 'Say no without moving anything', s: `${Cap(unitRef(NEGATION_UNIT))}, ${unitRef(FUTUR_UNIT)}, ${unitRef(PASSE_UNIT)}, ${unitRef(ETRE_UNIT)} and ${unitRef(REFLEXIVE_UNIT)} all built this rule and none of it changes. There is just a third word now, and it stays outside.` },
     ],
   },
 
@@ -334,32 +340,32 @@ const SECTIONS: LessonSection[] = [
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-23-recap' },
     cards: [
       {
-        head: `The little word, from ${REFLEXIVE_UNIT}`,
+        head: `The little word, from ${unitRef(REFLEXIVE_UNIT)}`,
         label: 'you have this',
         fr: 'je me · tu te · il se · nous nous · vous vous · ils se',
         sub: 'the person, said a second time',
-        body: `« ${A222_REFRAME} » That is ${REFLEXIVE_UNIT}'s line and it has not changed. The six little words are the same six.`,
+        body: `« ${A222_REFRAME} » That is ${unitRef(REFLEXIVE_UNIT, 'a2')}'s line and it has not changed. The six little words are the same six.`,
       },
       {
-        head: `The ending, from ${ETRE_UNIT}`,
+        head: `The ending, from ${unitRef(ETRE_UNIT)}`,
         label: 'you have this too',
         fr: 'levé · levée · levés · levées',
         sub: 'and all four are one sound',
         body: `« ${A221_REFRAME} » ${AGREEMENT_RULE}`,
       },
       {
-        head: `The shape and the wrap, from ${PASSE_UNIT}`,
+        head: `The shape and the wrap, from ${unitRef(PASSE_UNIT)}`,
         label: 'and this',
         fr: noStop(fr(A(802))),
         sub: `${sub(A(802))} ${en(A(802))}`,
         body: `« ${A205_REFRAME} » Two words for one verb, and the small ones in the middle. Nothing about that changes when the first word does.`,
       },
       {
-        head: `The second words, from ${IRREGULAR_UNIT}`,
+        head: `The second words, from ${unitRef(IRREGULAR_UNIT)}`,
         label: 'and this',
         fr: noStop(fr(A(830))),
         sub: `${sub(A(830))} ${en(A(830))}`,
-        body: `« ${A220_REFRAME} » Souvenue is not built out of anything on this screen. It comes off venir, in the group ${IRREGULAR_UNIT} put it in, and the ending goes on it the same way.`,
+        body: `« ${A220_REFRAME} » Souvenue is not built out of anything on this screen. It comes off venir, in the group ${unitRef(IRREGULAR_UNIT)} put it in, and the ending goes on it the same way.`,
       },
     ],
   },
@@ -408,7 +414,7 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     size: 'lg',
     render: 'deck',
-    say: 'Three cards, two people each. Nothing here is new: it is a1.06\'s six forms of être with a2.22\'s six little words in front of them.',
+    say: `Three cards, two people each. Nothing here is new: it is ${unitRef('a1.06')}\'s six forms of être with ${unitRef('a2.22')}\'s six little words in front of them.`,
     hint: 'Two little words, then the verb, every time.',
     terms: ['littleWord', 'firstWord'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-23-persons' },
@@ -418,7 +424,7 @@ const SECTIONS: LessonSection[] = [
         label: 'je · tu',
         fr: pair(PERSON_IDS[0]!, PERSON_IDS[1]!),
         sub: `${sub(PERSON_IDS[1]!)} ${en(PERSON_IDS[1]!)}`,
-        body: `Te becomes t in front of es, which is the elision you have had since sons.07. ${ELISION_CLAIM}`,
+        body: `Te becomes t in front of es, the elision you have had since ${unitRef('sons.07')}. ${ELISION_CLAIM}`,
       },
       {
         head: 'And so does the third',
@@ -502,7 +508,7 @@ const SECTIONS: LessonSection[] = [
       { fr: fr(CELL_IDS[1]!), en: en(CELL_IDS[1]!), note: `${sub(CELL_IDS[1]!)} One letter more, and not one sound more. That is the whole of this screen.` },
       { fr: fr(CELL_IDS[2]!), en: en(CELL_IDS[2]!), note: `${sub(CELL_IDS[2]!)} More than one, so s. The first word changed too, and only that change is audible.` },
       { fr: fr(CELL_IDS[3]!), en: en(CELL_IDS[3]!), note: `${sub(CELL_IDS[3]!)} Both endings at once, and it is the longest of the four to write and the same length to say.` },
-      { fr: fr(AVOIR_PAIR[0]), en: en(AVOIR_PAIR[0]), note: `${sub(AVOIR_PAIR[0])} The same woman and the same verb, with the other first word. After avoir nothing goes on the end, in any person, ever. ${ETRE_UNIT} taught that and this lesson does not touch it.` },
+      { fr: fr(AVOIR_PAIR[0]), en: en(AVOIR_PAIR[0]), note: `${sub(AVOIR_PAIR[0])} The same woman and the same verb, with the other first word. After avoir nothing goes on the end, in any person, ever. ${Cap(unitRef(ETRE_UNIT))} taught that and this lesson does not touch it.` },
     ],
   },
 
@@ -529,7 +535,7 @@ const SECTIONS: LessonSection[] = [
         q: `${noStop(fr(CELL_IDS[0]!))} against ${noStop(fr(CELL_IDS[1]!))}. What did you hear?`,
         opts: ['A longer ending on the second one', 'Nothing at all', 'A different verb'],
         correct: 1,
-        why: `« ${A201_REFRAME} » That is ${ER_UNIT}'s line, and ${ETRE_UNIT} quoted it for exactly this. All four spellings are one sound.`,
+        why: `« ${A201_REFRAME} » That is ${unitRef(ER_UNIT, 'a2')}'s line, and ${unitRef(ETRE_UNIT)} quoted it for exactly this. All four spellings are one sound.`,
       },
       {
         q: `${noStop(fr(A(801)))} against ${noStop(fr(A(802)))}. And here?`,
@@ -583,7 +589,7 @@ const SECTIONS: LessonSection[] = [
           q: 'Se souvenir. Where does souvenue come from?',
           opts: ['From the ending on this screen', 'From venir, and its own group', 'It has no second word'],
           correct: 1,
-          why: `« ${A220_REFRAME} » ${IRREGULAR_UNIT} put it in the group that ends in u. The ending still goes on it exactly the same way, which is the point of putting it here.`,
+          why: `« ${A220_REFRAME} » ${unitRef(IRREGULAR_UNIT)} put it in the group that ends in u. The ending still goes on it exactly the same way, which is the point of putting it here.`,
         },
       },
     ],
@@ -624,14 +630,14 @@ const SECTIONS: LessonSection[] = [
         label: 'se brosser les dents',
         fr: pair(OBJECT_PAIR[1]![0], OBJECT_PAIR[1]![1]),
         sub: `${sub(OBJECT_PAIR[1]![1])} ${en(OBJECT_PAIR[1]![1])}`,
-        body: `${ROUTINE_UNIT} taught both of these as whole phrases, so they are the two you are most likely to want. When you write one, leave the ending off.`,
+        body: `${Cap(unitRef(ROUTINE_UNIT))} taught both of these as whole phrases, so they are the two you are most likely to want. When you write one, leave the ending off.`,
       },
       {
         head: 'This is already in the app',
         label: 'not a special case',
         fr: importedFr('fr.a2.corps.001'),
         sub: importedEn('fr.a2.corps.001'),
-        body: `Written for a different lesson, by somebody who was not teaching this, and the second word carries no ending. ${INDIRECT_OBJECT_UNIT} is where the reason for it lives. Today it is enough to know it is not a mistake.`,
+        body: `Written for a different lesson, by somebody who was not teaching this, and the second word carries no ending. ${Cap(unitRef(INDIRECT_OBJECT_UNIT))} is where the reason for it lives. Today it is enough to know it is not a mistake.`,
       },
     ],
   },
@@ -656,14 +662,14 @@ const SECTIONS: LessonSection[] = [
         label: 'se dépêcher',
         fr: noStop(fr(A(817))),
         sub: `${sub(A(817))} ${en(A(817))}`,
-        body: `${REFLEXIVE_UNIT} taught that some of these point at nothing at all. The action does not come back to anybody and the little word is obligatory anyway, and it still means être.`,
+        body: `${Cap(unitRef(REFLEXIVE_UNIT))} taught that some of these point at nothing at all. The action does not come back to anybody and the little word is obligatory anyway, and it still means être.`,
       },
       {
         head: 'And nothing here moves',
         label: 'se reposer',
         fr: noStop(fr(A(818))),
         sub: `${sub(A(818))} ${en(A(818))}`,
-        body: `${ETRE_UNIT} gave you fifteen verbs that take être and twelve of them move. Resting is not one of them, and it does not need to be: the little word decided this before the meaning got a vote.`,
+        body: `${Cap(unitRef(ETRE_UNIT))} gave you fifteen verbs that take être and twelve of them move. Resting is not one of them, and it does not need to be: the little word decided this before the meaning got a vote.`,
       },
       {
         head: 'The one that gives it away',
@@ -691,14 +697,14 @@ const SECTIONS: LessonSection[] = [
     cards: [
       {
         head: 'The present did none of this',
-        label: `${REFLEXIVE_UNIT}`,
+        label: `${Cap(unitRef(REFLEXIVE_UNIT))}`,
         fr: `${noStop(fr(A(833)))} · Elle se lave`,
         sub: 'past, then present',
         body: `${PRESENT_NO_AGREEMENT} That was true and it stops being true the moment there is a second word to put something on.`,
       },
       {
         head: 'Why the ending disappears',
-        label: `${DIRECT_OBJECT_UNIT} · ${INDIRECT_OBJECT_UNIT}`,
+        label: `${Cap(unitRef(DIRECT_OBJECT_UNIT))} · ${unitRef(INDIRECT_OBJECT_UNIT)}`,
         fr: noStop(fr(A(807))),
         sub: `${sub(A(807))} ${en(A(807))}`,
         body: OBJECT_DEFERRAL,
@@ -737,7 +743,7 @@ const SECTIONS: LessonSection[] = [
         label: 'the pair',
         fr: pair(A(802), A(810)),
         sub: `${sub(A(810))} ${en(A(810))}`,
-        body: `Ne in front of me, pas straight after suis. ${NEGATION_EXTENSION} That is ${REFLEXIVE_UNIT}'s sentence and it still holds.`,
+        body: `Ne in front of me, pas straight after suis. ${NEGATION_EXTENSION} That is ${unitRef(REFLEXIVE_UNIT, 'a2')}'s sentence and it still holds.`,
       },
       {
         head: 'And the third word stays outside',
@@ -748,10 +754,10 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'And ne does not shorten here',
-        label: `${NEGATION_UNIT} · ${FUTUR_UNIT} · ${PASSE_UNIT} · ${ETRE_UNIT}`,
+        label: `${Cap(unitRef(NEGATION_UNIT))} · ${unitRef(FUTUR_UNIT)} · ${unitRef(PASSE_UNIT)} · ${unitRef(ETRE_UNIT)}`,
         fr: pair(A(811), A(814)),
         sub: `${sub(A(811))} · ${sub(A(814))}`,
-        body: `« ${A118_REFRAME} » is ${NEGATION_UNIT}'s. « ${NEGATION_RULE} » is ${FUTUR_UNIT}'s, quoted by ${PASSE_UNIT}, ${ETRE_UNIT} and ${REFLEXIVE_UNIT}. Five lessons, and neither line has moved.`,
+        body: `« ${A118_REFRAME} » is ${unitRef(NEGATION_UNIT, 'a2')}'s. « ${NEGATION_RULE} » is ${unitRef(FUTUR_UNIT, 'a2')}'s, quoted by ${unitRef(PASSE_UNIT, 'a2')}, ${unitRef(ETRE_UNIT, 'a2')} and ${unitRef(REFLEXIVE_UNIT)}. Five lessons, and neither has moved.`,
       },
     ],
   },
@@ -1041,7 +1047,7 @@ const SECTIONS: LessonSection[] = [
     body: 'The exam has six rounds and most of it is typed, because this is one of the few things in the level that writing can prove and listening cannot.',
     stats: [
       { k: 'New rules', v: '1. The little word decides the first word.' },
-      { k: 'Rules you already had', v: `4, from ${REFLEXIVE_UNIT}, ${ETRE_UNIT}, ${PASSE_UNIT} and ${IRREGULAR_UNIT}.` },
+      { k: 'Rules you already had', v: `4, from ${unitRef(REFLEXIVE_UNIT)}, ${unitRef(ETRE_UNIT)}, ${unitRef(PASSE_UNIT)} and ${unitRef(IRREGULAR_UNIT)}.` },
       { k: 'Endings', v: '4 spellings, 1 sound. You will not hear any of them.' },
       { k: 'Verbs you were shown', v: '2, and the last act asked for four you were not.' },
     ],
@@ -1193,7 +1199,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 2,
             ref: AGREEMENT_SECTION_ID,
-            why: `After avoir the second word never changes, in any person. ${ETRE_UNIT} taught that and this lesson does not touch it.`,
+            why: `After avoir the second word never changes, in any person. ${Cap(unitRef(ETRE_UNIT))} taught that and this lesson does not touch it.`,
           },
         ],
       },
@@ -1235,7 +1241,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 3,
             ref: NEGATIVE_SECTION_ID,
-            why: `${FUTUR_UNIT} said it, ${PASSE_UNIT} quoted it, ${ETRE_UNIT} quoted it and ${REFLEXIVE_UNIT} quoted it. It has not been reworded once.`,
+            why: `${Cap(unitRef(FUTUR_UNIT))} said it, ${unitRef(PASSE_UNIT)} quoted it, ${unitRef(ETRE_UNIT)} quoted it and ${unitRef(REFLEXIVE_UNIT)} quoted it. It has not been reworded once.`,
           },
           {
             format: 'mcq',
@@ -1280,7 +1286,7 @@ const SECTIONS: LessonSection[] = [
             q: `« ${noStop(fr(A(830)))} ». Where does souvenue come from?`,
             opts: [
               'The ending this lesson teaches',
-              `venir, and the group ${IRREGULAR_UNIT} put it in`,
+              `venir, and the group ${unitRef(IRREGULAR_UNIT)} put it in`,
               'It is not a real form',
               'se souvenir has no second word',
             ],
@@ -1363,7 +1369,7 @@ const SECTIONS: LessonSection[] = [
       AGREEMENT_RULE,
       EAR_CLAIM,
       `${NEGATION_EXTENSION} ${NEGATION_OUTSIDE}`,
-      `${OBJECT_CLAIM} ${INDIRECT_OBJECT_UNIT} is where the reason for it lives.`,
+      `${OBJECT_CLAIM} ${Cap(unitRef(INDIRECT_OBJECT_UNIT))} is where the reason for it lives.`,
       `Any verb that arrives with the little word works this way, so the four the lesson never conjugated cost nothing extra. ${PAST_TENSE_DEFERRAL}`,
     ],
     sheetId: SHEET_ID,
@@ -1457,7 +1463,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-wrap-late',
-    description: 'Closes the wrap after the second word rather than after the first. « Je ne me suis levé pas. » a2.22\'s extension is true here and does not by itself say where pas stops.',
+    description: `Closes the wrap after the second word rather than after the first. « Je ne me suis levé pas. » ${unitRef('a2.22')}\'s extension is true here and does not by itself say where pas stops.`,
     detectOn: [NEGATIVE_SECTION_ID, WRAP_SECTION_ID, QUIZ_SECTION_ID],
     drill: 'drill-wrap',
     retest: 'retest-wrap',
@@ -1558,7 +1564,7 @@ const SHEETS: ReferenceSheet[] = [
         type: 'teach',
         layer: 'deep',
         title: 'The four endings',
-        body: `${AGREEMENT_RULE} ${EAR_CLAIM} And after avoir nothing goes on at all, in any person, which is ${ETRE_UNIT}'s rule and has not changed. ${OBJECT_CLAIM}`,
+        body: `${AGREEMENT_RULE} ${EAR_CLAIM} And after avoir nothing goes on at all, in any person, which is ${unitRef(ETRE_UNIT, 'a2')}'s rule and has not changed. ${OBJECT_CLAIM}`,
       },
       {
         id: 'sheet-negative',
@@ -1658,7 +1664,7 @@ export const LESSON: Lesson = {
    *  §10: two different bodies under one number is the drift this project has
    *  lost work to twice. a2.09 set the precedent, a2.20 followed it twice and
    *  a2.22 did the same thing for the same reason one lesson ago. */
-  version: 2,
+  version: 3,
 
   intro:
     `You can already say what you did yesterday, and you can already say what you do every morning with a small word in front of the verb. Putting those two together needs one fact and it is not the one people expect: the small word decides which of the two past helpers you reach for. Laver takes avoir and se laver takes être, and nothing about the meaning or the movement has a say in it. This is that fact, the order the words go in, and the ending that nobody can hear.`,
@@ -1732,7 +1738,7 @@ export const LESSON: Lesson = {
       {
         id: 'rec-a2-23-scene',
         desc:
-          'THE SAME TWO PEOPLE AS a2.22\'s SCENE, A MONTH ON, AND THIS EXCHANGE IS GOING WELL UNTIL IT IS NOT. '
+          `THE SAME TWO PEOPLE AS ${unitRef('a2.22')}\'s SCENE, A MONTH ON, AND THIS EXCHANGE IS GOING WELL UNTIL IT IS NOT. `
           + 'HIS FIRST LINE « Ce matin, j\'ai lavé la voiture. » IS THE MOST IMPORTANT TAKE IN THE SCENE AND IT MUST SOUND COMPLETELY ORDINARY. '
           + 'It is fluent, correct and unremarkable, and it is what makes the next one happen. Any weight on it teaches that something was already wrong. '
           + 'HER LINE « Et ce matin ? » IS AN ORDINARY FOLLOW-UP, warm and short. '

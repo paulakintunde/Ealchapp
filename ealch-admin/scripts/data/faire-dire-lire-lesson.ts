@@ -111,6 +111,12 @@ import {
 } from './faire-dire-lire-terms.ts';
 import { REFRAME as A201_REFRAME } from './verbes-er-terms.ts';
 import { REFRAME as A202_REFRAME } from './aller-venir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   ALLER_UNIT,
   AUTHORED_EXPRESSION_IDS,
@@ -430,7 +436,7 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'What you have',
         head: 'Three ways of building',
-        body: `${A201_REFRAME} That, and the two sets after it, cover most of the verbs in the language. ${ALLER_UNIT} then gave you three that will not come apart at all.`,
+        body: `${A201_REFRAME} That, and the two sets after it, cover most of the verbs in the language. ${Cap(unitRef(ALLER_UNIT))} then gave you three that will not come apart at all.`,
       },
       {
         label: 'What is different',
@@ -495,7 +501,7 @@ const SECTIONS: LessonSection[] = [
           q: 'What do these three have in common at the end of the verb?',
           opts: ['They all add a syllable', 'Nothing, they are all different', 'They all end in a silent -s', 'They all end in -e'],
           correct: 2,
-          why: 'fais, dis, lis. The same silent -s you have put on je and tu since a2.01, and it is doing the same job here. The singular of all three verbs is ordinary.',
+          why: `fais, dis, lis. The same silent -s you have put on je and tu since ${unitRef('a2.01')}, and it is doing the same job here. The singular of all three verbs is ordinary.`,
         },
       },
     ],
@@ -838,7 +844,7 @@ const SECTIONS: LessonSection[] = [
     size: 'lg',
     terms: ['nobodyDoingIt', 'whatFollows', 'notTheNouns'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-12-weather' },
-    say: `You met these at ${WEATHER_UNIT} and they were one lump then. Look at the first two words of each one.`,
+    say: `You met these at ${unitRef(WEATHER_UNIT)} and they were one lump then. Look at the first two words of each one.`,
     groups: [
       {
         label: 'Five you have had for a while',
@@ -857,7 +863,7 @@ const SECTIONS: LessonSection[] = [
           q: `« Il fait chaud. » and « Il fait le lit. » What tells you which one you are in?`,
           opts: ['The tone of voice', 'Nothing, it is always ambiguous', 'Whether the speaker points at the window', 'The word straight after fait'],
           correct: 3,
-          why: `A word for how it is outside means the weather; a word for a thing means somebody is doing it. Nothing before that word helps at all, because ${WHAT_FOLLOWS}. You met the same shape at ${WHAT_FOLLOWS_UNIT} on different words.`,
+          why: `A word for how it is outside means the weather; a word for a thing means somebody is doing it. Nothing before that word helps at all, because ${WHAT_FOLLOWS}. You met the same shape at ${unitRef(WHAT_FOLLOWS_UNIT)} on different words.`,
         },
       },
     ],
@@ -916,7 +922,7 @@ const SECTIONS: LessonSection[] = [
         promptSound: bare('fr.a2.verbes.306'),
         fr: fr('fr.a2.verbes.318'),
         ipa: '/il liz lə mə.ny/',
-        tip: 'The -ent you have written on every plural since a2.01, and it is silent here as it always was.',
+        tip: `The -ent you have written on every plural since ${unitRef('a2.01')}, and it is silent here as it always was.`,
       },
     ],
     drill: [
@@ -995,7 +1001,7 @@ const SECTIONS: LessonSection[] = [
         // word character, so `a2.26's` does not match a search for `a2.26`, and
         // the guard that checks every boundary is cited would have passed
         // vacuously on the possessive.
-        body: `${NOT_THE_NOUNS} The weather words belong to ${WEATHER_UNIT}, and the shopping words to ${SHOPPING_UNIT}. You can use every expression here without either.`,
+        body: `${NOT_THE_NOUNS} The weather words belong to ${unitRef(WEATHER_UNIT)}, and the shopping words to ${unitRef(SHOPPING_UNIT)}. You can use every expression here without them.`,
       },
       {
         label: 'What dire also does',
@@ -1005,7 +1011,7 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'Three more that will not bend',
         head: 'Want, can, must',
-        body: `${MODAL_UNIT} is the next lesson on this trail and it is three more verbs of the same kind. It also lets you put a naming form straight after them, which is a shape this lesson never uses. The forms here will make that one quicker.`,
+        body: `${Cap(unitRef(MODAL_UNIT))} is next on this trail: three more verbs of the same kind. It also lets you put a naming form straight after them, which is a shape this lesson never uses. The forms here will make that one quicker.`,
       },
     ],
   },
@@ -1411,7 +1417,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['lisons', 'nous lisons'],
             answer: 'lisons',
-            why: 'The -ons you have had since a2.01. This form does not appear once in the whole published corpus and the pattern still tells you what it is.',
+            why: `The -ons you have had since ${unitRef('a2.01')}. This form does not appear once in the whole published corpus and the pattern still tells you what it is.`,
             ref: 's05-grid',
           },
           {
@@ -1445,7 +1451,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['ils lisent', 'ils disent', 'ils finissent', 'ils vont'],
             correct: 3,
-            why: `${ONT_CLUB.map((m) => m.form).join(' · ')}, and no others. You met ils vont at ${ALLER_UNIT} and the last of the four is in this lesson.`,
+            why: `${ONT_CLUB.map((m) => m.form).join(' · ')}, and no others. You met ils vont at ${unitRef(ALLER_UNIT)} and the last of the four is in this lesson.`,
             ref: 's07-ils',
           },
         ],
@@ -1516,7 +1522,7 @@ const SECTIONS: LessonSection[] = [
     title: 'What You Can Do Now',
     frSub: 'Ce que vous savez faire',
     say: 'Four things, and the biggest of them is not a form at all.',
-    body: `You can build three more verbs that will not come apart, and you found that only three cells across the eighteen are actually strange. Two lists closed while you did it: the verbs that end vous on -tes and the ones that end ils on -ont are both finished, and you will never have to wonder about either again. ${REACH_CLAIM} ${REFRAME} And you know what the ${WEATHER_UNIT} weather phrases were made of all along, which is this verb with nobody behind it.`,
+    body: `You can build three more verbs that will not come apart, and you found that only three cells across the eighteen are actually strange. Two lists closed while you did it: the verbs that end vous on -tes and the ones that end ils on -ont are both finished, and you will never have to wonder about either again. ${REACH_CLAIM} ${REFRAME} And you know what the ${unitRef(WEATHER_UNIT)} weather phrases were made of all along, which is this verb with nobody behind it.`,
     points: [
       `${REFRAME}`,
       `${TES_CLAIM}`,
@@ -1859,8 +1865,8 @@ const SHEETS: ReferenceSheet[] = [
         layer: 'deep',
         cols: ['The ending', 'Every verb that takes it', 'Where you met each one'],
         rows: [
-          ['vous, -tes', TES_CLUB.map((m) => m.form).join(' · '), TES_CLUB.map((m) => m.unit).join(' · ')],
-          ['ils, -ont', ONT_CLUB.map((m) => m.form).join(' · '), ONT_CLUB.map((m) => m.unit).join(' · ')],
+          ['vous, -tes', TES_CLUB.map((m) => m.form).join(' · '), TES_CLUB.map((m) => unitRef(m.unit, 'a2')).join(' · ')],
+          ['ils, -ont', ONT_CLUB.map((m) => m.form).join(' · '), ONT_CLUB.map((m) => unitRef(m.unit, 'a2')).join(' · ')],
         ],
       },
       {
@@ -1868,14 +1874,14 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-why-expressions',
         title: 'Why this sheet lists expressions and not endings',
         layer: 'deep',
-        body: `Every reference sheet before this one in the level lists ENDINGS, because every pattern before this one had them: a2.01 holds the -er set in full, a2.10 the -ir set, a2.11 all three regular sets in one table, and ${ALLER_UNIT} lists forms because its three verbs have none. This lesson's forms take ten minutes and they are in the second table above. The first table is the part you will actually come back for. ${REFRAME} That is a fact about vocabulary rather than about grammar, and there is no rule anywhere that will produce those thirty phrases for you: they are learned as pieces, the way single words are. Read the left-hand column if you are in a hurry. Once you have noticed that English is the language changing verb, the French stops looking like a list of exceptions and starts looking like one habit.`,
+        body: `Every reference sheet before this one in the level lists ENDINGS, because every pattern before this one had them: ${unitRef('a2.01')} holds the -er set in full, ${unitRef('a2.10')} the -ir set, ${unitRef('a2.11')} all three regular sets in one table, and ${unitRef(ALLER_UNIT)} lists forms because its three verbs have none. This lesson's forms take ten minutes and they are in the second table above. The first table is the part you will actually come back for. ${REFRAME} That is a fact about vocabulary rather than about grammar, and there is no rule anywhere that will produce those thirty phrases for you: they are learned as pieces, the way single words are. Read the left-hand column if you are in a hurry. Once you have noticed that English is the language changing verb, the French stops looking like a list of exceptions and starts looking like one habit.`,
       },
       {
         type: 'teach',
         id: 'sheet-carries-forward',
         title: 'What carries forward',
         layer: 'deep',
-        body: `Three things leave this lesson. The first is ${REFRAME} Every time you catch yourself hunting for a French verb, try faire and a noun first; you will be right more often than not. The second is that two lists closed here, and the third table above holds both: no other verb in the language ends vous on -tes, and no other verb ends ils on -ont, so those are two questions you never have to ask again. The third is smaller and it will come back: ${WHAT_FOLLOWS}. Il fait beau and Il fait le lit are the same two words doing completely different jobs, and only the word after them settles it. You met that shape at ${WHAT_FOLLOWS_UNIT} on a different pair, and you will meet it again. ${MODAL_UNIT} is next and it is three more verbs that will not come apart, so the ten minutes you spent on the forms here are about to pay for themselves.`,
+        body: `Three things leave this lesson. The first is ${REFRAME} Every time you catch yourself hunting for a French verb, try faire and a noun first; you will be right more often than not. The second is that two lists closed here, and the third table above holds both: no other verb in the language ends vous on -tes, and no other verb ends ils on -ont, so those are two questions you never have to ask again. The third is smaller and it will come back: ${WHAT_FOLLOWS}. Il fait beau and Il fait le lit are the same two words doing completely different jobs, and only the word after them settles it. You met that shape at ${unitRef(WHAT_FOLLOWS_UNIT)} on a different pair, and you will meet it again. ${Cap(unitRef(MODAL_UNIT))} is next and it is three more verbs that will not come apart, so the ten minutes you spent on the forms here are about to pay for themselves.`,
       },
     ],
   },
@@ -1919,7 +1925,7 @@ export const FAIRE_DIRE_LIRE_LESSON: Lesson = {
   // Postgres and seed.json disagree twice, and the batch refuses the
   // alternative outright — which is how this came to be v2 rather than a quiet
   // edit.
-  version: 2,
+  version: 3,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',
@@ -2017,7 +2023,7 @@ export const FAIRE_DIRE_LIRE_LESSON: Lesson = {
       },
       {
         id: 'rec-a2-12-weather',
-        desc: 'The five weather expressions, one take, flat, and read exactly as a1.10 reads them: il fait beau, il fait chaud, il fait froid, il fait frais, il fait mauvais. The learner has heard these before as single lumps and this lesson is taking them apart, so the reading must NOT change to help: no extra space after fait, no lift on the adjective. If they sound different here from the way they sound in a1.10, the learner will conclude that the two lessons are about two different things, which is the opposite of what this mission says.',
+        desc: `The five weather expressions, one take, flat, and read exactly as ${unitRef('a1.10')} reads them: il fait beau, il fait chaud, il fait froid, il fait frais, il fait mauvais. The learner has heard these before as single lumps and this lesson is taking them apart, so the reading must NOT change to help: no extra space after fait, no lift on the adjective. If they sound different here from the way they sound in ${unitRef('a1.10')}, the learner will conclude that the two lessons are about two different things, which is the opposite of what this mission says.`,
         clipIds: ['il fait beau', 'il fait chaud', 'il fait froid', 'il fait frais', 'il fait mauvais'],
       },
       {

@@ -72,6 +72,7 @@ import {
 } from './data/prepositions-lieu-lesson.ts';
 import { PREPOSITIONS_LIEU_ROWS } from './data/prepositions-lieu-rows.gen.ts';
 import { displayRespell } from './data/prepositions-lieu-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const LESSON: Lesson = PREPOSITIONS_LIEU_LESSON;
@@ -266,8 +267,8 @@ KIND_ORDER.forEach((k, i) => {
   for (const cell of cells) if (cell.length > KIND_CELL_MAX) die(`grid cell ${JSON.stringify(cell)} is ${cell.length} characters and a three-column cell holds ${KIND_CELL_MAX}`);
   const owner = KIND_OWNER[k];
   const body = four.rows![i]!.detail?.body ?? '';
-  if (owner && !hasPhrase(body, owner)) die(`grid row ${i} is ${owner}'s and its detail does not name ${owner}. a2.16 §3: assert the literal.`);
-  if (!owner && hasPhrase(body, CONTRACTION_UNIT)) die(`grid row ${i} is this lesson's own and it credits ${CONTRACTION_UNIT}`);
+  if (owner && !namesUnitLabel(body, owner)) die(`grid row ${i} is ${owner}'s and its detail does not name ${owner}. a2.16 §3: assert the literal.`);
+  if (!owner && namesUnitLabel(body, CONTRACTION_UNIT)) die(`grid row ${i} is this lesson's own and it credits ${CONTRACTION_UNIT}`);
 });
 const credited = KIND_ORDER.filter((k) => KIND_OWNER[k] !== null).length;
 if (credited !== 3) die(`${credited} of the four rows credit another unit and three of them are somebody else's`);
@@ -297,7 +298,7 @@ if (drops[0]!.withLe !== 'en' || drops[0]!.withLa !== 'en') die('the en row prin
 const folds = ARTICLE_TABLE.filter((r) => r.behaviour === 'folds').map((r) => r.word);
 if (folds.join(',') !== 'à,de') die(`the folding rows are ${folds.join(',')} and they are à and de`);
 for (const r of ARTICLE_TABLE) {
-  if (r.owner && !hasPhrase(r.detail, r.owner)) die(`the ${r.word} row is ${r.owner}'s and its detail does not name ${r.owner}`);
+  if (r.owner && !namesUnitLabel(r.detail, r.owner)) die(`the ${r.word} row is ${r.owner}'s and its detail does not name ${r.owner}`);
 }
 console.log(`  the Owns      ${ARTICLE_TABLE.length} rows: ${folds.join(' and ')} fold, en drops, chez keeps. Two credited to ${CONTRACTION_UNIT}, one to ${COUNTRY_UNIT}, one is this lesson's.`);
 
@@ -373,7 +374,7 @@ const countrySection = byId(COUNTRY_SECTION_ID) as { type?: string } | undefined
 if (countrySection?.type === 'vocabThemes' || countrySection?.type === 'flashcards') {
   die(`${COUNTRY_SECTION_ID} is a ${countrySection.type} and this lesson may not build a country vocabulary section. ${COUNTRY_UNIT} owns it.`);
 }
-if (!LESSON.sections.some((s) => hasPhrase(strings(s).join('\n'), COUNTRY_UNIT))) {
+if (!LESSON.sections.some((s) => namesUnitLabel(strings(s).join('\n'), COUNTRY_UNIT))) {
   die(`no section names ${COUNTRY_UNIT}, and this lesson leans on its grid on four screens`);
 }
 // The nationalities, the continents and the gender rule are a1.22's and none of
@@ -399,7 +400,7 @@ for (const line of strings(LESSON.sections).concat(strings(LESSON.sheets ?? []),
   for (const t of TIME_FORBIDDEN) if (hasPhrase(line, t)) die(`${JSON.stringify(t)} reached a screen and it is ${TIME_UNIT}'s`);
 }
 // AND THE DEFERRAL IS NAMED, so the learner knows it is coming.
-if (!hasPhrase(learnerText, TIME_UNIT)) die(`${TIME_UNIT} is never named and this lesson deliberately leaves it two senses of two words`);
+if (!namesUnitLabel(learnerText, TIME_UNIT)) die(`${TIME_UNIT} is never named and this lesson deliberately leaves it two senses of two words`);
 console.log(`  ${TIME_UNIT}         temporal en and dans absent, ${TIME_MUST_FIRE.length} must-fire and ${TIME_MUST_NOT_FIRE.length} must-not-fire lines checked, deferral named`);
 
 /* ══════════════════════════════════════════════════════════════════════════

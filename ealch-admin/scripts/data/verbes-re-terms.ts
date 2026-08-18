@@ -12,6 +12,7 @@
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { NOUS_ON } from './verbes-er-terms.ts';
 import { THREE_CELLS } from './verbes-re-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** a2.01's nous/on statement, re-exported rather than retyped.
  *
@@ -34,7 +35,16 @@ export { NOUS_ON };
  *
  *  Derived from THREE_CELLS so a cell that is ever removed takes its citation
  *  with it. */
-export const BACKREFS: string[] = THREE_CELLS.map((c) => c.unit).filter((u) => u !== 'a2.11');
+export const BACKREF_UNITS: string[] = THREE_CELLS.map((c) => c.unit).filter((u) => u !== 'a2.11');
+
+/** The labels those units wear on a learner surface. `c.unit` is machine data
+ *  and keeps its raw id; everything a learner reads goes through `unitRef`. */
+export const BACKREFS: string[] = BACKREF_UNITS.map((u) => unitRef(u));
+
+/** The same citations for a TABLE HEADER, where a column is a few characters
+ *  wide and « -er · lesson 1 in A2 » spends the whole budget on the track name
+ *  the reader is already inside. */
+export const BACKREFS_SHORT: string[] = BACKREF_UNITS.map((u) => unitRef(u, 'a2'));
 
 /** The line this lesson hangs on.
  *
@@ -100,7 +110,7 @@ export const VERBES_RE_TERMS: Record<string, LessonTerm> = {
     term: 'the part that stays',
     title: 'What is left when -re comes off',
     body:
-      'vendre gives vend-. attendre gives attend-. perdre gives perd-. Take the last two letters off the naming form and what is left does not move, whoever is speaking. That is the same two letters you took off parler and off finir, and the same machine a2.01 gave you. Nothing new has happened to the method. What is new is one of the six things you put on the end of it.',
+      `vendre gives vend-. attendre gives attend-. perdre gives perd-. Take the last two letters off the naming form and what is left does not move, whoever is speaking. That is the same two letters you took off parler and off finir, and the same machine ${unitRef('a2.01')} gave you. Nothing new has happened to the method. What is new is one of the six things you put on the end of it.`,
     examples: [
       { itemId: 'fr.a2.verbes.221', note: 'vend- with the je ending on it.' },
       { itemId: 'fr.a2.verbes.224', note: 'The same vend-, with the nous ending, which you can hear.' },
@@ -134,7 +144,7 @@ export const VERBES_RE_TERMS: Record<string, LessonTerm> = {
     term: 'the three that hide',
     title: 'je vends, tu vends, il vend',
     body:
-      'Three spellings and one sound. -s, -s and nothing all arrive as nothing, exactly the way -e, -es and -ent did on an -er verb in a2.01 and -is, -is and -it did on an -ir verb in a2.10. So in the singular the pronoun is still carrying the person on its own, and the only place these three differ is the page. This is why the dictée in this lesson is longer than the listening.',
+      `Three spellings and one sound. -s, -s and nothing all arrive as nothing, exactly the way -e, -es and -ent did on an -er verb in ${unitRef('a2.01')} and -is, -is and -it did on an -ir verb in ${unitRef('a2.10')}. So in the singular the pronoun is still carrying the person on its own, and the only place these three differ is the page. This is why the dictée in this lesson is longer than the listening.`,
     examples: [
       { itemId: 'fr.a2.verbes.229', note: 'Ends in -ds.' },
       { itemId: 'fr.a2.verbes.231', note: 'Ends in nothing, and is said exactly the same way.' },
@@ -154,7 +164,7 @@ export const VERBES_RE_TERMS: Record<string, LessonTerm> = {
     term: 'the ones that only look like it',
     title: 'Ending in -re is not enough',
     body:
-      'prendre, mettre and battre end in -re and are built another way, and so are apprendre, comprendre, permettre, promettre and combattre. prendre is one of the most common verbs in the language, so you will meet it long before anybody teaches it to you. Run this pattern on it and you produce a form no French speaker says. Knowing that a verb is not in this family is worth as much as building the ones that are, and a2.15 is where the other family is taught.',
+      `prendre, mettre and battre end in -re and are built another way, and so are apprendre, comprendre, permettre, promettre and combattre. prendre is one of the most common verbs in the language, so you will meet it long before anybody teaches it to you. Run this pattern on it and you produce a form no French speaker says. Knowing that a verb is not in this family is worth as much as building the ones that are, and ${unitRef('a2.15')} is where the other family is taught.`,
     examples: [
       { itemId: 'fr.a2.verbes.223', note: 'This one is in the family, and the il form is the bare stem.' },
       { itemId: 'fr.a2.verbes.240', note: 'And so is this one, whatever the length of the naming form suggests.' },

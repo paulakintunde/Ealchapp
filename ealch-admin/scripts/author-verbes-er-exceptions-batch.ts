@@ -59,6 +59,7 @@ import {
   YER_FORMS, YER_INFINITIVES, toItem,
 } from './data/verbes-er-exceptions-corpus.ts';
 import { IMPORTED_ROWS, IMPORTED_VERBS } from './data/verbes-er-exceptions-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   A201_BACKREF, GRID_SECTION_ID, NOUS_ON, REFRAME, SPLIT_COLUMNS, SPLIT_SECTION_ID,
   TWO_MECHANISMS, VERBES_ER_EXC_LESSON, VERBES_ER_EXC_DICTATION_IDS, VERBES_ER_EXC_SPEAK_IDS,
@@ -411,7 +412,7 @@ console.log('  nous mangeons and nous commençons both present');
 /* ── THE BACK-REFERENCE TO a2.01 ─────────────────────────────────────────── */
 {
   const holders = LESSON.sections
-    .filter((s) => strings(s).some((x) => x.includes(A201_BACKREF)))
+    .filter((s) => strings(s).some((x) => namesUnitLabel(x, A201_BACKREF)))
     .map((s) => (s as { id?: string }).id ?? '?');
   if (!holders.length) {
     die(

@@ -21,6 +21,12 @@
 // plain phrase rather than banning the technical one, and the ratio is guarded.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A217_DEFERRAL, A219_REFRAME, ADVERB_UNIT, AVOIR_UNIT, ER_UNIT, ETRE_UNIT,
   FUTUR_UNIT, IR_UNIT, IRREGULAR_UNIT, NEGATION_UNIT, NEGATIVE_EVIDENCE,
@@ -38,7 +44,7 @@ export { REFRAME } from './passe-compose-corpus.ts';
 /** What a learner already owns, named by unit, so this lesson reads as three
  *  things they have standing next to each other rather than a new tense. */
 export const ALREADY_YOURS =
-  `${AVOIR_UNIT} gave you all six forms of avoir and you do not learn one new one here. ${ER_UNIT}, ${IR_UNIT} and ${RE_UNIT} gave you the three groups, and the three past endings run one per group. ${NEGATION_UNIT} gave you the two halves of the negative and ${FUTUR_UNIT} told you which verb they go round. The only new thing in this lesson is that there is now a gap between two words, and what is allowed to sit in it.`;
+  `${Cap(unitRef(AVOIR_UNIT))} gave you all six forms of avoir and you do not learn one new one here. ${Cap(unitRef(ER_UNIT))}, ${unitRef(IR_UNIT)} and ${unitRef(RE_UNIT)} gave you the three groups, and the three past endings run one per group. ${Cap(unitRef(NEGATION_UNIT))} gave you the two halves of the negative and ${unitRef(FUTUR_UNIT)} told you which verb they go round. The only new thing in this lesson is that there is now a gap between two words, and what is allowed to sit in it.`;
 
 /** The measured margin, as one sentence, so the evidence reaches a screen
  *  rather than living only in a header. Every figure in it is re-measured by the
@@ -51,7 +57,7 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     term: 'two words',
     title: 'The verb is two words now',
     body:
-      `Every verb you have met so far has been one word: je parle, il finit, nous vendons. From here on the past is TWO: a form of avoir for whoever you are talking about, and then the past form of the verb that carries the meaning. ${AVOIR_UNIT} already gave you all six forms of avoir, so there is nothing new to learn about the first word. Everything that is hard about this tense comes from the fact that there are two of them and there is a gap in between.`,
+      `Every verb you have met so far has been one word: je parle, il finit, nous vendons. From here on the past is TWO: a form of avoir for whoever you are talking about, and then the past form of the verb that carries the meaning. ${Cap(unitRef(AVOIR_UNIT))} already gave you all six forms of avoir, so there is nothing new to learn about the first word. Everything that is hard about this tense comes from the fact that there are two of them and there is a gap in between.`,
     examples: [
       { itemId: 'fr.a2.verbes.541', note: 'Avoir for je, then the past form. Two words and a finished evening.' },
       { itemId: 'fr.a2.verbes.546', note: 'Avoir moved for ils. The second word did not.' },
@@ -62,10 +68,10 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     term: 'past form',
     title: 'The second word, and where it comes from',
     body:
-      `The second word is built off the naming form and the group decides how. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb loses its ending and takes -u. That is the whole regular system and it is the same three groups ${ER_UNIT}, ${IR_UNIT} and ${RE_UNIT} taught you. It never changes for the person: the same five letters sit in all six rows of the table.`,
+      `The second word is built off the naming form and the group decides how. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb loses its ending and takes -u. That is the whole regular system and it is the same three groups ${unitRef(ER_UNIT)}, ${unitRef(IR_UNIT)} and ${unitRef(RE_UNIT)} taught you. It never changes for the person: the same five letters sit in all six rows of the table.`,
     examples: [
-      { itemId: 'fr.a2.verbes.552', note: `-ER, so -é. ${ER_UNIT}'s own verb.` },
-      { itemId: 'fr.a2.verbes.553', note: `-IR, so -i. ${IR_UNIT}'s own verb, one tense later.` },
+      { itemId: 'fr.a2.verbes.552', note: `-ER, so -é. ${Cap(unitRef(ER_UNIT, 'a2'))}'s own verb.` },
+      { itemId: 'fr.a2.verbes.553', note: `-IR, so -i. ${Cap(unitRef(IR_UNIT, 'a2'))}'s own verb, one tense later.` },
     ],
   },
 
@@ -84,7 +90,7 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     term: 'which verb',
     title: 'The one that moved for you',
     body:
-      `${A219_REFRAME} That is ${FUTUR_UNIT}'s line, from one lesson ago, and it was about « je ne vais pas partir ». It is exactly as true here: avoir is the word that changed when you picked the person, so both halves go round avoir, and the past form is left where it is. Nothing about this rule is new. What is new is that the word it aims at is now the FIRST of two rather than the only one there is.`,
+      `${A219_REFRAME} That is ${unitRef(FUTUR_UNIT, 'a2')}'s line, from one lesson ago, and it was about « je ne vais pas partir ». It is exactly as true here: avoir is the word that changed when you picked the person, so both halves go round avoir, and the past form is left where it is. Nothing about this rule is new. What is new is that the word it aims at is now the FIRST of two rather than the only one there is.`,
     examples: [
       { itemId: 'fr.a2.verbes.541', note: 'Avoir moved for je. Mangé did not.' },
       { itemId: 'fr.sons.masterclass.021', note: 'So both halves went round avoir. This card was in the app years before this lesson.' },
@@ -97,7 +103,7 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     body:
       `${SOUND_CLAIM} Manger and mangé are /mɑ̃.ʒe/, parler and parlé are /paʁ.le/, travailler and travaillé are /tʁa.va.je/. The difference is real and it is entirely on paper, which is why this lesson has a dictée and why the ear questions in it are about the little word in front instead.`,
     examples: [
-      { itemId: 'fr.a2.verbes.566', note: `${FUTUR_UNIT}'s construction. The last word is the naming form.` },
+      { itemId: 'fr.a2.verbes.566', note: `${Cap(unitRef(FUTUR_UNIT, 'a2'))}'s construction. The last word is the naming form.` },
       { itemId: 'fr.a2.verbes.541', note: 'This lesson. The last word is the past form, and it is the same sound.' },
     ],
   },
@@ -106,7 +112,7 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     term: 'no agreement',
     title: 'It does not change for anybody',
     body:
-      `After avoir the past form is one shape and it stays that shape. Not mangée for a woman, not mangés for a group, not mangées for a group of women. Elle a mangé, ils ont mangé, elles ont mangé. This is worth saying plainly because ${ETRE_UNIT}, two lessons from here, says the opposite for a short list of verbs that use être instead, and the contrast only works if you have this side of it cleanly first. There is one case where a past form does agree with avoir and it needs object pronouns, which is ${PRONOUN_UNIT}, five lessons after this one.`,
+      `After avoir the past form is one shape and it stays that shape. Not mangée for a woman, not mangés for a group, not mangées for a group of women. Elle a mangé, ils ont mangé, elles ont mangé. This is worth saying plainly because ${unitRef(ETRE_UNIT)}, two lessons from here, says the opposite for a short list of verbs that use être instead, and the contrast only works if you have this side of it cleanly first. There is one case where a past form does agree with avoir and it needs object pronouns, which is ${unitRef(PRONOUN_UNIT)}, five lessons after this one.`,
     examples: [
       { itemId: 'fr.a2.verbes.569', note: 'A feminine subject, a feminine object, and not a letter has moved.' },
       { itemId: 'fr.a2.verbes.561', note: 'And elle again, with something in the gap. Répondu is still répondu.' },
@@ -117,10 +123,10 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     term: 'when',
     title: 'Say when, and it settles',
     body:
-      `${TIME_CLAIM} English keeps two pasts apart, "I ate" and "I have eaten", and French runs both of them through this one form, so for a while your ear will want a signal that French is not sending. Hier, avant-hier, la semaine dernière, il y a trois jours. ${TIME_UNIT} gave you « il y a » for a length of time behind you and could not finish the job, because saying how long ago something happened needs this tense.`,
+      `${TIME_CLAIM} English keeps two pasts apart, "I ate" and "I have eaten", and French runs both of them through this one form, so for a while your ear will want a signal that French is not sending. Hier, avant-hier, la semaine dernière, il y a trois jours. ${Cap(unitRef(TIME_UNIT))} gave you « il y a » for a length of time behind you and could not finish the job, because saying how long ago something happened needs this tense.`,
     examples: [
       { itemId: 'fr.a2.verbes.562', note: 'Yesterday, and there is nothing left to work out.' },
-      { itemId: 'fr.a2.prepositions-essentielles.174', note: `${TIME_UNIT}'s own card, and it already holds this tense.` },
+      { itemId: 'fr.a2.prepositions-essentielles.174', note: `${Cap(unitRef(TIME_UNIT, 'a2'))}'s own card, and it already holds this tense.` },
     ],
   },
 
@@ -128,9 +134,9 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     term: 'endings',
     title: 'Three groups, three endings',
     body:
-      `-ER goes to -é, -IR goes to -i, -RE goes to -u. Three groups you have had since ${ER_UNIT}, and the past form runs one ending per group with no exceptions inside the regular set. Give it a verb you have never met and you can still build it: if it ends in -er the past form ends in -é, and that is the whole of the decision.`,
+      `-ER goes to -é, -IR goes to -i, -RE goes to -u. Three groups you have had since ${unitRef(ER_UNIT)}, and the past form runs one ending per group with no exceptions inside the regular set. Give it a verb you have never met and you can still build it: if it ends in -er the past form ends in -é, and that is the whole of the decision.`,
     examples: [
-      { itemId: 'fr.a2.verbes.554', note: `-RE, so -u. ${RE_UNIT}'s own verb, and the group where the ending is furthest from the naming form.` },
+      { itemId: 'fr.a2.verbes.554', note: `-RE, so -u. ${Cap(unitRef(RE_UNIT, 'a2'))}'s own verb, and the group where the ending is furthest from the naming form.` },
       { itemId: 'fr.a2.verbes.555', note: '-IR, so -i, on a verb the endings grid does not use.' },
     ],
   },
@@ -139,7 +145,7 @@ export const PASSE_COMPOSE_TERMS: Record<string, LessonTerm> = {
     term: 'later on',
     title: 'What is still coming',
     body:
-      `Two things are deliberately not in this lesson. About forty verbs have a past form you could not have guessed, and they are ${IRREGULAR_UNIT}, which is next. A short list of verbs uses être rather than avoir for the first word, and their past form does change to match the person, and that is ${ETRE_UNIT}. Neither of them changes anything you have learned here: the shape stays two words with a gap in it. You will need all of this again at ${SCHOOL_UNIT}, where the whole conversation is about what you studied and how it went.`,
+      `Two things are deliberately not in this lesson. About forty verbs have a past form you could not have guessed, and they are ${unitRef(IRREGULAR_UNIT)}, which is next. A short list of verbs uses être rather than avoir for the first word, and their past form does change to match the person, and that is ${unitRef(ETRE_UNIT)}. Neither of them changes anything you have learned here: the shape stays two words with a gap in it. You will need all of this again at ${unitRef(SCHOOL_UNIT)}, where the whole conversation is about what you studied and how it went.`,
     examples: [
       { itemId: 'fr.a2.verbes.543', note: 'The shape. It survives both of the next two lessons unchanged.' },
       { itemId: 'fr.a2.verbes.551', note: 'And the gap, which survives them too.' },
@@ -169,7 +175,7 @@ export const rowWidth = (keys: readonly string[]): number =>
  *  answer is written into the first entry. */
 export const HANDOVER = {
   [IRREGULAR_UNIT]:
-    'The corpus split is settled and the answer is ZERO ROWS ON BOTH SIDES: a past form is a conjugated form and a2.01 already ruled that a conjugated form is never a corpus item. So a2.20 authors no bare past forms either, and its forty irregulars arrive as forty short SENTENCES in one frame, which also fixes the thing the nine fr.sons.voyelles rows demonstrate — a bare past form reaches a card nobody can say. Its id block is reserved at fr.a2.verbes.591..650. The formation and the negative are taught here and need one recap, not a re-teach.',
+    `The corpus split is settled and the answer is ZERO ROWS ON BOTH SIDES: a past form is a conjugated form and ${unitRef('a2.01')} already ruled that a conjugated form is never a corpus item. So ${unitRef('a2.20')} authors no bare past forms either, and its forty irregulars arrive as forty short SENTENCES in one frame, which also fixes the thing the nine fr.sons.voyelles rows demonstrate — a bare past form reaches a card nobody can say. Its id block is reserved at fr.a2.verbes.591..650. The formation and the negative are taught here and need one recap, not a re-teach.`,
   [ETRE_UNIT]:
     'This lesson states its side of the agreement question plainly and holds it: after avoir the past form does not change for anybody, asserted as a shape in all three layers. The être verbs are named as a short list and not one of them is conjugated here.',
   [PRONOUN_UNIT]:

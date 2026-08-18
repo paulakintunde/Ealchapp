@@ -80,6 +80,12 @@ import {
   UNSEEN, AUDIBLE_CLAIM,
 } from './demonstratifs-corpus.ts';
 import { DEMONSTRATIFS_TERMS } from './demonstratifs-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** NOT `as const`. A readonly `speeds` tuple is not assignable to
  *  `SectionAudio['speeds']`, which is a mutable `number[]`, and the admin
@@ -201,7 +207,7 @@ const S02_GOALS: LessonSection = {
   goals: [
     { t: 'Point at a thing by name, in all four forms', s: 'Act 2: ce, cet, cette, ces, and the noun picks' },
     { t: 'Point at it without naming it', s: 'Act 3: celui, celle, ceux, celles, and what has to follow them' },
-    { t: 'Know why cet exists at all', s: `Act 2, and it is ${VOWEL_UNIT}'s reason wearing different clothes` },
+    { t: 'Know why cet exists at all', s: `Act 2, and it is ${unitRef(VOWEL_UNIT, 'a2')}'s reason wearing different clothes` },
     { t: 'Stop producing the bare form', s: 'Act 4: the mistake from the shop, eight times, until it stops arriving' },
   ],
   audio: AUDIO,
@@ -279,7 +285,7 @@ const S04_GRID: LessonSection = {
   title: 'The same thing, named and not named',
   frSub: 'Le nom, puis pas le nom',
   hint: 'Four cards. Each one is the same sentence twice.',
-  say: `« ${WHAT_FOLLOWS} » is how ${WHAT_FOLLOWS_UNIT} put it, and ${OBJECT_UNIT} said it again about three other words. Here it is the noun.`,
+  say: `« ${WHAT_FOLLOWS} » is how ${unitRef(WHAT_FOLLOWS_UNIT)} put it, and ${unitRef(OBJECT_UNIT)} said it again about three other words. Here it is the noun.`,
   audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-33-grid' },
   terms: ['point', 'replace'],
   cards: [
@@ -288,14 +294,14 @@ const S04_GRID: LessonSection = {
       label: 'a noun follows · nothing follows',
       fr: 'Je prends ce livre. / Je prends celui-ci.',
       sub: '[zhuh PRAHⁿ suh LEEVR] then [zhuh PRAHⁿ suh-lwee-SEE]',
-      body: `« ${A206_SHAPE} » is ${OBJECT_UNIT}'s line. ${A233_SHAPE}`,
+      body: `« ${A206_SHAPE} » is ${unitRef(OBJECT_UNIT, 'a2')}'s line. ${A233_SHAPE}`,
     },
     {
       head: 'one feminine thing',
       label: 'a noun follows · nothing follows',
       fr: 'Je prends cette robe. / Je prends celle-ci.',
       sub: '[zhuh PRAHⁿ seht ROB] then [zhuh PRAHⁿ sehl-SEE]',
-      body: `The same move on a feminine noun. You had to know robe was feminine to say the first one, and you still have to know it to say the second, so nothing got easier. ${GENDER_UNIT} is where that came from.`,
+      body: `The same move on a feminine noun. You had to know robe was feminine to say the first one, and you still have to know it to say the second, so nothing got easier. ${Cap(unitRef(GENDER_UNIT))} is where that came from.`,
     },
     {
       head: 'several masculine things',
@@ -414,25 +420,25 @@ const S07_WHY: LessonSection = {
   terms: ['vowel'],
   cards: [
     {
-      head: `${ELISION_UNIT} deleted a vowel`,
+      head: `${Cap(unitRef(ELISION_UNIT))} deleted a vowel`,
       label: 'the first time',
       fr: "le homme -> l'homme",
       sub: '[LOM]',
-      body: `« ${ELISION_REFRAME} » is how ${ELISION_UNIT} said it. The little word in front lost its own vowel so the two would not meet.`,
+      body: `« ${ELISION_REFRAME} » is how ${unitRef(ELISION_UNIT)} said it. The little word in front lost its own vowel so the two would not meet.`,
     },
     {
-      head: `${VOWEL_UNIT} borrowed a consonant`,
+      head: `${Cap(unitRef(VOWEL_UNIT))} borrowed a consonant`,
       label: 'the second time',
       fr: 'beau homme -> bel homme',
       sub: '[beh-LOM]',
-      body: `« ${A216_REFRAME} » is ${VOWEL_UNIT}'s rule. A whole form was fetched from the feminine so a consonant would land in front of the vowel.`,
+      body: `« ${A216_REFRAME} » is ${unitRef(VOWEL_UNIT, 'a2')}'s rule. A whole form was fetched from the feminine so a consonant would land in front of the vowel.`,
     },
     {
       head: 'and this one swaps the word',
       label: 'the third time',
       fr: 'ce homme -> cet homme',
       sub: '[seh-TOM]',
-      body: `${VOWEL_CLAIM} Three lessons and one pressure, and after this you should expect it rather than learn it.`,
+      body: `${VOWEL_CLAIM} Three lessons, one pressure. Expect it rather than learn it.`,
     },
   ],
 };
@@ -728,7 +734,7 @@ const S13_SORT: LessonSection = {
         { fr: 'Cette robe est belle, mais celle de ma sœur est unique.', itemId: 'fr.b1.pronoms-essentiels.041', note: 'the same, feminine', en: 'This dress is pretty, but my sister’s is unique.' },
         { fr: 'Ces livres sont anciens, mais ceux de la bibliothèque sont neufs.', itemId: 'fr.b1.pronoms-essentiels.045', note: 'and plural', en: "These books are old, but the library's are new." },
         { fr: 'Ces chaussures sont confortables, mais celles-là sont plus légères.', itemId: 'fr.b1.pronoms-essentiels.049', note: 'and the tail here is two letters', en: 'These shoes are comfortable, but those are lighter.' },
-        { fr: 'Ce sac est aussi lourd que celui-là.', itemId: 'fr.a2.comparaisons.069', note: `and ${COMPARATIVE_UNIT} left this one here`, en: 'This bag is as heavy as that one.' },
+        { fr: 'Ce sac est aussi lourd que celui-là.', itemId: 'fr.a2.comparaisons.069', note: `and ${unitRef(COMPARATIVE_UNIT)} left this one here`, en: 'This bag is as heavy as that one.' },
       ],
       check: {
         q: 'Every one of these five does both jobs. What is the pattern?',
@@ -1276,12 +1282,12 @@ const S24_ROUNDUP: LessonSection = {
   // line named the form as well as the unit, and the possessive guard fired.
   // The guard was right: a2.34 is named as coming next, which is what the
   // prompt asks for, and not one of its twenty-one forms reaches a screen here.
-  body: `${REFRAME} Four forms name the thing and four stand in for it, and the four that stand in for it always carry something on the end. ${NOT_AN_OBJECT_CLAIM} One thing to leave alone for now: ${IMPERSONAL_CLAIM} And one thing coming next: ${POSSESSIVE_UNIT} does the same trick for whose a thing is, and the shape will already be familiar.`,
+  body: `${REFRAME} Four forms name the thing and four stand in for it, and the four that stand in for it always carry something on the end. ${NOT_AN_OBJECT_CLAIM} One thing to leave alone for now: ${IMPERSONAL_CLAIM} And one thing coming next: ${unitRef(POSSESSIVE_UNIT)} does the same trick for whose a thing is, and the shape will already be familiar.`,
   points: [
     'ce, cet, cette, ces. A noun follows every one of them.',
     'celui, celle, ceux, celles. Something follows every one of them too, and it is never a noun.',
-    `cet is there for the sound, which is ${VOWEL_UNIT} and ${ELISION_UNIT} for the third time.`,
-    `The gender is still ${GENDER_UNIT}'s and you spend it eight times a lesson.`,
+    `cet is there for the sound, which is ${unitRef(VOWEL_UNIT)} and ${unitRef(ELISION_UNIT)} for the third time.`,
+    `The gender is still ${unitRef(GENDER_UNIT, 'a2')}'s and you spend it eight times a lesson.`,
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1326,7 +1332,7 @@ const SHEET_HUIT: ReferenceSheet = {
       // makes is a recap rather than a rule the learner has to run. The top
       // four are chosen exactly the way a1.04 chooses le, la and les, which is
       // a saving worth one sentence and not worth a card.
-      body: `The top four take a noun and cannot be said without one, and you pick between them the same way ${ARTICLE_UNIT} taught you to pick le, la and les. The bottom four take anything except a noun and cannot be said without something. Read down the middle column and you are reading the gender; read across a row and you are reading the choice this lesson is about.`,
+      body: `The top four take a noun and cannot be said without one, and you pick between them the same way ${unitRef(ARTICLE_UNIT)} taught you to pick le, la and les. The bottom four take anything except a noun and cannot be said without something. Read down the middle column and you are reading the gender; read across a row and you are reading the choice this lesson is about.`,
     },
     {
       type: 'table',
@@ -1628,7 +1634,7 @@ export const LESSON: Lesson = {
   // the reading passage, the imparfait and the pronominal `en` on the scenario,
   // and a userEn calling a numeral "a noun-like word". Same rule: move the
   // counter rather than correct under the number that shipped.
-  version: 3,
+  version: 4,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

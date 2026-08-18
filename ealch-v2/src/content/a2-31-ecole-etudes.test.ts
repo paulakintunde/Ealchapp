@@ -28,6 +28,7 @@ import seed from './seed.json' with { type: 'json' };
 import { hasPlainNasalFor } from './density.logic.ts';
 import { fold } from './answer.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 /* ── The authored source, imported the way a1-03-genre.test.ts imports
  *    genre-endings.ts, so this file guards the build before it is applied. ── */
@@ -273,7 +274,7 @@ test('the imparfait guard is scoped to this lesson, not to the bundle', skip, ()
   const other = C.IMPARFAIT_MUST_NOT_FIRE as string;
   ok(IMPARFAIT.test(other), 'MUST_NOT_FIRE is not actually an imparfait sentence, so it proves nothing');
   const mine = [...strs(SECTIONS), ...ROWS.map((r) => r.fr)].join('\n');
-  ok(!mine.includes(other), "another lesson's imparfait sentence is inside a2.31");
+  ok(!namesUnitLabel(mine, other), "another lesson's imparfait sentence is inside a2.31");
   const inSeed = seed.items.some((i) => i.fr === other);
   ok(inSeed, 'the MUST_NOT_FIRE sentence is not in the seed, so it cannot prove the scoping');
 });

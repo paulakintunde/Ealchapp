@@ -17,6 +17,12 @@
 // `more than one`, `the word that describes`, `changes shape`.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A113_REFRAME, A201_REFRAME, ADVERB_UNIT, BEAU_UNIT, EAR_CLAIM, EAR_UNIT,
   FORM_COUNT, IDENTICAL_CLAIM, IDENTICAL_UNIT, INVARIABLE_RULE,
@@ -42,7 +48,7 @@ export const ENDING_CLAIM =
  *  s. It names a1.14, which owns the fact for two specific words, and says what
  *  this lesson does with it. */
 export const IDENTICAL_ARITHMETIC =
-  `${IDENTICAL_UNIT} told you ${form('eux', 'm.sg')} and mauvais do not change in the plural. It is not about those two words. It is about the letter they end in, and there are twenty-five more of them.`;
+  `${Cap(unitRef(IDENTICAL_UNIT))} told you ${form('eux', 'm.sg')} and mauvais do not change in the plural. It is not about those two words. It is about the letter they end in, and there are twenty-five more of them.`;
 
 /** The default pattern's contrast with the other two, said once. Kept under
  *  thirty words because it is quoted on two core screens and one quiz `why`,
@@ -57,7 +63,7 @@ export const DEFAULT_CLAIM =
  *  INVARIABLE_RULE inside it and went to 55 on all four at once. The long
  *  version lives in the term and in the sheet, both of which are exempt. */
 export const INVARIABLE_CLAIM =
-  `${INVARIABLE_UNIT} put it this way: ${A113_REFRAME} A colour borrowed from a thing keeps the thing’s shape.`;
+  `${Cap(unitRef(INVARIABLE_UNIT))} put it this way: ${A113_REFRAME} A colour borrowed from a thing keeps the thing’s shape.`;
 
 /** And what act 4 adds to it, which is the part a1.13 could not do. */
 export const INVARIABLE_NEW_CLAIM =
@@ -65,7 +71,7 @@ export const INVARIABLE_NEW_CLAIM =
 
 /** The a2.01 bookend, quoted by unit id as doctrine §B.7 asks. */
 export const EAR_BOOKEND =
-  `${EAR_UNIT} said it about verbs: ${A201_REFRAME} ${EAR_CLAIM}`;
+  `${Cap(unitRef(EAR_UNIT))} said it about verbs: ${A201_REFRAME} ${EAR_CLAIM}`;
 
 /** The one-line version of the reframe, for the roundup. */
 export const CARRY_FORWARD =
@@ -74,7 +80,7 @@ export const CARRY_FORWARD =
 /** What is deliberately not here. Named, once, so the learner knows it is coming
  *  rather than thinking it was forgotten. */
 export const NEXT_LESSON_LINE =
-  `Three adjectives break every rule on this screen and they are the three you use most. ${BEAU_UNIT} is next and it is about nothing else. The lesson after that, ${ADVERB_UNIT}, is built on the feminine forms you have just learned to make.`;
+  `Three adjectives break every rule on this screen and they are the three you use most. ${Cap(unitRef(BEAU_UNIT))} is next and it is about nothing else. The lesson after that, ${unitRef(ADVERB_UNIT)}, is built on the feminine forms you have just learned to make.`;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE GLOSSARY

@@ -172,6 +172,12 @@
 // about the article rather than about the place.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  IDENTITY, THE BLOCK, AND THE COUNTS THE BATCH REFUSES TO DISAGREE WITH
@@ -254,11 +260,11 @@ export const PARTITIVE_UNIT = 'a1.29';
  *  this lesson cannot say something a1.21 contradicts. a2.16 §3: assert the
  *  literal, because a back-reference to a unit id is not a variable. */
 export const CONTRACTION_CLAIM =
-  `À plus le is au and à plus les is aux, and ${CONTRACTION_UNIT} gave you that with de plus le is du and de plus les is des beside it.`;
+  `À plus le is au and à plus les is aux, and ${unitRef(CONTRACTION_UNIT)} gave you that with de plus le is du and de plus les is des beside it.`;
 
 /** What a1.22 shipped about countries, same treatment. */
 export const COUNTRY_CLAIM =
-  `A country's article decides between en, au and aux, and ${COUNTRY_UNIT} gave you the whole grid.`;
+  `A country's article decides between en, au and aux, and ${unitRef(COUNTRY_UNIT)} gave you the whole grid.`;
 
 /** a1.21's own reframe, verbatim from prepositions-terms.ts:83. */
 export const A121_REFRAME = 'One word goes straight onto the noun. A phrase needs de first.';
@@ -285,7 +291,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'Five kinds of place, five words.',
-    why: 'The table of contents. Names the contents, instructs nothing, and three of its five rows are a1.22\'s grid with the labels changed.',
+    why: `The table of contents. Names the contents, instructs nothing, and three of its five rows are ${unitRef('a1.22')}\'s grid with the labels changed.`,
   },
   {
     candidate: 'Chez is for people.',
@@ -293,13 +299,13 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'Learn the place with its article.',
-    why: 'a1.22\'s reframe with a different noun in it. A learner who has done a1.22 would read it as the same sentence and conclude the lesson is a revision.',
+    why: `${Cap(unitRef('a1.22'))}\'s reframe with a different noun in it. A learner who has done ${unitRef('a1.22')} would read it as the same sentence and conclude the lesson is a revision.`,
   },
 ];
 
 /** The move, in the imperative, for the roundup and the sheet. */
 export const THE_MOVE =
-  'Ask what the place IS before you reach for the word in front of it. A person takes chez. Everything else is a place, and its article decides the rest.';
+  'Ask what the place IS before reaching for the word in front. A person takes chez. Everything else is a place, and its article decides the rest.';
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE FOUR KINDS, WHICH ARE THE GRID
@@ -372,11 +378,11 @@ export type ArticleRow = {
 export const ARTICLE_TABLE: readonly ArticleRow[] = [
   {
     word: 'à', withLe: 'au', withLa: 'à la', behaviour: 'folds', owner: CONTRACTION_UNIT,
-    detail: `À and le fold into one word and à and la do not. ${CONTRACTION_UNIT} gave you both halves of that, and the half that does nothing matters as much as the half that does.`,
+    detail: `À and le fold into one word and à and la do not. ${Cap(unitRef(CONTRACTION_UNIT))} gave you both halves of that, and the half that does nothing matters as much as the half that does.`,
   },
   {
     word: 'de', withLe: 'du', withLa: 'de la', behaviour: 'folds', owner: CONTRACTION_UNIT,
-    detail: `The same fold coming back, and ${CONTRACTION_UNIT} gave you it on the same screen as the one above. De and le give du, de and les give des. ${PARTITIVE_UNIT} owns the other du, the one that means some.`,
+    detail: `The same fold coming back, and ${unitRef(CONTRACTION_UNIT)} gave you it on the same screen as the one above. De and le give du, de and les give des. ${Cap(unitRef(PARTITIVE_UNIT))} owns the other du, the one that means some.`,
   },
   {
     word: 'en', withLe: 'en', withLa: 'en', behaviour: 'drops', owner: COUNTRY_UNIT,
@@ -494,7 +500,7 @@ export const CHEZ_PLACE_MUST_NOT_FIRE: readonly string[] = [
 export const CHEZ_FOLD_WRONG: readonly { wrong: string; right: string; why: string }[] = [
   { wrong: 'chez au médecin', right: 'chez le médecin', why: 'Nothing folds here. Chez leaves the article alone, so the two words stay two words.' },
   { wrong: 'chez du médecin', right: 'chez le médecin', why: 'Same again, coming from instead of going to, and chez still does nothing to the le.' },
-  { wrong: 'au médecin', right: 'chez le médecin', why: 'This is what a learner who only has a1.21 produces, and it is the sentence the scene stops on.' },
+  { wrong: 'au médecin', right: 'chez le médecin', why: `This is what a learner who only has ${unitRef('a1.21')} produces, and it is the sentence the scene stops on.` },
 ];
 
 /** The generalisation set. Doctrine §B.1: a mission that makes the learner
@@ -526,7 +532,7 @@ export const UNSEEN_WORDS: readonly string[] = UNSEEN.flatMap((u) => [u.fr, u.an
  *  of `en` and `dans`. Named on a learner surface so the learner knows it is
  *  coming rather than thinking it was forgotten. */
 export const TIME_DEFERRAL =
-  `En also means how long something takes and dans also means how far ahead something is, and both of those are ${TIME_UNIT}, which is the very next lesson.`;
+  `En also means how long something takes and dans also means how far ahead something is, and both of those are ${unitRef(TIME_UNIT)}, which is the very next lesson.`;
 
 /** The temporal phrases no surface may carry. Guarded as PHRASES rather than as
  *  the bare words, because `en France` and `en deux heures` share a word and
@@ -557,7 +563,7 @@ export const TIME_MUST_NOT_FIRE: readonly string[] = [
   'Je vais en France.',
   'She lives in France and he lives in Japan.',
   'A person is not a place, and a place is not a person.',
-  'Dans is one of the five a1.21 gave you and it is not this lesson.',
+  `Dans is one of the five ${unitRef('a1.21')} gave you and it is not this lesson.`,
   'en Espagne, en Italie, en Belgique',
 ];
 
@@ -689,7 +695,7 @@ export const PREPOSITIONS_LIEU: PrepRow[] = [
   S(129, 'Je vais chez le médecin.', "I am going to the doctor's.", `zhuh veh shay luh mayd-S${EN_IN}`, '/ʒə vɛ ʃe lə med.sɛ̃/', 'sort', NO_D, ['prepositions', 'lieu', 'chez'], 'A person, so chez, and the le stays exactly where it was. Nineteen letters, so the dictée takes the short version instead.', 'person'),
   S(130, 'Je vais à Paris.', 'I am going to Paris.', 'zhuh veh a pa-REE', '/ʒə vɛ a pa.ʁi/', 'sort', D, ['prepositions', 'lieu', 'ville'], 'A city has no article to fold with, so à goes straight on. Twelve letters.', 'city'),
   S(131, 'Je vais en France.', 'I am going to France.', `zhuh veh ${EN_RESPELL} FRAHⁿSS`, '/ʒə vɛ ɑ̃ fʁɑ̃s/', 'sort', D, ['prepositions', 'lieu', 'pays'], 'La France has an article and en throws it away. Fourteen letters, and the country half of this is a1.22\'s.', 'country'),
-  S(132, 'Je vais au marché.', 'I am going to the market.', 'zhuh veh oh mar-SHAY', '/ʒə vɛ o maʁ.ʃe/', 'sort', D, ['prepositions', 'lieu'], 'À and le folded into one word, which is a1.21\'s rule with a shop behind it. Fourteen letters.', 'building'),
+  S(132, 'Je vais au marché.', 'I am going to the market.', 'zhuh veh oh mar-SHAY', '/ʒə vɛ o maʁ.ʃe/', 'sort', D, ['prepositions', 'lieu'], `À and le folded into one word, which is ${unitRef('a1.21')}\'s rule with a shop behind it. Fourteen letters.`, 'building'),
 
   /* ── The phrases the corpus has evidence for and no cards for ─────────────
    *
@@ -701,7 +707,7 @@ export const PREPOSITIONS_LIEU: PrepRow[] = [
   PH(134, 'chez la dentiste', "at the dentist's", 'shay lah dahⁿ-TEEST', '/ʃe la dɑ̃.tist/', 'phrase', PD, 'The same word with la instead of le, and chez does nothing to that either. Dentiste is the same word for a man and a woman.', 'person'),
   PH(135, 'chez le boulanger', "at the baker's", 'shay luh boo-lahⁿ-ZHAY', '/ʃe lə bu.lɑ̃.ʒe/', 'phrase', PD, 'The man who bakes. Half of the pair this lesson exists for.', 'person'),
   PH(136, 'chez Marie', "at Marie's", 'shay ma-REE', '/ʃe ma.ʁi/', 'phrase', PD, 'A name, so there is no article to leave alone. Nine letters and the shortest thing in the lesson.', 'person'),
-  PH(137, 'à la boulangerie', 'at the bakery', 'ah lah boo-lahⁿzh-REE', '/a la bu.lɑ̃ʒ.ʁi/', 'phrase', PD, 'The shop where the man works. À and la do not fold, which a1.21 measured and this lesson leans on.', 'building'),
+  PH(137, 'à la boulangerie', 'at the bakery', 'ah lah boo-lahⁿzh-REE', '/a la bu.lɑ̃ʒ.ʁi/', 'phrase', PD, `The shop where the man works. À and la do not fold, which ${unitRef('a1.21')} measured and this lesson leans on.`, 'building'),
 
   /* ── The pair, in sentences, and the line that joins them ─────────────────
    *
@@ -724,21 +730,21 @@ export const PREPOSITIONS_LIEU: PrepRow[] = [
   S(141, 'Je reste chez moi.', 'I am staying at my place.', 'zhuh REST shay MWAH', '/ʒə ʁɛst ʃe mwa/', 'person', D, ['prepositions', 'lieu', 'chez'], 'Fourteen letters. Chez moi is thirty-four published sentences and this is the first card.'),
   S(142, 'Il est chez lui.', 'He is at his place.', 'eel eh shay LÜEE', '/il ɛ ʃe lɥi/', 'person', D, ['prepositions', 'lieu', 'chez'], 'Twelve letters. The ü and the ee run together into one glide, the way lui always does.'),
   S(143, 'Elle est chez elle.', 'She is at her place.', 'ehl eh shay EHL', '/ɛl ɛ ʃe ɛl/', 'person', D, ['prepositions', 'lieu', 'chez'], 'Fifteen letters, and the reason this row is authored rather than imported is that the only published « chez elle » carries the tie glyph that renders as an underscore on a phone.'),
-  S(144, 'On mange chez Marie.', "We are eating at Marie's.", 'ohⁿ MAHⁿZH shay ma-REE', '/ɔ̃ mɑ̃ʒ ʃe ma.ʁi/', 'person', D, ['prepositions', 'lieu', 'chez'], 'Sixteen letters, at the limit. On rather than nous, which is a2.01\'s rule and the register this whole level uses.'),
+  S(144, 'On mange chez Marie.', "We are eating at Marie's.", 'ohⁿ MAHⁿZH shay ma-REE', '/ɔ̃ mɑ̃ʒ ʃe ma.ʁi/', 'person', D, ['prepositions', 'lieu', 'chez'], `Sixteen letters, at the limit. On rather than nous, which is ${unitRef('a2.01')}\'s rule and the register this whole level uses.`),
 
   /* ── The other three kinds, in the same frame as the sort ─────────────────
    *
    * One more country to prove the row is a rule rather than a fact about
    * France, and two buildings where the article does two different things. */
   S(145, 'Je vais au Japon.', 'I am going to Japan.', 'zhuh veh oh zhah-POHⁿ', '/ʒə vɛ o ʒa.pɔ̃/', 'place', D, ['prepositions', 'lieu', 'pays'], 'Thirteen letters. Au here is à plus le Japon, which is the same fold as au marché and nobody has ever said so.', 'country'),
-  S(146, 'Je vais à la gare.', 'I am going to the station.', 'zhuh veh ah lah GAHR', '/ʒə vɛ a la ɡaʁ/', 'place', D, ['prepositions', 'lieu'], 'Thirteen letters, and à la does not fold. Half of what a1.21 gave you is the half where nothing happens.', 'building'),
+  S(146, 'Je vais à la gare.', 'I am going to the station.', 'zhuh veh ah lah GAHR', '/ʒə vɛ a la ɡaʁ/', 'place', D, ['prepositions', 'lieu'], `Thirteen letters, and à la does not fold. Half of what ${unitRef('a1.21')} gave you is the half where nothing happens.`, 'building'),
   S(147, "Je vais à l'hôpital.", 'I am going to the hospital.', 'zhuh veh ah loh-pee-TAL', '/ʒə vɛ a lɔ.pi.tal/', 'place', D, ['prepositions', 'lieu'], "Fifteen letters, because the apostrophe is not a letter. À l' does not fold either, and this is the building behind the doctor.", 'building'),
 
   /* ── The scene ───────────────────────────────────────────────────────────
    *
    * Doctrine §B.2: somebody who started a sentence they could not finish. The
    * learner has the noun, has the verb, and stalls on a word of two letters. */
-  S(148, 'Tu fais quoi cet après-midi ?', 'What are you doing this afternoon?', 'tü feh KWAH seh-tah-preh-mee-DEE', '/ty fɛ kwa sɛ.ta.pʁɛ.mi.di/', 'scene', NO_D, ['prepositions', 'lieu'], 'Her question, and every word in it is one the learner has had since a1. The join between cet and après is a HYPHEN, which is a2.16 §7\'s decision for the whole project, because the tie glyph renders as an underscore on a phone.'),
+  S(148, 'Tu fais quoi cet après-midi ?', 'What are you doing this afternoon?', 'tü feh KWAH seh-tah-preh-mee-DEE', '/ty fɛ kwa sɛ.ta.pʁɛ.mi.di/', 'scene', NO_D, ['prepositions', 'lieu'], `Her question, and every word in it is one the learner has had since a1. The join between cet and après is a HYPHEN, which is ${unitRef('a2.16')} §7\'s decision for the whole project, because the tie glyph renders as an underscore on a phone.`),
   S(149, 'Ah, chez le médecin. Rien de grave ?', "Ah, the doctor's. Nothing serious?", `ah shay luh mayd-S${EN_IN} · RY${EN_IN} duh GRAHV`, '/a ʃe lə med.sɛ̃ ʁjɛ̃ də ɡʁav/', 'scene', NO_D, ['prepositions', 'lieu', 'chez'], 'She supplies the word and moves straight on, which is what makes it expensive: nothing visibly went wrong.'),
   S(150, 'Non, rien de grave.', 'No, nothing serious.', `nohⁿ RY${EN_IN} duh GRAHV`, '/nɔ̃ ʁjɛ̃ də ɡʁav/', 'scene', D, ['prepositions', 'lieu'], 'Fourteen letters. The answer the learner did have, arriving after the sentence they did not.'),
 
@@ -771,7 +777,7 @@ export const AUTHORED_IDS: string[] = PREPOSITIONS_LIEU.map((r) => r.id);
  *  wanted one. */
 export function row(fr: string): PrepRow {
   const r = PREPOSITIONS_LIEU.find((x) => x.fr === fr);
-  if (!r) throw new Error(`a2.04: no authored row for "${fr}".`);
+  if (!r) throw new Error(`${unitRef('a2.04')}: no authored row for "${fr}".`);
   return r;
 }
 
@@ -779,7 +785,7 @@ export function row(fr: string): PrepRow {
  *  second copy of the same four sentences. a2.13 §6.2. */
 export function sortRow(k: Kind): PrepRow {
   const r = SORT_ROWS.find((x) => x.placeKind === k);
-  if (!r) throw new Error(`a2.04: no sort row for kind "${k}".`);
+  if (!r) throw new Error(`${unitRef('a2.04')}: no sort row for kind "${k}".`);
   return r;
 }
 
@@ -808,7 +814,7 @@ export type Import = {
 export const IMPORTED: readonly Import[] = [
   // The preposition itself. a1.21 imported this exact row, so the two lessons
   // serve one card rather than two.
-  { id: 'fr.sons.muettes.009', fr: 'chez', use: 'preposition', why: 'The headword, [SHAY], and the row a1.21 imported at seq 24. fr.sons.mots-essentiels.019 is a second copy in a second theme and is deliberately not taken.' },
+  { id: 'fr.sons.muettes.009', fr: 'chez', use: 'preposition', why: `The headword, [SHAY], and the row ${unitRef('a1.21')} imported. fr.sons.mots-essentiels.019 is a second copy in a second theme and is deliberately not taken.` },
 
   // The people. All six exist, two of them need a repair.
   { id: 'fr.a2.systeme-de-sante.001', fr: 'le médecin', use: 'person', why: 'The person the whole lesson is about. Respelling repaired; see REPAIRS.' },
@@ -844,18 +850,18 @@ export const IMPORTED: readonly Import[] = [
   { id: 'fr.a1.routines.064', fr: 'aller au marché', use: 'a-phrase', why: '[ah-LAY oh mar-SHAY], clean, and the fold the sort row leans on.' },
   { id: 'fr.a1.routines.063', fr: "aller à l'école", use: 'a-phrase', why: "[ah-LAY ah lay-KOHL], clean, and à l' not folding." },
   { id: 'fr.a1.routines.067', fr: 'rentrer à la maison', use: 'a-phrase', why: 'Repaired on both nasals, both of them visible, and both values read off other published rows.' },
-  { id: 'fr.a2.verbes.261', fr: 'Je vais au parc.', use: 'frame', why: 'THE FRAME. a2.02 published it at seq 5 and the four authored sort rows are built on its respelling shape, so the frame is somebody else\'s.' },
+  { id: 'fr.a2.verbes.261', fr: 'Je vais au parc.', use: 'frame', why: `THE FRAME. ${Cap(unitRef('a2.02'))} published it at seq 5 and the four authored sort rows are built on its respelling shape, so the frame is somebody else\'s.` },
 
   // The cities.
   { id: 'fr.sons.muettes.004', fr: 'Paris', use: 'city', why: 'The only city headword in the corpus, [pa-REE], clean.' },
   { id: 'fr.sons.elision.029', fr: 'de Paris', use: 'city', why: '[duh pa-REE], clean, and the coming-from half for a city, which has no article to fold.' },
   { id: 'fr.sons.elision.062', fr: "J'habite à Lyon.", use: 'city', why: 'Clean, no tie, and a second city so the row is a rule rather than a fact about Paris.' },
-  { id: 'fr.a2.verbes.285', fr: 'Je viens de Paris.', use: 'city', why: 'a2.02\'s own row, clean. Its [vyaⁿ] is a variant of the house [VYEHⁿ] and not a violation, so it is imported untouched; invariants §9.' },
+  { id: 'fr.a2.verbes.285', fr: 'Je viens de Paris.', use: 'city', why: `${Cap(unitRef('a2.02'))}\'s own row, clean. Its [vyaⁿ] is a variant of the house [VYEHⁿ] and not a violation, so it is imported untouched; invariants §9.` },
 
   // The countries, all a1.22's, named rather than taught.
-  { id: 'fr.a1.pays-et-nationalites.001', fr: 'la France', use: 'country', why: 'a1.22\'s own row, [LAH FRAHⁿSS], repaired by a1.22 and clean.' },
-  { id: 'fr.a1.pays-et-nationalites.051', fr: 'le Japon', use: 'country', why: 'a1.22\'s, [LUH zhah-POHⁿ], clean, and the masculine country the au row needs.' },
-  { id: 'fr.a1.pays-et-nationalites.011', fr: 'les États-Unis', use: 'country', why: 'a1.22\'s, [LAY zay-tah-zü-NEE], clean, and the plural.' },
+  { id: 'fr.a1.pays-et-nationalites.001', fr: 'la France', use: 'country', why: `${Cap(unitRef('a1.22'))}\'s own row, [LAH FRAHⁿSS], repaired by ${unitRef('a1.22')} and clean.` },
+  { id: 'fr.a1.pays-et-nationalites.051', fr: 'le Japon', use: 'country', why: `${Cap(unitRef('a1.22'))}\'s, [LUH zhah-POHⁿ], clean, and the masculine country the au row needs.` },
+  { id: 'fr.a1.pays-et-nationalites.011', fr: 'les États-Unis', use: 'country', why: `${Cap(unitRef('a1.22'))}\'s, [LAY zay-tah-zü-NEE], clean, and the plural.` },
   { id: 'fr.sons.nasales.029', fr: 'Mon grand frère travaille en France.', use: 'country', why: 'The ONE published sentence in the corpus that puts en in front of a country AND carries a respelling. No tie. It is where EN_RESPELL was confirmed.' },
 ];
 
@@ -941,6 +947,13 @@ export const DISPLAY_ONLY_ALREADY_IN_SEED: readonly string[] = [
   'fr.a1.marche.006',                // le marché
   'fr.a1.pays-et-nationalites.001',  // la France, put there by a1.22
   'fr.a1.pays-et-nationalites.051',  // le Japon, the same
+  // ADDED 2026-08-18, measured against the seed. This lesson would strip these
+  // three as its own leftovers, and they are not: a2.27 references .103 and
+  // .105 and a2.26 references courses.024, all three carrying a `flashcard`
+  // drill, so a strip would blank a card in somebody else's lesson.
+  'fr.a1.la-ville.103',              // referenced by a2.27
+  'fr.a1.la-ville.105',              // referenced by a2.27
+  'fr.a2.courses.024',               // referenced by a2.26
 ];
 
 /** a1.03's ending population measured off the SEED, through the real function,
@@ -964,7 +977,7 @@ export const A103_FIGURES_MOVED = [
 /** One imported row by id, for a section that names it. */
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`a2.04: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`${unitRef('a2.04')}: ${id} is not in IMPORTED.`);
   return i;
 };
 
@@ -978,7 +991,7 @@ export const importsFor = (use: Import['use']): readonly Import[] => IMPORTED.fi
 /** a2.16 §6 and a2.03 §8: the next author reads this file's header first, so
  *  what was looked at and rejected belongs here rather than in a report. */
 export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
-  { id: 'fr.sons.liaisons.177', fr: 'chez elle', why: 'CARRIES U+203F. [shay-z‿EHL] renders as a low underscore on a Pixel 6 (invariants §2, a2.13 §3). It is the only published card-ready « chez elle » and it is why fr.a2.prepositions-essentielles.143 is authored.' },
+  { id: 'fr.sons.liaisons.177', fr: 'chez elle', why: `CARRIES U+203F. [shay-z‿EHL] renders as a low underscore on a Pixel 6 (invariants §2, ${unitRef('a2.13')} §3). It is the only published card-ready « chez elle » and it is why fr.a2.prepositions-essentielles.143 is authored.` },
   { id: 'fr.sons.liaisons.157', fr: 'Nous allons chez ma sœur dimanche.', why: 'CARRIES U+203F, twice.' },
   { id: 'fr.sons.liaisons.059', fr: 'Mon frère travaille aux États-Unis.', why: 'CARRIES U+203F. It is the only card-ready « aux États-Unis » sentence in the corpus, so the plural country row has no importable sentence at all and is shown as a headword only.' },
   { id: 'fr.sons.nasales.109', fr: 'Nous allons chez Yvon pour manger du thon.', why: 'CARRIES U+203F.' },
@@ -987,7 +1000,7 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   { id: 'fr.sons.nasales.032', fr: "L'étudiant rentre chez lui en chantant.", why: 'Clean and usable, and it holds « en chantant », which is neither a place nor a time but a third sense of en that no unit in the curriculum owns. Importing it would put a fourth en on a screen that says there are two.' },
   { id: 'fr.b2.rp-maison.016', fr: 'se sentir chez soi', why: 'b2, idiomatic, and its respelling closes a nasal with a plain n. The idiom is worth having and it is not worth having here.' },
   { id: 'fr.a1.salutations-de-base.023', fr: 'bienvenue chez nous', why: 'Two faults in one row: [byan-VNEW] has a plain nasal AND spells /y/ as NEW rather than Ü. Repairing two conventions on a row this lesson can do without is scope it did not need. fr.a1.amis.030 says the same thing.' },
-  { id: 'fr.a1.amis.070', fr: 'le voisin', why: 'FLAGGED at [luh-vwah-ZAN] and there is NO clean published form anywhere: the corpus holds vwah-ZAN, vwah-ZIHN and vwah-ZEHN and not one superscript. Repairing it would mean inventing the value rather than reading it off, which a2.16 §7 is against. The lesson uses le copain instead.' },
+  { id: 'fr.a1.amis.070', fr: 'le voisin', why: `FLAGGED at [luh-vwah-ZAN] and there is NO clean published form anywhere: the corpus holds vwah-ZAN, vwah-ZIHN and vwah-ZEHN and not one superscript. Repairing it would mean inventing the value rather than reading it off, which ${unitRef('a2.16')} §7 is against. The lesson uses le copain instead.` },
   { id: 'fr.sons.couleurs.016', fr: 'Bordeaux', why: 'IT IS A COLOUR. The only Bordeaux headword in the corpus is [bor-DOH] in the colours theme, and a lesson looking for French cities will find it and think it has one.' },
   { id: 'fr.a2.pays-et-nationalites.001', fr: "Beaucoup de touristes viennent d'Allemagne et du Japon.", why: 'The a2 country namespace exists and holds seventeen rows about immigration and citizenship. None of it is prepositions of place and none is imported.' },
 ];
@@ -1085,7 +1098,7 @@ export const REPAIRS: readonly Repair[] = [
     id: 'fr.a1.amis.030', fr: 'Bienvenue chez moi',
     from: 'byan-vuh-NÜ SHAY MWAH', half: 'byaⁿ-vuh-NÜ SHAY MWAH', to: 'byehⁿ-vuh-NÜ SHAY MWAH', blind: false, house: true,
     readOff: 'fr.sons.nasales.078', readOffToken: 'byehⁿ',
-    why: 'The third /ɛ̃/ row, and a2.17 settled this exact word one lesson ago: bien is BYEHⁿ, read off fr.sons.nasales.078, and a2.17 repaired fr.sons.mots-essentiels.045 to match. This row is the same vowel in the same word inside a phrase.',
+    why: `The third /ɛ̃/ row, and ${unitRef('a2.17')} settled this exact word one lesson ago: bien is BYEHⁿ, read off fr.sons.nasales.078, and ${unitRef('a2.17')} repaired fr.sons.mots-essentiels.045 to match. This row is the same vowel in the same word inside a phrase.`,
   },
 ];
 

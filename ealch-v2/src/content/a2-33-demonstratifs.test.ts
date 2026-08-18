@@ -43,6 +43,7 @@ import { fold } from './answer.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { hasPlainNasalFor } from './density.logic.ts';
 import { quizQuestions } from './schema.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const LESSON_ID = 'a2.33.l1';
 const UNIT_ID = 'a2.33';
@@ -370,10 +371,10 @@ test("a2.06's article-against-pronoun wording is quoted VERBATIM", () => {
     `${OBJECT_UNIT}'s sentence is not on any learner surface verbatim. A paraphrase is not a quotation.`);
 });
 
-test('a2.06 is named by unit id beside its own sentence', () => {
+test('a2.06 is named by its lesson label beside its own sentence', () => {
   const card = display(sec('s04-grid')).join('\n');
   ok(card.includes(A206_SHAPE), 'the quotation is not on the card that names the unit');
-  ok(hasWord(card, OBJECT_UNIT), `${OBJECT_UNIT} is quoted and not named`);
+  ok(namesUnitLabel(card, OBJECT_UNIT), `${OBJECT_UNIT} is quoted and not named`);
 });
 
 test("a2.06's sentence still ends on « a verb », which is why this lesson adds one", () => {
@@ -387,14 +388,14 @@ test("a2.06's sentence still ends on « a verb », which is why this lesson adds
 
 test("a2.02's recurring shape is quoted and attributed (doctrine §B.7)", () => {
   ok(LEARNER_TEXT.includes(WHAT_FOLLOWS), `« ${WHAT_FOLLOWS} » is not quoted, and this is the shape's next turn`);
-  ok(hasWord(LEARNER_TEXT, SHAPE_UNIT), `${SHAPE_UNIT} owns that line and is not named`);
+  ok(namesUnitLabel(LEARNER_TEXT, SHAPE_UNIT), `${SHAPE_UNIT} owns that line and is not named`);
 });
 
-test('a2.16 is named BY UNIT ID as the reason for cet, with sons.07 beside it', () => {
+test('a2.16 is named BY ITS LESSON LABEL as the reason for cet, with sons.07 beside it', () => {
   const why = display(sec('s07-why')).join('\n');
   ok(why.length > 200, 's07-why is missing or empty');
-  ok(hasWord(why, VOWEL_UNIT), `${VOWEL_UNIT} is not named by unit id as the reason for cet`);
-  ok(hasWord(why, ELISION_UNIT), `${ELISION_UNIT} is not named beside it, and it is the same pressure a third time`);
+  ok(namesUnitLabel(why, VOWEL_UNIT), `${VOWEL_UNIT} is not named by its lesson label as the reason for cet`);
+  ok(namesUnitLabel(why, ELISION_UNIT), `${ELISION_UNIT} is not named beside it, and it is the same pressure a third time`);
   ok(why.includes('cet homme'), 'the card naming a2.16 does not show the form it is explaining');
 });
 
@@ -412,7 +413,7 @@ test('the unit that owns each quotation is named ON THE SAME CARD', () => {
   for (const [quote, owner] of [[A216_REFRAME, VOWEL_UNIT], [ELISION_REFRAME, ELISION_UNIT]] as const) {
     const card = cards.find((c) => strs(c).some((x) => x.includes(quote)));
     ok(card, `no card in s07-why quotes ${owner}'s reframe`);
-    ok(hasWord(strs(card).join('\n'), owner), `the card quoting ${owner}'s reframe does not name ${owner}`);
+    ok(namesUnitLabel(strs(card).join('\n'), owner), `the card quoting ${owner}'s reframe does not name ${owner}`);
   }
 });
 
@@ -631,9 +632,9 @@ test('lui is a substring of celui and the boundary handles it', () => {
   ok(hasWord('Je lui donne ce livre.', 'lui'), 'the boundary cannot see a real lui');
 });
 
-test('every neighbouring unit this lesson leans on is named by id', () => {
+test('every neighbouring unit this lesson leans on is named by its lesson label', () => {
   for (const u of [GENDER_UNIT, POSSESSIVE_UNIT, 'a2.24', 'a2.25', 'a1.04']) {
-    ok(hasWord(LEARNER_TEXT, u), `${u} is a boundary this lesson leans on and is never named`);
+    ok(namesUnitLabel(LEARNER_TEXT, u), `${u} is a boundary this lesson leans on and is never named`);
   }
 });
 

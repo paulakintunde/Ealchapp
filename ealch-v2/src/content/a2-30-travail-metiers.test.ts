@@ -23,6 +23,7 @@ import seed from './seed.json' with { type: 'json' };
 import { hasPlainNasalFor } from './density.logic.ts';
 import { fold } from './answer.logic.ts';
 import { quizQuestions } from './schema.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 /* ── The authored source. Imported the way a1-03-genre.test.ts imports
  *    genre-endings.ts, so this file guards the build before it is applied. ── */
@@ -237,7 +238,7 @@ test('a1.06 is named in every TEACHING section that uses the zero-article rule',
   const users = SECTIONS.filter((s) => !DRAMATIC.has(s.type) && USES_ZERO_ARTICLE.test(textOf(s)));
   ok(users.length >= 8, `only ${users.length} sections use the rule; the detector has drifted`);
   for (const s of users) {
-    ok(textOf(s).includes(C.ZERO_ARTICLE_UNIT as string), `${s.id} uses a1.06's rule and does not name a1.06`);
+    ok(namesUnitLabel(textOf(s), C.ZERO_ARTICLE_UNIT), `${s.id} uses a1.06's rule and does not name a1.06`);
   }
 });
 
@@ -268,7 +269,7 @@ test('the zero-article rule is NOT taught, only named and tested', { skip: noSrc
 });
 
 test('a2.18 is named for depuis, and no section teaches the tense it takes', { skip: noSrc }, () => {
-  ok(ALL().includes(C.TIME_UNIT as string), 'a2.18 is never named');
+  ok(namesUnitLabel(ALL(), C.TIME_UNIT), 'a2.18 is never named');
   // a2.18's s07-tense is a trapDrill on exactly this. Ours would be the second
   // copy. We own the QUESTION FORM and nothing else.
   const TEACHES_TENSE = /depuis[^.]{0,40}\b(takes|forces|requires|needs)\b[^.]{0,30}\b(present|présent|past)\b/i;
@@ -277,8 +278,8 @@ test('a2.18 is named for depuis, and no section teaches the tense it takes', { s
   ok(ROWS.some((r) => r.fr === 'depuis combien de temps'), 'the question form was not authored');
 });
 
-test('a2.07 owns the repair move: cited by unit id, reused by itemId, ZERO authored', { skip: noSrc }, () => {
-  ok(ALL().includes(C.REPAIR_UNIT as string), 'a2.07 is never named');
+test('a2.07 owns the repair move: cited by its lesson label, reused by itemId, ZERO authored', { skip: noSrc }, () => {
+  ok(namesUnitLabel(ALL(), C.REPAIR_UNIT), 'a2.07 is never named');
   const authored = new Set(ROWS.map((r) => r.fr));
   for (const fr of C.REPAIR_FR as string[]) {
     ok(!authored.has(fr), `this lesson authored a repair row: "${fr}"`);
@@ -300,7 +301,7 @@ test('a2.29 owns the ladder: three rung names verbatim, ZERO rung lines authored
   const at = (C.RUNGS as string[]).map((r) => reg.indexOf(r));
   ok(at[0] < at[1] && at[1] < at[2], 'the three rungs are not in order');
   ok(!/rung 4|fourth rung/i.test(ALL()), 'a fourth rung was added, which clause 4 forbids');
-  ok(ALL().includes(C.LADDER_UNIT as string), 'a2.29 is never named');
+  ok(namesUnitLabel(ALL(), C.LADDER_UNIT), 'a2.29 is never named');
   const released = new Set(TRANCHE.flat());
   for (const id of C.LADDER_IDS as string[]) ok(released.has(id), `${id} is never released by a tranche`);
 });
@@ -537,7 +538,7 @@ test('the listening section hides its lines and stands alone', { skip: noSrc }, 
   }
   for (const q of l.questions) ok(q.why, 'a listening question explains nothing');
   // One question's correct answer is the repair move, cited to a2.07.
-  ok(textOf(l).includes('a2.07'), 'the repair question does not cite a2.07');
+  ok(namesUnitLabel(textOf(l), 'a2.07'), 'the repair question does not cite a2.07');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

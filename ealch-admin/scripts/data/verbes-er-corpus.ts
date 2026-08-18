@@ -129,6 +129,7 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { REUSED_SENTENCES } from './verbes-er-imported.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /* ─── The id block ─────────────────────────────────────────────────────────
  *
@@ -325,7 +326,7 @@ export const AUDIBLE_ENDINGS: string[] = ENDINGS.filter((e) => e.audible).map((e
 export const RESPELL_REPAIRS: { id: string; fr: string; from: string; to: string; why: string }[] = [
   { id: 'fr.a2.verbes.001', fr: 'Je parle français.', from: 'ZHUH PARL frahn-SEH', to: 'zhuh parl frahⁿ-SEH', why: "the je row of this lesson's own paradigm; a1.22 found it and left it for whoever owned the theme" },
   { id: 'fr.a2.verbes.019', fr: 'demander', from: 'duh-mahn-DAY', to: 'duh-mahⁿ-DAY', why: '/də.mɑ̃.de/, a nasal vowel' },
-  { id: 'fr.a2.verbes.016', fr: 'rentrer', from: 'rahn-TRAY', to: 'rahⁿ-TRAY', why: '/ʁɑ̃.tʁe/; a1.25 saw this row and recorded that it was not that build to repair' },
+  { id: 'fr.a2.verbes.016', fr: 'rentrer', from: 'rahn-TRAY', to: 'rahⁿ-TRAY', why: `/ʁɑ̃.tʁe/; ${unitRef('a1.25')} saw this row and recorded that it was not that build to repair` },
   { id: 'fr.sons.verbes-essentiels.043', fr: 'entrer', from: 'ahn-TRAY', to: 'ahⁿ-TRAY', why: '/ɑ̃tʁe/, a nasal vowel' },
   { id: 'fr.sons.verbes-essentiels.054', fr: 'montrer', from: 'mohn-TRAY', to: 'mohⁿ-TRAY', why: '/mɔ̃tʁe/, a nasal vowel' },
   { id: 'fr.a1.evenements-familiaux.059', fr: 'chanter', from: 'shahn-TAY', to: 'shahⁿ-TAY', why: '/ʃɑ̃.te/, a nasal vowel' },

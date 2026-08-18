@@ -107,6 +107,12 @@
 //    conditional form on any surface.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  IDENTITY
@@ -171,10 +177,10 @@ export const STEMS: Record<Modal, { singular: string; nous: string; ils: string 
 export const ENDINGS = [
   { person: 'je', ending: 'x · s', owned: false, since: null },
   { person: 'tu', ending: 'x · s', owned: false, since: null },
-  { person: 'il · elle · on', ending: 't', owned: true, since: 'a2.11' },
-  { person: 'nous', ending: 'ons', owned: true, since: 'a2.01' },
-  { person: 'vous', ending: 'ez', owned: true, since: 'a2.01' },
-  { person: 'ils · elles', ending: 'ent', owned: true, since: 'a2.01' },
+  { person: 'il · elle · on', ending: 't', owned: true, since: `${unitRef('a2.11')}` },
+  { person: 'nous', ending: 'ons', owned: true, since: `${unitRef('a2.01')}` },
+  { person: 'vous', ending: 'ez', owned: true, since: `${unitRef('a2.01')}` },
+  { person: 'ils · elles', ending: 'ent', owned: true, since: `${unitRef('a2.01')}` },
 ] as const;
 
 /** The one genuinely new ending, named so a test can assert the lesson says it
@@ -345,14 +351,26 @@ export const UNSEEN_VERB = {
  *  a2.13 mission that used `nager` as its unseen verb would take the sentence
  *  a2.14 needs. That is why the unseen verb is `arroser`. */
 export const RESERVED_FOR_NEIGHBOURS = [
-  { fr: 'savoir', id: 'fr.sons.verbes-essentiels.009', unit: 'a2.14', why: 'a2.14 owns savoir against connaître outright' },
-  { fr: 'nager', id: 'fr.sons.verbes-essentiels.088', unit: 'a2.14', why: 'je sais nager is a2.14\'s headline contrast' },
-  { fr: 'connaître', id: null, unit: 'a2.14', why: 'the other half of a2.14' },
+  { fr: 'savoir', id: 'fr.sons.verbes-essentiels.009', unit: 'a2.14', why: `${Cap(unitRef('a2.14'))} owns savoir against connaître outright` },
+  { fr: 'nager', id: 'fr.sons.verbes-essentiels.088', unit: 'a2.14', why: `je sais nager is ${unitRef('a2.14')}\'s headline contrast` },
+  { fr: 'connaître', id: null, unit: 'a2.14', why: `the other half of ${unitRef('a2.14')}` },
 ] as const;
 
 /** Every unit this lesson names on a learner surface, so a rename breaks a test
  *  rather than leaving a dead reference on a card. */
-export const CITED_UNITS = ['a1.01', 'a2.01', 'a2.02', 'a2.11', 'a2.14'] as const;
+/** a2.14 IS NOT ON THIS LIST, AND WAS NEVER SATISFIED BY THE CONTENT.
+ *
+ *  The merge asserts every entry is NAMED on a learner surface, and it walks
+ *  the lesson only. a2.14 appears nowhere in it: `s02-goals` records that this
+ *  build deliberately says « Ce que vous allez pouvoir faire » rather than the
+ *  house heading, precisely BECAUSE savoir is a2.14's and this lesson does not
+ *  touch it. It is a boundary respected, not a citation made.
+ *
+ *  It sat on the list because the batch's own walk reaches the corpus import
+ *  notes, where the three savoir rows explain their provenance to an author.
+ *  Those notes are not a learner surface, so the two guards disagreed and only
+ *  the looser one had been run. */
+export const CITED_UNITS = ['a1.01', 'a2.01', 'a2.02', 'a2.11'] as const;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE AUTHORED ROWS
@@ -388,7 +406,7 @@ export const MODAUX: ModalRow[] = [
   { id: 'fr.a2.verbes.341', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je veux payer.', en: 'I want to pay.', ipa: '/ʒə vø pe.je/', respell: 'zhuh VUH pay-YAY', person: 'je', modal: 'vouloir', infinitive: 'payer', tags: ['modal', 'vouloir', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: 'The -x is the one new ending in this lesson. It sounds like nothing at all, exactly as the -s did.' },
   { id: 'fr.a2.verbes.342', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu veux payer.', en: 'You want to pay.', ipa: '/ty vø pe.je/', respell: 'tü VUH pay-YAY', person: 'tu', modal: 'vouloir', infinitive: 'payer', tags: ['modal', 'vouloir', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: 'The same spelling as the je form and the same sound. Only the pronoun separates them.' },
   { id: 'fr.a2.verbes.343', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il veut payer.', en: 'He wants to pay.', ipa: '/il vø pe.je/', respell: 'eel VUH pay-YAY', person: 'il', modal: 'vouloir', infinitive: 'payer', tags: ['modal', 'vouloir', 'paradigm', 'singular'], drills: SD, audioRef: null, version: 1, notes: 'A -t instead of a -x, and still the same sound. Two spellings, three persons, one thing to say.' },
-  { id: 'fr.a2.verbes.344', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous voulons payer.', en: 'We want to pay.', ipa: '/nu vu.lɔ̃ pe.je/', respell: 'noo voo-LOHⁿ pay-YAY', person: 'nous', modal: 'vouloir', infinitive: 'payer', tags: ['modal', 'vouloir', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'The stem changes to voul- and the ending is the ordinary -ons from a2.01.' },
+  { id: 'fr.a2.verbes.344', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous voulons payer.', en: 'We want to pay.', ipa: '/nu vu.lɔ̃ pe.je/', respell: 'noo voo-LOHⁿ pay-YAY', person: 'nous', modal: 'vouloir', infinitive: 'payer', tags: ['modal', 'vouloir', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: `The stem changes to voul- and the ending is the ordinary -ons from ${unitRef('a2.01')}.` },
   { id: 'fr.a2.verbes.345', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous voulez payer.', en: 'You want to pay.', ipa: '/vu vu.le pe.je/', respell: 'voo voo-LAY pay-YAY', person: 'vous', modal: 'vouloir', infinitive: 'payer', tags: ['modal', 'vouloir', 'paradigm', 'plural'], drills: SD, audioRef: null, version: 1, notes: 'Same stem as nous, and the ordinary -ez. Nothing here is irregular except the stem itself.' },
   { id: 'fr.a2.verbes.346', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils veulent payer.', en: 'They want to pay.', ipa: '/il vœl pe.je/', respell: 'eel VUHL pay-YAY', person: 'ils', modal: 'vouloir', infinitive: 'payer', tags: ['modal', 'vouloir', 'paradigm', 'plural'], drills: SD, audioRef: null, version: 1, notes: 'Take the je stem, add the consonant from the nous stem: veu plus l. The -ent is silent as always.' },
 
@@ -408,10 +426,10 @@ export const MODAUX: ModalRow[] = [
    *
    * `dois` and `doit` are the a2.11 -RE singular shape, arriving on a verb that
    * is not -RE. That is worth one line and not a mission. */
-  { id: 'fr.a2.verbes.353', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je dois payer.', en: 'I have to pay.', ipa: '/ʒə dwa pe.je/', respell: 'zhuh DWAH pay-YAY', person: 'je', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: 'A plain -s here, not the -x. This is the singular you already met on the -RE verbs in a2.11.' },
+  { id: 'fr.a2.verbes.353', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je dois payer.', en: 'I have to pay.', ipa: '/ʒə dwa pe.je/', respell: 'zhuh DWAH pay-YAY', person: 'je', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: `A plain -s here, not the -x. This is the singular you already met on the -RE verbs in ${unitRef('a2.11')}.` },
   { id: 'fr.a2.verbes.354', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu dois payer.', en: 'You have to pay.', ipa: '/ty dwa pe.je/', respell: 'tü DWAH pay-YAY', person: 'tu', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'singular'], drills: S, audioRef: null, version: 1, notes: 'The same again. Every one of these three verbs hands you two spellings across three persons, and one sound.' },
   { id: 'fr.a2.verbes.355', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il doit payer.', en: 'He has to pay.', ipa: '/il dwa pe.je/', respell: 'eel DWAH pay-YAY', person: 'il', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'singular'], drills: SD, audioRef: null, version: 1, notes: 'The -t you have seen twice already in this lesson.' },
-  { id: 'fr.a2.verbes.356', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous devons payer.', en: 'We have to pay.', ipa: '/nu də.vɔ̃ pe.je/', respell: 'noo duh-VOHⁿ pay-YAY', person: 'nous', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'The stem is dev-, and the ending is the one you have had since a2.01.' },
+  { id: 'fr.a2.verbes.356', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous devons payer.', en: 'We have to pay.', ipa: '/nu də.vɔ̃ pe.je/', respell: 'noo duh-VOHⁿ pay-YAY', person: 'nous', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'plural', 'nasal'], drills: SD, audioRef: null, version: 1, notes: `The stem is dev-, and the ending is the one you have had since ${unitRef('a2.01')}.` },
   { id: 'fr.a2.verbes.357', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous devez payer.', en: 'You have to pay.', ipa: '/vu də.ve pe.je/', respell: 'voo duh-VAY pay-YAY', person: 'vous', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'plural'], drills: SD, audioRef: null, version: 1, notes: 'Ordinary -ez. This is the sentence a waiter says to you at the end of a meal.' },
   { id: 'fr.a2.verbes.358', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Ils doivent payer.', en: 'They have to pay.', ipa: '/il dwav pe.je/', respell: 'eel DWAHV pay-YAY', person: 'ils', modal: 'devoir', infinitive: 'payer', tags: ['modal', 'devoir', 'paradigm', 'plural'], drills: SD, audioRef: null, version: 1, notes: 'doi plus the v from dev-. Third verb, third time, same recipe.' },
 
@@ -420,7 +438,7 @@ export const MODAUX: ModalRow[] = [
    * Three rows, three English words, one French verb. `commander`, `arriver`
    * and `conduire` are all imported, so even the sense mission is built out of
    * verbs this lesson did not teach. */
-  { id: 'fr.a2.verbes.359', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je peux commander ?', en: 'May I order?', ipa: '/ʒə pø kɔ.mɑ̃.de/', respell: 'zhuh PUH koh-mahⁿ-DAY', person: 'je', modal: 'pouvoir', infinitive: 'commander', tags: ['modal', 'pouvoir', 'permission'], drills: S, audioRef: null, version: 1, notes: 'Asking to be allowed. The rising voice makes it a question, exactly as it did in a1.19.' },
+  { id: 'fr.a2.verbes.359', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je peux commander ?', en: 'May I order?', ipa: '/ʒə pø kɔ.mɑ̃.de/', respell: 'zhuh PUH koh-mahⁿ-DAY', person: 'je', modal: 'pouvoir', infinitive: 'commander', tags: ['modal', 'pouvoir', 'permission'], drills: S, audioRef: null, version: 1, notes: `Asking to be allowed. The rising voice makes it a question, exactly as it did in ${unitRef('a1.19')}.` },
   { id: 'fr.a2.verbes.360', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Il peut arriver demain.', en: 'He might arrive tomorrow.', ipa: '/il pø a.ʁi.ve də.mɛ̃/', respell: 'eel PUH ah-ree-VAY duh-MAⁿ', person: 'il', modal: 'pouvoir', infinitive: 'arriver', tags: ['modal', 'pouvoir', 'possibility', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'Nobody is able to do anything here. It says the thing could happen, and English reaches for might.' },
   { id: 'fr.a2.verbes.361', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Elle peut conduire.', en: 'She can drive.', ipa: '/ɛl pø kɔ̃.dɥiʁ/', respell: 'ell PUH kohⁿ-DWEER', person: 'il', modal: 'pouvoir', infinitive: 'conduire', tags: ['modal', 'pouvoir', 'ability', 'nasal'], drills: SD, audioRef: null, version: 1, notes: 'Able to. One verb has now carried three English words, and no French speaker felt the difference.' },
 
@@ -440,8 +458,8 @@ export const MODAUX: ModalRow[] = [
    * Five rows, five imported verbs, five places a learner actually stands. */
   { id: 'fr.a2.verbes.365', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Je dois acheter du pain.', en: 'I have to buy some bread.', ipa: '/ʒə dwa aʃ.te dy pɛ̃/', respell: 'zhuh DWAH ahsh-TAY dü PAⁿ', person: 'je', modal: 'devoir', infinitive: 'acheter', tags: ['modal', 'devoir', 'use', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'acheter was never taught here. It came from somewhere else and the modal did not care.' },
   { id: 'fr.a2.verbes.366', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Tu peux m\'aider ?', en: 'Can you help me?', ipa: '/ty pø mɛ.de/', respell: 'tü PUH meh-DAY', person: 'tu', modal: 'pouvoir', infinitive: 'aider', tags: ['modal', 'pouvoir', 'use'], drills: S, audioRef: null, version: 1, notes: 'Four words, and it works in a shop, a station and a doorway.' },
-  { id: 'fr.a2.verbes.367', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous devons attendre le bus.', en: 'We have to wait for the bus.', ipa: '/nu də.vɔ̃ a.tɑ̃dʁ lə bys/', respell: 'noo duh-VOHⁿ ah-TAHⁿ-druh luh BÜS', person: 'nous', modal: 'devoir', infinitive: 'attendre', tags: ['modal', 'devoir', 'use', 'nasal'], drills: S, audioRef: null, version: 1, notes: 'attendre is an -RE verb from a2.11 and it does not conjugate here. After a modal, nothing does.' },
-  { id: 'fr.a2.verbes.368', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous voulez choisir ?', en: 'Would you like to choose?', ipa: '/vu vu.le ʃwa.ziʁ/', respell: 'voo voo-LAY shwa-ZEER', person: 'vous', modal: 'vouloir', infinitive: 'choisir', tags: ['modal', 'vouloir', 'use'], drills: S, audioRef: null, version: 1, notes: 'choisir is an -IR verb from a2.10, and it arrives here in its dictionary shape.' },
+  { id: 'fr.a2.verbes.367', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Nous devons attendre le bus.', en: 'We have to wait for the bus.', ipa: '/nu də.vɔ̃ a.tɑ̃dʁ lə bys/', respell: 'noo duh-VOHⁿ ah-TAHⁿ-druh luh BÜS', person: 'nous', modal: 'devoir', infinitive: 'attendre', tags: ['modal', 'devoir', 'use', 'nasal'], drills: S, audioRef: null, version: 1, notes: `attendre is an -RE verb from ${unitRef('a2.11')} and it does not conjugate here. After a modal, nothing does.` },
+  { id: 'fr.a2.verbes.368', kind: 'sentence', level: 'a2', theme: THEME, fr: 'Vous voulez choisir ?', en: 'Would you like to choose?', ipa: '/vu vu.le ʃwa.ziʁ/', respell: 'voo voo-LAY shwa-ZEER', person: 'vous', modal: 'vouloir', infinitive: 'choisir', tags: ['modal', 'vouloir', 'use'], drills: S, audioRef: null, version: 1, notes: `choisir is an -IR verb from ${unitRef('a2.10')}, and it arrives here in its dictionary shape.` },
 
   /* ── the unseen verb ─────────────────────────────────────────────────────
    *
@@ -506,7 +524,7 @@ export const RESPELL_REPAIRS_VISIBLE: readonly Repair[] = [
  *  value is replaced, and both were null before. */
 export const RESPELL_ADDITIONS: readonly { id: string; fr: string; to: string; why: string }[] = [
   { id: 'fr.a1.verbes-du-quotidien.035', fr: 'Je veux un café, s\'il vous plaît.', to: 'zhuh VUH uⁿ kah-FAY seel voo PLEH', why: 'the blunt half of the register pair, put on a speaking screen by this lesson' },
-  { id: 'fr.a1.cafe.051', fr: 'Je voudrais un café, s\'il vous plaît.', to: 'zhuh voo-DREH uⁿ kah-FAY seel voo PLEH', why: 'the polite half, and the sentence a1.01 already puts in the learner\'s mouth' },
+  { id: 'fr.a1.cafe.051', fr: 'Je voudrais un café, s\'il vous plaît.', to: 'zhuh voo-DREH uⁿ kah-FAY seel voo PLEH', why: `the polite half, and the sentence ${unitRef('a1.01')} already puts in the learner\'s mouth` },
 ];
 
 /** Rows released into a new deck that lack the drill the deck runs. */
@@ -533,11 +551,11 @@ export const RESPELL_REPAIRS_SENTENCES: readonly Repair[] = [
  *  worth nothing to the next author; a recorded refusal is worth a probe. */
 export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
   { id: 'fr.a2.verbes-essentiels.013', fr: 'Je dois étudier pour mon examen demain.', why: 'THE HOUSE CANNOT RESPELL IT. `mon examen` liaises: the vowel of mon stays nasal AND the n is pronounced into the next word, so the correct respelling needs both a superscript and a tie, and the tie is U+203F, which renders as a low underscore on a Pixel 6. `mohn` conflates the two and hasPlainNasalFor flags it however this build repairs the rest of the line. Found by the batch, not by reading.' },
-  { id: 'fr.sons.voyelles.311', fr: 'Vous devez arriver au bureau avant neuf heures.', why: 'its respelling carries U+203F UNDERTIE, which renders as a low underscore on a Pixel 6, the defect already recorded against sons.10. The authored Vous devez payer. covers the cell.' },
+  { id: 'fr.sons.voyelles.311', fr: 'Vous devez arriver au bureau avant neuf heures.', why: `its respelling carries U+203F UNDERTIE, which renders as a low underscore on a Pixel 6, the defect already recorded against ${unitRef('sons.10')}. The authored Vous devez payer. covers the cell.` },
   { id: 'fr.a1.verbes-essentiels.079', fr: 'Nous voulons réserver une table pour deux.', why: 'the nous half of the second minimal pair. Two polite forms is the ceiling and this lesson spends both on je voudrais and nous voudrions.' },
   { id: 'fr.a2.verbes-du-quotidien.073', fr: 'Nous voudrions réserver une table pour deux.', why: 'the other half of the same pair, left with it' },
-  { id: 'fr.sons.verbes-essentiels.009', fr: 'savoir', why: 'a2.14 owns it outright' },
-  { id: 'fr.sons.verbes-essentiels.088', fr: 'nager', why: 'je sais nager is a2.14\'s headline contrast' },
+  { id: 'fr.sons.verbes-essentiels.009', fr: 'savoir', why: `${Cap(unitRef('a2.14'))} owns it outright` },
+  { id: 'fr.sons.verbes-essentiels.088', fr: 'nager', why: `je sais nager is ${unitRef('a2.14')}\'s headline contrast` },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -642,7 +660,7 @@ export function toItem(r: ModalRow): Item {
 
 const must = (id: string): ModalRow => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.13: no authored row ${id}. A screen is quoting a row that does not exist.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.13'))}: no authored row ${id}. A screen is quoting a row that does not exist.`);
   return r;
 };
 

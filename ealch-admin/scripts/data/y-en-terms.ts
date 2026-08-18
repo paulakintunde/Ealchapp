@@ -20,6 +20,12 @@
 // Everywhere else the plain phrase does the work: « the little word inside ».
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A, A129_REFRAME, A204_REFRAME, A218_EN_CLAIM, A_FRAMING, A_FRAMING_MINE,
   DE_FRAMING, DIRECT_UNIT, EN_POSITION_RULE, FROZEN_RULE, FROZEN_UNIT,
@@ -58,9 +64,9 @@ export const Y_EN_TERMS: Record<string, LessonTerm> = {
   /* a2.06's POSITION, QUOTED AND TAUGHT NOWHERE, FOR THE THIRD LESSON. */
   sameSlot: {
     term: 'the same place',
-    title: `The one thing you do not have to learn, and ${DIRECT_UNIT} taught it`,
+    title: `The one thing you do not have to learn, and ${unitRef(DIRECT_UNIT)} taught it`,
     body:
-      `« ${POSITION_RULE} » is ${DIRECT_UNIT}'s line and it is true of these two words without a word changed. Je le vois. Je lui parle. J'y vais. J'en ai. Four sentences, three lessons, one position. That is worth saying out loud rather than leaving you to notice, because a learner who thinks each new pair of small words has its own placement rule ends up with three rules where there is one. There is one, it was learned two lessons ago, and this lesson spends it.`,
+      `« ${POSITION_RULE} » is ${unitRef(DIRECT_UNIT, 'a2')}'s line and it is true of these two words without a word changed. Je le vois. Je lui parle. J'y vais. J'en ai. Four sentences, three lessons, one position. That is worth saying out loud rather than leaving you to notice, because a learner who thinks each new pair of small words has its own placement rule ends up with three rules where there is one. There is one, it was learned two lessons ago, and this lesson spends it.`,
     examples: [
       { itemId: A(288), note: 'Subject, word, verb, exactly as it was for le and for lui.' },
       { itemId: A(326), note: 'And in front of BOTH words when the verb arrives as two, which is also not new.' },
@@ -84,7 +90,7 @@ export const Y_EN_TERMS: Record<string, LessonTerm> = {
     term: 'the three ens',
     title: 'One word, three jobs, three lessons',
     body:
-      `${EN_POSITION_RULE} ${PLACE_UNIT} taught the one in front of a country and ${TIME_UNIT} taught the one in front of a length of time, and this lesson teaches neither of them again. « ${A204_REFRAME} » is ${PLACE_UNIT}'s line and « ${A218_EN_CLAIM} » is ${TIME_UNIT}'s. What is new here is only the third one, and the only thing that separates it from the other two is where it sits. « ${WHAT_FOLLOWS} » is ${WHAT_FOLLOWS_UNIT}'s name for this shape and you have met it six times before.`,
+      `${EN_POSITION_RULE} ${Cap(unitRef(PLACE_UNIT))} taught the one in front of a country and ${unitRef(TIME_UNIT)} taught the one in front of a length of time, and this lesson teaches neither of them again. « ${A204_REFRAME} » is ${unitRef(PLACE_UNIT, 'a2')}'s line and « ${A218_EN_CLAIM} » is ${unitRef(TIME_UNIT, 'a2')}'s. What is new here is only the third one, and the only thing that separates it from the other two is where it sits. « ${WHAT_FOLLOWS} » is ${unitRef(WHAT_FOLLOWS_UNIT, 'a2')}'s name for this shape and you have met it six times before.`,
     examples: [
       { itemId: A(311), note: 'A verb straight after it, so it is the pronoun.' },
       { itemId: A(312), note: 'A country straight after it, so it is the little word, and it is not this lesson.' },
@@ -96,7 +102,7 @@ export const Y_EN_TERMS: Record<string, LessonTerm> = {
     term: PLAIN_TARGET,
     title: 'How much, without saying what of',
     body:
-      `« ${A129_REFRAME} » is ${PARTITIVE_UNIT}'s line and you have had du, de la and des since then. En takes all three of them away, and it takes the noun with them. What stays is the number or the amount: j'en ai trois, j'en ai beaucoup, j'en veux un peu. English has nothing like this. I have three says nothing at all about what three of, and a French speaker hearing it would still be waiting.`,
+      `« ${A129_REFRAME} » is ${unitRef(PARTITIVE_UNIT, 'a2')}'s line and you have had du, de la and des since then. En takes all three of them away, and it takes the noun with them. What stays is the number or the amount: j'en ai trois, j'en ai beaucoup, j'en veux un peu. English has nothing like this. I have three says nothing at all about what three of, and a French speaker hearing it would still be waiting.`,
     examples: [
       { itemId: A(300), note: 'The number stayed and des enfants went. Nothing in the sentence says children any more.' },
       { itemId: A(301), note: 'beaucoup de, and the de went inside en along with the noun.' },
@@ -108,7 +114,7 @@ export const Y_EN_TERMS: Record<string, LessonTerm> = {
     term: 'il y a',
     title: 'The y you have been reading since the beginning',
     body:
-      `${FROZEN_RULE} The middle word is the y on these screens, which is a good thing to know and a bad thing to act on. ${FROZEN_UNIT} taught the phrase in both its jobs and neither of them is re-taught here. What matters for this lesson is only that you can see your own word inside it, and that taking the phrase to pieces produces real French that means something else.`,
+      `${FROZEN_RULE} The middle word is the y on these screens, which is a good thing to know and a bad thing to act on. ${Cap(unitRef(FROZEN_UNIT))} taught the phrase in both its jobs and neither of them is re-taught here. What matters for this lesson is only that you can see your own word inside it, and that taking the phrase to pieces produces real French that means something else.`,
     examples: [
       { itemId: A(313), note: 'Three words that arrived together, with your y in the middle of them.' },
       { itemId: A(314), note: 'And the one place they take a passenger: y first, en second, and that order does not move.' },
@@ -120,7 +126,7 @@ export const Y_EN_TERMS: Record<string, LessonTerm> = {
     term: 'the wrap',
     title: 'What ne and pas go round, and it has not changed',
     body:
-      `« ${NEGATION_RULE} » is the line you have carried since the near future, and there is one verb in these sentences so the question of which verb never arises. ${NEGATION_EXTENSION} That sentence is ${DIRECT_UNIT}'s, word for word, and ${INDIRECT_UNIT} quoted it unchanged one lesson ago. It holds here for the same reason it held there: the small word belongs to the verb, so it goes where the verb goes. Ne outside both, pas after both.`,
+      `« ${NEGATION_RULE} » is the line you have carried since the near future, and there is one verb in these sentences so the question of which verb never arises. ${NEGATION_EXTENSION} That sentence is ${unitRef(DIRECT_UNIT, 'a2')}'s, word for word, and ${unitRef(INDIRECT_UNIT)} quoted it unchanged one lesson ago. It holds here for the same reason it held there: the small word belongs to the verb, so it goes where the verb goes. Ne outside both, pas after both.`,
     examples: [
       { itemId: A(316), note: 'Ne outside, then the pronoun and the verb together, then pas.' },
       { itemId: A(327), note: 'And with a two-word verb: ne, pronoun, first word, pas, second word.' },
@@ -142,9 +148,9 @@ export const Y_EN_TERMS: Record<string, LessonTerm> = {
   /* THE SPLIT WITH a2.24, WHICH IS THE CLEANEST SENTENCE IN THE LESSON. */
   personOrThing: {
     term: 'a person or a thing',
-    title: `What ${INDIRECT_UNIT} left for this lesson`,
+    title: `What ${unitRef(INDIRECT_UNIT)} left for this lesson`,
     body:
-      `« ${A_FRAMING} » is ${INDIRECT_UNIT}'s line, from last lesson, and it is only half of what à does. ${A_FRAMING_MINE} Same little word, same disappearance, and the only thing that decides which pronoun comes out is whether what sat behind à was a person or not. Je parle à Marie becomes je lui parle. Je vais à Paris becomes j'y vais. Nothing else in either sentence changed.`,
+      `« ${A_FRAMING} » is ${unitRef(INDIRECT_UNIT, 'a2')}'s line, from last lesson, and it is only half of what à does. ${A_FRAMING_MINE} Same little word, same disappearance, and the only thing that decides which pronoun comes out is whether what sat behind à was a person or not. Je parle à Marie becomes je lui parle. Je vais à Paris becomes j'y vais. Nothing else in either sentence changed.`,
     examples: [
       { itemId: A(287), note: 'A place behind à, so it will be y.' },
       { itemId: A(331), note: 'And the same verb last lesson used, with a letter behind à instead of a person.' },

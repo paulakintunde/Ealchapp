@@ -72,6 +72,7 @@ import {
 } from './data/futur-proche-lesson.ts';
 import { FUTUR_PROCHE_ROWS, MEASURED } from './data/futur-proche-rows.gen.ts';
 import { displayRespell } from './data/futur-proche-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const LESSON: Lesson = FUTUR_PROCHE_LESSON;
@@ -140,30 +141,13 @@ function hasPhrase(hay: string, needle: string): boolean {
   return false;
 }
 
-/** A UNIT ID IS ALMOST ALWAYS WRITTEN POSSESSIVELY, AND `hasPhrase` CANNOT SEE
- *  ONE THAT IS.
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
  *
- *  FOUND BY THIS BUILD'S SECOND DRY RUN. a2.17 §3 measured that the house
- *  boundary `(?<![\p{L}\p{N}'’-])` excludes the apostrophe and cannot see
- *  `j'ai`, and fixed the LEFT side. The RIGHT side has the same hole and it
- *  bites the thing doctrine §B.7 asks every lesson in this band to do: « a2.04's
- *  card » does not match `a2.04`, because the character after it is an
- *  apostrophe and the house boundary counts that as a word character.
- *
- *  This lesson names five units and writes four of them possessively, so a
- *  presence check built on `hasPhrase` would have reported four of the five
- *  absent while they were on the screen. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number. Case-insensitive, and it does
+ *  NOT also accept the raw id: a guard taking either would pass on exactly the
+ *  thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;

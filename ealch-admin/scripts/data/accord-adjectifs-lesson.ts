@@ -1,4 +1,10 @@
-// a2.03.l1 "L'accord des adjectifs" — the mission journey.
+
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+import { unitRef } from './_unit-ref.ts';// a2.03.l1 "L'accord des adjectifs" — the mission journey.
 //
 // ── THIS IS A FIRST BUILD ──────────────────────────────────────────────────
 //
@@ -395,7 +401,7 @@ const SECTIONS: LessonSection[] = [
     goals: [
       { t: 'Build all four shapes', s: `Of any describing word, from the plain form alone. ${PATTERN_ARITHMETIC}` },
       { t: 'Read the last two letters', s: ENDING_CLAIM },
-      { t: 'Spot the ones that never move', s: `${INVARIABLE_UNIT} showed you two of them. There is a whole group and you have met almost none of it.` },
+      { t: 'Spot the ones that never move', s: `${Cap(unitRef(INVARIABLE_UNIT))} showed you two of them. There is a whole group and you have met almost none of it.` },
       { t: 'Do it to a word you have never seen', s: 'The last screen before the exam gives you three. The exam makes you build them.' },
     ],
   },
@@ -411,7 +417,7 @@ const SECTIONS: LessonSection[] = [
       { fr: form('default', 'm.sg'), en: 'tall', note: `${PATTERN_LABEL.default}. It ends in none of the things below, which is what puts it here.` },
       { fr: form('eux', 'm.sg'), en: 'serious', note: `${PATTERN_LABEL.eux}. Two letters, and they decide the other three shapes.` },
       { fr: form('if', 'm.sg'), en: 'sporty', note: `${PATTERN_LABEL.if}. One letter this time, and it is going to turn into another one.` },
-      { fr: form('invariable', 'm.sg'), en: 'brown', note: `${PATTERN_LABEL.invariable}. This one is a chestnut wearing a colour's job, and ${INVARIABLE_UNIT} already told you what it does about it: nothing.` },
+      { fr: form('invariable', 'm.sg'), en: 'brown', note: `${PATTERN_LABEL.invariable}. This one is a chestnut wearing a colour's job, and ${unitRef(INVARIABLE_UNIT)} already told you what it does about it: nothing.` },
     ],
     terms: ['theMasculine', 'fourShapes'],
   },
@@ -1204,7 +1210,7 @@ const SECTIONS: LessonSection[] = [
         id: 'r4-never-change',
         label: 'The ones that never change',
         targets: ['err-agree-invariable', 'err-eux-plural'],
-        say: `Six on the group ${INVARIABLE_UNIT} started and this lesson finished.`,
+        say: `Six on the group ${unitRef(INVARIABLE_UNIT)} started and this lesson finished.`,
         questions: [
           {
             q: `${CELL_SUBJECT['f.pl']} ___ . (${form('invariable', 'm.sg')})`,
@@ -1336,15 +1342,15 @@ const SECTIONS: LessonSection[] = [
     points: [
       `${PATTERN_ARITHMETIC}`,
       ENDING_CLAIM,
-      `${EAR_UNIT} said the spelling changes so the sound does not. Here it is the other way round in one place and the same in the rest: ${EAR_CLAIM}`,
-      `${INVARIABLE_UNIT} gave you ${KNOWN_INVARIABLES.join(' and ')} as two words that behave oddly. They are a class, and ${NEW_INVARIABLES.join(', ')} are in it too.`,
+      `${Cap(unitRef(EAR_UNIT))} said the spelling changes so the sound does not. Here it is the other way round in one place and the same in the rest: ${EAR_CLAIM}`,
+      `${Cap(unitRef(INVARIABLE_UNIT))} gave you ${KNOWN_INVARIABLES.join(' and ')} as two words that behave oddly. They are a class, and ${NEW_INVARIABLES.join(', ')} are in it too.`,
       // The roundup does NOT name the three cold adjectives. It is a production
       // surface, the guard treats it as one, and naming them here would put them
       // on a card in a lesson whose whole last act depends on their not being on
       // one. The count is the claim; the words are the exam's.
       `You built four shapes each of ${UNSEEN.length} words, off two letters each, and this lesson showed you none of them.`,
       NEXT_LESSON_LINE,
-      `${PLACEMENT_UNIT} owns where the word goes and ${COMPARATIVE_UNIT} owns saying one thing is more than another. Neither of them is this.`,
+      `${Cap(unitRef(PLACEMENT_UNIT))} owns where the word goes and ${unitRef(COMPARATIVE_UNIT)} owns saying one thing is more than another. Neither of them is this.`,
     ],
   },
 ];
@@ -1466,7 +1472,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-eux-plural',
-    description: 'Puts an s on the plain form of a word ending in -eux. a1.14 taught the fact about two specific words and it reads as an oddity about those two rather than as a property of the letter.',
+    description: `Puts an s on the plain form of a word ending in -eux. ${Cap(unitRef('a1.14'))} taught the fact about two specific words and it reads as an oddity about those two rather than as a property of the letter.`,
     detectOn: [IDENTICAL_SECTION_ID, ERRORS_SECTION_ID, `${QUIZ_SECTION_ID}/r2-the-eux-group`],
     drill: 'drill-eux-plural',
     retest: 'retest-eux-plural',
@@ -1646,14 +1652,14 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-why-no-s',
         title: `Why ${form('eux', 'm.pl')} has nothing on the end`,
         layer: 'deep',
-        body: `${IDENTICAL_CLAIM} ${IDENTICAL_ARITHMETIC} It is not an exception and there is nothing to remember about it beyond the letter itself. The same is true of any describing word already ending in s: the plural has nowhere to go and so it does not go anywhere. ${IDENTICAL_UNIT} showed you two words that do this and it was right about both; what it could not say, because it was teaching six words rather than a system, is that the two of them are not special.`,
+        body: `${IDENTICAL_CLAIM} ${IDENTICAL_ARITHMETIC} It is not an exception and there is nothing to remember about it beyond the letter itself. The same is true of any describing word already ending in s: the plural has nowhere to go and so it does not go anywhere. ${Cap(unitRef(IDENTICAL_UNIT))} showed you two words that do this and it was right about both; what it could not say, because it was teaching six words rather than a system, is that the two of them are not special.`,
       },
       {
         type: 'teach',
         id: 'sheet-carries-forward',
         title: 'What carries forward',
         layer: 'deep',
-        body: `${CARRY_FORWARD} ${NEXT_LESSON_LINE} ${PLACEMENT_LINE} And ${COMPARATIVE_UNIT} is where saying that one thing is more something than another gets taught; every shape on this sheet is still the shape you use when you get there, so nothing here expires.`,
+        body: `${CARRY_FORWARD} ${NEXT_LESSON_LINE} ${PLACEMENT_LINE} And ${unitRef(COMPARATIVE_UNIT)} is where saying that one thing is more something than another gets taught; every shape on this sheet is still the shape you use when you get there, so nothing here expires.`,
       },
     ],
   },
@@ -1731,7 +1737,7 @@ export const ACCORD_ADJECTIFS_LESSON: Lesson = {
   // this lesson is SENTENCES and the trap's twelve words are bare naming forms.
   // rec-a2-03-groups is briefed here rather than the section pointing at a take
   // whose clips it does not contain.
-  version: 4,
+  version: 5,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',

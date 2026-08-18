@@ -63,6 +63,12 @@ import {
 } from './participes-corpus.ts';
 import { ALREADY_YOURS, EVIDENCE_LINE, PARTICIPES_TERMS } from './participes-terms.ts';
 import { importedEn, importedFr, importedIpa, rowCard, sub as impSub } from './participes-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the authored rows ────────────────────────────────────────────
  *
@@ -75,23 +81,23 @@ const BY_ID = new Map(PARTICIPES.map((r) => [r.id, r]));
 
 const fr = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
   return r.fr;
 };
 const en = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
   return r.en;
 };
 const bare = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
   return r.respell!;
 };
 const sub = (id: string): string => `[${bare(id)}]`;
 const ipaOf = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.20: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.20'))}: ${id} is not an authored row.`);
   return r.ipa!;
 };
 
@@ -107,7 +113,7 @@ const noStop = (s: string): string => s.replace(/\.$/, '');
  *  `mort`, which are the two taught from an imported card. */
 const rowOf = (past: string): string => {
   const f = FORMS.find((x) => x.past === past);
-  if (!f?.rowId) throw new Error(`a2.20: « ${past} » has no authored row.`);
+  if (!f?.rowId) throw new Error(`${Cap(unitRef('a2.20'))}: « ${past} » has no authored row.`);
   return f.rowId;
 };
 
@@ -242,7 +248,7 @@ const SCENE_BEATS: SceneBeat[] = [
     size: 'md',
     fr: SCENE_STALL,
     en: 'On Saturday, I... I...',
-    stage: 'You have the first word out and committed. The verb you mean is prendre, you have known it since a2.02, and the rule you learned last week says an -RE verb takes -u. So the rule gives you prendu, and prendu is not a word.',
+    stage: `You have the first word out and committed. The verb you mean is prendre, known since ${unitRef('a2.02', 'a2')}, and last week's rule says an -RE verb takes -u. So the rule gives you prendu, and prendu is not a word.`,
     audio: { mode: 'tts', lang: 'fr-FR' },
   },
   {
@@ -333,7 +339,7 @@ const SECTIONS: LessonSection[] = [
     goals: [
       { t: 'Produce the form instead of guessing it', s: 'Thirty-three verbs whose second word cannot be worked out from the first, and you will be able to say all of them rather than reaching for a rule that does not cover them.' },
       { t: 'Sort a verb you have never seen', s: GROUP_CLAIM },
-      { t: 'Get four of them free every time you learn one', s: `${FAMILY_UNIT}'s move, on the past form: cover the front of the verb and the rest of the family comes with it.` },
+      { t: 'Get four of them free every time you learn one', s: `${Cap(unitRef(FAMILY_UNIT, 'a2'))}'s move, on the past form: cover the front of the verb and the rest of the family comes with it.` },
       { t: 'Say the two hardest letters in A2', s: EU.claim },
     ],
   },
@@ -352,9 +358,9 @@ const SECTIONS: LessonSection[] = [
     cards: [
       { label: 'the list', head: 'thirty-three verbs', body: `Thirty-three verbs have a past form you could not have worked out. ${EVIDENCE_LINE}` },
       { label: 'and the shape', head: GROUP_CLAIM, body: 'Four groups by ending, which are -is, -it, -u and -ert, and five that are in none of them. Thirty-three things to say and five things to know.' },
-      { label: 'the instruction', head: REFRAME, body: `${PASSE_UNIT} gave you a machine for building the second word out of the group the verb is in. For these thirty-three it produces a word that does not exist, so the move is not to build but to reach.` },
-      { label: 'where you have seen this', head: `${FAMILY_UNIT} did the same thing`, body: `That lesson had you cover the front of a compound verb to find the verb underneath. The past form works the same way: appris is pris with ap in front, and remis is mis with re in front.` },
-      { label: 'the biggest group', head: `-u, and it is ${GROUP_SIZES['-u']} of them`, body: `It holds the past form of every irregular verb you have already learned: ${ALLER_UNIT}'s, ${FAIRE_UNIT}'s, ${MODAUX_UNIT}'s and ${SAVOIR_UNIT}'s. You start from nothing on none of them.` },
+      { label: 'the instruction', head: REFRAME, body: `${Cap(unitRef(PASSE_UNIT))} gave you a machine for building the second word out of the group the verb is in. For these thirty-three it produces a word that does not exist, so the move is not to build but to reach.` },
+      { label: 'where you have seen this', head: `${Cap(unitRef(FAMILY_UNIT))} did the same thing`, body: `That lesson had you cover the front of a compound verb to find the verb underneath. The past form works the same way: appris is pris with ap in front, and remis is mis with re in front.` },
+      { label: 'the biggest group', head: `-u, and it is ${GROUP_SIZES['-u']} of them`, body: `It holds the past form of every irregular verb you have already learned: ${unitRef(ALLER_UNIT, 'a2')}'s, ${unitRef(FAIRE_UNIT, 'a2')}'s, ${unitRef(MODAUX_UNIT, 'a2')}'s and ${unitRef(SAVOIR_UNIT, 'a2')}'s. You start from nothing on none of them.` },
       { label: 'and the five', head: ODD_CLAIM, body: 'They are fait, été, eu, né and mort. Two of the five come off the two commonest verbs in the language, so you will meet them constantly and stop having to think.' },
     ],
     terms: ['theGroup', 'pastForm', 'theMachine'],
@@ -370,10 +376,10 @@ const SECTIONS: LessonSection[] = [
     title: 'The Shape Has Not Moved',
     frSub: 'La forme ne bouge pas',
     layer: 'core',
-    say: `${PASSE_UNIT} said it one lesson ago: « ${A205_REFRAME} » Nothing about that changes here. The first word is the same, the gap is the same, and the negative goes in the same place. The only thing this lesson touches is the second word.`,
+    say: `${Cap(unitRef(PASSE_UNIT))} said it one lesson ago: « ${A205_REFRAME} » Nothing about that changes here. The first word is the same, the gap is the same, and the negative goes in the same place. The only thing this lesson touches is the second word.`,
     examples: [
-      { fr: fr(A(591)), en: en(A(591)), note: `${sub(A(591))} A form of avoir, then the second word, then what the sentence is about. ${PASSE_UNIT}'s shape exactly.` },
-      { fr: fr(A(633)), en: en(A(633)), note: `${sub(A(633))} And the negative, with the ne shortened to n' and the pas in the gap. That is ${PASSE_UNIT}'s rule and this lesson does not add a word to it.` },
+      { fr: fr(A(591)), en: en(A(591)), note: `${sub(A(591))} A form of avoir, then the second word, then what the sentence is about. ${Cap(unitRef(PASSE_UNIT, 'a2'))}'s shape exactly.` },
+      { fr: fr(A(633)), en: en(A(633)), note: `${sub(A(633))} And the negative, with the ne shortened to n' and the pas in the gap. That is ${unitRef(PASSE_UNIT, 'a2')}'s rule and this lesson does not add a word to it.` },
       { fr: fr(A(616)), en: en(A(616)), note: `${sub(A(616))} A short adverb in the gap, which is the same lesson's again. The second word is the only thing that is new.` },
       { fr: fr(A(617)), en: en(A(617)), note: `${sub(A(617))} And here is what is new. Faire ends in -re, the machine says -u, and the form is fait.` },
     ],
@@ -436,7 +442,7 @@ const SECTIONS: LessonSection[] = [
         say: fr(rowOf('vu')),
         detail: {
           title: 'The -u group',
-          body: `Thirteen verbs, more than a third of the list, and it takes members from everywhere: verbs in -oir, in -re and in -ir. Every irregular verb from ${ALLER_UNIT}, ${FAIRE_UNIT}, ${MODAUX_UNIT} and ${SAVOIR_UNIT} is in here. ${fr(rowOf('vu'))} ${sub(rowOf('vu'))}`,
+          body: `Thirteen verbs, more than a third of the list, and it takes members from everywhere: verbs in -oir, in -re and in -ir. Every irregular verb from ${unitRef(ALLER_UNIT, 'a2')}, ${unitRef(FAIRE_UNIT, 'a2')}, ${unitRef(MODAUX_UNIT, 'a2')} and ${unitRef(SAVOIR_UNIT, 'a2')} is in here. ${fr(rowOf('vu'))} ${sub(rowOf('vu'))}`,
           say: fr(rowOf('vu')),
         },
       },
@@ -472,7 +478,7 @@ const SECTIONS: LessonSection[] = [
     frSub: 'Le groupe en -is',
     layer: 'core',
     size: 'lg',
-    say: `Seven forms and three things to learn. Two heads, four that are the heads with a front on them, and one that has to wait for ${REFLEXIVE_UNIT}.`,
+    say: `Seven forms and three things to learn. Two heads, four that are the heads with a front on them, and one that has to wait for ${unitRef(REFLEXIVE_UNIT)}.`,
     groups: [
       {
         label: 'the two heads',
@@ -491,7 +497,7 @@ const SECTIONS: LessonSection[] = [
           q: 'surprendre. What is its past form?',
           opts: ['surprendu', 'surpris', 'surpri'],
           correct: 1,
-          why: `Cover the sur and prendre is underneath, so the past form is pris with sur in front. That is ${FAMILY_UNIT}'s move and it is why this group is three verbs rather than seven.`,
+          why: `Cover the sur and prendre is underneath, so the past form is pris with sur in front. That is ${unitRef(FAMILY_UNIT, 'a2')}'s move and it is why this group is three verbs rather than seven.`,
         },
       },
       {
@@ -501,7 +507,7 @@ const SECTIONS: LessonSection[] = [
           q: 'assis is in this group. What is missing before you can use it in a sentence?',
           opts: ['its ending', 'the little word that goes in front of the verb', 'nothing at all'],
           correct: 1,
-          why: `The form is assis and that is settled. What a full past needs on top of it is the little word this verb always carries, and that is ${REFLEXIVE_UNIT}.`,
+          why: `The form is assis and that is settled. What a full past needs on top of it is the little word this verb always carries, and that is ${unitRef(REFLEXIVE_UNIT)}.`,
         },
       },
     ],
@@ -518,9 +524,9 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     hint: 'Swipe. Six cards, and the first is a line you have read.',
     cards: [
-      { label: `${FAMILY_UNIT} said this`, head: A215_REFRAME, body: `That was about the present, eight lessons ago, and it was about these same verbs. It is exactly as true of the past form: cover the front and what is left is a form you already have.` },
+      { label: `${Cap(unitRef(FAMILY_UNIT))} said this`, head: A215_REFRAME, body: `That was about the present, eight lessons ago, and it was about these same verbs. It is exactly as true of the past form: cover the front and what is left is a form you already have.` },
       { label: 'so', head: 'appris', sub: sub(rowOf('appris')), body: `${en(rowOf('appris'))} Cover the ap and pris is underneath. You did not learn a new form, you learned a front.` },
-      { label: 'and', head: 'remis', sub: sub(rowOf('remis')), body: `${en(rowOf('remis'))} Cover the re and mis is underneath, on a verb whose naming form ${FAMILY_UNIT} had to write from scratch because the corpus did not hold it.` },
+      { label: 'and', head: 'remis', sub: sub(rowOf('remis')), body: `${en(rowOf('remis'))} Cover the re and mis is underneath, on a verb whose naming form ${unitRef(FAMILY_UNIT)} had to write from scratch because the corpus did not hold it.` },
       { label: 'it works on the odd ones too', head: DERIVED_ONLY[0]!.past, body: `${DERIVED_ONLY[0]!.verb} is faire with re on the front, so its past form is ${DERIVED_ONLY[0]!.from} with re on the front. This lesson never shows it to you again and you will be asked for it in the exam.` },
       { label: 'and the other two', head: 'compris · promis', body: 'Understood and promised. Same move, same two heads: compris is pris with com in front and promis is mis with pro in front.' },
       { label: 'and the limit', head: 'the front changes the meaning', body: 'promettre is not "put forward" and comprendre is not "take with". What comes off the front tells you the shape and tells you nothing about what the verb means, so the meaning is still a vocabulary question. The ending is not.' },
@@ -546,7 +552,7 @@ const SECTIONS: LessonSection[] = [
           q: `You hear « ${fr(rowOf('dit'))} ». Which word tells you it is over?`,
           opts: ['dit', "j'ai", 'oui'],
           correct: 1,
-          why: '« il dit » and « j\'ai dit » end on the same sound, so the second word cannot tell you anything. The first word is carrying the whole tense, which is what a2.05 said and what stays true here.',
+          why: `« il dit » and « j\'ai dit » end on the same sound, so the second word cannot tell you anything. The first word is carrying the whole tense, which is what ${unitRef('a2.05')} said and what stays true here.`,
         },
       },
       {
@@ -627,7 +633,7 @@ const SECTIONS: LessonSection[] = [
           q: 'venu is an ordinary member of this group. What is different about it?',
           opts: ['Its ending', 'The word that goes in front of it', 'Nothing at all'],
           correct: 1,
-          why: `The form is venu and it is built exactly like tenu, which is on the screen above. What sits in front of it is not avoir, and that is ${ETRE_UNIT}'s subject rather than this lesson's.`,
+          why: `The form is venu and it is built exactly like tenu, which is on the screen above. What sits in front of it is not avoir, and that is ${unitRef(ETRE_UNIT, 'a2')}'s subject rather than this lesson's.`,
         },
       },
     ],
@@ -643,14 +649,14 @@ const SECTIONS: LessonSection[] = [
     title: 'Verbs You Already Have',
     frSub: 'Des verbes que vous avez déjà',
     layer: 'core',
-    say: `Every irregular verb you learned between ${ALLER_UNIT} and ${FAMILY_UNIT} is somewhere in this lesson, and eight of them are in the group you have just done. You are not learning thirty-three verbs. You are learning a second form of verbs you already use.`,
+    say: `Every irregular verb you learned between ${unitRef(ALLER_UNIT)} and ${unitRef(FAMILY_UNIT)} is somewhere in this lesson, and eight of them are in the group you have just done. You are not learning thirty-three verbs. You are learning a second form of verbs you already use.`,
     examples: [
-      { fr: fr(rowOf('venu')), en: en(rowOf('venu')), note: `${sub(rowOf('venu'))} venir, from ${ALLER_UNIT}. The form is an ordinary -u and the first word is not avoir, which is ${ETRE_UNIT}'s.` },
-      { fr: fr(rowOf('tenu')), en: en(rowOf('tenu')), note: `${sub(rowOf('tenu'))} tenir, from ${ALLER_UNIT}, and it behaves like venu without the different first word.` },
-      { fr: fr(rowOf('lu')), en: en(rowOf('lu')), note: `${sub(rowOf('lu'))} lire, from ${FAIRE_UNIT}. Two letters.` },
-      { fr: fr(rowOf('pu')), en: en(rowOf('pu')), note: `${sub(rowOf('pu'))} pouvoir, from ${MODAUX_UNIT}, and vouloir and devoir are on the same screen you just did.` },
-      { fr: fr(rowOf('su')), en: en(rowOf('su')), note: `${sub(rowOf('su'))} savoir, from ${SAVOIR_UNIT}, and connaître is in the group too. The two of them stayed apart in the present and they stay apart here.` },
-      { fr: fr(rowOf('pris')), en: en(rowOf('pris')), note: `${sub(rowOf('pris'))} prendre, from ${FAMILY_UNIT}, and it is not in this group at all. That lesson reserved it for this one.` },
+      { fr: fr(rowOf('venu')), en: en(rowOf('venu')), note: `${sub(rowOf('venu'))} venir, from ${unitRef(ALLER_UNIT)}. The form is an ordinary -u and the first word is not avoir, which is ${unitRef(ETRE_UNIT, 'a2')}'s.` },
+      { fr: fr(rowOf('tenu')), en: en(rowOf('tenu')), note: `${sub(rowOf('tenu'))} tenir, from ${unitRef(ALLER_UNIT)}, and it behaves like venu without the different first word.` },
+      { fr: fr(rowOf('lu')), en: en(rowOf('lu')), note: `${sub(rowOf('lu'))} lire, from ${unitRef(FAIRE_UNIT)}. Two letters.` },
+      { fr: fr(rowOf('pu')), en: en(rowOf('pu')), note: `${sub(rowOf('pu'))} pouvoir, from ${unitRef(MODAUX_UNIT)}, and vouloir and devoir are on the same screen you just did.` },
+      { fr: fr(rowOf('su')), en: en(rowOf('su')), note: `${sub(rowOf('su'))} savoir, from ${unitRef(SAVOIR_UNIT)}, and connaître is in the group too. The two of them stayed apart in the present and they stay apart here.` },
+      { fr: fr(rowOf('pris')), en: en(rowOf('pris')), note: `${sub(rowOf('pris'))} prendre, from ${unitRef(FAMILY_UNIT)}, and it is not in this group at all. That lesson reserved it for this one.` },
     ],
     terms: ['theGroup', 'pastForm', 'theFront'],
   },
@@ -705,7 +711,7 @@ const SECTIONS: LessonSection[] = [
       { label: 'the commonest of all', head: fr(rowOf('fait')), sub: sub(rowOf('fait')), body: `${en(rowOf('fait'))} faire is the commonest irregular verb in the language and its past form is in no group. It is also the same sound as « il fait », which is the present, so nothing you hear will separate them.` },
       { label: 'from nowhere', head: fr(rowOf('été')), sub: sub(rowOf('été')), body: `${en(rowOf('été'))} There is no route from être to été. The same three letters are also the word for summer, which is a coincidence and a useful one: you have seen the shape before.` },
       { label: 'and from nowhere again', head: fr(rowOf('eu')), sub: sub(rowOf('eu')), body: `${en(rowOf('eu'))} ${EU.why}` },
-      { label: 'shorter than its verb', head: fr(rowOf('né')), sub: sub(rowOf('né')), body: `${en(rowOf('né'))} naître has six letters and né has two, and nothing else in the set gets shorter. Its first word is not avoir either, which is ${ETRE_UNIT}.` },
+      { label: 'shorter than its verb', head: fr(rowOf('né')), sub: sub(rowOf('né')), body: `${en(rowOf('né'))} naître has six letters and né has two, and nothing else in the set gets shorter. Its first word is not avoir either, which is ${unitRef(ETRE_UNIT)}.` },
       { label: 'a different word entirely', head: importedFr(ALSO_A_WORD[4]!.id), sub: impSub(ALSO_A_WORD[4]!.id), body: `mourir goes to mort, which is not mourir with anything done to it. It is published in this app as an ordinary adjective meaning "dead", and that is the form.` },
       { label: 'and you have heard it', head: importedFr('fr.a1.emotions.034'), sub: impSub('fr.a1.emotions.034'), body: `${importedEn('fr.a1.emotions.034')} The same word, in the phrase you are most likely to meet it in.` },
     ],
@@ -837,7 +843,7 @@ const SECTIONS: LessonSection[] = [
         q: `${fr(A(630))} Where is it in this one?`,
         opts: ['At the end', 'Between pas and le temps', 'It is not there'],
         correct: 1,
-        why: 'In the gap, where a2.05 put it, and it is very short. This is where it will actually arrive when somebody says it to you.',
+        why: `In the gap, where ${unitRef('a2.05')} put it, and it is very short. This is where it will actually arrive when somebody says it to you.`,
       },
       {
         q: 'Why is this the one form in the lesson you cannot learn from the page?',
@@ -1129,8 +1135,8 @@ const SECTIONS: LessonSection[] = [
     stats: [
       { k: 'Forms', v: `33, and ${GROUP_SIZES['-is'] + GROUP_SIZES['-it'] + GROUP_SIZES['-u'] + GROUP_SIZES['-ert']} of them are in four groups.` },
       { k: 'Things to know', v: '5. Four endings, and a list of five that have none.' },
-      { k: 'New constructions', v: `0. ${PASSE_UNIT} gave you the whole shape and it has not moved.` },
-      { k: 'Used again in', v: `${ETRE_UNIT}, ${REFLEXIVE_UNIT} and ${SCHOOL_UNIT}.` },
+      { k: 'New constructions', v: `0. ${Cap(unitRef(PASSE_UNIT))} gave you the whole shape and it has not moved.` },
+      { k: 'Used again in', v: `${Cap(unitRef(ETRE_UNIT))}, ${unitRef(REFLEXIVE_UNIT)} and ${unitRef(SCHOOL_UNIT)}.` },
     ],
   },
 
@@ -1266,7 +1272,7 @@ const SECTIONS: LessonSection[] = [
         id: 'r3-the-front',
         label: 'Cover the front',
         targets: ['err-front-not-free', 'err-wrong-group'],
-        say: `Six on ${FAMILY_UNIT}'s move, and four of the six are verbs this lesson never printed.`,
+        say: `Six on ${unitRef(FAMILY_UNIT, 'a2')}'s move, and four of the six are verbs this lesson never printed.`,
         questions: [
           {
             q: 'apprendre. Write the past form.',
@@ -1492,7 +1498,7 @@ const SECTIONS: LessonSection[] = [
             prompt: "Je n'ai pas comprendu.",
             accept: [fr(A(633)), "Je n'ai pas compris"],
             answer: fr(A(633)),
-            why: `comprendre is prendre with com in front, so its past form is compris. The gap and the negative are ${PASSE_UNIT}'s and they are unchanged; the only thing this lesson touched is the word after the pas.`,
+            why: `comprendre is prendre with com in front, so its past form is compris. The gap and the negative are ${unitRef(PASSE_UNIT, 'a2')}'s and they are unchanged; the only thing this lesson touched is the word after the pas.`,
             ref: RECAP_SECTION_ID,
           },
           {
@@ -1521,12 +1527,12 @@ const SECTIONS: LessonSection[] = [
     points: [
       `${REFRAME} ${GROUP_CLAIM}`,
       `-is, -it, -u and -ert, and the -u group is ${GROUP_SIZES['-u']} of the thirty-three on its own.`,
-      `${A215_REFRAME} That is ${FAMILY_UNIT}'s line and it is exactly as true of the past form as it was of the present.`,
+      `${A215_REFRAME} That is ${unitRef(FAMILY_UNIT, 'a2')}'s line and it is exactly as true of the past form as it was of the present.`,
       ODD_CLAIM,
       EU.claim,
       CIRCUMFLEX.untestable,
       ALSO_A_WORD_CLAIM,
-      `${ETRE_DEFERRAL} You will need all of this again at ${SCHOOL_UNIT}, where the whole conversation is about what you studied and how it went.`,
+      `${ETRE_DEFERRAL} You will need all of this again at ${unitRef(SCHOOL_UNIT)}, where the whole conversation is about what you studied and how it went.`,
     ],
     sheetId: SHEET_ID,
   },
@@ -1549,7 +1555,7 @@ const ACTS: LessonAct[] = [
     id: 'act2',
     title: 'What you already have',
     sections: [RECAP_SECTION_ID, MACHINE_SECTION_ID],
-    milestone: `You can see that ${PASSE_UNIT}'s shape has not moved at all, and you can see the six places where the part of it you build breaks.`,
+    milestone: `You can see that ${unitRef(PASSE_UNIT, 'a2')}'s shape has not moved at all, and you can see the six places where the part of it you build breaks.`,
     estScreens: 14,
     restPoints: [`${MACHINE_SECTION_ID}/after`],
   },
@@ -1643,14 +1649,14 @@ const DECK_TRANCHE: string[][] = [
 const ERROR_TRIGGERS: ErrorTrigger[] = [
   {
     id: 'err-built-form',
-    description: 'Runs a2.05\'s regular rule on an irregular verb and produces a word that does not exist: « j\'ai prendu », « j\'ai ouvri ». THE ERROR THIS LESSON EXISTS TO PREVENT, and it is produced by applying a rule correctly rather than by carelessness, which is why it survives correction.',
+    description: `Runs ${unitRef('a2.05')}\'s regular rule on an irregular verb and produces a word that does not exist: « j\'ai prendu », « j\'ai ouvri ». THE ERROR THIS LESSON EXISTS TO PREVENT, and it is produced by applying a rule correctly rather than by carelessness, which is why it survives correction.`,
     detectOn: [MACHINE_SECTION_ID, WHICH_TRAP_SECTION_ID, `${QUIZ_SECTION_ID}/r1-the-machine`],
     drill: 'drill-the-machine',
     retest: 'retest-the-machine',
   },
   {
     id: 'err-wrong-group',
-    description: 'Puts a form in the group its naming form points at: courir into -i because it ends in -ir, prendre into -u because it ends in -re. It comes from treating the ending of the naming form as evidence, which is exactly what a2.05 taught and exactly what does not hold here.',
+    description: `Puts a form in the group its naming form points at: courir into -i because it ends in -ir, prendre into -u because it ends in -re. It comes from treating the ending of the naming form as evidence, which is exactly what ${unitRef('a2.05')} taught and exactly what does not hold here.`,
     detectOn: [MAP_SECTION_ID, IT_SECTION_ID, `${QUIZ_SECTION_ID}/r2-which-group`],
     drill: 'drill-which-group',
     retest: 'retest-which-group',
@@ -1678,7 +1684,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-naming-form',
-    description: 'Leaves the naming form behind avoir: « j\'ai prendre le bus ». It is a2.05\'s error arriving by a new route, in which the learner looks for the past form, does not find one, and ships the verb as it stands rather than producing a non-word.',
+    description: `Leaves the naming form behind avoir: « j\'ai prendre le bus ». It is ${unitRef('a2.05')}\'s error arriving by a new route, in which the learner looks for the past form, does not find one, and ships the verb as it stands rather than producing a non-word.`,
     detectOn: [RECAP_SECTION_ID, ERRORS_SECTION_ID, `${QUIZ_SECTION_ID}/r6-cold`],
     drill: 'drill-cold',
     retest: 'retest-cold',
@@ -1880,7 +1886,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-next',
         title: 'What is still coming',
         layer: 'deep',
-        body: `${ETRE_DEFERRAL} And the little word that goes in front of a verb like s'asseoir is ${REFLEXIVE_UNIT}. The one case where a past form agrees after avoir needs the words that replace an object, which is ${PRONOUN_UNIT}.`,
+        body: `${ETRE_DEFERRAL} And the little word that goes in front of a verb like s'asseoir is ${unitRef(REFLEXIVE_UNIT)}. The one case where a past form agrees after avoir needs the words that replace an object, which is ${unitRef(PRONOUN_UNIT)}.`,
       },
     ],
   },
@@ -1939,7 +1945,7 @@ export const PARTICIPES_LESSON: Lesson = {
   //     The counter moves rather than the body being corrected under v1:
   //     Postgres already held v1, and two different bodies under one number is
   //     the drift ledger §10 exists to prevent. a2.09 set the precedent.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'The passé composé with avoir, in six persons, introduced in a2.05',
@@ -2009,7 +2015,7 @@ export const PARTICIPES_LESSON: Lesson = {
       {
         id: 'rec-a2-20-scene',
         desc:
-          'THE KETTLE ON A MONDAY, AND THE SAME COLLEAGUE AS a2.05. She has asked a friendly question and is waiting for an answer she expects to be short. '
+          `THE KETTLE ON A MONDAY, AND THE SAME COLLEAGUE AS ${unitRef('a2.05')}. She has asked a friendly question and is waiting for an answer she expects to be short. `
           + 'THE LEARNER\'S OWN LINE IS THE TAKE THAT HAS TO BE RIGHT. « Samedi, j\'ai... j\'ai prendu... » is somebody who is not hesitating out of shyness: '
           + 'the first word came out fine, the second one was produced by a rule, and it is wrong in a way he cannot hear. READ « prendu » PLAINLY AND WITH '
           + 'CONFIDENCE. He believes it. A hesitant or apologetic reading turns the scene into somebody guessing, and the whole point is that he was not guessing. '

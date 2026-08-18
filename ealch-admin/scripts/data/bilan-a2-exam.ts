@@ -56,6 +56,12 @@
 
 import type { QuizRound } from '../../../ealch-v2/src/content/schema.ts';
 import { spreadAnswers } from './bilan-a2-spread.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** The exam section's own id. Same self-pointing arrangement as the review
  *  lesson, and doubly moot here: `exam: true` hides the jump anyway. */
@@ -75,7 +81,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Ils finent tôt.', 'Ils finissent tôt.', 'Ils finent tôt aussi.', 'Ils finit tôt.'],
         correct: 1,
-        why: 'Ils finissent. The regular -ir family puts -iss- in front of every plural ending. a2.10.',
+        why: `Ils finissent. The regular -ir family puts -iss- in front of every plural ending. ${Cap(unitRef('a2.10'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -83,7 +89,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Nous attendons le bus'],
         answer: 'Nous attendons le bus.',
-        why: 'Nous attendons le bus, with no preposition: attendre carries its object directly where English needs for. a2.11.',
+        why: `Nous attendons le bus, with no preposition: attendre carries its object directly where English needs for. ${Cap(unitRef('a2.11'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -97,7 +103,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         audio: HEAR('Ils répondent vite.'),
         opts: ['Il répond vite.', 'Ils répondent vite.', 'Tu réponds vite.', 'Nous répondons vite.'],
         correct: 1,
-        why: 'Ils répondent. The stem-final d is silent at the end of a word and said when a letter follows it. a2.11.',
+        why: `Ils répondent. The stem-final d is silent at the end of a word and said when a letter follows it. ${Cap(unitRef('a2.11'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -106,7 +112,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'Nous mangons ensemble.',
         accept: ['Nous mangeons ensemble'],
         answer: 'Nous mangeons ensemble.',
-        why: 'nous mangeons. The e protects the soft g in front of the o, and the nous cell is the only one where it appears. a2.09.',
+        why: `nous mangeons. The e protects the soft g in front of the o, and the nous cell is the only one where it appears. ${Cap(unitRef('a2.09'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -114,7 +120,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['nous appellons', 'nous appelons', 'nous apellons', 'nous appelions'],
         correct: 1,
-        why: 'nous appelons, with one l. The doubling belongs to the cells whose ending is silent, and -ons is not one of them. a2.09.',
+        why: `nous appelons, with one l. The doubling belongs to the cells whose ending is silent, and -ons is not one of them. ${Cap(unitRef('a2.09'))}.`,
         ref: REF_EXAM,
       },
     ],
@@ -130,7 +136,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['vous faisez', 'vous faites', 'vous faitez', 'vous fasez'],
         correct: 1,
-        why: 'vous faites. Three verbs take -tes in this cell and you have all three: être, faire and dire. a2.12.',
+        why: `vous faites. Three verbs take -tes in this cell and you have all three: être, faire and dire. ${Cap(unitRef('a2.12'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -138,7 +144,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Ils prennent le train'],
         answer: 'Ils prennent le train.',
-        why: 'Ils prennent, with two n holding the vowel open in front of a silent ending. a2.15.',
+        why: `Ils prennent, with two n holding the vowel open in front of a silent ending. ${Cap(unitRef('a2.15'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -146,7 +152,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['connaît', 'sait', 'peut', 'veut'],
         correct: 1,
-        why: 'Elle ne sait pas où j’habite. A clause behind it takes savoir; connaître stops at a noun. a2.14.',
+        why: `Elle ne sait pas où j’habite. A clause behind it takes savoir; connaître stops at a noun. ${Cap(unitRef('a2.14'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -155,7 +161,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'Ils veut partir.',
         accept: ['Ils veulent partir'],
         answer: 'Ils veulent partir.',
-        why: 'Ils veulent partir. The plural stem is the singular stem plus the last consonant of the nous stem, across all three of these verbs. a2.13.',
+        why: `Ils veulent partir. The plural stem is the singular stem plus the last consonant of the nous stem, across all three of these verbs. ${Cap(unitRef('a2.13'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -163,7 +169,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Nous allons au marché'],
         answer: 'Nous allons au marché.',
-        why: 'Nous allons au marché. aller for the verb, and à plus le folded into au for the place. a2.02 and a2.04.',
+        why: `Nous allons au marché. aller for the verb, and à plus le folded into au for the place. ${Cap(unitRef('a2.02'))} and ${unitRef('a2.04')}.`,
         ref: REF_EXAM,
       },
     ],
@@ -179,7 +185,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Je vais partir à six heures'],
         answer: 'Je vais partir à six heures.',
-        why: 'Je vais partir. aller carries the person and the verb behind it stays in its naming form. a2.19.',
+        why: `Je vais partir. aller carries the person and the verb behind it stays in its naming form. ${Cap(unitRef('a2.19'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -187,7 +193,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Nous allons ne pas sortir.', 'Nous n’allons pas sortir.', 'Nous n’allons sortir pas.', 'Nous allons pas ne sortir.'],
         correct: 1,
-        why: 'Nous n’allons pas sortir. The negative wraps the verb that changed, and ne shortens in front of the vowel. a2.19.',
+        why: `Nous n’allons pas sortir. The negative wraps the verb that changed, and ne shortens in front of the vowel. ${Cap(unitRef('a2.19'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -196,7 +202,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         audio: HEAR('Je viens de manger.'),
         opts: ['Je vais manger.', 'Je viens de manger.', 'Je mange.', 'J’ai mangé.'],
         correct: 1,
-        why: 'Je viens de manger, which is twenty minutes ago rather than tonight. Four ways of placing one action in time, separated by their first word. a2.02.',
+        why: `Je viens de manger, which is twenty minutes ago rather than tonight. Four ways of placing one action in time, separated by their first word. ${Cap(unitRef('a2.02'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -205,7 +211,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'elle doit part',
         accept: ['elle doit partir'],
         answer: 'elle doit partir',
-        why: 'elle doit partir. The second verb never takes a person, behind a modal or behind aller. a2.13.',
+        why: `elle doit partir. The second verb never takes a person, behind a modal or behind aller. ${Cap(unitRef('a2.13'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -213,7 +219,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Je vais à Lyon.', 'Je vais travailler.', 'Je vais au bureau.', 'Je vais chez elle.'],
         correct: 1,
-        why: 'Je vais travailler. aller plus a verb is the future; aller plus a place is movement. The next word is the only thing separating them. a2.19.',
+        why: `Je vais travailler. aller plus a verb is the future; aller plus a place is movement. The next word is the only thing separating them. ${Cap(unitRef('a2.19'))}.`,
         ref: REF_EXAM,
       },
     ],
@@ -229,7 +235,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['J’ai fini le travail hier'],
         answer: 'J’ai fini le travail hier.',
-        why: 'J’ai fini. The -ir family gives -i, and the past form after avoir never agrees with anything. a2.05.',
+        why: `J’ai fini. The -ir family gives -i, and the past form after avoir never agrees with anything. ${Cap(unitRef('a2.05'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -237,7 +243,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['attendé', 'attendu', 'attendi', 'attendit'],
         correct: 1,
-        why: 'attendu. One ending per regular family: -é, -i and -u. a2.05.',
+        why: `attendu. One ending per regular family: -é, -i and -u. ${Cap(unitRef('a2.05'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -245,7 +251,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Elle n’a pas mangé'],
         answer: 'Elle n’a pas mangé.',
-        why: 'Elle n’a pas mangé, with no -e on the past form: after avoir there is no agreement with the subject in any person. a2.05.',
+        why: `Elle n’a pas mangé, with no -e on the past form: after avoir there is no agreement with the subject in any person. ${Cap(unitRef('a2.05'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -254,7 +260,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'J’ai bien pas dormi.',
         accept: ['Je n’ai pas bien dormi'],
         answer: 'Je n’ai pas bien dormi.',
-        why: 'Je n’ai pas bien dormi. The negative goes round the first word and the short adverb sits in the gap after it. a2.05 and a2.17.',
+        why: `Je n’ai pas bien dormi. The negative goes round the first word and the short adverb sits in the gap after it. ${Cap(unitRef('a2.05'))} and ${unitRef('a2.17')}.`,
         ref: REF_EXAM,
       },
       {
@@ -262,7 +268,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['J’ai fini depuis dix minutes.', 'J’ai fini il y a dix minutes.', 'J’ai fini dans dix minutes.', 'J’ai fini pendant dix minutes.'],
         correct: 1,
-        why: 'il y a dix minutes. A measurement of time behind it makes it ago; a plain noun behind it makes it there is. a2.18.',
+        why: `il y a dix minutes. A measurement of time behind it makes it ago; a plain noun behind it makes it there is. ${Cap(unitRef('a2.18'))}.`,
         ref: REF_EXAM,
       },
     ],
@@ -278,7 +284,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['mis'],
         answer: 'mis',
-        why: 'mis. An -re verb giving -is rather than -u, exactly as prendre gives pris. a2.20.',
+        why: `mis. An -re verb giving -is rather than -u, exactly as prendre gives pris. ${Cap(unitRef('a2.20'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -286,7 +292,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['J’ai avu le film.', 'J’ai vu le film.', 'J’ai voyu le film.', 'J’ai vé le film.'],
         correct: 1,
-        why: 'J’ai vu. voir is one of the forms that has to be reached for rather than derived. a2.20.',
+        why: `J’ai vu. voir is one of the forms that has to be reached for rather than derived. ${Cap(unitRef('a2.20'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -294,7 +300,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Ils ont compris'],
         answer: 'Ils ont compris.',
-        why: 'Ils ont compris. Cover the prefix and comprendre is prendre, so the past form comes free. a2.20 and a2.15.',
+        why: `Ils ont compris. Cover the prefix and comprendre is prendre, so the past form comes free. ${Cap(unitRef('a2.20'))} and ${unitRef('a2.15')}.`,
         ref: REF_EXAM,
       },
       {
@@ -302,7 +308,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['J’ai du partir.', 'J’ai dû partir.', 'J’ai devu partir.', 'J’ai deu partir.'],
         correct: 1,
-        why: 'J’ai dû partir, with the little roof, which is all that separates it in writing from the du that means some. a2.20.',
+        why: `J’ai dû partir, with the little roof, which is all that separates it in writing from the du that means some. ${Cap(unitRef('a2.20'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -311,7 +317,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'J’ai ouvri la porte.',
         accept: ['J’ai ouvert la porte'],
         answer: 'J’ai ouvert la porte.',
-        why: 'J’ai ouvert. An -ir verb giving -ert, with offrir and souffrir alongside it. a2.20.',
+        why: `J’ai ouvert. An -ir verb giving -ert, with offrir and souffrir alongside it. ${Cap(unitRef('a2.20'))}.`,
         ref: REF_EXAM,
       },
     ],
@@ -327,7 +333,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Elle a arrivée à midi.', 'Elle est arrivée à midi.', 'Elle a arrivé à midi.', 'Elle est arrivé à midi.'],
         correct: 1,
-        why: 'Elle est arrivée. arriver is one of the fifteen, and once the first word is être the second one agrees with the subject. a2.21.',
+        why: `Elle est arrivée. arriver is one of the fifteen, and once the first word is être the second one agrees with the subject. ${Cap(unitRef('a2.21'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -335,7 +341,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Elles sont sorties'],
         answer: 'Elles sont sorties.',
-        why: 'Elles sont sorties, with -es. Nothing here is audibly feminine or plural except the pronoun. a2.21.',
+        why: `Elles sont sorties, with -es. Nothing here is audibly feminine or plural except the pronoun. ${Cap(unitRef('a2.21'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -344,7 +350,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         audio: HEAR('Il est mort en mars.'),
         opts: ['Il est mort en mars.', 'Elle est morte en mars.', 'Il est parti en mars.', 'Elle est partie en mars.'],
         correct: 0,
-        why: 'Il est mort. mourir is the one verb of the fifteen whose agreement you can hear, because the feminine ending lets the t out. a2.21.',
+        why: `Il est mort. mourir is the one verb of the fifteen whose agreement you can hear, because the feminine ending lets the t out. ${Cap(unitRef('a2.21'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -352,7 +358,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'tapSilent',
         word: 'levées',
         correct: 'es',
-        why: 'The final e and s are both silent, so all four written forms are one sound and the agreement is a fact about the page. a2.23.',
+        why: `The final e and s are both silent, so all four written forms are one sound and the agreement is a fact about the page. ${Cap(unitRef('a2.23'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -361,7 +367,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'Ils se ont couchés tard.',
         accept: ['Ils se sont couchés tard'],
         answer: 'Ils se sont couchés tard.',
-        why: 'Ils se sont couchés. Wherever the little word appears, the first word is être, whatever the verb takes without it. a2.23.',
+        why: `Ils se sont couchés. Wherever the little word appears, the first word is être, whatever the verb takes without it. ${Cap(unitRef('a2.23'))}.`,
         ref: REF_EXAM,
       },
     ],
@@ -377,7 +383,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Je téléphone lui.', 'Je lui téléphone.', 'Je le téléphone.', 'Je téléphone le.'],
         correct: 1,
-        why: 'Je lui téléphone. téléphoner puts its person behind à, so the pronoun is lui, and it goes in front of the verb. a2.24.',
+        why: `Je lui téléphone. téléphoner puts its person behind à, so the pronoun is lui, and it goes in front of the verb. ${Cap(unitRef('a2.24'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -385,7 +391,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Je les ai vus hier'],
         answer: 'Je les ai vus hier.',
-        why: 'Je les ai vus, with -s. The pronoun sits in front of the first word and the past form agrees with it because it came first. a2.06.',
+        why: `Je les ai vus, with -s. The pronoun sits in front of the first word and the past form agrees with it because it came first. ${Cap(unitRef('a2.06'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -394,7 +400,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         audio: HEAR('Je la vois demain.'),
         opts: ['Je le vois demain.', 'Je la vois demain.', 'Je les vois demain.', 'Je vois demain.'],
         correct: 1,
-        why: 'Je la vois. Three pronouns, three vowels, and this is the one part of the system the ear can settle on its own. a2.06.',
+        why: `Je la vois. Three pronouns, three vowels, and this is the one part of the system the ear can settle on its own. ${Cap(unitRef('a2.06'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -403,7 +409,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'Je leurs ai écrit.',
         accept: ['Je leur ai écrit'],
         answer: 'Je leur ai écrit.',
-        why: 'Je leur ai écrit. As the word replacing a person behind à it never takes an -s, and the past form never agrees with it either. a2.24.',
+        why: `Je leur ai écrit. As the word replacing a person behind à it never takes an -s, and the past form never agrees with it either. ${Cap(unitRef('a2.24'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -411,7 +417,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Je ne vais pas l’acheter'],
         answer: 'Je ne vais pas l’acheter.',
-        why: 'Je ne vais pas l’acheter. The pronoun goes in front of the verb it belongs to, and the negative still wraps the one that changed. a2.06 and a2.19.',
+        why: `Je ne vais pas l’acheter. The pronoun goes in front of the verb it belongs to, and the negative still wraps the one that changed. ${Cap(unitRef('a2.06'))} and ${unitRef('a2.19')}.`,
         ref: REF_EXAM,
       },
     ],
@@ -427,7 +433,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['J’y vais demain'],
         answer: 'J’y vais demain.',
-        why: 'J’y vais. y takes the à and the place together, which is why saying à again after it is the classic double. a2.25.',
+        why: `J’y vais. y takes the à and the place together, which is why saying à again after it is the classic double. ${Cap(unitRef('a2.25'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -435,7 +441,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Oui, je veux.', 'Oui, j’en veux.', 'Oui, je veux en.', 'Oui, j’y veux.'],
         correct: 1,
-        why: 'Oui, j’en veux. English lets you stop at I do and French does not: the pronoun is required rather than optional. a2.25.',
+        why: `Oui, j’en veux. English lets you stop at I do and French does not: the pronoun is required rather than optional. ${Cap(unitRef('a2.25'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -444,7 +450,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         audio: HEAR('J’en ai deux.'),
         opts: ['J’y vais.', 'J’en ai deux.', 'J’y pense.', 'J’en parle.'],
         correct: 1,
-        why: 'J’en ai deux. The number stays and the noun goes, which is a shape English has no word for at all. a2.25.',
+        why: `J’en ai deux. The number stays and the noun goes, which is a shape English has no word for at all. ${Cap(unitRef('a2.25'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -452,7 +458,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Il n’y a plus de pain'],
         answer: 'Il n’y a plus de pain.',
-        why: 'Il n’y a plus de pain. il y a does not come apart, and after a negative the article collapses to de. a2.25 and a2.07.',
+        why: `Il n’y a plus de pain. il y a does not come apart, and after a negative the article collapses to de. ${Cap(unitRef('a2.25'))} and ${unitRef('a2.07')}.`,
         ref: REF_EXAM,
       },
       {
@@ -460,7 +466,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Il en y a trois.', 'Il y en a trois.', 'Il y a en trois.', 'Il a y en trois.'],
         correct: 1,
-        why: 'Il y en a trois. y comes before en, and it is the one pair of these pronouns whose order this level settles. a2.25.',
+        why: `Il y en a trois. y comes before en, and it is the one pair of these pronouns whose order this level settles. ${Cap(unitRef('a2.25'))}.`,
         ref: REF_EXAM,
       },
     ],
@@ -476,7 +482,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Ce', 'Cet', 'Cette', 'Ces'],
         correct: 1,
-        why: 'Cet hôtel. The h is silent so a vowel sound is coming. It sounds exactly like cette and it is not spelled like it. a2.33.',
+        why: `Cet hôtel. The h is silent so a vowel sound is coming. It sounds exactly like cette and it is not spelled like it. ${Cap(unitRef('a2.33'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -484,7 +490,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Celle-ci est la mienne'],
         answer: 'Celle-ci est la mienne.',
-        why: 'Celle-ci est la mienne. Both words follow valise, and both need what comes after them: -ci on the first, an article in front of the second. a2.33 and a2.34.',
+        why: `Celle-ci est la mienne. Both words follow valise, and both need what comes after them: -ci on the first, an article in front of the second. ${Cap(unitRef('a2.33'))} and ${unitRef('a2.34')}.`,
         ref: REF_EXAM,
       },
       {
@@ -492,7 +498,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Ce sont leurs.', 'Ce sont les leurs.', 'Ce sont leur.', 'Ce sont le leurs.'],
         correct: 1,
-        why: 'Ce sont les leurs. The possessive pronoun is two words and the article is not optional, which is the reverse of the possessive that sits in front of a noun. a2.34.',
+        why: `Ce sont les leurs. The possessive pronoun is two words and the article is not optional, which is the reverse of the possessive that sits in front of a noun. ${Cap(unitRef('a2.34'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -501,7 +507,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'Je préfère celui de rouge.',
         accept: ['Je préfère le rouge'],
         answer: 'Je préfère le rouge.',
-        why: 'Je préfère le rouge. celui needs -ci, -là, a de phrase naming an owner, or a clause; a colour behind de is none of those. a2.33.',
+        why: `Je préfère le rouge. celui needs -ci, -là, a de phrase naming an owner, or a clause; a colour behind de is none of those. ${Cap(unitRef('a2.33'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -509,7 +515,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Je leur donne le livre.', 'Ce sont leurs livres.', 'Je leur parle souvent.', 'Je leur ai répondu.'],
         correct: 1,
-        why: 'leurs livres, where it sits in front of a noun. As the word replacing a person behind à it never takes one. a2.24 and a2.34.',
+        why: `leurs livres, where it sits in front of a noun. As the word replacing a person behind à it never takes one. ${Cap(unitRef('a2.24'))} and ${unitRef('a2.34')}.`,
         ref: REF_EXAM,
       },
     ],
@@ -525,7 +531,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['un nouveau appartement', 'un nouvel appartement', 'une nouvel appartement', 'un nouvelle appartement'],
         correct: 1,
-        why: 'un nouvel appartement. Say the feminine and drop its last two letters, and the same move gives bel and vieil. a2.16.',
+        why: `un nouvel appartement. Say the feminine and drop its last two letters, and the same move gives bel and vieil. ${Cap(unitRef('a2.16'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -533,7 +539,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Elle parle lentement'],
         answer: 'Elle parle lentement.',
-        why: 'Elle parle lentement, built off the feminine lente, and it goes behind the verb. a2.17.',
+        why: `Elle parle lentement, built off the feminine lente, and it goes behind the verb. ${Cap(unitRef('a2.17'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -541,7 +547,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Elle travaille meilleur que moi.', 'Elle travaille mieux que moi.', 'Elle travaille plus bien que moi.', 'Elle travaille plus bon que moi.'],
         correct: 1,
-        why: 'mieux, because it is modifying a verb. meilleur goes with a noun, and plus bon and plus bien do not exist. a2.08.',
+        why: `mieux, because it is modifying a verb. meilleur goes with a noun, and plus bon and plus bien do not exist. ${Cap(unitRef('a2.08'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -550,7 +556,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'une femme sportif et heureux',
         accept: ['une femme sportive et heureuse'],
         answer: 'une femme sportive et heureuse',
-        why: 'sportive et heureuse. Two classes, two feminines, and both of them are audible, which is unusual: number never is. a2.03.',
+        why: `sportive et heureuse. Two classes, two feminines, and both of them are audible, which is unusual: number never is. ${Cap(unitRef('a2.03'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -558,7 +564,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['le plus vieil hôtel de la ville'],
         answer: 'le plus vieil hôtel de la ville',
-        why: 'le plus vieil hôtel de la ville. The pre-vocalic form survives inside the superlative frame, and the field a superlative names takes de. a2.16 and a2.08.',
+        why: `le plus vieil hôtel de la ville. The pre-vocalic form survives inside the superlative frame, and the field a superlative names takes de. ${Cap(unitRef('a2.16'))} and ${unitRef('a2.08')}.`,
         ref: REF_EXAM,
       },
     ],
@@ -574,7 +580,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Qu’est-ce que vous voulez ?', 'Vous avez choisi ?', 'Vous prenez quoi ?', 'Vous mangez ?'],
         correct: 1,
-        why: 'Vous avez choisi ? Your half of this encounter is the answering half, and recognising which question arrived is most of the work. a2.07.',
+        why: `Vous avez choisi ? Your half of this encounter is the answering half, and recognising which question arrived is most of the work. ${Cap(unitRef('a2.07'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -583,7 +589,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         target: 'Je vais prendre le poisson.',
         accept: ['Je vais prendre le poisson'],
         answer: 'Je vais prendre le poisson.',
-        why: 'Je vais prendre le poisson. The near future is the ordinary way to order, so a whole grammar unit turns out to be a piece of the script. a2.07 and a2.19.',
+        why: `Je vais prendre le poisson. The near future is the ordinary way to order, so a whole grammar unit turns out to be a piece of the script. ${Cap(unitRef('a2.07'))} and ${unitRef('a2.19')}.`,
         ref: REF_EXAM,
       },
       {
@@ -592,7 +598,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Vous prenez la carte'],
         answer: 'Vous prenez la carte ?',
-        why: 'Vous prenez la carte ? Rising intonation and nothing else, which is the question form a counter actually uses. a2.26.',
+        why: `Vous prenez la carte ? Rising intonation and nothing else, which is the question form a counter actually uses. ${Cap(unitRef('a2.26'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -601,7 +607,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         prompt: 'une bouteille du vin',
         accept: ['une bouteille de vin'],
         answer: 'une bouteille de vin',
-        why: 'une bouteille de vin. A container takes a plain de, whatever the noun behind it. a2.26.',
+        why: `une bouteille de vin. A container takes a plain de, whatever the noun behind it. ${Cap(unitRef('a2.26'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -609,7 +615,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Your change', 'The note you handed over', 'The total', 'The tax'],
         correct: 1,
-        why: 'The note you handed over. She is counting up from the price, and hearing it as the change is how you leave short. a2.26.',
+        why: `The note you handed over. She is counting up from the price, and hearing it as the change is how you leave short. ${Cap(unitRef('a2.26'))}.`,
         ref: REF_EXAM,
       },
     ],
@@ -625,7 +631,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['J’ai mal à le ventre.', 'J’ai mal au ventre.', 'Je suis mal au ventre.', 'Mon ventre fait mal.'],
         correct: 1,
-        why: 'J’ai mal au ventre. French has the pain where English is it, and à le contracts wherever it appears. a2.28.',
+        why: `J’ai mal au ventre. French has the pain where English is it, and à le contracts wherever it appears. ${Cap(unitRef('a2.28'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -633,7 +639,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Prenez la deuxième à gauche'],
         answer: 'Prenez la deuxième à gauche.',
-        why: 'Prenez la deuxième à gauche. A spoken direction counts turnings, so the ordinal is the part you cannot afford to lose. a2.27.',
+        why: `Prenez la deuxième à gauche. A spoken direction counts turnings, so the ordinal is the part you cannot afford to lose. ${Cap(unitRef('a2.27'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -641,7 +647,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'mcq',
         opts: ['Vous n’avez rien fait.', 'Il manque une serviette.', 'Je veux une serviette.', 'Votre chambre est mauvaise.'],
         correct: 1,
-        why: 'Il manque une serviette. No subject, so nobody is accused of anything, which is the whole reason the frame exists. a2.29.',
+        why: `Il manque une serviette. No subject, so nobody is accused of anything, which is the whole reason the frame exists. ${Cap(unitRef('a2.29'))}.`,
         ref: REF_EXAM,
       },
       {
@@ -649,7 +655,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Je travaille ici depuis deux ans'],
         answer: 'Je travaille ici depuis deux ans.',
-        why: 'Je travaille ici depuis deux ans, in the present, because you still work there. English reaches for a past tense and French does not. a2.18 and a2.30.',
+        why: `Je travaille ici depuis deux ans, in the present, because you still work there. English reaches for a past tense and French does not. ${Cap(unitRef('a2.18'))} and ${unitRef('a2.30')}.`,
         ref: REF_EXAM,
       },
       {
@@ -659,7 +665,7 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         format: 'typeIn',
         accept: ['Mon téléphone ne marche pas'],
         answer: 'Mon téléphone ne marche pas.',
-        why: 'Mon téléphone ne marche pas. marcher for a device, not travailler, which is the verb for a person. a2.32.',
+        why: `Mon téléphone ne marche pas. marcher for a device, not travailler, which is the verb for a person. ${Cap(unitRef('a2.32'))}.`,
         ref: REF_EXAM,
       },
     ],

@@ -20,6 +20,12 @@
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { E } from './demonstratifs-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const DEMONSTRATIFS_TERMS: Record<string, LessonTerm> = {
   /** THE OWNS, half one. */
@@ -73,8 +79,8 @@ export const DEMONSTRATIFS_TERMS: Record<string, LessonTerm> = {
   /** a1.03 applied, not re-taught. */
   gender: {
     term: 'the noun decides',
-    title: 'You are spending a1.03 here',
-    body: 'a1.03 taught you to store a noun with its gender and this is where you spend it. Nothing in this lesson tells you whether a bag is masculine; it tells you what to do once you know. If the gender is not in your head the eight forms are eight guesses, and that is the one thing worth going back for.',
+    title: `You are spending ${unitRef('a1.03')} here`,
+    body: `${Cap(unitRef('a1.03'))} taught you to store a noun with its gender and this is where you spend it. Nothing in this lesson tells you whether a bag is masculine; it tells you what to do once you know. If the gender is not in your head the eight forms are eight guesses, and that is the one thing worth going back for.`,
     examples: [
       { itemId: 'fr.a2.description-personnes-objets.005', note: 'homme is masculine' },
       { itemId: 'fr.a2.description-personnes-objets.006', note: 'femme is feminine' },

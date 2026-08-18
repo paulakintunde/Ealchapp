@@ -40,6 +40,7 @@ import {
   PATTERNS, RESPELL_REPAIRS, SOFT_STEM_SOUND, THEME, THE_SEVENTEEN, VERBES_ER_EXC, toItem,
 } from './data/verbes-er-exceptions-corpus.ts';
 import { IMPORTED_ROWS, IMPORTED_VERBS } from './data/verbes-er-exceptions-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   A201_BACKREF, GRID_SECTION_ID, NOUS_ON, REFRAME, SPLIT_COLUMNS, SPLIT_SECTION_ID,
   VERBES_ER_EXC_LESSON,
@@ -146,7 +147,7 @@ if (hits !== REFRAME_APPEARANCES) die(`the reframe appears ${hits} times, expect
   for (const form of ['nous mangeons', 'nous commençons']) {
     if (!learner.toLowerCase().includes(form)) die(`"${form}" appears on no screen; the nous cell is the whole -ger/-cer teaching`);
   }
-  if (!learner.includes(A201_BACKREF)) die(`${A201_BACKREF} is named nowhere. The back-reference is the teaching, not a citation.`);
+  if (!namesUnitLabel(learner, A201_BACKREF)) die(`${A201_BACKREF} is named nowhere. The back-reference is the teaching, not a citation.`);
   if (!learner.includes(NOUS_ON)) die('the nous/on statement no longer appears verbatim. It is a2.01\'s constant and it is imported, not reworded.');
   const gone = THE_SEVENTEEN.filter((v) => !learner.includes(v));
   if (gone.length) die(`verb(s) named by no screen: ${gone.join(', ')}`);

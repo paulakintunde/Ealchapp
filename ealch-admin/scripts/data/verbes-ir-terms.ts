@@ -11,6 +11,7 @@
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { NOUS_ON, REFRAME as A201_REFRAME } from './verbes-er-terms.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** a2.01's nous/on statement, re-exported rather than retyped.
  *
@@ -45,7 +46,10 @@ export { A201_REFRAME };
  *
  *  Exported so the test can assert its presence and an edit that cuts it goes
  *  red. */
-export const A201_BACKREF = 'a2.01';
+export const A201_BACKREF_UNIT = 'a2.01';
+/** BY LABEL. This is interpolated straight into card bodies, and a learner has
+ *  never seen `a2.01`. The `_UNIT` constant keeps the id for the guards. */
+export const A201_BACKREF = unitRef(A201_BACKREF_UNIT, 'a2');
 
 /** The line this lesson hangs on.
  *
@@ -102,7 +106,7 @@ export const VERBES_IR_TERMS: Record<string, LessonTerm> = {
     term: 'the part that stays',
     title: 'What is left when -ir comes off',
     body:
-      'finir gives fin-. choisir gives chois-. remplir gives rempl-. Take the last two letters off the naming form and what is left does not move, whoever is speaking. That is the same machine a2.01 gave you for -er verbs, and nothing about it has changed. What has changed is the six things you put on the end of it.',
+      `finir gives fin-. choisir gives chois-. remplir gives rempl-. Take the last two letters off the naming form and what is left does not move, whoever is speaking. That is the same machine ${unitRef('a2.01')} gave you for -er verbs, and nothing about it has changed. What has changed is the six things you put on the end of it.`,
     examples: [
       { itemId: 'fr.a2.verbes.181', note: 'fin- with the je ending on it.' },
       { itemId: 'fr.a2.verbes.184', note: 'The same fin-, with the nous ending, which is longer than you expect.' },
@@ -122,7 +126,7 @@ export const VERBES_IR_TERMS: Record<string, LessonTerm> = {
     term: 'the three that hide',
     title: 'je finis, tu finis, il finit',
     body:
-      'Three spellings and one sound. -is, -is and -it all arrive as nothing, exactly the way -e, -es and -ent did on an -er verb in a2.01, so in the singular the pronoun is still carrying the person on its own. This half of a2.01 has not been taken back and it never will be. What is new is that the plural no longer joins them.',
+      `Three spellings and one sound. -is, -is and -it all arrive as nothing, exactly the way -e, -es and -ent did on an -er verb in ${unitRef('a2.01')}, so in the singular the pronoun is still carrying the person on its own. This half of ${unitRef('a2.01')} has not been taken back and it never will be. What is new is that the plural no longer joins them.`,
     examples: [
       { itemId: 'fr.a2.verbes.193', note: 'Ends in -is.' },
       { itemId: 'fr.a2.verbes.195', note: 'Ends in -it, and is said exactly the same way.' },

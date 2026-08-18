@@ -354,7 +354,7 @@ if (formRespell(IDENTICAL_PATTERN, aCell) !== formRespell(IDENTICAL_PATTERN, bCe
 }
 const identicalSection = byId(IDENTICAL_SECTION_ID);
 if (!identicalSection) die(`${IDENTICAL_SECTION_ID} does not exist and it is the section that teaches the identical cell`);
-if (!strings(identicalSection).some((s) => hasPhrase(s, IDENTICAL_UNIT))) {
+if (!strings(identicalSection).some((s) => namesUnitLabel(s, IDENTICAL_UNIT))) {
   die(`${IDENTICAL_SECTION_ID} does not name ${IDENTICAL_UNIT}, and pointing at the earlier instance is the teaching`);
 }
 // And the whole lesson must never print the over-pluralised form except where
@@ -395,7 +395,7 @@ const stem = (s: string) => s.replace(/\s+\S+\.$/, '');
 if (stem(contrastFr[0]) !== stem(contrastFr[1])) {
   die(`the contrast pair is not a minimal pair: ${JSON.stringify(contrastFr[0])} against ${JSON.stringify(contrastFr[1])}. Everything but the last word must match.`);
 }
-if (!strings(inv).some((s) => hasPhrase(s, 'a1.13'))) die(`${INVARIABLE_SECTION_ID} does not name a1.13, which owns the invariable colours`);
+if (!strings(inv).some((s) => namesUnitLabel(s, 'a1.13'))) die(`${INVARIABLE_SECTION_ID} does not name a1.13, which owns the invariable colours`);
 console.log(`  invariable    ${INVARIABLE_SECTION_ID} shows ${JSON.stringify(contrastFr[0])} then ${JSON.stringify(contrastFr[1])}, one word apart`);
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1241,7 +1241,7 @@ async function main() {
      hand-off that has quietly been dropped fails rather than sitting in a
      constant nobody reads. */
   for (const u of CITED_UNITS) {
-    if (!production.some((s) => hasPhrase(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
+    if (!production.some((s) => namesUnitLabel(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
   }
 
   /* DEPENDENTS. Probed rather than copied: a2.12 had none, a2.13 had two, a2.14
@@ -1395,6 +1395,7 @@ async function main() {
 /* Named apart so the two "drill additions" ideas cannot be confused: the corpus
    constant is the DATA and this is what the transaction iterates. */
 import { DRILL_ADDITIONS as LESSON_DRILL_ADDITIONS } from './data/accord-adjectifs-corpus.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 if (LESSON_DRILL_ADDITIONS.length !== EXPECTED_DRILL_ADDITIONS) die(`${LESSON_DRILL_ADDITIONS.length} drill additions, expected ${EXPECTED_DRILL_ADDITIONS}`);
 
 main().catch((e) => { console.error(e); process.exit(1); });

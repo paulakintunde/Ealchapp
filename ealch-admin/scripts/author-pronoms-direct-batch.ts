@@ -61,6 +61,7 @@ import { PRONOMS_DIRECT_TERMS } from './data/pronoms-direct-terms.ts';
 import { TITLE_MUST_CLIP, TITLE_MUST_FIT, TITLE_WIDTH_MAX, titleWidth } from './data/pronominaux-passe-corpus.ts';
 import { IMPORTED_IDS, REPAIRED_IDS, STORED_RESPELL, row as importedRow } from './data/pronoms-direct-imported.ts';
 import { PRONOMS_DIRECT_IMPORT_ROWS, MEASURED_ROWS } from './data/pronoms-direct-rows.gen.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
@@ -117,8 +118,16 @@ const hasPhrase = (hay: string, needle: string): boolean => bounded(needle).test
 /** a2.23 §9.1: naming a unit needs the opposite boundary, because the band
  *  names a neighbour with a possessive almost every time and `hasPhrase(_,
  *  'a2.24')` is blind to « a2.24's ». */
-const namesUnit = (hay: string, unit: string): boolean =>
-  new RegExp(`(?<![\\p{L}\\p{N}'’-])${unit.replace(/\./gu, '\\.')}(?![\\p{L}\\p{N}-])`, 'iu').test(hay);
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number, and a2.24 shipped « since seq
+ *  17 of A1 » about a unit that is seq 20, which is somebody reading the id as
+ *  the position.
+ *
+ *  Case-insensitive, and it does NOT also accept the raw id: a guard taking
+ *  either would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, unit: string): boolean => namesUnitLabel(hay, unit);
 
 const surfaceOf = (walk: (v: unknown, out?: string[]) => string[]): string[] => [
   ...walk(LESSON.sections),

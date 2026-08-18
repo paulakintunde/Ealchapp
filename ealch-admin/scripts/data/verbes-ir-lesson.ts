@@ -135,6 +135,7 @@ import {
 } from './verbes-ir-corpus.ts';
 import { IMPORTED_IDS, verbEn, verbId } from './verbes-ir-imported.ts';
 import { REPAIRED_RESPELL, verbCard, verbRespell, verbStem } from './verbes-ir-display.ts';
+import { unitRef } from './_unit-ref.ts';
 
 export { A201_BACKREF, A201_REFRAME, BOTH_HALVES, NOUS_ON, REFRAME };
 
@@ -514,7 +515,7 @@ const SECTIONS: LessonSection[] = [
         say: fr(HEAR_ROW_IDS[4]),
         detail: {
           title: form(HEAR_ROW_IDS[4]),
-          body: 'A whole syllable more than the singular, and then the same nasal vowel a2.01 gave you on nous parlons. Nobody could mistake this one.',
+          body: `A whole syllable more than the singular, and then the same nasal vowel ${unitRef('a2.01')} gave you on nous parlons. Nobody could mistake this one.`,
           say: fr(HEAR_ROW_IDS[4]),
         },
       },
@@ -973,7 +974,7 @@ const SECTIONS: LessonSection[] = [
         // "the honest way to hold them" was the first draft and sons-alphabet.test.ts
         // caught it: the word is banned across the whole seed. House rule, and it
         // catches "honestly" too.
-        body: `${NOT_THIS_FAMILY_HOMED.join(' and ')} have a unit of their own at ${NOT_THIS_FAMILY_UNIT}. The rest you will meet one at a time, which is how they are worth holding.`,
+        body: `${NOT_THIS_FAMILY_HOMED.join(' and ')} have a unit of their own at ${unitRef(NOT_THIS_FAMILY_UNIT)}. The rest you will meet one at a time, which is how they are worth holding.`,
       },
       {
         label: 'How to tell',
@@ -1270,7 +1271,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['-issons', '-ons', '-issent', '-issez'],
             correct: 0,
-            why: 'The -iss- goes in first and then the ending a2.01 gave you. That is why it is a whole syllable longer than the singular.',
+            why: `The -iss- goes in first and then the ending ${unitRef('a2.01')} gave you. That is why it is a whole syllable longer than the singular.`,
             ref: 's05-hear',
           },
           {
@@ -1366,7 +1367,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['il finit against ils finissent', 'nous finissons against vous finissez', 'elle choisit against elles choisissent', 'je finis against il finit'],
             correct: 3,
-            why: 'Both are the short form. Three spellings and one sound is still true in the singular, and it is the half of a2.01 this lesson keeps.',
+            why: `Both are the short form. Three spellings and one sound is still true in the singular, and it is the half of ${unitRef('a2.01')} this lesson keeps.`,
             ref: 's07-onesound',
           },
         ],
@@ -1854,7 +1855,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-ten-why',
         title: 'Why these ten, and the ten that are not here',
         layer: 'deep',
-        body: `Every verb here builds all six of its present-tense forms from one stem plus the six endings on the other sheet, so one pattern gives you ten verbs and sixty forms, and it keeps working on verbs nobody has shown you: rougir, punir, salir, bâtir, agir and vieillir all behave identically. That is not true of every verb ending in -ir, and the exceptions are not rare ones. ${NOT_THIS_FAMILY.join(', ')} all end in -ir and not one of them takes the extra sound anywhere in its present tense. Several of them are more frequent than anything on the list above, which is the awkward part: you will meet the exceptions before you have finished practising the rule. Nothing in the naming form separates the two groups, so this is the one thing in the lesson that is learnt verb by verb rather than worked out. ${NOT_THIS_FAMILY_HOMED.join(' and ')} have a unit of their own at ${NOT_THIS_FAMILY_UNIT}. The others are worth treating as individual words for now: recognising that a verb is not in this family is most of the benefit, because it stops you producing a form that does not exist.`,
+        body: `Every verb here builds all six of its present-tense forms from one stem plus the six endings on the other sheet, so one pattern gives you ten verbs and sixty forms, and it keeps working on verbs nobody has shown you: rougir, punir, salir, bâtir, agir and vieillir all behave identically. That is not true of every verb ending in -ir, and the exceptions are not rare ones. ${NOT_THIS_FAMILY.join(', ')} all end in -ir and not one of them takes the extra sound anywhere in its present tense. Several of them are more frequent than anything on the list above, which is the awkward part: you will meet the exceptions before you have finished practising the rule. Nothing in the naming form separates the two groups, so this is the one thing in the lesson that is learnt verb by verb rather than worked out. ${NOT_THIS_FAMILY_HOMED.join(' and ')} have a unit of their own at ${unitRef(NOT_THIS_FAMILY_UNIT)}. The others are worth treating as individual words for now: recognising that a verb is not in this family is most of the benefit, because it stops you producing a form that does not exist.`,
       },
     ],
   },
@@ -1896,7 +1897,7 @@ export const VERBES_IR_LESSON: Lesson = {
   // consonant on the end, which is THIS LESSON'S OWN RULE arriving by a different
   // spelling. What is true of all ten is that none takes the -iss-. Left as it
   // was, the card would have taught against its own successor unit.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

@@ -1,4 +1,10 @@
-// a2.18.l1, « Prépositions de temps », seq 14 on the A2 trail.
+
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+import { unitRef } from './_unit-ref.ts';// a2.18.l1, « Prépositions de temps », seq 14 on the A2 trail.
 //
 // 24 sections, 6 acts, 30 questions, two stepped trapDrills and one reference
 // sheet. Every French string on every screen comes from
@@ -64,17 +70,17 @@ const BY_ID = new Map(PREPOSITIONS_TEMPS.map((r) => [r.id, r]));
 
 const fr = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
   return r.fr;
 };
 const en = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
   return r.en;
 };
 const bare = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
   return r.respell!;
 };
 const sub = (id: string): string => `[${bare(id)}]`;
@@ -85,7 +91,7 @@ const noStop = (s: string): string => s.replace(/[.?!]\s*$/u, '');
  *  the gloss go in `note`. Ledger §a2.14-12. */
 const authoredCard = (id: string) => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.18: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.18')}: ${id} is not an authored row.`);
   return { fr: r.fr, ipa: r.ipa!, note: `[${r.respell}] ${r.en}` };
 };
 
@@ -585,7 +591,7 @@ const SECTIONS: LessonSection[] = [
     examples: [
       { fr: importedFr('fr.sons.jours-et-mois.081'), en: importedEn('fr.sons.jours-et-mois.081'), note: `${impSub('fr.sons.jours-et-mois.081')} Sitting between the dans card and the depuis card, published, and the only one of the three that needs a tense you do not have.` },
       { fr: fr(A(186)), en: en(A(186)), note: `${sub(A(186))} The phrase on its own, which needs no verb at all and is yours today.` },
-      { fr: fr(A(174)), en: en(A(174)), note: `${sub(A(174))} READ THIS ONE AND MOVE ON. The verb in it is a tense from ${PAST_UNIT} and nothing in this lesson asks you to build one.` },
+      { fr: fr(A(174)), en: en(A(174)), note: `${sub(A(174))} READ THIS ONE AND MOVE ON. The verb in it is a tense from ${unitRef(PAST_UNIT)} and nothing in this lesson asks you to build one.` },
       { fr: importedFr('fr.sons.jours-et-mois.080'), en: importedEn('fr.sons.jours-et-mois.080'), note: `${impSub('fr.sons.jours-et-mois.080')} The other direction, for comparison. One hour forwards and one hour back, and the two phrases share the last two words.` },
     ],
     terms: ['aTenseComing', 'measurementThenStop'],
@@ -648,7 +654,7 @@ const SECTIONS: LessonSection[] = [
       { fr: fr(A(185)), en: en(A(185)), note: `${sub(A(185))} The same two hours that depuis and pendant both had, answering a third question.` },
       { fr: fr(A(173)), en: en(A(173)), note: `${sub(A(173))} A stopwatch rather than a clock. Nothing here is about when.` },
       { fr: fr(A(197)), en: en(A(197)), note: `${sub(A(197))} And the pair in one line: she asks about a point ahead and he answers with a length.` },
-      { fr: importedFr('fr.sons.mots-essentiels.088'), en: 'in (how long something takes)', note: `${impSub('fr.sons.mots-essentiels.088')} The word itself. Its stored meaning in this app is a different en altogether, which is one more job for a two-letter word. ${PLACE_UNIT} owns the third.` },
+      { fr: importedFr('fr.sons.mots-essentiels.088'), en: 'in (how long something takes)', note: `${impSub('fr.sons.mots-essentiels.088')} The word itself. Its stored meaning in this app is a different en altogether, which is one more job for a two-letter word. ${Cap(unitRef(PLACE_UNIT))} owns the third.` },
     ],
     terms: ['howLongItTook', 'pointAhead'],
   },
@@ -715,7 +721,7 @@ const SECTIONS: LessonSection[] = [
           q: 'It arrived on Monday and today is Thursday. Le colis est arrivé ___ trois jours.',
           opts: ['il y a', 'depuis', 'dans'],
           correct: 0,
-          why: `A single point behind you, so il y a. This is the one that needs the tense from ${PAST_UNIT}, and the sentence has been built for you.`,
+          why: `A single point behind you, so il y a. This is the one that needs the tense from ${unitRef(PAST_UNIT)}, and the sentence has been built for you.`,
         },
       },
     ],
@@ -739,7 +745,7 @@ const SECTIONS: LessonSection[] = [
       { word: 'le quartier', en: 'the neighbourhood', ipa: '/lə kaʁ.tje/', note: 'A part of a city. Nothing about it is this lesson.' },
       { word: 'toutes les', en: 'every', ipa: '/tut le/', note: 'How often, rather than how long. That is the frequency system and it belongs to another lesson.' },
       { word: 'alors', en: 'so', ipa: '/a.lɔʁ/', note: 'Joins a fact to what follows from it.' },
-      { word: 'personne', en: 'nobody', ipa: '/pɛʁ.sɔn/', note: 'From a1.18, the negation lesson, and it is here so the passage has one sentence that is not about time.' },
+      { word: 'personne', en: 'nobody', ipa: '/pɛʁ.sɔn/', note: `From ${unitRef('a1.18')}, the negation lesson, and it is here so the passage has one sentence that is not about time.` },
       { word: 'déjà', en: 'already', ipa: '/de.ʒa/', note: 'What people say when six months sounds short to them and long to you.' },
     ],
     questions: [
@@ -882,7 +888,7 @@ const SECTIONS: LessonSection[] = [
       { front: 'depuis or pendant, and how do you decide?', back: PAIR_CLAIM, say: fr(A(183)) },
       { front: 'dans or en?', back: EN_DANS_CLAIM, say: fr(A(185)) },
       { front: 'When does « il y a » mean ago?', back: AGO_RULE, say: fr(A(189)) },
-      { front: 'Which of the five can you not produce yet, and why?', back: `Il y a for ago, because it needs a past tense and that is ${PAST_UNIT}. The other four you can say today.`, say: fr(A(186)) },
+      { front: 'Which of the five can you not produce yet, and why?', back: `Il y a for ago, because it needs a past tense and that is ${unitRef(PAST_UNIT)}. The other four you can say today.`, say: fr(A(186)) },
     ],
   },
 
@@ -897,7 +903,7 @@ const SECTIONS: LessonSection[] = [
     body: `${REFRAME} The exam has five rounds. Four of the five words you can use in a sentence today; the fifth you will recognise when somebody says it, and you will be able to say it two lessons from now.`,
     stats: [
       { k: 'Time words', v: String(GRID.length) },
-      { k: 'You can produce', v: `${GRID.filter((g) => g.producible).length} of ${GRID.length}. Il y a waits for ${PAST_UNIT}.` },
+      { k: 'You can produce', v: `${GRID.filter((g) => g.producible).length} of ${GRID.length}. Il y a waits for ${unitRef(PAST_UNIT)}.` },
       { k: 'New words to learn', v: '0. You had all five already.' },
       { k: 'Asked by ear', v: NO_EAR_CLAIM },
     ],
@@ -1103,7 +1109,7 @@ const SECTIONS: LessonSection[] = [
         id: 'r4-il-y-a',
         label: 'Il y a, twice',
         targets: ['err-ilya-job', 'err-wrong-word'],
-        say: `Six on the shape ${WHAT_FOLLOWS_UNIT} named. The three words never change and the word after them always does.`,
+        say: `Six on the shape ${unitRef(WHAT_FOLLOWS_UNIT)} named. The three words never change and the word after them always does.`,
         questions: [
           {
             q: fr(A(188)),
@@ -1139,7 +1145,7 @@ const SECTIONS: LessonSection[] = [
               'The word straight after it',
             ],
             correct: 3,
-            why: `${WHAT_FOLLOWS_UNIT} named this pattern ${WHAT_FOLLOWS}, on venir de, and it is the same job here.`,
+            why: `${Cap(unitRef(WHAT_FOLLOWS_UNIT))} named this pattern ${WHAT_FOLLOWS}, on venir de, and it is the same job here.`,
             ref: ILYA_TRAP_SECTION_ID,
           },
           {
@@ -1254,7 +1260,7 @@ const SECTIONS: LessonSection[] = [
       `${PATTERN_CLAIM} ${AGO_RULE}`,
       EN_DANS_CLAIM,
       `${PAST_DEFERRAL} ${FUTURE_DEFERRAL}`,
-      `${CLOCK_UNIT} gave you the clock and ${MONTH_UNIT} gave you the calendar. ${PLACE_UNIT} gave you en and dans in front of a place yesterday, and its own line was: ${A204_REFRAME}`,
+      `${Cap(unitRef(CLOCK_UNIT))} gave you the clock and ${unitRef(MONTH_UNIT)} gave you the calendar. ${Cap(unitRef(PLACE_UNIT))} gave you en and dans in front of a place yesterday, and its own line was: ${A204_REFRAME}`,
     ],
     sheetId: SHEET_ID,
   },
@@ -1481,7 +1487,7 @@ const DRILLS = [
     format: 'sort' as const,
     buckets: ['there is', 'ago'],
     items: [A(188), A(189), A(190), A(186)],
-    coach: `${AGO_RULE} ${WHAT_FOLLOWS_UNIT} named this pattern ${WHAT_FOLLOWS}.`,
+    coach: `${AGO_RULE} ${Cap(unitRef(WHAT_FOLLOWS_UNIT))} named this pattern ${WHAT_FOLLOWS}.`,
   },
   {
     id: 'retest-which-job',
@@ -1597,7 +1603,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-what-is-coming',
         title: 'What is still coming',
         layer: 'deep',
-        body: `${PAST_DEFERRAL} ${FUTURE_DEFERRAL} ${A112_CLAIM.charAt(0).toUpperCase()}${A112_CLAIM.slice(1)} is ${CLOCK_UNIT}'s, and it has been yours since then.`,
+        body: `${PAST_DEFERRAL} ${FUTURE_DEFERRAL} ${A112_CLAIM.charAt(0).toUpperCase()}${A112_CLAIM.slice(1)} is ${unitRef(CLOCK_UNIT, 'a2')}'s, and it has been yours since then.`,
       },
     ],
   },
@@ -1652,7 +1658,7 @@ export const PREPOSITIONS_TEMPS_LESSON: Lesson = {
   // validator or `lesson-contract.test.ts` compares a step label with the array
   // it labels; the batch, the merge and the test now do, and the `say` line is
   // checked with it because it counts them too.
-  version: 3,
+  version: 4,
 
   grammarAssumed: [
     'The full present of être, introduced in a1.06',

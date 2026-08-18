@@ -73,6 +73,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode, letterCount } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel, unitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -124,7 +125,9 @@ const SCHOOL_UNIT = 'a2.31';
  *  and a2.16 §3: a back-reference to another unit is not a variable, so these
  *  are literals and a paraphrase fails. THE BRIEF ASKS FOR EXACTLY THIS. */
 const A219_REFRAME = 'Wrap the verb that changed, not the one carrying the meaning.';
-const A217_DEFERRAL = 'In a past tense the short ones move, and that rule arrives with the tense in a2.05.';
+// BUILT, NOT TYPED. a2.17 ships this sentence and now names the lesson by its
+// label, so the copy that quotes it has to be built the same way.
+const A217_DEFERRAL = `In a past tense the short ones move, and that rule arrives with the tense in ${unitLabel('a2.05')}.`;
 
 const REFRAME = 'One verb, two words, and the small ones go in between.';
 
@@ -168,19 +171,11 @@ function hasPhrase(hay: string, needle: string): boolean {
   }
   return false;
 }
-/** a2.19 §1: the house RIGHT boundary counts an apostrophe as a word character,
- *  so « a2.17's card » does not match `a2.17`. This lesson names eleven units
- *  and writes most of them possessively. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase(); const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID. Resolved
+ *  through the shipped `unit.seq`, never by slicing the id: 31 of 35 A2 units
+ *  disagree with their own id number. It does not also accept the raw id, or it
+ *  would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;
   const h = hay.toLowerCase(); const q = needle.toLowerCase();
@@ -339,7 +334,7 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   //       is grammar jargon on a drawn surface. a2.35 swept the whole band for
   //       these and found five across four lessons; this was one. Reworded to
   //       "a little word that changes for the person". Nothing else moved.
-  strictEqual(L!.version, 6);
+  strictEqual(L!.version, 7);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -431,9 +426,9 @@ test('the three endings are in ONE grid, one row per group, and every ending dif
 
 test('all three units that taught a group are named, and named on the payoff screen', { skip: noLesson }, () => {
   const text = learnerText();
-  for (const u of [ER_UNIT, IR_UNIT, RE_UNIT]) ok(namesUnit(text, u), `${u} taught one of the three groups and is never named by id`);
+  for (const u of [ER_UNIT, IR_UNIT, RE_UNIT]) ok(namesUnitLabel(text, u), `${u} taught one of the three groups and is never named by its lesson label`);
   const groups = strings(sec('s10-groups')).join('\n');
-  for (const u of [ER_UNIT, IR_UNIT, RE_UNIT]) ok(namesUnit(groups, u), `s10-groups is the payoff screen and does not name ${u}`);
+  for (const u of [ER_UNIT, IR_UNIT, RE_UNIT]) ok(namesUnitLabel(groups, u), `s10-groups is the payoff screen and does not name ${u}`);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -581,7 +576,7 @@ test('être is never the first word, anywhere, in any section or row', { skip: n
   for (const r of myRows()) ok(!fires(ETRE_AUXILIARY, r.fr), `${r.id}: ${r.fr}`);
   // AND THE FACT THAT IT EXISTS IS NAMED, so a learner who meets « je suis allé »
   // tomorrow does not conclude they were taught a simplification.
-  ok(namesUnit(learnerText(), ETRE_UNIT), `${ETRE_UNIT} is never named and it says the opposite of this lesson`);
+  ok(namesUnitLabel(learnerText(), ETRE_UNIT), `${ETRE_UNIT} is never named and it says the opposite of this lesson`);
 });
 
 test('no corpus row in this block matches any of the four shapes', { skip: noLesson }, () => {
@@ -610,7 +605,7 @@ test('no irregular past form appears anywhere, and the five frequent ones are as
   // AND THE FACT THAT THEY EXIST IS SAID, with a2.20 named.
   ok(/past form you could not have guessed/i.test(learnerText()),
     'nothing says that some past forms cannot be built from the naming form');
-  ok(namesUnit(learnerText(), IRREGULAR_UNIT), `${IRREGULAR_UNIT} owns them and is never named by id`);
+  ok(namesUnitLabel(learnerText(), IRREGULAR_UNIT), `${IRREGULAR_UNIT} owns them and is never named by its lesson label`);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -627,7 +622,7 @@ test('the no-agreement claim is stated as a literal, and its inversion appears n
   ok(!/agrees with the subject after avoir|the past form agrees with avoir/i.test(text),
     'a learner surface says the past form agrees after avoir');
   // AND THE ONE CASE THAT DOES IS HANDED TO a2.06 RATHER THAN DENIED.
-  ok(namesUnit(text, PRONOUN_UNIT), `${PRONOUN_UNIT} owns the one case where a past form agrees with avoir and is never named`);
+  ok(namesUnitLabel(text, PRONOUN_UNIT), `${PRONOUN_UNIT} owns the one case where a past form agrees with avoir and is never named`);
   // THE FALSE RULE IS NAMED IN EXACTLY ONE PLACE AND IT MUST BE THERE: the deck
   // that shows « J'ai mangé une pomme. » names it in order to break it. A guard
   // that banned it outright would have removed the card that makes the reframe
@@ -656,11 +651,11 @@ test(`${FUTUR_UNIT}'s negation rule is quoted verbatim and never paraphrased`, {
   const text = learnerText();
   // THE BRIEF ASKS FOR THE EXACT WORDING AND SAYS A PARAPHRASE MUST GO RED.
   ok(hasPhrase(text, A219_REFRAME), `${FUTUR_UNIT}'s rule is not quoted verbatim`);
-  ok(namesUnit(text, FUTUR_UNIT), `${FUTUR_UNIT} is never named by id`);
+  ok(namesUnitLabel(text, FUTUR_UNIT), `${FUTUR_UNIT} is never named by its lesson label`);
   // AND IT IS ON THE SCREEN WHERE THE NEGATIVE ARRIVES, not only in a term.
   const english = strings(sec('s05-english')).join('\n');
   ok(hasPhrase(english, A219_REFRAME), 's05-english is where the negative arrives and does not carry the wording');
-  ok(namesUnit(english, FUTUR_UNIT), 's05-english quotes the rule and does not credit it');
+  ok(namesUnitLabel(english, FUTUR_UNIT), 's05-english quotes the rule and does not credit it');
   // AND THIS LESSON HAS NOT WRITTEN A SECOND VERSION OF IT.
   ok(!/wrap the (?:auxiliary|first word|verb that moved)/i.test(text),
     'a learner surface carries a second wording of the rule the brief said to quote');
@@ -669,7 +664,7 @@ test(`${FUTUR_UNIT}'s negation rule is quoted verbatim and never paraphrased`, {
 test(`${ADVERB_UNIT}'s adverb deferral is closed, with its own wording`, { skip: noLesson }, () => {
   const inside = strings(sec('s17-inside')).join('\n');
   ok(hasPhrase(inside, A217_DEFERRAL), 's17-inside closes the deferral and does not quote its own wording');
-  ok(namesUnit(inside, ADVERB_UNIT), 's17-inside does not name a2.17');
+  ok(namesUnitLabel(inside, ADVERB_UNIT), 's17-inside does not name a2.17');
   // AND THE TWO PUBLISHED CARDS THAT PROVE THE SHAPE ARE ON IT. Three of the
   // 177 sentences that put a short adverb in the gap carry a respelling and two
   // of the three are here.
@@ -685,7 +680,7 @@ test(`${TIME_UNIT}'s "ago" deferral is closed, with its own sentence beside this
   const ago = strings(sec('s18-ago')).join('\n');
   ok(hasPhrase(ago, "J'ai commencé il y a trois jours."), `${TIME_UNIT}'s own sentence is not on the screen that closes its loop`);
   ok(hasPhrase(ago, 'il y a trois jours'), `${TIME_UNIT}'s phrase card is not beside it`);
-  ok(namesUnit(ago, TIME_UNIT), 's18-ago does not name a2.18');
+  ok(namesUnitLabel(ago, TIME_UNIT), 's18-ago does not name a2.18');
   ok(/how long ago/i.test(ago), 's18-ago does not say what it is for, and a2.18\'s canDo was reworded because this lesson owns it');
   for (const id of ['fr.a2.prepositions-essentielles.174', 'fr.a2.prepositions-essentielles.186']) {
     ok(byIdItem.has(id), `${id} is not in the seed`);
@@ -693,11 +688,11 @@ test(`${TIME_UNIT}'s "ago" deferral is closed, with its own sentence beside this
   }
 });
 
-test('every unit this lesson leans on is named by id, including the third dependent', { skip: noLesson }, () => {
+test('every unit this lesson leans on is named by its lesson label, including the third dependent', { skip: noLesson }, () => {
   const text = learnerText();
   for (const u of [AVOIR_UNIT, NEGATION_UNIT, ER_UNIT, IR_UNIT, RE_UNIT, ADVERB_UNIT,
     TIME_UNIT, FUTUR_UNIT, IRREGULAR_UNIT, ETRE_UNIT, PRONOUN_UNIT, SCHOOL_UNIT]) {
-    ok(namesUnit(text, u), `${u} is never named on a learner surface`);
+    ok(namesUnitLabel(text, u), `${u} is never named on a learner surface`);
   }
   // THE BRIEF SAID FOUR UNITS DEPEND ON THIS ONE AND THERE ARE THREE. a2.31 is
   // the one no document in this band mentions.

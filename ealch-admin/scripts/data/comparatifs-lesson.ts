@@ -63,6 +63,12 @@ import {
   PLUS_SILENT, PLUS_SOUNDED,
 } from './comparatifs-corpus.ts';
 import { COMPARATIFS_TERMS } from './comparatifs-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** NOT `as const`. A readonly `speeds` tuple is not assignable to
  *  `SectionAudio['speeds']`, which is a mutable `number[]`, and the admin
@@ -488,7 +494,7 @@ const S08_UNSEEN: LessonSection = {
         q: 'The describing word takes its ending from',
         opts: ['the middle word', 'what is being described', 'the word after que'],
         correct: 1,
-        why: `${AGREEMENT_UNIT} taught this and nothing about the frame suspends it. rue is feminine so longue, café is masculine so fort. The middle word has no say in it at all.`,
+        why: `${Cap(unitRef(AGREEMENT_UNIT))} taught this and nothing about the frame suspends it. rue is feminine so longue, café is masculine so fort. The middle word has no say in it at all.`,
       },
     },
   ],
@@ -936,7 +942,7 @@ const S17_ERRORS: LessonSection = {
     {
       wrong: 'Elle est le plus jeune de la famille.',
       right: 'Elle est la plus jeune de la famille.',
-      why: `Reasonable, because the ending on jeune does not change and it feels as though nothing has to. The article is carrying the agreement here, which is ${AGREEMENT_UNIT} working in a position it never showed you.`,
+      why: `Reasonable, because the ending on jeune does not change and it feels as though nothing has to. The article is carrying the agreement here, which is ${unitRef(AGREEMENT_UNIT)} working in a position it never showed you.`,
     },
     {
       wrong: "C'est le plus grand bâtiment dans la ville.",
@@ -1180,7 +1186,7 @@ const S22_QUIZ: LessonSection = {
         { format: 'typeIn', q: 'He is less tall than me. Same sentence, one word different.', answer: 'Il est moins grand que moi', accept: ['Il est moins grand que moi', 'Il est moins grand que moi.'], why: 'Only the middle word moved. English would have reached for shorter and French does not have to.', ref: 's03-three' },
         { format: 'typeIn', q: 'He is as tall as me. One word different again.', answer: 'Il est aussi grand que moi', accept: ['Il est aussi grand que moi', 'Il est aussi grand que moi.'], why: 'aussi is the level one. The same aussi that means also, in a position where it can only mean this.', ref: 's03-three' },
         { format: 'mcq', q: 'poli means polite. He is more polite than me is', opts: ['Il est poli plus que moi.', 'Il est plus que poli moi.', 'Il est plus poli que moi.'], correct: 2, why: 'You have never seen this word in this lesson and the frame handled it anyway. That is what the frame is for.', ref: 's08-unseen' },
-        { format: 'typeIn', q: 'poli means polite. Write: she is less polite than me. Start with Elle.', answer: 'Elle est moins polie que moi', accept: ['Elle est moins polie que moi', 'Elle est moins polie que moi.'], why: `The frame took a word the lesson never listed, and the feminine -e came from ${AGREEMENT_UNIT} rather than from here.`, ref: 's08-unseen' },
+        { format: 'typeIn', q: 'poli means polite. Write: she is less polite than me. Start with Elle.', answer: 'Elle est moins polie que moi', accept: ['Elle est moins polie que moi', 'Elle est moins polie que moi.'], why: `The frame took a word the lesson never listed, and the feminine -e came from ${unitRef(AGREEMENT_UNIT)} rather than from here.`, ref: 's08-unseen' },
         { format: 'listenChoose', q: 'Listen. Is there a describing word after plus?', say: 'Il est plus grand.', opts: ['yes, something follows plus', 'no, plus ends the sentence'], correct: 0, why: 'grand follows, so the s on plus stays silent and the two words run together as plü grand.', ref: 's07-plus' },
         { format: 'listenChoose', q: 'Listen again. Is there a describing word after plus?', say: 'Il en veut plus.', opts: ['yes, something follows plus', 'no, plus ends the sentence'], correct: 1, why: 'Nothing follows it, so the s comes back and you hear PLÜSS. He wants more, and there is no describing word and no que.', ref: 's07-plus' },
         { format: 'mcq', q: 'Which of these three is NOT built from the frame?', opts: ['Il en veut plus.', 'Il est plus grand que moi.', "Ce jardin est plus grand que l'autre."], correct: 0, why: 'No describing word and no que, so there are no slots to fill. plus there is measuring an amount rather than comparing two things by a quality.', ref: 's07-plus' },
@@ -1273,12 +1279,12 @@ const S24_ROUNDUP: LessonSection = {
   id: 's24-roundup',
   layer: 'core',
   title: 'One frame, one middle word',
-  body: `${REFRAME} Three words go in the middle and everything else stays where it is, which is why a describing word you learn next month will already work in it. Put an article in front and you have the most or the least of a group. Two words refuse all of this and have their own forms, and that is the same shape ${SPLIT_UNIT} taught you with savoir and connaître: English merges what French splits, and the split is the whole lesson. One warning for later: ne ... plus is a completely different plus and it means no longer, not more. ${NEGATION_UNIT} owns it and it is not this.`,
+  body: `${REFRAME} Three words go in the middle and everything else stays where it is, which is why a describing word you learn next month will already work in it. Put an article in front and you have the most or the least of a group. Two words refuse all of this and have their own forms, and that is the same shape ${unitRef(SPLIT_UNIT)} taught you with savoir and connaître: English merges what French splits, and the split is the whole lesson. One warning for later: ne ... plus is a completely different plus and it means no longer, not more. ${Cap(unitRef(NEGATION_UNIT))} owns it and it is not this.`,
   points: [
     'plus, moins, aussi. The frame never moves.',
     'que and the other thing, or you have not compared anything.',
     'The article arrives and it carries the ending.',
-    `meilleur after est, mieux after a verb. ${ADVERB_UNIT} left mieux here.`,
+    `meilleur after est, mieux after a verb. ${Cap(unitRef(ADVERB_UNIT))} left mieux here.`,
   ],
   audio: AUDIO,
   say: REFRAME,

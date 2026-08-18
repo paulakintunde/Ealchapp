@@ -71,6 +71,7 @@ import {
   row as importedRow,
 } from './data/y-en-imported.ts';
 import { Y_EN_IMPORT_ROWS, MEASURED_ROWS } from './data/y-en-rows.gen.ts';
+import { namesUnitLabel, unitRef } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
@@ -145,8 +146,16 @@ const hasPhrase = (hay: string, needle: string): boolean => bounded(needle).test
 
 /** a2.23 §9.1: naming a unit needs the opposite boundary, because the band names
  *  a neighbour with a possessive almost every time. */
-const namesUnit = (hay: string, unit: string): boolean =>
-  new RegExp(`(?<![\\p{L}\\p{N}'’-])${unit.replace(/\./gu, '\\.')}(?![\\p{L}\\p{N}-])`, 'iu').test(hay);
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number, and a2.24 shipped « since seq
+ *  17 of A1 » about a unit that is seq 20, which is somebody reading the id as
+ *  the position.
+ *
+ *  Case-insensitive, and it does NOT also accept the raw id: a guard taking
+ *  either would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, unit: string): boolean => namesUnitLabel(hay, unit);
 
 const surfaceOf = (walk: (v: unknown, out?: string[]) => string[]): string[] => [
   ...walk(LESSON.sections),
@@ -406,7 +415,7 @@ const cardsOf = (id: string): Card[] => ((section(id) as { cards?: Card[] }).car
 }
 
 /* LAYOUT 3: the three ens in ONE section, with the position marked, and a2.04
- * and a2.18 both named BY UNIT ID. A `table` at layer core is a density failure,
+ * and a2.18 both named BY ITS LESSON LABEL. A `table` at layer core is a density failure,
  * so this is a tapTable. */
 {
   const tt = section('s11-threeens') as { type: string; rows?: { cells?: string[] }[] };
@@ -417,7 +426,7 @@ const cardsOf = (id: string): Card[] => ((section(id) as { cards?: Card[] }).car
   if (EN_JOBS.length !== 3) die(`${EN_JOBS.length} en jobs declared and there are three.`);
   const surface = display(section('s11-threeens'));
   for (const u of [PLACE_UNIT, TIME_UNIT]) {
-    if (!surface.some((s) => namesUnit(s, u))) die(`s11-threeens does not name ${u}, and the brief asks for both neighbours by unit id.`);
+    if (!surface.some((s) => namesUnit(s, u))) die(`s11-threeens does not name ${u}, and the brief asks for both neighbours by its lesson label.`);
   }
   if (!surface.some((s) => s.includes(EN_POSITION_RULE))) die('s11-threeens does not state the distinguisher, which is position.');
   /* ALL THREE JOBS ARE ON IT, and the three example lines are three different
@@ -433,9 +442,13 @@ const cardsOf = (id: string): Card[] => ((section(id) as { cards?: Card[] }).car
     die(`the tapTable's columns are ${cols.join(', ')} and the middle one IS the distinguisher.`);
   }
   for (const r of rows) if ((r.cells ?? []).length !== 3) die('a tapTable row does not fill all three columns.');
+  // THE CELL HOLDS THE LABEL, so the expected side has to be built the same
+  // way. Comparing a label column against raw ids is a check that can only
+  // fail, and comparing it against itself is one that can never fail.
   const owners = rows.map((r) => (r.cells ?? [])[2] ?? '').sort();
-  if (owners.join('|') !== `${PLACE_UNIT}|${TIME_UNIT}|${UNIT.id}`) {
-    die(`the three rows are owned by ${owners.join(', ')} and they should be one each by ${PLACE_UNIT}, ${TIME_UNIT} and ${UNIT.id}.`);
+  const expected = [PLACE_UNIT, TIME_UNIT, UNIT.id].map((u) => unitRef(u, 'a2')).sort();
+  if (owners.join('|') !== expected.join('|')) {
+    die(`the three rows are owned by ${owners.join(', ')} and they should be one each by ${expected.join(', ')}.`);
   }
   const jobs = rows.map((r) => (r.cells ?? [])[1] ?? '');
   if (new Set(jobs).size !== 3) die('the three rows do not carry three different jobs.');

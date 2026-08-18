@@ -82,6 +82,7 @@ import {
 } from './data/participes-lesson.ts';
 import { MEASURED } from './data/participes-rows.gen.ts';
 import { displayRespell } from './data/participes-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const LESSON: Lesson = PARTICIPES_LESSON;
@@ -150,19 +151,16 @@ function hasPhrase(hay: string, needle: string): boolean {
   return false;
 }
 
-/** A UNIT ID IS ALMOST ALWAYS WRITTEN POSSESSIVELY, AND `hasPhrase` CANNOT SEE
- *  ONE THAT IS. a2.19 §1. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number, and a2.24 shipped « since seq 17
+ *  of A1 » about a unit that is seq 20, which is somebody reading the id as the
+ *  position.
+ *
+ *  Case-insensitive, and it does NOT also accept the raw id: a guard taking
+ *  either would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;

@@ -77,6 +77,12 @@ import {
   WHAT_FOLLOWS_UNIT,
 } from './savoir-connaitre-terms.ts';
 import { REFRAME as A213_REFRAME } from './modaux-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   AUTHORED_IDS,
   CHROME_DECISION,
@@ -384,7 +390,7 @@ const SECTIONS: LessonSection[] = [
     goals: [
       { t: 'Pick between the two, every time', s: `${THE_TEST} Not what the sentence is about, but whether it has finished.` },
       { t: 'Build both, in all six persons', s: `${FRAME_CLAIM}. Twelve forms, and every ending in them is one you already write.` },
-      { t: 'Tell knowing how from being allowed', s: `${CONTRAST_UNIT} gave you a third verb that also turns into can in English, and it means something else again.` },
+      { t: 'Tell knowing how from being allowed', s: `${Cap(unitRef(CONTRAST_UNIT))} gave you a third verb that also turns into can in English, and it means something else again.` },
       { t: 'Stop producing a sentence that does not exist', s: `« ${IMPOSSIBLE.wrong} » is the one English speakers build, and it is not clumsy French. It is not French.` },
     ],
   },
@@ -529,7 +535,7 @@ const SECTIONS: LessonSection[] = [
         say: fr('fr.a2.verbes.403'),
         detail: {
           title: 'And the third verb',
-          body: `${fr('fr.a2.verbes.403')} ${sub('fr.a2.verbes.403')} English turns this into can as well, and it is neither of the other two. It says the water is there and you are allowed in. ${CONTRAST_UNIT} built this verb.`,
+          body: `${fr('fr.a2.verbes.403')} ${sub('fr.a2.verbes.403')} English turns this into can as well, and it is neither of the other two. It says the water is there and you are allowed in. ${Cap(unitRef(CONTRAST_UNIT))} built this verb.`,
           say: fr('fr.a2.verbes.403'),
         },
       },
@@ -579,7 +585,7 @@ const SECTIONS: LessonSection[] = [
           q: `What happens to ${FRAMES.savoir.complement} across all six of those?`,
           opts: ['It takes an ending in the plural', 'It changes for nous and vous', 'Nothing at all', 'It loses a letter'],
           correct: 2,
-          why: `Nothing, in any of the six. ${A213_REFRAME} That was ${CONTRAST_UNIT}, and it holds here too: savoir is doing the work and the verb behind it rests.`,
+          why: `Nothing, in any of the six. ${A213_REFRAME} That was ${unitRef(CONTRAST_UNIT)}, and it holds here too: savoir is doing the work and the verb behind it rests.`,
         },
       },
     ],
@@ -626,7 +632,7 @@ const SECTIONS: LessonSection[] = [
           q: `What arrives in the plural and stays for all three?`,
           opts: ['The accent', 'A double s', 'An extra syllable at the front', 'Nothing'],
           correct: 1,
-          why: `A double s: ${PARADIGM[3].forms.connaître}, ${PARADIGM[4].forms.connaître}, ${PARADIGM[5].forms.connaître}. The endings themselves are the ones you have had since a2.01.`,
+          why: `A double s: ${PARADIGM[3].forms.connaître}, ${PARADIGM[4].forms.connaître}, ${PARADIGM[5].forms.connaître}. The endings themselves are the ones you have had since ${unitRef('a2.01')}.`,
         },
       },
     ],
@@ -955,22 +961,22 @@ const SECTIONS: LessonSection[] = [
     // form, and the batch refuses every form of pouvoir except peux and peut.
     type: 'groupDrill',
     id: POUVOIR_SECTION_ID,
-    title: 'And The One From ' + CONTRAST_UNIT,
+    title: `And The One From ${Cap(unitRef(CONTRAST_UNIT, 'a2'))}`,
     frSub: 'Savoir ou pouvoir',
     layer: 'core',
     size: 'lg',
     terms: ['theThirdVerb', 'theChoice'],
     sheetId: SHEET_ID,
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], audioFirst: true, recordingId: 'rec-a2-14-pouvoir' },
-    say: `${CONTRAST_UNIT} built this verb in full and this lesson does not build it again. What it does is put the two sentences side by side, because English turns both of them into can.`,
+    say: `${Cap(unitRef(CONTRAST_UNIT))} built this verb in full and this lesson does not build it again. What it does is put the two sentences side by side, because English turns both of them into can.`,
     groups: [
       {
         // THE RECAP LINE, AND IT IS ONE CARD. The brief: "Do not re-teach its
         // paradigm; one recap line and a pointer."
-        label: `the third naming form, from ${CONTRAST_UNIT}`,
+        label: `the third naming form, from ${unitRef(CONTRAST_UNIT)}`,
         items: [frameCard('pouvoir')],
         check: {
-          q: `You built this verb at ${CONTRAST_UNIT}. What does it claim that savoir does not?`,
+          q: `You built this verb at ${unitRef(CONTRAST_UNIT)}. What does it claim that savoir does not?`,
           opts: ['That you were taught', 'That nothing is in your way', 'That you have been there', 'The same thing'],
           correct: 1,
           why: 'That nothing is stopping you. It says nothing at all about whether anybody ever taught you, which is the whole of the difference.',
@@ -1021,7 +1027,7 @@ const SECTIONS: LessonSection[] = [
         promptSound: bare('fr.a2.verbes.403'),
         fr: fr('fr.a2.verbes.403'),
         ipa: '/ʒə pø na.ʒe/',
-        tip: `One word different from the card before it. ${CONTRAST_UNIT} built this one; this lesson only puts it here.`,
+        tip: `One word different from the card before it. ${Cap(unitRef(CONTRAST_UNIT))} built this one; this lesson only puts it here.`,
       },
       {
         promptLabel: 'having been there',
@@ -1079,7 +1085,7 @@ const SECTIONS: LessonSection[] = [
         why: 'Nothing is ungrammatical about the first one, which is exactly why it costs you something. You will be understood to have said you have heard of her, and nobody will correct you.',
       },
       {
-        wrong: `Reaching for the ${CONTRAST_UNIT} verb when you mean you were taught.`,
+        wrong: `Reaching for the ${unitRef(CONTRAST_UNIT)} verb when you mean you were taught.`,
         right: `Saying « ${noStop(fr('fr.a2.verbes.381'))} ».`,
         why: 'English gives you can for both, so the reflex is strong. je peux nager says the water is there. It says nothing at all about whether you would float.',
       },
@@ -1141,7 +1147,7 @@ const SECTIONS: LessonSection[] = [
     size: 'lg',
     terms: ['theFamily', 'thePlural'],
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-14-family' },
-    say: `One extra verb, for recognition. What it can take after it is ${FAMILY_UNIT}'s subject and not this lesson's.`,
+    say: `One extra verb, for recognition. What it can take after it is ${unitRef(FAMILY_UNIT, 'a2')}'s subject and not this lesson's.`,
     cards: [
       {
         label: 'the endings',
@@ -1155,7 +1161,7 @@ const SECTIONS: LessonSection[] = [
         head: 'And that is the whole of it',
         fr: fr('fr.a2.verbes.410'),
         sub: sub('fr.a2.verbes.410'),
-        body: `${FAMILY_UNIT} takes this up next and it is worth waiting for, because verbs in a family share their endings without always sharing anything else.`,
+        body: `${Cap(unitRef(FAMILY_UNIT))} takes this up next and it is worth waiting for, because verbs in a family share their endings without always sharing anything else.`,
       },
     ],
   },
@@ -1257,7 +1263,7 @@ const SECTIONS: LessonSection[] = [
         label: 'something you were taught',
         items: ['fr.a2.verbes.381', 'fr.a2.verbes.395', 'fr.a2.verbes.396'].map(rowCard),
         check: {
-          q: `« ${noStop(fr('fr.a2.verbes.395'))} » What would change if you used the ${CONTRAST_UNIT} verb instead?`,
+          q: `« ${noStop(fr('fr.a2.verbes.395'))} » What would change if you used the ${unitRef(CONTRAST_UNIT)} verb instead?`,
           opts: ['Nothing, they are the same', 'It would ask whether you are allowed to cook', 'It would be more polite', 'It would be wrong French'],
           correct: 1,
           why: 'It would ask whether anything is stopping you from cooking, which in somebody else\'s kitchen is a real question and a completely different one.',
@@ -1339,7 +1345,7 @@ const SECTIONS: LessonSection[] = [
       { front: 'We know this restaurant', back: fr('fr.a2.verbes.400'), say: fr('fr.a2.verbes.400') },
       { front: 'The sentence that does not exist', back: `${IMPOSSIBLE.wrong} Say « ${IMPOSSIBLE.right} » instead.` },
       { front: `Which form carries the accent?`, back: `Only ${PARADIGM[2].forms.connaître}, and it is silent.` },
-      { front: `What does ${FAMILY_MEMBER.fr} share with connaître?`, back: `Its endings, and this lesson claims nothing else. ${FAMILY_UNIT} takes it up.` },
+      { front: `What does ${FAMILY_MEMBER.fr} share with connaître?`, back: `Its endings, and this lesson claims nothing else. ${Cap(unitRef(FAMILY_UNIT))} takes it up.` },
     ],
   },
 
@@ -1440,7 +1446,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['connaissons', 'nous connaissons'],
             answer: 'connaissons',
-            why: 'The double s arrives with nous and the ending is the ordinary -ons from a2.01.',
+            why: `The double s arrives with nous and the ending is the ordinary -ons from ${unitRef('a2.01')}.`,
             ref: 's07-second-verb',
           },
           {
@@ -1448,7 +1454,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['savent', 'ils savent'],
             answer: 'savent',
-            why: 'savoir gets shorter in the plural where connaître grows. The -ent is silent, as it has been since a2.01.',
+            why: `savoir gets shorter in the plural where connaître grows. The -ent is silent, as it has been since ${unitRef('a2.01')}.`,
             ref: 's06-savoir',
           },
           {
@@ -1550,7 +1556,7 @@ const SECTIONS: LessonSection[] = [
         id: 'r4-the-third',
         label: 'And the third verb',
         targets: ['err-savoir-pouvoir', 'err-wrong-verb'],
-        say: `${CONTRAST_UNIT}'s verb is back, and English turns it into the same word as one of yours.`,
+        say: `${Cap(unitRef(CONTRAST_UNIT, 'a2'))}'s verb is back, and English turns it into the same word as one of yours.`,
         questions: [
           {
             q: 'You learned to drive ten years ago and your car is in the garage today. Which is true?',
@@ -1570,7 +1576,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['peux', 'je peux'],
             answer: 'peux',
-            why: `Nothing is stopping you, which is ${CONTRAST_UNIT}'s verb. It says nothing about whether anybody taught you.`,
+            why: `Nothing is stopping you, which is ${unitRef(CONTRAST_UNIT, 'a2')}'s verb. It says nothing about whether anybody taught you.`,
             ref: TRAP_SECTION_ID,
           },
           {
@@ -1578,7 +1584,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['peut', 'on peut'],
             answer: 'peut',
-            why: `Allowed, so it is the ${CONTRAST_UNIT} verb, and on takes the il form rather than one of its own.`,
+            why: `Allowed, so it is the ${unitRef(CONTRAST_UNIT)} verb, and on takes the il form rather than one of its own.`,
             ref: TRAP_SECTION_ID,
           },
           {
@@ -1650,7 +1656,7 @@ const SECTIONS: LessonSection[] = [
             format: 'tapSilent',
             word: PARADIGM[5].forms.savoir,
             correct: 'ent',
-            why: 'The -ent, exactly as it has been silent on every verb since a2.01. What you do hear is the v in front of it, arriving at the end of the verb.',
+            why: `The -ent, exactly as it has been silent on every verb since ${unitRef('a2.01')}. What you do hear is the v in front of it, arriving at the end of the verb.`,
             ref: 's06-savoir',
           },
           {
@@ -1756,7 +1762,7 @@ const SECTIONS: LessonSection[] = [
     // the learner has read thirty-four times.
     frSub: CHROME_DECISION.roundupHeading,
     say: 'Four things, and then read the two words at the top of this screen again.',
-    body: `You have two verbs where English gave you one, and one question that picks between them: ${REFRAME} You used it on a place that takes savoir and a place that takes connaître, which is the pair that no rule about meaning survives. You know that the third verb from ${CONTRAST_UNIT} turns into the same English word and means something else again, and that « ${IMPOSSIBLE.wrong} » is not clumsy French but no French at all. And the heading at the top of this screen, « ${CHROME_DECISION.roundupHeading} », has been there at the end of every lesson you have finished. It is savoir with a verb behind it: what you know how to do. Nobody explained it before because there was nothing to explain it with. ${FAMILY_UNIT} is next, and it takes the family this lesson only pointed at.`,
+    body: `You have two verbs where English gave you one, and one question that picks between them: ${REFRAME} You used it on a place that takes savoir and a place that takes connaître, which is the pair that no rule about meaning survives. You know that the third verb from ${unitRef(CONTRAST_UNIT)} turns into the same English word and means something else again, and that « ${IMPOSSIBLE.wrong} » is not clumsy French but no French at all. And the heading at the top of this screen, « ${CHROME_DECISION.roundupHeading} », has been there at the end of every lesson you have finished. It is savoir with a verb behind it: what you know how to do. Nobody explained it before because there was nothing to explain it with. ${Cap(unitRef(FAMILY_UNIT))} is next, and it takes the family this lesson only pointed at.`,
     points: [
       REFRAME,
       THE_TEST,
@@ -1851,7 +1857,7 @@ const ACTS: LessonAct[] = [
     id: 'act6',
     title: 'Prove it',
     sections: ['s26-progress', QUIZ_SECTION_ID, ROUNDUP_SECTION_ID],
-    milestone: 'Thirty-six questions, and the last one is the heading you have been reading since a1.01.',
+    milestone: `Thirty-six questions, and the last one is the heading you have been reading since ${unitRef('a1.01')}.`,
     estScreens: 42,
     restPoints: [`${QUIZ_SECTION_ID}/r3-what-follows`],
   },
@@ -1924,7 +1930,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-savoir-pouvoir',
-    description: 'Uses the a2.13 verb where the sentence is about having been taught. English gives can for both, so the reflex is strong and the resulting sentence is grammatical and says something else.',
+    description: `Uses the ${unitRef('a2.13')} verb where the sentence is about having been taught. English gives can for both, so the reflex is strong and the resulting sentence is grammatical and says something else.`,
     detectOn: [POUVOIR_SECTION_ID, TRAP_SECTION_ID, `${QUIZ_SECTION_ID}/r4-the-third`],
     drill: 'drill-third-verb',
     retest: 'retest-third-verb',
@@ -2019,7 +2025,7 @@ const DRILLS: LessonDrill[] = [
     q: 'Somebody taught you to swim. Je ___ nager.',
     opts: ['peux', 'sais', 'connais'],
     correct: 1,
-    why: `Having learned is savoir. ${CONTRAST_UNIT}'s verb would say the pool is open.`,
+    why: `Having learned is savoir. ${Cap(unitRef(CONTRAST_UNIT, 'a2'))}'s verb would say the pool is open.`,
   },
   {
     id: 'drill-pronoun',
@@ -2107,7 +2113,7 @@ const SHEETS: ReferenceSheet[] = [
           ['a person', 'connaître', fr('fr.a2.verbes.399'), 'you have met them'],
           ['a place', 'connaître', fr('fr.a2.verbes.387'), 'you have been there'],
           ['a thing', 'connaître', fr('fr.a2.verbes.402'), 'you would recognise it'],
-          ['a verb, but allowed', CONTRAST_UNIT + '\'s verb', fr('fr.a2.verbes.403'), 'nothing is in your way'],
+          ['a verb, but allowed', `${unitRef(CONTRAST_UNIT, 'a2')}'s verb`, fr('fr.a2.verbes.403'), 'nothing is in your way'],
         ],
       },
       {
@@ -2142,7 +2148,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-carries-forward',
         title: 'What carries forward',
         layer: 'deep',
-        body: `Three things leave this lesson. The first is the question: ${REFRAME} It is a syntax rule rather than a meaning rule, and that is why it holds. The second is that English gives you one word, can, for two completely different claims, having been taught and having nothing in your way, and French keeps them apart with savoir and ${CONTRAST_UNIT}'s verb. Learners who never sort that out say the wrong one for years and are understood every time, which is why nobody corrects it. The third is small and it will come back: ${WHAT_FOLLOWS}. You met that shape at ${WHAT_FOLLOWS_UNIT} on one verb doing two jobs, and this lesson is the same shape turned round. ${FAMILY_UNIT} is next and it takes up the family ${FAMILY_MEMBER.fr} belongs to, which is worth waiting for: verbs in a family share their endings, and they do not always share anything else.`,
+        body: `Three things leave this lesson. The first is the question: ${REFRAME} It is a syntax rule rather than a meaning rule, and that is why it holds. The second is that English gives you one word, can, for two completely different claims, having been taught and having nothing in your way, and French keeps them apart with savoir and ${unitRef(CONTRAST_UNIT, 'a2')}'s verb. Learners who never sort that out say the wrong one for years and are understood every time, which is why nobody corrects it. The third is small and it will come back: ${WHAT_FOLLOWS}. You met that shape at ${unitRef(WHAT_FOLLOWS_UNIT)} on one verb doing two jobs, and this lesson is the same shape turned round. ${Cap(unitRef(FAMILY_UNIT))} is next and it takes up the family ${FAMILY_MEMBER.fr} belongs to, which is worth waiting for: verbs in a family share their endings, and they do not always share anything else.`,
       },
     ],
   },
@@ -2207,7 +2213,7 @@ export const SAVOIR_CONNAITRE_LESSON: Lesson = {
   // The counter moves rather than the body being corrected under v1. Two
   // different bodies under one number is the drift this project has lost work to
   // twice, and the batch refuses it.
-  version: 5,
+  version: 6,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

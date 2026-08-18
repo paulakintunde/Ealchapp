@@ -27,6 +27,12 @@
 //     rather than restate it in the author's own words.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const ECOLE_TERMS: Record<string, LessonTerm> = {
   dossier: {
@@ -122,7 +128,7 @@ export const ECOLE_TERMS: Record<string, LessonTerm> = {
   repairMove: {
     term: 'the repair move',
     title: 'Six ways to say you did not catch that',
-    body: 'a2.07 taught these once for the whole band, ordered by what each one costs you. Rung one gives away nothing. Rung six admits the spoken channel has failed and asks to change it. Reach for the lowest one that will actually fix the problem.',
+    body: `${Cap(unitRef('a2.07'))} taught these once for the whole band, ordered by what each one costs you. Rung one gives away nothing. Rung six admits the spoken channel has failed and asks to change it. Reach for the lowest one that will actually fix the problem.`,
     examples: [
       { itemId: 'fr.a2.au-restaurant.132', note: 'The cheapest thing you can say.' },
       { itemId: 'fr.a2.au-restaurant.137', note: 'The one that changes the medium.' },

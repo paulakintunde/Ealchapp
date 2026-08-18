@@ -86,6 +86,7 @@ import {
   TWICE_TRAP_SECTION_ID, WRONG_FORM_SECTIONS,
 } from './data/futur-proche-lesson.ts';
 import { FUTUR_PROCHE_ROWS, MEASURED } from './data/futur-proche-rows.gen.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = join(here, '../../ealch-v2/src/content/seed.json');
@@ -146,20 +147,13 @@ function hasPhrase(hay: string, needle: string): boolean {
   }
   return false;
 }
-/** A unit id is almost always written possessively and the house right boundary
- *  counts an apostrophe as a word character, so `hasPhrase` cannot see
- *  « a2.04's card ». Found by this build's second dry run; see the batch. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number. Case-insensitive, and it does
+ *  NOT also accept the raw id: a guard taking either would pass on exactly the
+ *  thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;
   const h = hay.toLowerCase(); const q = needle.toLowerCase();

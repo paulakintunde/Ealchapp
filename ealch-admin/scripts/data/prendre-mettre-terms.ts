@@ -44,6 +44,12 @@ export { A209_REFRAME };
 
 export { REFRAME, REFRAME_REJECTED, THE_MOVE, FAMILY_CLAIM } from './prendre-mettre-corpus.ts';
 import { REFRAME } from './prendre-mettre-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** The arithmetic of the family, derived so a compound removed from FAMILIES
  *  moves the sentence rather than leaving a figure that is no longer true. */
@@ -109,7 +115,7 @@ export const PRENDRE_METTRE_TERMS: Record<string, LessonTerm> = {
     term: 'the second n',
     title: `Why ${PARADIGM[5].forms.prendre} has two`,
     body:
-      `${DOUBLING_CLAIM} ${STEM_UNIT} said it first, about a different verb: ${A209_REFRAME} When the ending makes no sound, the stem is the last thing anybody hears, so there has to be something left in it to hear. ${PARADIGM[3].forms.prendre} does not need a second n because the -ons is doing the sounding. ${PARADIGM[5].forms.prendre} does, because the -ent is doing nothing at all. Two lessons, one reason, and it is the same reason both times.`,
+      `${DOUBLING_CLAIM} ${Cap(unitRef(STEM_UNIT))} said it first, about a different verb: ${A209_REFRAME} When the ending makes no sound, the stem is the last thing anybody hears, so there has to be something left in it to hear. ${PARADIGM[3].forms.prendre} does not need a second n because the -ons is doing the sounding. ${PARADIGM[5].forms.prendre} does, because the -ent is doing nothing at all. Two lessons, one reason, and it is the same reason both times.`,
     examples: [
       { itemId: 'fr.a2.verbes.427', note: 'The ending sounds, so one n is enough.' },
       { itemId: 'fr.a2.verbes.429', note: 'The ending is silent, so the n has to carry the end of the word.' },
@@ -130,7 +136,7 @@ export const PRENDRE_METTRE_TERMS: Record<string, LessonTerm> = {
 
   notVendre: {
     term: 'not a regular one',
-    title: `What ${A211_UNIT} would not do`,
+    title: `What ${unitRef(A211_UNIT)} would not do`,
     body:
       `${A211_LINE} prendre ends in -re and it is not one of those verbs. Run the regular pattern on it and the plural comes out with a d in it, which is a sound no French speaker makes in this word. Look at ${PARADIGM[3].forms.prendre} beside the regular plural and the difference is a whole letter that has left the building. This is the second time you have been shown a verb that looks like a group it is not in, and it will not be the last.`,
     examples: [
@@ -143,7 +149,7 @@ export const PRENDRE_METTRE_TERMS: Record<string, LessonTerm> = {
     term: 'hearing the plural',
     title: `${PARADIGM[2].forms.prendre} against ${PARADIGM[5].forms.prendre}`,
     body:
-      `The singular ends on a nasal vowel and the plural ends on an n, and those are two completely different sounds. That makes this one of the few plurals in French you can hear without being told. ${EAR_UNIT} had the same gift on a different verb, where the plural grew a whole syllable in the middle. mettre and battre give you the same thing with a t: ${PARADIGM[2].forms.mettre} has nothing at the end and ${PARADIGM[5].forms.mettre} finishes on a hard consonant. Three verbs, three audible plurals, and it is the only place in this lesson the ear is on your side.`,
+      `The singular ends on a nasal vowel and the plural ends on an n, and those are two completely different sounds. That makes this one of the few plurals in French you can hear without being told. ${Cap(unitRef(EAR_UNIT))} had the same gift on a different verb, where the plural grew a whole syllable in the middle. mettre and battre give you the same thing with a t: ${PARADIGM[2].forms.mettre} has nothing at the end and ${PARADIGM[5].forms.mettre} finishes on a hard consonant. Three verbs, three audible plurals, and it is the only place in this lesson the ear is on your side.`,
     examples: [
       { itemId: 'fr.a2.verbes.426', note: 'Ends on the nasal vowel.' },
       { itemId: 'fr.a2.verbes.429', note: 'Ends on an n, and nothing else about the line moved.' },
@@ -187,9 +193,9 @@ export const PRENDRE_METTRE_TERMS: Record<string, LessonTerm> = {
 
   theParticiples: {
     term: 'the past of these',
-    title: `${RESERVED_FOR} takes that`,
+    title: `${Cap(unitRef(RESERVED_FOR, 'a2'))} takes that`,
     body:
-      `These three have past forms that nothing about the present tells you, and they are among the most useful in the language. They are not in this lesson and that is deliberate rather than an omission: ${RESERVED_FOR} is built around them and it comes after the two lessons that give you the tense they live in. What you have here is the present, in all six persons, for three families of verbs. That is enough to be going on with.`,
+      `These three have past forms that nothing about the present tells you, and they are among the most useful in the language. They are not in this lesson and that is deliberate rather than an omission: ${unitRef(RESERVED_FOR, 'a2')} is built around them and it comes after the two lessons that give you the tense they live in. What you have here is the present, in all six persons, for three families of verbs. That is enough to be going on with.`,
     examples: [
       { itemId: 'fr.a2.verbes.424', note: 'The present, which is what this lesson is.' },
     ],
@@ -199,7 +205,7 @@ export const PRENDRE_METTRE_TERMS: Record<string, LessonTerm> = {
     term: 'the other prendre',
     title: 'Where the fixed expressions are taught',
     body:
-      `prendre turns up in a great many set phrases where it has stopped meaning take at all, and English does not use take in any of them. Those belong to two later units and they are the whole opening of both: ${NEIGHBOUR_UNITS.transport} for the ones about getting somewhere and ${NEIGHBOUR_UNITS.restaurant} for the ones about ordering something. Nothing in this lesson teaches them, on purpose. What this lesson gives you is the six forms, which is what you will need on the day either of those arrives.`,
+      `prendre turns up in a great many set phrases where it has stopped meaning take at all, and English does not use take in any of them. Those belong to two later units and they are the whole opening of both: ${unitRef(NEIGHBOUR_UNITS.transport, 'a2')} for the ones about getting somewhere and ${unitRef(NEIGHBOUR_UNITS.restaurant, 'a2')} for the ones about ordering something. Nothing in this lesson teaches them, on purpose. What this lesson gives you is the six forms, which is what you will need on the day either of those arrives.`,
     examples: [
       { itemId: 'fr.a2.verbes.424', note: 'The plain meaning, which is the one being built here.' },
     ],

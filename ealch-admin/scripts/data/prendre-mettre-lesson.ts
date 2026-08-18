@@ -1,4 +1,10 @@
-// a2.15.l1 "Irréguliers 5 : prendre, mettre, battre" — the mission journey.
+
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+import { unitRef } from './_unit-ref.ts';// a2.15.l1 "Irréguliers 5 : prendre, mettre, battre" — the mission journey.
 //
 // ── THIS IS A FIRST BUILD ──────────────────────────────────────────────────
 //
@@ -468,7 +474,7 @@ const SECTIONS: LessonSection[] = [
     terms: ['theDoubling', 'threeStems'],
     sheetId: SHEET_ID,
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], audioFirst: true, recordingId: 'rec-a2-15-doubling' },
-    say: `${DOUBLING_CLAIM} ${STEM_UNIT} met this first, on appeler and jeter, and it is the same reason both times.`,
+    say: `${DOUBLING_CLAIM} ${Cap(unitRef(STEM_UNIT))} met this first, on appeler and jeter, and it is the same reason both times.`,
     examples: [
       { fr: fr(ADJACENT_PAIR[0]), en: en(ADJACENT_PAIR[0]), note: `One n. The -ons is doing the sounding, so the stem does not have to.` },
       { fr: fr(ADJACENT_PAIR[1]), en: en(ADJACENT_PAIR[1]), note: `Two n, and the -ent makes no sound at all. ${STEM_PRINCIPLE}` },
@@ -497,7 +503,7 @@ const SECTIONS: LessonSection[] = [
           q: 'This verb ends in -re. What does that tell you about how it behaves?',
           opts: ['It follows the regular -re pattern', 'Nothing at all', 'It is always in the plural', 'It never takes an object'],
           correct: 1,
-          why: `Nothing. ${A211_UNIT} taught a regular pattern for verbs that end this way and said outright that this one is not in it.`,
+          why: `Nothing. ${Cap(unitRef(A211_UNIT))} taught a regular pattern for verbs that end this way and said outright that this one is not in it.`,
         },
       },
       {
@@ -636,7 +642,7 @@ const SECTIONS: LessonSection[] = [
     // seq 5 and named revenir and devenir on one card without saying what they
     // were; the brief records that it was told to name two or three compounds
     // and leave the principle here. This is the sentence that collects it.
-    say: `${REFRAME} Three families, and every verb in them takes the endings of the one at the top. You have already met one without being told what it was: a2.02 gave you venir, and revenir and devenir are that same shape.`,
+    say: `${REFRAME} Three families, and every verb in them takes the endings of the one at the top. You have already met one without being told what it was: ${unitRef('a2.02')} gave you venir, and revenir and devenir are that same shape.`,
     cards: [
       {
         label: 'family 1',
@@ -733,7 +739,7 @@ const SECTIONS: LessonSection[] = [
             'It is a spelling mistake'
           ],
           correct: 1,
-          why: `The same reason exactly, and ${STEM_UNIT} gave it to you: a silent ending leaves the stem holding the end of the word. Nothing on the front changes that.`,
+          why: `The same reason exactly, and ${unitRef(STEM_UNIT)} gave it to you: a silent ending leaves the stem holding the end of the word. Nothing on the front changes that.`,
         },
       },
       {
@@ -851,7 +857,7 @@ const SECTIONS: LessonSection[] = [
         say: importedFr(namingId(RE_MODEL.fr)),
         detail: {
           title: 'And this one is not in any of them',
-          body: `${RE_MODEL.fr} [${repairedRespell(namingId(RE_MODEL.fr))}] ends the same way and belongs to the regular group ${A211_UNIT} built. Cover its front and there is no verb underneath, because there is no front on it. That is how you tell.`,
+          body: `${RE_MODEL.fr} [${repairedRespell(namingId(RE_MODEL.fr))}] ends the same way and belongs to the regular group ${unitRef(A211_UNIT)} built. Cover its front and there is no verb underneath, because there is no front on it. That is how you tell.`,
           say: importedFr(namingId(RE_MODEL.fr)),
         },
       },
@@ -971,7 +977,7 @@ const SECTIONS: LessonSection[] = [
         why: 'A t arrives. The one you have been writing since nous is the one you now hear, because the -ent behind it makes no sound to cover it.',
       },
       {
-        q: `${EAR_UNIT} gave you a plural you could hear as well. What is going on in all of these?`,
+        q: `${Cap(unitRef(EAR_UNIT))} gave you a plural you could hear as well. What is going on in all of these?`,
         opts: [
           'The plural adds a sound the singular did not have',
           'The plural is always longer',
@@ -979,7 +985,7 @@ const SECTIONS: LessonSection[] = [
           'They are all the same',
         ],
         correct: 0,
-        why: `A sound arrives at the end of the verb. ${EAR_UNIT} did it with a whole syllable in the middle and these three do it with one consonant, and both are rarer in French than you would like.`,
+        why: `A sound arrives at the end of the verb. ${Cap(unitRef(EAR_UNIT))} did it with a whole syllable in the middle and these three do it with one consonant, and both are rarer in French than you would like.`,
       },
       {
         q: `Which pairs in this lesson can the ear NOT separate?`,
@@ -1011,7 +1017,7 @@ const SECTIONS: LessonSection[] = [
       { fr: `${RE_MODEL.third} · ${PARADIGM[2].forms.prendre}`, en: 'the regular one, and this one', note: `Both end in -re in the naming form and both sound the same in this cell. So far nothing has gone wrong.` },
       { fr: `${RE_MODEL.fr} · ${STEMS.prendre[1]}`, en: 'where they part', note: `The regular verb keeps its d for every person. prendre drops it the moment the plural arrives, and that is the whole of the difference.` },
       { fr: fr('fr.a2.verbes.427'), en: en('fr.a2.verbes.427'), note: 'One n, no d, and the regular pattern would have given you neither of those.' },
-      { fr: fr('fr.a2.verbes.429'), en: en('fr.a2.verbes.429'), note: `And then a second n. ${A211_UNIT} could not have shown you this without teaching the whole lesson, which is why it waited.` },
+      { fr: fr('fr.a2.verbes.429'), en: en('fr.a2.verbes.429'), note: `And then a second n. ${Cap(unitRef(A211_UNIT))} could not have shown you this without teaching the whole lesson, which is why it waited.` },
     ],
   },
 
@@ -1051,7 +1057,7 @@ const SECTIONS: LessonSection[] = [
         promptSound: bare('fr.a2.verbes.429'),
         fr: fr('fr.a2.verbes.429'),
         ipa: '/il pʁɛn la kle/',
-        tip: `The -ent is silent, so the stem has to finish the word. ${STEM_UNIT} met the same thing on appeler.`,
+        tip: `The -ent is silent, so the stem has to finish the word. ${Cap(unitRef(STEM_UNIT))} met the same thing on appeler.`,
       },
       {
         promptLabel: 'and the one that does none of it',
@@ -1089,7 +1095,7 @@ const SECTIONS: LessonSection[] = [
     frSub: 'Quatre pièges',
     layer: 'core',
     terms: ['notVendre', 'theDoubling', 'theControl'],
-    say: 'The first card is the form the regular pattern gives you, and it is the reason a2.11 refused to show you any of this.',
+    say: `The first card is the form the regular pattern gives you, and it is the reason ${unitRef('a2.11')} refused to show you any of this.`,
     errors: [
       {
         // THE ONLY PLACE THE OVER-GENERALISED FORM IS PRINTED IN THIS LESSON.
@@ -1097,9 +1103,9 @@ const SECTIONS: LessonSection[] = [
         // nothing to overwrite it with keeps it. Six missions of paradigm later,
         // that argument no longer applies, and this is the a2.01 `je parles`
         // shape: show the wrong form once, beside the right one.
-        wrong: `Building ${OVER_GENERALISED} from the pattern ${A211_UNIT} taught.`,
+        wrong: `Building ${OVER_GENERALISED} from the pattern ${unitRef(A211_UNIT)} taught.`,
         right: `Building « ${noStop(fr('fr.a2.verbes.429'))} ».`,
-        why: `The regular group keeps its d in every person and this verb does not have one past the singular. ${A211_UNIT} named these three and would not build them for exactly this reason.`,
+        why: `The regular group keeps its d in every person and this verb does not have one past the singular. ${Cap(unitRef(A211_UNIT))} named these three and would not build them for exactly this reason.`,
       },
       {
         wrong: `Writing ${PARADIGM[5].forms.prendre} with one n.`,
@@ -1292,7 +1298,7 @@ const SECTIONS: LessonSection[] = [
       { front: 'They understand the question', back: fr('fr.a2.verbes.445'), say: fr('fr.a2.verbes.445') },
       { front: 'I hand the key back', back: fr('fr.a2.verbes.450'), say: fr('fr.a2.verbes.450') },
       { front: `The three families`, back: VERB_ORDER.map((v) => `${v}: ${FAMILIES[v].join(', ')}`).join(' · ') },
-      { front: `What ${RESERVED_FOR} takes up`, back: `The past of all three, which nothing about the present tells you.` },
+      { front: `What ${unitRef(RESERVED_FOR, 'a2')} takes up`, back: `The past of all three, which nothing about the present tells you.` },
     ],
   },
 
@@ -1428,7 +1434,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['ils prendent', 'ils prenent', 'ils prennent', 'ils prendrent'],
             correct: 2,
-            why: `Two n and no d. The first is what the regular pattern gives you and it is the form ${A211_UNIT} refused to put in front of anybody.`,
+            why: `Two n and no d. The first is what the regular pattern gives you and it is the form ${unitRef(A211_UNIT)} refused to put in front of anybody.`,
             ref: ERRORS_SECTION_ID,
           },
           {
@@ -1453,7 +1459,7 @@ const SECTIONS: LessonSection[] = [
         id: 'r2-the-doubling',
         label: 'One n or two',
         targets: ['err-single-n', 'err-regular-model'],
-        say: `This is the round the lesson is really about. ${STEM_UNIT} taught the reason seven lessons ago.`,
+        say: `This is the round the lesson is really about. ${Cap(unitRef(STEM_UNIT))} taught the reason seven lessons ago.`,
         questions: [
           {
             q: 'Ils ___ la clé. (prendre)',
@@ -1679,7 +1685,7 @@ const SECTIONS: LessonSection[] = [
             format: 'tapSilent',
             word: PARADIGM[5].forms.mettre,
             correct: 'ent',
-            why: 'The -ent, silent as it has been on every verb since a2.01. What you do hear is the t in front of it.',
+            why: `The -ent, silent as it has been on every verb since ${unitRef('a2.01')}. What you do hear is the t in front of it.`,
             ref: 's07-mettre',
           },
           {
@@ -1754,7 +1760,7 @@ const SECTIONS: LessonSection[] = [
             format: 'errorSpot',
             accept: ['Vous mettez la clé ici', 'mettez'],
             answer: 'Vous mettez la clé ici.',
-            why: 'The vous ending is -ez on every verb in this lesson and on every verb since a2.01. Nothing about these three is irregular in that cell.',
+            why: `The vous ending is -ez on every verb in this lesson and on every verb since ${unitRef('a2.01')}. Nothing about these three is irregular in that cell.`,
             ref: 's07-mettre',
           },
           {
@@ -1767,7 +1773,7 @@ const SECTIONS: LessonSection[] = [
               'The past of prendre',
             ],
             correct: 3,
-            why: `The past. ${RESERVED_FOR} is built around the past forms of these three and it arrives after the two lessons that give you the tense they live in.`,
+            why: `The past. ${Cap(unitRef(RESERVED_FOR, 'a2'))} is built around the past forms of these three and it arrives after the two lessons that give you the tense they live in.`,
             ref: ROUNDUP_SECTION_ID,
           },
         ],
@@ -1781,7 +1787,7 @@ const SECTIONS: LessonSection[] = [
     title: 'What You Can Do Now',
     frSub: 'Ce que vous savez faire',
     say: 'Four things, and the last of them is where the rest of prendre lives.',
-    body: `Three verbs, eighteen cells, and one doubled letter in one of them. ${REFRAME} You used that on two verbs nobody showed you and it worked, which means it will work on every other verb in these three families, including the ones no lesson in this course has got to yet. ${A211_UNIT} named these three and would not build them; that is finished now, and the irregular block is finished with it. Two things are deliberately not here. The past of all three belongs to ${RESERVED_FOR}, and prendre in its fixed expressions belongs to ${NEIGHBOUR_UNITS.restaurant} and ${NEIGHBOUR_UNITS.transport}, which open on them. What you have is the present, in six persons, for the ${VERBS_BOUGHT} verbs this lesson names and for every other one in the three families.`,
+    body: `Three verbs, eighteen cells, and one doubled letter in one of them. ${REFRAME} You used that on two verbs nobody showed you and it worked, which means it will work on every other verb in these three families, including the ones no lesson in this course has got to yet. ${Cap(unitRef(A211_UNIT))} named these three and would not build them; that is finished now, and the irregular block is finished with it. Two things are deliberately not here. The past of all three belongs to ${unitRef(RESERVED_FOR, 'a2')}, and prendre in its fixed expressions belongs to ${unitRef(NEIGHBOUR_UNITS.restaurant, 'a2')} and ${unitRef(NEIGHBOUR_UNITS.transport, 'a2')}, which open on them. What you have is the present, in six persons, for the ${VERBS_BOUGHT} verbs this lesson names and for every other one in the three families.`,
     points: [
       REFRAME,
       FAMILY_CLAIM,
@@ -1919,14 +1925,14 @@ const DECK_TRANCHE: string[][] = [
 const ERROR_TRIGGERS: ErrorTrigger[] = [
   {
     id: 'err-regular-model',
-    description: 'Runs the regular -re pattern on prendre and produces a plural with a d in it. It is the error a2.11 predicted and refused to print, and it is what a learner reaches for when the naming form is the only thing they have looked at.',
+    description: `Runs the regular -re pattern on prendre and produces a plural with a d in it. It is the error ${unitRef('a2.11')} predicted and refused to print, and it is what a learner reaches for when the naming form is the only thing they have looked at.`,
     detectOn: [NOTVENDRE_SECTION_ID, ERRORS_SECTION_ID, `${QUIZ_SECTION_ID}/r1-the-three`],
     drill: 'drill-not-regular',
     retest: 'retest-not-regular',
   },
   {
     id: 'err-single-n',
-    description: 'Writes ils prenent with one n, or nous prennons with two. The doubling belongs to exactly one cell and it is the cell whose ending makes no sound, which is a2.09 principle arriving on a verb nobody expected it on.',
+    description: `Writes ils prenent with one n, or nous prennons with two. The doubling belongs to exactly one cell and it is the cell whose ending makes no sound, which is ${unitRef('a2.09')} principle arriving on a verb nobody expected it on.`,
     detectOn: [DOUBLED_SECTION_ID, TRAP_SECTION_ID, `${QUIZ_SECTION_ID}/r2-the-doubling`],
     drill: 'drill-doubling',
     retest: 'retest-doubling',
@@ -2149,14 +2155,14 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-why-stems',
         title: 'Why the second n is there',
         layer: 'deep',
-        body: `${STEM_PRINCIPLE} That is not a rule about this verb, it is a rule about French, and ${STEM_UNIT} stated it seven lessons ago in a lesson that had nothing to do with these three: ${A209_REFRAME} A silent ending leaves the stem holding the end of the word on its own, and a stem in that position has to end in something you can hear. ${PARADIGM[3].forms.prendre} does not need it because the -ons is sounded. ${PARADIGM[5].forms.prendre} does, because the -ent is not. Once you have seen it here you will recognise it everywhere, which is worth more than the cell itself.`,
+        body: `${STEM_PRINCIPLE} That is not a rule about this verb, it is a rule about French, and ${unitRef(STEM_UNIT)} stated it seven lessons ago in a lesson that had nothing to do with these three: ${A209_REFRAME} A silent ending leaves the stem holding the end of the word on its own, and a stem in that position has to end in something you can hear. ${PARADIGM[3].forms.prendre} does not need it because the -ons is sounded. ${PARADIGM[5].forms.prendre} does, because the -ent is not. Once you have seen it here you will recognise it everywhere, which is worth more than the cell itself.`,
       },
       {
         type: 'teach',
         id: 'sheet-carries-forward',
         title: 'What carries forward',
         layer: 'deep',
-        body: `${REFRAME} It is a syntax move rather than a memory one, and it holds for every compound of these three that exists, including the ones this course has not written a card for. ${FAMILY_CLAIM} Two things are deliberately not in this lesson and both of them are worth waiting for. The past forms of these three do not follow from anything in the present and they are the centre of ${RESERVED_FOR}. And prendre turns up in a great many fixed expressions where it stops meaning take entirely; those open ${NEIGHBOUR_UNITS.restaurant} and ${NEIGHBOUR_UNITS.transport}, and what you have built here is exactly what both of them assume you arrive with.`,
+        body: `${REFRAME} It is a syntax move rather than a memory one, and it holds for every compound of these three that exists, including the ones this course has not written a card for. ${FAMILY_CLAIM} Two things are deliberately not in this lesson and both of them are worth waiting for. The past forms of these three do not follow from anything in the present and they are the centre of ${unitRef(RESERVED_FOR, 'a2')}. And prendre turns up in a great many fixed expressions where it stops meaning take entirely; those open ${unitRef(NEIGHBOUR_UNITS.restaurant, 'a2')} and ${unitRef(NEIGHBOUR_UNITS.transport, 'a2')}, and what you have built here is exactly what both of them assume you arrive with.`,
       },
     ],
   },
@@ -2218,7 +2224,7 @@ export const PRENDRE_METTRE_LESSON: Lesson = {
   // hub on the same pass.
   //
   // v2: A BANNED WORD ON A CARD `sub`, AND A FRENCH GRAMMAR TERM ON ANOTHER.
-  version: 3,
+  version: 6,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

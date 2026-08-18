@@ -209,6 +209,12 @@
 //     claim.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** Same theme as a2.03, which decided it for the arc. Ledger §3: no theme is
  *  created and the block is reserved. */
@@ -515,20 +521,20 @@ export const ELISION_CLAIM =
 export const POSSESSIVE_UNIT = 'a1.17';
 export const POSSESSIVE_EXAMPLE = 'mon amie';
 export const POSSESSIVE_CLAIM =
-  `${POSSESSIVE_UNIT} taught you « ${POSSESSIVE_EXAMPLE} » rather than « ma amie ». Same trade, other direction: a form borrowed from the other side so a consonant lands in front of the vowel.`;
+  `${Cap(unitRef(POSSESSIVE_UNIT))} taught you « ${POSSESSIVE_EXAMPLE} » rather than « ma amie ». Same trade, other direction: a form borrowed from the other side so a consonant lands in front of the vowel.`;
 
 /** a2.03, seq 10, this lesson's prerequisite. Its reframe is quoted and its
  *  rule still runs; this lesson adds one column to it. */
 export const AGREEMENT_UNIT = 'a2.03';
 export const A203_REFRAME = 'The plain form tells you the other three.';
 export const AGREEMENT_CLAIM =
-  `${AGREEMENT_UNIT} said the plain form tells you the other three, and it still does. These three have a fourth, and the plain form tells you that one too.`;
+  `${Cap(unitRef(AGREEMENT_UNIT))} said the plain form tells you the other three, and it still does. These three have a fourth, and the plain form tells you that one too.`;
 
 /** a1.16, seq 18 at A1, fully shipped. One recap line and a pointer. Placement
  *  is not taught here and the guards scope the ban to production surfaces. */
 export const PLACEMENT_UNIT = 'a1.16';
 export const PLACEMENT_LINE =
-  `Where these three go is ${PLACEMENT_UNIT} and it has not changed: they are three of the small set that stand in front of the thing.`;
+  `Where these three go is ${unitRef(PLACEMENT_UNIT)} and it has not changed: they are three of the small set that stand in front of the thing.`;
 
 /** a1.14, which named `bel` and `vieil` and NOT `nouvel`, and which owns the
  *  `vieux` plural for two specific words. */
@@ -563,11 +569,11 @@ export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
   },
   {
     text: 'The plain form tells you the other three.',
-    why: 'a2.03\'s reframe verbatim, and it is still true, which is exactly why it cannot be this one. AGREEMENT_CLAIM quotes it and adds the column.',
+    why: `${Cap(unitRef('a2.03'))}\'s reframe verbatim, and it is still true, which is exactly why it cannot be this one. AGREEMENT_CLAIM quotes it and adds the column.`,
   },
   {
     text: 'Two vowels collide, the little word gives way.',
-    why: 'sons.07\'s, verbatim. It is quoted in act 3 by unit id because that is the connection the whole lesson turns on, and taking it as the reframe would claim a pronunciation lesson\'s work as this one\'s.',
+    why: `${Cap(unitRef('sons.07'))}\'s, verbatim. It is quoted in act 3 by unit id because that is the connection the whole lesson turns on, and taking it as the reframe would claim a pronunciation lesson\'s work as this one\'s.`,
   },
   {
     text: 'Say the feminine and drop the le.',
@@ -575,7 +581,7 @@ export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
   },
   {
     text: 'When in doubt, put it after.',
-    why: 'a1.16\'s reframe verbatim. Placement is not this lesson\'s subject and PLACEMENT_LINE is the whole of what this lesson says about it.',
+    why: `${Cap(unitRef('a1.16'))}\'s reframe verbatim. Placement is not this lesson\'s subject and PLACEMENT_LINE is the whole of what this lesson says about it.`,
   },
 ];
 
@@ -636,7 +642,7 @@ const NO_D = ['sentence', 'flashcard', 'voiceflash', 'review'];
 export const BEAU_NOUVEAU: BnRow[] = [
   /* ── beau ── */
   S('fr.a2.adjectifs-essentiels.041', 'Il est beau.', 'He is good-looking.', 'eel eh BOH', '/il ɛ bo/', 'grid', D, ['beau-nouveau-vieux', 'bnv-beau'], 'The plain form, and the one you learn the word in.', 'beau', 'plain'),
-  S('fr.a2.adjectifs-essentiels.042', 'Elle est belle.', 'She is beautiful.', 'el eh BEL', '/ɛl ɛ bɛl/', 'grid', D, ['beau-nouveau-vieux', 'bnv-beau'], 'Nothing about this one is regular, and you have had it since a1.14. Say it out loud, because the next form borrows the sound.', 'beau', 'fem'),
+  S('fr.a2.adjectifs-essentiels.042', 'Elle est belle.', 'She is beautiful.', 'el eh BEL', '/ɛl ɛ bɛl/', 'grid', D, ['beau-nouveau-vieux', 'bnv-beau'], `Nothing about this one is regular, and you have had it since ${unitRef('a1.14')}. Say it out loud, because the next form borrows the sound.`, 'beau', 'fem'),
   S('fr.a2.adjectifs-essentiels.043', 'Ils sont beaux.', 'They are good-looking.', 'eel sohⁿ BOH', '/il sɔ̃ bo/', 'grid', D, ['beau-nouveau-vieux', 'bnv-beau', 'bnv-pluriel'], 'An x, not an s, and it makes no more sound than an s would. This is the one you have to have seen.', 'beau', 'plainPl'),
   S('fr.a2.adjectifs-essentiels.044', 'Elles sont belles.', 'They are beautiful.', 'el sohⁿ BEL', '/ɛl sɔ̃ bɛl/', 'grid', D, ['beau-nouveau-vieux', 'bnv-beau', 'bnv-pluriel'], 'The woman form with an ordinary s on it, and it sounds exactly like the woman form without one.', 'beau', 'femPl'),
   /* ── nouveau ── */
@@ -647,7 +653,7 @@ export const BEAU_NOUVEAU: BnRow[] = [
   /* ── vieux ── */
   S('fr.a2.adjectifs-essentiels.049', 'Il est vieux.', 'He is old.', 'eel eh VYUH', '/il ɛ vjø/', 'grid', D, ['beau-nouveau-vieux', 'bnv-vieux'], 'Already ends in an x, which decides the plural before you get there.', 'vieux', 'plain'),
   S('fr.a2.adjectifs-essentiels.050', 'Elle est vieille.', 'She is old.', 'el eh VYEY', '/ɛl ɛ vjɛj/', 'grid', D, ['beau-nouveau-vieux', 'bnv-vieux'], 'A different word to look at and the same job. Drop the last two letters for the form before a vowel.', 'vieux', 'fem'),
-  S('fr.a2.adjectifs-essentiels.051', 'Ils sont vieux.', 'They are old.', 'eel sohⁿ VYUH', '/il sɔ̃ vjø/', 'grid', D, ['beau-nouveau-vieux', 'bnv-vieux', 'bnv-pluriel'], 'The same four letters as the singular. There is no room after an x and a1.14 told you so about this exact word.', 'vieux', 'plainPl'),
+  S('fr.a2.adjectifs-essentiels.051', 'Ils sont vieux.', 'They are old.', 'eel sohⁿ VYUH', '/il sɔ̃ vjø/', 'grid', D, ['beau-nouveau-vieux', 'bnv-vieux', 'bnv-pluriel'], `The same four letters as the singular. There is no room after an x and ${unitRef('a1.14')} told you so about this exact word.`, 'vieux', 'plainPl'),
   S('fr.a2.adjectifs-essentiels.052', 'Elles sont vieilles.', 'They are old.', 'el sohⁿ VYEY', '/ɛl sɔ̃ vjɛj/', 'grid', NO_D, ['beau-nouveau-vieux', 'bnv-vieux', 'bnv-pluriel'], 'The only plural of the three that takes an ordinary s, because the woman form gave it somewhere to put one.', 'vieux', 'femPl'),
 
   /* ── The consonant-initial half of each contrast pair ─────────────────────
@@ -669,7 +675,7 @@ export const BEAU_NOUVEAU: BnRow[] = [
   W('fr.a2.adjectifs-essentiels.056', 'nouvel', 'new (before a vowel)', 'noo-VEL', '/nu.vɛl/', 'naming', ['flashcard', 'voiceflash', 'review'], 'The only one of the three that had no card anywhere in this course. Same sound as nouvelle, two letters shorter.'),
 
   /* ── The scene ─────────────────────────────────────────────────────────── */
-  S('fr.a2.adjectifs-essentiels.057', "C'est un grand appartement ?", 'Is it a big flat?', 'seh-tuhⁿ grahⁿ-ta-par-tuh-MAHⁿ', '/s‿ɛ tœ̃ ɡʁɑ̃ t‿a.paʁ.tə.mɑ̃/', 'scene', NO_D, ['beau-nouveau-vieux'], 'The question that started the sentence. Everything in it is a1.16 and the answer is not.', undefined, undefined),
+  S('fr.a2.adjectifs-essentiels.057', "C'est un grand appartement ?", 'Is it a big flat?', 'seh-tuhⁿ grahⁿ-ta-par-tuh-MAHⁿ', '/s‿ɛ tœ̃ ɡʁɑ̃ t‿a.paʁ.tə.mɑ̃/', 'scene', NO_D, ['beau-nouveau-vieux'], `The question that started the sentence. Everything in it is ${unitRef('a1.16')} and the answer is not.`, undefined, undefined),
   S('fr.a2.adjectifs-essentiels.058', "Oui, et c'est un bel immeuble.", 'Yes, and it is a lovely building.', 'wee ay seh-tuhⁿ beh-lee-MUHBL', '/wi e s‿ɛ tœ̃ bɛ.li.mœbl/', 'scene', NO_D, ['beau-nouveau-vieux', 'bnv-beau'], 'Six words, and the only one that had to be built is the fifth.', 'beau', 'vowel'),
 ];
 
@@ -869,7 +875,7 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   { id: 'fr.a1.rp-maison.001', fr: 'un appartement', why: 'Gendered m. No gendered single-word row is carried by this build, so the noun appears inside the authored scene row instead of as a card.' },
   { id: 'fr.a1.la-ville.002', fr: "l'immeuble", why: 'Gendered m. Same reason. Its respelling lee-MUHBL is where the MUHBL in this build\'s supplied value was read off, rather than invented.' },
   { id: 'fr.a1.rencontres.073', fr: 'un ami', why: 'Gendered m, and it is the row the hyphen-join notation was read off (uh-nah-MEE). Header item 10.' },
-  { id: 'fr.sons.elision.012', fr: "l'homme", why: 'sons.07\'s own row, gendered m. Named in prose on the elision screen rather than imported, so no gendered row is carried.' },
+  { id: 'fr.sons.elision.012', fr: "l'homme", why: `${Cap(unitRef('sons.07'))}\'s own row, gendered m. Named in prose on the elision screen rather than imported, so no gendered row is carried.` },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════

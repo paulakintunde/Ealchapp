@@ -91,6 +91,7 @@ import {
   SCENARIO_SECTION_ID, WRONG_FORM_SECTIONS, WRONG_FORM_TERMS,
 } from './data/prepositions-temps-lesson.ts';
 import { PREPOSITIONS_TEMPS_ROWS, MEASURED } from './data/prepositions-temps-rows.gen.ts';
+import { namesUnitLabel, unitRef } from './data/_unit-ref.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = join(here, '../../ealch-v2/src/content/seed.json');
@@ -369,7 +370,7 @@ if (LESSON.sections.filter((s) => s.type === 'tapTable').length !== 1) die('ONE 
   const notProducible = GRID.filter((g) => !g.producible);
   if (notProducible.length !== 1 || notProducible[0]!.prep !== 'il y a') die('exactly one of the five is receptive-only at seq 14 and it is il y a');
   if (GRID[IL_Y_A_ROW_INDEX]!.prep !== 'il y a') die(`IL_Y_A_ROW_INDEX points at ${GRID[IL_Y_A_ROW_INDEX]!.prep}`);
-  if (!hasPhrase(grid.rows![IL_Y_A_ROW_INDEX]!.detail?.body ?? '', PAST_UNIT)) die(`the il y a row does not name ${PAST_UNIT}`);
+  if (!namesUnitLabel(grid.rows![IL_Y_A_ROW_INDEX]!.detail?.body ?? '', PAST_UNIT)) die(`the il y a row does not name ${PAST_UNIT}`);
   const quadFrs = new Set(QUADRUPLE_IDS.map((id) => PREPOSITIONS_TEMPS_ROWS[id]?.fr));
   if (quadFrs.size !== 4) die(`the quadruple resolves to ${quadFrs.size} distinct phrases and there are four`);
   const fromCorpus = GRID.filter((g) => quadFrs.has(g.example)).length;
@@ -460,7 +461,7 @@ const learnerText = [
   }
   for (const r of PREPOSITIONS_TEMPS) if (fires(PLACE_SHAPE, r.fr)) die(`${r.id} carries a place sense of en or dans`);
   for (const u of [PAST_UNIT, FUTURE_UNIT, PLACE_UNIT, CLOCK_UNIT, MONTH_UNIT, WHAT_FOLLOWS_UNIT]) {
-    if (!hasPhrase(learnerText, u)) die(`${u} is never named on a learner surface and this lesson leans on it`);
+    if (!namesUnitLabel(learnerText, u)) die(`${u} is never named on a learner surface and this lesson leans on it`);
   }
   for (const w of CLOCK_FORBIDDEN) if (hasPhrase(learnerText, w)) die(`${JSON.stringify(w)} is on a learner surface and it is ${CLOCK_UNIT}'s`);
 }
@@ -479,7 +480,7 @@ const learnerText = [
   for (const r of PREPOSITIONS_TEMPS) if (fires(POUR_TIME_SHAPE, r.fr)) die(`${r.id} carries pour with a duration`);
 }
 
-/* a2.02's term, quoted verbatim and credited by unit id.
+/* a2.02's term, quoted verbatim and credited by its lesson label.
  *
  * THE LITERAL, NOT THE IMPORTED CONSTANT. Found by mutation: paraphrasing
  * `WHAT_FOLLOWS` in the corpus changed both sides of `hasPhrase(learnerText,
@@ -550,7 +551,9 @@ const learnerText = [
   if (!/wants a past tense, and you do not have one yet/i.test(learnerText)) {
     die(`nothing on a learner surface says that il y a for ago needs a tense the learner does not have. ${PAST_UNIT} gets no hand-off and the learner thinks it was forgotten.`);
   }
-  if (!/it arrives in a2\.05/i.test(learnerText)) {
+  // BY LABEL. The card says « it arrives in lesson 16 in A2 » now, so a regex
+  // over the raw id is a check that can only fail.
+  if (!new RegExp(`it arrives in ${unitRef(PAST_UNIT)}`, 'i').test(learnerText)) {
     die(`the deferral does not say WHERE the tense arrives, so ${PAST_UNIT} gets no hand-off`);
   }
 }

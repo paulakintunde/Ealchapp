@@ -46,6 +46,7 @@ import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2
 import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { normalizeFr } from '../../ealch-v2/src/utils/score.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ALLER_UNIT, AUTHORED_EXPRESSION_IDS, AUTHORED_IDS as CORPUS_AUTHORED_IDS,
   AVOIR_UNIT, BLIND_NASALS, BREAKS, CONTROL_BREAKS, DICTATION_IDS,
@@ -300,7 +301,7 @@ for (const [sing, plur] of NUMBER_PAIRS) {
     if (!learner.includes(claim)) die(`${name} appears on no screen: "${claim}"`);
   }
   if (!hasPhrase(learner, WHAT_FOLLOWS)) die(`"${WHAT_FOLLOWS}" appears on no screen. It is a2.02's name for this shape.`);
-  if (!hasPhrase(learner, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} is cited nowhere, so the name is quoted without saying where it came from`);
+  if (!namesUnitLabel(learner, WHAT_FOLLOWS_UNIT)) die(`${WHAT_FOLLOWS_UNIT} is cited nowhere, so the name is quoted without saying where it came from`);
   if (!learner.includes(NOUS_ON)) die("the nous/on statement no longer appears verbatim. It is a2.01's constant and it is imported, not reworded.");
   const holders = LESSON.sections.filter((s) => strings(s).some((x) => x.includes(NOUS_ON))).map((s) => (s as { id?: string }).id);
   if (holders.length !== 1 || holders[0] !== NOUS_ON_SECTION_ID) die(`the nous/on statement is in ${JSON.stringify(holders)}, expected exactly [${JSON.stringify(NOUS_ON_SECTION_ID)}]`);
@@ -308,13 +309,13 @@ for (const [sing, plur] of NUMBER_PAIRS) {
   const gone = THE_THREE.filter((v) => !hasPhrase(learner, v));
   if (gone.length) die(`verb(s) named by no screen: ${gone.join(', ')}`);
   for (const u of [ETRE_UNIT, AVOIR_UNIT, ALLER_UNIT, WEATHER_UNIT, SHOPPING_UNIT, MODAL_UNIT]) {
-    if (!hasPhrase(learner, u)) die(`unit ${u} is cited on no screen, and every one of them is either a loop this lesson closes or a boundary it hands over`);
+    if (!namesUnitLabel(learner, u)) die(`unit ${u} is cited on no screen, and every one of them is either a loop this lesson closes or a boundary it hands over`);
   }
   const boundary = LESSON.sections.find((s) => (s as { id?: string }).id === BOUNDARY_SECTION_ID);
   if (!boundary) die(`${BOUNDARY_SECTION_ID} is gone, and with it the card that hands the neighbours their subjects back`);
   const bText = strings(boundary).join('\n');
   for (const u of [WEATHER_UNIT, SHOPPING_UNIT, MODAL_UNIT]) {
-    if (!bText.includes(u)) die(`${BOUNDARY_SECTION_ID} does not name ${u}, so that boundary is left as a rumour`);
+    if (!namesUnitLabel(bText, u)) die(`${BOUNDARY_SECTION_ID} does not name ${u}, so that boundary is left as a rumour`);
   }
 
   /** THE READ-ONLY ROWS ARE RELEASED TO NOTHING. The "named nowhere" half is

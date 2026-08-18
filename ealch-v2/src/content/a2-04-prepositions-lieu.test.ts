@@ -80,6 +80,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode, letterCount } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -289,8 +290,8 @@ test('three of the four kinds credit the unit that taught them, by id, on the ca
   const s = sec('s03-four') as { rows?: { detail?: { body?: string } }[] };
   KINDS.forEach(([label, , , owner], i) => {
     const body = s.rows?.[i]?.detail?.body ?? '';
-    if (owner) ok(hasPhrase(body, owner), `the row for ${label} is ${owner}'s and its detail does not name it`);
-    else ok(!hasPhrase(body, CONTRACTION_UNIT) && !hasPhrase(body, COUNTRY_UNIT), `the row for ${label} is this lesson's own and it credits another unit`);
+    if (owner) ok(namesUnitLabel(body, owner), `the row for ${label} is ${owner}'s and its detail does not name it`);
+    else ok(!namesUnitLabel(body, CONTRACTION_UNIT) && !namesUnitLabel(body, COUNTRY_UNIT), `the row for ${label} is this lesson's own and it credits another unit`);
   });
   strictEqual(KINDS.filter(([, , , o]) => o).length, 3, 'three of the four rows are somebody else\'s');
 });
@@ -493,7 +494,7 @@ test('every country is an imported id, asserted by id, and there is no country v
   ok(country, 's15-country is missing');
   ok(country!.type !== 'vocabThemes' && country!.type !== 'flashcards', `s15-country is a ${String(country!.type)} and a1.22 owns country vocabulary`);
   // a1.22 is named, so the payoff is credited rather than repeated.
-  ok(hasPhrase(strings(country).join('\n'), COUNTRY_UNIT), `s15-country does not name ${COUNTRY_UNIT}`);
+  ok(namesUnitLabel(strings(country).join('\n'), COUNTRY_UNIT), `s15-country does not name ${COUNTRY_UNIT}`);
 });
 
 test('a1.22\'s nationalities, continents and gender rule appear nowhere', () => {
@@ -516,7 +517,7 @@ test('no temporal sense of en or dans appears anywhere, and a2.18 is named', () 
   for (const line of strings(L!.sections).concat(strings(L!.sheets ?? []), strings(L!.terms ?? {}), [L!.intro ?? ''])) {
     ok(!SHAPE.test(line), `a temporal en or dans reached a screen: ${JSON.stringify(line)}`);
   }
-  ok(hasPhrase(learnerText(), TIME_UNIT), `${TIME_UNIT} is never named and this lesson leaves it two senses of two words`);
+  ok(namesUnitLabel(learnerText(), TIME_UNIT), `${TIME_UNIT} is never named and this lesson leaves it two senses of two words`);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

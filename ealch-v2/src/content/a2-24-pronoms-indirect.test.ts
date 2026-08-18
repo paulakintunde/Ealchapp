@@ -60,6 +60,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept, fold } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -247,9 +248,9 @@ test('the shape is 24 sections, 6 acts, one quiz of 30', { skip: noLesson }, () 
   strictEqual((L!.acts ?? []).length, 6);
   strictEqual(L!.sections.filter((s) => s.type === 'quiz').length, 1, 'a second quiz section is silently never rendered');
   strictEqual(quizQuestions(L!.sections.find((s) => s.type === 'quiz') as never).length, 30);
-  strictEqual(L!.version, 4,
+  strictEqual(L!.version, 7,
     'v1 was the first build; v2 repaired twelve cards whose two-sentence `fr` line clipped on a Pixel 6; '
-    + 'v3 repaired five sentences that opened on a lowercase fragment; v4 reworded a quiz `why` that said '
+    + 'v3 repaired five sentences that opened on a lowercase fragment; v6 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label; v4 reworded a quiz `why` that said '
     + '"with the same auxiliary", which is grammar jargon on a drawn surface, to "with the same first word" '
     + '(found by a2.35 sweeping the band, five such words across four lessons). Corrections §10: the counter '
     + 'moves rather than the body being corrected under one number');
@@ -366,7 +367,7 @@ test('LAYOUT 1: six words in TWO ROWS on one card, with a2.06 quoted verbatim', 
     'the indirect row does not show lui TWICE, which is where the lost gender is visible');
   const s = display(sec('s02-sets'));
   ok(s.some((x) => x.includes(POSITION_RULE)), `s02-sets does not quote a2.06's « ${POSITION_RULE} » verbatim`);
-  ok(s.some((x) => namesUnit(x, 'a2.06')), 'the position rule is quoted and a2.06 is not named beside it');
+  ok(s.some((x) => namesUnitLabel(x, 'a2.06')), 'the position rule is quoted and a2.06 is not named beside it');
   ok(s.some((x) => x.includes(GENDER_LOST)), 's02-sets does not state what the learner loses crossing between the rows');
 });
 
@@ -386,7 +387,7 @@ test('LAYOUT 2: the pronoun and the possessive are TWO ROWS on one card, and a1.
   ok(both, 's11-leurs has no card carrying « Je leur parle. » in fr and « Voici leurs clés. » in sub');
   const s = display(sec('s11-leurs'));
   ok(s.some((x) => x.includes(A117_TEST)), `s11-leurs does not quote a1.17's test « ${A117_TEST} » verbatim`);
-  ok(s.some((x) => namesUnit(x, 'a1.17')), 'a1.17 owns the possessive and is not credited on the card that borrows it');
+  ok(s.some((x) => namesUnitLabel(x, 'a1.17')), 'a1.17 owns the possessive and is not credited on the card that borrows it');
 });
 
 test('LAYOUT 3: the verbs are a tapTable of exactly six, and the only table is at layer deep', { skip: noLesson }, () => {
@@ -443,7 +444,7 @@ test('the six English does not mark are the tapTable, and the four it does have 
 
 test("the à framing is stated verbatim, because a2.25 inherits it", { skip: noLesson }, () => {
   ok(ALL.some((s) => s.includes(A_FRAMING)), `the à framing « ${A_FRAMING} » is not stated verbatim anywhere`);
-  ok(ALL.some((s) => namesUnit(s, 'a2.04')), 'a2.04 owns à in front of a place and is named nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.04')), 'a2.04 owns à in front of a place and is named nowhere');
   /* AND a2.04's OWN MACHINERY IS NOWHERE: named, not taught. */
   for (const s of UNIQUE) {
     for (const w of ['au cinéma', 'à la gare', 'contraction', 'contracts with']) {
@@ -755,9 +756,9 @@ test('no multiple-pronoun sentence appears, reserving a2.25', { skip: noLesson }
 });
 
 test('a2.25 and a2.06 are both named, and a1.17 is credited', { skip: noLesson }, () => {
-  ok(ALL.some((s) => namesUnit(s, 'a2.25')), 'a2.25 is named nowhere, so the next lesson is not handed off to');
-  ok(ALL.some((s) => namesUnit(s, 'a2.06')), 'a2.06 is the prerequisite and is named nowhere');
-  ok(ALL.some((s) => namesUnit(s, 'a1.17')), 'a1.17 owns the possessive and is named nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.25')), 'a2.25 is named nowhere, so the next lesson is not handed off to');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.06')), 'a2.06 is the prerequisite and is named nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a1.17')), 'a1.17 owns the possessive and is named nowhere');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -780,7 +781,7 @@ test('the negation string matches a2.06\'s, and the three inherited lines are st
    * this claim is made. The credit has to be where the learner meets the rule. */
   const negation = display(sec('s15-negation'));
   ok(negation.some((s) => s.includes(A206_NEGATION)), 's15-negation does not carry the sentence it borrows');
-  ok(negation.filter((s) => s.includes(A206_NEGATION)).some((s) => namesUnit(s, 'a2.06')),
+  ok(negation.filter((s) => s.includes(A206_NEGATION)).some((s) => namesUnitLabel(s, 'a2.06')),
     "the negation deck quotes a2.06's sentence and does not name a2.06 beside it");
 });
 
@@ -811,7 +812,7 @@ test("a2.23's shipped pointer is honoured, in one section and by name", { skip: 
   const s16 = display(sec('s16-ending'));
   ok(ALL.some((s) => s.includes(ENDING_RULE)), 'the ending rule is not stated verbatim anywhere');
   ok(s16.some((s) => s.includes(ENDING_RULE)), 's16-ending does not state the rule it exists for');
-  ok(s16.some((s) => namesUnit(s, 'a2.23')), 's16-ending does not name a2.23, which pointed the learner here');
+  ok(s16.some((s) => namesUnitLabel(s, 'a2.23')), 's16-ending does not name a2.23, which pointed the learner here');
   ok(s16.some((s) => s.includes(A223_POINTER_TAIL)),
     `s16-ending does not quote a2.23's promise « ${A223_POINTER_TAIL} » verbatim`);
   ok(s16.some((s) => s.includes("Elle s'est lavé les mains.")), "s16-ending does not show a2.23's own sentence");
@@ -850,9 +851,9 @@ test('the ending is ONE ACT and recognition only', { skip: noLesson }, () => {
 test("a2.02's term is verbatim, this instance is marked as the sixth, and a2.06 is credited", { skip: noLesson }, () => {
   const quoting = ALL.filter((s) => s.includes(WHAT_FOLLOWS));
   ok(quoting.length >= 1, `a2.02's « ${WHAT_FOLLOWS} » is quoted nowhere`);
-  ok(quoting.some((s) => namesUnit(s, 'a2.02')), 'the shape is quoted and a2.02 is not named beside it');
+  ok(quoting.some((s) => namesUnitLabel(s, 'a2.02')), 'the shape is quoted and a2.02 is not named beside it');
   ok(ALL.some((s) => /sixth/iu.test(s)), 'the lesson does not say this is the sixth occurrence, so it reads as a new observation');
-  ok(ALL.some((s) => /sixth|fifth/iu.test(s) && namesUnit(s, 'a2.06')),
+  ok(ALL.some((s) => /sixth|fifth/iu.test(s) && namesUnitLabel(s, 'a2.06')),
     "the sixth occurrence is named and a2.06's fifth is not credited beside it");
   ok(ALL.some((s) => s.includes(STRESSED_RULE)), 'the stressed-pronoun rule is not stated verbatim');
 });

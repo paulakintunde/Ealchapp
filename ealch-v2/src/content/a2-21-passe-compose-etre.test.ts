@@ -60,6 +60,7 @@ import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept, fold } from './answer.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -235,20 +236,11 @@ function hasPhrase(hay: string, needle: string): boolean {
   }
   return false;
 }
-/** A unit id is almost always written possessively and `hasPhrase` cannot see
- *  one that is. a2.19 §1. THE ID IS ALWAYS A LITERAL HERE: a2.20 §5.4 found that
- *  passing a constant renames both sides. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID. Resolved
+ *  through the shipped `unit.seq`, never by slicing the id: 31 of 35 A2 units
+ *  disagree with their own id number. It does not also accept the raw id, or it
+ *  would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;
   const h = hay.toLowerCase(); const q = needle.toLowerCase();
@@ -390,7 +382,7 @@ test('s08-bookend carries a2.01\'s reframe VERBATIM', { skip: noLesson }, () => 
 
 test('and it names a2.01 and says how far apart the two lessons are', { skip: noLesson }, () => {
   const text = secText(BOOKEND);
-  ok(namesUnit(text, 'a2.01'), 's08-bookend quotes a2.01 and does not name it');
+  ok(namesUnitLabel(text, 'a2.01'), 's08-bookend quotes a2.01 and does not name it');
   ok(/seventeen/i.test(text), 's08-bookend does not say how far apart they are, which is the whole bookend');
 });
 
@@ -403,7 +395,7 @@ test('a2.03\'s rule is borrowed verbatim and a2.03 is credited', { skip: noLesso
   ok(a203, 'a2.03.l1 is not in the seed');
   strictEqual(a203!.reframe, A203_REFRAME, 'a2.03 has changed its reframe');
   ok(learnerAll().includes(A203_REFRAME), 'a2.03\'s reframe appears nowhere and the endings are borrowed');
-  ok(namesUnit(learnerAll(), 'a2.03'), 'a2.03 is never named');
+  ok(namesUnitLabel(learnerAll(), 'a2.03'), 'a2.03 is never named');
 });
 
 test('THE NEGATION STRING IS IDENTICAL ACROSS a2.19, a2.05 AND THIS LESSON', { skip: noLesson }, () => {
@@ -420,7 +412,7 @@ test('a2.05\'s reframe is quoted and a2.05 is credited on the recap', { skip: no
   const a205 = seed.lessons.find((l) => l.id === 'a2.05.l1');
   strictEqual(a205!.reframe, A205_REFRAME, 'a2.05 has changed its reframe');
   ok(learnerAll().includes(A205_REFRAME), 'a2.05\'s reframe appears nowhere and this lesson stands on it');
-  ok(namesUnit(secText(RECAP), 'a2.05'), 's04-recap recaps a2.05 and does not name it');
+  ok(namesUnitLabel(secText(RECAP), 'a2.05'), 's04-recap recaps a2.05 and does not name it');
 });
 
 test('a2.15\'s and a2.20\'s lines are quoted verbatim too', { skip: noLesson }, () => {
@@ -433,7 +425,7 @@ test('a2.15\'s and a2.20\'s lines are quoted verbatim too', { skip: noLesson }, 
   ok(learnerAll().includes(A220_REFRAME), 'a2.20 handed three forms forward and its line is not quoted');
 });
 
-test('every unit this lesson stands on or hands to is named by id', { skip: noLesson }, () => {
+test('every unit this lesson stands on or hands to is named by its lesson label', { skip: noLesson }, () => {
   const text = learnerAll();
   for (const id of [ER_UNIT, ADJ_UNIT, PASSE_UNIT, RE_UNIT, IR_UNIT, FAMILY_UNIT, FUTUR_UNIT, IRREGULAR_UNIT, REFLEXIVE_UNIT, REFLEXIVE_PAST_UNIT]) {
     ok(namesUnit(text, id), `${id} is never named on a learner surface`);
@@ -556,10 +548,10 @@ test('the four transitive rows carry no dictation drill', { skip: noLesson }, ()
   }
 });
 
-test('a2.11\'s descendre loop is closed FORWARD, by unit id', { skip: noLesson }, () => {
+test('a2.11\'s descendre loop is closed FORWARD, by its lesson label', { skip: noLesson }, () => {
   const text = secText(OBJECT);
   ok(hasPhrase(text, 'descendre'), 's16-object does not name descendre and a2.11 handed it forward');
-  ok(namesUnit(text, 'a2.11'), 's16-object owns descendre\'s split and does not name a2.11');
+  ok(namesUnitLabel(text, 'a2.11'), 's16-object owns descendre\'s split and does not name a2.11');
 });
 
 test('a2.11 names neither auxiliary, so there is no back-reference to answer', { skip: noLesson }, () => {
@@ -567,7 +559,7 @@ test('a2.11 names neither auxiliary, so there is no back-reference to answer', {
   ok(a211, 'a2.11.l1 is not in the seed');
   const body = JSON.stringify(a211);
   ok(body.includes('descendre'), 'a2.11 no longer teaches descendre');
-  ok(!body.includes('a2.21'),
+  ok(!namesUnitLabel(body, 'a2.21'),
     'a2.11 now names a2.21. The brief asked for the loop to be closed by BACK-reference and this build closed it forward because that lesson opened nothing; if it opens one now, close it both ways.');
 });
 
@@ -609,9 +601,9 @@ test('and no authored row is one', { skip: noLesson }, () => {
 
 test('the boundary card names a2.22 and a2.23 by id', { skip: noLesson }, () => {
   const text = secText(BOUNDARY);
-  ok(namesUnit(text, 'a2.22'), 's14-boundary does not name a2.22');
-  ok(namesUnit(text, 'a2.23'), 's14-boundary does not name a2.23');
-  ok(namesUnit(text, 'a2.06'), 's14-boundary does not name a2.06, which owns agreement after avoir');
+  ok(namesUnitLabel(text, 'a2.22'), 's14-boundary does not name a2.22');
+  ok(namesUnitLabel(text, 'a2.23'), 's14-boundary does not name a2.23');
+  ok(namesUnitLabel(text, 'a2.06'), 's14-boundary does not name a2.06, which owns agreement after avoir');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

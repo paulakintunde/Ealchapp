@@ -32,6 +32,12 @@ import {
   UNSEEN_CLAIM, addedConsonant, step,
 } from './adverbes-corpus.ts';
 import { chainId } from './adverbes-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE CLAIMS
@@ -76,7 +82,7 @@ export const CARRY_FORWARD = `${REFRAME} ${THE_MOVE}`;
  *  rather than thinking it was forgotten. Two lessons are named and both of them
  *  own something this lesson refuses. */
 export const NEXT_LESSON_LINE =
-  `${DEFERRAL_LINE} And when you want to say somebody does it BETTER than somebody else, that is ${COMPARATIVE_UNIT} and it is a long way off.`;
+  `${DEFERRAL_LINE} And when you want to say somebody does it BETTER than somebody else, that is ${unitRef(COMPARATIVE_UNIT)} and it is a long way off.`;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE GLOSSARY
@@ -89,7 +95,7 @@ export const ADVERBES_TERMS: Record<string, LessonTerm> = {
     term: 'the chain',
     title: 'Three steps, and the middle one is the one people skip',
     body:
-      `${CHAIN_ARITHMETIC} ${REFRAME} A learner who goes straight from the plain form to the ending gets it right for the words that already end in an e and wrong for every other word in the language, and ${AGREEMENT_UNIT} already gave them the step they are skipping.`,
+      `${CHAIN_ARITHMETIC} ${REFRAME} A learner who goes straight from the plain form to the ending gets it right for the words that already end in an e and wrong for every other word in the language, and ${unitRef(AGREEMENT_UNIT)} already gave them the step they are skipping.`,
     examples: [
       { itemId: chainId('lent', 'masc'), note: 'Step one, and the t on the end of it makes no sound.' },
       { itemId: chainId('lent', 'fem'), note: 'Step two. Now it does.' },
@@ -173,7 +179,7 @@ export const ADVERBES_TERMS: Record<string, LessonTerm> = {
     term: 'not yet',
     title: 'What moves in a past tense, and where it goes',
     body:
-      `${NEXT_LESSON_LINE} Everything on the other screens is about a sentence happening now, which is every sentence you can currently make. When ${PASSE_UNIT} gives you the past, the short words move and the long ones do not, and you will be told so then. ${PREVIOUS_UNIT} is the lesson you have just come from and its first two columns are the first two of this one.`,
+      `${NEXT_LESSON_LINE} Everything on the other screens is about a sentence happening now, which is every sentence you can currently make. When ${unitRef(PASSE_UNIT)} gives you the past, the short words move and the long ones do not, and you will be told so then. ${Cap(unitRef(PREVIOUS_UNIT))} is the lesson you have just come from and its first two columns are the first two of this one.`,
     examples: [
       { itemId: 'fr.a2.adverbes-essentiels.014', note: 'Happening now, and the word sits after the verb.' },
       { itemId: 'fr.a2.adverbes-essentiels.015', note: 'The same, with one of the three that are not built.' },

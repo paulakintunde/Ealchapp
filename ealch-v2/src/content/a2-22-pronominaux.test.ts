@@ -59,6 +59,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept, fold } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -205,7 +206,7 @@ const PRODUCTION_SECTIONS = ['s23-quiz', 's18-dictation', 's20-speak', 's19-talk
 /* ══ IDENTITY ═══════════════════════════════════════════════════════════ */
 
 test('a2.22.l1 is in the seed at v1', { skip: noLesson }, () => {
-  strictEqual(L!.version, 2, 'v2 repairs a Pixel 6 defect the host layers could not see; the counter moves rather than the body changing under v1');
+  strictEqual(L!.version, 3, 'v2 repairs a Pixel 6 defect the host layers could not see; the counter moves rather than the body changing under v1');
   strictEqual(L!.unitId, 'a2.22');
   strictEqual(L!.title, 'Les verbes pronominaux');
   strictEqual(L!.tag, 'A2 · LEÇON 19');
@@ -352,7 +353,7 @@ test('the two doubled forms get their own screen, and a1.25 is credited for havi
   const source = seed.items.find((i) => i.id === 'fr.a1.routines.181');
   strictEqual(source?.fr, 'Nous nous levons tard le dimanche.',
     'the row a1.25 teaches from has changed, so the quote is no longer that lesson\'s sentence');
-  ok(hasPhrase(s, 'a1.25'), 'a1.25 is not named on the screen that reveals its own form');
+  ok(namesUnitLabel(s, 'a1.25'), 'a1.25 is not named on the screen that reveals its own form');
 });
 
 /* ══ LAYOUT 2: THE MEANING CONTRAST ═════════════════════════════════════ */
@@ -463,14 +464,14 @@ test('the not-reflexive group is taught together, by name', { skip: noLesson }, 
   for (const v of ["s'appeler", 'se dépêcher', 'se souvenir']) {
     ok(s.includes(v), `s09-nomeaning does not name « ${v} »`);
   }
-  ok(ALL.some((t) => hasPhrase(t, 'sons.01')),
+  ok(ALL.some((t) => namesUnitLabel(t, 'sons.01')),
     'sons.01 is credited nowhere, and it is the lesson that shipped « Je m\'appelle » first');
   ok(ALL.some((t) => t.includes("Je m'appelle Sophie.")), 'the opener is on no screen');
 });
 
 test('the a2.09 stem-change reference is present, and does not claim a2.09 taught this verb', { skip: noLesson }, () => {
   const s = display(sec('s11-vowel')).join('\n');
-  ok(hasPhrase(s, 'a2.09'), 's11-vowel does not name a2.09');
+  ok(namesUnitLabel(s, 'a2.09'), 's11-vowel does not name a2.09');
   ok(ALL.some((t) => t.includes(A209_REFRAME)), "a2.09's reframe is quoted nowhere");
   /* AND THE CLAIM IS ABOUT THE MECHANISM, NOT THE VERB. Measured: a2.09's body
    * contains `lever` zero times and `lève` zero times, and THE_SEVENTEEN does
@@ -525,8 +526,8 @@ test('the object-pronoun system is not explained on a production surface', { ski
     for (const s of prod) ok(!hasPhrase(s, t), `a production surface explains « ${t} »: « ${s.slice(0, 90)} »`);
   }
   /* AND THE OVERLAP IS FLAGGED, so a2.06 knows. */
-  ok(ALL.some((s) => hasPhrase(s, 'a2.06')), 'a2.06 is named nowhere');
-  ok(ALL.some((s) => hasPhrase(s, 'a2.24')), 'a2.24 is named nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.06')), 'a2.06 is named nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.24')), 'a2.24 is named nowhere');
 });
 
 test('the reciprocal is named exactly once, receptively, and reaches no production surface', { skip: noLesson }, () => {

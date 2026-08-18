@@ -72,6 +72,7 @@ import {
   row as importedRow,
 } from './data/pronoms-indirect-imported.ts';
 import { PRONOMS_INDIRECT_IMPORT_ROWS, MEASURED_ROWS } from './data/pronoms-indirect-rows.gen.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
@@ -170,10 +171,18 @@ const bounded = (needle: string): RegExp =>
 const hasPhrase = (hay: string, needle: string): boolean => bounded(needle).test(hay);
 
 /** a2.23 §9.1: naming a unit needs the opposite boundary, because the band names
- *  a neighbour with a possessive almost every time and `hasPhrase(_, 'a2.06')`
+ *  a neighbour with a possessive almost every time and `namesUnitLabel(_, 'a2.06')`
  *  is blind to « a2.06's ». */
-const namesUnit = (hay: string, unit: string): boolean =>
-  new RegExp(`(?<![\\p{L}\\p{N}'’-])${unit.replace(/\./gu, '\\.')}(?![\\p{L}\\p{N}-])`, 'iu').test(hay);
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number, and a2.24 shipped « since seq
+ *  17 of A1 » about a unit that is seq 20, which is somebody reading the id as
+ *  the position.
+ *
+ *  Case-insensitive, and it does NOT also accept the raw id: a guard taking
+ *  either would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, unit: string): boolean => namesUnitLabel(hay, unit);
 
 const surfaceOf = (walk: (v: unknown, out?: string[]) => string[]): string[] => [
   ...walk(LESSON.sections),
@@ -853,7 +862,7 @@ if (!ALL_SURFACE.some((s) => s.includes(ENDING_RULE))) die('the ending rule is n
   if (!ALL_SURFACE.some((s) => /sixth/iu.test(s))) die('the lesson does not say this is the sixth occurrence, so it reads as a new observation.');
   if (!ALL_SURFACE.some((s) => /sixth/iu.test(s) && namesUnit(s, DIRECT_UNIT))
     && !ALL_SURFACE.some((s) => namesUnit(s, DIRECT_UNIT) && /fifth/iu.test(s))) {
-    die(`the sixth occurrence is named and ${DIRECT_UNIT}'s fifth is not credited beside it. Doctrine §B.7 asks for the earlier instance by unit id.`);
+    die(`the sixth occurrence is named and ${DIRECT_UNIT}'s fifth is not credited beside it. Doctrine §B.7 asks for the earlier instance by its lesson label.`);
   }
   if (!ALL_SURFACE.some((s) => s.includes(STRESSED_RULE))) die('the stressed-pronoun rule is not stated verbatim anywhere.');
 }

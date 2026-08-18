@@ -80,6 +80,7 @@ import {
 } from './data/passe-compose-lesson.ts';
 import { PASSE_COMPOSE_ROWS, MEASURED } from './data/passe-compose-rows.gen.ts';
 import { displayRespell } from './data/passe-compose-imported.ts';
+import { namesUnitLabel, unitRef } from './data/_unit-ref.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const LESSON: Lesson = PASSE_COMPOSE_LESSON;
@@ -148,21 +149,13 @@ function hasPhrase(hay: string, needle: string): boolean {
   return false;
 }
 
-/** A UNIT ID IS ALMOST ALWAYS WRITTEN POSSESSIVELY, AND `hasPhrase` CANNOT SEE
- *  ONE THAT IS. a2.19 §1: the house right boundary counts an apostrophe as a
- *  word character, so « a2.17's card » does not match `a2.17`. This lesson names
- *  nine units and writes most of them possessively. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number. Case-insensitive, and it does
+ *  NOT also accept the raw id: a guard taking either would pass on exactly the
+ *  thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;
@@ -538,7 +531,7 @@ console.log(`  the shapes    4 guarded in both directions, ${WRONG_FORMS.length}
 
 /* a2.17's DEFERRAL, VERBATIM, ON THE SCREEN THAT CLOSES IT. */
 {
-  const A217_LINE = 'In a past tense the short ones move, and that rule arrives with the tense in a2.05.';
+  const A217_LINE = `In a past tense the short ones move, and that rule arrives with the tense in ${unitRef('a2.05')}.`;
   if (A217_DEFERRAL !== A217_LINE) die(`${ADVERB_UNIT}'s deferral is ${JSON.stringify(A217_DEFERRAL)} and this lesson was written to quote ${JSON.stringify(A217_LINE)}`);
   const inside = strings(byId(INSIDE_SECTION_ID)).join('\n');
   if (!hasPhrase(inside, A217_LINE)) die(`${INSIDE_SECTION_ID} closes ${ADVERB_UNIT}'s deferral and does not quote its own wording`);

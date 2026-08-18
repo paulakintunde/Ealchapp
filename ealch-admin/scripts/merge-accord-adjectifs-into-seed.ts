@@ -58,6 +58,7 @@ import {
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ACCORD_ADJECTIFS, ADVERB_MUST_FIRE, ADVERB_MUST_NOT_FIRE, ADVERB_SHAPE,
   AUTHORED_HEADWORDS, AUTHORED_IDS as AUTHORED_ID_LIST, BEAU_SHAPE,
@@ -434,7 +435,7 @@ for (const sid of [GRID_SECTION_ID, IDENTICAL_SECTION_ID, INVARIABLE_SECTION_ID,
   if (!LESSON.sections.some((s) => (s as { id?: string }).id === sid)) die(`${sid} is missing from the lesson`);
 }
 for (const u of CITED_UNITS) {
-  if (!production.some((s) => hasPhrase(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
+  if (!production.some((s) => namesUnitLabel(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
 }
 
 /* THE NASALS, ON THE AUTHORED ROWS, AGAIN. */

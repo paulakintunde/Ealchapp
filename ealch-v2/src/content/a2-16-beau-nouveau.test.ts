@@ -69,6 +69,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -535,7 +536,7 @@ test('the silent-h pair is minimal and sons.07 is named beside it', () => {
   strictEqual(stem(partner), stem(hRow),
     'the silent-h pair must differ by the NOUN alone. That is what makes it evidence that the rule is about sound '
     + 'and not spelling, rather than two sentences that happen to agree.');
-  ok(strings(s).some((x) => hasPhrase(x, 'sons.07')), 's12-h does not name sons.07, which owns h muet against h aspiré');
+  ok(strings(s).some((x) => namesUnitLabel(x, 'sons.07')), 's12-h does not name sons.07, which owns h muet against h aspiré');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -578,7 +579,7 @@ test('the masculine plural of vieux is the same word as its singular', () => {
   // constant the section RENDERS, which is comparing the content to itself
   // (invariants §5): renaming it to 'the earlier lessons' passed every layer.
   for (const u of ['a1.14', 'a2.03']) {
-    ok(strings(s).some((x) => hasPhrase(x, u)), `s16-plural does not name ${u}, which already owns two thirds of this`);
+    ok(strings(s).some((x) => namesUnitLabel(x, u)), `s16-plural does not name ${u}, which already owns two thirds of this`);
   }
 });
 
@@ -651,7 +652,7 @@ test("sons.07's reframe is quoted verbatim, by unit id", () => {
   if (noLesson) return;
   const s = sectionById('s09-why');
   ok(s, 's09-why is missing and it is where the reason lives');
-  ok(strings(s).some((x) => hasPhrase(x, 'sons.07')), 's09-why does not name sons.07 by unit id');
+  ok(strings(s).some((x) => namesUnitLabel(x, 'sons.07')), 's09-why does not name sons.07 by unit id');
   ok(strings(s).some((x) => x.includes(ELISION_REFRAME)),
     `s09-why does not quote ${JSON.stringify(ELISION_REFRAME)} verbatim. A paraphrase is not the connection: the `
     + 'value is that the learner recognises a sentence they have already read in a pronunciation lesson.');
@@ -662,12 +663,12 @@ test('a2.03 and a1.17 are both named, and every cited unit exists and is on a sc
   const surfaces = production();
   for (const u of CITED) {
     ok(seed.units.some((x) => x.id === u), `this lesson names ${u} and no such unit is in the seed`);
-    ok(surfaces.some((s) => hasPhrase(s, u)), `${u} is cited and named on no learner surface`);
+    ok(surfaces.some((s) => namesUnitLabel(s, u)), `${u} is cited and named on no learner surface`);
   }
   // a1.17 is the one that matters: its `ma` to `mon` is a form swapped ACROSS
   // GENDER to get a consonant in front of a vowel, which is what these three do
   // in the other direction. It is what turns three exceptions into a family.
-  ok(strings(sectionById('s10-chain')).some((x) => hasPhrase(x, 'a1.17')), 's10-chain does not name a1.17');
+  ok(strings(sectionById('s10-chain')).some((x) => namesUnitLabel(x, 'a1.17')), 's10-chain does not name a1.17');
 });
 
 test('placement is not taught, and no -ment adverb appears anywhere', () => {

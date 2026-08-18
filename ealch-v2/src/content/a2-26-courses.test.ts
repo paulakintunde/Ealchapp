@@ -14,6 +14,7 @@
 import { test } from 'node:test';
 import { strictEqual, ok, deepStrictEqual } from 'node:assert';
 import seed from './seed.json' with { type: 'json' };
+import { namesUnitLabel } from './unit-label.ts';
 
 type Item = { id: string; kind: string; level: string; theme: string; fr: string; en: string; respell?: string; drills?: string[]; tags?: string[] };
 type Section = Record<string, unknown> & { id: string; type: string };
@@ -191,7 +192,7 @@ test('s11-repair quotes a2.07 and authors nothing', () => {
     strictEqual(r.cards[i].fr, ITEMS.get(REPAIR_IDS[i])!.fr, `card ${i + 1} does not quote rung ${i + 1}`);
   }
   // a2.07 is named by UNIT ID in the copy, per doctrine §B.7.
-  ok(/a2\.07/.test(JSON.stringify(r)), 's11-repair must name a2.07 by unit id');
+  ok(namesUnitLabel(JSON.stringify(r), 'a2.07'), 's11-repair must name a2.07 by its lesson label');
 });
 
 test('no cardDeck or groupDrill carries itemIds, which draws nothing', () => {
@@ -428,15 +429,15 @@ test('the politeness ladder is a2.29\'s, and only the repair ladder is named', (
 });
 
 test('the price shape and the containers are QUOTED, not re-taught', () => {
-  // Doctrine §B.7: name the earlier instance by unit id rather than re-owning
+  // Doctrine §B.7: name the earlier instance by its lesson label rather than re-owning
   // it. a1.28 §15 owns the price shape, a1.28 §17 owns the decimal comma and
   // a1.29 §11 owns the containers.
   const body = JSON.stringify(LESSON);
-  ok(/a1\.28/.test(body), 'a1.28 must be named by unit id');
-  ok(/a1\.29/.test(body), 'a1.29 must be named by unit id');
-  ok(/a1\.27/.test(body), 'a1.27 must be named by unit id');
-  ok(/a2\.07/.test(body), 'a2.07 must be named by unit id');
-  ok(/a2\.13/.test(body), 'a2.13 must be named by unit id for the vouloir contrast');
+  ok(namesUnitLabel(body, 'a1.28'), 'a1.28 must be named by its lesson label');
+  ok(namesUnitLabel(body, 'a1.29'), 'a1.29 must be named by its lesson label');
+  ok(namesUnitLabel(body, 'a1.27'), 'a1.27 must be named by its lesson label');
+  ok(namesUnitLabel(body, 'a2.07'), 'a2.07 must be named by its lesson label');
+  ok(namesUnitLabel(body, 'a2.13'), 'a2.13 must be named by its lesson label for the vouloir contrast');
   // The reframe must not re-own a neighbour's.
   const rf = LESSON.reframe as string;
   for (const taken of ['A price is one run', 'Currency, then the small number', 'Learn the shape, not the sum']) {

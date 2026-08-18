@@ -24,6 +24,12 @@
 // in the two lessons this one is built on.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A118_REFRAME, A201_REFRAME, A205_REFRAME, A220_REFRAME, A221_REFRAME,
   A222_REFRAME, AGREEMENT_RULE, DIRECT_OBJECT_UNIT, EAR_CLAIM, ER_UNIT,
@@ -43,7 +49,7 @@ export {
  *  fact standing on four things they have rather than as a fresh topic. It is
  *  the capstone claim and it is made on the goals screen and again at the end. */
 export const ALREADY_YOURS =
-  `Four lessons gave you the pieces of this. ${REFLEXIVE_UNIT} gave you the little word, ${ETRE_UNIT} gave you être and the ending, ${PASSE_UNIT} gave you the two-part shape, and ${IRREGULAR_UNIT} gave you the second words. Nothing here is new except which first word to reach for.`;
+  `Four lessons gave you the pieces of this. ${Cap(unitRef(REFLEXIVE_UNIT))} gave you the little word, ${unitRef(ETRE_UNIT)} gave you être and the ending, ${unitRef(PASSE_UNIT)} gave you the two-part shape, and ${unitRef(IRREGULAR_UNIT)} gave you the second words. Nothing here is new except which first word to reach for.`;
 
 /** The measured evidence, as one sentence, so it reaches a screen rather than
  *  living only in the report. Corpus §5. */
@@ -59,19 +65,19 @@ export const PRONOMINAUX_PASSE_TERMS: Record<string, LessonTerm> = {
     term: 'little word',
     title: 'The one that decides everything else',
     body:
-      `${REFLEXIVE_UNIT} taught you that about half the verbs in a day carry a small word between the person and the verb, and that it is the person said a second time: « ${A222_REFRAME} » In the past it does one more thing. ${REFRAME} It is the only part of the sentence you have to look at.`,
+      `${Cap(unitRef(REFLEXIVE_UNIT))} taught you that about half the verbs in a day carry a small word between the person and the verb, and that it is the person said a second time: « ${A222_REFRAME} » In the past it does one more thing. ${REFRAME} It is the only part of the sentence you have to look at.`,
   },
   firstWord: {
     term: 'first word',
     title: 'It is être, and nothing else decides it',
     body:
-      `${PASSE_UNIT} gave you a past made of two words and ${ETRE_UNIT} gave you the choice between them. ${THE_NEW_FACT} Laver takes avoir on its own and se laver takes être, and the only thing that changed is the little word in front.`,
+      `${Cap(unitRef(PASSE_UNIT))} gave you a past made of two words and ${unitRef(ETRE_UNIT)} gave you the choice between them. ${THE_NEW_FACT} Laver takes avoir on its own and se laver takes être, and the only thing that changed is the little word in front.`,
   },
   secondWord: {
     term: 'second word',
     title: 'It ends for the person, exactly as before',
     body:
-      `« ${A221_REFRAME} » is ${ETRE_UNIT}'s line and it has not changed here. ${AGREEMENT_RULE} ${IRREGULAR_UNIT} gave you the second words themselves, group by group: « ${A220_REFRAME} »`,
+      `« ${A221_REFRAME} » is ${unitRef(ETRE_UNIT, 'a2')}'s line and it has not changed here. ${AGREEMENT_RULE} ${Cap(unitRef(IRREGULAR_UNIT))} gave you the second words themselves, group by group: « ${A220_REFRAME} »`,
   },
   theEnding: {
     term: 'the ending',
@@ -83,13 +89,13 @@ export const PRONOMINAUX_PASSE_TERMS: Record<string, LessonTerm> = {
     term: 'silent',
     title: 'Nothing here can be checked by ear',
     body:
-      `« ${A201_REFRAME} » is ${ER_UNIT}'s line, from the first lesson of this level, and ${ETRE_UNIT} quoted it for the same reason. Levé, levée, levés and levées are one sound. ${EAR_CLAIM}`,
+      `« ${A201_REFRAME} » is ${unitRef(ER_UNIT, 'a2')}'s line, from the first lesson of this level, and ${unitRef(ETRE_UNIT)} quoted it for the same reason. Levé, levée, levés and levées are one sound. ${EAR_CLAIM}`,
   },
   theWrap: {
     term: 'the wrap',
     title: 'It closes after the first word',
     body:
-      `${NEGATION_UNIT} gave you two words either side of the verb: « ${A118_REFRAME} » ${FUTUR_UNIT} said which verb: « ${NEGATION_RULE} » ${REFLEXIVE_UNIT} added the little word: « ${NEGATION_EXTENSION} » And now there is a third word. ${NEGATION_OUTSIDE}`,
+      `${Cap(unitRef(NEGATION_UNIT))} gave you two words either side of the verb: « ${A118_REFRAME} » ${unitRef(FUTUR_UNIT)} said which verb: « ${NEGATION_RULE} » ${unitRef(REFLEXIVE_UNIT)} added the little word: « ${NEGATION_EXTENSION} » And now there is a third word. ${NEGATION_OUTSIDE}`,
   },
   afterIt: {
     term: 'after it',
@@ -107,7 +113,7 @@ export const PRONOMINAUX_PASSE_TERMS: Record<string, LessonTerm> = {
     term: 'the present',
     title: 'What the present did not do',
     body:
-      `${PRESENT_NO_AGREEMENT} That is ${REFLEXIVE_UNIT}'s sentence, and it is exactly what stops being true here: in the past there is a second word, and it does know. ${ROUTINE_UNIT} gave you these verbs and neither of those lessons put an ending on one.`,
+      `${PRESENT_NO_AGREEMENT} That is ${unitRef(REFLEXIVE_UNIT, 'a2')}'s sentence, and it is exactly what stops being true here: in the past there is a second word, and it does know. ${Cap(unitRef(ROUTINE_UNIT))} gave you these verbs and neither of those lessons put an ending on one.`,
   },
 };
 

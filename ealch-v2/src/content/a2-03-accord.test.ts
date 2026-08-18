@@ -62,6 +62,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -398,7 +399,7 @@ test('the -eux masculine plural is IDENTICAL to the masculine singular, and it i
   // instance IS the teaching. Doctrine §B.7.
   const s = byIdSec('s10-nos');
   ok(s, 's10-nos is missing and it is the section that teaches the identical cell');
-  ok(strings(s).some((x) => hasPhrase(x, 'a1.14')), 's10-nos does not name a1.14');
+  ok(strings(s).some((x) => namesUnitLabel(x, 'a1.14')), 's10-nos does not name a1.14');
 });
 
 test('the over-pluralised form appears only where it is marked as wrong', { skip: noLesson }, () => {
@@ -429,7 +430,7 @@ test('the invariable class is taught as a class, with a regular adjective in the
   for (const fr of CONTRAST_PAIR) ok(seed.items.some((i) => i.fr === fr), `${fr} is not a seed row`);
   // And the section names a1.13, which owns the invariable colours and says so
   // 176 times. Restating it without naming it would be the third telling.
-  ok(strings(s).some((x) => hasPhrase(x, 'a1.13')), 's16-never does not name a1.13');
+  ok(strings(s).some((x) => namesUnitLabel(x, 'a1.13')), 's16-never does not name a1.13');
 });
 
 test('the invariable pattern is one word in all four cells', { skip: noLesson }, () => {
@@ -612,7 +613,7 @@ test('no comparative is taught', { skip: noLesson }, () => {
 test('every neighbouring unit this lesson hands off to is named on a learner surface', { skip: noLesson }, () => {
   const text = production().join('\n');
   for (const u of ['a1.13', 'a1.14', 'a1.16', 'a2.01', 'a2.16', 'a2.17', 'a2.08']) {
-    ok(hasPhrase(text, u), `${u} is named nowhere, so the hand-off has quietly been dropped`);
+    ok(namesUnitLabel(text, u), `${u} is named nowhere, so the hand-off has quietly been dropped`);
     ok(seed.units.some((x) => x.id === u), `${u} is named and no such unit is in the seed`);
   }
 });

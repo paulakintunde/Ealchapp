@@ -78,6 +78,12 @@ import {
   ALL_ROWS, IMPORT_IDS, DICTEE_IDS, PASSER_AS_PASS_WRONG,
 } from './ecole-etudes-corpus.ts';
 import { ECOLE_TERMS } from './ecole-etudes-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** NOT `as const`. A readonly `speeds` tuple is not assignable to
  *  `SectionAudio['speeds']`, which is a mutable `number[]`, and the admin
@@ -524,7 +530,7 @@ const S09_FAIREDE: LessonSection = {
     { fr: "Je fais de l'anglais.", en: 'I do English.', note: "Starts with a vowel. De l'." },
     { fr: 'Je fais du dessin.', en: 'I do art.', note: 'Masculine singular. De + le gives du.' },
     { fr: 'Je fais des maths.', en: 'I do maths.', note: 'Plural. De + les gives des, and this is the one people get wrong.' },
-    { fr: "J'ai fait des maths pendant trois ans.", en: 'I did maths for three years.', note: `Past, because it is over. ${TENSE_UNIT} gave you this and it is the only tense this lesson uses.` },
+    { fr: "J'ai fait des maths pendant trois ans.", en: 'I did maths for three years.', note: `Past, because it is over. ${Cap(unitRef(TENSE_UNIT))} gave you this and it is the only tense this lesson uses.` },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -617,7 +623,7 @@ const S12_HOWLONG: LessonSection = {
       head: 'depuis deux ans',
       fr: "J'étudie l'espagnol depuis deux ans.",
       sub: 'duh-PWEE deu-ZAHⁿ',
-      body: `Still going, so it takes the present. ${TIME_UNIT} taught this at seq 14 and owns it. It is here so you can see it is the odd one out, and it is the wrong one for a finished course of study.`,
+      body: `Still going, so it takes the present. ${Cap(unitRef(TIME_UNIT))} taught this and owns it. It is here so you can see it is the odd one out, and it is the wrong one for a finished course of study.`,
     },
   ],
   audio: AUDIO,
@@ -851,7 +857,7 @@ const S18_LISTEN: LessonSection = {
       q: 'You did not catch the fourth line. What do you say?',
       opts: ["Plus lentement, s'il vous plaît.", 'Je ne sais pas.', "D'accord."],
       correct: 0,
-      why: `${REPAIR_UNIT} authored six ways to say this, ordered by what each one costs you. Speed was the problem, and this is the first rung that names the fault.`,
+      why: `${Cap(unitRef(REPAIR_UNIT))} authored six ways to say this, ordered by what each one costs you. Speed was the problem, and this is the first rung that names the fault.`,
     },
   ],
   audio: AUDIO,
@@ -913,10 +919,10 @@ const S19_EQUIV: LessonSection = {
     },
     {
       label: 'And if you lose the thread',
-      head: `${LADDER_UNIT} and ${REPAIR_UNIT}, in one card`,
+      head: `${Cap(unitRef(LADDER_UNIT))} and ${unitRef(REPAIR_UNIT)}, in one card`,
       fr: 'Vous pouvez répéter, s\'il vous plaît ?',
       sub: 'voo poo-VAY ray-pay-TAY seel voo PLEH',
-      body: `${REPAIR_UNIT} taught six ways to ask again, ordered by cost. ${LADDER_UNIT} taught three rungs for when the answer is the problem: ${RUNG_1} ${RUNG_2} ${RUNG_3}`,
+      body: `${Cap(unitRef(REPAIR_UNIT))} taught six ways to ask again, ordered by cost. ${Cap(unitRef(LADDER_UNIT))} taught three rungs for when the answer is the problem: ${RUNG_1} ${RUNG_2} ${RUNG_3}`,
     },
   ],
   audio: AUDIO,
@@ -1211,7 +1217,7 @@ const S25_QUIZ: LessonSection = {
         { format: 'speak', q: 'Line four, out loud: « Ça correspond à une licence. »', target: 'Ça correspond à une licence.', why: 'Ça correspond à, and then the French level. That is the whole move, in four words plus the level.', ref: 's19-equiv' },
         { format: 'mcq', q: 'Which one is the registrar asking for?', opts: ['the name of your qualification', 'the level and the number of years', 'the name of your school'], correct: 1, why: 'The name has nothing behind it here. The level and the years are what goes in the box.', ref: 's21-registry' },
         { format: 'mcq', q: 'Your qualification has no French match at all. What do you say?', opts: ["C'est l'équivalent d'une licence.", "J'ai un Bachelor of Science.", 'Chez nous, on appelle ça autrement.'], correct: 2, why: 'Name it as your own and then give the years. Claiming a match that does not exist is worse than admitting there is none.', ref: 's19-equiv' },
-        { format: 'mcq', q: 'You missed what the registrar just asked. Which is the cheapest thing to say?', opts: ['Pardon ?', "Vous pouvez me l'écrire, s'il vous plaît ?", 'Je ne sais pas.'], correct: 0, why: `${REPAIR_UNIT} ordered its six by what each one costs you. Pardon gives away nothing; asking them to write it down concedes the spoken channel has failed.`, ref: 's19-equiv' },
+        { format: 'mcq', q: 'You missed what the registrar just asked. Which is the cheapest thing to say?', opts: ['Pardon ?', "Vous pouvez me l'écrire, s'il vous plaît ?", 'Je ne sais pas.'], correct: 0, why: `${Cap(unitRef(REPAIR_UNIT))} ordered its six by what each one costs you. Pardon gives away nothing; asking them to write it down concedes the spoken channel has failed.`, ref: 's19-equiv' },
       ],
     },
   ],
@@ -1230,7 +1236,7 @@ const S26_ROUNDUP: LessonSection = {
     `${LAYER_2}: faire de for a school subject, the plain article for a field`,
     `${LAYER_3}: out of twenty, ten is the pass, and passer is not passed`,
     `${LAYER_4}: four hedges, and the years always map even when the name does not`,
-    `And if you lose what they asked, ${REPAIR_UNIT} gave you six ways to ask again`,
+    `And if you lose what they asked, ${unitRef(REPAIR_UNIT)} gave you six ways to ask again`,
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1458,7 +1464,7 @@ export const LESSON: Lesson = {
   terms: ECOLE_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  version: 2,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

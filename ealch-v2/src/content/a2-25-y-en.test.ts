@@ -24,7 +24,7 @@
 //   inside the pronoun, read off the CARD's own `fr` and `sub`.
 //   a2.06's POSITION RULE AND a2.24's à FRAMING QUOTED VERBATIM as literals
 //   here, so a paraphrase goes red. Both counted against explicit constants.
-//   THE THREE ENS IN ONE SECTION, with a2.04 and a2.18 both named by unit id.
+//   THE THREE ENS IN ONE SECTION, with a2.04 and a2.18 both named by its lesson label.
 //   NO AUTHORED CORRECT SENTENCE KEEPS THE PREPOSITION AFTER THE PRONOUN, with
 //   the error permitted only in the five sections that exist to show it.
 //   il y a SHOWN CONTAINING y AND STATED NOT TO DECOMPOSE, asserted by section
@@ -59,6 +59,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept, fold } from './answer.logic.ts';
+import { namesUnitLabel, unitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -231,8 +232,8 @@ test('the shape is 24 sections, 6 acts, one quiz of 30', { skip: noLesson }, () 
   strictEqual((L!.acts ?? []).length, 6);
   strictEqual(L!.sections.filter((s) => s.type === 'quiz').length, 1, 'a second quiz section is silently never rendered');
   strictEqual(quizQuestions(quiz()).length, 30);
-  strictEqual(L!.version, 1,
-    'v1 is the first build. Corrections §10: if this body ever needs correcting the COUNTER MOVES, '
+  strictEqual(L!.version, 4,
+    'v1 is the first build; v3 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label. Corrections §10: if this body ever needs correcting the COUNTER MOVES, '
     + 'because two different bodies under one number is the drift this project has lost work to twice');
 });
 
@@ -364,7 +365,7 @@ test('LAYOUT 1: both words on one card, with the preposition VISIBLE inside each
   ok(hasPhrase(both!.fr!, 'y') && hasPhrase(both!.sub!, 'en'), 'a row does not carry its own pronoun');
   const s = display(sec('s02-two'));
   ok(s.some((x) => x.includes(POSITION_RULE)), `s02-two does not quote a2.06's « ${POSITION_RULE} » verbatim`);
-  ok(s.some((x) => namesUnit(x, 'a2.06')), 'the position rule is quoted and a2.06 is not named beside it');
+  ok(s.some((x) => namesUnitLabel(x, 'a2.06')), 'the position rule is quoted and a2.06 is not named beside it');
   ok(s.some((x) => x.includes(A_FRAMING_MINE)), 's02-two does not state what y replaces');
   ok(s.some((x) => x.includes(DE_FRAMING)), 's02-two does not state what en replaces');
 });
@@ -378,7 +379,7 @@ test("LAYOUT 2: à + a person beside à + a place, built out of a2.24's own rows
   const s = display(sec('s04-person'));
   ok(s.some((x) => x.includes(A_FRAMING)), `s04-person does not quote a2.24's « ${A_FRAMING} » verbatim`);
   ok(s.some((x) => x.includes(A_FRAMING_MINE)), "s04-person does not state this lesson's half of the same sentence");
-  ok(s.some((x) => namesUnit(x, 'a2.24')), 's04-person does not name a2.24 beside the sentence it borrows');
+  ok(s.some((x) => namesUnitLabel(x, 'a2.24')), 's04-person does not name a2.24 beside the sentence it borrows');
   /* AND THE TWO STRINGS ARE THE SAME SENTENCE WITH ONE PHRASE CHANGED, which is
    * what makes this a pattern being completed rather than a new rule. a2.24's
    * report says it wrote the line to survive exactly this substitution. */
@@ -390,7 +391,7 @@ test("LAYOUT 2: à + a person beside à + a place, built out of a2.24's own rows
   strictEqual(byIdItem.get('fr.a2.pronoms-essentiels.238')!.fr, 'Je lui parle.');
 });
 
-test('LAYOUT 3: the three ens in ONE tapTable, with a2.04 and a2.18 named by id', { skip: noLesson }, () => {
+test('LAYOUT 3: the three ens in ONE tapTable, with a2.04 and a2.18 named by its lesson label', { skip: noLesson }, () => {
   /* Corrections §8: a `table` at layer core is a density failure, and `tapTable`
    * renders inside a scrolling page with six rows the Pixel 6 ceiling. */
   const tt = sec('s11-threeens') as { type: string; rows?: { cells?: string[] }[] };
@@ -399,7 +400,7 @@ test('LAYOUT 3: the three ens in ONE tapTable, with a2.04 and a2.18 named by id'
   for (const s of L!.sections) ok(s.type !== 'table', `${s.id} is a table at layer core, which is a density failure`);
   const s = display(sec('s11-threeens'));
   for (const u of ['a2.04', 'a2.18']) {
-    ok(s.some((x) => namesUnit(x, u)), `s11-threeens does not name ${u}, and the brief asks for both by unit id`);
+    ok(s.some((x) => namesUnitLabel(x, u)), `s11-threeens does not name ${u}, and the brief asks for both by its lesson label`);
   }
   ok(s.some((x) => x.includes(EN_POSITION_RULE)), 's11-threeens does not state the distinguisher, which is position');
   /* AND THE TWO NEIGHBOURS' EXAMPLE LINES ARE THEIR OWN PUBLISHED ROWS. */
@@ -422,7 +423,11 @@ test('LAYOUT 3: the three ens in ONE tapTable, with a2.04 and a2.18 named by id'
   deepStrictEqual((tt as { cols?: string[] }).cols, ['French', 'what comes next', 'whose lesson'],
     'the tapTable has lost a column, and the middle one IS the distinguisher');
   for (const r of rows) strictEqual((r.cells ?? []).length, 3, 'a tapTable row does not fill all three columns');
-  deepStrictEqual([...rows.map((r) => r.cells![2])].sort(), ['a2.04', 'a2.18', 'a2.25'],
+  // THE COLUMN HOLDS THE LABEL, so the expected side is built the same way.
+  // Short form: the cell is one of three in a tapTable and « lesson 13 in A2 »
+  // three times over spends the row's whole glyph budget on the track name.
+  deepStrictEqual([...rows.map((r) => r.cells![2])].sort(),
+    ['a2.04', 'a2.18', 'a2.25'].map((u) => unitLabel(u, 'a2')).sort(),
     'the three rows are not owned one each by a2.04, a2.18 and this lesson');
   const jobs = rows.map((r) => r.cells![1]);
   strictEqual(new Set(jobs).size, 3, 'the three rows do not carry three different jobs');
@@ -475,9 +480,9 @@ test('the reframe is authored 15 times, and the two borrowed rules are quieter',
     "a borrowed rule is louder than this lesson's own");
 });
 
-test('a2.06, a2.24, a2.04, a2.18 and a1.29 are all named by unit id', { skip: noLesson }, () => {
+test('a2.06, a2.24, a2.04, a2.18 and a1.29 are all named by its lesson label', { skip: noLesson }, () => {
   for (const u of ['a2.06', 'a2.24', 'a2.04', 'a2.18', 'a1.29', 'a2.02']) {
-    ok(ALL.some((s) => namesUnit(s, u)), `${u} is named nowhere`);
+    ok(ALL.some((s) => namesUnitLabel(s, u)), `${u} is named nowhere`);
   }
   /* AND NEITHER NEIGHBOUR'S OWN MACHINERY IS RE-TAUGHT. */
   for (const s of UNIQUE) {
@@ -781,7 +786,7 @@ test('MULTIPLE-PRONOUN ORDER IS NAMED AS SOMEBODY ELSE\'S, on a learner surface'
 test('il y a is shown containing y and stated not to come apart, in ONE teaching section', { skip: noLesson }, () => {
   const s13 = display(sec('s13-frozen'));
   ok(s13.some((s) => s.includes(FROZEN_RULE)), 's13-frozen does not state that the phrase does not come apart');
-  ok(s13.some((s) => namesUnit(s, 'a2.18')), 's13-frozen does not name a2.18, which owns the phrase in both its senses');
+  ok(s13.some((s) => namesUnitLabel(s, 'a2.18')), 's13-frozen does not name a2.18, which owns the phrase in both its senses');
   ok(s13.some((s) => s.includes(FROZEN_ERROR)), `s13-frozen does not show « ${FROZEN_ERROR} », which is what taking the phrase apart gives you`);
   ok(s13.some((s) => s.includes('Il y a du pain.')), 's13-frozen does not show the phrase itself');
   /* ONE MISSION, ENFORCED BY TYPE RATHER THAN BY A COUNT. A bare count would let
@@ -829,7 +834,7 @@ test("the negation string matches a2.24's, which matches a2.06's, and the three 
    * rather than that this claim is made where the learner meets the rule. */
   const negation = display(sec('s15-negation'));
   ok(negation.some((s) => s.includes(A206_NEGATION)), 's15-negation does not carry the sentence it borrows');
-  ok(negation.filter((s) => s.includes(A206_NEGATION)).some((s) => namesUnit(s, 'a2.06')),
+  ok(negation.filter((s) => s.includes(A206_NEGATION)).some((s) => namesUnitLabel(s, 'a2.06')),
     "the negation deck quotes a2.06's sentence and does not name a2.06 beside it");
 });
 
@@ -848,7 +853,7 @@ test('the inherited strings still match the SHIPPED neighbours', { skip: noLesso
     ok(indirect.includes(A_FRAMING), 'a2.24 no longer carries the à framing this lesson completes');
     ok(indirect.includes(POSITION_RULE), 'a2.24 no longer quotes the position rule, so the three-lesson claim is down to two');
     /* AND a2.24 STILL POINTS FORWARD AT THIS LESSON. */
-    ok(indirect.includes('a2.25'), 'a2.24 no longer names a2.25, so its hand-off is gone');
+    ok(namesUnitLabel(indirect, 'a2.25'), 'a2.24 no longer names a2.25, so its hand-off is gone');
   }
   const futur = bodyOf('a2.19.l1');
   if (futur) ok(futur.includes(A219_REFRAME), 'a2.19 no longer carries the line this lesson quotes');
@@ -859,7 +864,7 @@ test('the inherited strings still match the SHIPPED neighbours', { skip: noLesso
 test("a2.02's term is verbatim, this instance is marked as the seventh, and the earlier ones are credited", { skip: noLesson }, () => {
   const quoting = ALL.filter((s) => s.includes(WHAT_FOLLOWS));
   ok(quoting.length >= 1, `a2.02's « ${WHAT_FOLLOWS} » is quoted nowhere`);
-  ok(quoting.some((s) => namesUnit(s, 'a2.02')), 'the shape is quoted and a2.02 is not named beside it');
+  ok(quoting.some((s) => namesUnitLabel(s, 'a2.02')), 'the shape is quoted and a2.02 is not named beside it');
   ok(ALL.some((s) => /seventh/iu.test(s)), 'the lesson does not say this is the seventh occurrence');
   ok(ALL.some((s) => /six times|sixth/iu.test(s)), 'the earlier instances are not credited, which doctrine §B.7 asks for');
   /* AND THIS ONE IS MARKED AS DIFFERENT: it is the first with THREE answers

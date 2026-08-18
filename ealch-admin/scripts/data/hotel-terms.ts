@@ -23,6 +23,12 @@
 //     and a1.21 own it; this lesson uses `au` and never explains it.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const HOTEL_TERMS: Record<string, LessonTerm> = {
   rung: {
@@ -81,8 +87,8 @@ export const HOTEL_TERMS: Record<string, LessonTerm> = {
   },
   repairMove: {
     term: 'asking again',
-    title: "a2.07's six ways to say you did not catch it",
-    body: 'a2.07 authored six, ordered by what each one costs you. Rung 1 gives away nothing; the last one concedes that speaking has failed and asks for it in writing. Reach for the lowest one that will actually fix the problem.',
+    title: `${Cap(unitRef('a2.07', 'a2'))}'s six ways to say you did not catch it`,
+    body: `${Cap(unitRef('a2.07'))} authored six, ordered by what each one costs you. Rung 1 gives away nothing; the last one concedes that speaking has failed and asks for it in writing. Reach for the lowest one that will actually fix the problem.`,
     examples: [
       { itemId: 'fr.a2.au-restaurant.132', note: 'The cheapest thing you can say.' },
       { itemId: 'fr.a2.au-restaurant.134', note: 'The first one that names what went wrong.' },

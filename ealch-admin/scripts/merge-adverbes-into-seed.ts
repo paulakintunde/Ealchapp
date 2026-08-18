@@ -58,6 +58,7 @@ import {
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ADJ_ORDER, ADVERBES, AGREEMENT_UNIT, ALL_REPAIRS, AMMENT,
   AUTHORED_HEADWORDS, AUTHORED_IDS as AUTHORED_ID_LIST, A203_REFRAME, A203_ROWS,
@@ -392,7 +393,7 @@ if (consonants.size !== ADJ_ORDER.length) die(`the ${ADJ_ORDER.length} chain adj
 {
   const payoff = LESSON.sections.find((s) => (s as { id?: string }).id === PAYOFF_SECTION_ID);
   if (!payoff) die(`${PAYOFF_SECTION_ID} is missing`);
-  if (!strings(payoff).some((s) => hasPhrase(s, 'a2.03'))) die(`${PAYOFF_SECTION_ID} does not name a2.03 by unit id`);
+  if (!strings(payoff).some((s) => namesUnitLabel(s, 'a2.03'))) die(`${PAYOFF_SECTION_ID} does not name a2.03 by its lesson label`);
   if (!strings(payoff).some((s) => s.includes('The plain form tells you the other three.'))) {
     die(`${PAYOFF_SECTION_ID} does not quote a2.03's reframe verbatim`);
   }
@@ -512,7 +513,7 @@ if (consonants.size !== ADJ_ORDER.length) die(`the ${ADJ_ORDER.length} chain adj
   if (stray.length) die(`a compound tense is conjugated outside the deferral line:\n  ${stray.slice(0, 3).map((s) => JSON.stringify((s ?? '').slice(0, 90))).join('\n  ')}`);
   if (!production.some((s) => (s ?? '').includes(DEFERRAL_LINE))) die('the deferral line appears on no learner surface');
   if (!COMPOUND_SHAPE.test(DEFERRAL_LINE)) die('the deferral line no longer holds the compound-tense example the learner needs it for');
-  if (!hasPhrase(DEFERRAL_LINE, 'a2.05')) die('the deferral line does not name a2.05 by unit id');
+  if (!namesUnitLabel(DEFERRAL_LINE, 'a2.05')) die('the deferral line does not name a2.05 by its lesson label');
 }
 
 /* `mieux` APPEARS NOWHERE, RESERVING a2.08. */
@@ -746,7 +747,7 @@ if (ADVERBES_DICTEE_IDS.length !== EXPECTED_DICTEE) die(`${ADVERBES_DICTEE_IDS.l
 
 /* EVERY UNIT THIS LESSON CITES IS NAMED ON A LEARNER SURFACE. */
 for (const u of CITED_UNITS) {
-  if (!production.some((s) => hasPhrase(s ?? '', u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
+  if (!production.some((s) => namesUnitLabel(s ?? '', u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
 }
 if (AGREEMENT_UNIT !== 'a2.03' || PASSE_UNIT !== 'a2.05' || COMPARATIVE_UNIT !== 'a2.08' || NEGATION_UNIT !== 'a1.18') {
   die('one of the four cited unit-id constants has drifted');

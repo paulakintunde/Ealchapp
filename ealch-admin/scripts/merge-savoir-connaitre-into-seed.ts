@@ -47,6 +47,7 @@ import {
 } from '../../ealch-v2/src/content/schema.ts';
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ASSERTED_RESPELLINGS, AUTHORED_IDS as AUTHORED_ID_LIST, BLIND_NASAL_ROWS,
   CHROME_DECISION, CITED_UNITS, CONNAITRE_CLAUSE_SHAPE, CONTRAST_UNIT,
@@ -276,7 +277,7 @@ const hits = countPhrase(learnerText, REFRAME);
 if (hits !== EXPECTED_REFRAME_USES) die(`the reframe appears ${hits} times, expected exactly ${EXPECTED_REFRAME_USES}`);
 if (LESSON.reframe !== REFRAME) die('the lesson reframe field disagrees with the corpus');
 
-const uncited = CITED_UNITS.filter((u) => !hasPhrase(learnerText, u));
+const uncited = CITED_UNITS.filter((u) => !namesUnitLabel(learnerText, u));
 if (uncited.length) die(`cited units that appear nowhere: ${uncited.join(', ')}`);
 
 /* ── THE REFRAME, RE-DERIVED. The merge re-checks rather than trusting the
@@ -391,8 +392,8 @@ if (FRAMES.savoir.complement === FRAMES['connaître'].complement) die('the two c
 for (const id of [SITUATIONS_SECTION_ID, PLACE_SECTION_ID, POUVOIR_SECTION_ID, IMPOSSIBLE_SECTION_ID, FAMILY_SECTION_ID, EVIDENCE_SECTION_ID]) {
   if (!byId(id)) die(`${id} is missing`);
 }
-if (!hasPhrase(prose(byId(POUVOIR_SECTION_ID)).join('  '), CONTRAST_UNIT)) die(`${POUVOIR_SECTION_ID} does not name ${CONTRAST_UNIT}`);
-if (!hasPhrase(prose(byId(FAMILY_SECTION_ID)).join('  '), FAMILY_UNIT)) die(`${FAMILY_SECTION_ID} does not hand the principle to ${FAMILY_UNIT}`);
+if (!namesUnitLabel(prose(byId(POUVOIR_SECTION_ID)).join('  '), CONTRAST_UNIT)) die(`${POUVOIR_SECTION_ID} does not name ${CONTRAST_UNIT}`);
+if (!namesUnitLabel(prose(byId(FAMILY_SECTION_ID)).join('  '), FAMILY_UNIT)) die(`${FAMILY_SECTION_ID} does not hand the principle to ${FAMILY_UNIT}`);
 if (!strings(byId(IMPOSSIBLE_SECTION_ID)).some((s) => s.includes(IMPOSSIBLE.wrong))) die(`${IMPOSSIBLE_SECTION_ID} does not show the impossible sentence`);
 
 /* THE MINIMAL PAIR. */

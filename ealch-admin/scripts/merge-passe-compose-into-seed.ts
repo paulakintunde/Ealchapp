@@ -98,6 +98,7 @@ import {
   WHICH_TRAP_SECTION_ID, WRONG_FORM_SECTIONS,
 } from './data/passe-compose-lesson.ts';
 import { PASSE_COMPOSE_ROWS, MEASURED } from './data/passe-compose-rows.gen.ts';
+import { namesUnitLabel, unitRef } from './data/_unit-ref.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = join(here, '../../ealch-v2/src/content/seed.json');
@@ -158,19 +159,13 @@ function hasPhrase(hay: string, needle: string): boolean {
   }
   return false;
 }
-/** a2.19 §1: a unit id is almost always written possessively and the house right
- *  boundary counts an apostrophe as a word character. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number. Case-insensitive, and it does
+ *  NOT also accept the raw id: a guard taking either would pass on exactly the
+ *  thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;
   const h = hay.toLowerCase(); const q = needle.toLowerCase();
@@ -511,7 +506,7 @@ const learnerText = [
  * unit's line is not a variable, and a2.18's mutation run proved it. */
 {
   const A219_LINE = 'Wrap the verb that changed, not the one carrying the meaning.';
-  const A217_LINE = 'In a past tense the short ones move, and that rule arrives with the tense in a2.05.';
+  const A217_LINE = `In a past tense the short ones move, and that rule arrives with the tense in ${unitRef('a2.05')}.`;
   if (A219_REFRAME !== A219_LINE) die(`${FUTUR_UNIT}'s reframe is ${JSON.stringify(A219_REFRAME)} and this lesson was written to quote ${JSON.stringify(A219_LINE)}`);
   if (A217_DEFERRAL !== A217_LINE) die(`${ADVERB_UNIT}'s deferral is ${JSON.stringify(A217_DEFERRAL)} and this lesson was written to quote ${JSON.stringify(A217_LINE)}`);
   if (!hasPhrase(learnerText, A219_LINE)) die(`${FUTUR_UNIT}'s negation rule is not quoted verbatim anywhere`);

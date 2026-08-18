@@ -110,6 +110,12 @@
 // ════════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ═══════════════════════════════════════════════════════════════════════════
  *  §1. IDENTITY, MEASURED
@@ -679,7 +685,7 @@ export const RESPELL_REPAIRS: readonly RespellRepair[] = [
     to: 'ahⁿ-vwah-YAY',
     blind: false,
     house: false,
-    why: 'THE ROW THIS LESSON IMPORTS, AND IT IS A REPAIR TARGET. a2.06\'s rule was to import the correct row and repair the wrong ones; here there is no correct row anywhere in 28,047 published sentences, so the import and the repair are the same row. Visible, and the minimal repair is the house value.',
+    why: `THE ROW THIS LESSON IMPORTS, AND IT IS A REPAIR TARGET. ${Cap(unitRef('a2.06'))}\'s rule was to import the correct row and repair the wrong ones; here there is no correct row anywhere in 28,047 published sentences, so the import and the repair are the same row. Visible, and the minimal repair is the house value.`,
   },
   {
     id: 'fr.a2.verbes.023',
@@ -699,7 +705,7 @@ export const RESPELL_REPAIRS: readonly RespellRepair[] = [
     to: 'ahⁿ-vwah-YAY',
     blind: false,
     house: true,
-    why: 'THE §14.1 `bien` SHAPE. Flagged, so the nasal is visible, but the minimal repair gives `ahⁿ-vwa-YAY` and the two rows above say `vwah`. Two different reasons for one symptom, and a guard using one boolean for both would file this with the four plain rows. The tie is broken the way a2.06 broke connaître: the verbes-essentiels row is the corpus\'s canonical entry for a headword and it says `vwah`.',
+    why: `THE §14.1 \`bien\` SHAPE. Flagged, so the nasal is visible, but the minimal repair gives \`ahⁿ-vwa-YAY\` and the two rows above say \`vwah\`. Two different reasons for one symptom, and a guard using one boolean for both would file this with the four plain rows. The tie is broken the way ${unitRef('a2.06')} broke connaître: the verbes-essentiels row is the corpus\'s canonical entry for a headword and it says \`vwah\`.`,
   },
   {
     id: 'fr.a2.internet.081',
@@ -770,7 +776,7 @@ export const RESPELL_LEFT_ALONE: readonly { fr: string; variants: string; why: s
   {
     fr: '« sans lui »',
     variants: 'fr.a2.pronoms-essentiels.049 [sahn lwee], FLAGGED',
-    why: 'A genuine defect, in this lesson\'s own theme, and OUT OF SCOPE: this build does not import it and authors its own « Je pars sans lui. » instead. a2.15\'s precedent is repair what you import and record what you did not. Recorded here so the next build in this theme has it.',
+    why: `A genuine defect, in this lesson\'s own theme, and OUT OF SCOPE: this build does not import it and authors its own « Je pars sans lui. » instead. ${Cap(unitRef('a2.15'))}\'s precedent is repair what you import and record what you did not. Recorded here so the next build in this theme has it.`,
   },
   {
     fr: 'téléphone, inside a phrase',
@@ -808,7 +814,7 @@ export const IMPORTED: readonly { id: string; fr: string; why: string }[] = [
   { id: 'fr.sons.verbes-essentiels.005', fr: 'dire', why: 'DEER. The only published row for it.' },
   { id: 'fr.sons.verbes-essentiels.054', fr: 'montrer', why: 'The house value mohⁿ-TRAY, and the repair target for fr.a1.douane-et-immigration.059.' },
   { id: 'fr.sons.verbes-essentiels.053', fr: 'offrir', why: 'oh-FREER on all three published rows, no divergence.' },
-  { id: 'fr.a1.dictee.090', fr: 'écrire', why: 'Chosen over fr.a1.ecole.049 BECAUSE that row is GENDERED and importing it would move a1.03\'s measured ending population. Same value, ay-KREER.' },
+  { id: 'fr.a1.dictee.090', fr: 'écrire', why: `Chosen over fr.a1.ecole.049 BECAUSE that row is GENDERED and importing it would move ${unitRef('a1.03')}\'s measured ending population. Same value, ay-KREER.` },
   { id: 'fr.sons.verbes-essentiels.046', fr: 'envoyer', why: 'THE IMPORT THAT IS ALSO A REPAIR. All four published rows are flagged, so there is no correct one to prefer, and this is the canonical headword row. §11.' },
   { id: 'fr.sons.verbes-essentiels.013', fr: 'donner', why: 'doh-NAY, the 2-to-1 majority, clean.' },
 ];
@@ -832,12 +838,12 @@ export const IMPORTED_PHRASES: readonly { id: string; fr: string; why: string }[
  *  a2.06's two frames are here for the cross-lesson claim — « Je le vois. »
  *  beside « Je lui parle. » is a2.06's actual row rather than a copy of it. */
 export const IMPORTED_SENTENCES: readonly { id: string; why: string }[] = [
-  { id: A206_FRAME_ID, why: '« Je le vois. » a2.06\'s frame, imported so the contrast is its sentence and not a copy of one.' },
-  { id: A206_KNOW_ID, why: '« Je la connais. » a2.06\'s feminine cell, for the six-word contrast where the gender is still there.' },
+  { id: A206_FRAME_ID, why: `« Je le vois. » ${unitRef('a2.06')}\'s frame, imported so the contrast is its sentence and not a copy of one.` },
+  { id: A206_KNOW_ID, why: `« Je la connais. » ${unitRef('a2.06')}\'s feminine cell, for the six-word contrast where the gender is still there.` },
   { id: 'fr.a1.pronoms-essentiels.126', why: '« Je leur parle chaque matin. » Published at A1, in this theme, and its own notes state this lesson\'s central trap: leur the pronoun never takes an s.' },
   { id: 'fr.a2.pronoms-essentiels.020', why: '« Elle lui demande son avis sur le projet. » demander with a person behind à, published, and nobody wrote it to prove that.' },
   { id: 'fr.a2.pronoms-essentiels.026', why: '« Je leur écris chaque semaine. » écrire, the plural, same theme.' },
-  { id: A223_ROW_ID, why: '« Elle s\'est lavé les mains. » a2.23\'s OWN receptive row, imported rather than re-authored, because §10 is honouring a2.23\'s shipped pointer and the row it points at should be the row it wrote.' },
+  { id: A223_ROW_ID, why: `« Elle s\'est lavé les mains. » ${unitRef('a2.23')}\'s OWN receptive row, imported rather than re-authored, because §10 is honouring ${unitRef('a2.23')}\'s shipped pointer and the row it points at should be the row it wrote.` },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -914,7 +920,7 @@ export const ROWS: readonly Row[] = [
   R(239, 'Je parle à mes parents.', 'I talk to my parents.', '/ʒə paʁl a me pa.ʁɑ̃/', 'zhuh PARL ah may pah-RAHⁿ',
     'named', null, S, 'The plural à half. More than one person, so the pronoun that replaces them will be the other one.'),
   R(240, 'Je leur parle.', 'I talk to them.', '/ʒə lœʁ paʁl/', 'zhuh luhr PARL',
-    'slot', 'leur', SD, 'The plural. Eleven letters. This is also the sentence a1.17 warned the learner about: same four letters as the possessive and a completely different job.'),
+    'slot', 'leur', SD, `The plural. Eleven letters. This is also the sentence ${unitRef('a1.17')} warned the learner about: same four letters as the possessive and a completely different job.`),
   R(241, 'Je réponds à Paul.', 'I answer Paul.', '/ʒə ʁe.pɔ̃ a pɔl/', 'zhuh ray-POHⁿ ah POHL',
     'named', null, S, 'THE ONE THAT SHOWS THE PROBLEM. English answers Paul with nothing in between; French puts à there and the learner has no signal that it is coming.'),
   R(242, 'Je lui réponds.', 'I answer him.', '/ʒə lɥi ʁe.pɔ̃/', 'zhuh lwee ray-POHⁿ',
@@ -943,27 +949,27 @@ export const ROWS: readonly Row[] = [
   /* ── The paradigm. TWO WORDS, and the doctrine says not to stretch it, so
    *    these exist to be practised rather than to be taught. ─────────────── */
   R(251, 'Tu lui parles.', 'You talk to her.', '/ty lɥi paʁl/', 'tü lwee PARL',
-    'paradigm', 'lui', S, 'Eleven letters. The subject changed and the pronoun did not, which was a whole section in a2.06 and is one line here because the learner has already had it.'),
+    'paradigm', 'lui', S, `Eleven letters. The subject changed and the pronoun did not, which was a whole section in ${unitRef('a2.06')} and is one line here because the learner has already had it.`),
   R(252, 'Il lui répond.', 'He answers her.', '/il lɥi ʁe.pɔ̃/', 'eel lwee ray-POHⁿ',
     'paradigm', 'lui', S, 'Eleven letters. Two words beginning with l in a row and only the second one is the verb\'s.'),
   R(253, 'Elle lui écrit.', 'She writes to him.', '/ɛl lɥi e.kʁi/', 'ehl lwee ay-KREE',
     'paradigm', 'lui', S, 'Twelve letters. A feminine subject and lui standing for a man: the pronoun takes nothing at all from the subject, and it does not take a gender from the person either.'),
   R(254, 'Nous leur parlons.', 'We talk to them.', '/nu lœʁ paʁ.lɔ̃/', 'noo luhr par-LOHⁿ',
-    'paradigm', 'leur', S, 'Fifteen letters. The nous form, which a2.01 owns and this lesson borrows.'),
+    'paradigm', 'leur', S, `Fifteen letters. The nous form, which ${unitRef('a2.01')} owns and this lesson borrows.`),
   R(255, 'Vous leur écrivez.', 'You write to them.', '/vu lœʁ e.kʁi.ve/', 'voo luhr ay-kree-VAY',
     'paradigm', 'leur', S, 'Fifteen letters.'),
   R(256, 'Ils lui téléphonent.', 'They phone him.', '/il lɥi te.le.fɔn/', 'eel lwee tay-lay-FON',
-    'paradigm', 'lui', S, 'Seventeen letters, word mode. The verb ending is silent, which is a2.01\'s business and not this lesson\'s.'),
+    'paradigm', 'lui', S, `Seventeen letters, word mode. The verb ending is silent, which is ${unitRef('a2.01')}\'s business and not this lesson\'s.`),
   R(257, 'Je lui écris.', 'I write to her.', '/ʒə lɥi e.kʁi/', 'zhuh lwee ay-KREE',
     'paradigm', 'lui', SD, 'Ten letters. The same word as fr.a2.pronoms-essentiels.253 and a woman this time, which is the whole of what lui does about gender: nothing.'),
 
   /* ── THE TRAP. a1.17's possessive against this lesson's pronoun. ──────── */
   R(258, 'Voici leur maison.', 'This is their house.', '/vwa.si lœʁ mɛ.zɔ̃/', 'vwah-SEE luhr meh-ZOHⁿ',
-    'possessive', null, SD, 'THE POSSESSIVE, singular thing. Fifteen letters. a1.17 owns this word and this lesson does not re-teach one syllable of it; it is here so the learner can see that the pronoun and the possessive are four identical letters.', ['possessive'], true),
+    'possessive', null, SD, `THE POSSESSIVE, singular thing. Fifteen letters. ${Cap(unitRef('a1.17'))} owns this word and this lesson does not re-teach one syllable of it; it is here so the learner can see that the pronoun and the possessive are four identical letters.`, ['possessive'], true),
   R(259, 'Voici leurs clés.', 'Here are their keys.', '/vwa.si lœʁ kle/', 'vwah-SEE luhr KLAY',
-    'possessive', null, SD, 'THE POSSESSIVE, plural thing, and it takes the s. Fourteen letters, so the dictée can ask for it. a1.17\'s rule and a1.17\'s alone: the s counts the things, never the owners.', ['possessive'], true),
+    'possessive', null, SD, `THE POSSESSIVE, plural thing, and it takes the s. Fourteen letters, so the dictée can ask for it. ${Cap(unitRef('a1.17'))}\'s rule and ${unitRef('a1.17')}\'s alone: the s counts the things, never the owners.`, ['possessive'], true),
   R(260, 'Je leur montre leur maison.', 'I show them their house.', '/ʒə lœʁ mɔ̃tʁ lœʁ mɛ.zɔ̃/', 'zhuh luhr MOHⁿTR luhr meh-ZOHⁿ',
-    'possessive', 'leur', S, 'BOTH JOBS IN ONE SENTENCE, twenty-two letters. The first leur is in front of a verb and can never take an s; the second is in front of a thing and would take one if there were more than one house. a1.17\'s test settles both without a new rule.', ['possessive'], true),
+    'possessive', 'leur', S, `BOTH JOBS IN ONE SENTENCE, twenty-two letters. The first leur is in front of a verb and can never take an s; the second is in front of a thing and would take one if there were more than one house. ${Cap(unitRef('a1.17'))}\'s test settles both without a new rule.`, ['possessive'], true),
 
   /* ── The stressed pronoun. Doctrine §B.7, sixth occurrence. ───────────── */
   R(261, 'Je parle avec lui.', 'I talk with him.', '/ʒə paʁl a.vɛk lɥi/', 'zhuh PARL ah-vek LWEE',
@@ -975,7 +981,7 @@ export const ROWS: readonly Row[] = [
 
   /* ── Negation. a2.06's sentence, quoted and not extended. ─────────────── */
   R(264, 'Je ne lui parle pas.', 'I do not talk to him.', '/ʒə nə lɥi paʁl pa/', 'zhuh nuh lwee parl PAH',
-    'negative', 'lui', SD, 'Fifteen letters. ne outside, pronoun and verb inside, pas after both. Exactly a2.06\'s sentence and no new rule.', ['negation']),
+    'negative', 'lui', SD, `Fifteen letters. ne outside, pronoun and verb inside, pas after both. Exactly ${unitRef('a2.06')}\'s sentence and no new rule.`, ['negation']),
   R(265, 'Je ne leur parle pas.', 'I do not talk to them.', '/ʒə nə lœʁ paʁl pa/', 'zhuh nuh luhr parl PAH',
     'negative', 'leur', SD, 'Sixteen letters, exactly at the dictée limit. The plural inside the wrap and still no s.', ['negation']),
   R(266, 'Il ne lui répond pas.', 'He does not answer her.', '/il nə lɥi ʁe.pɔ̃ pa/', 'eel nuh lwee ray-pohⁿ PAH',
@@ -985,7 +991,7 @@ export const ROWS: readonly Row[] = [
 
   /* ── The past. §10: the second word never answers to lui or leur. ─────── */
   R(268, 'Je lui ai parlé.', 'I talked to him.', '/ʒə lɥi e paʁ.le/', 'zhuh lwee ay par-LAY',
-    'past', 'lui', SD, 'Twelve letters. The pronoun goes in front of BOTH words of the verb, which is a2.06\'s rule applied to a tense the learner already has. And the second word is bare.'),
+    'past', 'lui', SD, `Twelve letters. The pronoun goes in front of BOTH words of the verb, which is ${unitRef('a2.06')}\'s rule applied to a tense the learner already has. And the second word is bare.`),
   R(269, 'Je leur ai parlé.', 'I talked to them.', '/ʒə lœʁ e paʁ.le/', 'zhuh luhr ay par-LAY',
     'past', 'leur', SD, 'Thirteen letters. Plural, and still nothing on the end of parlé. THIS IS THE POINT OF THE SECTION: the second word never answers to lui or leur.'),
   R(270, 'Je lui ai écrit.', 'I wrote to her.', '/ʒə lɥi e e.kʁi/', 'zhuh lwee ay ay-KREE',
@@ -1011,7 +1017,7 @@ export const ROWS: readonly Row[] = [
   R(277, "Non, je ne leur ai pas écrit.", 'No, I have not written to them.', '/nɔ̃ ʒə nə lœʁ e pa e.kʁi/', 'nohⁿ, zhuh nuh luhr ay pah zay-KREE',
     'talk', 'leur', SR, 'Turn 2, the negative and the plural in one answer.', ['negation']),
   R(278, 'Je vais lui téléphoner.', 'I am going to phone her.', '/ʒə vɛ lɥi te.le.fɔ.ne/', 'zhuh veh lwee tay-lay-foh-NAY',
-    'talk', 'lui', SR, 'Turn 3. a2.19 owns the futur proche and this borrows it: the pronoun goes in front of the infinitive, which is still the verb it belongs to. fr.a2.pronoms-essentiels.179 publishes the negative version of exactly this shape.'),
+    'talk', 'lui', SR, `Turn 3. ${Cap(unitRef('a2.19'))} owns the futur proche and this borrows it: the pronoun goes in front of the infinitive, which is still the verb it belongs to. fr.a2.pronoms-essentiels.179 publishes the negative version of exactly this shape.`),
   R(279, 'Je leur montre les photos.', 'I am showing them the photos.', '/ʒə lœʁ mɔ̃tʁ le fɔ.to/', 'zhuh luhr MOHⁿTR lay foh-TOH',
     'talk', 'leur', SR, 'Turn 4. A thing after the verb and a person in front of it, so the two jobs are visibly different positions rather than different words.'),
   R(280, 'Oui, je leur parle souvent.', 'Yes, I talk to them often.', '/wi ʒə lœʁ paʁl su.vɑ̃/', 'wee, zhuh luhr PARL soo-VAHⁿ',
@@ -1019,13 +1025,13 @@ export const ROWS: readonly Row[] = [
   R(281, 'Je lui demande demain.', 'I will ask him tomorrow.', '/ʒə lɥi də.mɑ̃d də.mɛ̃/', 'zhuh lwee duh-MAHⁿD duh-MAHⁿ',
     'talk', 'lui', SR, 'Turn 6, and the present used for something not yet done, which is what French does here and English does with "will".'),
   R(282, 'Tu lui as répondu ?', 'Did you answer him?', '/ty lɥi a ʁe.pɔ̃.dy/', 'tü lwee ah ray-pohⁿ-DÜ',
-    'talk', 'lui', SR, 'Turn 7, and the learner asks rather than answers. a1.19 owns the rising question and this borrows it without teaching it.'),
+    'talk', 'lui', SR, `Turn 7, and the learner asks rather than answers. ${Cap(unitRef('a1.19'))} owns the rising question and this borrows it without teaching it.`),
   R(283, 'Elle leur a parlé.', 'She talked to them.', '/ɛl lœʁ a paʁ.le/', 'ehl luhr ah par-LAY',
     'past', 'leur', SD, 'Fourteen letters. A third person in the past, and the second word is bare again.'),
   R(284, 'Je lui ai donné les clés.', 'I gave him the keys.', '/ʒə lɥi e dɔ.ne le kle/', 'zhuh lwee ay doh-NAY lay KLAY',
     'past', 'lui', S, 'Twenty letters, word mode. A thing after the verb and a person in front of it, in the past, and nothing goes on the end of donné.'),
   R(285, 'Tu leur téléphones ?', 'Are you phoning them?', '/ty lœʁ te.le.fɔn/', 'tü luhr tay-lay-FON',
-    'paradigm', 'leur', SD, 'Sixteen letters, LETTERS mode, and the dictée can take it. A question, and the pronoun does not move for one. a1.19 owns the rising question.'),
+    'paradigm', 'leur', SD, `Sixteen letters, LETTERS mode, and the dictée can take it. A question, and the pronoun does not move for one. ${Cap(unitRef('a1.19'))} owns the rising question.`),
   R(286, 'Je lui réponds toujours.', 'I always answer her.', '/ʒə lɥi ʁe.pɔ̃ tu.ʒuʁ/', 'zhuh lwee ray-POHⁿ too-ZHOOR',
     'paradigm', 'lui', S, 'Twenty letters, word mode. Something after the verb that is not the person, so the pronoun is visibly not just "the word before the full stop".'),
 ];
@@ -1110,7 +1116,7 @@ export const isMine = (id: string): boolean => {
 export const UNTESTABLE: readonly { wanted: string; why: string }[] = [
   {
     wanted: 'A typed question turning on the grave accent in à: « Je parle a Marie. » against « Je parle à Marie. »',
-    why: 'THE SINGLE MOST TEMPTING QUESTION IN THE LESSON AND IT CANNOT BE WRITTEN. `fold()` normalises to NFD and strips every combining mark, so « a Marie » and « à Marie » are ONE ANSWER and a typed question would accept the mistake and tell the learner they spelled it right. Measured through the real function. Written as an mcq instead, exactly as a2.09 did.',
+    why: `THE SINGLE MOST TEMPTING QUESTION IN THE LESSON AND IT CANNOT BE WRITTEN. \`fold()\` normalises to NFD and strips every combining mark, so « a Marie » and « à Marie » are ONE ANSWER and a typed question would accept the mistake and tell the learner they spelled it right. Measured through the real function. Written as an mcq instead, exactly as ${unitRef('a2.09')} did.`,
   },
   {
     wanted: 'An ear question separating « Je leur parle. » from « Je leurs parle. », or the pronoun leur from the possessive leur.',
@@ -1118,7 +1124,7 @@ export const UNTESTABLE: readonly { wanted: string; why: string }[] = [
   },
   {
     wanted: 'An ear question asking which gender lui carries.',
-    why: 'IT HAS NO ANSWER, in any format. This is not a fold() limitation, it is the language: lui is him or her and the sentence does not say. It is a card rather than a question, which is the same shape a2.06 met on the elided l\'.',
+    why: `IT HAS NO ANSWER, in any format. This is not a fold() limitation, it is the language: lui is him or her and the sentence does not say. It is a card rather than a question, which is the same shape ${unitRef('a2.06')} met on the elided l\'.`,
   },
   {
     wanted: 'A typed question on the past participle after lui: « Je lui ai parlé. » against « Je lui ai parlée. »',
@@ -1126,6 +1132,6 @@ export const UNTESTABLE: readonly { wanted: string; why: string }[] = [
   },
   {
     wanted: 'A typed question on the space in « quelqu\'un » or on the capital in « Marie ».',
-    why: 'fold() strips all whitespace and cannot test a capital letter. Both the a1.08 and a1.09 briefs recommended errorSpot for a capital and both were wrong. Neither was worth an mcq slot here.',
+    why: `fold() strips all whitespace and cannot test a capital letter. Both the ${unitRef('a1.08')} and ${unitRef('a1.09')} briefs recommended errorSpot for a capital and both were wrong. Neither was worth an mcq slot here.`,
   },
 ];

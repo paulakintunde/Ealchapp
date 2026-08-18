@@ -68,6 +68,7 @@ import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode, letterCount } from './dictee.logic.ts';
 import { matchesAccept, fold } from './answer.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -245,18 +246,11 @@ function hasPhrase(hay: string, needle: string): boolean {
   }
   return false;
 }
-/** a2.19 §1: a unit id is almost always written possessively. */
-const namesUnit = (hay: string, id: string): boolean => {
-  const word = (c: string) => /[\p{L}\p{N}-]/u.test(c);
-  const h = hay.toLowerCase();
-  const n = id.toLowerCase();
-  let i = 0;
-  while ((i = h.indexOf(n, i)) !== -1) {
-    if (!word(i === 0 ? '' : h[i - 1]!) && !word(h[i + n.length] ?? '')) return true;
-    i += 1;
-  }
-  return false;
-};
+/** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID. Resolved
+ *  through the shipped `unit.seq`, never by slicing the id: 31 of 35 A2 units
+ *  disagree with their own id number. It does not also accept the raw id, or it
+ *  would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, id: string): boolean => namesUnitLabel(hay, id);
 const countPhrase = (hay: string, needle: string): number => {
   let n = 0; let i = 0;
   const h = hay.toLowerCase(); const q = needle.toLowerCase();
@@ -292,7 +286,7 @@ test('the unit block is the database\'s, not the brief\'s', { skip: noLesson }, 
   strictEqual(L!.tag, 'A2 · LEÇON 17');
   strictEqual(L!.title, u!.sub);
   strictEqual((L!.overview as { titleEn?: string })?.titleEn, u!.title);
-  strictEqual(L!.version, 3);
+  strictEqual(L!.version, 5, 'the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label');
 });
 
 test('the spine is in order and the acts claim every section exactly once', { skip: noLesson }, () => {
@@ -583,7 +577,7 @@ test('no auxiliary choice is taught, and être is confined to the sections that 
   ok(firstWord, 's14-firstword does not exist');
   const text = strings(firstWord).join('\n');
   for (const f of ETRE_FORMS) ok(hasPhrase(text, f), `${f} is not on the screen that hands the choice to ${ETRE_UNIT}`);
-  ok(namesUnit(text, ETRE_UNIT), `the screen that defers the choice does not name ${ETRE_UNIT}`);
+  ok(namesUnitLabel(text, ETRE_UNIT), `the screen that defers the choice does not name ${ETRE_UNIT}`);
 });
 
 test('no production surface names an être row', { skip: noLesson }, () => {
@@ -734,12 +728,12 @@ test('the two trapDrills are stepped, gated and audible', { skip: noLesson }, ()
  * ═══════════════════════════════════════════════════════════════════════ */
 
 test('a2.15\'s reframe is quoted verbatim and its unit is named', { skip: noLesson }, () => {
-  // THE BRIEF ASKS FOR a2.15 BY UNIT ID and for its framing to be borrowed
+  // THE BRIEF ASKS FOR a2.15 BY ITS LESSON LABEL and for its framing to be borrowed
   // deliberately, so the learner recognises the strategy rather than meeting it
   // fresh. a2.16 §3: a back-reference is a LITERAL and a paraphrase fails.
   const text = learnerText();
   ok(text.includes(A215_REFRAME), `${FAMILY_UNIT}'s reframe is not quoted verbatim`);
-  ok(namesUnit(text, FAMILY_UNIT), `${FAMILY_UNIT} is never named by unit id`);
+  ok(namesUnitLabel(text, FAMILY_UNIT), `${FAMILY_UNIT} is never named by its lesson label`);
   // And the section where the compounds arrive is the one that carries it.
   const front = section('s08-front');
   ok(front, 's08-front does not exist');
@@ -751,7 +745,7 @@ test('a2.15\'s reframe is quoted verbatim and its unit is named', { skip: noLess
 test('a2.05 is credited, recapped once, and never re-taught', { skip: noLesson }, () => {
   const text = learnerText();
   ok(text.includes(A205_REFRAME), `${PASSE_UNIT}'s reframe is not quoted verbatim`);
-  ok(namesUnit(text, PASSE_UNIT), `${PASSE_UNIT} is never named by unit id`);
+  ok(namesUnitLabel(text, PASSE_UNIT), `${PASSE_UNIT} is never named by its lesson label`);
   const recap = (L!.acts ?? []).find((a) => a.id === 'act2');
   strictEqual(recap?.sections.length, 2, 'the recap of a2.05 is not two sections');
 });
@@ -764,7 +758,7 @@ test('the batch-1 units are named where their verbs come back', { skip: noLesson
   ok(batch1, 's11-batch1 does not exist');
   const text = strings(batch1).join('\n');
   for (const u of [ALLER_UNIT, FAIRE_UNIT, MODAUX_UNIT, SAVOIR_UNIT, FAMILY_UNIT]) {
-    ok(namesUnit(text, u), `${u} is not named on the screen that hands its verbs back`);
+    ok(namesUnitLabel(text, u), `${u} is not named on the screen that hands its verbs back`);
   }
 });
 
@@ -780,7 +774,7 @@ test('the intro names no unit id, and the reframe is carried', { skip: noLesson 
 
 test('the roundup and the sheet hand forward to a2.21, a2.22 and a2.31', { skip: noLesson }, () => {
   const text = learnerText();
-  for (const u of [ETRE_UNIT, REFLEXIVE_UNIT, SCHOOL_UNIT]) ok(namesUnit(text, u), `${u} is never named`);
+  for (const u of [ETRE_UNIT, REFLEXIVE_UNIT, SCHOOL_UNIT]) ok(namesUnitLabel(text, u), `${u} is never named`);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

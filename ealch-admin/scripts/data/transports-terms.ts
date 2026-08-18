@@ -19,6 +19,12 @@
 // label filed off.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const TRANSPORT_TERMS: Record<string, LessonTerm> = {
   move: {
@@ -86,8 +92,8 @@ export const TRANSPORT_TERMS: Record<string, LessonTerm> = {
   },
   rung: {
     term: 'a rung',
-    title: 'One of a2.07\'s six ways to ask again',
-    body: 'a2.07 authored six, ordered by what they cost you. Rung 1 gives away nothing; rung 6 concedes that speech has failed and asks to write it down. Reach for the lowest one that will actually fix the problem.',
+    title: `One of ${unitRef('a2.07')}\'s six ways to ask again`,
+    body: `${Cap(unitRef('a2.07'))} authored six, ordered by what they cost you. Rung 1 gives away nothing; rung 6 concedes that speech has failed and asks to write it down. Reach for the lowest one that will actually fix the problem.`,
     examples: [
       { itemId: 'fr.a2.au-restaurant.132', note: 'Rung 1, and it costs nothing.' },
       { itemId: 'fr.a2.au-restaurant.134', note: 'Rung 3, the first that names the fault.' },

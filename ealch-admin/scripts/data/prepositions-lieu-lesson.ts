@@ -1,4 +1,10 @@
-// a2.04.l1, « Prépositions de lieu », seq 13 on the A2 trail.
+
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+import { unitRef } from './_unit-ref.ts';// a2.04.l1, « Prépositions de lieu », seq 13 on the A2 trail.
 //
 // 24 sections, 6 acts, 30 questions, two stepped trapDrills and one reference
 // sheet. Every French string on every screen comes from
@@ -58,17 +64,17 @@ const BY_ID = new Map(PREPOSITIONS_LIEU.map((r) => [r.id, r]));
 
 const fr = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.04: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.04')}: ${id} is not an authored row.`);
   return r.fr;
 };
 const en = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.04: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.04')}: ${id} is not an authored row.`);
   return r.en;
 };
 const bare = (id: string): string => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.04: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.04')}: ${id} is not an authored row.`);
   return r.respell!;
 };
 const sub = (id: string): string => `[${bare(id)}]`;
@@ -78,7 +84,7 @@ const noStop = (s: string): string => s.replace(/[.?!]\s*$/u, '');
  *  and nothing else, so the respelling and the gloss go in `note`. */
 const authoredCard = (id: string) => {
   const r = BY_ID.get(id);
-  if (!r) throw new Error(`a2.04: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${unitRef('a2.04')}: ${id} is not an authored row.`);
   return { fr: r.fr, ipa: r.ipa!, note: `[${r.respell}] ${r.en}` };
 };
 
@@ -300,7 +306,7 @@ const SECTIONS: LessonSection[] = [
         body: `« ${noStop(fr(sortRow(k).id))} » ${sub(sortRow(k).id)}. ${en(sortRow(k).id)} `
           + (KIND_OWNER[k] === null
             ? 'Nobody has taught you this one, and it is the reason this lesson exists.'
-            : `${KIND_OWNER[k]} taught you this one already.`),
+            : `${Cap(unitRef(KIND_OWNER[k]!))} taught you this one already.`),
         say: fr(sortRow(k).id),
       },
     })),
@@ -349,8 +355,8 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     say: PAYOFF_CLAIM,
     examples: [
-      { fr: importedFr('fr.a1.routines.064'), en: importedEn('fr.a1.routines.064'), note: `À and le marché. ${CONTRACTION_UNIT} gave you this and somebody wrote the card for a routine lesson.` },
-      { fr: fr(A(145)), en: en(A(145)), note: `À and le Japon, which is the same fold with a country behind it. ${COUNTRY_UNIT} gave you the country and called the word au.` },
+      { fr: importedFr('fr.a1.routines.064'), en: importedEn('fr.a1.routines.064'), note: `À and le marché. ${Cap(unitRef(CONTRACTION_UNIT))} gave you this and somebody wrote the card for a routine lesson.` },
+      { fr: fr(A(145)), en: en(A(145)), note: `À and le Japon, which is the same fold with a country behind it. ${Cap(unitRef(COUNTRY_UNIT))} gave you the country and called the word au.` },
       { fr: fr(A(131)), en: en(A(131)), note: `And the one that is not a fold at all. La France had an article and en got rid of it. ${A122_REFRAME}` },
       { fr: importedFr('fr.a1.routines.063'), en: importedEn('fr.a1.routines.063'), note: `And à l', which folds with nothing. ${A121_REFRAME}` },
     ],
@@ -564,7 +570,7 @@ const SECTIONS: LessonSection[] = [
       { word: 's’appelle', en: 'is called', ipa: '/sa.pɛl/', note: 'His name, and it is a person, which is the whole reason the first sentence uses chez.' },
       { word: 'la rue', en: 'the street', ipa: '/la ʁy/', note: 'A street is a place and not a person, so it takes à like every other building here.' },
       { word: 'puis', en: 'then', ipa: '/pɥi/', note: 'Joins two errands. Nothing about it is this lesson.' },
-      { word: 'jamais', en: 'never', ipa: '/ʒa.mɛ/', note: 'From a1.18, the negation lesson, and it is here because the passage needed one sentence that is not a list.' },
+      { word: 'jamais', en: 'never', ipa: '/ʒa.mɛ/', note: `From ${unitRef('a1.18')}, the negation lesson, and it is here because the passage needed one sentence that is not a list.` },
       { word: 'cette fois', en: 'this time', ipa: '/sɛt fwa/', note: 'Two words and a fixed phrase.' },
     ],
     questions: [
@@ -590,7 +596,7 @@ const SECTIONS: LessonSection[] = [
       { fr: importedFr('fr.sons.muettes.004'), en: importedEn('fr.sons.muettes.004'), note: `${impSub('fr.sons.muettes.004')} The word on its own, published for a lesson about silent letters.` },
       { fr: importedFr('fr.sons.elision.062'), en: importedEn('fr.sons.elision.062'), note: `${impSub('fr.sons.elision.062')} A second city, so this is a rule rather than a fact about Paris.` },
       { fr: importedFr('fr.sons.elision.029'), en: importedEn('fr.sons.elision.029'), note: `${impSub('fr.sons.elision.029')} And coming from, which is de and nothing else for the same reason.` },
-      { fr: importedFr('fr.a2.verbes.285'), en: importedEn('fr.a2.verbes.285'), note: `${impSub('fr.a2.verbes.285')} a2.02 published this one. De Paris, with no du in sight, because there is no le to fold with.` },
+      { fr: importedFr('fr.a2.verbes.285'), en: importedEn('fr.a2.verbes.285'), note: `${impSub('fr.a2.verbes.285')} ${unitRef('a2.02')} published this one. De Paris, with no du in sight, because there is no le to fold with.` },
     ],
     terms: ['noArticle', 'fourKinds'],
   },
@@ -606,7 +612,7 @@ const SECTIONS: LessonSection[] = [
     title: 'The Country You Own',
     frSub: 'Le pays que vous avez',
     layer: 'core',
-    say: `${COUNTRY_UNIT} taught you this row and this lesson is not teaching it again. What is new is where it sits: it is one of four, and the thing it has in common with the other three is the article.`,
+    say: `${Cap(unitRef(COUNTRY_UNIT))} taught you this row and this lesson is not teaching it again. What is new is where it sits: it is one of four, and the thing it has in common with the other three is the article.`,
     examples: [
       { fr: fr(A(131)), en: en(A(131)), note: `${sub(A(131))} ${importedFr('fr.a1.pays-et-nationalites.001')} ${impSub('fr.a1.pays-et-nationalites.001')} had an article and en threw it away.` },
       { fr: fr(A(145)), en: en(A(145)), note: `${sub(A(145))} ${importedFr('fr.a1.pays-et-nationalites.051')} ${impSub('fr.a1.pays-et-nationalites.051')} had a le and à folded into it. That is the same operation as au marché.` },
@@ -632,10 +638,10 @@ const SECTIONS: LessonSection[] = [
       impCard('fr.a1.marche.006', 'a place', 'Au marché, which is the fourth row of the grid on card one.'),
       impCard('fr.a1.la-ville.105', 'a shop', 'À la pharmacie, and there is no person behind this one in the whole corpus.'),
       { label: 'the fold', head: fr(A(132)), sub: sub(A(132)), body: `${en(A(132))} À and le marché, folded.` },
-      { label: 'no fold', head: fr(A(146)), sub: sub(A(146)), body: `${en(A(146))} À and la gare, not folded, and that is half of ${CONTRACTION_UNIT}'s rule.` },
+      { label: 'no fold', head: fr(A(146)), sub: sub(A(146)), body: `${en(A(146))} À and la gare, not folded, and that is half of ${unitRef(CONTRACTION_UNIT, 'a2')}'s rule.` },
       { label: "no fold, l'", head: fr(A(147)), sub: sub(A(147)), body: `${en(A(147))} And à l', which is the other half.` },
       impCard('fr.a1.routines.067', 'home', 'Home is a building here rather than a person, so it takes à like every other building. Chez moi is the version with a person in it, and it is a different sentence.'),
-      impCard('fr.a2.verbes.261', 'the frame', 'a2.02 published this sentence at seq 5 and the four cards on the first screen of this lesson are built on it.'),
+      impCard('fr.a2.verbes.261', 'the frame', `${Cap(unitRef('a2.02'))} published this sentence and the four cards on the first screen of this lesson are built on it.`),
     ],
     terms: ['theArticle', 'aPlusLe', 'fourKinds'],
   },
@@ -913,7 +919,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['au marché', 'au marche', fr(A(132))],
             answer: 'au marché',
-            why: `À and le fold into one word. ${CONTRACTION_UNIT} taught you this and it has not changed.`,
+            why: `À and le fold into one word. ${Cap(unitRef(CONTRACTION_UNIT))} taught you this and it has not changed.`,
             ref: ARTICLE_SECTION_ID,
           },
           {
@@ -930,7 +936,7 @@ const SECTIONS: LessonSection[] = [
             prompt: 'Je vais en la France.',
             accept: [fr(A(131)), 'Je vais en France', 'en France'],
             answer: fr(A(131)),
-            why: `En does not fold with the article, it gets rid of it. ${COUNTRY_UNIT} taught that and this is the same fact from the other side.`,
+            why: `En does not fold with the article, it gets rid of it. ${Cap(unitRef(COUNTRY_UNIT))} taught that and this is the same fact from the other side.`,
             ref: ARTICLE_SECTION_ID,
           },
           {
@@ -955,7 +961,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['du Japon', 'du japon'],
             answer: 'du Japon',
-            why: `The same fold coming back rather than going. ${PARTITIVE_UNIT} owns the other du, the one that means an amount.`,
+            why: `The same fold coming back rather than going. ${Cap(unitRef(PARTITIVE_UNIT))} owns the other du, the one that means an amount.`,
             ref: ARTICLE_SECTION_ID,
           },
         ],
@@ -1085,7 +1091,7 @@ const SECTIONS: LessonSection[] = [
               'Je vais aux États-Unis.',
             ],
             correct: 3,
-            why: `À and les fold into aux, which is the third form of the same operation. ${COUNTRY_UNIT} taught the country and ${CONTRACTION_UNIT} taught the fold.`,
+            why: `À and les fold into aux, which is the third form of the same operation. ${Cap(unitRef(COUNTRY_UNIT))} taught the country and ${unitRef(CONTRACTION_UNIT)} taught the fold.`,
             ref: COUNTRY_SECTION_ID,
           },
         ],
@@ -1125,7 +1131,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: [UNSEEN[3]!.answer, 'en Portugal', 'à Portugal', 'chez le Portugal'],
             correct: 0,
-            why: `A country with a le, so à folds into it. ${COUNTRY_UNIT} gave you the article and this lesson gave you the fold.`,
+            why: `A country with a le, so à folds into it. ${Cap(unitRef(COUNTRY_UNIT))} gave you the article and this lesson gave you the fold.`,
             ref: UNSEEN_SECTION_ID,
           },
           {
@@ -1147,7 +1153,7 @@ const SECTIONS: LessonSection[] = [
               'Which verb you are using',
             ],
             correct: 0,
-            why: `${THE_MOVE} The gender only matters once you know it is a country, which is ${COUNTRY_UNIT}'s half.`,
+            why: `${THE_MOVE} The gender only matters once you know it is a country, which is ${unitRef(COUNTRY_UNIT, 'a2')}'s half.`,
             ref: UNSEEN_SECTION_ID,
           },
         ],
@@ -1168,7 +1174,7 @@ const SECTIONS: LessonSection[] = [
       CHEZ_ARITHMETIC,
       SHOP_CLAIM,
       OWED_CLAIM,
-      `${CONTRACTION_UNIT} owns sur, sous, dans, devant and derrière, and this lesson has not touched one of them.`,
+      `${Cap(unitRef(CONTRACTION_UNIT))} owns sur, sous, dans, devant and derrière, and this lesson has not touched one of them.`,
       NEXT_LESSON_LINE,
       DOCTOR_LINE,
     ],
@@ -1280,7 +1286,7 @@ const DECK_TRANCHE: string[][] = [
 const ERROR_TRIGGERS: ErrorTrigger[] = [
   {
     id: 'err-a-for-chez',
-    description: 'Uses à, au or aux in front of a person, because every place the learner has ever been taught took one of those. It is not a slip: it is a1.21 working exactly as taught, on the one kind of place a1.21 never covered, and it is the error the scene opens on.',
+    description: `Uses à, au or aux in front of a person, because every place the learner has ever been taught took one of those. It is not a slip: it is ${unitRef('a1.21')} working exactly as taught, on the one kind of place ${unitRef('a1.21')} never covered, and it is the error the scene opens on.`,
     detectOn: [FOUR_SECTION_ID, TRAP_SECTION_ID, `${QUIZ_SECTION_ID}/r1-which-kind`],
     drill: 'drill-who-not-where',
     retest: 'retest-who-not-where',
@@ -1294,7 +1300,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-fold-chez',
-    description: 'Folds the article after chez, producing chez au or chez du. A learner who does this has a1.21\'s contraction rule and is applying it to the one word in the language that does not take it.',
+    description: `Folds the article after chez, producing chez au or chez du. A learner who does this has ${unitRef('a1.21')}\'s contraction rule and is applying it to the one word in the language that does not take it.`,
     detectOn: [NOFOLD_SECTION_ID, FOLD_SECTION_ID, `${QUIZ_SECTION_ID}/r2-the-article`],
     drill: 'drill-no-fold',
     retest: 'retest-no-fold',
@@ -1470,7 +1476,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-who-taught',
         title: 'Where each row came from',
         layer: 'deep',
-        body: `${KIND_ORDER.map((k) => `${KIND_LABEL[k]} is ${KIND_OWNER[k] ?? 'this lesson'}`).join(', ')}. ${OWED_CLAIM}`,
+        body: `${KIND_ORDER.map((k) => `${KIND_LABEL[k]} is ${KIND_OWNER[k] ? unitRef(KIND_OWNER[k]!) : 'this lesson'}`).join(', ')}. ${OWED_CLAIM}`,
       },
       {
         type: 'table',
@@ -1577,7 +1583,7 @@ export const PREPOSITIONS_LIEU_LESSON: Lesson = {
   // held v1 with 63 itemIds and the seed would have held v1 with 48, which is
   // exactly the drift ledger §10 exists to prevent. a2.09 set the precedent of
   // moving it rather than relaxing the guard that caught it.
-  version: 3,
+  version: 4,
 
   grammarAssumed: [
     'The definite article and its four forms, introduced in a1.04',

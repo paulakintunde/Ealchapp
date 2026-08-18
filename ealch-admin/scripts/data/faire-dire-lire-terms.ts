@@ -12,6 +12,12 @@
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { NOUS_ON } from './verbes-er-terms.ts';
 import { WHAT_FOLLOWS, WHAT_FOLLOWS_UNIT } from './aller-venir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   ALLER_UNIT, AVOIR_UNIT, ETRE_UNIT, EXPRESSION_TARGET, MODAL_UNIT, ONT_CLUB,
   REACH, REACH_ORDER, SHOPPING_UNIT, TES_CLUB, THE_CONTROL, THE_THREE, THE_VERB,
@@ -108,7 +114,7 @@ export const ONT_CLAIM = `${ONT_CLUB.length} verbs end ils on -ont, and you alre
 /** The boundary sentence about the nouns, which is the general principle the
  *  brief asks to be stated. Carried on the card that hands the neighbours their
  *  subjects back. */
-export const NOT_THE_NOUNS = `The word after ${THE_VERB} belongs to somebody else's lesson. What you are learning is the verb in front of it.`;
+export const NOT_THE_NOUNS = `The word after ${THE_VERB} belongs to somebody else's lesson. What you are learning is the verb in front.`;
 
 export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
   theReach: {
@@ -125,7 +131,7 @@ export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
     term: 'the two that end in -tes',
     title: 'vous faites, vous dites',
     body:
-      `${TES_CLAIM} You have had one of them since ${ETRE_UNIT}: vous êtes. These are the other two, and they are the single most-corrected forms at this level, because every regular pattern you own says the vous form ends in -ez and these two do not. Say faisez to a French person and you will be understood and you will also be heard.`,
+      `${TES_CLAIM} You have had one of them since ${unitRef(ETRE_UNIT)}: vous êtes. These are the other two, and they are the single most-corrected forms at this level, because every regular pattern you own says the vous form ends in -ez and these two do not. Say faisez to a French person and you will be understood and you will also be heard.`,
     examples: [
       { itemId: 'fr.a2.verbes.305', note: 'Not faisez.' },
       { itemId: 'fr.a2.verbes.311', note: 'Not disez, for the same reason.' },
@@ -135,7 +141,7 @@ export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
     term: 'the ones that end in -ont',
     title: 'sont, ont, vont, font',
     body:
-      `${ONT_CLAIM} être at ${ETRE_UNIT}, avoir at ${AVOIR_UNIT}, aller at ${ALLER_UNIT}, and now faire. That is the whole list: no other verb in the language ends its ils form that way, so once you have these four you never have to wonder again. It is a closed set and this is the lesson that closes it.`,
+      `${ONT_CLAIM} être at ${unitRef(ETRE_UNIT)}, avoir at ${unitRef(AVOIR_UNIT)}, aller at ${unitRef(ALLER_UNIT)}, and now faire. That is the whole list: no other verb in the language ends its ils form that way, so once you have these four you never have to wonder again. It is a closed set and this is the lesson that closes it.`,
     examples: [
       { itemId: 'fr.a2.verbes.306', note: 'The fourth and last one.' },
       { itemId: 'fr.a2.verbes.303', note: 'And the singular it belongs to, which sounds nothing like it.' },
@@ -145,7 +151,7 @@ export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
     term: 'the one that behaves',
     title: 'lire, beside the other two',
     body:
-      `${CONTROL_CLAIM} vous lisez ends in -ez like every verb you have built since a2.01, and ils lisent ends in -ent like every plural you have ever written. Put it beside faites and font and you can see what those two are doing wrong. Without it, irregular reads as a warning about the whole language; with it, it is a short list you can finish.`,
+      `${CONTROL_CLAIM} vous lisez ends in -ez like every verb you have built since ${unitRef('a2.01')}, and ils lisent ends in -ent like every plural you have ever written. Put it beside faites and font and you can see what those two are doing wrong. Without it, irregular reads as a warning about the whole language; with it, it is a short list you can finish.`,
     examples: [
       { itemId: 'fr.a2.verbes.317', note: 'The ordinary ending, in the cell where the other two break.' },
       { itemId: 'fr.a2.verbes.318', note: 'And the ordinary plural.' },
@@ -155,7 +161,7 @@ export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
     term: 'the il that is nobody',
     title: 'il fait beau',
     body:
-      `${WEATHER_UNIT} gave you this and gave it to you whole, as a phrase with nothing inside it. It is this verb. il fait is the same form as in Il fait le lit, and the difference is that here the il stands for no person at all: nobody is doing the weather. French needs a subject in every sentence, so it puts one there that means nothing. You now know the verb, which means you can hear what that sentence is made of.`,
+      `${Cap(unitRef(WEATHER_UNIT))} gave you this and gave it to you whole, as a phrase with nothing inside it. It is this verb. il fait is the same form as in Il fait le lit, and the difference is that here the il stands for no person at all: nobody is doing the weather. French needs a subject in every sentence, so it puts one there that means nothing. You now know the verb, which means you can hear what that sentence is made of.`,
     examples: [
       { itemId: 'fr.a1.meteo.027', note: 'The one you already had.' },
       { itemId: 'fr.a2.verbes.303', note: 'And the same two words with a person behind them.' },
@@ -166,7 +172,7 @@ export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
     term: WHAT_FOLLOWS,
     title: 'Il fait beau. Il fait le lit.',
     body:
-      `Two words, twice, and two sentences that have nothing to do with each other. Nothing in il fait tells you which one you are in: a word for how it is outside means the weather, a word for a thing means somebody is doing it, and there is no third option. So you do not read il fait and then work it out. You wait for the next word. You met this shape at ${WHAT_FOLLOWS_UNIT} on a different pair of words, and it works the same way here.`,
+      `Two words, twice, and two sentences that have nothing to do with each other. Nothing in il fait tells you which one you are in: a word for how it is outside means the weather, a word for a thing means somebody is doing it, and there is no third option. So you do not read il fait and then work it out. You wait for the next word. You met this shape at ${unitRef(WHAT_FOLLOWS_UNIT)} on a different pair of words, and it works the same way here.`,
     examples: [
       { itemId: 'fr.a1.meteo.029', note: 'How it is outside. Nobody is doing it.' },
       { itemId: 'fr.a2.verbes.303', note: 'A thing. Somebody is.' },
@@ -176,7 +182,7 @@ export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
     term: 'the words after faire',
     title: 'Which half is this lesson',
     body:
-      `${NOT_THE_NOUNS} The weather words belong to ${WEATHER_UNIT}, and the shopping words to ${SHOPPING_UNIT}, and you do not need either of them to use what is here: take each expression as one piece, the way you take a single word, and the noun inside it will make sense later when somebody teaches it to you properly.`,
+      `${NOT_THE_NOUNS} The weather words belong to ${unitRef(WEATHER_UNIT)}, and the shopping words to ${unitRef(SHOPPING_UNIT)}, and you do not need either of them to use what is here: take each expression as one piece, the way you take a single word, and the noun inside it will make sense later when somebody teaches it to you properly.`,
     examples: [
       { itemId: 'fr.a1.routines.031', note: 'One piece. You are not learning the word for dishes.' },
       { itemId: 'fr.a1.sports-et-loisirs.074', note: 'And one piece here too.' },
@@ -196,7 +202,7 @@ export const FAIRE_DIRE_LIRE_TERMS: Record<string, LessonTerm> = {
     term: 'what dire takes',
     title: 'dire, and one thing at a time',
     body:
-      `${THE_THREE[1]} takes a thing: bonjour, the truth, no. Il dit bonjour. Elle dit non. That is all it does in this lesson, and it is most of what it does in a day. There is a second way of using it, for reporting what somebody else said, and it needs machinery you do not have yet; you will not be shown it here and you will not need it. Compare ${MODAL_UNIT}, which is the next lesson and is about three other verbs that will not come apart.`,
+      `${THE_THREE[1]} takes a thing: bonjour, the truth, no. Il dit bonjour. Elle dit non. That is all it does in this lesson, and it is most of what it does in a day. There is a second way of using it, for reporting what somebody else said, and it needs machinery you do not have yet; you will not be shown it here and you will not need it. Compare ${unitRef(MODAL_UNIT)}, which is the next lesson and is about three other verbs that will not come apart.`,
     examples: [
       { itemId: 'fr.a2.verbes.309', note: 'A thing, straight after the verb.' },
       { itemId: 'fr.a2.verbes.312', note: 'And the plural, which is ordinary in shape.' },

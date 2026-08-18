@@ -68,8 +68,9 @@ import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
 import { normalizeFr } from '../../ealch-v2/src/utils/score.ts';
 import { Pool } from 'pg';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
-  A210_BACKREF, ALLER_STEMS, ALLER_VENIR, AUTHORED_IDS, BLIND_NASALS, COMPOUNDS,
+  A210_BACKREF, A210_BACKREF_UNIT, ALLER_STEMS, ALLER_VENIR, AUTHORED_IDS, BLIND_NASALS, COMPOUNDS,
   COMPOUND_BASE, DICTATION_IDS, DICTEE_NEAR_MISS, DOUBLE_N, DRILL_ADDITIONS,
   FAMILY_UNIT, FRAME_WORD, FUTUR_PROCHE_SHAPE, FUTUR_PROCHE_UNIT,
   HALF_REPAIRED_NANTES, HOMOPHONE_FORMS, NUMBER_PAIRS, ORIGIN_IDS, OWNED_ID_RANGE,
@@ -650,7 +651,7 @@ if (jargon.length) die(`grammar vocabulary reached a learner surface: ${jargon.j
 }
 
 /** THE PATTERN HAS A NAME AND THE NAME IS QUOTABLE. Three later lessons are told
- *  to point back here by unit id, so the name has to be on a learner surface and
+ *  to point back here by its lesson label, so the name has to be on a learner surface and
  *  the unit id has to be on the card that says so. */
 {
   if (!hasPhrase(learnerText, WHAT_FOLLOWS)) {
@@ -663,7 +664,7 @@ if (jargon.length) die(`grammar vocabulary reached a learner surface: ${jargon.j
   const carrying = LESSON.sections.filter((s) => strings(s).some((x) => hasPhrase(x, WHAT_FOLLOWS)));
   if (carrying.length < 3) die(`"${WHAT_FOLLOWS}" reaches ${carrying.length} sections, expected at least 3`);
   const boundary = LESSON.sections.find((s) => (s as { id?: string }).id === BOUNDARY_SECTION_ID);
-  if (!boundary || !strings(boundary).join('\n').includes(WHAT_FOLLOWS_UNIT)) {
+  if (!boundary || !namesUnitLabel(strings(boundary).join('\n'), WHAT_FOLLOWS_UNIT)) {
     die(`${BOUNDARY_SECTION_ID} does not carry the unit id ${WHAT_FOLLOWS_UNIT}, and that is the card that tells the learner the shape will come back`);
   }
   /** AND THE LOWERCASE TERM NAME NEVER OPENS A SENTENCE.
@@ -713,11 +714,11 @@ if (jargon.length) die(`grammar vocabulary reached a learner surface: ${jargon.j
 
 /* ── THE a2.10 LOOP, CLOSED BY SHOWING THE MECHANISM ─────────────────────── */
 {
-  if (!hasPhrase(learnerText, A210_BACKREF)) {
+  if (!namesUnitLabel(learnerText, A210_BACKREF_UNIT)) {
     die(
       `${A210_BACKREF} is named by no section.\n`
       + `  a2.10.l1 named venir and tenir as -ir verbs taking no -iss- and conjugated neither, and a2.10.l2 named the\n`
-      + `  MECHANISM and handed it here by unit id. This lesson is the payoff of both and has to say so.`,
+      + `  MECHANISM and handed it here by its lesson label. This lesson is the payoff of both and has to say so.`,
     );
   }
   const sec = LESSON.sections.find((s) => (s as { id?: string }).id === TOT_SECTION_ID);
@@ -763,7 +764,7 @@ if (jargon.length) die(`grammar vocabulary reached a learner surface: ${jargon.j
   const card = LESSON.sections.find((s) => (s as { id?: string }).id === FAMILY_SECTION_ID);
   if (!card) die(`${FAMILY_SECTION_ID} is gone, and with it the only place the compounds are named`);
   const cardText = strings(card).join('\n');
-  if (!cardText.includes(FAMILY_UNIT)) {
+  if (!namesUnitLabel(cardText, FAMILY_UNIT)) {
     die(`${FAMILY_SECTION_ID} does not say where the family principle is taught. It is ${FAMILY_UNIT}, seq 9, and a boundary with no destination is a warning rather than a teaching.`);
   }
   /** AND THE PRINCIPLE ITSELF IS NOT STATED. This lesson shows two compounds as
@@ -839,8 +840,8 @@ const PRODUCTION_SURFACES = [...producedStrings(), ...deckStrings()];
   const boundary = LESSON.sections.find((s) => (s as { id?: string }).id === BOUNDARY_SECTION_ID);
   if (!boundary) die(`${BOUNDARY_SECTION_ID} is gone, and with it the acknowledgement that aller has a second job`);
   const bText = strings(boundary).join('\n');
-  if (!bText.includes(FUTUR_PROCHE_UNIT)) die(`${BOUNDARY_SECTION_ID} does not name ${FUTUR_PROCHE_UNIT}, so aller's second job is left as a rumour`);
-  if (!bText.includes(PREPOSITION_UNIT)) die(`${BOUNDARY_SECTION_ID} does not name ${PREPOSITION_UNIT}, so which small word follows aller is left as a rumour`);
+  if (!namesUnitLabel(bText, FUTUR_PROCHE_UNIT)) die(`${BOUNDARY_SECTION_ID} does not name ${FUTUR_PROCHE_UNIT}, so aller's second job is left as a rumour`);
+  if (!namesUnitLabel(bText, PREPOSITION_UNIT)) die(`${BOUNDARY_SECTION_ID} does not name ${PREPOSITION_UNIT}, so which small word follows aller is left as a rumour`);
   /** AND THE CARD ITSELF SHOWS NO EXAMPLE OF IT. A card that printed
    *  `je vais manger` in order to defer it would have taught it. */
   if (FUTUR_PROCHE_SHAPE.test(bText)) {
@@ -862,7 +863,7 @@ const PRODUCTION_SURFACES = [...producedStrings(), ...deckStrings()];
   /** AND THE LEARNER IS TOLD WHERE IT IS. The Owns is a past tense arriving
    *  early and that only means something if the learner knows what it is early
    *  FOR. */
-  if (!hasPhrase(learnerText, PASSE_COMPOSE_UNIT)) die(`${PASSE_COMPOSE_UNIT} is named nowhere, so "a past tense, early" is a claim with nothing behind it`);
+  if (!namesUnitLabel(learnerText, PASSE_COMPOSE_UNIT)) die(`${PASSE_COMPOSE_UNIT} is named nowhere, so "a past tense, early" is a claim with nothing behind it`);
   if (!learnerText.includes(TIMELINE)) die(`"${TIMELINE}" appears on no screen, and it is where this lesson says what the Owns is worth`);
 }
 

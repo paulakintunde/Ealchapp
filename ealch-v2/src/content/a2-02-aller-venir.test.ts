@@ -61,6 +61,7 @@ import { dicteeMode } from './dictee.logic.ts';
 import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -523,7 +524,7 @@ test('THE PATTERN HAS A QUOTABLE NAME AND THE UNIT ID IS ON A SCREEN', { skip: n
   const carrying = L!.sections.filter((s) => strings(s).some((x) => hasPhrase(x, WHAT_FOLLOWS)));
   ok(carrying.length >= 3, `the pattern name reaches ${carrying.length} sections, expected at least 3`);
   const b = sec(BOUNDARY_SECTION);
-  ok(b && strings(b).join('\n').includes(WHAT_FOLLOWS_UNIT), `${BOUNDARY_SECTION} does not carry the unit id ${WHAT_FOLLOWS_UNIT}`);
+  ok(b && namesUnitLabel(strings(b).join('\n'), WHAT_FOLLOWS_UNIT), `${BOUNDARY_SECTION} does not carry the unit id ${WHAT_FOLLOWS_UNIT}`);
 });
 
 test('the reframe is carried verbatim and is about the construction', { skip: noLesson }, () => {
@@ -542,7 +543,7 @@ test('the reframe is carried verbatim and is about the construction', { skip: no
 
 test('what the Owns is worth is said to the learner', { skip: noLesson }, () => {
   ok(learnerText.includes(TIMELINE), `"${TIMELINE}" appears on no screen, so "a past tense, early" is a claim with nothing behind it`);
-  ok(hasPhrase(learnerText, PASSE_COMPOSE_UNIT), `${PASSE_COMPOSE_UNIT} is named nowhere, so the learner is not told where the full past tense is`);
+  ok(namesUnitLabel(learnerText, PASSE_COMPOSE_UNIT), `${PASSE_COMPOSE_UNIT} is named nowhere, so the learner is not told where the full past tense is`);
 });
 
 /* ═══ 3. THE FUTUR PROCHE IS NOT TAUGHT ═════════════════════════════════ */
@@ -565,12 +566,12 @@ test('no authored aller row puts an action after the verb', { skip: noLesson }, 
   }
 });
 
-test('the boundary is acknowledged by unit id, with no example of it', { skip: noLesson }, () => {
+test('the boundary is acknowledged by its lesson label, with no example of it', { skip: noLesson }, () => {
   const b = sec(BOUNDARY_SECTION);
   ok(b, `${BOUNDARY_SECTION} is gone, and with it the acknowledgement that aller has a second job`);
   const t = strings(b).join('\n');
-  ok(t.includes(FUTUR_PROCHE_UNIT), `${BOUNDARY_SECTION} does not name ${FUTUR_PROCHE_UNIT}`);
-  ok(t.includes(PREPOSITION_UNIT), `${BOUNDARY_SECTION} does not name ${PREPOSITION_UNIT}, so which small word follows aller is left as a rumour`);
+  ok(namesUnitLabel(t, FUTUR_PROCHE_UNIT), `${BOUNDARY_SECTION} does not name ${FUTUR_PROCHE_UNIT}`);
+  ok(namesUnitLabel(t, PREPOSITION_UNIT), `${BOUNDARY_SECTION} does not name ${PREPOSITION_UNIT}, so which small word follows aller is left as a rumour`);
   ok(
     !FUTUR_PROCHE_SHAPE.test(t),
     `${BOUNDARY_SECTION} shows the futur proche in order to defer it. One line acknowledging it exists is the ceiling; an example is teaching it.`,
@@ -670,10 +671,10 @@ test('THE NUMBER PAIRS ARE AUDIBLE, AND ONLY THE VERB MOVES', { skip: noLesson }
 
 test('THE a2.10 BACK-REFERENCE EXISTS AND IS SHOWN, NOT MENTIONED', { skip: noLesson }, () => {
   ok(
-    hasPhrase(learnerText, A210_BACKREF),
+    namesUnitLabel(learnerText, A210_BACKREF),
     `${A210_BACKREF} is named by no section.\n`
     + `  a2.10.l1 named venir and tenir as -ir verbs taking no -iss- and conjugated neither; a2.10.l2 named the\n`
-    + `  MECHANISM and handed it here by unit id. This lesson is the payoff of both.`,
+    + `  MECHANISM and handed it here by its lesson label. This lesson is the payoff of both.`,
   );
   const s = sec(TOT_SECTION);
   ok(s, `${TOT_SECTION} is gone, and with it the screen that closes the loop`);
@@ -731,7 +732,7 @@ test('AT MOST THREE COMPOUNDS APPEAR, AND THE PRINCIPLE IS NOT TAUGHT', { skip: 
   const stated = PRINCIPLE.filter((p) => hasPhrase(learnerText, p));
   strictEqual(stated.length, 0, `the family principle is stated: ${stated.join(', ')}. That is ${FAMILY_UNIT}'s Owns; here the compounds are evidence only.`);
   const card = sec(FAMILY_SECTION);
-  ok(card && strings(card).join('\n').includes(FAMILY_UNIT), `${FAMILY_SECTION} does not say where the family principle is taught`);
+  ok(card && namesUnitLabel(strings(card).join('\n'), FAMILY_UNIT), `${FAMILY_SECTION} does not say where the family principle is taught`);
 });
 
 /* ═══ 7. The respellings the shared checker cannot see ══════════════════ */

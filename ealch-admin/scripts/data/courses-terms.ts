@@ -12,6 +12,12 @@
 // metalinguistic word this lesson uses is defined here or does not appear.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const COURSES_TERMS: Record<string, LessonTerm> = {
   total: {
@@ -53,7 +59,7 @@ export const COURSES_TERMS: Record<string, LessonTerm> = {
   bareCents: {
     term: 'the bare cents',
     title: 'The number after the currency',
-    body: 'In a shop the cents are said as a plain number with no word in front of them and no et joining the halves. a1.28 taught this; here it arrives at speed inside somebody else\'s sentence.',
+    body: `In a shop the cents are said as a plain number with no word in front of them and no et joining the halves. ${Cap(unitRef('a1.28'))} taught this; here it arrives at speed inside somebody else\'s sentence.`,
     examples: [
       { itemId: 'fr.a2.courses.186', note: 'Six euros, then ninety-five.' },
       { itemId: 'fr.a2.courses.189', note: 'Pile means there are no cents coming.' },
@@ -62,7 +68,7 @@ export const COURSES_TERMS: Record<string, LessonTerm> = {
   container: {
     term: 'a container',
     title: 'A quantity with a shape',
-    body: 'Un kilo, une tranche, un paquet, une douzaine. a1.29 owns these outright. Here they are what you have to produce when the stallholder asks how much, with a queue behind you.',
+    body: `Un kilo, une tranche, un paquet, une douzaine. ${Cap(unitRef('a1.29'))} owns these outright. Here they are what you have to produce when the stallholder asks how much, with a queue behind you.`,
     examples: [
       { itemId: 'fr.a2.courses.003', note: 'A kilo of tomatoes, at the stall.' },
       { itemId: 'fr.a2.courses.175', note: 'The question the container answers.' },
@@ -79,7 +85,7 @@ export const COURSES_TERMS: Record<string, LessonTerm> = {
   rung: {
     term: 'a rung',
     title: 'A rung of the repair ladder',
-    body: 'One of six ways of saying you did not catch that, ordered from the cheapest to the most explicit. a2.07 teaches them. This lesson is where the thing you missed was a number.',
+    body: `One of six ways of saying you did not catch that, ordered from the cheapest to the most explicit. ${Cap(unitRef('a2.07'))} teaches them. This lesson is where the thing you missed was a number.`,
     examples: [
       { itemId: 'fr.a2.au-restaurant.132', note: 'Rung 1, and it costs you nothing.' },
       { itemId: 'fr.a2.au-restaurant.134', note: 'Rung 3, the first that names the fault.' },

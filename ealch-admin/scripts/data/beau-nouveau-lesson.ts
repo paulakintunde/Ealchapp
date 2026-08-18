@@ -1,4 +1,10 @@
-// a2.16.l1 "Beau, nouveau, vieux" — the mission journey.
+
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+import { unitRef } from './_unit-ref.ts';// a2.16.l1 "Beau, nouveau, vieux" — the mission journey.
 //
 // ── THIS IS A FIRST BUILD ──────────────────────────────────────────────────
 //
@@ -466,7 +472,7 @@ const SECTIONS: LessonSection[] = [
         // respellings and the arithmetic only, and the tranche guard caught it:
         // act 2 released twelve rows the learner had seen as grid CELLS and
         // never as cards. A cell is not a row.
-        body: `${(['plain', 'fem', 'plainPl', 'femPl'] as const).map((f) => fr(cellId(a, f))).join(' ')} ${FORM_ORDER.map((f) => formRespell(a, f)).join(' · ')}. ${a === PLURAL_UNCHANGED ? `Its plural is the same word as its singular, which ${BASICS_UNIT} told you about this word.` : 'The plural takes an x, and it makes no sound either way.'}`,
+        body: `${(['plain', 'fem', 'plainPl', 'femPl'] as const).map((f) => fr(cellId(a, f))).join(' ')} ${FORM_ORDER.map((f) => formRespell(a, f)).join(' · ')}. ${a === PLURAL_UNCHANGED ? `Its plural is the same word as its singular, which ${unitRef(BASICS_UNIT)} told you about this word.` : 'The plural takes an x, and it makes no sound either way.'}`,
         say: fr(cellId(a, 'fem')),
       },
     })),
@@ -482,7 +488,7 @@ const SECTIONS: LessonSection[] = [
     hint: 'Swipe through the four you already own.',
     cards: [
       { label: FORM_LABEL.plain, head: form('beau', 'plain'), sub: `[${formRespell('beau', 'plain')}]`, body: `The plain form and the one you learn the word in. ${AGREEMENT_CLAIM}` },
-      { label: FORM_LABEL.fem, fr: fr(cellId('beau', 'fem')), sub: `[${bare(cellId('beau', 'fem'))}]`, body: `${BASICS_UNIT} gave you this one and it has not changed. Say it out loud twice, because the shape this lesson is about is built out of it and out of nothing else.` },
+      { label: FORM_LABEL.fem, fr: fr(cellId('beau', 'fem')), sub: `[${bare(cellId('beau', 'fem'))}]`, body: `${Cap(unitRef(BASICS_UNIT))} gave you this one and it has not changed. Say it out loud twice, because the shape this lesson is about is built out of it and out of nothing else.` },
       { label: FORM_LABEL.plainPl, fr: fr(cellId('beau', 'plainPl')), sub: `[${bare(cellId('beau', 'plainPl'))}]`, body: 'An x on the end rather than an s, and it makes exactly as much noise as an s would, which is none. Act 4 is about that x.' },
       { label: FORM_LABEL.femPl, fr: fr(cellId('beau', 'femPl')), sub: `[${bare(cellId('beau', 'femPl'))}]`, body: 'The woman form with an ordinary s after it. Out loud it is the woman form, and there is nothing new here at all.' },
       { label: 'And the fifth', head: `${FORM_COUNT} shapes, ${SOUND_COUNT} sounds`, body: `${SOUND_CLAIM} The one you have not met is the one the scene stopped on.` },
@@ -601,7 +607,7 @@ const SECTIONS: LessonSection[] = [
     /* THE REASON, WITH sons.07 QUOTED BY UNIT ID AND VERBATIM.
        The brief asks for this by name and the doctrine §B.7 asks for the
        earlier instance to be named. sons.07 is LIVE: v1 in the seed, 19
-       sections, unit sons.07 at seq 8. */
+       sections, unit sons.07. */
     type: 'teach',
     id: REASON_SECTION_ID,
     title: 'Why It Exists At All',
@@ -611,7 +617,7 @@ const SECTIONS: LessonSection[] = [
     // The first version ran to 107 by putting the reason, the recap and the
     // move in one block; the move belongs to s14-which's rule card and to the
     // sheet, both of which already carry it.
-    body: `${REASON_CLAIM} You met that rule in a pronunciation lesson.`,
+    body: `${REASON_CLAIM} You met it in a pronunciation lesson.`,
     terms: ['aVowelIsComing', 'theShortOne'],
   },
 
@@ -629,10 +635,10 @@ const SECTIONS: LessonSection[] = [
     layer: 'core',
     say: CHAIN_CLAIM,
     examples: [
-      { fr: 'ma amie → ' + POSSESSIVE_EXAMPLE, en: 'my friend', note: `${POSSESSIVE_UNIT}. A word swapped for the one from the other side, so that a consonant lands in front of the vowel. Nothing about the friend changed.` },
-      { fr: 'je aime → j’aime', en: 'I like', note: `${ELISION_UNIT}. Here the vowel is thrown away instead of the word being swapped, and the apostrophe marks where it stood.` },
+      { fr: 'ma amie → ' + POSSESSIVE_EXAMPLE, en: 'my friend', note: `${Cap(unitRef(POSSESSIVE_UNIT))}. A word swapped for the one from the other side, so that a consonant lands in front of the vowel. Nothing about the friend changed.` },
+      { fr: 'je aime → j’aime', en: 'I like', note: `${Cap(unitRef(ELISION_UNIT))}. Here the vowel is thrown away instead of the word being swapped, and the apostrophe marks where it stood.` },
       { fr: `${form('beau', 'plain')} → ${form('beau', 'vowel')}`, en: 'lovely', note: 'And this lesson. A word swapped for the one from the other side, exactly as in the first row, and it is the third solution to one problem.' },
-      { fr: ELISION_REFRAME, en: `${ELISION_UNIT}`, note: 'That sentence was written for a pronunciation lesson and it is the shortest description of this one.' },
+      { fr: ELISION_REFRAME, en: `${Cap(unitRef(ELISION_UNIT))}`, note: 'That sentence was written for a pronunciation lesson and it is the shortest description of this one.' },
     ],
     terms: ['aVowelIsComing'],
   },
@@ -707,7 +713,7 @@ const SECTIONS: LessonSection[] = [
       { fr: importedFr(silentHPartnerId), en: importedEn(silentHPartnerId), note: 'A vowel at the front of the next word, on the page and in the mouth. The short form, for the obvious reason.' },
       { fr: importedFr(silentHId), en: importedEn(silentHId), note: 'A consonant at the front of the next word ON THE PAGE. The short form anyway, because there is no consonant in the mouth and the mouth is what decides.' },
       { fr: fr(phraseId('beau')), en: en(phraseId('beau')), note: `And the control. A real consonant, so the plain form, and the difference between this row and the one above it is invisible in writing.` },
-      { fr: `${ELISION_UNIT} · ${ELISION_REFRAME}`, en: 'the lesson that already told you', note: 'The same h behaves the same way in front of the little words, and that is where you met it. Nothing new has been introduced here.' },
+      { fr: `${Cap(unitRef(ELISION_UNIT))} · ${ELISION_REFRAME}`, en: 'the lesson that already told you', note: 'The same h behaves the same way in front of the little words, and that is where you met it. Nothing new has been introduced here.' },
     ],
     terms: ['aVowelIsComing', 'onlyForAMan'],
   },
@@ -872,7 +878,7 @@ const SECTIONS: LessonSection[] = [
     examples: [
       { fr: fr(cellId('beau', 'plainPl')), en: en(cellId('beau', 'plainPl')), note: 'An x. There is no reasoning that gets you here and there is no sound that tells you either. You have to have seen it.' },
       { fr: fr(cellId('nouveau', 'plainPl')), en: en(cellId('nouveau', 'plainPl')), note: 'The second of the two, and the same ending for the same reason.' },
-      { fr: fr(cellId('vieux', 'plainPl')), en: en(cellId('vieux', 'plainPl')), note: `The same four letters as the singular, because there is no room after an x for another one. ${PLURAL_UNCHANGED_UNITS.join(' and ')} both told you this and it has not changed.` },
+      { fr: fr(cellId('vieux', 'plainPl')), en: en(cellId('vieux', 'plainPl')), note: `The same four letters as the singular, because there is no room after an x for another one. ${PLURAL_UNCHANGED_UNITS.map((u, i) => (i === 0 ? Cap(unitRef(u)) : unitRef(u))).join(' and ')} both told you this and it has not changed.` },
       { fr: fr(cellId('vieux', 'femPl')), en: en(cellId('vieux', 'femPl')), note: 'And here the s does turn up, because the woman form gave it somewhere to go. Compare it with the row above.' },
     ],
     terms: ['theXPlural'],
@@ -1180,11 +1186,11 @@ const SECTIONS: LessonSection[] = [
               'Because they go in front of the noun rather than after it',
             ],
             correct: 0,
-            why: `${ELISION_UNIT} said it first: ${ELISION_REFRAME}`,
+            why: `${Cap(unitRef(ELISION_UNIT))} said it first: ${ELISION_REFRAME}`,
             ref: REASON_SECTION_ID,
           },
           {
-            q: `${POSSESSIVE_UNIT} taught you « ${POSSESSIVE_EXAMPLE} » rather than « ma amie ». What has that got to do with this?`,
+            q: `${Cap(unitRef(POSSESSIVE_UNIT))} taught you « ${POSSESSIVE_EXAMPLE} » rather than « ma amie ». What has that got to do with this?`,
             format: 'mcq',
             opts: [
               'Nothing. One is about possession and one is about describing.',
@@ -1294,7 +1300,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: [form('vieux', 'plainPl'), fr(cellId('vieux', 'plainPl'))],
             answer: form('vieux', 'plainPl'),
-            why: `The same four letters as the singular. ${PLURAL_UNCHANGED_UNITS.join(' and ')} both told you so and it is a fact about the letter x rather than about this word.`,
+            why: `The same four letters as the singular. ${PLURAL_UNCHANGED_UNITS.map((u, i) => (i === 0 ? Cap(unitRef(u)) : unitRef(u))).join(' and ')} both told you so and it is a fact about the letter x rather than about this word.`,
             ref: PLURAL_SECTION_ID,
           },
           {
@@ -1408,12 +1414,12 @@ const SECTIONS: LessonSection[] = [
     points: [
       FORM_ARITHMETIC,
       BORROW_ARITHMETIC,
-      `${ELISION_UNIT} said it about the little words in front of a noun: ${ELISION_REFRAME} It was the same rule then and it is the same rule now.`,
+      `${Cap(unitRef(ELISION_UNIT))} said it about the little words in front of a noun: ${ELISION_REFRAME} It was the same rule then and it is the same rule now.`,
       CHAIN_CLAIM,
       PLURAL_CLAIM,
       `${AUDIBLE_CLAIM} That is why two of the five exam rounds are written.`,
       NEXT_LESSON_LINE,
-      `${PLACEMENT_UNIT} owns where the word goes and ${AGREEMENT_UNIT} owns the four shapes underneath these five. Neither of them is this.`,
+      `${Cap(unitRef(PLACEMENT_UNIT))} owns where the word goes and ${unitRef(AGREEMENT_UNIT)} owns the four shapes underneath these five. Neither of them is this.`,
     ],
   },
 ];
@@ -1544,7 +1550,7 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-short-in-predicate',
-    description: 'Puts the short form where nothing follows it, as in « Il est bel. » Comes from learning the form as a property of the word rather than of the position, which is exactly what a1.16 warned it would.',
+    description: `Puts the short form where nothing follows it, as in « Il est bel. » Comes from learning the form as a property of the word rather than of the position, which is exactly what ${unitRef('a1.16')} warned it would.`,
     detectOn: [INVENTED_SECTION_ID, `${QUIZ_SECTION_ID}/r5-in-a-sentence`],
     drill: 'drill-position',
     retest: 'retest-position',
@@ -1787,7 +1793,7 @@ export const BEAU_NOUVEAU_LESSON: Lesson = {
   // Nothing new is owed to the studio for it. rec-a2-16-pairs already briefs and
   // already carries all six of the section's lines, so the audio step is a use
   // of the take this lesson already turns on rather than a second one.
-  version: 3,
+  version: 6,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',

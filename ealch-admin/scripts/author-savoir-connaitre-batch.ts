@@ -65,6 +65,7 @@ import { endingPopulation } from '../../ealch-v2/src/content/gender.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
 import { Pool } from 'pg';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ASSERTED_RESPELLINGS, AUTHORED_IDS, BLIND_NASALS, BLIND_NASAL_ROWS, CHROME_DECISION, CIRCUMFLEX,
   CITED_UNITS, CLAUSE_OPENERS, CONNAITRE_CLAUSE_SHAPE, CONNAITRE_SHAPE,
@@ -498,11 +499,11 @@ if (pouvoirLeaks.length) {
   die(`a form of pouvoir this lesson does not own reached a surface: ${pouvoirLeaks.map((s) => JSON.stringify(s.slice(0, 120))).join('\n  ')}\n`
     + `  ${CONTRAST_UNIT} owns the paradigm. Only ${POUVOIR_ALLOWED.join(' and ')} may appear here.`);
 }
-if (!hasPhrase(allProse, CONTRAST_UNIT)) die(`the lesson never names ${CONTRAST_UNIT}, which owns the third verb`);
+if (!namesUnitLabel(allProse, CONTRAST_UNIT)) die(`the lesson never names ${CONTRAST_UNIT}, which owns the third verb`);
 const pouvoirSec = byId(POUVOIR_SECTION_ID);
 if (!pouvoirSec) die(`${POUVOIR_SECTION_ID} is missing`);
-if (!hasPhrase(prose(pouvoirSec).join('  '), CONTRAST_UNIT)) {
-  die(`${POUVOIR_SECTION_ID} is the savoir/pouvoir contrast and does not name ${CONTRAST_UNIT}. The brief asks for it by unit id.`);
+if (!namesUnitLabel(prose(pouvoirSec).join('  '), CONTRAST_UNIT)) {
+  die(`${POUVOIR_SECTION_ID} is the savoir/pouvoir contrast and does not name ${CONTRAST_UNIT}. The brief asks for it by its lesson label.`);
 }
 /* THE MINIMAL PAIR IS A MINIMAL PAIR. One word changed, nothing else moved. */
 const skillRow = SAVOIR_CONNAITRE.find((r) => r.id === TRAP_PAIR.skill);
@@ -524,7 +525,7 @@ for (const f of FAMILY_NOT_NAMED) {
 }
 const famSec = byId(FAMILY_SECTION_ID);
 if (!famSec) die(`${FAMILY_SECTION_ID} is missing`);
-if (!hasPhrase(prose(famSec).join('  '), FAMILY_UNIT)) die(`${FAMILY_SECTION_ID} does not hand the principle to ${FAMILY_UNIT}`);
+if (!namesUnitLabel(prose(famSec).join('  '), FAMILY_UNIT)) die(`${FAMILY_SECTION_ID} does not hand the principle to ${FAMILY_UNIT}`);
 /* AND IT MUST NOT CLAIM reconnaître FOLLOWS connaître IN WHAT COMES AFTER IT.
    Measured: six published sentences put reconnaître straight before `que`,
    which is the shape this lesson has just taught the learner to reject. */
@@ -801,7 +802,7 @@ if (reframeUses !== EXPECTED_REFRAME_USES) {
 if (reframeUses < 3) die('the density validator requires the reframe in at least three sections');
 
 /* EVERY CITED UNIT IS FINDABLE. */
-const uncited = CITED_UNITS.filter((u) => !hasPhrase(learnerText, u));
+const uncited = CITED_UNITS.filter((u) => !namesUnitLabel(learnerText, u));
 if (uncited.length) {
   die(`these units are named in the corpus as cited and appear nowhere a search can see: ${uncited.join(', ')}\n`
     + `  Check for a possessive: hasPhrase treats "'" as a word character, so "a2.15's" does not match "a2.15".`);

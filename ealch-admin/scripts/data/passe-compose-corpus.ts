@@ -233,6 +233,12 @@
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
 import { REFRAME as A219_REFRAME } from './futur-proche-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  IDENTITY, THE BLOCK, AND THE COUNTS THE BATCH REFUSES TO DISAGREE WITH
@@ -327,7 +333,7 @@ export const PARTICIPLE_DECISION = {
   isCorpusItem: false,
   authoredHere: 0,
   reservedForA220: 0,
-  rule: 'A past form is a conjugated form, and a2.01 settled that a conjugated form is never a corpus item. Only infinitives and full sentences.',
+  rule: `A past form is a conjugated form, and ${unitRef('a2.01')} settled that a conjugated form is never a corpus item. Only infinitives and full sentences.`,
   measuredBareRows: 0,
   lookalikeRows: 24,
   why: 'A bare past form on a card has nobody attached to it, cannot be said on its own, and collides with the infinitive it is built from. parler and parlé are one sound, which is this lesson\'s trap.',
@@ -362,7 +368,7 @@ export const ADVERB_UNIT = 'a2.17';
 /** a2.17's own deferral, verbatim from its shipped lesson. a2.16 §3: assert the
  *  literal, because a back-reference to another unit's line is not a variable. */
 export const A217_DEFERRAL =
-  'In a past tense the short ones move, and that rule arrives with the tense in a2.05.';
+  `In a past tense the short ones move, and that rule arrives with the tense in ${unitRef('a2.05')}.`;
 
 /** a2.18, Prépositions de temps, seq 14. It met `il y a` for "ago" and did not
  *  produce it, and its canDo was reworded on 2026-08-14 to stop promising a
@@ -428,7 +434,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: A219_REFRAME,
-    why: 'a2.19\'s, and taking it would spend this lesson\'s one carried line restating a neighbour\'s. It is quoted verbatim in the act about the negative, credited by unit id, and it answers a different question: it says WHICH of two verbs gets wrapped, and this lesson\'s says that there is a gap between the two words for the wrapping to happen in. Both are on the screen where the negative arrives.',
+    why: `${Cap(unitRef('a2.19'))}\'s, and taking it would spend this lesson\'s one carried line restating a neighbour\'s. It is quoted verbatim in the act about the negative, credited by unit id, and it answers a different question: it says WHICH of two verbs gets wrapped, and this lesson\'s says that there is a gap between the two words for the wrapping to happen in. Both are on the screen where the negative arrives.`,
   },
   {
     candidate: 'Add -é, -i or -u.',
@@ -436,7 +442,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'The first word changes and the second one never does.',
-    why: 'True, useful, and it is a2.13\'s reframe with two words swapped: « One verb changes for the person, and the next one never does. » a2.19 already quoted that one. Reusing a line two lessons in a row stops being a callback and starts being the same card.',
+    why: `True, useful, and it is ${unitRef('a2.13')}\'s reframe with two words swapped: « One verb changes for the person, and the next one never does. » ${unitRef('a2.19')} already quoted that one. Reusing a line two lessons in a row stops being a callback and starts being the same card.`,
   },
 ];
 
@@ -543,7 +549,7 @@ export const POSITION_CLAIM =
  *  additionally assert the literal so a change on either side is caught. */
 export const NEGATION_RULE = A219_REFRAME;
 export const NEGATION_CREDIT =
-  `${FUTUR_UNIT} said it one lesson ago: ${A219_REFRAME} Here the one that changed is avoir, so both halves go round avoir and the past form stays outside them.`;
+  `${Cap(unitRef(FUTUR_UNIT))} said it one lesson ago: ${A219_REFRAME} Here the one that changed is avoir, so both halves go round avoir and the past form stays outside them.`;
 
 /** Measured 2026-08-14 across every published row, and RE-MEASURED by
  *  `_a205_manifest.ts` on every regeneration. `respelled` is the figure that
@@ -593,7 +599,7 @@ export const WRONG: readonly { wrong: string; right: string; why: string }[] = [
   {
     wrong: "J'ai mangé bien.",
     right: "J'ai bien mangé.",
-    why: 'A short adverb goes in the gap, not on the end. This is the rule a2.17 taught for one-word tenses and then handed forward, because a two-word verb has somewhere new to put it.',
+    why: `A short adverb goes in the gap, not on the end. This is the rule ${unitRef('a2.17')} taught for one-word tenses and then handed forward, because a two-word verb has somewhere new to put it.`,
   },
 ];
 
@@ -702,7 +708,7 @@ export const INFINITIVE_MUST_NOT_FIRE: readonly string[] = [
   'You did not stall on a word you had not learned.',
   'The jargon is on a learner surface.',
   'It is drawn on a lesson cover and on a learner surface.',
-  'a2.19 measured it on a Pixel 6.',
+  `${Cap(unitRef('a2.19'))} measured it on a Pixel 6.`,
   'Everything on a card comes from the corpus.',
 ];
 
@@ -750,7 +756,7 @@ export const AGREED_MUST_NOT_FIRE: readonly string[] = [
 export const PDO_EVIDENCE = {
   rows: 81,
   owner: PRONOUN_UNIT,
-  why: 'Every one of the eighty-one is « la valise que j\'ai achetée » or « je l\'ai aidée »: the object arrives BEFORE the verb and it arrives as a pronoun. That needs a2.06 at seq 21, five lessons after this one, so the case exists, this lesson does not meet it, and the guard is scoped to this lesson\'s own surfaces rather than claiming anything about the corpus.',
+  why: `Every one of the eighty-one is « la valise que j\'ai achetée » or « je l\'ai aidée »: the object arrives BEFORE the verb and it arrives as a pronoun. That needs ${unitRef('a2.06')} at seq 21, five lessons after this one, so the case exists, this lesson does not meet it, and the guard is scoped to this lesson\'s own surfaces rather than claiming anything about the corpus.`,
 } as const;
 
 /** THE FOURTH: être as an auxiliary, which is a2.21 and is not one verb of this
@@ -801,10 +807,10 @@ export const IRREGULAR_PAST: readonly string[] = [
 export const IRREGULAR_BY_NAME: readonly string[] = ['fait', 'pris', 'mis', 'vu', 'dit'];
 
 export const IRREGULAR_DEFERRAL =
-  `Some verbs have a past form you could not have guessed from the naming form, and there are about forty of them. They are the next lesson, ${IRREGULAR_UNIT}, and not one of them is in this one.`;
+  `Some verbs have a past form you could not have guessed from the naming form, and there are about forty of them. They are the next lesson, ${unitRef(IRREGULAR_UNIT)}, and not one of them is in this one.`;
 
 export const ETRE_DEFERRAL =
-  `A short list of verbs uses être instead of avoir for the first word, and their past form does change to match the person. That is ${ETRE_UNIT}, and it is the opposite of this rule. Learn this one cleanly first.`;
+  `A short list of verbs uses être instead of avoir for the first word, and their past form does change to match the person. That is ${unitRef(ETRE_UNIT)}, and it is the opposite of this rule. Learn this one cleanly first.`;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE TRAP: ONE SOUND, TWO SPELLINGS, AND THE AUXILIARY IS THE ONLY SIGNAL
@@ -823,7 +829,7 @@ export const TENSE_PAIR = {
   future: 'Je vais manger avec des amis.',
   futureId: 'fr.a2.verbes.527',
   past: "J'ai mangé avec des amis.",
-  why: `${FUTUR_UNIT}'s own card on the left, published one seq back and already respelled, and this build's on the right. Five words in common, one syllable apart, and the syllable is the entire tense.`,
+  why: `${Cap(unitRef(FUTUR_UNIT, 'a2'))}'s own card on the left, published one seq back and already respelled, and this build's on the right. Five words in common, one syllable apart, and the syllable is the entire tense.`,
 } as const;
 
 /** Every past-tense question needs a time expression that fixes the reading,
@@ -847,7 +853,7 @@ export const AGO_PAIR = {
   theirsId: 'fr.a2.prepositions-essentielles.174',
   theirsPhraseId: 'fr.a2.prepositions-essentielles.186',
   mine: 'On a mangé il y a une heure.',
-  why: `${TIME_UNIT} taught « il y a » as a length of time behind you and then had to hand the sentence forward, because saying how long ago something happened needs a past tense and that tense is this one. Its own card is on the left and it already holds this lesson's tense.`,
+  why: `${Cap(unitRef(TIME_UNIT))} taught « il y a » as a length of time behind you and then had to hand the sentence forward, because saying how long ago something happened needs a past tense and that tense is this one. Its own card is on the left and it already holds this lesson's tense.`,
 } as const;
 
 /** a2.17's loop, closed. Its deferral is quoted verbatim, its unit named, and
@@ -856,7 +862,7 @@ export const ADVERB_PAIR = {
   a217: A217_DEFERRAL,
   mine: "J'ai bien mangé.",
   importedIds: ['fr.sons.alphabet.402', 'fr.sons.voyelles.355'],
-  why: `${ADVERB_UNIT} put the short ones straight after the verb when there was one verb. There are two now, so "straight after the verb" has become "in the gap", and it is the same instruction.`,
+  why: `${Cap(unitRef(ADVERB_UNIT))} put the short ones straight after the verb when there was one verb. There are two now, so "straight after the verb" has become "in the gap", and it is the same instruction.`,
 } as const;
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1031,7 +1037,7 @@ export const DISPLAYED_FALSE_POSITIVES: readonly {
     fr: "J'ai mal entendu la deuxième lettre.",
     respell: 'ZHAY MAL ahⁿ-tahⁿ-DÜ LA deu-ZYEHM LEHTR',
     token: 'ZYEHM',
-    why: 'A real /m/ after the two-letter house vowel EH, which is a2.18 §2\'s shape and a2.04 §2\'s unrescued branch. « deuxième » holds no nasal vowel, the row is correct as published, and repairing it would mean writing a nasal into a word that does not have one.',
+    why: `A real /m/ after the two-letter house vowel EH, which is ${unitRef('a2.18')} §2\'s shape and ${unitRef('a2.04')} §2\'s unrescued branch. « deuxième » holds no nasal vowel, the row is correct as published, and repairing it would mean writing a nasal into a word that does not have one.`,
   },
 ];
 
@@ -1143,22 +1149,22 @@ export const PASSE_COMPOSE: PCRow[] = [
    * The same six sentences with the negative in them, so the pair differs by one
    * thing and the one thing is the gap. THE `il` NEGATIVE IS NOT HERE: it is
    * fr.sons.masterclass.021, published and respelled years before this build. */
-  S(547, "Je n'ai pas mangé.", 'I did not eat.', 'zhuh nay pa mahⁿ-ZHAY', '/ʒə ne pa mɑ̃.ʒe/', 'owns', D, TN, 'THIRTEEN LETTERS, so the dictée takes it. a2.19 could not test je at all: « Je ne vais pas partir. » is seventeen. Ne shortens to n\' in front of avoir and that is the whole difference.', 'je'),
+  S(547, "Je n'ai pas mangé.", 'I did not eat.', 'zhuh nay pa mahⁿ-ZHAY', '/ʒə ne pa mɑ̃.ʒe/', 'owns', D, TN, `THIRTEEN LETTERS, so the dictée takes it. ${Cap(unitRef('a2.19'))} could not test je at all: « Je ne vais pas partir. » is seventeen. Ne shortens to n\' in front of avoir and that is the whole difference.`, 'je'),
   S(548, "Tu n'as pas mangé.", 'You did not eat.', 'tü na pa mahⁿ-ZHAY', '/ty na pa mɑ̃.ʒe/', 'owns', NO_D, TN, 'Thirteen letters. The ne has shortened again, and it does that in front of every single form of avoir.', 'tu'),
   S(549, "Nous n'avons pas mangé.", 'We did not eat.', 'noo na-vohⁿ pa mahⁿ-ZHAY', '/nu na.vɔ̃ pa mɑ̃.ʒe/', 'owns', NO_D, TN, 'EIGHTEEN LETTERS, so dicteeMode puts it in WORD mode and it carries no dictation drill. The liaison z is gone with the ne: noo na, not noo za.', 'nous'),
   S(550, "Vous n'avez pas mangé.", 'You did not eat. (to more than one person, or politely)', 'voo na-vay pa mahⁿ-ZHAY', '/vu na.ve pa mɑ̃.ʒe/', 'owns', NO_D, TN, 'Seventeen letters, one over. The same lost liaison.', 'vous'),
   S(551, "Ils n'ont pas mangé.", 'They did not eat.', 'eel nohⁿ pa mahⁿ-ZHAY', '/il nɔ̃ pa mɑ̃.ʒe/', 'owns', D, TN, 'Fifteen letters. Six persons, one gap, and the past form has stayed outside it every time.', 'ils'),
 
   /* ── The three endings, and the three units they come from ────────────────*/
-  S(552, "J'ai parlé.", 'I spoke.', 'zhay par-LAY', '/ʒe paʁ.le/', 'endings', D, [...T, 'er'], `The -ER group, and ${ER_UNIT}'s own headline verb. An -ER naming form ends in -er and its past form ends in -é, and those are the same sound.`, 'je'),
-  S(553, 'Il a fini.', 'He finished.', 'eel ah fee-NEE', '/il a fi.ni/', 'endings', D, [...T, 'ir'], `The -IR group, and ${IR_UNIT}'s own frame verb. « Il a fini. » beside that lesson's « Il finit tôt. » is one verb in two tenses with the same three letters in front.`, 'il'),
-  S(554, 'Il a vendu.', 'He sold.', 'eel ah vahⁿ-DÜ', '/il a vɑ̃.dy/', 'endings', D, [...T, 're'], `The -RE group, and ${RE_UNIT}'s own frame verb. The naming form loses its -re and takes -u, and this is the only one of the three where the ending is not already on the naming form somewhere.`, 'il'),
+  S(552, "J'ai parlé.", 'I spoke.', 'zhay par-LAY', '/ʒe paʁ.le/', 'endings', D, [...T, 'er'], `The -ER group, and ${unitRef(ER_UNIT, 'a2')}'s own headline verb. An -ER naming form ends in -er and its past form ends in -é, and those are the same sound.`, 'je'),
+  S(553, 'Il a fini.', 'He finished.', 'eel ah fee-NEE', '/il a fi.ni/', 'endings', D, [...T, 'ir'], `The -IR group, and ${unitRef(IR_UNIT, 'a2')}'s own frame verb. « Il a fini. » beside that lesson's « Il finit tôt. » is one verb in two tenses with the same three letters in front.`, 'il'),
+  S(554, 'Il a vendu.', 'He sold.', 'eel ah vahⁿ-DÜ', '/il a vɑ̃.dy/', 'endings', D, [...T, 're'], `The -RE group, and ${unitRef(RE_UNIT, 'a2')}'s own frame verb. The naming form loses its -re and takes -u, and this is the only one of the three where the ending is not already on the naming form somewhere.`, 'il'),
   S(555, 'Nous avons choisi.', 'We chose.', 'noo za-vohⁿ shwah-ZEE', '/nu.za.vɔ̃ ʃwa.zi/', 'endings', NO_D, [...T, 'ir'], 'A second -IR verb, in another person, so the ending is clearly the group and not the verb.', 'nous'),
   S(556, 'Ils ont répondu.', 'They answered.', 'eel zohⁿ ray-pohⁿ-DÜ', '/il.zɔ̃ ʁe.pɔ̃.dy/', 'endings', NO_D, [...T, 're'], 'A second -RE verb. Répondre goes to répondu exactly as vendre goes to vendu, and nothing about the person touches it.', 'ils'),
   S(557, 'Tu as travaillé.', 'You worked.', 'tü ah trah-vah-YAY', '/ty a tʁa.va.je/', 'endings', NO_D, [...T, 'er'], 'A four-syllable -ER verb, and the ending does not care how long the verb is.', 'tu'),
 
   /* ── What goes in the gap, beyond the negative. a2.17's loop. ─────────────*/
-  S(558, "J'ai bien mangé.", 'I ate well.', 'zhay byehⁿ mahⁿ-ZHAY', '/ʒe bjɛ̃ mɑ̃.ʒe/', 'inside', D, [...T, 'adverbe'], `The gap again, with something other than pas in it. ${ADVERB_UNIT} put the short ones straight after the verb; there are two words now and the gap is where "straight after" has gone.`, 'je'),
+  S(558, "J'ai bien mangé.", 'I ate well.', 'zhay byehⁿ mahⁿ-ZHAY', '/ʒe bjɛ̃ mɑ̃.ʒe/', 'inside', D, [...T, 'adverbe'], `The gap again, with something other than pas in it. ${Cap(unitRef(ADVERB_UNIT))} put the short ones straight after the verb; there are two words now and the gap is where "straight after" has gone.`, 'je'),
   S(559, 'Il a déjà fini.', 'He has already finished.', 'eel ah day-ZHAH fee-NEE', '/il a de.ʒa fi.ni/', 'inside', NO_D, [...T, 'adverbe'], 'Déjà in the gap, on an -IR verb. Twelve letters, so the dictée can ask for it.', 'il'),
   S(560, 'Nous avons beaucoup travaillé.', 'We worked a lot.', 'noo za-vohⁿ boh-KOO trah-vah-YAY', '/nu.za.vɔ̃ bo.ku tʁa.va.je/', 'inside', NO_D, [...T, 'adverbe'], 'A three-syllable adverb, still in the gap. Twenty-six letters, so no dictée.', 'nous'),
   S(561, 'Elle a bien répondu.', 'She answered well.', 'ehl ah byehⁿ ray-pohⁿ-DÜ', '/ɛl a bjɛ̃ ʁe.pɔ̃.dy/', 'inside', NO_D, [...T, 'adverbe'], 'And the same word in the same place on an -RE verb. Sixteen letters, exactly at the limit.', 'elle'),
@@ -1166,15 +1172,15 @@ export const PASSE_COMPOSE: PCRow[] = [
   /* ── When it happened. a2.18's loop, and the time frames. ─────────────────*/
   S(562, "J'ai travaillé hier.", 'I worked yesterday.', 'zhay trah-vah-YAY YEHR', '/ʒe tʁa.va.je jɛʁ/', 'when', NO_D, [...T, 'temps'], 'Sixteen letters, exactly at the limit, with the commonest past time word in the language on the end.', 'je'),
   S(563, 'Il a fini la semaine dernière.', 'He finished last week.', 'eel ah fee-NEE lah suh-MEN dehr-NYEHR', '/il a fi.ni la sə.mɛn dɛʁ.njɛʁ/', 'when', NO_D, [...T, 'temps'], 'The time phrase is read off fr.sons.jours-et-mois.036 exactly as that row spells it. Twenty-four letters, so no dictée.', 'il'),
-  S(564, 'On a mangé il y a une heure.', 'We ate an hour ago.', 'ohⁿ na mahⁿ-ZHAY eel ee ah ün UHR', '/ɔ̃ na mɑ̃.ʒe il i a yn œʁ/', 'when', NO_D, [...T, 'temps'], `The loop ${TIME_UNIT} asked for. On rather than nous, which is a2.01's rule for the whole level.`, 'on'),
-  S(565, 'Tu as parlé avant-hier ?', 'Did you speak the day before yesterday?', 'tü ah par-LAY ah-vahⁿ-TYEHR', '/ty a paʁ.le a.vɑ̃.tjɛʁ/', 'when', NO_D, [...T, 'temps'], 'A question with no inversion and no est-ce que, which is a1.19\'s register point and the way it is actually said. The time word carries the repair this build makes.', 'tu'),
+  S(564, 'On a mangé il y a une heure.', 'We ate an hour ago.', 'ohⁿ na mahⁿ-ZHAY eel ee ah ün UHR', '/ɔ̃ na mɑ̃.ʒe il i a yn œʁ/', 'when', NO_D, [...T, 'temps'], `The loop ${unitRef(TIME_UNIT)} asked for. On rather than nous, which is ${unitRef('a2.01')}'s rule for the whole level.`, 'on'),
+  S(565, 'Tu as parlé avant-hier ?', 'Did you speak the day before yesterday?', 'tü ah par-LAY ah-vahⁿ-TYEHR', '/ty a paʁ.le a.vɑ̃.tjɛʁ/', 'when', NO_D, [...T, 'temps'], `A question with no inversion and no est-ce que, which is ${unitRef('a1.19')}\'s register point and the way it is actually said. The time word carries the repair this build makes.`, 'tu'),
 
   /* ── Future against past: the sound contrast. ─────────────────────────────
    *
    * a2.19's construction, deliberately, because the contrast cannot be made
    * without it and the learner had that lesson last. Tagged futur-proche rather
    * than passe-compose so a later query can tell them apart. */
-  S(566, 'Je vais manger.', 'I am going to eat.', 'zhuh veh mahⁿ-ZHAY', '/ʒə vɛ mɑ̃.ʒe/', 'tense', NO_D, TF, `${FUTUR_UNIT}'s construction, in the frame verb, so the pair with row 541 differs by one syllable and by nothing else. Twelve letters.`, 'je'),
+  S(566, 'Je vais manger.', 'I am going to eat.', 'zhuh veh mahⁿ-ZHAY', '/ʒə vɛ mɑ̃.ʒe/', 'tense', NO_D, TF, `${Cap(unitRef(FUTUR_UNIT, 'a2'))}'s construction, in the frame verb, so the pair with row 541 differs by one syllable and by nothing else. Twelve letters.`, 'je'),
   S(567, 'Il va manger.', 'He is going to eat.', 'eel va mahⁿ-ZHAY', '/il va mɑ̃.ʒe/', 'tense', NO_D, TF, 'And the same pair with il in front, where the two little words are va and a and neither of them is stressed. Ten letters.', 'il'),
 
   /* ── No agreement with avoir, and the counterexample to the brief's own
@@ -1188,13 +1194,13 @@ export const PASSE_COMPOSE: PCRow[] = [
    * past form does not arrive. What comes instead is the present, which is a
    * complete sentence about tonight. */
   S(570, 'Et hier soir, alors ?', 'And last night, then?', 'ay yehr SWAR ah-LOR', '/e jɛʁ swaʁ a.lɔʁ/', 'scene', NO_D, T, 'Her question, and it has no verb in it at all, which is why he cannot copy a form out of it.'),
-  S(571, "J'ai mangé avec des amis.", 'I ate with friends.', 'zhay mahⁿ-ZHAY ah-VEK day-za-MEE', '/ʒe mɑ̃.ʒe a.vɛk de.za.mi/', 'scene', NO_D, T, `What he meant, in full. ${FUTUR_UNIT} published « Je vais manger avec des amis. » and this is the same evening in the other direction.`, 'je'),
+  S(571, "J'ai mangé avec des amis.", 'I ate with friends.', 'zhay mahⁿ-ZHAY ah-VEK day-za-MEE', '/ʒe mɑ̃.ʒe a.vɛk de.za.mi/', 'scene', NO_D, T, `What he meant, in full. ${Cap(unitRef(FUTUR_UNIT))} published « Je vais manger avec des amis. » and this is the same evening in the other direction.`, 'je'),
   S(572, 'Ah, ce soir alors !', 'Ah, tonight then!', 'ah suh SWAR ah-LOR', '/a sə swaʁ a.lɔʁ/', 'scene', NO_D, T, 'She has moved his evening to tonight, cheerfully, because the tense told her to. Nobody corrected anything and he is now expected. The exclamation mark is back: it was flattened to a full stop under a theory the device refuted, see SCENE_BUBBLE_CLIP.'),
 
   /* ── The conversation, for the role play ─────────────────────────────────*/
   S(573, 'Et toi, tu as travaillé samedi ?', 'And you, did you work on Saturday?', 'ay TWAH · tü ah trah-vah-YAY sam-DEE', '/e twa ty a tʁa.va.je sam.di/', 'talk', NO_D, T, 'A question in the past with no inversion, which is how it is asked.', 'tu'),
   S(574, "Non, je n'ai pas travaillé.", 'No, I did not work.', 'nohⁿ · zhuh nay pa trah-vah-YAY', '/nɔ̃ ʒə ne pa tʁa.va.je/', 'talk', NO_D, TN, 'The refusal, in full, and the gap is doing its job in the first answer of the conversation.', 'je'),
-  S(575, 'Vous avez fini le rapport ?', 'Have you finished the report?', 'voo za-vay fee-NEE luh ra-POR', '/vu.za.ve fi.ni lə ʁa.pɔʁ/', 'talk', NO_D, [...T, 'ir'], 'An -IR verb in the vous form, and the report is a2.19\'s: it published « Elle ne va pas finir le rapport ce soir. » and this is the morning after.', 'vous'),
+  S(575, 'Vous avez fini le rapport ?', 'Have you finished the report?', 'voo za-vay fee-NEE luh ra-POR', '/vu.za.ve fi.ni lə ʁa.pɔʁ/', 'talk', NO_D, [...T, 'ir'], `An -IR verb in the vous form, and the report is ${unitRef('a2.19')}\'s: it published « Elle ne va pas finir le rapport ce soir. » and this is the morning after.`, 'vous'),
   S(576, "Non, nous n'avons pas fini.", 'No, we have not finished.', 'nohⁿ · noo na-vohⁿ pa fee-NEE', '/nɔ̃ nu na.vɔ̃ pa fi.ni/', 'talk', NO_D, TN, 'The nous negative, where the ne shortens and takes the liaison with it. Twenty letters, so it is not a dictée target.', 'nous'),
 ];
 
@@ -1274,7 +1280,7 @@ export const reduceNegative = (neg: string): string =>
  *  looks like a card that never wanted one. */
 export function row(fr: string): PCRow {
   const r = PASSE_COMPOSE.find((x) => x.fr === fr);
-  if (!r) throw new Error(`a2.05: no authored row for "${fr}".`);
+  if (!r) throw new Error(`${unitRef('a2.05')}: no authored row for "${fr}".`);
   return r;
 }
 
@@ -1302,33 +1308,33 @@ export type Import = {
  *  and one is the single respelled negative in the whole corpus. */
 export const IMPORTED: readonly Import[] = [
   // ── The verb the whole construction is built on, and the three groups.
-  { id: 'fr.sons.verbes-essentiels.002', fr: 'avoir', use: 'headword', why: `The first word of every sentence in this lesson, [ah-VWAR], clean. ${AVOIR_UNIT} conjugated it and the learner brings all six forms with them. fr.b1.courses.042 is a second copy carrying gender=m and is deliberately not taken: a gendered single-word row joins a1.03's ending population when the merge carries it.` },
-  { id: 'fr.sons.muettes.037', fr: 'manger', use: 'headword', why: 'THE FRAME VERB, [mahⁿ-ZHAY], from the theme that already went through the nasals, and the same row a2.19 imported one seq back. fr.a1.cuisine.041 and fr.a1.rp-repas.013 publish [mahn-ZHAY], which the checker flags, and neither is displayed or repaired.' },
-  { id: 'fr.sons.verbes-essentiels.015', fr: 'parler', use: 'headword', why: `${ER_UNIT}'s headline verb, [par-LAY], clean, and the -ER row of the endings grid. fr.a1.rp-travail-etudes.042 publishes [pahr-LAY] and is not taken.` },
-  { id: 'fr.sons.verbes-essentiels.037', fr: 'finir', use: 'headword', why: `${IR_UNIT}'s frame verb, [fee-NEER], clean, and the -IR row of the grid.` },
-  { id: 'fr.a2.verbes.027', fr: 'vendre', use: 'headword', why: `${RE_UNIT}'s frame verb, [VAHⁿDR], REPAIRED BY THAT LESSON and already in this lesson's own theme. Four other rows still publish [VAHNDR], which the checker cannot see because a D follows the nasal inside the token, and none of them is displayed.` },
-  { id: 'fr.a2.verbes.020', fr: 'répondre', use: 'headword', why: 'A second -RE verb, [ray-POHⁿDR], repaired by a2.11 in this theme. Six other rows publish [ray-POHNDR] and are not displayed.' },
+  { id: 'fr.sons.verbes-essentiels.002', fr: 'avoir', use: 'headword', why: `The first word of every sentence in this lesson, [ah-VWAR], clean. ${Cap(unitRef(AVOIR_UNIT))} conjugated it and the learner brings all six forms with them. fr.b1.courses.042 is a second copy carrying gender=m and is deliberately not taken: a gendered single-word row joins a1.03's ending population when the merge carries it.` },
+  { id: 'fr.sons.muettes.037', fr: 'manger', use: 'headword', why: `THE FRAME VERB, [mahⁿ-ZHAY], from the theme that already went through the nasals, and the same row ${unitRef('a2.19')} imported one seq back. fr.a1.cuisine.041 and fr.a1.rp-repas.013 publish [mahn-ZHAY], which the checker flags, and neither is displayed or repaired.` },
+  { id: 'fr.sons.verbes-essentiels.015', fr: 'parler', use: 'headword', why: `${Cap(unitRef(ER_UNIT, 'a2'))}'s headline verb, [par-LAY], clean, and the -ER row of the endings grid. fr.a1.rp-travail-etudes.042 publishes [pahr-LAY] and is not taken.` },
+  { id: 'fr.sons.verbes-essentiels.037', fr: 'finir', use: 'headword', why: `${Cap(unitRef(IR_UNIT, 'a2'))}'s frame verb, [fee-NEER], clean, and the -IR row of the grid.` },
+  { id: 'fr.a2.verbes.027', fr: 'vendre', use: 'headword', why: `${Cap(unitRef(RE_UNIT, 'a2'))}'s frame verb, [VAHⁿDR], REPAIRED BY THAT LESSON and already in this lesson's own theme. Four other rows still publish [VAHNDR], which the checker cannot see because a D follows the nasal inside the token, and none of them is displayed.` },
+  { id: 'fr.a2.verbes.020', fr: 'répondre', use: 'headword', why: `A second -RE verb, [ray-POHⁿDR], repaired by ${unitRef('a2.11')} in this theme. Six other rows publish [ray-POHNDR] and are not displayed.` },
   { id: 'fr.sons.verbes-essentiels.038', fr: 'choisir', use: 'headword', why: 'A second -IR verb, [shwah-ZEER], clean. fr.a2.courses.063 publishes [shwa-ZEER] and is not taken.' },
-  { id: 'fr.a2.verbes.031', fr: 'travailler', use: 'headword', why: 'Clean at [trah-vah-YAY], already in this theme, imported by a2.01 and by a2.19. Five published rows spell it this way and two spell it [tra-va-YAY].' },
+  { id: 'fr.a2.verbes.031', fr: 'travailler', use: 'headword', why: `Clean at [trah-vah-YAY], already in this theme, imported by ${unitRef('a2.01')} and by ${unitRef('a2.19')}. Five published rows spell it this way and two spell it [tra-va-YAY].` },
 
   // ── The time words that fix a past reading.
   { id: 'fr.sons.jours-et-mois.025', fr: 'hier', use: 'time', why: 'The commonest past time word in the language, [YEHR], clean and ungendered.' },
-  { id: 'fr.sons.jours-et-mois.027', fr: 'avant-hier', use: 'time', why: 'REPAIRED BY THIS BUILD from [ah-vahn-TYEHR] to [ah-vahⁿ-TYEHR]. The checker flags the stored value, so it is a VISIBLE repair and it is guarded through the shared function exactly as a2.10 does.' },
-  { id: 'fr.sons.mots-essentiels.045', fr: 'bien', use: 'adverb', why: 'The commonest thing to put in the gap after pas, [BYEHⁿ], which is the house value four published rows agree on. a2.17 §2 records [BYAN] as the minimal repair that is not the house value; this row already holds the house one.' },
+  { id: 'fr.sons.jours-et-mois.027', fr: 'avant-hier', use: 'time', why: `REPAIRED BY THIS BUILD from [ah-vahn-TYEHR] to [ah-vahⁿ-TYEHR]. The checker flags the stored value, so it is a VISIBLE repair and it is guarded through the shared function exactly as ${unitRef('a2.10')} does.` },
+  { id: 'fr.sons.mots-essentiels.045', fr: 'bien', use: 'adverb', why: `The commonest thing to put in the gap after pas, [BYEHⁿ], which is the house value four published rows agree on. ${Cap(unitRef('a2.17'))} §2 records [BYAN] as the minimal repair that is not the house value; this row already holds the house one.` },
   { id: 'fr.sons.mots-essentiels.053', fr: 'déjà', use: 'adverb', why: 'The second thing that goes in the gap, [day-ZHAH]. No typed surface can test its accents (fold strips them), so it is asked about by mcq only.' },
 
   // ── THE ONE RESPELLED NEGATIVE IN THE CORPUS, and it is in this frame.
   { id: IL_NEGATIVE_ID, fr: "Il n'a pas mangé.", use: 'paradigm', why: 'THE `il` ROW OF THE PARADIGM, AND IT IS AN IMPORT. One published row in the whole database holds a respelled passé-composé negative and it is this sentence, [eel na pa mahⁿ-ZHAY], in this lesson\'s own frame verb. Its `pa` is the value this lesson takes for the whole build; see §4 of this header. Twelve letters, and it already carries a dictation drill.' },
 
   // ── a2.19's card, so the tense contrast is two published cards.
-  { id: 'fr.a2.verbes.527', fr: 'Je vais manger avec des amis.', use: 'tense', why: `${FUTUR_UNIT}'s own row, [zhuh veh mahⁿ-ZHAY ah-VEK day-za-MEE], in this lesson's theme. This build authors « J'ai mangé avec des amis. » and the two sit adjacent: five words in common and one syllable apart.` },
+  { id: 'fr.a2.verbes.527', fr: 'Je vais manger avec des amis.', use: 'tense', why: `${Cap(unitRef(FUTUR_UNIT, 'a2'))}'s own row, [zhuh veh mahⁿ-ZHAY ah-VEK day-za-MEE], in this lesson's theme. This build authors « J'ai mangé avec des amis. » and the two sit adjacent: five words in common and one syllable apart.` },
 
   // ── a2.18's two, which close the "ago" loop it asked for by name.
-  { id: 'fr.a2.prepositions-essentielles.174', fr: "J'ai commencé il y a trois jours.", use: 'ago', why: `${TIME_UNIT}'s own sentence, [zhay ko-mahⁿ-SAY eel ee ah trwah ZHOOR], and the ONE past-referring row that lesson authored. Its ledger note flags it and hands it here by name.` },
-  { id: 'fr.a2.prepositions-essentielles.186', fr: 'il y a trois jours', use: 'ago', why: `${TIME_UNIT}'s phrase card, [EEL EE AH trwah ZHOOR]. Every time phrase this lesson prints uses that lesson's spelling, unchanged.` },
+  { id: 'fr.a2.prepositions-essentielles.174', fr: "J'ai commencé il y a trois jours.", use: 'ago', why: `${Cap(unitRef(TIME_UNIT, 'a2'))}'s own sentence, [zhay ko-mahⁿ-SAY eel ee ah trwah ZHOOR], and the ONE past-referring row that lesson authored. Its ledger note flags it and hands it here by name.` },
+  { id: 'fr.a2.prepositions-essentielles.186', fr: 'il y a trois jours', use: 'ago', why: `${Cap(unitRef(TIME_UNIT, 'a2'))}'s phrase card, [EEL EE AH trwah ZHOOR]. Every time phrase this lesson prints uses that lesson's spelling, unchanged.` },
 
   // ── a2.17's two, which close the adverb loop.
-  { id: 'fr.sons.alphabet.402', fr: "J'ai mal entendu la deuxième lettre.", use: 'adverb', why: `A published sentence putting a short adverb in the gap, [ZHAY MAL ahⁿ-tahⁿ-DÜ LA deu-ZYEHM LEHTR], on an -RE verb. One of only three of the 154 that carries a respelling. It closes ${ADVERB_UNIT}'s loop with a card rather than a claim.` },
+  { id: 'fr.sons.alphabet.402', fr: "J'ai mal entendu la deuxième lettre.", use: 'adverb', why: `A published sentence putting a short adverb in the gap, [ZHAY MAL ahⁿ-tahⁿ-DÜ LA deu-ZYEHM LEHTR], on an -RE verb. One of only three of the 154 that carries a respelling. It closes ${unitRef(ADVERB_UNIT, 'a2')}'s loop with a card rather than a claim.` },
   { id: 'fr.sons.voyelles.355', fr: "Son style d'écriture a beaucoup changé cette année.", use: 'adverb', why: 'The second of the three, [SOHⁿ STEEL day-kree-TÜR A boh-KOO shahⁿ-ZHAY SEHT a-NAY], with a three-syllable adverb in the gap, so the gap is clearly not one-syllable-wide.' },
 
   // ── A past form in the wild, respelled, from a theme nobody would look in.
@@ -1340,7 +1346,7 @@ export const IMPORTED: readonly Import[] = [
   //    with. See RESPELL_ADDITIONS and DRILL_ADDITIONS.
   { id: 'fr.a2.negation-et-restriction.113', fr: "Elle n'a pas répondu à mon message.", use: 'negative', why: 'NO RESPELLING, and `dictation` as its only drill. An -RE verb in a person the paradigm does not use. ABSENT FROM THE SEED.' },
   { id: 'fr.a2.negation-et-restriction.114', fr: "Nous n'avons pas visité le musée samedi.", use: 'negative', why: 'NO RESPELLING. The nous negative with the elided ne, in a theme this lesson does not write into. ABSENT FROM THE SEED.' },
-  { id: 'fr.a2.negation-et-restriction.117', fr: "Ils n'ont pas payé la facture ce mois-ci.", use: 'negative', why: 'NO RESPELLING. The plural, and an -ER verb whose stem a2.09 taught. ABSENT FROM THE SEED.' },
+  { id: 'fr.a2.negation-et-restriction.117', fr: "Ils n'ont pas payé la facture ce mois-ci.", use: 'negative', why: `NO RESPELLING. The plural, and an -ER verb whose stem ${unitRef('a2.09')} taught. ABSENT FROM THE SEED.` },
   { id: 'fr.a2.negation-et-restriction.142', fr: "Il n'a pas travaillé la semaine dernière.", use: 'negative', why: 'NO RESPELLING, and every token of the supplied value was read off a published row including the whole time phrase. ABSENT FROM THE SEED.' },
 ];
 
@@ -1395,7 +1401,7 @@ export const ABSENT_FROM_SEED: readonly string[] = [
 
 export const importOf = (id: string): Import => {
   const i = IMPORTED.find((x) => x.id === id);
-  if (!i) throw new Error(`a2.05: ${id} is not in IMPORTED.`);
+  if (!i) throw new Error(`${unitRef('a2.05')}: ${id} is not in IMPORTED.`);
   return i;
 };
 
@@ -1411,12 +1417,12 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   {
     id: 'fr.sons.jours-et-mois.036',
     fr: 'la semaine dernière',
-    why: 'CARRIES gender=f, AND IT IS THE ONLY ROW THIS BUILD WANTED THAT DOES. a2.04 §0: a1.03\'s ending population is measured off the SEED and a CARRY is what puts a row there, and this one ends in -e. Its VALUE is read off for two respellings — the whole phrase is [LAH suh-MEN dehr-NYEHR] — because reading a value off a row does not carry the row.',
+    why: `CARRIES gender=f, AND IT IS THE ONLY ROW THIS BUILD WANTED THAT DOES. ${Cap(unitRef('a2.04'))} §0: ${unitRef('a1.03')}\'s ending population is measured off the SEED and a CARRY is what puts a row there, and this one ends in -e. Its VALUE is read off for two respellings — the whole phrase is [LAH suh-MEN dehr-NYEHR] — because reading a value off a row does not carry the row.`,
   },
   {
     id: 'fr.sons.masterclass.020',
     fr: "Il n'a pas encore mangé.",
-    why: 'CARRIES U+203F in [eel na pa-z‿ahⁿ-kohr mahⁿ-ZHAY], which draws as a low underscore on a Pixel 6 against shipped sons.10 content. Refused outright by the manifest generator. It is the sentence next door to the one this lesson imports and it would have been the perfect « pas encore » card.',
+    why: `CARRIES U+203F in [eel na pa-z‿ahⁿ-kohr mahⁿ-ZHAY], which draws as a low underscore on a Pixel 6 against shipped ${unitRef('sons.10')} content. Refused outright by the manifest generator. It is the sentence next door to the one this lesson imports and it would have been the perfect « pas encore » card.`,
   },
   {
     id: 'fr.a2.verbes-essentiels.003',
@@ -1426,7 +1432,7 @@ export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }
   {
     id: 'fr.a2.verbes-essentiels.017',
     fr: 'Il a invité toute la famille pour Noël.',
-    why: 'FLAGGED at [eel ah an-vee-TAY ...]. The house value is [aⁿ-vee-TAY] (fr.a1.amis.019, a2.01\'s repair) against four rows publishing [an-vee-TAY] and one publishing [ehn-vee-TAY]. Three spellings of one word is not this lesson\'s to settle and the row is not displayed.',
+    why: `FLAGGED at [eel ah an-vee-TAY ...]. The house value is [aⁿ-vee-TAY] (fr.a1.amis.019, ${unitRef('a2.01')}\'s repair) against four rows publishing [an-vee-TAY] and one publishing [ehn-vee-TAY]. Three spellings of one word is not this lesson\'s to settle and the row is not displayed.`,
   },
   {
     id: 'fr.a2.negation-et-restriction.112',
@@ -1535,7 +1541,7 @@ export const NOT_REPAIRED: readonly { id: string; fr: string; respell: string; w
   { id: 'fr.a1.rp-repas.013', fr: 'manger', respell: 'mahn-ZHAY', why: 'FLAGGED. A third copy, same reason.' },
   { id: 'fr.a2.verbes-essentiels.003', fr: 'Elle a dansé toute la soirée.', respell: 'ell ah dahn-SAY toot lah swah-RAY', why: 'FLAGGED. Not displayed; see READ_NOT_IMPORTED.' },
   { id: 'fr.a2.verbes-essentiels.017', fr: 'Il a invité toute la famille pour Noël.', respell: 'eel ah an-vee-TAY toot lah fah-MEE poor no-EL', why: 'FLAGGED, and the word is published three ways. Not displayed.' },
-  { id: 'fr.a1.argent-quotidien.062', fr: 'vendre', respell: 'VAHNDR', why: 'BLIND rather than flagged: a D follows the nasal inside the token, so the checker cannot see it. Corrections §6 and a2.18 §1. This build displays fr.a2.verbes.027, which a2.11 already repaired.' },
+  { id: 'fr.a1.argent-quotidien.062', fr: 'vendre', respell: 'VAHNDR', why: `BLIND rather than flagged: a D follows the nasal inside the token, so the checker cannot see it. Corrections §6 and ${unitRef('a2.18')} §1. This build displays fr.a2.verbes.027, which ${unitRef('a2.11')} already repaired.` },
 ];
 
 export const DRILL_ADDITIONS: readonly { id: string; fr: string; add: string[]; why: string }[] = [
@@ -1602,7 +1608,7 @@ export const SHEET_ID = 'sheet.a2.05.passe';
  *  each of those is a screen or it is nothing. */
 export const SECTION_CONVENTION = 24;
 export const SECTION_OVERRUN_REASON =
-  'Three deferrals close here and each of them needs a screen rather than a bullet. Folding them into 24 turns the a2.17 loop, the a2.18 loop and the sound contrast into one card each, which is the shape doctrine §B.5 calls a reference document with pictures.';
+  `Three deferrals close here and each of them needs a screen rather than a bullet. Folding them into 24 turns the ${unitRef('a2.17')} loop, the ${unitRef('a2.18')} loop and the sound contrast into one card each, which is the shape doctrine §B.5 calls a reference document with pictures.`;
 
 /** Doctrine §B.5: if the paradigm outweighs the Owns, the wrong lesson got
  *  built. Asserted rather than described. */

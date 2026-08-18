@@ -58,6 +58,7 @@ import { dicteeMode } from './dictee.logic.ts';
 import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -116,7 +117,10 @@ const REACH_CLAIM = 'One verb, and 30 everyday things you could not say before.'
 const TES_CLAIM = '3 verbs in the language end vous on -tes. Every other verb you will ever meet ends it on -ez.';
 const ONT_CLAIM = '4 verbs end ils on -ont, and you already had 3 of them.';
 const CONTROL_CLAIM = 'lire keeps the endings you already have, and that is the whole reason it is here.';
-const NOT_THE_NOUNS = "The word after faire belongs to somebody else's lesson. What you are learning is the verb in front of it.";
+// TRIMMED BY THE UNIT-LABEL PASS. The card it sits on gained three words when
+// « a1.10 » became « lesson 14 in A1 » and ran over the 45-word core cap, so the
+// closing clause lost « of it ». The quotation follows the content.
+const NOT_THE_NOUNS = "The word after faire belongs to somebody else's lesson. What you are learning is the verb in front.";
 /** a2.01's constant, quoted verbatim. On this verb it lands on the same three
  *  letters as the weather's `il fait`. */
 const NOUS_ON = 'nous parlons is what you write. on parle is what you say.';
@@ -737,7 +741,7 @@ test('the two closed clubs are complete, and this lesson closes both', { skip: n
   // The three prior units are cited by id, so the claim is a payoff rather than
   // an assertion.
   for (const u of ['a1.06', 'a1.07', 'a2.02']) {
-    ok(hasPhrase(learnerText, u), `unit ${u} is cited on no screen, and it is where the learner met a member of one of the clubs`);
+    ok(namesUnitLabel(learnerText, u), `unit ${u} is cited on no screen, and it is where the learner met a member of one of the clubs`);
   }
 });
 
@@ -814,7 +818,7 @@ test('THE NUMBER PAIRS ARE AUDIBLE, AND ONLY THE VERB MOVES', { skip: noLesson }
 
 test('THE WEATHER PHRASES ARE UNFROZEN, NOT RE-TAUGHT', { skip: noLesson }, () => {
   ok(
-    hasPhrase(learnerText, 'a1.10'),
+    namesUnitLabel(learnerText, 'a1.10'),
     'a1.10 is named by no section.\n'
     + '  Its own grammarIntroduced says it taught il fait plus an adjective "as one frozen form and never\n'
     + '  conjugated", and this lesson is where those phrases stop being frozen. That has to be said to the learner.',
@@ -840,14 +844,14 @@ test('NO WEATHER OR SHOPPING VOCABULARY IS TAUGHT', { skip: noLesson }, () => {
   );
   const shopping = SHOPPING_VOCAB.filter((w) => PRODUCTION.some((s) => hasPhrase(s, w)));
   strictEqual(shopping.length, 0, `a2.26's shopping vocabulary reached a production surface: ${shopping.join(', ')}`);
-  // AND BOTH BOUNDARIES ARE HANDED OVER BY UNIT ID, on the card that exists to
+  // AND BOTH BOUNDARIES ARE HANDED OVER BY ITS LESSON LABEL, on the card that exists to
   // do it. `hasPhrase` treats `'` as a word character, so a possessive would not
   // match: the lesson writes "belong to a2.26" for that reason and went to v2
   // over it.
   const b = sec(BOUNDARY_SECTION);
   ok(b, `${BOUNDARY_SECTION} is gone, and with it the card that hands the neighbours their subjects back`);
   const t = strings(b).join('\n');
-  for (const u of ['a1.10', 'a2.26', 'a2.13']) ok(t.includes(u), `${BOUNDARY_SECTION} does not name ${u}, so that boundary is left as a rumour`);
+  for (const u of ['a1.10', 'a2.26', 'a2.13']) ok(namesUnitLabel(t, u), `${BOUNDARY_SECTION} does not name ${u}, so that boundary is left as a rumour`);
   ok(learnerText.includes(NOT_THE_NOUNS), `"${NOT_THE_NOUNS}" appears on no screen, and it is the general principle the brief asks to be stated`);
 });
 
@@ -1374,7 +1378,7 @@ test('THE PATTERN NAME IS a2.02 OWN, QUOTED VERBATIM', { skip: noLesson }, () =>
   );
   const carrying = L!.sections.filter((s) => strings(s).some((x) => hasPhrase(x, WHAT_FOLLOWS)));
   ok(carrying.length >= 2, `the pattern name reaches ${carrying.length} sections, expected at least 2`);
-  ok(hasPhrase(learnerText, WHAT_FOLLOWS_UNIT), `${WHAT_FOLLOWS_UNIT} is cited nowhere, so the name is quoted without saying where it came from`);
+  ok(namesUnitLabel(learnerText, WHAT_FOLLOWS_UNIT), `${WHAT_FOLLOWS_UNIT} is cited nowhere, so the name is quoted without saying where it came from`);
 });
 
 test('the nous/on statement is a2.01 constant and has exactly one home', { skip: noLesson }, () => {
@@ -1516,7 +1520,7 @@ test('the recording instructions that pull in opposite directions are pinned', {
   const weather = recorded.find((r) => r.id === 'rec-a2-12-weather');
   ok(weather, 'the weather clip is gone');
   ok(
-    /a1\.10/i.test(weather!.desc ?? ''),
+    namesUnitLabel(weather!.desc ?? '', 'a1.10'),
     'the weather clip no longer says it must be read exactly as a1.10 reads it. If the five sound different here, the learner concludes the two lessons are about two different things.',
   );
   // Every recordingId a section names really exists.

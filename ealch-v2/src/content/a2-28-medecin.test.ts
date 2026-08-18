@@ -11,6 +11,7 @@ import { test } from 'node:test';
 import { strictEqual, ok, deepStrictEqual } from 'node:assert';
 import seed from './seed.json' with { type: 'json' };
 import { hasPlainNasalFor } from './density.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 /** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
  *
@@ -161,12 +162,12 @@ test('no table, no reference sheet, no deep layer, no imageRef', () => {
 
 /* ═══ The boundary that decides this lesson ══════════════════════════════ */
 
-test('a1.24 is cited by unit id and THE CONTRACTION IS NEVER EXPLAINED', () => {
+test('a1.24 is cited by its lesson label and THE CONTRACTION IS NEVER EXPLAINED', () => {
   // a1.24 is this unit's own prereq and owns `avoir mal à` AND the article
   // contraction across FIVE sections, with two of its own tests pinning them.
   // Re-teaching it would make an A2 learner at seq 27 walk a lesson they walked
   // at A1 seq 27.
-  ok(/a1\.24/.test(ALL_TEXT), 'a1.24 must be named by unit id');
+  ok(namesUnitLabel(ALL_TEXT, 'a1.24'), 'a1.24 must be named by its lesson label');
   for (const shape of [
     /\bà\s*\+\s*le\b/i, /\bau\s*=\s*à\s*le\b/i, /\baux\s*=\s*à\s*les\b/i,
     /\bcontraction\b/i, /\bcontracts?\s+(?:to|into)\b/i, /\bau,?\s+à la,?\s+aux\b/i,
@@ -178,7 +179,7 @@ test('a1.24 is cited by unit id and THE CONTRACTION IS NEVER EXPLAINED', () => {
 });
 
 test('a2.18 is cited and the tense depuis wants is never taught', () => {
-  ok(/a2\.18/.test(ALL_TEXT), 'a2.18 must be named by unit id, because depuis appears here');
+  ok(namesUnitLabel(ALL_TEXT, 'a2.18'), 'a2.18 must be named by its lesson label, because depuis appears here');
   for (const shape of [
     /depuis[^.?!]{0,40}\bpresent tense\b/i, /\bpresent tense\b[^.?!]{0,40}depuis/i,
     /\bEnglish hands you a past tense\b/i,
@@ -423,7 +424,7 @@ test('EVERY repair utterance is an imported a2.07 id, and zero were authored', (
   for (const id of REPAIR_IDS) {
     ok(tranche.has(id), `${id} is released by no deckTranche. NO RENDERER READS itemIds ON A cardDeck.`);
   }
-  ok(/a2\.07/.test(ALL_TEXT), 'a2.07 must be named by unit id');
+  ok(namesUnitLabel(ALL_TEXT, 'a2.07'), 'a2.07 must be named by its lesson label');
 });
 
 test('no cardDeck carries itemIds, which draws nothing', () => {

@@ -62,6 +62,12 @@ import {
 } from './pronominaux-corpus.ts';
 import { ALREADY_YOURS, EVIDENCE_LINE, PRONOMINAUX_TERMS } from './pronominaux-terms.ts';
 import { importedEn, importedFr, rowCard, sub as impSub } from './pronominaux-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the rows ─────────────────────────────────────────────────────
  *
@@ -151,7 +157,7 @@ const SCENE_BEATS: SceneBeat[] = [
     en: SCENE_ERROR_EN,
     size: 'md',
     reveal: 'tap',
-    stage: `${ROUTINE_UNIT} gave you this sentence whole and you have said it before. Under a real question the little word is the part that goes, because it is the part that carries no meaning you can point at.`,
+    stage: `${Cap(unitRef(ROUTINE_UNIT))} gave you this sentence whole and you have said it before. Under a real question the little word is the part that goes, because it is the part that carries no meaning you can point at.`,
     audio: { mode: 'tts', lang: 'fr-FR' },
   },
   {
@@ -189,7 +195,7 @@ const SCENE_BEATS: SceneBeat[] = [
   {
     kind: 'resolve',
     size: 'md',
-    text: `${ROUTINE_UNIT} put this exact error on a card. What it could not tell you was what to do when the person is not je, because it had only shown you three of them. ${REFRAME}`,
+    text: `${Cap(unitRef(ROUTINE_UNIT))} put this exact error on a card. What it could not tell you was what to do when the person is not je: it had shown you three. ${REFRAME}`,
   },
 ];
 
@@ -230,7 +236,7 @@ const SECTIONS: LessonSection[] = [
         label: 'you already say this',
         fr: importedFr('fr.a1.presentation-personnelle.001'),
         sub: importedEn('fr.a1.presentation-personnelle.001'),
-        body: `${ALPHABET_UNIT} taught this in the very first lesson, and there is a little word in it that nobody explained. It is the one this whole lesson is about, and you have been getting it right for thirty lessons without knowing there was anything to get.`,
+        body: `${Cap(unitRef(ALPHABET_UNIT))} taught this first, and there is a little word in it that nobody explained. It is the one this whole lesson is about, and you have been getting it right for thirty lessons without knowing there was anything to get.`,
       },
       {
         head: 'And it is not about washing yourself',
@@ -256,9 +262,9 @@ const SECTIONS: LessonSection[] = [
     frSub: 'Ce que vous saurez faire',
     layer: 'core',
     goals: [
-      { t: 'Use all six, not three', s: `${ROUTINE_UNIT} gave you je, tu and il as whole phrases. The other three follow from one idea rather than from three more phrases to learn.` },
+      { t: 'Use all six, not three', s: `${Cap(unitRef(ROUTINE_UNIT))} gave you je, tu and il as whole phrases. The other three follow from one idea rather than from three more phrases to learn.` },
       { t: 'Know why the word is there', s: 'Je lave la voiture washes something and names it. Je me lave has nothing left to name, and that is what the little word is doing.' },
-      { t: 'Say no without moving it', s: `The two halves of the negative go round both little words, not just the verb. ${FUTUR_UNIT} gave you the rule and this is the one case where reading it too literally produces the mistake.` },
+      { t: 'Say no without moving it', s: `The two halves of the negative go round both little words, not just the verb. ${Cap(unitRef(FUTUR_UNIT))} gave you the rule and this is the one case where reading it too literally produces the mistake.` },
       { t: 'Build one you were never shown', s: 'Any verb that arrives with se in front of it works this way, so the last part of the lesson hands you verbs the table never used.' },
     ],
   },
@@ -349,7 +355,7 @@ const SECTIONS: LessonSection[] = [
          * version of this and every guard in the band checks for two dots only;
          * a stop followed by a comma is the same defect and no host gate in
          * this band could see it. The guard is widened alongside this fix. */
-        body: `The first one says who, the second says who it is happening to, and they are the same people. ${ROUTINE_UNIT} already put this shape on a screen, in ${noStop(importedFr('fr.a1.routines.181'))}, beside a verb that carries no little word at all.`,
+        body: `The first one says who, the second says who it is happening to, and they are the same people. ${Cap(unitRef(ROUTINE_UNIT))} already put this shape on a screen, in ${noStop(importedFr('fr.a1.routines.181'))}, beside a verb carrying no little word.`,
       },
       {
         head: 'And so is the other one',
@@ -398,7 +404,7 @@ const SECTIONS: LessonSection[] = [
         q: `${noStop(fr(A(723)))} against ${noStop(fr(A(726)))}. And here?`,
         opts: ['Nothing at all', 'The ending of the verb', 'The little word'],
         correct: 0,
-        why: `${A201_REFRAME} That is ${ER_UNIT}'s line. Il and ils are one sound, se is se, and lave and lavent are one sound, so these two are identical end to end.`,
+        why: `${A201_REFRAME} That is ${unitRef(ER_UNIT, 'a2')}'s line. Il and ils are one sound, se is se, and lave and lavent are one sound, so these two are identical end to end.`,
       },
     ],
   },
@@ -464,7 +470,7 @@ const SECTIONS: LessonSection[] = [
         label: "s'appeler",
         fr: importedFr('fr.a1.presentation-personnelle.001'),
         sub: `${impSub('fr.a1.rencontres.105')} ${importedEn('fr.a1.rencontres.105')}`,
-        body: `Nobody calls themselves anything. ${EXC_UNIT} taught the spelling of this one, where the l doubles in four of the six people, and it did not say why the m was there. This is why.`,
+        body: `Nobody calls themselves anything. ${Cap(unitRef(EXC_UNIT))} taught the spelling of this one, where the l doubles in four of the six people, and it did not say why the m was there. This is why.`,
       },
       {
         head: 'To hurry',
@@ -515,7 +521,7 @@ const SECTIONS: LessonSection[] = [
         label: 'both at once',
         fr: importedFr('fr.a1.routines.144'),
         sub: importedEn('fr.a1.routines.144'),
-        body: `${ROUTINE_UNIT} shipped this and said the rest was a whole band away: « ${A125_HANDOFF} » Two of them in one sentence, one elided.`,
+        body: `${Cap(unitRef(ROUTINE_UNIT))} shipped this and said the rest was a whole band away: « ${A125_HANDOFF} » Two in one sentence, one elided.`,
       },
     ],
   },
@@ -538,7 +544,7 @@ const SECTIONS: LessonSection[] = [
         label: 'se lever',
         fr: importedFr('fr.a1.routines.003'),
         sub: importedEn('fr.a1.routines.003'),
-        body: `${ROUTINE_UNIT} taught this whole. Now that you can see the parts, there is something in the middle of the verb that se laver does not do, and it is worth naming so it does not look like part of carrying a little word.`,
+        body: `${Cap(unitRef(ROUTINE_UNIT))} taught this whole. Now that you can see the parts, there is something in the middle of the verb that se laver does not do, and it is worth naming so it does not look like carrying a little word.`,
       },
       {
         head: 'Four move, two do not',
@@ -552,7 +558,7 @@ const SECTIONS: LessonSection[] = [
         label: 'one thing at a time',
         fr: `${noStop(fr(STEM_IDS[0]!))} · ${noStop(fr(A(721)))}`,
         sub: `${en(STEM_IDS[0]!)} · ${en(A(721))}`,
-        body: `${A209_REFRAME} That is ${EXC_UNIT}'s line and it is about the vowel. Me is me in both of these. The table uses se laver because nothing else in it moves.`,
+        body: `${A209_REFRAME} That is ${unitRef(EXC_UNIT, 'a2')}'s line and it is about the vowel. Me is me in both of these. The table uses se laver because nothing else in it moves.`,
       },
     ],
   },
@@ -626,14 +632,14 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'And all of these have a past',
-        label: `${PAST_UNIT}`,
+        label: `${Cap(unitRef(PAST_UNIT))}`,
         fr: `${noStop(fr(A(721)))} · ${noStop(fr(A(732)))}`,
         sub: 'today only, in both of these',
         body: `${PRESENT_NO_AGREEMENT} ${PAST_DEFERRAL}`,
       },
       {
         head: 'The same words, a different job',
-        label: `${DIRECT_OBJECT_UNIT} · ${INDIRECT_OBJECT_UNIT}`,
+        label: `${Cap(unitRef(DIRECT_OBJECT_UNIT))} · ${unitRef(INDIRECT_OBJECT_UNIT)}`,
         fr: 'me · te · se · nous · vous',
         sub: 'the same five, twice over',
         body: OBJECT_DEFERRAL,
@@ -668,17 +674,17 @@ const SECTIONS: LessonSection[] = [
       },
       {
         head: 'And it is the rule you already have',
-        label: `${NEGATION_UNIT} · ${FUTUR_UNIT} · ${PASSE_UNIT} · ${ETRE_UNIT}`,
+        label: `${Cap(unitRef(NEGATION_UNIT))} · ${unitRef(FUTUR_UNIT)} · ${unitRef(PASSE_UNIT)} · ${unitRef(ETRE_UNIT)}`,
         fr: `${noStop(fr(A(730)))} · ${noStop(fr(A(729)))}`,
         sub: `${sub(A(730))} · ${sub(A(729))}`,
-        body: `« ${A118_REFRAME} » is ${NEGATION_UNIT}'s line and « ${NEGATION_RULE} » is ${FUTUR_UNIT}'s, quoted by ${PASSE_UNIT} and again by ${ETRE_UNIT}. Four lessons, one rule, and it has not changed here either.`,
+        body: `« ${A118_REFRAME} » is ${unitRef(NEGATION_UNIT, 'a2')}'s line and « ${NEGATION_RULE} » is ${unitRef(FUTUR_UNIT, 'a2')}'s, quoted by ${unitRef(PASSE_UNIT, 'a2')} and ${unitRef(ETRE_UNIT, 'a2')}. Four lessons, one rule, unchanged here.`,
       },
       {
         head: 'What goes inside the wrap',
         label: 'why me is inside',
         fr: `${noStop(fr(A(728)))} · ${noStop(fr(A(731)))}`,
         sub: `${sub(A(731))} ${en(A(731))}`,
-        body: `The verb changed for the person, so it goes inside. The little word changed too, so it goes inside as well. That is the only thing this lesson adds to a rule you have had since ${NEGATION_UNIT}.`,
+        body: `The verb changed for the person, so it goes inside. The little word changed too, so it goes inside as well. That is the only thing this lesson adds to a rule you have had since ${unitRef(NEGATION_UNIT)}.`,
       },
     ],
   },
@@ -913,7 +919,7 @@ const SECTIONS: LessonSection[] = [
       },
       {
         front: 'Nous nous levons. Is that a typo?',
-        back: `No. The first says who and the second says who it is happening to, and they are the same people. ${ROUTINE_UNIT} already put that sentence on a screen.`,
+        back: `No. The first says who and the second says who it is happening to, and they are the same people. ${Cap(unitRef(ROUTINE_UNIT))} already put that sentence on a screen.`,
         say: fr(A(735)),
       },
       {
@@ -928,7 +934,7 @@ const SECTIONS: LessonSection[] = [
       },
       {
         front: 'Je me lève. Why is there an accent that se laver does not have?',
-        back: `${A209_REFRAME} That is ${EXC_UNIT}'s rule about the vowel and it has nothing to do with the little word.`,
+        back: `${A209_REFRAME} That is ${unitRef(EXC_UNIT, 'a2')}'s rule about the vowel and it has nothing to do with the little word.`,
         say: fr(A(732)),
       },
       {
@@ -948,9 +954,9 @@ const SECTIONS: LessonSection[] = [
     body: 'The exam has six rounds and most of it is typed, because producing the little word is the thing this lesson claims you can do, and picking it out of four is a different job.',
     stats: [
       { k: 'Little words', v: '6, and they are the people you already had.' },
-      { k: 'New endings', v: `0. ${ER_UNIT} gave you every one of them.` },
+      { k: 'New endings', v: `0. ${Cap(unitRef(ER_UNIT))} gave you every one of them.` },
       { k: 'Verbs you were shown', v: '2, and the last act used six more you were not.' },
-      { k: 'Used again in', v: `${PAST_UNIT}, which declares this lesson as a prerequisite.` },
+      { k: 'Used again in', v: `${Cap(unitRef(PAST_UNIT))}, which declares this lesson as a prerequisite.` },
     ],
   },
 
@@ -1103,7 +1109,7 @@ const SECTIONS: LessonSection[] = [
             ],
             correct: 0,
             ref: NEGATIVE_SECTION_ID,
-            why: `${FUTUR_UNIT} said it, ${PASSE_UNIT} quoted it and ${ETRE_UNIT} quoted it again. This lesson adds one sentence to it rather than replacing it: ${NEGATION_EXTENSION}`,
+            why: `${Cap(unitRef(FUTUR_UNIT))} said it, ${unitRef(PASSE_UNIT)} quoted it and ${unitRef(ETRE_UNIT)} quoted it again. This lesson adds one sentence to it rather than replacing it: ${NEGATION_EXTENSION}`,
           },
           {
             format: 'typeIn',
@@ -1281,7 +1287,7 @@ const SECTIONS: LessonSection[] = [
       `Four of the six little words are different from the person in front of them and two are identical. ${DOUBLED.map((d) => `${d} ${d}`).join(' and ')} are not typos.`,
       `${NEGATION_RULE} Here two words changed for the person rather than one, so ${NEGATION_EXTENSION.charAt(0).toLowerCase()}${NEGATION_EXTENSION.slice(1)}`,
       'Some of them mean nothing reflexive at all. Nobody hurries themselves, and nobody calls themselves anything, and the little word is obligatory on both.',
-      `${A209_REFRAME} The vowel in se lève moves for a reason that has nothing to do with the little word, and ${EXC_UNIT} already gave you it.`,
+      `${A209_REFRAME} The vowel in se lève moves for a reason that has nothing to do with the little word, and ${unitRef(EXC_UNIT)} already gave you it.`,
       `Any verb that arrives with se in front of it works this way, so the six the table never showed you cost nothing extra. ${PRESENT_NO_AGREEMENT}`,
     ],
   },
@@ -1364,14 +1370,14 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'err-dropped-clitic',
-    description: 'Drops the little word altogether, which leaves a complete French sentence about doing the thing to something else. « Je lève à sept heures. » a1.25 records the same error and this lesson opens on it.',
+    description: `Drops the little word altogether, which leaves a complete French sentence about doing the thing to something else. « Je lève à sept heures. » ${unitRef('a1.25')} records the same error and this lesson opens on it.`,
     detectOn: [SCENE_SECTION_ID, CONTRAST_SECTION_ID, LISTEN_SECTION_ID, QUIZ_SECTION_ID],
     drill: 'drill-dropped',
     retest: 'retest-dropped',
   },
   {
     id: 'err-ne-after-clitic',
-    description: 'Puts ne between the little word and the verb, which is what a2.19\'s rule produces when it is read at its word. « Je me ne lave pas. »',
+    description: `Puts ne between the little word and the verb, which is what ${unitRef('a2.19')}\'s rule produces when it is read at its word. « Je me ne lave pas. »`,
     detectOn: [NEGATIVE_SECTION_ID, WRAP_SECTION_ID, QUIZ_SECTION_ID],
     drill: 'drill-wrap',
     retest: 'retest-wrap',
@@ -1484,14 +1490,14 @@ const SHEETS: ReferenceSheet[] = [
         type: 'teach',
         layer: 'deep',
         title: 'Two things that are not this rule',
-        body: `${A209_REFRAME} The vowel in je me lève opens for a reason ${EXC_UNIT} gave you, in the four people where the ending makes no sound, and it has nothing to do with the little word. And the little word loses its e in front of a vowel, which is the elision rule you already have: je m'habille, ils s'habillent.`,
+        body: `${A209_REFRAME} The vowel in je me lève opens for a reason ${unitRef(EXC_UNIT)} gave you, in the four people where the ending makes no sound, and it has nothing to do with the little word. And the little word loses its e in front of a vowel, which is the elision rule you already have: je m'habille, ils s'habillent.`,
       },
       {
         id: 'sheet-next',
         type: 'teach',
         layer: 'deep',
         title: 'What is not here',
-        body: `${PRESENT_NO_AGREEMENT} ${PAST_DEFERRAL} And the same five words do a second job standing in for a thing rather than pointing back at the person, which is ${DIRECT_OBJECT_UNIT} and ${INDIRECT_OBJECT_UNIT}.`,
+        body: `${PRESENT_NO_AGREEMENT} ${PAST_DEFERRAL} And the same five words do a second job standing in for a thing rather than pointing back at the person, which is ${unitRef(DIRECT_OBJECT_UNIT)} and ${unitRef(INDIRECT_OBJECT_UNIT)}.`,
       },
     ],
   },
@@ -1555,10 +1561,10 @@ export const LESSON: Lesson = {
    *  THE COUNTER MOVES RATHER THAN THE BODY BEING CORRECTED UNDER v1. Ledger
    *  §10: two different bodies under one number is the drift this project has
    *  lost work to twice. a2.09 set the precedent and a2.20 followed it twice. */
-  version: 2,
+  version: 3,
 
   intro:
-    `About half the verbs in a French day arrive with a small word in front of them, and ${ROUTINE_UNIT} asked you to store it with the verb. That was the right thing to do while you only needed three of them. It is not a fixed piece of the verb: it is the person you have just named, said again, and it changes every time they do. This is all six of them, the one place saying no goes wrong, and the three verbs that carry it and mean nothing by it.`,
+    `About half the verbs in a French day arrive with a small word in front of them, and ${unitRef(ROUTINE_UNIT)} asked you to store it with the verb. That was the right thing to do while you only needed three of them. It is not a fixed piece of the verb: it is the person you have just named, said again, and it changes every time they do. This is all six of them, the one place saying no goes wrong, and the three verbs that carry it and mean nothing by it.`,
 
   grammarAssumed: [
     'The present of regular -er verbs, as a stem plus six endings, introduced in a2.01',

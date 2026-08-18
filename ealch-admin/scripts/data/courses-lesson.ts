@@ -30,6 +30,12 @@
 
 import type { Lesson, LessonAct, LessonSection, LessonDrill } from '../../../ealch-v2/src/content/schema.ts';
 import { COURSES_TERMS } from './courses-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   UNIT, LESSON_ID, REFRAME, C, M, Q, REPAIR_IDS, REPAIR_UNIT, IMPORTED,
   PRICE_UNIT, NUMBERS_UNIT, CONTAINER_UNIT, MODAL_UNIT,
@@ -121,7 +127,7 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
     kind: 'break', size: 'lg',
     heading: 'You heard all of it except the part that mattered',
     body: 'Your sentence was correct and she understood it. Then she said a number once, at her speed, inside a sentence that started before it. Nothing about the French was hard. You had no warning a figure was coming and no way to slow it.',
-    coach: 'The number comes once. Asking again is part of the script, and a2.07 already gave you six ways to do it.',
+    coach: `The number comes once. Asking again is part of the script, and ${unitRef('a2.07')} already gave you six ways to do it.`,
     right: { fr: 'Pardon ?', en: 'the cheapest thing you can say', ipa: '/paʁ.dɔ̃/', respell: '[par-DOHⁿ]' },
     wrong: { fr: 'Euh... oui, voilà.', en: 'handing over a note you have not checked', ipa: '/ø wi vwa.la/', respell: '[EU wee vwa-LA]' },
     audio: { lang: 'fr-FR', mode: 'tts', speeds: [1, 0.65], audioFirst: true },
@@ -156,7 +162,7 @@ const S_GOALS: LessonSection = {
     { t: 'Hear the frame coming', s: 'Ça fait, ça vous fait, ça fera and le total est de are one move in four costumes, and each buys you half a second.' },
     { t: 'Catch a price at full speed', s: 'One run, currency then a bare number, said inside a sentence that started before it.' },
     { t: 'Catch the change too', s: 'The second figure is said faster than the first and nobody repeats it.' },
-    { t: 'Ask a French speaker to say a number again, without apologising for it', s: 'a2.07 gave you six ways. This is where the thing you missed was a figure.' },
+    { t: 'Ask a French speaker to say a number again, without apologising for it', s: `${Cap(unitRef('a2.07'))} gave you six ways. This is where the thing you missed was a figure.` },
     { t: 'Get out without buying', s: 'Je regarde seulement, and three more. Without them you either buy something or leave.' },
   ],
 };
@@ -176,7 +182,7 @@ const S_SHAPE: LessonSection = {
     { head: 'Move 3', fr: 'Je voudrais...', sub: '[zhuh voo-DREH]', body: 'Your request, and the only long sentence you get to build. At a market stall a quantity goes in here; at a clothes shop a size does.', label: 'you answer' },
     { head: 'Move 4', fr: 'Et avec ceci ?', sub: '[ay a-vek suh-SEE]', body: 'The upsell, and it has no verb and no noun in it. Ce sera tout ? is the same move at a supermarket till. Saying nothing gets you asked twice.', label: 'she asks' },
     { head: 'Move 5', fr: 'Ça fait...', sub: '[sa FEH]', body: 'The frame, and the number is directly behind it. This is the one move in the seven that you cannot recover from by guessing, and act 3 is about nothing else.', label: 'the figure lands' },
-    { head: 'Move 6', fr: 'Par carte, s\'il vous plaît.', sub: '[par KART seel voo PLEH]', body: 'You pay. Three words is the whole answer to Vous réglez comment ?, and a2.07 taught the same exchange at a restaurant table.', label: 'you answer' },
+    { head: 'Move 6', fr: 'Par carte, s\'il vous plaît.', sub: '[par KART seel voo PLEH]', body: `You pay. Three words is the whole answer to Vous réglez comment ?, and ${unitRef('a2.07')} taught the same exchange at a restaurant table.`, label: 'you answer' },
     { head: 'Move 7', fr: 'Je vous rends...', sub: '[zhuh voo RAHⁿ]', body: 'The change, and a second figure. It is said faster than the first because she has already moved on to the person behind you.', label: 'the second figure' },
   ],
 };
@@ -203,7 +209,7 @@ const S_THEIRS: LessonSection = {
     {
       cells: ['Combien je vous mets ?', 'how much shall I give you', 'Un kilo, s\'il vous plaît.'],
       say: 'Combien je vous mets ?',
-      detail: { title: 'She asks a quantity', body: 'The market stall version. It wants a container: un kilo de, une tranche de, un paquet de. a1.29 taught those and this is where you have to produce one at speed.', say: 'Combien je vous mets ?' },
+      detail: { title: 'She asks a quantity', body: `The market stall version. It wants a container: un kilo de, une tranche de, un paquet de. ${Cap(unitRef('a1.29'))} taught those and this is where you have to produce one at speed.`, say: 'Combien je vous mets ?' },
     },
     {
       cells: ['Et avec ceci ?', 'anything else', 'Ce sera tout, merci.'],
@@ -249,7 +255,7 @@ const S_YOURS: LessonSection = {
     { head: 'Asking', fr: 'Ça fait combien ?', sub: '[sa feh kohⁿ-BYEHⁿ]', body: 'The most frequent question in a French shop, and it did not exist anywhere in this corpus before this lesson. Quel est le prix ? is published and is what a classroom teaches; this is what is said at a counter. Store it whole.', label: 'what is actually said' },
     { head: 'The answer', fr: 'Ça fait quatre-vingt-dix-sept euros trente.', sub: '[sa feh ka-truh-vaⁿ-dee-SET eu-ro TRAHⁿT]', body: 'Your question and the shape of her answer, together. The same two syllables open both, which is why the frame is worth hearing: it means the same thing whoever says it.', label: 'the same frame, coming back' },
     { head: 'Move 6', fr: 'Par carte, s\'il vous plaît.', sub: '[par KART seel voo PLEH]', body: 'Three words answer the payment question completely. En espèces, s\'il vous plaît is the other half. Building a sentence around either marks you out as translating rather than talking.', label: 'three words is enough' },
-    { head: 'One word apart', fr: 'je veux  /  je voudrais', sub: '[zhuh VEU  /  zhuh voo-DREH]', body: 'Both are correct and both are understood. Je veux is what a child says about a toy, and across a counter it lands one rung too blunt. Nobody will tell you, because nobody corrects a customer. a2.13 taught vouloir; here the choice costs something.', label: 'grammatically perfect, socially wrong' },
+    { head: 'One word apart', fr: 'je veux  /  je voudrais', sub: '[zhuh VEU  /  zhuh voo-DREH]', body: `Both are correct and both are understood. Je veux is what a child says about a toy, and across a counter it lands too blunt. Nobody will tell you: nobody corrects a customer. ${Cap(unitRef('a2.13'))} taught vouloir; here the choice costs something.`, label: 'grammatically perfect, socially wrong' },
   ],
 };
 
@@ -267,31 +273,31 @@ const S_YOURS: LessonSection = {
 const S_QUANTITY: LessonSection = {
   type: 'groupDrill', id: QUANTITY, title: 'She Asked How Much', frSub: 'Combien je vous mets ?',
   layer: 'core', terms: ['container', 'theirHalf'],
-  say: 'a1.29 taught you un kilo de and une tranche de. Nothing new here. Four groups, no clock on any of them, and the only difference is that she asked first.',
+  say: `${Cap(unitRef('a1.29'))} taught you un kilo de and une tranche de. Nothing new here. Four groups, no clock on any of them, and the only difference is that she asked first.`,
   groups: [
     {
       label: 'at the greengrocer',
       items: [
-        { fr: 'un kilo de tomates', en: 'a kilo of tomatoes', note: 'a1.29', itemId: 'fr.a2.courses.003' },
-        { fr: 'une barquette de fraises', en: 'a punnet of strawberries', note: 'a1.29' },
-        { fr: 'un demi-kilo de pommes', en: 'half a kilo of apples', note: 'a1.29' },
+        { fr: 'un kilo de tomates', en: 'a kilo of tomatoes', note: `${Cap(unitRef('a1.29'))}`, itemId: 'fr.a2.courses.003' },
+        { fr: 'une barquette de fraises', en: 'a punnet of strawberries', note: `${Cap(unitRef('a1.29'))}` },
+        { fr: 'un demi-kilo de pommes', en: 'half a kilo of apples', note: `${Cap(unitRef('a1.29'))}` },
       ],
-      check: { q: 'She says « Combien je vous mets ? ». Which answer is complete?', opts: ['Des tomates.', 'Un kilo de tomates, s\'il vous plaît.', 'Oui, merci.', 'Les tomates sont bonnes ?'], correct: 1, why: 'She asked how much, not what. The container is the answer, and naming it is what removes the du and the des. a1.29 owns that rule and this is where you run it fast.' },
+      check: { q: 'She says « Combien je vous mets ? ». Which answer is complete?', opts: ['Des tomates.', 'Un kilo de tomates, s\'il vous plaît.', 'Oui, merci.', 'Les tomates sont bonnes ?'], correct: 1, why: `She asked how much, not what. The container is the answer, and naming it is what removes the du and the des. ${Cap(unitRef('a1.29'))} owns that rule and this is where you run it fast.` },
     },
     {
       label: 'at the cheese counter',
       items: [
-        { fr: 'une tranche de comté', en: 'a slice of comté', note: 'a1.29' },
-        { fr: 'un morceau de brie', en: 'a piece of brie', note: 'a1.29' },
-        { fr: 'deux cents grammes de gruyère', en: 'two hundred grams of gruyère', note: 'a1.29' },
+        { fr: 'une tranche de comté', en: 'a slice of comté', note: `${Cap(unitRef('a1.29'))}` },
+        { fr: 'un morceau de brie', en: 'a piece of brie', note: `${Cap(unitRef('a1.29'))}` },
+        { fr: 'deux cents grammes de gruyère', en: 'two hundred grams of gruyère', note: `${Cap(unitRef('a1.29'))}` },
       ],
       check: { q: 'Which of these is NOT a container?', opts: ['une tranche', 'un morceau', 'du fromage', 'deux cents grammes'], correct: 2, why: 'Du fromage is cheese with no amount named around it. The other three all say how much, which is what makes the du disappear.' },
     },
     {
       label: 'at the bakery',
       items: [
-        { fr: 'une douzaine d\'œufs', en: 'a dozen eggs', note: 'a1.29' },
-        { fr: 'un paquet de biscuits', en: 'a packet of biscuits', note: 'a1.29' },
+        { fr: 'une douzaine d\'œufs', en: 'a dozen eggs', note: `${Cap(unitRef('a1.29'))}` },
+        { fr: 'un paquet de biscuits', en: 'a packet of biscuits', note: `${Cap(unitRef('a1.29'))}` },
         { fr: 'deux baguettes', en: 'two baguettes', note: 'a number, not a container' },
       ],
       check: { q: 'Deux baguettes has no de in it. Why not?', opts: ['Because baguettes is plural', 'Because a bare number counts the things directly', 'Because it is a bakery', 'Because de is optional here'], correct: 1, why: 'Une douzaine names a quantity and needs de to attach it. Deux counts the baguettes themselves, so there is nothing to attach.' },
@@ -355,14 +361,14 @@ const S_HEARD: LessonSection = {
 const S_TAIL: LessonSection = {
   type: 'tapTable', id: TAIL, title: 'Where The Cents Hide', frSub: 'La fin du chiffre',
   layer: 'core', terms: ['bareCents', 'total'],
-  say: 'a1.28 taught you the shape of a price. Nothing here is new about the number. What is new is that it lands inside her sentence and stops without warning.',
+  say: `${Cap(unitRef('a1.28'))} taught you the shape of a price. Nothing here is new about the number. What is new is that it lands inside her sentence and stops without warning.`,
   audio: { ...FR, recordingId: 'rec-a2-26-tail' },
   cols: ['she says', 'on paper', 'the trap'],
   rows: [
     {
       cells: ['…dix-sept euros trente', '17,30', 'trente is cents'],
       say: 'Ça fait dix-sept euros trente.',
-      detail: { title: 'The bare cents', body: 'a1.28 §15 taught this: no word for centimes, no et joining the halves, and the only clue the price has finished is that she stops. Here the run starts mid-sentence, so there is no pause in front of it either.', say: 'Ça fait dix-sept euros trente.' },
+      detail: { title: 'The bare cents', body: `${Cap(unitRef('a1.28'))} §15 taught this: no word for centimes, no et joining the halves, and the only clue the price has finished is that she stops. Here the run starts mid-sentence, so there is no pause in front of it either.`, say: 'Ça fait dix-sept euros trente.' },
     },
     {
       // FOUND ON DEVICE. This cell read '...quarante-deux euros' and the first
@@ -379,7 +385,7 @@ const S_TAIL: LessonSection = {
     {
       cells: ['…six euros quatre-vingt-quinze', '6,95', 'cents run longer'],
       say: 'Ça fait six euros quatre-vingt-quinze.',
-      detail: { title: 'The cents outrun the euros', body: 'Two syllables of euros and five of cents. a1.27 already ran quatre-vingt-quinze against quatre-vingt-dix-neuf at speed; the difference here is that you are past the currency word before it starts.', say: 'Ça fait six euros quatre-vingt-quinze.' },
+      detail: { title: 'The cents outrun the euros', body: `Two syllables of euros and five of cents. ${Cap(unitRef('a1.27'))} already ran quatre-vingt-quinze against quatre-vingt-dix-neuf at speed; the difference here is that you are past the currency word before it starts.`, say: 'Ça fait six euros quatre-vingt-quinze.' },
     },
     {
       cells: ['…cinquante euros pile', '50,00', 'pile ends it'],
@@ -435,7 +441,7 @@ const S_WHICH: LessonSection = {
   audio: { ...FR, recordingId: 'rec-a2-26-which' },
   rule: {
     title: 'The syllable at the end is the whole number',
-    body: 'French numbers build to the right, so two prices can share every sound until the last one. a1.27 taught the pairs. At a till they arrive after a currency word and with no second chance.',
+    body: `French numbers build to the right, so two prices can share every sound until the last one. ${Cap(unitRef('a1.27'))} taught the pairs. At a till they arrive after a currency word and with no second chance.`,
   },
   steps: [
     { kind: 'rule', label: 'The rule', title: 'It Ends On The Difference' },
@@ -445,7 +451,7 @@ const S_WHICH: LessonSection = {
   ],
   cards: [
     { promptLabel: 'ninety-seven against eighty-seven', promptSound: 'Ça fait quatre-vingt-dix-sept euros.', fr: '97, not 87', ipa: '/ka.tʁə.vɛ̃.dis.sɛt/', tip: 'Quatre-vingt-dix-sept and quatre-vingt-sept share four syllables. The dix in the middle is ten euros, and it is the shortest syllable in the run.' },
-    { promptLabel: 'seventy-five against sixty-five', promptSound: 'Ça fait soixante-quinze euros.', fr: '75, not 65', ipa: '/swa.sɑ̃t.kɛ̃z/', tip: 'Soixante-quinze and soixante-cinq both open on soixante. a1.27 owns this pair; here it arrives with euros behind it and no time to reconstruct.' },
+    { promptLabel: 'seventy-five against sixty-five', promptSound: 'Ça fait soixante-quinze euros.', fr: '75, not 65', ipa: '/swa.sɑ̃t.kɛ̃z/', tip: `Soixante-quinze and soixante-cinq both open on soixante. ${Cap(unitRef('a1.27'))} owns this pair; here it arrives with euros behind it and no time to reconstruct.` },
     { promptLabel: 'two euros ten against twelve euros', promptSound: 'Ça fait deux euros dix.', fr: '2,10, not 12,00', ipa: '/dø ø.ʁo dis/', tip: 'Deux euros dix and douze euros are almost the same mouthful. The currency word sits in the middle of one and at the end of the other, and that is the only clue.' },
     { promptLabel: 'the frame that is not the price', promptSound: 'Ça fait deux euros soixante-dix de rendu.', fr: 'that is your change', ipa: '/də ʁɑ̃.dy/', tip: 'Same frame, same shape, opposite direction. De rendu on the end is the word that tells you this figure is coming back to you rather than out of your pocket.' },
   ],
@@ -472,13 +478,13 @@ const S_WHICH: LessonSection = {
 const S_REPAIR: LessonSection = {
   type: 'cardDeck', id: REPAIR, title: 'You Missed The Number', frSub: 'Redemander le chiffre',
   render: 'deck', layer: 'core', size: 'lg', terms: ['rung', 'total'],
-  say: 'The number comes once. Asking again is part of the script. a2.07 taught the six ways. Nothing new here, except that the thing you missed was a figure.',
+  say: `The number comes once. Asking again is part of the script. ${Cap(unitRef('a2.07'))} taught the six ways. Nothing new here, except that the thing you missed was a figure.`,
   audio: { ...FR, recordingId: 'rec-a2-26-repair' },
   cards: [
-    { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: 'One word, and it gives away nothing about why you missed it. a2.07 put it first because it is what a French speaker says without thinking, and because it costs you nothing at all.', label: 'a2.07, rung 1' },
-    { head: 'Rung 2', fr: 'Vous pouvez répéter, s\'il vous plaît ?', sub: '[voo poo-VAY ray-pay-TAY seel voo PLEH]', body: 'Asks for the whole thing again. At a till the whole thing is one short sentence, so this costs almost nothing more than rung 1 and is worth reaching for straight away.', label: 'a2.07, rung 2' },
-    { head: 'Rung 3', fr: 'Plus lentement, s\'il vous plaît.', sub: '[plü lahⁿt-MAHⁿ seel voo PLEH]', body: 'The first rung that names the fault. Use it when she has already repeated the figure once at exactly the same speed, which is what happens if you asked with rung 1.', label: 'a2.07, rung 3' },
-    { head: 'A number is different', fr: 'Ça fait combien, pardon ?', sub: '[sa feh kohⁿ-byehⁿ par-DOHⁿ]', body: 'a2.07 teaches you to reach for the lowest rung that will fix the problem. A number is the one case where naming what you missed beats asking for the whole sentence again, because there is only one thing you could have missed.', label: 'name the figure, not the sentence' },
+    { head: 'Rung 1', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: `One word, and it gives away nothing about why you missed it. ${Cap(unitRef('a2.07'))} put it first because it is what a French speaker says without thinking, and because it costs you nothing at all.`, label: `${Cap(unitRef('a2.07'))}, rung 1` },
+    { head: 'Rung 2', fr: 'Vous pouvez répéter, s\'il vous plaît ?', sub: '[voo poo-VAY ray-pay-TAY seel voo PLEH]', body: 'Asks for the whole thing again. At a till the whole thing is one short sentence, so this costs almost nothing more than rung 1 and is worth reaching for straight away.', label: `${Cap(unitRef('a2.07'))}, rung 2` },
+    { head: 'Rung 3', fr: 'Plus lentement, s\'il vous plaît.', sub: '[plü lahⁿt-MAHⁿ seel voo PLEH]', body: 'The first rung that names the fault. Use it when she has already repeated the figure once at exactly the same speed, which is what happens if you asked with rung 1.', label: `${Cap(unitRef('a2.07'))}, rung 3` },
+    { head: 'A number is different', fr: 'Ça fait combien, pardon ?', sub: '[sa feh kohⁿ-byehⁿ par-DOHⁿ]', body: `${Cap(unitRef('a2.07'))} teaches you to reach for the lowest rung that will fix the problem. A number is the one case where naming what you missed beats asking for the whole sentence again, because there is only one thing you could have missed.`, label: 'name the figure, not the sentence' },
     { head: 'The part that goes wrong', fr: 'Pardon ?', sub: '[par-DOHⁿ]', body: 'Nobody is annoyed. A French speaker repeats a price without a flicker, several times a day, for French people too. The instinct to apologise first is what turns a one-word repair into an incident.', label: 'not an apology' },
   ],
 };
@@ -496,7 +502,7 @@ const S_CHANGE: LessonSection = {
     {
       cells: ['Je vous rends...', 'here is your change', 'count it'],
       say: 'Je vous rends deux euros soixante.',
-      detail: { title: 'The figure comes back', body: 'A second number, in the same shape as the first. Rendre is a2.11\'s verb and it is used whole here: the useful part is that a figure follows it immediately.', say: 'Je vous rends deux euros soixante.' },
+      detail: { title: 'The figure comes back', body: `A second number, in the same shape as the first. Rendre is ${unitRef('a2.11')}\'s verb and it is used whole here: the useful part is that a figure follows it immediately.`, say: 'Je vous rends deux euros soixante.' },
     },
     {
       cells: ['Voilà votre monnaie.', 'here is your change', 'no figure at all'],
@@ -539,7 +545,7 @@ const S_PAYING: LessonSection = {
   say: 'Two words from you and four instructions from the machine. The last two cards are Quebec, and they are here to be recognised rather than said.',
   audio: { ...FR, recordingId: 'rec-a2-26-paying' },
   cards: [
-    { head: 'She asks', fr: 'Vous réglez comment ?', sub: '[voo ray-glay ko-MAHⁿ]', body: 'Comment is how, not how much. a2.07 taught this exact question at a restaurant table and the answer at a till is the same three words.', label: 'the method, not the amount' },
+    { head: 'She asks', fr: 'Vous réglez comment ?', sub: '[voo ray-glay ko-MAHⁿ]', body: `Comment is how, not how much. ${Cap(unitRef('a2.07'))} taught this exact question at a restaurant table and the answer at a till is the same three words.`, label: 'the method, not the amount' },
     { head: 'You answer', fr: 'Par carte, s\'il vous plaît.', sub: '[par KART seel voo PLEH]', body: 'Three words and the transaction moves on. En espèces, s\'il vous plaît is the other half. payer par carte and payer en espèces are already published as infinitives; these are the answer forms.', label: 'three words' },
     { head: 'The machine', fr: 'Insérez votre carte et tapez votre code.', sub: '[aⁿ-say-RAY votr KART ay ta-PAY votr KOD]', body: 'Two imperatives and no please, which is the register of an instruction rather than rudeness. Le code is what a till calls the PIN; le code secret is the formal term.', label: 'two instructions' },
     { head: 'Under fifty', fr: 'le paiement sans contact', sub: '[luh peh-MAHⁿ sahⁿ kohⁿ-TAKT]', body: 'Below fifty euros in France the card usually needs no code at all. You tap and she says nothing, which means the only spoken number in the whole transaction was the total.', label: 'no code needed' },
@@ -565,7 +571,7 @@ const S_REFUSE: LessonSection = {
     { head: 'She approaches', fr: 'Je peux vous aider ?', sub: '[zhuh peu voo-z eh-DAY]', body: 'In a French shop this is an approach rather than an offer, and it happens within about ten seconds of the door. Vous cherchez quelque chose ? is the same move.', label: 'she starts, again' },
     { head: 'You answer', fr: 'Je regarde seulement, merci.', sub: '[zhuh ruh-GARD seul-MAHⁿ mehr-SEE]', body: 'The whole answer, and it ends the exchange politely. It is the single most useful thing in this mission and it is four words.', label: 'the complete answer' },
     { head: 'Too expensive', fr: 'C\'est un peu cher pour moi.', sub: '[say-t uhⁿ peu SHEHR poor MWA]', body: 'Un peu is what makes it sayable. C\'est cher on its own sounds like a complaint about her shop; pour moi puts it on your wallet, which nobody can argue with.', label: 'un peu does the work' },
-    { head: 'Getting out', fr: 'Je vais réfléchir, merci.', sub: '[zhuh veh ray-flay-SHEER mehr-SEE]', body: 'Closes the conversation without refusing anything, which is why it is the one French shoppers actually use. A futur proche, and a2.19 owns that; here it is one fixed phrase.', label: 'refuses nothing, ends everything' },
+    { head: 'Getting out', fr: 'Je vais réfléchir, merci.', sub: '[zhuh veh ray-flay-SHEER mehr-SEE]', body: `Closes the conversation without refusing anything, which is why it is the one French shoppers actually use. A futur proche, and ${unitRef('a2.19')} owns that; here it is one fixed phrase.`, label: 'refuses nothing, ends everything' },
     { head: 'Asking for a size', fr: 'Vous avez ça en trente-huit ?', sub: '[voo-z a-vay sa ahⁿ trahⁿt-WEET]', body: 'The size question with no word for size in it. French sizes are numbers, so the number does the work and ça points at the thing in your hand. She may ask it first: Vous faites quelle taille ?', label: 'the number is the size' },
   ],
 };
@@ -600,7 +606,7 @@ const S_QUEBEC: LessonSection = {
       head: 'What that does to your ear',
       fr: 'Vingt-deux dollars quatre-vingt-dix.',
       sub: '[vaⁿt-deu do-LAR ka-truh-vaⁿ-DEESS]',
-      body: 'You are not mis-hearing the accent. You were expecting the number you read, and the expectation is what broke. The move is the same as everywhere else here: wait for the till, and if you missed it, ask. a2.07 gave you six ways.',
+      body: `You are not mis-hearing the accent. You expected the number you read, and the expectation is what broke. The move is the same as everywhere else here: wait for the till, and if you missed it, ask. ${Cap(unitRef('a2.07'))} gave you six ways.`,
       label: 'expectation, not accent',
     },
     {
@@ -623,8 +629,8 @@ const S_ERRORS: LessonSection = {
   layer: 'core', size: 'lg', swipe: true, terms: ['total', 'change'],
   say: 'Four, one per screen. Three of them cost you money and the fourth costs you the conversation.',
   errors: [
-    { wrong: 'Handing over a note and hoping.', right: 'Pardon ?', why: 'The most expensive habit in this lesson, and it is not a French mistake at all. One word gets the figure repeated, and a2.07 spent a whole mission on why it costs you nothing.' },
-    { wrong: 'Je veux une baguette.', right: 'Je voudrais une baguette.', why: 'Understood perfectly and one rung too blunt across a counter. Nobody corrects a customer, so nobody learns it. a2.13 taught vouloir; this is where the form choice does something.' },
+    { wrong: 'Handing over a note and hoping.', right: 'Pardon ?', why: `The most expensive habit in this lesson, and it is not a French mistake at all. One word gets the figure repeated, and ${unitRef('a2.07')} spent a whole mission on why it costs you nothing.` },
+    { wrong: 'Je veux une baguette.', right: 'Je voudrais une baguette.', why: `Understood perfectly and one rung too blunt across a counter. Nobody corrects a customer, so nobody learns it. ${Cap(unitRef('a2.13'))} taught vouloir; this is where the form choice does something.` },
     { wrong: 'Hearing sur vingt euros as your change.', right: 'Sur vingt euros is what you handed over.', why: 'The figure inside sur names the note you gave her, not the coins coming back. It is the one place where the number in the sentence is not yours to keep.' },
     { wrong: 'Oui, merci.', right: 'Je regarde seulement, merci.', why: 'Answering an approach with yes commits you to being helped. Four words end it politely, and without them people buy things or walk out mid-sentence.' },
   ],
@@ -757,7 +763,7 @@ const S_RECEIPT: LessonSection = {
 const S_SAY: LessonSection = {
   type: 'practice', id: SAY, title: 'Say Your Four', frSub: 'À vous',
   layer: 'core', skill: 'speak', terms: ['rung', 'theirHalf'],
-  say: 'Your four moves, the two refusals, and a2.07\'s first three rungs. Say them to the phone before you say them to a cashier.',
+  say: `Your four moves, the two refusals, and ${unitRef('a2.07')}\'s first three rungs. Say them to the phone before you say them to a cashier.`,
   itemIds: [
     C(177), C(178), C(179), C(180), C(196), C(198),
     M(81), M(84),
@@ -814,7 +820,7 @@ const S_REVIEW: LessonSection = {
     { front: 'The most frequent question in a French shop', back: 'Ça fait combien ? Not Quel est le prix, which is what a classroom teaches.', say: 'Ça fait combien ?' },
     { front: 'She wants a quantity, not a thing', back: 'Combien je vous mets ? Answer with a container: un kilo de, une tranche de.', say: 'Combien je vous mets ?' },
     { front: 'No verb and no noun in the whole question', back: 'Et avec ceci ? She is upselling, and silence gets you asked again.', say: 'Et avec ceci ?' },
-    { front: 'You caught everything except the figure', back: 'Pardon ? One word, and it costs you nothing. a2.07, rung 1.', say: 'Pardon ?' },
+    { front: 'You caught everything except the figure', back: `Pardon ? One word, and it costs you nothing. ${Cap(unitRef('a2.07'))}, rung 1.`, say: 'Pardon ?' },
     { front: 'The second number of the transaction', back: 'Je vous rends deux euros soixante. Said faster than the first, and to your back.', say: 'Je vous rends deux euros soixante.' },
     { front: 'She asks it BEFORE you pay, and it is a request', back: 'Vous avez la monnaie ? She is short of coins. Je n\'ai que des billets.', say: 'Vous avez la monnaie ?' },
     { front: 'A smaller what?', back: 'Vous n\'avez pas plus petit ? A smaller note, never a smaller object.', say: 'Vous n\'avez pas plus petit ?' },
@@ -834,7 +840,7 @@ const S_PROGRESS: LessonSection = {
     { k: 'Lines in her voice', v: '35' },
     { k: 'Costumes the frame wears', v: '4' },
     { k: 'Numbers per transaction', v: '2' },
-    { k: 'Ways to ask again', v: '6, and they are a2.07\'s' },
+    { k: 'Ways to ask again', v: `6, and they are ${unitRef('a2.07')}\'s` },
   ],
 };
 
@@ -925,7 +931,7 @@ const S_QUIZ: LessonSection = {
         { format: 'mcq', ref: TOTAL, q: 'Which of these does NOT introduce the amount you owe?', opts: ['Ça vous fait quinze euros.', 'Ça fera huit euros dix.', 'Ça fait deux euros soixante-dix de rendu.', 'Le total est de quarante-deux euros.'], correct: 2, why: 'Same frame, opposite direction. De rendu on the end is what makes it your change, and the frame alone never tells you which figure is coming.' },
         { format: 'mcq', ref: SHAPE, q: 'Which of these comes FIRST in a French shop?', opts: ['Ça fait combien ?', 'Par carte, s\'il vous plaît.', 'Je regarde seulement.', 'Bonjour.'], correct: 3, why: 'It is the price of entry and it comes before the noun rather than after it. Skipping it is the one thing that reliably changes the room.' },
         { format: 'mcq', ref: CHANGE, q: 'She asks « Vous avez la monnaie ? » before you have paid. Why?', opts: ['She is short of coins and is asking for help', 'She is checking you can afford it', 'She wants to see your card', 'She is telling you the price'], correct: 0, why: 'It is a request rather than curiosity. Je n\'ai que des billets is the straight answer and it keeps the transaction moving.' },
-        { format: 'mcq', ref: PAYING, q: '« Vous réglez comment ? » is asking about', opts: ['The amount', 'The method', 'The receipt', 'Whether you have a loyalty card'], correct: 1, why: 'Comment is how, not how much. a2.07 taught the same question at a restaurant table and the answer is still three words.' },
+        { format: 'mcq', ref: PAYING, q: '« Vous réglez comment ? » is asking about', opts: ['The amount', 'The method', 'The receipt', 'Whether you have a loyalty card'], correct: 1, why: `Comment is how, not how much. ${Cap(unitRef('a2.07'))} taught the same question at a restaurant table and the answer is still three words.` },
         { format: 'mcq', ref: FOLLOWUP, q: 'She says « Il vous faut un sac ? ». What is she actually doing?', opts: ['Offering you something free', 'Telling you she has no bags', 'Selling you something', 'Asking if you have finished'], correct: 2, why: 'In France the bag usually costs. Falloir means need, and she is asking whether you need one enough to pay for it.' },
         { format: 'mcq', ref: THEIRS, q: 'How many of the seven moves does the customer start?', opts: ['None', 'Three', 'All of them', 'One, the greeting'], correct: 3, why: 'Bonjour is yours and everything after it is an answer. That asymmetry is the shape of a till rather than a gap in your French.' },
       ],
@@ -939,7 +945,7 @@ const S_QUIZ: LessonSection = {
         { format: 'typeIn', ref: YOURS, q: 'Ask what it costs, the way it is said at a counter. Three words: « Ça ... ? »', accept: ['Ça fait combien ?', 'ça fait combien', 'Ca fait combien ?', 'ca fait combien'], answer: 'Ça fait combien ?', why: 'Fait, not coûte, and combien on the end. Quel est le prix ? is published in this corpus and is what a classroom teaches; this is what is said in a shop. The cedilla is not being tested, the word choice is.' },
         { format: 'errorSpot', ref: ERRORS, q: 'You are ordering across a counter. Fix this.', prompt: 'Je veux une baguette.', accept: ['Je voudrais une baguette.', 'je voudrais une baguette', 'Je voudrais une baguette, s\'il vous plaît.'], answer: 'Je voudrais une baguette.', why: 'Je veux is grammatical, understood, and one rung too blunt across a counter. Nobody corrects a customer, which is why nobody learns it. Veux and voudrais do not fold together, so the form is genuinely being tested.' },
         { format: 'mcq', ref: YOURS, q: 'She says « Vous réglez comment ? ». Best answer?', opts: ['Par carte, s\'il vous plaît.', 'Ça fait combien ?', 'Oui, merci.', 'Je voudrais payer maintenant, avec ma carte bancaire.'], correct: 0, why: 'Three words answer it completely. The long one is understood and marks you out as translating rather than talking.' },
-        { format: 'errorSpot', ref: QUANTITY, q: 'She asked « Combien je vous mets ? ». Fix the answer.', prompt: 'Des tomates.', accept: ['Un kilo de tomates.', 'un kilo de tomates', 'Un kilo, s\'il vous plaît.', 'un kilo'], answer: 'Un kilo de tomates.', why: 'She asked how much, not what. Naming the container is what answers it, and a1.29 owns the rule that the container removes the des.' },
+        { format: 'errorSpot', ref: QUANTITY, q: 'She asked « Combien je vous mets ? ». Fix the answer.', prompt: 'Des tomates.', accept: ['Un kilo de tomates.', 'un kilo de tomates', 'Un kilo, s\'il vous plaît.', 'un kilo'], answer: 'Un kilo de tomates.', why: `She asked how much, not what. Naming the container is what answers it, and ${unitRef('a1.29')} owns the rule that the container removes the des.` },
         { format: 'mcq', ref: REFUSE, q: 'She says « Je peux vous aider ? » and you want to be left alone.', opts: ['Oui, merci.', 'Je regarde seulement, merci.', 'Non.', 'Ça fait combien ?'], correct: 1, why: 'Four words end it politely. Oui commits you to being helped and non on its own is the one answer that sounds rude.' },
         { format: 'typeIn', ref: REFUSE, q: 'Say it is a bit expensive for you. Six words: « C\'est ... cher pour moi. »', accept: ['C\'est un peu cher pour moi.', 'cest un peu cher pour moi', 'un peu'], answer: 'C\'est un peu cher pour moi.', why: 'Un peu is what makes it sayable, and it does not fold into the version without it. C\'est cher pour moi sounds like a complaint about her shop.' },
         { format: 'mcq', ref: YOURS, q: 'Which of these is the classroom version rather than the counter version?', opts: ['Ça fait combien ?', 'Je vous dois combien ?', 'Quel est le prix, s\'il vous plaît ?', 'C\'est combien ?'], correct: 2, why: 'It is published in this corpus and it is correct. It is also what nobody says at a till, which is exactly why it was worth naming.' },
@@ -949,14 +955,14 @@ const S_QUIZ: LessonSection = {
     {
       id: 'r4-missed',
       label: 'When you miss it',
-      say: 'Eight on asking again, and the repair ladder belongs to a2.07.',
+      say: `Eight on asking again, and the repair ladder belongs to ${unitRef('a2.07')}.`,
       targets: ['err-freeze', 'err-wrong-rung'],
       questions: [
         { format: 'speak', ref: SAY, target: 'Pardon ?', ipa: '/paʁ.dɔ̃/', q: 'Say it out loud. She gave you the total and you caught none of it.', why: 'One word, said flat and quickly. Said as a question with a rising end it is ordinary; drawn out it turns into an apology, which is the thing that makes a repair into an incident.' },
-        { format: 'speak', ref: SAY, target: 'Vous pouvez répéter, s\'il vous plaît ?', ipa: '/vu pu.ve ʁe.pe.te sil vu plɛ/', q: 'Say a2.07\'s rung 2 out loud, to a cashier who has already moved on.', why: 'Six syllables in one run with no pause in the middle. At a till the whole thing is one short sentence, so asking for all of it costs almost nothing more than rung 1.' },
-        { format: 'mcq', ref: REPAIR, q: 'She repeated the total once, at exactly the same speed. Which rung now?', opts: ['Plus lentement, s\'il vous plaît.', 'Pardon ?', 'Vous pouvez répéter, s\'il vous plaît ?', 'Merci.'], correct: 0, why: 'Rungs 1 and 2 both just ask for a repeat, and she cannot fix a problem you have not named. Rung 3 is the first that says it was the speed. a2.07 owns the repair ladder.' },
-        { format: 'mcq', ref: REPAIR, q: 'Why is asking again cheaper at a till than almost anywhere else?', opts: ['Cashiers are trained to repeat', 'There is only one thing in the sentence you could have missed', 'The price is always written down', 'French people speak slowly at tills'], correct: 1, why: 'You know she said a figure. Naming what you missed narrows it completely, which is the reasoning a2.07 set out for reaching for the lowest rung that will actually fix the problem.' },
-        { format: 'typeIn', ref: REPAIR, q: 'The cheapest thing you can say when you caught nothing. One word.', accept: ['Pardon', 'Pardon ?', 'pardon'], answer: 'Pardon ?', why: 'a2.07 put it at rung 1 because it gives away nothing about why you missed it and because it is what a French speaker says without thinking.' },
+        { format: 'speak', ref: SAY, target: 'Vous pouvez répéter, s\'il vous plaît ?', ipa: '/vu pu.ve ʁe.pe.te sil vu plɛ/', q: `Say ${unitRef('a2.07')}\'s rung 2 out loud, to a cashier who has already moved on.`, why: 'Six syllables in one run with no pause in the middle. At a till the whole thing is one short sentence, so asking for all of it costs almost nothing more than rung 1.' },
+        { format: 'mcq', ref: REPAIR, q: 'She repeated the total once, at exactly the same speed. Which rung now?', opts: ['Plus lentement, s\'il vous plaît.', 'Pardon ?', 'Vous pouvez répéter, s\'il vous plaît ?', 'Merci.'], correct: 0, why: `Rungs 1 and 2 both just ask for a repeat, and she cannot fix a problem you have not named. Rung 3 is the first that says it was the speed. ${Cap(unitRef('a2.07'))} owns the repair ladder.` },
+        { format: 'mcq', ref: REPAIR, q: 'Why is asking again cheaper at a till than almost anywhere else?', opts: ['Cashiers are trained to repeat', 'There is only one thing in the sentence you could have missed', 'The price is always written down', 'French people speak slowly at tills'], correct: 1, why: `You know she said a figure. Naming what you missed narrows it completely, which is the reasoning ${unitRef('a2.07')} set out for reaching for the lowest rung that will actually fix the problem.` },
+        { format: 'typeIn', ref: REPAIR, q: 'The cheapest thing you can say when you caught nothing. One word.', accept: ['Pardon', 'Pardon ?', 'pardon'], answer: 'Pardon ?', why: `${Cap(unitRef('a2.07'))} put it at rung 1 because it gives away nothing about why you missed it and because it is what a French speaker says without thinking.` },
         { format: 'mcq', ref: SCENE, q: 'You did not catch the total and you hand over a note that is obviously too big. What has it cost you?', opts: ['Nothing at all', 'She will refuse the note', 'You will not know what you paid until you read the receipt', 'You will be charged more'], correct: 2, why: 'It works, which is the problem. The transaction completes, nobody corrects you, and the habit survives because it never visibly fails.' },
         { format: 'mcq', ref: CHANGE, q: 'She says « Vous n\'avez pas plus petit ? ». What is plus petit?', opts: ['A smaller item', 'A smaller bag', 'A lower price', 'A smaller banknote'], correct: 3, why: 'Never a smaller object. Handing over a fifty for a baguette is what triggers it, and it is asked in every bakery in France before nine in the morning.' },
         { format: 'errorSpot', ref: RECEIPT, q: 'A friend reads your receipt and says this. Fix it.', prompt: 'Tu as payé cent deux euros trente.', accept: ['Tu as payé quatre-vingt-dix-sept euros trente.', 'tu as payé quatre vingt dix sept euros trente', 'quatre-vingt-dix-sept euros trente'], answer: 'Tu as payé quatre-vingt-dix-sept euros trente.', why: 'Cent deux euros trente is the SOUS-TOTAL, before the discount. TOTAL A PAYER is the line that says what left your pocket, and reading the wrong one always errs upward.' },
@@ -969,7 +975,7 @@ const S_ROUNDUP: LessonSection = {
   type: 'roundup', id: ROUNDUP, title: 'What You Take With You', frSub: 'Le bilan',
   layer: 'core',
   say: 'Three things, and the first one is the whole lesson.',
-  body: 'The number comes once. Asking again is part of the script, and a2.07 gave you six ways to do it. Before the figure there is a two-syllable warning, and ça fait, ça vous fait, ça fera and le total est de are all the same warning wearing different clothes. After the figure there is a second one, said faster, which is your change. Everything else at a counter is seven moves in a fixed order, and you start exactly one of them.',
+  body: `The number comes once. Asking again is part of the script, and ${unitRef('a2.07')} gave you six ways to do it. Before the figure there is a two-syllable warning, and ça fait, ça vous fait, ça fera and le total est de are all the same warning wearing different clothes. After the figure there is a second one, said faster, which is your change. Everything else at a counter is seven moves in a fixed order, and you start exactly one of them.`,
   points: [
     'The number comes once. Asking again is part of the script.',
     'Ça fait, ça vous fait, ça fera, le total est de. One move, four costumes, and a figure is one syllable behind it.',
@@ -1175,7 +1181,7 @@ const ERROR_TRIGGERS = [
   },
   {
     id: 'err-wrong-rung', drill: 'drill-change',
-    description: 'Reaches too high or too low on a2.07\'s repair ladder: asking for a repeat when the speed was the problem, or apologising before asking at all.',
+    description: `Reaches too high or too low on ${unitRef('a2.07')}\'s repair ladder: asking for a repeat when the speed was the problem, or apologising before asking at all.`,
     detectOn: [REPAIR, SCENARIO, `${QUIZ}/r4-missed`],
   },
 ];
@@ -1201,7 +1207,7 @@ export const COURSES_LESSON: Lesson = {
   // unit's shipped content and it needs the publish decision that 42-FIX-PLAN
   // step 2 owns.
   tag: 'A2 · LEÇON 25',
-  version: 1,
+  version: 2,
   title: UNIT.title,
   intro: 'You have been taught how to ask for things. This one is about the number that comes back at you, once, at her speed.',
 

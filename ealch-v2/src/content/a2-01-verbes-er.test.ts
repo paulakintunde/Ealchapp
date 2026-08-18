@@ -46,6 +46,7 @@ import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -1185,7 +1186,9 @@ test('no grammar jargon on a learner surface', { skip: noLesson }, () => {
 });
 
 test('the lesson declares what it assumes and what it introduces', { skip: noLesson }, () => {
-  ok((L!.grammarAssumed ?? []).some((g) => /a1\.05/.test(g)), 'a1.05 is the declared prerequisite and is not named in grammarAssumed');
+  // grammarAssumed is CURRICULUM metadata, resolved against content_units, so it
+  // holds the raw id and not the learner-facing label.
+  ok((L!.grammarAssumed ?? []).some((g) => g.includes('a1.05')), 'a1.05 is the declared prerequisite and is not named in grammarAssumed');
   ok((L!.grammarIntroduced ?? []).some((g) => /silent/i.test(g)), 'the Owns is not in grammarIntroduced');
   ok((L!.grammarIntroduced ?? []).some((g) => /\bon\b/.test(g)), 'nous against on is not in grammarIntroduced');
 });

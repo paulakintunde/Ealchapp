@@ -149,6 +149,12 @@
 // the seed unit row, not retyped.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const UNIT = {
   id: 'a2.07',
@@ -427,7 +433,7 @@ export const ROWS: readonly Row[] = [
     'RUNG 2. Asks for the whole thing again and still says nothing about what went wrong. An exact twin is published at fr.a1.expressions-frequentes.123; this is the au-restaurant copy the band cites, and cross-theme duplication is settled precedent.', 2),
   R(134, 'Plus lentement, s\'il vous plaît.', 'More slowly, please.', '/ply lɑ̃t.mɑ̃ sil vu plɛ/', 'plü lahⁿt-MAHⁿ seel voo PLEH',
     'repair', 'learner', 'phrase', RD,
-    'RUNG 3. The first rung that names the problem: it was the speed. Exact twin at fr.a1.expressions-frequentes.124. Note plus is /ply/ here, s silent, which is the sons.10 rule quoted rather than taught.', 3),
+    `RUNG 3. The first rung that names the problem: it was the speed. Exact twin at fr.a1.expressions-frequentes.124. Note plus is /ply/ here, s silent, which is the ${unitRef('sons.10')} rule quoted rather than taught.`, 3),
   R(135, 'Je n\'ai pas bien compris.', 'I didn\'t quite catch that.', '/ʒə ne pa bjɛ̃ kɔ̃.pʁi/', 'zhuh nay pah byehⁿ kohⁿ-PREE',
     'repair', 'learner', 'phrase', RD,
     'RUNG 4. Admits the comprehension failure outright. bien is what separates it from the blunter Je n\'ai pas compris, which is published at fr.a2.verbes.633; the two do NOT fold together, so bien is testable in a typeIn.', 4),
@@ -522,13 +528,13 @@ export const ROWS: readonly Row[] = [
     'STAGE 7. Closes the ordering stage. Nothing is asked, and the learner needs to recognise that too.'),
   R(161, 'Vous réglez comment ?', 'How are you paying?', '/vu ʁe.ɡle kɔ.mɑ̃/', 'voo ray-glay ko-MAHⁿ',
     'script', 'server', 'phrase', PV,
-    'STAGE 8, and the boundary with a2.26 runs right here. This is the waiter\'s CLOSING QUESTION and belongs to a2.07. The money it is about, the total, the change and the coins, belong to a2.26. Claimed 0 corpus-wide; confirmed 0.'),
+    `STAGE 8, and the boundary with ${unitRef('a2.26')} runs right here. This is the waiter\'s CLOSING QUESTION and belongs to ${unitRef('a2.07')}. The money it is about, the total, the change and the coins, belong to ${unitRef('a2.26')}. Claimed 0 corpus-wide; confirmed 0.`),
   R(162, 'Ensemble ou séparément ?', 'Together or separately?', '/ɑ̃.sɑ̃bl u se.pa.ʁe.mɑ̃/', 'ahⁿ-SAHⁿBL oo say-pa-ray-MAHⁿ',
     'script', 'server', 'phrase', PV,
     'STAGE 8. Claimed 0 corpus-wide; confirmed 0. Two nasals in one short question and both are marked with the superscript, checked through the real hasPlainNasalFor rather than by eye.'),
   R(163, 'Le service est compris.', 'Service is included.', '/lə sɛʁ.vis ɛ kɔ̃.pʁi/', 'luh sehr-VEESS eh kohⁿ-PREE',
     'script', 'server', 'sentence', SN,
-    'STAGE 8, and a BILL FACT, which collation §C5 assigns to a2.07. fr.a1.au-restaurant.198 is the fuller published form and is IMPORTED beside it. The tip itself, fr.a1.au-restaurant.010 le pourboire, is imported too.'),
+    `STAGE 8, and a BILL FACT, which collation §C5 assigns to ${unitRef('a2.07')}. fr.a1.au-restaurant.198 is the fuller published form and is IMPORTED beside it. The tip itself, fr.a1.au-restaurant.010 le pourboire, is imported too.`),
   R(164, 'Je vous fais une seule addition ?', 'Shall I make it one bill?', '/ʒə vu fɛ yn sœl a.di.sjɔ̃/', 'zhuh voo FEH ün seul a-dee-SYOHⁿ',
     'script', 'server', 'sentence', SN,
     'STAGE 8. The follow-up to .162, and the learner who did not catch .162 gets asked again in different words. FIRST DRAFT read « sur la même note » and was reworded, not because the respelling was wrong but because `mehm` is a measured FALSE POSITIVE of hasPlainNasalFor. See header §10: the exemption that exists for exactly this shape is unreachable. Rewording keeps a known-flagged row out of a theme seven other units import from.'),
@@ -548,10 +554,10 @@ export const ROWS: readonly Row[] = [
    * ══════════════════════════════════════════════════════════════════════ */
   R(168, 'Je suis désolé, il n\'y en a plus.', 'I\'m sorry, there\'s none left.', '/ʒə sɥi de.zɔ.le il njɑ̃.n‿a ply/', 'zhuh süee day-zo-LAY eel nyahⁿ-n a PLÜ',
     'failure', 'server', 'sentence', SD,
-    'THE DEVIATION, and the line the whole of act 4 turns on. UNANALYSED LEXIS: il n\'y en a plus contains both y and en, which belong to a2.25 (which HAS shipped). It is never glossed, never decomposed, and never in a scored surface that turns on the pronouns. The learner recognises the chunk and reaches for a rung.'),
+    `THE DEVIATION, and the line the whole of act 4 turns on. UNANALYSED LEXIS: il n\'y en a plus contains both y and en, which belong to ${unitRef('a2.25')} (which HAS shipped). It is never glossed, never decomposed, and never in a scored surface that turns on the pronouns. The learner recognises the chunk and reaches for a rung.`),
   R(169, 'Nous n\'avons plus de saumon ce soir.', 'We have no more salmon tonight.', '/nu na.vɔ̃ ply də so.mɔ̃ sə swaʁ/', 'noo na-VOHⁿ plü duh so-MOHⁿ suh SWAR',
     'failure', 'server', 'sentence', SD,
-    'The same deviation without the pronouns, so the learner has a version they can parse. plus de is the a1.29 reduction under negation, quoted as recall, not retaught.'),
+    `The same deviation without the pronouns, so the learner has a version they can parse. plus de is the ${unitRef('a1.29')} reduction under negation, quoted as recall, not retaught.`),
   R(170, 'Alors qu\'est-ce que vous me conseillez ?', 'So what do you recommend?', '/a.lɔʁ kɛs kə vu mə kɔ̃.sɛ.je/', 'a-LOR kess kuh voo muh kohⁿ-seh-YAY',
     'failure', 'learner', 'sentence', SD,
     'The hand-back, and the whole point of act 4: the learner who freezes loses the turn, and the learner who hands the choice back keeps it. Built on the imported fr.a1.au-restaurant.040 with alors doing the repair work.'),
@@ -560,13 +566,13 @@ export const ROWS: readonly Row[] = [
     'Authored in place of Ce n\'est pas ce que j\'ai commandé, which already exists at fr.a1.au-restaurant.193 and is IMPORTED instead. See header §4.'),
   R(172, 'Je crois qu\'il y a une erreur sur l\'addition.', 'I think there\'s a mistake on the bill.', '/ʒə kʁwa kil j‿a yn e.ʁœʁ syʁ la.di.sjɔ̃/', 'zhuh KRWA keel ya ün ay-REUR sür la-dee-SYOHⁿ',
     'failure', 'learner', 'sentence', SD,
-    'A BILL problem, which is a2.07\'s under §C5, and not a MONEY problem, which would be a2.26\'s. No figure appears in it and none may be added.'),
+    `A BILL problem, which is ${unitRef('a2.07')}\'s under §C5, and not a MONEY problem, which would be ${unitRef('a2.26')}\'s. No figure appears in it and none may be added.`),
   R(173, 'Le plat est froid.', 'The dish is cold.', '/lə pla ɛ fʁwa/', 'luh PLA eh FRWA',
     'failure', 'learner', 'sentence', SN,
-    'Four words and a fact. Deliberately not a complaint LADDER, which is a2.29\'s Owns; this is one statement, said once.'),
+    `Four words and a fact. Deliberately not a complaint LADDER, which is ${unitRef('a2.29')}\'s Owns; this is one statement, said once.`),
   R(174, 'Je vous le remplace tout de suite.', 'I\'ll replace it for you right away.', '/ʒə vu lə ʁɑ̃.plas tu d(ə) sɥit/', 'zhuh voo luh rahⁿ-PLASS too duh SÜEET',
     'failure', 'server', 'sentence', SD,
-    'The repair from his side, and it carries the a2.06 direct-object pronoun le in front of the verb. Exposure, not instruction: a2.06 shipped at seq 21 and owns it.'),
+    `The repair from his side, and it carries the ${unitRef('a2.06')} direct-object pronoun le in front of the verb. Exposure, not instruction: ${unitRef('a2.06')} shipped at seq 21 and owns it.`),
   R(175, 'Je suis allergique aux arachides, c\'est important.', 'I\'m allergic to peanuts, it\'s important.', '/ʒə sɥi.z‿a.lɛʁ.ʒik o.z‿a.ʁa.ʃid sɛ.t‿ɛ̃.pɔʁ.tɑ̃/', 'zhuh süee-z a-lehr-ZHEEK oh-z a-ra-SHEED seh-t ehⁿ-por-TAHⁿ',
     'failure', 'learner', 'sentence', SD,
     'The escalation that matters. fr.a2.au-restaurant.051 être allergique à and .052 are IMPORTED; this adds the insistence, which is the part a learner drops under pressure.'),
@@ -585,19 +591,19 @@ export const ROWS: readonly Row[] = [
    * ══════════════════════════════════════════════════════════════════════ */
   R(178, 'Je prendrais plutôt le poisson.', 'I\'d rather have the fish.', '/ʒə pʁɑ̃.dʁɛ ply.to lə pwa.sɔ̃/', 'zhuh prahⁿ-DREH plü-TOH luh pwa-SOHⁿ',
     'gradient', 'learner', 'sentence', SD,
-    'The softest rung, and genuinely new lexis: the conditional of prendre in this use is at 0 restaurant rows. Carried as an unnamed fixed form. The conditional as a FAMILY is a2.29\'s and is not named, conjugated or grouped here.'),
+    `The softest rung, and genuinely new lexis: the conditional of prendre in this use is at 0 restaurant rows. Carried as an unnamed fixed form. The conditional as a FAMILY is ${unitRef('a2.29')}\'s and is not named, conjugated or grouped here.`),
   R(179, 'Ce sera le menu du jour.', 'I\'ll have the set menu of the day.', '/sə sə.ʁa lə mə.ny dy ʒuʁ/', 'suh suh-RA luh muh-NÜ dü ZHOOR',
     'gradient', 'learner', 'sentence', SN,
-    'The flattest and most confident rung. FIRST DRAFT read « le menu à vingt-deux euros » and the build\'s own money guard caught it: collation §C5 gives money to a2.26 and this unit authors no row carrying a figure. The frame is what this row is for, and it survives the price coming out.'),
+    `The flattest and most confident rung. FIRST DRAFT read « le menu à vingt-deux euros » and the build\'s own money guard caught it: collation §C5 gives money to ${unitRef('a2.26')} and this unit authors no row carrying a figure. The frame is what this row is for, and it survives the price coming out.`),
   R(180, 'Pour moi, ce sera l\'entrecôte.', 'For me, it\'ll be the rib steak.', '/puʁ mwa sə sə.ʁa lɑ̃.tʁə.kot/', 'poor MWA suh suh-RA lahⁿ-truh-KOHT',
     'gradient', 'learner', 'sentence', SN,
     'The same frame with the person restored, which is how it is said at a table of four.'),
   R(181, 'Je vais prendre le plat du jour.', 'I\'ll have the dish of the day.', '/ʒə vɛ pʁɑ̃dʁ lə pla dy ʒuʁ/', 'zhuh veh PRAHⁿDR luh pla dü ZHOOR',
     'gradient', 'learner', 'sentence', SD,
-    'The futur proche, which a2.19 shipped at seq 15, applied to ordering. fr.a1.au-restaurant.098 le plat du jour is IMPORTED and is one of a1.29\'s nine deckTranche ids, which this build names and does not touch.'),
+    `The futur proche, which ${unitRef('a2.19')} shipped at seq 15, applied to ordering. fr.a1.au-restaurant.098 le plat du jour is IMPORTED and is one of ${unitRef('a1.29')}\'s nine deckTranche ids, which this build names and does not touch.`),
   R(182, 'On va prendre deux menus.', 'We\'ll have two set menus.', '/ɔ̃ va pʁɑ̃dʁ dø mə.ny/', 'ohⁿ va PRAHⁿDR deu muh-NÜ',
     'gradient', 'learner', 'sentence', SN,
-    'Ordering for the table, and on rather than nous per Doctrine §B.6, which a2.01 owns and every A2 lesson inherits.'),
+    `Ordering for the table, and on rather than nous per Doctrine §B.6, which ${unitRef('a2.01')} owns and every A2 lesson inherits.`),
   R(183, 'Ce sera tout pour moi, merci.', 'That\'ll be all for me, thanks.', '/sə sə.ʁa tu puʁ mwa mɛʁ.si/', 'suh suh-ra TOO poor MWA mehr-SEE',
     'gradient', 'learner', 'sentence', SN,
     'The learner\'s answer to the waiter\'s .156 Ce sera tout ?, and the pair is authored deliberately so the adjacency shows.'),

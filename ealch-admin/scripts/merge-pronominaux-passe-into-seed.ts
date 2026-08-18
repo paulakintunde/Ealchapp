@@ -75,6 +75,7 @@ import {
 } from './data/pronominaux-passe-corpus.ts';
 import { PRONOMINAUX_PASSE_TERMS, chipRowWidth } from './data/pronominaux-passe-terms.ts';
 import { PRONOMINAUX_PASSE_IMPORT_ROWS } from './data/pronominaux-passe-rows.gen.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   AGREEMENT_SECTION_ID, ASSEMBLY_SECTION_ID, DICTATION_SECTION_ID,
   ERRORS_SECTION_ID, FLIP_SECTION_ID, LESSON as PP_LESSON,
@@ -338,10 +339,18 @@ if (OWNS_SECTIONS <= PARADIGM_SECTIONS) die('the positions act has at least as m
   }
   /* NAMING A UNIT NEEDS THE OPPOSITE BOUNDARY. Corrections §14.3 records the
    * apostrophe missing from the LEFT; the mirror on the RIGHT makes
-   * `hasPhrase(_, 'a2.24')` blind to « a2.24's », which is how this band names a
+   * `namesUnitLabel(_, 'a2.24')` blind to « a2.24's », which is how this band names a
    * neighbour almost every time. Measured, and found by this lesson's own test. */
-  const namesUnit = (hay: string, unit: string): boolean =>
-    new RegExp(`(?<![\\p{L}\\p{N}'’-])${unit.replace(/\./gu, '\\.')}(?![\\p{L}\\p{N}-])`, 'iu').test(hay);
+  /** A LEARNER SURFACE NAMES A LESSON BY ITS LABEL, NOT BY ITS ID.
+ *
+ *  Resolved through the shipped `unit.seq`, never by slicing the id: 31 of 35
+ *  A2 units disagree with their own id number, and a2.24 shipped « since seq
+ *  17 of A1 » about a unit that is seq 20, which is somebody reading the id as
+ *  the position.
+ *
+ *  Case-insensitive, and it does NOT also accept the raw id: a guard taking
+ *  either would pass on exactly the thing this change removed. */
+const namesUnit = (hay: string, unit: string): boolean => namesUnitLabel(hay, unit);
   if (!ALL_SURFACE.some((s) => namesUnit(s, 'a2.24'))) die('a2.24 is named on no screen, so the exception is left to a lesson the learner is never pointed at.');
   for (const t of OBJECT_TERMS) {
     for (const s of ALL_SURFACE) if (hasPhrase(s, t)) die(`the object system is explained: « ${t} » in « ${s.slice(0, 90)} ». a2.24 owns the reason.`);

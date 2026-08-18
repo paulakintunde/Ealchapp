@@ -28,6 +28,12 @@
 //     this lesson is forbidden to make.
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const TRAVAIL_TERMS: Record<string, LessonTerm> = {
   move: {
@@ -42,7 +48,7 @@ export const TRAVAIL_TERMS: Record<string, LessonTerm> = {
   anchor: {
     term: 'the anchor',
     title: 'The sentence everything else hangs off',
-    body: 'It names the job and nothing else. It is short on purpose, and it is finished in under two seconds, which is exactly why it cannot be the whole turn. a1.06 taught you how to say it. This lesson is about what comes next.',
+    body: `It names the job and nothing else. It is short on purpose, and it is finished in under two seconds, which is exactly why it cannot be the whole turn. ${Cap(unitRef('a1.06'))} taught you how to say it. This lesson is about what comes next.`,
     examples: [
       { itemId: 'fr.a2.metiers.021', note: 'Two words after the verb, and then a decision.' },
       { itemId: 'fr.a2.metiers.023', note: 'Same shape, different kitchen.' },
@@ -86,8 +92,8 @@ export const TRAVAIL_TERMS: Record<string, LessonTerm> = {
   },
   repairMove: {
     term: 'asking again',
-    title: "a2.07's six ways to say you did not catch it",
-    body: 'a2.07 authored six, ordered by what each one costs you. The cheapest gives away nothing; the last one concedes that speaking has failed and asks for it in writing. Reach for the lowest one that will actually fix the problem.',
+    title: `${Cap(unitRef('a2.07', 'a2'))}'s six ways to say you did not catch it`,
+    body: `${Cap(unitRef('a2.07'))} authored six, ordered by what each one costs you. The cheapest gives away nothing; the last one concedes that speaking has failed and asks for it in writing. Reach for the lowest one that will actually fix the problem.`,
     examples: [
       { itemId: 'fr.a2.au-restaurant.132', note: 'The cheapest thing you can say.' },
       { itemId: 'fr.a2.au-restaurant.134', note: 'The first one that names what went wrong.' },

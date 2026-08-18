@@ -57,6 +57,7 @@ import { dicteeMode } from './dictee.logic.ts';
 import { MAX_GLOSS_WORDS, glossKeys, segmentSentence } from './gloss.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
+import { namesUnitLabel, unitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -556,7 +557,7 @@ test('THE THREE CELLS ARE THE THREE ROWS OF ONE tapTable, IN TRAIL ORDER', { ski
     const cell = THREE_CELLS[i];
     strictEqual(row.say, cell.fr, `row ${i + 1} plays ${JSON.stringify(row.say)}, expected ${JSON.stringify(cell.fr)}`);
     ok(row.cells[0].includes(cell.group), `row ${i + 1} does not name the ${cell.group} group`);
-    ok(row.cells[0].includes(cell.unit), `row ${i + 1} does not say which unit ${cell.group} came from`);
+    ok(namesUnitLabel(row.cells[0], cell.unit), `row ${i + 1} does not say which unit ${cell.group} came from`);
     strictEqual(row.cells[1], cell.form, `row ${i + 1} shows ${JSON.stringify(row.cells[1])}, expected ${JSON.stringify(cell.form)}`);
     strictEqual(
       row.cells[2], cell.ending === '' ? 'nothing' : cell.ending,
@@ -644,7 +645,7 @@ test('the singular triple is TAUGHT as a triple, on a screen of its own', { skip
 test('BOTH PREDECESSORS ARE NAMED, because the headline screen uses both their verbs', { skip: noLesson }, () => {
   for (const unit of BACKREFS) {
     ok(
-      L!.sections.some((s) => strings(s).some((x) => hasPhrase(x, unit))),
+      L!.sections.some((s) => strings(s).some((x) => namesUnitLabel(x, unit))),
       `${unit} is named by no section. The headline screen is a three-way comparison and a comparison with one`
       + ' side unattributed is a table rather than a teaching.',
     );
@@ -658,7 +659,10 @@ test('THE THREE-GROUP LINE IS STATED VERBATIM IN AT LEAST THREE SECTIONS', { ski
 });
 
 test('the source carries the same back-references and the same line', { skip: noSrc }, () => {
-  strictEqual(SRC_BACKREFS.join(','), BACKREFS.join(','));
+// The source exports the LABELS a learner reads; this file names the units by
+  // id and resolves them. Comparing the two lists directly compares a label
+  // against an id and can only fail.
+  strictEqual(SRC_BACKREFS.join(','), BACKREFS.map((u) => unitLabel(u)).join(','));
   strictEqual(SRC_THREE_GROUPS, THREE_GROUPS);
 });
 
@@ -666,7 +670,7 @@ test('the opening mission places this lesson third of three', { skip: noLesson }
   const card = section('s03-third');
   ok(card, 's03-third is gone, and with it the only place the set is closed');
   const text = strings(card).join('\n');
-  for (const unit of BACKREFS) ok(hasPhrase(text, unit), `s03-third no longer names ${unit}`);
+  for (const unit of BACKREFS) ok(namesUnitLabel(text, unit), `s03-third no longer names ${unit}`);
   ok(text.includes(THREE_GROUPS), 's03-third no longer says what the three groups disagree about');
 });
 
@@ -715,7 +719,7 @@ test('and they are all on ONE card, with a destination', { skip: noLesson }, () 
   const text = strings(card).join('\n');
   for (const v of [...NOT_THIS_FAMILY, ...NOT_THIS_FAMILY_COMPOUNDS]) ok(hasPhrase(text, v), `${BOUNDARY_SECTION} does not name ${v}`);
   ok(
-    text.includes(NOT_THIS_FAMILY_UNIT),
+    namesUnitLabel(text, NOT_THIS_FAMILY_UNIT),
     `${BOUNDARY_SECTION} does not say where prendre, mettre and battre are taught. A boundary with no destination`
     + ' is a warning, not a teaching.',
   );
@@ -1369,7 +1373,7 @@ test('and it holds the one table in the level that shows all three groups', { sk
 test('and it names the two sheets it completes rather than competes with', { skip: noLesson }, () => {
   const sheet = (L!.sheets ?? []).find((s) => s.id === SHEET_ID)!;
   const text = strings(sheet).join('\n');
-  for (const unit of BACKREFS) ok(hasPhrase(text, unit), `${SHEET_ID} does not name ${unit}, so a learner cannot tell it is the third of three`);
+  for (const unit of BACKREFS) ok(namesUnitLabel(text, unit), `${SHEET_ID} does not name ${unit}, so a learner cannot tell it is the third of three`);
 });
 
 test('the canonical nine-pronoun order is in the sheet', { skip: noLesson }, () => {

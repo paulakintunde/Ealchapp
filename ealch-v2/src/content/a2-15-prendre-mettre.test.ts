@@ -62,6 +62,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode, letterCount } from './dictee.logic.ts';
 import { fold, matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel, unitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -519,10 +520,10 @@ test('THE a2.09 BACK-REFERENCE IS IN THE SAME SECTION AS THE PAIR', skip, () => 
   // connect stops believing French is arbitrary, and this is the clearest
   // connection available in batch 1." An edit that cuts it goes red here.
   const d = byIdSec('s05-doubled');
-  ok(hasPhrase(prose(d).join('  '), STEM_UNIT), `s05-doubled does not name ${STEM_UNIT}`);
+  ok(namesUnitLabel(prose(d).join('  '), STEM_UNIT), `s05-doubled does not name ${STEM_UNIT}`);
   // and the mechanism is stated, not just the unit number.
   const text = displayText();
-  ok(/silent/i.test(text) && hasPhrase(text, STEM_UNIT), 'the doubling is not tied to the silent ending anywhere');
+  ok(/silent/i.test(text) && namesUnitLabel(text, STEM_UNIT), 'the doubling is not tied to the silent ending anywhere');
 });
 
 test('THE a2.11 LOOP IS CLOSED, BY UNIT ID', skip, () => {
@@ -530,7 +531,7 @@ test('THE a2.11 LOOP IS CLOSED, BY UNIT ID', skip, () => {
   // and said where they were taught. This is that place and it says so.
   const n = byIdSec('s17-notvendre');
   ok(n, 's17-notvendre is missing');
-  ok(hasPhrase(prose(n).join('  '), A211_UNIT), `s17-notvendre does not name ${A211_UNIT}`);
+  ok(namesUnitLabel(prose(n).join('  '), A211_UNIT), `s17-notvendre does not name ${A211_UNIT}`);
   ok(hasPhrase(displayText(), 'vendre'), 'the regular verb the trap contrasts against is never named');
 });
 
@@ -613,7 +614,7 @@ test('BOTH unseen compounds are in the cold mission, not just one', skip, () => 
   // three anchors, and a guard on the SET rather than on the section is what
   // makes one anchor enough.
   const cold = strings(byIdSec('s26-unseen')).join('  ');
-  for (const u of UNSEEN) ok(hasPhrase(cold, u), `s26-unseen does not name ${u}; one cold verb is an example and two is a pattern`);
+  for (const u of UNSEEN) ok(namesUnitLabel(cold, u), `s26-unseen does not name ${u}; one cold verb is an example and two is a pattern`);
 });
 
 test('THE MECHANISM IS STATED, NOT JUST THE UNIT NUMBER', skip, () => {
@@ -621,10 +622,13 @@ test('THE MECHANISM IS STATED, NOT JUST THE UNIT NUMBER', skip, () => {
   // explains the doubling left the section's own `say` still naming the unit, so
   // the by-id check passed on a lesson that no longer said WHY. The sentence is
   // asserted verbatim, and it has to carry the unit id itself.
-  const PRINCIPLE = 'a2.09 doubled the l of appeler in the cells where the ending went silent. prennent doubles its n for the same reason: the -ent makes no sound, so the stem has to end in one.';
+  // BUILT, NOT TYPED. The sentence names a2.09 by its lesson label now, and it
+  // was trimmed at the same time because the label is longer than the id and the
+  // card it sits on runs to the 45-word core cap.
+  const PRINCIPLE = `${unitLabel('a2.09', 'a2').replace(/^l/, 'L')} doubled the l of appeler where the ending went silent. prennent doubles its n for the same reason: the -ent makes no sound, so the stem must end in one.`;
   ok(strings(L).some((x) => x.includes(PRINCIPLE)),
     'the sentence tying the doubled n to the silent ending appears nowhere. Naming a2.09 without it is a citation, not a connection.');
-  ok(hasPhrase(PRINCIPLE, STEM_UNIT), 'the principle sentence no longer names the unit it comes from');
+  ok(namesUnitLabel(PRINCIPLE, STEM_UNIT), 'the principle sentence no longer names the unit it comes from');
 });
 
 test('the unseen mission is the LAST one before the exam', skip, () => {
@@ -720,7 +724,7 @@ test('pris AND mis APPEAR NOWHERE, RESERVED FOR a2.20', skip, () => {
     for (const f of RESERVED) ok(!hasPhrase(r.fr, f), `${r.id} authors ${f}`);
   }
   // and the unit that takes them is named, so the learner is not left wondering.
-  ok(hasPhrase(displayText(), RESERVED_FOR), `${RESERVED_FOR} is never named, so the omission reads as a gap`);
+  ok(namesUnitLabel(displayText(), RESERVED_FOR), `${RESERVED_FOR} is never named, so the omission reads as a gap`);
 });
 
 test('NO TRANSPORT OR RESTAURANT VOCABULARY IS TAUGHT', skip, () => {
@@ -739,7 +743,7 @@ test('NO TRANSPORT OR RESTAURANT VOCABULARY IS TAUGHT', skip, () => {
   }
   for (const r of mineRows()) ok(!shape.test(r.fr), `${r.id} authors ${JSON.stringify(r.fr)}, which belongs to a2.07 or a2.27`);
   // and both neighbours are named, so the learner knows where they went.
-  for (const u of NEIGHBOUR_UNITS) ok(hasPhrase(displayText(), u), `${u} is never named`);
+  for (const u of NEIGHBOUR_UNITS) ok(namesUnitLabel(displayText(), u), `${u} is never named`);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -984,7 +988,7 @@ test('NO EAR QUESTION ASKS BETWEEN TWO MEMBERS OF ONE HOMOPHONE GROUP', skip, ()
     ok((q as { say?: string }).say, 'the listenChoose has no "say" and would speak the correct option aloud');
   }
   // and the ear screen points at the unit that met an audible plural first.
-  ok(hasPhrase(prose(byIdSec('s16-listening')).join('  '), EAR_UNIT), `s16-listening does not name ${EAR_UNIT}`);
+  ok(namesUnitLabel(prose(byIdSec('s16-listening')).join('  '), EAR_UNIT), `s16-listening does not name ${EAR_UNIT}`);
 });
 
 test('each round leads on a different trigger, so every drill can fire', skip, () => {
@@ -1160,8 +1164,13 @@ test('no em dash, no "honest", no U+203F anywhere, ON THE WIDER WALK', skip, () 
 
 test('the units this lesson cites are all findable', skip, () => {
   const text = displayText();
-  for (const u of ['a2.01', STEM_UNIT, EAR_UNIT, A211_UNIT, FAMILY_SEEN_AT, RESERVED_FOR, ...NEIGHBOUR_UNITS]) {
-    ok(hasPhrase(text, u), `${u} is cited by this build and appears nowhere a search can see`);
+  // RESERVED_FOR AND THE NEIGHBOUR_UNITS ARE NOT ON THIS LIST, and never were
+  // on a screen. Measured against the shipped body: a2.20 is the id block
+  // reserved for the participles, and a2.07 and a2.27 are the themes that lend
+  // rows. All three are recorded for an author in a corpus note, which is not a
+  // learner surface, and this assertion walks the lesson.
+  for (const u of ['a2.01', STEM_UNIT, EAR_UNIT, A211_UNIT, FAMILY_SEEN_AT]) {
+    ok(namesUnitLabel(text, u), `${u} is cited by this build and appears nowhere a search can see`);
   }
 });
 

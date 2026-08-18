@@ -61,6 +61,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept, fold } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -202,7 +203,7 @@ test('the shape is 24 sections, 6 acts, one quiz of 30', { skip: noLesson }, () 
   strictEqual((L!.acts ?? []).length, 6);
   strictEqual(L!.sections.filter((s) => s.type === 'quiz').length, 1, 'a second quiz section is silently never rendered');
   strictEqual(quizQuestions(L!.sections.find((s) => s.type === 'quiz') as never).length, 30);
-  strictEqual(L!.version, 3, 'v2 repaired the dishonest/honest slip; v3 repaired the scene title that clipped on a Pixel 6. Corrections §10: the counter moves rather than the body being corrected under one number');
+  strictEqual(L!.version, 5, 'v2 repaired the dishonest/honest slip; v3 repaired the scene title that clipped on a Pixel 6; v4 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label. Corrections §10: the counter moves rather than the body being corrected under one number');
 });
 
 test('the prerequisite is shipped, not merely declared', { skip: noLesson }, () => {
@@ -294,8 +295,8 @@ test("LAYOUT 2: the article use and the pronoun use are in one section, and a2.0
   for (const c of cards) ok((c.fr ?? '').includes('·'), `a card does not carry both uses on one line: « ${c.fr} »`);
   const s = display(sec('s04-article'));
   ok(s.some((x) => x.includes(WHAT_FOLLOWS)), `s04-article does not quote a2.02's « ${WHAT_FOLLOWS} » verbatim`);
-  ok(s.some((x) => namesUnit(x, 'a2.02')), 'the term is quoted and a2.02 is not named beside it');
-  ok(s.some((x) => namesUnit(x, 'a1.04')), 'a1.04 is not credited with the article on the card that borrows its words');
+  ok(s.some((x) => namesUnitLabel(x, 'a2.02')), 'the term is quoted and a2.02 is not named beside it');
+  ok(s.some((x) => namesUnitLabel(x, 'a1.04')), 'a1.04 is not credited with the article on the card that borrows its words');
 });
 
 test('LAYOUT 3: the affirmative and the negative are on one card, with ne outside the cluster', { skip: noLesson }, () => {
@@ -477,9 +478,9 @@ test('y and en as pronouns appear NOWHERE, reserving a2.25', { skip: noLesson },
 });
 
 test('both next lessons are named, and a2.22 gets its loop closed', { skip: noLesson }, () => {
-  ok(ALL.some((s) => namesUnit(s, 'a2.24')), 'a2.24 is named nowhere, so the next lesson is not handed off to');
-  ok(ALL.some((s) => namesUnit(s, 'a2.25')), 'a2.25 is named nowhere');
-  const closes = ALL.filter((s) => namesUnit(s, 'a2.22'));
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.24')), 'a2.24 is named nowhere, so the next lesson is not handed off to');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a2.25')), 'a2.25 is named nowhere');
+  const closes = ALL.filter((s) => namesUnitLabel(s, 'a2.22'));
   ok(closes.length, 'a2.22 is named nowhere and this lesson was asked to close its loop');
   /* THE LITERAL PHRASE, not an alternation.
    *
@@ -500,7 +501,7 @@ test('both next lessons are named, and a2.22 gets its loop closed', { skip: noLe
 
 test('the elision limit is stated verbatim, and sons.07 is credited', { skip: noLesson }, () => {
   ok(ALL.some((s) => s.includes(ELISION_LIMIT)), 'the elision limit is not stated verbatim');
-  ok(ALL.some((s) => namesUnit(s, 'sons.07')), 'sons.07 owns elision and is credited nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'sons.07')), 'sons.07 owns elision and is credited nowhere');
 });
 
 test('elision is quoted and never taught: none of sons.07 own machinery appears', { skip: noLesson }, () => {
@@ -1015,13 +1016,13 @@ test('no mission title clips on the row', { skip: noLesson }, () => {
 test('a2.02 term quoted verbatim, unit named, and this instance marked as the fifth', { skip: noLesson }, () => {
   const quoting = ALL.filter((s) => s.includes(WHAT_FOLLOWS));
   ok(quoting.length >= 1, `a2.02's « ${WHAT_FOLLOWS} » is quoted nowhere`);
-  ok(quoting.some((s) => namesUnit(s, 'a2.02')), 'the shape is quoted and a2.02 is not named beside it');
+  ok(quoting.some((s) => namesUnitLabel(s, 'a2.02')), 'the shape is quoted and a2.02 is not named beside it');
   ok(ALL.some((s) => /fifth/iu.test(s)), 'the lesson does not say this is the fifth occurrence, so it reads as a new observation');
 });
 
 test('a1.03 and a1.04 are leaned on by name and neither is re-taught', { skip: noLesson }, () => {
-  ok(ALL.some((s) => namesUnit(s, 'a1.03')), 'a1.03 owns the gender and is credited nowhere');
-  ok(ALL.some((s) => namesUnit(s, 'a1.04')), 'a1.04 owns the article and is credited nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a1.03')), 'a1.03 owns the gender and is credited nowhere');
+  ok(ALL.some((s) => namesUnitLabel(s, 'a1.04')), 'a1.04 owns the article and is credited nowhere');
   /* NOT RE-TAUGHT: the four-form article paradigm does not reappear as a
    * teaching table, and no card explains how to derive a noun's gender. */
   for (const s of UNIQUE) {

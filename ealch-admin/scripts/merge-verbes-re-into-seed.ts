@@ -52,6 +52,7 @@ import {
   afterPronoun, toItem,
 } from './data/verbes-re-corpus.ts';
 import { BOUNDARY_VERBS, IMPORTED_ROWS, IMPORTED_VERBS } from './data/verbes-re-imported.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   BACKREFS, BOUNDARY_SECTION_ID, CELLS_ROW_IDS, CELLS_SECTION_ID, NOUS_ON,
   REFRAME, SHEET_ID, THREE_GROUPS, VERBES_RE_LESSON,
@@ -212,7 +213,7 @@ for (const [sing, plur] of PRONOUN_BLIND_PAIRS) {
   if (unnamed.length) die(`boundary verb(s) named by no screen: ${unnamed.join(', ')}`);
   const card = LESSON.sections.find((s) => (s as { id?: string }).id === BOUNDARY_SECTION_ID);
   if (!card) die(`${BOUNDARY_SECTION_ID} is gone, and with it the only place the boundary is named`);
-  if (!strings(card).join('\n').includes(NOT_THIS_FAMILY_UNIT)) die(`${BOUNDARY_SECTION_ID} no longer says where ${NOT_THIS_FAMILY.join(', ')} are taught`);
+  if (!namesUnitLabel(strings(card).join('\n'), NOT_THIS_FAMILY_UNIT)) die(`${BOUNDARY_SECTION_ID} no longer says where ${NOT_THIS_FAMILY.join(', ')} are taught`);
 }
 
 /* ── The one sheet, and the reason it is not a third copy ────────────────── */
@@ -227,7 +228,7 @@ for (const [sing, plur] of PRONOUN_BLIND_PAIRS) {
   const ilRow = three.rows.find((r) => r[0] === 'il · elle · on');
   if (!ilRow || ilRow.slice(1).join('|') !== 'parle|finit|vend') die('the il row of the three-group table has changed');
   const sheetText = strings(sheet).join('\n');
-  const unnamed = SHEET_DECISION.names.filter((u) => !hasPhrase(sheetText, u));
+  const unnamed = SHEET_DECISION.names.filter((u) => !namesUnitLabel(sheetText, u));
   if (unnamed.length) die(`${SHEET_ID} does not name ${unnamed.join(', ')}`);
 }
 

@@ -20,6 +20,12 @@
 
 import type { LessonTerm } from '../../../ealch-v2/src/content/schema.ts';
 import { E } from './comparatifs-corpus.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const COMPARATIFS_TERMS: Record<string, LessonTerm> = {
   /** THE OWNS, defined once. */
@@ -78,7 +84,7 @@ export const COMPARATIFS_TERMS: Record<string, LessonTerm> = {
   agree: {
     term: 'agree',
     title: 'The ending still follows the noun',
-    body: 'a2.03 taught that a describing word matches what it describes. Nothing about the frame suspends that. le plus grand jardin, la plus grande maison, les plus grands jardins, les plus grandes maisons: four spellings, and two of them sound identical, so this is a thing you can only get right in writing.',
+    body: `${Cap(unitRef('a2.03'))} taught that a describing word matches what it describes. Nothing about the frame suspends that. le plus grand jardin, la plus grande maison, les plus grands jardins, les plus grandes maisons: four spellings, and two of them sound identical, so this is a thing you can only get right in writing.`,
     examples: [
       { itemId: E(142), note: 'one house' },
       { itemId: E(144), note: 'several houses' },

@@ -65,6 +65,12 @@ import {
 } from './passe-compose-etre-corpus.ts';
 import { ALREADY_YOURS, ETRE_TERMS, EVIDENCE_LINE } from './passe-compose-etre-terms.ts';
 import { importedFr, rowCard, sub as impSub } from './passe-compose-etre-imported.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ─── Reading the authored rows ────────────────────────────────────────────
  *
@@ -215,7 +221,7 @@ const SCENE_BEATS: SceneBeat[] = [
     size: 'md',
     fr: SCENE_STALL,
     en: SCENE_STALL_EN,
-    stage: `You know the verb and you know the past. What you do not know is which of the two first words this one takes, and you have started the sentence. ${PASSE_UNIT} gave you avoir and nothing else, so avoir is what arrives.`,
+    stage: `You know the verb and you know the past. What you do not know is which of the two first words this one takes, and you have started the sentence. ${Cap(unitRef(PASSE_UNIT))} gave you avoir and nothing else, so avoir is what arrives.`,
     audio: { mode: 'tts', lang: 'fr-FR' },
   },
   {
@@ -291,7 +297,10 @@ const SCENE_BEATS: SceneBeat[] = [
  *  it is prose about a screen rather than a fact about the corpus. THE UNIT ID
  *  IS A LITERAL: a2.18 §6 and a2.20 §5.4 both found that renaming a constant
  *  renames both sides of a guard and the credit vanishes from every screen. */
-const FUTUR_CREDIT = `That is a2.19's line, quoted by ${PASSE_UNIT} and again here.`;
+/** SHIPPED AS « That is That is a2.19's line » SINCE v1. The constant opens
+ *  with « That is » and the one place that uses it typed the same two words in
+ *  front of it, so the card reads them twice. Repaired here. */
+const FUTUR_CREDIT = `That is ${unitRef('a2.19')}'s line, quoted by ${unitRef(PASSE_UNIT, 'a2')} and again here.`;
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  THE SECTIONS
@@ -323,7 +332,7 @@ const SECTIONS: LessonSection[] = [
       { t: 'Reach for the right first word', s: 'Fifteen verbs take être instead of avoir, and twelve of the fifteen have one thing in common that you can check in half a second.' },
       { t: 'Put the ending on', s: AGREEMENT_RULE },
       { t: 'Write what nobody can hear', s: 'All four spellings are one sound, so the dictée is the only place this can be tested and it is where most of the work is.' },
-      { t: 'Decide about a verb nobody showed you', s: `${FAMILY_UNIT}'s move, one step further: cover the front of a verb and you inherit the first word as well as the second.` },
+      { t: 'Decide about a verb nobody showed you', s: `${Cap(unitRef(FAMILY_UNIT, 'a2'))}'s move, one step further: cover the front of a verb and you inherit the first word as well as the second.` },
     ],
   },
 
@@ -340,10 +349,10 @@ const SECTIONS: LessonSection[] = [
     cards: [
       { label: 'the first half', head: 'which first word', body: `Fifteen verbs put a form of être where every other verb puts avoir. ${EVIDENCE_LINE}` },
       { label: 'and the second', head: REFRAME, body: 'After avoir the second word never moves. After être it changes for who the sentence is about, and that has never happened to a verb before now.' },
-      { label: 'what does not change', head: `${PASSE_UNIT} still holds`, body: `« ${A205_REFRAME} » Two words, a gap between them, and the small ones in the gap. Nothing on this screen touches any of that.` },
+      { label: 'what does not change', head: `${Cap(unitRef(PASSE_UNIT))} still holds`, body: `« ${A205_REFRAME} » Two words, a gap between them, and the small ones in the gap. Nothing on this screen touches any of that.` },
       { label: 'and what you cannot hear', head: 'four spellings, one sound', body: EAR_CLAIM },
       { label: 'the pattern', head: PATTERN_CLAIM, body: REST_CLAIM },
-      { label: 'where you have seen this', head: `${ADJ_UNIT} taught the endings`, body: `« ${A203_REFRAME} » The four endings on the second word are that lesson's four, and the only new thing is that a verb is doing it.` },
+      { label: 'where you have seen this', head: `${Cap(unitRef(ADJ_UNIT))} taught the endings`, body: `« ${A203_REFRAME} » The four endings on the second word are that lesson's four, and the only new thing is that a verb is doing it.` },
     ],
     terms: ['firstWord', 'theEnding', 'whoDidIt'],
   },
@@ -359,11 +368,11 @@ const SECTIONS: LessonSection[] = [
     title: 'The Shape Has Not Moved',
     frSub: 'La forme ne bouge pas',
     layer: 'core',
-    say: `${PASSE_UNIT} said it two lessons ago: « ${A205_REFRAME} » The first word, the gap, the second word. All this lesson changes is which first word, and what happens to the second one afterwards.`,
+    say: `${Cap(unitRef(PASSE_UNIT))} said it two lessons ago: « ${A205_REFRAME} » The first word, the gap, the second word. All this lesson changes is which first word, and what happens to the second one afterwards.`,
     examples: [
-      { fr: fr(A(661)), en: en(A(661)), note: `${sub(A(661))} avoir, and the second word does not move. ${PASSE_UNIT}'s rule exactly.` },
+      { fr: fr(A(661)), en: en(A(661)), note: `${sub(A(661))} avoir, and the second word does not move. ${Cap(unitRef(PASSE_UNIT, 'a2'))}'s rule exactly.` },
       { fr: fr(A(662)), en: en(A(662)), note: `${sub(A(662))} être, same woman, same restaurant, and an e has appeared. One word different in the whole sentence.` },
-      { fr: fr(A(677)), en: en(A(677)), note: `${sub(A(677))} And the negative, in the same place it has always been. « ${NEGATION_RULE} » That is ${FUTUR_CREDIT}` },
+      { fr: fr(A(677)), en: en(A(677)), note: `${sub(A(677))} And the negative, in the same place it has always been. « ${NEGATION_RULE} » ${FUTUR_CREDIT}` },
       { fr: fr(A(676)), en: en(A(676)), note: `${sub(A(676))} ${ELISION_CLAIM}` },
     ],
     terms: ['firstWord', 'theEnding', 'whoDidIt'],
@@ -478,10 +487,10 @@ const SECTIONS: LessonSection[] = [
     // a literal here and the cards were not, so renaming ER_UNIT left the hint
     // still crediting a2.01 and satisfied the guard that checks the credit is on
     // the screen. Found by mutation 34.
-    hint: `Swipe. Four cards, and the first is a line from ${ER_UNIT}.`,
+    hint: `Swipe. Four cards, the first from ${unitRef(ER_UNIT)}.`,
     cards: [
       { label: 'the first lesson of this level', head: A201_REFRAME, body: BOOKEND_CLAIM },
-      { label: 'there', head: 'je parle, tu parles, ils parlent', body: `${ER_UNIT} had six forms and three spellings that are one sound, and the pronoun in front settled which one you meant.` },
+      { label: 'there', head: 'je parle, tu parles, ils parlent', body: `${Cap(unitRef(ER_UNIT))} had six forms and three spellings that are one sound, and the pronoun in front settled which one you meant.` },
       { label: 'here', head: `${fr(CELL_IDS[0]!)} ${fr(CELL_IDS[3]!)}`, body: BOOKEND_PARALLEL },
       { label: 'so', head: 'French writes what it does not say', body: 'It has been doing this since the first lesson of this level, and this is the fourth time you have met it. Once you expect it, a silent ending stops being a surprise and starts being something you check.' },
     ],
@@ -516,7 +525,7 @@ const SECTIONS: LessonSection[] = [
     frSub: 'Les six personnes',
     layer: 'core',
     size: 'lg',
-    say: `Six persons, one verb, and ${IR_UNIT}'s frame word so the two lessons sit against each other. Watch the last two letters and nothing else.`,
+    say: `Six persons, one verb, and ${unitRef(IR_UNIT, 'a2')}'s frame word so the two lessons sit against each other. Watch the last two letters and nothing else.`,
     groups: [
       {
         label: 'me and you',
@@ -625,7 +634,7 @@ const SECTIONS: LessonSection[] = [
     frSub: 'Trois cas nouveaux',
     layer: 'core',
     size: 'lg',
-    say: `${A215_REFRAME} That is ${FAMILY_UNIT}'s line, and here it settles the first word as well as the second. Three verbs this lesson has not listed, and one of them is not in the crutch either.`,
+    say: `${A215_REFRAME} That is ${unitRef(FAMILY_UNIT, 'a2')}'s line, and here it settles the first word as well as the second. Three verbs this lesson has not listed, and one of them is not in the crutch either.`,
     groups: [
       {
         label: 'to become',
@@ -673,9 +682,9 @@ const SECTIONS: LessonSection[] = [
     swipe: true,
     hint: 'Swipe. Three cards, and none of them is work for today.',
     cards: [
-      { label: 'more verbs with être', head: `${REFLEXIVE_UNIT} and ${REFLEXIVE_PAST_UNIT}`, body: REFLEXIVE_DEFERRAL },
-      { label: 'the one case with avoir', head: PRONOUN_UNIT, body: OBJECT_DEFERRAL },
-      { label: 'and the forms themselves', head: `${IRREGULAR_UNIT} did those`, body: `« ${A220_REFRAME} » That lesson gave you ${A220_ETRE_FORMS.join(', ')} and said the first word was this one's. Here it is, and the ending goes on all three.` },
+      { label: 'more verbs with être', head: `${Cap(unitRef(REFLEXIVE_UNIT))} and ${unitRef(REFLEXIVE_PAST_UNIT)}`, body: REFLEXIVE_DEFERRAL },
+      { label: 'the one case with avoir', head: Cap(unitRef(PRONOUN_UNIT, 'a2')), body: OBJECT_DEFERRAL },
+      { label: 'and the forms themselves', head: `${Cap(unitRef(IRREGULAR_UNIT))} did those`, body: `« ${A220_REFRAME} » That lesson gave you ${A220_ETRE_FORMS.join(', ')} and said the first word was this one's. Here it is, and the ending goes on all three.` },
     ],
     terms: ['firstWord', 'theEnding', 'movement'],
   },
@@ -938,9 +947,9 @@ const SECTIONS: LessonSection[] = [
     body: `${REFRAME} The exam has six rounds and most of it is typed, because the ending is a written thing and picking it out of four is a different job.`,
     stats: [
       { k: 'Verbs', v: '15, and 12 of them have one thing in common.' },
-      { k: 'Endings', v: `4, and they are ${ADJ_UNIT}'s four.` },
-      { k: 'New constructions', v: `0. ${PASSE_UNIT} gave you the whole shape and it has not moved.` },
-      { k: 'Used again in', v: `${REFLEXIVE_UNIT} and ${REFLEXIVE_PAST_UNIT}, which declares this lesson as a prerequisite.` },
+      { k: 'Endings', v: `4, and they are ${unitRef(ADJ_UNIT, 'a2')}'s four.` },
+      { k: 'New constructions', v: `0. ${Cap(unitRef(PASSE_UNIT))} gave you the whole shape and it has not moved.` },
+      { k: 'Used again in', v: `${Cap(unitRef(REFLEXIVE_UNIT))} and ${unitRef(REFLEXIVE_PAST_UNIT)}, which declares this lesson as a prerequisite.` },
     ],
   },
 
@@ -969,7 +978,7 @@ const SECTIONS: LessonSection[] = [
             format: 'mcq',
             opts: ['est', 'a', 'ont', 'sont'],
             correct: 0,
-            why: 'aller is one of the fifteen and elle is one person, so est. The first option is what a learner who has only met a2.05 reaches for.',
+            why: `aller is one of the fifteen and elle is one person, so est. The first option is what a learner who has only met ${unitRef('a2.05')} reaches for.`,
             ref: PATTERN_SECTION_ID,
           },
           {
@@ -1431,7 +1440,7 @@ const DECK_TRANCHE: string[][] = [
 const ERROR_TRIGGERS: ErrorTrigger[] = [
   {
     id: 'err-wrong-first',
-    description: 'Uses avoir on a verb that takes être: « elle a allé ». THE ERROR THIS LESSON EXISTS TO PREVENT, and it comes from a2.05 having taught avoir and nothing else, so it is produced by a learner doing exactly what they were told.',
+    description: `Uses avoir on a verb that takes être: « elle a allé ». THE ERROR THIS LESSON EXISTS TO PREVENT, and it comes from ${unitRef('a2.05')} having taught avoir and nothing else, so it is produced by a learner doing exactly what they were told.`,
     detectOn: [WHICHFIRST_SECTION_ID, PATTERN_SECTION_ID, `${QUIZ_SECTION_ID}/r1-which-first`],
     drill: 'drill-which-first',
     retest: 'retest-which-first',
@@ -1756,7 +1765,7 @@ export const ETRE_LESSON: Lesson = {
   // Postgres already held v1 and then v2, and ledger §10 exists because two
   // different bodies under one number is the drift this project has lost work to
   // twice. a2.09 set the precedent and a2.20 followed it at v2 and again at v3.
-  version: 3,
+  version: 6,
 
   grammarAssumed: [
     'The passé composé with avoir, in six persons, introduced in a2.05',
@@ -1827,7 +1836,7 @@ export const ETRE_LESSON: Lesson = {
       {
         id: 'rec-a2-21-scene',
         desc:
-          'THE KETTLE ON A MONDAY, AND THE SAME COLLEAGUE AS a2.05 AND a2.20. She has asked a friendly question and is expecting a short answer. '
+          `THE KETTLE ON A MONDAY, AND THE SAME COLLEAGUE AS ${unitRef('a2.05')} AND ${unitRef('a2.20')}. She has asked a friendly question and is expecting a short answer. `
           + 'THE LEARNER\'S OWN LINE IS THE TAKE THAT HAS TO BE RIGHT. « Hier soir, j\'ai... je suis... j\'ai... » is somebody deciding out loud, twice, and settling on the wrong one. '
           + 'THE TWO FALSE STARTS MUST NOT BE RUSHED TOGETHER. There is a real pause after each, and the second « j\'ai » should sound like a decision rather than like a stumble: he has chosen, and he has chosen wrongly. '
           + 'HER LINE « Tu as sorti quoi ? » IS THE EXPENSIVE ONE AND IT IS NOT A CORRECTION. She heard a complete, well-formed sentence about carrying something out of the house and she is asking what the something was. '

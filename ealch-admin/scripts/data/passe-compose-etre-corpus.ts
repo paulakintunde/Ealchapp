@@ -1,4 +1,10 @@
-// The a2.21 corpus: what this lesson authors, what it imports, the two repairs
+
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+import { unitRef } from './_unit-ref.ts';// The a2.21 corpus: what this lesson authors, what it imports, the two repairs
 // it makes, and the eight measurements that decided its shape.
 //
 // THIS FILE IS THE SINGLE SOURCE OF TRUTH for every `fr`, `ipa`, `respell` and
@@ -284,7 +290,13 @@ export const SHEET_ID = 'sheet-a2-21-etre';
  * amendments and stops at a2.20's .591..650. This block is claimed here, above
  * it, and the amendment records it.                                           */
 
-export const ROW_COUNT_BEFORE = 482;
+/** RE-READ 2026-08-18, as the batch's own guard asks when it fires.
+ *
+ *  It was 482 when this lesson was authored. `fr.a2.verbes` now holds 602 rows,
+ *  of which 46 are this lesson's own block (651..720), so 556 stood in the
+ *  theme before it and 74 rows have landed from other builds since. Nothing
+ *  about this lesson's block moved; only the count around it did. */
+export const ROW_COUNT_BEFORE = 556;
 export const ID_BLOCK = { from: 'fr.a2.verbes.651', to: 'fr.a2.verbes.720' } as const;
 
 /** a2.20's, immediately below, 591..650 with 591..633 used. A RESERVATION
@@ -394,7 +406,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'With être, the participle behaves like an adjective.',
-    why: 'The brief\'s own candidate and the chosen one is it rewritten. It opens on two grammar nouns where a1.16 runs « describing word » 74 times against « adjective » 12, and a2.17 §5 measured that the house prefers the plain phrase rather than banning the technical one. « Behaves like » is also a description rather than an instruction, and the thing the learner has to do is put letters on the end.',
+    why: `The brief\'s own candidate and the chosen one is it rewritten. It opens on two grammar nouns where ${unitRef('a1.16')} runs « describing word » 74 times against « adjective » 12, and ${unitRef('a2.17')} §5 measured that the house prefers the plain phrase rather than banning the technical one. « Behaves like » is also a description rather than an instruction, and the thing the learner has to do is put letters on the end.`,
   },
   {
     candidate: 'Agree the past form with the subject.',
@@ -416,7 +428,7 @@ export const REFRAME_COUNT = 8;
 /** The claim the bookend makes, in one string, so the screen, the roundup, the
  *  report and the test all say the same thing. */
 export const BOOKEND_CLAIM =
-  `${ER_UNIT} said it in the first lesson of this level, about six forms of the present. Seventeen lessons later it is four forms of the past and the same sentence covers them.`;
+  `${Cap(unitRef(ER_UNIT))} said it in the first lesson of this level, about six forms of the present. Seventeen lessons later it is four forms of the past and the same sentence covers them.`;
 
 /** The exact parallel, spelled out. a2.01: four of six sound the same and the
  *  PRONOUN carries the person. Here: four of four sound the same and the SUBJECT
@@ -453,9 +465,9 @@ const cellsOf = (m: string): [string, string, string, string] =>
 
 export const ETRE_VERBS: readonly EtreVerb[] = [
   { verb: 'aller', past: 'allé', cells: cellsOf('allé'), family: 'going', en: 'to go', rowId: 'fr.sons.verbes-essentiels.003', note: 'The commonest of the fifteen and the one every screen in this lesson uses, so the ending is the only thing that ever changes.' },
-  { verb: 'venir', past: 'venu', cells: cellsOf('venu'), family: 'going', en: 'to come', rowId: 'fr.sons.verbes-essentiels.010', fromA220: true, note: `${IRREGULAR_UNIT} taught the form as an ordinary member of its -u group and said the first word was this lesson's.` },
+  { verb: 'venir', past: 'venu', cells: cellsOf('venu'), family: 'going', en: 'to come', rowId: 'fr.sons.verbes-essentiels.010', fromA220: true, note: `${Cap(unitRef(IRREGULAR_UNIT))} taught the form as an ordinary member of its -u group and said the first word was this lesson's.` },
   { verb: 'arriver', past: 'arrivé', cells: cellsOf('arrivé'), family: 'going', en: 'to arrive', rowId: 'fr.a2.verbes.013' },
-  { verb: 'partir', past: 'parti', cells: cellsOf('parti'), family: 'going', en: 'to leave', rowId: 'fr.sons.verbes-essentiels.040', note: `${IR_UNIT} taught its present and its frame word was tôt, which this lesson reuses.` },
+  { verb: 'partir', past: 'parti', cells: cellsOf('parti'), family: 'going', en: 'to leave', rowId: 'fr.sons.verbes-essentiels.040', note: `${Cap(unitRef(IR_UNIT))} taught its present and its frame word was tôt, which this lesson reuses.` },
   { verb: 'passer', past: 'passé', cells: cellsOf('passé'), family: 'going', en: 'to go past', rowId: 'fr.sons.verbes-essentiels.017', transitive: true, note: 'NOT A LETTER IN THE MNEMONIC, and the corpus publishes it with avoir forty-five times and with être twenty-six.' },
 
   { verb: 'entrer', past: 'entré', cells: cellsOf('entré'), family: 'inout', en: 'to go in', rowId: 'fr.sons.verbes-essentiels.043' },
@@ -464,7 +476,7 @@ export const ETRE_VERBS: readonly EtreVerb[] = [
   { verb: 'retourner', past: 'retourné', cells: cellsOf('retourné'), family: 'inout', en: 'to go back', rowId: 'fr.sons.verbes-essentiels.085' },
 
   { verb: 'monter', past: 'monté', cells: cellsOf('monté'), family: 'updown', en: 'to go up', rowId: 'fr.a1.transports-quotidiens.044', transitive: true },
-  { verb: 'descendre', past: 'descendu', cells: cellsOf('descendu'), family: 'updown', en: 'to go down', rowId: 'fr.a1.transports-quotidiens.045', note: `${RE_UNIT} teaches it in the present and names no first word for it. §7.` },
+  { verb: 'descendre', past: 'descendu', cells: cellsOf('descendu'), family: 'updown', en: 'to go down', rowId: 'fr.a1.transports-quotidiens.045', note: `${Cap(unitRef(RE_UNIT))} teaches it in the present and names no first word for it. §7.` },
   { verb: 'tomber', past: 'tombé', cells: cellsOf('tombé'), family: 'updown', en: 'to fall', rowId: 'fr.sons.verbes-essentiels.044' },
 
   { verb: 'rester', past: 'resté', cells: cellsOf('resté'), family: 'still', en: 'to stay', rowId: 'fr.sons.verbes-essentiels.021', note: 'The one that neither moves nor changes anything, which is why the pattern needs the mnemonic beside it.' },
@@ -488,7 +500,7 @@ export const FAMILY_SIZES: Record<Family, number> = {
 export const verbsIn = (f: Family): readonly EtreVerb[] => ETRE_VERBS.filter((v) => v.family === f);
 export const verbOf = (name: string): EtreVerb => {
   const v = ETRE_VERBS.find((x) => x.verb === name);
-  if (!v) throw new Error(`a2.21: « ${name} » is not one of the fifteen.`);
+  if (!v) throw new Error(`${Cap(unitRef('a2.21'))}: « ${name} » is not one of the fifteen.`);
   return v;
 };
 
@@ -529,12 +541,12 @@ export const AGREEMENT_RULE =
 
 /** Where it comes from, credited by unit id. a2.03 owns it. */
 export const AGREEMENT_CREDIT =
-  `${ADJ_UNIT} taught this on describing words and the endings are the same four. « ${A203_REFRAME} » The only new thing is that a verb is now doing it.`;
+  `${Cap(unitRef(ADJ_UNIT))} taught this on describing words and the endings are the same four. « ${A203_REFRAME} » The only new thing is that a verb is now doing it.`;
 
 /** THE OTHER SIDE OF THE CONTRAST, which is a2.05's own rule and is not
  *  softened: after avoir nothing is added, in any person, ever. */
 export const AVOIR_CLAIM =
-  `After avoir the second word never changes, in any person. ${PASSE_UNIT} taught that and this lesson does not touch it.`;
+  `After avoir the second word never changes, in any person. ${Cap(unitRef(PASSE_UNIT))} taught that and this lesson does not touch it.`;
 
 /* ─── WHAT THE EAR CANNOT DO ────────────────────────────────────────────────*/
 
@@ -600,7 +612,7 @@ export const TRANSITIVE_CLAIM =
 
 /** a2.11's descendre, closed FORWARD rather than by back-reference. §7. */
 export const DESCENDRE_CREDIT =
-  `${RE_UNIT} taught descendre in the present and did not say which first word it takes. It takes être when you go down and avoir when you take something down, and this lesson owns that.`;
+  `${Cap(unitRef(RE_UNIT))} taught descendre in the present and did not say which first word it takes. It takes être when you go down and avoir when you take something down, and this lesson owns that.`;
 
 /* ─── THE BOUNDARY: WHAT THIS LESSON DOES NOT DO ────────────────────────────*/
 
@@ -621,10 +633,10 @@ export const REFLEXIVE_MARKERS: readonly string[] = [
 ];
 
 export const REFLEXIVE_DEFERRAL =
-  `A whole family of verbs carries a little word in front of it and they take être as well. That is ${REFLEXIVE_UNIT} and then ${REFLEXIVE_PAST_UNIT}, and the rule on this screen is the one they will use.`;
+  `A whole family of verbs carries a little word in front of it and they take être as well. That is ${unitRef(REFLEXIVE_UNIT)} and then ${unitRef(REFLEXIVE_PAST_UNIT)}, and the rule on this screen is the one they will use.`;
 
 export const OBJECT_DEFERRAL =
-  `There is one case where a past form agrees after avoir, and it needs the words that stand in for an object. That is ${PRONOUN_UNIT} and nothing here depends on it.`;
+  `There is one case where a past form agrees after avoir, and it needs the words that stand in for an object. That is ${unitRef(PRONOUN_UNIT)} and nothing here depends on it.`;
 
 /* ─── THE ERRORS ────────────────────────────────────────────────────────────*/
 
@@ -775,7 +787,7 @@ export const ETRE_ROWS: readonly Row[] = [
   R(654, 'Elles sont allées.', 'They went, and they are all women.', 'ehl sohⁿ tah-LAY', '/ɛl sɔ̃ ta.le/', 'cell', WITH_DICTEE, [...T, 'cell', 'aller'], 'Both endings at once, and the longest of the four to write. Fifteen letters, which is inside the dictée window by one.', 'aller', 3),
 
   /* ── 655-660: THE SIX PERSONS, partir, with a2.10's frame word ───────────*/
-  R(655, 'Je suis parti tôt.', 'I left early.', 'zhuh swee pahr-TEE TOH', '/ʒə sɥi paʁ.ti to/', 'person', FULL, [...T, 'person', 'partir'], `The first person, and ${IR_UNIT}'s frame word so the two lessons sit against each other.`, 'partir', 0),
+  R(655, 'Je suis parti tôt.', 'I left early.', 'zhuh swee pahr-TEE TOH', '/ʒə sɥi paʁ.ti to/', 'person', FULL, [...T, 'person', 'partir'], `The first person, and ${unitRef(IR_UNIT, 'a2')}'s frame word so the two lessons sit against each other.`, 'partir', 0),
   R(656, 'Tu es partie tôt.', 'You left early.', 'tü eh pahr-TEE TOH', '/ty ɛ paʁ.ti to/', 'person', FULL, [...T, 'person', 'partir'], 'A woman being spoken to, so the e goes on. Nothing about the sound says so.', 'partir', 1),
   R(657, 'Il est parti tôt.', 'He left early.', 'eel eh pahr-TEE TOH', '/il ɛ paʁ.ti to/', 'person', FULL, [...T, 'person', 'partir'], 'The plain form again, on a different verb, so the pattern is visible twice.', 'partir', 0),
   R(658, 'Nous sommes partis tôt.', 'We left early.', 'noo somm pahr-TEE TOH', '/nu sɔm paʁ.ti to/', 'person', FULL, [...T, 'person', 'partir'], 'More than one, so the s goes on. Nineteen letters, which is why this one is not in the dictée.', 'partir', 2),
@@ -784,7 +796,7 @@ export const ETRE_ROWS: readonly Row[] = [
 
   /* ── 661-664: THE CONTRAST WITH avoir. The second required layout. ───────
      Same subject, same place, one word different, and only one of them agrees. */
-  R(661, 'Elle a mangé au restaurant.', 'She ate at the restaurant.', 'ehl ah mahⁿ-ZHAY oh res-toh-RAHⁿ', '/ɛl a mɑ̃.ʒe o ʁɛs.to.ʁɑ̃/', 'contrast', FULL, [...T, 'contrast', 'avoir'], `avoir, and nothing goes on the end. ${PASSE_UNIT}'s rule, unchanged.`),
+  R(661, 'Elle a mangé au restaurant.', 'She ate at the restaurant.', 'ehl ah mahⁿ-ZHAY oh res-toh-RAHⁿ', '/ɛl a mɑ̃.ʒe o ʁɛs.to.ʁɑ̃/', 'contrast', FULL, [...T, 'contrast', 'avoir'], `avoir, and nothing goes on the end. ${Cap(unitRef(PASSE_UNIT, 'a2'))}'s rule, unchanged.`),
   R(662, 'Elle est allée au restaurant.', 'She went to the restaurant.', 'ehl eh tah-LAY oh res-toh-RAHⁿ', '/ɛl ɛ ta.le o ʁɛs.to.ʁɑ̃/', 'contrast', FULL, [...T, 'contrast', 'etre'], 'être, same woman, same restaurant, and an e appears. One word different in the whole sentence.', 'aller', 1),
   R(663, 'Ils ont mangé au restaurant.', 'They ate at the restaurant.', 'eel zohⁿ mahⁿ-ZHAY oh res-toh-RAHⁿ', '/il zɔ̃ mɑ̃.ʒe o ʁɛs.to.ʁɑ̃/', 'contrast', FULL, [...T, 'contrast', 'avoir'], 'The plural with avoir, and still nothing on the end.'),
   R(664, 'Ils sont allés au restaurant.', 'They went to the restaurant.', 'eel sohⁿ tah-LAY oh res-toh-RAHⁿ', '/il sɔ̃ ta.le o ʁɛs.to.ʁɑ̃/', 'contrast', FULL, [...T, 'contrast', 'etre'], 'And the plural with être, where the s does appear. The pair a learner has to be able to hold.', 'aller', 2),
@@ -803,13 +815,13 @@ export const ETRE_ROWS: readonly Row[] = [
   R(672, 'Elles sont mortes en mars.', 'They died in March, and they are all women.', 'ehl sohⁿ MORT ahⁿ MARSS', '/ɛl sɔ̃ mɔʁt ɑ̃ maʁs/', 'audible', FULL, [...T, 'audible', 'mourir'], 'The second sound again. Gender you can hear once in fifteen verbs, number never.', 'mourir', 3),
 
   /* ── 673-675: THE THREE THAT DO NOT MOVE, and one compound ──────────────*/
-  R(673, 'Elle est née ici.', 'She was born here.', 'ehl eh NAY ee-SEE', '/ɛl ɛ ne i.si/', 'still', WITH_DICTEE, [...T, 'still', 'naitre'], `${IRREGULAR_UNIT} taught the form and said the first word was this lesson's. Here it is, with the e on it.`, 'naître', 1),
+  R(673, 'Elle est née ici.', 'She was born here.', 'ehl eh NAY ee-SEE', '/ɛl ɛ ne i.si/', 'still', WITH_DICTEE, [...T, 'still', 'naitre'], `${Cap(unitRef(IRREGULAR_UNIT))} taught the form and said the first word was this lesson's. Here it is, with the e on it.`, 'naître', 1),
   R(674, 'Elle est restée à la maison.', 'She stayed at home.', 'ehl eh res-TAY ah lah meh-ZOHⁿ', '/ɛl ɛ ʁɛs.te a la mɛ.zɔ̃/', 'still', FULL, [...T, 'still', 'rester'], 'The one that neither moves nor changes anything, and it still takes être. There is no reason for it and that is why the mnemonic exists.', 'rester', 1),
-  R(675, 'Elle est revenue lundi.', 'She came back on Monday.', 'ehl eh ruhv-NÜ luhⁿ-DEE', '/ɛl ɛ ʁəv.ny lœ̃.di/', 'unseen', FULL, [...T, 'unseen', 'venir'], `Cover the re and venir is underneath, so the form is venu and the first word is venir's. ${FAMILY_UNIT}'s move, deciding the first word as well as the second.`),
+  R(675, 'Elle est revenue lundi.', 'She came back on Monday.', 'ehl eh ruhv-NÜ luhⁿ-DEE', '/ɛl ɛ ʁəv.ny lœ̃.di/', 'unseen', FULL, [...T, 'unseen', 'venir'], `Cover the re and venir is underneath, so the form is venu and the first word is venir's. ${Cap(unitRef(FAMILY_UNIT, 'a2'))}'s move, deciding the first word as well as the second.`),
 
   /* ── 676-679: THE NEGATIVE. Three of the six persons elide, and these four
      rows show one that does and two that do not. */
-  R(676, 'Je ne suis pas allé au bureau.', 'I did not go to the office.', 'zhuh nuh swee pah zah-LAY oh bü-ROH', '/ʒə nə sɥi pa za.le o by.ʁo/', 'negative', FULL, [...T, 'negative'], `No elision: suis opens on a consonant. ${PASSE_UNIT}'s « je n'ai pas » does elide, and this is the person where the two lessons look different.`, 'aller', 0),
+  R(676, 'Je ne suis pas allé au bureau.', 'I did not go to the office.', 'zhuh nuh swee pah zah-LAY oh bü-ROH', '/ʒə nə sɥi pa za.le o by.ʁo/', 'negative', FULL, [...T, 'negative'], `No elision: suis opens on a consonant. ${Cap(unitRef(PASSE_UNIT, 'a2'))}'s « je n'ai pas » does elide, and this is the person where the two lessons look different.`, 'aller', 0),
   R(677, "Elle n’est pas allée au bureau.", 'She did not go to the office.', 'ehl neh pah zah-LAY oh bü-ROH', '/ɛl nɛ pa za.le o by.ʁo/', 'negative', FULL, [...T, 'negative'], 'Here it does elide, because est opens on a vowel. And the ending is on the second word, outside both halves of the negative.', 'aller', 1),
   R(678, 'Nous ne sommes pas allés au bureau.', 'We did not go to the office.', 'noo nuh somm pah zah-LAY oh bü-ROH', '/nu nə sɔm pa za.le o by.ʁo/', 'negative', FULL, [...T, 'negative'], 'No elision again, and the plural s still goes on. The negative changes nothing about the ending.', 'aller', 2),
   R(679, "Elles ne sont pas allées au bureau.", 'They did not go to the office, and they are all women.', 'ehl nuh sohⁿ pah zah-LAY oh bü-ROH', '/ɛl nə sɔ̃ pa za.le o by.ʁo/', 'negative', FULL, [...T, 'negative'], 'Both endings inside a negative, and twenty letters, which is why the dictée cannot ask for it.', 'aller', 3),
@@ -825,13 +837,13 @@ export const ETRE_ROWS: readonly Row[] = [
   R(685, 'Je suis rentrée vers minuit.', 'I got home around midnight.', 'zhuh swee rahⁿ-TRAY vehr mee-NWEE', '/ʒə sɥi ʁɑ̃.tʁe vɛʁ mi.nɥi/', 'talk', FULL, [...T, 'talk'], 'The answer, agreed the same way, and the learner writes it rather than says it.', 'rentrer', 1),
   R(686, 'Vous êtes arrivés ensemble ?', 'Did you arrive together?', 'voo zeht zah-ree-VAY ahⁿ-SAHⁿBL', '/vu zɛt za.ʁi.ve ɑ̃.sɑ̃bl/', 'talk', FULL, [...T, 'talk'], 'The vous plural, and the respelling here holds the one nasal in this lesson the checker cannot see.', 'arriver', 2),
   R(687, 'Nous sommes arrivés à huit heures.', 'We arrived at eight.', 'noo somm zah-ree-VAY ah wee TUHR', '/nu sɔm za.ʁi.ve a ɥi tœʁ/', 'talk', FULL, [...T, 'talk'], 'The nous form, with the s that nobody says.', 'arriver', 2),
-  R(688, 'Et Marie, elle est venue ?', 'And Marie, did she come?', 'ay mah-REE, ehl eh vuh-NÜ', '/e ma.ʁi ɛl ɛ və.ny/', 'talk', FULL, [...T, 'talk'], `venu with an e on it, which is ${IRREGULAR_UNIT}'s form and this lesson's ending.`, 'venir', 1),
+  R(688, 'Et Marie, elle est venue ?', 'And Marie, did she come?', 'ay mah-REE, ehl eh vuh-NÜ', '/e ma.ʁi ɛl ɛ və.ny/', 'talk', FULL, [...T, 'talk'], `venu with an e on it, which is ${unitRef(IRREGULAR_UNIT, 'a2')}'s form and this lesson's ending.`, 'venir', 1),
   R(689, "Non, elle n’est pas venue.", 'No, she did not come.', 'nohⁿ, ehl neh pah vuh-NÜ', '/nɔ̃ ɛl nɛ pa və.ny/', 'talk', FULL, [...T, 'talk'], 'The negative and the ending at once, and the ending sits outside both halves.', 'venir', 1),
 
   /* ── 690-694: ONE SENTENCE PER FAMILY ───────────────────────────────────*/
   R(690, 'Il est entré sans frapper.', 'He came in without knocking.', 'eel eh tahⁿ-TRAY sahⁿ frah-PAY', '/il ɛ tɑ̃.tʁe sɑ̃ fʁa.pe/', 'family', FULL, [...T, 'family', 'inout'], 'In and out, and the plain form.', 'entrer', 0),
   R(691, 'Ils sont retournés en France.', 'They went back to France.', 'eel sohⁿ ruh-toor-NAY ahⁿ FRAHⁿSS', '/il sɔ̃ ʁə.tuʁ.ne ɑ̃ fʁɑ̃s/', 'family', FULL, [...T, 'family', 'inout'], 'The same family, plural, and the s on the end.', 'retourner', 2),
-  R(692, 'Elle est descendue à midi.', 'She came down at midday.', 'ehl eh day-sahⁿ-DÜ ah mee-DEE', '/ɛl ɛ de.sɑ̃.dy a mi.di/', 'family', FULL, [...T, 'family', 'updown'], `Up and down, and the verb ${RE_UNIT} taught in the present without naming a first word for it.`, 'descendre', 1),
+  R(692, 'Elle est descendue à midi.', 'She came down at midday.', 'ehl eh day-sahⁿ-DÜ ah mee-DEE', '/ɛl ɛ de.sɑ̃.dy a mi.di/', 'family', FULL, [...T, 'family', 'updown'], `Up and down, and the verb ${unitRef(RE_UNIT)} taught in the present without naming a first word for it.`, 'descendre', 1),
   R(693, 'Le verre est tombé.', 'The glass fell.', 'luh VEHR eh tohⁿ-BAY', '/lə vɛʁ ɛ tɔ̃.be/', 'family', WITH_DICTEE, [...T, 'family', 'updown'], 'The subject is a thing rather than a person, and the rule is the same: le verre is masculine and singular so nothing goes on.', 'tomber', 0),
   R(694, 'Nous sommes passés devant chez toi.', 'We went past your place.', 'noo somm pah-SAY duh-VAHⁿ shay TWAH', '/nu sɔm pɑ.se də.vɑ̃ ʃe twa/', 'family', FULL, [...T, 'family', 'going'], 'Going and coming, on the verb the mnemonic has no letter for.', 'passer', 2),
 
@@ -847,7 +859,7 @@ export const rowsWithRole = (role: Role): readonly Row[] => ETRE_ROWS.filter((r)
 
 export const rowById = (id: string): Row => {
   const r = ETRE_ROWS.find((x) => x.id === id);
-  if (!r) throw new Error(`a2.21: ${id} is not an authored row.`);
+  if (!r) throw new Error(`${Cap(unitRef('a2.21'))}: ${id} is not an authored row.`);
   return r;
 };
 
@@ -890,7 +902,7 @@ export function reduceNegative(fr: string): string {
 export const ELIDES: readonly string[] = ['tu es', 'il est', 'elle est', 'on est', 'vous êtes'];
 export const DOES_NOT_ELIDE: readonly string[] = ['je suis', 'nous sommes', 'ils sont', 'elles sont'];
 export const ELISION_CLAIM =
-  `${PASSE_UNIT}'s ne shortened in front of every person and this one shortens in front of three. suis, sommes and sont start on a consonant, so the ne stays whole.`;
+  `${Cap(unitRef(PASSE_UNIT, 'a2'))}'s ne shortened in front of every person and this one shortens in front of three. suis, sommes and sont start on a consonant, so the ne stays whole.`;
 
 /* ─── THE IMPORTS ───────────────────────────────────────────────────────────
  *
@@ -907,11 +919,11 @@ export type Import = { readonly id: string; readonly fr: string; readonly why: s
 export const IMPORTED: readonly Import[] = [
   // The fifteen naming forms.
   { id: 'fr.sons.verbes-essentiels.003', fr: 'aller', why: 'The verb every screen in this lesson uses. In the seed.' },
-  { id: 'fr.sons.verbes-essentiels.010', fr: 'venir', why: `The naming form behind ${IRREGULAR_UNIT}'s venu. In the seed.` },
+  { id: 'fr.sons.verbes-essentiels.010', fr: 'venir', why: `The naming form behind ${unitRef(IRREGULAR_UNIT, 'a2')}'s venu. In the seed.` },
   { id: 'fr.sons.verbes-essentiels.040', fr: 'partir', why: 'The six-person walk runs on it. In the seed.' },
   { id: 'fr.sons.verbes-essentiels.041', fr: 'sortir', why: 'The scene and the transitive pair. In the seed.' },
   { id: 'fr.a1.transports-quotidiens.044', fr: 'monter', why: 'REPAIRED: [mohn-TAY] to [mohⁿ-TAY]. ABSENT FROM THE SEED.' },
-  { id: 'fr.a1.transports-quotidiens.045', fr: 'descendre', why: `Already [day-SAHⁿDR]: ${RE_UNIT} repaired it. In the seed.` },
+  { id: 'fr.a1.transports-quotidiens.045', fr: 'descendre', why: `Already [day-SAHⁿDR]: ${unitRef(RE_UNIT)} repaired it. In the seed.` },
   { id: 'fr.sons.verbes-essentiels.021', fr: 'rester', why: 'The one that neither moves nor changes. ABSENT FROM THE SEED.' },
   { id: 'fr.sons.verbes-essentiels.044', fr: 'tomber', why: 'REPAIRED: [tohn-BAY] to [tohⁿ-BAY]. ABSENT FROM THE SEED.' },
   { id: 'fr.sons.verbes-essentiels.081', fr: 'naître', why: 'In the seed, and [NEHTR] is already the house shape.' },
@@ -924,7 +936,7 @@ export const IMPORTED: readonly Import[] = [
 
   // The two auxiliaries, because the whole lesson is a choice between them.
   { id: 'fr.sons.verbes-essentiels.001', fr: 'être', why: 'The first word this lesson is about. In the seed.' },
-  { id: 'fr.sons.verbes-essentiels.002', fr: 'avoir', why: `The other one, so the contrast has a card. ${PASSE_UNIT}'s. In the seed.` },
+  { id: 'fr.sons.verbes-essentiels.002', fr: 'avoir', why: `The other one, so the contrast has a card. ${Cap(unitRef(PASSE_UNIT, 'a2'))}'s. In the seed.` },
 
   // The three compounds the generalisation mission uses.
   { id: 'fr.sons.verbes-essentiels.083', fr: 'devenir', why: 'A letter of the mnemonic and a verb this lesson never lists. In the seed, against a prediction that it would not be.' },
@@ -932,7 +944,7 @@ export const IMPORTED: readonly Import[] = [
   { id: 'fr.sons.verbes-essentiels.086', fr: 'repartir', why: 'NOT a letter of the mnemonic, which is the point of the mission. ABSENT FROM THE SEED.' },
 
   // The published word behind the one audible feminine, and the transitive noun.
-  { id: 'fr.sons.adjectifs-essentiels.161', fr: 'mort', why: 'The past form of mourir, published as an ordinary describing word. In the seed, and it is the a2.03 link made literal.' },
+  { id: 'fr.sons.adjectifs-essentiels.161', fr: 'mort', why: `The past form of mourir, published as an ordinary describing word. In the seed, and it is the ${unitRef('a2.03')} link made literal.` },
   { id: 'fr.a2.maison.022', fr: 'sortir la poubelle', why: 'The transitive sortir, published with a respelling. The brief\'s own example, imported rather than invented. In the seed, against a prediction that it would not be.' },
 ];
 
@@ -943,11 +955,11 @@ export const EXPECTED_IMPORTED = 22;
  *  the same question. */
 export const READ_NOT_IMPORTED: readonly { id: string; fr: string; why: string }[] = [
   { id: 'fr.b2.musees.048', fr: 'la nature morte', why: 'Carries gender=f. It is a multi-word phrase so it would pass endingPopulation, and it is B2 and about painting, so the card would teach a still life rather than a verb ending. Its respelling [lah nah-TÜR MOHRT] is READ OFF for the audible-feminine claim and the row is not carried.' },
-  { id: 'fr.b2.argot-des-jeunes.029', fr: 'tomber', why: 'Carries gender=m on a single-word row, which is exactly what a1.03 measures. Its respelling is [tohn-BAY] and it is broken, and it is left alone.' },
+  { id: 'fr.b2.argot-des-jeunes.029', fr: 'tomber', why: `Carries gender=m on a single-word row, which is exactly what ${unitRef('a1.03')} measures. Its respelling is [tohn-BAY] and it is broken, and it is left alone.` },
   { id: 'fr.b1.verbes-du-quotidien.010', fr: 'Elle a sorti la poubelle avant que les voisins arrivent.', why: 'THE BRIEF\'S OWN EXAMPLE SENTENCE, and it exists. B1, no respelling, and a subjunctive in the subordinate clause, so a receptive A2 card built on it teaches two things it is not allowed to. The A2 naming phrase fr.a2.maison.022 is imported instead.' },
   { id: 'fr.sons.faux-amis.014', fr: 'passer un examen', why: 'The faux-ami, respelled [pah-SAY UHN ehg-zah-MAN], and both nasals are plain n. Repairing a row this lesson does not otherwise need is scope it did not have; the transitive card authors its own sentence.' },
-  { id: 'fr.a1.rp-recits-temps.038', fr: 'Ce matin, je suis allé chez le médecin.', why: 'One of 205 published sentences with être in front of an agreed form, and not one of the 205 carries a respelling. a2.13 §1: evidence is not cards. The whole paradigm is authored for that reason and this row is the evidence, not the card.' },
-  { id: 'fr.a1.deplacements.045', fr: 'descendre', why: 'A second copy at [day-SAHN-druh], broken. The imported copy is the one a2.11 repaired.' },
+  { id: 'fr.a1.rp-recits-temps.038', fr: 'Ce matin, je suis allé chez le médecin.', why: `One of 205 published sentences with être in front of an agreed form, and not one of the 205 carries a respelling. ${Cap(unitRef('a2.13'))} §1: evidence is not cards. The whole paradigm is authored for that reason and this row is the evidence, not the card.` },
+  { id: 'fr.a1.deplacements.045', fr: 'descendre', why: `A second copy at [day-SAHN-druh], broken. The imported copy is the one ${unitRef('a2.11')} repaired.` },
   { id: 'fr.a1.douane-et-immigration.066', fr: 'entrer', why: 'A second copy at [ahn-TRAY], broken. The imported copy already holds the house value.' },
 ];
 
@@ -1087,7 +1099,7 @@ export const EXPECTED_FALSE_POSITIVES_FOUND = 1;
 export const PARTICIPLE_DECISION = {
   isCorpusItem: false,
   settledBy: PASSE_UNIT,
-  agreedBy: `${IRREGULAR_UNIT} and ${UNIT.id}`,
+  agreedBy: `${Cap(unitRef(IRREGULAR_UNIT))} and ${UNIT.id}`,
   authoredHere: 0,
   /** Sixty cells, fifteen verbs, four each. */
   cellsChecked: 60,
@@ -1095,7 +1107,7 @@ export const PARTICIPLE_DECISION = {
    *  is excluded and imported deliberately: it is published as an ordinary
    *  describing word rather than as a past form on a card. */
   agreedCellsAsHeadwords: 0,
-  why: 'Doctrine §E, settled by a2.05, agreed by a2.20, and inherited here without reopening. An agreed cell is further from a corpus item than a bare form: allée and parties and venues are not words in their own right in any useful sense.',
+  why: `Doctrine §E, settled by ${unitRef('a2.05')}, agreed by ${unitRef('a2.20')}, and inherited here without reopening. An agreed cell is further from a corpus item than a bare form: allée and parties and venues are not words in their own right in any useful sense.`,
 } as const;
 
 /** Measured 2026-08-14 and RE-MEASURED by the manifest on every regeneration.

@@ -115,6 +115,12 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** Read from Postgres 2026-08-17 by `corpus:probe --unit a2.08`, not from the
  *  spine and not from the prompt. It agreed with the prompt's block byte for
@@ -557,9 +563,9 @@ export const DEGREE_ROWS: Row[] = [
   phrase(158, 'moins rapide', 'slower', 'mwehⁿ rah-PEED', ['card', 'moins'], FCVR),
   phrase(159, 'aussi rapide', 'just as fast', 'oh-see rah-PEED', ['card', 'aussi'], FCVR),
   phrase(160, 'plus mauvais', 'worse', 'plü moh-VEH', ['card', 'plus', 'asymmetry'], FCVR),
-  phrase(161, 'plus vite', 'faster', 'plü VEET', ['card', 'adverb', 'a2.17'], FCVR),
-  phrase(162, 'moins vite', 'more slowly', 'mwehⁿ VEET', ['card', 'adverb', 'a2.17'], FCVR),
-  phrase(163, 'aussi vite', 'just as fast', 'oh-see VEET', ['card', 'adverb', 'a2.17'], FCVR),
+  phrase(161, 'plus vite', 'faster', 'plü VEET', ['card', 'adverb', `${Cap(unitRef('a2.17'))}`], FCVR),
+  phrase(162, 'moins vite', 'more slowly', 'mwehⁿ VEET', ['card', 'adverb', `${Cap(unitRef('a2.17'))}`], FCVR),
+  phrase(163, 'aussi vite', 'just as fast', 'oh-see VEET', ['card', 'adverb', `${Cap(unitRef('a2.17'))}`], FCVR),
 ];
 
 export const ALL_ROWS: Row[] = [

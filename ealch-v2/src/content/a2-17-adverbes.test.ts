@@ -71,6 +71,7 @@ import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logi
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { namesUnitLabel } from './unit-label.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
@@ -361,7 +362,7 @@ test('THE a2.03 PAYOFF: all three sérieux cells are somebody else\'s rows, and 
   if (noLesson) return;
   const s = sec(PAYOFF_SECTION);
   ok(s, `${PAYOFF_SECTION} is missing`);
-  ok(strings(s).some((x) => hasPhrase(x, 'a2.03')),
+  ok(strings(s).some((x) => namesUnitLabel(x, 'a2.03')),
     `${PAYOFF_SECTION} does not name a2.03 by unit id, and the brief asks for it by name`);
   ok(strings(s).some((x) => x.includes('The plain form tells you the other three.')),
     `${PAYOFF_SECTION} does not quote a2.03's reframe verbatim. A paraphrase is not the connection.`);
@@ -702,7 +703,7 @@ test('THE DEFERRAL LINE EXISTS, names a2.05, and still holds the example', () =>
   const line = learner().find((s) => /in a past tense the short ones move/i.test(s));
   ok(line, 'the deferral line appears on no learner surface. The brief asks for it in one line so a learner who '
     + "meets j'ai bien mangé in the wild is not confused.");
-  ok(hasPhrase(line!, 'a2.05'), 'the deferral line does not name a2.05 by unit id');
+  ok(namesUnitLabel(line!, 'a2.05'), 'the deferral line does not name a2.05 by unit id');
   ok(/j['’]ai bien mangé/i.test(line!),
     'the deferral line no longer holds the compound-tense example, which is the only thing the learner needs it for');
 });
@@ -718,7 +719,7 @@ test('negation is NOT re-taught, scoped to production surfaces, and a1.18 is nam
       ok(!strings(s).some((x) => hasPhrase(x, p)), `${sid} teaches negation (${JSON.stringify(p)}), which is a1.18's`);
     }
   }
-  ok(learner().some((x) => hasPhrase(x, 'a1.18')), 'a1.18 is named on no learner surface, and the interaction is real');
+  ok(learner().some((x) => namesUnitLabel(x, 'a1.18')), 'a1.18 is named on no learner surface, and the interaction is real');
   // AND THE ONE NEGATIVE SENTENCE IS THE ONE THE LESSON DECLARES, so "show it if
   // you need it" cannot quietly become a second negation lesson.
   const negatives = learner().filter((s) => /\bne\s+\S+\s+pas\b|\bn'\S+\s+pas\b/i.test(s));
@@ -747,7 +748,7 @@ test('a2.08, a2.05, a2.03, a1.18 and a2.16 all exist and are all named', () => {
   const units = new Set(seed.units.map((u) => u.id));
   for (const u of cited) {
     ok(units.has(u), `this lesson names ${u} and no such unit is in the seed`);
-    ok(learner().some((s) => hasPhrase(s, u)), `${u} is named on no learner surface`);
+    ok(learner().some((s) => namesUnitLabel(s, u)), `${u} is named on no learner surface`);
   }
 });
 
@@ -1091,7 +1092,7 @@ test('the unit is attached, the tag matches its seq, and the overview matches th
   strictEqual(L!.tag, `A2 · LEÇON ${String(u!.seq).padStart(2, '0')}`);
   strictEqual(L!.overview?.titleEn, u!.title);
   strictEqual(L!.overview?.subFr, u!.sub);
-  strictEqual(L!.version, 3, 'v2 stepped both trapDrills; v3 took the size off them, which the ledger sweep requires and no gate checks');
+  strictEqual(L!.version, 5, 'v2 stepped both trapDrills; v3 took the size off them, which the ledger sweep requires and no gate checks; v5 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label');
 });
 
 test('the audio brief still says ONE TAKE for the two takes whose value is a contrast', () => {

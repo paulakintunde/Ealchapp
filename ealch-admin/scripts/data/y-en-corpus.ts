@@ -92,6 +92,12 @@
 // ════════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ═══════════════════════════════════════════════════════════════════════════
  *  §1. IDENTITY, MEASURED
@@ -320,7 +326,7 @@ export const REFRAME_REJECTED: readonly { candidate: string; why: string }[] = [
   },
   {
     candidate: 'Look for the little word in front of the thing, and swap both.',
-    why: 'Two instructions, and the second one is the whole lesson while the first is a search. It also says « swap », which invites the learner to build the English sentence and then repair it, which is the slow path this lesson exists to remove. a2.06 rejected « move it » for the same reason.',
+    why: `Two instructions, and the second one is the whole lesson while the first is a search. It also says « swap », which invites the learner to build the English sentence and then repair it, which is the slow path this lesson exists to remove. ${Cap(unitRef('a2.06'))} rejected « move it » for the same reason.`,
   },
   {
     candidate: 'En is never optional.',
@@ -451,7 +457,7 @@ export const FROZEN_ERROR_WHY =
  *  it is REQUIRED LAYOUT 2, built out of a2.24's own two rows. */
 export const PERSON_ERROR = "J'y parle.";
 export const PERSON_ERROR_WHY =
-  'A person went into y, and a person never does. That is a2.24\'s word, and this one only takes a thing or a place.';
+  `A person went into y, and a person never does. That is ${unitRef('a2.24')}\'s word, and this one only takes a thing or a place.`;
 
 /** TRAP FOUR, AND IT IS THE ONE THE REFRAME PREDICTS: the preposition survives.
  *  Permitted inside an errorSpot item as the error, and nowhere else. */
@@ -637,7 +643,7 @@ export const EN_ELIDED_RESPELL = 'zhahⁿ';
 export const Y_ELIDED_RESPELL = 'zhee';
 
 export const RESPELL_CONVENTION =
-  `The pronoun en is ${EN_RESPELL} and j'en is ${EN_ELIDED_RESPELL} on every screen in this lesson, the same value ${PLACE_UNIT} uses for the little word, because the two are one sound. J'y is ${Y_ELIDED_RESPELL}, read off this theme's own published row.`;
+  `The pronoun en is ${EN_RESPELL} and j'en is ${EN_ELIDED_RESPELL} on every screen in this lesson, the same value ${unitRef(PLACE_UNIT)} uses for the little word, because the two are one sound. J'y is ${Y_ELIDED_RESPELL}, read off this theme's own published row.`;
 
 /** TWO COMPETING SPELLINGS OF /ø/ THAT THIS BUILD DOES NOT SETTLE, AND THE WAY
  *  IT AVOIDS NEEDING TO.
@@ -751,7 +757,7 @@ export const RESPELL_REPAIRS: readonly RespellRepair[] = [
     to: 'EEL YAHⁿ NAH ahⁿ-KOR',
     blind: false,
     house: false,
-    why: 'THE ONLY PUBLISHED RESPELLING OF THE y-BEFORE-en ORDER ANYWHERE IN THE CORPUS, and it breaks the nasal twice in one string. Both are visible, so the minimal repair is the house value. It is imported AND repaired, which is a2.24\'s envoyer shape for the second time in this block.',
+    why: `THE ONLY PUBLISHED RESPELLING OF THE y-BEFORE-en ORDER ANYWHERE IN THE CORPUS, and it breaks the nasal twice in one string. Both are visible, so the minimal repair is the house value. It is imported AND repaired, which is ${unitRef('a2.24')}\'s envoyer shape for the second time in this block.`,
   },
 ];
 
@@ -847,10 +853,10 @@ export const IMPORTED_SENTENCES: readonly { id: string; why: string }[] = [
   { id: 'fr.a2.rp-voyage.007', why: '« Il y en a un à quatorze heures, quai trois. » THE ORDER, PUBLISHED, and its own notes read « Il y en a combines il y a with the pronoun en ». Written for a train timetable by somebody not teaching pronoun order.' },
   { id: A204_ROW_ID, why: "« Je vais en France. » a2.04's OWN authored row, the little word in front of a place, on the same verb as this lesson's y frame. One of the three ens." },
   { id: A218_EN_ROW_ID, why: "« Je finis en deux heures. » a2.18's OWN authored row, the little word in front of a length of time. The second of the three ens." },
-  { id: A224_NAMED_ID, why: '« Je parle à Marie. » a2.24\'s row, the à half with a PERSON behind it. REQUIRED LAYOUT 2 is a2.24\'s sentence rather than a copy.' },
+  { id: A224_NAMED_ID, why: `« Je parle à Marie. » ${unitRef('a2.24')}\'s row, the à half with a PERSON behind it. REQUIRED LAYOUT 2 is ${unitRef('a2.24')}\'s sentence rather than a copy.` },
   { id: A224_PRONOUN_ID, why: "« Je lui parle. » a2.24's frame, so the person/thing split is that lesson's own pair." },
   { id: A206_FRAME_ID, why: "« Je le vois. » a2.06's frame, so the position rule is quoted beside the sentence a2.06 wrote for it." },
-  { id: A204_CITY_ID, why: "« Je vais à Paris. » a2.04's OTHER authored row, and THE MANIFEST FOUND IT. The first draft AUTHORED this sentence and the generator refused, because a frame that already exists as a whole sentence is a re-authoring rather than a build. Importing it makes REQUIRED LAYOUT 1's à half a2.04's row, beside a2.04's « Je vais en France. » in the three-ens screen: one lesson, one verb, two of the three jobs." },
+  { id: A204_CITY_ID, why: "« Je vais à Paris. » a2.04's OTHER authored row, and THE MANIFEST FOUND IT. The first draft AUTHORED this sentence and the generator refused, because a frame that already exists as a whole sentence is a re-authoring rather than a build. Importing it makes REQUIRED LAYOUT 1's à half a2.04`s row, beside ${unitRef('a2.04')}`s « Je vais en France. » in the three-ens screen: one lesson, one verb, two of the three jobs." },
   { id: PARTITIVE_ROW_ID, why: "« Je bois du café. » fr.a1.cuisine.268, and the manifest found this one the same way. It carries NO respelling, which is normal for a published sentence and is why the pair card prints the respelling on the pronoun half only." },
 ];
 
@@ -922,7 +928,7 @@ export const ROWS: readonly Row[] = [
   /* ── THE OWNS. The named half and the pronoun half, twice, and the little
    *    word goes inside rather than staying behind. ─────────────────────── */
   R(287, 'Tu vas à Paris ?', 'Are you going to Paris?', '/ty va a pa.ʁi/', 'tü VAH ah pah-REE',
-    'named', null, S, 'The à half, as a question, so the pronoun half below is an ANSWER rather than a restatement. Eleven letters. The statement form « Je vais à Paris. » is NOT authored: it is already published as fr.a2.prepositions-essentielles.130, a2.04\'s own row, and the manifest refused the first draft for exactly that reason. It is imported instead, and so is the row beside it, so this lesson\'s opening contrast is a2.04\'s two sentences.'),
+    'named', null, S, `The à half, as a question, so the pronoun half below is an ANSWER rather than a restatement. Eleven letters. The statement form « Je vais à Paris. » is NOT authored: it is already published as fr.a2.prepositions-essentielles.130, ${unitRef('a2.04')}\'s own row, and the manifest refused the first draft for exactly that reason. It is imported instead, and so is the row beside it, so this lesson\'s opening contrast is ${unitRef('a2.04')}\'s two sentences.`),
   R(288, "J'y vais.", 'I am going.', '/ʒi vɛ/', 'zhee VEH',
     'slot', 'y', SD, 'THE Y FRAME. SIX letters through the real dicteeMode, so the dictée takes it in LETTERS mode; the brief says seven. The English has no word for y in it at all, which is the whole of the second thing this lesson teaches.'),
   R(289, 'Je pense à mon examen.', 'I am thinking about my exam.', '/ʒə pɑ̃s a mɔ̃.n‿ɛɡ.za.mɛ̃/', 'zhuh PAHⁿSS ah mohⁿ nehg-zah-MEHⁿ',
@@ -930,17 +936,17 @@ export const ROWS: readonly Row[] = [
   R(290, "J'y pense souvent.", 'I think about it often.', '/ʒi pɑ̃s su.vɑ̃/', 'zhee PAHⁿSS soo-VAHⁿ',
     'slot', 'y', SD, 'Fourteen letters. A THING rather than a place, so the learner cannot read y as "there". The bare « J\'y pense. » is NOT authored: it is already the published phrase card fr.a2.pronoms-essentiels.028, and the manifest refused the first draft as a duplicate fr inside this theme, which is the flashcard hub serving one card twice. That row is imported and its respelling repaired instead, and this sentence is the bare form of what fr.a2.pronoms-essentiels.030 already publishes as an answer.'),
   R(291, 'Je parle de mon travail.', 'I talk about my work.', '/ʒə paʁl də mɔ̃ tʁa.vaj/', 'zhuh PARL duh mohⁿ trah-VAHY',
-    'named', null, S, 'The de half, on a2.24\'s frame verb. Nineteen letters, word mode. Reusing parler across the block is a cross-lesson claim in two sentences: à plus a person gave lui, de plus a thing gives en, same verb.'),
+    'named', null, S, `The de half, on ${unitRef('a2.24')}\'s frame verb. Nineteen letters, word mode. Reusing parler across the block is a cross-lesson claim in two sentences: à plus a person gave lui, de plus a thing gives en, same verb.`),
   R(292, "J'en parle.", 'I talk about it.', '/ʒɑ̃ paʁl/', 'zhahⁿ PARL',
-    'slot', 'en', SD, 'THE EN FRAME. Eight letters. The same verb as a2.24\'s « Je lui parle. », which is why the two lessons can be put side by side without a third sentence in between.'),
+    'slot', 'en', SD, `THE EN FRAME. Eight letters. The same verb as ${unitRef('a2.24')}\'s « Je lui parle. », which is why the two lessons can be put side by side without a third sentence in between.`),
   R(293, 'Tu bois du café ?', 'Do you drink coffee?', '/ty bwa dy ka.fe/', 'tü BWAH dü ka-FAY',
-    'named', null, S, 'The de half again, and this time the de is hiding inside du. Twelve letters. a1.29 owns du, de la and des and this lesson re-teaches none of them; it only says that en takes all three away. The statement form « Je bois du café. » is fr.a1.cuisine.268 and is IMPORTED rather than re-authored: the manifest refused the first draft, which is the generator working.'),
+    'named', null, S, `The de half again, and this time the de is hiding inside du. Twelve letters. ${Cap(unitRef('a1.29'))} owns du, de la and des and this lesson re-teaches none of them; it only says that en takes all three away. The statement form « Je bois du café. » is fr.a1.cuisine.268 and is IMPORTED rather than re-authored: the manifest refused the first draft, which is the generator working.`),
   R(294, "J'en bois.", 'I drink some.', '/ʒɑ̃ bwa/', 'zhahⁿ BWAH',
     'slot', 'en', SD, 'Seven letters. The English needs "some" and the French does not need anything else, which is the opposite of the sentence two rows down.'),
 
   /* ── THE OBLIGATORY EN. The heaviest half of the lesson. ──────────────── */
   R(295, 'Tu as du sucre ?', 'Do you have any sugar?', '/ty a dy sykʁ/', 'tü AH dü SÜKR',
-    'must', null, S, 'The question the scene opens on. Eleven letters. a1.19 owns the rising question and this borrows it.'),
+    'must', null, S, `The question the scene opens on. Eleven letters. ${Cap(unitRef('a1.19'))} owns the rising question and this borrows it.`),
   R(296, "Oui, j'en ai.", 'Yes, I do.', '/wi ʒɑ̃.n‿e/', 'wee, zhahⁿ NAY',
     'must', 'en', SDR, 'THE OBLIGATORY ANSWER, and the sentence this whole lesson is for. Eight letters. The English is three words and none of them is a translation of en. Measured through the real fold(): it does NOT collapse with « J\'ai. », so this is testable by typing.'),
   R(297, 'Tu prends du sucre ?', 'Do you take sugar?', '/ty pʁɑ̃ dy sykʁ/', 'tü PRAHⁿ dü SÜKR',
@@ -948,11 +954,11 @@ export const ROWS: readonly Row[] = [
   R(298, "Oui, j'en prends.", 'Yes, I do.', '/wi ʒɑ̃ pʁɑ̃/', 'wee, zhahⁿ PRAHⁿ',
     'must', 'en', SD, 'Twelve letters, and the same three English words again. English answers this question with the auxiliary and French answers it with the object.'),
   R(299, 'Tu as des enfants ?', 'Do you have children?', '/ty a de.z‿ɑ̃.fɑ̃/', 'tü AH day zahⁿ-FAHⁿ',
-    'must', null, S, 'Fourteen letters. des, which a1.29 owns, and which en takes away along with the noun.'),
+    'must', null, S, `Fourteen letters. des, which ${unitRef('a1.29')} owns, and which en takes away along with the noun.`),
   R(300, "Oui, j'en ai trois.", 'Yes, I have three.', '/wi ʒɑ̃.n‿e tʁwa/', 'wee, zhahⁿ nay TRWAH',
     'quantity', 'en', SDR, 'Thirteen letters. THE NUMBER STAYS AND THE NOUN GOES, which is the shape English has no equivalent for at all: "I have three" says nothing about what three of.'),
   R(301, "J'en ai beaucoup.", 'I have a lot.', '/ʒɑ̃.n‿e bo.ku/', 'zhahⁿ nay boh-KOO',
-    'quantity', 'en', SD, 'Thirteen letters. beaucoup de is a1.29\'s and the de went inside en with the noun.'),
+    'quantity', 'en', SD, `Thirteen letters. beaucoup de is ${unitRef('a1.29')}\'s and the de went inside en with the noun.`),
   R(302, "J'en veux un peu.", 'I want a little.', '/ʒɑ̃ vø œ̃ pø/', 'zhahⁿ VUH uhⁿ PUH',
     'quantity', 'en', SD, 'Twelve letters. VUH rather than VEU: twelve published rows spell veux that way against one, and §10 records that the /ø/ question is unsettled corpus-wide and is not this build\'s to settle.'),
   R(303, "J'en ai assez.", 'I have enough.', '/ʒɑ̃.n‿e a.se/', 'zhahⁿ nay ah-SAY',
@@ -960,7 +966,7 @@ export const ROWS: readonly Row[] = [
 
   /* ── Y FOR A PLACE, AND Y FOR A THING. ───────────────────────────────── */
   R(304, 'Tu vas au marché ?', 'Are you going to the market?', '/ty va o maʁ.ʃe/', 'tü VAH oh mar-SHAY',
-    'named', null, S, 'Thirteen letters. au is à plus le, which a1.21 and a2.04 own, and y swallows the whole of it.'),
+    'named', null, S, `Thirteen letters. au is à plus le, which ${unitRef('a1.21')} and ${unitRef('a2.04')} own, and y swallows the whole of it.`),
   R(305, "Oui, j'y vais demain.", 'Yes, I am going tomorrow.', '/wi ʒi vɛ də.mɛ̃/', 'wee, zhee VEH duh-MEHⁿ',
     'place', 'y', SDR, 'Fifteen letters. The English answer has no word for the market in it either, so this is the one place the two languages agree.'),
   R(306, 'Je joue au tennis.', 'I play tennis.', '/ʒə ʒu o tɛ.nis/', 'zhuh ZHOO oh tay-NEESS',
@@ -968,7 +974,7 @@ export const ROWS: readonly Row[] = [
   R(307, "J'y joue le samedi.", 'I play on Saturdays.', '/ʒi ʒu lə sam.di/', 'zhee ZHOO luh sam-DEE',
     'place', 'y', SD, 'Fourteen letters. Nothing in the English is y and nothing in it is "there" either. a1.08 owns the days.'),
   R(308, 'Nous y allons ensemble.', 'We go there together.', '/nu.z‿i a.lɔ̃ ɑ̃.sɑ̃bl/', 'noo zee ah-LOHⁿ ahⁿ-SAHⁿBL',
-    'place', 'y', S, 'Nineteen letters, word mode. A subject that is not je, and the pronoun still sits between it and the verb. a2.01 owns the nous form.'),
+    'place', 'y', S, `Nineteen letters, word mode. A subject that is not je, and the pronoun still sits between it and the verb. ${Cap(unitRef('a2.01'))} owns the nous form.`),
   R(309, 'Tu vas au bureau ?', 'Are you going to the office?', '/ty va o by.ʁo/', 'tü VAH oh bü-ROH',
     'named', null, S, 'Thirteen letters.'),
   R(310, "Oui, j'y vais.", 'Yes, I am.', '/wi ʒi vɛ/', 'wee, zhee VEH',
@@ -978,11 +984,11 @@ export const ROWS: readonly Row[] = [
   R(311, 'Elle en parle.', 'She talks about it.', '/ɛl ɑ̃ paʁl/', 'ehl ahⁿ PARL',
     'three', 'en', SD, 'Eleven letters. THE PRONOUN, with a verb straight after it. The row below is the same word with a thing after it, and there is nothing else between them.'),
   R(312, 'Elle habite en France.', 'She lives in France.', '/ɛ.l‿a.bit ɑ̃ fʁɑ̃s/', 'ehl ah-BEET ahⁿ FRAHⁿSS',
-    'three', null, S, 'THE LITTLE WORD, with a country after it. Eighteen letters, word mode. a2.04 owns this one and this lesson teaches none of it. The respelling is a2.04\'s own value, ahⁿ, because the two are one sound and spelling them apart would claim a difference that is not there.', ['preposition'], true),
+    'three', null, S, `THE LITTLE WORD, with a country after it. Eighteen letters, word mode. ${Cap(unitRef('a2.04'))} owns this one and this lesson teaches none of it. The respelling is ${unitRef('a2.04')}\'s own value, ahⁿ, because the two are one sound and spelling them apart would claim a difference that is not there.`, ['preposition'], true),
 
   /* ── il y a. FROZEN, AND IT DOES NOT COME APART. ──────────────────────── */
   R(313, 'Il y a du pain.', 'There is bread.', '/il i a dy pɛ̃/', 'eel ee ah dü PEHⁿ',
-    'frozen', null, S, 'Ten letters. The y in the middle is this lesson\'s y and the three words still do not come apart. a2.18 owns the phrase in both its senses and neither is re-taught here.', ['frozen']),
+    'frozen', null, S, `Ten letters. The y in the middle is this lesson\'s y and the three words still do not come apart. ${Cap(unitRef('a2.18'))} owns the phrase in both its senses and neither is re-taught here.`, ['frozen']),
   R(314, 'Il y en a.', 'There is some.', '/il i ɑ̃.n‿a/', 'eel ee ahⁿ NAH',
     'order', 'en', SD, 'SIX LETTERS, AND THE ONLY TWO-PRONOUN SENTENCE IN THIS LESSON. y first, en second, and the order is fixed. fr.sons.expressions-utiles.158 and fr.a2.rp-voyage.007 both publish it and this build imports both.', ['frozen']),
   R(315, 'Il y en a trois.', 'There are three.', '/il i ɑ̃.n‿a tʁwa/', 'eel ee ahⁿ nah TRWAH',
@@ -990,7 +996,7 @@ export const ROWS: readonly Row[] = [
 
   /* ── NEGATION. a2.06's sentence, quoted and not extended. ─────────────── */
   R(316, "Je n'y vais pas.", 'I am not going.', '/ʒə ni vɛ pa/', 'zhuh nee VEH PAH',
-    'negative', 'y', SD, 'Eleven letters. ne outside, pronoun and verb inside, pas after both. Exactly a2.06\'s sentence and no new rule.', ['negation']),
+    'negative', 'y', SD, `Eleven letters. ne outside, pronoun and verb inside, pas after both. Exactly ${unitRef('a2.06')}\'s sentence and no new rule.`, ['negation']),
   R(317, "Je n'en veux pas.", 'I do not want any.', '/ʒə nɑ̃ vø pa/', 'zhuh nahⁿ VUH PAH',
     'negative', 'en', SD, 'Twelve letters. And the English still needs a word French puts inside the pronoun.', ['negation']),
   R(318, "Il n'y pense pas.", 'He does not think about it.', '/il ni pɑ̃s pa/', 'eel nee PAHⁿSS PAH',
@@ -1001,26 +1007,26 @@ export const ROWS: readonly Row[] = [
   /* ── THE PARADIGM ACROSS THE PERSONS. Two words, so it is deliberately
    *    thin: these exist to be practised rather than to be taught. ──────── */
   R(320, 'Tu y vas souvent ?', 'Do you go there often?', '/ty i va su.vɑ̃/', 'tü ee VAH soo-VAHⁿ',
-    'paradigm', 'y', SD, 'Thirteen letters. The pronoun does not move for a question. a1.19 owns the rising question.'),
+    'paradigm', 'y', SD, `Thirteen letters. The pronoun does not move for a question. ${Cap(unitRef('a1.19'))} owns the rising question.`),
   R(321, 'Elle y va tous les jours.', 'She goes there every day.', '/ɛ.l‿i va tu le ʒuʁ/', 'ehl ee VAH too lay ZHOOR',
     'paradigm', 'y', S, 'Nineteen letters, word mode. A feminine subject, and nothing about y responds to it.'),
   R(322, 'Nous en prenons.', 'We take some.', '/nu.z‿ɑ̃ pʁə.nɔ̃/', 'noo zahⁿ pruh-NOHⁿ',
-    'paradigm', 'en', SD, 'Thirteen letters. The z is a liaison the learner hears and never writes, which sons.10 owns.'),
+    'paradigm', 'en', SD, `Thirteen letters. The z is a liaison the learner hears and never writes, which ${unitRef('sons.10')} owns.`),
   R(323, 'Vous en voulez ?', 'Do you want some?', '/vu.z‿ɑ̃ vu.le/', 'voo zahⁿ voo-LAY',
     'paradigm', 'en', SD, 'Twelve letters.'),
   R(324, 'Ils y pensent.', 'They think about it.', '/il i pɑ̃s/', 'eel ee PAHⁿSS',
-    'paradigm', 'y', SD, 'Eleven letters, and the verb ending is silent, which is a2.01\'s business. pense and pensent are one sound and no listening question here offers you both.'),
+    'paradigm', 'y', SD, `Eleven letters, and the verb ending is silent, which is ${unitRef('a2.01')}\'s business. pense and pensent are one sound and no listening question here offers you both.`),
   R(325, 'Tu en as ?', 'Do you have any?', '/ty ɑ̃.n‿a/', 'tü ahⁿ NAH',
     'paradigm', 'en', SDR, 'SIX letters, and the question the other person asks in the scene without correcting anybody. fr.a2.entraide.008 publishes the same three words inside a longer sentence.'),
 
   /* ── THE PAST. The pronoun in front of BOTH words of the verb, which is
    *    a2.06's rule applied to a tense the learner already has. ─────────── */
   R(326, "J'en ai parlé.", 'I talked about it.', '/ʒɑ̃.n‿e paʁ.le/', 'zhahⁿ nay par-LAY',
-    'past', 'en', SD, 'Ten letters. The pronoun goes in front of both halves of the verb, which is a2.06\'s rule and a2.05\'s tense and neither is new here.'),
+    'past', 'en', SD, `Ten letters. The pronoun goes in front of both halves of the verb, which is ${unitRef('a2.06')}\'s rule and ${unitRef('a2.05')}\'s tense and neither is new here.`),
   R(327, "Je n'en ai pas parlé.", 'I did not talk about it.', '/ʒə nɑ̃.n‿e pa paʁ.le/', 'zhuh nahⁿ nay pah par-LAY',
     'past', 'en', SD, 'Fifteen letters. The wrap and the past together: ne, pronoun, first word, pas, second word. Both rules, neither of them new.', ['negation']),
   R(328, "J'y ai pensé.", 'I thought about it.', '/ʒi e pɑ̃.se/', 'zhee ay pahⁿ-SAY',
-    'past', 'y', SD, 'Nine letters. The other pronoun, the same position, and the second word takes nothing at all, which is a2.24\'s rule and holds here too.'),
+    'past', 'y', SD, `Nine letters. The other pronoun, the same position, and the second word takes nothing at all, which is ${unitRef('a2.24')}\'s rule and holds here too.`),
 
   /* ── VERBS THIS LESSON NEVER LISTED. Doctrine §B.1: an A2 learner leaves
    *    able to say things the lesson never said. ─────────────────────────── */
@@ -1029,7 +1035,7 @@ export const ROWS: readonly Row[] = [
   R(330, 'Nous en revenons.', 'We are coming back from there.', '/nu.z‿ɑ̃ ʁə.və.nɔ̃/', 'noo zahⁿ ruh-vuh-NOHⁿ',
     'unseen', 'en', SD, 'revenir DE, and the thing behind de is a PLACE, which is the case a learner holding "y is there and en is some" gets wrong every time. Fourteen letters.', ['unseen']),
   R(331, 'Elle y répond.', 'She answers it.', '/ɛ.l‿i ʁe.pɔ̃/', 'ehl ee ray-POHⁿ',
-    'unseen', 'y', SD, 'THE SHARPEST CASE IN THE LESSON. répondre à is a2.24\'s verb and a2.24\'s answer was lui, because the thing behind à was a person. Here it is a letter, so it is y. Same verb, same little word, two different pronouns, and only the thing behind à decides.', ['unseen']),
+    'unseen', 'y', SD, `THE SHARPEST CASE IN THE LESSON. répondre à is ${unitRef('a2.24')}\'s verb and ${unitRef('a2.24')}\'s answer was lui, because the thing behind à was a person. Here it is a letter, so it is y. Same verb, same little word, two different pronouns, and only the thing behind à decides.`, ['unseen']),
   R(332, "J'en ai besoin.", 'I need it.', '/ʒɑ̃.n‿e bə.zwɛ̃/', 'zhahⁿ nay buh-ZWEHⁿ',
     'unseen', 'en', SD, 'avoir besoin DE, which is a fixed expression rather than a verb and behaves exactly the same. Eleven letters. fr.sons.expressions-utiles.136 publishes the phrase and its respelling is flagged twice; §11 records why it is not imported.', ['unseen']),
 
@@ -1129,7 +1135,7 @@ export const isMine = (id: string): boolean => {
 export const UNTESTABLE: readonly { wanted: string; why: string }[] = [
   {
     wanted: 'A typed question turning on the grave accent in à: « Je vais a Paris. » against « Je vais à Paris. »',
-    why: 'MEASURED THROUGH THE REAL fold() AND IT CANNOT BE WRITTEN. fold() normalises to NFD and strips every combining mark, so the two are ONE ANSWER and a typed question would accept the mistake and tell the learner they spelled it right. Written as an mcq instead, exactly as a2.09 and a2.24 did.',
+    why: `MEASURED THROUGH THE REAL fold() AND IT CANNOT BE WRITTEN. fold() normalises to NFD and strips every combining mark, so the two are ONE ANSWER and a typed question would accept the mistake and tell the learner they spelled it right. Written as an mcq instead, exactly as ${unitRef('a2.09')} and ${unitRef('a2.24')} did.`,
   },
   {
     wanted: 'A typed question on où against ou, which is the other word a learner reaches for when a place is involved.',
@@ -1145,6 +1151,6 @@ export const UNTESTABLE: readonly { wanted: string; why: string }[] = [
   },
   {
     wanted: 'An ear question separating « J\'y pense. » from « Ils y pensent. » beyond the subject.',
-    why: 'pense and pensent are one sound, so the only audible difference is the subject and the question would be about a2.01 rather than about this lesson. HOMOPHONE_FORMS enforces it rather than this paragraph.',
+    why: `pense and pensent are one sound, so the only audible difference is the subject and the question would be about ${unitRef('a2.01')} rather than about this lesson. HOMOPHONE_FORMS enforces it rather than this paragraph.`,
   },
 ];

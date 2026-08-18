@@ -74,6 +74,12 @@ import type {
   Lesson, LessonAct, LessonSection, LessonDrill, ErrorTrigger, ReferenceSheet,
 } from '../../../ealch-v2/src/content/schema.ts';
 import { TRAVAIL_TERMS } from './travail-metiers-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   M, REFRAME, JOINED_ANSWER, ONE_SENTENCE_ANSWER,
   MOVE_1, MOVE_2, MOVE_3, MOVE_4,
@@ -252,14 +258,14 @@ const S_FOURMOVES: LessonSection = {
       head: 'What you are',
       fr: 'Je suis ingénieur.',
       sub: 'zhuh swee-zaⁿ-zhay-NYUR',
-      body: `${ZERO_ARTICLE_UNIT} already taught you how to say this one. Here it is doing a job: it opens, and it is finished in two seconds.`,
+      body: `${Cap(unitRef(ZERO_ARTICLE_UNIT))} already taught you how to say this one. Here it is doing a job: it opens, and it is finished in two seconds.`,
     },
     {
       label: `Move 2 · ${MOVE_2}`,
       head: 'For how long',
       fr: 'Je travaille là-bas depuis six ans.',
       sub: 'zhuh trah-VAHY lah-BAH duh-pwee see ZAHⁿ',
-      body: `${TIME_UNIT} owns depuis and you have had it since seq 14. It is here because time is what turns a label into a history.`,
+      body: `${Cap(unitRef(TIME_UNIT))} owns depuis. It is here because time is what turns a label into a history.`,
     },
     {
       label: `Move 3 · ${MOVE_3}`,
@@ -318,7 +324,7 @@ const S_TWOANSWERS: LessonSection = {
       say: ONE_SENTENCE_ANSWER,
       detail: {
         title: 'Correct, and it ends the turn',
-        body: `Nothing is wrong with this sentence. ${ZERO_ARTICLE_UNIT} taught you to build it. It is simply finished, and the other person now has to think of a new question. Most will think of a smaller one.`,
+        body: `Nothing is wrong with this sentence. ${Cap(unitRef(ZERO_ARTICLE_UNIT))} taught you to build it. It is simply finished, and the other person now has to think of a new question. Most will think of a smaller one.`,
         say: ONE_SENTENCE_ANSWER,
       },
     },
@@ -327,7 +333,7 @@ const S_TWOANSWERS: LessonSection = {
       say: 'Je suis ingénieur. Je travaille là-bas depuis six ans.',
       detail: {
         title: 'Two moves, and it already sounds different',
-        body: `Time is the cheapest thing you can add. ${TIME_UNIT} gave you depuis at seq 14 and this lesson only puts it in position two.`,
+        body: `Time is the cheapest thing you can add. ${Cap(unitRef(TIME_UNIT))} gave you depuis and this lesson only puts it in position two.`,
         say: 'Je travaille là-bas depuis six ans.',
       },
     },
@@ -368,27 +374,27 @@ const S_ANCHOR: LessonSection = {
       en: 'I am an engineer.',
       // a1.06.l1 s10-jobs, example 1, `note`, lifted VERBATIM. The test asserts
       // the exact string and a paraphrase must go red.
-      note: `${A1_06_QUOTE} ${ZERO_ARTICLE_UNIT} taught it. Here it is move 1.`,
+      note: `${A1_06_QUOTE} ${Cap(unitRef(ZERO_ARTICLE_UNIT))} taught it. Here it is move 1.`,
     },
     {
       fr: 'Je suis infirmière.',
       en: 'I am a nurse.',
-      note: `Same shape, ${ZERO_ARTICLE_UNIT}, and the word itself changes for a woman. Move 3 comes back to that.`,
+      note: `Same shape, ${unitRef(ZERO_ARTICLE_UNIT)}, and the word itself changes for a woman. Move 3 comes back to that.`,
     },
     {
       fr: 'Je suis professeur.',
       en: 'I am a teacher.',
-      note: `${ZERO_ARTICLE_UNIT} again. Two seconds, and you are not finished.`,
+      note: `${Cap(unitRef(ZERO_ARTICLE_UNIT))} again. Two seconds, and you are not finished.`,
     },
     {
       fr: 'Je suis cuisinier.',
       en: 'I am a cook.',
-      note: `${ZERO_ARTICLE_UNIT}. Notice how fast it is over. That speed is the problem this lesson solves.`,
+      note: `${Cap(unitRef(ZERO_ARTICLE_UNIT))}. Notice how fast it is over. That speed is the problem this lesson solves.`,
     },
     {
       fr: 'Je suis comptable.',
       en: 'I am an accountant.',
-      note: `${ZERO_ARTICLE_UNIT}. Five jobs, five anchors, and not one of them is an answer yet.`,
+      note: `${Cap(unitRef(ZERO_ARTICLE_UNIT))}. Five jobs, five anchors, and not one of them is an answer yet.`,
     },
   ],
   audio: FR,
@@ -475,12 +481,12 @@ const S_DURATION: LessonSection = {
     {
       fr: 'Je travaille là-bas depuis six ans.',
       en: 'I have worked there for six years.',
-      note: `${TIME_UNIT} gave you depuis at seq 14. This lesson only puts it in second position.`,
+      note: `${Cap(unitRef(TIME_UNIT))} gave you depuis. This lesson only puts it in second position.`,
     },
     {
       fr: 'Je fais ce métier depuis trois ans.',
       en: 'I have done this job for three years.',
-      note: `The job, then the clock. ${TIME_UNIT} owns the word.`,
+      note: `The job, then the clock. ${Cap(unitRef(TIME_UNIT))} owns the word.`,
     },
     {
       fr: 'Depuis combien de temps vous travaillez là-bas ?',
@@ -590,7 +596,7 @@ const S_WORKPLACE: LessonSection = {
     {
       label: 'Where you are',
       items: [
-        { fr: 'dans un bureau', itemId: M(82), note: `The preposition is ${PLACE_UNIT}'s. Take the whole phrase.` },
+        { fr: 'dans un bureau', itemId: M(82), note: `The preposition is ${unitRef(PLACE_UNIT, 'a2')}'s. Take the whole phrase.` },
         { fr: "à l'hôpital", itemId: M(83), note: 'Not dans. This one you learn whole.' },
         { fr: 'sur un chantier', itemId: M(84), note: 'Sur, because a building site is a surface.' },
         { fr: 'derrière un comptoir', itemId: M(87), note: 'Shops, bars, reception desks.' },
@@ -635,7 +641,7 @@ const S_FEM: LessonSection = {
       head: 'un avocat · une avocate',
       fr: 'Je suis avocate.',
       sub: 'zhuh swee-za-vo-KAT',
-      body: `The commonest shape, and the course already had this pair. You hear the t in the second one and not in the first. The gap after suis is ${ZERO_ARTICLE_UNIT}'s and it does not move.`,
+      body: `The commonest shape, and the course already had this pair. You hear the t in the second one and not in the first. The gap after suis is ${unitRef(ZERO_ARTICLE_UNIT, 'a2')}'s and it does not move.`,
     },
     {
       label: 'Add -e',
@@ -759,7 +765,7 @@ const S_LISTEN: LessonSection = {
         'Oui.',
       ],
       correct: 0,
-      why: `${REPAIR_UNIT} authored six ways to say this, ordered by what each one costs you. This is the second cheapest.`,
+      why: `${Cap(unitRef(REPAIR_UNIT))} authored six ways to say this, ordered by what each one costs you. This is the second cheapest.`,
     },
     {
       q: 'The last line is the interviewer doing which move?',
@@ -779,7 +785,7 @@ const S_BUILD3: LessonSection = {
     {
       label: 'Anchor, clock, detail. Out loud, no pauses.',
       items: [
-        { fr: "Je suis infirmière. Je travaille à l'hôpital depuis cinq ans. Je m'occupe des urgences.", en: 'I am a nurse. I have worked at the hospital for five years. I handle emergencies.', note: `Three sentences, about nine seconds. The gap after suis is still ${ZERO_ARTICLE_UNIT}'s.` },
+        { fr: "Je suis infirmière. Je travaille à l'hôpital depuis cinq ans. Je m'occupe des urgences.", en: 'I am a nurse. I have worked at the hospital for five years. I handle emergencies.', note: `Three sentences, about nine seconds. The gap after suis is still ${unitRef(ZERO_ARTICLE_UNIT, 'a2')}'s.` },
         { fr: 'Je suis électricien. Je fais ça depuis huit ans. Je travaille sur un chantier.', en: 'I am an electrician. I have done that for eight years. I work on a building site.', note: 'The third move can be a place instead of a task.' },
         { fr: "Je suis vendeur. Je suis dans ce magasin depuis un an. Je m'occupe de la caisse.", en: 'I am a salesperson. I have been in this shop for a year. I handle the till.', note: 'One year is still a history. Say it.' },
         { fr: 'Je suis traductrice. Je fais ce métier depuis six ans. Je travaille avec des clients étrangers.', en: 'I am a translator. I have done this job for six years. I work with foreign clients.', note: 'And the fourth move is still missing.' },
@@ -852,7 +858,7 @@ const S_TRAP: LessonSection = {
   rule: {
     title: 'Two of these are grammar. The third is not.',
     // 41 words. validateDensity fires at 46.
-    body: `The article and the tense are things ${ZERO_ARTICLE_UNIT} and ${TIME_UNIT} already taught you, and they are tested here rather than explained again. The third trap is not a mistake in any sentence. It is a sentence that stopped.`,
+    body: `The article and the tense are things ${unitRef(ZERO_ARTICLE_UNIT)} and ${unitRef(TIME_UNIT)} already taught you, and they are tested here rather than explained again. The third trap is not a mistake in any sentence. It is a sentence that stopped.`,
   },
   cards: [
     {
@@ -860,28 +866,28 @@ const S_TRAP: LessonSection = {
       promptSound: 'Je suis un ingénieur.',
       fr: 'Je suis ingénieur.',
       ipa: '/ʒə sɥi ɛ̃.ʒe.njœʁ/',
-      tip: `${ZERO_ARTICLE_UNIT} taught this. The gap is the grammar.`,
+      tip: `${Cap(unitRef(ZERO_ARTICLE_UNIT))} taught this. The gap is the grammar.`,
     },
     {
       promptLabel: 'I am a nurse',
       promptSound: 'Je suis une infirmière.',
       fr: 'Je suis infirmière.',
       ipa: '/ʒə sɥi ɛ̃.fiʁ.mjɛʁ/',
-      tip: `Same gap for a woman. ${ZERO_ARTICLE_UNIT}.`,
+      tip: `Same gap for a woman. ${Cap(unitRef(ZERO_ARTICLE_UNIT))}.`,
     },
     {
       promptLabel: 'I have worked there for six years',
       promptSound: "J'ai travaillé là-bas depuis six ans.",
       fr: 'Je travaille là-bas depuis six ans.',
       ipa: '/ʒə tʁa.vaj la.ba də.pɥi si zɑ̃/',
-      tip: `${TIME_UNIT} owns this one. It is still going, so it is not finished.`,
+      tip: `${Cap(unitRef(TIME_UNIT))} owns this one. It is still going, so it is not finished.`,
     },
     {
       promptLabel: 'I have been here for two years',
       promptSound: "J'ai été ici depuis deux ans.",
       fr: 'Je suis ici depuis deux ans.',
       ipa: '/ʒə sɥi i.si də.pɥi dø zɑ̃/',
-      tip: `${TIME_UNIT} again. Same word, same rule.`,
+      tip: `${Cap(unitRef(TIME_UNIT))} again. Same word, same rule.`,
     },
     {
       promptLabel: 'So, tell me about your background',
@@ -943,12 +949,12 @@ const S_ERRORS: LessonSection = {
     {
       wrong: 'Je suis un ingénieur.',
       right: 'Je suis ingénieur.',
-      why: `${ZERO_ARTICLE_UNIT} taught this and it is being re-tested rather than re-explained. English needs the article and French does not, and that pull does not go away with practice.`,
+      why: `${Cap(unitRef(ZERO_ARTICLE_UNIT))} taught this and it is being re-tested rather than re-explained. English needs the article and French does not, and that pull does not go away with practice.`,
     },
     {
       wrong: "J'ai travaillé là-bas depuis six ans.",
       right: 'Je travaille là-bas depuis six ans.',
-      why: `${TIME_UNIT} owns this rule and taught it at seq 14. The sentence you produce under pressure is the past one, because in English it is a past one.`,
+      why: `${Cap(unitRef(TIME_UNIT))} owns this rule. The sentence you produce under pressure is the past one, because in English it is a past one.`,
     },
     {
       wrong: 'Je suis ingénieur.',
@@ -987,7 +993,7 @@ const S_REGISTER: LessonSection = {
       head: 'vous, and full sentences',
       fr: 'Je suis ingénieur. Je travaille là-bas depuis six ans.',
       sub: 'Complete, unhurried, four moves',
-      body: `${PRONOUN_UNIT} taught you the form and ${ZERO_ARTICLE_UNIT} the gap after suis. What this room adds is that you finish every sentence, because half of what is judged is whether you can.`,
+      body: `${Cap(unitRef(PRONOUN_UNIT))} taught you the form and ${unitRef(ZERO_ARTICLE_UNIT)} the gap after suis. What this room adds is that you finish every sentence, because half of what is judged is whether you can.`,
     },
     {
       label: 'The party',
@@ -1004,18 +1010,18 @@ const S_REGISTER: LessonSection = {
       body: 'You almost never have to choose. Whoever spoke first has chosen, and matching them is right often enough that it is a rule.',
     },
     {
-      label: `${LADDER_UNIT}'s ladder`,
+      label: `${Cap(unitRef(LADDER_UNIT, 'a2'))}'s ladder`,
       head: 'When something needs asking',
       fr: RUNG_1,
-      sub: `${LADDER_UNIT} authored three rungs, in order`,
-      body: `${LADDER_UNIT} owns this and taught it at seq 28. The three rungs are ${RUNG_1} ${RUNG_2} ${RUNG_3} Nothing here re-teaches them.`,
+      sub: `${Cap(unitRef(LADDER_UNIT))} authored three rungs, in order`,
+      body: `${Cap(unitRef(LADDER_UNIT))} owns this. The three rungs are ${RUNG_1} ${RUNG_2} ${RUNG_3} Nothing here re-teaches them.`,
     },
     {
       label: 'A fourth column',
       head: 'The workplace request',
       fr: 'Est-ce que je peux commencer le quinze ?',
-      sub: `A new column on ${LADDER_UNIT}'s three rungs`,
-      body: `${LADDER_UNIT}'s ladder has three rungs and any number of columns. This is ours: asking for something at work, at the lowest rung that will do.`,
+      sub: `A new column on ${unitRef(LADDER_UNIT, 'a2')}'s three rungs`,
+      body: `${Cap(unitRef(LADDER_UNIT, 'a2'))}'s ladder has three rungs and any number of columns. This is ours: asking for something at work, at the lowest rung that will do.`,
     },
   ],
   audio: FR,
@@ -1325,7 +1331,7 @@ const S_QUIZ: LessonSection = {
           prompt: 'Je suis un ingénieur.',
           answer: 'Je suis ingénieur.',
           accept: ['Je suis ingénieur', 'je suis ingenieur'],
-          why: `${ZERO_ARTICLE_UNIT} taught this. The article is the extra word, and writing it out is the only place the missing word is visible.`,
+          why: `${Cap(unitRef(ZERO_ARTICLE_UNIT))} taught this. The article is the extra word, and writing it out is the only place the missing word is visible.`,
           ref: TRAP,
         },
         {
@@ -1334,7 +1340,7 @@ const S_QUIZ: LessonSection = {
           prompt: "J'ai travaillé là-bas depuis six ans.",
           answer: 'Je travaille là-bas depuis six ans.',
           accept: ['Je travaille là-bas depuis six ans', 'je travaille la-bas depuis six ans'],
-          why: `${TIME_UNIT} owns this rule. You are still there, so the sentence is not finished either.`,
+          why: `${Cap(unitRef(TIME_UNIT))} owns this rule. You are still there, so the sentence is not finished either.`,
           ref: TRAP,
         },
         {
@@ -1422,7 +1428,7 @@ const S_QUIZ: LessonSection = {
             "Vous pouvez répéter, s'il vous plaît ?",
           ],
           correct: 2,
-          why: `${REPAIR_UNIT} authored six ways to say this, ordered by what each costs you. Reach for the lowest one that fixes it.`,
+          why: `${Cap(unitRef(REPAIR_UNIT))} authored six ways to say this, ordered by what each costs you. Reach for the lowest one that fixes it.`,
           ref: LISTEN,
         },
       ],
@@ -1444,7 +1450,7 @@ const S_QUIZ: LessonSection = {
           q: 'At a party, with somebody your own age, which fits?',
           opts: ['Et toi, tu fais quoi ?', 'Et vous, vous faites quoi ?', 'Quelle est votre profession ?'],
           correct: 0,
-          why: `${PRONOUN_UNIT} taught the form. The room chooses it, and here the room is a party.`,
+          why: `${Cap(unitRef(PRONOUN_UNIT))} taught the form. The room chooses it, and here the room is a party.`,
           ref: REGISTER,
         },
         {
@@ -1467,13 +1473,13 @@ const S_QUIZ: LessonSection = {
 const S_ROUNDUP: LessonSection = {
   type: 'roundup', id: ROUNDUP, layer: 'core',
   title: 'What you can do now',
-  body: `${REFRAME} You came in able to say what you are, because a1.06 taught you that and it is not this lesson's to teach. You leave able to keep going: how long, what that means on a normal day, and a question back that makes the other person do some of the work. Nobody asked you four questions. You answered as though they had.`,
+  body: `${REFRAME} You came in able to say what you are, because ${unitRef('a1.06')} taught you that and it is not this lesson's to teach. You leave able to keep going: how long, what that means on a normal day, and a question back that makes the other person do some of the work. Nobody asked you four questions. You answered as though they had.`,
   points: [
     `${MOVE_1}: the job, no article, two seconds`,
     `${MOVE_2}: how long, in the present, because you are still there`,
     `${MOVE_3}: one concrete thing you handle`,
     `${MOVE_4}: four words, and they are talking`,
-    'And if you miss what they asked, a2.07 gave you six ways to ask again',
+    `And if you miss what they asked, ${unitRef('a2.07')} gave you six ways to ask again`,
   ],
   audio: FR,
   say: REFRAME,
@@ -1559,7 +1565,7 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-not-here',
         title: 'What is not on this sheet',
         layer: 'deep',
-        body: `The gap after suis belongs to ${ZERO_ARTICLE_UNIT} and depuis belongs to ${TIME_UNIT}, so neither rule is written out here. What you studied and the paper that proves it are ${STUDY_UNIT}, which comes next. The six ways to ask somebody to repeat themselves are ${REPAIR_UNIT}'s, and the three rungs for getting something fixed are ${LADDER_UNIT}'s.`,
+        body: `The gap after suis belongs to ${unitRef(ZERO_ARTICLE_UNIT)} and depuis belongs to ${unitRef(TIME_UNIT)}, so neither rule is written out here. What you studied and the paper that proves it are ${unitRef(STUDY_UNIT)}, which comes next. The six ways to ask somebody to repeat themselves are ${unitRef(REPAIR_UNIT, 'a2')}'s, and the three rungs for getting something fixed are ${unitRef(LADDER_UNIT, 'a2')}'s.`,
       },
     ],
   },
@@ -1633,13 +1639,13 @@ const ERROR_TRIGGERS: ErrorTrigger[] = [
   },
   {
     id: 'article-back',
-    description: `Puts the article back after être. ${ZERO_ARTICLE_UNIT}'s rule, re-tested here and not re-taught.`,
+    description: `Puts the article back after être. ${Cap(unitRef(ZERO_ARTICLE_UNIT, 'a2'))}'s rule, re-tested here and not re-taught.`,
     detectOn: [TRAP, ERRORS],
     drill: 'd-gap',
   },
   {
     id: 'depuis-past',
-    description: `Uses a past tense with depuis. ${TIME_UNIT}'s rule, re-tested here and not re-taught.`,
+    description: `Uses a past tense with depuis. ${Cap(unitRef(TIME_UNIT, 'a2'))}'s rule, re-tested here and not re-taught.`,
     detectOn: [DURATION, TRAP, ERRORS],
     drill: 'd-depuis',
   },
@@ -1676,7 +1682,7 @@ const DRILLS: LessonDrill[] = [
     q: 'Which one is right?',
     opts: ['Je suis un professeur.', 'Je suis professeur.'],
     correct: 1,
-    why: `${ZERO_ARTICLE_UNIT} taught this. English needs the article and French does not.`,
+    why: `${Cap(unitRef(ZERO_ARTICLE_UNIT))} taught this. English needs the article and French does not.`,
   },
   {
     id: 'd-depuis',
@@ -1685,7 +1691,7 @@ const DRILLS: LessonDrill[] = [
     q: 'You started six years ago and you are still there. Which one?',
     opts: ["J'ai travaillé là-bas depuis six ans.", 'Je travaille là-bas depuis six ans.'],
     correct: 1,
-    why: `${TIME_UNIT} owns this and taught it at seq 14.`,
+    why: `${Cap(unitRef(TIME_UNIT))} owns this.`,
   },
   {
     id: 'd-detail',
@@ -1829,7 +1835,7 @@ export const TRAVAIL_LESSON: Lesson = {
   terms: TRAVAIL_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  version: 2,
 
   audio: {
     defaultLang: 'fr-FR',

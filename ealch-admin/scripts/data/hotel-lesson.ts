@@ -76,6 +76,12 @@
 
 import type { Lesson, LessonAct, LessonSection, LessonDrill, ErrorTrigger } from '../../../ealch-v2/src/content/schema.ts';
 import { HOTEL_TERMS } from './hotel-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   UNIT, LESSON_ID, REFRAME, H, RUNG_1, RUNG_2, RUNG_3,
   REPAIR_IDS, REPAIR_UNIT, MODAL_UNIT, MONEY_UNIT, ALPHABET_UNIT,
@@ -177,7 +183,7 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
       respell: '[ex-kü-ZAY mwah eel ee ah uhⁿ proh-BLEM ah-vek lah DOOSH]',
       en: 'Excuse me, there is a problem with the shower.',
     },
-    body: 'The first is built out of devoir, which a2.13 taught you, and it is a perfectly formed sentence. It also hands a stranger an instruction at eleven at night. The second says the same thing about the same shower and mentions nobody at all.',
+    body: `The first is built out of devoir, which ${unitRef('a2.13')} taught you, and it is a perfectly formed sentence. It also hands a stranger an instruction at eleven at night. The second says the same about the same shower and mentions nobody.`,
     coach: 'Neither of these is a grammar mistake. That is what makes this hard to notice and worth a whole lesson.',
     size: 'lg',
     audio: FR,
@@ -378,7 +384,7 @@ const S_RUNG1: LessonSection = {
     {
       label: 'Asking for a thing',
       items: [
-        { fr: "Est-ce que je peux avoir une serviette, s'il vous plaît ?", itemId: H(74), en: 'Could I have a towel, please?', note: "a2.13's asking-permission pouvoir, and it is the plain everyday form you already use." },
+        { fr: "Est-ce que je peux avoir une serviette, s'il vous plaît ?", itemId: H(74), en: 'Could I have a towel, please?', note: `${unitRef('a2.13', 'a2')}'s asking-permission pouvoir, and it is the plain everyday form you already use.` },
         { fr: "Pourriez-vous m'apporter une serviette, s'il vous plaît ?", itemId: H(75), en: 'Could you bring me a towel, please?', note: 'One piece, learned whole. Do not take it apart.' },
         { fr: 'Est-ce que je peux avoir un oreiller de plus ?', itemId: H(80), en: 'Could I have one more pillow?', note: 'De plus, at the end, is how you ask for one more of something.' },
       ],
@@ -503,13 +509,13 @@ const S_REGISTER: LessonSection = {
   title: 'The same want, four distances',
   examples: [
     { fr: 'Donnez-moi une serviette.', en: 'Give me a towel.', note: 'Correct, and it is what you say to a machine. Nobody at a desk hears it as neutral.' },
-    { fr: "Je voudrais une serviette, s'il vous plaît.", en: 'I would like a towel, please.', note: `Yours already, from ${MODAL_UNIT}. This is the floor, and it is fine everywhere.` },
-    { fr: 'Est-ce que je peux avoir une serviette ?', en: 'Could I have a towel?', note: `Also ${MODAL_UNIT}'s, and it is the same everyday pouvoir you have been using since then.` },
+    { fr: "Je voudrais une serviette, s'il vous plaît.", en: 'I would like a towel, please.', note: `Yours already, from ${unitRef(MODAL_UNIT)}. This is the floor, and it is fine everywhere.` },
+    { fr: 'Est-ce que je peux avoir une serviette ?', en: 'Could I have a towel?', note: `Also ${unitRef(MODAL_UNIT, 'a2')}'s, and it is the same everyday pouvoir you have been using since then.` },
     { fr: "Pourriez-vous m'apporter une serviette ?", en: 'Could you bring me a towel?', note: 'A piece you learn whole. It is the softest of the four and it costs one extra word.' },
     { fr: "Est-ce que ce serait possible d'avoir une autre chambre ?", en: 'Would it be possible to have a different room?', note: 'Notice there is no you and no I doing anything. The room is what is being discussed.' },
   ],
   terms: ['softener'],
-  say: `You met the middle two in ${MODAL_UNIT}. The outside two are new, and neither of them is a rule you have to build.`,
+  say: `You met the middle two in ${unitRef(MODAL_UNIT)}. The outside two are new, and neither of them is a rule you have to build.`,
 };
 
 /** THE FIVE SOFTENERS. Learned whole. Never named as a family, never as a
@@ -529,10 +535,10 @@ const S_SOFTENERS: LessonSection = {
   hint: 'Swipe. None of these come apart.',
   cards: [
     {
-      label: `${MODAL_UNIT}, and already yours`, head: 'The two you have',
+      label: `${Cap(unitRef(MODAL_UNIT))}, and already yours`, head: 'The two you have',
       fr: 'je voudrais · est-ce que je peux',
       sub: 'I would like · could I',
-      body: `${MODAL_UNIT} gave you these two and told you to learn them the way you learned bonjour. That was right, and they are still the two you will use most. Nothing below replaces them.`,
+      body: `${Cap(unitRef(MODAL_UNIT))} gave you these two and told you to learn them the way you learned bonjour. That was right, and they are still the two you will use most. Nothing below replaces them.`,
     },
     {
       label: 'New, and one piece', head: "j'aimerais",
@@ -651,20 +657,20 @@ const S_OPENER: LessonSection = {
 const S_REPAIR: LessonSection = {
   type: 'cardDeck', id: REPAIR, render: 'deck', layer: 'core', size: 'lg',
   title: 'When you did not catch the answer',
-  hint: `Swipe. ${REPAIR_UNIT} taught these.`,
+  hint: `Swipe. ${Cap(unitRef(REPAIR_UNIT))} taught these.`,
   cards: [
     {
-      label: `${REPAIR_UNIT}, rung 1`, head: 'Pardon ?',
+      label: `${Cap(unitRef(REPAIR_UNIT))}, rung 1`, head: 'Pardon ?',
       fr: 'Pardon ?', sub: '[par-DOHⁿ]',
-      body: `${REPAIR_UNIT} authored six of these, ordered by what each one costs you. This is the cheapest thing you can say and it gives away nothing at all.`,
+      body: `${Cap(unitRef(REPAIR_UNIT))} authored six of these, ordered by what each one costs you. This is the cheapest thing you can say and it gives away nothing at all.`,
     },
     {
-      label: `${REPAIR_UNIT}, rung 3`, head: "Plus lentement, s'il vous plaît.",
+      label: `${Cap(unitRef(REPAIR_UNIT))}, rung 3`, head: "Plus lentement, s'il vous plaît.",
       fr: "Plus lentement, s'il vous plaît.", sub: '[plü lahⁿt-MAHⁿ seel voo PLEH]',
       body: 'The first of the six that names what actually went wrong. Asking for a repeat gets you the same sentence at the same speed; asking for slower gets you a different one.',
     },
     {
-      label: `${REPAIR_UNIT}, rung 6`, head: "Vous pouvez me l'écrire ?",
+      label: `${Cap(unitRef(REPAIR_UNIT))}, rung 6`, head: "Vous pouvez me l'écrire ?",
       fr: "Vous pouvez me l'écrire, s'il vous plaît ?", sub: "[voo poo-VAY muh lay-KREER seel voo PLEH]",
       body: 'The last one. It concedes that speaking has failed and changes medium, which at a hotel desk is often exactly right: a room number and a breakfast time are easier read than heard.',
     },
@@ -672,7 +678,7 @@ const S_REPAIR: LessonSection = {
       label: 'Why it belongs here', head: 'The desk answers fast',
       fr: 'Vous avez bien noté ? Chambre quatre-vingt-cinq.',
       sub: 'Got that? Room eighty-five.',
-      body: `You will climb the whole ladder correctly and then lose the answer, because the reply comes back at the speed the desk always talks. Reach for the lowest of ${REPAIR_UNIT}'s six that will actually fix it.`,
+      body: `You will climb the whole ladder correctly and then lose the answer, because the reply comes back at the speed the desk always talks. Reach for the lowest of ${unitRef(REPAIR_UNIT, 'a2')}'s six that will actually fix it.`,
     },
   ],
   terms: ['repairMove', 'desk'],
@@ -725,9 +731,10 @@ const S_TRAP: LessonSection = {
   title: 'The politeness trap',
   rule: {
     title: 'A correct sentence can still be the wrong move',
-    // 45 words is the core-screen limit and this body sits at 44. Count before
-    // you reword it: validateDensity fires at 46.
-    body: 'English says you need to fix this and means please fix this. French hears vous devez as an instruction from a stranger, because that is what it is. Every trap below is a perfect sentence from a2.13, and every one costs you the room.',
+    // 45 words is the core-screen limit and this body sits AT it. Count before
+    // you reword it: validateDensity fires at 46. It sat at 44 while the
+    // citation read « a2.13 »; the lesson label is three words longer.
+    body: `English says you need to fix this and means please fix this. French hears vous devez as an instruction from a stranger, because it is one. Every trap below is a perfect sentence from ${unitRef('a2.13')}, and each costs you the room.`,
   },
   cards: [
     { promptLabel: 'You need to fix the shower', promptSound: 'Vous devez réparer la douche.', fr: 'Excusez-moi, il y a un problème avec la douche.', ipa: '/ɛks.ky.ze.mwa il i.a œ̃ pʁɔ.blɛm a.vɛk la duʃ/', tip: 'Take the person out. The shower has the problem.' },
@@ -817,7 +824,7 @@ const S_NUMBERS: LessonSection = {
     },
     {
       q: 'How many flights of stairs up is the room?', opts: ['One', 'Two', 'Three', 'Four'], correct: 2,
-      why: `Le deuxième étage is three flights, because le rez-de-chaussée is not counted as a floor. This is the same counting ${MONEY_UNIT} does not cover and it catches people at every hotel in France.`,
+      why: `Le deuxième étage is three flights, because le rez-de-chaussée is not counted as a floor. This is the same counting ${unitRef(MONEY_UNIT)} does not cover and it catches people at every hotel in France.`,
     },
     {
       q: 'By what time must you be out?', opts: ['Onze heures', 'Quatorze heures', 'Dix heures', 'Sept heures'], correct: 0,
@@ -885,7 +892,7 @@ const S_CHECKIN: LessonSection = {
     },
   ],
   terms: ['desk'],
-  say: `Five turns. The desk will spell-check your name, so ${ALPHABET_UNIT} is about to earn its keep.`,
+  say: `Five turns. The desk will spell-check your name, so ${unitRef(ALPHABET_UNIT)} is about to earn its keep.`,
 };
 
 /** THE COMPLAINT, ESCALATED. Six turns, and THIS IS THE MISSION THE UNIT IS FOR.
@@ -1087,7 +1094,7 @@ const S_QUIZ: LessonSection = {
         { q: 'Which one asks whether a thing is possible, rather than saying what you want?', format: 'mcq', opts: ['Je voudrais une autre chambre.', "J'aimerais une autre chambre.", "Est-ce que ce serait possible d'avoir une autre chambre ?", 'Donnez-moi une autre chambre.'], correct: 2, why: 'It has no I wanting and no you doing. It is the one to keep for an ask you think might be refused.', ref: SOFTENERS },
         { q: 'Complete the softener: ___-vous m\'apporter une serviette ?', format: 'typeIn', prompt: '___-vous m\'apporter une serviette ?', answer: 'Pourriez', accept: ['Pourriez'], why: 'One fixed piece. You have already met it in the alphabet lessons without being told it was anything special.', ref: SOFTENERS },
         { q: 'Listen. Which softener is this?', format: 'listenChoose', say: "J'aimerais changer de chambre, si c'est possible.", opts: ['je voudrais', "j'aimerais", 'pourriez-vous', 'est-ce que je peux'], correct: 1, why: "J'aimerais. Interchangeable with je voudrais almost everywhere, and a shade warmer.", ref: SOFTENERS },
-        { q: 'Listen. Which softener is this?', format: 'listenChoose', say: "Est-ce que je peux avoir un oreiller de plus ?", opts: ['ce serait possible de', 'est-ce que je peux', "j'aimerais", 'pourriez-vous'], correct: 1, why: `Est-ce que je peux, the asking-permission pouvoir that ${MODAL_UNIT} taught, in its plain everyday form.`, ref: SOFTENERS },
+        { q: 'Listen. Which softener is this?', format: 'listenChoose', say: "Est-ce que je peux avoir un oreiller de plus ?", opts: ['ce serait possible de', 'est-ce que je peux', "j'aimerais", 'pourriez-vous'], correct: 1, why: `Est-ce que je peux, the asking-permission pouvoir that ${unitRef(MODAL_UNIT)} taught, in its plain everyday form.`, ref: SOFTENERS },
         { q: 'What are you meant to do with these five?', format: 'mcq', opts: ['Learn them whole and use them as written', 'Learn the rule that builds them', 'Use them only in writing', 'Use them only with strangers'], correct: 0, why: 'They are fixed pieces. Where they come from is a much later lesson and you do not need it tonight.', ref: SOFTENERS },
       ],
     },
@@ -1109,8 +1116,8 @@ const S_QUIZ: LessonSection = {
         { q: 'Fix the word order.', format: 'errorSpot', prompt: "S'il vous plaît, une serviette.", answer: "Une serviette, s'il vous plaît.", accept: ["Une serviette, s'il vous plaît."], why: "S'il vous plaît goes at the end. It is one of the few word-order slips in French that sounds odd rather than merely foreign.", ref: OPENER },
         { q: 'Which word goes at the FRONT, before you say what you want?', format: 'mcq', opts: ["s'il vous plaît", 'merci', 'de plus', 'Excusez-moi'], correct: 3, why: 'Excusez-moi opens. It finishes, and then the real sentence starts.', ref: OPENER },
         { q: 'Type the opener that apologises before you have asked for anything.', format: 'typeIn', prompt: '___ de vous déranger.', answer: 'Excusez-moi', accept: ['Excusez-moi', 'Désolé', 'Désolée'], why: 'Excusez-moi de vous déranger, or désolé de vous déranger. Both are fixed and both go first.', ref: OPENER },
-        { q: 'You did not catch the room number. Which is the cheapest thing to say?', format: 'mcq', opts: ['Pardon ?', "Vous pouvez me l'écrire, s'il vous plaît ?", 'Je voudrais parler au responsable.', "Plus lentement, s'il vous plaît."], correct: 0, why: `Rung 1 of ${REPAIR_UNIT}'s six. It gives away nothing. Reach for the lowest one that will actually fix the problem.`, ref: REPAIR },
-        { q: 'Listen. Which repair move is this?', format: 'listenChoose', say: "Plus lentement, s'il vous plaît.", opts: ['Ask for a repeat', 'Ask for it slower', 'Ask for it in writing', 'Ask what a word means'], correct: 1, why: `The first of ${REPAIR_UNIT}'s six that names what actually went wrong. A repeat gets you the same speed again.`, ref: REPAIR },
+        { q: 'You did not catch the room number. Which is the cheapest thing to say?', format: 'mcq', opts: ['Pardon ?', "Vous pouvez me l'écrire, s'il vous plaît ?", 'Je voudrais parler au responsable.', "Plus lentement, s'il vous plaît."], correct: 0, why: `Rung 1 of ${unitRef(REPAIR_UNIT, 'a2')}'s six. It gives away nothing. Reach for the lowest one that will actually fix the problem.`, ref: REPAIR },
+        { q: 'Listen. Which repair move is this?', format: 'listenChoose', say: "Plus lentement, s'il vous plaît.", opts: ['Ask for a repeat', 'Ask for it slower', 'Ask for it in writing', 'Ask what a word means'], correct: 1, why: `The first of ${unitRef(REPAIR_UNIT, 'a2')}'s six that names what actually went wrong. A repeat gets you the same speed again.`, ref: REPAIR },
       ],
     },
     {
@@ -1174,7 +1181,7 @@ export const DECK_TRANCHE: string[][] = [
   // act 1 — the desk's four opening formulas
   [H(106), H(107), H(110), H(112)],
   // act 2 — the ladder, all nine cells plus the rest of rungs 1 to 3
-  [H(74), H(75), H(76), H(78), H(80), H(81), H(82), H(83), H(84), H(85), H(87), H(88), H(89), H(90), H(91), H(92), H(93), H(94), H(95), H(132)],
+  [H(74), H(75), H(76), H(78), H(80), H(81), H(82), H(83), H(84), H(85), H(86), H(87), H(88), H(89), H(90), H(91), H(92), H(93), H(94), H(95), H(132)],
   // act 3 — the softeners, the impersonal frames, the openers, and a2.07's six.
   //
   // TWO OF THE THREE `pourriez-vous` IDS ARE RELEASED HERE, AND THE THIRD IS
@@ -1309,7 +1316,7 @@ const DRILLS: LessonDrill[] = [
   {
     id: 'd-repair-flash', title: 'When you did not catch it', format: 'flashcard' as const,
     items: [...REPAIR_IDS],
-    coach: `${REPAIR_UNIT} authored these six, ordered by what each one costs you.`,
+    coach: `${Cap(unitRef(REPAIR_UNIT))} authored these six, ordered by what each one costs you.`,
   },
 ];
 
@@ -1323,7 +1330,7 @@ export const LESSON: Lesson = {
   intro: 'Most people have two settings at a hotel desk: apologise, or lose your temper. French has a step in the middle, and this is it.',
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  version: 2,
   // The grammar spine. `grammarIntroduced` is the house field (62 of 66
   // lessons); `teaches` was invented by a2.07 and draws nothing.
   grammarAssumed: [

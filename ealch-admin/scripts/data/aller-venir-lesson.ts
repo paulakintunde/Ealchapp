@@ -116,6 +116,12 @@ import {
 } from './aller-venir-terms.ts';
 import { REFRAME as A201_REFRAME } from './verbes-er-terms.ts';
 import { REFRAME as A210_REFRAME } from './verbes-ir-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 import {
   A201_BACKREF,
   A210_BACKREF,
@@ -624,7 +630,7 @@ const SECTIONS: LessonSection[] = [
           q: `${COMPOUNDS[0]} is ${COMPOUND_BASE[COMPOUNDS[0]]} with two letters on the front. What is il ___ ?`,
           opts: ['il revenir', 'il revien', 'il reviens', 'il revient'],
           correct: 3,
-          why: `Whatever ${COMPOUND_BASE[COMPOUNDS[0]]} does, ${COMPOUNDS[0]} does. That happens with a lot of verbs and where it becomes a rule you can rely on is ${FAMILY_UNIT}.`,
+          why: `Whatever ${COMPOUND_BASE[COMPOUNDS[0]]} does, ${COMPOUNDS[0]} does. That happens with a lot of verbs and where it becomes a rule you can rely on is ${unitRef(FAMILY_UNIT)}.`,
         },
       },
     ],
@@ -829,7 +835,7 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'What is still coming',
         head: 'The rest of the past',
-        body: `A full past tense, for things that happened yesterday and last year, is ${PASSE_COMPOSE_UNIT} and it is ${PASSE_COMPOSE_DISTANCE} lessons from here. Until then this is what you have, and it is more than it sounds.`,
+        body: `A full past tense, for things that happened yesterday and last year, is ${unitRef(PASSE_COMPOSE_UNIT)} and it is ${PASSE_COMPOSE_DISTANCE} lessons from here. Until then this is what you have, and it is more than it sounds.`,
       },
     ],
   },
@@ -986,17 +992,17 @@ const SECTIONS: LessonSection[] = [
       {
         label: 'aller, again',
         head: 'It has a second job too',
-        body: `Everywhere in this lesson ${THE_THREE[0]} has a place after it. Put something else there and it does a different job entirely, the way venir de does. That one is ${FUTUR_PROCHE_UNIT}, and it will make more sense once this one is solid.`,
+        body: `Everywhere in this lesson ${THE_THREE[0]} has a place after it. Put something else there and it does a different job entirely, the way venir de does. That one is ${unitRef(FUTUR_PROCHE_UNIT)}, and it will make more sense once this one is solid.`,
       },
       {
         label: 'Which small word',
         head: 'au, à, en, chez',
-        body: `This lesson used one place and one small word, six times, so that nothing on the screen moved except the verb. Choosing between them is a real question with real rules and it is ${PREPOSITION_UNIT}.`,
+        body: `This lesson used one place and one small word, six times, so that nothing on the screen moved except the verb. Choosing between them is a real question with real rules and it is ${unitRef(PREPOSITION_UNIT)}.`,
       },
       {
         label: 'The shape itself',
         head: 'One Shape, More Than Once',
-        body: `This is not the last time one phrase will do two jobs with nothing but the next word to separate them. When it happens again you will be told it is the same shape you met here, at ${WHAT_FOLLOWS_UNIT}.`,
+        body: `This is not the last time one phrase will do two jobs with nothing but the next word to separate them. When it happens again you will be told it is the same shape you met here, at ${unitRef(WHAT_FOLLOWS_UNIT)}.`,
       },
     ],
   },
@@ -1172,8 +1178,8 @@ const SECTIONS: LessonSection[] = [
       { front: 'You, from Paris', back: fr('fr.a2.verbes.285'), say: fr('fr.a2.verbes.285') },
       { front: 'What you say for we, having just finished', back: fr('fr.a2.verbes.282'), say: fr('fr.a2.verbes.282') },
       { front: 'Several people, holding the key', back: fr('fr.a2.verbes.278'), say: fr('fr.a2.verbes.278') },
-      { front: `Name the three built on ${THE_THREE[1]} and ${THE_THREE[2]}`, back: `${COMPOUNDS.join(', ')}. Each one behaves exactly like the verb inside it, and ${FAMILY_UNIT} is where that becomes a rule.` },
-      { front: 'How far away is a full past tense?', back: `${PASSE_COMPOSE_DISTANCE} lessons, at ${PASSE_COMPOSE_UNIT}. Until then venir de covers most of what you need.` },
+      { front: `Name the three built on ${THE_THREE[1]} and ${THE_THREE[2]}`, back: `${COMPOUNDS.join(', ')}. Each one behaves exactly like the verb inside it, and ${unitRef(FAMILY_UNIT)} is where that becomes a rule.` },
+      { front: 'How far away is a full past tense?', back: `${PASSE_COMPOSE_DISTANCE} lessons, at ${unitRef(PASSE_COMPOSE_UNIT)}. Until then venir de covers most of what you need.` },
     ],
   },
 
@@ -1240,7 +1246,7 @@ const SECTIONS: LessonSection[] = [
             format: 'typeIn',
             accept: ['venons', 'nous venons'],
             answer: 'venons',
-            why: 'The short stem, ven-, with the -ons you have had since a2.01. The doubled n belongs to ils and to nobody else, and finir after de does not move at all.',
+            why: `The short stem, ven-, with the -ons you have had since ${unitRef('a2.01')}. The doubled n belongs to ils and to nobody else, and finir after de does not move at all.`,
             ref: 's10-build',
           },
           {
@@ -1459,9 +1465,9 @@ const SECTIONS: LessonSection[] = [
           {
             q: 'Where does the rule about verbs built on other verbs get taught properly?',
             format: 'mcq',
-            opts: [FAMILY_UNIT, 'Here, in this lesson', FUTUR_PROCHE_UNIT, 'Nowhere, they are learned one at a time'],
+            opts: [Cap(unitRef(FAMILY_UNIT)), 'Here, in this lesson', Cap(unitRef(FUTUR_PROCHE_UNIT)), 'Nowhere, they are learned one at a time'],
             correct: 0,
-            why: `${FAMILY_UNIT} takes it as its own subject. Here it is only evidence that the second verb in this lesson was worth the trouble.`,
+            why: `${Cap(unitRef(FAMILY_UNIT))} takes it as its own subject. Here it is only evidence that the second verb in this lesson was worth the trouble.`,
             ref: 's07-three',
           },
           {
@@ -1850,14 +1856,14 @@ const SHEETS: ReferenceSheet[] = [
         id: 'sheet-why-forms',
         title: 'Why this sheet lists forms and not endings',
         layer: 'deep',
-        body: `Every reference sheet before this one in the level lists ENDINGS, because every pattern before this one had them: ${A201_BACKREF} holds the -er set in full and ${A210_BACKREF} holds the -ir set, and a2.11 puts all three regular sets in one table. That is the whole of the method and it is now finished. These three verbs have no endings to list. There is no stem to put an ending on, so what is written above is the forms themselves, and the only way in is to hold them. Read the third row of the first table and nothing else if you are in a hurry: va, vient, tient. Those are the three you will need in a hurry more than any of the others, because on takes the same form as il, so they cover the spoken we as well. The second and third tables are the part that is actually new. ${TENIR_CLAIM}`,
+        body: `Every reference sheet before this one in the level lists ENDINGS, because every pattern before this one had them: ${A201_BACKREF} holds the -er set in full and ${A210_BACKREF} holds the -ir set, and ${unitRef('a2.11')} puts all three regular sets in one table. That is the whole of the method and it is now finished. These three verbs have no endings to list. There is no stem to put an ending on, so what is written above is the forms themselves, and the only way in is to hold them. Read the third row of the first table and nothing else if you are in a hurry: va, vient, tient. Those are the three you will need in a hurry more than any of the others, because on takes the same form as il, so they cover the spoken we as well. The second and third tables are the part that is actually new. ${TENIR_CLAIM}`,
       },
       {
         type: 'teach',
         id: 'sheet-carries-forward',
         title: 'What carries forward',
         layer: 'deep',
-        body: `Two things leave this lesson and neither of them is a table. The first is ${REFRAME} It works on every verb in the language and none of them changes shape to do it, so once you have the four words in front you have the whole construction and there is nothing left to learn about it until ${PASSE_COMPOSE_UNIT}, ${PASSE_COMPOSE_DISTANCE} lessons from here, gives you a past for things that happened yesterday. The second is the shape rather than the phrase: ${WHAT_FOLLOWS}. One set of words, two completely different jobs, and nothing but the next word to separate them. That happens three more times in this level and each time you will be pointed back here, to ${WHAT_FOLLOWS_UNIT}. It is worth noticing now, because a learner who sees a pattern repeat stops believing the language is arbitrary, and this is the first place in the level where that is on offer.`,
+        body: `Two things leave this lesson and neither of them is a table. The first is ${REFRAME} It works on every verb in the language and none of them changes shape to do it, so once you have the four words in front you have the whole construction and there is nothing left to learn about it until ${unitRef(PASSE_COMPOSE_UNIT)}, ${PASSE_COMPOSE_DISTANCE} lessons from here, gives you a past for things that happened yesterday. The second is the shape rather than the phrase: ${WHAT_FOLLOWS}. One set of words, two completely different jobs, and nothing but the next word to separate them. That happens three more times in this level and each time you will be pointed back here, to ${unitRef(WHAT_FOLLOWS_UNIT)}. It is worth noticing now, because a learner who sees a pattern repeat stops believing the language is arbitrary, and this is the first place in the level where that is on offer.`,
       },
     ],
   },
@@ -1915,7 +1921,7 @@ export const ALLER_VENIR_LESSON: Lesson = {
   // number, because two different bodies under one version is the drift that has
   // made Postgres and seed.json disagree twice. The batch refuses the alternative
   // outright, which is how this came to be v4 rather than a quiet edit.
-  version: 4,
+  version: 5,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

@@ -81,6 +81,12 @@ import {
   ALL_ROWS, IMPORT_IDS, IMPORTED, DICTEE_IDS,
 } from './technologie-corpus.ts';
 import { TECHNOLOGIE_TERMS } from './technologie-terms.ts';
+import { unitRef } from './_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital, and the label is built at
+ *  interpolation time rather than typed, so the capital has to be applied here.
+ *  « lesson 22 said this first » is not a sentence. */
+const Cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** NOT `as const`. A readonly `speeds` tuple is not assignable to
  *  `SectionAudio['speeds']`, which is a mutable `number[]`, and the admin
@@ -1280,7 +1286,7 @@ const S23_ROUNDUP: LessonSection = {
   frSub: "Un appareil, trois voix",
   layer: 'core',
   title: 'One appareil, three voices',
-  body: `${REFRAME} Every tech object in French has more than one name, and the name you pick says who you think is listening. That is the whole unit, and it is the one thing here that no other unit teaches. Next comes ${BILAN_UNIT}, where eight different situations arrive in one sitting and the only question that runs through all of them is the one this lesson asked: which voice does this one want?`,
+  body: `${REFRAME} Every tech object in French has more than one name, and the name you pick says who you think is listening. That is the whole unit, and it is the one thing here that no other unit teaches. Next comes ${unitRef(BILAN_UNIT)}, where eight different situations arrive in one sitting and the only question that runs through all of them is the one this lesson asked: which voice does this one want?`,
   points: [
     'The screen orders, the agent asks, the friend talks. Same device.',
     'Six screen strings, learned whole. You never build one.',
@@ -1539,7 +1545,7 @@ export const LESSON: Lesson = {
   terms: TECHNOLOGIE_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 3,
+  version: 4,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

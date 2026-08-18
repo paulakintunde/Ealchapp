@@ -59,6 +59,7 @@ import {
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
+import { namesUnitLabel } from './data/_unit-ref.ts';
 import {
   ADJ_ORDER, ADVERB_MUST_FIRE, ADVERB_MUST_NOT_FIRE, ADVERB_SHAPE, ALL_REPAIRS,
   AUTHORED_HEADWORDS, AUTHORED_IDS as AUTHORED_ID_LIST, BEAU_NOUVEAU,
@@ -505,7 +506,7 @@ if (FORM_ORDER[1] !== 'vowel') {
   const s = LESSON.sections.find((x) => (x as { id?: string }).id === PLURAL_SECTION_ID);
   // LITERAL, not the constant the section renders. See the batch.
   for (const u of PLURAL_OWNERS_LITERAL) {
-    if (!strings(s).some((x) => hasPhrase(x, u))) die(`${PLURAL_SECTION_ID} does not name ${u}, which already owns two thirds of the plural`);
+    if (!strings(s).some((x) => namesUnitLabel(x, u))) die(`${PLURAL_SECTION_ID} does not name ${u}, which already owns two thirds of the plural`);
   }
 }
 
@@ -531,12 +532,12 @@ if (FORM_ORDER[1] !== 'vowel') {
   const reason = LESSON.sections.find((s) => (s as { id?: string }).id === REASON_SECTION_ID);
   if (!reason || !strings(reason).some((s) => s.includes(ELISION_REFRAME))) die(`${REASON_SECTION_ID} does not quote ${ELISION_UNIT}'s reframe verbatim`);
   const chain = LESSON.sections.find((s) => (s as { id?: string }).id === CHAIN_SECTION_ID);
-  if (!chain || !strings(chain).some((s) => hasPhrase(s, 'a1.17'))) die(`${CHAIN_SECTION_ID} does not name a1.17`);
+  if (!chain || !strings(chain).some((s) => namesUnitLabel(s, 'a1.17'))) die(`${CHAIN_SECTION_ID} does not name a1.17`);
   for (const sid of [GRID_SECTION_ID, PAIRS_SECTION_ID, BORROW_SECTION_ID, ONLY_PAIR_SECTION_ID, SILENT_H_SECTION_ID, PLURAL_SECTION_ID, INVENTED_SECTION_ID]) {
     if (!LESSON.sections.some((s) => (s as { id?: string }).id === sid)) die(`${sid} is missing from the lesson`);
   }
   for (const u of CITED_UNITS) {
-    if (!production.some((s) => hasPhrase(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
+    if (!production.some((s) => namesUnitLabel(s, u))) die(`${u} is in CITED_UNITS and is named on no learner surface`);
   }
 }
 
