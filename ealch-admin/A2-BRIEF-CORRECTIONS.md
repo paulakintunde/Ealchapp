@@ -680,3 +680,117 @@ contains those lines.
 
 **Read the ledger's "The trapDrill shape, swept across seq 1..11" before you
 author one.**
+
+---
+
+## §15. What a2.08 found wrong or incomplete in THIS file
+
+§12 asks every build to say what in here it measured wrong. a2.08 found one
+thing that is not about the corpus at all, three holes to add to §9's list, and
+one correction to a per-lesson brief that is really a warning about all of them.
+
+### 1. THE PROMPT IS NOT A SOURCE OF FACT ABOUT FRENCH
+
+This file exists because the briefs are « good on teaching and unreliable on
+facts », and every §1 to §7 shape is a fact about the CORPUS, the APP or the
+CURRICULUM. a2.08 found a sixth kind and it is worse, because measuring the
+corpus does not catch it: **a brief can be wrong about the language.**
+
+`A2-08-COMPARATIFS-PROMPT.md` trap 3 reads:
+
+> « `Il est plus grand.` is a complete sentence and it is not a comparison.
+> English drops the second term freely; French does not. »
+
+The first clause is right and the second is backwards. `plus` is comparative and
+there is no reading on which that sentence means « he is tall » — that is
+`Il est grand.` It is a comparison with an ELIDED second term, and BOTH
+languages allow that when the other thing is recoverable: « Mon frère ? Il est
+plus grand. » and « My brother? He's taller. » are the same move.
+
+**a2.08 repeated it in seven places, one of them a SCORED mcq key**, while its
+own corpus row `fr.a2.comparaisons.136` glossed itself « He is taller. » the
+whole time. A learner who knew French would have answered correctly and been
+marked wrong. Every gate was green: the corpus was measured, the guards fired,
+the device pass passed.
+
+**Three of those seven were found by reading and FOUR by the guard written to
+stop the other three.** So the practice that works is: when a brief states a
+fact about the language, write the guard as a banned-string list anchored on a
+corpus row's own gloss, and let it sweep. Do not trust a manual pass, including
+your own.
+
+### 2. §9 GAINS THREE MORE HOLES, AND ONE IS IN A GUARD THIS FILE PRESCRIBES
+
+**Hole 5: the lesson restates the corpus and nothing checks the two agree.**
+A `cardDeck` card and a `tapTable` cell carry INLINE strings, not itemIds, so
+the French on a card is a second copy of the row behind it. Invariants §5 says
+the corpus is the single source of truth and the lesson reads it; the renderer
+makes that impossible from a content build. a2.08's mutation harness moved
+`fr.a2.comparaisons.134` out from under the card displaying it, destroyed the
+one thing its required layout existed for, and **every guard stayed green.**
+Now covered seed-wide by `production-surface.test.ts`.
+
+**Hole 6: a batch's duplicate-`fr` check runs ONE DIRECTION.** Every batch in
+this band compares the authored rows against the rows already in the theme and
+never against EACH OTHER. `mieux` and `le mieux`, authored in one batch, both
+normalise to `mieux` under the flashcard hub's article-stripping norm and broke
+the seed-wide `flashhub-coverage.test.ts` while the batch reported clean.
+
+**Hole 7: nothing checks the TENSE of a production surface.** Doctrine §B.3
+permits a CORPUS sentence to use a tense the lesson does not teach. A scenario
+turn is not a corpus sentence: it is a line the learner is asked to say, and
+`alts` are lines they may say instead. a2.08 asked an A2 learner to produce
+« Je dormirais mieux dans le second. » The conditional is B1 and arrives nowhere
+in the 35-unit A2 trail. Now covered seed-wide.
+
+**AND A WARNING ABOUT THE SHAPES THIS FILE TEACHES YOU TO WRITE.** a2.08's first
+subjunctive guard allowed `\s*` between `que` and the verb, which let the
+pattern SPLIT A WORD: `avait` matched as av+ait and `serait` as ser+ait. Both
+are shipped content (a2.32's scenario, a2.29's trap), so the guard would have
+fired on two lessons the day anyone reused it. §14.4 says guard the THING and
+not the letters; this is the same lesson one level down. **Require whitespace,
+and put the words your shape could split into MUST_NOT_FIRE.**
+
+### 3. NOTHING CHECKS LIAISON, AND FOUR ROWS SHIPPED WITHOUT IT
+
+`hasPlainNasalFor` looks at nasals. `validateDensity` looks at notation
+delimiters. The schema looks at neither. **No layer in this project checks that
+a respelling carries a liaison the French requires**, and a2.08 authored every
+`est aussi` frame as `eh oh-see`, with the t missing, four times.
+
+The house is unambiguous across 109 respelled rows and writes the moving
+consonant ONTO THE FOLLOWING SYLLABLE rather than tying it: `SEH TAHN PAHN`,
+`EEL EH TÜN UHR`, `day-zay-koo-TUR`. That is also what avoids U+203F, which
+renders as a low underscore on a Pixel 6.
+
+The contexts worth a by-name table in any lesson whose frames create one:
+`est` + vowel, `plus` + vowel, `moins` + vowel, `des` + vowel.
+
+**And `plus` is THREE sounds, not two**: silent before a consonant, a /z/ before
+a vowel, an /s/ with nothing after it. a2.08 shipped a card calling
+`plus intéressant` SILENT. An h aspiré blocks the liaison (`plus haut` is
+`PLÜ OH`), which is why the rule is worth stating rather than inferring.
+
+### 4. §11'S THEME TABLE NEEDS ONE MORE COLUMN: THE DRILL POPULATION
+
+§11 gives a theme's published count and its `fr.a2.*` slice. Neither says
+whether a row can be SERVED. `comparaisons` splits three ways:
+
+```
+.001-.056   dictation ONLY            56 sentences
+.057-.112   sentence ONLY             56 sentences
+.113-.132   flashcard + voiceflash    17 rows
+```
+
+**112 of 129 rows can be served by no deck and spoken by no `practice`.** A
+`deckTranche` release of one validates, publishes and draws nothing. a2.31 met
+this at eighteen rows and a2.32 at ten; here it is 112. Probe the drill
+signature, not just the count, before planning a single tranche.
+
+### 5. A SHEET TABLE HAS A COLUMN CEILING AND NOTHING ON THE HOST KNOWS IT
+
+Three columns on a Pixel 6. a2.08 shipped four and the fourth was **cut off at
+the screen edge with no affordance**, because a sheet does not scroll sideways.
+`validateDensity` exempts a sheet, the schema takes any number of `cols`, and
+the seed is correct either way. Only the phone finds it. Sits beside
+`tapTable`'s six-row ceiling in §8.

@@ -915,7 +915,7 @@ export const OUT_OF_BAND_TENSES = [
   // required a subject pronoun immediately after `que` and could not see
   // « Il faut que ce soit plus grand. », which is the commonest shape there is.
   // Its own MUST_FIRE list caught that, which is the point of having one.
-  { name: 'subjunctive', shape: /(?<![\p{L}\p{N}-])(que|qu['’])(\s+[\p{L}'’-]+){0,3}\s*(soit|soient|ait|aient|puisse|puissent|fasse|fassent|aille|sache|veuille)(?![\p{L}\p{N}'’-])/iu },
+  { name: 'subjunctive', shape: /(?<![\p{L}\p{N}-])(que|qu['’])[\p{L}\p{N}'’ -]{0,24}?\s+(soit|soient|sois|ait|aies|aient|puisse|puisses|puissent|fasse|fasses|fassent|aille|ailles|sache|sachent|veuille|veuillent)(?![\p{L}\p{N}'’-])/iu },
 ];
 
 export const TENSE_MUST_FIRE = [
@@ -935,6 +935,13 @@ export const TENSE_MUST_NOT_FIRE = [
   'She sings the best in the whole class.',
   'You will reach for it first.',
   'A portrait of the frame, and it never moves.',
+  // THE TWO THE FIRST SHAPE GOT WRONG. It allowed `\s*` before the verb, which
+  // let the pattern split a word: `avait` matched as av+ait and `serait` as
+  // ser+ait. Both are shipped A2 content (a2.32's scenario and a2.29's trap),
+  // so the guard would have fired on two lessons the day anyone reused it.
+  // Found by generalising this guard seed-wide, not by using it here.
+  'Que le code avait expiré. Super.',
+  "Est-ce que ce serait possible d'avoir une autre chambre ?",
 ] as const;
 
 /** a2.33, seq 33, ONE AHEAD OF THIS LESSON. `celui`, `celle`, `ceux`, `celles`

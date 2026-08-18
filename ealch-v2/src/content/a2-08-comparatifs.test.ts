@@ -114,9 +114,40 @@ const LEARNER_TEXT = [
   ...strs(L?.overview), ...strs(L?.drills), ...strs(L?.acts), ...strs(L?.errorTriggers),
 ].join('\n');
 
+/** WHAT A LEARNER OFFLINE CAN MEET. Keep using this for content checks; do NOT
+ *  COUNT it.
+ *
+ *  ── This suite's own defect, and it is the one a2.32 fixed in 230680c ──
+ *
+ *  `AUTHORED.length === 31` was measured against `seed.items`. The seed drops
+ *  any row no lesson references when the theme sits outside `SEED_CUT.themes`,
+ *  and `comparaisons` is outside it. So the assertion held only while every
+ *  authored row happened to be reachable — correct by luck, not by
+ *  construction. `a2-29-hotel.test.ts` made the identical assumption and went
+ *  red the first time anyone published: v51 regenerated the seed, the cut
+ *  dropped `fr.a2.hebergement.086`, and 33 green guards had never asked whether
+ *  anything reached it.
+ *
+ *  a2.08's block is fully referenced today, 31 of 31, re-measured after the v52
+ *  publish. That is why this went unnoticed and it is not a reason to leave it.
+ *
+ *  THE TWO INVARIANTS, SPLIT, which is what `SEED-IS-GENERATED-FIX-PLAN.md`
+ *  Part B prescribes:
+ *
+ *    the BLOCK is complete    asserted against the SOURCE, which no cut touches
+ *    the SEED is sufficient   asserted as "every id the lesson REFERENCES
+ *                             resolves", which is what a learner depends on
+ *
+ *  This suite was written after that plan was drafted and so is not on its list
+ *  of nine. Nobody was going to fix it for me. */
 const AUTHORED = items.filter((i) => i.theme === THEME
   && /^fr\.a2\.comparaisons\.\d{3}$/.test(i.id)
   && Number(i.id.split('.').pop()) >= ID_FIRST && Number(i.id.split('.').pop()) <= ID_LAST);
+
+/** THE BLOCK, from the source file. `SRC` is loaded above with the
+ *  absent-versus-broken split (Corrections §9), so when `ealch-admin` is not in
+ *  the checkout these assertions skip rather than assert something weaker. */
+const SRC_ROWS = SRC?.ALL_ROWS ?? [];
 
 const quizQs = () => quizQuestions(sec('s22-quiz') as never) as Array<Record<string, unknown>>;
 
@@ -141,7 +172,33 @@ test('the source either imports or is genuinely absent', () => {
 test('the string walk is not empty, or every check below is a no-op', () => {
   ok(LEARNER_TEXT.length > 20000, `the learner-text walk produced ${LEARNER_TEXT.length} chars, which is too few to be real`);
   ok(strs(L?.sections).length > 400, 'the section walk collapsed');
-  ok(AUTHORED.length === AUTHORED_ROWS, `${AUTHORED.length} authored rows reached the seed, expected ${AUTHORED_ROWS}`);
+});
+
+test('THE BLOCK IS COMPLETE, counted against the SOURCE and not against the cut', () => {
+  if (!SRC) return;
+  strictEqual(SRC_ROWS.length, AUTHORED_ROWS,
+    `the source holds ${SRC_ROWS.length} authored rows, expected ${AUTHORED_ROWS}`);
+  const ids = SRC_ROWS.map((r) => r.id);
+  strictEqual(new Set(ids).size, ids.length, 'a duplicate id in the authored block');
+  for (const r of SRC_ROWS) {
+    const n = Number(r.id.split('.').pop());
+    ok(n >= ID_FIRST && n <= ID_LAST, `${r.id} sits outside the allocated block .${ID_FIRST}-.${ID_LAST}`);
+  }
+});
+
+test('THE SEED IS SUFFICIENT: every authored row is REFERENCED, so no cut can drop one', () => {
+  /* This is the invariant that made the old count correct, stated instead of
+   * relied on. `fr.a2.hebergement.086` was unreachable for weeks behind 33
+   * green guards, and the publish is what found it. */
+  if (!SRC) return;
+  const released = new Set(((L?.deckTranche as string[][]) ?? []).flat());
+  const named = new Set([...strs(L?.sections), ...strs(L?.terms), ...strs(L?.drills)]
+    .filter((s) => /^fr\.[a-z0-9]+\.[a-z0-9-]+\.\d{3,}$/.test(s)));
+  const unreachable = SRC_ROWS.filter((r) => !released.has(r.id) && !named.has(r.id));
+  deepStrictEqual(unreachable.map((r) => r.id), [],
+    'these authored rows are reachable from nothing, so a publish would drop them from the seed and their cards would render empty');
+  // And they did in fact survive the last cut, which is the other half.
+  for (const r of SRC_ROWS) ok(byId.has(r.id), `${r.id} is authored and is not in the seed`);
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -475,7 +532,7 @@ test('NO TENSE THE LEARNER DOES NOT HAVE, on a surface they must produce', () =>
    * « si tu devais choisir, tu prendrais lequel ? » The conditional is B1 and
    * arrives nowhere in the 35-unit A2 trail. No gate saw it. */
   const COND = /(?<![\p{L}\p{N}-])(je|tu|il|elle|on|nous|vous|ils|elles)\s+\w*(rais|rait|rions|riez|raient)(?![\p{L}\p{N}'’-])/iu;
-  const SUBJ = /(?<![\p{L}\p{N}-])(que|qu['’])(\s+[\p{L}'’-]+){0,3}\s*(soit|soient|ait|aient|puisse|puissent|fasse|fassent|aille|sache|veuille)(?![\p{L}\p{N}'’-])/iu;
+  const SUBJ = /(?<![\p{L}\p{N}-])(que|qu['’])[\p{L}\p{N}'’ -]{0,24}?\s+(soit|soient|sois|ait|aies|aient|puisse|puisses|puissent|fasse|fasses|fassent|aille|ailles|sache|sachent|veuille|veuillent)(?![\p{L}\p{N}'’-])/iu;
   const PRODUCE = new Set(['scenario', 'practice', 'dictation', 'quiz', 'groupDrill', 'trapDrill']);
   for (const s of sectionsOf(L!)) {
     if (!PRODUCE.has(s.type)) continue;
