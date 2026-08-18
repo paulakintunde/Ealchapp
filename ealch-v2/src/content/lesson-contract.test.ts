@@ -639,15 +639,25 @@ test('no quiz question carries a field the cards do not read', () => {
   );
 });
 
-test("only the A1 capstone claims 'assessment'", () => {
+test("only the two capstones claim 'assessment'", () => {
   // Not a style rule. The flag is the one way past lesson-has-practice, so its
-  // spread is worth noticing: a third lesson acquiring it should be a decision
+  // spread is worth noticing: a fifth lesson acquiring it should be a decision
   // somebody makes, not a line that arrives inside a large diff. Widen this
   // list deliberately when a B1 or B2 bilan lands.
+  //
+  // Widened 2026-08-18 from the two A1 capstone lessons to four, when a2.35
+  // landed. a2.35.l1 and a2.35.l2 own no corpus and carry no practice for the
+  // same reason a1.30's two do: a lesson that quotes thirty-four others owns
+  // none of their rows, and without the flag neither can be published at all.
+  // See bilan-a2-lesson.ts.
   const marked = LESSONS.filter(({ lesson }) => isAssessment(lesson)).map(({ id }) => id).sort();
   ok(
     marked.length > 0,
-    "no lesson claims 'assessment'. If the A1 capstone lost the flag it can no longer be published — see bilan-lesson.ts.",
+    "no lesson claims 'assessment'. If a capstone lost the flag it can no longer be published — see bilan-lesson.ts and bilan-a2-lesson.ts.",
   );
-  strictEqual(marked.join(', '), 'a1.30.l1, a1.30.l2', `unexpected assessment lessons: ${marked.join(', ')}`);
+  strictEqual(
+    marked.join(', '),
+    'a1.30.l1, a1.30.l2, a2.35.l1, a2.35.l2',
+    `unexpected assessment lessons: ${marked.join(', ')}`,
+  );
 });
