@@ -31,7 +31,8 @@ import {
   A216_REFRAME, GENDER_UNIT, POSSESSIVE_UNIT, COMPARATIVE_UNIT, COMPARATIVE_HANDOVER,
   INDIRECT_UNIT, Y_EN_UNIT,
   BARE_PRONOUNS, LEGAL_TAILS, BARE_ALLOWED_IN,
-  POSSESSIVE_FORMS, OBJECT_FORMS, IMPERSONAL_FORMS, IMPERSONAL_ALLOWED_IN,
+  POSSESSIVE_FORMS, OBJECT_FORMS, OBJECT_IN_IMPORTS, IMPERSONAL_FORMS, IMPERSONAL_ALLOWED_IN,
+  OUT_OF_BAND_TENSES, PRONOMINAL_EN_Y,
   MUST_FIRE, MUST_NOT_FIRE, B1_NOT_IMPORTED, TIE_ROW, TIE_GLYPH,
   JARGON, PLAIN_PHRASE, TECHNICAL_WORD, BANNED_SUBSTRINGS, FORBIDDEN_CLAIMS,
   DEAD_AUDIO_FIELDS, DEAD_LESSON_FIELDS,
@@ -484,6 +485,75 @@ async function main() {
   for (const s of MUST_NOT_FIRE.possessive) if (POSSESSIVE_FORMS.some((f) => s.toLowerCase().includes(f.toLowerCase()))) die(`the possessive guard fires on "${s}", which carries a possessive ADJECTIVE and not a pronoun`);
   for (const s of MUST_FIRE.object) if (!OBJECT_FORMS.some((f) => hasWord(s, f))) die(`the object-pronoun guard does not fire on "${s}"`);
   for (const s of MUST_NOT_FIRE.object) if (OBJECT_FORMS.some((f) => hasWord(s, f))) die(`the object-pronoun guard fires on "${s}", and half of that list is English`);
+  // THE NARROWING HAS A MEASURED COST AND IT IS NAMED. Two imported rows carry
+  // an object pronoun; the claim is that this lesson AUTHORS none, not that it
+  // prints none, and both halves are checked rather than asserted in prose.
+  for (const r of ALL_ROWS) {
+    for (const f of ['lui', 'leur', 'leurs', 'me', 'te', 'se']) {
+      if (hasWord(r.fr, f)) die(`${r.id} "${r.fr}" AUTHORS the object pronoun "${f}"`);
+    }
+  }
+  for (const o of OBJECT_IN_IMPORTS) {
+    if (!IMPORT_IDS.includes(o.id)) die(`${o.id} is listed as an import carrying "${o.form}" and is not imported`);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
+   *  THE BAND'S TENSE CEILING, AND THE PRONOUNS a2.25 OWNS
+   *
+   *  ADDED BY THE SELF-AUDIT. Two authored French strings reached the applied
+   *  lesson with no gate anywhere holding an opinion about them: the imparfait
+   *  `vouliez` and the pronominal `J'en ai`. Thirty guards, 111 assertions and
+   *  19 mutations were all green, because every one of them was pointed at this
+   *  lesson's own material and none at the band it sits in.
+   * ══════════════════════════════════════════════════════════════════════ */
+
+  /** Fields that hold FRENCH on a learner surface. A tense guard run over the
+   *  English half would fire on half the product. */
+  const FR_KEYS = new Set(['fr', 'ai', 'user', 'text', 'promptSound', 'promptLabel', 'answer', 'prompt', 'say', 'wrong', 'right', 'back', 'word']);
+  const frenchStrings = (v: unknown, out: string[] = []): string[] => {
+    if (Array.isArray(v)) { v.forEach((x) => frenchStrings(x, out)); return out; }
+    if (v && typeof v === 'object') {
+      for (const [k, x] of Object.entries(v)) {
+        if (typeof x === 'string' && FR_KEYS.has(k)) out.push(x);
+        else frenchStrings(x, out);
+      }
+      return out;
+    }
+    return out;
+  };
+  const FRENCH = [
+    ...frenchStrings(LESSON.sections), ...frenchStrings(LESSON.drills ?? []),
+    ...frenchStrings(LESSON.terms ?? {}), ...frenchStrings(LESSON.sheets ?? []),
+    ...ALL_ROWS.map((r) => r.fr),
+  ];
+  if (FRENCH.length < 150) die(`the French walk produced ${FRENCH.length} strings, which is too few to be real`);
+
+  /** Anchored on verb STEMS, not on endings. The audit script's own first
+   *  version matched « Parfait » with an ending-only shape. */
+  const tenseHit = (s: string): string | null => {
+    for (const t of OUT_OF_BAND_TENSES) {
+      const rx = new RegExp(`(?<![\\p{L}\\p{N}-])(?:${t.stems.join('|')})(?:${t.endings.join('|')})(?![\\p{L}\\p{N}'’-])`, 'iu');
+      const m = s.match(rx);
+      if (m) return `${t.name}: "${m[0]}"`;
+    }
+    return null;
+  };
+  const enYHit = (s: string): string | null => {
+    for (const p of PRONOMINAL_EN_Y) if (hasWord(s, p)) return p;
+    return null;
+  };
+
+  for (const s of FRENCH) {
+    const t = tenseHit(s);
+    if (t) die(`${t} on a French learner surface, and A2 teaches no tense past the passé composé and the futur proche: "${s.slice(0, 80)}"`);
+    const e = enYHit(s);
+    if (e) die(`the pronominal "${e}" belongs to ${Y_EN_UNIT} and reaches a learner surface: "${s.slice(0, 80)}"`);
+  }
+  for (const s of MUST_FIRE.tense) if (!tenseHit(s)) die(`the tense guard does not fire on "${s}"`);
+  for (const s of MUST_NOT_FIRE.tense) if (tenseHit(s)) die(`the tense guard fires on "${s}", which contains no out-of-band verb`);
+  for (const s of MUST_FIRE.enY) if (!enYHit(s)) die(`the en/y guard does not fire on "${s}"`);
+  for (const s of MUST_NOT_FIRE.enY) if (enYHit(s)) die(`the en/y guard fires on "${s}", where en is the PREPOSITION`);
+  console.log(`  tense + en/y ceiling: ${FRENCH.length} French strings clear`);
   // The next unit and the three previous ones are NAMED, once each.
   for (const u of [POSSESSIVE_UNIT, INDIRECT_UNIT, Y_EN_UNIT, GENDER_UNIT]) {
     if (!hasWord(LEARNER_TEXT, u)) die(`${u} is a boundary this lesson leans on and is never named`);

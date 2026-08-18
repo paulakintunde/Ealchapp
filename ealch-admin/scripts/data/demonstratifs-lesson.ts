@@ -654,7 +654,17 @@ const S12_READ: LessonSection = {
   //
   // AND NO `c'est`. Trap 4 is named in exactly one place in this build and a
   // passage is not it.
-  text: "Elle a posé deux sacs sur le comptoir. Ce sac est en cuir et celui-là est en toile. Le premier coûte cent vingt euros, le second quarante. Cet homme regarde les deux sacs depuis dix minutes sans rien dire. Il touche celui de gauche, puis celle de sa femme, qui est posée à côté et qui n'est pas à vendre. Il ne dit rien à la vendeuse, qui attend. Elle voit trois clients comme ça par jour. Il finit par montrer celui en toile et il dit deux mots. Elle enveloppe le sac en toile.",
+  // THE AUDIT FOUND `celle de sa femme` WITH NO ANTECEDENT, AND IT WAS THE
+  // WORST DEFECT IN THE BUILD. Every noun in the first version was masculine —
+  // deux sacs, le comptoir, cet homme — so `celle` stood in for nothing, and
+  // the question below RATIONALISED it ("a noun the passage never actually
+  // says"). A demonstrative pronoun with no antecedent is the one thing this
+  // lesson exists to say is impossible, printed inside the lesson that says it.
+  //
+  // `une valise` is introduced two sentences earlier, so `celle` now has the
+  // only feminine referent in the shop and the switch from celui to celle is
+  // readable rather than asserted.
+  text: "Elle a posé deux sacs sur le comptoir. Ce sac est en cuir et celui-là est en toile. Le premier coûte cent vingt euros, le second quarante. À côté des deux sacs, il y a une valise qui n'est pas à vendre. Cet homme regarde les deux sacs depuis dix minutes sans rien dire. Il touche celui de gauche, puis celle de sa femme. Il ne dit rien à la vendeuse, qui attend. Elle voit trois clients comme ça par jour. Il finit par montrer celui en toile et il dit deux mots. Elle enveloppe le sac en toile.",
   glossary: [
     { word: 'le comptoir', en: 'the counter', note: 'The flat surface you pay at, and the only place in the shop where both bags are.' },
     { word: 'en cuir', en: 'made of leather', note: 'en plus a material is how French says what a thing is made of.' },
@@ -665,12 +675,13 @@ const S12_READ: LessonSection = {
     // and a glossary key is matched against the passage's own tokens: a2.08
     // lost two keys to exactly this kind of mismatch and found it by test.
     { word: 'la vendeuse', en: 'the shop assistant', note: 'The woman doing the selling. From the same vendre.' },
+    { word: 'une valise', en: 'a suitcase', note: 'Feminine, and the only feminine thing in the shop, which is why one word later has to change.' },
     { word: 'enveloppe', en: 'wraps up', note: 'From envelopper. What she does once he has finally said which one.' },
   ],
   questions: [
     { q: 'Which of the two bags is leather?', a: 'The first. Ce sac est en cuir names it, and celui-là is the other one, which is canvas.' },
     { q: 'The passage says il touche celui de gauche. Which one is that?', a: 'The one on the left, and it never says which material. celui plus de plus a position, and no noun anywhere near it.' },
-    { q: 'Then he touches celle de sa femme. Why celle and not celui?', a: 'It is not a bag any more. It is her handbag or her coat, something feminine, and the word switched to match a noun the passage never actually says.' },
+    { q: 'Then he touches celle de sa femme. Which noun does celle stand in for?', a: 'la valise, introduced two sentences earlier and the only feminine thing in the shop. That is why the word had to change from celui to celle: it agrees with what it replaces, not with the person who owns it.' },
     { q: 'Which one does he buy?', a: 'The canvas one, at forty euros. He shows celui en toile, which is a fifth thing that can follow the word and one this lesson does not teach.' },
   ],
   audio: AUDIO,
@@ -979,8 +990,13 @@ const S19_TALK: LessonSection = {
       ],
     },
     {
-      ai: "J'en ai deux comme ça. Le brun ou le noir ?",
-      en: 'I have two like that. The brown one or the black one?',
+      // NOT « J'en ai deux comme ça. », WHICH IS WHAT THIS LINE SAID FIRST.
+      // The pronominal `en` is a2.25's, and this lesson's own reading passage
+      // had already been rewritten to remove one. No guard in the build had an
+      // opinion about it; the self-audit found it and OUT_OF_BAND_TENSES /
+      // PRONOMINAL_EN_Y now cover the class.
+      ai: 'Bien sûr. Le brun ou le noir ?',
+      en: 'Of course. The brown one or the black one?',
       user: 'Celui-ci.',
       userEn: 'This one. (The bag has been named already, so do not name it again.)',
       alts: [
@@ -989,8 +1005,12 @@ const S19_TALK: LessonSection = {
       ],
     },
     {
-      ai: "Très bien. Et vous vouliez autre chose ? Des gants, peut-être ?",
-      en: 'Very good. And did you want anything else? Gloves, perhaps?',
+      // NOT « Et vous vouliez autre chose ? ». `vouliez` is the IMPARFAIT,
+      // which A2 does not teach at any seq, and this is seq 33 of 35 so nothing
+      // downstream rescues it. « Et avec ça ? » is what a French shop actually
+      // says and it is the present tense of nothing at all.
+      ai: 'Très bien. Et avec ça ? Des gants, peut-être ?',
+      en: 'Very good. And with that? Gloves, perhaps?',
       user: 'Ceux-là, oui.',
       userEn: 'Those, yes. (Plural and masculine, so the word changes.)',
       alts: [
@@ -1024,10 +1044,16 @@ const S19_TALK: LessonSection = {
       // surface like any other.
       ai: "Parfait. Alors le sac, les gants et l'écharpe. Vous voulez autre chose ?",
       en: 'Perfect. So the bag, the gloves and the scarf. Do you want anything else?',
-      user: "Oui, je prends ces trois.",
-      userEn: 'Yes, I will take these three. (A noun-like word follows, so it points.)',
+      // NOT « Oui, je prends ces trois. », WHICH THE AUDIT REJECTED TWICE OVER:
+      // `ces trois` is awkward French on its own, and the userEn called `trois`
+      // "a noun-like word", which is a teaching claim about a numeral that is
+      // simply not true. The replacement is the whole canDo in one line —
+      // masculine singular, masculine plural and feminine singular, produced,
+      // with no noun anywhere in it.
+      user: 'Oui, je prends celui-ci, ceux-là et celle-là.',
+      userEn: "Yes, I'll take this one, those and that one. (Three things, and not one noun among them.)",
       alts: [
-        { fr: 'Oui, ces trois.', en: 'Yes, these three.' },
+        { fr: 'Oui, je prends ces trois articles.', en: "Yes, I'll take these three items." },
         { fr: 'Oui, je prends ceux-là et celle-là.', en: "Yes, I'll take those and that one." },
       ],
     },
@@ -1471,8 +1497,16 @@ export const LESSON: Lesson = {
   skill: 'PE',
   // NOT `teaches`, NOT `canDo`, NOT `track`. All three draw nothing on a Lesson
   // and a2.07 shipped all three. `canDo` belongs to the unit.
+  // a2.08, a2.24 AND a2.25 ADDED BY THE AUDIT. All three were named on a
+  // learner surface as boundaries this lesson does not teach, and all three are
+  // also LEANED ON: four imported rows carry a2.08's comparative (`plus grand`,
+  // `plus légères`, `aussi lourd`), and two carry an object pronoun a2.24 owns
+  // (`fr.b1.pronoms-essentiels.042` has `te`, `.039` has `m'`). Naming a unit as
+  // a boundary and using its material without declaring it assumed is the gap
+  // `grammarAssumed` exists to close.
   grammarAssumed: [
-    GENDER_UNIT, ARTICLE_UNIT, ELISION_UNIT, VOWEL_UNIT, OBJECT_UNIT, 'a1.06',
+    GENDER_UNIT, ARTICLE_UNIT, ELISION_UNIT, VOWEL_UNIT, OBJECT_UNIT,
+    INDIRECT_UNIT, Y_EN_UNIT, COMPARATIVE_UNIT, 'a1.06',
   ],
   grammarIntroduced: [
     'The demonstrative adjectives ce, cet, cette and ces as a four-cell paradigm selected by the gender and number of the following noun',
@@ -1588,7 +1622,13 @@ export const LESSON: Lesson = {
   // one and the source — which is the drift this project has lost work to
   // twice. Not `seed.version`, which is the OTA snapshot number and belongs to
   // the publish step.
-  version: 2,
+  //
+  // v3: the self-audit. Four content defects, none of which any gate in the
+  // build had an opinion about — a demonstrative pronoun with no antecedent in
+  // the reading passage, the imparfait and the pronominal `en` on the scenario,
+  // and a userEn calling a numeral "a noun-like word". Same rule: move the
+  // counter rather than correct under the number that shipped.
+  version: 3,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

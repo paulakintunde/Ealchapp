@@ -134,6 +134,9 @@ type SrcShape = {
   FOLD_COLLISIONS: [string, string][];
   NEAR_MISSES: [string, string][];
   DISPLAY_PARITY: readonly { section: string; itemId: string; why: string }[];
+  OUT_OF_BAND_TENSES: readonly { name: string; stems: readonly string[]; endings: readonly string[] }[];
+  PRONOMINAL_EN_Y: readonly string[];
+  OBJECT_IN_IMPORTS: readonly { id: string; form: string }[];
 };
 let SRC: SrcShape | null = null;
 let SRC_ERROR: unknown = null;
@@ -632,6 +635,125 @@ test('every neighbouring unit this lesson leans on is named by id', () => {
   for (const u of [GENDER_UNIT, POSSESSIVE_UNIT, 'a2.24', 'a2.25', 'a1.04']) {
     ok(hasWord(LEARNER_TEXT, u), `${u} is a boundary this lesson leans on and is never named`);
   }
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ *  6b. THE BAND'S CEILING — ADDED BY THE SELF-AUDIT
+ *
+ *  Two authored French strings reached the APPLIED lesson with no gate anywhere
+ *  holding an opinion about them: the imparfait « vous vouliez » and the
+ *  pronominal « J'en ai », both on the scenario. Thirty guards, 111 assertions
+ *  and 19 mutations were green through both, because every one of them was
+ *  pointed at this lesson's own material and none at the band it sits in.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/** Fields that hold FRENCH. A tense guard run over the English half of a
+ *  learner surface fires on half the product. */
+const FR_KEYS = new Set(['fr', 'ai', 'user', 'text', 'promptSound', 'promptLabel', 'answer', 'prompt', 'say', 'wrong', 'right', 'back', 'word']);
+const frenchStrings = (v: unknown, out: string[] = []): string[] => {
+  if (Array.isArray(v)) { v.forEach((x) => frenchStrings(x, out)); return out; }
+  if (v && typeof v === 'object') {
+    for (const [k, x] of Object.entries(v)) {
+      if (typeof x === 'string' && FR_KEYS.has(k)) out.push(x);
+      else frenchStrings(x, out);
+    }
+  }
+  return out;
+};
+const FRENCH = [
+  ...frenchStrings(L?.sections), ...frenchStrings(L?.drills ?? []),
+  ...frenchStrings(L?.terms ?? {}), ...frenchStrings(L?.sheets ?? []),
+  ...AUTHORED.map((r) => r.fr),
+];
+
+const tenseHit = (s: string): string | null => {
+  if (!SRC) return null;
+  for (const t of SRC.OUT_OF_BAND_TENSES) {
+    const rx = new RegExp(`(?<![\\p{L}\\p{N}-])(?:${t.stems.join('|')})(?:${t.endings.join('|')})(?![\\p{L}\\p{N}'’-])`, 'iu');
+    const m = s.match(rx);
+    if (m) return `${t.name}: "${m[0]}"`;
+  }
+  return null;
+};
+const enYHit = (s: string): string | null => {
+  if (!SRC) return null;
+  for (const p of SRC.PRONOMINAL_EN_Y) if (hasWord(s, p)) return p;
+  return null;
+};
+
+test('the French walk is not empty, or the two checks below are no-ops', () => {
+  ok(FRENCH.length > 150, `the French walk produced ${FRENCH.length} strings`);
+});
+
+test('no out-of-band tense on any French learner surface', () => {
+  // A2 covers the présent, the passé composé, the futur proche and the
+  // imperative. Seq 33 of 35, so nothing downstream rescues a form that slips in.
+  for (const s of FRENCH) {
+    const t = tenseHit(s);
+    ok(!t, `${t} in "${s.slice(0, 80)}" — A2 teaches no tense past the passé composé`);
+  }
+});
+
+test('the tense guard is anchored on stems, so it fires on verbs and not on Parfait', () => {
+  if (!SRC) return;
+  for (const s of SRC.MUST_FIRE.tense) ok(tenseHit(s), `the tense guard does not fire on "${s}"`);
+  for (const s of SRC.MUST_NOT_FIRE.tense) ok(!tenseHit(s), `the tense guard fires on "${s}", which holds no out-of-band verb`);
+});
+
+test('no pronominal en or y reaches a learner surface', () => {
+  for (const s of FRENCH) {
+    const e = enYHit(s);
+    ok(!e, `the pronominal "${e}" belongs to a2.25 and appears in "${s.slice(0, 80)}"`);
+  }
+});
+
+test('the en guard knows the pronoun from the preposition', () => {
+  if (!SRC) return;
+  for (const s of SRC.MUST_FIRE.enY) ok(enYHit(s), `the en/y guard does not fire on "${s}"`);
+  // `en cuir` and `en toile` are the PREPOSITION and the reading passage uses
+  // both, twice each, and glosses them.
+  for (const s of SRC.MUST_NOT_FIRE.enY) ok(!enYHit(s), `the en/y guard fires on "${s}", where en is the preposition`);
+});
+
+test('this lesson AUTHORS no object pronoun, and the two imports that carry one are named', () => {
+  if (!SRC) return;
+  for (const r of AUTHORED) {
+    for (const f of ['lui', 'leur', 'leurs', 'me', 'te', 'se']) {
+      ok(!hasWord(r.fr, f), `${r.id} "${r.fr}" authors the object pronoun "${f}"`);
+    }
+  }
+  // The claim used to be "prints none", which was false: two imported rows
+  // carry one. Named, asserted by id, and declared through grammarAssumed.
+  for (const o of SRC.OBJECT_IN_IMPORTS) {
+    ok((L?.itemIds ?? []).includes(o.id), `${o.id} is listed as carrying "${o.form}" and is not imported`);
+    // AN ELIDED FORM NEEDS A LEFT BOUNDARY ONLY, AND THIS ASSERTION FOUND IT
+    // THE HARD WAY. Corrections §14.3: the house boundary excludes `'` on BOTH
+    // sides, so `m` inside `m'as` is not a whole word by it and `hasWord` says
+    // the row does not carry the pronoun it plainly carries.
+    const fr = byId.get(o.id)?.fr ?? '';
+    const elided = /['’]$/.test(o.form);
+    const rx = elided
+      ? new RegExp(`(?<![\\p{L}\\p{N}-])${esc(o.form.slice(0, -1))}['’]`, 'iu')
+      : new RegExp(`(?<![\\p{L}\\p{N}-])${esc(o.form)}(?![\\p{L}\\p{N}'’-])`, 'iu');
+    ok(rx.test(fr), `${o.id} no longer carries "${o.form}", so the list is stale`);
+  }
+  for (const u of ['a2.24', 'a2.25', 'a2.08']) {
+    ok((L?.grammarAssumed as string[] ?? []).includes(u), `${u} is leaned on and not declared in grammarAssumed`);
+  }
+});
+
+test('the reading passage gives every demonstrative pronoun an antecedent', () => {
+  // THE WORST DEFECT THE AUDIT FOUND. The first version wrote « celle de sa
+  // femme » into a passage whose every noun was masculine, and the answer key
+  // rationalised it as "a noun the passage never actually says". A pronoun with
+  // no antecedent is the one thing this lesson exists to call impossible.
+  const text = String((sec('s12-read') as { text?: string }).text ?? '');
+  ok(text.length > 300, 's12-read has no passage');
+  const celle = text.indexOf('celle');
+  ok(celle > 0, 'the passage no longer carries a feminine pronoun, so this guard is idle');
+  const antecedent = text.indexOf('valise');
+  ok(antecedent > 0 && antecedent < celle,
+    'the passage uses celle with no feminine noun introduced before it');
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════

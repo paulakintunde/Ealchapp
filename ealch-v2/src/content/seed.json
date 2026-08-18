@@ -217064,6 +217064,9 @@
         "sons.07",
         "a2.16",
         "a2.06",
+        "a2.24",
+        "a2.25",
+        "a2.08",
         "a1.06"
       ],
       "grammarIntroduced": [
@@ -218383,7 +218386,7 @@
           "layer": "core",
           "questionsInModal": true,
           "title": "Two bags, one counter",
-          "text": "Elle a posé deux sacs sur le comptoir. Ce sac est en cuir et celui-là est en toile. Le premier coûte cent vingt euros, le second quarante. Cet homme regarde les deux sacs depuis dix minutes sans rien dire. Il touche celui de gauche, puis celle de sa femme, qui est posée à côté et qui n'est pas à vendre. Il ne dit rien à la vendeuse, qui attend. Elle voit trois clients comme ça par jour. Il finit par montrer celui en toile et il dit deux mots. Elle enveloppe le sac en toile.",
+          "text": "Elle a posé deux sacs sur le comptoir. Ce sac est en cuir et celui-là est en toile. Le premier coûte cent vingt euros, le second quarante. À côté des deux sacs, il y a une valise qui n'est pas à vendre. Cet homme regarde les deux sacs depuis dix minutes sans rien dire. Il touche celui de gauche, puis celle de sa femme. Il ne dit rien à la vendeuse, qui attend. Elle voit trois clients comme ça par jour. Il finit par montrer celui en toile et il dit deux mots. Elle enveloppe le sac en toile.",
           "glossary": [
             {
               "word": "le comptoir",
@@ -218411,6 +218414,11 @@
               "note": "The woman doing the selling. From the same vendre."
             },
             {
+              "word": "une valise",
+              "en": "a suitcase",
+              "note": "Feminine, and the only feminine thing in the shop, which is why one word later has to change."
+            },
+            {
               "word": "enveloppe",
               "en": "wraps up",
               "note": "From envelopper. What she does once he has finally said which one."
@@ -218426,8 +218434,8 @@
               "a": "The one on the left, and it never says which material. celui plus de plus a position, and no noun anywhere near it."
             },
             {
-              "q": "Then he touches celle de sa femme. Why celle and not celui?",
-              "a": "It is not a bag any more. It is her handbag or her coat, something feminine, and the word switched to match a noun the passage never actually says."
+              "q": "Then he touches celle de sa femme. Which noun does celle stand in for?",
+              "a": "la valise, introduced two sentences earlier and the only feminine thing in the shop. That is why the word had to change from celui to celle: it agrees with what it replaces, not with the person who owns it."
             },
             {
               "q": "Which one does he buy?",
@@ -218979,8 +218987,8 @@
               ]
             },
             {
-              "ai": "J'en ai deux comme ça. Le brun ou le noir ?",
-              "en": "I have two like that. The brown one or the black one?",
+              "ai": "Bien sûr. Le brun ou le noir ?",
+              "en": "Of course. The brown one or the black one?",
               "user": "Celui-ci.",
               "userEn": "This one. (The bag has been named already, so do not name it again.)",
               "alts": [
@@ -218995,8 +219003,8 @@
               ]
             },
             {
-              "ai": "Très bien. Et vous vouliez autre chose ? Des gants, peut-être ?",
-              "en": "Very good. And did you want anything else? Gloves, perhaps?",
+              "ai": "Très bien. Et avec ça ? Des gants, peut-être ?",
+              "en": "Very good. And with that? Gloves, perhaps?",
               "user": "Ceux-là, oui.",
               "userEn": "Those, yes. (Plural and masculine, so the word changes.)",
               "alts": [
@@ -219045,12 +219053,12 @@
             {
               "ai": "Parfait. Alors le sac, les gants et l'écharpe. Vous voulez autre chose ?",
               "en": "Perfect. So the bag, the gloves and the scarf. Do you want anything else?",
-              "user": "Oui, je prends ces trois.",
-              "userEn": "Yes, I will take these three. (A noun-like word follows, so it points.)",
+              "user": "Oui, je prends celui-ci, ceux-là et celle-là.",
+              "userEn": "Yes, I'll take this one, those and that one. (Three things, and not one noun among them.)",
               "alts": [
                 {
-                  "fr": "Oui, ces trois.",
-                  "en": "Yes, these three."
+                  "fr": "Oui, je prends ces trois articles.",
+                  "en": "Yes, I'll take these three items."
                 },
                 {
                   "fr": "Oui, je prends ceux-là et celle-là.",
@@ -219728,7 +219736,7 @@
         "fr.a1.questions-du-quotidien.009",
         "fr.a2.comparaisons.069"
       ],
-      "version": 2,
+      "version": 3,
       "audio": {
         "defaultLang": "fr-FR",
         "speeds": [
@@ -437948,7 +437956,7 @@
       "theme": "pronoms-essentiels",
       "fr": "Pas celui-ci, celui-là.",
       "en": "Not this one, that one.",
-      "respell": "PAH suh-lwee-SEE suh-lwee-LAH",
+      "respell": "pah suh-lwee-SEE suh-lwee-LAH",
       "tags": [
         "tail",
         "ci-la"
@@ -437969,7 +437977,7 @@
       "theme": "pronoms-essentiels",
       "fr": "Pas celle-ci, celle-là.",
       "en": "Not this one, that one.",
-      "respell": "PAH sehl-SEE sehl-LAH",
+      "respell": "pah sehl-SEE sehl-LAH",
       "tags": [
         "tail",
         "ci-la"

@@ -5,11 +5,14 @@ Corrections §12. Seq 33 of 35. Applied to Postgres and merged into `seed.json`;
 **not published** (doctrine §C: publishing is not part of a lesson build).
 
 ```
-lesson      a2.33.l1, v2, 24 missions, 6 acts, 30 quiz questions, 1 sheet
+lesson      a2.33.l1, v3, 24 missions, 6 acts, 30 quiz questions, 1 sheet
 corpus      27 authored, 32 imported, 2 respellings repaired
 theme       pronoms-essentiels, fr.a2.*.337–.363
-tests       4633 before  →  4761 after   (+128; 111 of them this lesson's guard)
+tests       4633 before  →  4768 after   (+135; 118 of them this lesson's guard)
 gates       tsc 0/0 · suite green · content:parity clean · publish --dry-run valid
+
+v3 is the self-audit in §13: four content defects and one false claim, none of
+which any gate in this build had an opinion about.
 ```
 
 ---
@@ -355,9 +358,17 @@ lesson's own surfaces that broke a version of the guard.
 seven and fired on « Take the one you like best, and tell **me** which » —
 English, on a learner surface. `me`, `te` and `se` cannot be told from English
 by any shape built out of French morphology, so the list is now
-`lui`/`leur`/`leurs`, the three that are unambiguously French. Nothing is lost:
-this lesson prints no object pronoun of any person. (`lui` is also a substring
-of `celui`, which the house boundary handles for free.)
+`lui`/`leur`/`leurs`, the three that are unambiguously French. (`lui` is also a
+substring of `celui`, which the house boundary handles for free.)
+
+**What that narrowing costs, measured by the audit rather than asserted.** The
+first version of this report said « nothing is lost: this lesson prints no
+object pronoun of any person ». **That was false.** Two imported published rows
+carry one — `fr.b1.pronoms-essentiels.042` has `te`, `.039` has `m'` — used and
+taught nowhere. The true statement is the narrower one: **this lesson AUTHORS
+no object pronoun**, in any of its 27 rows. Both halves are now asserted, the
+two rows are named by id, and a2.24 and a2.25 were added to `grammarAssumed`,
+which is the field that gap belonged in. See §13.
 
 ---
 
@@ -426,10 +437,13 @@ Verified on the phone:
 - **the reference sheet** — `teach` body and the eight-row three-column table,
   every cell on one line, no horizontal clipping
 
-**The one gap I did not close:** I did not sit the quiz or the dictée on the
-device, so I have not seen a typed answer scored end to end. The `fold()` path
-is asserted through the real function in both the batch and the test, and every
-free-text item is proved to accept what it displays, but that is host-side.
+**The gaps I did not close, named precisely.** I walked missions 3, 4, 6 and 15
+and the reference sheet. I did **not** walk **mission 12 (the reading passage)**
+or **mission 19 (the scenario)** at any version, and I did not sit the quiz or
+the dictée, so I have not seen a typed answer scored end to end. The `fold()`
+path is asserted through the real function in both the batch and the test, and
+every free-text item is proved to accept what it displays — but that is
+host-side. §13 says why the re-check could not be run.
 
 **One observation, not a defect of this lesson:** the floating dev gear button
 overlaps body text on every screen, including the sheet. It is app chrome and
@@ -477,3 +491,144 @@ regenerates it, and that difference broke two suites on v51. It is clean.
 - **Audio is briefed, not rendered.** `pnpm audio:render` was not run. Three
   `recordingId`s carry specs; `CLIP_MANIFEST` is empty by design and device TTS
   is the correct shipping state.
+
+---
+
+## 13. The self-audit, after the lesson was applied
+
+Run against the shipped v2. **Four content defects and one false claim, none of
+which any gate in the build had an opinion about.** Every guard, the
+111-assertion test and the 19-mutation harness were green through all of them,
+because every one of those was pointed at *this lesson's own material* and none
+at the band it sits in. The lesson is now **v3**.
+
+**13.1 — The worst one: a demonstrative pronoun with no antecedent, inside the
+lesson that teaches it cannot happen.** The reading passage read
+« Il touche celui de gauche, puis **celle** de sa femme », and every noun in the
+passage was masculine — `deux sacs`, `le comptoir`, `cet homme`. `celle` stood
+in for nothing. Worse, the answer key *rationalised* it: « a noun the passage
+never actually says. »
+
+Fixed by introducing `une valise` two sentences earlier, so `celle` has the only
+feminine referent in the shop and the switch from `celui` is readable rather
+than asserted. The question is now a real comprehension question — *which noun
+does `celle` stand in for* — and a new guard asserts a feminine antecedent
+appears **before** the pronoun in the passage.
+
+**13.2 — The imparfait, on the scenario.** « Et vous **vouliez** autre chose ? »
+A2 covers the présent, the passé composé, the futur proche and the imperative,
+and teaches the imparfait at no seq. This is seq 33 of 35, so nothing downstream
+rescues it. Now « Et avec ça ? », which is what a French shop says.
+
+**13.3 — The pronominal `en`, on the same scenario.** « **J'en** ai deux comme
+ça. » `en` is a2.25's, and this lesson's own reading passage had *already* been
+rewritten during the build to remove one — so the build knew the rule and
+applied it in one place and not the other. Now « Bien sûr. »
+
+**13.4 — A teaching claim about a numeral.** The last scenario turn was
+« Oui, je prends ces trois. » with `userEn` reading *(A noun-like word follows,
+so it points.)* `trois` is not a noun-like word, and `ces trois` is awkward
+French on its own. Replaced with « Oui, je prends celui-ci, ceux-là et
+celle-là. » — the whole canDo in one line, three genders and numbers produced,
+and not one noun among them.
+
+**13.5 — Two respellings capitalised a syllable that is not group-final.**
+`.350` and `.351` read `PAH suh-lwee-SEE …`. « Pas celui-ci » is one rhythmic
+group and its stress falls on `SEE`. Read off the corpus rather than reasoned:
+`pah duh proh-BLEHM`, `pah MAHL`, `pah dü TOO`, `suh neh pah GRAHV`. Now `pah`.
+
+**13.6 — The false claim,** corrected in §8 and in the corpus: *prints* no
+object pronoun → **authors** none.
+
+### What the audit changed about the guards
+
+The two scenario defects are one class — **the band's ceiling, which nothing in
+the build was watching** — so the fix is a guard rather than an edit:
+
+- **`OUT_OF_BAND_TENSES`** — imparfait, futur simple, conditionnel, anchored on
+  verb **stems** rather than endings, run over French-bearing fields only.
+  Endings alone match `Parfait`; the audit script's own first version did
+  exactly that, and its pronoun shape matched `te` inside `cette`, `me` inside
+  `homme` and `lui` inside `celui`. **A2-TAIL-AUDIT §4 in the audit tool
+  itself.**
+- **`PRONOMINAL_EN_Y`** — shaped as `en` plus a verb, never a bare `en`, because
+  `en cuir` and `en toile` are the preposition and the passage uses and glosses
+  both.
+- Both carry MUST_FIRE / MUST_NOT_FIRE tables whose MUST_NOT_FIRE entries are
+  real strings off this lesson's surfaces, and both were **mutation-tested by
+  putting the two original defects back**: both go red.
+- An **authored-vs-imported** split on the object-pronoun claim, asserted in
+  both directions and by id.
+
+### And one more, found by an assertion failing on itself
+
+The new `OBJECT_IN_IMPORTS` check used `hasWord(fr, "m'")` and reported that
+`fr.b1.pronoms-essentiels.039` does not carry `m'` — a row that plainly does.
+**Corrections §14.3 again:** the house boundary excludes `'` on both sides, so
+`m` inside `m'as` is not a whole word by it. An elided form needs a left
+boundary only. That is the fourth time in this build the apostrophe boundary has
+bitten, and the first time it bit an assertion rather than a guard.
+
+### Gates after the audit
+
+```
+npx tsc --noEmit         ealch-v2 0 · ealch-admin 0
+node --test              4768 pass, 0 fail   (a2.33 guard: 111 -> 118)
+pnpm content:parity      clean; the same one pre-existing divergence
+pnpm content:publish --dry-run   ✓ dry run — valid, nothing written
+device                   NOT RE-RUN. See below.
+```
+
+### The device re-check could not be run, and this is the honest version
+
+Both sections v3 changes — the reading passage and the scenario — are **exactly
+the two missions the original device pass did not reach**, so the audit's fixes
+are host-verified only.
+
+The re-check was attempted and the machine could not carry it. The Metro on
+8082 accepted connections and then timed out on both the manifest and the
+bundle; a second instance on 8083 bound and crashed inside
+`DependencyGraph.js` (`Cannot read properties of undefined (reading 'get')`),
+which is two Metro instances contending for one project cache. The cause is
+underneath both: **0.4 GB free of 15.7 GB, with 21 node processes running.**
+The same pressure produced `0xC0000142` fork failures in the shell.
+
+Those processes belong to the other author who is live in this tree, so killing
+them was not mine to do. I stopped only the 8083 instance I had started, so it
+would stop contending for their Metro cache.
+
+**What IS verified host-side on v3**, read back out of the merged seed:
+
+```
+lesson version 3 · passage is ONE block, no authored newline
+`valise` appears BEFORE `celle`, so the pronoun has its antecedent
+all six glossary keys appear in the passage verbatim
+6 scenario turns, every one with a userEn and two alts
+no `vouliez`, no `J'en` anywhere in the scenario
+.350 -> pah suh-lwee-SEE suh-lwee-LAH   .351 -> pah sehl-SEE sehl-LAH
+```
+
+plus the seed-wide suites that read those two sections directly —
+`glossary-resolves.test.ts`, `scenario.logic.test.ts` and
+`lesson-contract.test.ts` — all green.
+
+**What is NOT verified:** that the longer passage still fits its card without
+running past the bottom, and that the six-turn scenario renders and scores. Both
+need a phone.
+
+### One more thing the audit disturbed, and put back
+
+`DEV_UNLOCK_A2` in `ealch-v2/src/store/entitlement.logic.ts` was `true` when the
+audit started, carrying a comment that is **not mine**:
+
+```
+const DEV_UNLOCK_A2 = true;   // TEMPORARY: a2.32 device verification, 2026-08-18. FLIP BACK.
+```
+
+The other author had flipped it for their own a2.32 pass. My restore step set it
+back to `false` underneath them, which would have started failing their
+in-flight verification at the paywall with no obvious cause. **It has been put
+back to `true`, exactly as I found it, and it is deliberately NOT staged in my
+commit.** Whoever owns a2.32 should flip it back when they are done; the flag is
+`__DEV__`-only and `entitlement.test.ts` pins that the flag alone is never
+enough, so nothing reaches a paying customer either way.

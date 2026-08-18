@@ -600,8 +600,14 @@ export const VOWEL_PAIR = { consonant: E(345), vowel: E(346), silentH: E(347) } 
  *  scoped to those three sections by id.                                      */
 
 export const TAIL_ROWS: Row[] = [
-  sent(350, 'Pas celui-ci, celui-là.', 'Not this one, that one.', 'PAH suh-lwee-SEE suh-lwee-LAH', ['tail', 'ci-la'], FCVR),
-  sent(351, 'Pas celle-ci, celle-là.', 'Not this one, that one.', 'PAH sehl-SEE sehl-LAH', ['tail', 'ci-la'], FCVR),
+  // `pah` LOWERCASE, AND THE AUDIT CAUGHT IT AS `PAH`. The convention caps the
+  // GROUP-FINAL syllable and lower-cases everything else; a one-syllable group
+  // is capped only when it IS the group. « Pas celui-ci » is one rhythmic group
+  // and its stress falls on SEE, so `pas` is not capped. Read off the corpus
+  // rather than reasoned: `pah duh proh-BLEHM`, `pah MAHL`, `pah dü TOO`,
+  // `suh neh pah GRAHV`, `seh pah gah-NYAY`.
+  sent(350, 'Pas celui-ci, celui-là.', 'Not this one, that one.', 'pah suh-lwee-SEE suh-lwee-LAH', ['tail', 'ci-la'], FCVR),
+  sent(351, 'Pas celle-ci, celle-là.', 'Not this one, that one.', 'pah sehl-SEE sehl-LAH', ['tail', 'ci-la'], FCVR),
   sent(352, 'Je veux celui-là.', 'I want that one.', 'zhuh VUH suh-lwee-LAH', ['tail', 'la'], FCVDR),
   sent(353, 'Je veux celui de Marie.', "I want Marie's one.", 'zhuh VUH suh-lwee duh ma-REE', ['tail', 'de'], FCVR),
   sent(354, 'Je préfère celles-là.', 'I prefer those.', 'zhuh pray-FEHR sehl-LAH', ['tail', 'la'], FCVR),
@@ -855,12 +861,31 @@ export const Y_EN_UNIT = 'a2.25';
  *
  *  So the guard keeps the three that are unambiguously French, and the English
  *  sentence that broke it stays in MUST_NOT_FIRE because the next author will
- *  write the same shape. Nothing is lost: this lesson prints no object pronoun
- *  of any person, and the three that remain are the ones a2.24 owns.
+ *  write the same shape.
+ *
+ *  WHAT THE NARROWING ACTUALLY COSTS, MEASURED BY THE AUDIT RATHER THAN
+ *  ASSERTED. An earlier draft of this comment said « this lesson prints no
+ *  object pronoun of any person ». THAT WAS FALSE. Two IMPORTED published rows
+ *  carry one:
+ *
+ *      fr.b1.pronoms-essentiels.042   Prends celle qui TE plaît le plus.
+ *      fr.b1.pronoms-essentiels.039   J'aime ce modèle, celui que tu M'as montré hier.
+ *
+ *  Both are used and neither is taught, which is what `grammarAssumed` naming
+ *  a2.24 and a2.25 records. The true statement is the narrower one: **this
+ *  lesson AUTHORS no object pronoun**, in any of its 27 rows, and the guard
+ *  covers the three forms a2.24's paradigm turns on.
  *
  *  `lui` is also a substring of `celui`, which the house boundary handles for
  *  free: the `l` is preceded by an `e`, so it is not a whole word. */
 export const OBJECT_FORMS = ['lui', 'leur', 'leurs'] as const;
+
+/** The two imported rows that carry an object pronoun, named so the claim above
+ *  cannot drift back to the false version, and asserted by id. */
+export const OBJECT_IN_IMPORTS: readonly { id: string; form: string }[] = [
+  { id: 'fr.b1.pronoms-essentiels.042', form: 'te' },
+  { id: 'fr.b1.pronoms-essentiels.039', form: "m'" },
+];
 export const NOT_AN_OBJECT_CLAIM =
   `${OBJECT_UNIT}, ${INDIRECT_UNIT} and ${Y_EN_UNIT} all put a small word in front of the verb. This one is not that word and it does not go there.`;
 
@@ -1039,7 +1064,66 @@ export const LEGAL_TAILS = ['-ci', '-là', 'de', 'des', "d'", 'du', 'que', "qu'"
  *  every one of the four must, or the allowance is dead. */
 export const BARE_ALLOWED_IN = ['s01-scene', 's15-trap', 's16-errors', 's22-quiz'] as const;
 
+/* ── THE DEFECT CLASS NO GUARD IN THIS BUILD CAUGHT ───────────────────────
+ *
+ *  A self-audit after the lesson was applied found TWO authored French strings
+ *  that no gate anywhere had an opinion about, both on the same scenario:
+ *
+ *      « Et vous VOULIEZ autre chose ? »        the imparfait, which A2 never
+ *                                               teaches at any seq
+ *      « J'EN ai deux comme ça. »               the pronominal `en`, a2.25's,
+ *                                               and this lesson's own reading
+ *                                               passage had already been
+ *                                               rewritten to remove one
+ *
+ *  Both are fixed. What matters more is that thirty-odd guards, a 111-assertion
+ *  test and a 19-mutation harness all stayed green through them, because every
+ *  one of those guards was pointed at THIS lesson's material and none was
+ *  pointed at the band's tense ceiling.
+ *
+ *  A2 covers the présent, the passé composé, the futur proche and the
+ *  imperative. It does not cover the imparfait, the futur simple, the
+ *  conditionnel or the subjonctif, and seq 33 is two units from the end of the
+ *  band, so nothing downstream rescues a form that slips in here.
+ *
+ *  ANCHORED ON VERB STEMS, NOT ON ENDINGS. The audit script's own first version
+ *  used `/\b\w+(ais|ait|iez)\b/` and matched « Parfait ». An ending alone reads
+ *  half the French lexicon as a verb.                                        */
+export const OUT_OF_BAND_TENSES: readonly { name: string; stems: readonly string[]; endings: readonly string[] }[] = [
+  {
+    name: 'imparfait',
+    stems: ['voul', 'pouv', 'dev', 'sav', 'fais', 'dis', 'ét', 'av', 'all', 'prena', 'vena', 'croy', 'voy', 'regard', 'parl', 'habit', 'cherch', 'coût'],
+    endings: ['ais', 'ait', 'aient', 'iez', 'ions'],
+  },
+  {
+    name: 'futur simple / conditionnel',
+    stems: ['ser', 'aur', 'ir', 'viendr', 'prendr', 'voudr', 'pourr', 'devr', 'saur', 'fer', 'mettr'],
+    endings: ['ai', 'as', 'a', 'ons', 'ez', 'ont', 'ais', 'ait', 'aient', 'ions', 'iez'],
+  },
+];
+
+/** The pronominal `en` and `y`, which belong to a2.25. Shaped as `en` plus a
+ *  verb rather than as a bare `en`, because `en cuir`, `en toile` and `en
+ *  France` are the preposition and this lesson's reading passage uses two of
+ *  them. */
+export const PRONOMINAL_EN_Y: readonly string[] = [
+  "j'en", 'en ai', 'en as', 'en avons', 'en avez', 'en ont', 'en veux', 'en veut',
+  'en prends', 'en prend', 'en voit', 'en reste', 'en parle',
+  'y vais', 'y va', 'y suis', 'y est', 'y ai', 'y pense',
+];
+
 export const MUST_FIRE: Record<string, readonly string[]> = {
+  tense: [
+    'Et vous vouliez autre chose ?',
+    'Je prendrais celui-ci.',
+    'Elle voulait celle-là.',
+    'Nous serons là demain.',
+  ],
+  enY: [
+    "J'en ai deux comme ça.",
+    'Il en veut un autre.',
+    'Oui, j\'y vais tous les samedis.',
+  ],
   bare: [
     'Je veux celui.',
     'Je prends celui.',
@@ -1069,6 +1153,25 @@ export const MUST_FIRE: Record<string, readonly string[]> = {
 };
 
 export const MUST_NOT_FIRE: Record<string, readonly string[]> = {
+  /** The tense guard must not read a noun or an adjective as a verb. Every one
+   *  of these is a real string off this lesson's own surfaces, and the first
+   *  two broke the audit script that found the defect. */
+  tense: [
+    "Parfait. Alors le sac, les gants et l'écharpe.",
+    'Je vais chez le médecin cet après-midi.',
+    'Ce sac est petit, mais celui-là est grand.',
+    'Cette robe est bleue, mais celle-là est noire.',
+    'Elle a posé deux sacs sur le comptoir.',
+    'Vous avez choisi ?',
+    'Regarde cet homme.',
+  ],
+  /** The en/y guard must not read the PREPOSITION `en`, which this lesson's
+   *  reading passage uses twice and glosses twice. */
+  enY: [
+    'Ce sac est en cuir et celui-là est en toile.',
+    "Il finit par montrer celui en toile et il dit deux mots.",
+    'Nous voulons visiter Paris et Lyon cet été.',
+  ],
   /** The bare-pronoun guard must NOT fire on a pronoun that has a tail, and
    *  the four shapes below are the four legal tails. The last two are the
    *  English half of a learner surface: A2-TAIL-AUDIT §4 records that a shape
