@@ -183,9 +183,10 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
 const S01_SCENE: LessonSection = {
   type: 'scene',
   id: 's01-scene',
+  frSub: "L'écran ne dit pas pourquoi",
   render: 'screens',
   layer: 'core',
-  title: 'The message that would not explain itself',
+  title: 'The screen would not say why',
   setting: { place: 'Le site ne le reconnaît plus', city: 'Rennes', time: '21 h', ambience: 'quiet, a phone on speaker' },
   beats: SCENE_BEATS,
   closing: { text: 'One screen, three people who might be listening, and three different ways to say the same word.', size: 'md' },
@@ -197,6 +198,7 @@ const S01_SCENE: LessonSection = {
 const S02_GOALS: LessonSection = {
   type: 'goals',
   id: 's02-goals',
+  frSub: "Ce que vous saurez faire",
   layer: 'core',
   title: 'By the end of this lesson',
   goals: [
@@ -220,6 +222,7 @@ const S02_GOALS: LessonSection = {
 const S03_VOICES: LessonSection = {
   type: 'cardDeck',
   id: 's03-voices',
+  frSub: "Un objet, trois noms",
   render: 'deck',
   layer: 'core',
   size: 'lg',
@@ -283,6 +286,7 @@ const S03_VOICES: LessonSection = {
 const S04_SCREEN: LessonSection = {
   type: 'tapTable',
   id: 's04-screen',
+  frSub: "Ce que dit l'écran",
   layer: 'core',
   title: 'Six things a screen says',
   cols: ['It says', 'It means', 'You'],
@@ -356,6 +360,7 @@ const S04_SCREEN: LessonSection = {
 const S05_STRINGS: LessonSection = {
   type: 'cardDeck',
   id: 's05-strings',
+  frSub: "Six phrases, apprises entières",
   render: 'deck',
   layer: 'core',
   size: 'lg',
@@ -384,6 +389,7 @@ const S05_STRINGS: LessonSection = {
 const S06_SETTINGS: LessonSection = {
   type: 'cardDeck',
   id: 's06-settings',
+  frSub: "L'écran des réglages",
   render: 'deck',
   layer: 'core',
   size: 'lg',
@@ -414,6 +420,7 @@ const S06_SETTINGS: LessonSection = {
 const S07_HEARD: LessonSection = {
   type: 'listening',
   id: 's07-heard',
+  frSub: "Quatre messages, une écoute",
   layer: 'core',
   hideLines: true,
   title: 'Four prompts, once each',
@@ -472,9 +479,17 @@ const S07_HEARD: LessonSection = {
 const S08_MAP: LessonSection = {
   type: 'cardDeck',
   id: 's08-map',
+  frSub: "Pris, traduit, ou les deux",
   render: 'deck',
   layer: 'core',
-  size: 'xl',
+  // `lg`, NOT `xl`. Measured on a Pixel 6 2026-08-18: an xl cardDeck renders
+  // indistinguishably from an lg one, and the code says why —
+  // `DECK_FILL` (LessonRich.tsx:349) maps xl to a 0.78 height fill and
+  // nothing else, while the 56pt hero card lives in `OneGroup`, the
+  // groupDrill renderer. `validateDensity` still applies the whole xl
+  // regime to any xl section, so this deck was authored to a 12-word cap
+  // for a treatment the cardDeck never delivers.
+  size: 'lg',
   title: 'Taken, translated, or both',
   hint: 'Three groups. The rule matters more than the words.',
   cards: [
@@ -508,6 +523,7 @@ const S08_MAP: LessonSection = {
 const S09_SORT: LessonSection = {
   type: 'groupDrill',
   id: 's09-sort',
+  frSub: "À quelle voix ça appartient",
   layer: 'core',
   size: 'lg',
   title: 'Which voice does it belong to',
@@ -568,6 +584,7 @@ const S09_SORT: LessonSection = {
 const S10_RECALL: LessonSection = {
   type: 'flashcards',
   id: 's10-recall',
+  frSub: "Trois noms, depuis l'anglais",
   layer: 'core',
   title: 'Three names, from the English',
   cards: [
@@ -599,6 +616,7 @@ const S10_RECALL: LessonSection = {
 const S11_MENU: LessonSection = {
   type: 'listening',
   id: 's11-menu',
+  frSub: "Le menu enregistré",
   layer: 'core',
   hideLines: true,
   title: 'The recorded menu',
@@ -662,6 +680,7 @@ const S11_MENU: LessonSection = {
 const S12_NOTICE: LessonSection = {
   type: 'reading',
   id: 's12-notice',
+  frSub: "L'avis du portail",
   layer: 'core',
   questionsInModal: true,
   title: 'The notice on the portal',
@@ -701,6 +720,7 @@ const S12_NOTICE: LessonSection = {
 const S13_PAIRS: LessonSection = {
   type: 'cardDeck',
   id: 's13-pairs',
+  frSub: "La même panne, deux fois",
   render: 'deck',
   layer: 'core',
   size: 'lg',
@@ -767,9 +787,10 @@ const S13_PAIRS: LessonSection = {
 const S14_TRAP: LessonSection = {
   type: 'trapDrill',
   id: 's14-trap',
+  frSub: "Un ordre, ou une nouvelle",
   layer: 'core',
   swipe: true,
-  title: 'Is it telling you, or telling you about it',
+  title: 'A job, or just the news',
   rule: {
     title: 'A screen only ever wants two things',
     body: 'It wants you to do something, or it is reporting what already happened. Those two look alike on a small grey line and they need completely different reactions. One is a job. The other is news.',
@@ -819,6 +840,7 @@ const S14_TRAP: LessonSection = {
 const S15_ERRORS: LessonSection = {
   type: 'commonErrors',
   id: 's15-errors',
+  frSub: "Marqué des deux côtés",
   layer: 'core',
   swipe: true,
   size: 'lg',
@@ -877,6 +899,7 @@ const S15_ERRORS: LessonSection = {
 const S16_DICTEE: LessonSection = {
   type: 'dictation',
   id: 's16-dictee',
+  frSub: "Écrivez ce que dit la machine",
   layer: 'core',
   title: 'Write what the machine said',
   itemIds: DICTEE_IDS,
@@ -910,6 +933,7 @@ const S16_DICTEE: LessonSection = {
 const S17_CALL: LessonSection = {
   type: 'scenario',
   id: 's17-call',
+  frSub: "Au téléphone avec le service",
   layer: 'core',
   title: 'On the phone to support',
   setting: 'A support line, early evening. She has your account open and she cannot see your screen.',
@@ -1002,6 +1026,7 @@ const S17_CALL: LessonSection = {
 const S18_FRIEND: LessonSection = {
   type: 'scenario',
   id: 's18-friend',
+  frSub: "Le même soir, à un ami",
   layer: 'core',
   title: 'The same evening, to a friend',
   setting: 'A message thread with somebody you went to school with. Same locked account, twenty minutes later.',
@@ -1078,8 +1103,9 @@ const S18_FRIEND: LessonSection = {
 const S19_SPEAK: LessonSection = {
   type: 'practice',
   id: 's19-speak',
+  frSub: "Dites la panne à voix haute",
   layer: 'core',
-  title: 'Say the fault, and say what you did',
+  title: 'Say the fault out loud',
   skill: 'speak',
   itemIds: [
     // The fault itself, in both voices.
@@ -1104,6 +1130,7 @@ const S19_SPEAK: LessonSection = {
 const S20_CHECK: LessonSection = {
   type: 'progressCheck',
   id: 's20-check',
+  frSub: "Où vous en êtes",
   layer: 'core',
   title: 'Where you stand',
   body: 'You can do what a French screen tells you without translating it first, you can hear a recorded menu once and know which number to press, and you can describe a fault to somebody who has nothing to look at. The last thing is the one to check: when you said it to the agent and then said it again to your friend, did the words change? If they did not, the lesson has not landed yet, and the two conversations in act 5 are the place to go back to.',
@@ -1142,6 +1169,7 @@ const S20_CHECK: LessonSection = {
 const S21_QUIZ: LessonSection = {
   type: 'quiz',
   id: 's21-quiz',
+  frSub: "L'examen",
   layer: 'core',
   title: 'The exam',
   passMark: 70,
@@ -1220,8 +1248,9 @@ const S21_QUIZ: LessonSection = {
 const S22_REVIEW: LessonSection = {
   type: 'reviewDeck',
   id: 's22-review',
+  frSub: "Trois voix, une dernière fois",
   layer: 'core',
-  title: 'The three voices, one last time',
+  title: 'Three voices, one last time',
   cards: [
     { front: 'an email, on a printed form', back: 'une adresse électronique', say: 'une adresse électronique' },
     { front: 'an email, to a support agent', back: 'un courriel', say: 'un courriel' },
@@ -1248,6 +1277,7 @@ const S22_REVIEW: LessonSection = {
 const S23_ROUNDUP: LessonSection = {
   type: 'roundup',
   id: 's23-roundup',
+  frSub: "Un appareil, trois voix",
   layer: 'core',
   title: 'One appareil, three voices',
   body: `${REFRAME} Every tech object in French has more than one name, and the name you pick says who you think is listening. That is the whole unit, and it is the one thing here that no other unit teaches. Next comes ${BILAN_UNIT}, where eight different situations arrive in one sitting and the only question that runs through all of them is the one this lesson asked: which voice does this one want?`,
@@ -1509,7 +1539,7 @@ export const LESSON: Lesson = {
   terms: TECHNOLOGIE_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  version: 2,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into
