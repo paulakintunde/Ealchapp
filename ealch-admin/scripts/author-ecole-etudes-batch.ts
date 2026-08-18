@@ -25,6 +25,7 @@ import { validateLesson } from '../../ealch-v2/src/content/schema.ts';
 import { validateDensity, formatDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { fold } from '../../ealch-v2/src/content/answer.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { assertReachable } from './lib/reachability.ts';
 
 const DRY_RUN = process.argv.includes('--dry');
 const REAPPLY = process.argv.includes('--reapply');
@@ -59,6 +60,14 @@ async function main() {
 
   const density = validateDensity(LESSON, new Set(ITEM_IDS));
   if (density.length) die(`validateDensity:\n${formatDensity(density)}`);
+
+  /* PART A: EVERY AUTHORED ROW MUST BE REACHABLE.
+   *
+   * Doctrine §E required this all along and nothing enforced it, so a2.29
+   * shipped fr.a2.hebergement.086 past 33 green guards. It surfaced three weeks
+   * later, for an unrelated reason: a publish regenerated seed.json, the cut
+   * dropped the unreferenced row, and a seed-based block count went red. */
+  assertReachable(LESSON, ALL_ROWS, die);
 
   const ids = ALL_ROWS.map((r) => r.id);
   if (new Set(ids).size !== ids.length) die('a duplicate id in the authored rows');

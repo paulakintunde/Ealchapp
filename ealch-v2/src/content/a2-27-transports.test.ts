@@ -9,8 +9,28 @@
 // because the seed is what ships. A test that imports the corpus file proves
 // the corpus file is self-consistent and proves nothing about the learner.
 import { test } from 'node:test';
-import { strictEqual, ok } from 'node:assert';
+import { strictEqual, ok, deepStrictEqual } from 'node:assert';
 import seed from './seed.json' with { type: 'json' };
+
+/** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
+ *
+ *  Counting it in the SEED is only correct while every authored row happens to
+ *  be referenced. `a2-29-hotel.test.ts` made that assumption and went red on
+ *  the first publish in a week: v51 regenerated seed.json from Postgres, the cut
+ *  dropped `fr.a2.hebergement.086` because no lesson named it, and the count
+ *  broke. The row had been unreachable for weeks with every guard green.
+ *
+ *  SEED-IS-GENERATED-FIX-PLAN.md Part B: count the block where it is
+ *  authoritative, and assert the seed separately for what it actually owes —
+ *  every id the lesson REFERENCES. */
+let SRC_ROWS: Array<{ id: string }> = [];
+let noSrc = false;
+try {
+  const m = await import('../../../ealch-admin/scripts/data/transports-corpus.ts');
+  SRC_ROWS = m.ALL_ROWS as never;
+} catch {
+  noSrc = true;
+}
 
 type Item = { id: string; kind: string; level: string; theme: string; fr: string; en: string; respell?: string; drills?: string[]; tags?: string[] };
 type Section = Record<string, unknown> & { id: string; type: string };
@@ -206,7 +226,26 @@ test('NO renderer-dead itemIds on a cardDeck', () => {
 /* ═══ The corpus ═════════════════════════════════════════════════════════ */
 
 test('104 transport rows and 2 Quebec rows, all inside their blocks', () => {
-  strictEqual(MINE.length, 104);
+  // AGAINST THE SOURCE. The seed is a cut and can only answer "how many
+  // survived", never "how many were authored".
+  strictEqual(SRC_ROWS.length, 106,
+    `${SRC_ROWS.length} rows authored, expected 106`);
+  // 104 in transports-quotidiens plus 2 in quebec-et-francophonie. The seed-based filter this
+  // replaced counted the PRIMARY THEME BLOCK only, so it had never asserted
+  // the 2 row(s) this build authored elsewhere. Converting to the source is
+  // what surfaced them.
+  strictEqual(SRC_ROWS.filter((r) => (r as { theme?: string }).theme === 'transports-quotidiens').length, 104,
+    'the transports-quotidiens block moved');
+
+  // THE ASSERTION a2.29 DID NOT HAVE. Doctrine §E: every authored row must be
+  // reachable, or the publish cut drops it and takes this count with it.
+  const reachable = new Set<string>([
+    ...JSON.stringify(LESSON).match(/fr\.[a-z0-9]+\.[a-z0-9-]+\.\d{3,}/g) ?? [],
+  ]);
+  const orphans = SRC_ROWS.filter((r) => !reachable.has(r.id)).map((r) => r.id);
+  deepStrictEqual(orphans, [],
+    'authored row(s) reachable from nothing. Name it in a section, release it in a deckTranche, '
+    + 'or do not author it: the publish cut drops it and this block count goes with it.');
   strictEqual(MY_QC.length, 2);
   for (const r of ALL_MINE) {
     strictEqual(r.level, 'a2', `${r.id} is not a2`);

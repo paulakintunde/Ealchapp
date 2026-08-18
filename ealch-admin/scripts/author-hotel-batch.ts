@@ -24,6 +24,7 @@ import { LESSON, SECTIONS, ITEM_IDS, DECK_TRANCHE, SPEAK_ID } from './data/hotel
 import { validateLesson, quizQuestions } from '../../ealch-v2/src/content/schema.ts';
 import { validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { assertReachable } from './lib/reachability.ts';
 
 const DRY_RUN = process.argv.includes('--dry');
 const REAPPLY = process.argv.includes('--reapply');
@@ -611,6 +612,14 @@ function offlineGuards() {
   // 34. THE LESSON ITSELF.
   const issues = validateLesson(LESSON as never) as unknown[];
   if (Array.isArray(issues) && issues.length) die(`validateLesson: ${issues.length} issue(s)\n${issues.slice(0, 8).map((i) => `      ${JSON.stringify(i)}`).join('\n')}`);
+
+  /* PART A: EVERY AUTHORED ROW MUST BE REACHABLE.
+   *
+   * Doctrine §E required this all along and nothing enforced it, so a2.29
+   * shipped fr.a2.hebergement.086 past 33 green guards. It surfaced three weeks
+   * later, for an unrelated reason: a publish regenerated seed.json, the cut
+   * dropped the unreferenced row, and a seed-based block count went red. */
+  assertReachable(LESSON as never, ALL_ROWS, die);
   const dens = validateDensity(LESSON as never) as unknown;
   const dIssues = Array.isArray(dens) ? dens : ((dens as { issues?: unknown[] }).issues ?? []);
   if (dIssues.length) die(`validateDensity: ${dIssues.length} issue(s)\n${dIssues.slice(0, 8).map((i) => `      ${JSON.stringify(i)}`).join('\n')}`);

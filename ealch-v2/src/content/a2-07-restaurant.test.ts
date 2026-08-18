@@ -17,6 +17,26 @@ import { quizQuestions, validateLesson, type Lesson, type LessonSection } from '
 import { hasPlainNasalFor, validateDensity } from './density.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 
+/** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
+ *
+ *  Counting it in the SEED is only correct while every authored row happens to
+ *  be referenced. `a2-29-hotel.test.ts` made that assumption and went red on
+ *  the first publish in a week: v51 regenerated seed.json from Postgres, the cut
+ *  dropped `fr.a2.hebergement.086` because no lesson named it, and the count
+ *  broke. The row had been unreachable for weeks with every guard green.
+ *
+ *  SEED-IS-GENERATED-FIX-PLAN.md Part B: count the block where it is
+ *  authoritative, and assert the seed separately for what it actually owes —
+ *  every id the lesson REFERENCES. */
+let SRC_ROWS: Array<{ id: string }> = [];
+let noSrc = false;
+try {
+  const m = await import('../../../ealch-admin/scripts/data/restaurant-corpus.ts');
+  SRC_ROWS = m.ALL_ROWS as never;
+} catch {
+  noSrc = true;
+}
+
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
   version: number;
@@ -457,7 +477,26 @@ test('the band voice floor: at least 40% of authored rows are in the server voic
 });
 
 test('the id block held: 58 authored rows, contiguous, inside .132-.189', () => {
-  strictEqual(AUTHORED.length, 58, 'the authored count moved');
+  // AGAINST THE SOURCE. The seed is a cut and can only answer "how many
+  // survived", never "how many were authored".
+  strictEqual(SRC_ROWS.length, 60,
+    `${SRC_ROWS.length} rows authored, expected 60`);
+  // 58 in au-restaurant plus 2 in quebec-et-francophonie. The seed-based filter this
+  // replaced counted the PRIMARY THEME BLOCK only, so it had never asserted
+  // the 2 row(s) this build authored elsewhere. Converting to the source is
+  // what surfaced them.
+  strictEqual(SRC_ROWS.filter((r) => (r as { theme?: string }).theme === 'au-restaurant').length, 58,
+    'the au-restaurant block moved');
+
+  // THE ASSERTION a2.29 DID NOT HAVE. Doctrine §E: every authored row must be
+  // reachable, or the publish cut drops it and takes this count with it.
+  const reachable = new Set<string>([
+    ...JSON.stringify(L).match(/fr\.[a-z0-9]+\.[a-z0-9-]+\.\d{3,}/g) ?? [],
+  ]);
+  const orphans = SRC_ROWS.filter((r) => !reachable.has(r.id)).map((r) => r.id);
+  deepStrictEqual(orphans, [],
+    'authored row(s) reachable from nothing. Name it in a section, release it in a deckTranche, '
+    + 'or do not author it: the publish cut drops it and this block count goes with it.');
   const nums = AUTHORED.map((i) => Number(i.id.slice(-3))).sort((a, b) => a - b);
   strictEqual(nums[0], 132);
   strictEqual(nums[nums.length - 1], 189);

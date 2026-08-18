@@ -455,10 +455,31 @@ test('no em dash in any authored string', () => {
  *  lesson edit, a re-merge and a republish. Until then this names it. */
 const UNREACHABLE = 86;
 
-test('59 rows authored, contiguous, all in hebergement at a2', () => {
-  // The BLOCK is 74..132 inclusive, 59 ids. What reaches the seed is that block
-  // minus whatever no lesson references, so the count is asserted against the
-  // named exception rather than against a number that hides it.
+/** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
+ *
+ *  Part B of SEED-IS-GENERATED-FIX-PLAN.md. Counting in the seed is what broke
+ *  this suite in the first place; the count belongs where the authoring is. */
+let SRC_ROWS: Array<{ id: string; theme?: string; level?: string }> = [];
+let noSrc = false;
+try {
+  const m = await import('../../../ealch-admin/scripts/data/hotel-corpus.ts');
+  SRC_ROWS = m.ALL_ROWS as never;
+} catch {
+  noSrc = true;
+}
+
+test('59 rows authored, contiguous, all in hebergement at a2', { skip: noSrc }, () => {
+  // AGAINST THE SOURCE, so the full block is asserted whatever the cut does.
+  // The .086 exception below is about the SEED and nothing else.
+  strictEqual(SRC_ROWS.length, 59, `${SRC_ROWS.length} rows authored, expected 59`);
+  const src = SRC_ROWS.map((r) => Number(r.id.slice(-3))).sort((a, b) => a - b);
+  strictEqual(src[0], 74);
+  strictEqual(src[src.length - 1], 132);
+  ok(src.every((n, i) => i === 0 || n === src[i - 1] + 1), 'the authored id block is not contiguous');
+
+  // AND THE SEED, separately: the block minus whatever no lesson references.
+  // Naming the exception is what stops it hiding, which is the whole lesson of
+  // this suite going red on v51.
   strictEqual(MINE.length, 58, 'the block is 59 ids and .086 is referenced by nothing, so 58 reach the seed');
   const ns = MINE.map((r) => Number(r.id.slice(-3))).sort((a, b) => a - b);
   strictEqual(ns[0], 74);

@@ -8,9 +8,29 @@
 // Everything is read from `seed.json` rather than from the authoring scripts,
 // because the seed is what ships.
 import { test } from 'node:test';
-import { strictEqual, ok } from 'node:assert';
+import { strictEqual, ok, deepStrictEqual } from 'node:assert';
 import seed from './seed.json' with { type: 'json' };
 import { hasPlainNasalFor } from './density.logic.ts';
+
+/** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
+ *
+ *  Counting it in the SEED is only correct while every authored row happens to
+ *  be referenced. `a2-29-hotel.test.ts` made that assumption and went red on
+ *  the first publish in a week: v51 regenerated seed.json from Postgres, the cut
+ *  dropped `fr.a2.hebergement.086` because no lesson named it, and the count
+ *  broke. The row had been unreachable for weeks with every guard green.
+ *
+ *  SEED-IS-GENERATED-FIX-PLAN.md Part B: count the block where it is
+ *  authoritative, and assert the seed separately for what it actually owes —
+ *  every id the lesson REFERENCES. */
+let SRC_ROWS: Array<{ id: string }> = [];
+let noSrc = false;
+try {
+  const m = await import('../../../ealch-admin/scripts/data/medecin-corpus.ts');
+  SRC_ROWS = m.ALL_ROWS as never;
+} catch {
+  noSrc = true;
+}
 
 type Item = { id: string; kind: string; level: string; theme: string; fr: string; en: string; respell?: string; drills?: string[]; tags?: string[]; skill?: string; register?: string };
 type Section = Record<string, unknown> & { id: string; type: string };
@@ -292,7 +312,26 @@ test('34 authored rows, and the corpus plan collapsed because the lexicon existe
   // THE HEADLINE. The design measured on the seed, saw nothing, and planned 75
   // to 90 rows. Postgres held 193 published a2 rows in `symptomes` and the seed
   // showed ZERO of them. This unit authored 34 and imported the rest.
-  strictEqual(MINE.length, 30);
+  // AGAINST THE SOURCE. The seed is a cut and can only answer "how many
+  // survived", never "how many were authored".
+  strictEqual(SRC_ROWS.length, 34,
+    `${SRC_ROWS.length} rows authored, expected 34`);
+  // 30 in symptomes plus 4 in corps. The seed-based filter this
+  // replaced counted the PRIMARY THEME BLOCK only, so it had never asserted
+  // the 4 row(s) this build authored elsewhere. Converting to the source is
+  // what surfaced them.
+  strictEqual(SRC_ROWS.filter((r) => (r as { theme?: string }).theme === 'symptomes').length, 30,
+    'the symptomes block moved');
+
+  // THE ASSERTION a2.29 DID NOT HAVE. Doctrine §E: every authored row must be
+  // reachable, or the publish cut drops it and takes this count with it.
+  const reachable = new Set<string>([
+    ...JSON.stringify(LESSON).match(/fr\.[a-z0-9]+\.[a-z0-9-]+\.\d{3,}/g) ?? [],
+  ]);
+  const orphans = SRC_ROWS.filter((r) => !reachable.has(r.id)).map((r) => r.id);
+  deepStrictEqual(orphans, [],
+    'authored row(s) reachable from nothing. Name it in a section, release it in a deckTranche, '
+    + 'or do not author it: the publish cut drops it and this block count goes with it.');
   strictEqual(MY_BODY.length, 4);
   for (const r of ALL_MINE) strictEqual(r.level, 'a2', `${r.id} is not a2`);
   // The symptom lexicon that made the collapse: it must be in the seed now, or
