@@ -42,7 +42,7 @@ Commit `1893840`.
 
 ## 2. What is NOT broken, measured, so nobody re-audits it
 
-Run after any publish: `pnpm -s tsx scripts/_unreach2.ts`
+Run after any publish: `pnpm tsx scripts/audit-seed-drops.ts`
 
 **The cut drops hundreds of rows per non-cut theme and that is correct.** It is
 not a defect and it is not what broke anything:
@@ -67,7 +67,7 @@ being dropped **from inside an authored block that a test was counting**.
 **a2.08 is clean and needs nothing.** Measured before it publishes: block
 `.133`–`.163`, 31 rows in Postgres, **31 referenced by the lesson, 0
 unreferenced**. Its `AUTHORED.length === 31` assertion will survive its publish.
-`pnpm -s tsx scripts/_a208_block.ts 133 163`
+`pnpm tsx scripts/audit-block-reachability.ts comparaisons 133 163`
 
 ---
 
@@ -197,7 +197,7 @@ cd ../ealch-v2 && node --test "src/**/*.test.ts"         # still green
 A dry-run publish does not write `seed.json`, so step 3 proves only the
 validators. **To prove the tests survive a real regeneration**, use the mutation
 approach a2.32 used: write the generated seed, run the suite, restore the
-original bytes in a `finally`. `ealch-admin/scripts/_a232_mutate.ts` is the rig.
+original bytes in a `finally`. `ealch-admin/scripts/probe-seed-mutation.ts` is the rig.
 
 **The standing rule this should leave behind:**
 
@@ -221,6 +221,7 @@ original bytes in a `finally`. `ealch-admin/scripts/_a232_mutate.ts` is the rig.
 
 ---
 
-*Measured with `scripts/_unreach2.ts`, `scripts/_a208_block.ts` and
-`scripts/seeddiff` on 2026-08-17 against v51. This file is `.md` and therefore
+*Measured with `scripts/audit-seed-drops.ts` and `scripts/audit-block-reachability.ts`
+on 2026-08-17 against v51, both committed alongside this file so every command
+here resolves.* This file is `.md` and therefore
 gitignored: `git add -f` to track it.*
