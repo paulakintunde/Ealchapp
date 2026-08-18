@@ -59,8 +59,48 @@ const LEARNER_TEXT = [
   ...strs(L?.overview), ...strs(L?.drills), ...strs(L?.acts), ...strs(L?.errorTriggers),
 ].join('\n');
 
+/** WHAT REACHED THE SEED. A CUT, not the authoring.
+ *
+ *  Keep using this for "what a learner offline can meet". Do NOT count it: the
+ *  seed drops any row no lesson references when the theme is outside
+ *  `SEED_CUT.themes`, and `internet` is outside it. See SRC_ROWS below. */
 const AUTHORED = items.filter((i) => i.theme === THEME && /^fr\.a2\.internet\.(1[89]\d|2[01]\d)$/.test(i.id)
   && Number(i.id.split('.').pop()) >= 182 && Number(i.id.split('.').pop()) <= 218);
+
+/** WHAT THIS BUILD AUTHORED, from the source file, which the cut cannot touch.
+ *
+ *  ── Why this exists, and it is this suite's own defect ──
+ *
+ *  Every count below used to come from `AUTHORED`, i.e. from the SEED. That
+ *  passes only while every authored row happens to be referenced by a section
+ *  or a deckTranche. `a2-29-hotel.test.ts` made the same assumption and went
+ *  red the first time anyone published: v51 regenerated the seed from Postgres,
+ *  the cut dropped `fr.a2.hebergement.086` because no lesson referenced it, and
+ *  `MINE.length === 59` broke. The row had been unreachable for weeks and 33
+ *  green guards never asked.
+ *
+ *  a2.32's block is fully referenced today — 37 of 37, re-measured with
+ *  `audit-block-reachability.ts` — so this suite was correct by luck rather
+ *  than by construction.
+ *
+ *  THE TWO INVARIANTS, split, which is the fix `SEED-IS-GENERATED-FIX-PLAN.md`
+ *  Part B prescribes for nine suites:
+ *
+ *    the BLOCK is complete   asserted against the SOURCE (below)
+ *    the SEED is sufficient  asserted as "every id the lesson REFERENCES
+ *                            resolves", which is what a learner depends on
+ *
+ *  Loaded through a dynamic import with a fallback, matching a2.30 and a2.31:
+ *  `ealch-admin` is a sibling package and a trimmed checkout may not have it.
+ *  When it is absent the block tests skip rather than assert something weaker. */
+let SRC_ROWS: Array<{ id: string; fr: string; en?: string; kind?: string; level?: string; theme?: string; respell?: string; tags?: string[]; voice?: string }> = [];
+let noSrc = false;
+try {
+  const corpus = await import('../../../ealch-admin/scripts/data/technologie-corpus.ts');
+  SRC_ROWS = corpus.ALL_ROWS as never;
+} catch {
+  noSrc = true;
+}
 
 /* ═══════════════════════════════════════════════════════════════════════════
  *  0. THE LESSON EXISTS, AND THE WALK IS NOT EMPTY
@@ -718,9 +758,15 @@ test('no spaced exclamation mark in the scene, which loses the line its last wor
  *  11. THE CORPUS THIS BUILD AUTHORED
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-test('37 rows authored into internet, in the allocated block, none outside it', () => {
-  strictEqual(AUTHORED.length, 37, `${AUTHORED.length} authored rows reached the seed, expected 37`);
-  for (const r of AUTHORED) {
+test('37 rows authored into internet, in the allocated block, none outside it', { skip: noSrc }, () => {
+  // AGAINST THE SOURCE. The seed is a cut and cannot answer "how many did this
+  // build author"; it can only answer "how many survived the cut".
+  strictEqual(SRC_ROWS.length, 37, `${SRC_ROWS.length} rows authored, expected 37`);
+  const ns = SRC_ROWS.map((r) => Number(r.id.split('.').pop())).sort((a, b) => a - b);
+  strictEqual(ns[0], 182);
+  strictEqual(ns[ns.length - 1], 218);
+  ok(ns.every((n, i) => i === 0 || n === ns[i - 1] + 1), 'the authored id block is not contiguous');
+  for (const r of SRC_ROWS) {
     strictEqual(r.theme, THEME);
     strictEqual(r.level, 'a2');
     const n = Number(r.id.split('.').pop());
@@ -728,36 +774,72 @@ test('37 rows authored into internet, in the allocated block, none outside it', 
   }
 });
 
-test('at least 40 percent of the authored rows are in the other party\'s voice', () => {
+test('every authored row is REACHABLE, so the cut cannot drop one', { skip: noSrc }, () => {
+  /* THE ASSERTION a2.29 DID NOT HAVE, and the reason its suite broke on the
+   * first publish. Doctrine §E: every item must be reachable — named by a
+   * section, or released by a deckTranche.
+   *
+   * An unreachable row is invisible to a learner AND is dropped by the publish
+   * cut, because `internet` is not in `SEED_CUT.themes`. Asserting it here
+   * means a future edit that orphans a row fails now, rather than silently
+   * three weeks later when somebody publishes. */
+  const reachable = new Set<string>([
+    ...strs(L?.sections).filter((s) => /^fr\.[a-z0-9]+\.[a-z0-9-]+\.\d{3,}$/.test(s)),
+    ...((L?.deckTranche as string[][]) ?? []).flat(),
+    ...((L?.itemIds as string[]) ?? []),
+    ...((L?.drills as Array<{ items?: string[] }>) ?? []).flatMap((d) => d.items ?? []),
+  ]);
+  const orphans = SRC_ROWS.filter((r) => !reachable.has(r.id));
+  deepStrictEqual(orphans.map((r) => r.id), [],
+    'authored row(s) reachable from nothing. Name it in a section, release it in a deckTranche, '
+    + 'or do not author it. An unreachable row is dropped by the publish cut and takes this block count with it.');
+});
+
+test('and the SEED holds every id the lesson references, which is what a learner needs', () => {
+  // The other half of the split. The seed may legitimately lack an authored row
+  // the lesson never names; it may NEVER lack one the lesson does name.
+  for (const id of (L!.itemIds ?? [])) {
+    ok(byId.has(id), `${id} is referenced by the lesson and is not in the seed, so its card renders empty`);
+  }
+  for (const id of ((L?.deckTranche as string[][]) ?? []).flat()) {
+    ok(byId.has(id), `${id} is released by a deckTranche and is not in the seed`);
+  }
+});
+
+test('at least 40 percent of the authored rows are in the other party\'s voice', { skip: noSrc }, () => {
   // The machine, the support agent and the friend. The corpus authored only the
   // learner's half of every situation; the other party's speech did not exist.
+  //
+  // MEASURED ON THE SOURCE: the band's 40 percent mandate is a property of what
+  // this build AUTHORED, not of what survived the cut. Measuring it on the seed
+  // would let a dropped row quietly change the ratio.
   const OTHER_TAGS = ['system', 'agent', 'friend'];
-  const other = AUTHORED.filter((r) => {
+  const other = SRC_ROWS.filter((r) => {
     const t = r.tags ?? [];
     if (t.includes('screen') || t.includes('menu')) return true;                 // the machine
     if (t.includes('agent')) return true;                                         // the support agent
     if (t.includes('friend') && ['fr.a2.internet.216', 'fr.a2.internet.217', 'fr.a2.internet.218'].includes(r.id)) return true;
     return false;
   });
-  const ratio = other.length / AUTHORED.length;
+  const ratio = other.length / SRC_ROWS.length;
   ok(ratio >= 0.4, `only ${(ratio * 100).toFixed(1)}% of authored rows are in the other party's voice`);
   ok(OTHER_TAGS.length === 3, 'three other parties, which is what makes this unit different');
 });
 
-test('the six interface chunks and the five menu lines exist and are the machine', () => {
+test('the six interface chunks and the five menu lines exist and are the machine', { skip: noSrc }, () => {
   const CHUNKS = ['Cliquez sur le lien', 'Saisissez votre code', 'Appuyez sur Entrée',
     'Veuillez patienter', 'Sélectionnez une option', 'Réessayez plus tard'];
-  const authoredFr = new Set(AUTHORED.map((r) => r.fr));
+  const authoredFr = new Set(SRC_ROWS.map((r) => r.fr));
   for (const c of CHUNKS) ok(authoredFr.has(c), `the interface chunk "${c}" was not authored`);
   // NOT ONE ATTACHES A PRONOUN. a2.06 taught the preverbal position only.
-  for (const r of AUTHORED) {
+  for (const r of SRC_ROWS) {
     ok(!/\b(Connectez-vous|Abonnez-vous|Installez-vous|Envoyez-le|Envoyez-moi)\b/.test(r.fr),
       `${r.id} attaches a pronoun after the verb: "${r.fr}". a2.06 taught the preverbal position only.`);
   }
 });
 
-test('no authored respelling closes a nasal with a plain n or m', () => {
-  for (const r of AUTHORED) {
+test('no authored respelling closes a nasal with a plain n or m', { skip: noSrc }, () => {
+  for (const r of SRC_ROWS) {
     if (!r.respell) continue;
     ok(!hasPlainNasalFor(r.fr, r.respell), `${r.id} "${r.respell}" closes a nasal with a plain n/m`);
   }
