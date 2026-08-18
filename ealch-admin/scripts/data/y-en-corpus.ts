@@ -856,7 +856,7 @@ export const IMPORTED_SENTENCES: readonly { id: string; why: string }[] = [
   { id: A224_NAMED_ID, why: `« Je parle à Marie. » ${unitRef('a2.24')}\'s row, the à half with a PERSON behind it. REQUIRED LAYOUT 2 is ${unitRef('a2.24')}\'s sentence rather than a copy.` },
   { id: A224_PRONOUN_ID, why: "« Je lui parle. » a2.24's frame, so the person/thing split is that lesson's own pair." },
   { id: A206_FRAME_ID, why: "« Je le vois. » a2.06's frame, so the position rule is quoted beside the sentence a2.06 wrote for it." },
-  { id: A204_CITY_ID, why: "« Je vais à Paris. » a2.04's OTHER authored row, and THE MANIFEST FOUND IT. The first draft AUTHORED this sentence and the generator refused, because a frame that already exists as a whole sentence is a re-authoring rather than a build. Importing it makes REQUIRED LAYOUT 1's à half a2.04`s row, beside ${unitRef('a2.04')}`s « Je vais en France. » in the three-ens screen: one lesson, one verb, two of the three jobs." },
+  { id: A204_CITY_ID, why: "« Je vais à Paris. » a2.04's OTHER authored row, and THE MANIFEST FOUND IT. The first draft AUTHORED this sentence and the generator refused, because a frame that already exists as a whole sentence is a re-authoring rather than a build. Importing it makes REQUIRED LAYOUT 1's à half a2.04`s row, beside a2.04`s « Je vais en France. » in the three-ens screen: one lesson, one verb, two of the three jobs." },
   { id: PARTITIVE_ROW_ID, why: "« Je bois du café. » fr.a1.cuisine.268, and the manifest found this one the same way. It carries NO respelling, which is normal for a published sentence and is why the pair card prints the respelling on the pronoun half only." },
 ];
 

@@ -125,7 +125,7 @@ const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
   },
   {
     kind: 'narration',
-    text: 'He knows the word. He has known it since ${POSSESSIVE_ADJ_REF}, on a card, with a picture of a bag beside a house. He opens his mouth and the sentence starts moving.',
+    text: `He knows the word. He has known it since ${POSSESSIVE_ADJ_REF}, on a card, with a picture of a bag beside a house. He opens his mouth and the sentence starts moving.`,
     size: 'md',
     audio: AUDIO,
   },
@@ -755,7 +755,7 @@ const S12_CIRC: LessonSection = {
       label: 'a noun follows',
       fr: 'Notre valise est ici.',
       sub: '[noh-truh vah-LEEZ eh tee-SEE]',
-      body: 'Our suitcase. The noun is right there, so this is the one word ${POSSESSIVE_ADJ_REF} gave you and it takes no article of its own.',
+      body: `Our suitcase. The noun is right there, so this is the one word ${POSSESSIVE_ADJ_REF} gave you and it takes no article of its own.`,
     },
     {
       head: 'la nôtre, hat',
@@ -810,7 +810,7 @@ const S13_READ: LessonSection = {
     { word: 'partageons', en: 'we share', note: 'From partager. This is why the bag is ours and not either one of theirs.' },
     { word: 'un ticket', en: 'a ticket', note: 'The paper stub you get in exchange for leaving a bag.' },
     { word: 'chaque bagage', en: 'each piece of luggage', note: 'chaque takes a singular noun even when there are several things.' },
-    { word: 'sa poche', en: 'her pocket', note: 'sa because poche is feminine, not because the person is a woman. ${Cap(POSSESSIVE_ADJ_REF)}, one more time.' },
+    { word: 'sa poche', en: 'her pocket', note: `sa because poche is feminine, not because the person is a woman. ${Cap(POSSESSIVE_ADJ_REF)}, one more time.` },
   ],
   questions: [
     { q: 'Whose is the black suitcase on the left?', a: "The speaker's. La valise noire de gauche est la mienne, and la mienne is feminine because valise is." },
@@ -1288,7 +1288,7 @@ const S22_QUIZ: LessonSection = {
       questions: [
         { format: 'typeIn', q: 'valise is feminine. The suitcase is ours. Start with La valise.', answer: 'La valise est la nôtre', accept: ['La valise est la nôtre', 'La valise est la nôtre.', 'La valise est la notre'], why: 'la nôtre, and the accepted answers here include the version with no accent, because nothing you type can show one.', ref: 's11-three' },
         { format: 'mcq', q: 'Which one of these is spelled correctly?', opts: ['La valise est la notre.', 'La valise est le nôtre.', 'La valise est la nôtre.'], correct: 2, why: 'The accent goes on when nothing follows the word. This has to be a picked question, because a typed one strips the accent before it marks you.', ref: 's12-circ' },
-        { format: 'mcq', q: 'Notre valise est ici. Why is there no accent on this one?', opts: ['because a noun follows it', 'because it is the plural', 'because it is informal'], correct: 0, why: 'valise is right behind it, so this is the one word ${POSSESSIVE_ADJ_REF} gave you. The accent belongs to the version with nothing behind it.', ref: 's12-circ' },
+        { format: 'mcq', q: 'Notre valise est ici. Why is there no accent on this one?', opts: ['because a noun follows it', 'because it is the plural', 'because it is informal'], correct: 0, why: `valise is right behind it, so this is the one word ${POSSESSIVE_ADJ_REF} gave you. The accent belongs to the version with nothing behind it.`, ref: 's12-circ' },
         { format: 'typeIn', q: 'valise is feminine, and you are speaking to more than one person. The suitcase is yours.', answer: 'La valise est la vôtre', accept: ['La valise est la vôtre', 'La valise est la vôtre.', 'La valise est la votre'], why: 'The vous version, and it has the same three cells as ours. The accent is there and nothing you type can prove it.', ref: 's11-three' },
         { format: 'typeIn', q: "It's mine, said the way people actually say it. Three words, and none of them agrees with anything.", answer: "C'est à moi", accept: ["C'est à moi", "C'est à moi.", "C'est a moi", 'Cest a moi'], why: 'You will hear this far more often than the two-word version, and it works for a bag, a suitcase, gloves and keys without changing.', ref: 's17-amoi' },
         { format: 'mcq', q: "You have already named the suitcase. Somebody asks whose it is. Which answer is the written one?", opts: ["C'est à moi.", "C'est la mienne.", "Elle est à moi."], correct: 1, why: 'The two-word version stands in for a noun that was already said, which is what it is for. The other two name you instead and are what you will hear.', ref: 's17-amoi' },
@@ -1423,10 +1423,10 @@ const SHEET_SIX: ReferenceSheet = {
       rowDetails: [
         { title: 'mine, and the one to learn first', body: 'le mien for a masculine thing, la mienne for a feminine one, and les miens or les miennes for several. The article and the ending both move, and they move together.' },
         { title: 'yours, to one person you know', body: 'le tien, la tienne, les tiens, les tiennes. Exactly the same four cells as mine. Use it with anyone you would say tu to.' },
-        { title: 'his or hers, and it will not say which', body: 'le sien, la sienne, les siens, les siennes. One set for both, so the sentence around it has to say whose. ${Cap(INDIRECT_REF)} met the same collapse with lui.' },
+        { title: 'his or hers, and it will not say which', body: `le sien, la sienne, les siens, les siennes. One set for both, so the sentence around it has to say whose. ${Cap(INDIRECT_REF)} met the same collapse with lui.` },
         { title: 'ours, and there is no fourth cell', body: 'le nôtre, la nôtre, les nôtres. The plural covers masculine and feminine at once. The accent is only ever on the pronoun; notre with a noun behind it has none.' },
         { title: 'yours, to more than one person', body: 'le vôtre, la vôtre, les vôtres. Three cells again. Same accent rule: votre takes a noun, le vôtre does not.' },
-        { title: 'theirs, and the s goes on both words', body: 'le leur, la leur, les leurs. Three cells, and there is no les leur. The leur that never takes an s is the one in front of a verb, which belongs to ${INDIRECT_REF}.' },
+        { title: 'theirs, and the s goes on both words', body: `le leur, la leur, les leurs. Three cells, and there is no les leur. The leur that never takes an s is the one in front of a verb, which belongs to ${INDIRECT_REF}.` },
       ],
     },
   ],
