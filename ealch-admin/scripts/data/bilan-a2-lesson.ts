@@ -736,7 +736,7 @@ export const EXAM_LESSON: Lesson = {
   tag: 'A2 · EXAMEN',
   intro: 'Sixty questions across twelve parts, grouped by what they ask you to do rather than by unit, so that nothing tells you which lesson a question came from. Half of it is the verb. No explanations until the end, and no drills. Seventy percent is a pass.',
   itemIds: [],
-  version: 1,
+  version: 2,
   grammarAssumed: [
     'The whole A2 band, seq 1 to 34, and the unit-by-unit review in a2.35.l1',
   ],

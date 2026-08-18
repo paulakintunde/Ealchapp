@@ -87,12 +87,17 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         ref: REF_EXAM,
       },
       {
+        // NOT `vendre`. The review's round 4 already asks the identical
+        // question with the identical options, and an exam question a learner
+        // has already sat in the review is not testing retrieval. `répondre`
+        // carries the same silent-d contrast on a verb the review asks about
+        // in writing rather than by ear.
         q: 'Listen. Which one was it?',
         format: 'listenChoose',
-        audio: HEAR('Ils vendent des fruits.'),
-        opts: ['Il vend des fruits.', 'Ils vendent des fruits.', 'Tu vends des fruits.', 'Nous vendons des fruits.'],
+        audio: HEAR('Ils répondent vite.'),
+        opts: ['Il répond vite.', 'Ils répondent vite.', 'Tu réponds vite.', 'Nous répondons vite.'],
         correct: 1,
-        why: 'Ils vendent. The stem-final d is silent at the end of a word and said when a letter follows it. a2.11.',
+        why: 'Ils répondent. The stem-final d is silent at the end of a word and said when a letter follows it. a2.11.',
         ref: REF_EXAM,
       },
       {
@@ -582,11 +587,12 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         ref: REF_EXAM,
       },
       {
-        q: 'Write the French for: How much is it?',
+        // NOT « Ça fait combien ? ». The review's round 25 asks that verbatim.
+        q: 'Write the French for: Do you take card?',
         format: 'typeIn',
-        accept: ['Ça fait combien'],
-        answer: 'Ça fait combien ?',
-        why: 'Ça fait combien ? The same frame the cashier uses to tell you, turned round. a2.26.',
+        accept: ['Vous prenez la carte'],
+        answer: 'Vous prenez la carte ?',
+        why: 'Vous prenez la carte ? Rising intonation and nothing else, which is the question form a counter actually uses. a2.26.',
         ref: REF_EXAM,
       },
       {
@@ -647,11 +653,13 @@ const AUTHORED_EXAM_ROUNDS: QuizRound[] = [
         ref: REF_EXAM,
       },
       {
-        q: 'Write the French for: I forgot my password',
+        // NOT « J'ai oublié mon mot de passe ». The review's round 31 asks that
+        // verbatim, and this one keeps a2.32 in the exam without reusing it.
+        q: 'Write the French for: My phone does not work',
         format: 'typeIn',
-        accept: ['J’ai oublié mon mot de passe'],
-        answer: 'J’ai oublié mon mot de passe.',
-        why: 'J’ai oublié mon mot de passe. The screen says it without a subject and you say it with one. a2.32.',
+        accept: ['Mon téléphone ne marche pas'],
+        answer: 'Mon téléphone ne marche pas.',
+        why: 'Mon téléphone ne marche pas. marcher for a device, not travailler, which is the verb for a person. a2.32.',
         ref: REF_EXAM,
       },
     ],
