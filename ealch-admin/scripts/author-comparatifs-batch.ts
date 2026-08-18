@@ -32,6 +32,9 @@ import {
   NEAR_MISSES, FOLD_COLLISIONS, HOMOPHONE_FORMS, DISPLAY_PARITY,
   AGREEMENT_UNIT, ADVERB_UNIT, A203_RESERVED, A217_RESERVED, A217_TAKEN_BY,
   MIDDLES, QUE_PAIR,
+  OUT_OF_BAND_TENSES, TENSE_MUST_FIRE, TENSE_MUST_NOT_FIRE,
+  DEMONSTRATIVE_UNIT, DEMONSTRATIVE_FORMS, DEMONSTRATIVE_MUST_FIRE, DEMONSTRATIVE_MUST_NOT_FIRE,
+  GLOSS_CONTRADICTIONS, GLOSS_ANCHOR, LIAISON_ROWS, LIAISON_CONTEXTS,
 } from './data/comparatifs-corpus.ts';
 import { LESSON, ITEM_IDS, DECK_TRANCHE } from './data/comparatifs-lesson.ts';
 import { validateLesson, quizQuestions } from '../../ealch-v2/src/content/schema.ts';
@@ -408,6 +411,82 @@ async function main() {
   }
 
   /* ══════════════════════════════════════════════════════════════════════
+   *  THREE GUARDS THE AUDIT ADDED, EACH FOR A DEFECT THAT SHIPPED
+   * ══════════════════════════════════════════════════════════════════════ */
+
+  // 1. NO TENSE THE LEARNER DOES NOT HAVE, ON A SURFACE THEY MUST PRODUCE.
+  //    Doctrine §B.3 lets a CORPUS sentence use one; a scenario turn and its
+  //    `alts` are lines the learner says. The first version had them produce a
+  //    conditional, which is B1 and arrives nowhere in the A2 trail.
+  {
+    const PRODUCE = new Set(['scenario', 'practice', 'dictation', 'quiz', 'groupDrill', 'trapDrill']);
+    for (const s of LESSON.sections) {
+      if (!PRODUCE.has(s.type)) continue;
+      for (const str of strs(s)) {
+        for (const t of OUT_OF_BAND_TENSES) {
+          if (t.shape.test(str)) {
+            die(`${(s as { id?: string }).id}: a production surface uses the ${t.name}, which the learner does not have at seq 32: "${str.slice(0, 90)}"`);
+          }
+        }
+      }
+    }
+    for (const r of ALL_ROWS) {
+      for (const t of OUT_OF_BAND_TENSES) if (t.shape.test(r.fr)) die(`${r.id} uses the ${t.name}: "${r.fr}"`);
+    }
+    for (const s of TENSE_MUST_FIRE) {
+      if (!OUT_OF_BAND_TENSES.some((t) => t.shape.test(s))) die(`the tense guard cannot see "${s}", so it is not a guard`);
+    }
+    // Corrections §14.4: a shape built out of French morphology reads the
+    // English as French. `-rait` is inside `portrait` and `-rais` inside a
+    // dozen English words, which is why this one is anchored on a French
+    // SUBJECT PRONOUN rather than on the ending alone.
+    for (const s of TENSE_MUST_NOT_FIRE) {
+      const hit = OUT_OF_BAND_TENSES.find((t) => t.shape.test(s));
+      if (hit) die(`the ${hit.name} guard fires on legitimate content: "${s}"`);
+    }
+  }
+
+  // 2. a2.33's DEMONSTRATIVE PRONOUNS, treated exactly as a2.34's possessives.
+  //    `cette`, `ce` and `ces` are demonstrative ADJECTIVES and are a1's; the
+  //    guard must not touch them or it forbids eleven of this lesson's rows.
+  for (const d of DEMONSTRATIVE_FORMS) {
+    if (hasWord(ALL_TEXT, d)) die(`"${d}" is a demonstrative pronoun and belongs to ${DEMONSTRATIVE_UNIT}, one seq ahead of this lesson`);
+  }
+  for (const s of DEMONSTRATIVE_MUST_FIRE) {
+    if (!DEMONSTRATIVE_FORMS.some((d) => hasWord(s, d))) die(`the demonstrative guard cannot see "${s}"`);
+  }
+  for (const s of DEMONSTRATIVE_MUST_NOT_FIRE) {
+    if (DEMONSTRATIVE_FORMS.some((d) => hasWord(s, d))) die(`the demonstrative guard fires on a demonstrative ADJECTIVE, which is a1's: "${s}"`);
+  }
+
+  // 3. THE LESSON MAY NOT CONTRADICT ITS OWN CORPUS ROW.
+  //    E(136) glosses itself « He is taller. » and four sections plus a SCORED
+  //    mcq key said it means « he is tall ». `plus` is comparative and there is
+  //    no reading on which that is true. Anchored on the row's own `en` as well
+  //    as on the phrasings, so the guard survives a reword.
+  {
+    const anchor = ALL_ROWS.find((r) => r.id === GLOSS_ANCHOR.id);
+    if (!anchor) die(`${GLOSS_ANCHOR.id} is the gloss anchor and was not authored`);
+    if (anchor.en !== GLOSS_ANCHOR.en) {
+      die(`${GLOSS_ANCHOR.id} glosses itself "${anchor.en}" and the anchor says "${GLOSS_ANCHOR.en}". `
+        + 'If the row moved, every string this guard protects has to move with it.');
+    }
+    for (const c of GLOSS_CONTRADICTIONS) {
+      if (LEARNER_TEXT.toLowerCase().includes(c)) {
+        die(`a learner surface says "${c}". ${GLOSS_ANCHOR.id} means "${GLOSS_ANCHOR.en}": plus is comparative and `
+          + 'nothing makes it mean tall. The sentence is a comparison with its second half missing, which is a different claim.');
+      }
+    }
+    // And the guard is proved to fire on what actually shipped.
+    for (const s of ['The French sentence is correct and it simply says he is tall.', 'It is complete and it is not a comparison.']) {
+      if (!GLOSS_CONTRADICTIONS.some((c) => s.toLowerCase().includes(c))) die(`the gloss guard cannot see "${s}"`);
+    }
+    for (const s of ['It is grammatical, and it is unfinished: plus grand than whom.', 'aussi longue is a comparison with its second half missing.']) {
+      if (GLOSS_CONTRADICTIONS.some((c) => s.toLowerCase().includes(c))) die(`the gloss guard fires on the corrected wording: "${s}"`);
+    }
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
    *  a2.03 AND a2.17 ARE NAMED BY UNIT ID
    * ══════════════════════════════════════════════════════════════════════ */
 
@@ -657,6 +736,36 @@ async function main() {
   /* ══════════════════════════════════════════════════════════════════════
    *  THE RESPELLINGS
    * ══════════════════════════════════════════════════════════════════════ */
+
+  /* LIAISON. FOUR ROWS SHIPPED WITHOUT IT AND NO GATE SAW THEM.
+   *
+   * `est` in front of a vowel liaises and every `est aussi` frame in this build
+   * was authored `eh oh-see`, with the t missing. `hasPlainNasalFor` does not
+   * look at liaison, `validateDensity` does not, and the schema does not.
+   *
+   * The check is coarse on purpose: it asks whether the respelling contains the
+   * moving consonant AT ALL, not where. A respelling that carries it in the
+   * wrong place is a judgement call; one that does not carry it is a fact. */
+  for (const r of ALL_ROWS) {
+    if (!r.respell) continue;
+    for (const ctx of LIAISON_CONTEXTS) {
+      if (!ctx.fr.test(r.fr)) continue;
+      if (!ctx.expect.test(r.respell)) {
+        die(`${r.id} "${r.fr}" has a ${ctx.name} liaison and its respelling carries no ${ctx.expect.source}: "${r.respell}". `
+          + 'The house writes the moving consonant onto the following syllable (SEH TAHN PAHN, day-zay-koo-TUR), never as a tie.');
+      }
+    }
+  }
+  // BY NAME, with the value that shipped wrong, so a revert says which row.
+  for (const l of LIAISON_ROWS) {
+    const row = ALL_ROWS.find((x) => x.id === l.id);
+    if (!row) die(`${l.id} is on the liaison list and was not authored`);
+    if (row.respell === l.wrong) die(`${l.id} is back to the value that shipped without its ${l.context} liaison: "${l.wrong}"`);
+    if (!row.respell?.includes(l.carries)) die(`${l.id} should carry "${l.carries}" for its ${l.context} liaison and reads "${row.respell}"`);
+  }
+  // AND NO U+203F, which is the OTHER way to write a liaison and renders as a
+  // low underscore on a Pixel 6.
+  for (const r of ALL_ROWS) if (r.respell?.includes('‿')) die(`${r.id} writes its liaison with U+203F`);
 
   const flagged = ALL_ROWS.filter((r) => r.respell && hasPlainNasalFor(r.fr, r.respell));
   if (flagged.length) {

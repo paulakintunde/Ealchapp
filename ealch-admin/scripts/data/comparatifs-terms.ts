@@ -49,9 +49,15 @@ export const COMPARATIFS_TERMS: Record<string, LessonTerm> = {
   than: {
     term: 'than',
     title: 'que, and it is not optional',
-    body: 'English lets you stop early: "he is taller" is a whole thought. French does not. Il est plus grand. is a complete, correct sentence, and it means he is tall, not that he is taller than anybody. If you mean a comparison, que and the other thing have to follow it.',
+    // CORRECTED BY THE AUDIT. The first version said Il est plus grand. « means
+    // he is tall, not that he is taller than anybody », which is not something
+    // the sentence can mean: plus is comparative and nothing overrides that. The
+    // corpus row E(136) glosses itself « He is taller. » and this definition was
+    // contradicting it. What is actually true, and is the teachable thing, is
+    // that the second term hangs off que and off nothing else.
+    body: 'que is what the second thing hangs off, and nothing else does that job: you can never put it straight after the describing word. Il est plus grand. on its own is grammatical and unfinished, exactly the way taller is in English. Say it to somebody who does not already know what you are comparing to, and the first thing they ask is plus grand que qui.',
     examples: [
-      { itemId: E(136), note: 'complete, and not a comparison' },
+      { itemId: E(136), note: 'grammatical, and half a sentence' },
       { itemId: E(133), note: 'the same sentence, finished' },
     ],
   },

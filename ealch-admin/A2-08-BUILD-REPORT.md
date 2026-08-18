@@ -296,12 +296,22 @@ listenChoose   3   10%       10%
 
 ### The `plus` listenChoose, and the risk named
 
-The split is real and the corpus encodes it consistently: twelve respelled rows,
-no counterexample (`plü FOR`, `plü GRAHN`, `plü puh-TEE` against `PLÜS`, `AHⁿ
-PLÜS`, `DUH PLÜS`). **What this build cannot verify is whether Android TTS
-renders it.** Both items are therefore answerable from the sentence structure as
-well, and the teaching of the split lives in the respellings, which are not
-spoken. Named rather than papered over.
+The split is real and the corpus encodes it consistently, and **it is three ways,
+not two** (see §16.4, where the first version got it wrong):
+
+```
+in front of a consonant   plü FOR · plü GRAHN · plü puh-TEE          silent
+in front of a vowel       plü-zoo-MWAN · kee-plooz-AY                a /z/
+with nothing after it     PLÜS · AHⁿ PLÜS · DUH PLÜS                 an /s/
+```
+
+The exception, real and deliberately not taught: an h aspiré blocks the liaison
+(`péter plus haut` is `PLÜ OH`, no z).
+
+**What this build cannot verify is whether Android TTS renders any of it.** Both
+listenChoose items are therefore answerable from the sentence structure as well,
+and the teaching lives in the respellings, which are not spoken. Named rather
+than papered over.
 
 ---
 
@@ -437,6 +447,161 @@ Every quiz question has a `why` AND a `ref`, and every `ref` resolves.
   on a Pixel 6. Worth adding beside `tapTable`'s six-row ceiling in §8.
 - **A batch's duplicate-`fr` check must run authored rows against EACH OTHER**,
   not only against the theme. Every batch in this band checks one direction.
+
+---
+
+## 16. THE AUDIT, RUN AFTER THE BUILD REPORTED DONE
+
+Every gate above was green when this report was first written. An audit of the
+CONTENT then found five defects, four of them in the half of the work no gate
+checks: whether the French is right and whether the answers are the answers.
+`scripts/_a208_audit.ts` and `scripts/_a208_liaison.ts` are the tools; they read
+the SHIPPED seed, not the source.
+
+### 16.1 A SCORED QUIZ ANSWER WAS WRONG
+
+Round 2, question 3: *"What does `Il est plus grand.` actually mean?"* keyed
+**"he is tall"**. That is not something the sentence can mean. `plus` is
+comparative and nothing overrides it; "he is tall" is `Il est grand.` **A learner
+who knew French would have picked the right answer and been marked wrong.**
+
+Its own corpus row glosses itself *"He is taller."* the whole time, so the quiz
+was contradicting `fr.a2.comparaisons.136` while both sat in the same file.
+
+### 16.2 THE SOURCE OF IT: THE PROMPT'S TRAP 3 IS HALF WRONG
+
+> « `Il est plus grand.` is a complete sentence and it is not a comparison.
+> English drops the second term freely; French does not. »
+
+The first clause is right and the second is backwards. It IS a comparison, with
+an **elided second term**, and BOTH languages allow that when the other thing is
+recoverable: *"Mon frère ? Il est plus grand."* and *"My brother? He's taller."*
+are the same move. What is actually true, and is now what the lesson teaches:
+the second term hangs off `que` and off nothing else, and without it the
+sentence is grammatical and unfinished.
+
+The build took the prompt at its word in **seven places**. Three were found by
+reading; **the guard written to stop the other four found them**, in
+`s07-plus`, a listenChoose `why`, the `d-que` drill coach and an errorTrigger
+description. That is the guard doing in one run what the manual pass had missed.
+
+### 16.3 A PRODUCTION SURFACE ASKED FOR A TENSE THE LEARNER DOES NOT HAVE
+
+`s19-talk` turns 5 and 6 ran on the **conditional** (« si tu devais choisir, tu
+prendrais lequel ? », and the learner saying « Je dormirais mieux dans le
+second. »). The conditional is B1 and arrives nowhere in the 35-unit A2 trail.
+
+Doctrine §B.3 permits a CORPUS sentence to use a tense the lesson does not teach.
+A scenario turn is not a corpus sentence: it is a line the learner is asked to
+say, and `alts` are lines they may say instead. Both turns are now present tense
+and neither lost its job. A scenario alt also carried **`celle`**, a
+demonstrative pronoun belonging to a2.33, one seq ahead.
+
+### 16.4 FOUR ROWS AND ONE CARD SHIPPED WITHOUT THEIR LIAISON
+
+Every `est aussi` frame this build authored was respelled `eh oh-see`, with the
+liaison t missing. `est` in front of a vowel is /ɛ.t‿o.si/, and the house is
+unambiguous across **109 respelled rows**, writing the moving consonant onto the
+following syllable rather than tying it: `SEH TAHN PAHN`, `EEL EH TÜN UHR`,
+`day-zay-koo-TUR`. Nothing checked it: `hasPlainNasalFor` does not look at
+liaison, `validateDensity` does not, the schema does not.
+
+Worse, `s07-plus` card 2 put **`plus intéressant` on a card labelled SILENT**,
+respelled `plü ahⁿ-tay-reh-SAHⁿ`. In front of a vowel the s comes back as a /z/.
+The corpus had said so all along and **this build's own pre-flight probe tested
+`plü-zahⁿ-tay-reh-SAHⁿ` and got it right** before the card was written with the
+wrong value.
+
+### 16.5 TWO IN-MISSION CHECKS MADE CLAIMS THAT WERE NOT TRUE
+
+`s14-sort` asked *"Two of these five sound exactly the same as each other"* and
+keyed the first two, which are `C'est le plus grand jardin…` and `Ce sont les
+plus grands jardins…`. `C'est` /sɛ/ against `Ce sont` /sə sɔ̃/ is exactly what
+the ear CAN hear; only the superlative FORMS are identical. `s08-unseen`'s first
+check offered *"everything except the middle word and the two things"* when the
+describing word changes across the five items too.
+
+### 16.6 What the audit added, so none of it can come back
+
+Four guards, each in the batch AND the test, each proved to fire on the value
+that shipped and to spare the fix:
+
+```
+gloss contradiction   the lesson may not contradict its own corpus row,
+                      anchored on E(136)'s `en` as well as on the phrasings
+out-of-band tense     no conditional or subjunctive on a production surface,
+                      anchored on a French SUBJECT PRONOUN, not on the ending
+                      (`-rait` sits inside `portrait`)
+demonstrative         a2.33's pronouns, treated exactly as a2.34's possessives,
+                      and NOT catching `ce`/`cette`/`ces`, which are a1's
+liaison               every est/plus/moins/des + vowel row must carry the moving
+                      consonant, plus a by-name list holding the wrong values
+```
+
+The liaison guard was mutation-tested on its own: reverting `E(135)` to the value
+that shipped turns it red.
+
+### 16.7 One tautology found in this build's own test, and removed
+
+`ok(!'EEL EH oh-see …'.includes('toh-see'))` compared two literals and could
+never fail. That is a2.29's shape — a guard comparing a constant to itself — and
+it was written into the audit's own new test. Deleted; the `notStrictEqual`
+against the seed value next to it is the real check.
+
+### 16.8 Gates after the audit
+
+```
+tests        4577 baseline -> 4631, 0 fail   (+54; the file holds 54)
+tsc          ealch-v2 0 errors; ealch-admin 0 excluding the pre-existing
+             scripts/_verify_v51.ts, which is not this build's
+parity       unchanged: b2.01.l1 database-only, in_review. Nothing at risk.
+mutations    23 of 25 caught; the two survivors are the ratio guard, documented
+device       the corrected liaison card re-checked on the Pixel 6 (mission 7.2)
+a1.03        ending figures unmoved, population 2014
+```
+
+### 16.9 THE AUDIT LANDED BEFORE THE PUBLISH, BY ABOUT SIX HOURS
+
+Two commits arrived from another hand while this audit was running, and they
+change what has to be said about state:
+
+```
+1893840  02:19  publish(v51): six lessons at 10 percent   73 lessons, NO a2.08
+7f8e14f  08:34  docs(seed): the plan for the defect class v51 exposed
+```
+
+`7f8e14f` **committed this lesson in its PRE-AUDIT form** and its message records
+« a2.08 is clean before its own publish, 31 of 31 authored rows referenced »,
+which is the check `scripts/_a208_block.ts` and `scripts/_a208_risk.ts` run. Both
+scripts appeared in `scripts/` at 08:27 and 08:29; neither is this build's and
+neither is staged here. Re-run during this audit, both are clean: all 82
+referenced ids resolve in the seed and all 31 authored rows are referenced.
+
+**So the wrong quiz key is in the repository at HEAD and has reached no learner.**
+v51 was cut at 02:19 with 73 lessons and a2.08 is not among them. The state now:
+
+```
+Postgres            the CORRECTED lesson (re-applied after every fix)
+working-tree seed   the CORRECTED lesson, and content:parity is green
+HEAD commit         the PRE-AUDIT lesson, committed by 7f8e14f
+staged              the audit's corrections, uncommitted
+published (v51)     does not contain a2.08 at all
+```
+
+The corrections must reach a commit before a2.08 is published. This build did not
+commit them, because committing was not asked for.
+
+### 16.10 What the audit did NOT check
+
+- **The scenario and the quiz were still not walked end to end on the phone.**
+  The tense and demonstrative guards run over the shipped seed, so the content is
+  verified; the LAYOUT of a six-turn scenario is not.
+- **Whether `est aussi` liaison is obligatory or optional in casual speech.** It
+  is made in careful speech and the house respells it in 109 rows, which is the
+  standard followed here. A learner who does not make it will not be
+  misunderstood.
+- **The remaining French was read by eye, not measured.** Grammar and register
+  have no gate, here or anywhere in this band.
 
 ---
 

@@ -408,7 +408,7 @@ const FCVDR = ['flashcard', 'voiceflash', 'dictation', 'review'] as Item['drills
 export const TRIPLE_ROWS: Row[] = [
   sent(133, 'Il est plus grand que moi.', 'He is taller than me.', 'EEL EH plü GRAHⁿ kuh MWAH', ['triple', 'plus'], FCVR),
   sent(134, 'Il est moins grand que moi.', 'He is less tall than me.', 'EEL EH mwehⁿ GRAHⁿ kuh MWAH', ['triple', 'moins'], FCVR),
-  sent(135, 'Il est aussi grand que moi.', 'He is as tall as me.', 'EEL EH oh-see GRAHⁿ kuh MWAH', ['triple', 'aussi'], FCVR),
+  sent(135, 'Il est aussi grand que moi.', 'He is as tall as me.', 'EEL EH toh-see GRAHⁿ kuh MWAH', ['triple', 'aussi'], FCVR),
 ];
 
 /* ── THE DICTÉE. .136-.140 ─────────────────────────────────────────────────
@@ -528,10 +528,10 @@ export const BETTER_ROWS: Row[] = [
 
 export const AUSSI_ROWS: Row[] = [
   sent(151, "Cette rue est moins longue que l'avenue.", 'This street is shorter than the avenue.', 'set RÜ eh mwehⁿ LOHⁿG kuh lav-NÜ', ['aussi-gap', 'moins', 'fem'], FCVR),
-  sent(152, "Cette rue est aussi longue que l'avenue.", 'This street is as long as the avenue.', 'set RÜ eh oh-see LOHⁿG kuh lav-NÜ', ['aussi-gap', 'aussi', 'fem'], FCVR),
-  sent(153, 'Ce livre est aussi intéressant que le film.', 'This book is as interesting as the film.', 'suh LEEVR eh oh-see ahⁿ-tay-reh-SAHⁿ kuh luh FEELM', ['aussi-gap', 'aussi'], FCVR),
+  sent(152, "Cette rue est aussi longue que l'avenue.", 'This street is as long as the avenue.', 'set RÜ eh toh-see LOHⁿG kuh lav-NÜ', ['aussi-gap', 'aussi', 'fem'], FCVR),
+  sent(153, 'Ce livre est aussi intéressant que le film.', 'This book is as interesting as the film.', 'suh LEEVR eh toh-see ahⁿ-tay-reh-SAHⁿ kuh luh FEELM', ['aussi-gap', 'aussi'], FCVR),
   sent(154, "Il fait aussi froid qu'hier.", 'It is as cold as yesterday.', 'EEL FEH oh-see FRWAH KYEHR', ['aussi-gap', 'aussi'], FCVR),
-  sent(155, 'Ce café est aussi fort que le thé.', 'This coffee is as strong as the tea.', 'suh ka-FAY eh oh-see FOR kuh luh TAY', ['aussi-gap', 'aussi'], FCVR),
+  sent(155, 'Ce café est aussi fort que le thé.', 'This coffee is as strong as the tea.', 'suh ka-FAY eh toh-see FOR kuh luh TAY', ['aussi-gap', 'aussi'], FCVR),
 ];
 
 /* ── THE DEGREE CARDS. .156-.163 ───────────────────────────────────────────
@@ -842,10 +842,125 @@ export const REFUSED_FORMS = [PLUS_BON, PLUS_BIEN] as const;
 export const REFUSED_ALLOWED_IN = ['s01-scene', 's15-pair', 's16-trap', 's17-errors', 's22-quiz'] as const;
 export const REFUSED_ALLOWED_DRILL = 'd-better';
 
-/** TRAP 3. `que` is obligatory. `Il est plus grand.` is a complete sentence
- *  and it is not a comparison; English drops the second term freely and French
- *  does not. E(136) is the sentence and E(133) is the comparison. */
+/* TRAP 3, RESTATED AFTER THE AUDIT, BECAUSE THE PROMPT'S VERSION IS HALF WRONG.
+ *
+ * The prompt says: « `Il est plus grand.` is a complete sentence and it is not
+ * a comparison. English drops the second term freely; French does not. »
+ *
+ * The first half is right and the second is backwards. `Il est plus grand.` IS
+ * a comparison: `plus` is comparative and there is no reading of that sentence
+ * on which it means « he is tall » (that is `Il est grand.`). What it is, is a
+ * comparison with an ELIDED second term, and BOTH languages allow that when the
+ * other thing is recoverable from context: « Mon frère ? Il est plus grand. »
+ * and « My brother? He's taller. » are the same move.
+ *
+ * The first version of this lesson took the prompt at its word and taught, in
+ * four places including a SCORED mcq key, that the sentence means « he is
+ * tall ». A learner who knew French would have answered correctly and been
+ * marked wrong. E(136) glosses itself « He is taller. », so the lesson was
+ * contradicting its own corpus row.
+ *
+ * WHAT IS ACTUALLY TRUE AND TEACHABLE, and what the lesson now says:
+ *   - the second term hangs off `que` and off nothing else; you can never put
+ *     it straight after the describing word
+ *   - without it the sentence is grammatical and UNFINISHED, and the listener's
+ *     next words are `plus grand que qui ?`
+ */
 export const QUE_PAIR = { without: E(136), with: E(133) } as const;
+
+/** The claim the first version made, kept as a banned string so it cannot come
+ *  back. Checked as a SUBSTRING over every learner surface, because it was
+ *  phrased six different ways across four sections and a quiz key. */
+export const GLOSS_CONTRADICTIONS = [
+  'it means he is tall',
+  'it simply says he is tall',
+  'says he is tall',
+  'is not a comparison',
+  'no comparison has been made',
+] as const;
+
+/** And the row those strings contradicted, so the guard is anchored to a fact
+ *  rather than to a list of phrasings: whatever the lesson says E(136) means,
+ *  it must agree with the row's own gloss. */
+export const GLOSS_ANCHOR = { id: E(136), en: 'He is taller.' } as const;
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §J.1. TENSES THE LEARNER DOES NOT HAVE AT SEQ 32
+ *
+ *  Doctrine §B.3: « Corpus sentences may use tenses the lesson body may not
+ *  teach. Your lesson body is bound by the trail position; the theme is not. »
+ *
+ *  A SCENARIO TURN IS NOT A CORPUS SENTENCE. It is a line the learner is asked
+ *  to say, and `alts` are lines they may say instead. The first version of
+ *  `s19-talk` had them produce « Je dormirais mieux dans le second. » and asked
+ *  « si tu devais choisir, tu prendrais lequel ? » The conditional is B1 and
+ *  arrives nowhere in the 35-unit A2 trail.
+ *
+ *  Found by the audit, not by any gate: no shipped guard in this band checks
+ *  the tense of a production surface. a2.17 wrote one for the passé composé and
+ *  scoped it to that lesson.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+/** By seq 32 the learner has: present (a2.01, a2.02, a2.12, a2.13), passé
+ *  composé (a2.05, a2.20, a2.21), futur proche (a2.19), imparfait (a2.31) and
+ *  the pronominals (a2.22, a2.23). Not the conditional and not the subjunctive.
+ *
+ *  Anchored on a FRENCH SUBJECT plus the ending rather than on the ending
+ *  alone: Corrections §14.4, a shape built out of French morphology reads the
+ *  English as French, and `-rait` is inside `portrait`, `-rais` inside a dozen
+ *  English words. */
+export const OUT_OF_BAND_TENSES = [
+  { name: 'conditional', shape: /(?<![\p{L}\p{N}-])(je|tu|il|elle|on|nous|vous|ils|elles)\s+\w*(rais|rait|rions|riez|raient)(?![\p{L}\p{N}'’-])/iu },
+  // ANCHORED ON `que`, WITH UP TO THREE WORDS BETWEEN. The first version
+  // required a subject pronoun immediately after `que` and could not see
+  // « Il faut que ce soit plus grand. », which is the commonest shape there is.
+  // Its own MUST_FIRE list caught that, which is the point of having one.
+  { name: 'subjunctive', shape: /(?<![\p{L}\p{N}-])(que|qu['’])(\s+[\p{L}'’-]+){0,3}\s*(soit|soient|ait|aient|puisse|puissent|fasse|fassent|aille|sache|veuille)(?![\p{L}\p{N}'’-])/iu },
+];
+
+export const TENSE_MUST_FIRE = [
+  'Je dormirais mieux dans le second.',
+  'Bon. Et si tu devais choisir, tu prendrais lequel ?',
+  'Il faut que ce soit plus grand.',
+] as const;
+
+/** The English half of a learner surface, and the French this lesson actually
+ *  ships. A guard that fires on any of these is reading letters, not French. */
+export const TENSE_MUST_NOT_FIRE = [
+  'Il est plus grand que moi.',
+  "C'est le plus grand jardin du quartier.",
+  'On dort mieux dans le second, il est plus calme.',
+  'Nous avons visité deux appartements samedi.',
+  'The first is nicer, quite simply.',
+  'She sings the best in the whole class.',
+  'You will reach for it first.',
+  'A portrait of the frame, and it never moves.',
+] as const;
+
+/** a2.33, seq 33, ONE AHEAD OF THIS LESSON. `celui`, `celle`, `ceux`, `celles`
+ *  and their `-ci`/`-là` forms are its material and `fr.a2.comparaisons.069`
+ *  carries one. Same treatment as a2.34's possessives: imported nowhere, said
+ *  nowhere, and the guard covers `alts` because an alt is a line the learner
+ *  may produce. The first version had one in a scenario alt. */
+export const DEMONSTRATIVE_UNIT = 'a2.33';
+export const DEMONSTRATIVE_FORMS = [
+  'celui', 'celle', 'ceux', 'celles',
+  'celui-ci', 'celui-là', 'celle-ci', 'celle-là',
+  'ceux-ci', 'ceux-là', 'celles-ci', 'celles-là',
+] as const;
+export const DEMONSTRATIVE_MUST_FIRE = [
+  'Non, celle du premier est plus petite.',
+  'Ce sac est aussi lourd que celui-là.',
+] as const;
+/** `cette`, `ce` and `ces` are demonstrative ADJECTIVES, which a1 owns and this
+ *  lesson uses in eleven sentences. A guard that catches them forbids half the
+ *  corpus. */
+export const DEMONSTRATIVE_MUST_NOT_FIRE = [
+  "Cette rue est moins longue que l'avenue.",
+  'Ce livre est aussi intéressant que le film.',
+  'Ce sont les plus grands jardins du quartier.',
+  'Ces exercices sont plus faciles que les précédents.',
+] as const;
 
 /** `ne … plus` is a different word doing a different job. ONE LINE on the
  *  roundup, taught nowhere, and no scored surface anywhere in this lesson
@@ -934,16 +1049,69 @@ export const HOMOPHONE_FORMS: readonly string[][] = [
  *  spoken at all.
  * ══════════════════════════════════════════════════════════════════════════ */
 
-export const PLUS_SILENT = 'plü';      // before a describing word
-export const PLUS_SOUNDED = 'PLÜSS';   // with nothing after it
+/* CORRECTED BY THE AUDIT: THE SPLIT IS THREE WAYS, NOT TWO.
+ *
+ * The first version of this section said « silent in front of a describing
+ * word, sounded with nothing after it » and put `plus intéressant` on a card
+ * as a SILENT example. It is not: `plus` in front of a VOWEL liaises and the s
+ * comes back as a /z/. The corpus says so and had said so all along
+ * (`plus ou moins` -> `plü-zoo-MWAN`, `qui plus est` -> `kee-plooz-AY`), and
+ * this build's own pre-flight probe tested `plü-zahⁿ-tay-reh-SAHⁿ` and got it
+ * right before the card was written with the wrong value.
+ *
+ * The exception, which is real and is NOT taught here: an h aspiré blocks it.
+ * `péter plus haut que son derrière` is `pay-TAY PLÜ OH`, with no z.
+ */
+export const PLUS_SILENT = 'plü';        // in front of a consonant
+export const PLUS_LIAISON = 'plü-z';     // in front of a vowel
+export const PLUS_SOUNDED = 'PLÜSS';     // with nothing after it
 export const PLUS_EVIDENCE = [
-  { id: 'fr.sons.expressions-utiles.068', fr: 'plus fort', respell: 'plü FOR', sounded: false },
-  { id: 'fr.a2.argent-quotidien.074', fr: "Vous n'avez pas plus petit ?", respell: 'voo na-vay pah plü puh-TEE', sounded: false },
-  { id: 'fr.a2.marche.068', fr: 'choisir les fruits les plus mûrs', respell: 'shwah-ZEER lay frwee lay plü MÜR', sounded: false },
-  { id: 'fr.sons.nombres.098', fr: 'plus', respell: 'PLÜS', sounded: true },
-  { id: 'fr.sons.mots-de-liaison.002', fr: 'en plus', respell: 'AHN PLÜS', sounded: true },
-  { id: 'fr.sons.mots-de-liaison.003', fr: 'de plus', respell: 'DUH PLÜS', sounded: true },
+  { id: 'fr.sons.expressions-utiles.068', fr: 'plus fort', respell: 'plü FOR', kind: 'silent' },
+  { id: 'fr.a2.argent-quotidien.074', fr: "Vous n'avez pas plus petit ?", respell: 'voo na-vay pah plü puh-TEE', kind: 'silent' },
+  { id: 'fr.a2.marche.068', fr: 'choisir les fruits les plus mûrs', respell: 'shwah-ZEER lay frwee lay plü MÜR', kind: 'silent' },
+  { id: 'fr.sons.expressions-utiles.099', fr: 'plus ou moins', respell: 'plü-zoo-MWAN', kind: 'liaison' },
+  { id: 'fr.sons.mots-de-liaison.067', fr: 'qui plus est', respell: 'kee-plooz-AY', kind: 'liaison' },
+  { id: 'fr.sons.nombres.098', fr: 'plus', respell: 'PLÜS', kind: 'sounded' },
+  { id: 'fr.sons.mots-de-liaison.002', fr: 'en plus', respell: 'AHN PLÜS', kind: 'sounded' },
+  { id: 'fr.sons.mots-de-liaison.003', fr: 'de plus', respell: 'DUH PLÜS', kind: 'sounded' },
 ] as const;
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §L.1. LIAISON, AND THE FOUR ROWS THAT SHIPPED WITHOUT IT
+ *
+ *  `est` in front of a vowel liaises: /ɛ.t‿o.si/. Every one of this build's
+ *  `est aussi` frames was authored `eh oh-see`, with the t missing, and no gate
+ *  saw it. The house is unambiguous across 109 respelled rows and writes the
+ *  moving consonant ONTO THE FOLLOWING SYLLABLE rather than tying it:
+ *
+ *      c'est en panne      SEH TAHN PAHN
+ *      il est une heure    EEL EH TÜN UHR
+ *      c'est à qui ?       seh-TAH KEE
+ *      des écouteurs       day-zay-koo-TUR
+ *
+ *  That is also what avoids U+203F, which renders as a low underscore on a
+ *  Pixel 6 and is live in shipped sons.10 content.
+ *
+ *  Asserted BY NAME, with the value that shipped wrong, so the day somebody
+ *  reverts one the failure says which row and which liaison.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+export const LIAISON_ROWS: readonly { id: string; context: string; wrong: string; carries: string }[] = [
+  { id: E(135), context: 'est aussi', wrong: 'EEL EH oh-see GRAHⁿ kuh MWAH', carries: 'toh-see' },
+  { id: E(152), context: 'est aussi', wrong: 'set RÜ eh oh-see LOHⁿG kuh lav-NÜ', carries: 'toh-see' },
+  { id: E(153), context: 'est aussi', wrong: 'suh LEEVR eh oh-see ahⁿ-tay-reh-SAHⁿ kuh luh FEELM', carries: 'toh-see' },
+  { id: E(155), context: 'est aussi', wrong: 'suh ka-FAY eh oh-see FOR kuh luh TAY', carries: 'toh-see' },
+];
+
+/** Every liaison context this lesson's frames can create, as a shape the batch
+ *  runs over every authored row. `moins` + vowel is here even though no row
+ *  makes one, so a later author who writes `moins agréable` is caught. */
+export const LIAISON_CONTEXTS = [
+  { name: 'est + vowel', fr: /(?<![\p{L}\p{N}-])est\s+[aeiouéèêàâîôûùïüy](?![\p{L}]*\s*$)/iu, expect: /t/i },
+  { name: 'plus + vowel', fr: /(?<![\p{L}\p{N}-])plus\s+[aeiouéèêàâîôûùïüy]/iu, expect: /z/i },
+  { name: 'moins + vowel', fr: /(?<![\p{L}\p{N}-])moins\s+[aeiouéèêàâîôûùïüy]/iu, expect: /z/i },
+  { name: 'des + vowel', fr: /(?<![\p{L}\p{N}-])des\s+[aeiouéèêàâîôûùïüy]/iu, expect: /z/i },
+];
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  §M. THE GUARDS

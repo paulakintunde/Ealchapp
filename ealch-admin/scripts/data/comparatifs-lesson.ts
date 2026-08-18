@@ -263,7 +263,9 @@ const S04_MIDDLE: LessonSection = {
       head: 'the one you will use most',
       fr: 'plus',
       sub: '[plü]',
-      body: 'Before a describing word the s stays silent. On its own, with nothing after it, the s comes back and it is said PLÜSS.',
+      // CORRECTED BY THE AUDIT: three sounds, not two. In front of a VOWEL the
+      // s liaises as a z, which the first version of this card denied.
+      body: 'The s hides in front of a consonant, comes back as a z in front of a vowel, and is said in full when nothing follows it.',
     },
     {
       label: 'LESS',
@@ -284,7 +286,7 @@ const S04_MIDDLE: LessonSection = {
       head: 'and it is not optional',
       fr: 'que',
       sub: '[kuh]',
-      body: 'English lets you stop at taller. French does not. If you mean a comparison, que and the other thing have to be there or you have said something else.',
+      body: 'The second thing hangs off que and off nothing else, so you can never put it straight after the describing word. Leave que out and the sentence is grammatical and unfinished, which is a worse place to be than wrong.',
     },
   ],
   audio: AUDIO,
@@ -384,28 +386,33 @@ const S07_PLUS: LessonSection = {
   layer: 'core',
   size: 'lg',
   title: 'The s on plus comes and goes',
-  hint: 'Four cards. The spelling never changes and the sound does.',
+  hint: 'Four cards, three sounds. The spelling never changes.',
   cards: [
     {
       label: 'SILENT',
-      head: 'in front of a describing word',
+      head: 'in front of a consonant',
       fr: 'plus grand',
       sub: `[${PLUS_SILENT} GRAHⁿ]`,
-      body: 'This is the comparison. The s is not said and the two words run together. It is the one you will meet ninety times out of a hundred.',
+      body: 'This is the comparison you will meet ninety times out of a hundred. The s is not said and the two words run together.',
     },
+    // CORRECTED BY THE AUDIT. This card was labelled SILENT and respelled
+    // `plü ahⁿ-tay-reh-SAHⁿ`, which is wrong: in front of a VOWEL the s comes
+    // back as a z. The corpus had said so all along (`plus ou moins` ->
+    // `plü-zoo-MWAN`) and this build's own probe had the right value before the
+    // card was written with the wrong one.
     {
-      label: 'SILENT',
-      head: 'and again, with a longer word',
+      label: 'A Z',
+      head: 'in front of a vowel',
       fr: 'plus intéressant',
-      sub: `[${PLUS_SILENT} ahⁿ-tay-reh-SAHⁿ]`,
-      body: 'Nothing about the length of the describing word changes it. If something follows plus, the s stays down.',
+      sub: '[plü-zahⁿ-tay-reh-SAHⁿ]',
+      body: 'The s is still not an s. It comes back as a z and joins the next word, the way it does in plus ou moins.',
     },
     {
       label: 'SOUNDED',
       head: 'with nothing after it',
       fr: 'Il en veut plus.',
       sub: `[EEL ahⁿ VEU ${PLUS_SOUNDED}]`,
-      body: 'He wants more. Nothing follows plus, so the s comes back and you can hear it. This is not a comparison at all.',
+      body: 'He wants more. Nothing follows plus, so the s comes back and you can hear it. There is no frame here at all.',
     },
     {
       label: 'SOUNDED',
@@ -453,9 +460,9 @@ const S08_UNSEEN: LessonSection = {
       ],
       check: {
         q: 'What is the same in all five?',
-        opts: ['the describing word', 'everything except the middle word and the two things', 'the thing being compared'],
+        opts: ['the describing word', 'the order the words come in', 'the thing being compared'],
         correct: 1,
-        why: 'Five slots, and only two of them ever hold anything new. That is the whole of it, and it is why the next group is possible.',
+        why: 'Every one of the five puts the words in the same order. Only what goes in the slots changes, which is why a describing word you meet next month will already fit.',
       },
     },
     {
@@ -465,7 +472,7 @@ const S08_UNSEEN: LessonSection = {
         q: 'poli means polite. He is more polite than me is',
         opts: ['Il est plus poli que moi.', 'Il est poli plus que moi.', 'Il est plus poli.'],
         correct: 0,
-        why: 'This word appears nowhere else in this lesson and you have just used it correctly. The middle word goes in front of the describing word, and que and the other person finish it. The third option stops early and is not a comparison.',
+        why: 'This word appears nowhere else in this lesson and you have just used it correctly. The middle word goes in front of the describing word, and que brings the other person in. The third option stops early and never says who.',
       },
     },
     {
@@ -734,10 +741,10 @@ const S14_SORT: LessonSection = {
         { fr: "Il est le plus rapide de l'équipe.", itemId: E(88), note: "de l'équipe", en: 'He is the fastest on the team.' },
       ],
       check: {
-        q: 'Two of these five sound exactly the same as each other. Which pair?',
-        opts: ['the first two', 'the third and the fourth', 'the last two'],
+        q: 'le plus grand and les plus grands. What separates them?',
+        opts: ['only the spelling', 'the sound of the s', 'the ending on grand'],
         correct: 0,
-        why: 'le plus grand and les plus grands are one sound and two spellings. Neither the s on les nor the s on grands is said, so only writing separates them.',
+        why: "Neither s is said, so the two are one sound and two spellings. In these sentences it is C'est against Ce sont that lets your ear tell how many there are, and that is the only part that helps.",
       },
     },
     {
@@ -924,7 +931,7 @@ const S17_ERRORS: LessonSection = {
     {
       wrong: 'Il est plus grand. (meaning: taller than his brother)',
       right: 'Il est plus grand que son frère.',
-      why: 'Reasonable, because English finishes there and nothing sounds broken. The French sentence is correct and it simply says he is tall. Without que and a second thing, no comparison has been made.',
+      why: 'Reasonable, because English stops there too and nothing sounds broken. It is grammatical, and it is unfinished: plus grand than whom. If the brother has not already been mentioned, que son frère is the half that carries the message.',
     },
     {
       wrong: 'Elle est le plus jeune de la famille.',
@@ -1025,12 +1032,23 @@ const S19_TALK: LessonSection = {
       userEn: 'The first flat\'s kitchen is as big as the other. (aussi, and grande because cuisine is feminine.)',
       alts: [
         { fr: 'Oui, la cuisine du second est aussi bonne.', en: 'Yes, the second one\'s kitchen is just as good.' },
-        { fr: "Non, celle du premier est plus petite.", en: "No, the first one's is smaller." },
+        // NOT `celle du premier`. A demonstrative pronoun is a2.33's, one seq
+        // ahead of this lesson, and an alt is a line the learner may say. The
+        // audit found it in the same pass as the conditional.
+        { fr: 'Non, le premier a une cuisine plus petite.', en: 'No, the first one has a smaller kitchen.' },
       ],
     },
     {
-      ai: "Bon. Et si tu devais choisir, tu prendrais lequel ?",
-      en: 'Right. And if you had to choose, which would you take?',
+      // THE CONDITIONAL IS GONE FROM BOTH OF THESE TURNS, AND THE AUDIT FOUND
+      // IT. The first version read « si tu devais choisir, tu prendrais lequel »
+      // and had the learner SAY « Je dormirais mieux dans le second. » Doctrine
+      // §B.3 allows a corpus sentence to use a tense the lesson body does not
+      // teach; a scenario turn is not a corpus sentence, it is a line the
+      // learner has to produce, and the conditional is B1. Both turns are now
+      // present tense and neither loses its job: turn 5 still produces
+      // `meilleur` with a noun and turn 6 still produces `mieux` with a verb.
+      ai: 'Bon. Alors tu prends lequel ?',
+      en: 'Right. So which one are you taking?',
       user: "Le second. C'est le meilleur choix pour cette année.",
       userEn: 'The second. It is the best choice for this year. (meilleur, because choix is a noun.)',
       alts: [
@@ -1039,13 +1057,13 @@ const S19_TALK: LessonSection = {
       ],
     },
     {
-      ai: "D'accord. Et tu dormirais mieux dans lequel ?",
-      en: 'All right. And which would you sleep better in?',
-      user: 'Je dormirais mieux dans le second.',
-      userEn: 'I would sleep better in the second. (dormirais is a verb, so mieux and not meilleur.)',
+      ai: "D'accord. Et le bruit ? Le premier donne sur la rue, non ?",
+      en: 'All right. And the noise? The first one faces the street, does it not?',
+      user: 'Oui. On dort mieux dans le second, il est plus calme.',
+      userEn: 'Yes. You sleep better in the second, it is quieter. (dort is a verb, so mieux and not meilleur.)',
       alts: [
-        { fr: 'Dans le second, je pense. Il est plus calme.', en: 'In the second, I think. It is quieter.' },
-        { fr: 'Dans le premier, il est moins bruyant.', en: 'In the first, it is less noisy.' },
+        { fr: 'Oui, le premier est plus bruyant que le second.', en: 'Yes, the first is noisier than the second.' },
+        { fr: 'On dort mieux dans le second, je pense.', en: 'You sleep better in the second, I think.' },
       ],
     },
   ],
@@ -1164,8 +1182,8 @@ const S22_QUIZ: LessonSection = {
         { format: 'mcq', q: 'poli means polite. He is more polite than me is', opts: ['Il est poli plus que moi.', 'Il est plus que poli moi.', 'Il est plus poli que moi.'], correct: 2, why: 'You have never seen this word in this lesson and the frame handled it anyway. That is what the frame is for.', ref: 's08-unseen' },
         { format: 'typeIn', q: 'poli means polite. Write: she is less polite than me. Start with Elle.', answer: 'Elle est moins polie que moi', accept: ['Elle est moins polie que moi', 'Elle est moins polie que moi.'], why: `The frame took a word the lesson never listed, and the feminine -e came from ${AGREEMENT_UNIT} rather than from here.`, ref: 's08-unseen' },
         { format: 'listenChoose', q: 'Listen. Is there a describing word after plus?', say: 'Il est plus grand.', opts: ['yes, something follows plus', 'no, plus ends the sentence'], correct: 0, why: 'grand follows, so the s on plus stays silent and the two words run together as plü grand.', ref: 's07-plus' },
-        { format: 'listenChoose', q: 'Listen again. Is there a describing word after plus?', say: 'Il en veut plus.', opts: ['yes, something follows plus', 'no, plus ends the sentence'], correct: 1, why: 'Nothing follows it, so the s comes back and you hear PLÜSS. He wants more, and no comparison has been made.', ref: 's07-plus' },
-        { format: 'mcq', q: 'Which of these three is NOT a comparison?', opts: ['Il en veut plus.', 'Il est plus grand que moi.', "Ce jardin est plus grand que l'autre."], correct: 0, why: 'No describing word and no que. It means he wants more of something, which is a different job for the same word.', ref: 's07-plus' },
+        { format: 'listenChoose', q: 'Listen again. Is there a describing word after plus?', say: 'Il en veut plus.', opts: ['yes, something follows plus', 'no, plus ends the sentence'], correct: 1, why: 'Nothing follows it, so the s comes back and you hear PLÜSS. He wants more, and there is no describing word and no que.', ref: 's07-plus' },
+        { format: 'mcq', q: 'Which of these three is NOT built from the frame?', opts: ['Il en veut plus.', 'Il est plus grand que moi.', "Ce jardin est plus grand que l'autre."], correct: 0, why: 'No describing word and no que, so there are no slots to fill. plus there is measuring an amount rather than comparing two things by a quality.', ref: 's07-plus' },
       ],
     },
     {
@@ -1173,9 +1191,15 @@ const S22_QUIZ: LessonSection = {
       label: 'And finish it',
       targets: ['no-que'],
       questions: [
-        { format: 'errorSpot', q: 'He meant: taller than his brother. Write what he should have said.', prompt: 'Il est plus grand.', answer: 'Il est plus grand que son frère.', accept: ['Il est plus grand que son frère.', 'Il est plus grand que son frère', 'Il est plus grand que son frere'], why: 'The sentence he wrote is correct French and it says he is tall. Without que and a second thing, no comparison has been made at all.', ref: 's17-errors' },
-        { format: 'errorSpot', q: 'She meant: as long as the avenue. Write it out.', prompt: 'Cette rue est aussi longue.', answer: "Cette rue est aussi longue que l'avenue.", accept: ["Cette rue est aussi longue que l'avenue.", "Cette rue est aussi longue que l'avenue", 'Cette rue est aussi longue que lavenue'], why: 'aussi on its own means the street is also long, which is not what she meant. que carries the other half.', ref: 's05-swap' },
-        { format: 'mcq', q: 'What does Il est plus grand. actually mean?', opts: ['he is taller than somebody', 'he is tall', 'he has grown'], correct: 1, why: 'It is complete and it is not a comparison. English lets you stop early; French reads the sentence as finished and takes it at face value.', ref: 's17-errors' },
+        { format: 'errorSpot', q: 'He meant: taller than his brother. Write what he should have said.', prompt: 'Il est plus grand.', answer: 'Il est plus grand que son frère.', accept: ['Il est plus grand que son frère.', 'Il est plus grand que son frère', 'Il est plus grand que son frere'], why: 'What he wrote is grammatical and it is half a sentence: taller than whom. If the brother has not already come up, que son frère is the half that carries the message.', ref: 's17-errors' },
+        { format: 'errorSpot', q: 'She meant: as long as the avenue. Write it out.', prompt: 'Cette rue est aussi longue.', answer: "Cette rue est aussi longue que l'avenue.", accept: ["Cette rue est aussi longue que l'avenue.", "Cette rue est aussi longue que l'avenue", 'Cette rue est aussi longue que lavenue'], why: "aussi longue is a comparison with its second half missing. Nobody can tell what the street is being measured against until que l'avenue arrives.", ref: 's05-swap' },
+        // THE KEY WAS WRONG IN THE FIRST VERSION AND THE AUDIT FOUND IT. It read
+        // « he is tall », which is not something this sentence can mean: plus
+        // makes it comparative and nothing can make it read otherwise. A learner
+        // who knows French would have picked the right answer and been marked
+        // wrong. The corpus row behind it, E(136), glosses itself « He is
+        // taller. », so the quiz was contradicting its own corpus.
+        { format: 'mcq', q: 'What does Il est plus grand. actually mean?', opts: ['he is tall', 'he is taller than somebody', 'he has grown'], correct: 1, why: 'plus makes it a comparison and nothing can make it mean tall. What is missing is the other half: taller than whom. It is grammatical, and it has not said the one thing it exists to say.', ref: 's17-errors' },
         { format: 'typeIn', q: 'The train is faster than the bus. Write it, starting with Le train.', answer: 'Le train est plus rapide que le bus', accept: ['Le train est plus rapide que le bus', 'Le train est plus rapide que le bus.'], why: 'Both things named, and que between them. rapide already ends in e so nothing is added to it.', ref: 's05-swap' },
         { format: 'typeIn', q: 'It is as cold as yesterday. Write it, starting with Il fait.', answer: "Il fait aussi froid qu'hier", accept: ["Il fait aussi froid qu'hier", "Il fait aussi froid qu'hier.", 'Il fait aussi froid quhier'], why: 'que loses its e in front of a vowel and hier starts with a silent h, so qu\'hier. The frame is otherwise untouched.', ref: 's05-swap' },
         { format: 'mcq', q: 'This coffee is as strong as the tea. Which is right?', opts: ['Ce café est aussi fort le thé.', 'Ce café est aussi fort que le thé.', 'Ce café est aussi que fort le thé.'], correct: 1, why: 'que sits between the describing word and the second thing, never anywhere else and never missing.', ref: 's05-swap' },
@@ -1364,7 +1388,7 @@ const DRILLS: LessonDrill[] = [
     id: 'd-que',
     title: 'And the second thing',
     format: 'mcq' as const,
-    coach: 'A comparison names both things. If you can only find one of them, it is not a comparison yet.',
+    coach: 'A comparison names both things. If you can only find one of them, the sentence is half said.',
     q: 'He meant he is taller than his brother. Which one says that?',
     opts: ['Il est plus grand.', 'Il est plus grand que son frère.', 'Il est le plus grand.'],
     correct: 1,
@@ -1557,7 +1581,7 @@ export const LESSON: Lesson = {
     },
     {
       id: 'no-que',
-      description: 'Stops the sentence after the describing word, producing a correct sentence that is not a comparison.',
+      description: 'Stops the sentence after the describing word, producing a grammatical sentence that never says what the comparison is with.',
       detectOn: ['s05-swap', 's17-errors', 's19-talk'],
       drill: 'd-que',
     },

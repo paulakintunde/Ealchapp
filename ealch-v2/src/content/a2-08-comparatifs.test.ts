@@ -435,6 +435,90 @@ test('`que` is obligatory, and the pair that proves it is a pair', () => {
     'the lesson never says that Il est plus grand. is a correct sentence with a different meaning');
 });
 
+test('THE LESSON DOES NOT CONTRADICT ITS OWN CORPUS ROW about what Il est plus grand. means', () => {
+  /* THE DEFECT THIS EXISTS FOR SHIPPED, AND AN AUDIT FOUND IT, NOT A GATE.
+   *
+   * The prompt says « `Il est plus grand.` is a complete sentence and it is not
+   * a comparison ». The first half is right and the second is backwards: `plus`
+   * is comparative and there is no reading on which that sentence means « he is
+   * tall » (that is `Il est grand.`). It is a comparison with an ELIDED second
+   * term, which both languages allow when the other thing is recoverable.
+   *
+   * The first version took the prompt at its word in SEVEN places, one of them
+   * a scored mcq key, and fr.a2.comparaisons.136 glosses itself « He is
+   * taller. » the whole time. A learner who knew French would have answered
+   * that question correctly and been marked wrong. */
+  const anchor = byId.get('fr.a2.comparaisons.136');
+  ok(anchor, 'fr.a2.comparaisons.136 is not in the seed');
+  strictEqual(anchor!.en, 'He is taller.',
+    'the anchor row moved; every string this test protects has to move with it');
+  const BANNED = ['it means he is tall', 'it simply says he is tall', 'says he is tall',
+    'is not a comparison', 'no comparison has been made'];
+  for (const b of BANNED) {
+    ok(!LEARNER_TEXT.toLowerCase().includes(b),
+      `a learner surface says "${b}". The row means "${anchor!.en}", so the lesson is contradicting its own corpus.`);
+  }
+  // AND THE SCORED KEY, BY NAME, because that is where it did the real damage.
+  const q = quizQs().find((x) => String(x.q).includes('What does Il est plus grand'));
+  ok(q, 'the question that carried the wrong key is gone; if it was removed on purpose, remove this assertion too');
+  strictEqual(String((q!.opts as string[])[q!.correct as number]), 'he is taller than somebody',
+    'the key is back to the wrong reading');
+  // The guard is proved to fire on what actually shipped, and to spare the fix.
+  ok(BANNED.some((b) => 'It is complete and it is not a comparison.'.toLowerCase().includes(b)), 'the guard cannot see the shipped wording');
+  ok(!BANNED.some((b) => 'It is grammatical, and it is unfinished: plus grand than whom.'.toLowerCase().includes(b)), 'the guard fires on the corrected wording');
+});
+
+test('NO TENSE THE LEARNER DOES NOT HAVE, on a surface they must produce', () => {
+  /* Doctrine §B.3 lets a CORPUS sentence use a tense the lesson body does not
+   * teach. A scenario turn and its `alts` are lines the learner SAYS. The first
+   * version had them produce « Je dormirais mieux dans le second. » and asked
+   * « si tu devais choisir, tu prendrais lequel ? » The conditional is B1 and
+   * arrives nowhere in the 35-unit A2 trail. No gate saw it. */
+  const COND = /(?<![\p{L}\p{N}-])(je|tu|il|elle|on|nous|vous|ils|elles)\s+\w*(rais|rait|rions|riez|raient)(?![\p{L}\p{N}'’-])/iu;
+  const SUBJ = /(?<![\p{L}\p{N}-])(que|qu['’])(\s+[\p{L}'’-]+){0,3}\s*(soit|soient|ait|aient|puisse|puissent|fasse|fassent|aille|sache|veuille)(?![\p{L}\p{N}'’-])/iu;
+  const PRODUCE = new Set(['scenario', 'practice', 'dictation', 'quiz', 'groupDrill', 'trapDrill']);
+  for (const s of sectionsOf(L!)) {
+    if (!PRODUCE.has(s.type)) continue;
+    for (const x of strs(s)) {
+      ok(!COND.test(x), `${s.id}: a production surface uses the conditional, which is B1: "${x.slice(0, 90)}"`);
+      ok(!SUBJ.test(x), `${s.id}: a production surface uses the subjunctive: "${x.slice(0, 90)}"`);
+    }
+  }
+  for (const r of AUTHORED) ok(!COND.test(r.fr) && !SUBJ.test(r.fr), `${r.id} uses an out-of-band tense: "${r.fr}"`);
+  // Fires on what shipped...
+  ok(COND.test('Je dormirais mieux dans le second.'), 'the conditional guard cannot see what actually shipped');
+  ok(SUBJ.test('Il faut que ce soit plus grand.'), 'the subjunctive guard cannot see the commonest shape there is');
+  // ...and spares the English half of a learner surface and this lesson's French.
+  // Corrections §14.4: `-rait` sits inside `portrait` and `-rais` inside a dozen
+  // English words, which is why the shape is anchored on a French subject.
+  for (const s of ['Il est plus grand que moi.', 'On dort mieux dans le second, il est plus calme.',
+    'The first is nicer, quite simply.', 'A portrait of the frame, and it never moves.',
+    'C\'est la question la plus difficile de l\'examen.']) {
+    ok(!COND.test(s) && !SUBJ.test(s), `the tense guard fires on legitimate content: "${s}"`);
+  }
+});
+
+test("a2.33's demonstrative pronouns are treated exactly as a2.34's possessives", () => {
+  // `fr.a2.comparaisons.069` carries `celui-là` and a2.33 is ONE SEQ AHEAD.
+  // The first version had `celle du premier` in a scenario alt, which is a line
+  // the learner may say.
+  const DEM = ['celui', 'celle', 'ceux', 'celles', 'celui-ci', 'celui-là',
+    'celle-ci', 'celle-là', 'ceux-ci', 'ceux-là', 'celles-ci', 'celles-là'];
+  for (const d of DEM) ok(!hasWord(LEARNER_TEXT, d), `"${d}" is a demonstrative pronoun and belongs to a2.33`);
+  for (const id of L!.itemIds ?? []) {
+    const r = byId.get(id);
+    if (!r) continue;
+    for (const d of DEM) ok(!hasWord(r.fr, d), `${id} "${r.fr}" carries "${d}"`);
+  }
+  ok(DEM.some((d) => hasWord('Non, celle du premier est plus petite.', d)), 'the guard cannot see what shipped');
+  // `cette`, `ce` and `ces` are demonstrative ADJECTIVES, which a1 owns and this
+  // lesson uses in eleven rows. A guard that catches them forbids half the corpus.
+  for (const s of ["Cette rue est moins longue que l'avenue.", 'Ce livre est aussi intéressant que le film.',
+    'Ce sont les plus grands jardins du quartier.']) {
+    ok(!DEM.some((d) => hasWord(s, d)), `the guard fires on a demonstrative ADJECTIVE, which is a1's: "${s}"`);
+  }
+});
+
 test('`ne … plus` is named once and taught nowhere', () => {
   const SHAPES = [/\bne\s+\w+\s+plus\b/i, /\bn['’]\w+\s+plus\b/i];
   for (const rx of SHAPES) {
@@ -515,6 +599,51 @@ test('no authored respelling closes a nasal with a plain n or m', () => {
     if (!r.respell) continue;
     ok(!hasPlainNasalFor(r.fr, r.respell), `${r.id} "${r.respell}" closes a nasal with a plain n/m`);
   }
+});
+
+test('LIAISON: every est + vowel frame carries its t, and no respelling uses U+203F', () => {
+  /* FOUR ROWS SHIPPED WITHOUT IT AND NO GATE SAW THEM. Every `est aussi` frame
+   * in this build was authored `eh oh-see`, with the liaison t missing.
+   * `hasPlainNasalFor` does not look at liaison, `validateDensity` does not,
+   * and the schema does not. The house is unambiguous across 109 respelled rows
+   * and writes the moving consonant onto the FOLLOWING SYLLABLE, never as a tie:
+   * `SEH TAHN PAHN`, `EEL EH TÜN UHR`, `day-zay-koo-TUR`. */
+  const CONTEXTS: Array<[string, RegExp, RegExp]> = [
+    ['est + vowel', /(?<![\p{L}\p{N}-])est\s+[aeiouéèêàâîôûùïüy](?![\p{L}]*\s*$)/iu, /t/i],
+    ['plus + vowel', /(?<![\p{L}\p{N}-])plus\s+[aeiouéèêàâîôûùïüy]/iu, /z/i],
+    ['moins + vowel', /(?<![\p{L}\p{N}-])moins\s+[aeiouéèêàâîôûùïüy]/iu, /z/i],
+    ['des + vowel', /(?<![\p{L}\p{N}-])des\s+[aeiouéèêàâîôûùïüy]/iu, /z/i],
+  ];
+  for (const r of AUTHORED) {
+    if (!r.respell) continue;
+    for (const [name, fr, expect] of CONTEXTS) {
+      if (!fr.test(r.fr)) continue;
+      ok(expect.test(r.respell), `${r.id} "${r.fr}" has a ${name} liaison and its respelling carries none: "${r.respell}"`);
+    }
+  }
+  // BY NAME, with the value that shipped wrong, so a revert says which row.
+  for (const [id, carries, wrong] of [
+    ['fr.a2.comparaisons.135', 'toh-see', 'EEL EH oh-see GRAHⁿ kuh MWAH'],
+    ['fr.a2.comparaisons.152', 'toh-see', 'set RÜ eh oh-see LOHⁿG kuh lav-NÜ'],
+    ['fr.a2.comparaisons.153', 'toh-see', 'suh LEEVR eh oh-see ahⁿ-tay-reh-SAHⁿ kuh luh FEELM'],
+    ['fr.a2.comparaisons.155', 'toh-see', 'suh ka-FAY eh oh-see FOR kuh luh TAY'],
+  ] as Array<[string, string, string]>) {
+    const r = byId.get(id);
+    ok(r, `${id} is not in the seed`);
+    notStrictEqual(r!.respell, wrong, `${id} is back to the value that shipped without its liaison`);
+    ok(r!.respell?.includes(carries), `${id} should carry "${carries}" and reads "${r!.respell}"`);
+  }
+  // The guard is proved to fire on the value that shipped, and to spare the
+  // frames that have no liaison at all.
+  ok(CONTEXTS[0][1].test('Il est aussi grand que moi.'), "the est + vowel shape cannot see this lesson's own frame");
+  ok(!CONTEXTS[0][1].test('Il est plus grand que moi.'), 'the est + vowel shape fires where there is no liaison');
+  // And `plus intéressant`, which shipped labelled SILENT on a card and is a
+  // liaison. The corpus said so all along: `plus ou moins` -> `plü-zoo-MWAN`.
+  const plusCard = strs(sec('s07-plus')).join('\n');
+  ok(plusCard.includes('plü-zahⁿ-tay-reh-SAHⁿ'),
+    's07-plus respells `plus intéressant` without its z. In front of a vowel the s liaises.');
+  ok(!/\[plü ahⁿ-tay-reh-SAHⁿ\]/.test(plusCard), 's07-plus is back to the value that called a liaison silent');
+  for (const r of AUTHORED) ok(!r.respell?.includes('‿'), `${r.id} writes its liaison with U+203F, which draws as an underscore`);
 });
 
 test('THE REPAIRS: stored, half-repair and final, all through the real function', () => {
