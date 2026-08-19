@@ -286,7 +286,7 @@ test('the unit block is the database\'s, not the brief\'s', { skip: noLesson }, 
   strictEqual(L!.tag, 'A2 · LEÇON 17');
   strictEqual(L!.title, u!.sub);
   strictEqual((L!.overview as { titleEn?: string })?.titleEn, u!.title);
-  strictEqual(L!.version, 5, 'the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label');
+  strictEqual(L!.version, 3, 'the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label. The unit-label pass and other text-only edits do NOT move this: the runtime reads Lesson.version to decide whether to DISCARD a learner mission record and its XP, and that reset is only warranted when the SECTION LIST changes. Those bumps were withdrawn across 45 lessons and the edits they carried were kept. Corrections §16.7 supersedes §10 on this; check with `pnpm content:versions`.');
 });
 
 test('the spine is in order and the acts claim every section exactly once', { skip: noLesson }, () => {

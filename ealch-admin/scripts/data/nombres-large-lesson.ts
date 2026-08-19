@@ -2003,7 +2003,7 @@ const NOMBRES_LARGE_LESSON_AUTHORED: Lesson = {
   // does not draw, so ten rows of reference material rendered as a title and an
   // empty screen. Rebuilt as `teach` blocks plus one short table, and pinned by
   // a test that reads the renderer's own switch. See the note on that sheet.
-  version: 8,
+  version: 7,
 
   grammarAssumed: [
     'Every number from un to cent, including the S on quatre-vingts and where et appears',

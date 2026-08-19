@@ -2213,7 +2213,7 @@ export const SAVOIR_CONNAITRE_LESSON: Lesson = {
   // The counter moves rather than the body being corrected under v1. Two
   // different bodies under one number is the drift this project has lost work to
   // twice, and the batch refuses it.
-  version: 6,
+  version: 5,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

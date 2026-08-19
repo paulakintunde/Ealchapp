@@ -1589,7 +1589,7 @@ const LESSON_AUTHORED: Lesson = {
    *  under one version is the drift this project has lost work to twice, and the
    *  batch's own version guard refuses a re-apply at the same number with
    *  different content. */
-  version: 4,
+  version: 1,
 
   /** DRAWN ON THE LESSON OVERVIEW CARD AND ON THE LESSON COVER, and corrections
    *  §9 records that a2.11 shipped grammar jargon here while every host gate was

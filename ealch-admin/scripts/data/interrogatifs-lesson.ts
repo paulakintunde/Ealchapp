@@ -2309,7 +2309,7 @@ export const INTERROGATIFS_LESSON: Lesson = {
   // interstitial both drew "One Frame, And It Is Borrowed" above a card saying
   // the learner already has it. Every test stayed green, because the assertion
   // looks for the credit anywhere in the section and the body carried it.
-  version: 4,
+  version: 2,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',

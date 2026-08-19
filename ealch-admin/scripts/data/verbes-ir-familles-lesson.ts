@@ -1618,7 +1618,7 @@ export const VERBES_IR_FAM_LESSON: Lesson = {
 
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 3,
+  version: 1,
 
   grammarAssumed: [
     'The present tense of regular -er verbs, introduced in a2.01',

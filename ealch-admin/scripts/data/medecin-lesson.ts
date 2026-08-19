@@ -1094,7 +1094,7 @@ export const MEDECIN_LESSON: Lesson = {
   seq: 1,
   level: 'a2',
   tag: 'A2 · LEÇON 27',
-  version: 3,
+  version: 1,
   title: UNIT.title,
   intro: 'You can already say what hurts. This lesson is about the question that comes back at you, and about what to say when the word will not come.',
 

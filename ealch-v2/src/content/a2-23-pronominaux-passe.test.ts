@@ -329,7 +329,7 @@ const PRODUCTION_SECTIONS = ['s18-dictation', 's20-speak', 's19-talk', 's07-asse
 /* ══ IDENTITY ═══════════════════════════════════════════════════════════ */
 
 test('a2.23.l1 is in the seed at v1', { skip: noLesson }, () => {
-  strictEqual(L!.version, 3, 'v2 repairs two Pixel 6 layout defects no host gate could see: the slot diagram spanning two screens, and two mission titles clipping. The counter moves rather than the body changing under v1');
+  strictEqual(L!.version, 2, 'v2 repairs two Pixel 6 layout defects no host gate could see: the slot diagram spanning two screens, and two mission titles clipping. The counter moves rather than the body changing under v1. The unit-label pass and other text-only edits do NOT move this: the runtime reads Lesson.version to decide whether to DISCARD a learner mission record and its XP, and that reset is only warranted when the SECTION LIST changes. Those bumps were withdrawn across 45 lessons and the edits they carried were kept. Corrections §16.7 supersedes §10 on this; check with `pnpm content:versions`.');
   strictEqual(L!.unitId, 'a2.23');
   strictEqual(L!.title, 'Pronominaux au passé composé');
   strictEqual(L!.tag, 'A2 · LEÇON 20');

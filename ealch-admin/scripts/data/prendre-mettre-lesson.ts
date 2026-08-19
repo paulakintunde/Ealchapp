@@ -2224,7 +2224,7 @@ export const PRENDRE_METTRE_LESSON: Lesson = {
   // hub on the same pass.
   //
   // v2: A BANNED WORD ON A CARD `sub`, AND A FRENCH GRAMMAR TERM ON ANOTHER.
-  version: 6,
+  version: 3,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

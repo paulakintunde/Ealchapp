@@ -1202,7 +1202,7 @@ export const TRANSPORTS_LESSON: Lesson = {
   // drew a lowercase word where all other lessons draw a formatted label; a2.26
   // fixed its own. This is the formatted form from the start.
   tag: 'A2 · LEÇON 26',
-  version: 2,
+  version: 1,
   title: UNIT.title,
   intro: 'You already know how to ask where something is. This lesson is about the fourteen words that come back at you, and about holding them long enough to walk.',
 

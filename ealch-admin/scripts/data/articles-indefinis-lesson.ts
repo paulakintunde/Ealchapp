@@ -1617,7 +1617,7 @@ const INDEFINIS_LESSON_AUTHORED: Lesson = {
   // The unit shipped with lessonIds: [], so this is the first lesson here and
   // the counter starts at 1. It moves forward on every rebuild: the merge
   // script prints both sides, and "replacing v3 with v1" reads as a rollback.
-  version: 2,
+  version: 1,
 
   grammarAssumed: [
     'Every noun carries a gender, and the article in front of it is the choice that gender makes',

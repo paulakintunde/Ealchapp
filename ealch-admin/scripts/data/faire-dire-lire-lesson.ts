@@ -1925,7 +1925,7 @@ export const FAIRE_DIRE_LIRE_LESSON: Lesson = {
   // Postgres and seed.json disagree twice, and the batch refuses the
   // alternative outright — which is how this came to be v2 rather than a quiet
   // edit.
-  version: 3,
+  version: 2,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

@@ -2391,7 +2391,7 @@ export const MODAUX_LESSON: Lesson = {
   // names first. Verified before editing: the DB body and the seed body were
   // byte-identical and both carried all four stale strings, so the source is
   // authoritative and the normal batch-then-merge path applies cleanly.
-  version: 6,
+  version: 3,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

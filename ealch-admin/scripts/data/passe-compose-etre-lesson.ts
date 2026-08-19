@@ -1765,7 +1765,7 @@ export const ETRE_LESSON: Lesson = {
   // Postgres already held v1 and then v2, and ledger §10 exists because two
   // different bodies under one number is the drift this project has lost work to
   // twice. a2.09 set the precedent and a2.20 followed it at v2 and again at v3.
-  version: 6,
+  version: 3,
 
   grammarAssumed: [
     'The passé composé with avoir, in six persons, introduced in a2.05',

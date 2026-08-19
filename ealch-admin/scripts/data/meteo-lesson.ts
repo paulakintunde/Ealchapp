@@ -2204,7 +2204,7 @@ export const METEO_LESSON: Lesson = {
   // sounds" cheat sheet, and two tapTable detail titles carry the pair they
   // describe. a1-10-meteo.test.ts now refuses a RESPELL entry no section
   // displays.
-  version: 6,
+  version: 4,
 
   grammarAssumed: [
     'The full present of être, introduced in a1.06',

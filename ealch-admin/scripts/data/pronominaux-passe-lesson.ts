@@ -1664,7 +1664,7 @@ export const LESSON: Lesson = {
    *  §10: two different bodies under one number is the drift this project has
    *  lost work to twice. a2.09 set the precedent, a2.20 followed it twice and
    *  a2.22 did the same thing for the same reason one lesson ago. */
-  version: 3,
+  version: 2,
 
   intro:
     `You can already say what you did yesterday, and you can already say what you do every morning with a small word in front of the verb. Putting those two together needs one fact and it is not the one people expect: the small word decides which of the two past helpers you reach for. Laver takes avoir and se laver takes être, and nothing about the meaning or the movement has a say in it. This is that fact, the order the words go in, and the ending that nobody can hear.`,

@@ -1756,7 +1756,7 @@ export const PASSE_COMPOSE_LESSON: Lesson = {
   //      572 gets its « ! » back, the content guard is deleted rather than
   //      rewritten, and the lesson stops carrying a workaround for a bug that
   //      no longer exists.
-  version: 7,
+  version: 5,
 
   grammarAssumed: [
     'The full present of avoir, in six persons, introduced in a1.07',

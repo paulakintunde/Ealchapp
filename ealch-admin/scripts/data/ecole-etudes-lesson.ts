@@ -1464,7 +1464,7 @@ export const LESSON: Lesson = {
   terms: ECOLE_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 2,
+  version: 1,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

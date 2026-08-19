@@ -2331,7 +2331,7 @@ export const AVOIR_LESSON: Lesson = {
   // a cloze test. s22-scenario was authored before that existed and had neither.
   // Caught by the suite rather than by a device, which is what a seed-wide
   // contract is for.
-  version: 8,
+  version: 6,
 
   grammarAssumed: [
     'The nine subject pronouns, and the six verb forms they sit behind, introduced in a1.05',

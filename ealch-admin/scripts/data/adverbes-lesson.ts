@@ -1815,7 +1815,7 @@ export const ADVERBES_LESSON: Lesson = {
   // shape the sweep repaired in a2.03 and a2.16 on the same day. Found by
   // reading the ledger section that the contract came from rather than by a
   // gate, which is why the batch now asserts it.
-  version: 5,
+  version: 3,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',

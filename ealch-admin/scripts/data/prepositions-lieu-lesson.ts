@@ -1583,7 +1583,7 @@ export const PREPOSITIONS_LIEU_LESSON: Lesson = {
   // held v1 with 63 itemIds and the seed would have held v1 with 48, which is
   // exactly the drift ledger §10 exists to prevent. a2.09 set the precedent of
   // moving it rather than relaxing the guard that caught it.
-  version: 4,
+  version: 3,
 
   grammarAssumed: [
     'The definite article and its four forms, introduced in a1.04',

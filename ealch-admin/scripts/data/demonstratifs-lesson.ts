@@ -1634,7 +1634,7 @@ export const LESSON: Lesson = {
   // the reading passage, the imparfait and the pronominal `en` on the scenario,
   // and a userEn calling a numeral "a noun-like word". Same rule: move the
   // counter rather than correct under the number that shipped.
-  version: 4,
+  version: 3,
   // `LessonAudio` is NOT `SectionAudio`. It takes `defaultLang`, not `lang`,
   // and it has no `mode`. The admin typecheck is the only check that sees the
   // difference; `validateLesson` tolerates the unknown key and carries it into

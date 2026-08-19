@@ -1848,7 +1848,7 @@ const ETRE_LESSON_AUTHORED: Lesson = {
   // first paint, and s16-contrast headed a column `il est` above a row whose
   // bare half is a1.11's first-person `Je suis professeur.` Both are content
   // fixes; see the notes at each site.
-  version: 7,
+  version: 4,
 
   grammarAssumed: [
     'The nine subject pronouns, and the six verb forms they sit behind, introduced in a1.05',

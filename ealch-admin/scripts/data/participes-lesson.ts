@@ -1945,7 +1945,7 @@ export const PARTICIPES_LESSON: Lesson = {
   //     The counter moves rather than the body being corrected under v1:
   //     Postgres already held v1, and two different bodies under one number is
   //     the drift ledger §10 exists to prevent. a2.09 set the precedent.
-  version: 5,
+  version: 3,
 
   grammarAssumed: [
     'The passé composé with avoir, in six persons, introduced in a2.05',

@@ -1863,7 +1863,7 @@ export const VERBES_ER_LESSON: Lesson = {
   // lines. One line of heading was all that stood between Continue and the fold.
   // Three device passes on one card, and every one of them found something no
   // test could see.
-  version: 9,
+  version: 8,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

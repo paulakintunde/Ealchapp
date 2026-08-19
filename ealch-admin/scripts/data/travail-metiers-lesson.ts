@@ -1835,7 +1835,7 @@ export const TRAVAIL_LESSON: Lesson = {
   terms: TRAVAIL_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 2,
+  version: 1,
 
   audio: {
     defaultLang: 'fr-FR',

@@ -252,7 +252,7 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   // v2, not v1. A Pixel 6 found the scene's break card running past the bottom
   // and the reference sheet's own title cut in its header bar, and the counter
   // moved rather than the body being corrected under v1 (ledger §10).
-  strictEqual(L!.version, 5, 'the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label');
+  strictEqual(L!.version, 3, 'the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label. The unit-label pass and other text-only edits do NOT move this: the runtime reads Lesson.version to decide whether to DISCARD a learner mission record and its XP, and that reset is only warranted when the SECTION LIST changes. Those bumps were withdrawn across 45 lessons and the edits they carried were kept. Corrections §16.7 supersedes §10 on this; check with `pnpm content:versions`.');
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

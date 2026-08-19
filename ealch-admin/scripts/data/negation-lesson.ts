@@ -2394,7 +2394,7 @@ export const NEGATION_LESSON: Lesson = {
   //   defect exactly: an assertion over strings(section) cannot tell "on the
   //   screen" from "one tap away". The English is now in the cell under the
   //   French, which TapTableView draws as a second line.
-  version: 5,
+  version: 3,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',

@@ -1564,7 +1564,7 @@ export const FUTUR_PROCHE_LESSON: Lesson = {
   //      `coach` and the scene's `closing` both render on that screen and both
   //      held the reframe, so eleven words printed twice one paragraph apart.
   //      The coach came off. Invariants §7: chrome repeated on one screen.
-  version: 5,
+  version: 3,
 
   grammarAssumed: [
     'The full present of aller, in six persons, introduced in a2.02',

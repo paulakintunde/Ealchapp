@@ -1207,7 +1207,7 @@ export const COURSES_LESSON: Lesson = {
   // unit's shipped content and it needs the publish decision that 42-FIX-PLAN
   // step 2 owns.
   tag: 'A2 · LEÇON 25',
-  version: 2,
+  version: 1,
   title: UNIT.title,
   intro: 'You have been taught how to ask for things. This one is about the number that comes back at you, once, at her speed.',
 

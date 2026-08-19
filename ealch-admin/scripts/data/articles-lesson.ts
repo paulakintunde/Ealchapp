@@ -1643,7 +1643,7 @@ const ARTICLES_LESSON_AUTHORED: Lesson = {
   // The shipped lesson is v2, so this rebuild is v3. The counter moves forward
   // rather than restarting: the merge script prints "replacing vX with vY" and
   // a rebuild that renumbers itself reads as a rollback in the log.
-  version: 7,
+  version: 3,
 
   grammarAssumed: [
     'Every noun carries a gender, and it is stored with the noun rather than derived from it',

@@ -2103,7 +2103,7 @@ export const JOURS_LESSON: Lesson = {
   // Tuesday that was only ever a drill item. The two are released where they are
   // shown instead, and the third is dropped and replaced in drill-lowercase by a
   // sentence the lesson actually puts on a screen.
-  version: 10,
+  version: 7,
 
   grammarAssumed: [
     'le, la, l\' and les, including le in front of a general noun, introduced in a1.04',

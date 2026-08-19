@@ -2077,7 +2077,7 @@ export const ADJECTIFS_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 2,
+  version: 1,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',

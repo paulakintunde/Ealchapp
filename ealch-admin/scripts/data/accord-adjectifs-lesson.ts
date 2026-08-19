@@ -1737,7 +1737,7 @@ export const ACCORD_ADJECTIFS_LESSON: Lesson = {
   // this lesson is SENTENCES and the trap's twelve words are bare naming forms.
   // rec-a2-03-groups is briefed here rather than the section pointing at a take
   // whose clips it does not contain.
-  version: 5,
+  version: 4,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',

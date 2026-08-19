@@ -1330,7 +1330,7 @@ export const LESSON: Lesson = {
   intro: 'Most people have two settings at a hotel desk: apologise, or lose your temper. French has a step in the middle, and this is it.',
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 2,
+  version: 1,
   // The grammar spine. `grammarIntroduced` is the house field (62 of 66
   // lessons); `teaches` was invented by a2.07 and draws nothing.
   grammarAssumed: [

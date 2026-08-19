@@ -1561,7 +1561,7 @@ export const LESSON: Lesson = {
    *  THE COUNTER MOVES RATHER THAN THE BODY BEING CORRECTED UNDER v1. Ledger
    *  §10: two different bodies under one number is the drift this project has
    *  lost work to twice. a2.09 set the precedent and a2.20 followed it twice. */
-  version: 3,
+  version: 2,
 
   intro:
     `About half the verbs in a French day arrive with a small word in front of them, and ${unitRef(ROUTINE_UNIT)} asked you to store it with the verb. That was the right thing to do while you only needed three of them. It is not a fixed piece of the verb: it is the person you have just named, said again, and it changes every time they do. This is all six of them, the one place saying no goes wrong, and the three verbs that carry it and mean nothing by it.`,

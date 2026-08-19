@@ -1539,7 +1539,7 @@ const LESSON_AUTHORED: Lesson = {
    *  it separated this lesson's one clip from its twenty-three passes on the
    *  first run, which is an independent validation of that model on content it
    *  was not calibrated against. */
-  version: 5,
+  version: 3,
 
   /** DRAWN ON THE LESSON OVERVIEW CARD AND ON THE LESSON COVER, and corrections
    *  §9 records that a2.11 shipped grammar jargon here while every host gate was

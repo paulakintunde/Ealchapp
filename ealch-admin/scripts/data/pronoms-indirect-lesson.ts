@@ -1571,7 +1571,7 @@ const LESSON_AUTHORED: Lesson = {
    *  under one number. Two different bodies under one number is the drift this
    *  project has lost work to twice, and the batch's own version guard refused
    *  the re-apply at v2, which is the guard working. */
-  version: 7,
+  version: 3,
 
   /** DRAWN ON THE LESSON OVERVIEW CARD AND ON THE LESSON COVER, and corrections
    *  §9 records that a2.11 shipped grammar jargon here while every host gate was

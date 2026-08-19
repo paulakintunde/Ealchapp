@@ -1875,7 +1875,7 @@ export const VERBES_RE_LESSON: Lesson = {
   // Pixel 6 after v1 was applied. The counter moves rather than the content being
   // corrected under the same number, because two different bodies under one
   // version is the drift that has made Postgres and seed.json disagree twice.
-  version: 6,
+  version: 2,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

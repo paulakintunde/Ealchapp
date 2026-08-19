@@ -2397,7 +2397,7 @@ export const HEURE_LESSON: Lesson = {
   //   whether an id is RELEASED and not whether it is SHOWN. The test asks the
   //   second question, on content rather than on ids, because this lesson names
   //   its corpus through frOf() and writes no ids into its sections at all.
-  version: 5,
+  version: 3,
 
   grammarAssumed: [
     'The numbers from one to a hundred, introduced in a1.02 and a1.27',

@@ -1989,7 +1989,7 @@ export const FAMILLE_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 6,
+  version: 4,
 
   grammarAssumed: [
     'Noun gender, and that le and la follow it, introduced in a1.03',

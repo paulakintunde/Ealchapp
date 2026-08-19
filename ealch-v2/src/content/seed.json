@@ -5845,7 +5845,7 @@
         "fr.a1.questions.116"
       ],
       "reframe": "Weather makes, people have, things are.",
-      "version": 6,
+      "version": 4,
       "features": [
         "roleplay",
         "voiceflash"
@@ -12824,7 +12824,7 @@
         "fr.a2.hebergement.091"
       ],
       "reframe": "The first sentence is the anchor, not the answer.",
-      "version": 2,
+      "version": 1,
       "overview": {
         "glyph": "💼",
         "subFr": "Le travail & les métiers",
@@ -15581,7 +15581,7 @@
         "fr.sons.nasales.029"
       ],
       "reframe": "À folds the article in. En throws it out. Chez leaves it alone.",
-      "version": 4,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -18422,7 +18422,7 @@
         "fr.sons.liaisons.149"
       ],
       "reframe": "Colours follow the noun. These six come first.",
-      "version": 2,
+      "version": 1,
       "features": [
         "roleplay",
         "voiceflash"
@@ -25206,7 +25206,7 @@
         "fr.a2.transports-quotidiens.190"
       ],
       "reframe": "Find the joints, then take one move at a time.",
-      "version": 2,
+      "version": 1,
       "features": [
         "roleplay",
         "voiceflash"
@@ -28105,7 +28105,7 @@
         "fr.a2.symptomes.102"
       ],
       "reframe": "English gives you one shape for a symptom. French picks one of three, and the choice is made before the word arrives.",
-      "version": 3,
+      "version": 1,
       "features": [
         "roleplay",
         "voiceflash"
@@ -34285,7 +34285,7 @@
         "fr.a2.verbes.055"
       ],
       "reframe": "The spelling changes so the sound does not.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -36882,7 +36882,7 @@
         "fr.a2.hebergement.091"
       ],
       "reframe": "They will not know the name of your diploma. Say what it was and how long it took.",
-      "version": 2,
+      "version": 1,
       "overview": {
         "glyph": "🎓",
         "subFr": "L'école & les études",
@@ -46121,7 +46121,7 @@
         "fr.sons.questions.040"
       ],
       "reframe": "If it is still happening, French keeps it in the present.",
-      "version": 4,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -48899,7 +48899,7 @@
         "fr.a1.famille.083"
       ],
       "reframe": "French has no apostrophe. Turn it around.",
-      "version": 6,
+      "version": 4,
       "features": [
         "roleplay",
         "voiceflash"
@@ -62311,7 +62311,7 @@
         "fr.a2.negation-et-restriction.142"
       ],
       "reframe": "One verb, two words, and the small ones go in between.",
-      "version": 7,
+      "version": 5,
       "features": [
         "roleplay",
         "voiceflash"
@@ -64955,7 +64955,7 @@
         "fr.a2.hebergement.092"
       ],
       "reframe": "L'écran vous donne un ordre, l'agent vous pose une question, l'ami vous parle. Trois voix, un seul appareil.",
-      "version": 4,
+      "version": 1,
       "overview": {
         "glyph": "📱",
         "subFr": "La technologie",
@@ -68007,7 +68007,7 @@
         "fr.a2.transports-quotidiens.043"
       ],
       "reframe": "The plural puts a sound on the end.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -70733,7 +70733,7 @@
         "fr.a1.metiers.007"
       ],
       "reframe": "Un introduces it. Le assumes you already know it.",
-      "version": 2,
+      "version": 1,
       "features": [
         "roleplay",
         "voiceflash"
@@ -73354,7 +73354,7 @@
         "fr.a2.negation-et-restriction.164"
       ],
       "reframe": "Wrap the verb that changed, not the one carrying the meaning.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -80296,7 +80296,7 @@
         "fr.a1.emotions.034"
       ],
       "reframe": "Do not build these. Reach for the group it is in.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -83568,7 +83568,7 @@
         "fr.a2.verbes.198"
       ],
       "reframe": "Check the family before you build.",
-      "version": 3,
+      "version": 1,
       "features": [
         "roleplay",
         "voiceflash"
@@ -86072,7 +86072,7 @@
         "fr.a1.argent-quotidien.068"
       ],
       "reframe": "The number comes once. Asking again is part of the script.",
-      "version": 2,
+      "version": 1,
       "features": [
         "roleplay",
         "voiceflash"
@@ -95327,7 +95327,7 @@
         "fr.a1.nombres.242"
       ],
       "reframe": "cent and mille are adjectives. million is a noun.",
-      "version": 8,
+      "version": 7,
       "features": [
         "narrated",
         "roleplay",
@@ -98769,7 +98769,7 @@
         "fr.a1.transports-quotidiens.045"
       ],
       "reframe": "The il form takes nothing, and that is the ending.",
-      "version": 6,
+      "version": 2,
       "features": [
         "roleplay",
         "voiceflash"
@@ -104052,7 +104052,7 @@
         "fr.a1.objets.153"
       ],
       "reframe": "Wrap the verb, then ask what the verb was.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -109554,7 +109554,7 @@
         "fr.sons.muettes.051"
       ],
       "reframe": "Learn the country with its article. Everything else follows.",
-      "version": 4,
+      "version": 2,
       "features": [
         "roleplay",
         "voiceflash"
@@ -114680,7 +114680,7 @@
         "fr.a2.comparaisons.069"
       ],
       "reframe": "A noun after it means it points. No noun means it replaces.",
-      "version": 4,
+      "version": 3,
       "overview": {
         "glyph": "☞",
         "subFr": "Démonstratifs",
@@ -117588,7 +117588,7 @@
         "fr.a2.verbes.464"
       ],
       "reframe": "Coming from an action is how French says you just did it.",
-      "version": 5,
+      "version": 4,
       "features": [
         "roleplay",
         "voiceflash"
@@ -122775,7 +122775,7 @@
         "fr.a1.corps.216"
       ],
       "reframe": "No pattern. Six forms. Every conversation.",
-      "version": 7,
+      "version": 4,
       "features": [
         "roleplay",
         "voiceflash"
@@ -131570,7 +131570,7 @@
         "fr.a1.meteo.029"
       ],
       "reframe": "French has it. English is it.",
-      "version": 8,
+      "version": 6,
       "features": [
         "roleplay",
         "voiceflash"
@@ -134451,7 +134451,7 @@
         "fr.sons.alphabet.282"
       ],
       "reframe": "Take the person out of the sentence.",
-      "version": 2,
+      "version": 1,
       "features": [
         "voiceflash",
         "roleplay"
@@ -143232,7 +143232,7 @@
         "fr.sons.elision.033"
       ],
       "reframe": "connaître stops at a thing. savoir keeps going.",
-      "version": 6,
+      "version": 5,
       "features": [
         "roleplay",
         "voiceflash"
@@ -146638,7 +146638,7 @@
         "fr.a2.maison.022"
       ],
       "reframe": "After être, the second word ends like a describing word.",
-      "version": 6,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -149547,7 +149547,7 @@
         "fr.a1.jours-et-mois.038"
       ],
       "reframe": "Le makes it every week.",
-      "version": 10,
+      "version": 7,
       "features": [
         "roleplay",
         "voiceflash"
@@ -152560,7 +152560,7 @@
         "fr.sons.questions.048"
       ],
       "reframe": "Your word, then est-ce que. That always works.",
-      "version": 4,
+      "version": 2,
       "features": [
         "roleplay",
         "voiceflash"
@@ -162067,7 +162067,7 @@
         "fr.a2.pronoms-essentiels.236"
       ],
       "reframe": "The pronoun goes in front of the verb, not after it.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -164850,7 +164850,7 @@
         "fr.a2.verbes.061"
       ],
       "reframe": "Four of the six forms sound the same, so the pronoun carries the person.",
-      "version": 9,
+      "version": 8,
       "features": [
         "roleplay",
         "voiceflash"
@@ -167759,7 +167759,7 @@
         "fr.a1.dictee.003"
       ],
       "reframe": "When English says nothing, French says le.",
-      "version": 7,
+      "version": 3,
       "features": [
         "narrated",
         "roleplay",
@@ -177792,7 +177792,7 @@
         "fr.a2.description-personnes-objets.004"
       ],
       "reframe": "The plain form tells you the other three.",
-      "version": 5,
+      "version": 4,
       "features": [
         "roleplay",
         "voiceflash"
@@ -180360,7 +180360,7 @@
         "fr.a2.pronoms-essentiels.336"
       ],
       "reframe": "The preposition goes inside the pronoun, so it does not get said twice.",
-      "version": 4,
+      "version": 1,
       "features": [
         "roleplay",
         "voiceflash"
@@ -189503,7 +189503,7 @@
         "fr.a1.adjectifs-essentiels.026"
       ],
       "reframe": "Before a vowel, say the feminine and drop its last two letters.",
-      "version": 6,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -198866,7 +198866,7 @@
         "fr.a1.dictee.122"
       ],
       "reframe": "French keeps faire where English reaches for a different verb every time.",
-      "version": 3,
+      "version": 2,
       "features": [
         "roleplay",
         "voiceflash"
@@ -201621,7 +201621,7 @@
         "fr.a1.corps.209"
       ],
       "reframe": "The pronoun changes with the subject, because it is the subject.",
-      "version": 3,
+      "version": 2,
       "features": [
         "roleplay",
         "voiceflash"
@@ -204416,7 +204416,7 @@
         "fr.sons.voyelles.386"
       ],
       "reframe": "Cover the front of the verb. Build what is left.",
-      "version": 6,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -207954,7 +207954,7 @@
         "fr.a1.cafe.051"
       ],
       "reframe": "One verb changes for the person, and the next one never does.",
-      "version": 6,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -211440,7 +211440,7 @@
         "fr.a2.pronoms-essentiels.286"
       ],
       "reframe": "If the person sits behind à, the pronoun is lui or leur.",
-      "version": 7,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -213951,7 +213951,7 @@
         "fr.a2.routines.039"
       ],
       "reframe": "If the little word is there, the first word is être.",
-      "version": 3,
+      "version": 2,
       "features": [
         "roleplay",
         "voiceflash"
@@ -217725,7 +217725,7 @@
         "fr.a1.objets.012"
       ],
       "reframe": "Il est says the time. À books it.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -224845,7 +224845,7 @@
         "fr.sons.nasales.013"
       ],
       "reframe": "Say the feminine, then add -ment.",
-      "version": 5,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"

@@ -1658,7 +1658,7 @@ export const PREPOSITIONS_TEMPS_LESSON: Lesson = {
   // validator or `lesson-contract.test.ts` compares a step label with the array
   // it labels; the batch, the merge and the test now do, and the `say` line is
   // checked with it because it counts them too.
-  version: 4,
+  version: 3,
 
   grammarAssumed: [
     'The full present of être, introduced in a1.06',

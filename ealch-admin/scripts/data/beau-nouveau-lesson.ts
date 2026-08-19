@@ -1793,7 +1793,7 @@ export const BEAU_NOUVEAU_LESSON: Lesson = {
   // Nothing new is owed to the studio for it. rec-a2-16-pairs already briefs and
   // already carries all six of the section's lines, so the audio step is a use
   // of the take this lesson already turns on rather than a second one.
-  version: 6,
+  version: 3,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',

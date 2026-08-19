@@ -2292,7 +2292,7 @@ export const PAYS_LESSON: Lesson = {
   //   the role play offered « Je viens de France, de Lyon. » as an alternative
   //   answer. A city takes de with NO article, which is a different rule and
   //   a1.21's, and an alternative is an answer the learner is told is right.
-  version: 4,
+  version: 2,
 
   grammarAssumed: [
     'Noun gender, and that the article in front of a noun is the choice that gender makes, introduced in a1.03',

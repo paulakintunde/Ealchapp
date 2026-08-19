@@ -1921,7 +1921,7 @@ export const ALLER_VENIR_LESSON: Lesson = {
   // number, because two different bodies under one version is the drift that has
   // made Postgres and seed.json disagree twice. The batch refuses the alternative
   // outright, which is how this came to be v4 rather than a quiet edit.
-  version: 5,
+  version: 4,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

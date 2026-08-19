@@ -334,7 +334,15 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   //       is grammar jargon on a drawn surface. a2.35 swept the whole band for
   //       these and found five across four lessons; this was one. Reworded to
   //       "a little word that changes for the person". Nothing else moved.
-  strictEqual(L!.version, 7);
+  //   v6 and v7 WERE WITHDRAWN, and the edits they carried were kept. Both were
+  //       text-only: a jargon repair, then the citation refactor that rewrote
+  //       « a2.10 » as « Lesson 3 in A2 ». The runtime reads Lesson.version to
+  //       decide whether to DISCARD a learner's mission checkmarks and lesson
+  //       XP, and that reset is only warranted when the SECTION LIST changes.
+  //       Neither edit touched a section, so v5 is correct and both bumps were
+  //       pure loss. 45 lessons were restored the same way; see
+  //       A2-BRIEF-CORRECTIONS.md §16.7 and `pnpm content:versions`.
+  strictEqual(L!.version, 5);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════

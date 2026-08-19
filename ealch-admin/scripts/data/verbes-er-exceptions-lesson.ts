@@ -1965,7 +1965,7 @@ export const VERBES_ER_EXC_LESSON: Lesson = {
   // card WITHOUT the two-line "you got it" chrome that a break following a choice
   // beat carries above its heading, so anything added to this card has to be
   // re-measured on a device rather than checked against the budget.
-  version: 5,
+  version: 3,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

@@ -1092,7 +1092,7 @@ test('the unit is attached, the tag matches its seq, and the overview matches th
   strictEqual(L!.tag, `A2 · LEÇON ${String(u!.seq).padStart(2, '0')}`);
   strictEqual(L!.overview?.titleEn, u!.title);
   strictEqual(L!.overview?.subFr, u!.sub);
-  strictEqual(L!.version, 5, 'v2 stepped both trapDrills; v3 took the size off them, which the ledger sweep requires and no gate checks; v5 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label');
+  strictEqual(L!.version, 3, 'v2 stepped both trapDrills; v3 took the size off them, which the ledger sweep requires and no gate checks; v5 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label. The unit-label pass and other text-only edits do NOT move this: the runtime reads Lesson.version to decide whether to DISCARD a learner mission record and its XP, and that reset is only warranted when the SECTION LIST changes. Those bumps were withdrawn across 45 lessons and the edits they carried were kept. Corrections §16.7 supersedes §10 on this; check with `pnpm content:versions`.');
 });
 
 test('the audio brief still says ONE TAKE for the two takes whose value is a contrast', () => {

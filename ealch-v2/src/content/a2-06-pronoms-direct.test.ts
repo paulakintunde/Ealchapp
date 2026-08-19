@@ -203,7 +203,7 @@ test('the shape is 24 sections, 6 acts, one quiz of 30', { skip: noLesson }, () 
   strictEqual((L!.acts ?? []).length, 6);
   strictEqual(L!.sections.filter((s) => s.type === 'quiz').length, 1, 'a second quiz section is silently never rendered');
   strictEqual(quizQuestions(L!.sections.find((s) => s.type === 'quiz') as never).length, 30);
-  strictEqual(L!.version, 5, 'v2 repaired the dishonest/honest slip; v3 repaired the scene title that clipped on a Pixel 6; v4 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label. Corrections §10: the counter moves rather than the body being corrected under one number');
+  strictEqual(L!.version, 3, 'v2 repaired the dishonest/honest slip; v3 repaired the scene title that clipped on a Pixel 6; v4 is the unit-label pass, which replaced every raw unit id on a learner surface with its lesson label. Corrections §10: the counter moves rather than the body being corrected under one number. The unit-label pass and other text-only edits do NOT move this: the runtime reads Lesson.version to decide whether to DISCARD a learner mission record and its XP, and that reset is only warranted when the SECTION LIST changes. Those bumps were withdrawn across 45 lessons and the edits they carried were kept. Corrections §16.7 supersedes §10 on this; check with `pnpm content:versions`.');
 });
 
 test('the prerequisite is shipped, not merely declared', { skip: noLesson }, () => {
