@@ -65,6 +65,7 @@
     "content:faire-dire-lire": "tsx scripts/author-faire-dire-lire-batch.ts",
     "content:modaux": "tsx scripts/author-modaux-batch.ts",
     "content:parity": "tsx scripts/check-seed-db-parity.ts",
+    "content:versions": "tsx scripts/check-version-bumps.ts",
     "content:pronominaux": "tsx scripts/author-pronominaux-batch.ts",
     "content:demonstratifs": "tsx scripts/author-demonstratifs-batch.ts",
     "content:pronoms-possessifs": "tsx scripts/author-pronoms-possessifs-batch.ts",

@@ -981,3 +981,94 @@ one will not be so lucky.
 **A dry-run flag that is not recognised should fail, not write.** Until the band
 is made consistent, read the header comment of the script you are about to run
 rather than assuming, and check `const DRY_RUN =` before trusting a flag.
+
+### 7. §10'S VERSION RULE AND THE RUNTIME DISAGREE, AND THE RUNTIME WINS
+
+**This is the largest thing a2.35 found, it was found by evaluation rather than
+by a failing gate, and every gate in the project is green through it.**
+
+§10 says, flatly:
+
+> Move the version counter rather than correcting under the same number. Two
+> different bodies under one version is the drift this project has lost work to
+> twice.
+
+That is a rule about AUTHORING PROVENANCE and it is good advice for it. Read
+literally it is an instruction to bump on every edit, and **the runtime reads
+`Lesson.version` for something else entirely**:
+
+```ts
+// progress.logic.ts, markMission()
+const base = rec && rec.v === version ? rec : { v: version, done: [], xp: 0 };
+```
+
+A version mismatch **DISCARDS the learner's completed-mission list and their
+lesson-local XP**. The comment above it says why:
+
+> `v` mirrors Lesson.version — a re-authored lesson (sections added or
+> reordered) starts a fresh record rather than mis-checking rows by stale index.
+
+The reset therefore exists to protect against **SECTION INDEX DRIFT**. `done`
+holds section INDEXES. If the section list changes, stored indexes point at the
+wrong missions and the record has to go. If the section list is unchanged, the
+indexes are still valid and the reset costs the learner their checkmarks and
+their XP for nothing.
+
+```
+BUMP       when the section list changes: added, removed, reordered
+DO NOT     for a text-only edit inside a section
+```
+
+**Blast radius, measured rather than guessed.** `lessonMissions` is read by
+`app/missions.tsx` for the mission checkmarks, is persisted, and is **not** in
+`sync.ts`, so it is device-local. Attempts, SRS, sessions and the streak are
+separate stores and are untouched. It is not catastrophic. It is every learner
+losing every checkmark and per-lesson XP on the affected lessons, which is not
+a thing to ship for a reworded sentence.
+
+**How bad it currently is.** Measured against `45aec8a`, the commit closest
+before snapshot **v53** was published (2026-08-18T10:46:57Z), which is the best
+available proxy for what learners actually hold — `content_snapshots` stores
+version, path, checksum and counts, **not the bodies**, so the published state
+cannot be diffed from the database:
+
+```
+54 lesson bodies changed since the last publish
+   correct                              9
+   bumped for a TEXT-ONLY edit         45   <- would reset progress on publish
+   section list changed, version held   0
+```
+
+Forty-five, across A1 and A2, some by several places at once (`a1.08.l1` v7→v10,
+`a1.04.l1` v3→v7, `a2.24.l1` v3→v7, `a2.11.l1` v2→v6). None has shipped: the
+snapshot is still v53, so **the cost of fixing this is zero until somebody
+publishes, and permanent afterwards.**
+
+a2.35 contributed four of the forty-five itself, bumping a2.05, a2.24, a2.28
+and a2.32 for a five-string jargon repair, and did it while quoting §10 in the
+commit message. The rule was followed and the outcome was wrong.
+
+**The check is now one command**, and it takes the ref to compare against:
+
+```bash
+pnpm content:versions                # against HEAD
+pnpm content:versions 45aec8a        # against what the last publish shipped
+```
+
+It is advisory on purpose. It cannot know that a bump was a deliberate decision
+to reset a lesson, and a script that blocks a commit on a judgement call gets
+disabled by the third person who meets it.
+
+**What is NOT resolved, and is a decision rather than a defect.** Whether to
+restore those forty-five versions before the next publish is a policy call
+between §10's provenance rule and the runtime's reset. Restoring them is
+mechanical but touches forty-five source files, nineteen of which build their
+id from a constant (``id: `${UNIT}.l1` ``) rather than typing it, so a literal
+grep locates only half. That rewrite is the risky half of the job and a2.35
+deliberately did not run it unattended.
+
+**If the two rules are to be reconciled properly**, the shape that removes the
+conflict is a separate authoring revision — a field the runtime ignores — so
+that provenance can move on every edit while `version` moves only when the
+section list does. That is a schema change and it is nobody's to make in
+passing.
