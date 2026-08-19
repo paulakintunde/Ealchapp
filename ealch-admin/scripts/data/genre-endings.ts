@@ -152,7 +152,24 @@ const MASCULINE: EndingRule[] = [
     // 57 since 2026-08-18: four orphan rows in `sons.jours-et-mois`,
     // referenced by no lesson, were removed from the seed by the merges that
     // own them. The accuracy did not move.
-    items: 57,
+    //
+    // 58 AGAIN the same day, and THIS FIGURE OSCILLATES. `content:publish`
+    // rebuilds the seed cut FROM THE DATABASE, and those four rows
+    // (`le jour`, `la semaine`, `le calendrier`, `le week-end`) are still in
+    // Postgres with `jours-et-mois` in SEED_CUT.themes, so a publish restores
+    // every one of them. `le calendrier` is the -ier noun, hence 57 -> 58.
+    //
+    // So the two writers disagree by construction: a lesson MERGE strips rows
+    // no lesson references, and a PUBLISH takes every row in a cut theme. The
+    // number here follows the PUBLISH, because the database is the source of
+    // truth and git is its mirror — that is the contract at the head of
+    // publish-content.ts, and v54 is what a learner actually holds.
+    //
+    // It will flip back to 57 the next time one of those merges runs and is
+    // committed without a publish behind it. The durable fix is to decide
+    // whether four rows referenced by no lesson belong in the corpus at all;
+    // until somebody does, this comment is the reason the number moved.
+    items: 58,
     article: 'un',
     example: { id: 'fr.a1.ecole.003', fr: 'le cahier', en: 'notebook' },
     sheetExamples: ['le papier', 'le quartier', 'l’escalier', 'un policier', 'un pompier'],
@@ -345,7 +362,12 @@ const FEMININE: EndingRule[] = [
     // 30 since 2026-08-18: four orphan rows in `sons.jours-et-mois`,
     // referenced by no lesson, were removed from the seed by the merges that
     // own them. The accuracy did not move.
-    items: 30,
+    //
+    // 31 AGAIN the same day: publishing v54 rebuilt the cut from the database
+    // and restored all four rows. `la semaine` is the joiner here. See the -ier
+    // note above for why this figure oscillates between the merge layer and the
+    // publish layer. The accuracy did not move.
+    items: 31,
     article: 'une',
     example: { id: 'fr.a1.cuisine.001', fr: 'la cuisine', en: 'the kitchen' },
     sheetExamples: ['la piscine', 'la cantine', 'la farine', 'la cousine'],
@@ -512,7 +534,12 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // 960 since 2026-08-18: four orphan rows in `sons.jours-et-mois`,
     // referenced by no lesson, were removed from the seed by the merges that
     // own them. The accuracy did not move.
-    items: 960,
+    //
+    // 961 AGAIN the same day: publishing v54 rebuilt the cut from the database
+    // and restored all four rows. `la semaine` is the joiner here too, since it
+    // ends in -e as well as -ine. See the -ier note for why this oscillates.
+    // The accuracy did not move.
+    items: 961,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },

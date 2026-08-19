@@ -82,7 +82,21 @@ const isMine = (id: string): boolean => {
   return n >= MY_BLOCK.from && n <= MY_BLOCK.to;
 };
 const A = (n: number) => `fr.a2.pronoms-essentiels.${String(n).padStart(3, '0')}`;
-const MINE: Item[] = seed.items.filter((i) => isMine(i.id));
+/** SORTED BY ID, and the sort is the point.
+ *
+ *  `seed.items` is not in id order and nothing promises it is. A lesson MERGE
+ *  appends, preserving whatever order it found; `content:publish` rebuilds the
+ *  whole cut from the database in ITS order. Both are legitimate writers, so
+ *  `MINE[0]` meant "the first row in the array that happens to be mine", which
+ *  is not what the assertions below are about — they are about the block
+ *  running from .237 to .286.
+ *
+ *  Found when publishing v54 reordered the cut and this file failed with
+ *  `.239 !== .237` while both rows were present and the block still held 53. */
+const MINE: Item[] = seed.items
+  .filter((i) => isMine(i.id))
+  .slice()
+  .sort((a, b) => a.id.localeCompare(b.id));
 
 /* ─── The strings, written out by hand ────────────────────────────────────── */
 
