@@ -33,11 +33,17 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { canonicalJson, type Lesson } from '../../ealch-v2/src/content/schema.ts';
+import { cutDrift } from './seed-cut.logic.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = join(here, '../../ealch-v2/src/content/seed.json');
 
-type Seed = { lessons: Lesson[]; items: { id: string }[]; units: { id: string; lessonIds?: string[] }[] };
+type Seed = {
+  lessons: Lesson[];
+  items: { id: string; theme: string }[];
+  units: { id: string; lessonIds?: string[] }[];
+  speakPath?: { world: number; blocks?: { itemIds?: string[] }[] }[];
+};
 
 /** A cheap shape fingerprint. Not a deep equality check: the seed is a
  *  PROJECTION of the database (publish-content withholds provenance columns),
@@ -201,7 +207,47 @@ async function main() {
       console.log(`\n  ! NOT PUBLISHED in the database: ${unpublished.join(', ')}`);
     }
 
-    const bad = seedOnly.length + drifted.length + seedRicher.length + unknownDir.length;
+    /* ── The ITEM cut, checked against the rule publish actually applies ────
+     *
+     * Lessons were the only thing compared here, and the item list drifted
+     * underneath unnoticed. A merge keeps whatever the seed already held minus
+     * its own authored ids; publish takes every row that is REFERENCED or sits
+     * in a cut THEME. 54% of the seed qualifies only on the theme clause, so
+     * that whole population is invisible to a merge and droppable by one.
+     *
+     * Commit 057a297 dropped four of them and moved three of a1.03's printed
+     * statistics; the next publish put them back and turned the suite red. The
+     * check runs here because it needs the FULL corpus: a seed cannot tell you
+     * about a row it does not contain. */
+    const itemRows = await client.query<{ id: string; theme: string }>(
+      `select id, theme from content_items where status = 'published'`,
+    );
+    const { missing, surplus } = cutDrift(
+      seed.items as never,
+      itemRows.rows as never,
+      seed.lessons,
+      (seed.speakPath ?? []) as never,
+    );
+
+    if (missing.length) {
+      console.log(`\n  ✗ ITEMS THE CUT REQUIRES AND THE SEED LACKS (${missing.length}):`);
+      for (const i of missing.slice(0, 12)) console.log(`      ${i.id}  theme ${i.theme}`);
+      if (missing.length > 12) console.log(`      ... and ${missing.length - 12} more`);
+      console.log('      A publish will ADD these. Until then the binary ships without them,');
+      console.log('      and any lesson statistic measured off the seed is measuring a short corpus.');
+    }
+    if (surplus.length) {
+      console.log(`\n  ! ITEMS THE SEED HOLDS THAT THE CUT EXCLUDES (${surplus.length}, informational):`);
+      for (const i of surplus.slice(0, 12)) console.log(`      ${i.id}  theme ${i.theme}`);
+      if (surplus.length > 12) console.log(`      ... and ${surplus.length - 12} more`);
+      console.log('      A publish will DROP these. Harmless offline surplus, but it means the');
+      console.log('      committed seed is not what the next publish will produce.');
+    }
+    if (!missing.length && !surplus.length) {
+      console.log(`\n  ✓ item cut: the seed is exactly what the rule produces (${seed.items.length} rows)`);
+    }
+
+    const bad = seedOnly.length + drifted.length + seedRicher.length + unknownDir.length + missing.length;
     if (bad === 0 && dbOnly.length === 0 && dbRicher.length === 0) {
       console.log('\n✓ seed.json and Postgres agree, shape AND content. A publish is safe.\n');
       return;

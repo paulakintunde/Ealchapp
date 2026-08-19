@@ -31,6 +31,7 @@ import { contentItems } from '../src/db/schema';
 import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCLED_VOCAB_FLOOR } from '../src/lib/vocab';
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
+import { cutItems } from './seed-cut.logic.ts';
 import { stableStringify, sha256, uploadToStorage, downloadFromStorage } from './snapshot-utils.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
 // producing one would publish bytes no phone will adopt. One number, app-side,
@@ -230,49 +231,14 @@ function assertItemProjectionIsComplete(): void {
   }
 }
 
-/** Every item a lesson depends on, found by WALKING THE WHOLE BODY rather than
- *  by listing the places an item is known to be named.
+/** Every item a lesson depends on, found by walking the whole body.
  *
- *  ── Why a walk and not a list (2026-08-09) ─────────────────────────────────
- *
- *  This read `l.itemIds` plus practice sections, and its own comment warned
- *  that missing the practice sections would ship a lesson whose practice block
- *  is silently empty. It was missing more than practice. Publishing v20 cut 60
- *  rows out of the seed, and among them were rows referenced from
- *  `terms[].examples[].itemId`: a1.12's term chips resolved to nothing in the
- *  bundle, and a1.08 lost an imported row the same way. `dictation` sections,
- *  `drills[].items` and a target's `practiceOn` were all equally invisible to
- *  this function.
- *
- *  The defect was the shape of the answer, not the three missing entries. An
- *  allowlist of reference sites has to be extended every time a section type
- *  learns to name an item, nothing fails when somebody forgets, and the symptom
- *  appears only for a learner with no network — the row is simply absent from
- *  the bundle and the card draws blank. A walk cannot fall behind the schema.
- *
- *  Over-inclusion is the safe direction and is nearly impossible in practice:
- *  an item id is `fr.<band>.<theme>.<nnn>` and no authored prose contains one.
- *  A false positive costs one surplus row in the bundle. A false negative costs
- *  a blank card offline, silently, for as long as nobody opens that lesson on a
- *  plane. */
-export function itemsReferencedBy(l: Lesson): string[] {
-  const found: string[] = [];
-  const walk = (v: unknown): void => {
-    if (typeof v === 'string') {
-      if (ITEM_ID_RE.test(v)) found.push(v);
-      return;
-    }
-    if (Array.isArray(v)) {
-      for (const x of v) walk(x);
-      return;
-    }
-    if (v && typeof v === 'object') {
-      for (const x of Object.values(v)) walk(x);
-    }
-  };
-  walk(l);
-  return found;
-}
+ *  MOVED to `seed-cut.logic.ts` on 2026-08-19, with its full history, and
+ *  re-exported here so `publish-cut.logic.test.ts` and any other importer keep
+ *  working unchanged. The move is the point: the cut rule now has one home a
+ *  CHECKER can import without importing the publisher, which is what let
+ *  check-seed-db-parity start enforcing it. */
+export { itemsReferencedBy } from './seed-cut.logic.ts';
 
 /* ─── main ───────────────────────────────────────────────────────────────── */
 
@@ -856,11 +822,16 @@ async function main() {
   // Everything the bundled lessons depend on, plus the core themes, plus the
   // bundled speak stages' blocks. A seed that ships a lesson without its items
   // is a seed that ships a broken lesson.
-  const needed = new Set([
-    ...seedLessons.flatMap(itemsReferencedBy),
-    ...seedSpeak.flatMap((s) => s.blocks.flatMap((b) => b.itemIds)),
-  ]);
-  const seedItems = items.filter((i) => needed.has(i.id) || SEED_CUT.themes.includes(i.theme));
+  //
+  // THE RULE MOVED TO `seed-cut.logic.ts` AND THIS CALLS IT. It used to be this
+  // one expression, inline, which meant publish was the only thing that knew
+  // it — while forty-plus merge scripts also write seed.json and none of them
+  // does. 54% of the seed is in it only on the theme clause, so that whole
+  // population is invisible to a merge; four rows went that way in 057a297 and
+  // took three of a1.03's printed statistics with them. `check-seed-db-parity`
+  // now checks against the same function, so the check and the build cannot
+  // drift apart.
+  const seedItems = cutItems(items, seedLessons, seedSpeak);
 
   // Scenarios ship in the seed when their level is represented in the seed — by a
   // bundled track OR a bundled unit (a1.01 pulls a1 in). So a fresh, offline
