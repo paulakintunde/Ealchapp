@@ -323,7 +323,15 @@ async function main() {
     const hits = lesson.sections.filter((s) => display(s).some((x) => x.s.includes(line)));
     if (hits.length < 3) die(`${lesson.id}: the reframe appears verbatim in ${hits.length} section(s), needs at least 3`);
   }
-  if (REFRAME === REFRAME_EXAM) die('the two lessons share one reframe; they have different designs and need different sentences');
+  // Widened to `string` on purpose. REFRAME and REFRAME_EXAM are imported
+  // `const` literals, so TypeScript narrows them to two non-overlapping literal
+  // types and rejects the comparison outright (TS2367) — the guard reads as
+  // proven at compile time and never runs. But what it is guarding is the pair
+  // of sentences, not their current values: the day somebody edits one constant
+  // to match the other, the compile-time proof evaporates and this is the only
+  // thing that would catch it. Keep the widening; it is what makes the check a
+  // real runtime assertion instead of a comment.
+  if ((REFRAME as string) === (REFRAME_EXAM as string)) die('the two lessons share one reframe; they have different designs and need different sentences');
   ok('reframe', 'both carried verbatim in at least three sections');
 
   /* ── 14. House copy, over a display() walk ──────────────────────────── */
