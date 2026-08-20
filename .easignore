@@ -1,0 +1,75 @@
+# What NOT to upload to EAS Build.
+#
+# ══════════════════════════════════════════════════════════════════════════
+#  WHY THIS FILE IS AT THE REPO ROOT AND NOT IN ealch-v2/
+# ══════════════════════════════════════════════════════════════════════════
+#
+# The Expo project is `ealch-v2/`, but the git root is this directory, and EAS
+# archives from the GIT ROOT. So `ealch-v2/.easignore` has its patterns resolved
+# against THIS directory, one level above where they were written.
+#
+# That silently broke the anchored ones. `ealch-v2/.easignore` says:
+#
+#     /android
+#     /ios
+#
+# A leading slash anchors a pattern to the archive root, so those mean
+# `Ealchapp/android` and `Ealchapp/ios` — neither of which exists. The real
+# `ealch-v2/android` was never matched and uploaded whole: 1,566 MB, roughly
+# 87% of a 1.8 GB archive, on the build of 2026-08-20.
+#
+# The unanchored patterns in that file (`node_modules/`, `.expo/`) DID keep
+# working, because a pattern with no leading slash matches at any depth. Which
+# is why the archive was 1.8 GB rather than several times that, and why the
+# breakage was easy to miss: the file looked like it was working.
+#
+# Its own header records "the first preview build shipped 214 MB without this
+# file" — true at the time, because the native folders had not been generated
+# yet. A local `gradlew assembleRelease` created them, and the next cloud build
+# carried all of it.
+#
+# So: patterns here are deliberately UNANCHORED unless they genuinely mean
+# "only at the repo root".
+
+# ─── Dependencies. EAS reinstalls from the lockfile. ───────────────────────
+node_modules/
+
+# ─── Native folders. EAS prebuilds these on the server from app.json. ──────
+# Unanchored on purpose: these live at ealch-v2/android, not at the root.
+android/
+ios/
+
+# ─── The admin workspace. Not part of the mobile build at all. ─────────────
+# A Next.js app with its own node_modules, its content scripts, and the
+# authoring data. The phone build needs none of it.
+ealch-admin/
+
+# ─── Expo / build caches and outputs ───────────────────────────────────────
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+
+# ─── Git history ───────────────────────────────────────────────────────────
+.git/
+
+# ─── Seed backups. The bundle needs seed.json and only seed.json. ──────────
+# The citation refactor left two 15 MB copies beside it, both untracked:
+# seed.post-unit-label.migrated.json and seed.pre-unit-label.14698453.bak.
+# They are half the remaining upload and nothing imports them. Patterns rather
+# than names, so the next one is caught too.
+seed.*.json
+!seed.json
+*.bak
+
+# ─── Local noise, scratch files and audit output ───────────────────────────
+*.log
+.DS_Store
+AUDIT-EVIDENCE/
+a1-device/
+docs/
+*.apk
+*.keystore
+
+# Markdown docs never belong in a build upload (README/AGENTS/CLAUDE/etc.)
+*.md

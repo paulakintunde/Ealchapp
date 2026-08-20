@@ -1,3 +1,8 @@
+# NOTE: EAS archives from the GIT ROOT, which is the parent of this directory,
+# so the file it actually consults is ../.easignore. This one is kept correct
+# and unanchored in case the project root is ever used, but the root file is
+# the one that governs. See its header for the 1.8 GB incident.
+
 # What NOT to upload to EAS Build. EAS runs its own install and prebuild on the
 # server, so the heavy local folders below are dead weight in the upload archive
 # (the first preview build shipped 214 MB without this file). Everything the
@@ -11,8 +16,16 @@ node_modules/
 .git/
 
 # Native folders (EAS prebuilds these from app.json on the server)
-/android
-/ios
+#
+# UNANCHORED ON PURPOSE, and this is the bug that made the root .easignore
+# necessary. These were `/android` and `/ios`. A leading slash anchors a pattern
+# to the ARCHIVE root, and EAS archives from the GIT root — which is the parent
+# directory, not this one. So they meant `Ealchapp/android`, which does not
+# exist, and `ealch-v2/android` uploaded whole: 1,566 MB of a 1.8 GB archive on
+# 2026-08-20. The unanchored entries in this file kept working the whole time,
+# which is exactly why it looked fine.
+android/
+ios/
 
 # Expo / build caches and outputs
 .expo/
