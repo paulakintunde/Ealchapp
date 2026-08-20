@@ -607,7 +607,9 @@ export const T: Record<Lang, Strings> = {
     availableT: 'DISPONIBLE',
     offlineSync: 'Les progrès hors ligne se synchronisent au retour du réseau.',
     offlineReadyT: 'Tout fonctionne hors ligne',
-    offlineReadyS: "Vos leçons, exercices et vocabulaire sont intégrés à l'app. Aucun téléchargement nécessaire.",
+    // Voir la note sur la version anglaise : le binaire contient toutes les
+    // leçons mais 10 417 des 48 978 phrases du corpus.
+    offlineReadyS: "Toutes les leçons sont intégrées à l'app et fonctionnent sans réseau. Le vocabulaire supplémentaire arrive tout seul une fois en ligne.",
     contentVersionL: 'Version du contenu', contentCountsFmt: '{u} unités · {l} leçons · {i} phrases',
     checkUpdates: 'Rechercher des mises à jour', updatingL: 'Vérification…', upToDateL: 'À jour', updatedL: 'Contenu mis à jour.',
     cachedUpdateL: 'Mise à jour téléchargée', audioSoonL: 'Des packs audio téléchargeables arriveront dans une prochaine mise à jour.',
@@ -960,7 +962,13 @@ export const T: Record<Lang, Strings> = {
     availableT: 'AVAILABLE',
     offlineSync: 'Progress made offline syncs when you’re back online.',
     offlineReadyT: 'Everything works offline',
-    offlineReadyS: 'Your lessons, drills and vocabulary are built into the app. No download needed.',
+    // NOT "no download needed". The binary ships the seed CUT: every unit and
+    // every lesson, but 10,417 of the corpus's 48,978 phrases. The rest arrives
+    // over the air. The old line claimed nothing was downloaded while the card
+    // below it displayed 48,978, which is a number that only exists BECAUSE a
+    // download happened. A learner reading it would expect all 48,978 on a
+    // fresh offline install and get a quarter of them.
+    offlineReadyS: 'Every lesson is built into the app and works with no network. Extra vocabulary arrives on its own once you are online.',
     contentVersionL: 'Content version', contentCountsFmt: '{u} units · {l} lessons · {i} phrases',
     checkUpdates: 'Check for updates', updatingL: 'Checking…', upToDateL: 'Up to date', updatedL: 'Content updated.',
     cachedUpdateL: 'Downloaded update', audioSoonL: 'Downloadable audio packs arrive in a future update.',

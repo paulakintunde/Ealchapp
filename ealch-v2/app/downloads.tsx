@@ -10,13 +10,29 @@ import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { useContent, refreshFromRemote, contentCacheInfo } from '@/services/content';
 
-// Honest offline/content status.
+// Offline/content status, told accurately.
 //
-// The whole corpus ships bundled in the binary (seed.json), so every lesson,
-// drill and phrase already works offline — there is nothing to "download" for
-// text content. What CAN be shown truthfully: the content version and real
-// counts, the size of the cached over-the-air update (if any), and a real
-// "check for updates" that runs the same refresh the app does in the background.
+// THE PREMISE THIS FILE WAS WRITTEN ON IS FALSE, and the copy inherited it.
+// The header used to say "the whole corpus ships bundled in the binary
+// (seed.json), so every lesson, drill and phrase already works offline". The
+// binary ships the seed CUT, not the corpus:
+//
+//   bundled in the APK   75 units · 78 lessons · 10,417 phrases
+//   after the OTA fetch  75 units · 78 lessons · 48,978 phrases
+//
+// Units and lessons are identical in both, which is why "every lesson works
+// offline" is true and was worth keeping. PHRASES are not: the cut is a bit
+// over a fifth of them, and the rest arrive with the snapshot.
+//
+// So the card below, which renders `corpus.items.length`, shows 48,978 on any
+// device that has fetched — a number that exists BECAUSE of a download, sat
+// directly under a line reading "No download needed". Measured on a Pixel 9,
+// 2026-08-20. The string is fixed in i18n/strings.ts; this comment is fixed so
+// the next person does not restore the old line from it.
+//
+// What CAN be shown truthfully: the content version and real counts, the size
+// of the cached over-the-air update (if any), and a real "check for updates"
+// that runs the same refresh the app does in the background.
 // Was pure mock: a fixed 2 GB storage bar, invented 210/160/340 MB collections,
 // two of them flagged "already downloaded" on a fresh install, and a Wi-Fi
 // toggle that controlled nothing (review §1.10). Downloadable audio packs are
