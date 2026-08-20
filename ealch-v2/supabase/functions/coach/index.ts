@@ -38,6 +38,8 @@ import {
   buildChain,
   DEFAULT_CEILING,
   DEFAULT_MODEL,
+  MAX_CHARS,
+  overCap,
   type ChainEntry,
   type CostTier,
   type ProviderName,
@@ -370,6 +372,25 @@ Deno.serve(async (req) => {
       deviceId = null,
     } = await req.json();
 
+    // Bound the context BEFORE anything is spent on this request — before the
+    // system_config read, before the quota write, and long before a provider
+    // call. The slice is the same twelve-turn bound as always; it just moved up
+    // so the size check measures exactly what would be forwarded and nothing
+    // that would not. See routing.ts for why the number is 6000.
+    const history: Msg[] = (messages as Msg[]).slice(-12);
+    const oversize = overCap(history);
+    if (oversize !== null) {
+      return new Response(
+        JSON.stringify({
+          error: `message too long: ${oversize} characters across the last 12 turns, max ${MAX_CHARS}`,
+          reason: "too_long",
+          chars: oversize,
+          limit: MAX_CHARS,
+        }),
+        { status: 400, headers: { ...cors, "Content-Type": "application/json" } },
+      );
+    }
+
     const routed = await routing();
 
     // Check the quota before spending a provider call, not after.
@@ -399,7 +420,6 @@ Deno.serve(async (req) => {
     if (!quota && !exempt) posthog("coach_quota_unavailable", { subject: subject.split(":")[0] });
 
     const system = await activePrompt(promptVersion, lang);
-    const history: Msg[] = messages.slice(-12); // bound the context
     const resolution = buildChain(routed.model, {
       hasSecret,
       aiApiModel: Deno.env.get("AI_API_MODEL"),
