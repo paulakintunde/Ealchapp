@@ -63,11 +63,16 @@ seed.*.json
 *.bak
 
 # ─── Local noise, scratch files and audit output ───────────────────────────
+# Measured with _a235_archivesize.mjs: .playwright-mcp alone was 2.3 MB of
+# screenshots and page dumps, and the loose _*.txt files another 0.3 MB. Small
+# against 29 MB, but none of it is a build input.
 *.log
 .DS_Store
 AUDIT-EVIDENCE/
 a1-device/
 docs/
+.playwright-mcp/
+_*.txt
 *.apk
 *.keystore
 
