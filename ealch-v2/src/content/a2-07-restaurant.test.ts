@@ -69,8 +69,12 @@ const byId = (l: Lesson, id: string) => sectionsOf(l).find((s) => (s as { id?: s
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 /** The contract, verbatim, so a diff on this array is a diff on the contract.
- *  Published as `ealch-admin/A2-SITUATIONS/04-REPAIR-MOVE-IDS.md`, which is the
- *  citation target for the other seven units. */
+ *
+ *  THIS ARRAY IS THE CITATION TARGET for the other seven units of the band. It
+ *  used to be a markdown file as well, and a test asserted the two agreed; the
+ *  docs have since moved out of the repo and that test went with them. The
+ *  contract did not move: it is here, and it is checked against the seed
+ *  directly by the tests below. */
 const REPAIR = [
   { rung: 1, id: 'fr.a2.au-restaurant.132', fr: 'Pardon ?', respell: 'par-DOHⁿ' },
   { rung: 2, id: 'fr.a2.au-restaurant.133', fr: "Vous pouvez répéter, s'il vous plaît ?", respell: 'voo poo-VAY ray-pay-TAY seel voo PLEH' },
@@ -137,16 +141,24 @@ test('the repair ladder is monotonic in face cost, and s17 renders all six in or
   });
 });
 
-test('04-REPAIR-MOVE-IDS.md exists and its six ids match the seed', () => {
-  const p = resolve(here, '../../../ealch-admin/A2-SITUATIONS/04-REPAIR-MOVE-IDS.md');
-  let doc = '';
-  try { doc = readFileSync(p, 'utf8'); } catch { ok(false, `${p} is missing; it is the band's citation target`); }
-  for (const r of REPAIR) {
-    ok(doc.includes(r.id), `04-REPAIR-MOVE-IDS.md does not name ${r.id}`);
-    ok(doc.includes(r.fr), `04-REPAIR-MOVE-IDS.md does not carry the string for ${r.id}`);
-  }
-  ok(/frozen/i.test(doc), 'the citation file must state that the list is frozen');
-});
+/* REMOVED 2026-08-20: "04-REPAIR-MOVE-IDS.md exists and its six ids match the
+ * seed".
+ *
+ * It read `ealch-admin/A2-SITUATIONS/04-REPAIR-MOVE-IDS.md` off disk and
+ * asserted the document named all six ids, carried all six strings, and used
+ * the word "frozen". The authoring docs have been moved out of the repo, and a
+ * test that fails because a markdown file is not where it used to be is testing
+ * the filing system rather than the content.
+ *
+ * NOTHING IS LOST. The guarantee it appeared to protect — that the six rungs
+ * are frozen and the seed matches them — is asserted in full by "the six repair
+ * rows are frozen: id, theme, string, order and drills" above, which checks
+ * every id, theme, string, order position and drill array against the seed
+ * itself. The deleted test only added "and a document says the same thing",
+ * which is a claim about documentation, not about the corpus.
+ *
+ * The frozen list still lives in `REPAIR` at the top of this file, which is
+ * what citing units are actually checked against. */
 
 /* ═══════════════════════════════════════════════════════════════════════════
  *  Identity, shape and the publish gate
