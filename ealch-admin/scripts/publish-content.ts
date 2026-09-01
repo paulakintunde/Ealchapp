@@ -8,8 +8,9 @@
 //        ├──► snapshots/v{n}.json + manifest.json   → Storage bucket `content`
 //        │                                            (the OTA channel)
 //        ├──► content_snapshots row                 → the canonical version
-//        └──► ealch-v2/src/content/seed.json        → committed to git
-//                                                     (what ships in the binary)
+//        ├──► ealch-v2/src/content/seed.json        → committed to git
+//        │                                            (what ships in the binary)
+//        └──► prune snapshots outside --prune-keep  → the bucket stays flat
 //
 // The DB is the source of truth and git is a MIRROR, never a rival writer. That
 // is the whole reason seed.json is GENERATED here rather than hand-edited: the
@@ -21,6 +22,8 @@
 //   pnpm content:publish --dry-run    validate + report, write and upload nothing
 //   pnpm content:publish --no-upload  everything except the Storage upload
 //   pnpm content:publish --allow-noop publish even if the corpus has not moved
+//   pnpm content:publish --prune-keep 20   keep 20 snapshots instead of 10
+//   pnpm content:publish --no-prune        leave old snapshot bytes in place
 import './env';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -32,7 +35,8 @@ import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCL
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 import { cutItems } from './seed-cut.logic.ts';
-import { stableStringify, sha256, uploadToStorage, downloadFromStorage } from './snapshot-utils.ts';
+import { stableStringify, sha256, uploadToStorage, downloadFromStorage, listStorage, deleteFromStorage } from './snapshot-utils.ts';
+import { planPrune, mib } from './prune.logic.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
 // producing one would publish bytes no phone will adopt. One number, app-side,
 // imported — never restated here.
@@ -80,6 +84,26 @@ const rolloutIx = argv.indexOf('--rollout');
 const ROLLOUT = rolloutIx === -1 ? 100 : Number(argv[rolloutIx + 1]);
 if (!Number.isInteger(ROLLOUT) || ROLLOUT < 0 || ROLLOUT > 100) {
   console.error(`\n✖ --rollout must be an integer 0..100, got "${argv[rolloutIx + 1]}"\n`);
+  process.exit(1);
+}
+
+// --prune-keep <n> / --no-prune: how many published snapshots keep their BYTES
+// in Storage after this publish. Default 10.
+//
+// On by default because the alternative was measured: 56 publishes accumulated
+// 1039 MiB against a 1 GB Storage limit and nobody noticed until it was over.
+// A retention step that has to be remembered is a retention step that does not
+// happen, and this is the only place that knows a publish just occurred.
+//
+// It deletes BYTES, never content_snapshots rows, and never the version the
+// manifest points at. The cost is the rollback window: --to <n> below the floor
+// can no longer be rolled back onto. Raise --prune-keep before a risky publish
+// if you want a deeper history to fall back through.
+const NO_PRUNE = args.has('--no-prune');
+const pruneKeepIx = argv.indexOf('--prune-keep');
+const PRUNE_KEEP = pruneKeepIx === -1 ? 10 : Number(argv[pruneKeepIx + 1]);
+if (!NO_PRUNE && (!Number.isInteger(PRUNE_KEEP) || PRUNE_KEEP < 2)) {
+  console.error(`\n✖ --prune-keep must be an integer >= 2, got "${argv[pruneKeepIx + 1]}". Use --no-prune to skip pruning.\n`);
   process.exit(1);
 }
 
@@ -1042,6 +1066,40 @@ async function main() {
      values ($1, $2, $3, $4, $5)`,
     [version, path, checksum, JSON.stringify(counts), JSON.stringify(seedCounts)]
   );
+
+  // ── 11. Trim the bucket. LAST, and never fatal. ────────────────────────
+  // Runs only after a fully successful publish — upload, manifest, seed, and
+  // the counter row — so the version just shipped is in the DB and therefore
+  // inside its own retention window.
+  //
+  // A prune failure must not fail a publish that already succeeded. The bytes
+  // are live, the manifest points at them, and the row is recorded; the worst
+  // case here is a bucket that stays larger than intended, which is a warning,
+  // not an incident. Same reasoning as the previous-snapshot diff above.
+  if (!NO_UPLOAD && !NO_PRUNE) {
+    const url = process.env.SUPABASE_URL!;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    try {
+      const rows = await pool.query<{ version: number }>(`select version from content_snapshots`);
+      const plan = planPrune(await listStorage(url, key, 'snapshots/'), rows.rows.map((r) => r.version), version, PRUNE_KEEP);
+      if (plan.doomed.length === 0) {
+        console.log(`\n  retention: ${plan.kept.length} snapshot(s), ${mib(plan.totalBytes)}, nothing to prune`);
+      } else {
+        const removed = await deleteFromStorage(url, key, plan.doomed.map((o) => o.name));
+        const floor = plan.kept[plan.kept.length - 1]?.version;
+        console.log(`\n  retention: pruned ${removed.length} snapshot(s), ${mib(plan.freedBytes)} reclaimed`);
+        console.log(`  bucket now ${mib(plan.totalBytes - plan.freedBytes)} in ${plan.kept.length} object(s); rollback reaches v${floor} and newer`);
+        if (removed.length !== plan.doomed.length) {
+          console.log(`  ! Storage confirmed ${removed.length} of ${plan.doomed.length} deletions — run pnpm content:prune to see what remains`);
+        }
+      }
+    } catch (e) {
+      console.log(`\n  ! retention skipped: ${(e as Error).message.slice(0, 120)}`);
+      console.log('    The publish itself succeeded. Run pnpm content:prune when convenient.');
+    }
+  } else if (!NO_UPLOAD && NO_PRUNE) {
+    console.log('\n  (--no-prune: Storage retention untouched)');
+  }
   await pool.end();
 
   console.log(`\n✓ published v${version}\n`);

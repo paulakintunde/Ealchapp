@@ -84,10 +84,23 @@ Every publish uploads a full-corpus `snapshots/v{n}.json` and, until
 against a 1 GB Storage limit. Postgres was 46 MB, so the bucket was always the
 only thing near a quota.
 
+**`content:publish` now trims itself.** After a successful publish it prunes to
+the newest 10 by default, so the bucket stays flat without anyone remembering.
+It runs last and is never fatal: a retention failure prints a warning and
+leaves the publish standing, because the bytes are already live and recorded.
+A `--dry-run` or `--no-upload` publish prunes nothing.
+
 ```bash
+pnpm content:publish --prune-keep 20   # keep a deeper history for this publish
+pnpm content:publish --no-prune        # leave old bytes alone entirely
+
 pnpm content:prune                     # dry run, keeps the newest 10
-pnpm content:prune --keep 10 --apply   # delete everything older
+pnpm content:prune --keep 10 --apply   # manual reclaim, or a tighter window
 ```
+
+Raise `--prune-keep` before a risky publish if you want more versions to fall
+back through. Which snapshots die is decided in `scripts/prune.logic.ts` and
+unit-tested in `scripts/prune.logic.test.ts`.
 
 **This bounds the rollback window.** `content:rollback --to <n>` downloads that
 version's bytes, so a pruned version can no longer be rolled back onto. It

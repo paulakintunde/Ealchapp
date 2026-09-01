@@ -4,10 +4,15 @@
 //   pnpm content:prune --keep 5               dry run, keep the newest 5
 //   pnpm content:prune --keep 10 --apply      actually delete
 //
+// `content:publish` now self-trims with the same logic (prune.logic.ts), so
+// this is the manual tool for a one-off reclaim, a tighter window, or seeing
+// where the rollback floor currently sits. Which snapshots die is decided in
+// prune.logic.ts and unit-tested there.
+//
 // Why this exists: every publish uploads a full-corpus snapshots/v{n}.json and
-// nothing has ever deleted one. At v56 that was 56 objects and 1039 MiB against
-// a 1 GB Storage limit, growing ~24.7 MB per publish. The bucket was the only
-// thing near a quota; Postgres was 46 MB.
+// nothing ever deleted one. At v56 that was 56 objects and 1039 MiB against a
+// 1 GB Storage limit, growing ~24.7 MB per publish. Postgres was 46 MB, so the
+// bucket was always the only thing near a quota.
 //
 // WHAT IS SAFE TO DELETE, AND WHY
 //
@@ -38,6 +43,7 @@
 import './env';
 import { describeTarget, isRemoteTarget } from './env';
 import { listStorage, deleteFromStorage, downloadFromStorage } from './snapshot-utils.ts';
+import { planPrune, mib } from './prune.logic.ts';
 
 const argv = process.argv.slice(2);
 const APPLY = argv.includes('--apply');
@@ -45,18 +51,10 @@ const keepIx = argv.indexOf('--keep');
 const KEEP = keepIx === -1 ? 10 : Number(argv[keepIx + 1]);
 
 const PREFIX = 'snapshots/';
-const mib = (b: number) => `${(b / 1048576).toFixed(1)} MiB`;
 
 function die(msg: string): never {
   console.error(`\n✗ ${msg}\n`);
   process.exit(1);
-}
-
-/** Parse snapshots/v{n}.json. Anything else under the prefix is left alone:
- *  this script deletes a known shape, it does not empty a directory. */
-function versionOf(name: string): number | null {
-  const m = /^snapshots\/v(\d+)\.json$/.exec(name);
-  return m ? Number(m[1]) : null;
 }
 
 async function main() {
@@ -65,9 +63,6 @@ async function main() {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) die('needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in ealch-admin/.env');
-  if (!Number.isInteger(KEEP) || KEEP < 2) {
-    die(`--keep must be an integer >= 2, got "${keepIx === -1 ? 10 : argv[keepIx + 1]}". Keeping fewer than two leaves nothing to roll back onto.`);
-  }
 
   // The live manifest decides what is untouchable. If we cannot read it we
   // cannot prove which version devices are being served, and a prune that
@@ -86,61 +81,42 @@ async function main() {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
 
   try {
-    const rows = await pool.query<{ version: number }>(
-      `select version from content_snapshots order by version desc`
-    );
+    const rows = await pool.query<{ version: number }>(`select version from content_snapshots`);
     const known = rows.rows.map((r) => r.version);
     if (known.length === 0) die('content_snapshots is empty — nothing to prune against.');
 
     const objects = await listStorage(url, key, PREFIX);
-    const versioned = objects
-      .map((o) => ({ ...o, version: versionOf(o.name) }))
-      .filter((o): o is typeof o & { version: number } => o.version !== null)
-      .sort((a, b) => b.version - a.version);
-    const unversioned = objects.filter((o) => versionOf(o.name) === null);
-
-    // Keep the newest KEEP *published versions*, not the newest KEEP objects.
-    // Deriving the window from the DB means an already-pruned gap cannot pull
-    // an older version back into the keep set to fill it.
-    const keepVersions = new Set(known.slice(0, KEEP));
-    keepVersions.add(live.version); // belt and braces: the served version, always
-
-    const doomed = versioned.filter((o) => !keepVersions.has(o.version));
-    const kept = versioned.filter((o) => keepVersions.has(o.version));
-
-    // A bug in the window maths must not become a deleted live snapshot.
-    if (doomed.some((o) => o.name === live.path || o.version === live.version)) {
-      die(`refusing: the prune set contains the LIVE snapshot v${live.version} (${live.path}).`);
+    let plan;
+    try {
+      plan = planPrune(objects, known, live.version, KEEP);
+    } catch (e) {
+      die((e as Error).message);
     }
 
-    const totalBytes = versioned.reduce((n, o) => n + o.size, 0);
-    const freed = doomed.reduce((n, o) => n + o.size, 0);
-
+    const desc = [...known].sort((a, b) => b - a);
     console.log(`\n  live manifest: v${live.version} -> ${live.path}`);
-    console.log(`  versions in DB: ${known.length} (v${known[known.length - 1]}..v${known[0]})`);
-    console.log(`  objects in ${PREFIX}: ${versioned.length}, ${mib(totalBytes)}`);
-
-    const missing = known.filter((v) => !versioned.some((o) => o.version === v));
-    if (missing.length) {
-      console.log(`  already pruned (row kept, bytes gone): ${missing.length} — v${missing[missing.length - 1]}..v${missing[0]}`);
+    console.log(`  versions in DB: ${known.length} (v${desc[desc.length - 1]}..v${desc[0]})`);
+    console.log(`  objects in ${PREFIX}: ${plan.kept.length + plan.doomed.length}, ${mib(plan.totalBytes)}`);
+    if (plan.missing.length) {
+      console.log(`  already pruned (row kept, bytes gone): ${plan.missing.length} — v${plan.missing[plan.missing.length - 1]}..v${plan.missing[0]}`);
     }
-    if (unversioned.length) {
-      console.log(`  ! ${unversioned.length} object(s) under ${PREFIX} do not match v{n}.json and are LEFT ALONE:`);
-      for (const o of unversioned) console.log(`      ${o.name} (${mib(o.size)})`);
+    if (plan.unversioned.length) {
+      console.log(`  ! ${plan.unversioned.length} object(s) under ${PREFIX} do not match v{n}.json and are LEFT ALONE:`);
+      for (const o of plan.unversioned) console.log(`      ${o.name} (${mib(o.size)})`);
     }
 
-    if (doomed.length === 0) {
+    if (plan.doomed.length === 0) {
       await pool.end();
-      console.log(`\n✓ nothing to prune — ${versioned.length} object(s) is already within --keep ${KEEP}.\n`);
+      console.log(`\n✓ nothing to prune — ${plan.kept.length} object(s) is already within --keep ${KEEP}.\n`);
       return;
     }
 
-    const oldestKept = kept[kept.length - 1];
-    console.log(`\n  -- keeping ${kept.length} --`);
-    console.log(`  v${oldestKept?.version}..v${kept[0]?.version}  ${mib(kept.reduce((n, o) => n + o.size, 0))}`);
-    console.log(`\n  -- deleting ${doomed.length} --`);
-    console.log(`  v${doomed[doomed.length - 1].version}..v${doomed[0].version}  ${mib(freed)}`);
-    console.log(`\n  after: ${mib(totalBytes - freed)} in ${kept.length} object(s), ${mib(freed)} reclaimed`);
+    const oldestKept = plan.kept[plan.kept.length - 1];
+    console.log(`\n  -- keeping ${plan.kept.length} --`);
+    console.log(`  v${oldestKept?.version}..v${plan.kept[0]?.version}  ${mib(plan.totalBytes - plan.freedBytes)}`);
+    console.log(`\n  -- deleting ${plan.doomed.length} --`);
+    console.log(`  v${plan.doomed[plan.doomed.length - 1].version}..v${plan.doomed[0].version}  ${mib(plan.freedBytes)}`);
+    console.log(`\n  after: ${mib(plan.totalBytes - plan.freedBytes)} in ${plan.kept.length} object(s), ${mib(plan.freedBytes)} reclaimed`);
     console.log(`  rollback window after this prune: v${oldestKept?.version} and newer`);
 
     if (!APPLY) {
@@ -150,14 +126,14 @@ async function main() {
     }
 
     if (isRemoteTarget()) {
-      console.log(`\n!  deleting ${doomed.length} published snapshot(s) from ${new URL(url).host}. This is permanent.`);
+      console.log(`\n!  deleting ${plan.doomed.length} published snapshot(s) from ${new URL(url).host}. This is permanent.`);
     }
 
-    const removed = await deleteFromStorage(url, key, doomed.map((o) => o.name));
+    const removed = await deleteFromStorage(url, key, plan.doomed.map((o) => o.name));
     await pool.end();
 
-    console.log(`\n✓ pruned ${removed.length} of ${doomed.length} object(s), ${mib(freed)} reclaimed.`);
-    if (removed.length !== doomed.length) {
+    console.log(`\n✓ pruned ${removed.length} of ${plan.doomed.length} object(s), ${mib(plan.freedBytes)} reclaimed.`);
+    if (removed.length !== plan.doomed.length) {
       console.log(`  ! Storage confirmed fewer deletions than requested. Re-run the dry run to see what remains.`);
     }
     console.log(`  content_snapshots still holds all ${known.length} rows — the version counter is untouched.`);
