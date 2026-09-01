@@ -71,6 +71,7 @@
     "content:pronoms-possessifs": "tsx scripts/author-pronoms-possessifs-batch.ts",
     "corpus:probe": "tsx scripts/probe-corpus.ts",
     "content:publish": "tsx scripts/publish-content.ts",
+    "content:prune": "tsx scripts/prune-snapshots.ts",
     "content:generate": "tsx scripts/generate-content.ts",
     "content:rollout": "tsx scripts/set-rollout.ts",
     "content:rollback": "tsx scripts/rollback-content.ts",
