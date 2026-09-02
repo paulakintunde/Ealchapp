@@ -162,7 +162,7 @@ async function main() {
 //
 // Regenerate with: pnpm tsx scripts/_a202_manifest.ts
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 /** The ${VERBS.length} infinitives this lesson teaches, in learner order. */
 export const IMPORTED_VERB_ROWS: Item[] = [

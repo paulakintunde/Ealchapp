@@ -177,7 +177,7 @@ async function main() {
 // build and holds ${now} now. Rows inside ${ID_BLOCK.from}..${ID_BLOCK.to} that
 // this build does not own: ${foreign.length === 0 ? 'none' : foreign.join(', ')}.
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const PREPOSITIONS_LIEU_ROWS: Record<string, Item> = {
 `;

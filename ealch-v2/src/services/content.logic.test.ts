@@ -13,10 +13,11 @@ import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '
 import {
   adoptedForLaunch,
   anchorForItem,
-  examSeriesFor,
-  examTasksOfSeries,
+  examPapersFor,
+  examTasksOfPaper,
+  examTasksOfSection,
   formatAnchor,
-  getExamSeries,
+  getExamPaper,
   getExamTask,
   getItem,
   getScenario,
@@ -312,7 +313,7 @@ test('mergeCorpus overlays domains/themes/packs/examTasks/examSeries/playlists/t
     themes: [{ slug: 'cafe', title: 'Café', domain: 'vie-quotidienne', levelRange: ['a1', 'a1'], examFlag: false, immigFlag: false, subThemes: [] }],
     packs: [{ id: 'pack.a1.cafe', theme: 'cafe', level: 'a1', goal: 'g', modeTargets: {}, status: 'published' }],
     examTasks: [{ id: 'exam.tcf_canada.2024a.co_mcq.001', format: 'tcf_canada', variant: '2024a', taskType: 'co_mcq', skill: 'CO', level: 'a1', formatVersion: 'v1', prompt: 'p', timingS: 60 }],
-    examSeries: [{ id: 'series.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', seriesNo: 1, taskIds: [] }],
+    examPapers: [{ id: 'paper.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', paperNo: 1, sections: [] }],
     playlists: [{ id: 'pl.sons.la-voix', minLevel: 'sons', word: 'W', tag: 'T', glow: 'g', labelFr: 'f', labelEn: 'e', topicFr: 'tf', topicEn: 'te', tracks: [{ id: 't1', title: 'T', lines: [{ fr: 'f', en: 'e' }] }], version: 1, status: 'published' }],
     templates: [{ id: 'tpl.item.verb-conjugation-drill', target: 'item', name: 'N', description: 'd', levels: ['a1'], promptSkeleton: 'p', example: 'e', version: 1, status: 'published' }],
   };
@@ -322,40 +323,50 @@ test('mergeCorpus overlays domains/themes/packs/examTasks/examSeries/playlists/t
   strictEqual(merged.themes?.length, 1, 'theme must survive the merge');
   strictEqual(merged.packs?.length, 1, 'pack must survive the merge');
   strictEqual(merged.examTasks?.length, 1, 'exam task must survive the merge');
-  strictEqual(merged.examSeries?.length, 1, 'exam series must survive the merge');
+  strictEqual(merged.examPapers?.length, 1, 'exam paper must survive the merge');
   strictEqual(merged.playlists?.length, 1, 'playlist must survive the merge');
   strictEqual(merged.templates?.length, 1, 'template must survive the merge');
 });
 
-test('getExamTask/getExamSeries/examSeriesFor/examTasksOfSeries resolve the exam corpus', () => {
+test('getExamTask/getExamPaper/examPapersFor/examTasksOfPaper resolve the exam corpus', () => {
+  const co = { id: 'exam.tcf_canada.2024a.co_mcq.001', format: 'tcf_canada' as const, variant: '2024a', taskType: 'co_mcq' as const, skill: 'CO' as const, level: 'b1' as const, formatVersion: 'v1', prompt: 'p', timingS: 60 };
+  const ce = { ...co, id: 'exam.tcf_canada.2024a.ce_mcq.001', taskType: 'ce_mcq' as const, skill: 'CE' as const };
+  const pe = { ...co, id: 'exam.tcf_canada.2024a.pe_short.001', taskType: 'pe_short' as const, skill: 'PE' as const };
+  const po = { ...co, id: 'exam.tcf_canada.2024a.po_monologue.001', taskType: 'po_monologue' as const, skill: 'PO' as const };
+  const sec = (skill: 'CO' | 'CE' | 'PE' | 'PO', taskIds: string[]) =>
+    ({ skill, taskIds, timingS: 2100, blueprintId: 'tcf-canada-2026.01' });
   const corpus: Corpus = {
     version: 1, units: [], lessons: [], items: [],
-    examTasks: [
-      { id: 'exam.tcf_canada.2024a.co_mcq.001', format: 'tcf_canada', variant: '2024a', taskType: 'co_mcq', skill: 'CO', level: 'b1', formatVersion: 'v1', prompt: 'p', timingS: 60 },
-      { id: 'exam.tcf_canada.2024a.ce_mcq.001', format: 'tcf_canada', variant: '2024a', taskType: 'ce_mcq', skill: 'CE', level: 'b1', formatVersion: 'v1', prompt: 'p', timingS: 60 },
-    ],
-    examSeries: [
-      { id: 'series.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', seriesNo: 1, taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.ce_mcq.001'] },
-      { id: 'series.delf_b2.2024a.1', format: 'delf_b2', variant: '2024a', seriesNo: 1, taskIds: [] },
+    examTasks: [co, ce, pe, po],
+    examPapers: [
+      { id: 'paper.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', paperNo: 1, sections: [
+        sec('CO', [co.id]), sec('CE', [ce.id]), sec('PE', [pe.id]), sec('PO', [po.id]),
+      ] },
+      { id: 'paper.delf_b2.2024a.1', format: 'delf_b2', variant: '2024a', paperNo: 1, sections: [] },
     ],
   };
   ok(getExamTask(corpus, 'exam.tcf_canada.2024a.co_mcq.001'));
   strictEqual(getExamTask(corpus, 'exam.nope.001'), null);
-  ok(getExamSeries(corpus, 'series.tcf_canada.2024a.1'));
-  strictEqual(examSeriesFor(corpus, 'tcf_canada').length, 1);
-  strictEqual(examSeriesFor(corpus, 'delf_b2').length, 1);
-  strictEqual(examSeriesFor(corpus, 'tef_canada').length, 0);
+  ok(getExamPaper(corpus, 'paper.tcf_canada.2024a.1'));
+  strictEqual(examPapersFor(corpus, 'tcf_canada').length, 1);
+  strictEqual(examPapersFor(corpus, 'delf_b2').length, 1);
+  strictEqual(examPapersFor(corpus, 'tef_canada').length, 0);
+  // Sitting order: CO, CE, EE (skill PE), EO (skill PO), flattened across the
+  // four épreuves.
   deepStrictEqual(
-    examTasksOfSeries(corpus, 'series.tcf_canada.2024a.1').map((t) => t.id),
-    ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.ce_mcq.001']
+    examTasksOfPaper(corpus, 'paper.tcf_canada.2024a.1').map((t) => t.id),
+    [co.id, ce.id, pe.id, po.id]
   );
-  // A series listing a task that has not published yet yields fewer tasks,
+  // One épreuve at a time is the section runner's unit of work.
+  const paper = getExamPaper(corpus, 'paper.tcf_canada.2024a.1')!;
+  deepStrictEqual(examTasksOfSection(corpus, paper.sections[1]!).map((t) => t.id), [ce.id]);
+  // A paper listing a task that has not published yet yields fewer tasks,
   // not a blank entry — same posture as lessonsOfUnit.
   const withDangling: Corpus = {
     ...corpus,
-    examSeries: [{ id: 'series.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', seriesNo: 1, taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.ghost.999'] }],
+    examPapers: [{ ...paper, sections: [sec('CO', [co.id, 'exam.ghost.999']), sec('CE', []), sec('PE', []), sec('PO', [])] }],
   };
-  strictEqual(examTasksOfSeries(withDangling, 'series.tcf_canada.2024a.1').length, 1);
+  strictEqual(examTasksOfPaper(withDangling, 'paper.tcf_canada.2024a.1').length, 1);
 });
 
 test('mergeCorpus overlays domains/themes by slug, snapshot winning conflicts', () => {

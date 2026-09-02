@@ -25,12 +25,12 @@ import {
   TEMPLATE_TARGETS,
   UNIT_ID_RE,
   formatIssues,
-  examSeriesId,
+  examPaperId,
   examTaskId,
   examTaskSkill,
   isValidCorpus,
   isValidDomain,
-  isValidExamSeries,
+  isValidExamPaper,
   isValidExamTask,
   isValidItem,
   isValidPack,
@@ -44,10 +44,12 @@ import {
   templateId,
   unitBand,
   unitId,
+  paperTaskIds,
   unitOfLesson,
   validateCorpus,
   validateDomain,
-  validateExamSeries,
+  validateExamPaper,
+  validateSectionScoring,
   validateExamTask,
   validateItem,
   validateLesson,
@@ -61,7 +63,11 @@ import {
   type Corpus,
   type ContentTemplate,
   type Domain,
-  type ExamSeries,
+  type ExamInterlocutor,
+  type ExamPaper,
+  type ExamSection,
+  type ExamSkill,
+  type SectionScoring,
   type ExamTask,
   type Item,
   type Lesson,
@@ -163,6 +169,7 @@ const corpus = (over: Partial<Corpus> = {}): Corpus => ({
 
 const withSection = (s: LessonSection) => validateLesson(lesson({ sections: [s] }));
 
+
 /** A closed (machine-markable) task: listening/reading, with questions. */
 const closedTask = (over: Partial<ExamTask> = {}): ExamTask => ({
   id: 'exam.tcf_canada.2024a.co_mcq.001',
@@ -173,7 +180,9 @@ const closedTask = (over: Partial<ExamTask> = {}): ExamTask => ({
   level: 'b1',
   formatVersion: 'tcf-2024.1',
   prompt: 'Écoutez le dialogue et répondez.',
-  items: [{ q: 'Où sont-ils ?', opts: ['À la gare', 'Au café'], correct: 1 }],
+  // tcf_canada requires a band on every question: the épreuve is a ramp and
+  // an untagged item has no place on it. See QcmItem.band.
+  items: [{ q: 'Où sont-ils ?', opts: ['À la gare', 'Au café'], correct: 1, band: 'b1' }],
   timingS: 90,
   ...over,
 });
@@ -199,12 +208,49 @@ const openTask = (over: Partial<ExamTask> = {}): ExamTask => ({
   ...over,
 });
 
-const series = (over: Partial<ExamSeries> = {}): ExamSeries => ({
-  id: 'series.tcf_canada.2024a.1',
+// A paper needs all four épreuves to be valid at all, so the fixture carries
+// four sections whose skills are CO, CE, PE, PO in that order. Note the third
+// is 'PE' and not 'EE': the section a candidate calls "expression écrite"
+// carries the skill production écrite. See EXAM_SECTION_ORDER.
+const section = (skill: ExamSkill, taskId: string, over: Partial<ExamSection> = {}): ExamSection => ({
+  skill,
+  taskIds: [taskId],
+  timingS: 2100,
+  blueprintId: 'tcf-canada-2026.01',
+  ...over,
+});
+
+const paper = (over: Partial<ExamPaper> = {}): ExamPaper => ({
+  id: 'paper.tcf_canada.2024a.1',
   format: 'tcf_canada',
   variant: '2024a',
-  seriesNo: 1,
-  taskIds: ['exam.tcf_canada.2024a.co_mcq.001'],
+  paperNo: 1,
+  sections: [
+    section('CO', 'exam.tcf_canada.2024a.co_mcq.001'),
+    section('CE', 'exam.tcf_canada.2024a.ce_mcq.001'),
+    section('PE', 'exam.tcf_canada.2024a.pe_short.001'),
+    section('PO', 'exam.tcf_canada.2024a.po_monologue.001'),
+  ],
+  ...over,
+});
+
+/** The four tasks `paper()` references, one per épreuve. A paper is only
+ *  valid with all four sections, so every corpus-level test that uses a
+ *  paper needs all four tasks to exist. */
+const paperTasks = (): ExamTask[] => [
+  closedTask(),
+  closedTask({ id: 'exam.tcf_canada.2024a.ce_mcq.001', taskType: 'ce_mcq', skill: 'CE' }),
+  openTask({ id: 'exam.tcf_canada.2024a.pe_short.001', format: 'tcf_canada', taskType: 'pe_short', skill: 'PE', formatVersion: 'tcf-canada-2026.01' }),
+  openTask({ id: 'exam.tcf_canada.2024a.po_monologue.001', format: 'tcf_canada', taskType: 'po_monologue', skill: 'PO', formatVersion: 'tcf-canada-2026.01' }),
+];
+
+const scoring = (over: Partial<SectionScoring> = {}): SectionScoring => ({
+  scale: 699,
+  map: [{ raw: 0, scaled: 100 }, { raw: 39, scaled: 699 }],
+  nclc: [
+    { minRaw: 0, maxRaw: 19, nclcLow: 4, nclcHigh: 5 },
+    { minRaw: 20, maxRaw: 39, nclcLow: 6, nclcHigh: 7 },
+  ],
   ...over,
 });
 
@@ -841,7 +887,8 @@ test('a well-formed closed task and open task both validate', () => {
   deepStrictEqual(validateExamTask(openTask()), []);
   ok(isValidExamTask(closedTask()));
   strictEqual(examTaskId('tcf_canada', '2024a', 'co_mcq', 1), 'exam.tcf_canada.2024a.co_mcq.001');
-  strictEqual(examSeriesId('tcf_canada', '2024a', 1), 'series.tcf_canada.2024a.1');
+  strictEqual(examPaperId('tcf_canada', '2024a', 1), 'paper.tcf_canada.2024a.1');
+  strictEqual(examPaperId('tcf_canada', '2024a', 20), 'paper.tcf_canada.2024a.20');
 });
 
 test('an OPEN task without a rubric is rejected — nothing could mark it', () => {
@@ -859,7 +906,7 @@ test('an OPEN task without a rubric is rejected — nothing could mark it', () =
 
 test('a CLOSED task must carry the questions it is marked on', () => {
   const issues = validateExamTask({ ...closedTask(), items: undefined });
-  ok(issues.some((i) => /MUST have items to mark/.test(i.message)));
+  ok(issues.some((i) => /MUST have items or parts to mark/.test(i.message)));
 });
 
 test('formatVersion is required — a task nobody can date cannot be retired', () => {
@@ -937,28 +984,164 @@ test('a scoring map must ascend — thresholds are read in order', () => {
   );
 });
 
-test('a well-formed series validates, and an empty one does not', () => {
-  deepStrictEqual(validateExamSeries(series()), []);
-  ok(isValidExamSeries(series()));
-  ok(validateExamSeries(series({ taskIds: [] })).some((i) => /not a paper/.test(i.message)));
+test('a closed task carries items OR parts, never both and never neither', () => {
+  const part = { label: 'Document 1', text: 'Le train de 8 h 12 partira du quai 4.', items: [{ q: 'Quel quai ?', opts: ['4', '8'], correct: 0, band: 'a2' as const }] };
+  deepStrictEqual(validateExamTask(closedTask({ items: undefined, parts: [part] })), []);
+
+  // Both is rejected rather than merged: a reader would have to guess which
+  // list is the real question set, and every reader would guess differently.
+  ok(validateExamTask(closedTask({ parts: [part] }))
+    .some((i) => /items OR parts, never both/.test(i.message)));
+  ok(validateExamTask(closedTask({ items: undefined }))
+    .some((i) => /MUST have items or parts to mark/.test(i.message)));
+
+  // An open task is judged against a rubric; a question list on one means the
+  // taskType is wrong.
+  ok(validateExamTask(openTask({ parts: [part] }))
+    .some((i) => /cannot have parts/.test(i.message)));
 });
 
-test('seriesNo is 1..5 and must agree with the id', () => {
-  ok(validateExamSeries(series({ id: 'series.tcf_canada.2024a.6', seriesNo: 6 })).length > 0);
-  ok(validateExamSeries(series({ seriesNo: 0 })).length > 0);
-  const issues = validateExamSeries(series({ id: 'series.tcf_canada.2024a.1', seriesNo: 2 }));
-  ok(issues.some((i) => /disagrees with seriesNo/.test(i.message)));
+test('a listening part needs its transcript, and an image needs its alt text', () => {
+  const base = { label: 'Document 1', items: [{ q: 'Où ?', opts: ['Ici', 'Là'], correct: 0, band: 'a2' as const }] };
+
+  // audioRef with no text renders nothing and speaks nothing: audio.ts falls
+  // back to speaking the transcript, and with both absent the part is silent.
+  ok(validateExamTask(closedTask({ items: undefined, parts: [{ ...base, audioRef: 'exam/co/001.mp3' }] }))
+    .some((i) => /audioRef but no text/.test(i.message)));
+  deepStrictEqual(
+    validateExamTask(closedTask({ items: undefined, parts: [{ ...base, audioRef: 'exam/co/001.mp3', text: 'On est où ?' }] })),
+    []
+  );
+
+  // UDL 01: on a picture-answer block the image IS the question.
+  ok(validateExamTask(closedTask({ items: undefined, parts: [{ ...base, imageRef: 'exam/co/001.png' }] }))
+    .some((i) => /imageRef but no imageAlt/.test(i.message)));
+
+  // A part nobody may hear is not a listening item.
+  ok(validateExamTask(closedTask({ items: undefined, parts: [{ ...base, playCount: 0 }] }))
+    .some((i) => /playCount must be an integer >= 1/.test(i.message)));
 });
 
-test('a series must not sit the same task twice', () => {
-  const issues = validateExamSeries(series({ taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.co_mcq.001'] }));
-  ok(issues.some((i) => /appears twice — a candidate would sit it twice/.test(i.message)));
+test('tcf_canada requires a band on every question, and the other formats do not', () => {
+  // The asymmetry is the format's defining property, not an inconsistency: a
+  // TCF comprehension épreuve is a single 39-question ramp from A1 to C2, and
+  // an untagged item has no place on it. TEF is built from blocks that do not
+  // ramp.
+  ok(validateExamTask(closedTask({ items: [{ q: 'Où ?', opts: ['Ici', 'Là'], correct: 0 }] }))
+    .some((i) => /band is required on tcf_canada/.test(i.message)));
+
+  const delf = closedTask({
+    id: 'exam.delf_b2.2024a.ce_mcq.001',
+    format: 'delf_b2',
+    variant: '2024a',
+    taskType: 'ce_mcq',
+    skill: 'CE',
+    formatVersion: 'delf-2020.2',
+    items: [{ q: 'Où ?', opts: ['Ici', 'Là'], correct: 0 }],
+  });
+  deepStrictEqual(validateExamTask(delf), []);
+
+  // The rule reaches inside parts too, not just the flat items list.
+  ok(validateExamTask(closedTask({ items: undefined, parts: [{ label: 'D1', text: 'x', items: [{ q: 'Où ?', opts: ['Ici', 'Là'], correct: 0 }] }] }))
+    .some((i) => /band is required on tcf_canada/.test(i.message)));
+
+  // A band that is not a SCORE_BAND is caught wherever it appears.
+  ok(validateExamTask(closedTask({ items: [{ q: 'Où ?', opts: ['Ici', 'Là'], correct: 0, band: 'sons' as never }] }))
+    .some((i) => /band must be one of/.test(i.message)));
+});
+
+test('a well-formed paper validates, and an épreuve with no tasks does not', () => {
+  deepStrictEqual(validateExamPaper(paper()), []);
+  ok(isValidExamPaper(paper()));
+  const empty = paper({ sections: [
+    section('CO', 'exam.tcf_canada.2024a.co_mcq.001', { taskIds: [] }),
+    section('CE', 'exam.tcf_canada.2024a.ce_mcq.001'),
+    section('PE', 'exam.tcf_canada.2024a.pe_short.001'),
+    section('PO', 'exam.tcf_canada.2024a.po_monologue.001'),
+  ] });
+  ok(validateExamPaper(empty).some((i) => /scores 0\/0/.test(i.message)));
+});
+
+test('paperNo is 1..20 and must agree with the id', () => {
+  // 20 is the ceiling the id space was widened to; 21 is not. The old cap was
+  // 5, which is what made twenty papers per format unexpressible.
+  deepStrictEqual(validateExamPaper(paper({ id: 'paper.tcf_canada.2024a.20', paperNo: 20 })), []);
+  ok(validateExamPaper(paper({ id: 'paper.tcf_canada.2024a.21', paperNo: 21 })).length > 0);
+  ok(validateExamPaper(paper({ paperNo: 0 })).length > 0);
+  const issues = validateExamPaper(paper({ id: 'paper.tcf_canada.2024a.1', paperNo: 2 }));
+  ok(issues.some((i) => /disagrees with paperNo/.test(i.message)));
+});
+
+test('a paper must carry all four épreuves, in order', () => {
+  // THE rule. A three-section paper reports an NCLC estimate off three skills
+  // when a real result is governed by the weakest of four.
+  const three = paper({ sections: paper().sections.slice(0, 3) });
+  ok(validateExamPaper(three).some((i) => /missing an épreuve/.test(i.message)));
+
+  // Present but reordered is just as wrong, and much easier to do by accident.
+  const secs = paper().sections;
+  const swapped = paper({ sections: [secs[1]!, secs[0]!, secs[2]!, secs[3]!] });
+  ok(validateExamPaper(swapped).some((i) => /the four épreuves are ordered/.test(i.message)));
+});
+
+test('a paper must not sit the same task twice, even across two épreuves', () => {
+  const dupe = paper({ sections: [
+    section('CO', 'exam.tcf_canada.2024a.co_mcq.001'),
+    section('CE', 'exam.tcf_canada.2024a.co_mcq.001'),
+    section('PE', 'exam.tcf_canada.2024a.pe_short.001'),
+    section('PO', 'exam.tcf_canada.2024a.po_monologue.001'),
+  ] });
+  ok(validateExamPaper(dupe).some((i) => /appears twice in this paper/.test(i.message)));
+});
+
+test('a section needs a clock and a blueprint id', () => {
+  const rest = paper().sections.slice(1);
+  const noClock = paper({ sections: [section('CO', 'exam.tcf_canada.2024a.co_mcq.001', { timingS: 0 }), ...rest] });
+  ok(validateExamPaper(noClock).some((i) => /without a clock is a worksheet/.test(i.message)));
+  const noBp = paper({ sections: [section('CO', 'exam.tcf_canada.2024a.co_mcq.001', { blueprintId: '' }), ...rest] });
+  ok(validateExamPaper(noBp).some((i) => /blueprintId is required/.test(i.message)));
+});
+
+test('paperTaskIds flattens the four épreuves in sitting order', () => {
+  deepStrictEqual(paperTaskIds(paper()), [
+    'exam.tcf_canada.2024a.co_mcq.001',
+    'exam.tcf_canada.2024a.ce_mcq.001',
+    'exam.tcf_canada.2024a.pe_short.001',
+    'exam.tcf_canada.2024a.po_monologue.001',
+  ]);
+});
+
+test('section scoring: the map ascends and never reports less for more', () => {
+  deepStrictEqual(validateSectionScoring(scoring()), []);
+  ok(validateSectionScoring(scoring({ map: [{ raw: 39, scaled: 699 }, { raw: 0, scaled: 100 }] }))
+    .some((i) => /raw must ascend/.test(i.message)));
+  // The one that would be a real marking scandal: one more correct answer
+  // reporting a lower score.
+  ok(validateSectionScoring(scoring({ map: [{ raw: 0, scaled: 300 }, { raw: 39, scaled: 200 }] }))
+    .some((i) => /cannot report a lower score/.test(i.message)));
+  ok(validateSectionScoring(scoring({ map: [{ raw: 0, scaled: 100 }] }))
+    .some((i) => /at least two points/.test(i.message)));
+});
+
+test('section scoring: NCLC spans stay in 4..10 and never overlap', () => {
+  ok(validateSectionScoring(scoring({ nclc: [{ minRaw: 0, maxRaw: 39, nclcLow: 2, nclcHigh: 7 }] }))
+    .some((i) => /must stay within NCLC 4\.\.10/.test(i.message)));
+  ok(validateSectionScoring(scoring({ nclc: [{ minRaw: 0, maxRaw: 39, nclcLow: 4, nclcHigh: 11 }] }))
+    .some((i) => /must stay within NCLC 4\.\.10/.test(i.message)));
+  // Overlap would give one raw score two levels, decided by iteration order.
+  ok(validateSectionScoring(scoring({ nclc: [
+    { minRaw: 0, maxRaw: 25, nclcLow: 4, nclcHigh: 5 },
+    { minRaw: 20, maxRaw: 39, nclcLow: 6, nclcHigh: 7 },
+  ] })).some((i) => /overlaps the previous span/.test(i.message)));
+  ok(validateSectionScoring(scoring({ nclc: [{ minRaw: 30, maxRaw: 10, nclcLow: 4, nclcHigh: 5 }] }))
+    .some((i) => /no score falls in it/.test(i.message)));
 });
 
 test('exam validators never throw on garbage', () => {
   for (const junk of [null, undefined, 42, 'exam', [], true]) {
     ok(Array.isArray(validateExamTask(junk)));
-    ok(Array.isArray(validateExamSeries(junk)));
+    ok(Array.isArray(validateExamPaper(junk)));
+    ok(Array.isArray(validateSectionScoring(junk)));
   }
 });
 
@@ -1099,8 +1282,8 @@ test('a corpus carrying the whole catalogue validates', () => {
       domains: [domain()],
       themes: [theme()],
       packs: [pack()],
-      examTasks: [closedTask()],
-      examSeries: [series()],
+      examTasks: paperTasks(),
+      examPapers: [paper()],
     })),
     []
   );
@@ -1143,10 +1326,32 @@ test('an empty catalogue is not "everything is dangling"', () => {
 test('a series pointing at an unknown task is caught', () => {
   // A mock exam that is shorter than it claims, and the candidate cannot tell.
   const issues = validateCorpus(corpus({
-    examTasks: [closedTask()],
-    examSeries: [series({ taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.ce_mcq.009'] })],
+    examTasks: paperTasks(),
+    examPapers: [paper({ sections: [
+      section('CO', 'exam.tcf_canada.2024a.co_mcq.001'),
+      section('CE', 'exam.tcf_canada.2024a.ce_mcq.009'),
+      section('PE', 'exam.tcf_canada.2024a.pe_short.001'),
+      section('PO', 'exam.tcf_canada.2024a.po_monologue.001'),
+    ] })],
   }));
-  ok(issues.some((i) => /series "series\.tcf_canada\.2024a\.1" references unknown exam task "exam\.tcf_canada\.2024a\.ce_mcq\.009"/.test(i.message)));
+  ok(issues.some((i) => /paper "paper\.tcf_canada\.2024a\.1" references unknown exam task "exam\.tcf_canada\.2024a\.ce_mcq\.009"/.test(i.message)));
+});
+
+test('a task filed in the wrong épreuve is caught', () => {
+  // Nothing about this looks broken: it renders, it marks, it scores. It just
+  // reports its marks against the wrong skill, and since the headline NCLC is
+  // governed by the WEAKEST skill, one misfiled task moves the number a
+  // candidate reads as their eligibility.
+  const issues = validateCorpus(corpus({
+    examTasks: paperTasks(),
+    examPapers: [paper({ sections: [
+      section('CO', 'exam.tcf_canada.2024a.ce_mcq.001'),
+      section('CE', 'exam.tcf_canada.2024a.co_mcq.001'),
+      section('PE', 'exam.tcf_canada.2024a.pe_short.001'),
+      section('PO', 'exam.tcf_canada.2024a.po_monologue.001'),
+    ] })],
+  }));
+  ok(issues.some((i) => /score against the wrong skill/.test(i.message)));
 });
 
 test('a lesson skill must be a real exam skill when present', () => {
@@ -1154,11 +1359,20 @@ test('a lesson skill must be a real exam skill when present', () => {
   ok(validateLesson(lesson({ skill: 'listen' as never })).some((i) => /skill must be one of/.test(i.message)));
 });
 
+/** The smallest legal answer bank. A po_interaction now requires one, so a
+ *  test about something else still needs to hand over a valid interlocutor. */
+const bank = (): ExamInterlocutor => ({
+  opening: { id: 'o', text: 'Bonjour, je vous écoute.', cues: [], covers: '' },
+  answers: [{ id: 'a1', text: 'Cent vingt euros.', cues: ['combien coute', 'prix'], covers: 'le prix' }],
+  catchAll: { id: 'c', text: 'Je ne saurais pas vous le dire.', cues: [], covers: '' },
+  closing: { id: 'z', text: 'Au revoir.', cues: [], covers: '' },
+});
+
 test('a scenario standing in for an exam task must point at a real PO task', () => {
   deepStrictEqual(
     validateCorpus(corpus({
       scenarios: [scenario({ exam: { format: 'tcf_canada', taskId: 'exam.tcf_canada.2024a.po_interaction.001' } })],
-      examTasks: [closedTask({ id: 'exam.tcf_canada.2024a.po_interaction.001', taskType: 'po_interaction', skill: 'PO', rubric: { criteria: [{ key: 'k', label: 'L', maxPoints: 5 }] }, modelAnswer: 'x', items: undefined })],
+      examTasks: [closedTask({ id: 'exam.tcf_canada.2024a.po_interaction.001', taskType: 'po_interaction', skill: 'PO', rubric: { criteria: [{ key: 'k', label: 'L', maxPoints: 5 }] }, modelAnswer: 'x', items: undefined, interlocutor: bank() })],
     })),
     []
   );
@@ -1175,7 +1389,7 @@ test('a scenario standing in for an exam task must point at a real PO task', () 
 
 test('an exam task pointing at an unknown item is caught', () => {
   // A miss that decomposes into nothing — the SRS never learns which atom to
-  // review. Same failure shape as a series pointing at an unknown task, one
+  // review. Same failure shape as a paper pointing at an unknown task, one
   // join deeper.
   const issues = validateCorpus(corpus({
     examTasks: [closedTask({ targetItemIds: ['fr.b1.marche.999'] })],
@@ -1188,8 +1402,8 @@ test('duplicate ids are caught for every new entity', () => {
     .some((i) => /duplicate pack id/.test(i.message)));
   ok(validateCorpus(corpus({ examTasks: [closedTask(), closedTask()] }))
     .some((i) => /duplicate exam task id/.test(i.message)));
-  ok(validateCorpus(corpus({ examTasks: [closedTask()], examSeries: [series(), series()] }))
-    .some((i) => /duplicate exam series id/.test(i.message)));
+  ok(validateCorpus(corpus({ examTasks: paperTasks(), examPapers: [paper(), paper()] }))
+    .some((i) => /duplicate exam paper id/.test(i.message)));
   // Domains and themes key on slug, and the failure is identical: the later row
   // wins the lookup, so a theme silently points at a domain nobody meant.
   ok(validateCorpus(corpus({ domains: [domain(), domain()] }))
@@ -1203,9 +1417,9 @@ test('an id may not be shared by two different KINDS of entity', () => {
   // defended by nothing: anything building one lookup map over all content —
   // the obvious thing to write — silently loses one of the two.
   const clash = validateCorpus(corpus({
-    examTasks: [closedTask()],
-    examSeries: [series({ id: 'series.tcf_canada.2024a.1', taskIds: ['exam.tcf_canada.2024a.co_mcq.001'] })],
-    packs: [pack({ id: 'series.tcf_canada.2024a.1' as never })],
+    examTasks: paperTasks(),
+    examPapers: [paper()],
+    packs: [pack({ id: 'paper.tcf_canada.2024a.1' as never })],
   }));
   ok(clash.some((i) => /is used by more than one kind of entity/.test(i.message)));
 });

@@ -21,7 +21,8 @@ import {
 import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
-import { useContent } from '@/services/content';
+import { content, useContent } from '@/services/content';
+import { EXAM_FORMAT_FACTS, EXAM_FORMAT_ORDER, formatSitting, sectionBreakdown } from '@/content/examFormats';
 import { wordOfDay, dayOfYear } from '@/content/wordOfDay';
 import { pickGreeting } from '@/content/greetings';
 import { openWeakRows } from '@/content/weakness';
@@ -34,14 +35,11 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-// The resolved Canada-first set. `T.examMeta` is index-aligned to this array:
-// reorder one and you must reorder the other, or TCF inherits DELF's caption.
-// The third chip was a generic "TCF"; the exam Ealch targets is TCF Canada.
-const EXAMS = ['TEF Canada', 'TCF Canada', 'DELF B2'];
-// Chip display order does not have to match EXAM_FORMATS' declared order
-// (schema.ts) — this is the one place the two are joined, index-aligned to
-// EXAMS/T.examMeta above, not to the enum.
-const EXAM_CHIP_FORMATS: ExamFormat[] = ['tef_canada', 'tcf_canada', 'delf_b2'];
+// Formats and their facts now come from EXAM_FORMAT_FACTS, so there is no
+// index-aligned pair to keep in step and no caption to get wrong. The two
+// arrays this used to need — a name list and a per-format caption list — are
+// gone; see the note at the top of content/examFormats.ts for what was wrong
+// with describing an exam by one of its épreuves.
 
 function GlowTile({ base, glow, children, onPress, style }: { base: string; glow: string; children: ReactNode; onPress: () => void; style?: object }) {
   const t = useTheme();
@@ -58,6 +56,13 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  // Papers available across every format. The section's right slot used to
+  // read 'TEF · TCF · DELF', which repeats the card titles; the count is the
+  // fact a candidate actually wants from a section header.
+  const examPaperCount = useMemo(
+    () => EXAM_FORMAT_ORDER.reduce((n, f) => n + content.examPapersFor(f).length, 0),
+    []
+  );
   // The Today strip crams two columns (streak / review) into one row.
   // At full size that's comfortable on a typical phone; on a genuinely narrow
   // one (iPhone SE-class, ~375pt, or the sub-360pt Android devices common in
@@ -515,26 +520,41 @@ export default function Home() {
               ))}
             </ScrollView>
 
-            {/* Examiner */}
-            <SectionHead title={T.examiner} right="TEF · TCF · DELF" />
+            {/* Examiner. Every card carries the SAME four facts, differing only
+                in value: it is a mock paper, it has four épreuves, it runs this
+                long, and each épreuve asks this much. No format is described by
+                one of its parts — see content/examFormats.ts. */}
+            <SectionHead title={T.examiner} right={`${examPaperCount} ${examPaperCount === 1 ? T.examPapersCountOne : T.examPapersCount}`} />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
-              {EXAMS.map((name, i) => (
-                <Press
-                  key={i}
-                  onPress={() => router.push({ pathname: '/exam', params: { format: EXAM_CHIP_FORMATS[i] } })}
-                  style={{ width: 224, minHeight: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}
-                >
-                  <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 8 }}>
-                    SIMULATION
-                  </TX>
-                  <TX font="serif" size={23} role="display" style={{ marginBottom: 6 }}>
-                    {name}
-                  </TX>
-                  <TX role="label" color={t.txMuted}>
-                    {T.examMeta[i]}
-                  </TX>
-                </Press>
-              ))}
+              {EXAM_FORMAT_ORDER.map((fmt) => {
+                const facts = EXAM_FORMAT_FACTS[fmt];
+                const papers = content.examPapersFor(fmt).length;
+                return (
+                  <Press
+                    key={fmt}
+                    onPress={() => router.push({ pathname: '/exam', params: { format: fmt } })}
+                    style={{ width: 244, minHeight: 132, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}
+                  >
+                    <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 8 }}>
+                      {T.examBlank}
+                    </TX>
+                    <TX font="serif" size={23} role="display" style={{ marginBottom: 6 }}>
+                      {facts.label}
+                    </TX>
+                    <TX role="label" color={t.txMuted}>
+                      {facts.sections.length} {T.examEpreuves} · {formatSitting(facts.totalS, lang)}
+                    </TX>
+                    <TX role="meta" color={t.txMuted} style={{ marginTop: 3 }}>
+                      {sectionBreakdown(facts)}
+                    </TX>
+                    {papers > 0 ? (
+                      <TX font="semi" role="meta" color={t.accTx} style={{ marginTop: 6 }}>
+                        {papers} {papers === 1 ? T.examPapersCountOne : T.examPapersCount}
+                      </TX>
+                    ) : null}
+                  </Press>
+                );
+              })}
             </ScrollView>
 
             {/* Weak spots */}

@@ -328,7 +328,7 @@ async function main() {
 //
 // Regenerate with: pnpm tsx scripts/_a216_manifest.ts
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 /** The ${NAMING.length} forms that already exist as headwords. \`nouvel\` is deliberately
  *  absent: it is the one form the corpus does not hold and the corpus file

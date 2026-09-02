@@ -328,7 +328,7 @@ async function main() {
 //
 // Regenerate with: pnpm tsx scripts/_a217_manifest.ts
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 /** The ${NAMING.length} headwords that already exist. \`lente\` and \`douce\` are deliberately
  *  absent: they are the two middle steps the corpus does not hold, and the

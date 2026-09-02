@@ -232,7 +232,7 @@ ${evidence}
 //     a2.21's ${A221_BLOCK.from}..${A221_BLOCK.to} holds ${inA221.length}.
 //     Rows inside ${ID_BLOCK.from}..${ID_BLOCK.to} that this build does not own: none.
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const PRONOMINAUX_IMPORT_ROWS: Record<string, Item> = {
 ${literals}

@@ -261,7 +261,7 @@ async function main() {
 //
 // Regenerate with: pnpm tsx scripts/_a215_manifest.ts
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 /** The ${NAMING.length} naming forms this lesson displays. Six are the three heads and the
  *  compounds they buy; \`vendre\` is a2.11's and the trap contrasts against it. */

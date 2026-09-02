@@ -18,15 +18,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
-import type { Corpus, DrillKind, ExamFormat, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
+import { devExamPapers, devExamTasks } from '@/content/devExamFixture';
+import type { Corpus, DrillKind, ExamFormat, ExamSection, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
 import { validateCorpus } from '@/content/schema';
 import {
   adoptedForLaunch,
   anchorForItem,
-  examSeriesFor,
-  examTasksOfSeries,
+  examPapersFor,
+  examTasksOfPaper,
+  examTasksOfSection,
   formatAnchor,
-  getExamSeries,
+  getExamPaper,
   getExamTask,
   getItem,
   getLesson,
@@ -111,6 +113,40 @@ let initStarted = false;
 let cachedSnapshotVersion = 0;
 
 /**
+ * Add the dev-only mock paper, so the exam runner can be sat on a phone before
+ * any real paper exists (phase E7 authors the first one).
+ *
+ * Fenced three ways, because a content path that only exists in dev is exactly
+ * the shape of this codebase's past incidents: it is gated on `__DEV__`, it
+ * APPENDS rather than overlaying so it can never shadow a real id, and its
+ * variant namespace (`dev-fixture`) is one no authored paper will use. It never
+ * reaches the database, the seed cut or a publish.
+ *
+ * Delete along with devExamFixture.ts once E7 lands.
+ */
+function withDevExamFixture(corpus: Corpus): Corpus {
+  const papers = devExamPapers(__DEV__);
+  if (papers.length === 0) return corpus;
+
+  // The dev paper carries its REAL id, not a sandbox one, because it is the
+  // real paper waiting on review. So the moment it is published for good, the
+  // published row and this one would both be in the corpus under the same id.
+  // Published wins and the append becomes a no-op, which is exactly what
+  // should happen: the reviewed copy is the one a candidate sits.
+  const have = new Set((corpus.examPapers ?? []).map((p) => p.id));
+  const fresh = papers.filter((p) => !have.has(p.id));
+  if (fresh.length === 0) return corpus;
+
+  const haveTasks = new Set((corpus.examTasks ?? []).map((t) => t.id));
+  const freshTasks = devExamTasks(__DEV__).filter((t) => !haveTasks.has(t.id));
+  return {
+    ...corpus,
+    examTasks: [...(corpus.examTasks ?? []), ...freshTasks],
+    examPapers: [...(corpus.examPapers ?? []), ...fresh],
+  };
+}
+
+/**
  * Bring content up. Idempotent — safe to call from _layout on every mount, runs
  * its work once. Sets `hydrated` exactly once, even on failure, so a broken
  * cache or a storage read that throws can never wedge the splash forever (the
@@ -132,7 +168,7 @@ export async function initContent(): Promise<void> {
     // account; it is the other half of the dev guard on refreshFromRemote.
     adopted = adoptedForLaunch(await readCache(), __DEV__);
     if (adopted) cachedSnapshotVersion = adopted.version;
-    useContent.getState().setCorpus(mergeCorpus(SEED, adopted));
+    useContent.getState().setCorpus(withDevExamFixture(mergeCorpus(SEED, adopted)));
   } catch {
     // Seed already stands as the initial corpus; nothing more to do.
   } finally {
@@ -330,9 +366,13 @@ export const content = {
   /** The Speak trail in walk order — (world, seq), sorted by speakStages. */
   speakPath: () => speakStages(useContent.getState().corpus),
   examTask: (id: string) => getExamTask(useContent.getState().corpus, id),
-  examSeriesOne: (id: string) => getExamSeries(useContent.getState().corpus, id),
-  examSeriesFor: (format: ExamFormat) => examSeriesFor(useContent.getState().corpus, format),
-  examTasksOf: (seriesId: string) => examTasksOfSeries(useContent.getState().corpus, seriesId),
+  examPaper: (id: string) => getExamPaper(useContent.getState().corpus, id),
+  /** Mock papers for a format, in paperNo order. */
+  examPapersFor: (format: ExamFormat) => examPapersFor(useContent.getState().corpus, format),
+  /** Every task of a paper, in sitting order across all four épreuves. */
+  examTasksOf: (paperId: string) => examTasksOfPaper(useContent.getState().corpus, paperId),
+  /** One épreuve's tasks — the section runner's unit of work. */
+  examTasksOfSection: (section: ExamSection) => examTasksOfSection(useContent.getState().corpus, section),
   /** The positional deep-link anchor for an item inside a lesson's practice
    *  section, formatted as `<lessonId>#s<n>.<k>` — or null when the lesson
    *  doesn't teach that item there. Stashed on the attempt log so a review

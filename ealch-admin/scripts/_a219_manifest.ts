@@ -197,7 +197,7 @@ ${(par.rows as Record<string, string>[]).map((r) => `//     ${r.id}  ${r.fr.padE
 // ${now} now. Rows inside ${ID_BLOCK.from}..${ID_BLOCK.to} that this
 // build does not own: ${foreign.length === 0 ? 'none' : foreign.join(', ')}.
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const FUTUR_PROCHE_ROWS: Record<string, Item> = {
 `;

@@ -297,7 +297,7 @@ ${Object.entries(perCell).map(([f, n]) => `//     ${f.padEnd(12)} ${String(n).pa
 // a2.20's block holds ${inA220.length} rows and a2.05's holds ${inA205.length}, which is exactly
 // what each of those lessons applied.
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const ETRE_IMPORT_ROWS: Record<string, Item> = {
 `;

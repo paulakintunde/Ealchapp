@@ -50,7 +50,7 @@ import {
   validateCorpus,
   ITEM_ID_RE,
   type Corpus,
-  type ExamSeries,
+  type ExamPaper,
   type ExamTask,
   type Item,
   type Lesson,
@@ -191,13 +191,20 @@ async function runPythonGate(
 //     NOTE for whoever does it: unlike content_items, there is no guard holding
 //     these honest. Nothing will tell you the arrays are empty.
 //
-//   ExamTask, ExamSeries     (Corpus.examTasks/examSeries)
+//   ExamTask, ExamPaper      (Corpus.examTasks/examPapers)
 //     DONE (Phase 8 gap-closure) — read below, mapped onto the full `corpus`
-//     object. Deliberately NOT added to the seed cut (`seed`, step 5): exam
-//     content is b1/b2-banded and the seed cut today only bundles a1/a2/sons
-//     content, so it ships via the network snapshot like any other exam-band
-//     content would, not the offline-bundled binary. Provenance columns are
-//     WITHHELD the same way Item's are — see WITHHELD_ITEM_COLUMNS.
+//     object. Deliberately NOT added to the seed cut (`seed`, step 5), and
+//     that stays true, but the ORIGINAL reason has expired: it used to be
+//     "exam content is b1/b2-banded and the cut only bundles a1/a2/sons".
+//     TCF Canada's comprehension épreuves run from A1, so a band argument
+//     would now pull some exam content into the cut.
+//
+//     The reason it stays out is a decision, not a band: exams do not ship
+//     offline (exam-pack decision 11.6). Audio dominates the payload, and a
+//     2h55 paper bundled into the binary would bloat every install for a
+//     feature most of them never open. Exam content reaches the app over the
+//     network snapshot only. Provenance columns are WITHHELD the same way
+//     Item's are — see WITHHELD_ITEM_COLUMNS.
 //
 //   Item.provenance                                (schema.ts: Provenance)
 //     NOT debt — a decision. The columns exist and are deliberately withheld;
@@ -315,16 +322,25 @@ async function main() {
   // level are custom Postgres enums, cast to text so node-postgres hands back
   // plain strings. target_item_ids/examiner_notes are native text[] (like
   // tags), so they parse fine uncast.
+  //
+  // `interlocutor` and `prep_s` are NOT optional extras. The mapping below has
+  // always read r.interlocutor and r.prep_s, but this select did not ask for
+  // either column, so both arrived undefined and were dropped by the
+  // conditional spread — silently, because a spread of {} is not an error.
+  // The result was a po_interaction task published with no interlocutor, which
+  // is a speaking test with nobody on the other end. Nothing caught it until a
+  // paper containing one was actually flipped to published, because with zero
+  // exam rows in the corpus there was nothing for the validator to reject.
   const examTaskRows = await pool.query(
     `select id, format::text as format, variant, task_type::text as task_type,
             skill::text as skill, level::text as level, format_version, prompt,
-            items, response_spec, rubric, model_answer, examiner_notes,
-            timing_s, scoring_map, target_item_ids
+            label, items, parts, response_spec, rubric, model_answer, examiner_notes,
+            timing_s, scoring_map, target_item_ids, interlocutor, prep_s
        from content_exam_tasks where status = 'published'`
   );
-  const examSeriesRows = await pool.query(
-    `select id, format::text as format, variant, series_no, task_ids
-       from content_exam_series where status = 'published'`
+  const examPaperRows = await pool.query(
+    `select id, format::text as format, variant, paper_no, sections
+       from content_exam_papers where status = 'published'`
   );
 
   const units: Unit[] = unitRows.rows.map((r) => r.body);
@@ -345,7 +361,11 @@ async function main() {
     level: r.level,
     formatVersion: r.format_version,
     prompt: r.prompt,
+    ...(r.label ? { label: r.label } : {}),
     ...(r.items ? { items: r.items } : {}),
+    ...(r.parts ? { parts: r.parts } : {}),
+    ...(r.prep_s ? { prepS: r.prep_s } : {}),
+    ...(r.interlocutor ? { interlocutor: r.interlocutor } : {}),
     ...(r.response_spec ? { responseSpec: r.response_spec } : {}),
     ...(r.rubric ? { rubric: r.rubric } : {}),
     ...(r.model_answer ? { modelAnswer: r.model_answer } : {}),
@@ -355,12 +375,14 @@ async function main() {
     ...(r.target_item_ids?.length ? { targetItemIds: r.target_item_ids } : {}),
     // provenance intentionally withheld — same reasoning as WITHHELD_ITEM_COLUMNS.
   }));
-  const examSeries: ExamSeries[] = examSeriesRows.rows.map((r) => ({
+  const examPapers: ExamPaper[] = examPaperRows.rows.map((r) => ({
     id: r.id,
     format: r.format,
     variant: r.variant,
-    seriesNo: r.series_no,
-    taskIds: r.task_ids ?? [],
+    paperNo: r.paper_no,
+    // `sections` is a jsonb document, so it round-trips whole — unlike the
+    // column-mapped fields above, it cannot lose a key silently.
+    sections: r.sections ?? [],
   }));
   const items: Item[] = itemRows.rows.map((r) => ({
     id: r.id,
@@ -398,12 +420,12 @@ async function main() {
   console.log(
     `\n  published: ${units.length} units · ${lessons.length} lessons · ${items.length} items · ` +
       `${scenarios.length} scenarios · ${playlists.length} playlists · ` +
-      `${examTasks.length} exam tasks · ${examSeries.length} exam series`
+      `${examTasks.length} exam tasks · ${examPapers.length} exam papers`
   );
 
   if (
     !units.length && !lessons.length && !items.length && !scenarios.length && !playlists.length &&
-    !examTasks.length && !examSeries.length
+    !examTasks.length && !examPapers.length
   ) {
     await pool.end();
     die('Nothing is published. Approve some content in the Ops Console first.');
@@ -437,7 +459,7 @@ async function main() {
   const previous = prev.rows[0];
   const version = (previous?.version ?? 0) + 1;
 
-  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examSeries, speakPath };
+  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examPapers, speakPath };
 
   // ── 4. THE GATE ────────────────────────────────────────────────────────
   // Every failure below is one that does NOT crash in production. A dangling
@@ -936,7 +958,7 @@ async function main() {
     scenarios: corpus.scenarios.length,
     playlists: (corpus.playlists ?? []).length,
     examTasks: (corpus.examTasks ?? []).length,
-    examSeries: (corpus.examSeries ?? []).length,
+    examPapers: (corpus.examPapers ?? []).length,
   };
   const seedCounts = {
     units: seed.units.length,
@@ -1001,7 +1023,7 @@ async function main() {
     console.log(`    scenarios:  ${d('scenarios')}`);
     console.log(`    playlists:  ${d('playlists')}`);
     console.log(`    examTasks:  ${d('examTasks')}`);
-    console.log(`    examSeries: ${d('examSeries')}`);
+    console.log(`    examPapers: ${d('examPapers')}`);
   }
   console.log(`  checksum: ${checksum.slice(0, 16)}…`);
   console.log(`  content:  ${candidateContent.slice(0, 16)}…  (the same corpus digests the same at any version)`);

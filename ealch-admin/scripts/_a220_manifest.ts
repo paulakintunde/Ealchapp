@@ -250,7 +250,7 @@ ${(cards.rows as Record<string, string>[]).map((r) => `//     ${r.id.padEnd(38)}
 // a2.05's block ${A205_BLOCK.from}..${A205_BLOCK.to} holds ${inA205.length} rows, which is
 // exactly what that lesson applied. Neither side re-authored the other's.
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const PARTICIPES_ROWS: Record<string, Item> = {
 `;

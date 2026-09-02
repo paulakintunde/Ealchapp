@@ -100,13 +100,56 @@ export type Strings = {
   vocabTag: string; vocabSub: string; vocabPrimerTitle: string;
   register: string; registerBody: string; registerEnd: string;
   go: string; grammarTag: string; grammarBody: string; askCoach: string;
-  examMeta: string[]; errorIssues: string[];
+  errorIssues: string[];
   /** The copyright/non-affiliation guardrail (Gate H) — shown wherever exam
    *  content renders, per EALCH-MASTER-BUILD.md's Phase 8 requirement that
    *  the disclaimer be visible, not just present as an i18n key. */
   examDisclaimer: string;
   examNone: string; examSubmit: string; examModelAnswer: string; examGrading: string;
   examUngraded: string; examPracticeEstimate: string; examReviewLesson: string; examSeriesDone: string;
+  /** Épreuve names, keyed by ExamSkill. Note PE is *expression écrite* and PO
+   *  is *expression orale*: the skill codes are production-first, the labels
+   *  a candidate reads are not. */
+  examSkillNames: { CO: string; CE: string; PE: string; PO: string };
+  /** Mode examen vs mode entraînement — see EXAM_MODES in content/schema.ts. */
+  examModeExam: string; examModeExamSub: string;
+  examModePractice: string; examModePracticeSub: string;
+  examUnscored: string; examUnscoredWhy: string;
+  /** The paper screen. */
+  examPaperTitle: string; examSitting: string; examSittingSub: string;
+  examSectionOne: string; examSectionOneSub: string;
+  examStatusAvailable: string; examStatusInProgress: string; examStatusDone: string;
+  examQuestionCount: string; examMinutes: string; examResume: string; examStart: string;
+  /** The section runner. */
+  examTimeUp: string; examTimeUpBody: string; examConfirmSubmit: string; examConfirmSubmitBody: string;
+  examAnswered: string; examWords: string; examLeaveSection: string; examLeaveBody: string;
+  examNoReveal: string; examStay: string; examLeave: string;
+  /** Compréhension orale playback. `examPlaysLeft` carries a {n} placeholder. */
+  examReadWindow: string; examPlaying: string; examPlaysLeft: string; examAudioSpent: string;
+  examReplay: string; examTranscript: string;
+  examAudioFailed: string; examAudioFailedBody: string;
+  /** Expression orale capture. */
+  examStartPrep: string; examStartRecording: string; examPrepPhase: string; examPrepBody: string;
+  examRecording: string; examStopRecording: string;
+  examMicFailed: string; examMicFailedBody: string; examDeliveryCaveat: string;
+  /** A listening plate that has not been rendered yet, or would not load. */
+  examImageUnavailable: string;
+  /** The recorded interlocutor (po_interaction). */
+  examStartInteraction: string; examPrepInteractionBody: string;
+  examYourTurn: string; examExaminerSpeaking: string;
+  examCoverage: string; examNotAsked: string; examInterlocutorMissing: string;
+  /** Le Rapport. */
+  examReport: string; examEstimate: string; examLowestGoverns: string;
+  examParallelNotEquated: string; examNoOverall: string; examNothingSat: string;
+  examMissingSkills: string; examWhatNext: string; examNoPrepLesson: string;
+  examNotSat: string; examNoScoring: string;
+  /** The format card and hub. */
+  examBlank: string; examEpreuves: string;
+  /** Singular and plural. French and English agree on the rule here (1 is
+   *  singular, 0 and 2+ are plural), which is why one pair serves both. */
+  examPapersCountOne: string; examPapersCount: string;
+  examFullPaper: string; examFullPaperSub: string; examBySection: string; examBySectionSub: string;
+  examNoPapersYet: string; examInProgress: string;
   trackTitle: string; trackMeta: string;
   reminders: string; dailyAlarm: string; dailyAlarmSub: string;
   notifLabels: NotifLabel[];
@@ -365,13 +408,61 @@ export const T: Record<Lang, Strings> = {
     grammarBody: "La liaison relie la consonne finale muette à la voyelle qui suit. Après un, les, vous, ils, elle est obligatoire, et c'est la première chose qu'un examinateur entend.",
     askCoach: 'Demandez à {name} →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
-    examMeta: ['Expression orale · 15 min · chrono', 'Compréhension · une seule écoute', "L'examinateur vous interrompt"],
     examDisclaimer: "Exercices originaux inspirés du format officiel. Non publiés ni approuvés par France Éducation international, le CCI Paris Île-de-France ni aucun organisme examinateur. Résultats donnés à titre indicatif, non équivalents à un score officiel.",
     examNone: 'Aucun examen blanc disponible pour le moment. Revenez après votre prochaine mise à jour.',
     examSubmit: 'Valider', examModelAnswer: 'RÉPONSE MODÈLE', examGrading: 'Correction en cours…',
     examUngraded: 'Correction indisponible. Votre réponse est enregistrée ; réessayez plus tard.',
     examPracticeEstimate: "Estimation d'entraînement, pas un score officiel",
     examReviewLesson: 'Revoir la leçon →', examSeriesDone: 'Épreuve terminée',
+    examSkillNames: { CO: 'Compréhension orale', CE: 'Compréhension écrite', PE: 'Expression écrite', PO: 'Expression orale' },
+    examModeExam: 'Mode examen', examModeExamSub: 'Chronomètre strict, une seule écoute, aucun retour en arrière. Noté.',
+    examModePractice: 'Mode entraînement', examModePracticeSub: 'Pause possible, réécoute autorisée, transcription visible. Non noté.',
+    examUnscored: 'Non noté',
+    examUnscoredWhy: "Cette tentative a été faite en mode entraînement. Elle ne compte pas dans l'estimation.",
+    examPaperTitle: 'Examen', examSitting: 'Passer les 4 épreuves',
+    examSittingSub: "D'affilée, sous un seul chronomètre, comme le jour de l'examen.",
+    examSectionOne: 'Une épreuve à la fois',
+    examSectionOneSub: 'Reprenez où vous voulez. Chaque épreuve garde son propre chronomètre.',
+    examStatusAvailable: 'À faire', examStatusInProgress: 'En cours', examStatusDone: 'Terminée',
+    examQuestionCount: 'questions', examMinutes: 'min', examResume: 'Reprendre', examStart: 'Commencer',
+    examTimeUp: 'Temps écoulé',
+    examTimeUpBody: 'Vos réponses ont été enregistrées telles quelles.',
+    examConfirmSubmit: 'Terminer cette épreuve ?',
+    examConfirmSubmitBody: 'Vous ne pourrez plus revenir sur vos réponses.',
+    examAnswered: 'répondues', examWords: 'mots',
+    examLeaveSection: 'Quitter cette épreuve ?',
+    examLeaveBody: 'Le chronomètre continue de tourner. Vos réponses sont conservées.',
+    examNoReveal: 'Les corrections sont données à la fin, dans Le Rapport.',
+    examStay: 'Rester', examLeave: 'Quitter',
+    examReadWindow: "Lisez les questions. L'audio va commencer.",
+    examPlaying: 'Lecture en cours', examPlaysLeft: 'Encore {n} écoute', examAudioSpent: 'Écoute terminée',
+    examReplay: 'Réécouter', examTranscript: 'Transcription',
+    examAudioFailed: 'Audio indisponible',
+    examAudioFailedBody: "Aucun son n'a pu être joué pour ce document. Il ne sera pas compté dans votre estimation.",
+    examStartPrep: 'Commencer la préparation', examStartRecording: "Commencer à parler",
+    examPrepPhase: 'Préparation', examPrepBody: "Lisez le document. L'enregistrement démarrera tout seul.",
+    examRecording: 'Enregistrement', examStopRecording: "J'ai terminé",
+    examMicFailed: 'Micro indisponible',
+    examMicFailedBody: "Aucun enregistrement n'a pu être fait. Cette tâche ne sera pas comptée dans votre estimation.",
+    examDeliveryCaveat: "Ces mesures décrivent votre débit, pas votre prononciation : personne n'a écouté l'enregistrement.",
+    examImageUnavailable: 'Image indisponible. Voici sa description :',
+    examStartInteraction: 'Commencer l’entretien',
+    examPrepInteractionBody: 'Lisez le document et préparez vos questions. L’entretien commencera tout seul.',
+    examYourTurn: 'À vous', examExaminerSpeaking: 'L’examinateur répond',
+    examCoverage: 'Informations obtenues', examNotAsked: 'Non demandé',
+    examInterlocutorMissing: 'Cette tâche est incomplète : aucun interlocuteur enregistré.',
+    examReport: 'Le Rapport', examEstimate: 'ESTIMATION',
+    examLowestGoverns: 'Votre niveau est fixé par votre épreuve la plus faible.',
+    examParallelNotEquated: "Épreuves blanches parallèles, non calibrées. Nous ne disposons pas des tables de conversion officielles : chaque estimation est un intervalle, jamais un score.",
+    examNoOverall: "Estimation globale indisponible",
+    examNothingSat: "Rien à estimer pour l'instant",
+    examMissingSkills: 'Il manque', examWhatNext: 'À revoir',
+    examNoPrepLesson: "Aucune leçon de préparation à ce niveau pour l'instant.",
+    examNotSat: 'Non passée', examNoScoring: 'Non barémée',
+    examBlank: 'EXAMEN BLANC', examEpreuves: 'épreuves', examPapersCountOne: 'examen blanc', examPapersCount: 'examens blancs',
+    examFullPaper: 'Examen complet', examFullPaperSub: 'Les 4 épreuves, dans l’ordre du jour J.',
+    examBySection: 'Par épreuve', examBySectionSub: 'Travaillez une compétence à la fois.',
+    examNoPapersYet: 'Aucun examen disponible pour l’instant.', examInProgress: 'en cours',
     errorIssues: ['Liaison omise. Il faut enchaîner : un‿allongé.', '« Je voudrais » est le registre attendu avec le personnel.', 'Une pause de 1,8 s : vous avez traduit dans votre tête. On va travailler ça.'],
     trackTitle: 'Les voyelles nasales', trackMeta: 'La Voix · 2 min · B1',
     reminders: 'Rappels de pratique', dailyAlarm: 'Alarme quotidienne', dailyAlarmSub: 'Votre séance vous appelle',
@@ -720,13 +811,61 @@ export const T: Record<Lang, Strings> = {
     grammarBody: "A liaison links a word's silent final consonant to the vowel that follows. After un, les, vous, ils it is not optional, and dropping it is what examiners hear first.",
     askCoach: 'Ask {name} why →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
-    examMeta: ['Speaking · 15 min · timed', 'Listening · single play', 'The examiner interrupts you'],
     examDisclaimer: 'Original practice items modeled on the official format. Not published or endorsed by France Éducation international, CCI Paris Île-de-France, or any exam board. Results are practice estimates only, not equivalent to an official score.',
     examNone: 'No mock exams available yet. Check back after your next update.',
     examSubmit: 'Submit', examModelAnswer: 'MODEL ANSWER', examGrading: 'Grading…',
     examUngraded: 'Grading unavailable. Your response was saved; try again later.',
     examPracticeEstimate: 'Practice estimate, not an official score',
     examReviewLesson: 'Review the lesson →', examSeriesDone: 'Mock exam complete',
+    examSkillNames: { CO: 'Listening', CE: 'Reading', PE: 'Writing', PO: 'Speaking' },
+    examModeExam: 'Exam mode', examModeExamSub: 'Strict clock, single play, no going back. Scored.',
+    examModePractice: 'Practice mode', examModePracticeSub: 'Pausable, replay allowed, transcript visible. Not scored.',
+    examUnscored: 'Not scored',
+    examUnscoredWhy: 'This attempt was taken in practice mode. It does not count toward the estimate.',
+    examPaperTitle: 'Exam', examSitting: 'Sit all 4 papers',
+    examSittingSub: 'Back to back, under one clock, the way the real day runs.',
+    examSectionOne: 'One paper at a time',
+    examSectionOneSub: 'Pick up wherever you like. Each paper keeps its own clock.',
+    examStatusAvailable: 'To do', examStatusInProgress: 'In progress', examStatusDone: 'Done',
+    examQuestionCount: 'questions', examMinutes: 'min', examResume: 'Resume', examStart: 'Start',
+    examTimeUp: 'Time is up',
+    examTimeUpBody: 'Your answers were saved exactly as they stood.',
+    examConfirmSubmit: 'Finish this paper?',
+    examConfirmSubmitBody: 'You will not be able to change your answers.',
+    examAnswered: 'answered', examWords: 'words',
+    examLeaveSection: 'Leave this paper?',
+    examLeaveBody: 'The clock keeps running. Your answers are kept.',
+    examNoReveal: 'Corrections come at the end, in Le Rapport.',
+    examStay: 'Stay', examLeave: 'Leave',
+    examReadWindow: 'Read the questions. The audio is about to start.',
+    examPlaying: 'Playing', examPlaysLeft: '{n} play left', examAudioSpent: 'Audio finished',
+    examReplay: 'Play again', examTranscript: 'Transcript',
+    examAudioFailed: 'Audio unavailable',
+    examAudioFailedBody: 'No sound could be played for this document. It will not count toward your estimate.',
+    examStartPrep: 'Start preparation', examStartRecording: 'Start speaking',
+    examPrepPhase: 'Preparation', examPrepBody: 'Read the document. Recording starts on its own.',
+    examRecording: 'Recording', examStopRecording: "I'm done",
+    examMicFailed: 'Microphone unavailable',
+    examMicFailedBody: 'No recording could be made. This task will not count toward your estimate.',
+    examDeliveryCaveat: 'These measure your pacing, not your pronunciation: nothing listened to the recording.',
+    examImageUnavailable: 'Image unavailable. Here is what it shows:',
+    examStartInteraction: 'Start the interview',
+    examPrepInteractionBody: 'Read the document and prepare your questions. The interview starts on its own.',
+    examYourTurn: 'Your turn', examExaminerSpeaking: 'The examiner answers',
+    examCoverage: 'Facts obtained', examNotAsked: 'Not asked',
+    examInterlocutorMissing: 'This task is incomplete: no recorded interlocutor.',
+    examReport: 'Le Rapport', examEstimate: 'ESTIMATE',
+    examLowestGoverns: 'Your level is set by your weakest paper.',
+    examParallelNotEquated: 'Parallel mock papers, not calibrated. We do not hold the official conversion tables, so every estimate is a range, never a score.',
+    examNoOverall: 'No overall estimate yet',
+    examNothingSat: 'Nothing to estimate yet',
+    examMissingSkills: 'Missing', examWhatNext: 'To review',
+    examNoPrepLesson: 'No prep lesson at that level yet.',
+    examNotSat: 'Not sat', examNoScoring: 'No score map',
+    examBlank: 'MOCK EXAM', examEpreuves: 'papers', examPapersCountOne: 'mock exam', examPapersCount: 'mock exams',
+    examFullPaper: 'Full exam', examFullPaperSub: 'All 4 papers, in the order the real day runs.',
+    examBySection: 'By paper', examBySectionSub: 'Work one skill at a time.',
+    examNoPapersYet: 'No exams available yet.', examInProgress: 'in progress',
     errorIssues: ['Liaison dropped. It should flow as un‿allongé.', '« Je voudrais » is the expected register with staff.', 'A 1.8s pause: you translated in your head. We will drill this.'],
     trackTitle: 'The nasal vowels', trackMeta: 'La Voix · 2 min · B1',
     reminders: 'Practice reminders', dailyAlarm: 'Daily alarm', dailyAlarmSub: 'Your session calls you',

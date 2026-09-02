@@ -210,7 +210,7 @@ async function main() {
 //
 // Regenerate with: pnpm tsx scripts/_a213_manifest.ts
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 /** The ${VERBS.length} naming forms this lesson teaches, in learner order. All three share
  *  one theme, which a2.12's three did not. */

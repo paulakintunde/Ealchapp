@@ -2101,14 +2101,53 @@ export function validateTemplate(v: unknown, path = 'template'): Issue[] {
 export const EXAM_TASK_ID_RE = new RegExp(
   `^exam\\.(${EXAM_FORMATS.join('|')})\\.[a-z0-9-]+\\.(${EXAM_TASK_TYPES.join('|')})\\.\\d{3,}$`
 );
-/** 'series.<format>.<variant>.<n>' — series.tcf_canada.2024a.1 */
-export const EXAM_SERIES_ID_RE = new RegExp(`^series\\.(${EXAM_FORMATS.join('|')})\\.[a-z0-9-]+\\.[1-5]$`);
+/**
+ * 'paper.<format>.<variant>.<n>' — paper.tcf_canada.2024a.1, n in 1..20.
+ *
+ * Was `series.<format>.<variant>.<1-5>`, and both halves of that were wrong.
+ * The cap of 5 could not express the twenty parallel papers per format the
+ * Examiner is built for, and "series" named the wrong thing: one row is ONE
+ * mock sitting, not a series of them.
+ *
+ * This is a clean rename with no compatibility alias, which is only safe
+ * because of a fact that will not be true again: exam content publishes at
+ * status 'published' and the only two exam rows that have ever existed are
+ * 'in_review', so no shipped snapshot and no cached install carries an old
+ * `series.*` id. The migration renames the one live row.
+ */
+export const EXAM_PAPER_ID_RE = new RegExp(
+  `^paper\\.(${EXAM_FORMATS.join('|')})\\.[a-z0-9-]+\\.(?:[1-9]|1\\d|20)$`
+);
+
+/** Papers per format the model supports. The first release ships 5 TEF, 5 TCF
+ *  and 1 DELF; the id space is sized for the destination, not the release. */
+export const MAX_PAPER_NO = 20;
+
+/**
+ * The four épreuves of every paper, in the order a candidate sits them.
+ *
+ * READ THE VALUES, NOT THE FRENCH LABELS. The third section is *expression
+ * écrite*, universally abbreviated EE on every exam board's paper, and its
+ * EXAM_SKILL is 'PE' (production écrite). The fourth is *expression orale*,
+ * abbreviated EO, and its skill is 'PO'. The two vocabularies cross over
+ * exactly here, and writing ['CO','CE','EE','EO'] would be a list of two real
+ * skills and two strings that are not skills at all.
+ */
+export const EXAM_SECTION_ORDER = ['CO', 'CE', 'PE', 'PO'] as const;
+
+/** What a candidate sees on the section, for the skill the section carries. */
+export const EXAM_SECTION_LABEL: Record<ExamSkill, string> = {
+  CO: 'Compréhension orale',
+  CE: 'Compréhension écrite',
+  PE: 'Expression écrite',
+  PO: 'Expression orale',
+};
 
 export function examTaskId(format: ExamFormat, variant: string, taskType: ExamTaskType, seq: number): string {
   return `exam.${format}.${variant}.${taskType}.${String(seq).padStart(3, '0')}`;
 }
-export function examSeriesId(format: ExamFormat, variant: string, seriesNo: number): string {
-  return `series.${format}.${variant}.${seriesNo}`;
+export function examPaperId(format: ExamFormat, variant: string, paperNo: number): string {
+  return `paper.${format}.${variant}.${paperNo}`;
 }
 
 /** Task types whose answers a machine can mark. The rest need a rubric and a
@@ -2118,7 +2157,152 @@ export const OPEN_TASK_TYPES = ['po_monologue', 'po_interaction', 'pe_short', 'p
 const isOpenTaskType = (v: unknown): boolean => (OPEN_TASK_TYPES as readonly string[]).includes(v as string);
 
 /** A multiple-choice question. Same shape and same trap as the quiz section. */
-export type QcmItem = { q: string; opts: string[]; correct: number; why?: string };
+export type QcmItem = {
+  q: string;
+  opts: string[];
+  correct: number;
+  why?: string;
+  /**
+   * The CEFR band this single question sits at.
+   *
+   * REQUIRED on tcf_canada, optional elsewhere, and the asymmetry is the
+   * format's defining property rather than an inconsistency. A TEF paper is
+   * built from named blocks that do not ramp: block G is not harder than
+   * block A, it is different, and the task-level `level` describes it well
+   * enough. A TCF comprehension épreuve is a single 39-question slope from A1
+   * to C2, so an item's band is what says where on that slope it sits. Without
+   * it the ramp cannot be checked, item order stops meaning anything, and the
+   * NCLC estimate has nothing to read: twenty correct at the bottom of the
+   * slope and twenty scattered across it are different performances that a raw
+   * count reports identically.
+   */
+  band?: ScoreBand;
+};
+
+/**
+ * One stimulus and the questions hanging off it.
+ *
+ * `ExamTask.items` models a task with ONE stimulus (the task's own `prompt`)
+ * and a flat question list. Real papers are not shaped like that: a TEF
+ * listening section is forty questions across roughly thirty separate audio
+ * documents, each with its own recording, its own play count and its own
+ * reading window. Flattening those into one list loses the only structure that
+ * makes it a listening test — which audio you are allowed to hear, and when.
+ *
+ * A task carries `items` or `parts`, never both. See validateExamTask.
+ */
+export type ExamPart = {
+  /** Shown to the candidate: 'Document 3', 'Question 12'. */
+  label: string;
+  /** CE: the passage, advert or form. CO: the transcript, which is what gets
+   *  rendered to audio and is NEVER shown under exam conditions. */
+  text?: string;
+  /** CO only. Resolves through the same Storage + disk-cache + TTS-fallback
+   *  path as item audio (services/audio.ts), so a part with no clip yet still
+   *  speaks rather than falling silent. */
+  audioRef?: string | null;
+  /** CO only. 1 normally. TEF interview blocks may be 2 since 1 Sept 2025;
+   *  TCF is 1 everywhere. Absent means 1. */
+  playCount?: number;
+  /** CO only. Seconds of silence before autoplay, so the candidate can read
+   *  the questions first, as the real paper allows. Absent means 0. */
+  readWindowS?: number;
+  /**
+   * CO only. How long the audio actually runs.
+   *
+   * Written by the render pipeline (phase E8), which knows the rendered clip's
+   * real length. Absent until then, and the runner estimates from the
+   * transcript — see estimateDurationS.
+   *
+   * It exists because the shared audio player exposes no per-play completion
+   * callback, so a part with playCount 2 has nothing to tell it when the first
+   * play ended, and both would start in the same tick.
+   */
+  durationS?: number;
+  /** TEF CO block A answers with pictures: the images ARE the options. */
+  imageRef?: string | null;
+  /** Required whenever imageRef is present (UDL 01). An image with no
+   *  alternative text is unusable to a screen reader and must not ship. */
+  imageAlt?: string;
+  items: QcmItem[];
+};
+
+/**
+ * How one épreuve's raw marks become a reported score and an NCLC estimate.
+ *
+ * Lives on the SECTION, not the task, because the published conversion is per
+ * épreuve: TEF reports listening on /360 and reading on /300 across the whole
+ * section, not per block.
+ */
+export type SectionScoring = {
+  /** The official scale for this épreuve: 360, 300, 450, 699 or 20. */
+  scale: number;
+  /** raw correct → scaled score, as a lookup table read by interpolation.
+   *  Expert-judged, NOT equated: see NclcRule. */
+  map: { raw: number; scaled: number }[];
+  /** Ascending, non-overlapping, and covering 0..(number of items). */
+  nclc: NclcRule[];
+};
+
+/**
+ * A raw-score span and the NCLC band it reports as.
+ *
+ * `nclcLow`/`nclcHigh` are a RANGE, and that is a deliberate accuracy claim
+ * rather than vagueness. The exam bodies publish their NCLC boundaries but not
+ * their raw-to-scaled conversion, which they equate from live sitting data we
+ * do not have. Any map we write is expert judgement. A point estimate off an
+ * expert-judged map is a number a candidate may make an immigration decision
+ * on, and we cannot stand behind that precision; a range we can. Default span
+ * is 2 (e.g. 6 to 7). Narrow to a single value only where there is evidence.
+ */
+export type NclcRule = { minRaw: number; maxRaw: number; nclcLow: number; nclcHigh: number };
+
+/**
+ * One recorded examiner turn. The shapes live here so authored content can be
+ * typed from the schema alone; the matching that consumes them is in
+ * utils/interlocutor.logic.ts.
+ */
+export type InterlocutorTurn = {
+  id: string;
+  /** What the examiner says. Rendered by E8; device TTS speaks it until then. */
+  text: string;
+  audioRef?: string | null;
+  durationS?: number;
+  /** Phrases that select this answer against the candidate's transcript. */
+  cues: string[];
+  /** What this answer is FOR, in the author's words: 'le prix', 'les dates'.
+   *  This is the coverage checklist the grader is shown. */
+  covers: string;
+};
+
+export type ExamInterlocutor = {
+  opening: InterlocutorTurn;
+  /** Every fact the document withholds. Full coverage is asking for all of them. */
+  answers: InterlocutorTurn[];
+  catchAll: InterlocutorTurn;
+  closing: InterlocutorTurn;
+};
+
+/** TCF Canada reports nothing outside this range, whatever the raw score. */
+export const NCLC_MIN = 4;
+export const NCLC_MAX = 10;
+
+/**
+ * Exam conditions, or practice conditions.
+ *
+ *   'exam'     hard clock, single play, no rewind, no pause. SCORED.
+ *   'practice' replay allowed, clock pausable, transcript available. NOT
+ *              scored, and the attempt is marked so on the report.
+ *
+ * This is a SHIPPED STRING VALUE, stored on every logged ExamResult, so it is
+ * append-only for the same reason DRILL_KINDS is: renaming a value silently
+ * reinterprets every result already on a device. And the two must never blur
+ * into one number — a practice run with the clock paused and the audio replayed
+ * is not evidence of anything, and reporting it beside a real sitting would
+ * make the whole report untrustworthy.
+ */
+export const EXAM_MODES = ['exam', 'practice'] as const;
+export type ExamMode = (typeof EXAM_MODES)[number];
 
 export type RubricCriterion = {
   key: string;
@@ -2152,7 +2336,7 @@ export type ExamTask = {
   format: ExamFormat;
   /** The paper this came from: '2024a', 'blanc-03'. Distinct from formatVersion
    *  below — variant identifies which of several PARALLEL mock papers this is
-   *  (see ExamSeries.seriesNo), formatVersion identifies which edition of the
+   *  (see ExamPaper.paperNo), formatVersion identifies which edition of the
    *  exam board's spec it was written against. Losing either collapses two
    *  different questions ("which paper?" vs "is this paper stale?") into one. */
   variant: string;
@@ -2182,8 +2366,49 @@ export type ExamTask = {
    */
   formatVersion: string;
   prompt: string;
-  /** Closed task types only: the questions to mark. */
+  /** What the candidate sees as this task's name: 'Section A', 'Tâche 2'.
+   *  Deliberately a free string and NOT a taskType value: the label belongs to
+   *  the paper ("Tâche 2" means different things on TCF and DELF), while
+   *  taskType belongs to the engine. Enum values ship inside cached snapshots
+   *  and can never be changed; labels can. */
+  label?: string;
+  /** Closed task types only: the questions to mark, when the task has ONE
+   *  stimulus. A task with several stimuli uses `parts` instead. */
   items?: QcmItem[];
+  /** Closed task types only, and mutually exclusive with `items` — the
+   *  several-stimuli shape. See ExamPart. */
+  parts?: ExamPart[];
+  /**
+   * Open SPOKEN task types only: seconds the candidate gets with the prompt
+   * before the answer clock starts.
+   *
+   * Only some tasks have one, and that asymmetry is the format, not an
+   * oversight: TCF tâche 2 gives two minutes with the document, while tâche 1
+   * and tâche 3 give none at all. Absent means none, and the runner must show
+   * no prep phase rather than a zero-length one.
+   *
+   * Separate from `timingS`, which is the answer clock. Conflating them would
+   * either hand the candidate their prep time as speaking time or start the
+   * recording while they are still reading.
+   */
+  prepS?: number;
+  /**
+   * po_interaction only: the recorded examiner.
+   *
+   * TEF EO Section A and TCF EO tâche 2 require the candidate to ASK and an
+   * examiner to ANSWER. Without this the task is a monologue wearing an
+   * interaction's label — the candidate talks into silence and nothing they
+   * ask has consequences.
+   *
+   * Deliberately NOT `Scenario.exam`, which was the original plan. A role-play
+   * turn carries a TARGET line the learner is scored against; here the
+   * candidate invents their own questions and there is no target, so reusing
+   * it would turn "obtain information" into "recite this sentence".
+   *
+   * The answer bank doubles as the definition of full coverage — see
+   * utils/interlocutor.logic.ts.
+   */
+  interlocutor?: ExamInterlocutor;
   responseSpec?: ResponseSpec;
   /** Open task types only, and REQUIRED there — see validateExamTask. */
   rubric?: Rubric;
@@ -2199,26 +2424,74 @@ export type ExamTask = {
    * logging "got question 3 wrong" and losing the thread back to the SRS. See
    * decomposeExamMiss() in progress.logic.ts. Every id must resolve against
    * Corpus.items — checked in validateCorpus, same pattern as
-   * ExamSeries.taskIds resolving against ExamTask ids.
+   * ExamSection.taskIds resolving against ExamTask ids.
    */
   targetItemIds?: string[];
   provenance?: Provenance;
 };
 
-/** A full mock sitting: the ordered tasks that make up one paper. */
-export type ExamSeries = {
-  /** 'series.<format>.<variant>.<n>' */
+/**
+ * One épreuve of a paper: the tasks it is built from, and its clock.
+ *
+ * The clock lives here rather than only on the task because that is where the
+ * real paper puts it. TEF gives sixty minutes for the whole reading épreuve,
+ * not per block, and the candidate spends it how they like. `ExamTask.timingS`
+ * remains the per-task budget for sections that genuinely have one (TEF
+ * writing splits 25 and 35), but the section clock is the one that stops the
+ * candidate.
+ */
+export type ExamSection = {
+  /** Which épreuve this is. The four are fixed and ordered: see
+   *  EXAM_SECTION_ORDER, and note that the "EE" section carries skill 'PE'. */
+  skill: ExamSkill;
+  /** Ordered. Must all resolve, and every task's own `skill` must equal this
+   *  section's — both checked in validateCorpus. */
+  taskIds: string[];
+  /** The published clock for the whole épreuve, in seconds. */
+  timingS: number;
+  /** Which blueprint edition this section was authored against:
+   *  'tef-canada-2025.09'. Distinct from ExamTask.formatVersion, which records
+   *  the exam board's own spec edition — this records OUR reading of it,
+   *  including the fill rules we adopted where the board publishes a gap
+   *  (see exam-blueprints/BLUEPRINT-tef-canada.md §3.1). When a fill rule is
+   *  later corrected, this is what finds every section built on the old one. */
+  blueprintId: string;
+  /** How this épreuve's raw marks report. Absent means the section cannot be
+   *  scored yet, which the report must show as "non corrigé" rather than 0. */
+  scoring?: SectionScoring;
+};
+
+/**
+ * A full mock sitting: four épreuves, in order.
+ *
+ * Renamed from ExamSeries, which named one paper as though it were several.
+ *
+ * The four-section rule is what makes this an exam rather than a bag of tasks,
+ * and it is validated rather than assumed. A "paper" missing its speaking
+ * épreuve is not a slightly incomplete paper — it is a thing that will report
+ * an NCLC estimate off three skills while a real result is governed by the
+ * weakest of four, which is the specific way this feature could mislead
+ * somebody about their immigration eligibility.
+ */
+export type ExamPaper = {
+  /** 'paper.<format>.<variant>.<n>' */
   id: string;
   format: ExamFormat;
   variant: string;
-  /** 1..5. Five parallel mock papers per variant — "parallel," never
-   *  "equated": difficulty is expert-judged, not psychometrically balanced
-   *  from sitting data, so scores reported off any of them are practice
-   *  estimates, not equated bands. */
-  seriesNo: number;
-  /** Ordered. Must all resolve — checked in validateCorpus. */
-  taskIds: string[];
+  /** 1..MAX_PAPER_NO. Parallel mock papers — "parallel," never "equated":
+   *  difficulty is expert-judged, not psychometrically balanced from sitting
+   *  data, so scores reported off any of them are practice estimates. */
+  paperNo: number;
+  /** Exactly four, skills in EXAM_SECTION_ORDER. Validated. */
+  sections: ExamSection[];
 };
+
+/** Every task the paper contains, in sitting order. The flat view the runner
+ *  and the SRS want, derived rather than stored so it cannot disagree with
+ *  the sections. */
+export function paperTaskIds(paper: ExamPaper): string[] {
+  return (paper.sections ?? []).flatMap((s) => s.taskIds ?? []);
+}
 
 /**
  * What the publish pipeline emits and the app loads.
@@ -2275,7 +2548,9 @@ export type Corpus = {
   themes?: Theme[];
   packs?: Pack[];
   examTasks?: ExamTask[];
-  examSeries?: ExamSeries[];
+  /** Mock papers. Renamed from `examSeries`; no shipped snapshot carries the
+   *  old key, because no exam content has ever reached status 'published'. */
+  examPapers?: ExamPaper[];
   playlists?: Playlist[];
   templates?: ContentTemplate[];
   /** The Speak trail. Optional for back-compat like every post-v0 array. */
@@ -2292,7 +2567,7 @@ export const EMPTY_CORPUS: Corpus = {
   themes: [],
   packs: [],
   examTasks: [],
-  examSeries: [],
+  examPapers: [],
   playlists: [],
   templates: [],
   speakPath: [],
@@ -3882,7 +4157,7 @@ export function validatePack(v: unknown, path = 'pack'): Issue[] {
 
 /** Shared with the quiz section: an out-of-range `correct` makes every option
  *  score wrong, so the candidate is told they failed whatever they picked. */
-function validateQcm(v: unknown, path: string): Issue[] {
+function validateQcm(v: unknown, path: string, requireBand = false): Issue[] {
   const out: Issue[] = [];
   const push = (m: string) => out.push({ path, message: m });
   if (!isArr(v) || v.length === 0) return [{ path, message: 'items must be a non-empty array' }];
@@ -3903,6 +4178,13 @@ function validateQcm(v: unknown, path: string): Issue[] {
       qq.correct >= qq.opts.length
     ) {
       push(`items[${i}].correct must index opts (0..${qq.opts.length - 1})`);
+    }
+    // Per-item band. Optional everywhere except tcf_canada, where the épreuve
+    // IS a ramp and an untagged item cannot be placed on it — see QcmItem.band.
+    if (qq.band !== undefined && !oneOf(SCORE_BANDS, qq.band)) {
+      push(`items[${i}].band must be one of ${SCORE_BANDS.join(' | ')} when present`);
+    } else if (requireBand && qq.band === undefined) {
+      push(`items[${i}].band is required on tcf_canada — the épreuve is a ramp and an untagged item has no place on it`);
     }
   });
   return out;
@@ -3944,6 +4226,111 @@ function validateRubric(v: unknown, path: string): Issue[] {
       else if (cc.descriptors.some((d) => !isStr(d))) push(`criteria[${i}].descriptors must all be non-empty strings`);
     }
   });
+  return out;
+}
+
+function validateExamParts(v: unknown, path: string, requireBand: boolean): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (!isArr(v) || v.length === 0) return [{ path, message: 'parts must be a non-empty array' }];
+
+  v.forEach((p, i) => {
+    if (typeof p !== 'object' || p === null || isArr(p)) {
+      push(`parts[${i}] is not an object`);
+      return;
+    }
+    const pp = p as Partial<ExamPart>;
+    if (!isStr(pp.label)) push(`parts[${i}].label is required — it is what the candidate is told to look at`);
+    if (pp.text !== undefined && !isStr(pp.text)) push(`parts[${i}].text must be a non-empty string when present`);
+
+    if (pp.audioRef !== undefined && pp.audioRef !== null && !isStr(pp.audioRef)) {
+      push(`parts[${i}].audioRef must be a string or null`);
+    }
+    if (pp.playCount !== undefined) {
+      if (typeof pp.playCount !== 'number' || !Number.isInteger(pp.playCount) || pp.playCount < 1) {
+        push(`parts[${i}].playCount must be an integer >= 1 when present — a part nobody may hear is not a listening item`);
+      }
+    }
+    if (pp.readWindowS !== undefined) {
+      if (typeof pp.readWindowS !== 'number' || !Number.isInteger(pp.readWindowS) || pp.readWindowS < 0) {
+        push(`parts[${i}].readWindowS must be an integer >= 0 when present`);
+      }
+    }
+    if (pp.durationS !== undefined) {
+      if (typeof pp.durationS !== 'number' || !Number.isInteger(pp.durationS) || pp.durationS < 1) {
+        push(`parts[${i}].durationS must be an integer >= 1 when present — a clip of no length is not a clip`);
+      }
+    }
+
+    // A listening part with neither a clip nor a transcript can produce no
+    // sound at all: audio.ts falls back to speaking `text`, and with both
+    // absent the part is silent and unanswerable.
+    if (pp.audioRef !== undefined && pp.audioRef !== null && !isStr(pp.text)) {
+      push(`parts[${i}] has audioRef but no text — the transcript is what renders the clip and what the fallback speaks`);
+    }
+
+    if (pp.imageRef !== undefined && pp.imageRef !== null) {
+      if (!isStr(pp.imageRef)) push(`parts[${i}].imageRef must be a string or null`);
+      // UDL 01. An image with no alternative text is unusable to a screen
+      // reader, and on a picture-answer block it is the whole question.
+      if (!isStr(pp.imageAlt)) push(`parts[${i}] has imageRef but no imageAlt — an image with no alt text must not ship`);
+    }
+
+    out.push(...validateQcm(pp.items, `${path}[${i}].items`, requireBand));
+  });
+
+  return out;
+}
+
+function validateInterlocutorTurn(v: unknown, path: string, requireCues: boolean): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'not an object' }];
+  const tn = v as Partial<InterlocutorTurn>;
+  if (!isStr(tn.id)) push('id is required');
+  if (!isStr(tn.text)) push('text is required — it is what the examiner says, and what gets rendered');
+  if (tn.audioRef !== undefined && tn.audioRef !== null && !isStr(tn.audioRef)) push('audioRef must be a string or null');
+  if (tn.durationS !== undefined && (typeof tn.durationS !== 'number' || tn.durationS < 1)) {
+    push('durationS must be >= 1 when present');
+  }
+  if (requireCues) {
+    if (!isArr(tn.cues) || tn.cues.length === 0 || tn.cues.some((c) => !isStr(c))) {
+      push('an answer needs at least one cue, or nothing a candidate says can ever reach it');
+    }
+    if (!isStr(tn.covers)) {
+      push('an answer needs `covers` — it is the coverage checklist the grader is shown');
+    }
+  }
+  return out;
+}
+
+export function validateInterlocutor(v: unknown, path = 'interlocutor'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'not an object' }];
+  const b = v as Partial<ExamInterlocutor>;
+
+  out.push(...validateInterlocutorTurn(b.opening, `${path}.opening`, false));
+  // The catch-all is what a real examiner does when asked something off their
+  // sheet. Without it an unmatched question produces dead air.
+  out.push(...validateInterlocutorTurn(b.catchAll, `${path}.catchAll`, false));
+  out.push(...validateInterlocutorTurn(b.closing, `${path}.closing`, false));
+
+  if (!isArr(b.answers) || b.answers.length === 0) {
+    push('answers must be a non-empty array — the bank IS the document’s list of what there is to ask');
+  } else {
+    const seen = new Set<string>();
+    b.answers.forEach((a, i) => {
+      out.push(...validateInterlocutorTurn(a, `${path}.answers[${i}]`, true));
+      const id = (a as Partial<InterlocutorTurn>)?.id;
+      // Ids drive "already given". A duplicate would silently retire two
+      // answers the first time either is asked for.
+      if (isStr(id)) {
+        if (seen.has(id)) push(`answers[${i}].id "${id}" appears twice — ids are how a given answer is retired`);
+        else seen.add(id);
+      }
+    });
+  }
   return out;
 }
 
@@ -3997,12 +4384,55 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
   }
   if (t.rubric !== undefined) out.push(...validateRubric(t.rubric, `${path}.rubric`));
 
-  // Closed task types carry the questions. Marking is the whole point of them,
-  // so a co_mcq/ce_mcq task with nothing to mark is an empty paper that scores 0/0.
-  if (!isOpenTaskType(t.taskType) && oneOf(EXAM_TASK_TYPES, t.taskType)) {
-    if (t.items === undefined) push(`taskType "${t.taskType}" is a closed task and MUST have items to mark`);
+  if (t.label !== undefined && !isStr(t.label)) push('label must be a non-empty string when present');
+
+  if (t.interlocutor !== undefined) {
+    // An interaction is the ONLY task shape that needs one, and a monologue
+    // with an answer bank would never play it.
+    if (t.taskType !== 'po_interaction') {
+      push(`interlocutor belongs to a po_interaction task, not "${t.taskType}"`);
+    }
+    out.push(...validateInterlocutor(t.interlocutor, `${path}.interlocutor`));
+  } else if (t.taskType === 'po_interaction') {
+    // THE rule for this task type. Without a bank the candidate asks questions
+    // into silence, which is a monologue wearing an interaction's label.
+    push('taskType "po_interaction" MUST have an interlocutor — an interaction with nothing to interact with is a monologue');
   }
-  if (t.items !== undefined) out.push(...validateQcm(t.items, `${path}.items`));
+
+  if (t.prepS !== undefined) {
+    if (typeof t.prepS !== 'number' || !Number.isInteger(t.prepS) || t.prepS < 1) {
+      push('prepS must be an integer >= 1 when present — a zero-length prep phase is not a prep phase, omit it');
+    }
+    // Preparation is a property of a spoken task. On a written one it would be
+    // indistinguishable from the answer time the candidate already has.
+    if (t.skill !== 'PO') push(`prepS belongs to a spoken task; "${t.skill}" tasks have no preparation phase`);
+  }
+
+  // Closed task types carry the questions, in ONE of two shapes: `items` (one
+  // stimulus, the task's own prompt) or `parts` (several stimuli, each with
+  // its own audio, image and play count). Marking is the whole point of them,
+  // so a co_mcq/ce_mcq task with neither is an empty paper that scores 0/0.
+  //
+  // Carrying both is rejected rather than merged. A reader would have to guess
+  // which list is the real question set and in what order the two interleave,
+  // and every reader would guess differently — the same reasoning that keeps
+  // the quiz section from having two lists.
+  const requireBand = t.format === 'tcf_canada';
+  if (t.items !== undefined && t.parts !== undefined) {
+    push('a task carries items OR parts, never both — with both, nothing can say which list is the real question set');
+  }
+  if (!isOpenTaskType(t.taskType) && oneOf(EXAM_TASK_TYPES, t.taskType)) {
+    if (t.items === undefined && t.parts === undefined) {
+      push(`taskType "${t.taskType}" is a closed task and MUST have items or parts to mark`);
+    }
+  }
+  // Open tasks are judged against a rubric; a question list on one is either a
+  // mistake or a closed task wearing the wrong taskType.
+  if (isOpenTaskType(t.taskType) && t.parts !== undefined) {
+    push(`taskType "${t.taskType}" is an open task and cannot have parts — it is judged against a rubric, not marked`);
+  }
+  if (t.items !== undefined) out.push(...validateQcm(t.items, `${path}.items`, requireBand));
+  if (t.parts !== undefined) out.push(...validateExamParts(t.parts, `${path}.parts`, requireBand));
 
   // targetItemIds is how a miss decomposes back into the SRS — see the type.
   // Closed task types only: open tasks have no per-item right answer to blame.
@@ -4078,41 +4508,155 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
   return out;
 }
 
-export function validateExamSeries(v: unknown, path = 'examSeries'): Issue[] {
+export function validateSectionScoring(v: unknown, path = 'scoring'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'not an object' }];
+  const sc = v as Partial<SectionScoring>;
+
+  if (typeof sc.scale !== 'number' || !Number.isInteger(sc.scale) || sc.scale < 1) {
+    push('scale must be a positive integer — the épreuve reports on /360, /300, /450, /699 or /20');
+  }
+
+  if (!isArr(sc.map) || sc.map.length < 2) {
+    push('map must have at least two points — one point cannot interpolate a score');
+  } else {
+    let prevRaw = -1;
+    let prevScaled = -1;
+    sc.map.forEach((pt, i) => {
+      if (typeof pt !== 'object' || pt === null) {
+        push(`map[${i}] is not an object`);
+        return;
+      }
+      const p = pt as Partial<{ raw: number; scaled: number }>;
+      if (typeof p.raw !== 'number' || !Number.isInteger(p.raw) || p.raw < 0) {
+        push(`map[${i}].raw must be an integer >= 0`);
+      } else if (p.raw <= prevRaw) {
+        push(`map[${i}].raw must ascend — the table is read by interpolation, and out of order it interpolates backwards`);
+      } else prevRaw = p.raw;
+      if (typeof p.scaled !== 'number' || p.scaled < 0) {
+        push(`map[${i}].scaled must be a number >= 0`);
+      } else if (p.scaled < prevScaled) {
+        // Monotonic, not merely ordered: a candidate who answers one MORE
+        // question correctly must never report a LOWER score.
+        push(`map[${i}].scaled must not decrease — more correct answers cannot report a lower score`);
+      } else prevScaled = p.scaled;
+    });
+  }
+
+  if (!isArr(sc.nclc) || sc.nclc.length === 0) {
+    push('nclc must be a non-empty array — a section that cannot report a level is not scored');
+  } else {
+    let prevMax = -1;
+    sc.nclc.forEach((rule, i) => {
+      if (typeof rule !== 'object' || rule === null) {
+        push(`nclc[${i}] is not an object`);
+        return;
+      }
+      const r = rule as Partial<NclcRule>;
+      const ints = (['minRaw', 'maxRaw', 'nclcLow', 'nclcHigh'] as const).every(
+        (k) => typeof r[k] === 'number' && Number.isInteger(r[k] as number)
+      );
+      if (!ints) {
+        push(`nclc[${i}] needs integer minRaw, maxRaw, nclcLow and nclcHigh`);
+        return;
+      }
+      if ((r.minRaw as number) > (r.maxRaw as number)) push(`nclc[${i}].minRaw exceeds maxRaw — no score falls in it`);
+      if ((r.nclcLow as number) > (r.nclcHigh as number)) push(`nclc[${i}].nclcLow exceeds nclcHigh`);
+      // NCLC is reportable only across 4..10. A rule outside that says the
+      // candidate scored something no exam board would ever put on paper.
+      if ((r.nclcLow as number) < NCLC_MIN || (r.nclcHigh as number) > NCLC_MAX) {
+        push(`nclc[${i}] must stay within NCLC ${NCLC_MIN}..${NCLC_MAX} — nothing outside it is reportable`);
+      }
+      // Overlapping spans give one raw score two different levels, and which
+      // one a candidate sees becomes an accident of iteration order.
+      if ((r.minRaw as number) <= prevMax) {
+        push(`nclc[${i}].minRaw overlaps the previous span — one raw score would report two different levels`);
+      }
+      prevMax = r.maxRaw as number;
+    });
+  }
+
+  return out;
+}
+
+export function validateExamPaper(v: unknown, path = 'examPaper'): Issue[] {
   const out: Issue[] = [];
   const push = (m: string) => out.push({ path, message: m });
   if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
-  const s = v as Partial<ExamSeries>;
+  const p = v as Partial<ExamPaper>;
 
-  if (!isStr(s.id)) push('id is required');
-  else if (!EXAM_SERIES_ID_RE.test(s.id)) push(`id "${s.id}" must match series.<format>.<variant>.<1-5>`);
+  if (!isStr(p.id)) push('id is required');
+  else if (!EXAM_PAPER_ID_RE.test(p.id)) push(`id "${p.id}" must match paper.<format>.<variant>.<1-${MAX_PAPER_NO}>`);
 
-  if (!oneOf(EXAM_FORMATS, s.format)) push(`format must be one of ${EXAM_FORMATS.join(' | ')}`);
-  if (!isStr(s.variant)) push('variant is required');
+  if (!oneOf(EXAM_FORMATS, p.format)) push(`format must be one of ${EXAM_FORMATS.join(' | ')}`);
+  if (!isStr(p.variant)) push('variant is required');
 
-  if (typeof s.seriesNo !== 'number' || !Number.isInteger(s.seriesNo) || s.seriesNo < 1 || s.seriesNo > 5) {
-    push('seriesNo must be an integer 1..5');
+  if (typeof p.paperNo !== 'number' || !Number.isInteger(p.paperNo) || p.paperNo < 1 || p.paperNo > MAX_PAPER_NO) {
+    push(`paperNo must be an integer 1..${MAX_PAPER_NO}`);
   }
 
-  if (isStr(s.id) && EXAM_SERIES_ID_RE.test(s.id)) {
-    const [, format, variant, no] = s.id.split('.');
-    if (s.format && format !== s.format) push(`id format "${format}" disagrees with format "${s.format}"`);
-    if (s.variant && variant !== s.variant) push(`id variant "${variant}" disagrees with variant "${s.variant}"`);
-    if (s.seriesNo !== undefined && no !== String(s.seriesNo)) {
-      push(`id series number "${no}" disagrees with seriesNo "${s.seriesNo}"`);
+  if (isStr(p.id) && EXAM_PAPER_ID_RE.test(p.id)) {
+    const [, format, variant, no] = p.id.split('.');
+    if (p.format && format !== p.format) push(`id format "${format}" disagrees with format "${p.format}"`);
+    if (p.variant && variant !== p.variant) push(`id variant "${variant}" disagrees with variant "${p.variant}"`);
+    if (p.paperNo !== undefined && no !== String(p.paperNo)) {
+      push(`id paper number "${no}" disagrees with paperNo "${p.paperNo}"`);
     }
   }
 
-  if (!isArr(s.taskIds)) push('taskIds must be an array');
-  else if (s.taskIds.length === 0) push('taskIds must not be empty — a series with no tasks is not a paper');
-  else {
-    const seen = new Set<string>();
-    s.taskIds.forEach((id, i) => {
-      if (!isStr(id) || !EXAM_TASK_ID_RE.test(id)) push(`taskIds[${i}] "${String(id)}" is not a valid exam task id`);
-      else if (seen.has(id)) push(`taskIds[${i}] "${id}" appears twice — a candidate would sit it twice`);
-      else seen.add(id);
-    });
+  // THE RULE that makes this an exam rather than a bag of tasks. A paper
+  // missing an épreuve is not slightly incomplete: it reports an NCLC estimate
+  // off three skills when a real result is governed by the weakest of four,
+  // which is precisely how this feature could mislead somebody about their
+  // eligibility. See the type.
+  if (!isArr(p.sections)) {
+    push('sections must be an array');
+    return out;
   }
+  if (p.sections.length !== EXAM_SECTION_ORDER.length) {
+    push(
+      `sections must be exactly ${EXAM_SECTION_ORDER.length} (${EXAM_SECTION_ORDER.join(', ')}), got ${p.sections.length}` +
+        ' — a paper missing an épreuve reports a level off the wrong number of skills'
+    );
+  }
+
+  const seenTasks = new Set<string>();
+  p.sections.forEach((sec, i) => {
+    const sp = `sections[${i}]`;
+    if (typeof sec !== 'object' || sec === null || isArr(sec)) {
+      push(`${sp} is not an object`);
+      return;
+    }
+    const s = sec as Partial<ExamSection>;
+    const expected = EXAM_SECTION_ORDER[i];
+    if (!oneOf(EXAM_SKILLS, s.skill)) {
+      push(`${sp}.skill must be one of ${EXAM_SKILLS.join(' | ')}`);
+    } else if (expected !== undefined && s.skill !== expected) {
+      push(`${sp}.skill is "${s.skill}" but position ${i} is "${expected}" — the four épreuves are ordered ${EXAM_SECTION_ORDER.join(', ')}`);
+    }
+
+    if (typeof s.timingS !== 'number' || !Number.isInteger(s.timingS) || s.timingS < 1) {
+      push(`${sp}.timingS must be an integer >= 1 — an épreuve without a clock is a worksheet`);
+    }
+    if (!isStr(s.blueprintId)) {
+      push(`${sp}.blueprintId is required — a section nobody can date cannot be re-cut when a fill rule changes`);
+    }
+
+    if (!isArr(s.taskIds)) push(`${sp}.taskIds must be an array`);
+    else if (s.taskIds.length === 0) push(`${sp}.taskIds must not be empty — an épreuve with no tasks scores 0/0`);
+    else {
+      s.taskIds.forEach((id, j) => {
+        if (!isStr(id) || !EXAM_TASK_ID_RE.test(id)) push(`${sp}.taskIds[${j}] "${String(id)}" is not a valid exam task id`);
+        // Uniqueness is checked across the WHOLE paper, not per section: the
+        // same task in two épreuves is sat twice and marked twice.
+        else if (seenTasks.has(id)) push(`${sp}.taskIds[${j}] "${id}" appears twice in this paper — a candidate would sit it twice`);
+        else seenTasks.add(id);
+      });
+    }
+
+    if (s.scoring !== undefined) out.push(...validateSectionScoring(s.scoring, `${path}.${sp}.scoring`));
+  });
 
   return out;
 }
@@ -4175,7 +4719,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   const themes = co.themes ?? [];
   const packs = co.packs ?? [];
   const examTasks = co.examTasks ?? [];
-  const examSeries = co.examSeries ?? [];
+  const examPapers = co.examPapers ?? [];
   const playlists = co.playlists ?? [];
   const templates = co.templates ?? [];
   const speakPath = co.speakPath ?? [];
@@ -4183,8 +4727,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   if (!isArr(co.units) || !isArr(co.lessons) || !isArr(co.items) || !isArr(scenarios)) {
     return [{ path, message: 'units, lessons, items and scenarios must all be arrays' }];
   }
-  if (!isArr(domains) || !isArr(themes) || !isArr(packs) || !isArr(examTasks) || !isArr(examSeries)) {
-    return [{ path, message: 'domains, themes, packs, examTasks and examSeries must be arrays when present' }];
+  if (!isArr(domains) || !isArr(themes) || !isArr(packs) || !isArr(examTasks) || !isArr(examPapers)) {
+    return [{ path, message: 'domains, themes, packs, examTasks and examPapers must be arrays when present' }];
   }
   if (!isArr(playlists) || !isArr(templates) || !isArr(speakPath)) {
     return [{ path, message: 'playlists, templates and speakPath must be arrays when present' }];
@@ -4198,7 +4742,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   themes.forEach((t, i) => out.push(...validateTheme(t, `${path}.themes[${i}]`)));
   packs.forEach((p, i) => out.push(...validatePack(p, `${path}.packs[${i}]`)));
   examTasks.forEach((t, i) => out.push(...validateExamTask(t, `${path}.examTasks[${i}]`)));
-  examSeries.forEach((s, i) => out.push(...validateExamSeries(s, `${path}.examSeries[${i}]`)));
+  examPapers.forEach((p, i) => out.push(...validateExamPaper(p, `${path}.examPapers[${i}]`)));
   playlists.forEach((p, i) => out.push(...validatePlaylist(p, `${path}.playlists[${i}]`)));
   templates.forEach((t, i) => out.push(...validateTemplate(t, `${path}.templates[${i}]`)));
   speakPath.forEach((s, i) => out.push(...validateSpeakStage(s, `${path}.speakPath[${i}]`)));
@@ -4226,7 +4770,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   dupes(themes.map((t) => t.slug).filter(isStr), 'theme slug');
   dupes(packs.map((p) => p.id).filter(isStr), 'pack');
   dupes(examTasks.map((t) => t.id).filter(isStr), 'exam task');
-  dupes(examSeries.map((s) => s.id).filter(isStr), 'exam series');
+  dupes(examPapers.map((p) => p.id).filter(isStr), 'exam paper');
   dupes(playlists.map((p) => p.id).filter(isStr), 'playlist');
   dupes(templates.map((t) => t.id).filter(isStr), 'template');
   dupes(speakPath.map((s) => s.id).filter(isStr), 'speak stage');
@@ -4352,13 +4896,31 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
     }
   }
 
-  // A series pointing at a task that does not exist is a mock exam that is
+  // A paper pointing at a task that does not exist is a mock exam that is
   // shorter than it says it is, and the candidate has no way to know.
-  const taskIds = new Set(examTasks.map((t) => t.id).filter(isStr));
-  for (const s of examSeries) {
-    for (const id of isArr(s.taskIds) ? s.taskIds : []) {
-      if (isStr(id) && !taskIds.has(id)) {
-        out.push({ path: `${path}.examSeries`, message: `series "${s.id}" references unknown exam task "${id}"` });
+  //
+  // The second check is new and is the one that matters more: a task sitting
+  // in the wrong section. Nothing about a co_mcq task in the writing épreuve
+  // looks broken — it renders, it marks, it scores. It just reports its marks
+  // against the wrong skill, and since the headline NCLC is governed by the
+  // WEAKEST skill, one misfiled task can move the number a candidate reads as
+  // their eligibility.
+  const examTaskById2 = new Map(examTasks.filter((t) => isStr(t.id)).map((t) => [t.id, t]));
+  for (const p of examPapers) {
+    for (const sec of isArr(p.sections) ? p.sections : []) {
+      if (typeof sec !== 'object' || sec === null) continue;
+      const secSkill = (sec as ExamSection).skill;
+      for (const id of isArr((sec as ExamSection).taskIds) ? (sec as ExamSection).taskIds : []) {
+        if (!isStr(id)) continue;
+        const task = examTaskById2.get(id);
+        if (!task) {
+          out.push({ path: `${path}.examPapers`, message: `paper "${p.id}" references unknown exam task "${id}"` });
+        } else if (oneOf(EXAM_SKILLS, secSkill) && task.skill !== secSkill) {
+          out.push({
+            path: `${path}.examPapers`,
+            message: `paper "${p.id}" puts "${id}" (skill ${task.skill}) in the ${secSkill} épreuve — its marks would score against the wrong skill`,
+          });
+        }
       }
     }
   }
@@ -4429,7 +4991,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   // you want defended by nothing.
   const allIds = [...itemIds, ...lessonIds, ...unitIds, ...scenarios.map((s) => s.id).filter(isStr),
     ...packs.map((p) => p.id).filter(isStr), ...examTasks.map((t) => t.id).filter(isStr),
-    ...examSeries.map((s) => s.id).filter(isStr), ...playlists.map((p) => p.id).filter(isStr),
+    ...examPapers.map((p) => p.id).filter(isStr), ...playlists.map((p) => p.id).filter(isStr),
     ...templates.map((t) => t.id).filter(isStr), ...speakPath.map((s) => s.id).filter(isStr)];
   const seenGlobal = new Set<string>();
   const collided = new Set<string>();
@@ -4448,7 +5010,7 @@ export const isValidDomain = (v: unknown): v is Domain => validateDomain(v).leng
 export const isValidTheme = (v: unknown): v is Theme => validateTheme(v).length === 0;
 export const isValidPack = (v: unknown): v is Pack => validatePack(v).length === 0;
 export const isValidExamTask = (v: unknown): v is ExamTask => validateExamTask(v).length === 0;
-export const isValidExamSeries = (v: unknown): v is ExamSeries => validateExamSeries(v).length === 0;
+export const isValidExamPaper = (v: unknown): v is ExamPaper => validateExamPaper(v).length === 0;
 export const isValidItem = (v: unknown): v is Item => validateItem(v).length === 0;
 export const isValidLesson = (v: unknown): v is Lesson => validateLesson(v).length === 0;
 export const isValidUnit = (v: unknown): v is Unit => validateUnit(v).length === 0;

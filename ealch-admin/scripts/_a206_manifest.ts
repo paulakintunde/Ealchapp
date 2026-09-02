@@ -206,7 +206,7 @@ ${FRAME_CELLS.map((c2) => `//     ${c2.padEnd(22)} exact ${String(exact[c2]).pad
 //
 ${DIVERGENT.map((w) => [`//     ${w}`, ...Object.entries(divergence[w]!).map(([rs, ids]) => `//       ${rs.padEnd(16)} ${ids.length}   ${ids.join(' ')}`)].join(NL)).join(NL)}
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const PRONOMS_DIRECT_IMPORT_ROWS: Item[] = [
 ${rows.map((r) => itemLiteral(r)).join(NL)}

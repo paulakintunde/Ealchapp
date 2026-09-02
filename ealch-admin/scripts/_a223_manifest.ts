@@ -281,7 +281,7 @@ ${asymLines}
 //     a2.22's ${A222_BLOCK.from}..${A222_BLOCK.to} holds ${inA222.length}.
 //     Rows inside ${ID_BLOCK.from}..${ID_BLOCK.to} that this build does not own: none.
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const PRONOMINAUX_PASSE_IMPORT_ROWS: Record<string, Item> = {
 ${literals}

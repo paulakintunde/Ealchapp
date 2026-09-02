@@ -300,7 +300,7 @@ ${DIVERGENT.map((w) => [`//     ${w}   (${flaggedByWord[w]} flagged)`, ...Object
 //   /n/ false positive and to report the ABSENCE if it finds none. a2.06 found
 //   none, a2.24 found two. THIS BUILD FOUND ${FALSE_POSITIVES.length}.
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const Y_EN_IMPORT_ROWS: Item[] = [
 ${rows.map((r) => itemLiteral(r)).join(NL)}

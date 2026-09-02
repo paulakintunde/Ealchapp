@@ -263,7 +263,7 @@ ${DIVERGENT.map((w) => [`//     ${w}   (${flaggedByWord[w]} flagged)`, ...Object
 //
 ${FALSE_POSITIVES.map((f) => `//     ${f.fr.padEnd(12)} ${f.flagged.padEnd(14)} FLAGGED   →   ${f.used.padEnd(14)} clean`).join(NL)}
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 export const PRONOMS_INDIRECT_IMPORT_ROWS: Item[] = [
 ${rows.map((r) => itemLiteral(r)).join(NL)}

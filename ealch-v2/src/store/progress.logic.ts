@@ -277,7 +277,7 @@ export function streak(sessions: SessionEntry[], today: string, freeze: number):
 // in utils/score.ts, so the drill screens can pass their scores straight through.
 import {
   ITEM_ID_RE, LEVELS, type Modality,
-  type ExamFormat, type ExamSkill, type ExamTask, type ExamTaskType, type Lesson, type ScoreBand,
+  type ExamFormat, type ExamMode, type ExamSkill, type ExamTask, type ExamTaskType, type Lesson, type ScoreBand,
 } from '../content/schema.ts';
 
 export type AttemptVerdict = 'good' | 'close' | 'off' | 'none';
@@ -1191,7 +1191,10 @@ export type ExamResult = {
   /** Local calendar day, stamped at write time. */
   date: string;
   taskId: string;
-  seriesId?: string;
+  /** The mock paper this task was sat as part of. Renamed from `seriesId`
+   *  alongside ExamSeries → ExamPaper; no logged result anywhere carries the
+   *  old key, because no exam content has ever reached status 'published'. */
+  paperId?: string;
   format: ExamFormat;
   taskType: ExamTaskType;
   skill: ExamSkill;
@@ -1211,7 +1214,56 @@ export type ExamResult = {
   /** Open task types only. Always a PRACTICE ESTIMATE, never an equated
    *  score — see the "parallel, not equated" requirement. */
   aiGrade?: { band: ScoreBand; feedback: string };
+  /**
+   * Whether this was sat under exam conditions or practice conditions.
+   *
+   * Absent on results logged before the mode existed, which is why readers go
+   * through `isScored()` rather than testing the field: an old result is
+   * treated as a real sitting, because that is what it was — there was no
+   * other kind at the time.
+   */
+  mode?: ExamMode;
+  /**
+   * A listening task where at least one document produced no sound at all.
+   *
+   * Distinct from `mode`, and deliberately a second field rather than reusing
+   * it: a practice attempt is one the candidate CHOSE not to have scored, and
+   * this is one WE could not score. Both are excluded from every number, but
+   * the report has to be able to say which happened, because one of them is
+   * our fault and reads as a broken app if it is presented as a bad result.
+   */
+  audioFailed?: boolean;
+  /**
+   * Closed tasks only: questions right, out of questions asked.
+   *
+   * `passed` alone is not enough for a report. A listening épreuve is forty
+   * questions, and a candidate wants to see 31/40, not "1 of 1 tasks passed" —
+   * and the section's scoring map is indexed by QUESTIONS, so without these the
+   * raw count handed to it is in the wrong unit entirely.
+   *
+   * Absent on open tasks (they have no raw count, which is why writing and
+   * speaking report a band instead) and on results logged before this existed.
+   */
+  correct?: number;
+  askedTotal?: number;
 };
+
+/**
+ * Does this result count toward a reported score?
+ *
+ * A practice attempt has a pausable clock, replayable audio and a visible
+ * transcript. It is a good way to learn the paper and no evidence at all of
+ * what the candidate can do under exam conditions, so it must never feed a
+ * band, an NCLC estimate, or a "you are ready" judgement. Nor may a listening
+ * task whose audio never played. The report shows both, clearly marked and
+ * distinguished, and excludes both from every number.
+ */
+export function isScored(r: Pick<ExamResult, 'mode' | 'audioFailed'>): boolean {
+  // Two different reasons, one answer. A listening result where nothing played
+  // is not evidence the candidate misunderstood anything — it is evidence the
+  // audio did not arrive — so counting it would report our failure as theirs.
+  return r.mode !== 'practice' && !r.audioFailed;
+}
 
 export type ExamResultInput = Omit<ExamResult, 'date' | 'id'>;
 
@@ -1282,6 +1334,123 @@ export function dueExamSkills(results: ExamResult[], lessons: Lesson[]): DueExam
     seen.set(key, { format: r.format, skill: r.skill, band: r.band, prepLessonId: lesson?.id ?? null });
   }
   return [...seen.values()];
+}
+
+/* ─── Where a candidate has got to in a paper ────────────────────────────── */
+
+// The paper screen is a RESUME point, not a gate. A TEF Canada sitting is two
+// hours fifty-five minutes and nobody finishes that on a phone in one go on
+// their first attempt, so a candidate does listening on the bus and writing
+// that evening. Nothing here locks a later épreuve behind an earlier one:
+// "Sitting mode" exists for people who want the unbroken run, and outside it
+// the four sections are four doors.
+//
+// Like streak and weaknesses, this persists nothing of its own. It is a fold
+// over the results already logged, so wiping the log honestly resets it and
+// sync restoring the log restores it.
+
+export type SectionStatus = 'available' | 'in-progress' | 'done';
+
+export type SectionProgress = {
+  status: SectionStatus;
+  /** Tasks in this section with a logged result for THIS paper. */
+  answered: number;
+  total: number;
+  /**
+   * At least one of those results was a practice run.
+   *
+   * Kept per-section rather than per-paper because that is the granularity a
+   * candidate actually mixes at: doing the reading under exam conditions and
+   * then replaying the listening in practice mode is a normal, sensible thing
+   * to do, and the report has to be able to say which of the two numbers means
+   * something.
+   */
+  practice: boolean;
+};
+
+/** One épreuve's state, folded from the results log. */
+export function sectionProgress(taskIds: string[], results: ExamResult[], paperId: string): SectionProgress {
+  const ids = new Set(taskIds);
+  const total = ids.size;
+  const mine = results.filter((r) => r.paperId === paperId && ids.has(r.taskId));
+  // By task, not by result: a retried task logs twice and must still count once,
+  // or a section of three tasks can report four answered and never reach 'done'.
+  const answeredIds = new Set(mine.map((r) => r.taskId));
+  const answered = answeredIds.size;
+  const status: SectionStatus = total > 0 && answered >= total ? 'done' : answered > 0 ? 'in-progress' : 'available';
+  return { status, answered, total, practice: mine.some((r) => !isScored(r)) };
+}
+
+/** Every épreuve of a paper, in sitting order. Structural section type, not a
+ *  schema import: this file is a pure island (see the module note). */
+export function paperProgress(
+  sections: { skill: ExamSkill; taskIds: string[] }[],
+  results: ExamResult[],
+  paperId: string
+): (SectionProgress & { skill: ExamSkill })[] {
+  return sections.map((s) => ({ skill: s.skill, ...sectionProgress(s.taskIds, results, paperId) }));
+}
+
+/**
+ * Why an épreuve has no score, decided from what was actually logged.
+ *
+ * The order of these checks is the whole function. A section can be several
+ * things at once — sat in practice mode AND with a dead microphone — and the
+ * candidate needs the reason that is most OURS, because that is the one they
+ * can do nothing about and the one that reads as a broken app if we hide it.
+ * So failures we caused outrank choices they made.
+ *
+ * Returns the status only; the arithmetic lives in nclc.logic.ts.
+ */
+export function sectionStatusFor(
+  taskIds: string[],
+  results: ExamResult[],
+  paperId: string
+): 'scored' | 'not-sat' | 'practice' | 'not-graded' | 'audio-failed' {
+  const ids = new Set(taskIds);
+  const mine = results.filter((r) => r.paperId === paperId && ids.has(r.taskId));
+  if (mine.length === 0) return 'not-sat';
+
+  // Ours first.
+  if (mine.some((r) => r.audioFailed)) return 'audio-failed';
+  // An open task with no aiGrade was attempted and could not be graded. Closed
+  // tasks never carry one, so only open task types can report this.
+  if (mine.some((r) => OPEN_EXAM_TASK_TYPES.has(r.taskType) && !r.aiGrade)) return 'not-graded';
+  // Theirs.
+  if (mine.some((r) => r.mode === 'practice')) return 'practice';
+  // Every task answered, or the section is only part-done and cannot be scored.
+  return new Set(mine.map((r) => r.taskId)).size >= ids.size ? 'scored' : 'not-sat';
+}
+
+/** Correct answers in an épreuve. Closed tasks only — an open task has no raw
+ *  count, which is why a writing or speaking section reports its band rather
+ *  than a fraction. */
+export function sectionRaw(
+  taskIds: string[],
+  results: ExamResult[],
+  paperId: string
+): { raw: number; total: number } | null {
+  const ids = new Set(taskIds);
+  const mine = results.filter((r) => r.paperId === paperId && ids.has(r.taskId));
+  const closed = mine.filter((r) => !OPEN_EXAM_TASK_TYPES.has(r.taskType));
+  if (closed.length === 0) return null;
+  // By task, not by result: a retried task must not count twice. Later wins.
+  const byTask = new Map<string, ExamResult>();
+  for (const r of closed) byTask.set(r.taskId, r);
+  const rows = [...byTask.values()];
+
+  // Sum QUESTIONS when the results carry them, which is the unit the section's
+  // scoring map is indexed by. Results logged before `correct` existed fall
+  // back to counting passed tasks — wrong unit, but it is what those rows
+  // actually know, and inventing question counts for them would be worse.
+  const haveCounts = rows.filter((r) => typeof r.correct === 'number' && typeof r.askedTotal === 'number');
+  if (haveCounts.length === rows.length) {
+    return {
+      raw: rows.reduce((n, r) => n + (r.correct ?? 0), 0),
+      total: rows.reduce((n, r) => n + (r.askedTotal ?? 0), 0),
+    };
+  }
+  return { raw: rows.filter((r) => r.passed).length, total: rows.length };
 }
 
 /* ─── The Speak path — progress as a view over the attempt log ───────────── */

@@ -129,7 +129,7 @@ async function main() {
 //
 // Regenerate with: pnpm tsx scripts/_a201_manifest.ts
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { Item } from '../../ealch-v2/src/content/schema.ts';
 
 /** The thirty infinitives, in the order the learner meets them. */
 export const IMPORTED_VERB_ROWS: Item[] = [

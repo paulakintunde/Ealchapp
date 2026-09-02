@@ -21,7 +21,7 @@ test('parallel arrays have equal lengths in both languages', () => {
   const arrays: (keyof typeof T.fr)[] = [
     'obSteps', 'alarmChips', 'expTitles', 'expSubs', 'paceSubs',
     'notifLabels', 'skills',
-    'examMeta', 'errorIssues', 'dayLetters', 'weekdayNames', 'dlCats', 'dlSubs', 'chatSuggs', 'errorTypes',
+    'errorIssues', 'dayLetters', 'weekdayNames', 'dlCats', 'dlSubs', 'chatSuggs', 'errorTypes',
   ];
   for (const key of arrays) {
     const fr = T.fr[key] as unknown[];

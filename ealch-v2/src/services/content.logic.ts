@@ -11,7 +11,7 @@
 // resolved here. The one runtime thing verifySnapshot needs — the structural
 // validator — is passed IN (see `validate` below). Same spirit as
 // progress.logic.ts: this file stays a pure island.
-import type { CardType, Corpus, DrillKind, ExamFormat, ExamSeries, ExamTask, Item, Lesson, LessonSection, Level, Scenario, SpeakStage, Track, Unit } from '../content/schema';
+import type { CardType, Corpus, DrillKind, ExamFormat, ExamPaper, ExamSection, ExamSkill, ExamTask, Item, Lesson, LessonSection, Level, QcmItem, Scenario, SpeakStage, Track, Unit } from '../content/schema';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
 
@@ -74,7 +74,7 @@ export function mergeCorpus(seed: Corpus, snapshot: Corpus | null | undefined): 
     themes: overlayBy(seed.themes ?? [], snapshot.themes ?? [], (t) => t.slug),
     packs: overlay(seed.packs ?? [], snapshot.packs ?? []),
     examTasks: overlay(seed.examTasks ?? [], snapshot.examTasks ?? []),
-    examSeries: overlay(seed.examSeries ?? [], snapshot.examSeries ?? []),
+    examPapers: overlay(seed.examPapers ?? [], snapshot.examPapers ?? []),
     playlists: overlay(seed.playlists ?? [], snapshot.playlists ?? []),
     templates: overlay(seed.templates ?? [], snapshot.templates ?? []),
     speakPath: overlay(seed.speakPath ?? [], snapshot.speakPath ?? []),
@@ -276,23 +276,87 @@ export function getExamTask(corpus: Corpus, id: string): ExamTask | null {
   return (corpus.examTasks ?? []).find((t) => t.id === id) ?? null;
 }
 
-export function getExamSeries(corpus: Corpus, id: string): ExamSeries | null {
-  return (corpus.examSeries ?? []).find((s) => s.id === id) ?? null;
+export function getExamPaper(corpus: Corpus, id: string): ExamPaper | null {
+  return (corpus.examPapers ?? []).find((p) => p.id === id) ?? null;
 }
 
-/** Mock papers for a format, in seriesNo order — the exam-intro screen's list. */
-export function examSeriesFor(corpus: Corpus, format: ExamFormat): ExamSeries[] {
-  return (corpus.examSeries ?? []).filter((s) => s.format === format).sort((a, b) => a.seriesNo - b.seriesNo);
+/** Mock papers for a format, in paperNo order — the format hub's list. */
+export function examPapersFor(corpus: Corpus, format: ExamFormat): ExamPaper[] {
+  return (corpus.examPapers ?? []).filter((p) => p.format === format).sort((a, b) => a.paperNo - b.paperNo);
 }
 
-/** A series's tasks, resolved and in the series's own order — a series
- *  listing a task that has not published yet simply yields fewer tasks
- *  rather than a blank entry, same posture as lessonsOfUnit. */
-export function examTasksOfSeries(corpus: Corpus, seriesId: string): ExamTask[] {
-  const series = getExamSeries(corpus, seriesId);
-  if (!series) return [];
+/** A paper's tasks, resolved and in sitting order across all four épreuves —
+ *  a paper listing a task that has not published yet simply yields fewer
+ *  tasks rather than a blank entry, same posture as lessonsOfUnit. */
+export function examTasksOfPaper(corpus: Corpus, paperId: string): ExamTask[] {
+  const paper = getExamPaper(corpus, paperId);
+  if (!paper) return [];
   const byId = indexById(corpus.examTasks ?? []);
-  return series.taskIds.map((id) => byId.get(id)).filter((t): t is ExamTask => !!t);
+  // Inlined rather than calling schema's paperTaskIds: this file imports
+  // schema for TYPES only (see the module note), and a runtime import would
+  // make node resolve it.
+  const ids = (paper.sections ?? []).flatMap((s) => s.taskIds ?? []);
+  return ids.map((id) => byId.get(id)).filter((t): t is ExamTask => !!t);
+}
+
+/** One épreuve's tasks, resolved and in order. The section runner's unit of
+ *  work: a candidate sits one épreuve at a time, under its own clock. */
+export function examTasksOfSection(corpus: Corpus, section: ExamSection): ExamTask[] {
+  const byId = indexById(corpus.examTasks ?? []);
+  return (section.taskIds ?? []).map((id) => byId.get(id)).filter((t): t is ExamTask => !!t);
+}
+
+/** The section of a paper carrying a given skill, or null. Papers always have
+ *  all four (validateExamPaper enforces it), so null means the paper is
+ *  invalid or absent, not that the épreuve is optional. */
+export function examSectionOf(paper: ExamPaper, skill: ExamSkill): ExamSection | null {
+  return (paper.sections ?? []).find((s) => s.skill === skill) ?? null;
+}
+
+/**
+ * One task flattened into the questions a runner actually draws.
+ *
+ * A task carries `items` (one stimulus, the task's own prompt) or `parts`
+ * (several, each with its own audio, image and play count). The runner should
+ * not care which: it needs an ordered list of questions, each knowing where it
+ * came from so answers can be kept and marked per question.
+ */
+export type ExamQuestion = {
+  /** Stable within the task, and stable across re-renders — the key answers
+   *  are stored under. Positional rather than content-derived, because two
+   *  questions in a paper can legitimately have identical text. */
+  key: string;
+  item: QcmItem;
+  /** Which part it came from, or null when the task uses a flat `items` list. */
+  partIx: number | null;
+  partLabel: string | null;
+};
+
+export function taskQuestions(task: ExamTask): ExamQuestion[] {
+  if (task.parts?.length) {
+    return task.parts.flatMap((p, pi) =>
+      (p.items ?? []).map((item, ii) => ({ key: `p${pi}.i${ii}`, item, partIx: pi, partLabel: p.label ?? null }))
+    );
+  }
+  return (task.items ?? []).map((item, ii) => ({ key: `i${ii}`, item, partIx: null, partLabel: null }));
+}
+
+/**
+ * Mark a closed task.
+ *
+ * An unanswered question is WRONG, not skipped, and the total is every question
+ * the task asked. Both exam bodies score exactly this way — one point per
+ * correct answer, nothing deducted and nothing forgiven for a blank — and
+ * scoring "out of what was attempted" would flatter a candidate who ran out of
+ * time into a band they did not earn.
+ */
+export function scoreClosedTask(
+  task: ExamTask,
+  answers: Record<string, number | null | undefined>
+): { correct: number; total: number } {
+  const qs = taskQuestions(task);
+  const correct = qs.reduce((n, q) => n + (answers[q.key] === q.item.correct ? 1 : 0), 0);
+  return { correct, total: qs.length };
 }
 
 /** The lessons of a unit, in seq order, resolved and filtered to what exists.
