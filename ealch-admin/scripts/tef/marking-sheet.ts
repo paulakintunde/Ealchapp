@@ -21,6 +21,11 @@ import './../env';
  *  `blanc-01` in two places, which is exactly the kind of literal that gets
  *  copied four times and edited three. */
 const VARIANT = (process.argv[2] ?? 'blanc-01').replace(/^blanc-?/, 'blanc-');
+
+/** The paper's number, for the heading. Was the literal `1` in the title AND
+ *  the h1, so every one of the five sheets announced itself as Examen 1 while
+ *  its subtitle named the right paper. */
+const PAPER_NO = Number(VARIANT.replace('blanc-', ''));
 import { writeFileSync } from 'node:fs';
 
 type Row = {
@@ -141,7 +146,7 @@ async function main() {
     })
     .join('\n');
 
-  const html = `<title>Examen 1 Listening Marking</title>
+  const html = `<title>Examen ${PAPER_NO} Listening Marking</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
@@ -218,7 +223,7 @@ async function main() {
 </style>
 <div class="wrap">
   <header class="top">
-    <h1>Examen 1 · listening marking</h1>
+    <h1>Examen ${PAPER_NO} · listening marking</h1>
     <p class="sub">${rows.length} documents · ${mmss(total)} of audio · TEF Canada ${VARIANT}</p>
   </header>
 
