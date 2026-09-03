@@ -82,7 +82,13 @@ Also note whether **Expo Go** (`host.exp.exponent`) is installed. It is on this 
 
 ## 3. Install the dev build
 
-The debug APK is signed with a debug key; the release build is not. Android will refuse to install over it, so the old one must go first.
+A **locally built** release is signed with the SAME debug keystore as the debug
+APK — `android/app/build.gradle` gives `release { signingConfig signingConfigs.debug }`.
+So a local release installs straight over the debug build with `adb install -r`:
+no uninstall, **no data wipe**. Only an EAS or store build carries a different
+key and needs the old one removed first.
+
+Uninstall anyway if you want a clean slate, but know what it costs (below).
 
 ```bash
 ADB="/c/Users/harki/AppData/Local/Android/Sdk/platform-tools/adb.exe"
@@ -166,6 +172,25 @@ netstat -ano | grep LISTENING | grep ":8082"
 
 `UsbFfs` means it is going over the actual USB cable. **Re-run this after every reconnect, reinstall or `adb reconnect`** — the tunnel does not survive them.
 
+> **`--list` is not proof the tunnel works.** Seen on 3 September 2026: the app
+> sat on a blank screen while `reverse --list` cheerfully reported
+> `UsbFfs tcp:8082 tcp:8082` the whole time. The only honest signal is the app's
+> own log:
+>
+> ```bash
+> "$ADB" logcat -d | grep -F "ReconnectingWebSocket"
+> ```
+>
+> `Couldn't connect to "ws://localhost:8082/message?…", will silently retry`
+> means the tunnel is dead however it lists. Rebuild it rather than trusting it:
+>
+> ```bash
+> "$ADB" reverse --remove-all
+> "$ADB" reverse tcp:8082 tcp:8082
+> ```
+>
+> That cleared it immediately and the device bundled seconds later.
+
 ---
 
 ## 6. Launch the app — pin the package
@@ -209,12 +234,64 @@ If nothing appears within ~3 minutes, the device never asked. Work back through 
 
 ## 8. Run the device proof
 
-Deep-link straight into the dev fixture paper:
+> ## ⚠️ A DEV BUILD CANNOT SHOW EXAM PAPERS
+>
+> Established on the phone, 3 September 2026, after "No mock exams available
+> yet" survived a publish, two relaunches and a verified manifest.
+>
+> It is not a bug and there is no setting for it. Three facts compose:
+>
+> 1. **`seed.json` carries no exam keys at all** — not empty arrays, absent.
+>    Its keys are items, lessons, playlists, scenarios, speakPath, units,
+>    version. Papers exist ONLY in the published snapshot.
+> 2. **A dev build never fetches a snapshot.** `refreshFromRemote()` opens with
+>    `if (__DEV__) return;`. The "check for updates" button in `app/downloads.tsx`
+>    calls that same function, so it is inert in dev too.
+> 3. **A dev build never reads a cached one either.**
+>    `adoptedForLaunch(await readCache(), __DEV__)` returns null in dev.
+>
+> Both guards are deliberate and both close real incidents (Phase 10 sons.02/03,
+> and the Pixel 6 cache-outranks-seed bug). Defeating them is the wrong move:
+> they exist so hand-edited seed content is what a dev build shows.
+>
+> The bridge used to be `devExamPaper.ts` / `devExamFixture.ts`, a paper bundled
+> into the app. **It was deleted on 2 September 2026 as dead weight, which it was
+> not** — it was this. Do not re-delete a fixture without checking what proves
+> the exam screens.
+>
+> **So: exam proof runs on a RELEASE build.** That is the better proof anyway.
+> It exercises the path a learner actually runs — manifest fetch, rollout gate,
+> checksum verify, cache write, merge — where a fixture only proved the UI draws.
+>
+> ```bash
+> export JAVA_HOME="/c/Program Files/Android/Android Studio/jbr"
+> cd "c:/Users/harki/Downloads/gitbuild appealch/Ealchapp/ealch-v2/android"
+> ./gradlew assembleRelease
+> "$ADB" install -r ../android/app/build/outputs/apk/release/app-release.apk
+> ```
+>
+> `JAVA_HOME` is required: `gradlew` exits 49 with "JAVA_HOME is not set"
+> without it. Signing is the debug keystore, so this replaces the dev build with
+> no data wipe (§3). Metro plays no part while it is installed; put the debug
+> APK back with the same `install -r` to resume JS work.
+>
+> The OTA fetch is **fire-and-forget: the papers appear on the NEXT launch**, so
+> start the app, wait for the fetch, then force-stop and start it again.
+
+Deep-link straight into a published paper (`blanc-01` .. `blanc-05`, paper
+number matching the variant):
 
 ```bash
 "$ADB" shell am start -n app.ealch.mobile/.MainActivity \
   -a android.intent.action.VIEW \
-  -d "ealch://exam-paper?paperId=paper.tef_canada.dev-fixture.1"
+  -d "ealch://exam-paper?paperId=paper.tef_canada.blanc-02.2"
+```
+
+Confirm the device actually holds the papers before blaming a screen:
+
+```bash
+curl -s "$SUPABASE_URL/storage/v1/object/public/content/manifest.json"
+# want: the version you just published, rollout 100, examPapers 5
 ```
 
 Screenshot (note the two separate calls and `-p`):
@@ -255,6 +332,9 @@ Screenshot (note the two separate calls and `-p`):
 | Phone locks mid-test | screen timeout | Developer options → **Stay awake** |
 | Phone locked by `adb` | `KEYCODE_BACK` locks it | use `cmd statusbar collapse` instead |
 | `adb: device offline` | stale transport | `adb reconnect offline`, then re-run §5 |
+| Blank screen, `reverse --list` looks right | dead tunnel that still lists | `reverse --remove-all` then re-add — §5 |
+| "No mock exams available yet" | dev build; exams are OTA-only | not a fault — §8 needs a release build |
+| `gradlew` exits 49 | `JAVA_HOME` unset | `export JAVA_HOME="/c/Program Files/Android/Android Studio/jbr"` |
 | App vanished between commands | uninstalled | re-run §3 |
 | Metro only ever bundles `platform:"web"` | started with `--web` | drop `--web` — §4. A rising bundle count is **not** proof; grep for `platform":"android"` specifically. |
 
@@ -286,13 +366,12 @@ echo "bundle served — app should be live"
 
 "$ADB" shell am start -n app.ealch.mobile/.MainActivity \
   -a android.intent.action.VIEW \
-  -d "ealch://exam-paper?paperId=paper.tef_canada.dev-fixture.1"
+  -d "ealch://exam-paper?paperId=paper.tef_canada.blanc-02.2"
 ```
 
 ---
 
 ## 11. Notes
 
-- The fixture paper `paper.tef_canada.dev-fixture.1` only exists in dev builds (`devExamPapers(__DEV__)`), and a test pins that it is empty in release. **Delete `src/content/devExamFixture.ts` when E7 lands.**
-- The fixture has three épreuves (CO, CE, PE), not four. PO waits for E4's microphone work. It is scaffolding for a runner, not a paper, and never goes near the publish gate.
+- **The dev fixture is GONE (2026-09-01).** `devExamFixture.ts`, `devExamPaper.ts` and `emit-dev-paper.ts` were all deleted once TEF blanc-01 published as snapshot v57. Exam papers now arrive over the air like every other content type, so there is no dev-only paper to open and nothing to fence with `__DEV__`. A fresh OFFLINE install has no exam content at all: the seed cut carries no `examTasks` or `examPapers` keys, so the Examiner needs the snapshot before it can show anything.
 - Metro startup on this machine is genuinely slow. Two to four minutes to bind is normal, not a hang.
