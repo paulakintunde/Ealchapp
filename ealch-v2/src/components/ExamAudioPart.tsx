@@ -171,7 +171,17 @@ export function ExamAudioPart({ part, mode, onUnplayable, children }: ExamAudioP
           accessible
           resizeMode="contain"
           onError={() => setImageFailed(true)}
-          style={{ width: '100%', height: 160, borderRadius: 12, marginBottom: 12, backgroundColor: t.card }}
+          // Square, not a fixed 160dp band. The plates are 2x2 grids rendered
+          // at square_hd, so `contain` inside a 160-tall box letterboxed them to
+          // 160x160 — under half the available width, leaving each of the four
+          // panels about 70dp on a Pixel 6. Legible, but this is the A1-A2
+          // on-ramp and STANDARD-tef is explicit that the images ARE the
+          // options; an option a candidate has to squint at is a harder item
+          // than the blueprint asks for. aspectRatio matches the asset, so the
+          // plate is as large as the column allows and each panel roughly
+          // trebles in width. `contain` stays as the safety net for any future
+          // plate that is not square.
+          style={{ width: '100%', aspectRatio: 1, borderRadius: 12, marginBottom: 12, backgroundColor: t.card }}
         />
       ) : null}
 
