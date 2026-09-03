@@ -31,12 +31,39 @@
 // check for real.
 import type { ExamTask, QcmItem } from '../../../ealch-v2/src/content/schema.ts';
 
-/** Where the key goes, by the question's index within its task. Chosen so no
- *  two consecutive questions put the key in the same place and each position
- *  gets an equal share over any run of four. */
-const SCATTER_4 = [2, 0, 3, 1];
+/** Where the key goes for blanc-01, by the question's index within its task.
+ *
+ *  FROZEN. blanc-01 is published and has been sat; moving its keys would
+ *  invalidate every attempt already logged against them. This cycle is what
+ *  that paper shipped with and it stays. */
+const LEGACY_CYCLE_4 = [2, 0, 3, 1];
 /** Block C is the paper's only three-option block. */
-const SCATTER_3 = [1, 2, 0];
+const LEGACY_CYCLE_3 = [1, 2, 0];
+
+/** Papers whose key order is frozen because learners have already sat them. */
+const FROZEN = new Set(['blanc-01']);
+
+/** FNV-1a. Small, deterministic, and the same on every machine — which is the
+ *  whole requirement here. Not a cryptographic hash and not used as one. */
+function hash32(s: string): number {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i += 1) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return h >>> 0;
+}
+
+/** mulberry32: a seeded PRNG, so "random" here still means reproducible. */
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 /** Move the key from index 0 to `pos`, keeping the distractors in order. */
 function place(item: QcmItem, pos: number): QcmItem {
@@ -54,37 +81,74 @@ function place(item: QcmItem, pos: number): QcmItem {
 /**
  * Scatter one closed task's keys.
  *
+ * ── The defect this shape exists to fix ─────────────────────────────────────
+ *
+ * The first version was "a pure function of the question's position", cycling
+ * [2,0,3,1] by index. With one paper that was fine. With five it was a hole:
+ * every paper has the same block layout and the same item counts, so all five
+ * produced the IDENTICAL key sequence — 80 of 80 positions matching. A
+ * candidate who sat blanc-01 and wrote down the positions could have scored
+ * 80/80 on the other four without reading a question. The sequence was also a
+ * visible rotation, so it was partly guessable inside a single paper too.
+ *
+ * The balance assertion never saw it, because balance was never the risk: a
+ * cycle is perfectly balanced by construction. Identity across papers was the
+ * risk, and nothing was looking at it.
+ *
+ * ── What replaces it ────────────────────────────────────────────────────────
+ *
+ * A PRNG seeded from the paper's variant and the task's id. Still a pure
+ * function of the paper, so the authoring script stays idempotent and a re-run
+ * cannot move a key out from under a logged attempt. But two papers no longer
+ * agree, and the sequence inside one paper is no longer an arithmetic pattern.
+ *
+ * Two properties are enforced rather than hoped for, because a raw PRNG gives
+ * neither: the key never lands in the same position twice running, and the
+ * positions stay balanced (the least-used eligible position wins, ties broken
+ * by the seed).
+ *
  * The counter runs across the WHOLE task, not per part, so a block of
  * seventeen single-question documents scatters properly instead of putting
  * every key in the same place.
  */
 export function scatterKeys(task: ExamTask): ExamTask {
+  const legacy = FROZEN.has(task.variant);
+  const rnd = mulberry32(hash32(`${task.variant}:${task.id}`));
+  const used = new Map<number, number[]>();
   let n = 0;
-  const next = (opts: string[]) =>
-    (opts.length === 3 ? SCATTER_3[n % SCATTER_3.length]! : SCATTER_4[n % SCATTER_4.length]!);
+  let prev = -1;
+
+  const next = (width: number): number => {
+    if (legacy) {
+      const cycle = width === 3 ? LEGACY_CYCLE_3 : LEGACY_CYCLE_4;
+      return cycle[n % cycle.length]!;
+    }
+    if (!used.has(width)) used.set(width, new Array<number>(width).fill(0));
+    const counts = used.get(width)!;
+    // Never the previous position, unless the task is so narrow that excluding
+    // it would leave nothing (width 1 cannot happen here, but the guard costs
+    // nothing and an empty pool would be a crash rather than a bad paper).
+    let pool = [...counts.keys()].filter((p) => p !== prev);
+    if (pool.length === 0) pool = [...counts.keys()];
+    const min = Math.min(...pool.map((p) => counts[p]!));
+    const tied = pool.filter((p) => counts[p] === min);
+    const chosen = tied[Math.floor(rnd() * tied.length)] ?? tied[0]!;
+    counts[chosen] += 1;
+    prev = chosen;
+    return chosen;
+  };
+
+  const scatter = (it: QcmItem): QcmItem => {
+    const placed = place(it, next(it.opts.length));
+    n += 1;
+    return placed;
+  };
 
   if (task.parts) {
-    return {
-      ...task,
-      parts: task.parts.map((p) => ({
-        ...p,
-        items: p.items.map((it) => {
-          const placed = place(it, next(it.opts));
-          n += 1;
-          return placed;
-        }),
-      })),
-    };
+    return { ...task, parts: task.parts.map((p) => ({ ...p, items: p.items.map(scatter) })) };
   }
   if (task.items) {
-    return {
-      ...task,
-      items: task.items.map((it) => {
-        const placed = place(it, next(it.opts));
-        n += 1;
-        return placed;
-      }),
-    };
+    return { ...task, items: task.items.map(scatter) };
   }
   return task;
 }
