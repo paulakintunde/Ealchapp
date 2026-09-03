@@ -128,8 +128,9 @@ export const CO_A: ExamTask = {
       durationS: 24,
       imageRef: 'img/exam/tef/blanc-01/co-a-03.png',
       imageAlt:
-        'Planche de quatre panneaux : un bac à couvercle jaune, une colonne à verre, un petit bac brun ' +
-        'pour les déchets alimentaires, un bac à couvercle gris. Quatre contenants de collecte, même ' +
+        'Planche de quatre panneaux : un bac de collecte dont le couvercle ET le corps sont jaune vif, ' +
+        'une colonne à verre verte, un petit bac brun pour les déchets alimentaires, un bac de collecte ' +
+        'entièrement gris, couvercle et corps de la même teinte. Quatre contenants de collecte, même ' +
         'angle de vue. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE VOISIN : Et ça, le pot de yaourt, je le mets où ?\n' +

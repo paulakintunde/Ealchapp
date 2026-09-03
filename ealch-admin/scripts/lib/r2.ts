@@ -31,12 +31,24 @@ export function r2Configured(): boolean {
  *   generator can tell a STALE object from a missing one — an audio clip gets
  *   that free from its content-addressed key, but an image whose path is
  *   authored has nowhere else to put it. Keys must be lowercase.
+ * @param cacheControl Sent as the object's `Cache-Control`, which the CDN in
+ *   front of the bucket then serves.
+ *
+ *   This is what a FIXED path needs and a content-addressed one does not. An
+ *   audio clip may be cached forever: change the text and the key changes, so a
+ *   stale entry becomes unreachable rather than wrong. An image at an authored
+ *   path has no such protection, and it bit — a plate redrawn at the same key
+ *   was still served from cache afterwards (`cf-cache-status: HIT`, the old
+ *   bytes, while a HEAD to the origin reported the new size). Callers writing
+ *   to a fixed path should ask for revalidation. Omitted, the CDN's own policy
+ *   applies, which is right for immutable keys and wrong for these.
  */
 export async function putToR2(
   path: string,
   body: Buffer,
   contentType: string,
-  meta: Record<string, string> = {}
+  meta: Record<string, string> = {},
+  cacheControl?: string
 ): Promise<void> {
   const accountId = process.env.R2_ACCOUNT_ID!;
   const accessKeyId = process.env.R2_ACCESS_KEY_ID!;
@@ -61,13 +73,23 @@ export async function putToR2(
   // caller's mental model disagree.
   const metaKeys = Object.keys(meta).sort();
   const metaHeaders = metaKeys.map((k) => `x-amz-meta-${k}:${meta[k]}\n`).join('');
+  // `cache-control` sorts before `content-type`, so it leads both lists.
+  const cc = cacheControl ? `cache-control:${cacheControl}\n` : '';
   const canonicalHeaders =
+    cc +
     `content-type:${contentType}\n` +
     `host:${host}\n` +
     `x-amz-content-sha256:${payloadHash}\n` +
     `x-amz-date:${amzDate}\n` +
     metaHeaders;
-  const signedHeaders = ['content-type', 'host', 'x-amz-content-sha256', 'x-amz-date', ...metaKeys.map((k) => `x-amz-meta-${k}`)].join(';');
+  const signedHeaders = [
+    ...(cacheControl ? ['cache-control'] : []),
+    'content-type',
+    'host',
+    'x-amz-content-sha256',
+    'x-amz-date',
+    ...metaKeys.map((k) => `x-amz-meta-${k}`),
+  ].join(';');
   const canonicalRequest = ['PUT', canonicalUri, '', canonicalHeaders, signedHeaders, payloadHash].join('\n');
 
   const credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;
@@ -86,6 +108,7 @@ export async function putToR2(
   const res = await fetch(`https://${host}${canonicalUri}`, {
     method: 'PUT',
     headers: {
+      ...(cacheControl ? { 'Cache-Control': cacheControl } : {}),
       'Content-Type': contentType,
       'x-amz-content-sha256': payloadHash,
       'x-amz-date': amzDate,

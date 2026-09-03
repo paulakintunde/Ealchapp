@@ -78,6 +78,20 @@ const RECORD_ONLY = argv.includes('--record-only');
 const onlyIx = argv.indexOf('--only');
 const ONLY = onlyIx === -1 ? null : (argv[onlyIx + 1] ?? null);
 
+/**
+ * A plate lives at an AUTHORED path, so a redraw reuses the key and the CDN
+ * will happily go on serving the old bytes. That happened: after redrawing the
+ * bread plate, a GET returned `cf-cache-status: HIT` with the previous image
+ * while a HEAD to the origin reported the new size. The fix that had reached
+ * the bucket had not reached a learner.
+ *
+ * Revalidation rather than a short TTL: the plates are ~1.4 MB and change
+ * almost never, so a conditional request answered with 304 costs nothing and
+ * a changed plate is picked up on the next request instead of at the end of
+ * some window nobody is tracking.
+ */
+const PLATE_CACHE_CONTROL = 'public, max-age=0, must-revalidate';
+
 const FAL_ENDPOINT = 'https://fal.run/openai/gpt-image-2';
 
 type Plate = { variant: string; label: string; ref: string; alt: string; opts: string[] };
@@ -274,7 +288,7 @@ async function main() {
     }
     try {
       const png = await generate(prompt, key);
-      await putToR2(p.ref, png, 'image/png', { 'prompt-sha': promptSha });
+      await putToR2(p.ref, png, 'image/png', { 'prompt-sha': promptSha }, PLATE_CACHE_CONTROL);
       // Recorded per plate, not once at the end: a run that dies on plate
       // seventeen must not forget the sixteen it already paid for.
       manifest[p.ref] = promptSha;
