@@ -119,7 +119,7 @@ export const CO_A: ExamTask = {
       durationS: 26,
       imageRef: 'img/exam/tef/blanc-03/co-a-03.png',
       imageAlt:
-        'Planche de quatre panneaux : une baguette, une brioche tressée, une tarte aux pommes, un pain ' +
+        'Planche de quatre panneaux : une baguette bien cuite, une brioche tressée, une tarte aux pommes, un pain ' +
         'de campagne rond. Chaque produit est photographié seul, sur le même fond clair et au même ' +
         'cadrage. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:

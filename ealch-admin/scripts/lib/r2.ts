@@ -25,7 +25,19 @@ export function r2Configured(): boolean {
   );
 }
 
-export async function putToR2(path: string, body: Buffer, contentType: string): Promise<void> {
+/**
+ * @param meta Custom object metadata, stored as `x-amz-meta-<key>` and returned
+ *   on GET/HEAD. Used to stamp an object with the input that produced it, so a
+ *   generator can tell a STALE object from a missing one — an audio clip gets
+ *   that free from its content-addressed key, but an image whose path is
+ *   authored has nowhere else to put it. Keys must be lowercase.
+ */
+export async function putToR2(
+  path: string,
+  body: Buffer,
+  contentType: string,
+  meta: Record<string, string> = {}
+): Promise<void> {
   const accountId = process.env.R2_ACCOUNT_ID!;
   const accessKeyId = process.env.R2_ACCESS_KEY_ID!;
   const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY!;
@@ -41,9 +53,21 @@ export async function putToR2(path: string, body: Buffer, contentType: string): 
   const dateStamp = amzDate.slice(0, 8);
   const payloadHash = sha256Hex(body);
 
+  // SigV4 signs the headers in lowercase ASCII order, and every signed header
+  // must be sent verbatim. `x-amz-meta-*` sorts after `x-amz-date`, so the
+  // metadata appends cleanly to both lists — but only if the keys are already
+  // lowercase, which is why that is a documented requirement rather than a
+  // normalisation here: silently lowercasing would make the signature and the
+  // caller's mental model disagree.
+  const metaKeys = Object.keys(meta).sort();
+  const metaHeaders = metaKeys.map((k) => `x-amz-meta-${k}:${meta[k]}\n`).join('');
   const canonicalHeaders =
-    `content-type:${contentType}\n` + `host:${host}\n` + `x-amz-content-sha256:${payloadHash}\n` + `x-amz-date:${amzDate}\n`;
-  const signedHeaders = 'content-type;host;x-amz-content-sha256;x-amz-date';
+    `content-type:${contentType}\n` +
+    `host:${host}\n` +
+    `x-amz-content-sha256:${payloadHash}\n` +
+    `x-amz-date:${amzDate}\n` +
+    metaHeaders;
+  const signedHeaders = ['content-type', 'host', 'x-amz-content-sha256', 'x-amz-date', ...metaKeys.map((k) => `x-amz-meta-${k}`)].join(';');
   const canonicalRequest = ['PUT', canonicalUri, '', canonicalHeaders, signedHeaders, payloadHash].join('\n');
 
   const credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;
@@ -65,6 +89,7 @@ export async function putToR2(path: string, body: Buffer, contentType: string): 
       'Content-Type': contentType,
       'x-amz-content-sha256': payloadHash,
       'x-amz-date': amzDate,
+      ...Object.fromEntries(metaKeys.map((k) => [`x-amz-meta-${k}`, meta[k]!])),
       Authorization: authorization,
     },
     // lib.dom's BodyInit doesn't recognize Node's Buffer as an ArrayBufferView

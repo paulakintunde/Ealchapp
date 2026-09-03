@@ -133,7 +133,7 @@ export const CO_A: ExamTask = {
       durationS: 27,
       imageRef: 'img/exam/tef/blanc-04/co-a-04.png',
       imageAlt:
-        'Planche de quatre panneaux : un pull en laine, une chemise, un pantalon, une veste. Chaque ' +
+        'Planche de quatre panneaux : un pull en laine, une chemise à rayures, un pantalon, une veste. Chaque ' +
         'vêtement est photographié à plat, sur le même fond clair et au même cadrage. ' +
         'Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:

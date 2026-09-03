@@ -33,13 +33,16 @@
 //   pnpm tsx scripts/tef/render-plates.ts 2             one paper
 //   pnpm tsx scripts/tef/render-plates.ts               all five
 //   pnpm tsx scripts/tef/render-plates.ts 3 --force     redraw even if present
+//   pnpm tsx scripts/tef/render-plates.ts 4 --only co-a-04 --force
+//                                                     redraw ONE, after fixing its alt
 
 // '../env' MUST be imported first — see the incident note in migrate.ts.
 import '../env';
 import { describeTarget } from '../env';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { putToR2, r2Configured } from '../lib/r2.ts';
+import { putToR2, r2Configured, sha256Hex } from '../lib/r2.ts';
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -48,6 +51,32 @@ const DRY_RUN = argv.includes('--dry-run');
 const FORCE = argv.includes('--force');
 const NUMS = argv.filter((a) => /^\d+$/.test(a)).map(Number);
 const PAPERS = NUMS.length ? NUMS : [1, 2, 3, 4, 5];
+
+/**
+ * Record the manifest for plates already on the CDN, drawing nothing.
+ *
+ * The adoption path. Twenty plates existed before the manifest did, and the
+ * alternative to this flag was redrawing all twenty to learn what they were
+ * drawn from — which would have thrown away a completed human review, because
+ * a redrawn plate is a NEW image that nobody has looked at.
+ *
+ * It ASSERTS rather than verifies: it writes down that what is up there matches
+ * the current prompt. Only run it when that is true — right after a review, or
+ * right after a full draw. It is not a repair for a plate you suspect.
+ */
+const RECORD_ONLY = argv.includes('--record-only');
+
+/**
+ * Narrow to plates whose ref or label contains this, case-insensitively.
+ *
+ * `--force` alone is too blunt after an alt is corrected. Redrawing a paper to
+ * fix one plate replaces three others that a person has already looked at and
+ * signed off, and a redrawn plate is a NEW image — so the blunt fix quietly
+ * un-verifies work. Reviewing twenty pictures is the expensive part here, not
+ * generating them.
+ */
+const onlyIx = argv.indexOf('--only');
+const ONLY = onlyIx === -1 ? null : (argv[onlyIx + 1] ?? null);
 
 const FAL_ENDPOINT = 'https://fal.run/openai/gpt-image-2';
 
@@ -107,8 +136,45 @@ function platesOf(variant: string, coTasks: ExamTask[]): Plate[] {
   return out;
 }
 
-/** Is the plate already on the CDN? Cheap HEAD against the public base. */
-async function alreadyThere(ref: string): Promise<boolean> {
+/**
+ * Which prompt each plate on the CDN was drawn from.
+ *
+ * ── Why a file and not object metadata ─────────────────────────────────────
+ *
+ * Presence alone is not enough to skip a plate. An alt is authored text and it
+ * gets edited: two of the first twenty disagreed with their options (blanc-04
+ * said "chemise" where the option said "chemise à rayures"), and the fix is to
+ * change the alt — after which the plate on the CDN is stale but still there.
+ * A generator that skips on presence leaves the wrong picture up and reports
+ * success.
+ *
+ * The audio renderer gets this free: its asset key is a hash of the text, so
+ * new text is a new object. A plate's path is AUTHORED, so the stamp has to
+ * live somewhere else.
+ *
+ * The obvious somewhere is object metadata, and that was tried first. R2 stores
+ * it, but the public CDN in front of the bucket STRIPS `x-amz-meta-*` — checked
+ * on a freshly stamped object, which came back 200 with no metadata header at
+ * all. A check reading it would have been permanently unable to fire, which is
+ * worse than no check: it reads like a safeguard.
+ *
+ * So the record is a committed file. It works through any CDN, and it has a
+ * property metadata does not: `git diff` shows which plates a content change
+ * has invalidated, before anyone spends an API call.
+ */
+const MANIFEST = resolve(HERE, 'plates.manifest.json');
+
+function readManifest(): Record<string, string> {
+  try {
+    return JSON.parse(readFileSync(MANIFEST, 'utf8')) as Record<string, string>;
+  } catch {
+    return {};
+  }
+}
+
+/** On the CDN, and drawn from the prompt we would send now. Both, or redraw. */
+async function isCurrent(ref: string, promptSha: string, manifest: Record<string, string>): Promise<boolean> {
+  if (manifest[ref] !== promptSha) return false;
   const base = process.env.R2_PUBLIC_BASE_URL;
   if (!base) return false;
   try {
@@ -145,47 +211,75 @@ async function generate(prompt: string, key: string): Promise<Buffer> {
 
 async function main() {
   const key = process.env.FAL_KEY;
-  const plates: Plate[] = [];
+  let plates: Plate[] = [];
   for (const n of PAPERS) {
     const { variant, CO_TASKS } = await load(n);
     plates.push(...platesOf(variant, CO_TASKS));
+  }
+  if (ONLY) {
+    const needle = ONLY.toLowerCase();
+    const before = plates.length;
+    plates = plates.filter((p) => p.ref.toLowerCase().includes(needle) || p.label.toLowerCase().includes(needle));
+    if (plates.length === 0) throw new Error(`--only ${ONLY} matched none of the ${before} plate(s)`);
   }
 
   console.log(`\n  target: ${describeTarget()}`);
   console.log(`  ${plates.length} block A plate(s) across ${PAPERS.length} paper(s)\n`);
 
   if (DRY_RUN) {
+    // Reports what it WOULD draw, not just what it would say. A dry run that
+    // only dumps prompts cannot answer the question anyone actually has after
+    // editing an alt: which plates did I just invalidate?
+    const dryManifest = readManifest();
+    let stale = 0;
     for (const p of plates) {
-      console.log(`  ${p.variant} · ${p.label}`);
-      console.log(`    ref     : ${p.ref}`);
-      console.log(`    options : ${p.opts.join(' | ')}`);
-      console.log(`    prompt  : ${promptFor(p).replace(/\n/g, ' ')}`);
-      console.log('');
+      const current = await isCurrent(p.ref, sha256Hex(promptFor(p)), dryManifest);
+      if (!current) stale += 1;
+      console.log(`  ${current ? '·' : '→'} ${p.variant} · ${p.label}${current ? ' — current' : '  WOULD DRAW'}`);
+      console.log(`      options: ${p.opts.join(' | ')}`);
     }
-    console.log(`✓ dry run — ${plates.length} plate(s) would be drawn. Nothing called, nothing written.\n`);
+    console.log(`
+✓ dry run — ${stale} of ${plates.length} would be drawn. Nothing called, nothing written.
+`);
     return;
   }
 
-  if (!key) {
-    throw new Error('FAL_KEY is not set (ealch-v2/.env carries it; copy it into ealch-admin/.env)');
-  }
-  if (!r2Configured()) {
-    throw new Error('R2 upload needs R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET in ealch-admin/.env');
-  }
-
+  const manifest = readManifest();
   let drawn = 0;
   let skipped = 0;
   const failed: string[] = [];
   for (const p of plates) {
     const where = `${p.variant} · ${p.label}`;
-    if (!FORCE && (await alreadyThere(p.ref))) {
+    const prompt = promptFor(p);
+    const promptSha = sha256Hex(prompt);
+    if (RECORD_ONLY) {
+      manifest[p.ref] = promptSha;
+      writeFileSync(MANIFEST, `${JSON.stringify(Object.fromEntries(Object.entries(manifest).sort()), null, 2)}
+`, 'utf8');
       skipped += 1;
-      console.log(`  · ${where} — already on the CDN, skipped`);
+      console.log(`  · ${where} — recorded, not drawn`);
       continue;
     }
+    if (!FORCE && (await isCurrent(p.ref, promptSha, manifest))) {
+      skipped += 1;
+      console.log(`  · ${where} — current, skipped`);
+      continue;
+    }
+    // Credentials are demanded HERE, not up front: a run where everything is
+    // current draws nothing, and asking for an image key to do nothing is a
+    // barrier in front of the cheapest, most common case.
+    if (!key) throw new Error('FAL_KEY is not set (ealch-v2/.env carries it; copy it into ealch-admin/.env)');
+    if (!r2Configured()) {
+      throw new Error('R2 upload needs R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET in ealch-admin/.env');
+    }
     try {
-      const png = await generate(promptFor(p), key);
-      await putToR2(p.ref, png, 'image/png');
+      const png = await generate(prompt, key);
+      await putToR2(p.ref, png, 'image/png', { 'prompt-sha': promptSha });
+      // Recorded per plate, not once at the end: a run that dies on plate
+      // seventeen must not forget the sixteen it already paid for.
+      manifest[p.ref] = promptSha;
+      writeFileSync(MANIFEST, `${JSON.stringify(Object.fromEntries(Object.entries(manifest).sort()), null, 2)}
+`, 'utf8');
       drawn += 1;
       console.log(`  ✓ ${where} — ${(png.length / 1024).toFixed(0)} KB → ${p.ref}`);
     } catch (e) {
