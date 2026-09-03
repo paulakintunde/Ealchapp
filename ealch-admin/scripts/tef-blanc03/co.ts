@@ -66,7 +66,7 @@ export const CO_A: ExamTask = {
         'Planche de quatre panneaux : une table ronde dressée pour quatre personnes, une table longue ' +
         'dressée pour huit, une table haute avec deux tabourets, une table en terrasse sous un parasol. ' +
         'Même style de vaisselle et même éclairage dans les quatre panneaux : seule la table change. ' +
-        'Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE CLIENT : Bonjour, j’avais réservé pour quatre, mercredi soir. On sera huit finalement.\n' +
         'LA SERVEUSE : Huit… Alors la ronde, je ne peux pas. En terrasse non plus, il annonce de la pluie.\n' +
@@ -96,7 +96,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un parapluie pliant, un sac à dos, une paire de gants, un bonnet ' +
         'de laine. Chaque objet est isolé sur le même fond neutre, au même cadrage et à la même échelle ' +
-        'apparente. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'apparente. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA SPECTATRICE : Excusez-moi, j’ai laissé quelque chose au vestiaire hier soir.\n' +
         'L’EMPLOYÉ : On a un sac à dos, des gants et un bonnet.\n' +
@@ -121,7 +121,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : une baguette, une brioche tressée, une tarte aux pommes, un pain ' +
         'de campagne rond. Chaque produit est photographié seul, sur le même fond clair et au même ' +
-        'cadrage. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'cadrage. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA CLIENTE : Bonjour. Je voudrais commander pour demain matin, pour huit heures.\n' +
         'LE BOULANGER : Bien sûr. Une tarte ? Une brioche ?\n' +
@@ -151,8 +151,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un colis volumineux, une enveloppe matelassée, un carton plat, ' +
         'une valise à roulettes. Chaque objet est isolé sur fond neutre, à la même échelle apparente ' +
-        'et sous le même éclairage. Chaque panneau correspond à une option, dans l’ordre où les options ' +
-        'sont affichées.',
+        'et sous le même éclairage. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE FACTEUR : Bonjour. J’ai quelque chose pour vous, mais ça ne rentre pas dans la boîte.\n' +
         'LA RÉSIDENTE : Une enveloppe ? Un carton plat ?\n' +

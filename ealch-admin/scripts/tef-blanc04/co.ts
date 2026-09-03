@@ -53,7 +53,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : une roue de vélo, une chaîne de vélo, une selle, un guidon. ' +
         'Chaque pièce est photographiée seule, sur le même fond neutre et au même cadrage. ' +
-        'Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE CLIENT : Bonjour. Mon vélo fait un bruit bizarre quand je pédale. Ce serait pour samedi.\n' +
         'LE RÉPARATEUR : Voyons… La roue est droite, la selle tient bien. C’est la chaîne, elle est ' +
@@ -79,7 +79,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : une paire de lunettes vue de face, un étui à lunettes, un ' +
         'chiffon de nettoyage, un cordon de lunettes. Objets isolés sur fond clair, à la même échelle ' +
-        'apparente. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'apparente. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA CLIENTE : Elles glissent tout le temps, elles descendent sur le nez.\n' +
         'L’OPTICIENNE : Je vous les resserre derrière l’oreille, ça suffit en général. Vous voulez aussi ' +
@@ -110,7 +110,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : une pièce de un euro, un jeton en plastique, une carte de ' +
         'fidélité, un billet de banque. Chaque objet est isolé sur fond neutre, au même cadrage. ' +
-        'Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE CLIENT : Excusez-moi, le chariot ne se débloque pas et ma pièce est restée dedans.\n' +
         'L’EMPLOYÉE : Une pièce de un euro ? Il faut parfois la pousser à fond.\n' +
@@ -135,7 +135,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un pull en laine, une chemise, un pantalon, une veste. Chaque ' +
         'vêtement est photographié à plat, sur le même fond clair et au même cadrage. ' +
-        'Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA CLIENTE : Je l’ai lavé une fois, à trente degrés, et il a rétréci de deux tailles.\n' +
         'LE VENDEUR : C’est le pull ? Ou la chemise ?\n' +

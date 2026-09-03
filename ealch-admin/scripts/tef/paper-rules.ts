@@ -229,6 +229,30 @@ export function paperRules(p: PaperUnderTest): void {
     }
   });
 
+  test(`${n}: no block A alt claims the panels follow the option order`, () => {
+    // The alt is also the image's accessibilityLabel, so a screen-reader user
+    // hears it and maps panels to options by whatever it says.
+    //
+    // Every block A alt used to end "Chaque panneau correspond à une option,
+    // dans l'ordre où les options sont affichées." That was measured FALSE on
+    // 15 of the 20 plates: the alt lists panels in the order they were
+    // AUTHORED, and `scatterKeys` reorders the options afterwards. It went
+    // unnoticed only because the plates 404 and nobody could see the panels.
+    //
+    // A plate drawn to match such an alt would have turned a missing image into
+    // a wrong one, so the claim is gone rather than the ordering "fixed": the
+    // learner picks a TEXT option and matches it by content, so panel position
+    // carries no information, and dropping the claim keeps plate and alt true
+    // through any future re-scatter.
+    for (const part of p.CO_TASKS[0]!.parts ?? []) {
+      const alt = part.imageAlt ?? '';
+      ok(
+        !/l['’]ordre où les options|dans cet ordre|ordre des options|premier panneau|panneau \d/i.test(alt),
+        `${part.label}: the alt claims a panel order it cannot guarantee — scatterKeys moves the options after authoring`
+      );
+    }
+  });
+
   test(`${n}: no image brief claims an option order it cannot know`, () => {
     // The brief describes the panels; the stored `opts` array decides which
     // panel is which, because scatterKeys moves the key AFTER authoring.

@@ -81,8 +81,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : une barquette de fraises rouges, une barquette de framboises, ' +
         'une barquette de myrtilles, une barquette de cerises. Même barquette, même cadrage, même fond ' +
-        'dans les quatre panneaux : seul le fruit change. Chaque panneau correspond à une option, ' +
-        'dans l’ordre où les options sont affichées.',
+        'dans les quatre panneaux : seul le fruit change. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA CLIENTE : Bonjour ! Je voudrais une barquette de framboises, s’il vous plaît.\n' +
         'LE VENDEUR : Ah… les framboises, c’est terminé pour ce matin. Il me reste des fraises, elles viennent d’arriver.\n' +
@@ -106,7 +105,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un parapluie noir fermé, un sac de voyage, un manteau noir sur ' +
         'un cintre, une valise à roulettes. Objets isolés sur fond neutre, à la même échelle apparente. ' +
-        'Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA VOYAGEUSE : Excusez-moi, j’ai oublié quelque chose dans le train de dix heures douze.\n' +
         'L’AGENT : Un sac ? Un manteau ?\n' +
@@ -131,7 +130,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un bac à couvercle jaune, une colonne à verre, un petit bac brun ' +
         'pour les déchets alimentaires, un bac à couvercle gris. Quatre contenants de collecte, même ' +
-        'angle de vue. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'angle de vue. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE VOISIN : Et ça, le pot de yaourt, je le mets où ?\n' +
         'LA VOISINE : Bac jaune. Comme tous les emballages.\n' +
@@ -155,8 +154,7 @@ export const CO_A: ExamTask = {
       imageRef: 'img/exam/tef/blanc-01/co-a-04.png',
       imageAlt:
         'Planche de quatre panneaux : un pain de campagne rond, une baguette, un pain aux céréales ' +
-        'allongé, un pain complet moulé. Quatre pains sur le même plan de travail. Chaque panneau ' +
-        'correspond à une option, dans l’ordre où les options sont affichées.',
+        'allongé, un pain complet moulé. Quatre pains sur le même plan de travail. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE CLIENT : Il vous reste des baguettes ?\n' +
         'LA BOULANGÈRE : Des baguettes, non, tout est parti. J’ai des pains aux céréales et des pains de campagne.\n' +

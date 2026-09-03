@@ -112,6 +112,7 @@
 // './env' MUST be imported first — see the incident note in migrate.ts.
 import './env';
 import { describeTarget } from './env';
+import { putToR2, sha256Hex, r2Configured } from './lib/r2.ts';
 import { resolve as resolvePath, dirname as dirnameOf } from 'node:path';
 import { fileURLToPath as fileUrlToPath } from 'node:url';
 import {
@@ -364,71 +365,6 @@ function estimateDurationMs(bytes: Buffer): number {
  * See the header note: no @aws-sdk/client-s3 dependency, on purpose. Single
  * PUT, unsigned streaming not needed (payloads are small render clips). */
 
-function hmac(key: Buffer | string, data: string): Buffer {
-  return createHmac('sha256', key).update(data, 'utf8').digest();
-}
-function sha256Hex(data: Buffer | string): string {
-  return createHash('sha256').update(data).digest('hex');
-}
-
-async function putToR2(path: string, body: Buffer, contentType: string): Promise<void> {
-  const accountId = process.env.R2_ACCOUNT_ID;
-  const accessKeyId = process.env.R2_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY;
-  const bucket = process.env.R2_BUCKET;
-  if (!accountId || !accessKeyId || !secretAccessKey || !bucket) {
-    die(
-      'R2 upload needs R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET in ealch-admin/.env ' +
-        '(--target supabase is the fallback if R2 is not provisioned yet).'
-    );
-  }
-
-  const host = `${accountId}.r2.cloudflarestorage.com`;
-  const region = 'auto';
-  const service = 's3';
-  const canonicalUri = `/${bucket}/${path.split('/').map(encodeURIComponent).join('/')}`;
-
-  const now = new Date();
-  const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, ''); // yyyyMMddTHHmmssZ
-  const dateStamp = amzDate.slice(0, 8);
-  const payloadHash = sha256Hex(body);
-
-  const canonicalHeaders =
-    `content-type:${contentType}\n` + `host:${host}\n` + `x-amz-content-sha256:${payloadHash}\n` + `x-amz-date:${amzDate}\n`;
-  const signedHeaders = 'content-type;host;x-amz-content-sha256;x-amz-date';
-  const canonicalRequest = ['PUT', canonicalUri, '', canonicalHeaders, signedHeaders, payloadHash].join('\n');
-
-  const credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;
-  const stringToSign = ['AWS4-HMAC-SHA256', amzDate, credentialScope, sha256Hex(canonicalRequest)].join('\n');
-
-  const kDate = hmac(`AWS4${secretAccessKey}`, dateStamp);
-  const kRegion = hmac(kDate, region);
-  const kService = hmac(kRegion, service);
-  const kSigning = hmac(kService, 'aws4_request');
-  const signature = hmac(kSigning, stringToSign).toString('hex');
-
-  const authorization =
-    `AWS4-HMAC-SHA256 Credential=${accessKeyId}/${credentialScope}, ` +
-    `SignedHeaders=${signedHeaders}, Signature=${signature}`;
-
-  const res = await fetch(`https://${host}${canonicalUri}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': contentType,
-      'x-amz-content-sha256': payloadHash,
-      'x-amz-date': amzDate,
-      Authorization: authorization,
-    },
-    // lib.dom's BodyInit doesn't recognize Node's Buffer as an ArrayBufferView
-    // even though it structurally is one — a fresh Uint8Array view sidesteps
-    // the type mismatch without copying semantics that matter at clip size.
-    body: new Uint8Array(body),
-  });
-  if (!res.ok) {
-    throw new Error(`R2 upload failed for ${path}: HTTP ${res.status} ${await res.text().catch(() => '')}`);
-  }
-}
-
 /* ─── Storage: Supabase `content` bucket (wave-1 fallback) ──────────────────
  * Same bucket publish-content.ts uploads snapshots to. A local binary-body
  * helper rather than reusing snapshot-utils.ts's uploadToStorage(), which is
@@ -456,7 +392,18 @@ async function putToSupabase(path: string, body: Buffer, contentType: string): P
 }
 
 async function uploadAudio(path: string, body: Buffer): Promise<void> {
-  if (TARGET === 'r2') await putToR2(path, body, 'audio/mpeg');
+  if (TARGET === 'r2') {
+    // The credential check used to live inside putToR2. It moved out with the
+    // signer, so it is asserted here instead — without it a missing key fails
+    // as an opaque signing error rather than as the one-line fix it is.
+    if (!r2Configured()) {
+      die(
+        'R2 upload needs R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET in ealch-admin/.env ' +
+          '(--target supabase is the fallback if R2 is not provisioned yet).'
+      );
+    }
+    await putToR2(path, body, 'audio/mpeg');
+  }
   else await putToSupabase(path, body, 'audio/mpeg');
 }
 

@@ -77,8 +77,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un trousseau de clés, une plante verte en pot, un chat assis ' +
         'dans un panier de transport, un colis fermé. Chaque objet est isolé sur le même fond neutre, ' +
-        'au même cadrage et à la même échelle apparente. Chaque panneau correspond à une option, ' +
-        'dans l’ordre où les options sont affichées.',
+        'au même cadrage et à la même échelle apparente. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA VOISINE : Bonjour ! Dites, on part quinze jours à partir de samedi. Est-ce que je peux vous laisser un double des clés ?\n' +
         'LE VOISIN : Ah, bien sûr. C’est pour arroser, c’est ça ?\n' +
@@ -102,7 +101,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un gâteau rond sur un plat, un bouquet de fleurs, un livre fermé, ' +
         'un bouquet de ballons. Chaque objet est photographié seul, sur le même fond clair et au même ' +
-        'cadrage. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'cadrage. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE COLLÈGUE : Alors, pour le pot de départ de Farid, on a combien ? Trente-deux euros.\n' +
         'LA COLLÈGUE : Trente-deux… Bon. Les fleurs, c’est joli, mais à trente-deux euros, euh, ça va être un bouquet triste.\n' +
@@ -127,7 +126,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un casque audio, une écharpe pliée, une gourde métallique, ' +
         'un livre de poche. Objets isolés sur fond neutre, à la même échelle apparente et sous le ' +
-        'même éclairage. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'même éclairage. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'L’EMPLOYÉ : Vous avez oublié quelque chose dans quelle ligne ?\n' +
         'LE VOYAGEUR : La 14, hier soir. Un casque audio, noir.\n' +
@@ -152,7 +151,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un paquet de café, une bouteille de lait, un pot de confiture, ' +
         'un sachet de riz. Chaque produit est photographié seul, sur le même fond blanc et au même ' +
-        'cadrage. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'cadrage. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA CLIENTE : Excusez-moi, je crois qu’il y a une erreur sur le ticket.\n' +
         'LE CAISSIER : Faites voir… Le lait, la confiture, le riz, le café…\n' +

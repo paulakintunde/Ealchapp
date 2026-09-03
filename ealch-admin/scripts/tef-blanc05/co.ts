@@ -51,8 +51,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : une bouteille de gaz, un bidon d’huile, un extincteur, une ' +
         'bonbonne d’eau. Chaque objet est isolé sur le même fond neutre, au même cadrage et à la même ' +
-        'échelle apparente. Chaque panneau correspond à une option, dans l’ordre où les options sont ' +
-        'affichées.',
+        'échelle apparente. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE CLIENT : Bonjour, je viens rapporter ça, c’est consigné je crois.\n' +
         'L’EMPLOYÉ : L’huile, non, ça se rapporte en déchetterie. L’extincteur non plus.\n' +
@@ -77,7 +76,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : une paire de lunettes de vue, une paire de lunettes de soleil, ' +
         'un étui rigide, un flacon de produit nettoyant. Objets isolés sur fond clair, au même ' +
-        'cadrage. Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'cadrage. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA CLIENTE : Bonjour, j’ai un message qui dit que ma commande est prête.\n' +
         'L’OPTICIEN : À quel nom ? … Voilà. Les lunettes de vue, montées hier.\n' +
@@ -107,7 +106,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un colis fermé avec une étiquette, un sac cabas, une enveloppe ' +
         'cartonnée, une caisse en bois. Chaque objet est photographié seul, sur le même fond neutre. ' +
-        'Chaque panneau correspond à une option, dans l’ordre où les options sont affichées.',
+        'Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LA CLIENTE : Je dois renvoyer un article. On m’a dit de venir ici.\n' +
         'L’EMPLOYÉ : Vous avez l’étiquette de retour ?\n' +
@@ -137,8 +136,7 @@ export const CO_A: ExamTask = {
       imageAlt:
         'Planche de quatre panneaux : un pot de peinture blanche, un pot de peinture beige, un pot de ' +
         'peinture grise, un pot de peinture bleue. Même pot, même cadrage, même fond : seule la ' +
-        'couleur change. Chaque panneau correspond à une option, dans l’ordre où les options sont ' +
-        'affichées.',
+        'couleur change. Les quatre panneaux montrent les quatre options proposées, sans ordre imposé.',
       text:
         'LE CLIENT : J’ai pris ce beige la semaine dernière et ce n’est pas la bonne teinte.\n' +
         'LA VENDEUSE : Vous vouliez du blanc ?\n' +
