@@ -34,6 +34,16 @@ const WPM = 150;
 const norm = (s: string) =>
   s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
+/** French function words, so "novelty" counts facts rather than grammar. A turn
+ *  that repeats the advert's nouns while varying its verbs is still a repeat. */
+const STOPWORDS = new Set([
+  'avec', 'dans', 'pour', 'vous', 'nous', 'elle', 'sont', 'este', 'cette', 'votre', 'notre',
+  'leur', 'leurs', 'mais', 'donc', 'plus', 'moins', 'tout', 'tous', 'toute', 'toutes',
+  'faut', 'peut', 'sera', 'sont', 'avez', 'etes', 'meme', 'aussi', 'alors', 'apres',
+  'avant', 'depuis', 'entre', 'chaque', 'quand', 'comme', 'aucun', 'aucune', 'celui',
+  'celle', 'ceux', 'quel', 'quelle', 'quels', 'quelles', 'jusqu', 'chez', 'sans',
+]);
+
 type Finding = { paper: string; task: string; level: 'FAIL' | 'LOOK'; note: string };
 
 function checkTask(paper: string, t: ExamTask, out: Finding[]): void {
@@ -128,20 +138,44 @@ function checkTask(paper: string, t: ExamTask, out: Finding[]): void {
     // Section A is marked on whether the candidate covered every angle the
     // document affords. A fact the advert states outright is one a careful
     // candidate has no reason to ask about — so the bank answer sits there
-    // unreachable and the coverage score punishes them for reading well. Not a
-    // failure on its own (a bank answer that DEEPENS a stated fact is good
-    // design), which is why this reports rather than fails.
-    const advert = norm(t.prompt);
+    // unreachable and the coverage score punishes them for reading well.
+    //
+    // ── Why this compares the ANSWER and not the `covers` label ─────────────
+    //
+    // The first version took the longest word of `covers` and asked whether the
+    // advert contained it. That reported four overlaps and every one was wrong,
+    // because length is a poor proxy for which word carries the fact. In « le
+    // délai avant installation » the longest word is `installation`, which the
+    // advert does say — but the fact is the DÉLAI, which it does not. Same for
+    // « les pièces du dossier » and « la commission et la réponse »: the advert
+    // names the dossier and the commission as things that exist and withholds
+    // every fact about them, which is precisely the design this file documents
+    // ("the bank holds one answer per fact the advert withholds").
+    //
+    // Requiring every word of `covers` to appear would still have been wrong.
+    // blanc-03's advert says « Certificat médical demandé » and the bank adds
+    // that it goes in before the first session and must be under a year old.
+    // That DEEPENS a stated fact, which is good design, and no comparison of
+    // the label to the advert can tell deepening from duplication.
+    //
+    // So compare what the answer SAYS. A turn that only restates the advert
+    // shares almost all its content words with it; one that deepens brings new
+    // ones — a date, a price, a condition. That is measurable without knowing
+    // what the words mean.
+    const advert = new Set(norm(t.prompt).split(/[^a-z0-9]+/).filter(Boolean));
     for (const a of b.answers) {
-      // The distinctive word of the fact, not its grammar.
-      const key = norm(a.covers)
-        .split(/\s+/)
-        .filter((w) => w.length > 4 && !['leurs', 'quelle', 'conditions'].includes(w))
-        .sort((x, y) => y.length - x.length)[0];
-      if (key && advert.includes(key)) {
+      const content = norm(a.text)
+        .split(/[^a-z0-9]+/)
+        .filter((w) => w.length > 3 && !STOPWORDS.has(w));
+      if (content.length < 4) continue;
+      const fresh = content.filter((w) => !advert.has(w)).length;
+      const novelty = fresh / content.length;
+      if (novelty < 0.35) {
         out.push({
           paper, task: id, level: 'LOOK',
-          note: `the advert already says « ${key} » — check the bank's "${a.covers}" adds something a candidate would still ask for`,
+          note:
+            `the bank's "${a.covers}" restates the advert (${Math.round(novelty * 100)}% new content words) — ` +
+            `check a candidate who read carefully would still have a reason to ask`,
         });
       }
     }
