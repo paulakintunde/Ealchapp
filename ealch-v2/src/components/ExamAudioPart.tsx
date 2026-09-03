@@ -34,6 +34,7 @@ import {
   startPlay,
   transcriptTurns,
   type PartPlayback,
+  shouldAutoRepeat,
 } from '@/utils/coPlayback.logic';
 import type { ExamMode, ExamPart } from '@/content/schema';
 
@@ -135,13 +136,18 @@ export function ExamAudioPart({ part, mode, onUnplayable, children }: ExamAudioP
   }, []);
 
   useEffect(() => {
-    if (pb.phase === 'playing' || pb.phase === 'unplayable' || pb.phase === 'closed') return;
     // Repeat plays, for the blocks the paper repeats. Practice mode replays on
     // demand instead, through the button below.
-    if (mode === 'exam' && pb.playsStarted > 0 && pb.playsStarted < pb.playCount) {
-      later(() => play(), REPLAY_GAP_S * 1000);
-    }
-  }, [pb.phase, pb.playsStarted, pb.playCount, mode, play]);
+    //
+    // The condition moved to coPlayback.logic.ts. It was correct here, but the
+    // part of it that matters — never schedule over a play that is still
+    // sounding — was a clause in an early return with no test, while `canPlay`
+    // (which does not check the phase) sat next to it looking like the
+    // authority. Two clips at once is an unanswerable item, so the rule is
+    // pinned by tests now rather than by reading order.
+    if (!shouldAutoRepeat(pb, mode)) return;
+    later(() => play(), REPLAY_GAP_S * 1000);
+  }, [pb, mode, play]);
 
   const imageUrl = part.imageRef ? contentAssetUrl(part.imageRef) : null;
   const [imageFailed, setImageFailed] = useState(false);

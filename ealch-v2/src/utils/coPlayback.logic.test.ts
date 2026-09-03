@@ -15,6 +15,7 @@ import {
   spokenTranscript,
   transcriptTurns,
   startPlay,
+  shouldAutoRepeat,
 } from './coPlayback.logic.ts';
 
 const part = (over: Record<string, unknown> = {}) => ({ playCount: 1, readWindowS: 10, ...over });
@@ -223,4 +224,44 @@ test('a phone with no voices at all speaks language-only', () => {
 test('one voice is enough for a single-speaker document', () => {
   const v = assignDeviceVoices(['LA VOIX'], ['fr-1']);
   strictEqual(v.get('LA VOIX'), 'fr-1');
+});
+
+test('the two plays of a block E part are SEQUENTIAL, never stacked', () => {
+  // The failure this pins: a second clip starting while the first is still
+  // sounding. That is not a degraded item, it is an unanswerable one, and
+  // `canPlay` cannot catch it — it asks whether plays REMAIN, and after the
+  // first play starts one still does.
+  let pb = initPlayback(part({ readWindowS: 0, playCount: 2 }));
+  pb = startPlay(pb);
+  strictEqual(pb.phase, 'playing');
+  strictEqual(pb.playsStarted, 1);
+  ok(canPlay(pb, 'exam'), 'a second play does remain — which is exactly why the phase must be checked too');
+  ok(!shouldAutoRepeat(pb, 'exam'), 'the second play must NOT be scheduled over the first');
+
+  // Only once the first has finished.
+  pb = endPlay(pb);
+  ok(shouldAutoRepeat(pb, 'exam'), 'after the first play ends, the second is due');
+});
+
+test('auto-repeat stops when the plays are spent, and never runs in practice', () => {
+  let pb = initPlayback(part({ readWindowS: 0, playCount: 2 }));
+  pb = endPlay(startPlay(pb));
+  pb = endPlay(startPlay(pb));
+  strictEqual(pb.playsStarted, 2);
+  ok(!shouldAutoRepeat(pb, 'exam'), 'two plays is two, not a loop');
+
+  // Practice replays through the button, on demand. A part that repeated itself
+  // in practice would take the choice away from the learner it is there for.
+  let pr = initPlayback(part({ readWindowS: 0, playCount: 2 }));
+  pr = endPlay(startPlay(pr));
+  ok(canPlay(pr, 'practice'));
+  ok(!shouldAutoRepeat(pr, 'practice'), 'practice never auto-repeats');
+});
+
+test('a single-play part never auto-repeats, whatever its phase', () => {
+  // Every block except E. The guard is the count, so this is the case that
+  // would break first if `playsStarted < playCount` were ever loosened.
+  let pb = initPlayback(part({ readWindowS: 0, playCount: 1 }));
+  pb = endPlay(startPlay(pb));
+  ok(!shouldAutoRepeat(pb, 'exam'));
 });

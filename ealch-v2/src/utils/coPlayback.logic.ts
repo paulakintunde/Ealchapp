@@ -142,6 +142,33 @@ export function estimateDurationS(part: { durationS?: number; text?: string }): 
 
 /** The pause between repeat plays, as the real paper leaves one. */
 export const REPLAY_GAP_S = 2;
+/**
+ * Should the runner start the NEXT play by itself?
+ *
+ * Block E is the paper's only two-play block, and its two plays must be
+ * SEQUENTIAL — the second starting after the first has finished, not alongside
+ * it. Two clips sounding at once is not a degraded version of the item, it is
+ * an unanswerable one, and it is the whole reason `ExamPart.durationS` is
+ * authored: the shared player reports completion immediately, so the end of a
+ * play is TIMED rather than observed.
+ *
+ * The condition used to live only in a component effect's early return. It was
+ * correct, but `canPlay` does not check the phase — it asks whether any plays
+ * remain — so nothing outside that one line stopped a second play from being
+ * scheduled while the first was still sounding, and nothing tested it. Moved
+ * here so the rule that keeps the plays apart is a pure function with tests
+ * rather than a line in a dependency array's blast radius.
+ */
+export function shouldAutoRepeat(pb: PartPlayback, mode: ExamMode): boolean {
+  // Practice replays on demand, through the button. Never on its own.
+  if (mode !== 'exam') return false;
+  // THE SEQUENCING GUARD: never schedule over a play that is still sounding.
+  if (pb.phase === 'playing') return false;
+  if (pb.phase === 'unplayable' || pb.phase === 'closed') return false;
+  // Only ever a REPEAT: the first play is the autoplay effect's job.
+  return pb.playsStarted > 0 && pb.playsStarted < pb.playCount;
+}
+
 
 /**
  * A transcript as the TTS fallback should SAY it.
