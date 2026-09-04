@@ -10,9 +10,10 @@
 // Structural only, on purpose. Whether a theme resolves against content_themes
 // is a database question and lives in `scripts/theme-fitness.ts`; a test that
 // needed a live connection would be skipped in CI and prove nothing.
-import { ok, strictEqual } from 'node:assert';
+import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
+import { parseBank, plan } from './tcf/plan-paper.ts';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -180,4 +181,28 @@ test('the TEF bank can actually supply four more papers', () => {
   const free = rows.filter((r) => !spent.has(r.id)).length;
   const PER_PAPER = 45;
   ok(free >= PER_PAPER * 4, `${free} free situations cannot supply 4 papers at ${PER_PAPER} each`);
+});
+
+test('the TCF bank can actually supply five papers, drawn the way the planner draws', () => {
+  // NOT a count. A count is what failed here, twice.
+  //
+  // First pass: the demand table lists comprehension only, so 47 topics a paper
+  // looked right. The six open tasks draw topics too — a paper spends 53, and
+  // five spend 265, not 235.
+  //
+  // Second pass: per-cell supply still over-counted, because a situation tagged
+  // both CO and CE is counted in both cells and can only be spent once. CO is
+  // planned first, so it quietly starves CE. Provisioning to the measured edge
+  // left paper 5 unable to fill CO B1.
+  //
+  // So this simulates the actual draw, in order, and asserts every paper fills.
+  // It is the only form of this check that has ever been right.
+  const rows = parseBank(readFileSync(resolve(HERE, '../exam-blueprints/TOPICS-tcf-canada.md'), 'utf8'));
+  const taken = new Set<string>();
+  for (let n = 1; n <= 5; n += 1) {
+    const p = plan(rows, n, taken);
+    deepStrictEqual(p.short, [], `paper ${n} cannot be drawn from the bank`);
+    for (const r of [...p.co, ...p.ce]) taken.add(r.situation.id);
+    for (const o of p.open) taken.add(o.situation.id);
+  }
 });

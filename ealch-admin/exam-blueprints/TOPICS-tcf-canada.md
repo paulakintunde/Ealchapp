@@ -1,6 +1,6 @@
 # TOPICS — TCF Canada
 
-**Blueprint:** `tcf-canada-2026.01` · **235 situations, A1 to C2**
+**Blueprint:** `tcf-canada-2026.01` · **282 situations, A1 to C2**
 **Compiled:** 2026-08-24 (phase E0) · **Expanded to five papers 2026-09-04 (phase E9)**
 
 Our own topic bank. Built from the CEFR can-do descriptors and the 128 themes already in `content_themes`. Nothing here is drawn from an exam paper. See [README.md](README.md).
@@ -69,6 +69,7 @@ Concrete, literal, one fact. The answer is stated once, plainly.
 | TCF-92 | Quelqu'un demande à quelle heure ferme la pharmacie | `heure-et-date` | CO |
 | TCF-93 | Une liste de choses à apporter pour une sortie | `objets` | CE |
 | TCF-94 | Quelqu'un parle de ce qu'il fait le matin | `routines` | CO, EO-T1 |
+| TCF-236 | Une sonnerie annonce la fin de la récréation | `ecole` | CO |
 
 ## A2 — positions 4 to 9
 
@@ -136,6 +137,13 @@ Still literal, but one competing fact must be ignored.
 | TCF-140 | Quelqu'un signale un problème avec une commande en ligne | `internet` | CO, EO-T2 |
 | TCF-141 | Une affiche de vente de paniers à la ferme | `marche` | CE |
 | TCF-142 | Le choix d'un quartier raconté cinq ans après | `voisinage` | CO, EO-T1 |
+| TCF-237 | Un répondeur donne les horaires d'ouverture du cabinet | `systeme-de-sante` | CO |
+| TCF-238 | Un contrôleur explique un changement de voiture en cours de route | `transports-quotidiens` | CO |
+| TCF-239 | Un serveur propose le plat du jour et un dessert | `au-restaurant` | CO |
+| TCF-240 | Un collègue propose de partager un taxi | `collegues` | CO |
+| TCF-241 | Un bon de commande rempli à la main | `marche` | CE |
+| TCF-242 | Un calendrier de collecte affiché dans le hall | `maison` | CE |
+| TCF-243 | Un mode d'emploi de four à micro-ondes | `appareils` | CE |
 
 ## B1 — positions 10 to 19
 
@@ -213,6 +221,32 @@ Two facts must be held together, or one tracked across a turn change. Redundancy
 | TCF-194 | Un article sur les droits des locataires en cas de vente | `droit` | CE |
 | TCF-195 | Quelqu'un décrit une tradition familiale et son origine | `rp-famille` | CO, EO-T1 |
 | TCF-196 | Un dossier de presse sur une pénurie de main-d'oeuvre | `journalisme` | CE |
+| TCF-244 | Un parcours professionnel raconté au fil de trois villes | `metiers` | CO, EO-T1 |
+| TCF-245 | Une passion tardive pour la course, racontée sans emphase | `sports-et-loisirs` | CO, EO-T1 |
+| TCF-246 | Un compte rendu de conseil d'école | `examens-et-diplomes` | CE |
+| TCF-247 | Une charte d'usage des salles associatives | `communaute` | CE |
+| TCF-248 | Un mot pour prévenir d'un dégât dans un logement loué | `hebergement` | CE, EE-T1 |
+| TCF-249 | Un message pour décliner une invitation sans froisser | `rp-etiquette` | CE, EE-T1 |
+| TCF-250 | Un guide pratique pour ouvrir un compte bancaire | `argent-quotidien` | CE |
+| TCF-251 | Une notice de sécurité pour un chantier de bénévoles | `entraide` | CE |
+| TCF-259 | Un reportage sur une épicerie reprise par le village | `communaute` | CO |
+| TCF-260 | Un entretien avec une gardienne d'immeuble sur son quotidien | `voisinage` | CO, EO-T1 |
+| TCF-261 | Une chronique sur les horaires décalés et la vie de famille | `rp-famille` | CO |
+| TCF-262 | Un échange au comptoir d'une compagnie aérienne après un retard | `rp-voyage` | CO, EO-T2 |
+| TCF-263 | Un entretien avec un cuisinier sur le gaspillage | `cuisine` | CO |
+| TCF-264 | Une conversation sur un déménagement décidé trop vite | `hebergement` | CO, EO-T1 |
+| TCF-265 | Un reportage sur des cours de français du soir | `universite` | CO |
+| TCF-266 | Un échange avec un conseiller sur un découvert bancaire | `argent-quotidien` | CO, EO-T2 |
+| TCF-267 | Une interview d'une pharmacienne sur les gardes de nuit | `soins` | CO |
+| TCF-268 | Un récit de première semaine dans un nouveau pays | `immigration-et-citoyennete` | CO, EO-T1 |
+| TCF-269 | Un courriel pour proposer un échange de service entre voisins | `entraide` | CE, EE-T1 |
+| TCF-270 | Un règlement intérieur de salle de répétition | `musique` | CE |
+| TCF-271 | Un dossier d'aide au logement avec conditions | `gouvernement` | CE |
+| TCF-272 | Un mot d'excuse envoyé après un rendez-vous manqué | `rp-etiquette` | CE, EE-T1 |
+| TCF-279 | Un entretien avec une bénévole d'une friperie solidaire | `vetements` | CO, EO-T1 |
+| TCF-280 | Un récit de reconversion vers un métier manuel | `metiers` | CO, EO-T1 |
+| TCF-281 | Une conversation sur un retour au pays après dix ans | `rp-voyage` | CO, EO-T1 |
+| TCF-282 | Un reportage sur un atelier de réparation de vélos | `appareils` | CO |
 
 ## B2 — positions 20 to 29
 
@@ -260,6 +294,14 @@ The answer is distributed, or depends on stance rather than words. Hedging appea
 | TCF-216 | Une chronique sur les récits de réussite et ce qu'ils cachent | `rp-societe` | CO |
 | TCF-217 | Un article sur la transmission des entreprises familiales | `affaires` | CE, EE-T3 |
 | TCF-218 | Un débat sur l'usage des données scolaires | `reseaux-sociaux` | CO, EO-T3 |
+| TCF-252 | Un débat sur le maintien des petites lignes ferroviaires | `gouvernement` | CO |
+| TCF-253 | Une table ronde sur la reconversion des friches commerciales | `economie` | CO |
+| TCF-273 | Un article sur les bibliothèques ouvertes le dimanche | `questions-sociales` | CE |
+| TCF-274 | Un rapport sur l'usage réel des périodes d'essai | `recherche-emploi` | CE |
+| TCF-275 | Un article sur les monnaies locales et leurs limites | `economie` | CE |
+| TCF-276 | Une tribune sur l'évaluation des enseignants | `valeurs` | CE |
+| TCF-277 | Un article sur la restitution des objets de musée | `musees` | CE |
+| TCF-278 | Un échange formel sur un litige de facturation | `affaires` | CO, EO-T2 |
 
 ## C1 — positions 30 to 36
 
@@ -292,6 +334,10 @@ The answer is implicit: a reservation, an irony, a disagreement expressed polite
 | TCF-229 | Un article sur l'attribution d'une invention contestée | `decouvertes` | CE |
 | TCF-230 | Une chronique sur le passé invoqué contre le présent | `philosophie` | CO |
 | TCF-231 | Un essai sur la traduction et ce qui résiste | `decouvertes` | CE, EE-T3 |
+| TCF-254 | Une conférence sur la charge de la preuve dans un désaccord | `philosophie` | CO |
+| TCF-255 | Un séminaire sur les usages abusifs de la statistique | `methode-scientifique` | CO |
+| TCF-256 | Un échange sur la place de l'anonymat dans la recherche | `ethique` | CO |
+| TCF-257 | Un exposé sur les impasses qui font avancer une recherche | `decouvertes` | CO |
 
 ## C2 — positions 37 to 39
 
@@ -309,6 +355,7 @@ Literary or academic register, allusion, marked syntax. Three per paper, and the
 | TCF-233 | Une conférence sur l'induction et ses critiques | `methode-scientifique` | CO |
 | TCF-234 | Un essai sur la valeur épistémique du témoignage | `ethique` | CE, EE-T3 |
 | TCF-235 | Un débat sur ce qui distingue une discipline d'une méthode | `methode-scientifique` | CO, EO-T3 |
+| TCF-258 | Une discussion sur ce qu'une théorie doit expliquer | `methode-scientifique` | CO |
 
 ---
 
