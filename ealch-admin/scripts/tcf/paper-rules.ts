@@ -76,6 +76,55 @@ export function distributionViolations(bands: string[]): string[] {
   return out;
 }
 
+/** Seconds a candidate needs per question once the audio has stopped: read it,
+ *  weigh four options, answer. Deliberately modest, because this is a floor and
+ *  not a recommendation. */
+export const ANSWER_S_PER_ITEM = 8;
+
+/**
+ * Tasks whose clock is too short for their own contents, as messages.
+ *
+ * The clock and the parts were checked separately and never against each other.
+ * `timingS` was compared to a blueprint constant, which it matched, while the
+ * documents underneath it were extended from 1,163 words to 2,893 to meet the
+ * length envelope. Both checks stayed green and the C1 section ended up with a
+ * 375-second clock over 391 seconds of audio and reading windows: a candidate
+ * could not have reached the last question, let alone answered it.
+ *
+ * A repeated document costs its duration again, which is why `playCount`
+ * multiplies here.
+ */
+export type ClockedTask = {
+  label?: string;
+  timingS?: number;
+  parts?: {
+    durationS?: number;
+    readWindowS?: number;
+    playCount?: number;
+    items?: readonly unknown[];
+  }[];
+};
+
+export function clockShortfalls(tasks: readonly ClockedTask[]): string[] {
+  const out: string[] = [];
+  for (const t of tasks) {
+    const parts = t.parts ?? [];
+    if (!parts.length) continue;
+    const audio = parts.reduce((n, p) => n + (p.durationS ?? 0) * (p.playCount ?? 1), 0);
+    const reading = parts.reduce((n, p) => n + (p.readWindowS ?? 0), 0);
+    const items = parts.reduce((n, p) => n + (p.items?.length ?? 0), 0);
+    const need = audio + reading + items * ANSWER_S_PER_ITEM;
+    const clock = t.timingS ?? 0;
+    if (clock < need) {
+      out.push(
+        `${t.label}: ${clock}s on the clock, ${need}s needed ` +
+          `(${audio}s audio + ${reading}s reading + ${items} question(s))`
+      );
+    }
+  }
+  return out;
+}
+
 export function tcfPaperRules(p: TcfPaperUnderTest): void {
   const n = p.name;
   const bandsOf = (tasks: ExamTask[]): string[] => tasks.flatMap((t) => itemsOf(t).map((i) => i.band ?? ''));
@@ -194,5 +243,10 @@ export function tcfPaperRules(p: TcfPaperUnderTest): void {
       ok((t.rubric?.criteria ?? []).length > 0, `${t.label}: no rubric`);
       ok((t.modelAnswer ?? '').length > 0, `${t.label}: no model answer`);
     }
+  });
+
+  test(`${n}: no section clock is shorter than the audio it has to play`, () => {
+    const bad = clockShortfalls(p.CO_TASKS);
+    ok(bad.length === 0, bad.join('\n  '));
   });
 }

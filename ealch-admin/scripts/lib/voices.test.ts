@@ -73,3 +73,47 @@ test('the shipped TEF casting file parses, and every slot is accounted for', () 
   const ids = [...cast.entries.values()].map((e) => e.voiceId);
   strictEqual(new Set(ids).size, ids.length, 'two slots share a voice id');
 });
+
+test('the shipped TCF casting file declares a speed for every band', () => {
+  // The whole ramp lives in this table, and the table is read POSITIONALLY:
+  // first cell the band, LAST cell the speed. Adding a column after `Speed`
+  // makes the parser read that column, find no number, and store nothing.
+  //
+  // Both of that defect's forms have now happened. First the renderer read
+  // TCF's bands against TEF's block table and matched nothing; then a
+  // "First render gave" column was appended after `Speed` and the speeds
+  // silently disappeared again. Neither threw. Both produce a whole épreuve at
+  // the provider's default rate, which is the difficulty lever of the format
+  // switched off, and the only symptom is a number nobody measures.
+  const cast = loadVoices(resolve(HERE, '../../exam-blueprints/VOICES-tcf-canada.md'));
+  for (const band of ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) {
+    const speed = cast.blockSpeed.get(band);
+    ok(speed !== undefined, `band ${band} has no speed: the ramp would not be in the audio`);
+    // The provider's own limits. Outside them it answers 400
+    // invalid_voice_settings and the run dies on the first document, which
+    // is how the measured a1 correction of 0.66 was found to be unusable.
+    ok(speed! >= 0.7 && speed! <= 1.2, `band ${band}: ${speed} is outside the provider's 0.7-1.2 range`);
+  }
+  ok(cast.blockSpeed.get('EO') !== undefined, 'the recorded interlocutor has no speed');
+
+  // The rate must RISE across the ramp as DELIVERED, and the multipliers are
+  // free to do whatever produces that — b2 is legitimately slower than b1
+  // because those documents come out of the provider faster. So this asserts
+  // the two ends, which no correct table can invert, rather than monotonicity.
+  ok(
+    cast.blockSpeed.get('c2')! > cast.blockSpeed.get('a1')!,
+    'c2 is not paced faster than a1: the slope is upside down'
+  );
+});
+
+test('the two casting files are separate files with separate tables', () => {
+  // render-audio.ts loaded VOICES-tef-canada.md for every format, TCF
+  // included. It did not fail, because both files list the same eight slot
+  // names: casting resolved, and only the speeds went missing.
+  const tef = loadVoices(resolve(HERE, '../../exam-blueprints/VOICES-tef-canada.md'));
+  const tcf = loadVoices(resolve(HERE, '../../exam-blueprints/VOICES-tcf-canada.md'));
+  ok(tef.blockSpeed.has('A'), 'TEF keys its speeds by block letter');
+  ok(!tef.blockSpeed.has('a1'), 'TEF has no band rows — this is why TCF could not use it');
+  ok(tcf.blockSpeed.has('a1'), 'TCF keys its speeds by band');
+  ok(!tcf.blockSpeed.has('A'), 'TCF has no block rows');
+});

@@ -51,15 +51,29 @@ This is the single biggest difference from TEF's casting. TEF sets a speed **per
 A speed of exactly `1` is skipped rather than stored, because `speed=1` in an
 assetKey would re-render a whole band to sound identical to the default.
 
-| Band | Documents | Target wpm (STANDARD-common §2) | Speed | First render gave |
+**0.7 is the floor and 1.2 the ceiling.** The provider rejects anything outside
+that range outright, with `invalid_voice_settings`, and the run dies on the
+first document rather than part way through. A1 wants 110 wpm and the measured
+correction was 0.66, which is below the floor: at 0.70 the band lands near 117
+wpm, about six per cent over target and inside the tolerance the rate checker
+allows. That is a limit of the voice, not a choice, and the only other lever on
+an A1 document would be to make it say less, which the length envelope forbids.
+
+**The speed must stay the last column.** Adding a column after it makes the
+parser read that column instead, find no number, and store no speed at all. The
+render does not fail: it produces the whole épreuve at the provider's default
+rate, which is exactly the defect this table exists to prevent. Add new columns
+before `Speed`, never after.
+
+| Band | Documents | Target wpm (STANDARD-common §2) | First render gave | Speed |
 |---|---|---|---|---|
-| a1 | 3 | ≤ 110 | 0.66 | 120 wpm at 0.72 |
-| a2 | 6 | ~ 120 | 0.79 | 118 wpm at 0.78 |
-| b1 | 7 | ~ 140 | 0.83 | 143 wpm at 0.85 |
-| b2 | 4 | ~ 160 | 0.78 | 188 wpm at 0.92 |
-| c1 | 3 | ~ 175 | 0.97 | 177 wpm at 0.99 |
-| c2 | 1 | ~ 185 | 1.02 | 186 wpm at 1.03 |
-| EO | 1 | ~ 140 | 0.83 | not measured |
+| a1 | 3 | ≤ 110 | 120 wpm at 0.72 | 0.70 |
+| a2 | 6 | ~ 120 | 118 wpm at 0.78 | 0.79 |
+| b1 | 7 | ~ 140 | 143 wpm at 0.85 | 0.83 |
+| b2 | 4 | ~ 160 | 188 wpm at 0.92 | 0.78 |
+| c1 | 3 | ~ 175 | 177 wpm at 0.99 | 0.97 |
+| c2 | 1 | ~ 185 | 186 wpm at 1.03 | 1.02 |
+| EO | 1 | ~ 140 | not measured | 0.83 |
 
 **b2 is slower than b1 and that is not a typo.** The speed is a multiplier on
 whatever the voice does with the text in front of it, and the b2 documents come

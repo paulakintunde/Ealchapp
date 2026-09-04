@@ -1,13 +1,25 @@
 // The ramp gate, checked both ways.
 //
-// E9's gate for this format is "band ramp correct on all TCF papers". No TCF
-// paper exists yet, so the rules in paper-rules.ts are currently called by
-// nothing — and a guard nobody runs is a guard nobody has seen work. These
-// tests exercise the two rules that matter on synthetic sequences, so the gate
-// is known to fire before there is a paper to fire it on.
+// E9's gate for this format is "band ramp correct on all TCF papers". These
+// tests exercise the rules on synthetic input, which is the only way to see a
+// guard FIRE: blanc-01 now calls tcfPaperRules and passes it, and a rule proved
+// only against a paper that satisfies it has been proved to do nothing.
+//
+// The clock rule at the bottom was added after the fact it describes. It is
+// there because two green checks — the blueprint's clock constant and the
+// document length envelope — were both satisfied by a section whose audio ran
+// longer than its own clock.
 import { deepStrictEqual, ok } from 'node:assert';
 import { test } from 'node:test';
-import { BANDS, RAMP, rampViolations, distributionViolations } from './paper-rules.ts';
+import {
+  ANSWER_S_PER_ITEM,
+  BANDS,
+  RAMP,
+  clockShortfalls,
+  rampViolations,
+  distributionViolations,
+  type ClockedTask,
+} from './paper-rules.ts';
 
 /** A correct épreuve: 3 a1, 6 a2, 10 b1, 10 b2, 7 c1, 3 c2, in that order. */
 function goodRamp(): string[] {
@@ -66,4 +78,55 @@ test('an empty épreuve is not silently correct', () => {
   // A paper with no items must fail the distribution, not pass it for lack of
   // anything to disagree with.
   ok(distributionViolations([]).length > 0);
+});
+
+/* ── The clock against its own contents ────────────────────────────────────
+ *
+ * The numbers below are the real C1 task at the moment the defect existed: a
+ * 375-second clock over three documents totalling 305 seconds of audio and 86
+ * seconds of reading window. Both the blueprint check and the length check
+ * were green on that paper at the same time.
+ */
+const co = (timingS: number, parts: ClockedTask['parts']): ClockedTask => ({
+  label: 'Compréhension orale · C1',
+  timingS,
+  parts,
+});
+const doc = (durationS: number, readWindowS: number, items: number, playCount = 1) => ({
+  durationS,
+  readWindowS,
+  playCount,
+  items: Array.from({ length: items }, () => ({ correct: 0 })),
+});
+
+test('a clock shorter than its own audio is caught', () => {
+  const bad = clockShortfalls([co(375, [doc(93, 30, 3), doc(98, 28, 2), doc(93, 28, 2)])]);
+  ok(bad.length === 1, `expected one shortfall, got: ${bad.join(' · ')}`);
+  ok(bad[0].includes('375s on the clock'), bad[0]);
+});
+
+test('the redistributed clock passes', () => {
+  deepStrictEqual(clockShortfalls([co(475, [doc(93, 30, 3), doc(98, 28, 2), doc(93, 28, 2)])]), []);
+});
+
+test('answering time is part of the need, not a bonus', () => {
+  // A clock that exactly covers audio plus reading still leaves no time to
+  // answer, and that is the failure this floor exists to name.
+  const audioAndReading = 100 + 20;
+  deepStrictEqual(clockShortfalls([co(audioAndReading + 2 * ANSWER_S_PER_ITEM, [doc(100, 20, 2)])]), []);
+  ok(clockShortfalls([co(audioAndReading, [doc(100, 20, 2)])]).length === 1);
+});
+
+test('a document played twice costs its duration twice', () => {
+  // playCount is the difference between a section that fits and one that does
+  // not, and reading durationS alone would miss it entirely.
+  // One play needs 80 + 20 + 16 = 116s; two plays need 196s. A 180s clock is
+  // the only interval that tells the two apart.
+  deepStrictEqual(clockShortfalls([co(180, [doc(80, 20, 2, 1)])]), []);
+  ok(clockShortfalls([co(180, [doc(80, 20, 2, 2)])]).length === 1);
+});
+
+test('a task with no parts is skipped rather than failed', () => {
+  // Open tasks carry no audio. They must not read as a zero-second section.
+  deepStrictEqual(clockShortfalls([{ label: 'Expression écrite', timingS: 0, parts: [] }]), []);
 });

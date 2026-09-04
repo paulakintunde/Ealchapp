@@ -41,15 +41,17 @@ export const CO_A1: ExamTask = {
   level: 'a1',
   label: 'Compréhension orale · A1',
   prompt: 'Vous allez entendre trois documents courts. Pour chaque document, choisissez la bonne réponse.',
-  timingS: 165,
+  timingS: 115,
   targetItemIds: uniq(ITEMS.salutations.a1, ITEMS.deplacements.a1, ITEMS.marche.a1),
   parts: [
     {
       label: 'Document 1 · un message',
       playCount: 1,
       readWindowS: 10,
-      durationS: 14,
-      text: 'UNE FEMME : Salut, c’est Amina. Je suis dans le bus, j’arrive dans dix minutes. Commencez sans moi.',
+      durationS: 15,
+      text:
+        'UNE FEMME : Salut, c’est Amina. Je suis dans le bus, j’arrive dans dix minutes. ' +
+        'Il y avait beaucoup de monde à l’arrêt ce matin. Commencez sans moi, je vous rejoins à table.',
       items: [
         {
           q: 'Pourquoi Amina téléphone-t-elle ?',
@@ -64,10 +66,12 @@ export const CO_A1: ExamTask = {
       label: 'Document 2 · dans un centre commercial',
       playCount: 1,
       readWindowS: 10,
-      durationS: 12,
+      durationS: 15,
       text:
         'UN HOMME : Excusez-moi, où sont les toilettes ?\n' +
-        'UNE EMPLOYÉE : Au fond du couloir, à gauche.',
+        'UNE EMPLOYÉE : Au fond du couloir, à gauche, juste après le grand miroir.\n' +
+        'UN HOMME : Au fond du couloir, à gauche. Merci beaucoup.\n' +
+        'UNE EMPLOYÉE : Je vous en prie, bonne journée.',
       items: [
         {
           q: 'Que cherche cet homme ?',
@@ -82,8 +86,11 @@ export const CO_A1: ExamTask = {
       label: 'Document 3 · une annonce en magasin',
       playCount: 1,
       readWindowS: 10,
-      durationS: 13,
-      text: 'UNE VOIX : Chers clients, le magasin ferme dans dix minutes. Merci de vous diriger vers les caisses.',
+      durationS: 17,
+      text:
+        'UNE VOIX : Chers clients, le magasin ferme dans dix minutes. ' +
+        'Merci de vous diriger vers les caisses et de terminer vos achats. ' +
+        'Nous vous remercions de votre visite et vous souhaitons une bonne soirée.',
       items: [
         {
           q: 'Que dit cette annonce ?',
@@ -109,7 +116,7 @@ export const CO_A2: ExamTask = {
   level: 'a2',
   label: 'Compréhension orale · A2',
   prompt: 'Vous allez entendre six documents. Pour chaque document, choisissez la bonne réponse.',
-  timingS: 325,
+  timingS: 295,
   targetItemIds: uniq(
     ITEMS.transportsQuotidiens.a2,
     ITEMS.rpSante.a2,
@@ -123,10 +130,13 @@ export const CO_A2: ExamTask = {
       label: 'Document 4 · en gare',
       playCount: 1,
       readWindowS: 12,
-      durationS: 18,
+      durationS: 25,
       text:
-        'UNE VOIX : Le train de quatorze heures dix à destination de Vaubourg partira avec vingt minutes de retard. ' +
-        'Il partira donc à quatorze heures trente, voie six.',
+        'UNE VOIX : Votre attention, s’il vous plaît. ' +
+        'Le train de quatorze heures dix à destination de Vaubourg partira avec vingt minutes de retard. ' +
+        'Il partira donc à quatorze heures trente, voie six. ' +
+        'Nous vous prions de nous excuser pour la gêne occasionnée. ' +
+        'Les voyageurs sont invités à rejoindre la voie six dès maintenant.',
       items: [
         {
           q: 'À quelle heure le train partira-t-il ?',
@@ -141,11 +151,13 @@ export const CO_A2: ExamTask = {
       label: 'Document 5 · un appel au cabinet dentaire',
       playCount: 1,
       readWindowS: 12,
-      durationS: 20,
+      durationS: 25,
       text:
-        'UN HOMME : Bonjour, j’ai rendez-vous mardi à dix heures. Je ne peux plus. Auriez-vous jeudi ?\n' +
-        'UNE SECRÉTAIRE : Jeudi, il me reste seize heures trente.\n' +
-        'UN HOMME : Très bien, je prends.',
+        'UN HOMME : Bonjour, j’ai rendez-vous mardi à dix heures avec le docteur Bassin. ' +
+        'Je ne peux plus, je suis en déplacement toute la journée. Auriez-vous jeudi ?\n' +
+        'UNE SECRÉTAIRE : Alors, jeudi... il me reste seize heures trente.\n' +
+        'UN HOMME : Très bien, je prends. Seize heures trente, c’est noté.\n' +
+        'UNE SECRÉTAIRE : C’est enregistré, monsieur. Bonne journée.',
       items: [
         {
           q: 'Quel est le nouveau rendez-vous ?',
@@ -160,11 +172,13 @@ export const CO_A2: ExamTask = {
       label: 'Document 6 · dans la rue',
       playCount: 1,
       readWindowS: 12,
-      durationS: 19,
+      durationS: 25,
       text:
-        'UNE FEMME : Pardon, la gare, c’est loin ?\n' +
-        'UN HOMME : À pied, un quart d’heure. Vous prenez la deuxième rue à droite, puis tout droit. ' +
-        'En bus c’est cinq minutes, mais il passe dans une demi-heure.',
+        'UNE FEMME : Pardon, monsieur, la gare, c’est loin d’ici ?\n' +
+        'UN HOMME : À pied, un quart d’heure, pas plus. Vous prenez la deuxième rue à droite, ' +
+        'puis vous continuez tout droit jusqu’au bout. ' +
+        'En bus c’est cinq minutes, mais il passe dans une demi-heure seulement.\n' +
+        'UNE FEMME : Je vais marcher, alors. Merci beaucoup de votre aide.',
       items: [
         {
           q: 'Combien de temps faut-il à pied ?',
@@ -179,11 +193,13 @@ export const CO_A2: ExamTask = {
       label: 'Document 7 · une réservation',
       playCount: 1,
       readWindowS: 12,
-      durationS: 21,
+      durationS: 27,
       text:
         'UNE FEMME : Bonjour, je voudrais réserver pour samedi soir, quatre personnes.\n' +
-        'UN SERVEUR : Samedi, c’est complet à vingt heures. À vingt et une heures, j’ai une table de quatre.\n' +
-        'UNE FEMME : Parfait, vingt et une heures.',
+        'UN SERVEUR : Samedi soir... alors, c’est complet à vingt heures, je suis désolé. ' +
+        'En revanche, à vingt et une heures, j’ai une table de quatre près de la fenêtre.\n' +
+        'UNE FEMME : Parfait, vingt et une heures. C’est au nom de Delorme.\n' +
+        'UN SERVEUR : Très bien, madame Delorme, c’est noté. À samedi.',
       items: [
         {
           q: 'À quelle heure la table est-elle réservée ?',
@@ -198,10 +214,13 @@ export const CO_A2: ExamTask = {
       label: 'Document 8 · la météo du week-end',
       playCount: 1,
       readWindowS: 12,
-      durationS: 22,
+      durationS: 24,
       text:
-        'UNE VOIX : Samedi, la pluie s’installe sur toute la région, avec quinze degrés l’après-midi. ' +
-        'Dimanche en revanche, le soleil revient et il fera vingt et un degrés.',
+        'UNE VOIX : Et maintenant, la météo du week-end. ' +
+        'Samedi, la pluie s’installe sur toute la région dès le matin, avec quinze degrés l’après-midi ' +
+        'et un vent assez soutenu sur la côte. ' +
+        'Dimanche en revanche, le soleil revient partout et il fera vingt et un degrés. ' +
+        'Un dimanche idéal pour sortir.',
       items: [
         {
           q: 'Quel temps fera-t-il dimanche ?',
@@ -216,10 +235,12 @@ export const CO_A2: ExamTask = {
       label: 'Document 9 · un message sur répondeur',
       playCount: 1,
       readWindowS: 12,
-      durationS: 20,
+      durationS: 23,
       text:
-        'UNE VOIX : Bonjour, ici le salon Pralet. Votre rendez-vous de vendredi est bien noté. ' +
-        'Rappelez-nous avant jeudi midi si vous souhaitez le déplacer.',
+        'UNE VOIX : Bonjour, ici le salon Pralet. ' +
+        'Nous vous appelons au sujet de votre rendez-vous de vendredi, à quinze heures, avec Sophie. ' +
+        'Il est bien noté, vous n’avez aucune démarche à faire. ' +
+        'Rappelez-nous simplement avant jeudi midi si vous souhaitez le déplacer. À vendredi.',
       items: [
         {
           q: 'Que demande ce message ?',
@@ -245,7 +266,7 @@ export const CO_B1: ExamTask = {
   level: 'b1',
   label: 'Compréhension orale · B1',
   prompt: 'Vous allez entendre sept documents. Pour chaque document, choisissez la bonne réponse.',
-  timingS: 540,
+  timingS: 498,
   targetItemIds: uniq(
     ITEMS.metiers.b1,
     ITEMS.examensEtDiplomes.b1,
@@ -259,11 +280,16 @@ export const CO_B1: ExamTask = {
       label: 'Document 10 · un entretien',
       playCount: 1,
       readWindowS: 20,
-      durationS: 42,
+      durationS: 45,
       text:
         'UNE JOURNALISTE : Vous étiez comptable pendant douze ans. Pourquoi devenir ébéniste ?\n' +
-        'UN HOMME : Ce n’est pas le bureau qui me pesait, les collègues étaient très bien. C’est que je ne voyais jamais le résultat de mon travail. ' +
-        'Un meuble, on le voit. J’ai suivi une formation de deux ans, le soir, avant de me lancer.',
+        'UN HOMME : On me pose souvent la question, et la réponse surprend. ' +
+        'Ce n’est pas le bureau qui me pesait, les collègues étaient très bien, l’ambiance aussi. ' +
+        'C’est que je ne voyais jamais le résultat de mon travail. Un dossier, on le referme et il disparaît. ' +
+        'Un meuble, on le voit, on s’assoit dessus, il reste.\n' +
+        'UNE JOURNALISTE : Et comment passe-t-on de l’un à l’autre ?\n' +
+        'UN HOMME : Pas du jour au lendemain. J’ai suivi une formation de deux ans, le soir, avant de me lancer. ' +
+        'Je gardais mon poste la journée. C’est long, mais on arrive au bout avec un métier dans les mains.',
       items: [
         {
           q: 'Pourquoi a-t-il changé de métier ?',
@@ -295,11 +321,16 @@ export const CO_B1: ExamTask = {
       label: 'Document 11 · deux parents discutent',
       playCount: 1,
       readWindowS: 20,
-      durationS: 44,
+      durationS: 36,
       text:
-        'UNE FEMME : L’école du centre a une très bonne réputation, mais c’est quarante minutes de trajet.\n' +
-        'UN HOMME : Celle du quartier est à cinq minutes. Les classes sont plus chargées, c’est vrai.\n' +
-        'UNE FEMME : À son âge, quarante minutes matin et soir, je trouve que c’est beaucoup. On commence par celle du quartier.',
+        'UNE FEMME : L’école du centre a une très bonne réputation, tout le monde le dit, ' +
+        'mais c’est quarante minutes de trajet.\n' +
+        'UN HOMME : Celle du quartier est à cinq minutes, on y va à pied. ' +
+        'Les classes sont plus chargées, c’est vrai, vingt-huit élèves.\n' +
+        'UNE FEMME : Vingt-huit, ce n’est pas rien. Mais à son âge, quarante minutes matin et soir, ' +
+        'je trouve que c’est beaucoup. Il serait fatigué avant même d’arriver.\n' +
+        'UN HOMME : Et nous aussi, il faut le dire.\n' +
+        'UNE FEMME : On commence par celle du quartier. On verra l’an prochain.',
       items: [
         {
           q: 'Quelle école choisissent-ils ?',
@@ -321,11 +352,15 @@ export const CO_B1: ExamTask = {
       label: 'Document 12 · un reportage au marché',
       playCount: 1,
       readWindowS: 20,
-      durationS: 46,
+      durationS: 34,
       text:
-        'UNE REPORTRICE : Le marché de Corbeny a lieu depuis quarante ans, tous les jeudis. Depuis l’an dernier, il ouvre aussi le dimanche.\n' +
-        'UN PRODUCTEUR : Le dimanche, on voit surtout des familles. Le jeudi, ce sont les habitués, ceux qui viennent chaque semaine. ' +
-        'Les deux marchés ne se ressemblent pas du tout.',
+        'UNE REPORTRICE : Le marché de Corbeny a lieu depuis quarante ans, tous les jeudis matin. ' +
+        'Depuis l’an dernier, il ouvre aussi le dimanche.\n' +
+        'UN PRODUCTEUR : Le dimanche, on voit surtout des familles. Elles prennent leur temps, ' +
+        'elles goûtent, elles posent des questions. ' +
+        'Le jeudi, ce sont les habitués, ceux qui viennent chaque semaine et qui savent déjà ce qu’ils veulent.\n' +
+        'UNE REPORTRICE : Et vous, lequel préférez-vous ?\n' +
+        'UN PRODUCTEUR : Les deux marchés ne se ressemblent pas du tout. Je ne saurais pas choisir.',
       items: [
         {
           q: 'Quelle est la nouveauté cette année ?',
@@ -347,11 +382,15 @@ export const CO_B1: ExamTask = {
       label: 'Document 13 · des vacances annulées',
       playCount: 1,
       readWindowS: 18,
-      durationS: 38,
+      durationS: 32,
       text:
-        'UN HOMME : On devait partir jeudi, mais avec la grève des trains on a tout annulé.\n' +
+        'UN HOMME : On devait partir jeudi, mais avec la grève des trains on a tout annulé. ' +
+        'Les billets étaient pris depuis mars.\n' +
         'UNE FEMME : Vous auriez pu prendre la voiture, non ?\n' +
-        'UN HOMME : Huit heures de route avec les enfants, non merci. On repartira en septembre, ce sera plus calme.',
+        'UN HOMME : On y a pensé, bien sûr. Huit heures de route avec les enfants, non merci. ' +
+        'Ils tiennent deux heures, après c’est une autre histoire.\n' +
+        'UNE FEMME : C’est vrai qu’à cet âge-là...\n' +
+        'UN HOMME : On repartira en septembre, ce sera plus calme. Et la maison est libre à ce moment-là.',
       items: [
         {
           q: 'Pourquoi n’ont-ils pas pris la voiture ?',
@@ -366,11 +405,15 @@ export const CO_B1: ExamTask = {
       label: 'Document 14 · une interview',
       playCount: 1,
       readWindowS: 18,
-      durationS: 40,
+      durationS: 33,
       text:
         'UNE JOURNALISTE : Vous commencez à quelle heure ?\n' +
-        'UN BOULANGER : Trois heures du matin, six jours sur sept. Le plus dur n’est pas de se lever, on s’habitue. ' +
-        'C’est de se coucher à vingt heures quand tout le monde commence sa soirée.',
+        'UN BOULANGER : Trois heures du matin, six jours sur sept. Le fournil est allumé avant moi.\n' +
+        'UNE JOURNALISTE : Et c’est le lever qui est le plus dur ?\n' +
+        'UN BOULANGER : Non, justement. Le plus dur n’est pas de se lever, on s’habitue, ' +
+        'le corps prend le pli au bout de quelques mois. ' +
+        'C’est de se coucher à vingt heures quand tout le monde commence sa soirée. ' +
+        'Les amis appellent, la famille est à table, et vous, vous montez.',
       items: [
         {
           q: 'Qu’est-ce qui lui pèse le plus ?',
@@ -385,11 +428,14 @@ export const CO_B1: ExamTask = {
       label: 'Document 15 · une conversation à la maison',
       playCount: 1,
       readWindowS: 18,
-      durationS: 39,
+      durationS: 32,
       text:
-        'UNE FEMME : On avait dit chacun sa semaine pour la cuisine, mais ça ne tient pas.\n' +
-        'UN HOMME : Le problème, c’est que ma semaine tombe toujours quand je rentre tard.\n' +
-        'UNE FEMME : Alors on change : toi les courses, moi la cuisine. Chacun garde la même tâche.',
+        'UNE FEMME : On avait dit chacun sa semaine pour la cuisine, mais ça ne tient pas. ' +
+        'La troisième semaine, on commande une pizza.\n' +
+        'UN HOMME : Le problème, c’est que ma semaine tombe toujours quand je rentre tard. ' +
+        'Je fais les courses le samedi, ça va, mais cuisiner à vingt et une heures...\n' +
+        'UNE FEMME : Alors on change : toi les courses, moi la cuisine. Chacun garde la même tâche.\n' +
+        'UN HOMME : Ça me va. Au moins on saura qui fait quoi.',
       items: [
         {
           q: 'Quelle solution trouvent-ils ?',
@@ -404,11 +450,15 @@ export const CO_B1: ExamTask = {
       label: 'Document 16 · une ligne supprimée',
       playCount: 1,
       readWindowS: 18,
-      durationS: 41,
+      durationS: 34,
       text:
-        'UN REPORTER : La ligne 12 desservait le hameau de Vaubourg deux fois par jour. Elle est supprimée depuis septembre.\n' +
+        'UN REPORTER : La ligne douze desservait le hameau de Vaubourg deux fois par jour. ' +
+        'Elle est supprimée depuis septembre.\n' +
         'UNE HABITANTE : On nous a proposé un service à la demande, il faut réserver la veille. ' +
-        'Pour un rendez-vous prévu, ça va. Pour aller à la pharmacie un dimanche, ça ne va pas.',
+        'Pour un rendez-vous prévu, ça va, on s’organise. ' +
+        'Pour aller à la pharmacie un dimanche, ça ne va pas.\n' +
+        'UN REPORTER : Vous avez fait remonter le problème ?\n' +
+        'UNE HABITANTE : Deux réunions en mairie. On nous répond que la fréquentation ne justifiait plus la ligne.',
       items: [
         {
           q: 'Que reproche l’habitante au nouveau service ?',
