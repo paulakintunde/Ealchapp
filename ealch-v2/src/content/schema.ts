@@ -2242,6 +2242,21 @@ export type SectionScoring = {
   map: { raw: number; scaled: number }[];
   /** Ascending, non-overlapping, and covering 0..(number of items). */
   nclc: NclcRule[];
+  /**
+   * Per-band weights. Present ONLY on formats where the band of a correct
+   * answer is part of the evidence.
+   *
+   * TEF is a paper of blocks and a correct answer is a correct answer, so it
+   * carries no weights and `map`/`nclc` stay indexed by the plain count.
+   *
+   * TCF is a ramp, and STANDARD-tcf §1 is explicit that "twenty correct at the
+   * bottom of the slope and twenty correct scattered across it are different
+   * performances and must not produce the same estimate". A plain count gives
+   * both candidates the identical scaled score and the identical NCLC, which is
+   * the one thing the format says it must not do. When weights are present, the
+   * value `map` and `nclc` are indexed by is the WEIGHTED total, not the count.
+   */
+  weights?: Partial<Record<Level, number>>;
 };
 
 /**

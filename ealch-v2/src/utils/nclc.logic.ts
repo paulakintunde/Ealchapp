@@ -100,6 +100,33 @@ export function nclcFor(raw: number, rules: NclcRule[]): NclcRange | null {
   return { low: Math.min(low, high), high: Math.max(low, high) };
 }
 
+/**
+ * Turn a per-band profile of correct answers into the value the map is indexed
+ * by.
+ *
+ * On a ramp, WHERE a candidate was right is evidence and a count throws it
+ * away. Twenty correct at the bottom and twenty scattered to C2 are different
+ * performances; without this they produce the same scaled score and the same
+ * NCLC, which STANDARD-tcf §1 names as the thing that must not happen.
+ *
+ * A band with no weight contributes its plain count, so a partial weights table
+ * degrades toward the old behaviour rather than silently scoring zero.
+ */
+export function weightedRaw(
+  byBand: Partial<Record<string, number>>,
+  weights: Partial<Record<string, number>> | undefined
+): number {
+  let total = 0;
+  for (const [band, n] of Object.entries(byBand)) {
+    if (typeof n !== 'number') continue;
+    total += n * (weights?.[band] ?? 1);
+  }
+  // The map and the rules are integer-indexed, and a fractional weight is a
+  // legitimate way to say "worth a little more". Round once, here, rather than
+  // letting scaledFor and nclcFor round differently.
+  return Math.round(total);
+}
+
 /** One épreuve's outcome, from what was actually logged. */
 export function sectionOutcome(input: {
   skill: ExamSkill;
@@ -107,16 +134,23 @@ export function sectionOutcome(input: {
   raw: number | null;
   total: number;
   scoring?: SectionScoring;
+  /** Correct answers per band. Required to honour `scoring.weights`; absent on
+   *  formats that do not weight, and on results logged before bands were kept. */
+  byBand?: Partial<Record<string, number>>;
 }): SectionOutcome {
-  const { skill, status, raw, total, scoring } = input;
+  const { skill, status, raw, total, scoring, byBand } = input;
   const base: SectionOutcome = { skill, status, raw, total, scaled: null, nclc: null };
   // Anything but a clean scored sitting gets its raw count and nothing else.
   // The number would be real arithmetic on unreal evidence.
   if (status !== 'scored' || raw === null || !scoring) return base;
+  // The count is what a candidate is shown; the INDEX is what the map reads.
+  // They differ only on a weighted format, and `raw` stays the honest count so
+  // the report never shows someone a weighted number as if it were questions.
+  const index = scoring.weights && byBand ? weightedRaw(byBand, scoring.weights) : raw;
   return {
     ...base,
-    scaled: scaledFor(raw, scoring.map),
-    nclc: nclcFor(raw, scoring.nclc),
+    scaled: scaledFor(index, scoring.map),
+    nclc: nclcFor(index, scoring.nclc),
   };
 }
 

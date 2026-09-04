@@ -1428,8 +1428,13 @@ export function sectionStatusFor(
 export function sectionRaw(
   taskIds: string[],
   results: ExamResult[],
-  paperId: string
-): { raw: number; total: number } | null {
+  paperId: string,
+  /** taskId → band, for formats that weight by band. TCF's closed tasks are
+   *  band-shaped (one task per band), so a task's own level IS the band of
+   *  every question in it and no per-item record is needed. Omit on TEF, where
+   *  one task spans a range and this would be a lie. */
+  bandOf?: (taskId: string) => string | null | undefined
+): { raw: number; total: number; byBand?: Record<string, number> } | null {
   const ids = new Set(taskIds);
   const mine = results.filter((r) => r.paperId === paperId && ids.has(r.taskId));
   const closed = mine.filter((r) => !OPEN_EXAM_TASK_TYPES.has(r.taskType));
@@ -1445,9 +1450,21 @@ export function sectionRaw(
   // actually know, and inventing question counts for them would be worse.
   const haveCounts = rows.filter((r) => typeof r.correct === 'number' && typeof r.askedTotal === 'number');
   if (haveCounts.length === rows.length) {
+    let byBand: Record<string, number> | undefined;
+    if (bandOf) {
+      byBand = {};
+      for (const r of rows) {
+        const band = bandOf(r.taskId);
+        // A task whose band is unknown still counts in `raw`; it simply cannot
+        // contribute to the profile. Dropping it from raw would understate the
+        // candidate, and inventing a band would overstate them.
+        if (band) byBand[band] = (byBand[band] ?? 0) + (r.correct ?? 0);
+      }
+    }
     return {
       raw: rows.reduce((n, r) => n + (r.correct ?? 0), 0),
       total: rows.reduce((n, r) => n + (r.askedTotal ?? 0), 0),
+      ...(byBand ? { byBand } : {}),
     };
   }
   return { raw: rows.filter((r) => r.passed).length, total: rows.length };

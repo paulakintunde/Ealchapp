@@ -8,6 +8,7 @@ import {
   sectionOutcome,
   type SectionOutcome,
   type SectionStatus,
+  weightedRaw,
 } from './nclc.logic.ts';
 import type { ExamSkill, SectionScoring } from '../content/schema.ts';
 
@@ -159,4 +160,52 @@ test('every section keeps its raw count on the report, scored or not', () => {
   const p = paperOutcome([out('CO', 'audio-failed', 12), out('CE', 'scored', 30), out('PE', 'practice', 8), out('PO', 'not-graded', null)]);
   deepStrictEqual(p.sections.map((s) => s.raw), [12, 30, 8, null]);
   deepStrictEqual(p.sections.map((s) => s.status), ['audio-failed', 'scored', 'practice', 'not-graded']);
+});
+
+test('a ramp scores WHERE a candidate was right, not just how often', () => {
+  // The failure this exists for, stated in STANDARD-tcf §1: "twenty correct at
+  // the bottom of the slope and twenty correct scattered across it are
+  // different performances and must not produce the same estimate."
+  //
+  // Both candidates below get 20 of 39. Without weights the engine gives them
+  // the same scaled score and the same NCLC, which is exactly the outcome the
+  // format forbids.
+  const weights = { a1: 1, a2: 1.5, b1: 2, b2: 3, c1: 4, c2: 5 };
+
+  // Stopped cleanly after B1: everything easy, nothing hard.
+  const stopped = { a1: 3, a2: 6, b1: 10, b2: 1, c1: 0, c2: 0 };
+  // Scattered, reaching the top of the ramp.
+  const scattered = { a1: 2, a2: 4, b1: 4, b2: 4, c1: 4, c2: 2 };
+
+  strictEqual(Object.values(stopped).reduce((a, b) => a + b, 0), 20);
+  strictEqual(Object.values(scattered).reduce((a, b) => a + b, 0), 20);
+
+  const wStopped = weightedRaw(stopped, weights);
+  const wScattered = weightedRaw(scattered, weights);
+  ok(wScattered > wStopped, `scattered ${wScattered} should outrank stopped ${wStopped}`);
+});
+
+test('weightedRaw treats an unweighted band as worth one, not zero', () => {
+  // A partial table must degrade toward the plain count. Scoring an unlisted
+  // band as zero would silently delete a candidate's correct answers.
+  strictEqual(weightedRaw({ a1: 4 }, {}), 4);
+  strictEqual(weightedRaw({ a1: 4, c1: 2 }, { c1: 3 }), 4 + 6);
+});
+
+test('weightedRaw with no weights at all is the plain count', () => {
+  strictEqual(weightedRaw({ a1: 3, b1: 5 }, undefined), 8);
+});
+
+test('a section that does not weight is scored exactly as before', () => {
+  // TEF must be untouched by any of this. No weights, so the band profile is
+  // ignored even when one is supplied.
+  const scoring = {
+    scale: 360,
+    map: [{ raw: 0, scaled: 0 }, { raw: 40, scaled: 360 }],
+    nclc: [{ minRaw: 0, maxRaw: 40, nclcLow: 4, nclcHigh: 5 }],
+  };
+  const a = sectionOutcome({ skill: 'CO', status: 'scored', raw: 20, total: 40, scoring });
+  const b = sectionOutcome({ skill: 'CO', status: 'scored', raw: 20, total: 40, scoring, byBand: { c2: 20 } });
+  deepStrictEqual(a.scaled, b.scaled);
+  deepStrictEqual(a.nclc, b.nclc);
 });

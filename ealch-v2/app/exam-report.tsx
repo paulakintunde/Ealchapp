@@ -53,13 +53,23 @@ export default function ExamReportScreen() {
     if (!paper || !paperId) return null;
     const sections: SectionOutcome[] = paper.sections.map((sec) => {
       const status = sectionStatusFor(sec.taskIds, results, paperId);
-      const counts = sectionRaw(sec.taskIds, results, paperId);
+      // The band profile is only gathered when the section actually weights by
+      // band, so nothing changes for a format that does not — and the lookup
+      // reads each task's own level, which on a band-shaped épreuve is the band
+      // of every question inside it.
+      const counts = sectionRaw(
+        sec.taskIds,
+        results,
+        paperId,
+        sec.scoring?.weights ? (taskId) => content.examTask(taskId)?.level : undefined
+      );
       return sectionOutcome({
         skill: sec.skill,
         status,
         raw: counts?.raw ?? null,
         total: counts?.total ?? 0,
         scoring: sec.scoring,
+        byBand: counts?.byBand,
       });
     });
     return paperOutcome(sections);

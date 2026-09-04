@@ -18,6 +18,7 @@ import { CE_A1, CE_A2, CE_B1 } from './ce.ts';
 import { CE_B2, CE_C1, CE_C2 } from './ce-hi.ts';
 import { EE_T1, EE_T2, EE_T3, EO_T1, EO_T2, EO_T3 } from './open.ts';
 import { scatterKeys } from '../tef/finalise.ts';
+import { CO_SCORING, CE_SCORING } from './scoring.ts';
 
 // Authored key-first so a reviewer sees the intended answer at the top of
 // every option list; scatterKeys places it deterministically, seeded on this
@@ -40,12 +41,14 @@ export const PAPER: ExamPaper = {
       skill: 'CO',
       timingS: 2100,
       blueprintId: BLUEPRINT_ID,
+      scoring: CO_SCORING,
       taskIds: CO_TASKS.map((t) => t.id),
     },
     {
       skill: 'CE',
       timingS: 3600,
       blueprintId: BLUEPRINT_ID,
+      scoring: CE_SCORING,
       taskIds: CE_TASKS.map((t) => t.id),
     },
     {
