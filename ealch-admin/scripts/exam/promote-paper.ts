@@ -1,17 +1,39 @@
-// Flip TEF Canada Examen 1 from in_review to published.
+// Flip ONE reviewed paper from in_review to published.
 //
-// Scoped deliberately narrow. `content_exam_tasks` also holds the two DELF B2
-// draft tasks that predate this phase: a CE task and an essay, which together
-// are not a paper. Publishing those would put a "DELF B2 mock exam" in front of
-// a learner that is one reading text and one essay prompt, so the filter is on
+// Was publish-tef-blanc01.ts, which knew one paper. Generalised rather than
+// copied: this repo has already shipped a bug from copying an exam script and
+// editing the constants, and a promoter is the worst place to do it — the copy
+// that still says `tef_canada` would silently promote the wrong paper and
+// report success.
+//
+// Scoped deliberately narrow. `content_exam_tasks` also holds two DELF B2 draft
+// tasks that predate this phase: a CE task and an essay, which together are not
+// a paper. Publishing those would put a "DELF B2 mock exam" in front of a
+// learner that is one reading text and one essay prompt, so the filter is on
 // format AND variant rather than on status alone.
 //
 // Reversible: `--revert` puts the same rows back to in_review. What is NOT
 // reversible is the snapshot a later `content:publish` cuts from them.
-import './env';
+//
+// Usage (from ealch-admin/):
+//   pnpm tsx scripts/exam/promote-paper.ts tcf 1
+//   pnpm tsx scripts/exam/promote-paper.ts tef 1 --revert
+import './../env';
 
-const FORMAT = 'tef_canada';
-const VARIANT = 'blanc-01';
+const FORMATS = { tef: 'tef_canada', tcf: 'tcf_canada', delf: 'delf_b2' } as const;
+const key = process.argv.slice(2).find((a) => a in FORMATS) as keyof typeof FORMATS | undefined;
+if (!key) {
+  console.error(`\n✖ name a format: ${Object.keys(FORMATS).join(', ')}\n`);
+  process.exit(1);
+}
+const FORMAT = FORMATS[key];
+
+const arg = process.argv.slice(2).find((a) => /^(blanc-?)?\d+$/.test(a));
+if (!arg) {
+  console.error('\n✖ name a paper, e.g. `1` or `blanc-01`\n');
+  process.exit(1);
+}
+const VARIANT = `blanc-${String(Number(arg.replace(/^blanc-?/, ''))).padStart(2, '0')}`;
 
 async function main() {
   const revert = process.argv.includes('--revert');
@@ -24,15 +46,22 @@ async function main() {
   try {
     await c.query('begin');
 
+    console.log(`\n  ${FORMAT} ${VARIANT}: ${from} -> ${to}`);
+
     const tasks = await c.query(
       `update content_exam_tasks set status = $1, updated_at = now()
-        where format = $2 and variant = $3 and status = $4
+        where format = $2::text::exam_format and variant = $3 and status = $4
         returning id, skill, label`,
       [to, FORMAT, VARIANT, from]
     );
+    // A run that matched nothing has either the wrong paper or one already in
+    // the target state, and both must be said rather than reported as success.
+    if (tasks.rowCount === 0) {
+      throw new Error(`no ${FORMAT} ${VARIANT} tasks are ${from}; nothing to promote`);
+    }
     const paper = await c.query(
       `update content_exam_papers set status = $1, updated_at = now()
-        where format = $2 and variant = $3 and status = $4
+        where format = $2::text::exam_format and variant = $3 and status = $4
         returning id`,
       [to, FORMAT, VARIANT, from]
     );
@@ -43,7 +72,8 @@ async function main() {
     // it — the paper names its task ids explicitly and nothing enforces that.
     if (!revert) {
       const referenced = await c.query<{ sections: { taskIds?: string[] }[] }>(
-        `select sections from content_exam_papers where format = $1 and variant = $2`,
+        `select sections from content_exam_papers
+          where format = $1::text::exam_format and variant = $2`,
         [FORMAT, VARIANT]
       );
       const want = new Set(referenced.rows.flatMap((r) => (r.sections ?? []).flatMap((s) => s.taskIds ?? [])));

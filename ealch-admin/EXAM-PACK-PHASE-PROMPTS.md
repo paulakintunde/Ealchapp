@@ -1141,8 +1141,10 @@ across papers, and the audio for all of them is marked and uploaded.
 **TEF 2-5: shipped and published.** Marked against transcripts, five marking
 sheets signed off.
 
-**TCF blanc-01: authored, rendered, calibrated, awaiting human review.** It is
-the gold paper for the format and blocks 2-5 the way E7 blocked E9.
+**TCF blanc-01: PUBLISHED as snapshot v61, 2026-09-04.** Marked, promoted, and
+cut into a snapshot whose diff was exactly +18 exam tasks and +1 paper with
+every other count at +0. It is the gold paper for the format, so 2-5 are now
+unblocked the way E7 unblocked E9.
 
 Four things were found building it that the brief above does not anticipate, and
 all four were silent:
@@ -1260,7 +1262,7 @@ end to end on a device, timed, with real audio and a real report.
 | Multimodal speech grading | deferred; transcript plus delivery signals ships first | nothing |
 | Papers 6 to 20 | after the first 11 land | nothing |
 | ~~MARKING: TEF blanc-01 to 05~~ | done; five sheets signed off | — |
-| MARKING: TCF blanc-01, 24 clips / 19:13. Documents 20 and 30 first: `f-formal` and `m-formal` are newly recast, and those items turn on telling three voices apart | Paul | the TCF publish, and E9's papers 2-5 |
+| ~~MARKING: TCF blanc-01~~ | done 2026-09-04; the three-voice documents pass with the recast pool | — |
 | ~~Deploy `grade-exam`~~ | done 2026-08-30, all four open tasks grade | — |
 | Grading has a failover chain ONE provider deep | Paul: add a second provider secret | resilience only; grading works |
 | ~~`gradeFreeTurnsPerDay` unset~~ | set to 12 | — |
