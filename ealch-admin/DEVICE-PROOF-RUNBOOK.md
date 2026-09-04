@@ -271,7 +271,55 @@ If nothing appears within ~3 minutes, the device never asked. Work back through 
 > ```
 >
 > `JAVA_HOME` is required: `gradlew` exits 49 with "JAVA_HOME is not set"
-> without it. Signing is the debug keystore, so this replaces the dev build with
+> without it.
+>
+> **`assembleRelease` dies in ninja, and it is NOT a stale cache.**
+>
+> ```
+> [0/2] Re-checking globbed directories...
+> [1/2] Re-running CMake...            (x100)
+> ninja: error: manifest 'build.ninja' still dirty after 100 tries
+> ```
+>
+> 10 to 15 minutes to fail, every time. Seen in `react-native-reanimated`, and
+> in `expo-modules-core` on an earlier attempt.
+>
+> **Ruled out, so nobody spends the time twice:**
+>
+> 1. **Stale CMake output.** Deleting all six `node_modules/*/android/.cxx`
+>    directories, 417 MB, and rebuilding from scratch failed identically, in the
+>    same module. Staleness is not the cause and clearing them buys nothing but
+>    a long cold rebuild.
+> 2. **The space in the project path** (`gitbuild appealch`) is the obvious
+>    suspect and is still UNTESTED. A `C:\ealchb` junction does not test it:
+>    gradle canonicalises the junction away and CMake still records
+>    `C:/Users/harki/Downloads/gitbuild appealch/...`. Only a real copy to a
+>    space-free path would settle it.
+>
+> 3. **The `CONFIGURE_DEPENDS` globs.** `react-native-reanimated` and
+>    `react-native-worklets` both use `file(GLOB_RECURSE ... CONFIGURE_DEPENDS)`,
+>    which asks ninja to re-check the glob and re-run CMake whenever the result
+>    might have changed. That is the textbook cause of this error and it is not
+>    this one. Removing the keyword from both files WORKED as intended: the
+>    `Re-checking globbed directories` lines disappear from the log entirely.
+>    Ninja still fails with the same message. Those edits are still in place,
+>    each with a comment saying why; they are harmless, they fix nothing, and a
+>    `node_modules` reinstall reverts them.
+>
+> **So the cause is still open**, and the space in the path is the last suspect
+> standing. Something other than the globs keeps `build.ninja` looking dirty to
+> ninja after CMake has regenerated it. Four failed builds, about fifty minutes
+> of build time, before anyone tries the one thing that would settle it: copy
+> the tree to a path with no space in it and build there.
+>
+> **Do not reach for the Metro `--no-dev` workaround instead.** It looks like it
+> should work: `__DEV__` is a bundle-time constant, `--no-dev` does flip it, and
+> that should satisfy both OTA guards. Tried 2026-09-04 and it does not. The app
+> boots to its own splash, goes white, and stays there through several minutes of
+> polling, with GC activity but nothing rendered and no redbox to say why,
+> because `--no-dev` also removes the error overlay. Half an hour gone.
+>
+> Signing is the debug keystore, so the release replaces the dev build with
 > no data wipe (§3). Metro plays no part while it is installed; put the debug
 > APK back with the same `install -r` to resume JS work.
 >
@@ -335,6 +383,36 @@ Screenshot (note the two separate calls and `-p`):
 | Blank screen, `reverse --list` looks right | dead tunnel that still lists | `reverse --remove-all` then re-add — §5 |
 | "No mock exams available yet" | dev build; exams are OTA-only | not a fault — §8 needs a release build |
 | `gradlew` exits 49 | `JAVA_HOME` unset | `export JAVA_HOME="/c/Program Files/Android/Android Studio/jbr"` |
+| `ninja: manifest 'build.ninja' still dirty after 100 tries` | native toolchain, unresolved | see below — use `--no-dev` instead |
+
+### 9.1 `assembleRelease` does not currently build
+
+3 September 2026. Two attempts, 17 minutes, same failure: `ninja: error:
+manifest 'build.ninja' still dirty after 100 tries`. First in
+`react-native-reanimated`; after deleting that module's 380 MB `.cxx` cache it
+got past it and failed identically in `expo-modules-core`. Moving to the next
+module means it is systemic to the native toolchain here, not one stale
+directory.
+
+Root cause NOT established. The project path contains a space
+(`gitbuild appealch`), a known trigger for this exact ninja symptom — but the
+debug APK in this tree built fine on 31 July at the same path, so that is a
+suspicion, not a finding. If it needs solving, try building from a path with no
+space before spending more time.
+
+**You probably do not need to solve it.** The only reason a release build was
+wanted was to make `__DEV__` false so the OTA snapshot loads (§8). Metro can do
+that with no native build at all:
+
+```
+node node_modules\expo\bin\cli start --port 8082 --no-dev --minify
+```
+
+Both dev guards key off `__DEV__` and nothing else, so a production bundle
+served to the EXISTING dev client lifts both. The phone keeps its dev build and
+its data. Restart Metro without `--no-dev` to resume normal JS work.
+
+Note `--minify` makes the first bundle noticeably slower than a dev bundle.
 | App vanished between commands | uninstalled | re-run §3 |
 | Metro only ever bundles `platform:"web"` | started with `--web` | drop `--web` — §4. A rising bundle count is **not** proof; grep for `platform":"android"` specifically. |
 
