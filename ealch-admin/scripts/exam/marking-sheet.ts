@@ -55,6 +55,9 @@ type Row = {
 };
 
 /** Blocks whose items depend on telling speakers apart. */
+/** TEF blocks where two speakers share a document. On TCF there are no
+ *  blocks, and the risk is stated directly instead: a document with THREE
+ *  voices is where telling two of them apart is the item (VOICES-tcf §2). */
 const MULTIVOICE = new Set(['C', 'E', 'F']);
 
 const esc = (s: string) =>
@@ -96,16 +99,23 @@ async function main() {
   try {
     const res = await client.query<{
       label: string | null;
+      level: string | null;
       parts: { label: string; text?: string; audioRef?: string | null; durationS?: number }[];
     }>(
-      `select label, parts from content_exam_tasks
+      `select label, level::text as level, parts from content_exam_tasks
         where variant=$1 and format=$2::text::exam_format and skill='CO'
         order by id`,
       [VARIANT, FORMAT]
     );
     for (const r of res.rows) {
       const task = r.label ?? '';
-      const block = task.replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase();
+      // TEF groups by block letter. TCF has no blocks, and slicing the first
+      // character of 'Compréhension orale · A1' would call every task block C,
+      // collapsing the sheet to one group and marking every clip multi-voice.
+      const block =
+        FORMAT_KEY === 'tcf'
+          ? (r.level ?? '').toUpperCase()
+          : task.replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase();
       for (const p of r.parts ?? []) {
         if (!p.audioRef || !p.text) continue;
         const speakers = new Set(
@@ -143,7 +153,7 @@ async function main() {
         .map((r) => {
           const i = idx++;
           return `
-      <article class="clip${MULTIVOICE.has(r.block) ? ' key' : ''}" id="c${i}">
+      <article class="clip${(FORMAT_KEY === 'tcf' ? r.voices >= 3 : MULTIVOICE.has(r.block)) ? ' key' : ''}" id="c${i}">
         <div class="head">
           <span class="n">${i + 1}</span>
           <span class="part">${esc(r.part)}</span>
@@ -287,7 +297,7 @@ ${sections}
 
   writeFileSync(out, html, 'utf8');
   console.log(`  wrote ${out}`);
-  console.log(`  ${rows.length} clips, ${mmss(total)} of audio, ${blocks.length} blocks`);
+  console.log(`  ${rows.length} clips, ${mmss(total)} of audio, ${blocks.length} ${FORMAT_KEY === 'tcf' ? 'bands' : 'blocks'}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
