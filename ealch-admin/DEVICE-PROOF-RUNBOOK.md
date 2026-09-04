@@ -312,12 +312,28 @@ If nothing appears within ~3 minutes, the device never asked. Work back through 
 > of build time, before anyone tries the one thing that would settle it: copy
 > the tree to a path with no space in it and build there.
 >
-> **Do not reach for the Metro `--no-dev` workaround instead.** It looks like it
-> should work: `__DEV__` is a bundle-time constant, `--no-dev` does flip it, and
-> that should satisfy both OTA guards. Tried 2026-09-04 and it does not. The app
-> boots to its own splash, goes white, and stays there through several minutes of
-> polling, with GC activity but nothing rendered and no redbox to say why,
-> because `--no-dev` also removes the error overlay. Half an hour gone.
+> **The Metro `--no-dev` route WORKS, and is the cheaper path.** An earlier
+> version of this section said the opposite. That was wrong, and wrong in the
+> way that costs most: I ran it, got a white screen, and concluded the route
+> was closed rather than that I had launched it badly.
+>
+> `__DEV__` is a bundle-time constant, `--no-dev` flips it, and both OTA guards
+> then stop firing, so a DEV build does show exam papers. Three launch mistakes
+> produce an identical white screen, and all three are documented in
+> `PIXEL-METRO-RECOVERY.md` §5:
+>
+> 1. **Backgrounding Metro with piped stdout.** It dies with
+>    `ERR_STREAM_UNABLE_TO_PIPE`, then accepts connections and never answers.
+>    Start it in a real console with `Start-Process cmd.exe`.
+> 2. **Omitting `EALCH_USE_WATCHMAN=1`.** Metro's Node crawler exceeds a
+>    hardcoded 240s limit in `metro-file-map`, and the bundler starts with NO
+>    TRANSFORMER: it serves a frozen snapshot and never sees an edit.
+> 3. **Adding `--minify`.** Harmless but pointless; it changes nothing about
+>    `__DEV__` and only costs build time.
+>
+> So the release build is NOT required for exam proof, and the ninja failure
+> below blocks nothing. Build a release only when you want to exercise the
+> embedded-bundle path itself. Read PIXEL-METRO-RECOVERY.md first.
 >
 > Signing is the debug keystore, so the release replaces the dev build with
 > no data wipe (§3). Metro plays no part while it is installed; put the debug
