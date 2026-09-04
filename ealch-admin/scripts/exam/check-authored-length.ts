@@ -22,8 +22,8 @@
 // Usage (from ealch-admin/):
 //   pnpm tsx scripts/exam/check-authored-length.ts
 import { spokenTranscript } from '../../../ealch-v2/src/utils/coPlayback.logic.ts';
-import { CO_TASKS } from '../tcf-blanc01/paper.ts';
-import { TCF_LENGTH, TCF_RATE, type Band } from './rate-rules.ts';
+import { CE_TASKS, CO_TASKS } from '../tcf-blanc01/paper.ts';
+import { CE_WORDS, TCF_LENGTH, TCF_RATE, type Band } from './rate-rules.ts';
 
 const words = (text: string): number =>
   spokenTranscript(text)
@@ -59,10 +59,48 @@ for (const task of CO_TASKS) {
   }
 }
 
-console.log(`\n  ${total} spoken words across the épreuve.`);
+console.log(`\n  ${total} spoken words across the listening épreuve.`);
 console.log(`  ${short} document(s) too short to fill their envelope at the band's target rate.`);
 console.log(`  ${long} document(s) that may overrun, which the measured checker settles.\n`);
 
-// Only SHORT fails. An over-long document is a prediction; a short one is
-// arithmetic, and it is the failure this file exists for.
-if (short) process.exitCode = 1;
+/* ── Reading, where the envelope is stated in words ─────────────────────────
+ *
+ * No prediction and no audio: STANDARD-tcf §4 gives a word count per band, so
+ * this is that count. Both directions fail here, because a C1 document at 500
+ * words is as far outside its band as one at 150.
+ *
+ * The reading épreuve had the identical defect and it was found the same way,
+ * only after the listening one had been fixed: 21 of 23 documents short, the
+ * C2 extract at 69 words against a 400-word floor.
+ */
+let ceOff = 0;
+let ceTotal = 0;
+
+console.log('  TCF blanc-01 · reading length against STANDARD-tcf §4');
+console.log('  band  document                                    words   envelope');
+console.log(`  ${'-'.repeat(70)}`);
+
+for (const task of CE_TASKS) {
+  const band = (task.level ?? '') as Band;
+  const [lo, hi] = CE_WORDS[band];
+  for (const part of task.parts ?? []) {
+    if (!part.text) continue;
+    const w = words(part.text);
+    ceTotal += w;
+    const verdict = w < lo ? ' SHORT' : w > hi ? ' LONG' : '';
+    if (verdict) ceOff += 1;
+    const name = part.label.length > 40 ? `${part.label.slice(0, 39)}…` : part.label;
+    console.log(
+      `  ${band.padEnd(5)} ${name.padEnd(42)} ${String(w).padStart(5)}   ` +
+        `${String(lo).padStart(3)}-${String(hi).padEnd(4)}${verdict}`
+    );
+  }
+}
+
+console.log(`\n  ${ceTotal} words across the reading épreuve.`);
+console.log(`  ${ceOff} document(s) outside their band's word envelope.\n`);
+
+// A short listening document is arithmetic; an over-long one is a prediction
+// the measured checker settles, so only SHORT fails there. Reading has no
+// prediction in it, so both directions fail.
+if (short || ceOff) process.exitCode = 1;

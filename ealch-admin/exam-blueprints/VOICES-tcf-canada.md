@@ -67,12 +67,12 @@ before `Speed`, never after.
 
 | Band | Documents | Target wpm (STANDARD-common §2) | First render gave | Speed |
 |---|---|---|---|---|
-| a1 | 3 | ≤ 110 | 120 wpm at 0.72 | 0.70 |
-| a2 | 6 | ~ 120 | 118 wpm at 0.78 | 0.79 |
-| b1 | 7 | ~ 140 | 143 wpm at 0.85 | 0.83 |
-| b2 | 4 | ~ 160 | 188 wpm at 0.92 | 0.78 |
-| c1 | 3 | ~ 175 | 177 wpm at 0.99 | 0.97 |
-| c2 | 1 | ~ 185 | 186 wpm at 1.03 | 1.02 |
+| a1 | 3 | ≤ 110 | 126 wpm at 0.70 (floored) | 0.70 |
+| a2 | 6 | ~ 120 | 119 wpm at 0.79 | 0.80 |
+| b1 | 7 | ~ 140 | 135 wpm at 0.83 | 0.86 |
+| b2 | 4 | ~ 160 | 156 wpm at 0.78 | 0.80 |
+| c1 | 3 | ~ 175 | 194 wpm at 0.97 | 0.87 |
+| c2 | 1 | ~ 185 | 190 wpm at 1.02 | 1.01 |
 | EO | 1 | ~ 140 | not measured | 0.83 |
 
 **b2 is slower than b1 and that is not a typo.** The speed is a multiplier on

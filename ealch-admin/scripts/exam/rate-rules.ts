@@ -38,6 +38,21 @@ export const TCF_LENGTH: Record<Band, [number, number]> = {
   a1: [10, 20], a2: [20, 30], b1: [30, 50], b2: [60, 90], c1: [90, 120], c2: [120, 150],
 };
 
+/** Words per READING document, STANDARD-tcf §4.
+ *
+ *  Reading has no rate to measure, so the envelope is stated directly in words
+ *  and the check is arithmetic rather than a prediction. It lives here beside
+ *  the listening envelope because both come off the same standard and because
+ *  the reading épreuve had exactly the same defect, found the same way and only
+ *  after the listening one was fixed: 21 of 23 documents short, the C2 extract
+ *  at 69 words against a 400-word floor.
+ *
+ *  The C2 ceiling is this file's own: the standard says "400+" and a document
+ *  can be too long as well as too short. */
+export const CE_WORDS: Record<Band, [number, number]> = {
+  a1: [15, 40], a2: [40, 90], b1: [110, 180], b2: [180, 280], c1: [280, 400], c2: [400, 900],
+};
+
 /** How far off target is worth reporting. Synthesis is not a metronome, and a
  *  document is a handful of sentences rather than a long enough sample to
  *  average out. */

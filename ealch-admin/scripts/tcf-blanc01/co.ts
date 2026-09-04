@@ -50,8 +50,8 @@ export const CO_A1: ExamTask = {
       readWindowS: 10,
       durationS: 15,
       text:
-        'UNE FEMME : Salut, c’est Amina. Je suis dans le bus, j’arrive dans dix minutes. ' +
-        'Il y avait beaucoup de monde à l’arrêt ce matin. Commencez sans moi, je vous rejoins à table.',
+        'UNE FEMME : Salut. C’est Amina. Je suis dans le bus. J’arrive dans dix minutes. ' +
+        'Il y avait beaucoup de monde à l’arrêt, ce matin. Commencez sans moi. Je vous rejoins à table.',
       items: [
         {
           q: 'Pourquoi Amina téléphone-t-elle ?',
@@ -89,8 +89,8 @@ export const CO_A1: ExamTask = {
       durationS: 17,
       text:
         'UNE VOIX : Chers clients, le magasin ferme dans dix minutes. ' +
-        'Merci de vous diriger vers les caisses et de terminer vos achats. ' +
-        'Nous vous remercions de votre visite et vous souhaitons une bonne soirée.',
+        'Merci de vous diriger vers les caisses. Merci également de terminer vos achats. ' +
+        'Nous vous remercions de votre visite. Nous vous souhaitons une bonne soirée.',
       items: [
         {
           q: 'Que dit cette annonce ?',
@@ -199,7 +199,7 @@ export const CO_A2: ExamTask = {
         'UN SERVEUR : Samedi soir... alors, c’est complet à vingt heures, je suis désolé. ' +
         'En revanche, à vingt et une heures, j’ai une table de quatre près de la fenêtre.\n' +
         'UNE FEMME : Parfait, vingt et une heures. C’est au nom de Delorme.\n' +
-        'UN SERVEUR : Très bien, madame Delorme, c’est noté. À samedi.',
+        'UN SERVEUR : Très bien, c’est noté. À samedi.',
       items: [
         {
           q: 'À quelle heure la table est-elle réservée ?',
@@ -240,7 +240,8 @@ export const CO_A2: ExamTask = {
         'UNE VOIX : Bonjour, ici le salon Pralet. ' +
         'Nous vous appelons au sujet de votre rendez-vous de vendredi, à quinze heures, avec Sophie. ' +
         'Il est bien noté, vous n’avez aucune démarche à faire. ' +
-        'Rappelez-nous simplement avant jeudi midi si vous souhaitez le déplacer. À vendredi.',
+        'Rappelez-nous simplement avant jeudi midi si vous souhaitez le déplacer. ' +
+        'Nous restons à votre disposition. À vendredi.',
       items: [
         {
           q: 'Que demande ce message ?',
@@ -289,7 +290,7 @@ export const CO_B1: ExamTask = {
         'Un meuble, on le voit, on s’assoit dessus, il reste.\n' +
         'UNE JOURNALISTE : Et comment passe-t-on de l’un à l’autre ?\n' +
         'UN HOMME : Pas du jour au lendemain. J’ai suivi une formation de deux ans, le soir, avant de me lancer. ' +
-        'Je gardais mon poste la journée. C’est long, mais on arrive au bout avec un métier dans les mains.',
+        'Je gardais mon poste la journée. C’est long, mais on arrive au bout.',
       items: [
         {
           q: 'Pourquoi a-t-il changé de métier ?',
@@ -458,7 +459,9 @@ export const CO_B1: ExamTask = {
         'Pour un rendez-vous prévu, ça va, on s’organise. ' +
         'Pour aller à la pharmacie un dimanche, ça ne va pas.\n' +
         'UN REPORTER : Vous avez fait remonter le problème ?\n' +
-        'UNE HABITANTE : Deux réunions en mairie. On nous répond que la fréquentation ne justifiait plus la ligne.',
+        'UNE HABITANTE : Deux réunions en mairie, et une pétition signée par presque tout le hameau. ' +
+        'On nous répond que la fréquentation ne justifiait plus la ligne, et que le service à la demande ' +
+        'coûte moins cher à la collectivité.',
       items: [
         {
           q: 'Que reproche l’habitante au nouveau service ?',

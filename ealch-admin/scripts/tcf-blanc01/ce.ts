@@ -40,7 +40,12 @@ export const CE_A1: ExamTask = {
   parts: [
     {
       label: 'Document 1 · une étiquette',
-      text: 'POMMES GOLDEN\n2,40 € le kilo\nOrigine : région de Vaubourg',
+      text:
+        'POMMES GOLDEN\n' +
+        '2,40 € le kilo\n' +
+        'Origine : région de Vaubourg\n' +
+        'Catégorie 1 · calibre moyen\n' +
+        'Récolte de la semaine · à conserver au frais',
       items: [
         {
           q: 'Combien coûte un kilo de pommes ?',
@@ -105,9 +110,12 @@ export const CE_A2: ExamTask = {
       label: 'Document 4 · un mot au voisin',
       text:
         'Bonjour Madame Corbeny,\n' +
-        'Le facteur a laissé un colis pour vous chez moi ce matin.\n' +
+        'Le facteur a laissé un colis pour vous chez moi ce matin. Il était assez volumineux, ' +
+        'et il n’a pas voulu le laisser devant votre porte.\n' +
         'Je suis là après 18 h en semaine, et toute la journée samedi.\n' +
-        'Appartement 4B.',
+        'Si vous préférez, glissez un mot dans ma boîte et je vous le monterai.\n' +
+        'Bonne journée à vous.\n' +
+        'Monsieur Delorme, appartement 4B.',
       items: [
         {
           q: 'Quand peut-on récupérer le colis en semaine ?',
@@ -122,8 +130,11 @@ export const CE_A2: ExamTask = {
       label: 'Document 5 · une petite annonce',
       text:
         'Vends vélo de ville, bon état, 120 €.\n' +
+        'Cadre en acier, trois vitesses, taille adulte. Servi deux ans pour aller au travail, ' +
+        'toujours rentré le soir.\n' +
         'Freins changés l’an dernier. Panier et antivol fournis.\n' +
-        'Pneus à remplacer prochainement.',
+        'Pneus à remplacer prochainement.\n' +
+        'À voir sur place le week-end, quartier de la gare. Pas d’envoi.',
       items: [
         {
           q: 'Qu’est-ce qui est à prévoir après l’achat ?',
@@ -136,7 +147,16 @@ export const CE_A2: ExamTask = {
     },
     {
       label: 'Document 6 · une liste de courses',
-      text: 'Budget : 30 €\nPain 3 €\nFromage 9 €\nFruits 7 €\nCafé 8 €',
+      text:
+        'COURSES DE LA SEMAINE · supermarché de la place\n' +
+        'Budget : 30 €\n' +
+        'Pain 3 €\n' +
+        'Fromage 9 €\n' +
+        'Fruits 7 €\n' +
+        'Café 8 €\n' +
+        'Penser au sac réutilisable, il en manque un dans le placard.\n' +
+        'Payer en espèces : la carte est restée à la maison.\n' +
+        'Y passer avant la fermeture, en rentrant du travail.',
       items: [
         {
           q: 'Combien reste-t-il après ces achats ?',
@@ -151,8 +171,12 @@ export const CE_A2: ExamTask = {
       label: 'Document 7 · une invitation',
       text:
         'REPAS DE QUARTIER · samedi 14, à partir de midi, cour de l’immeuble.\n' +
+        'L’association du quartier organise son repas annuel. Tous les habitants sont les bienvenus, ' +
+        'y compris ceux qui viennent d’emménager.\n' +
         'Chacun apporte un plat à partager. Les boissons sont offertes par l’association.\n' +
-        'En cas de pluie, le repas est reporté au samedi suivant.',
+        'Les tables et les bancs seront installés dès onze heures par les bénévoles.\n' +
+        'En cas de pluie, le repas est reporté au samedi suivant.\n' +
+        'Inscription dans le hall avant jeudi, pour savoir combien nous serons.',
       items: [
         {
           q: 'Que faut-il apporter ?',
@@ -169,7 +193,11 @@ export const CE_A2: ExamTask = {
         'PISCINE MUNICIPALE\n' +
         'Lundi à vendredi : 7 h – 21 h\n' +
         'Samedi et dimanche : 9 h – 18 h\n' +
-        'Le bassin est réservé aux clubs le mardi de 18 h à 20 h.',
+        'Le bassin est réservé aux clubs le mardi de 18 h à 20 h.\n' +
+        'Entrée : 4,50 € · tarif réduit 3 € sur présentation d’un justificatif.\n' +
+        'Bonnet de bain obligatoire. Casiers à jetons dans le vestiaire.\n' +
+        'La caisse ferme un quart d’heure avant le bassin.\n' +
+        'Renseignements à l’accueil ou sur le site de la commune.',
       items: [
         {
           q: 'Quand le public ne peut-il pas nager, alors que la piscine est ouverte ?',
@@ -183,9 +211,13 @@ export const CE_A2: ExamTask = {
     {
       label: 'Document 9 · une consigne de tri',
       text:
+        'CONSIGNES DE TRI · immeuble du 12, rue Pralet\n' +
         'Bac jaune : papier, carton, bouteilles en plastique.\n' +
+        'Les emballages se déposent en vrac, sans les emboîter les uns dans les autres.\n' +
         'Bac gris : tout le reste.\n' +
-        'Le verre se dépose à la colonne, place du Marché. Pas dans le bac jaune.',
+        'Le verre se dépose à la colonne, place du Marché. Pas dans le bac jaune.\n' +
+        'Les cartons volumineux sont à plier avant dépôt.\n' +
+        'Sortie des bacs le dimanche soir, rentrée le lundi après le passage.',
       items: [
         {
           q: 'Où faut-il déposer les bouteilles en verre ?',
@@ -228,9 +260,14 @@ export const CE_B1: ExamTask = {
         'Madame,\n' +
         'Le chauffage de l’appartement ne fonctionne plus depuis le 3 novembre. Je vous l’ai signalé par téléphone le 4, ' +
         'puis par courriel le 8, sans réponse.\n' +
-        'Un technicien est passé le 12 et a constaté qu’une pièce doit être commandée. Depuis, je n’ai plus de nouvelles.\n' +
+        'La température des pièces ne dépasse pas quinze degrés le matin, et deux des trois radiateurs restent froids ' +
+        'quelle que soit la position du thermostat. Nous chauffons depuis trois semaines avec un appareil d’appoint, ' +
+        'ce qui n’est ni suffisant ni prévu pour durer.\n' +
+        'Un technicien est passé le 12 et a constaté qu’une pièce doit être commandée. Depuis, je n’ai plus de nouvelles, ' +
+        'ni de sa société ni de vous-même.\n' +
         'Je vous demande de m’indiquer une date d’intervention avant la fin du mois. À défaut, je saisirai la commission ' +
         'départementale de conciliation.\n' +
+        'La présente vous est adressée en recommandé, une copie étant conservée avec les échanges précédents.\n' +
         'Veuillez agréer, Madame, mes salutations distinguées.',
       items: [
         {
@@ -266,7 +303,11 @@ export const CE_B1: ExamTask = {
         'Le bâtiment appartenait à la commune, qui hésitait entre le vendre et le réhabiliter. Une consultation menée ' +
         'auprès des habitants a fait pencher la balance : sur 640 réponses, 71 % demandaient un lieu de lecture et de travail.\n' +
         'Le projet a coûté 1,4 million d’euros, dont un tiers de subventions régionales. La commune a renoncé à un parking ' +
-        'prévu au même endroit.',
+        'prévu au même endroit.\n' +
+        'Le bâtiment conserve sa façade et son préau, mais l’intérieur a été entièrement repensé : une grande salle de ' +
+        'lecture au rez-de-chaussée, des espaces de travail à l’étage, et une salle fermée pour les groupes.\n' +
+        'L’équipe comptera six personnes, dont deux recrutées cette année. L’inscription restera gratuite pour les ' +
+        'habitants de la commune, et les horaires seront élargis le samedi dès la rentrée suivante.',
       items: [
         {
           q: 'Qu’est-ce qui a décidé du sort du bâtiment ?',
@@ -292,10 +333,16 @@ export const CE_B1: ExamTask = {
     {
       label: 'Document 12 · règlement de la piscine',
       text:
+        'RÈGLEMENT INTÉRIEUR · établissement municipal\n' +
         'Le bonnet de bain est obligatoire dans tous les bassins.\n' +
+        'La douche est obligatoire avant l’entrée dans l’eau. Les chaussures de ville s’arrêtent au vestiaire.\n' +
         'Les enfants de moins de huit ans doivent être accompagnés dans l’eau par un adulte.\n' +
         'Deux exceptions : lors des cours encadrés par un maître-nageur, l’accompagnement n’est pas exigé ; ' +
-        'et le bassin extérieur, ouvert en juillet et août, est dispensé du bonnet.',
+        'et le bassin extérieur, ouvert en juillet et août, est dispensé du bonnet.\n' +
+        'Le petit bassin est réservé à l’apprentissage et aux familles. Les plongeons y sont interdits.\n' +
+        'Le personnel peut demander à tout moment de quitter l’eau pour des raisons de sécurité, ' +
+        'et sa consigne s’applique immédiatement, sans discussion au bord du bassin.\n' +
+        'Les objets de valeur restent sous la responsabilité de leur propriétaire.',
       items: [
         {
           q: 'Quand un enfant de six ans peut-il être dans l’eau sans un adulte ?',
@@ -321,10 +368,16 @@ export const CE_B1: ExamTask = {
     {
       label: 'Document 13 · une offre d’emploi',
       text:
-        'Recherchons agent d’accueil, 24 h par semaine.\n' +
+        'Recherchons agent d’accueil, 24 h par semaine, pour un équipement culturel du centre-ville.\n' +
+        'Missions : accueil du public, orientation des visiteurs, inscriptions, tenue du standard et gestion du courrier.\n' +
         'Horaires variables selon un planning communiqué le 20 du mois pour le mois suivant.\n' +
         'Deux samedis par mois travaillés, récupérés le lundi.\n' +
-        'Débutants acceptés, formation assurée sur place.',
+        'Débutants acceptés, formation assurée sur place.\n' +
+        'Nous cherchons avant tout quelqu’un à l’aise avec un public varié et capable de garder son calme ' +
+        'quand plusieurs personnes attendent en même temps.\n' +
+        'Contrat d’un an, renouvelable. Candidature par courriel, avec quelques lignes sur ce qui vous intéresse ' +
+        'dans ce poste. Les entretiens auront lieu la première semaine de mars, ' +
+        'et la prise de fonction est souhaitée avant la fin du printemps.',
       items: [
         {
           q: 'Quand le salarié connaît-il ses horaires ?',
@@ -343,10 +396,16 @@ export const CE_B1: ExamTask = {
     {
       label: 'Document 14 · compte rendu de copropriété',
       text:
+        'CONSEIL SYNDICAL · compte rendu de la séance du 14 novembre\n' +
+        'Point 1 · relevé des charges du trimestre. Présenté pour information, sans observation des présents.\n' +
+        'Point 2 · entretien des espaces verts. Le prestataire actuel a informé le syndic qu’il cesserait son activité ' +
+        'en juin. Le sujet sera instruit d’ici là.\n' +
         'Point 3 · réfection de la cage d’escalier. Devis de 18 000 €. ' +
         'Le vote est reporté au prochain conseil, faute de quorum ce soir.\n' +
         'Point 4 · local à vélos. Accepté à l’unanimité, travaux au printemps.\n' +
-        'Point 5 · interphone. Le syndic demandera un second devis avant toute décision.',
+        'Point 5 · interphone. Le syndic demandera un second devis avant toute décision.\n' +
+        'Point 6 · questions diverses. Un copropriétaire signale une fuite dans le parking ; le syndic fera constater.\n' +
+        'Prochaine séance le 16 janvier, même heure.',
       items: [
         {
           q: 'Quelle décision a été prise ce soir-là ?',
@@ -365,9 +424,16 @@ export const CE_B1: ExamTask = {
     {
       label: 'Document 15 · guide d’utilisation',
       text:
+        'TABLEAU DES PROGRAMMES\n' +
         'Programme coton 60° : linge très sale, durée 2 h 10.\n' +
+        'Programme synthétique 40° : chemises et vêtements mélangés, durée 1 h 30.\n' +
+        'Programme délicat 30° : laine et soie, essorage réduit, durée 50 min.\n' +
         'Programme rapide 30 min : linge peu sale, 3 kg maximum.\n' +
-        'Ne pas utiliser le programme rapide avec de la lessive en poudre : elle se dissout mal sur un cycle court.',
+        'Ne pas utiliser le programme rapide avec de la lessive en poudre : elle se dissout mal sur un cycle court.\n' +
+        'Répartir le linge dans le tambour avant de fermer la porte : une charge déséquilibrée déclenche l’arrêt ' +
+        'de l’essorage et allonge le cycle.\n' +
+        'Nettoyer le filtre une fois par mois, machine débranchée, et vérifier qu’aucun objet ' +
+        'n’est resté dans les poches avant le lavage.',
       items: [
         {
           q: 'Que faut-il éviter avec le programme rapide ?',
@@ -389,7 +455,12 @@ export const CE_B1: ExamTask = {
         'L’aide départementale au permis s’élève à 500 €. Elle s’adresse aux 18-25 ans domiciliés dans le département ' +
         'depuis au moins un an.\n' +
         'Elle est versée directement à l’auto-école, jamais au candidat.\n' +
-        'Le dossier se dépose en ligne ou au guichet, avant le début de la formation.',
+        'Le dossier se dépose en ligne ou au guichet, avant le début de la formation.\n' +
+        'Pièces à fournir : une pièce d’identité, un justificatif de domicile de moins de trois mois, ' +
+        'et le devis de l’auto-école choisie.\n' +
+        'L’aide est accordée une seule fois par personne, dans la limite des crédits votés chaque année. ' +
+        'Les demandes sont examinées dans l’ordre d’arrivée, ce qui rend un dépôt précoce préférable.\n' +
+        'Un accusé de réception est envoyé sous quinze jours ; il ne vaut pas accord.',
       items: [
         {
           q: 'À qui l’argent est-il versé ?',
