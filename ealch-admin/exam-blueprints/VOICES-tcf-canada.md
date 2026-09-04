@@ -51,21 +51,29 @@ This is the single biggest difference from TEF's casting. TEF sets a speed **per
 A speed of exactly `1` is skipped rather than stored, because `speed=1` in an
 assetKey would re-render a whole band to sound identical to the default.
 
-| Band | Documents | Target wpm (STANDARD-common §2) | Speed |
-|---|---|---|---|
-| a1 | 3 | ≤ 110 | 0.72 |
-| a2 | 6 | ~ 120 | 0.78 |
-| b1 | 7 | ~ 140 | 0.85 |
-| b2 | 4 | ~ 160 | 0.92 |
-| c1 | 3 | ~ 175 | 0.99 |
-| c2 | 1 | ~ 185 | 1.03 |
-| EO | 1 | ~ 140 | 0.83 |
+| Band | Documents | Target wpm (STANDARD-common §2) | Speed | First render gave |
+|---|---|---|---|---|
+| a1 | 3 | ≤ 110 | 0.66 | 120 wpm at 0.72 |
+| a2 | 6 | ~ 120 | 0.79 | 118 wpm at 0.78 |
+| b1 | 7 | ~ 140 | 0.83 | 143 wpm at 0.85 |
+| b2 | 4 | ~ 160 | 0.78 | 188 wpm at 0.92 |
+| c1 | 3 | ~ 175 | 0.97 | 177 wpm at 0.99 |
+| c2 | 1 | ~ 185 | 1.02 | 186 wpm at 1.03 |
+| EO | 1 | ~ 140 | 0.83 | not measured |
+
+**b2 is slower than b1 and that is not a typo.** The speed is a multiplier on
+whatever the voice does with the text in front of it, and the b2 documents come
+out of the provider at about 204 wpm unmultiplied against b1's 168. Denser,
+shorter words. What has to rise across the ramp is the DELIVERED rate, so the
+multipliers are free to do whatever produces it.
 
 `EO` is the recorded interlocutor of Expression orale tâche 2 — a person at an
 agency answering a candidate's questions. Not a band, and it needs a rate all
 the same.
 
-**The speed column is a starting point, not a setting.** The equivalent TEF figures were wrong in both directions until they were measured: the renderer produced 127 wpm where 120 was asked for, and 167 where 175 was. Render once, then run `scripts/tef/check-speech-rate.ts` — it already reports measured wpm per document against the band envelope — and correct these from what came out, not from what was intended.
+**The speed column is a starting point, not a setting.** The equivalent TEF figures were wrong in both directions until they were measured: the renderer produced 127 wpm where 120 was asked for, and 167 where 175 was. Render once, then run `scripts/exam/check-speech-rate.ts tcf` — it reports measured wpm per document against the band envelope, and fails the ramp check if the rate does not rise — and correct these from what came out, not from what was intended.
+
+The column above has been through that once. **It has not been through it since the documents were extended to their envelope**, and the rate a voice delivers depends on the text it is reading, so these are corrections against the short drafts and are due one more pass.
 
 A rate that does not rise is not a cosmetic failure. It is the difficulty lever the standard calls "the cheapest one we control", switched off.
 
@@ -140,7 +148,7 @@ Register per band, which is what the casting lists in `examAudio.ts` encode:
 
 ## 7. Marking
 
-A clip is marked when a person has listened to it against its transcript. `scripts/tef/marking-sheet.ts` builds the sheet; it takes a variant and will need the TCF paper added to its lookup.
+A clip is marked when a person has listened to it against its transcript. `scripts/exam/marking-sheet.ts tcf 1` builds the sheet.
 
 Listen for, in this order:
 

@@ -114,6 +114,7 @@ import './env';
 import { describeTarget } from './env';
 import { putToR2, sha256Hex, r2Configured } from './lib/r2.ts';
 import { resolve as resolvePath, dirname as dirnameOf } from 'node:path';
+import { existsSync } from 'node:fs';
 import { fileURLToPath as fileUrlToPath } from 'node:url';
 import {
   billableChars,
@@ -485,6 +486,7 @@ type InterlocutorTurnUnit = {
   path: string[];
   text: string;
   slot: SlotName;
+  format: string;
   currentRef: string | null;
 };
 
@@ -494,6 +496,7 @@ type ExamPartUnit = {
   taskLabel: string;
   partIndex: number;
   partLabel: string;
+  format: string;
   block: string;
   cast: CastTurn[];
   currentRef: string | null;
@@ -731,6 +734,7 @@ async function main() {
           taskLabel: row.label ?? row.id,
           partIndex: i,
           partLabel: part.label,
+          format: row.format,
           block,
           // Block G is five sub-types wearing one letter, so ITS register comes
           // from the part label rather than the block — which is why the key is
@@ -750,8 +754,13 @@ async function main() {
     type Turn = { id: string; text: string; audioRef?: string | null };
     type Bank = { opening: Turn; answers: Turn[]; catchAll: Turn; closing: Turn };
 
-    const bankRows = await client.query<{ id: string; label: string | null; interlocutor: Bank | null }>(
-      `select id, label, interlocutor
+    const bankRows = await client.query<{
+      id: string;
+      label: string | null;
+      format: string;
+      interlocutor: Bank | null;
+    }>(
+      `select id, label, format::text as format, interlocutor
          from content_exam_tasks
         where task_type = 'po_interaction'
           and interlocutor is not null
@@ -786,6 +795,7 @@ async function main() {
           path,
           text: turn.text,
           slot: EXAMINER_SLOT,
+          format: row.format,
           currentRef: turn.audioRef ?? null,
         });
       }
@@ -837,22 +847,47 @@ async function main() {
 
     /* ── 3b. Casting, before anything is spent ─────────────────────────── */
 
-    let cast: Cast | null = null;
+    // ONE CASTING FILE PER FORMAT, and it has to be the unit's own. TEF sets a
+    // speed per BLOCK letter and TCF per BAND, so a TCF document looked up in
+    // TEF's table matches no row, gets no speed, and renders at the provider
+    // default. Nothing fails: the clips come out in the right voices and sound
+    // fine one at a time. What is missing is the rate rising across the ramp,
+    // which on TCF is the difficulty lever the format is built on. Not a
+    // hypothetical — it is what this renderer produced on the first TCF pass,
+    // and it was visible only by measuring wpm per band afterwards.
+    const casts = new Map<string, Cast>();
+    const castOf = (u: { format: string }): Cast => {
+      const hit = casts.get(u.format);
+      // Unreachable: every format in scope is loaded below, or the run dies.
+      if (!hit) throw new Error(`no casting file loaded for format ${u.format}`);
+      return hit;
+    };
     if (examUnits.length || turnUnits.length) {
-      const voicesPath = resolvePath(
-        dirnameOf(fileUrlToPath(import.meta.url)),
-        '../exam-blueprints/VOICES-tef-canada.md'
-      );
-      cast = loadVoices(voicesPath);
-      const needed = new Set([
-        ...examUnits.flatMap((u) => u.cast.map((t) => t.slot)),
-        ...turnUnits.map((u) => u.slot),
-      ]);
-      const missing = [...needed].filter((slot) => !cast!.entries.has(slot));
+      const formats = [...new Set([...examUnits, ...turnUnits].map((u) => u.format))].sort();
+      const missing: string[] = [];
+      let missingIn = '';
+      for (const format of formats) {
+        const rel = `exam-blueprints/VOICES-${format.replace(/_/g, '-')}.md`;
+        const voicesPath = resolvePath(dirnameOf(fileUrlToPath(import.meta.url)), '..', rel);
+        if (!existsSync(voicesPath)) {
+          die(`${format} has listening audio to render and no casting file at ${rel}.`);
+        }
+        const loaded = loadVoices(voicesPath);
+        casts.set(format, loaded);
+        const needed = new Set([
+          ...examUnits.filter((u) => u.format === format).flatMap((u) => u.cast.map((t) => t.slot)),
+          ...turnUnits.filter((u) => u.format === format).map((u) => u.slot),
+        ]);
+        const gaps = [...needed].filter((slot) => !loaded.entries.has(slot));
+        if (gaps.length) {
+          missing.push(...gaps.map((slot) => `${format} ${slot}`));
+          missingIn = rel;
+        }
+      }
       if (missing.length) {
         const note =
           `${missing.length} voice slot(s) are not cast yet: ${missing.join(', ')}.\n` +
-          `  Fill their Voice id in exam-blueprints/VOICES-tef-canada.md (E8 stage 1).`;
+          `  Fill their Voice id in ${missingIn} (E8 stage 1).`;
         // A dry run exists to show what WOULD happen, so it reports the gap and
         // carries on listing. A real run refuses rather than substituting:
         // borrowing another voice is exactly how two speakers in one document
@@ -942,18 +977,19 @@ async function main() {
       // so it reaches BOTH the asset key and the request: a rate change must
       // re-render the block, and a key that ignored it would leave the old,
       // too-fast clips in place.
-      const speed = cast!.blockSpeed.get(unit.block);
+      const sheet = castOf(unit);
+      const speed = sheet.blockSpeed.get(unit.block);
       const settingsFor = (slot: typeof unit.cast[number]['slot']) => ({
-        ...(cast!.entries.get(slot)?.settings ?? {}),
+        ...(sheet.entries.get(slot)?.settings ?? {}),
         ...(speed ? { speed } : {}),
       });
-      const cued = unit.cast.every((t) => cast!.entries.has(t.slot));
+      const cued = unit.cast.every((t) => sheet.entries.has(t.slot));
       const key = cued
         ? examAssetKey(
             unit.cast,
-            (slot) => castVoiceId(cast!, slot),
+            (slot) => castVoiceId(sheet, slot),
             'elevenlabs',
-            cast!.renderVersion,
+            sheet.renderVersion,
             settingsFor
           )
         : null;
@@ -976,7 +1012,7 @@ async function main() {
       // The path is keyed on the FIRST voice only because a path needs one
       // directory; the key in the filename is what identifies the document,
       // and it hashes every voice in it.
-      const path = storagePath(castVoiceId(cast!, unit.cast[0]!.slot), key!);
+      const path = storagePath(castVoiceId(sheet, unit.cast[0]!.slot), key!);
 
       // ALREADY IN THE BUCKET? Then this exact document has been rendered
       // before and only the database pointer is missing. Re-synthesising would
@@ -1000,7 +1036,7 @@ async function main() {
         clips.push(
           await renderClip(
             turn.text,
-            castVoiceId(cast!, turn.slot),
+            castVoiceId(sheet, turn.slot),
             'fr',
             settingsFor(turn.slot)
           )
@@ -1026,16 +1062,17 @@ async function main() {
     /* ── 4c. Interlocutor turns: one clip each, never stitched ──────────── */
 
     for (const unit of turnUnits) {
-      const voiceId = castVoiceId(cast!, unit.slot);
-      const speed = cast!.blockSpeed.get('EO');
-      const settings = { ...(cast!.entries.get(unit.slot)?.settings ?? {}), ...(speed ? { speed } : {}) };
+      const sheet = castOf(unit);
+      const voiceId = castVoiceId(sheet, unit.slot);
+      const speed = sheet.blockSpeed.get('EO');
+      const settings = { ...(sheet.entries.get(unit.slot)?.settings ?? {}), ...(speed ? { speed } : {}) };
       // The same key function the documents use, so a turn and a document that
       // happened to carry identical text in the same voice land on one object.
       const key = examAssetKey(
         [{ speaker: unit.turnId, text: unit.text, slot: unit.slot }],
         () => voiceId,
         'elevenlabs',
-        cast!.renderVersion,
+        sheet.renderVersion,
         () => settings
       );
       if (assetKeyFromRef(unit.currentRef) === key) {

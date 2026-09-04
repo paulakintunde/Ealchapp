@@ -20,7 +20,23 @@ import './../env';
 /** Which paper to build the sheet for. One tool for five papers: this was
  *  `blanc-01` in two places, which is exactly the kind of literal that gets
  *  copied four times and edited three. */
-const VARIANT = (process.argv[2] ?? 'blanc-01').replace(/^blanc-?/, 'blanc-');
+/** Which format's paper. Was `format='tef_canada'` written into the query and
+ *  "TEF Canada" into the heading — the same pair of literals that made every
+ *  sheet announce itself as Examen 1, one layer down. */
+const FORMATS = { tef: 'tef_canada', tcf: 'tcf_canada' } as const;
+const FORMAT_KEY = (process.argv.slice(2).find((a) => a in FORMATS) ?? 'tef') as keyof typeof FORMATS;
+const FORMAT = FORMATS[FORMAT_KEY];
+const FORMAT_LABEL = FORMAT_KEY.toUpperCase() + ' Canada';
+
+/** Accepts `2`, `02` or `blanc-02` and always yields `blanc-02`. The variants
+ *  are zero-padded in the database, and a bare `2` produced `blanc-2`, which
+ *  matched no row and wrote a sheet with nothing in it — a failure that looks
+ *  like an empty paper rather than a bad argument. */
+const VARIANT = (() => {
+  const arg = process.argv.slice(2).find((a) => /^(blanc-?)?\d+$/.test(a)) ?? '1';
+  const n = Number(arg.replace(/^blanc-?/, ''));
+  return `blanc-${String(n).padStart(2, '0')}`;
+})();
 
 /** The paper's number, for the heading. Was the literal `1` in the title AND
  *  the h1, so every one of the five sheets announced itself as Examen 1 while
@@ -69,7 +85,9 @@ const mmss = (n: number) => `${Math.floor(n / 60)}:${String(n % 60).padStart(2, 
 async function main() {
   const base = process.env.R2_PUBLIC_BASE_URL;
   if (!base) throw new Error('R2_PUBLIC_BASE_URL is not set');
-  const out = `marking-sheet-${VARIANT}.html`;
+  // The format is in the filename because two papers now share a variant name:
+  // every format numbers its papers from blanc-01.
+  const out = `marking-sheet-${FORMAT_KEY}-${VARIANT}.html`;
 
   const { Pool } = await import('pg');
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
@@ -81,9 +99,9 @@ async function main() {
       parts: { label: string; text?: string; audioRef?: string | null; durationS?: number }[];
     }>(
       `select label, parts from content_exam_tasks
-        where variant=$1 and format='tef_canada' and skill='CO'
+        where variant=$1 and format=$2::text::exam_format and skill='CO'
         order by id`,
-      [VARIANT]
+      [VARIANT, FORMAT]
     );
     for (const r of res.rows) {
       const task = r.label ?? '';
@@ -224,7 +242,7 @@ async function main() {
 <div class="wrap">
   <header class="top">
     <h1>Examen ${PAPER_NO} · listening marking</h1>
-    <p class="sub">${rows.length} documents · ${mmss(total)} of audio · TEF Canada ${VARIANT}</p>
+    <p class="sub">${rows.length} documents · ${mmss(total)} of audio · ${FORMAT_LABEL} ${VARIANT}</p>
   </header>
 
   <div class="brief">
