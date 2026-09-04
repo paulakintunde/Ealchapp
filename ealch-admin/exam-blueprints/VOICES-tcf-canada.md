@@ -54,32 +54,34 @@ assetKey would re-render a whole band to sound identical to the default.
 **0.7 is the floor and 1.2 the ceiling.** The provider rejects anything outside
 that range outright, with `invalid_voice_settings`, and the run dies on the
 first document rather than part way through. A1 wants 110 wpm and the measured
-correction was 0.66, which is below the floor: at 0.70 the band lands near 117
-wpm, about six per cent over target and inside the tolerance the rate checker
-allows. That is a limit of the voice, not a choice, and the only other lever on
-an A1 document would be to make it say less, which the length envelope forbids.
+correction against the first voice pool was 0.61, below the floor. That is a
+limit of the voice, not a choice, and the only other lever on an A1 document
+would be to make it say less, which the length envelope forbids.
 
 **The speed must stay the last column.** Adding a column after it makes the
 parser read that column instead, find no number, and store no speed at all. The
 render does not fail: it produces the whole épreuve at the provider's default
 rate, which is exactly the defect this table exists to prevent. Add new columns
-before `Speed`, never after.
+before `Speed`, never after. `voices.test.ts` now asserts every band has a
+speed, so this fails loudly rather than silently.
 
-| Band | Documents | Target wpm (STANDARD-common §2) | First render gave | Speed |
+| Band | Documents | Target wpm (STANDARD-common §2) | First pool settled at | Speed |
 |---|---|---|---|---|
-| a1 | 3 | ≤ 110 | 126 wpm at 0.70 (floored) | 0.70 |
-| a2 | 6 | ~ 120 | 119 wpm at 0.79 | 0.80 |
-| b1 | 7 | ~ 140 | 135 wpm at 0.83 | 0.86 |
-| b2 | 4 | ~ 160 | 156 wpm at 0.78 | 0.80 |
-| c1 | 3 | ~ 175 | 194 wpm at 0.97 | 0.87 |
-| c2 | 1 | ~ 185 | 190 wpm at 1.02 | 1.01 |
+| a1 | 3 | ≤ 110 | 0.70, gave 114 wpm | 0.70 |
+| a2 | 6 | ~ 120 | 0.80, gave 120 wpm | 0.80 |
+| b1 | 7 | ~ 140 | 0.86, gave 143 wpm | 0.86 |
+| b2 | 4 | ~ 160 | 0.80, gave 163 wpm | 0.80 |
+| c1 | 3 | ~ 175 | 0.87, gave 173 wpm | 0.87 |
+| c2 | 1 | ~ 185 | 1.01, gave 189 wpm | 1.01 |
 | EO | 1 | ~ 140 | not measured | 0.83 |
 
 **b2 is slower than b1 and that is not a typo.** The speed is a multiplier on
 whatever the voice does with the text in front of it, and the b2 documents come
-out of the provider at about 204 wpm unmultiplied against b1's 168. Denser,
-shorter words. What has to rise across the ramp is the DELIVERED rate, so the
-multipliers are free to do whatever produces it.
+out of the provider far faster unmultiplied than the b1 ones do. Denser, shorter
+words. What has to rise across the ramp is the DELIVERED rate, so the
+multipliers are free to do whatever produces it. That shape is a property of the
+TEXT rather than of the voices, so it should survive a recast even though the
+exact numbers will not.
 
 `EO` is the recorded interlocutor of Expression orale tâche 2 — a person at an
 agency answering a candidate's questions. Not a band, and it needs a rate all
@@ -87,7 +89,9 @@ the same.
 
 **The speed column is a starting point, not a setting.** The equivalent TEF figures were wrong in both directions until they were measured: the renderer produced 127 wpm where 120 was asked for, and 167 where 175 was. Render once, then run `scripts/exam/check-speech-rate.ts tcf` — it reports measured wpm per document against the band envelope, and fails the ramp check if the rate does not rise — and correct these from what came out, not from what was intended.
 
-The column above has been through that once. **It has not been through it since the documents were extended to their envelope**, and the rate a voice delivers depends on the text it is reading, so these are corrections against the short drafts and are due one more pass.
+**These numbers were settled against the FIRST voice pool and six of the eight
+slots have since been recast.** A voice's unmultiplied rate is its own, so the
+column above is once again a starting point and is owed another measured pass.
 
 A rate that does not rise is not a cosmetic failure. It is the difficulty lever the standard calls "the cheapest one we control", switched off.
 
@@ -111,34 +115,48 @@ Recorded here rather than discovered at render time, because the casting session
 
 **Render version:** `v1`
 
-`scripts/lib/voices.ts` reads the table below. It takes the **fifth column** as the
-voice id and the sixth as prosody settings; everything else is for the reader.
-A slot with an empty id is **uncast**, and a document needing it refuses to
-render rather than borrowing another voice — substituting is exactly how two
-speakers in one document end up sharing one.
+`scripts/lib/voices.ts` reads the table below. It finds the voice id and the
+settings by their **column headings**, so the columns can be reordered to suit
+whoever is reading; it falls back to the fifth and sixth columns only if the
+headings are missing. Everything else is for the reader. A slot with an empty id
+is **uncast**, and a document needing it refuses to render rather than borrowing
+another voice — substituting is exactly how two speakers in one document end up
+sharing one.
+
+This is the opposite of the band table in §3, which is read by POSITION and
+where the speed must stay last. The two tables are not the same kind of table.
 
 To change a voice: audition in the ElevenLabs UI, copy the id, paste it into the
 `Voice id` cell. Nothing else to run. `Settings` is free text like
 `stability 0.4, similarity 0.8`; anything that is not a number is ignored rather
 than coerced, because a `NaN` reaching a synthesis request is a wasted credit.
 
-**These are TEF's voices, and that is a proposal rather than a default.** The
-eight slots, the registers and the requirement (metropolitan French,
-STANDARD-common §2.1) are identical across the two formats, and the two
-documents that could break already resolve to different slots — see §2. So this
-paper can render today. Re-audition only if you want TCF to sound like a
-different exam board, which is a product decision and not a casting one.
+**TCF has its own pool now.** It began as a copy of TEF's, on the argument that
+the eight slots, the registers and the requirement (metropolitan French,
+STANDARD-common §2.1) are identical across the two formats. Six of the eight
+have since been recast, so the two papers no longer sound like the same exam
+board, which was always available as a product decision and has now been taken.
 
-| Slot | Voice id | Settings | Sex | Register to audition for | Serves on this paper |
+`f-neutral` and `f-media` are the two still shared with TEF. That is worth
+knowing before changing either of them here: the clips are content-addressed, so
+a TCF-only edit to a shared id re-renders TCF and leaves TEF alone, but a reader
+comparing the two files will find the same string in both and may assume it is
+deliberate. It is.
+
+What has NOT changed is §2: the two documents that can break are the ones with
+three voices, and both must resolve to different registers. Check that first
+after any recast.
+
+| Slot | Sex | Register to audition for | Serves on this paper | Voice id | Settings |
 |---|---|---|---|---|---|
-| `f-neutral` | GYzIdoKkRyANjBvkKYfO |  | F | Everyday, warm, unhurried. The default female speaker. | A1–A2 announcements and counters, B1 interviewees |
-| `f-formal` | O31r762Gb3WFygrEOGh0 |  | F | Institutional, even, no warmth. Reads, does not chat. | recorded announcements; **the second woman in documents 20 and 30** |
-| `f-media` | 3C1zYzXNXNzrB66ON8rj |  | F | Broadcast. Projects, varies pitch, lands its clauses. | B1 reporters; **the moderator in documents 20 and 30** |
-| `f-street` | WQKwBV2Uzw1gSGr69N8I |  | F | Spontaneous, uneven, thinks mid-sentence. | unused on blanc-01 — kept so the pool stays whole |
-| `m-neutral` | HeQxwrjIb6zvCa1bt1EE |  | M | Everyday, warm, unhurried. The default male speaker. | A1–A2 exchanges, B1 interviewees, the C1 historian |
-| `m-formal` | zAr1POVZUrr1zkX0T94t |  | M | Institutional. Specialists who argue from a position. | B2 and C1 panels, the C2 historian |
-| `m-media` | fEtpdogpDkBrq53KdupV |  | M | Broadcast, a shade lower and slower than `f-media`. | B1 reporters where the woman is the interviewee |
-| `m-street` | SsVUx1gFlvniIrUMZtgF |  | M | Spontaneous. | unused on blanc-01 — kept so the pool stays whole |
+| `f-neutral` | F | Everyday, warm, unhurried. The default female speaker. | A1–A2 announcements and counters, B1 interviewees | GYzIdoKkRyANjBvkKYfO| |
+| `f-formal` | F | Institutional, even, no warmth. Reads, does not chat. | recorded announcements; **the second woman in documents 20 and 30** | GoEy5CmodqJy0T9AxjLk | |
+| `f-media` | F | Broadcast. Projects, varies pitch, lands its clauses. | B1 reporters; **the moderator in documents 20 and 30** | 3C1zYzXNXNzrB66ON8rj | |
+| `f-street` | F | Spontaneous, uneven, thinks mid-sentence. | unused on blanc-01 — kept so the pool stays whole | B7fiLqn1fkwb8VKxZsLm | |
+| `m-neutral` | M | Everyday, warm, unhurried. The default male speaker. | A1–A2 exchanges, B1 interviewees, the C1 historian | jGpnMdbhtKgQbVrYezOx | |
+| `m-formal` | M | Institutional. Specialists who argue from a position. | B2 and C1 panels, the C2 historian |7DC4sk5JWSwsxDH9wneS | |
+| `m-media` | M | Broadcast, a shade lower and slower than `f-media`. | B1 reporters where the woman is the interviewee | DGTOOUoGpoP6UZ9uSWfA | |
+| `m-street` | M | Spontaneous. | unused on blanc-01 — kept so the pool stays whole | UBXZKOKbt62aLQHhc1Jm | |
 
 Register per band, which is what the casting lists in `examAudio.ts` encode:
 
@@ -162,7 +180,7 @@ Register per band, which is what the casting lists in `examAudio.ts` encode:
 
 ## 7. Marking
 
-A clip is marked when a person has listened to it against its transcript. `scripts/exam/marking-sheet.ts tcf 1` builds the sheet.
+A clip is marked when a person has listened to it against its transcript. `scripts/exam/marking-sheet.ts tcf 1` builds the sheet, grouped by band, with the two three-voice documents flagged.
 
 Listen for, in this order:
 

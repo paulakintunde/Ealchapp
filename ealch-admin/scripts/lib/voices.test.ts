@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadVoices, parseSettings, parseVoices, voiceIdFor } from './voices.ts';
+import type { SlotName } from './examAudio.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
@@ -116,4 +117,33 @@ test('the two casting files are separate files with separate tables', () => {
   ok(!tef.blockSpeed.has('a1'), 'TEF has no band rows — this is why TCF could not use it');
   ok(tcf.blockSpeed.has('a1'), 'TCF keys its speeds by band');
   ok(!tcf.blockSpeed.has('A'), 'TCF has no block rows');
+});
+
+test('the shipped TCF casting file casts eight distinct, well-formed voices', () => {
+  // The TEF file has had this check since it was filled in. TCF did not, and
+  // then six of its eight slots were recast by hand in one sitting. A pasted
+  // duplicate is the easy mistake, and its consequence is precise rather than
+  // cosmetic: §2 turns on two women in one document being tellable apart, so
+  // two slots sharing an id makes documents 20 and 30 unanswerable while every
+  // other check stays green.
+  const cast = loadVoices(resolve(HERE, '../../exam-blueprints/VOICES-tcf-canada.md'));
+  strictEqual(cast.entries.size + cast.uncast.length, 8, 'every slot is either cast or reported');
+  strictEqual(cast.uncast.length, 0, `uncast slots on a paper that renders: ${cast.uncast.join(', ')}`);
+  ok(/^v\d+$/.test(cast.renderVersion), `render version is not a version: "${cast.renderVersion}"`);
+  for (const [slot, entry] of cast.entries) {
+    ok(/^[A-Za-z0-9_-]{20}$/.test(entry.voiceId), `${slot}: "${entry.voiceId}" is not an ElevenLabs voice id`);
+  }
+  const ids = [...cast.entries.values()].map((e) => e.voiceId);
+  strictEqual(new Set(ids).size, ids.length, 'two slots share a voice id');
+
+  // The three-voice documents specifically. These are the only two places on
+  // the paper where a shared voice is not merely a blemish.
+  const trios: SlotName[][] = [
+    ['f-media', 'f-formal', 'm-formal'],
+    ['f-media', 'm-formal', 'f-formal'],
+  ];
+  for (const trio of trios) {
+    const heard = trio.map((s) => cast.entries.get(s)?.voiceId);
+    strictEqual(new Set(heard).size, 3, `${trio.join(' + ')} do not resolve to three distinct voices`);
+  }
 });
