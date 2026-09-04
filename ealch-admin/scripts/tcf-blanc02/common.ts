@@ -75,9 +75,6 @@ export const ITEMS = {
     c1: ['fr.c1.argot-classique.001', 'fr.c1.argot-classique.002', 'fr.c1.argot-classique.003', 'fr.c1.argot-classique.004', 'fr.c1.argot-classique.005', 'fr.c1.argot-classique.006'],
     c2: ['fr.c1.argot-classique.001', 'fr.c1.argot-classique.002', 'fr.c1.argot-classique.003', 'fr.c1.argot-classique.004', 'fr.c1.argot-classique.005', 'fr.c1.argot-classique.006'],
   },
-  auRestaurant: {
-    a1: ['fr.a1.au-restaurant.001', 'fr.a1.au-restaurant.002', 'fr.a1.au-restaurant.003', 'fr.a1.au-restaurant.004', 'fr.a1.au-restaurant.005', 'fr.a1.au-restaurant.006'],
-  },
   bureau: {
     b1: ['fr.b1.bureau.001', 'fr.b1.bureau.002', 'fr.b1.bureau.003', 'fr.b1.bureau.004', 'fr.b1.bureau.005', 'fr.b1.bureau.006'],
   },
@@ -131,6 +128,9 @@ export const ITEMS = {
   },
   maison: {
     a2: ['fr.a2.maison.001', 'fr.a2.maison.002', 'fr.a2.maison.003', 'fr.a2.maison.004', 'fr.a2.maison.005', 'fr.a2.maison.006'],
+  },
+  marche: {
+    a1: ['fr.a1.marche.001', 'fr.a1.marche.002', 'fr.a1.marche.003', 'fr.a1.marche.004', 'fr.a1.marche.005', 'fr.a1.marche.006'],
   },
   methodeScientifique: {
     c1: ['fr.c1.methode-scientifique.001', 'fr.c1.methode-scientifique.002', 'fr.c1.methode-scientifique.003', 'fr.c1.methode-scientifique.004', 'fr.c1.methode-scientifique.005', 'fr.c1.methode-scientifique.006'],

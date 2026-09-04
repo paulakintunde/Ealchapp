@@ -17,7 +17,18 @@ import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BANDS, DOC_SHAPE, ITEM_QUOTA, OPEN_SUITS, parseBank, plan, type Plan } from './plan-paper.ts';
+import {
+  BANDS,
+  DOC_SHAPE,
+  ITEM_QUOTA,
+  OPEN_SUITS,
+  ledgerFor,
+  parseBank,
+  plan,
+  planFor,
+  type Plan,
+} from './plan-paper.ts';
+import { existsSync } from 'node:fs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const BANK = parseBank(
@@ -104,4 +115,70 @@ test('a sixth paper is where the bank runs out, and it says so', () => {
   const taken = new Set(pack(5).flatMap(idsOf));
   const sixth = plan(BANK, 6, taken);
   ok(sixth.short.length > 0, 'a sixth paper drew a full set from a bank that cannot supply one');
+});
+
+/* ── planFor: one accumulation rule, shared ────────────────────────────────
+ *
+ * The rule was implemented twice and the copies disagreed, twice over.
+ *
+ *   plan-paper's own loop, without an accumulator, returned four identical
+ *   papers for 2-5.
+ *
+ *   pick-items replayed the bank instead of reading authored papers, which
+ *   misses that blanc-01 authored TCF-07 and TCF-17 that a replay does not
+ *   draw. Paper 2 then contained a `marche` document whose theme never reached
+ *   the routing query, so ITEMS came out with no key for it and nothing failed.
+ *
+ * planFor is now the only implementation. These tests describe the property
+ * rather than the call, so a third copy would have to break them.
+ */
+
+test('the ledger distinguishes what was authored from what is only simulated', () => {
+  // A paper that has not been written still withholds its situations, and the
+  // ledger has to say which papers those came from. Reporting only the authored
+  // count understates what a plan had to avoid: paper 4 avoids 161 situations,
+  // of which 108 belong to papers that exist.
+  const led = ledgerFor(BANK, 4);
+  const sources = new Set(led.values());
+  ok(led.size > 0, 'paper 4 avoids nothing at all');
+  ok(
+    [...sources].some((s) => s.includes('not yet written')),
+    `expected simulated papers to be labelled, got: ${[...sources].join(', ')}`
+  );
+});
+
+test('planFor reproduces the plan file a human approved', () => {
+  // The property that matters, and NOT `planFor === pack()`. Those two are
+  // legitimately different: `pack` replays the bank, while planFor reads what
+  // papers actually authored, and blanc-01 authored TCF-07 and TCF-17 that a
+  // replay never draws. The written plan is the artefact a paper is built from,
+  // so it is the thing planFor has to agree with — which is exactly what
+  // pick-items failed to do on papers 4 and 5.
+  for (let n = 2; n <= 5; n += 1) {
+    const file = resolve(HERE, `../../exam-blueprints/PLAN-tcf-blanc-0${n}.md`);
+    if (!existsSync(file)) continue;
+    const written = new Set(readFileSync(file, 'utf8').match(/TCF-\d+/g) ?? []);
+    const derived = new Set(idsOf(planFor(BANK, n)));
+    deepStrictEqual(
+      [...written].filter((id) => !derived.has(id)),
+      [],
+      `paper ${n}: the written plan holds situations planFor does not draw`
+    );
+    deepStrictEqual(
+      [...derived].filter((id) => !written.has(id)),
+      [],
+      `paper ${n}: planFor draws situations the written plan does not hold`
+    );
+  }
+});
+
+test('no two papers planned via planFor share a topic', () => {
+  const papers = [1, 2, 3, 4, 5].map((n) => planFor(BANK, n));
+  for (let i = 0; i < papers.length; i += 1) {
+    for (let j = i + 1; j < papers.length; j += 1) {
+      const a = new Set(idsOf(papers[i]!));
+      const shared = idsOf(papers[j]!).filter((id) => a.has(id));
+      deepStrictEqual(shared, [], `papers ${i + 1} and ${j + 1} share ${shared.length}`);
+    }
+  }
 });

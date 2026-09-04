@@ -30,10 +30,10 @@
 //
 //   pnpm tsx scripts/tcf/pick-items.ts 1     emit the ITEMS block for paper 1
 import '../env';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseBank, plan, type Band } from './plan-paper.ts';
+import { parseBank, planFor, type Band } from './plan-paper.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const BANK = resolve(HERE, '../../exam-blueprints/TOPICS-tcf-canada.md');
@@ -52,26 +52,44 @@ async function main() {
   const no = Number(process.argv.slice(2).find((a) => /^\d+$/.test(a)));
   if (!no) throw new Error('give a paper number, e.g. `pick-items.ts 1`');
 
-  // The plan is the source of truth for what this paper needs. Re-derived here
-  // rather than parsed back out of a plan file, so the two cannot drift.
+  // The plan is the source of truth for what this paper needs, and it is
+  // derived from the SAME place plan-paper.ts derives it: `spent()`, which
+  // reads the situation ids out of the papers that have actually been authored.
   //
-  // Papers 1..N-1 are REPLAYED to build the spent set. Planning paper N against
-  // an empty set is what this did first, and because the draw is deterministic
-  // every paper came back with paper 1's plan and therefore paper 1's ITEMS —
-  // five papers routing the same corpus items, which no test would have caught
-  // because each file was individually valid.
+  // This used to replay the bank from paper 1, on the argument that re-deriving
+  // cannot drift. It can, and it did. An authored paper is free to differ from
+  // the plan it was drawn from — blanc-01 uses TCF-07 and TCF-17, which a fresh
+  // replay does not draw — so the two derivations disagreed by two situations.
+  // The consequence was silent and specific: paper 2's plan contained a
+  // `marche` document, the replay's did not, `marche` never reached the routing
+  // query, and the ITEMS block came out with no key for it. Nothing failed.
+  // The theme-level check below cannot catch that either, because a theme that
+  // is never asked for is not a theme that routed nothing.
   const bank = parseBank(readFileSync(BANK, 'utf8'));
-  const taken = new Set<string>();
-  let p = plan(bank, 1, taken);
-  for (let i = 1; i <= no; i += 1) {
-    p = plan(bank, i, taken);
-    if (i < no) {
-      for (const r of [...p.co, ...p.ce]) taken.add(r.situation.id);
-      for (const o of p.open) taken.add(o.situation.id);
-    }
-  }
+  const p = planFor(bank, no);
   if (p.short.length) {
     throw new Error(`the bank cannot supply paper ${no}; run plan-paper.ts first:\n  ${p.short.join('\n  ')}`);
+  }
+
+  // AND check it against the plan a human actually approved. Deriving from the
+  // same function as plan-paper.ts should make these identical, which is
+  // exactly the assumption that was wrong last time. The written file is the
+  // artefact the paper gets authored from, so if the two ever disagree again
+  // this says so instead of quietly routing a different set of themes.
+  const planFile = resolve(HERE, `../../exam-blueprints/PLAN-tcf-blanc-${String(no).padStart(2, '0')}.md`);
+  if (existsSync(planFile)) {
+    const written = new Set(readFileSync(planFile, 'utf8').match(/TCF-\d+/g) ?? []);
+    const derived = new Set([...p.co, ...p.ce, ...p.open].map((r) => r.situation.id));
+    const missing = [...written].filter((id) => !derived.has(id));
+    const extra = [...derived].filter((id) => !written.has(id));
+    if (missing.length || extra.length) {
+      throw new Error(
+        `this derivation disagrees with PLAN-tcf-blanc-${String(no).padStart(2, '0')}.md.\n` +
+          `  in the written plan only: ${missing.join(', ') || 'none'}\n` +
+          `  in this derivation only:  ${extra.join(', ') || 'none'}\n` +
+          `  Re-run plan-paper.ts for every unauthored paper, in one run, and re-approve.`
+      );
+    }
   }
 
   // Every (theme, band) pair the paper actually routes at.

@@ -99,8 +99,14 @@ export function parseBank(md: string): Situation[] {
 }
 
 /** Every situation id an OTHER TCF paper has already authored. Read from the
- *  papers themselves; a ledger that is typed rather than derived goes wrong. */
-function spent(exclude: string): Map<string, string> {
+ *  papers themselves; a ledger that is typed rather than derived goes wrong.
+ *
+ *  EXPORTED because pick-items.ts must use the SAME source. It used to replay
+ *  the bank instead, on the argument that re-deriving cannot drift. It can:
+ *  blanc-01 authored TCF-07 and TCF-17, which a fresh replay of the bank does
+ *  not draw, so the two disagreed by two situations and paper 2 came out with a
+ *  theme that had no corpus routing at all. Nothing failed. */
+export function spent(exclude: string): Map<string, string> {
   const out = new Map<string, string>();
   const dir = resolve(HERE, '..');
   for (const d of readdirSync(dir, { withFileTypes: true })) {
@@ -112,6 +118,50 @@ function spent(exclude: string): Map<string, string> {
     for (const id of head.match(/TCF-\d+/g) ?? []) out.set(id, d.name);
   }
   return out;
+}
+
+/** Which papers have actually been authored, by number. */
+export function authoredPapers(): Set<number> {
+  const out = new Set<number>();
+  const dir = resolve(HERE, '..');
+  for (const d of readdirSync(dir, { withFileTypes: true })) {
+    const m = /^tcf-blanc(\d+)$/.exec(d.name);
+    if (!d.isDirectory() || !m) continue;
+    if (existsSync(resolve(dir, d.name, 'common.ts'))) out.add(Number(m[1]));
+  }
+  return out;
+}
+
+/**
+ * The plan for ONE paper, with the ledger every earlier paper contributes.
+ *
+ * This is the whole rule in one place, and it needs to be, because it was in
+ * two and they disagreed. An AUTHORED paper contributes what it actually
+ * authored, read from its own source. An UNAUTHORED one contributes what it
+ * would draw, which has to be simulated because nothing has written it down
+ * yet. Miss the second half and every unauthored paper draws the same
+ * situations: that is how planning 2, 3, 4 and 5 in one sitting first returned
+ * four identical papers, and how pick-items.ts later derived paper 4 and paper
+ * 5 identically while the written plans were correctly distinct.
+ */
+export function ledgerFor(bank: Situation[], no: number): Map<string, string> {
+  const dirName = (n: number) => `tcf-blanc${String(n).padStart(2, '0')}`;
+  const authored = authoredPapers();
+  const out = spent(dirName(no));
+  for (let i = 1; i < no; i += 1) {
+    if (authored.has(i)) continue; // already counted, from what it really used
+    // ONCE. Calling plan() again after adding to the ledger returns a different
+    // paper, so co, ce and open must all come from the same call.
+    const earlier = plan(bank, i, new Set(out.keys()));
+    for (const r of [...earlier.co, ...earlier.ce, ...earlier.open]) {
+      if (!out.has(r.situation.id)) out.set(r.situation.id, `${dirName(i)} (not yet written)`);
+    }
+  }
+  return out;
+}
+
+export function planFor(bank: Situation[], no: number): Plan {
+  return plan(bank, no, new Set(ledgerFor(bank, no).keys()));
 }
 
 /** Deterministic pick: lowest id first, so two runs of the same plan agree and
@@ -229,27 +279,23 @@ function main() {
 
   const bank = parseBank(readFileSync(BANK, 'utf8'));
 
-  // PLANNING SEVERAL AT ONCE HAS TO ACCUMULATE. `spent()` derives the ledger
-  // from AUTHORED papers, which is the right source and the reason it cannot
-  // drift; but until paper N is authored it contributes nothing, so planning
-  // 2, 3, 4 and 5 in one sitting used to hand back four identical papers. Each
-  // one saw only blanc-01 as spent and drew the same next 53 situations.
+  // ONE RULE, in planFor(), which every caller shares.
   //
-  // Nothing failed and nothing looked wrong: each plan was internally valid,
-  // correctly distributed, and short of nothing. The pack has already shipped
-  // that exact shape once, when five TEF papers were generated separately and
-  // turned out to share one answer key across all 80 questions. The fix there
-  // and here is the same: papers must be compared with each other, not each
-  // checked alone.
-  const takenInThisRun = new Set<string>();
+  // This loop used to carry its own accumulator, and pick-items.ts derived the
+  // same thing a third way. All three disagreed. An authored paper contributes
+  // what it really used; an unauthored one contributes what it would draw, and
+  // simulating the second half is what stops four papers coming back identical.
+  // Both failures happened: plan-paper without the accumulator returned four
+  // copies of one paper, and pick-items without it derived papers 4 and 5
+  // identically while the written plans were correctly distinct.
   let failed = false;
 
   for (const no of numbers) {
-    const dirName = `tcf-blanc${String(no).padStart(2, '0')}`;
-    const spentBy = spent(dirName);
-    for (const id of takenInThisRun) if (!spentBy.has(id)) spentBy.set(id, 'earlier in this run');
-    const p = plan(bank, no, new Set(spentBy.keys()));
-    for (const s of [...p.co, ...p.ce, ...p.open]) takenInThisRun.add(s.situation.id);
+    const p = planFor(bank, no);
+    // The ledger, not just the authored part of it. A situation withheld by a
+    // paper nobody has written yet is still withheld, and reporting only the
+    // authored count would understate what this plan had to avoid.
+    const spentBy = ledgerFor(bank, no);
     const md = render(p, spentBy);
 
     if (argv.includes('--write')) {
