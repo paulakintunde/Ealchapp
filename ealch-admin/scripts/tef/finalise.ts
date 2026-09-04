@@ -40,8 +40,13 @@ const LEGACY_CYCLE_4 = [2, 0, 3, 1];
 /** Block C is the paper's only three-option block. */
 const LEGACY_CYCLE_3 = [1, 2, 0];
 
-/** Papers whose key order is frozen because learners have already sat them. */
-const FROZEN = new Set(['blanc-01']);
+/** Papers whose key order is frozen because learners have already sat them.
+ *
+ *  Keyed by FORMAT AND VARIANT, not variant alone. Every format numbers its
+ *  papers from blanc-01, so a bare 'blanc-01' would freeze TCF's first paper
+ *  onto TEF's legacy cycle — the one thing this file exists to stop, applied to
+ *  a paper nobody has ever sat. Caught the day TCF blanc-01 was assembled. */
+const FROZEN = new Set(['tef_canada:blanc-01']);
 
 /** FNV-1a. Small, deterministic, and the same on every machine — which is the
  *  whole requirement here. Not a cryptographic hash and not used as one. */
@@ -112,7 +117,7 @@ function place(item: QcmItem, pos: number): QcmItem {
  * every key in the same place.
  */
 export function scatterKeys(task: ExamTask): ExamTask {
-  const legacy = FROZEN.has(task.variant);
+  const legacy = FROZEN.has(`${task.format}:${task.variant}`);
   const rnd = mulberry32(hash32(`${task.variant}:${task.id}`));
   const used = new Map<number, number[]>();
   let n = 0;

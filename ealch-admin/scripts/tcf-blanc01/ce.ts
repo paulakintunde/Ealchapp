@@ -40,9 +40,6 @@ export const CE_A1: ExamTask = {
   parts: [
     {
       label: 'Document 1 · une étiquette',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text: 'POMMES GOLDEN\n2,40 € le kilo\nOrigine : région de Vaubourg',
       items: [
         {
@@ -56,10 +53,7 @@ export const CE_A1: ExamTask = {
     },
     {
       label: 'Document 2 · un horaire d’autobus',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
-      text: 'LIGNE 7 — arrêt Pralet\nDu lundi au vendredi : 7 h 15, 8 h 15, 9 h 15\nSamedi : 9 h 15 seulement\nDimanche : pas de service',
+      text: 'LIGNE 7 · arrêt Pralet\nDu lundi au vendredi : 7 h 15, 8 h 15, 9 h 15\nSamedi : 9 h 15 seulement\nDimanche : pas de service',
       items: [
         {
           q: 'Quand y a-t-il un bus le dimanche ?',
@@ -72,9 +66,6 @@ export const CE_A1: ExamTask = {
     },
     {
       label: 'Document 3 · une carte',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text: 'Chère Amina,\nBon anniversaire ! On pense bien à toi.\nÀ bientôt,\nToute l’équipe du deuxième étage',
       items: [
         {
@@ -112,9 +103,6 @@ export const CE_A2: ExamTask = {
   parts: [
     {
       label: 'Document 4 · un mot au voisin',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Bonjour Madame Corbeny,\n' +
         'Le facteur a laissé un colis pour vous chez moi ce matin.\n' +
@@ -132,9 +120,6 @@ export const CE_A2: ExamTask = {
     },
     {
       label: 'Document 5 · une petite annonce',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Vends vélo de ville, bon état, 120 €.\n' +
         'Freins changés l’an dernier. Panier et antivol fournis.\n' +
@@ -151,9 +136,6 @@ export const CE_A2: ExamTask = {
     },
     {
       label: 'Document 6 · une liste de courses',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text: 'Budget : 30 €\nPain 3 €\nFromage 9 €\nFruits 7 €\nCafé 8 €',
       items: [
         {
@@ -167,11 +149,8 @@ export const CE_A2: ExamTask = {
     },
     {
       label: 'Document 7 · une invitation',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
-        'REPAS DE QUARTIER — samedi 14, à partir de midi, cour de l’immeuble.\n' +
+        'REPAS DE QUARTIER · samedi 14, à partir de midi, cour de l’immeuble.\n' +
         'Chacun apporte un plat à partager. Les boissons sont offertes par l’association.\n' +
         'En cas de pluie, le repas est reporté au samedi suivant.',
       items: [
@@ -186,9 +165,6 @@ export const CE_A2: ExamTask = {
     },
     {
       label: 'Document 8 · les horaires de la piscine',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'PISCINE MUNICIPALE\n' +
         'Lundi à vendredi : 7 h – 21 h\n' +
@@ -206,9 +182,6 @@ export const CE_A2: ExamTask = {
     },
     {
       label: 'Document 9 · une consigne de tri',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Bac jaune : papier, carton, bouteilles en plastique.\n' +
         'Bac gris : tout le reste.\n' +
@@ -251,9 +224,6 @@ export const CE_B1: ExamTask = {
   parts: [
     {
       label: 'Document 10 · une lettre au propriétaire',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Madame,\n' +
         'Le chauffage de l’appartement ne fonctionne plus depuis le 3 novembre. Je vous l’ai signalé par téléphone le 4, ' +
@@ -291,9 +261,6 @@ export const CE_B1: ExamTask = {
     },
     {
       label: 'Document 11 · une médiathèque ouvre',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'La médiathèque du quartier Pralet ouvrira ses portes le 8 mars, dans l’ancienne école fermée en 2019.\n' +
         'Le bâtiment appartenait à la commune, qui hésitait entre le vendre et le réhabiliter. Une consultation menée ' +
@@ -324,9 +291,6 @@ export const CE_B1: ExamTask = {
     },
     {
       label: 'Document 12 · règlement de la piscine',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Le bonnet de bain est obligatoire dans tous les bassins.\n' +
         'Les enfants de moins de huit ans doivent être accompagnés dans l’eau par un adulte.\n' +
@@ -356,9 +320,6 @@ export const CE_B1: ExamTask = {
     },
     {
       label: 'Document 13 · une offre d’emploi',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Recherchons agent d’accueil, 24 h par semaine.\n' +
         'Horaires variables selon un planning communiqué le 20 du mois pour le mois suivant.\n' +
@@ -381,14 +342,11 @@ export const CE_B1: ExamTask = {
     },
     {
       label: 'Document 14 · compte rendu de copropriété',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
-        'Point 3 — réfection de la cage d’escalier. Devis de 18 000 €. ' +
+        'Point 3 · réfection de la cage d’escalier. Devis de 18 000 €. ' +
         'Le vote est reporté au prochain conseil, faute de quorum ce soir.\n' +
-        'Point 4 — local à vélos. Accepté à l’unanimité, travaux au printemps.\n' +
-        'Point 5 — interphone. Le syndic demandera un second devis avant toute décision.',
+        'Point 4 · local à vélos. Accepté à l’unanimité, travaux au printemps.\n' +
+        'Point 5 · interphone. Le syndic demandera un second devis avant toute décision.',
       items: [
         {
           q: 'Quelle décision a été prise ce soir-là ?',
@@ -406,9 +364,6 @@ export const CE_B1: ExamTask = {
     },
     {
       label: 'Document 15 · guide d’utilisation',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Programme coton 60° : linge très sale, durée 2 h 10.\n' +
         'Programme rapide 30 min : linge peu sale, 3 kg maximum.\n' +
@@ -430,9 +385,6 @@ export const CE_B1: ExamTask = {
     },
     {
       label: 'Document 16 · aides au permis de conduire',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'L’aide départementale au permis s’élève à 500 €. Elle s’adresse aux 18-25 ans domiciliés dans le département ' +
         'depuis au moins un an.\n' +

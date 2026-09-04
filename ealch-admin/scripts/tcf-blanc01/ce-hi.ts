@@ -35,9 +35,6 @@ export const CE_B2: ExamTask = {
   parts: [
     {
       label: 'Document 20 · les zones à circulation restreinte',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'On oppose souvent à ces zones un argument de justice : elles écarteraient les ménages modestes, dont les voitures ' +
         'sont les plus anciennes. L’argument mérite mieux qu’une réfutation rapide, car il est en partie juste.\n\n' +
@@ -90,9 +87,6 @@ export const CE_B2: ExamTask = {
     },
     {
       label: 'Document 21 · rapport interne sur l’absentéisme',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Le taux d’absence de courte durée est passé de 3,1 % à 4,8 % en deux ans. La direction a d’abord retenu ' +
         'l’hypothèse d’un relâchement et demandé un rappel des règles.\n\n' +
@@ -143,9 +137,6 @@ export const CE_B2: ExamTask = {
     },
     {
       label: 'Document 22 · le financement des bibliothèques',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Défendre les bibliothèques par le nombre de prêts, c’est accepter le terrain de celui qui veut les fermer. ' +
         'Les prêts baissent, c’est vrai, et ils continueront de baisser.\n\n' +
@@ -181,13 +172,10 @@ export const CE_B2: ExamTask = {
     },
     {
       label: 'Document 23 · apprendre une langue à l’âge adulte',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'L’idée qu’il existe un âge au-delà duquel une langue ne s’apprend plus est solidement installée et mal fondée. ' +
         'Ce qui décline avec l’âge est étroit : la capacité à acquérir un accent indistinguable de celui d’un natif.\n\n' +
-        'Sur le reste — vocabulaire, syntaxe, compréhension, aisance en conversation — les adultes progressent souvent ' +
+        'Sur le reste, vocabulaire, syntaxe, compréhension, aisance en conversation, les adultes progressent souvent ' +
         'plus vite que les enfants, parce qu’ils savent déjà comment fonctionne une langue et peuvent transposer.\n\n' +
         'Ce qui manque à l’adulte n’est pas la plasticité, c’est le temps et l’absence de honte. Un enfant se trompe ' +
         'quarante fois par jour sans que cela lui coûte quoi que ce soit.',
@@ -234,9 +222,6 @@ export const CE_C1: ExamTask = {
   parts: [
     {
       label: 'Document 30 · le mérite dans l’accès aux études',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Le mérite a ceci de particulier qu’on ne peut pas être contre. C’est ce qui devrait éveiller la méfiance : ' +
         'les notions que personne ne conteste sont rarement des notions, ce sont des places vides où chacun met ce qu’il veut.\n\n' +
@@ -301,9 +286,6 @@ export const CE_C1: ExamTask = {
     },
     {
       label: 'Document 31 · l’automatisation et les métiers',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'La question mal posée est celle des métiers détruits. Elle l’est parce qu’un métier n’est presque jamais ' +
         'détruit en bloc : il est décomposé, et certaines de ses tâches partent.\n\n' +
@@ -375,9 +357,6 @@ export const CE_C2: ExamTask = {
   parts: [
     {
       label: 'Document 37 · extrait de roman',
-      playCount: 1,
-      readWindowS: 0,
-      durationS: 0,
       text:
         'Elle arriva en avance, comme toujours, et s’en voulut aussitôt. Vingt minutes à attendre dans un couloir, ' +
         'voilà ce que valait sa prudence. Les autres, eux, arrivaient à l’heure sans avoir l’air d’y penser ; ' +
