@@ -92,9 +92,10 @@ export const CO_A1: ExamTask = {
       readWindowS: 10,
       durationS: 18,
       text:
-        'UN HOMME : Bonjour, je m’appelle Karim Vallier. J’habite à Vaubourg depuis cinq ans. ' +
-        'Je suis arrivé ici pour le travail. ' +
-        'Je travaille dans une librairie, près de la gare. J’ai deux enfants et un chien.',
+        'UN HOMME : Bonjour, je m’appelle Karim Vallier. Je réside à Vaubourg depuis maintenant cinq années. ' +
+        'Je suis arrivé ici pour des raisons professionnelles. ' +
+        'Je travaille dans une librairie indépendante, située près de la gare. ' +
+        'J’ai deux enfants et un petit chien.',
       items: [
         {
           q: 'Quel est le métier de cet homme ?',
@@ -203,7 +204,7 @@ export const CO_A2: ExamTask = {
         'UNE FEMME : Excuse-moi, je suis en retard. Le train de huit heures a été supprimé.\n' +
         'UN HOMME : Ce n’est pas grave. La réunion a été décalée à dix heures.\n' +
         'UNE FEMME : Ah, tant mieux. J’ai cru que je l’avais manquée.\n' +
-        'UN HOMME : Non, tu as même le temps de prendre un café.',
+        'UN HOMME : Non, tu as même le temps de prendre un café avant de monter.',
       items: [
         {
           q: 'Pourquoi n’a-t-elle rien manqué ?',
@@ -477,7 +478,8 @@ export const CO_B1: ExamTask = {
         'UN RESTAURATEUR : Tout le monde le sait. Mais le client qui ne vous trouve pas sur l’application ' +
         'ne se dit pas qu’il va vous téléphoner. Il se dit que vous avez fermé.\n' +
         'UNE CHRONIQUEUSE : Donc vous payez pour exister.\n' +
-        'UN RESTAURATEUR : Nous payons pour rester visibles. Ce n’est pas la même dépense.',
+        'UN RESTAURATEUR : Nous payons pour rester visibles. Ce n’est pas la même dépense. ' +
+        'Et personne, dans la profession, ne sait comment en sortir seul.',
       items: [
         {
           q: 'Pourquoi les restaurateurs restent-ils sur ces applications ?',

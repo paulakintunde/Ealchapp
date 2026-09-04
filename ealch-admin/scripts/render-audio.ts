@@ -497,6 +497,7 @@ type ExamPartUnit = {
   partIndex: number;
   partLabel: string;
   format: string;
+  variant: string;
   block: string;
   cast: CastTurn[];
   currentRef: string | null;
@@ -696,10 +697,11 @@ async function main() {
       id: string;
       label: string | null;
       format: string;
+      variant: string;
       level: string | null;
       parts: { label: string; text?: string; audioRef?: string | null }[] | null;
     }>(
-      `select id, label, format::text as format, level::text as level, parts
+      `select id, label, format::text as format, variant, level::text as level, parts
          from content_exam_tasks
         where skill = 'CO'
           and parts is not null
@@ -735,6 +737,7 @@ async function main() {
           partIndex: i,
           partLabel: part.label,
           format: row.format,
+          variant: row.variant,
           block,
           // Block G is five sub-types wearing one letter, so ITS register comes
           // from the part label rather than the block — which is why the key is
@@ -978,7 +981,11 @@ async function main() {
       // re-render the block, and a key that ignored it would leave the old,
       // too-fast clips in place.
       const sheet = castOf(unit);
-      const speed = sheet.blockSpeed.get(unit.block);
+      // A paper may override its band's speed. Density differs between papers
+      // of one format, so a single multiplier cannot put both at target: tuning
+      // the shared row for blanc-02 took blanc-01's ramp out of order.
+      const speed =
+        sheet.blockSpeed.get(`${unit.block}@${unit.variant}`) ?? sheet.blockSpeed.get(unit.block);
       const settingsFor = (slot: typeof unit.cast[number]['slot']) => ({
         ...(sheet.entries.get(slot)?.settings ?? {}),
         ...(speed ? { speed } : {}),

@@ -73,7 +73,13 @@ const LENGTH_TARGET: Record<string, [number, number]> = {
  *  rate drift between papers is a property of the PACK, and one paper cannot
  *  show it. TCF has one paper so far. */
 const ARGS = process.argv.slice(2).filter((a) => /^[0-9]+$/.test(a)).map(Number);
-const DEFAULTS = FORMAT_KEY === 'tef' ? [1, 2, 3, 4, 5] : [1];
+// Both formats default to the whole pack. Rate drift BETWEEN papers is a
+// property of the pack and one paper cannot show it, which is why TEF has
+// always defaulted this way; TCF was pinned to [1] only because that was all
+// that existed, and leaving it there would have quietly stopped comparing the
+// moment a second paper landed. Variants that do not exist yet simply return
+// no rows, so this needs no maintenance as 3, 4 and 5 arrive.
+const DEFAULTS = [1, 2, 3, 4, 5];
 const VARIANTS = (ARGS.length ? ARGS : DEFAULTS).map((n) => `blanc-${String(n).padStart(2, '0')}`);
 
 const WORDS = (text: string): number =>

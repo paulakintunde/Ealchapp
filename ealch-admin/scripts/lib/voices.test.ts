@@ -97,6 +97,19 @@ test('the shipped TCF casting file declares a speed for every band', () => {
   }
   ok(cast.blockSpeed.get('EO') !== undefined, 'the recorded interlocutor has no speed');
 
+  // EVERY entry, including the per-paper overrides. The provider rejects a
+  // speed outside its range whatever key it arrived under, and an override is
+  // exactly the kind of row that gets added without rechecking the limits.
+  for (const [key, speed] of cast.blockSpeed) {
+    ok(speed >= 0.7 && speed <= 1.2, `${key}: ${speed} is outside the provider's 0.7-1.2 range`);
+  }
+  // An override must name a band that exists, or it silently does nothing.
+  for (const key of cast.blockSpeed.keys()) {
+    if (!key.includes('@')) continue;
+    const band = key.split('@')[0]!;
+    ok(cast.blockSpeed.has(band), `${key} overrides ${band}, which has no default row`);
+  }
+
   // The rate must RISE across the ramp as DELIVERED, and the multipliers are
   // free to do whatever produces that — b2 is legitimately slower than b1
   // because those documents come out of the provider faster. So this asserts

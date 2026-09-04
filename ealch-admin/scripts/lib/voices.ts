@@ -157,7 +157,14 @@ export function parseBlockSpeed(markdown: string): Map<string, number> {
     // recorded interlocutor, which is neither but needs a rate all the same.
     // Bands stay lower case because that is how a task's `level` reads, and
     // upper-casing them here would mean every lookup had to remember to.
-    const isBand = /^[abc][12]$/i.test(raw);
+    // A band may be qualified by a paper: `b2@blanc-02`. The multiplier
+    // compensates for how fast the provider reads THIS text, and text density
+    // differs between papers of one format — blanc-01's B2 documents come out
+    // at about 192 wpm unmultiplied and blanc-02's at 174, so no single value
+    // puts both at the standard's 160. A shared table was tuned for paper 2 and
+    // silently took paper 1's ramp out of order; the unqualified row is the
+    // default and a qualified one overrides it for that paper alone.
+    const isBand = /^[abc][12](@blanc-\d+)?$/i.test(raw);
     const block = isBand ? raw.toLowerCase() : raw.toUpperCase();
     if (!isBand && !/^([A-G]|EO)$/.test(block)) continue;
     const speed = Number(cells[cells.length - 1]!.trim());

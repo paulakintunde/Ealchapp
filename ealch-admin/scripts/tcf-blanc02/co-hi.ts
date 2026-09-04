@@ -240,20 +240,12 @@ export const CO_B2: ExamTask = {
         'UNE DIRECTRICE : Nos enquêtes internes disent le contraire : huit sur dix se déclarent satisfaits.\n' +
         'UN SYNDICALISTE : Je ne conteste pas votre chiffre. Je vous demande qui répond ' +
         'à une enquête interne, et ce que dirait celui qui a déjà arrêté de refuser.\n' +
-        'UNE DIRECTRICE : Vous me demandez de prouver ce qui ne se dit pas. ' +
-        'Sur ce terrain, aucune enquête ne vous satisfera jamais, ' +
-        'et je note que le vôtre non plus n’est pas mesurable : ' +
-        'vous décrivez une pression que personne ne déclare et que vous déduisez du planning.\n' +
-        'UN SYNDICALISTE : Je la déduis d’une chose vérifiable. ' +
-        'Regardez qui travaille les dimanches de décembre depuis trois ans. ' +
-        'Ce sont les mêmes noms, et ce ne sont pas les mieux payés. ' +
-        'Un volontariat qui produit toujours la même liste mérite qu’on lui pose une question.\n' +
-        'UNE DIRECTRICE : Cette liste, je peux la sortir, et je le ferai. ' +
-        'Si elle dit ce que vous dites, nous aurons un problème à traiter. ' +
-        'Ce ne sera toujours pas le problème que vous décrivez.\n' +
-        'UN SYNDICALISTE : Sortez-la d’abord. Nous nommerons ensuite.\n' +
-        'UNE DIRECTRICE : Je vous demande simplement de ne pas conclure avant de l’avoir vue.\n' +
-        'UN SYNDICALISTE : Et moi de ne pas conclure d’un silence qu’il est un accord.',
+        'UNE DIRECTRICE : Vous me demandez de prouver ce qui ne se dit pas.\n' +
+        'UN SYNDICALISTE : Je vous demande de regarder qui travaille les dimanches de décembre ' +
+        'depuis trois ans. Ce sont les mêmes noms, et ce ne sont pas les mieux payés. ' +
+        'Un volontariat qui produit toujours la même liste mérite une question.\n' +
+        'UNE DIRECTRICE : Cette liste, je peux la sortir, et je le ferai dès cette semaine.\n' +
+        'UN SYNDICALISTE : Sortez-la. En attendant, ne concluez pas d’un silence qu’il est un accord.',
       items: [
         {
           q: 'Que reproche le syndicaliste au volontariat ?',
@@ -324,12 +316,8 @@ export const CO_C1: ExamTask = {
         'C’est de cela qu’il faut décider, pas de la longueur.\n' +
         'UN MÉDECIN : Vous décrivez un service qui grossit tout seul.\n' +
         'UNE JURISTE : Je décris ce que fait n’importe quel texte que plusieurs métiers relisent ' +
-        'et que personne ne possède. Ajouter est sans risque pour celui qui ajoute. ' +
-        'Retirer engage celui qui retire. Tant que cette asymétrie tient, la longueur revient, ' +
-        'quelle que soit la version sur laquelle vous repartez.\n' +
-        'UNE MODÉRATRICE : Donc il faut quelqu’un qui possède le texte.\n' +
-        'UNE JURISTE : Il faut quelqu’un qui ait le droit de dire non, et qui en réponde. ' +
-        'Ce n’est pas une question de rédaction, c’est une question de mandat.\n' +
+        'et que personne ne possède. Ajouter est sans risque pour celui qui ajoute ; ' +
+        'retirer engage celui qui retire. Tant que cette asymétrie tient, la longueur revient.\n' +
         'UN MÉDECIN : Je vous suis, et je remarque où nous sommes arrivés. ' +
         'Nous avons commencé par le patient qui signe en quatre minutes, ' +
         'et nous parlons d’organigramme.\n' +

@@ -65,15 +65,37 @@ rate, which is exactly the defect this table exists to prevent. Add new columns
 before `Speed`, never after. `voices.test.ts` now asserts every band has a
 speed, so this fails loudly rather than silently.
 
-| Band | Documents | Target wpm (STANDARD-common §2) | Second pool, first render | Speed |
+**A PAPER MAY OVERRIDE ITS BAND.** Write `b2@blanc-02` in the first cell and it
+applies to that paper alone; the unqualified row stays the default for every
+other. This is not a convenience. The multiplier compensates for how fast the
+provider reads THIS text, and density differs between papers of one format:
+blanc-01's B2 documents come out at about 192 wpm unmultiplied, blanc-02's at
+174. No single value puts both at the standard's 160. A shared table was tuned
+for blanc-02 and silently took blanc-01's ramp out of order — c1 fell below b2
+on a paper that had already been reviewed and published.
+
+**The defaults are blanc-01's**, because it is the gold paper and the one that
+has been sat.
+
+| Band | Documents | Target wpm (STANDARD-common §2) | Last measured | Speed |
 |---|---|---|---|---|
 | a1 | 3 | ≤ 110 | 118 wpm at 0.70 (floored) | 0.70 |
-| a2 | 6 | ~ 120 | 138 wpm at 0.80 | 0.72 |
-| b1 | 7 | ~ 140 | 171 wpm at 0.86 | 0.71 |
-| b2 | 4 | ~ 160 | 152 wpm at 0.80 | 0.84 |
-| c1 | 3 | ~ 175 | 155 wpm at 0.87 | 0.98 |
-| c2 | 1 | ~ 185 | 159 wpm at 1.01 | 1.18 |
+| a2 | 6 | ~ 120 | 123 wpm at 0.72 | 0.72 |
+| b1 | 7 | ~ 140 | 142 wpm at 0.71 | 0.71 |
+| b2 | 4 | ~ 160 | 157 wpm at 0.84 | 0.84 |
+| c1 | 3 | ~ 175 | 174 wpm at 0.98 | 0.98 |
+| c2 | 1 | ~ 185 | 186 wpm at 1.18 | 1.18 |
 | EO | 1 | ~ 140 | not measured | 0.83 |
+
+Per-paper overrides. Only the bands that actually differ appear here; anything
+absent falls through to the table above.
+
+| Band · paper | Documents | Target wpm | Last measured | Speed |
+|---|---|---|---|---|
+| a2@blanc-02 | 6 | ~ 120 | 121 wpm at 0.73 | 0.73 |
+| b2@blanc-02 | 4 | ~ 160 | 161 wpm at 0.92 | 0.92 |
+| c1@blanc-02 | 3 | ~ 175 | 169 wpm at 0.99 | 1.02 |
+| _(c2 needs no override: blanc-02 measured 183 at 1.17 and wants 1.18, which is already the default)_ | | | | |
 
 **b2 is slower than b1 and that is not a typo.** The speed is a multiplier on
 whatever the voice does with the text in front of it, and the b2 documents come
