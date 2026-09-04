@@ -47,14 +47,23 @@ STANDARD-tcf §7: *"CO: speech rate rises across the épreuve and sits in each b
 
 This is the single biggest difference from TEF's casting. TEF sets a speed **per block**, because its blocks are exercise families with fixed bands. TCF has no blocks; it has a slope, and the rate is a function of **where on the slope the document sits**.
 
-| Band | Target wpm (STANDARD-common §2) | Suggested speed | Documents |
+`voices.ts` reads this table too: first cell the band, **last cell the speed**.
+A speed of exactly `1` is skipped rather than stored, because `speed=1` in an
+assetKey would re-render a whole band to sound identical to the default.
+
+| Band | Documents | Target wpm (STANDARD-common §2) | Speed |
 |---|---|---|---|
-| A1 | ≤ 110 | 0.72 | 3 |
-| A2 | ~ 120 | 0.78 | 6 |
-| B1 | ~ 140 | 0.85 | 7 |
-| B2 | ~ 160 | 0.92 | 4 |
-| C1 | ~ 175 | 0.99 | 3 |
-| C2 | ~ 185 | 1.03 | 1 |
+| a1 | 3 | ≤ 110 | 0.72 |
+| a2 | 6 | ~ 120 | 0.78 |
+| b1 | 7 | ~ 140 | 0.85 |
+| b2 | 4 | ~ 160 | 0.92 |
+| c1 | 3 | ~ 175 | 0.99 |
+| c2 | 1 | ~ 185 | 1.03 |
+| EO | 1 | ~ 140 | 0.83 |
+
+`EO` is the recorded interlocutor of Expression orale tâche 2 — a person at an
+agency answering a candidate's questions. Not a band, and it needs a rate all
+the same.
 
 **The speed column is a starting point, not a setting.** The equivalent TEF figures were wrong in both directions until they were measured: the renderer produced 127 wpm where 120 was asked for, and 167 where 175 was. Render once, then run `scripts/tef/check-speech-rate.ts` — it already reports measured wpm per document against the band envelope — and correct these from what came out, not from what was intended.
 
@@ -76,18 +85,48 @@ Recorded here rather than discovered at render time, because the casting session
 
 ---
 
-## 5. The pool
+## 5. The pool — where the voice ids go
 
-Unchanged from TEF: `f-neutral`, `f-formal`, `f-media`, `f-street`, `m-neutral`, `m-formal`, `m-media`, `m-street`.
+**Render version:** `v1`
 
-Suggested register per band, following the documents rather than the band:
+`scripts/lib/voices.ts` reads the table below. It takes the **fifth column** as the
+voice id and the sixth as prosody settings; everything else is for the reader.
+A slot with an empty id is **uncast**, and a document needing it refuses to
+render rather than borrowing another voice — substituting is exactly how two
+speakers in one document end up sharing one.
 
-| Band | Character of the documents | Reach for |
+To change a voice: audition in the ElevenLabs UI, copy the id, paste it into the
+`Voice id` cell. Nothing else to run. `Settings` is free text like
+`stability 0.4, similarity 0.8`; anything that is not a number is ignored rather
+than coerced, because a `NaN` reaching a synthesis request is a wasted credit.
+
+**These are TEF's voices, and that is a proposal rather than a default.** The
+eight slots, the registers and the requirement (metropolitan French,
+STANDARD-common §2.1) are identical across the two formats, and the two
+documents that could break already resolve to different slots — see §2. So this
+paper can render today. Re-audition only if you want TCF to sound like a
+different exam board, which is a product decision and not a casting one.
+
+| Slot | Sex | Register to audition for | Serves on this paper | Voice id | Settings |
+|---|---|---|---|---|---|
+| `f-neutral` | F | Everyday, warm, unhurried. The default female speaker. | A1–A2 announcements and counters, B1 interviewees | GYzIdoKkRyANjBvkKYfO | |
+| `f-formal` | F | Institutional, even, no warmth. Reads, does not chat. | recorded announcements; **the second woman in documents 20 and 30** | O31r762Gb3WFygrEOGh0 | |
+| `f-media` | F | Broadcast. Projects, varies pitch, lands its clauses. | B1 reporters; **the moderator in documents 20 and 30** | 3C1zYzXNXNzrB66ON8rj | |
+| `f-street` | F | Spontaneous, uneven, thinks mid-sentence. | unused on blanc-01 — kept so the pool stays whole | WQKwBV2Uzw1gSGr69N8I | |
+| `m-neutral` | M | Everyday, warm, unhurried. The default male speaker. | A1–A2 exchanges, B1 interviewees, the C1 historian | HeQxwrjIb6zvCa1bt1EE | |
+| `m-formal` | M | Institutional. Specialists who argue from a position. | B2 and C1 panels, the C2 historian | zAr1POVZUrr1zkX0T94t | |
+| `m-media` | M | Broadcast, a shade lower and slower than `f-media`. | B1 reporters where the woman is the interviewee | fEtpdogpDkBrq53KdupV | |
+| `m-street` | M | Spontaneous. | unused on blanc-01 — kept so the pool stays whole | SsVUx1gFlvniIrUMZtgF | |
+
+Register per band, which is what the casting lists in `examAudio.ts` encode:
+
+| Band | Character of the documents | Cast from |
 |---|---|---|
-| A1–A2 | announcements, counters, a phone call | `f-neutral`, `m-neutral`, plus `f-formal` for the recorded announcements |
-| B1 | interviews and conversations | `f-media` for reporters, `m-neutral` / `f-neutral` for the interviewed |
-| B2–C1 | panels and debates | `f-media` for moderators, `f-formal` / `m-formal` for specialists |
-| C2 | one philosopher, one historian | `f-formal` and `m-formal`, unhurried |
+| A1–A2 | announcements, counters, a phone call | `f-neutral`, `m-neutral`, then `f-formal`, `m-formal` |
+| B1 | interviews and conversations | `f-media`, `m-neutral`, then `f-neutral`, `m-media` |
+| B2 | panels and debates | `f-media`, `m-formal`, then `f-formal`, `m-media` |
+| C1 | specialists arguing | `f-media`, `m-formal`, then `f-formal`, `m-neutral` |
+| C2 | one philosopher, one historian | `f-formal`, `m-formal`, unhurried |
 
 ---
 

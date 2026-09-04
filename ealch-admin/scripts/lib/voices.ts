@@ -110,11 +110,16 @@ export function voiceIdFor(cast: Cast, slot: SlotName): string {
 }
 
 /**
- * The per-block speed table.
+ * The speed table, per block on TEF and per BAND on TCF.
  *
- * A row whose first cell is a single block letter and whose last cell is a
- * number. Anything else in the file is ignored, so the table can move or gain
- * columns without breaking the parse.
+ * A row whose first cell is a division key and whose last cell is a number.
+ * Anything else in the file is ignored, so the table can move or gain columns
+ * without breaking the parse.
+ *
+ * The keys are two different spaces because the formats divide differently: TEF
+ * has seven lettered blocks, TCF has six bands on a ramp. They cannot collide —
+ * a block is one letter, a band is a letter and a digit — so one table reads
+ * both and render-audio keeps a single lookup.
  */
 export function parseBlockSpeed(markdown: string): Map<string, number> {
   const out = new Map<string, number>();
@@ -122,10 +127,14 @@ export function parseBlockSpeed(markdown: string): Map<string, number> {
     if (!line.trim().startsWith('|')) continue;
     const cells = CELL(line);
     if (cells.length < 4) continue;
-    const block = cells[0]!.replace(/`/g, '').trim().toUpperCase();
-    // A to G are the listening blocks; EO is the recorded interlocutor, which
-    // is not a block but needs a rate all the same.
-    if (!/^([A-G]|EO)$/.test(block)) continue;
+    const raw = cells[0]!.replace(/`/g, '').trim();
+    // A to G are TEF's listening blocks; a1..c2 are TCF's bands; EO is the
+    // recorded interlocutor, which is neither but needs a rate all the same.
+    // Bands stay lower case because that is how a task's `level` reads, and
+    // upper-casing them here would mean every lookup had to remember to.
+    const isBand = /^[abc][12]$/i.test(raw);
+    const block = isBand ? raw.toLowerCase() : raw.toUpperCase();
+    if (!isBand && !/^([A-G]|EO)$/.test(block)) continue;
     const speed = Number(cells[cells.length - 1]!.trim());
     if (!Number.isFinite(speed) || speed <= 0) continue;
     // 1.0 is the provider default. Storing it would put `speed=1` in the
