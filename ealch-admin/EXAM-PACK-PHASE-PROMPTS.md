@@ -579,7 +579,7 @@ through device TTS, which is exactly how the listening parts already behave.
 
 ---
 
-## E5 — Report and NCLC estimation
+## E5 — Report and NCLC estimation ✅ COMPLETE (verified 2026-09-04)
 
 ```
 Build the screen the product is sold on. Read EXAM-PACK-PHASE-PROMPTS.md §0
@@ -629,6 +629,27 @@ DONE WHEN: a completed fixture paper produces a report whose headline NCLC
 equals its weakest section, every number is a range with its raw count, an
 ungraded section says so, and a mode entraînement attempt is visibly unscored.
 ```
+
+**Verified 2026-09-04.** The heading had no mark, but the phase was built and is
+sound. All three structural rules live in `src/utils/nclc.logic.ts` as pure
+functions, not in the screen:
+
+| Rule | Enforced by | Proved by |
+|---|---|---|
+| The lowest skill governs | `paperOutcome` folds with `lower`, which cannot average | *the lowest skill governs, never the average* |
+| NCLC is a range | `NclcRange {low, high}` and `formatNclc`; there is no point-estimate type to return | *the range is formatted as a range, and collapses only when it truly is one* |
+| No band is fabricated | `paperOutcome` returns `overall: null` and `overallStatus: 'incomplete'` when ANY section is unscored | *a paper missing one épreuve reports NO overall* |
+
+19 tests in `nclc.logic.test.ts`, all passing. Two are worth naming because they
+close the ways the third rule could be dodged rather than broken: a **practice**
+épreuve blocks the overall exactly like an ungraded one, and audio that never
+played blocks it too, and is named.
+
+`app/exam-report.tsx` routes entirely through those functions. It calls
+`paperOutcome` once, gates the headline on `overallStatus === 'complete'`, and
+renders through `formatNclc`. There is no arithmetic in the component at all, so
+there is no path by which the screen can compute a band the logic refused to.
+The raw count renders whether or not a section scored.
 
 ---
 
@@ -1057,7 +1078,7 @@ pins it.
 
 ---
 
-## E9 — Scale: TEF 2-5 and TCF 1-5
+## E9 — Scale: TEF 2-5 and TCF 1-5 — TEF DONE, TCF 1 of 5
 
 ```
 Produce nine more papers using Examen 1 as the template. Read
@@ -1114,6 +1135,51 @@ DONE WHEN: nine papers validate, every open task has had full human review,
 band distribution ramps correctly on all five TCF papers, no n-gram collision
 across papers, and the audio for all of them is marked and uploaded.
 ```
+
+### Where E9 actually stands, 2026-09-04
+
+**TEF 2-5: shipped and published.** Marked against transcripts, five marking
+sheets signed off.
+
+**TCF blanc-01: authored, rendered, calibrated, awaiting human review.** It is
+the gold paper for the format and blocks 2-5 the way E7 blocked E9.
+
+Four things were found building it that the brief above does not anticipate, and
+all four were silent:
+
+1. **The renderer loaded one casting file for every format.** TEF keys speeds by
+   block letter and TCF by band, so every TCF lookup missed, no speed reached
+   the request, and the whole épreuve rendered at the provider's default. The
+   voices were right and each clip sounded fine alone. What was missing was the
+   ramp — the thing this phase's DONE WHEN asks for by name.
+
+2. **Nothing checked document LENGTH until audio existed**, and then all 24 were
+   outside STANDARD-tcf §3, worst at the top: C1 documents at 22-34s against a
+   90-120s requirement, each carrying two or three items. The reading épreuve
+   had the identical defect, 21 of 23 short. Both are fixed; the listening
+   épreuve went 1,163 → 2,893 spoken words and reading ~1,590 → 3,224.
+
+3. **Section clocks were checked against a blueprint constant, never against
+   their own contents.** After the documents grew, C1 had a 375s clock over 391s
+   of audio and reading windows. Both checks stayed green.
+
+4. **The planner returns identical papers when asked for several at once.**
+   `spent()` derives its ledger from AUTHORED papers, so papers 2-5 planned in
+   one sitting each saw only blanc-01 and drew the same 53 situations. Every
+   plan was internally valid and short of nothing. This is the answer-key
+   failure in a new place, and the same lesson: **compare papers with each
+   other, never each alone.**
+
+The plans for 2-5 now generate distinctly (212 topics, 212 distinct) and the
+bank is proved by SIMULATING the draw rather than counting rows: five papers
+spend 265 of 282 situations, and a sixth meets a named shortage.
+
+**Add to the DONE WHEN above**, because the current wording would have passed a
+paper with none of this: speech rate rises and sits in each band's envelope, no
+document is outside its length envelope, and no section's clock is shorter than
+its own audio. `scripts/exam/check-speech-rate.ts <fmt>` and
+`scripts/exam/check-authored-length.ts` gate all three, and the second needs no
+audio, so it can run before a credit is spent.
 
 ---
 
@@ -1188,15 +1254,16 @@ end to end on a device, timed, with real audio and a real report.
 
 | Item | Owner | Blocks |
 |---|---|---|
-| DELF B2 per-exercise question counts | needs an official sample paper | E10 only |
+| DELF B2 per-exercise question counts | needs an official sample paper | **E10 entirely** — this is the only thing blocking the last phase, and no amount of engineering substitutes for it |
 | TEF CO's 7 unallocated questions (published breakdown sums to 33 of 40) | E0 resolves or writes the fill rule | E7 |
 | Premium lock date and price | Paul, future | nothing; plumbing ships open |
 | Multimodal speech grading | deferred; transcript plus delivery signals ships first | nothing |
 | Papers 6 to 20 | after the first 11 land | nothing |
-| MARKING: listen to the 30 rendered clips against their transcripts | Paul | E8 completion, and the blanc-01 publish |
+| ~~MARKING: TEF blanc-01 to 05~~ | done; five sheets signed off | — |
+| MARKING: TCF blanc-01, 24 clips / 19:13. Documents 20 and 30 first: `f-formal` and `m-formal` are newly recast, and those items turn on telling three voices apart | Paul | the TCF publish, and E9's papers 2-5 |
 | ~~Deploy `grade-exam`~~ | done 2026-08-30, all four open tasks grade | — |
 | Grading has a failover chain ONE provider deep | Paul: add a second provider secret | resilience only; grading works |
-| `gradeFreeTurnsPerDay` is unset, so 5/day per device | Paul: set it in system_config | a paper has 4 open tasks |
+| ~~`gradeFreeTurnsPerDay` unset~~ | set to 12 | — |
 
 ### grade-exam, deployed 2026-08-30
 
