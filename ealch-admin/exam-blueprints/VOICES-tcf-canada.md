@@ -107,16 +107,16 @@ documents that could break already resolve to different slots — see §2. So th
 paper can render today. Re-audition only if you want TCF to sound like a
 different exam board, which is a product decision and not a casting one.
 
-| Slot | Sex | Register to audition for | Serves on this paper | Voice id | Settings |
+| Slot | Voice id | Settings | Sex | Register to audition for | Serves on this paper |
 |---|---|---|---|---|---|
-| `f-neutral` | F | Everyday, warm, unhurried. The default female speaker. | A1–A2 announcements and counters, B1 interviewees | GYzIdoKkRyANjBvkKYfO | |
-| `f-formal` | F | Institutional, even, no warmth. Reads, does not chat. | recorded announcements; **the second woman in documents 20 and 30** | O31r762Gb3WFygrEOGh0 | |
-| `f-media` | F | Broadcast. Projects, varies pitch, lands its clauses. | B1 reporters; **the moderator in documents 20 and 30** | 3C1zYzXNXNzrB66ON8rj | |
-| `f-street` | F | Spontaneous, uneven, thinks mid-sentence. | unused on blanc-01 — kept so the pool stays whole | WQKwBV2Uzw1gSGr69N8I | |
-| `m-neutral` | M | Everyday, warm, unhurried. The default male speaker. | A1–A2 exchanges, B1 interviewees, the C1 historian | HeQxwrjIb6zvCa1bt1EE | |
-| `m-formal` | M | Institutional. Specialists who argue from a position. | B2 and C1 panels, the C2 historian | zAr1POVZUrr1zkX0T94t | |
-| `m-media` | M | Broadcast, a shade lower and slower than `f-media`. | B1 reporters where the woman is the interviewee | fEtpdogpDkBrq53KdupV | |
-| `m-street` | M | Spontaneous. | unused on blanc-01 — kept so the pool stays whole | SsVUx1gFlvniIrUMZtgF | |
+| `f-neutral` | GYzIdoKkRyANjBvkKYfO |  | F | Everyday, warm, unhurried. The default female speaker. | A1–A2 announcements and counters, B1 interviewees |
+| `f-formal` | O31r762Gb3WFygrEOGh0 |  | F | Institutional, even, no warmth. Reads, does not chat. | recorded announcements; **the second woman in documents 20 and 30** |
+| `f-media` | 3C1zYzXNXNzrB66ON8rj |  | F | Broadcast. Projects, varies pitch, lands its clauses. | B1 reporters; **the moderator in documents 20 and 30** |
+| `f-street` | WQKwBV2Uzw1gSGr69N8I |  | F | Spontaneous, uneven, thinks mid-sentence. | unused on blanc-01 — kept so the pool stays whole |
+| `m-neutral` | HeQxwrjIb6zvCa1bt1EE |  | M | Everyday, warm, unhurried. The default male speaker. | A1–A2 exchanges, B1 interviewees, the C1 historian |
+| `m-formal` | zAr1POVZUrr1zkX0T94t |  | M | Institutional. Specialists who argue from a position. | B2 and C1 panels, the C2 historian |
+| `m-media` | fEtpdogpDkBrq53KdupV |  | M | Broadcast, a shade lower and slower than `f-media`. | B1 reporters where the woman is the interviewee |
+| `m-street` | SsVUx1gFlvniIrUMZtgF |  | M | Spontaneous. | unused on blanc-01 — kept so the pool stays whole |
 
 Register per band, which is what the casting lists in `examAudio.ts` encode:
 

@@ -53,10 +53,35 @@ export function parseSettings(cell: string): Record<string, number> {
   return out;
 }
 
+/**
+ * Where the id and settings columns are, read from the table's own header.
+ *
+ * They used to be fixed at cells 4 and 5, which forced the id to sit behind two
+ * long prose columns — about 130 characters into the row, off the right edge of
+ * an editor, which is exactly where a person filling this in cannot see it.
+ * Finding them by NAME lets the table be ordered for the human doing the
+ * casting instead of for the parser, and the two formats need not agree.
+ *
+ * Falls back to the old positions when no header is found, so a file that was
+ * correct before this stays correct.
+ */
+function columnsOf(markdown: string): { id: number; settings: number } {
+  for (const line of markdown.split('\n')) {
+    if (!line.trim().startsWith('|')) continue;
+    const cells = CELL(line).map((c) => c.toLowerCase());
+    const id = cells.findIndex((c) => c === 'voice id');
+    if (id === -1) continue;
+    const settings = cells.findIndex((c) => c === 'settings');
+    return { id, settings: settings === -1 ? id + 1 : settings };
+  }
+  return { id: 4, settings: 5 };
+}
+
 export function parseVoices(markdown: string): Cast {
   const entries = new Map<SlotName, CastEntry>();
   const uncast: SlotName[] = [];
   const seen = new Set<SlotName>();
+  const col = columnsOf(markdown);
 
   const version = /\*\*Render version:\*\*\s*`([^`]+)`/.exec(markdown)?.[1]?.trim() ?? 'v1';
 
@@ -68,7 +93,7 @@ export function parseVoices(markdown: string): Cast {
     if (!(SLOTS as readonly string[]).includes(slotCell)) continue;
     seen.add(slotCell);
 
-    const voiceId = cells[4]!.replace(/`/g, '').trim();
+    const voiceId = (cells[col.id] ?? '').replace(/`/g, '').trim();
     if (!voiceId) {
       uncast.push(slotCell);
       continue;
@@ -76,7 +101,7 @@ export function parseVoices(markdown: string): Cast {
     entries.set(slotCell, {
       slot: slotCell,
       voiceId,
-      settings: parseSettings(cells[5] ?? ''),
+      settings: parseSettings(cells[col.settings] ?? ''),
     });
   }
 
