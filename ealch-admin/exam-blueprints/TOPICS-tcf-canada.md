@@ -20,8 +20,6 @@ Rules:
 
 Per-paper draw, matching the blueprint's distribution:
 
-| Band | CO items | CE items | Topics to draw |
-|
 > **Two themes do not resolve.** `nuances-et-registres` and `culture-profonde`
 > are named by situations below but are not slugs in `content_themes`, so rule 3
 > does not hold for them: those situations route no `targetItemIds` and a miss on
@@ -30,7 +28,8 @@ Per-paper draw, matching the blueprint's distribution:
 > slugs when TCF is scoped — not by adding themes to the catalogue, which would
 > create themes with no published items behind them.
 
----|---|---|---|
+| Band | CO items | CE items | Topics to draw |
+|---|---|---|---|
 | A1 | 3 | 3 | ~6 |
 | A2 | 6 | 6 | ~12 |
 | B1 | 10 | 10 | ~14 |
