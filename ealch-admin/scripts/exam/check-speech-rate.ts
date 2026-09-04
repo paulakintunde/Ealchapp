@@ -40,6 +40,7 @@ import {
   type Band,
   type Measured,
 } from './rate-rules.ts';
+import { clockShortfalls } from '../tcf/paper-rules.ts';
 
 const FORMATS = { tef: 'tef_canada', tcf: 'tcf_canada' } as const;
 const FORMAT_KEY = (process.argv.slice(2).find((a) => a in FORMATS) ?? 'tef') as keyof typeof FORMATS;
@@ -90,9 +91,18 @@ async function main() {
       variant: string;
       label: string | null;
       level: string | null;
-      parts: { label: string; text?: string; durationS?: number; audioRef?: string | null }[];
+      timing_s: number | null;
+      parts: {
+        label: string;
+        text?: string;
+        durationS?: number;
+        readWindowS?: number;
+        playCount?: number;
+        items?: unknown[];
+        audioRef?: string | null;
+      }[];
     }>(
-      `select variant, label, level::text as level, parts from content_exam_tasks
+      `select variant, label, level::text as level, timing_s, parts from content_exam_tasks
         where variant = any($1::text[]) and format = $2::text::exam_format and skill = 'CO'
         order by variant, id`,
       [VARIANTS, FORMAT]
@@ -110,6 +120,12 @@ async function main() {
     const perVariant = new Map<string, number[]>();
     const tcfDocs = new Map<string, Measured[]>();
     const isTcf = FORMAT_KEY === 'tcf';
+
+    // The suite's clock guard runs on the AUTHORED durationS, which is an
+    // estimate the renderer then overwrites with what it measured. So the guard
+    // can be green on a paper whose real audio overruns its clock. This is the
+    // same check against the numbers that actually came out.
+    const clockOff: string[] = [];
 
     let shown = '';
     for (const row of rows.rows) {
@@ -157,6 +173,10 @@ async function main() {
           }
         }
       }
+      const measured = clockShortfalls([
+        { label: `${row.variant} · ${row.label}`, level: row.level ?? undefined, timingS: row.timing_s ?? 0, parts: row.parts },
+      ]);
+      clockOff.push(...measured);
     }
 
     // TCF: the ramp, which is the requirement TEF does not have. Reported per
@@ -196,8 +216,10 @@ async function main() {
     for (const l of rateOff) console.log(`    · ${l}`);
     console.log(`\n  ${lengthOff.length} document(s) outside the blueprint's length envelope:`);
     for (const l of lengthOff) console.log(`    · ${l}`);
+    console.log(`\n  ${clockOff.length} section(s) whose MEASURED audio overruns their clock:`);
+    for (const l of clockOff) console.log(`    · ${l}`);
     console.log();
-    failures += rateOff.length + lengthOff.length;
+    failures += rateOff.length + lengthOff.length + clockOff.length;
   } finally {
     client.release();
     await pool.end();

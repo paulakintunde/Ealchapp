@@ -455,13 +455,13 @@ export const CO_B1: ExamTask = {
       text:
         'UN REPORTER : La ligne douze desservait le hameau de Vaubourg deux fois par jour. ' +
         'Elle est supprimée depuis septembre.\n' +
-        'UNE HABITANTE : On nous a proposé un service à la demande, il faut réserver la veille. ' +
-        'Pour un rendez-vous prévu, ça va, on s’organise. ' +
+        'UNE HABITANTE : On nous a proposé un service à la demande. La réservation doit être effectuée la veille. ' +
+        'Pour un rendez-vous programmé, cela fonctionne. On s’organise. ' +
         'Pour aller à la pharmacie un dimanche, ça ne va pas.\n' +
         'UN REPORTER : Vous avez fait remonter le problème ?\n' +
-        'UNE HABITANTE : Deux réunions en mairie, et une pétition signée par presque tout le hameau. ' +
-        'On nous répond que la fréquentation ne justifiait plus la ligne, et que le service à la demande ' +
-        'coûte moins cher à la collectivité.',
+        'UNE HABITANTE : Deux réunions en mairie, plus une pétition signée par pratiquement tout le hameau. ' +
+        'On nous répond que la fréquentation ne justifiait plus le maintien de la ligne, ' +
+        'et que le service à la demande représente une économie substantielle pour la collectivité.',
       items: [
         {
           q: 'Que reproche l’habitante au nouveau service ?',
