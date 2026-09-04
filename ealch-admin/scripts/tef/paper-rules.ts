@@ -26,6 +26,7 @@ import {
 } from '../../../ealch-v2/src/content/schema.ts';
 import { cueMatches, selectTurn } from '../../../ealch-v2/src/utils/interlocutor.logic.ts';
 import { keyPositionCounts, allItems, scatterKeys } from './finalise.ts';
+import { itemsOf, countOf, words, candidateFacing } from '../exam/task-shape.ts';
 import { CO_SCORING, CE_SCORING } from './scoring.ts';
 import { scaledFor, nclcFor } from '../../../ealch-v2/src/utils/nclc.logic.ts';
 
@@ -43,9 +44,6 @@ export type PaperUnderTest = {
   interaction: ExamTask;
 };
 
-const itemsOf = (t: ExamTask): QcmItem[] => (t.parts ? t.parts.flatMap((p) => p.items) : (t.items ?? []));
-const countOf = (t: ExamTask) => itemsOf(t).length;
-const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 
 /** Document length the blueprint expects per CO block, in seconds
  *  (STANDARD-tef §2). Only the floor is enforced as a test; the ceiling is
@@ -80,19 +78,6 @@ const RENDERED_WPM: Record<string, number> = {
 };
 
 /** Everything a candidate or a grader actually reads. */
-function candidateFacing(tasks: ExamTask[]): string[] {
-  const out: string[] = [];
-  for (const t of tasks) {
-    out.push(t.prompt, t.label ?? '', t.modelAnswer ?? '');
-    for (const part of t.parts ?? []) out.push(part.label, part.text ?? '', part.imageAlt ?? '');
-    for (const it of itemsOf(t)) out.push(it.q, it.why ?? '', ...it.opts);
-    for (const c of t.rubric?.criteria ?? []) out.push(c.label, ...(c.descriptors ?? []));
-    const b = t.interlocutor;
-    if (b) for (const turn of [b.opening, b.catchAll, b.closing, ...b.answers]) out.push(turn.text, turn.covers);
-  }
-  return out.filter(Boolean);
-}
-
 export function paperRules(p: PaperUnderTest): void {
   const n = p.name;
 
