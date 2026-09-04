@@ -65,14 +65,14 @@ rate, which is exactly the defect this table exists to prevent. Add new columns
 before `Speed`, never after. `voices.test.ts` now asserts every band has a
 speed, so this fails loudly rather than silently.
 
-| Band | Documents | Target wpm (STANDARD-common §2) | First pool settled at | Speed |
+| Band | Documents | Target wpm (STANDARD-common §2) | Second pool, first render | Speed |
 |---|---|---|---|---|
-| a1 | 3 | ≤ 110 | 0.70, gave 114 wpm | 0.70 |
-| a2 | 6 | ~ 120 | 0.80, gave 120 wpm | 0.80 |
-| b1 | 7 | ~ 140 | 0.86, gave 143 wpm | 0.86 |
-| b2 | 4 | ~ 160 | 0.80, gave 163 wpm | 0.80 |
-| c1 | 3 | ~ 175 | 0.87, gave 173 wpm | 0.87 |
-| c2 | 1 | ~ 185 | 1.01, gave 189 wpm | 1.01 |
+| a1 | 3 | ≤ 110 | 118 wpm at 0.70 (floored) | 0.70 |
+| a2 | 6 | ~ 120 | 138 wpm at 0.80 | 0.72 |
+| b1 | 7 | ~ 140 | 171 wpm at 0.86 | 0.71 |
+| b2 | 4 | ~ 160 | 152 wpm at 0.80 | 0.84 |
+| c1 | 3 | ~ 175 | 155 wpm at 0.87 | 0.98 |
+| c2 | 1 | ~ 185 | 159 wpm at 1.01 | 1.18 |
 | EO | 1 | ~ 140 | not measured | 0.83 |
 
 **b2 is slower than b1 and that is not a typo.** The speed is a multiplier on
@@ -89,25 +89,41 @@ the same.
 
 **The speed column is a starting point, not a setting.** The equivalent TEF figures were wrong in both directions until they were measured: the renderer produced 127 wpm where 120 was asked for, and 167 where 175 was. Render once, then run `scripts/exam/check-speech-rate.ts tcf` — it reports measured wpm per document against the band envelope, and fails the ramp check if the rate does not rise — and correct these from what came out, not from what was intended.
 
-**These numbers were settled against the FIRST voice pool and six of the eight
-slots have since been recast.** A voice's unmultiplied rate is its own, so the
-column above is once again a starting point and is owed another measured pass.
+**How far a recast moves these.** The second pool needed b1 taken from 0.86 to
+0.71 and c2 from 1.01 to 1.18, because the new male voices read considerably
+faster and the new C2 pairing considerably slower. Nothing about the documents
+changed. That is the size of the correction a recast costs, and it is the reason
+the column is never final: it describes voices, not text.
 
 A rate that does not rise is not a cosmetic failure. It is the difficulty lever the standard calls "the cheapest one we control", switched off.
 
 ---
 
-## 4. Before this file can be used: the renderer is block-shaped
+## 4. The renderer was block-shaped, and now is not
 
-`scripts/lib/examAudio.ts` keys both casting preference and speed by **TEF block letter**:
+This section used to say the work below was outstanding. It is done, and what it
+cost is worth keeping.
 
-```ts
-export const BLOCK_PREFERENCE: Record<string, SlotName[]> = { A: [...], B: [...], ... G: [...] };
-```
+`examAudio.ts` keyed both casting preference and speed by TEF block letter, and
+`render-audio.ts` read `cast.blockSpeed.get(unit.block)`. A TCF task has no
+block, it has a `level`. Both lookups take the band now.
 
-and `render-audio.ts` reads `cast.blockSpeed.get(unit.block)`. There is no block on a TCF task — there is a `level`. So rendering this paper needs the preference and speed lookups keyed by band as well as by block, which is a small change and an unwritten one.
+Two traps were found doing it, and both are the same trap:
 
-Recorded here rather than discovered at render time, because the casting session and the code change are independent and the session need not wait for it.
+**Deriving the key from the label.** `'Compréhension orale · A1'` begins with C,
+so slicing the first character silently cast and paced every document in the
+paper as a TEF block C micro-trottoir. Nothing failed.
+
+**Loading one casting file for both formats.** `render-audio.ts` read
+VOICES-tef-canada.md whatever the format. Both files list the same eight slot
+names, so casting resolved perfectly and only the SPEEDS went missing, every
+band falling back to the provider's default. The first full TCF render shipped
+with no ramp in it at all, and the only way to see that was to measure words per
+second per band afterwards.
+
+The theme: on this paper a casting mistake is loud and a pacing mistake is
+silent. Everything here is guarded now — `voices.test.ts` for the table,
+`scripts/exam/rate-rules.ts` for the ramp.
 
 ---
 

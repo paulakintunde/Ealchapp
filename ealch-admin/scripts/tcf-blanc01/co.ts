@@ -436,7 +436,8 @@ export const CO_B1: ExamTask = {
         'UN HOMME : Le problème, c’est que ma semaine tombe toujours quand je rentre tard. ' +
         'Je fais les courses le samedi, ça va, mais cuisiner à vingt et une heures...\n' +
         'UNE FEMME : Alors on change : toi les courses, moi la cuisine. Chacun garde la même tâche.\n' +
-        'UN HOMME : Ça me va. Au moins on saura qui fait quoi.',
+        'UN HOMME : Ça me va. Au moins on saura qui fait quoi. ' +
+        'Et si ça coince encore, on en reparle dans un mois.',
       items: [
         {
           q: 'Quelle solution trouvent-ils ?',

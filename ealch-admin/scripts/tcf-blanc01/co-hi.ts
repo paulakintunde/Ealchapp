@@ -182,7 +182,8 @@ export const CO_B2: ExamTask = {
         'UN JOURNALISTE : Alors comment fait-on ?\n' +
         'UNE CHERCHEUSE : On mesure. Un test de vigilance de dix minutes en dit plus qu’une année d’impressions. ' +
         'Mais il faut accepter le résultat, et c’est là que cela coince : on vient chercher une confirmation, ' +
-        'pas une mesure.\n' +
+        'pas une mesure. Nous avons proposé le test à cinq cents volontaires ; un tiers a refusé de connaître ' +
+        'son score après l’avoir passé.\n' +
         'UN JOURNALISTE : Vous êtes dans ce dixième, vous ?\n' +
         'UNE CHERCHEUSE : Je me suis testée. Non.',
       items: [
@@ -229,7 +230,9 @@ export const CO_B2: ExamTask = {
         'UN EMPLOYEUR : Que voulez-vous que nous fassions ? Construire ?\n' +
         'UNE ÉLUE : Tant que la commune ne loge pas, vous recruterez chaque année les mêmes absents. ' +
         'Nous avons trente logements en projet ; il en faudrait deux cents. Je ne vous demande pas de bâtir. ' +
-        'Je vous demande de cesser de présenter la fiche de paie comme la réponse à une question de mètres carrés.',
+        'Je vous demande de cesser de présenter la fiche de paie comme la réponse à une question de mètres carrés. ' +
+        'Les deux communes qui ont ouvert un foyer saisonnier l’an dernier ont pourvu tous leurs postes, ' +
+        'avec exactement les mêmes salaires que les vôtres.',
       items: [
         {
           q: 'Selon l’élue, quelle est la cause du manque de saisonniers ?',

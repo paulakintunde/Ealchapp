@@ -213,9 +213,8 @@ ${p.short.length ? `\n## ⚠ The bank could not supply\n\n${p.short.map((s) => `
 
 function main() {
   const argv = process.argv.slice(2);
-  const no = Number(argv.find((a) => /^\d+$/.test(a)));
-  if (!no) throw new Error('give a paper number, e.g. `plan-paper.ts 1`');
-  const dirName = `tcf-blanc${String(no).padStart(2, '0')}`;
+  const numbers = argv.filter((a) => /^\d+$/.test(a)).map(Number);
+  if (!numbers.length) throw new Error('give a paper number, e.g. `plan-paper.ts 1`, or several: `2 3 4 5`');
 
   // The declared document shapes must reconcile with the blueprint's ramp, or
   // the plan is internally consistent and still wrong.
@@ -229,18 +228,40 @@ function main() {
   }
 
   const bank = parseBank(readFileSync(BANK, 'utf8'));
-  const spentBy = spent(dirName);
-  const p = plan(bank, no, new Set(spentBy.keys()));
-  const md = render(p, spentBy);
 
-  if (argv.includes('--write')) {
-    const out = resolve(HERE, `../../exam-blueprints/PLAN-tcf-blanc-${String(no).padStart(2, '0')}.md`);
-    writeFileSync(out, md, 'utf8');
-    console.log(`\n  wrote ${out}\n`);
-  } else {
-    console.log(md);
+  // PLANNING SEVERAL AT ONCE HAS TO ACCUMULATE. `spent()` derives the ledger
+  // from AUTHORED papers, which is the right source and the reason it cannot
+  // drift; but until paper N is authored it contributes nothing, so planning
+  // 2, 3, 4 and 5 in one sitting used to hand back four identical papers. Each
+  // one saw only blanc-01 as spent and drew the same next 53 situations.
+  //
+  // Nothing failed and nothing looked wrong: each plan was internally valid,
+  // correctly distributed, and short of nothing. The pack has already shipped
+  // that exact shape once, when five TEF papers were generated separately and
+  // turned out to share one answer key across all 80 questions. The fix there
+  // and here is the same: papers must be compared with each other, not each
+  // checked alone.
+  const takenInThisRun = new Set<string>();
+  let failed = false;
+
+  for (const no of numbers) {
+    const dirName = `tcf-blanc${String(no).padStart(2, '0')}`;
+    const spentBy = spent(dirName);
+    for (const id of takenInThisRun) if (!spentBy.has(id)) spentBy.set(id, 'earlier in this run');
+    const p = plan(bank, no, new Set(spentBy.keys()));
+    for (const s of [...p.co, ...p.ce, ...p.open]) takenInThisRun.add(s.situation.id);
+    const md = render(p, spentBy);
+
+    if (argv.includes('--write')) {
+      const out = resolve(HERE, `../../exam-blueprints/PLAN-tcf-blanc-${String(no).padStart(2, '0')}.md`);
+      writeFileSync(out, md, 'utf8');
+      console.log(`  wrote ${out}`);
+    } else {
+      console.log(md);
+    }
+    if (p.short.length) failed = true;
   }
-  if (p.short.length) process.exit(1);
+  if (failed) process.exit(1);
 }
 
 // Importable for tests; only plans when run directly.
