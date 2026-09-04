@@ -123,6 +123,7 @@ import {
   parseTurns,
   interlocutorTurnPaths,
   registerFor,
+  registerKeyFor,
   type CastTurn,
   type SlotName,
 } from './lib/examAudio.ts';
@@ -691,9 +692,11 @@ async function main() {
     const examRows = await client.query<{
       id: string;
       label: string | null;
+      format: string;
+      level: string | null;
       parts: { label: string; text?: string; audioRef?: string | null }[] | null;
     }>(
-      `select id, label, parts
+      `select id, label, format::text as format, level::text as level, parts
          from content_exam_tasks
         where skill = 'CO'
           and parts is not null
@@ -705,9 +708,21 @@ async function main() {
 
     const examUnits: ExamPartUnit[] = [];
     for (const row of examRows.rows) {
-      // The block letter drives the casting register: a micro-trottoir is not
-      // a radio chronicle. It comes from the task's own label ('Section C').
-      const block = (row.label ?? '').replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase() || 'G';
+      // The casting register, per format. TEF reads a block letter off the task
+      // label; TCF reads the band, because it has no blocks. Deriving it here
+      // by slicing the label was silently wrong for TCF: 'Compréhension orale ·
+      // A1' begins with C, so every document would have been cast and paced as
+      // a TEF block C micro-trottoir with nothing failing.
+      // TWO KEYS, and conflating them re-rendered 118 clips that had not
+      // changed. `block` is the SPEED key and must stay the épreuve's own
+      // division — the block letter on TEF, the band on TCF. The CASTING key is
+      // computed per part below, because TEF's block G is five sub-types
+      // wearing one letter and a micro-trottoir is cast from block C's voices
+      // while still being paced at block G's speed.
+      const block =
+        row.format === 'tcf_canada'
+          ? registerKeyFor({ format: row.format, taskLabel: row.label ?? '', partLabel: '', level: row.level })
+          : (row.label ?? '').replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase() || 'G';
       (row.parts ?? []).forEach((part, i) => {
         if (!part.text) return;
         examUnits.push({
@@ -717,9 +732,14 @@ async function main() {
           partIndex: i,
           partLabel: part.label,
           block,
-          // Block G is five sub-types wearing one letter, so the register
-          // comes from the part label rather than the block. See registerFor.
-          cast: castDocument(parseTurns(part.text), registerFor(block, part.label)),
+          // Block G is five sub-types wearing one letter, so ITS register comes
+          // from the part label rather than the block — which is why the key is
+          // recomputed per part here and not reused from above. On TCF the band
+          // is the key and the part label changes nothing.
+          cast: castDocument(
+            parseTurns(part.text),
+            registerKeyFor({ format: row.format, taskLabel: row.label ?? '', partLabel: part.label, level: row.level })
+          ),
           currentRef: part.audioRef ?? null,
         });
       });

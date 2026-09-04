@@ -58,6 +58,50 @@ export const BLOCK_PREFERENCE: Record<string, SlotName[]> = {
  * part's own label ("Document 4 · micro-trottoir · réunions au travail"),
  * which is where this reads it from.
  */
+/** Which preference list a TCF document is cast from.
+ *
+ *  TCF has no blocks. Its documents sit on a ramp, and what changes across that
+ *  ramp is not the exercise family — it is who is speaking: counters and
+ *  announcements at the bottom, interviews in the middle, panels of specialists
+ *  at the top. So the band IS the register key, and the lists below are keyed
+ *  by band rather than mapped onto TEF's letters, because a TCF B1 interview
+ *  and a TEF block B annonce publique are not the same document. */
+export const BAND_PREFERENCE: Record<string, SlotName[]> = {
+  a1: ['f-neutral', 'm-neutral', 'f-formal', 'm-formal'],
+  a2: ['f-neutral', 'm-neutral', 'f-formal', 'm-formal'],
+  b1: ['f-media', 'm-neutral', 'f-neutral', 'm-media'],
+  b2: ['f-media', 'm-formal', 'f-formal', 'm-media'],
+  c1: ['f-media', 'm-formal', 'f-formal', 'm-neutral'],
+  c2: ['f-formal', 'm-formal', 'f-media', 'm-neutral'],
+};
+
+/**
+ * The register key for ONE document, whichever format it belongs to.
+ *
+ * The bug this exists to stop is silent rather than loud. The block letter used
+ * to be sliced off the task label — 'Section C' gives 'C' — and a TCF label is
+ * 'Compréhension orale · A1', whose first letter is also C. Every TCF document
+ * would have been cast and paced as a TEF block C micro-trottoir: street voices
+ * for a philosophy panel, at block C's speed, with nothing failing and nothing
+ * to see but audio that is wrong.
+ */
+export function registerKeyFor(input: {
+  format: string;
+  taskLabel: string;
+  partLabel: string;
+  level?: string | null;
+}): string {
+  if (input.format === 'tcf_canada') {
+    const band = (input.level ?? '').toLowerCase();
+    if (band in BAND_PREFERENCE) return band;
+    // A TCF task with no usable level is an authoring fault, not something to
+    // paper over with a default that sounds fine.
+    throw new Error(`TCF task "${input.taskLabel}" has no usable level for casting (got ${JSON.stringify(input.level)})`);
+  }
+  const block = input.taskLabel.replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase() || 'G';
+  return registerFor(block, input.partLabel);
+}
+
 export function registerFor(block: string, partLabel: string): string {
   if (block !== 'G') return block;
   const l = partLabel.toLowerCase();
@@ -148,7 +192,10 @@ export function sexOfLabel(label: string): Sex {
  * block A and a town-hall clerk in block B, and they are not the same person.
  */
 export function castDocument(turns: Turn[], block: string): CastTurn[] {
-  const preference = BLOCK_PREFERENCE[block] ?? BLOCK_PREFERENCE.G!;
+  // One lookup, two key spaces: TEF passes a block letter, TCF a band. They
+  // cannot collide — letters are upper case and bands are not — so a single
+  // table read keeps one casting path rather than branching the caller.
+  const preference = BLOCK_PREFERENCE[block] ?? BAND_PREFERENCE[block] ?? BLOCK_PREFERENCE.G!;
   const order = [...preference, ...SLOTS.filter((s) => !preference.includes(s))];
 
   const assigned = new Map<string, SlotName>();

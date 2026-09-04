@@ -1,7 +1,7 @@
 // Casting a listening document is where the expensive mistakes are: two
 // speakers given one voice destroys the item, and a female character given a
 // male voice is heard immediately. None of that needs a network to check.
-import { deepStrictEqual, ok, strictEqual, throws } from 'node:assert';
+import { deepStrictEqual, ok, strictEqual, throws, notStrictEqual } from 'node:assert';
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,6 +18,8 @@ import {
   SAME_SPEAKER_GAP_MS,
   TURN_GAP_MS,
   type CastTurn,
+  registerKeyFor,
+  BAND_PREFERENCE,
 } from './examAudio.ts';
 import { TASKS } from '../tef-blanc01/paper.ts';
 
@@ -295,4 +297,63 @@ test('the render query refuses a path that does not resolve', () => {
     'the interlocutor update must guard on the path resolving'
   );
   ok(/did not resolve on/.test(src), 'and must say so when it does not');
+});
+
+test('a TCF label is not silently cast as TEF block C', () => {
+  // THE bug this guards. The register key used to be sliced off the task
+  // label: 'Section C' gives 'C'. A TCF label is 'Compréhension orale · A1',
+  // which also begins with C — so every TCF document would have been cast as a
+  // block C micro-trottoir and paced at block C's speed. Street voices for a
+  // philosophy panel, nothing thrown, nothing to see but wrong audio.
+  const key = registerKeyFor({
+    format: 'tcf_canada',
+    taskLabel: 'Compréhension orale · A1',
+    partLabel: 'Document 1 · un message',
+    level: 'a1',
+  });
+  strictEqual(key, 'a1');
+  notStrictEqual(key, 'C');
+});
+
+test('every TCF band has its own casting list', () => {
+  for (const band of ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) {
+    const list = BAND_PREFERENCE[band];
+    ok(list && list.length >= 2, `${band} has no usable preference list`);
+    // At least one of each sex, or a two-speaker document cannot be cast.
+    ok(list!.some((s) => s.startsWith('f-')) && list!.some((s) => s.startsWith('m-')), `${band} is single-sex`);
+  }
+});
+
+test('a TCF task with no level is refused, not defaulted', () => {
+  // Defaulting would pick a register that sounds fine and is not the one the
+  // ramp asked for, which is the same silent failure in a different coat.
+  throws(() =>
+    registerKeyFor({ format: 'tcf_canada', taskLabel: 'Compréhension orale · A1', partLabel: 'x', level: null })
+  );
+});
+
+test('TEF casting is untouched by any of this', () => {
+  strictEqual(registerKeyFor({ format: 'tef_canada', taskLabel: 'Section C', partLabel: 'Micro-trottoir 1', level: 'b2' }), 'C');
+  // Block G still takes its register from the PART label, not the block.
+  strictEqual(
+    registerKeyFor({ format: 'tef_canada', taskLabel: 'Section G', partLabel: 'Document 4 · micro-trottoir · x', level: 'a2' }),
+    'C'
+  );
+  strictEqual(
+    registerKeyFor({ format: 'tef_canada', taskLabel: 'Section G', partLabel: 'Document 5 · consignes · x', level: 'a2' }),
+    'B'
+  );
+});
+
+test('a TCF band casts two speakers to two different voices', () => {
+  // The paper's two three-voice documents put two women together, and the item
+  // is who said what. Casting is only safe if the list can supply them.
+  const turns = [
+    { speaker: 'UNE MODÉRATRICE', text: 'a' },
+    { speaker: 'UN STATISTICIEN', text: 'b' },
+    { speaker: 'UNE BIOLOGISTE', text: 'c' },
+  ];
+  const cast = castDocument(turns, 'c1');
+  const slots = new Set(cast.map((c) => c.slot));
+  strictEqual(slots.size, 3, 'three speakers must get three voices');
 });
