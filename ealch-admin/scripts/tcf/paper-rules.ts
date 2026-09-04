@@ -15,7 +15,9 @@
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import type { ExamPaper, ExamTask } from '../../../ealch-v2/src/content/schema.ts';
+import { spokenTranscript } from '../../../ealch-v2/src/utils/coPlayback.logic.ts';
 import { itemsOf, countOf, candidateFacing } from '../exam/task-shape.ts';
+import { CE_WORDS, TCF_LENGTH, TCF_RATE, type Band as RateBand } from '../exam/rate-rules.ts';
 
 export type TcfPaperUnderTest = {
   name: string;
@@ -184,6 +186,65 @@ export function readingClockShortfalls(tasks: readonly ClockedTask[]): string[] 
   return out;
 }
 
+/**
+ * Documents too short for their band, from the AUTHORED text alone.
+ *
+ * The measured version of this lives in check-speech-rate.ts and is the honest
+ * one, because it reads the rendered clips. It is also the expensive one: the
+ * audio has to exist first. TCF blanc-01 was authored, applied, rendered twice
+ * and reviewed before anyone discovered that all 24 of its listening documents
+ * ran between a third and two thirds of the length STANDARD-tcf §3 requires,
+ * and that 21 of its 23 reading documents had the same defect.
+ *
+ * TEF's verifier has had this check since its own Section F shipped at half
+ * length on four papers. TCF's lived only in a script somebody had to remember
+ * to run, which is not a guard.
+ *
+ * LISTENING is a prediction and READING is arithmetic, so they fail
+ * differently. Too few words is certain either way: no delivery makes 115 words
+ * last two minutes. Too MANY listening words might still fit if the voice reads
+ * slower than target, so that direction is left to the measured checker. A
+ * reading document has no delivery to argue about and fails both ways.
+ */
+export function lengthShortfalls(co: readonly ExamTask[], ce: readonly ExamTask[]): string[] {
+  const out: string[] = [];
+
+  for (const t of co) {
+    const band = (t.level ?? '') as RateBand;
+    const rate = TCF_RATE[band];
+    const envelope = TCF_LENGTH[band];
+    if (!rate || !envelope) continue;
+    for (const part of t.parts ?? []) {
+      if (!part.text) continue;
+      // Speaker labels are stage directions, not speech.
+      const w = spokenTranscript(part.text).split(/\s+/).filter(Boolean).length;
+      const impliedS = Math.round((w / rate) * 60);
+      if (impliedS < envelope[0]) {
+        out.push(
+          `${t.label} / ${part.label}: ${w} words is about ${impliedS}s at ${rate} wpm, ` +
+            `under ${band}'s ${envelope[0]}s floor`
+        );
+      }
+    }
+  }
+
+  for (const t of ce) {
+    const band = (t.level ?? '') as RateBand;
+    const envelope = CE_WORDS[band];
+    if (!envelope) continue;
+    const [lo, hi] = envelope;
+    for (const part of t.parts ?? []) {
+      if (!part.text) continue;
+      const w = part.text.split(/\s+/).filter(Boolean).length;
+      if (w < lo || w > hi) {
+        out.push(`${t.label} / ${part.label}: ${w} words, ${band}'s envelope is ${lo}-${hi}`);
+      }
+    }
+  }
+
+  return out;
+}
+
 export function tcfPaperRules(p: TcfPaperUnderTest): void {
   const n = p.name;
   const bandsOf = (tasks: ExamTask[]): string[] => tasks.flatMap((t) => itemsOf(t).map((i) => i.band ?? ''));
@@ -311,6 +372,11 @@ export function tcfPaperRules(p: TcfPaperUnderTest): void {
 
   test(`${n}: no reading clock is shorter than the text it has to be read in`, () => {
     const bad = readingClockShortfalls(p.CE_TASKS);
+    ok(bad.length === 0, bad.join('\n  '));
+  });
+
+  test(`${n}: every document is long enough for its band`, () => {
+    const bad = lengthShortfalls(p.CO_TASKS, p.CE_TASKS);
     ok(bad.length === 0, bad.join('\n  '));
   });
 }

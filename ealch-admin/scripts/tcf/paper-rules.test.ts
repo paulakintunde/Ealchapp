@@ -9,14 +9,16 @@
 // there because two green checks — the blueprint's clock constant and the
 // document length envelope — were both satisfied by a section whose audio ran
 // longer than its own clock.
-import { deepStrictEqual, ok } from 'node:assert';
+import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
+import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import {
   ANSWER_S_PER_ITEM,
   BANDS,
   RAMP,
   clockShortfalls,
   readingClockShortfalls,
+  lengthShortfalls,
   CE_ANSWER_S_PER_ITEM,
   rampViolations,
   distributionViolations,
@@ -187,4 +189,65 @@ test('a task with no text is skipped rather than failed', () => {
     readingClockShortfalls([{ label: 'no text', timingS: 5, parts: [{ items: [{}] }] }]),
     []
   );
+});
+
+/* ── Documents long enough for their band ──────────────────────────────────
+ *
+ * The numbers are the real épreuve at the moment the defect existed: the C2
+ * listening document at 115 words against a 120-second floor, and the C2
+ * reading extract at 69 words against 400. Both had been through authoring,
+ * application, two renders and a review.
+ */
+const coDoc = (level: string, words: number): ExamTask =>
+  ({
+    label: `Compréhension orale · ${level.toUpperCase()}`,
+    level,
+    parts: [{ label: 'Document', text: `UNE VOIX : ${Array.from({ length: words }, () => 'mot').join(' ')}` }],
+  }) as unknown as ExamTask;
+
+const ceDoc = (level: string, words: number): ExamTask =>
+  ({
+    label: `Compréhension écrite · ${level.toUpperCase()}`,
+    level,
+    parts: [{ label: 'Document', text: Array.from({ length: words }, () => 'mot').join(' ') }],
+  }) as unknown as ExamTask;
+
+test('a listening document too short for its band is caught', () => {
+  const bad = lengthShortfalls([coDoc('c2', 115)], []);
+  strictEqual(bad.length, 1, bad.join(' · '));
+  ok(bad[0]!.includes('115 words'), bad[0]);
+});
+
+test('a listening document inside its envelope passes', () => {
+  // 393 words at c2's 185 wpm is about 127s, inside 120-150.
+  deepStrictEqual(lengthShortfalls([coDoc('c2', 393)], []), []);
+});
+
+test('the speaker label is not counted as speech', () => {
+  // 'UNE VOIX :' is a stage direction. Counting it would let a document scrape
+  // over its floor on words nobody says, and the labels are a bigger share of a
+  // short document than a long one, which is precisely where the floor bites.
+  const withLabel = lengthShortfalls([coDoc('a1', 18)], []);
+  deepStrictEqual(withLabel, [], '18 real words at a1 clears the 10s floor');
+  const shorter = lengthShortfalls([coDoc('a1', 16)], []);
+  strictEqual(shorter.length, 1, 'and 16 does not, so the two words of label are not padding the count');
+});
+
+test('a reading document fails in BOTH directions', () => {
+  // The asymmetry with listening is the point: reading has no delivery to
+  // argue about, so an over-long document is as wrong as a short one.
+  strictEqual(lengthShortfalls([], [ceDoc('c2', 69)]).length, 1, 'too short');
+  strictEqual(lengthShortfalls([], [ceDoc('a1', 300)]).length, 1, 'too long');
+  deepStrictEqual(lengthShortfalls([], [ceDoc('a1', 30)]), []);
+});
+
+test('an over-long LISTENING document is left to the measured checker', () => {
+  // A voice reading slower than target fills more time than this predicts, so
+  // this direction is a guess and the rendered clip settles it. Claiming it
+  // here would make the guard fire on documents that are fine.
+  deepStrictEqual(lengthShortfalls([coDoc('a1', 200)], []), []);
+});
+
+test('a task with no band is skipped rather than guessed at', () => {
+  deepStrictEqual(lengthShortfalls([coDoc('', 5)], [ceDoc('', 5)]), []);
 });
