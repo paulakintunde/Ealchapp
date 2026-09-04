@@ -30,7 +30,7 @@ export const CE_B2: ExamTask = {
   level: 'b2',
   label: 'Compréhension écrite · B2',
   prompt: 'Lisez les quatre documents et choisissez la bonne réponse.',
-  timingS: 925,
+  timingS: 850,
   targetItemIds: uniq(ITEMS.ecologie.b2, ITEMS.collegues.b2, ITEMS.questionsSociales.b2, ITEMS.universite.b2),
   parts: [
     {
@@ -244,7 +244,7 @@ export const CE_C1: ExamTask = {
   level: 'c1',
   label: 'Compréhension écrite · C1',
   prompt: 'Lisez les deux documents et choisissez la bonne réponse.',
-  timingS: 645,
+  timingS: 720,
   targetItemIds: uniq(ITEMS.ethique.c1, ITEMS.decouvertes.c1),
   parts: [
     {
@@ -400,7 +400,7 @@ export const CE_C2: ExamTask = {
   level: 'c2',
   label: 'Compréhension écrite · C2',
   prompt: 'Lisez le document et choisissez la bonne réponse.',
-  timingS: 275,
+  timingS: 580,
   targetItemIds: uniq(ITEMS.philosophie.c2),
   parts: [
     {

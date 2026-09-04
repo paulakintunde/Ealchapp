@@ -96,8 +96,10 @@ export const ANSWER_S_PER_ITEM = 8;
  */
 export type ClockedTask = {
   label?: string;
+  level?: string;
   timingS?: number;
   parts?: {
+    text?: string;
     durationS?: number;
     readWindowS?: number;
     playCount?: number;
@@ -119,6 +121,63 @@ export function clockShortfalls(tasks: readonly ClockedTask[]): string[] {
       out.push(
         `${t.label}: ${clock}s on the clock, ${need}s needed ` +
           `(${audio}s audio + ${reading}s reading + ${items} question(s))`
+      );
+    }
+  }
+  return out;
+}
+
+/** Careful reading of an exam text, in words per minute, PER BAND.
+ *
+ *  A single figure was the first thing tried here and it was wrong in a way
+ *  worth recording: at a flat 120 wpm the real C2 task came out with six
+ *  seconds to spare, so the guard passed the very section it had been written
+ *  for. A candidate does not read a C2 extract in free indirect style at the
+ *  speed of an A1 price label, and pretending otherwise makes the check
+ *  unable to fail exactly where the paper is hardest.
+ *
+ *  These are reading-for-answering rates, not skimming rates: the candidate
+ *  goes back into the text, and above B2 the item is designed so that one pass
+ *  is not enough. */
+export const READ_WPM: Record<Band, number> = {
+  a1: 160, a2: 150, b1: 130, b2: 110, c1: 95, c2: 85,
+};
+
+/** Seconds per reading question. Longer than the listening figure because the
+ *  candidate goes back into the text to check, which is the thing a reading
+ *  item is for. */
+export const CE_ANSWER_S_PER_ITEM = 20;
+
+/**
+ * Reading tasks whose clock is too short for their own documents.
+ *
+ * The listening version of this check found a section with less time than its
+ * own audio. Reading has no audio to measure against, which is exactly why it
+ * needed its own: after the documents were extended to STANDARD-tcf §4, the C2
+ * task had 6 seconds of headroom for a 418-word literary extract and three
+ * items that turn on free indirect style, while A1 sat on 179 spare seconds for
+ * 72 words. Both numbers satisfied the blueprint, which only constrains the
+ * 3600-second total.
+ */
+export function readingClockShortfalls(tasks: readonly ClockedTask[]): string[] {
+  const out: string[] = [];
+  for (const t of tasks) {
+    const parts = t.parts ?? [];
+    if (!parts.length) continue;
+    const words = parts.reduce(
+      (n, p) => n + (p.text ?? '').split(/\s+/).filter(Boolean).length,
+      0
+    );
+    if (!words) continue;
+    const band = (t.level ?? 'b1') as Band;
+    const wpm = READ_WPM[band] ?? READ_WPM.b1;
+    const items = parts.reduce((n, p) => n + (p.items?.length ?? 0), 0);
+    const need = Math.round((words / wpm) * 60) + items * CE_ANSWER_S_PER_ITEM;
+    const clock = t.timingS ?? 0;
+    if (clock < need) {
+      out.push(
+        `${t.label}: ${clock}s on the clock, ${need}s needed ` +
+          `(${words} words at ${wpm} wpm + ${items} question(s))`
       );
     }
   }
@@ -247,6 +306,11 @@ export function tcfPaperRules(p: TcfPaperUnderTest): void {
 
   test(`${n}: no section clock is shorter than the audio it has to play`, () => {
     const bad = clockShortfalls(p.CO_TASKS);
+    ok(bad.length === 0, bad.join('\n  '));
+  });
+
+  test(`${n}: no reading clock is shorter than the text it has to be read in`, () => {
+    const bad = readingClockShortfalls(p.CE_TASKS);
     ok(bad.length === 0, bad.join('\n  '));
   });
 }

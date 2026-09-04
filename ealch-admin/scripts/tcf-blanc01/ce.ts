@@ -35,7 +35,7 @@ export const CE_A1: ExamTask = {
   level: 'a1',
   label: 'Compréhension écrite · A1',
   prompt: 'Lisez les trois documents et choisissez la bonne réponse.',
-  timingS: 275,
+  timingS: 170,
   targetItemIds: uniq(ITEMS.marche.a1, ITEMS.transportsQuotidiens.a1, ITEMS.evenementsFamiliaux.a1),
   parts: [
     {
@@ -96,7 +96,7 @@ export const CE_A2: ExamTask = {
   level: 'a2',
   label: 'Compréhension écrite · A2',
   prompt: 'Lisez les six documents et choisissez la bonne réponse.',
-  timingS: 555,
+  timingS: 430,
   targetItemIds: uniq(
     ITEMS.voisinage.a2,
     ITEMS.objets.a2,
@@ -243,7 +243,7 @@ export const CE_B1: ExamTask = {
   level: 'b1',
   label: 'Compréhension écrite · B1',
   prompt: 'Lisez les sept documents et choisissez la bonne réponse.',
-  timingS: 925,
+  timingS: 850,
   targetItemIds: uniq(
     ITEMS.maison.b1,
     ITEMS.communaute.b1,

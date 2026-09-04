@@ -16,6 +16,8 @@ import {
   BANDS,
   RAMP,
   clockShortfalls,
+  readingClockShortfalls,
+  CE_ANSWER_S_PER_ITEM,
   rampViolations,
   distributionViolations,
   type ClockedTask,
@@ -129,4 +131,60 @@ test('a document played twice costs its duration twice', () => {
 test('a task with no parts is skipped rather than failed', () => {
   // Open tasks carry no audio. They must not read as a zero-second section.
   deepStrictEqual(clockShortfalls([{ label: 'Expression écrite', timingS: 0, parts: [] }]), []);
+});
+
+/* ── The reading clock ─────────────────────────────────────────────────────
+ *
+ * The numbers are the real C2 task after the reading documents were extended:
+ * a 418-word literary extract with three items on a 275-second clock. It
+ * satisfied the blueprint, which only fixes the 3600-second total.
+ */
+const ce = (timingS: number, words: number, items: number, level = 'c2'): ClockedTask => ({
+  label: `Compréhension écrite · ${level.toUpperCase()}`,
+  level,
+  timingS,
+  parts: [
+    {
+      text: Array.from({ length: words }, () => 'mot').join(' '),
+      items: Array.from({ length: items }, () => ({ correct: 0 })),
+    },
+  ],
+});
+
+test('a reading clock that leaves no time to read is caught', () => {
+  const bad = readingClockShortfalls([ce(275, 418, 3)]);
+  ok(bad.length === 1, `expected one shortfall, got: ${bad.join(' · ')}`);
+  ok(bad[0]!.includes('418 words'), bad[0]);
+});
+
+test('the redistributed reading clock passes', () => {
+  deepStrictEqual(readingClockShortfalls([ce(580, 418, 3)]), []);
+});
+
+test('reading time and answering time are both counted', () => {
+  // 130 b1 words is exactly 60s of reading. A clock of 60s with two questions
+  // must fail, and the same clock plus the two answer allowances must pass.
+  ok(readingClockShortfalls([ce(60, 130, 2, 'b1')]).length === 1);
+  deepStrictEqual(readingClockShortfalls([ce(60 + 2 * CE_ANSWER_S_PER_ITEM, 130, 2, 'b1')]), []);
+});
+
+test('the band sets the reading rate, not one figure for the whole paper', () => {
+  // The same 418 words on the same clock: comfortable as a B1 document,
+  // impossible as a C2 extract. A flat rate cannot express that, and a flat
+  // 120 wpm passed the real C2 task with six seconds to spare.
+  // 418 words needs 253s at b1's 130 wpm and 355s at c2's 85. Only a clock
+  // between the two tells them apart.
+  deepStrictEqual(readingClockShortfalls([ce(300, 418, 3, 'b1')]), []);
+  ok(readingClockShortfalls([ce(300, 418, 3, 'c2')]).length === 1);
+});
+
+test('a task with no text is skipped rather than failed', () => {
+  // The listening tasks carry no `text` on their parts in this shape, and the
+  // open tasks carry no parts at all. Neither must read as a zero-word section
+  // that trivially passes OR as one that trivially fails.
+  deepStrictEqual(readingClockShortfalls([{ label: 'Expression orale', timingS: 5, parts: [] }]), []);
+  deepStrictEqual(
+    readingClockShortfalls([{ label: 'no text', timingS: 5, parts: [{ items: [{}] }] }]),
+    []
+  );
 });
