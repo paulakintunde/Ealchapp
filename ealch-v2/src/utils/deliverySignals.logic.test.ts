@@ -8,6 +8,8 @@ import {
   deliveryNote,
   deliverySummary,
   pausesFrom,
+  durationVerdict,
+  durationNote,
 } from './deliverySignals.logic.ts';
 
 const base = { transcript: 'un deux trois', durationMs: 10_000, confidence: 0.8 };
@@ -163,4 +165,40 @@ test('the candidate sees a measurement, never a verdict', () => {
   // No adjectives anywhere: no "good", "slow", "hesitant".
   const joined = lines.join(' ');
   ok(!/(good|poor|slow|fast|hesitant|fluent|weak|strong)/i.test(joined), 'no judgement words');
+});
+
+test('a spoken answer is measured against what the task asked for', () => {
+  // The gap this closes: minDurationS/maxDurationS were authored on thirteen
+  // tasks and read by nothing, so a 50-second answer to a 4m30 task looked
+  // exactly like a good one.
+  const spec = { minDurationS: 150, maxDurationS: 300 };
+  strictEqual(durationVerdict(50_000, spec), 'short');
+  strictEqual(durationVerdict(200_000, spec), 'within');
+  strictEqual(durationVerdict(400_000, spec), 'long');
+});
+
+test('a task that sets no bounds gets no verdict, rather than a passing one', () => {
+  // Most tasks set none. Returning "within" would quietly assert they were
+  // checked, which is worse than saying nothing.
+  strictEqual(durationVerdict(1000, undefined), null);
+  strictEqual(durationVerdict(1000, {}), null);
+});
+
+test('one-sided bounds work on the side they are given', () => {
+  strictEqual(durationVerdict(10_000, { minDurationS: 60 }), 'short');
+  strictEqual(durationVerdict(90_000, { minDurationS: 60 }), 'within');
+  strictEqual(durationVerdict(90_000, { maxDurationS: 60 }), 'long');
+});
+
+test('the boundary itself is inside, not outside', () => {
+  // A candidate who lands exactly on the minimum has met it.
+  strictEqual(durationVerdict(60_000, { minDurationS: 60 }), 'within');
+  strictEqual(durationVerdict(60_000, { maxDurationS: 60 }), 'within');
+});
+
+test('durationNote says nothing when there is nothing to say', () => {
+  strictEqual(durationNote(200_000, { minDurationS: 150, maxDurationS: 300 }, 'fr'), null);
+  strictEqual(durationNote(200_000, undefined, 'fr'), null);
+  ok(durationNote(50_000, { minDurationS: 150 }, 'fr')!.includes('150'));
+  ok(durationNote(50_000, { minDurationS: 150 }, 'en')!.includes('150'));
 });

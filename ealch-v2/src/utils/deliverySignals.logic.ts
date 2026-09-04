@@ -170,3 +170,52 @@ export function deliverySummary(s: DeliverySignals, lang: 'fr' | 'en'): string[]
   }
   return out;
 }
+
+/**
+ * How a spoken answer's length sits against what the task asked for.
+ *
+ * `responseSpec.minDurationS` and `maxDurationS` were authored on thirteen
+ * speaking tasks across six papers and read by NOTHING. The text path has done
+ * this since it shipped — exam-section.tsx counts words live against
+ * `minWords`/`maxWords` — so a writing candidate could see they were forty
+ * words short while a speaking candidate had no idea they had answered a
+ * four-and-a-half-minute task in fifty seconds, and the grader was handed a
+ * duration with nothing to judge it against.
+ *
+ * Length is not a proxy for quality and this does not score anything. It states
+ * a fact the rubric already cares about: a task that asks a candidate to
+ * develop a position cannot be satisfied in a fraction of its window, however
+ * good the French in it is.
+ *
+ * Returns null when the task set no bounds, which is most of them.
+ */
+export function durationVerdict(
+  durationMs: number,
+  spec: { minDurationS?: number; maxDurationS?: number } | undefined
+): 'short' | 'within' | 'long' | null {
+  if (!spec) return null;
+  const { minDurationS: min, maxDurationS: max } = spec;
+  if (min === undefined && max === undefined) return null;
+  const secs = durationMs / 1000;
+  if (min !== undefined && secs < min) return 'short';
+  if (max !== undefined && secs > max) return 'long';
+  return 'within';
+}
+
+/** The verdict as a line a candidate or a grader reads. Null when there is
+ *  nothing to say, so callers can append it without a branch. */
+export function durationNote(
+  durationMs: number,
+  spec: { minDurationS?: number; maxDurationS?: number } | undefined,
+  lang: 'fr' | 'en'
+): string | null {
+  const v = durationVerdict(durationMs, spec);
+  if (v === null || v === 'within') return null;
+  const target = v === 'short' ? spec!.minDurationS! : spec!.maxDurationS!;
+  if (v === 'short') {
+    return lang === 'fr'
+      ? `plus court que les ${target} s attendues`
+      : `shorter than the ${target}s asked for`;
+  }
+  return lang === 'fr' ? `plus long que les ${target} s prévues` : `longer than the ${target}s allowed`;
+}

@@ -29,6 +29,7 @@ import { useT } from '@/i18n/useT';
 import {
   computeDeliverySignals,
   deliverySummary,
+  durationNote,
   type DeliverySignals,
   type SpeechSample,
 } from '@/utils/deliverySignals.logic';
@@ -260,6 +261,17 @@ export function ExamSpeakTask({
               <TX font="semi" role="meta" color={t.txMuted} style={{ marginBottom: 6 }}>
                 {deliverySummary(answer.signals, lang).join(' · ')}
               </TX>
+              {/* How the length sits against what the task asked for. The
+                  writing surface has counted words against minWords since it
+                  shipped; the speaking one said nothing, so a candidate could
+                  answer a four-and-a-half-minute task in fifty seconds and see
+                  only a duration. Shown in the warning colour because it is a
+                  fact about the ATTEMPT, not about the French in it. */}
+              {durationNote(answer.signals.durationMs, task.responseSpec, lang) ? (
+                <TX role="meta" color={t.danger} style={{ marginBottom: 6 }}>
+                  {durationNote(answer.signals.durationMs, task.responseSpec, lang)}
+                </TX>
+              ) : null}
               <TX role="label" color={t.txSecondary} lhMult={1.5}>{answer.transcript}</TX>
               {/* The one thing the candidate must understand about these
                   numbers, said where the numbers are. */}
