@@ -36,7 +36,7 @@ import { PAPER, TASKS, CO_TASKS, CE_TASKS, EE_TASKS, EO_TASKS } from './tef-blan
 // Shared with scripts/tef/apply-paper.ts. The local copy here covered `parts`
 // only, so an authoring run after a render wiped the interlocutor's thirteen
 // clips off a PUBLISHED paper. See merge-rendered.ts.
-import { mergeRenderedParts, mergeRenderedBank } from './tef/merge-rendered.ts';
+import { mergeRenderedParts, mergeRenderedBank } from './exam/merge-rendered.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 

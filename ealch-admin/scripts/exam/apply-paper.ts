@@ -8,10 +8,19 @@
 // are 100%-review tier regardless (reviewTier.ts). Publishing is a separate,
 // deliberate step.
 //
+// ── One writer, two formats ────────────────────────────────────────────────
+//
+// This was tef/apply-paper.ts with `tef-blanc` and the counts 40/40/2/2 written
+// into it. TCF needs the same transaction, the same clip carry and the same
+// refusal to write a half-valid batch, and NONE of its numbers: a ramp is
+// 39/39/3/3. Copying the file to get the numbers changed is how `interlocutor`
+// came to be missing from a fix already made for `parts` — two writers, one
+// fixed. So the shape moved into a table and the writer stayed one.
+//
 // Usage (from ealch-admin/):
-//   pnpm tsx scripts/tef/apply-paper.ts 2 --dry-run    validate and report
-//   pnpm tsx scripts/tef/apply-paper.ts 2              apply, one transaction
-//   pnpm tsx scripts/tef/apply-paper.ts 2 3 4 5        several, each its own tx
+//   pnpm tsx scripts/exam/apply-paper.ts tef 2 --dry-run   validate and report
+//   pnpm tsx scripts/exam/apply-paper.ts tef 2 3 4 5       several, each its own tx
+//   pnpm tsx scripts/exam/apply-paper.ts tcf 1             the TCF gold paper
 
 // '../env' MUST be imported first — see the incident note in migrate.ts.
 import '../env';
@@ -33,8 +42,17 @@ type Loaded = {
   EO_TASKS: ExamTask[];
 };
 
+/** What each format's blueprint fixes. The only per-format knowledge here. */
+const SHAPES = {
+  tef: { dir: 'tef-blanc', co: 40, ce: 40, ee: 2, eo: 2 },
+  tcf: { dir: 'tcf-blanc', co: 39, ce: 39, ee: 3, eo: 3 },
+} as const;
+type FormatKey = keyof typeof SHAPES;
+
+const FORMAT = (process.argv.slice(2).find((a) => a in SHAPES) ?? '') as FormatKey;
+
 async function load(n: number): Promise<Loaded> {
-  const dir = `tef-blanc${String(n).padStart(2, '0')}`;
+  const dir = `${SHAPES[FORMAT].dir}${String(n).padStart(2, '0')}`;
   // pathToFileURL: a Windows absolute path is not a valid ESM specifier.
   return (await import(pathToFileURL(resolve(HERE, `../${dir}/paper.ts`)).href)) as Loaded;
 }
@@ -51,10 +69,11 @@ function validate(p: Loaded): string[] {
   // script that can put 39 questions in a 40-question épreuve eventually will.
   const count = (ts: ExamTask[]) =>
     ts.reduce((n, t) => n + (t.parts ? t.parts.flatMap((x) => x.items).length : (t.items ?? []).length), 0);
-  if (count(p.CO_TASKS) !== 40) problems.push(`CO has ${count(p.CO_TASKS)} questions, expected 40`);
-  if (count(p.CE_TASKS) !== 40) problems.push(`CE has ${count(p.CE_TASKS)} questions, expected 40`);
-  if (p.EE_TASKS.length !== 2) problems.push(`EE has ${p.EE_TASKS.length} tasks, expected 2`);
-  if (p.EO_TASKS.length !== 2) problems.push(`EO has ${p.EO_TASKS.length} tasks, expected 2`);
+  const want = SHAPES[FORMAT];
+  if (count(p.CO_TASKS) !== want.co) problems.push(`CO has ${count(p.CO_TASKS)} questions, expected ${want.co}`);
+  if (count(p.CE_TASKS) !== want.ce) problems.push(`CE has ${count(p.CE_TASKS)} questions, expected ${want.ce}`);
+  if (p.EE_TASKS.length !== want.ee) problems.push(`EE has ${p.EE_TASKS.length} tasks, expected ${want.ee}`);
+  if (p.EO_TASKS.length !== want.eo) problems.push(`EO has ${p.EO_TASKS.length} tasks, expected ${want.eo}`);
   return problems;
 }
 
@@ -145,8 +164,11 @@ async function write(p: Loaded): Promise<void> {
 }
 
 async function main() {
+  if (!FORMAT) {
+    throw new Error(`name a format first: ${Object.keys(SHAPES).join(' | ')}, e.g. \`apply-paper.ts tcf 1\``);
+  }
   const nums = process.argv.slice(2).filter((a) => /^\d+$/.test(a)).map(Number);
-  if (nums.length === 0) throw new Error('give one or more paper numbers, e.g. `apply-paper.ts 2 3 4 5`');
+  if (nums.length === 0) throw new Error('give one or more paper numbers, e.g. `apply-paper.ts tef 2 3 4 5`');
 
   console.log(`\n  target: ${describeTarget()}`);
 
