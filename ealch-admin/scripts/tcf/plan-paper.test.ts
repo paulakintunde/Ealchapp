@@ -133,14 +133,32 @@ test('a sixth paper is where the bank runs out, and it says so', () => {
  * rather than the call, so a third copy would have to break them.
  */
 
-test('the ledger distinguishes what was authored from what is only simulated', () => {
-  // A paper that has not been written still withholds its situations, and the
-  // ledger has to say which papers those came from. Reporting only the authored
-  // count understates what a plan had to avoid: paper 4 avoids 161 situations,
-  // of which 108 belong to papers that exist.
-  const led = ledgerFor(BANK, 4);
-  const sources = new Set(led.values());
-  ok(led.size > 0, 'paper 4 avoids nothing at all');
+test('the ledger accounts for EVERY earlier paper, authored or not', () => {
+  // The invariant, not the state. A first version of this asserted that paper
+  // 4's ledger contained a paper labelled "not yet written", which was true
+  // while two papers existed and false the moment a third was authored — a test
+  // pinned to a transient fact, which fails for the right thing happening.
+  //
+  // What must always hold: a paper's ledger names every paper before it, as an
+  // authored source or as a simulated one. Missing either half is what made
+  // four papers come back identical.
+  for (const n of [2, 3, 4, 5, 6]) {
+    const sources = new Set(ledgerFor(BANK, n).values());
+    for (let earlier = 1; earlier < n; earlier += 1) {
+      const dir = `tcf-blanc${String(earlier).padStart(2, '0')}`;
+      ok(
+        [...sources].some((s) => s.startsWith(dir)),
+        `paper ${n}'s ledger does not account for ${dir}; it names: ${[...sources].join(', ')}`
+      );
+    }
+  }
+});
+
+test('a paper that does not exist yet is labelled as simulated', () => {
+  // The other half, stated so it cannot expire: whatever is authored today,
+  // a ledger reaching past the last authored paper must SAY that the papers it
+  // is standing in for have not been written. Paper 20 will not be authored.
+  const sources = new Set(ledgerFor(BANK, 20).values());
   ok(
     [...sources].some((s) => s.includes('not yet written')),
     `expected simulated papers to be labelled, got: ${[...sources].join(', ')}`
