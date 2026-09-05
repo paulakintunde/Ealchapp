@@ -414,6 +414,8 @@ function ListeningTask({
         </TX>
       ) : null}
 
+      <Instruction body={task.prompt} />
+
       {task.parts.map((part, pi) => (
         <ExamAudioPart
           key={`${task.id}-p${pi}`}
@@ -476,9 +478,14 @@ function ClosedTask({
         </TX>
       ) : null}
 
-      {/* A task with `parts` puts its stimulus on each part; a flat task puts
-          it on the task's own prompt. Both are rendered as a document. */}
-      {task.parts?.length ? null : <Document body={task.prompt} />}
+      {/* A task with `parts` puts its stimulus on each part, so its own prompt
+          is the INSTRUCTION and belongs above them. A flat task puts the
+          stimulus on the prompt itself, and that is a document. Rendering
+          nothing in the first case is what dropped the instruction from twelve
+          of the paper's fourteen tasks. */}
+      {task.parts?.length
+        ? <Instruction body={task.prompt} />
+        : <Document body={task.prompt} />}
 
       {byPart.map(([partIx, qs]) => {
         const part: ExamPart | undefined = partIx == null ? undefined : task.parts?.[partIx];
@@ -505,6 +512,20 @@ function ClosedTask({
         );
       })}
     </View>
+  );
+}
+
+/** What the candidate is told to DO — "Vous allez entendre deux
+ *  micros-trottoirs...". Deliberately not a `Document`: an instruction is not
+ *  part of the stimulus, and giving it the same bordered card makes it read as
+ *  something to answer questions about. */
+function Instruction({ body }: { body?: string | null }) {
+  const t = useTheme();
+  if (!body) return null;
+  return (
+    <TX role="label" color={t.txSecondary} lhMult={1.5} style={{ marginBottom: 12 }}>
+      {body}
+    </TX>
   );
 }
 
