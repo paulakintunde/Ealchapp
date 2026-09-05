@@ -95,6 +95,19 @@ absent falls through to the table above.
 | a2@blanc-02 | 6 | ~ 120 | 121 wpm at 0.73 | 0.73 |
 | b2@blanc-02 | 4 | ~ 160 | 161 wpm at 0.92 | 0.92 |
 | c1@blanc-02 | 3 | ~ 175 | 169 wpm at 0.99 | 1.02 |
+| a2@blanc-03 | 6 | ~ 120 | 132 wpm at 0.72 | 0.70 |
+| b1@blanc-03 | 7 | ~ 140 | 137 wpm at 0.70 | 0.72 |
+| b2@blanc-03 | 4 | ~ 160 | 152 wpm at 0.84 | 0.88 |
+| c1@blanc-03 | 3 | ~ 175 | 178 wpm at 0.98 | 0.96 |
+| c2@blanc-03 | 1 | ~ 185 | 176 wpm at 1.18 | 1.20 |
+
+**blanc-03's C2 is at the ceiling and cannot reach its target.** Its two voices
+read that document at about 149 wpm unmultiplied, so 1.20 — the provider's
+maximum — delivers roughly 179 against a target of 185. That is inside
+tolerance and it is the most the format allows. A2 has the mirror problem on
+the same paper: 183 wpm unmultiplied means even the 0.70 floor leaves it near
+128. Both ends of the range are now in use on one paper, which is worth knowing
+before anyone assumes a speed can always be found.
 | _(c2 needs no override: blanc-02 measured 183 at 1.17 and wants 1.18, which is already the default)_ | | | | |
 
 **b2 is slower than b1 and that is not a typo.** The speed is a multiplier on

@@ -292,7 +292,7 @@ export const CO_C1: ExamTask = {
       durationS: 100,
       text:
         'UNE MODÉRATRICE : Quatre équipes ont trouvé la même chose en dix-huit mois. ' +
-        'Cela dit-il quelque chose sur la découverte, ou seulement sur le hasard ?\n' +
+        'Hasard, ou autre chose ?\n' +
         'UN HISTORIEN DES SCIENCES : Cela dit que la question était mûre. ' +
         'Les instruments existaient, la donnée circulait, et la formulation du problème ' +
         'traînait dans une dizaine de laboratoires. Quatre découvertes simultanées ' +
@@ -309,18 +309,12 @@ export const CO_C1: ExamTask = {
         'UN HISTORIEN DES SCIENCES : Vous déplacez la définition pour sauver le héros.\n' +
         'UNE PHYSICIENNE : Je déplace la définition parce que la vôtre compte des instruments ' +
         'et pas des idées. Nous ne sauvons ni ne tuons personne : nous choisissons ce que nous datons.\n' +
-        'UNE MODÉRATRICE : Peut-on trancher ?\n' +
-        'UN HISTORIEN DES SCIENCES : On peut constater que les deux définitions servent à des choses ' +
-        'différentes. La mienne explique pourquoi certaines périodes produisent beaucoup ' +
-        'et d’autres presque rien, ce qui est ma question. La sienne explique pourquoi, ' +
-        'à période égale, certains laboratoires produisent et d’autres pas.\n' +
-        'UNE PHYSICIENNE : Et la vôtre a un défaut que la mienne n’a pas : elle est irréfutable. ' +
-        'Toute découverte a une époque. On peut toujours montrer après coup ' +
-        'que les conditions étaient réunies, y compris là où personne n’a rien trouvé pendant trente ans.\n' +
-        'UN HISTORIEN DES SCIENCES : C’est le reproche le plus sérieux qu’on m’ait fait, ' +
-        'et je n’ai pas de réponse courte. Disons que je préfère une explication trop disponible ' +
-        'à une explication qui repose sur le talent, laquelle n’explique rien du tout ' +
-        'et se contente de renommer ce qu’il fallait comprendre.',
+        'UNE PHYSICIENNE : Et votre définition a un défaut que la mienne n’a pas : ' +
+        'elle est irréfutable. On peut toujours montrer après coup que les conditions ' +
+        'étaient réunies, y compris là où personne n’a rien trouvé.\n' +
+        'UN HISTORIEN DES SCIENCES : C’est le reproche le plus sérieux qu’on m’ait fait. ' +
+        'Je préfère une explication trop disponible à une explication par le talent, ' +
+        'qui se contente de renommer ce qu’il fallait comprendre.',
       items: [
         {
           q: 'Que concède la physicienne à l’historien ?',
@@ -489,7 +483,7 @@ export const CO_C2: ExamTask = {
   level: 'c2',
   label: 'Compréhension orale · C2',
   prompt: 'Vous allez entendre un document. Choisissez la bonne réponse.',
-  timingS: 199,
+  timingS: 204,
   targetItemIds: uniq(ITEMS.methodeScientifique.c2),
   parts: [
     {
@@ -532,10 +526,8 @@ export const CO_C2: ExamTask = {
         'Ce qui me frappe est que nous décrivions le même événement.\n' +
         'UN STATISTICIEN : Avec cette différence que le mien a des applications.\n' +
         'UNE PHILOSOPHE : Avec cette différence, oui, et elle n’est pas mince. ' +
-        'Je remarque seulement qu’on ne l’a jamais opposée à Hume de son vivant, ' +
-        'parce qu’à l’époque personne n’avait encore rien construit sur la réponse ' +
-        'qu’il refusait de donner. Les applications sont venues après, ' +
-        'et elles sont venues de gens qui avaient lu l’objection.\n' +
+        'Je remarque seulement que les applications sont venues après, ' +
+        'et qu’elles sont venues de gens qui avaient lu l’objection.\n' +
         'UN STATISTICIEN : Vous plaidez pour l’inutile en montrant qu’il finit par servir. ' +
         'C’est habile, et cela ruine votre position.\n' +
         'UNE PHILOSOPHE : Cela ruine ma position si je promets qu’il servira. ' +

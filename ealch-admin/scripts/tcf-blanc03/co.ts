@@ -36,7 +36,7 @@ export const CO_A1: ExamTask = {
   level: 'a1',
   label: 'Compréhension orale · A1',
   prompt: 'Vous allez entendre trois documents courts. Pour chaque document, choisissez la bonne réponse.',
-  timingS: 115,
+  timingS: 110,
   targetItemIds: uniq(ITEMS.auRestaurant.a1, ITEMS.deplacements.a1, ITEMS.transportsQuotidiens.a1),
   parts: [
     {
@@ -176,10 +176,12 @@ export const CO_A2: ExamTask = {
       readWindowS: 12,
       durationS: 24,
       text:
-        'UNE FEMME : Hier, je me suis levée à six heures pour finir un dossier avant la réunion. ' +
-        'La réunion a été reportée à ce matin, finalement. ' +
-        'Alors j’ai profité de l’après-midi pour aller à la piscine, ' +
-        'ce que je n’avais pas fait depuis des mois.',
+        'UNE FEMME : Hier, je me suis levée à six heures afin de terminer un dossier ' +
+        'avant la réunion. Celle-ci a finalement été reportée à ce matin. ' +
+        'J’ai donc profité de l’après-midi pour aller à la piscine, ' +
+        'ce que je n’avais pas fait depuis plusieurs mois. ' +
+        'J’ai nagé pendant une heure, puis je suis rentrée tranquillement à pied, ' +
+        'en traversant le parc municipal.',
       items: [
         {
           q: 'Qu’a-t-elle fait hier après-midi ?',
@@ -224,7 +226,8 @@ export const CO_A2: ExamTask = {
       text:
         'UNE VOISINE : La machine de gauche chauffe mal, tout le monde prend celle de droite. ' +
         'Vous mettez un jeton, vous choisissez le programme, et vous appuyez deux secondes ' +
-        'sur le bouton vert. Si vous appuyez trop vite, elle ne démarre pas et le jeton est perdu.',
+        'sur le bouton vert. Si vous appuyez trop vite, elle ne démarre pas et le jeton est perdu. ' +
+        'Les jetons se prennent chez le gardien, le matin uniquement.',
       items: [
         {
           q: 'Que faut-il faire pour démarrer la machine ?',
@@ -247,8 +250,9 @@ export const CO_A2: ExamTask = {
       durationS: 24,
       text:
         'UN CLIENT : Bonjour, un plat du jour à emporter, s’il vous plaît. Sans oignons, si c’est possible.\n' +
-        'UNE SERVEUSE : Le plat du jour, c’est un poulet basquaise. Il y a des oignons dans la sauce, ' +
-        'ils sont mixés. Je peux vous faire le poulet grillé à la place, avec du riz.\n' +
+        'UNE SERVEUSE : Le plat du jour est un poulet basquaise. La sauce contient des oignons, ' +
+        'malheureusement mixés, donc impossibles à retirer. ' +
+        'Je peux vous proposer le poulet grillé à la place, accompagné de riz.\n' +
         'UN CLIENT : Parfait, va pour le poulet grillé.',
       items: [
         {
@@ -452,7 +456,10 @@ export const CO_B1: ExamTask = {
         'UN INVITÉ : C’est-à-dire ?\n' +
         'UNE CHRONIQUEUSE : Un écran qui montre une série ne dérange pas comme un écran ' +
         'qui montre des messages auxquels il faut répondre. ' +
-        'Ce n’est pas la lampe qui vous tient éveillé, c’est ce qu’elle éclaire.',
+        'Ce n’est pas la lampe qui vous tient éveillé, c’est ce qu’elle éclaire. ' +
+        'Les chercheurs qui ont fait la distinction ont comparé deux groupes à luminosité identique, ' +
+        'l’un devant un film, l’autre devant une messagerie. ' +
+        'L’écart d’endormissement était de vingt-huit minutes.',
       items: [
         {
           q: 'Que disent les études récentes ?',
@@ -480,7 +487,10 @@ export const CO_B1: ExamTask = {
         'au lieu de produire, et je paie une personne le samedi.\n' +
         'UN JOURNALISTE : Vous y reviendriez ?\n' +
         'UNE AGRICULTRICE : Je ne repartirais pas en arrière. Ce que j’ai gagné, ' +
-        'ce n’est pas de l’argent, c’est de savoir à qui je vends.',
+        'ce n’est pas de l’argent, c’est de savoir à qui je vends. ' +
+        'Avant, je livrais des palettes et je ne voyais personne. ' +
+        'Maintenant on me dit ce qui était bon et ce qui l’était moins, ' +
+        'et j’ai changé deux variétés à cause de ça.',
       items: [
         {
           q: 'Quel est le bilan qu’elle tire ?',
@@ -508,7 +518,10 @@ export const CO_B1: ExamTask = {
         'UNE FEMME : Donc c’est pareil ?\n' +
         'UN HOMME : Financièrement, presque. Ce qui change, c’est le temps : ' +
         'je passe une heure de plus par jour dans la voiture, et mes enfants ont un jardin. ' +
-        'Personne ne peut vous dire lequel des deux vaut le plus.',
+        'Personne ne peut vous dire lequel des deux vaut le plus. ' +
+        'Ce que je sais, c’est que la question ne se pose plus de la même façon ' +
+        'depuis que je travaille deux jours par semaine à la maison. ' +
+        'Les quatre cents kilomètres sont devenus deux cent quarante.',
       items: [
         {
           q: 'Que conclut cet homme ?',
