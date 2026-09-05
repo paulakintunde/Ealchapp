@@ -108,6 +108,10 @@ absent falls through to the table above.
 | b2@blanc-04 | 4 | ~ 160 | 165 wpm at 0.91 | 0.91 |
 | c1@blanc-04 | 3 | ~ 175 | 171 wpm at 1.00 | 1.00 |
 | c2@blanc-04 | 1 | ~ 185 | 187 wpm at 1.15 | 1.15 |
+| a1@blanc-05 | 3 | ≤ 110 | 107 wpm at 0.75 | 0.75 |
+| b2@blanc-05 | 4 | ~ 160 | 163 wpm at 0.90 | 0.90 |
+| c1@blanc-05 | 3 | ~ 175 | 170 wpm at 1.07 | 1.07 |
+| c2@blanc-05 | 1 | ~ 185 | 187 wpm at 1.15 | 1.15 |
 
 **blanc-04's A1 could not be fixed with a speed at all,** and it took two goes
 to find what did fix it. It measured 130 wpm against a 110 target with the
