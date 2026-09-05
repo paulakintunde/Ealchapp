@@ -2177,6 +2177,30 @@ export type QcmItem = {
    * count reports identically.
    */
   band?: ScoreBand;
+  /**
+   * What this question is worth, when the format does not weight every question
+   * equally. Absent means 1, so every existing paper is unaffected.
+   *
+   * TEF and TCF give each question the same weight and this field stays off
+   * them. DELF B2 does not: its questions are worth 0.5, 1, 1.5, 2 or 2.5
+   * points, printed on the paper next to the question, summing to 9, 9 and 7
+   * across the three exercises of each comprehension épreuve.
+   *
+   * Scoring that as 20 equal questions is not a rounding error. Measured
+   * against the published values of a real paper, a candidate's mark can be
+   * wrong by 5.25 points out of 25 on listening and 6.25 on reading — a fifth
+   * to a quarter of the épreuve. The floor case is worse than the average one:
+   * DELF requires at least 5/25 on EVERY épreuve regardless of the total, and
+   * a candidate with four correct answers scores exactly 5.00 under equal
+   * weighting while their true mark is anywhere from 2.0 to 9.0. Equal
+   * weighting would therefore tell some candidates they had cleared a floor
+   * they had in fact failed, which is the one thing a mock exam must never do.
+   *
+   * Half-point steps, because that is the grain the format uses. A whole-paper
+   * check that the weights sum to the épreuve's published total belongs in the
+   * paper's own tests, not here: this validator sees one task at a time.
+   */
+  points?: number;
 };
 
 /**
@@ -4200,6 +4224,17 @@ function validateQcm(v: unknown, path: string, requireBand = false): Issue[] {
       push(`items[${i}].band must be one of ${SCORE_BANDS.join(' | ')} when present`);
     } else if (requireBand && qq.band === undefined) {
       push(`items[${i}].band is required on tcf_canada — the épreuve is a ramp and an untagged item has no place on it`);
+    }
+    // Per-item weight. Absent means 1. Rejected rather than coerced when it is
+    // nonsense, because a zero or negative weight silently removes a question
+    // from the paper and a fractional one that is not a half-step is a typo in
+    // a format whose published values are all half-steps.
+    if (qq.points !== undefined) {
+      if (typeof qq.points !== 'number' || !Number.isFinite(qq.points) || qq.points <= 0) {
+        push(`items[${i}].points must be a positive number when present`);
+      } else if (Math.round(qq.points * 2) !== qq.points * 2) {
+        push(`items[${i}].points must be a multiple of 0.5, got ${qq.points}`);
+      }
     }
   });
   return out;

@@ -128,12 +128,28 @@ export default function ExamSectionScreen() {
         // attempt entirely — but flagged, so the report says "audio
         // unavailable" rather than reporting our failure as the candidate's.
         const audioFailed = [...unplayable].some((k) => k.startsWith(`${task.id}:`));
-        const { correct, total } = scoreClosedTask(task, answers[task.id] ?? {});
-        const passed = !audioFailed && total > 0 && correct / total >= PLACEMENT_PASS;
+        const { correct, total, points, pointsTotal } = scoreClosedTask(task, answers[task.id] ?? {});
+        // Pass/fail reads the WEIGHTED proportion, which is the candidate's
+        // actual share of the marks. On a format with equal weights the two are
+        // the same number; on one without, counting questions would pass a
+        // candidate who got the cheap questions and miss one who got the dear
+        // ones.
+        const passed = !audioFailed && pointsTotal > 0 && points / pointsTotal >= PLACEMENT_PASS;
         // The question counts ride along: the report's scoring map is indexed
-        // by questions, and `passed` alone cannot produce "31/40".
+        // by questions, and `passed` alone cannot produce "31/40". The points
+        // pair rides along too, but only when it says something the counts do
+        // not — otherwise every TEF and TCF result would carry two identical
+        // copies of the same number for the rest of time.
+        const weighted = pointsTotal !== total || points !== correct;
         logExamResult(
-          { ...base, passed, correct, askedTotal: total, ...(audioFailed ? { audioFailed: true } : {}) },
+          {
+            ...base,
+            passed,
+            correct,
+            askedTotal: total,
+            ...(weighted ? { points, pointsTotal } : {}),
+            ...(audioFailed ? { audioFailed: true } : {}),
+          },
           task
         );
         continue;

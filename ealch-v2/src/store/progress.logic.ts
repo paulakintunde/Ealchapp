@@ -1246,6 +1246,19 @@ export type ExamResult = {
    */
   correct?: number;
   askedTotal?: number;
+  /**
+   * The same attempt in POINTS, for a format that does not weight every
+   * question equally (QcmItem.points). Absent on every format that does, where
+   * it would duplicate the pair above.
+   *
+   * Recorded at write time rather than recomputed later, because recomputing
+   * needs the task as it was authored and an author may re-weight a question
+   * after a candidate has sat it. The counts answer "how many did they get";
+   * these answer "what did they score", and on DELF B2 those are different
+   * questions with different answers.
+   */
+  points?: number;
+  pointsTotal?: number;
 };
 
 /**
@@ -1460,6 +1473,20 @@ export function sectionRaw(
         // candidate, and inventing a band would overstate them.
         if (band) byBand[band] = (byBand[band] ?? 0) + (r.correct ?? 0);
       }
+    }
+    // Report MARKS where the format has them, questions where it does not.
+    // A DELF épreuve is out of 25 and its questions are worth 0.5 to 2.5, so
+    // "14 of 20" is not a mark a candidate can compare to the 5/25 floor they
+    // have to clear. Every row must carry the pair before it is used: mixing a
+    // weighted row with an unweighted one would add points to question counts
+    // and produce a total that is out of nothing at all.
+    const weighted = rows.filter((r) => typeof r.points === 'number' && typeof r.pointsTotal === 'number');
+    if (weighted.length === rows.length) {
+      return {
+        raw: rows.reduce((n, r) => n + (r.points ?? 0), 0),
+        total: rows.reduce((n, r) => n + (r.pointsTotal ?? 0), 0),
+        ...(byBand ? { byBand } : {}),
+      };
     }
     return {
       raw: rows.reduce((n, r) => n + (r.correct ?? 0), 0),

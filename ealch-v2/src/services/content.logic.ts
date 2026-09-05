@@ -353,10 +353,23 @@ export function taskQuestions(task: ExamTask): ExamQuestion[] {
 export function scoreClosedTask(
   task: ExamTask,
   answers: Record<string, number | null | undefined>
-): { correct: number; total: number } {
+): { correct: number; total: number; points: number; pointsTotal: number } {
   const qs = taskQuestions(task);
   const correct = qs.reduce((n, q) => n + (answers[q.key] === q.item.correct ? 1 : 0), 0);
-  return { correct, total: qs.length };
+
+  // The weighted pair rides ALONGSIDE the counts rather than replacing them,
+  // and that separation is deliberate. TCF's NCLC estimate weights by BAND and
+  // reads counts per band (nclc.logic.weightedRaw); if `correct` became a point
+  // sum, that profile would quietly start reading the wrong unit. So counts
+  // stay counts, and formats that weight their questions get a second pair.
+  //
+  // With no item declaring `points`, the two pairs are equal by construction —
+  // every existing TEF and TCF paper scores byte-identically to before.
+  const weight = (q: (typeof qs)[number]) => q.item.points ?? 1;
+  const points = qs.reduce((n, q) => n + (answers[q.key] === q.item.correct ? weight(q) : 0), 0);
+  const pointsTotal = qs.reduce((n, q) => n + weight(q), 0);
+
+  return { correct, total: qs.length, points, pointsTotal };
 }
 
 /** The lessons of a unit, in seq order, resolved and filtered to what exists.
