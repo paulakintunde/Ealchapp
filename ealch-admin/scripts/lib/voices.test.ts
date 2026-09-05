@@ -2,7 +2,7 @@ import { deepStrictEqual, ok, strictEqual, throws } from 'node:assert';
 import { test } from 'node:test';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadVoices, parseSettings, parseVoices, voiceIdFor } from './voices.ts';
+import { loadVoices, parseBlockSpeed, parseSettings, parseVoices, voiceIdFor } from './voices.ts';
 import type { SlotName } from './examAudio.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -118,6 +118,30 @@ test('the shipped TCF casting file declares a speed for every band', () => {
     cast.blockSpeed.get('c2')! > cast.blockSpeed.get('a1')!,
     'c2 is not paced faster than a1: the slope is upside down'
   );
+});
+
+test('an override set to exactly 1.00 survives the parse', () => {
+  // The hole this closes. 1.0 is the provider's default, so an UNQUALIFIED row
+  // set to 1 is genuinely the same as no row and is dropped on purpose: keeping
+  // it would put `speed=1` in the assetKey and re-render a whole block to sound
+  // identical.
+  //
+  // A QUALIFIED row set to 1 is not that. `c1@blanc-04 | 1.00` says "not the
+  // 0.98 default", and dropping it hands blanc-04 the very value it was written
+  // to override. That is what happened: the band was calibrated to 1.00, the
+  // row vanished here, the paper re-rendered at 0.98, and the table and the
+  // audio disagreed with nothing to say so.
+  const md = `
+| Band | Documents | Target wpm | Speed |
+|---|---|---|---|
+| c1 | 3 | ~ 175 | 0.98 |
+| c2 | 1 | ~ 185 | 1.00 |
+| c1@blanc-09 | 3 | ~ 175 | 1.00 |
+`;
+  const table = parseBlockSpeed(md);
+  strictEqual(table.get('c1@blanc-09'), 1, 'a qualified 1.00 was dropped and falls back to 0.98');
+  strictEqual(table.get('c2'), undefined, 'an unqualified 1.00 is still the same as no row');
+  strictEqual(table.get('c1'), 0.98);
 });
 
 test('the two casting files are separate files with separate tables', () => {

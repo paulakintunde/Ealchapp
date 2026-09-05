@@ -169,9 +169,16 @@ export function parseBlockSpeed(markdown: string): Map<string, number> {
     if (!isBand && !/^([A-G]|EO)$/.test(block)) continue;
     const speed = Number(cells[cells.length - 1]!.trim());
     if (!Number.isFinite(speed) || speed <= 0) continue;
-    // 1.0 is the provider default. Storing it would put `speed=1` in the
-    // assetKey and re-render every clip in the block to sound identical.
-    if (speed === 1) continue;
+    // 1.0 is the provider default, so an UNQUALIFIED row set to 1 is the same
+    // as no row at all: storing it would only put `speed=1` in the assetKey and
+    // re-render every clip in the block to sound identical.
+    //
+    // A QUALIFIED row is a different matter and dropping it is a silent bug.
+    // `c1@blanc-04 | 1.00` does not mean "no multiplier": it means "not 0.98",
+    // and skipping it hands that paper the unqualified default it was written
+    // to override. blanc-04's C1 was calibrated to 1.00, the row vanished here,
+    // and the band re-rendered at 0.98 while the table said otherwise.
+    if (speed === 1 && !block.includes('@')) continue;
     out.set(block, speed);
   }
   return out;

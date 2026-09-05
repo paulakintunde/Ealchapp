@@ -48,8 +48,12 @@ STANDARD-tcf §7: *"CO: speech rate rises across the épreuve and sits in each b
 This is the single biggest difference from TEF's casting. TEF sets a speed **per block**, because its blocks are exercise families with fixed bands. TCF has no blocks; it has a slope, and the rate is a function of **where on the slope the document sits**.
 
 `voices.ts` reads this table too: first cell the band, **last cell the speed**.
-A speed of exactly `1` is skipped rather than stored, because `speed=1` in an
-assetKey would re-render a whole band to sound identical to the default.
+An UNQUALIFIED speed of exactly `1` is skipped rather than stored, because
+`speed=1` in an assetKey would re-render a whole band to sound identical to the
+default. A qualified one is kept: `c1@blanc-04 | 1.00` does not mean "no
+multiplier", it means "not 0.98", and dropping it hands that paper the very
+default it was written to override. It was dropped, blanc-04's C1 re-rendered at
+0.98 while this table said 1.00, and the two disagreed with nothing to say so.
 
 **0.7 is the floor and 1.2 the ceiling.** The provider rejects anything outside
 that range outright, with `invalid_voice_settings`, and the run dies on the
@@ -100,6 +104,28 @@ absent falls through to the table above.
 | b2@blanc-03 | 4 | ~ 160 | 152 wpm at 0.84 | 0.88 |
 | c1@blanc-03 | 3 | ~ 175 | 178 wpm at 0.98 | 0.96 |
 | c2@blanc-03 | 1 | ~ 185 | 176 wpm at 1.18 | 1.20 |
+| a2@blanc-04 | 6 | ~ 120 | 126 wpm at 0.70 | 0.70 |
+| b2@blanc-04 | 4 | ~ 160 | 165 wpm at 0.91 | 0.91 |
+| c1@blanc-04 | 3 | ~ 175 | 171 wpm at 1.00 | 1.00 |
+| c2@blanc-04 | 1 | ~ 185 | 187 wpm at 1.15 | 1.15 |
+
+**blanc-04's A1 could not be fixed with a speed at all,** and it took two goes
+to find what did fix it. It measured 130 wpm against a 110 target with the
+default already at the 0.70 floor, so there was nowhere lower to go.
+
+The first theory was turn count: a monologue has no turn boundaries, and a turn
+boundary is a pause. Two of the three documents were monologues, so they became
+dialogues. The band improved and the worst document got WORSE, from 137 to 143.
+
+Adding turns had added words, and the rate is words over seconds. The document
+was written almost entirely in monosyllables — *oui*, *non*, *alors*, *quel
+temps* — and a word counts as one whether it takes a fifth of a second or a
+whole one. Rewriting the same exchange with longer words (*bonjour Monsieur*,
+*cet après-midi*, *votre parapluie*) took it to 111, and the band to 119.
+
+So on a floored band there are two levers and they are not the same one: turn
+boundaries buy seconds, and word length buys seconds without buying words. Reach
+for the second when the first makes things worse.
 
 **blanc-03's C2 is at the ceiling and cannot reach its target.** Its two voices
 read that document at about 149 wpm unmultiplied, so 1.20 — the provider's
