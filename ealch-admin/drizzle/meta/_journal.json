@@ -134,6 +134,20 @@
       "when": 1785305615740,
       "tag": "0018_speak_stage_kind",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1787640150877,
+      "tag": "0019_exam_paper_sections",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1787640150878,
+      "tag": "0020_exam_interlocutor",
+      "breakpoints": true
     }
   ]
 }

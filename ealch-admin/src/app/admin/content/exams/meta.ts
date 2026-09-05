@@ -45,8 +45,8 @@ export const OPEN_TASK_TYPES = new Set<ExamTaskType>(['po_monologue', 'po_intera
 export function examTaskId(format: string, variant: string, taskType: string, seq: number): string {
   return `exam.${format}.${variant}.${taskType}.${String(seq).padStart(3, '0')}`;
 }
-export function examSeriesId(format: string, variant: string, seriesNo: number): string {
-  return `series.${format}.${variant}.${seriesNo}`;
+export function examPaperId(format: string, variant: string, paperNo: number): string {
+  return `paper.${format}.${variant}.${paperNo}`;
 }
 
 const SLUG_RE = /^[a-z0-9-]+$/;
