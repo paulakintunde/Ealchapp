@@ -252,12 +252,13 @@ per épreuve, a total, and the floor.
 
 ## 9. Unresolved
 
-1. **Per-question point values.** The format weights questions 0.5 to 2.5 and
-   prints the value on the paper. Our `QcmItem` has no weight, and section
-   scoring assumes equal items. Either add an optional weight to the item and
-   teach the scorer to use it, or author every DELF paper with equal weights and
-   accept that our mark is an approximation of a real one. **This is a decision,
-   not an oversight, and it should be made before authoring rather than after.**
+1. ~~**Per-question point values.**~~ **SETTLED 2026-09-05, commit 7118de3.**
+   `QcmItem.points` now carries the weight, absent meaning 1, validated to the
+   half-point grid. The decision was made on the floor case rather than on
+   fidelity: four correct out of twenty scores exactly 5.00 under equal
+   weighting, precisely the 5/25 an épreuve must clear, while the true mark for
+   the same four answers runs 2.0 to 9.0. Every authored DELF item must set
+   `points`, and the paper's own tests must reconcile them to 9 / 9 / 7.
 2. **Draw two, choose one** in Production orale. No schema representation. The
    simplest honest option is to author both trigger documents and let the
    candidate pick, which is also the more useful practice.
