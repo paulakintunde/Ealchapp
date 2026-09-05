@@ -1,4 +1,4 @@
-// TCF Canada blanc-01 — the assembled paper.
+// TCF Canada blanc-02 — the assembled paper.
 //
 // ── Order is load-bearing here ─────────────────────────────────────────────
 //
@@ -22,8 +22,9 @@ import { CO_SCORING, CE_SCORING } from '../tcf/scoring.ts';
 
 // Authored key-first so a reviewer sees the intended answer at the top of
 // every option list; scatterKeys places it deterministically, seeded on this
-// paper's format AND variant. The runner never permutes a TCF section, so the
-// authored order IS what the candidate meets.
+// paper's format AND variant. That seed is why blanc-02 cannot inherit
+// blanc-01's key sequence — five TEF papers once shared one because the
+// scatter keyed on the question's index instead.
 export const CO_TASKS: ExamTask[] = [CO_A1, CO_A2, CO_B1, CO_B2, CO_C1, CO_C2].map(scatterKeys);
 export const CE_TASKS: ExamTask[] = [CE_A1, CE_A2, CE_B1, CE_B2, CE_C1, CE_C2].map(scatterKeys);
 export const EE_TASKS: ExamTask[] = [EE_T1, EE_T2, EE_T3];
@@ -35,7 +36,7 @@ export const PAPER: ExamPaper = {
   id: PAPER_ID,
   format: FORMAT,
   variant: VARIANT,
-  paperNo: 1,
+  paperNo: 2,
   sections: [
     {
       skill: 'CO',

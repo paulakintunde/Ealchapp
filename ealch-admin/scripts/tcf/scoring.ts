@@ -1,4 +1,11 @@
-// TCF Canada blanc-01 — how the two comprehension épreuves report.
+// TCF Canada — how the two comprehension épreuves report.
+//
+// FORMAT-LEVEL, not per-paper. These tables describe the instrument, so every
+// TCF paper shares them: two papers of the same format that scored the same
+// performance differently would not be parallel forms, which is the one thing
+// a pack of five has to be. Moved out of tcf-blanc01/ when blanc-02 needed
+// them, rather than copied, because a copy is how five TEF papers came to
+// share one answer key.
 //
 // ── Weighted, because the format says so ───────────────────────────────────
 //
