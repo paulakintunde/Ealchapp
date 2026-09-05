@@ -206,3 +206,106 @@ test('the TCF bank can actually supply five papers, drawn the way the planner dr
     for (const o of p.open) taken.add(o.situation.id);
   }
 });
+
+/* ── DELF B2 ──────────────────────────────────────────────────────────────
+ *
+ * A different bank shape, for a different reason. TEF's rows are tagged by
+ * block and TCF's by band; DELF has one band and no blocks, so its rows are
+ * tagged by SUIT — which slot of the paper they can fill. A three-minute
+ * broadcast debate and a seventy-second bulletin item are both B2 and are not
+ * interchangeable, and that is the only distinction the bank needs to carry.
+ *
+ * These checks are structural, like the ones above, and for the same reason:
+ * whether a theme resolves is a database question. The coverage claims in the
+ * file's own closing section were written by hand and were WRONG on first
+ * draft — 32 distinct themes claimed against 38 actual, and a hand-listed set
+ * of untouched themes that did not match the query. Hence a test.
+ */
+
+/** Rows a paper draws from each suit, per the blueprint's paper shape. */
+const DELF_DRAW: Record<string, number> = {
+  'CO-L': 2, // listening exercises 1 and 2
+  'CO-S': 3, // listening exercise 3, three short documents
+  'CE-T': 2, // reading exercises 1 and 2
+  'CE-O': 1, // reading exercise 3, one cluster of opinions
+  PE: 1,
+  PO: 2, // two drawn, one chosen
+};
+
+/** Counts each suit heading claims for itself, e.g. `## CO-L · … (24)`. Read
+ *  while parsing rather than with a second regex: building one from a template
+ *  literal silently eats the backslashes, so `\\(` and `\\d` arrive as `(` and
+ *  `d` and the pattern matches nothing. */
+const delfClaimed = new Map<string, number>();
+
+function delfBank(): { id: number; suit: string; theme: string }[] {
+  const md = readFileSync(resolve(HERE, '../exam-blueprints/TOPICS-delf-b2.md'), 'utf8');
+  const out: { id: number; suit: string; theme: string }[] = [];
+  let suit = '';
+  delfClaimed.clear();
+  // `.trimEnd()` is load-bearing on Windows. This file is checked out with CRLF
+  // endings, so a line split on '\n' still carries a trailing '\r' and an
+  // anchored `$` never matches it. The first version of this parser returned
+  // zero rows for exactly that reason — and said so, because the test below
+  // asserts the bank is non-empty rather than trusting whatever it parsed.
+  for (const raw of md.split('\n')) {
+    const line = raw.trimEnd();
+    const h = line.match(/^## ([A-Z-]+) · .*\((\d+)\)\s*$/);
+    if (h) {
+      suit = h[1]!;
+      delfClaimed.set(suit, Number(h[2]));
+    }
+    const row = line.match(/^\| DELF-(\d+) \|.+\|\s*`([a-z0-9-]+)`\s*\|$/);
+    if (row && suit) out.push({ id: Number(row[1]), suit, theme: row[2]! });
+  }
+  return out;
+}
+
+test('TOPICS-delf-b2.md: ids are unique and run 1..N with no gaps', () => {
+  const bank = delfBank();
+  ok(bank.length > 0, 'no rows parsed — the table shape changed and every reader of this file is now blind');
+  const ids = bank.map((r) => r.id);
+  strictEqual(new Set(ids).size, ids.length, 'a duplicate id gives two slots the same situation');
+  const max = Math.max(...ids);
+  deepStrictEqual(
+    [...Array(max)].map((_, i) => i + 1).filter((n) => !ids.includes(n)),
+    [],
+    'a gap means a row was deleted rather than replaced'
+  );
+  strictEqual(bank.length, max, `${bank.length} rows but ids run to ${max}`);
+});
+
+test('TOPICS-delf-b2.md: every row carries a suit the paper actually has', () => {
+  for (const r of delfBank()) {
+    ok(DELF_DRAW[r.suit] !== undefined, `DELF-${r.id} is tagged "${r.suit}", which is not a slot of the paper`);
+    ok(/^[a-z0-9-]+$/.test(r.theme), `DELF-${r.id} has a malformed theme`);
+  }
+});
+
+test('TOPICS-delf-b2.md: the header counts match the rows beneath them', () => {
+  // The counts in the "How to use this" table are what a planner would trust
+  // before it reads a single row.
+  const bank = delfBank();
+  for (const suit of Object.keys(DELF_DRAW)) {
+    const actual = bank.filter((r) => r.suit === suit).length;
+    const claimed = delfClaimed.get(suit);
+    strictEqual(actual, claimed, `${suit}: ${actual} rows under a heading claiming ${claimed}`);
+  }
+  strictEqual(delfClaimed.size, Object.keys(DELF_DRAW).length, 'a suit heading lost its count');
+});
+
+test('the DELF bank can supply five papers, suit by suit', () => {
+  // The TEF bank ran out because nobody multiplied 45 by 5 until after paper 1
+  // was authored. A bank with enough ROWS can still run out inside one suit,
+  // which is the only arithmetic that matters here.
+  const bank = delfBank();
+  const short: string[] = [];
+  for (const [suit, per] of Object.entries(DELF_DRAW)) {
+    const have = bank.filter((r) => r.suit === suit).length;
+    if (have < per * 5) short.push(`${suit}: ${have} rows, five papers need ${per * 5}`);
+  }
+  deepStrictEqual(short, [], 'the bank cannot supply the pack');
+
+  const spend = Object.values(DELF_DRAW).reduce((a, b) => a + b, 0);
+  strictEqual(spend, 11, 'a DELF paper spends 11 topics; the blueprint says so and the draw table must agree');
+});
