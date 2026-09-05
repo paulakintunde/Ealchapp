@@ -91,9 +91,33 @@ jobs:
         # without a seed-cut.config.ts change. If the seed keeps growing,
         # trim seed-cut.config.ts (e.g. level-cap the theme sweep to
         # sons/a1/a2, or per-theme item caps) before raising this again.
+        #
+        # Raised 5 MiB → 16 MiB (Paul, 2026-09-05). The trim was considered
+        # first, as the note above asks, and it does not reach. Measured on the
+        # v62 seed:
+        #
+        #   lessons  a1   31   3.45 MiB      items  10417   4.95 MiB
+        #            a2   37   3.87 MiB
+        #          sons   10   0.90 MiB      file, pretty-printed  14.13 MiB
+        #
+        # Dropping A2 entirely lands near 10 MiB and minifying the file lands at
+        # 9.24 MiB; doing both only just clears 5 MiB, and each costs something
+        # real. A partial track is the one thing seed-cut.config.ts argues
+        # against by name — the Den renders each unit at its true spine seq, so
+        # a subset drew a curriculum numbered 1, 2, 3, 9, 10, 16, 19, which
+        # reads as broken rather than as incomplete. Minifying would cut the
+        # diff reviewability the seed is deliberately pretty-printed for.
+        #
+        # What actually changed is the denominator. The old figure was set when
+        # the spine was seven A1 units; it is now 75 units and 78 lessons, all
+        # three Den tracks complete, and the config bundles whole tracks on
+        # purpose. 16 MiB is roughly 1.1x today's file: enough that a lesson or
+        # two does not trip it, tight enough that a fourth track cannot land
+        # here unnoticed. A B1 track is the next thing that would exceed it, and
+        # it should — that is a seed-cut decision, not a ceiling one.
         run: |
           node -e '
-            const max = 5 * 1024 * 1024;
+            const max = 16 * 1024 * 1024;
             const size = require("fs").statSync("src/content/seed.json").size;
             console.log(`seed.json: ${size} bytes (ceiling ${max})`);
             if (size > max) { console.error("seed.json exceeds the documented ceiling"); process.exit(1); }
