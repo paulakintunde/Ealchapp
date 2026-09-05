@@ -302,6 +302,16 @@ If nothing appears within ~3 minutes, the device never asked. Work back through 
 >    might have changed. That is the textbook cause of this error and it is not
 >    this one. Removing the keyword from both files WORKED as intended: the
 >    `Re-checking globbed directories` lines disappear from the log entirely.
+>    The build died anyway, in the same module, at the same point.
+>
+>    **The edit was REVERTED on 2026-09-05 and both files are byte-identical to
+>    the published packages again.** It is recorded here so nobody spends the
+>    time twice, not so anyone goes looking for it on disk. Leaving it in place
+>    would have been the worse outcome of the two: an undocumented patch inside
+>    `node_modules`, invisible to git, wiped by the next `npm ci`, and present
+>    on exactly one machine. A local build that then depended on it would pass
+>    here and fail everywhere else, which is a far more expensive bug than the
+>    one it failed to fix.
 >    Ninja still fails with the same message. Those edits are still in place,
 >    each with a comment saying why; they are harmless, they fix nothing, and a
 >    `node_modules` reinstall reverts them.
