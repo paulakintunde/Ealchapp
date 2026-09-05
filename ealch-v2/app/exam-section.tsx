@@ -21,6 +21,7 @@
 //    honest way to treat a candidate who ran out of time.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, TextInput, View } from 'react-native';
+import { ExamAudioQueue } from '@/components/ExamAudioQueue';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
@@ -255,6 +256,11 @@ export default function ExamSectionScreen() {
           {T.examNoReveal}
         </TX>
 
+        {/* One playback owner for the whole paper. Without it every audio part
+            ran its own autoplay timer from mount, so parts sharing a
+            readWindowS all started together into the single shared player and
+            the later ones ate the earlier. */}
+        <ExamAudioQueue>
         {tasks.map((task) =>
           // An interaction is the one PO task the recorder cannot serve: the
           // candidate leads and the examiner must answer back. Both paths feed
@@ -318,6 +324,7 @@ export default function ExamSectionScreen() {
             />
           )
         )}
+        </ExamAudioQueue>
       </ScrollView>
 
       <View style={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 20 }}>
@@ -419,6 +426,7 @@ function ListeningTask({
       {task.parts.map((part, pi) => (
         <ExamAudioPart
           key={`${task.id}-p${pi}`}
+          queueId={`${task.id}-p${pi}`}
           part={part}
           mode={mode}
           onUnplayable={() => onUnplayable(`p${pi}`)}

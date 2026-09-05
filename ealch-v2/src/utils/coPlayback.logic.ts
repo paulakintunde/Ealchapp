@@ -30,6 +30,12 @@ export type PartPhase =
   | 'playing'
   /** Audio spent. Still the current part, still editable. */
   | 'answering'
+  /** Queued behind an earlier document. Its reading window has NOT started —
+   *  it starts when the queue hands this part the floor. A listening paper
+   *  presents its documents one at a time; before the queue existed every part
+   *  ran its own timer from mount, so parts sharing a readWindowS all played
+   *  into the same shared player and the later ones silently ate the earlier. */
+  | 'waiting'
   /** Moved past. Editable no longer, and the audio is gone for good. */
   | 'closed'
   /** Neither a clip nor device TTS produced sound. See the note on
@@ -51,8 +57,22 @@ export function effectivePlayCount(part: { playCount?: number }): number {
   return Math.max(1, Math.floor(part.playCount ?? 1));
 }
 
-export function initPlayback(part: { playCount?: number; readWindowS?: number }): PartPlayback {
+export function initPlayback(
+  part: { playCount?: number; readWindowS?: number },
+  /** True when a queue owns the running order. The part then starts parked in
+   *  'waiting' and does nothing until beginTurn(). Defaults false so a part
+   *  rendered outside a queue behaves exactly as it always did. */
+  queued = false,
+): PartPlayback {
   const readWindowS = Math.max(0, Math.floor(part.readWindowS ?? 0));
+  if (queued) {
+    return {
+      phase: 'waiting',
+      playsStarted: 0,
+      playCount: effectivePlayCount(part),
+      readWindowS,
+    };
+  }
   return {
     phase: readWindowS > 0 ? 'reading' : 'playing',
     playsStarted: 0,
@@ -70,6 +90,11 @@ export function initPlayback(part: { playCount?: number; readWindowS?: number })
  */
 export function canPlay(pb: PartPlayback, mode: ExamMode): boolean {
   if (pb.phase === 'closed' || pb.phase === 'unplayable') return false;
+  // A queued part has not been handed the floor. Practice mode's replay button
+  // reaches canPlay directly, so without this a candidate could start a later
+  // document over the one currently sounding — the exact collision the queue
+  // exists to prevent.
+  if (pb.phase === 'waiting') return false;
   if (mode === 'practice') return true;
   return pb.playsStarted < pb.playCount;
 }
@@ -77,6 +102,22 @@ export function canPlay(pb: PartPlayback, mode: ExamMode): boolean {
 /** A play has begun. */
 export function startPlay(pb: PartPlayback): PartPlayback {
   return { ...pb, phase: 'playing', playsStarted: pb.playsStarted + 1 };
+}
+
+/** The queue has handed this part the floor: start its reading window now.
+ *  Always lands on 'reading' — a zero window means play() fires on the next
+ *  tick, which is what the component's timer already does. */
+export function beginTurn(pb: PartPlayback): PartPlayback {
+  if (pb.phase !== 'waiting') return pb;
+  return { ...pb, phase: 'reading' };
+}
+
+/** Has this part finished with the shared player for good? The queue reads
+ *  this to decide when to advance, so it must be true only once no further
+ *  play is coming: 'answering' with a repeat still due is NOT done. */
+export function isFinishedWithAudio(pb: PartPlayback, mode: ExamMode): boolean {
+  if (pb.phase === 'unplayable' || pb.phase === 'closed') return true;
+  return pb.phase === 'answering' && !shouldAutoRepeat(pb, mode);
 }
 
 /** A play has ended. The part becomes answerable; whether it may play again is

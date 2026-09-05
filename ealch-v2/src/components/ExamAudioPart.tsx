@@ -35,22 +35,33 @@ import {
   transcriptTurns,
   type PartPlayback,
   shouldAutoRepeat,
+  beginTurn,
+  isFinishedWithAudio,
 } from '@/utils/coPlayback.logic';
+import { useExamAudioQueue } from '@/components/ExamAudioQueue';
 import type { ExamMode, ExamPart } from '@/content/schema';
 
 export type ExamAudioPartProps = {
   part: ExamPart;
   mode: ExamMode;
+  /** Stable identity in the paper's running order. Required whenever an
+   *  ExamAudioQueue is above this part; ignored when there is none. */
+  queueId: string;
   /** Raised the first time this part fails to make any sound, so the section
    *  can report it as unscored. */
   onUnplayable: () => void;
   children: (editable: boolean) => React.ReactNode;
 };
 
-export function ExamAudioPart({ part, mode, onUnplayable, children }: ExamAudioPartProps) {
+export function ExamAudioPart({ part, mode, queueId, onUnplayable, children }: ExamAudioPartProps) {
   const t = useTheme();
   const T = useT();
-  const [pb, setPb] = useState<PartPlayback>(() => initPlayback(part));
+  const queue = useExamAudioQueue();
+  // Captured once: a provider cannot appear or vanish mid-part, and reading it
+  // through a ref keeps the initial state and the effects agreeing about which
+  // regime this part is in.
+  const queued = useRef(queue !== null).current;
+  const [pb, setPb] = useState<PartPlayback>(() => initPlayback(part, queued));
   const [transcriptOpen, setTranscriptOpen] = useState(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const alive = useRef(true);
@@ -127,13 +138,46 @@ export function ExamAudioPart({ part, mode, onUnplayable, children }: ExamAudioP
     });
   }, [mode, part, onUnplayable]);
 
+  // Take a place in the paper's running order, and give it up on unmount.
+  useEffect(() => {
+    if (!queued || !queue) return;
+    queue.join(queueId);
+    return () => queue.leave(queueId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queueId]);
+
+  // The floor has reached this part: start its reading window now. Not on
+  // mount — that is what made every part run its own clock and collide.
+  useEffect(() => {
+    if (!queued || !queue) return;
+    if (queue.activeId !== queueId) return;
+    setPb((p) => beginTurn(p));
+  }, [queued, queue, queueId]);
+
   // Autoplay. There is no play button under exam conditions: the audio starts
   // on its own, after the reading window, at a time the candidate does not pick.
+  //
+  // Latched rather than mount-scoped, because with a queue 'reading' is entered
+  // later and only once. Firing this per render while in 'reading' would stack
+  // one timer per render; firing it only on mount would never fire at all for a
+  // queued part.
+  const readingStarted = useRef(false);
   useEffect(() => {
-    if (pb.phase !== 'reading') return;
+    if (pb.phase !== 'reading' || readingStarted.current) return;
+    readingStarted.current = true;
     later(() => play(), pb.readWindowS * 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pb.phase]);
+
+  // Hand the floor on once no further play is coming. Guarded by a latch so a
+  // re-render after release cannot advance the queue a second time.
+  const releasedFloor = useRef(false);
+  useEffect(() => {
+    if (!queued || !queue || releasedFloor.current) return;
+    if (!isFinishedWithAudio(pb, mode)) return;
+    releasedFloor.current = true;
+    queue.release(queueId);
+  }, [queued, queue, queueId, pb, mode]);
 
   useEffect(() => {
     // Repeat plays, for the blocks the paper repeats. Practice mode replays on

@@ -16,6 +16,8 @@ import {
   transcriptTurns,
   startPlay,
   shouldAutoRepeat,
+  beginTurn,
+  isFinishedWithAudio,
 } from './coPlayback.logic.ts';
 
 const part = (over: Record<string, unknown> = {}) => ({ playCount: 1, readWindowS: 10, ...over });
@@ -264,4 +266,66 @@ test('a single-play part never auto-repeats, whatever its phase', () => {
   let pb = initPlayback(part({ readWindowS: 0, playCount: 1 }));
   pb = endPlay(startPlay(pb));
   ok(!shouldAutoRepeat(pb, 'exam'));
+});
+
+/* ─── The running order ──────────────────────────────────────────────────────
+ *
+ * TCF blanc-01's compréhension orale has 24 documents over 8 distinct
+ * readWindowS values. Every part used to start its own autoplay timer at mount,
+ * so each of those 8 groups fired together into the ONE shared clip player and
+ * the later document silently ate the earlier — while still counting as played,
+ * which under `playCount: 1` left its questions unanswerable.
+ */
+
+test('a queued part parks in waiting and does not start its own clock', () => {
+  const solo = initPlayback({ readWindowS: 10 });
+  const queued = initPlayback({ readWindowS: 10 }, true);
+  strictEqual(solo.phase, 'reading', 'unqueued keeps the old behaviour exactly');
+  strictEqual(queued.phase, 'waiting');
+  strictEqual(queued.readWindowS, 10, 'the window is kept, just not started');
+});
+
+test('a waiting part refuses to play, so a replay button cannot jump the queue', () => {
+  const queued = initPlayback({ readWindowS: 10 }, true);
+  strictEqual(canPlay(queued, 'exam'), false);
+  strictEqual(canPlay(queued, 'practice'), false, 'practice must not be a loophole');
+  strictEqual(isEditable(queued), false, 'nor answerable before it is heard');
+});
+
+test('beginTurn starts the reading window, and only from waiting', () => {
+  const queued = initPlayback({ readWindowS: 12 }, true);
+  const turn = beginTurn(queued);
+  strictEqual(turn.phase, 'reading');
+  strictEqual(canPlay(turn, 'exam'), true);
+  // Idempotent: a re-render must not restart a window already running.
+  strictEqual(beginTurn(turn).phase, 'reading');
+  const playing = startPlay(turn);
+  deepStrictEqual(beginTurn(playing), playing, 'never drags a playing part back');
+});
+
+test('the floor is held until the LAST repeat is done', () => {
+  // Block E plays twice. Releasing after the first would let the next document
+  // start over the second play — the same collision, one step later.
+  let pb = initPlayback({ readWindowS: 20, playCount: 2 }, true);
+  pb = beginTurn(pb);
+  pb = endPlay(startPlay(pb));
+  strictEqual(pb.phase, 'answering');
+  strictEqual(shouldAutoRepeat(pb, 'exam'), true);
+  strictEqual(isFinishedWithAudio(pb, 'exam'), false, 'a repeat is still due');
+  pb = endPlay(startPlay(pb));
+  strictEqual(isFinishedWithAudio(pb, 'exam'), true);
+});
+
+test('a part that made no sound still hands the floor on', () => {
+  // Otherwise one unplayable document stalls every document after it.
+  const dead = markUnplayable(beginTurn(initPlayback({ readWindowS: 10 }, true)));
+  strictEqual(isFinishedWithAudio(dead, 'exam'), true);
+  strictEqual(isFinishedWithAudio(closePart(beginTurn(initPlayback({}, true))), 'exam'), true);
+});
+
+test('practice releases after one play, since its repeats are on demand', () => {
+  let pb = beginTurn(initPlayback({ readWindowS: 10, playCount: 2 }, true));
+  pb = endPlay(startPlay(pb));
+  strictEqual(shouldAutoRepeat(pb, 'practice'), false);
+  strictEqual(isFinishedWithAudio(pb, 'practice'), true);
 });
