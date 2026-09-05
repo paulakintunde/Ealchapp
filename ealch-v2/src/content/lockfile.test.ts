@@ -8,24 +8,42 @@
 // pnpm lockfile. This app does not. CI runs `npm ci` here, keyed on
 // `cache-dependency-path: ealch-v2/package-lock.json`.
 //
-// The stray file was also STALE, which is what made it dangerous rather than
-// merely untidy. It was missing six dependencies that package.json declares,
-// `@supabase/supabase-js` and `@react-native-async-storage/async-storage`
-// among them. So `pnpm install --frozen-lockfile` here would have failed, and
-// plain `pnpm install` would have silently resolved a tree that CI never sees
-// and then rewritten the lockfile to match it.
+// Nothing had failed, because nobody ran a pnpm install in this directory.
+// That is the character of the class: a second lockfile costs nothing until
+// the day it costs a great deal, and the symptom when it lands is a dependency
+// version nobody chose. One manager per directory is the whole rule.
 //
-// Nothing failed, because nobody ran pnpm install in this directory. That is
-// the whole problem with the class: a second lockfile costs nothing until the
-// day it costs a great deal, and the symptom when it lands is a dependency
-// version nobody chose.
+// ── A correction, kept because the mistake is instructive ──────────────────
+//
+// The commit that removed that file said it was STALE — missing six declared
+// dependencies. That was WRONG, and the error is worth knowing about because
+// it is easy to repeat.
+//
+// The check that produced it scraped the lockfile's `importers:` block with
+// `/^      ([@a-zA-Z0-9._\/-]+):$/`. pnpm writes scoped names in YAML quotes,
+// `'@supabase/supabase-js':`, and that pattern does not allow quotes. This app
+// declares exactly six scoped dependencies, so the scrape found all 35
+// unscoped names, none of the 6 scoped ones, and reported precisely those six
+// as absent. The count matching the scoped count exactly is the tell.
+//
+// The removal was still right, on the reason above rather than the one given:
+// CI installs this app with npm, so a pnpm lockfile here is wrong whatever it
+// contains. But "wrong tool for this directory" and "stale and unusable" are
+// different claims, and only the first was ever established. The file was
+// untracked, so deleting it destroyed the evidence — the second claim can no
+// longer be checked either way, which is its own lesson about the order to do
+// things in.
 //
 // ── Why a test rather than a .gitignore entry ──────────────────────────────
 //
-// Ignoring it would hide it. The file would still be on disk, still be stale,
-// still be picked up by anyone who typed `pnpm install` out of habit, and now
-// invisible to `git status` as well. The point is to NOTICE it, so this fails
-// loudly and says which command to run.
+// Ignoring it would hide it. The file would still be on disk, still picked up
+// by anyone who typed `pnpm install` out of habit, and now invisible to
+// `git status` as well. The point is to NOTICE it, so this fails loudly and
+// says which command to run.
+//
+// The second test below is the one that would have settled the staleness
+// question honestly, applied to the lockfile we actually keep. It parses no
+// YAML: package-lock.json is JSON, and `packages` is keyed by path.
 import { ok, strictEqual } from 'node:assert';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -54,9 +72,11 @@ test('the app has exactly one lockfile, and it is npm’s', () => {
 });
 
 test('every dependency package.json declares is pinned in the lockfile', () => {
-  // The stale lockfile was undetectable by presence alone: it looked like a
-  // lockfile and was missing a quarter of the tree. This is the check that
-  // would have caught it, applied to the lockfile we actually keep.
+  // Presence is not enough on its own: a lockfile that has fallen behind
+  // package.json looks exactly like one that has not. This is the check that
+  // settles it, and unlike the scrape described above it parses no YAML —
+  // package-lock.json is JSON and its `packages` map is keyed by path, so
+  // there is nothing here to get subtly wrong.
   const pkg = JSON.parse(readFileSync(resolve(APP, 'package.json'), 'utf8')) as {
     dependencies?: Record<string, string>;
     devDependencies?: Record<string, string>;
