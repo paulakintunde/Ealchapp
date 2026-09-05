@@ -12,7 +12,6 @@ import { test } from 'node:test';
 import { isScored, paperProgress, sectionProgress, sectionRaw, sectionStatusFor, type ExamResult } from './progress.logic.ts';
 import { scoreClosedTask, taskQuestions } from '../services/content.logic.ts';
 import { validateExamTask, validateSectionScoring, type ExamTask } from '../content/schema.ts';
-import { devExamPapers, devExamTasks } from '../content/devExamFixture.ts';
 import { EXAM_FORMAT_FACTS, EXAM_FORMAT_ORDER, formatSitting, sectionBreakdown } from '../content/examFormats.ts';
 import { examPaperAllowed } from '../utils/examGate.logic.ts';
 
@@ -68,7 +67,59 @@ const partedTask = (): ExamTask => ({
   ],
 });
 
+// The two OPEN shapes, for the schema rules that only bite on them.
+//
+// These used to be pulled out of the dev exam fixture, which was deleted once
+// TEF blanc-01 published for real. Nothing below needs THAT paper — it needs a
+// valid spoken task and a valid written one to mutate into invalid ones, and
+// building them here keeps the negative tests honest without shipping 126 KiB
+// of unreviewed content in the binary to support them.
+const spokenTask = (over: Partial<ExamTask> = {}): ExamTask => ({
+  id: 'exam.tef_canada.blanc-01.po_interaction.001',
+  format: 'tef_canada',
+  variant: 'blanc-01',
+  taskType: 'po_interaction',
+  skill: 'PO',
+  level: 'b1',
+  formatVersion: 'tef-canada-2025.09',
+  prompt: 'Vous téléphonez pour vous renseigner sur un cours de natation.',
+  prepS: 60,
+  timingS: 300,
+  modelAnswer: 'Bonjour, je voudrais des renseignements sur le prix et les horaires du cours.',
+  rubric: { criteria: [{ key: 'coverage', label: 'Couverture', maxPoints: 4, descriptors: ['Rien obtenu', 'Peu obtenu', 'L’essentiel obtenu', 'Tout obtenu'] }] },
+  interlocutor: {
+    opening: { id: 'open', text: 'Piscine municipale, bonjour.', cues: [], covers: 'accueil' },
+    answers: [
+      { id: 'prix', text: 'C’est quarante euros le trimestre.', cues: ['prix', 'combien'], covers: 'le prix' },
+      { id: 'horaire', text: 'Le mardi à dix-huit heures.', cues: ['horaire', 'quand'], covers: 'l’horaire' },
+    ],
+    catchAll: { id: 'catch', text: 'Je n’ai pas cette information ici.', cues: [], covers: 'hors périmètre' },
+    closing: { id: 'close', text: 'Très bien, à bientôt.', cues: [], covers: 'clôture' },
+  },
+  ...over,
+});
+
+const writtenTask = (over: Partial<ExamTask> = {}): ExamTask => ({
+  ...flatTask(),
+  id: 'exam.tef_canada.blanc-01.pe_essay.001',
+  taskType: 'pe_essay',
+  skill: 'PE',
+  items: undefined,
+  prompt: 'Rédigez une lettre au journal municipal sur les transports.',
+  timingS: 1800,
+  modelAnswer: 'Madame, Monsieur, je vous écris au sujet des transports de notre commune.',
+  rubric: { criteria: [{ key: 'structure', label: 'Structure', maxPoints: 4, descriptors: ['Aucune', 'Fragile', 'Claire', 'Maîtrisée'] }] },
+  ...over,
+});
+
 /* ─── isScored ───────────────────────────────────────────────────────────── */
+
+test('the open-task specimens are themselves valid, or every negative below is vacuous', () => {
+  // A malformed specimen would make `validateExamTask` report the specimen's
+  // own defect and the negative tests would pass for the wrong reason.
+  deepStrictEqual(validateExamTask(spokenTask()), []);
+  deepStrictEqual(validateExamTask(writtenTask()), []);
+});
 
 test('a practice attempt is never scored, and a result predating modes is', () => {
   ok(isScored(result({ mode: 'exam' })));
@@ -205,36 +256,6 @@ test('the renderable set stays an explicit, checked list', () => {
   ok(src.includes('RENDERABLE.includes'), 'the refusal must actually be checked');
 });
 
-test('the dev fixture cannot reach a release build', () => {
-  // A content path that only exists in dev is the shape of this codebase's past
-  // incidents, so the fence is pinned rather than trusted.
-  strictEqual(devExamPapers(false).length, 0, 'no fixture paper outside dev');
-  strictEqual(devExamTasks(false).length, 0, 'no fixture task outside dev');
-  ok(devExamPapers(true).length > 0, 'and it must actually exist in dev, or it proves nothing');
-
-  // It used to sit in a sandbox namespace (`dev-fixture`) that no authored
-  // paper would use. It no longer does: the dev build now carries the REAL
-  // gold paper, waiting on review, under its real id. So the protection moved
-  // from the namespace to the merge — `withDevExamFixture` skips any paper the
-  // published corpus already has, and published wins.
-  for (const p of devExamPapers(true)) ok(p.format === 'tef_canada', `${p.id} is not the gold paper`);
-  const src = readFileSync(resolve(srcDir, 'services/content.ts'), 'utf8');
-  ok(/const have = new Set/.test(src), 'the merge must check what the corpus already has');
-  ok(/filter\(\(p\) => !have\.has\(p\.id\)\)/.test(src), 'and must drop a paper that is already published');
-
-  // All four épreuves, in the order a candidate sits them.
-  const skills = devExamPapers(true).flatMap((p) => p.sections.map((s) => s.skill));
-  deepStrictEqual(skills, ['CO', 'CE', 'PE', 'PO']);
-});
-
-test('every fixture task validates, so the runner is proven on real shapes', () => {
-  // A fixture that would not survive validateExamTask proves the runner against
-  // something the corpus could never contain.
-  for (const task of devExamTasks(true)) {
-    deepStrictEqual(validateExamTask(task, task.id), [], `${task.id} must be a valid task`);
-  }
-});
-
 test('a listening result whose audio never played is not scored', () => {
   // Two different reasons a result is excluded, and the report has to be able
   // to tell them apart: one the candidate chose, one we caused.
@@ -266,23 +287,6 @@ test('a listening task with no parts is refused, not rendered silently', () => {
   // a listening label — the defect this whole phase exists to prevent.
   const src = readFileSync(resolve(appDir, 'exam-section.tsx'), 'utf8');
   ok(src.includes('if (!task.parts?.length)'), 'the runner must check for audio before rendering CO');
-});
-
-test('the dev paper exercises both play counts', () => {
-  // A single-play part and a double-play part must behave differently, and the
-  // 1 Sept 2025 two-play interview block is the case most worth proving. The
-  // check is across the whole listening épreuve now rather than one task: TEF
-  // puts the two-play rule in block E alone, so a per-task assertion would be
-  // asserting the wrong thing.
-  const co = devExamTasks(true).filter((t) => t.skill === 'CO');
-  ok(co.length > 0, 'the dev paper must carry a listening épreuve');
-  const counts = new Set(co.flatMap((t) => (t.parts ?? []).map((p) => p.playCount)));
-  deepStrictEqual([...counts].sort(), [1, 2], 'both play counts must appear somewhere in CO');
-  for (const t of co) {
-    for (const part of t.parts ?? []) {
-      ok((part.text ?? '').length > 0, `${part.label} needs a transcript, or device TTS has nothing to say`);
-    }
-  }
 });
 
 test('speaking records rather than asking the candidate to type', () => {
@@ -317,12 +321,10 @@ test('the prep clock is separate from the answer clock, and optional', () => {
   ok(spk.includes("phase === 'prep'"), 'and one with prep must render the phase');
 
   // The schema refuses the shapes that would make it meaningless.
-  const po = devExamTasks(true).find((t) => t.skill === 'PO')!;
-  ok(validateExamTask({ ...po, prepS: 0 }).some((i) => /zero-length prep phase/.test(i.message)));
+  ok(validateExamTask(spokenTask({ prepS: 0 })).some((i) => /zero-length prep phase/.test(i.message)));
   // Preparation belongs to a spoken task: on a written one it is
   // indistinguishable from the answer time the candidate already has.
-  const written = devExamTasks(true).find((t) => t.skill === 'PE')!;
-  ok(validateExamTask({ ...written, prepS: 120 }).some((i) => /belongs to a spoken task/.test(i.message)));
+  ok(validateExamTask(writtenTask({ prepS: 120 })).some((i) => /belongs to a spoken task/.test(i.message)));
 });
 
 test('the recorder does not cut a long answer off at the drill default', () => {
@@ -351,15 +353,6 @@ test('the grader is forbidden from turning pacing into pronunciation', () => {
   ok(/trust the transcript/.test(fn), 'the transcript outranks the proxies on conflict');
   // And an empty delivery string must never reach the prompt.
   ok(/typeof delivery === "string" && delivery\.trim\(\)/.test(fn));
-});
-
-test('the fixture now carries all four épreuves, in order', () => {
-  const skills = devExamPapers(true).flatMap((p) => p.sections.map((s) => s.skill));
-  deepStrictEqual(skills, ['CO', 'CE', 'PE', 'PO']);
-  const po = devExamTasks(true).find((t) => t.skill === 'PO');
-  ok(po, 'the fixture must carry a speaking task');
-  ok(po!.prepS && po!.prepS > 0, 'and it must exercise the prep clock');
-  ok(po!.rubric && po!.modelAnswer, 'an open task is invalid without both');
 });
 
 /* ─── the report ─────────────────────────────────────────────────────────── */
@@ -461,17 +454,6 @@ test('a missing prep lesson is surfaced, not dropped', () => {
   // band. That is a real corpus gap and the candidate should see it.
   const src = readFileSync(resolve(appDir, 'exam-report.tsx'), 'utf8');
   ok(src.includes('examNoPrepLesson'), 'a null prep lesson must render as a stated gap');
-});
-
-test('every fixture section carries a scoring map with ranged bands', () => {
-  // A fixture is the easiest place to quietly ship a point estimate.
-  for (const paper of devExamPapers(true)) {
-    for (const sec of paper.sections) {
-      ok(sec.scoring, `${paper.id} ${sec.skill} needs scoring or the report shows nothing`);
-      deepStrictEqual(validateSectionScoring(sec.scoring, sec.skill), []);
-      ok(sec.scoring!.nclc.some((r) => r.nclcHigh > r.nclcLow), `${sec.skill} must span levels, not claim one`);
-    }
-  }
 });
 
 /* ─── the home cards and the format hub ──────────────────────────────────── */
@@ -633,13 +615,11 @@ test('coverage reaches the grader as evidence, and is sent even when it is zero'
 });
 
 test('a po_interaction without a bank is refused at authoring time', () => {
-  const po = devExamTasks(true).find((t) => t.taskType === 'po_interaction')!;
-  ok(po.interlocutor, 'the fixture must carry one to prove against');
+  const po = spokenTask();
   const { interlocutor: _drop, ...bankless } = po;
   ok(validateExamTask(bankless as ExamTask).some((i) => /interlocutor/.test(i.message)),
     'an interaction with nothing to interact with is a monologue');
   // And the reverse: a bank on a task nobody would interact with is dead weight
   // that would never play.
-  const written = devExamTasks(true).find((t) => t.skill === 'PE')!;
-  ok(validateExamTask({ ...written, interlocutor: po.interlocutor }).some((i) => /interlocutor/.test(i.message)));
+  ok(validateExamTask(writtenTask({ interlocutor: po.interlocutor })).some((i) => /interlocutor/.test(i.message)));
 });

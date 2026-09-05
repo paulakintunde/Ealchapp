@@ -18,7 +18,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
-import { devExamPapers, devExamTasks } from '@/content/devExamFixture';
 import type { Corpus, DrillKind, ExamFormat, ExamSection, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
 import { validateCorpus } from '@/content/schema';
 import {
@@ -112,39 +111,15 @@ let initStarted = false;
 // fetch the full corpus, instead of thinking it is already up to date.
 let cachedSnapshotVersion = 0;
 
-/**
- * Add the dev-only mock paper, so the exam runner can be sat on a phone before
- * any real paper exists (phase E7 authors the first one).
- *
- * Fenced three ways, because a content path that only exists in dev is exactly
- * the shape of this codebase's past incidents: it is gated on `__DEV__`, it
- * APPENDS rather than overlaying so it can never shadow a real id, and its
- * variant namespace (`dev-fixture`) is one no authored paper will use. It never
- * reaches the database, the seed cut or a publish.
- *
- * Delete along with devExamFixture.ts once E7 lands.
- */
-function withDevExamFixture(corpus: Corpus): Corpus {
-  const papers = devExamPapers(__DEV__);
-  if (papers.length === 0) return corpus;
-
-  // The dev paper carries its REAL id, not a sandbox one, because it is the
-  // real paper waiting on review. So the moment it is published for good, the
-  // published row and this one would both be in the corpus under the same id.
-  // Published wins and the append becomes a no-op, which is exactly what
-  // should happen: the reviewed copy is the one a candidate sits.
-  const have = new Set((corpus.examPapers ?? []).map((p) => p.id));
-  const fresh = papers.filter((p) => !have.has(p.id));
-  if (fresh.length === 0) return corpus;
-
-  const haveTasks = new Set((corpus.examTasks ?? []).map((t) => t.id));
-  const freshTasks = devExamTasks(__DEV__).filter((t) => !haveTasks.has(t.id));
-  return {
-    ...corpus,
-    examTasks: [...(corpus.examTasks ?? []), ...freshTasks],
-    examPapers: [...(corpus.examPapers ?? []), ...fresh],
-  };
-}
+// The dev exam fixture used to be appended here, so the runner could be sat on
+// a phone before any real paper existed. TEF Canada blanc-01 published as
+// snapshot v57 on 2026-09-01, so the fixture and its 126 KiB of unreviewed
+// content are gone: exam papers now arrive over the air like everything else.
+//
+// A fresh offline install therefore has NO exam content, because the seed cut
+// carries no exam tasks or papers by design. That is correct — the Examiner
+// needs the snapshot, and showing a candidate a mock paper nobody reviewed was
+// only ever a development convenience.
 
 /**
  * Bring content up. Idempotent — safe to call from _layout on every mount, runs
@@ -168,7 +143,7 @@ export async function initContent(): Promise<void> {
     // account; it is the other half of the dev guard on refreshFromRemote.
     adopted = adoptedForLaunch(await readCache(), __DEV__);
     if (adopted) cachedSnapshotVersion = adopted.version;
-    useContent.getState().setCorpus(withDevExamFixture(mergeCorpus(SEED, adopted)));
+    useContent.getState().setCorpus(mergeCorpus(SEED, adopted));
   } catch {
     // Seed already stands as the initial corpus; nothing more to do.
   } finally {
