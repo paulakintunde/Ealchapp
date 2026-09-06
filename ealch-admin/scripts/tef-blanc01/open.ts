@@ -419,7 +419,12 @@ export const EO_B: ExamTask = {
     'Présentez cette activité à votre interlocuteur et convainquez-le d’y participer. ' +
     'Donnez votre avis, appuyez-vous sur des exemples, et répondez à ses objections.',
   timingS: 600,
-  prepS: 60,
+  // 120, matching blanc-02 through blanc-05. This was 60 — half the preparation
+  // its four parallel forms give for the same task — because blanc-01 was
+  // authored before tef/paper-rules.ts existed and nothing compared the papers
+  // to each other. Parallel forms that hand one cohort half the prep time are
+  // not parallel, and the guard only checked that prepS was above zero.
+  prepS: 120,
   responseSpec: { kind: 'audio', minDurationS: 120, maxDurationS: 480 },
   examinerNotes: [
     ...NOTES_OPEN,

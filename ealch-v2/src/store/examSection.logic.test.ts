@@ -12,7 +12,7 @@ import { test } from 'node:test';
 import { isScored, paperProgress, sectionProgress, sectionRaw, sectionStatusFor, type ExamResult } from './progress.logic.ts';
 import { scoreClosedTask, taskQuestions } from '../services/content.logic.ts';
 import { validateExamTask, validateSectionScoring, type ExamTask } from '../content/schema.ts';
-import { EXAM_FORMAT_FACTS, EXAM_FORMAT_ORDER, formatSitting, sectionBreakdown } from '../content/examFormats.ts';
+import { EXAM_FORMAT_FACTS, EXAM_FORMAT_ORDER, formatSitting, sectionBreakdown, type FormatSection } from '../content/examFormats.ts';
 import { examPaperAllowed } from '../utils/examGate.logic.ts';
 
 const appDir = resolve(dirname(fileURLToPath(import.meta.url)), '../../app');
@@ -527,14 +527,27 @@ test('every format card carries the same four kinds of fact', () => {
 });
 
 test('a fact the board does not publish is omitted, not guessed', () => {
-  // DELF B2's per-exercise question counts are not published anywhere E0 could
-  // reach. Null, and the breakdown simply drops the number.
-  const delf = EXAM_FORMAT_FACTS.delf_b2;
-  ok(delf.sections.some((x) => x.questions === null), 'unpublished counts stay null');
-  const line = sectionBreakdown(delf);
-  ok(line.includes('CO') && !/CO \d/.test(line), 'CO shows no invented count');
-  // TEF publishes its counts, so they appear.
+  // This used to assert that DELF's question counts STAY null, which was right
+  // when it was written and wrong the moment the paper was authored. E0 could
+  // not find a per-exercise count anywhere and carried null rather than a
+  // guess; E10 confirmed 20 and 20 against the official sample, and twenty
+  // questions per comprehension épreuve have since been written. A test that
+  // pinned the gap open would have failed anyone who closed it.
+  //
+  // So the rule is tested, not the gap: `null` means the breakdown omits the
+  // number rather than inventing one, whichever facts happen to be missing
+  // today. The counts themselves are checked against the authored papers in
+  // ealch-admin's report-reachable.test.ts, which is the only place both the
+  // hub's claims and the real papers can be read at once.
+  const invented: FormatSection = { skill: 'CO', questions: null, tasks: null, timingS: 1800 };
+  const line = sectionBreakdown({ ...EXAM_FORMAT_FACTS.delf_b2, sections: [invented] });
+  ok(line.includes('CO'), 'the épreuve is still named');
+  ok(!/CO \d/.test(line), 'a null count must not print a number');
+
+  // And a published count does appear, so the omission above is the null doing
+  // the work rather than the breakdown dropping every number.
   ok(/CO 40/.test(sectionBreakdown(EXAM_FORMAT_FACTS.tef_canada)));
+  ok(/CO 20/.test(sectionBreakdown(EXAM_FORMAT_FACTS.delf_b2)), 'DELF now publishes its counts');
 });
 
 test('the breakdown uses the labels a candidate meets on the paper', () => {

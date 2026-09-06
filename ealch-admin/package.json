@@ -101,7 +101,8 @@
     "content:travail-metiers": "tsx scripts/author-travail-metiers-batch.ts",
     "content:ecole-etudes": "tsx scripts/author-ecole-etudes-batch.ts",
     "content:technologie": "tsx scripts/author-technologie-batch.ts",
-    "content:comparatifs": "tsx scripts/author-comparatifs-batch.ts"
+    "content:comparatifs": "tsx scripts/author-comparatifs-batch.ts",
+    "exam:orphans": "tsx scripts/exam/check-orphans.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",

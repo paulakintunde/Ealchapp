@@ -546,9 +546,16 @@ export const contentExamTasks = pgTable('content_exam_tasks', {
    *  flattening those into `items` loses the only structure that makes it a
    *  listening test. Mutually exclusive with `items`. */
   parts: jsonb('parts'),
-  /** Seconds of silent preparation before the answer clock starts. PO only:
-   *  TEF EO Section A gives two minutes with the advert, and a task that
-   *  skips that is not the same task. Checked app-side by validateExamTask. */
+  /** Seconds of silent preparation before the answer clock starts. PO only,
+   *  and only on some tasks: TCF's tâche 2 gives two minutes with the document
+   *  while its tâches 1 and 3 give none, and a task that skips its prep is not
+   *  the same task. Checked app-side by validateExamTask.
+   *
+   *  This used to cite the two minutes as TEF EO Section A. It is TCF's figure
+   *  — BLUEPRINT-tcf §9 sources it, and TCF's interaction task carries exactly
+   *  120 — and every TEF paper gives Section A sixty seconds. No board publishes
+   *  a TEF preparation time at all, so the comment asserted a number that
+   *  nothing supported and that all five papers contradicted. */
   prepS: integer('prep_s'),
   /** ExamInterlocutor — REQUIRED for po_interaction, forbidden elsewhere. The
    *  recorded examiner's answer bank: every entry is a fact the document

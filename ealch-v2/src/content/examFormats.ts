@@ -81,15 +81,20 @@ export const EXAM_FORMAT_FACTS: Record<ExamFormat, ExamFormatFacts> = {
     label: 'DELF B2',
     totalS: 10_200, // ≈ 2 h 30 collective + the individual oral
     sections: [
-      // Per-exercise question counts are NOT published on any page consulted
-      // during E0. Null rather than a guess: phase E10 confirms them against an
-      // official sample paper before a single item is authored.
-      closed('CO', null, 1800),
-      closed('CE', null, 3600),
+      // These were null through E0, when no page consulted published a
+      // per-exercise count and a guess would have been worse than a gap. They
+      // were confirmed against the official sample at E10 and the paper has
+      // since been authored to them: 20 questions across three exercises on
+      // each comprehension épreuve, 7 / 7 / 6.
+      closed('CO', 20, 1800),
+      closed('CE', 20, 3600),
       open('PE', 1, 3600),
-      open('PO', 1, 1200),
+      // TWO tasks, not one. The épreuve is one performance in two phases — the
+      // monologue and the débat — but they are two ExamTasks and the hub counts
+      // what the candidate will actually be asked to do.
+      open('PO', 2, 1200),
     ],
-    blueprintId: 'delf-b2-2026.01-draft',
+    blueprintId: 'delf-b2-2026.09',
   },
 };
 

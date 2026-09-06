@@ -53,6 +53,7 @@ import {
 import { paperOutcome, sectionOutcome, type SectionOutcome } from '../../../ealch-v2/src/utils/nclc.logic.ts';
 import { delfEpreuve, delfOutcome } from '../../../ealch-v2/src/utils/delf.logic.ts';
 import { instrumentFor } from '../../../ealch-v2/src/utils/examInstrument.logic.ts';
+import { EXAM_FORMAT_FACTS } from '../../../ealch-v2/src/content/examFormats.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPORT_SCREEN = resolve(HERE, '../../../ealch-v2/app/exam-report.tsx');
@@ -386,4 +387,132 @@ test('no authored ladder can be overshot, so "below the scale" is the honest nam
   }
 
   ok(problems.length === 0, `a candidate could land outside a ladder and be told they scored below it:\n${problems.join('\n')}`);
+});
+
+/* ── The hub's claims against the papers they describe ────────────────────── */
+
+test('the format hub describes the paper a candidate will actually sit', async () => {
+  // EXAM_FORMAT_FACTS is what the hub shows BEFORE anyone starts: how many
+  // questions, how many tasks, how long, and which blueprint the numbers came
+  // from. It was written at calibration and nothing tied it to the content.
+  //
+  // So it drifted, three ways at once, all on DELF. Its comprehension counts sat
+  // at null with a comment promising they would be confirmed "before a single
+  // item is authored" — forty items later. Its speaking épreuve claimed one task
+  // where the paper has two, the monologue and the débat. And its blueprintId
+  // still read `delf-b2-2026.01-draft` while every task, every paper section and
+  // the admin authoring constant said `delf-b2-2026.09`.
+  //
+  // None of it could be caught in ealch-v2, which holds the facts and no papers,
+  // or in a paper test, which holds a paper and never reads the facts. Here.
+  const papers = await loadPapers();
+  const problems: string[] = [];
+
+  const byFormat = new Map<string, { paper: ExamPaper; tasks: ExamTask[] }>();
+  for (const { paper, tasks } of papers) if (!byFormat.has(paper.format)) byFormat.set(paper.format, { paper, tasks });
+
+  for (const [format, { paper, tasks }] of byFormat) {
+    const facts = EXAM_FORMAT_FACTS[format as keyof typeof EXAM_FORMAT_FACTS];
+    const byId = new Map(tasks.map((t) => [t.id, t]));
+    const say = (m: string) => problems.push(`  ${format}: ${m}`);
+
+    for (const fact of facts.sections) {
+      const sec = paper.sections.find((s: ExamSection) => s.skill === fact.skill);
+      if (!sec) { say(`the hub lists a ${fact.skill} épreuve and ${paper.id} has none`); continue; }
+
+      const realTasks = sec.taskIds.length;
+      const realQs = sec.taskIds.reduce((n: number, id: string) => {
+        const t = byId.get(id);
+        return n + (t ? questionsIn(t) : 0);
+      }, 0);
+
+      // A null count is a fact the board does not publish, which is allowed and
+      // is NOT drift. A stated one has to be true.
+      if (fact.questions !== null && fact.questions !== realQs) {
+        say(`${fact.skill} claims ${fact.questions} questions, the paper asks ${realQs}`);
+      }
+      if (fact.tasks !== null && fact.tasks !== realTasks) {
+        say(`${fact.skill} claims ${fact.tasks} tasks, the paper sets ${realTasks}`);
+      }
+      if (fact.timingS !== sec.timingS) {
+        say(`${fact.skill} claims a ${fact.timingS}s clock, the paper runs ${sec.timingS}s`);
+      }
+      // The section may add a marker to the blueprint id (TEF's CO carries
+      // `+G-elastic`), so the hub's id has to be its stem rather than equal.
+      const secBlueprint = String(sec.blueprintId ?? '');
+      if (!secBlueprint.startsWith(facts.blueprintId)) {
+        say(`the hub cites blueprint "${facts.blueprintId}", ${fact.skill} was authored against "${secBlueprint}"`);
+      }
+    }
+
+    // The sitting is longer than its épreuves — the boards publish a total that
+    // includes the gaps between them — but it can never be SHORTER.
+    const summed = paper.sections.reduce((n: number, s: ExamSection) => n + s.timingS, 0);
+    if (facts.totalS < summed) say(`the hub claims a ${facts.totalS}s sitting, its own épreuves need ${summed}s`);
+  }
+
+  ok(problems.length === 0, `the format hub and the authored papers disagree:\n${problems.join('\n')}`);
+});
+
+/* ── Parallel forms have to be parallel ───────────────────────────────────── */
+
+test('every paper of a format gives the same task the same preparation time', async () => {
+  // "Parallel, never equated" is the promise the whole pack is built on: five
+  // papers of a format must be interchangeable sittings of the same exam. The
+  // per-paper tests cannot see this, because each one reads its own paper, and
+  // tef/paper-rules.ts only asserted that prepS was ABOVE ZERO.
+  //
+  // So blanc-01 gave Section B sixty seconds of preparation while blanc-02
+  // through blanc-05 gave a hundred and twenty, for the same ten-minute task.
+  // It was authored first, before the shared rules existed, and every guard was
+  // green through it for months.
+  const papers = await loadPapers();
+  const problems: string[] = [];
+
+  // Keyed on the position a candidate meets, not on the task id: ids differ per
+  // paper by design, and it is the ROLE that has to match across forms.
+  const seen = new Map<string, { paper: string; timingS: number; prepS?: number }[]>();
+  for (const { paper, tasks } of papers) {
+    for (const t of tasks) {
+      const role = `${paper.format} ${t.skill} ${t.taskType} ${t.label ?? '(unlabelled)'}`;
+      if (!seen.has(role)) seen.set(role, []);
+      seen.get(role)!.push({ paper: paper.variant, timingS: t.timingS, prepS: t.prepS });
+    }
+  }
+
+  // PREP only, and deliberately not the answer clock.
+  //
+  // The first version of this checked timingS too and caught five real
+  // differences that are not defects: TCF apportions its listening clock across
+  // the six band tasks in proportion to each paper's own audio, so blanc-04
+  // gives its B1 documents 520 seconds where blanc-01 gives them 498. Every
+  // paper still sums to the same 2100-second épreuve, which is the invariant
+  // that actually has to hold, and it is checked below.
+  //
+  // Preparation is different in kind. It is a RULE about the task rather than a
+  // measurement of its content, so there is no reason for it to move between
+  // parallel forms and every reason for it not to.
+  for (const [role, seats] of seen) {
+    if (seats.length < 2) continue;
+    const values = new Set(seats.map((s) => String(s.prepS ?? 'none')));
+    if (values.size > 1) {
+      problems.push(`  ${role} · prepS: ${seats.map((s) => `${s.paper}=${s.prepS ?? 'none'}`).join(' ')}`);
+    }
+  }
+
+  // The épreuve clock itself, which no apportioning may change.
+  const clocks = new Map<string, string[]>();
+  for (const { paper } of papers) {
+    for (const sec of paper.sections) {
+      const key = `${paper.format} ${sec.skill}`;
+      if (!clocks.has(key)) clocks.set(key, []);
+      clocks.get(key)!.push(`${paper.variant}=${sec.timingS}`);
+    }
+  }
+  for (const [key, seats] of clocks) {
+    const values = new Set(seats.map((s) => s.split('=')[1]));
+    if (values.size > 1) problems.push(`  ${key} · épreuve clock: ${seats.join(' ')}`);
+  }
+
+  ok(problems.length === 0, `parallel papers disagree about the same task:\n${problems.join('\n')}`);
 });
