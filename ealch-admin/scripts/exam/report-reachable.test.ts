@@ -2,16 +2,21 @@
 //
 // ── Why this test exists, and why it lives here ─────────────────────────────
 //
-// Every exam test in both repos passes, and no published paper can report an
-// overall estimate. Both have been true the whole time.
+// When this was written, every exam test in both repos passed and NO published
+// paper could report a result. Both were true at once, for a long time.
 //
-// The reason is that every existing test builds its own inputs. nclc.logic's
+// The reason was that every existing test built its own inputs. nclc.logic's
 // suite hands `paperOutcome` four fully-scored sections and checks the fold —
-// correctly, and it will never fail, because nothing asks whether the app can
-// PRODUCE four fully-scored sections from a real paper. It cannot: `sectionRaw`
-// returns null for any section holding no closed tasks, PE and PO sections are
-// always entirely open, and so both are permanently unscored and the fold
-// correctly refuses an overall it has no right to give.
+// correctly, and it will never fail, because nothing asked whether the app could
+// PRODUCE four fully-scored sections from a real paper. It could not:
+// `sectionRaw` returned null for any section holding no closed tasks, PE and PO
+// sections are always entirely open, so both were permanently unscored and the
+// fold correctly refused an overall it had no right to give.
+//
+// This file now passes on all eleven papers. It is kept as the thing that made
+// them pass and the thing that keeps them passing: it is the only test in either
+// repo that joins real authored content to the screen's own arithmetic, and both
+// halves have shipped defects the other half's tests could not see.
 //
 // That is the same seam the DELF débat fell through: content authored, content
 // validated, content published, and nothing between the content and the screen
@@ -41,9 +46,13 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { test } from 'node:test';
 
-import type { ExamPaper, ExamSection, ExamTask } from '../../../ealch-v2/src/content/schema.ts';
-import { PLACEMENT_PASS, sectionRaw, sectionStatusFor, type ExamResult } from '../../../ealch-v2/src/store/progress.logic.ts';
+import { SCORE_BANDS, type ExamPaper, type ExamSection, type ExamTask, type ScoreBand } from '../../../ealch-v2/src/content/schema.ts';
+import {
+  PLACEMENT_PASS, sectionBands, sectionRaw, sectionStatusFor, type ExamResult,
+} from '../../../ealch-v2/src/store/progress.logic.ts';
 import { paperOutcome, sectionOutcome, type SectionOutcome } from '../../../ealch-v2/src/utils/nclc.logic.ts';
+import { delfEpreuve, delfOutcome } from '../../../ealch-v2/src/utils/delf.logic.ts';
+import { instrumentFor } from '../../../ealch-v2/src/utils/examInstrument.logic.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPORT_SCREEN = resolve(HERE, '../../../ealch-v2/app/exam-report.tsx');
@@ -67,6 +76,12 @@ async function loadPapers(): Promise<{ dir: string; paper: ExamPaper; tasks: Exa
     out.push({ dir, paper: m.PAPER, tasks: m.TASKS });
   }
   return out;
+}
+
+/** One CEFR band down, floored at a1. What a candidate who missed the task
+ *  plausibly produced, rather than a magic constant. */
+function bandBelow(level: ScoreBand): ScoreBand {
+  return SCORE_BANDS[Math.max(0, SCORE_BANDS.indexOf(level) - 1)]!;
 }
 
 const OPEN_TYPES = new Set(['pe_short', 'pe_essay', 'po_monologue', 'po_interaction', 'po_debate']);
@@ -127,18 +142,66 @@ function sitting(paper: ExamPaper, tasks: ExamTask[], share: number): ExamResult
 
       // Open task, graded. No counts — an open task has no raw count, which is
       // the whole reason writing and speaking are supposed to report a band.
+      //
+      // The BAND moves with the share, not just `passed`. DELF marks production
+      // out of 25 from the band itself, so a harness that graded every sitting
+      // at the target band would report a weak candidate and a perfect one
+      // identically and prove nothing about either.
+      const band = share >= PLACEMENT_PASS ? t.level : bandBelow(t.level);
       results.push({
         ...base,
-        passed: share >= PLACEMENT_PASS,
-        aiGrade: { band: t.level, feedback: 'fixture' },
+        passed: SCORE_BANDS.indexOf(band) >= SCORE_BANDS.indexOf(t.level),
+        aiGrade: { band, feedback: 'fixture' },
       } as ExamResult);
     }
   }
   return results;
 }
 
-/** The report screen's own sequence. Kept in one place so the mirror test below
- *  has something single to check. */
+/**
+ * Whether a paper reported anything, in whichever instrument it is marked on.
+ *
+ * Both instruments answer the same question — can this candidate be told a
+ * result — and neither can answer it for the other. NCLC returns a level range
+ * folded from four; DELF returns a mark out of 100 with a floor. `score` is the
+ * comparable number each produces, so a weak sitting can be checked against a
+ * strong one without pretending the two scales are one.
+ */
+function reported(paper: ExamPaper, tasks: ExamTask[], results: ExamResult[]):
+  { ok: boolean; score: number | null; detail: string; missing: string[] } {
+  if (instrumentFor(paper.format) === 'delf') {
+    const out = delfOutcome(
+      paper.sections.map((sec: ExamSection) => {
+        const status = sectionStatusFor(sec.taskIds, results, paper.id);
+        const counts = sectionRaw(sec.taskIds, results, paper.id);
+        const bands = sectionBands(sec.taskIds, results, paper.id);
+        return delfEpreuve({
+          skill: sec.skill, status,
+          points: bands ? undefined : counts?.raw ?? null,
+          bands,
+        });
+      })
+    );
+    return {
+      ok: out.total !== null && out.verdict !== 'incomplete',
+      score: out.total,
+      missing: out.missing,
+      detail: out.epreuves.map((e) => `${e.skill}=${e.mark ?? `none(${e.status})`}${e.belowFloor ? '!' : ''}`).join(' ')
+        + `  total=${out.total ?? 'none'} verdict=${out.verdict}`,
+    };
+  }
+  const { sections, outcome } = runReport(paper, tasks, results);
+  return {
+    ok: !!outcome.overall && outcome.overallStatus === 'complete',
+    score: outcome.overall ? outcome.overall.low : null,
+    missing: outcome.missing,
+    detail: sections
+      .map((x) => `${x.skill}=${x.nclc ? `${x.nclc.low}-${x.nclc.high}` : `none(status=${x.status},raw=${x.raw})`}`)
+      .join(' '),
+  };
+}
+
+/** The NCLC pipeline, exactly as the report screen runs it. */
 function runReport(paper: ExamPaper, tasks: ExamTask[], results: ExamResult[]) {
   const byId = new Map(tasks.map((t) => [t.id, t]));
   const sections: SectionOutcome[] = paper.sections.map((sec: ExamSection) => {
@@ -169,12 +232,9 @@ test('a perfect sitting of every published paper produces an overall estimate', 
   // fixed this list shrinks, so the message doubles as the progress report.
   const broken: string[] = [];
   for (const { paper, tasks } of papers) {
-    const { sections, outcome } = runReport(paper, tasks, sitting(paper, tasks, 1));
-    if (outcome.overall && outcome.overallStatus === 'complete') continue;
-    const detail = sections
-      .map((s) => `${s.skill}=${s.nclc ? `${s.nclc.low}-${s.nclc.high}` : `none(status=${s.status},raw=${s.raw})`}`)
-      .join(' ');
-    broken.push(`  ${paper.id.padEnd(30)} ${outcome.overallStatus.padEnd(11)} missing=[${outcome.missing.join(',')}]  ${detail}`);
+    const r = reported(paper, tasks, sitting(paper, tasks, 1));
+    if (r.ok) continue;
+    broken.push(`  ${paper.id.padEnd(30)} [${instrumentFor(paper.format)}] missing=[${r.missing.join(',')}]  ${r.detail}`);
   }
 
   ok(
@@ -195,6 +255,11 @@ test('every épreuve of every paper carries a scoring table to be read', async (
   const papers = await loadPapers();
   const gaps: string[] = [];
   for (const { paper } of papers) {
+    // DELF carries no SectionScoring by design and never will: it reports a
+    // mark out of 25 per épreuve against a fixed threshold, not a raw count
+    // interpolated onto a scale. Requiring one here would be demanding the
+    // wrong instrument, which is how it came to report nothing at all.
+    if (instrumentFor(paper.format) !== 'nclc') continue;
     const without = paper.sections.filter((s) => !s.scoring).map((s) => s.skill);
     if (without.length) gaps.push(`  ${paper.id.padEnd(30)} no scoring on: ${without.join(', ')}`);
   }
@@ -248,22 +313,17 @@ test('a weak sitting reports a lower estimate than a perfect one', async () => {
   const compared: string[] = [];
 
   for (const { paper, tasks } of papers) {
-    const good = runReport(paper, tasks, sitting(paper, tasks, 1)).outcome;
-    const weak = runReport(paper, tasks, sitting(paper, tasks, WEAK_SHARE)).outcome;
+    const good = reported(paper, tasks, sitting(paper, tasks, 1));
+    const weak = reported(paper, tasks, sitting(paper, tasks, WEAK_SHARE));
     // Only meaningful once both produce a number. Until every paper reports,
     // there is nothing to compare on some of them, and asserting over two nulls
     // would make this a test that passes because the feature is broken.
-    if (!good.overall || !weak.overall) continue;
+    if (good.score === null || weak.score === null) continue;
     compared.push(paper.id);
     ok(
-      good.overall.low >= weak.overall.low,
-      `${paper.id}: a perfect sitting reported NCLC ${good.overall.low}-${good.overall.high} ` +
-        `and a weak one reported ${weak.overall.low}-${weak.overall.high}`
-    );
-    ok(
-      good.overall.low > weak.overall.low,
-      `${paper.id}: a perfect sitting and a 45% one both reported NCLC ` +
-        `${good.overall.low}-${good.overall.high}, so the estimate is not reading the performance`
+      good.score > weak.score,
+      `${paper.id}: a perfect sitting scored ${good.score} and a 45% one scored ${weak.score}, ` +
+        'so the result is not reading the performance'
     );
   }
 

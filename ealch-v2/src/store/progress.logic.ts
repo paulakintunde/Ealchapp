@@ -1542,6 +1542,40 @@ export function sectionRaw(
   return { raw: rows.filter((r) => r.passed).length, total: rows.length };
 }
 
+/**
+ * The graded bands in an épreuve, one per task, in the épreuve's own task order.
+ *
+ * `sectionRaw` answers "how many tasks met their target", which is the unit the
+ * Canadian formats' ladders are indexed by. DELF asks a different question: its
+ * épreuves are marked out of 25 and the mark has to come from HOW WELL the
+ * candidate wrote or spoke, not from a count of pass/fail verdicts. A single
+ * writing task is one bit through `passed` and a whole band through `aiGrade`,
+ * and the difference between B1 and C1 work is the difference between failing
+ * and comfortably passing the diploma.
+ *
+ * Open tasks only, because only they carry a band. Null — never an empty array —
+ * when the épreuve holds no graded open task, so "nothing to read" stays
+ * distinguishable from "graded, and every band was low".
+ */
+export function sectionBands(
+  taskIds: string[],
+  results: ExamResult[],
+  paperId: string
+): ScoreBand[] | null {
+  const ids = new Set(taskIds);
+  const mine = results.filter(
+    (r) => r.paperId === paperId && ids.has(r.taskId) && OPEN_EXAM_TASK_TYPES.has(r.taskType) && r.aiGrade
+  );
+  if (mine.length === 0) return null;
+  // By task, later wins — the same retry rule sectionRaw applies, for the same
+  // reason: a re-sat task is one performance, not two.
+  const byTask = new Map<string, ExamResult>();
+  for (const r of mine) byTask.set(r.taskId, r);
+  // Task order, not log order, so a two-phase épreuve reads in the order it was
+  // actually sat rather than the order the grader happened to return.
+  return taskIds.map((id) => byTask.get(id)?.aiGrade?.band).filter((b): b is ScoreBand => !!b);
+}
+
 /* ─── The Speak path — progress as a view over the attempt log ───────────── */
 
 // The trail persists NOTHING of its own. Which stations are cleared, which

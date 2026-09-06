@@ -6,6 +6,14 @@
 //    skill by skill; the weakest épreuve decides the file. The arithmetic is
 //    in nclc.logic.ts, which cannot average even if a caller asked it to.
 //
+//    This rule belongs to the CANADIAN formats, and saying so matters: DELF B2
+//    is a diploma, not a profile. Its épreuves are marked out of 25 and SUMMED,
+//    it passes at 50/100, and a floor of 5/25 applies to each one — so a
+//    candidate can clear the total and still fail. Which instrument a paper
+//    reports on comes from instrumentFor(), an exhaustive switch, so a new
+//    format cannot inherit a rule written for its neighbours the way a débat
+//    once inherited a plain recorder.
+//
 // 2. EVERY NUMBER IS A RANGE, beside its raw count. We cannot equate raw marks
 //    the way the boards do, so a point estimate would claim a precision we do
 //    not have about a number somebody may act on.
@@ -30,9 +38,13 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useProgress, useSessionLog } from '@/store/useProgress';
-import { sectionRaw, sectionStatusFor, dueExamSkills, type DueExamSkill } from '@/store/progress.logic';
+import { sectionBands, sectionRaw, sectionStatusFor, dueExamSkills, type DueExamSkill } from '@/store/progress.logic';
 import { content, useContent } from '@/services/content';
 import { formatNclc, paperOutcome, sectionOutcome, type SectionOutcome } from '@/utils/nclc.logic';
+import {
+  DELF_EPREUVE_MAX, DELF_TOTAL_MAX, delfEpreuve, delfOutcome, formatMark, type DelfEpreuve,
+} from '@/utils/delf.logic';
+import { instrumentFor } from '@/utils/examInstrument.logic';
 import { useState } from 'react';
 
 export default function ExamReportScreen() {
@@ -75,6 +87,30 @@ export default function ExamReportScreen() {
     return paperOutcome(sections);
   }, [paper, paperId, results]);
 
+  // DELF reads the same logged results through a different instrument. Built
+  // beside the NCLC fold rather than inside it: a mark out of 25 and a level
+  // range are not the same kind of number, and one function returning either
+  // would be a flag deciding which — the shape this screen already got wrong.
+  const delf = useMemo(() => {
+    if (!paper || !paperId || instrumentFor(paper.format) !== 'delf') return null;
+    return delfOutcome(
+      paper.sections.map((sec) => {
+        const status = sectionStatusFor(sec.taskIds, results, paperId);
+        // Comprehension carries authored per-question points that already total
+        // 25; production carries graded bands. Each épreuve reads whichever it
+        // actually has, and an épreuve with neither gets no mark.
+        const counts = sectionRaw(sec.taskIds, results, paperId);
+        const bands = sectionBands(sec.taskIds, results, paperId);
+        return delfEpreuve({
+          skill: sec.skill,
+          status,
+          points: bands ? undefined : counts?.raw ?? null,
+          bands,
+        });
+      })
+    );
+  }, [paper, paperId, results]);
+
   // Open-task misses for this paper, so the report can send the candidate to a
   // prep lesson. dueExamSkills returns prepLessonId: null when no lesson exists
   // at that band — a real gap, surfaced rather than silently dropped.
@@ -95,7 +131,7 @@ export default function ExamReportScreen() {
     );
   }
 
-  const clean = outcome.overallStatus === 'complete';
+  const clean = delf ? delf.verdict === 'pass' : outcome.overallStatus === 'complete';
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bgDeep }}>
@@ -118,6 +154,10 @@ export default function ExamReportScreen() {
         </View>
 
         {/* ── The headline ── */}
+        {delf ? (
+          <DelfHeadline out={delf} lang={lang} />
+        ) : (
+
         <View
           style={{
             borderRadius: 18, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card,
@@ -152,15 +192,21 @@ export default function ExamReportScreen() {
           )}
         </View>
 
-        {/* Rule 2's justification, next to the number rather than in a footer. */}
-        <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 20 }}>
-          {T.examParallelNotEquated}
-        </TX>
+        )}
+
+        {/* Rule 2's justification, next to the number rather than in a footer.
+            NCLC only: it explains why an estimate is a RANGE, and a DELF mark
+            is not one. The DELF card carries the floor rule instead. */}
+        {delf ? null : (
+          <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 20 }}>
+            {T.examParallelNotEquated}
+          </TX>
+        )}
 
         {/* ── Per-épreuve ── */}
-        {outcome.sections.map((s) => (
-          <SectionRow key={s.skill} s={s} lang={lang} />
-        ))}
+        {delf
+          ? delf.epreuves.map((e) => <DelfRow key={e.skill} e={e} lang={lang} />)
+          : outcome.sections.map((s) => <SectionRow key={s.skill} s={s} lang={lang} />)}
 
         {/* ── What to do next ── */}
         {due.length > 0 ? (
@@ -236,6 +282,126 @@ function SectionRow({ s, lang }: { s: SectionOutcome; lang: 'fr' | 'en' }) {
         <TX font="semi" role="label" color={t.accTx}>{formatNclc(s.nclc, lang)}</TX>
       ) : (
         <TX font="semi" role="meta" color={noteColour} style={{ maxWidth: 140, textAlign: 'right' }}>
+          {note}
+        </TX>
+      )}
+    </View>
+  );
+}
+
+/**
+ * The DELF headline: a total, a verdict, and the floor.
+ *
+ * The floor rule is printed WITH the number rather than under it, because
+ * BLUEPRINT-delf-b2 §8 names the exact confusion it prevents: a candidate who
+ * scores 60/100 with 4/25 on one épreuve has failed, and a display that shows
+ * only the total tells them they passed when they did not. So a fail states its
+ * reasons, and when the floor is one of them the épreuve is named.
+ */
+function DelfHeadline({ out, lang }: { out: ReturnType<typeof delfOutcome>; lang: 'fr' | 'en' }) {
+  const t = useTheme();
+  const T = useT();
+  const passed = out.verdict === 'pass';
+  const tone = out.verdict === 'incomplete' ? t.txSecondary : passed ? t.accTx : t.danger;
+
+  return (
+    <View
+      style={{
+        borderRadius: 18, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card,
+        padding: 20, marginBottom: 8, alignItems: 'center',
+      }}
+    >
+      <TX font="semi" role="eyebrow" ls={2.2} color={t.txMuted} style={{ marginBottom: 8 }}>
+        {T.delfResult}
+      </TX>
+
+      {out.total !== null ? (
+        <>
+          <TX font="serif" size={34} role="display" color={tone}>
+            {formatMark(out.total, DELF_TOTAL_MAX, lang)}
+          </TX>
+          <TX font="semi" role="title" color={tone} style={{ marginTop: 4 }}>
+            {passed ? T.delfResultPass : T.delfResultFail}
+          </TX>
+          {/* Why, when it is a fail. Both reasons can be true at once. */}
+          {out.failedOn.map((why) => (
+            <TX
+              key={why}
+              role="meta"
+              color={t.danger}
+              lhMult={1.5}
+              style={{ marginTop: 6, textAlign: 'center' }}
+            >
+              {why === 'total' ? T.delfFailedTotal : T.delfFailedFloor}
+              {why === 'floor' && out.floored.length > 0
+                ? ` (${out.floored.map((sk) => T.examSkillNames[sk]).join(', ')})`
+                : ''}
+            </TX>
+          ))}
+        </>
+      ) : (
+        <>
+          <TX font="semi" role="title" color={t.txSecondary} style={{ textAlign: 'center' }}>
+            {out.missing.length === out.epreuves.length ? T.examNothingSat : T.examNoOverall}
+          </TX>
+          {out.missing.length > 0 ? (
+            <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginTop: 8, textAlign: 'center' }}>
+              {T.examMissingSkills}: {out.missing.map((sk) => T.examSkillNames[sk]).join(', ')}
+            </TX>
+          ) : null}
+        </>
+      )}
+
+      {/* The rule itself, always, pass or fail. A candidate reading a 62 needs
+          to know the floor exists even on a paper where it did not bite. */}
+      <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginTop: 10, textAlign: 'center' }}>
+        {T.delfFloor}
+      </TX>
+    </View>
+  );
+}
+
+/** One DELF épreuve: its mark out of 25, and whether it fell under the floor. */
+function DelfRow({ e, lang }: { e: DelfEpreuve; lang: 'fr' | 'en' }) {
+  const t = useTheme();
+  const T = useT();
+
+  // Same discipline as SectionRow: each non-scored state keeps its own wording,
+  // so a gap that is ours never reads as a gap that is theirs.
+  const note =
+    e.status === 'scored' ? null
+    : e.status === 'audio-failed' ? T.examAudioFailed
+    : e.status === 'not-graded' ? T.examUngraded
+    : e.status === 'practice' ? T.examUnscored
+    : e.status === 'no-scoring' ? T.examNoScoring
+    : T.examNotSat;
+
+  return (
+    <View
+      style={{
+        flexDirection: 'row', alignItems: 'center', gap: 12,
+        borderRadius: 14, borderWidth: 1,
+        borderColor: e.belowFloor ? t.danger : t.line(9),
+        backgroundColor: t.card, padding: 16, marginBottom: 10,
+      }}
+    >
+      <View style={{ flex: 1 }}>
+        <TX font="semi" role="label" style={{ marginBottom: 4 }}>{T.examSkillNames[e.skill]}</TX>
+        {e.belowFloor ? (
+          <TX role="meta" color={t.danger}>{T.delfBelowFloor}</TX>
+        ) : null}
+      </View>
+      {e.mark !== null ? (
+        <TX font="semi" role="label" color={e.belowFloor ? t.danger : t.accTx}>
+          {formatMark(e.mark, DELF_EPREUVE_MAX, lang)}
+        </TX>
+      ) : (
+        <TX
+          font="semi"
+          role="meta"
+          color={e.status === 'audio-failed' || e.status === 'not-graded' ? t.danger : t.txMuted}
+          style={{ maxWidth: 140, textAlign: 'right' }}
+        >
           {note}
         </TX>
       )}

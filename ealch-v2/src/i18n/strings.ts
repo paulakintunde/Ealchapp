@@ -144,6 +144,11 @@ export type Strings = {
   examParallelNotEquated: string; examNoOverall: string; examNothingSat: string;
   examMissingSkills: string; examWhatNext: string; examNoPrepLesson: string;
   examNotSat: string; examNoScoring: string;
+  /** DELF B2 reports a diploma, not a level: a mark per épreuve, a total, and
+   *  the floor every épreuve has to clear. See utils/delf.logic.ts. */
+  delfResult: string; delfResultPass: string; delfResultFail: string;
+  delfFloor: string; delfBelowFloor: string;
+  delfFailedTotal: string; delfFailedFloor: string;
   /** The format card and hub. */
   examBlank: string; examEpreuves: string;
   /** Singular and plural. French and English agree on the rule here (1 is
@@ -463,6 +468,11 @@ export const T: Record<Lang, Strings> = {
     examMissingSkills: 'Il manque', examWhatNext: 'À revoir',
     examNoPrepLesson: "Aucune leçon de préparation à ce niveau pour l'instant.",
     examNotSat: 'Non passée', examNoScoring: 'Non barémée',
+    delfResult: 'Résultat', delfResultPass: 'Admis', delfResultFail: 'Non admis',
+    delfFloor: 'Il faut 50/100 au total et au moins 5/25 à chaque épreuve.',
+    delfBelowFloor: 'Sous le minimum',
+    delfFailedTotal: 'Le total est inférieur à 50/100.',
+    delfFailedFloor: 'Une épreuve au moins est sous le minimum de 5/25.',
     examBlank: 'EXAMEN BLANC', examEpreuves: 'épreuves', examPapersCountOne: 'examen blanc', examPapersCount: 'examens blancs',
     examFullPaper: 'Examen complet', examFullPaperSub: 'Les 4 épreuves, dans l’ordre du jour J.',
     examBySection: 'Par épreuve', examBySectionSub: 'Travaillez une compétence à la fois.',
@@ -869,6 +879,11 @@ export const T: Record<Lang, Strings> = {
     examMissingSkills: 'Missing', examWhatNext: 'To review',
     examNoPrepLesson: 'No prep lesson at that level yet.',
     examNotSat: 'Not sat', examNoScoring: 'No score map',
+    delfResult: 'Result', delfResultPass: 'Pass', delfResultFail: 'Not passed',
+    delfFloor: 'You need 50/100 overall and at least 5/25 in every épreuve.',
+    delfBelowFloor: 'Below the minimum',
+    delfFailedTotal: 'The total is under 50/100.',
+    delfFailedFloor: 'At least one épreuve is below the 5/25 minimum.',
     examBlank: 'MOCK EXAM', examEpreuves: 'papers', examPapersCountOne: 'mock exam', examPapersCount: 'mock exams',
     examFullPaper: 'Full exam', examFullPaperSub: 'All 4 papers, in the order the real day runs.',
     examBySection: 'By paper', examBySectionSub: 'Work one skill at a time.',
