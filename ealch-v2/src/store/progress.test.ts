@@ -42,6 +42,8 @@ import {
   RESUME_MAX_AGE_DAYS,
   recognitionStable,
   reviewDueCount,
+  sectionRaw,
+  sectionStatusFor,
   shiftDay,
   srsFoldCount,
   topWeaknesses,
@@ -60,6 +62,7 @@ import {
   type ServerAttemptRow,
   type SessionEntry,
 } from './progress.logic.ts';
+import { OPEN_TASK_TYPES } from '../content/schema.ts';
 import type { ExamTask, Lesson } from '../content/schema.ts';
 
 const TODAY = '2026-07-14'; // a Tuesday
@@ -1295,4 +1298,59 @@ test('dueExamSkills ignores passed results and closed task types', () => {
 test('dueExamSkills dedupes repeated misses at the same (format, skill, band)', () => {
   const due = dueExamSkills([examResult({ id: 'exr-1' }), examResult({ id: 'exr-2' })], []);
   strictEqual(due.length, 1);
+});
+
+/* ── The open/closed split, kept total ────────────────────────────────────── */
+//
+// progress.logic.ts keeps a PRIVATE list of which task types are open, and
+// schema.ts exports OPEN_TASK_TYPES for the same question. Two sources of truth
+// for one fact, and they drifted: `po_debate` was added to the schema's list
+// when the DELF débat shipped, and the private copy still names four types.
+//
+// Three consequences, and the middle one is the worst. A débat counts as a
+// CLOSED task, so: it is decomposed for the SRS down the wrong branch; a failed
+// débat never appears in dueExamSkills, so the candidate is sent to no prep
+// lesson; and an UNGRADED débat is not reported as ungraded — the section says
+// "scored" while carrying no grade, which is exactly the substitution
+// nclc.logic's rule 3 exists to forbid ("Zero is a claim about performance;
+// absence is a claim about evidence, and they are not interchangeable").
+//
+// Asserted behaviourally and by looping the schema's own list, so this stays
+// total: a sixth open type added to the schema and forgotten here fails here.
+
+test('every open task type in the schema is treated as open by the progress engine', () => {
+  for (const taskType of OPEN_TASK_TYPES) {
+    const skill = taskType.startsWith('po_') ? ('PO' as const) : ('PE' as const);
+    // An open task logged with no aiGrade is one the grader could not reach.
+    // The section must say so rather than reporting it as a clean sitting.
+    const status = sectionStatusFor(
+      ['t1'],
+      [examResult({ taskId: 't1', paperId: 'p1', taskType, skill, aiGrade: undefined })],
+      'p1'
+    );
+    strictEqual(
+      status,
+      'not-graded',
+      `an ungraded ${taskType} reported "${status}" instead of "not-graded" — ` +
+        'progress.logic.ts does not recognise it as an open task type, so an attempt the grader ' +
+        'never reached is presented to the candidate as a scored one'
+    );
+  }
+});
+
+test('an open épreuve carries no raw count of its own', () => {
+  // The other half of the same fact, and the one that produced a wrong number
+  // rather than a missing one: a DELF speaking épreuve of monologue + débat
+  // reported raw 1 of 1, because the débat was counted as a closed task and the
+  // passed-task fallback then answered for the whole section.
+  const results = [
+    examResult({ id: 'exr-1', taskId: 'mono', paperId: 'p1', taskType: 'po_monologue', skill: 'PO', aiGrade: { band: 'b2', feedback: '' } }),
+    examResult({ id: 'exr-2', taskId: 'debat', paperId: 'p1', taskType: 'po_debate', skill: 'PO', aiGrade: { band: 'b2', feedback: '' } }),
+  ];
+  const counts = sectionRaw(['mono', 'debat'], results, 'p1');
+  ok(
+    counts === null || counts.total === 2,
+    `a two-task speaking épreuve reported ${JSON.stringify(counts)} — ` +
+      'a total of 1 means one of its tasks was mistaken for a closed one'
+  );
 });
