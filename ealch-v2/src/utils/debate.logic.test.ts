@@ -226,3 +226,80 @@ test('the report says what happened, and coverage would have said the opposite',
   const folded = debateReport(s, BANK, 'contre', 0);
   ok(!folded.held, 'a candidate who ended on the other side did not hold it');
 });
+
+/* ── The schema contract ──────────────────────────────────────────────────── */
+
+test('a po_debate task must carry a bank, and no other task type may', async () => {
+  const { validateExamTask } = await import('../content/schema.ts');
+  const task = (over: Record<string, unknown> = {}) => ({
+    id: 'exam.delf_b2.blanc-01.po_debate.001',
+    format: 'delf_b2',
+    variant: 'blanc-01',
+    formatVersion: 'delf-b2-2026.09',
+    taskType: 'po_debate',
+    skill: 'PO',
+    level: 'b2',
+    prompt: 'Défendez votre point de vue face à l’examinateur.',
+    timingS: 780,
+    rubric: { criteria: [{ key: 'k', label: 'L', maxPoints: 5, descriptors: ['a', 'b'] }] },
+    modelAnswer: 'x'.repeat(220),
+    ...over,
+  });
+
+  // An examiner with no objections cannot challenge anything: the task would be
+  // a second monologue wearing a debate's label.
+  const none = validateExamTask(task());
+  ok(none.some((i) => i.message.includes('MUST have a debate bank')), 'a bankless debate was accepted');
+
+  // And the bank belongs to this type alone.
+  const wrong = validateExamTask(task({ taskType: 'po_monologue', debate: BANK, id: 'exam.delf_b2.blanc-01.po_monologue.001' }));
+  ok(wrong.some((i) => i.message.includes('debate belongs to a po_debate task')), 'a monologue was allowed a debate bank');
+
+  deepStrictEqual(validateExamTask(task({ debate: BANK })), [], 'a well-formed debate task was rejected');
+});
+
+test('the validator refuses a bank that can only attack one side', async () => {
+  const { validateExamTask } = await import('../content/schema.ts');
+  // THE rule for this bank. Which side the candidate argues is unknown until
+  // they have spoken for five to seven minutes, so a bank written against one
+  // side leaves the examiner with nothing to say to half of all candidates —
+  // and they would be the half who argued the position the author found easier
+  // to imagine.
+  const oneSided = { ...BANK, axes: BANK.axes.filter((a) => a.against === 'pour') };
+  const issues = validateExamTask({
+    id: 'exam.delf_b2.blanc-01.po_debate.001',
+    format: 'delf_b2', variant: 'blanc-01', formatVersion: 'delf-b2-2026.09',
+    taskType: 'po_debate', skill: 'PO', level: 'b2',
+    prompt: 'Défendez votre point de vue.', timingS: 780,
+    rubric: { criteria: [{ key: 'k', label: 'L', maxPoints: 5, descriptors: ['a', 'b'] }] },
+    modelAnswer: 'x'.repeat(220),
+    debate: oneSided,
+  });
+  ok(
+    issues.some((i) => i.message.includes('no axis attacks the "contre" side')),
+    'a one-sided bank was accepted'
+  );
+});
+
+test('the validator refuses an axis that can never open', async () => {
+  const { validateExamTask } = await import('../content/schema.ts');
+  // An axis whose only depth-1 move is a retreat has no entry point: retreats
+  // are served from the retreat branch, not the ladder, so the axis would sit
+  // in the bank and never be reached.
+  const stuck = {
+    ...BANK,
+    axes: BANK.axes.map((a) =>
+      a.id === 'equite' ? { ...a, moves: a.moves.filter((m) => m.depth !== 1) } : a
+    ),
+  };
+  const issues = validateExamTask({
+    id: 'exam.delf_b2.blanc-01.po_debate.001',
+    format: 'delf_b2', variant: 'blanc-01', formatVersion: 'delf-b2-2026.09',
+    taskType: 'po_debate', skill: 'PO', level: 'b2',
+    prompt: 'Défendez votre point de vue.', timingS: 780,
+    rubric: { criteria: [{ key: 'k', label: 'L', maxPoints: 5, descriptors: ['a', 'b'] }] },
+    modelAnswer: 'x'.repeat(220),
+    debate: stuck,
+  });
+  ok(issues.some((i) => i.message.includes('can never open')), 'an unreachable axis was accepted');
+});

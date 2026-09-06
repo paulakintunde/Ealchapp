@@ -87,7 +87,7 @@ export const examFormat = pgEnum('exam_format', ['delf_b2', 'tef_canada', 'tcf_c
  *  interaction task; PE has a short and an essay task). Not examSkill — see
  *  the mapping note on EXAM_SKILLS in ealch-v2/src/content/schema.ts. */
 export const examTaskType = pgEnum('exam_task_type', [
-  'co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay',
+  'co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'po_debate', 'pe_short', 'pe_essay',
 ]);
 /** The per-ITEM exam taxonomy: compréhension/production × orale/écrite. */
 export const examSkill = pgEnum('exam_skill', ['CO', 'CE', 'PO', 'PE']);

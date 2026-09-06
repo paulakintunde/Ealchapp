@@ -31,6 +31,7 @@ export function examTaskSkill(taskType: ExamTaskType): ExamSkill {
       return 'CE';
     case 'po_monologue':
     case 'po_interaction':
+    case 'po_debate':
       return 'PO';
     case 'pe_short':
     case 'pe_essay':
@@ -40,7 +41,7 @@ export function examTaskSkill(taskType: ExamTaskType): ExamSkill {
 
 /** co_mcq/ce_mcq are machine-markable; the rest need a rubric — see the note
  *  on the CLOSED_TASK_TYPES/OPEN_TASK_TYPES split in ealch-v2's schema.ts. */
-export const OPEN_TASK_TYPES = new Set<ExamTaskType>(['po_monologue', 'po_interaction', 'pe_short', 'pe_essay']);
+export const OPEN_TASK_TYPES = new Set<ExamTaskType>(['po_monologue', 'po_interaction', 'po_debate', 'pe_short', 'pe_essay']);
 
 export function examTaskId(format: string, variant: string, taskType: string, seq: number): string {
   return `exam.${format}.${variant}.${taskType}.${String(seq).padStart(3, '0')}`;

@@ -320,7 +320,16 @@ test('the new value lists exist and hold what the rest of the phase assumes', ()
   deepStrictEqual([...MODALITIES], ['recognise', 'produce', 'discriminate']);
   deepStrictEqual([...REGISTERS], ['familier', 'courant', 'soutenu']);
   deepStrictEqual([...EXAM_SKILLS], ['CO', 'CE', 'PO', 'PE']);
-  deepStrictEqual([...EXAM_TASK_TYPES], ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay']);
+  // Membership, not an exact list — the same discipline as DRILL_KINDS below
+  // and for the same reason: these strings live inside cached OTA snapshots on
+  // real installs, so ADDING a task type is safe and RENAMING one silently
+  // breaks every paper built from an older cache. An exact-list assertion makes
+  // the safe change look like a regression, which is how it fails for the right
+  // thing happening.
+  for (const t of ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay']) {
+    ok((EXAM_TASK_TYPES as readonly string[]).includes(t), `${t} lost its shipped string`);
+  }
+  ok((EXAM_TASK_TYPES as readonly string[]).includes('po_debate'), 'the DELF debate type is missing');
 });
 
 test('the shipped drill-kind strings are append-only', () => {

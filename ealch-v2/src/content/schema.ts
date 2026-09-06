@@ -156,7 +156,7 @@ export type ExamFormat = (typeof EXAM_FORMATS)[number];
  *  monologue and an interaction task; PE has a short and an essay task). See
  *  examTaskSkill() for the taskType → skill mapping, and the note on
  *  EXAM_SKILLS for why the two lists are not collapsed into one. */
-export const EXAM_TASK_TYPES = ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay'] as const;
+export const EXAM_TASK_TYPES = ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'po_debate', 'pe_short', 'pe_essay'] as const;
 export type ExamTaskType = (typeof EXAM_TASK_TYPES)[number];
 
 /** taskType → skill. The single place this correspondence is encoded — every
@@ -170,6 +170,7 @@ export function examTaskSkill(taskType: ExamTaskType): ExamSkill {
       return 'CE';
     case 'po_monologue':
     case 'po_interaction':
+    case 'po_debate':
       return 'PO';
     case 'pe_short':
     case 'pe_essay':
@@ -2153,7 +2154,7 @@ export function examPaperId(format: ExamFormat, variant: string, paperNo: number
 /** Task types whose answers a machine can mark. The rest need a rubric and a
  *  model answer — see OPEN_TASK_TYPES below and the grading pipeline. */
 export const CLOSED_TASK_TYPES = ['co_mcq', 'ce_mcq'] as const;
-export const OPEN_TASK_TYPES = ['po_monologue', 'po_interaction', 'pe_short', 'pe_essay'] as const;
+export const OPEN_TASK_TYPES = ['po_monologue', 'po_interaction', 'po_debate', 'pe_short', 'pe_essay'] as const;
 const isOpenTaskType = (v: unknown): boolean => (OPEN_TASK_TYPES as readonly string[]).includes(v as string);
 
 /** A multiple-choice question. Same shape and same trap as the quiz section. */
@@ -2322,6 +2323,73 @@ export type ExamInterlocutor = {
   closing: InterlocutorTurn;
 };
 
+/* ── The DELF débat ────────────────────────────────────────────────────────
+ *
+ * A different shape from ExamInterlocutor, not a bigger one. That bank models
+ * an information exchange: the candidate asks, the examiner supplies, and
+ * coverage of the withheld facts is the evidence. DELF B2's phase 2 inverts it
+ * — the examiner challenges a position the candidate has just argued for five
+ * to seven minutes, for ten to thirteen more — and coverage would MISREPORT,
+ * because a candidate who met every objection by agreeing has argued badly and
+ * would score full marks for having heard them all.
+ *
+ * Defined here rather than in utils/debate.logic.ts because this file imports
+ * nothing: it is the standalone contract both repos type their content from,
+ * and ealch-admin reads it cross-repo. ExamInterlocutor is duplicated into its
+ * logic module for that reason and the two can drift; the debate types are
+ * declared once, here, and utils/debate.logic.ts imports them.
+ *
+ * See ealch-admin/DESIGN-delf-debate.md.
+ */
+
+/** Which side of the trigger document's question the candidate took.
+ *  `unclear` is a real state, not a failure — see detectSide. */
+export type DebateSide = 'pour' | 'contre' | 'unclear';
+
+/** What the examiner is doing with a turn. `concession` and `retreat` have no
+ *  equivalent in ExamInterlocutor and are the two that separate a defended
+ *  position from a recited one. */
+export const DEBATE_MOVE_KINDS = [
+  'probe',
+  'counter',
+  'counter-example',
+  'consequence',
+  'concession',
+  'steelman',
+  'retreat',
+] as const;
+export type DebateMoveKind = (typeof DEBATE_MOVE_KINDS)[number];
+
+export type DebateMove = InterlocutorTurn & {
+  kind: DebateMoveKind;
+  /** 1, 2 or 3. Depth 3 turns the candidate's own depth-2 answer against them,
+   *  so it is incoherent if served before depth 2. */
+  depth: 1 | 2 | 3;
+};
+
+/** One line of attack, pushed until exhausted or abandoned. Written AGAINST a
+ *  position, so a bank needs both sides: the candidate chooses, not the author. */
+export type DebateAxis = {
+  id: string;
+  against: 'pour' | 'contre';
+  /** What this line of attack is about, for the grader's report. */
+  about: string;
+  moves: DebateMove[];
+};
+
+export type ExamDebate = {
+  /** The question the trigger document raises, in the author's words. */
+  question: string;
+  opening: InterlocutorTurn;
+  /** Asked when the side cannot be read from the monologue. Guessing is the
+   *  worst failure available: attacking the wrong side makes the candidate's
+   *  correct answer look like a non-answer. */
+  clarify: InterlocutorTurn;
+  sideCues: { pour: string[]; contre: string[] };
+  axes: DebateAxis[];
+  closing: InterlocutorTurn;
+};
+
 /** TCF Canada reports nothing outside this range, whatever the raw score. */
 export const NCLC_MIN = 4;
 export const NCLC_MAX = 10;
@@ -2448,6 +2516,15 @@ export type ExamTask = {
    * utils/interlocutor.logic.ts.
    */
   interlocutor?: ExamInterlocutor;
+  /**
+   * po_debate only: the examiner's objections.
+   *
+   * DELF B2 Production orale phase 2. Where `interlocutor` is a bank of facts
+   * the candidate must extract, this is a set of lines of attack against a
+   * position they have taken — and which side they took is not known until
+   * they have spoken, so the bank must cover both.
+   */
+  debate?: ExamDebate;
   responseSpec?: ResponseSpec;
   /** Open task types only, and REQUIRED there — see validateExamTask. */
   rubric?: Rubric;
@@ -4384,6 +4461,92 @@ export function validateInterlocutor(v: unknown, path = 'interlocutor'): Issue[]
   return out;
 }
 
+export function validateDebate(v: unknown, path = 'debate'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'not an object' }];
+  const b = v as Partial<ExamDebate>;
+
+  if (!isStr(b.question)) push('question is required — it is what the two sides divide on');
+  out.push(...validateInterlocutorTurn(b.opening, `${path}.opening`, false));
+  // Without this the examiner has no move when the monologue does not announce
+  // a side, and the only alternative is to guess — which attacks a position the
+  // candidate may never have held.
+  out.push(...validateInterlocutorTurn(b.clarify, `${path}.clarify`, false));
+  out.push(...validateInterlocutorTurn(b.closing, `${path}.closing`, false));
+
+  const cues = b.sideCues;
+  if (typeof cues !== 'object' || cues === null) {
+    push('sideCues is required — without it the side cannot be read and every debate opens by asking');
+  } else {
+    for (const side of ['pour', 'contre'] as const) {
+      const list = (cues as Partial<ExamDebate['sideCues']>)[side];
+      if (!isArr(list) || list.length === 0 || list.some((c) => !isStr(c))) {
+        push(`sideCues.${side} needs at least one cue, or that side can never be detected`);
+      }
+    }
+  }
+
+  if (!isArr(b.axes) || b.axes.length === 0) {
+    push('axes must be a non-empty array — an examiner with no lines of attack cannot debate');
+    return out;
+  }
+
+  const seenAxis = new Set<string>();
+  const seenMove = new Set<string>();
+  const bySide: Record<string, number> = { pour: 0, contre: 0 };
+
+  b.axes.forEach((a, i) => {
+    const ax = a as Partial<DebateAxis>;
+    const ap = `${path}.axes[${i}]`;
+    if (!isStr(ax.id)) push(`${ap}.id is required`);
+    else if (seenAxis.has(ax.id)) push(`${ap}.id "${ax.id}" appears twice — ids track which axis is open`);
+    else seenAxis.add(ax.id);
+    if (!isStr(ax.about)) push(`${ap}.about is required — it is what the grader's report names`);
+    if (ax.against !== 'pour' && ax.against !== 'contre') {
+      push(`${ap}.against must be "pour" or "contre" — an axis attacks a position`);
+    } else bySide[ax.against] += 1;
+
+    if (!isArr(ax.moves) || ax.moves.length === 0) {
+      push(`${ap}.moves must be a non-empty array`);
+      return;
+    }
+    let hasDepth1 = false;
+    ax.moves.forEach((m, j) => {
+      const mv = m as Partial<DebateMove>;
+      const mp = `${ap}.moves[${j}]`;
+      out.push(...validateInterlocutorTurn(m, mp, false));
+      if (isStr(mv.id)) {
+        if (seenMove.has(mv.id)) push(`${mp}.id "${mv.id}" appears twice — ids are how a played move is retired`);
+        else seenMove.add(mv.id);
+      }
+      if (!oneOf(DEBATE_MOVE_KINDS, mv.kind)) {
+        push(`${mp}.kind must be one of ${DEBATE_MOVE_KINDS.join(' | ')}`);
+      }
+      if (mv.depth !== 1 && mv.depth !== 2 && mv.depth !== 3) {
+        push(`${mp}.depth must be 1, 2 or 3`);
+      }
+      // A retreat move is served only when the candidate abandons their
+      // position, so it is reachable outside the ladder and its depth is not
+      // a rung. Everything else must start somewhere.
+      if (mv.depth === 1 && mv.kind !== 'retreat') hasDepth1 = true;
+    });
+    if (!hasDepth1) {
+      push(`${ap} has no depth-1 move that is not a retreat — the axis can never open`);
+    }
+  });
+
+  // THE rule for this bank. Which side the candidate argues is unknown until
+  // they have spoken, so a bank written against one side leaves the examiner
+  // with nothing to say to half of all candidates.
+  for (const side of ['pour', 'contre'] as const) {
+    if (bySide[side] === 0) {
+      push(`no axis attacks the "${side}" side — a candidate who argues it would meet an examiner with nothing to say`);
+    }
+  }
+  return out;
+}
+
 export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
   const out: Issue[] = [];
   const push = (m: string) => out.push({ path, message: m });
@@ -4447,6 +4610,15 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
     // THE rule for this task type. Without a bank the candidate asks questions
     // into silence, which is a monologue wearing an interaction's label.
     push('taskType "po_interaction" MUST have an interlocutor — an interaction with nothing to interact with is a monologue');
+  }
+
+  if (t.debate !== undefined) {
+    if (t.taskType !== 'po_debate') {
+      push(`debate belongs to a po_debate task, not "${t.taskType}"`);
+    }
+    out.push(...validateDebate(t.debate, `${path}.debate`));
+  } else if (t.taskType === 'po_debate') {
+    push('taskType "po_debate" MUST have a debate bank — an examiner with no objections cannot challenge a position');
   }
 
   if (t.prepS !== undefined) {

@@ -23,69 +23,24 @@
 
 import { cueMatches } from './interlocutor.logic.ts';
 import type { InterlocutorTurn } from './interlocutor.logic.ts';
+// The debate SHAPES live in the schema, not here.
+//
+// schema.ts imports nothing on purpose: it is the standalone contract both
+// repos type their content from, and ealch-admin reads it cross-repo. That is
+// why ExamInterlocutor is declared there AND again in interlocutor.logic.ts,
+// two definitions that can drift apart with nothing to notice.
+//
+// This module does not repeat that. It owns the state machine and imports the
+// shapes, so there is one declaration of what a debate is.
+import type {
+  DebateAxis,
+  DebateMove,
+  DebateMoveKind,
+  DebateSide,
+  ExamDebate,
+} from '../content/schema.ts';
 
-/** Which side of the trigger document's question the candidate took.
- *
- *  `unclear` is a real state and not a failure: a monologue can argue well
- *  without ever announcing a side, and the examiner's move then is to ask. */
-export type DebateSide = 'pour' | 'contre' | 'unclear';
-
-/**
- * What the examiner is doing with a turn.
- *
- * `concession` and `retreat` are the two the TEF and TCF banks have no shape
- * for, and they are the two that separate a defended position from a recited
- * one. A bank using fewer than five of these reads as a questionnaire.
- */
-export type DebateMoveKind =
-  /** Make them pin down a term they used loosely. */
-  | 'probe'
-  /** The strongest objection to the side they took. */
-  | 'counter'
-  /** A case their position handles badly. */
-  | 'counter-example'
-  /** "If we did what you propose, then X." */
-  | 'consequence'
-  /** "You accept X — does that not undermine you?" */
-  | 'concession'
-  /** "Suppose I argued the opposite. What is your best answer?" */
-  | 'steelman'
-  /** Fires when they abandon the position; asks what changed their mind. */
-  | 'retreat';
-
-export type DebateMove = InterlocutorTurn & {
-  kind: DebateMoveKind;
-  /** 1, 2 or 3. Depth 3 is the concession-probe built on their own depth-2
-   *  answer, so it cannot be reached without passing through 2. */
-  depth: 1 | 2 | 3;
-};
-
-/** One line of attack, pushed until it is exhausted or the candidate stops
- *  engaging. Axes are opened one at a time; a debate that interleaves them
- *  reads as a list of unrelated objections rather than as pressure. */
-export type DebateAxis = {
-  id: string;
-  /** Which side this axis attacks. An axis is written AGAINST a position, so a
-   *  bank needs both sides covered — the candidate picks, not the author. */
-  against: 'pour' | 'contre';
-  /** What this line of attack is about, for the grader's report. */
-  about: string;
-  moves: DebateMove[];
-};
-
-export type ExamDebate = {
-  /** The question the trigger document raises, in the author's words. */
-  question: string;
-  /** Said once, when phase 2 opens. */
-  opening: InterlocutorTurn;
-  /** Asked when the side cannot be read from the monologue. */
-  clarify: InterlocutorTurn;
-  /** Phrases that place the candidate on one side or the other. */
-  sideCues: { pour: string[]; contre: string[] };
-  axes: DebateAxis[];
-  /** Said when the clock runs out. */
-  closing: InterlocutorTurn;
-};
+export type { DebateAxis, DebateMove, DebateMoveKind, DebateSide, ExamDebate };
 
 /* ── Side detection ───────────────────────────────────────────────────────── */
 
