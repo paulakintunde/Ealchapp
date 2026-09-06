@@ -423,10 +423,37 @@ test('results logged before question counts existed fall back honestly', () => {
   deepStrictEqual(sectionRaw(['t1', 't2'], mixed, PAPER), { raw: 1, total: 2 });
 });
 
-test('only a closed task contributes a raw count, and a retry counts once', () => {
-  // An open task has no raw count, which is why writing and speaking report a
-  // band rather than a fraction.
-  strictEqual(sectionRaw(['t1'], [result({ taskId: 't1', taskType: 'pe_essay' })], PAPER), null);
+test('an open épreuve counts its tasks, a mixed one counts its questions, and a retry counts once', () => {
+  // This assertion used to read: an open task contributes NO raw count, and
+  // sectionRaw returns null. It was wrong, and it was the defect — codified.
+  //
+  // The reasoning behind it conflated two different things. An open task has no
+  // QUESTION count, which is true and is why writing and speaking report a band
+  // instead of a fraction. It does not follow that the section has no raw value
+  // at all: its scoring map is indexed by TASKS MET, TEF's EE and EO ladders run
+  // 0..2 for exactly that reason, and TCF's run 0..3. Returning null denied
+  // those maps the only input they ever wanted.
+  //
+  // Every PE and PO section on every format is open-only, so this one line meant
+  // no paper in the app could report an overall estimate — a candidate who sat a
+  // perfect TEF paper was told "missing: Expression écrite, Expression orale".
+  // See exam/report-reachable.test.ts in ealch-admin, which sits real papers.
+  deepStrictEqual(
+    sectionRaw(['t1'], [result({ taskId: 't1', taskType: 'pe_essay', passed: true })], PAPER),
+    { raw: 1, total: 1 }
+  );
+  // A task that missed its band still counts toward the total: the épreuve is
+  // out of what it asked, not out of what went well.
+  deepStrictEqual(
+    sectionRaw(['t1', 't2'], [
+      result({ taskId: 't1', taskType: 'pe_essay', passed: true }),
+      result({ taskId: 't2', id: 'r2', taskType: 'pe_short', passed: false }),
+    ], PAPER),
+    { raw: 1, total: 2 }
+  );
+  // Nothing sat is still nothing to count — the case the old null conflated
+  // with the two above.
+  strictEqual(sectionRaw(['t1'], [], PAPER), null);
 
   const retried = [
     result({ taskId: 't1', correct: 9, askedTotal: 10, passed: true }),

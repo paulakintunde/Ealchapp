@@ -276,7 +276,7 @@ export function streak(sessions: SessionEntry[], today: string, freeze: number):
 // its zero-runtime-import property. It is structurally identical to the Verdict
 // in utils/score.ts, so the drill screens can pass their scores straight through.
 import {
-  ITEM_ID_RE, LEVELS, type Modality,
+  ITEM_ID_RE, LEVELS, OPEN_TASK_TYPES, type Modality,
   type ExamFormat, type ExamMode, type ExamSkill, type ExamTask, type ExamTaskType, type Lesson, type ScoreBand,
 } from '../content/schema.ts';
 
@@ -1286,7 +1286,25 @@ export function mintExamResultId(): string {
   return `exr-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
-const OPEN_EXAM_TASK_TYPES = new Set<ExamTaskType>(['po_monologue', 'po_interaction', 'pe_short', 'pe_essay']);
+/**
+ * Which task types are graded rather than marked.
+ *
+ * DERIVED from the schema's list, never restated. This was a hand-written copy
+ * of those five names, and it drifted: `po_debate` was added to the schema when
+ * the DELF débat shipped and never added here, so for one whole task type this
+ * module answered the opposite of what the schema said.
+ *
+ * Three things broke, quietly, and all three read as the débat working. It was
+ * decomposed for the SRS down the closed-task branch; a failed débat never
+ * reached dueExamSkills, so nothing sent the candidate to a prep lesson; and an
+ * UNGRADED débat reported 'scored' instead of 'not-graded' — presenting an
+ * attempt the grader never reached as a clean sitting, which is the exact
+ * substitution rule 3 in nclc.logic.ts exists to forbid.
+ *
+ * Written as a Set over the schema's array so membership stays O(1) and the two
+ * can no longer disagree.
+ */
+const OPEN_EXAM_TASK_TYPES: ReadonlySet<ExamTaskType> = new Set(OPEN_TASK_TYPES);
 
 /**
  * A missed CLOSED task decomposes into its targetItemIds, each becoming a
@@ -1435,9 +1453,28 @@ export function sectionStatusFor(
   return new Set(mine.map((r) => r.taskId)).size >= ids.size ? 'scored' : 'not-sat';
 }
 
-/** Correct answers in an épreuve. Closed tasks only — an open task has no raw
- *  count, which is why a writing or speaking section reports its band rather
- *  than a fraction. */
+/**
+ * What an épreuve scored, in the unit its scoring map is indexed by.
+ *
+ * Two units, because the two kinds of épreuve are marked differently and their
+ * maps are written accordingly:
+ *
+ *   closed (CO, CE)   QUESTIONS right, out of questions asked. A listening map
+ *                     runs 0..40 and a candidate is shown "31/40".
+ *   open   (PE, PO)   TASKS at or above their target band, out of tasks. TEF's
+ *                     EE and EO maps run 0..2 for exactly this reason; the
+ *                     candidate is shown a band, not a fraction of an essay.
+ *
+ * This used to return null the moment a section held no closed task — which is
+ * EVERY writing and speaking épreuve, on every format. So `sectionOutcome` bailed
+ * on a null raw, PE and PO never reached a band, `paperOutcome` correctly
+ * refused an overall it had no complete evidence for, and no paper in the app
+ * could report a result: a candidate who sat a perfect TEF paper was told
+ * "no overall estimate — missing: Expression écrite, Expression orale".
+ *
+ * The fallback below already computed the open unit correctly. It was simply
+ * unreachable, 40 lines past a guard that returned first.
+ */
 export function sectionRaw(
   taskIds: string[],
   results: ExamResult[],
@@ -1450,11 +1487,19 @@ export function sectionRaw(
 ): { raw: number; total: number; byBand?: Record<string, number> } | null {
   const ids = new Set(taskIds);
   const mine = results.filter((r) => r.paperId === paperId && ids.has(r.taskId));
+  // Nothing sat is still nothing to count. Distinct from "sat, but open", which
+  // is the case this function used to conflate with it.
+  if (mine.length === 0) return null;
+
   const closed = mine.filter((r) => !OPEN_EXAM_TASK_TYPES.has(r.taskType));
-  if (closed.length === 0) return null;
+  // A MIXED épreuve still counts its closed tasks only — questions are the
+  // finer evidence and its map is indexed by them. An épreuve of open tasks
+  // alone counts the tasks, which is the only unit it has.
+  const counted = closed.length > 0 ? closed : mine;
+
   // By task, not by result: a retried task must not count twice. Later wins.
   const byTask = new Map<string, ExamResult>();
-  for (const r of closed) byTask.set(r.taskId, r);
+  for (const r of counted) byTask.set(r.taskId, r);
   const rows = [...byTask.values()];
 
   // Sum QUESTIONS when the results carry them, which is the unit the section's
