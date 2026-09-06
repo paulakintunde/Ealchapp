@@ -22,6 +22,7 @@ import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 type Parts = NonNullable<ExamTask['parts']>;
 type Bank = NonNullable<ExamTask['interlocutor']>;
 type Turn = Bank['opening'];
+type Debate = NonNullable<ExamTask['debate']>;
 
 /** Keep a rendered clip when the text it was rendered from has not moved. */
 function keepClip<T extends { text?: string; audioRef?: string | null; durationS?: number }>(
@@ -60,5 +61,37 @@ export function mergeRenderedBank(authored: Bank, existing: Bank | null): Bank {
     catchAll: keepClip(authored.catchAll, byId.get(authored.catchAll.id)),
     closing: keepClip(authored.closing, byId.get(authored.closing.id)),
     answers: authored.answers.map((a) => keepClip(a, byId.get(a.id))),
+  };
+}
+
+/**
+ * The same carry again, for the DELF debate bank.
+ *
+ * A THIRD jsonb column with the identical hole. It was opened on `parts`, where
+ * it wiped thirty clips off a rendered paper; the fix at the time did not cover
+ * `interlocutor`, and that had to be closed separately once thirteen more clips
+ * were at risk on a published paper. `debate` is new, holds twenty-six turns,
+ * and is written the same way — so it is closed here before it can cost
+ * anything rather than after.
+ *
+ * Matched by ID like the interlocutor bank, and for the same reason: axes and
+ * their moves are a set, and reordering them is an ordinary edit. Matching
+ * positionally would attach the recording of one objection to another the first
+ * time an axis moved.
+ */
+export function mergeRenderedDebate(authored: Debate, existing: Debate | null): Debate {
+  if (!existing) return authored;
+  const byId = new Map<string, Turn>();
+  for (const t of [existing.opening, existing.clarify, existing.closing]) byId.set(t.id, t);
+  for (const axis of existing.axes) for (const m of axis.moves) byId.set(m.id, m as unknown as Turn);
+  return {
+    ...authored,
+    opening: keepClip(authored.opening, byId.get(authored.opening.id)),
+    clarify: keepClip(authored.clarify, byId.get(authored.clarify.id)),
+    closing: keepClip(authored.closing, byId.get(authored.closing.id)),
+    axes: authored.axes.map((axis) => ({
+      ...axis,
+      moves: axis.moves.map((m) => keepClip(m, byId.get(m.id) as typeof m | undefined)),
+    })),
   };
 }

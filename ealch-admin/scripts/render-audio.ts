@@ -123,6 +123,7 @@ import {
   gapsFor,
   parseTurns,
   interlocutorTurnPaths,
+  debateTurnPaths,
   registerFor,
   registerKeyFor,
   type CastTurn,
@@ -482,7 +483,13 @@ type InterlocutorTurnUnit = {
   taskId: string;
   taskLabel: string;
   turnId: string;
-  /** jsonb path into the task's `interlocutor` column. */
+  /** Which jsonb column the path is relative to. Two bank shapes now live on
+   *  two columns — `interlocutor` for a TEF/TCF interaction, `debate` for a
+   *  DELF débat — and the write-back below must target the right one. It was
+   *  hardcoded to `interlocutor`, and the first debate render failed loudly on
+   *  the path guard rather than writing anywhere wrong. */
+  column: 'interlocutor' | 'debate';
+  /** jsonb path into that column. */
   path: string[];
   text: string;
   slot: SlotName;
@@ -724,8 +731,9 @@ async function main() {
       // computed per part below, because TEF's block G is five sub-types
       // wearing one letter and a micro-trottoir is cast from block C's voices
       // while still being paced at block G's speed.
+      const BAND_KEYED = new Set(['tcf_canada', 'delf_b2']);
       const block =
-        row.format === 'tcf_canada'
+        BAND_KEYED.has(row.format)
           ? registerKeyFor({ format: row.format, taskLabel: row.label ?? '', partLabel: '', level: row.level })
           : (row.label ?? '').replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase() || 'G';
       (row.parts ?? []).forEach((part, i) => {
@@ -756,6 +764,9 @@ async function main() {
 
     type Turn = { id: string; text: string; audioRef?: string | null };
     type Bank = { opening: Turn; answers: Turn[]; catchAll: Turn; closing: Turn };
+    // The debate's turns are nested two deep inside axes, which is the whole
+    // reason it needs its own path helper and its own collection loop.
+    type Debate = { opening: Turn; clarify: Turn; closing: Turn; axes: { moves: Turn[] }[] };
 
     const bankRows = await client.query<{
       id: string;
@@ -795,6 +806,7 @@ async function main() {
           taskId: row.id,
           taskLabel: row.label ?? row.id,
           turnId: turn.id,
+          column: 'interlocutor',
           path,
           text: turn.text,
           slot: EXAMINER_SLOT,
@@ -802,6 +814,76 @@ async function main() {
           currentRef: turn.audioRef ?? null,
         });
       }
+    }
+
+    /* ── 2b. The DELF debate bank ────────────────────────────────────────
+     *
+     * A second bank shape on a second column, collected separately rather than
+     * folded into the loop above. The two look similar and are not: an
+     * interlocutor's turns are a flat list of answers, a debate's are nested
+     * two deep inside axes, and the jsonb path the renderer writes back to
+     * differs accordingly.
+     *
+     * ONE examiner voice for the whole debate, and a MALE formal one rather
+     * than the interaction's `f-neutral`. That is not a coin toss: the
+     * interaction examiner is a person at a reception desk answering
+     * questions, and this one is challenging a position across a table for ten
+     * to thirteen minutes. The register is the difference, not the sex — but
+     * the paper's two long documents already put a woman in the presenter
+     * chair, and a third female voice in the same register would blur them.
+     */
+    const debateRows = await client.query<{
+      id: string;
+      label: string | null;
+      format: string;
+      debate: Debate | null;
+    }>(
+      `select id, label, format::text as format, debate
+         from content_exam_tasks
+        where task_type = 'po_debate'
+          and debate is not null
+          and status <> 'archived'
+          and ($1::text is null or id = $1)
+        order by id`,
+      [ONLY]
+    );
+
+    const DEBATER_SLOT: SlotName = 'm-formal';
+
+    for (const row of debateRows.rows) {
+      const d = row.debate;
+      if (!d) continue;
+      // The walk order below MUST match debateTurnPaths exactly — see the note
+      // there. Zipping two independently-built lists is how a recording ends up
+      // attached to the wrong objection.
+      const turnsInOrder: Turn[] = [
+        d.opening,
+        d.clarify,
+        ...d.axes.flatMap((a) => a.moves as unknown as Turn[]),
+        d.closing,
+      ];
+      const paths = debateTurnPaths(d);
+      if (paths.length !== turnsInOrder.length) {
+        die(
+          `debate bank on ${row.id} walked ${turnsInOrder.length} turns but produced ${paths.length} paths; ` +
+            `a clip would be written to the wrong turn`
+        );
+      }
+      turnsInOrder.forEach((turn, i) => {
+        if (!turn?.text) return;
+        turnUnits.push({
+          kind: 'interlocutorTurn',
+          taskId: row.id,
+          taskLabel: row.label ?? row.id,
+          turnId: turn.id,
+          column: 'debate',
+          path: paths[i]!,
+          text: turn.text,
+          slot: DEBATER_SLOT,
+          format: row.format,
+          currentRef: turn.audioRef ?? null,
+        });
+      });
     }
 
     /* ── 3. Length sanity, before anything is spent ─────────────────────── */
@@ -1110,20 +1192,25 @@ async function main() {
       // path that does not resolve writes NULL over the entire bank, which is
       // exactly what happened the first time this ran. Now it matches no rows
       // and the rowCount check below turns it into a loud failure.
+      // The column name is interpolated rather than parameterised because SQL
+      // does not take an identifier as a bind parameter. It is safe here and
+      // only here: `column` is a union of two literals set by this file, never
+      // read from the database or an argument.
+      const col = unit.column;
       const res = await client.query(
         `update content_exam_tasks
-            set interlocutor = jsonb_set(
-                  interlocutor, $2::text[],
-                  (interlocutor #> $2::text[]) || jsonb_build_object('audioRef', $3::text, 'durationS', $4::int),
+            set ${col} = jsonb_set(
+                  ${col}, $2::text[],
+                  (${col} #> $2::text[]) || jsonb_build_object('audioRef', $3::text, 'durationS', $4::int),
                   false),
                 updated_at = now()
           where id = $1
-            and interlocutor #> $2::text[] is not null`,
+            and ${col} #> $2::text[] is not null`,
         [unit.taskId, `{${unit.path.join(',')}}`, path, durationS]
       );
       if (res.rowCount !== 1) {
         throw new Error(
-          `interlocutor path {${unit.path.join(',')}} did not resolve on ${unit.taskId} — nothing written`
+          `${col} path {${unit.path.join(',')}} did not resolve on ${unit.taskId} — nothing written`
         );
       }
     }

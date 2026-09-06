@@ -184,3 +184,35 @@ test('the shipped TCF casting file casts eight distinct, well-formed voices', ()
     strictEqual(new Set(heard).size, 3, `${trio.join(' + ')} do not resolve to three distinct voices`);
   }
 });
+
+test('the shipped DELF casting file is complete, and keyed by band not block', () => {
+  // DELF is the third casting file and the first with a SINGLE band, so most of
+  // what the TCF test checks — a rising ramp, a speed per band — does not apply.
+  // What does apply is everything that made the earlier two fail silently.
+  const cast = loadVoices(resolve(HERE, '../../exam-blueprints/VOICES-delf-b2.md'));
+
+  strictEqual(cast.entries.size + cast.uncast.length, 8, 'every slot is either cast or reported');
+  for (const [slot, entry] of cast.entries) {
+    ok(/^[A-Za-z0-9_-]{20}$/.test(entry.voiceId), `${slot}: "${entry.voiceId}" is not an ElevenLabs voice id`);
+  }
+  const ids = [...cast.entries.values()].map((e) => e.voiceId);
+  strictEqual(new Set(ids).size, ids.length, 'two slots share a voice id');
+
+  // The speed table, read positionally: first cell the key, LAST cell the
+  // speed. A column added after `Speed` empties it silently and the épreuve
+  // renders at the provider's default.
+  const b2 = cast.blockSpeed.get('b2');
+  ok(b2 !== undefined, 'b2 has no speed: the whole épreuve would render at the default rate');
+  ok(b2! >= 0.7 && b2! <= 1.2, `b2: ${b2} is outside the provider's 0.7-1.2 range`);
+
+  const eo = cast.blockSpeed.get('EO');
+  ok(eo !== undefined, 'the debate examiner has no speed');
+  ok(eo! >= 0.7 && eo! <= 1.2, `EO: ${eo} is outside the provider's range`);
+
+  // The examiner is slower than the documents ON PURPOSE. He is not
+  // broadcasting; he is putting a question across a table and waiting. A
+  // challenge delivered at news pace reads as hectoring.
+  ok(eo! < b2!, `the examiner (${eo}) must not be paced faster than the documents (${b2})`);
+
+  ok(/^v\d+$/.test(cast.renderVersion), `render version is not a version: "${cast.renderVersion}"`);
+});

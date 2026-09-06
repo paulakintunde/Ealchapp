@@ -24,6 +24,11 @@
 //
 //   exercises 1 and 2   read the questions, play, 60s, play, 30s
 //   exercise 3          15s read window, play once, 20s
+//
+// The durationS values below are MEASURED off the rendered clips, not the
+// at-target estimates they started as. They differ by up to 14 seconds, and the
+// clock check in paper.test.ts reads them — so estimates there would have
+// checked the clock against a document length that does not exist.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, VARIANT, FORMAT_VERSION, NOTES_CLOSED, taskId, uniq, ITEMS } from './common.ts';
 
@@ -61,7 +66,7 @@ export const CO_EX1: ExamTask = {
       label: 'Exercice 1 · la semaine de quatre jours',
       playCount: 2,
       readWindowS: 60,
-      durationS: 178,
+      durationS: 192,
       text:
         'UNE JOURNALISTE : Quarante entreprises de la région ont essayé la semaine de quatre jours ' +
         'l’an dernier, et trente-quatre l’ont conservée. Le chiffre circule beaucoup. ' +
@@ -220,7 +225,7 @@ export const CO_EX2: ExamTask = {
       label: 'Exercice 2 · classer les hôpitaux',
       playCount: 2,
       readWindowS: 60,
-      durationS: 168,
+      durationS: 161,
       text:
         'UN ANIMATEUR : Le classement annuel des hôpitaux paraît demain. ' +
         'Vous avez travaillé dessus pendant six ans et vous n’en dites pas de bien.\n' +
@@ -384,7 +389,7 @@ export const CO_EX3: ExamTask = {
       label: 'Document 1 · la bibliothèque ouvre plus tard',
       playCount: 1,
       readWindowS: 15,
-      durationS: 69,
+      durationS: 61,
       text:
         'UNE RESPONSABLE : Nous avons ouvert jusqu’à vingt-deux heures pendant six mois, ' +
         'et la fréquentation du soir a été bonne. ' +
@@ -432,7 +437,7 @@ export const CO_EX3: ExamTask = {
       label: 'Document 2 · une réparation plus longue que le montage',
       playCount: 1,
       readWindowS: 15,
-      durationS: 73,
+      durationS: 78,
       text:
         'UN INGÉNIEUR : Monter cette machine prend deux jours. ' +
         'La réparer nous en a pris onze, et ce n’est pas une anomalie. ' +
@@ -486,7 +491,7 @@ export const CO_EX3: ExamTask = {
       label: 'Document 3 · le lac rouvert à la baignade',
       playCount: 1,
       readWindowS: 15,
-      durationS: 68,
+      durationS: 71,
       text:
         'UNE JOURNALISTE : Le lac de Vaubourg rouvre à la baignade après trente ans de fermeture. ' +
         'L’eau est redevenue conforme il y a huit ans déjà : ' +

@@ -91,12 +91,23 @@ export function registerKeyFor(input: {
   partLabel: string;
   level?: string | null;
 }): string {
-  if (input.format === 'tcf_canada') {
+  // BAND-KEYED FORMATS. TCF is a ramp and DELF is a single level, and neither
+  // has blocks — so the band is the casting and pacing key for both.
+  //
+  // The fall-through below reads the first letter of the task label, which is a
+  // TEF fact ("Section C"). Applied to a French épreuve name it is silently
+  // wrong rather than loud: 'Compréhension orale · A1' and 'Compréhension de
+  // l'oral · Exercice 1' both begin with C, so every document would be cast and
+  // paced as a TEF block C micro-trottoir and nothing would fail. That happened
+  // once to TCF; listing DELF here is what stops it happening again.
+  if (input.format === 'tcf_canada' || input.format === 'delf_b2') {
     const band = (input.level ?? '').toLowerCase();
     if (band in BAND_PREFERENCE) return band;
-    // A TCF task with no usable level is an authoring fault, not something to
-    // paper over with a default that sounds fine.
-    throw new Error(`TCF task "${input.taskLabel}" has no usable level for casting (got ${JSON.stringify(input.level)})`);
+    // A task with no usable level is an authoring fault, not something to paper
+    // over with a default that sounds fine.
+    throw new Error(
+      `${input.format} task "${input.taskLabel}" has no usable level for casting (got ${JSON.stringify(input.level)})`
+    );
   }
   const block = input.taskLabel.replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase() || 'G';
   return registerFor(block, input.partLabel);
@@ -278,6 +289,33 @@ export function interlocutorTurnPaths(bank: {
     ['opening'],
     ...bank.answers.map((_, i) => ['answers', String(i)]),
     ['catchAll'],
+    ['closing'],
+  ];
+}
+
+/**
+ * jsonb paths into the `debate` column, one per renderable turn.
+ *
+ * Same contract as interlocutorTurnPaths and the same hazard: these are
+ * RELATIVE TO THE COLUMN, so the renderer's jsonb_set writes to
+ * `debate -> axes -> 2 -> moves -> 1`, and a path that drifts from the order
+ * the caller walks the turns in attaches a recording to the wrong objection.
+ *
+ * The order is opening, clarify, every move axis by axis, closing — and the
+ * caller MUST walk the turns in exactly that order.
+ */
+export function debateTurnPaths(bank: {
+  opening: unknown;
+  clarify: unknown;
+  axes: { moves: unknown[] }[];
+  closing: unknown;
+}): string[][] {
+  return [
+    ['opening'],
+    ['clarify'],
+    ...bank.axes.flatMap((axis, ai) =>
+      axis.moves.map((_, mi) => ['axes', String(ai), 'moves', String(mi)])
+    ),
     ['closing'],
   ];
 }

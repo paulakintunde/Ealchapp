@@ -23,10 +23,24 @@ import './../env';
 /** Which format's paper. Was `format='tef_canada'` written into the query and
  *  "TEF Canada" into the heading — the same pair of literals that made every
  *  sheet announce itself as Examen 1, one layer down. */
-const FORMATS = { tef: 'tef_canada', tcf: 'tcf_canada' } as const;
-const FORMAT_KEY = (process.argv.slice(2).find((a) => a in FORMATS) ?? 'tef') as keyof typeof FORMATS;
+const FORMATS = { tef: 'tef_canada', tcf: 'tcf_canada', delf: 'delf_b2' } as const;
+// DEFAULTING to tef is why `marking-sheet.ts delf 1` silently produced the TEF
+// sheet: an unrecognised format name is not an argument the finder rejects, it
+// is simply one it does not match, and the default then looks like success. A
+// named format that is not in the table is now a refusal.
+const NAMED = process.argv.slice(2).find((a) => /^[a-z]+$/.test(a) && !/^blanc/.test(a));
+if (NAMED && !(NAMED in FORMATS)) {
+  console.error(`
+✖ unknown format "${NAMED}" — expected one of ${Object.keys(FORMATS).join(', ')}
+`);
+  process.exit(1);
+}
+const FORMAT_KEY = (NAMED ?? 'tef') as keyof typeof FORMATS;
 const FORMAT = FORMATS[FORMAT_KEY];
-const FORMAT_LABEL = FORMAT_KEY.toUpperCase() + ' Canada';
+// DELF is not "DELF Canada": it is an international diploma, and the other two
+// are Canadian immigration tests. Naming it wrongly on a marking sheet a human
+// reads is a small error that looks like carelessness about the format.
+const FORMAT_LABEL = FORMAT_KEY === 'delf' ? 'DELF B2 tout public' : FORMAT_KEY.toUpperCase() + ' Canada';
 
 /** Accepts `2`, `02` or `blanc-02` and always yields `blanc-02`. The variants
  *  are zero-padded in the database, and a bare `2` produced `blanc-2`, which

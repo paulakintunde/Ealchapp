@@ -19,6 +19,7 @@ import {
   TURN_GAP_MS,
   type CastTurn,
   registerKeyFor,
+  debateTurnPaths,
   BAND_PREFERENCE,
 } from './examAudio.ts';
 import { TASKS } from '../tef-blanc01/paper.ts';
@@ -291,12 +292,23 @@ test('the render query refuses a path that does not resolve', () => {
   // Belt and braces: even with the paths right, the SQL must not be able to
   // write NULL over a bank. The guard is what turns a bad path into a loud
   // failure instead of a silent erasure.
+  //
+  // The guard used to be written against `interlocutor` by name. It is now
+  // templated on the column, because a DELF debate bank lives on `debate` and
+  // the same update serves both — so this asserts the SHAPE rather than the
+  // literal, and additionally that the only two columns it can name are the two
+  // that hold banks. An interpolated identifier is safe here only because that
+  // union is closed.
   const src = readFileSync(resolve(HERE, '../render-audio.ts'), 'utf8');
   ok(
-    /and interlocutor #> \$2::text\[\] is not null/.test(src),
-    'the interlocutor update must guard on the path resolving'
+    /and \$\{col\} #> \$2::text\[\] is not null/.test(src),
+    'the bank update must guard on the path resolving, whichever column it targets'
   );
   ok(/did not resolve on/.test(src), 'and must say so when it does not');
+  ok(
+    /column: 'interlocutor' \| 'debate'/.test(src),
+    'the column must be a closed union of literals — it is interpolated into SQL'
+  );
 });
 
 test('a TCF label is not silently cast as TEF block C', () => {
@@ -356,4 +368,81 @@ test('a TCF band casts two speakers to two different voices', () => {
   const cast = castDocument(turns, 'c1');
   const slots = new Set(cast.map((c) => c.slot));
   strictEqual(slots.size, 3, 'three speakers must get three voices');
+});
+
+test('a band-keyed format is never cast off the first letter of its label', () => {
+  // THE SECOND TIME THIS SHAPE OF BUG HAS APPEARED.
+  //
+  // The fall-through reads a block letter from the task label, which is a TEF
+  // fact: its labels really are "Section C". Applied to a French épreuve name
+  // it is silently wrong rather than loud, because these all begin with C:
+  //
+  //   'Compréhension orale · A1'                 TCF
+  //   'Compréhension de l’oral · Exercice 1'     DELF
+  //
+  // Every document would be cast and paced as a TEF block C micro-trottoir and
+  // nothing would fail — no exception, no empty result, just the wrong voices
+  // at the wrong speed. TCF hit it once. DELF was added to the same
+  // fall-through and would have hit it again on its first render.
+  for (const format of ['tcf_canada', 'delf_b2']) {
+    const key = registerKeyFor({
+      format,
+      taskLabel: 'Compréhension de l’oral · Exercice 1',
+      partLabel: '',
+      level: 'b2',
+    });
+    strictEqual(key, 'b2', `${format} was keyed "${key}" — the band is the key for a format with no blocks`);
+  }
+
+  // TEF still reads its block letter, which is what that branch is for.
+  strictEqual(registerKeyFor({ format: 'tef_canada', taskLabel: 'Section C', partLabel: '', level: 'b1' }), 'C');
+
+  // And a band-keyed task with no level is an authoring fault, not something to
+  // paper over with a default that sounds fine.
+  throws(
+    () => registerKeyFor({ format: 'delf_b2', taskLabel: 'x', partLabel: '', level: null }),
+    /no usable level/
+  );
+});
+
+test('debate turn paths line up with the order the renderer walks them', () => {
+  // The dangerous coupling in this module. The paths are RELATIVE TO THE
+  // `debate` COLUMN and the renderer writes each clip with jsonb_set, so a path
+  // list that drifts from the walk order does not fail — it attaches the
+  // recording of one objection to a different one, and the candidate hears the
+  // examiner answer something they were not asked.
+  //
+  // Two axes with different move counts, because equal counts would let an
+  // off-by-one in the axis index pass.
+  const bank = {
+    opening: { id: 'open' },
+    clarify: { id: 'clar' },
+    axes: [
+      { moves: [{ id: 'a1' }, { id: 'a2' }, { id: 'a3' }] },
+      { moves: [{ id: 'b1' }, { id: 'b2' }] },
+    ],
+    closing: { id: 'close' },
+  };
+
+  const paths = debateTurnPaths(bank);
+  // The walk order render-audio.ts uses, written out independently here.
+  const walked = [bank.opening, bank.clarify, ...bank.axes.flatMap((a) => a.moves), bank.closing];
+
+  strictEqual(paths.length, walked.length, 'a path per turn, or a clip lands on the wrong one');
+  deepStrictEqual(paths[0], ['opening']);
+  deepStrictEqual(paths[1], ['clarify']);
+  deepStrictEqual(paths[paths.length - 1], ['closing']);
+
+  // Resolve every path against the bank and check it arrives at the turn the
+  // walk put in that position. This is the assertion that actually catches a
+  // drift, rather than counting.
+  paths.forEach((path, i) => {
+    let node: unknown = bank;
+    for (const seg of path) node = (node as Record<string, unknown>)[seg];
+    strictEqual(
+      (node as { id: string }).id,
+      (walked[i] as { id: string }).id,
+      `path ${path.join('.')} resolves to a different turn than the walk's position ${i}`
+    );
+  });
 });

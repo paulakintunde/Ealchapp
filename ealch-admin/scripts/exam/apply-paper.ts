@@ -28,7 +28,7 @@ import { describeTarget } from '../env';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { validateExamPaper, validateExamTask, type ExamPaper, type ExamTask } from '../../../ealch-v2/src/content/schema.ts';
-import { mergeRenderedParts, mergeRenderedBank } from './merge-rendered.ts';
+import { mergeRenderedParts, mergeRenderedBank, mergeRenderedDebate } from './merge-rendered.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -38,14 +38,24 @@ type Loaded = {
   TASKS: ExamTask[];
   CO_TASKS: ExamTask[];
   CE_TASKS: ExamTask[];
-  EE_TASKS: ExamTask[];
-  EO_TASKS: ExamTask[];
+  // TEF and TCF name these EE/EO after their French épreuve titles; DELF names
+  // them PE/PO after the skills, which is what the schema actually calls them.
+  // Both are optional here and the counts below read TASKS by SKILL instead, so
+  // a paper is never rejected for what it named its exports.
+  EE_TASKS?: ExamTask[];
+  EO_TASKS?: ExamTask[];
+  PE_TASKS?: ExamTask[];
+  PO_TASKS?: ExamTask[];
 };
 
 /** What each format's blueprint fixes. The only per-format knowledge here. */
 const SHAPES = {
   tef: { dir: 'tef-blanc', co: 40, ce: 40, ee: 2, eo: 2 },
   tcf: { dir: 'tcf-blanc', co: 39, ce: 39, ee: 3, eo: 3 },
+  // DELF: 20 questions per comprehension épreuve, ONE writing task, and TWO
+  // speaking tasks — the monologue and the debate, which are two phases of one
+  // épreuve rather than two independent tasks.
+  delf: { dir: 'delf-blanc', co: 20, ce: 20, ee: 1, eo: 2 },
 } as const;
 type FormatKey = keyof typeof SHAPES;
 
@@ -72,8 +82,13 @@ function validate(p: Loaded): string[] {
   const want = SHAPES[FORMAT];
   if (count(p.CO_TASKS) !== want.co) problems.push(`CO has ${count(p.CO_TASKS)} questions, expected ${want.co}`);
   if (count(p.CE_TASKS) !== want.ce) problems.push(`CE has ${count(p.CE_TASKS)} questions, expected ${want.ce}`);
-  if (p.EE_TASKS.length !== want.ee) problems.push(`EE has ${p.EE_TASKS.length} tasks, expected ${want.ee}`);
-  if (p.EO_TASKS.length !== want.eo) problems.push(`EO has ${p.EO_TASKS.length} tasks, expected ${want.eo}`);
+  // BY SKILL, not by export name. A paper that exports PE_TASKS instead of
+  // EE_TASKS is not a malformed paper, and counting the exports would have
+  // reported DELF as having zero writing tasks while its writing task sat in
+  // TASKS the whole time.
+  const bySkill = (s: string) => p.TASKS.filter((t) => t.skill === s).length;
+  if (bySkill('PE') !== want.ee) problems.push(`PE has ${bySkill('PE')} tasks, expected ${want.ee}`);
+  if (bySkill('PO') !== want.eo) problems.push(`PO has ${bySkill('PO')} tasks, expected ${want.eo}`);
   return problems;
 }
 
@@ -89,8 +104,9 @@ async function write(p: Loaded): Promise<void> {
       id: string;
       parts: NonNullable<ExamTask['parts']> | null;
       interlocutor: NonNullable<ExamTask['interlocutor']> | null;
+      debate: NonNullable<ExamTask['debate']> | null;
     }>(
-      `select id, parts, interlocutor from content_exam_tasks where format = $1 and variant = $2`,
+      `select id, parts, interlocutor, debate from content_exam_tasks where format = $1 and variant = $2`,
       [p.PAPER.format, p.PAPER.variant]
     );
     const prior = new Map(priorRows.rows.map((r) => [r.id, r]));
@@ -100,20 +116,26 @@ async function write(p: Loaded): Promise<void> {
       const was = prior.get(t.id);
       const parts = t.parts ? mergeRenderedParts(t.parts, was?.parts ?? null) : null;
       const bank = t.interlocutor ? mergeRenderedBank(t.interlocutor, was?.interlocutor ?? null) : null;
+      const debate = t.debate ? mergeRenderedDebate(t.debate, was?.debate ?? null) : null;
       carried +=
         (parts ?? []).filter((x) => x.audioRef).length +
-        (bank ? [bank.opening, bank.catchAll, bank.closing, ...bank.answers].filter((x) => x.audioRef).length : 0);
+        (bank ? [bank.opening, bank.catchAll, bank.closing, ...bank.answers].filter((x) => x.audioRef).length : 0) +
+        (debate
+          ? [debate.opening, debate.clarify, debate.closing, ...debate.axes.flatMap((x) => x.moves)].filter(
+              (x) => x.audioRef
+            ).length
+          : 0);
 
       await client.query(
         `insert into content_exam_tasks
            (id, format, variant, task_type, skill, level, format_version, prompt, label,
-            items, parts, response_spec, prep_s, interlocutor, rubric, model_answer,
+            items, parts, response_spec, prep_s, interlocutor, debate, rubric, model_answer,
             examiner_notes, timing_s, target_item_ids, status, generated_by)
-         values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,'in_review','llm')
+         values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,'in_review','llm')
          on conflict (id) do update set
            prompt=excluded.prompt, label=excluded.label, items=excluded.items, parts=excluded.parts,
            response_spec=excluded.response_spec, prep_s=excluded.prep_s,
-           interlocutor=excluded.interlocutor, rubric=excluded.rubric,
+           interlocutor=excluded.interlocutor, debate=excluded.debate, rubric=excluded.rubric,
            model_answer=excluded.model_answer, examiner_notes=excluded.examiner_notes,
            timing_s=excluded.timing_s, target_item_ids=excluded.target_item_ids,
            level=excluded.level, format_version=excluded.format_version, updated_at=now()`,
@@ -124,6 +146,7 @@ async function write(p: Loaded): Promise<void> {
           t.responseSpec ? JSON.stringify(t.responseSpec) : null,
           t.prepS ?? null,
           bank ? JSON.stringify(bank) : null,
+          debate ? JSON.stringify(debate) : null,
           t.rubric ? JSON.stringify(t.rubric) : null,
           t.modelAnswer ?? null,
           t.examinerNotes ?? [],
@@ -192,10 +215,15 @@ async function main() {
   for (const p of loaded) {
     const count = (ts: ExamTask[]) =>
       ts.reduce((n, t) => n + (t.parts ? t.parts.flatMap((x) => x.items).length : (t.items ?? []).length), 0);
+    // BY SKILL, like the validation above and for the same reason: the export
+    // names differ between formats (TEF and TCF say EE/EO, DELF says PE/PO) and
+    // the skills do not.
+    const nPE = p.TASKS.filter((t) => t.skill === 'PE').length;
+    const nPO = p.TASKS.filter((t) => t.skill === 'PO').length;
     console.log(
       `\n  ${p.PAPER.id}\n` +
-      `    CO ${count(p.CO_TASKS)} · CE ${count(p.CE_TASKS)} · EE ${p.EE_TASKS.length} · EO ${p.EO_TASKS.length}` +
-      `  =  ${count(p.CO_TASKS) + count(p.CE_TASKS) + p.EE_TASKS.length + p.EO_TASKS.length} scored units`
+      `    CO ${count(p.CO_TASKS)} · CE ${count(p.CE_TASKS)} · PE ${nPE} · PO ${nPO}` +
+      `  =  ${count(p.CO_TASKS) + count(p.CE_TASKS) + nPE + nPO} scored units`
     );
     if (!DRY_RUN) await write(p);
   }
