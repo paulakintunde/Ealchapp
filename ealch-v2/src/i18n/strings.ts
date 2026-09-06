@@ -138,6 +138,7 @@ export type Strings = {
   examStartInteraction: string; examPrepInteractionBody: string;
   examYourTurn: string; examExaminerSpeaking: string;
   examCoverage: string; examNotAsked: string; examInterlocutorMissing: string;
+  examStartDebate: string; examDebateMissing: string; examPrepDebateBody: string;
   /** Le Rapport. */
   examReport: string; examEstimate: string; examLowestGoverns: string;
   examParallelNotEquated: string; examNoOverall: string; examNothingSat: string;
@@ -451,6 +452,9 @@ export const T: Record<Lang, Strings> = {
     examYourTurn: 'À vous', examExaminerSpeaking: 'L’examinateur répond',
     examCoverage: 'Informations obtenues', examNotAsked: 'Non demandé',
     examInterlocutorMissing: 'Cette tâche est incomplète : aucun interlocuteur enregistré.',
+    examStartDebate: 'Commencer le débat',
+    examDebateMissing: 'Cette tâche est incomplète : aucune objection enregistrée.',
+    examPrepDebateBody: 'Relisez vos notes. L’examinateur contestera votre position.',
     examReport: 'Le Rapport', examEstimate: 'ESTIMATION',
     examLowestGoverns: 'Votre niveau est fixé par votre épreuve la plus faible.',
     examParallelNotEquated: "Épreuves blanches parallèles, non calibrées. Nous ne disposons pas des tables de conversion officielles : chaque estimation est un intervalle, jamais un score.",
@@ -854,6 +858,9 @@ export const T: Record<Lang, Strings> = {
     examYourTurn: 'Your turn', examExaminerSpeaking: 'The examiner answers',
     examCoverage: 'Facts obtained', examNotAsked: 'Not asked',
     examInterlocutorMissing: 'This task is incomplete: no recorded interlocutor.',
+    examStartDebate: 'Start the debate',
+    examDebateMissing: 'This task is incomplete: no recorded objections.',
+    examPrepDebateBody: 'Review your notes. The examiner will challenge your position.',
     examReport: 'Le Rapport', examEstimate: 'ESTIMATE',
     examLowestGoverns: 'Your level is set by your weakest paper.',
     examParallelNotEquated: 'Parallel mock papers, not calibrated. We do not hold the official conversion tables, so every estimate is a range, never a score.',

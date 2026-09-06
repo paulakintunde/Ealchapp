@@ -30,6 +30,7 @@ import { ExamClock } from '@/components/ExamClock';
 import { ExamAudioPart } from '@/components/ExamAudioPart';
 import { ExamSpeakTask, type SpokenAnswer } from '@/components/ExamSpeakTask';
 import { ExamInterlocutorTask } from '@/components/ExamInterlocutorTask';
+import { ExamDebateTask } from '@/components/ExamDebateTask';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
@@ -41,6 +42,8 @@ import { examGrader } from '@/services';
 import { startClock, type ClockState } from '@/utils/examClock.logic';
 import { deliveryNote } from '@/utils/deliverySignals.logic';
 import { coverageNote, type Coverage } from '@/utils/interlocutor.logic';
+import { surfaceFor } from '@/utils/examDispatch.logic';
+import type { DebateReport } from '@/utils/debate.logic';
 import {
   EXAM_MODES, OPEN_TASK_TYPES, SCORE_BANDS,
   type ExamMode, type ExamPart, type ExamSkill, type ExamTask,
@@ -103,7 +106,20 @@ export default function ExamSectionScreen() {
   /** Interaction tasks only. Kept apart from `spoken` because it is not a
    *  speech signal: it is what the candidate obtained. */
   const [coverage, setCoverage] = useState<Record<string, Coverage>>({});
+  /** Debate tasks only. Replaces coverage for those: what the candidate HELD,
+   *  not what they extracted. A candidate who met every objection by agreeing
+   *  covered them all and argued badly, which is why the two cannot share a
+   *  measure. */
+  const [debate, setDebate] = useState<Record<string, DebateReport>>({});
   const submitted = useRef(false);
+
+  // The side the candidate argued in phase 1, for the debate to open against.
+  // By TASK TYPE, not by array position: a section that ever carries two
+  // speaking tasks in another order must not hand the debate the wrong one.
+  const monologueTranscript = useMemo(() => {
+    const mono = tasks.find((x) => x.taskType === 'po_monologue');
+    return mono ? spoken[mono.id]?.transcript : undefined;
+  }, [tasks, spoken]);
 
   const submit = useCallback(async () => {
     if (submitted.current || !paperId || !section) return;
@@ -277,11 +293,24 @@ export default function ExamSectionScreen() {
             readWindowS all started together into the single shared player and
             the later ones ate the earlier. */}
         <ExamAudioQueue>
-        {tasks.map((task) =>
-          // An interaction is the one PO task the recorder cannot serve: the
-          // candidate leads and the examiner must answer back. Both paths feed
-          // the same `spoken` map, so submit() does not care which ran.
-          task.taskType === 'po_interaction' ? (
+        {tasks.map((task) => {
+          // DISPATCH BY SURFACE, never by skill.
+          //
+          // This was a ternary chain that tested `taskType === 'po_interaction'`
+          // and then fell through on `skill === 'PO'` to the plain recorder.
+          // `po_debate` carries skill 'PO', so a DELF débat rendered as a task
+          // where the candidate talks and the examiner never objects — the bank
+          // authored, validated, rendered to twenty-nine clips, published, and
+          // never read, while the prompt promised the challenge.
+          //
+          // `surfaceFor` is exhaustive over ExamTaskType with a `never` check,
+          // so a new task type is now a COMPILE ERROR until it is given a
+          // surface, and the switch below is a compile error until that surface
+          // is drawn. See utils/examDispatch.logic.ts.
+          const surface = surfaceFor(task);
+          switch (surface) {
+            case 'interaction':
+              return (
             <ExamInterlocutorTask
               key={task.id}
               task={task}
@@ -300,7 +329,34 @@ export default function ExamSectionScreen() {
                 setCoverage((p) => ({ ...p, [task.id]: a.coverage }));
               }}
             />
-          ) : task.skill === 'PO' ? (
+              );
+            case 'debate':
+              return (
+                <ExamDebateTask
+                  key={task.id}
+                  task={task}
+                  lang={lang}
+                  editable={phase === 'answering'}
+                  // The examiner heard phase 1. Ours reads the side off the
+                  // monologue when this section carried one, and asks when it
+                  // did not — never guesses.
+                  priorTranscript={monologueTranscript}
+                  onAnswer={(a) => {
+                    setSpoken((p) => ({
+                      ...p,
+                      [task.id]: {
+                        transcript: a.transcript,
+                        signals: a.signals,
+                        audioUri: null,
+                        unavailable: a.unavailable,
+                      },
+                    }));
+                    setDebate((p) => ({ ...p, [task.id]: a.report }));
+                  }}
+                />
+              );
+            case 'speak':
+              return (
             <ExamSpeakTask
               key={task.id}
               task={task}
@@ -308,7 +364,9 @@ export default function ExamSectionScreen() {
               editable={phase === 'answering'}
               onAnswer={(a) => setSpoken((p) => ({ ...p, [task.id]: a }))}
             />
-          ) : section.skill === 'CO' ? (
+              );
+            case 'listening':
+              return (
             <ListeningTask
               key={task.id}
               task={task}
@@ -320,7 +378,9 @@ export default function ExamSectionScreen() {
               onUnplayable={(partKey) => setUnplayable((p) => new Set(p).add(`${task.id}:${partKey}`))}
               editable={phase === 'answering'}
             />
-          ) : isOpen(task) ? (
+              );
+            case 'open':
+              return (
             <OpenTask
               key={task.id}
               task={task}
@@ -328,7 +388,9 @@ export default function ExamSectionScreen() {
               onChange={(v) => setTexts((p) => ({ ...p, [task.id]: v }))}
               editable={phase === 'answering'}
             />
-          ) : (
+              );
+            case 'closed':
+              return (
             <ClosedTask
               key={task.id}
               task={task}
@@ -338,8 +400,9 @@ export default function ExamSectionScreen() {
               }
               editable={phase === 'answering'}
             />
-          )
-        )}
+              );
+          }
+        })}
         </ExamAudioQueue>
       </ScrollView>
 
