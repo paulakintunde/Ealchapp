@@ -331,11 +331,18 @@ async function main() {
   // is a speaking test with nobody on the other end. Nothing caught it until a
   // paper containing one was actually flipped to published, because with zero
   // exam rows in the corpus there was nothing for the validator to reject.
+  //
+  // `debate` IS THE SAME OMISSION AGAIN, one column later. The DELF débat bank
+  // lives there, the mapping below reads r.debate, and this select did not ask
+  // for it — so the first DELF publish attempt produced a po_debate task with
+  // no bank. This time the validator DID reject it, loudly, because the schema
+  // now requires the pair. Adding a jsonb column to content_exam_tasks means
+  // adding it in three places: the writer, this select, and the mapping.
   const examTaskRows = await pool.query(
     `select id, format::text as format, variant, task_type::text as task_type,
             skill::text as skill, level::text as level, format_version, prompt,
             label, items, parts, response_spec, rubric, model_answer, examiner_notes,
-            timing_s, scoring_map, target_item_ids, interlocutor, prep_s
+            timing_s, scoring_map, target_item_ids, interlocutor, prep_s, debate
        from content_exam_tasks where status = 'published'`
   );
   const examPaperRows = await pool.query(
@@ -366,6 +373,7 @@ async function main() {
     ...(r.parts ? { parts: r.parts } : {}),
     ...(r.prep_s ? { prepS: r.prep_s } : {}),
     ...(r.interlocutor ? { interlocutor: r.interlocutor } : {}),
+    ...(r.debate ? { debate: r.debate } : {}),
     ...(r.response_spec ? { responseSpec: r.response_spec } : {}),
     ...(r.rubric ? { rubric: r.rubric } : {}),
     ...(r.model_answer ? { modelAnswer: r.model_answer } : {}),

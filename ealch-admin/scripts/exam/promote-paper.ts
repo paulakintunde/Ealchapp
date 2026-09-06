@@ -48,11 +48,48 @@ async function main() {
 
     console.log(`\n  ${FORMAT} ${VARIANT}: ${from} -> ${to}`);
 
+    // PROMOTE THE PAPER'S OWN TASKS, not everything sharing its variant.
+    //
+    // The filter used to be format + variant, chosen over status alone because
+    // two DELF B2 drafts predate the exam phase and publishing them would put a
+    // "mock exam" of one reading text and one essay in front of a learner. That
+    // reasoning was right and the filter was not enough: one of those drafts,
+    // `pe_essay.001` from 2026-07-23, carries variant `blanc-01` — the same
+    // variant the authored DELF paper uses. It is in no paper's sections and it
+    // would have been swept into `published` by variant alone, alongside nine
+    // tasks a human had actually read.
+    //
+    // A paper IS its sections. Promoting by the ids it names is exact, and it
+    // leaves an orphan exactly where it was.
+    const sectionsRow = await c.query<{ sections: { taskIds?: string[] }[] }>(
+      `select sections from content_exam_papers
+        where format = $1::text::exam_format and variant = $2`,
+      [FORMAT, VARIANT]
+    );
+    if (sectionsRow.rowCount === 0) {
+      throw new Error(`no ${FORMAT} ${VARIANT} paper row; there is nothing whose tasks could be promoted`);
+    }
+    const owned = [
+      ...new Set(sectionsRow.rows.flatMap((r) => (r.sections ?? []).flatMap((x) => x.taskIds ?? []))),
+    ];
+    if (owned.length === 0) {
+      throw new Error(`${FORMAT} ${VARIANT} names no task ids in its sections`);
+    }
+
+    const strays = await c.query<{ id: string }>(
+      `select id from content_exam_tasks
+        where format = $1::text::exam_format and variant = $2 and status = $3 and not (id = any($4::text[]))`,
+      [FORMAT, VARIANT, from, owned]
+    );
+    for (const r of strays.rows) {
+      console.log(`  ! leaving ${r.id} at "${from}" — it shares this variant but no section names it`);
+    }
+
     const tasks = await c.query(
       `update content_exam_tasks set status = $1, updated_at = now()
-        where format = $2::text::exam_format and variant = $3 and status = $4
+        where id = any($2::text[]) and status = $3
         returning id, skill, label`,
-      [to, FORMAT, VARIANT, from]
+      [to, owned, from]
     );
     // A run that matched nothing has either the wrong paper or one already in
     // the target state, and both must be said rather than reported as success.
