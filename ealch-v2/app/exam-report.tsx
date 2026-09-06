@@ -40,7 +40,7 @@ import { useStore } from '@/store/useStore';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sectionBands, sectionRaw, sectionStatusFor, dueExamSkills, type DueExamSkill } from '@/store/progress.logic';
 import { content, useContent } from '@/services/content';
-import { formatNclc, paperOutcome, sectionOutcome, type SectionOutcome } from '@/utils/nclc.logic';
+import { formatNclc, paperOutcome, sectionOutcome, type NoBandReason, type SectionOutcome } from '@/utils/nclc.logic';
 import {
   DELF_EPREUVE_MAX, DELF_TOTAL_MAX, delfEpreuve, delfOutcome, formatMark, type DelfEpreuve,
 } from '@/utils/delf.logic';
@@ -249,17 +249,16 @@ function SectionRow({ s, lang }: { s: SectionOutcome; lang: 'fr' | 'en' }) {
   const t = useTheme();
   const T = useT();
 
-  // Each non-scored state gets its OWN wording. Collapsing them into one
-  // "unavailable" would hide whether the gap is the candidate's or ours.
-  const note =
-    s.status === 'scored' ? null
-    : s.status === 'audio-failed' ? T.examAudioFailed
-    : s.status === 'not-graded' ? T.examUngraded
-    : s.status === 'practice' ? T.examUnscored
-    : s.status === 'no-scoring' ? T.examNoScoring
-    : T.examNotSat;
-
-  const noteColour = s.status === 'audio-failed' || s.status === 'not-graded' ? t.danger : t.txMuted;
+  // Each reason gets its OWN wording, and the wording is chosen from the
+  // REASON rather than the status. Those used to be read independently: the
+  // status said 'scored', the band was null anyway, and the chain fell through
+  // to a note of null, which React renders as nothing at all. A candidate below
+  // 16 of 40 on TEF listening saw an empty cell where the explanation belonged.
+  //
+  // noBandNote is exhaustive over NoBandReason, so a new reason is a compile
+  // error here rather than another blank.
+  const note = s.noBand ? noBandNote(s.noBand, T) : null;
+  const noteColour = s.noBand === 'audio-failed' || s.noBand === 'not-graded' ? t.danger : t.txMuted;
 
   return (
     <View
@@ -366,15 +365,10 @@ function DelfRow({ e, lang }: { e: DelfEpreuve; lang: 'fr' | 'en' }) {
   const t = useTheme();
   const T = useT();
 
-  // Same discipline as SectionRow: each non-scored state keeps its own wording,
-  // so a gap that is ours never reads as a gap that is theirs.
-  const note =
-    e.status === 'scored' ? null
-    : e.status === 'audio-failed' ? T.examAudioFailed
-    : e.status === 'not-graded' ? T.examUngraded
-    : e.status === 'practice' ? T.examUnscored
-    : e.status === 'no-scoring' ? T.examNoScoring
-    : T.examNotSat;
+  // Same discipline as SectionRow, through the same exhaustive helper. DELF
+  // has no scale to fall below, so a scored épreuve always has a mark and
+  // 'no-scoring' stands for the one remaining way a mark can be absent.
+  const note = e.mark === null ? noBandNote(e.status === 'scored' ? 'no-scoring' : e.status, T) : null;
 
   return (
     <View
@@ -407,4 +401,28 @@ function DelfRow({ e, lang }: { e: DelfEpreuve; lang: 'fr' | 'en' }) {
       )}
     </View>
   );
+}
+
+/**
+ * The wording for a section with no band, one branch per reason.
+ *
+ * Exhaustive on purpose. This was a ternary chain keyed on the section's
+ * STATUS, and it had no branch for the case where a cleanly scored section
+ * produced no band anyway — so it returned null and the row rendered blank.
+ * Written as a switch with a `never` assignment, a new reason cannot be added
+ * without the build stopping here first.
+ */
+function noBandNote(reason: NoBandReason, T: ReturnType<typeof useT>): string {
+  switch (reason) {
+    case 'audio-failed': return T.examAudioFailed;
+    case 'not-graded': return T.examUngraded;
+    case 'practice': return T.examUnscored;
+    case 'not-sat': return T.examNotSat;
+    case 'no-scoring': return T.examNoScoring;
+    case 'below-scale': return T.examBelowScale;
+    default: {
+      const unreachable: never = reason;
+      throw new Error(`no wording for a section with no band: "${String(unreachable)}"`);
+    }
+  }
 }

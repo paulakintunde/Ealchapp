@@ -33,6 +33,9 @@ import { NCLC_MAX, NCLC_MIN, type ExamSkill, type NclcRule, type SectionScoring 
 export type NclcRange = { low: number; high: number };
 
 /** Why a section has no number. Ordered by how much it is OUR fault. */
+/** What HAPPENED to a section. Derived from the logged results alone, which is
+ *  why 'no-scoring' is not here: whether a scoring table exists is a fact about
+ *  the paper, not about the sitting. It lives in NoBandReason instead. */
 export type SectionStatus =
   /** Scored normally. */
   | 'scored'
@@ -43,9 +46,44 @@ export type SectionStatus =
   /** Open task the grader could not reach. Retryable. */
   | 'not-graded'
   /** Listening whose audio never played. Ours, not theirs. */
-  | 'audio-failed'
-  /** Sat, but the section carries no scoring map to read. */
-  | 'no-scoring';
+  | 'audio-failed';
+
+/**
+ * Why a section shows no band.
+ *
+ * EXACTLY ONE of these is set whenever `nclc` is null, and none when it is not.
+ * That pairing is the point: `status` and `nclc` used to be computed
+ * independently and could disagree, and the report decided its wording from
+ * `status` alone. A section that was cleanly SCORED but produced no band
+ * therefore fell through every branch and rendered an empty cell.
+ *
+ * It was not hypothetical. TEF's ladders begin at 16 of 40 with "0..15
+ * deliberately uncovered" — correct, because NCLC 4 is the floor of the scale
+ * and nothing below it is reportable — so any candidate scoring 15 or less on a
+ * comprehension épreuve got a raw count, a scaled score, and a blank space
+ * where the explanation belonged. The weakest candidates, told nothing.
+ */
+export const NO_BAND_REASONS = [
+  // The four ways a sitting yields no evidence — every SectionStatus but
+  // 'scored', checked below to stay that way.
+  'not-sat',
+  'practice',
+  'not-graded',
+  'audio-failed',
+  /** Sat and scored, but the section carries no scoring table to read. */
+  'no-scoring',
+  /** Sat and scored, and the result falls below the lowest reportable band.
+   *  A real answer, not a gap: the boards do not report under NCLC 4. */
+  'below-scale',
+] as const;
+
+export type NoBandReason = (typeof NO_BAND_REASONS)[number];
+
+// Every way a sitting can end without a score is also a way to have no band.
+// A SectionStatus added without a matching reason fails to compile HERE, which
+// is the only place that can still decide what the report says about it.
+const _everyStatusIsAReason: Exclude<SectionStatus, 'scored'> extends NoBandReason ? true : never = true;
+void _everyStatusIsAReason;
 
 export type SectionOutcome = {
   skill: ExamSkill;
@@ -57,6 +95,9 @@ export type SectionOutcome = {
   total: number;
   scaled: number | null;
   nclc: NclcRange | null;
+  /** Null exactly when `nclc` is present. Never both, never neither — see
+   *  NoBandReason, and the invariant test that holds the pair together. */
+  noBand: NoBandReason | null;
 };
 
 /**
@@ -139,18 +180,31 @@ export function sectionOutcome(input: {
   byBand?: Partial<Record<string, number>>;
 }): SectionOutcome {
   const { skill, status, raw, total, scoring, byBand } = input;
-  const base: SectionOutcome = { skill, status, raw, total, scaled: null, nclc: null };
+  const base = { skill, status, raw, total, scaled: null, nclc: null };
+
   // Anything but a clean scored sitting gets its raw count and nothing else.
-  // The number would be real arithmetic on unreal evidence.
-  if (status !== 'scored' || raw === null || !scoring) return base;
+  // The number would be real arithmetic on unreal evidence. The status IS the
+  // reason here, which is why NoBandReason contains it rather than restating it.
+  if (status !== 'scored') return { ...base, noBand: status };
+
+  // Sat and scored, but nothing to read it against. Distinct from the four
+  // above: the gap is in the paper, not in the sitting.
+  if (raw === null || !scoring) return { ...base, noBand: 'no-scoring' };
+
   // The count is what a candidate is shown; the INDEX is what the map reads.
   // They differ only on a weighted format, and `raw` stays the honest count so
   // the report never shows someone a weighted number as if it were questions.
   const index = scoring.weights && byBand ? weightedRaw(byBand, scoring.weights) : raw;
+  const nclc = nclcFor(index, scoring.nclc);
+
   return {
     ...base,
     scaled: scaledFor(index, scoring.map),
-    nclc: nclcFor(index, scoring.nclc),
+    nclc,
+    // A scored section with no band is not an error and must not be silence.
+    // The boards report nothing below NCLC 4, so this is the honest answer to
+    // a real performance, and the report has to be able to say it.
+    noBand: nclc ? null : 'below-scale',
   };
 }
 

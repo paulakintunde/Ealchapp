@@ -352,3 +352,38 @@ test('this test runs the same sequence the report screen runs', async () => {
     'exam-report.tsx no longer gates the band profile on scoring.weights; runReport still does'
   );
 });
+
+/* ── "below the scale" has to be true of every authored ladder ────────────── */
+
+test('no authored ladder can be overshot, so "below the scale" is the honest name', async () => {
+  // The report tells a scored candidate with no band that they fell BELOW the
+  // lowest reportable level. That is a claim about direction, and it is only
+  // truthful while every table's NCLC rules reach the top of its own map.
+  //
+  // If a map ran to raw 40 and the rules stopped at 35, a candidate scoring 38
+  // would land outside the ladder and be told they scored under NCLC 4 — the
+  // worst possible misreport, and one no test of the app alone could see,
+  // because the tables live here.
+  const papers = await loadPapers();
+  const problems: string[] = [];
+
+  for (const { paper } of papers) {
+    for (const sec of paper.sections) {
+      if (!sec.scoring) continue;
+      const topRule = Math.max(...sec.scoring.nclc.map((r) => r.maxRaw));
+      const topMap = Math.max(...sec.scoring.map.map((m) => m.raw));
+      if (topRule < topMap) {
+        problems.push(`  ${paper.id} ${sec.skill}: the map reaches raw ${topMap}, the rules stop at ${topRule}`);
+      }
+      // A gap INSIDE the covered range is the same hazard by another route.
+      const covered = new Set<number>();
+      for (const r of sec.scoring.nclc) for (let i = r.minRaw; i <= r.maxRaw; i += 1) covered.add(i);
+      const lowRule = Math.min(...sec.scoring.nclc.map((r) => r.minRaw));
+      for (let i = lowRule; i <= topRule; i += 1) {
+        if (!covered.has(i)) problems.push(`  ${paper.id} ${sec.skill}: raw ${i} falls in a hole between rules`);
+      }
+    }
+  }
+
+  ok(problems.length === 0, `a candidate could land outside a ladder and be told they scored below it:\n${problems.join('\n')}`);
+});

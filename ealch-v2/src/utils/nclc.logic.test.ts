@@ -1,4 +1,7 @@
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import {
   formatNclc,
@@ -9,7 +12,11 @@ import {
   type SectionOutcome,
   type SectionStatus,
   weightedRaw,
+  NO_BAND_REASONS,
 } from './nclc.logic.ts';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const appDir = resolve(HERE, '../../app');
 import type { ExamSkill, SectionScoring } from '../content/schema.ts';
 
 const scoring: SectionScoring = {
@@ -208,4 +215,85 @@ test('a section that does not weight is scored exactly as before', () => {
   const b = sectionOutcome({ skill: 'CO', status: 'scored', raw: 20, total: 40, scoring, byBand: { c2: 20 } });
   deepStrictEqual(a.scaled, b.scaled);
   deepStrictEqual(a.nclc, b.nclc);
+});
+
+/* ─── No band, and never a blank ──────────────────────────────────────────── */
+//
+// A section used to be able to come out cleanly SCORED with no band, and the
+// report chose its wording from the status alone. There was no branch for that
+// combination, so the note was null and the row rendered an empty cell.
+//
+// It was not hypothetical, and it did not hit an edge case. TEF's ladders begin
+// at 16 of 40, so every candidate scoring 15 or less on a comprehension épreuve
+// got a raw count, a scaled score, and silence — the weakest candidates, told
+// nothing at all.
+
+test('a scored section below the lowest band says so, rather than nothing', () => {
+  // The live case, with TEF's real shape: rules from 16, a candidate on 10.
+  const low = sectionOutcome({
+    skill: 'CO', status: 'scored', raw: 10, total: 40,
+    scoring: { scale: 300, map: [{ raw: 0, scaled: 0 }, { raw: 40, scaled: 300 }], nclc: [{ minRaw: 16, maxRaw: 40, nclcLow: 4, nclcHigh: 5 }] },
+  });
+  strictEqual(low.status, 'scored', 'the sitting was clean; nothing went wrong');
+  strictEqual(low.nclc, null, 'and there is still no band to report');
+  strictEqual(low.noBand, 'below-scale', 'so the reason must be carried, not left to the status');
+  ok(low.scaled !== null, 'the scaled score is still real and still shown');
+});
+
+test('a section with no scoring table is distinguishable from one never sat', () => {
+  // Both produce no band. One is a gap in the paper and one is a gap in the
+  // sitting, and telling a candidate the wrong one is telling them our problem
+  // is theirs.
+  strictEqual(sectionOutcome({ skill: 'PE', status: 'scored', raw: 2, total: 2 }).noBand, 'no-scoring');
+  strictEqual(sectionOutcome({ skill: 'PE', status: 'not-sat', raw: null, total: 0 }).noBand, 'not-sat');
+});
+
+test('every outcome carries a band or a reason, never both and never neither', () => {
+  // The invariant that makes a blank impossible. Swept across every status and
+  // a raw count on both sides of the ladder's floor.
+  const scoring = { scale: 300, map: [{ raw: 0, scaled: 0 }, { raw: 40, scaled: 300 }], nclc: [{ minRaw: 16, maxRaw: 40, nclcLow: 4, nclcHigh: 5 }] };
+  const statuses: SectionStatus[] = ['scored', 'not-sat', 'practice', 'not-graded', 'audio-failed'];
+  for (const status of statuses) {
+    for (const raw of [null, 0, 10, 15, 16, 40]) {
+      for (const sc of [scoring, undefined]) {
+        const o = sectionOutcome({ skill: 'CO', status, raw, total: 40, scoring: sc });
+        strictEqual(
+          o.nclc === null, o.noBand !== null,
+          `status=${status} raw=${raw} scoring=${!!sc} produced nclc=${JSON.stringify(o.nclc)} and noBand=${o.noBand}`
+        );
+      }
+    }
+  }
+});
+
+test('the report has wording for every reason, so none can render empty', () => {
+  // The other half, and the half that was missing: a total reason list is worth
+  // nothing if the screen has no branch for one of its values.
+  const src = readFileSync(resolve(appDir, 'exam-report.tsx'), 'utf8');
+  for (const reason of NO_BAND_REASONS) {
+    ok(src.includes(`case '${reason}'`), `exam-report.tsx has no branch for the "${reason}" reason`);
+  }
+  // And the branch must resolve to real copy rather than an empty string. A
+  // plain line scan rather than a regex: the last attempt at this lost a
+  // backslash on its way to disk and matched nothing, which would have made the
+  // check pass for a key that did not exist.
+  // Scanned over the whole file rather than line by line: several of these keys
+  // share a line with a neighbour, and a per-line check reported the second one
+  // of each pair as missing entirely.
+  const strings = readFileSync(resolve(HERE, '../i18n/strings.ts'), 'utf8');
+  for (const key of ['examAudioFailed', 'examUngraded', 'examUnscored', 'examNotSat', 'examNoScoring', 'examBelowScale']) {
+    let found = 0;
+    for (const q of ["'", '"']) {
+      const needle = `${key}: ${q}`;
+      for (let i = strings.indexOf(needle); i >= 0; i = strings.indexOf(needle, i + 1)) {
+        const start = i + needle.length;
+        const end = strings.indexOf(q, start);
+        ok(end > start, `${key} is declared with empty copy`);
+        found += 1;
+      }
+    }
+    // Both languages. A key with French and no English renders blank for half
+    // the users, which is the defect this whole test exists to prevent.
+    strictEqual(found, 2, `${key} needs copy in both languages, found ${found}`);
+  }
 });
