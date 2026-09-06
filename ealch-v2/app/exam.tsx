@@ -31,7 +31,8 @@ import { useFeature } from '@/store/useEntitlement';
 import { getConfig } from '@/services/config';
 import { examPaperAllowed } from '@/utils/examGate.logic';
 import { paperProgress } from '@/store/progress.logic';
-import { content } from '@/services/content';
+import { useContent } from '@/services/content';
+import { examPapersFor } from '@/services/content.logic';
 import {
   EXAM_FORMAT_FACTS,
   formatSitting,
@@ -58,7 +59,25 @@ export default function ExamFormatHub() {
   const { format: formatQ } = useLocalSearchParams<{ format?: string }>();
   const format = isExamFormat(formatQ) ? formatQ : null;
   const facts = format ? EXAM_FORMAT_FACTS[format] : null;
-  const papers = useMemo(() => (format ? content.examPapersFor(format) : []), [format]);
+  // THE CORPUS IS A DEPENDENCY, and it has to be a real one.
+  //
+  // This read `content.examPapersFor(format)` with `[format]` as its only
+  // dependency. `content.*` reaches into the store imperatively via getState(),
+  // so nothing here re-ran when the corpus changed — and the corpus ALWAYS
+  // changes after this screen can mount: exam content ships only in the OTA
+  // snapshot (never the seed), which arrives a few seconds into launch.
+  //
+  // So a candidate who opened the Examiner on a cold start saw "no exams
+  // available yet" and kept seeing it, because the empty list computed at mount
+  // was memoised forever. It cleared only by navigating to another format and
+  // back, which changed `format` and forced a recompute — which is how it was
+  // found, and is not something a user would think to do.
+  //
+  // Subscribing to the corpus and passing it in makes the dependency visible
+  // and honest: `setCorpus` replaces the object, so identity changes and the
+  // memo recomputes. Every exam screen had this same shape.
+  const corpus = useContent((s) => s.corpus);
+  const papers = useMemo(() => (format ? examPapersFor(corpus, format) : []), [corpus, format]);
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bgDeep }}>

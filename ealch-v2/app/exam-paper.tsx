@@ -24,7 +24,7 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
 import { paperProgress, type SectionProgress } from '@/store/progress.logic';
-import { content } from '@/services/content';
+import { content, useContent } from '@/services/content';
 import { taskQuestions } from '@/services/content.logic';
 import { EXAM_MODES, type ExamMode, type ExamSection, type ExamSkill } from '@/content/schema';
 
@@ -43,7 +43,13 @@ export default function ExamPaperScreen() {
   const results = useProgress((s) => s.examResults);
 
   const { paperId } = useLocalSearchParams<{ paperId?: string }>();
-  const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId]);
+  // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
+  // memos read it imperatively through content.*, which calls getState(), so
+  // before this they never re-ran when the OTA snapshot landed. Exam content
+  // ships only in that snapshot, so any exam screen mounted during launch
+  // memoised an empty result and kept it.
+  const corpus = useContent((s) => s.corpus);
+  const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId, corpus]);
 
   // The mode is chosen HERE, before a section opens, and travels to the runner
   // as a route param. Deliberately not persisted: it is a decision about this
@@ -176,9 +182,14 @@ function SectionRow({
   // Question count is derived from the tasks, not stored on the section: a
   // stored count is a second source of truth that goes stale the moment a task
   // gains a question.
+  //
+  // Its own corpus subscription, because this row is a separate component and
+  // the parent's cannot reach it. Deriving from the corpus without depending on
+  // it is what left every exam screen showing whatever it computed at mount.
+  const rowCorpus = useContent((s) => s.corpus);
   const questions = useMemo(
     () => content.examTasksOfSection(section).reduce((n, task) => n + taskQuestions(task).length, 0),
-    [section]
+    [section, rowCorpus]
   );
   const minutes = Math.max(1, Math.round(section.timingS / 60));
   const status = progress?.status ?? 'available';

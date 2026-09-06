@@ -36,7 +36,7 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { PLACEMENT_PASS, type ExamResultInput } from '@/store/progress.logic';
-import { content } from '@/services/content';
+import { content, useContent } from '@/services/content';
 import { taskQuestions, scoreClosedTask, type ExamQuestion } from '@/services/content.logic';
 import { examGrader } from '@/services';
 import { startClock, type ClockState } from '@/utils/examClock.logic';
@@ -76,12 +76,18 @@ export default function ExamSectionScreen() {
     ? (params.mode as ExamMode)
     : 'exam';
 
-  const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId]);
+  // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
+  // memos read it imperatively through content.*, which calls getState(), so
+  // before this they never re-ran when the OTA snapshot landed. Exam content
+  // ships only in that snapshot, so any exam screen mounted during launch
+  // memoised an empty result and kept it.
+  const corpus = useContent((s) => s.corpus);
+  const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId, corpus]);
   const section = useMemo(
     () => paper?.sections.find((s) => s.skill === skill) ?? null,
     [paper, skill]
   );
-  const tasks = useMemo(() => (section ? content.examTasksOfSection(section) : []), [section]);
+  const tasks = useMemo(() => (section ? content.examTasksOfSection(section) : []), [section, corpus]);
 
   const [answers, setAnswers] = useState<Answers>({});
   // Parts whose audio produced no sound at all. Their questions cannot be

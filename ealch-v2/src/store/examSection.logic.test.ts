@@ -675,3 +675,71 @@ test('a po_interaction without a bank is refused at authoring time', () => {
   // that would never play.
   ok(validateExamTask(writtenTask({ interlocutor: po.interlocutor })).some((i) => /interlocutor/.test(i.message)));
 });
+
+/* ─── Deriving from the corpus means depending on it ──────────────────────── */
+
+test('every exam screen that reads the corpus re-reads it when it changes', () => {
+  // The corpus is not a constant. Exam content ships ONLY in the OTA snapshot
+  // (never the seed — exams do not ship offline), so it always arrives a few
+  // seconds after launch, which is to say after any exam screen can mount.
+  //
+  // The `content.*` accessors reach into the store with getState(), so a
+  // useMemo that calls one and does not list the corpus among its dependencies
+  // computes once against whatever was loaded at mount and keeps that answer.
+  // Every exam screen did this. The visible result was an Examiner that said
+  // "no exams available yet" on a cold start and went on saying it — cleared
+  // only by navigating to another format and back, which changed an unrelated
+  // dependency and forced the recompute by accident.
+  //
+  // Checked at the source, because the defect is in the dependency array and
+  // no amount of exercising the logic modules can see it.
+  const ACCESSORS = /content\.(exam|lessons|units|items|scenario)|examPapersFor\(|examTasksOfSection\(/;
+  const screens = ['exam.tsx', 'exam-paper.tsx', 'exam-report.tsx', 'exam-section.tsx'];
+  const problems: string[] = [];
+
+  for (const file of screens) {
+    const src = read(file);
+    // Walk each useMemo and pair its body with its dependency array, matching
+    // parentheses rather than guessing at line shapes.
+    for (let i = src.indexOf('useMemo('); i >= 0; i = src.indexOf('useMemo(', i + 1)) {
+      let depth = 0;
+      let end = i;
+      for (let j = i + 'useMemo'.length; j < src.length; j += 1) {
+        if (src[j] === '(') depth += 1;
+        else if (src[j] === ')') {
+          depth -= 1;
+          if (depth === 0) { end = j; break; }
+        }
+      }
+      const whole = src.slice(i, end + 1);
+      // The dependency array is the last [...] in the call.
+      const lastOpen = whole.lastIndexOf('[');
+      const lastClose = whole.lastIndexOf(']');
+      if (lastOpen < 0 || lastClose < lastOpen) continue;
+      const deps = whole.slice(lastOpen, lastClose + 1);
+      const body = whole.slice(0, lastOpen);
+      if (!ACCESSORS.test(body)) continue;
+      if (!/orpus/.test(deps)) {
+        problems.push(`  ${file}: a useMemo derives from the corpus with deps ${deps.replace(/\s+/g, ' ')}`);
+      }
+    }
+  }
+
+  ok(
+    problems.length === 0,
+    `a screen derives from the corpus without depending on it, so it will keep\n` +
+      `whatever it computed before the snapshot arrived:\n${problems.join('\n')}`
+  );
+});
+
+test('the exam screens subscribe to the corpus at all', () => {
+  // The other half: a dependency named `corpus` is worthless if nothing
+  // subscribes, because then the value never changes identity and the memo
+  // never re-runs regardless of what the array says.
+  for (const file of ['exam.tsx', 'exam-paper.tsx', 'exam-report.tsx', 'exam-section.tsx']) {
+    ok(
+      /useContent\(\s*\(s\)\s*=>\s*s\.corpus/.test(read(file)),
+      `${file} never subscribes to the corpus, so its corpus dependency can never change`
+    );
+  }
+});

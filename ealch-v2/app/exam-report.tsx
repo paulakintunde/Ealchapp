@@ -59,7 +59,13 @@ export default function ExamReportScreen() {
   const [lapRunning, setLapRunning] = useState(true);
 
   const { paperId } = useLocalSearchParams<{ paperId?: string }>();
-  const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId]);
+  // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
+  // memos read it imperatively through content.*, which calls getState(), so
+  // before this they never re-ran when the OTA snapshot landed. Exam content
+  // ships only in that snapshot, so any exam screen mounted during launch
+  // memoised an empty result and kept it.
+  const corpus = useContent((s) => s.corpus);
+  const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId, corpus]);
 
   const outcome = useMemo(() => {
     if (!paper || !paperId) return null;
@@ -85,7 +91,7 @@ export default function ExamReportScreen() {
       });
     });
     return paperOutcome(sections);
-  }, [paper, paperId, results]);
+  }, [paper, paperId, results, corpus]);
 
   // DELF reads the same logged results through a different instrument. Built
   // beside the NCLC fold rather than inside it: a mark out of 25 and a level
@@ -109,7 +115,7 @@ export default function ExamReportScreen() {
         });
       })
     );
-  }, [paper, paperId, results]);
+  }, [paper, paperId, results, corpus]);
 
   // Open-task misses for this paper, so the report can send the candidate to a
   // prep lesson. dueExamSkills returns prepLessonId: null when no lesson exists

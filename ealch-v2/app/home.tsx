@@ -59,9 +59,15 @@ export default function Home() {
   // Papers available across every format. The section's right slot used to
   // read 'TEF · TCF · DELF', which repeats the card titles; the count is the
   // fact a candidate actually wants from a section header.
+  // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
+  // memos read it imperatively through content.*, which calls getState(), so
+  // before this they never re-ran when the OTA snapshot landed. Exam content
+  // ships only in that snapshot, so any exam screen mounted during launch
+  // memoised an empty result and kept it.
+  const examCorpus = useContent((s) => s.corpus);
   const examPaperCount = useMemo(
     () => EXAM_FORMAT_ORDER.reduce((n, f) => n + content.examPapersFor(f).length, 0),
-    []
+    [examCorpus]
   );
   // The Today strip crams two columns (streak / review) into one row.
   // At full size that's comfortable on a typical phone; on a genuinely narrow
