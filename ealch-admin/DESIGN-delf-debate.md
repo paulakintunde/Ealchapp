@@ -1,6 +1,7 @@
 # DESIGN — the DELF B2 debate, and where images belong
 
-**Status:** design, not built. Nothing in here has been implemented.
+**Status:** Part 2 BUILT (b97e8cf, dbe3e32). Part 3's gate BUILT. Part 3's
+decorative trigger image WITHDRAWN — see 3.3.
 **For:** `delf-b2-2026.09`, Production orale phase 2, and the image policy for all four formats.
 **Written:** 2026-09-05
 
@@ -197,53 +198,38 @@ text" rule is not enough and the gate in §3.4 must know which kind it is lookin
 at. **A check written for decorative images would reject the TEF chart**, and
 rejecting it would be wrong.
 
-### 3.3 The one place an image is defensible on DELF
+### 3.3 The decorative trigger image — PROPOSED, then WITHDRAWN
 
-The Production orale trigger document. The real ones are short press extracts,
-and press extracts carry photographs. Rendering one with a photograph is
-**authentic presentation** rather than a change to the task — provided it is
-decorative in the strict sense:
+This section originally proposed one permitted image: a decorative photograph on
+the Production orale trigger, on the grounds that real press extracts carry them
+and it changes nothing about what is tested.
 
-- the problem the candidate must identify is fully stated in the text;
-- removing the image changes nothing about what can be said;
-- the alt text describes the picture, and does **not** supply a fact the text
-  withholds.
+**It has nowhere to live, and that settles it.** `imageRef` is a field on
+`ExamPart`, and a PO task has no parts — it carries its trigger in `prompt`, as
+every TEF and TCF speaking task does. Shipping a trigger image would mean adding
+an image field to `ExamTask` itself.
 
-That last clause is the trap. An alt text that says *"a queue of people outside
-a closed clinic"* has just handed a screen-reader user a fact a sighted user had
-to infer, and handed a sighted user nothing. If the alt text is load-bearing,
-the image was load-bearing and the rule in §3.1 has been broken.
+That is real schema work, on a shared contract both repos type against, to add a
+decoration the exam does not have. It is not justified by anything measured, so
+it is withdrawn rather than deferred: if someone later wants it, they should
+argue for it from a product need rather than find a half-built path waiting.
 
-**Recommendation: allow it, and gate it.** A decorative trigger image makes the
-task feel like the real thing. It is also the single easiest place for
-format-fidelity to leak away, so it should be the only place it is permitted and
-it should be enforced rather than trusted.
+The useful consequence is that the gate collapses to a single rule.
 
-### 3.4 The gate
+### 3.4 The gate — BUILT
 
-A DELF paper's test file asserts:
+`validateExamTask` refuses `imageRef` on any part of a `delf_b2` task.
 
-1. **No `imageRef` on any CO or CE part.** The comprehension épreuves are text
-   and audio, full stop.
-2. **No `imageRef` on the PE task.** The writing prompt is a situation, not a
-   picture.
-3. **At most one image per PO trigger**, and if present, `imageAlt` is set —
-   which the schema already enforces, so this asserts the count.
-4. **The alt text is not load-bearing**, checked the only way a machine can:
-   no content word in the alt text is absent from the trigger's own text. An
-   alt that introduces new nouns is either supplying information or describing
-   something irrelevant, and both are faults.
+That is the whole rule, and it is complete rather than a subset: the only parts
+a DELF paper has are CO and CE parts, PE has none, and PO cannot carry an image
+at all. The four separate checks this design first sketched were an artefact of
+assuming the trigger image existed.
 
-**Check 4 is DELF-only and must be scoped to `delf_b2`.** Run against TEF it
-would reject blanc-01's water-consumption chart, whose alt is deliberately full
-of numbers the surrounding text does not contain — and that alt is right. A gate
-that cannot tell a decorative image from a load-bearing one will either permit
-information smuggling on DELF or break accessibility on TEF, and it is the same
-gate either way, so the format scope is the fix.
-
-Check 4 is also a heuristic and should be commented as one. It cannot prove an
-alt is decorative; it catches the specific failure of an alt that says more than
-its document.
+**Scoped to `delf_b2`, and the scope is load-bearing.** TEF is the opposite
+case: block A's images ARE the options in all five papers, and blanc-01's
+reading Section E is a bar chart whose alt text recites every data point —
+correctly, because there the image is the stimulus. An unscoped rule would
+reject it, and a test asserts that it does not.
 
 ### 3.5 Accessibility, since images are being added at all
 
@@ -269,10 +255,10 @@ check that rather than assume the wider adoption problem will be solved first.
 3. **The escalation ladder**, with the depth rule that engagement advances and
    non-engagement re-puts.
 4. **The grader signals** of §2.6, replacing coverage.
-5. **The image gate** of §3.4, before the first DELF paper is authored rather
-   than after — the same lesson as per-question weighting, which was settled
-   before authoring precisely so it would not have to be retrofitted across five
-   papers.
+5. ~~**The image gate** of §3.4~~ — BUILT, and smaller than designed. Writing it
+   is what revealed that the trigger image had nowhere to live, which is a good
+   argument for building a gate before the content it guards rather than after:
+   the gate is where you find out what the schema actually permits.
 
 Authoring the comprehension épreuves does **not** depend on any of this, and can
 proceed in parallel: CO and CE map onto `co_mcq` and `ce_mcq` today, with

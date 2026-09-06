@@ -4656,6 +4656,33 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
   if (t.items !== undefined) out.push(...validateQcm(t.items, `${path}.items`, requireBand));
   if (t.parts !== undefined) out.push(...validateExamParts(t.parts, `${path}.parts`, requireBand));
 
+  // DELF B2 stimuli are text and audio. No image, anywhere.
+  //
+  // MEASURED, not assumed: every embedded image was extracted from the official
+  // samples and sized. One 71x12pt wordmark across a thirteen-page paper, and a
+  // 37x35pt footer logo repeated in the speaking pack. Every stimulus — five
+  // listening documents, three reading texts, the writing prompt, the speaking
+  // triggers — is text or audio. A candidate who has to look at a picture to
+  // answer is sitting a different exam from the one we say we simulate.
+  //
+  // SCOPED TO delf_b2 ON PURPOSE. TEF is the opposite case and this rule would
+  // wreck it: block A's images ARE the options, in all five papers, and
+  // blanc-01's reading Section E is a bar chart whose alt text recites every
+  // data point — correctly, because there the image is the stimulus and a
+  // screen-reader user told "a bar chart about water" cannot answer at all.
+  // One rule cannot serve both, so the format decides which applies.
+  if (t.format === 'delf_b2' && isArr(t.parts)) {
+    t.parts.forEach((p, i) => {
+      const pp = p as Partial<ExamPart>;
+      if (pp?.imageRef !== undefined && pp.imageRef !== null) {
+        push(
+          `parts[${i}] carries an image, and DELF B2 stimuli are text and audio only — ` +
+            `an image a candidate must read is not in this format`
+        );
+      }
+    });
+  }
+
   // targetItemIds is how a miss decomposes back into the SRS — see the type.
   // Closed task types only: open tasks have no per-item right answer to blame.
   if (t.targetItemIds !== undefined) {

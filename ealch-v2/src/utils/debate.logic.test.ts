@@ -303,3 +303,44 @@ test('the validator refuses an axis that can never open', async () => {
   });
   ok(issues.some((i) => i.message.includes('can never open')), 'an unreachable axis was accepted');
 });
+
+/* ── The image gate ───────────────────────────────────────────────────────── */
+
+test('a DELF stimulus may not carry an image, and a TEF one still may', async () => {
+  const { validateExamTask } = await import('../content/schema.ts');
+
+  const withImage = (format: string, id: string) => ({
+    id,
+    format,
+    variant: 'blanc-01',
+    formatVersion: format === 'delf_b2' ? 'delf-b2-2026.09' : 'tef-canada-2025.09',
+    taskType: 'ce_mcq',
+    skill: 'CE',
+    level: 'b2',
+    prompt: 'Lisez le document et choisissez la bonne réponse.',
+    timingS: 3600,
+    parts: [
+      {
+        label: 'Document 1',
+        text: 'La consommation a baissé chaque année depuis 2021.',
+        imageRef: 'img/exam/x/ce-01.png',
+        imageAlt: 'Graphique en barres. 2021 : 148. 2022 : 141.',
+        items: [{ q: 'Que montre le graphique ?', opts: ['Une baisse', 'Une hausse'], correct: 0, band: 'b2' as const }],
+      },
+    ],
+  });
+
+  // DELF: measured to have no content images at all. An image a candidate must
+  // read is not in this format.
+  const delf = validateExamTask(withImage('delf_b2', 'exam.delf_b2.blanc-01.ce_mcq.001'));
+  ok(
+    delf.some((i) => i.message.includes('DELF B2 stimuli are text and audio only')),
+    'a DELF paper was allowed an image stimulus'
+  );
+
+  // TEF: the opposite case, and the reason the rule is format-scoped. Block A's
+  // images ARE the options, and blanc-01's Section E chart is a real stimulus
+  // whose alt text must be exhaustive. A rule written for DELF would break it.
+  const tef = validateExamTask(withImage('tef_canada', 'exam.tef_canada.blanc-01.ce_mcq.001'));
+  deepStrictEqual(tef, [], 'the DELF image rule leaked into TEF and rejected a legitimate chart');
+});
