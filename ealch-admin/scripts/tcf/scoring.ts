@@ -101,3 +101,65 @@ export const CE_SCORING: SectionScoring = {
     { minRaw: 99, maxRaw: 105, nclcLow: 10, nclcHigh: 10 },
   ],
 };
+
+/* ─── Expression écrite and orale — 3 raw on /20 each ─────────────────────── */
+//
+// Authored because their absence was a live defect, not a gap in the format:
+// TCF papers carried scoring on CO and CE only, so `paperOutcome` was permanently
+// one épreuve short of an overall and five published papers could report nothing
+// at all, whatever the candidate scored. See exam/report-reachable.test.ts.
+//
+// ── Raw is a RAMP here, which is the difference from TEF ────────────────────
+//
+// Raw is the number of tasks whose AI grade met that task's OWN target band,
+// and TCF's three tasks are a graded climb — a2, then b1, then b2, on both
+// épreuves and identically on all five papers. TEF's two are a b1/b2 pair, so
+// its count says "how many", while this one also says "how far": one task met
+// is A2 work, two is B1, three is B2.
+//
+// The count still assumes the candidate climbs IN ORDER. Someone who somehow
+// met the b2 task while failing the a2 one reads as having reached A2, which is
+// wrong and vanishingly unlikely; resolving it would need the per-task grades
+// the section score does not carry. Named here rather than hidden, because it
+// is the one place this table can misreport.
+//
+// ── Where each number comes from ────────────────────────────────────────────
+//
+// The /20 scale and every NCLC boundary are BLUEPRINT-tcf-canada §8.1, which
+// derived them at calibration:
+//
+//     NCLC   4     5    6     7      8      9      10
+//     /20    4-5   6    7-9   10-11  12-13  14-15  16-20
+//
+// The mapping from tasks-met to a band is OURS, the expert-judged approximation
+// §8.2 requires ("the raw-to-scaled conversion is not published"). Every scaled
+// anchor below sits inside the /20 span of the NCLC band its own rule reports —
+// asserted in tcf/paper-rules.test.ts so the two halves cannot drift apart.
+//
+// The ceiling is 9, not 10. NCLC 10 needs C1 evidence and neither épreuve ever
+// asks for it: the hardest task on the paper is B2, so a C1 candidate cannot
+// demonstrate C1 here. Reporting 10 off a B2 ceiling would be inventing the
+// part of the range the paper does not test. TEF's tables stop at 9 for exactly
+// the same reason.
+
+const OPEN_MAP = [
+  // No positive evidence. Reported at the floor because §8.1 states it is not
+  // possible to score below NCLC 4, NOT because 4 was measured.
+  { raw: 0, scaled: 4 },
+  { raw: 1, scaled: 5 },  // met the A2 task
+  { raw: 2, scaled: 9 },  // and the B1 task
+  { raw: 3, scaled: 13 }, // and the B2 task: the paper's own ceiling
+];
+
+const OPEN_NCLC = [
+  { minRaw: 0, maxRaw: 0, nclcLow: 4, nclcHigh: 4 },
+  { minRaw: 1, maxRaw: 1, nclcLow: 4, nclcHigh: 5 },
+  { minRaw: 2, maxRaw: 2, nclcLow: 6, nclcHigh: 7 },
+  { minRaw: 3, maxRaw: 3, nclcLow: 8, nclcHigh: 9 },
+];
+
+/** Deliberately NOT weighted. `weights` reads a per-band profile of correct
+ *  ANSWERS, which an épreuve of three graded tasks does not have — the ramp is
+ *  already carried by what "met its target" means task by task. */
+export const EE_SCORING: SectionScoring = { scale: 20, map: OPEN_MAP, nclc: OPEN_NCLC };
+export const EO_SCORING: SectionScoring = { scale: 20, map: OPEN_MAP, nclc: OPEN_NCLC };

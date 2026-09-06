@@ -12,6 +12,7 @@
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
+import { EE_SCORING, EO_SCORING } from './scoring.ts';
 import {
   ANSWER_S_PER_ITEM,
   BANDS,
@@ -250,4 +251,71 @@ test('an over-long LISTENING document is left to the measured checker', () => {
 
 test('a task with no band is skipped rather than guessed at', () => {
   deepStrictEqual(lengthShortfalls([coDoc('', 5)], [ceDoc('', 5)]), []);
+});
+
+/* ─── The expression tables against the grid they were derived from ───────── */
+//
+// scoring.ts's EE/EO comment claims every scaled anchor sits inside the /20
+// span of the NCLC band its own rule reports. That claim is only worth writing
+// down if something checks it — otherwise the two halves drift and the table
+// starts reporting a scaled score and a band that disagree about the same
+// performance.
+//
+// The grid is BLUEPRINT-tcf-canada §8.1, transcribed. Editing it here without
+// editing the blueprint is the mistake this is meant to make loud.
+
+/** NCLC → the /20 span §8.1 assigns it, for the two expression épreuves. */
+const NCLC_TO_20: Record<number, [number, number]> = {
+  4: [4, 5],
+  5: [6, 6],
+  6: [7, 9],
+  7: [10, 11],
+  8: [12, 13],
+  9: [14, 15],
+  10: [16, 20],
+};
+
+test('every expression anchor lands inside the NCLC band its own rule reports', () => {
+  for (const [name, s] of [['EE', EE_SCORING], ['EO', EO_SCORING]] as const) {
+    strictEqual(s.scale, 20, `${name} must report on the /20 scale §8.1 fixes`);
+
+    for (const anchor of s.map) {
+      const rule = s.nclc.find((r) => anchor.raw >= r.minRaw && anchor.raw <= r.maxRaw);
+      ok(rule, `${name}: raw ${anchor.raw} has a scaled score but no NCLC rule covering it`);
+      const lo = NCLC_TO_20[rule!.nclcLow]?.[0];
+      const hi = NCLC_TO_20[rule!.nclcHigh]?.[1];
+      ok(lo !== undefined && hi !== undefined, `${name}: NCLC ${rule!.nclcLow}-${rule!.nclcHigh} is not on the §8.1 grid`);
+      ok(
+        anchor.scaled >= lo! && anchor.scaled <= hi!,
+        `${name}: raw ${anchor.raw} reports ${anchor.scaled}/20 and NCLC ${rule!.nclcLow}-${rule!.nclcHigh}, ` +
+          `but §8.1 puts that band at ${lo}-${hi}/20 — the scaled score and the band disagree`
+      );
+    }
+  }
+});
+
+test('the expression ladder rises, and covers every possible raw', () => {
+  // Three graded tasks means raw 0..3 and nothing else. A gap would make a real
+  // sitting fall through to no band at all, which is how PE and PO came to
+  // report nothing in the first place.
+  for (const [name, s] of [['EE', EE_SCORING], ['EO', EO_SCORING]] as const) {
+    for (let raw = 0; raw <= 3; raw += 1) {
+      ok(s.nclc.some((r) => raw >= r.minRaw && raw <= r.maxRaw), `${name}: raw ${raw} is covered by no NCLC rule`);
+      ok(s.map.some((m) => m.raw === raw), `${name}: raw ${raw} has no scaled anchor`);
+    }
+    const scaled = s.map.map((m) => m.scaled);
+    deepStrictEqual(scaled, [...scaled].sort((a, b) => a - b), `${name}: meeting another task must not lower the score`);
+    const lows = s.nclc.map((r) => r.nclcLow);
+    deepStrictEqual(lows, [...lows].sort((a, b) => a - b), `${name}: the NCLC floor must not fall as raw rises`);
+  }
+});
+
+test('neither expression épreuve claims a band its hardest task cannot evidence', () => {
+  // The ceiling is B2 on both, so NCLC 10 — which needs C1 — must be
+  // unreachable. A table that reports 10 off a B2 task is inventing the part of
+  // the range the paper never asks about.
+  for (const [name, s] of [['EE', EE_SCORING], ['EO', EO_SCORING]] as const) {
+    const top = Math.max(...s.nclc.map((r) => r.nclcHigh));
+    strictEqual(top, 9, `${name} reports up to NCLC ${top} from a paper whose hardest task is B2`);
+  }
 });
