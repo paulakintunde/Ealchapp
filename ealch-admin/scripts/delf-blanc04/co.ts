@@ -62,10 +62,16 @@
 // that is safe across it -- the intervals do not overlap. A corrective render
 // for the short documents is not a mistake to be avoided; it is a step.
 //
-// The long documents are better behaved. Exercise 1 has now rendered at 153.1,
-// 161.6, 147.4 and 145.1 wpm across four papers, which puts its safe window at
-// 450-473 words, and the standard's own floor is 450. Author at the BOTTOM of
-// the word band for exercise 1, never the middle.
+// The long documents are better behaved, but only relatively, and the very next
+// render said so. On four papers exercise 1 had rendered at 153.1, 161.6, 147.4
+// and 145.1 wpm, which looked like a safe window of 450-473 words; blanc-05's
+// exercise 1 then came back at 168.4, and 466 words landed at 166s -- one
+// second above the FLOOR rather than near the ceiling.
+//
+// So the honest statement is narrower than a window. Exercise 1 has rendered
+// between 145 and 169 wpm, and its 30-second band admits 463-473 words against
+// that full range: ten words wide, on a document of four hundred and seventy.
+// Aim there, expect to be wrong sometimes, and let the measurement decide.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, VARIANT, FORMAT_VERSION, NOTES_CLOSED, taskId, uniq, ITEMS } from './common.ts';
 

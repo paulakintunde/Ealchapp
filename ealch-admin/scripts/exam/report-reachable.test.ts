@@ -64,7 +64,7 @@ const REPORT_SCREEN = resolve(HERE, '../../../ealch-v2/app/exam-report.tsx');
 const PAPER_DIRS = [
   'tef-blanc01', 'tef-blanc02', 'tef-blanc03', 'tef-blanc04', 'tef-blanc05',
   'tcf-blanc01', 'tcf-blanc02', 'tcf-blanc03', 'tcf-blanc04', 'tcf-blanc05',
-  'delf-blanc01', 'delf-blanc02', 'delf-blanc03', 'delf-blanc04',
+  'delf-blanc01', 'delf-blanc02', 'delf-blanc03', 'delf-blanc04', 'delf-blanc05',
 ] as const;
 
 type Loaded = { PAPER: ExamPaper; TASKS: ExamTask[] };
