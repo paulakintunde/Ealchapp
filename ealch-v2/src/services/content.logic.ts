@@ -655,8 +655,23 @@ export function looksLikeCorpus(v: unknown): v is Corpus {
  *  there is no production install base to strand on the old limit. The parse
  *  cost concern stands: verify/merge already run behind InteractionManager,
  *  and snapshot slimming (per-level splits, compression) is the recorded
- *  follow-up if low-end devices struggle. */
-export const MAX_SNAPSHOT_BYTES = 30 * 1024 * 1024;
+ *  follow-up if low-end devices struggle.
+ *
+ *  Raised 30 MiB → 50 MiB (Paul, 2026-09-07). v66 is 26 MiB, which left about
+ *  four MiB of headroom: one large content batch from the app refusing a
+ *  snapshot its own publisher produced. Still no production install base.
+ *
+ *  WHAT CHANGED UNDER THIS NUMBER, and what did not. The DOWNLOAD is no longer
+ *  a memory event: it streams to a staging file and the ceiling is now checked
+ *  against the file's size before anything is read. So transfer scales fine.
+ *
+ *  The PARSE does not. `staged.text()` still materialises the whole snapshot as
+ *  a JS string, and JSON.parse then builds an object graph several times that
+ *  size. At 50 MiB that is a plausible OOM on a low-end Android heap, and it is
+ *  now the binding constraint rather than the transfer. This raise buys room to
+ *  roughly double the corpus; it does not make the number free, and the
+ *  slimming follow-up above is closer than it was, not further away. */
+export const MAX_SNAPSHOT_BYTES = 50 * 1024 * 1024;
 
 export type VerifyResult =
   | { ok: true; corpus: Corpus }
