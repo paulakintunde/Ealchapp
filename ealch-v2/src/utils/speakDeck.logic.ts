@@ -77,11 +77,6 @@ export function playlistDeck(pl: Playlist): SpeakCard[] {
   );
 }
 
-/** How many lines the playlist holds in total. */
-export function playlistLineCount(pl: Playlist): number {
-  return pl.tracks.reduce((sum, tk) => sum + tk.lines.length, 0);
-}
-
 /**
  * A `?track=` param as a track index: tolerant of the array form expo-router
  * hands back for a repeated key, of a missing value, and of junk, and clamped
@@ -131,4 +126,36 @@ export function playerRouteFor(playlistId: string, track = 0): string {
 
 function clampTrack(track: number): number {
   return Math.max(0, Math.floor(track) || 0);
+}
+
+/* ─── the listening session ──────────────────────────────────────────────── */
+
+/**
+ * Lines that make a listening session.
+ *
+ * The player used to log one only on reaching the LAST line. A playlist ends,
+ * so that worked there; the default pass is a stream over every corpus phrase
+ * carrying a flashcard drill (21,650 in the published corpus), so it had no
+ * last line and listening could never count toward a streak at all.
+ *
+ * Ten is a real sitting: more than the smallest playlist holds (six), and past
+ * the point where someone is listening rather than sampling.
+ */
+export const LISTEN_SESSION_LINES = 10;
+
+/**
+ * Should this finished line log the listening session?
+ *
+ * Whichever comes first — a sitting's worth of lines, or the end of a set — and
+ * only once. `heard` counts lines that actually finished playing, not lines
+ * skipped past, so holding skip does not manufacture a session.
+ */
+export function shouldLogListen(
+  args: { heard: number; index: number; total: number; alreadyLogged: boolean },
+  threshold: number = LISTEN_SESSION_LINES
+): boolean {
+  if (args.alreadyLogged) return false;
+  if (args.total <= 0) return false;
+  const isLast = args.index + 1 >= args.total;
+  return isLast || args.heard >= threshold;
 }

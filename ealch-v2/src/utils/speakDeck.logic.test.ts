@@ -5,13 +5,20 @@ import { ITEM_ID_RE, SCENARIO_ID_RE } from '../content/schema.ts';
 import {
   parseTrackParam,
   playlistDeck,
-  playlistLineCount,
   playlistStartIx,
   playerRouteFor,
   playlistTrackAt,
   resolvePlaylistParam,
+  shouldLogListen,
   speakRouteFor,
+  LISTEN_SESSION_LINES,
 } from './speakDeck.logic.ts';
+
+// Counted here, independently of playlistDeck, so the deck is checked against a
+// number that does not share its flatten. It lived in speakDeck.logic and the
+// app never called it.
+const lineCount = (p: { tracks: { lines: unknown[] }[] }) =>
+  p.tracks.reduce((sum, tk) => sum + tk.lines.length, 0);
 
 // The bug this file exists to prevent: every playlist opening the SAME speak
 // deck. That shipped because nothing anywhere asserted a playlist's voice
@@ -56,7 +63,7 @@ test('a card id is never mistaken for a corpus item or a scenario', () => {
 test('a deck holds exactly the playlist line count, in track order', () => {
   for (const p of playlists) {
     const deck = playlistDeck(p);
-    strictEqual(deck.length, playlistLineCount(p), `${p.id} deck length`);
+    strictEqual(deck.length, lineCount(p), `${p.id} deck length`);
     let n = 0;
     for (const tk of p.tracks) {
       for (let i = 0; i < tk.lines.length; i += 1) {
@@ -168,4 +175,37 @@ test('every real playlist id resolves, and every route we mint resolves back', (
     const sid = new URL(`https://x${speakRouteFor(p.id, 0)}`).searchParams.get('playlist');
     strictEqual(resolvePlaylistParam(sid ?? undefined).kind, 'found', `speakRouteFor(${p.id}) does not round-trip`);
   }
+});
+
+test('a listening session is logged by the end of a set OR a sitting of lines', () => {
+  // The bug: logging only on the last line. A playlist ends so it worked there,
+  // but the default pass streams 21,650 corpus phrases and has no last line, so
+  // listening could never count toward a streak.
+  const big = 21650;
+
+  // The stream: never reaches the end, so the threshold is the only route.
+  strictEqual(shouldLogListen({ heard: 1, index: 0, total: big, alreadyLogged: false }), false);
+  strictEqual(shouldLogListen({ heard: LISTEN_SESSION_LINES - 1, index: 8, total: big, alreadyLogged: false }), false);
+  strictEqual(shouldLogListen({ heard: LISTEN_SESSION_LINES, index: 9, total: big, alreadyLogged: false }), true);
+
+  // A short set finishes long before the threshold and must still count. Six is
+  // l-oreille, the smallest playlist in the corpus.
+  strictEqual(shouldLogListen({ heard: 6, index: 5, total: 6, alreadyLogged: false }), true);
+
+  // Once per visit.
+  strictEqual(shouldLogListen({ heard: 999, index: 5, total: 6, alreadyLogged: true }), false);
+
+  // An empty deck logs nothing — no phantom session from the empty state.
+  strictEqual(shouldLogListen({ heard: 0, index: 0, total: 0, alreadyLogged: false }), false);
+});
+
+test('skipping cannot manufacture a listening session', () => {
+  // `heard` counts lines that finished PLAYING. Holding skip moves index without
+  // moving heard, so a learner who skipped to line 500 of the stream and heard
+  // nothing has not had a session.
+  strictEqual(shouldLogListen({ heard: 0, index: 500, total: 21650, alreadyLogged: false }), false);
+  strictEqual(shouldLogListen({ heard: 2, index: 500, total: 21650, alreadyLogged: false }), false);
+  // But skipping to the end of a SET is reaching the end of it, which counts —
+  // the set is finishable and the learner got there.
+  strictEqual(shouldLogListen({ heard: 0, index: 43, total: 44, alreadyLogged: false }), true);
 });

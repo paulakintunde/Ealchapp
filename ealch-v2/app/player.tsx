@@ -14,9 +14,11 @@ import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
 import {
-  parseTrackParam, playlistDeck, playlistStartIx, playlistTrackAt, resolvePlaylistParam, speakRouteFor,
+  parseTrackParam, playlistDeck, playlistStartIx, playlistTrackAt, resolvePlaylistParam,
+  shouldLogListen, speakRouteFor,
 } from '@/utils/speakDeck.logic';
 import { SpeedPicker } from '@/components/SpeedPicker';
+import { dayOfYear } from '@/content/wordOfDay';
 
 // An honest LISTENING pass over real corpus phrases, spoken by device TTS.
 //
@@ -55,12 +57,30 @@ export default function Player() {
   );
   const total = lines.length;
 
+  // This screen has two shapes and they are not the same thing.
+  //
+  // A PLAYLIST is a set: bounded, finishable, and "line 7 of 44" is a fact the
+  // learner can act on. The DEFAULT pass is a stream over every corpus phrase
+  // carrying a flashcard drill — 21,650 of them in the published corpus. It has
+  // no end, so a "1 / 21650" counter and a bar frozen at 0.005% are true and
+  // useless, which is a worse kind of dishonest than a fabricated scrubber: it
+  // looks like progress and can never be made.
+  const streaming = asked.kind === 'none';
+
+
   // ?track=N starts the flattened line sequence at the first line of track N.
   // The flatten and this arithmetic live in speakDeck.logic so the mic below
   // opens on the same line this screen is showing: Listen and Voice have to
   // mean the same thing by "track 4".
   const trackIx = useMemo(() => (pl ? parseTrackParam(pl, params.track) : 0), [pl, params.track]);
-  const startIx = useMemo(() => (pl ? playlistStartIx(pl, trackIx) : 0), [pl, trackIx]);
+  // A playlist starts where the link says. The stream starts on a day seed, the
+  // same rotation wordOfDay and sentence.tsx already use: selectItems is a pure
+  // filter with no shuffle, so without this the stream opened on the identical
+  // phrase every time and the other 21,000 were unreachable in practice.
+  const startIx = useMemo(
+    () => (pl ? playlistStartIx(pl, trackIx) : total > 0 ? dayOfYear() % total : 0),
+    [pl, trackIx, total]
+  );
 
   const [ix, setIx] = useState(startIx);
   const [playing, setPlaying] = useState(false);
@@ -70,6 +90,8 @@ export default function Player() {
   const playingRef = useRef(false);
   const speedRef = useRef(1);
   const logged = useRef(false);
+  // Lines actually finished this visit (onDone fired), not lines skipped past.
+  const heard = useRef(0);
 
   const setSpeedLive = (v: number) => {
     sound.play('tap');
@@ -103,16 +125,20 @@ export default function Player() {
       rate: speedRef.current,
       onDone: () => {
         if (!playingRef.current) return;
-        if (i + 1 < total) {
+        heard.current += 1;
+        const last = i + 1 >= total;
+        // Whichever comes first: a real sitting's worth of lines, or the end of
+        // a set. Once per visit either way.
+        if (shouldLogListen({ heard: heard.current, index: i, total, alreadyLogged: logged.current })) {
+          logged.current = true;
+          logSession('player');
+        }
+        if (!last) {
           setIx(i + 1);
           speakLine(i + 1);
         } else {
           playingRef.current = false;
           setPlaying(false);
-          if (!logged.current) {
-            logged.current = true;
-            logSession('player');
-          }
         }
       },
       onError: () => {
@@ -140,10 +166,10 @@ export default function Player() {
   const go = (target: number) => {
     const next = Math.max(0, Math.min(total - 1, target));
     sound.play('tap');
-    // Seeking back into the track re-arms the session log: a genuine second
-    // play-through to the end should count, but `logged` only clears on restart,
-    // so without this a skip-back-then-replay would finish silently.
-    if (next < total - 1) logged.current = false;
+    // Seeking deliberately does NOT re-arm the session log. It used to, so that
+    // a second play-through to the end could count — but the log is now earned
+    // by lines actually heard, and one visit is one session. Re-arming here
+    // would let a skip-back double-count a single sitting.
     setIx(next);
     tts.stop();
     if (playingRef.current) speakLine(next);
@@ -169,15 +195,20 @@ export default function Player() {
     router.push(speakRouteFor(pl?.id, pl ? playlistTrackAt(pl, ix) : 0));
   };
 
-  // Back to the first phrase and play from the top.
+  // Back to the top and play. A playlist's top is its first line, whichever
+  // track you entered on — it is a set, and restarting a set means all of it.
+  // The stream has no first line, so it returns to where today's rotation put
+  // you rather than to corpus item zero, which is nowhere in particular.
   const restart = () => {
+    const top = streaming ? startIx : 0;
     sound.play('tap');
     tts.stop();
     logged.current = false;
-    setIx(0);
+    heard.current = 0;
+    setIx(top);
     playingRef.current = true;
     setPlaying(true);
-    speakLine(0);
+    speakLine(top);
   };
 
   if (total === 0 || !cur) {
@@ -223,18 +254,31 @@ export default function Player() {
           </View>
         </View>
 
-        {/* Progress — real line position, not a fabricated timeline */}
-        <View style={{ paddingVertical: 6 }}>
-          <ProgressBar pct={((ix + 1) / total) * 100} height={4} />
-        </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 4, marginBottom: 20 }}>
-          <TX role="meta" color={t.txSubtle}>
-            {T.phrase} {ix + 1}
-          </TX>
-          <TX role="meta" color={t.txSubtle}>
-            {ix + 1} / {total}
-          </TX>
-        </View>
+        {/* Progress — real line position, and only where there is progress to
+            show. A set gets its bar and its "7 / 44"; the stream gets neither,
+            because a bar pinned at 0.005% of 21,650 reads as progress that can
+            never be made. What stays is the one honest fact: which phrase. */}
+        {streaming ? (
+          <View style={{ marginTop: 10, marginBottom: 20 }}>
+            <TX role="meta" color={t.txSubtle}>
+              {T.phrase} {ix + 1}
+            </TX>
+          </View>
+        ) : (
+          <>
+            <View style={{ paddingVertical: 6 }}>
+              <ProgressBar pct={((ix + 1) / total) * 100} height={4} />
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 4, marginBottom: 20 }}>
+              <TX role="meta" color={t.txSubtle}>
+                {T.phrase} {ix + 1}
+              </TX>
+              <TX role="meta" color={t.txSubtle}>
+                {ix + 1} / {total}
+              </TX>
+            </View>
+          </>
+        )}
 
         {/* Transport */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 34, marginBottom: 22 }}>
