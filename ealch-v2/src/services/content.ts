@@ -6,8 +6,29 @@
 // only ever raise the version, in the background.
 //
 //   1. seed.json         bundled in the app   → always present, works offline
-//   2. cached snapshot   AsyncStorage         → last OTA download, if any
+//   2. cached snapshot   the filesystem       → last OTA download, if any
 //   3. remote manifest   Supabase Storage     → fire-and-forget, next launch
+//
+// ── Why the cache is a FILE and not AsyncStorage ───────────────────────────
+//
+// It was AsyncStorage, and at v66 the snapshot reached 27 MB against the 6 MB
+// SQLite budget AsyncStorage ships with on Android. The write threw, the catch
+// that anticipates exactly this swallowed it, and the corpus upgraded for the
+// session and then vanished. Measured on a Pixel 6: `databases/RKStorage` sat
+// at 1.4 MB with no snapshot row in it, while the downloads screen correctly
+// reported v66.
+//
+// Nothing looked broken. The cost was paid on every cold start instead — 27 MB
+// re-downloaded, the "everything works offline" promise on the downloads screen
+// quietly false, and exam content (which ships ONLY in the snapshot, never the
+// seed) absent until the fetch landed. A candidate opening the Examiner offline
+// saw "no exams available yet".
+//
+// A multi-megabyte blob is what a file is for. `text()` is a native
+// AsyncFunction so the per-launch read stays off the JS thread; `write()` has
+// no async variant and is sync, which is affordable because it runs once per
+// VERSION (shouldAdopt refuses a re-download of what is already cached) and
+// behind runAfterInteractions.
 //
 // This mirrors the resilience contract the rest of the service layer already
 // keeps: config.ts degrades to defaults, useProgress treats a corrupt log as
@@ -15,6 +36,7 @@
 // never a crash.
 import { InteractionManager } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { File, Paths } from 'expo-file-system';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
@@ -62,10 +84,23 @@ const SEED = seedJson as unknown as Corpus;
 // hold a re-stringified corpus under this key with no meta row — the read path
 // treats those as absent and the next fetch simply re-downloads. One redundant
 // download per upgraded install, once.)
-const CACHE_KEY = 'ealch-content-snapshot';
+// The AsyncStorage key the snapshot USED to live under. Read once more so an
+// upgrading install that did manage to cache a smaller snapshot keeps it, and
+// removed on sight so its bytes stop counting against the 6 MB budget that
+// everything else in AsyncStorage — progress, settings, the rollout lot —
+// still shares.
+const LEGACY_CACHE_KEY = 'ealch-content-snapshot';
 // Written AFTER the text, read BEFORE it: its presence is the commit marker
-// that says "the bytes under CACHE_KEY passed the full verify when written".
+// that says "the snapshot file passed the full verify when written". It stays
+// in AsyncStorage — it is two numbers, and keeping the marker and the payload
+// in separate stores is what makes a torn write readable as "no cache".
 const CACHE_META_KEY = 'ealch-content-snapshot-meta';
+
+/** The cached snapshot on disk. `Paths.document` rather than `Paths.cache`
+ *  deliberately: the OS may evict the cache directory under storage pressure,
+ *  and an app that promises to work offline cannot have its corpus quietly
+ *  reclaimed between launches. */
+const snapshotFile = () => new File(Paths.document, 'content-snapshot.json');
 const BUCKET_KEY = 'ealch-rollout-bucket';
 const STORAGE_BASE = ENV.supabaseUrl
   ? `${ENV.supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/content`
@@ -159,7 +194,7 @@ export async function initContent(): Promise<void> {
     const suspect = adopted;
     void new Promise<void>((r) => InteractionManager.runAfterInteractions(() => r())).then(async () => {
       if (validateCorpus(suspect).length === 0) return;
-      await AsyncStorage.multiRemove([CACHE_KEY, CACHE_META_KEY]).catch(() => {});
+      await purgeCache();
       // Roll back only if the corpus we painted is still the one we are
       // invalidating — a refreshFromRemote that landed meanwhile has already
       // replaced it with a freshly verified one, which must stand.
@@ -181,11 +216,27 @@ export async function initContent(): Promise<void> {
  *  present (nothing was ever fetched). */
 export async function contentCacheInfo(): Promise<{ bytes: number } | null> {
   try {
-    const raw = await AsyncStorage.getItem(CACHE_KEY);
-    return raw ? { bytes: raw.length } : null;
+    const f = snapshotFile();
+    // `size` is null for a path that does not exist, which is the same answer
+    // as "nothing was ever fetched" and must not read as a zero-byte cache.
+    const bytes = f.exists ? f.size : null;
+    return typeof bytes === 'number' && bytes > 0 ? { bytes } : null;
   } catch {
     return null;
   }
+}
+
+/** Remove both halves of the cache — the file, the commit marker, and any
+ *  bytes still parked under the pre-filesystem key. Never throws: every caller
+ *  is on a path whose safe outcome is "fall back to the seed". */
+async function purgeCache(): Promise<void> {
+  try {
+    const f = snapshotFile();
+    if (f.exists) f.delete();
+  } catch {
+    // Unlinkable file: the meta removal below still demotes it to "no cache".
+  }
+  await AsyncStorage.multiRemove([CACHE_META_KEY, LEGACY_CACHE_KEY]).catch(() => {});
 }
 
 /**
@@ -201,11 +252,7 @@ export async function contentCacheInfo(): Promise<{ bytes: number } | null> {
  * the device is already current.
  */
 export async function clearContentCache(): Promise<void> {
-  try {
-    await AsyncStorage.multiRemove([CACHE_KEY, CACHE_META_KEY]);
-  } catch {
-    // Storage unavailable: the seed still stands, which is the safe state.
-  }
+  await purgeCache();
   cachedSnapshotVersion = 0;
   useContent.getState().setCorpus(SEED);
 }
@@ -239,11 +286,10 @@ async function rolloutBucket(): Promise<number> {
  *  failure, wrong shape — is simply no cache; the seed backstops it. */
 async function readCache(): Promise<Corpus | null> {
   try {
-    const [metaRaw, raw] = await AsyncStorage.multiGet([CACHE_META_KEY, CACHE_KEY]).then((kv) => [
-      kv[0][1],
-      kv[1][1],
-    ]);
-    if (!metaRaw || !raw) return null;
+    const metaRaw = await AsyncStorage.getItem(CACHE_META_KEY);
+    if (!metaRaw) return null;
+    const raw = await readSnapshotText();
+    if (!raw) return null;
     const meta = JSON.parse(metaRaw);
     if (!isCacheMeta(meta)) return null;
     const parsed = JSON.parse(raw);
@@ -252,6 +298,38 @@ async function readCache(): Promise<Corpus | null> {
   } catch {
     return null;
   }
+}
+
+/**
+ * The snapshot text: the file first, then — once — the AsyncStorage key it used
+ * to live under.
+ *
+ * The migration is not theoretical. Installs that cached a snapshot while it
+ * still fit under 6 MB hold one right now, and dropping it on upgrade would
+ * cost every one of them a re-download for nothing. Reading it and moving it
+ * across keeps them whole; deleting the old key afterwards is the point of the
+ * exercise, since those bytes are what squeezes everything else in AsyncStorage.
+ *
+ * A failed move is not a failed read: the text is already in hand and is
+ * returned regardless, and the next successful write settles the file.
+ */
+async function readSnapshotText(): Promise<string | null> {
+  try {
+    const f = snapshotFile();
+    if (f.exists) return await f.text();
+  } catch {
+    // Unreadable file — fall through to the legacy key, then to no cache.
+  }
+
+  const legacy = await AsyncStorage.getItem(LEGACY_CACHE_KEY).catch(() => null);
+  if (!legacy) return null;
+  try {
+    snapshotFile().write(legacy);
+    await AsyncStorage.removeItem(LEGACY_CACHE_KEY).catch(() => {});
+  } catch {
+    // Could not move it. The bytes are still good for this launch.
+  }
+  return legacy;
 }
 
 /** Check the manifest; if it offers something strictly newer, download, verify,
@@ -304,15 +382,22 @@ export async function refreshFromRemote(): Promise<void> {
     // the text: its presence commits the pair, so a torn write reads as no
     // cache rather than as unverified bytes.
     try {
-      await AsyncStorage.setItem(CACHE_KEY, text);
+      // The file first, the marker second. A crash between them leaves a file
+      // no reader will trust, which is the same outcome as no cache and is why
+      // the two live in different stores.
+      snapshotFile().write(text);
       await AsyncStorage.setItem(
         CACHE_META_KEY,
         JSON.stringify({ version: verified.corpus.version, checksum: manifest.checksum })
       );
+      // Anything still under the old key is now dead weight against the 6 MB
+      // AsyncStorage budget the rest of the app shares.
+      await AsyncStorage.removeItem(LEGACY_CACHE_KEY).catch(() => {});
       cachedSnapshotVersion = verified.corpus.version;
     } catch {
-      // Out of space or unwritable — the live upgrade below still applies for
-      // this session; next launch simply refetches.
+      // Genuinely out of disk, or unwritable — the live upgrade below still
+      // applies for this session; next launch simply refetches. This is now a
+      // real out-of-space, not a 27 MB blob against a 6 MB row budget.
     }
     useContent.getState().setCorpus(mergeCorpus(SEED, verified.corpus));
   } catch {
