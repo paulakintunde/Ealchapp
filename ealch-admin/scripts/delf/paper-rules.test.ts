@@ -15,6 +15,7 @@ import {
   audioCeilingViolations,
   debateBalanceViolations,
   debateDepthViolations,
+  documentLengthViolations,
   imageViolations,
   itemViolations,
   keyScatterViolations,
@@ -280,4 +281,33 @@ test('the topic ledger catches a short draw and a row spent twice in one paper',
     topicLedgerViolations([{ variant: 'blanc-02', topics: [...ten, 'DELF-3'] }])
       .some((v) => v.includes('spends DELF-3 twice'))
   );
+});
+
+test('the document-length rule catches a short document that every other rule passes', () => {
+  // blanc-02 shipped three short documents at 38, 43 and 44 seconds against a
+  // 60-80 second suit, and NOTHING caught it: the 900s ceiling and the
+  // listening clock are both UPPER bounds, so a paper whose documents are far
+  // too short satisfies each of them comfortably. It surfaced only when the
+  // render replaced estimates with measured durations.
+  deepStrictEqual(documentLengthViolations(co()), []);
+
+  const short = co();
+  short[2]!.parts![0]!.durationS = 38;
+  const v = documentLengthViolations(short);
+  ok(v.some((x) => x.includes('38s, outside the 60-80s')), 'a 38-second short document must be caught');
+
+  // And the upper bound, which is the other way to stop being the exercise.
+  const long = co();
+  long[2]!.parts![0]!.durationS = 140;
+  ok(documentLengthViolations(long).some((x) => x.includes('outside the 60-80s')));
+
+  // The long documents have their own range, keyed on playCount.
+  const stretched = co();
+  stretched[0]!.parts![0]!.durationS = 240;
+  ok(documentLengthViolations(stretched).some((x) => x.includes('outside the 150-195s')));
+
+  // The proof it is not redundant: the ceiling and the clock both PASS on the
+  // paper whose documents are far too short.
+  deepStrictEqual(audioCeilingViolations(short), []);
+  deepStrictEqual(listeningClockViolations(short, 1800), []);
 });

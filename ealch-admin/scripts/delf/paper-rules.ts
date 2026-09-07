@@ -105,6 +105,42 @@ export function listeningClockViolations(coTasks: ExamTask[], clockS: number, an
 }
 
 /**
+ * Each document inside its suit's published length.
+ *
+ * The bank fixes these: a CO-L document runs 2 min 30 to 3 min 15, a CO-S
+ * document 60 to 80 seconds. They are not decoration. A short document under a
+ * minute cannot carry two answerable points with room to hear them, and one
+ * over 80 seconds stops being the exercise the format describes.
+ *
+ * MISSING UNTIL blanc-02, and it cost exactly what a missing rule costs. Every
+ * other listening rule passed on that paper — the 900s ceiling, the two-play
+ * clock, the play counts — while its three short documents came out at 38, 43
+ * and 44 seconds. The ceiling and the clock are both UPPER bounds, so a paper
+ * whose documents are far too short sails through every one of them.
+ *
+ * It surfaced only because the render replaced estimated durations with
+ * measured ones. That is the right way for it to surface once; this is so it
+ * surfaces before the render next time.
+ */
+export function documentLengthViolations(coTasks: ExamTask[]): string[] {
+  const out: string[] = [];
+  for (const t of coTasks) {
+    for (const p of parts(t)) {
+      // The play count is what distinguishes the suits: the long documents are
+      // the ones heard twice.
+      const long = (p.playCount ?? 1) > 1;
+      const [lo, hi] = long ? [150, 195] : [60, 80];
+      const d = p.durationS;
+      if (typeof d !== 'number') { out.push(`${t.id} · ${p.label ?? '?'}: no durationS to check`); continue; }
+      if (d < lo || d > hi) {
+        out.push(`${t.id} · ${p.label ?? '?'}: ${d}s, outside the ${lo}-${hi}s a ${long ? 'CO-L' : 'CO-S'} document runs`);
+      }
+    }
+  }
+  return out;
+}
+
+/**
  * The ceiling is on RECORDED duration, not playback.
  *
  * "durée maximale de l'ensemble des documents" — a document heard twice is
@@ -296,6 +332,7 @@ export function delfPaperViolations(p: DelfPaper): string[] {
     ...weightingViolations('CE', p.CE_TASKS),
     ...itemViolations([...p.CO_TASKS, ...p.CE_TASKS]),
     ...playCountViolations(p.CO_TASKS),
+    ...documentLengthViolations(p.CO_TASKS),
     ...listeningClockViolations(p.CO_TASKS, co?.timingS ?? 0),
     ...audioCeilingViolations(p.CO_TASKS),
     ...(p.CE_TASKS[2] ? attributionViolations(p.CE_TASKS[2]) : ['CE has no third exercise']),

@@ -16,17 +16,20 @@
 // hearing, and the two dearest questions in each exercise turn on distinguishing
 // what a speaker REPORTS from what they ENDORSE.
 //
-// ── durationS here is an ESTIMATE, and must not stay one ────────────────────
+// ── durationS is MEASURED, and the estimates were wrong in a useful way ─────
 //
-// blanc-01's values were measured off the rendered clips and differ from their
-// at-target estimates by up to fourteen seconds. Nothing is rendered for this
-// paper yet, so the figures below are computed from the script at ~150 words a
-// minute for broadcast French, deliberately rounded UP.
+// These figures come off the rendered clips. The estimates they replaced were
+// computed at ~150 words a minute and every one was too long: the render came
+// in 14 to 35 seconds shorter, because the voices at speed 0.9 run nearer 150
+// to 210 wpm depending on the register.
 //
-// The listening clock rule reads them, so leaving them as estimates would check
-// the clock against documents that do not exist. render-audio.ts writes the
-// measured durations back; until it has run, this paper is authored and not
-// finished.
+// That mattered. The three SHORT documents first rendered at 38, 43 and 44
+// seconds against a suit that runs 60 to 80, and nothing caught it: the 900s
+// audio ceiling and the listening clock are both UPPER bounds, so documents far
+// too short satisfy them comfortably. delf/paper-rules.ts gained
+// documentLengthViolations for exactly this, and the three scripts below were
+// lengthened to roughly 200 words each — with texture, not with new facts,
+// because the bank allows a short document exactly two answerable points.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, VARIANT, FORMAT_VERSION, NOTES_CLOSED, taskId, uniq, ITEMS } from './common.ts';
 
@@ -68,7 +71,7 @@ export const CO_EX1: ExamTask = {
       label: 'Exercice 1 · un journal qui met ses erreurs en avant',
       playCount: 2,
       readWindowS: 60,
-      durationS: 190,
+      durationS: 176,
       text:
         'UN JOURNALISTE : Depuis dix-huit mois, le Courrier de Valmont publie ses rectificatifs ' +
         'à la place qu’occupait l’article corrigé, et non plus en bas de page. ' +
@@ -241,7 +244,7 @@ export const CO_EX2: ExamTask = {
       label: 'Exercice 2 · ce que mesurent les classements',
       playCount: 2,
       readWindowS: 60,
-      durationS: 195,
+      durationS: 160,
       text:
         'UNE JOURNALISTE : L’université de Sainte-Ombre a gagné quarante places en trois ans. ' +
         'Sa présidente est avec nous, ainsi qu’une sociologue de l’éducation. ' +
@@ -400,18 +403,28 @@ export const CO_EX3: ExamTask = {
       label: 'Document 1 · un devoir qu’elle n’attribue pas',
       playCount: 1,
       readWindowS: 15,
-      durationS: 72,
+      durationS: 79,
       text:
-        'UNE ENSEIGNANTE : Le devoir est bon. Il est mieux construit que tout ce que cet étudiant ' +
-        'm’a rendu en deux ans, et il ne contient aucune des maladresses qui font sa manière. ' +
+        'UNE ENSEIGNANTE : Le devoir est bon, et c’est cela qui m’arrête. ' +
+        'Il est mieux construit que tout ce que cet étudiant m’a rendu en deux ans, ' +
+        'et il ne contient aucune des maladresses qui font sa manière. ' +
+        'Il a une façon de commencer ses phrases par la conclusion, ' +
+        'de mettre trois exemples là où un seul suffirait ; rien de tout cela n’y est. ' +
         'Je n’ai pas de preuve, et c’est précisément le problème : ' +
         'je n’ai qu’une impression, et une impression ne se met pas dans un dossier. ' +
-        'Ce que j’ai changé, ce n’est pas ma façon de noter, c’est ma façon de faire travailler. ' +
+        'J’ai passé une semaine à me demander ce que je pouvais écrire, ' +
+        'et la réponse était : rien que je puisse défendre devant une commission. ' +
+        'Ce que j’ai changé, ce n’est donc pas ma façon de noter, ' +
+        'c’est ma façon de faire travailler. ' +
         'Une partie du devoir se fait maintenant devant moi, en trente minutes, sans rien. ' +
+        'Pas de téléphone, pas de brouillon apporté, aucun document. ' +
+        'Je l’annonce dès la première séance et je l’annonce à tout le monde, ' +
+        'parce qu’un dispositif réservé à un seul étudiant est une accusation. ' +
         'Ce n’est pas une surveillance, c’est un point de comparaison. ' +
         'Quand les deux textes ne se ressemblent pas, je ne sanctionne pas : ' +
-        'je demande à l’étudiant de m’expliquer le sien. ' +
-        'La conversation règle en dix minutes ce qu’un règlement ne réglerait pas en un an.',
+        'je demande à l’étudiant de m’expliquer le sien, simplement, à voix haute. ' +
+        'La conversation règle en dix minutes ce qu’un règlement ne réglerait pas en un an, ' +
+        'et elle laisse une porte de sortie qu’une procédure ne laisse jamais.',
       items: [
         {
           q: 'Qu’est-ce qui éveille les soupçons de l’enseignante ?',
@@ -445,18 +458,25 @@ export const CO_EX3: ExamTask = {
       label: 'Document 2 · une voiture pour tout un village',
       playCount: 1,
       readWindowS: 15,
-      durationS: 70,
+      durationS: 78,
       text:
         'UN HABITANT : Nous sommes onze foyers et nous avons une voiture. ' +
         'Elle appartient à l’association, elle est garée devant la mairie, ' +
         'et le calendrier est sur un cahier accroché à la portière. ' +
-        'Ce qui m’étonne encore, c’est que le cahier suffise. ' +
-        'On nous avait dit qu’il faudrait une application et un système de réservation, ' +
-        'et en trois ans nous avons eu deux conflits, réglés tous les deux en discutant. ' +
+        'On écrit son nom, l’heure de départ, l’heure de retour. C’est tout. ' +
+        'Ce qui m’étonne encore, trois ans après, c’est que le cahier suffise. ' +
+        'On nous avait annoncé qu’il faudrait une application, un système de réservation, ' +
+        'peut-être une caution, et nous avons commencé par le cahier ' +
+        'en nous disant que nous verrions bien. Nous voyons toujours. ' +
+        'En trois ans, nous avons eu deux conflits : ' +
+        'une fois deux familles pour le même samedi, une fois un retour très en retard. ' +
+        'Les deux se sont réglés en discutant, dans la rue, en cinq minutes. ' +
         'Le vrai problème n’est pas celui qu’on nous annonçait. ' +
-        'Ce n’est pas la répartition, c’est l’entretien : ' +
-        'personne ne se sent responsable d’un bruit qui commence, ' +
-        'parce qu’il commence toujours pendant le trajet de quelqu’un d’autre.',
+        'Ce n’est pas la répartition, c’est l’entretien. ' +
+        'Personne ne se sent responsable d’un bruit qui commence, ' +
+        'parce qu’il commence toujours pendant le trajet de quelqu’un d’autre. ' +
+        'Nous avons fini par désigner deux personnes, et cela fonctionne, ' +
+        'mais il nous a fallu deux ans pour comprendre que c’était là qu’il fallait regarder.',
       items: [
         {
           q: 'Comment les réservations sont-elles organisées ?',
@@ -490,18 +510,23 @@ export const CO_EX3: ExamTask = {
       label: 'Document 3 · quinze minutes, depuis vingt ans',
       playCount: 1,
       readWindowS: 15,
-      durationS: 68,
+      durationS: 71,
       text:
         'UN MÉDECIN : La consultation dure quinze minutes, et elle durait quinze minutes ' +
         'quand j’ai commencé. Entre-temps, ce qu’il faut y faire a doublé. ' +
         'Il y a vingt ans, je posais des questions et j’examinais. ' +
-        'Aujourd’hui je fais cela, plus la saisie, plus la vérification des interactions, ' +
+        'Aujourd’hui je fais tout cela, plus la saisie dans le dossier, ' +
+        'plus la vérification des interactions entre traitements, plus le codage de l’acte, ' +
         'plus l’explication d’un traitement que le patient a déjà lu quelque part. ' +
-        'Cette dernière partie est la plus utile de toutes et c’est la première ' +
-        'que je coupe quand je suis en retard. ' +
+        'Cette dernière partie est la plus utile de toutes, ' +
+        'et c’est exactement la première que je coupe quand je suis en retard. ' +
+        'Je la coupe en sachant ce que je fais, ce qui ne la rend pas plus facile à couper. ' +
+        'Un patient à qui l’on n’explique rien revient, ou bien ne revient pas du tout, ' +
+        'et les deux coûtent plus cher que les quatre minutes économisées. ' +
         'On me propose souvent des outils pour aller plus vite. ' +
-        'Ils marchent, et le temps gagné n’est jamais rendu à la conversation : ' +
-        'il est absorbé par la tâche suivante.',
+        'Je les essaie, et ils marchent : la saisie va deux fois plus vite qu’il y a cinq ans. ' +
+        'Mais le temps gagné n’est jamais rendu à la conversation. ' +
+        'Il est absorbé par la tâche suivante, qui n’existait pas l’année d’avant.',
       items: [
         {
           q: 'Qu’est-ce qui a changé depuis vingt ans ?',
