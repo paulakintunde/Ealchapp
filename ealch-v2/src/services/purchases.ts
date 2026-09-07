@@ -22,6 +22,7 @@ import { useEffect } from 'react';
 import { AppState } from 'react-native';
 import { ENV } from './env';
 import { setCachedEntitlement } from './entitlement';
+import { guardedNow } from './serverClock';
 import {
   entitlementFromProfile,
   isPremium,
@@ -232,7 +233,7 @@ export async function restorePurchases(): Promise<{ ok: boolean; premium: boolea
   try {
     const profile = await loadModule()!.restorePurchases();
     await apply(profile as ProfileLike);
-    return { ok: true, premium: isPremium(useEntitlement.getState().entitlement, Date.now()) };
+    return { ok: true, premium: isPremium(useEntitlement.getState().entitlement, guardedNow()) };
   } catch (err) {
     return { ok: false, premium: false, message: (err as Error).message };
   }

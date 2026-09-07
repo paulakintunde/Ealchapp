@@ -53,8 +53,68 @@ export function featuresForPlan(plan: Plan): Feature[] {
 
 /* ─── Reading an entitlement ─────────────────────────────────────────────── */
 
+/* ─── The clock the device cannot wind back ──────────────────────────────── */
+//
+// Expiry is evaluated LOCALLY against a timestamp, which is what lets a lapse
+// be enforced with no network — the right design, and the reason a subscriber
+// who goes offline on the last day of the month does not keep the app forever.
+//
+// The hole is that the timestamp came from `Date.now()`, which the user owns.
+// Settings → Date & time → off automatic → back one month, and an expired
+// subscription is in force again, indefinitely and undetectably, because
+// nothing offline ever contradicts it.
+//
+// The fix is a floor: remember the latest moment we have EVIDENCE of, and
+// evaluate at whichever is later, the device clock or that floor. Time only
+// moves forward, so a clock behind the floor is a clock that has been moved.
+//
+// ── Why the floor may only ever be raised by the SERVER ────────────────────
+//
+// The obvious implementation — remember the highest `Date.now()` ever seen —
+// is worse than the hole it closes. A user whose clock reads 2030, by accident
+// or to skip a cooldown somewhere else, writes 2030 into the floor. Every
+// subscription they ever buy then reads as expired, on a device that can never
+// come back, because the floor cannot be lowered and their real clock will not
+// reach 2030 for years. A wrong device clock has to stay recoverable.
+//
+// So the floor is raised only by time we did not get from the user. Setting
+// the clock FORWARD then costs the user access early and is undone the moment
+// they set it back, which is self-inflicted and self-repairing. Setting it
+// BACKWARD does nothing at all. That asymmetry is the whole design.
+
+/** Below this, a timestamp is a broken clock or an unparsed header, not a
+ *  date. The app did not exist in 2024; nothing legitimate reports it. */
+export const MIN_PLAUSIBLE_MS = Date.UTC(2025, 0, 1);
+
+/**
+ * The floor after observing `serverMs`, which MUST come from a server.
+ *
+ * Monotonic and validating: an implausible or non-finite reading leaves the
+ * floor alone rather than poisoning it, and a reading older than the floor is
+ * simply a slower round trip, not evidence of anything.
+ */
+export function advancedFloor(currentFloorMs: number, serverMs: number): number {
+  if (!Number.isFinite(serverMs) || serverMs < MIN_PLAUSIBLE_MS) return currentFloorMs;
+  return serverMs > currentFloorMs ? serverMs : currentFloorMs;
+}
+
+/**
+ * The moment to evaluate entitlement at.
+ *
+ * `Math.max`, and the whole guard is those five characters: a device clock
+ * ahead of the floor is believed (it may simply be a later day), and a device
+ * clock behind the floor is ignored in favour of what we last had evidence for.
+ */
+export function effectiveNow(deviceNowMs: number, floorMs: number): number {
+  return deviceNowMs > floorMs ? deviceNowMs : floorMs;
+}
+
 /** Whether the entitlement is in force at `nowMs`. Absent expiry means "does
- *  not expire" (free tier, lifetime grant) — never "expired". */
+ *  not expire" (free tier, lifetime grant) — never "expired".
+ *
+ *  `nowMs` must come from `guardedNow()` (services/serverClock.ts) on every
+ *  path a user could benefit from moving. Passing a bare `Date.now()` here is
+ *  the defect this file's clock section exists to prevent. */
 export function entitlementActive(e: Entitlement, nowMs: number): boolean {
   return e.expiry === undefined || e.expiry > nowMs;
 }

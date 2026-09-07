@@ -37,6 +37,7 @@
 import { InteractionManager } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { File, Paths } from 'expo-file-system';
+import { noteServerDateHeader } from './serverClock';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
@@ -345,6 +346,11 @@ export async function refreshFromRemote(): Promise<void> {
 
   try {
     const manRes = await fetch(`${STORAGE_BASE}/manifest.json`, { cache: 'no-store' as RequestCache });
+    // Server time, from a response the app already makes on every launch. This
+    // is what keeps the entitlement clock floor moving without a clock
+    // endpoint or an extra round trip — see services/serverClock.ts. Read
+    // before the ok-check: a 404 still carries an honest Date.
+    noteServerDateHeader(manRes.headers.get('date'));
     if (!manRes.ok) return;
     const manifest = await manRes.json();
     if (!isManifest(manifest)) return;

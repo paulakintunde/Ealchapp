@@ -16,6 +16,7 @@
 import { create } from 'zustand';
 import type { Entitlement } from '@/content/progress-schema';
 import { getCachedEntitlement } from '@/services/entitlement';
+import { guardedNow } from '@/services/serverClock';
 import { a2LockLifted, hasFeature, isPremium, type Feature } from './entitlement.logic';
 
 /** The cache key for a user who never signed in. A guest can browse the free
@@ -48,16 +49,21 @@ export const useEntitlement = create<EntitlementState>()((set) => ({
 }));
 
 /* ─── The reads screens use ──────────────────────────────────────────────── */
+//
+// Every one of them evaluates at `guardedNow()`, never `Date.now()`. Expiry is
+// checked on-device so a lapse holds offline, which means the timestamp is the
+// enforcement — and a bare device clock is a number the user can set backwards.
+// See services/serverClock.ts.
 
 /** Reactive: does the current user hold `feature`? */
 export function useFeature(feature: Feature): boolean {
   const lifted = feature === 'levels.all' && a2LockLifted();
-  return useEntitlement((s) => lifted || hasFeature(s.entitlement, feature, Date.now()));
+  return useEntitlement((s) => lifted || hasFeature(s.entitlement, feature, guardedNow()));
 }
 
 /** Reactive: paying plan in force. The derived read that replaced `premium`. */
 export function useIsPremium(): boolean {
-  return useEntitlement((s) => isPremium(s.entitlement, Date.now()));
+  return useEntitlement((s) => isPremium(s.entitlement, guardedNow()));
 }
 
 /** Imperative read for non-component code (gates inside handlers). */

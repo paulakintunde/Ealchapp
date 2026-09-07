@@ -20,6 +20,7 @@ import { ErrorScreen } from '@/components/ErrorScreen';
 import { refreshConfig, tts } from '@/services';
 import { useProgress } from '@/store/useProgress';
 import { useContent, initContent } from '@/services/content';
+import { loadTimeFloor } from '@/services/serverClock';
 import { installErrorHandlers, logError } from '@/services/errors';
 import { useAuthSession } from '@/services/session';
 import { useForegroundSync } from '@/services/sync';
@@ -83,6 +84,11 @@ export default function RootLayout() {
   useEntitlementSync();
 
   useEffect(() => {
+    // BEFORE the first gate is evaluated: the clock floor that stops a wound-back
+    // device clock reviving an expired subscription offline. Until it resolves
+    // guardedNow() is plain Date.now(), which is the old behaviour, never
+    // stricter — a slow read cannot lock anyone out.
+    void loadTimeFloor();
     refreshConfig();
     void initContent();
     // Warm the device voice list at launch so the home greeting (and the first
