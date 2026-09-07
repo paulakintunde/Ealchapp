@@ -8,6 +8,7 @@ import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { MascotAvatar } from '@/components/MascotAvatar';
 import { avatarName } from '@/content/avatars';
+import { guardedNow } from '@/services/serverClock';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -96,7 +97,7 @@ export default function Roleplay() {
   const entitlement = useEntitlement((s) => s.entitlement);
   const attempts = useProgress((s) => s.attempts);
   const capLocked = scenario
-    ? roleplayLocked(entitlement, attempts, localDay(new Date()), scenario.id, Date.now())
+    ? roleplayLocked(entitlement, attempts, localDay(new Date()), scenario.id, guardedNow())
     : false;
 
   const mounted = useRef(true);

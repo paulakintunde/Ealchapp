@@ -86,6 +86,85 @@ async function sha256Hex(bytes: ArrayBuffer): Promise<string | null> {
 }
 
 /**
+ * Is this clip already on disk?
+ *
+ * The question a preflight asks. Cheap and synchronous-ish: a path check, no
+ * network, no read. A clip already cached will play with no connection at all,
+ * so a candidate holding all of them is not offline in any sense that matters.
+ */
+export function clipIsCached(ref: ClipRef): boolean {
+  const f = fs();
+  if (!f) return false;
+  try {
+    return new f.File(new f.Directory(f.Paths.cache, CACHE_DIR), cacheName(ref.path)).exists;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * What a listening paper would actually do if the candidate started it now.
+ *
+ * ── Why this exists ────────────────────────────────────────────────────────
+ *
+ * In exam mode a clip plays ONCE and is then gone. If the download fails, the
+ * part raises `onUnplayable`, its questions become unanswerable, and the
+ * attempt is logged `audioFailed` and excluded from the pass check. That is a
+ * correct way to handle a failure and a terrible way to discover one: the
+ * candidate learns it partway through a paper they have committed hours to,
+ * having already started a clock they cannot stop.
+ *
+ * So it is asked BEFORE the clock starts. `missing` counts documents that are
+ * neither cached nor obtainable; `reachable` says whether the network could
+ * supply them. A candidate with every clip cached gets `missing: 0` and is
+ * never warned, offline or not, which is the point of checking the cache
+ * rather than just pinging.
+ */
+export type AudioPreflight = { total: number; cached: number; missing: number; reachable: boolean };
+
+export async function preflightClips(refs: readonly ClipRef[]): Promise<AudioPreflight> {
+  const total = refs.length;
+  const cached = refs.filter(clipIsCached).length;
+  if (total === 0 || cached === total) {
+    // Nothing to fetch, so reachability cannot change the answer. Skip the
+    // probe rather than make a candidate wait on a network call for a result
+    // that is already decided.
+    return { total, cached, missing: 0, reachable: true };
+  }
+  return { total, cached, missing: total - cached, reachable: await assetHostReachable() };
+}
+
+/**
+ * Can we reach the CDN right now?
+ *
+ * A HEAD against a clip we actually need, not a generic connectivity check: a
+ * captive portal answers a ping and not a bucket, and the only question worth
+ * asking is whether THIS host will serve THIS file. Short timeout because it
+ * sits between a tap and a screen; any failure reads as "no", which sends the
+ * candidate to a warning rather than into a silent void.
+ */
+const REACH_TIMEOUT_MS = 4000;
+
+export async function assetHostReachable(probePath?: string): Promise<boolean> {
+  const url = contentAssetUrl(probePath ?? 'manifest.json');
+  if (!url) return false;
+  try {
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), REACH_TIMEOUT_MS);
+    try {
+      const res = await fetch(url, { method: 'HEAD', cache: 'no-store' as RequestCache, signal: ctl.signal });
+      // Any answered status proves the host is there and talking. A 404 on the
+      // probe path still means the next clip request would be served.
+      return res.status > 0;
+    } finally {
+      clearTimeout(t);
+    }
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Resolve a clip to a local file URI, downloading and caching on first use.
  * Returns null for every failure mode — the caller's signal to use TTS.
  */

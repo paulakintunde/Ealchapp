@@ -124,10 +124,18 @@ export type Strings = {
   examTimeUp: string; examTimeUpBody: string; examConfirmSubmit: string; examConfirmSubmitBody: string;
   examAnswered: string; examWords: string; examLeaveSection: string; examLeaveBody: string;
   examNoReveal: string; examStay: string; examLeave: string;
-  /** Compréhension orale playback. `examPlaysLeft` carries a {n} placeholder. */
+  /** Compréhension orale playback. `examPlaysLeft` carries a {n} placeholder.
+   *  `examSilenceNotice` is shown ONCE at the top of a listening paper: the
+   *  silences in this épreuve are part of the format, and a candidate who reads
+   *  them as a broken player starts tapping instead of reading the questions. */
   examReadWindow: string; examPlaying: string; examPlaysLeft: string; examAudioSpent: string;
+  examSilenceNotice: string;
   examReplay: string; examTranscript: string;
   examAudioFailed: string; examAudioFailedBody: string;
+  /** The preflight, BEFORE the clock starts. `examAudioOfflineBody` carries
+   *  {n} (documents that would not play) and {total}. */
+  examAudioOffline: string; examAudioOfflineBody: string; examAudioStartAnyway: string;
+  examAudioCheckingL: string;
   /** Expression orale capture. */
   examStartPrep: string; examStartRecording: string; examPrepPhase: string; examPrepBody: string;
   examRecording: string; examStopRecording: string;
@@ -299,6 +307,9 @@ export type Strings = {
   speakScene: string; speakRepeat: string; vfTitle: string;
   speakBlock: string; speakBlockDone: string; speakStationDone: string;
   speakMapT: string; speakWorld: string; speakBackMap: string;
+  /** Playlist speak mode: a playlist is not a station, so it finishes and
+   *  returns differently from the trail. */
+  speakSetDone: string; speakBackPlaylist: string;
   speakRetry: string; speakSkip: string; speakTryN: string;
   speakFocusOn: string; speakFocusWordsT: string;
   speakNextStation: string; speakNextWorld: string;
@@ -441,10 +452,23 @@ export const T: Record<Lang, Strings> = {
     examNoReveal: 'Les corrections sont données à la fin, dans Le Rapport.',
     examStay: 'Rester', examLeave: 'Quitter',
     examReadWindow: "Lisez les questions. L'audio va commencer.",
-    examPlaying: 'Lecture en cours', examPlaysLeft: 'Encore {n} écoute', examAudioSpent: 'Écoute terminée',
+    examPlaying: 'Lecture en cours', examPlaysLeft: 'Encore {n} écoute. Lisez les questions en attendant.', examAudioSpent: 'Écoute terminée',
+    examSilenceNotice:
+      'L’audio se déclenche tout seul, et il commence par un silence : '
+      + 'ce temps est prévu pour que vous lisiez les questions. '
+      + 'D’autres silences suivent, entre les écoutes et entre les documents. '
+      + 'Ils font partie de l’épreuve. Rien n’est en panne : lisez, et attendez la voix.',
     examReplay: 'Réécouter', examTranscript: 'Transcription',
     examAudioFailed: 'Audio indisponible',
     examAudioFailedBody: "Aucun son n'a pu être joué pour ce document. Il ne sera pas compté dans votre estimation.",
+    examAudioOffline: 'Audio indisponible hors connexion',
+    examAudioOfflineBody:
+      'Sur les {total} documents de cette épreuve, {n} ne sont pas encore téléchargés '
+      + 'et la connexion ne répond pas. En mode examen, chaque document ne passe qu’une fois : '
+      + 'ceux qui manquent ne pourront pas être écoutés et leurs questions ne seront pas comptées. '
+      + 'Reconnectez-vous, ou commencez en sachant ce qui manque.',
+    examAudioStartAnyway: 'Commencer quand même',
+    examAudioCheckingL: 'Vérification de l’audio…',
     examStartPrep: 'Commencer la préparation', examStartRecording: "Commencer à parler",
     examPrepPhase: 'Préparation', examPrepBody: "Lisez le document. L'enregistrement démarrera tout seul.",
     examRecording: 'Enregistrement', examStopRecording: "J'ai terminé",
@@ -683,6 +707,7 @@ export const T: Record<Lang, Strings> = {
     speakScene: 'RÉEL — AU CAFÉ', speakRepeat: 'Répétez la phrase de {name}', vfTitle: 'FLASH VOCAL',
     speakBlock: 'Bloc {a} / {b}', speakBlockDone: 'Bloc terminé !', speakStationDone: 'Station terminée !',
     speakMapT: 'Le sentier de la parole', speakWorld: 'Monde {n}', speakBackMap: 'Retour au sentier',
+    speakSetDone: 'Playlist terminée !', speakBackPlaylist: 'Retour à la playlist',
     speakRetry: 'Réessayer', speakSkip: 'Passer cette phrase', speakTryN: 'Essai {n}',
     speakFocusOn: 'À travailler', speakFocusWordsT: 'Mots à travailler',
     speakNextStation: 'Station suivante', speakNextWorld: 'Monde suivant : {w}',
@@ -853,10 +878,23 @@ export const T: Record<Lang, Strings> = {
     examNoReveal: 'Corrections come at the end, in Le Rapport.',
     examStay: 'Stay', examLeave: 'Leave',
     examReadWindow: 'Read the questions. The audio is about to start.',
-    examPlaying: 'Playing', examPlaysLeft: '{n} play left', examAudioSpent: 'Audio finished',
+    examPlaying: 'Playing', examPlaysLeft: '{n} play left. Read the questions while you wait.', examAudioSpent: 'Audio finished',
+    examSilenceNotice:
+      'The audio starts on its own, and it opens with a silence: '
+      + 'that time is there for you to read the questions. '
+      + 'More silences follow, between plays and between documents. '
+      + 'They are part of the exam. Nothing is stuck: read, and wait for the voice.',
     examReplay: 'Play again', examTranscript: 'Transcript',
     examAudioFailed: 'Audio unavailable',
     examAudioFailedBody: 'No sound could be played for this document. It will not count toward your estimate.',
+    examAudioOffline: 'Audio unavailable offline',
+    examAudioOfflineBody:
+      'Of the {total} documents in this paper, {n} are not downloaded yet '
+      + 'and the connection is not responding. In exam mode each document plays once: '
+      + 'the missing ones cannot be heard, and their questions will not be scored. '
+      + 'Reconnect, or start knowing what is missing.',
+    examAudioStartAnyway: 'Start anyway',
+    examAudioCheckingL: 'Checking audio…',
     examStartPrep: 'Start preparation', examStartRecording: 'Start speaking',
     examPrepPhase: 'Preparation', examPrepBody: 'Read the document. Recording starts on its own.',
     examRecording: 'Recording', examStopRecording: "I'm done",
@@ -1095,6 +1133,7 @@ export const T: Record<Lang, Strings> = {
     speakScene: 'REAL-WORLD — AT THE CAFÉ', speakRepeat: "Repeat the line", vfTitle: 'VOICE FLASH',
     speakBlock: 'Block {a} / {b}', speakBlockDone: 'Block complete!', speakStationDone: 'Station cleared!',
     speakMapT: 'The speaking trail', speakWorld: 'World {n}', speakBackMap: 'Back to the trail',
+    speakSetDone: 'Playlist complete!', speakBackPlaylist: 'Back to the playlist',
     speakRetry: 'Try again', speakSkip: 'Skip this line', speakTryN: 'Try {n}',
     speakFocusOn: 'Focus on', speakFocusWordsT: 'Words to practice',
     speakNextStation: 'Next station', speakNextWorld: 'Next world: {w}',

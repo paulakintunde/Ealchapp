@@ -294,6 +294,28 @@ export default function ExamSectionScreen() {
           {T.examNoReveal}
         </TX>
 
+        {/* And the one thing they are told about the AUDIO, for the same reason.
+            A listening paper is mostly silence: a read window before the first
+            play, a pause between the two plays, and a pause between documents.
+            On DELF that is 60s + 60s + 30s around a three-minute recording, so
+            a candidate meets a still screen and no sound long before they meet
+            the voice.
+
+            Nothing on the screen said that was deliberate. The per-part line
+            underneath announces the current phase, but it arrives with the part
+            and is easy to miss while the eye is on the questions — and by then
+            the candidate is already tapping the player, which does nothing,
+            because the audio starts on its own. Told once, at the top, silence
+            reads as the format instead of as a fault.
+
+            CO only: nothing else in the paper has a playback phase to explain,
+            and a notice about waiting for a voice on a reading paper is noise. */}
+        {section.skill === 'CO' ? (
+          <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 20 }}>
+            {T.examSilenceNotice}
+          </TX>
+        ) : null}
+
         {/* One playback owner for the whole paper. Without it every audio part
             ran its own autoplay timer from mount, so parts sharing a
             readWindowS all started together into the single shared player and
