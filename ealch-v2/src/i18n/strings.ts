@@ -152,6 +152,11 @@ export type Strings = {
   examParallelNotEquated: string; examNoOverall: string; examNothingSat: string;
   examMissingSkills: string; examWhatNext: string; examNoPrepLesson: string;
   examNotSat: string; examNoScoring: string; examBelowScale: string; examNoAnswer: string;
+  /** The marking a candidate came for. The AI grader has always produced
+   *  criterion-level feedback and every open task has always carried a model
+   *  answer; both were written to the device and shown to nobody. */
+  examMarking: string; examMarkingSub: string; examGradedAt: string; examTargetBand: string;
+  examShowModel: string; examHideModel: string; examModelTitle: string; examModelNote: string;
   /** DELF B2 reports a diploma, not a level: a mark per épreuve, a total, and
    *  the floor every épreuve has to clear. See utils/delf.logic.ts. */
   delfResult: string; delfResultPass: string; delfResultFail: string;
@@ -493,6 +498,12 @@ export const T: Record<Lang, Strings> = {
     examNoPrepLesson: "Aucune leçon de préparation à ce niveau pour l'instant.",
     examNotSat: 'Non passée', examNoScoring: 'Non barémée',
     examBelowScale: 'Sous le NCLC 4', examNoAnswer: 'Rien rendu',
+    examMarking: 'La correction',
+    examMarkingSub: 'Ce que le correcteur a relevé, critère par critère.',
+    examGradedAt: 'Noté {band}', examTargetBand: 'Objectif {band}',
+    examShowModel: 'Voir une réponse modèle', examHideModel: 'Masquer la réponse modèle',
+    examModelTitle: 'Une réponse modèle',
+    examModelNote: "Une réponse qui tient au niveau visé. Ce n'est ni la seule ni un corrigé officiel.",
     delfResult: 'Résultat', delfResultPass: 'Admis', delfResultFail: 'Non admis',
     delfFloor: 'Il faut 50/100 au total et au moins 5/25 à chaque épreuve.',
     delfBelowFloor: 'Sous le minimum',
@@ -919,6 +930,12 @@ export const T: Record<Lang, Strings> = {
     examNoPrepLesson: 'No prep lesson at that level yet.',
     examNotSat: 'Not sat', examNoScoring: 'No score map',
     examBelowScale: 'Below NCLC 4', examNoAnswer: 'No answer given',
+    examMarking: 'Your marking',
+    examMarkingSub: 'What the marker picked up, criterion by criterion.',
+    examGradedAt: 'Graded {band}', examTargetBand: 'Target {band}',
+    examShowModel: 'See a model answer', examHideModel: 'Hide the model answer',
+    examModelTitle: 'A model answer',
+    examModelNote: 'One answer that holds at the target level. It is not the only one, and not an official key.',
     delfResult: 'Result', delfResultPass: 'Pass', delfResultFail: 'Not passed',
     delfFloor: 'You need 50/100 overall and at least 5/25 in every épreuve.',
     delfBelowFloor: 'Below the minimum',
