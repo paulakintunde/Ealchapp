@@ -50,6 +50,7 @@ import {
   validateCorpus,
   ITEM_ID_RE,
   type Corpus,
+  type Domain,
   type ExamPaper,
   type ExamTask,
   type Item,
@@ -58,6 +59,7 @@ import {
   type Playlist,
   type SpeakStage,
   type Scenario,
+  type Theme,
   type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
 
@@ -183,13 +185,26 @@ async function runPythonGate(
 //     assetKey), add them to the SELECT, the mapper and PROJECTED_ITEM_COLUMNS.
 //     Blocked on the Phase 7 audio pipeline actually producing timings.
 //
-//   Domain, Theme, Pack     (Corpus.domains/themes/packs)
-//     No tables at all. validateCorpus treats the arrays as empty, so a corpus
-//     without them is valid and the app sees no catalogue.
-//     Sequenced later by design (the plan scopes tables and data out of this
-//     pass). DONE = tables + a read here + the arrays on the emitted Corpus.
-//     NOTE for whoever does it: unlike content_items, there is no guard holding
-//     these honest. Nothing will tell you the arrays are empty.
+//   Domain, Theme            (Corpus.domains/themes)
+//     DONE — content_domains and content_themes are read below and land on
+//     BOTH the snapshot and the seed cut. Worth keeping the history, because
+//     the note above predicted the failure exactly and was still not enough:
+//     the tables were added, the read was not, and the arrays reached every
+//     phone empty. Between v11 (2026-08-01, the publish that first regenerated
+//     seed.json from the database) and v64, thirteen snapshots shipped no
+//     catalogue at all, and five practice hubs — Flashcards, Voice Flash,
+//     Sentence Builder, La Dictée, Role Play — rendered an empty grid on every
+//     build, seeded or over-the-air. Nothing failed: validateCorpus passes a
+//     corpus with no catalogue (nothing left to dangle) and the seed's own
+//     tests only ever counted items.
+//     The refusal that would have caught it on day one is now in step 1, and
+//     ealch-v2/src/content/catalogue-ships.test.ts holds the seed to it.
+//
+//   Pack                     (Corpus.packs)
+//     Still debt. No table, so the array is absent from every snapshot, and
+//     nothing in the app reads it yet — which is why it gets no refusal below.
+//     DONE = a table + a read here + the array on the emitted Corpus, and a
+//     line in the catalogue guard once a screen depends on it.
 //
 //   ExamTask, ExamPaper      (Corpus.examTasks/examPapers)
 //     DONE (Phase 8 gap-closure) — read below, mapped onto the full `corpus`
@@ -350,6 +365,23 @@ async function main() {
        from content_exam_papers where status = 'published'`
   );
 
+  // The CATALOGUE — the tree every practice hub browses. No `status` filter,
+  // and that is not an omission: unlike a lesson, a domain or a theme is never
+  // drafted or reviewed. It exists or it does not, which is exactly why these
+  // are small reference tables rather than content_units documents.
+  //
+  // level_range_lo/hi are the content_level enum, cast to text for the same
+  // node-postgres reason as content_items.kind above. sub_themes is a native
+  // text[] and parses uncast.
+  const domainRows = await pool.query(
+    `select slug, title, "order" from content_domains order by "order"`
+  );
+  const themeRows = await pool.query(
+    `select slug, title, domain, level_range_lo::text as level_range_lo,
+            level_range_hi::text as level_range_hi, exam_flag, immig_flag, sub_themes
+       from content_themes order by slug`
+  );
+
   const units: Unit[] = unitRows.rows.map((r) => r.body);
   const lessons: Lesson[] = lessonRows.rows.map((r) => r.body);
   const scenarios: Scenario[] = scenarioRows.rows.map((r) => r.body);
@@ -392,6 +424,25 @@ async function main() {
     // column-mapped fields above, it cannot lose a key silently.
     sections: r.sections ?? [],
   }));
+  const domains: Domain[] = domainRows.rows.map((r) => ({
+    slug: r.slug,
+    title: r.title,
+    order: r.order,
+  }));
+  const themes: Theme[] = themeRows.rows.map((r) => ({
+    slug: r.slug,
+    title: r.title,
+    domain: r.domain,
+    // Two columns in, one tuple out — the app reads a range, the table stores
+    // the ends separately so "every b1 theme" stays a plain WHERE clause.
+    levelRange: [r.level_range_lo, r.level_range_hi],
+    examFlag: r.exam_flag,
+    immigFlag: r.immig_flag,
+    // NOT spread-when-present like the optional Item fields: the app's Theme
+    // requires subThemes, and the column is NOT NULL DEFAULT '{}'. The ?? is
+    // belt-and-braces for a row written before that default existed.
+    subThemes: r.sub_themes ?? [],
+  }));
   const items: Item[] = itemRows.rows.map((r) => ({
     id: r.id,
     kind: r.kind,
@@ -430,6 +481,28 @@ async function main() {
       `${scenarios.length} scenarios · ${playlists.length} playlists · ` +
       `${examTasks.length} exam tasks · ${examPapers.length} exam papers`
   );
+  console.log(`  catalogue: ${domains.length} domains · ${themes.length} themes`);
+
+  // THE CATALOGUE IS NOT OPTIONAL, and this is the guard the projection-debt
+  // note above asked for by name ("nothing will tell you the arrays are
+  // empty"). Nothing did, for thirteen publishes.
+  //
+  // Every practice hub — Flashcards, Voice Flash, Sentence Builder, La Dictée,
+  // Role Play — renders `corpus.domains` (Role Play, `corpus.themes`) directly.
+  // An empty catalogue is not a smaller grid, it is NO grid: five screens of
+  // blank, on a corpus holding 48,000 items, with nothing anywhere saying so.
+  // validateCorpus cannot catch it, because a corpus with no catalogue is
+  // structurally valid — there is simply nothing left to dangle.
+  //
+  // So it dies here instead, where the tables are one query away.
+  if (!domains.length || !themes.length) {
+    await pool.end();
+    die(
+      `the catalogue is empty (${domains.length} domains, ${themes.length} themes).\n` +
+        '  Every practice hub browses it, so publishing this ships five blank screens.\n' +
+        '  Check content_domains and content_themes — this is reference data and is never empty.'
+    );
+  }
 
   if (
     !units.length && !lessons.length && !items.length && !scenarios.length && !playlists.length &&
@@ -467,7 +540,7 @@ async function main() {
   const previous = prev.rows[0];
   const version = (previous?.version ?? 0) + 1;
 
-  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examPapers, speakPath };
+  const corpus: Corpus = { version, domains, themes, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examPapers, speakPath };
 
   // ── 4. THE GATE ────────────────────────────────────────────────────────
   // Every failure below is one that does NOT crash in production. A dangling
@@ -899,8 +972,20 @@ async function main() {
   // for a level a fresh offline install actually has content for.
   const seedPlaylists = playlists.filter((p) => seedLevels.has(p.minLevel));
 
+  // The catalogue ships WHOLE, not cut. Three reasons, in order of weight:
+  //
+  //   · The hubs and theme lists already drop anything with no items (`count >
+  //     0`), so a theme the cut did not bundle costs a row in the array and
+  //     renders nothing. Cutting it would buy the same screens for more code.
+  //   · A cut catalogue and a full one must then be MERGED at launch, and
+  //     mergeCorpus overlays by slug — so the seed's narrower view would be a
+  //     second shape to reason about for no gain. Identical arrays make the
+  //     overlay a no-op.
+  //   · It is reference data: 14 domains and 130 themes is roughly 26 KiB
+  //     against a 5 MiB ceiling, and it does not grow with the corpus.
   const seed: Corpus = {
-    version, units: seedUnits, lessons: seedLessons, items: seedItems,
+    version, domains, themes,
+    units: seedUnits, lessons: seedLessons, items: seedItems,
     scenarios: seedScenarios, playlists: seedPlaylists, speakPath: seedSpeak,
   };
 
@@ -960,6 +1045,8 @@ async function main() {
   };
   const candidateContent = contentDigest(corpus);
   const counts = {
+    domains: (corpus.domains ?? []).length,
+    themes: (corpus.themes ?? []).length,
     units: corpus.units.length,
     lessons: corpus.lessons.length,
     items: corpus.items.length,
@@ -969,6 +1056,8 @@ async function main() {
     examPapers: (corpus.examPapers ?? []).length,
   };
   const seedCounts = {
+    domains: (seed.domains ?? []).length,
+    themes: (seed.themes ?? []).length,
     units: seed.units.length,
     lessons: seed.lessons.length,
     items: seed.items.length,
@@ -1025,6 +1114,8 @@ async function main() {
       return `${counts[k]} (${delta >= 0 ? '+' : ''}${delta})`;
     };
     console.log(`  v${previous.version} → v${version}`);
+    console.log(`    domains:    ${d('domains')}`);
+    console.log(`    themes:     ${d('themes')}`);
     console.log(`    units:      ${d('units')}`);
     console.log(`    lessons:    ${d('lessons')}`);
     console.log(`    items:      ${d('items')}`);
