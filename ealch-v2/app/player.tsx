@@ -14,6 +14,7 @@ import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
 import { playlist } from '@/content/playlists';
+import { parseTrackParam, playlistDeck, playlistStartIx, playlistTrackAt, speakRouteFor } from '@/utils/speakDeck.logic';
 import { SpeedPicker } from '@/components/SpeedPicker';
 
 // An honest LISTENING pass over real corpus phrases, spoken by device TTS.
@@ -43,18 +44,17 @@ export default function Player() {
   }, [params.playlist]);
 
   const lines = useMemo<{ fr: string; en: string }[]>(
-    () => (pl ? pl.tracks.flatMap((tk) => tk.lines) : content.itemsFor('flashcard')),
+    () => (pl ? playlistDeck(pl) : content.itemsFor('flashcard')),
     [pl]
   );
   const total = lines.length;
 
   // ?track=N starts the flattened line sequence at the first line of track N.
-  const startIx = useMemo(() => {
-    if (!pl) return 0;
-    const raw = Array.isArray(params.track) ? params.track[0] : params.track;
-    const n = Math.max(0, Math.min(pl.tracks.length - 1, parseInt(raw ?? '0', 10) || 0));
-    return pl.tracks.slice(0, n).reduce((sum, tk) => sum + tk.lines.length, 0);
-  }, [pl, params.track]);
+  // The flatten and this arithmetic live in speakDeck.logic so the mic below
+  // opens on the same line this screen is showing: Listen and Voice have to
+  // mean the same thing by "track 4".
+  const trackIx = useMemo(() => (pl ? parseTrackParam(pl, params.track) : 0), [pl, params.track]);
+  const startIx = useMemo(() => (pl ? playlistStartIx(pl, trackIx) : 0), [pl, trackIx]);
 
   const [ix, setIx] = useState(startIx);
   const [playing, setPlaying] = useState(false);
@@ -75,15 +75,10 @@ export default function Player() {
 
   // In playlist mode the header names the track the current line belongs to, so
   // skipping through the set is legible; otherwise it's the plain listen title.
-  const headerTitle = useMemo(() => {
-    if (!pl) return T.playerListen;
-    let acc = 0;
-    for (const tk of pl.tracks) {
-      acc += tk.lines.length;
-      if (ix < acc) return tk.title;
-    }
-    return pl.word;
-  }, [pl, ix, T.playerListen]);
+  const headerTitle = useMemo(
+    () => (pl ? (pl.tracks[playlistTrackAt(pl, ix)]?.title ?? pl.word) : T.playerListen),
+    [pl, ix, T.playerListen]
+  );
 
   useEffect(
     () => () => {
@@ -147,6 +142,25 @@ export default function Player() {
     tts.stop();
     if (playingRef.current) speakLine(next);
     else tts.speak(lines[next]?.fr ?? '', { rate: speedRef.current });
+  };
+
+  // Practice out loud. Two things have to happen here that a bare push does not
+  // do. First the playlist travels: without it Speak falls back to the trail's
+  // frontier station, which is how every playlist used to open the SAME deck.
+  // The track is the one being HEARD (ix), not the one the screen was entered
+  // on, so skipping forward and tapping the mic starts where you are.
+  //
+  // Second, this screen is pushed over, not unmounted, so its cleanup does not
+  // run. tts.speak() on the Speak side calls Speech.stop() and invalidates the
+  // pending utterance, so the player's onDone never fires: leave it as-is and
+  // it sits behind Speak showing a pause icon over silence. Stop and pause it
+  // here instead.
+  const practiceOutLoud = () => {
+    sound.play('tap');
+    playingRef.current = false;
+    setPlaying(false);
+    tts.stop();
+    router.push(speakRouteFor(pl?.id, pl ? playlistTrackAt(pl, ix) : 0));
   };
 
   // Back to the first phrase and play from the top.
@@ -245,7 +259,7 @@ export default function Player() {
         </View>
 
         {/* Practice out loud → Speak Mode */}
-        <Press onPress={() => router.push('/speak')} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, borderWidth: 1, borderColor: t.accA(60), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 18 }}>
+        <Press onPress={practiceOutLoud} cue={null} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, borderWidth: 1, borderColor: t.accA(60), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 18 }}>
           <TX font="semi" role="bodyLg" color={t.accTx}>
             {T.practice}
           </TX>

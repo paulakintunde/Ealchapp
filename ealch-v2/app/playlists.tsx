@@ -9,6 +9,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { playlists } from '@/content/playlists';
+import { playerRouteFor } from '@/utils/speakDeck.logic';
 
 // The "SEE ALL" index. Every playlist and every track it holds is real content;
 // a track count is `tracks.length`, and each track row deep-links the player to
@@ -34,7 +35,7 @@ export default function Playlists() {
           <View key={p.id} style={{ marginBottom: 26 }}>
             {/* Playlist header — word tile + label + honest count */}
             <Press
-              onPress={() => router.push(`/player?playlist=${p.id}&track=0`)}
+              onPress={() => router.push(playerRouteFor(p.id, 0))}
               style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 12 }}
             >
               <View style={{ width: 76, height: 76, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.isDark ? '#12100E' : t.card, ...t.cardShadow }}>
@@ -61,7 +62,7 @@ export default function Playlists() {
               {p.tracks.map((tk, i) => (
                 <Press
                   key={tk.id}
-                  onPress={() => router.push(`/player?playlist=${p.id}&track=${i}`)}
+                  onPress={() => router.push(playerRouteFor(p.id, i))}
                   style={{ minHeight: 56, paddingVertical: 8, borderRadius: 14, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}
                 >
                   <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center' }}>

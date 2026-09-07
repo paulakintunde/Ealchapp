@@ -19,9 +19,14 @@ import {
 } from '@/store/progress.logic';
 import { useContent } from '@/services/content';
 import { getItem, speakStages } from '@/services/content.logic';
+import { playlist } from '@/content/playlists';
+import {
+  parseTrackParam, playerRouteFor, playlistDeck, playlistStartIx, playlistTrackAt, type SpeakCard,
+} from '@/utils/speakDeck.logic';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { markWords, focusWordsFrom, barsForLevel, isLenientLevel } from '@/utils/score';
 import { WORLD_TITLES } from '@/content/speakWorlds';
+import type { Level } from '@/content/schema';
 import { WordPractice } from '@/components/WordPractice';
 
 type Phase = 'idle' | 'listening' | 'analysed' | 'blockdone';
@@ -102,7 +107,17 @@ export default function Speak() {
   // `?stage=&block=` land a resume or a revisit. A stage BEYOND the avatar is
   // locked and clamps to the frontier — the path is linear, that is the point.
   // Earlier (cleared) stations stay enterable for their bonus blocks.
-  const params = useLocalSearchParams<{ stage?: string; block?: string }>();
+  //
+  // `?playlist=&track=` is the OTHER way in, and it does not touch the trail at
+  // all: it drills that playlist's own lines. The player used to push a bare
+  // `/speak`, so every one of the nineteen playlists opened whatever station
+  // the avatar happened to be standing on. Listening was playlist-specific and
+  // speaking was not.
+  const params = useLocalSearchParams<{ stage?: string; block?: string; playlist?: string; track?: string }>();
+  const pl = useMemo(() => {
+    const id = Array.isArray(params.playlist) ? params.playlist[0] : params.playlist;
+    return id ? playlist(id) : undefined;
+  }, [params.playlist]);
   const reqStage = Array.isArray(params.stage) ? params.stage[0] : params.stage;
   const reqIx = reqStage ? stages.findIndex((s) => s.id === reqStage) : -1;
   const stageIx = reqIx >= 0 && reqIx <= posIx ? reqIx : posIx;
@@ -125,7 +140,27 @@ export default function Speak() {
     [corpus, block]
   );
 
-  const [cardIx, setCardIx] = useState(0);
+  // What this session actually drills, resolved once so the chrome below never
+  // has to ask which mode it is in. Trail mode is the station's current block;
+  // playlist mode is the whole playlist, flattened by the same function the
+  // player flattens it with.
+  //
+  // `level` matters: it sets the scoring bars and whether a miss is amber or
+  // red. A playlist declares `minLevel`, which is exactly that judgement,
+  // recorded at authoring time.
+  const deck = useMemo<{ mode: 'trail' | 'playlist'; title: string; level: Level | undefined; cards: SpeakCard[]; celebrateKey: string }>(
+    () =>
+      pl
+        ? { mode: 'playlist', title: pl.word, level: pl.minLevel, cards: playlistDeck(pl), celebrateKey: `speak-pl-${pl.id}` }
+        : { mode: 'trail', title: stage?.title ?? '', level: stage?.level, cards: items, celebrateKey: `speak-${stage?.id ?? 'none'}-${blockIx}` },
+    [pl, stage, items, blockIx]
+  );
+
+  // Playlist mode enters on the track the player was hearing, so tapping the
+  // mic mid-set starts where you are rather than at the top.
+  const [cardIx, setCardIx] = useState(() =>
+    pl ? playlistStartIx(pl, parseTrackParam(pl, params.track)) : 0
+  );
   const [phase, setPhase] = useState<Phase>('idle');
   const [speaking, setSpeaking] = useState(false);
   const [partial, setPartial] = useState('');
@@ -155,9 +190,11 @@ export default function Speak() {
   // The map can push a different `?stage=` while this screen is mounted, and
   // the blockdone CTA advances the stage in place. `blockIx`'s initializer
   // only ran on mount, so a stage change must reset the session state itself.
+  // Playlist mode is exempt: `stage` is still computed there (the frontier),
+  // and resetting to card 0 on a frontier wobble would throw away the set.
   const prevStageId = useRef(stage?.id);
   useEffect(() => {
-    if (!stage || prevStageId.current === stage.id) return;
+    if (pl || !stage || prevStageId.current === stage.id) return;
     prevStageId.current = stage.id;
     stt.abort();
     cardToken.current += 1;
@@ -174,11 +211,11 @@ export default function Speak() {
 
   const avatarId = useStore((s) => s.avatarId);
   const coachName = avatarName(avatarId);
-  const item = items[cardIx];
-  // Strictness follows the station's band: forgiving bars and amber "practice
+  const item = deck.cards[cardIx];
+  // Strictness follows the deck's band: forgiving bars and amber "practice
   // this" marks early on, tighter bars and red misses at the advanced levels.
-  const bars = barsForLevel(stage?.level);
-  const missColor = isLenientLevel(stage?.level) ? t.warn : t.danger;
+  const bars = barsForLevel(deck.level);
+  const missColor = isLenientLevel(deck.level) ? t.warn : t.danger;
   const listening = phase === 'listening';
   const analysed = phase === 'analysed';
   const waveActive = listening || speaking;
@@ -209,8 +246,13 @@ export default function Speak() {
   // Keeps the trail resumable at the exact station AND block. Card position
   // inside a block is deliberately not persisted: blocks are the session
   // unit, and re-entering one from its top is a feature, not a loss.
+  //
+  // Playlist mode writes NOTHING here. There is one resume slot per activity,
+  // so a playlist route in it would erase the learner's place on the trail and
+  // make the home hero offer a playlist as "resume Speak". A playlist is one
+  // sitting; losing its place costs less than losing the trail's.
   useEffect(() => {
-    if (!stage || phase === 'blockdone') return;
+    if (pl || !stage || phase === 'blockdone') return;
     setResume('speak', {
       route: `/speak?stage=${stage.id}&block=${blockIx}`,
       title: stage.title,
@@ -282,7 +324,7 @@ export default function Speak() {
     setNoHear(0);
     setPassedCard(false);
     setPracticeIx(null);
-    if (cardIx + 1 < items.length) {
+    if (cardIx + 1 < deck.cards.length) {
       setCardIx(cardIx + 1);
       setPhase('idle');
     } else {
@@ -363,9 +405,9 @@ export default function Speak() {
         .filter(Boolean)
     : [];
 
-  // An empty path (a snapshot from before speakPath shipped) or a dangling
-  // block is a plain "coming soon", never a crash.
-  if (!stage || !block || !items.length) {
+  // An empty path (a snapshot from before speakPath shipped), a dangling block,
+  // or an unknown `?playlist=` id: all three are a plain "coming soon".
+  if (!deck.cards.length || (deck.mode === 'trail' && (!stage || !block))) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bgDeep, paddingTop: insets.top }}>
         <View style={{ flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: 20, paddingVertical: 12 }}>
@@ -383,7 +425,17 @@ export default function Speak() {
     );
   }
 
-  const blockMeta = T.speakBlock.replace('{a}', String(blockIx + 1)).replace('{b}', String(stage.blocks.length));
+  // Trail mode counts blocks; a playlist has none, so it names the track the
+  // current line belongs to instead. Either way the line answers "where am I".
+  const blockMeta =
+    deck.mode === 'playlist' && pl
+      ? (pl.tracks[playlistTrackAt(pl, cardIx)]?.title ?? pl.word)
+      : T.speakBlock.replace('{a}', String(blockIx + 1)).replace('{b}', String(stage?.blocks.length ?? 0));
+
+  // Lines of this playlist said well at least once, ever — folded from the same
+  // attempt log the trail's own count comes from, so it is a fact rather than a
+  // session tally that resets when you leave.
+  const deckPassed = deck.mode === 'playlist' ? deck.cards.filter((c) => passed.has(c.id)).length : 0;
 
   // ── Block complete ──
   if (phase === 'blockdone') {
@@ -393,13 +445,13 @@ export default function Speak() {
     // The trail is progressive: a cleared station hands straight to the next
     // one, and the next world when the station was its last. Bonus blocks stay
     // reachable from the map, they just stop being the default.
-    const nextStage = stationCleared ? stages[stageIx + 1] : undefined;
+    const nextStage = deck.mode === 'trail' && stationCleared ? stages[stageIx + 1] : undefined;
     // What this session exposed: the words the recognizer kept missing across
-    // this block's failed takes, folded from the same log everything else is.
-    const blockItemIds = new Set(block.itemIds);
+    // this deck's failed takes, folded from the same log everything else is.
+    const deckIds = new Set(deck.cards.map((c) => c.id));
     const focus = focusWordsFrom(
       attempts
-        .filter((a) => a.activity === 'speak' && !a.correct && a.heard && blockItemIds.has(a.itemId))
+        .filter((a) => a.activity === 'speak' && !a.correct && a.heard && deckIds.has(a.itemId))
         .map((a) => ({ expected: a.expected, heard: a.heard })),
       6
     );
@@ -410,19 +462,32 @@ export default function Speak() {
             <MascotAvatar
               size={110}
               rounded={false}
-              state={blockCleared ? 'celebrate' : 'idle'}
-              tier={stationCleared ? 'medium' : 'micro'}
-              celebrateKey={`speak-${stage.id}-${blockIx}`}
+              state={(deck.mode === 'playlist' ? deckPassed > 0 : blockCleared) ? 'celebrate' : 'idle'}
+              tier={deck.mode === 'trail' && stationCleared ? 'medium' : 'micro'}
+              celebrateKey={deck.celebrateKey}
             />
           </View>
           <TX font="serifI" size={27} role="display" center style={{ marginBottom: 8 }}>
-            {stationCleared ? T.speakStationDone : blockCleared ? T.speakBlockDone : T.wellDone}
+            {deck.mode === 'playlist'
+              ? deckPassed > 0
+                ? T.speakSetDone
+                : T.wellDone
+              : stationCleared
+                ? T.speakStationDone
+                : blockCleared
+                  ? T.speakBlockDone
+                  : T.wellDone}
           </TX>
           <TX font="semi" role="meta" ls={2} color={t.accTx} center style={{ marginBottom: 6 }}>
-            {stage.title.toUpperCase()}
+            {deck.title.toUpperCase()}
           </TX>
+          {/* A playlist has no station to report against, so it reports what it
+              honestly can: how many of its own lines have been said well. The
+              trail keeps its station tally. */}
           <TX role="label" color={t.txSubtle} center style={{ marginBottom: focus.length ? 16 : 34 }}>
-            {blockMeta} · {stageState?.passedCount ?? 0}/{stageState?.totalCount ?? 0} ✓
+            {deck.mode === 'playlist'
+              ? `${deckPassed}/${deck.cards.length} ✓`
+              : `${blockMeta} · ${stageState?.passedCount ?? 0}/${stageState?.totalCount ?? 0} ✓`}
           </TX>
           {focus.length ? (
             <View style={{ alignItems: 'center', marginBottom: 26, paddingHorizontal: 10 }}>
@@ -450,6 +515,21 @@ export default function Speak() {
                 →
               </TX>
             </Press>
+          ) : deck.mode === 'playlist' && pl ? (
+            <Press
+              cue={null}
+              onPress={() => {
+                sound.play('tap');
+                // navigate, not replace: the player is usually still under this
+                // screen, and replace would stack a second copy of it.
+                router.navigate(playerRouteFor(pl.id, 0));
+              }}
+              style={{ minHeight: 52, paddingVertical: 8, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
+            >
+              <TX font="semi" role="body" color={t.accInk}>
+                {T.speakBackPlaylist}
+              </TX>
+            </Press>
           ) : nextIx >= 0 ? (
             <Press cue={null} onPress={() => startBlock(nextIx)} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
@@ -462,11 +542,15 @@ export default function Speak() {
               {T.end} · Le Rapport →
             </TX>
           </Press>
-          <Press cue={null} onPress={() => router.replace('/speakmap')} style={{ marginTop: 12 }}>
-            <TX role="bodySm" color={t.txMuted}>
-              {T.speakBackMap}
-            </TX>
-          </Press>
+          {/* A playlist is not on the trail, so it does not offer a door back
+              to a map it never left. */}
+          {deck.mode === 'trail' ? (
+            <Press cue={null} onPress={() => router.replace('/speakmap')} style={{ marginTop: 12 }}>
+              <TX role="bodySm" color={t.txMuted}>
+                {T.speakBackMap}
+              </TX>
+            </Press>
+          ) : null}
         </View>
       </View>
     );
@@ -496,11 +580,11 @@ export default function Speak() {
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
               <BlinkDot color={t.acc} />
               <TX font="semi" role="meta" ls={2.6} color={t.txSecondary} numberOfLines={1} style={{ flexShrink: 1 }}>
-                {stage.title.toUpperCase()}
+                {deck.title.toUpperCase()}
               </TX>
             </View>
             <TX font="semi" role="eyebrow" ls={1.8} color={t.txSubtle} numberOfLines={1} style={{ marginTop: 3 }}>
-              {blockMeta} · {cardIx + 1}/{items.length}
+              {blockMeta} · {cardIx + 1}/{deck.cards.length}
             </TX>
           </View>
           <Press onPress={() => router.push('/settings')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
@@ -715,7 +799,7 @@ export default function Speak() {
         <WordPractice
           words={missedWords}
           initialIx={practiceIx}
-          level={stage.level}
+          level={deck.level}
           onClose={() => setPracticeIx(null)}
         />
       ) : null}
