@@ -102,6 +102,15 @@ const CACHE_META_KEY = 'ealch-content-snapshot-meta';
  *  and an app that promises to work offline cannot have its corpus quietly
  *  reclaimed between launches. */
 const snapshotFile = () => new File(Paths.document, 'content-snapshot.json');
+
+/** Where a download lands before it has been verified.
+ *
+ *  Separate from the live cache file on purpose: a download that is interrupted
+ *  or serves the wrong bytes must never be mistaken for the verified snapshot,
+ *  and the commit marker alone cannot protect against that if both write to the
+ *  same path. Promoted by `moveVerifiedSnapshot` only after the checksum
+ *  passes. */
+const snapshotStagingFile = () => new File(Paths.document, 'content-snapshot.part');
 const BUCKET_KEY = 'ealch-rollout-bucket';
 const STORAGE_BASE = ENV.supabaseUrl
   ? `${ENV.supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/content`
@@ -227,15 +236,33 @@ export async function contentCacheInfo(): Promise<{ bytes: number } | null> {
   }
 }
 
-/** Remove both halves of the cache — the file, the commit marker, and any
- *  bytes still parked under the pre-filesystem key. Never throws: every caller
- *  is on a path whose safe outcome is "fall back to the seed". */
-async function purgeCache(): Promise<void> {
+/** Promote the staged download to the live cache file.
+ *
+ *  Called only after the checksum has passed, and before the commit marker is
+ *  written, so the ordering the reader depends on is unchanged: payload in
+ *  place first, marker second. */
+async function moveVerifiedSnapshot(): Promise<void> {
+  const live = snapshotFile();
   try {
-    const f = snapshotFile();
-    if (f.exists) f.delete();
+    if (live.exists) live.delete();
   } catch {
-    // Unlinkable file: the meta removal below still demotes it to "no cache".
+    // Overwriting below is still attempted; a stale live file with no marker
+    // reads as no cache either way.
+  }
+  await snapshotStagingFile().move(live);
+}
+
+/** Remove both halves of the cache — the file, the commit marker, the staged
+ *  part-file, and any bytes still parked under the pre-filesystem key. Never
+ *  throws: every caller is on a path whose safe outcome is "fall back to the
+ *  seed". */
+async function purgeCache(): Promise<void> {
+  for (const f of [snapshotFile(), snapshotStagingFile()]) {
+    try {
+      if (f.exists) f.delete();
+    } catch {
+      // Unlinkable file: the meta removal below still demotes it to "no cache".
+    }
   }
   await AsyncStorage.multiRemove([CACHE_META_KEY, LEGACY_CACHE_KEY]).catch(() => {});
 }
@@ -363,14 +390,43 @@ export async function refreshFromRemote(): Promise<void> {
     // they hold; see shouldAdopt in content.logic.ts for the full contract).
     if (!shouldAdopt(manifest, cachedSnapshotVersion, await rolloutBucket())) return;
 
-    const snapRes = await fetch(`${STORAGE_BASE}/${manifest.path}`, { cache: 'no-store' as RequestCache });
-    if (!snapRes.ok) return;
-    const text = await snapRes.text();
+    // ── Streamed to disk, not pulled into a string ────────────────────────
+    //
+    // This was `fetch()` then `.text()`: one 27 MB all-or-nothing request with
+    // no resume, held entirely in JS memory. On the connections this most
+    // needs to work on it is the difference between "slow" and "never" — every
+    // drop restarts from zero, so a user on intermittent 3G can fail forever
+    // and simply never receive exam content, with nothing telling them why.
+    // It was also a 27 MB spike on exactly the low-RAM devices least able to
+    // absorb one.
+    //
+    // downloadFileAsync streams the body straight into the target file on
+    // Android, so memory stays flat and the bytes that arrive are kept. The
+    // file is the same one the cache reads from, so a completed download is
+    // already the cache — no copy, no second write.
+    const staged = snapshotStagingFile();
+    try {
+      if (staged.exists) staged.delete();
+    } catch {
+      // A leftover part-file we cannot remove: the download below overwrites
+      // it with idempotent, so this is recoverable rather than fatal.
+    }
+    await File.downloadFileAsync(`${STORAGE_BASE}/${manifest.path}`, staged, { idempotent: true });
 
-    // The size ceiling, consumer side. Publish refuses to produce a snapshot
-    // past this, so hitting it here means the channel is serving something no
-    // publish produced — refuse before spending a multi-MB parse on it.
-    if (text.length > MAX_SNAPSHOT_BYTES) return;
+    // The size ceiling, consumer side, now asked of the FILE before it is read
+    // into memory. Publish refuses to produce a snapshot past this, so hitting
+    // it here means the channel is serving something no publish produced —
+    // refuse before spending a multi-MB read and parse on it.
+    const stagedBytes = staged.exists ? staged.size : null;
+    if (typeof stagedBytes !== 'number' || stagedBytes <= 0 || stagedBytes > MAX_SNAPSHOT_BYTES) {
+      try {
+        staged.delete();
+      } catch {
+        // Nothing further to do; the seed and any existing cache still stand.
+      }
+      return;
+    }
+    const text = await staged.text();
 
     // Verify + merge run over the whole corpus on the JS thread — a real stall
     // at target corpus size if it lands mid-animation. This fetch is already
@@ -391,7 +447,11 @@ export async function refreshFromRemote(): Promise<void> {
       // The file first, the marker second. A crash between them leaves a file
       // no reader will trust, which is the same outcome as no cache and is why
       // the two live in different stores.
-      snapshotFile().write(text);
+      //
+      // A move, not a write: the verified bytes are already on disk as the
+      // staging file, so re-serialising 27 MB through a synchronous write would
+      // spend the cost twice for the same result.
+      await moveVerifiedSnapshot();
       await AsyncStorage.setItem(
         CACHE_META_KEY,
         JSON.stringify({ version: verified.corpus.version, checksum: manifest.checksum })

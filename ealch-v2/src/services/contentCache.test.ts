@@ -34,7 +34,7 @@ const CODE = SRC.replace(/\/\*[\s\S]*?\*\//g, '')
   .join('\n');
 
 test('the snapshot is written to a file, never to AsyncStorage', () => {
-  ok(/snapshotFile\(\)\.write\(text\)/.test(CODE), 'the verified text must be written to the snapshot file');
+  ok(/moveVerifiedSnapshot\(\)/.test(CODE), 'the verified snapshot must be promoted to the cache file');
 
   // The precise regression: a multi-megabyte value going back into the 6 MB
   // key-value store. Every REMAINING AsyncStorage write must be a small one.
@@ -52,10 +52,65 @@ test('the commit marker and the payload live in different stores', () => {
   // without a file, or a file without a marker, is simply absent.
   ok(/AsyncStorage\.setItem\(\s*\n?\s*CACHE_META_KEY/.test(CODE), 'the marker belongs in AsyncStorage');
 
-  const write = CODE.slice(CODE.indexOf('snapshotFile().write(text)'));
-  const fileAt = write.indexOf('snapshotFile().write(text)');
-  const metaAt = write.indexOf('CACHE_META_KEY');
-  ok(fileAt >= 0 && metaAt > fileAt, 'the file must be written BEFORE the marker');
+  const fileAt = CODE.indexOf('await moveVerifiedSnapshot()');
+  const metaAt = CODE.indexOf('CACHE_META_KEY', fileAt);
+  ok(fileAt > 0 && metaAt > fileAt, 'the payload must be in place BEFORE the marker');
+});
+
+test('the snapshot is streamed to disk, never pulled into a string', () => {
+  // `fetch()` then `.text()` was one 27 MB all-or-nothing request with no
+  // resume, held whole in JS memory. On an intermittent connection every drop
+  // restarted it from zero, so a user could fail forever and simply never
+  // receive exam content — which ships ONLY in the snapshot. It was also a
+  // 27 MB spike on the low-RAM devices least able to absorb one.
+  ok(
+    /File\.downloadFileAsync\(`\$\{STORAGE_BASE\}\/\$\{manifest\.path\}`/.test(CODE),
+    'the snapshot body must stream straight to a file'
+  );
+  ok(
+    !/snapRes\.text\(\)/.test(CODE) && !/await\s+\w*[Rr]es\.text\(\)/.test(CODE.split('manifest.path')[1] ?? ''),
+    'the snapshot response must not be read into a string'
+  );
+
+  // The ceiling is asked of the FILE, before any read. Checking it after
+  // pulling 27 MB into memory would be checking after paying the cost.
+  const dl = CODE.indexOf('downloadFileAsync');
+  const cap = CODE.indexOf('MAX_SNAPSHOT_BYTES', dl);
+  const read = CODE.indexOf('staged.text()', dl);
+  ok(cap > dl && read > cap, 'size must be checked between the download and the read');
+});
+
+test('an unverified download can never be mistaken for the cache', () => {
+  // Staging is a separate path. A download that is interrupted, or that serves
+  // the wrong bytes, must not sit where the reader looks — the commit marker
+  // alone cannot save that if both write to one path.
+  ok(/content-snapshot\.part/.test(CODE), 'a staging path must exist');
+  ok(/content-snapshot\.json/.test(CODE), 'the live cache is a different file');
+
+  // The binding the download actually writes to. Asserting only that both
+  // FILENAMES appear leaves `const staged = snapshotFile()` passing, which
+  // downloads a partial, unverified body straight onto the file the reader
+  // trusts — the whole defect this test is named for. A first draft did
+  // exactly that and stayed green.
+  ok(
+    /const staged = snapshotStagingFile\(\);/.test(CODE),
+    'the download target must be the staging file, not the live cache'
+  );
+  ok(
+    /downloadFileAsync\([^)]*,\s*staged\s*,/.test(CODE),
+    'downloadFileAsync must write into that staging binding'
+  );
+
+  const dl = CODE.indexOf('downloadFileAsync');
+  const verify = CODE.indexOf('verifySnapshot', dl);
+  const promote = CODE.indexOf('moveVerifiedSnapshot', verify);
+  ok(dl > 0 && verify > dl && promote > verify, 'promote only AFTER the checksum passes');
+
+  // And purging must take the part-file too, or a failed download leaks.
+  ok(
+    /\[snapshotFile\(\), snapshotStagingFile\(\)\]/.test(CODE),
+    'purgeCache must clear the staging file as well as the live one'
+  );
 });
 
 test('the cache survives storage pressure: document, not cache', () => {
@@ -86,7 +141,7 @@ test('the pre-filesystem key is read once and then removed', () => {
   };
 
   ok(
-    /removeItem\(LEGACY_CACHE_KEY\)/.test(between('snapshotFile().write(text)', 'cachedSnapshotVersion =')),
+    /removeItem\(LEGACY_CACHE_KEY\)/.test(between('await moveVerifiedSnapshot()', 'cachedSnapshotVersion =')),
     'a successful write must delete the old AsyncStorage copy — otherwise the bytes it frees are the whole point'
   );
   ok(

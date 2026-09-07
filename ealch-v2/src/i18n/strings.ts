@@ -132,6 +132,10 @@ export type Strings = {
   examSilenceNotice: string;
   examReplay: string; examTranscript: string;
   examAudioFailed: string; examAudioFailedBody: string;
+  /** The preflight, BEFORE the clock starts. `examAudioOfflineBody` carries
+   *  {n} (documents that would not play) and {total}. */
+  examAudioOffline: string; examAudioOfflineBody: string; examAudioStartAnyway: string;
+  examAudioCheckingL: string;
   /** Expression orale capture. */
   examStartPrep: string; examStartRecording: string; examPrepPhase: string; examPrepBody: string;
   examRecording: string; examStopRecording: string;
@@ -303,6 +307,9 @@ export type Strings = {
   speakScene: string; speakRepeat: string; vfTitle: string;
   speakBlock: string; speakBlockDone: string; speakStationDone: string;
   speakMapT: string; speakWorld: string; speakBackMap: string;
+  /** Playlist speak mode: a playlist is not a station, so it finishes and
+   *  returns differently from the trail. */
+  speakSetDone: string; speakBackPlaylist: string;
   speakRetry: string; speakSkip: string; speakTryN: string;
   speakFocusOn: string; speakFocusWordsT: string;
   speakNextStation: string; speakNextWorld: string;
@@ -454,6 +461,14 @@ export const T: Record<Lang, Strings> = {
     examReplay: 'Réécouter', examTranscript: 'Transcription',
     examAudioFailed: 'Audio indisponible',
     examAudioFailedBody: "Aucun son n'a pu être joué pour ce document. Il ne sera pas compté dans votre estimation.",
+    examAudioOffline: 'Audio indisponible hors connexion',
+    examAudioOfflineBody:
+      'Sur les {total} documents de cette épreuve, {n} ne sont pas encore téléchargés '
+      + 'et la connexion ne répond pas. En mode examen, chaque document ne passe qu’une fois : '
+      + 'ceux qui manquent ne pourront pas être écoutés et leurs questions ne seront pas comptées. '
+      + 'Reconnectez-vous, ou commencez en sachant ce qui manque.',
+    examAudioStartAnyway: 'Commencer quand même',
+    examAudioCheckingL: 'Vérification de l’audio…',
     examStartPrep: 'Commencer la préparation', examStartRecording: "Commencer à parler",
     examPrepPhase: 'Préparation', examPrepBody: "Lisez le document. L'enregistrement démarrera tout seul.",
     examRecording: 'Enregistrement', examStopRecording: "J'ai terminé",
@@ -692,6 +707,7 @@ export const T: Record<Lang, Strings> = {
     speakScene: 'RÉEL — AU CAFÉ', speakRepeat: 'Répétez la phrase de {name}', vfTitle: 'FLASH VOCAL',
     speakBlock: 'Bloc {a} / {b}', speakBlockDone: 'Bloc terminé !', speakStationDone: 'Station terminée !',
     speakMapT: 'Le sentier de la parole', speakWorld: 'Monde {n}', speakBackMap: 'Retour au sentier',
+    speakSetDone: 'Playlist terminée !', speakBackPlaylist: 'Retour à la playlist',
     speakRetry: 'Réessayer', speakSkip: 'Passer cette phrase', speakTryN: 'Essai {n}',
     speakFocusOn: 'À travailler', speakFocusWordsT: 'Mots à travailler',
     speakNextStation: 'Station suivante', speakNextWorld: 'Monde suivant : {w}',
@@ -871,6 +887,14 @@ export const T: Record<Lang, Strings> = {
     examReplay: 'Play again', examTranscript: 'Transcript',
     examAudioFailed: 'Audio unavailable',
     examAudioFailedBody: 'No sound could be played for this document. It will not count toward your estimate.',
+    examAudioOffline: 'Audio unavailable offline',
+    examAudioOfflineBody:
+      'Of the {total} documents in this paper, {n} are not downloaded yet '
+      + 'and the connection is not responding. In exam mode each document plays once: '
+      + 'the missing ones cannot be heard, and their questions will not be scored. '
+      + 'Reconnect, or start knowing what is missing.',
+    examAudioStartAnyway: 'Start anyway',
+    examAudioCheckingL: 'Checking audio…',
     examStartPrep: 'Start preparation', examStartRecording: 'Start speaking',
     examPrepPhase: 'Preparation', examPrepBody: 'Read the document. Recording starts on its own.',
     examRecording: 'Recording', examStopRecording: "I'm done",
@@ -1109,6 +1133,7 @@ export const T: Record<Lang, Strings> = {
     speakScene: 'REAL-WORLD — AT THE CAFÉ', speakRepeat: "Repeat the line", vfTitle: 'VOICE FLASH',
     speakBlock: 'Block {a} / {b}', speakBlockDone: 'Block complete!', speakStationDone: 'Station cleared!',
     speakMapT: 'The speaking trail', speakWorld: 'World {n}', speakBackMap: 'Back to the trail',
+    speakSetDone: 'Playlist complete!', speakBackPlaylist: 'Back to the playlist',
     speakRetry: 'Try again', speakSkip: 'Skip this line', speakTryN: 'Try {n}',
     speakFocusOn: 'Focus on', speakFocusWordsT: 'Words to practice',
     speakNextStation: 'Next station', speakNextWorld: 'Next world: {w}',
