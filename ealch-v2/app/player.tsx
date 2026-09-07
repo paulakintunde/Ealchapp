@@ -13,8 +13,9 @@ import { useT } from '@/i18n/useT';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
-import { playlist } from '@/content/playlists';
-import { parseTrackParam, playlistDeck, playlistStartIx, playlistTrackAt, speakRouteFor } from '@/utils/speakDeck.logic';
+import {
+  parseTrackParam, playlistDeck, playlistStartIx, playlistTrackAt, resolvePlaylistParam, speakRouteFor,
+} from '@/utils/speakDeck.logic';
 import { SpeedPicker } from '@/components/SpeedPicker';
 
 // An honest LISTENING pass over real corpus phrases, spoken by device TTS.
@@ -38,14 +39,19 @@ export default function Player() {
   // TTS exactly as a corpus item does); without it, the default listening pass
   // over corpus phrases. The two share every transport below — a line is a line.
   const params = useLocalSearchParams<{ playlist?: string; track?: string }>();
-  const pl = useMemo(() => {
-    const id = Array.isArray(params.playlist) ? params.playlist[0] : params.playlist;
-    return id ? playlist(id) : undefined;
-  }, [params.playlist]);
+  const asked = useMemo(() => resolvePlaylistParam(params.playlist), [params.playlist]);
+  const pl = asked.kind === 'found' ? asked.playlist : undefined;
 
+  // A link naming a playlist that does not exist gets the empty state, NOT the
+  // default listening pass. Substituting 21,650 unrelated corpus phrases under
+  // a "Listen" header tells the learner nothing went wrong, which is the one
+  // thing that is certainly false.
   const lines = useMemo<{ fr: string; en: string }[]>(
-    () => (pl ? playlistDeck(pl) : content.itemsFor('flashcard')),
-    [pl]
+    () =>
+      asked.kind === 'found' ? playlistDeck(asked.playlist)
+      : asked.kind === 'missing' ? []
+      : content.itemsFor('flashcard'),
+    [asked]
   );
   const total = lines.length;
 

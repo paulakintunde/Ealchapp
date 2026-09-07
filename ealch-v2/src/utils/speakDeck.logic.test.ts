@@ -9,6 +9,7 @@ import {
   playlistStartIx,
   playerRouteFor,
   playlistTrackAt,
+  resolvePlaylistParam,
   speakRouteFor,
 } from './speakDeck.logic.ts';
 
@@ -128,5 +129,43 @@ test('the listening route is a value too, and round-trips with the practice one'
         `${p.id} track ${tk}: listen and voice disagree`
       );
     }
+  }
+});
+
+test('a named-but-absent playlist is its own case, never a silent substitution', () => {
+  // The bug this pins: both screens used to collapse "missing" into "none".
+  // A link to a deleted playlist then played 21,650 unrelated corpus phrases in
+  // the player, and opened whatever trail station the avatar was on in Speak,
+  // with nothing on screen saying so.
+  strictEqual(resolvePlaylistParam('nope-not-a-playlist').kind, 'missing');
+  strictEqual(resolvePlaylistParam('la-voix').kind, 'found');
+  strictEqual(resolvePlaylistParam(undefined).kind, 'none');
+
+  const missing = resolvePlaylistParam('nope-not-a-playlist');
+  ok(missing.kind === 'missing' && missing.id === 'nope-not-a-playlist', 'missing carries the id it was asked for');
+});
+
+test('an empty or repeated playlist param resolves the way a route can produce it', () => {
+  // An empty value is not a request: /player?playlist= must still be the
+  // default listening pass, not an empty screen.
+  strictEqual(resolvePlaylistParam('').kind, 'none');
+  strictEqual(resolvePlaylistParam([]).kind, 'none');
+  strictEqual(resolvePlaylistParam(['']).kind, 'none');
+  // expo-router hands back an array for a repeated key; the first value wins,
+  // exactly as parseTrackParam already does for ?track=.
+  const first = resolvePlaylistParam(['argot', 'la-voix']);
+  ok(first.kind === 'found' && first.playlist.id === 'argot', 'a repeated key takes the first value');
+});
+
+test('every real playlist id resolves, and every route we mint resolves back', () => {
+  for (const p of playlists) {
+    const r = resolvePlaylistParam(p.id);
+    ok(r.kind === 'found' && r.playlist.id === p.id, `${p.id} does not resolve`);
+    // The route builders and the resolver must agree, or a link this app mints
+    // could land on its own empty state.
+    const id = new URL(`https://x${playerRouteFor(p.id, 0)}`).searchParams.get('playlist');
+    strictEqual(resolvePlaylistParam(id ?? undefined).kind, 'found', `playerRouteFor(${p.id}) does not round-trip`);
+    const sid = new URL(`https://x${speakRouteFor(p.id, 0)}`).searchParams.get('playlist');
+    strictEqual(resolvePlaylistParam(sid ?? undefined).kind, 'found', `speakRouteFor(${p.id}) does not round-trip`);
   }
 });

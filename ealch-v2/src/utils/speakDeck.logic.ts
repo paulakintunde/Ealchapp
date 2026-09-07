@@ -25,11 +25,42 @@
 // a synthetic id never matches a station's itemIds, so `speakPassedIds` folds
 // it into a set no stage reads.
 
-import type { Playlist } from '../content/playlists.ts';
+import { playlist, type Playlist } from '../content/playlists.ts';
 
 /** One card of a playlist speak deck. The three fields Speak reads off an
  *  Item — nothing else about an Item is needed to drill a line. */
 export type SpeakCard = { id: string; fr: string; en: string };
+
+/**
+ * What a `?playlist=` parameter resolved to.
+ *
+ * The three cases are deliberately distinct, because collapsing "missing" into
+ * "none" is a silent-substitution bug and both screens had it: a link naming a
+ * playlist that does not exist left `pl` undefined, so the player fell through
+ * to its 21,650-phrase default listening pass under a "Listen" header, and
+ * Speak fell through to whatever trail station the avatar was standing on.
+ * Neither told the learner anything was wrong. A named-but-absent playlist has
+ * to reach an empty state, not a different set of content.
+ */
+export type PlaylistRequest =
+  | { kind: 'none' }
+  | { kind: 'found'; playlist: Playlist }
+  | { kind: 'missing'; id: string };
+
+/**
+ * Resolve a route's `?playlist=` into one of those three. Tolerant of the array
+ * form expo-router hands back for a repeated key; an empty value counts as not
+ * asking, which is what `/player` with a stray `?playlist=` should mean.
+ *
+ * Both screens resolve through here so they cannot disagree about whether a
+ * playlist was asked for — the same reason the routes themselves are values.
+ */
+export function resolvePlaylistParam(raw: string | string[] | undefined): PlaylistRequest {
+  const id = (Array.isArray(raw) ? raw[0] : raw) ?? '';
+  if (!id) return { kind: 'none' };
+  const found = playlist(id);
+  return found ? { kind: 'found', playlist: found } : { kind: 'missing', id };
+}
 
 /**
  * Every line in the playlist, flattened in track order.

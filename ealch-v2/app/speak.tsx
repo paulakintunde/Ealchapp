@@ -19,9 +19,9 @@ import {
 } from '@/store/progress.logic';
 import { useContent } from '@/services/content';
 import { getItem, speakStages } from '@/services/content.logic';
-import { playlist } from '@/content/playlists';
 import {
-  parseTrackParam, playerRouteFor, playlistDeck, playlistStartIx, playlistTrackAt, type SpeakCard,
+  parseTrackParam, playerRouteFor, playlistDeck, playlistStartIx, playlistTrackAt,
+  resolvePlaylistParam, type SpeakCard,
 } from '@/utils/speakDeck.logic';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { markWords, focusWordsFrom, barsForLevel, isLenientLevel } from '@/utils/score';
@@ -114,10 +114,12 @@ export default function Speak() {
   // the avatar happened to be standing on. Listening was playlist-specific and
   // speaking was not.
   const params = useLocalSearchParams<{ stage?: string; block?: string; playlist?: string; track?: string }>();
-  const pl = useMemo(() => {
-    const id = Array.isArray(params.playlist) ? params.playlist[0] : params.playlist;
-    return id ? playlist(id) : undefined;
-  }, [params.playlist]);
+  const asked = useMemo(() => resolvePlaylistParam(params.playlist), [params.playlist]);
+  const pl = asked.kind === 'found' ? asked.playlist : undefined;
+  // Any playlist REQUEST, found or not, means this screen is not the trail. The
+  // guards below key on this rather than on `pl`, so a link to a playlist that
+  // no longer exists cannot quietly write a trail resume from an empty state.
+  const playlistMode = asked.kind !== 'none';
   const reqStage = Array.isArray(params.stage) ? params.stage[0] : params.stage;
   const reqIx = reqStage ? stages.findIndex((s) => s.id === reqStage) : -1;
   const stageIx = reqIx >= 0 && reqIx <= posIx ? reqIx : posIx;
@@ -150,10 +152,15 @@ export default function Speak() {
   // recorded at authoring time.
   const deck = useMemo<{ mode: 'trail' | 'playlist'; title: string; level: Level | undefined; cards: SpeakCard[]; celebrateKey: string }>(
     () =>
-      pl
-        ? { mode: 'playlist', title: pl.word, level: pl.minLevel, cards: playlistDeck(pl), celebrateKey: `speak-pl-${pl.id}` }
-        : { mode: 'trail', title: stage?.title ?? '', level: stage?.level, cards: items, celebrateKey: `speak-${stage?.id ?? 'none'}-${blockIx}` },
-    [pl, stage, items, blockIx]
+      asked.kind === 'found'
+        ? { mode: 'playlist', title: asked.playlist.word, level: asked.playlist.minLevel, cards: playlistDeck(asked.playlist), celebrateKey: `speak-pl-${asked.playlist.id}` }
+        // Named but absent: an empty PLAYLIST deck, so the guard below shows the
+        // empty state. Falling through to the trail branch here would open a
+        // station the learner did not ask for and say nothing about it.
+        : asked.kind === 'missing'
+          ? { mode: 'playlist', title: '', level: undefined, cards: [], celebrateKey: '' }
+          : { mode: 'trail', title: stage?.title ?? '', level: stage?.level, cards: items, celebrateKey: `speak-${stage?.id ?? 'none'}-${blockIx}` },
+    [asked, stage, items, blockIx]
   );
 
   // Playlist mode enters on the track the player was hearing, so tapping the
@@ -194,7 +201,7 @@ export default function Speak() {
   // and resetting to card 0 on a frontier wobble would throw away the set.
   const prevStageId = useRef(stage?.id);
   useEffect(() => {
-    if (pl || !stage || prevStageId.current === stage.id) return;
+    if (playlistMode || !stage || prevStageId.current === stage.id) return;
     prevStageId.current = stage.id;
     stt.abort();
     cardToken.current += 1;
@@ -252,7 +259,7 @@ export default function Speak() {
   // make the home hero offer a playlist as "resume Speak". A playlist is one
   // sitting; losing its place costs less than losing the trail's.
   useEffect(() => {
-    if (pl || !stage || phase === 'blockdone') return;
+    if (playlistMode || !stage || phase === 'blockdone') return;
     setResume('speak', {
       route: `/speak?stage=${stage.id}&block=${blockIx}`,
       title: stage.title,
