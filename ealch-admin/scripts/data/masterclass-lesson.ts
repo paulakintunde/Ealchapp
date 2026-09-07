@@ -504,6 +504,7 @@ const SECTIONS: LessonSection[] = [
       },
       {
         label: 'Check',
+        items: [],
         check: {
           q: 'Why can nothing join across the comma?',
           opts: [
@@ -686,6 +687,7 @@ const SECTIONS: LessonSection[] = [
       },
       {
         label: 'Check',
+        items: [],
         check: {
           q: 'What do elision and liaison have in common?',
           opts: [
@@ -740,6 +742,7 @@ const SECTIONS: LessonSection[] = [
       },
       {
         label: 'Check',
+        items: [],
         check: {
           q: 'What decides whether a final consonant sounds?',
           opts: [
@@ -865,6 +868,7 @@ const SECTIONS: LessonSection[] = [
       },
       {
         label: 'Check',
+        items: [],
         check: {
           q: 'In « un bon ami », is the vowel of bon still nasal?',
           opts: ['no, the N took it back', 'yes, and an N is added as well', 'only in careful speech'],
