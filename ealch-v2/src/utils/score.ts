@@ -16,6 +16,15 @@ export type Verdict = 'good' | 'close' | 'off' | 'none';
  * is not a pronunciation error), drop punctuation and the guillemets/elisions
  * the content uses, collapse whitespace.
  */
+import { foldNumberTokens, numberRuns } from './frNumbers.logic.ts';
+
+// Number folding is applied HERE, in the speech path, and deliberately NOT in
+// normalizeFr. normalizeFr and answerMatches are shared with sentence.tsx,
+// MissionRich and voiceflash's TYPED path; folding there would let a learner
+// type "50" and pass a card whose whole point is spelling "cinquante", so the
+// dictée and the sentence builder would silently get easier. Speech has a
+// recognizer transcription convention to absorb; typing has none.
+
 export function normalizeFr(s: string): string {
   return s
     .toLowerCase()
@@ -70,9 +79,13 @@ export function similarity(a: string, b: string): number {
  * spelling wobble on inflections: "apprends" / "apprend").
  */
 export function wordCoverage(expected: string, heard: string): number {
-  const want = tokens(expected);
+  return coverageOfTokens(tokens(expected), tokens(heard));
+}
+
+/** wordCoverage over token arrays the caller has already prepared — so the
+ *  speech path can pass number-folded tokens without re-tokenising. */
+function coverageOfTokens(want: string[], got: string[]): number {
   if (!want.length) return 1;
-  const got = tokens(heard);
   if (!got.length) return 0;
 
   const unused = [...got];
@@ -99,7 +112,31 @@ export function wordCoverage(expected: string, heard: string): number {
 export type WordMark = { word: string; hit: boolean };
 
 export function markWords(expected: string, heard: string): WordMark[] {
-  const unused = tokens(heard);
+  const words = expected.split(/\s+/).filter(Boolean);
+
+  // Flatten to tokens, remembering which display word each one came from, so a
+  // number run spanning several display words ("vingt et un" is three) can be
+  // matched as the single thing it is and credited back to all of them.
+  const flat: string[] = [];
+  const owner: number[] = [];
+  words.forEach((word, wi) => {
+    for (const t of tokens(word)) {
+      flat.push(t);
+      owner.push(wi);
+    }
+  });
+
+  // Fold the number runs, carrying their display-word owners across.
+  const units: { tok: string; owners: number[] }[] = [];
+  let i = 0;
+  for (const r of numberRuns(flat)) {
+    while (i < r.start) units.push({ tok: flat[i], owners: [owner[i++]] });
+    units.push({ tok: String(r.value), owners: [...new Set(owner.slice(r.start, r.start + r.len))] });
+    i = r.start + r.len;
+  }
+  while (i < flat.length) units.push({ tok: flat[i], owners: [owner[i++]] });
+
+  const unused = foldNumberTokens(tokens(heard));
   const take = (w: string): boolean => {
     const ix = unused.findIndex(
       (g) => g === w || (Math.max(w.length, g.length) > 3 && levenshtein(w, g) <= 1)
@@ -110,16 +147,22 @@ export function markWords(expected: string, heard: string): WordMark[] {
     }
     return false;
   };
-  return expected
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((word) => {
-      const toks = tokens(word);
-      // filter-then-length, not every(): every() short-circuits and would skip
-      // consuming the later tokens of a partially-heard word.
-      const hits = toks.filter(take).length;
-      return { word, hit: toks.length > 0 && hits === toks.length };
-    });
+
+  // Every unit is taken, never short-circuited: stopping early would leave the
+  // later tokens of a partially-heard word unconsumed and free to match again.
+  const need = words.map(() => 0);
+  const got = words.map(() => 0);
+  for (const u of units) {
+    const hit = take(u.tok);
+    for (const o of u.owners) {
+      need[o] += 1;
+      if (hit) got[o] += 1;
+    }
+  }
+
+  // A display word hits only when everything it owns hit: half an elision, or
+  // half a number, is still a miss.
+  return words.map((word, wi) => ({ word, hit: need[wi] > 0 && got[wi] === need[wi] }));
 }
 
 /** Words the learner keeps missing, folded from expected/heard pairs (the
@@ -185,8 +228,12 @@ export function scoreUtterance(expected: string, heard: string, bars: VerdictBar
   const h = normalizeFr(heard);
   if (!e) return { score: 1, verdict: 'good' };
 
-  const chars = similarity(e, h);
-  const words = wordCoverage(expected, heard);
+  // Both sides fold, never one. The recognizer writes "cinquante" as "50";
+  // folding only the heard side would swap one mismatch for another.
+  const ef = foldNumberTokens(tokens(expected));
+  const hf = foldNumberTokens(tokens(heard));
+  const chars = similarity(ef.join(' '), hf.join(' '));
+  const words = coverageOfTokens(ef, hf);
   const score = 0.45 * chars + 0.55 * words;
 
   return { score, verdict: verdictFor(score, bars) };
