@@ -143,7 +143,7 @@ export type Strings = {
   examReport: string; examEstimate: string; examLowestGoverns: string;
   examParallelNotEquated: string; examNoOverall: string; examNothingSat: string;
   examMissingSkills: string; examWhatNext: string; examNoPrepLesson: string;
-  examNotSat: string; examNoScoring: string; examBelowScale: string;
+  examNotSat: string; examNoScoring: string; examBelowScale: string; examNoAnswer: string;
   /** DELF B2 reports a diploma, not a level: a mark per épreuve, a total, and
    *  the floor every épreuve has to clear. See utils/delf.logic.ts. */
   delfResult: string; delfResultPass: string; delfResultFail: string;
@@ -468,7 +468,7 @@ export const T: Record<Lang, Strings> = {
     examMissingSkills: 'Il manque', examWhatNext: 'À revoir',
     examNoPrepLesson: "Aucune leçon de préparation à ce niveau pour l'instant.",
     examNotSat: 'Non passée', examNoScoring: 'Non barémée',
-    examBelowScale: 'Sous le NCLC 4',
+    examBelowScale: 'Sous le NCLC 4', examNoAnswer: 'Rien rendu',
     delfResult: 'Résultat', delfResultPass: 'Admis', delfResultFail: 'Non admis',
     delfFloor: 'Il faut 50/100 au total et au moins 5/25 à chaque épreuve.',
     delfBelowFloor: 'Sous le minimum',
@@ -880,7 +880,7 @@ export const T: Record<Lang, Strings> = {
     examMissingSkills: 'Missing', examWhatNext: 'To review',
     examNoPrepLesson: 'No prep lesson at that level yet.',
     examNotSat: 'Not sat', examNoScoring: 'No score map',
-    examBelowScale: 'Below NCLC 4',
+    examBelowScale: 'Below NCLC 4', examNoAnswer: 'No answer given',
     delfResult: 'Result', delfResultPass: 'Pass', delfResultFail: 'Not passed',
     delfFloor: 'You need 50/100 overall and at least 5/25 in every épreuve.',
     delfBelowFloor: 'Below the minimum',

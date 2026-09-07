@@ -46,7 +46,9 @@ export type SectionStatus =
   /** Open task the grader could not reach. Retryable. */
   | 'not-graded'
   /** Listening whose audio never played. Ours, not theirs. */
-  | 'audio-failed';
+  | 'audio-failed'
+  /** Sat, and the open task was handed in empty. Theirs, not ours. */
+  | 'not-answered';
 
 /**
  * Why a section shows no band.
@@ -70,6 +72,7 @@ export const NO_BAND_REASONS = [
   'practice',
   'not-graded',
   'audio-failed',
+  'not-answered',
   /** Sat and scored, but the section carries no scoring table to read. */
   'no-scoring',
   /** Sat and scored, and the result falls below the lowest reportable band.

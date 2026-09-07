@@ -424,6 +424,7 @@ function noBandNote(reason: NoBandReason, T: ReturnType<typeof useT>): string {
     case 'not-graded': return T.examUngraded;
     case 'practice': return T.examUnscored;
     case 'not-sat': return T.examNotSat;
+    case 'not-answered': return T.examNoAnswer;
     case 'no-scoring': return T.examNoScoring;
     case 'below-scale': return T.examBelowScale;
     default: {

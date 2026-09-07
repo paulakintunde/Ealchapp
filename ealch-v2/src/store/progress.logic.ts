@@ -1234,6 +1234,21 @@ export type ExamResult = {
    */
   audioFailed?: boolean;
   /**
+   * An open task submitted with nothing in it — no transcript, no text.
+   *
+   * A third state, and it has to be its own, because the two that existed
+   * described the wrong thing. An unanswered task carries no `aiGrade`, which
+   * is indistinguishable from one the grader could not reach, so the report
+   * told a candidate who wrote nothing "grading unavailable, your response was
+   * saved, try again later" — our failure, apologetically, with an invitation
+   * to retry something that was never submitted.
+   *
+   * That is exactly the substitution rule 3 forbids, running the other way:
+   * absence of evidence reported as our fault rather than theirs. The grader is
+   * not even called on this path, so blaming it was never right.
+   */
+  noAnswer?: boolean;
+  /**
    * Closed tasks only: questions right, out of questions asked.
    *
    * `passed` alone is not enough for a report. A listening épreuve is forty
@@ -1437,7 +1452,7 @@ export function sectionStatusFor(
   taskIds: string[],
   results: ExamResult[],
   paperId: string
-): 'scored' | 'not-sat' | 'practice' | 'not-graded' | 'audio-failed' {
+): 'scored' | 'not-sat' | 'practice' | 'not-graded' | 'audio-failed' | 'not-answered' {
   const ids = new Set(taskIds);
   const mine = results.filter((r) => r.paperId === paperId && ids.has(r.taskId));
   if (mine.length === 0) return 'not-sat';
@@ -1446,7 +1461,14 @@ export function sectionStatusFor(
   if (mine.some((r) => r.audioFailed)) return 'audio-failed';
   // An open task with no aiGrade was attempted and could not be graded. Closed
   // tasks never carry one, so only open task types can report this.
-  if (mine.some((r) => OPEN_EXAM_TASK_TYPES.has(r.taskType) && !r.aiGrade)) return 'not-graded';
+  //
+  // `noAnswer` is excluded here and checked below, because those two states
+  // look identical in the log and mean opposite things: one is the grader
+  // failing us, the other is the candidate submitting nothing. Ranked in that
+  // order for the reason the note above gives — what is ours outranks what is
+  // theirs, because it is the part they can do nothing about.
+  if (mine.some((r) => OPEN_EXAM_TASK_TYPES.has(r.taskType) && !r.aiGrade && !r.noAnswer)) return 'not-graded';
+  if (mine.some((r) => r.noAnswer)) return 'not-answered';
   // Theirs.
   if (mine.some((r) => r.mode === 'practice')) return 'practice';
   // Every task answered, or the section is only part-done and cannot be scored.

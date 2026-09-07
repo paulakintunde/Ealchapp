@@ -1354,3 +1354,37 @@ test('an open épreuve carries no raw count of its own', () => {
       'a total of 1 means one of its tasks was mistaken for a closed one'
   );
 });
+
+/* ── An empty answer is theirs, a failed grader is ours ───────────────────── */
+
+test('an open task handed in empty is not reported as a grading failure', () => {
+  // These look identical in the log — neither carries an aiGrade — and they mean
+  // opposite things. Before `noAnswer`, a candidate who wrote nothing was told
+  // "grading unavailable, your response was saved, try again later": our
+  // failure, apologetically, inviting a retry of something never submitted.
+  // The grader is not even called on that path.
+  const empty = examResult({ taskId: 't1', paperId: 'p1', taskType: 'pe_essay', skill: 'PE', noAnswer: true });
+  strictEqual(sectionStatusFor(['t1'], [empty], 'p1'), 'not-answered');
+
+  // And the genuine grader failure still reports as ours.
+  const ungraded = examResult({ taskId: 't1', paperId: 'p1', taskType: 'pe_essay', skill: 'PE' });
+  strictEqual(sectionStatusFor(['t1'], [ungraded], 'p1'), 'not-graded');
+});
+
+test('a grader failure outranks an empty answer in the same epreuve', () => {
+  // The ordering rule the whole function is built on: what is OURS outranks
+  // what is theirs, because it is the part the candidate can do nothing about.
+  const mixed = [
+    examResult({ id: 'exr-1', taskId: 't1', paperId: 'p1', taskType: 'pe_essay', skill: 'PE', noAnswer: true }),
+    examResult({ id: 'exr-2', taskId: 't2', paperId: 'p1', taskType: 'po_monologue', skill: 'PO' }),
+  ];
+  strictEqual(sectionStatusFor(['t1', 't2'], mixed, 'p1'), 'not-graded');
+});
+
+test('a dead microphone still outranks both', () => {
+  const mixed = [
+    examResult({ id: 'exr-1', taskId: 't1', paperId: 'p1', taskType: 'pe_essay', skill: 'PE', noAnswer: true }),
+    examResult({ id: 'exr-2', taskId: 't2', paperId: 'p1', taskType: 'po_monologue', skill: 'PO', audioFailed: true }),
+  ];
+  strictEqual(sectionStatusFor(['t1', 't2'], mixed, 'p1'), 'audio-failed');
+});
