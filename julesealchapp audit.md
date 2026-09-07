@@ -6,10 +6,10 @@ This audit evaluates the codebase (`ealch-v2`, `ealch-admin`, and backend servic
 
 ## 1. Major Issues & Missing Features (Priority: High)
 
-### 1.1 Unbounded Background Time Tracking
-**Location:** `ealch-v2/src/store/useProgress.ts`
-**Issue:** The session log uses wall-clock time from component mount to dismount for practice sessions. If a user backgrounds the app mid-drill (e.g., leaves it open for hours), `minutesToday` heavily inflates. The goal ring will display absurd values like 1800%.
-**Fix Required:** Subscribe to `AppState` to stop the timer when backgrounded, or implement a hard cap (e.g., `clampMinutes` to max 60 min per session).
+### 1.1 Unused Settings Row (Restore Purchases)
+**Location:** `ealch-v2/app/settings.tsx`
+**Issue:** The "Restore purchases" button code exists but is commented out/non-functional. Since there is currently no active payment gateway (RevenueCat/Stripe) linked in the package, the code is dead weight.
+**Fix Required:** Complete integration of `RevenueCat`/`Stripe` (or `Paystack`).
 
 ### 1.2 Sign-out Leaks Local Progress Data
 **Location:** `ealch-v2/src/store/useStore.ts`
@@ -21,11 +21,7 @@ This audit evaluates the codebase (`ealch-v2`, `ealch-admin`, and backend servic
 **Issue:** The state `logged` prevents double-logging a session when finishing a track. However, it is never reset if a user scrubs back and replays the same track in the same view session.
 **Fix Required:** Reset `logged` to `false` when track progress goes below 100%.
 
-### 1.4 Missing Playlists Content & Implementation
-**Location:** `ealch-v2/app/playlists.tsx`, `ealch-v2/src/content/seed.json`
-**Issue:** Playlists are intended to act as the primary listening library, but `seed.json` contains `0` playlists. The `Playlist` type exists in `schema.ts`, but it's completely missing from the seed file, leading to empty/missing lists on the Home tab's playlists widget.
-
-### 1.5 Missing Packs
+### 1.4 Missing Packs (Theme/Level groupings)
 **Location:** `ealch-v2/src/content/seed.json`
 **Issue:** The schema defines a `Pack` (a theme × level bundle), but `seed.json` currently has `0` packs. This means thematic vocabulary buckets (e.g. Flashcards by theme) won't have real groupings.
 
@@ -48,9 +44,7 @@ This audit evaluates the codebase (`ealch-v2`, `ealch-admin`, and backend servic
 **Issue:** The week calendar dots loop evaluates `minutesToday()` repeatedly inside the render body instead of using a `useMemo` block, causing expensive array reconstructions on large session logs.
 **Fix Required:** Wrap the calendar math in `useMemo`.
 
-### 2.4 Unused Settings Row (Restore Purchases)
-**Location:** `ealch-v2/app/settings.tsx`
-**Issue:** The "Restore purchases" button code exists but is commented out/non-functional. Since there is currently no active payment gateway (RevenueCat/Stripe) linked in the package, the code is dead weight.
+
 
 ---
 
@@ -70,26 +64,25 @@ The `seed.json` file is massive (~4.8MB) and well-structured, containing:
 - **Lessons:** 13
 - **Units:** 75
 - **Scenarios:** 60
+- **Playlists:** Managed locally in `content/playlists.ts` (4 curated sets)
+- **Exam Banks:** Managed via local data structures or in DB depending on rollout
 - **Packs:** 0
-- **Playlists:** 0
 
-**Gaps:** B1-C1 content (especially Exam preparation packs for TEF/TCF Canada and DELF B2) and Playlists remain to be generated. The `schema.ts` definition is robust, relying on type unions instead of enums for node-compatibility.
+**Gaps:** Packs remain to be generated to group vocab items into themes. Exam prep tasks and Playlists have already received foundational implementations.
 
 ---
 
 ## 5. Roadmap of Actionable Tasks
 
 ### Phase 1: Engine Accuracy & Cleanup (Immediate)
-1. Implement `AppState` listener and `clampMinutes` in `useProgress.ts` to prevent background time inflation.
-2. Hook `signOut` to `eraseProgress()` to fix local data leak.
-3. Fix the `trackLogged` variable reset logic in `player.tsx`.
-4. Delete the dead `items` field from `SessionEntry`.
-5. Fix the loop memoization in `profile.tsx`.
-6. Align the "Freeze" feature copy with the actual logic.
+1. Hook `signOut` to `eraseProgress()` to fix local data leak.
+2. Fix the `trackLogged` variable reset logic in `player.tsx`.
+3. Delete the dead `items` field from `SessionEntry`.
+4. Fix the loop memoization in `profile.tsx`.
+5. Align the "Freeze" feature copy with the actual logic.
 
 ### Phase 2: Missing Seed Entities
-1. Generate and integrate `Playlists` into `seed.json` and ensure the UI `/playlists` and `Home` widgets pull from it.
-2. Generate `Packs` (Theme x Level bundles) to populate the vocabulary modules correctly.
+1. Generate `Packs` (Theme x Level bundles) to populate the vocabulary modules correctly.
 
 ### Phase 3: Monetization & Exam Content (Future)
 1. Complete integration of `RevenueCat`/`Stripe` (or `Paystack`).
