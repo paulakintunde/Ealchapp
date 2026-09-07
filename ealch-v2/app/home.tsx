@@ -21,7 +21,7 @@ import {
 import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
-import { playerRouteFor } from '@/utils/speakDeck.logic';
+import { listenPlaylistForDay, playerRouteFor } from '@/utils/speakDeck.logic';
 import { content, useContent } from '@/services/content';
 import { EXAM_FORMAT_FACTS, EXAM_FORMAT_ORDER, formatSitting, sectionBreakdown } from '@/content/examFormats';
 import { wordOfDay, dayOfYear } from '@/content/wordOfDay';
@@ -187,6 +187,12 @@ export default function Home() {
   // row is a convenience, not a full history.
   const secondaryResumes = freshResumes.slice(1, 4);
 
+  // The listening offer, when the learner has cleared reviews and new words and
+  // has nothing to resume. Rotates daily and respects the playlist's authored
+  // minLevel, so a sons learner is never handed argot. Undefined keeps the old
+  // hero rather than inventing one.
+  const listenOffer = useMemo(() => listenPlaylistForDay(level, dayOfYear()), [today, level]);
+
   // The hero is a view over real state, in three honest tiers. A resume only
   // survives while it is fresh (see resumeIsFresh); once it lapses, or when
   // nothing was ever started, the card recommends what to do next instead of
@@ -206,7 +212,20 @@ export default function Home() {
         }
       : freshN > 0
         ? { eyebrow: T.beginTag, title: T.freshHeroTitle, sub: T.freshHeroSub.replace('{n}', String(freshN)), cta: T.begin, route: '/flashcards?deck=new' }
-        : { eyebrow: T.beginTag, title: T.listenHeroTitle, sub: T.listenHeroSub, cta: T.begin, route: '/player' };
+        : listenOffer
+          ? {
+              eyebrow: T.beginTag,
+              // The card names the set it opens. "À l'écoute · Real phrases, in
+              // a real voice" described the old bare /player: true of anything,
+              // and so an offer the learner could not judge. A playlist has a
+              // title and an honest count, which is what the playlist cards
+              // further down this screen already show.
+              title: lang === 'fr' ? listenOffer.labelFr : listenOffer.labelEn,
+              sub: `${listenOffer.tracks.length} ${T.tracksWord} · ${lang === 'fr' ? listenOffer.topicFr : listenOffer.topicEn}`,
+              cta: T.begin,
+              route: playerRouteFor(listenOffer.id, 0),
+            }
+          : { eyebrow: T.beginTag, title: T.listenHeroTitle, sub: T.listenHeroSub, cta: T.begin, route: '/player' };
 
   const skillGold = t.tag('gold');
   const skillPurple = t.tag('grammar');

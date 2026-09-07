@@ -25,7 +25,8 @@
 // a synthetic id never matches a station's itemIds, so `speakPassedIds` folds
 // it into a set no stage reads.
 
-import { playlist, type Playlist } from '../content/playlists.ts';
+import { playlist, playlists, type Playlist } from '../content/playlists.ts';
+import { LEVELS } from '../content/schema.ts';
 
 /** One card of a playlist speak deck. The three fields Speak reads off an
  *  Item — nothing else about an Item is needed to drill a line. */
@@ -158,4 +159,39 @@ export function shouldLogListen(
   if (args.total <= 0) return false;
   const isLast = args.index + 1 >= args.total;
   return isLast || args.heard >= threshold;
+}
+
+/* ─── the listening offer ────────────────────────────────────────────────── */
+
+/**
+ * Which playlist to offer a learner today.
+ *
+ * `minLevel` has been carried on every playlist since they were authored, with
+ * a comment saying nothing gates on it yet and that it is "the declaration the
+ * future level-aware feed reads". This is that feed: argot at sons is noise,
+ * and the authored floor is exactly the judgement needed to not serve it.
+ *
+ * The band comparison is introEligible's, deliberately — the store keeps level
+ * as a loose string ('B1'), so lowercasing and indexing LEVELS is how the rest
+ * of the app already reads it, and an unrecognised value caps at a1 there too.
+ *
+ * Deterministic in `day`, like wordOfDay: the same offer all day, a different
+ * one tomorrow. Returns undefined only if there are no playlists at all, which
+ * lets the caller keep its existing fallback rather than invent a card.
+ */
+export function listenPlaylistForDay(storeLevel: string, day: number): Playlist | undefined {
+  const band = LEVELS.indexOf(storeLevel.toLowerCase() as (typeof LEVELS)[number]);
+  const cap = band < 0 ? LEVELS.indexOf('a1') : band;
+  const eligible = playlists.filter((p) => {
+    const b = LEVELS.indexOf(p.minLevel);
+    return b >= 0 && b <= cap;
+  });
+  // A learner below every playlist's floor still gets an offer: the gentlest
+  // one, rather than an empty hero. Nothing is above a learner's level here —
+  // it is the lowest floor in the set.
+  const pool = eligible.length ? eligible : [...playlists].sort(
+    (a, b) => LEVELS.indexOf(a.minLevel) - LEVELS.indexOf(b.minLevel)
+  ).slice(0, 1);
+  if (!pool.length) return undefined;
+  return pool[Math.abs(Math.floor(day)) % pool.length];
 }

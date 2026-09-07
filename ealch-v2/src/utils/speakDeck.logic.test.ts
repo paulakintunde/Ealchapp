@@ -1,13 +1,14 @@
 import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { playlists } from '../content/playlists.ts';
-import { ITEM_ID_RE, SCENARIO_ID_RE } from '../content/schema.ts';
+import { ITEM_ID_RE, LEVELS, SCENARIO_ID_RE } from '../content/schema.ts';
 import {
   parseTrackParam,
   playlistDeck,
   playlistStartIx,
   playerRouteFor,
   playlistTrackAt,
+  listenPlaylistForDay,
   resolvePlaylistParam,
   shouldLogListen,
   speakRouteFor,
@@ -208,4 +209,58 @@ test('skipping cannot manufacture a listening session', () => {
   // But skipping to the end of a SET is reaching the end of it, which counts —
   // the set is finishable and the learner got there.
   strictEqual(shouldLogListen({ heard: 0, index: 43, total: 44, alreadyLogged: false }), true);
+});
+
+test("the daily listening offer never sits above the learner's level", () => {
+  // minLevel has been carried on every playlist since they were authored,
+  // gating nothing. This is the feed it was written for: argot is b1, and a
+  // sons learner being handed slang is the case the field exists to prevent.
+  for (const storeLevel of ['sons', 'a1', 'A1', 'a2', 'b1', 'B1', 'b2', 'c1']) {
+    const cap = LEVELS.indexOf(storeLevel.toLowerCase());
+    for (let day = 0; day < 40; day += 1) {
+      const p = listenPlaylistForDay(storeLevel, day);
+      ok(p, `${storeLevel} day ${day} got no offer`);
+      ok(
+        LEVELS.indexOf(p.minLevel) <= cap,
+        `${storeLevel} was offered ${p.id} (${p.minLevel}), which is above it`
+      );
+    }
+  }
+});
+
+test('an unknown stored level is capped, not trusted', () => {
+  // The store keeps level as a loose string and defaults to 'B1'; onboarding
+  // and placement both write it. introEligible caps an unrecognised value at
+  // a1 and this must agree, or the two disagree about the same learner.
+  const capA1 = LEVELS.indexOf('a1');
+  for (const storeLevel of ['', 'banana', 'Z9', 'intermediate']) {
+    for (let day = 0; day < 20; day += 1) {
+      const p = listenPlaylistForDay(storeLevel, day);
+      ok(p && LEVELS.indexOf(p.minLevel) <= capA1, `"${storeLevel}" was offered ${p?.id}`);
+    }
+  }
+});
+
+test('the offer is stable within a day and moves across days', () => {
+  const a = listenPlaylistForDay('b1', 100);
+  strictEqual(listenPlaylistForDay('b1', 100)?.id, a?.id, 'same day, same offer');
+  // Over a year a b1 learner should see more than one set, or the rotation is
+  // decorative.
+  const seen = new Set<string>();
+  for (let day = 0; day < 365; day += 1) seen.add(listenPlaylistForDay('b1', day)!.id);
+  ok(seen.size > 1, `rotation only ever offered ${seen.size} playlist(s)`);
+  // A negative or fractional day (a clock oddity) must not throw or miss.
+  ok(listenPlaylistForDay('b1', -3), 'negative day');
+  ok(listenPlaylistForDay('b1', 12.7), 'fractional day');
+});
+
+test('the offer is a playlist the route builders and resolver all agree on', () => {
+  // The hero opens playerRouteFor(offer.id, 0). If the offer could name
+  // something resolvePlaylistParam rejects, the hero would land on the empty
+  // state it was meant to replace.
+  for (let day = 0; day < 30; day += 1) {
+    const p = listenPlaylistForDay('b1', day)!;
+    const id = new URL(`https://x${playerRouteFor(p.id, 0)}`).searchParams.get('playlist');
+    strictEqual(resolvePlaylistParam(id ?? undefined).kind, 'found', `day ${day}: ${p.id}`);
+  }
 });
