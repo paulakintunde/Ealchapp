@@ -1,0 +1,126 @@
+// Signed PUT to Cloudflare R2, S3-compatible, no SDK.
+//
+// Extracted from render-audio.ts so a second uploader does not carry a second
+// copy of SigV4. Duplicating a writer is exactly how `interlocutor` came to be
+// missing from a fix that had already been made for `parts`: two copies, one
+// fixed. One signer, imported twice.
+import { createHash, createHmac } from 'node:crypto';
+
+function hmac(key: Buffer | string, data: string): Buffer {
+  return createHmac('sha256', key).update(data, 'utf8').digest();
+}
+
+export function sha256Hex(data: Buffer | string): string {
+  return createHash('sha256').update(data).digest('hex');
+}
+
+/** True when every credential R2 needs is present. Callers report their own
+ *  message: a renderer and a plate generator want different wording. */
+export function r2Configured(): boolean {
+  return Boolean(
+    process.env.R2_ACCOUNT_ID &&
+      process.env.R2_ACCESS_KEY_ID &&
+      process.env.R2_SECRET_ACCESS_KEY &&
+      process.env.R2_BUCKET
+  );
+}
+
+/**
+ * @param meta Custom object metadata, stored as `x-amz-meta-<key>` and returned
+ *   on GET/HEAD. Used to stamp an object with the input that produced it, so a
+ *   generator can tell a STALE object from a missing one — an audio clip gets
+ *   that free from its content-addressed key, but an image whose path is
+ *   authored has nowhere else to put it. Keys must be lowercase.
+ * @param cacheControl Sent as the object's `Cache-Control`, which the CDN in
+ *   front of the bucket then serves.
+ *
+ *   This is what a FIXED path needs and a content-addressed one does not. An
+ *   audio clip may be cached forever: change the text and the key changes, so a
+ *   stale entry becomes unreachable rather than wrong. An image at an authored
+ *   path has no such protection, and it bit — a plate redrawn at the same key
+ *   was still served from cache afterwards (`cf-cache-status: HIT`, the old
+ *   bytes, while a HEAD to the origin reported the new size). Callers writing
+ *   to a fixed path should ask for revalidation. Omitted, the CDN's own policy
+ *   applies, which is right for immutable keys and wrong for these.
+ */
+export async function putToR2(
+  path: string,
+  body: Buffer,
+  contentType: string,
+  meta: Record<string, string> = {},
+  cacheControl?: string
+): Promise<void> {
+  const accountId = process.env.R2_ACCOUNT_ID!;
+  const accessKeyId = process.env.R2_ACCESS_KEY_ID!;
+  const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY!;
+  const bucket = process.env.R2_BUCKET!;
+
+  const host = `${accountId}.r2.cloudflarestorage.com`;
+  const region = 'auto';
+  const service = 's3';
+  const canonicalUri = `/${bucket}/${path.split('/').map(encodeURIComponent).join('/')}`;
+
+  const now = new Date();
+  const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, ''); // yyyyMMddTHHmmssZ
+  const dateStamp = amzDate.slice(0, 8);
+  const payloadHash = sha256Hex(body);
+
+  // SigV4 signs the headers in lowercase ASCII order, and every signed header
+  // must be sent verbatim. `x-amz-meta-*` sorts after `x-amz-date`, so the
+  // metadata appends cleanly to both lists — but only if the keys are already
+  // lowercase, which is why that is a documented requirement rather than a
+  // normalisation here: silently lowercasing would make the signature and the
+  // caller's mental model disagree.
+  const metaKeys = Object.keys(meta).sort();
+  const metaHeaders = metaKeys.map((k) => `x-amz-meta-${k}:${meta[k]}\n`).join('');
+  // `cache-control` sorts before `content-type`, so it leads both lists.
+  const cc = cacheControl ? `cache-control:${cacheControl}\n` : '';
+  const canonicalHeaders =
+    cc +
+    `content-type:${contentType}\n` +
+    `host:${host}\n` +
+    `x-amz-content-sha256:${payloadHash}\n` +
+    `x-amz-date:${amzDate}\n` +
+    metaHeaders;
+  const signedHeaders = [
+    ...(cacheControl ? ['cache-control'] : []),
+    'content-type',
+    'host',
+    'x-amz-content-sha256',
+    'x-amz-date',
+    ...metaKeys.map((k) => `x-amz-meta-${k}`),
+  ].join(';');
+  const canonicalRequest = ['PUT', canonicalUri, '', canonicalHeaders, signedHeaders, payloadHash].join('\n');
+
+  const credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;
+  const stringToSign = ['AWS4-HMAC-SHA256', amzDate, credentialScope, sha256Hex(canonicalRequest)].join('\n');
+
+  const kDate = hmac(`AWS4${secretAccessKey}`, dateStamp);
+  const kRegion = hmac(kDate, region);
+  const kService = hmac(kRegion, service);
+  const kSigning = hmac(kService, 'aws4_request');
+  const signature = hmac(kSigning, stringToSign).toString('hex');
+
+  const authorization =
+    `AWS4-HMAC-SHA256 Credential=${accessKeyId}/${credentialScope}, ` +
+    `SignedHeaders=${signedHeaders}, Signature=${signature}`;
+
+  const res = await fetch(`https://${host}${canonicalUri}`, {
+    method: 'PUT',
+    headers: {
+      ...(cacheControl ? { 'Cache-Control': cacheControl } : {}),
+      'Content-Type': contentType,
+      'x-amz-content-sha256': payloadHash,
+      'x-amz-date': amzDate,
+      ...Object.fromEntries(metaKeys.map((k) => [`x-amz-meta-${k}`, meta[k]!])),
+      Authorization: authorization,
+    },
+    // lib.dom's BodyInit doesn't recognize Node's Buffer as an ArrayBufferView
+    // even though it structurally is one — a fresh Uint8Array view sidesteps
+    // the type mismatch without copying semantics that matter at clip size.
+    body: new Uint8Array(body),
+  });
+  if (!res.ok) {
+    throw new Error(`R2 upload failed for ${path}: HTTP ${res.status} ${await res.text().catch(() => '')}`);
+  }
+}

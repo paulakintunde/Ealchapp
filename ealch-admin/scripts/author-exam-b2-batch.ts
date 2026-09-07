@@ -21,7 +21,7 @@
 //      missed PE@b2 to. Without it, the remediation deep-link the whole
 //      Phase 8 loop depends on would resolve to null.
 //
-//   3. One delf_b2 ExamSeries with two tasks:
+//   3. One delf_b2 ExamPaper with two tasks:
 //        - ce_mcq (reading comprehension): a short passage built FROM five
 //          of the 15 items, three questions, targetItemIds pointing at
 //          those five — a miss decomposes straight back into SRS review via
@@ -52,8 +52,8 @@
 import './env';
 import { describeTarget } from './env';
 import {
-  validateItem, validateLesson, validateUnit, validateExamTask, validateExamSeries,
-  type Item, type Lesson, type Unit, type ExamTask, type ExamSeries,
+  validateItem, validateLesson, validateUnit, validateExamTask, validateExamPaper,
+  type Item, type Lesson, type Unit, type ExamTask, type ExamPaper,
 } from '../../ealch-v2/src/content/schema.ts';
 
 /* ─── 1. The 15 B2 items ──────────────────────────────────────────────────── */
@@ -124,7 +124,7 @@ const LESSON: Lesson = {
   skill: 'PE',
 };
 
-/* ─── 3. The delf_b2 ExamSeries: ce_mcq + pe_essay ───────────────────────── */
+/* ─── 3. The delf_b2 ExamPaper: ce_mcq + pe_essay ────────────────────────── */
 
 const CE_PASSAGE =
   "Le télétravail s'est beaucoup développé ces dernières années. À mon avis, il présente plusieurs avantages : moins de temps perdu dans les transports et plus de flexibilité. En revanche, il existe aussi des inconvénients, comme l'isolement de certains salariés. Par conséquent, de nombreuses entreprises proposent aujourd'hui un modèle hybride, qui combine les deux.";
@@ -177,12 +177,21 @@ const PE_TASK: ExamTask = {
   timingS: 2700,
 };
 
-const SERIES: ExamSeries = {
-  id: 'series.delf_b2.blanc-01.1',
+// TWO sections, not four, and therefore NOT a valid paper: validateExamPaper
+// requires all four épreuves (CO, CE, PE, PO) and this batch only ever authored
+// reading and writing. That is why the validation below tolerates it, and why
+// the row stays in_review — the publish pipeline reads only 'published' rows,
+// so an incomplete paper can never reach a candidate. Phase E10 authors the
+// listening and speaking sections and completes it.
+const PAPER: ExamPaper = {
+  id: 'paper.delf_b2.blanc-01.1',
   format: 'delf_b2',
   variant: 'blanc-01',
-  seriesNo: 1,
-  taskIds: [CE_TASK.id, PE_TASK.id],
+  paperNo: 1,
+  sections: [
+    { skill: 'CE', taskIds: [CE_TASK.id], timingS: 3600, blueprintId: 'delf-b2-2026.01-draft' },
+    { skill: 'PE', taskIds: [PE_TASK.id], timingS: 3600, blueprintId: 'delf-b2-2026.01-draft' },
+  ],
 };
 
 /* ─── Apply ──────────────────────────────────────────────────────────────── */
@@ -207,7 +216,9 @@ async function main() {
     ...validateLesson(LESSON, LESSON.id),
     ...validateExamTask(CE_TASK, CE_TASK.id),
     ...validateExamTask(PE_TASK, PE_TASK.id),
-    ...validateExamSeries(SERIES, SERIES.id),
+    // Expected to report the missing CO and PO épreuves; see the note on PAPER.
+    // Filtered rather than skipped, so any OTHER defect still fails the batch.
+    ...validateExamPaper(PAPER, PAPER.id).filter((i) => !/missing an épreuve/.test(i.message)),
   ];
   if (issues.length) die(`content invalid:\n${issues.map((i) => `  ${i.path}: ${i.message}`).join('\n')}`);
 
@@ -215,7 +226,7 @@ async function main() {
   const dupes = itemIds.filter((id, i) => itemIds.indexOf(id) !== i);
   if (dupes.length) die(`duplicate item ids in batch: ${[...new Set(dupes)].join(', ')}`);
 
-  console.log(`\n  ${ITEMS.length} b2 items (theme 'opinion') + 1 unit + 1 lesson (skill PE) + 1 exam series (2 tasks: ce_mcq, pe_essay)`);
+  console.log(`\n  ${ITEMS.length} b2 items (theme 'opinion') + 1 unit + 1 lesson (skill PE) + 1 exam paper (2 of 4 épreuves: ce_mcq, pe_essay)`);
   console.log('  landing status: in_review — Gate H requires a human sign-off before publish');
 
   if (DRY_RUN) {
@@ -281,15 +292,15 @@ async function main() {
       );
     }
     await client.query(
-      `insert into content_exam_series (id, format, variant, series_no, task_ids, status)
-       values ($1,$2,$3,$4,$5,'in_review')
-       on conflict (id) do update set task_ids=excluded.task_ids`,
-      [SERIES.id, SERIES.format, SERIES.variant, SERIES.seriesNo, SERIES.taskIds]
+      `insert into content_exam_papers (id, format, variant, paper_no, sections, status)
+       values ($1,$2,$3,$4,$5::jsonb,'in_review')
+       on conflict (id) do update set sections=excluded.sections`,
+      [PAPER.id, PAPER.format, PAPER.variant, PAPER.paperNo, JSON.stringify(PAPER.sections)]
     );
 
     await client.query('commit');
     console.log(
-      `\n✓ batch applied: ${ITEMS.length} items, 1 unit, 1 lesson, 1 exam series (2 tasks) — all in_review.\n` +
+      `\n✓ batch applied: ${ITEMS.length} items, 1 unit, 1 lesson, 1 exam paper (2 of 4 épreuves) — all in_review.\n` +
         '  Review at /admin/content/review, then /admin/content/exams for the exam tasks specifically.\n' +
         '  After publishing, run pnpm content:publish to ship it OTA.\n'
     );

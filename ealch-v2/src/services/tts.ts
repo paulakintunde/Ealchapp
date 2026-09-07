@@ -171,6 +171,10 @@ function playRemote(uri: string, rate: number, onFinish: () => void): boolean {
 // others, so we only ever pass an id we have confirmed is installed here, and
 // otherwise fall back to language-only (which is exactly today's behavior).
 let voiceIds: Set<string> | null = null;
+/** The full list, kept as well as the id set, because casting a multi-speaker
+ *  exam document needs to know each voice's LANGUAGE — a set of identifiers
+ *  cannot be filtered to "the French ones". */
+let voiceList: { identifier: string; language: string }[] | null = null;
 let voicesReady: Promise<void> | null = null;
 
 /** Load the device voice list once, memoized as a PROMISE so a caller can await
@@ -183,12 +187,71 @@ function loadVoices(): Promise<void> {
   voicesReady = Speech.getAvailableVoicesAsync()
     .then((vs) => {
       voiceIds = new Set(vs.map((v) => v.identifier));
+      voiceList = vs.map((v) => ({ identifier: v.identifier, language: v.language ?? '' }));
+      if (__DEV__) {
+        // How many French voices this phone has decides whether a multi-speaker
+        // listening document can be read in more than one voice at all. It
+        // varies by manufacturer, OS version and downloaded language packs, so
+        // it is worth stating rather than assuming.
+        const all = voiceList.filter((v) => v.language.toLowerCase().replace('_', '-').startsWith('fr'));
+        const usable = deviceVoicesFor('fr-FR');
+        console.log(
+          `[tts] ${usable.length} usable fr-FR voice(s) of ${all.length} French / ${vs.length} total. ` +
+          `Excluded ${all.length - usable.length} (fr-CA and other locales). ${usable.join(', ')}`
+        );
+      }
     })
     .catch(() => {
       // Engine not ready or unsupported — allow a later retry.
       voicesReady = null;
     });
   return voicesReady;
+}
+
+/**
+ * Every device voice installed for a language, in the engine's own order.
+ *
+ * For the exam listening fallback: a document with three speakers read in one
+ * voice is not the same task as one read in three, and block C's whole item is
+ * telling three people apart. Returns [] until the list has loaded and [] on a
+ * device with none, so a caller can always fall back to language-only speech
+ * rather than branching on readiness.
+ *
+ * The list is a FACT ABOUT THIS PHONE, not a cast: how many French voices exist
+ * varies by manufacturer, OS version and which language packs were downloaded.
+ * Callers must degrade when it is short, never assume a count.
+ */
+export function deviceVoicesFor(lang: 'fr-FR' | 'en-US'): string[] {
+  void loadVoices();
+  if (!voiceList) return [];
+  // THE FULL LOCALE, not the language. This Pixel reports twenty French
+  // voices and nine of them are fr-CA: matching on `fr` alone would read a TEF
+  // listening document in a Québécois accent. STANDARD-common §2.1 is explicit
+  // that Canadian subject matter is welcome and Canadian phonetic variety is
+  // not, because it stops testing what the real paper tests.
+  const want = lang.toLowerCase();
+  const matches = voiceList.filter(
+    (v) => v.language.toLowerCase().replace('_', '-').startsWith(want)
+  );
+  // Ordered by how reliably each one is a DISTINCT voice.
+  //
+  //  1. named local voices  — a real, different speaker, and no network needed
+  //  2. the generic alias   — `fr-FR-language` is whatever the engine has set
+  //                           as its default, so it very likely duplicates one
+  //                           of the above; usable, but never in preference to
+  //                           a named voice, or two speakers sound identical
+  //                           while carrying different identifiers
+  //  3. named network voices — real voices, but one failing halfway through a
+  //                           document is worse than a plainer one that always
+  //                           works
+  const generic = (id: string) => /-language$/i.test(id);
+  const named = matches.filter((v) => !generic(v.identifier));
+  const rank = (id: string) => (id.includes('-network') ? 2 : 0);
+  return [
+    ...named.filter((v) => rank(v.identifier) === 0),
+    ...matches.filter((v) => generic(v.identifier)),
+    ...named.filter((v) => rank(v.identifier) === 2),
+  ].map((v) => v.identifier);
 }
 
 /** The configured device voice for this platform and language, but only if the
@@ -240,6 +303,16 @@ export const tts = {
       slow?: boolean;
       rate?: number;
       voice?: TtsVoice;
+      /**
+       * A specific DEVICE voice identifier, overriding the configured cast.
+       *
+       * For the exam listening fallback, where the point is that two speakers
+       * in one document sound different — a thing the role cast cannot express,
+       * because it names one narrator. Ignored unless the engine has confirmed
+       * the device actually has it, exactly like resolveVoice: an unknown id is
+       * silently dropped by some engines and an error on others.
+       */
+      deviceVoiceId?: string;
       onDone?: () => void;
       onError?: () => void;
     } = {}
@@ -302,7 +375,12 @@ export const tts = {
         // Stopping an unbound engine is a no-op warning; ignore it.
       }
       speaking = true;
-      const voice = resolveVoice(lang);
+      // An explicit device id wins over the configured cast, but only when the
+      // engine has confirmed this phone has it — same rule as resolveVoice, for
+      // the same reason.
+      const explicit =
+        opts.deviceVoiceId && voiceIds?.has(opts.deviceVoiceId) ? opts.deviceVoiceId : undefined;
+      const voice = explicit ?? resolveVoice(lang);
       try {
         Speech.speak(text, {
           language: lang,

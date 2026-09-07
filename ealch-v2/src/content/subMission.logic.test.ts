@@ -701,11 +701,28 @@ test('the ownsLayout predicate mirrored above still matches the pager', () => {
     "s.type === 'trapDrill'",
     "s.type === 'flashcards' || s.type === 'reviewDeck'",
     "s.type === 'practice'",
+    "s.type === 'scenario'",
   ]) {
     ok(fn.includes(marker), `ownsLayout still tests ${marker}`);
   }
-  // No eighth branch has appeared unnoticed.
-  strictEqual((fn.match(/return true;/g) ?? []).length, 7, 'ownsLayout has exactly the seven branches mirrored here');
+  // No ninth branch has appeared unnoticed.
+  strictEqual((fn.match(/return true;/g) ?? []).length, 8, 'ownsLayout has exactly the eight branches mirrored here');
+
+  // `scenario` is the first branch where ownsLayout and hasSubMissions PART
+  // COMPANY, so the equivalence asserted in subMission.logic.ts's header
+  // comment ("a section that owns its layout ... is exactly a section with
+  // sub-missions") no longer holds in both directions.
+  //
+  // A role play owns the viewport because it GROWS — every answered turn stays
+  // on screen, so its pinned Continue would otherwise sink below the fold. It
+  // is emphatically NOT a swipe deck, and it must never be sub-numbered: "15.3"
+  // over a conversation counts a dialogue like a form to fill in, which is the
+  // same thing SceneProgress refuses to do to a story. subCount has no
+  // `scenario` case for that reason, and this pins the absence.
+  strictEqual(subCount({ type: 'scenario', title: 'x', setting: 'y', turns: [
+    { ai: 'a', en: 'b', user: 'c' },
+    { ai: 'd', en: 'e', user: 'f' },
+  ] } as LessonSection), 1, 'a conversation is one mission, however many turns it has');
 });
 
 test('a control-page group renders, rather than crashing on its missing items', () => {
@@ -757,4 +774,68 @@ test('a control-page group renders, rather than crashing on its missing items', 
     /\{\(g\.items \?\? \[\]\)\.map\(/.test(rich),
     'MissionRich maps g.items unguarded again — a check-only group at any other size will crash',
   );
+});
+
+/* ─── groupDrill: the type that was missing from subCount ─────────────────── */
+
+const gd = (size: string | undefined, groups: { items?: unknown[]; check?: unknown }[]) =>
+  ({ type: 'groupDrill', title: 'x', size, groups } as unknown as LessonSection);
+
+test('an xl group drill counts one sub-mission per word', () => {
+  // The gap this closes: ownsLayout has tested `groupDrill` at xl since sons.06,
+  // and this module's own comment says the mirror of ownsLayout is the answer to
+  // "does this section paginate itself" — but the switch had no groupDrill case,
+  // so every XL drill fell to `default: return 1`. The header froze on the
+  // mission number while the learner swiped eleven cards through a1.07 mission
+  // 10, and no anchor could land finer than its first card.
+  strictEqual(subCount(gd('xl', [{ items: [1, 2, 3, 4, 5, 6] }])), 6);
+  strictEqual(subCount(gd('xl', [{ items: Array.from({ length: 11 }, (_, i) => i) }])), 11);
+  ok(hasSubMissions(gd('xl', [{ items: [1, 2] }])));
+});
+
+test('a control page is one screen, whatever its size', () => {
+  // `items: []` plus a check is the split shape sons.06 authored. It is one
+  // screen, so it prints no fraction: `10.1` on a single-card mission implies a
+  // `10.2` the learner will never reach.
+  strictEqual(subCount(gd('xl', [{ items: [], check: {} }])), 1);
+  strictEqual(subCount(gd(undefined, [{ items: [], check: {} }])), 1);
+  ok(!hasSubMissions(gd('xl', [{ items: [], check: {} }])));
+});
+
+test('a multi-group drill reports no sub-position, because one number cannot name it', () => {
+  // With several groups the position is two-dimensional: GroupDrillView holds a
+  // group index and the deck inside it holds a card index. A single number
+  // cannot say where the learner is and an anchor built from one could not
+  // restore it, which is the same line this module already draws for the review
+  // deck. sons.07 and sons.09 both author this shape.
+  strictEqual(subCount(gd('xl', [{ items: [1, 2, 3] }, { items: [4, 5, 6] }, { items: [], check: {} }])), 1);
+  ok(!hasSubMissions(gd('xl', [{ items: [1, 2, 3] }, { items: [4, 5, 6] }])));
+});
+
+test('a group drill at any other size is a stacked column, not a deck', () => {
+  // Without xl the drill is a plain stack of rows inside a scrolling page —
+  // sons.02, sons.03 and a1.06's s06-sort all render that shape — so there is
+  // nothing to swipe and nothing to number.
+  strictEqual(subCount(gd(undefined, [{ items: [1, 2, 3] }])), 1);
+  strictEqual(subCount(gd('md', [{ items: [1, 2, 3] }])), 1);
+});
+
+test('every self-paging section type that ownsLayout names is counted here', () => {
+  // The pinning test above checks that ownsLayout still NAMES each type. It
+  // never checked the reverse — that this switch handles them — which is
+  // exactly how groupDrill came to own its layout for months while reporting no
+  // sub-position at all.
+  //
+  // A section type that paginates itself and counts 1 is a frozen header. Each
+  // case below is a minimal section of that type in its self-paging shape.
+  const paginating: [string, LessonSection][] = [
+    ['cardDeck', { type: 'cardDeck', title: 'x', cards: [{ head: 'a' }, { head: 'b' }] } as unknown as LessonSection],
+    ['commonErrors (swipe)', { type: 'commonErrors', title: 'x', swipe: true, errors: [{}, {}] } as unknown as LessonSection],
+    ['trapDrill (stepped)', { type: 'trapDrill', title: 'x', cards: [], drill: [], steps: [{}, {}] } as unknown as LessonSection],
+    ['groupDrill (xl, one group)', gd('xl', [{ items: [1, 2] }])],
+    ['inhibitionDrill', { type: 'inhibitionDrill', title: 'x', targets: [{ practiceOn: ['a'] }, { practiceOn: ['b'] }] } as unknown as LessonSection],
+  ];
+  for (const [name, sec] of paginating) {
+    ok(subCount(sec) > 1, `${name} paginates itself but reports no sub-position, so its header freezes`);
+  }
 });

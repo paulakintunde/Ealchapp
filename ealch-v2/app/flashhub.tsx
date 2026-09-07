@@ -41,11 +41,18 @@ export default function FlashHub() {
       list.push(th.slug);
       themesOf.set(th.domain, list);
     }
-    return domains.map((d) => ({
-      slug: d.slug,
-      meta: domainMeta(d.slug),
-      count: selectItems(corpus, 'flashcard', { themes: themesOf.get(d.slug) ?? [] }).length,
-    }));
+    return domains
+      .map((d) => ({
+        slug: d.slug,
+        meta: domainMeta(d.slug),
+        count: selectItems(corpus, 'flashcard', { themes: themesOf.get(d.slug) ?? [] }).length,
+      }))
+      // Drop the empty ones, as voicehub/sentencehub/dictationhub already do.
+      // This hub was the only one that didn't, and offline it showed it: the
+      // seed cut is a1/a2/sons, so `societe` shipped a card advertising 0 cards
+      // whose theme list — which DOES filter on count — was then blank. A dead
+      // door teaches distrust.
+      .filter((c) => c.count > 0);
   }, [corpus]);
 
   return (

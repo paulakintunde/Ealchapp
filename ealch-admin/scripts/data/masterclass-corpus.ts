@@ -72,6 +72,7 @@
 // field says why.
 
 import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from './_unit-ref.ts';
 
 /** The tie character sons.10 uses for a liaison. Renders as a low underscore on
  *  a Pixel 6 (a pre-existing defect that already affects 213 shipped liaison
@@ -512,7 +513,7 @@ export const REUSED: { id: string; fr: string; why: string }[] = [
   { id: 'fr.sons.rythme.095', fr: 'Vous avez déjà mangé quelque chose aujourd\'hui ?',
     why: 'Thirteen syllables in one group, which is what a phrase with no break sounds like.' },
   { id: 'fr.sons.rythme.126', fr: 'Le matin, je bois mon café tranquillement.',
-    why: 'The reference item for the break and the push, already used to teach both in sons.08.' },
+    why: `The reference item for the break and the push, already used to teach both in ${unitRef('sons.08')}.` },
   { id: 'fr.sons.rythme.129', fr: 'Après le repas, on marche dans le parc.',
     why: 'A break with no join anywhere after it, so the second group is pure rhythm.' },
   { id: 'fr.sons.liaisons.003', fr: "C'est un ange, ce petit.",

@@ -191,6 +191,15 @@ function ownsLayout(s: LessonSection): boolean {
   // column of flip cards and needs the scrolling page, and the four lessons
   // that authored it that way keep it.
   if (s.type === 'trapDrill' && ((s as { steps?: unknown[] }).steps?.length ?? 0) > 0) return true;
+  // A scenario is the same case for a reason unique to it: it GROWS. Every
+  // answered turn stays on screen so the conversation is readable as a
+  // conversation, so the section is taller on turn 5 than it was on turn 1.
+  // In the scrolling page that pushed its own Continue below the fold by the
+  // second turn, while the pager's Next stayed pinned and visible — so the
+  // obvious button to press was the one that abandons the conversation, and
+  // pressing it looked like progress. Owning the viewport lets the dialogue
+  // scroll inside itself with Continue pinned where the learner is looking.
+  if (s.type === 'scenario') return true;
   // A flashcard deck and a review deck are the same case as the cardDeck above:
   // each draws ONE full-height card with its answer controls pinned below, and
   // both sized that card by guessing at the surrounding chrome. The guess came

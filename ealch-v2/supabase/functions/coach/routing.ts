@@ -239,3 +239,40 @@ function eligible(exclude: ProviderName | null, cap: number, env: Env): ChainEnt
       role: 'failover' as const,
     }));
 }
+
+/* ── Input size ─────────────────────────────────────────────────────────────
+ *
+ * The coach forwards learner text to a paid provider. Until this existed there
+ * was no upper bound on it at all: `messages` was destructured off the request
+ * body and the last twelve entries were handed to the chain whatever they
+ * weighed, so one caller pasting a book billed us for a book. The sibling tts
+ * function has always bounded its input (MAX_CHARS = 2400 there, on a single
+ * narration block); this is the same rule, on the same reasoning, for the one
+ * remaining unbounded paid path.
+ *
+ * WHY 6000. The cap is on what is actually SENT, which is the last twelve
+ * turns, not on how long a conversation has been running — a learner with 400
+ * turns behind them is not the expensive case, because eleven of their twelve
+ * forwarded turns are one sentence each. 6000 characters is roughly 1500
+ * tokens: about ten times the largest realistic twelve-turn exchange, so no
+ * genuine learner can reach it, and comfortably inside the context window of
+ * every provider in the chain even beside the system prompt and the 500-token
+ * reply budget. It is a ceiling on abuse and accident, not a content limit.
+ *
+ * Counting characters rather than tokens is deliberate: tokenising means
+ * shipping a tokeniser per provider, and the number that has to be right here
+ * is an order of magnitude, not a precise budget. */
+export const MAX_CHARS = 6000;
+
+/** Total characters across the turns that will be forwarded, or `null` when
+ *  that total is within MAX_CHARS. Returning the measured size rather than a
+ *  boolean lets the caller say how far over the request was.
+ *
+ *  Non-string and missing `content` counts as zero rather than throwing: this
+ *  runs on an unvalidated request body, and a malformed message is the shape
+ *  check's problem, not the size check's. */
+export function overCap(turns: ReadonlyArray<{ content?: unknown }>): number | null {
+  let total = 0;
+  for (const t of turns) if (typeof t?.content === 'string') total += t.content.length;
+  return total > MAX_CHARS ? total : null;
+}

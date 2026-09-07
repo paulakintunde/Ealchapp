@@ -42,6 +42,18 @@ export default function LessonOverview() {
     .join(', ');
   const goMissions = () => router.push({ pathname: '/missions', params: { key: L.id } });
 
+  // A unit may carry more than one lesson: a1.30 is review + exam, a2.10 is the
+  // -IR paradigm + the families that do not take it. The den taps through to
+  // lessonIds[0] and nothing else, and lesson.tsx's result card only hands the
+  // learner forward ONCE — so without this row a finished second lesson has no
+  // route back to it, and the A1 exam cannot be retaken at all.
+  //
+  // lessonsOf sorts by Lesson.seq, so siblings list in curriculum order. It is
+  // empty for every one-lesson unit, which today is every unit except those
+  // two, so they render exactly as before. Deliberately NOT the den tap: that
+  // path is shared by all 75 units and is the riskier thing to change.
+  const siblings = content.lessonsOf(L.unitId).filter((x) => x.id !== L.id);
+
   const statPairs: [number, string][] = [
     [stats.required, T.ovStatRequired],
     [stats.gates, T.ovStatGates],
@@ -133,6 +145,30 @@ export default function LessonOverview() {
         <TX role="label" color={t.txSubtle} style={{ marginTop: 18 }}>
           {'✓ ' + (prereqTitles ? T.ovPrereqSome.replace('{t}', prereqTitles) : T.ovPrereqNone)}
         </TX>
+
+        {/* Sibling lessons — the only route to the second lesson of a unit */}
+        {siblings.length ? (
+          <View style={{ marginTop: 22 }}>
+            <TX font="semi" role="eyebrow" ls={1.2} color={t.txSubtle}>{T.ovAlsoHere}</TX>
+            {siblings.map((s) => (
+              <Press
+                key={s.id}
+                cue="tap"
+                onPress={() => router.push({ pathname: '/lessonoverview', params: { key: s.id } })}
+                style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 10, borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, paddingVertical: 14, paddingHorizontal: 16 }}
+              >
+                {/* flex lives on the wrapper, never on a TX, or the title clips */}
+                <View style={{ flex: 1 }}>
+                  <TX font="semi" role="label">{s.overview?.titleEn ?? s.title}</TX>
+                  <TX role="eyebrow" color={t.txSubtle} style={{ marginTop: 3 }}>
+                    {String(missionStats(s.sections).missions) + ' ' + T.ovMissionsWord}
+                  </TX>
+                </View>
+                <Icon name="chevronRight" size={16} color={t.txNonText} strokeWidth={1.7} />
+              </Press>
+            ))}
+          </View>
+        ) : null}
 
         {/* CTA */}
         <Press cue="tap" onPress={goMissions} style={{ marginTop: 26, height: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>

@@ -14,7 +14,7 @@
 // rendering and gestures only. In particular, the rule that the BREAK PLAYS ON
 // A CORRECT CHOICE is enforced there, not here — see the note in that file.
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Animated, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press, Button } from '@/components/ui';
@@ -239,6 +239,16 @@ function BubbleBeat({
   const t = useTheme();
   const mine = beat.from === 'you';
   const on = playingId === id;
+  // A bubble is only playable if there is something to say. a1.01's scene has a
+  // beat whose whole content is an ellipsis — the baker says nothing, and the
+  // silence IS the teaching — but the speaker icon still rendered on it and the
+  // bubble still took a press, so the learner was offered audio that would read
+  // out punctuation.
+  //
+  // Gated on the TEXT, not on `beat.audio`. Six bubbles across the shipped
+  // scenes carry real French with no per-beat audio spec and fall back to the
+  // section default; keying off `audio` would silently strip their icons too.
+  const speakable = /[\p{L}\p{N}]/u.test(beat.fr ?? '');
   return (
     <View style={{ alignItems: mine ? 'flex-end' : 'flex-start', gap: 6 }}>
       {beat.speaker ? (
@@ -246,7 +256,8 @@ function BubbleBeat({
       ) : null}
       <Press
         cue={null}
-        onPress={() => onPlay?.(id, beat.fr)}
+        disabled={!speakable}
+        onPress={speakable ? () => onPlay?.(id, beat.fr) : undefined}
         accessibilityLabel={beat.fr}
         style={{
           maxWidth: '92%',
@@ -261,18 +272,41 @@ function BubbleBeat({
           gap: 5,
         }}
       >
-        {/* flexShrink: 1, NOT flex: 1.
-            The bubble hugs its content, so `flex: 1` asked the text to fill a
-            width nobody had decided yet — RN resolved that against the shortest
-            word and clipped the rest, which is why "Pardon ?" rendered as "Pa".
-            Shrink-only lets the text measure itself first and give way only when
-            the bubble really is at its 92% ceiling. Same failure the XL word
-            card hit; see the LAYOUT RULE note in LessonRich. */}
+        {/* THE FRENCH IS ALONE ON ITS LINE, AND THAT IS THE FIX.
+            This bubble hugs its content and is capped at 92%, so it has no
+            resolved width. Put ANY sibling beside the French in a row and Yoga
+            measures the Text at its natural single-line width during the hug
+            pass, caps the box, and the already-measured text does not re-wrap:
+            the tail is silently cut. The audio still speaks the whole line,
+            because onPlay gets the string and not the layout, so the learner
+            hears words the screen never showed. First reported on sons.07
+            mission 1 as "Ah, à Lyon. Très bien." rendering without "bien".
+
+            Measured on a Pixel 6 (a scratch bench, five markups against the
+            same strings) rather than reasoned about, because reasoning got it
+            wrong three times:
+
+              icon in the row, flexShrink: 1   CLIPS  (what shipped)
+              icon in the row, flex: 1         CLIPS, and collapses "Pardon ?"
+                                               to "Pa"
+              icon in the row, row wraps       CLIPS
+              icon in the row, no flex at all  CLIPS
+              ICON OUT OF THE ROW              WHOLE, at every length
+
+            The clip is also NOT deterministic: the identical string rendered
+            whole in one position and clipped in another on the same screen,
+            which is why no content rule can dodge it and why the earlier
+            "it is the spaced exclamation mark" reading was an artifact of a
+            single sample. It is the row, and only the row.
+
+            So the speaker rides with the GLOSS, which is free to sit beside it
+            because a wrapping Text with no flex property in a row measures
+            correctly — that is the observation this fix was derived from. */}
+        <TX font="serifI" role="titleSm">{beat.fr}</TX>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          <TX font="serifI" role="titleSm" style={{ flexShrink: 1 }}>{beat.fr}</TX>
-          <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} />
+          <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
+          {speakable ? <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} /> : null}
         </View>
-        <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
         {beat.ipa ? <TX role="meta" color={t.txSubtle}>{beat.ipa}</TX> : null}
       </Press>
       {beat.stage ? (
@@ -367,15 +401,25 @@ function BreakBeat({
   const framing = breakFraming(beats, state, index);
 
   // Audio-first: hold the text back briefly on entry while the model plays.
+  //
+  // This MUST run in an effect, not during render. It used to fire from a
+  // `if (!started.current)` guard in the render body, and `onPlay` reaches
+  // lesson.tsx's play(), which calls setPlayingId — a state update on
+  // LessonScreen while ScenePlayer was still rendering. React reported it on a
+  // device as the red toast "Cannot update a component (`LessonScreen`) while
+  // rendering a different component", sitting over the break card, which is the
+  // one screen in a scene lesson the learner is most meant to read.
+  //
+  // It affected every scene whose break sets audioFirst — sons.02, .03, .05,
+  // .06, .07, .09, .10 and a1.01 — because the flag is what triggers the call.
+  // An empty dep array keeps the once-per-mount semantics the ref guard had.
   const reveal = useRef(new Animated.Value(beat.audio?.audioFirst ? 0 : 1)).current;
-  const started = useRef(false);
-  if (!started.current) {
-    started.current = true;
-    if (beat.audio?.audioFirst) {
-      onPlay?.(id, beat.right.fr);
-      Animated.timing(reveal, { toValue: 1, duration: 260, delay: 900, useNativeDriver: true }).start();
-    }
-  }
+  useEffect(() => {
+    if (!beat.audio?.audioFirst) return;
+    onPlay?.(id, beat.right.fr);
+    Animated.timing(reveal, { toValue: 1, duration: 260, delay: 900, useNativeDriver: true }).start();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <View style={{ gap: 18 }}>
@@ -433,9 +477,16 @@ function ReadingRow({
         gap: 4,
       }}
     >
+      {/* Same rule as the bubble above: the flex belongs to a wrapper View, not
+          to the Text. This card is full-width today, so `flex: 1` on the Text
+          happens to resolve, but the strings it shows are the scene's wrong/right
+          pair and a longer one would clip exactly as the bubble did. Kept
+          consistent so the working shape is the one that gets copied. */}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
         <Icon name={tone === 'right' ? 'check' : 'x'} size={14} color={c} />
-        <TX font="serifI" role="titleLg" style={{ flex: 1 }}>{side.fr}</TX>
+        <View style={{ flex: 1 }}>
+          <TX font="serifI" role="titleLg">{side.fr}</TX>
+        </View>
         {onPlay ? <Icon name="speaker" size={15} color={playing ? t.acc : t.txNonText} /> : null}
       </View>
       <TX role="body" color={t.txSecondary}>{side.ipa}</TX>

@@ -28,3 +28,29 @@ __pycache__/
 # Scratch scripts. `_tmp_` is the prefix for something written to answer one
 # question and not meant to survive it.
 ealch-admin/scripts/_tmp_*.ts
+
+# The same rule, for the prefix the per-lesson builds actually use. `_a<n>_`
+# names a probe written during the build of lesson <n> — measure one statistic,
+# dump one body, check one collision — and it answers that one question and is
+# done. Nothing imports them, nothing runs them twice, and they are written
+# fast and loose, so they fail `tsc --noEmit` and gate the console's typecheck
+# on dead code. `_a235_audit.ts` and `_a235_mix.ts` reached the index this way.
+# The glob is `_a*` rather than `_a[0-9]*_`, so it also takes the by-theme
+# spellings of the same throwaway (`_adjectifs_probe.ts`, `_audit5.ts`). That
+# is deliberate: same convention, same lifetime, same reason not to keep them.
+ealch-admin/scripts/_a*.ts
+ealch-admin/scripts/_a*.mjs
+
+# Seed snapshots taken around a migration. A copy of seed.json is ~15 MB and
+# carries the SAME `version` field as the real one while holding an older body,
+# so a stray `git add -A` commits 30 MB and a stray copy silently restores a
+# state the counter says is current. Two of them are sitting beside seed.json
+# right now, from the band-wide unit-label migration that was rolled back in
+# favour of the source-first one.
+ealch-v2/src/content/seed.*.bak
+ealch-v2/src/content/seed.*.migrated.json
+
+# The rolled-back migration's own script. Kept as a record of what was tried;
+# ignored because its `--write` still writes seed.json AND Postgres directly,
+# bypassing the batch-then-merge pipeline every lesson goes through.
+ealch-admin/scripts/_a2_unit_label_migration.ts

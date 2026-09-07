@@ -44,6 +44,10 @@ export type QuizConfig = {
   roundFailThreshold?: number;
   /** Percent needed to pass the quiz overall. Default 70. */
   passMark?: number;
+  /** Exam conditions. Suppresses the per-question explanation and the jump
+   *  back to the teaching section while answering; the renderer hands the
+   *  review over on the result card instead. Scoring is unaffected. */
+  exam?: boolean;
   /** Trigger id to drill id. Built from the lesson's errorTriggers. */
   drillForTarget?: Record<string, string>;
   /** Drill id to retest id. */
@@ -184,6 +188,7 @@ export function buildQuizConfig(
     drills?: LessonDrill[];
     roundFailThreshold?: number;
     passMark?: number;
+    exam?: boolean;
   }
 ): QuizConfig {
   const drillForTarget: Record<string, string> = {};
@@ -201,5 +206,6 @@ export function buildQuizConfig(
     retestForDrill,
     roundFailThreshold: opts.roundFailThreshold,
     passMark: opts.passMark,
+    exam: opts.exam,
   };
 }

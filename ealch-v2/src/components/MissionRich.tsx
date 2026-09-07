@@ -15,7 +15,17 @@ import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
 import { normalizeFr, barsForLevel } from '@/utils/score';
 import { resolveAudio, speedsFor, NORMAL_RATE } from '@/content/lessonAudio.logic';
-import { dicteeMode, dicteeTarget, dicteeWords } from '@/content/dictee.logic';
+import { dicteeMode, dicteeTarget, dicteeWords, wordDecoys } from '@/content/dictee.logic';
+import {
+  BEAT,
+  acceptedReplies,
+  bestReply,
+  transcriptOf,
+  unheardReason,
+  type Attempt,
+  type Reply,
+  type TurnPhase,
+} from '@/content/scenario.logic';
 import type {
   LessonSection,
   GridSound,
@@ -289,6 +299,8 @@ function OneGroup({
   xl,
   hideLabel,
   onAnswered,
+  onIndexChange,
+  initialIndex,
 }: {
   g: SoundGroup;
   xl?: boolean;
@@ -296,6 +308,13 @@ function OneGroup({
   /** Fires once the control has been answered, so the page can stop letting
    *  the learner swipe past a check they never took. */
   onAnswered?: () => void;
+  /** Which word of this group is on screen, so the pager can address it as
+   *  10.1, 10.2 … Passed only for the single-group XL shape: with several
+   *  groups the position is (group, card) and a lone index would name the wrong
+   *  thing. See the note in subMission.logic's `groupDrill` case. */
+  onIndexChange?: (index: number) => void;
+  /** Open on this card rather than the first, for a resume or a deep link. */
+  initialIndex?: number | null;
 }) {
   const t = useTheme();
   const [picked, setPicked] = useState(-1);
@@ -394,10 +413,12 @@ function OneGroup({
                 below, which costs no layout height. */}
             <SwipeDeck
               fill
-              items={g.items}
+              items={g.items ?? []}
               a11yHint="One word at a time. The grey letters are the ones you do not say."
               keyFor={(it, i) => `${g.label}-${it.fr}-${i}`}
               renderItem={(it, _i, cardH) => <GroupWordCard item={it} height={cardH} />}
+              onIndexChange={onIndexChange}
+              initialIndex={initialIndex}
             />
           </View>
         ) : null}
@@ -419,7 +440,33 @@ function OneGroup({
         <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
           <View style={{ flex: 1 }}>
             <TX role="body">{it.fr} {it.ipa ? <TX role="bodySm" color={t.txMuted}>{it.ipa}</TX> : null}</TX>
-            {it.note ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{it.note}</TX> : null}
+            {/* THE SECOND LINE, AND `note` IS NOT THE ONLY THING THAT BELONGS ON IT.
+             *
+             *  Until 2026-08-13 this drew `note` alone. `respell` and `en` were
+             *  documented as XL-only (schema.ts:899) and dropped here in
+             *  silence — so a card carrying them and no note rendered as a bare
+             *  French string: no pronunciation, no meaning, just the word and a
+             *  play button.
+             *
+             *  Measured across the shipped seed when a2.13's device pass found
+             *  it: 591 OF 730 `lg` GROUP-DRILL CARDS, ACROSS 28 LESSONS. a1.08
+             *  ships 39 of them, a1.09 and a1.10 forty each. The data was there
+             *  and correct in every one; only this line was lossy.
+             *
+             *  Fixing it HERE rather than in the content is what makes it stay
+             *  fixed: 28 lessons would each have needed a source edit, a version
+             *  bump, a re-apply and a re-merge, and every future lesson would
+             *  have had to remember. The renderer is the one place that knows
+             *  what it can draw.
+             *
+             *  `note` still wins when present, because a lesson that wrote one
+             *  chose its wording deliberately (a2.13 pairs the respelling with
+             *  the gloss in exactly this shape). Otherwise the two fields are
+             *  joined the same way, so both paths look identical on glass. */}
+            {(() => {
+              const second = it.note ?? [it.respell, it.en].filter(Boolean).join(' · ');
+              return second ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{second}</TX> : null;
+            })()}
           </View>
           <PlayDot text={it.fr} size={30} />
         </View>
@@ -440,7 +487,7 @@ function GroupWordCard({
   item,
   height,
 }: {
-  item: SoundGroup['items'][number];
+  item: NonNullable<SoundGroup['items']>[number];
   /** The height the deck measured for this card, in `fill` mode. Null means
    *  the old behaviour: guess the surrounding chrome via useCardHeight. A
    *  measured value is always better — the guess is what put the drill's
@@ -486,6 +533,8 @@ function GroupWordCard({
 export function GroupDrillView({
   s,
   onBlockedChange,
+  onIndexChange,
+  initialIndex,
 }: {
   s: GroupDrillSec;
   /** Reports whether this mission is holding the learner. True while a control
@@ -494,6 +543,15 @@ export function GroupDrillView({
    *  is the split shape sons.06 authored; every other drill reports false and
    *  behaves exactly as before. */
   onBlockedChange?: (blocked: boolean) => void;
+  /** Which card of this drill is on screen, so the pager's header can read
+   *  10.1 … 10.11 instead of freezing on 10 for the whole deck.
+   *
+   *  Reported ONLY for the single-group XL shape, which is the one that
+   *  paginates as one flat deck. subCount() returns 1 for every other shape, so
+   *  passing an index from them would send a position the header has no
+   *  denominator for and no anchor could restore. */
+  onIndexChange?: (index: number) => void;
+  initialIndex?: number | null;
 }) {
   const t = useTheme();
   const T = useT();
@@ -535,7 +593,12 @@ export function GroupDrillView({
   // sons.06 split its four families into. That page, and only that page, holds
   // the learner until they answer. A drill that also carries words is teaching
   // material with a check attached and must stay swipeable.
-  const controlOnly = s.groups.length === 1 && !!s.groups[0].check && s.groups[0].items.length === 0;
+  // `items` may be ABSENT rather than empty on a control page — five groups in
+  // the seed omit the key entirely (sons.09's four checks, sons.07's Contrôle).
+  // Reading `.length` off those would throw; it has never fired only because
+  // the `groups.length === 1` test short-circuits before reaching it, which is
+  // luck rather than design.
+  const controlOnly = s.groups.length === 1 && !!s.groups[0].check && (s.groups[0].items?.length ?? 0) === 0;
   const [answered, setAnswered] = useState(false);
   // Hooks run unconditionally and above the early return, so hook order cannot
   // vary with `single`.
@@ -559,12 +622,23 @@ export function GroupDrillView({
       // layout: a control page is prose and options, and rendering it as a
       // 56pt word card would be wrong. A filling wrapper only when the hero
       // layout actually needs the height.
+      // Only the XL word deck has cards to count, so only it reports an index.
+      // A control page is one screen and a non-XL group is a stacked column,
+      // and subCount() returns 1 for both — reporting a position either would
+      // send the header a number it has no denominator for.
+      //
+      // Kept OUTSIDE the JSX element on purpose: a comment inside the tag puts
+      // slashes in it, and the pin in subMission.logic.test.ts matches call
+      // sites with `/<OneGroup[^/]*\/>/`. Weakening that regex to fit a comment
+      // would be trading a real guard for a formatting preference.
       <View style={xl ? { flex: 1 } : undefined}>
         <OneGroup
           g={s.groups[0]}
           xl={xl}
           hideLabel={sameAsTitle(s.groups[0].label)}
           onAnswered={() => setAnswered(true)}
+          onIndexChange={xl ? onIndexChange : undefined}
+          initialIndex={xl ? initialIndex : undefined}
         />
       </View>
     );
@@ -793,8 +867,30 @@ function TrapAudioStep({ s }: { s: TrapDrillSec }) {
       contentContainerStyle={{ paddingBottom: STEP_FOOTER_H + 8 }}
       showsVerticalScrollIndicator={false}
     >
+      {/* GENERIC ON PURPOSE, and it used to name a sound.
+        *
+        * This line read « Écoutez la paire. Le R sonne, puis le R se tait. »
+        * and was printed on EVERY stepped trapDrill audio step in the product:
+        * measured 2026-08-16, 46 steps across 34 lessons, and NOT ONE of them
+        * teaches the French R. It was written for one screen and rendered on
+        * all of them, telling a learner working on politeness registers,
+        * verb endings or preposition folds to listen for a consonant that is
+        * not in the exercise.
+        *
+        * (A first sweep reported one lesson as genuinely about the R. It was a
+        * false positive: the pattern `le R\b` matched « Le réflexe », because
+        * JavaScript's \b is ASCII-only and é is not a word character. That is
+        * A2-BRIEF-CORRECTIONS.md §14.3 in a new place.)
+        *
+        * Every one of the 46 already renders its own authored step title
+        * directly above this line, so this is the instruction and not the
+        * heading. It has to be true everywhere or say nothing. All 46 authored
+        * audio specs carry more than one speed, so the speed clause holds.
+        *
+        * If a step ever needs its own wording, add `hint?: string` to TrapStep
+        * and fall back to this. Do not put a sound back in it. */}
       <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 12 }}>
-        Écoutez la paire. Le R sonne, puis le R se tait.
+        Écoutez chaque paire, à vitesse normale puis lentement.
       </TX>
       {s.cards.map((c, i) => (
         <View
@@ -1036,14 +1132,19 @@ export function TrapDrillView({
       {!last ? (
         <Press
           cue="tap"
-          onPress={() =>
-            !held &&
-            setStep((n) => {
-              const next = n + 1;
-              onIndexChange?.(next);
-              return next;
-            })
-          }
+          // `onIndexChange` is called HERE, not inside a setState updater.
+          // React runs updaters during render, and this callback reaches the
+          // lesson's progress writes — the same "Cannot update a component
+          // (`Home`) while rendering a different component" the quiz logged.
+          // An updater may also run twice, which would have reported two step
+          // advances for one tap. `step` is what this button already renders
+          // from, and `held` gates re-entry, so reading it directly is safe.
+          onPress={() => {
+            if (held) return;
+            const next = step + 1;
+            setStep(next);
+            onIndexChange?.(next);
+          }}
           accessibilityRole="button"
           accessibilityState={{ disabled: held }}
           accessibilityLabel={held ? T.answerAllToContinue : T.continueT}
@@ -1230,12 +1331,17 @@ function buildTileBank(word: string): { ch: string; id: number }[] {
   return letters.map((ch, id) => ({ ch, id }));
 }
 
-/** The word-tile bank: one tile per word of the sentence, shuffled, plus one
- *  decoy drawn from the sentence itself (a repeated word is a real trap and
- *  needs no invented vocabulary). Case is preserved, because with words on the
- *  tiles the capital is a legitimate clue to where the sentence starts. */
+/** The word-tile bank: one tile per word of the sentence, plus decoy words that
+ *  do NOT belong, all shuffled. Case is preserved, because with words on the
+ *  tiles the capital is a legitimate clue to where the sentence starts.
+ *
+ *  The decoys are the point. Without them every tile belonged to the answer, so
+ *  "place all of them" solved the exercise without the learner ever judging
+ *  whether a word was in what they heard — an ordering puzzle rather than a
+ *  dictée. See wordDecoys in dictee.logic.ts, where the choice is made so it
+ *  can be tested; the shuffle stays here because it is presentation. */
 function buildWordBank(fr: string): { ch: string; id: number }[] {
-  const shuffled = [...dicteeWords(fr)];
+  const shuffled = [...dicteeWords(fr), ...wordDecoys(fr)];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
@@ -1469,114 +1575,390 @@ export function DictationView({ s }: { s: DictationSec }) {
   );
 }
 
-/* ─── 8. Scenario (real hide-then-reveal STT) ────────────────────────────── */
+/* ─── 8. Scenario (a paced conversation, with answers that vary) ─────────── */
 
-function ScenarioTurnView({ turn, onNext, isLast }: { turn: ScenarioTurn; onNext: () => void; isLast: boolean }) {
+// The learner is asked, tries it (aloud or in their head), and then sees what
+// works — one turn at a time, with everything already said still on screen.
+//
+// Three rules this screen exists to keep, all of which it used to break. The
+// reasoning is in scenario.logic.ts; the short version:
+//   · the conversation STAYS VISIBLE, or the section demonstrates no flow
+//   · MORE THAN ONE ANSWER works, or dialogue reads as a cloze test
+//   · there is a BEAT before the learner is asked to speak, or it is a form
+
+/** A bubble in the scrollback. Quieter than the live turn: this is context the
+ *  learner reads past, not the thing they are being asked to do. */
+function TurnBubble({
+  fr,
+  en,
+  mine,
+  muted,
+  note,
+  playable,
+}: {
+  fr: string;
+  en?: string;
+  mine?: boolean;
+  muted?: boolean;
+  note?: string;
+  playable?: boolean;
+}) {
   const t = useTheme();
-  const T = useT();
-  const logAttempt = useProgress((st) => st.logAttempt);
-  const [listening, setListening] = useState(false);
-  const [revealed, setRevealed] = useState(false);
-  const [mine, setMine] = useState<{ text: string; ok: boolean; verdict?: SttResult['verdict']; score?: number } | null>(null);
-  const [spoke, setSpoke] = useState(false);
-
-  const speakAi = () => {
-    setSpoke(true);
-    tts.speak(turn.ai, { onDone: () => {}, onError: () => {} });
-  };
-
-  const mic = async () => {
-    if (revealed || listening) return;
-    sound.play('tap');
-    setListening(true);
-    const res = await stt.listen(turn.user, { maxMs: 7000, bars: barsForLevel('sons') });
-    setListening(false);
-    const heardOk = res.ok && res.verdict !== 'none';
-    sound.play(heardOk && res.verdict !== 'off' ? 'success' : 'flip');
-    if (heardOk) {
-      logAttempt({
-        activity: 'lesson',
-        itemId: `scenario.${turn.user.slice(0, 12)}`,
-        expected: turn.user,
-        heard: res.transcript,
-        score: res.score,
-        verdict: res.verdict,
-        correct: res.verdict === 'good',
-        modality: 'produce',
-      });
-      setMine({ text: res.transcript, ok: true, verdict: res.verdict, score: res.score });
-    } else {
-      setMine({ text: '', ok: false });
-    }
-    setRevealed(true);
-  };
-
   return (
-    <View style={{ gap: 12, marginBottom: 20 }}>
-      <View style={{ alignItems: 'flex-start' }}>
-        <View style={{ maxWidth: '86%', borderRadius: 4, borderTopLeftRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 13 }}>
-          <TX role="body" lhMult={1.4}>{turn.ai}</TX>
-          <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>{turn.en}</TX>
+    <View style={{ alignItems: mine ? 'flex-end' : 'flex-start', gap: 4 }}>
+      <View
+        style={{
+          maxWidth: '86%',
+          borderRadius: 18,
+          borderTopLeftRadius: mine ? 18 : 4,
+          borderTopRightRadius: mine ? 4 : 18,
+          borderWidth: 1,
+          borderColor: mine ? t.accA(30) : t.line(8),
+          backgroundColor: mine ? t.accA(10) : t.card,
+          padding: 13,
+          opacity: muted ? 0.85 : 1,
+        }}
+      >
+        {/* The flex lives on a wrapper View, never on the TX — a hugging bubble
+            measures its text unwrapped and clips the tail otherwise. Same rule
+            as ScenePlayer's BubbleBeat. */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <View style={{ flexShrink: 1 }}>
+            <TX role="body" lhMult={1.4} style={muted ? { fontStyle: 'italic' } : undefined}>{fr}</TX>
+          </View>
+        </View>
+        {en ? <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>{en}</TX> : null}
+        {playable ? (
           <View style={{ marginTop: 8 }}>
-            <PlayDot text={turn.ai} size={28} />
+            <PlayDot text={fr} size={28} />
           </View>
-        </View>
+        ) : null}
       </View>
-      {!revealed ? (
-        <Press
-          cue={null}
-          onPress={mic}
-          style={{ alignSelf: 'flex-end', height: 48, paddingHorizontal: 20, borderRadius: 24, backgroundColor: listening ? t.dangerA(16) : t.accA(14), borderWidth: 1, borderColor: listening ? t.dangerA(45) : t.accA(45), flexDirection: 'row', alignItems: 'center', gap: 8 }}
-        >
-          <Icon name="mic" size={16} color={listening ? t.danger : t.acc} />
-          <TX font="semi" role="body" color={listening ? t.danger : t.accTx}>{listening ? 'Écoute…' : 'Répondre'}</TX>
-        </Press>
-      ) : null}
-      {revealed && mine ? (
-        <View style={{ alignItems: 'flex-end', gap: 4 }}>
-          <View style={{ maxWidth: '86%', borderRadius: 18, borderTopRightRadius: 4, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(10), padding: 13 }}>
-            <TX role="body" lhMult={1.4}>{mine.ok ? mine.text : "(pas entendu)"}</TX>
-          </View>
-          {mine.ok && mine.verdict ? (
-            <TX role="meta" color={mine.verdict === 'good' ? t.accTx : mine.verdict === 'close' ? t.txSecondary : t.danger}>
-              {mine.verdict === 'good' ? 'Bien dit' : mine.verdict === 'close' ? 'Presque' : 'Réessayez'} · {Math.round((mine.score ?? 0) * 100)}%
-            </TX>
-          ) : null}
-          <View style={{ maxWidth: '86%', borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card2, padding: 10, marginTop: 4 }}>
-            <TX role="bodySm" color={t.txMuted}>Modèle : {turn.user}</TX>
-          </View>
-        </View>
-      ) : null}
-      {revealed ? (
-        <Press
-          cue="tap"
-          onPress={onNext}
-          style={{ height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
-        >
-          <TX font="semi" role="body" color={t.accInk}>{isLast ? T.sceneEnd : T.continueT}</TX>
-        </Press>
-      ) : null}
+      {note ? <TX role="meta" color={t.txSubtle}>{note}</TX> : null}
     </View>
   );
 }
 
-export function ScenarioView({ s }: { s: ScenarioSec }) {
+/** What the learner ended up contributing on a finished turn.
+ *
+ *  A turn they chose to be shown still renders as their line, in the model's
+ *  words and marked as such. Leaving a gap there would break the one thing the
+ *  scrollback is for: read back, it has to look like a conversation. */
+function AttemptBubble({ attempt, turn }: { attempt: Attempt; turn: ScenarioTurn }) {
+  const T = useT();
+  if (attempt.kind === 'spoke') {
+    return <TurnBubble mine fr={attempt.heard} en={attempt.matched.en} />;
+  }
+  const label = attempt.kind === 'unheard' ? T.rpUnheardShort : T.rpModel;
+  return <TurnBubble mine muted fr={turn.user} en={turn.userEn} note={label} />;
+}
+
+/** The reveal: every reply that would have worked, model first. */
+function AnswerCard({ turn, matched }: { turn: ScenarioTurn; matched?: Reply }) {
   const t = useTheme();
-  const [ix, setIx] = useState(0);
-  const done = ix >= s.turns.length;
+  const T = useT();
+  const replies = acceptedReplies(turn);
   return (
-    <View>
+    <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card2, padding: 14, gap: 12 }}>
+      {replies.map((r, i) => {
+        // The reply the learner actually said is marked, so a learner who used
+        // an alternative sees THEIR sentence confirmed rather than reading the
+        // model and assuming they got it wrong.
+        const hit = !!matched && matched.fr === r.fr;
+        return (
+          <View key={i} style={i > 0 ? { borderTopWidth: 1, borderTopColor: t.line(8), paddingTop: 12 } : undefined}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+              <TX font="semi" role="eyebrow" ls={1.8} color={hit ? t.accTx : t.txSubtle}>
+                {i === 0 ? T.rpModel : T.rpAlsoWorks}
+              </TX>
+              {hit ? <Icon name="check" size={12} color={t.accTx} /> : null}
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              <View style={{ flexShrink: 1 }}>
+                <TX font="serifI" role="body" lhMult={1.4}>« {r.fr} »</TX>
+              </View>
+              <PlayDot text={r.fr} size={26} />
+            </View>
+            {r.en ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 3 }}>{r.en}</TX> : null}
+          </View>
+        );
+      })}
+    </View>
+  );
+}
+
+function ScenarioTurnView({
+  turn,
+  scrollback,
+  onDone,
+  onNext,
+  isLast,
+  active,
+}: {
+  turn: ScenarioTurn;
+  /** The conversation so far, rendered. It lives INSIDE this component's
+   *  scroller rather than above it, so the pinned controls below stay put
+   *  while the dialogue grows past the viewport. */
+  scrollback: React.ReactNode;
+  onDone: (a: Attempt) => void;
+  onNext: () => void;
+  isLast: boolean;
+  active: boolean;
+}) {
+  const t = useTheme();
+  const T = useT();
+  const logAttempt = useProgress((st) => st.logAttempt);
+  const [phase, setPhase] = useState<TurnPhase>('ask');
+  const [asked, setAsked] = useState(false);
+  const [listening, setListening] = useState(false);
+  const [attempt, setAttempt] = useState<Attempt | null>(null);
+
+  const mounted = useRef(true);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const fade = useRef(new Animated.Value(0)).current;
+  const revealFade = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
+    };
+  }, []);
+
+  // The beat. The coach's line lands and SPEAKS ITSELF, and only after a pause
+  // is the learner asked for anything.
+  //
+  // Gated on `active` because neighbouring missions stay mounted inside the
+  // pager's window: without it, the next mission's coach starts talking over
+  // the one the learner is still reading.
+  useEffect(() => {
+    if (!active || asked) return;
+    tts.speak(turn.ai, { onDone: () => {}, onError: () => {} });
+    const id = setTimeout(() => {
+      if (!mounted.current) return;
+      setAsked(true);
+      Animated.timing(fade, { toValue: 1, duration: 260, useNativeDriver: true }).start();
+    }, BEAT.prompt);
+    timers.current.push(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
+
+  const settle = (a: Attempt) => {
+    setAttempt(a);
+    onDone(a);
+    const id = setTimeout(() => {
+      if (!mounted.current) return;
+      setPhase('reveal');
+      Animated.timing(revealFade, { toValue: 1, duration: 260, useNativeDriver: true }).start();
+    }, BEAT.reveal);
+    timers.current.push(id);
+  };
+
+  // Speaking is OFFERED, never required — the section teaches what a French
+  // exchange sounds like, and a learner on a bus with no mic has to be able to
+  // walk the whole conversation. `Show me` is a first-class exit, not a skip.
+  const show = () => {
+    if (phase === 'reveal' || listening) return;
+    sound.play('tap');
+    settle({ kind: 'shown' });
+  };
+
+  const mic = async () => {
+    if (phase === 'reveal' || listening) return;
+    sound.play('tap');
+    setListening(true);
+    // The recognizer only ever hears one utterance, so it is pointed at the
+    // model line; the transcript is then re-scored against every accepted
+    // reply and the best one wins. Sons bars throughout: this is a
+    // conversation drill, and a learner mid-dialogue gets the beginner's
+    // leniency whatever band the lesson sits in.
+    const bars = barsForLevel('sons');
+    const res = await stt.listen(turn.user, { maxMs: 7000, bars });
+    if (!mounted.current) return;
+    setListening(false);
+
+    const heardOk = res.ok && res.verdict !== 'none';
+    if (!heardOk) {
+      sound.play('flip');
+      // WHY the transcript is missing decides what the learner is told. Saying
+      // "not heard" when the recognizer never ran blames them for their phone.
+      settle({ kind: 'unheard', reason: unheardReason(res.error) });
+      return;
+    }
+
+    const best = bestReply(turn, res.transcript, bars);
+    sound.play(best.verdict !== 'off' ? 'success' : 'flip');
+    logAttempt({
+      activity: 'lesson',
+      itemId: `scenario.${turn.user.slice(0, 12)}`,
+      // The reply actually matched, not the model — logging the model against a
+      // learner who correctly used an alternative records a miss that was not
+      // one, and Le Rapport would then coach them away from a right answer.
+      expected: best.matched.fr,
+      heard: res.transcript,
+      score: best.score,
+      verdict: best.verdict,
+      correct: best.verdict === 'good',
+      modality: 'produce',
+    });
+    settle({ kind: 'spoke', heard: res.transcript, score: best.score, verdict: best.verdict, matched: best.matched });
+  };
+
+  const spoke = attempt?.kind === 'spoke' ? attempt : null;
+
+  // Keep the newest turn in view as the conversation grows past the viewport.
+  const scrollRef = useRef<ScrollView>(null);
+
+  return (
+    <View style={{ flex: 1, minHeight: 0 }}>
+      <ScrollView
+        ref={scrollRef}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ gap: 12, paddingBottom: 12 }}
+        showsVerticalScrollIndicator={false}
+        onContentSizeChange={() => scrollRef.current?.scrollToEnd({ animated: true })}
+      >
+        {scrollback}
+        <TurnBubble fr={turn.ai} en={turn.en} playable />
+
+        {/* The reveal scrolls WITH the dialogue — it is the answer to the line
+            above it, and reading it means reading them together. Only the
+            controls are pinned. */}
+        {phase === 'reveal' && attempt ? (
+          <Animated.View style={{ opacity: revealFade, gap: 10 }}>
+            {spoke ? (
+              <View style={{ alignItems: 'flex-end', gap: 4 }}>
+                <TurnBubble mine fr={spoke.heard} />
+                <TX role="meta" color={spoke.verdict === 'good' ? t.accTx : spoke.verdict === 'close' ? t.txSecondary : t.danger}>
+                  {spoke.verdict === 'good' ? T.micGood : spoke.verdict === 'close' ? T.micClose : T.micOff} · {Math.round(spoke.score * 100)}%
+                </TX>
+              </View>
+            ) : attempt.kind === 'unheard' ? (
+              <View style={{ alignItems: attempt.reason === 'silent' ? 'flex-end' : 'stretch' }}>
+                <TX
+                  role="meta"
+                  color={t.txSubtle}
+                  // A recognizer that never ran gets a full-width line, not a
+                  // right-aligned aside: it is a message about the phone, not
+                  // a verdict on what the learner just said.
+                  style={attempt.reason === 'silent' ? undefined : { lineHeight: 19 }}
+                >
+                  {attempt.reason === 'silent'
+                    ? T.rpNotHeard
+                    : attempt.reason === 'denied'
+                      ? T.micDenied
+                      : T.rpMicBlocked}
+                </TX>
+              </View>
+            ) : null}
+            <AnswerCard turn={turn} matched={spoke?.matched} />
+          </Animated.View>
+        ) : null}
+      </ScrollView>
+
+      {/* ── Pinned. Whatever the learner is meant to do next is always here,
+             and never below the fold competing with the pager's Next. ── */}
+      <View style={{ paddingTop: 10 }}>
+        {phase === 'reveal' && attempt ? (
+          <Press
+            cue="tap"
+            onPress={onNext}
+            style={{ height: 48, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
+          >
+            <TX font="semi" role="body" color={t.accInk}>{isLast ? T.sceneEnd : T.continueT}</TX>
+          </Press>
+        ) : asked ? (
+          <Animated.View style={{ opacity: fade, gap: 10 }}>
+            <View style={{ alignItems: 'center' }}>
+              <TX font="semi" role="eyebrow" ls={2.4} color={t.accTx}>{T.rpYourTurn}</TX>
+              <TX role="meta" color={t.txSubtle} style={{ marginTop: 4 }}>{T.rpRespond}</TX>
+            </View>
+            {listening ? (
+              <View style={{ alignItems: 'center' }}>
+                <Waveform count={18} height={20} color={t.acc} active barWidth={3} gap={3.5} />
+              </View>
+            ) : null}
+            <View style={{ flexDirection: 'row', gap: 10 }}>
+              <Press
+                cue={null}
+                onPress={mic}
+                style={{ flex: 1, height: 48, borderRadius: 24, backgroundColor: listening ? t.dangerA(16) : t.accA(14), borderWidth: 1, borderColor: listening ? t.dangerA(45) : t.accA(45), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+              >
+                <Icon name="mic" size={16} color={listening ? t.danger : t.acc} />
+                <TX font="semi" role="body" color={listening ? t.danger : t.accTx}>
+                  {listening ? T.rpListening : T.rpSpeak}
+                </TX>
+              </Press>
+              <Press
+                cue={null}
+                onPress={show}
+                disabled={listening}
+                style={{ flex: 1, height: 48, borderRadius: 24, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center', opacity: listening ? 0.5 : 1 }}
+              >
+                <TX font="semi" role="body" color={t.txSecondary}>{T.rpShowMe}</TX>
+              </Press>
+            </View>
+          </Animated.View>
+        ) : null}
+      </View>
+    </View>
+  );
+}
+
+export function ScenarioView({ s, active = true }: { s: ScenarioSec; active?: boolean }) {
+  const t = useTheme();
+  const T = useT();
+  const [ix, setIx] = useState(0);
+  const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const done = ix >= s.turns.length;
+  // Everything already said, still on screen. This is the whole point of the
+  // section: turn 4 is answered with turns 1-3 visible above it.
+  const scrollback = transcriptOf(s.turns, attempts, ix);
+
+  const record = (a: Attempt) =>
+    setAttempts((prev) => {
+      const next = [...prev];
+      next[ix] = a;
+      return next;
+    });
+
+  const lines = (
+    <>
+      {scrollback.map((l, i) =>
+        l.who === 'ai' ? (
+          <TurnBubble key={i} fr={l.fr} en={l.en} />
+        ) : (
+          <AttemptBubble key={i} attempt={l.attempt} turn={l.turn} />
+        )
+      )}
+    </>
+  );
+
+  // This section OWNS THE VIEWPORT (see ownsLayout in LessonPager). It grows
+  // by two bubbles a turn, so in the scrolling page its controls slid below
+  // the fold and the pager's Next became the obvious button to press.
+  return (
+    <View style={{ flex: 1, minHeight: 0 }}>
       <TX font="semi" role="meta" ls={2} color={t.txSubtle} style={{ marginBottom: 4 }}>{s.setting}</TX>
-      <TX font="serifI" role="titleSm" style={{ marginBottom: 14 }}>{s.title}</TX>
+      <TX font="serifI" role="titleSm" style={{ marginBottom: 12 }}>{s.title}</TX>
+
       {done ? (
-        <View style={{ alignItems: 'center', paddingVertical: 20 }}>
-          <TX role="body" color={t.accTx}>Scène terminée.</TX>
-        </View>
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ gap: 12, paddingBottom: 12 }} showsVerticalScrollIndicator={false}>
+          {lines}
+          <View style={{ alignItems: 'center', paddingVertical: 20 }}>
+            <TX font="semi" role="body" color={t.accTx}>{T.rpSceneDone}</TX>
+          </View>
+        </ScrollView>
       ) : (
         <ScenarioTurnView
           key={ix}
           turn={s.turns[ix]}
+          scrollback={lines}
           isLast={ix === s.turns.length - 1}
+          active={active}
+          onDone={record}
           onNext={() => setIx((n) => n + 1)}
         />
       )}
@@ -1588,15 +1970,64 @@ export function ScenarioView({ s }: { s: ScenarioSec }) {
 
 export function ListeningView({ s }: { s: ListeningSec }) {
   const t = useTheme();
+  const T = useT();
   const [answers, setAnswers] = useState<Record<number, number>>({});
+
+  // `hideLines`: the passage stays masked until every question is answered,
+  // then reveals. Without it this component prints `fr` and `en` beside the
+  // PlayDot, so a section whose questions are about what the EAR caught is
+  // answerable by reading and tests nothing.
+  //
+  // The reveal is deliberately NOT gated on answering correctly. A learner who
+  // guessed wrong is exactly the one who needs to see what was actually said,
+  // and withholding it turns a comprehension exercise into a punishment.
+  //
+  // Absent (the shipped default) means today's behaviour, so all 63 existing
+  // listening sections render unchanged.
+  const answered = Object.keys(answers).length;
+  const masked = s.hideLines === true && answered < s.questions.length;
+
   return (
     <View>
       <View style={{ gap: 8, marginBottom: 18 }}>
         {s.lines.map((l, i) => (
           <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            {/* The flex belongs on this WRAPPER, never on the TX: a flexed Text
+                drops its last words while the audio speaks them in full. */}
             <View style={{ flex: 1 }}>
-              <TX role="body">{l.fr}</TX>
-              <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{l.en}</TX>
+              {masked ? (
+                // ONE ROW, AND IT SAYS WHY IT IS EMPTY.
+                //
+                // The first version drew two anonymous grey bars per card. On a
+                // Pixel 6 that is the universal "content failed to load" signal
+                // repeated six times down the screen, with nothing anywhere
+                // saying the words were withheld deliberately or that they come
+                // back. The label removes that ambiguity in one word.
+                //
+                // The number keeps the six clips distinguishable, which the
+                // questions rely on: they refer to a line by number precisely so
+                // they do not have to reprint it.
+                //
+                // MEASURED, so the next person does not repeat the reasoning:
+                // this does NOT make the card shorter. The PlayDot is ~44dp and
+                // is the tallest thing in the row, so card height is set by the
+                // control and not by the text, and it is identical masked or
+                // revealed. That is the reason the reveal does not make the list
+                // jump — not the two-line placeholder the first version used.
+                <View
+                  style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}
+                  accessibilityLabel={`Line ${i + 1}, hidden until you have answered`}
+                >
+                  <TX role="bodySm" color={t.txSubtle}>{i + 1}</TX>
+                  <TX role="bodySm" color={t.txMuted} style={{ fontStyle: 'italic' }}>{T.lsHidden}</TX>
+                  <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
+                </View>
+              ) : (
+                <>
+                  <TX role="body">{l.fr}</TX>
+                  <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{l.en}</TX>
+                </>
+              )}
             </View>
             <PlayDot text={l.fr} />
           </View>

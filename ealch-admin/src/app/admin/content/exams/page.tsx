@@ -22,15 +22,15 @@ export default async function ExamsPage() {
         <div className={styles.cardHead} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <div>
             <div className={styles.cardTitle}>Exam tasks</div>
-            <div className={styles.cardSub}>{rows.length} task{rows.length === 1 ? '' : 's'} — closed sections (co/ce) marked by machine, open sections (eo/ee) need a rubric</div>
+            <div className={styles.cardSub}>{rows.length} task{rows.length === 1 ? '' : 's'} — closed types (co_mcq/ce_mcq) are marked by machine, open types (po_*/pe_*) need a rubric and a model answer</div>
           </div>
           <div style={{ flex: 1 }} />
           <NewExamTaskButton />
         </div>
         <div className={styles.thead} style={{ gridTemplateColumns: '2.2fr 0.7fr 0.7fr 0.6fr 0.9fr 0.9fr' }}>
           <div>Task</div>
-          <div>Family</div>
-          <div>Section</div>
+          <div>Format</div>
+          <div>Task type</div>
           <div>Level</div>
           <div>Status</div>
           <div>Updated</div>

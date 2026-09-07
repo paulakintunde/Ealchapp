@@ -57,6 +57,14 @@ type GradeRequest = {
   rubric: Rubric;
   modelAnswer: string;
   targetBand: ScoreBand;
+  /** Spoken tasks only: labelled pacing proxies, already carrying their own
+   *  disclaimer (see deliveryNote client-side). Absent when nothing was
+   *  measured — never an empty string. */
+  delivery?: string;
+  /** Interaction tasks only: which of the document's withheld facts the
+   *  candidate actually got out of the recorded examiner. Unlike delivery this
+   *  is DIRECT evidence, so it is placed with the transcript, not fenced. */
+  coverage?: string;
   lang: "fr" | "en";
   deviceId?: string | null;
 };
@@ -190,7 +198,13 @@ async function openAICompatibleJson(base: string, key: string, model: string, sy
     }),
     signal: AbortSignal.timeout(30_000),
   });
-  if (!res.ok) throw new Error(`${base} ${res.status}`);
+  if (!res.ok) {
+    // The provider's own words. `${base} 400` alone cannot distinguish a bad
+    // model id from an unsupported response_format from an expired key, and
+    // those need three different fixes.
+    const detail = await res.text().catch(() => "");
+    throw new Error(`${base} ${res.status}: ${detail.slice(0, 300)}`);
+  }
   const json = await res.json();
   const reply = json?.choices?.[0]?.message?.content;
   if (!reply) throw new Error(`${base} empty completion`);
@@ -260,17 +274,61 @@ function gradingPrompt(req: Omit<GradeRequest, "deviceId">): { system: string; u
   const system = req.lang === "fr"
     ? `Vous êtes un examinateur de français. Vous notez UNIQUEMENT selon la grille fournie, en comparant à la réponse modèle. N'inventez jamais un niveau non justifié par le texte. Répondez EXCLUSIVEMENT en JSON strict : {"band": "<a1|a2|b1|b2|c1|c2>", "feedback": "<2-4 phrases, en français, citant des exemples précis>"}. Aucun autre texte.`
     : `You are a French exam grader. Grade ONLY against the rubric provided, comparing to the model answer. Never invent a band the text does not support. Respond EXCLUSIVELY with strict JSON: {"band": "<a1|a2|b1|b2|c1|c2>", "feedback": "<2-4 sentences, in English, citing specific examples>"}. No other text.`;
+  // Delivery is appended LAST and fenced, because it is the one input the
+  // grader could most easily over-read. Everything above it is evidence of
+  // what the candidate said; this is software's guess at how fast they said
+  // it, and nothing heard the recording.
+  const deliveryBlock = req.delivery?.trim()
+    ? [
+        "DELIVERY INDICATORS (software-measured, NOT heard by anyone):",
+        req.delivery.trim(),
+        "RULES FOR THE ABOVE: they may inform the fluency criterion ONLY. They are not evidence of pronunciation, accent or intelligibility, and you must not mention pronunciation or accent in your feedback. They may never move the band by more than the single fluency criterion is worth. If they conflict with the transcript, trust the transcript.",
+      ].join("\n")
+    : null;
+
+  // Coverage sits WITH the evidence rather than fenced off alongside
+  // delivery: it reports what the candidate demonstrably obtained, not a
+  // proxy for how they sounded. For an interaction task the candidate
+  // response is only their own questions, so without this the grader
+  // cannot tell a candidate who got everything from one who got nothing.
+  const coverageBlock = req.coverage?.trim()
+    ? [
+        "TASK COMPLETION (measured, not inferred):",
+        req.coverage.trim(),
+        "RULES FOR THE ABOVE: the candidate response above contains only the candidate's own turns; the examiner's replies are not shown. Judge task achievement on what was obtained, and judge language on the turns themselves. An item the candidate never asked about is an incomplete task, not a language error.",
+      ].join("\n")
+    : null;
+
   const user = [
     `STIMULUS:\n${req.stimulus}`,
     `RUBRIC:\n${criteria}`,
     `MODEL ANSWER:\n${req.modelAnswer}`,
     `TARGET BAND: ${req.targetBand}`,
     `CANDIDATE RESPONSE:\n${req.candidateResponse}`,
+    ...(coverageBlock ? [coverageBlock] : []),
+    ...(deliveryBlock ? [deliveryBlock] : []),
   ].join("\n\n");
   return { system, user };
 }
 
+/**
+ * Every failure event also goes to the function log.
+ *
+ * `posthog()` returns silently when POSTHOG_API_KEY is unset, which it is on
+ * this project — so a grading request that failed every provider produced a
+ * 503 to the client and NOTHING anywhere else. The first real request after
+ * deploy failed exactly that way, and the logs said only "booted".
+ *
+ * A total grading outage must be visible without a third-party analytics key
+ * being configured, so the console gets it too. Console logs are the one place
+ * a Supabase function's own operator can always read.
+ */
+function logEvent(event: string, props: Record<string, unknown>) {
+  console.error(`[grade-exam] ${event}`, JSON.stringify(props));
+}
+
 function posthog(event: string, props: Record<string, unknown>) {
+  logEvent(event, props);
   const key = Deno.env.get("POSTHOG_API_KEY");
   if (!key) return;
   const host = Deno.env.get("POSTHOG_HOST") ?? "https://us.i.posthog.com";
@@ -290,7 +348,7 @@ Deno.serve(async (req) => {
 
   try {
     const body = (await req.json()) as Partial<GradeRequest>;
-    const { stimulus, candidateResponse, rubric, modelAnswer, targetBand, lang = "fr", deviceId = null } = body;
+    const { stimulus, candidateResponse, rubric, modelAnswer, targetBand, lang = "fr", delivery, coverage, deviceId = null } = body;
 
     // The rule, enforced here too (not just by validateExamTask at authoring
     // time): nothing grades without a rubric and a model answer.
@@ -331,6 +389,10 @@ Deno.serve(async (req) => {
     const chain = resolution.chain.map((entry) => ({ entry, call: toCaller(entry) }));
     const { system, user } = gradingPrompt({
       stimulus: stimulus ?? "", candidateResponse, rubric, modelAnswer, targetBand, lang: lang === "en" ? "en" : "fr",
+      // Only a real, non-empty string reaches the prompt: an empty delivery
+      // line still invites the grader to speculate about delivery.
+      ...(typeof delivery === "string" && delivery.trim() ? { delivery } : {}),
+      ...(typeof coverage === "string" && coverage.trim() ? { coverage } : {}),
     });
 
     let grade: Grade | null = null;
@@ -348,7 +410,7 @@ Deno.serve(async (req) => {
         // the next provider rather than giving up immediately.
         posthog("grade_unparseable_reply", { provider: entry.provider, model: modelFor(entry) });
       } catch (e) {
-        posthog("grade_provider_failed", { provider: entry.provider, error: String(e) });
+        posthog("grade_provider_failed", { provider: entry.provider, model: modelFor(entry), error: String(e) });
       }
     }
 

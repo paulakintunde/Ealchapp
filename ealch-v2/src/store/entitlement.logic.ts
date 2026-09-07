@@ -82,6 +82,39 @@ export function levelLocked(e: Entitlement, band: string, nowMs: number): boolea
   return !(FREE_BANDS as readonly string[]).includes(band) && !hasFeature(e, 'levels.all', nowMs);
 }
 
+/* ─── TEMPORARY: the A2 band lock, lifted in dev builds ──────────────────────
+ *
+ * ▄▄▄ TURN IT OFF BY SETTING THIS TO `false`. One line, no other edit. ▄▄▄
+ *
+ * Added 2026-08-11 so A2 lessons can be walked on a device while batch 1 is
+ * being built. Every one of those ten lessons needs a device pass, and the
+ * alternative is hand-writing an entitlement into the phone's AsyncStorage for
+ * each one: fiddly, easy to get silently wrong (`plan` must be one of
+ * free|monthly|annual or the cache reads as free with no error at all), and it
+ * leaves state behind on somebody's handset.
+ *
+ * THREE THINGS KEEP THIS HONEST:
+ *
+ * 1. `__DEV__` ONLY, so a release build cannot take the branch and no paying
+ *    customer is affected. Written as a `typeof` guard because this module is
+ *    unit-tested under node, which has no such global. entitlement.test.ts pins
+ *    that: the flag alone must never be enough.
+ * 2. SCOPED TO THE BAND LOCK. Only `levels.all` is affected. `coach.unlimited`,
+ *    `roleplay.unlimited`, `audio.packs` and `examiner` gate exactly as before,
+ *    so this cannot quietly become a free pass to everything.
+ * 3. THE AUTHORITY IS UNTOUCHED. `hasFeature`, `levelLocked` and
+ *    `entitlementFromProfile` still compute the real answer, and nothing is
+ *    written to the entitlement cache. Only the READ that screens subscribe to
+ *    (useFeature, in useEntitlement.ts) consults this. Removing it restores the
+ *    previous behaviour exactly, with no state to clean up. */
+const DEV_UNLOCK_A2 = false;
+
+/** Whether the A2 band lock is currently lifted. Always false outside a dev
+ *  build, whatever DEV_UNLOCK_A2 says. */
+export function a2LockLifted(): boolean {
+  return DEV_UNLOCK_A2 && typeof __DEV__ !== 'undefined' && __DEV__;
+}
+
 /** The free role-play allowance, per day, in DISTINCT scenarios. Retrying or
  *  continuing the same scenario is always free — the cap is on breadth, not on
  *  practice. This is the number that makes planFreeDesc's "1 scenario per day"

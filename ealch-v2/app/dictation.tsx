@@ -133,14 +133,16 @@ export default function Dictation() {
     sound.play('tap');
     // Insert at the caret, replacing any selection — appending to the end
     // corrupts the answer when the cursor is mid-sentence (review §dictation).
-    setDcTyped((s) => {
-      const start = Math.min(sel.start, s.length);
-      const end = Math.min(sel.end, s.length);
-      const next = s.slice(0, start) + ch + s.slice(end);
-      const caret = start + ch.length;
-      setSel({ start: caret, end: caret });
-      return next;
-    });
+    // Both pieces of state are computed here and set separately. The caret used
+    // to be moved with a setSel INSIDE the setDcTyped updater, and an updater
+    // runs during render, so it set a second component's state from there — the
+    // same anti-pattern the quiz was warning about. `dcTyped` is the value this
+    // handler already renders from, so reading it directly is equivalent.
+    const start = Math.min(sel.start, dcTyped.length);
+    const end = Math.min(sel.end, dcTyped.length);
+    const caret = start + ch.length;
+    setDcTyped(dcTyped.slice(0, start) + ch + dcTyped.slice(end));
+    setSel({ start: caret, end: caret });
     inputRef.current?.focus();
   };
 

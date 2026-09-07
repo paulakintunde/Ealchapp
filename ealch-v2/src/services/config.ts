@@ -47,6 +47,21 @@ export type RemoteConfig = {
   ttsProvider: 'device' | 'elevenlabs' | 'azure';
   sttProvider: 'device' | 'edge';
   failoverToastVisible: boolean;
+  /**
+   * The Examiner paywall. FALSE means the gate is open and every paper is
+   * free, which is where it ships.
+   *
+   * The plumbing is live either way — the exam entry points call hasFeature
+   * and honour `examFreePapers` — so locking the tier later is a remote-config
+   * flip rather than a client release. Wiring it now and leaving it open is
+   * deliberate: a gate added later, under launch pressure, is a gate nobody
+   * has ever exercised.
+   */
+  examGateOn: boolean;
+  /** Papers a candidate may sit before the gate applies, when it is on. One
+   *  full paper is the strongest demonstration this product has, so the
+   *  default is 1 rather than 0. */
+  examFreePapers: number;
   /** The chosen device voice for the Camille narration (CF-04, Blocker 4). This
    *  is the `camilleVoiceId` resolver's app-side landing: the Ops Console records
    *  Paul's audition pick in `ai_models.meta` as {androidVoice, iosVoice} and the
@@ -83,6 +98,9 @@ const DEFAULTS: RemoteConfig = {
   ttsProvider: 'device',
   sttProvider: 'device',
   failoverToastVisible: true,
+  // Ships OPEN. See the type.
+  examGateOn: false,
+  examFreePapers: 1,
   ttsVoice: { android: null, ios: null },
   ttsVoiceEn: { android: null, ios: null },
 };

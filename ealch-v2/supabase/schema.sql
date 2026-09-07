@@ -77,6 +77,14 @@ create table if not exists public.sessions (
   minutes       real,
   created_at    timestamptz not null default now()
 );
+-- Same shape as attempts_user_at_idx above, and for the same two reasons. The
+-- "own sessions" RLS policy puts `auth.uid() = user_id` in front of EVERY read
+-- and write of this table, so without an index every one of them is a seq scan;
+-- and `on delete cascade` means deleting one account scans the whole table to
+-- find that account's rows (see supabase/functions/delete-account). The trailing
+-- created_at costs nothing on the user_id-only lookups and serves the newest-
+-- first read that a transcript list wants.
+create index if not exists sessions_user_created_idx on public.sessions (user_id, created_at);
 
 -- Per-mode resume position (mirrors ResumeByMode, ealch-v2/src/store/
 -- progress.logic.ts). One row per (user, activity): mutable, latest-wins —

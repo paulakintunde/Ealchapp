@@ -22,6 +22,27 @@ export type GradeRequest = {
   /** ExamTask.level — the band this task targets. */
   targetBand: ScoreBand;
   lang: 'fr' | 'en';
+  /**
+   * Spoken tasks only: labelled pacing proxies for the fluency criterion.
+   *
+   * Already carries its own disclaimer — see deliveryNote, which puts what
+   * these are NOT before what they are, because a language model handed a bare
+   * `{wpm: 92}` will reason about pronunciation it cannot hear.
+   *
+   * Absent when nothing was measured. Never send an empty string: an empty
+   * delivery line still invites the grader to speculate about delivery.
+   */
+  delivery?: string;
+  /**
+   * Interaction tasks only: which of the document's withheld facts the
+   * candidate got out of the recorded examiner — see coverageNote.
+   *
+   * Unlike `delivery` this is direct evidence rather than a proxy, and it is
+   * not optional context: an interaction transcript is the candidate's
+   * QUESTIONS only, so without this the grader cannot tell a candidate who
+   * obtained everything from one who obtained nothing.
+   */
+  coverage?: string;
 };
 
 export type GradeResult =

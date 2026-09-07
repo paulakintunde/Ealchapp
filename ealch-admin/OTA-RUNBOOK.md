@@ -50,7 +50,7 @@ will. This does NOT fix devices that already adopted it.
 pnpm content:rollback -- --dry-run   # verify what it will do
 pnpm content:rollback                # content of the previous version, shipped as a new one
 # or, if the last GOOD version is further back:
-pnpm content:rollback -- --to 7
+pnpm content:rollback -- --to 51
 ```
 
 This downloads the good snapshot, verifies it byte-for-byte against its
@@ -76,6 +76,51 @@ means: run the app on the dev device (it fetches on every launch — force-stop
 and relaunch to re-roll), exercise the surfaces the publish touched, and check
 the Metro/device logs for verify failures. When telemetry lands, adoption per
 version belongs on a dashboard and this section should be rewritten.
+
+## Snapshot retention: how far back rollback can reach
+
+Every publish uploads a full-corpus `snapshots/v{n}.json` and, until
+2026-09-01, nothing ever deleted one. At v56 that was 56 objects and 1039 MiB
+against a 1 GB Storage limit. Postgres was 46 MB, so the bucket was always the
+only thing near a quota.
+
+**`content:publish` now trims itself.** After a successful publish it prunes to
+the newest 10 by default, so the bucket stays flat without anyone remembering.
+It runs last and is never fatal: a retention failure prints a warning and
+leaves the publish standing, because the bytes are already live and recorded.
+A `--dry-run` or `--no-upload` publish prunes nothing.
+
+```bash
+pnpm content:publish --prune-keep 20   # keep a deeper history for this publish
+pnpm content:publish --no-prune        # leave old bytes alone entirely
+
+pnpm content:prune                     # dry run, keeps the newest 10
+pnpm content:prune --keep 10 --apply   # manual reclaim, or a tighter window
+```
+
+Raise `--prune-keep` before a risky publish if you want more versions to fall
+back through. Which snapshots die is decided in `scripts/prune.logic.ts` and
+unit-tested in `scripts/prune.logic.test.ts`.
+
+**This bounds the rollback window.** `content:rollback --to <n>` downloads that
+version's bytes, so a pruned version can no longer be rolled back onto. It
+fails loudly on the download, never silently onto wrong bytes. v1 to v46 were
+pruned on 2026-09-01; the window starts at v47. Run the dry run to see the
+current floor before you plan a rollback to an old version.
+
+Prune deletes Storage BYTES only, never `content_snapshots` ROWS. The version
+counter is `max(version)` from that table, so dropping rows would make publish
+reissue numbers devices already hold. A row whose object is gone is the correct
+end state.
+
+**Do not pre-compress snapshot uploads.** Storage does not preserve an uploaded
+`Content-Encoding: gzip`: the object comes back tagged `br` with the raw gzip
+bytes underneath, which do not parse as JSON. The CDN already compresses on the
+fly, and better than we would (measured 2026-09-01 on a 73,915 B object:
+73,915 B raw, 1,647 B with `Accept-Encoding: gzip`, 890 B with `br`). Egress
+has always been compressed. The only real cost of a snapshot is storage at
+rest, and pruning is what addresses it. See `scripts/_gzip_probe.ts` and
+`scripts/_gzip_probe2.ts`.
 
 ## Sharp edges
 

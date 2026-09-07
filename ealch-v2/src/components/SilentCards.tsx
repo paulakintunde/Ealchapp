@@ -626,17 +626,28 @@ export function TapSilentCard({
   const toggle = (i: number) => {
     if (checked !== null) return;
     sound.play('tap');
-    setPicked((p) => {
-      const next = p.includes(i) ? p.filter((x) => x !== i) : [...p, i];
-      if (next.length === needed) {
-        const res = checkAnswer(question, next.map((ix) => letters[ix].ch));
-        const ok = res?.correct ?? false;
-        setChecked(ok);
-        sound.play(ok ? 'success' : 'error');
-        onAnswer?.(ok);
-      }
-      return next;
-    });
+    // The next selection is computed HERE, not inside a setState updater.
+    //
+    // Scoring the answer used to live inside `setPicked((p) => ...)`, and an
+    // updater runs during the RENDER phase: it played a sound, set a second
+    // piece of state and called `onAnswer` from there. `onAnswer` reaches the
+    // lesson's progress writes, which is the same "Cannot update a component
+    // (`Home`) while rendering a different component" the quiz was logging.
+    //
+    // React may also call an updater more than once — StrictMode does, by
+    // design — so the success chime and the answer could both fire twice for
+    // one tap. Reading `picked` directly is safe in a tap handler: a second tap
+    // cannot be processed before this render commits, because `checked` gates
+    // the whole function.
+    const next = picked.includes(i) ? picked.filter((x) => x !== i) : [...picked, i];
+    setPicked(next);
+    if (next.length === needed) {
+      const res = checkAnswer(question, next.map((ix) => letters[ix].ch));
+      const ok = res?.correct ?? false;
+      setChecked(ok);
+      sound.play(ok ? 'success' : 'error');
+      onAnswer?.(ok);
+    }
   };
 
   return (
@@ -721,9 +732,25 @@ export function ListenChooseCard({
 
   const play = () => {
     setHeard(true);
-    // The clip is named by the question's audio spec; the caller resolves it
-    // to a recording or falls back to TTS on the answer text.
-    onPlay?.(id, question.audio?.clip ?? opts[typeof question.correct === 'number' ? question.correct : 0] ?? '');
+    // What the learner hears, in order of preference:
+    //
+    //   1. the question's audio clip, when the studio has delivered one;
+    //   2. `say`, the line the question is ABOUT;
+    //   3. the correct option, which is the last resort and a poor one.
+    //
+    // That third case is only right for a question whose options ARE the thing
+    // being heard ("which word was it?"). For anything else it speaks the
+    // answer aloud, and where the options are English it speaks English at a
+    // French listening exercise. a1.25 shipped in v22 asking "Is this sentence
+    // about a habit or one particular day?" and playing the words "A habit":
+    // the French sentence was authored in `say` and no card read it.
+    onPlay?.(
+      id,
+      question.audio?.clip
+        ?? question.say
+        ?? opts[typeof question.correct === 'number' ? question.correct : 0]
+        ?? '',
+    );
   };
 
   const pick = (i: number) => {
@@ -856,6 +883,27 @@ export function ErrorSpotCard({
   return (
     <View style={{ gap: 18 }}>
       <TX role="titleLg" font="semi">{question.q}</TX>
+
+      {/* The text being worked ON, when the question names one separately.
+          `q` is the instruction ("write it out corrected") and `prompt` is the
+          thing to correct, so a question that authored the phrase here and
+          nothing else used to render as an instruction with no phrase — a1.16
+          shipped two of those in v22, both unanswerable. Centred and in French
+          weight so it reads as the specimen rather than as more instruction. */}
+      {question.prompt ? (
+        <View
+          style={{
+            borderRadius: 14,
+            backgroundColor: t.input,
+            borderWidth: 1,
+            borderColor: t.line(12),
+            paddingHorizontal: 16,
+            paddingVertical: 14,
+          }}
+        >
+          <TX role="titleLg" font="semi" style={{ textAlign: 'center' }}>{question.prompt}</TX>
+        </View>
+      ) : null}
 
       <TextInput
         value={text}

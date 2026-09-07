@@ -87,7 +87,7 @@ export const examFormat = pgEnum('exam_format', ['delf_b2', 'tef_canada', 'tcf_c
  *  interaction task; PE has a short and an essay task). Not examSkill — see
  *  the mapping note on EXAM_SKILLS in ealch-v2/src/content/schema.ts. */
 export const examTaskType = pgEnum('exam_task_type', [
-  'co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay',
+  'co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'po_debate', 'pe_short', 'pe_essay',
 ]);
 /** The per-ITEM exam taxonomy: compréhension/production × orale/écrite. */
 export const examSkill = pgEnum('exam_skill', ['CO', 'CE', 'PO', 'PE']);
@@ -530,8 +530,39 @@ export const contentExamTasks = pgTable('content_exam_tasks', {
    *  rather than silently wrong. See the note on ExamTask.formatVersion. */
   formatVersion: text('format_version').notNull(),
   prompt: text('prompt').notNull(),
-  /** QcmItem[] — closed task types (co_mcq/ce_mcq) only. */
+  /** What the candidate sees as this task's name: 'Section A', 'Tâche 2'.
+   *  Deliberately free text and NOT an enum: the label belongs to the paper
+   *  ("Tâche 2" means different things on TCF and DELF) while task_type
+   *  belongs to the engine, and enum values ship inside cached snapshots
+   *  where they can never be changed. */
+  label: text('label'),
+  /** QcmItem[] — closed task types (co_mcq/ce_mcq) only, for a task with ONE
+   *  stimulus. A task with several uses `parts` instead; carrying both is
+   *  rejected app-side by validateExamTask. */
   items: jsonb('items'),
+  /** ExamPart[] — closed task types only, the several-stimuli shape. A TEF
+   *  listening épreuve is forty questions across roughly thirty separate
+   *  recordings, each with its own audio, play count and reading window;
+   *  flattening those into `items` loses the only structure that makes it a
+   *  listening test. Mutually exclusive with `items`. */
+  parts: jsonb('parts'),
+  /** Seconds of silent preparation before the answer clock starts. PO only,
+   *  and only on some tasks: TCF's tâche 2 gives two minutes with the document
+   *  while its tâches 1 and 3 give none, and a task that skips its prep is not
+   *  the same task. Checked app-side by validateExamTask.
+   *
+   *  This used to cite the two minutes as TEF EO Section A. It is TCF's figure
+   *  — BLUEPRINT-tcf §9 sources it, and TCF's interaction task carries exactly
+   *  120 — and every TEF paper gives Section A sixty seconds. No board publishes
+   *  a TEF preparation time at all, so the comment asserted a number that
+   *  nothing supported and that all five papers contradicted. */
+  prepS: integer('prep_s'),
+  /** ExamInterlocutor — REQUIRED for po_interaction, forbidden elsewhere. The
+   *  recorded examiner's answer bank: every entry is a fact the document
+   *  withholds, and which ones the candidate obtained is the coverage the
+   *  grader marks against. An interaction with nothing to interact with is a
+   *  monologue. */
+  interlocutor: jsonb('interlocutor'),
   responseSpec: jsonb('response_spec'),
   /** Rubric — REQUIRED for open task types, checked app-side by
    *  validateExamTask, not by a DB constraint (the same rule two other
@@ -566,24 +597,34 @@ export const contentExamTasks = pgTable('content_exam_tasks', {
   index('exam_tasks_format_variant_idx').on(t.format, t.variant),
 ]);
 
-/** A full mock sitting: the ordered tasks that make up one paper. Mirrors
- *  ealch-v2's ExamSeries. */
-export const contentExamSeries = pgTable('content_exam_series', {
-  /** 'series.<format>.<variant>.<n>' — series.tcf_canada.2024a.1 */
+/** A full mock sitting: four épreuves, in order. Mirrors ealch-v2's
+ *  ExamPaper. Renamed from content_exam_series, which named one paper as
+ *  though it were several. */
+export const contentExamPapers = pgTable('content_exam_papers', {
+  /** 'paper.<format>.<variant>.<n>' — paper.tcf_canada.2024a.1, n in 1..20. */
   id: text('id').primaryKey(),
   format: examFormat('format').notNull(),
   variant: text('variant').notNull(),
-  /** 1..5 — five PARALLEL mock papers per variant. "Parallel," never
-   *  "equated": difficulty is expert-judged, not psychometrically balanced. */
-  seriesNo: integer('series_no').notNull(),
-  /** Ordered — references content_exam_tasks.id, resolved app-side by
-   *  validateCorpus (the same "id array, not a join table" pattern
-   *  Unit.lessonIds and Lesson.itemIds already use). */
-  taskIds: text('task_ids').array().notNull().default([]),
+  /** 1..20 — PARALLEL mock papers per variant. "Parallel," never "equated":
+   *  difficulty is expert-judged, not psychometrically balanced from sitting
+   *  data. Was capped at 5, which could not express the twenty papers per
+   *  format the Examiner is built for. */
+  paperNo: integer('paper_no').notNull(),
+  /** ExamSection[] — exactly four, skills ordered CO, CE, PE, PO, each with
+   *  its own ordered task_ids, its own clock and its own blueprint id.
+   *
+   *  Replaces a flat `task_ids` column. The four-section rule is what makes a
+   *  row an EXAM rather than a bag of tasks, and it is enforced app-side by
+   *  validateExamPaper rather than by a DB constraint (it is a rule about the
+   *  shape of the whole array, which no column check can express).
+   *
+   *  Note the third skill is 'PE', not 'EE': the épreuve a candidate calls
+   *  expression écrite carries the skill production écrite. */
+  sections: jsonb('sections').notNull().default([]),
   status: contentStatus('status').notNull().default('draft'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
-}, (t) => [index('exam_series_format_variant_idx').on(t.format, t.variant)]);
+}, (t) => [index('exam_papers_format_variant_idx').on(t.format, t.variant)]);
 
 /**
  * The curriculum catalogue's top of the tree — mirrors ealch-v2's Domain.

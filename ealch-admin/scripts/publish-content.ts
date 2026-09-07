@@ -8,8 +8,9 @@
 //        ├──► snapshots/v{n}.json + manifest.json   → Storage bucket `content`
 //        │                                            (the OTA channel)
 //        ├──► content_snapshots row                 → the canonical version
-//        └──► ealch-v2/src/content/seed.json        → committed to git
-//                                                     (what ships in the binary)
+//        ├──► ealch-v2/src/content/seed.json        → committed to git
+//        │                                            (what ships in the binary)
+//        └──► prune snapshots outside --prune-keep  → the bucket stays flat
 //
 // The DB is the source of truth and git is a MIRROR, never a rival writer. That
 // is the whole reason seed.json is GENERATED here rather than hand-edited: the
@@ -20,16 +21,22 @@
 //   pnpm content:publish              publish for real
 //   pnpm content:publish --dry-run    validate + report, write and upload nothing
 //   pnpm content:publish --no-upload  everything except the Storage upload
+//   pnpm content:publish --allow-noop publish even if the corpus has not moved
+//   pnpm content:publish --prune-keep 20   keep 20 snapshots instead of 10
+//   pnpm content:publish --no-prune        leave old snapshot bytes in place
 import './env';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { getTableColumns } from 'drizzle-orm';
 import { describeTarget } from './env';
 import { contentItems } from '../src/db/schema';
 import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCLED_VOCAB_FLOOR } from '../src/lib/vocab';
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
-import { stableStringify, sha256, uploadToStorage } from './snapshot-utils.ts';
+import { cutItems } from './seed-cut.logic.ts';
+import { stableStringify, sha256, uploadToStorage, downloadFromStorage, listStorage, deleteFromStorage } from './snapshot-utils.ts';
+import { planPrune, mib } from './prune.logic.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
 // producing one would publish bytes no phone will adopt. One number, app-side,
 // imported — never restated here.
@@ -41,8 +48,10 @@ import {
   formatIssues,
   unitBand,
   validateCorpus,
+  ITEM_ID_RE,
   type Corpus,
-  type ExamSeries,
+  type Domain,
+  type ExamPaper,
   type ExamTask,
   type Item,
   type Lesson,
@@ -50,6 +59,7 @@ import {
   type Playlist,
   type SpeakStage,
   type Scenario,
+  type Theme,
   type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
 
@@ -64,10 +74,38 @@ const NO_UPLOAD = args.has('--no-upload') || DRY_RUN;
 // Ramp a risky publish: --rollout 10, then content:rollout 50 / 100 to widen
 // WITHOUT republishing. content:rollout 0 is the kill switch (halts adoption);
 // content:rollback heals devices that already took a bad version.
+// --allow-noop: publish even when the corpus is byte-identical to the previous
+// snapshot. Off by default, because a no-op publish is not free: it burns an OTA
+// version and every device on the channel re-downloads a snapshot to arrive at
+// exactly the content it already had. Kept as an escape hatch rather than a
+// refusal, because there are legitimate reasons to reissue the same bytes (a
+// corrupted upload, a Storage object deleted by hand).
+const ALLOW_NOOP = args.has('--allow-noop');
+
 const rolloutIx = argv.indexOf('--rollout');
 const ROLLOUT = rolloutIx === -1 ? 100 : Number(argv[rolloutIx + 1]);
 if (!Number.isInteger(ROLLOUT) || ROLLOUT < 0 || ROLLOUT > 100) {
   console.error(`\n✖ --rollout must be an integer 0..100, got "${argv[rolloutIx + 1]}"\n`);
+  process.exit(1);
+}
+
+// --prune-keep <n> / --no-prune: how many published snapshots keep their BYTES
+// in Storage after this publish. Default 10.
+//
+// On by default because the alternative was measured: 56 publishes accumulated
+// 1039 MiB against a 1 GB Storage limit and nobody noticed until it was over.
+// A retention step that has to be remembered is a retention step that does not
+// happen, and this is the only place that knows a publish just occurred.
+//
+// It deletes BYTES, never content_snapshots rows, and never the version the
+// manifest points at. The cost is the rollback window: --to <n> below the floor
+// can no longer be rolled back onto. Raise --prune-keep before a risky publish
+// if you want a deeper history to fall back through.
+const NO_PRUNE = args.has('--no-prune');
+const pruneKeepIx = argv.indexOf('--prune-keep');
+const PRUNE_KEEP = pruneKeepIx === -1 ? 10 : Number(argv[pruneKeepIx + 1]);
+if (!NO_PRUNE && (!Number.isInteger(PRUNE_KEEP) || PRUNE_KEEP < 2)) {
+  console.error(`\n✖ --prune-keep must be an integer >= 2, got "${argv[pruneKeepIx + 1]}". Use --no-prune to skip pruning.\n`);
   process.exit(1);
 }
 
@@ -147,21 +185,41 @@ async function runPythonGate(
 //     assetKey), add them to the SELECT, the mapper and PROJECTED_ITEM_COLUMNS.
 //     Blocked on the Phase 7 audio pipeline actually producing timings.
 //
-//   Domain, Theme, Pack     (Corpus.domains/themes/packs)
-//     No tables at all. validateCorpus treats the arrays as empty, so a corpus
-//     without them is valid and the app sees no catalogue.
-//     Sequenced later by design (the plan scopes tables and data out of this
-//     pass). DONE = tables + a read here + the arrays on the emitted Corpus.
-//     NOTE for whoever does it: unlike content_items, there is no guard holding
-//     these honest. Nothing will tell you the arrays are empty.
+//   Domain, Theme            (Corpus.domains/themes)
+//     DONE — content_domains and content_themes are read below and land on
+//     BOTH the snapshot and the seed cut. Worth keeping the history, because
+//     the note above predicted the failure exactly and was still not enough:
+//     the tables were added, the read was not, and the arrays reached every
+//     phone empty. Between v11 (2026-08-01, the publish that first regenerated
+//     seed.json from the database) and v64, thirteen snapshots shipped no
+//     catalogue at all, and five practice hubs — Flashcards, Voice Flash,
+//     Sentence Builder, La Dictée, Role Play — rendered an empty grid on every
+//     build, seeded or over-the-air. Nothing failed: validateCorpus passes a
+//     corpus with no catalogue (nothing left to dangle) and the seed's own
+//     tests only ever counted items.
+//     The refusal that would have caught it on day one is now in step 1, and
+//     ealch-v2/src/content/catalogue-ships.test.ts holds the seed to it.
 //
-//   ExamTask, ExamSeries     (Corpus.examTasks/examSeries)
+//   Pack                     (Corpus.packs)
+//     Still debt. No table, so the array is absent from every snapshot, and
+//     nothing in the app reads it yet — which is why it gets no refusal below.
+//     DONE = a table + a read here + the array on the emitted Corpus, and a
+//     line in the catalogue guard once a screen depends on it.
+//
+//   ExamTask, ExamPaper      (Corpus.examTasks/examPapers)
 //     DONE (Phase 8 gap-closure) — read below, mapped onto the full `corpus`
-//     object. Deliberately NOT added to the seed cut (`seed`, step 5): exam
-//     content is b1/b2-banded and the seed cut today only bundles a1/a2/sons
-//     content, so it ships via the network snapshot like any other exam-band
-//     content would, not the offline-bundled binary. Provenance columns are
-//     WITHHELD the same way Item's are — see WITHHELD_ITEM_COLUMNS.
+//     object. Deliberately NOT added to the seed cut (`seed`, step 5), and
+//     that stays true, but the ORIGINAL reason has expired: it used to be
+//     "exam content is b1/b2-banded and the cut only bundles a1/a2/sons".
+//     TCF Canada's comprehension épreuves run from A1, so a band argument
+//     would now pull some exam content into the cut.
+//
+//     The reason it stays out is a decision, not a band: exams do not ship
+//     offline (exam-pack decision 11.6). Audio dominates the payload, and a
+//     2h55 paper bundled into the binary would bloat every install for a
+//     feature most of them never open. Exam content reaches the app over the
+//     network snapshot only. Provenance columns are WITHHELD the same way
+//     Item's are — see WITHHELD_ITEM_COLUMNS.
 //
 //   Item.provenance                                (schema.ts: Provenance)
 //     NOT debt — a decision. The columns exist and are deliberately withheld;
@@ -219,16 +277,14 @@ function assertItemProjectionIsComplete(): void {
   }
 }
 
-/** Every item a lesson depends on: its itemIds plus anything a practice section
- *  points at. Miss the practice sections and the seed ships a lesson whose
- *  practice block is silently empty. */
-function itemsReferencedBy(l: Lesson): string[] {
-  const ids = [...l.itemIds];
-  for (const s of l.sections as LessonSection[]) {
-    if (s.type === 'practice') ids.push(...s.itemIds);
-  }
-  return ids;
-}
+/** Every item a lesson depends on, found by walking the whole body.
+ *
+ *  MOVED to `seed-cut.logic.ts` on 2026-08-19, with its full history, and
+ *  re-exported here so `publish-cut.logic.test.ts` and any other importer keep
+ *  working unchanged. The move is the point: the cut rule now has one home a
+ *  CHECKER can import without importing the publisher, which is what let
+ *  check-seed-db-parity start enforcing it. */
+export { itemsReferencedBy } from './seed-cut.logic.ts';
 
 /* ─── main ───────────────────────────────────────────────────────────────── */
 
@@ -281,16 +337,49 @@ async function main() {
   // level are custom Postgres enums, cast to text so node-postgres hands back
   // plain strings. target_item_ids/examiner_notes are native text[] (like
   // tags), so they parse fine uncast.
+  //
+  // `interlocutor` and `prep_s` are NOT optional extras. The mapping below has
+  // always read r.interlocutor and r.prep_s, but this select did not ask for
+  // either column, so both arrived undefined and were dropped by the
+  // conditional spread — silently, because a spread of {} is not an error.
+  // The result was a po_interaction task published with no interlocutor, which
+  // is a speaking test with nobody on the other end. Nothing caught it until a
+  // paper containing one was actually flipped to published, because with zero
+  // exam rows in the corpus there was nothing for the validator to reject.
+  //
+  // `debate` IS THE SAME OMISSION AGAIN, one column later. The DELF débat bank
+  // lives there, the mapping below reads r.debate, and this select did not ask
+  // for it — so the first DELF publish attempt produced a po_debate task with
+  // no bank. This time the validator DID reject it, loudly, because the schema
+  // now requires the pair. Adding a jsonb column to content_exam_tasks means
+  // adding it in three places: the writer, this select, and the mapping.
   const examTaskRows = await pool.query(
     `select id, format::text as format, variant, task_type::text as task_type,
             skill::text as skill, level::text as level, format_version, prompt,
-            items, response_spec, rubric, model_answer, examiner_notes,
-            timing_s, scoring_map, target_item_ids
+            label, items, parts, response_spec, rubric, model_answer, examiner_notes,
+            timing_s, scoring_map, target_item_ids, interlocutor, prep_s, debate
        from content_exam_tasks where status = 'published'`
   );
-  const examSeriesRows = await pool.query(
-    `select id, format::text as format, variant, series_no, task_ids
-       from content_exam_series where status = 'published'`
+  const examPaperRows = await pool.query(
+    `select id, format::text as format, variant, paper_no, sections
+       from content_exam_papers where status = 'published'`
+  );
+
+  // The CATALOGUE — the tree every practice hub browses. No `status` filter,
+  // and that is not an omission: unlike a lesson, a domain or a theme is never
+  // drafted or reviewed. It exists or it does not, which is exactly why these
+  // are small reference tables rather than content_units documents.
+  //
+  // level_range_lo/hi are the content_level enum, cast to text for the same
+  // node-postgres reason as content_items.kind above. sub_themes is a native
+  // text[] and parses uncast.
+  const domainRows = await pool.query(
+    `select slug, title, "order" from content_domains order by "order"`
+  );
+  const themeRows = await pool.query(
+    `select slug, title, domain, level_range_lo::text as level_range_lo,
+            level_range_hi::text as level_range_hi, exam_flag, immig_flag, sub_themes
+       from content_themes order by slug`
   );
 
   const units: Unit[] = unitRows.rows.map((r) => r.body);
@@ -311,7 +400,12 @@ async function main() {
     level: r.level,
     formatVersion: r.format_version,
     prompt: r.prompt,
+    ...(r.label ? { label: r.label } : {}),
     ...(r.items ? { items: r.items } : {}),
+    ...(r.parts ? { parts: r.parts } : {}),
+    ...(r.prep_s ? { prepS: r.prep_s } : {}),
+    ...(r.interlocutor ? { interlocutor: r.interlocutor } : {}),
+    ...(r.debate ? { debate: r.debate } : {}),
     ...(r.response_spec ? { responseSpec: r.response_spec } : {}),
     ...(r.rubric ? { rubric: r.rubric } : {}),
     ...(r.model_answer ? { modelAnswer: r.model_answer } : {}),
@@ -321,12 +415,33 @@ async function main() {
     ...(r.target_item_ids?.length ? { targetItemIds: r.target_item_ids } : {}),
     // provenance intentionally withheld — same reasoning as WITHHELD_ITEM_COLUMNS.
   }));
-  const examSeries: ExamSeries[] = examSeriesRows.rows.map((r) => ({
+  const examPapers: ExamPaper[] = examPaperRows.rows.map((r) => ({
     id: r.id,
     format: r.format,
     variant: r.variant,
-    seriesNo: r.series_no,
-    taskIds: r.task_ids ?? [],
+    paperNo: r.paper_no,
+    // `sections` is a jsonb document, so it round-trips whole — unlike the
+    // column-mapped fields above, it cannot lose a key silently.
+    sections: r.sections ?? [],
+  }));
+  const domains: Domain[] = domainRows.rows.map((r) => ({
+    slug: r.slug,
+    title: r.title,
+    order: r.order,
+  }));
+  const themes: Theme[] = themeRows.rows.map((r) => ({
+    slug: r.slug,
+    title: r.title,
+    domain: r.domain,
+    // Two columns in, one tuple out — the app reads a range, the table stores
+    // the ends separately so "every b1 theme" stays a plain WHERE clause.
+    levelRange: [r.level_range_lo, r.level_range_hi],
+    examFlag: r.exam_flag,
+    immigFlag: r.immig_flag,
+    // NOT spread-when-present like the optional Item fields: the app's Theme
+    // requires subThemes, and the column is NOT NULL DEFAULT '{}'. The ?? is
+    // belt-and-braces for a row written before that default existed.
+    subThemes: r.sub_themes ?? [],
   }));
   const items: Item[] = itemRows.rows.map((r) => ({
     id: r.id,
@@ -364,12 +479,34 @@ async function main() {
   console.log(
     `\n  published: ${units.length} units · ${lessons.length} lessons · ${items.length} items · ` +
       `${scenarios.length} scenarios · ${playlists.length} playlists · ` +
-      `${examTasks.length} exam tasks · ${examSeries.length} exam series`
+      `${examTasks.length} exam tasks · ${examPapers.length} exam papers`
   );
+  console.log(`  catalogue: ${domains.length} domains · ${themes.length} themes`);
+
+  // THE CATALOGUE IS NOT OPTIONAL, and this is the guard the projection-debt
+  // note above asked for by name ("nothing will tell you the arrays are
+  // empty"). Nothing did, for thirteen publishes.
+  //
+  // Every practice hub — Flashcards, Voice Flash, Sentence Builder, La Dictée,
+  // Role Play — renders `corpus.domains` (Role Play, `corpus.themes`) directly.
+  // An empty catalogue is not a smaller grid, it is NO grid: five screens of
+  // blank, on a corpus holding 48,000 items, with nothing anywhere saying so.
+  // validateCorpus cannot catch it, because a corpus with no catalogue is
+  // structurally valid — there is simply nothing left to dangle.
+  //
+  // So it dies here instead, where the tables are one query away.
+  if (!domains.length || !themes.length) {
+    await pool.end();
+    die(
+      `the catalogue is empty (${domains.length} domains, ${themes.length} themes).\n` +
+        '  Every practice hub browses it, so publishing this ships five blank screens.\n' +
+        '  Check content_domains and content_themes — this is reference data and is never empty.'
+    );
+  }
 
   if (
     !units.length && !lessons.length && !items.length && !scenarios.length && !playlists.length &&
-    !examTasks.length && !examSeries.length
+    !examTasks.length && !examPapers.length
   ) {
     await pool.end();
     die('Nothing is published. Approve some content in the Ops Console first.');
@@ -403,7 +540,7 @@ async function main() {
   const previous = prev.rows[0];
   const version = (previous?.version ?? 0) + 1;
 
-  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examSeries, speakPath };
+  const corpus: Corpus = { version, domains, themes, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examPapers, speakPath };
 
   // ── 4. THE GATE ────────────────────────────────────────────────────────
   // Every failure below is one that does NOT crash in production. A dangling
@@ -579,24 +716,62 @@ async function main() {
   // validateCorpus on device — putting the rule there would invalidate every
   // corpus already in the field. The publish contract is where a rule about
   // what may SHIP belongs.
+  //
+  // EXCEPT for assessment lessons. A bilan or an exam tests what other lessons
+  // taught; it owns no corpus rows and must release no SRS cards, because every
+  // row it quotes already belongs to the lesson that introduced it. The A1
+  // capstone met this rule first, on 2026-08-09, and the two were in deliberate
+  // opposition: a1-30-bilan.test.ts pins `itemIds.length === 0` ("a unit that
+  // quotes twenty-nine lessons owns none of their rows") while this rule
+  // demanded the opposite. The old a1.30 did list 101 itemIds and released all
+  // of them to SRS a second time, which is the bug that test exists to prevent.
+  //
+  // The exemption is POSITIVE — `features: ['assessment']`, declared on the
+  // lesson — and never inferred from the absence of practice. Inferring it
+  // would let every genuinely broken lesson exempt itself, which is the whole
+  // failure this gate was built to catch.
+  //
+  // A marked lesson that DOES own rows or DOES carry practice is a
+  // contradiction: either the marker is wrong or the body is. That fails too,
+  // separately, so the flag cannot be used to wave a teaching lesson through.
   const itemIdSet = new Set(items.map((i) => i.id));
   const practiceless: string[] = [];
+  const contradictory: string[] = [];
+  const assessments: string[] = [];
   for (const l of lessons) {
     const practices = (l.sections as LessonSection[]).filter((s) => s.type === 'practice');
+    const joined = Array.isArray(l.itemIds) && l.itemIds.length > 0;
+
+    if (l.features?.includes('assessment')) {
+      assessments.push(l.id);
+      if (joined || practices.length > 0) contradictory.push(l.id);
+      continue;
+    }
+
     const resolvable =
       practices.length > 0 &&
       practices.every((p) => p.itemIds.length > 0 && p.itemIds.every((id) => itemIdSet.has(id)));
-    const joined = Array.isArray(l.itemIds) && l.itemIds.length > 0;
     if (!resolvable || !joined) practiceless.push(l.id);
+  }
+  if (contradictory.length) {
+    await pool.end();
+    console.error(`\n✖ RULE lesson-has-practice: ${contradictory.length} lesson(s) claim 'assessment' but own corpus rows or carry practice. NOTHING was published.`);
+    console.error(`  ${contradictory.join(', ')}`);
+    console.error("  An assessment lesson releases no SRS cards. Drop the feature, or drop the itemIds and practice.\n");
+    process.exit(1);
   }
   if (practiceless.length) {
     await pool.end();
     console.error(`\n✖ RULE lesson-has-practice: ${practiceless.length} lesson(s) ship no resolvable practice. NOTHING was published.`);
     console.error(`  ${practiceless.join(', ')}`);
-    console.error('  Author real practice sections (scripts/author-practice.ts is the pattern), or unpublish the lesson.\n');
+    console.error("  Author real practice sections (scripts/author-practice.ts is the pattern), mark the lesson");
+    console.error("  features: ['assessment'] if it examines rather than teaches, or unpublish it.\n");
     process.exit(1);
   }
-  console.log('  ✓ lesson-has-practice: every lesson feeds the SRS');
+  console.log(
+    `  ✓ lesson-has-practice: every teaching lesson feeds the SRS` +
+    (assessments.length ? ` (${assessments.length} assessment lesson(s) exempt: ${assessments.join(', ')})` : ''),
+  );
 
   // ── 4c. MACHINE GATES (Phase 6b, CF-24) — warnings, never failures ──────
   // Breadth rules the corpus is expected to GROW INTO. They warn instead of
@@ -774,11 +949,16 @@ async function main() {
   // Everything the bundled lessons depend on, plus the core themes, plus the
   // bundled speak stages' blocks. A seed that ships a lesson without its items
   // is a seed that ships a broken lesson.
-  const needed = new Set([
-    ...seedLessons.flatMap(itemsReferencedBy),
-    ...seedSpeak.flatMap((s) => s.blocks.flatMap((b) => b.itemIds)),
-  ]);
-  const seedItems = items.filter((i) => needed.has(i.id) || SEED_CUT.themes.includes(i.theme));
+  //
+  // THE RULE MOVED TO `seed-cut.logic.ts` AND THIS CALLS IT. It used to be this
+  // one expression, inline, which meant publish was the only thing that knew
+  // it — while forty-plus merge scripts also write seed.json and none of them
+  // does. 54% of the seed is in it only on the theme clause, so that whole
+  // population is invisible to a merge; four rows went that way in 057a297 and
+  // took three of a1.03's printed statistics with them. `check-seed-db-parity`
+  // now checks against the same function, so the check and the build cannot
+  // drift apart.
+  const seedItems = cutItems(items, seedLessons, seedSpeak);
 
   // Scenarios ship in the seed when their level is represented in the seed — by a
   // bundled track OR a bundled unit (a1.01 pulls a1 in). So a fresh, offline
@@ -792,8 +972,20 @@ async function main() {
   // for a level a fresh offline install actually has content for.
   const seedPlaylists = playlists.filter((p) => seedLevels.has(p.minLevel));
 
+  // The catalogue ships WHOLE, not cut. Three reasons, in order of weight:
+  //
+  //   · The hubs and theme lists already drop anything with no items (`count >
+  //     0`), so a theme the cut did not bundle costs a row in the array and
+  //     renders nothing. Cutting it would buy the same screens for more code.
+  //   · A cut catalogue and a full one must then be MERGED at launch, and
+  //     mergeCorpus overlays by slug — so the seed's narrower view would be a
+  //     second shape to reason about for no gain. Identical arrays make the
+  //     overlay a no-op.
+  //   · It is reference data: 14 domains and 130 themes is roughly 26 KiB
+  //     against a 5 MiB ceiling, and it does not grow with the corpus.
   const seed: Corpus = {
-    version, units: seedUnits, lessons: seedLessons, items: seedItems,
+    version, domains, themes,
+    units: seedUnits, lessons: seedLessons, items: seedItems,
     scenarios: seedScenarios, playlists: seedPlaylists, speakPath: seedSpeak,
   };
 
@@ -827,16 +1019,45 @@ async function main() {
   }
   const checksum = sha256(snapshotJson);
   const path = `snapshots/v${version}.json`;
+
+  /* THE CONTENT DIGEST, WHICH IS NOT THE CHECKSUM, AND THE REASON BOTH EXIST.
+   *
+   * `checksum` is sha256 of the snapshot file EXACTLY as uploaded, and it has to
+   * stay that way: content.logic.ts:612 re-stringifies the parsed corpus and
+   * compares, so a device rejects a snapshot whose bytes are not what the
+   * manifest promised. That contract is not ours to bend.
+   *
+   * But the corpus carries `version` INSIDE the hashed body, so the checksum
+   * changes on every publish attempt whether or not one byte of content moved.
+   * That made `previous.checksum === checksum` — the "nothing changed" branch
+   * below — unreachable from the day it was written: the candidate always
+   * carries a higher version than the snapshot it is compared against, so the
+   * one guard meant to stop a pointless publish could never fire. Found while
+   * a dry run reported every count at +0 and a different checksum, which reads
+   * exactly like real content movement.
+   *
+   * So: hash the corpus WITHOUT its version for the comparison, and compare
+   * against the previously published bytes with their version stripped the same
+   * way. Same corpus, same digest, whatever version each was stamped with. */
+  const contentDigest = (c: unknown): string => {
+    const { version: _v, ...rest } = c as Record<string, unknown>;
+    return sha256(stableStringify(rest));
+  };
+  const candidateContent = contentDigest(corpus);
   const counts = {
+    domains: (corpus.domains ?? []).length,
+    themes: (corpus.themes ?? []).length,
     units: corpus.units.length,
     lessons: corpus.lessons.length,
     items: corpus.items.length,
     scenarios: corpus.scenarios.length,
     playlists: (corpus.playlists ?? []).length,
     examTasks: (corpus.examTasks ?? []).length,
-    examSeries: (corpus.examSeries ?? []).length,
+    examPapers: (corpus.examPapers ?? []).length,
   };
   const seedCounts = {
+    domains: (seed.domains ?? []).length,
+    themes: (seed.themes ?? []).length,
     units: seed.units.length,
     lessons: seed.lessons.length,
     items: seed.items.length,
@@ -851,27 +1072,77 @@ async function main() {
   if (ROLLOUT < 100) console.log(`  staged rollout: ${ROLLOUT}% of devices adopt v${version}`);
 
   // ── 7. What changed ────────────────────────────────────────────────────
+  //
+  // Read the PREVIOUSLY PUBLISHED BYTES and digest them the same way. Storage
+  // rather than the database, because the question is "would a device receive
+  // anything new", and what a device receives is the snapshot file.
+  //
+  // A failure to read it is a WARNING and not a refusal: not being able to
+  // compare is not evidence that nothing changed, and blocking a publish because
+  // Storage was briefly unreachable would be the wrong way round.
+  let previousContent: string | null = null;
+  let compareNote = '';
+  if (previous) {
+    const url = process.env.SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!url || !key) {
+      compareNote = 'no Storage credentials in the environment';
+    } else {
+      try {
+        const body = await downloadFromStorage(url, key, `snapshots/v${previous.version}.json`);
+        previousContent = contentDigest(JSON.parse(body));
+      } catch (e) {
+        compareNote = (e as Error).message.slice(0, 90);
+      }
+    }
+  }
+  const noop = !!previous && previousContent !== null && previousContent === candidateContent;
+
   console.log('\n  ── diff ──');
   if (!previous) {
     console.log(`  v${version} is the FIRST snapshot.`);
-  } else if (previous.checksum === checksum) {
-    console.log(`  identical to v${previous.version} — nothing changed.`);
+  } else if (noop) {
+    console.log(`  IDENTICAL to v${previous.version} — not one byte of content differs.`);
   } else {
+    if (compareNote) {
+      console.log(`  ! could not compare content against v${previous.version}: ${compareNote}`);
+      console.log('    Publishing anyway. The counts below are still real; a no-op cannot be ruled out.');
+    }
     const p = previous.counts ?? {};
     const d = (k: keyof typeof counts) => {
       const delta = counts[k] - (Number(p[k]) || 0);
       return `${counts[k]} (${delta >= 0 ? '+' : ''}${delta})`;
     };
     console.log(`  v${previous.version} → v${version}`);
+    console.log(`    domains:    ${d('domains')}`);
+    console.log(`    themes:     ${d('themes')}`);
     console.log(`    units:      ${d('units')}`);
     console.log(`    lessons:    ${d('lessons')}`);
     console.log(`    items:      ${d('items')}`);
     console.log(`    scenarios:  ${d('scenarios')}`);
     console.log(`    playlists:  ${d('playlists')}`);
     console.log(`    examTasks:  ${d('examTasks')}`);
-    console.log(`    examSeries: ${d('examSeries')}`);
+    console.log(`    examPapers: ${d('examPapers')}`);
   }
   console.log(`  checksum: ${checksum.slice(0, 16)}…`);
+  console.log(`  content:  ${candidateContent.slice(0, 16)}…  (the same corpus digests the same at any version)`);
+
+  // A no-op publish burns an OTA version and makes every device on the channel
+  // re-download a snapshot to arrive at the content it already holds. Refused by
+  // default; --allow-noop is there for reissuing bytes deliberately.
+  if (noop && !ALLOW_NOOP) {
+    await pool.end();
+    if (DRY_RUN) {
+      console.log('\n✓ dry run — NOTHING TO PUBLISH. The corpus is identical to what is already live.\n');
+      return;
+    }
+    die(
+      `nothing to publish: the corpus is byte-identical to v${previous!.version}.\n` +
+        '  Publishing would spend an OTA version and make every device re-download the same content.\n' +
+        '  If that is genuinely what you want (a corrupted upload, a Storage object deleted by hand),\n' +
+        '  re-run with --allow-noop.'
+    );
+  }
 
   if (DRY_RUN) {
     await pool.end();
@@ -916,6 +1187,40 @@ async function main() {
      values ($1, $2, $3, $4, $5)`,
     [version, path, checksum, JSON.stringify(counts), JSON.stringify(seedCounts)]
   );
+
+  // ── 11. Trim the bucket. LAST, and never fatal. ────────────────────────
+  // Runs only after a fully successful publish — upload, manifest, seed, and
+  // the counter row — so the version just shipped is in the DB and therefore
+  // inside its own retention window.
+  //
+  // A prune failure must not fail a publish that already succeeded. The bytes
+  // are live, the manifest points at them, and the row is recorded; the worst
+  // case here is a bucket that stays larger than intended, which is a warning,
+  // not an incident. Same reasoning as the previous-snapshot diff above.
+  if (!NO_UPLOAD && !NO_PRUNE) {
+    const url = process.env.SUPABASE_URL!;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    try {
+      const rows = await pool.query<{ version: number }>(`select version from content_snapshots`);
+      const plan = planPrune(await listStorage(url, key, 'snapshots/'), rows.rows.map((r) => r.version), version, PRUNE_KEEP);
+      if (plan.doomed.length === 0) {
+        console.log(`\n  retention: ${plan.kept.length} snapshot(s), ${mib(plan.totalBytes)}, nothing to prune`);
+      } else {
+        const removed = await deleteFromStorage(url, key, plan.doomed.map((o) => o.name));
+        const floor = plan.kept[plan.kept.length - 1]?.version;
+        console.log(`\n  retention: pruned ${removed.length} snapshot(s), ${mib(plan.freedBytes)} reclaimed`);
+        console.log(`  bucket now ${mib(plan.totalBytes - plan.freedBytes)} in ${plan.kept.length} object(s); rollback reaches v${floor} and newer`);
+        if (removed.length !== plan.doomed.length) {
+          console.log(`  ! Storage confirmed ${removed.length} of ${plan.doomed.length} deletions — run pnpm content:prune to see what remains`);
+        }
+      }
+    } catch (e) {
+      console.log(`\n  ! retention skipped: ${(e as Error).message.slice(0, 120)}`);
+      console.log('    The publish itself succeeded. Run pnpm content:prune when convenient.');
+    }
+  } else if (!NO_UPLOAD && NO_PRUNE) {
+    console.log('\n  (--no-prune: Storage retention untouched)');
+  }
   await pool.end();
 
   console.log(`\n✓ published v${version}\n`);
@@ -927,7 +1232,16 @@ async function main() {
 // panic mid-teardown; main()'s catch reports it cleanly, and the snapshot row
 // is inserted after upload so a failed upload leaves no orphan version.
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// Only publish when RUN. `itemsReferencedBy` is exported so it can be tested
+// against a hand-built lesson, and importing this file must not start a
+// publish to do it — the same guard check-seed-db-parity.ts carries, for the
+// same reason, on a considerably more dangerous script.
+const invokedDirectly =
+  !!process.argv[1] && resolve(fileURLToPath(import.meta.url)) === resolve(process.argv[1]);
+
+if (invokedDirectly) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

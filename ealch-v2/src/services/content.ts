@@ -18,14 +18,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
-import type { Corpus, DrillKind, ExamFormat, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
+import type { Corpus, DrillKind, ExamFormat, ExamSection, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
 import { validateCorpus } from '@/content/schema';
 import {
+  adoptedForLaunch,
   anchorForItem,
-  examSeriesFor,
-  examTasksOfSeries,
+  examPapersFor,
+  examTasksOfPaper,
+  examTasksOfSection,
   formatAnchor,
-  getExamSeries,
+  getExamPaper,
   getExamTask,
   getItem,
   getLesson,
@@ -109,6 +111,16 @@ let initStarted = false;
 // fetch the full corpus, instead of thinking it is already up to date.
 let cachedSnapshotVersion = 0;
 
+// The dev exam fixture used to be appended here, so the runner could be sat on
+// a phone before any real paper existed. TEF Canada blanc-01 published as
+// snapshot v57 on 2026-09-01, so the fixture and its 126 KiB of unreviewed
+// content are gone: exam papers now arrive over the air like everything else.
+//
+// A fresh offline install therefore has NO exam content, because the seed cut
+// carries no exam tasks or papers by design. That is correct — the Examiner
+// needs the snapshot, and showing a candidate a mock paper nobody reviewed was
+// only ever a development convenience.
+
 /**
  * Bring content up. Idempotent — safe to call from _layout on every mount, runs
  * its work once. Sets `hydrated` exactly once, even on failure, so a broken
@@ -121,7 +133,15 @@ export async function initContent(): Promise<void> {
 
   let adopted: Corpus | null = null;
   try {
-    adopted = await readCache();
+    // In dev this is always null, so the corpus is exactly the bundled seed.
+    // The cache is NOT read past this point and NOT purged: a device keeps
+    // whatever it holds and behaves normally again in a release build.
+    //
+    // Without this, a cached snapshot overlaid the seed and won every id it
+    // shared with it, so an edited lesson stayed invisible through any number of
+    // Metro rebuilds. See adoptedForLaunch in content.logic.ts for the full
+    // account; it is the other half of the dev guard on refreshFromRemote.
+    adopted = adoptedForLaunch(await readCache(), __DEV__);
     if (adopted) cachedSnapshotVersion = adopted.version;
     useContent.getState().setCorpus(mergeCorpus(SEED, adopted));
   } catch {
@@ -166,6 +186,28 @@ export async function contentCacheInfo(): Promise<{ bytes: number } | null> {
   } catch {
     return null;
   }
+}
+
+/**
+ * Drop the cached OTA snapshot and fall back to the bundled seed, now.
+ *
+ * The dev guard in `initContent` makes the cache invisible in a dev build, which
+ * is enough for authoring. This is for the case it cannot help: a RELEASE build
+ * on a real device holding a snapshot you need it to stop using, which until now
+ * had no remedy short of clearing app data.
+ *
+ * Safe to call at any time and never throws. `cachedSnapshotVersion` drops to 0
+ * so the next `refreshFromRemote` re-fetches from scratch rather than believing
+ * the device is already current.
+ */
+export async function clearContentCache(): Promise<void> {
+  try {
+    await AsyncStorage.multiRemove([CACHE_KEY, CACHE_META_KEY]);
+  } catch {
+    // Storage unavailable: the seed still stands, which is the safe state.
+  }
+  cachedSnapshotVersion = 0;
+  useContent.getState().setCorpus(SEED);
 }
 
 /** This install's staged-rollout lot number, 0-99: drawn once, persisted, and
@@ -299,9 +341,13 @@ export const content = {
   /** The Speak trail in walk order — (world, seq), sorted by speakStages. */
   speakPath: () => speakStages(useContent.getState().corpus),
   examTask: (id: string) => getExamTask(useContent.getState().corpus, id),
-  examSeriesOne: (id: string) => getExamSeries(useContent.getState().corpus, id),
-  examSeriesFor: (format: ExamFormat) => examSeriesFor(useContent.getState().corpus, format),
-  examTasksOf: (seriesId: string) => examTasksOfSeries(useContent.getState().corpus, seriesId),
+  examPaper: (id: string) => getExamPaper(useContent.getState().corpus, id),
+  /** Mock papers for a format, in paperNo order. */
+  examPapersFor: (format: ExamFormat) => examPapersFor(useContent.getState().corpus, format),
+  /** Every task of a paper, in sitting order across all four épreuves. */
+  examTasksOf: (paperId: string) => examTasksOfPaper(useContent.getState().corpus, paperId),
+  /** One épreuve's tasks — the section runner's unit of work. */
+  examTasksOfSection: (section: ExamSection) => examTasksOfSection(useContent.getState().corpus, section),
   /** The positional deep-link anchor for an item inside a lesson's practice
    *  section, formatted as `<lessonId>#s<n>.<k>` — or null when the lesson
    *  doesn't teach that item there. Stashed on the attempt log so a review

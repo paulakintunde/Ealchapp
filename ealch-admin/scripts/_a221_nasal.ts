@@ -1,0 +1,27 @@
+import { hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
+const cases: [string,string][] = [
+  ['Nous sommes partis tôt.', 'noo sohm pahr-TEE TOH'],
+  ['Nous sommes partis tôt.', 'noo som pahr-TEE TOH'],
+  ['Nous sommes partis tôt.', 'noo somm pahr-TEE TOH'],
+  ['Nous sommes partis tôt.', 'noo SOMM pahr-TEE TOH'],
+  ['Nous sommes partis tôt.', 'noo sohⁿm pahr-TEE TOH'],
+  ['Nous sommes arrivés à huit heures.', 'noo sohm zah-ree-VAY ah wee TUHR'],
+  ['Nous sommes arrivés à huit heures.', 'noo SOMM zah-ree-VAY ah wee TUHR'],
+  ['Nous ne sommes pas allés au bureau.', 'noo nuh sohm pah zah-LAY oh bü-ROH'],
+  ['Nous ne sommes pas allés au bureau.', 'noo nuh SOMM pah zah-LAY oh bü-ROH'],
+  ['Nous sommes passés devant chez toi.', 'noo sohm pah-SAY duh-VAHⁿ shay TWAH'],
+  ['Nous sommes passés devant chez toi.', 'noo SOMM pah-SAY duh-VAHⁿ shay TWAH'],
+  ['Vous êtes parties tôt.', 'voo zeht pahr-TEE TOH'],
+  ['Elle est restée à la maison.', 'ehl eh res-TAY ah lah meh-ZOHⁿ'],
+  ['Elle est revenue lundi.', 'ehl eh ruhv-NÜ luhⁿ-DEE'],
+  ['Elles sont reparties lundi.', 'ehl sohⁿ ruh-pahr-TEE luhⁿ-DEE'],
+  ['Il est devenu professeur.', 'eel eh duhv-NÜ proh-feh-SUHR'],
+  ['Vous êtes arrivés ensemble ?', 'voo zeht zah-ree-VAY ahⁿ-SAHⁿBL'],
+  ['Vous êtes arrivés ensemble ?', 'voo zeht zah-ree-VAY ahⁿ-SAHNBL'],
+  ['Ah, avec des amis. Je comprends.', 'ah ah-vehk day zah-MEE. zhuh kohⁿ-PRAHⁿ'],
+  ['Elle a passé un examen.', 'ehl ah pah-SAY uhⁿ neg-zah-MEHⁿ'],
+  ['Elle a mangé au restaurant.', 'ehl ah mahⁿ-ZHAY oh res-toh-RAHⁿ'],
+  ['Je suis rentrée vers minuit.', 'zhuh swee rahⁿ-TRAY vehr mee-NWEE'],
+  ['Elle est descendue à midi.', 'ehl eh day-sahⁿ-DÜ ah mee-DEE'],
+];
+for (const [fr, rs] of cases) console.log(`${hasPlainNasalFor(fr, rs) ? 'FLAGGED ' : 'clean   '} ${fr.padEnd(38)} [${rs}]`);

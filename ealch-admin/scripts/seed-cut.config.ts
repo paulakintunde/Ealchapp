@@ -63,10 +63,28 @@ export const SEED_CUT: SeedCut = {
   // explicitly pulls in ALL of their published items (not just the
   // lesson-referenced subset) plus their new Scène scenarios, so all five
   // pathway steps work with no network on day one.
+  // 'jours-et-mois' and 'heure-et-date' joined on 2026-08-09, and the reason is
+  // worth keeping because the alternative looked cheaper and was worse.
+  //
+  // Publishing v20 was the first publish since a1.08 and a1.12 were authored.
+  // Both builds had copied rows into seed.json by hand and pinned them with a
+  // manifest test; the cut re-derives the seed from themes plus references and
+  // knew nothing about either manifest, so 47 of those rows left the binary and
+  // two tests went red. The cheap fix was to name the 47 ids individually, or to
+  // stop the tests asserting presence at all.
+  //
+  // Neither is what a learner needs. Days, months and clock times are the two
+  // themes a beginner reaches for first and the two most likely to be wanted on
+  // a train with no signal, and a1.08, a1.09 and a1.12 are all inside the
+  // bundled A1 track — the lessons ship offline while the vocabulary they drill
+  // did not. Bundling the themes whole costs 869 items on a 7,794-item cut,
+  // about eleven percent, and buys the same day-one property the ten themes
+  // above were added for. An id list would have bought only a green test.
   themes: [
-    'cafe', 'objets', 'dictee', 'marche', 'salutations', 'nombres', 'transport',
+    'cafe', 'objets', 'dictee', 'marche', 'salutations', 'nombres',
     'cuisine', 'ecole', 'deplacements', 'metiers', 'corps', 'maison', 'animaux',
     'routines', 'famille', 'sports-et-loisirs',
+    'jours-et-mois', 'heure-et-date',
   ],
 
   // The first Speak world (Le Jardin des Sons), so the trail's first stations

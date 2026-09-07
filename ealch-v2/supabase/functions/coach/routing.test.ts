@@ -17,6 +17,8 @@ import { test } from 'node:test';
 import {
   buildChain,
   DEFAULT_MODEL,
+  MAX_CHARS,
+  overCap,
   providerForModel,
   PROVIDER_TIER,
   type Env,
@@ -174,4 +176,54 @@ test('the operator override is not ranked cheap, because its cost is unknown to 
   strictEqual(PROVIDER_TIER.ai_api, 'standard');
   strictEqual(PROVIDER_TIER.nvidia, 'cheap');
   strictEqual(PROVIDER_TIER.anthropic, 'premium');
+});
+
+// ── the input cap ─────────────────────────────────────────────────────────
+// Same reason as the routing rules above: this one costs money if it breaks.
+// An unbounded body forwarded to a paid provider is a bill with no ceiling,
+// and the failure is silent — the coach still replies, just expensively.
+// overCap lives in routing.ts precisely so it can be pinned here, with no Deno,
+// no network and no provider.
+
+const turns = (...lengths: number[]) => lengths.map((n) => ({ role: 'user', content: 'a'.repeat(n) }));
+
+test('a normal twelve-turn exchange is nowhere near the cap', () => {
+  // Twelve turns of 200 characters is a long conversation by any measure.
+  strictEqual(overCap(turns(...Array(12).fill(200))), null);
+});
+
+test('the cap is on the total, not on any single turn', () => {
+  // No single turn is over, and the request still is.
+  const many = turns(...Array(12).fill(MAX_CHARS / 6));
+  strictEqual(overCap(many), MAX_CHARS * 2, 'twelve turns of MAX/6 total twice the cap and must be refused');
+});
+
+test('exactly MAX_CHARS is allowed; one more is not', () => {
+  strictEqual(overCap(turns(MAX_CHARS)), null, 'the boundary itself is inside the limit');
+  strictEqual(overCap(turns(MAX_CHARS + 1)), MAX_CHARS + 1, 'one character over is refused');
+});
+
+test('the measured size is returned, so the caller can say how far over it was', () => {
+  const over = overCap(turns(MAX_CHARS + 500, 100));
+  strictEqual(over, MAX_CHARS + 600, 'the total is reported, not merely that a limit was passed');
+});
+
+test('an empty history is not an over-length one', () => {
+  strictEqual(overCap([]), null);
+});
+
+test('a malformed turn counts as zero rather than throwing', () => {
+  // This runs on an unvalidated request body. A message with no content, a
+  // null content, or a number is somebody else's error to report — the size
+  // check must not be the thing that 500s on it.
+  strictEqual(overCap([{}, { content: null }, { content: 42 }, { content: 'ok' }]), null);
+  ok(overCap([{ content: undefined }, { content: 'a'.repeat(MAX_CHARS + 1) }]) !== null,
+    'a real over-length string still registers beside malformed neighbours');
+});
+
+test('the cap leaves room for the system prompt and the reply budget', () => {
+  // ~4 chars per token. anthropicDirect asks for max_tokens: 500, and the
+  // system prompt is served from system_prompts. If MAX_CHARS ever grew past a
+  // provider window this test is the thing that argues about it.
+  ok(MAX_CHARS / 4 + 500 < 8000, `MAX_CHARS=${MAX_CHARS} plus the reply budget must fit the smallest context window in the chain`);
 });

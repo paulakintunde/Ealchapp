@@ -46,3 +46,22 @@ playwright-report/
 # verbecc (gates/check_french.py) writes its own log file into the CWD it
 # runs from — harmless, but not a repo artifact.
 verbecc.log
+
+# Generated QA sheets. Regenerate, don't commit:
+#   marking-sheet.ts  clips beside their transcripts, for the listening pass
+#   open-review-sheet.ts  the 16 open tasks, for the full-review tier
+#   plate-sheet.ts  the 20 block A plates, beside their options and alts
+marking-sheet*.html
+open-review.html
+plate-sheet.html
+
+# One-off authoring probes and manifests. Roughly 110 of these accumulated
+# untracked, and a single `git add -A scripts` swept them all in: two of them
+# carry NUL bytes and one imports a path that does not exist, so the commit
+# broke repo-closure.test.ts on the spot.
+#
+# Files matching this that are ALREADY tracked stay tracked (gitignore does not
+# untrack), so the _aNNN_manifest.ts series is unaffected. To track a new one
+# deliberately: git add -f
+scripts/_*
+scripts/data/_*

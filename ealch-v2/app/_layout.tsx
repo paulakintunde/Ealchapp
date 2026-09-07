@@ -144,7 +144,9 @@ export default function RootLayout() {
               <Stack.Screen name="downloads" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="paywall" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="exam" options={{ animation: 'slide_from_right' }} />
-              <Stack.Screen name="exam-task" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="exam-paper" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="exam-section" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="exam-report" options={{ animation: 'slide_from_right' }} />
             </Stack>
             <PushBanner />
             <BottomSheet />

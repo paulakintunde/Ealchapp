@@ -16,7 +16,7 @@
 import { create } from 'zustand';
 import type { Entitlement } from '@/content/progress-schema';
 import { getCachedEntitlement } from '@/services/entitlement';
-import { hasFeature, isPremium, type Feature } from './entitlement.logic';
+import { a2LockLifted, hasFeature, isPremium, type Feature } from './entitlement.logic';
 
 /** The cache key for a user who never signed in. A guest can browse the free
  *  tier; purchasing requires an account (the entitlement hangs off the Phase 9
@@ -51,7 +51,8 @@ export const useEntitlement = create<EntitlementState>()((set) => ({
 
 /** Reactive: does the current user hold `feature`? */
 export function useFeature(feature: Feature): boolean {
-  return useEntitlement((s) => hasFeature(s.entitlement, feature, Date.now()));
+  const lifted = feature === 'levels.all' && a2LockLifted();
+  return useEntitlement((s) => lifted || hasFeature(s.entitlement, feature, Date.now()));
 }
 
 /** Reactive: paying plan in force. The derived read that replaced `premium`. */

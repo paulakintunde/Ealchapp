@@ -13,6 +13,11 @@
 //   pnpm audio:render --only fr.a1.cafe.014      just that item (a dictée item id)
 //   pnpm audio:render --only sons.03.l1          just that lesson (renders every pending
 //                                                 audio section + narration segment in it)
+//   pnpm audio:render --exam                     ONLY the exam listening documents
+//
+// USE --exam FOR EXAM WORK. An unscoped run also picks up every unrendered
+// dictée item and lesson unit in the corpus, which is three orders of magnitude
+// more spend than the 30 listening documents a paper needs.
 //
 // Idempotent (skip-if-done, spec step 2): `assetKey = sha256(text|voiceId|provider|
 // renderVersion)`. A unit whose current stored key already matches is skipped, so a
@@ -36,18 +41,27 @@
 //      is an en/fr LANGUAGE hint used only to pick ElevenLabs' language_code,
 //      same as item 2.)
 //
+//   4. every section's `say` script → the coach line the Listen chip plays,
+//      voice = Liam, language en. Stored on the SECTION's own `audioRef`.
+//
+//      This was previously listed here as un-renderable, on the grounds that
+//      "SectionExtras has no sibling `audioRef`". That is no longer true: the
+//      field exists on SectionExtras, and LessonPager's `listen()` already
+//      passes it straight to speakItem as
+//      `{ fr: sayText, audioRef: currentSection?.audioRef }`. The read path
+//      was already there, so this is storage that is used, not invented.
+//
+//      Both `say` shapes are covered — the bare string and the v2
+//      `{text, voice, timing}` object — by reading through `narrationOf()`,
+//      which is the same accessor the app uses.
+//
 // ── Deliberately NOT rendered here, and why ─────────────────────────────────
-//   `say` scripts (SectionExtras.say, TapRow.say/detail.say, flashcards
-//   cards[].say) are named in the spec's render-unit list, but the CURRENT
-//   schema.ts gives them nowhere to put a rendered clip — SectionExtras has no
-//   sibling `audioRef`, and the app's own doc-comment on SectionExtras.say
-//   ("device TTS, en-US") confirms that surface is device-TTS-only today. This
-//   script cannot invent that storage: schema.ts is the single source of truth
-//   shared with the app, generator and publish pipeline, and this task is
-//   explicitly scoped to ealch-admin/ only — schema.ts lives in ealch-v2/.
-//   Rendering clips with nowhere valid to record their ref would just be spend
-//   with no read path. Land the schema fields first (a small, separate,
-//   app-side change), then extend this script's `collectLessonUnits()`.
+//   The OTHER `say` surfaces — TapRow.say, TapRow.detail.say, flashcards
+//   cards[].say — are still device-TTS-only. Those are per-ROW and per-CARD
+//   strings inside a section, and the schema gives a row or a card nowhere to
+//   record a ref; only the section has `audioRef`. Rendering clips with nowhere
+//   valid to record them would be spend with no read path. Land a per-row ref
+//   first if that surface is ever wanted.
 //
 // ── The `audio_assets` ledger is ITEM-scoped only ───────────────────────────
 //   `audio_assets.item_id` is `NOT NULL REFERENCES content_items(id)` (see
@@ -98,21 +112,51 @@
 // './env' MUST be imported first — see the incident note in migrate.ts.
 import './env';
 import { describeTarget } from './env';
+import { putToR2, sha256Hex, r2Configured } from './lib/r2.ts';
+import { resolve as resolvePath, dirname as dirnameOf } from 'node:path';
+import { existsSync } from 'node:fs';
+import { fileURLToPath as fileUrlToPath } from 'node:url';
+import {
+  billableChars,
+  castDocument,
+  examAssetKey,
+  gapsFor,
+  parseTurns,
+  interlocutorTurnPaths,
+  debateTurnPaths,
+  registerFor,
+  registerKeyFor,
+  type CastTurn,
+  type SlotName,
+} from './lib/examAudio.ts';
+import { loadVoices, voiceIdFor as castVoiceId, type Cast } from './lib/voices.ts';
+import { haveFfmpeg, stitchClips } from './lib/stitch.ts';
 import { createHash, createHmac } from 'node:crypto';
 import {
   validateItem,
   validateLesson,
   isNarrationInteraction,
+  narrationOf,
   type Item,
   type Lesson,
   type LessonSection,
   type NarrationSegment,
+  type SectionExtras,
 } from '../../ealch-v2/src/content/schema.ts';
 
 /* ─── CLI ────────────────────────────────────────────────────────────────── */
 
 const argv = process.argv.slice(2);
 const DRY_RUN = argv.includes('--dry-run');
+/**
+ * Render ONLY the exam listening documents.
+ *
+ * Without this, an unscoped run also picks up ~15,800 dictée items and ~1,900
+ * lesson units, none of which this phase asked for. The exam work is 30
+ * documents; the difference is three orders of magnitude of spend, and a flag
+ * is cheaper than finding out.
+ */
+const EXAM_ONLY = process.argv.includes('--exam');
 
 const onlyIx = argv.indexOf('--only');
 const ONLY: string | null = onlyIx === -1 ? null : (argv[onlyIx + 1] ?? null);
@@ -169,11 +213,24 @@ type Role = 'narrator' | 'amelie' | 'leo';
 function resolveVoiceId(role: Role): string {
   if (role === 'narrator') return LIAM;
   if (role === 'amelie') {
-    if (!AMELIE) die('ELEVENLABS_VOICE_AMELIE is not set — cannot render dictée audio (see ealch-admin/.env).');
+    if (!AMELIE) return unsetVoice('ELEVENLABS_VOICE_AMELIE');
     return AMELIE;
   }
-  if (!LEO) die('ELEVENLABS_VOICE_LEO is not set — cannot render dictée audio (see ealch-admin/.env).');
+  if (!LEO) return unsetVoice('ELEVENLABS_VOICE_LEO');
   return LEO;
+}
+
+/**
+ * A dictée voice that is not configured.
+ *
+ * A real run cannot proceed: it would spend a credit on the wrong voice. A DRY
+ * run can, and must — otherwise a machine that has never been set up to render
+ * dictée audio cannot preview anything else either, and previewing is the
+ * whole point of the flag. The placeholder is obviously fake in the output.
+ */
+function unsetVoice(envName: string): string {
+  if (!DRY_RUN) die(`${envName} is not set — cannot render dictée audio (see ealch-admin/.env).`);
+  return `UNSET-${envName}`;
 }
 
 /** Deterministic per-item Amélie/Léo split (spec: "even/odd of a stable hash
@@ -198,6 +255,51 @@ function storagePath(voiceId: string, assetKey: string): string {
   return `audio/${voiceId}/${assetKey}.mp3`;
 }
 
+/**
+ * The size of an object already in the bucket, or null if it is not there.
+ *
+ * The path is content-addressed, so an object AT that path IS the document the
+ * key describes — same turns, same voices, same settings. Asking before
+ * synthesising turns a lost database pointer into a HEAD request instead of a
+ * re-render.
+ *
+ * Uses the PUBLIC base rather than a signed request: these clips are public
+ * assets and a HEAD is the cheapest possible question. A network failure
+ * reports absent, which costs a re-render and never a wrong pointer.
+ */
+async function bucketHas(path: string): Promise<number | null> {
+  const base = process.env.R2_PUBLIC_BASE_URL;
+  if (!base) return null;
+  try {
+    const res = await fetch(`${base.replace(/\/$/, '')}/${path}`, { method: 'HEAD' });
+    if (!res.ok) return null;
+    const n = Number(res.headers.get('content-length') ?? 0);
+    return n > 0 ? n : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Point one exam part at a clip, with its measured length. */
+async function writePartRef(
+  client: { query: (q: string, v: unknown[]) => Promise<{ rowCount: number | null }> },
+  unit: { taskId: string; partIndex: number },
+  path: string,
+  durationS: number
+): Promise<void> {
+  const res = await client.query(
+    `update content_exam_tasks
+        set parts = jsonb_set(
+              parts, $2::text[],
+              (parts->$3::int) || jsonb_build_object('audioRef', $4::text, 'durationS', $5::int),
+              false),
+            updated_at = now()
+      where id = $1`,
+    [unit.taskId, `{${unit.partIndex}}`, unit.partIndex, path, durationS]
+  );
+  if (res.rowCount !== 1) throw new Error(`update touched ${res.rowCount} rows for ${unit.taskId}`);
+}
+
 /** Recover the assetKey embedded in a previously-written path's filename —
  *  the fallback idempotency check for NarrationSegment, which has no assetKey
  *  field of its own (see the header note on the ledger being item-scoped). */
@@ -213,7 +315,14 @@ function assetKeyFromRef(ref: string | null | undefined): string | null {
  *  Function — this is a batch job with its own secrets (ELEVENLABS_API_KEY
  *  read directly from env, not looked up via system_config), so it calls
  *  ElevenLabs directly rather than proxying through that function. */
-async function renderClip(text: string, voiceId: string, lang: 'fr' | 'en'): Promise<Buffer> {
+async function renderClip(
+  text: string,
+  voiceId: string,
+  lang: 'fr' | 'en',
+  /** Per-slot prosody from VOICES-<format>.md. Empty keeps the defaults below,
+   *  which is what every non-exam unit uses. */
+  settings: Record<string, number> = {}
+): Promise<Buffer> {
   const key = process.env.ELEVENLABS_API_KEY;
   if (!key) die('ELEVENLABS_API_KEY is not set (see ealch-admin/.env).');
   const res = await fetch(
@@ -227,7 +336,15 @@ async function renderClip(text: string, voiceId: string, lang: 'fr' | 'en'): Pro
         // multilingual_v2 rejects language_code; v3/flash accept it — identical
         // conditional to the live path, so a model swap behaves the same in both.
         ...(!MODEL_ID.startsWith('eleven_multilingual_v2') ? { language_code: lang } : {}),
-        voice_settings: { stability: 0.5, similarity_boost: 0.75 },
+        // The casting file's numbers win where it gives any. The assetKey does
+        // NOT hash them, so changing a setting without bumping renderVersion
+        // leaves the old clip in place — that is called out in VOICES-*.md.
+        voice_settings: {
+          stability: settings.stability ?? 0.5,
+          similarity_boost: settings.similarity ?? settings.similarity_boost ?? 0.75,
+          ...(settings.style !== undefined ? { style: settings.style } : {}),
+          ...(settings.speed !== undefined ? { speed: settings.speed } : {}),
+        },
       }),
       signal: AbortSignal.timeout(60_000), // batch job, not a live request — longer leash than the edge fn's 25s
     }
@@ -250,71 +367,6 @@ function estimateDurationMs(bytes: Buffer): number {
 /* ─── Storage: R2 (hand-rolled SigV4 PUT) ───────────────────────────────────
  * See the header note: no @aws-sdk/client-s3 dependency, on purpose. Single
  * PUT, unsigned streaming not needed (payloads are small render clips). */
-
-function hmac(key: Buffer | string, data: string): Buffer {
-  return createHmac('sha256', key).update(data, 'utf8').digest();
-}
-function sha256Hex(data: Buffer | string): string {
-  return createHash('sha256').update(data).digest('hex');
-}
-
-async function putToR2(path: string, body: Buffer, contentType: string): Promise<void> {
-  const accountId = process.env.R2_ACCOUNT_ID;
-  const accessKeyId = process.env.R2_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY;
-  const bucket = process.env.R2_BUCKET;
-  if (!accountId || !accessKeyId || !secretAccessKey || !bucket) {
-    die(
-      'R2 upload needs R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET in ealch-admin/.env ' +
-        '(--target supabase is the fallback if R2 is not provisioned yet).'
-    );
-  }
-
-  const host = `${accountId}.r2.cloudflarestorage.com`;
-  const region = 'auto';
-  const service = 's3';
-  const canonicalUri = `/${bucket}/${path.split('/').map(encodeURIComponent).join('/')}`;
-
-  const now = new Date();
-  const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, ''); // yyyyMMddTHHmmssZ
-  const dateStamp = amzDate.slice(0, 8);
-  const payloadHash = sha256Hex(body);
-
-  const canonicalHeaders =
-    `content-type:${contentType}\n` + `host:${host}\n` + `x-amz-content-sha256:${payloadHash}\n` + `x-amz-date:${amzDate}\n`;
-  const signedHeaders = 'content-type;host;x-amz-content-sha256;x-amz-date';
-  const canonicalRequest = ['PUT', canonicalUri, '', canonicalHeaders, signedHeaders, payloadHash].join('\n');
-
-  const credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;
-  const stringToSign = ['AWS4-HMAC-SHA256', amzDate, credentialScope, sha256Hex(canonicalRequest)].join('\n');
-
-  const kDate = hmac(`AWS4${secretAccessKey}`, dateStamp);
-  const kRegion = hmac(kDate, region);
-  const kService = hmac(kRegion, service);
-  const kSigning = hmac(kService, 'aws4_request');
-  const signature = hmac(kSigning, stringToSign).toString('hex');
-
-  const authorization =
-    `AWS4-HMAC-SHA256 Credential=${accessKeyId}/${credentialScope}, ` +
-    `SignedHeaders=${signedHeaders}, Signature=${signature}`;
-
-  const res = await fetch(`https://${host}${canonicalUri}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': contentType,
-      'x-amz-content-sha256': payloadHash,
-      'x-amz-date': amzDate,
-      Authorization: authorization,
-    },
-    // lib.dom's BodyInit doesn't recognize Node's Buffer as an ArrayBufferView
-    // even though it structurally is one — a fresh Uint8Array view sidesteps
-    // the type mismatch without copying semantics that matter at clip size.
-    body: new Uint8Array(body),
-  });
-  if (!res.ok) {
-    throw new Error(`R2 upload failed for ${path}: HTTP ${res.status} ${await res.text().catch(() => '')}`);
-  }
-}
 
 /* ─── Storage: Supabase `content` bucket (wave-1 fallback) ──────────────────
  * Same bucket publish-content.ts uploads snapshots to. A local binary-body
@@ -343,7 +395,18 @@ async function putToSupabase(path: string, body: Buffer, contentType: string): P
 }
 
 async function uploadAudio(path: string, body: Buffer): Promise<void> {
-  if (TARGET === 'r2') await putToR2(path, body, 'audio/mpeg');
+  if (TARGET === 'r2') {
+    // The credential check used to live inside putToR2. It moved out with the
+    // signer, so it is asserted here instead — without it a missing key fails
+    // as an opaque signing error rather than as the one-line fix it is.
+    if (!r2Configured()) {
+      die(
+        'R2 upload needs R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET in ealch-admin/.env ' +
+          '(--target supabase is the fallback if R2 is not provisioned yet).'
+      );
+    }
+    await putToR2(path, body, 'audio/mpeg');
+  }
   else await putToSupabase(path, body, 'audio/mpeg');
 }
 
@@ -374,13 +437,99 @@ type LessonNarrationUnit = {
   text: string;
 };
 
-type LessonUnit = LessonAudioUnit | LessonNarrationUnit;
+/** A section's `say` narration — the coach line the Listen chip plays.
+ *
+ *  Cast to the narrator voice in English, like a NarrationSegment with
+ *  `voice: 'en'`: `say` is coach script, the app speaks it with `lang: 'en-US'`
+ *  (LessonPager's `listen()`), and the spec casts all lesson narration to Liam. */
+type LessonSayUnit = {
+  kind: 'lessonSay';
+  sectionIndex: number;
+  role: 'narrator';
+  lang: 'en';
+  text: string;
+};
 
-/** Walks one lesson body for every render-eligible span — the two kinds
- *  described in the header (`audio` sections, narration segments). Does NOT
- *  walk `say` scripts; see the header note on why. */
+type LessonUnit = LessonAudioUnit | LessonNarrationUnit | LessonSayUnit;
+
+/**
+ * One listening document.
+ *
+ * Unlike every other unit here, this is not one voice saying one thing. A
+ * micro-trottoir is three people and an interview is two, and the candidate's
+ * task in blocks C, E and F is partly to tell them apart — so the unit is a
+ * TURN LIST, rendered per turn and stitched with real gaps.
+ *
+ * Idempotency follows the lesson pattern rather than the item one: `ExamPart`
+ * has an `audioRef` and no `assetKey` field, so the key is recovered from the
+ * ref's own filename stem (see assetKeyFromRef). No `audio_assets` row is
+ * written, for the same reason lesson audio writes none: the ledger is keyed
+ * on `item_id` and a listening document is not an item.
+ */
+/**
+ * One turn of a recorded interlocutor.
+ *
+ * NOT a listening document, and the difference is the whole design. A document
+ * is stitched into one file because a candidate hears it start to finish. An
+ * interlocutor's turns are played ONE AT A TIME, chosen by what the candidate
+ * just asked, so each turn is its own clip with its own ref — stitching them
+ * would produce a recording of an examiner answering questions nobody put.
+ *
+ * `durationS` matters here for the same reason it does on a part: the
+ * component waits that long before handing the turn back to the candidate.
+ */
+type InterlocutorTurnUnit = {
+  kind: 'interlocutorTurn';
+  taskId: string;
+  taskLabel: string;
+  turnId: string;
+  /** Which jsonb column the path is relative to. Two bank shapes now live on
+   *  two columns — `interlocutor` for a TEF/TCF interaction, `debate` for a
+   *  DELF débat — and the write-back below must target the right one. It was
+   *  hardcoded to `interlocutor`, and the first debate render failed loudly on
+   *  the path guard rather than writing anywhere wrong. */
+  column: 'interlocutor' | 'debate';
+  /** jsonb path into that column. */
+  path: string[];
+  text: string;
+  slot: SlotName;
+  format: string;
+  currentRef: string | null;
+};
+
+type ExamPartUnit = {
+  kind: 'examPart';
+  taskId: string;
+  taskLabel: string;
+  partIndex: number;
+  partLabel: string;
+  format: string;
+  variant: string;
+  block: string;
+  cast: CastTurn[];
+  currentRef: string | null;
+};
+
+/** Walks one lesson body for every render-eligible span — `audio` sections,
+ *  narration segments, and `say` scripts. */
 function collectLessonUnits(lesson: Lesson): LessonUnit[] {
   const units: LessonUnit[] = [];
+
+  // `say` scripts. The header used to say these were unrenderable because
+  // "SectionExtras has no sibling audioRef" — that is out of date. The field is
+  // there, and LessonPager's `listen()` already hands it to speakItem as
+  // `{ fr: sayText, audioRef: currentSection?.audioRef }`, so a ref written
+  // here is read by the app today with no further change.
+  //
+  // Idempotency comes from the ref's own filename stem, the same way a
+  // NarrationSegment's does; no assetKey field is added to SectionExtras for
+  // it. See assetKeyFromRef.
+  (lesson.sections as LessonSection[]).forEach((sec, i) => {
+    const text = narrationOf(sec as SectionExtras)?.text?.trim();
+    if (text) {
+      units.push({ kind: 'lessonSay', sectionIndex: i, role: 'narrator', lang: 'en', text });
+    }
+  });
 
   (lesson.sections as LessonSection[]).forEach((sec, i) => {
     if (sec.type === 'audio' && sec.lines.length > 0) {
@@ -421,10 +570,27 @@ function collectLessonUnits(lesson: Lesson): LessonUnit[] {
 
 /** What's already recorded for a lesson unit, read back from the lesson body
  *  itself (there is no audio_assets row for these — see header). */
+/** Where a lesson unit sits, for an error a human can act on. One function so
+ *  a new unit kind is a compile error here rather than a silent `undefined` in
+ *  a message somebody reads at 2am. */
+function lessonUnitLabel(unit: LessonUnit): string {
+  switch (unit.kind) {
+    case 'lessonSection':
+    case 'lessonSay':
+      return String(unit.sectionIndex);
+    case 'lessonNarration':
+      return `${unit.stageIndex}.${unit.segmentIndex}`;
+  }
+}
+
 function existingLessonAssetKey(lesson: Lesson, unit: LessonUnit): string | null {
   if (unit.kind === 'lessonSection') {
     const sec = lesson.sections[unit.sectionIndex] as Extract<LessonSection, { type: 'audio' }>;
     return sec.assetKey ?? assetKeyFromRef(sec.audioRef);
+  }
+  if (unit.kind === 'lessonSay') {
+    const sec = lesson.sections[unit.sectionIndex] as SectionExtras;
+    return assetKeyFromRef(sec.audioRef);
   }
   const seg = lesson.narration!.stages[unit.stageIndex].segments[unit.segmentIndex] as NarrationSegment;
   return assetKeyFromRef(seg.audioRef);
@@ -435,6 +601,16 @@ function applyLessonAudioRef(lesson: Lesson, unit: LessonUnit, path: string, ass
     const sec = lesson.sections[unit.sectionIndex] as Extract<LessonSection, { type: 'audio' }>;
     sec.audioRef = path;
     sec.assetKey = assetKey;
+    return;
+  }
+  if (unit.kind === 'lessonSay') {
+    // Only `audioRef` is written. A `say` clip belongs to the section's
+    // narration, and the section's own `audioRef` is exactly what the app
+    // reads for it; adding a parallel assetKey field to SectionExtras would
+    // change the shared schema for an idempotency detail the filename already
+    // carries.
+    const sec = lesson.sections[unit.sectionIndex] as SectionExtras;
+    sec.audioRef = path;
     return;
   }
   const seg = lesson.narration!.stages[unit.stageIndex].segments[unit.segmentIndex] as NarrationSegment;
@@ -448,6 +624,7 @@ async function main() {
   console.log(`  target bucket: ${TARGET}`);
   if (DRY_RUN) console.log('  (dry run — nothing will be rendered, uploaded, or written)');
   if (ONLY) console.log(`  scope: --only ${ONLY}`);
+  if (EXAM_ONLY) console.log('  scope: --exam (listening documents only)');
 
   if (!process.env.DATABASE_URL) die('No DATABASE_URL. This renders against the canonical database, never PGlite.');
   if (!DRY_RUN && !process.env.ELEVENLABS_API_KEY) {
@@ -460,12 +637,16 @@ async function main() {
 
   let rendered = 0;
   let skipped = 0;
+  /** Units whose voice is not configured, so their state cannot be assessed. */
+  let unknown = 0;
+  /** Units whose bytes were already in the bucket — re-pointed, not re-bought. */
+  let recovered = 0;
   let uploadedBytes = 0;
 
   try {
     /* ── 1. Items carrying the dictation drill ─────────────────────────── */
 
-    const itemRows = await client.query(
+    const itemRows = EXAM_ONLY ? { rows: [] } : await client.query(
       `select id, kind::text as kind, level::text as level, theme, fr, en, ipa, respell,
               gender::text as gender, example, notes, tags, drills::text[] as drills,
               audio_ref, image_ref, segments, asset_key, version
@@ -503,7 +684,7 @@ async function main() {
 
     /* ── 2. Lessons: audio sections + narration segments ───────────────── */
 
-    const lessonRows = await client.query<{ id: string; body: Lesson }>(
+    const lessonRows = EXAM_ONLY ? { rows: [] } : await client.query<{ id: string; body: Lesson }>(
       `select id, body from content_units
         where kind = 'lesson'
           and status <> 'archived'
@@ -517,6 +698,194 @@ async function main() {
       .map((r) => ({ rowId: r.id, lesson: r.body, units: collectLessonUnits(r.body) }))
       .filter((b) => b.units.length > 0);
 
+    /* ── 2b. Exam parts: the listening documents ───────────────────────── */
+
+    const examRows = await client.query<{
+      id: string;
+      label: string | null;
+      format: string;
+      variant: string;
+      level: string | null;
+      parts: { label: string; text?: string; audioRef?: string | null }[] | null;
+    }>(
+      `select id, label, format::text as format, variant, level::text as level, parts
+         from content_exam_tasks
+        where skill = 'CO'
+          and parts is not null
+          and status <> 'archived'
+          and ($1::text is null or id = $1)
+        order by id`,
+      [ONLY]
+    );
+
+    const examUnits: ExamPartUnit[] = [];
+    for (const row of examRows.rows) {
+      // The casting register, per format. TEF reads a block letter off the task
+      // label; TCF reads the band, because it has no blocks. Deriving it here
+      // by slicing the label was silently wrong for TCF: 'Compréhension orale ·
+      // A1' begins with C, so every document would have been cast and paced as
+      // a TEF block C micro-trottoir with nothing failing.
+      // TWO KEYS, and conflating them re-rendered 118 clips that had not
+      // changed. `block` is the SPEED key and must stay the épreuve's own
+      // division — the block letter on TEF, the band on TCF. The CASTING key is
+      // computed per part below, because TEF's block G is five sub-types
+      // wearing one letter and a micro-trottoir is cast from block C's voices
+      // while still being paced at block G's speed.
+      const BAND_KEYED = new Set(['tcf_canada', 'delf_b2']);
+      const block =
+        BAND_KEYED.has(row.format)
+          ? registerKeyFor({ format: row.format, taskLabel: row.label ?? '', partLabel: '', level: row.level })
+          : (row.label ?? '').replace(/^Section\s+/i, '').trim().slice(0, 1).toUpperCase() || 'G';
+      (row.parts ?? []).forEach((part, i) => {
+        if (!part.text) return;
+        examUnits.push({
+          kind: 'examPart',
+          taskId: row.id,
+          taskLabel: row.label ?? row.id,
+          partIndex: i,
+          partLabel: part.label,
+          format: row.format,
+          variant: row.variant,
+          block,
+          // Block G is five sub-types wearing one letter, so ITS register comes
+          // from the part label rather than the block — which is why the key is
+          // recomputed per part here and not reused from above. On TCF the band
+          // is the key and the part label changes nothing.
+          cast: castDocument(
+            parseTurns(part.text),
+            registerKeyFor({ format: row.format, taskLabel: row.label ?? '', partLabel: part.label, level: row.level })
+          ),
+          currentRef: part.audioRef ?? null,
+        });
+      });
+    }
+
+    /* ── 2c. Interlocutor turns: the recorded examiner ─────────────────── */
+
+    type Turn = { id: string; text: string; audioRef?: string | null };
+    type Bank = { opening: Turn; answers: Turn[]; catchAll: Turn; closing: Turn };
+    // The debate's turns are nested two deep inside axes, which is the whole
+    // reason it needs its own path helper and its own collection loop.
+    type Debate = { opening: Turn; clarify: Turn; closing: Turn; axes: { moves: Turn[] }[] };
+
+    const bankRows = await client.query<{
+      id: string;
+      label: string | null;
+      format: string;
+      interlocutor: Bank | null;
+    }>(
+      `select id, label, format::text as format, interlocutor
+         from content_exam_tasks
+        where task_type = 'po_interaction'
+          and interlocutor is not null
+          and status <> 'archived'
+          and ($1::text is null or id = $1)
+        order by id`,
+      [ONLY]
+    );
+
+    // One examiner, one voice. `f-neutral` rather than `f-formal`: this is a
+    // person at a reception desk answering questions, not an announcement.
+    const EXAMINER_SLOT: SlotName = 'f-neutral';
+
+    const turnUnits: InterlocutorTurnUnit[] = [];
+    for (const row of bankRows.rows) {
+      const b = row.interlocutor;
+      if (!b) continue;
+      // Paths come from interlocutorTurnPaths, which is tested. They are
+      // RELATIVE TO THE `interlocutor` COLUMN; see the note there for what
+      // happens when they are not.
+      const turnsInOrder: Turn[] = [b.opening, ...b.answers, b.catchAll, b.closing];
+      const named: [Turn, string[]][] = interlocutorTurnPaths(b).map(
+        (path, i) => [turnsInOrder[i]!, path] as [Turn, string[]]
+      );
+      for (const [turn, path] of named) {
+        if (!turn?.text) continue;
+        turnUnits.push({
+          kind: 'interlocutorTurn',
+          taskId: row.id,
+          taskLabel: row.label ?? row.id,
+          turnId: turn.id,
+          column: 'interlocutor',
+          path,
+          text: turn.text,
+          slot: EXAMINER_SLOT,
+          format: row.format,
+          currentRef: turn.audioRef ?? null,
+        });
+      }
+    }
+
+    /* ── 2b. The DELF debate bank ────────────────────────────────────────
+     *
+     * A second bank shape on a second column, collected separately rather than
+     * folded into the loop above. The two look similar and are not: an
+     * interlocutor's turns are a flat list of answers, a debate's are nested
+     * two deep inside axes, and the jsonb path the renderer writes back to
+     * differs accordingly.
+     *
+     * ONE examiner voice for the whole debate, and a MALE formal one rather
+     * than the interaction's `f-neutral`. That is not a coin toss: the
+     * interaction examiner is a person at a reception desk answering
+     * questions, and this one is challenging a position across a table for ten
+     * to thirteen minutes. The register is the difference, not the sex — but
+     * the paper's two long documents already put a woman in the presenter
+     * chair, and a third female voice in the same register would blur them.
+     */
+    const debateRows = await client.query<{
+      id: string;
+      label: string | null;
+      format: string;
+      debate: Debate | null;
+    }>(
+      `select id, label, format::text as format, debate
+         from content_exam_tasks
+        where task_type = 'po_debate'
+          and debate is not null
+          and status <> 'archived'
+          and ($1::text is null or id = $1)
+        order by id`,
+      [ONLY]
+    );
+
+    const DEBATER_SLOT: SlotName = 'm-formal';
+
+    for (const row of debateRows.rows) {
+      const d = row.debate;
+      if (!d) continue;
+      // The walk order below MUST match debateTurnPaths exactly — see the note
+      // there. Zipping two independently-built lists is how a recording ends up
+      // attached to the wrong objection.
+      const turnsInOrder: Turn[] = [
+        d.opening,
+        d.clarify,
+        ...d.axes.flatMap((a) => a.moves as unknown as Turn[]),
+        d.closing,
+      ];
+      const paths = debateTurnPaths(d);
+      if (paths.length !== turnsInOrder.length) {
+        die(
+          `debate bank on ${row.id} walked ${turnsInOrder.length} turns but produced ${paths.length} paths; ` +
+            `a clip would be written to the wrong turn`
+        );
+      }
+      turnsInOrder.forEach((turn, i) => {
+        if (!turn?.text) return;
+        turnUnits.push({
+          kind: 'interlocutorTurn',
+          taskId: row.id,
+          taskLabel: row.label ?? row.id,
+          turnId: turn.id,
+          column: 'debate',
+          path: paths[i]!,
+          text: turn.text,
+          slot: DEBATER_SLOT,
+          format: row.format,
+          currentRef: turn.audioRef ?? null,
+        });
+      });
+    }
+
     /* ── 3. Length sanity, before anything is spent ─────────────────────── */
 
     const tooLong = [
@@ -524,22 +893,97 @@ async function main() {
       ...lessonBundles.flatMap((b) =>
         b.units
           .filter((u) => u.text.length > MAX_RENDER_CHARS)
-          .map((u) => `lesson ${b.lesson.id} ${u.kind}#${u.kind === 'lessonSection' ? u.sectionIndex : `${u.stageIndex}.${u.segmentIndex}`} (${u.text.length} chars)`)
+          .map((u) => `lesson ${b.lesson.id} ${u.kind}#${lessonUnitLabel(u)} (${u.text.length} chars)`)
       ),
     ];
     if (tooLong.length) {
       die(`${tooLong.length} render unit(s) exceed MAX_RENDER_CHARS (${MAX_RENDER_CHARS}):\n  ${tooLong.join('\n  ')}`);
     }
 
-    const totalUnits = itemUnits.length + lessonBundles.reduce((n, b) => n + b.units.length, 0);
+    const examTurns = examUnits.reduce((n, u) => n + u.cast.length, 0);
+    const examChars = examUnits.reduce((n, u) => n + billableChars(u.cast), 0);
+    const totalUnits =
+      itemUnits.length + lessonBundles.reduce((n, b) => n + b.units.length, 0) + examUnits.length + turnUnits.length;
     console.log(
       `\n  render units: ${itemUnits.length} dictée item(s) across ${new Set(itemUnits.map((u) => u.item.theme)).size} theme(s), ` +
-        `${lessonBundles.reduce((n, b) => n + b.units.length, 0)} lesson audio unit(s) across ${lessonBundles.length} lesson(s) ` +
+        `${lessonBundles.reduce((n, b) => n + b.units.length, 0)} lesson audio unit(s) across ${lessonBundles.length} lesson(s), ` +
+        `${examUnits.length} listening document(s) across ${new Set(examUnits.map((u) => u.taskId)).size} épreuve task(s) ` +
         `(${totalUnits} total)`
     );
+    if (examUnits.length) {
+      // Turns, not documents, is what gets billed: a three-speaker document is
+      // three synthesis calls. Reporting documents alone would understate the
+      // spend by a factor of two on this paper.
+      console.log(
+        `  listening: ${examTurns} turn(s), ${examChars.toLocaleString('en-GB')} billable character(s)` +
+        `${DRY_RUN ? '' : ' — this is what will be spent'}`
+      );
+    }
+    if (turnUnits.length) {
+      const turnChars = turnUnits.reduce((n, u) => n + u.text.length, 0);
+      console.log(
+        `  interlocutor: ${turnUnits.length} turn(s), ${turnChars.toLocaleString('en-GB')} billable character(s)`
+      );
+    }
     if (totalUnits === 0) {
       console.log('\n✓ nothing matches this scope — nothing to render.\n');
       return;
+    }
+
+    /* ── 3b. Casting, before anything is spent ─────────────────────────── */
+
+    // ONE CASTING FILE PER FORMAT, and it has to be the unit's own. TEF sets a
+    // speed per BLOCK letter and TCF per BAND, so a TCF document looked up in
+    // TEF's table matches no row, gets no speed, and renders at the provider
+    // default. Nothing fails: the clips come out in the right voices and sound
+    // fine one at a time. What is missing is the rate rising across the ramp,
+    // which on TCF is the difficulty lever the format is built on. Not a
+    // hypothetical — it is what this renderer produced on the first TCF pass,
+    // and it was visible only by measuring wpm per band afterwards.
+    const casts = new Map<string, Cast>();
+    const castOf = (u: { format: string }): Cast => {
+      const hit = casts.get(u.format);
+      // Unreachable: every format in scope is loaded below, or the run dies.
+      if (!hit) throw new Error(`no casting file loaded for format ${u.format}`);
+      return hit;
+    };
+    if (examUnits.length || turnUnits.length) {
+      const formats = [...new Set([...examUnits, ...turnUnits].map((u) => u.format))].sort();
+      const missing: string[] = [];
+      let missingIn = '';
+      for (const format of formats) {
+        const rel = `exam-blueprints/VOICES-${format.replace(/_/g, '-')}.md`;
+        const voicesPath = resolvePath(dirnameOf(fileUrlToPath(import.meta.url)), '..', rel);
+        if (!existsSync(voicesPath)) {
+          die(`${format} has listening audio to render and no casting file at ${rel}.`);
+        }
+        const loaded = loadVoices(voicesPath);
+        casts.set(format, loaded);
+        const needed = new Set([
+          ...examUnits.filter((u) => u.format === format).flatMap((u) => u.cast.map((t) => t.slot)),
+          ...turnUnits.filter((u) => u.format === format).map((u) => u.slot),
+        ]);
+        const gaps = [...needed].filter((slot) => !loaded.entries.has(slot));
+        if (gaps.length) {
+          missing.push(...gaps.map((slot) => `${format} ${slot}`));
+          missingIn = rel;
+        }
+      }
+      if (missing.length) {
+        const note =
+          `${missing.length} voice slot(s) are not cast yet: ${missing.join(', ')}.\n` +
+          `  Fill their Voice id in ${missingIn} (E8 stage 1).`;
+        // A dry run exists to show what WOULD happen, so it reports the gap and
+        // carries on listing. A real run refuses rather than substituting:
+        // borrowing another voice is exactly how two speakers in one document
+        // end up sounding alike, and that breaks the item after the credits are
+        // spent.
+        if (DRY_RUN) console.log(`\n  ! ${note}\n    Listing the documents anyway, since nothing will be spent.`);
+        else die(note);
+      }
+      if (!DRY_RUN && !(await haveFfmpeg())) {
+        die('ffmpeg is not on PATH. A multi-speaker document cannot be stitched without it.');
+      }
     }
 
     /* ── 4. Items: skip-if-done, else render → upload → ledger + backfill ── */
@@ -551,6 +995,13 @@ async function main() {
 
       if (unit.item.assetKey === assetKey) {
         skipped++;
+        continue;
+      }
+      if (voiceId.startsWith('UNSET-')) {
+        // Its real voice is not configured, so its real key is unknowable and
+        // whether it needs rendering cannot be answered here. Counting it as
+        // "would render" would report a bill nobody is about to be sent.
+        unknown++;
         continue;
       }
 
@@ -597,6 +1048,171 @@ async function main() {
         throw e;
       }
       rendered++;
+    }
+
+    /* ── 4b. Listening documents: cast → per-turn render → stitch → ref ── */
+
+    for (const unit of examUnits) {
+      const voices = [...new Set(unit.cast.map((t) => t.slot))];
+      // Uncast slots have no voice id, so there is no key to compute. A real
+      // run has already died by this point; a dry run lists the document and
+      // says the key is not knowable yet, rather than inventing one.
+      // Slot prosody, plus the block's speech rate. Rate is per block because
+      // one voice serves blocks at different bands, and it is folded in here
+      // so it reaches BOTH the asset key and the request: a rate change must
+      // re-render the block, and a key that ignored it would leave the old,
+      // too-fast clips in place.
+      const sheet = castOf(unit);
+      // A paper may override its band's speed. Density differs between papers
+      // of one format, so a single multiplier cannot put both at target: tuning
+      // the shared row for blanc-02 took blanc-01's ramp out of order.
+      const speed =
+        sheet.blockSpeed.get(`${unit.block}@${unit.variant}`) ?? sheet.blockSpeed.get(unit.block);
+      const settingsFor = (slot: typeof unit.cast[number]['slot']) => ({
+        ...(sheet.entries.get(slot)?.settings ?? {}),
+        ...(speed ? { speed } : {}),
+      });
+      const cued = unit.cast.every((t) => sheet.entries.has(t.slot));
+      const key = cued
+        ? examAssetKey(
+            unit.cast,
+            (slot) => castVoiceId(sheet, slot),
+            'elevenlabs',
+            sheet.renderVersion,
+            settingsFor
+          )
+        : null;
+
+      if (key && assetKeyFromRef(unit.currentRef) === key) {
+        skipped++;
+        continue;
+      }
+
+      console.log(
+        `  · ${unit.taskLabel} / ${unit.partLabel} ` +
+        `(${unit.cast.length} turn(s), ${voices.length} voice(s): ${voices.join(', ')}${speed ? `, speed ${speed}` : ''})` +
+        `${key ? '' : '  [uncast]'}`
+      );
+      if (DRY_RUN) {
+        rendered++;
+        continue;
+      }
+
+      // The path is keyed on the FIRST voice only because a path needs one
+      // directory; the key in the filename is what identifies the document,
+      // and it hashes every voice in it.
+      const path = storagePath(castVoiceId(sheet, unit.cast[0]!.slot), key!);
+
+      // ALREADY IN THE BUCKET? Then this exact document has been rendered
+      // before and only the database pointer is missing. Re-synthesising would
+      // buy identical bytes.
+      //
+      // Not a rare case: a `parts` upsert from the authoring script replaces
+      // the whole jsonb column and takes `audioRef` with it, which wiped all
+      // thirty clips off this paper once while the bytes sat safely in R2. The
+      // pipeline should survive losing its own pointers.
+      const alreadyBytes = await bucketHas(path);
+      if (alreadyBytes !== null) {
+        await writePartRef(client, unit, path, Math.max(1, Math.round(alreadyBytes / 16 / 1000)));
+        recovered++;
+        continue;
+      }
+
+      // Per turn, in order. A failure part-way leaves nothing written, which
+      // is the right outcome: a half-rendered conversation is not a document.
+      const clips: Buffer[] = [];
+      for (const turn of unit.cast) {
+        clips.push(
+          await renderClip(
+            turn.text,
+            castVoiceId(sheet, turn.slot),
+            'fr',
+            settingsFor(turn.slot)
+          )
+        );
+      }
+      const bytes = await stitchClips(clips, gapsFor(unit.cast));
+
+      await uploadAudio(path, bytes);
+      uploadedBytes += bytes.length;
+
+      // The ref goes back into the task's `parts` jsonb at this part's index.
+      // jsonb_set rather than a whole-array rewrite, so two concurrent renders
+      // of different parts of one task cannot clobber each other.
+      // The MEASURED length goes back with the ref. estimateDurationS says in
+      // so many words that the real duration should come from this pipeline:
+      // until it did, the runner waited on my authored estimate, which ran
+      // several seconds long on every part and left dead air in an exam.
+      // 128 kbps CBR mono, so bytes/16 is milliseconds and matches ffprobe.
+      await writePartRef(client, unit, path, Math.max(1, Math.round(estimateDurationMs(bytes) / 1000)));
+      rendered++;
+    }
+
+    /* ── 4c. Interlocutor turns: one clip each, never stitched ──────────── */
+
+    for (const unit of turnUnits) {
+      const sheet = castOf(unit);
+      const voiceId = castVoiceId(sheet, unit.slot);
+      const speed = sheet.blockSpeed.get('EO');
+      const settings = { ...(sheet.entries.get(unit.slot)?.settings ?? {}), ...(speed ? { speed } : {}) };
+      // The same key function the documents use, so a turn and a document that
+      // happened to carry identical text in the same voice land on one object.
+      const key = examAssetKey(
+        [{ speaker: unit.turnId, text: unit.text, slot: unit.slot }],
+        () => voiceId,
+        'elevenlabs',
+        sheet.renderVersion,
+        () => settings
+      );
+      if (assetKeyFromRef(unit.currentRef) === key) {
+        skipped++;
+        continue;
+      }
+
+      const path = storagePath(voiceId, key);
+      console.log(`  · ${unit.taskLabel} / interlocuteur · ${unit.turnId}${speed ? ` (speed ${speed})` : ''}`);
+      if (DRY_RUN) {
+        rendered++;
+        continue;
+      }
+
+      let bytes: Buffer;
+      const have = await bucketHas(path);
+      if (have !== null) {
+        recovered++;
+      } else {
+        bytes = await renderClip(unit.text, voiceId, 'fr', settings);
+        await uploadAudio(path, bytes);
+        uploadedBytes += bytes.length;
+        rendered++;
+      }
+      const durationS = Math.max(1, Math.round((have ?? bytes!.length) / 16 / 1000));
+
+      // The `#> ... is not null` guard is the important part. Without it a
+      // path that does not resolve writes NULL over the entire bank, which is
+      // exactly what happened the first time this ran. Now it matches no rows
+      // and the rowCount check below turns it into a loud failure.
+      // The column name is interpolated rather than parameterised because SQL
+      // does not take an identifier as a bind parameter. It is safe here and
+      // only here: `column` is a union of two literals set by this file, never
+      // read from the database or an argument.
+      const col = unit.column;
+      const res = await client.query(
+        `update content_exam_tasks
+            set ${col} = jsonb_set(
+                  ${col}, $2::text[],
+                  (${col} #> $2::text[]) || jsonb_build_object('audioRef', $3::text, 'durationS', $4::int),
+                  false),
+                updated_at = now()
+          where id = $1
+            and ${col} #> $2::text[] is not null`,
+        [unit.taskId, `{${unit.path.join(',')}}`, path, durationS]
+      );
+      if (res.rowCount !== 1) {
+        throw new Error(
+          `${col} path {${unit.path.join(',')}} did not resolve on ${unit.taskId} — nothing written`
+        );
+      }
     }
 
     /* ── 5. Lessons: same skip-if-done, one write per lesson ────────────── */
@@ -653,11 +1269,14 @@ async function main() {
     /* ── 6. Report ────────────────────────────────────────────────────────── */
 
     if (DRY_RUN) {
-      console.log(`\n✓ dry run — ${rendered} unit(s) would render, ${skipped} already up to date. Nothing written.\n`);
+      console.log(`\n✓ dry run — ${rendered} unit(s) would render, ${skipped} already up to date${unknown ? `, ${unknown} not assessable (voice not configured)` : ''}. Nothing written.`);
     } else {
+      if (recovered) {
+        console.log(`  ${recovered} document(s) were already in the bucket and were re-pointed, not re-bought.`);
+      }
       console.log(
         `\n✓ rendered ${rendered} clip(s) (${(uploadedBytes / 1024 / 1024).toFixed(1)} MB uploaded to ${TARGET}), ` +
-          `${skipped} already up to date.\n` +
+          `${skipped} already up to date${recovered ? `, ${recovered} recovered` : ''}.\n` +
           `  Run pnpm content:publish to ship the new refs OTA.\n`
       );
     }
