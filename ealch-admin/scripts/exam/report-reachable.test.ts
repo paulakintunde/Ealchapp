@@ -13,7 +13,7 @@
 // sections are always entirely open, so both were permanently unscored and the
 // fold correctly refused an overall it had no right to give.
 //
-// This file now passes on all eleven papers. It is kept as the thing that made
+// This file now passes on every authored paper. It is kept as the thing that made
 // them pass and the thing that keeps them passing: it is the only test in either
 // repo that joins real authored content to the screen's own arithmetic, and both
 // halves have shipped defects the other half's tests could not see.
@@ -64,7 +64,7 @@ const REPORT_SCREEN = resolve(HERE, '../../../ealch-v2/app/exam-report.tsx');
 const PAPER_DIRS = [
   'tef-blanc01', 'tef-blanc02', 'tef-blanc03', 'tef-blanc04', 'tef-blanc05',
   'tcf-blanc01', 'tcf-blanc02', 'tcf-blanc03', 'tcf-blanc04', 'tcf-blanc05',
-  'delf-blanc01',
+  'delf-blanc01', 'delf-blanc02', 'delf-blanc03',
 ] as const;
 
 type Loaded = { PAPER: ExamPaper; TASKS: ExamTask[] };

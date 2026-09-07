@@ -1,6 +1,6 @@
 # VOICES — DELF B2 tout public
 
-**Blueprint:** `delf-b2-2026.09` · **Papers:** blanc-01, blanc-02 · **Render version:** `v1` · **Drafted:** 2026-09-05 (phase E0)
+**Blueprint:** `delf-b2-2026.09` · **Papers:** blanc-01, blanc-02, blanc-03 · **Render version:** `v1` · **Drafted:** 2026-09-05 (phase E0)
 
 The render version is part of every clip's assetKey. Bump it to force a
 re-render of the whole format when a stitching or prosody change must reach
@@ -98,13 +98,23 @@ can hit our own guess. 139 is an unhurried person across a table, which is what
 the number was meant to describe in the first place. If the debate ever reads as
 too slow to a real candidate, that is the evidence to change it — not this.
 
-### 2.1 A per-paper override is available and not yet needed
+### 2.1 A per-paper override is available, and blanc-03 is where it was ruled out
 
 Write `b2@blanc-02` in the first cell and it applies to that paper alone. The
-TCF pack needs this because text density differs between its papers; DELF has
-one paper so far and nothing to compensate for. **A qualified row set to exactly
-`1.00` is kept** — unlike an unqualified one, which is skipped because it equals
-the provider default. That asymmetry cost a silent mis-render on TCF blanc-04.
+TCF pack needs this because text density differs between its papers. **A
+qualified row set to exactly `1.00` is kept** — unlike an unqualified one, which
+is skipped because it equals the provider default. That asymmetry cost a silent
+mis-render on TCF blanc-04.
+
+DELF still uses none, and blanc-03 is the case that shows why it cannot. Its
+exercise 1 came back two seconds over its ceiling and the obvious fix — raise
+that paper's speed a notch — moves every document in the paper at once. The
+same paper's exercise 2 measured 155 s against a 150 s floor and its three short
+documents 72, 68 and 75 s against a 60 s floor, so speeding the paper up to
+rescue one document pushes three others out of the bottom of their bands.
+
+**The override is a paper-wide instrument and a single long document is not a
+paper-wide problem.** The lever for one document is its own text.
 
 ---
 
@@ -137,6 +147,38 @@ written. `examAudio.test.ts` now pins it for both formats.
 Voice ids are the same pool as TEF and TCF. That is intentional: a learner who
 sits a TCF paper and then a DELF one should not meet eight new strangers, and
 the registers mean the same thing in both.
+
+### 3.1 What blanc-02 and blanc-03 were actually cast as
+
+Read back OUT of `castDocument`, not decided in advance: what the script
+resolves is what gets paid for, and recording an aspiration would document
+something no clip matches.
+
+| Paper | Document | Slots, in order of first speech |
+|---|---|---|
+| blanc-02 | Ex 1 · un journal qui met ses erreurs en avant | `m-formal` journaliste · `f-media` rédactrice en chef · `m-media` chercheur |
+| blanc-02 | Ex 2 · ce que mesurent les classements | `f-media` journaliste · `f-formal` présidente · `f-neutral` sociologue |
+| blanc-02 | Ex 3 · three short documents | `f-media` · `m-formal` · `m-formal` |
+| blanc-03 | Ex 1 · ce qu'on demande au mot « provenance » | `f-media` journaliste · `m-formal` directeur · `f-formal` historienne |
+| blanc-03 | Ex 2 · ce qu'un distributeur ne remplace pas | `m-formal` journaliste · `f-media` économiste · `m-media` élu local |
+| blanc-03 | Ex 3 · three short documents | `f-media` · `f-media` · `m-formal` |
+
+**Same-sex pairs, and why blanc-03's is the benign kind.** blanc-02's exercise 2
+casts three women, and its dearest question asks what the sociologist concedes
+to the president — two same-sex speakers a candidate must tell apart by voice
+alone, on the item that carries the most marks.
+
+blanc-03's exercise 1 also runs two women, and four of its seven items name the
+historienne or refer to her as *elle*. The difference is the discourse: the
+journaliste only ever asks, and never states a position, so no item can be
+answered by attributing a claim to the wrong woman. The register pair does the
+rest — `f-media` projects and varies pitch, `f-formal` reads evenly.
+
+Worth stating plainly because the speaker labels are NOT spoken. `parseTurns`
+strips `UNE HISTORIENNE :` before anything reaches a voice, so a candidate has
+the voice and the discourse role and nothing else. A same-sex pair whose two
+members both make claims is a design defect; one where only one of them does is
+an ordinary interview.
 
 ---
 

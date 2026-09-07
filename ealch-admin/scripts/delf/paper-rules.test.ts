@@ -23,6 +23,7 @@ import {
   openTaskViolations,
   playCountViolations,
   sectionClockViolations,
+  textLengthViolations,
   topicLedgerViolations,
   weightingViolations,
 } from './paper-rules.ts';
@@ -301,13 +302,97 @@ test('the document-length rule catches a short document that every other rule pa
   long[2]!.parts![0]!.durationS = 140;
   ok(documentLengthViolations(long).some((x) => x.includes('outside the 60-80s')));
 
-  // The long documents have their own range, keyed on playCount.
+  // The long documents have their own ranges, and they are NOT the same range.
   const stretched = co();
   stretched[0]!.parts![0]!.durationS = 240;
-  ok(documentLengthViolations(stretched).some((x) => x.includes('outside the 150-195s')));
+  ok(documentLengthViolations(stretched).some((x) => x.includes('outside the 165-195s')));
 
   // The proof it is not redundant: the ceiling and the clock both PASS on the
   // paper whose documents are far too short.
   deepStrictEqual(audioCeilingViolations(short), []);
   deepStrictEqual(listeningClockViolations(short, 1800), []);
+});
+
+test('exercises 1 and 2 are held to their OWN bands, not the union of the two', () => {
+  // The rule first keyed on `playCount > 1` and used [150, 195] for both long
+  // exercises — the union of 165-195 and 150-180. A union band is looser than
+  // either of its members in both directions, so these two documents, each
+  // well outside its own published length, both passed it.
+  const early = co();
+  early[0]!.parts![0]!.durationS = 152;   // 13s short of exercise 1's floor
+  const late = co();
+  late[1]!.parts![0]!.durationS = 194;    // 14s past exercise 2's ceiling
+
+  ok(documentLengthViolations(early).some((x) => x.includes('152s, outside the 165-195s exercice 1')),
+    'exercise 1 at 152s is inside the old union band and outside its own');
+  ok(documentLengthViolations(late).some((x) => x.includes('194s, outside the 150-180s exercice 2')),
+    'exercise 2 at 194s is inside the old union band and outside its own');
+
+  // Both are inside [150, 195]. That is the whole point.
+  ok(152 >= 150 && 152 <= 195 && 194 >= 150 && 194 <= 195);
+
+  // A fourth CO exercise has no band, and is reported rather than guessed at.
+  const four = [...co(), co()[2]!];
+  ok(documentLengthViolations(four).some((x) => x.includes('CO has a 4th exercise')));
+});
+
+test('the word band answers for the clock only until the clock exists', () => {
+  // STANDARD-delf-b2 3 derives its word targets from the duration targets at
+  // ~165 wpm, so they estimate the same fact rather than adding a second one.
+  // Enforcing both at once failed two blanc-02 documents a candidate hears
+  // correctly: 399 words that run 160s because the voice delivered 150 wpm, and
+  // 239 words that run 79s because another delivered 182 wpm.
+  const words = (n: number) => Array.from({ length: n }, (_, i) => `mot${i}`).join(' ');
+
+  const measured = co();
+  measured[1]!.parts![0]!.durationS = 160;
+  measured[1]!.parts![0]!.text = words(399);
+  deepStrictEqual(documentLengthViolations(measured), [],
+    'a measured duration inside its band settles it, whatever the word count says');
+
+  // With no clip yet, the words stand in — and the paper is still reported as
+  // unmeasured, because an authored estimate is not a length.
+  const unrendered = co();
+  delete unrendered[0]!.parts![0]!.durationS;
+  unrendered[0]!.parts![0]!.text = words(470);
+  deepStrictEqual(documentLengthViolations(unrendered), ['co1 · D1: no durationS to check']);
+
+  const thin = co();
+  delete thin[0]!.parts![0]!.durationS;
+  thin[0]!.parts![0]!.text = words(300);
+  ok(documentLengthViolations(thin).some((x) => x.includes('300 words is outside the 450-530')));
+
+  // Speaker labels are stripped before counting, because they are stripped
+  // before anything is spoken. This document is 440 spoken words -- ten
+  // short of exercise 1's floor -- and 470 raw, because ten
+  // `UNE JOURNALISTE :` labels carry three tokens each. Counting the raw
+  // string puts it inside the band it is actually outside of.
+  const labelled = co();
+  delete labelled[0]!.parts![0]!.durationS;
+  labelled[0]!.parts![0]!.text = Array.from({ length: 10 },
+    () => `UNE JOURNALISTE : ${words(44)}`).join('\n');
+  strictEqual(labelled[0]!.parts![0]!.text!.split(/\s+/).filter(Boolean).length, 470);
+  ok(documentLengthViolations(labelled).some((x) => x.includes('440 words is outside the 450-530')),
+    'the labels must not be counted as spoken');
+});
+
+test('the text-length rule catches a reading text outside its suit', () => {
+  // The sibling of the document-length rule, missing for the same reason:
+  // nothing measured it. blanc-03's attribution set drafted at 323 words
+  // against a 360-420 budget, with every other reading rule green.
+  //
+  // Four positions in 320 words is 80 words each, which is not enough to state
+  // a position AND the concession separating it from its neighbour — so the
+  // exercise degrades toward matching a keyword to a name.
+  const text = (n: number) => Array.from({ length: n }, (_, i) => `mot${i}`).join(' ');
+  const ce = (words: number[]) => words.map((w, i) => ({
+    id: `ce${i + 1}`, parts: [{ label: `L${i}`, text: text(w), items: [] }],
+  }) as unknown as ExamTask);
+
+  deepStrictEqual(textLengthViolations(ce([460, 460, 390])), []);
+  ok(textLengthViolations(ce([460, 460, 323])).some((v) => v.includes('323 words, outside the 360-420')));
+  ok(textLengthViolations(ce([300, 460, 390])).some((v) => v.includes('300 words, outside the 420-500')));
+  // And the upper bound: a continuous text that runs long stops fitting the
+  // hour the épreuve gives for three of them.
+  ok(textLengthViolations(ce([460, 620, 390])).some((v) => v.includes('620 words, outside the 420-500')));
 });

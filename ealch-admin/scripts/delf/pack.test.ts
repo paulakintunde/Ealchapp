@@ -8,10 +8,12 @@ import { test } from 'node:test';
 import { topicLedgerViolations } from './paper-rules.ts';
 import * as blanc01 from '../delf-blanc01/paper.ts';
 import * as blanc02 from '../delf-blanc02/paper.ts';
+import * as blanc03 from '../delf-blanc03/paper.ts';
 
 const PAPERS = [
   { variant: 'blanc-01', mod: blanc01 },
   { variant: 'blanc-02', mod: blanc02 },
+  { variant: 'blanc-03', mod: blanc03 },
 ];
 
 test('no DELF topic is spent by two papers', () => {

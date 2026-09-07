@@ -21,6 +21,11 @@
 // makes this a second module rather than a parameter on the first.
 
 import type { ExamPaper, ExamTask, ExamDebate, ExamPart, QcmItem } from '../../../ealch-v2/src/content/schema.ts';
+// The renderer speaks `spokenTranscript(text)`, not `text` — the SPEAKER labels
+// are stripped before anything reaches a voice. Counting the raw string would
+// credit a seventeen-turn document with thirty-four words nobody hears, which
+// is the difference between passing and failing a band this narrow.
+import { spokenTranscript } from '../../../ealch-v2/src/utils/coPlayback.logic.ts';
 
 /** What every DELF paper module exports. `TOPICS` is the eleven bank ids the
  *  paper spends — data, not a comment, so the ledger below can be enforced. */
@@ -105,38 +110,87 @@ export function listeningClockViolations(coTasks: ExamTask[], clockS: number, an
 }
 
 /**
- * Each document inside its suit's published length.
+ * Each document inside its own exercise's published length and word band.
  *
- * The bank fixes these: a CO-L document runs 2 min 30 to 3 min 15, a CO-S
- * document 60 to 80 seconds. They are not decoration. A short document under a
- * minute cannot carry two answerable points with room to hear them, and one
- * over 80 seconds stops being the exercise the format describes.
+ * STANDARD-delf-b2 §3 gives THREE bands, one per exercise, not one band for
+ * long documents and one for short:
  *
- * MISSING UNTIL blanc-02, and it cost exactly what a missing rule costs. Every
- * other listening rule passed on that paper — the 900s ceiling, the two-play
- * clock, the play counts — while its three short documents came out at 38, 43
- * and 44 seconds. The ceiling and the clock are both UPPER bounds, so a paper
- * whose documents are far too short sails through every one of them.
+ *   | exercise | duration          | words     |
+ *   | 1        | 2:45 – 3:15       | 450 – 530 |
+ *   | 2        | 2:30 – 3:00       | 410 – 490 |
+ *   | 3        | 60 – 80 s each    | 160 – 220 |
  *
- * It surfaced only because the render replaced estimated durations with
- * measured ones. That is the right way for it to surface once; this is so it
- * surfaces before the render next time.
+ * The first version of this rule keyed on `playCount > 1` and used [150, 195]
+ * — the UNION of exercises 1 and 2. A union band is looser than either of the
+ * bands it unions, in both directions: it passes an exercise-1 document at
+ * 152 s, which is thirteen seconds short of its own floor, and an exercise-2
+ * document at 194 s, fourteen over its own ceiling. Nothing in the pack had
+ * drifted that far yet, so the looseness was invisible.
+ *
+ * MISSING ENTIRELY UNTIL blanc-02, and it cost exactly what a missing rule
+ * costs. Every other listening rule passed on that paper — the 900 s ceiling,
+ * the two-play clock, the play counts — while its three short documents came
+ * out at 38, 43 and 44 seconds. The ceiling and the clock are both UPPER
+ * bounds, so a paper whose documents are far too short sails through all of
+ * them.
+ *
+ * ── The word band stands in for the clock, and only until the clock exists ──
+ *
+ * STANDARD-delf-b2 §3 says so itself: "word targets are at a B2 broadcast rate
+ * of ~165 wpm". They are the duration band divided by a reference rate, which
+ * makes them an ESTIMATE of the duration rather than a second fact about the
+ * document. So they are checked only while there is nothing better — before a
+ * render, when `durationS` is still an author's guess.
+ *
+ * Enforcing both at once was tried and was wrong. It failed two blanc-02
+ * documents that a candidate hears correctly: exercise 2 at 399 words runs
+ * 160 s because that voice delivered 150 wpm, and exercise 3's first document
+ * at 239 words runs 79 s because that one delivered 182 wpm. Both sit inside
+ * their duration bands. A rule that fails correct audio for missing a proxy of
+ * itself is a rule that will be deleted the first time it is inconvenient.
+ *
+ * The delivered rate across this pack's fifteen documents runs 142 to 182 wpm,
+ * so the 165 wpm reference is a midpoint and not a promise — which is exactly
+ * why the measured number wins wherever it exists.
  */
+/** Words a candidate actually HEARS or reads, speaker labels removed. */
+const spokenWords = (text: string): number =>
+  spokenTranscript(text).split(/\s+/).filter(Boolean).length;
+
+const CO_BANDS = [
+  { name: 'exercice 1', durationS: [165, 195], words: [450, 530] },
+  { name: 'exercice 2', durationS: [150, 180], words: [410, 490] },
+  { name: 'exercice 3', durationS: [60, 80], words: [160, 220] },
+] as const;
+
 export function documentLengthViolations(coTasks: ExamTask[]): string[] {
   const out: string[] = [];
-  for (const t of coTasks) {
+  coTasks.forEach((t, exercise) => {
+    // Exercise 3 holds three documents and every one is measured against the
+    // same band; exercises 1 and 2 hold one each. Indexing by TASK rather than
+    // by part is what makes that fall out — and a fourth CO task would be a
+    // paper that is not this format, so it is reported rather than guessed at.
+    const band = CO_BANDS[exercise];
+    if (!band) { out.push(`${t.id}: CO has a ${exercise + 1}th exercise and the format has three`); return; }
     for (const p of parts(t)) {
-      // The play count is what distinguishes the suits: the long documents are
-      // the ones heard twice.
-      const long = (p.playCount ?? 1) > 1;
-      const [lo, hi] = long ? [150, 195] : [60, 80];
+      const where = `${t.id} · ${p.label ?? '?'}`;
       const d = p.durationS;
-      if (typeof d !== 'number') { out.push(`${t.id} · ${p.label ?? '?'}: no durationS to check`); continue; }
-      if (d < lo || d > hi) {
-        out.push(`${t.id} · ${p.label ?? '?'}: ${d}s, outside the ${lo}-${hi}s a ${long ? 'CO-L' : 'CO-S'} document runs`);
+      if (typeof d === 'number') {
+        if (d < band.durationS[0] || d > band.durationS[1]) {
+          out.push(`${where}: ${d}s, outside the ${band.durationS[0]}-${band.durationS[1]}s ${band.name} runs`);
+        }
+        continue;
       }
+      // No clip yet, so the words answer for it — and the paper is still
+      // reported as unmeasured, because an authored estimate is not a length.
+      const w = spokenWords(p.text ?? '');
+      out.push(
+        w < band.words[0] || w > band.words[1]
+          ? `${where}: no durationS yet, and ${w} words is outside the ${band.words[0]}-${band.words[1]} ${band.name} carries at 165 wpm`
+          : `${where}: no durationS to check`
+      );
     }
-  }
+  });
   return out;
 }
 
@@ -333,6 +387,7 @@ export function delfPaperViolations(p: DelfPaper): string[] {
     ...itemViolations([...p.CO_TASKS, ...p.CE_TASKS]),
     ...playCountViolations(p.CO_TASKS),
     ...documentLengthViolations(p.CO_TASKS),
+    ...textLengthViolations(p.CE_TASKS),
     ...listeningClockViolations(p.CO_TASKS, co?.timingS ?? 0),
     ...audioCeilingViolations(p.CO_TASKS),
     ...(p.CE_TASKS[2] ? attributionViolations(p.CE_TASKS[2]) : ['CE has no third exercise']),
@@ -347,4 +402,38 @@ export function delfPaperViolations(p: DelfPaper): string[] {
       return [...debateBalanceViolations(debate), ...debateDepthViolations(debate)];
     })(),
   ];
+}
+
+/**
+ * Each reading text inside its suit's published length.
+ *
+ * The sibling of documentLengthViolations, and it was missing for the same
+ * reason: nothing measured it. The bank fixes 420 to 500 words for a
+ * continuous text and 360 to 420 across the four signed pieces of the
+ * attribution exercise, and blanc-03's first draft came in at 323 — under by a
+ * fifth, with every other reading rule green.
+ *
+ * A short attribution set is not a cosmetic miss. Four positions in 320 words
+ * is 80 words each, which is not enough to state a position AND the concession
+ * that separates it from its neighbour, so the exercise degrades toward
+ * matching a keyword to a name.
+ *
+ * Word-counted rather than character-counted because that is the unit the bank
+ * publishes; French counts split on whitespace closely enough at this scale.
+ */
+export function textLengthViolations(ceTasks: ExamTask[]): string[] {
+  const out: string[] = [];
+  ceTasks.forEach((t, i) => {
+    for (const p of parts(t)) {
+      if (!p.text) { out.push(`${t.id}: no text to measure`); continue; }
+      // Exercise 3 is the attribution set and carries a different budget.
+      const attribution = i === 2;
+      const [lo, hi] = attribution ? [360, 420] : [420, 500];
+      const w = spokenWords(p.text);
+      if (w < lo || w > hi) {
+        out.push(`${t.id} · ${p.label ?? '?'}: ${w} words, outside the ${lo}-${hi} a ${attribution ? 'CE-O' : 'CE-T'} text runs`);
+      }
+    }
+  });
+  return out;
 }
