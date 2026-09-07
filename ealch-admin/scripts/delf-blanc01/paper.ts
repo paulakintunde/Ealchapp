@@ -82,3 +82,8 @@ export const PAPER: ExamPaper = {
     },
   ],
 };
+
+/** Re-exported so a paper module is one import for the shared rules — see
+ *  delf/paper-rules.ts's DelfPaper. The draw itself lives in common.ts beside
+ *  the table that explains it. */
+export { TOPICS } from './common.ts';

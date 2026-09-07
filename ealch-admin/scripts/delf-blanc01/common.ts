@@ -2,11 +2,15 @@
 //
 // ── The draw ────────────────────────────────────────────────────────────────
 //
-// Eleven topics from TOPICS-delf-b2.md, one per slot. Recorded here by id so a
-// later paper can avoid them; there is no planner yet because a planner earns
-// its keep when paper 2 has to avoid paper 1, and building one for a single
-// paper is how the TCF topic ledger came to be implemented three times in ways
-// that disagreed.
+// Eleven topics from TOPICS-delf-b2.md, one per slot, exported as TOPICS at the
+// foot of this file.
+//
+// They were a comment until paper 2 was authored, which is exactly when the
+// note here said a ledger would earn its keep. A comment cannot be checked, and
+// with 124 rows against five papers spending 55 a collision is not something
+// anyone spots by eye — so `TOPICS` is data now, and delf/paper-rules.ts reads
+// every paper's at once. The table below stays because the ids alone do not say
+// what was spent.
 //
 //   CO-L  DELF-01  four-day week: productivity, or who volunteered   rp-travail-etudes
 //         DELF-05  ranking hospitals, or teaching them to select     systeme-de-sante
@@ -75,3 +79,20 @@ export const ITEMS = {
   economie: ['fr.b2.economie.001', 'fr.b2.economie.002', 'fr.b2.economie.003', 'fr.b2.economie.004', 'fr.b2.economie.005', 'fr.b2.economie.006'],
   ethique: ['fr.b2.ethique.001', 'fr.b2.ethique.002', 'fr.b2.ethique.003', 'fr.b2.ethique.004', 'fr.b2.ethique.005', 'fr.b2.ethique.006'],
 } as const;
+
+/**
+ * The eleven bank rows this paper spends, in slot order: CO-L ×2, CO-S ×3,
+ * CE-T ×2, CE-O ×1, PE ×1, PO ×2.
+ *
+ * Data rather than the comment at the top of this file, so `topicLedgerViolations`
+ * can enforce TOPICS-delf-b2 rule 1 — no topic is reused across papers — instead
+ * of trusting that whoever authors paper 3 reads paper 1's header.
+ */
+export const TOPICS = [
+  'DELF-01', 'DELF-05',
+  'DELF-25', 'DELF-31', 'DELF-40',
+  'DELF-59', 'DELF-66',
+  'DELF-83',
+  'DELF-95',
+  'DELF-107', 'DELF-110',
+] as const;
