@@ -124,8 +124,12 @@ export type Strings = {
   examTimeUp: string; examTimeUpBody: string; examConfirmSubmit: string; examConfirmSubmitBody: string;
   examAnswered: string; examWords: string; examLeaveSection: string; examLeaveBody: string;
   examNoReveal: string; examStay: string; examLeave: string;
-  /** Compréhension orale playback. `examPlaysLeft` carries a {n} placeholder. */
+  /** Compréhension orale playback. `examPlaysLeft` carries a {n} placeholder.
+   *  `examSilenceNotice` is shown ONCE at the top of a listening paper: the
+   *  silences in this épreuve are part of the format, and a candidate who reads
+   *  them as a broken player starts tapping instead of reading the questions. */
   examReadWindow: string; examPlaying: string; examPlaysLeft: string; examAudioSpent: string;
+  examSilenceNotice: string;
   examReplay: string; examTranscript: string;
   examAudioFailed: string; examAudioFailedBody: string;
   /** Expression orale capture. */
@@ -441,7 +445,12 @@ export const T: Record<Lang, Strings> = {
     examNoReveal: 'Les corrections sont données à la fin, dans Le Rapport.',
     examStay: 'Rester', examLeave: 'Quitter',
     examReadWindow: "Lisez les questions. L'audio va commencer.",
-    examPlaying: 'Lecture en cours', examPlaysLeft: 'Encore {n} écoute', examAudioSpent: 'Écoute terminée',
+    examPlaying: 'Lecture en cours', examPlaysLeft: 'Encore {n} écoute. Lisez les questions en attendant.', examAudioSpent: 'Écoute terminée',
+    examSilenceNotice:
+      'L’audio se déclenche tout seul, et il commence par un silence : '
+      + 'ce temps est prévu pour que vous lisiez les questions. '
+      + 'D’autres silences suivent, entre les écoutes et entre les documents. '
+      + 'Ils font partie de l’épreuve. Rien n’est en panne : lisez, et attendez la voix.',
     examReplay: 'Réécouter', examTranscript: 'Transcription',
     examAudioFailed: 'Audio indisponible',
     examAudioFailedBody: "Aucun son n'a pu être joué pour ce document. Il ne sera pas compté dans votre estimation.",
@@ -853,7 +862,12 @@ export const T: Record<Lang, Strings> = {
     examNoReveal: 'Corrections come at the end, in Le Rapport.',
     examStay: 'Stay', examLeave: 'Leave',
     examReadWindow: 'Read the questions. The audio is about to start.',
-    examPlaying: 'Playing', examPlaysLeft: '{n} play left', examAudioSpent: 'Audio finished',
+    examPlaying: 'Playing', examPlaysLeft: '{n} play left. Read the questions while you wait.', examAudioSpent: 'Audio finished',
+    examSilenceNotice:
+      'The audio starts on its own, and it opens with a silence: '
+      + 'that time is there for you to read the questions. '
+      + 'More silences follow, between plays and between documents. '
+      + 'They are part of the exam. Nothing is stuck: read, and wait for the voice.',
     examReplay: 'Play again', examTranscript: 'Transcript',
     examAudioFailed: 'Audio unavailable',
     examAudioFailedBody: 'No sound could be played for this document. It will not count toward your estimate.',
