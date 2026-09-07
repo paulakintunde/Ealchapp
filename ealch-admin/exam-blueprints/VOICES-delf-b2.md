@@ -1,6 +1,6 @@
 # VOICES — DELF B2 tout public
 
-**Blueprint:** `delf-b2-2026.09` · **Paper:** blanc-01 · **Render version:** `v1` · **Drafted:** 2026-09-05 (phase E0)
+**Blueprint:** `delf-b2-2026.09` · **Papers:** blanc-01, blanc-02 · **Render version:** `v1` · **Drafted:** 2026-09-05 (phase E0)
 
 The render version is part of every clip's assetKey. Bump it to force a
 re-render of the whole format when a stitching or prosody change must reach
