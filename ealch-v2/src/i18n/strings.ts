@@ -142,6 +142,9 @@ export type Strings = {
   examAudioCheckingL: string;
   /** Expression orale capture. */
   examStartPrep: string; examStartRecording: string; examPrepPhase: string; examPrepBody: string;
+  /** The live microphone state during a spoken answer: a voice is being
+   *  heard, a pause is running, or the answer is closed. */
+  examMicHearing: string; examMicPaused: string; examMicStopped: string; examWordsSoFar: string;
   examRecording: string; examStopRecording: string;
   examMicFailed: string; examMicFailedBody: string; examDeliveryCaveat: string;
   /** A listening plate that has not been rendered yet, or would not load. */
@@ -333,6 +336,10 @@ export type Strings = {
   offlineReadyT: string; offlineReadyS: string; contentVersionL: string; contentCountsFmt: string;
   checkUpdates: string; updatingL: string; upToDateL: string; updatedL: string;
   cachedUpdateL: string; audioSoonL: string;
+  /** Where the playlists on screen actually came from: the binary, or an
+   *  update. The distinction only became visible once the app started reading
+   *  corpus playlists at all. */
+  plFromBundleFmt: string; plFromUpdateFmt: string;
   dcTag: string; dcTitle: string; dcPurpose: string; dcYours: string; dcCorrect: string;
   dcOkSub: string; dcHint: string; dcPlaying: string; dcPlay: string;
   dcPlaysLeft: string; dcNoPlays: string; dcFinish: string; dcNext: string;
@@ -481,6 +488,8 @@ export const T: Record<Lang, Strings> = {
     examAudioCheckingL: 'Vérification de l’audio…',
     examStartPrep: 'Commencer la préparation', examStartRecording: "Commencer à parler",
     examPrepPhase: 'Préparation', examPrepBody: "Lisez le document. L'enregistrement démarrera tout seul.",
+    examMicHearing: 'On vous entend', examMicPaused: 'En pause, continuez quand vous voulez',
+    examMicStopped: 'Enregistrement terminé', examWordsSoFar: '{n} mots',
     examRecording: 'Enregistrement', examStopRecording: "J'ai terminé",
     examMicFailed: 'Micro indisponible',
     examMicFailedBody: "Aucun enregistrement n'a pu être fait. Cette tâche ne sera pas comptée dans votre estimation.",
@@ -759,6 +768,7 @@ export const T: Record<Lang, Strings> = {
     offlineReadyS: "Toutes les leçons sont intégrées à l'app et fonctionnent sans réseau. Le vocabulaire supplémentaire arrive tout seul une fois en ligne.",
     contentVersionL: 'Version du contenu', contentCountsFmt: '{u} unités · {l} leçons · {i} phrases',
     checkUpdates: 'Rechercher des mises à jour', updatingL: 'Vérification…', upToDateL: 'À jour', updatedL: 'Contenu mis à jour.',
+    plFromBundleFmt: '{n} playlists · fournies avec l’app', plFromUpdateFmt: '{n} playlists · reçues par mise à jour',
     cachedUpdateL: 'Mise à jour téléchargée', audioSoonL: 'Des packs audio téléchargeables arriveront dans une prochaine mise à jour.',
     dcTag: 'DICTÉE · A2', dcTitle: 'Écoutez, écrivez.',
     dcPurpose: 'Entraînez votre oreille et votre orthographe : écoutez la phrase, puis écrivez-la exactement, accents, accords et homophones compris.',
@@ -914,6 +924,8 @@ export const T: Record<Lang, Strings> = {
     examAudioCheckingL: 'Checking audio…',
     examStartPrep: 'Start preparation', examStartRecording: 'Start speaking',
     examPrepPhase: 'Preparation', examPrepBody: 'Read the document. Recording starts on its own.',
+    examMicHearing: 'We can hear you', examMicPaused: 'Paused, carry on when you are ready',
+    examMicStopped: 'Recording finished', examWordsSoFar: '{n} words',
     examRecording: 'Recording', examStopRecording: "I'm done",
     examMicFailed: 'Microphone unavailable',
     examMicFailedBody: 'No recording could be made. This task will not count toward your estimate.',
@@ -1196,6 +1208,7 @@ export const T: Record<Lang, Strings> = {
     offlineReadyS: 'Every lesson is built into the app and works with no network. Extra vocabulary arrives on its own once you are online.',
     contentVersionL: 'Content version', contentCountsFmt: '{u} units · {l} lessons · {i} phrases',
     checkUpdates: 'Check for updates', updatingL: 'Checking…', upToDateL: 'Up to date', updatedL: 'Content updated.',
+    plFromBundleFmt: '{n} playlists · bundled with the app', plFromUpdateFmt: '{n} playlists · from an update',
     cachedUpdateL: 'Downloaded update', audioSoonL: 'Downloadable audio packs arrive in a future update.',
     dcTag: 'DICTATION · A2', dcTitle: 'Listen, write.',
     dcPurpose: 'Train your ear and your spelling: write exactly what you hear, accents, agreement and homophones included.',
