@@ -1,5 +1,5 @@
 {
-  "version": 66,
+  "version": 67,
   "domains": [
     {
       "slug": "fondations",
@@ -450342,7 +450342,3251 @@
       }
     }
   ],
-  "playlists": [],
+  "playlists": [
+    {
+      "id": "pl.a1.chiffres",
+      "tag": "NOMBRES",
+      "glow": "rgba(96,165,214,0.28)",
+      "word": "Les Chiffres",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.chiffres-t1",
+          "lines": [
+            {
+              "en": "that comes to twelve euros fifty",
+              "fr": "ça fait douze euros cinquante"
+            },
+            {
+              "en": "it's three euros a kilo",
+              "fr": "c'est trois euros le kilo"
+            },
+            {
+              "en": "forty euros, please",
+              "fr": "quarante euros, s'il vous plaît"
+            }
+          ],
+          "title": "Les prix"
+        },
+        {
+          "id": "pl.a1.chiffres-t2",
+          "lines": [
+            {
+              "en": "it's a quarter past eight",
+              "fr": "il est huit heures et quart"
+            },
+            {
+              "en": "the train leaves at ten twenty",
+              "fr": "le train part à dix heures vingt"
+            },
+            {
+              "en": "let's meet at half past twelve",
+              "fr": "on se retrouve à midi et demi"
+            }
+          ],
+          "title": "L'heure"
+        },
+        {
+          "id": "pl.a1.chiffres-t3",
+          "lines": [
+            {
+              "en": "there are a hundred and fifty people",
+              "fr": "il y a cent cinquante personnes"
+            },
+            {
+              "en": "it costs twelve hundred euros",
+              "fr": "ça coûte mille deux cents euros"
+            },
+            {
+              "en": "she was born in nineteen ninety",
+              "fr": "elle est née en mille neuf cent quatre-vingt-dix"
+            }
+          ],
+          "title": "Les grands nombres"
+        }
+      ],
+      "labelEn": "Everyday Numbers",
+      "labelFr": "Chiffres du quotidien",
+      "topicEn": "prices, times, big numbers",
+      "topicFr": "prix, heures, grands nombres",
+      "version": 1,
+      "minLevel": "a1"
+    },
+    {
+      "id": "pl.sons.la-voix",
+      "tag": "DEEP-DIVE",
+      "glow": "rgba(214,160,96,0.28)",
+      "word": "La Voix",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.sons.la-voix-t1",
+          "lines": [
+            {
+              "en": "a good white wine",
+              "fr": "un bon vin blanc"
+            },
+            {
+              "en": "we take the train",
+              "fr": "on prend le train"
+            },
+            {
+              "en": "a hundred years",
+              "fr": "cent ans"
+            },
+            {
+              "en": "my uncle is happy",
+              "fr": "mon oncle est content"
+            }
+          ],
+          "title": "Les voyelles nasales"
+        },
+        {
+          "id": "pl.sons.la-voix-t2",
+          "lines": [
+            {
+              "en": "the friends",
+              "fr": "les amis"
+            },
+            {
+              "en": "you have",
+              "fr": "vous avez"
+            },
+            {
+              "en": "a great man",
+              "fr": "un grand homme"
+            },
+            {
+              "en": "the children",
+              "fr": "les enfants"
+            }
+          ],
+          "title": "La liaison obligatoire"
+        },
+        {
+          "id": "pl.sons.la-voix-t3",
+          "lines": [
+            {
+              "en": "Paris in spring",
+              "fr": "Paris au printemps"
+            },
+            {
+              "en": "Rivoli street",
+              "fr": "rue de Rivoli"
+            },
+            {
+              "en": "a glass of red",
+              "fr": "un verre de rouge"
+            },
+            {
+              "en": "three red roses",
+              "fr": "trois roses rouges"
+            }
+          ],
+          "title": "Le R français"
+        },
+        {
+          "id": "pl.sons.la-voix-t4",
+          "lines": [
+            {
+              "en": "please",
+              "fr": "s'il vous plaît"
+            },
+            {
+              "en": "thank you very much",
+              "fr": "merci beaucoup"
+            },
+            {
+              "en": "see you later",
+              "fr": "à tout à l'heure"
+            },
+            {
+              "en": "that's very good",
+              "fr": "c'est très bien"
+            }
+          ],
+          "title": "Accent et rythme"
+        }
+      ],
+      "labelEn": "Pronunciation Deep-Dives",
+      "labelFr": "Prononciation en profondeur",
+      "topicEn": "nasal vowels",
+      "topicFr": "voyelles nasales",
+      "version": 1,
+      "minLevel": "sons"
+    },
+    {
+      "id": "pl.a2.l-oreille",
+      "tag": "IMMERSION",
+      "glow": "rgba(139,116,190,0.28)",
+      "word": "L'Oreille",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a2.l-oreille-t1",
+          "lines": [
+            {
+              "en": "next stop: Châtelet",
+              "fr": "prochain arrêt : Châtelet"
+            },
+            {
+              "en": "mind the gap",
+              "fr": "attention à la marche"
+            },
+            {
+              "en": "transfer to line 4",
+              "fr": "correspondance avec la ligne 4"
+            }
+          ],
+          "title": "Dans le métro"
+        },
+        {
+          "id": "pl.a2.l-oreille-t2",
+          "lines": [
+            {
+              "en": "service is temporarily suspended",
+              "fr": "le trafic est momentanément interrompu"
+            },
+            {
+              "en": "due to a passenger incident",
+              "fr": "en raison d'un incident voyageur"
+            },
+            {
+              "en": "we apologise for the inconvenience",
+              "fr": "nous vous prions de nous excuser"
+            }
+          ],
+          "title": "Les annonces"
+        }
+      ],
+      "labelEn": "Métro Immersion",
+      "labelFr": "Immersion métro",
+      "topicEn": "métro announcements",
+      "topicFr": "annonces du métro",
+      "version": 1,
+      "minLevel": "a2"
+    },
+    {
+      "id": "pl.a1.identite",
+      "tag": "01 · IDENTITY",
+      "glow": "rgba(196,142,110,0.30)",
+      "word": "L'Identité",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.identite-t1",
+          "lines": [
+            {
+              "en": "What is your name?",
+              "fr": "Comment vous appelez-vous ?"
+            },
+            {
+              "en": "My name is Claire Dubois.",
+              "fr": "Je m'appelle Claire Dubois."
+            },
+            {
+              "en": "How is that spelled?",
+              "fr": "Comment ça s'écrit ?"
+            },
+            {
+              "en": "It's spelled C, L, A, I, R, E.",
+              "fr": "Ça s'écrit C, L, A, I, R, E."
+            },
+            {
+              "en": "They call me Clo for short.",
+              "fr": "On m'appelle Clo pour faire court."
+            }
+          ],
+          "title": "Le nom"
+        },
+        {
+          "id": "pl.a1.identite-t2",
+          "lines": [
+            {
+              "en": "How old are you?",
+              "fr": "Quel âge avez-vous ?"
+            },
+            {
+              "en": "I'm twenty-eight.",
+              "fr": "J'ai vingt-huit ans."
+            },
+            {
+              "en": "I was born in nineteen ninety-eight.",
+              "fr": "Je suis né en mille neuf cent quatre-vingt-dix-huit."
+            },
+            {
+              "en": "My birthday is March twelfth.",
+              "fr": "Mon anniversaire, c'est le douze mars."
+            }
+          ],
+          "title": "L'âge et la naissance"
+        },
+        {
+          "id": "pl.a1.identite-t3",
+          "lines": [
+            {
+              "en": "Where do you live?",
+              "fr": "Où habitez-vous ?"
+            },
+            {
+              "en": "I live in Lyon, in the third district.",
+              "fr": "J'habite à Lyon, dans le troisième arrondissement."
+            },
+            {
+              "en": "I'm from Canada, but I've lived in France for two years.",
+              "fr": "Je viens du Canada, mais je vis en France depuis deux ans."
+            },
+            {
+              "en": "My neighborhood is quiet and full of little cafés.",
+              "fr": "Mon quartier est calme et plein de petits cafés."
+            }
+          ],
+          "title": "Le lieu de vie"
+        },
+        {
+          "id": "pl.a1.identite-t4",
+          "lines": [
+            {
+              "en": "What is your email address?",
+              "fr": "Quelle est votre adresse e-mail ?"
+            },
+            {
+              "en": "Claire, dot, Dubois, at, gmail, dot, com.",
+              "fr": "Claire, point, Dubois, arobase, gmail, point, com."
+            },
+            {
+              "en": "And your phone number?",
+              "fr": "Et votre numéro de téléphone ?"
+            },
+            {
+              "en": "It's 06 12 34 56 78.",
+              "fr": "C'est le zéro six, douze, trente-quatre, cinquante-six, soixante-dix-huit."
+            },
+            {
+              "en": "Could you repeat that more slowly, please?",
+              "fr": "Pouvez-vous répéter plus lentement, s'il vous plaît ?"
+            }
+          ],
+          "title": "Les coordonnées"
+        },
+        {
+          "id": "pl.a1.identite-t5",
+          "lines": [
+            {
+              "en": "Where are you from?",
+              "fr": "D'où venez-vous ?"
+            },
+            {
+              "en": "I'm originally from Senegal.",
+              "fr": "Je suis originaire du Sénégal."
+            },
+            {
+              "en": "I grew up in Dakar, then I moved to France.",
+              "fr": "J'ai grandi à Dakar, puis j'ai déménagé en France."
+            },
+            {
+              "en": "I speak Wolof, French and a bit of English.",
+              "fr": "Je parle wolof, français et un peu anglais."
+            }
+          ],
+          "title": "Origines et langues"
+        },
+        {
+          "id": "pl.a1.identite-t6",
+          "lines": [
+            {
+              "en": "What do you look like?",
+              "fr": "Comment êtes-vous physiquement ?"
+            },
+            {
+              "en": "I'm average height, rather slim.",
+              "fr": "Je suis de taille moyenne, plutôt mince."
+            },
+            {
+              "en": "I have brown hair and green eyes.",
+              "fr": "J'ai les cheveux bruns et les yeux verts."
+            },
+            {
+              "en": "She often wears glasses.",
+              "fr": "Elle porte souvent des lunettes."
+            }
+          ],
+          "title": "Le physique"
+        },
+        {
+          "id": "pl.a1.identite-t7",
+          "lines": [
+            {
+              "en": "How would you describe your personality?",
+              "fr": "Comment décririez-vous votre caractère ?"
+            },
+            {
+              "en": "I'm rather shy at first, but very sociable once I feel comfortable.",
+              "fr": "Je suis plutôt timide au début, mais très sociable une fois à l'aise."
+            },
+            {
+              "en": "He is patient and always in a good mood.",
+              "fr": "Il est patient et toujours de bonne humeur."
+            },
+            {
+              "en": "People tell me I'm stubborn, but I prefer to say determined.",
+              "fr": "On me dit que je suis têtu, mais je préfère dire déterminé."
+            }
+          ],
+          "title": "Le caractère"
+        },
+        {
+          "id": "pl.a1.identite-t8",
+          "lines": [
+            {
+              "en": "Do you have an ID on you?",
+              "fr": "Avez-vous une pièce d'identité sur vous ?"
+            },
+            {
+              "en": "Here is my ID card.",
+              "fr": "Voici ma carte d'identité."
+            },
+            {
+              "en": "My passport expires next year.",
+              "fr": "Mon passeport expire l'année prochaine."
+            },
+            {
+              "en": "I need to renew my residence permit.",
+              "fr": "Il faut renouveler mon titre de séjour."
+            },
+            {
+              "en": "I lost my papers last week.",
+              "fr": "J'ai perdu mes papiers la semaine dernière."
+            }
+          ],
+          "title": "Les papiers d'identité"
+        },
+        {
+          "id": "pl.a1.identite-t9",
+          "lines": [
+            {
+              "en": "What is your marital status?",
+              "fr": "Quel est votre état civil ?"
+            },
+            {
+              "en": "Single, married, or divorced?",
+              "fr": "Célibataire, marié, ou divorcé ?"
+            },
+            {
+              "en": "I need to fill out this administrative form.",
+              "fr": "Je dois remplir ce formulaire administratif."
+            },
+            {
+              "en": "Sign here, please.",
+              "fr": "Signez ici, s'il vous plaît."
+            },
+            {
+              "en": "I have an appointment at the town hall this morning.",
+              "fr": "J'ai rendez-vous à la mairie ce matin."
+            }
+          ],
+          "title": "État civil et démarches"
+        },
+        {
+          "id": "pl.a1.identite-t10",
+          "lines": [
+            {
+              "en": "Can you introduce yourself in a few words?",
+              "fr": "Pouvez-vous vous présenter en quelques mots ?"
+            },
+            {
+              "en": "I'm someone curious and motivated.",
+              "fr": "Je suis quelqu'un de curieux et de motivé."
+            },
+            {
+              "en": "In short, that's who I am.",
+              "fr": "En résumé, voilà qui je suis."
+            },
+            {
+              "en": "I like learning new things every day.",
+              "fr": "J'aime apprendre de nouvelles choses tous les jours."
+            },
+            {
+              "en": "That's it, I think that sums up my situation well.",
+              "fr": "Voilà, je crois que ça résume bien ma situation."
+            }
+          ],
+          "title": "Se présenter en une minute"
+        }
+      ],
+      "labelEn": "Personal Identity",
+      "labelFr": "Parler de soi",
+      "topicEn": "name, age, origin",
+      "topicFr": "nom, âge, origine",
+      "version": 1,
+      "minLevel": "a1"
+    },
+    {
+      "id": "pl.a1.famille",
+      "tag": "02 · FAMILY",
+      "glow": "rgba(168,150,92,0.28)",
+      "word": "La Famille",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.famille-t1",
+          "lines": [
+            {
+              "en": "Do you have brothers and sisters?",
+              "fr": "Vous avez des frères et sœurs ?"
+            },
+            {
+              "en": "I have an older brother and a little sister.",
+              "fr": "J'ai un frère aîné et une petite sœur."
+            },
+            {
+              "en": "My parents are retired.",
+              "fr": "Mes parents sont à la retraite."
+            },
+            {
+              "en": "We are a family of four.",
+              "fr": "Nous sommes une famille de quatre."
+            }
+          ],
+          "title": "Ma famille"
+        },
+        {
+          "id": "pl.a1.famille-t2",
+          "lines": [
+            {
+              "en": "Are you married or single?",
+              "fr": "Êtes-vous marié ou célibataire ?"
+            },
+            {
+              "en": "I've been married for three years.",
+              "fr": "Je suis marié depuis trois ans."
+            },
+            {
+              "en": "We met at university.",
+              "fr": "Nous nous sommes rencontrés à l'université."
+            },
+            {
+              "en": "We got engaged last year.",
+              "fr": "Nous nous sommes fiancés l'année dernière."
+            }
+          ],
+          "title": "Le couple"
+        },
+        {
+          "id": "pl.a1.famille-t3",
+          "lines": [
+            {
+              "en": "The whole family gets together at Christmas.",
+              "fr": "Toute la famille se réunit à Noël."
+            },
+            {
+              "en": "My cousin is getting married in June.",
+              "fr": "Mon cousin se marie en juin."
+            },
+            {
+              "en": "We celebrated my grandparents' golden anniversary.",
+              "fr": "On a fêté les noces d'or de mes grands-parents."
+            },
+            {
+              "en": "My aunt is organizing a big family reunion this summer.",
+              "fr": "Ma tante organise une grande réunion de famille cet été."
+            }
+          ],
+          "title": "La famille élargie"
+        },
+        {
+          "id": "pl.a1.famille-t4",
+          "lines": [
+            {
+              "en": "How did you meet?",
+              "fr": "Comment vous êtes-vous connus ?"
+            },
+            {
+              "en": "We met in high school.",
+              "fr": "On s'est rencontrés au lycée."
+            },
+            {
+              "en": "We see each other about once a week.",
+              "fr": "On se voit environ une fois par semaine."
+            },
+            {
+              "en": "He's been my best friend since childhood.",
+              "fr": "C'est mon meilleur ami depuis l'enfance."
+            }
+          ],
+          "title": "Les amitiés"
+        },
+        {
+          "id": "pl.a1.famille-t5",
+          "lines": [
+            {
+              "en": "Do you know your neighbors well?",
+              "fr": "Vous connaissez bien vos voisins ?"
+            },
+            {
+              "en": "My neighbors are very helpful.",
+              "fr": "Mes voisins sont très serviables."
+            },
+            {
+              "en": "We help each other out in the building.",
+              "fr": "On s'entraide dans l'immeuble."
+            },
+            {
+              "en": "There is a good atmosphere in the neighborhood.",
+              "fr": "Il y a une bonne ambiance dans le quartier."
+            }
+          ],
+          "title": "Le voisinage"
+        },
+        {
+          "id": "pl.a1.famille-t6",
+          "lines": [
+            {
+              "en": "We argued, but we made up the next day.",
+              "fr": "On s'est disputés, mais on s'est réconciliés le lendemain."
+            },
+            {
+              "en": "I'm sorry, I reacted too quickly.",
+              "fr": "Je suis désolé, j'ai réagi trop vite."
+            },
+            {
+              "en": "It was just a misunderstanding.",
+              "fr": "Ce n'était qu'un malentendu."
+            },
+            {
+              "en": "We ended up laughing about it together.",
+              "fr": "On a fini par en rire ensemble."
+            }
+          ],
+          "title": "Se disputer et se réconcilier"
+        },
+        {
+          "id": "pl.a1.famille-t7",
+          "lines": [
+            {
+              "en": "Do you have children?",
+              "fr": "Vous avez des enfants ?"
+            },
+            {
+              "en": "I have two children, a boy and a girl.",
+              "fr": "J'ai deux enfants, un garçon et une fille."
+            },
+            {
+              "en": "My son is seven and my daughter is ten.",
+              "fr": "Mon fils a sept ans et ma fille en a dix."
+            },
+            {
+              "en": "My daughter is starting primary school this year.",
+              "fr": "Ma fille rentre à l'école primaire cette année."
+            },
+            {
+              "en": "The youngest was just born.",
+              "fr": "Le petit dernier vient de naître."
+            }
+          ],
+          "title": "Les enfants"
+        },
+        {
+          "id": "pl.a1.famille-t8",
+          "lines": [
+            {
+              "en": "How do you raise your children?",
+              "fr": "Comment élevez-vous vos enfants ?"
+            },
+            {
+              "en": "I try to be firm but caring.",
+              "fr": "J'essaie d'être ferme mais bienveillant."
+            },
+            {
+              "en": "The kids have to do their homework before playing.",
+              "fr": "Les enfants doivent faire leurs devoirs avant de jouer."
+            },
+            {
+              "en": "We limit screen time in the evening.",
+              "fr": "On limite le temps d'écran le soir."
+            },
+            {
+              "en": "Each child has their own personality.",
+              "fr": "Chaque enfant a son propre caractère."
+            }
+          ],
+          "title": "L'éducation des enfants"
+        },
+        {
+          "id": "pl.a1.famille-t9",
+          "lines": [
+            {
+              "en": "I met their parents for the first time yesterday.",
+              "fr": "J'ai rencontré ses parents pour la première fois hier."
+            },
+            {
+              "en": "My in-laws live near us.",
+              "fr": "Mes beaux-parents habitent près de chez nous."
+            },
+            {
+              "en": "We get along quite well with them.",
+              "fr": "On s'entend plutôt bien avec eux."
+            },
+            {
+              "en": "My mother-in-law is very welcoming.",
+              "fr": "Ma belle-mère est très accueillante."
+            },
+            {
+              "en": "We mostly see them during the holidays.",
+              "fr": "On les voit surtout pendant les fêtes."
+            }
+          ],
+          "title": "Les beaux-parents"
+        },
+        {
+          "id": "pl.a1.famille-t10",
+          "lines": [
+            {
+              "en": "My family lives far away, we call each other every Sunday.",
+              "fr": "Ma famille vit loin, on s'appelle chaque dimanche."
+            },
+            {
+              "en": "We do video calls to watch the kids grow up.",
+              "fr": "On se fait des appels vidéo pour voir les enfants grandir."
+            },
+            {
+              "en": "The time difference makes things a bit tricky.",
+              "fr": "Le décalage horaire complique un peu les choses."
+            },
+            {
+              "en": "We try to see each other at least once a year.",
+              "fr": "On essaie de se voir au moins une fois par an."
+            },
+            {
+              "en": "I miss not seeing them more often.",
+              "fr": "Ça me manque de ne pas les voir plus souvent."
+            }
+          ],
+          "title": "Rester en contact à distance"
+        }
+      ],
+      "labelEn": "Family & Relationships",
+      "labelFr": "La famille et les proches",
+      "topicEn": "family and friends",
+      "topicFr": "famille et amis",
+      "version": 1,
+      "minLevel": "a1"
+    },
+    {
+      "id": "pl.a1.quotidien",
+      "tag": "03 · ROUTINE",
+      "glow": "rgba(120,150,168,0.28)",
+      "word": "Le Quotidien",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.quotidien-t1",
+          "lines": [
+            {
+              "en": "I wake up at seven.",
+              "fr": "Je me réveille à sept heures."
+            },
+            {
+              "en": "I take a shower, then I get dressed.",
+              "fr": "Je prends une douche, puis je m'habille."
+            },
+            {
+              "en": "I have breakfast quickly.",
+              "fr": "Je prends mon petit-déjeuner en vitesse."
+            },
+            {
+              "en": "I leave home around eight.",
+              "fr": "Je pars de chez moi vers huit heures."
+            }
+          ],
+          "title": "Le matin"
+        },
+        {
+          "id": "pl.a1.quotidien-t2",
+          "lines": [
+            {
+              "en": "Work starts at nine.",
+              "fr": "Le travail commence à neuf heures."
+            },
+            {
+              "en": "I take a lunch break at noon.",
+              "fr": "Je fais une pause déjeuner à midi."
+            },
+            {
+              "en": "Classes end at four.",
+              "fr": "Les cours finissent à seize heures."
+            },
+            {
+              "en": "The day goes by fast when there is a lot to do.",
+              "fr": "La journée passe vite quand il y a beaucoup à faire."
+            }
+          ],
+          "title": "La journée de travail"
+        },
+        {
+          "id": "pl.a1.quotidien-t3",
+          "lines": [
+            {
+              "en": "In the evening, I make dinner.",
+              "fr": "Le soir, je prépare le dîner."
+            },
+            {
+              "en": "We watch a bit of TV after the meal.",
+              "fr": "On regarde un peu la télé après le repas."
+            },
+            {
+              "en": "I go to bed around eleven.",
+              "fr": "Je me couche vers vingt-trois heures."
+            },
+            {
+              "en": "I read a few pages before falling asleep.",
+              "fr": "Je lis quelques pages avant de dormir."
+            }
+          ],
+          "title": "Le soir"
+        },
+        {
+          "id": "pl.a1.quotidien-t4",
+          "lines": [
+            {
+              "en": "During the week, I get up early.",
+              "fr": "En semaine, je me lève tôt."
+            },
+            {
+              "en": "On weekends, I sleep in.",
+              "fr": "Le week-end, je fais la grasse matinée."
+            },
+            {
+              "en": "On Saturdays, I do sports.",
+              "fr": "Le samedi, je fais du sport."
+            },
+            {
+              "en": "On Sundays, we have lunch as a family.",
+              "fr": "Le dimanche, on déjeune en famille."
+            }
+          ],
+          "title": "Semaine et week-end"
+        },
+        {
+          "id": "pl.a1.quotidien-t5",
+          "lines": [
+            {
+              "en": "I do the cleaning on Wednesdays.",
+              "fr": "Je fais le ménage le mercredi."
+            },
+            {
+              "en": "I need to stop by the pharmacy.",
+              "fr": "Il faut que je passe à la pharmacie."
+            },
+            {
+              "en": "I do laundry twice a week.",
+              "fr": "Je fais la lessive deux fois par semaine."
+            },
+            {
+              "en": "We share the household chores.",
+              "fr": "On se partage les tâches ménagères."
+            }
+          ],
+          "title": "Les tâches et les courses"
+        },
+        {
+          "id": "pl.a1.quotidien-t6",
+          "lines": [
+            {
+              "en": "I always exercise in the morning.",
+              "fr": "Je fais toujours du sport le matin."
+            },
+            {
+              "en": "I sometimes go to the movies on Fridays.",
+              "fr": "Je vais parfois au cinéma le vendredi."
+            },
+            {
+              "en": "I never drink coffee in the evening.",
+              "fr": "Je ne bois jamais de café le soir."
+            },
+            {
+              "en": "I do the grocery shopping once a week.",
+              "fr": "Je fais les courses une fois par semaine."
+            }
+          ],
+          "title": "La fréquence"
+        },
+        {
+          "id": "pl.a1.quotidien-t7",
+          "lines": [
+            {
+              "en": "I have coffee and toast in the morning.",
+              "fr": "Je prends un café et des tartines le matin."
+            },
+            {
+              "en": "At noon, I often eat a sandwich at the office.",
+              "fr": "Le midi, je mange souvent un sandwich au bureau."
+            },
+            {
+              "en": "We generally have dinner around eight.",
+              "fr": "On dîne en général vers vingt heures."
+            },
+            {
+              "en": "I rarely snack between meals.",
+              "fr": "Je grignote rarement entre les repas."
+            },
+            {
+              "en": "Breakfast is sacred for me.",
+              "fr": "Le petit-déjeuner, c'est sacré chez moi."
+            }
+          ],
+          "title": "Les repas de la journée"
+        },
+        {
+          "id": "pl.a1.quotidien-t8",
+          "lines": [
+            {
+              "en": "It takes me twenty minutes to get to work.",
+              "fr": "Je mets vingt minutes pour aller au travail."
+            },
+            {
+              "en": "I take the subway every day.",
+              "fr": "Je prends le métro tous les jours."
+            },
+            {
+              "en": "I bike there when the weather is nice.",
+              "fr": "Je fais le trajet à vélo quand il fait beau."
+            },
+            {
+              "en": "The transit is often crowded in the morning.",
+              "fr": "Les transports sont souvent bondés le matin."
+            },
+            {
+              "en": "I use the commute to listen to a podcast.",
+              "fr": "Je profite du trajet pour écouter un podcast."
+            }
+          ],
+          "title": "Les trajets du quotidien"
+        },
+        {
+          "id": "pl.a1.quotidien-t9",
+          "lines": [
+            {
+              "en": "I take a coffee break around ten.",
+              "fr": "Je fais une pause café vers dix heures."
+            },
+            {
+              "en": "We chat a bit by the coffee machine.",
+              "fr": "On papote un peu à la machine à café."
+            },
+            {
+              "en": "I go for a five-minute walk to clear my head.",
+              "fr": "Je sors marcher cinq minutes pour me changer les idées."
+            },
+            {
+              "en": "A short break feels good between two meetings.",
+              "fr": "Une petite pause fait du bien entre deux réunions."
+            },
+            {
+              "en": "I give myself a full lunch break.",
+              "fr": "Je m'accorde une pause déjeuner complète."
+            }
+          ],
+          "title": "Les petites pauses"
+        },
+        {
+          "id": "pl.a1.quotidien-t10",
+          "lines": [
+            {
+              "en": "I make a to-do list every morning.",
+              "fr": "Je fais une liste de choses à faire chaque matin."
+            },
+            {
+              "en": "I plan my week on Sunday evening.",
+              "fr": "J'organise ma semaine le dimanche soir."
+            },
+            {
+              "en": "I write everything down in my planner.",
+              "fr": "Je note tout dans mon agenda."
+            },
+            {
+              "en": "I prioritize the most urgent tasks.",
+              "fr": "Je priorise les tâches les plus urgentes."
+            },
+            {
+              "en": "A well-organized day is a successful day.",
+              "fr": "Un jour bien organisé est un jour réussi."
+            }
+          ],
+          "title": "Organiser sa journée"
+        }
+      ],
+      "labelEn": "Daily Life & Routines",
+      "labelFr": "La vie de tous les jours",
+      "topicEn": "daily routines",
+      "topicFr": "routines quotidiennes",
+      "version": 1,
+      "minLevel": "a1"
+    },
+    {
+      "id": "pl.a1.logement",
+      "tag": "04 · HOME",
+      "glow": "rgba(150,120,96,0.30)",
+      "word": "Le Logement",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.logement-t1",
+          "lines": [
+            {
+              "en": "I live in a three-room apartment.",
+              "fr": "J'habite dans un appartement de trois pièces."
+            },
+            {
+              "en": "There is a living room, a kitchen and two bedrooms.",
+              "fr": "Il y a un salon, une cuisine et deux chambres."
+            },
+            {
+              "en": "The kitchen opens onto a small balcony.",
+              "fr": "La cuisine donne sur un petit balcon."
+            },
+            {
+              "en": "It's bright and well laid out.",
+              "fr": "C'est lumineux et bien agencé."
+            }
+          ],
+          "title": "Décrire son logement"
+        },
+        {
+          "id": "pl.a1.logement-t2",
+          "lines": [
+            {
+              "en": "Are you a tenant or an owner?",
+              "fr": "Vous êtes locataire ou propriétaire ?"
+            },
+            {
+              "en": "I've been a tenant for two years.",
+              "fr": "Je suis locataire depuis deux ans."
+            },
+            {
+              "en": "We bought a house last year.",
+              "fr": "Nous avons acheté une maison l'an dernier."
+            },
+            {
+              "en": "The rent goes up every year.",
+              "fr": "Le loyer augmente chaque année."
+            }
+          ],
+          "title": "Location ou propriété"
+        },
+        {
+          "id": "pl.a1.logement-t3",
+          "lines": [
+            {
+              "en": "The sofa is facing the television.",
+              "fr": "Le canapé est en face de la télévision."
+            },
+            {
+              "en": "There is a shelf full of books.",
+              "fr": "Il y a une étagère pleine de livres."
+            },
+            {
+              "en": "The kitchen table is made of wood.",
+              "fr": "La table de la cuisine est en bois."
+            },
+            {
+              "en": "My desk is near the window.",
+              "fr": "Mon bureau est près de la fenêtre."
+            }
+          ],
+          "title": "Les meubles"
+        },
+        {
+          "id": "pl.a1.logement-t4",
+          "lines": [
+            {
+              "en": "The faucet is leaking, it needs to be fixed.",
+              "fr": "Le robinet fuit, il faut le réparer."
+            },
+            {
+              "en": "I repainted the bedroom myself.",
+              "fr": "J'ai repeint la chambre moi-même."
+            },
+            {
+              "en": "We need to call a plumber.",
+              "fr": "Il faut appeler un plombier."
+            },
+            {
+              "en": "I do a bit of DIY on weekends.",
+              "fr": "Je bricole un peu le week-end."
+            }
+          ],
+          "title": "Le bricolage"
+        },
+        {
+          "id": "pl.a1.logement-t5",
+          "lines": [
+            {
+              "en": "I have a small garden behind the house.",
+              "fr": "J'ai un petit jardin derrière la maison."
+            },
+            {
+              "en": "I grow tomatoes and herbs.",
+              "fr": "Je cultive des tomates et des herbes."
+            },
+            {
+              "en": "The plants need watering every evening.",
+              "fr": "Il faut arroser les plantes tous les soirs."
+            },
+            {
+              "en": "We often eat on the terrace in summer.",
+              "fr": "On mange souvent sur la terrasse en été."
+            }
+          ],
+          "title": "Le jardin"
+        },
+        {
+          "id": "pl.a1.logement-t6",
+          "lines": [
+            {
+              "en": "We're moving next month.",
+              "fr": "Nous déménageons le mois prochain."
+            },
+            {
+              "en": "I found a bigger apartment.",
+              "fr": "J'ai trouvé un appartement plus grand."
+            },
+            {
+              "en": "The lease needs to be cancelled before leaving.",
+              "fr": "Il faut résilier le bail avant de partir."
+            },
+            {
+              "en": "Friends are helping us carry the boxes.",
+              "fr": "Des amis nous aident à porter les cartons."
+            }
+          ],
+          "title": "Déménager"
+        },
+        {
+          "id": "pl.a1.logement-t7",
+          "lines": [
+            {
+              "en": "The neighborhood is well served by public transit.",
+              "fr": "Le quartier est bien desservi par les transports."
+            },
+            {
+              "en": "There is a bakery right at the bottom of my building.",
+              "fr": "Il y a une boulangerie juste en bas de chez moi."
+            },
+            {
+              "en": "The supermarket is a five-minute walk away.",
+              "fr": "Le supermarché est à cinq minutes à pied."
+            },
+            {
+              "en": "It's a fairly lively neighborhood at night.",
+              "fr": "C'est un quartier plutôt animé le soir."
+            },
+            {
+              "en": "I like living near downtown.",
+              "fr": "J'aime vivre près du centre-ville."
+            }
+          ],
+          "title": "Le quartier"
+        },
+        {
+          "id": "pl.a1.logement-t8",
+          "lines": [
+            {
+              "en": "Utilities are included in the rent.",
+              "fr": "Les charges sont comprises dans le loyer."
+            },
+            {
+              "en": "The heating bill is higher in winter.",
+              "fr": "La facture de chauffage est plus élevée en hiver."
+            },
+            {
+              "en": "The boiler needs to be serviced every year.",
+              "fr": "Il faut entretenir la chaudière chaque année."
+            },
+            {
+              "en": "The property manager takes care of the common areas.",
+              "fr": "Le syndic gère les parties communes."
+            },
+            {
+              "en": "We share the costs with the other tenants.",
+              "fr": "On partage les charges avec les autres locataires."
+            }
+          ],
+          "title": "Les charges et l'entretien"
+        },
+        {
+          "id": "pl.a1.logement-t9",
+          "lines": [
+            {
+              "en": "I like a rather minimalist style.",
+              "fr": "J'aime un style plutôt minimaliste."
+            },
+            {
+              "en": "I painted the walls off-white.",
+              "fr": "J'ai repeint les murs en blanc cassé."
+            },
+            {
+              "en": "Green plants bring life to the living room.",
+              "fr": "Des plantes vertes apportent de la vie au salon."
+            },
+            {
+              "en": "I found this mirror at a flea market.",
+              "fr": "J'ai chiné ce miroir dans une brocante."
+            },
+            {
+              "en": "Natural light changes everything in a room.",
+              "fr": "La lumière naturelle change tout dans une pièce."
+            }
+          ],
+          "title": "La décoration"
+        },
+        {
+          "id": "pl.a1.logement-t10",
+          "lines": [
+            {
+              "en": "I live in a shared apartment with two friends.",
+              "fr": "Je vis en colocation avec deux amies."
+            },
+            {
+              "en": "We split the rent and the groceries.",
+              "fr": "On se partage le loyer et les courses."
+            },
+            {
+              "en": "Everyone takes turns doing the dishes.",
+              "fr": "Chacun fait la vaisselle à son tour."
+            },
+            {
+              "en": "We really get along well as roommates.",
+              "fr": "On s'entend vraiment bien entre colocataires."
+            },
+            {
+              "en": "Finding a good roommate is not always easy.",
+              "fr": "Trouver un bon coloc, ce n'est pas toujours facile."
+            }
+          ],
+          "title": "Vivre en colocation"
+        }
+      ],
+      "labelEn": "Home & Living Space",
+      "labelFr": "Chez soi",
+      "topicEn": "housing and home",
+      "topicFr": "logement et maison",
+      "version": 1,
+      "minLevel": "a1"
+    },
+    {
+      "id": "pl.a2.travail",
+      "tag": "05 · WORK",
+      "glow": "rgba(96,140,132,0.30)",
+      "word": "Le Travail",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a2.travail-t1",
+          "lines": [
+            {
+              "en": "What do you do for a living?",
+              "fr": "Que faites-vous dans la vie ?"
+            },
+            {
+              "en": "I'm a nurse in a hospital.",
+              "fr": "Je suis infirmière dans un hôpital."
+            },
+            {
+              "en": "Day to day, I take care of patients and manage files.",
+              "fr": "Au quotidien, je m'occupe des patients et je gère les dossiers."
+            },
+            {
+              "en": "I work full time.",
+              "fr": "Je travaille à temps plein."
+            }
+          ],
+          "title": "Le poste"
+        },
+        {
+          "id": "pl.a2.travail-t2",
+          "lines": [
+            {
+              "en": "I work at a small company.",
+              "fr": "Je travaille dans une petite entreprise."
+            },
+            {
+              "en": "My colleagues are very welcoming.",
+              "fr": "Mes collègues sont très accueillants."
+            },
+            {
+              "en": "My boss is demanding but fair.",
+              "fr": "Ma patronne est exigeante mais juste."
+            },
+            {
+              "en": "The atmosphere at the office is fairly relaxed.",
+              "fr": "L'ambiance au bureau est plutôt détendue."
+            }
+          ],
+          "title": "Le lieu de travail"
+        },
+        {
+          "id": "pl.a2.travail-t3",
+          "lines": [
+            {
+              "en": "Why did you choose this profession?",
+              "fr": "Pourquoi avez-vous choisi ce métier ?"
+            },
+            {
+              "en": "I've always wanted to help people.",
+              "fr": "Je voulais aider les gens depuis toujours."
+            },
+            {
+              "en": "I changed careers five years ago.",
+              "fr": "J'ai changé de carrière il y a cinq ans."
+            },
+            {
+              "en": "Before, I worked in sales.",
+              "fr": "Avant, je travaillais dans la vente."
+            }
+          ],
+          "title": "Le parcours professionnel"
+        },
+        {
+          "id": "pl.a2.travail-t4",
+          "lines": [
+            {
+              "en": "What did you study?",
+              "fr": "Qu'est-ce que vous avez étudié ?"
+            },
+            {
+              "en": "I studied biology at university.",
+              "fr": "J'ai étudié la biologie à l'université."
+            },
+            {
+              "en": "My favorite subjects were the sciences.",
+              "fr": "Mes matières préférées étaient les sciences."
+            },
+            {
+              "en": "I got my degree four years ago.",
+              "fr": "J'ai obtenu mon diplôme il y a quatre ans."
+            }
+          ],
+          "title": "Les études"
+        },
+        {
+          "id": "pl.a2.travail-t5",
+          "lines": [
+            {
+              "en": "What are your skills?",
+              "fr": "Quelles sont vos compétences ?"
+            },
+            {
+              "en": "I speak English and Spanish fluently.",
+              "fr": "Je parle couramment anglais et espagnol."
+            },
+            {
+              "en": "I am proficient in several management software tools.",
+              "fr": "Je maîtrise plusieurs logiciels de gestion."
+            },
+            {
+              "en": "I have a good sense of organization.",
+              "fr": "J'ai un bon sens de l'organisation."
+            }
+          ],
+          "title": "Compétences et qualifications"
+        },
+        {
+          "id": "pl.a2.travail-t6",
+          "lines": [
+            {
+              "en": "Tell me about your experience.",
+              "fr": "Parlez-moi de votre expérience."
+            },
+            {
+              "en": "I sent several applications this month.",
+              "fr": "J'ai envoyé plusieurs candidatures ce mois-ci."
+            },
+            {
+              "en": "I have a job interview tomorrow.",
+              "fr": "J'ai un entretien d'embauche demain."
+            },
+            {
+              "en": "Here is my resume and cover letter.",
+              "fr": "Voici mon CV et ma lettre de motivation."
+            }
+          ],
+          "title": "La recherche d'emploi"
+        },
+        {
+          "id": "pl.a2.travail-t7",
+          "lines": [
+            {
+              "en": "Where do you see yourself in five years?",
+              "fr": "Où vous voyez-vous dans cinq ans ?"
+            },
+            {
+              "en": "I would like to start my own business.",
+              "fr": "J'aimerais monter ma propre entreprise."
+            },
+            {
+              "en": "I plan to move into a management position.",
+              "fr": "Je compte évoluer vers un poste de direction."
+            },
+            {
+              "en": "I hope to specialize further.",
+              "fr": "J'espère me spécialiser davantage."
+            }
+          ],
+          "title": "L'avenir professionnel"
+        },
+        {
+          "id": "pl.a2.travail-t8",
+          "lines": [
+            {
+              "en": "I'm taking an online course in the evenings.",
+              "fr": "Je suis une formation en ligne le soir."
+            },
+            {
+              "en": "The company funds my training.",
+              "fr": "L'entreprise finance mes formations."
+            },
+            {
+              "en": "I would like to get an additional certification.",
+              "fr": "Je voudrais obtenir une certification supplémentaire."
+            },
+            {
+              "en": "Training regularly is important in my field.",
+              "fr": "Se former régulièrement, c'est important dans mon métier."
+            },
+            {
+              "en": "I attended a seminar last week.",
+              "fr": "J'ai suivi un séminaire la semaine dernière."
+            }
+          ],
+          "title": "La formation continue"
+        },
+        {
+          "id": "pl.a2.travail-t9",
+          "lines": [
+            {
+              "en": "I pay attention to my work-life balance.",
+              "fr": "Je fais attention à mon équilibre vie professionnelle et vie privée."
+            },
+            {
+              "en": "I don't answer emails after six in the evening.",
+              "fr": "Je ne réponds pas aux mails après dix-huit heures."
+            },
+            {
+              "en": "I try not to bring work home.",
+              "fr": "J'essaie de ne pas ramener de travail à la maison."
+            },
+            {
+              "en": "Taking time off regularly is essential.",
+              "fr": "Prendre des congés régulièrement, c'est essentiel."
+            },
+            {
+              "en": "On weekends, I completely disconnect.",
+              "fr": "Le week-end, je déconnecte complètement."
+            }
+          ],
+          "title": "L'équilibre vie pro-perso"
+        },
+        {
+          "id": "pl.a2.travail-t10",
+          "lines": [
+            {
+              "en": "I work remotely two days a week.",
+              "fr": "Je télétravaille deux jours par semaine."
+            },
+            {
+              "en": "We hold a video call every morning.",
+              "fr": "On organise une visioconférence chaque matin."
+            },
+            {
+              "en": "I set up a home office corner.",
+              "fr": "J'ai aménagé un coin bureau chez moi."
+            },
+            {
+              "en": "Working from home requires discipline.",
+              "fr": "Travailler de chez soi demande de la discipline."
+            },
+            {
+              "en": "I prefer the office to stay in touch with the team.",
+              "fr": "Je préfère le bureau pour garder le contact avec l'équipe."
+            }
+          ],
+          "title": "Le télétravail"
+        }
+      ],
+      "labelEn": "Work & Education",
+      "labelFr": "Le travail et les études",
+      "topicEn": "jobs and studies",
+      "topicFr": "métier et études",
+      "version": 1,
+      "minLevel": "a2"
+    },
+    {
+      "id": "pl.a1.table",
+      "tag": "06 · FOOD",
+      "glow": "rgba(190,120,90,0.30)",
+      "word": "La Table",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.table-t1",
+          "lines": [
+            {
+              "en": "A table for two, please.",
+              "fr": "Une table pour deux, s'il vous plaît."
+            },
+            {
+              "en": "What do you recommend?",
+              "fr": "Qu'est-ce que vous me conseillez ?"
+            },
+            {
+              "en": "I'll have the set menu.",
+              "fr": "Je vais prendre le menu du jour."
+            },
+            {
+              "en": "The check, please.",
+              "fr": "L'addition, s'il vous plaît."
+            }
+          ],
+          "title": "Au restaurant"
+        },
+        {
+          "id": "pl.a1.table-t2",
+          "lines": [
+            {
+              "en": "I go to the market on Saturday mornings.",
+              "fr": "Je vais au marché le samedi matin."
+            },
+            {
+              "en": "I need fresh fruits and vegetables.",
+              "fr": "Il me faut des fruits et des légumes frais."
+            },
+            {
+              "en": "How much is a kilo of tomatoes?",
+              "fr": "C'est combien le kilo de tomates ?"
+            },
+            {
+              "en": "I do my shopping at the corner supermarket.",
+              "fr": "Je fais mes courses au supermarché du coin."
+            }
+          ],
+          "title": "Faire les courses"
+        },
+        {
+          "id": "pl.a1.table-t3",
+          "lines": [
+            {
+              "en": "I like to cook on weekends.",
+              "fr": "J'aime bien cuisiner le week-end."
+            },
+            {
+              "en": "My favorite recipe is roast chicken.",
+              "fr": "Ma recette préférée, c'est le poulet rôti."
+            },
+            {
+              "en": "It needs to simmer for twenty minutes.",
+              "fr": "Il faut laisser mijoter vingt minutes."
+            },
+            {
+              "en": "I follow my grandmother's recipes.",
+              "fr": "Je suis les recettes de ma grand-mère."
+            }
+          ],
+          "title": "Cuisiner"
+        },
+        {
+          "id": "pl.a1.table-t4",
+          "lines": [
+            {
+              "en": "I'm vegetarian.",
+              "fr": "Je suis végétarien."
+            },
+            {
+              "en": "I'm allergic to seafood.",
+              "fr": "Je suis allergique aux fruits de mer."
+            },
+            {
+              "en": "Does this dish contain nuts?",
+              "fr": "Est-ce que ce plat contient des noix ?"
+            },
+            {
+              "en": "I watch my sugar intake.",
+              "fr": "Je fais attention au sucre."
+            }
+          ],
+          "title": "Régimes et allergies"
+        },
+        {
+          "id": "pl.a1.table-t5",
+          "lines": [
+            {
+              "en": "We eat out once a week.",
+              "fr": "On mange dehors une fois par semaine."
+            },
+            {
+              "en": "I prefer cooking at home, it's cheaper.",
+              "fr": "Je préfère cuisiner à la maison, c'est moins cher."
+            },
+            {
+              "en": "On Fridays, we often order pizza.",
+              "fr": "Le vendredi, on commande souvent une pizza."
+            },
+            {
+              "en": "Nothing beats a good home-cooked meal.",
+              "fr": "Rien ne vaut un bon repas fait maison."
+            }
+          ],
+          "title": "Manger dehors ou à la maison"
+        },
+        {
+          "id": "pl.a1.table-t6",
+          "lines": [
+            {
+              "en": "Tonight, I'm having friends over for dinner.",
+              "fr": "Ce soir, je reçois des amis à dîner."
+            },
+            {
+              "en": "Help yourself, please.",
+              "fr": "Servez-vous, je vous en prie."
+            },
+            {
+              "en": "Enjoy your meal!",
+              "fr": "Bon appétit !"
+            },
+            {
+              "en": "Thank you for having me, it was delicious.",
+              "fr": "Merci de m'avoir invité, c'était délicieux."
+            }
+          ],
+          "title": "Recevoir à table"
+        },
+        {
+          "id": "pl.a1.table-t7",
+          "lines": [
+            {
+              "en": "I have a black coffee and a croissant.",
+              "fr": "Je prends un café noir et un croissant."
+            },
+            {
+              "en": "The French breakfast is fairly light.",
+              "fr": "Le petit-déjeuner français est plutôt léger."
+            },
+            {
+              "en": "I like to spread jam on my bread.",
+              "fr": "J'aime tartiner mon pain de confiture."
+            },
+            {
+              "en": "We sometimes have eggs on weekends.",
+              "fr": "On prend parfois des œufs le week-end."
+            },
+            {
+              "en": "A good coffee really wakes me up.",
+              "fr": "Un bon café me réveille vraiment."
+            }
+          ],
+          "title": "Le petit-déjeuner"
+        },
+        {
+          "id": "pl.a1.table-t8",
+          "lines": [
+            {
+              "en": "A long black coffee, please.",
+              "fr": "Un café allongé, s'il vous plaît."
+            },
+            {
+              "en": "Do you take sugar with your tea?",
+              "fr": "Vous prenez du sucre avec votre thé ?"
+            },
+            {
+              "en": "I drink a lot of water during the day.",
+              "fr": "Je bois beaucoup d'eau dans la journée."
+            },
+            {
+              "en": "A glass of red wine with cheese goes really well.",
+              "fr": "Un verre de vin rouge avec le fromage, ça se fait bien."
+            },
+            {
+              "en": "I don't drink alcohol, a fruit juice will do.",
+              "fr": "Je ne bois pas d'alcool, un jus de fruit suffira."
+            }
+          ],
+          "title": "Le café et les boissons"
+        },
+        {
+          "id": "pl.a1.table-t9",
+          "lines": [
+            {
+              "en": "The specialty of the region is raclette.",
+              "fr": "La spécialité de la région, c'est la raclette."
+            },
+            {
+              "en": "Each region has its own traditional dishes.",
+              "fr": "Chaque région a ses propres plats traditionnels."
+            },
+            {
+              "en": "I love bouillabaisse when I am in Marseille.",
+              "fr": "J'adore la bouillabaisse quand je suis à Marseille."
+            },
+            {
+              "en": "You absolutely must try crepes in Brittany.",
+              "fr": "Il faut absolument goûter les crêpes en Bretagne."
+            },
+            {
+              "en": "This recipe is passed down from generation to generation.",
+              "fr": "Cette recette se transmet de génération en génération."
+            }
+          ],
+          "title": "Les spécialités régionales"
+        },
+        {
+          "id": "pl.a1.table-t10",
+          "lines": [
+            {
+              "en": "Shall we meet at the bar after work?",
+              "fr": "On se retrouve au bar après le travail ?"
+            },
+            {
+              "en": "What are you having?",
+              "fr": "Qu'est-ce que tu prends ?"
+            },
+            {
+              "en": "A draft beer, please.",
+              "fr": "Une bière pression, s'il vous plaît."
+            },
+            {
+              "en": "It's my round tonight.",
+              "fr": "C'est ma tournée ce soir."
+            },
+            {
+              "en": "Cheers!",
+              "fr": "Santé !"
+            }
+          ],
+          "title": "Au bar"
+        }
+      ],
+      "labelEn": "Food & Dining",
+      "labelFr": "À table",
+      "topicEn": "meals and cooking",
+      "topicFr": "repas et cuisine",
+      "version": 1,
+      "minLevel": "a1"
+    },
+    {
+      "id": "pl.a2.achats",
+      "tag": "07 · SHOPPING",
+      "glow": "rgba(180,130,150,0.28)",
+      "word": "Les Achats",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a2.achats-t1",
+          "lines": [
+            {
+              "en": "I'm looking for a medium size.",
+              "fr": "Je cherche une taille moyenne."
+            },
+            {
+              "en": "Can I try on this jacket?",
+              "fr": "Est-ce que je peux essayer cette veste ?"
+            },
+            {
+              "en": "The fitting room is at the back on the right.",
+              "fr": "La cabine d'essayage est au fond à droite."
+            },
+            {
+              "en": "Can I exchange this item?",
+              "fr": "Puis-je échanger cet article ?"
+            }
+          ],
+          "title": "Acheter des vêtements"
+        },
+        {
+          "id": "pl.a2.achats-t2",
+          "lines": [
+            {
+              "en": "How much is it, please?",
+              "fr": "C'est combien, s'il vous plaît ?"
+            },
+            {
+              "en": "That's a bit expensive, do you have anything cheaper?",
+              "fr": "C'est un peu cher, vous avez moins cher ?"
+            },
+            {
+              "en": "There is a discount on this product.",
+              "fr": "Il y a une promotion sur ce produit."
+            },
+            {
+              "en": "Keep your receipt.",
+              "fr": "Gardez votre ticket de caisse."
+            }
+          ],
+          "title": "Les courses au quotidien"
+        },
+        {
+          "id": "pl.a2.achats-t3",
+          "lines": [
+            {
+              "en": "How are you paying? Card or cash?",
+              "fr": "Vous payez comment ? Carte ou espèces ?"
+            },
+            {
+              "en": "I'll pay by card.",
+              "fr": "Je vais payer par carte."
+            },
+            {
+              "en": "I'm watching my budget this month.",
+              "fr": "Je fais attention à mon budget ce mois-ci."
+            },
+            {
+              "en": "Do you accept contactless payments?",
+              "fr": "Vous acceptez les paiements sans contact ?"
+            }
+          ],
+          "title": "Payer"
+        },
+        {
+          "id": "pl.a2.achats-t4",
+          "lines": [
+            {
+              "en": "I would like to open a bank account.",
+              "fr": "Je voudrais ouvrir un compte bancaire."
+            },
+            {
+              "en": "I received my electricity bill.",
+              "fr": "J'ai reçu ma facture d'électricité."
+            },
+            {
+              "en": "I need to pay the rent before the fifth.",
+              "fr": "Il faut que je paie le loyer avant le cinq."
+            },
+            {
+              "en": "My bank transfer was delayed.",
+              "fr": "Mon virement a été retardé."
+            }
+          ],
+          "title": "La banque"
+        },
+        {
+          "id": "pl.a2.achats-t5",
+          "lines": [
+            {
+              "en": "This model is cheaper than that one.",
+              "fr": "Ce modèle-ci est moins cher que celui-là."
+            },
+            {
+              "en": "The price has gone up a lot this year.",
+              "fr": "Le prix a beaucoup augmenté cette année."
+            },
+            {
+              "en": "This is the best value for money.",
+              "fr": "C'est le meilleur rapport qualité-prix."
+            },
+            {
+              "en": "It's really worth it.",
+              "fr": "Ça vaut vraiment le coup."
+            }
+          ],
+          "title": "Comparer les prix"
+        },
+        {
+          "id": "pl.a2.achats-t6",
+          "lines": [
+            {
+              "en": "The sales start next week.",
+              "fr": "Les soldes commencent la semaine prochaine."
+            },
+            {
+              "en": "There is fifty percent off the whole store.",
+              "fr": "Il y a moins cinquante pour cent sur tout le magasin."
+            },
+            {
+              "en": "I am waiting for the sales to buy a coat.",
+              "fr": "J'attends les soldes pour acheter un manteau."
+            },
+            {
+              "en": "This offer is valid until Sunday.",
+              "fr": "Cette offre est valable jusqu'à dimanche."
+            },
+            {
+              "en": "It's a good deal, I'll take it.",
+              "fr": "C'est une bonne affaire, je le prends."
+            }
+          ],
+          "title": "Les soldes et promotions"
+        },
+        {
+          "id": "pl.a2.achats-t7",
+          "lines": [
+            {
+              "en": "I ordered that online last night.",
+              "fr": "J'ai commandé ça en ligne hier soir."
+            },
+            {
+              "en": "Delivery takes about three days.",
+              "fr": "La livraison prend environ trois jours."
+            },
+            {
+              "en": "The package arrived damaged.",
+              "fr": "Le colis est arrivé endommagé."
+            },
+            {
+              "en": "I can track my order on the website.",
+              "fr": "Je peux suivre ma commande sur le site."
+            },
+            {
+              "en": "Shipping is free above thirty euros.",
+              "fr": "Les frais de livraison sont gratuits au-dessus de trente euros."
+            }
+          ],
+          "title": "Faire du shopping en ligne"
+        },
+        {
+          "id": "pl.a2.achats-t8",
+          "lines": [
+            {
+              "en": "I would like to return this item, it does not fit me.",
+              "fr": "Je voudrais rendre cet article, il ne me va pas."
+            },
+            {
+              "en": "Do you have the receipt?",
+              "fr": "Avez-vous le ticket de caisse ?"
+            },
+            {
+              "en": "You can be refunded or make an exchange.",
+              "fr": "Vous pouvez être remboursé ou faire un échange."
+            },
+            {
+              "en": "The item was still under warranty.",
+              "fr": "L'article était encore sous garantie."
+            },
+            {
+              "en": "The refund will take a few days.",
+              "fr": "Le remboursement prendra quelques jours."
+            }
+          ],
+          "title": "Rendre ou échanger un article"
+        },
+        {
+          "id": "pl.a2.achats-t9",
+          "lines": [
+            {
+              "en": "I like browsing the flea market on Sundays.",
+              "fr": "J'aime chiner au marché aux puces le dimanche."
+            },
+            {
+              "en": "Can you lower the price a bit?",
+              "fr": "Vous pouvez baisser un peu le prix ?"
+            },
+            {
+              "en": "I often buy my clothes second-hand.",
+              "fr": "J'achète souvent mes vêtements en seconde main."
+            },
+            {
+              "en": "It's cheaper and more eco-friendly.",
+              "fr": "C'est plus économique et plus écologique."
+            },
+            {
+              "en": "I found a nice lamp for almost nothing.",
+              "fr": "J'ai trouvé une belle lampe pour presque rien."
+            }
+          ],
+          "title": "Le marché aux puces et la seconde main"
+        },
+        {
+          "id": "pl.a2.achats-t10",
+          "lines": [
+            {
+              "en": "I'm looking for a gift for my sister's birthday.",
+              "fr": "Je cherche un cadeau pour l'anniversaire de ma sœur."
+            },
+            {
+              "en": "Do you have a budget in mind?",
+              "fr": "Vous avez un budget en tête ?"
+            },
+            {
+              "en": "Can you gift-wrap it for me?",
+              "fr": "Pouvez-vous me faire un paquet cadeau ?"
+            },
+            {
+              "en": "I would like to include a card.",
+              "fr": "J'aimerais joindre une carte."
+            },
+            {
+              "en": "I hope they will like it.",
+              "fr": "J'espère que ça lui plaira."
+            }
+          ],
+          "title": "Offrir un cadeau"
+        }
+      ],
+      "labelEn": "Shopping & Money",
+      "labelFr": "Faire les courses",
+      "topicEn": "shopping and money",
+      "topicFr": "courses et argent",
+      "version": 1,
+      "minLevel": "a2"
+    },
+    {
+      "id": "pl.a2.sante",
+      "tag": "08 · HEALTH",
+      "glow": "rgba(120,168,140,0.30)",
+      "word": "La Santé",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a2.sante-t1",
+          "lines": [
+            {
+              "en": "I have a headache.",
+              "fr": "J'ai mal à la tête."
+            },
+            {
+              "en": "I've had a fever since yesterday.",
+              "fr": "J'ai de la fièvre depuis hier."
+            },
+            {
+              "en": "I have a cough and a stuffy nose.",
+              "fr": "Je tousse et j'ai le nez bouché."
+            },
+            {
+              "en": "My stomach has hurt since this morning.",
+              "fr": "J'ai mal au ventre depuis ce matin."
+            }
+          ],
+          "title": "Décrire les symptômes"
+        },
+        {
+          "id": "pl.a2.sante-t2",
+          "lines": [
+            {
+              "en": "I would like to make an appointment with the doctor.",
+              "fr": "Je voudrais prendre rendez-vous avec le médecin."
+            },
+            {
+              "en": "Are you available Tuesday at two?",
+              "fr": "Vous êtes disponible mardi à quatorze heures ?"
+            },
+            {
+              "en": "How long have you had these symptoms?",
+              "fr": "Depuis quand avez-vous ces symptômes ?"
+            },
+            {
+              "en": "The doctor prescribed me antibiotics.",
+              "fr": "Le médecin m'a prescrit des antibiotiques."
+            }
+          ],
+          "title": "Chez le médecin"
+        },
+        {
+          "id": "pl.a2.sante-t3",
+          "lines": [
+            {
+              "en": "Do you have something for headaches?",
+              "fr": "Avez-vous quelque chose contre le mal de tête ?"
+            },
+            {
+              "en": "Here is my prescription.",
+              "fr": "Voici mon ordonnance."
+            },
+            {
+              "en": "Take one tablet morning and evening.",
+              "fr": "Prenez un comprimé matin et soir."
+            },
+            {
+              "en": "Is this reimbursed by social security?",
+              "fr": "C'est remboursé par la sécurité sociale ?"
+            }
+          ],
+          "title": "À la pharmacie"
+        },
+        {
+          "id": "pl.a2.sante-t4",
+          "lines": [
+            {
+              "en": "I feel a bit stressed right now.",
+              "fr": "Je me sens un peu stressé en ce moment."
+            },
+            {
+              "en": "I've been sleeping poorly for a few weeks.",
+              "fr": "Je dors mal depuis quelques semaines."
+            },
+            {
+              "en": "I meditate to relax.",
+              "fr": "Je fais de la méditation pour me détendre."
+            },
+            {
+              "en": "I need to take care of myself.",
+              "fr": "Il faut que je prenne soin de moi."
+            }
+          ],
+          "title": "Bien-être et stress"
+        },
+        {
+          "id": "pl.a2.sante-t5",
+          "lines": [
+            {
+              "en": "I exercise three times a week.",
+              "fr": "Je fais du sport trois fois par semaine."
+            },
+            {
+              "en": "I run ten kilometers on Sundays.",
+              "fr": "Je cours dix kilomètres le dimanche."
+            },
+            {
+              "en": "I go to the gym after work.",
+              "fr": "Je vais à la salle de sport après le travail."
+            },
+            {
+              "en": "Staying active does me a lot of good.",
+              "fr": "Rester actif me fait beaucoup de bien."
+            }
+          ],
+          "title": "Le sport et la forme"
+        },
+        {
+          "id": "pl.a2.sante-t6",
+          "lines": [
+            {
+              "en": "Call an ambulance, please!",
+              "fr": "Appelez une ambulance, s'il vous plaît !"
+            },
+            {
+              "en": "There has been an accident on the road.",
+              "fr": "Il y a eu un accident sur la route."
+            },
+            {
+              "en": "She fell and can no longer walk.",
+              "fr": "Elle est tombée et elle ne peut plus marcher."
+            },
+            {
+              "en": "What is the emergency number?",
+              "fr": "Quel est le numéro des urgences ?"
+            }
+          ],
+          "title": "Les urgences"
+        },
+        {
+          "id": "pl.a2.sante-t7",
+          "lines": [
+            {
+              "en": "I have a dentist appointment tomorrow.",
+              "fr": "J'ai rendez-vous chez le dentiste demain."
+            },
+            {
+              "en": "My teeth have hurt for two days.",
+              "fr": "J'ai mal aux dents depuis deux jours."
+            },
+            {
+              "en": "Open wide, please.",
+              "fr": "Ouvrez grand, s'il vous plaît."
+            },
+            {
+              "en": "You need a cleaning.",
+              "fr": "Il faut faire un détartrage."
+            },
+            {
+              "en": "I brush my teeth twice a day.",
+              "fr": "Je me brosse les dents deux fois par jour."
+            }
+          ],
+          "title": "Chez le dentiste"
+        },
+        {
+          "id": "pl.a2.sante-t8",
+          "lines": [
+            {
+              "en": "I need to have a blood test tomorrow.",
+              "fr": "Je dois passer une prise de sang demain."
+            },
+            {
+              "en": "The nurse took my blood pressure.",
+              "fr": "L'infirmière m'a pris la tension."
+            },
+            {
+              "en": "I have an appointment for a test at the hospital.",
+              "fr": "J'ai un rendez-vous pour un examen à l'hôpital."
+            },
+            {
+              "en": "The results will be ready in a week.",
+              "fr": "Les résultats seront prêts dans une semaine."
+            },
+            {
+              "en": "I was kept for observation overnight.",
+              "fr": "On m'a gardé en observation une nuit."
+            }
+          ],
+          "title": "L'hôpital et les examens"
+        },
+        {
+          "id": "pl.a2.sante-t9",
+          "lines": [
+            {
+              "en": "I sleep about seven hours a night.",
+              "fr": "Je dors environ sept heures par nuit."
+            },
+            {
+              "en": "I have trouble falling asleep right now.",
+              "fr": "J'ai du mal à m'endormir en ce moment."
+            },
+            {
+              "en": "I always go to bed at the same time.",
+              "fr": "Je me couche toujours à la même heure."
+            },
+            {
+              "en": "Avoiding screens in the evening helps you sleep better.",
+              "fr": "Éviter les écrans le soir aide à mieux dormir."
+            },
+            {
+              "en": "I often take a nap in the afternoon.",
+              "fr": "Je fais souvent une sieste l'après-midi."
+            }
+          ],
+          "title": "Le sommeil"
+        },
+        {
+          "id": "pl.a2.sante-t10",
+          "lines": [
+            {
+              "en": "I try to eat a balanced diet.",
+              "fr": "J'essaie de manger équilibré."
+            },
+            {
+              "en": "I eat five fruits and vegetables a day.",
+              "fr": "Je mange cinq fruits et légumes par jour."
+            },
+            {
+              "en": "I am cutting down on sugar and processed foods.",
+              "fr": "Je réduis le sucre et les plats industriels."
+            },
+            {
+              "en": "Drinking enough water is essential.",
+              "fr": "Boire assez d'eau, c'est essentiel."
+            },
+            {
+              "en": "I cook at home as often as possible.",
+              "fr": "Je cuisine maison le plus souvent possible."
+            }
+          ],
+          "title": "L'alimentation saine"
+        }
+      ],
+      "labelEn": "Health & Body",
+      "labelFr": "La santé et le corps",
+      "topicEn": "body and wellbeing",
+      "topicFr": "corps et bien-être",
+      "version": 1,
+      "minLevel": "a2"
+    },
+    {
+      "id": "pl.a1.meteo",
+      "tag": "09 · WEATHER",
+      "glow": "rgba(110,150,190,0.28)",
+      "word": "La Météo",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.meteo-t1",
+          "lines": [
+            {
+              "en": "What is the weather like today?",
+              "fr": "Quel temps fait-il aujourd'hui ?"
+            },
+            {
+              "en": "It is sunny and beautiful out.",
+              "fr": "Il fait beau et il y a du soleil."
+            },
+            {
+              "en": "It has been raining since this morning.",
+              "fr": "Il pleut depuis ce matin."
+            },
+            {
+              "en": "The forecast says snow for tomorrow.",
+              "fr": "La météo annonce de la neige pour demain."
+            }
+          ],
+          "title": "Aujourd'hui"
+        },
+        {
+          "id": "pl.a1.meteo-t2",
+          "lines": [
+            {
+              "en": "In summer, it is very hot in the south.",
+              "fr": "En été, il fait très chaud dans le sud."
+            },
+            {
+              "en": "Autumn is my favorite season.",
+              "fr": "L'automne est ma saison préférée."
+            },
+            {
+              "en": "In winter, it is cold and it often snows.",
+              "fr": "En hiver, il fait froid et il neige souvent."
+            },
+            {
+              "en": "Spring is coming, the flowers are growing.",
+              "fr": "Le printemps arrive, les fleurs poussent."
+            }
+          ],
+          "title": "Les saisons"
+        },
+        {
+          "id": "pl.a1.meteo-t3",
+          "lines": [
+            {
+              "en": "Here, it rains more than in the south.",
+              "fr": "Ici, il pleut plus qu'au sud."
+            },
+            {
+              "en": "The climate is milder near the sea.",
+              "fr": "Le climat est plus doux près de la mer."
+            },
+            {
+              "en": "Back home, the winters are much colder.",
+              "fr": "Chez moi, les hivers sont bien plus froids."
+            },
+            {
+              "en": "I prefer a temperate climate.",
+              "fr": "Je préfère un climat tempéré."
+            }
+          ],
+          "title": "Comparer les climats"
+        },
+        {
+          "id": "pl.a1.meteo-t4",
+          "lines": [
+            {
+              "en": "The forest is beautiful in autumn.",
+              "fr": "La forêt est magnifique en automne."
+            },
+            {
+              "en": "We saw deer in the field.",
+              "fr": "On a vu des chevreuils dans le champ."
+            },
+            {
+              "en": "The mountain is covered in snow.",
+              "fr": "La montagne est couverte de neige."
+            },
+            {
+              "en": "The river runs through the whole village.",
+              "fr": "La rivière traverse tout le village."
+            }
+          ],
+          "title": "La nature"
+        },
+        {
+          "id": "pl.a1.meteo-t5",
+          "lines": [
+            {
+              "en": "We need to sort our waste.",
+              "fr": "Il faut trier les déchets."
+            },
+            {
+              "en": "Climate change worries me.",
+              "fr": "Le réchauffement climatique m'inquiète."
+            },
+            {
+              "en": "I try to reduce my plastic waste.",
+              "fr": "J'essaie de réduire mes déchets plastiques."
+            },
+            {
+              "en": "We should all consume more responsibly.",
+              "fr": "On devrait tous consommer de manière plus responsable."
+            }
+          ],
+          "title": "L'écologie"
+        },
+        {
+          "id": "pl.a1.meteo-t6",
+          "lines": [
+            {
+              "en": "It is cold, take a coat.",
+              "fr": "Il fait froid, prends un manteau."
+            },
+            {
+              "en": "If it rains, do not forget your umbrella.",
+              "fr": "S'il pleut, n'oublie pas ton parapluie."
+            },
+            {
+              "en": "In summer, I wear light clothes.",
+              "fr": "En été, je porte des vêtements légers."
+            },
+            {
+              "en": "It is better to bundle up, the wind is freezing.",
+              "fr": "Il vaut mieux se couvrir, le vent est glacial."
+            },
+            {
+              "en": "Put on sunscreen, it is very hot.",
+              "fr": "Mets de la crème solaire, il fait très chaud."
+            }
+          ],
+          "title": "Les vêtements selon la météo"
+        },
+        {
+          "id": "pl.a1.meteo-t7",
+          "lines": [
+            {
+              "en": "A violent storm is forecast tonight.",
+              "fr": "Un orage violent est annoncé ce soir."
+            },
+            {
+              "en": "The wind is blowing very hard today.",
+              "fr": "Le vent souffle très fort aujourd'hui."
+            },
+            {
+              "en": "The roads are flooded after the rain.",
+              "fr": "Les routes sont inondées après la pluie."
+            },
+            {
+              "en": "There was a snowstorm in the north.",
+              "fr": "Il y a eu une tempête de neige dans le nord."
+            },
+            {
+              "en": "Stay home, the storm is coming.",
+              "fr": "Restez chez vous, la tempête approche."
+            }
+          ],
+          "title": "Les intempéries"
+        },
+        {
+          "id": "pl.a1.meteo-t8",
+          "lines": [
+            {
+              "en": "We spotted a fox near the forest.",
+              "fr": "On a aperçu un renard près de la forêt."
+            },
+            {
+              "en": "Birds sing early in the morning in spring.",
+              "fr": "Les oiseaux chantent tôt le matin au printemps."
+            },
+            {
+              "en": "Some species hibernate during the winter.",
+              "fr": "Certaines espèces hibernent pendant l'hiver."
+            },
+            {
+              "en": "The local wildlife adapts well to the climate.",
+              "fr": "La faune locale s'adapte bien au climat."
+            },
+            {
+              "en": "Natural habitats need to be protected.",
+              "fr": "Il faut protéger les habitats naturels."
+            }
+          ],
+          "title": "Les animaux et la nature sauvage"
+        },
+        {
+          "id": "pl.a1.meteo-t9",
+          "lines": [
+            {
+              "en": "We plant tomatoes in spring.",
+              "fr": "On plante les tomates au printemps."
+            },
+            {
+              "en": "In autumn, we rake up the dead leaves.",
+              "fr": "En automne, on ramasse les feuilles mortes."
+            },
+            {
+              "en": "In winter, the garden is at rest.",
+              "fr": "L'hiver, le jardin est au repos."
+            },
+            {
+              "en": "You need to water more during a heatwave.",
+              "fr": "Il faut arroser davantage pendant la canicule."
+            },
+            {
+              "en": "The flowers grow well in this mild climate.",
+              "fr": "Les fleurs poussent bien avec ce climat doux."
+            }
+          ],
+          "title": "Le jardin selon la saison"
+        },
+        {
+          "id": "pl.a1.meteo-t10",
+          "lines": [
+            {
+              "en": "We check the weather before going hiking.",
+              "fr": "On regarde la météo avant de partir en randonnée."
+            },
+            {
+              "en": "If the weather is nice, we will go to the beach tomorrow.",
+              "fr": "S'il fait beau, on ira à la plage demain."
+            },
+            {
+              "en": "The picnic is cancelled because of the rain.",
+              "fr": "Le pique-nique est annulé à cause de la pluie."
+            },
+            {
+              "en": "It is better to have a backup plan in case of bad weather.",
+              "fr": "Mieux vaut prévoir un plan B en cas de mauvais temps."
+            },
+            {
+              "en": "We are lucky, the weather is magnificent.",
+              "fr": "On a de la chance, il fait un temps magnifique."
+            }
+          ],
+          "title": "Prévoir une sortie selon la météo"
+        }
+      ],
+      "labelEn": "Weather & Environment",
+      "labelFr": "Le temps qu'il fait",
+      "topicEn": "weather and nature",
+      "topicFr": "météo et nature",
+      "version": 1,
+      "minLevel": "a1"
+    },
+    {
+      "id": "pl.a2.voyage",
+      "tag": "10 · TRAVEL",
+      "glow": "rgba(190,160,90,0.30)",
+      "word": "Le Voyage",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a2.voyage-t1",
+          "lines": [
+            {
+              "en": "Excuse me, how do I get to the station?",
+              "fr": "Excusez-moi, comment aller à la gare ?"
+            },
+            {
+              "en": "Keep going straight, then turn left.",
+              "fr": "Continuez tout droit, puis tournez à gauche."
+            },
+            {
+              "en": "Is it far from here?",
+              "fr": "C'est loin d'ici ?"
+            },
+            {
+              "en": "It's a ten-minute walk.",
+              "fr": "C'est à dix minutes à pied."
+            }
+          ],
+          "title": "Demander son chemin"
+        },
+        {
+          "id": "pl.a2.voyage-t2",
+          "lines": [
+            {
+              "en": "A ticket to downtown, please.",
+              "fr": "Un ticket pour le centre-ville, s'il vous plaît."
+            },
+            {
+              "en": "The bus comes every ten minutes.",
+              "fr": "Le bus passe toutes les dix minutes."
+            },
+            {
+              "en": "I prefer to take a taxi at night.",
+              "fr": "Je préfère prendre un taxi le soir."
+            },
+            {
+              "en": "I rarely drive in the city.",
+              "fr": "Je conduis rarement en ville."
+            }
+          ],
+          "title": "Les transports"
+        },
+        {
+          "id": "pl.a2.voyage-t3",
+          "lines": [
+            {
+              "en": "I would like to book a room for two nights.",
+              "fr": "J'aimerais réserver une chambre pour deux nuits."
+            },
+            {
+              "en": "Is breakfast included?",
+              "fr": "Le petit-déjeuner est-il inclus ?"
+            },
+            {
+              "en": "What time is check-in?",
+              "fr": "À quelle heure est l'arrivée ?"
+            },
+            {
+              "en": "I would like to cancel my reservation.",
+              "fr": "Je voudrais annuler ma réservation."
+            }
+          ],
+          "title": "Réserver un hébergement"
+        },
+        {
+          "id": "pl.a2.voyage-t4",
+          "lines": [
+            {
+              "en": "Where is baggage check-in?",
+              "fr": "Où se trouve l'enregistrement des bagages ?"
+            },
+            {
+              "en": "The flight is delayed.",
+              "fr": "Le vol a du retard."
+            },
+            {
+              "en": "The train leaves from platform three.",
+              "fr": "Le train part du quai numéro trois."
+            },
+            {
+              "en": "Your passport, please.",
+              "fr": "Votre passeport, s'il vous plaît."
+            }
+          ],
+          "title": "À l'aéroport"
+        },
+        {
+          "id": "pl.a2.voyage-t5",
+          "lines": [
+            {
+              "en": "We visited the museum all morning.",
+              "fr": "Nous avons visité le musée toute la matinée."
+            },
+            {
+              "en": "It was an unforgettable trip.",
+              "fr": "C'était un voyage inoubliable."
+            },
+            {
+              "en": "We walked around the old town.",
+              "fr": "On a fait le tour de la vieille ville à pied."
+            },
+            {
+              "en": "I really recommend this place.",
+              "fr": "Je recommande vraiment cet endroit."
+            }
+          ],
+          "title": "Le tourisme"
+        },
+        {
+          "id": "pl.a2.voyage-t6",
+          "lines": [
+            {
+              "en": "I lost my suitcase at the airport.",
+              "fr": "J'ai perdu ma valise à l'aéroport."
+            },
+            {
+              "en": "I missed my connection.",
+              "fr": "J'ai raté ma correspondance."
+            },
+            {
+              "en": "The flight was cancelled at the last minute.",
+              "fr": "Le vol a été annulé à la dernière minute."
+            },
+            {
+              "en": "Can you help me find my luggage?",
+              "fr": "Pouvez-vous m'aider à retrouver mes bagages ?"
+            }
+          ],
+          "title": "Les imprévus du voyage"
+        },
+        {
+          "id": "pl.a2.voyage-t7",
+          "lines": [
+            {
+              "en": "I would like to rent a car for three days.",
+              "fr": "Je voudrais louer une voiture pour trois jours."
+            },
+            {
+              "en": "Is insurance included?",
+              "fr": "L'assurance est-elle incluse ?"
+            },
+            {
+              "en": "Is the tank full?",
+              "fr": "Le plein est-il fait ?"
+            },
+            {
+              "en": "Where should I return the vehicle?",
+              "fr": "Où dois-je rendre le véhicule ?"
+            },
+            {
+              "en": "Can I have a GPS with the car?",
+              "fr": "Puis-je avoir un GPS avec la voiture ?"
+            }
+          ],
+          "title": "Louer une voiture"
+        },
+        {
+          "id": "pl.a2.voyage-t8",
+          "lines": [
+            {
+              "en": "Do you have anything to declare?",
+              "fr": "Avez-vous quelque chose à déclarer ?"
+            },
+            {
+              "en": "No, nothing to declare.",
+              "fr": "Non, rien à déclarer."
+            },
+            {
+              "en": "What is the purpose of your trip?",
+              "fr": "Quel est le motif de votre voyage ?"
+            },
+            {
+              "en": "I'm here on business.",
+              "fr": "Je suis ici pour affaires."
+            },
+            {
+              "en": "How long do you plan to stay?",
+              "fr": "Combien de temps comptez-vous rester ?"
+            }
+          ],
+          "title": "Passer la douane"
+        },
+        {
+          "id": "pl.a2.voyage-t9",
+          "lines": [
+            {
+              "en": "I prefer to travel alone, I have more freedom.",
+              "fr": "Je préfère voyager seul, je suis plus libre."
+            },
+            {
+              "en": "Traveling in a group feels safer.",
+              "fr": "Voyager en groupe, c'est plus sécurisant."
+            },
+            {
+              "en": "We organized the trip among friends.",
+              "fr": "On a organisé le voyage entre amis."
+            },
+            {
+              "en": "Everyone pays their share of the budget.",
+              "fr": "Chacun paie sa part du budget."
+            },
+            {
+              "en": "I like meeting other travelers along the way.",
+              "fr": "J'aime rencontrer d'autres voyageurs en chemin."
+            }
+          ],
+          "title": "Voyager en groupe ou en solo"
+        },
+        {
+          "id": "pl.a2.voyage-t10",
+          "lines": [
+            {
+              "en": "Look at the photos from our trip!",
+              "fr": "Regarde les photos de notre voyage !"
+            },
+            {
+              "en": "That sunset was incredible.",
+              "fr": "Ce coucher de soleil était incroyable."
+            },
+            {
+              "en": "We took this photo in front of the cathedral.",
+              "fr": "On a pris cette photo devant la cathédrale."
+            },
+            {
+              "en": "I'll send you the album as soon as possible.",
+              "fr": "Je t'envoie l'album dès que possible."
+            },
+            {
+              "en": "This trip will stay etched in my memory.",
+              "fr": "Ce voyage restera gravé dans ma mémoire."
+            }
+          ],
+          "title": "Partager ses photos de voyage"
+        }
+      ],
+      "labelEn": "Travel & Getting Around",
+      "labelFr": "Se déplacer",
+      "topicEn": "transport and travel",
+      "topicFr": "transports et voyages",
+      "version": 1,
+      "minLevel": "a2"
+    },
+    {
+      "id": "pl.a2.loisirs",
+      "tag": "11 · LEISURE",
+      "glow": "rgba(150,110,170,0.30)",
+      "word": "Les Loisirs",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a2.loisirs-t1",
+          "lines": [
+            {
+              "en": "What do you like doing in your free time?",
+              "fr": "Qu'est-ce que vous aimez faire pendant votre temps libre ?"
+            },
+            {
+              "en": "I love reading detective novels.",
+              "fr": "J'adore lire des romans policiers."
+            },
+            {
+              "en": "I don't really like sports in general.",
+              "fr": "Je n'aime pas trop le sport en général."
+            },
+            {
+              "en": "I much prefer the mountains to the beach.",
+              "fr": "Je préfère de loin la montagne à la plage."
+            }
+          ],
+          "title": "Goûts et préférences"
+        },
+        {
+          "id": "pl.a2.loisirs-t2",
+          "lines": [
+            {
+              "en": "I have been playing guitar for ten years.",
+              "fr": "Je joue de la guitare depuis dix ans."
+            },
+            {
+              "en": "I paint on weekends.",
+              "fr": "Je fais de la peinture le week-end."
+            },
+            {
+              "en": "I play video games to relax.",
+              "fr": "Je joue aux jeux vidéo pour me détendre."
+            },
+            {
+              "en": "Knitting helps me clear my mind.",
+              "fr": "Le tricot me permet de me vider la tête."
+            }
+          ],
+          "title": "Les passe-temps"
+        },
+        {
+          "id": "pl.a2.loisirs-t3",
+          "lines": [
+            {
+              "en": "My favorite movie is a French comedy.",
+              "fr": "Mon film préféré est une comédie française."
+            },
+            {
+              "en": "I mostly listen to jazz and French songs.",
+              "fr": "J'écoute surtout du jazz et de la chanson française."
+            },
+            {
+              "en": "The last book I read really stayed with me.",
+              "fr": "Le dernier livre que j'ai lu m'a beaucoup marqué."
+            },
+            {
+              "en": "Have you seen the new show on Netflix?",
+              "fr": "Vous avez vu la nouvelle série sur Netflix ?"
+            }
+          ],
+          "title": "Films, livres et musique"
+        },
+        {
+          "id": "pl.a2.loisirs-t4",
+          "lines": [
+            {
+              "en": "We're going to the modern art museum this weekend.",
+              "fr": "On va au musée d'art moderne ce week-end."
+            },
+            {
+              "en": "The exhibition on Impressionism is superb.",
+              "fr": "L'exposition sur l'impressionnisme est superbe."
+            },
+            {
+              "en": "We booked tickets for the theater.",
+              "fr": "On a réservé des places pour le théâtre."
+            },
+            {
+              "en": "The concert starts at eight in the evening.",
+              "fr": "Le concert commence à vingt heures."
+            }
+          ],
+          "title": "Sorties culturelles"
+        },
+        {
+          "id": "pl.a2.loisirs-t5",
+          "lines": [
+            {
+              "en": "How was your weekend?",
+              "fr": "Comment s'est passé votre week-end ?"
+            },
+            {
+              "en": "We went to the countryside for two days.",
+              "fr": "On est partis à la campagne deux jours."
+            },
+            {
+              "en": "During the holidays, I really rest.",
+              "fr": "Pendant les vacances, je me repose vraiment."
+            },
+            {
+              "en": "We're going on vacation to Italy this summer.",
+              "fr": "On part en vacances en Italie cet été."
+            }
+          ],
+          "title": "Le week-end et les vacances"
+        },
+        {
+          "id": "pl.a2.loisirs-t6",
+          "lines": [
+            {
+              "en": "What do you want to do tonight?",
+              "fr": "Qu'est-ce que tu veux faire ce soir ?"
+            },
+            {
+              "en": "We could go to the movies.",
+              "fr": "On pourrait aller au cinéma."
+            },
+            {
+              "en": "Do you feel like going for a drink?",
+              "fr": "Ça te dit d'aller boire un verre ?"
+            },
+            {
+              "en": "Let's meet in front of the café at seven.",
+              "fr": "On se retrouve devant le café à dix-neuf heures."
+            }
+          ],
+          "title": "Faire des projets"
+        },
+        {
+          "id": "pl.a2.loisirs-t7",
+          "lines": [
+            {
+              "en": "I play soccer with friends on Sundays.",
+              "fr": "Je joue au foot avec des amis le dimanche."
+            },
+            {
+              "en": "We are part of a tennis club.",
+              "fr": "On fait partie d'un club de tennis."
+            },
+            {
+              "en": "I prefer outdoor sports.",
+              "fr": "Je préfère les sports en plein air."
+            },
+            {
+              "en": "Team spirit is what I love most.",
+              "fr": "L'esprit d'équipe, c'est ce que j'aime le plus."
+            },
+            {
+              "en": "We train twice a week.",
+              "fr": "On s'entraîne deux fois par semaine."
+            }
+          ],
+          "title": "Le sport en tant que loisir"
+        },
+        {
+          "id": "pl.a2.loisirs-t8",
+          "lines": [
+            {
+              "en": "We often play board games as a family.",
+              "fr": "On fait souvent des jeux de société en famille."
+            },
+            {
+              "en": "It's your turn to play.",
+              "fr": "C'est ton tour de jouer."
+            },
+            {
+              "en": "I love card games with friends.",
+              "fr": "J'adore les jeux de cartes entre amis."
+            },
+            {
+              "en": "This board game is really engaging.",
+              "fr": "Ce jeu de société est vraiment prenant."
+            },
+            {
+              "en": "We had a video game night yesterday.",
+              "fr": "On a fait une soirée jeux vidéo hier."
+            }
+          ],
+          "title": "Les jeux de société"
+        },
+        {
+          "id": "pl.a2.loisirs-t9",
+          "lines": [
+            {
+              "en": "My dream is to visit Japan someday.",
+              "fr": "Mon rêve, c'est de visiter le Japon un jour."
+            },
+            {
+              "en": "I would like to travel around the world.",
+              "fr": "J'aimerais faire le tour du monde."
+            },
+            {
+              "en": "My dream destination is New Zealand.",
+              "fr": "Ma destination de rêve, c'est la Nouvelle-Zélande."
+            },
+            {
+              "en": "We are saving up for a big trip next year.",
+              "fr": "On économise pour un grand voyage l'année prochaine."
+            },
+            {
+              "en": "I dream of seeing the northern lights.",
+              "fr": "Je rêve de voir les aurores boréales."
+            }
+          ],
+          "title": "Les rêves de voyage"
+        },
+        {
+          "id": "pl.a2.loisirs-t10",
+          "lines": [
+            {
+              "en": "I volunteer at a nonprofit on weekends.",
+              "fr": "Je fais du bénévolat dans une association le week-end."
+            },
+            {
+              "en": "I help organize events for my town.",
+              "fr": "J'aide à organiser des événements pour ma commune."
+            },
+            {
+              "en": "Giving your time really feels good.",
+              "fr": "Donner de son temps, ça fait vraiment plaisir."
+            },
+            {
+              "en": "I am part of a book club.",
+              "fr": "Je fais partie d'un club de lecture."
+            },
+            {
+              "en": "We meet once a month to discuss.",
+              "fr": "On se retrouve une fois par mois pour discuter."
+            }
+          ],
+          "title": "Le bénévolat et les activités associatives"
+        }
+      ],
+      "labelEn": "Leisure, Hobbies & Interests",
+      "labelFr": "Loisirs et passions",
+      "topicEn": "hobbies and outings",
+      "topicFr": "hobbies et sorties",
+      "version": 1,
+      "minLevel": "a2"
+    },
+    {
+      "id": "pl.a1.politesse",
+      "tag": "15 · MANNERS",
+      "glow": "rgba(200,170,130,0.30)",
+      "word": "La Politesse",
+      "status": "published",
+      "tracks": [
+        {
+          "id": "pl.a1.politesse-t1",
+          "lines": [
+            {
+              "en": "Hello, how are you?",
+              "fr": "Bonjour, comment allez-vous ?"
+            },
+            {
+              "en": "Hi, how are you doing?",
+              "fr": "Salut, ça va ?"
+            },
+            {
+              "en": "Goodbye, have a good day!",
+              "fr": "Au revoir, bonne journée !"
+            },
+            {
+              "en": "See you soon, take care.",
+              "fr": "À bientôt, prends soin de toi."
+            }
+          ],
+          "title": "Saluer"
+        },
+        {
+          "id": "pl.a1.politesse-t2",
+          "lines": [
+            {
+              "en": "Let me introduce myself, my name is Léa.",
+              "fr": "Je me présente, je m'appelle Léa."
+            },
+            {
+              "en": "Let me introduce my colleague, Marc.",
+              "fr": "Je vous présente mon collègue, Marc."
+            },
+            {
+              "en": "Pleased to meet you.",
+              "fr": "Enchanté de faire votre connaissance."
+            },
+            {
+              "en": "I think we already know each other.",
+              "fr": "On se connaît déjà, je crois."
+            }
+          ],
+          "title": "Se présenter"
+        },
+        {
+          "id": "pl.a1.politesse-t3",
+          "lines": [
+            {
+              "en": "Nice weather today, isn't it?",
+              "fr": "Quel temps agréable aujourd'hui, non ?"
+            },
+            {
+              "en": "So, what's new?",
+              "fr": "Alors, quoi de neuf ?"
+            },
+            {
+              "en": "We hadn't seen each other in a long time.",
+              "fr": "On ne s'était pas vus depuis longtemps."
+            },
+            {
+              "en": "Are you visiting or do you live here?",
+              "fr": "Vous êtes en visite ou vous habitez ici ?"
+            }
+          ],
+          "title": "Faire la conversation"
+        },
+        {
+          "id": "pl.a1.politesse-t4",
+          "lines": [
+            {
+              "en": "Sorry to bother you.",
+              "fr": "Excusez-moi de vous déranger."
+            },
+            {
+              "en": "I'm really sorry for the delay.",
+              "fr": "Je suis vraiment désolé pour le retard."
+            },
+            {
+              "en": "Thank you very much for your help.",
+              "fr": "Merci beaucoup pour votre aide."
+            },
+            {
+              "en": "Could you help me, please?",
+              "fr": "Pourriez-vous m'aider, s'il vous plaît ?"
+            }
+          ],
+          "title": "S'excuser, remercier, demander"
+        },
+        {
+          "id": "pl.a1.politesse-t5",
+          "lines": [
+            {
+              "en": "Hello, who's calling?",
+              "fr": "Allô, qui est à l'appareil ?"
+            },
+            {
+              "en": "Who should I say is calling?",
+              "fr": "C'est de la part de qui ?"
+            },
+            {
+              "en": "I'll call you back in a moment.",
+              "fr": "Je vous rappelle dans un instant."
+            },
+            {
+              "en": "Can I leave a message?",
+              "fr": "Je peux laisser un message ?"
+            }
+          ],
+          "title": "Au téléphone"
+        },
+        {
+          "id": "pl.a1.politesse-t6",
+          "lines": [
+            {
+              "en": "Dear Madam, I am writing to you regarding my application.",
+              "fr": "Bonjour Madame, je me permets de vous écrire au sujet de ma candidature."
+            },
+            {
+              "en": "Kind regards,",
+              "fr": "Cordialement,"
+            },
+            {
+              "en": "Hey! Are you free tonight?",
+              "fr": "Salut ! Tu es dispo ce soir ?"
+            },
+            {
+              "en": "Looking forward to your reply.",
+              "fr": "Dans l'attente de votre réponse."
+            }
+          ],
+          "title": "À l'écrit"
+        },
+        {
+          "id": "pl.a1.politesse-t7",
+          "lines": [
+            {
+              "en": "Could you pass me the salt, please?",
+              "fr": "Pourriez-vous me passer le sel, s'il vous plaît ?"
+            },
+            {
+              "en": "Please, help yourself first.",
+              "fr": "Je vous en prie, servez-vous en premier."
+            },
+            {
+              "en": "That is very kind, thank you.",
+              "fr": "C'est très gentil, merci."
+            },
+            {
+              "en": "May I clear your plate?",
+              "fr": "Puis-je débarrasser votre assiette ?"
+            },
+            {
+              "en": "That was a real treat, thank you for this meal.",
+              "fr": "C'était un vrai régal, merci pour ce repas."
+            }
+          ],
+          "title": "Les bonnes manières à table"
+        },
+        {
+          "id": "pl.a1.politesse-t8",
+          "lines": [
+            {
+              "en": "Excuse me, is this seat free?",
+              "fr": "Excusez-moi, est-ce que cette place est libre ?"
+            },
+            {
+              "en": "Please, sit down.",
+              "fr": "Je vous en prie, asseyez-vous."
+            },
+            {
+              "en": "Excuse me, I am getting off at the next stop.",
+              "fr": "Pardon, je descends au prochain arrêt."
+            },
+            {
+              "en": "After you.",
+              "fr": "Après vous."
+            },
+            {
+              "en": "Thank you for your patience.",
+              "fr": "Merci de votre patience."
+            }
+          ],
+          "title": "Politesse dans les transports"
+        },
+        {
+          "id": "pl.a1.politesse-t9",
+          "lines": [
+            {
+              "en": "Should we use tu or vous?",
+              "fr": "On se tutoie ou on se vouvoie ?"
+            },
+            {
+              "en": "Between colleagues, we tend to say vous at first.",
+              "fr": "Entre collègues, on se dit plutôt vous au début."
+            },
+            {
+              "en": "With friends, using tu comes naturally.",
+              "fr": "Avec les amis, le tutoiement est naturel."
+            },
+            {
+              "en": "We can use tu with each other, if you like.",
+              "fr": "On peut se tutoyer, si vous voulez."
+            },
+            {
+              "en": "Using vous remains the norm with a stranger.",
+              "fr": "Le vouvoiement reste la norme avec un inconnu."
+            }
+          ],
+          "title": "Les registres de langue"
+        },
+        {
+          "id": "pl.a1.politesse-t10",
+          "lines": [
+            {
+              "en": "That's kind, but I can't this time.",
+              "fr": "C'est gentil, mais je ne peux pas cette fois."
+            },
+            {
+              "en": "Thank you for the invitation, but I already have a commitment.",
+              "fr": "Merci pour l'invitation, mais j'ai déjà un engagement."
+            },
+            {
+              "en": "I would rather not, if that's alright with you.",
+              "fr": "Je préférerais ne pas, si cela ne vous dérange pas."
+            },
+            {
+              "en": "Another time, gladly.",
+              "fr": "Une autre fois, avec plaisir."
+            },
+            {
+              "en": "Sorry, it's really not possible for me.",
+              "fr": "Désolé, ce n'est vraiment pas possible pour moi."
+            }
+          ],
+          "title": "Refuser poliment"
+        }
+      ],
+      "labelEn": "Social Situations & Etiquette",
+      "labelFr": "Politesse et convenances",
+      "topicEn": "everyday manners",
+      "topicFr": "politesse au quotidien",
+      "version": 1,
+      "minLevel": "a1"
+    }
+  ],
   "speakPath": [
     {
       "id": "speak.1.1",
