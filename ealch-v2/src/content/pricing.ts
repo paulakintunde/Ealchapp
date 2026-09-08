@@ -15,8 +15,12 @@ export type Price = {
   yrmo: string;
   /** Annual subscription, billed once. */
   yr: string;
-  /** The one-off exam tier (Phase 11). Provisional outside USD — see below. */
+  /** The one-off Objectif Exam pack (90 days). Provisional outside USD. */
   exam: string;
+  /** Consumable pack of Marks (e.g. 5 marks) */
+  marks_small: string;
+  /** Consumable pack of Marks (e.g. 15 marks) */
+  marks_large: string;
   /** Annual vs 12 months of monthly, as a share saved ("34%"). Display copy
    *  MUST quote this field, never a month count — see the arithmetic below. */
   save: string;
@@ -31,17 +35,17 @@ export type Price = {
  *  annual copy must express the discount as a share, never a month count. If a
  *  price moves, redo this arithmetic and move the copy with it. */
 export const PRICES: Record<Currency, Price> = {
-  USD: { mo: '$9.99', yrmo: '$6.58', yr: '$79', exam: '$39', save: '34%' },
-  EUR: { mo: '9,99 €', yrmo: '6,58 €', yr: '79 €', exam: '39 €', save: '34%' },
-  GBP: { mo: '£8.99', yrmo: '£5.75', yr: '£69', exam: '£34.99', save: '36%' },
-  CAD: { mo: 'CA$12.99', yrmo: 'CA$8.25', yr: 'CA$99', exam: 'CA$49.99', save: '36%' },
+  USD: { mo: '$9.99', yrmo: '$6.58', yr: '$79', exam: '$89', marks_small: '$19.99', marks_large: '$49.99', save: '34%' },
+  EUR: { mo: '9,99 €', yrmo: '6,58 €', yr: '79 €', exam: '89 €', marks_small: '19,99 €', marks_large: '49,99 €', save: '34%' },
+  GBP: { mo: '£8.99', yrmo: '£5.75', yr: '£69', exam: '£79.99', marks_small: '£17.99', marks_large: '£44.99', save: '36%' },
+  CAD: { mo: 'CA$12.99', yrmo: 'CA$8.25', yr: 'CA$99', exam: 'CA$119.99', marks_small: 'CA$24.99', marks_large: 'CA$64.99', save: '36%' },
 };
 
 /** Every currency the matrix quotes, in picker order. Derived from PRICES so a
  *  new currency row automatically reaches the paywall's picker. */
 export const CURRENCIES = Object.keys(PRICES) as Currency[];
 
-// The exam row outside USD is PROVISIONAL. $39 is the pinned decision; no source
+// The exam row outside USD is PROVISIONAL. $89 is the pinned decision; no source
 // states a EUR/GBP/CAD exam price, so these are derived from the ratios the
 // subscription rows already use (GBP ~0.88x, CAD ~1.25x). Apple and Google both
 // price IAP from fixed tier ladders, so these will not survive contact with the

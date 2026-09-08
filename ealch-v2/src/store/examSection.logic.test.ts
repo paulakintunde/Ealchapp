@@ -570,20 +570,20 @@ test('the sitting length reads in hours and minutes', () => {
 
 test('the gate ships OPEN, and being off beats everything else', () => {
   // examGateOn is false in config. Nothing else can close it.
-  const off = { gateOn: false, entitled: false, freePapers: 0, paperNo: 20 };
+  const off = { gateOn: false, entitled: false, freePapers: 0, marksUsedEver: 20 };
   ok(examPaperAllowed(off).allowed, 'a closed-looking case must still open when the gate is off');
 });
 
 test('when the gate is on, the free allowance is papers and is 1-based', () => {
-  const on = { gateOn: true, entitled: false, freePapers: 1 };
-  ok(examPaperAllowed({ ...on, paperNo: 1 }).allowed, 'an allowance of 1 opens paper 1');
-  const blocked = examPaperAllowed({ ...on, paperNo: 2 });
+  const on = { gateOn: true, hasExaminerOrMarks: false, freePapers: 1 };
+  ok(examPaperAllowed({ ...on, marksUsedEver: 0 }).allowed, 'an allowance of 1 opens mark 1');
+  const blocked = examPaperAllowed({ ...on, marksUsedEver: 1 });
   strictEqual(blocked.allowed, false);
   if (!blocked.allowed) strictEqual(blocked.reason, 'needs-exam-tier');
   // Entitlement overrides the allowance entirely.
-  ok(examPaperAllowed({ ...on, entitled: true, paperNo: 20 }).allowed);
+  ok(examPaperAllowed({ ...on, hasExaminerOrMarks: true, marksUsedEver: 20 }).allowed);
   // An allowance of 0 opens nothing.
-  strictEqual(examPaperAllowed({ ...on, freePapers: 0, paperNo: 1 }).allowed, false);
+  strictEqual(examPaperAllowed({ ...on, freePapers: 0, marksUsedEver: 0 }).allowed, false);
 });
 
 test('the exam entry point actually calls the gate', () => {

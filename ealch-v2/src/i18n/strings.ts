@@ -104,7 +104,7 @@ export type Strings = {
   /** The copyright/non-affiliation guardrail (Gate H) — shown wherever exam
    *  content renders, per EALCH-MASTER-BUILD.md's Phase 8 requirement that
    *  the disclaimer be visible, not just present as an i18n key. */
-  examDisclaimer: string;
+  examDisclaimer: string; examSampleLabel: string; examSampleDisclaimer: string;
   examNone: string; examSubmit: string; examModelAnswer: string; examGrading: string;
   examUngraded: string; examPracticeEstimate: string; examReviewLesson: string; examSeriesDone: string;
   /** Épreuve names, keyed by ExamSkill. Note PE is *expression écrite* and PO
@@ -426,6 +426,8 @@ export const T: Record<Lang, Strings> = {
     askCoach: 'Demandez à {name} →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
     examDisclaimer: "Exercices originaux inspirés du format officiel. Non publiés ni approuvés par France Éducation international, le CCI Paris Île-de-France ni aucun organisme examinateur. Résultats donnés à titre indicatif, non équivalents à un score officiel.",
+    examSampleLabel: "RAPPORT EXEMPLE",
+    examSampleDisclaimer: "Ceci est un exemple de rapport d'examen. Vos vrais examens seront notés en fonction de vos propres réponses.",
     examNone: 'Aucun examen blanc disponible pour le moment. Revenez après votre prochaine mise à jour.',
     examSubmit: 'Valider', examModelAnswer: 'RÉPONSE MODÈLE', examGrading: 'Correction en cours…',
     examUngraded: 'Correction indisponible. Votre réponse est enregistrée ; réessayez plus tard.',
@@ -852,6 +854,8 @@ export const T: Record<Lang, Strings> = {
     askCoach: 'Ask {name} why →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
     examDisclaimer: 'Original practice items modeled on the official format. Not published or endorsed by France Éducation international, CCI Paris Île-de-France, or any exam board. Results are practice estimates only, not equivalent to an official score.',
+    examSampleLabel: 'SAMPLE REPORT',
+    examSampleDisclaimer: 'This is an example of an AI-marked exam report. Your actual exams will be marked based on your own answers.',
     examNone: 'No mock exams available yet. Check back after your next update.',
     examSubmit: 'Submit', examModelAnswer: 'MODEL ANSWER', examGrading: 'Grading…',
     examUngraded: 'Grading unavailable. Your response was saved; try again later.',
