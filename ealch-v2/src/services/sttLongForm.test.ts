@@ -73,9 +73,24 @@ test('long-form does not endpoint at a drill pause', () => {
   ok(s.includes(': 1300'), 'the drill still endpoints at 1300ms');
 });
 
+test('the recogniser is never asked for continuous mode', () => {
+  // Measured on a Pixel 6, 2026-09-08: `continuous: true` makes the native
+  // start() throw, the catch resolves `available: false`, and the exam reports
+  // "Microphone unavailable" without ever opening a microphone session — while
+  // the drill, four seconds either side, opens one and transcribes perfectly.
+  //
+  // The flag was never what made a pause survivable. The segment loop is. This
+  // pins the lesson so nobody reaches for the obvious-looking option again.
+  // Comments are stripped first: the note above deliberately QUOTES the option
+  // it forbids, and a guard that cannot tell prose from code would fire on the
+  // explanation of why it exists. It caught exactly that on its first run.
+  const code = src().replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+  ok(/continuous: false,/.test(code), 'continuous must be false');
+  ok(!/continuous: (true|!!|opts\.)/.test(code), 'continuous must never be conditioned on long-form');
+});
+
 test('long-form drops the drill-only recogniser settings', () => {
   const s = src();
-  ok(/continuous: !!opts\.longForm/.test(s), 'continuous follows longForm');
   ok(/maxAlternatives: opts\.longForm \? 1 : 5/.test(s), 'N-best is pointless without a target');
   ok(/\.\.\.\(opts\.longForm \? \{\} : \{ contextualStrings: contextFor\(expected\) \}\)/.test(s),
     'contextual biasing is omitted when there is no phrase to bias toward');

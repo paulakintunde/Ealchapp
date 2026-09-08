@@ -338,9 +338,22 @@ function captureOnce(
       m.start({
         lang,
         interimResults: true,
-        // A drill wants end-of-speech to mean end-of-answer. An exam answer
-        // runs minutes and contains pauses, so it must not.
-        continuous: !!opts.longForm,
+        // NEVER continuous, in either mode — and long-form especially.
+        //
+        // `continuous: true` looked like the honest way to say "this answer is
+        // minutes long". Measured on a Pixel 6: the native start() THROWS with
+        // it, which lands in the catch below and resolves `available: false`,
+        // which the exam screen correctly reports as "Microphone unavailable".
+        // The recording-activity log is unambiguous — the drill opens a
+        // VOICE_RECOGNITION session seconds either side, and the exam opens
+        // none at all.
+        //
+        // It was belt-and-braces anyway. The durable fix for a pause was never
+        // this flag; it is the SEGMENT LOOP in ExamSpeakTask, which restarts
+        // the recognizer and appends. That loop works precisely because the
+        // recognizer finalises on its own, so asking it not to was both
+        // unnecessary and, on this platform, fatal.
+        continuous: false,
         // N-best, not 1-best: every alternative is re-scored against the
         // target (see `consider`), so a correct take buried at rank 3 wins.
         // Worthless in long-form, where there is no target to re-score
