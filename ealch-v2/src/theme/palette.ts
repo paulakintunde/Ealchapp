@@ -30,12 +30,6 @@ const DARK = {
   danger: '#FF6B5C',
   // "Practice this" amber — softer than danger, for early-level speech misses.
   warn: '#F2A65A',
-  // Live-and-working green. Added for the speaking indicator, which needs a
-  // third state alongside warn and danger: a voice IS being heard right now.
-  // Deliberately not an accent — the accent is user-selectable (Corail is the
-  // same hue as danger), and a status colour that a theme choice can turn into
-  // its own opposite is not a status colour.
-  good: '#4FBF8B',
 };
 
 const LIGHT = {
@@ -52,7 +46,6 @@ const LIGHT = {
   knob: '#FFFFFF',
   danger: '#C2412F', // darker red than dark-mode coral so it passes contrast on cream
   warn: '#9A5A10', // darker amber for contrast on cream, same role as dark warn
-  good: '#1B6340', // darker green for contrast on cream, same role as dark good
 };
 
 export type Palette = typeof DARK;

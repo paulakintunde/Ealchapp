@@ -196,14 +196,7 @@ export default function ExamSectionScreen() {
         ? (spokenAnswer?.transcript ?? '').trim()
         : (texts[task.id] ?? '').trim();
       if (!body) {
-        // NOTHING WAS SAID OR WRITTEN, and that is a different outcome from a
-        // grader that could not be reached. Until now both logged the same
-        // flagless result, so the report told a candidate who said nothing
-        // that grading had failed — blaming the server for their silence, and
-        // hiding a broken microphone behind a plausible server excuse. The
-        // reporter has always had a 'not-answered' branch for this; nothing
-        // ever set the flag it reads, so that branch was unreachable code.
-        logExamResult({ ...base, noAnswer: true }, task);
+        logExamResult(base, task);
         continue;
       }
       const res = await examGrader.grade({
