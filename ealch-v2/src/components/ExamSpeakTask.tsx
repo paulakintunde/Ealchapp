@@ -48,6 +48,25 @@ export type SpokenAnswer = {
 
 type Phase = 'idle' | 'prep' | 'recording' | 'done';
 
+/** How long a silence runs before the dot turns amber. Under a second would
+ *  flicker on the gaps inside ordinary speech; much longer and the candidate
+ *  learns nothing before the segment closes at four seconds. */
+const PAUSE_AFTER_MS = 1200;
+
+/** A settled result that never ran. Shaped like stt's own so the code below
+ *  has one path, and `available: true` because nothing failed — there was
+ *  simply no time left to listen in. */
+const EMPTY_RESULT = {
+  ok: false,
+  available: true,
+  transcript: '',
+  confidence: -1,
+  score: 0,
+  verdict: 'none',
+  source: 'none',
+  audioUri: null,
+} as const;
+
 export function ExamSpeakTask({
   task, lang, onAnswer, editable,
 }: {
@@ -64,6 +83,21 @@ export function ExamSpeakTask({
   const [elapsed, setElapsed] = useState(0);
   const [partial, setPartial] = useState('');
   const [answer, setAnswer] = useState<SpokenAnswer | null>(null);
+  /** What the microphone is doing RIGHT NOW, for the candidate. Green while a
+   *  voice is being heard, amber through a pause, red once the answer is
+   *  closed. Without it the screen looks identical whether the recogniser is
+   *  listening, waiting, or has given up, and the candidate has no way to
+   *  discover a dead microphone until the report. */
+  const [mic, setMic] = useState<'listening' | 'pausing' | 'stopped'>('stopped');
+  /** Text banked from segments already finalised, so a pause never loses what
+   *  came before it. */
+  const [banked, setBanked] = useState('');
+
+  /** The candidate pressed "I have finished". Distinct from the recogniser
+   *  ending a segment, which is just a pause and must NOT end the answer. */
+  const stopRequested = useRef(false);
+  const segments = useRef<string[]>([]);
+  const lastVoiceAt = useRef(0);
 
   const samples = useRef<SpeechSample[]>([]);
   const startedAt = useRef(0);
@@ -100,12 +134,34 @@ export function ExamSpeakTask({
     timers.current.push(id);
   };
 
+  /** Amber once a voice has not been heard for PAUSE_AFTER_MS. Driven off the
+   *  microphone level rather than the transcript, because the transcript stops
+   *  growing while the recognizer is still hearing perfectly well. Deliberately
+   *  shorter than the recognizer's own silence window: the candidate should see
+   *  the pause register well before it closes a segment. */
+  const pauseWatch = () => {
+    const id = setInterval(() => {
+      if (!alive.current) return;
+      setMic((m) => (m === 'stopped' ? m : Date.now() - lastVoiceAt.current > PAUSE_AFTER_MS ? 'pausing' : m));
+    }, 250);
+    timers.current.push(id);
+  };
+
   const record = useCallback(async () => {
     setPhase('recording');
     samples.current = [];
+    segments.current = [];
+    stopRequested.current = false;
     startedAt.current = Date.now();
+    lastVoiceAt.current = Date.now();
     setElapsed(0);
+    setBanked('');
+    setPartial('');
+    // Amber, not green, until a voice is actually heard. Opening on green
+    // would assert the microphone works before anything has proved it.
+    setMic('pausing');
     tick();
+    pauseWatch();
 
     // stt.ts is imported lazily on purpose: expo-speech-recognition resolves
     // its native binding during import, so a static import takes the whole app
@@ -118,23 +174,67 @@ export function ExamSpeakTask({
         finish({ transcript: '', signals: computeDeliverySignals({ transcript: '', durationMs: 0, confidence: -1 }), audioUri: null, unavailable: true });
         return;
       }
-      res = await stt.listen('', {
-        // A TEF Section B answer runs to ten minutes. The drill default of six
-        // SECONDS would cut a candidate off mid-sentence and score the stump.
-        maxMs: (task.timingS + 30) * 1000,
-        lang: lang === 'fr' ? 'fr-FR' : 'en-US',
-        onPartial: (text) => {
-          if (!alive.current) return;
-          setPartial(text);
-          // Each interim reading is a datapoint for the pause signal: the gaps
-          // between readings where the transcript did NOT grow are the only
-          // view of hesitation we have without silence-detecting the audio.
-          samples.current.push({
-            atMs: Date.now() - startedAt.current,
-            words: text.trim() ? text.trim().split(/\s+/).length : 0,
-          });
-        },
-      });
+      // ── The segment loop ────────────────────────────────────────────────
+      //
+      // A pause ends a SEGMENT, never the answer. Even in continuous mode the
+      // platform recognizer will finalise on its own, so the only durable fix
+      // is to start another one and append. The answer ends when the candidate
+      // says it does, or when the clock runs out.
+      const budgetMs = (task.timingS + 30) * 1000;
+      const until = startedAt.current + budgetMs;
+      let last: Awaited<ReturnType<typeof stt.listen>> | undefined;
+
+      while (alive.current && !stopRequested.current && Date.now() < until) {
+        const segStart = Date.now();
+        last = await stt.listen('', {
+          longForm: true,
+          maxMs: Math.max(1000, until - Date.now()),
+          lang: lang === 'fr' ? 'fr-FR' : 'en-US',
+          onVolume: (v) => {
+            // -2..10, and below zero is inaudible. A reading above the floor
+            // is the only direct evidence a voice is reaching the microphone.
+            if (v < 0) return;
+            lastVoiceAt.current = Date.now();
+            if (alive.current) setMic('listening');
+          },
+          onPartial: (text) => {
+            if (!alive.current) return;
+            setPartial(text);
+            // Each interim reading is a datapoint for the pause signal: the gaps
+            // between readings where the transcript did NOT grow are the only
+            // view of hesitation we have without silence-detecting the audio.
+            samples.current.push({
+              atMs: Date.now() - startedAt.current,
+              words: text.trim() ? text.trim().split(/\s+/).length : 0,
+            });
+          },
+        });
+
+        // A recognizer that cannot run at all is a different outcome from one
+        // that ran and heard nothing, and only the first is ours to report.
+        if (!last.available) break;
+
+        if (last.transcript.trim()) {
+          segments.current.push(last.transcript.trim());
+          if (alive.current) {
+            setBanked(segments.current.join(' '));
+            setPartial('');
+          }
+        }
+        // A segment that returns instantly and empty means the recognizer is
+        // refusing rather than waiting, and looping on it would spin the CPU
+        // and the microphone for the rest of the paper.
+        if (!last.transcript.trim() && Date.now() - segStart < 400) break;
+      }
+
+      // The loop can exit without ever having run — a task resumed with no
+      // clock left, say. That is not a microphone failure, but it is not an
+      // answer either, so it settles as an empty available result rather than
+      // reporting our silence as the candidate's.
+      const joined = segments.current.join(' ').trim();
+      res = last
+        ? { ...last, transcript: joined, ok: !!joined }
+        : { ...EMPTY_RESULT, available: true };
     } catch {
       finish({ transcript: '', signals: computeDeliverySignals({ transcript: '', durationMs: 0, confidence: -1 }), audioUri: null, unavailable: true });
       return;
@@ -171,10 +271,17 @@ export function ExamSpeakTask({
     for (const id of timers.current) clearInterval(id);
     timers.current = [];
     if (!alive.current) return;
+    setMic('stopped');
     setAnswer(a);
     setPhase('done');
     onAnswer(a);
   };
+
+  // The dot, its word, and the running count. Derived rather than stored so
+  // they cannot drift out of step with `mic`.
+  const micColour = mic === 'listening' ? t.good : mic === 'pausing' ? t.warn : t.danger;
+  const micLabel = mic === 'listening' ? T.examMicHearing : mic === 'pausing' ? T.examMicPaused : T.examMicStopped;
+  const spokenWordCount = [banked, partial].filter(Boolean).join(' ').trim().split(/\s+/).filter(Boolean).length;
 
   const startPrep = () => {
     if (!task.prepS) {
@@ -230,18 +337,43 @@ export function ExamSpeakTask({
       ) : null}
 
       {phase === 'recording' ? (
-        <View style={{ borderRadius: 14, borderWidth: 1, borderColor: t.danger, backgroundColor: t.card, padding: 16 }}>
+        <View style={{ borderRadius: 14, borderWidth: 1, borderColor: micColour, backgroundColor: t.card, padding: 16 }}>
+          {/* THE DOT IS THE POINT. Green while a voice is reaching the
+              microphone, amber through a pause, red once the answer is closed.
+              Before this the screen looked identical whether the recogniser was
+              hearing every word or nothing at all, and a candidate had no way
+              to find out until the report told them the paper was ungraded. */}
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-            <Icon name="mic" size={16} color={t.danger} />
-            <TX font="semi" role="label" color={t.danger}>{T.examRecording}</TX>
+            <View
+              accessibilityLabel={micLabel}
+              style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: micColour }}
+            />
+            <Icon name="mic" size={16} color={micColour} />
+            <TX font="semi" role="label" color={micColour}>{micLabel}</TX>
             <View style={{ flex: 1 }} />
             <TX font="semi" role="label" color={t.txSecondary}>{formatClock(Math.floor(elapsed / 1000))}</TX>
           </View>
-          {partial ? (
-            <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 10 }}>{partial}</TX>
+
+          {/* Banked text is everything already finalised; `partial` is the
+              segment in flight. Showing both means a pause visibly keeps what
+              came before it rather than appearing to wipe the answer. */}
+          {banked || partial ? (
+            <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 6 }}>
+              {[banked, partial].filter(Boolean).join(' ')}
+            </TX>
           ) : null}
+          <TX role="meta" color={t.txSubtle} style={{ marginBottom: 10 }}>
+            {T.examWordsSoFar.replace('{n}', String(spokenWordCount))}
+          </TX>
+
           <Press
-            onPress={() => void stopRecogniser()}
+            onPress={() => {
+              // The candidate ending the answer, which is NOT the same event as
+              // the recogniser ending a segment. Without this flag the loop
+              // would simply start listening again.
+              stopRequested.current = true;
+              void stopRecogniser();
+            }}
             style={{ alignItems: 'center', minHeight: 44, justifyContent: 'center', borderRadius: 14, borderWidth: 1, borderColor: t.line(14) }}
           >
             <TX font="semi" role="label" color={t.txSecondary}>{T.examStopRecording}</TX>

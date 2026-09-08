@@ -57,7 +57,38 @@ export type ListenOptions = {
   lang?: string;
   /** Verdict cut lines (level-scaled leniency). Defaults to the b1 bars. */
   bars?: VerdictBars;
+  /**
+   * EXAM-LENGTH OPEN SPEECH, as opposed to a drill.
+   *
+   * Everything else in this function is tuned for "say this known phrase":
+   * finalise on a 1.3-second pause, bias the recognizer toward the target,
+   * take five alternatives and keep whichever scores best against it. A DELF
+   * monologue runs five to seven minutes with no target phrase at all, and
+   * that tuning breaks it twice over.
+   *
+   *   THE ENDPOINTER ENDS THE ANSWER. 1.3s is a breath. A candidate pausing
+   *   to structure an argument is finished, mid-thought, and the stump is
+   *   what gets graded — or nothing at all if they paused before starting.
+   *
+   *   THE BEST-OF RANKING KEEPS THE FIRST SEGMENT ONLY. `scoreUtterance('', x)`
+   *   returns 1 for every non-empty x (measured), so `s > bestScore` is false
+   *   for everything after the first result. The recognizer's later, longer,
+   *   complete transcript is discarded in favour of its first two words.
+   *
+   * In long-form the pause becomes a segment boundary rather than an ending,
+   * and the transcript is accumulated by length instead of ranked by a score
+   * that cannot discriminate.
+   */
+  longForm?: boolean;
 };
+
+/** How long the recognizer waits on silence before calling a long-form
+ *  utterance finished. Generous on purpose: at B2 a candidate pauses to
+ *  choose a connector or to plan the next argument, and that is thinking,
+ *  not stopping. In long-form a fired endpointer only closes a SEGMENT — the
+ *  caller starts another and appends — so this value trades responsiveness,
+ *  never the answer. */
+const LONG_FORM_SILENCE_MS = 4000;
 
 const NONE: SttResult = {
   ok: false,
@@ -240,6 +271,18 @@ function captureOnce(
     // winner. Interim display still shows the recognizer's own top pick.
     const consider = (transcript: string | undefined, conf: number | undefined) => {
       if (!transcript?.trim()) return;
+      // Long-form has no target to rank against, so LENGTH is the only honest
+      // proxy for completeness: a recognizer revising "je pense" into "je pense
+      // que le musée a raison" is adding words, not changing its mind. Ranking
+      // by score here would keep the first result and throw the rest away,
+      // because every non-empty transcript ties at 1 against an empty target.
+      if (opts.longForm) {
+        if (transcript.trim().length > best.trim().length) {
+          best = transcript;
+          confidence = typeof conf === 'number' ? conf : -1;
+        }
+        return;
+      }
       const s = scoreUtterance(expected, transcript, bars).score;
       if (s > bestScore) {
         bestScore = s;
@@ -295,21 +338,29 @@ function captureOnce(
       m.start({
         lang,
         interimResults: true,
-        continuous: false, // auto-finalise on end-of-speech
+        // A drill wants end-of-speech to mean end-of-answer. An exam answer
+        // runs minutes and contains pauses, so it must not.
+        continuous: !!opts.longForm,
         // N-best, not 1-best: every alternative is re-scored against the
         // target (see `consider`), so a correct take buried at rank 3 wins.
-        maxAlternatives: 5,
+        // Worthless in long-form, where there is no target to re-score
+        // against, and four extra alternatives to marshal per event.
+        maxAlternatives: opts.longForm ? 1 : 5,
         // Bias the recognizer toward the phrase we asked for. This is the
-        // single biggest accuracy win when the target is known.
-        contextualStrings: contextFor(expected),
+        // single biggest accuracy win when the target is known — and nothing
+        // at all when it is not, since `contextFor('')` has nothing to give.
+        ...(opts.longForm ? {} : { contextualStrings: contextFor(expected) }),
         // Breathing room: stock Android endpointing cuts a hesitant learner
         // off mid-phrase and reports no-speech. ~1.3s of silence before the
-        // recognizer calls the utterance finished.
+        // recognizer calls the utterance finished — raised to LONG_FORM_SILENCE_MS
+        // for an exam answer, where a pause is thinking rather than finishing.
         androidIntentOptions: {
-          EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS: 1300,
-          EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS: 1300,
+          EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS: opts.longForm ? LONG_FORM_SILENCE_MS : 1300,
+          EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS: opts.longForm ? LONG_FORM_SILENCE_MS : 1300,
         },
-        iosTaskHint: 'confirmation',
+        // 'confirmation' is the hint for a short known utterance. Dictation is
+        // what an exam answer actually is.
+        iosTaskHint: opts.longForm ? 'dictation' : 'confirmation',
         iosCategory: {
           category: 'playAndRecord',
           categoryOptions: ['defaultToSpeaker', 'allowBluetooth'],

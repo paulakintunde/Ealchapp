@@ -342,8 +342,20 @@ test('the prep clock is separate from the answer clock, and optional', () => {
 test('the recorder does not cut a long answer off at the drill default', () => {
   // stt.ts defaults to 6 SECONDS, tuned for a drill utterance. A TEF Section B
   // answer runs to ten minutes, and the default would score the stump.
+  //
+  // The shape moved on 2026-09-08 and this assertion moved with it. `maxMs`
+  // used to be one call's cap; capture is now a LOOP of segments, because the
+  // recogniser's silence endpointer ends an utterance long before `maxMs` ever
+  // fires — that was the real defect, and raising `maxMs` alone never fixed it.
+  // So the budget is computed once from the task and bounds the whole loop.
+  // The property under test is unchanged: the cap comes from the task.
   const spk = readFileSync(resolve(srcDir, 'components/ExamSpeakTask.tsx'), 'utf8');
-  ok(/maxMs:\s*\(task\.timingS/.test(spk), 'the cap must come from the task, not the drill default');
+  ok(/const budgetMs = \(task\.timingS \+ 30\) \* 1000;/.test(spk),
+    'the budget must come from the task, not the drill default');
+  ok(/const until = startedAt\.current \+ budgetMs;/.test(spk), 'and it must bound the loop');
+  ok(/Date\.now\(\) < until/.test(spk), 'the loop stops at the budget');
+  // No bare drill cap anywhere in the exam recorder.
+  ok(!/maxMs:\s*6000/.test(spk), 'the drill default must not appear here');
 });
 
 test('delivery signals reach the grader only when something was measured', () => {
