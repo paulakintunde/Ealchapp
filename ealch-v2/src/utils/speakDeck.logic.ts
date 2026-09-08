@@ -25,8 +25,9 @@
 // a synthetic id never matches a station's itemIds, so `speakPassedIds` folds
 // it into a set no stage reads.
 
-import { playlist, playlists, type Playlist } from '../content/playlists.ts';
+import { playlists as BUNDLED, type Playlist } from '../content/playlists.ts';
 import { LEVELS } from '../content/schema.ts';
+import { bandCap } from '../store/progress.logic.ts';
 
 /** One card of a playlist speak deck. The three fields Speak reads off an
  *  Item — nothing else about an Item is needed to drill a line. */
@@ -56,11 +57,34 @@ export type PlaylistRequest =
  * Both screens resolve through here so they cannot disagree about whether a
  * playlist was asked for — the same reason the routes themselves are values.
  */
-export function resolvePlaylistParam(raw: string | string[] | undefined): PlaylistRequest {
+export function resolvePlaylistParam(
+  raw: string | string[] | undefined,
+  pool: Playlist[] = BUNDLED
+): PlaylistRequest {
   const id = (Array.isArray(raw) ? raw[0] : raw) ?? '';
   if (!id) return { kind: 'none' };
-  const found = playlist(id);
+  const found = pool.find((p) => p.id === id);
   return found ? { kind: 'found', playlist: found } : { kind: 'missing', id };
+}
+
+/**
+ * The playlists this app should be using.
+ *
+ * Playlists were promoted into the corpus schema so they could be authored,
+ * gated and shipped OTA like everything else: `content_units.kind = 'playlist'`
+ * is a real enum value, publish-content.ts already selects them, folds them into
+ * the corpus and cuts them into the seed. Every layer is built. What was missing
+ * was the last one — nothing in the app ever READ `corpus.playlists`, so all
+ * nineteen came from the bundled array and adding one still needed a store
+ * release, which is the opposite of what promoting them bought.
+ *
+ * Corpus first, bundled as the fallback. There are zero playlist rows today, so
+ * this changes nothing until some are authored, and then it changes everything
+ * without another release. The bundled array stays as the floor: an empty or
+ * absent corpus must never mean an empty Listen tab.
+ */
+export function playlistPool(fromCorpus?: Playlist[]): Playlist[] {
+  return fromCorpus && fromCorpus.length > 0 ? fromCorpus : BUNDLED;
 }
 
 /**
@@ -179,19 +203,22 @@ export function shouldLogListen(
  * one tomorrow. Returns undefined only if there are no playlists at all, which
  * lets the caller keep its existing fallback rather than invent a card.
  */
-export function listenPlaylistForDay(storeLevel: string, day: number): Playlist | undefined {
-  const band = LEVELS.indexOf(storeLevel.toLowerCase() as (typeof LEVELS)[number]);
-  const cap = band < 0 ? LEVELS.indexOf('a1') : band;
-  const eligible = playlists.filter((p) => {
+export function listenPlaylistForDay(
+  storeLevel: string,
+  day: number,
+  pool: Playlist[] = BUNDLED
+): Playlist | undefined {
+  const cap = bandCap(storeLevel);
+  const eligible = pool.filter((p) => {
     const b = LEVELS.indexOf(p.minLevel);
     return b >= 0 && b <= cap;
   });
   // A learner below every playlist's floor still gets an offer: the gentlest
   // one, rather than an empty hero. Nothing is above a learner's level here —
   // it is the lowest floor in the set.
-  const pool = eligible.length ? eligible : [...playlists].sort(
+  const offer = eligible.length ? eligible : [...pool].sort(
     (a, b) => LEVELS.indexOf(a.minLevel) - LEVELS.indexOf(b.minLevel)
   ).slice(0, 1);
-  if (!pool.length) return undefined;
-  return pool[Math.abs(Math.floor(day)) % pool.length];
+  if (!offer.length) return undefined;
+  return offer[Math.abs(Math.floor(day)) % offer.length];
 }

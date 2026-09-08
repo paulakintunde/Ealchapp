@@ -8,8 +8,8 @@ import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
-import { playlists } from '@/content/playlists';
-import { playerRouteFor } from '@/utils/speakDeck.logic';
+import { playerRouteFor, playlistPool } from '@/utils/speakDeck.logic';
+import { useContent } from '@/services/content';
 
 // The "SEE ALL" index. Every playlist and every track it holds is real content;
 // a track count is `tracks.length`, and each track row deep-links the player to
@@ -23,6 +23,9 @@ export default function Playlists() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
+  // Corpus playlists when any are published, the bundled set otherwise.
+  const pool = playlistPool(useContent((s) => s.corpus.playlists));
+
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -31,7 +34,7 @@ export default function Playlists() {
       </View>
 
       <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingTop: 8, paddingBottom: insets.bottom + 60 }} showsVerticalScrollIndicator={false}>
-        {playlists.map((p) => (
+        {pool.map((p) => (
           <View key={p.id} style={{ marginBottom: 26 }}>
             {/* Playlist header — word tile + label + honest count */}
             <Press

@@ -12,9 +12,9 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
-import { content } from '@/services/content';
+import { content, useContent } from '@/services/content';
 import {
-  parseTrackParam, playlistDeck, playlistStartIx, playlistTrackAt, resolvePlaylistParam,
+  parseTrackParam, playlistDeck, playlistPool, playlistStartIx, playlistTrackAt, resolvePlaylistParam,
   shouldLogListen, speakRouteFor,
 } from '@/utils/speakDeck.logic';
 import { SpeedPicker } from '@/components/SpeedPicker';
@@ -41,7 +41,9 @@ export default function Player() {
   // TTS exactly as a corpus item does); without it, the default listening pass
   // over corpus phrases. The two share every transport below — a line is a line.
   const params = useLocalSearchParams<{ playlist?: string; track?: string }>();
-  const asked = useMemo(() => resolvePlaylistParam(params.playlist), [params.playlist]);
+  // Corpus playlists when any are published, the bundled set otherwise.
+  const pool = playlistPool(useContent((s) => s.corpus.playlists));
+  const asked = useMemo(() => resolvePlaylistParam(params.playlist, pool), [params.playlist, pool]);
   const pl = asked.kind === 'found' ? asked.playlist : undefined;
 
   // A link naming a playlist that does not exist gets the empty state, NOT the

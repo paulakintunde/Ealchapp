@@ -2,6 +2,7 @@ import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { playlists } from '../content/playlists.ts';
 import { ITEM_ID_RE, LEVELS, SCENARIO_ID_RE } from '../content/schema.ts';
+import { bandCap, introEligible } from '../store/progress.logic.ts';
 import {
   parseTrackParam,
   playlistDeck,
@@ -9,6 +10,7 @@ import {
   playerRouteFor,
   playlistTrackAt,
   listenPlaylistForDay,
+  playlistPool,
   resolvePlaylistParam,
   shouldLogListen,
   speakRouteFor,
@@ -263,4 +265,71 @@ test('the offer is a playlist the route builders and resolver all agree on', () 
     const id = new URL(`https://x${playerRouteFor(p.id, 0)}`).searchParams.get('playlist');
     strictEqual(resolvePlaylistParam(id ?? undefined).kind, 'found', `day ${day}: ${p.id}`);
   }
+});
+
+// ── The corpus pool ─────────────────────────────────────────────────────────
+
+/** A playlist shaped the way the CORPUS carries one: the bundled fields plus
+ *  version and status. If this stops type-checking, corpus playlists can no
+ *  longer be used as a pool and the migration is blocked. */
+const corpusPlaylist = {
+  id: 'pl.a1.ota-only', minLevel: 'a1' as const, word: 'OTA', tag: 'TEST',
+  glow: 'rgba(0,0,0,0.1)', labelFr: 'Publiée', labelEn: 'Published',
+  topicFr: 'test', topicEn: 'test', version: 1, status: 'published' as const,
+  tracks: [{ id: 'pl.a1.ota-only-t1', title: 'Piste', lines: [{ fr: 'bonjour', en: 'hello' }] }],
+};
+
+test('the pool prefers the corpus and falls back to the bundled set', () => {
+  // Zero playlist rows exist today, so the fallback is what actually runs. An
+  // empty or absent corpus must never mean an empty Listen tab.
+  strictEqual(playlistPool(undefined).length, playlists.length);
+  strictEqual(playlistPool([]).length, playlists.length);
+  // One authored row takes over completely — no merging with the bundled set,
+  // or a retired playlist could never be removed.
+  const only = playlistPool([corpusPlaylist]);
+  strictEqual(only.length, 1);
+  strictEqual(only[0].id, 'pl.a1.ota-only');
+});
+
+test('every reader honours the pool it is given', () => {
+  const pool = [corpusPlaylist];
+  // Resolving finds what the pool holds...
+  strictEqual(resolvePlaylistParam('pl.a1.ota-only', pool).kind, 'found');
+  // ...and does NOT find a bundled id that is no longer published.
+  strictEqual(resolvePlaylistParam('la-voix', pool).kind, 'missing');
+  // The daily offer draws from the pool too, at every level.
+  for (const lv of ['a1', 'a2', 'b1']) {
+    strictEqual(listenPlaylistForDay(lv, 7, pool)?.id, 'pl.a1.ota-only', lv);
+  }
+  // Defaults are unchanged when no pool is passed.
+  strictEqual(resolvePlaylistParam('la-voix').kind, 'found');
+});
+
+test('a playlist above the learner still gets an offer rather than an empty hero', () => {
+  // Pool of one b1 playlist, learner at a1: nothing is eligible, so the
+  // gentlest available set is offered instead of undefined.
+  const b1Only = [{ ...corpusPlaylist, id: 'pl.b1.hard', minLevel: 'b1' as const }];
+  strictEqual(listenPlaylistForDay('a1', 3, b1Only)?.id, 'pl.b1.hard');
+  // A genuinely empty pool is the only undefined, and the hero keeps its own
+  // fallback for it.
+  strictEqual(listenPlaylistForDay('a1', 3, []), undefined);
+});
+
+// ── The shared band cap ─────────────────────────────────────────────────────
+
+test('the listen offer and introEligible read the learner the same way', () => {
+  // These were two copies of one rule. The store keeps level as a loose string
+  // and placement writes 'A0', which is not a corpus band at all.
+  for (const lv of ['sons', 'a1', 'A1', 'a2', 'b1', 'B1', 'b2', 'c1', 'A0', '', 'banana']) {
+    const cap = bandCap(lv);
+    // introEligible must draw the same line...
+    const kept = introEligible(LEVELS.map((l) => ({ level: l })), lv);
+    strictEqual(kept.length, cap + 1, `introEligible disagrees at "${lv}"`);
+    // ...and no offer may sit above it.
+    const offer = listenPlaylistForDay(lv, 11);
+    ok(offer && LEVELS.indexOf(offer.minLevel) <= cap, `offer above cap at "${lv}"`);
+  }
+  // The documented A0 decision: unrecognised means the a1 floor, not the top.
+  strictEqual(bandCap('A0'), LEVELS.indexOf('a1'));
+  strictEqual(bandCap(''), LEVELS.indexOf('a1'));
 });

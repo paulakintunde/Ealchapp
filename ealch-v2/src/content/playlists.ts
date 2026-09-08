@@ -1980,6 +1980,3 @@ export const playlists: Playlist[] = [
 ];
 
 /** A playlist by id, or undefined if the id is unknown (a bad deep link). */
-export function playlist(id: string): Playlist | undefined {
-  return playlists.find((p) => p.id === id);
-}

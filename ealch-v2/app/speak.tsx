@@ -21,7 +21,7 @@ import { useContent } from '@/services/content';
 import { getItem, speakStages } from '@/services/content.logic';
 import {
   parseTrackParam, playerRouteFor, playlistDeck, playlistStartIx, playlistTrackAt,
-  resolvePlaylistParam, type SpeakCard,
+  playlistPool, resolvePlaylistParam, type SpeakCard,
 } from '@/utils/speakDeck.logic';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { markWords, focusWordsFrom, barsForLevel, isLenientLevel } from '@/utils/score';
@@ -114,7 +114,9 @@ export default function Speak() {
   // the avatar happened to be standing on. Listening was playlist-specific and
   // speaking was not.
   const params = useLocalSearchParams<{ stage?: string; block?: string; playlist?: string; track?: string }>();
-  const asked = useMemo(() => resolvePlaylistParam(params.playlist), [params.playlist]);
+  // Corpus playlists when any are published, the bundled set otherwise.
+  const pool = playlistPool(useContent((s) => s.corpus.playlists));
+  const asked = useMemo(() => resolvePlaylistParam(params.playlist, pool), [params.playlist, pool]);
   const pl = asked.kind === 'found' ? asked.playlist : undefined;
   // Any playlist REQUEST, found or not, means this screen is not the trail. The
   // guards below key on this rather than on `pl`, so a link to a playlist that

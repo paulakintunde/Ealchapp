@@ -20,8 +20,7 @@ import {
 } from '@/store/progress.logic';
 import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
-import { playlists } from '@/content/playlists';
-import { listenPlaylistForDay, playerRouteFor } from '@/utils/speakDeck.logic';
+import { listenPlaylistForDay, playerRouteFor, playlistPool } from '@/utils/speakDeck.logic';
 import { content, useContent } from '@/services/content';
 import { EXAM_FORMAT_FACTS, EXAM_FORMAT_ORDER, formatSitting, sectionBreakdown } from '@/content/examFormats';
 import { wordOfDay, dayOfYear } from '@/content/wordOfDay';
@@ -191,7 +190,8 @@ export default function Home() {
   // has nothing to resume. Rotates daily and respects the playlist's authored
   // minLevel, so a sons learner is never handed argot. Undefined keeps the old
   // hero rather than inventing one.
-  const listenOffer = useMemo(() => listenPlaylistForDay(level, dayOfYear()), [today, level]);
+  const pool = playlistPool(useContent((s) => s.corpus.playlists));
+  const listenOffer = useMemo(() => listenPlaylistForDay(level, dayOfYear(), pool), [today, level, pool]);
 
   // The hero is a view over real state, in three honest tiers. A resume only
   // survives while it is fresh (see resumeIsFresh); once it lapses, or when
@@ -525,7 +525,7 @@ export default function Home() {
                 card plays its first track through the player. */}
             <SectionHead title={T.playlists} right={T.seeAll} onPress={() => router.push('/playlists')} />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
-              {playlists.map((p) => (
+              {pool.map((p) => (
                 <Press key={p.id} onPress={() => router.push(playerRouteFor(p.id, 0))} scale={0.98} style={{ width: 158 }}>
                   <View style={{ height: 198, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', marginBottom: 10, backgroundColor: t.isDark ? '#12100E' : t.card, ...t.cardShadow }}>
                     <LinearGradient colors={[p.glow, 'transparent']} start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.7 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
