@@ -38,6 +38,8 @@ type AdaptyModule = (typeof import('react-native-adapty'))['adapty'];
  *  products attached. Pinned here for the same reason the access-level ids
  *  are pinned in entitlement.logic.ts. */
 export const PLACEMENT_PREMIERE = 'premiere';
+export const PLACEMENT_EXAM_PACK = 'exam_pack';
+export const PLACEMENT_TOPUPS = 'topups';
 
 let mod: AdaptyModule | null = null;
 let loadTried = false;

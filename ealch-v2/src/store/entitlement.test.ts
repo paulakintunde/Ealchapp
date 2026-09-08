@@ -8,7 +8,7 @@ import {
   ACCESS_LEVEL_PREMIERE,
   FEATURES,
   PREMIERE_FEATURES,
-  FREE_SCENARIOS_PER_DAY,
+
   detectCurrency,
   entitlementActive,
   entitlementFromProfile,
@@ -80,24 +80,13 @@ test('scenarioOfAttempt strips exactly the turn suffix', () => {
   strictEqual(scenarioOfAttempt('sc.a1.marche.001'), 'sc.a1.marche.001');
 });
 
-test('roleplay gate: the free allowance is breadth, not practice', () => {
+test('roleplay gate: scripted roleplays are the demo and are always free', () => {
   const day = '2026-07-19';
   const played = [
-    { activity: 'roleplay', date: day, itemId: 'sc.a1.marche.001.t0' },
-    { activity: 'roleplay', date: day, itemId: 'sc.a1.marche.001.t1' },
-    // noise the counter must ignore: other activities, other days
-    { activity: 'flashcards', date: day, itemId: 'fr.a1.greet.001' },
-    { activity: 'roleplay', date: '2026-07-18', itemId: 'sc.a1.plage.001.t0' },
+    { activity: 'roleplay', date: day, itemId: 'sc.a1.marche.001.t0' }
   ];
-  deepStrictEqual([...scenariosPlayedOn(played, day)], ['sc.a1.marche.001']);
-  strictEqual(FREE_SCENARIOS_PER_DAY, 1);
-
-  // Same scenario again today: free. A second distinct one: locked.
   strictEqual(roleplayLocked(free, played, day, 'sc.a1.marche.001', NOW), false);
-  strictEqual(roleplayLocked(free, played, day, 'sc.a1.plage.001', NOW), true);
-  // A fresh day starts the allowance over.
-  strictEqual(roleplayLocked(free, played, '2026-07-20', 'sc.a1.plage.001', NOW), false);
-  // Première is never locked.
+  strictEqual(roleplayLocked(free, played, day, 'sc.a1.plage.001', NOW), false);
   strictEqual(roleplayLocked(premiere, played, day, 'sc.a1.plage.001', NOW), false);
 });
 

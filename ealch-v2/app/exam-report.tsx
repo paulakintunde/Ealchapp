@@ -58,7 +58,7 @@ export default function ExamReportScreen() {
   const logSession = useSessionLog();
   const [lapRunning, setLapRunning] = useState(true);
 
-  const { paperId } = useLocalSearchParams<{ paperId?: string }>();
+  const { paperId, isSample } = useLocalSearchParams<{ paperId?: string; isSample?: string }>();
   // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
   // memos read it imperatively through content.*, which calls getState(), so
   // before this they never re-ran when the OTA snapshot landed. Exam content
@@ -129,7 +129,7 @@ export default function ExamReportScreen() {
   if (!paper || !paperId || !outcome) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bgDeep, paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} title={T.examReport} />
+        <FocusHeader onClose={() => router.replace('/home')} title={isSample === 'true' ? T.examSampleLabel : T.examReport} />
         <View style={{ padding: 24 }}>
           <TX role="label" color={t.txSecondary}>{T.examNone}</TX>
         </View>
@@ -242,7 +242,7 @@ export default function ExamReportScreen() {
 
         {/* Gate H, on the screen most likely to be screenshotted and shared. */}
         <TX role="label" color={t.txMuted} lhMult={1.5} style={{ marginTop: 20 }}>
-          {T.examDisclaimer}
+          {isSample === 'true' ? T.examSampleDisclaimer : T.examDisclaimer}
         </TX>
       </ScrollView>
 

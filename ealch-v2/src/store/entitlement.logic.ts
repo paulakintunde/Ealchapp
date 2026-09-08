@@ -22,14 +22,14 @@ import type { Entitlement, Plan } from '../content/progress-schema.ts';
  *  would be selling the free tier back to the user), and 'examiner' exists but
  *  is granted by no plan (it is the Phase 11 exam product, not Première). */
 export const FEATURES = [
-  /** Content beyond A1: the A2+ Den tracks and their lessons. */
+  /** Content beyond the free intro lessons. */
   'levels.all',
-  /** Coach turns past the free daily cap (the cap itself is server-enforced). */
-  'coach.unlimited',
-  /** More than FREE_SCENARIOS_PER_DAY distinct role-play scenarios per day. */
-  'roleplay.unlimited',
   /** Downloadable narration/audio packs — Phase 7 ships the packs. */
   'audio.packs',
+  /** Metered consumable: AI Marks for exams/writing. */
+  'marks',
+  /** Metered consumable: Free-form voice conversation minutes. */
+  'conversation_minutes',
   /** The Phase 8 Examiner. Granted by the Phase 11 exam product only. */
   'examiner',
 ] as const;
@@ -40,9 +40,8 @@ export type Feature = (typeof FEATURES)[number];
  *  Phase 10/11. */
 export const PREMIERE_FEATURES: Feature[] = [
   'levels.all',
-  'coach.unlimited',
-  'roleplay.unlimited',
   'audio.packs',
+  // 'marks' and 'conversation_minutes' are metered, not boolean features granted unlimited.
 ];
 
 /** The features a plan carries. The single source the customerInfo mapping
@@ -211,9 +210,7 @@ export function roleplayLocked(
   scenarioId: string,
   nowMs: number,
 ): boolean {
-  if (hasFeature(e, 'roleplay.unlimited', nowMs)) return false;
-  const played = scenariosPlayedOn(attempts, day);
-  return played.size >= FREE_SCENARIOS_PER_DAY && !played.has(scenarioId);
+  return false;
 }
 
 /* ─── Mapping the Adapty profile (access levels) ─────────────────────────── */

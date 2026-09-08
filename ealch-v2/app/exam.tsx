@@ -51,9 +51,10 @@ export default function ExamFormatHub() {
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang) === 'en' ? 'en' : 'fr';
   const results = useProgress((s) => s.examResults);
+  const marksUsedEver = new Set(results.map(r => r.paperId).filter(Boolean)).size;
   // Wired, and open: examGateOn ships false. See examGate.logic.ts for why the
   // check exists before the paywall does.
-  const entitled = useFeature('examiner');
+  const entitled = useFeature('examiner') || useFeature('marks');
   const cfg = getConfig();
 
   const { format: formatQ } = useLocalSearchParams<{ format?: string }>();
@@ -126,17 +127,17 @@ export default function ExamFormatHub() {
               locked={
                 !examPaperAllowed({
                   gateOn: cfg.examGateOn,
-                  entitled,
+                  hasExaminerOrMarks: entitled,
                   freePapers: cfg.examFreePapers,
-                  paperNo: p.paperNo,
+                  marksUsedEver,
                 }).allowed
               }
               onPress={() =>
                 examPaperAllowed({
                   gateOn: cfg.examGateOn,
-                  entitled,
+                  hasExaminerOrMarks: entitled,
                   freePapers: cfg.examFreePapers,
-                  paperNo: p.paperNo,
+                  marksUsedEver,
                 }).allowed
                   ? router.push({ pathname: '/exam-paper', params: { paperId: p.id } })
                   : router.push('/paywall')

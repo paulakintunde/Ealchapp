@@ -25,20 +25,23 @@ export type GateDecision =
 export function examPaperAllowed(input: {
   /** RemoteConfig.examGateOn. */
   gateOn: boolean;
-  /** hasFeature(e, 'examiner'). */
-  entitled: boolean;
-  /** RemoteConfig.examFreePapers. */
+  /** Whether the user has 'examiner' feature (legacy) or enough 'marks' available */
+  hasExaminerOrMarks: boolean;
+  /** RemoteConfig.examFreePapers. Now effectively 1 Mark ever, but keeping the signature for config */
   freePapers: number;
-  /** This paper's number within its format, 1-based. */
-  paperNo: number;
+  /** How many marks this user has used total across their account history */
+  marksUsedEver: number;
 }): GateDecision {
-  const { gateOn, entitled, freePapers, paperNo } = input;
+  const { gateOn, hasExaminerOrMarks, freePapers, marksUsedEver } = input;
   // The gate is off: everything is open, whatever else is true.
   if (!gateOn) return { allowed: true };
-  // Paid for it.
-  if (entitled) return { allowed: true };
-  // Inside the free allowance. Papers are numbered from 1, so an allowance of
-  // 1 opens paper 1 and nothing else.
-  if (paperNo <= Math.max(0, Math.floor(freePapers))) return { allowed: true };
+
+  // Paid for it or has metered marks remaining.
+  if (hasExaminerOrMarks) return { allowed: true };
+
+  // The 1 free Mark ever rule.
+  // The free allowance covers the FIRST mark ever used. If they've used 0 marks, they can proceed.
+  if (marksUsedEver < Math.max(0, Math.floor(freePapers))) return { allowed: true };
+
   return { allowed: false, reason: 'needs-exam-tier' };
 }
