@@ -457,18 +457,35 @@ export default function ExamSectionScreen() {
             </View>
           </View>
         ) : (
-          <Press
-            onPress={() => setConfirming(true)}
-            disabled={phase !== 'answering'}
-            style={{
-              alignItems: 'center', minHeight: 50, justifyContent: 'center', borderRadius: 16,
-              backgroundColor: t.acc, opacity: phase === 'answering' ? 1 : 0.6,
-            }}
-          >
-            <TX font="semi" role="label" color={t.accInk}>
-              {phase === 'submitting' ? T.examGrading : T.examSubmit}
-            </TX>
-          </Press>
+          <>
+            <Press
+              onPress={() => setConfirming(true)}
+              disabled={phase !== 'answering'}
+              style={{
+                alignItems: 'center', minHeight: 50, justifyContent: 'center', borderRadius: 16,
+                backgroundColor: t.acc, opacity: phase === 'answering' ? 1 : 0.6,
+              }}
+            >
+              <TX font="semi" role="label" color={t.accInk}>
+                {phase === 'submitting' ? T.examGrading : T.examSubmit}
+              </TX>
+            </Press>
+            {/* SAY THAT THE WAIT IS THE WORK, not a hang.
+             *
+             *  An open answer is marked by a model, measured at 7 to 9 seconds
+             *  each, and the loop above grades them ONE AT A TIME — so a
+             *  speaking paper with a monologue and a débat waits the better
+             *  part of twenty seconds. Until now the only signal was this
+             *  button dimming to 60% and its label changing, which on a phone
+             *  with no spinner and no moving part is indistinguishable from a
+             *  frozen app. The obvious thing a candidate then does is leave,
+             *  which is the one action that loses the grade. */}
+            {phase === 'submitting' ? (
+              <TX role="meta" color={t.txMuted} lhMult={1.45} style={{ marginTop: 10, textAlign: 'center' }}>
+                {T.examGradingNote}
+              </TX>
+            ) : null}
+          </>
         )}
       </View>
     </View>

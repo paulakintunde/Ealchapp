@@ -107,6 +107,10 @@ export type Strings = {
   examDisclaimer: string;
   examNone: string; examSubmit: string; examModelAnswer: string; examGrading: string;
   examUngraded: string; examPracticeEstimate: string; examReviewLesson: string; examSeriesDone: string;
+  /** Said WHILE the grader is working. A written or spoken answer is marked by
+   *  a model, which takes seconds per answer, and a dimmed button alone reads
+   *  as a frozen app on a paper with more than one open task. */
+  examGradingNote: string;
   /** Épreuve names, keyed by ExamSkill. Note PE is *expression écrite* and PO
    *  is *expression orale*: the skill codes are production-first, the labels
    *  a candidate reads are not. */
@@ -433,7 +437,8 @@ export const T: Record<Lang, Strings> = {
     examDisclaimer: "Exercices originaux inspirés du format officiel. Non publiés ni approuvés par France Éducation international, le CCI Paris Île-de-France ni aucun organisme examinateur. Résultats donnés à titre indicatif, non équivalents à un score officiel.",
     examNone: 'Aucun examen blanc disponible pour le moment. Revenez après votre prochaine mise à jour.',
     examSubmit: 'Valider', examModelAnswer: 'RÉPONSE MODÈLE', examGrading: 'Correction en cours…',
-    examUngraded: 'Correction indisponible. Votre réponse est enregistrée ; réessayez plus tard.',
+    examGradingNote: "Chaque réponse écrite ou orale est corrigée une par une, ce qui prend quelques secondes. Gardez cet écran ouvert.",
+    examUngraded: "La correction n'a pas abouti. Cette épreuve compte comme non corrigée.",
     examPracticeEstimate: "Estimation d'entraînement, pas un score officiel",
     examReviewLesson: 'Revoir la leçon →', examSeriesDone: 'Épreuve terminée',
     examSkillNames: { CO: 'Compréhension orale', CE: 'Compréhension écrite', PE: 'Expression écrite', PO: 'Expression orale' },
@@ -865,7 +870,8 @@ export const T: Record<Lang, Strings> = {
     examDisclaimer: 'Original practice items modeled on the official format. Not published or endorsed by France Éducation international, CCI Paris Île-de-France, or any exam board. Results are practice estimates only, not equivalent to an official score.',
     examNone: 'No mock exams available yet. Check back after your next update.',
     examSubmit: 'Submit', examModelAnswer: 'MODEL ANSWER', examGrading: 'Grading…',
-    examUngraded: 'Grading unavailable. Your response was saved; try again later.',
+    examGradingNote: 'Each written or spoken answer is marked one at a time, which takes a few seconds. Keep this screen open.',
+    examUngraded: 'Grading did not come back. This paper is recorded as ungraded.',
     examPracticeEstimate: 'Practice estimate, not an official score',
     examReviewLesson: 'Review the lesson →', examSeriesDone: 'Mock exam complete',
     examSkillNames: { CO: 'Listening', CE: 'Reading', PE: 'Writing', PO: 'Speaking' },

@@ -131,6 +131,54 @@ test('the band placeholders are substituted, never printed raw', () => {
   ok(/examTargetBand\.replace\('\{band\}'/.test(body), 'examTargetBand substitutes its placeholder');
 });
 
+// ── The ungraded path ───────────────────────────────────────────────────────
+//
+// Measured 2026-09-07, after a real grading failure on a Pixel 6. The copy read
+// "Grading unavailable. Your response was saved; try again later." BOTH HALVES
+// WERE FALSE:
+//
+//   ExamResult carries no field for the candidate's response. The text lives in
+//   component state (`texts[task.id]`) and `candidateResponse` appears in
+//   exactly one place — the request to the grader. Nothing persists it.
+//
+//   No retry exists. `nclc.logic.ts` calls 'not-graded' "Retryable" and
+//   exam-section.tsx says "the report shows non corrigé with a retry", but no
+//   such control was ever built.
+//
+// So an hour of writing was destroyed while the app said it was safe. The guard
+// below ties the CLAIM to the CAPABILITY: the copy may promise a saved response
+// only once ExamResult can actually hold one.
+
+test('the ungraded copy does not promise what the app cannot do', () => {
+  const strings = readFileSync(resolve(i18nDir, 'strings.ts'), 'utf8');
+  const logic = readFileSync(resolve(here, 'progress.logic.ts'), 'utf8');
+
+  // Does a result carry the candidate's answer? Look for a field on ExamResult,
+  // not for the word anywhere in the file.
+  const typeFrom = logic.indexOf('export type ExamResult');
+  ok(typeFrom > 0, 'ExamResult must exist');
+  const typeBody = logic.slice(typeFrom, logic.indexOf('\n};', typeFrom));
+  const persistsResponse = /^\s*(response|candidateResponse|answer|body)\??:/m.test(typeBody);
+
+  const line = strings.split('\n').filter((l) => /examUngraded\s*:/.test(l)).join('\n');
+  ok(line.length > 0, 'found the ungraded copy');
+
+  if (!persistsResponse) {
+    ok(!/saved|enregistr/i.test(line), 'must not claim the response was saved when nothing stores it');
+    ok(!/try again|réessayez|reessayez/i.test(line), 'must not offer a retry that does not exist');
+  }
+});
+
+test('the candidate is told the wait is the work', () => {
+  const src = readFileSync(resolve(appDir, 'exam-section.tsx'), 'utf8');
+  // The note renders on the SUBMITTING phase specifically. A dimmed button and
+  // a changed label were the only signal, which reads as a hang.
+  ok(/phase === 'submitting' \? \(\s*<TX[^>]*>\s*\{T\.examGradingNote\}/.test(src.replace(/\n\s*/g, ' ')),
+    'examGradingNote renders while submitting');
+  const strings = readFileSync(resolve(i18nDir, 'strings.ts'), 'utf8');
+  strictEqual((strings.match(/\bexamGradingNote\b/g) ?? []).length, 3, 'declared and translated twice');
+});
+
 test('the house style holds in the new copy', () => {
   const src = readFileSync(resolve(i18nDir, 'strings.ts'), 'utf8');
   const lines = src.split('\n').filter((l) => /exam(Marking|MarkingSub|GradedAt|TargetBand|ShowModel|HideModel|ModelTitle|ModelNote)\s*:/.test(l));
