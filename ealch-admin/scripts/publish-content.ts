@@ -298,6 +298,10 @@ async function main() {
 
   const { Pool } = await import('pg');
   if (!process.env.DATABASE_URL) {
+    if (DRY_RUN) {
+      console.log('Skipping dry run without DATABASE_URL');
+      process.exit(0);
+    }
     die('No DATABASE_URL. Publishing reads the canonical database; it must not run against PGlite.');
   }
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });

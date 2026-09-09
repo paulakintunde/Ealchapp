@@ -868,6 +868,7 @@ const SECTIONS: LessonSection[] = [
       },
       {
         label: 'Contrôle',
+        items: [],
         check: {
           q: 'Why does « je parle » keep its E when « j\'aime » loses it?',
           opts: [
