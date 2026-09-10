@@ -31,6 +31,7 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { glyphs as splitGlyphs } from '@/content/silent.logic';
+import { displayIpa } from '@/services/content.logic';
 
 /** How long a silent letter takes to recede from ink. Slow enough to be seen
  *  as a change rather than a render, short enough not to delay a tap. */
@@ -145,13 +146,13 @@ export function WordCardXL({
       </TX>
 
       {ipa ? (
-        <TX role="titleLg" size={20} color={t.txSecondary} center numberOfLines={2}>
-          {ipa}
+        <TX font="notation" role="titleLg" size={20} color={t.txSecondary} center numberOfLines={2}>
+          {displayIpa(ipa)}
         </TX>
       ) : null}
 
       {respell ? (
-        <TX role="body" color={t.txMuted} center numberOfLines={1}>
+        <TX font="notation" role="body" color={t.txMuted} center numberOfLines={1}>
           {respell}
         </TX>
       ) : null}

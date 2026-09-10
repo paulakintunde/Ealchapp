@@ -13,6 +13,8 @@ import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '
 import {
   adoptedForLaunch,
   anchorForItem,
+  dedupeByFr,
+  displayIpa,
   examPapersFor,
   examTasksOfPaper,
   examTasksOfSection,
@@ -643,4 +645,45 @@ test('merging never changes the space-joined sentence the arrange step checks', 
   const before = tiles.map((x) => x.w).join(' ');
   const after = mergeArticleTiles(tiles).map((x) => x.w).join(' ');
   strictEqual(after, before);
+});
+
+
+/* ── the flashcard audit, 2026-09-09 ─────────────────────────────────────── */
+
+test('a domain deck shows one card per headword, keeping the first', () => {
+  const deck = [
+    { id: 'a', fr: 'le prix' },
+    { id: 'b', fr: 'la caisse' },
+    { id: 'c', fr: 'Le Prix' },      // same word, another theme, another case
+    { id: 'd', fr: '  le   prix ' }, // and another, spaced differently
+  ];
+  deepStrictEqual(dedupeByFr(deck).map((i) => i.id), ['a', 'b']);
+});
+
+test('dedupe keeps accents apart, unlike fold()', () => {
+  // fold() strips accents because a learner typing an answer cannot be asked
+  // for them. Two different words in a deck is a different question.
+  const kept = dedupeByFr([{ fr: 'ou' }, { fr: 'où' }, { fr: 'sur' }, { fr: 'sûr' }]);
+  strictEqual(kept.length, 4);
+});
+
+test('dedupe leaves a deck with nothing repeated exactly as it was', () => {
+  const deck = [{ fr: 'un café' }, { fr: 'un thé' }, { fr: 'une baguette' }];
+  deepStrictEqual(dedupeByFr(deck), deck);
+});
+
+test('IPA renders bare, whichever delimiters the row happens to carry', () => {
+  // 8,825 published rows are slashed and 6,929 are bare, and the split runs
+  // inside single themes. One rule at render, so a deck cannot alternate.
+  strictEqual(displayIpa('/la my.zik/'), 'la my.zik');
+  strictEqual(displayIpa('ʃɑ̃.te'), 'ʃɑ̃.te');
+  strictEqual(displayIpa('[wa]'), 'wa');
+  strictEqual(displayIpa('  /tu/  '), 'tu');
+});
+
+test('IPA that is missing or empty stays missing, so the card renders no line', () => {
+  strictEqual(displayIpa(undefined), undefined);
+  strictEqual(displayIpa(null), undefined);
+  strictEqual(displayIpa('   '), undefined);
+  strictEqual(displayIpa('//'), undefined);
 });

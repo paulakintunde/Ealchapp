@@ -17,6 +17,7 @@ import { LEVELS, type Level, type Item } from '@/content/schema';
 import { domainMeta } from '@/content/domainMeta';
 import { themeMeta } from '@/content/themeMeta';
 import { answerMatches, markWords, barsForLevel } from '@/utils/score';
+import { displayIpa } from '@/services/content.logic';
 
 type Phase = 'ask' | 'listening' | 'result';
 /** One card of the deck: an item plus which way it's being drilled. Every item
@@ -412,12 +413,12 @@ export default function VoiceFlash() {
                   pronunciation here would hand over the answer; the reveal
                   below is where that direction gets it instead. */}
               {!vfIsFr && item.ipa ? (
-                <TX role="bodySm" center color={t.txMuted} style={{ marginBottom: item.respell ? 2 : 16 }}>
-                  {item.ipa}
+                <TX font="notation" role="bodySm" center color={t.txMuted} style={{ marginBottom: item.respell ? 2 : 16 }}>
+                  {displayIpa(item.ipa)}
                 </TX>
               ) : null}
               {!vfIsFr && item.respell ? (
-                <TX font="semi" role="bodySm" ls={0.8} center color={t.accTx} style={{ marginBottom: 16 }}>
+                <TX font="notation" role="bodySm" ls={0.8} center color={t.accTx} style={{ marginBottom: 16, fontWeight: '600' }}>
                   {item.respell}
                 </TX>
               ) : null}

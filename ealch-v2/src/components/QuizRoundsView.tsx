@@ -356,7 +356,7 @@ function SpeakQuestionCard({
           <TX font="serifI" role="title" style={{ flex: 1 }}>{target}</TX>
           <Icon name="speaker" size={16} color={playingId === id ? t.acc : t.txNonText} />
         </View>
-        {question.ipa ? <TX role="bodySm" color={t.txSecondary}>{question.ipa}</TX> : null}
+        {question.ipa ? <TX font="notation" role="bodySm" color={t.txSecondary}>{question.ipa}</TX> : null}
       </Press>
 
       {!said ? (

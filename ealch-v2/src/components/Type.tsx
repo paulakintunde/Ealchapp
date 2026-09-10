@@ -3,15 +3,36 @@ import { F } from '@/theme/fonts';
 import { useTheme } from '@/theme/useTheme';
 import { typeMetrics, type RoleKey as RK } from './type.logic';
 
-type FontKey = 'serif' | 'serifI' | 'sans' | 'med' | 'semi' | 'bold';
+type FontKey = 'serif' | 'serifI' | 'sans' | 'med' | 'semi' | 'bold' | 'notation';
 
-const FAMILY: Record<FontKey, string> = {
+/**
+ * `notation` is the absence of a family, on purpose: IPA and the house
+ * respelling render in the PLATFORM font.
+ *
+ * Instrument Sans and Instrument Serif carry 343 and 333 glyphs, and almost no
+ * IPA among them. No ɑ, ə, ɛ, ɔ, ʁ, ʒ, no U+207F superscript n, no U+203F
+ * undertie. Every one of those characters already falls back to a system font,
+ * so an IPA line set in Instrument was being drawn in two fonts at once.
+ *
+ * Worse, it broke exactly one sequence. œ̃ is œ plus a combining tilde, and
+ * Instrument happens to have BOTH — so that pair alone stayed in Instrument,
+ * which has no mark-positioning rule for it, and the tilde landed beside the
+ * ligature instead of over it, or on the following letter. Measured on a Pixel
+ * 9: ɑ̃ composed correctly (ɑ is absent, so the run fell back) and œ̃ did not
+ * (both present, so it did not). 954 published cards carry œ̃ in their IPA, and
+ * it is the vowel in un, brun, lundi, parfum.
+ *
+ * Handing the whole notation run to the platform font fixes the composition and
+ * makes the line one font instead of two.
+ */
+const FAMILY: Record<FontKey, string | undefined> = {
   serif: F.serif,
   serifI: F.serifItalic,
   sans: F.sans,
   med: F.sansMed,
   semi: F.sansSemi,
   bold: F.sansBold,
+  notation: undefined,
 };
 
 export { ROLE } from './type.logic';
@@ -70,11 +91,15 @@ export function TX({
   });
 
   const base: TextStyle = {
-    fontFamily: FAMILY[font],
     fontSize,
     lineHeight,
     color: color ?? t.txPrimary,
   };
+  // Only set a family when there is one. `fontFamily: undefined` in a style
+  // object is not the same as leaving it out on every RN version, and the
+  // notation font depends on the platform default actually being used.
+  const family = FAMILY[font];
+  if (family) base.fontFamily = family;
   if (ls != null) base.letterSpacing = ls;
   if (center) base.textAlign = 'center';
 

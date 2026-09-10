@@ -234,6 +234,64 @@ export function mergeArticleTiles(tiles: SbTile[]): SbTile[] {
  * lesson's practice card — must go through this, or a sentence item's raw
  * tile JSON leaks onto the card as if it were the note itself.
  */
+/**
+ * One card per headword, keeping the first of each.
+ *
+ * A DOMAIN deck is the union of every theme under it, and the same word is
+ * authored separately in each theme that needs it. Nothing collapsed them on the
+ * way in, so « le prix » arrived in the Everyday Life vocabulary deck seven
+ * times over, from argent-quotidien, cafe, courses, marche, rp-achats,
+ * transports-quotidiens and vetements. Measured across the corpus: 941 headwords
+ * repeat inside a single domain deck with an IDENTICAL English gloss, 1,169
+ * cards' worth, and every domain deck runs between 8% and 18% redundant. Health
+ * is the worst at 17.8%.
+ *
+ * Each copy is a separate id, so the learner also graded the same word up to
+ * seven times against the SRS in one sitting.
+ *
+ * The key is deliberately conservative: case and surrounding space are ignored,
+ * accents are NOT. `fold()` from answer.logic strips accents and hyphens, which
+ * is right for grading a typed answer and wrong here, where it would merge « ou »
+ * with « où ».
+ *
+ * Theme decks never had this: the duplication is strictly cross-theme, so a
+ * single-theme query is unaffected either way.
+ */
+export function dedupeByFr<T extends { fr: string }>(items: T[]): T[] {
+  const seen = new Set<string>();
+  const out: T[] = [];
+  for (const it of items) {
+    const key = it.fr.trim().toLowerCase().replace(/\s+/gu, ' ');
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(it);
+  }
+  return out;
+}
+
+/**
+ * The IPA as a learner should see it: bare, with no surrounding delimiters.
+ *
+ * The corpus is split down the middle on this. 8,825 published rows wrap their
+ * IPA in slashes and 6,929 print it bare, and the split runs INSIDE themes, so
+ * the two styles alternate card to card in one deck: essential adjectives is 209
+ * slashed to 168 bare, cuisine 114 to 103. Three consecutive cards in the
+ * Culture deck read `ʃɑ̃.te`, `lə kupe dekale`, `/la my.zik/`.
+ *
+ * Normalising at RENDER rather than in the data means one rule decides how
+ * notation looks, it applies to every row the moment it ships, and no bulk
+ * rewrite of 15,754 rows can get half-applied. LessonRich already stripped the
+ * slashes for its tappable sounds; this is that rule, shared.
+ *
+ * Square brackets are stripped too: phonetic notation uses them for the same
+ * job, and a handful of rows use them where their neighbours use slashes.
+ */
+export function displayIpa(ipa: string | undefined | null): string | undefined {
+  if (!ipa) return undefined;
+  const bare = ipa.trim().replace(/^[/[]+/u, '').replace(/[/\]]+$/u, '').trim();
+  return bare === '' ? undefined : bare;
+}
+
 export function noteFor(item: Item): string | undefined {
   const notes = item.notes;
   if (!notes || !notes.startsWith('{')) return notes;

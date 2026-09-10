@@ -307,7 +307,7 @@ function BubbleBeat({
           <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
           {speakable ? <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} /> : null}
         </View>
-        {beat.ipa ? <TX role="meta" color={t.txSubtle}>{beat.ipa}</TX> : null}
+        {beat.ipa ? <TX font="notation" role="meta" color={t.txSubtle}>{beat.ipa}</TX> : null}
       </Press>
       {beat.stage ? (
         <TX role="meta" color={t.txSubtle} style={{ fontStyle: 'italic', maxWidth: '92%' }}>{beat.stage}</TX>

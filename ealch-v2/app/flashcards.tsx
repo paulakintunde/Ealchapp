@@ -15,7 +15,7 @@ import { useStore } from '@/store/useStore';
 import { composeSession, introEligible, localDay } from '@/store/progress.logic';
 import { sound, tts } from '@/services';
 import { content, useContent } from '@/services/content';
-import { noteFor } from '@/services/content.logic';
+import { dedupeByFr, displayIpa, noteFor } from '@/services/content.logic';
 import { CARD_TYPES, LEVELS, type CardType, type Level } from '@/content/schema';
 import { themeMeta } from '@/content/themeMeta';
 import { domainMeta } from '@/content/domainMeta';
@@ -67,9 +67,15 @@ export default function Flashcards() {
     // A hub deck with no level filter plays easiest-first: sorted by band
     // (LEVELS order), stable within a band, so "all levels" is a ramp rather
     // than a shuffle of sons cards into b2 sentences.
+    // A domain deck unions every theme under it, so it repeats headwords the
+    // themes each authored for themselves. Dedupe AFTER the band sort and the
+    // copy that survives is the lowest-band one, which is the one a learner
+    // should meet first. A theme deck is untouched: it never had duplicates.
     const all = domain && !LEVELS.includes(level as Level)
-      ? [...fetched].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level))
-      : fetched;
+      ? dedupeByFr([...fetched].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level)))
+      : domain
+        ? dedupeByFr(fetched)
+        : fetched;
     if (deckMode !== 'new') return all;
     const { attempts } = useProgress.getState();
     return composeSession(attempts, introEligible(all, useStore.getState().level), localDay()).fresh;
@@ -88,6 +94,11 @@ export default function Flashcards() {
   const [flipped, setFlipped] = useState(false);
   const [known, setKnown] = useState(0);
   const [cardDir, setCardDir] = useState<'fr' | 'en'>(dir === 'en' ? 'en' : 'fr');
+  // Drives the audio pill's bars. Every other screen in the app passes
+  // `active` to Waveform (player, sentence, dictation, speak); flashcards was
+  // the one that did not, so its bars sat frozen even mid-utterance and the
+  // control that signals audio showed no sign of playing.
+  const [speaking, setSpeaking] = useState(false);
 
   // Cleanup: without this, closing mid-card leaves the answer timer to fire
   // setState on an unmounted component, and any in-flight TTS keeps speaking.
@@ -102,6 +113,7 @@ export default function Flashcards() {
     return () => {
       if (answerTimer.current) clearTimeout(answerTimer.current);
       tts.stop();
+      setSpeaking(false);
     };
   }, []);
 
@@ -173,6 +185,12 @@ export default function Flashcards() {
     : frFront
       ? T.instrVocabFr
       : T.instrVocabEn;
+
+  const say = () => {
+    setSpeaking(true);
+    const done = () => setSpeaking(false);
+    tts.speak(card.fr, { onDone: done, onError: done });
+  };
 
   const flipCard = () => {
     sound.play('flip');
@@ -426,15 +444,15 @@ export default function Flashcards() {
                       {promptMode ? card.prompt ?? card.fr : frFront ? card.fr : card.en}
                     </TX>
                     {!promptMode && frFront && card.ipa ? (
-                      <TX role="bodySm" center color={t.txMuted}>
-                        {card.ipa}
+                      <TX font="notation" role="bodySm" center color={t.txMuted}>
+                        {displayIpa(card.ipa)}
                       </TX>
                     ) : null}
                     {/* The respelling — the word rewritten in English-friendly
                         syllables, under the IPA: the IPA is exact, this is the
                         one a learner can actually read aloud. */}
                     {!promptMode && frFront && card.respell ? (
-                      <TX font="semi" role="bodySm" ls={0.8} center color={t.accTx}>
+                      <TX font="notation" role="bodySm" ls={0.8} center color={t.accTx} style={{ fontWeight: '600' }}>
                         {card.respell}
                       </TX>
                     ) : null}
@@ -446,9 +464,9 @@ export default function Flashcards() {
                     French is part of the answer, so no audio there. */}
                 {!promptMode && frFront ? (
                   <View style={{ minHeight: 70, borderRadius: 35, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, paddingVertical: 8, marginBottom: 16 }}>
-                    <Waveform count={16} height={22} color={t.accA(55)} barWidth={3.25} gap={4} />
+                    <Waveform count={16} height={22} color={t.accA(55)} barWidth={3.25} gap={4} active={speaking} />
                     <Press
-                      onPress={() => tts.speak(card.fr)}
+                      onPress={say}
                       cue={null}
                       // No accessibilityRole="button" here: this Press sits
                       // inside the card's own Flip-card button (:345), and on
@@ -497,8 +515,21 @@ export default function Flashcards() {
                         {card.en}
                       </TX>
                     ) : null}
+                    {/* On a PROMPT card the note is usually the answer, not a
+                        footnote. « « oi » : which sound? » reveals the example
+                        word « moi » as its headline and puts [wa] here; an
+                        error card reveals the word and puts the correction
+                        here. Set at the muted footnote weight it was the
+                        smallest text on the card, under the two lines that
+                        merely restate the question. Vocab cards keep the quiet
+                        treatment, where the note really is an aside. */}
                     {cardNote ? (
-                      <TX font="serifI" role="bodySm" center color={t.txMuted}>
+                      <TX
+                        font="serifI"
+                        role={promptMode ? 'body' : 'bodySm'}
+                        center
+                        color={promptMode ? t.txSecondary : t.txMuted}
+                      >
                         {cardNote}
                       </TX>
                     ) : null}
@@ -508,9 +539,9 @@ export default function Flashcards() {
                     stays under the thumb through the flip. The back always
                     speaks the French — here it is the answer, revealed. */}
                 <View style={{ minHeight: 70, borderRadius: 35, borderWidth: 1, borderColor: t.accA(30), flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, paddingVertical: 8, marginBottom: 16 }}>
-                  <Waveform count={16} height={22} color={t.accA(55)} barWidth={3.25} gap={4} />
+                  <Waveform count={16} height={22} color={t.accA(55)} barWidth={3.25} gap={4} active={speaking} />
                   <Press
-                    onPress={() => tts.speak(card.fr)}
+                    onPress={say}
                     cue={null}
                     // See the matching front-face Press above: no
                     // accessibilityRole="button" — this one nests inside the

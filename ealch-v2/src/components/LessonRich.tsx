@@ -299,7 +299,7 @@ export function LetterGridView({ letters, sectionTitle, onPlay, playingId }: { l
               <TX font="serif" size={92} role="display" color={t.accTx}>{sel.ch}</TX>
               <View style={{ paddingBottom: 12 }}>
                 <TX font="semi" role="titleLg" ls={0.5}>{sel.name}</TX>
-                {sel.ipa ? <TX role="label" color={t.txMuted}>{sel.ipa}</TX> : null}
+                {sel.ipa ? <TX font="notation" role="label" color={t.txMuted}>{sel.ipa}</TX> : null}
               </View>
             </View>
             <TX role="body" color={t.txSecondary} lhMult={1.55} style={{ marginBottom: 16 }}>{sel.sound}</TX>

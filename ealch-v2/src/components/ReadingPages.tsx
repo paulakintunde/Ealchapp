@@ -218,7 +218,7 @@ export function PassagePage({
                 <Icon name="speaker" size={19} color={t.acc} />
               </Press>
             </View>
-            {open.ipa ? <TX role="body" color={t.txSecondary}>{open.ipa}</TX> : null}
+            {open.ipa ? <TX font="notation" role="body" color={t.txSecondary}>{open.ipa}</TX> : null}
             <TX role="titleSm" color={t.txSecondary}>{open.en}</TX>
             {open.note ? (
               <TX role="bodySm" color={t.txMuted} style={{ lineHeight: 22 }}>{open.note}</TX>

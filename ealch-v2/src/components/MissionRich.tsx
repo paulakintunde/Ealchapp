@@ -245,7 +245,7 @@ function SoundCell({ snd, onPress }: { snd: GridSound; onPress: () => void }) {
         marginBottom: 8,
       }}
     >
-      <TX font="serifI" role="titleSm" color={snd.trap ? t.danger : t.txPrimary}>{snd.ipa}</TX>
+      <TX font="notation" role="titleSm" color={snd.trap ? t.danger : t.txPrimary}>{snd.ipa}</TX>
       <TX role="meta" color={t.txSubtle}>{snd.graphemes[0]}</TX>
     </Press>
   );
@@ -266,7 +266,7 @@ export function SoundGridView({ s }: { s: SoundGridSec }) {
           <View>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 12 }}>
               <View style={{ width: 66, height: 66, borderRadius: 16, borderWidth: 1.5, borderColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-                <TX font="serifI" role="titleLg" color={t.acc}>{sel.ipa}</TX>
+                <TX font="notation" role="titleLg" color={t.acc}>{sel.ipa}</TX>
               </View>
               <View style={{ flex: 1 }}>
                 <TX font="serifI" role="titleLg">{sel.graphemes.join(', ')}</TX>
@@ -439,7 +439,7 @@ function OneGroup({
       {(g.items ?? []).map((it, i) => (
         <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
           <View style={{ flex: 1 }}>
-            <TX role="body">{it.fr} {it.ipa ? <TX role="bodySm" color={t.txMuted}>{it.ipa}</TX> : null}</TX>
+            <TX role="body">{it.fr} {it.ipa ? <TX font="notation" role="bodySm" color={t.txMuted}>{it.ipa}</TX> : null}</TX>
             {/* THE SECOND LINE, AND `note` IS NOT THE ONLY THING THAT BELONGS ON IT.
              *
              *  Until 2026-08-13 this drew `note` alone. `respell` and `en` were
@@ -733,7 +733,7 @@ function TrapFlipCard({ c, height = null }: { c: TrapCard; height?: number | nul
       ) : (
         <View style={[face, { borderColor: t.accA(45), backgroundColor: t.accCard(10) }]}>
           <TX font="serifI" role="titleLg" color={t.acc}>{c.fr}</TX>
-          <TX role="body" color={t.txMuted}>{c.ipa}</TX>
+          <TX font="notation" role="body" color={t.txMuted}>{c.ipa}</TX>
           <TX role="bodySm" center lhMult={1.5} style={{ marginTop: 4 }}>{c.tip}</TX>
         </View>
       )}
@@ -905,7 +905,7 @@ function TrapAudioStep({ s }: { s: TrapDrillSec }) {
           }}
         >
           <TX font="serifI" role="titleSm">{c.fr}</TX>
-          <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 10 }}>{c.ipa}</TX>
+          <TX font="notation" role="bodySm" color={t.txMuted} style={{ marginBottom: 10 }}>{c.ipa}</TX>
           <View style={{ flexDirection: 'row', gap: 8 }}>
             {rates.map((rate) => {
               const on = playing === `${c.fr}@${rate}`;
@@ -1227,7 +1227,7 @@ function LabWordRow({ itemId }: { itemId: string }) {
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
         <View style={{ flex: 1 }}>
           <TX font="serifI" role="titleSm">{item.fr}</TX>
-          {item.ipa ? <TX role="bodySm" color={t.txMuted}>{item.ipa}</TX> : null}
+          {item.ipa ? <TX font="notation" role="bodySm" color={t.txMuted}>{item.ipa}</TX> : null}
         </View>
         <PlayDot text={item.fr} />
         <Press
@@ -1293,7 +1293,7 @@ export function PronunciationLabView({ s }: { s: PronunciationLabSec }) {
       ) : null}
       <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 12, marginBottom: 12 }}>
         <TX font="serif" size={54} role="display">{snd.label}</TX>
-        <TX role="titleSm" color={t.accTx}>{snd.ipa}</TX>
+        <TX font="notation" role="titleSm" color={t.accTx}>{snd.ipa}</TX>
       </View>
       <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 12 }}>{snd.sub}</TX>
       <View style={{ gap: 8, marginBottom: 16 }}>
