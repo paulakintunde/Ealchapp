@@ -219,9 +219,15 @@ test('the prerequisite is shipped, not merely declared', { skip: noLesson }, () 
 
 test('48 rows in the claimed block, and nobody else is inside it', { skip: noLesson }, () => {
   strictEqual(MINE.length, 48, `${MINE.length} rows inside ${MY_BLOCK.from}..${MY_BLOCK.to}`);
-  deepStrictEqual(MINE.map((i) => i.id).sort(), MINE.map((i) => i.id).sort());
-  strictEqual(MINE[0]!.id, A(189));
-  strictEqual(MINE[MINE.length - 1]!.id, A(236));
+  // BY ID, not by position in the array. seed.json is not sorted and never has
+  // been, so `MINE[0]` was only incidentally the lowest id: any publish that
+  // reorders the items breaks it while the block itself is untouched. That is
+  // what happened on v69, where all 48 rows were present and correct and this
+  // was the only thing that failed.
+  const ids = MINE.map((i) => i.id).sort();
+  strictEqual(new Set(ids).size, ids.length, 'a row inside the block appears twice');
+  strictEqual(ids[0], A(189));
+  strictEqual(ids[ids.length - 1], A(236));
 });
 
 test('NOT ONE HEADWORD IS AUTHORED, for the eighth build running', { skip: noLesson }, () => {
