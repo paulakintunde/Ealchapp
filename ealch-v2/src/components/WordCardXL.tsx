@@ -133,6 +133,7 @@ export function WordCardXL({
         adjustsFontSizeToFit
         minimumFontScale={0.55}
         accessibilityLabel={fr}
+        lang="fr"
       >
         {glyphs.map((g) =>
           g.silent ? (
@@ -242,13 +243,13 @@ export function SilentText({
   const g = useMemo(() => splitGlyphs(fr, silent), [fr, silent]);
   if (!g.some((x) => x.silent)) {
     return (
-      <TX role={role} font={font} color={color} center={center} size={size}>
+      <TX role={role} font={font} color={color} center={center} size={size} lang="fr">
         {fr}
       </TX>
     );
   }
   return (
-    <TX role={role} font={font} color={color} center={center} size={size} accessibilityLabel={fr}>
+    <TX role={role} font={font} color={color} center={center} size={size} accessibilityLabel={fr} lang="fr">
       {g.map((x) =>
         x.silent ? (
           <TX key={`${x.index}-${x.ch}`} role={role} font={font} size={size} color={t.txNonText}>

@@ -621,7 +621,7 @@ export default function Speak() {
         <TX font="semi" role="meta" ls={3} color={t.accTx} style={{ marginBottom: 12 }}>
           {coachName.toUpperCase()}
         </TX>
-        <TX font="serifI" size={24} role="display" lhMult={1.32} center style={{ minHeight: 66 }}>
+        <TX font="serifI" size={24} role="display" lhMult={1.32} center lang="fr" style={{ minHeight: 66 }}>
           « {item.fr} »
         </TX>
         <TX role="label" color={t.txSubtle} center style={{ marginTop: 10 }}>

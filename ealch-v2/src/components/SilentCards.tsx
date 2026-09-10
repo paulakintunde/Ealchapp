@@ -458,7 +458,7 @@ function PracticeWords({
               }}
             >
               <View style={{ gap: 1 }}>
-                <TX font="serifI" role="title">{item.fr}</TX>
+                <TX font="serifI" role="title" lang="fr">{item.fr}</TX>
                 {item.respell ? <TX role="meta" color={t.txSubtle}>{item.respell}</TX> : null}
               </View>
               <Icon name="speaker" size={14} color={on ? t.acc : t.txNonText} />

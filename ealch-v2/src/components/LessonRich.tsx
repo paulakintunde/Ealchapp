@@ -453,7 +453,7 @@ function DeckCard({
           <TX font="semi" role="titleLg" size={20} lhMult={1.3} style={{ width: '100%', marginBottom: 10 }}>{c.head}</TX>
         ) : null}
         {c.fr ? (
-          <TX font="serifI" size={26} role="titleLg" ls={0.4} lhMult={1.3} color={t.txPrimary} style={{ width: '100%', marginBottom: 6 }}>
+          <TX font="serifI" size={26} role="titleLg" ls={0.4} lhMult={1.3} color={t.txPrimary} lang="fr" style={{ width: '100%', marginBottom: 6 }}>
             {c.fr}
           </TX>
         ) : null}
@@ -914,7 +914,7 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
                     key={i}
                     style={{ width: sheetCardW, marginRight: 12, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 20, minHeight: sheetCardH, justifyContent: 'center' }}
                   >
-                    <TX font="serifI" size={27} role="titleLg" ls={0.4} lhMult={1.3} style={{ width: '100%' }}>{c.fr}</TX>
+                    <TX font="serifI" size={27} role="titleLg" ls={0.4} lhMult={1.3} lang="fr" style={{ width: '100%' }}>{c.fr}</TX>
                     {c.sub ? <TX role="label" color={t.txMuted} ls={0.3} lhMult={1.5} style={{ width: '100%', marginTop: 6 }}>{c.sub}</TX> : null}
                     <TX role="bodySm" color={t.txSecondary} lhMult={1.5} style={{ width: '100%', marginTop: 8, marginBottom: 14 }}>{c.en}</TX>
                     <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={58} />
@@ -1163,7 +1163,7 @@ export function PracticeVFView({
                 self-measured text inside the nested pager clips the second word
                 of multi-word items on Android ("la rue" showed only "la"). Full
                 width makes RN wrap inside a known box instead of clipping. */}
-            <TX font="serifI" size={28} role="display" center lhMult={1.25} style={{ width: '100%', marginBottom: 6 }}>{item.fr}</TX>
+            <TX font="serifI" size={28} role="display" center lhMult={1.25} lang="fr" style={{ width: '100%', marginBottom: 6 }}>{item.fr}</TX>
             <TX role="label" color={t.txMuted} center lhMult={1.5} style={{ width: '100%', marginBottom: 12 }}>
               {item.en}{noteFor(item) ? ` · ${noteFor(item)}` : ''}
             </TX>
@@ -1352,7 +1352,7 @@ export function PracticeWriteView({
                     {/* The flex sits on this wrapper View, never on the TX — a
                         flexed Text loses its last words on Android. */}
                     <View style={{ flex: 1 }}>
-                      <TX font="serif" size={21} role="display" lhMult={1.45} color={t.accTx}>{item.fr}</TX>
+                      <TX font="serif" size={21} role="display" lhMult={1.45} color={t.accTx} lang="fr">{item.fr}</TX>
                     </View>
                     {/* Audio only once the answer is out: before that it would
                         be the answer. */}

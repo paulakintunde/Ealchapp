@@ -302,7 +302,7 @@ export function ExamDebateTask({
         {task.label ?? T.examStartDebate}
       </TX>
       <View style={{ height: 6 }} />
-      <TX accessibilityLanguage="fr-FR">{task.prompt}</TX>
+      <TX lang="fr">{task.prompt}</TX>
 
       {phase === 'idle' ? (
         <View style={{ marginTop: 14 }}>
@@ -341,7 +341,7 @@ export function ExamDebateTask({
                 backgroundColor: l.who === 'examiner' ? t.line(8) : t.accA(10),
               }}
             >
-              <TX accessibilityLanguage="fr-FR">{l.text}</TX>
+              <TX lang="fr">{l.text}</TX>
             </View>
           ))}
         </View>

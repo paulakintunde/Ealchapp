@@ -55,6 +55,26 @@ export type TXProps = Omit<TextProps, 'role'> & {
   /** Tighter font-scaling cap than the role allows, for text in a box that
    *  cannot grow (tab labels, clock digits, fixed-width chips). */
   maxScale?: number;
+  /** Announce this text as French to a screen reader (UDL 08).
+   *
+   *  In a pronunciation app, French read aloud in the interface voice is the
+   *  core content delivered wrong to the learners who depend on it most. One
+   *  prop on the primitive every string already flows through is the whole
+   *  mechanism -- the alternative is a prop sprinkled over 33 components.
+   *
+   *  WHAT IT DOES, precisely, because the two platforms differ:
+   *    iOS      accessibilityLanguage switches the VoiceOver voice. Real.
+   *    Android  TalkBack does not read this prop. It is inert, not harmful,
+   *             and the Android mechanism is NOT yet established -- see the
+   *             note in a11y-language.test.ts. Do not read a `lang` prop as
+   *             proof that TalkBack says it in French.
+   *
+   *  Only ever 'fr'. The respelling and the IPA take the OPPOSITE treatment:
+   *  they are pronunciation aids written in English-ish orthography, so they
+   *  must stay in the interface voice. Tagging those French makes them
+   *  gibberish, which is why the guard checks for it.
+   */
+  lang?: 'fr';
   ls?: number; // letter spacing
   center?: boolean;
   style?: TextStyle | TextStyle[];
@@ -69,6 +89,7 @@ export function TX({
   lhMult,
   lh,
   maxScale,
+  lang,
   ls,
   center,
   style,
@@ -109,6 +130,10 @@ export function TX({
       // The scale is already baked into `fontSize` above, and the cap with it.
       // Letting RN scale again would apply it twice.
       allowFontScaling={false}
+      // 'fr-FR' rather than 'fr': iOS wants a BCP-47 tag and picks the
+      // regional voice from it. Left off entirely when unset, so nothing
+      // that has not opted in changes voice.
+      accessibilityLanguage={lang === 'fr' ? 'fr-FR' : undefined}
       {...rest}
     >
       {children}

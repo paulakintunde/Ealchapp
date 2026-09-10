@@ -176,7 +176,7 @@ export function SectionView({
             {s.cases.map((c, i) => (
               <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}>
                 <TX font="semi" role="meta" ls={1.4} color={t.txSubtle} style={{ marginBottom: 6 }}>{c.situation}</TX>
-                <TX font="serifI" role="titleLg" size={18} style={{ marginBottom: 3 }}>« {c.fr} »</TX>
+                <TX font="serifI" role="titleLg" size={18} lang="fr" style={{ marginBottom: 3 }}>« {c.fr} »</TX>
                 <TX role="label" color={t.txMuted}>{c.en}</TX>
               </View>
             ))}
