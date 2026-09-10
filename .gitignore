@@ -41,6 +41,14 @@ ealch-admin/scripts/_tmp_*.ts
 ealch-admin/scripts/_a*.ts
 ealch-admin/scripts/_a*.mjs
 
+# The same throwaways OUTPUT files as well as being them. `_a235_digest.txt`
+# is 94 KB of dumped lesson bodies from the a2.35 build, sitting at the admin
+# root rather than in scripts/ because the probe that wrote it ran from there.
+# Same convention, same one-question lifetime, same reason not to keep it --
+# the rule above only ever covered the script, not what it printed.
+ealch-admin/**/_a*.txt
+ealch-admin/**/_a*.json
+
 # Seed snapshots taken around a migration. A copy of seed.json is ~15 MB and
 # carries the SAME `version` field as the real one while holding an older body,
 # so a stray `git add -A` commits 30 MB and a stray copy silently restores a
@@ -54,3 +62,9 @@ ealch-v2/src/content/seed.*.migrated.json
 # ignored because its `--write` still writes seed.json AND Postgres directly,
 # bypassing the batch-then-merge pipeline every lesson goes through.
 ealch-admin/scripts/_a2_unit_label_migration.ts
+
+# Editor-local settings. The checked-in file was an empty object, so it
+# carried no shared configuration and only ever showed up as noise in
+# `git status`. If a genuinely shared setting is ever wanted, `git add -f`
+# that one file rather than un-ignoring the directory.
+.vscode/
