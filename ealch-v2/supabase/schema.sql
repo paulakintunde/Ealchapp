@@ -191,6 +191,20 @@ create policy "config readable" on public.system_config for select using (true);
 create or replace function public.coach_bump(p_key text, p_day date, p_limit integer)
 returns table (used integer, allowed boolean)
 language plpgsql
+-- An empty search_path, and every object below named with its schema.
+--
+-- Flagged by the Supabase database linter (0011_function_search_path_mutable)
+-- on 2026-09-10. Without this the function resolves unqualified names using
+-- the CALLER's search_path, so anyone able to prepend a schema could shadow an
+-- object this body touches and have it run with the definer's reach. Only the
+-- service role may call coach_bump, which is what keeps it a hardening job
+-- rather than a live hole -- but the whole point of the quota is that it is
+-- not the caller's to influence.
+--
+-- Safe here because the body already qualifies public.coach_usage. The two
+-- bare `coach_usage.count` references are alias references to the conflict
+-- target, not schema lookups, and the signature types resolve at creation.
+set search_path = ''
 as $$
 begin
   insert into public.coach_usage (subject_key, day, count)
