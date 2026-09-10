@@ -250,6 +250,10 @@ export type Strings = {
   // everyone), and the annual discount is a SHARE (saveFmt), never months.
   subscription: string; currentPlan: string;
   pwTag: string; pwTitle: string; pwLead: string;
+  /** Store-required disclosure: names the product, the billing period and
+   *  the price the button will actually charge. Apple 3.1.2 and Play both
+   *  require all three ON the paywall, next to the two legal links. */
+  pwTermsPlan: string;
   pwFeatLevels: string; pwFeatLevelsS: string;
   pwFeatCoach: string; pwFeatCoachS: string;
   pwFeatRoleplay: string; pwFeatRoleplayS: string;
@@ -305,6 +309,11 @@ export type Strings = {
   delBtn: string; delBtnGuest: string; delCancel: string;
   errDelete: string; errDelNoSession: string;
   legalPre: string; legalTerms: string; legalAnd: string; legalPrivacy: string; legalPost: string;
+  /** The About & legal section of settings, and the notices screen behind it.
+   *  Both stores expect open-source notices to be reachable in-app, and the
+   *  OFL requires the font copyright to travel with the binary. */
+  aboutSec: string; licT: string; licSub: string; licLead: string;
+  licBundled: string; licFonts: string; licContent: string; licPkgs: string;
   /** freezeLeft is the profile chip; freezeShort/freezeShortPl fit the today strip,
    *  where the chip string wraps to two lines. Both take {n}. */
   freezeLeft: string; freezeShort: string; freezeShortPl: string;
@@ -617,6 +626,7 @@ export const T: Record<Lang, Strings> = {
     downloadsT: 'Téléchargements', downloadsS: 'Écoutez hors connexion', storage: 'Stockage', wifiOnly: 'Wi-Fi uniquement',
     subscription: 'Abonnement', currentPlan: 'FORMULE ACTUELLE',
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Débloquez tout le parcours',
+    pwTermsPlan: 'Ealch Première · abonnement {plan} · {price}',
     pwLead: 'A2 et au-delà, coach illimité et jeux de rôle illimités. Sons et A1 restent gratuits pour toujours.',
     pwFeatLevels: 'Tous les niveaux', pwFeatLevelsS: 'A2 et au-delà, aussi loin que vous irez',
     pwFeatCoach: 'Coach illimité', pwFeatCoachS: 'Posez vos questions au-delà de la limite quotidienne gratuite',
@@ -710,6 +720,11 @@ export const T: Record<Lang, Strings> = {
     newPwPh: 'Nouveau mot de passe', setNewPw: 'Enregistrer le mot de passe', backToSignIn: 'Retour à la connexion',
     errResetFailed: 'Impossible de mettre à jour le mot de passe. Réessayez.',
     pwShow: 'Afficher le mot de passe', pwHide: 'Masquer le mot de passe',
+    aboutSec: 'À propos & mentions légales', licT: 'Licences tierces',
+    licSub: "Les polices, le code et les données sur lesquels Ealch est bâti",
+    licLead: "Ealch est construit sur le travail d'autres personnes. Voici lesquelles, et ce que chacune apporte.",
+    licBundled: 'INCLUS DANS L’APPLICATION', licFonts: 'CARACTÈRES', licContent: 'DERRIÈRE LE CONTENU',
+    licPkgs: '{n} paquets',
     legalPre: "En créant un compte, vous acceptez les ",
     legalTerms: "conditions d'utilisation",
     legalAnd: ' et la ',
@@ -1055,6 +1070,7 @@ export const T: Record<Lang, Strings> = {
     downloadsT: 'Downloads', downloadsS: 'Listen offline', storage: 'Storage', wifiOnly: 'Wi-Fi only',
     subscription: 'Subscription', currentPlan: 'CURRENT PLAN',
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Unlock the whole path',
+    pwTermsPlan: 'Ealch Première · {plan} subscription · {price}',
     pwLead: 'A2 and beyond, unlimited coach turns and unlimited role plays. Sons and A1 stay free forever.',
     pwFeatLevels: 'Every level', pwFeatLevelsS: 'A2 and beyond, as far as you go',
     pwFeatCoach: 'Unlimited coach', pwFeatCoachS: 'Ask past the free daily limit',
@@ -1148,6 +1164,11 @@ export const T: Record<Lang, Strings> = {
     newPwPh: 'New password', setNewPw: 'Save password', backToSignIn: 'Back to sign in',
     errResetFailed: 'Could not update the password. Try again.',
     pwShow: 'Show password', pwHide: 'Hide password',
+    aboutSec: 'About & legal', licT: 'Third-party licences',
+    licSub: 'The fonts, code and data Ealch is built on',
+    licLead: 'Ealch is built on other people’s work. Here is whose, and what each piece does.',
+    licBundled: 'BUNDLED WITH THE APP', licFonts: 'TYPEFACES', licContent: 'BEHIND THE CONTENT',
+    licPkgs: '{n} packages',
     legalPre: "By signing up you agree to Ealch's ",
     legalTerms: 'Terms of Use',
     legalAnd: ' and ',

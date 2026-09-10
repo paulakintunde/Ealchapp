@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { Linking, ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -9,6 +9,7 @@ import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { CURRENCIES, PRICES } from '@/content/pricing';
+import { LEGAL } from '@/config/legal';
 import { detectCurrency } from '@/store/entitlement.logic';
 import { useEntitlement, useIsPremium } from '@/store/useEntitlement';
 import { useStore, type Currency } from '@/store/useStore';
@@ -351,9 +352,47 @@ export default function Paywall() {
           </View>
         )}
 
-        <TX role="label" color={t.txNonText} style={{ marginTop: 4 }}>
-          {T.pwTermsAuto}
-        </TX>
+        {/* Store-required subscription disclosure. Apple 3.1.2(a) and Play
+            both require the paywall itself to state the product, the billing
+            period and the price, and to carry functional links to the terms
+            and the privacy policy. Only the auto-renewal sentence was here;
+            the price was on the plan rows and the two links were on the
+            sign-up screen, which is a different screen and may never be
+            seen -- a signed-in user reaching settings goes straight here.
+
+            The price quoted is the SELECTED row, not a literal: it is the
+            same value the button charges, live store quote included, so
+            this line cannot drift from what is billed. */}
+        <View style={{ marginTop: 4, gap: 6 }}>
+          <TX role="label" color={t.txNonText}>
+            {T.pwTermsPlan
+              .replace('{plan}', (planRows.find((r) => r.id === planPick) ?? planRows[0]).label.toLowerCase())
+              .replace('{price}', (planRows.find((r) => r.id === planPick) ?? planRows[0]).price)}
+          </TX>
+          <TX role="label" color={t.txNonText}>
+            {T.pwTermsAuto}
+          </TX>
+          <View style={{ flexDirection: 'row', gap: 18, marginTop: 2 }}>
+            <TX
+              font="semi"
+              role="label"
+              color={t.txSubtle}
+              onPress={() => { Linking.openURL(LEGAL.termsUrl).catch(() => {}); }}
+              style={{ textDecorationLine: 'underline' }}
+            >
+              {T.legalTerms}
+            </TX>
+            <TX
+              font="semi"
+              role="label"
+              color={t.txSubtle}
+              onPress={() => { Linking.openURL(LEGAL.privacyUrl).catch(() => {}); }}
+              style={{ textDecorationLine: 'underline' }}
+            >
+              {T.legalPrivacy}
+            </TX>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
