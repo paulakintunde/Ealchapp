@@ -4,6 +4,7 @@ import {
   Easing,
   Image,
   ScrollView,
+  TextInput,
   View,
   useWindowDimensions,
   type NativeScrollEvent,
@@ -48,6 +49,10 @@ import { content } from '@/services/content';
 import { noteFor } from '@/services/content.logic';
 import { lessonImage } from '@/content/lessonImages';
 import { deckEntries } from '@/content/deck.logic';
+// The house answer-folding every other scored surface uses, so the writing
+// surface cannot drift from the quiz on what counts as a right answer.
+import { fold } from '@/content/answer.logic';
+import { F } from '@/theme/fonts';
 import type { CardSize, GridLetter, LessonSection, TapRow, VocabTheme } from '@/content/schema';
 
 // The rich course renderers behind the Sons rebuild: tappable letter grids,
@@ -1181,6 +1186,204 @@ export function PracticeVFView({
             <Press cue={null} onPress={() => grade(true)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>{T.vfGot}</TX>
             </Press>
+          </View>
+        </View>
+      )}
+    </View>
+  );
+}
+
+/* ─── Practice (the writing surface) ──────────────────────────────────────── */
+
+// The `practice` section at skill 'write'. The learner is shown the ENGLISH and
+// produces the French by typing it — the one production channel in the app that
+// is neither speaking nor spelling-by-ear.
+//
+// Shape borrowed from the two surfaces that already do this well, so a learner
+// meets nothing new: the run (progress row, prompt card, score card) is
+// PracticeVFView's, and the answer box (bordered, serif input, struck-through
+// miss above the right answer) is the dictée's — app/dictation.tsx.
+//
+// Three deliberate differences from the dictée:
+//
+//   1. NO AUDIO BEFORE THE ANSWER. The dictée is spelling-by-ear, so it plays
+//      first by definition. Here the audio would BE the answer, so the chip
+//      only appears once the answer has been checked or revealed — at which
+//      point hearing it is the useful part.
+//   2. Revealing counts as a miss. There has to be a way out of a word you
+//      cannot spell, and the price of taking it is the grade you would have
+//      got. This is what stops a learner stalling on one card.
+//   3. The surface says what it cannot mark. fold() strips accents and
+//      cedillas, so "francais" is accepted for "français" and there is no way
+//      to score it otherwise without a separate comparison path. `wrNote` says
+//      so under the box, because a tick that silently forgives an accent
+//      teaches the wrong thing to anyone who notices.
+//
+// Grading flows through the SAME onGrade as the speaking surface, so a written
+// section feeds Le Rapport and the SRS exactly as a spoken one does.
+export function PracticeWriteView({
+  itemIds,
+  sectionTitle,
+  onPlay,
+  playingId,
+  onGrade,
+}: {
+  itemIds: string[];
+  sectionTitle: string;
+  onGrade: (itemId: string, correct: boolean) => void;
+} & PlayProps) {
+  const t = useTheme();
+  const T = useT();
+  const [ix, setIx] = useState(0);
+  const [score, setScore] = useState(0);
+  const [typed, setTyped] = useState('');
+  // 'idle' → typing; 'checked' → verdict shown, Next is the only way on.
+  const [phase, setPhase] = useState<'idle' | 'checked'>('idle');
+  const [got, setGot] = useState(false);
+  const items = itemIds.map((id) => content.item(id)).filter((x): x is NonNullable<typeof x> => !!x);
+  const total = items.length;
+  const over = ix >= total;
+  const item = items[Math.min(ix, total - 1)];
+  // Measured, not guessed — the same rule the voice surface learned: this card
+  // uses a fixed height so it cannot grow past the bottom of the page and take
+  // the Check button with it. Reserved: the progress row (~35) and the action
+  // row below (50 + 18).
+  const [onBoxLayout, cardH] = useMeasuredCardHeight(340, 35 + 68);
+
+  if (total === 0) return null;
+
+  const pid = `${sectionTitle}-w-${item.id}`;
+  const on = playingId === pid;
+
+  const settle = (correct: boolean) => {
+    setGot(correct);
+    setPhase('checked');
+    if (correct) setScore((v) => v + 1);
+    onGrade(item.id, correct);
+  };
+  const check = () => {
+    if (!typed.trim()) return;
+    sound.play('tap');
+    settle(fold(typed) === fold(item.fr));
+  };
+  // Revealing is a miss, graded like one. See note 2 above.
+  const reveal = () => {
+    sound.play('tap');
+    settle(false);
+  };
+  const next = () => {
+    sound.play('tap');
+    setTyped('');
+    setPhase('idle');
+    setIx((i) => i + 1);
+  };
+  const restart = () => {
+    sound.play('tap');
+    setTyped('');
+    setPhase('idle');
+    setIx(0);
+    setScore(0);
+  };
+
+  const border = phase !== 'checked' ? t.line(10) : got ? t.acc : t.danger;
+  const missShown = !got && !!typed.trim();
+
+  return (
+    // flex: 1 + onLayout: the box takes the height the page hands it and
+    // reports it, rather than the card guessing at it.
+    <View style={{ flex: 1 }} onLayout={onBoxLayout}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+        <View style={{ flex: 1 }}>
+          <ProgressBar pct={total ? Math.min(100, (ix / total) * 100) : 0} height={3} color={t.acc} track={t.line(10)} />
+        </View>
+        <TX role="meta" color={t.txMuted}>{Math.min(ix + 1, total)} / {total}</TX>
+      </View>
+
+      {over ? (
+        <View style={{ minHeight: cardH, alignItems: 'center', justifyContent: 'center', borderRadius: 24, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card2, padding: 26 }}>
+          <MascotAvatar size={64} rounded={false} state="celebrate" tier="medium" celebrateKey={`${sectionTitle}-wr-done`} />
+          <TX font="serif" size={56} role="display" color={t.accTx}>{score} / {total}</TX>
+          <TX font="serifI" size={24} role="display" center style={{ width: '100%', marginTop: 8, marginBottom: 24 }}>{T.vfDoneT}</TX>
+          <Press cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="semi" role="body" color={t.accInk}>{T.redo}</TX>
+          </Press>
+        </View>
+      ) : (
+        <View>
+          {/* `height`, not `minHeight` — a minimum can only grow, which is what
+              put the voice card past the bottom of the page. */}
+          <View style={{ height: cardH, borderRadius: 24, borderWidth: 1, borderColor: border, backgroundColor: t.card2, paddingVertical: 22, paddingHorizontal: 20, justifyContent: 'center' }}>
+            <TX font="semi" role="meta" ls={2.6} color={t.accTx} center style={{ width: '100%', marginBottom: 14 }}>{T.wrPrompt}</TX>
+
+            {/* The prompt is the ENGLISH. width '100%' + centre, never
+                centre-by-intrinsic-width: self-measured text clips its last
+                word inside the nested pager on Android. */}
+            <TX font="serifI" size={26} role="display" center lhMult={1.3} style={{ width: '100%', marginBottom: 4 }}>{item.en}</TX>
+            {noteFor(item) ? (
+              <TX role="label" color={t.txMuted} center lhMult={1.5} style={{ width: '100%', marginBottom: 14 }}>{noteFor(item)}</TX>
+            ) : (
+              <View style={{ height: 14 }} />
+            )}
+
+            <View style={{ borderRadius: 18, borderWidth: 1, borderColor: phase === 'checked' ? border : t.line(14), backgroundColor: t.input, paddingVertical: 14, paddingHorizontal: 16 }}>
+              {phase === 'idle' ? (
+                <TextInput
+                  value={typed}
+                  onChangeText={setTyped}
+                  onSubmitEditing={check}
+                  returnKeyType="done"
+                  placeholder={T.wrPh}
+                  placeholderTextColor={t.txSubtle}
+                  autoCorrect={false}
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  accessibilityLabel={T.wrPrompt}
+                  style={{ fontFamily: F.serif, fontSize: 21, lineHeight: 29, color: t.txPrimary, padding: 0 }}
+                />
+              ) : (
+                <View>
+                  {missShown ? (
+                    <TX font="serif" size={20} role="titleLg" lhMult={1.45} color={t.danger} style={{ textDecorationLine: 'line-through', textDecorationColor: t.dangerA(50) }}>
+                      {typed}
+                    </TX>
+                  ) : null}
+                  <TX font="semi" role="meta" ls={2} color={t.accTx} style={{ marginTop: missShown ? 10 : 0, marginBottom: 6 }}>{T.wrAnswer}</TX>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    {/* The flex sits on this wrapper View, never on the TX — a
+                        flexed Text loses its last words on Android. */}
+                    <View style={{ flex: 1 }}>
+                      <TX font="serif" size={21} role="display" lhMult={1.45} color={t.accTx}>{item.fr}</TX>
+                    </View>
+                    {/* Audio only once the answer is out: before that it would
+                        be the answer. */}
+                    <Press cue={null} onPress={() => onPlay(pid, item.fr, item.audioRef)} style={{ width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: t.accA(40), alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon name="play" size={16} color={on ? t.acc : t.txNonText} />
+                    </Press>
+                  </View>
+                </View>
+              )}
+            </View>
+
+            <TX role="label" color={t.txNonText} center style={{ width: '100%', marginTop: 10 }}>
+              {phase === 'checked' && got ? T.correctT : T.wrNote}
+            </TX>
+          </View>
+
+          <View style={{ flexDirection: 'row', gap: 12, marginTop: 18 }}>
+            {phase === 'idle' ? (
+              <>
+                <Press cue={null} onPress={reveal} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
+                  <TX font="semi" role="body" color={t.txSecondary}>{T.wrReveal}</TX>
+                </Press>
+                <Press cue={null} onPress={check} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: typed.trim() ? t.acc : t.line(12), alignItems: 'center', justifyContent: 'center' }}>
+                  <TX font="semi" role="body" color={typed.trim() ? t.accInk : t.txNonText}>{T.checkT}</TX>
+                </Press>
+              </>
+            ) : (
+              <Press cue={null} onPress={next} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <TX font="semi" role="body" color={t.accInk}>{T.nextCard}</TX>
+              </Press>
+            )}
           </View>
         </View>
       )}

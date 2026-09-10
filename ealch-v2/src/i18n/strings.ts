@@ -210,6 +210,10 @@ export type Strings = {
   correctT: string; incorrectT: string; nextCard: string; vfDoneT: string;
   vfSelfT: string; vfGot: string; vfMissed: string;
   vfEmptyT: string; vfEmptyS: string;
+  /* The `practice` section at skill 'write': the learner is shown the English
+     and types the French. `wrNote` states the one thing the surface cannot
+     test, so nobody reads a green tick as approval of an accent. */
+  wrPrompt: string; wrPh: string; wrAnswer: string; wrReveal: string; wrNote: string;
   learnT: string; arrangeT: string; sayItT: string; writeItT: string; wellDone: string;
   chooseLevel: string; startRp: string; rpDoneT: string; rpDoneS: string; rpYourLine: string; rpTag: string; rpReport: string; rpNotHeard: string;
   rpYourTurn: string; rpRespond: string; rpModel: string;
@@ -573,6 +577,8 @@ export const T: Record<Lang, Strings> = {
     correctT: 'Correct !', incorrectT: 'Pas tout à fait : ', nextCard: 'Carte suivante', vfDoneT: 'Session terminée',
     vfEmptyT: 'Rien à prononcer ici', vfEmptyS: "Ce thème n'a pas encore de mots pour Voice Flash. Essayez un autre thème ou revenez plus tard.",
     vfSelfT: 'LA RÉPONSE — ALORS ?', vfGot: "Je l'ai bien dit", vfMissed: 'Pas tout à fait',
+    wrPrompt: 'Écrivez-le en français', wrPh: 'Votre réponse…', wrAnswer: 'LA RÉPONSE',
+    wrReveal: 'Afficher la réponse', wrNote: 'Les accents ne sont pas notés ici.',
     learnT: 'Apprenez ces mots', arrangeT: 'Arrangez la phrase', sayItT: 'Dites-la à voix haute', writeItT: 'Écrivez-la', wellDone: 'Bravo, phrase acquise',
     chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: '{name} : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE', rpTag: 'JEU DE RÔLE', rpReport: 'Le rapport →', rpNotHeard: 'Pas entendu, votre réplique est affichée.',
     rpYourTurn: 'À VOUS', rpRespond: 'Répondez en français, puis vérifiez', rpModel: 'Réponse modèle',
@@ -1009,6 +1015,8 @@ export const T: Record<Lang, Strings> = {
     correctT: 'Correct!', incorrectT: 'Not quite: ', nextCard: 'Next card', vfDoneT: 'Session complete',
     vfEmptyT: 'Nothing to say here', vfEmptyS: 'This theme has no Voice Flash words yet. Try another theme, or check back later.',
     vfSelfT: 'THE ANSWER — HOW DID YOU DO?', vfGot: 'I said it right', vfMissed: 'Not quite',
+    wrPrompt: 'Write it in French', wrPh: 'Your answer…', wrAnswer: 'THE ANSWER',
+    wrReveal: 'Show the answer', wrNote: 'Accents are not marked here.',
     learnT: 'Learn these words', arrangeT: 'Arrange the sentence', sayItT: 'Say it out loud', writeItT: 'Write it', wellDone: 'Bravo, sentence mastered',
     chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: '{name}: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD', rpTag: 'ROLE PLAY', rpReport: 'The report →', rpNotHeard: 'Not heard, your line is shown.',
     rpYourTurn: 'YOUR TURN', rpRespond: 'Respond in French, then check', rpModel: 'Model reply',

@@ -661,3 +661,28 @@ test("only the two capstones claim 'assessment'", () => {
     `unexpected assessment lessons: ${marked.join(', ')}`,
   );
 });
+
+test('a second quiz section is authored work nobody can reach', () => {
+  // lessonPager.logic.ts strips EVERY quiz section out of the flow and appends
+  // exactly ONE quiz page, resolved with `sections.find(s => s.type === 'quiz')`.
+  // `find` takes the first. A second quiz section is therefore not "a second
+  // quiz" — it is questions that are removed from the flow and then never put
+  // back, with no error and nothing on screen to say so.
+  //
+  // Every lesson test in the corpus carries its own copy of this assertion,
+  // which is exactly why it belongs here as well: a copy per lesson protects
+  // the lessons that have one, and the next lesson authored is the one that
+  // will not. This is the version that cannot be forgotten.
+  //
+  // It has already cost real work once — it is why a1.30 became a two-lesson
+  // unit rather than one lesson with two quizzes. If a lesson genuinely needs
+  // two, the answer is a second lesson (see a1.30, a2.10), not a second
+  // section here.
+  for (const { id, lesson } of LESSONS) {
+    const quizzes = lesson.sections.filter((s) => s.type === 'quiz');
+    ok(
+      quizzes.length <= 1,
+      `${id} has ${quizzes.length} quiz sections (${quizzes.map((q) => idOf(q)).join(', ')}). Only the first is ever rendered; the rest are questions no learner can reach. Split the lesson instead.`,
+    );
+  }
+});

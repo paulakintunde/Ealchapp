@@ -9,6 +9,7 @@ import {
   FlashcardsView,
   LetterGridView,
   PracticeVFView,
+  PracticeWriteView,
   RichImage,
   RoundupView,
   TableView,
@@ -261,22 +262,42 @@ export function SectionView({
         </View>
       );
 
-    case 'practice':
-      // itemIds resolved against the corpus, run as a Voice Flash style pass
-      // (one prompt card at a time, audio chip, self-graded) so the lesson
-      // drill looks and feels like the drill the learner knows from home.
-      // Grading still flows through onGrade — the join that lets lesson study
-      // feed Le Rapport and the SRS is unchanged.
-      // flex: 1 rather than a bottom margin: the prompt card measures the room
-      // it is handed, so every wrapper between the page and it must pass the
-      // height down.
+    case 'practice': {
+      // itemIds resolved against the corpus, run one prompt card at a time and
+      // graded through onGrade — the join that lets lesson study feed Le
+      // Rapport and the SRS. That join is the same whichever surface runs.
+      //
+      // ROUTING ON THE DECLARED SKILL (UDL 11). The four PRACTICE_SKILLS used
+      // to collapse to one renderer: every section, whatever it declared, drew
+      // the Voice Flash speaking pass. A section titled "The bon/bonne trap,
+      // in writing" asked the learner to say it out loud. The skill field was
+      // authored, schema-validated, and read by nothing.
+      //
+      //   write            the writing surface — type the French from the
+      //                    English. Real production, and the non-speaking
+      //                    route through a producing section.
+      //   speak            the Voice Flash pass. Unchanged.
+      //   listen / read    DECIDED, deliberately, to share the speaking
+      //                    surface for now. Both already put the audio chip
+      //                    and the written French in front of the learner, so
+      //                    neither is silent about its skill; splitting them
+      //                    means designing two more surfaces and re-proving
+      //                    13 shipped sections, which is a content decision
+      //                    and not this one. Recorded here because this
+      //                    switch is where the next person will look.
+      //
+      // flex: 1 rather than a bottom margin: both prompt cards MEASURE the
+      // room they are handed, so every wrapper between the page and them must
+      // pass the height down. A hug-content box puts the card back on a guess.
+      const Practice = s.skill === 'write' ? PracticeWriteView : PracticeVFView;
       return (
         <View style={{ flex: 1 }}>
           {label}
           {hero}
-          <PracticeVFView itemIds={s.itemIds} sectionTitle={s.title} onPlay={onPlay} playingId={playingId} onGrade={onGrade} />
+          <Practice itemIds={s.itemIds} sectionTitle={s.title} onPlay={onPlay} playingId={playingId} onGrade={onGrade} />
         </View>
       );
+    }
 
     case 'letterGrid':
       return (
