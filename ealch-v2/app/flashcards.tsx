@@ -416,7 +416,13 @@ export default function Flashcards() {
                     on a front — recall means answering before the flip. */}
                 <View style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center', paddingVertical: 14 }}>
                   <View style={{ alignSelf: 'stretch', borderRadius: 18, borderWidth: 1, borderColor: t.accA(20), backgroundColor: t.accA(6), paddingVertical: 20, paddingHorizontal: 16, alignItems: 'center', gap: 8 }}>
-                    <TX font="serifI" size={promptMode ? 23 : 31} role="display" center>
+                    {/* alignSelf:stretch, not the box's alignItems:'center'.
+                        Centred, the line is shrink-wrapped to its own measured
+                        width with zero slack, so any disagreement between
+                        measure and paint pushes the last word onto a second
+                        line that the one-line-tall node then hides. textAlign
+                        (via `center`) does the centring instead. */}
+                    <TX font="serifI" size={promptMode ? 23 : 31} role="display" center style={{ alignSelf: 'stretch' }}>
                       {promptMode ? card.prompt ?? card.fr : frFront ? card.fr : card.en}
                     </TX>
                     {!promptMode && frFront && card.ipa ? (
@@ -482,7 +488,8 @@ export default function Flashcards() {
                     the teaching note live with the answer, inside it. */}
                 <View style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center', paddingVertical: 14 }}>
                   <View style={{ alignSelf: 'stretch', borderRadius: 18, borderWidth: 1, borderColor: t.accA(35), backgroundColor: t.accA(8), paddingVertical: 20, paddingHorizontal: 16, alignItems: 'center', gap: 10 }}>
-                    <TX font="serif" size={promptMode ? 23 : 28} role="display" center>
+                    {/* Same reason as the front face. */}
+                    <TX font="serif" size={promptMode ? 23 : 28} role="display" center style={{ alignSelf: 'stretch' }}>
                       {promptMode ? card.fr : frFront ? card.en : card.fr}
                     </TX>
                     {promptMode ? (
