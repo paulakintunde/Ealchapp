@@ -50,9 +50,16 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 4 plans
 
 Plans:
+**Wave 1**
 - [ ] 01-01-PLAN.md — Extract the drift comparators into a pure, DB-free drift-guard.logic.ts and cover them with the 2026-07-31 incident regression suite
+
+**Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 01-02-PLAN.md — Generalize publish-content.ts step 4·0 to all five seed-carried kinds, with per-kind block output and real recovery pointers (closes D-05: exam content exempt, with evidence)
+
+**Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 01-03-PLAN.md — Build the pre-publish diff report, print it and write it to a single tracked ealch-admin/PUBLISH-REPORT.md on every run
+
+**Wave 4** *(blocked on Wave 3 completion)*
 - [ ] 01-04-PLAN.md — Live two-direction proof against real Postgres (git-ahead blocked, Postgres-ahead allowed) and report confirmation
 **Pitfall Watch**: PITFALLS.md Pitfall 6 — the extension must preserve the existing asymmetric/version-aware comparison (git-ahead blocks, Postgres-ahead allows), cover every field seed-direct scripts are known to touch (not just `body` — the actual 2026-07-31 incident hit `overview`), and keep the graceful "no git history" skip so a fresh clone/CI doesn't hard-fail. Plan-check and verification should explicitly dry-run a Postgres-ahead publish and confirm it is NOT blocked, not just confirm the block case works.
 
