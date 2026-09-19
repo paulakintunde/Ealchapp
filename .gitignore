@@ -13,6 +13,11 @@
 !/.planning/
 !/.planning/**/*.md
 
+# The publish diff report (PUBLISH-02). One file, overwritten on every publish,
+# whose audit trail IS this repo's git history — phase-1 decision D-03. The
+# blanket *.md rule above would ignore it and quietly make that false.
+!/ealch-admin/PUBLISH-REPORT.md
+
 # Camille avatar concept art exploration — large PNGs, not yet finalized.
 camille-concepts/
 

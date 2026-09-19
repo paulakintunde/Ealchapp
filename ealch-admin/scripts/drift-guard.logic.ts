@@ -186,3 +186,98 @@ export function findPresenceLosses<T extends { id: string }>(args: {
 
   return losses;
 }
+
+// PUBLISH-02: THE PUBLISH DIFF REPORT.
+//
+// Step 7 of publish-content.ts used to print its version-to-version count
+// deltas straight to the console and nowhere else — read once, at the
+// terminal, at the moment of the run, or never again. This turns that into
+// one human-readable string, built here as a pure function so its eight
+// branches (first snapshot, no-op, normal, with/without a compareNote,
+// with/without a previous byte count, dry-run vs publish) are unit-testable
+// without a live Postgres connection. The caller both console.logs it and
+// writeFileSync's it to a single fixed path — see publish-content.ts step 7.
+
+/** Every kind the report accounts for, in print order. `speakPath` was missing
+ *  from publish-content.ts's counts entirely — a report that omits a kind the
+ *  guard now protects is the same blind spot in a different place. */
+export const REPORT_KINDS = [
+  'domains', 'themes', 'units', 'lessons', 'items',
+  'scenarios', 'playlists', 'speakPath', 'examTasks', 'examPapers',
+] as const;
+
+/** Formats step 7's diff into one markdown report. Pure: no `process.env`, no
+ *  `node:fs`, no `console.*`, no `Date.now()` — `generatedAt` is passed in so
+ *  the output is deterministic and testable from a plain string comparison. */
+export function formatDiffReport(args: {
+  version: number;
+  previous?: { version: number; counts?: Record<string, number> | null } | null;
+  counts: Record<string, number>;
+  noop: boolean;
+  compareNote?: string;
+  checksum: string;
+  contentDigest: string;
+  snapshotBytes: number;
+  previousSnapshotBytes?: number | null;
+  dryRun: boolean;
+  generatedAt: string;
+}): string {
+  const {
+    version, previous, counts, noop, compareNote, checksum,
+    contentDigest, snapshotBytes, previousSnapshotBytes, dryRun, generatedAt,
+  } = args;
+
+  const status = !previous
+    ? `v${version} is the FIRST snapshot.`
+    : noop
+      ? `IDENTICAL to v${previous.version} — not one byte of content differs.`
+      : `v${previous.version} → v${version}`;
+
+  const lines: string[] = [];
+  lines.push('# Publish report');
+  lines.push('');
+  lines.push(`Generated: ${generatedAt}`);
+  lines.push(`Mode: ${dryRun ? 'dry run (nothing is written or uploaded)' : 'publish'}`);
+  lines.push(`Status: ${status}`);
+  lines.push('');
+
+  if (compareNote) {
+    lines.push(`> Could not compare content against v${previous!.version}: ${compareNote}`);
+    lines.push('> Publishing anyway. The counts below are still real; a no-op cannot be ruled out.');
+    lines.push('');
+  }
+
+  lines.push('## What changed');
+  lines.push('');
+  lines.push('| kind | previous | now | delta |');
+  lines.push('|---|---|---|---|');
+  for (const kind of REPORT_KINDS) {
+    const now = Number(counts[kind]) || 0;
+    if (!previous) {
+      lines.push(`| ${kind} | — | ${now} | +${now} |`);
+    } else {
+      const prev = Number(previous.counts?.[kind]) || 0;
+      const delta = now - prev;
+      lines.push(`| ${kind} | ${prev} | ${now} | ${delta >= 0 ? '+' : ''}${delta} |`);
+    }
+  }
+  lines.push('');
+
+  lines.push('## Size');
+  lines.push('');
+  lines.push('| | previous | now | delta |');
+  lines.push('|---|---|---|---|');
+  if (previousSnapshotBytes != null) {
+    const delta = snapshotBytes - previousSnapshotBytes;
+    lines.push(`| snapshot bytes | ${previousSnapshotBytes} | ${snapshotBytes} | ${delta >= 0 ? '+' : ''}${delta} |`);
+  } else {
+    lines.push(`| snapshot bytes | — | ${snapshotBytes} | — |`);
+  }
+  lines.push('');
+
+  lines.push(`checksum: ${checksum}`);
+  lines.push(`content digest: ${contentDigest}`);
+  lines.push('');
+
+  return lines.join('\n');
+}

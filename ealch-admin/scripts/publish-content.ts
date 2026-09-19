@@ -35,7 +35,7 @@ import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCL
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 import { cutItems } from './seed-cut.logic.ts';
-import { findPresenceLosses, findUnitLosses, findVersionedLosses, type DriftLoss } from './drift-guard.logic.ts';
+import { findPresenceLosses, findUnitLosses, findVersionedLosses, formatDiffReport, type DriftLoss } from './drift-guard.logic.ts';
 import { stableStringify, sha256, uploadToStorage, downloadFromStorage, listStorage, deleteFromStorage } from './snapshot-utils.ts';
 import { planPrune, mib } from './prune.logic.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
@@ -111,6 +111,11 @@ if (!NO_PRUNE && (!Number.isInteger(PRUNE_KEEP) || PRUNE_KEEP < 2)) {
 }
 
 const SEED_PATH = resolve(process.cwd(), '../ealch-v2/src/content/seed.json');
+
+/** PUBLISH-02: one report, one fixed path, overwritten every run (D-03). Its
+ *  history is the git history of this file, which is why .gitignore carries an
+ *  explicit negation for it against the repo's blanket *.md rule. */
+const REPORT_PATH = resolve(process.cwd(), 'PUBLISH-REPORT.md');
 
 /* ─── helpers ────────────────────────────────────────────────────────────── */
 
@@ -1149,6 +1154,7 @@ async function main() {
     items: corpus.items.length,
     scenarios: corpus.scenarios.length,
     playlists: (corpus.playlists ?? []).length,
+    speakPath: (corpus.speakPath ?? []).length,
     examTasks: (corpus.examTasks ?? []).length,
     examPapers: (corpus.examPapers ?? []).length,
   };
@@ -1160,6 +1166,7 @@ async function main() {
     items: seed.items.length,
     scenarios: seed.scenarios.length,
     playlists: (seed.playlists ?? []).length,
+    speakPath: (seed.speakPath ?? []).length,
   };
 
   // `rollout` is the staged-rollout gate the app honors (content.logic.ts
@@ -1178,6 +1185,7 @@ async function main() {
   // compare is not evidence that nothing changed, and blocking a publish because
   // Storage was briefly unreachable would be the wrong way round.
   let previousContent: string | null = null;
+  let previousSnapshotBytes: number | null = null;
   let compareNote = '';
   if (previous) {
     const url = process.env.SUPABASE_URL;
@@ -1187,6 +1195,7 @@ async function main() {
     } else {
       try {
         const body = await downloadFromStorage(url, key, `snapshots/v${previous.version}.json`);
+        previousSnapshotBytes = Buffer.byteLength(body, 'utf8');
         previousContent = contentDigest(JSON.parse(body));
       } catch (e) {
         compareNote = (e as Error).message.slice(0, 90);
@@ -1195,34 +1204,23 @@ async function main() {
   }
   const noop = !!previous && previousContent !== null && previousContent === candidateContent;
 
-  console.log('\n  ── diff ──');
-  if (!previous) {
-    console.log(`  v${version} is the FIRST snapshot.`);
-  } else if (noop) {
-    console.log(`  IDENTICAL to v${previous.version} — not one byte of content differs.`);
-  } else {
-    if (compareNote) {
-      console.log(`  ! could not compare content against v${previous.version}: ${compareNote}`);
-      console.log('    Publishing anyway. The counts below are still real; a no-op cannot be ruled out.');
-    }
-    const p = previous.counts ?? {};
-    const d = (k: keyof typeof counts) => {
-      const delta = counts[k] - (Number(p[k]) || 0);
-      return `${counts[k]} (${delta >= 0 ? '+' : ''}${delta})`;
-    };
-    console.log(`  v${previous.version} → v${version}`);
-    console.log(`    domains:    ${d('domains')}`);
-    console.log(`    themes:     ${d('themes')}`);
-    console.log(`    units:      ${d('units')}`);
-    console.log(`    lessons:    ${d('lessons')}`);
-    console.log(`    items:      ${d('items')}`);
-    console.log(`    scenarios:  ${d('scenarios')}`);
-    console.log(`    playlists:  ${d('playlists')}`);
-    console.log(`    examTasks:  ${d('examTasks')}`);
-    console.log(`    examPapers: ${d('examPapers')}`);
-  }
-  console.log(`  checksum: ${checksum.slice(0, 16)}…`);
-  console.log(`  content:  ${candidateContent.slice(0, 16)}…  (the same corpus digests the same at any version)`);
+  const report = formatDiffReport({
+    version,
+    previous: previous ? { version: previous.version, counts: previous.counts } : null,
+    counts,
+    noop,
+    compareNote: compareNote || undefined,
+    checksum,
+    contentDigest: candidateContent,
+    snapshotBytes: Buffer.byteLength(snapshotJson, 'utf8'),
+    previousSnapshotBytes,
+    dryRun: DRY_RUN,
+    generatedAt: new Date().toISOString(),
+  });
+  console.log('\n' + report);
+  mkdirSync(dirname(REPORT_PATH), { recursive: true });
+  writeFileSync(REPORT_PATH, report, 'utf8');
+  console.log(`  ✎ ${REPORT_PATH}`);
 
   // A no-op publish burns an OTA version and makes every device on the channel
   // re-download a snapshot to arrive at the content it already holds. Refused by
