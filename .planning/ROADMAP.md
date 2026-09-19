@@ -51,7 +51,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 **Wave 1**
-- [ ] 01-01-PLAN.md — Extract the drift comparators into a pure, DB-free drift-guard.logic.ts and cover them with the 2026-07-31 incident regression suite
+- [x] 01-01-PLAN.md — Extract the drift comparators into a pure, DB-free drift-guard.logic.ts and cover them with the 2026-07-31 incident regression suite
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 01-02-PLAN.md — Generalize publish-content.ts step 4·0 to all five seed-carried kinds, with per-kind block output and real recovery pointers (closes D-05: exam content exempt, with evidence)
@@ -279,7 +279,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18 have no shared files/state with
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Content-Publish Drift Guard Extension | 0/4 | Planned | - |
+| 1. Content-Publish Drift Guard Extension | 1/4 | In Progress|  |
 | 2. Content & Curriculum Gap Audit | 0/TBD | Not started | - |
 | 3. TTS Security Hardening | 0/TBD | Not started | - |
 | 4. Entitlement Verification & Signed-Out Purchase Fix | 0/TBD | Not started | - |
