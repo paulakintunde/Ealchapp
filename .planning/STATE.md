@@ -11,8 +11,8 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 Phase: 1 of 19 (Content-Publish Drift Guard Extension)
 Plan: TBD (not yet planned)
-Status: Ready to plan
-Last activity: 2026-09-19 — Roadmap revised after UI/UX and PM/growth expert review (19 phases, 29/29 v1 requirements mapped, 100% coverage)
+Status: Phase 1 context gathered — ready to plan
+Last activity: 2026-09-19 — Phase 1 discussion complete (diff report delivery, block strictness, exam-content scope captured in 01-CONTEXT.md)
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -78,5 +78,5 @@ Items acknowledged and carried forward from previous milestone close:
 ## Session Continuity
 
 Last session: 2026-09-19
-Stopped at: ROADMAP.md revised (Phase 11 split into 11/12, phases renumbered to 19 total, Phase 13 hard-blocked in parallel plan, Phase 5 gating rule deferred to phase-planning, shared interruption-pattern criteria added to Phases 5/10, rating cap added to Phase 10, acquisition/activation funnel scope added to Phase 9, Phase 7 re-prioritized); STATE.md and REQUIREMENTS.md traceability updated to match. Awaiting user approval of revised roadmap.
-Resume file: None
+Stopped at: Phase 1 (Content-Publish Drift Guard Extension) discussion complete via /gsd-discuss-phase. Decisions: diff report both printed and saved to a single overwritten file, generated on every publish; all four newly-covered content kinds (units/scenarios/playlists/speak-stages) hard-block on regression same as lessons; whether exam papers/tasks also need the guard is left as an open investigation for this phase's research/planning, not pre-decided. Full detail in `.planning/phases/01-content-publish-drift-guard-extension/01-CONTEXT.md`.
+Resume file: .planning/phases/01-content-publish-drift-guard-extension/01-CONTEXT.md
