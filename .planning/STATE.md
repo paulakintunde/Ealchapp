@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Phase 1 (Content-Publish Drift Guard Extension) discussion complete via /gsd-discuss-phase. Decisions: diff report both printed and saved to a single overwritten file, generated on every publish; all four newly-covered content kinds (units/scenarios/playlists/speak-stages) hard-block on regression same as lessons; whether exam papers/tasks also need the guard is left as an open investigation for this phase's research/planning, not pre-decided. Full detail in `.planning/phases/01-content-publish-drift-guard-extension/01-CONTEXT.md`."
+stopped_at: "Phase 1 (Content-Publish Drift Guard Extension) fully complete: 4/4 plans executed and verified, PUBLISH-01 and PUBLISH-02 closed with a live proof against real Postgres. Ready to start Phase 2 (Content & Curriculum Gap Audit)."
 last_updated: "2026-09-19T21:26:48.226Z"
 last_activity: 2026-09-19
 progress:
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 1 — Content-Publish Drift Guard Extension
+**Current focus:** Phase 2 — Content & Curriculum Gap Audit (not yet started)
 
 ## Current Position
 
 Phase: 2
 Plan: Not started
-Status: Executing Phase 1
+Status: Phase 1 complete, ready to plan Phase 2
 Last activity: 2026-09-19
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 1/19 phases (5%)
 
 ## Performance Metrics
 
@@ -96,5 +96,5 @@ Items acknowledged and carried forward from previous milestone close:
 ## Session Continuity
 
 Last session: 2026-09-19
-Stopped at: Phase 1 (Content-Publish Drift Guard Extension) discussion complete via /gsd-discuss-phase. Decisions: diff report both printed and saved to a single overwritten file, generated on every publish; all four newly-covered content kinds (units/scenarios/playlists/speak-stages) hard-block on regression same as lessons; whether exam papers/tasks also need the guard is left as an open investigation for this phase's research/planning, not pre-decided. Full detail in `.planning/phases/01-content-publish-drift-guard-extension/01-CONTEXT.md`.
-Resume file: .planning/phases/01-content-publish-drift-guard-extension/01-CONTEXT.md
+Stopped at: Phase 1 (Content-Publish Drift Guard Extension) fully complete: 4/4 plans executed and verified, PUBLISH-01 and PUBLISH-02 closed with a live proof against real Postgres. Ready to start Phase 2 (Content & Curriculum Gap Audit).
+Resume file: none — no CONTEXT.md yet for Phase 2
