@@ -21,7 +21,9 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 - ✓ Speak mode — STT-based practice with transcription-only scoring — existing (documented limitation: no acoustic/pronunciation analysis)
 - ✓ Practice exam papers — TEF blanc-01, full TCF pack (10 papers), DELF pack (B2 sample + others) — existing, published
 - ✓ Supabase auth, progress sync, and content publish pipeline (Postgres → `seed.json` → OTA snapshot) — existing
-- ✓ Purchases/entitlement gating (partial — only 1 of 12+ eligible lessons currently gated) — existing
+- ✓ Purchases/entitlement gating via Adapty, synced cross-device by Supabase auth uid (partial — only 1 of 12+ eligible lessons currently gated) — existing, corrected 2026-09-19 (research read `purchases.ts`/`entitlement.ts` directly; entitlement is NOT AsyncStorage-only as CONCERNS.md's static analysis implied)
+- ✓ Content-publish drift guard ("4.0 RULE no-silent-regression" in `publish-content.ts`) blocking the 2026-07-31 incident class — existing, partial (lesson bodies only; does not yet cover units/scenarios/playlists/speak stages)
+- ✓ Content snapshot delivered via filesystem cache (moved off AsyncStorage after a v66 incident), 50MiB ceiling, no separate `content-snapshot` edge function — existing, corrected 2026-09-19 (CONCERNS.md's "30MB ceiling vs 6MB AsyncStorage cap" was already fixed)
 - ✓ Legal: store-required paywall disclosure, third-party notices in-app — existing (recent)
 - ✓ Accessibility: French `lang` tagging on text components (UDL 08, partial) — existing, in progress
 - ✓ RLS policies on all 41 public Supabase tables — existing, verified correct 2026-09-01
@@ -32,11 +34,11 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 
 - [ ] Content: close any remaining gaps/fixes within the existing A1, A2, and exam-pack scope (no new curriculum levels this milestone)
 - [ ] Fix known bugs blocking normal use: audio doesn't pause on backgrounding, exam response lost on process death, notification body placeholders not filled, dark mode toggle ignored, STT continuous-mode regression risk
-- [ ] Security: authenticate/rate-limit the TTS edge function (currently open to anyone on the internet, unmetered)
-- [ ] Monetization: expand paywall coverage beyond 1 gated lesson, and sync entitlement to Supabase so purchases survive reinstall/new device
-- [ ] Accessibility: finish the UDL pass — TalkBack/screen-reader roles and labels across all interactive controls (currently ~64 of 353 controls announce properly)
-- [ ] Performance: reduce cold start (currently ~2.4s blank screen from eager seed.json load) and implement content-snapshot pruning before it hits the AsyncStorage/OTA size ceiling
-- [ ] Reliability: add a pre-publish content-drift guard so publishing from `ealch-admin` can no longer silently destroy uncommitted `seed.json` content
+- [ ] Security: authenticate/rate-limit the TTS edge function — note: `verify_jwt=true` alone is insufficient (accepts the public anon key too), needs an explicit authenticated-user check plus per-user rate limiting
+- [ ] Monetization: expand paywall coverage beyond 1 gated lesson; verify/harden entitlement sync for the signed-out-purchase-then-sign-in-elsewhere case and edge-function trust in the Postgres entitlement mirror (narrower than originally scoped — see corrected Validated entry above)
+- [ ] Accessibility: finish the UDL pass — TalkBack/screen-reader roles and labels across all interactive controls (currently ~64 of 353 controls announce properly); a default `accessibilityRole="button"` on the shared `Press` component likely closes most of the gap, but needs a per-screen audit for switches/tabs/links that need different roles
+- [ ] Performance: reduce cold start (currently ~2.4s blank screen from eager seed.json load, fix is moving the import from module-scope into `initContent()`) and split the existing ~27-50MB content snapshot by curriculum level (not "implement pruning before a ceiling" — the ceiling was already raised/fixed post-v66; this is a scaling/download-size improvement now)
+- [ ] Reliability: extend the existing content-publish drift guard (currently lesson-bodies-only) to also cover units/scenarios/playlists/speak stages authored seed-direct
 - [ ] Retention: repair the notification subsystem (dead toggles, no tap handler, no push token registration) to the extent it's needed for launch
 - [ ] Test coverage: close the highest-risk gaps — exam grading E2E, notification delivery, and component rendering — enough to trust future changes
 - [ ] General launch-readiness pass: whatever else surfaces as blocking a public App Store/Play Store submission
@@ -78,6 +80,7 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 | Content scope frozen at A1/A2/exams for this milestone | User decision 2026-09-19; B1+ is explicitly future work | — Pending |
 | No pre-set priority order — roadmapper sequences by dependency | User chose not to pre-bias toward "bugs first" or "content first" | — Pending |
 | `.planning/` carved out of the repo's blanket `*.md` gitignore rule | GSD's commit tooling stages files with plain `git add`, which was silently skipping every planning doc under the existing `*.md` ignore rule | ✓ Good — verified working via test commit |
+| Trust direct-source-read research over `CONCERNS.md`'s static-analysis claims where they conflict | Architecture/Features research (2026-09-19) read `publish-content.ts`, `purchases.ts`, `entitlement.ts`, and `content.ts` in full and found 3 "missing" items (drift guard, cross-device entitlement, snapshot ceiling) were already partially/fully built; CONCERNS.md was generated from a codebase map, not a full read | ✓ Good — narrowed Active requirements accordingly |
 
 ## Evolution
 
@@ -97,4 +100,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-09-19 after initialization*
+*Last updated: 2026-09-19 after initialization + domain research*
