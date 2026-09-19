@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **2026-09-19 revision note:** The original Phase 11 ("Brix Mascot Rive Animation Rollout") was split into two phases — Phase 11 (core states needed for normal lesson flow) and Phase 12 (delight states outside normal flow). This split is a deliberate roadmap revision, not an urgent post-approval insertion, so it does **not** use decimal notation (which this roadmap reserves for its documented meaning: insertions via `/gsd-insert-phase` after planning is underway). Instead, all phases after the original Phase 11 were renumbered as integers (former Phase 12 → 13, former Phase 13 → 14, … former Phase 18 → 19). Total phase count grew from 18 to 19.
 
-- [ ] **Phase 1: Content-Publish Drift Guard Extension** - Generalize the existing version-aware "no-silent-regression" publish guard from lesson bodies to units/scenarios/playlists/speak-stages, plus a human-readable pre-publish diff report
+- [x] **Phase 1: Content-Publish Drift Guard Extension** - Generalize the existing version-aware "no-silent-regression" publish guard from lesson bodies to units/scenarios/playlists/speak-stages, plus a human-readable pre-publish diff report (completed 2026-09-19)
 - [ ] **Phase 2: Content & Curriculum Gap Audit** - Audit the shipped A1/A2/exam content against the intended curriculum plan and close or log any concrete gaps
 - [ ] **Phase 3: TTS Security Hardening** - Close the unmetered-cost exposure on the TTS edge function with real per-user auth and rate limiting
 - [ ] **Phase 4: Entitlement Verification & Signed-Out Purchase Fix** - Verify/harden the Adapty entitlement sync so a purchase made signed-out still reaches the right account, and back paying users against a silent downgrade
@@ -60,7 +60,7 @@ Plans:
 - [x] 01-03-PLAN.md — Build the pre-publish diff report, print it and write it to a single tracked ealch-admin/PUBLISH-REPORT.md on every run
 
 **Wave 4** *(blocked on Wave 3 completion)*
-- [ ] 01-04-PLAN.md — Live two-direction proof against real Postgres (git-ahead blocked, Postgres-ahead allowed) and report confirmation
+- [x] 01-04-PLAN.md — Live two-direction proof against real Postgres (git-ahead blocked, Postgres-ahead allowed) and report confirmation
 **Pitfall Watch**: PITFALLS.md Pitfall 6 — the extension must preserve the existing asymmetric/version-aware comparison (git-ahead blocks, Postgres-ahead allows), cover every field seed-direct scripts are known to touch (not just `body` — the actual 2026-07-31 incident hit `overview`), and keep the graceful "no git history" skip so a fresh clone/CI doesn't hard-fail. Plan-check and verification should explicitly dry-run a Postgres-ahead publish and confirm it is NOT blocked, not just confirm the block case works.
 
 ### Phase 2: Content & Curriculum Gap Audit
@@ -279,7 +279,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18 have no shared files/state with
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Content-Publish Drift Guard Extension | 3/4 | In Progress|  |
+| 1. Content-Publish Drift Guard Extension | 4/4 | Complete   | 2026-09-19 |
 | 2. Content & Curriculum Gap Audit | 0/TBD | Not started | - |
 | 3. TTS Security Hardening | 0/TBD | Not started | - |
 | 4. Entitlement Verification & Signed-Out Purchase Fix | 0/TBD | Not started | - |
