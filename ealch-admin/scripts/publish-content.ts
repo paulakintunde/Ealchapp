@@ -35,6 +35,7 @@ import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCL
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 import { cutItems } from './seed-cut.logic.ts';
+import { findPresenceLosses, findUnitLosses, findVersionedLosses, type DriftLoss } from './drift-guard.logic.ts';
 import { stableStringify, sha256, uploadToStorage, downloadFromStorage, listStorage, deleteFromStorage } from './snapshot-utils.ts';
 import { planPrune, mib } from './prune.logic.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
@@ -582,6 +583,12 @@ async function main() {
   // A lesson the DB has and git does not is fine and unremarked: that is the
   // normal direction, new content flowing DB -> seed.
   //
+  // The guard now covers every kind seed.json carries: lessons, units,
+  // scenarios, playlists, and speak stages — via the pure comparators in
+  // drift-guard.logic.ts. Units are compared against the POST-prune roster
+  // (prunedUnits from step 2), because a unit listing an unpublished lesson is
+  // normal and pruning it is the pipeline working correctly, not a loss.
+  //
   // Runs during --dry-run too. A dry run is what you use to decide whether it
   // is safe to publish, so a dry run that stays quiet about a pending loss is
   // worse than no dry run at all.
@@ -589,7 +596,13 @@ async function main() {
     // The COMMITTED seed, read through git rather than from disk: the
     // working-tree file may already be mid-edit, and what we need to protect
     // is the content that is checked in.
-    let committed: { lessons?: Lesson[] } | null = null;
+    let committed: {
+      lessons?: Lesson[];
+      units?: Unit[];
+      scenarios?: Scenario[];
+      playlists?: Playlist[];
+      speakPath?: SpeakStage[];
+    } | null = null;
     try {
       const { execFileSync } = await import('node:child_process');
       const repoRoot = resolve(process.cwd(), '..');
@@ -611,48 +624,132 @@ async function main() {
       );
     }
 
-    if (committed?.lessons) {
-      const live = new Map(lessons.map((l) => [l.id, l]));
-      const losses: string[] = [];
+    const losses: DriftLoss[] = [];
 
-      for (const git of committed.lessons) {
-        const db = live.get(git.id);
-        if (!db) {
-          losses.push(
-            `${git.id}: in the committed seed (v${git.version}, ${git.sections.length} sections) ` +
-              `but NOT published in the DB — this publish would DELETE it`
-          );
-          continue;
-        }
-        if (db.version < git.version) {
-          losses.push(
-            `${git.id}: DB is v${db.version}, committed seed is v${git.version} ` +
-              `— this publish would REVERT it`
-          );
-        }
-      }
+    losses.push(
+      ...findVersionedLosses<Lesson>({
+        kind: 'lesson',
+        committed: committed?.lessons,
+        live: new Map(lessons.map((l) => [l.id, l])),
+        describe: (l) => `v${l.version}, ${l.sections.length} sections`,
+        signals: [{ label: 'sections', of: (l) => l.sections.length }],
+      }),
+      ...findPresenceLosses<Lesson>({
+        kind: 'lesson',
+        committed: committed?.lessons,
+        live: new Map(lessons.map((l) => [l.id, l])),
+        // The 2026-07-31 collapse hit `overview` on five lessons and moved no
+        // version and no section count, so version alone could never see it.
+        fields: [{ label: 'an overview', present: (l) => !!l.overview }],
+      }),
+      // Units carry NO version field, and step 2 legitimately prunes their
+      // lessonIds down to published lessons — so compare against prunedUnits (the
+      // array that actually ships) and treat a dropped id as a loss ONLY when that
+      // lesson is still published. `liveLessons` from step 2 is exactly that set.
+      ...findUnitLosses({
+        committed: committed?.units,
+        livePruned: new Map(prunedUnits.map((u) => [u.id, u])),
+        livePublishedLessonIds: liveLessons,
+      }),
+      ...findPresenceLosses<Unit>({
+        kind: 'unit',
+        committed: committed?.units,
+        live: new Map(prunedUnits.map((u) => [u.id, u])),
+        fields: [
+          { label: 'a canDo', present: (u) => !!u.canDo },
+          { label: 'themes', present: (u) => (u.themes?.length ?? 0) > 0 },
+        ],
+      }),
+      ...findVersionedLosses<Scenario>({
+        kind: 'scenario',
+        committed: committed?.scenarios,
+        live: new Map(scenarios.map((s) => [s.id, s])),
+        describe: (s) => `v${s.version}, ${s.turns.length} turns`,
+        signals: [
+          { label: 'turns', of: (s) => s.turns.length },
+          // The 2026-08-09 role-play rebuild enriched turns with alternate answers
+          // without bumping the version; a version-only check is blind to it.
+          { label: 'alternate answers', of: (s) => s.turns.reduce((n, t) => n + (t.alts?.length ?? 0), 0) },
+        ],
+      }),
+      ...findVersionedLosses<Playlist>({
+        kind: 'playlist',
+        committed: committed?.playlists,
+        live: new Map((playlists ?? []).map((p) => [p.id, p])),
+        describe: (p) => `v${p.version}, ${p.tracks.length} tracks`,
+        signals: [{ label: 'tracks', of: (p) => p.tracks.length }],
+      }),
+      ...findVersionedLosses<SpeakStage>({
+        kind: 'speak stage',
+        committed: committed?.speakPath,
+        live: new Map((speakPath ?? []).map((s) => [s.id, s])),
+        describe: (s) => `v${s.version}, ${s.blocks.length} blocks`,
+        signals: [{ label: 'blocks', of: (s) => s.blocks.length }],
+      }),
+    );
 
-      if (losses.length) {
-        await pool.end();
-        console.error(
-          `\n✖ no-silent-regression: ${losses.length} lesson(s) would be lost. NOTHING was published.\n`
-        );
-        for (const l of losses) console.error(`  ✖ ${l}`);
-        console.error(
-          '\n  The database does not yet contain content that is committed to git.\n' +
-            '  Publishing now would overwrite seed.json and destroy it.\n\n' +
-            '  Push the committed bodies into Postgres first:\n' +
-            '    pnpm tsx scripts/restore-lesson-bodies-from-seed.ts --dry-run\n' +
-            '    pnpm tsx scripts/restore-lesson-bodies-from-seed.ts\n\n' +
-            '  Then re-run this publish. When the DB and git agree, a --dry-run\n' +
-            '  leaves seed.json byte-identical, which is the proof that nothing\n' +
-            '  can be lost.\n'
-        );
-        process.exit(1);
+    if (losses.length) {
+      await pool.end();
+      const kinds = [...new Set(losses.map((l) => l.kind))];
+      console.error(
+        `\n✖ no-silent-regression: ${losses.length} loss(es) across ${kinds.length} content kind(s). NOTHING was published.\n`
+      );
+      for (const kind of kinds) {
+        console.error(`  ── ${kind} ──`);
+        for (const l of losses.filter((x) => x.kind === kind)) console.error(`  ✖ ${l.message}`);
       }
-      console.log(`  ✓ no-silent-regression (${committed.lessons.length} committed lessons accounted for)`);
+      console.error(
+        '\n  The database does not yet contain content that is committed to git.\n' +
+          '  Publishing now would overwrite seed.json and destroy it.\n\n' +
+          '  Push the committed content into Postgres FIRST, then re-run this publish.\n'
+      );
+      if (kinds.includes('lesson')) {
+        console.error(
+          '    lessons:      pnpm tsx scripts/restore-lesson-bodies-from-seed.ts --dry-run\n' +
+            '                  pnpm tsx scripts/restore-lesson-bodies-from-seed.ts'
+        );
+      }
+      if (kinds.includes('unit')) {
+        console.error(
+          '    units:        pnpm tsx scripts/restore-unit-bodies-from-seed.ts --dry-run\n' +
+            '                  pnpm tsx scripts/restore-unit-bodies-from-seed.ts'
+        );
+      }
+      const manual = kinds.filter((k) => k === 'scenario' || k === 'playlist' || k === 'speak stage');
+      if (manual.length) {
+        console.error(
+          `    ${manual.join(', ')}: no restore script exists for ${manual.length === 1 ? 'this kind' : 'these kinds'} yet.\n` +
+            '                  Re-apply the seed-direct edit through the Ops Console or the\n' +
+            '                  authoring script that made it, so Postgres holds it, then publish.'
+        );
+      }
+      console.error(
+        '\n  When the DB and git agree, a --dry-run leaves seed.json byte-identical,\n' +
+          '  which is the proof that nothing can be lost.\n'
+      );
+      process.exit(1);
+    }
+
+    if (committed) {
+      console.log(
+        `  ✓ no-silent-regression: ${(committed.lessons ?? []).length} lessons · ` +
+          `${(committed.units ?? []).length} units · ${(committed.scenarios ?? []).length} scenarios · ` +
+          `${(committed.playlists ?? []).length} playlists · ${(committed.speakPath ?? []).length} speak stages ` +
+          `accounted for`
+      );
     }
   }
+
+  // ── Why exam content is NOT in the guard above (phase 1, D-05) ──────────
+  // `corpus` (above) carries examTasks/examPapers; the `seed` object written to
+  // seed.json at step 9 does not — exams do not ship offline, they reach the app
+  // over the network snapshot only. This guard exists because step 9 REGENERATES
+  // a git artifact from the database, so anything git-only and DB-behind is
+  // destroyed. Nothing regenerates a paper's git source: exam content flows
+  // scripts/exam/apply-paper.ts → Postgres → promote-paper.ts, one direction
+  // only, and no script writes seed.json under scripts/exam/. The hazard cannot
+  // occur for exam content, so guarding it would be cost with no protection.
+  // If a seed-direct exam-authoring path is ever added, this reopens.
 
   // ── 4a. RULE deterministic-french-gates (master plan Phase 2.D) ─────────
   // A Python subprocess (publish/CI environment only — never bundled, never
