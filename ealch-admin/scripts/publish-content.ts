@@ -687,7 +687,69 @@ async function main() {
         signals: [{ label: 'blocks', of: (s) => s.blocks.length }],
       }),
     );
+
+    if (losses.length) {
+      await pool.end();
+      const kinds = [...new Set(losses.map((l) => l.kind))];
+      console.error(
+        `\n✖ no-silent-regression: ${losses.length} loss(es) across ${kinds.length} content kind(s). NOTHING was published.\n`
+      );
+      for (const kind of kinds) {
+        console.error(`  ── ${kind} ──`);
+        for (const l of losses.filter((x) => x.kind === kind)) console.error(`  ✖ ${l.message}`);
+      }
+      console.error(
+        '\n  The database does not yet contain content that is committed to git.\n' +
+          '  Publishing now would overwrite seed.json and destroy it.\n\n' +
+          '  Push the committed content into Postgres FIRST, then re-run this publish.\n'
+      );
+      if (kinds.includes('lesson')) {
+        console.error(
+          '    lessons:      pnpm tsx scripts/restore-lesson-bodies-from-seed.ts --dry-run\n' +
+            '                  pnpm tsx scripts/restore-lesson-bodies-from-seed.ts'
+        );
+      }
+      if (kinds.includes('unit')) {
+        console.error(
+          '    units:        pnpm tsx scripts/restore-unit-bodies-from-seed.ts --dry-run\n' +
+            '                  pnpm tsx scripts/restore-unit-bodies-from-seed.ts'
+        );
+      }
+      const manual = kinds.filter((k) => k === 'scenario' || k === 'playlist' || k === 'speak stage');
+      if (manual.length) {
+        console.error(
+          `    ${manual.join(', ')}: no restore script exists for ${manual.length === 1 ? 'this kind' : 'these kinds'} yet.\n` +
+            '                  Re-apply the seed-direct edit through the Ops Console or the\n' +
+            '                  authoring script that made it, so Postgres holds it, then publish.'
+        );
+      }
+      console.error(
+        '\n  When the DB and git agree, a --dry-run leaves seed.json byte-identical,\n' +
+          '  which is the proof that nothing can be lost.\n'
+      );
+      process.exit(1);
+    }
+
+    if (committed) {
+      console.log(
+        `  ✓ no-silent-regression: ${(committed.lessons ?? []).length} lessons · ` +
+          `${(committed.units ?? []).length} units · ${(committed.scenarios ?? []).length} scenarios · ` +
+          `${(committed.playlists ?? []).length} playlists · ${(committed.speakPath ?? []).length} speak stages ` +
+          `accounted for`
+      );
+    }
   }
+
+  // ── Why exam content is NOT in the guard above (phase 1, D-05) ──────────
+  // `corpus` (above) carries examTasks/examPapers; the `seed` object written to
+  // seed.json at step 9 does not — exams do not ship offline, they reach the app
+  // over the network snapshot only. This guard exists because step 9 REGENERATES
+  // a git artifact from the database, so anything git-only and DB-behind is
+  // destroyed. Nothing regenerates a paper's git source: exam content flows
+  // scripts/exam/apply-paper.ts → Postgres → promote-paper.ts, one direction
+  // only, and no script writes seed.json under scripts/exam/. The hazard cannot
+  // occur for exam content, so guarding it would be cost with no protection.
+  // If a seed-direct exam-authoring path is ever added, this reopens.
 
   // ── 4a. RULE deterministic-french-gates (master plan Phase 2.D) ─────────
   // A Python subprocess (publish/CI environment only — never bundled, never
