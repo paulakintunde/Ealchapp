@@ -22,7 +22,7 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 - ✓ Practice exam papers — TEF blanc-01, full TCF pack (10 papers), DELF pack (B2 sample + others) — existing, published
 - ✓ Supabase auth, progress sync, and content publish pipeline (Postgres → `seed.json` → OTA snapshot) — existing
 - ✓ Purchases/entitlement gating via Adapty, synced cross-device by Supabase auth uid (partial — only 1 of 12+ eligible lessons currently gated) — existing, corrected 2026-09-19 (research read `purchases.ts`/`entitlement.ts` directly; entitlement is NOT AsyncStorage-only as CONCERNS.md's static analysis implied)
-- ✓ Content-publish drift guard ("4.0 RULE no-silent-regression" in `publish-content.ts`) blocking the 2026-07-31 incident class — existing, partial (lesson bodies only; does not yet cover units/scenarios/playlists/speak stages)
+- ✓ Content-publish drift guard ("4.0 RULE no-silent-regression" in `publish-content.ts`) blocking the 2026-07-31 incident class across all seed-carried content kinds (lessons, units, scenarios, playlists, speak stages), plus a printed + on-disk (`ealch-admin/PUBLISH-REPORT.md`) pre-publish diff report generated on every run — validated in Phase 1: Content-Publish Drift Guard Extension (2026-09-19), including a live proof against real Postgres of both the block and the pass-through directions
 - ✓ Content snapshot delivered via filesystem cache (moved off AsyncStorage after a v66 incident), 50MiB ceiling, no separate `content-snapshot` edge function — existing, corrected 2026-09-19 (CONCERNS.md's "30MB ceiling vs 6MB AsyncStorage cap" was already fixed)
 - ✓ Legal: store-required paywall disclosure, third-party notices in-app — existing (recent)
 - ✓ Accessibility: French `lang` tagging on text components (UDL 08, partial) — existing, in progress
@@ -38,7 +38,6 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 - [ ] Monetization: expand paywall coverage beyond 1 gated lesson; verify/harden entitlement sync for the signed-out-purchase-then-sign-in-elsewhere case and edge-function trust in the Postgres entitlement mirror (narrower than originally scoped — see corrected Validated entry above)
 - [ ] Accessibility: finish the UDL pass — TalkBack/screen-reader roles and labels across all interactive controls (currently ~64 of 353 controls announce properly); a default `accessibilityRole="button"` on the shared `Press` component likely closes most of the gap, but needs a per-screen audit for switches/tabs/links that need different roles
 - [ ] Performance: reduce cold start (currently ~2.4s blank screen from eager seed.json load, fix is moving the import from module-scope into `initContent()`) and split the existing ~27-50MB content snapshot by curriculum level (not "implement pruning before a ceiling" — the ceiling was already raised/fixed post-v66; this is a scaling/download-size improvement now)
-- [ ] Reliability: extend the existing content-publish drift guard (currently lesson-bodies-only) to also cover units/scenarios/playlists/speak stages authored seed-direct
 - [ ] Retention: repair the notification subsystem (dead toggles, no tap handler, no push token registration) to the extent it's needed for launch
 - [ ] Test coverage: close the highest-risk gaps — exam grading E2E, notification delivery, and component rendering — enough to trust future changes
 - [ ] General launch-readiness pass: whatever else surfaces as blocking a public App Store/Play Store submission
@@ -100,4 +99,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-09-19 after initialization + domain research*
+*Last updated: 2026-09-19 after Phase 1: Content-Publish Drift Guard Extension*
