@@ -71,7 +71,23 @@ Plans:
   1. Every A1/A2 unit and exam paper has been checked against the curriculum plan/spine, and any gap is logged as a specific, named finding (theme, unit, lesson id).
   2. If gaps are found, each is scoped as a follow-up content-build item (not built inside this phase) or explicitly deferred with a reason.
   3. If no gaps are found, a written closing statement exists citing exactly what was checked, and CONTENT-01 closes as "audited, no gaps."
-**Plans**: TBD
+**Plans**: 6 plans
+
+Plans:
+**Wave 1**
+- [ ] 02-01-PLAN.md — Confirm the Supabase project is ACTIVE_HEALTHY (gated on user approval), take the live baseline census, and stand up the GAPS.md skeleton
+
+**Wave 2** *(blocked on Wave 1 completion; the three plans run in parallel)*
+- [ ] 02-02-PLAN.md — Curriculum spine audit: per-id structural check of all 75 units, canDo/themes/prereqUnitIds coherence, and the PE@b2 remediation slot (D-01, D-02)
+- [ ] 02-03-PLAN.md — Exam paper audit: per-paper section shape, blueprint count conformance for all 15 papers, and the DELF blanc-02..05 audio-verification gap (D-04, D-05)
+- [ ] 02-04-PLAN.md — Re-measure the known quality defects against current state and diff the shipped seed.json cut against the declared units (D-08)
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 02-05-PLAN.md — Cross-reference every finding against BUG-01/02/03, QA-01/02 and the traceability table, then write GAPS.md's Findings and Finding Index (D-06, D-09)
+
+**Wave 4** *(blocked on Wave 3 completion)*
+- [ ] 02-06-PLAN.md — Insert ROADMAP stub phases for phase-worthy findings, write the CONTENT-01 closing statement, close its traceability row, and take developer sign-off (D-07)
+**Pitfall Watch**: RESEARCH.md Pitfall 2 — the Supabase project auto-pauses, and a paused project makes every audit query fail in a way that reads like "no data", which would turn the whole audit into a false "no gaps". Nothing may query before Plan 01 confirms ACTIVE_HEALTHY. RESEARCH.md Pitfall 1 — there is no `content_exam_sections` table; `sections` is a jsonb array column on `content_exam_papers`. D-03 — no finding may cite `corpus:probe`, `content:parity`, a CEFR/nasal heuristic or a guard's exit code as its evidence.
 
 ### Phase 3: TTS Security Hardening
 **Goal**: The TTS edge function cannot be abused for unmetered cost by an unauthenticated or anonymous caller.
