@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 2 planned — ready to execute
-last_updated: "2026-09-19T23:45:00.000Z"
-last_activity: 2026-09-19
+status: executing
+stopped_at: Phase 2 Plan 01 complete — Plan 02 (Wave 2) ready to execute
+last_updated: "2026-09-19T23:20:24.000Z"
+last_activity: 2026-09-19 -- Phase 02 Plan 01 complete (GAPS.md skeleton + baseline census)
 progress:
   total_phases: 19
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
-  percent: 100
+  total_plans: 10
+  completed_plans: 5
+  percent: 50
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 2 — Content & Curriculum Gap Audit (planned, ready to execute)
+**Current focus:** Phase 02 — content-curriculum-gap-audit
 
 ## Current Position
 
-Phase: 2
-Plan: 6 plans (02-01 through 02-06), 4 waves
-Status: Phase 2 planned and checker-verified, ready to execute
-Last activity: 2026-09-19
+Phase: 02 (content-curriculum-gap-audit) — EXECUTING
+Plan: 2 of 6
+Status: Executing Phase 02
+Last activity: 2026-09-19 -- Phase 02 Plan 01 complete (GAPS.md skeleton + baseline census)
 
 Progress: [█░░░░░░░░░] 1/19 phases (5%)
 
@@ -36,8 +36,8 @@ Progress: [█░░░░░░░░░] 1/19 phases (5%)
 
 **Velocity:**
 
-- Total plans completed: 4
-- Average duration: - min
+- Total plans completed: 5
+- Average duration: ~9 min
 - Total execution time: 0 hours
 
 **By Phase:**
@@ -45,6 +45,7 @@ Progress: [█░░░░░░░░░] 1/19 phases (5%)
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 4 | - | - |
+| 2 | 1 | ~9min | ~9min |
 
 **Recent Trend:**
 
@@ -74,6 +75,9 @@ Recent decisions affecting current work:
 - Roadmap (2026-09-19 revision): Phase 7 re-prioritized internally — BUG-02 (exam response lost on process death) is the phase's highest-priority item (revenue-adjacent, planned/executed first); BUG-01 (audio pause on background) is cosmetic and deprioritized to last. Kept as one phase rather than split, to avoid a second full renumber.
 - Roadmap (2026-09-19 revision): Phase 11/12 (mascot) success criteria now explicitly require preserving `MascotAvatar.tsx`'s existing `accessibilityElementsHidden` behavior and `useReduceMotion()` handling in the Rive version, plus a Phase-8-style real-device accessibility re-check specifically for Phase 12's new tap-easter-egg interactive surface.
 - Roadmap (2026-09-19 revision): Phase 16 (Cold-Start Lazy Load) reuses the mascot's existing "thinking" state as its loading cue instead of a new spinner, per `MascotAvatar.tsx`'s documented convention; soft (non-blocking) coordination note to visually converge with Phase 11's Rive "thinking" state once that lands.
+- Phase 02 Plan 01: Supabase project `ogbothupjcivwruesgsu` confirmed ACTIVE_HEALTHY (direct read via fallback `select 1` smoke query — Supabase MCP tools were unavailable in the executor's toolset this session); restore checkpoint resolved by user as `already-healthy`, no restore performed.
+- Phase 02 Plan 01: Live baseline census agrees exactly with CONTEXT.md's pre-audit facts — 75 curriculum units (sons 10 / a1 30 / a2 35, 0 with empty `lessonIds`), 15 published exam papers (5 each delf_b2/tcf_canada/tef_canada). Recorded in `GAPS.md`.
+- Phase 02 Plan 01: CONTENT-01 requirement is deliberately left unmarked in REQUIREMENTS.md — plan 01 only established environment health + census; the requirement closes only once Plans 05/06 populate GAPS.md's Findings/Gaps Summary sections.
 
 ### Pending Todos
 
@@ -95,6 +99,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-19T23:45:00.000Z
-Stopped at: Phase 2 planned — ready to execute
-Resume file: .planning/phases/02-content-curriculum-gap-audit/02-06-PLAN.md
+Last session: 2026-09-19T23:20:24.000Z
+Stopped at: Phase 2 Plan 01 complete (GAPS.md skeleton + baseline census); Plans 02-04 (Wave 2) can now run
+Resume file: .planning/phases/02-content-curriculum-gap-audit/02-02-PLAN.md

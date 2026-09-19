@@ -75,7 +75,7 @@ Plans:
 
 Plans:
 **Wave 1**
-- [ ] 02-01-PLAN.md — Confirm the Supabase project is ACTIVE_HEALTHY (gated on user approval), take the live baseline census, and stand up the GAPS.md skeleton
+- [x] 02-01-PLAN.md — Confirm the Supabase project is ACTIVE_HEALTHY (gated on user approval), take the live baseline census, and stand up the GAPS.md skeleton
 
 **Wave 2** *(blocked on Wave 1 completion; the three plans run in parallel)*
 - [ ] 02-02-PLAN.md — Curriculum spine audit: per-id structural check of all 75 units, canDo/themes/prereqUnitIds coherence, and the PE@b2 remediation slot (D-01, D-02)
