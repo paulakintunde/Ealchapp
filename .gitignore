@@ -7,6 +7,12 @@
 # git add -f <file>.md
 *.md
 
+# GSD planning docs are deliberately tracked — PROJECT.md, ROADMAP.md,
+# REQUIREMENTS.md, phase CONTEXT/PLAN files, etc. all live under .planning/
+# and would otherwise be silently skipped by the blanket *.md rule above.
+!/.planning/
+!/.planning/**/*.md
+
 # Camille avatar concept art exploration — large PNGs, not yet finalized.
 camille-concepts/
 
