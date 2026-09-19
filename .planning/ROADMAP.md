@@ -47,7 +47,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. A normal, healthy publish where Postgres is ahead of git (the routine, safe case) completes without being blocked.
   3. Before publishing, the author sees a human-readable diff report (what changed, size deltas) rather than only a pass/fail result.
   4. The guard's directionality is regression-tested against the shape of the 2026-07-31 incident (overview collapse, not just body loss), generalized to units/scenarios/playlists/speak-stages.
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Extract the drift comparators into a pure, DB-free drift-guard.logic.ts and cover them with the 2026-07-31 incident regression suite
+- [ ] 01-02-PLAN.md — Generalize publish-content.ts step 4·0 to all five seed-carried kinds, with per-kind block output and real recovery pointers (closes D-05: exam content exempt, with evidence)
+- [ ] 01-03-PLAN.md — Build the pre-publish diff report, print it and write it to a single tracked ealch-admin/PUBLISH-REPORT.md on every run
+- [ ] 01-04-PLAN.md — Live two-direction proof against real Postgres (git-ahead blocked, Postgres-ahead allowed) and report confirmation
 **Pitfall Watch**: PITFALLS.md Pitfall 6 — the extension must preserve the existing asymmetric/version-aware comparison (git-ahead blocks, Postgres-ahead allows), cover every field seed-direct scripts are known to touch (not just `body` — the actual 2026-07-31 incident hit `overview`), and keep the graceful "no git history" skip so a fresh clone/CI doesn't hard-fail. Plan-check and verification should explicitly dry-run a Postgres-ahead publish and confirm it is NOT blocked, not just confirm the block case works.
 
 ### Phase 2: Content & Curriculum Gap Audit
@@ -266,7 +272,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18 have no shared files/state with
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Content-Publish Drift Guard Extension | 0/TBD | Not started | - |
+| 1. Content-Publish Drift Guard Extension | 0/4 | Planned | - |
 | 2. Content & Curriculum Gap Audit | 0/TBD | Not started | - |
 | 3. TTS Security Hardening | 0/TBD | Not started | - |
 | 4. Entitlement Verification & Signed-Out Purchase Fix | 0/TBD | Not started | - |
