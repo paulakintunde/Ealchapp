@@ -57,7 +57,7 @@ Plans:
 - [x] 01-02-PLAN.md — Generalize publish-content.ts step 4·0 to all five seed-carried kinds, with per-kind block output and real recovery pointers (closes D-05: exam content exempt, with evidence)
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 01-03-PLAN.md — Build the pre-publish diff report, print it and write it to a single tracked ealch-admin/PUBLISH-REPORT.md on every run
+- [x] 01-03-PLAN.md — Build the pre-publish diff report, print it and write it to a single tracked ealch-admin/PUBLISH-REPORT.md on every run
 
 **Wave 4** *(blocked on Wave 3 completion)*
 - [ ] 01-04-PLAN.md — Live two-direction proof against real Postgres (git-ahead blocked, Postgres-ahead allowed) and report confirmation
@@ -279,7 +279,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18 have no shared files/state with
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Content-Publish Drift Guard Extension | 2/4 | In Progress|  |
+| 1. Content-Publish Drift Guard Extension | 3/4 | In Progress|  |
 | 2. Content & Curriculum Gap Audit | 0/TBD | Not started | - |
 | 3. TTS Security Hardening | 0/TBD | Not started | - |
 | 4. Entitlement Verification & Signed-Out Purchase Fix | 0/TBD | Not started | - |
