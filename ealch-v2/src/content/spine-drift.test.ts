@@ -81,7 +81,11 @@ const noSpine = !CURRICULUM;
 
 test('it declares exactly the units the seed ships', { skip: noSpine }, () => {
   const spineIds = units().map((u) => u.id).sort();
-  // b2.01 is database-only and outside the three tracks the spine declares.
+  // Compared against the SEED, which is what a learner actually holds. That
+  // used to differ from Postgres: b2.01 sat in the database only, in_review,
+  // outside the three tracks the spine declares. It was deleted on 2026-09-07
+  // (ealch-admin/scripts/remove-b2-01-stub.ts) and the two sides now agree, so
+  // this is no longer a narrower check than one against the database.
   const seedIds = seed.units.map((u) => u.id).sort();
   deepStrictEqual(spineIds, seedIds, 'the spine and the seed disagree about which units exist');
 });

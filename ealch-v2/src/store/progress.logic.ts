@@ -997,6 +997,21 @@ function interleaveByTheme<T extends { theme?: string }>(items: T[]): T[] {
   return out;
 }
 
+/**
+ * The highest corpus band a learner at `storeLevel` may be shown, as a LEVELS
+ * index. The store keeps level as a loose string ('A1', 'B1') and placement
+ * writes 'A0', which is not a corpus band at all — so anything unrecognised
+ * caps at a1, deliberately: a beginner's first new words are a1 words.
+ *
+ * Extracted because it was copied. listenPlaylistForDay grew its own identical
+ * copy, and two copies of a rule about the same learner drift the moment one is
+ * touched.
+ */
+export function bandCap(storeLevel: string): number {
+  const band = LEVELS.indexOf(storeLevel.toLowerCase() as (typeof LEVELS)[number]);
+  return band < 0 ? LEVELS.indexOf('a1') : band;
+}
+
 /** Which items may be INTRODUCED as new to a learner whose stored level is
  *  `storeLevel` — the useStore string ('A1', 'B1'...). Items at the learner's
  *  band or below qualify; an unknown or pre-A1 value ('A0', '') means the
@@ -1004,8 +1019,7 @@ function interleaveByTheme<T extends { theme?: string }>(items: T[]): T[] {
  *  The caller passes drill-eligible items; this only draws the level line, so
  *  the two filters stay separable. */
 export function introEligible<T extends { level: string }>(items: T[], storeLevel: string): T[] {
-  const band = LEVELS.indexOf(storeLevel.toLowerCase() as (typeof LEVELS)[number]);
-  const cap = band < 0 ? LEVELS.indexOf('a1') : band;
+  const cap = bandCap(storeLevel);
   return items.filter((it) => {
     const b = LEVELS.indexOf(it.level as (typeof LEVELS)[number]);
     return b >= 0 && b <= cap;

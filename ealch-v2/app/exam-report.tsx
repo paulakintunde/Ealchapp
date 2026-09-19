@@ -39,6 +39,7 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sectionBands, sectionRaw, sectionStatusFor, dueExamSkills, type DueExamSkill } from '@/store/progress.logic';
+import type { ExamSkill, ScoreBand } from '@/content/schema';
 import { content, useContent } from '@/services/content';
 import { formatNclc, paperOutcome, sectionOutcome, type NoBandReason, type SectionOutcome } from '@/utils/nclc.logic';
 import {
@@ -116,6 +117,41 @@ export default function ExamReportScreen() {
       })
     );
   }, [paper, paperId, results, corpus]);
+
+  // The marking itself, which this screen used to throw away.
+  //
+  // Every open task validates with a `modelAnswer` (schema.ts refuses one
+  // without), and the grader writes `aiGrade: { band, feedback }` onto every
+  // graded result. Both were already on the device. `modelAnswer` was read in
+  // exactly one place — the request to the grader — and `feedback` in none: the
+  // readers below it take `aiGrade.band` to decide pass or fail and drop the
+  // prose. So a candidate wrote 250 words, was marked a band down, and saw a
+  // number, while the thing that marked them had the reasons and a worked
+  // answer in hand.
+  //
+  // PASSED TASKS ARE INCLUDED. A band scraped is still worth reading the
+  // marking on, and hiding it on a pass would make this a punishment surface
+  // rather than a study one.
+  const gradings = useMemo(() => {
+    if (!paperId) return [];
+    return results
+      .filter((r) => r.paperId === paperId && r.aiGrade)
+      .map((r) => {
+        const task = content.examTask(r.taskId);
+        return {
+          id: r.id,
+          skill: r.skill,
+          target: r.band,
+          graded: r.aiGrade!.band,
+          feedback: r.aiGrade!.feedback,
+          label: task?.label ?? null,
+          // Absent only if the corpus moved under a stored result; the row
+          // still renders its marking, just without the model answer.
+          modelAnswer: task?.modelAnswer ?? null,
+          passed: r.passed,
+        };
+      });
+  }, [paperId, results, corpus]);
 
   // Open-task misses for this paper, so the report can send the candidate to a
   // prep lesson. dueExamSkills returns prepLessonId: null when no lesson exists
@@ -214,6 +250,19 @@ export default function ExamReportScreen() {
           ? delf.epreuves.map((e) => <DelfRow key={e.skill} e={e} lang={lang} />)
           : outcome.sections.map((s) => <SectionRow key={s.skill} s={s} lang={lang} />)}
 
+        {/* ── The marking ── */}
+        {gradings.length > 0 ? (
+          <View style={{ marginTop: 20 }}>
+            <TX font="semi" role="label" style={{ marginBottom: 4 }}>{T.examMarking}</TX>
+            <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 10 }}>
+              {T.examMarkingSub}
+            </TX>
+            {gradings.map((g) => (
+              <GradedRow key={g.id} g={g} />
+            ))}
+          </View>
+        ) : null}
+
         {/* ── What to do next ── */}
         {due.length > 0 ? (
           <View style={{ marginTop: 16 }}>
@@ -290,6 +339,88 @@ function SectionRow({ s, lang }: { s: SectionOutcome; lang: 'fr' | 'en' }) {
           {note}
         </TX>
       )}
+    </View>
+  );
+}
+
+/**
+ * One graded open task: the band it earned against the band it targeted, the
+ * grader's own reasons, and a model answer behind a press.
+ *
+ * THE MODEL ANSWER IS NOT OPEN BY DEFAULT, deliberately. It runs to about 1,600
+ * characters on a DELF B2 writing task, and a candidate who has just been
+ * marked should read why before reading a better version of what they wrote.
+ * Opening it is also the moment to say what it is: ONE answer that holds at the
+ * level, not a key. Without that line a learner reasonably infers there was a
+ * right answer they failed to produce, which is untrue of every open task in
+ * the corpus and would make the rubric look decorative.
+ *
+ * The graded band is shown even on a pass, and coloured only when it falls
+ * short, so the row reads as marking rather than as a verdict repeated.
+ */
+function GradedRow({
+  g,
+}: {
+  g: {
+    id: string; skill: ExamSkill; target: ScoreBand; graded: ScoreBand;
+    feedback: string; label: string | null; modelAnswer: string | null; passed: boolean;
+  };
+}) {
+  const t = useTheme();
+  const T = useT();
+  const [open, setOpen] = useState(false);
+
+  return (
+    <View
+      style={{
+        borderRadius: 14, borderWidth: 1, borderColor: t.line(9),
+        backgroundColor: t.card, padding: 14, marginBottom: 10,
+      }}
+    >
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+        <View style={{ flex: 1 }}>
+          <TX role="meta" color={t.txMuted}>
+            {T.examSkillNames[g.skill]}
+            {g.label ? ` · ${g.label}` : ''}
+          </TX>
+        </View>
+        <TX font="semi" role="meta" color={g.passed ? t.accTx : t.danger}>
+          {T.examGradedAt.replace('{band}', g.graded.toUpperCase())}
+        </TX>
+      </View>
+
+      <TX role="meta" color={t.txSubtle} style={{ marginBottom: 8 }}>
+        {T.examTargetBand.replace('{band}', g.target.toUpperCase())}
+      </TX>
+
+      {/* The grader's prose, which nothing rendered until now. */}
+      <TX role="bodySm" color={t.txSecondary} lhMult={1.5}>{g.feedback}</TX>
+
+      {g.modelAnswer ? (
+        <View style={{ marginTop: 12 }}>
+          <Press onPress={() => setOpen((v) => !v)}>
+            <TX font="semi" role="label" color={t.accTx}>
+              {open ? T.examHideModel : `${T.examShowModel} →`}
+            </TX>
+          </Press>
+          {open ? (
+            <View
+              style={{
+                marginTop: 10, paddingLeft: 12,
+                borderLeftWidth: 2, borderLeftColor: t.accA(40),
+              }}
+            >
+              <TX font="semi" role="meta" color={t.txMuted} style={{ marginBottom: 6 }}>
+                {T.examModelTitle}
+              </TX>
+              <TX role="bodySm" lhMult={1.6}>{g.modelAnswer}</TX>
+              <TX role="meta" color={t.txSubtle} lhMult={1.5} style={{ marginTop: 8 }}>
+                {T.examModelNote}
+              </TX>
+            </View>
+          ) : null}
+        </View>
+      ) : null}
     </View>
   );
 }

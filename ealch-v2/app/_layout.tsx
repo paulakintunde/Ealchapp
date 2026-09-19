@@ -137,6 +137,7 @@ export default function RootLayout() {
               <Stack.Screen name="profile" />
               <Stack.Screen name="settings" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="delete-account" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="licences" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="themes" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="theme" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="flashcards" options={{ animation: 'slide_from_right' }} />

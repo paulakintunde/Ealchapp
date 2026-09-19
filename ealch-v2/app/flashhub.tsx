@@ -10,7 +10,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useContent } from '@/services/content';
-import { selectItems } from '@/services/content.logic';
+import { dedupeByFr, selectItems } from '@/services/content.logic';
 import { domainMeta } from '@/content/domainMeta';
 
 /**
@@ -45,7 +45,9 @@ export default function FlashHub() {
       .map((d) => ({
         slug: d.slug,
         meta: domainMeta(d.slug),
-        count: selectItems(corpus, 'flashcard', { themes: themesOf.get(d.slug) ?? [] }).length,
+        // The count must be the deck the learner will actually get, so it
+        // dedupes exactly as the deck does.
+        count: dedupeByFr(selectItems(corpus, 'flashcard', { themes: themesOf.get(d.slug) ?? [] })).length,
       }))
       // Drop the empty ones, as voicehub/sentencehub/dictationhub already do.
       // This hub was the only one that didn't, and offline it showed it: the

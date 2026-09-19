@@ -10,7 +10,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useContent } from '@/services/content';
-import { itemCardType, selectItems } from '@/services/content.logic';
+import { dedupeByFr, itemCardType, selectItems } from '@/services/content.logic';
 import { domainMeta } from '@/content/domainMeta';
 import { LEVELS, type CardType, type Level } from '@/content/schema';
 
@@ -36,14 +36,26 @@ export default function FlashTypes() {
   const slug = domain ?? '';
   const meta = domainMeta(slug);
 
-  // The difficulty filter: null is "all levels". Chips offer only the bands
-  // this category actually holds cards at, in LEVELS order (sons → c1; there
-  // is no c2 content by design, c2 is a score band only).
+  // The difficulty filter. Chips offer only the bands this category actually
+  // holds cards at, in LEVELS order (sons → c1; there is no c2 content by
+  // design, c2 is a score band only).
+  //
+  // It opens on the LEARNER'S OWN BAND, not on "all levels". Defaulting to all
+  // let one band swamp a deck: Education carries the vowel and alphabet themes,
+  // which are sons-level phonics, so its Grammar rules deck offered 172 cards
+  // of which 167 were vowel-spelling drills and 5 were the education grammar a
+  // learner had gone looking for. Its 66-card error deck was 60 phonics. The
+  // chips were always there; nothing pointed them at the band you are actually
+  // studying. "All levels" is still one tap away.
+  const learnerLevel = useStore((s) => s.level);
   const [lvl, setLvl] = useState<Level | null>(null);
+  const [picked, setPicked] = useState(false);
 
   const items = useMemo(() => {
     const themes = (corpus.themes ?? []).filter((th) => th.domain === slug).map((th) => th.slug);
-    return selectItems(corpus, 'flashcard', { themes });
+    // Deduped like the deck itself, so every count on this screen is the
+    // number of cards the deck will hand over.
+    return dedupeByFr(selectItems(corpus, 'flashcard', { themes }));
   }, [corpus, slug]);
 
   const bands = useMemo(
@@ -51,14 +63,22 @@ export default function FlashTypes() {
     [items]
   );
 
+  // Seeded once, and only to a band this category actually has cards at, so a
+  // B1 learner in a sons-only category still sees cards rather than an empty
+  // deck. A tap on any chip takes over from here.
+  const seeded = !picked && bands.length > 1
+    ? (bands.find((b) => b.toLowerCase() === learnerLevel.toLowerCase()) ?? null)
+    : lvl;
+  const active = picked ? lvl : seeded;
+
   const counts = useMemo(() => {
     const by: Record<CardType, number> = { vocab: 0, gapfill: 0, conjugation: 0, error: 0, grammar: 0, register: 0 };
     for (const it of items) {
-      if (lvl !== null && it.level !== lvl) continue;
+      if (active !== null && it.level !== active) continue;
       by[itemCardType(it)] += 1;
     }
     return by;
-  }, [items, lvl]);
+  }, [items, active]);
 
   // Row order mirrors the per-lesson card breakdown the decks were specced
   // from: the two vocab directions first, then the production drills.
@@ -107,11 +127,11 @@ export default function FlashTypes() {
         {bands.length > 1 ? (
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 18, paddingHorizontal: 4 }}>
             {[null, ...bands].map((b) => {
-              const on = lvl === b;
+              const on = active === b;
               return (
                 <Press
                   key={b ?? 'all'}
-                  onPress={() => setLvl(b)}
+                  onPress={() => { setPicked(true); setLvl(b); }}
                   accessibilityRole="button"
                   accessibilityState={{ selected: on }}
                   style={{
@@ -154,7 +174,7 @@ export default function FlashTypes() {
                             domain: slug,
                             ctype: r.ctype,
                             ...(r.dir ? { dir: r.dir } : {}),
-                            ...(lvl ? { level: lvl } : {}),
+                            ...(active ? { level: active } : {}),
                           },
                         })
                 }

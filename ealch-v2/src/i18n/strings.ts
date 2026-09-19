@@ -107,6 +107,10 @@ export type Strings = {
   examDisclaimer: string;
   examNone: string; examSubmit: string; examModelAnswer: string; examGrading: string;
   examUngraded: string; examPracticeEstimate: string; examReviewLesson: string; examSeriesDone: string;
+  /** Said WHILE the grader is working. A written or spoken answer is marked by
+   *  a model, which takes seconds per answer, and a dimmed button alone reads
+   *  as a frozen app on a paper with more than one open task. */
+  examGradingNote: string;
   /** Épreuve names, keyed by ExamSkill. Note PE is *expression écrite* and PO
    *  is *expression orale*: the skill codes are production-first, the labels
    *  a candidate reads are not. */
@@ -138,6 +142,9 @@ export type Strings = {
   examAudioCheckingL: string;
   /** Expression orale capture. */
   examStartPrep: string; examStartRecording: string; examPrepPhase: string; examPrepBody: string;
+  /** The live microphone state during a spoken answer: a voice is being
+   *  heard, a pause is running, or the answer is closed. */
+  examMicHearing: string; examMicPaused: string; examMicStopped: string; examWordsSoFar: string;
   examRecording: string; examStopRecording: string;
   examMicFailed: string; examMicFailedBody: string; examDeliveryCaveat: string;
   /** A listening plate that has not been rendered yet, or would not load. */
@@ -152,6 +159,11 @@ export type Strings = {
   examParallelNotEquated: string; examNoOverall: string; examNothingSat: string;
   examMissingSkills: string; examWhatNext: string; examNoPrepLesson: string;
   examNotSat: string; examNoScoring: string; examBelowScale: string; examNoAnswer: string;
+  /** The marking a candidate came for. The AI grader has always produced
+   *  criterion-level feedback and every open task has always carried a model
+   *  answer; both were written to the device and shown to nobody. */
+  examMarking: string; examMarkingSub: string; examGradedAt: string; examTargetBand: string;
+  examShowModel: string; examHideModel: string; examModelTitle: string; examModelNote: string;
   /** DELF B2 reports a diploma, not a level: a mark per épreuve, a total, and
    *  the floor every épreuve has to clear. See utils/delf.logic.ts. */
   delfResult: string; delfResultPass: string; delfResultFail: string;
@@ -198,6 +210,10 @@ export type Strings = {
   correctT: string; incorrectT: string; nextCard: string; vfDoneT: string;
   vfSelfT: string; vfGot: string; vfMissed: string;
   vfEmptyT: string; vfEmptyS: string;
+  /* The `practice` section at skill 'write': the learner is shown the English
+     and types the French. `wrNote` states the one thing the surface cannot
+     test, so nobody reads a green tick as approval of an accent. */
+  wrPrompt: string; wrPh: string; wrAnswer: string; wrReveal: string; wrNote: string;
   learnT: string; arrangeT: string; sayItT: string; writeItT: string; wellDone: string;
   chooseLevel: string; startRp: string; rpDoneT: string; rpDoneS: string; rpYourLine: string; rpTag: string; rpReport: string; rpNotHeard: string;
   rpYourTurn: string; rpRespond: string; rpModel: string;
@@ -234,6 +250,10 @@ export type Strings = {
   // everyone), and the annual discount is a SHARE (saveFmt), never months.
   subscription: string; currentPlan: string;
   pwTag: string; pwTitle: string; pwLead: string;
+  /** Store-required disclosure: names the product, the billing period and
+   *  the price the button will actually charge. Apple 3.1.2 and Play both
+   *  require all three ON the paywall, next to the two legal links. */
+  pwTermsPlan: string;
   pwFeatLevels: string; pwFeatLevelsS: string;
   pwFeatCoach: string; pwFeatCoachS: string;
   pwFeatRoleplay: string; pwFeatRoleplayS: string;
@@ -289,6 +309,11 @@ export type Strings = {
   delBtn: string; delBtnGuest: string; delCancel: string;
   errDelete: string; errDelNoSession: string;
   legalPre: string; legalTerms: string; legalAnd: string; legalPrivacy: string; legalPost: string;
+  /** The About & legal section of settings, and the notices screen behind it.
+   *  Both stores expect open-source notices to be reachable in-app, and the
+   *  OFL requires the font copyright to travel with the binary. */
+  aboutSec: string; licT: string; licSub: string; licLead: string;
+  licBundled: string; licFonts: string; licContent: string; licPkgs: string;
   /** freezeLeft is the profile chip; freezeShort/freezeShortPl fit the today strip,
    *  where the chip string wraps to two lines. Both take {n}. */
   freezeLeft: string; freezeShort: string; freezeShortPl: string;
@@ -324,6 +349,10 @@ export type Strings = {
   offlineReadyT: string; offlineReadyS: string; contentVersionL: string; contentCountsFmt: string;
   checkUpdates: string; updatingL: string; upToDateL: string; updatedL: string;
   cachedUpdateL: string; audioSoonL: string;
+  /** Where the playlists on screen actually came from: the binary, or an
+   *  update. The distinction only became visible once the app started reading
+   *  corpus playlists at all. */
+  plFromBundleFmt: string; plFromUpdateFmt: string;
   dcTag: string; dcTitle: string; dcPurpose: string; dcYours: string; dcCorrect: string;
   dcOkSub: string; dcHint: string; dcPlaying: string; dcPlay: string;
   dcPlaysLeft: string; dcNoPlays: string; dcFinish: string; dcNext: string;
@@ -428,7 +457,8 @@ export const T: Record<Lang, Strings> = {
     examDisclaimer: "Exercices originaux inspirés du format officiel. Non publiés ni approuvés par France Éducation international, le CCI Paris Île-de-France ni aucun organisme examinateur. Résultats donnés à titre indicatif, non équivalents à un score officiel.",
     examNone: 'Aucun examen blanc disponible pour le moment. Revenez après votre prochaine mise à jour.',
     examSubmit: 'Valider', examModelAnswer: 'RÉPONSE MODÈLE', examGrading: 'Correction en cours…',
-    examUngraded: 'Correction indisponible. Votre réponse est enregistrée ; réessayez plus tard.',
+    examGradingNote: "Chaque réponse écrite ou orale est corrigée une par une, ce qui prend quelques secondes. Gardez cet écran ouvert.",
+    examUngraded: "La correction n'a pas abouti. Cette épreuve compte comme non corrigée.",
     examPracticeEstimate: "Estimation d'entraînement, pas un score officiel",
     examReviewLesson: 'Revoir la leçon →', examSeriesDone: 'Épreuve terminée',
     examSkillNames: { CO: 'Compréhension orale', CE: 'Compréhension écrite', PE: 'Expression écrite', PO: 'Expression orale' },
@@ -471,6 +501,8 @@ export const T: Record<Lang, Strings> = {
     examAudioCheckingL: 'Vérification de l’audio…',
     examStartPrep: 'Commencer la préparation', examStartRecording: "Commencer à parler",
     examPrepPhase: 'Préparation', examPrepBody: "Lisez le document. L'enregistrement démarrera tout seul.",
+    examMicHearing: 'On vous entend', examMicPaused: 'En pause, continuez quand vous voulez',
+    examMicStopped: 'Enregistrement terminé', examWordsSoFar: '{n} mots',
     examRecording: 'Enregistrement', examStopRecording: "J'ai terminé",
     examMicFailed: 'Micro indisponible',
     examMicFailedBody: "Aucun enregistrement n'a pu être fait. Cette tâche ne sera pas comptée dans votre estimation.",
@@ -493,6 +525,12 @@ export const T: Record<Lang, Strings> = {
     examNoPrepLesson: "Aucune leçon de préparation à ce niveau pour l'instant.",
     examNotSat: 'Non passée', examNoScoring: 'Non barémée',
     examBelowScale: 'Sous le NCLC 4', examNoAnswer: 'Rien rendu',
+    examMarking: 'La correction',
+    examMarkingSub: 'Ce que le correcteur a relevé, critère par critère.',
+    examGradedAt: 'Noté {band}', examTargetBand: 'Objectif {band}',
+    examShowModel: 'Voir une réponse modèle', examHideModel: 'Masquer la réponse modèle',
+    examModelTitle: 'Une réponse modèle',
+    examModelNote: "Une réponse qui tient au niveau visé. Ce n'est ni la seule ni un corrigé officiel.",
     delfResult: 'Résultat', delfResultPass: 'Admis', delfResultFail: 'Non admis',
     delfFloor: 'Il faut 50/100 au total et au moins 5/25 à chaque épreuve.',
     delfBelowFloor: 'Sous le minimum',
@@ -548,6 +586,8 @@ export const T: Record<Lang, Strings> = {
     correctT: 'Correct !', incorrectT: 'Pas tout à fait : ', nextCard: 'Carte suivante', vfDoneT: 'Session terminée',
     vfEmptyT: 'Rien à prononcer ici', vfEmptyS: "Ce thème n'a pas encore de mots pour Voice Flash. Essayez un autre thème ou revenez plus tard.",
     vfSelfT: 'LA RÉPONSE — ALORS ?', vfGot: "Je l'ai bien dit", vfMissed: 'Pas tout à fait',
+    wrPrompt: 'Écrivez-le en français', wrPh: 'Votre réponse…', wrAnswer: 'LA RÉPONSE',
+    wrReveal: 'Afficher la réponse', wrNote: 'Les accents ne sont pas notés ici.',
     learnT: 'Apprenez ces mots', arrangeT: 'Arrangez la phrase', sayItT: 'Dites-la à voix haute', writeItT: 'Écrivez-la', wellDone: 'Bravo, phrase acquise',
     chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: '{name} : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE', rpTag: 'JEU DE RÔLE', rpReport: 'Le rapport →', rpNotHeard: 'Pas entendu, votre réplique est affichée.',
     rpYourTurn: 'À VOUS', rpRespond: 'Répondez en français, puis vérifiez', rpModel: 'Réponse modèle',
@@ -586,6 +626,7 @@ export const T: Record<Lang, Strings> = {
     downloadsT: 'Téléchargements', downloadsS: 'Écoutez hors connexion', storage: 'Stockage', wifiOnly: 'Wi-Fi uniquement',
     subscription: 'Abonnement', currentPlan: 'FORMULE ACTUELLE',
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Débloquez tout le parcours',
+    pwTermsPlan: 'Ealch Première · abonnement {plan} · {price}',
     pwLead: 'A2 et au-delà, coach illimité et jeux de rôle illimités. Sons et A1 restent gratuits pour toujours.',
     pwFeatLevels: 'Tous les niveaux', pwFeatLevelsS: 'A2 et au-delà, aussi loin que vous irez',
     pwFeatCoach: 'Coach illimité', pwFeatCoachS: 'Posez vos questions au-delà de la limite quotidienne gratuite',
@@ -679,6 +720,11 @@ export const T: Record<Lang, Strings> = {
     newPwPh: 'Nouveau mot de passe', setNewPw: 'Enregistrer le mot de passe', backToSignIn: 'Retour à la connexion',
     errResetFailed: 'Impossible de mettre à jour le mot de passe. Réessayez.',
     pwShow: 'Afficher le mot de passe', pwHide: 'Masquer le mot de passe',
+    aboutSec: 'À propos & mentions légales', licT: 'Licences tierces',
+    licSub: "Les polices, le code et les données sur lesquels Ealch est bâti",
+    licLead: "Ealch est construit sur le travail d'autres personnes. Voici lesquelles, et ce que chacune apporte.",
+    licBundled: 'INCLUS DANS L’APPLICATION', licFonts: 'CARACTÈRES', licContent: 'DERRIÈRE LE CONTENU',
+    licPkgs: '{n} paquets',
     legalPre: "En créant un compte, vous acceptez les ",
     legalTerms: "conditions d'utilisation",
     legalAnd: ' et la ',
@@ -743,6 +789,7 @@ export const T: Record<Lang, Strings> = {
     offlineReadyS: "Toutes les leçons sont intégrées à l'app et fonctionnent sans réseau. Le vocabulaire supplémentaire arrive tout seul une fois en ligne.",
     contentVersionL: 'Version du contenu', contentCountsFmt: '{u} unités · {l} leçons · {i} phrases',
     checkUpdates: 'Rechercher des mises à jour', updatingL: 'Vérification…', upToDateL: 'À jour', updatedL: 'Contenu mis à jour.',
+    plFromBundleFmt: '{n} playlists · fournies avec l’app', plFromUpdateFmt: '{n} playlists · reçues par mise à jour',
     cachedUpdateL: 'Mise à jour téléchargée', audioSoonL: 'Des packs audio téléchargeables arriveront dans une prochaine mise à jour.',
     dcTag: 'DICTÉE · A2', dcTitle: 'Écoutez, écrivez.',
     dcPurpose: 'Entraînez votre oreille et votre orthographe : écoutez la phrase, puis écrivez-la exactement, accents, accords et homophones compris.',
@@ -854,7 +901,8 @@ export const T: Record<Lang, Strings> = {
     examDisclaimer: 'Original practice items modeled on the official format. Not published or endorsed by France Éducation international, CCI Paris Île-de-France, or any exam board. Results are practice estimates only, not equivalent to an official score.',
     examNone: 'No mock exams available yet. Check back after your next update.',
     examSubmit: 'Submit', examModelAnswer: 'MODEL ANSWER', examGrading: 'Grading…',
-    examUngraded: 'Grading unavailable. Your response was saved; try again later.',
+    examGradingNote: 'Each written or spoken answer is marked one at a time, which takes a few seconds. Keep this screen open.',
+    examUngraded: 'Grading did not come back. This paper is recorded as ungraded.',
     examPracticeEstimate: 'Practice estimate, not an official score',
     examReviewLesson: 'Review the lesson →', examSeriesDone: 'Mock exam complete',
     examSkillNames: { CO: 'Listening', CE: 'Reading', PE: 'Writing', PO: 'Speaking' },
@@ -897,6 +945,8 @@ export const T: Record<Lang, Strings> = {
     examAudioCheckingL: 'Checking audio…',
     examStartPrep: 'Start preparation', examStartRecording: 'Start speaking',
     examPrepPhase: 'Preparation', examPrepBody: 'Read the document. Recording starts on its own.',
+    examMicHearing: 'We can hear you', examMicPaused: 'Paused, carry on when you are ready',
+    examMicStopped: 'Recording finished', examWordsSoFar: '{n} words',
     examRecording: 'Recording', examStopRecording: "I'm done",
     examMicFailed: 'Microphone unavailable',
     examMicFailedBody: 'No recording could be made. This task will not count toward your estimate.',
@@ -919,6 +969,12 @@ export const T: Record<Lang, Strings> = {
     examNoPrepLesson: 'No prep lesson at that level yet.',
     examNotSat: 'Not sat', examNoScoring: 'No score map',
     examBelowScale: 'Below NCLC 4', examNoAnswer: 'No answer given',
+    examMarking: 'Your marking',
+    examMarkingSub: 'What the marker picked up, criterion by criterion.',
+    examGradedAt: 'Graded {band}', examTargetBand: 'Target {band}',
+    examShowModel: 'See a model answer', examHideModel: 'Hide the model answer',
+    examModelTitle: 'A model answer',
+    examModelNote: 'One answer that holds at the target level. It is not the only one, and not an official key.',
     delfResult: 'Result', delfResultPass: 'Pass', delfResultFail: 'Not passed',
     delfFloor: 'You need 50/100 overall and at least 5/25 in every épreuve.',
     delfBelowFloor: 'Below the minimum',
@@ -974,6 +1030,8 @@ export const T: Record<Lang, Strings> = {
     correctT: 'Correct!', incorrectT: 'Not quite: ', nextCard: 'Next card', vfDoneT: 'Session complete',
     vfEmptyT: 'Nothing to say here', vfEmptyS: 'This theme has no Voice Flash words yet. Try another theme, or check back later.',
     vfSelfT: 'THE ANSWER — HOW DID YOU DO?', vfGot: 'I said it right', vfMissed: 'Not quite',
+    wrPrompt: 'Write it in French', wrPh: 'Your answer…', wrAnswer: 'THE ANSWER',
+    wrReveal: 'Show the answer', wrNote: 'Accents are not marked here.',
     learnT: 'Learn these words', arrangeT: 'Arrange the sentence', sayItT: 'Say it out loud', writeItT: 'Write it', wellDone: 'Bravo, sentence mastered',
     chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: '{name}: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD', rpTag: 'ROLE PLAY', rpReport: 'The report →', rpNotHeard: 'Not heard, your line is shown.',
     rpYourTurn: 'YOUR TURN', rpRespond: 'Respond in French, then check', rpModel: 'Model reply',
@@ -1012,6 +1070,7 @@ export const T: Record<Lang, Strings> = {
     downloadsT: 'Downloads', downloadsS: 'Listen offline', storage: 'Storage', wifiOnly: 'Wi-Fi only',
     subscription: 'Subscription', currentPlan: 'CURRENT PLAN',
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Unlock the whole path',
+    pwTermsPlan: 'Ealch Première · {plan} subscription · {price}',
     pwLead: 'A2 and beyond, unlimited coach turns and unlimited role plays. Sons and A1 stay free forever.',
     pwFeatLevels: 'Every level', pwFeatLevelsS: 'A2 and beyond, as far as you go',
     pwFeatCoach: 'Unlimited coach', pwFeatCoachS: 'Ask past the free daily limit',
@@ -1105,6 +1164,11 @@ export const T: Record<Lang, Strings> = {
     newPwPh: 'New password', setNewPw: 'Save password', backToSignIn: 'Back to sign in',
     errResetFailed: 'Could not update the password. Try again.',
     pwShow: 'Show password', pwHide: 'Hide password',
+    aboutSec: 'About & legal', licT: 'Third-party licences',
+    licSub: 'The fonts, code and data Ealch is built on',
+    licLead: 'Ealch is built on other people’s work. Here is whose, and what each piece does.',
+    licBundled: 'BUNDLED WITH THE APP', licFonts: 'TYPEFACES', licContent: 'BEHIND THE CONTENT',
+    licPkgs: '{n} packages',
     legalPre: "By signing up you agree to Ealch's ",
     legalTerms: 'Terms of Use',
     legalAnd: ' and ',
@@ -1173,6 +1237,7 @@ export const T: Record<Lang, Strings> = {
     offlineReadyS: 'Every lesson is built into the app and works with no network. Extra vocabulary arrives on its own once you are online.',
     contentVersionL: 'Content version', contentCountsFmt: '{u} units · {l} lessons · {i} phrases',
     checkUpdates: 'Check for updates', updatingL: 'Checking…', upToDateL: 'Up to date', updatedL: 'Content updated.',
+    plFromBundleFmt: '{n} playlists · bundled with the app', plFromUpdateFmt: '{n} playlists · from an update',
     cachedUpdateL: 'Downloaded update', audioSoonL: 'Downloadable audio packs arrive in a future update.',
     dcTag: 'DICTATION · A2', dcTitle: 'Listen, write.',
     dcPurpose: 'Train your ear and your spelling: write exactly what you hear, accents, agreement and homophones included.',
