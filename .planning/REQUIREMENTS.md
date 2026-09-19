@@ -9,8 +9,8 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 
 ### Content-Publish Safety
 
-- [ ] **PUBLISH-01**: Publishing content blocks overwriting git-newer content across all content kinds (units, scenarios, playlists, speak-stages) — not just lesson bodies, which the existing guard already covers
-- [ ] **PUBLISH-02**: An author sees a human-readable pre-publish diff report (what changed, size deltas) before publishing, not just a pass/fail guard
+- [x] **PUBLISH-01**: Publishing content blocks overwriting git-newer content across all content kinds (units, scenarios, playlists, speak-stages) — not just lesson bodies, which the existing guard already covers
+- [x] **PUBLISH-02**: An author sees a human-readable pre-publish diff report (what changed, size deltas) before publishing, not just a pass/fail guard
 
 ### Monetization
 
@@ -109,8 +109,8 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PUBLISH-01 | Phase 1 | Pending |
-| PUBLISH-02 | Phase 1 | Pending |
+| PUBLISH-01 | Phase 1 | Complete |
+| PUBLISH-02 | Phase 1 | Complete |
 | CONTENT-01 | Phase 2 | Pending |
 | SEC-01 | Phase 3 | Pending |
 | PAY-01 | Phase 4 | Pending |
