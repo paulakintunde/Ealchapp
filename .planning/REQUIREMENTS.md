@@ -60,11 +60,11 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 ### Onboarding & Analytics
 
 - [ ] **QA-01**: The onboarding flow (including the placement test) is audited end-to-end for bugs/regressions — both already ship as `app/onboarding.tsx` and `app/placement.tsx`; this verifies rather than builds
-- [ ] **QA-02**: Analytics event tracking (`services/analytics.ts`) is audited for coverage/correctness against key user actions
+- [ ] **QA-02**: Analytics event tracking (`services/analytics.ts`) is audited for coverage/correctness against key user actions, including the acquisition/activation funnel (first-open, signup, referrer capture, onboarding step-level funnel, D1 return), not just engagement events
 
 ### Animation
 
-- [ ] **ANIM-01**: Ship the approved Brix mascot Rive-animation rollout (idle/listening/speaking/celebrating/thinking/tap-easter-egg/dozeOff/transform-in-out states, squash-and-stretch house style) per the 2026-07-25 7-phase plan — unblocked now that `expo-speech-recognition` has shipped in production, which was the deferral condition
+- [ ] **ANIM-01**: Ship the approved Brix mascot Rive-animation rollout (idle/listening/speaking/celebrating/thinking/tap-easter-egg/dozeOff/transform-in-out states, squash-and-stretch house style) per the 2026-07-25 7-phase plan — unblocked now that `expo-speech-recognition` has shipped in production, which was the deferral condition. Delivered across two phases (core states, then delight states) — see Traceability.
 
 ### Feedback
 
@@ -101,48 +101,50 @@ Explicitly excluded. Documented to prevent scope creep.
 | Formal WCAG 2.1 AA certification / VPAT | The regulatory deadlines found in research target government/regulated entities specifically, not a proportionate bar for a solo indie app's first accessibility pass; revisit only if a business reason (enterprise/government customer) makes it necessary |
 | Real-time multi-editor content locking / merge-conflict resolution in the authoring pipeline | Solves for a multi-tenant editorial team this project doesn't have; the pre-publish diff guard (PUBLISH-01/02) is the correctly-scoped fix for a solo author |
 | ML-driven notification send-time optimization (bandit algorithms) | Optimizing send-time before basic delivery (NOTIFY-01/02/03) even works is solving problem 3 before problem 1 |
+| Mid-milestone launch gate / sub-milestone split | Considered during 2026-09-19 roadmap revision (PM/growth review recommended shipping after an earlier phase); user explicitly declined — this milestone ships as one complete unit, no partial-launch checkpoint |
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
+Which phases cover which requirements. Updated during roadmap creation and revision.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PUBLISH-01 | TBD | Pending |
-| PUBLISH-02 | TBD | Pending |
-| PAY-01 | TBD | Pending |
-| PAY-02 | TBD | Pending |
-| PAY-03 | TBD | Pending |
-| PAY-05 | TBD | Pending |
-| A11Y-01 | TBD | Pending |
-| A11Y-02 | TBD | Pending |
-| A11Y-03 | TBD | Pending |
-| A11Y-04 | TBD | Pending |
-| NOTIFY-01 | TBD | Pending |
-| NOTIFY-02 | TBD | Pending |
-| NOTIFY-03 | TBD | Pending |
-| SEC-01 | TBD | Pending |
-| PERF-01 | TBD | Pending |
-| PERF-02 | TBD | Pending |
-| BUG-01 | TBD | Pending |
-| BUG-02 | TBD | Pending |
-| BUG-03 | TBD | Pending |
-| TEST-01 | TBD | Pending |
-| TEST-02 | TBD | Pending |
-| TEST-03 | TBD | Pending |
-| CONTENT-01 | TBD | Pending |
-| QA-01 | TBD | Pending |
-| QA-02 | TBD | Pending |
-| ANIM-01 | TBD | Pending |
-| FEEDBACK-01 | TBD | Pending |
-| FEEDBACK-02 | TBD | Pending |
-| UX-01 | TBD | Pending |
+| PUBLISH-01 | Phase 1 | Pending |
+| PUBLISH-02 | Phase 1 | Pending |
+| CONTENT-01 | Phase 2 | Pending |
+| SEC-01 | Phase 3 | Pending |
+| PAY-01 | Phase 4 | Pending |
+| PAY-03 | Phase 4 | Pending |
+| PAY-02 | Phase 5 | Pending |
+| PAY-05 | Phase 5 | Pending |
+| NOTIFY-01 | Phase 6 | Pending |
+| NOTIFY-02 | Phase 6 | Pending |
+| BUG-01 | Phase 7 | Pending |
+| BUG-02 | Phase 7 | Pending |
+| BUG-03 | Phase 7 | Pending |
+| A11Y-01 | Phase 8 | Pending |
+| A11Y-02 | Phase 8 | Pending |
+| A11Y-03 | Phase 8 | Pending |
+| A11Y-04 | Phase 8 | Pending |
+| QA-01 | Phase 9 | Pending |
+| QA-02 | Phase 9 | Pending |
+| FEEDBACK-01 | Phase 10 | Pending |
+| FEEDBACK-02 | Phase 10 | Pending |
+| ANIM-01 | Phase 11 (core states) + Phase 12 (delight states) | Pending |
+| UX-01 | Phase 13 | Pending |
+| PERF-02 | Phase 15 (design spike: Phase 14) | Pending |
+| PERF-01 | Phase 16 | Pending |
+| NOTIFY-03 | Phase 17 | Pending |
+| TEST-02 | Phase 18 | Pending |
+| TEST-01 | Phase 19 | Pending |
+| TEST-03 | Phase 19 | Pending |
 
 **Coverage:**
-- v1 requirements: 30 total
-- Mapped to phases: 0
-- Unmapped: 30 ⚠️ (roadmapper will map these)
+- v1 requirements: 29 total (corrected from an earlier miscount of 30 — the enumerated requirement list above contains 29 distinct IDs)
+- Mapped to phases: 29
+- Unmapped: 0 ✓
+- Note: ANIM-01 is the sole requirement mapped to two phases rather than one. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope.
 
 ---
 *Requirements defined: 2026-09-19*
-*Last updated: 2026-09-19 after initial definition*
+*Last updated: 2026-09-19 after roadmap revision — traceability re-mapped, 100% coverage across 19 phases (Phase 14 is a design-spike prerequisite for PERF-02/Phase 15, not a requirement-bearing phase itself; Phase 11 split into 11/12 for ANIM-01; all phases after the original Phase 11 renumbered by +1)*
