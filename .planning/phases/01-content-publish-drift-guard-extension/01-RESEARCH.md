@@ -379,22 +379,25 @@ if (db.overview && !git.overview) {
 
 **If this table is empty:** N/A — see above; all three items are judgment calls flagged for the planner, not unverified factual claims about the domain (the underlying facts — schema field presence, code structure, historical incidents — are all directly verified from source).
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Should the publish-time lesson comparator also gain the `overview`-presence check that only `restore-lesson-bodies-from-seed.ts` currently has?**
+1. **RESOLVED in plan 01-01.** Should the publish-time lesson comparator also gain the `overview`-presence check that only `restore-lesson-bodies-from-seed.ts` currently has?
    - What we know: The recovery script has this check (line 283-284); the publish-time guard does not. This is a real, pre-existing asymmetry, not something introduced by this phase.
    - What's unclear: Whether closing this gap is in-scope for Phase 1 (it directly serves PUBLISH-01's "not just lesson bodies" framing and the roadmap's Success Criterion 4 about the overview-collapse shape) or should be flagged as a fast-follow.
    - Recommendation: Include it — it's a small, low-risk addition to code already being touched, and the roadmap's own success criteria explicitly reference the overview-collapse incident shape as the regression test target.
+   - Decision: Included, as `findPresenceLosses` in `drift-guard.logic.ts` (plan 01-01), wired into the guard in plan 01-02.
 
-2. **Exact on-disk report path/name.**
+2. **RESOLVED in plan 01-03.** Exact on-disk report path/name.
    - What we know: D-03 specifies "a single, overwritten file... e.g. a `PUBLISH-REPORT.md`-style artifact at a fixed path," explicitly left to Claude's discretion.
    - What's unclear: Whether it should live at repo root, inside `ealch-admin/`, or alongside `seed.json` in `ealch-v2/src/content/`.
    - Recommendation: `ealch-admin/PUBLISH-REPORT.md` (co-located with the script that generates it, not with the app content it's reporting on) — but this is genuinely discretionary per CONTEXT.md and the planner should decide and document it as a locked implementation detail.
+   - Decision: `ealch-admin/PUBLISH-REPORT.md`, as recommended, with a `.gitignore` negation added (plan 01-03 Task 3) since the repo's blanket `*.md` ignore would otherwise have silently defeated D-03's "git history is the audit trail" rationale.
 
-3. **Does the new unit/scenario/playlist/speak-stage recovery path need a working, tested script in THIS phase, or is documenting the manual Postgres UPDATE sufficient for v1?**
+3. **RESOLVED in plan 01-02.** Does the new unit/scenario/playlist/speak-stage recovery path need a working, tested script in THIS phase, or is documenting the manual Postgres UPDATE sufficient for v1?
    - What we know: `restore-lesson-bodies-from-seed.ts` exists and is actively used (its header shows at least 3 rounds of real incidents it recovered from). CONTEXT.md's code_context says extending it "may need" to happen, not that it must.
    - What's unclear: Whether the roadmap's Phase 1 scope expects a working recovery script for the new kinds, or just the guard + report (with recovery being "push the DB-side change first," per D-04, which for a human-authored unit/scenario edit might mean re-running whatever admin-console action or script originally wrote it, not necessarily a new dedicated restore script).
    - Recommendation: Since D-04 explicitly names "push the DB-side change first" as the escape hatch (not "run a restore script"), and the guard's own block message just needs to point somewhere actionable, the planner should decide whether that "somewhere" is a new/generalized restore script (higher effort, matches the lesson precedent) or a documented manual procedure (lower effort, may be sufficient if seed-direct authoring of units/scenarios/playlists/speak-stages is rarer than lesson seed-direct authoring — this frequency is not verified in this research pass and would need a quick grep of `scripts/author-*` for how many touch `seed.json` directly for these four kinds vs. lessons).
+   - Decision: No new recovery script built in this phase. The guard's block message names only the two recovery scripts that already exist (`restore-lesson-bodies-from-seed.ts`, `restore-unit-bodies-from-seed.ts` — the latter discovered during pattern-mapping as already covering units); scenarios/playlists/speak-stages fall back to D-04's "push the DB-side change first" manual path.
 
 ## Environment Availability
 
