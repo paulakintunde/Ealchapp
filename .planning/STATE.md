@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 5 context gathered
-last_updated: "2026-09-20T16:41:43.080Z"
-last_activity: 2026-09-20 -- Phase 04 execution started
+stopped_at: Phase 5 UI-SPEC approved
+last_updated: "2026-09-20T18:05:57.296Z"
+last_activity: 2026-09-20 -- Phase 05 execution started
 progress:
   total_phases: 21
-  completed_phases: 3
-  total_plans: 23
-  completed_plans: 22
-  percent: 96
+  completed_phases: 4
+  total_plans: 30
+  completed_plans: 23
+  percent: 77
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 04 — entitlement-verification-signed-out-purchase-fix
+**Current focus:** Phase 05 — paywall-coverage-expansion-upgrade-nudge
 
 ## Current Position
 
-Phase: 04 (entitlement-verification-signed-out-purchase-fix) — EXECUTING
-Plan: 1 of 9
-Status: Executing Phase 04
-Last activity: 2026-09-20 -- Phase 04 execution started
+Phase: 05 (paywall-coverage-expansion-upgrade-nudge) — EXECUTING
+Plan: 1 of 7
+Status: Executing Phase 05
+Last activity: 2026-09-20 -- Phase 05 execution started
 
 Progress: [█░░░░░░░░░] 3/21 phases (14%)
 
@@ -104,6 +104,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-20T16:41:43.042Z
-Stopped at: Phase 5 context gathered
-Resume file: .planning/phases/05-paywall-coverage-expansion-upgrade-nudge/05-CONTEXT.md
+Last session: 2026-09-20T17:22:58.392Z
+Stopped at: Phase 5 UI-SPEC approved
+Resume file: .planning/phases/05-paywall-coverage-expansion-upgrade-nudge/05-UI-SPEC.md

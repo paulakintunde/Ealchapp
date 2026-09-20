@@ -143,7 +143,7 @@ Plans:
 - [x] 04-08-PLAN.md — Device verification of PAY-01: restore feedback on both surfaces, signed-out purchase merge same/cross-device (resolves research assumption A1), offline cold start with no downgrade
 
 **Wave 5** *(blocked on Wave 3 and 04-08)*
-- [ ] 04-09-PLAN.md — Exercise the gate with examGateOn true on a real device, measure D-06's window against real content, then restore the flag to false
+- [x] 04-09-PLAN.md — Exercise the gate with examGateOn true on a real device, measure D-06's window against real content, then restore the flag to false
 
 ### Phase 5: Paywall Coverage Expansion & Upgrade Nudge
 **Goal**: The paywall gates a coherent, explainable slice of the catalogue, and free users see a reason to upgrade before they hit a wall.
@@ -160,8 +160,8 @@ Plans:
 Plans:
 
 **Wave 1** *(parallel, no shared files)*
-- [ ] 05-01-PLAN.md -- Gate predicates and phase vocabulary: drillDeckGate/roleplayNudgeDue in entitlement.logic.ts, 12 new FR+EN strings, 3 new analytics events
-- [ ] 05-02-PLAN.md -- Lock visibility: the setResume leak in lesson/narrated, plus the PREMIERE pill on theme.tsx and the four *themes.tsx browse screens
+- [x] 05-01-PLAN.md -- Gate predicates and phase vocabulary: drillDeckGate/roleplayNudgeDue in entitlement.logic.ts, 12 new FR+EN strings, 3 new analytics events
+- [x] 05-02-PLAN.md -- Lock visibility: the setResume leak in lesson/narrated, plus the PREMIERE pill on theme.tsx and the four *themes.tsx browse screens
 
 **Wave 2** *(parallel, all blocked on 05-01)*
 - [ ] 05-03-PLAN.md -- Close the D-06 gap: band gates for flashcards, dictation, voiceflash and sentence, which have none today
@@ -371,7 +371,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | 1. Content-Publish Drift Guard Extension | 4/4 | Complete    | 2026-09-19 |
 | 2. Content & Curriculum Gap Audit | 6/6 | Complete    | 2026-09-20 |
 | 3. TTS Security Hardening | 0/TBD | Not started | - |
-| 4. Entitlement Verification & Signed-Out Purchase Fix | 0/TBD | Not started | - |
+| 4. Entitlement Verification & Signed-Out Purchase Fix | 9/9 | All plans executed — pending gsd-verifier close-out (04-08's restored/none + offline/signed-out-merge branches NOT RUN, blocked on Play Console internal-testing track) | - |
 | 5. Paywall Coverage Expansion & Upgrade Nudge | 0/TBD | Not started | - |
 | 6. Notification Correctness — Body Format & Toggles | 0/TBD | Not started | - |
 | 7. Known Bug Fixes | 0/TBD | Not started | - |
