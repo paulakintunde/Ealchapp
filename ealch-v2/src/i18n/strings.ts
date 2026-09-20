@@ -250,6 +250,11 @@ export type Strings = {
   // everyone), and the annual discount is a SHARE (saveFmt), never months.
   subscription: string; currentPlan: string;
   pwTag: string; pwTitle: string; pwLead: string;
+  pwTitleLevels: string; pwLeadLevels: string;
+  pwTitleCoach: string; pwLeadCoach: string;
+  pwTitleRoleplay: string; pwLeadRoleplay: string;
+  pwExamTitle: string; pwExamBody: string; pwExamGotIt: string;
+  acctTag: string; reconcileBody: string; nudgeRoleplayBody: string;
   /** Store-required disclosure: names the product, the billing period and
    *  the price the button will actually charge. Apple 3.1.2 and Play both
    *  require all three ON the paywall, next to the two legal links. */
@@ -628,6 +633,12 @@ export const T: Record<Lang, Strings> = {
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Débloquez tout le parcours',
     pwTermsPlan: 'Ealch Première · abonnement {plan} · {price}',
     pwLead: 'A2 et au-delà, coach illimité et jeux de rôle illimités. Sons et A1 restent gratuits pour toujours.',
+    pwTitleLevels: 'Débloquez A2 et au-delà', pwLeadLevels: 'Tous les niveaux après A1, débloqués. Sons et A1 restent gratuits pour toujours.',
+    pwTitleCoach: 'Conversations illimitées avec le coach', pwLeadCoach: 'Continuez à poser des questions une fois vos questions gratuites du jour épuisées.',
+    pwTitleRoleplay: 'Jeux de rôle illimités', pwLeadRoleplay: 'Toutes les scènes, chaque jour. Le gratuit couvre un scénario par jour.',
+    pwExamTitle: 'Les épreuves d\'examen sont un accès distinct', pwExamBody: 'Première n\'inclut pas encore les épreuves TEF, TCF ou DELF.', pwExamGotIt: 'Compris',
+    acctTag: 'COMPTE', reconcileBody: 'Votre accès Première a pris fin. Touchez pour vérifier votre abonnement.',
+    nudgeRoleplayBody: 'Vous avez utilisé votre jeu de rôle gratuit du jour. Passez à l\'illimité pour plus de scènes.',
     pwFeatLevels: 'Tous les niveaux', pwFeatLevelsS: 'A2 et au-delà, aussi loin que vous irez',
     pwFeatCoach: 'Coach illimité', pwFeatCoachS: 'Posez vos questions au-delà de la limite quotidienne gratuite',
     pwFeatRoleplay: 'Jeux de rôle illimités', pwFeatRoleplayS: 'Toutes les scènes, tous les jours. En gratuit : un scénario par jour',
@@ -1072,6 +1083,12 @@ export const T: Record<Lang, Strings> = {
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Unlock the whole path',
     pwTermsPlan: 'Ealch Première · {plan} subscription · {price}',
     pwLead: 'A2 and beyond, unlimited coach turns and unlimited role plays. Sons and A1 stay free forever.',
+    pwTitleLevels: 'Unlock A2 and beyond', pwLeadLevels: 'Every level past A1, unlocked. Sons and A1 stay free forever.',
+    pwTitleCoach: 'Unlimited coach conversations', pwLeadCoach: 'Keep asking your coach after today\'s free questions run out.',
+    pwTitleRoleplay: 'Unlimited role plays', pwLeadRoleplay: 'Every scene, every day. Free covers one scenario a day.',
+    pwExamTitle: 'Exam papers are a separate pass', pwExamBody: 'Première does not include TEF, TCF or DELF exam papers yet.', pwExamGotIt: 'Got it',
+    acctTag: 'ACCOUNT', reconcileBody: 'Your Première access has ended. Tap to check your subscription.',
+    nudgeRoleplayBody: 'You used today\'s free role play. Go unlimited for more scenes.',
     pwFeatLevels: 'Every level', pwFeatLevelsS: 'A2 and beyond, as far as you go',
     pwFeatCoach: 'Unlimited coach', pwFeatCoachS: 'Ask past the free daily limit',
     pwFeatRoleplay: 'Unlimited role plays', pwFeatRoleplayS: 'Every scene, every day. Free covers one scenario a day',

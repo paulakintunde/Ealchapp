@@ -28,7 +28,10 @@ export type AnalyticsEvent =
   | 'restore_completed' // props: found (boolean)
   | 'gate_blocked' // props: feature, from
   | 'placement_paywall_offered' // props: level
-  | 'entitlement_downgraded'; // props: fromPlan, toPlan, hadExpiry (boolean)
+  | 'entitlement_downgraded' // props: fromPlan, toPlan, hadExpiry (boolean)
+  | 'upgrade_nudge_shown' // props: trigger ('roleplay')
+  | 'upgrade_nudge_tapped' // props: trigger ('roleplay')
+  | 'reconciliation_shown'; // no props — cause is deliberately not claimed (D-17)
 
 type Props = Record<string, string | number | boolean>;
 
