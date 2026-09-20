@@ -97,7 +97,9 @@ export default function Narrated() {
   // Fires on mount and again every time stepIx advances, so the resume slot
   // tracks the narration's current step, not just which lesson it is.
   useEffect(() => {
-    if (L) setResume('narrated', { route: `/narrated?key=${id}&step=${stepIx}`, title: L.title });
+    // Same leak, same fix as lesson.tsx: a gated narration must not be written
+    // into the resume pointer on the pass that renders the blank placeholder.
+    if (L && !bandLocked) setResume('narrated', { route: `/narrated?key=${id}&step=${stepIx}`, title: L.title });
   }, [L?.id, stepIx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const current = steps[stepIx];
