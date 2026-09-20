@@ -155,7 +155,25 @@ Plans:
   3. A free user, at a sensible moment during normal use (not only when they hit a gated lesson), sees a proactive upgrade nudge.
   4. A previously-entitled user never sees the paywall reappear without an explanation/reconciliation state shown first.
   5. The proactive upgrade nudge (criterion 3) shares one common interruption/nudge visual pattern with Phase 10's rating prompt — extending or reusing the existing `PushBanner.tsx` pattern where practical — rather than inventing an independent modal/banner/toast treatment.
-**Plans**: TBD
+**Plans**: 7 plans
+
+Plans:
+
+**Wave 1** *(parallel, no shared files)*
+- [ ] 05-01-PLAN.md -- Gate predicates and phase vocabulary: drillDeckGate/roleplayNudgeDue in entitlement.logic.ts, 12 new FR+EN strings, 3 new analytics events
+- [ ] 05-02-PLAN.md -- Lock visibility: the setResume leak in lesson/narrated, plus the PREMIERE pill on theme.tsx and the four *themes.tsx browse screens
+
+**Wave 2** *(parallel, all blocked on 05-01)*
+- [ ] 05-03-PLAN.md -- Close the D-06 gap: band gates for flashcards, dictation, voiceflash and sentence, which have none today
+- [ ] 05-04-PLAN.md -- Contextual paywall copy keyed on the `from` param, a dismiss-only gate:examiner explainer branch, and gate context on all three exam gates
+- [ ] 05-05-PLAN.md -- Generalise the banner slot to a tagged union and make PushBanner kind-driven (the pattern Phase 10 extends)
+
+**Wave 3** *(blocked on 05-01, 05-05)*
+- [ ] 05-06-PLAN.md -- The roleplay upgrade nudge on a 24h cadence, and the reconciliation notice raised inside the existing downgrade branch of setEntitlement
+
+**Wave 4** *(blocked on 05-02 through 05-06 -- device checkpoint)*
+- [ ] 05-07-PLAN.md -- Write the ratified gating rule document, resolve the validation map, and run the 21-item device verification
+
 **UI hint**: yes
 
 ### Phase 6: Notification Correctness — Body Format & Toggles
