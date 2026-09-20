@@ -200,7 +200,7 @@ async function bumpTurn(key: string, limit: number): Promise<{ used: number; all
 }
 
 /** Phase 10: whether this auth uid holds unlimited coach turns, per the
- *  entitlements mirror (fed by the revenuecat-webhook fn). FAIL-CLOSED to
+ *  entitlements mirror (fed by the adapty-webhook fn). FAIL-CLOSED to
  *  capping: any error, missing table or missing row reads as "not exempt" —
  *  the free cap applies, never a free unlimited. The mirror lagging a fresh
  *  purchase by a webhook delivery is acceptable: the app's paywall state is
