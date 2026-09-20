@@ -164,9 +164,9 @@ Plans:
 - [x] 05-02-PLAN.md -- Lock visibility: the setResume leak in lesson/narrated, plus the PREMIERE pill on theme.tsx and the four *themes.tsx browse screens
 
 **Wave 2** *(parallel, all blocked on 05-01)*
-- [ ] 05-03-PLAN.md -- Close the D-06 gap: band gates for flashcards, dictation, voiceflash and sentence, which have none today
-- [ ] 05-04-PLAN.md -- Contextual paywall copy keyed on the `from` param, a dismiss-only gate:examiner explainer branch, and gate context on all three exam gates
-- [ ] 05-05-PLAN.md -- Generalise the banner slot to a tagged union and make PushBanner kind-driven (the pattern Phase 10 extends)
+- [x] 05-03-PLAN.md -- Close the D-06 gap: band gates for flashcards, dictation, voiceflash and sentence, which have none today
+- [x] 05-04-PLAN.md -- Contextual paywall copy keyed on the `from` param, a dismiss-only gate:examiner explainer branch, and gate context on all three exam gates
+- [x] 05-05-PLAN.md -- Generalise the banner slot to a tagged union and make PushBanner kind-driven (the pattern Phase 10 extends)
 
 **Wave 3** *(blocked on 05-01, 05-05)*
 - [ ] 05-06-PLAN.md -- The roleplay upgrade nudge on a 24h cadence, and the reconciliation notice raised inside the existing downgrade branch of setEntitlement
