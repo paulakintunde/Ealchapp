@@ -18,15 +18,15 @@ export function useAlarmWatcher() {
   useEffect(() => {
     const id = setInterval(() => {
       const { notifs, alarmTime, signedIn } = useStore.getState();
-      const { bannerVisible, showBanner, hideBanner } = useUI.getState();
+      const { banner, showBanner, hideBanner } = useUI.getState();
       if (!signedIn || !notifs.daily) return;
       const now = new Date();
       const hm =
         String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
       const day = now.toDateString();
-      if (hm === alarmTime && lastFired.current !== day && !bannerVisible) {
+      if (hm === alarmTime && lastFired.current !== day && !banner) {
         lastFired.current = day;
-        showBanner(alarmTime);
+        showBanner({ kind: 'speakReminder', at: alarmTime });
         sound.play('ding');
         if (hideTimer.current) clearTimeout(hideTimer.current);
         hideTimer.current = setTimeout(() => hideBanner(), 12000);

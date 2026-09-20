@@ -115,7 +115,7 @@ export default function Settings() {
   const [showWheel, setShowWheel] = useState(false);
 
   const testAlarm = () => {
-    showBanner(alarmTime);
+    showBanner({ kind: 'speakReminder', at: alarmTime });
     sound.play('ding');
   };
 
