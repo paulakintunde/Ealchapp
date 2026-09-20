@@ -136,8 +136,8 @@ Plans:
 - [x] 04-05-PLAN.md — Build and deploy start-exam-attempt: the full four-input server gate, plus the parity test binding its Deno copy to the client's decision function
 
 **Wave 3** *(blocked on Wave 2; the two plans touch disjoint files)*
-- [ ] 04-06-PLAN.md — Add grade-exam's attempt-validation gate before quota and LLM (closes D-03), flag-conditioned so the deploy breaks no shipped client; fix the stale revenuecat-webhook comment
-- [ ] 04-07-PLAN.md — Wire the client: D-07 gate plus awaited authorization on exam-paper's start, and paperId/skill on every grading request
+- [x] 04-06-PLAN.md — Add grade-exam's attempt-validation gate before quota and LLM (closes D-03), flag-conditioned so the deploy breaks no shipped client; fix the stale revenuecat-webhook comment
+- [x] 04-07-PLAN.md — Wire the client: D-07 gate plus awaited authorization on exam-paper's start, and paperId/skill on every grading request
 
 **Wave 4** *(blocked on 04-03, 04-04 — device checkpoints)*
 - [ ] 04-08-PLAN.md — Device verification of PAY-01: restore feedback on both surfaces, signed-out purchase merge same/cross-device (resolves research assumption A1), offline cold start with no downgrade
