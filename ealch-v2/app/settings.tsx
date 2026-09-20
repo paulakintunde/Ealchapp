@@ -542,6 +542,45 @@ export default function Settings() {
           ))}
         </View>
 
+        {/* ── About & legal ──
+            Open-source notices have to be reachable in-app for both stores,
+            and the OFL attaches a live obligation: the font copyright must
+            travel with the binary, and Ealch bundles two typefaces. The two
+            legal links were only ever on the sign-up screen, which a user
+            who signed up months ago has no way back to.
+
+            Above the danger zone on purpose: deletion stays last. */}
+        <SectionHead label={T.aboutSec.toUpperCase()} />
+        <Press
+          onPress={() => router.push('/licences')}
+          accessibilityRole="button"
+          accessibilityLabel={T.licT}
+          style={{
+            minHeight: 58,
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: t.line(10),
+            backgroundColor: t.card,
+            ...t.cardShadow,
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 14,
+            paddingHorizontal: 16,
+            paddingVertical: 10,
+            marginBottom: 24,
+          }}
+        >
+          <Icon name="book" size={18} color={t.txSecondary} />
+          <View style={{ flex: 1 }}>
+            <TX font="semi" role="body">
+              {T.licT}
+            </TX>
+            <TX role="label" color={t.txSubtle} style={{ marginTop: 1 }}>
+              {T.licSub}
+            </TX>
+          </View>
+          <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
+        </Press>
         {/* ── Danger zone ──
             Account deletion must be reachable in-app (Apple 5.1.1(v), Play).
             It lives last, in its own section, and routes to a confirm screen —

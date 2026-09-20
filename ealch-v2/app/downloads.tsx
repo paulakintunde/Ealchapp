@@ -9,6 +9,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { useContent, refreshFromRemote, contentCacheInfo } from '@/services/content';
+import { playlistPool } from '@/utils/speakDeck.logic';
 
 // Offline/content status, told accurately.
 //
@@ -71,6 +72,14 @@ export default function Downloads() {
     setCacheBytes(info?.bytes ?? 0);
   };
 
+  // Where the playlists on screen came from. Until the app started reading
+  // corpus playlists this had only one possible answer, so it was not worth
+  // saying; now it is the one line that shows whether an authored playlist has
+  // actually reached the device, without opening the Listen tab and counting.
+  const corpusPlaylists = corpus.playlists ?? [];
+  const playlistLine = (corpusPlaylists.length > 0 ? T.plFromUpdateFmt : T.plFromBundleFmt)
+    .replace('{n}', String(playlistPool(corpusPlaylists).length));
+
   const counts = T.contentCountsFmt
     .replace('{u}', String(corpus.units.length))
     .replace('{l}', String(corpus.lessons.length))
@@ -112,6 +121,10 @@ export default function Downloads() {
             <TX font="semi" role="label" color={t.accTx}>v{corpus.version}</TX>
           </View>
           <TX role="meta" color={t.txMuted}>{counts}</TX>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: t.line(8) }}>
+            <Icon name="play" size={13} color={t.txNonText} strokeWidth={1.8} />
+            <TX role="meta" color={t.txMuted}>{playlistLine}</TX>
+          </View>
           {cacheLabel ? (
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: t.line(8) }}>
               <Icon name="download" size={14} color={t.txNonText} strokeWidth={1.8} />

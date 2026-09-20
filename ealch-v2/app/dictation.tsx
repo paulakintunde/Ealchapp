@@ -364,7 +364,7 @@ export default function Dictation() {
                   }}
                 />
               ) : dcOkFlag ? (
-                <TX font="serif" size={22} role="display" lhMult={1.5} color={t.accTx}>
+                <TX font="serif" size={22} role="display" lhMult={1.5} color={t.accTx} lang="fr">
                   {d.fr}
                 </TX>
               ) : (
@@ -382,7 +382,7 @@ export default function Dictation() {
                   <TX font="semi" role="meta" ls={2} color={t.accTx} style={{ marginTop: 12, marginBottom: 6 }}>
                     {correctLabel}
                   </TX>
-                  <TX font="serif" size={22} role="display" lhMult={1.5} color={t.accTx}>
+                  <TX font="serif" size={22} role="display" lhMult={1.5} color={t.accTx} lang="fr">
                     {d.fr}
                   </TX>
                 </View>

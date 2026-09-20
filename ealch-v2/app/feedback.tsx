@@ -195,7 +195,7 @@ export default function Feedback() {
                   const inner = (
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
                       <View style={{ flex: 1, minWidth: 0 }}>
-                        <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 3 }}>
+                        <TX font="serifI" role="titleLg" size={19} lang="fr" style={{ marginBottom: 3 }}>
                           « {w.fr} »
                         </TX>
                         {w.en ? (

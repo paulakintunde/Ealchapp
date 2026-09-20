@@ -31,6 +31,7 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { glyphs as splitGlyphs } from '@/content/silent.logic';
+import { displayIpa } from '@/services/content.logic';
 
 /** How long a silent letter takes to recede from ink. Slow enough to be seen
  *  as a change rather than a render, short enough not to delay a tap. */
@@ -132,6 +133,7 @@ export function WordCardXL({
         adjustsFontSizeToFit
         minimumFontScale={0.55}
         accessibilityLabel={fr}
+        lang="fr"
       >
         {glyphs.map((g) =>
           g.silent ? (
@@ -145,13 +147,13 @@ export function WordCardXL({
       </TX>
 
       {ipa ? (
-        <TX role="titleLg" size={20} color={t.txSecondary} center numberOfLines={2}>
-          {ipa}
+        <TX font="notation" role="titleLg" size={20} color={t.txSecondary} center numberOfLines={2}>
+          {displayIpa(ipa)}
         </TX>
       ) : null}
 
       {respell ? (
-        <TX role="body" color={t.txMuted} center numberOfLines={1}>
+        <TX font="notation" role="body" color={t.txMuted} center numberOfLines={1}>
           {respell}
         </TX>
       ) : null}
@@ -241,13 +243,13 @@ export function SilentText({
   const g = useMemo(() => splitGlyphs(fr, silent), [fr, silent]);
   if (!g.some((x) => x.silent)) {
     return (
-      <TX role={role} font={font} color={color} center={center} size={size}>
+      <TX role={role} font={font} color={color} center={center} size={size} lang="fr">
         {fr}
       </TX>
     );
   }
   return (
-    <TX role={role} font={font} color={color} center={center} size={size} accessibilityLabel={fr}>
+    <TX role={role} font={font} color={color} center={center} size={size} accessibilityLabel={fr} lang="fr">
       {g.map((x) =>
         x.silent ? (
           <TX key={`${x.index}-${x.ch}`} role={role} font={font} size={size} color={t.txNonText}>

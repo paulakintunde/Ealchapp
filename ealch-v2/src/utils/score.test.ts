@@ -126,3 +126,81 @@ test('markWords marks exactly the missed display words', () => {
   strictEqual(marks[2].hit, true);
   strictEqual(marks[3].hit, false); // café ≠ thé
 });
+
+// ── Numbers: the recognizer writes them as digits ───────────────────────────
+//
+// Measured on a Pixel 6: "cinquante" said cleanly five times came back as "50"
+// every time and scored 0%, verdict `off`. Because gradeAttempt returns 0 for
+// an incorrect attempt and corpus item ids are schedulable, each of those
+// correct utterances was logged as an SM-2 lapse.
+
+test('a number said correctly and transcribed as digits now passes', () => {
+  const sons = barsForLevel('sons');
+  // The exact five takes off the device.
+  strictEqual(scoreUtterance('cinquante', '50', sons).verdict, 'good');
+  strictEqual(scoreUtterance('cinquante', '50', sons).score, 1);
+  // And the other measured one, from the la-voix playlist.
+  strictEqual(scoreUtterance('cent ans', '100 ans', sons).verdict, 'good');
+  // Forms the nombres theme is full of.
+  for (const [fr, digits] of [
+    ['soixante-dix', '70'], ['quatre-vingt-dix-huit', '98'], ['vingt et un', '21'],
+    ['deux cent cinquante', '250'], ['dix heures', '10 heures'],
+  ] as [string, string][]) {
+    strictEqual(scoreUtterance(fr, digits, sons).verdict, 'good', `${fr} vs ${digits}`);
+  }
+});
+
+test('the fold works in both directions, so authored digits pass too', () => {
+  const sons = barsForLevel('sons');
+  strictEqual(scoreUtterance('50', 'cinquante', sons).verdict, 'good');
+  strictEqual(scoreUtterance('98', 'quatre-vingt-dix-huit', sons).verdict, 'good');
+});
+
+test('a genuinely wrong number is still wrong', () => {
+  // The fold must not make every number match every other number.
+  const sons = barsForLevel('sons');
+  ok(scoreUtterance('cinquante', '60', sons).verdict !== 'good', 'fifty is not sixty');
+  ok(scoreUtterance('cinquante', 'soixante', sons).verdict !== 'good', 'cinquante is not soixante');
+  ok(scoreUtterance('vingt et un', '22', sons).verdict !== 'good', '21 is not 22');
+});
+
+test('markWords credits every display word a number spans', () => {
+  // "vingt et un" is three display words but one number. Marking them missed
+  // against a heard "21" would contradict a score of 100% — the highlight and
+  // the score disagreeing is exactly what markWords exists to prevent.
+  const marks = markWords('vingt et un', '21');
+  strictEqual(marks.length, 3);
+  ok(marks.every((m) => m.hit), JSON.stringify(marks));
+  // A single display word carrying the whole number.
+  ok(markWords('quatre-vingt-dix-huit', '98').every((m) => m.hit));
+  // Surrounding words still judged on their own merits.
+  const mixed = markWords('cent ans', '100 jours');
+  deepEqualish(mixed, [{ word: 'cent', hit: true }, { word: 'ans', hit: false }]);
+});
+
+function deepEqualish(a: { word: string; hit: boolean }[], b: { word: string; hit: boolean }[]) {
+  strictEqual(a.length, b.length, JSON.stringify(a));
+  a.forEach((m, i) => {
+    strictEqual(m.word, b[i].word);
+    strictEqual(m.hit, b[i].hit, `${m.word} hit=${m.hit}`);
+  });
+}
+
+test('the TYPED path is untouched: 50 does not spell cinquante', () => {
+  // answerMatches and normalizeFr are shared with sentence.tsx, MissionRich and
+  // voiceflash's typed input. Folding there would let a learner type "50" and
+  // pass a card whose whole point is spelling the word.
+  strictEqual(answerMatches('50', 'cinquante'), false);
+  strictEqual(answerMatches('cinquante', '50'), false);
+  strictEqual(normalizeFr('cinquante'), 'cinquante');
+  strictEqual(normalizeFr('quatre-vingt-dix-huit'), 'quatre vingt dix huit');
+  // wordCoverage is the raw signal and stays raw; only scoreUtterance folds.
+  ok(wordCoverage('cinquante', '50') < 1, 'wordCoverage must not fold');
+});
+
+test('a lone article is never folded into a number', () => {
+  const sons = barsForLevel('sons');
+  // "un" and "une" must stay distinguishable, or a gender error goes unseen.
+  ok(scoreUtterance('un café', 'une café', sons).score < 1, 'un vs une must cost something');
+  strictEqual(scoreUtterance('un café', 'un café', sons).score, 1);
+});
