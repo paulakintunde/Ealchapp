@@ -27,7 +27,8 @@ export type AnalyticsEvent =
   | 'restore_started'
   | 'restore_completed' // props: found (boolean)
   | 'gate_blocked' // props: feature, from
-  | 'placement_paywall_offered'; // props: level
+  | 'placement_paywall_offered' // props: level
+  | 'entitlement_downgraded'; // props: fromPlan, toPlan, hadExpiry (boolean)
 
 type Props = Record<string, string | number | boolean>;
 

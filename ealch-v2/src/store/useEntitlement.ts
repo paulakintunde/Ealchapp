@@ -17,7 +17,8 @@ import { create } from 'zustand';
 import type { Entitlement } from '@/content/progress-schema';
 import { getCachedEntitlement } from '@/services/entitlement';
 import { guardedNow } from '@/services/serverClock';
-import { a2LockLifted, hasFeature, isPremium, type Feature } from './entitlement.logic';
+import { track } from '@/services/analytics';
+import { a2LockLifted, hasFeature, isPremium, wasDowngraded, type Feature } from './entitlement.logic';
 
 /** The cache key for a user who never signed in. A guest can browse the free
  *  tier; purchasing requires an account (the entitlement hangs off the Phase 9
@@ -41,7 +42,24 @@ type EntitlementState = {
 export const useEntitlement = create<EntitlementState>()((set) => ({
   entitlement: freeFor(ANON_USER),
   hydrated: false,
-  setEntitlement: (entitlement) => set({ entitlement }),
+  // D-08: the ONE place a premium→free flip becomes visible. This is the live,
+  // Adapty-derived write path (purchases.ts's apply(), the only caller), which
+  // is why the detection hangs here and NOT in the cache-read path below: that
+  // path reads the offline cache, and an offline cold start for a paying user
+  // must never look like a downgrade. See entitlement.logic.ts's own comment
+  // on the predicate for why a user-id change and an already-inactive
+  // entitlement both read as "not a downgrade".
+  setEntitlement: (entitlement) =>
+    set((prev) => {
+      if (wasDowngraded(prev.entitlement, entitlement, guardedNow())) {
+        track('entitlement_downgraded', {
+          fromPlan: prev.entitlement.plan,
+          toPlan: entitlement.plan,
+          hadExpiry: prev.entitlement.expiry != null,
+        });
+      }
+      return { entitlement };
+    }),
   loadFor: async (userId) => {
     const e = await getCachedEntitlement(userId ?? ANON_USER);
     set({ entitlement: e, hydrated: true });

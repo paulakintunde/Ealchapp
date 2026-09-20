@@ -131,6 +131,29 @@ export function isPremium(e: Entitlement, nowMs: number): boolean {
   return e.plan !== 'free' && entitlementActive(e, nowMs);
 }
 
+/** Phase 4 / D-08: did this write LOSE a paying user their access?
+ *
+ *  The whole point is that the answer is loud (see useEntitlement's
+ *  setEntitlement, which is the only caller). Two cases deliberately answer
+ *  NO, because reporting them would make the signal useless:
+ *
+ *  - A different user id. An entitlement write during a sign-in or sign-out is
+ *    a change of WHO, not a loss of what. purchases.ts's apply() keys the new
+ *    entitlement on the current uid (ANON_USER when signed out), so every
+ *    sign-out would otherwise read as a premium user being downgraded.
+ *  - A previous entitlement that was already inactive at nowMs. An expired
+ *    subscription being written as 'free' is bookkeeping catching up, not
+ *    access being taken away — isPremium was already false before the write.
+ *
+ *  Not hooked on the CACHE read path (loadFor) on purpose: an offline cold
+ *  start legitimately reads a cached entitlement, and firing there would flag
+ *  every launch of an offline paying user — the exact user ROADMAP Phase 4
+ *  Success Criterion 3 exists to protect. */
+export function wasDowngraded(prev: Entitlement, next: Entitlement, nowMs: number): boolean {
+  if (prev.userId !== next.userId) return false;
+  return isPremium(prev, nowMs) && !isPremium(next, nowMs);
+}
+
 /* ─── Gate predicates ────────────────────────────────────────────────────── */
 
 /** Content bands free for everyone. Everything past A1 is Première ('levels.all'). */
