@@ -140,7 +140,7 @@ Plans:
 - [x] 04-07-PLAN.md — Wire the client: D-07 gate plus awaited authorization on exam-paper's start, and paperId/skill on every grading request
 
 **Wave 4** *(blocked on 04-03, 04-04 — device checkpoints)*
-- [ ] 04-08-PLAN.md — Device verification of PAY-01: restore feedback on both surfaces, signed-out purchase merge same/cross-device (resolves research assumption A1), offline cold start with no downgrade
+- [x] 04-08-PLAN.md — Device verification of PAY-01: restore feedback on both surfaces, signed-out purchase merge same/cross-device (resolves research assumption A1), offline cold start with no downgrade
 
 **Wave 5** *(blocked on Wave 3 and 04-08)*
 - [ ] 04-09-PLAN.md — Exercise the gate with examGateOn true on a real device, measure D-06's window against real content, then restore the flag to false
