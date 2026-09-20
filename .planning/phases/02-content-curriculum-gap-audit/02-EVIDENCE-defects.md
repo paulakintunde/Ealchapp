@@ -274,3 +274,79 @@ memory (memory's 2026-09-10 claim was "0 left," which this evidence corrects to
 "1 left"). Plan 05 to check against BUG-01/02/03/QA-01/02 for a closer owner;
 none of those requirement areas currently name flashcard/content-notes
 contamination.
+
+## 3. Seed-vs-DB: what actually ships
+
+The seed is a cut of the database (RESEARCH.md Standard Stack, `[[ealch-seed-is-a-cut-of-the-db]]`).
+A unit that is perfect in Postgres and absent from `seed.json` is a real,
+learner-facing gap the spine audit (Plan 02, which queries `content_units`
+directly) cannot see — checked here independently.
+
+### Step A — locate and count units in the seed
+
+```bash
+grep -n '"units"' ealch-v2/src/content/seed.json | head -5
+```
+Result: `1637:  "units": [` — a single `units` array, matching RESEARCH.md's
+"line 1637" note exactly. Read the surrounding 15 lines directly: each element
+has the shape `{ "id": "sons.04", "seq": 4, "sub": ..., "canDo": ..., "level":
+"sons", "title": ..., "track": "sons", "lessonIds": [...], "prereqUnitIds": [...] }`
+— the plan's assumed `"id": "<track>.<NN>"` shape holds exactly, no adjustment
+needed.
+
+```bash
+grep -oE '"id" *: *"(sons|a1|a2)\.[0-9]{2}"' ealch-v2/src/content/seed.json | sort -u | wc -l
+```
+Result: `75`.
+
+```bash
+grep -oE '"id" *: *"(sons|a1|a2)\.[0-9]{2}"' ealch-v2/src/content/seed.json \
+  | sed -E 's/.*"(sons|a1|a2)\.([0-9]{2})".*/\1.\2/' | sort -u > "$TMPDIR/seed-unit-ids.txt"
+wc -l < "$TMPDIR/seed-unit-ids.txt"
+```
+Result: `75` (session scratchpad used in place of `$TMPDIR`).
+
+### Step B — diff against the declared 75
+
+```bash
+grep -oE "^ +id: '[^']+'" ealch-admin/scripts/author-full-curriculum-spine.ts \
+  | sed -E "s/^ +id: '//; s/'$//" | sort > "$TMPDIR/spine-declared.txt"
+```
+Result: `75` declared ids (`grep -oE "^ +id: '[^']+'" ealch-admin/scripts/author-full-curriculum-spine.ts | wc -l` → 75).
+
+```bash
+comm -23 "$TMPDIR/spine-declared.txt" "$TMPDIR/seed-unit-ids.txt"   # declared but NOT shipping
+comm -13 "$TMPDIR/spine-declared.txt" "$TMPDIR/seed-unit-ids.txt"   # shipping but NOT declared
+```
+Both commands returned **empty output** — zero declared-but-not-shipping ids,
+zero shipping-but-not-declared ids. The 75 declared unit ids and the 75 seed
+unit ids are the exact same set.
+
+**Declared units: 75. Units present in shipped `seed.json`: 75. They match
+exactly — no divergence in either direction.**
+
+### Step C — exam-content position
+
+```bash
+grep -c '"paper\.' ealch-v2/src/content/seed.json
+grep -c '"exam\.' ealch-v2/src/content/seed.json
+```
+Result: `0` and `0`. Both zero, confirming project memory: no `paper.*` or
+`exam.*` content is carried in `seed.json` by design — exam papers load from
+the OTA snapshot, not the bundled seed. This is intended design, not a gap, and
+it is why Plan 03's exam-pack findings have no seed-side counterpart: there is
+nothing in `seed.json` for such a counterpart to exist in.
+
+### Step D note
+
+`pnpm content:parity` was NOT run at all for this section, not even as a
+secondary signal — the `comm` diff above is the sole citation, and Steps A-C
+already gave a complete, agreeing answer with no divergence left to
+cross-check.
+
+## Findings from section 3
+
+No findings. All 75 declared units are present in the shipped `seed.json` cut
+(both `comm` directions empty), and no exam content is carried there by
+design (`paper.` and `exam.` counts both 0, confirming intended architecture
+rather than an accidental omission).
