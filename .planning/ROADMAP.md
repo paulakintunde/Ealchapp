@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **2026-09-19 revision note:** The original Phase 11 ("Brix Mascot Rive Animation Rollout") was split into two phases — Phase 11 (core states needed for normal lesson flow) and Phase 12 (delight states outside normal flow). This split is a deliberate roadmap revision, not an urgent post-approval insertion, so it does **not** use decimal notation (which this roadmap reserves for its documented meaning: insertions via `/gsd-insert-phase` after planning is underway). Instead, all phases after the original Phase 11 were renumbered as integers (former Phase 12 → 13, former Phase 13 → 14, … former Phase 18 → 19). Total phase count grew from 18 to 19.
 
 - [x] **Phase 1: Content-Publish Drift Guard Extension** - Generalize the existing version-aware "no-silent-regression" publish guard from lesson bodies to units/scenarios/playlists/speak-stages, plus a human-readable pre-publish diff report (completed 2026-09-19)
-- [ ] **Phase 2: Content & Curriculum Gap Audit** - Audit the shipped A1/A2/exam content against the intended curriculum plan and close or log any concrete gaps
+- [x] **Phase 2: Content & Curriculum Gap Audit** - Audit the shipped A1/A2/exam content against the intended curriculum plan and close or log any concrete gaps (completed 2026-09-20)
 - [ ] **Phase 3: TTS Security Hardening** - Close the unmetered-cost exposure on the TTS edge function with real per-user auth and rate limiting
 - [ ] **Phase 4: Entitlement Verification & Signed-Out Purchase Fix** - Verify/harden the Adapty entitlement sync so a purchase made signed-out still reaches the right account, and back paying users against a silent downgrade
 - [ ] **Phase 5: Paywall Coverage Expansion & Upgrade Nudge** - Replace the single arbitrarily-gated lesson with one coherent, explainable gating rule (determined during phase planning) across the catalogue, plus a proactive upgrade nudge sharing a common interruption pattern
@@ -321,7 +321,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Content-Publish Drift Guard Extension | 4/4 | Complete    | 2026-09-19 |
-| 2. Content & Curriculum Gap Audit | 6/6 | Plans complete (awaiting verification) | - |
+| 2. Content & Curriculum Gap Audit | 6/6 | Complete    | 2026-09-20 |
 | 3. TTS Security Hardening | 0/TBD | Not started | - |
 | 4. Entitlement Verification & Signed-Out Purchase Fix | 0/TBD | Not started | - |
 | 5. Paywall Coverage Expansion & Upgrade Nudge | 0/TBD | Not started | - |
