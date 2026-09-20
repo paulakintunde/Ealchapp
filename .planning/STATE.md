@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 2 Plan 01 complete — Plan 02 (Wave 2) ready to execute
-last_updated: "2026-09-19T23:20:24.000Z"
-last_activity: 2026-09-19 -- Phase 02 Plan 01 complete (GAPS.md skeleton + baseline census)
+stopped_at: Phase 2 Plan 05 complete — Plan 06 (Wave 4, roadmap stubs + closing statement) ready to execute
+last_updated: "2026-09-20T00:00:00.000Z"
+last_activity: 2026-09-20 -- Phase 02 Plan 05 complete (GAPS.md D-09 cross-reference + Findings section written; 9 new gaps found, 0 already tracked)
 progress:
   total_phases: 19
   completed_phases: 1
   total_plans: 10
-  completed_plans: 5
-  percent: 50
+  completed_plans: 9
+  percent: 90
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 02 (content-curriculum-gap-audit) — EXECUTING
-Plan: 2 of 6
+Plan: 6 of 6
 Status: Executing Phase 02
-Last activity: 2026-09-19 -- Phase 02 Plan 01 complete (GAPS.md skeleton + baseline census)
+Last activity: 2026-09-20 -- Phase 02 Plan 05 complete (GAPS.md D-09 cross-reference + Findings section written; 9 new gaps, 0 already tracked)
 
 Progress: [█░░░░░░░░░] 1/19 phases (5%)
 
@@ -36,8 +36,8 @@ Progress: [█░░░░░░░░░] 1/19 phases (5%)
 
 **Velocity:**
 
-- Total plans completed: 5
-- Average duration: ~9 min
+- Total plans completed: 9
+- Average duration: ~10 min
 - Total execution time: 0 hours
 
 **By Phase:**
@@ -45,7 +45,7 @@ Progress: [█░░░░░░░░░] 1/19 phases (5%)
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 4 | - | - |
-| 2 | 1 | ~9min | ~9min |
+| 2 | 5 | ~50min | ~10min |
 
 **Recent Trend:**
 
@@ -78,6 +78,8 @@ Recent decisions affecting current work:
 - Phase 02 Plan 01: Supabase project `ogbothupjcivwruesgsu` confirmed ACTIVE_HEALTHY (direct read via fallback `select 1` smoke query — Supabase MCP tools were unavailable in the executor's toolset this session); restore checkpoint resolved by user as `already-healthy`, no restore performed.
 - Phase 02 Plan 01: Live baseline census agrees exactly with CONTEXT.md's pre-audit facts — 75 curriculum units (sons 10 / a1 30 / a2 35, 0 with empty `lessonIds`), 15 published exam papers (5 each delf_b2/tcf_canada/tef_canada). Recorded in `GAPS.md`.
 - Phase 02 Plan 01: CONTENT-01 requirement is deliberately left unmarked in REQUIREMENTS.md — plan 01 only established environment health + census; the requirement closes only once Plans 05/06 populate GAPS.md's Findings/Gaps Summary sections.
+- Phase 02 Plans 02-04 (Wave 2, parallel): curriculum spine audit (75/75 units clean structurally; 2 phantom theme slugs found; PE@b2 and PO@b2 exam-remediation routing both empty), exam paper audit (15/15 papers structurally conformant; TEF blanc-01 audio spot-check runs hot vs. speech-rate envelope; DELF blanc-02..05 audio never went through an E8 listening pass, revised to ~37min not "~2 hours"; no schema field anywhere records an audio-listening attestation), and known-defect re-measurement (numbers-scoring and playlist-voice-deck fixes both still solid; 1 residual build-note-contamination row survives in shipped seed.json; seed.json's 75 units match Postgres's 75 exactly, no drift).
+- Phase 02 Plan 05: D-09 cross-reference against the full REQUIREMENTS.md traceability table (not just the plan's named minimum of BUG-01/02/03, QA-01/02) found no existing requirement owns any of the 9 findings from Plans 02-04 — all 9 classified `new`, written into GAPS.md as GAP-01..GAP-09. GAP-03/GAP-04 (PE@b2/PO@b2 remediation slots) are deferred rather than scoped for build, because the fix would introduce a new taught curriculum level, conflicting with PROJECT.md's Out-of-Scope decision. GAP-06 (TEF speech-rate spot-check) and GAP-07 (DELF audio never QA'd) are flagged Phase-worthy (D-07): yes for Plan 06 to weigh as candidate roadmap stubs.
 
 ### Pending Todos
 
@@ -99,6 +101,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-19T23:20:24.000Z
-Stopped at: Phase 2 Plan 01 complete (GAPS.md skeleton + baseline census); Plans 02-04 (Wave 2) can now run
-Resume file: .planning/phases/02-content-curriculum-gap-audit/02-02-PLAN.md
+Last session: 2026-09-20T00:00:00.000Z
+Stopped at: Phase 2 Plan 05 complete (GAPS.md D-09 cross-reference + Findings section written, 9 new gaps); Plan 06 (Wave 4 — roadmap stubs + CONTENT-01 closing statement) can now run
+Resume file: .planning/phases/02-content-curriculum-gap-audit/02-06-PLAN.md

@@ -83,7 +83,7 @@ Plans:
 - [x] 02-04-PLAN.md — Re-measure the known quality defects against current state and diff the shipped seed.json cut against the declared units (D-08)
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 02-05-PLAN.md — Cross-reference every finding against BUG-01/02/03, QA-01/02 and the traceability table, then write GAPS.md's Findings and Finding Index (D-06, D-09)
+- [x] 02-05-PLAN.md — Cross-reference every finding against BUG-01/02/03, QA-01/02 and the traceability table, then write GAPS.md's Findings and Finding Index (D-06, D-09)
 
 **Wave 4** *(blocked on Wave 3 completion)*
 - [ ] 02-06-PLAN.md — Insert ROADMAP stub phases for phase-worthy findings, write the CONTENT-01 closing statement, close its traceability row, and take developer sign-off (D-07)
