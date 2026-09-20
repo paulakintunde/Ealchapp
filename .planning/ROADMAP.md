@@ -4,7 +4,7 @@
 
 Ealch already ships a complete A1/A2 curriculum, a full exam pack (TEF/TCF/DELF), Adapty-backed purchases, and a working Postgres-to-seed.json-to-OTA content pipeline. This milestone is not a 0-to-1 build — it closes the specific, named gaps standing between "works for the existing install base" and "safe to submit to the App Store/Play Store publicly": content-publish safety, monetization coverage, accessibility, notifications, TTS cost exposure, known interruption-handling bugs, performance (cold start + snapshot size), test coverage on the highest-risk flows, plus a set of audit/verification passes (content-gap, onboarding/analytics, UI/UX polish) and two feature deliveries (the Brix mascot animation rollout, the feedback/rating flow) that round out launch-readiness. Research corrected several of the original problem statements — four "build from scratch" items turned out to be narrower "extend/verify/generalize" work on code that already exists and mostly works — which is reflected in phase scoping below. The journey runs isolated, low-risk fixes first (publish-safety, TTS auth, entitlement, bugs, accessibility, audits — all independent, most parallelizable), then the one genuinely interdependent arc (snapshot-split design spike → snapshot-split implementation → cold-start lazy-load → notification tap-handler, each restructuring the same files in sequence), then closes with the test-coverage phase that depends on several of the above landing first.
 
-**This is deliberately ONE milestone with no interim "ship after phase N" launch gate.** Full completion means all 19 phases land before public submission; there is no sub-milestone boundary or partial-launch checkpoint in this plan. That was an explicit user choice during roadmap revision (2026-09-19), made after a PM/growth review recommended a mid-roadmap launch gate — the recommendation was considered and declined, not overlooked.
+**This is deliberately ONE milestone with no interim "ship after phase N" launch gate.** Full completion means all 21 phases land before public submission; there is no sub-milestone boundary or partial-launch checkpoint in this plan. That was an explicit user choice during roadmap revision (2026-09-19), made after a PM/growth review recommended a mid-roadmap launch gate — the recommendation was considered and declined, not overlooked.
 
 ## Phases
 
@@ -35,6 +35,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 17: Notification Tap-Handler & Push Token Registration** - Wire notification-tap deep-linking (gated on content readiness) and push-token registration
 - [ ] **Phase 18: Component Test Infrastructure** - Stand up Jest + jest-expo + React Native Testing Library, scoped to component-render tests only
 - [ ] **Phase 19: High-Risk Test Coverage — Exam Grading & Notification Delivery** - Automated E2E coverage for exam submission→grading→report and notification scheduling→delivery→tap-response
+- [ ] **Phase 20: TEF Speech-Rate Verification & Re-render** - Confirm whether blanc-01's hot CO speech-rate pattern (Sections D/E/F) holds across all 5 TEF papers, and re-render any document confirmed to exceed its band's wpm ceiling
+- [ ] **Phase 21: DELF blanc-02..05 Audio Listening QA** - Run a human listening pass over the ~36.8 minutes of CO audio across DELF blanc-02 through blanc-05 that shipped without an E8 review, fixing any defect found
 
 ## Phase Details
 
@@ -286,12 +288,35 @@ Plans:
   3. Both tests run as part of the existing test-running workflow so a future regression is caught automatically, not just manually.
 **Plans**: TBD
 
+### Phase 20: TEF Speech-Rate Verification & Re-render
+**Goal**: Every published TEF blanc paper's CO audio runs within its band's documented speech-rate envelope, confirmed by measurement rather than assumed from a single-paper spot-check.
+**Depends on**: Nothing
+**Requirements**: CONTENT-01 (follow-up; surfaced by Phase 2's audit as GAP-06)
+**Success Criteria** (what must be TRUE):
+  1. `check-speech-rate.ts` (run from a checkout with `ealch-admin` dependencies installed) measures words-per-minute on every CO Section D/E/F document across all 5 TEF papers (`blanc-01` through `blanc-05`), not just the 3 documents spot-checked in Phase 2 (`exam.tef_canada.blanc-01.co_mcq.004/005/006`, which measured ~169/~192/~192 wpm against ~160/~175/~175 targets).
+  2. The audit confirms, per document, whether the hot-running pattern found on `blanc-01` (all 3 spot-checked documents exceeding their band's stated wpm ceiling) holds, is partial, or was a `blanc-01`-only artifact.
+  3. Every CO document confirmed to exceed its band's stated wpm ceiling is re-rendered at a corrected TTS rate and re-measured to confirm it now falls within the envelope before being republished.
+  4. Documents confirmed already within envelope are left untouched (no unnecessary re-render/re-publish churn on audio that already conforms).
+**Plans**: TBD
+**Source**: `.planning/phases/02-content-curriculum-gap-audit/GAPS.md` GAP-06 (severity warning, 2026-09-19)
+
+### Phase 21: DELF blanc-02..05 Audio Listening QA
+**Goal**: DELF `blanc-02` through `blanc-05`'s CO audio — live in production since before this milestone, per GAP-07 — has actually been listened to by a human, and any real defect that listening pass finds is fixed, closing the E8 gap these four published papers currently carry.
+**Depends on**: Nothing
+**Requirements**: CONTENT-01 (follow-up; surfaced by Phase 2's audit as GAP-07)
+**Success Criteria** (what must be TRUE):
+  1. All 12 CO tasks (3 exercises per paper × `blanc-02`, `blanc-03`, `blanc-04`, `blanc-05`; ~36.8 minutes of audio total, per Phase 2's per-paper duration sums of 564s/554s/544s/546s) have been listened to end-to-end by a human reviewer.
+  2. Any audio defect found during the listening pass (mispronunciation, wrong speech rate, clipping, wrong voice, content/script mismatch) is logged with the specific `content_exam_tasks` id and fixed before this phase closes.
+  3. The listening pass is attested in a durable, re-checkable way — populating the existing but currently-unused `reviewed_by`/`reviewed_at` fields on `content_exam_tasks` (per GAP-08's finding that no such attestation exists anywhere in the schema today) rather than leaving the fact of review undiscoverable a second time.
+**Plans**: TBD
+**Source**: `.planning/phases/02-content-curriculum-gap-audit/GAPS.md` GAP-07 (severity warning, 2026-09-19)
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21
 
-Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18 have no shared files/state with each other and can be planned/executed in parallel per `config.json`'s `parallelization: true`. Phase 12 depends on Phase 11 (delight states extend the same Rive component core states establish) and is not part of the free-parallel set. Phase 13 (UI/UX Polish Audit) is hard-blocked behind Phases 5, 8, 10, 11, and 12 — it has been removed from the parallel set (a change from the original draft, made during 2026-09-19 revision to resolve a contradiction between this table and Phase 13's own dependency note) and should only be planned/executed once those five phases land. Phases 14 → 15 → 16 → 17 form a strict dependency chain (each restructures files the next phase touches again) and should not be parallelized with each other. Phase 19 depends on Phases 7, 17, and 18 all landing first.
+Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/state with each other and can be planned/executed in parallel per `config.json`'s `parallelization: true`. Phase 12 depends on Phase 11 (delight states extend the same Rive component core states establish) and is not part of the free-parallel set. Phase 13 (UI/UX Polish Audit) is hard-blocked behind Phases 5, 8, 10, 11, and 12 — it has been removed from the parallel set (a change from the original draft, made during 2026-09-19 revision to resolve a contradiction between this table and Phase 13's own dependency note) and should only be planned/executed once those five phases land. Phases 14 → 15 → 16 → 17 form a strict dependency chain (each restructures files the next phase touches again) and should not be parallelized with each other. Phase 19 depends on Phases 7, 17, and 18 all landing first. Phases 20 and 21 were appended after Phase 2's content audit (GAPS.md GAP-06, GAP-07) and have no dependency on any other phase.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -314,8 +339,11 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18 have no shared files/state with
 | 17. Notification Tap-Handler & Push Token Registration | 0/TBD | Not started | - |
 | 18. Component Test Infrastructure | 0/TBD | Not started | - |
 | 19. High-Risk Test Coverage — Exam Grading & Notification Delivery | 0/TBD | Not started | - |
+| 20. TEF Speech-Rate Verification & Re-render | 0/TBD | Not started | - |
+| 21. DELF blanc-02..05 Audio Listening QA | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-09-19*
 *Roadmap revised: 2026-09-19 — Phase 11 split into 11/12 (core/delight mascot states), Phase 13 hard-blocked in the parallel plan, Phase 5's gating rule deferred to phase-planning time, shared interruption-pattern criteria added to Phases 5/10, rating-prompt frequency cap added to Phase 10, acquisition/activation funnel scope added to Phase 9, Phase 7 re-prioritized (BUG-02 first). See ROADMAP REVISED return for full changelog.*
-*Granularity: fine (19 phases — large, diverse backlog across 13 requirement categories; most phases are independent/parallelizable per research)*
+*Roadmap revised: 2026-09-19 — Phase(s) 20, 21 added from Phase 2's content audit (GAPS.md GAP-06, GAP-07). Appended as integer slot(s); no renumbering required.*
+*Granularity: fine (21 phases — large, diverse backlog across 13 requirement categories; most phases are independent/parallelizable per research)*
