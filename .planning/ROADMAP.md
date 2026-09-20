@@ -321,7 +321,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Content-Publish Drift Guard Extension | 4/4 | Complete    | 2026-09-19 |
-| 2. Content & Curriculum Gap Audit | 0/TBD | Not started | - |
+| 2. Content & Curriculum Gap Audit | 6/6 | Plans complete (awaiting verification) | - |
 | 3. TTS Security Hardening | 0/TBD | Not started | - |
 | 4. Entitlement Verification & Signed-Out Purchase Fix | 0/TBD | Not started | - |
 | 5. Paywall Coverage Expansion & Upgrade Nudge | 0/TBD | Not started | - |
