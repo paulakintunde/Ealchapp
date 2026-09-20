@@ -19,8 +19,9 @@ import { content } from '@/services/content';
 import type { Level } from '@/content/schema';
 import { localDay } from '@/store/progress.logic';
 import { themeMeta } from '@/content/themeMeta';
-import { roleplayLocked } from '@/store/entitlement.logic';
+import { roleplayLocked, roleplayNudgeDue } from '@/store/entitlement.logic';
 import { useEntitlement } from '@/store/useEntitlement';
+import { useUI } from '@/store/useUI';
 import { track as trackEvent } from '@/services/analytics';
 
 // A user turn carries what the recognizer actually heard and how it scored, so
@@ -222,6 +223,20 @@ export default function Roleplay() {
       sound.play('success');
       logSession('roleplay');
       clearResume('roleplay');
+      // D-11: the "brushed the limit, not blocked" moment. start() already
+      // handles being blocked; this is one step earlier — the free user just
+      // finished the scenario their daily allowance covers, and the next one
+      // would hit the paywall. Read attempts from the store rather than the
+      // component's snapshot: mic() logged this scenario's turns during the
+      // session, so the closure's `attempts` can be a render behind.
+      // The cadence decision is roleplayNudgeDue's (24h, D-13); this call site
+      // only supplies the persisted timestamp and records the new one.
+      const now = guardedNow();
+      if (roleplayNudgeDue(entitlement, useProgress.getState().attempts, localDay(new Date()), useStore.getState().lastNudgeAt, now)) {
+        useStore.getState().setField('lastNudgeAt', now);
+        trackEvent('upgrade_nudge_shown', { trigger: 'roleplay' });
+        useUI.getState().showBanner({ kind: 'upgradeNudge', trigger: 'roleplay', copy: T.nudgeRoleplayBody });
+      }
     }
   };
 
