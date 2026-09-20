@@ -133,7 +133,7 @@ Plans:
 - [x] 04-04-PLAN.md — Harden PAY-01's restore feedback: one tested restoreOutcome shared by Settings and the paywall
 
 **Wave 2** *(blocked on 04-01, 04-02)*
-- [ ] 04-05-PLAN.md — Build and deploy start-exam-attempt: the full four-input server gate, plus the parity test binding its Deno copy to the client's decision function
+- [x] 04-05-PLAN.md — Build and deploy start-exam-attempt: the full four-input server gate, plus the parity test binding its Deno copy to the client's decision function
 
 **Wave 3** *(blocked on Wave 2; the two plans touch disjoint files)*
 - [ ] 04-06-PLAN.md — Add grade-exam's attempt-validation gate before quota and LLM (closes D-03), flag-conditioned so the deploy breaks no shipped client; fix the stale revenuecat-webhook comment
