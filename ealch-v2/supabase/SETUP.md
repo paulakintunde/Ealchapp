@@ -84,6 +84,35 @@ curl -s "https://<PROJECT_REF>.supabase.co/functions/v1/tts" \
 #   429 {"error":"...","reason":"daily_chars"|"daily_requests"|"monthly_chars"|"burst"|"free_preview_exhausted"} once exceeded
 ```
 
+Deploy the exam-start gate (Phase 4, PAY-03, `start-exam-attempt`) — no new secret required, it only reads the platform-injected `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` / `SUPABASE_ANON_KEY`:
+
+```bash
+supabase functions deploy start-exam-attempt --no-verify-jwt
+```
+
+`start-exam-attempt` re-derives the entire exam-access decision server-side — it reads `system_config.config.examGateOn` / `examFreePapers` and the `entitlements` mirror, and writes the authorized attempt to `exam_attempts`. It never trusts a client-supplied paper number, entitlement flag, or duration. Smoke-test its auth boundary — all three must return 401 before any database read:
+
+```bash
+# 1. Zero credentials.
+curl -s "https://<PROJECT_REF>.supabase.co/functions/v1/start-exam-attempt" \
+  -X POST -H "Content-Type: application/json" -d '{"paperId":"paper.tef_canada.blanc.1","skill":"CO"}'
+# → 401 {"error":"...","reason":"auth_required"}
+
+# 2. Anon key only, no signed-in user.
+curl -s "https://<PROJECT_REF>.supabase.co/functions/v1/start-exam-attempt" \
+  -X POST -H "Authorization: Bearer <ANON_KEY>" -H "apikey: <ANON_KEY>" -H "Content-Type: application/json" \
+  -d '{"paperId":"paper.tef_canada.blanc.1","skill":"CO"}'
+# → 401 {"error":"...","reason":"auth_required"} — an anon key alone never resolves to auth.getUser()
+
+# 3. Malformed/nonexistent input, no credentials — proves the uid check runs before any paper lookup.
+curl -s "https://<PROJECT_REF>.supabase.co/functions/v1/start-exam-attempt" \
+  -X POST -H "Content-Type: application/json" -d '{"paperId":"nonexistent-paper-zzz-999","skill":"XX"}'
+# → 401, not 400 (avoid literal "../" path-traversal-shaped payloads here — Cloudflare's
+#   WAF intercepts those with its own 403 before the request ever reaches the function)
+```
+
+Flipping `system_config.config.examGateOn` to `true` is what actually activates the exam paywall — both the client (`src/utils/examGate.logic.ts`) and this function must agree on the decision, held honest by `src/utils/examGate.parity.test.ts`. Do not flip it until this function is deployed and curl-proven.
+
 ## 5. Point the app at the project
 
 ```bash
