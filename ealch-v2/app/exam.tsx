@@ -29,6 +29,7 @@ import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
 import { useFeature } from '@/store/useEntitlement';
 import { getConfig } from '@/services/config';
+import { track } from '@/services/analytics';
 import { examPaperAllowed } from '@/utils/examGate.logic';
 import { paperProgress } from '@/store/progress.logic';
 import { useContent } from '@/services/content';
@@ -139,7 +140,8 @@ export default function ExamFormatHub() {
                   paperNo: p.paperNo,
                 }).allowed
                   ? router.push({ pathname: '/exam-paper', params: { paperId: p.id } })
-                  : router.push('/paywall')
+                  : (track('gate_blocked', { feature: 'examiner', from: 'exam' }),
+                    router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } }))
               }
             />
           ))
