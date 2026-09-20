@@ -38,7 +38,7 @@ import { useProgress, useSessionLog } from '@/store/useProgress';
 import { PLACEMENT_PASS, type ExamResultInput } from '@/store/progress.logic';
 import { content, useContent } from '@/services/content';
 import { taskQuestions, scoreClosedTask, type ExamQuestion } from '@/services/content.logic';
-import { examGrader } from '@/services';
+import { examGrader, startExamAttempt } from '@/services';
 import { startClock, type ClockState } from '@/utils/examClock.logic';
 import { deliveryNote } from '@/utils/deliverySignals.logic';
 import { coverageNote, type Coverage } from '@/utils/interlocutor.logic';
@@ -105,6 +105,25 @@ export default function ExamSectionScreen() {
   useEffect(() => {
     if (section && clock === null) setClock(startClock(section.timingS, Date.now()));
   }, [section, clock]);
+
+  // The authorization is normally created on the paper screen, before this
+  // screen exists. This re-issue covers the case where that call could not be
+  // answered (a blip, a dead tunnel) but this screen mounts with connectivity:
+  // the endpoint is an idempotent upsert keyed on (uid, paperId, skill), so a
+  // second call costs one round trip and cannot double-grant.
+  //
+  // Resetting the window on mount is correct, not a leak: this screen restarts
+  // its own wall-clock on mount too (startClock above), so the authorization
+  // window and the épreuve's clock begin together, which is exactly what
+  // expires_at means.
+  //
+  // Fire-and-forget: a refusal here cannot be acted on (the candidate is
+  // already in the runner, having been let in by the paper screen), and the
+  // server's grade-time check is the real boundary.
+  useEffect(() => {
+    if (!paperId || !skill) return;
+    void startExamAttempt({ paperId, skill, mode });
+  }, [paperId, skill, mode]);
 
   // Submission must happen exactly once, whichever way it is triggered — the
   // candidate tapping finish, or the clock expiring underneath them. Without
@@ -205,6 +224,9 @@ export default function ExamSectionScreen() {
         rubric: task.rubric!,
         modelAnswer: task.modelAnswer!,
         targetBand: task.level,
+        // Ties this grade to the attempt start-exam-attempt authorized.
+        paperId,
+        skill: task.skill,
         lang,
         // Null when nothing was measured, so no delivery line is sent at all
         // rather than an empty one inviting the grader to speculate.
