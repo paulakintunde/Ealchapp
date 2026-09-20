@@ -22,6 +22,8 @@ import * as Speech from 'expo-speech';
 import { getConfig } from './config';
 import { ENV } from './env';
 import { supabase } from './supabase';
+import { shouldAttemptRemoteTts } from './tts.logic';
+import { useStore } from '@/store/useStore';
 
 /** The voice cast a caller can name. Roles, not provider ids — recasting is a
  *  server-side (Edge Function secret) change, never an app release. */
@@ -344,7 +346,18 @@ export const tts = {
     // unless the control plane forces device speech. Every failure inside
     // falls through to the device engine below — never to silence.
     const provider = getConfig().ttsProvider;
-    if (provider !== 'device' && Date.now() >= remoteDownUntil && text.length <= MAX_REMOTE_CHARS) {
+    // D-01 (.planning/phases/03-tts-security-hardening/03-CONTEXT.md): a guest
+    // (no Supabase session) never attempts remote synthesis, regardless of the
+    // ttsProvider config flag — see tts.logic.ts's header comment for why this
+    // sits beside, not instead of, the edge function's own rejection.
+    const attemptRemote =
+      shouldAttemptRemoteTts({
+        userId: useStore.getState().userId,
+        ttsProvider: provider,
+        textLength: text.length,
+        maxRemoteChars: MAX_REMOTE_CHARS,
+      }) && Date.now() >= remoteDownUntil;
+    if (attemptRemote) {
       speaking = true;
       const uri = await resolveRemote(text, opts.voice ?? 'narrator', lang);
       if (myGen !== generation) {
