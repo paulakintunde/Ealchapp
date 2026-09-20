@@ -67,6 +67,15 @@ type GradeRequest = {
   coverage?: string;
   lang: "fr" | "en";
   deviceId?: string | null;
+  /** Phase 4 (PAY-03): which authorized attempt this grade belongs to. The
+   *  function looks up the exam_attempts row keyed on
+   *  (callerUid, paperId, skill) — so these identify the attempt, they do not
+   *  assert anything about it. Optional because they are only REQUIRED when
+   *  system_config.config.examGateOn is true; with the gate open (today's
+   *  production state) a shipped client that predates this field still grades,
+   *  exactly as before. */
+  paperId?: string;
+  skill?: string;
 };
 
 type Grade = { band: ScoreBand; feedback: string };
@@ -127,17 +136,64 @@ async function bumpTurn(key: string, limit: number): Promise<{ used: number; all
   }
 }
 
-let routedCache: { model: string; ceiling: CostTier; freeTurnsPerDay: number; at: number } | null = null;
+const SKILLS = ["CO", "CE", "PE", "PO"] as const;
+const PAPER_ID_RE = /^paper\.[a-z0-9_]+\.[a-z0-9_-]+\.\d{1,2}$/;
+const isPaperId = (v: unknown): v is string => typeof v === "string" && v.length <= 80 && PAPER_ID_RE.test(v);
+const isSkill = (v: unknown): v is string => typeof v === "string" && (SKILLS as readonly string[]).includes(v);
+
+/**
+ * Phase 4 (PAY-03, D-03/D-05): was this attempt authorized, and is its grading
+ * window still open?
+ *
+ * Deliberately does NOT re-read the entitlements mirror. That is the entire
+ * point of D-06's window: an épreuve begun while entitled may be finished and
+ * graded even if the subscription lapsed halfway through it (a cancellation, a
+ * natural expiry, a late downgrade webhook). The authorization was decided
+ * once, at start-exam-attempt, and this function trusts that decision — bounded
+ * by expires_at, which start-exam-attempt computed from the section's own
+ * timingS plus a fixed 60-minute buffer.
+ *
+ * Checked on EVERY grading call, not once per sitting: a section's submit
+ * grades each open task in its own request, so the window is re-evaluated each
+ * time and an old row cannot be replayed indefinitely.
+ *
+ * FAIL-CLOSED: any error, missing table or missing row reads as "not
+ * authorized". Unlike the quota (which fails open, because it guards margin),
+ * this guards access.
+ *
+ * The comparison clock is this function's own, never the client's.
+ */
+async function attemptAuthorized(uid: string, paperId: string, skill: string): Promise<boolean> {
+  try {
+    const { data, error } = await serviceClient()
+      .from("exam_attempts")
+      .select("expires_at")
+      .eq("user_id", uid)
+      .eq("paper_id", paperId)
+      .eq("skill", skill)
+      .gt("expires_at", new Date().toISOString())
+      .maybeSingle();
+    if (error || !data) return false;
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+let routedCache: { model: string; ceiling: CostTier; freeTurnsPerDay: number; examGateOn: boolean; at: number } | null = null;
 const CONFIG_TTL_MS = 60_000;
 const TIERS: CostTier[] = ["cheap", "standard", "premium"];
 const isTier = (v: unknown): v is CostTier => typeof v === "string" && (TIERS as string[]).includes(v);
 
-async function routing(): Promise<{ model: string; ceiling: CostTier; freeTurnsPerDay: number }> {
+// examGateOn rides along on the routing read because it is the same
+// system_config row, read with the same TTL — a second query for one boolean
+// would be a second round trip on the grading path for nothing.
+async function routing(): Promise<{ model: string; ceiling: CostTier; freeTurnsPerDay: number; examGateOn: boolean }> {
   const now = Date.now();
   if (routedCache && now - routedCache.at < CONFIG_TTL_MS) return routedCache;
   try {
     const { data } = await serviceClient().from("system_config").select("config").eq("id", "active").maybeSingle();
-    const cfg = data?.config as { models?: { general?: unknown }; coachCostCeiling?: unknown; gradeFreeTurnsPerDay?: unknown } | null;
+    const cfg = data?.config as { models?: { general?: unknown }; coachCostCeiling?: unknown; gradeFreeTurnsPerDay?: unknown; examGateOn?: unknown } | null;
     const m = cfg?.models?.general;
     if (typeof m === "string" && m.trim()) {
       const turns = cfg?.gradeFreeTurnsPerDay;
@@ -145,13 +201,14 @@ async function routing(): Promise<{ model: string; ceiling: CostTier; freeTurnsP
         model: m.trim(),
         ceiling: isTier(cfg?.coachCostCeiling) ? cfg.coachCostCeiling : DEFAULT_CEILING,
         freeTurnsPerDay: typeof turns === "number" && Number.isFinite(turns) && turns >= 0 ? Math.floor(turns) : GRADE_FREE_TURNS_DEFAULT,
+        examGateOn: cfg?.examGateOn === true,
         at: now,
       };
       routedCache = routed;
       return routed;
     }
   } catch (_) { /* fall through to the default, uncached */ }
-  return { model: DEFAULT_MODEL, ceiling: DEFAULT_CEILING, freeTurnsPerDay: GRADE_FREE_TURNS_DEFAULT };
+  return { model: DEFAULT_MODEL, ceiling: DEFAULT_CEILING, freeTurnsPerDay: GRADE_FREE_TURNS_DEFAULT, examGateOn: false };
 }
 
 function hasSecret(p: ProviderName): boolean {
@@ -374,6 +431,41 @@ Deno.serve(async (req) => {
     const routed = await routing();
 
     const uid = await callerUid(req);
+
+    // ── The gate (Phase 4, PAY-03) ──────────────────────────────────────────
+    // Conditioned on the same flag as the rest of the decision. With the gate
+    // OPEN — which is production today — grading is unchanged, because the exam
+    // tier is free and there is nothing to authorize. Requiring an attempt row
+    // unconditionally would refuse every already-installed client the moment
+    // this deploys: an edge deploy lands in seconds, an app build does not.
+    // Same first line as the client's examPaperAllowed: if the gate is off,
+    // everything is open, whatever else is true.
+    if (!routed.examGateOn) {
+      posthog("grade_attempt_check_skipped", { gateOn: false, hasAttemptRef: isPaperId(body.paperId) && isSkill(body.skill) });
+    } else {
+      if (!uid) {
+        posthog("grade_refused", { reason: "auth_required" });
+        return new Response(JSON.stringify({ error: "sign-in required to grade an exam", reason: "auth_required" }), {
+          status: 401,
+          headers: { ...cors, "Content-Type": "application/json" },
+        });
+      }
+      if (!isPaperId(body.paperId) || !isSkill(body.skill)) {
+        posthog("grade_refused", { reason: "bad_attempt_ref", uid });
+        return new Response(JSON.stringify({ error: "grading requires the attempt it belongs to", reason: "bad_attempt_ref" }), {
+          status: 400,
+          headers: { ...cors, "Content-Type": "application/json" },
+        });
+      }
+      if (!(await attemptAuthorized(uid, body.paperId, body.skill))) {
+        posthog("grade_refused", { reason: "attempt_missing_or_expired", uid, paperId: body.paperId, skill: body.skill });
+        return new Response(
+          JSON.stringify({ error: "this attempt was not authorized, or its grading window has closed", reason: "attempt_missing_or_expired" }),
+          { status: 403, headers: { ...cors, "Content-Type": "application/json" } },
+        );
+      }
+    }
+
     const subject = `grade:${uid ? `auth:${uid}` : subjectKey(req, deviceId)}`;
     const quota = await bumpTurn(subject, routed.freeTurnsPerDay);
     if (quota && !quota.allowed) {
