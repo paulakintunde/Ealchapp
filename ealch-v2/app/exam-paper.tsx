@@ -27,6 +27,11 @@ import { paperProgress, type SectionProgress } from '@/store/progress.logic';
 import { content, useContent } from '@/services/content';
 import { examTasksOfSection, taskQuestions } from '@/services/content.logic';
 import { preflightClips, type AudioPreflight } from '@/services/audio';
+import { useFeature } from '@/store/useEntitlement';
+import { getConfig } from '@/services/config';
+import { examPaperAllowed } from '@/utils/examGate.logic';
+import { startExamAttempt } from '@/services';
+import { track } from '@/services/analytics';
 import { EXAM_MODES, type ExamMode, type ExamSection, type ExamSkill } from '@/content/schema';
 
 const FORMAT_LABEL: Record<string, string> = {
@@ -52,6 +57,15 @@ export default function ExamPaperScreen() {
   const corpus = useContent((s) => s.corpus);
   const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId, corpus]);
 
+  // D-07: the same decision the server makes, made here too — additively. The
+  // paper LIST (app/exam.tsx) already locks a gated paper's row, but this
+  // screen is reachable directly (a deep link, a back-navigation onto a paper
+  // whose entitlement lapsed while it sat open), and it is the screen with the
+  // start button on it. The server's answer is the authority; this is what
+  // stops a candidate sitting a whole épreuve to be refused at submit.
+  const entitled = useFeature('examiner');
+  const cfg = getConfig();
+
   // The mode is chosen HERE, before a section opens, and travels to the runner
   // as a route param. Deliberately not persisted: it is a decision about this
   // sitting, and a candidate who practised yesterday should not silently start
@@ -63,6 +77,13 @@ export default function ExamPaperScreen() {
   // is one the candidate has to decide about.
   const [checking, setChecking] = useState(false);
   const [warn, setWarn] = useState<(AudioPreflight & { skill: ExamSkill }) | null>(null);
+
+  // D-07's server call: `starting` guards a double tap (client AND server —
+  // see T-04-32), `startErr` surfaces a real fault (bad_paper_id/bad_skill/
+  // unknown_paper/write_failed) rather than opening a sitting that cannot be
+  // graded.
+  const [starting, setStarting] = useState(false);
+  const [startErr, setStartErr] = useState<string | null>(null);
 
   const progress = useMemo(
     () => (paper && paperId ? paperProgress(paper.sections, results, paperId) : []),
@@ -80,8 +101,48 @@ export default function ExamPaperScreen() {
     );
   }
 
-  const go = (skill: ExamSkill) =>
+  const go = async (skill: ExamSkill) => {
+    if (starting) return;
+
+    const decision = examPaperAllowed({
+      gateOn: cfg.examGateOn,
+      entitled,
+      freePapers: cfg.examFreePapers,
+      paperNo: paper.paperNo,
+    });
+    if (!decision.allowed) {
+      track('gate_blocked', { feature: 'examiner', from: 'exam-paper' });
+      router.push('/paywall');
+      return;
+    }
+
+    // The server decides. An explicit refusal never opens the runner.
+    setStarting(true);
+    const res = await startExamAttempt({ paperId, skill, mode });
+    setStarting(false);
+
+    if (res.status === 'refused') {
+      if (res.reason === 'auth_required') {
+        // The entitlement hangs off the auth uid, same as the paywall's own
+        // guest path (app/paywall.tsx's buy()).
+        router.push('/signin');
+        return;
+      }
+      if (res.reason === 'needs-exam-tier') {
+        track('gate_blocked', { feature: 'examiner', from: 'exam-paper-server' });
+        router.push('/paywall');
+        return;
+      }
+      // bad_paper_id / bad_skill / unknown_paper / write_failed — a real fault,
+      // not a decision about this candidate. Surface it rather than opening a
+      // sitting that cannot be graded.
+      setStartErr(res.reason);
+      return;
+    }
+    // 'authorized', or 'unreachable' — an authorization service that cannot
+    // answer must not cost a candidate their sitting (see examAttempt.ts).
     router.push({ pathname: '/exam-section', params: { paperId, skill, mode } });
+  };
 
   /**
    * Open a section, asking about the audio FIRST when there is audio to ask
@@ -99,6 +160,12 @@ export default function ExamPaperScreen() {
    * teach them to dismiss the warning that matters.
    */
   const openSection = async (skill: ExamSkill) => {
+    // Double-tap guard while a start-exam-attempt call is in flight.
+    // `SectionRow` (below) is a separate component with no `disabled` prop of
+    // its own, so the guard sits here instead, where every entry point —
+    // sitting mode, one-épreuve rows, and the audio-warning panel's "start
+    // anyway" — already converges.
+    if (starting) return;
     if (skill !== 'CO' || checking) return void go(skill);
     const co = paper.sections.find((sec) => sec.skill === 'CO');
     const refs = (co ? examTasksOfSection(corpus, co) : [])
@@ -166,9 +233,11 @@ export default function ExamPaperScreen() {
             const first = paper.sections[0];
             if (first) openSection(first.skill);
           }}
+          disabled={starting || checking}
           style={{
             borderRadius: 16, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card,
             padding: 16, marginBottom: 22,
+            opacity: starting || checking ? 0.6 : 1,
           }}
         >
           <TX font="semi" role="label" style={{ marginBottom: 3 }}>{T.examSitting}</TX>
@@ -216,7 +285,7 @@ export default function ExamPaperScreen() {
                 <TX font="semi" role="label" color={t.txSecondary}>{T.examStay}</TX>
               </Press>
               <Press
-                onPress={() => { const s = warn.skill; setWarn(null); go(s); }}
+                onPress={() => { const s = warn.skill; setWarn(null); void go(s); }}
                 style={{ flex: 1, alignItems: 'center', minHeight: 46, justifyContent: 'center', borderRadius: 14, backgroundColor: t.acc }}
                 accessibilityRole="button"
                 accessibilityLanguage={lang}
@@ -224,6 +293,30 @@ export default function ExamPaperScreen() {
                 <TX font="semi" role="label" color={t.accInk}>{T.examAudioStartAnyway}</TX>
               </Press>
             </View>
+          </View>
+        ) : null}
+
+        {/* D-07's server refusal, for the fault reasons that are ours, not the
+            candidate's (bad_paper_id/bad_skill/unknown_paper/write_failed —
+            needs-exam-tier and auth_required navigate away instead, above).
+            No new i18n key added for this plan (see 04-07-PLAN.md): this reuses
+            the existing generic "try again" copy rather than a purpose-written
+            string, which the SUMMARY notes as an imperfect but deliberate
+            reuse — this panel is a rare-fault path, not the everyday one the
+            audio-preflight `warn` panel above handles. */}
+        {startErr ? (
+          <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card, padding: 16, marginBottom: 14 }}>
+            <TX role="meta" color={t.danger} lhMult={1.45} style={{ marginBottom: 14 }}>
+              {T.chatRetry}
+            </TX>
+            <Press
+              onPress={() => setStartErr(null)}
+              style={{ alignItems: 'center', minHeight: 46, justifyContent: 'center', borderRadius: 14, borderWidth: 1, borderColor: t.line(14) }}
+              accessibilityRole="button"
+              accessibilityLanguage={lang}
+            >
+              <TX font="semi" role="label" color={t.txSecondary}>{T.examStay}</TX>
+            </Press>
           </View>
         ) : null}
 
