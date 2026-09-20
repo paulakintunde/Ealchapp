@@ -682,3 +682,196 @@ finding reflects that.
   already-generous `timing_s` budgets. Explicitly NOT built or corrected in
   this phase — this is a discovery-only audit.
 
+## 3. Audio verification (D-05)
+
+CONTEXT.md's D-05 finding is unconditional: DELF blanc-02 through blanc-05
+were promoted to `published` without their audio going through the E8
+marking/listening pass. This is logged as a named finding below regardless of
+what the queries return; the queries establish current scope and whether the
+gap extends beyond DELF.
+
+### 3.0 The four DELF papers are still published
+
+```sql
+select id, format, variant, paper_no, status, created_at, updated_at
+from content_exam_papers
+where format = 'delf_b2'
+order by paper_no;
+```
+
+Result: all 5 DELF papers (`blanc-01` through `blanc-05`) are `status =
+'published'`. `blanc-01` was created 2026-07-23 and last updated 2026-09-06;
+`blanc-02`..`blanc-05` were created and updated 2026-09-06/07 — i.e. the four
+papers named in D-05 are still live in production today, unchanged in status
+since the finding was raised.
+
+### Quantifying the unverified audio
+
+```sql
+with pub as (
+  select p.id as paper_id, p.paper_no, p.variant,
+         jsonb_array_elements_text(sec->'taskIds') as task_id
+  from content_exam_papers p, jsonb_array_elements(p.sections) sec
+  where p.format = 'delf_b2' and sec->>'skill' = 'CO'
+)
+select pub.paper_id, pub.paper_no, pub.variant, t.id as task_id,
+       t.timing_s,
+       t.parts is not null as uses_parts,
+       t.items is not null as uses_items,
+       (select sum(coalesce((part->>'durationS')::int,0)) from jsonb_array_elements(coalesce(t.parts,'[]'::jsonb)) part) as sum_duration_s
+from pub join content_exam_tasks t on t.id = pub.task_id
+order by pub.paper_no, t.id;
+```
+
+Result: 15 rows (5 papers x 3 CO exercises). `durationS` **is** recorded per
+clip (contrary to the plan's fallback expectation that it might not be) —
+real rendered clip lengths, not just the `timing_s` clock budget. Summed per
+paper:
+
+| paper | ex.1 (s) | ex.2 (s) | ex.3 (s) | total (s) | total (min) |
+|---|---|---|---|---|---|
+| blanc-01 | 192 | 161 | 210 | 563 | ~9.4 |
+| blanc-02 | 176 | 160 | 228 | 564 | ~9.4 |
+| blanc-03 | 184 | 155 | 215 | 554 | ~9.2 |
+| blanc-04 | 191 | 154 | 199 | 544 | ~9.1 |
+| blanc-05 | 166 | 180 | 200 | 546 | ~9.1 |
+
+**Total unverified audio across the 4 named papers (blanc-02 through
+blanc-05): 564 + 554 + 544 + 546 = 2,208 seconds = ~36.8 minutes**, not the
+"roughly two hours" CONTEXT.md's D-05 states. All 5 papers, including
+`blanc-01`, sit comfortably under `BLUEPRINT-delf-b2.md` §4's 15-minute
+per-paper ceiling (~9.1-9.4 min each). This is a correction to CONTEXT.md's
+scope estimate, worth flagging to Plan 05: the finding itself (no E8 listening
+pass recorded) is unconditionally real per D-05, but the audio volume at risk
+is closer to 37 minutes across 4 papers than 2 hours.
+
+### 3.1 Is an E8 pass recorded anywhere?
+
+```sql
+select id, variant, task_type, skill, reviewed_by, reviewed_at,
+       array_length(examiner_notes, 1) as n_examiner_notes, status
+from content_exam_tasks
+where format in ('delf_b2', 'tef_canada', 'tcf_canada')
+  and skill = 'CO'
+order by format, variant, id;
+```
+
+Result: 79 rows (every published CO task across all three formats).
+`reviewed_by` and `reviewed_at` are `NULL` on **every single row**, DELF
+included. `n_examiner_notes` is 2 on every row, and reading the actual note
+text on a sample confirms they are boilerplate disclaimers ("Épreuve blanche
+rédigée par Ealch d'après le format publié... aucun extrait ne provient d'un
+sujet réel" / pass-mark or NCLC-scale disclaimers) — not attestations that
+anyone listened to the rendered audio.
+
+```sql
+select count(*) filter (where reviewed_by is not null) as n_reviewed_by,
+       count(*) filter (where reviewed_at is not null) as n_reviewed_at,
+       count(*)::int as total
+from content_exam_tasks;
+```
+
+Result: `{"n_reviewed_by": 0, "n_reviewed_at": 0, "total": 220}`. **Zero of
+the 220 exam tasks in the entire database — every format, every skill, not
+just CO, not just DELF — carry any value in `reviewed_by` or `reviewed_at`.**
+These columns exist in the schema (`ealch-admin/src/db/schema.ts` lines
+590-591) but have never been populated for a single exam task.
+
+```sql
+select * from audio_assets order by 1 limit 5;
+```
+
+Result: `[]` (empty — 0 rows). This is not merely "no review column
+populated"; the `audio_assets` table itself is unrelated to exam audio at all.
+Its own schema (`ealch-admin/src/db/schema.ts` line 489) keys it to
+`content_items.id` via `item_id` (lesson/flashcard item audio), not to
+`content_exam_tasks`. Exam CO audio is resolved through `parts[].audioRef`
+against Storage directly (per `ExamPart`'s own doc comment in
+`ealch-v2/src/content/schema.ts`), with no join table recording who rendered
+or verified it. There is no candidate location in the current schema — not
+`content_exam_tasks.reviewed_*`, not `audio_assets`, not anywhere else queried
+— where "a human listened to this end to end" could be recorded even if
+someone had done it.
+
+**This absence is a process-gap finding in its own right**, distinct from and
+broader than the DELF-specific D-05 finding: see EXAM-04 below.
+
+### 3.2 TEF and TCF papers 2-5
+
+RESEARCH.md's Assumption A1 is that TEF and TCF papers 2-5 are "clear" of the
+same audio-verification gap DELF blanc-02..05 has. §3.1's result answers this
+directly: **the schema cannot express "was this listened to" for ANY exam
+task in `tef_canada` or `tcf_canada`, any more than it can for `delf_b2`.**
+`reviewed_by`/`reviewed_at` are `NULL` on every one of the CO tasks checked
+across all three formats (79 rows), and there is no other schema location
+(`audio_assets`, `examiner_notes` free text, or otherwise) that records a
+listening pass for any paper of any format.
+
+**Classification for TEF papers 2-5 and TCF papers 2-5: unknowable-from-data.**
+Not "verified" — there is no positive evidence anyone listened. Not
+"unverified" in the D-05 sense either, because D-05's finding for DELF rests
+on external knowledge (CONTEXT.md's own record of what happened during
+authoring) rather than a database signal, and this plan has no equivalent
+external record for TEF/TCF papers 2-5 to confirm or deny against. The
+honest, data-only answer for `tef_canada` papers 2-5 and `tcf_canada` papers
+2-5 is that the database contains no signal either way, which is a materially
+different (and arguably worse, because silent) situation than D-05's named,
+scoped, already-acknowledged DELF gap.
+
+## Findings from section 3
+
+### EXAM-03: DELF blanc-02..05 audio never went through the E8 listening pass
+- **Checked:** `content_exam_papers` status for all 5 DELF papers (§3.0);
+  summed real per-clip `durationS` across the 4 named papers' CO exercises
+  (§3.0/quantification); cross-referenced against CONTEXT.md's D-05 statement.
+- **Finding:** All 4 papers (`blanc-02` through `blanc-05`) remain
+  `status='published'` today. Per CONTEXT.md D-05, their audio was promoted to
+  production without going through the E8 marking/listening pass. This plan's
+  own duration sum revises the volume estimate: ~36.8 minutes of unverified
+  audio across the 4 papers (564+554+544+546 seconds), not the "roughly two
+  hours" CONTEXT.md's D-05 text states — the finding itself is unconditionally
+  real per D-05's own instruction; only the scope number is corrected here.
+- **Severity:** `warning` — the papers are sittable (structurally conformant
+  per §1/§2 above); the risk is unverified pronunciation, rate, or rendering
+  artifacts reaching a paying exam candidate, not a broken exam.
+- **Evidence:** §3.0 query results (all 5 papers `published`; per-paper
+  duration table); CONTEXT.md's own D-05 statement (external record, not a
+  database signal — see §3.1/§3.2 on why the database itself cannot confirm or
+  deny this).
+- **Scope estimate or deferral:** An audio QA pass over the 12 CO tasks (3 per
+  paper x 4 papers) / ~36.8 minutes of audio across `blanc-02`-`blanc-05`.
+  Explicitly NOT built in this phase — this is a discovery-only audit.
+
+### EXAM-04: No schema location records an E8 (or any) audio-listening attestation, for any exam task, in any format
+- **Checked:** `content_exam_tasks.reviewed_by`/`reviewed_at` across all 220
+  exam tasks; `examiner_notes` content on a sample; `audio_assets` table
+  contents and its foreign-key target.
+- **Finding:** `reviewed_by` and `reviewed_at` are `NULL` on all 220 rows, in
+  every format (not just DELF, not just CO). `examiner_notes` is populated
+  but is boilerplate candidate-facing disclaimer text, not an internal
+  review record. `audio_assets` is empty and, even if populated, is keyed to
+  `content_items`, not `content_exam_tasks` — it structurally cannot record an
+  exam-audio review either way. There is no field in the current schema where
+  "a human listened to this recording end to end" could be written down for
+  any exam paper, in any format, ever.
+- **Severity:** `warning` — this is what makes EXAM-03 unfalsifiable from data
+  alone (§3.1/§3.2) and what makes TEF papers 2-5 and TCF papers 2-5
+  unknowable rather than confirmably clear, which is the broader and more
+  important half of this finding.
+- **Evidence:** §3.1 query results (`reviewed_by`/`reviewed_at` all-NULL count
+  over 220 rows; sample `examiner_notes` text; empty `audio_assets`
+  `select *`); `ealch-admin/src/db/schema.ts` lines 489 (`audioAssets`
+  definition, keyed to `item_id`) and 590-591 (`reviewedBy`/`reviewedAt` on
+  `contentExamTasks`, present in schema, never populated).
+- **Scope estimate or deferral:** Add a per-paper (or per-CO-task) audio-
+  attestation field, or a lightweight marking-sheet record outside the
+  content DB, the next time exam audio QA tooling is built. Explicitly NOT
+  built in this phase.
+
+The §3.2 classification itself ("unknowable-from-data" rather than a
+presumption of no issue) is the deliverable RESEARCH.md's Open Question 1 and
+Assumption A1 asked this plan to produce, and is recorded as part of
+EXAM-04's evidence rather than as a separate `EXAM-nn` id, since it is the
+same absence (no attestation field exists anywhere) applied to a different
+set of papers.
+
