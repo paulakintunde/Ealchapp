@@ -59,6 +59,31 @@ curl -s "https://<PROJECT_REF>.supabase.co/functions/v1/coach" \
 # → {"reply":"...","provider":"kie"}
 ```
 
+Smoke-test the hardened `tts` function (Phase 3, SEC-01) — three cases, all should be true after 03-04-PLAN.md deploys the wired function:
+
+```bash
+# 1. Zero Authorization header at all → must be rejected, not served.
+curl -s -o /dev/null -w "%{http_code}\n" "https://<PROJECT_REF>.supabase.co/functions/v1/tts" \
+  -X POST -H "Content-Type: application/json" -d '{"text":"bonjour"}'
+# → 401 (Supabase's own platform gate rejects a request with no apikey at all;
+#   this checks the request never reaches application code without ANY key)
+
+# 2. Only the anon key (no signed-in user) → must be treated as guest, not premium.
+curl -s "https://<PROJECT_REF>.supabase.co/functions/v1/tts" \
+  -X POST -H "Authorization: Bearer <ANON_KEY>" -H "Content-Type: application/json" \
+  -d '{"text":"bonjour"}'
+# → 401 {"error":"...","reason":"guest_not_allowed"} — the anon key alone
+#   never resolves to a real auth.uid() (D-03/Pitfall 1's exact concern)
+
+# 3. A real signed-in user's JWT (from a logged-in device/app session) → succeeds
+#    up to their tier's cap, then 429 past it.
+curl -s "https://<PROJECT_REF>.supabase.co/functions/v1/tts" \
+  -X POST -H "Authorization: Bearer <USER_JWT>" -H "Content-Type: application/json" \
+  -d '{"text":"bonjour"}'
+# → 200 {"audio":"...","format":"mp3","provider":"elevenlabs"} while under cap,
+#   429 {"error":"...","reason":"daily_chars"|"daily_requests"|"monthly_chars"|"burst"|"free_preview_exhausted"} once exceeded
+```
+
 ## 5. Point the app at the project
 
 ```bash
