@@ -21,6 +21,23 @@ export type GradeRequest = {
   modelAnswer: string;
   /** ExamTask.level — the band this task targets. */
   targetBand: ScoreBand;
+  /**
+   * Which authorized attempt this grade belongs to (Phase 4, PAY-03).
+   *
+   * grade-exam looks up the exam_attempts row keyed on
+   * (verified caller uid, paperId, skill) and refuses to grade an attempt the
+   * server never authorized or whose window has closed. These fields IDENTIFY
+   * the attempt — they assert nothing about it, and the server trusts neither
+   * for anything but the lookup.
+   *
+   * Required here even though the edge function accepts them as optional: the
+   * function's optionality exists only so an app build predating this field
+   * still grades while examGateOn is false. A new build has no reason to omit
+   * them.
+   */
+  paperId: string;
+  /** The épreuve this task belongs to: 'CO' | 'CE' | 'PE' | 'PO'. */
+  skill: string;
   lang: 'fr' | 'en';
   /**
    * Spoken tasks only: labelled pacing proxies for the fluency criterion.

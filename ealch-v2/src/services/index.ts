@@ -4,6 +4,7 @@
 export { auth } from './auth';
 export { coach, type CoachMessage } from './llm';
 export { examGrader, type GradeRequest, type GradeResult } from './examGrader';
+export { startExamAttempt, type StartAttemptResult } from './examAttempt';
 export { tts } from './tts';
 export { audio } from './audio';
 export { stt, type SttResult } from './stt';
