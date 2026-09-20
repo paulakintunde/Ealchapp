@@ -172,7 +172,7 @@ Plans:
 - [x] 05-06-PLAN.md -- The roleplay upgrade nudge on a 24h cadence, and the reconciliation notice raised inside the existing downgrade branch of setEntitlement
 
 **Wave 4** *(blocked on 05-02 through 05-06 -- device checkpoint)*
-- [ ] 05-07-PLAN.md -- Write the ratified gating rule document, resolve the validation map, and run the 21-item device verification
+- [x] 05-07-PLAN.md -- Write the ratified gating rule document, resolve the validation map, and run the 21-item device verification
 
 **UI hint**: yes
 
