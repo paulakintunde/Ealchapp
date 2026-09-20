@@ -100,7 +100,17 @@ Plans:
   2. Calling the TTS endpoint with only the public anon key is rejected or treated as non-authenticated, not as a legitimate per-user caller.
   3. A real signed-in user's TTS calls succeed and are capped by a per-user (not per-IP) rate limit.
   4. A user who fails the auth check or hits the rate limit still gets usable audio via the existing device-TTS fallback, not silence.
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+**Wave 1**
+- [ ] 03-01-PLAN.md — TTS quota pure-logic module (tier classification + multi-window quota decision), TDD
+- [ ] 03-02-PLAN.md — Schema: tts_usage_daily/monthly/minute + tts_free_preview tables, tts_bump/tts_bump_free_preview RPCs, applied to the live DB [BLOCKING]
+- [ ] 03-03-PLAN.md — Client-side guest gate (shouldAttemptRemoteTts) wired into tts.ts, TDD
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 03-04-PLAN.md — Wire callerUid/tier/quota into tts/index.ts, deploy to live Supabase [BLOCKING], automated + human-verified proof of all 4 success criteria
+
 **Pitfall Watch**: PITFALLS.md Pitfall 1 — flipping `verify_jwt=true` alone is very likely cosmetic, since the anon key is itself a valid JWT. The fix must read `ctx.userClaims.sub` (or equivalent) explicitly inside the function body. Plan-check and verification must explicitly test a fresh-logged-out app state and a call using only the anon key, not just the signed-in happy path.
 
 ### Phase 4: Entitlement Verification & Signed-Out Purchase Fix
