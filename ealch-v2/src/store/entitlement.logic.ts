@@ -165,6 +165,55 @@ export function levelLocked(e: Entitlement, band: string, nowMs: number): boolea
   return !(FREE_BANDS as readonly string[]).includes(band) && !hasFeature(e, 'levels.all', nowMs);
 }
 
+/* ─── Drill-deck gating (Phase 5 / D-06) ─────────────────────────────────── */
+//
+// den/lesson/narrated gate a UNIT, whose band comes from its id. The four drill
+// screens (flashcards, dictation, voiceflash, sentence) have no unit: they hold
+// a flat deck of corpus items, reached either with an explicit `?level=` (one
+// parcours step, from theme.tsx) or with no level at all (a whole-theme or
+// whole-domain deck, from flashthemes/dictationthemes/voicethemes/sentencethemes,
+// which pass `theme` only). A redirect keyed on the param alone would leave the
+// mixed decks wide open, so the rule is one pass over both shapes:
+//
+//   explicit non-free `level`  → the whole deck is gated, redirect
+//   otherwise                  → keep only FREE_BANDS items; if that empties a
+//                                non-empty deck, everything in it was gated, redirect
+//
+// `levelsAll` is the caller's `useFeature('levels.all')` read, NOT a raw
+// hasFeature call, so the dev A2 unlock (a2LockLifted) stays honoured in one place.
+
+/** The structural slice a gated deck item must have. Corpus `Item` satisfies it. */
+export type LeveledItemLike = { level: string };
+
+/** The items a user may drill. An entitled user gets the deck untouched. */
+export function freeBandItems<T extends LeveledItemLike>(items: readonly T[], levelsAll: boolean): T[] {
+  if (levelsAll) return [...items];
+  return items.filter((i) => (FREE_BANDS as readonly string[]).includes(i.level));
+}
+
+/** True when an explicit `?level=` route param names a band this user cannot
+ *  drill. Absent level means "mixed deck" — not locked here; freeBandItems
+ *  does the per-item work instead. An unrecognised band reads as locked, never
+ *  as free. */
+export function drillLevelLocked(level: string | undefined, levelsAll: boolean): boolean {
+  if (levelsAll || !level) return false;
+  return !(FREE_BANDS as readonly string[]).includes(level);
+}
+
+/** The one call the four drill screens make. `locked` means "redirect to the
+ *  paywall"; `items` is the deck to render when it does not. An empty `raw`
+ *  (a corpus query that found nothing) is never locked — that is a thin
+ *  corpus, not a paywall. */
+export function drillDeckGate<T extends LeveledItemLike>(
+  raw: readonly T[],
+  level: string | undefined,
+  levelsAll: boolean,
+): { items: T[]; locked: boolean } {
+  if (drillLevelLocked(level, levelsAll)) return { items: [], locked: true };
+  const items = freeBandItems(raw, levelsAll);
+  return { items, locked: raw.length > 0 && items.length === 0 };
+}
+
 /* ─── TEMPORARY: the A2 band lock, lifted in dev builds ──────────────────────
  *
  * ▄▄▄ TURN IT OFF BY SETTING THIS TO `false`. One line, no other edit. ▄▄▄
