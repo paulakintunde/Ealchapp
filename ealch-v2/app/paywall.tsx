@@ -169,6 +169,54 @@ export default function Paywall() {
     [T, p, liveMo, liveYr],
   );
 
+  // D-08: the paywall already received `from` and threw it away after the
+  // analytics call. Every gate site stamps a `gate:<feature>` prefix, so the
+  // trigger is already in hand — this only makes it load-bearing. A `from`
+  // that is not a gate ('home' / 'settings' / 'placement' / direct) falls
+  // back to today's generic sell copy, unchanged.
+  const PAYWALL_COPY: Record<string, { title: string; lead: string }> = {
+    'gate:levels': { title: T.pwTitleLevels, lead: T.pwLeadLevels },
+    'gate:coach': { title: T.pwTitleCoach, lead: T.pwLeadCoach },
+    'gate:roleplay': { title: T.pwTitleRoleplay, lead: T.pwLeadRoleplay },
+  };
+  const copy = PAYWALL_COPY[from ?? ''] ?? { title: T.pwTitle, lead: T.pwLead };
+
+  // Open Question 1, resolved by UI-SPEC: 'examiner' is not in PREMIERE_FEATURES
+  // and this screen's plan picker only sells Première, so showing the picker
+  // under an exam headline would sell a subscription that does not unlock what
+  // the user just tried to open. Until an exam-tier purchase surface exists,
+  // this branch explains and dismisses — it never offers a purchase.
+  // Checked BEFORE the premium branch on purpose: a Première holder hitting an
+  // exam gate needs this explanation, not "you're already subscribed".
+  if (from === 'gate:examiner') {
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg }}>
+        <View style={{ paddingTop: insets.top }}>
+          <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} />
+        </View>
+        <View style={{ flex: 1, paddingHorizontal: 24, alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+          <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: t.line(10), alignItems: 'center', justifyContent: 'center', marginBottom: 6 }}>
+            <Icon name="lock" size={26} color={t.txSubtle} strokeWidth={2.4} />
+          </View>
+          <TX font="serif" role="display" size={28} style={{ textAlign: 'center' }}>
+            {T.pwExamTitle}
+          </TX>
+          <TX role="bodySm" color={t.txMuted} style={{ textAlign: 'center', maxWidth: 300 }}>
+            {T.pwExamBody}
+          </TX>
+          <Press
+            onPress={() => router.back()}
+            style={{ marginTop: 18, minHeight: 52, paddingVertical: 8, paddingHorizontal: 40, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
+          >
+            <TX font="semi" role="body" color={t.accInk}>
+              {T.pwExamGotIt}
+            </TX>
+          </Press>
+        </View>
+      </View>
+    );
+  }
+
   // A user who already holds Première (arrived from settings, or just bought):
   // no plan picker, no sell — state the plan and stop.
   if (premium || purchased) {
@@ -211,10 +259,10 @@ export default function Paywall() {
           {T.pwTag}
         </TX>
         <TX font="serif" role="display" size={34} style={{ marginBottom: 8 }}>
-          {T.pwTitle}
+          {copy.title}
         </TX>
         <TX role="bodySm" color={t.txMuted} style={{ maxWidth: 320, marginBottom: 22 }}>
-          {T.pwLead}
+          {copy.lead}
         </TX>
 
         {/* What Première actually gates */}
