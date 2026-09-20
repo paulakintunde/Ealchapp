@@ -78,9 +78,9 @@ Plans:
 - [x] 02-01-PLAN.md — Confirm the Supabase project is ACTIVE_HEALTHY (gated on user approval), take the live baseline census, and stand up the GAPS.md skeleton
 
 **Wave 2** *(blocked on Wave 1 completion; the three plans run in parallel)*
-- [ ] 02-02-PLAN.md — Curriculum spine audit: per-id structural check of all 75 units, canDo/themes/prereqUnitIds coherence, and the PE@b2 remediation slot (D-01, D-02)
-- [ ] 02-03-PLAN.md — Exam paper audit: per-paper section shape, blueprint count conformance for all 15 papers, and the DELF blanc-02..05 audio-verification gap (D-04, D-05)
-- [ ] 02-04-PLAN.md — Re-measure the known quality defects against current state and diff the shipped seed.json cut against the declared units (D-08)
+- [x] 02-02-PLAN.md — Curriculum spine audit: per-id structural check of all 75 units, canDo/themes/prereqUnitIds coherence, and the PE@b2 remediation slot (D-01, D-02)
+- [x] 02-03-PLAN.md — Exam paper audit: per-paper section shape, blueprint count conformance for all 15 papers, and the DELF blanc-02..05 audio-verification gap (D-04, D-05)
+- [x] 02-04-PLAN.md — Re-measure the known quality defects against current state and diff the shipped seed.json cut against the declared units (D-08)
 
 **Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 02-05-PLAN.md — Cross-reference every finding against BUG-01/02/03, QA-01/02 and the traceability table, then write GAPS.md's Findings and Finding Index (D-06, D-09)
