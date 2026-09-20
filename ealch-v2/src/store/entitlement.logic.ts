@@ -165,6 +165,55 @@ export function levelLocked(e: Entitlement, band: string, nowMs: number): boolea
   return !(FREE_BANDS as readonly string[]).includes(band) && !hasFeature(e, 'levels.all', nowMs);
 }
 
+/* ─── Drill-deck gating (Phase 5 / D-06) ─────────────────────────────────── */
+//
+// den/lesson/narrated gate a UNIT, whose band comes from its id. The four drill
+// screens (flashcards, dictation, voiceflash, sentence) have no unit: they hold
+// a flat deck of corpus items, reached either with an explicit `?level=` (one
+// parcours step, from theme.tsx) or with no level at all (a whole-theme or
+// whole-domain deck, from flashthemes/dictationthemes/voicethemes/sentencethemes,
+// which pass `theme` only). A redirect keyed on the param alone would leave the
+// mixed decks wide open, so the rule is one pass over both shapes:
+//
+//   explicit non-free `level`  → the whole deck is gated, redirect
+//   otherwise                  → keep only FREE_BANDS items; if that empties a
+//                                non-empty deck, everything in it was gated, redirect
+//
+// `levelsAll` is the caller's `useFeature('levels.all')` read, NOT a raw
+// hasFeature call, so the dev A2 unlock (a2LockLifted) stays honoured in one place.
+
+/** The structural slice a gated deck item must have. Corpus `Item` satisfies it. */
+export type LeveledItemLike = { level: string };
+
+/** The items a user may drill. An entitled user gets the deck untouched. */
+export function freeBandItems<T extends LeveledItemLike>(items: readonly T[], levelsAll: boolean): T[] {
+  if (levelsAll) return [...items];
+  return items.filter((i) => (FREE_BANDS as readonly string[]).includes(i.level));
+}
+
+/** True when an explicit `?level=` route param names a band this user cannot
+ *  drill. Absent level means "mixed deck" — not locked here; freeBandItems
+ *  does the per-item work instead. An unrecognised band reads as locked, never
+ *  as free. */
+export function drillLevelLocked(level: string | undefined, levelsAll: boolean): boolean {
+  if (levelsAll || !level) return false;
+  return !(FREE_BANDS as readonly string[]).includes(level);
+}
+
+/** The one call the four drill screens make. `locked` means "redirect to the
+ *  paywall"; `items` is the deck to render when it does not. An empty `raw`
+ *  (a corpus query that found nothing) is never locked — that is a thin
+ *  corpus, not a paywall. */
+export function drillDeckGate<T extends LeveledItemLike>(
+  raw: readonly T[],
+  level: string | undefined,
+  levelsAll: boolean,
+): { items: T[]; locked: boolean } {
+  if (drillLevelLocked(level, levelsAll)) return { items: [], locked: true };
+  const items = freeBandItems(raw, levelsAll);
+  return { items, locked: raw.length > 0 && items.length === 0 };
+}
+
 /* ─── TEMPORARY: the A2 band lock, lifted in dev builds ──────────────────────
  *
  * ▄▄▄ TURN IT OFF BY SETTING THIS TO `false`. One line, no other edit. ▄▄▄
@@ -237,6 +286,38 @@ export function roleplayLocked(
   if (hasFeature(e, 'roleplay.unlimited', nowMs)) return false;
   const played = scenariosPlayedOn(attempts, day);
   return played.size >= FREE_SCENARIOS_PER_DAY && !played.has(scenarioId);
+}
+
+/* ─── Upgrade-nudge cadence (Phase 5 / D-11, D-13) ───────────────────────── */
+//
+// The nudge fires at the moment a free user BRUSHES the roleplay limit without
+// being blocked by it — they finished today's free scenario, and the next one
+// would route to the paywall. roleplayLocked answers the block; this answers
+// the softer question one step earlier.
+//
+// Deliberately NOT a coach-side equivalent: the coach cap is server-enforced
+// and coach.ask() returns no remaining-turn count, so there is no client signal
+// to read (05-RESEARCH.md Open Question 2). Roleplay is this phase's proactive
+// nudge; a coach trigger needs a backend change first.
+//
+// The cadence is 24h, far more frequent than Phase 10's 3-per-year rating
+// prompt, per D-13. `lastNudgeAtMs` is the caller's persisted timestamp
+// (useStore.lastNudgeAt, 0 = never) — this file stores nothing itself.
+
+/** Minimum gap between two upgrade nudges. D-13 / UI-SPEC: once per 24 hours. */
+export const NUDGE_COOLDOWN_MS = 86_400_000;
+
+/** Should the roleplay upgrade nudge show right now? */
+export function roleplayNudgeDue(
+  e: Entitlement,
+  attempts: ScenarioAttemptLike[],
+  day: string,
+  lastNudgeAtMs: number,
+  nowMs: number,
+): boolean {
+  if (hasFeature(e, 'roleplay.unlimited', nowMs)) return false;
+  if (scenariosPlayedOn(attempts, day).size < FREE_SCENARIOS_PER_DAY) return false;
+  return nowMs - lastNudgeAtMs >= NUDGE_COOLDOWN_MS;
 }
 
 /* ─── Mapping the Adapty profile (access levels) ─────────────────────────── */
