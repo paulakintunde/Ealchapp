@@ -178,7 +178,11 @@ export default function LessonScreen() {
   // onLessonIndexChange (below) re-fires this with the current section's
   // anchor as the learner swipes, so the position stays live too.
   useEffect(() => {
-    if (L) setResume('lesson', { route: `/lesson?key=${raw ?? id}`, title: L.title });
+    // A gated lesson must not become the home hero's "continue" offer: this
+    // effect fires on the same render pass that returns the blank bandLocked
+    // placeholder, because hooks cannot be conditional (D-05, 05-RESEARCH
+    // Pitfall 2). `bandLocked` is computed above, so no new state is needed.
+    if (L && !bandLocked) setResume('lesson', { route: `/lesson?key=${raw ?? id}`, title: L.title });
   }, [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Everything from here to the first early return is hook territory, and it

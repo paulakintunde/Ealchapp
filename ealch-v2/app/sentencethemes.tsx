@@ -14,6 +14,8 @@ import { selectItems, mergeArticleTiles } from '@/services/content.logic';
 import { domainMeta } from '@/content/domainMeta';
 import { themeMeta } from '@/content/themeMeta';
 import { LEVELS } from '@/content/schema';
+import { FREE_BANDS } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
 
 const PREVIEW_WORDS = 3;
 
@@ -39,6 +41,11 @@ export default function SentenceThemes() {
 
   const slug = domain ?? '';
   const meta = domainMeta(slug);
+
+  // Phase 5 / UI-SPEC item 6: a theme whose lowest band is past A1 has no free
+  // content at all, so a free user sees the lock before tapping in rather than
+  // after the drill screen bounces them to the paywall.
+  const levelsAll = useFeature('levels.all');
 
   const rows = useMemo(() => {
     const bandIx = (b: unknown) => (LEVELS as readonly string[]).indexOf(String(b));
@@ -131,7 +138,16 @@ export default function SentenceThemes() {
                       (r.lo === r.hi ? String(r.lo).toUpperCase() : `${String(r.lo).toUpperCase()} → ${String(r.hi).toUpperCase()}`)}
                   </TX>
                 </View>
-                <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} />
+                {!levelsAll && !(FREE_BANDS as readonly string[]).includes(r.lo) ? (
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 11, backgroundColor: t.accA(12) }}>
+                    <Icon name="lock" size={11} color={t.accTx} strokeWidth={2} />
+                    <TX font="bold" role="eyebrow" ls={1.2} color={t.accTx}>
+                      {T.premLockTag}
+                    </TX>
+                  </View>
+                ) : (
+                  <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} />
+                )}
               </View>
               {r.words.length ? (
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 5, marginTop: 10, paddingLeft: 52 }}>

@@ -14,6 +14,8 @@ import { useContent } from '@/services/content';
 import { parcoursSteps, themeLevels, PARCOURS_STEPS, type StepStat } from '@/content/theme.logic';
 import { themeMeta } from '@/content/themeMeta';
 import { LEVELS, type Level } from '@/content/schema';
+import { FREE_BANDS } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
 
 const levelLabel = (l: Level) => (l === 'sons' ? 'SONS' : l.toUpperCase());
 
@@ -46,6 +48,13 @@ export default function ThemeDetail() {
   const [band, setBand] = useState<Level | undefined>(() =>
     LEVELS.includes(levelParam as Level) && levels.includes(levelParam as Level) ? (levelParam as Level) : levels[0]
   );
+
+  // The Phase 5 band lock, independent of the parcours progression lock above.
+  // Every step routes into one of the four drill screens, which enforce the
+  // same boundary at render time — this pill just means a free user sees the
+  // lock before the tap, not after a bounce off the paywall (UI-SPEC item 6).
+  const levelsAll = useFeature('levels.all');
+  const bandLocked = !levelsAll && !!band && !(FREE_BANDS as readonly string[]).includes(band);
 
   const steps = useMemo(
     () => parcoursSteps(corpus.items, corpus.scenarios, attempts, slug, band),
@@ -175,7 +184,14 @@ export default function ThemeDetail() {
                       {T.stepSubs[s.key]}
                     </TX>
                   </View>
-                  {done ? (
+                  {bandLocked ? (
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 11, backgroundColor: t.accA(12) }}>
+                      <Icon name="lock" size={11} color={t.accTx} strokeWidth={2} />
+                      <TX font="bold" role="eyebrow" ls={1.2} color={t.accTx}>
+                        {T.premLockTag}
+                      </TX>
+                    </View>
+                  ) : done ? (
                     <TX role="meta" color={t.accTx}>
                       {s.learned}/{s.total}
                     </TX>
