@@ -389,3 +389,62 @@ $$;
 revoke all on function public.tts_bump_free_preview(text, integer) from public;
 revoke all on function public.tts_bump_free_preview(text, integer) from anon;
 revoke all on function public.tts_bump_free_preview(text, integer) from authenticated;
+
+-- ── Exam attempt authorization (Phase 4, PAY-03) ──
+-- The server's record that a candidate was ALLOWED to start this épreuve.
+--
+-- D-05: entitlement is checked at START, not at grade time. grade-exam then
+-- trusts this row rather than re-asking the entitlements mirror, so a
+-- subscription that lapses mid-épreuve (cancellation, natural expiry, a
+-- delayed downgrade webhook) cannot void a sitting already underway. Starting
+-- a NEW épreuve gets no grace at all.
+--
+-- NOT a row in `attempts`, deliberately (D-05). That table is an append-only
+-- SCORED drill/lesson log with a fixed modality/verdict/correct shape; this is
+-- mutable authorization state with a lifecycle (started_at, expires_at). The
+-- same reasoning resume_state's own header gives for not being shaped like
+-- attempts applies here.
+--
+-- Scoped per SECTION, not per paper: app/exam-section.tsx runs an independent
+-- wall-clock per épreuve, so a candidate sitting CO today and PE tomorrow has
+-- two genuinely separate starts, and section.timingS is already the right unit.
+--
+-- The primary key IS the idempotency: two concurrent "start" calls for the same
+-- épreuve (a double tap, a retry) both land on one row via
+-- `on conflict ... do update`, so a restart resets the clock and a race cannot
+-- mint two authorizations. Same discipline as coach_bump's comment above: one
+-- statement, so the database settles it.
+create table if not exists public.exam_attempts (
+  user_id     uuid        not null references auth.users(id) on delete cascade,
+  -- 'paper.<format>.<variant>.<n>' — content_exam_papers.id.
+  paper_id    text        not null,
+  -- The épreuve: CO | CE | PE | PO (ExamSection.skill).
+  skill       text        not null check (skill in ('CO','CE','PE','PO')),
+  started_at  timestamptz not null default now(),
+  -- started_at + section.timingS + the 60-minute buffer (D-06). Computed
+  -- server-side from content_exam_papers.sections, never from a client value.
+  expires_at  timestamptz not null,
+  -- AUDIT ONLY — the decision inputs that authorized this attempt, recorded so
+  -- a support question ("why was I refused?") has an answer. Never read as an
+  -- access input: the row's existence plus expires_at IS the authorization.
+  gate_on     boolean     not null,
+  entitled    boolean     not null,
+  paper_no    integer     not null,
+  mode        text        not null default 'exam' check (mode in ('exam','practice')),
+  primary key (user_id, paper_id, skill)
+);
+
+alter table public.exam_attempts enable row level security;
+-- Authorization: NO policies at all, deliberately — same stance as coach_usage,
+-- tts_usage_* and entitlements. Only the start-exam-attempt and grade-exam
+-- functions touch this, with the service role, which bypasses RLS. A client
+-- that could INSERT here would be minting its own exam authorization, and one
+-- that could UPDATE expires_at would be extending its own grace window.
+--
+-- No index beyond the primary key: every read is an exact
+-- (user_id, paper_id, skill) lookup, which the PK already serves.
+--
+-- No cleanup job: `on delete cascade` handles account deletion (so
+-- supabase/functions/delete-account needs no change), and an expired row is
+-- harmless — grade-exam's predicate is `expires_at > now()`, so a stale row
+-- authorizes nothing.
