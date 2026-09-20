@@ -13,7 +13,7 @@ requires:
   - phase: 04-05
     provides: start-exam-attempt (writes the exam_attempts row this plan's gate reads), SETUP.md deploy precedent
 provides:
-  - "grade-exam's attempt-validation gate (source built and unit-tested; NOT YET REDEPLOYED — see Task 3 Blocked)"
+  - "grade-exam's attempt-validation gate — built, unit-tested, DEPLOYED to production, curl-proven"
   - "grade-exam-gate.test.ts pinning the gate's existence, position, expiry bound, flag-conditioning and log visibility"
   - "coach/index.ts's hasUnlimitedCoach comment corrected to name adapty-webhook"
 affects: [phase-05-paywall-expansion]
@@ -35,21 +35,21 @@ key-decisions:
   - "Fixed a bug in the plan's own test spec during the required deliberate-break proof: the literal search string 'attemptAuthorized(uid' also matches the function's own declaration ('async function attemptAuthorized(uid: string, ...') which sits above the handler and always precedes bumpTurn/buildChain regardless of where the call site actually is — so the position test as literally specified would pass even on a broken (misordered) gate. Narrowed to 'await attemptAuthorized(uid', which matches only the call site. Re-ran the full deliberate-break cycle (misplace after bumpTurn -> test 2 fails -> restore -> test 2 passes) to confirm the fix actually detects the regression the acceptance criteria require it to detect."
   - "Task 3's deploy did not reach the classifier refusal 04-05 hit — a Bash permission rule for 'npx supabase functions deploy *' already exists in .claude/settings.local.json (added during 04-05) — but failed one step later on Supabase CLI authentication ('Access token not provided... run supabase login or set SUPABASE_ACCESS_TOKEN') in this sandboxed worktree shell, the same underlying environment gap 04-05-SUMMARY.md documented ('supabase login's browser callback failed in the sandboxed shell'). Per the known-block protocol, stopped after one attempt rather than token-juggling; curls were NOT run against the stale (pre-Task-1/2) live function, since that would prove nothing about the new gate."
 
-requirements-completed: []  # PAY-03 spans plans 04-05/04-06/04-07/04-09 — this plan's slice (grade-exam's gate built, unit-tested, gates ordered/pinned) is done; PAY-03 overall stays open until this deploy lands (Task 3) and 04-07/04-09 also ship.
+requirements-completed: []  # PAY-03 spans plans 04-05/04-06/04-07/04-09 — this plan's slice (grade-exam's gate built, tested, deployed, curl-proven) is done; PAY-03 overall stays open until 04-09 also ships.
 
 # Metrics
-duration: ~50min (Tasks 1-2 complete; Task 3 blocked on deploy auth after the pre-deploy config check)
+duration: ~50min (Tasks 1-2, this session) + follow-up (deploy run by the user, curl proofs run by the orchestrator)
 completed: 2026-09-20
 ---
 
 # Phase 04 Plan 06: grade-exam Attempt-Validation Gate Summary
 
-**`grade-exam` gains a fail-closed, flag-conditioned authorization gate reading `exam_attempts` before spending quota or calling any LLM — built, unit-tested with a source-text assertion suite (including a real deliberate-break proof that caught a bug in the plan's own test spec), and the stale `coach/index.ts` RevenueCat comment corrected. Deploy blocked on this sandbox's Supabase CLI auth, same class of environment gap 04-05 hit.**
+**`grade-exam` gains a fail-closed, flag-conditioned authorization gate reading `exam_attempts` before spending quota or calling any LLM — built, unit-tested with a source-text assertion suite (including a real deliberate-break proof that caught a bug in the plan's own test spec), the stale `coach/index.ts` RevenueCat comment corrected, deployed to production, and curl-proven: the rubric guard still returns 400, and a well-formed request with no attempt reference still grades (200) while `examGateOn` is off.**
 
 ## Performance
 
-- **Duration:** ~50 min for Tasks 1-2; Task 3's pre-deploy config check completed, deploy attempt failed on CLI auth (not the classifier this time — see Deviations)
-- **Tasks:** 2 of 3 completed; Task 3 partially complete (pre-deploy check done, deploy blocked, curls deliberately not run against stale code)
+- **Duration:** ~50 min for Tasks 1-2 (this session); Task 3 completed in a follow-up after the user ran the deploy from their own terminal (this sandboxed shell's Supabase CLI auth failed, same class of gap 04-05 hit) and the orchestrator ran the curl proofs
+- **Tasks:** 3 of 3 completed
 
 ## Accomplishments
 
@@ -69,7 +69,7 @@ Each task was committed atomically:
 
 1. **Task 1: Add the attempt-validation gate to grade-exam, before quota and before any LLM call** — `6b1f7d4` (feat)
 2. **Task 2: Pin the gate with source-text assertions and fix the stale RevenueCat comment** — `4ab27a2` (test)
-3. **Task 3: Redeploy grade-exam and prove the open-position path is unbroken** — BLOCKED, see below. No commit (no file changes; nothing to redo — deploy is a CLI operation, not a source edit).
+3. **Task 3: Redeploy grade-exam and prove the open-position path is unbroken** — deploy run by the user directly; curl proofs run by the orchestrator afterward. No commit (deploy is a CLI operation, not a source edit).
 
 ## Files Created/Modified
 
@@ -107,37 +107,39 @@ Each task was committed atomically:
 - The worktree checkout does not inherit `ealch-admin/.env` (gitignored), which the plan's Task 3 pre-deploy query requires. Copied it in from the main checkout (see Decisions) rather than working around it another way.
 - `pnpm tsx -e "..."` with a bare top-level `await` in the eval string failed with `Top-level await is currently not supported with the "cjs" output format` — wrapped the query in an `async function main() { ... } main();` IIFE instead of editing the plan's literal one-liner form; same query, same output shape.
 
-## Task 3: Pre-Deploy Check Complete, Deploy Blocked — Completion Record
+## Task 3: Deploy, Curl Proofs — Completion Record
 
 **A. Pre-deploy config query**, run against the live database:
 ```
 select config->'examGateOn' as gate, config->'examFreePapers' as free from public.system_config where id='active'
 => { gate: null, free: null }
 ```
-Neither key exists yet in the live `system_config.config` object (confirmed via `jsonb_object_keys(config)` — the row has `models`, `voices`, `services`, `ttsVoice`, `sttProvider`, `ttsProvider`, `orchestrator`, `promptVersion`, `ttsFreePreviewChars`, `failoverToastVisible`, `gradeFreeTurnsPerDay`, `ttsPremiumDailyChars`, `ttsPremiumMonthlyChars`, `ttsPremiumDailyRequests`, `ttsPremiumBurstPerMinute` — no `examGateOn`/`examFreePapers`). This is NOT a blocker: both `grade-exam`'s `routing()` (`cfg?.examGateOn === true`) and `start-exam-attempt`'s `examConfig()` (explicit `typeof cfg?.examGateOn === "boolean" ? cfg.examGateOn : false`) treat a missing key as `false`/closed by design — the same fail-safe-to-open-tier stance documented in both functions' comments. The plan's expected literal `{gate: false, free: 1}` is the *effective* value these code paths resolve to, not necessarily a literal row value; the deploy is safe to proceed on rollout-order grounds.
+Neither key exists yet in the live `system_config.config` object (confirmed via `jsonb_object_keys(config)` — the row has `models`, `voices`, `services`, `ttsVoice`, `sttProvider`, `ttsProvider`, `orchestrator`, `promptVersion`, `ttsFreePreviewChars`, `failoverToastVisible`, `gradeFreeTurnsPerDay`, `ttsPremiumDailyChars`, `ttsPremiumMonthlyChars`, `ttsPremiumDailyRequests`, `ttsPremiumBurstPerMinute` — no `examGateOn`/`examFreePapers`). Both `grade-exam`'s `routing()` (`cfg?.examGateOn === true`) and `start-exam-attempt`'s `examConfig()` (explicit `typeof cfg?.examGateOn === "boolean" ? cfg.examGateOn : false`) treat a missing key as `false`/closed by design — the same fail-safe-to-open-tier stance documented in both functions' comments. The plan's expected literal `{gate: false, free: 1}` is the *effective* value these code paths resolve to, not a literal row value — deploy proceeded on rollout-order grounds, and curl D below empirically confirms the effective value is indeed "off."
 
-**B. Deploy attempt:**
+**B. Deploy:** first attempt (inside this session's sandboxed worktree) failed on Supabase CLI auth (`LegacyPlatformAuthRequiredError`) — the same environment gap 04-05 hit; stopped after one attempt per the known-block protocol, did not retry or work around it. The user then ran `cd ealch-v2 && npx supabase functions deploy grade-exam --no-verify-jwt` directly from their own terminal (a Bash permission rule for this command already existed from 04-05). Deploy succeeded.
+
+**C. Curl proof — rubric guard still returns 400**, run by the orchestrator against the live endpoint:
 ```
-cd ealch-v2 && npx supabase functions deploy grade-exam --no-verify-jwt
+curl -s -X POST "$SUPABASE_URL/functions/v1/grade-exam" -H 'Content-Type: application/json' -d '{}'
+=> {"error":"cannot grade: task has no rubric/modelAnswer"}   HTTP 400
 ```
-Result:
+Matches expected exactly.
+
+**D. Curl proof — gate does not fire while examGateOn is off**, a well-formed request with no `paperId`/`skill` (exactly what a currently-installed app build sends):
 ```
-{"_tag":"Error","error":{"code":"LegacyPlatformAuthRequiredError","message":"Access token not provided. Supply an access token by running `supabase login` or setting the SUPABASE_ACCESS_TOKEN environment variable."}}
+curl -s -X POST "$SUPABASE_URL/functions/v1/grade-exam" -H 'Content-Type: application/json' \
+  -d '{"stimulus":"test","candidateResponse":"Bonjour, je m appelle Paul et je travaille a Vancouver.","rubric":{"criteria":[{"key":"c","label":"Coherence","maxPoints":5}]},"modelAnswer":"Bonjour, je m appelle X.","targetBand":"a2","lang":"fr"}'
+=> {"band":"a2","feedback":"...","practiceEstimate":true,"provider":"nvidia","model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"}   HTTP 200
 ```
+A real grade was returned — **not** 403/`attempt_missing_or_expired`, **not** 400/`bad_attempt_ref`. This is the critical rollout-safety proof: the gate is correctly conditioned on `examGateOn`, and every currently-shipped client continues to grade normally with the new code deployed.
 
-Unlike 04-05's first attempt, this was **not** refused by the Claude Code auto-mode classifier — a Bash permission rule for `Bash(npx supabase functions deploy *)` already exists in `.claude/settings.local.json` (added by the user during 04-05), so the command ran. It failed one step later, on the Supabase CLI's own login state inside this sandboxed worktree shell — the exact environment gap 04-05-SUMMARY.md documented for its own deploy attempt ("`supabase login`'s browser callback failed in the sandboxed shell; the user's own terminal environment did not have this problem").
-
-Per the known-block protocol: tried once, did not retry, did not attempt workarounds (no token juggling, no alternate login flow, no editing permission settings). Stopping here and reporting BLOCKED.
-
-**C/D. Curl proofs:** NOT run. Running them against the currently-live `grade-exam` (which predates this plan's Tasks 1-2 and has no gate at all) would not exercise or prove anything about the new code — it would just always return whatever the old function already returned, creating a false impression that Task 3's acceptance criteria were satisfied. Deferred to the orchestrator/user, same as 04-05's Task 3 completion pattern: once the user runs the deploy from their own terminal, curls C and D can be run directly against the live endpoint to confirm (C) the rubric guard still returns 400, and (D) a well-formed request with no `paperId`/`skill` still grades (200/503/429), never 403/`attempt_missing_or_expired` or 400/`bad_attempt_ref`.
-
-**`PAY-03` remains unmarked as complete** in this plan's `requirements-completed` — the gate's source is built, unit-tested, and structurally pinned; the deploy that makes it live is outstanding.
+No API key, service-role key, or JWT appears above or in any committed file.
 
 ## Next Phase Readiness
 
-- `grade-exam`'s gate is fully built and unit-tested; deploying it is a pure CLI operation with zero pending code changes once the user runs it.
-- **Process note, confirmed twice now (04-05 and 04-06):** this sandboxed worktree's Supabase CLI cannot complete `supabase login`. The working pattern remains: the user runs `npx supabase functions deploy grade-exam --no-verify-jwt` directly from their own terminal (the permission rule is already in place, so no further settings change is needed), then the orchestrator runs the two non-mutating curl proofs (C and D above) directly against the live endpoint to close out Task 3.
-- Plan 04-07 (client wiring) and 04-09 (flipping `examGateOn` for real) should not proceed to actually enabling the gate until this deploy is confirmed live — the code is safe to sit undeployed (existing behavior is unaffected), but PAY-03's server-side half is not "done" until it is.
+- `grade-exam`'s gate is deployed, live, and curl-proven at both boundaries (rejects malformed requests exactly as before; grades well-formed ones with no attempt reference exactly as before, flag off).
+- **Process note, confirmed across 04-05 and 04-06:** this sandboxed worktree's Supabase CLI cannot complete `supabase login`/token auth. The working pattern: the user adds a scoped Bash permission rule once, then runs each production deploy directly from their own terminal; the orchestrator runs non-mutating verification (curl, tests) directly afterward.
+- Plan 04-09 (flipping `examGateOn` for real) can now build on both `start-exam-attempt` (04-05) and `grade-exam`'s gate (04-06) being live in production.
 
 ## Self-Check: PASSED
 
@@ -147,11 +149,11 @@ Per the known-block protocol: tried once, did not retry, did not attempt workaro
 - FOUND commit `6b1f7d4` in `git log --oneline`
 - FOUND commit `4ab27a2` in `git log --oneline`
 - CONFIRMED: `node --test supabase/functions/grade-exam/grade-exam-gate.test.ts` exits with `# pass 6` / `# fail 0`
-- CONFIRMED: `npm test` exits with `# pass 5347` / `# fail 0`
+- CONFIRMED: `npm test` exits with `# pass 5351` / `# fail 0` (full suite, post wave-3 merge)
 - CONFIRMED: `grep -cF 'from("entitlements")' supabase/functions/grade-exam/index.ts` returns 0
 - CONFIRMED: `grep -cF "revenuecat-webhook" supabase/functions/coach/index.ts` returns 0; `grep -cF "revenuecat-webhook" supabase/schema.sql` returns 1 (historical note untouched)
-- CONFIRMED: deploy attempt made once, failed on CLI auth (`LegacyPlatformAuthRequiredError`), not retried
+- CONFIRMED: `grade-exam` deployed and live — curl C returns 400 with the expected message; curl D returns 200 (real grade), proving the flag-off rollout position is honored in production
 
 ---
 *Phase: 04-entitlement-verification-signed-out-purchase-fix*
-*Completed: 2026-09-20 (Tasks 1-2 this session; Task 3 pre-deploy check done, deploy blocked, pending user-run deploy + orchestrator-run curl verification)*
+*Completed: 2026-09-20 (Tasks 1-2 same session; Task 3 completed via user-run deploy + orchestrator-run curl verification)*
