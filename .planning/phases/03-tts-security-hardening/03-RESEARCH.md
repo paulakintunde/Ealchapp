@@ -446,17 +446,19 @@ See the four "Pattern" code blocks above (Patterns 1-4) — each is either a dir
 
 **If this table is empty:** N/A — see entries above; all are LOW risk except A4 which is a discretionary product choice the user already anticipated and asked to be stated explicitly.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Exact `system_config` key names for the new tunable limits**
    - What we know: the pattern (service-role read, 60s TTL cache, JSON blob under `system_config.config`, safe fallback) is fully verified and should be reused.
    - What's unclear: this research proposes names (`ttsPremiumDailyChars`, etc.) but they are not locked — any consistent naming the planner picks is fine as long as it's added to both the TypeScript `RemoteConfig` type comment block in `config.ts` (documentation-only on the client; the client doesn't need to read these) and the edge function's config-read code.
    - Recommendation: planner names these during task-writing; not a blocker.
+   - **RESOLVED (03-02-PLAN.md):** the planner locked in `ttsPremiumDailyChars`, `ttsPremiumMonthlyChars`, `ttsPremiumDailyRequests`, `ttsPremiumBurstPerMinute`, `ttsFreePreviewChars` — consistent with this research's proposed names, seeded into `system_config.active.config` and read by 03-04-PLAN.md's `ttsLimits()`.
 
 2. **Whether guests get D-02's "exactly one short live preview" at all, versus D-01's stricter "device/cached only, no live guest synthesis ever"**
    - What we know: both are locked as acceptable outcomes in CONTEXT.md, with D-02 explicitly conditional ("If hearing custom premium speech pre-signup is judged essential to activation").
    - What's unclear: which of the two the planner should actually build — this is a product call CONTEXT.md left open pending the planner's/user's judgment, not something research can resolve from the code.
    - Recommendation: the plan should pick one explicitly rather than build partial support for both; the server-side edge function's guest-tier cap (a coarse device/IP counter, reusing `coach`'s `subjectKey()` shape) supports either choice equally — D-01 is "cap = 0 live chars for guests" and D-02 is "cap = ~300-500 chars once per device/IP," same mechanism, different config value.
+   - **RESOLVED (03-01-PLAN.md / 03-04-PLAN.md):** the planner picked D-01's strict reading — guests are rejected outright (`decide('guest', ...)` always returns `guest_not_allowed`, `callerUid()` returning `null` yields a flat 401 with zero provider calls). D-02's metered preview was evaluated and explicitly not built; see 03-04-PLAN.md's objective for the rationale (smaller/more auditable attack surface, activation question deferred to the already-deferred onboarding A/B test phase).
 
 ## Environment Availability
 
