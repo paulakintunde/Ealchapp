@@ -19,6 +19,7 @@ import { getCachedEntitlement } from '@/services/entitlement';
 import { guardedNow } from '@/services/serverClock';
 import { track } from '@/services/analytics';
 import { a2LockLifted, hasFeature, isPremium, wasDowngraded, type Feature } from './entitlement.logic';
+import { useUI } from './useUI';
 
 /** The cache key for a user who never signed in. A guest can browse the free
  *  tier; purchasing requires an account (the entitlement hangs off the Phase 9
@@ -57,6 +58,17 @@ export const useEntitlement = create<EntitlementState>()((set) => ({
           toPlan: entitlement.plan,
           hadExpiry: prev.entitlement.expiry != null,
         });
+        // D-15/D-16: the explanation a user is owed before the paywall
+        // reappears. Raised here, as a direct side effect beside the analytics
+        // call, NOT by listening to it — `track` is a one-way PostHog POST
+        // gated behind ENV.posthogKey, so a build with no key configured would
+        // otherwise show no notice at all (05-RESEARCH Pitfall 3).
+        // Inherits this branch's two false-positive guards for free: a user-id
+        // change (sign-in/out) and an already-inactive previous entitlement
+        // both read as "not a downgrade", so an offline cold start for a paying
+        // user can never raise this banner.
+        track('reconciliation_shown');
+        useUI.getState().showBanner({ kind: 'reconciliation' });
       }
       return { entitlement };
     }),
