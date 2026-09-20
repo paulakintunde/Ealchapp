@@ -317,22 +317,17 @@ Not applicable in the "library ecosystem changed" sense — this is 100% interna
 | A2 | The roleplay-only nudge trigger (D-11) is an acceptable interpretation of "a usage signal" even if the coach-nudge example from CONTEXT.md isn't built this phase | Common Pitfalls #5, Open Questions | If the user actually wants BOTH coach- and roleplay-triggered nudges in this phase, the coach one needs a small server change first — worth confirming with the user/during planning rather than silently descoping |
 | A3 | `gate:examiner` paywall copy should explain the exam tier is a separate purchase rather than attempt to sell Première (since Première does not grant `'examiner'`) | Pattern 3 | If planning instead makes `gate:examiner` just show generic Première copy, a user who buys Première expecting exam access based on that screen would be misled — a real trust/refund-risk issue, not just a copy nitpick |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **What should the `gate:examiner` paywall screen actually say/sell?**
+1. **What should the `gate:examiner` paywall screen actually say/sell?** — **RESOLVED** by 05-UI-SPEC.md: a third paywall render branch (icon-badge + headline + single dismiss CTA, no plan picker) rather than a headline swap on the normal sell screen, since Première doesn't grant `examiner` and selling it there would mislead. Implemented in Plan 05-04.
    - What we know: `exam.tsx`/`exam-paper.tsx` currently navigate to `/paywall` with zero params; `paywall.tsx`'s plan picker only sells Première features (`levels.all`/`coach.unlimited`/`roleplay.unlimited`), never `examiner`; `entitlement.logic.ts` explicitly documents `examiner` as "granted by no plan."
-   - What's unclear: Whether Phase 5 should extend `paywall.tsx` to explain/sell the exam tier as a distinct product on the same screen, or just improve the headline to be honest ("Full exam papers require the Examiner pass — [wherever that's sold]") without adding a purchase flow (which may not exist yet — the exam product's purchase surface wasn't located in this research pass).
-   - Recommendation: Confirm during planning/discuss whether an exam-tier purchase flow exists anywhere in the app today (search `ACCESS_LEVEL_EXAM`/`purchaseExam`-style functions in `services/purchases.ts`) before committing to what `gate:examiner` copy promises.
+   - Recommendation (superseded by resolution above): Confirm during planning/discuss whether an exam-tier purchase flow exists anywhere in the app today.
 
-2. **Should the coach-cap nudge trigger ship this phase, given no client-side "remaining" signal exists?**
+2. **Should the coach-cap nudge trigger ship this phase, given no client-side "remaining" signal exists?** — **RESOLVED** by planning (Plan 05-06/05-07): roleplay-only nudge ships this phase as the proof of Success Criterion 3; the coach-cap trigger is explicitly named as a deferred follow-up (asserted absent by a test, carried into the gating-rule document's follow-up table) rather than silently dropped, since no remaining-turns signal exists client-side without a backend change.
    - What we know: Roleplay's local counter (`scenariosPlayedOn`) is ready to use today with zero new plumbing. Coach's cap is server-computed with no remaining-count exposed to the client.
-   - What's unclear: Whether D-11's "e.g. ... nears the coach cap" was meant as a required trigger or an illustrative one (D-11's actual text says "e.g." before both examples, suggesting either is acceptable evidence of "a usage signal").
-   - Recommendation: Plan the roleplay trigger as the phase's proof of Success Criterion 3; treat a coach-side trigger as a stretch item contingent on whether `coach.ask()`'s response can cheaply carry a remaining-turns field (a Phase-3-adjacent backend change) — confirm scope with the user rather than assuming during planning.
 
-3. **Should the upstream browse screens (`theme.tsx`, `flashthemes.tsx`, etc.) visually indicate a locked step, or is the destination-screen gate (Pattern 1) sufficient?**
-   - What we know: The established pattern elsewhere is "gate sits on the press/render at the destination, source list stays fully visible" (`den.tsx`'s own comment: "locked units stay fully visible ... they just route to the paywall instead of the lesson").
-   - What's unclear: Whether `theme.tsx`'s parcours steps should follow the same "visible but redirects" pattern (consistent, less work) or actually grey out/lock-icon the step (more explicit, matches `den.tsx`'s row treatment more closely since `den.tsx` DOES lock rows visually — worth checking `den.tsx`'s row-lock UI before assuming "invisible chokepoint only" is consistent).
-   - Recommendation: Read `den.tsx`'s row-lock rendering (not just its gate logic) during planning to decide whether `theme.tsx` should visually match it.
+3. **Should the upstream browse screens (`theme.tsx`, `flashthemes.tsx`, etc.) visually indicate a locked step, or is the destination-screen gate (Pattern 1) sufficient?** — **RESOLVED** by 05-UI-SPEC.md: reuse `den.tsx`'s row-lock pill verbatim (icon + accent pill + lock tag text) on `theme.tsx` and the four `*themes.tsx` browse screens — visible before tap, not "tap then bounce." Implemented in Plan 05-02.
+   - What we know: The established pattern elsewhere is "gate sits on the press/render at the destination, source list stays fully visible" (`den.tsx`'s own comment: "locked units stay fully visible ... they just route to the paywall instead of the lesson"), and `den.tsx` additionally locks rows visually via a pill — the resolution reuses that exact visual, not just the redirect chokepoint.
 
 ## Environment Availability
 
