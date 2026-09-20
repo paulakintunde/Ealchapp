@@ -32,7 +32,7 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 
 <!-- Full completion for this milestone: close content gaps within A1/A2/exams AND reach launch-readiness. Exact phase breakdown and sequencing is the roadmapper's job — these are the requirement areas, not a pre-set order. -->
 
-- [ ] Content: close any remaining gaps/fixes within the existing A1, A2, and exam-pack scope (no new curriculum levels this milestone)
+- [ ] Content: close the concrete gaps surfaced by Phase 2's audit (`.planning/phases/02-content-curriculum-gap-audit/GAPS.md`) — 9 findings, of which 2 are promoted to Phase 20 (TEF speech-rate re-render) and Phase 21 (DELF blanc-02..05 audio QA); the remaining 7 (phantom theme slugs, dead PE@b2/PO@b2 remediation routing, one build-note leak, etc.) stay as named items in GAPS.md, not separately phased
 - [ ] Fix known bugs blocking normal use: audio doesn't pause on backgrounding, exam response lost on process death, notification body placeholders not filled, dark mode toggle ignored, STT continuous-mode regression risk
 - [ ] Security: authenticate/rate-limit the TTS edge function — note: `verify_jwt=true` alone is insufficient (accepts the public anon key too), needs an explicit authenticated-user check plus per-user rate limiting
 - [ ] Monetization: expand paywall coverage beyond 1 gated lesson; verify/harden entitlement sync for the signed-out-purchase-then-sign-in-elsewhere case and edge-function trust in the Postgres entitlement mirror (narrower than originally scoped — see corrected Validated entry above)
@@ -80,6 +80,7 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 | No pre-set priority order — roadmapper sequences by dependency | User chose not to pre-bias toward "bugs first" or "content first" | — Pending |
 | `.planning/` carved out of the repo's blanket `*.md` gitignore rule | GSD's commit tooling stages files with plain `git add`, which was silently skipping every planning doc under the existing `*.md` ignore rule | ✓ Good — verified working via test commit |
 | Trust direct-source-read research over `CONCERNS.md`'s static-analysis claims where they conflict | Architecture/Features research (2026-09-19) read `publish-content.ts`, `purchases.ts`, `entitlement.ts`, and `content.ts` in full and found 3 "missing" items (drift guard, cross-device entitlement, snapshot ceiling) were already partially/fully built; CONCERNS.md was generated from a codebase map, not a full read | ✓ Good — narrowed Active requirements accordingly |
+| CONTENT-01 closed as "audited, gaps found and scoped" not "no gaps" | Phase 2's evidence-cited audit of all 75 units + 15 exam papers found 9 real findings; per D-07, phase-worthy findings get a roadmap phase immediately rather than deferred triage | ✓ Good — Phase 20/21 added, 7 smaller items tracked in GAPS.md |
 
 ## Evolution
 
@@ -99,4 +100,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-09-19 after Phase 1: Content-Publish Drift Guard Extension*
+*Last updated: 2026-09-20 after Phase 2: Content & Curriculum Gap Audit*
