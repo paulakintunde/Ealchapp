@@ -64,13 +64,24 @@ type AdaptyEvent = {
   } | null;
 };
 
+/** `!==` on strings short-circuits on the first differing byte — a timing
+ *  side-channel for guessing a shared secret one character at a time against
+ *  this public, unauthenticated endpoint. Accumulate over every byte instead
+ *  so a wrong guess takes the same time regardless of where it first differs. */
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
   if (req.method !== "POST") return new Response("method not allowed", { status: 405, headers: cors });
 
   const secret = Deno.env.get("ADAPTY_WEBHOOK_SECRET") ?? "";
   const auth = req.headers.get("authorization") ?? "";
-  if (!secret || auth !== secret) {
+  if (!secret || !timingSafeEqual(auth, secret)) {
     return new Response("unauthorized", { status: 401, headers: cors });
   }
 

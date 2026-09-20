@@ -16,7 +16,7 @@ import { useStore } from '@/store/useStore';
 import { introEligible } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts, stt, type SttResult } from '@/services';
-import { content } from '@/services/content';
+import { content, useContent } from '@/services/content';
 import { mergeArticleTiles } from '@/services/content.logic';
 import { dayOfYear } from '@/content/wordOfDay';
 import { normalizeFr } from '@/utils/score';
@@ -81,6 +81,10 @@ export default function Sentence() {
   // SELF-DECLARED level, which is not an entitlement, so a free user who set
   // themselves to B1 was being served B1 sentences.
   const levelsAll = useFeature('levels.all');
+  // content.itemsFor() is a non-reactive getState() read (content.ts) — the
+  // corpus must be an explicit dependency or this memoizes against the
+  // seed-only cut, the same bug exam.tsx/exam-paper.tsx already fixed.
+  const corpus = useContent((s) => s.corpus);
   const gate = useMemo(() => {
     if (theme) {
       return drillDeckGate(
@@ -92,7 +96,7 @@ export default function Sentence() {
     const all = content.itemsFor('sentence');
     const lined = introEligible(all, useStore.getState().level);
     return drillDeckGate(lined.length ? lined : all, level, levelsAll);
-  }, [theme, level, levelsAll]);
+  }, [theme, level, levelsAll, corpus]);
   const deck = gate.items;
   const bandLocked = gate.locked;
 

@@ -17,7 +17,7 @@ export function PushBanner() {
   const t = useTheme();
   const T = useT();
   const router = useRouter();
-  const { banner, hideBanner } = useUI();
+  const { banner, bannerGen, hideBanner } = useUI();
   const visible = banner !== null;
   const clock24 = useStore((s) => s.clock24);
   const coachName = avatarName(useStore((s) => s.avatarId));
@@ -67,11 +67,18 @@ export function PushBanner() {
   // The two new kinds have no caller-side timer the way speakReminder does
   // (useAlarmWatcher.ts owns that one, at 12000ms). Give them their own, so a
   // nudge never lingers indefinitely over active content (UI-SPEC).
+  // Keyed on bannerGen, not just banner?.kind: two same-kind banners shown
+  // back-to-back (e.g. a future coach nudge landing right after a roleplay
+  // one) must each get their own fresh 10s window, not share the first one's
+  // already-running timer.
   useEffect(() => {
     if (banner?.kind !== 'upgradeNudge' && banner?.kind !== 'reconciliation') return;
-    const id = setTimeout(() => useUI.getState().hideBanner(), 10000);
+    const gen = bannerGen;
+    const id = setTimeout(() => {
+      if (useUI.getState().bannerGen === gen) useUI.getState().hideBanner();
+    }, 10000);
     return () => clearTimeout(id);
-  }, [banner?.kind]);
+  }, [banner?.kind, bannerGen]);
 
   return (
     <Animated.View

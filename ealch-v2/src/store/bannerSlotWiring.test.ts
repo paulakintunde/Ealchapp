@@ -33,7 +33,13 @@ test('no reader or writer still uses the old boolean API', () => {
 test('both existing writers raise the reminder kind unchanged', () => {
   strictEqual(count(read('src/hooks/useAlarmWatcher.ts'), "showBanner({ kind: 'speakReminder', at: alarmTime })"), 1);
   strictEqual(count(read('app/settings.tsx'), "showBanner({ kind: 'speakReminder', at: alarmTime })"), 1);
-  ok(read('src/hooks/useAlarmWatcher.ts').includes('setTimeout(() => hideBanner(), 12000)'), 'the reminder keeps its own 12s caller-side timer');
+  const watcherSrc = read('src/hooks/useAlarmWatcher.ts');
+  ok(watcherSrc.includes('setTimeout(() => {'), 'the reminder keeps its own 12s caller-side timer');
+  ok(watcherSrc.includes('}, 12000)'), 'the reminder keeps its own 12s caller-side timer');
+  ok(
+    watcherSrc.includes('bannerGen') && watcherSrc.includes('if (useUI.getState().bannerGen === gen) hideBanner()'),
+    'CR-review WR-02: the caller-side timer must not clear a different, newer banner that overwrote this one — it must check its captured generation before hiding'
+  );
 });
 
 test('PushBanner varies only presentation by kind, and each kind has its own press target', () => {
@@ -44,7 +50,11 @@ test('PushBanner varies only presentation by kind, and each kind has its own pre
   ok(src.includes("router.push('/settings')"), 'reconciliation routes to the existing Restore flow');
   ok(src.includes("router.push('/speak')"), 'the reminder still opens Speak Mode');
   ok(src.includes('T.reconcileBody') && src.includes('T.acctTag'), 'reconciliation copy comes from the i18n table');
-  ok(src.includes('setTimeout(() => useUI.getState().hideBanner(), 10000)'), 'the two new kinds auto-hide at 10s');
+  ok(src.includes('}, 10000)'), 'the two new kinds auto-hide at 10s');
+  ok(
+    src.includes('if (useUI.getState().bannerGen === gen) useUI.getState().hideBanner()'),
+    'CR-review WR-02: the 10s auto-dismiss must check its captured generation, so a second same-kind banner shown before the first one\'s timer fires gets its own fresh window'
+  );
   ok(src.includes('duration: 500') && src.includes('-140'), 'the shared slide animation is unchanged');
 });
 

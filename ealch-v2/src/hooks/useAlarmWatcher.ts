@@ -28,8 +28,15 @@ export function useAlarmWatcher() {
         lastFired.current = day;
         showBanner({ kind: 'speakReminder', at: alarmTime });
         sound.play('ding');
+        // Capture the generation THIS call just bumped. If a different banner
+        // (upgradeNudge, reconciliation) overwrites the slot before 12s is up,
+        // its generation will have moved on, and this stale timer must not
+        // clear it out from under it.
+        const gen = useUI.getState().bannerGen;
         if (hideTimer.current) clearTimeout(hideTimer.current);
-        hideTimer.current = setTimeout(() => hideBanner(), 12000);
+        hideTimer.current = setTimeout(() => {
+          if (useUI.getState().bannerGen === gen) hideBanner();
+        }, 12000);
       }
     }, 15000);
     return () => {

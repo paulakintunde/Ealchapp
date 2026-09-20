@@ -93,7 +93,12 @@ export default function Flashcards() {
       items: composeSession(attempts, introEligible(g.items, useStore.getState().level), localDay()).fresh,
       locked: g.locked,
     };
-  }, [deckMode, theme, level, domain, cardType, levelsAll]);
+    // catThemes is the reactive corpus subscription above; content.itemsFor()
+    // and the domain branch's useContent.getState() read are both non-reactive
+    // getState() reads (documented in content.ts), so the memo must depend on
+    // catThemes directly or it locks against whatever the seed alone contains
+    // at mount — the same bug exam.tsx/exam-paper.tsx already fixed.
+  }, [deckMode, theme, level, domain, cardType, levelsAll, catThemes]);
   const deck = gate.items;
   const bandLocked = gate.locked;
 

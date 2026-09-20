@@ -52,6 +52,10 @@ export default function VoiceFlash() {
   // BEFORE `entries` doubles each item into its two drill directions, so a
   // locked deck can never produce a card.
   const levelsAll = useFeature('levels.all');
+  // content.itemsFor() is a non-reactive getState() read (content.ts) — the
+  // corpus must be an explicit dependency or this memoizes against the
+  // seed-only cut, the same bug exam.tsx/exam-paper.tsx already fixed.
+  const corpus = useContent((s) => s.corpus);
   const gate = useMemo(
     () =>
       drillDeckGate(
@@ -62,7 +66,7 @@ export default function VoiceFlash() {
         level,
         levelsAll
       ),
-    [theme, level, levelsAll]
+    [theme, level, levelsAll, corpus]
   );
   const items = gate.items;
   const bandLocked = gate.locked;
@@ -330,7 +334,7 @@ export default function VoiceFlash() {
         {/* Progress */}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 6, marginBottom: 20 }}>
           <View style={{ flex: 1 }}>
-            <ProgressBar pct={Math.min(100, (vfIx / total) * 100)} height={3} color={t.acc} track={t.line(10)} />
+            <ProgressBar pct={total ? Math.min(100, (vfIx / total) * 100) : 0} height={3} color={t.acc} track={t.line(10)} />
           </View>
           <TX role="meta" color={t.txMuted}>
             {Math.min(vfIx + 1, total)} / {total}

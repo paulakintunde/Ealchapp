@@ -26,6 +26,11 @@ type UIState = {
    *  here. Stale outside a 'vocab' sheet; ignore it otherwise. */
   vocabItems: VocabPrimerItem[];
   banner: BannerState | null;
+  /** Bumped on every showBanner() call. A caller that scheduled a delayed
+   *  hideBanner() (or an auto-dismiss effect keyed only on `banner?.kind`)
+   *  must re-read this before clearing, so a stale timer from an earlier
+   *  banner can never wipe out a newer, unrelated one that overwrote it. */
+  bannerGen: number;
   dictOpen: boolean;
   /** The entry the dictionary overlay is showing — set by openDict so the word
    *  of the day is no longer hardcoded in two places. */
@@ -46,6 +51,7 @@ export const useUI = create<UIState>((set) => ({
   sheet: null,
   vocabItems: [],
   banner: null,
+  bannerGen: 0,
   dictOpen: false,
   dictEntry: null,
   dictSaved: false,
@@ -53,7 +59,7 @@ export const useUI = create<UIState>((set) => ({
   openSheet: (sheet) => set({ sheet }),
   openVocabSheet: (vocabItems) => set({ sheet: 'vocab', vocabItems }),
   closeSheet: () => set({ sheet: null }),
-  showBanner: (banner) => set({ banner }),
+  showBanner: (banner) => set((s) => ({ banner, bannerGen: s.bannerGen + 1 })),
   hideBanner: () => set({ banner: null }),
   openDict: (dictEntry) => set({ dictOpen: true, dictEntry }),
   closeDict: () => set({ dictOpen: false }),

@@ -14,7 +14,7 @@ import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
-import { content } from '@/services/content';
+import { content, useContent } from '@/services/content';
 import { noteFor } from '@/services/content.logic';
 import { themeMeta } from '@/content/themeMeta';
 import { accentKeys, normDict } from '@/content/drills';
@@ -37,6 +37,11 @@ export default function Dictation() {
   const { theme, level, item: resumeItem } = useLocalSearchParams<{ theme?: string; level?: string; item?: string }>();
   // Phase 5 / D-06: same band boundary den.tsx enforces for lessons.
   const levelsAll = useFeature('levels.all');
+  // exam.tsx/exam-paper.tsx already diagnosed this: content.itemsFor() is a
+  // non-reactive getState() read, and the corpus is not fully hydrated until
+  // the OTA snapshot lands a few seconds after mount. The corpus must be an
+  // explicit dependency or the gate memoizes against the seed-only cut.
+  const corpus = useContent((s) => s.corpus);
   const gate = useMemo(
     () =>
       drillDeckGate(
@@ -47,7 +52,7 @@ export default function Dictation() {
         level,
         levelsAll
       ),
-    [theme, level, levelsAll]
+    [theme, level, levelsAll, corpus]
   );
   const sentences = gate.items;
   const bandLocked = gate.locked;
@@ -230,6 +235,23 @@ export default function Dictation() {
   // Redirecting to the paywall (effect above) — never flash gated content.
   if (bandLocked) {
     return <View style={{ flex: 1, backgroundColor: t.bg }} />;
+  }
+
+  // Mirrors flashcards.tsx/voiceflash.tsx/sentence.tsx: an empty deck (stale
+  // theme deep link, or a not-yet-hydrated corpus) must render this instead
+  // of falling through — `d` below is undefined and `play()` dereferences it.
+  if (!d) {
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg }}>
+        <View style={{ paddingTop: insets.top }}>
+          <FocusHeader onClose={() => (theme ? router.back() : router.replace('/home'))} onSettings={() => router.push('/settings')} />
+        </View>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 18 }}>
+          <MascotAvatar size={80} rounded={false} state="thinking" />
+          <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
+        </View>
+      </View>
+    );
   }
 
   return (
