@@ -55,7 +55,7 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 
 ### Content
 
-- [ ] **CONTENT-01**: An early phase audits the current A1/A2/exam content against the intended curriculum plan to identify any concrete remaining gaps (scope discovery — no gaps are pre-assumed; if none are found, this requirement closes as "audited, no gaps")
+- [x] **CONTENT-01**: An early phase audits the current A1/A2/exam content against the intended curriculum plan to identify any concrete remaining gaps (scope discovery — no gaps are pre-assumed; if none are found, this requirement closes as "audited, no gaps")
 
 ### Onboarding & Analytics
 
@@ -111,7 +111,9 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 |-------------|-------|--------|
 | PUBLISH-01 | Phase 1 | Complete |
 | PUBLISH-02 | Phase 1 | Complete |
-| CONTENT-01 | Phase 2 | Pending |
+| CONTENT-01 | Phase 2 | Complete |
+| CONTENT-01 (follow-up: GAP-06) | Phase 20 | Pending |
+| CONTENT-01 (follow-up: GAP-07) | Phase 21 | Pending |
 | SEC-01 | Phase 3 | Pending |
 | PAY-01 | Phase 4 | Pending |
 | PAY-03 | Phase 4 | Pending |
@@ -141,10 +143,11 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 
 **Coverage:**
 - v1 requirements: 29 total (corrected from an earlier miscount of 30 — the enumerated requirement list above contains 29 distinct IDs)
-- Mapped to phases: 29
+- Mapped to phases: 29, now spanning 21 phases (up from 19 — Phase 2's content audit appended Phase 20 and Phase 21 as CONTENT-01 follow-up phases; see GAPS.md GAP-06/GAP-07)
 - Unmapped: 0 ✓
-- Note: ANIM-01 is the sole requirement mapped to two phases rather than one. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope.
+- Note: ANIM-01 and CONTENT-01 are the two requirements mapped to more than one phase. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope. CONTENT-01 closed as "audited, gaps found and scoped" against Phase 2 itself, and its two phase-worthy follow-up findings (GAP-06, GAP-07) were promoted to Phase 20 and Phase 21 rather than left untracked in GAPS.md.
 
 ---
 *Requirements defined: 2026-09-19*
 *Last updated: 2026-09-19 after roadmap revision — traceability re-mapped, 100% coverage across 19 phases (Phase 14 is a design-spike prerequisite for PERF-02/Phase 15, not a requirement-bearing phase itself; Phase 11 split into 11/12 for ANIM-01; all phases after the original Phase 11 renumbered by +1)*
+*Last updated: 2026-09-19 — CONTENT-01 closed by Phase 2's content audit*

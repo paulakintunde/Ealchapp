@@ -376,4 +376,36 @@ cross-reference against BUG-01, BUG-02, BUG-03, QA-01, QA-02 and the full
 
 ## Gaps Summary
 
-_(populated by Plan 06)_
+**CONTENT-01 outcome:** audited, 9 gap(s) found and scoped
+
+### What was checked
+
+| Surface | Checked | Method | Evidence |
+|---------|---------|--------|----------|
+| Curriculum spine — unit existence | 75/75 units, by id | direct SELECT on `content_units` diffed against the id set declared in `author-full-curriculum-spine.ts` | `02-EVIDENCE-spine.md` §1 |
+| Curriculum spine — pedagogical fields | 75/75 units | `canDo` / `themes` / `prereqUnitIds` read per row; themes joined to `content_themes`, prereqs joined to the live unit set | `02-EVIDENCE-spine.md` §2 |
+| PE@b2 / PO@b2 exam-remediation slots | 2 targeted checks (skills PE and PO) | lesson supply vs published PE/PO exam-task demand, plus `dueExamSkills()` routing read at `ealch-v2/src/store/progress.logic.ts:1387-1397` | `02-EVIDENCE-spine.md` §3 |
+| Exam papers — section shape | 15/15 published papers, by id | `jsonb_array_elements(p.sections)` with every taskId resolved against `content_exam_tasks` | `02-EVIDENCE-exams.md` §1 |
+| Exam papers — blueprint conformance | 60 paper × skill pairs (15 papers × 4 skills: CO/CE/PE/PO) | item/task counts diffed against STANDARD-tef-canada.md, STANDARD-tcf-canada.md, STANDARD-delf-b2.md, BLUEPRINT-delf-b2.md (DELF calibrated to sample 3) | `02-EVIDENCE-exams.md` §2 |
+| Exam audio verification | 15 papers (all published) | E8-attestation question answered from the schema (no field exists, any format); DELF blanc-02..05's ~36.8 minutes of never-reviewed CO audio logged as GAP-07; TEF blanc-01's Sections D/E/F spot-checked by hand for speech rate as GAP-06 | `02-EVIDENCE-exams.md` §3 |
+| Known quality defects | 3 defect checks (2 pinned-test re-verifications, 1 build-note-contamination scan) | pinned tests re-run with recorded exit status (9/9 numbers-scoring, 21/21 playlist-voice-deck, both still green), source re-read, fresh DB counts for the notes scan | `02-EVIDENCE-defects.md` §1-2 |
+| Shipped seed cut | 75 units | `seed.json` id set diffed both ways against the declared 75-unit set | `02-EVIDENCE-defects.md` §3 |
+
+### What was NOT checked, and why
+
+- Pedagogical QUALITY of lesson prose beyond field presence (does the explanation teach well) — out of scope. This phase audits the spine's structural/data integrity (ids, themes, prereqs, canDo presence), not the teaching quality of any individual lesson's authored content.
+- B1/C1 content and any curriculum level beyond A1/A2/exams — out of milestone scope per PROJECT.md's Out-of-Scope decision (2026-09-19); this is why GAP-03 and GAP-04 (PE@b2/PO@b2 remediation-lesson gaps) are deferred rather than scoped as build items.
+- Whether TEF blanc-01's or any other paper's exam audio is *correct and pleasant* to listen to end-to-end (voice quality, naturalness, comprehensibility) — unanswerable from database queries alone; GAP-06 and GAP-07 exist precisely because this requires a human listening pass, which is why they are promoted to their own roadmap phases rather than closed inside this audit.
+- `check-speech-rate.ts` could not be executed in this environment (`ealch-admin` had no installed `node_modules` in this worktree) — GAP-06's finding rests on a hand-computed wpm spot-check of 3 documents on `blanc-01` only, not a full run of the tool across all 5 TEF papers; that full run is Phase 20's first success criterion, not something this audit closed.
+- Everything else in scope (curriculum spine structure, exam paper structure/blueprint conformance, the three previously-known content-quality defects, and the seed-vs-Postgres shipping cut) was checked directly against live Postgres, per the table above.
+
+### Outcome
+
+9 gap(s) found: GAP-01 through GAP-09. 2 promoted to ROADMAP stub Phase(s) 20 (GAP-06 — TEF speech-rate verification & re-render) and 21 (GAP-07 — DELF blanc-02..05 audio listening QA). 5 scoped as follow-up items directly in this document without a dedicated phase: GAP-01 (phantom theme-slug data patch), GAP-08 (audio-attestation schema field, a prerequisite for durably recording Phase 20/21's work), and GAP-09 (single-row notes edit) are small enough to fold into ordinary content maintenance; GAP-03 and GAP-04 (PE@b2/PO@b2 remediation-lesson gaps) are deferred with reason — building either would introduce a new taught curriculum level, which conflicts with PROJECT.md's explicit Out-of-Scope decision on new curriculum levels this milestone. 2 further findings (GAP-02, GAP-05) are documented as intentional design / non-defects with no follow-up action needed. 0 findings were already owned by an existing requirement — see `## Already Tracked Elsewhere (D-09)` above, which cross-referenced the full REQUIREMENTS.md traceability table and found no match for any of this audit's 9 findings.
+
+### Evidence discipline confirmation (D-03)
+
+Every finding above cites a pasted SELECT result, a test exit status, or a
+`path/to/file:LINE` source excerpt. No finding rests on `corpus:probe`,
+`content:parity`, a CEFR or nasal heuristic, a spine-drift test, or any guard's
+exit code.
