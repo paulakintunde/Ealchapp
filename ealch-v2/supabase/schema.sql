@@ -247,7 +247,12 @@ values ('active', '{
   "failoverToastVisible": true,
   "coachCostCeiling": "standard",
   "coachFreeTurnsPerDay": 20,
-  "gradeFreeTurnsPerDay": 5
+  "gradeFreeTurnsPerDay": 5,
+  "ttsPremiumDailyChars": 2000,
+  "ttsPremiumMonthlyChars": 25000,
+  "ttsPremiumDailyRequests": 30,
+  "ttsPremiumBurstPerMinute": 3,
+  "ttsFreePreviewChars": 2500
 }'::jsonb)
 on conflict (id) do nothing;
 
@@ -259,4 +264,128 @@ on conflict (id) do nothing;
 -- than expecting this insert to run again. gradeFreeTurnsPerDay is its own
 -- key, not a share of coachFreeTurnsPerDay: grade-exam's subject key is
 -- "grade:"-prefixed (see grade-exam/index.ts), so the two quotas are counted
--- separately even though both currently live in coach_usage.
+-- separately even though both currently live in coach_usage. The five
+-- ttsPremium*/ttsFreePreviewChars keys added for Phase 3 (SEC-01) are subject
+-- to the exact same `do nothing` caveat: an already-seeded live database does
+-- not gain them from this insert. `ealch-admin/scripts/apply-tts-quota-schema.ts`
+-- runs the explicit `update` that lands them on the live row; this file's copy
+-- of the defaults exists only so a fresh install/reseed gets sane values
+-- without a manual step.
+
+-- ── TTS usage quota (Phase 3, SEC-01) ──
+-- Character-weighted, multi-window: coach_usage/coach_bump only ever needed
+-- one daily count. TTS is metered by CHARACTERS as the primary dimension
+-- (D-04), with three simultaneous windows for the premium tier (daily
+-- chars, monthly chars, daily requests) plus a per-minute burst guard
+-- (D-05), and a structurally different one-shot table for the free tier's
+-- non-recurring preview (D-06) — tts_free_preview deliberately has no
+-- day/month/minute column at all, which is what makes "once" a structural
+-- fact rather than a very-low periodic number.
+--
+-- Guests (D-01) are rejected before any counter is ever touched — see
+-- tts/index.ts's callerUid() check — so there is no guest usage table here.
+create table if not exists public.tts_usage_daily (
+  subject_key text    not null,
+  day         date    not null,
+  chars       integer not null default 0,
+  requests    integer not null default 0,
+  primary key (subject_key, day)
+);
+
+create table if not exists public.tts_usage_monthly (
+  subject_key text    not null,
+  month       date    not null,   -- always the 1st of the month (date_trunc('month', ...))
+  chars       integer not null default 0,
+  primary key (subject_key, month)
+);
+
+create table if not exists public.tts_usage_minute (
+  subject_key   text        not null,
+  minute_bucket timestamptz not null,  -- date_trunc('minute', now())
+  requests      integer     not null default 0,
+  primary key (subject_key, minute_bucket)
+);
+
+create table if not exists public.tts_free_preview (
+  subject_key text    primary key,
+  chars_used  integer not null default 0
+);
+
+alter table public.tts_usage_daily   enable row level security;
+alter table public.tts_usage_monthly enable row level security;
+alter table public.tts_usage_minute  enable row level security;
+alter table public.tts_free_preview  enable row level security;
+-- Quota: NO policies at all, deliberately — same stance as coach_usage.
+-- Only the tts function touches these, with the service role, which
+-- bypasses RLS. A client that could write its own quota row would not be
+-- a quota.
+
+-- Atomic bump for the premium tier's four windows in one round trip. Same
+-- discipline as coach_bump's own comment: read-then-write in the function
+-- would let two concurrent requests from the same user (two devices, a
+-- retry) both read "under limit" and both proceed. One statement per
+-- window, all in one function body, so the whole decision is one round
+-- trip and each window is individually race-free.
+create or replace function public.tts_bump(
+  p_key                  text,
+  p_chars                integer,
+  p_daily_char_limit     integer,
+  p_daily_req_limit      integer,
+  p_monthly_char_limit   integer,
+  p_minute_req_limit     integer
+)
+returns table (day_chars integer, day_requests integer, month_chars integer, minute_requests integer)
+language plpgsql
+-- set search_path = '' and fully-qualified names for the same reason as
+-- coach_bump (Supabase linter 0011_function_search_path_mutable) — only the
+-- service role may call this, so it is a hardening job, not a live hole.
+set search_path = ''
+as $$
+begin
+  insert into public.tts_usage_daily (subject_key, day, chars, requests)
+  values (p_key, current_date, p_chars, 1)
+  on conflict (subject_key, day)
+    do update set chars = tts_usage_daily.chars + p_chars,
+                  requests = tts_usage_daily.requests + 1
+  returning tts_usage_daily.chars, tts_usage_daily.requests into day_chars, day_requests;
+
+  insert into public.tts_usage_monthly (subject_key, month, chars)
+  values (p_key, date_trunc('month', current_date)::date, p_chars)
+  on conflict (subject_key, month)
+    do update set chars = tts_usage_monthly.chars + p_chars
+  returning tts_usage_monthly.chars into month_chars;
+
+  insert into public.tts_usage_minute (subject_key, minute_bucket, requests)
+  values (p_key, date_trunc('minute', now()), 1)
+  on conflict (subject_key, minute_bucket)
+    do update set requests = tts_usage_minute.requests + 1
+  returning tts_usage_minute.requests into minute_requests;
+
+  return next;
+end;
+$$;
+
+revoke all on function public.tts_bump(text, integer, integer, integer, integer, integer) from public;
+revoke all on function public.tts_bump(text, integer, integer, integer, integer, integer) from anon;
+revoke all on function public.tts_bump(text, integer, integer, integer, integer, integer) from authenticated;
+
+-- The free tier's one-shot lifetime bump (D-06). No day/month/minute
+-- argument exists on this function at all — see the table comment above.
+create or replace function public.tts_bump_free_preview(p_key text, p_chars integer)
+returns table (chars_used integer)
+language plpgsql
+set search_path = ''
+as $$
+begin
+  insert into public.tts_free_preview (subject_key, chars_used)
+  values (p_key, p_chars)
+  on conflict (subject_key)
+    do update set chars_used = tts_free_preview.chars_used + p_chars
+  returning tts_free_preview.chars_used into chars_used;
+  return next;
+end;
+$$;
+
+revoke all on function public.tts_bump_free_preview(text, integer) from public;
+revoke all on function public.tts_bump_free_preview(text, integer) from anon;
+revoke all on function public.tts_bump_free_preview(text, integer) from authenticated;
