@@ -37,7 +37,10 @@ const cors = {
  *  cannot import the app's TS, so the mapping is restated here and the access
  *  level ids are pinned to the same strings (ACCESS_LEVEL_*). */
 const PREMIERE_FEATURES = ["levels.all", "coach.unlimited", "roleplay.unlimited", "audio.packs"];
-const LEVEL_PREMIERE = "premiere";
+// Was "premiere" until 2026-09-20 — the live Adapty dashboard's access level
+// is actually named "premium" (CC-B created it in English, not French). See
+// entitlement.logic.ts's ACCESS_LEVEL_PREMIERE comment for how this was found.
+const LEVEL_PREMIERE = "premium";
 const LEVEL_EXAM = "exam";
 
 /** Event types after which the named access is no longer held. CANCELLATION

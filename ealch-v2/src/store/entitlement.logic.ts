@@ -329,8 +329,20 @@ export function roleplayNudgeDue(
 
 /** The Adapty dashboard ACCESS LEVEL identifiers. Pinned here so the
  *  dashboard, the webhook fn and this mapping cannot each invent a spelling.
- *  CC-B creates these two access levels in Adapty under exactly these ids. */
-export const ACCESS_LEVEL_PREMIERE = 'premiere';
+ *  CC-B creates these two access levels in Adapty under exactly these ids.
+ *
+ *  `ACCESS_LEVEL_PREMIERE` was 'premiere' until 2026-09-20, when live-Adapty
+ *  verification (Phase 4 device pass) found the dashboard's actual access
+ *  level is named 'premium' — CC-B created it under the English name, not
+ *  the French one this constant assumed. Confirmed via the server-side Grant
+ *  API: granting 'premiere' 400s with "does not exist"; granting 'premium'
+ *  succeeds against a real profile. This means NO real purchase, ever, had
+ *  populated `profile.accessLevels['premiere']` — the client check and the
+ *  webhook mirror (both pinned to the old spelling) could never have
+ *  recognized a paying customer as premium. Fixed here; the Adapty
+ *  dashboard's access level itself was left as 'premium' rather than
+ *  attempting a rename, since real store products are already mapped to it. */
+export const ACCESS_LEVEL_PREMIERE = 'premium';
 export const ACCESS_LEVEL_EXAM = 'exam';
 
 /** Structural slice of Adapty's AdaptyProfile — only what the mapping reads,
