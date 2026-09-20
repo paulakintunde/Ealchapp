@@ -17,7 +17,7 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 - [x] **PAY-01**: A user can restore a previous purchase from Settings/paywall and gets accurate feedback ("restored" vs "no purchases found")
 - [ ] **PAY-02**: The paywall gates a coherent, explainable slice of content (e.g. A1 free / A2+exams gated) instead of one arbitrary lesson
 - [x] **PAY-03**: Server-side/edge-function entitlement checks trust a verified, synced Postgres mirror, and a user who purchases while signed out keeps their entitlement after signing in elsewhere
-- [ ] **PAY-05**: Free users see a proactive upgrade nudge/prompt at a sensible moment in normal use, not only the reactive paywall triggered by a gated lesson
+- [x] **PAY-05**: Free users see a proactive upgrade nudge/prompt at a sensible moment in normal use, not only the reactive paywall triggered by a gated lesson
 
 ### Accessibility
 
@@ -118,7 +118,7 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | PAY-01 | Phase 4 | Complete |
 | PAY-03 | Phase 4 | Complete |
 | PAY-02 | Phase 5 | Pending |
-| PAY-05 | Phase 5 | Pending |
+| PAY-05 | Phase 5 | Complete |
 | NOTIFY-01 | Phase 6 | Pending |
 | NOTIFY-02 | Phase 6 | Pending |
 | BUG-01 | Phase 7 | Pending |
