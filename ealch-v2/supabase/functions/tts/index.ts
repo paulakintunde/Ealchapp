@@ -30,6 +30,11 @@
 // Response: { audio: string (base64 mp3), format: string, provider: string }
 //
 // Deploy:  supabase functions deploy tts --no-verify-jwt
+// Phase 3 (SEC-01): --no-verify-jwt stays — guests must still be servable
+// (they get a real 401 with a body, not a bare platform rejection) — the
+// in-body callerUid() check is the real auth boundary. SUPABASE_ANON_KEY
+// is auto-injected by the platform, same as SUPABASE_URL, and is required
+// for callerUid() to construct its caller-scoped client.
 // Secrets: supabase secrets set ELEVENLABS_API_KEY=... \
 //            ELEVENLABS_VOICE_LIAM=TX3LPaxmHKxFdv7VOQHJ \
 //            ELEVENLABS_VOICE_AMELIE=<voice library id> \
@@ -39,6 +44,14 @@
 // SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY are auto-injected by the platform.
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
+import {
+  classifyTier,
+  decide,
+  DEFAULT_LIMITS,
+  type EntitlementRow,
+  type LimitConfig,
+  type Tier,
+} from "./quota.ts";
 
 const b64 = (buf: ArrayBuffer) => {
   const bytes = new Uint8Array(buf);
@@ -105,6 +118,144 @@ async function elevenModelId(): Promise<string> {
   }
   modelCache = { id, at: now };
   return id;
+}
+
+function serviceClient() {
+  return createClient(
+    Deno.env.get("SUPABASE_URL")!,
+    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+  );
+}
+
+/** Phase 3 (SEC-01): verify the caller's own JWT — never trust a client-
+ *  asserted id. Copied near-verbatim from coach/index.ts's callerUid(),
+ *  the already-shipped answer to PITFALLS.md's Pitfall 1 ("verify_jwt=true
+ *  alone is cosmetic — the anon key is itself a valid JWT"). --no-verify-
+ *  jwt stays at the platform level; this in-body check is the real
+ *  boundary. Returns null for a guest, an anon-key-only caller, or an
+ *  expired/forged token — all three are rejected identically below. */
+async function callerUid(req: Request): Promise<string | null> {
+  const authHeader = req.headers.get("authorization");
+  const url = Deno.env.get("SUPABASE_URL");
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+  if (!authHeader || !url || !anonKey) return null;
+  try {
+    const caller = createClient(url, anonKey, {
+      global: { headers: { Authorization: authHeader } },
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+    const { data, error } = await caller.auth.getUser();
+    if (error || !data.user) return null;
+    return data.user.id;
+  } catch {
+    return null;
+  }
+}
+
+/** D-07: fail-closed entitlement read — any error or missing/expired row
+ *  reads as 'free', never 'premium'. Reads the same entitlements table
+ *  coach/index.ts's hasUnlimitedCoach() reads (schema.sql:138-152); no
+ *  schema change needed for this lookup. */
+async function ttsTier(uid: string): Promise<Tier> {
+  try {
+    const { data, error } = await serviceClient()
+      .from("entitlements")
+      .select("plan, expiry")
+      .eq("user_id", uid)
+      .maybeSingle();
+    const row: EntitlementRow = error || !data ? null : { plan: data.plan, expiry: data.expiry };
+    return classifyTier(uid, row, Date.now());
+  } catch {
+    return classifyTier(uid, null, Date.now());
+  }
+}
+
+// Quota limits are tunable from system_config without a redeploy — same
+// 60s-TTL-cache, safe-fallback pattern as elevenModelId() above.
+const LIMITS_TTL_MS = 60_000;
+let limitsCache: { limits: LimitConfig; at: number } | null = null;
+
+async function ttsLimits(): Promise<LimitConfig> {
+  const now = Date.now();
+  if (limitsCache && now - limitsCache.at < LIMITS_TTL_MS) return limitsCache.limits;
+  let limits = DEFAULT_LIMITS;
+  try {
+    const { data } = await serviceClient()
+      .from("system_config")
+      .select("config")
+      .eq("id", "active")
+      .maybeSingle();
+    const cfg = data?.config as Record<string, unknown> | null;
+    const num = (v: unknown, fallback: number) =>
+      typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : fallback;
+    limits = {
+      premiumDailyChars: num(cfg?.ttsPremiumDailyChars, DEFAULT_LIMITS.premiumDailyChars),
+      premiumMonthlyChars: num(cfg?.ttsPremiumMonthlyChars, DEFAULT_LIMITS.premiumMonthlyChars),
+      premiumDailyRequests: num(cfg?.ttsPremiumDailyRequests, DEFAULT_LIMITS.premiumDailyRequests),
+      premiumBurstPerMinute: num(cfg?.ttsPremiumBurstPerMinute, DEFAULT_LIMITS.premiumBurstPerMinute),
+      freePreviewChars: num(cfg?.ttsFreePreviewChars, DEFAULT_LIMITS.freePreviewChars),
+    };
+  } catch {
+    // Config unreachable — DEFAULT_LIMITS (D-05/D-06's own numbers) still apply.
+  }
+  limitsCache = { limits, at: now };
+  return limits;
+}
+
+/** Bump the premium tier's four windows in one round trip via the
+ *  tts_bump RPC (03-02-PLAN.md). Returns null when the quota plane cannot
+ *  answer — the caller treats that as allowed, same fail-OPEN choice as
+ *  coach's bumpTurn(): this guards margin, not identity (identity was
+ *  already settled by callerUid()), so a database blip must not take TTS
+ *  down for every paying user. Logged for the D-10 spend-alert trail. */
+async function bumpPremium(key: string, chars: number, limits: LimitConfig) {
+  try {
+    const { data, error } = await serviceClient().rpc("tts_bump", {
+      p_key: key,
+      p_chars: chars,
+      p_daily_char_limit: limits.premiumDailyChars,
+      p_daily_req_limit: limits.premiumDailyRequests,
+      p_monthly_char_limit: limits.premiumMonthlyChars,
+      p_minute_req_limit: limits.premiumBurstPerMinute,
+    });
+    const row = Array.isArray(data) ? data[0] : null;
+    if (error || !row) return null;
+    return {
+      dayChars: Number(row.day_chars),
+      dayRequests: Number(row.day_requests),
+      monthChars: Number(row.month_chars),
+      minuteRequests: Number(row.minute_requests),
+    };
+  } catch {
+    return null;
+  }
+}
+
+/** D-06: bump the free tier's one-shot lifetime total via
+ *  tts_bump_free_preview. Same fail-open reasoning as bumpPremium. */
+async function bumpFreePreview(key: string, chars: number): Promise<number | null> {
+  try {
+    const { data, error } = await serviceClient().rpc("tts_bump_free_preview", {
+      p_key: key,
+      p_chars: chars,
+    });
+    const row = Array.isArray(data) ? data[0] : null;
+    if (error || !row) return null;
+    return Number(row.chars_used);
+  } catch {
+    return null;
+  }
+}
+
+function posthog(event: string, props: Record<string, unknown>) {
+  const key = Deno.env.get("POSTHOG_API_KEY");
+  if (!key) return;
+  const host = Deno.env.get("POSTHOG_HOST") ?? "https://us.i.posthog.com";
+  fetch(`${host}/capture/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ api_key: key, event, distinct_id: "edge-tts", properties: props }),
+  }).catch(() => {});
 }
 
 async function elevenlabs(text: string, voice: string, lang: string): Promise<TtsResult> {
@@ -204,6 +355,41 @@ Deno.serve(async (req) => {
     }
     // lang is an ISO 639-1 hint, nothing else reaches a provider URL.
     const langCode = /^[a-z]{2}$/.test(String(lang)) ? String(lang) : "";
+
+    // Phase 3 (SEC-01). Identity and quota, checked BEFORE any provider is
+    // ever called — cost must never be spent on a caller who was going to be
+    // rejected anyway.
+    const uid = await callerUid(req);
+    if (!uid) {
+      // D-01: guests get device/cached TTS only — no live synthesis at all,
+      // regardless of what system_config.ttsProvider says client-side
+      // (tts.logic.ts's client-side gate, 03-03-PLAN.md, is additive, not a
+      // substitute — this is the real boundary).
+      posthog("tts_guest_rejected", { chars: String(text).length });
+      return new Response(
+        JSON.stringify({ error: "sign in for premium voice", reason: "guest_not_allowed" }),
+        { status: 401, headers: { ...cors, "Content-Type": "application/json" } },
+      );
+    }
+
+    const tier = await ttsTier(uid);
+    const limits = await ttsLimits();
+    const subject = `auth:${uid}`;
+    const charCount = String(text).length;
+
+    const usage = tier === "premium" ? await bumpPremium(subject, charCount, limits) : null;
+    const freeTotal = tier === "free" ? await bumpFreePreview(subject, charCount) : null;
+    if (tier === "premium" && !usage) posthog("tts_quota_unavailable", { tier });
+    if (tier === "free" && freeTotal === null) posthog("tts_quota_unavailable", { tier });
+
+    const decision = decide(tier, usage, freeTotal, limits);
+    if (!decision.allowed) {
+      posthog("tts_quota_exceeded", { tier, reason: decision.reason, chars: charCount });
+      return new Response(
+        JSON.stringify({ error: `tts quota exceeded: ${decision.reason}`, reason: decision.reason, tier }),
+        { status: 429, headers: { ...cors, "Content-Type": "application/json" } },
+      );
+    }
 
     // Named, not positional: a single overwritten `lastErr` hid the real
     // ElevenLabs failure behind whichever fallback provider (unconfigured, by
