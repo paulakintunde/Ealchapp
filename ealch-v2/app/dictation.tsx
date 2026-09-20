@@ -20,6 +20,9 @@ import { themeMeta } from '@/content/themeMeta';
 import { accentKeys, normDict } from '@/content/drills';
 import { SpeedPicker } from '@/components/SpeedPicker';
 import { F } from '@/theme/fonts';
+import { drillDeckGate } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 export default function Dictation() {
   const t = useTheme();
@@ -32,14 +35,30 @@ export default function Dictation() {
   // Dictation items from the corpus: { fr (the sentence), en, notes (the tip) }.
   // `?theme=&level=` narrows the run to one parcours step (theme detail's Écouter).
   const { theme, level, item: resumeItem } = useLocalSearchParams<{ theme?: string; level?: string; item?: string }>();
-  const sentences = useMemo(
+  // Phase 5 / D-06: same band boundary den.tsx enforces for lessons.
+  const levelsAll = useFeature('levels.all');
+  const gate = useMemo(
     () =>
-      content.itemsFor(
-        'dictation',
-        theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
+      drillDeckGate(
+        content.itemsFor(
+          'dictation',
+          theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
+        ),
+        level,
+        levelsAll
       ),
-    [theme, level]
+    [theme, level, levelsAll]
   );
+  const sentences = gate.items;
+  const bandLocked = gate.locked;
+
+  useEffect(() => {
+    if (bandLocked) {
+      trackEvent('gate_blocked', { feature: 'levels.all', from: 'dictation' });
+      router.replace({ pathname: '/paywall', params: { from: 'gate:levels' } });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bandLocked]);
 
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
@@ -207,6 +226,11 @@ export default function Dictation() {
       : last
         ? T.dcFinish
         : T.dcNext;
+
+  // Redirecting to the paywall (effect above) — never flash gated content.
+  if (bandLocked) {
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
+  }
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
