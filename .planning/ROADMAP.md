@@ -18,7 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Content-Publish Drift Guard Extension** - Generalize the existing version-aware "no-silent-regression" publish guard from lesson bodies to units/scenarios/playlists/speak-stages, plus a human-readable pre-publish diff report (completed 2026-09-19)
 - [x] **Phase 2: Content & Curriculum Gap Audit** - Audit the shipped A1/A2/exam content against the intended curriculum plan and close or log any concrete gaps (completed 2026-09-20)
-- [ ] **Phase 3: TTS Security Hardening** - Close the unmetered-cost exposure on the TTS edge function with real per-user auth and rate limiting
+- [x] **Phase 3: TTS Security Hardening** - Close the unmetered-cost exposure on the TTS edge function with real per-user auth and rate limiting
 - [ ] **Phase 4: Entitlement Verification & Signed-Out Purchase Fix** - Verify/harden the Adapty entitlement sync so a purchase made signed-out still reaches the right account, and back paying users against a silent downgrade
 - [ ] **Phase 5: Paywall Coverage Expansion & Upgrade Nudge** - Replace the single arbitrarily-gated lesson with one coherent, explainable gating rule (determined during phase planning) across the catalogue, plus a proactive upgrade nudge sharing a common interruption pattern
 - [ ] **Phase 6: Notification Correctness — Body Format & Toggles** - Fix unfilled notification placeholders and make Settings' notification toggles actually control what fires
@@ -104,12 +104,12 @@ Plans:
 
 Plans:
 **Wave 1**
-- [ ] 03-01-PLAN.md — TTS quota pure-logic module (tier classification + multi-window quota decision), TDD
-- [ ] 03-02-PLAN.md — Schema: tts_usage_daily/monthly/minute + tts_free_preview tables, tts_bump/tts_bump_free_preview RPCs, applied to the live DB [BLOCKING]
-- [ ] 03-03-PLAN.md — Client-side guest gate (shouldAttemptRemoteTts) wired into tts.ts, TDD
+- [x] 03-01-PLAN.md — TTS quota pure-logic module (tier classification + multi-window quota decision), TDD
+- [x] 03-02-PLAN.md — Schema: tts_usage_daily/monthly/minute + tts_free_preview tables, tts_bump/tts_bump_free_preview RPCs, applied to the live DB [BLOCKING]
+- [x] 03-03-PLAN.md — Client-side guest gate (shouldAttemptRemoteTts) wired into tts.ts, TDD
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 03-04-PLAN.md — Wire callerUid/tier/quota into tts/index.ts, deploy to live Supabase [BLOCKING], automated + human-verified proof of all 4 success criteria
+- [x] 03-04-PLAN.md — Wire callerUid/tier/quota into tts/index.ts, deploy to live Supabase [BLOCKING], automated + human-verified proof of all 4 success criteria
 
 **Pitfall Watch**: PITFALLS.md Pitfall 1 — flipping `verify_jwt=true` alone is very likely cosmetic, since the anon key is itself a valid JWT. The fix must read `ctx.userClaims.sub` (or equivalent) explicitly inside the function body. Plan-check and verification must explicitly test a fresh-logged-out app state and a call using only the anon key, not just the signed-in happy path.
 

@@ -34,7 +34,7 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 
 ### Security
 
-- [ ] **SEC-01**: The TTS edge function rejects unauthenticated requests (real `auth.uid()` check, not just `verify_jwt=true` which still accepts the anon key) and enforces a per-user rate limit
+- [x] **SEC-01**: The TTS edge function rejects unauthenticated requests (real `auth.uid()` check, not just `verify_jwt=true` which still accepts the anon key) and enforces a per-user rate limit
 
 ### Performance
 
@@ -114,7 +114,7 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | CONTENT-01 | Phase 2 | Complete |
 | CONTENT-01 (follow-up: GAP-06) | Phase 20 | Pending |
 | CONTENT-01 (follow-up: GAP-07) | Phase 21 | Pending |
-| SEC-01 | Phase 3 | Pending |
+| SEC-01 | Phase 3 | Complete |
 | PAY-01 | Phase 4 | Pending |
 | PAY-03 | Phase 4 | Pending |
 | PAY-02 | Phase 5 | Pending |

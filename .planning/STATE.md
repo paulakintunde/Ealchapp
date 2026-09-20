@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 3 context gathered
-last_updated: "2026-09-20T06:08:13.757Z"
-last_activity: 2026-09-20 -- Phase 3 planning complete
+stopped_at: Phase 3 complete
+last_updated: "2026-09-20T00:00:00.000Z"
+last_activity: 2026-09-20 -- Phase 3 (TTS Security Hardening) complete, SEC-01 closed
 progress:
   total_phases: 21
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 14
-  completed_plans: 10
-  percent: 71
+  completed_plans: 14
+  percent: 14
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 3 — TTS Security Hardening
+**Current focus:** Phase 4 — Entitlement Verification & Signed-Out Purchase Fix (next unplanned phase)
 
 ## Current Position
 
 Phase: 3
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-09-20 -- Phase 3 planning complete
+Plan: All 4 plans complete (03-01, 03-02, 03-03, 03-04)
+Status: Phase 3 complete — SEC-01 closed, deployed and human-verified live
+Last activity: 2026-09-20 -- Phase 3 (TTS Security Hardening) complete, SEC-01 closed
 
-Progress: [█░░░░░░░░░] 2/21 phases (10%)
+Progress: [█░░░░░░░░░] 3/21 phases (14%)
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 10
-- Average duration: ~10 min
+- Total plans completed: 14
+- Average duration: ~15 min
 - Total execution time: 0 hours
 
 **By Phase:**
@@ -46,11 +46,12 @@ Progress: [█░░░░░░░░░] 2/21 phases (10%)
 |-------|-------|-------|----------|
 | 1 | 4 | - | - |
 | 2 | 6 | ~60min | ~10min |
+| 3 | 4 | ~90min | ~22min |
 
 **Recent Trend:**
 
-- Last 5 plans: none yet
-- Trend: N/A
+- Last 5 plans: 03-01 (15min), 03-03 (10min), 03-02 (20min), 03-04 (45min)
+- Trend: stable
 
 *Updated after each plan completion*
 
@@ -81,6 +82,7 @@ Recent decisions affecting current work:
 - Phase 02 Plans 02-04 (Wave 2, parallel): curriculum spine audit (75/75 units clean structurally; 2 phantom theme slugs found; PE@b2 and PO@b2 exam-remediation routing both empty), exam paper audit (15/15 papers structurally conformant; TEF blanc-01 audio spot-check runs hot vs. speech-rate envelope; DELF blanc-02..05 audio never went through an E8 listening pass, revised to ~37min not "~2 hours"; no schema field anywhere records an audio-listening attestation), and known-defect re-measurement (numbers-scoring and playlist-voice-deck fixes both still solid; 1 residual build-note-contamination row survives in shipped seed.json; seed.json's 75 units match Postgres's 75 exactly, no drift).
 - Phase 02 Plan 05: D-09 cross-reference against the full REQUIREMENTS.md traceability table (not just the plan's named minimum of BUG-01/02/03, QA-01/02) found no existing requirement owns any of the 9 findings from Plans 02-04 — all 9 classified `new`, written into GAPS.md as GAP-01..GAP-09. GAP-03/GAP-04 (PE@b2/PO@b2 remediation slots) are deferred rather than scoped for build, because the fix would introduce a new taught curriculum level, conflicting with PROJECT.md's Out-of-Scope decision. GAP-06 (TEF speech-rate spot-check) and GAP-07 (DELF audio never QA'd) are flagged Phase-worthy (D-07): yes for Plan 06 to weigh as candidate roadmap stubs.
 - Phase 02 Plan 06 (final plan of Phase 2): GAP-06 and GAP-07 promoted to two new integer-slot ROADMAP phases — Phase 20 (TEF Speech-Rate Verification & Re-render) and Phase 21 (DELF blanc-02..05 Audio Listening QA) — appended after Phase 19 with no renumbering, each carrying named success criteria that reuse the specific ids/numbers GAP-06/GAP-07 measured. CONTENT-01 closed in REQUIREMENTS.md as "audited, gaps found and scoped" (not "audited, no gaps") — 9 gaps total: 2 promoted to phases, 5 scoped as in-document follow-ups (GAP-01, GAP-03, GAP-04, GAP-08, GAP-09), 2 documented as intentional design/non-defects (GAP-02, GAP-05), 0 already owned by an existing requirement. Developer reviewed GAPS.md and the ROADMAP diff at the Task 3 blocking checkpoint and approved without requesting changes. Phase 02's own ROADMAP checklist entry (`- [ ] **Phase 2:`) was deliberately left unchecked per plan instruction — that flip belongs to `/gsd-verify-work`, not this plan.
+- Phase 03 (TTS Security Hardening, all 4 plans): closed SEC-01. 03-01 built the pure `quota.ts` decision layer (18 tests). 03-02 appended `tts_usage_daily/monthly/minute`+`tts_free_preview` tables and `tts_bump`/`tts_bump_free_preview` RPCs to `schema.sql` and applied them live to `ogbothupjcivwruesgsu` (idempotent, verified with 2 runs) — fixed a path bug in the plan's own apply-script template (`import.meta.url`-relative path was one level short). 03-03 added the client-side `shouldAttemptRemoteTts()` guest gate in `tts.ts`. 03-04 wired `callerUid()`/tier classification/quota enforcement into `tts/index.ts`, deployed to production, and passed both the automated curl proof (zero-auth → 401, anon-key-only → 401 guest_not_allowed) and a human-verify device checkpoint (free-tier exhaustion, premium burst cap, and guest-never-calls-remote all fall back to audible device speech correctly). `system_config.ttsProvider` was temporarily flipped to `'elevenlabs'` for the device test and confirmed restored to `'device'` immediately after. This session's `gsd-sdk` CLI was not installed (only the older `gsd-tools.cjs`) — phase execution, commits, and STATE/ROADMAP/REQUIREMENTS updates were done directly rather than via the SDK's query handlers; worth fixing the GSD install before the next `/gsd-execute-phase` if the SDK-driven automation (worktree wave orchestration, auto-advance, etc.) is wanted.
 
 ### Pending Todos
 
