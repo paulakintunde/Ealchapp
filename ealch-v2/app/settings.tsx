@@ -14,6 +14,7 @@ import { useStore } from '@/store/useStore';
 import { useUI } from '@/store/useUI';
 import { useEntitlement, useIsPremium } from '@/store/useEntitlement';
 import { restorePurchases, purchasesStatus } from '@/services/purchases';
+import { restoreOutcome, type RestoreOutcome } from '@/services/purchases.logic';
 import { track as trackEvent } from '@/services/analytics';
 import { sound } from '@/services';
 import { ACCENTS } from '@/theme/palette';
@@ -118,7 +119,7 @@ export default function Settings() {
     sound.play('ding');
   };
 
-  // Phase 10: the plan card reads the REAL entitlement (RevenueCat-fed
+  // Phase 10: the plan card reads the REAL entitlement (Adapty-fed
   // useEntitlement), never a local flag. Billing details never come from a
   // literal — the store that sold the plan manages the payment method, and the
   // card says which store that is.
@@ -149,9 +150,18 @@ export default function Settings() {
     trackEvent('restore_started');
     const res = await restorePurchases();
     setRestoring(false);
-    trackEvent('restore_completed', { found: res.ok && res.premium });
-    if (!res.ok) setRestoreMsg(purchasesStatus() === 'ready' ? T.restoreFail : T.pwUnavailableT);
-    else setRestoreMsg(res.premium ? T.restoreDone : T.restoreNone);
+    // One decision, two surfaces (see services/purchases.logic.ts). The Record
+    // is exhaustive by type: a new outcome fails to compile here and on the
+    // paywall, rather than showing one of them nothing.
+    const outcome = restoreOutcome(res, purchasesStatus());
+    const copy: Record<RestoreOutcome, string> = {
+      restored: T.restoreDone,
+      none: T.restoreNone,
+      failed: T.restoreFail,
+      unavailable: T.pwUnavailableT,
+    };
+    trackEvent('restore_completed', { found: outcome === 'restored' });
+    setRestoreMsg(copy[outcome]);
   };
 
   return (
@@ -226,7 +236,9 @@ export default function Settings() {
         ) : null}
 
         {/* Restore — the row Phase 0 deleted because it restored nothing.
-            This one runs a real RevenueCat restore and reports what it found. */}
+            This one runs a real Adapty restore and reports what it found
+            (services/purchases.logic.ts decides which of the four things it
+            says). */}
         <Press
           onPress={() => void doRestore()}
           style={{

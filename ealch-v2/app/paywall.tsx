@@ -21,6 +21,7 @@ import {
   restorePurchases,
   type LiveOffer,
 } from '@/services/purchases';
+import { restoreOutcome, type RestoreOutcome } from '@/services/purchases.logic';
 
 // The Phase 10 paywall — rebuilt from nothing, per the master plan's scope
 // correction: Phase 0 deleted the old commercial surface because it sold a
@@ -127,9 +128,15 @@ export default function Paywall() {
     track('restore_started');
     const res = await restorePurchases();
     setBusy(false);
-    track('restore_completed', { found: res.ok && res.premium });
-    if (!res.ok) setNotice(status === 'ready' ? T.restoreFail : T.pwUnavailableT);
-    else setNotice(res.premium ? T.restoreDone : T.restoreNone);
+    const outcome = restoreOutcome(res, status);
+    const copy: Record<RestoreOutcome, string> = {
+      restored: T.restoreDone,
+      none: T.restoreNone,
+      failed: T.restoreFail,
+      unavailable: T.pwUnavailableT,
+    };
+    track('restore_completed', { found: outcome === 'restored' });
+    setNotice(copy[outcome]);
   };
 
   const featureRows = [
