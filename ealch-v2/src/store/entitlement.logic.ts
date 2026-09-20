@@ -288,6 +288,38 @@ export function roleplayLocked(
   return played.size >= FREE_SCENARIOS_PER_DAY && !played.has(scenarioId);
 }
 
+/* ─── Upgrade-nudge cadence (Phase 5 / D-11, D-13) ───────────────────────── */
+//
+// The nudge fires at the moment a free user BRUSHES the roleplay limit without
+// being blocked by it — they finished today's free scenario, and the next one
+// would route to the paywall. roleplayLocked answers the block; this answers
+// the softer question one step earlier.
+//
+// Deliberately NOT a coach-side equivalent: the coach cap is server-enforced
+// and coach.ask() returns no remaining-turn count, so there is no client signal
+// to read (05-RESEARCH.md Open Question 2). Roleplay is this phase's proactive
+// nudge; a coach trigger needs a backend change first.
+//
+// The cadence is 24h, far more frequent than Phase 10's 3-per-year rating
+// prompt, per D-13. `lastNudgeAtMs` is the caller's persisted timestamp
+// (useStore.lastNudgeAt, 0 = never) — this file stores nothing itself.
+
+/** Minimum gap between two upgrade nudges. D-13 / UI-SPEC: once per 24 hours. */
+export const NUDGE_COOLDOWN_MS = 86_400_000;
+
+/** Should the roleplay upgrade nudge show right now? */
+export function roleplayNudgeDue(
+  e: Entitlement,
+  attempts: ScenarioAttemptLike[],
+  day: string,
+  lastNudgeAtMs: number,
+  nowMs: number,
+): boolean {
+  if (hasFeature(e, 'roleplay.unlimited', nowMs)) return false;
+  if (scenariosPlayedOn(attempts, day).size < FREE_SCENARIOS_PER_DAY) return false;
+  return nowMs - lastNudgeAtMs >= NUDGE_COOLDOWN_MS;
+}
+
 /* ─── Mapping the Adapty profile (access levels) ─────────────────────────── */
 
 // CF-15 amendment 2026-07-22 (Paul's decision, recorded in BF-02): Adapty
