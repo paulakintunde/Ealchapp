@@ -2,10 +2,15 @@
 // active-premium → not-premium write is the only case this must catch — an
 // identity swap (sign-in/out) or a previous entitlement that was already
 // inactive must never be reported, or the signal becomes noise nobody trusts.
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { isPremium, wasDowngraded } from './entitlement.logic.ts';
 import type { Entitlement } from '../content/progress-schema.ts';
+
+const srcDir = dirname(fileURLToPath(import.meta.url));
 
 const NOW = Date.UTC(2026, 8, 20, 12, 0, 0);
 const DAY = 86_400_000;
@@ -37,4 +42,27 @@ test('an entitlement that had already expired is not downgraded again', () => {
 
 test('a plan that still says premiere but has expired is a downgrade', () => {
   strictEqual(wasDowngraded(premium('u1'), premium('u1', NOW - DAY), NOW), true);
+});
+
+// The store file, read as text: the transition must be detected on the live
+// write path and nowhere else. A future refactor that "simplifies" this by
+// hooking the store generically would flag every offline cold start.
+test('the downgrade event fires from setEntitlement, never from loadFor', () => {
+  const src = readFileSync(resolve(srcDir, './useEntitlement.ts'), 'utf8');
+  // `setEntitlement:`/`loadFor:` each appear more than once — in the
+  // EntitlementState type declaration, in the create() implementation, and
+  // (for `loadFor:`) inside the setEntitlement doc-comment explaining why
+  // detection is NOT there. Anchor on the property key at the start of a
+  // line (only true of the real object-literal entries) so a plain
+  // substring match on prose can't be mistaken for the implementation.
+  const implStart = src.indexOf('export const useEntitlement');
+  const rest = src.slice(implStart);
+  const setKey = /^\s*setEntitlement:/m.exec(rest);
+  const loadKey = /^\s*loadFor:/m.exec(rest);
+  ok(setKey && loadKey, 'both store keys must be found in the implementation');
+  const setBody = rest.slice(setKey!.index, loadKey!.index);
+  const loadBody = rest.slice(loadKey!.index);
+  ok(setBody.includes("track('entitlement_downgraded'"), 'setEntitlement must fire the event');
+  ok(setBody.includes('wasDowngraded('), 'setEntitlement must use the pure predicate');
+  ok(!loadBody.includes('entitlement_downgraded'), 'loadFor must NOT fire it (offline cold start)');
 });
