@@ -122,8 +122,28 @@ Plans:
   2. A user who purchases while signed out, then signs in (same device or a different one), has their entitlement follow them without manual intervention.
   3. An existing already-entitled user, first launch after this change, offline, is not downgraded or shown a paywall while reconciliation is pending.
   4. Edge functions that need entitlement (`coach`, `grade-exam`) have a documented, explicit trust decision for the Postgres mirror (accept webhook lag as a known limitation, or add a real-time Adapty server check) rather than an implicit assumption.
-**Plans**: TBD
+**Plans**: 9 plans
 **Pitfall Watch**: PITFALLS.md Pitfall 2 — explicitly test "existing paying user, first launch after update, currently offline" before shipping; treat any entitlement state flip (premium→free) as a loud, logged, monitored event, not a silent cache-miss. Verify `syncIdentity()`'s post-`identify()` reconciliation actually pulls the merged Adapty profile immediately rather than waiting for the next foreground.
+
+Plans:
+**Wave 1** *(four independent plans, no shared files)*
+- [ ] 04-01-PLAN.md — Pin the four-input exam gate decision table and build the pure attempt grace-window logic (timingS + 60min, D-06)
+- [ ] 04-02-PLAN.md — Create the exam_attempts authorization table in schema.sql and apply it to live Postgres [BLOCKING]
+- [ ] 04-03-PLAN.md — Make a premium to free flip a loud, logged event (D-08): pure wasDowngraded + entitlement_downgraded fired from setEntitlement only
+- [ ] 04-04-PLAN.md — Harden PAY-01's restore feedback: one tested restoreOutcome shared by Settings and the paywall
+
+**Wave 2** *(blocked on 04-01, 04-02)*
+- [ ] 04-05-PLAN.md — Build and deploy start-exam-attempt: the full four-input server gate, plus the parity test binding its Deno copy to the client's decision function
+
+**Wave 3** *(blocked on Wave 2; the two plans touch disjoint files)*
+- [ ] 04-06-PLAN.md — Add grade-exam's attempt-validation gate before quota and LLM (closes D-03), flag-conditioned so the deploy breaks no shipped client; fix the stale revenuecat-webhook comment
+- [ ] 04-07-PLAN.md — Wire the client: D-07 gate plus awaited authorization on exam-paper's start, and paperId/skill on every grading request
+
+**Wave 4** *(blocked on 04-03, 04-04 — device checkpoints)*
+- [ ] 04-08-PLAN.md — Device verification of PAY-01: restore feedback on both surfaces, signed-out purchase merge same/cross-device (resolves research assumption A1), offline cold start with no downgrade
+
+**Wave 5** *(blocked on Wave 3 and 04-08)*
+- [ ] 04-09-PLAN.md — Exercise the gate with examGateOn true on a real device, measure D-06's window against real content, then restore the flag to false
 
 ### Phase 5: Paywall Coverage Expansion & Upgrade Nudge
 **Goal**: The paywall gates a coherent, explainable slice of the catalogue, and free users see a reason to upgrade before they hit a wall.
