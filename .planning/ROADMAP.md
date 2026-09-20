@@ -127,10 +127,10 @@ Plans:
 
 Plans:
 **Wave 1** *(four independent plans, no shared files)*
-- [ ] 04-01-PLAN.md — Pin the four-input exam gate decision table and build the pure attempt grace-window logic (timingS + 60min, D-06)
-- [ ] 04-02-PLAN.md — Create the exam_attempts authorization table in schema.sql and apply it to live Postgres [BLOCKING]
-- [ ] 04-03-PLAN.md — Make a premium to free flip a loud, logged event (D-08): pure wasDowngraded + entitlement_downgraded fired from setEntitlement only
-- [ ] 04-04-PLAN.md — Harden PAY-01's restore feedback: one tested restoreOutcome shared by Settings and the paywall
+- [x] 04-01-PLAN.md — Pin the four-input exam gate decision table and build the pure attempt grace-window logic (timingS + 60min, D-06)
+- [x] 04-02-PLAN.md — Create the exam_attempts authorization table in schema.sql and apply it to live Postgres [BLOCKING]
+- [x] 04-03-PLAN.md — Make a premium to free flip a loud, logged event (D-08): pure wasDowngraded + entitlement_downgraded fired from setEntitlement only
+- [x] 04-04-PLAN.md — Harden PAY-01's restore feedback: one tested restoreOutcome shared by Settings and the paywall
 
 **Wave 2** *(blocked on 04-01, 04-02)*
 - [ ] 04-05-PLAN.md — Build and deploy start-exam-attempt: the full four-input server gate, plus the parity test binding its Deno copy to the client's decision function
