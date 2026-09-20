@@ -18,6 +18,9 @@ import { domainMeta } from '@/content/domainMeta';
 import { themeMeta } from '@/content/themeMeta';
 import { answerMatches, markWords, barsForLevel } from '@/utils/score';
 import { displayIpa } from '@/services/content.logic';
+import { drillDeckGate } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 type Phase = 'ask' | 'listening' | 'result';
 /** One card of the deck: an item plus which way it's being drilled. Every item
@@ -45,14 +48,32 @@ export default function VoiceFlash() {
     item?: string;
     dir?: string;
   }>();
-  const items = useMemo(
+  // Phase 5 / D-06: same band boundary den.tsx enforces for lessons. Gated
+  // BEFORE `entries` doubles each item into its two drill directions, so a
+  // locked deck can never produce a card.
+  const levelsAll = useFeature('levels.all');
+  const gate = useMemo(
     () =>
-      content.itemsFor(
-        'voiceflash',
-        theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
+      drillDeckGate(
+        content.itemsFor(
+          'voiceflash',
+          theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
+        ),
+        level,
+        levelsAll
       ),
-    [theme, level]
+    [theme, level, levelsAll]
   );
+  const items = gate.items;
+  const bandLocked = gate.locked;
+
+  useEffect(() => {
+    if (bandLocked) {
+      trackEvent('gate_blocked', { feature: 'levels.all', from: 'voiceflash' });
+      router.replace({ pathname: '/paywall', params: { from: 'gate:levels' } });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bandLocked]);
 
   // Round one is production (see the English, say the French); round two is
   // recognition (see/hear the French, give the English back). Block order, not
@@ -285,6 +306,11 @@ export default function VoiceFlash() {
 
   const listening = vfPhase === 'listening';
   const micActive = listening;
+
+  // Redirecting to the paywall (effect above) — never flash gated content.
+  if (bandLocked) {
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
+  }
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>

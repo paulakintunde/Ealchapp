@@ -21,6 +21,9 @@ import { mergeArticleTiles } from '@/services/content.logic';
 import { dayOfYear } from '@/content/wordOfDay';
 import { normalizeFr } from '@/utils/score';
 import { themeMeta } from '@/content/themeMeta';
+import { drillDeckGate } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 type Phase = 'learn' | 'arrange' | 'say' | 'write' | 'passed';
 type Tile = { w: string; t: string };
@@ -73,17 +76,33 @@ export default function Sentence() {
   const { theme, level, item: resumeItem, phase: resumePhase } = useLocalSearchParams<{
     theme?: string; level?: string; item?: string; phase?: string;
   }>();
-  const deck = useMemo(() => {
+  // Phase 5 / D-06: same band boundary den.tsx enforces for lessons. The
+  // no-theme path matters most here: introEligible keys off the learner's
+  // SELF-DECLARED level, which is not an entitlement, so a free user who set
+  // themselves to B1 was being served B1 sentences.
+  const levelsAll = useFeature('levels.all');
+  const gate = useMemo(() => {
     if (theme) {
-      return content.itemsFor(
-        'sentence',
-        { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) }
+      return drillDeckGate(
+        content.itemsFor('sentence', { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) }),
+        level,
+        levelsAll
       );
     }
     const all = content.itemsFor('sentence');
     const lined = introEligible(all, useStore.getState().level);
-    return lined.length ? lined : all;
-  }, [theme, level]);
+    return drillDeckGate(lined.length ? lined : all, level, levelsAll);
+  }, [theme, level, levelsAll]);
+  const deck = gate.items;
+  const bandLocked = gate.locked;
+
+  useEffect(() => {
+    if (bandLocked) {
+      trackEvent('gate_blocked', { feature: 'levels.all', from: 'sentence' });
+      router.replace({ pathname: '/paywall', params: { from: 'gate:levels' } });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bandLocked]);
   // Resume landing: `?item=` names the sentence a resumed visit should reopen
   // on — falls back to the day-seeded default (dayOfYear) when missing or no
   // longer in this deck, exactly like the no-resume path always has.
@@ -311,6 +330,11 @@ export default function Sentence() {
       </TX>
     </Press>
   );
+
+  // Redirecting to the paywall (effect above) — never flash gated content.
+  if (bandLocked) {
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
+  }
 
   if (!item) {
     return (

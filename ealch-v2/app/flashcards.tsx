@@ -19,6 +19,9 @@ import { dedupeByFr, displayIpa, noteFor } from '@/services/content.logic';
 import { CARD_TYPES, LEVELS, type CardType, type Level } from '@/content/schema';
 import { themeMeta } from '@/content/themeMeta';
 import { domainMeta } from '@/content/domainMeta';
+import { drillDeckGate } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 export default function Flashcards() {
   const t = useTheme();
@@ -53,7 +56,11 @@ export default function Flashcards() {
   // catalogue wins over themeMeta the same way it does everywhere else: the
   // corpus row is OTA-updatable, the map is the bundled fallback.
   const catThemes = useContent((s) => s.corpus.themes);
-  const deck = useMemo(() => {
+  // Phase 5 / D-06: this screen serves the same graded corpus den.tsx gates for
+  // lessons, and reached A2 content with no entitlement check at all. The gate
+  // sits here because all three deck shapes below funnel through it.
+  const levelsAll = useFeature('levels.all');
+  const gate = useMemo(() => {
     const q = theme
       ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) }
       : domain
@@ -76,10 +83,27 @@ export default function Flashcards() {
       : domain
         ? dedupeByFr(fetched)
         : fetched;
-    if (deckMode !== 'new') return all;
+    const g = drillDeckGate(all, level, levelsAll);
+    if (deckMode !== 'new') return g;
+    // A free user's "new words" session is composed from the items they may
+    // actually drill, so it is never empty just because the fresh slice
+    // happened to be A2.
     const { attempts } = useProgress.getState();
-    return composeSession(attempts, introEligible(all, useStore.getState().level), localDay()).fresh;
-  }, [deckMode, theme, level, domain, cardType]);
+    return {
+      items: composeSession(attempts, introEligible(g.items, useStore.getState().level), localDay()).fresh,
+      locked: g.locked,
+    };
+  }, [deckMode, theme, level, domain, cardType, levelsAll]);
+  const deck = gate.items;
+  const bandLocked = gate.locked;
+
+  useEffect(() => {
+    if (bandLocked) {
+      trackEvent('gate_blocked', { feature: 'levels.all', from: 'flashcards' });
+      router.replace({ pathname: '/paywall', params: { from: 'gate:levels' } });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bandLocked]);
 
   // Resume landing: `?item=` names the card a resumed visit should reopen on.
   // Deck order is deterministic except `deck=new` (a freshly composed session
@@ -274,6 +298,11 @@ export default function Flashcards() {
     backfaceVisibility: 'hidden' as const,
     overflow: 'hidden' as const,
   };
+
+  // Redirecting to the paywall (effect above) — never flash gated content.
+  if (bandLocked) {
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
+  }
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
