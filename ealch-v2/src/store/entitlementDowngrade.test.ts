@@ -65,4 +65,11 @@ test('the downgrade event fires from setEntitlement, never from loadFor', () => 
   ok(setBody.includes("track('entitlement_downgraded'"), 'setEntitlement must fire the event');
   ok(setBody.includes('wasDowngraded('), 'setEntitlement must use the pure predicate');
   ok(!loadBody.includes('entitlement_downgraded'), 'loadFor must NOT fire it (offline cold start)');
+  // Phase 5 / D-15: the reconciliation banner is raised in the SAME branch as
+  // the analytics call, so it survives a build with no PostHog key — and it
+  // inherits the same two false-positive guards, so an offline cold start
+  // (loadFor) can never raise it.
+  ok(setBody.includes("showBanner({ kind: 'reconciliation' })"), 'setEntitlement must raise the reconciliation banner');
+  ok(!loadBody.includes('showBanner'), 'loadFor must NOT raise it (offline cold start)');
+  ok(!src.includes('useEntitlement.subscribe'), 'the trigger must be a direct side effect, not a subscription');
 });

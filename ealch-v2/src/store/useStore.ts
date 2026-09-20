@@ -117,6 +117,12 @@ export type AppState = {
    *  the 2h cooldown (progress.logic GREET_COOLDOWN_MS) survives app restarts. */
   lastGreetAt: number;
 
+  /** Epoch ms of the last upgrade nudge shown, 0 = never. Persisted so the
+   *  24h cadence (entitlement.logic NUDGE_COOLDOWN_MS) survives app restarts.
+   *  Written through the generic setField, like lastGreetAt — the cadence
+   *  DECISION lives in the pure logic file, only the timestamp lives here. */
+  lastNudgeAt: number;
+
   // actions
   setHydrated: () => void;
   setLang: (l: Lang) => void;
@@ -191,6 +197,7 @@ const initialData = () => ({
   freeze: 1,
 
   lastGreetAt: 0,
+  lastNudgeAt: 0,
 });
 
 export const useStore = create<AppState>()(
@@ -369,6 +376,7 @@ export const useStore = create<AppState>()(
         currencyChosen: s.currencyChosen,
         freeze: s.freeze,
         lastGreetAt: s.lastGreetAt,
+        lastNudgeAt: s.lastNudgeAt,
       }),
       // Always flip `hydrated`, even when rehydration fails or yields no state —
       // a corrupt AsyncStorage entry must never brick startup.
