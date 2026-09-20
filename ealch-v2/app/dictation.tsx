@@ -6,7 +6,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
-import { Icon } from '@/components/Icon';
 import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';

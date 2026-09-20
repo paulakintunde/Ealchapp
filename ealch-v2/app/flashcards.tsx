@@ -60,6 +60,11 @@ export default function Flashcards() {
   // lessons, and reached A2 content with no entitlement check at all. The gate
   // sits here because all three deck shapes below funnel through it.
   const levelsAll = useFeature('levels.all');
+  // Subscribed directly (matching dictation.tsx/sentence.tsx/voiceflash.tsx)
+  // rather than relying on catThemes' array identity changing on every merge
+  // — that held only because mergeCorpus/overlayBy happens to reallocate, an
+  // implementation detail this memo's correctness should not depend on.
+  const corpus = useContent((s) => s.corpus);
   const gate = useMemo(() => {
     const q = theme
       ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) }
@@ -93,12 +98,12 @@ export default function Flashcards() {
       items: composeSession(attempts, introEligible(g.items, useStore.getState().level), localDay()).fresh,
       locked: g.locked,
     };
-    // catThemes is the reactive corpus subscription above; content.itemsFor()
-    // and the domain branch's useContent.getState() read are both non-reactive
-    // getState() reads (documented in content.ts), so the memo must depend on
-    // catThemes directly or it locks against whatever the seed alone contains
-    // at mount — the same bug exam.tsx/exam-paper.tsx already fixed.
-  }, [deckMode, theme, level, domain, cardType, levelsAll, catThemes]);
+    // content.itemsFor() and the domain branch's useContent.getState() read
+    // are both non-reactive getState() reads (documented in content.ts), so
+    // the memo must depend on the corpus object directly or it locks against
+    // whatever the seed alone contains at mount — the same bug
+    // exam.tsx/exam-paper.tsx already fixed.
+  }, [deckMode, theme, level, domain, cardType, levelsAll, corpus]);
   const deck = gate.items;
   const bandLocked = gate.locked;
 
