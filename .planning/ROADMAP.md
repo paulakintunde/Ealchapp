@@ -88,7 +88,7 @@ Plans:
 - [x] 02-05-PLAN.md — Cross-reference every finding against BUG-01/02/03, QA-01/02 and the traceability table, then write GAPS.md's Findings and Finding Index (D-06, D-09)
 
 **Wave 4** *(blocked on Wave 3 completion)*
-- [ ] 02-06-PLAN.md — Insert ROADMAP stub phases for phase-worthy findings, write the CONTENT-01 closing statement, close its traceability row, and take developer sign-off (D-07)
+- [x] 02-06-PLAN.md — Insert ROADMAP stub phases for phase-worthy findings, write the CONTENT-01 closing statement, close its traceability row, and take developer sign-off (D-07)
 **Pitfall Watch**: RESEARCH.md Pitfall 2 — the Supabase project auto-pauses, and a paused project makes every audit query fail in a way that reads like "no data", which would turn the whole audit into a false "no gaps". Nothing may query before Plan 01 confirms ACTIVE_HEALTHY. RESEARCH.md Pitfall 1 — there is no `content_exam_sections` table; `sections` is a jsonb array column on `content_exam_papers`. D-03 — no finding may cite `corpus:probe`, `content:parity`, a CEFR/nasal heuristic or a guard's exit code as its evidence.
 
 ### Phase 3: TTS Security Hardening
