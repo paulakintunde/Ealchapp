@@ -27,7 +27,9 @@ test('an explicit server refusal does not open the runner', () => {
   const src = read('../../app/exam-paper.tsx');
   ok(src.includes('startExamAttempt('));
   ok(src.includes("res.status === 'refused'"));
-  ok(src.includes("router.push('/paywall')"));
+  // Phase 5 / D-08: the refusal routes to the paywall with exam context now,
+  // not a bare push — see paywallContextWiring.test.ts for the full contract.
+  ok(src.includes("router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } })"));
 });
 
 test('every grading request names the attempt it belongs to', () => {

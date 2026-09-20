@@ -592,7 +592,9 @@ test('the exam entry point actually calls the gate', () => {
   const hub = readFileSync(resolve(appDir, 'exam.tsx'), 'utf8');
   ok(hub.includes("useFeature('examiner')"), 'the hub must ask about entitlement');
   ok(hub.includes('examPaperAllowed('), 'and route the answer through the gate');
-  ok(hub.includes("router.push('/paywall')"), 'a blocked paper must go somewhere');
+  // Phase 5 / D-08: a blocked paper now routes to the paywall with exam
+  // context — see paywallContextWiring.test.ts for the full contract.
+  ok(hub.includes("router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } })"), 'a blocked paper must go somewhere');
 });
 
 test('the clock is mounted once and drives expiry', () => {

@@ -112,7 +112,7 @@ export default function ExamPaperScreen() {
     });
     if (!decision.allowed) {
       track('gate_blocked', { feature: 'examiner', from: 'exam-paper' });
-      router.push('/paywall');
+      router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } });
       return;
     }
 
@@ -130,7 +130,7 @@ export default function ExamPaperScreen() {
       }
       if (res.reason === 'needs-exam-tier') {
         track('gate_blocked', { feature: 'examiner', from: 'exam-paper-server' });
-        router.push('/paywall');
+        router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } });
         return;
       }
       // bad_paper_id / bad_skill / unknown_paper / write_failed — a real fault,
