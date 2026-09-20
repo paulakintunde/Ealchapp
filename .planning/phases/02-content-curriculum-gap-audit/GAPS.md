@@ -145,7 +145,23 @@ weigh, not classified as a finding in this plan.
 
 ## Finding Index
 
-_(populated by Plan 05)_
+Local ids are enumerated from the three evidence files: `02-EVIDENCE-spine.md`
+(SPINE-01..04), `02-EVIDENCE-exams.md` (EXAM-01..04), `02-EVIDENCE-defects.md`
+(DEF-01). All 9 are classified `new` below — none is owned by an existing
+requirement (see `## Already Tracked Elsewhere (D-09)`). `GAP-nn` is numbered
+sequentially: spine findings, then exam findings, then defect findings.
+
+| GAP id | Local id | Source plan | Surface | Severity | Disposition |
+|--------|----------|-------------|---------|----------|-------------|
+| GAP-01 | SPINE-01 | 02 | curriculum spine | warning | new — follow-up scoped below |
+| GAP-02 | SPINE-02 | 02 | curriculum spine | info | new — documented, no follow-up (intentional design) |
+| GAP-03 | SPINE-03 | 02 | curriculum spine | warning | new — deferred (out of milestone scope) |
+| GAP-04 | SPINE-04 | 02 | curriculum spine | warning | new — deferred (out of milestone scope) |
+| GAP-05 | EXAM-01 | 03 | exam paper | info | new — documented, not a defect |
+| GAP-06 | EXAM-02 | 03 | exam paper | warning | new — follow-up scoped below |
+| GAP-07 | EXAM-03 | 03 | exam paper | warning | new — follow-up scoped below |
+| GAP-08 | EXAM-04 | 03 | pipeline | warning | new — follow-up scoped below |
+| GAP-09 | DEF-01 | 04 | content quality | info | new — follow-up scoped below |
 
 ## Findings
 
@@ -153,7 +169,35 @@ _(populated by Plan 05)_
 
 ## Already Tracked Elsewhere (D-09)
 
-_(populated by Plan 05)_
+Findings surfaced by this audit that an existing requirement already owns.
+These are deliberately NOT logged as new gaps (D-09). Listed so the audit is
+complete and so nobody re-discovers them.
+
+Cross-reference performed against every requirement in `REQUIREMENTS.md`'s
+Traceability table, applying this plan's own rule: a finding is "already
+tracked" only if an existing phase's success criteria, as written in
+`ROADMAP.md`, would actually close it — "adjacent" does not count. The
+candidates closest in surface to this audit's 9 findings (curriculum-spine
+data integrity, exam-paper audio, content-item notes) were checked
+individually; the rest of the traceability table was checked for
+completeness.
+
+| Candidate requirement | Phase | Checked against | Match? |
+|---|---|---|---|
+| BUG-01 | 7 | Audio/TTS backgrounding pause/resume — no finding here involves audio backgrounding behavior | No match |
+| BUG-02 | 7 | Exam response persisted before grading, survives crash/force-stop/process death — no finding here involves exam-response persistence (GAP-07/GAP-08 are about audio-listening QA attestation, not response durability) | No match |
+| BUG-03 | 7 | STT `continuous: false` regression test — no finding here involves STT | No match |
+| QA-01 | 9 | Onboarding/placement flow audit (`app/onboarding.tsx`, `app/placement.tsx`) — no finding here touches onboarding or placement | No match |
+| QA-02 | 9 | Analytics event coverage/correctness (`services/analytics.ts`) — no finding here touches analytics | No match |
+| A11Y-01/02/03/04 | 8 | Press-component roles, icon labels, OS-sync dark mode, flashcard font-scale clipping — none of this audit's findings involve an accessibility surface | No match |
+| UX-01 | 13 | General UI/UX polish audit — this audit's findings are curriculum/exam-content-data findings, not UI/UX polish | No match |
+| PERF-01 / PERF-02 | 16 / 15 | Cold-start load, content-snapshot split by curriculum level — no finding here involves app load performance or snapshot delivery | No match |
+| SEC-01 | 3 | TTS edge function auth + rate limit — no finding here involves the TTS edge function | No match |
+| PAY-01/02/03/05, NOTIFY-01/02/03, TEST-01/02/03, ANIM-01, FEEDBACK-01/02, PUBLISH-01/02 | various | Reviewed against the full traceability table; none names curriculum-spine data integrity, exam-paper structure/audio, or content-item-notes surfaces | No match |
+
+None. Every finding this audit surfaced is new to tracking — the D-09
+cross-reference against BUG-01, BUG-02, BUG-03, QA-01, QA-02 and the full
+`REQUIREMENTS.md` traceability table returned no owner for any of them.
 
 ## Gaps Summary
 
