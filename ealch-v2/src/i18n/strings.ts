@@ -224,6 +224,7 @@ export type Strings = {
   narrTag: string; narrCta: string; narrRepeat: string; narrYourTurn: string; narrCheck: string;
   narrSkip: string; narrDoneT: string; narrDoneS: string;
   bannerText: string;
+  reportBody: string; nudgeBody: string;
   uDone: string; uLock: string; uSoon: string; denLessonsReady: string;
 
   // --- v2 additions (today strip, browse, review, placement, dictation, downloads, billing) ---
@@ -550,7 +551,7 @@ export const T: Record<Lang, Strings> = {
     reminders: 'Rappels de pratique', dailyAlarm: 'Alarme quotidienne', dailyAlarmSub: 'Votre séance vous appelle',
     notifLabels: [
       { label: 'Rappel du soir', sub: "Une notification à l'heure choisie" },
-      { label: 'Rapport quotidien', sub: 'Votre rapport, chaque soir après la séance' },
+      { label: 'Rapport quotidien', sub: 'Votre rapport, juste après la séance' },
       { label: 'Encouragements', sub: 'Micro-défis de confiance, sans streak' },
     ],
     theme: 'Thème', signOut: 'Se déconnecter', now: 'MAINTENANT',
@@ -601,6 +602,8 @@ export const T: Record<Lang, Strings> = {
     narrTag: 'LEÇON NARRÉE', narrCta: 'Narré', narrRepeat: 'Répétez après {name}', narrYourTurn: 'À vous, dites-le', narrCheck: 'Répondez à la question de {name}',
     narrSkip: 'Passer', narrDoneT: 'Leçon terminée', narrDoneS: 'Vous avez traversé les sept étapes avec {name}.',
     bannerText: 'Votre séance de {t} vous attend : Au Café, 4 min avec {name}.',
+    reportBody: "Votre rapport est prêt : découvrez comment s'est passée votre séance avec {name}.",
+    nudgeBody: 'Deux minutes suffisent pour progresser : {name} vous attend pour un micro-défi.',
     uDone: 'ACQUIS', uLock: '···', uSoon: 'BIENTÔT', denLessonsReady: '{n} leçons prêtes',
 
     todayTag: "AUJOURD'HUI", toReviewShort: 'à revoir', caughtUp: '✓ à jour', tomorrow: 'demain →',
@@ -1000,7 +1003,7 @@ export const T: Record<Lang, Strings> = {
     reminders: 'Practice reminders', dailyAlarm: 'Daily alarm', dailyAlarmSub: 'Your session calls you',
     notifLabels: [
       { label: 'Evening reminder', sub: 'One notification at your chosen hour' },
-      { label: 'Daily report', sub: 'Your report, each evening after the session' },
+      { label: 'Daily report', sub: 'Your report, right after your session' },
       { label: 'Confidence nudges', sub: 'Micro-challenges, no streaks' },
     ],
     theme: 'Theme', signOut: 'Sign out', now: 'NOW',
@@ -1051,6 +1054,8 @@ export const T: Record<Lang, Strings> = {
     narrTag: 'NARRATED LESSON', narrCta: 'Narrated', narrRepeat: 'Repeat after {name}', narrYourTurn: 'Your turn, say it', narrCheck: "Answer {name}'s question",
     narrSkip: 'Skip', narrDoneT: 'Lesson complete', narrDoneS: '{name} walked you through all seven stages.',
     bannerText: 'Your {t} session is waiting: Au Café, 4 min with {name}.',
+    reportBody: 'Your report is ready: see how your session with {name} went.',
+    nudgeBody: 'Two minutes is enough to make progress: {name} is ready for a quick micro-challenge.',
     uDone: 'DONE', uLock: '···', uSoon: 'SOON', denLessonsReady: '{n} lessons ready',
 
     todayTag: 'TODAY', toReviewShort: 'to review', caughtUp: '✓ caught up', tomorrow: 'tomorrow →',
