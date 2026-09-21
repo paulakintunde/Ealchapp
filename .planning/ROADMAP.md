@@ -210,7 +210,14 @@ Plans:
   1. **[Highest priority]** A user's exam response is persisted to storage before grading is requested, so force-stopping/crashing mid-exam does not lose the response.
   2. `continuous: false` STT behavior has an automated regression test, so the prior fix (commit 8cd0be3) can't silently regress.
   3. **[Lowest priority]** Audio/TTS playback pauses automatically when the app is backgrounded and resumes appropriately on foreground.
-**Plans**: TBD
+**Plans**: 5 plans in 3 waves
+
+Plans:
+- [ ] 07-01-PLAN.md - BUG-02: pure exam-draft logic layer (key, serialize, parse, restore, graded-marking) with behavioural unit tests
+- [ ] 07-02-PLAN.md - BUG-02: wire draft restore, checkpoints, background flush, submit dedupe and clear into app/exam-section.tsx
+- [ ] 07-03-PLAN.md - BUG-03: re-add the continuous:false regression pin deleted by 17f1fc2, and prove it bites with three mutations
+- [ ] 07-04-PLAN.md - BUG-01: module-scope AppState listener in tts.ts with pause/resume on the remote path and line-restart on the device path
+- [ ] 07-05-PLAN.md - Device verification checkpoints for BUG-02 and BUG-01 on a release build (exams cannot render in dev)
 
 ### Phase 8: Accessibility Retrofit
 **Goal**: Every interactive control is operable and correctly announced by a screen reader, and dark mode/font-scale behave as advertised.
