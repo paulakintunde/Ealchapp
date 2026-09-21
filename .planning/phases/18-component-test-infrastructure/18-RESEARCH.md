@@ -348,17 +348,19 @@ module.exports = {
 
 **If this table is empty:** N/A — see entries above; all are low/medium risk and none block this phase's specific D-01/D-02 scope.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Exact `setupFilesAfterEach` vs `setupFilesAfterEnv` Jest config key for Jest 30**
+1. **(RESOLVED) Exact `setupFilesAfterEach` vs `setupFilesAfterEnv` Jest config key for Jest 30**
    - What we know: This has been a stable Jest convention (`setupFilesAfterEnv` for framework/mock setup) since early Jest versions; jest-expo's own preset pushes its native-module setup via `setupFiles` (an even earlier-running hook), not `setupFilesAfterEnv`.
    - What's unclear: Whether Jest 30 renamed or restructured this — not independently re-verified this session.
    - Recommendation: Planner/executor should run `npx jest --showConfig` after initial install to confirm the resolved config, or simply try `setupFilesAfterEnv` first (the long-standing convention) and adjust if `jest.mock()` calls in `jest.setup.ts` don't appear to take effect.
+   - RESOLVED: Plan 01 Task 3 operationalizes this directly — it uses `setupFilesAfterEnv` per the long-standing convention and includes an explicit `npx jest --showConfig` diagnostic step plus a SUMMARY-recording requirement if mocks don't take effect, so the actual resolved answer is captured during execution for Phase 19 to reuse.
 
-2. **Whether `npx expo install jest-expo` actually resolves to `57.0.5` at plan-execution time vs. this research's snapshot**
+2. **(RESOLVED) Whether `npx expo install jest-expo` actually resolves to `57.0.5` at plan-execution time vs. this research's snapshot**
    - What we know: `57.0.5` is current as of 2026-09-21 and matches the app's `expo: ~57.0.9` pin.
    - What's unclear: This is one of the most actively-patched packages in the Expo ecosystem; a newer 57.0.x patch could ship between now and execution.
    - Recommendation: Executor should re-run `npm view jest-expo version` immediately before installing and use whatever the current 57.x patch is, rather than hard-pinning to exactly `57.0.5` if a newer patch exists.
+   - RESOLVED: Plan 01 Task 1 requires a live `npm view jest-expo@57 version` re-check immediately before install, exactly matching this recommendation — the plan-checker independently confirmed `57.0.5`'s peerDependencies live against the npm registry during verification and found it still current.
 
 ## Environment Availability
 
