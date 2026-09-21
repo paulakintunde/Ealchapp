@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
+status: ready_to_plan
 stopped_at: Completed 05-07-PLAN.md (Phase 05 complete)
 last_updated: "2026-09-20T23:20:08.926Z"
 last_activity: 2026-09-20
 progress:
   total_phases: 21
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 30
   completed_plans: 30
-  percent: 100
+  percent: 29
 ---
 
 # Project State
@@ -25,10 +25,10 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 05 (paywall-coverage-expansion-upgrade-nudge) — COMPLETE (7 of 7 plans)
-Plan: n/a — awaiting Phase 06 planning
-Status: Phase 05 complete; Phase 06 not yet planned
-Last activity: 2026-09-20 -- Phase 05 closed (05-07: gating-rule document + 21-item device verification, developer approved)
+Phase: 6 of 7 (notification correctness — body format & toggles)
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-09-21
 
 Progress: [██████████] 100%
 
@@ -36,7 +36,7 @@ Progress: [██████████] 100%
 
 **Velocity:**
 
-- Total plans completed: 14
+- Total plans completed: 21
 - Average duration: ~15 min
 - Total execution time: 0 hours
 
@@ -47,6 +47,7 @@ Progress: [██████████] 100%
 | 1 | 4 | - | - |
 | 2 | 6 | ~60min | ~10min |
 | 3 | 4 | ~90min | ~22min |
+| 05 | 7 | - | - |
 
 **Recent Trend:**
 
