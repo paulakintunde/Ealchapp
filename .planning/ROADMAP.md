@@ -184,7 +184,22 @@ Plans:
   1. Toggling report/nudge/daily in Settings actually changes whether that notification type fires — or, if the product decision is "not building the backend for report/nudge," those toggles are explicitly removed from the UI rather than left dead (a conscious call-out, not a silent change).
   2. No notification body ever renders a literal `{t}`/`{name}` placeholder; all templates route through one shared, tested formatting function.
   3. The daily reminder and `PushBanner.tsx` both use the same shared formatter, eliminating the currently-duplicated, drifted logic.
-**Plans**: TBD
+**Decision (Success Criterion 1 fork, 06-CONTEXT.md D-01)**: build both dead toggles out with real local-notification delivery rather than remove them from the UI. Report fires shortly after a session ends (D-04); nudges fire Monday and Thursday evenings with generic copy (D-05/D-06). Push token registration and tap-to-deep-link stay in Phase 17 (NOTIFY-03).
+**Plans**: 5 plans
+
+Plans:
+**Wave 1**
+- [ ] 06-01-PLAN.md — Pure foundations: the shared formatNotifText, the per-kind identifier/cadence vocabulary, and the FR/EN report + nudge copy
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 06-02-PLAN.md — Per-kind scheduling in notifications.ts (weekly nudge, one-shot report, targeted cancel, orphan prune) pinned by a source guard test
+- [ ] 06-03-PLAN.md — Route the scheduler and PushBanner through the shared formatter, supplying the {name} the scheduler never passed, plus the D-07 placeholder guard
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 06-04-PLAN.md — Wire all three toggles to real scheduling, arm the report from session-end via an injected listener, and re-arm from toggle state at launch
+
+**Wave 4** *(blocked on Wave 3 completion)*
+- [ ] 06-05-PLAN.md — Phase gate: full suite plus the device verification node --test cannot reach
 
 ### Phase 7: Known Bug Fixes
 **Goal**: Core in-app interactions behave correctly under interruption (backgrounding, process death), and a known regression can't silently reappear.
