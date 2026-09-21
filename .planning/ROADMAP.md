@@ -214,7 +214,7 @@ Plans:
 
 Plans:
 - [x] 07-01-PLAN.md - BUG-02: pure exam-draft logic layer (key, serialize, parse, restore, graded-marking) with behavioural unit tests
-- [ ] 07-02-PLAN.md - BUG-02: wire draft restore, checkpoints, background flush, submit dedupe and clear into app/exam-section.tsx
+- [x] 07-02-PLAN.md - BUG-02: wire draft restore, checkpoints, background flush, submit dedupe and clear into app/exam-section.tsx
 - [x] 07-03-PLAN.md - BUG-03: re-add the continuous:false regression pin deleted by 17f1fc2, and prove it bites with three mutations
 - [x] 07-04-PLAN.md - BUG-01: module-scope AppState listener in tts.ts with pause/resume on the remote path and line-restart on the device path
 - [ ] 07-05-PLAN.md - Device verification checkpoints for BUG-02 and BUG-01 on a release build (exams cannot render in dev)
