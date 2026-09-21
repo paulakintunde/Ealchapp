@@ -17,7 +17,7 @@
 //              and the default for every speak surface.
 //   amelie   → Amélie (young, confident, friendly — fr-CA): la dictée.
 //   leo      → Léo (gentle, enthusiastic — fr-CA): la dictée.
-import { Platform } from 'react-native';
+import { AppState, Platform } from 'react-native';
 import * as Speech from 'expo-speech';
 import { getConfig } from './config';
 import { ENV } from './env';
@@ -29,7 +29,38 @@ import { useStore } from '@/store/useStore';
  *  server-side (Edge Function secret) change, never an app release. */
 export type TtsVoice = 'narrator' | 'amelie' | 'leo';
 
+/** Options accepted by `speak()`. Named so a module-level `current` record can
+ *  hold the exact shape needed to replay a device-path utterance on foreground
+ *  (BUG-01) without duplicating the object literal below. */
+export type SpeakOpts = {
+  lang?: 'fr-FR' | 'en-US';
+  slow?: boolean;
+  rate?: number;
+  voice?: TtsVoice;
+  /**
+   * A specific DEVICE voice identifier, overriding the configured cast.
+   *
+   * For the exam listening fallback, where the point is that two speakers
+   * in one document sound different — a thing the role cast cannot express,
+   * because it names one narrator. Ignored unless the engine has confirmed
+   * the device actually has it, exactly like resolveVoice: an unknown id is
+   * silently dropped by some engines and an error on others.
+   */
+  deviceVoiceId?: string;
+  onDone?: () => void;
+  onError?: () => void;
+};
+
 let speaking = false;
+
+/** Parameters of the utterance currently in flight, so a foreground can resume
+ *  or replay it. Nothing in this file needed to remember this until BUG-01:
+ *  speak()'s device path lives entirely inside one invocation's closure, so an
+ *  AppState handler had nothing to restart. */
+let current: { text: string; opts: SpeakOpts; path: 'device' | 'remote' } | null = null;
+/** Which path was paused by a backgrounding, or null if nothing was. Distinct
+ *  from `current`: an utterance can be in flight without having been paused. */
+let paused: 'device' | 'remote' | null = null;
 
 // ---------------------------------------------------------------------------
 // Remote path: ElevenLabs via the `tts` Edge Function, cached on disk.
@@ -298,27 +329,7 @@ export const tts = {
    *
    * `onDone`/`onError` fire exactly once, even across the internal retry.
    */
-  async speak(
-    text: string,
-    opts: {
-      lang?: 'fr-FR' | 'en-US';
-      slow?: boolean;
-      rate?: number;
-      voice?: TtsVoice;
-      /**
-       * A specific DEVICE voice identifier, overriding the configured cast.
-       *
-       * For the exam listening fallback, where the point is that two speakers
-       * in one document sound different — a thing the role cast cannot express,
-       * because it names one narrator. Ignored unless the engine has confirmed
-       * the device actually has it, exactly like resolveVoice: an unknown id is
-       * silently dropped by some engines and an error on others.
-       */
-      deviceVoiceId?: string;
-      onDone?: () => void;
-      onError?: () => void;
-    } = {}
-  ): Promise<void> {
+  async speak(text: string, opts: SpeakOpts = {}): Promise<void> {
     const lang = opts.lang ?? 'fr-FR';
     const done = opts.onDone;
     const fail = opts.onError ?? opts.onDone;
@@ -330,17 +341,22 @@ export const tts = {
       if (settled) return;
       settled = true;
       speaking = false;
+      current = null;
+      paused = null;
       done?.();
     };
     const finishFail = () => {
       if (settled) return;
       settled = true;
       speaking = false;
+      current = null;
+      paused = null;
       fail?.();
     };
 
     generation += 1;
     const myGen = generation;
+    paused = null; // a new utterance supersedes any pause
 
     // Remote-first: synthesise (or replay the stored file) through ElevenLabs
     // unless the control plane forces device speech. Every failure inside
@@ -371,7 +387,10 @@ export const tts = {
         // exactly as it is for the speed pickers. Floor mirrors the device
         // path's 0.75 comprehension rate.
         const rate = opts.rate ?? (opts.slow ? 0.75 : 1);
-        if (playRemote(uri, rate, finishOk)) return;
+        if (playRemote(uri, rate, finishOk)) {
+          current = { text, opts, path: 'remote' };
+          return;
+        }
       } else {
         // A miss with the backend reachable is most often a backend problem —
         // cool off so drills aren't paying a network timeout per utterance.
@@ -394,6 +413,7 @@ export const tts = {
       const explicit =
         opts.deviceVoiceId && voiceIds?.has(opts.deviceVoiceId) ? opts.deviceVoiceId : undefined;
       const voice = explicit ?? resolveVoice(lang);
+      current = { text, opts, path: 'device' };
       try {
         Speech.speak(text, {
           language: lang,
@@ -431,14 +451,14 @@ export const tts = {
       // retry once (the engine has bound by then).
       if (retriesLeft > 0) {
         setTimeout(async () => {
-          if (started || settled) return;
+          if (started || settled || paused) return;
           let isSpeaking = false;
           try {
             isSpeaking = await Speech.isSpeakingAsync();
           } catch {
             // ignore — treat as not speaking
           }
-          if (!started && !settled && !isSpeaking) attempt(retriesLeft - 1);
+          if (!started && !settled && !paused && !isSpeaking) attempt(retriesLeft - 1);
         }, START_GRACE_MS);
       }
     };
@@ -461,6 +481,65 @@ export const tts = {
       // ignore
     }
     speaking = false;
+    current = null;
+    paused = null;
+  },
+
+  /** The app went to the background. Silence the voice WITHOUT cancelling the
+   *  utterance.
+   *
+   *  This deliberately does not call stop(): stop() increments `generation`
+   *  first, and every resume-relevant callback in this file gates on
+   *  `myGen === generation` (playRemote's playbackStatusUpdate listener, and
+   *  speak()'s post-synthesis check). Pausing through stop() preserves the
+   *  player's position and destroys the callback that would act on it — the
+   *  symptom is silence after foregrounding, with no error anywhere. */
+  pauseForBackground() {
+    if (!current || paused) return;
+    if (current.path === 'remote') {
+      try {
+        remotePlayer?.pause();
+      } catch {
+        // ignore
+      }
+      paused = 'remote';
+    } else {
+      try {
+        Speech.stop();
+      } catch {
+        // ignore
+      }
+      paused = 'device';
+    }
+    speaking = false;
+  },
+
+  /** The app came back. The two paths diverge here, and that divergence is the
+   *  design (D-05/D-06), not an oversight:
+   *
+   *  REMOTE (ElevenLabs via expo-audio) resumes from position. play() on a
+   *  paused AudioPlayer continues; the generation was never bumped, so the
+   *  didJustFinish listener still fires and step-advance still happens.
+   *
+   *  DEVICE (expo-speech) has no resume-from-this-word API anywhere on either
+   *  platform. It replays the current line from its beginning. Hearing a
+   *  sentence twice is a smaller cost than losing playback entirely, which is
+   *  what "stay silently paused forever" would mean. */
+  resumeFromForeground() {
+    const c = current;
+    const was = paused;
+    paused = null;
+    if (!c || !was) return;
+    if (was === 'remote') {
+      try {
+        remotePlayer?.play();
+        speaking = true;
+      } catch {
+        // ignore
+      }
+      return;
+    }
+    void tts.speak(c.text, c.opts);
   },
 
   /** Warm the device voice list so the next `speak` can use the configured voice
@@ -506,3 +585,15 @@ export const tts = {
     }
   },
 };
+
+// One listener, registered at import time, never removed — this module lives
+// for the process's lifetime, exactly like `remotePlayer` and `generation`
+// above it. Every other AppState call site in this app is inside a React
+// useEffect (useReadingBrightness.ts, ExamClock.tsx, useProgress.ts's
+// useSessionLog) because every other one belongs to a component. This one does
+// not: tts.ts has no React import and no lifecycle, and app/_layout.tsx (which
+// calls tts.prime() at line 97) has no AppState subscription to attach beside.
+AppState.addEventListener('change', (state) => {
+  if (state === 'active') tts.resumeFromForeground();
+  else tts.pauseForBackground();
+});
