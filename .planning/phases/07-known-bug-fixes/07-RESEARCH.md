@@ -332,17 +332,19 @@ continuous: false, // auto-finalise on end-of-speech
 | A1 | The draft key should be `exam-draft:{paperId}:{skill}` rather than including `mode` | Pitfall 1, Pattern 1 | If a user has both a practice and a real exam sitting of the same paper+skill in flight simultaneously (unusual but not impossible — e.g. opening two device sessions), the drafts would collide. Flagged as an open question below for the planner/user to confirm rather than silently locking in. |
 | A2 | `tts.ts`'s `AppState` listener should be registered at module scope (not inside a component `useEffect`), since `tts.ts` is a plain service module with no React lifecycle | Pattern 2 | If there's an existing app-root component that already wraps service initialization (e.g. calls `tts.prime()` on mount), the listener might be better attached there instead for cleanup symmetry. Not independently re-verified against `app/_layout.tsx` in this research pass — planner should grep for `tts.prime(` call sites before finalizing task actions. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Should the exam-draft AsyncStorage key incorporate `mode` ('exam' vs 'practice')?**
+1. **(RESOLVED) Should the exam-draft AsyncStorage key incorporate `mode` ('exam' vs 'practice')?**
    - What we know: `exam_attempts`' own PK omits `mode` (it's a `default` column, not part of the composite key), and CONTEXT.md's D-07 says the key should be scoped to "the exam_attempts row id."
    - What's unclear: whether a practice-mode draft and an exam-mode draft of the same paper+skill should ever coexist without colliding.
    - Recommendation: Follow the schema's own precedent (key = `paperId:skill`, mode excluded) unless the planner/user decides mode-collision is a real risk worth a longer key. Low-likelihood edge case; does not block planning.
+   - RESOLVED: 07-PATTERNS.md confirmed no mode-collision risk exists in practice; plan 07-01 implements the key as `` `exam-draft:${paperId}:${skill}` `` (mode excluded), matching the schema precedent.
 
-2. **Where does `tts.ts`'s new `AppState` listener get registered — module scope, or an existing app-root effect?**
+2. **(RESOLVED) Where does `tts.ts`'s new `AppState` listener get registered — module scope, or an existing app-root effect?**
    - What we know: `tts.ts` has no React import today and is called from many screens as a stateless service (`tts.speak()`, `tts.stop()`, `tts.prime()`).
    - What's unclear: whether `app/_layout.tsx` (not read in this research pass) already has an app-lifecycle `useEffect` that would be a more natural attachment point than raw module-scope registration.
    - Recommendation: Planner's Wave 0/task list should include a quick grep for `tts.prime(` call sites and `AppState` usage in `app/_layout.tsx` before finalizing exact placement; either approach (module-scope `AppState.addEventListener` called once at import time, or an exported `tts.attachLifecycle()` called from `_layout.tsx`) satisfies D-05/D-06 equally.
+   - RESOLVED: 07-PATTERNS.md grepped `app/_layout.tsx` for `tts.prime(`/`AppState` and found no existing lifecycle effect; plan 07-04 registers the listener at module scope in `tts.ts`.
 
 ## Environment Availability
 
