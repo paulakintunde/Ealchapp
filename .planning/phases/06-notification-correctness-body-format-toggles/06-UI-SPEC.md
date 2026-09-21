@@ -1,10 +1,11 @@
 ---
 phase: 6
 slug: notification-correctness-body-format-toggles
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-09-21
+reviewed_at: 2026-09-21
 ---
 
 # Phase 6 — UI Design Contract
@@ -37,7 +38,7 @@ This phase is **behavioral/logic wiring, not new visual design**. Confirmed by d
 
 ## Spacing Scale
 
-Not applicable this phase — no new layout, no new component, no spacing decision to make. `ToggleRow`'s existing spacing (16px horizontal padding, 12px vertical padding, 10px row gap, 58px min-height — all confirmed multiples of the project's 8-point-adjacent scale already in `settings.tsx`) is reused unchanged.
+Not applicable this phase — no new layout, no new component, no spacing decision to make. `ToggleRow`'s existing spacing (`settings.tsx:60-72`: 16px horizontal padding, 12px vertical padding, 14px internal gap, 58px min-height; 10px is the *between-row* list gap, a separate value at `settings.tsx:545`) is reused unchanged. Note: the row's internal 14px gap and 58px min-height are pre-existing legacy values not aligned to a 4px grid — out of scope to fix this phase, called out here only for accuracy.
 
 Exceptions: none.
 
@@ -122,11 +123,11 @@ Not applicable — no shadcn, no component registry, no third-party UI block of 
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS (no visual surface this phase — N/A expected)
-- [ ] Dimension 3 Color: PASS (no color surface this phase — N/A expected)
-- [ ] Dimension 4 Typography: PASS (no typography surface this phase — N/A expected)
-- [ ] Dimension 5 Spacing: PASS (no spacing surface this phase — N/A expected)
-- [ ] Dimension 6 Registry Safety: PASS (not applicable — mobile stack, no registry)
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS (no visual surface this phase — N/A expected)
+- [x] Dimension 3 Color: PASS (no color surface this phase — N/A expected)
+- [x] Dimension 4 Typography: PASS (no typography surface this phase — N/A expected)
+- [x] Dimension 5 Spacing: FLAG (non-blocking — spec's factual claim about `ToggleRow`'s existing gap/min-height corrected above; no new spacing decision introduced this phase)
+- [x] Dimension 6 Registry Safety: PASS (not applicable — mobile stack, no registry)
 
-**Approval:** pending
+**Approval:** approved 2026-09-21
