@@ -11,7 +11,7 @@ import { supabase } from '@/services/supabase';
 // strings.ts only type-imports this store, so this is not a runtime cycle.
 import { T as STRINGS } from '@/i18n/strings';
 // useProgress does not import this store back, so this is not a cycle either.
-import { useProgress } from './useProgress';
+import { setSessionEndListener, useProgress } from './useProgress';
 import { device24h, formatTime } from '@/utils/time';
 import { formatNotifText } from '@/utils/notifText.logic';
 
@@ -138,8 +138,12 @@ export type AppState = {
   setAlarm: (t: string) => void;
   setClock24: (v: boolean) => void;
   setNotif: (k: keyof Notifs, v: boolean) => void;
+  /** Request notification permission and arm ONE kind; on native denial flips that toggle back off. */
+  enableNotifKind: (k: keyof Notifs) => Promise<boolean>;
   /** Request notification permission and schedule the daily reminder; on native denial flips notifs.daily off. */
   enableDailyReminder: () => Promise<boolean>;
+  /** Re-arm every scheduled notification from the toggles as they actually are. Runs once after rehydration. */
+  resyncNotifs: () => Promise<void>;
   setCurrency: (c: Currency) => void;
   setPlan: (p: Plan) => void;
   setRegion: (r: string) => void;
@@ -236,29 +240,66 @@ export const useStore = create<AppState>()(
       setClock24: (clock24) => set({ clock24 }),
       setNotif: (k, v) => {
         set({ notifs: { ...get().notifs, [k]: v } });
-        if (k === 'daily') {
-          if (v) void get().enableDailyReminder();
-          else void notifications.cancelAll();
-        }
+        // Every kind takes the same path now. Turning one off cancels exactly
+        // that kind's identifiers — NEVER cancelAll(), which has no filter and
+        // would take the other two kinds' pending notifications with it.
+        if (v) void get().enableNotifKind(k);
+        else void notifications.cancelKind(k);
       },
-      enableDailyReminder: async () => {
+      enableNotifKind: async (k) => {
         const granted = await notifications.requestPermissions();
-        if (granted) {
-          const { alarmTime, lang, clock24, avatarId } = get();
+        if (!granted) {
+          if (Platform.OS !== 'web' && get().notifs[k]) {
+            // Denied on native: the toggle must tell the truth. On web the
+            // scheduler is a no-op and the in-app banner is the delivery path,
+            // so the toggle stays on.
+            set({ notifs: { ...get().notifs, [k]: false } });
+          }
+          return granted;
+        }
+        const { alarmTime, lang, clock24, avatarId } = get();
+        const name = avatarName(avatarId);
+        if (k === 'daily') {
           await notifications.scheduleDaily(
             alarmTime,
-            formatNotifText(STRINGS[lang].bannerText, {
-              t: formatTime(alarmTime, clock24),
-              name: avatarName(avatarId),
-            }),
+            formatNotifText(STRINGS[lang].bannerText, { t: formatTime(alarmTime, clock24), name }),
           );
-        } else if (Platform.OS !== 'web' && get().notifs.daily) {
-          // Denied on native: the toggle must tell the truth. On web the
-          // scheduler is a no-op and the in-app banner is the delivery path,
-          // so the toggle stays on.
-          set({ notifs: { ...get().notifs, daily: false } });
+        } else if (k === 'nudge') {
+          await notifications.scheduleNudge(formatNotifText(STRINGS[lang].nudgeBody, { name }));
         }
+        // 'report' schedules nothing here on purpose: it is armed per session,
+        // from the session-end listener at the bottom of this file (D-04). The
+        // permission request above is the whole job of turning it on.
         return granted;
+      },
+      /** Kept as its own action because app/onboarding.tsx's step-8 permission
+       *  moment calls it by name. It is now one case of enableNotifKind. */
+      enableDailyReminder: async () => get().enableNotifKind('daily'),
+      resyncNotifs: async () => {
+        // Builds before this phase scheduled the daily reminder with an
+        // auto-generated id. No per-kind cancel can address it, so it has to be
+        // found by enumeration and dropped, or an upgrader gets two evening
+        // reminders. Safe to run every launch: fixed identifiers mean
+        // rescheduling replaces rather than stacks, and nothing here asks for
+        // permission — a cold launch is not a permission moment.
+        await notifications.pruneUnknown();
+        const { notifs, alarmTime, lang, clock24, avatarId } = get();
+        const name = avatarName(avatarId);
+        if (notifs.daily) {
+          await notifications.scheduleDaily(
+            alarmTime,
+            formatNotifText(STRINGS[lang].bannerText, { t: formatTime(alarmTime, clock24), name }),
+          );
+        } else {
+          await notifications.cancelKind('daily');
+        }
+        if (notifs.nudge) {
+          await notifications.scheduleNudge(formatNotifText(STRINGS[lang].nudgeBody, { name }));
+        } else {
+          await notifications.cancelKind('nudge');
+        }
+        // A report armed before the toggle went off must not still be pending.
+        if (!notifs.report) await notifications.cancelKind('report');
       },
       // The single writer of currencyChosen — a currency set any other way
       // (region detection) must go through setField('currency', …) and leave
@@ -390,9 +431,28 @@ export const useStore = create<AppState>()(
       // Always flip `hydrated`, even when rehydration fails or yields no state —
       // a corrupt AsyncStorage entry must never brick startup.
       onRehydrateStorage: () => (state, error) => {
-        if (state && !error) state.setHydrated();
-        else useStore.setState({ hydrated: true });
+        if (state && !error) {
+          state.setHydrated();
+          // The toggles are persisted; the OS schedule is not. Re-arm one from
+          // the other, so what Settings shows is what the device will do.
+          void state.resyncNotifs();
+        } else {
+          useStore.setState({ hydrated: true });
+        }
       },
     }
   )
 );
+
+// The post-session report (D-04). Registered from HERE, not imported by
+// useProgress: useStore already imports useProgress (see the comment at the top
+// of this file), so a module-level import pointing back would be a real cycle.
+// A hook cannot own this either — the report must be armed when a session is
+// logged, whatever screen logged it.
+setSessionEndListener(() => {
+  const { notifs, lang, avatarId } = useStore.getState();
+  if (!notifs.report) return;
+  void notifications.scheduleReport(
+    formatNotifText(STRINGS[lang].reportBody, { name: avatarName(avatarId) }),
+  );
+});
