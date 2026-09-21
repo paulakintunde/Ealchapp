@@ -52,6 +52,7 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 - [ ] **TEST-01**: Exam submission → grading → report generation has an automated end-to-end test
 - [ ] **TEST-02**: The app has component-render test infrastructure (Jest + React Native Testing Library) capable of testing at least one real screen
 - [ ] **TEST-03**: Notification scheduling → delivery → tap-response has automated test coverage
+- [ ] **TEST-04**: General component-render test coverage extends beyond the one proof-of-concept screen (Phase 18) and the two high-risk flows (Phase 19) to the remaining screen surface — prioritized by `.planning/phases/22-general-screen-test-coverage/22-SCREEN-COVERAGE-AUDIT.md`'s evidence (22 of 49 screens have a documented fix-commit history; 21 of those remain uncovered after Phase 18/19)
 
 ### Content
 
@@ -140,14 +141,16 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | TEST-02 | Phase 18 | Pending |
 | TEST-01 | Phase 19 | Pending |
 | TEST-03 | Phase 19 | Pending |
+| TEST-04 | Phase 22 | Pending |
 
 **Coverage:**
-- v1 requirements: 29 total (corrected from an earlier miscount of 30 — the enumerated requirement list above contains 29 distinct IDs)
-- Mapped to phases: 29, now spanning 21 phases (up from 19 — Phase 2's content audit appended Phase 20 and Phase 21 as CONTENT-01 follow-up phases; see GAPS.md GAP-06/GAP-07)
+- v1 requirements: 30 total (29 original + TEST-04, added 2026-09-22 when Phase 18's discuss-phase surfaced that only 2 of 49 screens would ever get component-render coverage under the original 29-requirement scope — see `22-SCREEN-COVERAGE-AUDIT.md`)
+- Mapped to phases: 30, now spanning 22 phases (up from 21 — Phase 22 appended for TEST-04)
 - Unmapped: 0 ✓
-- Note: ANIM-01 and CONTENT-01 are the two requirements mapped to more than one phase. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope. CONTENT-01 closed as "audited, gaps found and scoped" against Phase 2 itself, and its two phase-worthy follow-up findings (GAP-06, GAP-07) were promoted to Phase 20 and Phase 21 rather than left untracked in GAPS.md.
+- Note: ANIM-01 and CONTENT-01 are the two ORIGINAL requirements mapped to more than one phase. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope. CONTENT-01 closed as "audited, gaps found and scoped" against Phase 2 itself, and its two phase-worthy follow-up findings (GAP-06, GAP-07) were promoted to Phase 20 and Phase 21 rather than left untracked in GAPS.md. TEST-04 (added 2026-09-22) is a genuinely new requirement, not a follow-up of an existing one — it was never implicitly covered by TEST-01/02/03, which only ever committed to 2 of 49 screens.
 
 ---
 *Requirements defined: 2026-09-19*
 *Last updated: 2026-09-19 after roadmap revision — traceability re-mapped, 100% coverage across 19 phases (Phase 14 is a design-spike prerequisite for PERF-02/Phase 15, not a requirement-bearing phase itself; Phase 11 split into 11/12 for ANIM-01; all phases after the original Phase 11 renumbered by +1)*
 *Last updated: 2026-09-19 — CONTENT-01 closed by Phase 2's content audit*
+*Last updated: 2026-09-22 — TEST-04 added (general screen-coverage gap surfaced during Phase 18 discussion), Phase 22 appended*
