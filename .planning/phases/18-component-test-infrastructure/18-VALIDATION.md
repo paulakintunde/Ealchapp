@@ -1,8 +1,8 @@
 ---
 phase: 18
 slug: component-test-infrastructure
-status: draft
-nyquist_compliant: false
+status: approved
+nyquist_compliant: true
 wave_0_complete: false
 created: 2026-09-22
 ---
@@ -38,13 +38,13 @@ created: 2026-09-22
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
-| 18-01-01 | 01 | 0 | TEST-02 | — | N/A | infrastructure | `npm run test:component` (new script exits 0) | ❌ W0 | ⬜ pending |
-| 18-01-02 | 01 | 0 | TEST-02 | — | N/A | component (render) | `npm run test:component` — `getByRole` assertions on settings.tsx | ❌ W0 | ⬜ pending |
-| 18-01-03 | 01 | 0 | TEST-02 | — | N/A | component (interaction) | `npm run test:component` — tap Sound toggle, assert state change | ❌ W0 | ⬜ pending |
+| 18-01-01 | 01 | 1 | TEST-02 | T-18-01 | Pinned versions + committed lockfile | infrastructure (install) | `npx jest --version` + package.json assertions + `npm test` | ✅ after task | ⬜ pending |
+| 18-01-02 | 01 | 1 | TEST-02 | T-18-03 | Label reuses existing i18n copy, no PII | component prop (a11y) | `grep -F 'accessibilityRole="switch"' src/components/ui.tsx` + `npm run typecheck` + `npm test` | ✅ after task | ⬜ pending |
+| 18-01-03 | 01 | 1 | TEST-02 | T-18-04 | testMatch scoped to `__tests__/**/*.test.tsx` | component (render + interaction) | `npx jest --listTests` + `npm run test:component` + `npm run typecheck` | ❌ W0 → created by this task | ⬜ pending |
+| 18-02-01 | 02 | 2 | TEST-02 | T-18-07, T-18-09 | No test file under `app/`; mocks hold the native boundary | component (real screen + interaction) | `npm run test:component` + `npm run typecheck` + `npm test` | ❌ W0 → created by this task | ⬜ pending |
+| 18-02-02 | 02 | 2 | TEST-02 | T-18-06, T-18-08 | No secrets in the doc; force-added past the `*.md` ignore | docs (structural grep) | heading greps on `TESTING.md` + all three suites green | ❌ W0 → created by this task | ⬜ pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
-
-*Task IDs above are illustrative — the planner assigns final plan/task IDs.*
+*Task IDs assigned by the planner on 2026-09-21: plan 01 tasks 1-3 (wave 1), plan 02 tasks 1-2 (wave 2).*
 
 ---
 
@@ -69,11 +69,11 @@ None — this phase's automated test IS the deliverable (component-render infras
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 15s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references (plan 01 task 3 creates the config/setup/harness; plan 02 task 1 creates the screen test)
+- [x] No watch-mode flags
+- [x] Feedback latency < 15s
+- [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** planner-signed 2026-09-21 (plans 18-01, 18-02)

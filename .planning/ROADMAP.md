@@ -345,7 +345,15 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Jest + jest-expo + React Native Testing Library is configured and runs alongside (not replacing) the existing 844 `node --test` logic tests.
   2. At least one real screen has a passing component-render test using `getByRole`-style assertions, ideally one of the screens touched by Phase 8's accessibility audit so the two efforts reinforce each other.
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+**Wave 1**
+- [ ] 18-01-PLAN.md — Install jest/jest-expo/RNTL, add the separate `test:component` script, give `Toggle` a switch role plus accessible name (D-07), and prove the harness with a Toggle render/press test
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 18-02-PLAN.md — Render the real `app/settings.tsx` with `getByRole` assertions plus one sound-toggle interaction against the real store, and write the `ealch-v2/TESTING.md` recipe (D-06)
+
 **UI hint**: yes
 
 ### Phase 19: High-Risk Test Coverage — Exam Grading & Notification Delivery
