@@ -257,7 +257,49 @@ export default function ExamSectionScreen() {
     submitted.current = true;
     setPhase('submitting');
 
+    // BUG-02's literal requirement: an open task waits 7-9 seconds on the
+    // model, one at a time, so this loop is the longest window in the app in
+    // which the OS can take the process.
+    await writeDraft(); // FLUSH_BEFORE_GRADING: the response is on disk before the first grade request.
+    let draft: ExamDraft | null = null;
+    if (key && paperId && skill) {
+      try {
+        draft = parseDraft(await AsyncStorage.getItem(key), paperId, skill);
+      } catch {
+        // No draft just means nothing to skip.
+      }
+      // A section submitted without interruption has no draft on disk yet —
+      // seed one in memory so recordGraded below still has something to mark.
+      if (!draft) {
+        draft = buildDraft({ paperId, skill, ...draftRef.current });
+      }
+    }
+
+    const recordGraded = async (taskId: string) => {
+      if (!key || !draft) return;
+      draft = markGraded(draft, taskId);
+      draftRef.current = { ...draftRef.current, graded: draft.graded };
+      try {
+        await AsyncStorage.setItem(key, serializeDraft(draft));
+      } catch {
+        // Worst case this task is graded twice on a retry — no worse than today.
+      }
+    };
+
     for (const task of tasks) {
+      // D-04: a crash can land mid-loop with some tasks already graded and
+      // logged. Re-grading one of those double-spends the coach_bump daily
+      // grading quota AND puts a duplicate result in the report —
+      // grade-exam's attemptAuthorized() checks only expires_at and has no
+      // content idempotency of its own, so this client-side skip is the only
+      // thing preventing it.
+      //
+      // Scoped to THIS SITTING via the draft's own list, deliberately NOT to
+      // useProgress's logged-results history: that store is cross-sitting
+      // history, so a candidate legitimately re-sitting a paper they sat last
+      // week would match every task and have the whole section skipped.
+      if (isGraded(draft, task.id)) continue;
+
       const base: ExamResultInput = {
         taskId: task.id,
         paperId,
@@ -299,6 +341,7 @@ export default function ExamSectionScreen() {
           },
           task
         );
+        await recordGraded(task.id);
         continue;
       }
 
@@ -315,6 +358,7 @@ export default function ExamSectionScreen() {
       const spokenAnswer = task.skill === 'PO' ? spoken[task.id] : undefined;
       if (task.skill === 'PO' && spokenAnswer?.unavailable) {
         logExamResult({ ...base, audioFailed: true }, task);
+        await recordGraded(task.id);
         continue;
       }
       const body = task.skill === 'PO'
@@ -322,6 +366,7 @@ export default function ExamSectionScreen() {
         : (texts[task.id] ?? '').trim();
       if (!body) {
         logExamResult(base, task);
+        await recordGraded(task.id);
         continue;
       }
       const res = await examGrader.grade({
@@ -348,14 +393,24 @@ export default function ExamSectionScreen() {
       } else {
         logExamResult(base, task);
       }
+      await recordGraded(task.id);
     }
 
     logSession('exam');
     setPhase('done');
+    // D-08: the draft exists only between a crash and the candidate finishing.
+    if (key) {
+      try {
+        await AsyncStorage.removeItem(key);
+      } catch {
+        // A stale draft is harmless: parseDraft rejects it once this paper+skill
+        // is reopened with different content, and a fresh sitting overwrites it.
+      }
+    }
     // Straight to Le Rapport: nothing was shown while the section ran, so this
     // is the first moment the candidate learns anything.
     router.replace({ pathname: '/exam-report', params: { paperId } });
-  }, [answers, texts, spoken, coverage, tasks, unplayable, paperId, section, mode, lang, logExamResult, logSession, router]);
+  }, [answers, texts, spoken, coverage, debate, tasks, unplayable, paperId, skill, section, mode, lang, key, writeDraft, logExamResult, logSession, router]);
 
   if (!paper || !section || !skill) {
     return (
