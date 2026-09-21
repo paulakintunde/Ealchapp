@@ -406,17 +406,21 @@ const key = (['daily', 'report', 'nudge'] as const)[i];
 
 **None of these assumptions touch Success Criteria 2/3 (formatter correctness) or the core toggle-wiring requirement (Success Criterion 1) — all three are HIGH confidence, directly verified against the current codebase and Context7-sourced official docs.**
 
-## Open Questions
+## Open Questions (RESOLVED)
+
+Both questions were resolved during planning. Resolutions are recorded inline below and are binding on the plans.
 
 1. **Exact report trigger delay (seconds) and nudge weekday/time defaults**
    - What we know: D-04/D-06 explicitly leave these to planning discretion; Pattern 5/4 above give reasonable starting values (120s delay; Monday+Thursday at 18:00).
    - What's unclear: Whether the planner should hardcode these or expose them as future-tunable constants.
    - Recommendation: Hardcode as named constants (e.g., `REPORT_DELAY_SECONDS`, `NUDGE_WEEKDAYS`) in `notifications.ts` or a config module — easy to change later, no product decision is being locked in by doing so.
+   - **RESOLVED (Plan 06-01, Task 2):** hardcoded as named constants in a new `ealch-v2/src/utils/notifSchedule.logic.ts` (not `notifications.ts`, so the values stay importable by a plain `node --test` suite). `REPORT_DELAY_SECONDS = 180`; `NUDGE_SLOTS = [{ id: 'nudge-mon', weekday: 2, hour: 18, minute: 30 }, { id: 'nudge-thu', weekday: 5, hour: 18, minute: 30 }]` — Monday and Thursday at 18:30, matching the Pattern 4 suggestion. Both constants are range-asserted by `notifSchedule.logic.test.ts`, so a later tune stays inside sane bounds.
 
 2. **Whether report/nudge scheduling needs its own `requestPermissions()` call or reuses the existing permission grant from `enableDailyReminder()`**
    - What we know: CONTEXT.md flags this explicitly as Claude's discretion. `expo-notifications` permissions are app-wide (not per-notification-type) on both iOS and Android — a single `requestPermissionsAsync()` grant covers all locally-scheduled notifications from the app.
    - What's unclear: Whether UX should re-prompt if a user enables `report`/`nudge` without ever having enabled `daily` (and thus never having triggered a permission prompt).
    - Recommendation: `setNotif(k, v)`'s new `report`/`nudge` branches should call the same `enableDailyReminder()`-style permission-check-then-schedule pattern (a permission request is a no-op if already granted, and shows the OS prompt if not) rather than assuming `daily` was toggled first.
+   - **RESOLVED (Plan 06-04, Task 2):** the recommendation is adopted, generalised. `enableDailyReminder` is refactored into `enableNotifKind(k)`, which runs `requestPermissions()` then schedules for whichever kind was toggled on; `setNotif(k, v)` routes all three kinds through it, so `report` and `nudge` each trigger the OS prompt on their own without `daily` ever having been enabled. `enableDailyReminder` survives as `enableNotifKind('daily')` because `app/onboarding.tsx` calls it by name. A native denial flips that one toggle back off (06-UI-SPEC.md Permission-denial state); no re-prompt loop.
 
 ## Environment Availability
 
