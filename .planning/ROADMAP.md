@@ -196,7 +196,7 @@ Plans:
 - [x] 06-03-PLAN.md — Route the scheduler and PushBanner through the shared formatter, supplying the {name} the scheduler never passed, plus the D-07 placeholder guard
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 06-04-PLAN.md — Wire all three toggles to real scheduling, arm the report from session-end via an injected listener, and re-arm from toggle state at launch
+- [x] 06-04-PLAN.md — Wire all three toggles to real scheduling, arm the report from session-end via an injected listener, and re-arm from toggle state at launch
 
 **Wave 4** *(blocked on Wave 3 completion)*
 - [ ] 06-05-PLAN.md — Phase gate: full suite plus the device verification node --test cannot reach
