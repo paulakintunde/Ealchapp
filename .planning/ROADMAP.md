@@ -199,7 +199,7 @@ Plans:
 - [x] 06-04-PLAN.md — Wire all three toggles to real scheduling, arm the report from session-end via an injected listener, and re-arm from toggle state at launch
 
 **Wave 4** *(blocked on Wave 3 completion)*
-- [ ] 06-05-PLAN.md — Phase gate: full suite plus the device verification node --test cannot reach
+- [x] 06-05-PLAN.md — Phase gate: full suite plus the device verification node --test cannot reach
 
 ### Phase 7: Known Bug Fixes
 **Goal**: Core in-app interactions behave correctly under interruption (backgrounding, process death), and a known regression can't silently reappear.

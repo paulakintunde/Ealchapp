@@ -28,8 +28,8 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 
 ### Notifications
 
-- [ ] **NOTIFY-01**: Notification toggles in Settings (report/nudge/daily) actually control whether their respective notifications fire
-- [ ] **NOTIFY-02**: Notification body text always renders fully substituted — no literal `{t}`/`{name}` placeholders
+- [x] **NOTIFY-01**: Notification toggles in Settings (report/nudge/daily) actually control whether their respective notifications fire
+- [x] **NOTIFY-02**: Notification body text always renders fully substituted — no literal `{t}`/`{name}` placeholders
 - [ ] **NOTIFY-03**: Tapping a notification opens the specific session it advertised (deep link, including cold start via push token registration)
 
 ### Security
@@ -119,8 +119,8 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | PAY-03 | Phase 4 | Complete |
 | PAY-02 | Phase 5 | Complete |
 | PAY-05 | Phase 5 | Complete |
-| NOTIFY-01 | Phase 6 | Pending |
-| NOTIFY-02 | Phase 6 | Pending |
+| NOTIFY-01 | Phase 6 | Complete |
+| NOTIFY-02 | Phase 6 | Complete |
 | BUG-01 | Phase 7 | Pending |
 | BUG-02 | Phase 7 | Pending |
 | BUG-03 | Phase 7 | Pending |

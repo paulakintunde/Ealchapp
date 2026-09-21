@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 6 UI-SPEC approved
-last_updated: "2026-09-21T02:18:12.948Z"
-last_activity: 2026-09-21 -- Phase 06 execution started
+stopped_at: Completed 06-05-PLAN.md
+last_updated: "2026-09-21T06:34:32.269Z"
+last_activity: 2026-09-21
 progress:
   total_phases: 21
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 35
-  completed_plans: 30
-  percent: 86
+  completed_plans: 35
+  percent: 100
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 06 (notification-correctness-body-format-toggles) — EXECUTING
-Plan: 1 of 5
-Status: Executing Phase 06
-Last activity: 2026-09-21 -- Phase 06 execution started
+Plan: 2 of 5
+Status: Ready to execute
+Last activity: 2026-09-21
 
 Progress: [██████████] 100%
 
@@ -57,6 +57,7 @@ Progress: [██████████] 100%
 | 5 | 7 | ~40min (P07) | - |
 
 *Updated after each plan completion*
+| Phase 06 P05 | 25min | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,7 @@ Recent decisions affecting current work:
 - Phase 02 Plan 06 (final plan of Phase 2): GAP-06 and GAP-07 promoted to two new integer-slot ROADMAP phases — Phase 20 (TEF Speech-Rate Verification & Re-render) and Phase 21 (DELF blanc-02..05 Audio Listening QA) — appended after Phase 19 with no renumbering, each carrying named success criteria that reuse the specific ids/numbers GAP-06/GAP-07 measured. CONTENT-01 closed in REQUIREMENTS.md as "audited, gaps found and scoped" (not "audited, no gaps") — 9 gaps total: 2 promoted to phases, 5 scoped as in-document follow-ups (GAP-01, GAP-03, GAP-04, GAP-08, GAP-09), 2 documented as intentional design/non-defects (GAP-02, GAP-05), 0 already owned by an existing requirement. Developer reviewed GAPS.md and the ROADMAP diff at the Task 3 blocking checkpoint and approved without requesting changes. Phase 02's own ROADMAP checklist entry (`- [ ] **Phase 2:`) was deliberately left unchecked per plan instruction — that flip belongs to `/gsd-verify-work`, not this plan.
 - Phase 03 (TTS Security Hardening, all 4 plans): closed SEC-01. 03-01 built the pure `quota.ts` decision layer (18 tests). 03-02 appended `tts_usage_daily/monthly/minute`+`tts_free_preview` tables and `tts_bump`/`tts_bump_free_preview` RPCs to `schema.sql` and applied them live to `ogbothupjcivwruesgsu` (idempotent, verified with 2 runs) — fixed a path bug in the plan's own apply-script template (`import.meta.url`-relative path was one level short). 03-03 added the client-side `shouldAttemptRemoteTts()` guest gate in `tts.ts`. 03-04 wired `callerUid()`/tier classification/quota enforcement into `tts/index.ts`, deployed to production, and passed both the automated curl proof (zero-auth → 401, anon-key-only → 401 guest_not_allowed) and a human-verify device checkpoint (free-tier exhaustion, premium burst cap, and guest-never-calls-remote all fall back to audible device speech correctly). `system_config.ttsProvider` was temporarily flipped to `'elevenlabs'` for the device test and confirmed restored to `'device'` immediately after. This session's `gsd-sdk` CLI was not installed (only the older `gsd-tools.cjs`) — phase execution, commits, and STATE/ROADMAP/REQUIREMENTS updates were done directly rather than via the SDK's query handlers; worth fixing the GSD install before the next `/gsd-execute-phase` if the SDK-driven automation (worktree wave orchestration, auto-advance, etc.) is wanted.
 - [Phase 05]: Phase 05 (paywall-coverage-expansion-upgrade-nudge) closed: 05-GATING-RULE.md is the rule of record citing entitlement.logic.ts as source of truth; all 21 device-verification items reported and approved, with items 20/21 verified by targeted method (production setEntitlement() path / structural test-suite guarantee) rather than an ordinary tap, and this distinction is recorded in 05-VALIDATION.md rather than glossed over.
+- [Phase 06]: Plan 05: NOTIFY-01/NOTIFY-02 closed via human-confirmed on-device pass (Pixel 9) — toggle independence, report-tracks-toggle, and no literal placeholders in delivered bodies all verified; Check E (duplicate-daily-after-upgrade) skipped, no pre-Phase-6 build available to test the upgrade path.
 
 ### Pending Todos
 
@@ -108,6 +110,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-21T01:31:38.939Z
-Stopped at: Phase 6 UI-SPEC approved
-Resume file: .planning/phases/06-notification-correctness-body-format-toggles/06-UI-SPEC.md
+Last session: 2026-09-21T06:34:32.253Z
+Stopped at: Completed 06-05-PLAN.md
+Resume file: None
