@@ -20,7 +20,7 @@
 //    (see scoreClosedTask), which is how both exam bodies score and the only
 //    honest way to treat a candidate who ran out of time.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ScrollView, TextInput, View } from 'react-native';
+import { AppState, ScrollView, TextInput, View } from 'react-native';
 import { ExamAudioQueue } from '@/components/ExamAudioQueue';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -39,6 +39,11 @@ import { PLACEMENT_PASS, type ExamResultInput } from '@/store/progress.logic';
 import { content, useContent } from '@/services/content';
 import { taskQuestions, scoreClosedTask, type ExamQuestion } from '@/services/content.logic';
 import { examGrader, startExamAttempt } from '@/services';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  DRAFT_DEBOUNCE_MS, draftKey, buildDraft, serializeDraft, parseDraft, restoreState,
+  isGraded, markGraded, hasContent, type ExamDraft,
+} from '@/services/examDraft.logic';
 import { startClock, type ClockState } from '@/utils/examClock.logic';
 import { deliveryNote } from '@/utils/deliverySignals.logic';
 import { coverageNote, type Coverage } from '@/utils/interlocutor.logic';
@@ -137,6 +142,107 @@ export default function ExamSectionScreen() {
    *  measure. */
   const [debate, setDebate] = useState<Record<string, DebateReport>>({});
   const submitted = useRef(false);
+
+  // ── BUG-02: the section's answers survive process death ─────────────────────
+  //
+  // D-02 asks for a checkpoint "on step/question-transition". This screen has no
+  // steps: every task of the section renders at once inside one ScrollView, so
+  // there is no next-task handler to hang a write on. The faithful equivalent is
+  // below — DISCRETE answer commits (MCQ select, a finished recording, coverage,
+  // a debate report) write immediately because they fire a handful of times per
+  // task, and only free typing is debounced, because it is the one writer D-01
+  // forbids running per keystroke.
+  //
+  // The store is a dedicated AsyncStorage key, not useProgress's persisted
+  // zustand store (D-07): the draft's whole lifetime is one sitting, and that
+  // store's partialize re-serialises several other keys on every set.
+  const key = paperId && skill ? draftKey(paperId, skill) : null;
+  /** Live mirror of the five answer stores plus this sitting's graded list, so a
+   *  flush from an unmount cleanup or an AppState handler is never reading a
+   *  stale closure. */
+  const draftRef = useRef({
+    answers: {} as Answers,
+    texts: {} as Texts,
+    spoken: {} as Record<string, SpokenAnswer>,
+    coverage: {} as Record<string, Coverage>,
+    debate: {} as Record<string, DebateReport>,
+    graded: [] as string[],
+  });
+  /** Nothing is written until the mount-time read has finished. Without this the
+   *  first render's empty state overwrites the very draft we are about to read. */
+  const restored = useRef(false);
+  const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const writeDraft = useCallback(async () => {
+    if (!key || !paperId || !skill || !restored.current) return;
+    const d = buildDraft({ paperId, skill, ...draftRef.current });
+    if (!hasContent(d)) return;
+    try {
+      await AsyncStorage.setItem(key, serializeDraft(d));
+    } catch {
+      // A draft that cannot be written must never block the épreuve — same
+      // contract as config.ts's cache write.
+    }
+  }, [key, paperId, skill]);
+
+  useEffect(() => {
+    draftRef.current = { ...draftRef.current, answers, texts, spoken, coverage, debate };
+  }, [answers, texts, spoken, coverage, debate]);
+
+  // Restore on mount, silent (D-10 — no banner, no toast, no prompt; this
+  // matches how resumeByMode already restores position silently in lesson.tsx).
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      if (!key || !paperId || !skill) return;
+      let raw: string | null = null;
+      try {
+        raw = await AsyncStorage.getItem(key);
+      } catch {
+        // No draft is a normal state, not an error.
+      }
+      const d = parseDraft(raw, paperId, skill);
+      if (d && alive) {
+        const s = restoreState(d);
+        draftRef.current = { ...s, graded: d.graded };
+        setAnswers(s.answers);
+        setTexts(s.texts);
+        setSpoken(s.spoken);
+        setCoverage(s.coverage);
+        setDebate(s.debate);
+      }
+      restored.current = true;
+    })();
+    return () => { alive = false; };
+    // Do NOT call submit() from here. D-03 is explicit: the candidate finishes
+    // the section and submits themselves; a silent background re-submit to
+    // grade-exam is forbidden.
+  }, [key, paperId, skill]);
+
+  // An answer that was committed, not typed. Immediate.
+  useEffect(() => { // CHECKPOINT_DISCRETE — see the note above submit()'s draft, too.
+    void writeDraft();
+  }, [answers, spoken, coverage, debate, writeDraft]);
+
+  // Free typing: D-01 forbids a write per keystroke, D-02 asks for ~1.5s of
+  // quiet. DRAFT_DEBOUNCE_MS is the single source of that number.
+  useEffect(() => {
+    if (typingTimer.current) clearTimeout(typingTimer.current);
+    typingTimer.current = setTimeout(() => { void writeDraft(); }, DRAFT_DEBOUNCE_MS);
+    return () => { if (typingTimer.current) clearTimeout(typingTimer.current); };
+  }, [texts, writeDraft]);
+
+  // The last chance before the OS can take the process. Reads draftRef, not
+  // the closure, so a pending debounce is never lost.
+  useEffect(() => { // FLUSH_ON_UNMOUNT: flush on backgrounding and on unmount.
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state !== 'active') void writeDraft();
+    });
+    return () => {
+      sub.remove();
+      void writeDraft();
+    };
+  }, [writeDraft]);
 
   // The side the candidate argued in phase 1, for the debate to open against.
   // By TASK TYPE, not by array position: a section that ever carries two
