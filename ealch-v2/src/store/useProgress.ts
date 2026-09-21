@@ -247,6 +247,23 @@ export const useProgress = create<ProgressState>()(
   )
 );
 
+/** A side effect that must run when a session is logged, but which lives in a
+ *  store this file may NOT import.
+ *
+ *  useStore.ts imports this module (and says so in its import block); importing
+ *  it back would turn a deliberate one-way dependency into a real cycle. So the
+ *  dependency is injected instead: useStore registers a listener at module
+ *  load, and this file never learns what store it belongs to. Today there is
+ *  exactly one — arming the post-session report notification (Phase 6, D-04). */
+export type SessionEndListener = (activity: Activity, minutes: number) => void;
+
+let sessionEndListener: SessionEndListener | null = null;
+
+/** Register (or with null, clear) the session-end side effect. */
+export function setSessionEndListener(fn: SessionEndListener | null): void {
+  sessionEndListener = fn;
+}
+
 /** Times a screen visit and logs it once the user finishes.
  *
  *  Minutes are measured, never assumed, and only FOREGROUND minutes count: the
@@ -281,6 +298,12 @@ export function useSessionLog(): (activity: Activity) => void {
       const openMs = segmentStart.current !== null ? Date.now() - segmentStart.current : 0;
       const minutes = (accumulatedMs.current + openMs) / 60_000;
       logSession(activity, minutes);
+      try {
+        sessionEndListener?.(activity, minutes);
+      } catch {
+        // A notification that refuses to schedule must never cost the user
+        // their logged session. The log is the record; the reminder is a bonus.
+      }
       // Restart the clock for a redo on the same screen.
       accumulatedMs.current = 0;
       segmentStart.current = Date.now();
