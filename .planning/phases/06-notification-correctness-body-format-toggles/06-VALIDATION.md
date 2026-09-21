@@ -47,7 +47,7 @@ Task IDs below are the **actual** plan/task IDs as planned. Every automated row'
 | 06-02-02 | 06-02 | 2 | NOTIFY-01 | T-06-13 | Source guard: no per-toggle path may call `cancelAllScheduledNotificationsAsync` | static/regression | `node --test ealch-v2/src/services/notifications.guard.test.ts` | ✅ created by this task | ✅ planned |
 | 06-03-01 | 06-03 | 2 | NOTIFY-02 | T-06-09, T-06-10 | Scheduler and banner both build bodies via `formatNotifText`; scheduler supplies `{name}` for the first time | typecheck + unit | `npm --prefix ealch-v2 run typecheck && node --test ealch-v2/src/utils/notifText.logic.test.ts` | ✅ exists | ✅ planned |
 | 06-03-02 | 06-03 | 2 | NOTIFY-02 | T-06-11 | D-07 guard: a template whose placeholders no call site supplies, or a hand-rolled `.replace('{`, fails the suite | static/regression | `node --test ealch-v2/src/i18n/notifPlaceholders.test.ts ealch-v2/src/i18n/i18n.test.ts` | ✅ created by this task | ✅ planned |
-| 06-04-01 | 06-04 | 3 | NOTIFY-01 | T-06-17 | Session-end listener is injected (no `useProgress → useStore` import) and exception-isolated after `logSession` | typecheck + unit | `npm --prefix ealch-v2 run typecheck && node --test ealch-v2/src/store/progress.logic.test.ts` | ✅ exists | ✅ planned |
+| 06-04-01 | 06-04 | 3 | NOTIFY-01 | T-06-17 | Session-end listener is injected (no `useProgress → useStore` import) and exception-isolated after `logSession` | typecheck + unit (behavioral) | `npm --prefix ealch-v2 run typecheck && node --test ealch-v2/src/store/sessionEndListener.behavior.test.ts` | ✅ created by Validation Audit 2026-09-21 (`sessionEndListener.behavior.test.ts` + `sessionEndListener.test-loader.mjs`) | ✅ green — confirmed by actual run 2026-09-21 |
 | 06-04-02 | 06-04 | 3 | NOTIFY-01 | T-06-13, T-06-16 | Toggling one kind off calls `cancelKind` only; `cancelAll` survives solely in `eraseLocalData`; denied permission reverts the toggle | typecheck + static | `npm --prefix ealch-v2 run typecheck` | ✅ exists | ✅ planned |
 | 06-04-03 | 06-04 | 3 | NOTIFY-02 | T-06-15 | The D-07 guard now covers `reportBody` and `nudgeBody` and proves each is referenced by a call site | static/regression | `node --test ealch-v2/src/i18n/notifPlaceholders.test.ts ealch-v2/src/i18n/i18n.test.ts` | ✅ exists | ✅ planned |
 | 06-05-01 | 06-05 | 4 | NOTIFY-01, NOTIFY-02 | — | Full-suite + typecheck gate before the device pass | regression | `npm --prefix ealch-v2 run typecheck && npm --prefix ealch-v2 test` | ✅ exists | ✅ planned |
@@ -91,3 +91,25 @@ All Wave 0 artefacts are created inside Plan 01 (Wave 1) before any consumer run
 - [x] `nyquist_compliant: true` set in frontmatter
 
 **Approval:** approved 2026-09-21
+
+---
+
+## Validation Audit 2026-09-21
+
+Gap closed: Task 06-04-01's automated command referenced `ealch-v2/src/store/progress.logic.test.ts`, which does not exist (only `progress.test.ts` does, and it imports `progress.logic.ts` — the pure-math island — never `useProgress.ts`, the zustand store shell that actually holds `setSessionEndListener`/`sessionEndListener`). No test in the repo previously executed the real T-06-17 code path.
+
+Filled with a genuine behavioral test, not a source-text guard: `sessionEndListener.behavior.test.ts` imports the real `useProgress.ts`, runs `useSessionLog()` once via a minimal fake React hook dispatcher (this repo has no RNTL/react-test-renderer yet), and calls its returned callback directly. A companion `sessionEndListener.test-loader.mjs` (Node's built-in `module.register` resolve hook — no new dependency) stubs `react-native`'s `AppState` and resolves the store's extensionless sibling imports, both purely environmental blockers to importing `useProgress.ts` under plain `node --test`.
+
+Two assertions map directly to the plan's own T-06-17 disposition text ("the listener fires AFTER `logSession` and is wrapped in try/catch, so a scheduling failure can never roll back or prevent the record that the user practised"):
+- the listener observes the session log already containing the new entry (ran after the write, not before or racing it)
+- a listener that throws does not propagate to the caller, and the session write still lands
+
+A negative control (listener fired manually before the write, run and discarded, never committed) confirmed the ordering assertion is load-bearing: it failed with `0 !== 1` as expected, proving the passing test is not tautological.
+
+Full suite after the fix: `npm --prefix ealch-v2 test` → 5419/5419 passing (was 5417 in 06-04-SUMMARY.md, +2 new tests). `npm --prefix ealch-v2 run typecheck` → clean (`.test.ts` and `.mjs` files are excluded from `tsc` by `tsconfig.json`, so the new files cannot regress it).
+
+| Metric | Count |
+|--------|-------|
+| Gaps found | 1 |
+| Resolved | 1 |
+| Escalated | 0 |
