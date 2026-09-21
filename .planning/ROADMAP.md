@@ -192,8 +192,8 @@ Plans:
 - [x] 06-01-PLAN.md — Pure foundations: the shared formatNotifText, the per-kind identifier/cadence vocabulary, and the FR/EN report + nudge copy
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 06-02-PLAN.md — Per-kind scheduling in notifications.ts (weekly nudge, one-shot report, targeted cancel, orphan prune) pinned by a source guard test
-- [ ] 06-03-PLAN.md — Route the scheduler and PushBanner through the shared formatter, supplying the {name} the scheduler never passed, plus the D-07 placeholder guard
+- [x] 06-02-PLAN.md — Per-kind scheduling in notifications.ts (weekly nudge, one-shot report, targeted cancel, orphan prune) pinned by a source guard test
+- [x] 06-03-PLAN.md — Route the scheduler and PushBanner through the shared formatter, supplying the {name} the scheduler never passed, plus the D-07 placeholder guard
 
 **Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 06-04-PLAN.md — Wire all three toggles to real scheduling, arm the report from session-end via an injected listener, and re-arm from toggle state at launch
