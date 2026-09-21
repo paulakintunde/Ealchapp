@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { ACCENTS, type Mode } from '@/theme/palette';
-import { DEFAULT_AVATAR_ID } from '@/content/avatars';
+import { avatarName, DEFAULT_AVATAR_ID } from '@/content/avatars';
 // Import the service module directly (not '@/services') — the barrel pulls in
 // sound.ts, which imports this store back.
 import { notifications } from '@/services/notifications';
@@ -13,6 +13,7 @@ import { T as STRINGS } from '@/i18n/strings';
 // useProgress does not import this store back, so this is not a cycle either.
 import { useProgress } from './useProgress';
 import { device24h, formatTime } from '@/utils/time';
+import { formatNotifText } from '@/utils/notifText.logic';
 
 export type Lang = 'fr' | 'en';
 
@@ -219,11 +220,16 @@ export const useStore = create<AppState>()(
       setLessonKeySeen: (lessonKeySeen) => set({ lessonKeySeen }),
       setAlarm: (alarmTime) => {
         set({ alarmTime });
-        // scheduleDaily cancels before scheduling, so at most one is pending.
+        // scheduleDaily replaces the one 'daily-reminder' request, so at most
+        // one is pending — and it no longer wipes the other kinds on its way in.
         if (get().notifs.daily) {
+          const { lang, clock24, avatarId } = get();
           void notifications.scheduleDaily(
             alarmTime,
-            STRINGS[get().lang].bannerText.replace('{t}', formatTime(alarmTime, get().clock24)),
+            formatNotifText(STRINGS[lang].bannerText, {
+              t: formatTime(alarmTime, clock24),
+              name: avatarName(avatarId),
+            }),
           );
         }
       },
@@ -238,10 +244,13 @@ export const useStore = create<AppState>()(
       enableDailyReminder: async () => {
         const granted = await notifications.requestPermissions();
         if (granted) {
-          const { alarmTime, lang, clock24 } = get();
+          const { alarmTime, lang, clock24, avatarId } = get();
           await notifications.scheduleDaily(
             alarmTime,
-            STRINGS[lang].bannerText.replace('{t}', formatTime(alarmTime, clock24)),
+            formatNotifText(STRINGS[lang].bannerText, {
+              t: formatTime(alarmTime, clock24),
+              name: avatarName(avatarId),
+            }),
           );
         } else if (Platform.OS !== 'web' && get().notifs.daily) {
           // Denied on native: the toggle must tell the truth. On web the

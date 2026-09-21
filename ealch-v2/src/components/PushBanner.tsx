@@ -9,6 +9,7 @@ import { useUI } from '@/store/useUI';
 import { useStore } from '@/store/useStore';
 import { avatarName } from '@/content/avatars';
 import { formatTime } from '@/utils/time';
+import { formatNotifText } from '@/utils/notifText.logic';
 import { track as trackEvent } from '@/services/analytics';
 
 /** Drops in a Spotify/iOS-style push banner; tap → Speak Mode, the paywall, or
@@ -48,7 +49,7 @@ export function PushBanner() {
     banner?.kind === 'upgradeNudge' ? banner.copy
     : banner?.kind === 'reconciliation' ? T.reconcileBody
     : banner?.kind === 'speakReminder'
-      ? T.bannerText.replace('{t}', formatTime(banner.at, clock24)).replace('{name}', coachName)
+      ? formatNotifText(T.bannerText, { t: formatTime(banner.at, clock24), name: coachName })
       : '';
   const onBannerPress = () => {
     hideBanner();
