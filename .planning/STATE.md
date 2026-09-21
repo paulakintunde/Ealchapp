@@ -4,8 +4,8 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Phase 6 UI-SPEC approved
-last_updated: "2026-09-21T02:11:42.096Z"
-last_activity: 2026-09-21 -- Phase 06 planning complete
+last_updated: "2026-09-21T02:18:12.948Z"
+last_activity: 2026-09-21 -- Phase 06 execution started
 progress:
   total_phases: 21
   completed_phases: 5
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 06 — Notification Correctness — Body Format & Toggles
+**Current focus:** Phase 06 — notification-correctness-body-format-toggles
 
 ## Current Position
 
-Phase: 6 of 7 (notification correctness — body format & toggles)
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-09-21 -- Phase 06 planning complete
+Phase: 06 (notification-correctness-body-format-toggles) — EXECUTING
+Plan: 1 of 5
+Status: Executing Phase 06
+Last activity: 2026-09-21 -- Phase 06 execution started
 
 Progress: [██████████] 100%
 

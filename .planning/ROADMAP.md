@@ -189,7 +189,7 @@ Plans:
 
 Plans:
 **Wave 1**
-- [ ] 06-01-PLAN.md — Pure foundations: the shared formatNotifText, the per-kind identifier/cadence vocabulary, and the FR/EN report + nudge copy
+- [x] 06-01-PLAN.md — Pure foundations: the shared formatNotifText, the per-kind identifier/cadence vocabulary, and the FR/EN report + nudge copy
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 06-02-PLAN.md — Per-kind scheduling in notifications.ts (weekly nudge, one-shot report, targeted cancel, orphan prune) pinned by a source guard test
