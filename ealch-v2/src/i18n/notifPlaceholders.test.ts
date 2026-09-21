@@ -23,6 +23,9 @@ const countOf = (src: string, needle: string): number => src.split(needle).lengt
  *  it declares) is what this file exists to fail on. */
 const SUPPLIED: Record<string, string[]> = {
   bannerText: ['t', 'name'],
+  // The report fires on a delay, not at a clock time, so it declares no {t}.
+  reportBody: ['name'],
+  nudgeBody: ['name'],
 };
 
 /** Every file allowed to turn a notification template into finished text. */
@@ -81,6 +84,17 @@ test('every scheduled body is built by the shared formatter', () => {
       formatCalls >= scheduleCalls,
       `${file} schedules ${scheduleCalls} notification(s) but only calls formatNotifText ${formatCalls} time(s) — ` +
         `a new notification kind scheduled with a raw template instead of a formatted body is exactly the regression this assertion catches.`,
+    );
+  }
+});
+
+test('every notification template is used by a call site', () => {
+  const sources = CALL_SITES.map((rel) => read(rel)).join('\n');
+  for (const key of Object.keys(SUPPLIED)) {
+    ok(
+      sources.includes(`.${key}`),
+      `${key} is declared in strings.ts but no notification call site references it — ` +
+        'an unreferenced notification template is a toggle that does nothing.',
     );
   }
 });
