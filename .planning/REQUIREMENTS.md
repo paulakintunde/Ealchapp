@@ -60,6 +60,7 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 ### Content
 
 - [x] **CONTENT-01**: An early phase audits the current A1/A2/exam content against the intended curriculum plan to identify any concrete remaining gaps (scope discovery — no gaps are pre-assumed; if none are found, this requirement closes as "audited, no gaps")
+- [ ] **CONTENT-02**: Published exam papers and the exam tasks they reference ship inside the bundled seed, cut by `content:publish` from the published database state, so a fresh offline install lists and opens every published paper at first launch; the OTA snapshot still supersedes bundled exams by id
 
 ### Onboarding & Analytics
 
@@ -148,6 +149,7 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | TEST-01 | Phase 19 | Pending |
 | TEST-03 | Phase 19 | Pending |
 | TEST-04 | Phase 22 | Pending |
+| CONTENT-02 | Phase 22.1 | Pending |
 
 **Coverage:**
 - v1 requirements: 33 total (29 original + TEST-04, added 2026-09-22 when Phase 18's discuss-phase surfaced that only 2 of 49 screens would ever get component-render coverage under the original 29-requirement scope — see `22-SCREEN-COVERAGE-AUDIT.md`; + BUG-04 and BUG-05, added 2026-09-22, surfaced by Phase 7's own device verification of BUG-02 — see `07-VALIDATION.md`/`07-05-SUMMARY.md`)
@@ -163,3 +165,4 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 *Last updated: 2026-09-22 — BUG-04 added (recording-task restore-view gap surfaced during Phase 7's BUG-02 device verification), unmapped pending phase-sequencing decision*
 *Last updated: 2026-09-22 — BUG-05 added (submit()/sectionStatusFor task-list divergence, found by code audit of the same device-verification session), Phase 23 appended, BUG-04 mapped to Phase 23 (was unmapped)*
 *Last updated: 2026-09-22 - BUG-06 added (mid-recording kill loses the in-progress spoken answer, surfaced in Phase 23 discuss-phase), mapped to Phase 23*
+*Last updated: 2026-09-22 - CONTENT-02 added (exam papers/tasks bundled in the seed), mapped to Phase 22.1*

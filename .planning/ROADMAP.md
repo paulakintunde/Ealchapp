@@ -406,7 +406,7 @@ Plans:
 ### Phase 22.1: Bundle exam content in the seed so exams load at first launch, offline, before any snapshot download (INSERTED)
 
 **Goal:** A fresh install shows the published exam papers at first launch, offline, with no "No mock exams" wait for the first OTA snapshot download, because papers and tasks ship inside the bundled seed the way lessons already do.
-**Requirements**: TBD (new requirement to be written at plan time)
+**Requirements**: CONTENT-02
 **Depends on:** None in code (Phase 22 is unrelated screen-test coverage; 22.1 is numbered after it only for position). Sequenced BEFORE Phase 23 because it changes Phase 23's device-proof setup (a dev build would show exams, removing D-14's temporary guard patch) and removes BUG-05's most likely trigger (the seed-first corpus having no exam tasks).
 **Success Criteria** (what must be TRUE):
   1. `seed.json` carries `examPapers` and `examTasks`, cut from the PUBLISHED database state (not seed-direct authoring ahead of Postgres), and a fresh offline install lists and opens every published paper.
