@@ -8,8 +8,16 @@
 // These tests are that whole surface, held open.
 import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
-import { findPresenceLosses, findUnitLosses, findVersionedLosses, formatDiffReport, REPORT_KINDS } from './drift-guard.logic.ts';
-import type { Lesson, Playlist, Scenario, SpeakStage, Unit } from '../../ealch-v2/src/content/schema.ts';
+import {
+  findExamPaperLosses,
+  findExamTaskLosses,
+  findPresenceLosses,
+  findUnitLosses,
+  findVersionedLosses,
+  formatDiffReport,
+  REPORT_KINDS,
+} from './drift-guard.logic.ts';
+import type { ExamPaper, ExamTask, Lesson, Playlist, Scenario, SpeakStage, Unit } from '../../ealch-v2/src/content/schema.ts';
 
 const lesson = (id: string, version: number, sections: number, overview?: boolean) =>
   ({
@@ -20,6 +28,42 @@ const lesson = (id: string, version: number, sections: number, overview?: boolea
   }) as unknown as Lesson;
 
 const mapOf = <T extends { id: string }>(xs: T[]) => new Map(xs.map((x) => [x.id, x]));
+
+const examPaper = (id: string, sections: [string, string[]][]) =>
+  ({
+    id,
+    format: 'tef_canada',
+    variant: 'blanc-01',
+    paperNo: 1,
+    sections: sections.map(([skill, taskIds]) => ({ skill, taskIds, timingS: 60, blueprintId: 'b' })),
+  }) as unknown as ExamPaper;
+
+const examTask = (
+  id: string,
+  opts: Partial<{
+    items: number;
+    parts: number;
+    rubric: boolean;
+    modelAnswer: boolean;
+    interlocutor: boolean;
+    debate: boolean;
+    prompt: string;
+  }> = {}
+) =>
+  ({
+    id,
+    prompt: opts.prompt ?? 'p',
+    ...(opts.items !== undefined
+      ? { items: Array.from({ length: opts.items }, (_, i) => ({ id: `${id}.q${i}` })) }
+      : {}),
+    ...(opts.parts !== undefined
+      ? { parts: Array.from({ length: opts.parts }, (_, i) => ({ id: `${id}.p${i}` })) }
+      : {}),
+    ...(opts.rubric ? { rubric: { criteria: [] } } : {}),
+    ...(opts.modelAnswer ? { modelAnswer: 'answer' } : {}),
+    ...(opts.interlocutor ? { interlocutor: {} } : {}),
+    ...(opts.debate ? { debate: {} } : {}),
+  }) as unknown as ExamTask;
 
 test('it blocks a lesson the DB no longer has', () => {
   const committed = [lesson('sons.01.l1', 4, 20)];
@@ -210,6 +254,99 @@ test('it blocks a unit that dropped a lesson which is still published', () => {
     'a1.04.l2 is still published elsewhere but this unit no longer lists it — that is a real loss of the unit-lesson link, not a prune'
   );
   ok(losses[0].message.includes('a1.04.l2'), 'the message must name the specific lesson id that was dropped');
+});
+
+// D-12 (phase 22.1): ExamPaper/ExamTask carry no version field (like Unit), so
+// the loss signals are structural: deletion, roster shrink, a lost épreuve for
+// papers; deletion, richness-count shrink and field presence for tasks.
+test('findExamPaperLosses: no committed seed means nothing to compare', () => {
+  strictEqual(findExamPaperLosses({ committed: undefined, live: new Map() }).length, 0);
+});
+
+test('findExamPaperLosses: a paper absent from the live DB would be deleted', () => {
+  const committed = [examPaper('paper.1', [['CO', ['t1', 't2']]])];
+  const losses = findExamPaperLosses({ committed, live: new Map() });
+  strictEqual(losses.length, 1);
+  strictEqual(losses[0].kind, 'exam paper');
+  ok(/would DELETE it/.test(losses[0].message), 'the message must say DELETE, that is what actually happens');
+});
+
+test('findExamPaperLosses: a live paper with fewer total section taskIds would shrink', () => {
+  const committed = [examPaper('paper.1', [['CO', ['t1', 't2']], ['CE', ['t3']]])];
+  const live = mapOf([examPaper('paper.1', [['CO', ['t1']], ['CE', ['t3']]])]);
+  const losses = findExamPaperLosses({ committed, live });
+  ok(losses.some((l) => /would SHRINK it/.test(l.message)), 'a lower total task count must be reported as a shrink');
+});
+
+test('findExamPaperLosses: a live paper missing a whole épreuve the committed paper has would drop it', () => {
+  const committed = [examPaper('paper.1', [['CO', ['t1']], ['PO', ['t2']]])];
+  const live = mapOf([examPaper('paper.1', [['CO', ['t1']]])]);
+  const losses = findExamPaperLosses({ committed, live });
+  ok(
+    losses.some((l) => /would DROP/.test(l.message) && l.message.includes('PO')),
+    'a lost PO épreuve must be named in the message, not just counted as fewer tasks'
+  );
+});
+
+test('findExamPaperLosses: an identical paper produces no loss', () => {
+  const committed = [examPaper('paper.1', [['CO', ['t1', 't2']]])];
+  const live = mapOf([examPaper('paper.1', [['CO', ['t1', 't2']]])]);
+  strictEqual(findExamPaperLosses({ committed, live }).length, 0);
+});
+
+test('findExamPaperLosses: taskIds swapped at the same count is an edit, not a loss', () => {
+  const committed = [examPaper('paper.1', [['CO', ['t1', 't2']]])];
+  const live = mapOf([examPaper('paper.1', [['CO', ['t2', 't1']]])]);
+  strictEqual(
+    findExamPaperLosses({ committed, live }).length,
+    0,
+    'the same tasks in a different order is a routine edit, not a loss'
+  );
+});
+
+test('findExamTaskLosses: a task absent from the live DB would be deleted', () => {
+  const committed = [examTask('t1')];
+  const losses = findExamTaskLosses({ committed, live: new Map() });
+  strictEqual(losses.length, 1);
+  strictEqual(losses[0].kind, 'exam task');
+  ok(/would DELETE it/.test(losses[0].message), 'the message must say DELETE, that is what actually happens');
+});
+
+test('findExamTaskLosses: a lost rubric, model answer, interlocutor bank or debate bank would erase it', () => {
+  const committed = [
+    examTask('t.rubric', { rubric: true }),
+    examTask('t.model', { modelAnswer: true }),
+    examTask('t.interlocutor', { interlocutor: true }),
+    examTask('t.debate', { debate: true }),
+  ];
+  const live = mapOf([examTask('t.rubric', {}), examTask('t.model', {}), examTask('t.interlocutor', {}), examTask('t.debate', {})]);
+  const losses = findExamTaskLosses({ committed, live });
+  strictEqual(losses.length, 4, 'each of the four vanished fields must be reported once');
+  ok(losses.every((l) => /would ERASE it/.test(l.message)), 'field-presence losses go through findPresenceLosses, which says ERASE');
+});
+
+test('findExamTaskLosses: fewer items than the committed seed would shrink it', () => {
+  const committed = [examTask('t1', { items: 5 })];
+  const live = mapOf([examTask('t1', { items: 3 })]);
+  const losses = findExamTaskLosses({ committed, live });
+  ok(losses.some((l) => /would SHRINK it/.test(l.message)), '5 committed items down to 3 live items must be reported as a shrink');
+});
+
+test('findExamTaskLosses: fewer parts than the committed seed would shrink it', () => {
+  const committed = [examTask('t1', { parts: 4 })];
+  const live = mapOf([examTask('t1', { parts: 2 })]);
+  const losses = findExamTaskLosses({ committed, live });
+  ok(losses.some((l) => /would SHRINK it/.test(l.message)), '4 committed parts down to 2 live parts must be reported as a shrink');
+});
+
+test('findExamTaskLosses: a changed prompt with everything else intact is an edit, not a loss', () => {
+  const committed = [examTask('t1', { items: 3, rubric: true, prompt: 'old prompt' })];
+  const live = mapOf([examTask('t1', { items: 3, rubric: true, prompt: 'new prompt' })]);
+  strictEqual(
+    findExamTaskLosses({ committed, live }).length,
+    0,
+    'a changed prompt string with counts and fields intact must not be flagged — an edit is not a loss'
+  );
 });
 
 // PUBLISH-02: formatDiffReport turns step 7's console-only diff into one
