@@ -51,9 +51,11 @@ export default function ExamPaperScreen() {
   const { paperId } = useLocalSearchParams<{ paperId?: string }>();
   // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
   // memos read it imperatively through content.*, which calls getState(), so
-  // before this they never re-ran when the OTA snapshot landed. Exam content
-  // ships only in that snapshot, so any exam screen mounted during launch
-  // memoised an empty result and kept it.
+  // before this they never re-ran when the OTA snapshot landed. Before phase
+  // 22.1 exam content reached the app only through that snapshot, so an exam
+  // screen mounted during launch memoised an empty result and kept it; the
+  // seed now carries the papers, and the snapshot can still supersede them
+  // after mount.
   const corpus = useContent((s) => s.corpus);
   const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId, corpus]);
 

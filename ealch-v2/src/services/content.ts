@@ -20,9 +20,9 @@
 //
 // Nothing looked broken. The cost was paid on every cold start instead — 27 MB
 // re-downloaded, the "everything works offline" promise on the downloads screen
-// quietly false, and exam content (which ships ONLY in the snapshot, never the
-// seed) absent until the fetch landed. A candidate opening the Examiner offline
-// saw "no exams available yet".
+// quietly false, and exam content, which before phase 22.1 reached the app
+// through the snapshot alone, absent until the fetch landed. A candidate
+// opening the Examiner offline saw "no exams available yet".
 //
 // A multi-megabyte blob is what a file is for. `text()` is a native
 // AsyncFunction so the per-launch read stays off the JS thread; `write()` has
@@ -161,10 +161,13 @@ let cachedSnapshotVersion = 0;
 // snapshot v57 on 2026-09-01, so the fixture and its 126 KiB of unreviewed
 // content are gone: exam papers now arrive over the air like everything else.
 //
-// A fresh offline install therefore has NO exam content, because the seed cut
-// carries no exam tasks or papers by design. That is correct — the Examiner
-// needs the snapshot, and showing a candidate a mock paper nobody reviewed was
-// only ever a development convenience.
+// Since phase 22.1, `content:publish` bundles every published exam paper and
+// the tasks those papers reference into the seed cut, so a fresh offline
+// install lists and opens them. Exam audio still resolves from Storage by
+// `audioRef` and grading still needs the network; the snapshot supersedes
+// bundled papers by id through mergeCorpus. Showing a candidate an unreviewed
+// mock paper is still never done — that was only ever a development
+// convenience, and it stays removed.
 
 /**
  * Bring content up. Idempotent — safe to call from _layout on every mount, runs

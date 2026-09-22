@@ -24,12 +24,13 @@
 //
 // ── Why in ealch-admin ──────────────────────────────────────────────────────
 //
-// Because this is the only repo where both halves exist. Exam content is
-// deliberately NOT in seed.json — exams do not ship offline (exam-pack decision
-// 11.6), they arrive over the network — so ealch-v2 has no paper to sit and a
-// test there would have to invent one, which is precisely the failure being
-// fixed. The authored papers are here; the reporting logic is imported from
-// there, cross-repo, the same way apply-paper.ts already imports the schema.
+// This is the only repo that can see ALL published papers in Postgres
+// alongside the reporting logic. Since phase 22.1 the seed carries the
+// bundled papers and ealch-v2's exam-ships.test.ts checks those resolve and
+// report, but the seed is a cut and cannot vouch for a paper Postgres holds
+// that the cut did not ship, so the whole-population check lives here. The
+// authored papers are here; the reporting logic is imported from there,
+// cross-repo, the same way apply-paper.ts already imports the schema.
 //
 // ── What "real" means here ──────────────────────────────────────────────────
 //

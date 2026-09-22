@@ -13,7 +13,8 @@
 // corpus upgraded for the session and vanished on exit. Every automated check
 // stayed green, the downloads screen correctly reported v66, and the only
 // symptom was 27 MB re-downloaded on every cold start plus "no exams available
-// yet" for anyone offline — exam content ships ONLY in the snapshot.
+// yet" for anyone offline, since before phase 22.1 exam content reached the
+// app through the snapshot alone.
 //
 // Nothing about that is caught by a type or by a unit test of the pure logic.
 // A reader deciding "AsyncStorage is simpler" reintroduces it in one line.
@@ -61,8 +62,8 @@ test('the snapshot is streamed to disk, never pulled into a string', () => {
   // `fetch()` then `.text()` was one 27 MB all-or-nothing request with no
   // resume, held whole in JS memory. On an intermittent connection every drop
   // restarted it from zero, so a user could fail forever and simply never
-  // receive exam content — which ships ONLY in the snapshot. It was also a
-  // 27 MB spike on the low-RAM devices least able to absorb one.
+  // receive exam content, which before phase 22.1 came only over the air. It
+  // was also a 27 MB spike on the low-RAM devices least able to absorb one.
   ok(
     /File\.downloadFileAsync\(`\$\{STORAGE_BASE\}\/\$\{manifest\.path\}`/.test(CODE),
     'the snapshot body must stream straight to a file'
