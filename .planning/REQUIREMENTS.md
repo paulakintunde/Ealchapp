@@ -50,7 +50,7 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 ### Test Coverage
 
 - [ ] **TEST-01**: Exam submission → grading → report generation has an automated end-to-end test
-- [ ] **TEST-02**: The app has component-render test infrastructure (Jest + React Native Testing Library) capable of testing at least one real screen
+- [x] **TEST-02**: The app has component-render test infrastructure (Jest + React Native Testing Library) capable of testing at least one real screen
 - [ ] **TEST-03**: Notification scheduling → delivery → tap-response has automated test coverage
 - [ ] **TEST-04**: General component-render test coverage extends beyond the one proof-of-concept screen (Phase 18) and the two high-risk flows (Phase 19) to the remaining screen surface — prioritized by `.planning/phases/22-general-screen-test-coverage/22-SCREEN-COVERAGE-AUDIT.md`'s evidence (22 of 49 screens have a documented fix-commit history; 21 of those remain uncovered after Phase 18/19)
 
@@ -138,7 +138,7 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | PERF-02 | Phase 15 (design spike: Phase 14) | Pending |
 | PERF-01 | Phase 16 | Pending |
 | NOTIFY-03 | Phase 17 | Pending |
-| TEST-02 | Phase 18 | Pending |
+| TEST-02 | Phase 18 | Done |
 | TEST-01 | Phase 19 | Pending |
 | TEST-03 | Phase 19 | Pending |
 | TEST-04 | Phase 22 | Pending |

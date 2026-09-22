@@ -427,7 +427,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | 15. Content Snapshot Split — Implementation | 0/TBD | Not started | - |
 | 16. Cold-Start Lazy Load | 0/TBD | Not started | - |
 | 17. Notification Tap-Handler & Push Token Registration | 0/TBD | Not started | - |
-| 18. Component Test Infrastructure | 2/2 | Complete   | 2026-09-22 |
+| 18. Component Test Infrastructure | 2/2 | Complete    | 2026-09-22 |
 | 19. High-Risk Test Coverage — Exam Grading & Notification Delivery | 0/TBD | Not started | - |
 | 20. TEF Speech-Rate Verification & Re-render | 0/TBD | Not started | - |
 | 21. DELF blanc-02..05 Audio Listening QA | 0/TBD | Not started | - |
