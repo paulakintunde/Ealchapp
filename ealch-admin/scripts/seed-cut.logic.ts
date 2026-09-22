@@ -37,8 +37,8 @@
 // tested before it is published. Until that decision is made, this module at
 // least gives every writer ONE definition to be checked against.
 
-import type { Item, Lesson } from '../../ealch-v2/src/content/schema.ts';
-import { ITEM_ID_RE } from '../../ealch-v2/src/content/schema.ts';
+import type { ExamPaper, ExamTask, Item, Lesson } from '../../ealch-v2/src/content/schema.ts';
+import { ITEM_ID_RE, canonicalJson } from '../../ealch-v2/src/content/schema.ts';
 import { SEED_CUT } from './seed-cut.config.ts';
 
 /** A speak stage, reduced to the part the cut cares about. */
@@ -136,4 +136,63 @@ export function cutDrift(
   const missing = corpusItems.filter((i) => isInCut(i, needed) && !inSeed.has(i.id));
   const surplus = seedItems.filter((i) => !isInCut(i, needed));
   return { missing, surplus };
+}
+
+/** Every exam task id a set of papers' sections point at. */
+export function paperTaskIdSet(papers: Pick<ExamPaper, 'sections'>[]): Set<string> {
+  return new Set(papers.flatMap((p) => (p.sections ?? []).flatMap((s) => s.taskIds ?? [])));
+}
+
+/** THE EXAM CUT (phase 22.1, D-01/D-02). Papers are not cut: every published
+ *  paper ships. Tasks ship only when a bundled paper references them, the same
+ *  "referenced, not theme-wide" shape cutItems uses, so orphan published tasks
+ *  (the PE remediation tasks no paper names) stay OTA-only. publish-content.ts
+ *  calls this; check-seed-db-parity.ts calls examCutDrift below, which calls
+ *  this, so the check and the build cannot drift. */
+export function cutExamTasks(tasks: ExamTask[], seedPapers: Pick<ExamPaper, 'sections'>[]): ExamTask[] {
+  const needed = paperTaskIdSet(seedPapers);
+  return tasks.filter((t) => needed.has(t.id));
+}
+
+export type ExamCutDrift = {
+  seedOnlyPapers: string[];
+  seedOnlyTasks: string[];
+  missingPapers: string[];
+  missingTasks: string[];
+  changedPapers: string[];
+};
+
+/** What the seed's exam arrays hold against what the rule produces from the DB.
+ *  dbPapers/dbTaskIds are the FULL published set. Ids only for tasks (the
+ *  parity script does not re-implement publish's row mapping); papers also
+ *  compare canonicalJson(sections), since sections is jsonb that round-trips
+ *  whole. All arrays sorted. */
+export function examCutDrift(
+  seedPapers: Pick<ExamPaper, 'id' | 'sections'>[],
+  seedTasks: Pick<ExamTask, 'id'>[],
+  dbPapers: Pick<ExamPaper, 'id' | 'sections'>[],
+  dbTaskIds: string[],
+): ExamCutDrift {
+  const wanted = paperTaskIdSet(dbPapers);
+  const cutIds = dbTaskIds.filter((id) => wanted.has(id));
+
+  const seedPaperById = new Map(seedPapers.map((p) => [p.id, p]));
+  const dbPaperById = new Map(dbPapers.map((p) => [p.id, p]));
+  const seedTaskIds = new Set(seedTasks.map((t) => t.id));
+  const cutIdSet = new Set(cutIds);
+
+  const seedOnlyPapers = [...seedPaperById.keys()].filter((id) => !dbPaperById.has(id)).sort();
+  const seedOnlyTasks = [...seedTaskIds].filter((id) => !cutIdSet.has(id)).sort();
+  const missingPapers = [...dbPaperById.keys()].filter((id) => !seedPaperById.has(id)).sort();
+  const missingTasks = cutIds.filter((id) => !seedTaskIds.has(id)).sort();
+  const changedPapers = [...seedPaperById.keys()]
+    .filter((id) => {
+      const db = dbPaperById.get(id);
+      if (!db) return false;
+      const seedP = seedPaperById.get(id)!;
+      return canonicalJson(seedP.sections) !== canonicalJson(db.sections);
+    })
+    .sort();
+
+  return { seedOnlyPapers, seedOnlyTasks, missingPapers, missingTasks, changedPapers };
 }
