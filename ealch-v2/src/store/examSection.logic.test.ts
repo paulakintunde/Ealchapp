@@ -681,9 +681,10 @@ test('a po_interaction without a bank is refused at authoring time', () => {
 /* ─── Deriving from the corpus means depending on it ──────────────────────── */
 
 test('every exam screen that reads the corpus re-reads it when it changes', () => {
-  // The corpus is not a constant. Exam content ships ONLY in the OTA snapshot
-  // (never the seed — exams do not ship offline), so it always arrives a few
-  // seconds after launch, which is to say after any exam screen can mount.
+  // The corpus is not a constant. Exam content ships in the bundled seed now
+  // (phase 22.1), but the corpus still changes after mount: a corrected paper
+  // published under the same id supersedes the bundled copy when the OTA
+  // snapshot lands, which can happen after any exam screen has mounted.
   //
   // The `content.*` accessors reach into the store with getState(), so a
   // useMemo that calls one and does not list the corpus among its dependencies
@@ -744,4 +745,30 @@ test('the exam screens subscribe to the corpus at all', () => {
       `${file} never subscribes to the corpus, so its corpus dependency can never change`
     );
   }
+});
+
+test('the section runner reads its roster through the sitting pin (phase 22.1 D-05)', () => {
+  // A mid-sitting corpus refresh must not change what the candidate is
+  // answering or what submit() grades. The live `tasks`/`section` memos above
+  // stay live (the previous test in this file requires it — a task missing at
+  // mount must still resolve), but everything downstream of them must read
+  // through the pin, not the live values directly.
+  const src = read('exam-section.tsx');
+
+  ok(src.includes('pinSitting('), 'exam-section.tsx must call pinSitting(');
+  ok(src.includes('pinnedTasksOf('), 'exam-section.tsx must call pinnedTasksOf(');
+  ok(src.includes('for (const task of pinnedTasks)'), 'submit() must grade the pinned roster, not the live one');
+  ok(src.includes('pinnedTasks.reduce('), 'answeredCount/totalCount must count the pinned roster');
+  ok(src.includes('pinnedTasks.map('), 'the render list must map the pinned roster');
+
+  ok(!src.includes('for (const task of tasks)'), 'submit() must no longer iterate the live tasks directly');
+  ok(!src.includes('tasks.reduce('), 'the counts must no longer reduce the live tasks directly');
+  ok(!src.includes('{tasks.map('), 'the render list must no longer map the live tasks directly');
+
+  // The pin is additive, not a replacement: the live memo this whole file's
+  // corpus-dependency guard exists to protect must still be exactly present.
+  ok(
+    src.includes('content.examTasksOfSection(section) : []), [section, corpus]'),
+    'the live tasks memo (deps [section, corpus]) must still be present, unchanged, underneath the pin'
+  );
 });
