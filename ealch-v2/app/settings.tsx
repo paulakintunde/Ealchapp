@@ -79,7 +79,7 @@ function ToggleRow({
           {sub}
         </TX>
       </View>
-      <Toggle value={value} onChange={onChange} />
+      <Toggle value={value} onChange={onChange} accessibilityLabel={title} />
     </View>
   );
 }
