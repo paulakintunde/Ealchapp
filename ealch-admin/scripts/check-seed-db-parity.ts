@@ -32,8 +32,8 @@ import { describeTarget } from './env';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import { canonicalJson, type Lesson } from '../../ealch-v2/src/content/schema.ts';
-import { cutDrift } from './seed-cut.logic.ts';
+import { canonicalJson, type ExamPaper, type Lesson } from '../../ealch-v2/src/content/schema.ts';
+import { cutDrift, examCutDrift, paperTaskIdSet } from './seed-cut.logic.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = join(here, '../../ealch-v2/src/content/seed.json');
@@ -43,6 +43,8 @@ type Seed = {
   items: { id: string; theme: string }[];
   units: { id: string; lessonIds?: string[] }[];
   speakPath?: { world: number; blocks?: { itemIds?: string[] }[] }[];
+  examPapers?: ExamPaper[];
+  examTasks?: { id: string }[];
 };
 
 /** A cheap shape fingerprint. Not a deep equality check: the seed is a
@@ -207,6 +209,34 @@ async function main() {
       console.log(`\n  ! NOT PUBLISHED in the database: ${unpublished.join(', ')}`);
     }
 
+    /* ── The EXAM cut (phase 22.1), fetched here (ahead of the item cut below)
+     * because a bundled exam task's targetItemIds names items it tests, the
+     * same way a lesson's itemIds does — see the item-cut note just below.
+     * examCutDrift shares seed-cut.logic.ts with content:publish's step 5, so
+     * this check and the build cannot drift apart. seedOnlyPapers/seedOnlyTasks
+     * are blocking: a publish would DELETE them, and the no-silent-regression
+     * guard (D-12) will refuse it. missingPapers/missingTasks/changedPapers are
+     * informational — a publish will ADD or update them, which is the normal
+     * DB-ahead-of-git direction and never blocks. */
+    const paperRows = await client.query<{ id: string; sections: ExamPaper['sections'] }>(
+      `select id, sections from content_exam_papers where status = 'published'`,
+    );
+    const taskRows = await client.query<{ id: string; target_item_ids: string[] | null }>(
+      `select id, target_item_ids from content_exam_tasks where status = 'published'`,
+    );
+    const exam = examCutDrift(
+      seed.examPapers ?? [],
+      seed.examTasks ?? [],
+      paperRows.rows.map((r) => ({ id: r.id, sections: r.sections ?? [] })),
+      taskRows.rows.map((r) => r.id),
+    );
+    // Same set publish-content.ts unions into seedItems (D-01/D-02 note there):
+    // items a BUNDLED task targets are not surplus, they are required.
+    const wantedTaskIds = paperTaskIdSet(paperRows.rows.map((r) => ({ id: r.id, sections: r.sections ?? [] })));
+    const examTargetItemIds = new Set(
+      taskRows.rows.filter((r) => wantedTaskIds.has(r.id)).flatMap((r) => r.target_item_ids ?? []),
+    );
+
     /* ── The ITEM cut, checked against the rule publish actually applies ────
      *
      * Lessons were the only thing compared here, and the item list drifted
@@ -218,16 +248,23 @@ async function main() {
      * Commit 057a297 dropped four of them and moved three of a1.03's printed
      * statistics; the next publish put them back and turned the suite red. The
      * check runs here because it needs the FULL corpus: a seed cannot tell you
-     * about a row it does not contain. */
+     * about a row it does not contain.
+     *
+     * cutDrift (like cutItems) does not know exam tasks exist, so an item a
+     * bundled task targets would otherwise misreport as surplus the cut
+     * "excludes" — publish-content.ts unions those items in and would NOT
+     * drop them. Filtered out of `surplus` below, same set as examTargetItemIds
+     * above. */
     const itemRows = await client.query<{ id: string; theme: string }>(
       `select id, theme from content_items where status = 'published'`,
     );
-    const { missing, surplus } = cutDrift(
+    const { missing, surplus: rawSurplus } = cutDrift(
       seed.items as never,
       itemRows.rows as never,
       seed.lessons,
       (seed.speakPath ?? []) as never,
     );
+    const surplus = rawSurplus.filter((i) => !examTargetItemIds.has(i.id));
 
     if (missing.length) {
       console.log(`\n  ✗ ITEMS THE CUT REQUIRES AND THE SEED LACKS (${missing.length}):`);
@@ -247,8 +284,59 @@ async function main() {
       console.log(`\n  ✓ item cut: the seed is exactly what the rule produces (${seed.items.length} rows)`);
     }
 
-    const bad = seedOnly.length + drifted.length + seedRicher.length + unknownDir.length + missing.length;
-    if (bad === 0 && dbOnly.length === 0 && dbRicher.length === 0) {
+    if (exam.seedOnlyPapers.length || exam.seedOnlyTasks.length) {
+      console.log(`\n  ✗ EXAM PAPERS/TASKS IN THE SEED THAT THE DATABASE WOULD NOT PUBLISH:`);
+      if (exam.seedOnlyPapers.length) {
+        console.log(`      papers (${exam.seedOnlyPapers.length}):`);
+        for (const id of exam.seedOnlyPapers.slice(0, 12)) console.log(`        ${id}`);
+        if (exam.seedOnlyPapers.length > 12) console.log(`        ... and ${exam.seedOnlyPapers.length - 12} more`);
+      }
+      if (exam.seedOnlyTasks.length) {
+        console.log(`      tasks (${exam.seedOnlyTasks.length}):`);
+        for (const id of exam.seedOnlyTasks.slice(0, 12)) console.log(`        ${id}`);
+        if (exam.seedOnlyTasks.length > 12) console.log(`        ... and ${exam.seedOnlyTasks.length - 12} more`);
+      }
+      console.log('      A publish would DELETE these, and the no-silent-regression guard will refuse it.');
+    }
+    if (exam.missingPapers.length || exam.missingTasks.length) {
+      console.log(`\n  ! exam content a publish will ADD (informational):`);
+      if (exam.missingPapers.length) {
+        console.log(`      papers (${exam.missingPapers.length}):`);
+        for (const id of exam.missingPapers.slice(0, 12)) console.log(`        ${id}`);
+        if (exam.missingPapers.length > 12) console.log(`        ... and ${exam.missingPapers.length - 12} more`);
+      }
+      if (exam.missingTasks.length) {
+        console.log(`      tasks (${exam.missingTasks.length}):`);
+        for (const id of exam.missingTasks.slice(0, 12)) console.log(`        ${id}`);
+        if (exam.missingTasks.length > 12) console.log(`        ... and ${exam.missingTasks.length - 12} more`);
+      }
+    }
+    if (exam.changedPapers.length) {
+      console.log(`\n  ! exam papers whose sections differ (a publish brings the seed to the database, informational):`);
+      for (const id of exam.changedPapers.slice(0, 12)) console.log(`      ${id}`);
+      if (exam.changedPapers.length > 12) console.log(`      ... and ${exam.changedPapers.length - 12} more`);
+    }
+    if (
+      !exam.seedOnlyPapers.length &&
+      !exam.seedOnlyTasks.length &&
+      !exam.missingPapers.length &&
+      !exam.missingTasks.length &&
+      !exam.changedPapers.length
+    ) {
+      console.log(
+        `\n  ✓ exam cut: the seed is exactly what the rule produces (${(seed.examPapers ?? []).length} papers, ${
+          (seed.examTasks ?? []).length
+        } tasks)`,
+      );
+    }
+
+    const bad =
+      seedOnly.length + drifted.length + seedRicher.length + unknownDir.length + missing.length +
+      exam.seedOnlyPapers.length + exam.seedOnlyTasks.length;
+    if (
+      bad === 0 && dbOnly.length === 0 && dbRicher.length === 0 &&
+      exam.missingPapers.length === 0 && exam.missingTasks.length === 0 && exam.changedPapers.length === 0
+    ) {
       console.log('\n✓ seed.json and Postgres agree, shape AND content. A publish is safe.\n');
       return;
     }
