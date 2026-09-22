@@ -34,8 +34,8 @@ import { contentItems } from '../src/db/schema';
 import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCLED_VOCAB_FLOOR } from '../src/lib/vocab';
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
-import { cutItems } from './seed-cut.logic.ts';
-import { findPresenceLosses, findUnitLosses, findVersionedLosses, formatDiffReport, type DriftLoss } from './drift-guard.logic.ts';
+import { cutExamTasks, cutItems } from './seed-cut.logic.ts';
+import { findExamPaperLosses, findExamTaskLosses, findPresenceLosses, findUnitLosses, findVersionedLosses, formatDiffReport, type DriftLoss } from './drift-guard.logic.ts';
 import { stableStringify, sha256, uploadToStorage, downloadFromStorage, listStorage, deleteFromStorage } from './snapshot-utils.ts';
 import { planPrune, mib } from './prune.logic.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
@@ -214,18 +214,17 @@ async function runPythonGate(
 //
 //   ExamTask, ExamPaper      (Corpus.examTasks/examPapers)
 //     DONE (Phase 8 gap-closure) — read below, mapped onto the full `corpus`
-//     object. Deliberately NOT added to the seed cut (`seed`, step 5), and
-//     that stays true, but the ORIGINAL reason has expired: it used to be
-//     "exam content is b1/b2-banded and the cut only bundles a1/a2/sons".
-//     TCF Canada's comprehension épreuves run from A1, so a band argument
-//     would now pull some exam content into the cut.
-//
-//     The reason it stays out is a decision, not a band: exams do not ship
-//     offline (exam-pack decision 11.6). Audio dominates the payload, and a
-//     2h55 paper bundled into the binary would bloat every install for a
-//     feature most of them never open. Exam content reaches the app over the
-//     network snapshot only. Provenance columns are WITHHELD the same way
-//     Item's are — see WITHHELD_ITEM_COLUMNS.
+//     object. As of phase 22.1 they ALSO land on the seed cut (`seed`, step
+//     5), reversing exam-pack decision 11.6 for exam TEXT: a fresh or
+//     offline install showed "No mock exams" until the OTA snapshot landed,
+//     and every published paper plus the tasks it references now ships in
+//     the binary instead (D-01/D-02, `cutExamTasks` in seed-cut.logic.ts).
+//     Audio still dominates the payload and stays in Storage, resolved by
+//     `audioRef` the same as every other asset; grading still needs the
+//     network, so bundling makes a paper visible and openable offline, not
+//     gradable offline. EXAM-PACK-REDESIGN.md is left as the historical
+//     record of decision 11.6, not amended. Provenance columns are WITHHELD
+//     the same way Item's are — see WITHHELD_ITEM_COLUMNS.
 //
 //   Item.provenance                                (schema.ts: Provenance)
 //     NOT debt — a decision. The columns exist and are deliberately withheld;
@@ -607,6 +606,8 @@ async function main() {
       scenarios?: Scenario[];
       playlists?: Playlist[];
       speakPath?: SpeakStage[];
+      examPapers?: ExamPaper[];
+      examTasks?: ExamTask[];
     } | null = null;
     try {
       const { execFileSync } = await import('node:child_process');
@@ -691,6 +692,10 @@ async function main() {
         describe: (s) => `v${s.version}, ${s.blocks.length} blocks`,
         signals: [{ label: 'blocks', of: (s) => s.blocks.length }],
       }),
+      // Exams (phase 22.1, D-12): `live` is the FULL published set, the same
+      // as lessons/units above — not the seed's referenced-only task cut.
+      ...findExamPaperLosses({ committed: committed?.examPapers, live: new Map(examPapers.map((p) => [p.id, p])) }),
+      ...findExamTaskLosses({ committed: committed?.examTasks, live: new Map(examTasks.map((t) => [t.id, t])) }),
     );
 
     if (losses.length) {
@@ -728,6 +733,13 @@ async function main() {
             '                  authoring script that made it, so Postgres holds it, then publish.'
         );
       }
+      if (kinds.includes('exam paper') || kinds.includes('exam task')) {
+        console.error(
+          '    exam papers/tasks: re-apply with scripts/exam/apply-paper.ts and publish the row\n' +
+            '                  with scripts/exam/promote-paper.ts so Postgres holds it, then publish.\n' +
+            '                  There is no override flag, the same as lessons.'
+        );
+      }
       console.error(
         '\n  When the DB and git agree, a --dry-run leaves seed.json byte-identical,\n' +
           '  which is the proof that nothing can be lost.\n'
@@ -739,22 +751,26 @@ async function main() {
       console.log(
         `  ✓ no-silent-regression: ${(committed.lessons ?? []).length} lessons · ` +
           `${(committed.units ?? []).length} units · ${(committed.scenarios ?? []).length} scenarios · ` +
-          `${(committed.playlists ?? []).length} playlists · ${(committed.speakPath ?? []).length} speak stages ` +
+          `${(committed.playlists ?? []).length} playlists · ${(committed.speakPath ?? []).length} speak stages · ` +
+          `${(committed.examPapers ?? []).length} exam papers · ${(committed.examTasks ?? []).length} exam tasks ` +
           `accounted for`
       );
     }
   }
 
-  // ── Why exam content is NOT in the guard above (phase 1, D-05) ──────────
-  // `corpus` (above) carries examTasks/examPapers; the `seed` object written to
-  // seed.json at step 9 does not — exams do not ship offline, they reach the app
-  // over the network snapshot only. This guard exists because step 9 REGENERATES
-  // a git artifact from the database, so anything git-only and DB-behind is
-  // destroyed. Nothing regenerates a paper's git source: exam content flows
-  // scripts/exam/apply-paper.ts → Postgres → promote-paper.ts, one direction
-  // only, and no script writes seed.json under scripts/exam/. The hazard cannot
-  // occur for exam content, so guarding it would be cost with no protection.
-  // If a seed-direct exam-authoring path is ever added, this reopens.
+  // ── Exam content IS in the guard above (phase 22.1, D-12) ────────────────
+  // Step 5 now regenerates examPapers/examTasks in seed.json the same way it
+  // regenerates lessons and units, so a DB paper or task that fell behind the
+  // committed seed would be destroyed exactly the way a lesson would — the
+  // same hazard the rest of this guard exists for. findExamPaperLosses /
+  // findExamTaskLosses cover it below. Neither ExamPaper nor ExamTask carries
+  // a `version` field, so the comparators are structural rather than
+  // version-based: deletion, a shrunk task roster, a dropped épreuve, a
+  // shrunk items/parts count, or a lost rubric/model answer/interlocutor/
+  // debate bank. Exam content still flows one direction into Postgres
+  // (scripts/exam/apply-paper.ts → promote-paper.ts), so the DB stays the
+  // source of truth; the guard only stops a publish from erasing what git
+  // already has when the DB has since fallen behind it.
 
   // ── 4a. RULE deterministic-french-gates (master plan Phase 2.D) ─────────
   // A Python subprocess (publish/CI environment only — never bundled, never
@@ -1085,10 +1101,19 @@ async function main() {
   //     overlay a no-op.
   //   · It is reference data: 14 domains and 130 themes is roughly 26 KiB
   //     against a 5 MiB ceiling, and it does not grow with the corpus.
+  // Exams (phase 22.1, D-01/D-02): every published paper ships unfiltered;
+  // only the tasks a bundled paper's sections reference ship with it, the
+  // same referenced-only shape cutItems uses for items — orphan published
+  // tasks (e.g. the PE remediation tasks no paper names) stay OTA-only.
+  // This reverses exam-pack decision 11.6 for exam TEXT only: audio stays in
+  // Storage and resolves by audioRef, and grading still needs the network.
+  const seedExamTasks = cutExamTasks(examTasks, examPapers);
   const seed: Corpus = {
     version, domains, themes,
     units: seedUnits, lessons: seedLessons, items: seedItems,
     scenarios: seedScenarios, playlists: seedPlaylists, speakPath: seedSpeak,
+    examPapers,                  // D-01: every published paper, unfiltered
+    examTasks: seedExamTasks,    // D-02: only tasks a bundled paper references
   };
 
   // The seed must be a coherent corpus IN ITS OWN RIGHT. It is what a user with
@@ -1105,7 +1130,8 @@ async function main() {
   }
   console.log(
     `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items · ` +
-      `${seedScenarios.length} scenarios · ${seedPlaylists.length} playlists · ${seedSpeak.length} speak stages`
+      `${seedScenarios.length} scenarios · ${seedPlaylists.length} playlists · ${seedSpeak.length} speak stages · ` +
+      `${examPapers.length} exam papers · ${seedExamTasks.length} exam tasks`
   );
 
   // ── 6. Bytes ───────────────────────────────────────────────────────────
