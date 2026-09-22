@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 15: Content Snapshot Split — Implementation** - Split the OTA content snapshot by curriculum level so a first-run learner doesn't download the full 27-50MB blob
 - [ ] **Phase 16: Cold-Start Lazy Load** - Move the eager `seed.json` import into `initContent()`, using the mascot's existing "thinking" state as the loading cue, so the app reaches an interactive first screen without the multi-second blank splash
 - [ ] **Phase 17: Notification Tap-Handler & Push Token Registration** - Wire notification-tap deep-linking (gated on content readiness) and push-token registration
-- [ ] **Phase 18: Component Test Infrastructure** - Stand up Jest + jest-expo + React Native Testing Library, scoped to component-render tests only
+- [x] **Phase 18: Component Test Infrastructure** - Stand up Jest + jest-expo + React Native Testing Library, scoped to component-render tests only (completed 2026-09-22)
 - [ ] **Phase 19: High-Risk Test Coverage — Exam Grading & Notification Delivery** - Automated E2E coverage for exam submission→grading→report and notification scheduling→delivery→tap-response
 - [ ] **Phase 20: TEF Speech-Rate Verification & Re-render** - Confirm whether blanc-01's hot CO speech-rate pattern (Sections D/E/F) holds across all 5 TEF papers, and re-render any document confirmed to exceed its band's wpm ceiling
 - [ ] **Phase 21: DELF blanc-02..05 Audio Listening QA** - Run a human listening pass over the ~36.8 minutes of CO audio across DELF blanc-02 through blanc-05 that shipped without an E8 review, fixing any defect found
@@ -352,7 +352,7 @@ Plans:
 - [x] 18-01-PLAN.md — Install jest/jest-expo/RNTL, add the separate `test:component` script, give `Toggle` a switch role plus accessible name (D-07), and prove the harness with a Toggle render/press test
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 18-02-PLAN.md — Render the real `app/settings.tsx` with `getByRole` assertions plus one sound-toggle interaction against the real store, and write the `ealch-v2/TESTING.md` recipe (D-06)
+- [x] 18-02-PLAN.md — Render the real `app/settings.tsx` with `getByRole` assertions plus one sound-toggle interaction against the real store, and write the `ealch-v2/TESTING.md` recipe (D-06)
 
 **UI hint**: yes
 
@@ -427,7 +427,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | 15. Content Snapshot Split — Implementation | 0/TBD | Not started | - |
 | 16. Cold-Start Lazy Load | 0/TBD | Not started | - |
 | 17. Notification Tap-Handler & Push Token Registration | 0/TBD | Not started | - |
-| 18. Component Test Infrastructure | 1/2 | In Progress|  |
+| 18. Component Test Infrastructure | 2/2 | Complete   | 2026-09-22 |
 | 19. High-Risk Test Coverage — Exam Grading & Notification Delivery | 0/TBD | Not started | - |
 | 20. TEF Speech-Rate Verification & Re-render | 0/TBD | Not started | - |
 | 21. DELF blanc-02..05 Audio Listening QA | 0/TBD | Not started | - |
