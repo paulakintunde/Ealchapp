@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 23 context gathered
-last_updated: "2026-09-22T07:47:38.282Z"
+stopped_at: Phase 22.1 context gathered
+last_updated: "2026-09-22T08:17:42.673Z"
 last_activity: 2026-09-22
 progress:
   total_phases: 24
@@ -118,6 +118,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-22T07:26:38.279Z
-Stopped at: Phase 23 context gathered
-Resume file: .planning/phases/23-exam-recording-task-restore-grading-path-integrity/23-CONTEXT.md
+Last session: 2026-09-22T08:17:42.639Z
+Stopped at: Phase 22.1 context gathered
+Resume file: .planning/phases/22.1-bundle-exam-content-in-the-seed-so-exams-load-at-first-launc/22.1-CONTEXT.md
