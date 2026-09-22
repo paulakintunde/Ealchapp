@@ -4,10 +4,10 @@ milestone: v1.0
 milestone_name: milestone
 status: planning
 stopped_at: Phase 23 context gathered
-last_updated: "2026-09-22T07:26:38.359Z"
+last_updated: "2026-09-22T07:47:38.282Z"
 last_activity: 2026-09-22
 progress:
-  total_phases: 23
+  total_phases: 24
   completed_phases: 8
   total_plans: 42
   completed_plans: 42
@@ -25,7 +25,7 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 22
+Phase: 22.1
 Plan: Not started
 Status: Ready to plan
 Last activity: 2026-09-22
@@ -62,6 +62,10 @@ Progress: [██████████] 100%
 | Phase 06 P05 | 25min | 2 tasks | 1 files |
 
 ## Accumulated Context
+
+### Roadmap Evolution
+
+- Phase 22.1 inserted after Phase 22: Bundle exam content in the seed so exams load at first launch, offline; sequenced before Phase 23 (URGENT)
 
 ### Decisions
 

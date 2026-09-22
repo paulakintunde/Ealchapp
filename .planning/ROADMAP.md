@@ -37,6 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 19: High-Risk Test Coverage — Exam Grading & Notification Delivery** - Automated E2E coverage for exam submission→grading→report and notification scheduling→delivery→tap-response
 - [ ] **Phase 20: TEF Speech-Rate Verification & Re-render** - Confirm whether blanc-01's hot CO speech-rate pattern (Sections D/E/F) holds across all 5 TEF papers, and re-render any document confirmed to exceed its band's wpm ceiling
 - [ ] **Phase 21: DELF blanc-02..05 Audio Listening QA** - Run a human listening pass over the ~36.8 minutes of CO audio across DELF blanc-02 through blanc-05 that shipped without an E8 review, fixing any defect found
+- [ ] **Phase 22.1: Bundle Exam Content in the Seed** (INSERTED) - Ship published exam papers/tasks in the bundled seed so a fresh or offline install has exams at first launch, no OTA wait
 - [ ] **Phase 23: Exam Recording-Task Restore & Grading-Path Integrity** - Fix recording-based exam tasks (speak/interaction/débat) to show a restored "already answered" summary after a crash, checkpoint in-progress recordings so a mid-recording kill keeps the answer, and reconcile the submit/report task-list divergence that can silently report a completed section as "not sat"
 
 ## Phase Details
@@ -402,9 +403,25 @@ Plans:
 **Plans**: TBD
 **Source**: `.planning/phases/22-general-screen-test-coverage/22-SCREEN-COVERAGE-AUDIT.md` — 49 screens measured directly (line counts, git fix-commit history); 45% (22/49) have a documented historical bug; only 2/49 get coverage from Phases 18-19. Gathered 2026-09-22 during Phase 18's discuss-phase, at the user's explicit request to document (not yet execute) general screen coverage as future work.
 
+### Phase 22.1: Bundle exam content in the seed so exams load at first launch, offline, before any snapshot download (INSERTED)
+
+**Goal:** A fresh install shows the published exam papers at first launch, offline, with no "No mock exams" wait for the first OTA snapshot download, because papers and tasks ship inside the bundled seed the way lessons already do.
+**Requirements**: TBD (new requirement to be written at plan time)
+**Depends on:** None in code (Phase 22 is unrelated screen-test coverage; 22.1 is numbered after it only for position). Sequenced BEFORE Phase 23 because it changes Phase 23's device-proof setup (a dev build would show exams, removing D-14's temporary guard patch) and removes BUG-05's most likely trigger (the seed-first corpus having no exam tasks).
+**Success Criteria** (what must be TRUE):
+  1. `seed.json` carries `examPapers` and `examTasks`, cut from the PUBLISHED database state (not seed-direct authoring ahead of Postgres), and a fresh offline install lists and opens every published paper.
+  2. The OTA snapshot still supersedes the bundled exams by id, so a paper corrected after release reaches devices that go online.
+  3. The existing "exams are never in the seed" assumptions (the exam-report cross-seam test in ealch-admin, the seed-cut scripts, any test asserting the absence) are found and updated deliberately, not left silently contradicting the new seed.
+  4. Seed growth is measured and recorded (baseline about 15.1 MB seed; exam text about 1.4 MB for 15 papers / 220 tasks as of 2026-09-22), including cold-start time on a real device, since Phase 16 targets the eager seed import.
+  5. Exam audio is explicitly out of scope: clips still resolve from Storage by `audioRef`. The phase records how exam audio behaves offline on a fresh install rather than implying it is bundled.
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd-plan-phase 22.1 to break down)
+
 ### Phase 23: Exam Recording-Task Restore & Grading-Path Integrity
 **Goal**: A candidate who force-kills and relaunches mid-exam sees their recorded or spoken answer reflected on screen instead of a misleading fresh-start prompt, and a section that was genuinely answered is never silently reported as "not sat."
-**Depends on**: Phase 7 (BUG-02's draft-persistence/restore mechanism must exist — this phase extends its coverage to the presentation layer and the grading-integrity check BUG-02's own scope never reached)
+**Depends on**: Phase 22.1 (exams in the seed; changes the device-proof setup), Phase 7 (BUG-02's draft-persistence/restore mechanism must exist — this phase extends its coverage to the presentation layer and the grading-integrity check BUG-02's own scope never reached)
 **Requirements**: BUG-04, BUG-05, BUG-06
 **Success Criteria** (what must be TRUE):
   1. After a force-kill/relaunch mid-sitting, `ExamSpeakTask`, `ExamInterlocutorTask`, and `ExamDebateTask` each render a restored "already answered" summary (matching what Writing's plain-text tasks already do today) instead of resetting to their idle "start recording"/"start the interview" screen, whenever a `spoken[task.id]`/`coverage[task.id]`/`debate[task.id]` entry already exists for that task.
