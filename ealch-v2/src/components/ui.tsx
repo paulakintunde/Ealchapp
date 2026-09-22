@@ -213,13 +213,24 @@ export function Badge({
 }
 
 // ── Toggle switch ──
-export function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) => void }) {
+export function Toggle({
+  value,
+  onChange,
+  accessibilityLabel,
+}: {
+  value: boolean;
+  onChange: (v: boolean) => void;
+  accessibilityLabel?: string;
+}) {
   const t = useTheme();
   return (
     <Press
       cue="tap"
       onPress={() => onChange(!value)}
       scale={1}
+      accessibilityRole="switch"
+      accessibilityState={{ checked: value }}
+      accessibilityLabel={accessibilityLabel}
       style={{
         width: 48,
         height: 28,
