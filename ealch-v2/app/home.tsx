@@ -61,9 +61,11 @@ export default function Home() {
   // fact a candidate actually wants from a section header.
   // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
   // memos read it imperatively through content.*, which calls getState(), so
-  // before this they never re-ran when the OTA snapshot landed. Exam content
-  // ships only in that snapshot, so any exam screen mounted during launch
-  // memoised an empty result and kept it.
+  // before this they never re-ran when the OTA snapshot landed. Before phase
+  // 22.1 exam content reached the app only through that snapshot, so an exam
+  // screen mounted during launch memoised an empty result and kept it; the
+  // seed now carries the papers, and the snapshot can still supersede them
+  // after mount.
   const examCorpus = useContent((s) => s.corpus);
   const examPaperCount = useMemo(
     () => EXAM_FORMAT_ORDER.reduce((n, f) => n + content.examPapersFor(f).length, 0),

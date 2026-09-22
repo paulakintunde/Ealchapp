@@ -64,9 +64,10 @@ export default function ExamFormatHub() {
   //
   // This read `content.examPapersFor(format)` with `[format]` as its only
   // dependency. `content.*` reaches into the store imperatively via getState(),
-  // so nothing here re-ran when the corpus changed — and the corpus ALWAYS
-  // changes after this screen can mount: exam content ships only in the OTA
-  // snapshot (never the seed), which arrives a few seconds into launch.
+  // so nothing here re-ran when the corpus changed — and the corpus still
+  // changes after this screen can mount, because the seed's bundled papers
+  // (phase 22.1) are superseded by the OTA snapshot a few seconds into launch,
+  // and a paper corrected after release arrives that way.
   //
   // So a candidate who opened the Examiner on a cold start saw "no exams
   // available yet" and kept seeing it, because the empty list computed at mount
