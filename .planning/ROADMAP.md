@@ -37,7 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 19: High-Risk Test Coverage — Exam Grading & Notification Delivery** - Automated E2E coverage for exam submission→grading→report and notification scheduling→delivery→tap-response
 - [ ] **Phase 20: TEF Speech-Rate Verification & Re-render** - Confirm whether blanc-01's hot CO speech-rate pattern (Sections D/E/F) holds across all 5 TEF papers, and re-render any document confirmed to exceed its band's wpm ceiling
 - [ ] **Phase 21: DELF blanc-02..05 Audio Listening QA** - Run a human listening pass over the ~36.8 minutes of CO audio across DELF blanc-02 through blanc-05 that shipped without an E8 review, fixing any defect found
-- [ ] **Phase 23: Exam Recording-Task Restore & Grading-Path Integrity** - Fix recording-based exam tasks (speak/interaction/débat) to show a restored "already answered" summary after a crash, and reconcile the submit/report task-list divergence that can silently report a completed section as "not sat"
+- [ ] **Phase 23: Exam Recording-Task Restore & Grading-Path Integrity** - Fix recording-based exam tasks (speak/interaction/débat) to show a restored "already answered" summary after a crash, checkpoint in-progress recordings so a mid-recording kill keeps the answer, and reconcile the submit/report task-list divergence that can silently report a completed section as "not sat"
 
 ## Phase Details
 
@@ -405,12 +405,13 @@ Plans:
 ### Phase 23: Exam Recording-Task Restore & Grading-Path Integrity
 **Goal**: A candidate who force-kills and relaunches mid-exam sees their recorded or spoken answer reflected on screen instead of a misleading fresh-start prompt, and a section that was genuinely answered is never silently reported as "not sat."
 **Depends on**: Phase 7 (BUG-02's draft-persistence/restore mechanism must exist — this phase extends its coverage to the presentation layer and the grading-integrity check BUG-02's own scope never reached)
-**Requirements**: BUG-04, BUG-05
+**Requirements**: BUG-04, BUG-05, BUG-06
 **Success Criteria** (what must be TRUE):
   1. After a force-kill/relaunch mid-sitting, `ExamSpeakTask`, `ExamInterlocutorTask`, and `ExamDebateTask` each render a restored "already answered" summary (matching what Writing's plain-text tasks already do today) instead of resetting to their idle "start recording"/"start the interview" screen, whenever a `spoken[task.id]`/`coverage[task.id]`/`debate[task.id]` entry already exists for that task.
   2. `exam-section.tsx`'s `submit()` loop and `exam-report.tsx`'s `sectionStatusFor()` are reconciled so they can no longer silently disagree about which tasks belong to a section — either both are resolved against the same task-id set, or a genuine mismatch between them is surfaced (visibly to the candidate, or at minimum logged) instead of rendering as an unqualified "Not sat."
   3. The BUG-05 divergence (`examTasksOfSection`'s silent `.filter(t => !!t)` dropping an unresolved task id while `sectionStatusFor` still expects it) is covered by an automated test that fails against today's code and passes once fixed — not verified by inspection alone.
   4. A device pass confirms that a real recorded/spoken answer, submitted after a force-kill and relaunch, produces a real grading outcome or an honest "grading failed" message for the section actually completed — never "not sat."
+  5. A force-kill DURING a recording (mid-monologue, mid-interview, mid-débat) no longer loses the answer: the in-progress transcript is checkpointed as the candidate speaks, and on relaunch the saved part is shown on the task's finished card and graded as that task's answer, under the same exam-locked / practice-redo rule as a restored finished answer.
 **Plans**: TBD
 **Source**: `.planning/phases/07-known-bug-fixes/07-VALIDATION.md` and `07-05-SUMMARY.md` — both findings surfaced live on-device during Phase 7's own BUG-02 verification pass (2026-09-22): BUG-04 confirmed directly (restored answer data survives, screen doesn't reflect it); BUG-05 reproduced once (TEF Canada Exam 3, Speaking) and traced to its root cause by code audit, though the exact trigger for that one reproduction (corpus timing vs. another divergence path) is not independently confirmed from device logs.
 

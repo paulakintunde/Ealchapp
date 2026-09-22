@@ -6,12 +6,13 @@
 <domain>
 ## Phase Boundary
 
-Two defects surfaced by Phase 7's own BUG-02 device pass, and nothing more:
+Two defects surfaced by Phase 7's own BUG-02 device pass, plus one found in this phase's discussion, and nothing more:
 
 - **BUG-04 (presentation):** after a force-kill/relaunch, `ExamSpeakTask`, `ExamInterlocutorTask` and `ExamDebateTask` reset to their idle "start" screen even though `exam-section.tsx` has already restored `spoken[task.id]` / `coverage[task.id]` / `debate[task.id]` from the draft. They must render the answered state instead.
 - **BUG-05 (integrity):** `examTasksOfSection()` silently drops unresolved task ids, `submit()` grades only that filtered list, and `sectionStatusFor(sec.taskIds, ...)` reads the unfiltered authored list, so a completed section can report "Not sat". The two must be reconciled, with an honest status when tasks really are missing, and covered by a test that fails today.
+- **BUG-06 (added in discussion):** a force-kill DURING a recording loses the whole answer, because answers commit only at `done`. The in-progress transcript must be checkpointed and restored as the task's answer.
 
-Not in scope: persisting in-progress recordings, any redo affordance outside the post-restore case, grading-layer/quota failures.
+Not in scope: resuming a recording mid-conversation, any redo affordance outside the post-restore case, grading-layer/quota failures.
 
 </domain>
 
@@ -28,7 +29,7 @@ Not in scope: persisting in-progress recordings, any redo affordance outside the
 - **D-01:** Redo depends on `mode`. In **exam** mode a restored task is locked: it shows its answered card and offers no way to record again (a normal sitting never offers a redo, and neither does the real TEF/DELF; a crash must not become a free second attempt). In **practice** mode the restored card offers "Record again".
 - **D-02:** "Record again" exists ONLY on a restored card in practice mode. A normal, uninterrupted practice sitting behaves exactly as today (no redo). Adding redo to every finished practice task is out of scope.
 - **D-03:** "Record again" asks one confirm before discarding the saved answer ("Record again? Your saved answer will be replaced." with Cancel / Record again), the same shape as the section's existing submit confirm. Copy must follow the no-em-dash rule.
-- **D-04:** A restored answer is shown and graded exactly as a finished one, whatever it contains. Note for the planner: all three components call `onAnswer` only when they reach `done` (`ExamInterlocutorTask.tsx:168` and equivalents), so a kill mid-recording saves nothing and the task correctly returns to idle. There is no partial-restore case to draw.
+- **D-04:** A restored answer is shown and graded exactly as a finished one, whatever it contains, including a partial answer saved mid-recording (see D-16..D-19).
 
 ### BUG-04: what the restored card shows
 - **D-05:** Reuse each component's existing `done` card, driven from the restored data: the component mounts directly in `phase = 'done'` when a restored answer is passed in. No new shared "restored" component. The restored view must show the same numbers the grader will receive (the components already hold "the numbers the grader was sent"; do not recompute differently for display).
@@ -46,8 +47,16 @@ Not in scope: persisting in-progress recordings, any redo affordance outside the
 - **D-13:** Split as in Phase 7: Claude builds, installs, sets up over adb and reads the screens; Paul supplies the real speech, force-kills, relaunches and submits. No scripted/synthetic speech (Phase 7's false-confidence rule).
 - **D-14:** Two passes. (1) A dev build with the two exam-content guards (`refreshFromRemote`'s `if (__DEV__) return`, `adoptedForLaunch(..., __DEV__)`) lifted by a **temporary, uncommitted local patch**, used only to inspect the restored draft in RKStorage via `run-as`; the patch is reverted afterwards and never merged. (2) An EAS `preview` build, the pass that counts, proving the real manifest to cache to merge path end to end. The guards themselves are deliberate and stay.
 - **D-15:** The device pass does not try to force the BUG-05 race; D-12's test proves it. The device pass proves only that a restored spoken answer yields a real grade or an honest "grading failed", never "Not sat".
+- **D-20:** The device pass also covers BUG-06 (criterion 5): Paul force-kills mid-recording on at least one task (mid-interview is the case Phase 7 hit), relaunches, and the task must open on its finished card with the saved part, then grade as that answer.
+
+### BUG-06: in-progress recording checkpoints (added after the first write, at the user's request: "do not defer, fix this in this phase")
+- **D-16:** Today all three components call `onAnswer` only on reaching `done` (`ExamInterlocutorTask.tsx:168`, `ExamDebateTask.tsx:170`, `ExamSpeakTask.tsx:176`), so a kill mid-recording saves nothing. The in-progress answer must now be checkpointed while the candidate speaks, into the same Phase 7 draft (`exam-draft:{attemptId}`), not a new store.
+- **D-17:** Save points follow Phase 7 D-01/D-02 (checkpoint at boundaries, never per keystroke/partial): **Interview and débat** checkpoint after every completed candidate turn (the moment `said.current` grows). **Speak** is one long `stt.listen` with only `onPartial`, so it checkpoints the running partial on a throttle (a few seconds; exact value is Claude's discretion) and flushes on app backgrounding/unmount. D-09 still holds: transcript and derived signals only, never audio.
+- **D-18:** What is checkpointed must be enough to draw the finished card and grade it: transcript so far plus the signals, interview coverage (`coverageOf(bank, played)`) and débat report (`debateReport(...)`) computed from it. A checkpointed partial must be distinguishable from a committed `done` answer internally (so the live component keeps recording), but on relaunch both restore the same way.
+- **D-19:** On relaunch, the saved part IS the task's answer: the task opens on its finished card (D-05) and is graded as-is. There is no "continue where it stopped" (the examiner's conversation state is not resumed). The mode rule applies unchanged: locked in exam mode, "Record again" behind the D-03 confirm in practice. Nothing marks it as interrupted (D-07/D-10); the duration note and coverage count already show a short answer.
 
 ### Claude's Discretion
+- Speak-task checkpoint throttle interval and how partial vs committed is flagged in the draft.
 - Hold timeout length and what "resolved" waits on (corpus store subscription vs polling).
 - How the missing marker is stored (a flagged `ExamResult` vs report-time comparison), provided the report can distinguish "ours" from "never attempted".
 - Prop shape for passing a restored answer into the three components.
@@ -61,7 +70,7 @@ Not in scope: persisting in-progress recordings, any redo affordance outside the
 **Downstream agents MUST read these before planning or implementing.**
 
 ### Requirements and origin
-- `.planning/REQUIREMENTS.md` (BUG-04, BUG-05): the defect statements and root-cause trace
+- `.planning/REQUIREMENTS.md` (BUG-04, BUG-05, BUG-06): the defect statements and root-cause trace
 - `.planning/ROADMAP.md` § Phase 23: goal and the four success criteria
 - `.planning/phases/07-known-bug-fixes/07-05-SUMMARY.md`: where both defects were found on device, and why scripted speech was rejected
 - `.planning/phases/07-known-bug-fixes/07-VALIDATION.md`: Phase 7 validation record cited as source
@@ -111,7 +120,6 @@ Not in scope: persisting in-progress recordings, any redo affordance outside the
 <deferred>
 ## Deferred Ideas
 
-- **Persist in-progress spoken transcripts.** A kill mid-recording or mid-interview loses the whole answer today, because answers commit only at `done`. Saving incrementally would be a new capability beyond BUG-04; candidate for its own requirement.
 - **Redo on any finished practice task** (not only after a restore). Declined for this phase as a new practice feature.
 
 </deferred>

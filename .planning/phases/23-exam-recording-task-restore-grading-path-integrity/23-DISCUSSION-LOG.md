@@ -67,5 +67,19 @@ BUG-05 on device: "No, the test proves it" (vs "Yes, try to force it").
 
 ## Deferred Ideas
 
-- Persist in-progress spoken transcripts (mid-recording kill loses the answer)
+- ~~Persist in-progress spoken transcripts~~: initially deferred, then pulled INTO scope by the user as BUG-06 ("do not defer, fix this in this phase")
 - Redo on any finished practice task
+
+---
+
+## BUG-06: mid-recording kill (added after the first context write)
+
+The user rejected deferring it: "please do not defer, fix this in this phase". Filed as BUG-06, mapped to Phase 23, success criterion 5 added.
+
+| Option | Description | Selected |
+|--------|-------------|----------|
+| Saved part = the answer | Reopen on the finished card, grade as-is, mode rule unchanged | ✓ |
+| Continue where it stopped | Resume recording; needs examiner state persisted | |
+| Mode-dependent | Exam locked; practice chooses keep vs restart | |
+
+Cut-off mark: "Nothing extra" (vs "One quiet line").
