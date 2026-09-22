@@ -46,6 +46,8 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 - [ ] **BUG-01**: Audio/TTS playback pauses when the app is backgrounded and resumes appropriately on foreground
 - [ ] **BUG-02**: A user's exam response is persisted before grading is requested, so it survives a crash/force-stop/process death
 - [ ] **BUG-03**: STT continuous-mode behavior (`continuous: false`) is covered by a regression test so a prior fix (8cd0be3) can't silently regress
+- [ ] **BUG-04**: Every recording-based exam task (`ExamSpeakTask`, `ExamInterlocutorTask`, `ExamDebateTask`) shows a restored, already-answered summary after a crash/relaunch instead of resetting to its fresh "start recording" screen — added 2026-09-22, surfaced by Phase 7's own BUG-02 device verification (see `07-VALIDATION.md`/`07-05-SUMMARY.md`). The underlying answer data (transcript, coverage, delivery signals) DOES survive a force-kill via BUG-02's fix — confirmed live on device via the section-level "X/2 answered" count staying accurate across two independent kill/relaunch cycles. The defect is presentational only: all three components initialize `phase` to `'idle'` unconditionally on mount with no prop reflecting a prior answer, so a user has no way to know their answer already exists and is invited to redo it, silently overwriting the good data.
+- [ ] **BUG-05**: `exam-section.tsx`'s `submit()` and `exam-report.tsx`'s `sectionStatusFor()` can silently disagree about which tasks belong to a section, producing a "Not sat" report for a section the candidate actually completed — added 2026-09-22, surfaced by the same device-verification pass as BUG-04, confirmed by code audit (see `07-05-SUMMARY.md`). Root cause: `content.logic.ts`'s `examTasksOfSection()` silently drops (`.filter(t => !!t)`) any task id in `section.taskIds` that fails to resolve against the currently-loaded `corpus.examTasks`, and `submit()`'s grading loop only ever sees that filtered list — while `exam-report.tsx:74`'s `sectionStatusFor(sec.taskIds, ...)` checks against the original, unfiltered, authored task-id list. Any divergence between the two (a corpus replaced mid-session by `refreshFromRemote()`, a content gap, a load-timing race) causes `submit()` to silently skip logging results for the dropped tasks with no error surfaced, while the report reads the resulting absence as "never attempted" rather than "something went missing." Live-reproduced once (TEF Canada Exam 3, Speaking, real restored answer submitted, report showed "Not sat" instead of the expected "not-graded"/"X of Y" status) but the exact trigger for that instance is not confirmed — device-side `examResults` state was not directly inspectable (no `run-as` on a release build) to prove which of the two candidate mechanisms fired.
 
 ### Test Coverage
 
@@ -125,6 +127,8 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | BUG-01 | Phase 7 | Pending |
 | BUG-02 | Phase 7 | Pending |
 | BUG-03 | Phase 7 | Pending |
+| BUG-04 | Phase 23 | Pending |
+| BUG-05 | Phase 23 | Pending |
 | A11Y-01 | Phase 8 | Pending |
 | A11Y-02 | Phase 8 | Pending |
 | A11Y-03 | Phase 8 | Pending |
@@ -144,13 +148,15 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | TEST-04 | Phase 22 | Pending |
 
 **Coverage:**
-- v1 requirements: 30 total (29 original + TEST-04, added 2026-09-22 when Phase 18's discuss-phase surfaced that only 2 of 49 screens would ever get component-render coverage under the original 29-requirement scope — see `22-SCREEN-COVERAGE-AUDIT.md`)
-- Mapped to phases: 30, now spanning 22 phases (up from 21 — Phase 22 appended for TEST-04)
+- v1 requirements: 32 total (29 original + TEST-04, added 2026-09-22 when Phase 18's discuss-phase surfaced that only 2 of 49 screens would ever get component-render coverage under the original 29-requirement scope — see `22-SCREEN-COVERAGE-AUDIT.md`; + BUG-04 and BUG-05, added 2026-09-22, surfaced by Phase 7's own device verification of BUG-02 — see `07-VALIDATION.md`/`07-05-SUMMARY.md`)
+- Mapped to phases: 32, now spanning 23 phases (up from 22 — Phase 23 appended for BUG-04/BUG-05)
 - Unmapped: 0 ✓
-- Note: ANIM-01 and CONTENT-01 are the two ORIGINAL requirements mapped to more than one phase. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope. CONTENT-01 closed as "audited, gaps found and scoped" against Phase 2 itself, and its two phase-worthy follow-up findings (GAP-06, GAP-07) were promoted to Phase 20 and Phase 21 rather than left untracked in GAPS.md. TEST-04 (added 2026-09-22) is a genuinely new requirement, not a follow-up of an existing one — it was never implicitly covered by TEST-01/02/03, which only ever committed to 2 of 49 screens.
+- Note: ANIM-01 and CONTENT-01 are the two ORIGINAL requirements mapped to more than one phase. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope. CONTENT-01 closed as "audited, gaps found and scoped" against Phase 2 itself, and its two phase-worthy follow-up findings (GAP-06, GAP-07) were promoted to Phase 20 and Phase 21 rather than left untracked in GAPS.md. TEST-04 (added 2026-09-22) is a genuinely new requirement, not a follow-up of an existing one — it was never implicitly covered by TEST-01/02/03, which only ever committed to 2 of 49 screens. BUG-04 and BUG-05 (added 2026-09-22) are genuinely new requirements surfaced by Phase 7's own device-verification pass, not pre-existing gaps in BUG-01/02/03 — they were given their own phase (23) rather than folded into Phase 7, since Phase 7's plans and CONTEXT.md were already scoped and written against the original three bugs.
 
 ---
 *Requirements defined: 2026-09-19*
 *Last updated: 2026-09-19 after roadmap revision — traceability re-mapped, 100% coverage across 19 phases (Phase 14 is a design-spike prerequisite for PERF-02/Phase 15, not a requirement-bearing phase itself; Phase 11 split into 11/12 for ANIM-01; all phases after the original Phase 11 renumbered by +1)*
 *Last updated: 2026-09-19 — CONTENT-01 closed by Phase 2's content audit*
 *Last updated: 2026-09-22 — TEST-04 added (general screen-coverage gap surfaced during Phase 18 discussion), Phase 22 appended*
+*Last updated: 2026-09-22 — BUG-04 added (recording-task restore-view gap surfaced during Phase 7's BUG-02 device verification), unmapped pending phase-sequencing decision*
+*Last updated: 2026-09-22 — BUG-05 added (submit()/sectionStatusFor task-list divergence, found by code audit of the same device-verification session), Phase 23 appended, BUG-04 mapped to Phase 23 (was unmapped)*

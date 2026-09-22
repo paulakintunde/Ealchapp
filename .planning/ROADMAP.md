@@ -37,6 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 19: High-Risk Test Coverage — Exam Grading & Notification Delivery** - Automated E2E coverage for exam submission→grading→report and notification scheduling→delivery→tap-response
 - [ ] **Phase 20: TEF Speech-Rate Verification & Re-render** - Confirm whether blanc-01's hot CO speech-rate pattern (Sections D/E/F) holds across all 5 TEF papers, and re-render any document confirmed to exceed its band's wpm ceiling
 - [ ] **Phase 21: DELF blanc-02..05 Audio Listening QA** - Run a human listening pass over the ~36.8 minutes of CO audio across DELF blanc-02 through blanc-05 that shipped without an E8 review, fixing any defect found
+- [ ] **Phase 23: Exam Recording-Task Restore & Grading-Path Integrity** - Fix recording-based exam tasks (speak/interaction/débat) to show a restored "already answered" summary after a crash, and reconcile the submit/report task-list divergence that can silently report a completed section as "not sat"
 
 ## Phase Details
 
@@ -401,12 +402,24 @@ Plans:
 **Plans**: TBD
 **Source**: `.planning/phases/22-general-screen-test-coverage/22-SCREEN-COVERAGE-AUDIT.md` — 49 screens measured directly (line counts, git fix-commit history); 45% (22/49) have a documented historical bug; only 2/49 get coverage from Phases 18-19. Gathered 2026-09-22 during Phase 18's discuss-phase, at the user's explicit request to document (not yet execute) general screen coverage as future work.
 
+### Phase 23: Exam Recording-Task Restore & Grading-Path Integrity
+**Goal**: A candidate who force-kills and relaunches mid-exam sees their recorded or spoken answer reflected on screen instead of a misleading fresh-start prompt, and a section that was genuinely answered is never silently reported as "not sat."
+**Depends on**: Phase 7 (BUG-02's draft-persistence/restore mechanism must exist — this phase extends its coverage to the presentation layer and the grading-integrity check BUG-02's own scope never reached)
+**Requirements**: BUG-04, BUG-05
+**Success Criteria** (what must be TRUE):
+  1. After a force-kill/relaunch mid-sitting, `ExamSpeakTask`, `ExamInterlocutorTask`, and `ExamDebateTask` each render a restored "already answered" summary (matching what Writing's plain-text tasks already do today) instead of resetting to their idle "start recording"/"start the interview" screen, whenever a `spoken[task.id]`/`coverage[task.id]`/`debate[task.id]` entry already exists for that task.
+  2. `exam-section.tsx`'s `submit()` loop and `exam-report.tsx`'s `sectionStatusFor()` are reconciled so they can no longer silently disagree about which tasks belong to a section — either both are resolved against the same task-id set, or a genuine mismatch between them is surfaced (visibly to the candidate, or at minimum logged) instead of rendering as an unqualified "Not sat."
+  3. The BUG-05 divergence (`examTasksOfSection`'s silent `.filter(t => !!t)` dropping an unresolved task id while `sectionStatusFor` still expects it) is covered by an automated test that fails against today's code and passes once fixed — not verified by inspection alone.
+  4. A device pass confirms that a real recorded/spoken answer, submitted after a force-kill and relaunch, produces a real grading outcome or an honest "grading failed" message for the section actually completed — never "not sat."
+**Plans**: TBD
+**Source**: `.planning/phases/07-known-bug-fixes/07-VALIDATION.md` and `07-05-SUMMARY.md` — both findings surfaced live on-device during Phase 7's own BUG-02 verification pass (2026-09-22): BUG-04 confirmed directly (restored answer data survives, screen doesn't reflect it); BUG-05 reproduced once (TEF Canada Exam 3, Speaking) and traced to its root cause by code audit, though the exact trigger for that one reproduction (corpus timing vs. another divergence path) is not independently confirmed from device logs.
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21 → 22
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21 → 22 → 23
 
-Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/state with each other and can be planned/executed in parallel per `config.json`'s `parallelization: true`. Phase 12 depends on Phase 11 (delight states extend the same Rive component core states establish) and is not part of the free-parallel set. Phase 13 (UI/UX Polish Audit) is hard-blocked behind Phases 5, 8, 10, 11, and 12 — it has been removed from the parallel set (a change from the original draft, made during 2026-09-19 revision to resolve a contradiction between this table and Phase 13's own dependency note) and should only be planned/executed once those five phases land. Phases 14 → 15 → 16 → 17 form a strict dependency chain (each restructures files the next phase touches again) and should not be parallelized with each other. Phase 19 depends on Phases 7, 17, and 18 all landing first. Phases 20 and 21 were appended after Phase 2's content audit (GAPS.md GAP-06, GAP-07) and have no dependency on any other phase. Phase 22 depends on Phases 18 and 19 (needs the test infrastructure and the established heavier-screen pattern) and is not part of the free-parallel set.
+Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/state with each other and can be planned/executed in parallel per `config.json`'s `parallelization: true`. Phase 12 depends on Phase 11 (delight states extend the same Rive component core states establish) and is not part of the free-parallel set. Phase 13 (UI/UX Polish Audit) is hard-blocked behind Phases 5, 8, 10, 11, and 12 — it has been removed from the parallel set (a change from the original draft, made during 2026-09-19 revision to resolve a contradiction between this table and Phase 13's own dependency note) and should only be planned/executed once those five phases land. Phases 14 → 15 → 16 → 17 form a strict dependency chain (each restructures files the next phase touches again) and should not be parallelized with each other. Phase 19 depends on Phases 7, 17, and 18 all landing first. Phases 20 and 21 were appended after Phase 2's content audit (GAPS.md GAP-06, GAP-07) and have no dependency on any other phase. Phase 22 depends on Phases 18 and 19 (needs the test infrastructure and the established heavier-screen pattern) and is not part of the free-parallel set. Phase 23 depends on Phase 7 (extends BUG-02's restore mechanism to the presentation/grading-integrity layer) and is not part of the free-parallel set — it touches the same exam-runner files (`exam-section.tsx`, `exam-report.tsx`) Phase 19's E2E tests will exercise, so planning it before or alongside Phase 19 is worth considering even though no hard dependency runs in that direction.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -432,10 +445,12 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | 20. TEF Speech-Rate Verification & Re-render | 0/TBD | Not started | - |
 | 21. DELF blanc-02..05 Audio Listening QA | 0/TBD | Not started | - |
 | 22. General Screen Test Coverage | 0/TBD | Not started | - |
+| 23. Exam Recording-Task Restore & Grading-Path Integrity | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-09-19*
 *Roadmap revised: 2026-09-19 — Phase 11 split into 11/12 (core/delight mascot states), Phase 13 hard-blocked in the parallel plan, Phase 5's gating rule deferred to phase-planning time, shared interruption-pattern criteria added to Phases 5/10, rating-prompt frequency cap added to Phase 10, acquisition/activation funnel scope added to Phase 9, Phase 7 re-prioritized (BUG-02 first). See ROADMAP REVISED return for full changelog.*
 *Roadmap revised: 2026-09-19 — Phase(s) 20, 21 added from Phase 2's content audit (GAPS.md GAP-06, GAP-07). Appended as integer slot(s); no renumbering required.*
 *Roadmap revised: 2026-09-22 — Phase 22 (General Screen Test Coverage) added, surfaced during Phase 18's discuss-phase when the gap between Phase 18/19's 2-screen coverage and the app's 49-screen surface was measured directly (45% of screens have a documented historical bug). Appended as an integer slot; TEST-04 added to REQUIREMENTS.md. Documented now, execution deferred at the user's explicit request — see `22-SCREEN-COVERAGE-AUDIT.md`.*
-*Granularity: fine (22 phases — large, diverse backlog across 14 requirement categories; most phases are independent/parallelizable per research)*
+*Roadmap revised: 2026-09-22 — Phase 23 (Exam Recording-Task Restore & Grading-Path Integrity) added, surfaced live during Phase 7's own BUG-02 device-verification pass. BUG-04 (recording-task screens never show a restored answer) and BUG-05 (submit()/sectionStatusFor task-list divergence, found by code audit) added to REQUIREMENTS.md and mapped here rather than folded into Phase 7, whose plans and CONTEXT.md were already scoped and written against the original three bugs. Appended as an integer slot; no renumbering required.*
+*Granularity: fine (23 phases — large, diverse backlog across 14 requirement categories; most phases are independent/parallelizable per research)*
