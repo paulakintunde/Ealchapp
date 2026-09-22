@@ -4,14 +4,14 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Phase 22.1 context gathered
-last_updated: "2026-09-22T09:08:12.266Z"
-last_activity: 2026-09-22 -- Phase 22.1 planning complete
+last_updated: "2026-09-22T09:57:14.628Z"
+last_activity: 2026-09-22 -- Phase 22.1 execution started
 progress:
   total_phases: 24
   completed_phases: 8
   total_plans: 50
-  completed_plans: 42
-  percent: 84
+  completed_plans: 45
+  percent: 90
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 18 — component-test-infrastructure
+**Current focus:** Phase 22.1 — bundle-exam-content-in-the-seed-so-exams-load-at-first-launc
 
 ## Current Position
 
-Phase: 22.1
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-09-22 -- Phase 22.1 planning complete
+Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — EXECUTING
+Plan: 1 of 8
+Status: Executing Phase 22.1
+Last activity: 2026-09-22 -- Phase 22.1 execution started
 
 Progress: [██████████] 100%
 

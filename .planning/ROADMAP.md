@@ -414,12 +414,12 @@ Plans:
   3. The existing "exams are never in the seed" assumptions (the exam-report cross-seam test in ealch-admin, the seed-cut scripts, any test asserting the absence) are found and updated deliberately, not left silently contradicting the new seed.
   4. Seed growth is measured and recorded (baseline about 15.1 MB seed; exam text about 1.4 MB for 15 papers / 220 tasks as of 2026-09-22), including cold-start time on a real device, since Phase 16 targets the eager seed import.
   5. Exam audio is explicitly out of scope: clips still resolve from Storage by `audioRef`. The phase records how exam audio behaves offline on a fresh install rather than implying it is bundled.
-**Plans:** 8 plans
+**Plans:** 3/8 plans executed
 
 Plans:
-- [ ] 22.1-01-PLAN.md — Exam seed cut (cutExamTasks, examCutDrift) and structural exam loss comparators, with tests (D-01/D-02/D-03/D-12)
-- [ ] 22.1-02-PLAN.md — Sitting pin in exam-section.tsx (D-05) and the snapshot-supersedes-seed merge test (criterion 2)
-- [ ] 22.1-03-PLAN.md — Comment sweep of every "exams never in the seed" statement in app, services and test rationales (D-11/D-13)
+- [x] 22.1-01-PLAN.md — Exam seed cut (cutExamTasks, examCutDrift) and structural exam loss comparators, with tests (D-01/D-02/D-03/D-12)
+- [x] 22.1-02-PLAN.md — Sitting pin in exam-section.tsx (D-05) and the snapshot-supersedes-seed merge test (criterion 2)
+- [x] 22.1-03-PLAN.md — Comment sweep of every "exams never in the seed" statement in app, services and test rationales (D-11/D-13)
 - [ ] 22.1-04-PLAN.md — Wire the cut and guard into content:publish and content:parity; rewrite the 11.6 rationale comments (D-10/D-12/D-14)
 - [ ] 22.1-05-PLAN.md — Reconcile the sons+a1 narration batch into Postgres and commit HEAD level with the working tree (D-14 precondition, checkpoint)
 - [ ] 22.1-06-PLAN.md — Baseline seed bytes and Pixel 6 cold start on an exam-less preview build (D-09, checkpoint)
