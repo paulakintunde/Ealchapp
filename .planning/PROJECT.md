@@ -29,6 +29,7 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 - ✓ Legal: store-required paywall disclosure, third-party notices in-app — existing (recent)
 - ✓ Accessibility: French `lang` tagging on text components (UDL 08, partial) — existing, in progress
 - ✓ RLS policies on all 41 public Supabase tables — existing, verified correct 2026-09-01
+- ✓ Component-render test infrastructure (Jest + jest-expo + React Native Testing Library) runs alongside the existing 5,447-test `node --test` suite as a separate `test:component` command, with one real screen (`settings.tsx`) covered by a `getByRole`-style render + interaction test against the real (unmocked) zustand store — validated in Phase 18: Component Test Infrastructure (2026-09-22). Closes TEST-02. Surfaced during this phase's discussion that only 2 of the app's 49 screens (~4%) get any component-render coverage from Phases 18-19 combined; general screen coverage beyond that is deliberately deferred as Phase 22 (new requirement TEST-04), not silently dropped — see `.planning/phases/22-general-screen-test-coverage/22-SCREEN-COVERAGE-AUDIT.md`.
 
 ### Active
 
@@ -41,7 +42,7 @@ Users can reliably learn French through Ealch's lessons and practice — the app
 - [ ] Accessibility: finish the UDL pass — TalkBack/screen-reader roles and labels across all interactive controls (currently ~64 of 353 controls announce properly); a default `accessibilityRole="button"` on the shared `Press` component likely closes most of the gap, but needs a per-screen audit for switches/tabs/links that need different roles
 - [ ] Performance: reduce cold start (currently ~2.4s blank screen from eager seed.json load, fix is moving the import from module-scope into `initContent()`) and split the existing ~27-50MB content snapshot by curriculum level (not "implement pruning before a ceiling" — the ceiling was already raised/fixed post-v66; this is a scaling/download-size improvement now)
 - [ ] Retention: notification subsystem's dead toggles and body-format bug are fixed (Phase 6); still needed for launch: tap handler and push token registration (Phase 17)
-- [ ] Test coverage: close the highest-risk gaps — exam grading E2E, notification delivery, and component rendering — enough to trust future changes
+- [ ] Test coverage: close the remaining highest-risk gaps — exam grading E2E and notification delivery (component-rendering infrastructure itself is done, see Validated) — enough to trust future changes. General screen coverage beyond the exam-grading/notification/settings screens (TEST-04, Phase 22) is explicitly out of this milestone's "highest-risk" framing and deferred, per user decision 2026-09-22.
 - [ ] General launch-readiness pass: whatever else surfaces as blocking a public App Store/Play Store submission
 
 ### Out of Scope
@@ -103,3 +104,4 @@ This document evolves at phase transitions and milestone boundaries.
 
 ---
 *Last updated: 2026-09-21 after Phase 6: Notification Correctness — Body Format & Toggles*
+*Last updated: 2026-09-22 after Phase 18: Component Test Infrastructure*
