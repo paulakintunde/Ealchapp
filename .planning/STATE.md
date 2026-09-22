@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 22.1-05-PLAN.md
-last_updated: "2026-09-22T10:56:00.678Z"
+stopped_at: Completed 22.1-06-PLAN.md
+last_updated: "2026-09-22T15:26:27.021Z"
 last_activity: 2026-09-22
 progress:
   total_phases: 24
   completed_phases: 8
   total_plans: 50
-  completed_plans: 47
-  percent: 94
+  completed_plans: 48
+  percent: 96
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — EXECUTING
-Plan: 2 of 8
+Plan: 3 of 8
 Status: Ready to execute
 Last activity: 2026-09-22
 
-Progress: [█████████░] 94%
+Progress: [██████████] 96%
 
 ## Performance Metrics
 
@@ -61,6 +61,7 @@ Progress: [█████████░] 94%
 *Updated after each plan completion*
 | Phase 06 P05 | 25min | 2 tasks | 1 files |
 | Phase 22.1 P05 | 25min | 3 tasks | 30 files |
+| Phase 22.1 P06 | 75min | 3 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -100,6 +101,8 @@ Recent decisions affecting current work:
 - [Phase 07]: Plan 05 (device verification, 2026-09-22): BUG-02 verified on real hardware — local `gradlew assembleRelease` remains blocked (Windows/ninja/Defender, needs admin access this session doesn't have), routed around via an EAS cloud build (`preview` profile) instead. Force-kill/relaunch on a real Pixel 9 confirmed answers survive intact (Writing section, word-for-word) and a retry cannot double-grade (confirmed via a real submit). Surfaced a new, distinct finding while testing the same fix against speaking/recording tasks: the answer DATA survives a crash correctly, but `ExamSpeakTask`/`ExamInterlocutorTask`/`ExamDebateTask` all reset to a blank "start recording" screen on restore with no indication an answer already exists — confirmed via the section-level "X/2 answered" count staying accurate across two independent kill/relaunch cycles while the task's own screen showed nothing. Tracked as new requirement **BUG-04** in REQUIREMENTS.md. A follow-up submit (developer-run, on a fresh paper, Pro account) surfaced a second, more serious finding: the submit came back "Not sat" for a section genuinely completed with a real restored answer — traced by code audit (not device logs, which weren't accessible on a release build without `run-as`) to a real structural gap: `content.logic.ts`'s `examTasksOfSection()` silently drops any task id that fails to resolve against the loaded corpus, while `exam-report.tsx`'s `sectionStatusFor()` checks the section's original, unfiltered task-id list — a divergence between the two that `submit()` never guards against. Filed as new requirement **BUG-05**. Both BUG-04 and BUG-05 given their own new phase — **Phase 23: Exam Recording-Task Restore & Grading-Path Integrity** — rather than folded into Phase 7, whose plans/CONTEXT.md were already scoped to the original three bugs. BUG-01 was already device-verified in a prior session.
 - [Phase 22.1]: Plan 05: Paul approved option-a (author-narration-batch.ts canonical DB write) at the Task 2 checkpoint, plus commit of the 30 listed narration-batch files by explicit path
 - [Phase 22.1]: Plan 05: fixed a Rule 1 bug in author-narration-batch.ts (missing version bump, unlike seed twin apply-narration-seed.ts) discovered while proving content:parity clean; added a self-healing repair path and used it to correct the 30 already-written Postgres rows
+- [Phase 22.1]: Plan 06: D-09 baseline recorded — EAS preview build 2987661d confirmed exam-less (gitCommitHash matches HEAD b85fa55), cold start median 524ms (514-570ms) on the connected Pixel 9, offline Examiner confirmed 'No exams available yet.'
+- [Phase 22.1]: Plan 06: discovered the fresh-unauthenticated-install onboarding gate blocks the ealch://downloads deep link (redirects to sign-up/sign-in); recorded as a contingency for plan 08's after-pass rather than worked around
 
 ### Pending Todos
 
@@ -122,6 +125,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-22T10:56:00.656Z
-Stopped at: Completed 22.1-05-PLAN.md
+Last session: 2026-09-22T15:26:26.938Z
+Stopped at: Completed 22.1-06-PLAN.md
 Resume file: None
