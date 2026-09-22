@@ -33,7 +33,7 @@
 // specific kind+id it overrides rather than being a blanket switch — a
 // blanket bypass is how a guard like this stops meaning anything.
 
-import type { Unit } from '../../ealch-v2/src/content/schema.ts';
+import type { ExamPaper, ExamTask, Unit } from '../../ealch-v2/src/content/schema.ts';
 
 /** A single detected loss, ready to be grouped and printed by the CLI. */
 export type DriftLoss = {
@@ -183,6 +183,121 @@ export function findPresenceLosses<T extends { id: string }>(args: {
       }
     }
   }
+
+  return losses;
+}
+
+/** D-12 (phase 22.1): exam papers now ship in the seed, so a publish that
+ *  would drop or shrink one the committed seed carries must refuse, exactly as
+ *  it does for units. ExamPaper has NO version field (like Unit), so the loss
+ *  signals are structural: deletion, total task roster shrink, a lost épreuve. */
+export function findExamPaperLosses(args: {
+  committed: ExamPaper[] | null | undefined;
+  live: Map<string, ExamPaper>;
+}): DriftLoss[] {
+  const { committed, live } = args;
+  if (!committed) return [];
+
+  const losses: DriftLoss[] = [];
+
+  for (const git of committed) {
+    const db = live.get(git.id);
+    const gitTaskCount = (git.sections ?? []).reduce((n, s) => n + (s.taskIds?.length ?? 0), 0);
+
+    if (!db) {
+      losses.push({
+        kind: 'exam paper',
+        id: git.id,
+        message: `${git.id}: in the committed seed (${gitTaskCount} tasks) but NOT published in the DB, this publish would DELETE it`,
+      });
+      continue;
+    }
+
+    const dbTaskCount = (db.sections ?? []).reduce((n, s) => n + (s.taskIds?.length ?? 0), 0);
+    if (dbTaskCount < gitTaskCount) {
+      losses.push({
+        kind: 'exam paper',
+        id: git.id,
+        message: `${git.id}: the committed seed has ${gitTaskCount} tasks across its sections, the DB paper has ${dbTaskCount}, this publish would SHRINK it`,
+      });
+    }
+
+    // Section count itself (four épreuves) is a stronger signal than task
+    // count alone — a paper that drops a whole épreuve but keeps others' task
+    // counts up would hide behind the shrink check above.
+    const gitSkills = new Set((git.sections ?? []).map((s) => s.skill));
+    const dbSkills = new Set((db.sections ?? []).map((s) => s.skill));
+    const droppedSkills = [...gitSkills].filter((s) => !dbSkills.has(s));
+    if (droppedSkills.length) {
+      losses.push({
+        kind: 'exam paper',
+        id: git.id,
+        message: `${git.id}: the committed seed has a ${droppedSkills.join(', ')} épreuve the DB paper no longer has, this publish would DROP it`,
+      });
+    }
+  }
+
+  return losses;
+}
+
+/** D-12: tasks. Deletion is checked here; field presence reuses
+ *  findPresenceLosses (which deliberately skips deletions); QCM richness
+ *  (items/parts count) is the "downgrade" signal a version would otherwise give. */
+export function findExamTaskLosses(args: {
+  committed: ExamTask[] | null | undefined;
+  live: Map<string, ExamTask>;
+}): DriftLoss[] {
+  const { committed, live } = args;
+  if (!committed) return [];
+
+  const losses: DriftLoss[] = [];
+
+  for (const git of committed) {
+    const db = live.get(git.id);
+
+    if (!db) {
+      losses.push({
+        kind: 'exam task',
+        id: git.id,
+        message: `${git.id}: in the committed seed but NOT published in the DB, this publish would DELETE it`,
+      });
+      continue;
+    }
+
+    const gitItems = git.items?.length ?? 0;
+    const dbItems = db.items?.length ?? 0;
+    if (dbItems < gitItems) {
+      losses.push({
+        kind: 'exam task',
+        id: git.id,
+        message: `${git.id}: items, the committed seed has ${gitItems}, the DB has ${dbItems}, this publish would SHRINK it`,
+      });
+    }
+
+    const gitParts = git.parts?.length ?? 0;
+    const dbParts = db.parts?.length ?? 0;
+    if (dbParts < gitParts) {
+      losses.push({
+        kind: 'exam task',
+        id: git.id,
+        message: `${git.id}: parts, the committed seed has ${gitParts}, the DB has ${dbParts}, this publish would SHRINK it`,
+      });
+    }
+  }
+
+  losses.push(
+    ...findPresenceLosses<ExamTask>({
+      kind: 'exam task',
+      committed,
+      live,
+      fields: [
+        { label: 'a rubric', present: (t) => !!t.rubric },
+        { label: 'a model answer', present: (t) => !!t.modelAnswer },
+        { label: 'an interlocutor bank', present: (t) => !!t.interlocutor },
+        { label: 'a debate bank', present: (t) => !!t.debate },
+      ],
+    })
+  );
 
   return losses;
 }
