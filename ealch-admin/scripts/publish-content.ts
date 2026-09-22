@@ -1064,6 +1064,17 @@ async function main() {
   // below, which is the guard that makes forgetting this impossible).
   const seedSpeak = speakPath.filter((s) => SEED_CUT.speakWorlds.includes(s.world));
 
+  // Exams (phase 22.1, D-01/D-02): every published paper ships unfiltered;
+  // only the tasks a bundled paper's sections reference ship with it, the
+  // same referenced-only shape cutItems uses for items — orphan published
+  // tasks (e.g. the PE remediation tasks no paper names) stay OTA-only.
+  // This reverses exam-pack decision 11.6 for exam TEXT only: audio stays in
+  // Storage and resolves by audioRef, and grading still needs the network.
+  // Computed BEFORE seedItems (below) because closed exam tasks name the items
+  // they test via targetItemIds, and those items must ship too — see the note
+  // there.
+  const seedExamTasks = cutExamTasks(examTasks, examPapers);
+
   // Everything the bundled lessons depend on, plus the core themes, plus the
   // bundled speak stages' blocks. A seed that ships a lesson without its items
   // is a seed that ships a broken lesson.
@@ -1076,7 +1087,24 @@ async function main() {
   // took three of a1.03's printed statistics with them. `check-seed-db-parity`
   // now checks against the same function, so the check and the build cannot
   // drift apart.
-  const seedItems = cutItems(items, seedLessons, seedSpeak);
+  //
+  // Phase 22.1 addition: a bundled exam task's targetItemIds names items it
+  // tests, the same way a lesson's itemIds does (schema.ts ExamTask.
+  // targetItemIds, checked in validateCorpus the same way ExamSection.taskIds
+  // is). cutItems alone does not know exam tasks exist, so once exams ship in
+  // the seed (above) their target items must be unioned in by hand, or the
+  // seed becomes an invalid corpus the moment a bundled task targets an item
+  // outside the lesson/speak/theme cut — measured: 2137 dangling references,
+  // all real published items (b2/c1-band exam vocabulary the a1/a2/sons-scoped
+  // item cut never had a reason to include) on the first dry run this phase ran.
+  const examTargetItemIds = new Set(seedExamTasks.flatMap((t) => t.targetItemIds ?? []));
+  const seedItems = [
+    ...new Map(
+      [...cutItems(items, seedLessons, seedSpeak), ...items.filter((i) => examTargetItemIds.has(i.id))].map(
+        (i) => [i.id, i] as const
+      )
+    ).values(),
+  ];
 
   // Scenarios ship in the seed when their level is represented in the seed — by a
   // bundled track OR a bundled unit (a1.01 pulls a1 in). So a fresh, offline
@@ -1101,13 +1129,6 @@ async function main() {
   //     overlay a no-op.
   //   · It is reference data: 14 domains and 130 themes is roughly 26 KiB
   //     against a 5 MiB ceiling, and it does not grow with the corpus.
-  // Exams (phase 22.1, D-01/D-02): every published paper ships unfiltered;
-  // only the tasks a bundled paper's sections reference ship with it, the
-  // same referenced-only shape cutItems uses for items — orphan published
-  // tasks (e.g. the PE remediation tasks no paper names) stay OTA-only.
-  // This reverses exam-pack decision 11.6 for exam TEXT only: audio stays in
-  // Storage and resolves by audioRef, and grading still needs the network.
-  const seedExamTasks = cutExamTasks(examTasks, examPapers);
   const seed: Corpus = {
     version, domains, themes,
     units: seedUnits, lessons: seedLessons, items: seedItems,
