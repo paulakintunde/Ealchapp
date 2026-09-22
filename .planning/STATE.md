@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 22.1 context gathered
-last_updated: "2026-09-22T09:57:14.628Z"
-last_activity: 2026-09-22 -- Phase 22.1 execution started
+stopped_at: Completed 22.1-05-PLAN.md
+last_updated: "2026-09-22T10:56:00.678Z"
+last_activity: 2026-09-22
 progress:
   total_phases: 24
   completed_phases: 8
   total_plans: 50
-  completed_plans: 45
-  percent: 90
+  completed_plans: 47
+  percent: 94
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — EXECUTING
-Plan: 1 of 8
-Status: Executing Phase 22.1
-Last activity: 2026-09-22 -- Phase 22.1 execution started
+Plan: 2 of 8
+Status: Ready to execute
+Last activity: 2026-09-22
 
-Progress: [██████████] 100%
+Progress: [█████████░] 94%
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ Progress: [██████████] 100%
 
 *Updated after each plan completion*
 | Phase 06 P05 | 25min | 2 tasks | 1 files |
+| Phase 22.1 P05 | 25min | 3 tasks | 30 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,8 @@ Recent decisions affecting current work:
 - [Phase 05]: Phase 05 (paywall-coverage-expansion-upgrade-nudge) closed: 05-GATING-RULE.md is the rule of record citing entitlement.logic.ts as source of truth; all 21 device-verification items reported and approved, with items 20/21 verified by targeted method (production setEntitlement() path / structural test-suite guarantee) rather than an ordinary tap, and this distinction is recorded in 05-VALIDATION.md rather than glossed over.
 - [Phase 06]: Plan 05: NOTIFY-01/NOTIFY-02 closed via human-confirmed on-device pass (Pixel 9) — toggle independence, report-tracks-toggle, and no literal placeholders in delivered bodies all verified; Check E (duplicate-daily-after-upgrade) skipped, no pre-Phase-6 build available to test the upgrade path.
 - [Phase 07]: Plan 05 (device verification, 2026-09-22): BUG-02 verified on real hardware — local `gradlew assembleRelease` remains blocked (Windows/ninja/Defender, needs admin access this session doesn't have), routed around via an EAS cloud build (`preview` profile) instead. Force-kill/relaunch on a real Pixel 9 confirmed answers survive intact (Writing section, word-for-word) and a retry cannot double-grade (confirmed via a real submit). Surfaced a new, distinct finding while testing the same fix against speaking/recording tasks: the answer DATA survives a crash correctly, but `ExamSpeakTask`/`ExamInterlocutorTask`/`ExamDebateTask` all reset to a blank "start recording" screen on restore with no indication an answer already exists — confirmed via the section-level "X/2 answered" count staying accurate across two independent kill/relaunch cycles while the task's own screen showed nothing. Tracked as new requirement **BUG-04** in REQUIREMENTS.md. A follow-up submit (developer-run, on a fresh paper, Pro account) surfaced a second, more serious finding: the submit came back "Not sat" for a section genuinely completed with a real restored answer — traced by code audit (not device logs, which weren't accessible on a release build without `run-as`) to a real structural gap: `content.logic.ts`'s `examTasksOfSection()` silently drops any task id that fails to resolve against the loaded corpus, while `exam-report.tsx`'s `sectionStatusFor()` checks the section's original, unfiltered task-id list — a divergence between the two that `submit()` never guards against. Filed as new requirement **BUG-05**. Both BUG-04 and BUG-05 given their own new phase — **Phase 23: Exam Recording-Task Restore & Grading-Path Integrity** — rather than folded into Phase 7, whose plans/CONTEXT.md were already scoped to the original three bugs. BUG-01 was already device-verified in a prior session.
+- [Phase 22.1]: Plan 05: Paul approved option-a (author-narration-batch.ts canonical DB write) at the Task 2 checkpoint, plus commit of the 30 listed narration-batch files by explicit path
+- [Phase 22.1]: Plan 05: fixed a Rule 1 bug in author-narration-batch.ts (missing version bump, unlike seed twin apply-narration-seed.ts) discovered while proving content:parity clean; added a self-healing repair path and used it to correct the 30 already-written Postgres rows
 
 ### Pending Todos
 
@@ -107,6 +110,7 @@ None yet.
 - Phase 14 (snapshot split design spike) must resolve the manifest backward-compatibility design and `mergeCorpus` multi-overlay question before Phase 15 can be planned — flagged as a research phase, not a standard plan-and-build phase.
 - REQUIREMENTS.md's summary line stated "30 total" v1 requirements; the enumerated requirement list actually contains 29 distinct IDs. Corrected to 29 during roadmap traceability update — worth a quick sanity check next time REQUIREMENTS.md is touched.
 - ANIM-01 is the one requirement mapped to two phases (11 and 12) rather than exactly one — a deliberate, documented exception from the Phase 11 split, not an orphan/duplicate error. Flag this if any future coverage-validation tooling assumes strict 1:1 requirement-to-phase mapping.
+- Phase 22.1 Plan 05 flag (not a plan-05 blocker): an unrelated, concurrent, uncommitted edit to ealch-admin/scripts/data/participes-lesson.ts / participes-corpus.ts (a2.20.l1, version 3 to 4) is sitting in the working tree, making ealch-v2's suite 5452/5453 instead of 5453/5453 (a2-20-participes.test.ts). Not committed by plan 05; pick up in whichever session owns that b1/a2 work.
 
 ## Deferred Items
 
@@ -118,6 +122,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-22T08:17:42.639Z
-Stopped at: Phase 22.1 context gathered
-Resume file: .planning/phases/22.1-bundle-exam-content-in-the-seed-so-exams-load-at-first-launc/22.1-CONTEXT.md
+Last session: 2026-09-22T10:56:00.656Z
+Stopped at: Completed 22.1-05-PLAN.md
+Resume file: None
