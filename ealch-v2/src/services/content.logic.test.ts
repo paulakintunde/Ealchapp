@@ -9,7 +9,7 @@
 import { createHash } from 'node:crypto';
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
-import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '../content/schema.ts';
+import { validateCorpus, type Corpus, type ExamPaper, type ExamTask, type Item, type Lesson, type Unit } from '../content/schema.ts';
 import {
   adoptedForLaunch,
   anchorForItem,
@@ -328,6 +328,32 @@ test('mergeCorpus overlays domains/themes/packs/examTasks/examSeries/playlists/t
   strictEqual(merged.examPapers?.length, 1, 'exam paper must survive the merge');
   strictEqual(merged.playlists?.length, 1, 'playlist must survive the merge');
   strictEqual(merged.templates?.length, 1, 'template must survive the merge');
+});
+
+test('mergeCorpus lets a snapshot exam paper and task supersede the bundled seed copy by id (phase 22.1, criterion 2)', () => {
+  // Bundling exam papers/tasks in the seed (phase 22.1) means the seed is no
+  // longer the empty floor for exams — a bundled paper can be WRONG (a
+  // correction republished under the same id) and the OTA snapshot must still
+  // win, exactly like every other Corpus array. mergeCorpus already does this
+  // generically (overlay-by-id, snapshot wins conflicts); this pins it down
+  // for exams specifically, since criterion 2 names it explicitly.
+  const seedPaper: ExamPaper = { id: 'paper.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', paperNo: 1, sections: [] };
+  const snapPaper: ExamPaper = { id: 'paper.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', paperNo: 2, sections: [] };
+  const seedTask: ExamTask = { id: 'exam.tcf_canada.2024a.co_mcq.001', format: 'tcf_canada', variant: '2024a', taskType: 'co_mcq', skill: 'CO', level: 'a1', formatVersion: 'v1', prompt: 'seed', timingS: 60 };
+  const snapTask: ExamTask = { ...seedTask, prompt: 'snapshot' };
+  // A seed-only paper, absent from the snapshot, must survive (D-04, overlay
+  // never removes).
+  const seedOnlyPaper: ExamPaper = { id: 'paper.tef_canada.blanc-01.1', format: 'tef_canada', variant: 'blanc-01', paperNo: 1, sections: [] };
+
+  const seed: Corpus = { version: 1, units: [], lessons: [], items: [], examPapers: [seedPaper, seedOnlyPaper], examTasks: [seedTask] };
+  const snap: Corpus = { version: 2, units: [], lessons: [], items: [], examPapers: [snapPaper], examTasks: [snapTask] };
+  const merged = mergeCorpus(seed, snap);
+
+  strictEqual(merged.examPapers?.length, 2, 'the seed-only paper must not be removed');
+  strictEqual(merged.examPapers?.find((p) => p.id === seedPaper.id)?.paperNo, 2, 'the snapshot paper must supersede the seed paper by id');
+  ok(merged.examPapers?.some((p) => p.id === seedOnlyPaper.id), 'a seed-only paper absent from the snapshot survives (D-04)');
+  strictEqual(merged.examTasks?.length, 1);
+  strictEqual(merged.examTasks?.find((t) => t.id === seedTask.id)?.prompt, 'snapshot', 'the snapshot task must supersede the seed task by id');
 });
 
 test('getExamTask/getExamPaper/examPapersFor/examTasksOfPaper resolve the exam corpus', () => {
