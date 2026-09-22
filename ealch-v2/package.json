@@ -43,9 +43,17 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@testing-library/react-native": "^14.0.1",
+    "@types/jest": "^30.0.0",
     "@types/react": "~19.2.2",
     "babel-preset-expo": "^57.0.2",
+    "jest": "^30.5.2",
+    "jest-expo": "~57.0.5",
+    "test-renderer": "^1.3.0",
     "typescript": "~6.0.3"
+  },
+  "overrides": {
+    "@react-native/jest-preset": "0.86.3"
   },
   "scripts": {
     "start": "expo start",
@@ -54,7 +62,8 @@
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "test:i18n": "node --test src/i18n/i18n.test.ts",
-    "test": "node --test \"src/**/*.test.ts\" \"supabase/functions/**/*.test.ts\""
+    "test": "node --test \"src/**/*.test.ts\" \"supabase/functions/**/*.test.ts\"",
+    "test:component": "jest"
   },
   "private": true
 }
