@@ -28,14 +28,6 @@ result: pass
 expected: Any speaking/dictation task's microphone auto-finalizes as soon as you stop talking — it never waits for a manual stop or hangs in a continuous-listening mode.
 result: pass
 
-### 3. TTS pauses on backgrounding, resumes/restarts on foreground
-expected: During narration, backgrounding the app silences it immediately on both playback paths. Foregrounding resumes the ElevenLabs remote voice from the same position (not a restart), and restarts the current line from its beginning on the device-engine voice (no doubled/overlapping audio either way).
-result: [pending]
-
-### 4. Voice input never gets stuck listening
-expected: Any speaking/dictation task's microphone auto-finalizes as soon as you stop talking — it never waits for a manual stop or hangs in a continuous-listening mode.
-result: [pending]
-
 ## Summary
 
 total: 4
