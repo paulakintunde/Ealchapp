@@ -45,6 +45,7 @@ import {
   isGraded, markGraded, hasContent, type ExamDraft,
 } from '@/services/examDraft.logic';
 import { startClock, type ClockState } from '@/utils/examClock.logic';
+import { pinSitting, pinnedTasksOf, type SittingPin } from '@/utils/examSitting.logic';
 import { deliveryNote } from '@/utils/deliverySignals.logic';
 import { coverageNote, type Coverage } from '@/utils/interlocutor.logic';
 import { surfaceFor } from '@/utils/examDispatch.logic';
@@ -84,8 +85,10 @@ export default function ExamSectionScreen() {
   // The corpus is a REAL dependency here — see the note in app/exam.tsx. These
   // memos read it imperatively through content.*, which calls getState(), so
   // before this they never re-ran when the OTA snapshot landed. Exam content
-  // ships only in that snapshot, so any exam screen mounted during launch
-  // memoised an empty result and kept it.
+  // ships in the bundled seed now (phase 22.1), but the corpus still changes
+  // after mount: a corrected paper published under the same id supersedes the
+  // bundled copy when refreshFromRemote adopts the snapshot, which is exactly
+  // why these memos must keep depending on it.
   const corpus = useContent((s) => s.corpus);
   const paper = useMemo(() => (paperId ? content.examPaper(paperId) : null), [paperId, corpus]);
   const section = useMemo(
@@ -93,6 +96,18 @@ export default function ExamSectionScreen() {
     [paper, skill]
   );
   const tasks = useMemo(() => (section ? content.examTasksOfSection(section) : []), [section, corpus]);
+
+  // D-05 (phase 22.1): a sitting finishes on the versions it started on. The
+  // memos above stay live on purpose (a task missing at mount must still
+  // resolve, see examSection.logic.test.ts); everything below reads the PIN,
+  // which freezes the section roster and each task the first time it resolves.
+  const pinRef = useRef<SittingPin | null>(null);
+  const sitting = useMemo(() => {
+    pinRef.current = pinSitting(pinRef.current, section, tasks);
+    return pinRef.current;
+  }, [section, tasks]);
+  const pinnedSection = sitting?.section ?? null;
+  const pinnedTasks = useMemo(() => pinnedTasksOf(sitting), [sitting]);
 
   const [answers, setAnswers] = useState<Answers>({});
   // Parts whose audio produced no sound at all. Their questions cannot be
@@ -108,8 +123,8 @@ export default function ExamSectionScreen() {
   // that would hand the candidate the whole épreuve again every repaint.
   const [clock, setClock] = useState<ClockState | null>(null);
   useEffect(() => {
-    if (section && clock === null) setClock(startClock(section.timingS, Date.now()));
-  }, [section, clock]);
+    if (pinnedSection && clock === null) setClock(startClock(pinnedSection.timingS, Date.now()));
+  }, [pinnedSection, clock]);
 
   // The authorization is normally created on the paper screen, before this
   // screen exists. This re-issue covers the case where that call could not be
@@ -248,12 +263,12 @@ export default function ExamSectionScreen() {
   // By TASK TYPE, not by array position: a section that ever carries two
   // speaking tasks in another order must not hand the debate the wrong one.
   const monologueTranscript = useMemo(() => {
-    const mono = tasks.find((x) => x.taskType === 'po_monologue');
+    const mono = pinnedTasks.find((x) => x.taskType === 'po_monologue');
     return mono ? spoken[mono.id]?.transcript : undefined;
-  }, [tasks, spoken]);
+  }, [pinnedTasks, spoken]);
 
   const submit = useCallback(async () => {
-    if (submitted.current || !paperId || !section) return;
+    if (submitted.current || !paperId || !pinnedSection) return;
     submitted.current = true;
     setPhase('submitting');
 
@@ -286,7 +301,7 @@ export default function ExamSectionScreen() {
       }
     };
 
-    for (const task of tasks) {
+    for (const task of pinnedTasks) {
       // D-04: a crash can land mid-loop with some tasks already graded and
       // logged. Re-grading one of those double-spends the coach_bump daily
       // grading quota AND puts a duplicate result in the report —
@@ -410,9 +425,9 @@ export default function ExamSectionScreen() {
     // Straight to Le Rapport: nothing was shown while the section ran, so this
     // is the first moment the candidate learns anything.
     router.replace({ pathname: '/exam-report', params: { paperId } });
-  }, [answers, texts, spoken, coverage, debate, tasks, unplayable, paperId, skill, section, mode, lang, key, writeDraft, logExamResult, logSession, router]);
+  }, [answers, texts, spoken, coverage, debate, pinnedTasks, unplayable, paperId, skill, pinnedSection, mode, lang, key, writeDraft, logExamResult, logSession, router]);
 
-  if (!paper || !section || !skill) {
+  if (!paper || !pinnedSection || !skill) {
     return (
       <Shell title={T.examiner} onClose={() => router.replace('/home')}>
         <TX role="label" color={t.txSecondary}>{T.examNone}</TX>
@@ -420,22 +435,22 @@ export default function ExamSectionScreen() {
     );
   }
 
-  if (!RENDERABLE.includes(section.skill)) {
+  if (!RENDERABLE.includes(pinnedSection.skill)) {
     // Honest refusal, not a silent text fallback. See RENDERABLE.
     return (
-      <Shell title={T.examSkillNames[section.skill]} onClose={() => router.back()}>
+      <Shell title={T.examSkillNames[pinnedSection.skill]} onClose={() => router.back()}>
         <TX role="label" color={t.txSecondary} lhMult={1.5}>{T.examNone}</TX>
       </Shell>
     );
   }
 
-  const answeredCount = tasks.reduce((n, task) => {
+  const answeredCount = pinnedTasks.reduce((n, task) => {
     if (task.skill === 'PO') return n + (spoken[task.id] ? 1 : 0);
     if (isOpen(task)) return n + ((texts[task.id] ?? '').trim() ? 1 : 0);
     const a = answers[task.id] ?? {};
     return n + taskQuestions(task).filter((q) => a[q.key] != null).length;
   }, 0);
-  const totalCount = tasks.reduce(
+  const totalCount = pinnedTasks.reduce(
     (n, task) => n + (isOpen(task) ? 1 : taskQuestions(task).length),
     0
   );
@@ -445,7 +460,7 @@ export default function ExamSectionScreen() {
       <View style={{ paddingTop: insets.top }}>
         <FocusHeader
           onClose={() => router.replace({ pathname: '/exam-paper', params: { paperId } })}
-          title={T.examSkillNames[section.skill]}
+          title={T.examSkillNames[pinnedSection.skill]}
           extra={
             clock ? (
               <ExamClock
@@ -493,7 +508,7 @@ export default function ExamSectionScreen() {
 
             CO only: nothing else in the paper has a playback phase to explain,
             and a notice about waiting for a voice on a reading paper is noise. */}
-        {section.skill === 'CO' ? (
+        {pinnedSection.skill === 'CO' ? (
           <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 20 }}>
             {T.examSilenceNotice}
           </TX>
@@ -504,7 +519,7 @@ export default function ExamSectionScreen() {
             readWindowS all started together into the single shared player and
             the later ones ate the earlier. */}
         <ExamAudioQueue>
-        {tasks.map((task) => {
+        {pinnedTasks.map((task) => {
           // DISPATCH BY SURFACE, never by skill.
           //
           // This was a ternary chain that tested `taskType === 'po_interaction'`
