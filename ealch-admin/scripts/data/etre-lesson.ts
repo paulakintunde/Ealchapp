@@ -1848,7 +1848,7 @@ const ETRE_LESSON_AUTHORED: Lesson = {
   // first paint, and s16-contrast headed a column `il est` above a row whose
   // bare half is a1.11's first-person `Je suis professeur.` Both are content
   // fixes; see the notes at each site.
-  version: 4,
+  version: 5,
 
   grammarAssumed: [
     'The nine subject pronouns, and the six verb forms they sit behind, introduced in a1.05',
@@ -1866,7 +1866,167 @@ const ETRE_LESSON_AUTHORED: Lesson = {
     'The obligatory liaison in vous êtes',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.75,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Today, the verb être, to be. Six forms, no shared pattern, and one of them shows up in almost every sentence you'll ever say in French."
+        },
+        {
+          "voice": "en",
+          "text": "By the end you'll say who you are, what you do, where you're from and how you are, all with the same six words."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "One reframe before we start. No pattern. Six forms. Every conversation. You're not deriving être from a rule, you're just memorizing it, once, for good."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: the six forms, c'est versus il est, ce sont in the plural, nationality adjectives that agree against de plus a place that stays fixed, and the liaison in vous êtes."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the six forms of être, no shared stem, so you just learn all six."
+        },
+        {
+          "voice": "fr",
+          "text": "Je suis ici pour la conférence. Tu es ici pour la conférence ? Il est ici pour la conférence."
+        },
+        {
+          "voice": "en",
+          "text": "I am, are you, he is, here for the conference. Suis, es, est, three down."
+        },
+        {
+          "voice": "fr",
+          "text": "Nous sommes ici pour la conférence. Vous êtes ici pour la conférence ? Ils sont ici pour la conférence."
+        },
+        {
+          "voice": "en",
+          "text": "We are, are you, they are. Sommes, êtes, sont. And that s on vous has to link straight into êtes, you never pause there."
+        },
+        {
+          "voice": "en",
+          "text": "Now the test for c'est versus il est. A little word in front of the noun, ma sœur, mon collègue, takes c'est, and the plural is ce sont."
+        },
+        {
+          "voice": "fr",
+          "text": "C'est ma sœur. C'est mon collègue. Ce sont mes parents."
+        },
+        {
+          "voice": "en",
+          "text": "A bare noun or adjective, nothing in front, takes il or elle instead, and that includes a job with no article."
+        },
+        {
+          "voice": "fr",
+          "text": "Elle est infirmière. Je suis architecte."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. He is here for the conference:"
+        },
+        {
+          "voice": "fr",
+          "text": "Il est ici pour la conférence."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the one with the liaison, don't skip the link between vous and êtes:"
+        },
+        {
+          "voice": "fr",
+          "text": "Vous êtes ici pour la conférence ?"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this on your own. Watch which être you need for a bare profession, and don't put an article in front of it."
+        },
+        {
+          "voice": "fr",
+          "text": "Je suis architecte, et ma sœur est infirmière."
+        },
+        {
+          "kind": "produce",
+          "expected": "Je suis architecte, et ma sœur est infirmière.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Mon collègue, with the little word mon in front, c'est or il est?"
+        },
+        {
+          "kind": "check",
+          "expected": "c'est",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And infirmière, a bare profession with no article, c'est or il est?"
+        },
+        {
+          "kind": "check",
+          "expected": "il est",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Six forms, no pattern: suis, es, est, sommes, êtes, sont, and vous êtes always links. A little word in front of the noun takes c'est, ce sont in the plural. A bare noun or adjective, including a job with no article, takes il est or elle est."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
   scenarioId: undefined,
 
   overview: {

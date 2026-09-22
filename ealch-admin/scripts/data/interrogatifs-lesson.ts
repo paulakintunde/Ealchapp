@@ -2309,7 +2309,7 @@ export const INTERROGATIFS_LESSON: Lesson = {
   // interstitial both drew "One Frame, And It Is Borrowed" above a card saying
   // the learner already has it. Every test stayed green, because the assertion
   // looks for the credit anywhere in the section and the body carried it.
-  version: 2,
+  version: 3,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2341,7 +2341,180 @@ export const INTERROGATIFS_LESSON: Lesson = {
     'parce que as the answer form selected by pourquoi',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.72,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, the seven words that decide which answer you get: qui, que, quoi, où, quand, comment, pourquoi, combien."
+        },
+        {
+          "voice": "en",
+          "text": "You already know some of these locked inside fixed phrases, Comment ça va, Quelle heure est-il. Today we take those apart and see how they actually work."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here is the reframe for the whole lesson. Your question word, then est-ce que, then the sentence you already know how to build. Nothing inside it moves."
+        },
+        {
+          "voice": "fr",
+          "text": "Où est-ce que tu habites ?"
+        },
+        {
+          "voice": "en",
+          "text": "Where, is it that, you live. Clunky in English, automatic in French. Every word today plugs into that same slot."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the easy ones. Qui asks about a person, où asks about a place."
+        },
+        {
+          "voice": "fr",
+          "text": "Qui est-ce que tu connais ? Où est-ce que tu habites ?"
+        },
+        {
+          "voice": "en",
+          "text": "Quand asks when, comment asks how, and pourquoi asks why, always answered with parce que."
+        },
+        {
+          "voice": "fr",
+          "text": "Quand est-ce que tu arrives ? Comment est-ce que tu vas ? Pourquoi ? Parce que je travaille."
+        },
+        {
+          "voice": "en",
+          "text": "Two words that sound identical but never mean the same thing. Où, with the grave accent, means where. Ou, with no accent, means or. Your ear cannot hear the difference, only the accent can."
+        },
+        {
+          "voice": "en",
+          "text": "Que and quoi are one word in two positions. Que sits right before the verb, quoi stands alone or right after a preposition."
+        },
+        {
+          "voice": "fr",
+          "text": "Que fais-tu ? Tu penses à quoi ?"
+        },
+        {
+          "voice": "en",
+          "text": "Combien asks how much or how many, and it almost always drags de behind it, shrinking to d' before a vowel. And quel is not seven new words, it is one adjective with four spellings, quel, quelle, quels, quelles, all pronounced exactly the same. The agreement lives in the spelling, never in the sound."
+        },
+        {
+          "voice": "fr",
+          "text": "Combien de livres ? Combien d'amis ? Quel livre ? Quelles photos ?"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Ask where someone lives, slowly."
+        },
+        {
+          "voice": "fr",
+          "text": "Où est-ce que tu habites ?"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now ask how many friends, and elide the de before the vowel."
+        },
+        {
+          "voice": "fr",
+          "text": "Combien d'amis ?"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now build one on your own, out loud. Watch the accent on où, it is the whole difference between where and or."
+        },
+        {
+          "voice": "fr",
+          "text": "Où est-ce que tu travailles ?"
+        },
+        {
+          "kind": "produce",
+          "expected": "Où est-ce que tu travailles ?",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Right before a verb, do you use que or quoi?"
+        },
+        {
+          "kind": "check",
+          "expected": "que",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "What is the one difference between où meaning where and ou meaning or?"
+        },
+        {
+          "kind": "check",
+          "expected": "the grave accent",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "You will meet qu'est-ce qui and qu'est-ce que in reading, never need to produce them. Which one asks about the subject?"
+        },
+        {
+          "kind": "check",
+          "expected": "qu'est-ce qui",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Seven words, one frame: your question word, then est-ce que, then the sentence untouched. Qui for people, où for places, quand for time, comment for how, pourquoi for reasons answered with parce que, combien de for amounts eliding to d' before a vowel. Que before a verb, quoi everywhere else. Où with the accent is where, ou without it is or. And quel is one adjective wearing four spellings, quel, quelle, quels, quelles, sounding exactly the same every time."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Question Words',

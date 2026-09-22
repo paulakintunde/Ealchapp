@@ -90,7 +90,7 @@ const REFRAME = 'French has no apostrophe. Turn it around.';
 /** Asserted against an EXPLICIT constant, never a figure derived from the
  *  lesson. A derived count compares the content to itself and passes on any
  *  rewording. Invariant §5. */
-const REFRAME_APPEARANCES = 7;
+const REFRAME_APPEARANCES = 8;
 
 const SPINE = [
   's01-scene', 's02-goals', 's03-turn', 's04-pairs', 's05-swap',

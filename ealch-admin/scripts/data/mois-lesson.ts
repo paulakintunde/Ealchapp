@@ -2035,7 +2035,7 @@ export const MOIS_LESSON: Lesson = {
   // The unit shipped with lessonIds: [], so this is the first lesson here and
   // the counter starts at 1. It moves forward on every rebuild: the merge script
   // prints both sides, and "replacing v3 with v1" reads as a rollback.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'le, la, l\' and les, including le in front of a general noun, introduced in a1.04',
@@ -2057,7 +2057,167 @@ export const MOIS_LESSON: Lesson = {
     'The lowercase spelling of month names outside sentence-initial position',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.81,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, the months of the year: twelve words, and two small ones that decide what you're naming."
+        },
+        {
+          "voice": "en",
+          "text": "Here's the frame: en for a whole month, le for one day inside it."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "One frame, reused twelve times: en before a bare month, le before a number and a month."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: the months in order, en versus le, and premier, the one exception."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "The twelve months, in order."
+        },
+        {
+          "voice": "fr",
+          "text": "janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre"
+        },
+        {
+          "voice": "en",
+          "text": "To say a whole month is happening, en stands alone, no article."
+        },
+        {
+          "voice": "fr",
+          "text": "en juin"
+        },
+        {
+          "voice": "en",
+          "text": "To name one day inside a month: le plus a cardinal number, then the month, nothing in between."
+        },
+        {
+          "voice": "fr",
+          "text": "le douze août"
+        },
+        {
+          "voice": "en",
+          "text": "The first of any month breaks the pattern: never le un, always le premier."
+        },
+        {
+          "voice": "fr",
+          "text": "le premier juin"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. The whole month first."
+        },
+        {
+          "voice": "fr",
+          "text": "en septembre"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now one day inside it."
+        },
+        {
+          "voice": "fr",
+          "text": "le vingt octobre"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Say this on your own. Premier, then the month, nothing between them."
+        },
+        {
+          "voice": "fr",
+          "text": "Le mois prochain, c'est novembre."
+        },
+        {
+          "kind": "produce",
+          "expected": "Le mois prochain, c'est novembre.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. For a whole month, en or le?"
+        },
+        {
+          "kind": "check",
+          "expected": "en",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And what replaces le un for the first day of the month?"
+        },
+        {
+          "kind": "check",
+          "expected": "premier",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. En for a whole month, le plus a number for one day, nothing between them. Premier is the only ordinal a date uses, and le mois de shortens to le mois d' before a vowel."
+        },
+        {
+          "voice": "fr",
+          "text": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à la prochaine !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Months of the Year',

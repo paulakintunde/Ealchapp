@@ -1617,7 +1617,7 @@ const INDEFINIS_LESSON_AUTHORED: Lesson = {
   // The unit shipped with lessonIds: [], so this is the first lesson here and
   // the counter starts at 1. It moves forward on every rebuild: the merge
   // script prints both sides, and "replacing v3 with v1" reads as a rollback.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Every noun carries a gender, and the article in front of it is the choice that gender makes',
@@ -1631,7 +1631,176 @@ const INDEFINIS_LESSON_AUTHORED: Lesson = {
     'Under negation un, une and des all reduce to de, while le, la and les are unchanged',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.81,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, the small words in front of every noun: un, une and des."
+        },
+        {
+          "voice": "fr",
+          "text": "un livre, une voiture, des croissants"
+        },
+        {
+          "voice": "en",
+          "text": "A book, a car, some croissants, one job, three forms."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. Un introduces it. Le assumes you already know it."
+        },
+        {
+          "voice": "en",
+          "text": "Today: un, une, des, and two traps, professions after être, and negation."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Masculine nouns take un."
+        },
+        {
+          "voice": "fr",
+          "text": "un livre, un stylo, un sac, un téléphone"
+        },
+        {
+          "voice": "en",
+          "text": "Feminine nouns take une."
+        },
+        {
+          "voice": "fr",
+          "text": "une voiture, une table, une clé, une porte"
+        },
+        {
+          "voice": "en",
+          "text": "Plural and unspecified takes des, the article English simply drops."
+        },
+        {
+          "voice": "fr",
+          "text": "des pommes, des croissants"
+        },
+        {
+          "voice": "en",
+          "text": "Same logic decides un versus le, first mention then second:"
+        },
+        {
+          "voice": "fr",
+          "text": "un café, le café"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me, a key:"
+        },
+        {
+          "voice": "fr",
+          "text": "une clé"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the plural France always marks, some croissants:"
+        },
+        {
+          "voice": "fr",
+          "text": "des croissants"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this on your own, slowly. Watch des, the article you can't skip."
+        },
+        {
+          "voice": "fr",
+          "text": "Une voiture, un sac et des pommes."
+        },
+        {
+          "kind": "produce",
+          "expected": "Une voiture, un sac et des pommes.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. First time you mention something, un café or le café?"
+        },
+        {
+          "kind": "check",
+          "expected": "un café",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "After être, in front of a job, how many articles does French use?"
+        },
+        {
+          "kind": "check",
+          "expected": "none",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And after a negation, un, une or des becomes what?"
+        },
+        {
+          "kind": "check",
+          "expected": "de",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet: un for masculine, une for feminine, des for the plural English drops. Un introduces, le assumes you already know. No article after être before a job, unless it's c'est. Under negation, un, une and des all become de, le, la and les never change."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'The Indefinite Articles',

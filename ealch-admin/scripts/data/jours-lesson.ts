@@ -2103,7 +2103,7 @@ export const JOURS_LESSON: Lesson = {
   // Tuesday that was only ever a drill item. The two are released where they are
   // shown instead, and the third is dropped and replaced in drill-lowercase by a
   // sentence the lesson actually puts on a screen.
-  version: 7,
+  version: 8,
 
   grammarAssumed: [
     'le, la, l\' and les, including le in front of a general noun, introduced in a1.04',
@@ -2123,7 +2123,175 @@ export const JOURS_LESSON: Lesson = {
     'The lowercase spelling of day names outside sentence-initial position',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.72,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, the days of the week, and the one small word that changes everything you say with them."
+        },
+        {
+          "voice": "en",
+          "text": "Seven names, in a fixed order starting on Monday, and a tiny article that decides whether you mean one Saturday or every Saturday."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe to hold onto. Le makes it every week."
+        },
+        {
+          "voice": "en",
+          "text": "Today: the seven days in order, when to add le, when to leave a day bare, and what prochain and dernier do once they follow it."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the order. In French, the week begins on Monday, not Sunday, and every day name stays lowercase, even at the start of a sentence."
+        },
+        {
+          "voice": "fr",
+          "text": "lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche"
+        },
+        {
+          "voice": "en",
+          "text": "Monday through Sunday. Now the rule that runs this whole lesson: say the day bare, and you mean one particular day."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai cours lundi."
+        },
+        {
+          "voice": "en",
+          "text": "I have class this Monday, one day, fixed by context. Put le in front of that same day, and it flips into a habit."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai cours le lundi."
+        },
+        {
+          "voice": "en",
+          "text": "I have class on Mondays, every week. Push that habit further with tous les plus a day, and attach prochain or dernier with no article and no preposition at all."
+        },
+        {
+          "voice": "fr",
+          "text": "tous les jours, la semaine prochaine, la semaine dernière"
+        },
+        {
+          "voice": "en",
+          "text": "Every day, next week, last week. Same pattern, no le, no on, just the day."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me, slowly. One particular day:"
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai cours lundi."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the habitual version, every single week:"
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai cours le lundi."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this on your own, slowly. One clause with le for the habit, one clause bare for a single day, no article at all."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai cours le lundi, mais lundi prochain, je n'ai pas cours."
+        },
+        {
+          "kind": "produce",
+          "expected": "J'ai cours le lundi, mais lundi prochain, je n'ai pas cours.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Le lundi, with the article, marking a repeating day, one Monday or every Monday?"
+        },
+        {
+          "kind": "check",
+          "expected": "every Monday",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And when prochain or dernier follows a day or a week, do you add an article in front?"
+        },
+        {
+          "kind": "check",
+          "expected": "no",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. The week starts on lundi, and all seven names stay lowercase."
+        },
+        {
+          "voice": "fr",
+          "text": "lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche"
+        },
+        {
+          "voice": "en",
+          "text": "Bare day, one particular day. Le plus a day, or tous les plus a day, every week. Prochain and dernier attach with no article, and no preposition ever sits in front of a day name."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Days of the Week',

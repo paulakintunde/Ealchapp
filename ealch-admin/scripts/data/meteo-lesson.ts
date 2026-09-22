@@ -2204,7 +2204,7 @@ export const METEO_LESSON: Lesson = {
   // sounds" cheat sheet, and two tapTable detail titles carry the pair they
   // describe. a1-10-meteo.test.ts now refuses a RESPELL entry no section
   // displays.
-  version: 4,
+  version: 5,
 
   grammarAssumed: [
     'The full present of être, introduced in a1.06',
@@ -2225,7 +2225,183 @@ export const METEO_LESSON: Lesson = {
     'The set question Quel temps fait-il, taught as an unanalysed block',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.78,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, the sky, the four seasons and the weather that comes with each one."
+        },
+        {
+          "voice": "en",
+          "text": "Fair warning. English hands you one verb, to be. French splits that job three ways, and picking the wrong one is the most common mistake here."
+        },
+        {
+          "voice": "en",
+          "text": "By the end, you will name all four seasons and answer the question everyone asks the moment they step outside."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. Weather makes, people have, things are."
+        },
+        {
+          "voice": "en",
+          "text": "Faire covers most of the weather. Avoir takes over for wind and sun. Rain and snow use two verbs that stand completely on their own and touch neither."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: the preposition before each season, the frozen phrase built on faire plus an adjective, and the set question for asking about the weather."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the seasons. Three of them share one preposition. One breaks the pattern and takes a different one, for no reason you can reason your way to."
+        },
+        {
+          "voice": "fr",
+          "text": "au printemps, en été, en automne, en hiver"
+        },
+        {
+          "voice": "en",
+          "text": "In spring, in summer, in autumn, in winter. Spring is the odd one out, memorize it on its own."
+        },
+        {
+          "voice": "en",
+          "text": "Now the weather itself. That frozen phrase never conjugates for anything but he, it, no matter who's talking."
+        },
+        {
+          "voice": "fr",
+          "text": "il fait beau, il fait chaud, il fait froid, il fait frais, il fait doux, il fait mauvais"
+        },
+        {
+          "voice": "en",
+          "text": "Nice, hot, cold, cool, mild, bad. Six adjectives, one frozen frame. Rain and snow refuse that frame completely."
+        },
+        {
+          "voice": "fr",
+          "text": "il pleut, il neige"
+        },
+        {
+          "voice": "en",
+          "text": "It's raining, it's snowing, no adjective, no frozen phrase, just the verb standing alone. And when the weather is something you have instead of something the sky makes, the frame changes again."
+        },
+        {
+          "voice": "fr",
+          "text": "il y a du soleil, il y a du vent"
+        },
+        {
+          "voice": "en",
+          "text": "And the question that starts every conversation about the sky:"
+        },
+        {
+          "voice": "fr",
+          "text": "Quel temps fait-il ?"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me, slowly. The season that breaks the rule:"
+        },
+        {
+          "voice": "fr",
+          "text": "au printemps"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now a hot day, where the frozen phrase does all the work:"
+        },
+        {
+          "voice": "fr",
+          "text": "il fait chaud"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now build a full sentence on your own, slowly. Season first, then the weather, and watch which frame you pick for the wind."
+        },
+        {
+          "voice": "fr",
+          "text": "En hiver, il fait froid et il y a du vent."
+        },
+        {
+          "kind": "produce",
+          "expected": "En hiver, il fait froid et il y a du vent.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Three seasons take en. Which one breaks the rule?"
+        },
+        {
+          "kind": "check",
+          "expected": "le printemps",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And for wind or sunshine, do you reach for the frame built on faire, or the one built on avoir?"
+        },
+        {
+          "kind": "check",
+          "expected": "avoir",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Three seasons take en, spring alone takes au. The frozen phrase covers nice, hot, cold, cool, mild and bad. Wind and sunshine switch to the other frame. Rain and snow stand alone, each with its own verb. Weather makes, people have, things are."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Seasons and Weather',

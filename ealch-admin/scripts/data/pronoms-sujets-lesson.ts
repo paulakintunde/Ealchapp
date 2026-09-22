@@ -1655,7 +1655,7 @@ const PRONOMS_LESSON_AUTHORED: Lesson = {
   // appeared nowhere on screen; and one card's front named "The rain" as the
   // referent of an il that the lesson spends a mission establishing refers to
   // nobody. See the notes on the section.
-  version: 4,
+  version: 5,
 
   grammarAssumed: [
     'The tu / vous distinction, introduced in a1.01',
@@ -1670,7 +1670,167 @@ const PRONOMS_LESSON_AUTHORED: Lesson = {
     "Elision of je to j' before a vowel sound",
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.82,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome to lesson nine, subject pronouns. In French, you say who the sentence is about before you say anything else, and you get nine words to do it with."
+        },
+        {
+          "voice": "en",
+          "text": "The good news, those nine only sit behind six shapes of the verb. Nine pronouns, six verb forms, that's the whole lesson."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. You're not memorizing nine new rules, you're learning nine labels for six verb shapes you're about to build again and again."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: on standing in for nous, the ils versus elles rule for groups, vous covering both polite you and plural you, and how je shortens to j' before a vowel sound."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the three singular voices: je, tu, and il or elle, same verb form either way."
+        },
+        {
+          "voice": "fr",
+          "text": "Je suis à la terrasse. Tu es en avance."
+        },
+        {
+          "voice": "en",
+          "text": "I'm out on the terrace, you're early. Now the key pronoun: on. It means we, but the verb still agrees like il, third person singular."
+        },
+        {
+          "voice": "fr",
+          "text": "On est trois à la terrasse."
+        },
+        {
+          "voice": "en",
+          "text": "Three of us on the terrace, built exactly like he is three. Nous says the same thing the formal way, with its own ending."
+        },
+        {
+          "voice": "fr",
+          "text": "Nous sommes trois à la terrasse."
+        },
+        {
+          "voice": "en",
+          "text": "Then the group rule for the plural three. Ils covers any mixed group, even one man among ninety-nine women. Elles only when the whole group is women."
+        },
+        {
+          "voice": "fr",
+          "text": "Ils sont au comptoir du café. Elles sont en terrasse ce matin."
+        },
+        {
+          "voice": "en",
+          "text": "And vous does two jobs, one person you're polite with, or a whole room."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me."
+        },
+        {
+          "voice": "fr",
+          "text": "On est trois à la terrasse."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the ils, elles pair. Same verb, both times, just different owners."
+        },
+        {
+          "voice": "fr",
+          "text": "Ils sont là. Elles sont là."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now build one on your own, slowly. Notice il and elle share the exact same verb."
+        },
+        {
+          "voice": "fr",
+          "text": "Il est là. Elle est là."
+        },
+        {
+          "kind": "produce",
+          "expected": "Il est là. Elle est là.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. A group with one man and ten women, ils or elles?"
+        },
+        {
+          "kind": "check",
+          "expected": "ils",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And when on means we in conversation, does the verb agree like nous, or like il?"
+        },
+        {
+          "kind": "check",
+          "expected": "like il, third person singular",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Nine pronouns, six verb shapes. Je, tu, il, elle each keep one column. On takes the il ending even though it means we. Nous and vous keep their own endings. Ils is any mixed group, elles is women only, and vous covers both polite singular and plain plural."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
   scenarioId: undefined,
 
   overview: {

@@ -1512,7 +1512,7 @@ const SALUTATIONS_LESSON_AUTHORED: Lesson = {
   // v5: the device pass. Dropped the scene's setting image (it contradicted the
   // story), trimmed the break body so its Continue stays above the fold, and
   // removed the inert `autoplay` flag.
-  version: 9,
+  version: 10,
 
   grammarAssumed: [],
   grammarIntroduced: [
@@ -1520,7 +1520,167 @@ const SALUTATIONS_LESSON_AUTHORED: Lesson = {
     'Gendered agreement on a bare adjective: enchanté / enchantée, désolé / désolée',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.72,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome to Les salutations, greetings. The first word you say in France decides how the rest of the conversation goes."
+        },
+        {
+          "voice": "en",
+          "text": "There isn't one word for hello here, there are four, and picking the wrong one is the first thing that marks you as a tourist."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. Bonjour is the price of entry. Say it first, say it clearly, and every door opens a little wider. Skip it, and nothing that follows lands well."
+        },
+        {
+          "voice": "en",
+          "text": "Today: which greeting fits which moment, the tu and vous choice underneath all of them, and one small spelling rule that depends on whether you're a man or a woman."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the clock. Bonjour covers hello and good morning, any time before evening."
+        },
+        {
+          "voice": "fr",
+          "text": "Bonjour"
+        },
+        {
+          "voice": "en",
+          "text": "Once evening falls, it becomes bonsoir. Same job, later hour."
+        },
+        {
+          "voice": "fr",
+          "text": "Bonsoir"
+        },
+        {
+          "voice": "en",
+          "text": "Salut is the relaxed one, for friends, and it works coming and going. Allô exists only for the phone, never face to face."
+        },
+        {
+          "voice": "fr",
+          "text": "Salut, allô"
+        },
+        {
+          "voice": "en",
+          "text": "Now the choice sitting under every greeting: tu or vous. Tu for friends, family, people your age. Vous for strangers, elders, anyone at work. The greeting still lands if you pick wrong, but it lands badly."
+        },
+        {
+          "voice": "en",
+          "text": "And one more detail hiding in plain sight. Enchanté, delighted to meet you, becomes enchantée with a silent extra e when a woman says it. Désolé and désolée work the same way."
+        },
+        {
+          "voice": "fr",
+          "text": "Enchanté, enchantée, désolé, désolée"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me, the everyday hello, any time before evening:"
+        },
+        {
+          "voice": "fr",
+          "text": "Bonjour"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the warm goodbye you leave someone with at the end of the day:"
+        },
+        {
+          "voice": "fr",
+          "text": "Bonne journée"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this one on your own, slowly. It's a goodbye for the evening with a promise to see them again soon."
+        },
+        {
+          "voice": "fr",
+          "text": "Bonne soirée, à bientôt !"
+        },
+        {
+          "kind": "produce",
+          "expected": "Bonne soirée, à bientôt !",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Bonsoir belongs to which part of the day?"
+        },
+        {
+          "kind": "check",
+          "expected": "evening",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And when does a speaker add the extra e to enchanté or désolé?"
+        },
+        {
+          "kind": "check",
+          "expected": "when the speaker is a woman",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Bonjour before evening, bonsoir after, salut for friends coming or going, allô only on the phone. Au revoir, à bientôt, à demain, à plus tard, à la prochaine all close a conversation, each with its own distance in time. Tu for close, vous for everyone else. And enchanté, désolé both take a silent extra e when a woman is speaking."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à demain !"
+        }
+      ]
+    }
+  ]
+},
   scenarioId: undefined,
 
   overview: {

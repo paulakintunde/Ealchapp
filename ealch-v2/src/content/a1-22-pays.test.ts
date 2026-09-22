@@ -259,7 +259,7 @@ test('the lesson passes validateLesson and the density validator', { skip: noLes
 /** Against an EXPLICIT CONSTANT, not a figure derived from the lesson. A derived
  *  count compares the content to itself and passes on any rewording. */
 const REFRAME = 'Learn the country with its article. Everything else follows.';
-const REFRAME_APPEARANCES = 13;
+const REFRAME_APPEARANCES = 14;
 
 test('the reframe is carried verbatim, the exact number of times authored', { skip: noLesson }, () => {
   strictEqual(L!.reframe, REFRAME, 'the reframe has been reworded');

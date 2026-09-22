@@ -75,7 +75,7 @@ export const REFRAME = 'Aimer takes the whole thing. Manger takes a part of it.'
 /** How many sections carry the reframe verbatim. An EXPLICIT constant: a count
  *  derived from the lesson compares the content to itself and passes on any
  *  rewording. Invariant §5. */
-export const REFRAME_COUNT = 8;
+export const REFRAME_COUNT = 9;
 
 export const NOURRITURE_TERMS: Record<string, LessonTerm> = {
   articleIsPartOfIt: {

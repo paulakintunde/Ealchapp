@@ -114,7 +114,7 @@ const ACT_SECTIONS: Record<string, string[]> = {
  *  lesson. A derived count compares the content to itself and passes on any
  *  rewording, which is invariant §5. */
 const REFRAME = 'Ask what is owned, not who owns it.';
-const REFRAME_APPEARANCES = 12;
+const REFRAME_APPEARANCES = 13;
 
 const EXPECTED_TRIGGERS = 6;
 const EXPECTED_ROUNDS = 6;

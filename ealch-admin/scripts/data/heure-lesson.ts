@@ -2397,7 +2397,7 @@ export const HEURE_LESSON: Lesson = {
   //   whether an id is RELEASED and not whether it is SHOWN. The test asks the
   //   second question, on content rather than on ids, because this lesson names
   //   its corpus through frOf() and writes no ids into its sections at all.
-  version: 3,
+  version: 4,
 
   grammarAssumed: [
     'The numbers from one to a hundred, introduced in a1.02 and a1.27',
@@ -2420,7 +2420,155 @@ export const HEURE_LESSON: Lesson = {
     'Quelle heure est-il and Vous avez l\'heure, as fixed question chunks',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.72,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Quelle heure est-il ?"
+        },
+        {
+          "voice": "en",
+          "text": "Telling time. Twelve hours, one frame, and a single word that changes what you're doing with the clock."
+        },
+        {
+          "voice": "en",
+          "text": "By the end of this you can say what time it is, read a timetable that counts past twelve, and set up a meeting instead of just answering a question nobody asked."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. Il est says the time. À books it."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: the frame il est plus heures, the two hours with no number at all, et quart and et demie, moins, and the twenty four hour clock."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the frame. Il, pointing at nothing, holds the sentence up. Est, plus the hour, and heure stays singular only when there's exactly one."
+        },
+        {
+          "voice": "fr",
+          "text": "Il est une heure."
+        },
+        {
+          "voice": "en",
+          "text": "It's one o'clock. Add a second hour and heure takes an s, always, English drops the word hour, French never does."
+        },
+        {
+          "voice": "fr",
+          "text": "Il est huit heures. Il est midi. Il est minuit."
+        },
+        {
+          "voice": "en",
+          "text": "It's eight o'clock. It's noon. It's midnight. Midi and minuit get no number and no article at all. Then the minutes hang off the back: et quart adds fifteen, et demie adds thirty, moins pulls minutes off the next hour, and moins le quart is the only one of the four with an article."
+        },
+        {
+          "voice": "fr",
+          "text": "Il est trois heures et quart. Il est quatre heures moins le quart."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Say it's five o'clock:"
+        },
+        {
+          "voice": "fr",
+          "text": "Il est cinq heures."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now noon, no number, no article:"
+        },
+        {
+          "voice": "fr",
+          "text": "Il est midi."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now on your own. Say it's eleven o'clock, slowly, and don't forget the s on heures."
+        },
+        {
+          "voice": "fr",
+          "text": "Il est onze heures."
+        },
+        {
+          "kind": "produce",
+          "expected": "Il est onze heures.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Which two words for the hour take no number and no article?"
+        },
+        {
+          "kind": "check",
+          "expected": "midi and minuit",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And when you want to say when something happens rather than what time it is, which word replaces il est?"
+        },
+        {
+          "kind": "check",
+          "expected": "à",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Il est plus a number plus heures tells the time, and heure stays singular only after une. Midi and minuit stand alone, no number, no article. Et quart and et demie add minutes on, moins pulls them off the next hour, and moins le quart is the only one of the four with an article. Swap il est for à when you want to say when something happens instead."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Telling Time',

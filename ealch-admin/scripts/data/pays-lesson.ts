@@ -2292,7 +2292,7 @@ export const PAYS_LESSON: Lesson = {
   //   the role play offered « Je viens de France, de Lyon. » as an alternative
   //   answer. A city takes de with NO article, which is a different rule and
   //   a1.21's, and an alternative is an answer the learner is told is right.
-  version: 2,
+  version: 3,
 
   grammarAssumed: [
     'Noun gender, and that the article in front of a noun is the choice that gender makes, introduced in a1.03',
@@ -2315,7 +2315,215 @@ export const PAYS_LESSON: Lesson = {
     'je vais and je viens as frozen first-person frames, with aller and venir reserved for a2.02',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.75,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Countries and nationalities. English gets by with one little word, to, and one more, from. French uses six, and which one you need was decided the day you learned the country."
+        },
+        {
+          "voice": "en",
+          "text": "By the end of this lesson you can say where you're going, where you're from, and what somebody is, all without a single wrong word in front of the country."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. Learn the country with its article. Everything else follows."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: en, au and aux for going to a country, de, du and des for coming from one, and the fact that once that little word is in place, no article follows it."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with feminine countries. They take en, and en never keeps the article."
+        },
+        {
+          "voice": "fr",
+          "text": "la France"
+        },
+        {
+          "voice": "en",
+          "text": "becomes"
+        },
+        {
+          "voice": "fr",
+          "text": "en France"
+        },
+        {
+          "voice": "en",
+          "text": "Not en la France. The preposition already did the article's job. Same for"
+        },
+        {
+          "voice": "fr",
+          "text": "l'Allemagne, en Allemagne"
+        },
+        {
+          "voice": "en",
+          "text": "Masculine countries take au instead, and au really is à plus le, folded together, the same contraction you already know."
+        },
+        {
+          "voice": "fr",
+          "text": "le Canada"
+        },
+        {
+          "voice": "en",
+          "text": "becomes"
+        },
+        {
+          "voice": "fr",
+          "text": "au Canada"
+        },
+        {
+          "voice": "en",
+          "text": "Plural countries take aux."
+        },
+        {
+          "voice": "fr",
+          "text": "les États-Unis, aux États-Unis"
+        },
+        {
+          "voice": "en",
+          "text": "One trap. A masculine country that starts with a vowel still takes en, not au, purely for the sound."
+        },
+        {
+          "voice": "fr",
+          "text": "l'Iran, en Iran"
+        },
+        {
+          "voice": "en",
+          "text": "And one more trap. A final e usually signals feminine, but not always."
+        },
+        {
+          "voice": "fr",
+          "text": "le Mexique"
+        },
+        {
+          "voice": "en",
+          "text": "ends in e and stays masculine. Still au Mexique. The ending is a clue, not a guarantee. From works the same way: de, du, des."
+        },
+        {
+          "voice": "fr",
+          "text": "de France, du Sénégal, des États-Unis"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. A feminine country, going to. Say it slowly."
+        },
+        {
+          "voice": "fr",
+          "text": "en Belgique"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the trap country, masculine even though it ends in e."
+        },
+        {
+          "voice": "fr",
+          "text": "au Mexique"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "And coming from a plural country."
+        },
+        {
+          "voice": "fr",
+          "text": "des États-Unis"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now build one on your own. Say where you're going and where you're from, using je vais and je viens exactly as they are, no changes to those verbs yet."
+        },
+        {
+          "voice": "fr",
+          "text": "Je vais en Italie et je viens du Japon."
+        },
+        {
+          "kind": "produce",
+          "expected": "Je vais en Italie et je viens du Japon.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. La Belgique is feminine. Going there, do you say en or au?"
+        },
+        {
+          "kind": "check",
+          "expected": "en",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And les États-Unis is plural. What word goes in front, for going there?"
+        },
+        {
+          "kind": "check",
+          "expected": "aux",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Feminine countries and masculine ones starting with a vowel take en. Masculine countries take au. Plural countries take aux. Coming from works the same way with de, du and des. The preposition already carries the article, so none follows it. And le Mexique is your reminder that a final e is a clue, not a rule."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Countries and Nationalities',

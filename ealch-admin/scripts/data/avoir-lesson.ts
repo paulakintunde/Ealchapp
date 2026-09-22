@@ -2331,7 +2331,7 @@ export const AVOIR_LESSON: Lesson = {
   // a cloze test. s22-scenario was authored before that existed and had neither.
   // Caught by the suite rather than by a device, which is what a seed-wide
   // contract is for.
-  version: 6,
+  version: 7,
 
   grammarAssumed: [
     'The nine subject pronouns, and the six verb forms they sit behind, introduced in a1.05',
@@ -2352,7 +2352,175 @@ export const AVOIR_LESSON: Lesson = {
     'Recognition only of the passé composé with avoir as auxiliary, as a reading skill',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.68,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today's verb is avoir, to have, the second most useful verb in French after être."
+        },
+        {
+          "voice": "en",
+          "text": "Six forms, and no pattern to guess them from. You just learn them, the same way you learned être."
+        },
+        {
+          "voice": "en",
+          "text": "Here's the twist. Avoir spends most of its time not meaning have at all. It's how the French say their age, and it's how they say hungry, cold, right or afraid."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's today's reframe. French has it. English is it. Where English says I am hungry, French says j'ai faim, I have hunger."
+        },
+        {
+          "voice": "en",
+          "text": "So today: the six forms of avoir, the liaison that glues three of them to the next word, saying your age with avoir, and a first look at those avoir expressions that stand in for the English word be."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the six forms. Je becomes j'ai in front of a vowel."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai un cadeau pour Léa."
+        },
+        {
+          "voice": "en",
+          "text": "I have a present for Léa. Tu is as, il and elle both take a, no s."
+        },
+        {
+          "voice": "fr",
+          "text": "Tu as un cadeau pour Léa ? Il a un cadeau pour Léa."
+        },
+        {
+          "voice": "en",
+          "text": "Now the plural, and this is where liaison becomes obligatory. Nous avons, vous avez, ils ont, each one links straight into the next word with a hidden z or n sound."
+        },
+        {
+          "voice": "fr",
+          "text": "Nous avons un cadeau pour Léa. Ils ont un cadeau pour Léa."
+        },
+        {
+          "voice": "en",
+          "text": "Now the big one, age. French doesn't say you are a number, it says you have a number of years, and ans never disappears."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai vingt ans. Quel âge as-tu ? Quel âge avez-vous ?"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. I have a present for Léa:"
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai un cadeau pour Léa."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the plural, with its liaison. They have a present for Léa:"
+        },
+        {
+          "voice": "fr",
+          "text": "Ils ont un cadeau pour Léa."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this one on your own, slowly. Let the liaison connect vous to avez, don't clip it."
+        },
+        {
+          "voice": "fr",
+          "text": "Vous avez un cadeau pour Léa ?"
+        },
+        {
+          "kind": "produce",
+          "expected": "Vous avez un cadeau pour Léa ?",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. To say your age in French, do you use être or avoir?"
+        },
+        {
+          "kind": "check",
+          "expected": "avoir",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And after a number giving your age, is ans ever optional?"
+        },
+        {
+          "kind": "check",
+          "expected": "no, ans is obligatory",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Six forms: j'ai, tu as, il or elle a, nous avons, vous avez, ils or elles ont. Liaison is obligatory in nous avons, vous avez, ils ont and elles ont, never skip it."
+        },
+        {
+          "voice": "en",
+          "text": "For age, don't reach for être, reach for avoir plus a number plus ans, and ans never drops out. Quel âge as-tu, quel âge avez-vous, that's how you ask."
+        },
+        {
+          "voice": "en",
+          "text": "And remember, avoir does far more than have. Most of the time you meet it, it's standing in for the English word be: hungry, cold, right, afraid. More on that soon."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'The Verb Avoir (To Have)',

@@ -1679,7 +1679,7 @@ const PARTITIFS_LESSON_AUTHORED: Lesson = {
   // The unit shipped with lessonIds: [], so this is the first lesson here and
   // the counter starts at 1. It moves forward on every rebuild: the merge
   // script prints both sides, and "replacing v3 with v1" reads as a rollback.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Every noun carries a gender, and the article in front of it is the choice that gender makes',
@@ -1696,7 +1696,179 @@ const PARTITIFS_LESSON_AUTHORED: Lesson = {
     "The formal identity of the partitive du with the contracted preposition de + le, and how to tell them apart",
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.72,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Today we tackle the partitive: du, de la, de l', for when you mean some of something instead of a whole one."
+        },
+        {
+          "voice": "en",
+          "text": "Here is the trap. Un café and du café are both perfectly correct French. They just order different things, and nothing about the sentence will warn you which one you meant."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "One reframe to hold onto. Un is one of them. Du is some of it."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: du, de la and de l' for an unspecified quantity, des as their plural, and the way this whole family shrinks down to a bare de after negation or a quantity word."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "The rule runs on gender, same as always. Masculine noun, du."
+        },
+        {
+          "voice": "fr",
+          "text": "du pain, du lait, du fromage"
+        },
+        {
+          "voice": "en",
+          "text": "Bread, milk, cheese. Feminine noun, de la."
+        },
+        {
+          "voice": "fr",
+          "text": "de la soupe, de la confiture, de la salade"
+        },
+        {
+          "voice": "en",
+          "text": "And in front of a vowel sound, either gender collapses to de l'."
+        },
+        {
+          "voice": "fr",
+          "text": "de l'eau"
+        },
+        {
+          "voice": "en",
+          "text": "Some water. Now watch it shrink. After a negation, or after a quantity word, all of that becomes a plain de. Compare wanting a loaf to wanting some bread."
+        },
+        {
+          "voice": "fr",
+          "text": "Je voudrais un pain. Je voudrais du pain."
+        },
+        {
+          "voice": "en",
+          "text": "One whole loaf, or an unspecified amount of bread. The noun never changes. Only the article tells you which one you meant."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. Some coffee:"
+        },
+        {
+          "voice": "fr",
+          "text": "du café"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now some jam, feminine, so de la:"
+        },
+        {
+          "voice": "fr",
+          "text": "de la confiture"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "And the plural, some vegetables:"
+        },
+        {
+          "voice": "fr",
+          "text": "des légumes"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this on your own. Three partitives in a row, watch the article change with each noun."
+        },
+        {
+          "voice": "fr",
+          "text": "Je voudrais du pain, de la confiture et de l'eau."
+        },
+        {
+          "kind": "produce",
+          "expected": "Je voudrais du pain, de la confiture et de l'eau.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Un café orders one whole coffee. What does du café order instead?"
+        },
+        {
+          "kind": "check",
+          "expected": "some coffee, an unspecified amount",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And after a negation, like je ne bois pas, what does du, de la or des reduce to?"
+        },
+        {
+          "kind": "check",
+          "expected": "de",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Masculine noun takes du, feminine takes de la, and either one in front of a vowel sound takes de l'. The plural is des. Under negation or after a quantity word, all four flatten to a plain de. And remember, du can also just be de plus le, the preposition contracting with the definite article. Context tells you which job it is doing. Un is one of them. Du is some of it."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'The Partitive Articles',

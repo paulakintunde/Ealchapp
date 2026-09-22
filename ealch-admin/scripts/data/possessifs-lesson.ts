@@ -2234,7 +2234,7 @@ export const POSSESSIFS_LESSON: Lesson = {
   // reason sat in a 160-wide cell that could only be read by dragging the table
   // sideways. The table is now two short forms per row and the reasons moved to
   // prose, which is what the width is for.
-  version: 4,
+  version: 5,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2259,7 +2259,168 @@ export const POSSESSIFS_LESSON: Lesson = {
     'That a possessive occupies the determiner slot and excludes the definite and indefinite articles',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.68,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome to lesson twenty. Today, the possessive adjectives, French's answer to my, your, his, her, our and their."
+        },
+        {
+          "voice": "en",
+          "text": "Fifteen words where English uses five. The good news, you don't choose based on who owns something. You choose based on what's owned."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe for today. Ask what is owned, not who owns it."
+        },
+        {
+          "voice": "en",
+          "text": "Six owners, only three shapes each. Me, you, and him or her each get a masculine, a feminine, and a plural form. We, you all, and they only get two forms, because the masculine and feminine collapse into one."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with me. There are three shapes: one for a masculine noun, one for a feminine noun, one for anything plural."
+        },
+        {
+          "voice": "fr",
+          "text": "mon, ma, mes"
+        },
+        {
+          "voice": "en",
+          "text": "You, and him or her, follow that exact same three-way split."
+        },
+        {
+          "voice": "fr",
+          "text": "ton, ta, tes, son, sa, ses"
+        },
+        {
+          "voice": "en",
+          "text": "One trap hides in there. Before a feminine noun that starts with a vowel sound, the feminine form steps aside and borrows the masculine one instead, so two vowels never collide. The words for us, you all, and they don't have that problem, so they never make the swap."
+        },
+        {
+          "voice": "en",
+          "text": "We, you all, and they stop splitting by gender completely. One form for what's owned is singular, another for when it's plural."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat the group for us."
+        },
+        {
+          "voice": "fr",
+          "text": "notre, nos"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now them, where only the number of things owned decides the ending."
+        },
+        {
+          "voice": "fr",
+          "text": "leur, leurs"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Say the full set for you all, the formal or plural version."
+        },
+        {
+          "voice": "fr",
+          "text": "votre, vos"
+        },
+        {
+          "kind": "produce",
+          "expected": "votre, vos",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "And say the full set for you, the familiar version."
+        },
+        {
+          "voice": "fr",
+          "text": "ton, ta, tes"
+        },
+        {
+          "kind": "produce",
+          "expected": "ton, ta, tes",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Does the possessive agree with the person who owns the thing, or with the thing itself?"
+        },
+        {
+          "kind": "check",
+          "expected": "the thing itself",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "Between the word for their when there's one thing and the word for their when there's more than one, what changes, how many owners there are, or how many things they own?"
+        },
+        {
+          "kind": "check",
+          "expected": "how many things they own",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Mon, ma, mes is me. Ton, ta, tes is you. Son, sa, ses is him or her. Notre, nos is us. Votre, vos is you all. Leur, leurs is them. Every one of them looks at what's owned, never at who owns it, and mon, ton, son step in front of a feminine word starting with a vowel so nothing collides."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Possessive Adjectives',

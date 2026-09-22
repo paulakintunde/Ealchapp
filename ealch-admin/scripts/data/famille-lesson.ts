@@ -1989,7 +1989,7 @@ export const FAMILLE_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 4,
+  version: 5,
 
   grammarAssumed: [
     'Noun gender, and that le and la follow it, introduced in a1.03',
@@ -2011,7 +2011,167 @@ export const FAMILLE_LESSON: Lesson = {
     'The lexicalised compound grand-mère, taken as a frozen form rather than as a failure to agree',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.8,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today: la famille, the people in your family, and one small rule that changes everything about how you say whose they are."
+        },
+        {
+          "voice": "en",
+          "text": "Twenty two words to learn, but really it's one reversal. French has no apostrophe s, and once you flip the order, the rest falls into place."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. French has no apostrophe. Turn it around."
+        },
+        {
+          "voice": "en",
+          "text": "In English you say the person first, then the thing. In French, the thing comes first, then de, then the person. Today that's your whole focus."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the words. Father, mother:"
+        },
+        {
+          "voice": "fr",
+          "text": "le père, la mère"
+        },
+        {
+          "voice": "en",
+          "text": "Son, daughter:"
+        },
+        {
+          "voice": "fr",
+          "text": "le fils, la fille"
+        },
+        {
+          "voice": "en",
+          "text": "Uncle, aunt, cousin:"
+        },
+        {
+          "voice": "fr",
+          "text": "l'oncle, la tante, le cousin, la cousine"
+        },
+        {
+          "voice": "en",
+          "text": "Now the reversal. English says the person first, Paul's mother. French flips it: the possessed noun, then de, then the possessor."
+        },
+        {
+          "voice": "fr",
+          "text": "la mère de Paul"
+        },
+        {
+          "voice": "en",
+          "text": "No apostrophe exists in French, so de is your only tool for possession. Gender here just tracks the person, not a rule. Two exceptions: le bébé and l'enfant never change, and grand-mère is frozen, it doesn't agree the way grand normally does."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. The son, the daughter:"
+        },
+        {
+          "voice": "fr",
+          "text": "le fils, la fille"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now flip an English possessive into French. My aunt's family:"
+        },
+        {
+          "voice": "fr",
+          "text": "la famille de ma tante"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now build your own. Say this out loud, and notice the possessed noun still comes first."
+        },
+        {
+          "voice": "fr",
+          "text": "Le fils de ma tante est mon cousin."
+        },
+        {
+          "kind": "produce",
+          "expected": "Le fils de ma tante est mon cousin.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. In la mère de Paul, which comes first, the possessed noun or the possessor?"
+        },
+        {
+          "kind": "check",
+          "expected": "the possessed noun",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And which two words stay the same no matter who they refer to?"
+        },
+        {
+          "kind": "check",
+          "expected": "le bébé and l'enfant",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. No apostrophe in French, so flip the order: the possessed noun, then de, then the possessor, as in la mère de Paul. Gender tracks the person: le père, la mère, le fils, la fille, le neveu, la nièce. Le bébé and l'enfant never change, and a mixed group stays masculine plural. Mon, ma and mes are three separate words, not one pattern, and grand-mère is frozen, it never agrees."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Family Vocabulary',

@@ -2052,7 +2052,7 @@ export const ROUTINE_LESSON: Lesson = {
   //
   // This is a1.08's failure exactly, and it is the third A1 lesson to ship a
   // draft carrying it.
-  version: 2,
+  version: 3,
 
   grammarAssumed: [
     'Noun gender, and that the article in front of a noun is the choice that gender makes, introduced in a1.03',
@@ -2071,7 +2071,167 @@ export const ROUTINE_LESSON: Lesson = {
     'tous les jours as an explicit habitual marker alongside the article',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.75,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome to lesson twenty-eight. Today we walk through a whole day, morning to night."
+        },
+        {
+          "voice": "en",
+          "text": "Two special times refuse the word all the others need."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. The parts of the day take le. Midi and minuit take nothing."
+        },
+        {
+          "voice": "fr",
+          "text": "le matin, l'après-midi, le soir, la nuit, midi, minuit"
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Each part of the day takes le, just like le lundi means every Monday."
+        },
+        {
+          "voice": "fr",
+          "text": "le matin, l'après-midi, le soir, la nuit"
+        },
+        {
+          "voice": "en",
+          "text": "The morning, the afternoon, the evening, the night. L'après-midi elides, the same rule as sons and consonants."
+        },
+        {
+          "voice": "en",
+          "text": "But midi and minuit take no article at all. Attach a time with à, never with le."
+        },
+        {
+          "voice": "fr",
+          "text": "à midi, à minuit"
+        },
+        {
+          "voice": "en",
+          "text": "Four reflexive verbs carry the routine, and tous les jours marks a daily habit."
+        },
+        {
+          "voice": "fr",
+          "text": "se réveiller, se lever, se doucher, s'habiller, tous les jours"
+        },
+        {
+          "voice": "en",
+          "text": "One more thing. When a time word opens the sentence, a comma follows it."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me."
+        },
+        {
+          "voice": "fr",
+          "text": "le matin"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now with a verb. I wake up early:"
+        },
+        {
+          "voice": "fr",
+          "text": "Je me réveille tôt."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Say this on your own, slowly. Watch the comma."
+        },
+        {
+          "voice": "fr",
+          "text": "Tous les jours, je me lève tôt, mais le week-end, je me lève tard."
+        },
+        {
+          "kind": "produce",
+          "expected": "Tous les jours, je me lève tôt, mais le week-end, je me lève tard.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Does midi take le, la, or nothing?"
+        },
+        {
+          "kind": "check",
+          "expected": "nothing",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And what follows a time word that opens a sentence?"
+        },
+        {
+          "kind": "check",
+          "expected": "a comma",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "le matin, l'après-midi, le soir, la nuit, midi, minuit"
+        },
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Those all take le, except midi and minuit, which take nothing and pair with à. Se réveiller, se lever, se doucher, s'habiller carry the routine, and tous les jours marks the habit."
+        },
+        {
+          "voice": "fr",
+          "text": "Belle journée, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Daily Routine',

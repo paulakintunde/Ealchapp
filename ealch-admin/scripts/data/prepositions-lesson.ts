@@ -2018,7 +2018,7 @@ export const PREPOSITIONS_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2042,7 +2042,155 @@ export const PREPOSITIONS_LESSON: Lesson = {
     'entre as requiring two reference points, and chez as taking an animate complement',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.78,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, nine ways to say where something is, and one rule that splits them cleanly in two."
+        },
+        {
+          "voice": "en",
+          "text": "Five of these words sit straight on the noun. Four of them are phrases that end in de, and leaving that de out is the single most common mistake an English speaker makes here."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe for the whole lesson. One word goes straight onto the noun. A phrase needs de first."
+        },
+        {
+          "voice": "en",
+          "text": "Today's five simple prepositions: sur, sous, dans, devant, derrière. And the four phrases that always end in de: près de, loin de, à côté de, en face de."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the simple ones. No de, no extra word, straight onto the noun."
+        },
+        {
+          "voice": "fr",
+          "text": "Le chat est sur la boîte."
+        },
+        {
+          "voice": "en",
+          "text": "The cat is on the box. Now flip it."
+        },
+        {
+          "voice": "fr",
+          "text": "Le chat est sous la boîte."
+        },
+        {
+          "voice": "en",
+          "text": "The cat is under the box. Sur, sous, dans, devant, derrière, all five drop straight onto the noun, never a de in sight."
+        },
+        {
+          "voice": "en",
+          "text": "The phrases work differently. Près de, loin de, à côté de, en face de, every one of them ends in de, and that de is obligatory, it never drops. À also contracts: à plus le becomes au, à plus les becomes aux, but à plus la and à plus l' stay exactly as they are."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me, slowly. On the box:"
+        },
+        {
+          "voice": "fr",
+          "text": "sur la boîte"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now next to the box, where that de can never disappear:"
+        },
+        {
+          "voice": "fr",
+          "text": "à côté de la boîte"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this sentence on your own, slowly. Keep that de after à côté."
+        },
+        {
+          "voice": "fr",
+          "text": "Le chat est à côté de la boîte."
+        },
+        {
+          "kind": "produce",
+          "expected": "Le chat est à côté de la boîte.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Does à contract with la?"
+        },
+        {
+          "kind": "check",
+          "expected": "no",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And chez, does it take a place or a person?"
+        },
+        {
+          "kind": "check",
+          "expected": "a person",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Five words go straight onto the noun: sur, sous, dans, devant, derrière. Four phrases always end in de, which never drops: près de, loin de, à côté de, en face de. À contracts to au before le and aux before les, but never before la or l'. De contracts the same way, du and des, never before la. Entre always wants two things. Chez always wants a person."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à plus tard !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Prepositions of Place',

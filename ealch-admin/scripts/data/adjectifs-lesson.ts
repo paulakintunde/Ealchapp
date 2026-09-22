@@ -2077,7 +2077,7 @@ export const ADJECTIFS_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2100,7 +2100,175 @@ export const ADJECTIFS_LESSON: Lesson = {
     'That the feminine of all six is audible, in contrast with a1.13, while the plural remains silent',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.7,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, six adjectives you will use constantly: grand, petit, beau, vieux, bon, mauvais."
+        },
+        {
+          "voice": "en",
+          "text": "And the first thing to know about them has nothing to do with meaning. It's where they stand in the sentence."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe. Colours follow the noun, you already know that. These six come first."
+        },
+        {
+          "voice": "en",
+          "text": "So instead of une maison grande, you say une grande maison, a big house."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: that word order, then the feminine on all six, including two that don't play by the normal rule."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the regular ones. Add an e for feminine, just like the last lesson."
+        },
+        {
+          "voice": "fr",
+          "text": "un grand café, une grande maison"
+        },
+        {
+          "voice": "en",
+          "text": "A big coffee, a big house. Same pattern for petit, small."
+        },
+        {
+          "voice": "fr",
+          "text": "un petit chien, une petite voiture"
+        },
+        {
+          "voice": "en",
+          "text": "Now two that break the pattern. Beau doesn't just add an e, it swaps for a whole new word, and vieux does the same."
+        },
+        {
+          "voice": "fr",
+          "text": "un beau jardin, une belle maison, un vieux livre, une vieille maison"
+        },
+        {
+          "voice": "en",
+          "text": "Beautiful garden, beautiful house, old book, old house. Bon has its own trick, it doubles the final consonant, which kills the nasal sound."
+        },
+        {
+          "voice": "fr",
+          "text": "un bon café, une bonne idée"
+        },
+        {
+          "voice": "en",
+          "text": "Good coffee, good idea. Hear it, bon through the nose, bonne flat and clear. One more piece. Right before a vowel sound, beau and vieux each take a third shape, bel and vieil, so two vowels never collide."
+        },
+        {
+          "voice": "fr",
+          "text": "un bel homme, un vieil ami"
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. A beautiful house:"
+        },
+        {
+          "voice": "fr",
+          "text": "une belle maison"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now an old friend, remember the vowel trigger:"
+        },
+        {
+          "voice": "fr",
+          "text": "un vieil ami"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this one on your own. Watch bon shift to bonne, and keep the adjective up front."
+        },
+        {
+          "voice": "fr",
+          "text": "Il a une bonne idée pour la vieille maison."
+        },
+        {
+          "kind": "produce",
+          "expected": "Il a une bonne idée pour la vieille maison.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Do these six adjectives go before or after the noun?"
+        },
+        {
+          "kind": "check",
+          "expected": "before",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And what word does bel stand in for, right before a masculine noun starting with a vowel sound?"
+        },
+        {
+          "kind": "check",
+          "expected": "beau",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Grand, petit, beau, vieux, bon, mauvais all sit in front of the noun, not after like colours. Grand and petit just add an e for feminine. Beau becomes belle, vieux becomes vieille, full swaps. Bon doubles to bonne and loses the nasal. Before a vowel sound, beau turns into bel, vieux turns into vieil. And since mauvais and vieux already end in s or x, their masculine plural never changes."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Basic Adjectives',

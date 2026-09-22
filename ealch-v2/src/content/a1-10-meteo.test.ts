@@ -1172,7 +1172,7 @@ test('the reframe is authored verbatim the exact number of times', () => {
   if (noSeed || noSrc) return;
   // Against an EXPLICIT constant, not a figure derived from the lesson: a
   // derived count compares the content to itself and passes on any rewording.
-  const REFRAME_APPEARANCES = 14;
+  const REFRAME_APPEARANCES = 16;
   strictEqual(L!.reframe, 'Weather makes, people have, things are.');
   strictEqual(strings(L!).filter((s) => s.includes(L!.reframe!)).length, REFRAME_APPEARANCES);
   // And it really is on at least three SECTIONS, which is what the density

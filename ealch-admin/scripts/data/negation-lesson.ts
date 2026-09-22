@@ -2394,7 +2394,7 @@ export const NEGATION_LESSON: Lesson = {
   //   defect exactly: an assertion over strings(section) cannot tell "on the
   //   screen" from "one tap away". The English is now in the cell under the
   //   French, which TapTableView draws as a second line.
-  version: 3,
+  version: 4,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2418,7 +2418,163 @@ export const NEGATION_LESSON: Lesson = {
     'moi non plus as the negative-polarity agreement reply',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.78,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, la négation, how to turn any sentence you already know how to make into its opposite."
+        },
+        {
+          "voice": "en",
+          "text": "It takes two words, not one, and they don't sit together. They wrap around the verb, one on each side."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe for today. Wrap the verb, then ask what the verb was."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: ne and pas around a finite verb, what un, une and des turn into when they get trapped inside that wrap, and the one case where nothing changes at all."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with être. I am tired, and here's the wrap: ne right before the verb, pas right after."
+        },
+        {
+          "voice": "fr",
+          "text": "Je suis fatigué. Je ne suis pas fatigué."
+        },
+        {
+          "voice": "en",
+          "text": "I am not tired. Same wrap on avoir, and watch ne shrink to n' before that vowel sound."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai soif. Je n'ai pas soif."
+        },
+        {
+          "voice": "en",
+          "text": "Now the part everyone forgets. I have a brother turns negative, and un does not make the trip."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai un frère. Je n'ai pas de frère."
+        },
+        {
+          "voice": "en",
+          "text": "Same with une and des, they both collapse to de. But le, la and les never do, not even here."
+        },
+        {
+          "voice": "fr",
+          "text": "Elle a des enfants. Elle n'a pas d'enfants. Ce n'est pas un livre."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me, slowly. He is not there:"
+        },
+        {
+          "voice": "fr",
+          "text": "Il n'est pas là."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now, we are not ready, where the wrap closes around sommes:"
+        },
+        {
+          "voice": "fr",
+          "text": "Nous ne sommes pas prêts."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this one on your own, slowly. Watch des disappear into de."
+        },
+        {
+          "voice": "fr",
+          "text": "Elle n'a pas d'enfants."
+        },
+        {
+          "kind": "produce",
+          "expected": "Elle n'a pas d'enfants.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. When you negate j'ai un frère, what does un turn into?"
+        },
+        {
+          "kind": "check",
+          "expected": "de",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And does le, la or les ever change under negation?"
+        },
+        {
+          "kind": "check",
+          "expected": "no, they stay the same",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Ne and pas wrap the finite verb, and ne shrinks to n' before a vowel. Un, une and des all collapse to de once pas shows up, j'ai un frère becomes je n'ai pas de frère. But le, la and les never change, and neither does ce n'est pas un livre after être. In fast real speech people often drop the ne entirely, but that's only for recognising, never for saying."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Negation',

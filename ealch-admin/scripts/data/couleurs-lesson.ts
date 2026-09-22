@@ -2250,7 +2250,7 @@ export const COULEURS_LESSON: Lesson = {
   // act 6's flashcards. a1-13-couleurs.test.ts caught both. v2 shows the violet
   // paradigm in s09-sort and moves the both-genders sentence into act 3 where
   // its tranche releases it.
-  version: 2,
+  version: 3,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -2273,7 +2273,175 @@ export const COULEURS_LESSON: Lesson = {
     'The postposition of colour adjectives, stated as a fact and not as a system',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.72,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome back. Today, twelve colours, and something new: the first word in this course that changes shape depending on what it's describing."
+        },
+        {
+          "voice": "en",
+          "text": "Some of these colours will grow a silent e, a few will actually change sound, and two of them will refuse to change at all."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's the reframe for today. Colours agree with the thing they describe. Things that became colours do not."
+        },
+        {
+          "voice": "en",
+          "text": "Today's focus: the feminine -e, the four colours where you actually hear it, the silent plural -s, and two colours borrowed from nouns that never move."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the easy rule. Most colours add an e for the feminine, and you don't hear a thing."
+        },
+        {
+          "voice": "fr",
+          "text": "bleu, bleue"
+        },
+        {
+          "voice": "en",
+          "text": "Blue, blue. Same sound, the masculine already ends in a vowel."
+        },
+        {
+          "voice": "en",
+          "text": "Four colours break that silence. The masculine hides a consonant you don't say, and the e wakes it up."
+        },
+        {
+          "voice": "fr",
+          "text": "vert, verte. gris, grise."
+        },
+        {
+          "voice": "en",
+          "text": "Green, grey. The t and the s turn on."
+        },
+        {
+          "voice": "fr",
+          "text": "blanc, blanche. violet, violette."
+        },
+        {
+          "voice": "en",
+          "text": "White, purple, further still, but the same job. And one fact with no explanation: colour adjectives come after the noun."
+        },
+        {
+          "voice": "en",
+          "text": "Now two that never move, feminine or plural, because they were nouns first. Marron is a chestnut, orange is the fruit."
+        },
+        {
+          "voice": "fr",
+          "text": "des chaussures marron"
+        },
+        {
+          "voice": "en",
+          "text": "Brown shoes. Not marrons. It stays exactly as it is."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. A blue dress:"
+        },
+        {
+          "voice": "fr",
+          "text": "une robe bleue"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now a green jacket, where you actually hear the change:"
+        },
+        {
+          "voice": "fr",
+          "text": "une veste verte"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this on your own, slowly. Watch which colour changes and which one refuses to."
+        },
+        {
+          "voice": "fr",
+          "text": "J'ai une voiture rouge et des chaussures marron."
+        },
+        {
+          "kind": "produce",
+          "expected": "J'ai une voiture rouge et des chaussures marron.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Does bleu change sound when it becomes bleue?"
+        },
+        {
+          "kind": "check",
+          "expected": "no, it sounds the same",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And what happens to marron when you're talking about several brown things?"
+        },
+        {
+          "kind": "check",
+          "expected": "nothing changes, it stays marron",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Most colours add a silent e for the feminine. Vert, gris, blanc and violet actually change sound or spelling. The plural adds an s you never hear. Marron and orange came from nouns, so they never change, feminine or plural. And colours always follow the noun."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Colors',

@@ -1963,7 +1963,7 @@ export const PLACEMENT_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Noun gender, and that un and une follow it, introduced in a1.03',
@@ -1987,7 +1987,171 @@ export const PLACEMENT_LESSON: Lesson = {
     'The liaison of a pre-nominal grand before a vowel-initial noun',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.7,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "Welcome to la place de l'adjectif, adjective placement. In English, the describing word comes first. In French, it comes after, in almost every phrase you build."
+        },
+        {
+          "voice": "en",
+          "text": "Ten common words break that pattern, and four of them actually change meaning depending on which side of the noun they land on."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Here's your reframe for the whole lesson. When in doubt, put it after."
+        },
+        {
+          "voice": "en",
+          "text": "Today: the default position after the noun, the closed set of ten words that go before it instead, and the four words, grand, ancien, pauvre, propre, that flip meaning depending on where you put them."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with the default. Almost every adjective in French follows its noun."
+        },
+        {
+          "voice": "fr",
+          "text": "un homme grand"
+        },
+        {
+          "voice": "en",
+          "text": "A tall man. Grand describes height here, sitting after the noun, like most adjectives do."
+        },
+        {
+          "voice": "en",
+          "text": "But a small closed list goes before instead. Petit, grand, gros, jeune, vieux, beau, joli, bon, mauvais, nouveau. Ten words, memorize the list, it isn't a sound rule."
+        },
+        {
+          "voice": "fr",
+          "text": "un grand homme"
+        },
+        {
+          "voice": "en",
+          "text": "Same word, moved to the front, and now it means a great man, someone important, not someone tall. The side is the decision."
+        },
+        {
+          "voice": "en",
+          "text": "Three more words do the same trick. Ancien before the noun means former, after it means old. Pauvre before means unfortunate, after means with no money. Propre before means own, after means clean."
+        },
+        {
+          "voice": "fr",
+          "text": "un ancien hôtel, un hôtel ancien"
+        },
+        {
+          "voice": "en",
+          "text": "A former hotel, an old hotel. One more detail: right before one of these pre-nominal words, des shrinks to de."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. The tall man, adjective after the noun:"
+        },
+        {
+          "voice": "fr",
+          "text": "un homme grand"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the great man, same word, moved to the front:"
+        },
+        {
+          "voice": "fr",
+          "text": "un grand homme"
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this sentence on your own, slowly. Watch where propre sits, and what that does to its meaning."
+        },
+        {
+          "voice": "fr",
+          "text": "C'est ma propre chambre."
+        },
+        {
+          "kind": "produce",
+          "expected": "C'est ma propre chambre.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. Where does a typical French adjective go, before the noun or after?"
+        },
+        {
+          "kind": "check",
+          "expected": "after",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And when grand moves in front of the noun, what does it mean, tall or great?"
+        },
+        {
+          "kind": "check",
+          "expected": "great",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Default rule: the adjective goes after the noun. Ten words break it and go before instead: petit, grand, gros, jeune, vieux, beau, joli, bon, mauvais, nouveau."
+        },
+        {
+          "voice": "en",
+          "text": "Four of those words also change meaning by position. Grand before means great, after means tall. Ancien before means former, after means old. Pauvre before means unfortunate, after means with no money. Propre before means own, after means clean. And des shrinks to de right before one of these words up front."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, à bientôt !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Adjective Placement',

@@ -1859,7 +1859,7 @@ export const NOURRITURE_LESSON: Lesson = {
   // The LESSON's own counter, not `seed.version`. seed.version is the OTA
   // snapshot number, derived by publish-content.ts as previous + 1, and a merge
   // must never hand-bump it.
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'Noun gender, and that the article in front of a noun is the choice that gender makes, introduced in a1.03',
@@ -1879,7 +1879,159 @@ export const NOURRITURE_LESSON: Lesson = {
     'Plural-only food nouns, and that they have no singular in ordinary use',
   ],
 
-  features: ['roleplay', 'voiceflash'],
+  features: ['narrated', 'roleplay', 'voiceflash'],
+  narration: {
+  "camilleVoiceId": "camille-fr-ca-01",
+  "ratioEnFr": 0.72,
+  "stages": [
+    {
+      "stage": "warm",
+      "segments": [
+        {
+          "voice": "fr",
+          "text": "Bonjour !"
+        },
+        {
+          "voice": "en",
+          "text": "La nourriture. Sixty food words you'll use every single day: bread, cheese, eggs, chicken, the works."
+        },
+        {
+          "voice": "en",
+          "text": "Here's the trap. English has one word for liking food and eating it. French splits that into two different grammar patterns, and neither one is optional."
+        }
+      ]
+    },
+    {
+      "stage": "focus",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Today's focus: when a food noun takes le, la or l', and when it takes du, de la or des, all decided by the verb sitting in front of it."
+        },
+        {
+          "voice": "en",
+          "text": "Aimer, adorer, détester and préférer name the whole category. Manger, boire and prendre take just a part of it. Aimer takes the whole thing. Manger takes a part of it."
+        }
+      ]
+    },
+    {
+      "stage": "input",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Start with liking. You love bread, the whole idea of bread, not one loaf."
+        },
+        {
+          "voice": "fr",
+          "text": "J'aime le pain."
+        },
+        {
+          "voice": "en",
+          "text": "I love bread. Le pain, the definite article, because aimer talks about the category, not an amount."
+        },
+        {
+          "voice": "en",
+          "text": "Now switch to eating. You're not eating the concept of bread, you're eating some of it."
+        },
+        {
+          "voice": "fr",
+          "text": "Je mange du pain."
+        },
+        {
+          "voice": "en",
+          "text": "I'm eating bread. Du, the partitive. Same noun, same meal, different job for the verb."
+        },
+        {
+          "voice": "en",
+          "text": "Watch l'œuf. That elided l' hides its gender exactly like l'eau does, so du or de la depends on a gender you just have to know. And in a negative sentence, that partitive flattens to a bare de: je ne mange pas de pain."
+        }
+      ]
+    },
+    {
+      "stage": "practice",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your turn. Repeat after me. I love cheese:"
+        },
+        {
+          "voice": "fr",
+          "text": "J'aime le fromage."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        },
+        {
+          "voice": "en",
+          "text": "Now the eating version, with the partitive:"
+        },
+        {
+          "voice": "fr",
+          "text": "Je mange du fromage."
+        },
+        {
+          "kind": "repeat",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "produce",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Now say this one on your own, slowly. Watch the same food noun switch from le to du mid sentence."
+        },
+        {
+          "voice": "fr",
+          "text": "J'aime le poulet, et ce soir je mange du poulet."
+        },
+        {
+          "kind": "produce",
+          "expected": "J'aime le poulet, et ce soir je mange du poulet.",
+          "gradeAs": "produce"
+        }
+      ]
+    },
+    {
+      "stage": "check",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Quick check. After aimer, adorer, détester or préférer, does a food noun take the definite article or the partitive?"
+        },
+        {
+          "kind": "check",
+          "expected": "the definite article",
+          "gradeAs": "recognise"
+        },
+        {
+          "voice": "en",
+          "text": "And in a negative sentence, what does du or de la collapse down to?"
+        },
+        {
+          "kind": "check",
+          "expected": "de",
+          "gradeAs": "recognise"
+        }
+      ]
+    },
+    {
+      "stage": "cheat",
+      "segments": [
+        {
+          "voice": "en",
+          "text": "Your cheat sheet. Aimer, adorer, détester, préférer plus a food take le, la or l', the whole category. Manger, boire, prendre plus a food take du, de la or des, just a part of it. A negative sentence flattens that partitive down to a plain de. And l' can hide a noun's gender, so learn le poulet and la viande's articles by heart."
+        },
+        {
+          "voice": "fr",
+          "text": "Bravo, bon appétit !"
+        }
+      ]
+    }
+  ]
+},
 
   overview: {
     titleEn: 'Food Vocabulary',
