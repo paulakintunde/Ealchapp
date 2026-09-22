@@ -349,7 +349,7 @@ Plans:
 
 Plans:
 **Wave 1**
-- [ ] 18-01-PLAN.md — Install jest/jest-expo/RNTL, add the separate `test:component` script, give `Toggle` a switch role plus accessible name (D-07), and prove the harness with a Toggle render/press test
+- [x] 18-01-PLAN.md — Install jest/jest-expo/RNTL, add the separate `test:component` script, give `Toggle` a switch role plus accessible name (D-07), and prove the harness with a Toggle render/press test
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 18-02-PLAN.md — Render the real `app/settings.tsx` with `getByRole` assertions plus one sound-toggle interaction against the real store, and write the `ealch-v2/TESTING.md` recipe (D-06)
@@ -427,7 +427,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | 15. Content Snapshot Split — Implementation | 0/TBD | Not started | - |
 | 16. Cold-Start Lazy Load | 0/TBD | Not started | - |
 | 17. Notification Tap-Handler & Push Token Registration | 0/TBD | Not started | - |
-| 18. Component Test Infrastructure | 0/TBD | Not started | - |
+| 18. Component Test Infrastructure | 1/2 | In Progress|  |
 | 19. High-Risk Test Coverage — Exam Grading & Notification Delivery | 0/TBD | Not started | - |
 | 20. TEF Speech-Rate Verification & Re-render | 0/TBD | Not started | - |
 | 21. DELF blanc-02..05 Audio Listening QA | 0/TBD | Not started | - |
