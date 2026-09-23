@@ -12,7 +12,7 @@ reports the deltas before doing anything else. Claude writes it back at the end
 of a session, in the same commit as the work. Paul edits any line, any time —
 the human line is always right and Claude reconciles to it, never the reverse.
 
-Last sync: 2026-09-22, after the sons art commit (d205bdf).
+Last sync: 2026-09-23, after publishing v73 (adb8129).
 
 ---
 
@@ -25,9 +25,9 @@ accessibility, mascot, snapshot split.
 
 | | |
 |---|---|
-| Position | Phase 22.1, **plan 7 of 8** (01–06 have SUMMARYs; 07, 08 do not) |
-| Next | Execute 22.1-07, then 22.1-08, then close the phase |
-| Blocked on | Nothing |
+| Position | Phase 22.1, **plan 8 of 8**. 07 done and summarised; 08 is the device pass |
+| Next | 22.1-08: EAS preview build, Pixel, airplane mode, cold start vs plan 06's 524ms |
+| Blocked on | **Paul: it needs a physical device.** Nothing Claude can run |
 
 **Known drift:** STATE.md reads `Plan: 3 of 8` and `total_phases: 24 /
 completed_phases: 8`. The plan number is wrong. The 96% figure counts 48 of 50
@@ -55,7 +55,8 @@ narration scripts.
 we both know it, and stops being fine the moment it needs app changes.
 
 **Watch:** b1.01 is still seed-absent, reachable only through the dev preview.
-Publishing it is blocked behind the same `content:publish` that 22.1-07 needs.
+Publishing is now unblocked: v73 went out cleanly, so b1.01 ships whenever it is
+marked published in Postgres.
 
 ---
 
@@ -116,5 +117,16 @@ four `worktree-agent-*` and `fix/sons06-lesson-layout`.
 **Alt text does not reach the screen yet.** `lessonImageAlt()` is committed;
 its caller in `LessonRich.tsx` is not. Lands when that in-flight change does.
 
-**Nothing is proven on device this session.** Code paths are complete, which is
-not the same as rendered.
+**Nothing is proven on device.** Code paths are complete, which is not the same
+as rendered. This is now the only blocker on path A.
+
+**There are no users.** `attempts`, `learning_sessions`, `entitlements` and
+`subscriptions` are all 0 rows; 5 auth users and 1 profile are test accounts.
+Every "this would wipe learner progress" constraint is protecting nothing today,
+which makes this the cheapest moment there will ever be for structural change.
+
+**a1.03's figures are measured against 22.9% of the corpus.** 0 of 27 endings
+read the same in the seed cut and the full corpus; `-on` is 53% accurate in one
+and 74% in the other. Re-measuring keeps the suite green and the teaching wrong.
+Measuring against the corpus is the fix and touches ~16 coupled files, so it
+wants its own phase. See `_a1_genre_cut_vs_full.ts`.
