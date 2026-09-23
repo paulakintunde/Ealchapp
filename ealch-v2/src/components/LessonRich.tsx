@@ -47,7 +47,7 @@ import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { content } from '@/services/content';
 import { noteFor } from '@/services/content.logic';
-import { lessonImage } from '@/content/lessonImages';
+import { lessonImage, lessonImageAlt } from '@/content/lessonImages';
 import { deckEntries } from '@/content/deck.logic';
 // The house answer-folding every other scored surface uses, so the writing
 // surface cannot drift from the quiz on what counts as a right answer.
@@ -88,7 +88,7 @@ export function RichImage({ refKey, ratio = 16 / 9 }: { refKey?: string; ratio?:
   if (!src) return null;
   return (
     <View style={{ width: '100%', aspectRatio: ratio, borderRadius: 18, marginBottom: 14, overflow: 'hidden', backgroundColor: t.line(6) }}>
-      <Image source={src} resizeMode="cover" accessibilityIgnoresInvertColors style={{ width: '100%', height: '100%' }} />
+      <Image source={src} resizeMode="cover" accessibilityLabel={lessonImageAlt(refKey)} accessibilityIgnoresInvertColors style={{ width: '100%', height: '100%' }} />
     </View>
   );
 }
