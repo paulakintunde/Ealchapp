@@ -1945,6 +1945,11 @@ export const PARTICIPES_LESSON: Lesson = {
   //     The counter moves rather than the body being corrected under v1:
   //     Postgres already held v1, and two different bodies under one number is
   //     the drift ledger §10 exists to prevent. a2.09 set the precedent.
+  //
+  //   2026-09-22, NO BUMP (Corrections §16.7, text-only): E604 « J'ai su la réponse » was glossed "I knew the
+  //     answer" and E606 « J'ai voulu partir » "I wanted to leave". In the passé
+  //     composé those verbs mean found out and tried to, and b1.04 teaches that
+  //     contrast, so the old glosses taught the error b1.04 corrects.
   version: 3,
 
   grammarAssumed: [
