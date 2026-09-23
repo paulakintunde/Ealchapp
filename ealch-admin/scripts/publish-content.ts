@@ -35,6 +35,15 @@ import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCL
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 import { cutExamTasks, cutItems } from './seed-cut.logic.ts';
+import { measureEnding, type GenderRow } from '../../ealch-v2/src/content/gender.logic.ts';
+import { ENDING_RULES, WORTHLESS_ENDINGS, MORE_ENDINGS, RULE_FLOOR } from './data/genre-endings.ts';
+import {
+  findArtifacts,
+  findFigureMoves,
+  formatGenreDrift,
+  type EndingClaim,
+  type Measurement as GenreMeasurement,
+} from './genre-drift.logic.ts';
 import { findExamPaperLosses, findExamTaskLosses, findPresenceLosses, findUnitLosses, findVersionedLosses, formatDiffReport, type DriftLoss } from './drift-guard.logic.ts';
 import { stableStringify, sha256, uploadToStorage, downloadFromStorage, listStorage, deleteFromStorage } from './snapshot-utils.ts';
 import { planPrune, mib } from './prune.logic.ts';
@@ -1268,6 +1277,55 @@ async function main() {
   mkdirSync(dirname(REPORT_PATH), { recursive: true });
   writeFileSync(REPORT_PATH, report, 'utf8');
   console.log(`  ✎ ${REPORT_PATH}`);
+
+  // ── a1.03's ending figures, asked on every publish ─────────────────────
+  //
+  // a1.03 prints a population and an accuracy for ~27 noun endings, measured
+  // against the SEED. The seed is a cut, so those figures move whenever the cut
+  // moves — and the cut moves for reasons that have nothing to do with nouns.
+  // Bundling the exam papers unioned 792 exam-task target items into it and
+  // shifted 23 of the 27 figures without a word being authored. Four tests in
+  // the app repo went red hours later and nothing was actually wrong.
+  //
+  // The app suite is the wrong place to learn this, so the publish that caused
+  // it says so, here, with the commands. It never aborts: the seed about to be
+  // written is correct either way, and a publish that died at this point would
+  // leave the database and git disagreeing, which is the one state this whole
+  // script exists to prevent.
+  //
+  // The second question is the one that matters and is NOT routine: does every
+  // taught ending still hold across the whole corpus, and is every dismissed
+  // one still under the floor in both? That check is why -eur and -oire were
+  // cut before a1.03 shipped, but it only ever ran while authoring a1.03 —
+  // publish nouns from any other lesson and nobody asked again. Now it runs
+  // here, on every publish, against both corpora at once.
+  {
+    const genreLookup = (rows: readonly GenderRow[]) => {
+      const cache = new Map<string, GenreMeasurement>();
+      return (ending: string): GenreMeasurement => {
+        if (!cache.has(ending)) {
+          const m = measureEnding(rows as GenderRow[], ending);
+          cache.set(ending, m ? { n: m.n, accuracy: m.accuracy, predicts: m.predicts } : null);
+        }
+        return cache.get(ending) ?? null;
+      };
+    };
+    const allClaims = [...ENDING_RULES, ...WORTHLESS_ENDINGS, ...MORE_ENDINGS] as EndingClaim[];
+    const genreLines = formatGenreDrift(
+      findFigureMoves(allClaims, genreLookup(seedItems as unknown as GenderRow[])),
+      findArtifacts(
+        ENDING_RULES as EndingClaim[],
+        WORTHLESS_ENDINGS as EndingClaim[],
+        genreLookup(seedItems as unknown as GenderRow[]),
+        genreLookup(items as unknown as GenderRow[]),
+        RULE_FLOOR,
+      ),
+    );
+    if (genreLines.length) {
+      console.log('');
+      for (const line of genreLines) console.log(line);
+    }
+  }
 
   // A no-op publish burns an OTA version and makes every device on the channel
   // re-download a snapshot to arrive at the content it already holds. Refused by

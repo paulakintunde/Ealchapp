@@ -28,6 +28,7 @@
     "content:salutations": "tsx scripts/author-salutations-l1-journey.ts",
     "content:nombres": "tsx scripts/author-nombres-batch.ts",
     "content:gender": "tsx scripts/author-noun-gender-batch.ts",
+    "content:genre-check": "tsx scripts/check-genre-artifacts.ts",
     "content:nombres21": "tsx scripts/author-nombres-21-100-batch.ts",
     "content:nombreslarge": "tsx scripts/author-nombres-large-batch.ts",
     "content:articles": "tsx scripts/author-articles-batch.ts",
