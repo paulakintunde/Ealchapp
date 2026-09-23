@@ -916,7 +916,7 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
                   >
                     <TX font="serifI" size={27} role="titleLg" ls={0.4} lhMult={1.3} lang="fr" style={{ width: '100%' }}>{c.fr}</TX>
                     {c.sub ? <TX role="label" color={t.txMuted} ls={0.3} lhMult={1.5} style={{ width: '100%', marginTop: 6 }}>{c.sub}</TX> : null}
-                    <TX role="bodySm" color={t.txSecondary} lhMult={1.5} style={{ width: '100%', marginTop: 8, marginBottom: 14 }}>{c.en}</TX>
+                    <TX gloss role="bodySm" color={t.txSecondary} lhMult={1.5} style={{ width: '100%', marginTop: 8, marginBottom: 14 }}>{c.en}</TX>
                     <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={58} />
                   </View>
                 );

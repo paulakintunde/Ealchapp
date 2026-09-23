@@ -52,6 +52,12 @@ export type AppState = {
   // system setting, and only on the lesson-style screens.
   brightBoost: boolean;
 
+  // B1 and above are French-first: English translations are hidden until the
+  // learner turns them on (content/english.logic.ts). One choice for every B1+
+  // lesson, kept across sessions. Has no effect on A1/A2, which are taught in
+  // English.
+  lessonEnglish: boolean;
+
   // The swipeable "how lessons work" intro (LessonKeyIntro) auto-shows once,
   // ever, before the first lesson a user opens, then never again on its own —
   // a `?` in the lesson header reopens it afterward regardless of this flag.
@@ -134,6 +140,7 @@ export type AppState = {
   setAvatarId: (id: string) => void;
   setSound: (on: boolean) => void;
   setBrightBoost: (on: boolean) => void;
+  setLessonEnglish: (on: boolean) => void;
   setLessonKeySeen: (seen: boolean) => void;
   setAlarm: (t: string) => void;
   setClock24: (v: boolean) => void;
@@ -172,6 +179,7 @@ const initialData = () => ({
   avatarId: DEFAULT_AVATAR_ID as string,
 
   brightBoost: true,
+  lessonEnglish: false,
   lessonKeySeen: false,
   browseOpen: false,
 
@@ -221,6 +229,7 @@ export const useStore = create<AppState>()(
       setAvatarId: (avatarId) => set({ avatarId }),
       setSound: (sound) => set({ sound }),
       setBrightBoost: (brightBoost) => set({ brightBoost }),
+      setLessonEnglish: (lessonEnglish) => set({ lessonEnglish }),
       setLessonKeySeen: (lessonKeySeen) => set({ lessonKeySeen }),
       setAlarm: (alarmTime) => {
         set({ alarmTime });
@@ -405,6 +414,7 @@ export const useStore = create<AppState>()(
         accent: s.accent,
         avatarId: s.avatarId,
         brightBoost: s.brightBoost,
+        lessonEnglish: s.lessonEnglish,
         lessonKeySeen: s.lessonKeySeen,
         browseOpen: s.browseOpen,
         sound: s.sound,

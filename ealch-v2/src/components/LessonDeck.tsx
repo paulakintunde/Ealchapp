@@ -198,7 +198,7 @@ export function FrenchLine({
           {respell ? <TX role="bodySm" color={t.txMuted}>{respell}</TX> : null}
         </View>
       ) : null}
-      {en ? <TX role="bodySm" color={t.txMuted}>{en}</TX> : null}
+      {en ? <TX gloss role="bodySm" color={t.txMuted}>{en}</TX> : null}
       {note ? <TX role="meta" color={t.txSubtle} style={{ marginTop: 2 }}>{note}</TX> : null}
       {on ? (
         <View style={{ marginTop: 6 }}>

@@ -15,6 +15,7 @@ import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
 import { normalizeFr, barsForLevel } from '@/utils/score';
 import { resolveAudio, speedsFor, NORMAL_RATE } from '@/content/lessonAudio.logic';
+import { useShowEnglish } from './GlossContext';
 import { dicteeMode, dicteeTarget, dicteeWords, wordDecoys } from '@/content/dictee.logic';
 import {
   BEAT,
@@ -167,7 +168,7 @@ export function StoryView({ s }: { s: Story }) {
                 <TX font="bold" role="meta" ls={2} color={t.danger} style={{ marginBottom: 6 }}>{b.warn}</TX>
               ) : null}
               <TX role="body" lhMult={1.4}>{b.fr}</TX>
-              <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>{b.en}</TX>
+              <TX gloss font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>{b.en}</TX>
               <View style={{ marginTop: 8 }}>
                 <PlayDot text={b.fr} size={28} />
               </View>
@@ -186,7 +187,7 @@ export function StoryView({ s }: { s: Story }) {
         }}
       >
         <TX font="serifI" role="titleSm" lhMult={1.3}>{s.closing.fr}</TX>
-        <TX role="bodySm" color={t.txMuted} style={{ marginTop: 6 }}>{s.closing.en}</TX>
+        <TX gloss role="bodySm" color={t.txMuted} style={{ marginTop: 6 }}>{s.closing.en}</TX>
       </View>
     </View>
   );
@@ -317,6 +318,7 @@ function OneGroup({
   initialIndex?: number | null;
 }) {
   const t = useTheme();
+  const showEnglish = useShowEnglish();
   const [picked, setPicked] = useState(-1);
 
   // A group carries words, a check, or both. At size xl sons.06 splits them
@@ -473,7 +475,7 @@ function OneGroup({
              *  the gloss in exactly this shape). Otherwise the two fields are
              *  joined the same way, so both paths look identical on glass. */}
             {(() => {
-              const second = it.note ?? [it.respell, it.en].filter(Boolean).join(' · ');
+              const second = it.note ?? [it.respell, showEnglish ? it.en : null].filter(Boolean).join(' · ');
               return second ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{second}</TX> : null;
             })()}
           </View>
@@ -1636,7 +1638,7 @@ function TurnBubble({
             <TX role="body" lhMult={1.4} style={muted ? { fontStyle: 'italic' } : undefined}>{fr}</TX>
           </View>
         </View>
-        {en ? <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>{en}</TX> : null}
+        {en ? <TX gloss font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>{en}</TX> : null}
         {playable ? (
           <View style={{ marginTop: 8 }}>
             <PlayDot text={fr} size={28} />
@@ -1688,7 +1690,7 @@ function AnswerCard({ turn, matched }: { turn: ScenarioTurn; matched?: Reply }) 
               </View>
               <PlayDot text={r.fr} size={26} />
             </View>
-            {r.en ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 3 }}>{r.en}</TX> : null}
+            {r.en ? <TX gloss role="bodySm" color={t.txMuted} style={{ marginTop: 3 }}>{r.en}</TX> : null}
           </View>
         );
       })}
@@ -2034,7 +2036,7 @@ export function ListeningView({ s }: { s: ListeningSec }) {
               ) : (
                 <>
                   <TX role="body">{l.fr}</TX>
-                  <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{l.en}</TX>
+                  <TX gloss role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{l.en}</TX>
                 </>
               )}
             </View>

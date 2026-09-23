@@ -26,6 +26,8 @@ import { audioIndex, resolveByText } from '@/content/lessonAudio.logic';
 import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
+import { GlossContext } from '@/components/GlossContext';
+import { englishShown, glossToggleApplies } from '@/content/english.logic';
 
 // Callers written before the corpus used short keys; map them to the real ids so
 // existing links (home's weak-spots row, etc.) keep working until they're updated.
@@ -35,7 +37,43 @@ const LEGACY: Record<string, string> = {
   a2_1: 'a2.01.l1',
 };
 
+/** The English fallback (content/english.logic.ts). Provided around the whole
+ *  screen so every branch, the pager and the sheets read the same answer. */
 export default function LessonScreen() {
+  const params = useLocalSearchParams<{ key?: string }>();
+  const raw = Array.isArray(params.key) ? params.key[0] : params.key;
+  const lesson = content.lesson(raw ? LEGACY[raw] ?? raw : '');
+  const pref = useStore((s) => s.lessonEnglish);
+  const show = englishShown(lesson ? unitBand(lesson.unitId) : null, pref);
+  return (
+    <GlossContext.Provider value={show}>
+      <LessonScreenBody />
+    </GlossContext.Provider>
+  );
+}
+
+/** The B1+ header control: English translations on or off, for every B1+
+ *  lesson at once. Absent on A1/A2, where English is how the lesson teaches. */
+function EnglishToggle() {
+  const t = useTheme();
+  const on = useStore((s) => s.lessonEnglish);
+  const set = useStore((s) => s.setLessonEnglish);
+  return (
+    <Press
+      cue={null}
+      onPress={() => set(!on)}
+      accessibilityRole="switch"
+      accessibilityState={{ checked: on }}
+      accessibilityLabel={on ? 'Hide English translations' : 'Show English translations'}
+      hitSlop={8}
+      style={{ height: 32, paddingHorizontal: 10, borderRadius: 16, borderWidth: 1, borderColor: on ? t.acc : t.line(14), backgroundColor: on ? t.accA(18) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
+    >
+      <TX font="bold" role="label" ls={1} color={on ? t.accTx : t.txSecondary}>EN</TX>
+    </Press>
+  );
+}
+
+function LessonScreenBody() {
   const t = useTheme();
   const T = useT();
   useReadingBrightness();
@@ -667,6 +705,7 @@ export default function LessonScreen() {
               {/* The persistent reference link: one tap to the sheets from
                   any screen of the lesson, which is what stops material
                   pulled out of the flow from being lost. */}
+              {glossToggleApplies(unitBand(L.unitId)) ? <EnglishToggle /> : null}
               <SheetLink count={L.sheets?.length ?? 0} onPress={() => setSheetId('')} />
               <Press
                 cue={null}

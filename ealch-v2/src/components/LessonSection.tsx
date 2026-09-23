@@ -149,7 +149,7 @@ export function SectionView({
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
                     <View style={{ flex: 1 }}>
                       <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 4 }}>« {ex.fr} »</TX>
-                      <TX role="label" color={t.txMuted}>{ex.en}</TX>
+                      <TX gloss role="label" color={t.txMuted}>{ex.en}</TX>
                     </View>
                     <View style={{ width: 40, height: 40, borderRadius: 20, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                       <Icon name="play" size={15} color={t.acc} />
@@ -177,7 +177,7 @@ export function SectionView({
               <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}>
                 <TX font="semi" role="meta" ls={1.4} color={t.txSubtle} style={{ marginBottom: 6 }}>{c.situation}</TX>
                 <TX font="serifI" role="titleLg" size={18} lang="fr" style={{ marginBottom: 3 }}>« {c.fr} »</TX>
-                <TX role="label" color={t.txMuted}>{c.en}</TX>
+                <TX gloss role="label" color={t.txMuted}>{c.en}</TX>
               </View>
             ))}
           </View>

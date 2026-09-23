@@ -2,6 +2,8 @@ import { PixelRatio, Text, type TextProps, type TextStyle } from 'react-native';
 import { F } from '@/theme/fonts';
 import { useTheme } from '@/theme/useTheme';
 import { typeMetrics, type RoleKey as RK } from './type.logic';
+import { useShowEnglish } from './GlossContext';
+import { enTailOf, stripEnTail } from '@/content/english.logic';
 
 type FontKey = 'serif' | 'serifI' | 'sans' | 'med' | 'semi' | 'bold' | 'notation';
 
@@ -78,6 +80,10 @@ export type TXProps = Omit<TextProps, 'role'> & {
   ls?: number; // letter spacing
   center?: boolean;
   style?: TextStyle | TextStyle[];
+  /** This line IS an English translation of the French beside it. Hidden when
+   *  the lesson's English toggle is off (B1 and above, content/english.logic.ts).
+   *  Never set it on an answer: a flashcard back is what the learner asked for. */
+  gloss?: boolean;
 };
 
 /** Themed text primitive. Defaults to Instrument Sans at the body role. */
@@ -93,10 +99,14 @@ export function TX({
   ls,
   center,
   style,
+  gloss,
   children,
   ...rest
 }: TXProps) {
   const t = useTheme();
+  // The English fallback (B1+). Read before any early return so the hook order
+  // never changes. Off only inside a B1+ lesson with English turned off.
+  const showEnglish = useShowEnglish();
 
   // The OS font scale is applied to the glyphs and the line box together, once,
   // in typeMetrics — and React Native's own scaling is switched off below, so
@@ -124,6 +134,24 @@ export function TX({
   if (ls != null) base.letterSpacing = ls;
   if (center) base.textAlign = 'center';
 
+  if (gloss && !showEnglish) return null;
+  // An authored `EN: …` tail inside a French string. Hidden with the toggle,
+  // and when shown it becomes its OWN line under the French rather than the
+  // next sentence of the same paragraph.
+  const tail = typeof children === 'string' ? enTailOf(children) : null;
+  const body = tail
+    ? showEnglish
+      ? [
+          stripEnTail(children as string),
+          <Text key="en" style={{ color: t.txSubtle }}>{`\n${tail}`}</Text>,
+        ]
+      : stripEnTail(children as string)
+    : showEnglish
+      ? children
+      : Array.isArray(children)
+        ? children.map((c) => (typeof c === 'string' ? stripEnTail(c) : c))
+        : children;
+
   return (
     <Text
       style={[base, style as TextStyle]}
@@ -136,7 +164,7 @@ export function TX({
       accessibilityLanguage={lang === 'fr' ? 'fr-FR' : undefined}
       {...rest}
     >
-      {children}
+      {body}
     </Text>
   );
 }

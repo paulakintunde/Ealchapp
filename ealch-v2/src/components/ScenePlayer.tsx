@@ -304,7 +304,7 @@ function BubbleBeat({
             correctly — that is the observation this fix was derived from. */}
         <TX font="serifI" role="titleSm">{beat.fr}</TX>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
+          <TX gloss role="bodySm" color={t.txMuted}>{beat.en}</TX>
           {speakable ? <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} /> : null}
         </View>
         {beat.ipa ? <TX font="notation" role="meta" color={t.txSubtle}>{beat.ipa}</TX> : null}
@@ -362,7 +362,7 @@ function ChoiceBeat({
             >
               <TX font="serifI" role="title">{o.fr}</TX>
               {o.respell ? <TX role="body" color={t.txSecondary}>{o.respell}</TX> : null}
-              <TX role="bodySm" color={t.txMuted}>{o.en}</TX>
+              <TX gloss role="bodySm" color={t.txMuted}>{o.en}</TX>
             </Press>
           );
         })}
@@ -491,7 +491,7 @@ function ReadingRow({
       </View>
       <TX role="body" color={t.txSecondary}>{side.ipa}</TX>
       {side.respell ? <TX role="bodySm" color={t.txMuted}>{side.respell}</TX> : null}
-      <TX role="bodySm" color={t.txMuted}>{side.en}</TX>
+      <TX gloss role="bodySm" color={t.txMuted}>{side.en}</TX>
     </Press>
   );
 }

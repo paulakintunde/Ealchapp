@@ -159,7 +159,7 @@ export function WordCardXL({
       ) : null}
 
       {en ? (
-        <TX role="body" size={15} color={t.txMuted} center numberOfLines={2}>
+        <TX gloss role="body" size={15} color={t.txMuted} center numberOfLines={2}>
           {en}
         </TX>
       ) : null}
