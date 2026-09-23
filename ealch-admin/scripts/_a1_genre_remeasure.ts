@@ -50,18 +50,59 @@ if (!WRITE) { console.log(`\n${moved.length} moved (dry run; pass --write)`); pr
 
 const p = 'scripts/data/genre-endings.ts';
 let src = readFileSync(p, 'utf8');
-const today = '2026-08-18';
+const today = new Date().toISOString().slice(0, 10);
+
+// TWO ROW FORMATS, and for a long time this only knew one of them.
+//
+// ENDING_RULES rows are multi-line and end `items: 58,`. MORE_ENDINGS and
+// WORTHLESS_ENDINGS rows are single-line objects and end `items: 46 }` — no
+// comma, because the comma belongs to the array. The block regex below looked
+// for `items: N,` only, so on 2026-09-23 a remeasure of 23 moved figures died
+// on the first single-line row (`-in`) with "could not locate the -in block"
+// and wrote nothing at all. Fourteen of the twenty-seven rows were unreachable.
+//
+// Multi-line rows take a note on their own line above the figure. Single-line
+// rows cannot, so they carry the same note appended to the trailing comment
+// that format already uses for exactly this history.
 for (const m of moved) {
   // Anchored to the ending's own block so a shared number cannot be rewritten
   // in the wrong entry.
   const block = new RegExp(`(ending: '${m.ending}',[\\s\\S]{0,9000}?)items: ${m.wasN},`);
-  if (!block.test(src)) { console.error(`could not locate the -${m.ending} block`); process.exit(3); }
-  const note = `    // ${m.nowN} since ${today}: ${WHY}.\n`;
-  src = src.replace(block, (_all, head: string) => `${head}${note}    items: ${m.nowN},`);
-  if (m.nowAcc !== m.wasAcc) {
-    const accBlock = new RegExp(`(ending: '${m.ending}',[\\s\\S]{0,9000}?)accuracy: ${m.wasAcc},`);
-    src = src.replace(accBlock, (_all, head: string) => `${head}accuracy: ${m.nowAcc},`);
+  if (block.test(src)) {
+    // Match the file's own terminator, or the inserted note turns a CRLF file
+    // into a mixed one and every line reads as changed in the diff.
+    const nl = src.includes('\r\n') ? '\r\n' : '\n';
+    const note = `    // ${m.nowN} since ${today}: ${WHY}.${nl}`;
+    src = src.replace(block, (_all, head: string) => `${head}${note}    items: ${m.nowN},`);
+    if (m.nowAcc !== m.wasAcc) {
+      const accBlock = new RegExp(`(ending: '${m.ending}',[\\s\\S]{0,9000}?)accuracy: ${m.wasAcc},`);
+      src = src.replace(accBlock, (_all, head: string) => `${head}accuracy: ${m.nowAcc},`);
+    }
+    continue;
   }
+
+  // Single-line row. Rewritten line-wise rather than with a spanning regex so
+  // the edit cannot reach into a neighbouring entry.
+  //
+  // THE FILE IS CRLF. split('\n') therefore leaves a '\r' at the end of every
+  // line, and appending after it puts the text BEYOND a carriage return — which
+  // ECMAScript treats as a line terminator, so the `//` comment ends at the
+  // '\r' and everything appended becomes code. That is a real break, not a
+  // cosmetic one: it produced "Unexpected ;" at the first rewritten row. The
+  // terminator is lifted off before the edit and put back after it.
+  const lines = src.split('\n');
+  const ix = lines.findIndex(
+    (l) => l.includes(`ending: '${m.ending}',`) && new RegExp(`items: ${m.wasN}\\s*\\}`).test(l),
+  );
+  if (ix < 0) { console.error(`could not locate the -${m.ending} row in either format`); process.exit(3); }
+  const eol = lines[ix].endsWith('\r') ? '\r' : '';
+  let line = lines[ix].slice(0, lines[ix].length - eol.length);
+  line = line.replace(new RegExp(`items: ${m.wasN}(\\s*\\})`), `items: ${m.nowN}$1`);
+  if (m.nowAcc !== m.wasAcc) line = line.replace(`accuracy: ${m.wasAcc},`, `accuracy: ${m.nowAcc},`);
+  const note = `${m.nowN} since ${today}: ${WHY}`;
+  line = line.includes('//') ? `${line}; ${note}` : `${line}   // ${note}`;
+  lines[ix] = line + eol;
+  src = lines.join('\n');
 }
 writeFileSync(p, src, 'utf8');
 console.log(`\n${moved.length} figure(s) re-measured in ${p}`);

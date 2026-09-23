@@ -169,7 +169,8 @@ const MASCULINE: EndingRule[] = [
     // committed without a publish behind it. The durable fix is to decide
     // whether four rows referenced by no lesson belong in the corpus at all;
     // until somebody does, this comment is the reason the number moved.
-    items: 58,
+        // 61 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 61,
     article: 'un',
     example: { id: 'fr.a1.ecole.003', fr: 'le cahier', en: 'notebook' },
     sheetExamples: ['le papier', 'le quartier', 'l’escalier', 'un policier', 'un pompier'],
@@ -181,7 +182,7 @@ const MASCULINE: EndingRule[] = [
     // compares the CONSTANTS to `seed.items` and never reads the rendered body,
     // so a spelled-out figure can drift for a week with every gate green. Same
     // defect a2.31 fixed on -tion and a2.30's merge script names.
-    line: 'Fifty-seven nouns, no exception here. The feminine of a job is -ière, which is a different word.',
+    line: 'Sixty-one nouns, no exception here. The feminine of a job is -ière, which is a different word.',
   },
   {
     id: 'ment',
@@ -195,7 +196,8 @@ const MASCULINE: EndingRule[] = [
     // 21 until a2.28 « Chez le médecin » CARRIED `le médicament` into the
     // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
     // population; all 18 joiners are IMPORTS. The accuracy did not move.
-    items: 22,
+        // 28 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 28,
     article: 'un',
     // Elided on the card, deliberately: the ending is the only thing that gives
     // the article back, which is the act after next, previewed here on a word
@@ -213,21 +215,23 @@ const MASCULINE: EndingRule[] = [
     accuracy: 100,
     // 29 until a2.32 « La technologie » CARRIED `Internet` and `un onglet` on
     // 2026-08-16. Both masculine, so the accuracy did not move.
-    items: 31,
+        // 32 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 32,
     article: 'un',
     example: { id: 'fr.a1.deplacements.031', fr: 'le ticket', en: 'the ticket' },
     sheetExamples: ['le billet', 'le poulet', 'le guichet', 'le bracelet', 'le carnet'],
     // -et and -ette are two letters apart and go opposite ways, which is the
     // thing that actually goes wrong here. The lookalike is the other rule.
     breaks: [{ id: 'fr.a1.cafe.012', fr: 'une baguette', en: 'a baguette', kind: 'lookalike' }],
-    line: 'Thirty-one nouns, no exception. Two letters more and it flips: -ette takes une.',
+    line: 'Thirty-two nouns, no exception. Two letters more and it flips: -ette takes une.',
   },
   {
     id: 'eau',
     ending: 'eau',
     predicts: 'm',
     accuracy: 92,
-    items: 37,
+        // 39 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 39,
     article: 'un',
     example: { id: 'fr.a1.ecole.032', fr: 'le tableau', en: 'the board' },
     sheetExamples: ['le bureau', 'le gâteau', 'le bateau', 'le couteau', 'le cadeau'],
@@ -237,7 +241,7 @@ const MASCULINE: EndingRule[] = [
       { id: 'fr.a1.cuisine.010', fr: "l'eau", en: 'the water', kind: 'exception' },
       { id: 'fr.a1.corps.043', fr: 'la peau', en: 'the skin', kind: 'exception' },
     ],
-    line: 'Right thirty-four times in thirty-seven. The ones it misses are l’eau and la peau.',
+    line: 'Right thirty-six times in thirty-nine. The ones it misses are l’eau and la peau.',
   },
   {
     id: 'age',
@@ -245,7 +249,7 @@ const MASCULINE: EndingRule[] = [
     predicts: 'm',
     // 90 until a2.32 on 2026-08-16. See the note on `items`: both joiners are
     // masculine, so this is the rare case where a carry makes a rule MORE true.
-    accuracy: 91,
+    accuracy: 93,
     // 29 until a2.29 « À l'hôtel » CARRIED `l'étage` into the seed on
     // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
     // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
@@ -254,7 +258,8 @@ const MASCULINE: EndingRule[] = [
     // `le clavardage` on 2026-08-16. Both masculine, and the accuracy rose a
     // point. `le clavardage` is one of only four a2.32 rows that join this
     // population at all: 29 of its 33 joiners are carries.
-    items: 32,
+        // 41 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 41,
     article: 'un',
     example: { id: 'fr.a1.cuisine.011', fr: 'le fromage', en: 'the cheese' },
     sheetExamples: ['le voyage', 'le garage', 'le visage', 'le mariage', 'le bagage'],
@@ -290,7 +295,8 @@ const FEMININE: EndingRule[] = [
     // 45 since a2.32 « La technologie » CARRIED `l'application` and
     // `une notification` on 2026-08-16. Both feminine, so the accuracy did not
     // move. Back to a carries-only move: neither joiner is authored.
-    items: 45,
+        // 52 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 52,
     article: 'une',
     example: { id: 'fr.a1.ecole.046', fr: 'la question', en: 'the question' },
     sheetExamples: ['la direction', 'la natation', 'la récréation', 'la destination'],
@@ -303,7 +309,7 @@ const FEMININE: EndingRule[] = [
     // reads the rendered body. a2.30's merge script names this exact defect.
     // Corrected here to the live figure, and the version moves with it.
     // 43 -> 45 with a2.32, 2026-08-16.
-    line: 'Forty-five nouns, no exception. It is -tion that works and not -on: le poisson takes un.',
+    line: 'Fifty-two nouns, no exception. It is -tion that works and not -on: le poisson takes un.',
   },
   {
     id: 'ure',
@@ -319,7 +325,8 @@ const FEMININE: EndingRule[] = [
     // in by the merge because the lesson references them. Both end -eure, which
     // ends -ure. The accuracy did not move and both are feminine, so the rule
     // is unaffected in every respect except its count.
-    items: 28,
+        // 31 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 31,
     article: 'une',
     example: { id: 'fr.a1.deplacements.018', fr: 'la voiture', en: 'the car' },
     sheetExamples: ['la confiture', 'la peinture', 'la ceinture', 'la couverture'],
@@ -332,19 +339,20 @@ const FEMININE: EndingRule[] = [
     id: 'ette',
     ending: 'ette',
     predicts: 'f',
-    accuracy: 97,
+    accuracy: 98,
     // 37 until a2.29 « À l'hôtel » CARRIED `la serviette` into the seed on
     // 2026-08-16. ZERO of that unit's 59 AUTHORED rows join this population;
     // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
     // The accuracy did not move.
     // 39 since a2.32 « La technologie » CARRIED `une tablette` on 2026-08-16.
     // Feminine, so the accuracy did not move.
-    items: 39,
+        // 42 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 42,
     article: 'une',
     example: { id: 'fr.a1.cafe.012', fr: 'une baguette', en: 'a baguette' },
     sheetExamples: ['une assiette', 'la fourchette', 'la serviette', 'la courgette'],
     breaks: [{ id: 'fr.a1.corps.073', fr: 'le squelette', en: 'skeleton', kind: 'exception' }],
-    line: 'Wrong once in thirty-seven, on le squelette. Its partner -et goes the other way: le ticket.',
+    line: 'Wrong once in forty-two, on le squelette. Its partner -et goes the other way: le ticket.',
   },
   {
     id: 'ine',
@@ -367,12 +375,13 @@ const FEMININE: EndingRule[] = [
     // and restored all four rows. `la semaine` is the joiner here. See the -ier
     // note above for why this figure oscillates between the merge layer and the
     // publish layer. The accuracy did not move.
-    items: 31,
+        // 33 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 33,
     article: 'une',
     example: { id: 'fr.a1.cuisine.001', fr: 'la cuisine', en: 'the kitchen' },
     sheetExamples: ['la piscine', 'la cantine', 'la farine', 'la cousine'],
     breaks: [{ id: 'fr.a1.metiers.165', fr: 'un capitaine', en: 'a captain', kind: 'exception' }],
-    line: 'Thirty of thirty-one. The one that breaks it is a job: un capitaine.',
+    line: 'Thirty-two of thirty-three. The one that breaks it is a job: un capitaine.',
   },
   {
     id: 'ise',
@@ -381,12 +390,13 @@ const FEMININE: EndingRule[] = [
     // 94 until a2.31 CARRIED `une maîtrise` on 2026-08-16, which is feminine, so
     // the accuracy rose a point.
     accuracy: 95,
-    items: 19,
+        // 20 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 20,
     article: 'une',
     example: { id: 'fr.a1.maison.016', fr: 'la chaise', en: 'the chair' },
     sheetExamples: ['la valise', 'la fraise', 'la cerise', 'la framboise', 'l’ardoise'],
     breaks: [{ id: 'fr.a1.deplacements.077', fr: 'le pare-brise', en: 'windshield, windscreen', kind: 'exception' }],
-    line: 'Eighteen of nineteen. The one that breaks it is a car part: le pare-brise.',
+    line: 'Nineteen of twenty. The one that breaks it is a car part: le pare-brise.',
   },
 ];
 
@@ -425,7 +435,7 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
   {
     ending: 'e',
     // 70 until a2.30 on 2026-08-16. See the note above `items` below.
-    accuracy: 71,
+    accuracy: 70,
     // 871 until a1.11 authored `une chambre` and `une avocate` into the shared
     // corpus on 2026-08-05, and 873 until a1.22 IMPORTED twenty-four country and
     // nationality headwords on 2026-08-07. Seven of those twenty-four end in -e:
@@ -539,7 +549,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // and restored all four rows. `la semaine` is the joiner here too, since it
     // ends in -e as well as -ine. See the -ier note for why this oscillates.
     // The accuracy did not move.
-    items: 961,
+        // 1044 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 1044,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -554,7 +565,7 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     ending: 'on',
     // 58 until a2.32 on 2026-08-16. See the note above `items`: four feminine
     // joiners against an ending that predicts masculine.
-    accuracy: 56,
+    accuracy: 53,
     // 142 until a1.22 imported `le Japon` on 2026-08-07. The accuracy did not
     // move and the ending is still dismissed for being under the floor.
     // 142 until a1.22 imported `le Japon`, 144 since a2.26 carried its shop
@@ -584,7 +595,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // vocabulary actually produces is -tion and -xion, which is the reliable
     // FEMININE slice, so every unit like this one drives -on further from the
     // masculine reading a learner would guess.
-    items: 157,
+        // 173 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 173,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -607,7 +619,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // It is feminine and the ending predicts masculine, so the accuracy fell one
     // point. Still far under the floor, so the lesson's dismissal is unchanged.
     accuracy: 53,
-    items: 55,
+        // 74 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
+    items: 74,
     bothWays: [
       { id: 'fr.a1.routines.103', fr: 'le café', en: 'the coffee' },
       { id: 'fr.a1.maison.022', fr: 'la clé', en: 'the key' },
@@ -647,21 +660,21 @@ export const MORE_ENDINGS: SheetEnding[] = [
   // gained a point of accuracy, neither crossed a threshold, no prediction
   // flipped. See the note on -e in WORTHLESS_ENDINGS for why a packaging
   // decision moves figures printed on cards.
-  { ending: 'in', predicts: 'm', accuracy: 98, items: 46 },   // 45 until a2.27 carried `le chemin`, 2026-08-16
-  { ending: 'ent', predicts: 'm', accuracy: 97, items: 31 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16
-  { ending: 'ard', predicts: 'm', accuracy: 100, items: 18 }, // 17 until a2.27 carried `le retard`, 2026-08-16
-  { ending: 'ant', predicts: 'm', accuracy: 100, items: 22 },   // 18 until a2.26, 2026-08-15; 22 since a2.32 carried `un identifiant` from BOTH internet and rp-technologie, 2026-08-16
-  { ending: 'oir', predicts: 'm', accuracy: 100, items: 16 },
-  { ending: 'ot', predicts: 'm', accuracy: 100, items: 16 },
+  { ending: 'in', predicts: 'm', accuracy: 98, items: 54 },   // 45 until a2.27 carried `le chemin`, 2026-08-16; 54 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ent', predicts: 'm', accuracy: 97, items: 39 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16; 39 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ard', predicts: 'm', accuracy: 100, items: 19 }, // 17 until a2.27 carried `le retard`, 2026-08-16; 19 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ant', predicts: 'm', accuracy: 100, items: 25 },   // 18 until a2.26, 2026-08-15; 22 since a2.32 carried `un identifiant` from BOTH internet and rp-technologie, 2026-08-16; 25 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'oir', predicts: 'm', accuracy: 100, items: 17 },   // 17 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ot', predicts: 'm', accuracy: 100, items: 17 },   // 17 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'ien', predicts: 'm', accuracy: 100, items: 17 },   // 15 until a2.32 carried `un lien` and `un technicien`, 2026-08-16
-  { ending: 'al', predicts: 'm', accuracy: 100, items: 12 },   // 11 until a2.26 authored le sous-total
+  { ending: 'al', predicts: 'm', accuracy: 100, items: 14 },   // 11 until a2.26 authored le sous-total; 14 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   // 7 until a2.32 AUTHORED `un mail`, 2026-08-16. An English borrowing that
   // happens to end in the letters -ail and happens to be masculine, so the rule
   // holds by luck rather than by morphology. Worth knowing if it ever moves.
   { ending: 'ail', predicts: 'm', accuracy: 100, items: 8 },
-  { ending: 'ité', predicts: 'f', accuracy: 94, items: 16 },
-  { ending: 'ance', predicts: 'f', accuracy: 100, items: 11 },// 10 until a2.27 carried `la correspondance`, 2026-08-16
-  { ending: 'sion', predicts: 'f', accuracy: 100, items: 9 },   // 8 until a2.32 AUTHORED `la baladodiffusion`, 2026-08-16
+  { ending: 'ité', predicts: 'f', accuracy: 96, items: 26 },   // 26 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ance', predicts: 'f', accuracy: 100, items: 14 },// 10 until a2.27 carried `la correspondance`, 2026-08-16; 14 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'sion', predicts: 'f', accuracy: 100, items: 11 },   // 8 until a2.32 AUTHORED `la baladodiffusion`, 2026-08-16; 11 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'euse', predicts: 'f', accuracy: 100, items: 8 },    // 6 until a2.26 carried la vendeuse; 8 since a2.30 MINTED une coiffeuse, 2026-08-16
 ];

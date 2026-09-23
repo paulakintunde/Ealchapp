@@ -1,8 +1,8 @@
 # Publish report
 
-Generated: 2026-09-19T21:12:20.488Z
-Mode: dry run (nothing is written or uploaded)
-Status: v70 → v71
+Generated: 2026-09-23T08:09:30.186Z
+Mode: publish
+Status: v72 → v73
 
 ## What changed
 
@@ -15,7 +15,7 @@ Status: v70 → v71
 | items | 48978 | 48978 | +0 |
 | scenarios | 107 | 107 | +0 |
 | playlists | 20 | 20 | +0 |
-| speakPath | 0 | 31 | +31 |
+| speakPath | 31 | 31 | +0 |
 | examTasks | 220 | 220 | +0 |
 | examPapers | 15 | 15 | +0 |
 
@@ -23,7 +23,7 @@ Status: v70 → v71
 
 | | previous | now | delta |
 |---|---|---|---|
-| snapshot bytes | 27309105 | 27308554 | -551 |
+| snapshot bytes | 27404229 | 27404225 | -4 |
 
-checksum: 2f486b087054ce283d5d5c3ccc8fbebf456390f2948087c7e7a4791a870a1646
-content digest: 1223186cfddfa977eb12c8bb069e9ccf52e5a162ab196e1048261a5e9b51d688
+checksum: edb5d2d3ed1a6ae4a003937e922774b2e3c74bb6a36b88254dc0bae050745e80
+content digest: 7e27dfa68ccffe2f6ffff4f67ffeadb943b2f334dd4224d91d7bdf43e96ff977
