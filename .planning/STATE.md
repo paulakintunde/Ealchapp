@@ -4,20 +4,24 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Completed 22.1-07-PLAN.md
-last_updated: "2026-09-23T00:00:00.000Z"
+last_updated: "2026-09-23T16:25:33.325Z"
 last_activity: 2026-09-23
 progress:
-  total_phases: 24
+  total_phases: 25
   completed_phases: 8
   total_plans: 50
   completed_plans: 49
-  percent: 33
+  percent: 32
   percent_basis: phases
   percent_note: >-
-    8 of 24 phases have all their plans executed (1-7, 18). The old 96% was
+    8 of 25 phases have all their plans executed (1-7, 18). The old 96/98% was
     plans-complete over plans-WRITTEN, and Phases 8-17 and 19-23 are still
     "0/TBD" in ROADMAP.md, so it divided by a denominator that excluded most of
     the milestone. Phase share is the honest figure until the rest is planned.
+    Phase 07.1 was inserted 2026-09-23, taking the denominator from 24 to 25.
+    NOTE: gsd-sdk's state handlers drop percent_basis/percent_note and
+    recompute percent from plans. If 98 reappears here, that is the handler,
+    not a real change.
 ---
 
 # Project State
@@ -36,7 +40,7 @@ Plan: 7 of 8 complete — 22.1-08 (offline first-launch device pass) is the last
 Status: Blocked on physical hardware. Nothing left that Claude can run alone
 Last activity: 2026-09-23
 
-Progress: [███░░░░░░░] 33% — 8 of 24 phases. See ROADMAP.md's "How to read this table"
+Progress: [███░░░░░░░] 32% — 8 of 25 phases. See ROADMAP.md's "How to read this table"
 
 ## Performance Metrics
 
@@ -74,6 +78,7 @@ Progress: [███░░░░░░░] 33% — 8 of 24 phases. See ROADMAP.m
 ### Roadmap Evolution
 
 - Phase 22.1 inserted after Phase 22: Bundle exam content in the seed so exams load at first launch, offline; sequenced before Phase 23 (URGENT)
+- Phase 07.1 inserted after Phase 7: Concept C spine rewrite: replaces den.tsx, lessonoverview.tsx and missions.tsx. Phases 8, 9, 11, 12 and 13 now depend on it (URGENT)
 
 ### Decisions
 

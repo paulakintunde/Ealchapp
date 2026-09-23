@@ -23,6 +23,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 5: Paywall Coverage Expansion & Upgrade Nudge** - Replace the single arbitrarily-gated lesson with one coherent, explainable gating rule (determined during phase planning) across the catalogue, plus a proactive upgrade nudge sharing a common interruption pattern
 - [ ] **Phase 6: Notification Correctness — Body Format & Toggles** - Fix unfilled notification placeholders and make Settings' notification toggles actually control what fires
 - [ ] **Phase 7: Known Bug Fixes** - Fix exam-response-lost-on-process-death (highest priority, revenue-adjacent), lock in the STT continuous-mode regression with a test, and fix audio-doesn't-pause-on-background (lowest priority, cosmetic)
+- [ ] **Phase 7.1: Concept C Spine Rewrite** (INSERTED) - Replace the Den, lesson overview and mission list with the approved Concept C trail, carrying the level panel, acte 00, the three-state language control, the day-one first run and the paywall's two trail positions
 - [ ] **Phase 8: Accessibility Retrofit** - Thread correct screen-reader roles/labels per control type across high-traffic screens, fix dark-mode OS-sync and flashcard font-scale clipping
 - [ ] **Phase 9: Onboarding & Analytics Audit** - Verify the onboarding/placement flow end-to-end and audit analytics event coverage/correctness across engagement AND the acquisition/activation funnel
 - [ ] **Phase 10: Feedback & Rating Flow** - Verify/fix "Le Rapport" and build a frequency-capped rating flow that routes positive ratings to the store and negative ratings to a private in-app report
@@ -221,9 +222,27 @@ Plans:
 - [x] 07-04-PLAN.md - BUG-01: module-scope AppState listener in tts.ts with pause/resume on the remote path and line-restart on the device path
 - [ ] 07-05-PLAN.md - Device verification checkpoints for BUG-02 and BUG-01 on a release build (exams cannot render in dev)
 
+### Phase 07.1: Concept C Spine Rewrite — Trail, Act Screen & Language Control (INSERTED)
+**Goal**: `den.tsx`, `lessonoverview.tsx` and `missions.tsx` are replaced by the approved Concept C spine — one trail per level, the unit as a heading with a pull-up sheet, the act as its own screen — carrying the level panel, acte 00, the three-state language control, the day-one first run and the paywall's two trail positions.
+**Depends on**: Phase 5 (causal — its ratified gating rule is exactly what the trail's two paywall positions render; this phase moves where that rule is *shown* and may not change the rule). Phase 7 is positional only: this phase was inserted after it so it sits ahead of Phases 8, 9, 11, 12 and 13, and it shares no files with Phase 7's bug fixes.
+**Requirements**: NAV-01
+**Success Criteria** (what must be TRUE):
+  1. A learner reaches a mission in two taps from the Den at any level, and `lessonoverview.tsx` no longer exists as a screen.
+  2. The level panel is the only band selector and carries all seven bands (sons through C2), every row's touch target at or above 44px, verified at OS font scale 1.3 — the failure mode that killed the pill row.
+  3. A unit's trail heading shows the English title for sons/A1/A2 and the French sub for B1 and above, driven by `ENGLISH_TAUGHT_BANDS` in `english.logic.ts` rather than a per-screen conditional, so one constant drives both the heading and the language control.
+  4. A unit whose lesson carries both `narration` and `features: ['narrated']` shows acte 00 at the top of its act list and opens the existing narrated player from it; a unit whose narration is unwritten shows no acte 00 at all.
+  5. The language control offers three states on B1+ and does not render on sons/A1/A2. Answers — flashcard backs, quiz meanings, glossary taps — stay visible in all three states, per `english.logic.ts`'s own rule.
+  6. A first-run learner with nothing completed sees a start marker in place of Reprendre, a dismissible orientation card and a dismissible placement offer, and both dismissals survive a relaunch.
+  7. The paywall appears in exactly two trail positions (end of the A1 trail, pinned above a locked band's trail), routes to `/paywall?from=gate:levels`, and leaves locked acts readable and pressable. `05-GATING-RULE.md` is unchanged by this phase.
+  8. Every replaced screen is proven on a physical device, not only in tests.
+**Plans**: TBD
+**Pitfall Watch**: Three things bite here. (1) `Lesson.version` keys learner checkmarks and XP — nothing in this phase may bump it, whatever a batch guard asks for. There are 0 users today (`attempts`, `learning_sessions`, `entitlements` all 0 rows), which makes this the cheapest moment there will be for structural change, but the constraint outlives the emptiness. (2) The two-state English toggle is sitting uncommitted across thirteen files in `ealch-v2/` and has never run on a device; commit it and prove it before criterion 5 extends it to three states, or the refactor rests on an unverified base. (3) `src/content/gloss.logic.ts` already exists and is the reading-passage glossary matcher, not the language control. It has been overwritten once. Do not name anything `gloss*`.
+**Design source**: the approved canvas, https://claude.ai/artifact/YcQn6EAGDab4rSAqiEe9Wt — boards C1 through C7 plus the level panel. Build from it rather than re-deriving the concept. Act and mission naming language is the one thing it leaves open.
+**UI hint**: yes
+
 ### Phase 8: Accessibility Retrofit
 **Goal**: Every interactive control is operable and correctly announced by a screen reader, and dark mode/font-scale behave as advertised.
-**Depends on**: Nothing
+**Depends on**: Phase 07.1 (hard — criterion 1 audits "home, lesson flow" screen by screen, and Phase 07.1 deletes and replaces those exact screens. A TalkBack sweep run first would certify controls that no longer exist.)
 **Requirements**: A11Y-01, A11Y-02, A11Y-03, A11Y-04
 **Success Criteria** (what must be TRUE):
   1. Every control built on the shared `Press` component announces a correct role per its actual type (button/link/switch/tab), audited per screen — home, lesson flow, settings, paywall screens first.
@@ -236,7 +255,7 @@ Plans:
 
 ### Phase 9: Onboarding & Analytics Audit
 **Goal**: The onboarding/placement screens and analytics instrumentation are confirmed correct — covering engagement events AND the acquisition/activation funnel — or their bugs are found and fixed.
-**Depends on**: Nothing
+**Depends on**: Phase 07.1 (hard — the day-one trail puts a dismissible placement offer and an orientation card on the first screen, which changes the shape of criterion 4's activation funnel and the events between `onboarding_started` and `first_lesson_started`. Instrumenting the old shape first means instrumenting it twice.)
 **Requirements**: QA-01, QA-02
 **Success Criteria** (what must be TRUE):
   1. A new user can complete the onboarding and placement screens (`app/onboarding.tsx`, `app/placement.tsx`) end-to-end with no dead-end, crash, or incorrect placement result — or any found issue is fixed within this phase.
@@ -263,6 +282,7 @@ Plans:
 **Goal**: The approved Brix mascot animation component is live for the states needed during normal lesson flow, without regressing today's accessibility-hiding or reduced-motion behavior.
 **Depends on**: Nothing (unblocked — `expo-speech-recognition` shipped in production, which was the deferral condition)
 **Requirements**: ANIM-01 (core states: idle/listening/speaking/celebrating/thinking)
+**Also depends on**: Phase 07.1 — acte 00's pre-roll sheet is a Brix surface that does not exist today, so it belongs in scope when the core states are specified rather than retrofitted afterwards.
 **Success Criteria** (what must be TRUE):
   1. The Brix mascot component renders and animates correctly for idle/listening/speaking/celebrating/thinking states during normal lesson flow.
   2. Animation follows the squash-and-stretch house style specified in the 2026-07-25 7-phase plan, with the selectable Brix-led roster (not the retired Camille avatar).
@@ -284,7 +304,7 @@ Plans:
 
 ### Phase 13: UI/UX Polish Audit
 **Goal**: General visual/interaction polish issues beyond the already-identified accessibility/font-scale/dark-mode bugs are found and triaged.
-**Depends on**: Phase 5, Phase 8, Phase 10, Phase 11, Phase 12 (hard dependency — this phase audits the same core screens those five phases change: paywall/nudge UI, accessibility-touched controls, feedback/rating UI, and the mascot component. Auditing before they land would re-flag issues already being fixed elsewhere and re-litigate polish decisions mid-flight.)
+**Depends on**: Phase 07.1, Phase 5, Phase 8, Phase 10, Phase 11, Phase 12 (hard dependency — this phase audits the same core screens those phases change: the navigation spine itself, paywall/nudge UI, accessibility-touched controls, feedback/rating UI, and the mascot component. Auditing before they land would re-flag issues already being fixed elsewhere and re-litigate polish decisions mid-flight. Phase 07.1 is the strongest of the five: it replaces the home and lesson-flow screens criterion 1 sweeps.)
 **Requirements**: UX-01
 **Success Criteria** (what must be TRUE):
   1. A pass across core screens (home, lesson flow, settings, paywall, exams) produces a concrete, specific list of visual-consistency/interaction-quality findings.
@@ -442,9 +462,9 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21 → 22 → 22.1 → 23
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 7.1 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21 → 22 → 22.1 → 23
 
-Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/state with each other and can be planned/executed in parallel per `config.json`'s `parallelization: true`. Phase 12 depends on Phase 11 (delight states extend the same Rive component core states establish) and is not part of the free-parallel set. Phase 13 (UI/UX Polish Audit) is hard-blocked behind Phases 5, 8, 10, 11, and 12 — it has been removed from the parallel set (a change from the original draft, made during 2026-09-19 revision to resolve a contradiction between this table and Phase 13's own dependency note) and should only be planned/executed once those five phases land. Phases 14 → 15 → 16 → 17 form a strict dependency chain (each restructures files the next phase touches again) and should not be parallelized with each other. Phase 19 depends on Phases 7, 17, and 18 all landing first. Phases 20 and 21 were appended after Phase 2's content audit (GAPS.md GAP-06, GAP-07) and have no dependency on any other phase. Phase 22 depends on Phases 18 and 19 (needs the test infrastructure and the established heavier-screen pattern) and is not part of the free-parallel set. Phase 23 depends on Phase 7 (extends BUG-02's restore mechanism to the presentation/grading-integrity layer) and is not part of the free-parallel set — it touches the same exam-runner files (`exam-section.tsx`, `exam-report.tsx`) Phase 19's E2E tests will exercise, so planning it before or alongside Phase 19 is worth considering even though no hard dependency runs in that direction.
+Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with each other and can be planned/executed in parallel per `config.json`'s `parallelization: true`. **Phases 8, 9 and 11 left that set on 2026-09-23**: Phase 07.1 replaces the screens all three touch, so none of them may be planned or executed ahead of it. Phase 07.1 is itself not parallel with anything that follows it — it restructures `den.tsx`, `lessonoverview.tsx`, `missions.tsx` and `LessonPager.tsx`, which is most of what Phases 8 through 13 read. Phase 12 depends on Phase 11 (delight states extend the same Rive component core states establish) and is not part of the free-parallel set. Phase 13 (UI/UX Polish Audit) is hard-blocked behind Phases 07.1, 5, 8, 10, 11, and 12 — it has been removed from the parallel set (a change from the original draft, made during 2026-09-19 revision to resolve a contradiction between this table and Phase 13's own dependency note) and should only be planned/executed once those five phases land. Phases 14 → 15 → 16 → 17 form a strict dependency chain (each restructures files the next phase touches again) and should not be parallelized with each other. Phase 19 depends on Phases 7, 17, and 18 all landing first. Phases 20 and 21 were appended after Phase 2's content audit (GAPS.md GAP-06, GAP-07) and have no dependency on any other phase. Phase 22 depends on Phases 18 and 19 (needs the test infrastructure and the established heavier-screen pattern) and is not part of the free-parallel set. Phase 23 depends on Phase 7 (extends BUG-02's restore mechanism to the presentation/grading-integrity layer) and is not part of the free-parallel set — it touches the same exam-runner files (`exam-section.tsx`, `exam-report.tsx`) Phase 19's E2E tests will exercise, so planning it before or alongside Phase 19 is worth considering even though no hard dependency runs in that direction.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -455,6 +475,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | 5. Paywall Coverage Expansion & Upgrade Nudge | 7/7 | Complete - 05-VERIFICATION.md passed, 12/12 must-haves | 2026-09-20 |
 | 6. Notification Correctness — Body Format & Toggles | 5/5 | All plans executed (NOTIFY-01/02 device-confirmed, Pixel 9) - pending gsd-verifier close-out | - |
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
+| 7.1 Concept C Spine Rewrite (INSERTED) | 0/TBD | Not started | - |
 | 8. Accessibility Retrofit | 0/TBD | Not started | - |
 | 9. Onboarding & Analytics Audit | 0/TBD | Not started | - |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |

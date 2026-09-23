@@ -115,35 +115,53 @@ the three-state language control.
 
 | | |
 |---|---|
-| Position | Concept C approved, all six outstanding artboards drawn and ratified (canvas v10). New: C-First, C-Narrated, C-Lang, C-Gate. Amended: C-Sheet intro listen, C-Act opener play |
-| Next | Plan the phase. Nothing on the canvas is waiting on review any more |
-| Blocked on | **Paul: where does this live?** A phase before Phase 5, or a new milestone. That is the only open item |
+| Position | **Phase 07.1 exists** (ROADMAP.md, inserted after Phase 7, NAV-01, 8 success criteria). Canvas v11, Concept C and all six outstanding boards approved. The design work is finished |
+| Next | `/gsd-plan-phase 07.1` — but commit and device-prove the two-state English toggle first, see below |
+| Blocked on | Nothing. The placement question that sat here since 2026-09-22 is answered |
 
-**Ratified 2026-09-23, alongside Concept C itself.** These are decisions now, not
-options, and building should start from them rather than re-deriving them:
+**Ratified 2026-09-23.** Decisions now, not options. Build from them:
 
 - **Acte 00.** The narrated lesson becomes a row at the top of each unit's act
   list, headphone glyph instead of a dot, opening a pre-roll sheet. It had to
   move: C turns the unit row into a heading carrying one "Fiche" chip, so the
   narrated pill `den.tsx` draws today (`T.narrCta`) has nowhere left to sit.
-  Touches `den.tsx` and whatever replaces `lessonoverview.tsx`.
 - **A third language state.** `englishShown(band, pref)` stops being a boolean.
   The third state is "anglais a la demande": the translation exists, hidden
   until tapped. The control takes the level-panel shape, a chip opening rows,
-  so a fourth mode costs one row. Touches `english.logic.ts`,
-  `GlossContext.tsx`, `Type.tsx` and one persisted store field. Answers still
-  never hide, per `english.logic.ts`'s own rule.
-- **The paywall's two positions.** One component in two places: the end of the
-  A1 trail, and pinned above a locked band's trail. Locked acts stay readable
-  and stay pressable in both. **This settles Phase 5 placement.** It moves
-  where the ratified gating rule is *shown* and does not touch the rule itself
-  (`.planning/phases/05-paywall-coverage-expansion-upgrade-nudge/05-GATING-RULE.md`).
+  so a fourth mode costs one row. Answers still never hide.
+- **The paywall's two positions.** End of the A1 trail, and pinned above a
+  locked band's trail. Locked acts stay readable and pressable in both. **This
+  settles Phase 5 placement.** It moves where the ratified gating rule is
+  *shown* and does not touch the rule.
+- **The trail heading follows the teaching language.** The heading has one line
+  where `den.tsx` has two, and every unit carries both names (`sons.04` is
+  `"French Consonants"` / `"Les consonnes"`). English title for sons, A1 and A2;
+  French sub for B1 and above; same split as `ENGLISH_TAUGHT_BANDS`, so one
+  constant drives the heading and the language control. The sons, A1 and A2
+  headings on the boards were redrawn to real seed titles at canvas v11.
 
-**One question deliberately left open.** C-First draws sons.01 as `L'alphabet`
-in French chrome, matching the rest of the canvas. The app ships that unit as
-`The French Alphabet`, because sons, A1 and A2 are taught in English. Day one
-may be the one screen that wants the other language. Decide it inside the phase,
-with the screen in front of you.
+**Still open, one level down:** act and mission naming language. The boards now
+show French act names under English unit headings, and C3 shows English mission
+names with French subs. Same question, not answered. It belongs in the phase.
+
+**Do this before planning 07.1.** The two-state English toggle is uncommitted
+across thirteen files in `ealch-v2/` and has never run on a device. Criterion 5
+extends it to three states. Extending an unverified base means a device failure
+will be ambiguous between the old work and the new.
+
+**What the insertion changed elsewhere.** Phases 8, 9, 11, 12 and 13 now depend
+on 07.1 and left the free-parallel set, because it replaces the screens they
+audit, instrument, animate and polish. Phase 9 was not on your list and is the
+one worth noting: the day-one trail puts a placement offer and an orientation
+card on the first screen, which changes the shape of its activation funnel
+between `onboarding_started` and `first_lesson_started`.
+
+**One thing to watch in GSD itself.** `gsd-sdk query state.add-roadmap-evolution`
+rewrote STATE.md's frontmatter as a side effect: it dropped `percent_basis` and
+`percent_note` and recomputed `percent` back to 98, the plans-over-plans-written
+figure that was deliberately corrected to a phase basis. It also overwrote
+`status` with a free-text sentence. All three were restored by hand. If 98
+reappears in STATE.md, that is the handler, not real progress.
 
 **Collides with** Phase 5 (paywall placement is the same decision), Phase 13
 (hard dependency, audits the screens this replaces), Phases 11–12 (Rive is
