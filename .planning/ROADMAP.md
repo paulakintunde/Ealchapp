@@ -423,7 +423,7 @@ Plans:
 - [x] 22.1-04-PLAN.md — Wire the cut and guard into content:publish and content:parity; rewrite the 11.6 rationale comments (D-10/D-12/D-14)
 - [x] 22.1-05-PLAN.md — Reconcile the sons+a1 narration batch into Postgres and commit HEAD level with the working tree (D-14 precondition, checkpoint)
 - [x] 22.1-06-PLAN.md — Baseline seed bytes and Pixel 6 cold start on an exam-less preview build (D-09, checkpoint)
-- [ ] 22.1-07-PLAN.md — Real publish of the exam-bearing seed, exam-ships.test.ts, full suites against the regenerated seed (checkpoint)
+- [x] 22.1-07-PLAN.md — Real publish of the exam-bearing seed, exam-ships.test.ts, full suites against the regenerated seed (checkpoint)
 - [ ] 22.1-08-PLAN.md — Offline first-launch device pass, after cold start, Phase 23 D-14 amendment (D-06/D-07/D-08/D-09/D-15, checkpoint)
 
 ### Phase 23: Exam Recording-Task Restore & Grading-Path Integrity
@@ -442,7 +442,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21 → 22 → 23
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21 → 22 → 22.1 → 23
 
 Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/state with each other and can be planned/executed in parallel per `config.json`'s `parallelization: true`. Phase 12 depends on Phase 11 (delight states extend the same Rive component core states establish) and is not part of the free-parallel set. Phase 13 (UI/UX Polish Audit) is hard-blocked behind Phases 5, 8, 10, 11, and 12 — it has been removed from the parallel set (a change from the original draft, made during 2026-09-19 revision to resolve a contradiction between this table and Phase 13's own dependency note) and should only be planned/executed once those five phases land. Phases 14 → 15 → 16 → 17 form a strict dependency chain (each restructures files the next phase touches again) and should not be parallelized with each other. Phase 19 depends on Phases 7, 17, and 18 all landing first. Phases 20 and 21 were appended after Phase 2's content audit (GAPS.md GAP-06, GAP-07) and have no dependency on any other phase. Phase 22 depends on Phases 18 and 19 (needs the test infrastructure and the established heavier-screen pattern) and is not part of the free-parallel set. Phase 23 depends on Phase 7 (extends BUG-02's restore mechanism to the presentation/grading-integrity layer) and is not part of the free-parallel set — it touches the same exam-runner files (`exam-section.tsx`, `exam-report.tsx`) Phase 19's E2E tests will exercise, so planning it before or alongside Phase 19 is worth considering even though no hard dependency runs in that direction.
 
@@ -450,11 +450,11 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 |-------|----------------|--------|-----------|
 | 1. Content-Publish Drift Guard Extension | 4/4 | Complete    | 2026-09-19 |
 | 2. Content & Curriculum Gap Audit | 6/6 | Complete    | 2026-09-20 |
-| 3. TTS Security Hardening | 0/TBD | Not started | - |
+| 3. TTS Security Hardening | 4/4 | All plans executed (SEC-01 closed, device-verified) - pending gsd-verifier close-out | - |
 | 4. Entitlement Verification & Signed-Out Purchase Fix | 9/9 | All plans executed — pending gsd-verifier close-out (04-08's restored/none + offline/signed-out-merge branches NOT RUN, blocked on Play Console internal-testing track) | - |
-| 5. Paywall Coverage Expansion & Upgrade Nudge | 0/TBD | Not started | - |
-| 6. Notification Correctness — Body Format & Toggles | 0/TBD | Not started | - |
-| 7. Known Bug Fixes | 0/TBD | Not started | - |
+| 5. Paywall Coverage Expansion & Upgrade Nudge | 7/7 | Complete - 05-VERIFICATION.md passed, 12/12 must-haves | 2026-09-20 |
+| 6. Notification Correctness — Body Format & Toggles | 5/5 | All plans executed (NOTIFY-01/02 device-confirmed, Pixel 9) - pending gsd-verifier close-out | - |
+| 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
 | 8. Accessibility Retrofit | 0/TBD | Not started | - |
 | 9. Onboarding & Analytics Audit | 0/TBD | Not started | - |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |
@@ -470,7 +470,12 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 | 20. TEF Speech-Rate Verification & Re-render | 0/TBD | Not started | - |
 | 21. DELF blanc-02..05 Audio Listening QA | 0/TBD | Not started | - |
 | 22. General Screen Test Coverage | 0/TBD | Not started | - |
+| 22.1. Bundle Exam Content in the Seed (INSERTED) | 7/8 | Executing - v73 published 2026-09-23, exams ship in the seed. 22.1-08 (offline first-launch device pass) is the last plan and needs physical hardware | - |
 | 23. Exam Recording-Task Restore & Grading-Path Integrity | 0/TBD | Not started | - |
+
+**How to read this table.** 24 phases exist (23 integer slots plus the inserted 22.1); **8 have all their plans executed** - Phases 1-7 and 18. That is the milestone figure: **8/24 phases**. Do not use a plan-count percentage: Phases 8-17 and 19-23 are still "0/TBD", so any plans-complete ratio divides by the written plans only and reads far higher than the work that is actually done.
+
+The `- [x]` boxes in the Phases list above and this table answer different questions. A box flips only when `/gsd-verify-work` closes the phase out; the table records what has been executed. Phases 3, 4, 6 and 7 are executed but have no VERIFICATION.md, so they stay unboxed here on purpose. Phase 5 does have a passed VERIFICATION.md (2026-09-20) and its box is owed - flip it the next time the verifier runs.
 
 ---
 *Roadmap created: 2026-09-19*
@@ -478,4 +483,5 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 8, 9, 10, 11, 18, 20, 21 have no shared files/st
 *Roadmap revised: 2026-09-19 — Phase(s) 20, 21 added from Phase 2's content audit (GAPS.md GAP-06, GAP-07). Appended as integer slot(s); no renumbering required.*
 *Roadmap revised: 2026-09-22 — Phase 22 (General Screen Test Coverage) added, surfaced during Phase 18's discuss-phase when the gap between Phase 18/19's 2-screen coverage and the app's 49-screen surface was measured directly (45% of screens have a documented historical bug). Appended as an integer slot; TEST-04 added to REQUIREMENTS.md. Documented now, execution deferred at the user's explicit request — see `22-SCREEN-COVERAGE-AUDIT.md`.*
 *Roadmap revised: 2026-09-22 — Phase 23 (Exam Recording-Task Restore & Grading-Path Integrity) added, surfaced live during Phase 7's own BUG-02 device-verification pass. BUG-04 (recording-task screens never show a restored answer) and BUG-05 (submit()/sectionStatusFor task-list divergence, found by code audit) added to REQUIREMENTS.md and mapped here rather than folded into Phase 7, whose plans and CONTEXT.md were already scoped and written against the original three bugs. Appended as an integer slot; no renumbering required.*
+*Roadmap revised: 2026-09-23 — tracking correction only, no scope change. 22.1-07 checked off (v73 published). Progress table brought back in line with what is on disk: Phases 3, 5, 6 and 7 were showing 0/TBD despite complete plan+summary sets, and Phase 22.1 had no row at all. Added the "How to read this table" note fixing the milestone figure at 8/24 phases and retiring the plan-count percentage, which was inflated by the unplanned "0/TBD" phases.*
 *Granularity: fine (23 phases — large, diverse backlog across 14 requirement categories; most phases are independent/parallelizable per research)*

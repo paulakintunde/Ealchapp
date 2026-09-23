@@ -12,7 +12,8 @@ reports the deltas before doing anything else. Claude writes it back at the end
 of a session, in the same commit as the work. Paul edits any line, any time —
 the human line is always right and Claude reconciles to it, never the reverse.
 
-Last sync: 2026-09-23, after publishing v73 (adb8129).
+Last sync: 2026-09-23, after publishing v73 (adb8129) and the tracking pass over
+ROADMAP.md / STATE.md.
 
 ---
 
@@ -25,15 +26,19 @@ accessibility, mascot, snapshot split.
 
 | | |
 |---|---|
-| Position | Phase 22.1, **plan 8 of 8**. 07 done and summarised; 08 is the device pass |
+| Position | Phase 22.1, **plan 8 of 8**. 07 done, summarised and now checked off in ROADMAP.md; 08 is the device pass |
 | Next | 22.1-08: EAS preview build, Pixel, airplane mode, cold start vs plan 06's 524ms |
 | Blocked on | **Paul: it needs a physical device.** Nothing Claude can run |
 
-**Known drift:** STATE.md reads `Plan: 3 of 8` and `total_phases: 24 /
-completed_phases: 8`. The plan number is wrong. The 96% figure counts 48 of 50
-*written* plans, but phases 11–17 are mostly "Plans: TBD", so by phase the
-milestone is 8/24. Treat 96% as meaningless until the remaining phases are
-planned.
+**Drift, closed 2026-09-23.** STATE.md used to read `Plan: 3 of 8` and report
+96%. Both are fixed: it now reads plan 7 of 8, and the headline figure is
+**8/24 phases (33%)**, counted by phase rather than by written plan. The old
+96% divided 48 by the 50 plans that had been *written*, while Phases 8–17 and
+19–23 sit at "0/TBD" and contributed nothing to the denominator. ROADMAP.md's
+progress table was stale in the same direction — Phases 3, 5, 6 and 7 showed
+"0/TBD | Not started" on top of complete plan+summary sets, and 22.1 had no row
+at all. Corrected, with a "How to read this table" note under it so the
+percentage does not creep back.
 
 ---
 
@@ -47,12 +52,53 @@ narration scripts.
 
 | | |
 |---|---|
-| Position | Committed (ff4fdf8). b1.01 formation (12 acts, 85 missions), b1.02 usages, b1.03 pc-imparfait, b1.04 paires |
+| Position | Lessons committed (ff4fdf8): b1.01 formation (12 acts, 85 missions), b1.02 usages, b1.03 pc-imparfait, b1.04 paires. **Plus live uncommitted work in the tree — see below** |
 | Next | Paul's call — finish the b1.01–04 pilot, or publish b1.01 first |
 | Blocked on | Nothing |
 
+**The working tree is dirty on purpose.** Whoever opens this repo next: the
+uncommitted changes are this workstream mid-flight, not leftovers, and not
+something to reset. Two distinct pieces:
+
+1. **The B1+ English toggle.** The EN pill that hides glosses from b1 upward.
+   New: `src/content/english.logic.ts` + its test, `src/components/GlossContext.tsx`,
+   `src/content/dev-preview-b101.json`. Modified: `Type.tsx`, `LessonPager.tsx`,
+   `LessonRich.tsx`, `LessonSection.tsx`, `MissionRich.tsx`, `ScenePlayer.tsx`,
+   `WordCardXL.tsx`, `LessonDeck.tsx`, `app/den.tsx`, `app/lesson.tsx`,
+   `content/schema.ts`, `services/content.ts`, `store/useStore.ts`.
+   `english.logic.ts` is not `gloss.logic.ts` — that one is the reading matcher
+   and must not be overwritten.
+2. **a2.20 participes, text only — and git is behind Postgres here.**
+   `participes-corpus.ts` E604 "I knew the answer" to "I found out the answer"
+   and E606 "I wanted to leave" to "I tried to leave", the passé composé
+   readings b1.04 teaches, so the old glosses taught the error b1.04 corrects.
+   `participes-lesson.ts` carries the matching **NO BUMP** note (Corrections
+   §16.7): `Lesson.version` keys learner checkmarks and XP, so a text-only fix
+   does not touch it. The separate a2.20 v4-to-v3 *version* revert is already
+   committed, as f32f05d during 22.1-07.
+
+   **Commit these two files.** The corrected glosses already shipped: they are
+   in Postgres and in `seed.json` as of v73 (adb8129 — `grep "I found out the
+   answer" seed.json` returns 3 hits, the old wording 0). Only the authoring
+   source that generated them is still uncommitted, so HEAD's
+   `participes-corpus.ts` disagrees with the content it is supposed to be the
+   source of. Anything that regenerates from the committed source would undo a
+   published fix.
+
+The rest of the dirty tree, so nobody has to re-derive it:
+`ealch-admin/PUBLISH-REPORT.md` is generated — it currently holds the
+**post-publish dry run**, "IDENTICAL to v73, not one byte differs", which is the
+proof 22.1-07 was actually finished rather than left mid-flight.
+`AUDIT-EVIDENCE/` and `ealch-admin/scripts/find-french-notes.ts` belong to the
+v1.0 milestone audit, untracked because `*.md` is gitignored here (new ones need
+`git add -f`). Genuinely stray and safe to delete: `ealch-v2/bash.exe.stackdump`
+and `ealch-v2/supabase/.temp/cli-latest`.
+
 **Not on the roadmap.** No GSD phase covers B1 content. That is fine as long as
-we both know it, and stops being fine the moment it needs app changes.
+we both know it, and stops being fine the moment it needs app changes — and the
+English toggle above **is** app changes, across thirteen files in `ealch-v2/`.
+That line has now been crossed. It wants either a GSD phase or an explicit
+decision to keep it outside `.planning/`.
 
 **Watch:** b1.01 is still seed-absent, reachable only through the dev preview.
 Publishing is now unblocked: v73 went out cleanly, so b1.01 ships whenever it is
@@ -69,9 +115,32 @@ the three-state language control.
 
 | | |
 |---|---|
-| Position | Concept C (Trail) approved. Level panel approved. Mastery stats, review-release surfacing and the unit-completion toast approved |
-| Next | Six artboards: 4 new (first-run trail, narrated entry, language picker states, paywall row) + 2 amendments (C-Sheet intro listen, C-Act opener play) |
-| Blocked on | **Paul: where does this live?** Insert as a phase before Phase 5, or start a new milestone |
+| Position | All six artboards drawn, canvas v9. New: C-First (day one), C-Narrated (acte 00), C-Lang (three language states), C-Gate (paywall positions). Amended: C-Sheet intro listen, C-Act opener play (board grew 880 to 944) |
+| Next | Paul reviews the four new boards. Three proposals inside them need a yes or no before any phase is planned |
+| Blocked on | **Paul, two things.** (1) The three proposals below. (2) Where this lives: a phase before Phase 5, or a new milestone |
+
+**The three proposals waiting on a yes.** Each is drawn, none is settled:
+
+- **Acte 00.** The narrated lesson has no home in C, because the unit row
+  becomes a heading carrying one chip and the Den's narrated pill has nowhere
+  to go. Drawn as a row at the top of the unit's act list, headphone glyph
+  instead of a dot. Affects `den.tsx` and whatever replaces `lessonoverview.tsx`.
+- **A third language state.** `englishShown(band, pref)` is a boolean today:
+  English printed, or English gone. The board adds "anglais a la demande",
+  hidden until tapped, and gives the control the level-panel shape (chip plus
+  rows) so a fourth mode costs one row. Affects `english.logic.ts`,
+  `GlossContext.tsx`, `Type.tsx` and one store field.
+- **The paywall's two positions.** One component, two places: the end of the A1
+  trail, and pinned above a locked band's trail. Both keep locked acts readable
+  and pressable, which is what `den.tsx` already does. This is the Phase 5
+  dependency, and it does not change the ratified gating rule, only where the
+  rule is shown.
+
+**One question the boards raised and did not answer.** C-First draws sons.01 as
+`L'alphabet` in French chrome, matching the rest of the canvas. The app ships
+that unit as `The French Alphabet`, because sons, A1 and A2 are taught in
+English. The day-one screen is the one screen where the canvas's French chrome
+may be the wrong language.
 
 **Collides with** Phase 5 (paywall placement is the same decision), Phase 13
 (hard dependency, audits the screens this replaces), Phases 11–12 (Rive is

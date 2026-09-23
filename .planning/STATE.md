@@ -3,15 +3,21 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 22.1-06-PLAN.md
-last_updated: "2026-09-22T15:26:27.021Z"
-last_activity: 2026-09-22
+stopped_at: Completed 22.1-07-PLAN.md
+last_updated: "2026-09-23T00:00:00.000Z"
+last_activity: 2026-09-23
 progress:
   total_phases: 24
   completed_phases: 8
   total_plans: 50
-  completed_plans: 48
-  percent: 96
+  completed_plans: 49
+  percent: 33
+  percent_basis: phases
+  percent_note: >-
+    8 of 24 phases have all their plans executed (1-7, 18). The old 96% was
+    plans-complete over plans-WRITTEN, and Phases 8-17 and 19-23 are still
+    "0/TBD" in ROADMAP.md, so it divided by a denominator that excluded most of
+    the milestone. Phase share is the honest figure until the rest is planned.
 ---
 
 # Project State
@@ -26,17 +32,17 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — EXECUTING
-Plan: 3 of 8
-Status: Ready to execute
-Last activity: 2026-09-22
+Plan: 7 of 8 complete — 22.1-08 (offline first-launch device pass) is the last one
+Status: Blocked on physical hardware. Nothing left that Claude can run alone
+Last activity: 2026-09-23
 
-Progress: [██████████] 96%
+Progress: [███░░░░░░░] 33% — 8 of 24 phases. See ROADMAP.md's "How to read this table"
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 28
+- Total plans completed: 49 (was recorded as 28; that count stopped being updated around Phase 5)
 - Average duration: ~15 min
 - Total execution time: 0 hours
 
@@ -103,6 +109,7 @@ Recent decisions affecting current work:
 - [Phase 22.1]: Plan 05: fixed a Rule 1 bug in author-narration-batch.ts (missing version bump, unlike seed twin apply-narration-seed.ts) discovered while proving content:parity clean; added a self-healing repair path and used it to correct the 30 already-written Postgres rows
 - [Phase 22.1]: Plan 06: D-09 baseline recorded — EAS preview build 2987661d confirmed exam-less (gitCommitHash matches HEAD b85fa55), cold start median 524ms (514-570ms) on the connected Pixel 9, offline Examiner confirmed 'No exams available yet.'
 - [Phase 22.1]: Plan 06: discovered the fresh-unauthenticated-install onboarding gate blocks the ealch://downloads deep link (redirects to sign-up/sign-in); recorded as a contingency for plan 08's after-pass rather than worked around
+- [Phase 22.1]: Plan 07 (2026-09-23): published **v73** (v71 exams, v72/v73 the a1.03 correction). The dry run blocked first on `a2.20.l1: DB is v3, committed seed is v4`; the tool's suggested remedy (`restore-lesson-bodies-from-seed.ts`) would have pushed the accidental v4 bump into Postgres and reset a2.20 progress, so the fix ran the other way — commit the working tree (f32f05d) and let the regeneration bring a2.20.l1 back as v3. `content:parity` clean, 78 lessons both sides. Recorded while there: `attempts`, `learning_sessions`, `entitlements` and `subscriptions` are all **0 rows**, so every version constraint on this repo is currently protecting nothing.
 
 ### Pending Todos
 
@@ -113,7 +120,8 @@ None yet.
 - Phase 14 (snapshot split design spike) must resolve the manifest backward-compatibility design and `mergeCorpus` multi-overlay question before Phase 15 can be planned — flagged as a research phase, not a standard plan-and-build phase.
 - REQUIREMENTS.md's summary line stated "30 total" v1 requirements; the enumerated requirement list actually contains 29 distinct IDs. Corrected to 29 during roadmap traceability update — worth a quick sanity check next time REQUIREMENTS.md is touched.
 - ANIM-01 is the one requirement mapped to two phases (11 and 12) rather than exactly one — a deliberate, documented exception from the Phase 11 split, not an orphan/duplicate error. Flag this if any future coverage-validation tooling assumes strict 1:1 requirement-to-phase mapping.
-- Phase 22.1 Plan 05 flag (not a plan-05 blocker): an unrelated, concurrent, uncommitted edit to ealch-admin/scripts/data/participes-lesson.ts / participes-corpus.ts (a2.20.l1, version 3 to 4) is sitting in the working tree, making ealch-v2's suite 5452/5453 instead of 5453/5453 (a2-20-participes.test.ts). Not committed by plan 05; pick up in whichever session owns that b1/a2 work.
+- ~~Phase 22.1 Plan 05 flag: an uncommitted a2.20.l1 version 3-to-4 edit sitting in the working tree~~ — **resolved 2026-09-23 by plan 07**, committed as f32f05d so HEAD, the working tree and Postgres all agree on v3.
+- The working tree is **not clean, and that is expected** — see `WORKSTREAMS.md` section B. It holds two live, deliberate pieces of work, not leftover edits: (1) the B1+ English toggle (`english.logic.ts`, `GlossContext.tsx`, `Type.tsx`, `LessonPager.tsx`, `den.tsx`, `lesson.tsx`, `schema.ts` and the rest), and (2) a text-only gloss correction to a2.20's participes corpus (E604 "I knew" to "I found out", E606 "I wanted to" to "I tried to"), carrying an explicit NO BUMP note because `Lesson.version` keys learner checkmarks and XP. Do not `git checkout` either set — the a2.20 glosses in particular already shipped to Postgres and to `seed.json` in v73, so HEAD's authoring source is now *behind* the published content and reverting it would undo a live fix. The genuinely stray files in that tree are `ealch-v2/bash.exe.stackdump` and `ealch-v2/supabase/.temp/cli-latest`.
 
 ## Deferred Items
 
@@ -125,6 +133,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-22T15:26:26.938Z
-Stopped at: Completed 22.1-06-PLAN.md
+Last session: 2026-09-23
+Stopped at: Completed 22.1-07-PLAN.md (v73 published). 22.1-08 next — needs a physical device
 Resume file: None
