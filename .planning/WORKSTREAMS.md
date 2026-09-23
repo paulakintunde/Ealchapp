@@ -12,7 +12,7 @@ reports the deltas before doing anything else. Claude writes it back at the end
 of a session, in the same commit as the work. Paul edits any line, any time —
 the human line is always right and Claude reconciles to it, never the reverse.
 
-Last sync: 2026-09-22, after the b1.01 art commit (6445c55).
+Last sync: 2026-09-22, after the sons art commit (d205bdf).
 
 ---
 
@@ -47,15 +47,15 @@ narration scripts.
 
 | | |
 |---|---|
-| Position | b1.01 formation authored (12 acts, 85 missions). b1.02 usages, b1.03 pc-imparfait, b1.04 paires drafted |
+| Position | Committed (ff4fdf8). b1.01 formation (12 acts, 85 missions), b1.02 usages, b1.03 pc-imparfait, b1.04 paires |
 | Next | Paul's call — finish the b1.01–04 pilot, or publish b1.01 first |
 | Blocked on | Nothing |
 
 **Not on the roadmap.** No GSD phase covers B1 content. That is fine as long as
 we both know it, and stops being fine the moment it needs app changes.
 
-**Watch:** none of `b1/` is committed. It is untracked, so it exists only on
-this machine.
+**Watch:** b1.01 is still seed-absent, reachable only through the dev preview.
+Publishing it is blocked behind the same `content:publish` that 22.1-07 needs.
 
 ---
 
@@ -90,14 +90,15 @@ broken.
 
 | | |
 |---|---|
-| Position | b1.01: 15 images live, registered, labelled, committed (6445c55). Guard test green, 7 assertions |
-| Next | Run `gen-sons-missing-images.mjs` for the 15 refs that currently draw nothing |
+| Position | 30 images live, registered, labelled, committed (6445c55, d205bdf). Guard test green, 7 assertions |
+| Next | Nothing queued. Next image work is whatever the spine redesign needs |
 | Blocked on | Nothing |
 
 **Debt, baselined in `image-refs.test.ts` so it stays visible:**
 
-- 15 published refs with no art — masterclass 5, elision 5, liaison 4, accents 1
-- 22 registered images with no alt text, all predating the ALT table
+- ~~15 published refs with no art~~ — closed d205bdf, KNOWN_UNREGISTERED is empty
+- 22 registered images with no alt text, all predating the ALT table. This is
+  the remaining image debt and it belongs to Phase 8, accessibility.
 
 **Duplication to resolve:** `b1/imparfait-image-prompts.md` and
 `gen-imparfait-images.mjs` describe the same twelve images. Keep one. The
