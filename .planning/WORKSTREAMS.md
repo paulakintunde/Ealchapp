@@ -115,32 +115,35 @@ the three-state language control.
 
 | | |
 |---|---|
-| Position | All six artboards drawn, canvas v9. New: C-First (day one), C-Narrated (acte 00), C-Lang (three language states), C-Gate (paywall positions). Amended: C-Sheet intro listen, C-Act opener play (board grew 880 to 944) |
-| Next | Paul reviews the four new boards. Three proposals inside them need a yes or no before any phase is planned |
-| Blocked on | **Paul, two things.** (1) The three proposals below. (2) Where this lives: a phase before Phase 5, or a new milestone |
+| Position | Concept C approved, all six outstanding artboards drawn and ratified (canvas v10). New: C-First, C-Narrated, C-Lang, C-Gate. Amended: C-Sheet intro listen, C-Act opener play |
+| Next | Plan the phase. Nothing on the canvas is waiting on review any more |
+| Blocked on | **Paul: where does this live?** A phase before Phase 5, or a new milestone. That is the only open item |
 
-**The three proposals waiting on a yes.** Each is drawn, none is settled:
+**Ratified 2026-09-23, alongside Concept C itself.** These are decisions now, not
+options, and building should start from them rather than re-deriving them:
 
-- **Acte 00.** The narrated lesson has no home in C, because the unit row
-  becomes a heading carrying one chip and the Den's narrated pill has nowhere
-  to go. Drawn as a row at the top of the unit's act list, headphone glyph
-  instead of a dot. Affects `den.tsx` and whatever replaces `lessonoverview.tsx`.
-- **A third language state.** `englishShown(band, pref)` is a boolean today:
-  English printed, or English gone. The board adds "anglais a la demande",
-  hidden until tapped, and gives the control the level-panel shape (chip plus
-  rows) so a fourth mode costs one row. Affects `english.logic.ts`,
-  `GlossContext.tsx`, `Type.tsx` and one store field.
-- **The paywall's two positions.** One component, two places: the end of the A1
-  trail, and pinned above a locked band's trail. Both keep locked acts readable
-  and pressable, which is what `den.tsx` already does. This is the Phase 5
-  dependency, and it does not change the ratified gating rule, only where the
-  rule is shown.
+- **Acte 00.** The narrated lesson becomes a row at the top of each unit's act
+  list, headphone glyph instead of a dot, opening a pre-roll sheet. It had to
+  move: C turns the unit row into a heading carrying one "Fiche" chip, so the
+  narrated pill `den.tsx` draws today (`T.narrCta`) has nowhere left to sit.
+  Touches `den.tsx` and whatever replaces `lessonoverview.tsx`.
+- **A third language state.** `englishShown(band, pref)` stops being a boolean.
+  The third state is "anglais a la demande": the translation exists, hidden
+  until tapped. The control takes the level-panel shape, a chip opening rows,
+  so a fourth mode costs one row. Touches `english.logic.ts`,
+  `GlossContext.tsx`, `Type.tsx` and one persisted store field. Answers still
+  never hide, per `english.logic.ts`'s own rule.
+- **The paywall's two positions.** One component in two places: the end of the
+  A1 trail, and pinned above a locked band's trail. Locked acts stay readable
+  and stay pressable in both. **This settles Phase 5 placement.** It moves
+  where the ratified gating rule is *shown* and does not touch the rule itself
+  (`.planning/phases/05-paywall-coverage-expansion-upgrade-nudge/05-GATING-RULE.md`).
 
-**One question the boards raised and did not answer.** C-First draws sons.01 as
-`L'alphabet` in French chrome, matching the rest of the canvas. The app ships
-that unit as `The French Alphabet`, because sons, A1 and A2 are taught in
-English. The day-one screen is the one screen where the canvas's French chrome
-may be the wrong language.
+**One question deliberately left open.** C-First draws sons.01 as `L'alphabet`
+in French chrome, matching the rest of the canvas. The app ships that unit as
+`The French Alphabet`, because sons, A1 and A2 are taught in English. Day one
+may be the one screen that wants the other language. Decide it inside the phase,
+with the screen in front of you.
 
 **Collides with** Phase 5 (paywall placement is the same decision), Phase 13
 (hard dependency, audits the screens this replaces), Phases 11–12 (Rive is
