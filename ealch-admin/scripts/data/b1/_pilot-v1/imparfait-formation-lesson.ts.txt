@@ -1,0 +1,1448 @@
+// b1.01.l1 « L'imparfait : la formation » — the lesson. DRAFT.
+//
+// Not imported, not merged into seed.json, not published. Authored against
+// B1-PILOT-BRIEF.md for Paul's review. The `task` section (s17-task) is the
+// draft type in `_task-section.ts` and is not in schema.ts, so `sections` is
+// typed `DraftSection[]`.
+//
+// ══════════════════════════════════════════════════════════════════════════
+//  SECTIONS (22: 21 schema sections + 1 draft task), FIVE ACTS
+// ══════════════════════════════════════════════════════════════════════════
+//
+//  Act 1 « La photo »
+//    s01-scene      scene         Awa, a Montréal office, a photo of her
+//                                 grandmother's house in Dakar. The breakdown:
+//                                 « Elle habite là. », present for the past.
+//    s02-goals      goals
+//    s03-read       reading       ~150 words, noticing before rule
+//  Act 2 « Tout part de nous »
+//    s04-nous       cardDeck      the recipe in three moves, quotes a2.01 NOUS_ON
+//    s05-endings    tapTable      six endings, six rows, quotes a2.01 REFRAME
+//    s06-listen     listening     8 lines, hideLines: four of six are [ɛ]
+//    s07-stems      groupDrill    FORM: find the stem (finiss-, fais-, buv-, écriv-)
+//    s08-sens       groupDrill    MEANING: now or before, plus the « avant de »
+//                                 counterexample
+//  Act 3 « Les cas à surveiller »
+//    s09-etre       cardDeck      être ét-, avoir av-, il pleuvait, il fallait
+//    s10-gercer     trapDrill     FORM: -ger / -cer, stepped, quotes a2.09 REFRAME
+//    s11-ii         cardDeck      étudiions, étudiiez, voyions, croyions, riions, payions
+//    s12-contrast   listening     MEANING by ear: nous parlons / nous parlions,
+//                                 the one audible difference [jɔ̃]
+//    s13-errors     commonErrors  six errors, swipe
+//    s14-dictee     dictation     FORM: spelling the homophones
+//  Act 4 « À toi »
+//    s15-flash      flashcards    infinitive + person -> form
+//    s16-talk       scenario      MEANING: six turns about your own childhood
+//    s17-task       task (DRAFT)  « Quand j'étais petit(e)... », 50-80 words
+//    s18-speak      practice      speak
+//    s19-check      progressCheck
+//  Act 5 « L'examen »
+//    s20-quiz       quiz          28 questions, 4 rounds
+//    s21-review     reviewDeck
+//    s22-roundup    roundup
+//
+//  Form -> meaning pairs (brief): s07 -> s08, s10/s11 -> s12, s14/s15 -> s16.
+//
+// ══════════════════════════════════════════════════════════════════════════
+//  REFRAME
+// ══════════════════════════════════════════════════════════════════════════
+//
+//   « Pars de nous, coupe -ons, ajoute la fin. »
+//   EN: Start from nous, cut -ons, add the ending.
+//
+//   The brief's suggestion « Prends nous, garde le reste, ajoute la fin. » is
+//   recorded in corpus REFRAME_REJECTED: « garde le reste » never names what
+//   to remove. The reframe also carries the one exception by itself: être
+//   has no -ons to cut.
+//
+// ══════════════════════════════════════════════════════════════════════════
+//  OWNS / QUOTES
+// ══════════════════════════════════════════════════════════════════════════
+//
+//   OWNS    the imparfait's FORMATION: the nous stem, the six endings and the
+//           four-of-six homophone, être's ét-, -ger/-cer before a vs i, the
+//           doubled i (étudiions, étudiiez, riions, voyions, croyions,
+//           payions), and il pleuvait / il fallait / il y avait learnt whole.
+//   QUOTES  a2.01 REFRAME (s05), a2.01 NOUS_ON (s04), a2.09 REFRAME (s10), all
+//           imported, never retyped.
+//   LEANS   a2.10 (-iss-), a2.12 (faisons [fə]), a2.15 (prenons), a2.02.
+//   LEAVES  usage (b1.02) and the passé composé contrast (b1.03, b1.04). Usage
+//           appears only as « avant / maintenant » and « quand j'étais
+//           petit(e) », enough to make the forms mean something.
+//
+// ══════════════════════════════════════════════════════════════════════════
+//  OPEN QUESTIONS FOR PAUL
+// ══════════════════════════════════════════════════════════════════════════
+//
+//   SETTLED BY PAUL 2026-09-22: theme `recits-au-passe`; the learner is tu
+//   in all instruction and coach copy; every `say` is French, spoken fr-FR
+//   (LessonAudio.coachVoice set to 'coach-fr-FR'; SectionNarration has no
+//   lang field, so the lesson-level voice is the only switch); A2 citations
+//   use the English trail label via unitRef; rubric on 10 is fine; the word
+//   « imparfait » stays on screens.
+//
+//   STILL OPEN:
+//   1. Quiz `why`, check `why` and trapDrill `tip` are simple French with NO
+//      English gloss. Gloss them too?
+//   2. The present `nous` of boire, voir, croire and écrire is owned by no A2
+//      unit I could find. s07 teaches the stem from them anyway.
+//   3. Scene bubbles avoid ? and ! entirely, which forces statements where a
+//      speaker would ask.
+//   4. verbCheck on the conjugation cards uses tense 'imparfait', not yet run
+//      through verbecc.
+//   5. 'coach-fr-FR' is a proposed voice id; no fr-FR coach voice id exists in
+//      shipped content to copy.
+//   6. Validators run with s17-task filtered out AND its id removed from
+//      act 4. When `task` enters the schema, that filter goes.
+
+import type { Lesson, LessonSection, LessonDrill, SectionAudio, ReferenceSheet } from '../../../../ealch-v2/src/content/schema.ts';
+import type { DraftSection, TaskSection } from './_task-section.ts';
+import {
+  UNIT, LESSON_ID, LEVEL, E, REFRAME, REFRAME_EN, Cap,
+  ALL_ROWS, IMPORT_IDS, IMPORTED, NOT_DECK_ABLE, NOT_SPEAKABLE, DICTEE_IDS,
+  A201_REFRAME, NOUS_ON, A209_REFRAME,
+  PRESENT_ER_UNIT, PRESENT_IR_UNIT, PRESENT_RE_UNIT, ER_EXC_UNIT, FAIRE_UNIT, PRENDRE_UNIT, ALLER_UNIT, MODAUX_UNIT,
+  PRESENT_ER_REF, ER_EXC_REF, FAIRE_REF, PRESENT_IR_REF,
+} from './imparfait-formation-corpus.ts';
+import { IMPARFAIT_FORMATION_TERMS } from './imparfait-formation-terms.ts';
+
+const AUDIO: SectionAudio = { lang: 'fr-FR', mode: 'tts', speeds: [1, 0.65] };
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  ACT 1 — LA PHOTO
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+/** BREAKDOWN, NOT RUDENESS. Awa knows the verb and the present comes out,
+ *  which tells Julien her grandmother still lives there. Nobody corrects her;
+ *  the misunderstanding does. The resolve plants the -ger spelling question
+ *  that s10 answers.
+ *
+ *  NO « ? » OR « ! » IN ANY BUBBLE (brief). Questions are phrased as
+ *  statements; the ellipses are three full stops, not U+2026. */
+const SCENE_BEATS: Extract<LessonSection, { type: 'scene' }>['beats'] = [
+  {
+    kind: 'narration',
+    text: 'Montréal, un bureau, la pause de midi. Awa montre une vieille photo à son collègue Julien : une maison basse, une cour, un grand arbre. C’est Dakar, il y a vingt-cinq ans.',
+    size: 'md',
+    audio: AUDIO,
+  },
+  {
+    kind: 'bubble',
+    from: 'them',
+    speaker: 'Julien',
+    fr: 'Belle photo. Raconte-moi.',
+    en: 'Nice photo. Tell me about it.',
+    respell: '[bel foh-TOH · rah-kohⁿt-MWAH]',
+    stage: 'Il approche sa chaise.',
+    size: 'md',
+    audio: AUDIO,
+  },
+  {
+    kind: 'bubble',
+    from: 'you',
+    speaker: 'Awa',
+    fr: 'C’est la maison de ma grand-mère, à Dakar. Elle habite là.',
+    en: 'It’s my grandmother’s house, in Dakar. She lives there.',
+    respell: '[seh lah meh-zohⁿ duh mah grahⁿ-MEHR ah dah-KAR · eh-lah-beet LAH]',
+    stage: 'Elle veut parler d’avant. Le verbe sort au présent.',
+    size: 'md',
+    audio: AUDIO,
+  },
+  {
+    kind: 'bubble',
+    from: 'them',
+    speaker: 'Julien',
+    fr: 'Ah, elle vit encore à Dakar, alors.',
+    en: 'Oh, so she still lives in Dakar.',
+    respell: '[ah · el vee tahⁿ-kor ah dah-KAR ah-LOR]',
+    stage: 'Julien sourit. Awa, elle, ne sourit pas. La maison est vendue depuis longtemps.',
+    size: 'md',
+    audio: AUDIO,
+  },
+  {
+    kind: 'bubble',
+    from: 'you',
+    speaker: 'Awa',
+    fr: 'Non... elle habite... elle a habité...',
+    en: 'No... she lives... she has lived...',
+    respell: '[nohⁿ · eh-lah-BEET · eh-lah-ah-bee-TAY]',
+    stage: 'Elle cherche une forme qui dit : avant, pendant des années. Elle ne la trouve pas.',
+    size: 'md',
+    audio: AUDIO,
+  },
+  {
+    kind: 'choice',
+    prompt: 'Awa recommence. Elle parle de la vie sur la photo, pas d’aujourd’hui. Quelle phrase dit ça ?',
+    size: 'lg',
+    options: [
+      { fr: 'Ma grand-mère habite là.', respell: '[mah grahⁿ-meh-rah-beet LAH]', en: 'My grandmother lives there.', outcome: 'breaks', audio: AUDIO },
+      { fr: 'Ma grand-mère habitait là.', respell: '[mah grahⁿ-meh-rah-bee-teh LAH]', en: 'My grandmother used to live there.', outcome: 'works', audio: AUDIO },
+    ],
+    followUp: {
+      works: 'Julien regarde encore la photo. Il comprend : c’était avant. Il demande doucement où elle habite maintenant.',
+      breaks: 'Julien hoche la tête. Il pense toujours qu’Awa peut aller voir sa grand-mère là-bas cet été.',
+    },
+  },
+  {
+    kind: 'break',
+    heading: 'Le présent dit : c’est encore vrai',
+    // 37 words, French then the gloss, under the 45-word core cap.
+    body: 'habite parle d’aujourd’hui. Pour la vie sur la photo, il faut habitait. Tu le fabriques en trois gestes, avec un verbe que tu connais déjà. EN: the present says it is still true; the photo needs habitait.',
+    wrong: { fr: 'Ma grand-mère habite là.', ipa: '/ma ɡʁɑ̃.mɛ.ʁa.bit la/', respell: '[mah grahⁿ-meh-rah-beet LAH]', en: 'My grandmother lives there.' },
+    right: { fr: 'Ma grand-mère habitait là.', ipa: '/ma ɡʁɑ̃.mɛ.ʁa.bi.tɛ la/', respell: '[mah grahⁿ-meh-rah-bee-teh LAH]', en: 'My grandmother used to live there.' },
+    coach: `${REFRAME} nous habitons, habit-, elle habitait.`,
+    size: 'lg',
+    audio: AUDIO,
+  },
+  {
+    kind: 'resolve',
+    text: 'Le soir, Awa écrit sous la photo : « Chez Mame, à Dakar. Le dimanche, nous mangions dans la cour. » Elle hésite sur mangions. Avec un e, ou sans e ?',
+    size: 'md',
+  },
+];
+
+const S01_SCENE: LessonSection = {
+  type: 'scene',
+  id: 's01-scene',
+  render: 'screens',
+  layer: 'core',
+  title: 'La maison sur la photo',
+  frSub: 'Elle habite là... ou elle habitait là',
+  setting: { place: 'Un bureau, à Montréal', city: 'Montréal', time: '12 h 30', ambience: 'un open space calme, la pause de midi' },
+  beats: SCENE_BEATS,
+  closing: { text: 'Une recette, et trois cas à surveiller.', size: 'md' },
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['base', 'fins'],
+};
+
+const S02_GOALS: LessonSection = {
+  type: 'goals',
+  id: 's02-goals',
+  layer: 'core',
+  title: 'À la fin de cette leçon',
+  goals: [
+    { t: 'Fabriquer l’imparfait de n’importe quel verbe', s: 'Acte 2 : la base nous, puis six fins' },
+    { t: 'Entendre pourquoi quatre formes sonnent pareil', s: 'Acte 2 : et les écrire quand même correctement' },
+    { t: 'Gérer être, -ger, -cer et les deux i', s: 'Acte 3 : les seuls cas à surveiller' },
+    { t: 'Écrire un petit texte sur ton enfance', s: 'Acte 4 : cinq verbes ou plus' },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+};
+
+/** NOTICING BEFORE THE RULE (brief). The passage is Awa's caption grown into a
+ *  paragraph. It carries the imparfait at je, il/elle, nous and ils, both
+ *  -ger/-cer cells (commençait, mangions), être (étais, était, étions) and all
+ *  three impersonals, and closes on two presents (j'habite, j'ai) so the
+ *  contrast is in the text before anyone names it.
+ *
+ *  Glossary keys appear verbatim in `text`, none over four words. */
+const S03_READ: LessonSection = {
+  type: 'reading',
+  id: 's03-read',
+  layer: 'core',
+  questionsInModal: true,
+  title: 'Chez Mame, à Dakar',
+  frSub: 'Lis d’abord. La règle vient après.',
+  text: "Sur la photo, on voit la maison de ma grand-mère, à Dakar. J'y passais toutes mes vacances quand j'étais petite. La maison n'était pas grande, mais il y avait une cour avec un manguier. Ma grand-mère commençait sa journée avant le soleil. Elle allait au marché, puis elle préparait le repas. À midi, nous mangions tous ensemble dans la cour. Nous étions souvent dix autour du plat. Mes cousins parlaient wolof avec elle, et moi, je répondais en français. L'après-midi, il faisait très chaud. Il fallait rester à l'ombre, alors nous jouions aux cartes. En août, il pleuvait fort, et la cour devenait une petite rivière. Aujourd'hui, j'habite à Montréal. La maison n'existe plus, mais j'ai encore la photo.",
+  glossary: [
+    { word: 'Mame', en: 'grandma', note: 'Mot wolof pour grand-mère, très courant au Sénégal.' },
+    { word: 'un manguier', en: 'a mango tree', note: 'L’arbre qui donne les mangues.' },
+    { word: 'avant le soleil', en: 'before sunrise', note: 'Très tôt, quand il fait encore nuit.' },
+    { word: 'autour du plat', en: 'around the dish', note: 'Au Sénégal, on mange souvent ensemble dans un grand plat.' },
+    { word: 'wolof', en: 'Wolof', note: 'La langue la plus parlée au Sénégal.' },
+    { word: "à l'ombre", en: 'in the shade', note: 'Là où le soleil ne tape pas.' },
+    { word: 'devenait', en: 'turned into', note: 'devenir : nous devenons, donc deven- + -ait.' },
+  ],
+  questions: [
+    { q: 'Trouve trois verbes qui finissent par -ait. Qui fait l’action ?', a: "Par exemple : était (la maison), commençait, allait, préparait (ma grand-mère), faisait, fallait, pleuvait, devenait. Chaque fois, c'est une seule personne ou une seule chose." },
+    { q: 'Trouve les verbes avec nous. Comment finissent-ils ?', a: 'nous mangions, nous étions, nous jouions. Tous finissent par -ions.' },
+    { q: 'mangions et commençait : un des deux a une lettre en plus. Laquelle ?', a: 'commençait a un ç. Devant a, le c prend une cédille pour garder le son [s]. mangions n’a pas de e, parce que devant i, le g fait déjà [ʒ].' },
+    { q: 'Les deux dernières phrases sont au présent. Pourquoi ?', a: "Elles parlent d'aujourd'hui : Awa habite à Montréal maintenant, et elle a encore la photo. Tout le reste parle de la vie d'avant." },
+  ],
+  audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-b1-01-read' },
+  say: REFRAME,
+  terms: ['base', 'fins', 'gercer'],
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  ACT 2 — TOUT PART DE NOUS
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+/** THE RECIPE. a2.01's NOUS_ON is quoted verbatim on card 5: the recipe
+ *  starts from the one cell spoken French avoids, and that is worth saying
+ *  out loud rather than leaving the learner puzzled. */
+const S04_NOUS: LessonSection = {
+  type: 'cardDeck',
+  id: 's04-nous',
+  render: 'deck',
+  layer: 'core',
+  size: 'lg',
+  title: 'La recette en trois gestes',
+  frSub: 'Pars de nous',
+  hint: 'Six cartes. Les trois premières sont la recette entière.',
+  audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-b1-01-nous' },
+  say: REFRAME,
+  terms: ['base', 'fins'],
+  cards: [
+    {
+      head: '1. Pars de nous',
+      label: 'le présent, que tu connais',
+      fr: 'nous parlons',
+      sub: '[noo par-LOHⁿ]',
+      body: 'Prends le verbe au présent, avec nous. Tu connais cette forme depuis l’A2. EN: start from the present tense nous form.',
+    },
+    {
+      head: '2. Coupe -ons',
+      label: 'ce qui reste, c’est la base',
+      fr: 'parl-',
+      sub: '[parl]',
+      body: 'Enlève -ons. Ce qui reste est la base de l’imparfait. EN: remove -ons; what is left is the stem.',
+    },
+    {
+      head: '3. Ajoute la fin',
+      label: 'une fin pour chaque personne',
+      fr: 'je parlais · nous parlions',
+      sub: '[zhuh par-LEH] · [noo par-LYOHⁿ]',
+      body: 'Ajoute la fin de la personne : -ais pour je, -ions pour nous. Les six fins sont sur la carte suivante de la leçon. EN: add the ending for the person.',
+    },
+    {
+      head: 'finir, prendre',
+      label: 'la base garde tout ce que nous garde',
+      fr: 'nous finissons · nous prenons',
+      sub: '[noo fee-nee-SOHⁿ] · [noo pruh-NOHⁿ]',
+      body: `finiss- garde le -iss- de ${PRESENT_IR_REF}. pren- garde un seul n, comme nous prenons. Donc : je finissais, je prenais. EN: the stem keeps whatever nous has.`,
+    },
+    {
+      head: 'faire',
+      label: 'on écrit ai, on dit [ə]',
+      fr: 'nous faisons · je faisais',
+      sub: '[noo fuh-ZOHⁿ] · [zhuh fuh-ZEH]',
+      body: `Comme dans nous faisons (${FAIRE_REF}), le ai de fais- se dit [ə]. Donc on dit [fə.zɛ] mais on écrit faisais. EN: faisais is said with [ə], like faisons, and spelled with ai.`,
+    },
+    {
+      head: 'nous, juste un outil',
+      label: `${PRESENT_ER_REF}`,
+      fr: 'on parlait',
+      sub: '[ohⁿ par-LEH]',
+      body: `« ${NOUS_ON} » Tu dis rarement nous ? Pas grave : ici, nous sert à trouver la base. Et à l’oral, tu diras on parlait. EN: nous is the tool, not what you say.`,
+    },
+  ],
+};
+
+/** THE SIX ENDINGS, ONE tapTable, SIX ROWS (the ceiling). Three columns, each
+ *  cell short. a2.01's REFRAME is quoted verbatim on the il row's detail,
+ *  because the reason it was true of the present is the reason it is true here. */
+const S05_ENDINGS: LessonSection = {
+  type: 'tapTable',
+  id: 's05-endings',
+  layer: 'core',
+  title: 'Six fins pour tous les verbes',
+  frSub: 'Touche une ligne pour l’écouter',
+  cols: ['Qui', 'Fin', 'parler'],
+  rows: [
+    {
+      cells: ['je', '-ais', 'je parlais'],
+      say: 'je parlais',
+      detail: { title: '-ais, son [ɛ]', body: 'Le s ne se dit pas. EN: silent s.', say: 'Je parlais français.' },
+    },
+    {
+      cells: ['tu', '-ais', 'tu parlais'],
+      say: 'tu parlais',
+      detail: { title: '-ais, comme je', body: 'Même fin, même son que je. EN: same ending and sound as je.', say: 'Tu parlais français.' },
+    },
+    {
+      cells: ['il, elle, on', '-ait', 'il parlait'],
+      say: 'il parlait',
+      detail: {
+        title: 'encore [ɛ]',
+        body: `${Cap(PRESENT_ER_REF)} disait : « ${A201_REFRAME} » C’est encore vrai ici. EN: as in the present, the subject tells you who.`,
+        say: 'Il parlait français.',
+      },
+    },
+    {
+      cells: ['nous', '-ions', 'nous parlions'],
+      say: 'nous parlions',
+      detail: { title: '[jɔ̃], un son à part', body: 'On entend le i. C’est la seule différence avec nous parlons. EN: you hear the i; it is the only difference from the present.', say: 'Nous parlions français.' },
+    },
+    {
+      cells: ['vous', '-iez', 'vous parliez'],
+      say: 'vous parliez',
+      detail: { title: '[je], un son à part', body: 'Lui aussi, on l’entend. EN: this one is audible too.', say: 'Vous parliez français.' },
+    },
+    {
+      cells: ['ils, elles', '-aient', 'ils parlaient'],
+      say: 'ils parlaient',
+      detail: { title: 'six lettres, un son [ɛ]', body: '-aient se dit comme -ais. On l’écrit, on ne l’entend pas. EN: six letters, one sound.', say: 'Ils parlaient français.' },
+    },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['fins', 'son'],
+};
+
+/** THE LISTENING POINT: four of six cells are one sound. hideLines, or it is
+ *  a reading exercise with a play button. Julien answers Awa's photo with his
+ *  own neighbourhood, Rosemont, in Montréal. 8 lines (B1 range 8-14). */
+const S06_LISTEN: LessonSection = {
+  type: 'listening',
+  id: 's06-listen',
+  layer: 'core',
+  hideLines: true,
+  title: 'Le quartier de Julien',
+  frSub: 'Écoute les fins des verbes',
+  lines: [
+    { fr: "Moi, j'habitais à Rosemont, un quartier de Montréal.", en: 'I used to live in Rosemont, a Montreal neighbourhood.' },
+    { fr: 'Mes parents avaient un petit dépanneur au coin de la rue.', en: 'My parents had a little corner store at the end of the street.' },
+    { fr: 'Le samedi, je travaillais là, et ma sœur travaillait avec moi.', en: 'On Saturdays I worked there, and my sister worked with me.' },
+    { fr: 'Mes parents, eux, travaillaient tous les jours, même le dimanche.', en: 'My parents worked every day, even Sunday.' },
+    { fr: "L'hiver, nous faisions du patin au parc, à côté de l'école.", en: 'In winter, we skated in the park next to the school.' },
+    { fr: 'Il neigeait beaucoup, et il fallait pelleter devant la porte.', en: 'It snowed a lot, and we had to shovel in front of the door.' },
+    { fr: 'Et toi, Awa, tes cousins et toi, vous jouiez dehors aussi ?', en: 'And you, Awa, did you and your cousins play outside too?' },
+    { fr: "C'était froid, mais c'était beau.", en: 'It was cold, but it was beautiful.' },
+  ],
+  questions: [
+    {
+      q: 'Ligne 3 et ligne 4 : travaillais, travaillait, travaillaient. Combien de fins différentes tu entends ?',
+      opts: ['une seule', 'deux', 'trois'],
+      correct: 0,
+      why: 'Une seule : [ɛ]. Trois orthographes, un seul son.',
+    },
+    {
+      q: 'Qui travaillait tous les jours ? Comment tu le sais ?',
+      opts: ['Julien, par la fin du verbe', 'ses parents, par le sujet', 'sa sœur, par la fin du verbe'],
+      correct: 1,
+      why: 'La fin ne dit rien ici. C’est le sujet, mes parents, qui dit qui travaille.',
+    },
+    {
+      q: 'Quelle forme a une fin qu’on entend vraiment différente ?',
+      opts: ['ils travaillaient', 'je travaillais', 'nous faisions'],
+      correct: 2,
+      why: '-ions se dit [jɔ̃]. On l’entend. -ais et -aient, non.',
+    },
+    {
+      q: 'Ligne 7 : Julien parle à qui ?',
+      opts: ['à Awa seule', 'à Awa et à ses cousins', 'à ses parents'],
+      correct: 1,
+      why: 'vous jouiez : -iez, on l’entend. Et « tes cousins et toi », c’est plusieurs personnes.',
+    },
+    {
+      q: 'Ligne 6 : il neigeait. C’est quel verbe ?',
+      opts: ['neiger', 'nager', 'nier'],
+      correct: 0,
+      why: 'neiger, un verbe en -ger. Devant a, il garde son e : neigeait. L’acte 3 revient là-dessus.',
+    },
+  ],
+  audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-b1-01-listen' },
+  say: REFRAME,
+  terms: ['son', 'fins'],
+};
+
+/** FORM: find the stem. Every item names its row and carries the row's `fr`
+ *  verbatim (production-surface rule). `note` is the stem. */
+const S07_STEMS: LessonSection = {
+  type: 'groupDrill',
+  id: 's07-stems',
+  layer: 'core',
+  size: 'lg',
+  title: 'Trouve la base',
+  frSub: 'nous, moins -ons',
+  groups: [
+    {
+      label: 'Les verbes réguliers : coupe -ons',
+      items: [
+        { fr: 'Nous parlons français.', itemId: 'fr.a2.verbes.103', note: 'base : parl-', en: 'We speak French.' },
+        { fr: 'Nous parlions français.', itemId: E(42), note: 'parl- + ions', en: 'We used to speak French.' },
+        { fr: 'Nous finissons tôt.', itemId: 'fr.a2.verbes.184', note: 'base : finiss-', en: 'We finish early.' },
+        { fr: 'Nous finissions tôt.', itemId: E(45), note: 'finiss- + ions', en: 'We used to finish early.' },
+      ],
+      check: {
+        q: 'nous choisissons. Alors, avec je, à l’imparfait :',
+        opts: ['je choisais', 'je choisissais', 'je choisissait'],
+        correct: 1,
+        why: 'La base garde -iss- : choisiss-. Et je prend -ais, pas -ait.',
+      },
+    },
+    {
+      label: 'Irréguliers au présent, réguliers ici',
+      items: [
+        { fr: 'Nous prenons la clé.', itemId: 'fr.a2.verbes.427', note: 'base : pren-', en: 'We take the key.' },
+        { fr: "Nous prenions le bus pour aller à l'école.", itemId: E(69), note: 'pren- + ions', en: 'We used to take the bus to school.' },
+        { fr: 'Nous faisons le lit.', itemId: 'fr.a2.verbes.304', note: 'base : fais-, on dit [fə]', en: 'We make the bed.' },
+        { fr: 'Nous faisions le lit.', itemId: E(46), note: 'fais- + ions', en: 'We used to make the bed.' },
+        { fr: 'Nous disons bonjour.', itemId: 'fr.a2.verbes.310', note: 'base : dis-', en: 'We say hello.' },
+        { fr: 'Nous disions bonjour.', itemId: E(47), note: 'dis- + ions', en: 'We used to say hello.' },
+      ],
+      check: {
+        q: 'nous buvons. Alors, avec je :',
+        opts: ['je buvais', 'je boivais', 'je bevais'],
+        correct: 0,
+        why: 'La base vient de nous buvons : buv-. Pas de je bois ni de boire.',
+      },
+    },
+    {
+      label: 'voir, croire, écrire : regarde bien nous',
+      items: [
+        { fr: 'je voyais', itemId: E(10), note: 'nous voyons, donc voy-', en: 'I used to see' },
+        { fr: 'je croyais', itemId: E(12), note: 'nous croyons, donc croy-', en: 'I used to believe' },
+        { fr: "j'écrivais", itemId: E(15), note: 'nous écrivons, donc écriv-', en: 'I used to write' },
+        { fr: 'Je buvais du lait tous les matins.', itemId: E(68), note: 'nous buvons, donc buv-', en: 'I used to drink milk every morning.' },
+      ],
+      check: {
+        q: 'nous écrivons. Alors, avec nous, à l’imparfait :',
+        opts: ['nous écrions', 'nous écrivions', 'nous écrivons'],
+        correct: 1,
+        why: 'écriv- + ions. La troisième réponse est le présent : il manque le i.',
+      },
+    },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['base'],
+};
+
+/** MEANING BEFORE FORM (brief). The form is chosen because of what the
+ *  sentence means: now or before. Kept LIGHT, because b1.02 owns usage.
+ *
+ *  THE COUNTEREXAMPLE the brief requires for the one cue used: « Avant de
+ *  dormir, je lis. » is present. « avant » is a clue about meaning, not a
+ *  switch. */
+const S08_SENS: LessonSection = {
+  type: 'groupDrill',
+  id: 's08-sens',
+  layer: 'core',
+  size: 'lg',
+  title: 'Maintenant ou avant',
+  frSub: 'Le sens choisit la forme',
+  groups: [
+    {
+      label: 'Avant, maintenant : deux vies',
+      items: [
+        { fr: "Avant, j'habitais à Dakar.", itemId: E(61), note: 'la vie d’avant', en: 'I used to live in Dakar.' },
+        { fr: "Maintenant, j'habite à Montréal.", itemId: E(62), note: 'la vie de maintenant', en: 'Now I live in Montreal.' },
+        { fr: 'Il y a cinq ans, je ne parlais pas français.', itemId: 'fr.a2.heure-et-date.109', note: 'avant', en: "Five years ago, I didn't speak French." },
+        { fr: 'Avant, je prenais le train, mais maintenant je conduis.', itemId: 'fr.b1.routines.059', note: 'les deux dans une phrase', en: 'Before, I used to take the train, but now I drive.' },
+      ],
+      check: {
+        q: 'Awa montre une photo de 1998. Elle dit : « Ma grand-mère ... à Dakar. » Elle n’y habite plus.',
+        opts: ['habite', 'habitait', 'habitaient'],
+        correct: 1,
+        why: 'habitait parle de la vie d’avant. habite dirait qu’elle y habite encore. habitaient, c’est pour ils.',
+      },
+    },
+    {
+      label: 'Attention : avant n’est pas un bouton',
+      items: [
+        { fr: 'Avant de dormir, je lis.', itemId: E(63), note: 'une habitude de maintenant', en: 'Before I go to sleep, I read.' },
+        { fr: 'Quand j’étais plus jeune, je jouais au football tous les week-ends.', itemId: 'fr.b1.sports-et-loisirs.076', note: 'une habitude d’avant', en: 'When I was younger, I played football every weekend.' },
+      ],
+      check: {
+        q: '« Avant de dormir, je lis. » Pourquoi le présent ?',
+        opts: ['parce que c’est une habitude d’aujourd’hui', 'parce que avant veut toujours le présent', 'parce que lire est irrégulier'],
+        correct: 0,
+        why: 'Le mot avant ne décide rien. Le sens décide : cette personne lit encore, tous les soirs.',
+      },
+    },
+    {
+      label: 'Et maintenant, sans exemples',
+      items: [],
+      check: {
+        q: 'Julien raconte son enfance à Montréal. Quelle phrase va ?',
+        opts: ["L'hiver, nous faisons du patin au parc.", "L'hiver, nous faisions du patin au parc.", "L'hiver, nous fesions du patin au parc."],
+        correct: 1,
+        why: 'C’est son enfance, donc l’imparfait. La troisième a la bonne fin mais pas la bonne base : on écrit fais-, comme nous faisons.',
+      },
+    },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['base'],
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  ACT 3 — LES CAS À SURVEILLER
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+const S09_ETRE: LessonSection = {
+  type: 'cardDeck',
+  id: 's09-etre',
+  render: 'deck',
+  layer: 'core',
+  size: 'lg',
+  title: 'Un seul verbe différent',
+  frSub: 'être, et trois formes à apprendre entières',
+  hint: 'Quatre cartes. La première est la seule vraie exception.',
+  audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-b1-01-etre' },
+  say: REFRAME,
+  terms: ['etre', 'fins'],
+  cards: [
+    {
+      head: 'être : ét-',
+      label: 'pas de -ons à couper',
+      fr: "nous sommes · j'étais",
+      sub: '[noo SOM] · [zhay-TEH]',
+      body: 'nous sommes ne finit pas par -ons. Alors être prend sa propre base : ét-. C’est le seul verbe comme ça. EN: être is the only verb whose stem is not its nous form.',
+    },
+    {
+      head: 'les fins ne changent pas',
+      label: 'ét- + la fin normale',
+      fr: "j'étais · nous étions · ils étaient",
+      sub: '[zhay-TEH] · [noo zay-TYOHⁿ] · [eel zay-TEH]',
+      body: 'Seule la base est spéciale. Les fins sont les six fins habituelles. EN: only the stem is special; the endings are the usual six.',
+    },
+    {
+      head: 'avoir : régulier ici',
+      label: 'nous avons, donc av-',
+      fr: "j'avais · il y avait",
+      sub: '[zhah-VEH] · [eel ee ah-VEH]',
+      body: 'avoir est irrégulier au présent, mais pas à l’imparfait : av- + la fin. il y avait vient de là. EN: avoir is regular here, and il y avait comes from it.',
+    },
+    {
+      head: 'pleuvoir, falloir : pas de nous',
+      label: 'à apprendre avec il',
+      fr: 'il pleuvait · il fallait',
+      sub: '[eel pleu-VEH] · [eel fah-LEH]',
+      body: 'Ces deux verbes n’existent qu’avec il. Pas de nous, donc pas de recette : apprends-les entiers. EN: these two exist only with il, so learn them whole.',
+    },
+  ],
+};
+
+/** -GER AND -CER, STEPPED: rule > cards > audio > drill (gated). a2.09's
+ *  REFRAME is quoted verbatim in the rule.
+ *
+ *  Every card's `fr` is CORRECT French, because the audio step plays it. The
+ *  wrong spelling lives in `promptSound` only. Drill `correct` indices are
+ *  scattered 0,1,0,1,1,0,0,1: never three in a row. */
+const S10_GERCER: LessonSection = {
+  type: 'trapDrill',
+  id: 's10-gercer',
+  layer: 'core',
+  swipe: true,
+  title: 'Un e, une cédille, ou rien',
+  frSub: '-ger et -cer',
+  rule: {
+    title: 'Devant a : on ajoute. Devant i : rien.',
+    body: `${Cap(ER_EXC_REF)} disait : « ${A209_REFRAME} » Même idée ici : je mangeais, je commençais, mais nous mangions, nous commencions. EN: e or ç before a, nothing before i.`,
+  },
+  cards: [
+    { promptLabel: 'manger, je', promptSound: 'je mangais', fr: 'je mangeais', ipa: '/ʒə mɑ̃.ʒɛ/', tip: 'Sans e, ga se lit [ɡa]. Le e garde le son [ʒ].' },
+    { promptLabel: 'manger, nous', promptSound: 'nous mangeions', fr: 'nous mangions', ipa: '/nu mɑ̃.ʒjɔ̃/', tip: 'Devant i, le g fait déjà [ʒ]. Le e ne sert à rien.' },
+    { promptLabel: 'commencer, je', promptSound: 'je commencais', fr: 'je commençais', ipa: '/ʒə kɔ.mɑ̃.sɛ/', tip: 'Sans cédille, ca se lit [ka]. Le ç garde le son [s].' },
+    { promptLabel: 'commencer, nous', promptSound: 'nous commençions', fr: 'nous commencions', ipa: '/nu kɔ.mɑ̃.sjɔ̃/', tip: 'Devant i, le c fait déjà [s]. Pas de cédille.' },
+    { promptLabel: 'voyager, ils', promptSound: 'ils voyagaient', fr: 'ils voyageaient', ipa: '/il vwa.ja.ʒɛ/', tip: '-aient commence par a, donc le e revient.' },
+    { promptLabel: 'commencer, ils', promptSound: 'ils commencaient', fr: 'ils commençaient', ipa: '/il kɔ.mɑ̃.sɛ/', tip: 'Pareil : -aient commence par a, donc ç.' },
+  ],
+  drill: [
+    { promptSay: 'je mang...ais', opts: ['mangeais', 'mangais'], correct: 0 },
+    { promptSay: 'nous mang...ions', opts: ['mangeions', 'mangions'], correct: 1 },
+    { promptSay: 'tu commen...ais', opts: ['commençais', 'commencais'], correct: 0 },
+    { promptSay: 'nous commen...ions', opts: ['commençions', 'commencions'], correct: 1 },
+    { promptSay: 'ils partag...aient', opts: ['partagaient', 'partageaient'], correct: 1 },
+    { promptSay: 'vous voyag...iez', opts: ['voyagiez', 'voyageiez'], correct: 0 },
+    { promptSay: 'elle pla...ait (placer)', opts: ['plaçait', 'placait'], correct: 0 },
+    { promptSay: 'nous lan...ions (lancer)', opts: ['lançions', 'lancions'], correct: 1 },
+  ],
+  steps: [
+    { label: 'La règle', kind: 'rule', title: 'Devant a : on ajoute. Devant i : rien.' },
+    { label: 'Six formes', kind: 'cards', title: 'Le faux, puis le vrai' },
+    { label: 'Écoute', kind: 'audio', title: 'Le son ne change jamais' },
+    { label: 'À toi', kind: 'drill', title: 'Huit de suite', gate: true },
+  ],
+  audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-b1-01-gercer' },
+  say: REFRAME,
+  terms: ['gercer'],
+};
+
+/** THE DOUBLED i. It is the recipe, run honestly-by-the-letter: a stem ending
+ *  in i or y meets an ending starting with i. Cards 3 and 4 say plainly that
+ *  the ear barely helps, which is why s14 and the task test it in writing. */
+const S11_II: LessonSection = {
+  type: 'cardDeck',
+  id: 's11-ii',
+  render: 'deck',
+  layer: 'core',
+  size: 'lg',
+  title: 'Deux i qui se touchent',
+  frSub: 'La recette, lettre par lettre',
+  hint: 'Quatre cartes. Applique la recette, même quand elle donne une forme bizarre.',
+  audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-b1-01-ii' },
+  say: REFRAME,
+  terms: ['deuxI', 'base'],
+  cards: [
+    {
+      head: 'étudier, nous',
+      label: 'étudi- + ions',
+      fr: 'nous étudions · nous étudiions',
+      sub: '[noo zay-tü-DYOHⁿ] · [noo zay-tü-dee-YOHⁿ]',
+      body: 'La base finit par i, la fin commence par i. On écrit les deux. Ici, on entend une syllabe de plus. EN: stem i plus ending i; here you hear an extra syllable.',
+    },
+    {
+      head: 'étudier, vous',
+      label: 'étudi- + iez',
+      fr: 'vous étudiez · vous étudiiez',
+      sub: '[voo zay-tü-DYAY] · [voo zay-tü-dee-YAY]',
+      body: 'Même chose avec vous. Le présent a un i, l’imparfait en a deux. EN: one i in the present, two in the imparfait.',
+    },
+    {
+      head: 'voir, croire',
+      label: 'voy-, croy- + ions',
+      fr: 'nous voyions · nous croyions',
+      sub: '[noo vwah-YOHⁿ] · [noo krwah-YOHⁿ]',
+      body: 'La base finit par y. On ajoute -ions : y puis i. À l’oral, on entend presque nous voyons. EN: y then i; it sounds almost like the present, so write it by the rule.',
+    },
+    {
+      head: 'rire, payer',
+      label: 'ri-, pay- + ions',
+      fr: 'nous riions · nous payions',
+      sub: '[noo ree-YOHⁿ] · [noo peh-YOHⁿ]',
+      body: 'rire donne ri-, payer donne pay-. La recette donne deux i, ou y puis i. Écris ce qu’elle donne. EN: write what the recipe builds, even when the ear cannot help.',
+    },
+  ],
+};
+
+/** MEANING BY EAR. After two form sections, the learner decides NOW or
+ *  BEFORE from the only audible cue in the nous cell: [ɔ̃] against [jɔ̃].
+ *  Lines 1, 4 are published present rows (fr.a2.verbes.103, .142). */
+const S12_CONTRAST: LessonSection = {
+  type: 'listening',
+  id: 's12-contrast',
+  layer: 'core',
+  hideLines: true,
+  title: 'Maintenant ou avant, à l’oreille',
+  frSub: 'Écoute bien la fin après nous',
+  lines: [
+    { fr: 'Nous parlons français.', en: 'We speak French.' },
+    { fr: 'Nous parlions français.', en: 'We used to speak French.' },
+    { fr: 'Nous mangions ici.', en: 'We used to eat here.' },
+    { fr: 'Nous mangeons ici.', en: 'We eat here.' },
+    { fr: 'Nous étudiions le soir.', en: 'We used to study in the evening.' },
+    { fr: 'Nous étudions le soir.', en: 'We study in the evening.' },
+    { fr: 'Nous payions le pain au kiosque.', en: 'We used to pay for bread at the kiosk.' },
+    { fr: 'Nous commencions à huit heures.', en: 'We used to start at eight.' },
+  ],
+  questions: [
+    { q: 'Ligne 2 : ils parlent de maintenant ou d’avant ?', opts: ['de maintenant', 'd’avant'], correct: 1, why: 'parlions : on entend [jɔ̃]. C’est l’imparfait.' },
+    { q: 'Ligne 4 : maintenant ou avant ?', opts: ['maintenant', 'avant'], correct: 0, why: 'mangeons : [ɔ̃], sans i. C’est le présent.' },
+    { q: 'Lignes 5 et 6 : laquelle parle d’avant ?', opts: ['la 5', 'la 6'], correct: 0, why: 'étudiions a une syllabe de plus : [di.jɔ̃]. La ligne 6 dit [djɔ̃].' },
+    { q: 'Ligne 7 : payions. Est-ce que l’oreille t’aide beaucoup ?', opts: ['oui, c’est très clair', 'pas vraiment, il faut le sens ou l’écrit'], correct: 1, why: 'payons et payions se disent presque pareil. Ici, c’est le sens et l’orthographe qui comptent.' },
+  ],
+  audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-b1-01-contrast' },
+  say: REFRAME,
+  terms: ['deuxI', 'son'],
+};
+
+/** swipe: true is mandatory on commonErrors. Each `why` says why the wrong
+ *  version was a reasonable thing to write, then the EN gloss. */
+const S13_ERRORS: LessonSection = {
+  type: 'commonErrors',
+  id: 's13-errors',
+  layer: 'core',
+  swipe: true,
+  size: 'lg',
+  title: 'Six erreurs très normales',
+  errors: [
+    {
+      wrong: 'Quand je suis petite, j’habite à Dakar.',
+      right: 'Quand j’étais petite, j’habitais à Dakar.',
+      why: 'Normal : le présent sort tout seul. Mais il dit que c’est encore vrai. EN: the present says it is still true.',
+    },
+    {
+      wrong: 'Nous mangeions dans la cour.',
+      right: 'Nous mangions dans la cour.',
+      why: 'Logique : tu as gardé le e de je mangeais. Mais devant i, le g fait déjà [ʒ]. EN: before i, g is already soft; drop the e.',
+    },
+    {
+      wrong: 'Nous commençions à huit heures.',
+      right: 'Nous commencions à huit heures.',
+      why: 'Même logique avec la cédille. Devant i, le c fait déjà [s]. EN: before i, c is already soft; no cedilla.',
+    },
+    {
+      wrong: 'En 2010, nous étudions le soir.',
+      right: 'En 2010, nous étudiions le soir.',
+      why: 'Deux i, ça a l’air faux. Mais c’est la recette : étudi- + ions. EN: two i\'s look wrong and are right.',
+    },
+    {
+      wrong: 'Mes cousins parlait wolof.',
+      right: 'Mes cousins parlaient wolof.',
+      why: 'On entend la même chose. Mais le sujet est pluriel, donc -aient. EN: same sound; a plural subject still needs -aient.',
+    },
+    {
+      wrong: 'Je fesais du patin.',
+      right: 'Je faisais du patin.',
+      why: 'On dit bien [fə]. Mais on écrit fais-, comme nous faisons. EN: said with [ə], spelled ai.',
+    },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['gercer', 'deuxI', 'son'],
+};
+
+/** THE SPELLING POINT. Every item is a phrase of 16 letters or fewer, so
+ *  dicteeMode stays in LETTERS mode (word mode hands real words over
+ *  pre-spelled). The cedilla IS testable here: the tiles come from `fr`. */
+const S14_DICTEE: LessonSection = {
+  type: 'dictation',
+  id: 's14-dictee',
+  layer: 'core',
+  title: 'Écris ce que tu entends',
+  frSub: 'Même son, bonne orthographe',
+  itemIds: DICTEE_IDS,
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['son', 'gercer', 'deuxI'],
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  ACT 4 — À TOI
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+const S15_FLASH: LessonSection = {
+  type: 'flashcards',
+  id: 's15-flash',
+  layer: 'core',
+  title: 'Fabrique la forme',
+  frSub: 'Le verbe et la personne, puis la forme',
+  cards: [
+    { front: 'parler · nous', back: 'nous parlions', say: 'nous parlions' },
+    { front: 'parler · ils', back: 'ils parlaient', say: 'ils parlaient' },
+    { front: 'finir · je', back: 'je finissais', say: 'je finissais' },
+    { front: 'faire · je', back: 'je faisais', say: 'je faisais' },
+    { front: 'boire · je', back: 'je buvais', say: 'je buvais' },
+    { front: 'être · nous', back: 'nous étions', say: 'nous étions' },
+    { front: 'manger · je', back: 'je mangeais', say: 'je mangeais' },
+    { front: 'manger · nous', back: 'nous mangions', say: 'nous mangions' },
+    { front: 'commencer · je', back: 'je commençais', say: 'je commençais' },
+    { front: 'étudier · nous', back: 'nous étudiions', say: 'nous étudiions' },
+    { front: 'voir · nous', back: 'nous voyions', say: 'nous voyions' },
+    { front: 'pleuvoir', back: 'il pleuvait', say: 'il pleuvait' },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['base', 'etre'],
+};
+
+/** MEANING IN PRODUCTION. The learner answers about THEIR OWN childhood, so
+ *  every model line is one option among many: two alts on every turn, userEn
+ *  on every turn. No passé composé in any learner line (b1.03's ground), no
+ *  conditional, no subjunctive. The AI lines stay imparfait too. */
+const S16_TALK: LessonSection = {
+  type: 'scenario',
+  id: 's16-talk',
+  layer: 'core',
+  title: 'Ton quartier d’avant',
+  frSub: 'Julien te pose des questions',
+  setting: 'La pause de midi continue. Julien a montré son quartier, Awa sa maison. Maintenant, c’est ton tour.',
+  turns: [
+    {
+      ai: 'Et toi, quand tu étais petit ou petite, tu habitais où ?',
+      en: 'And you, when you were little, where did you live?',
+      user: "Quand j'étais petit, j'habitais dans un petit village.",
+      userEn: 'When I was little, I lived in a small village. (petite if you are a woman)',
+      alts: [
+        { fr: "J'habitais en ville, dans un appartement.", en: 'I lived in town, in an apartment.' },
+        { fr: "Quand j'étais petite, j'habitais chez mes grands-parents.", en: 'When I was little, I lived with my grandparents.' },
+      ],
+    },
+    {
+      ai: 'Et ta maison, elle était comment ?',
+      en: 'And your house, what was it like?',
+      user: 'Elle était petite, mais il y avait un jardin.',
+      userEn: 'It was small, but there was a garden.',
+      alts: [
+        { fr: "C'était un grand appartement au troisième étage.", en: 'It was a big apartment on the third floor.' },
+        { fr: 'Elle était vieille, et il y avait beaucoup de chambres.', en: 'It was old, and there were lots of bedrooms.' },
+      ],
+    },
+    {
+      ai: 'Le dimanche, vous mangiez en famille ?',
+      en: 'On Sundays, did you eat as a family?',
+      user: 'Oui, nous mangions chez mes grands-parents.',
+      userEn: 'Yes, we ate at my grandparents’ house. (mangions: no e before i)',
+      alts: [
+        { fr: 'Oui, on mangeait tous ensemble.', en: 'Yes, we all ate together.' },
+        { fr: 'Non, nous mangions souvent devant la télé.', en: 'No, we often ate in front of the TV.' },
+      ],
+    },
+    {
+      ai: "Et l'école, elle commençait à quelle heure ?",
+      en: 'And school, what time did it start?',
+      user: "L'école commençait à huit heures.",
+      userEn: 'School started at eight. (commençait: ç before a)',
+      alts: [
+        { fr: 'Elle commençait à huit heures et demie.', en: 'It started at half past eight.' },
+        { fr: 'Les cours commençaient très tôt.', en: 'Classes started very early.' },
+      ],
+    },
+    {
+      ai: 'Tu étudiais beaucoup, le soir ?',
+      en: 'Did you study a lot in the evenings?',
+      user: 'Oui, nous étudiions le soir avec ma sœur.',
+      userEn: 'Yes, we studied in the evening with my sister. (étudiions: two i)',
+      alts: [
+        { fr: "Non, je jouais plutôt dehors.", en: 'No, I played outside instead.' },
+        { fr: "Oui, j'étudiais tous les soirs.", en: 'Yes, I studied every evening.' },
+      ],
+    },
+    {
+      ai: "Et l'hiver, qu'est-ce que tu faisais ?",
+      en: 'And in winter, what did you do?',
+      user: 'Je faisais du patin avec mes amis.',
+      userEn: 'I went skating with my friends.',
+      alts: [
+        { fr: 'Il pleuvait, alors je lisais à la maison.', en: 'It rained, so I read at home.' },
+        { fr: "Il n'y avait pas d'hiver chez moi.", en: 'There was no winter where I lived.' },
+      ],
+    },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['base', 'gercer', 'deuxI'],
+};
+
+/** THE LESSON OUTCOME, TESTED OPEN (brief decision 3). Draft type, not in the
+ *  schema and not rendered. Placed after the scenario, before progressCheck.
+ *
+ *  RUBRIC ON 10 (4/3/2/1). Descriptors are simple French, because the learner
+ *  reads them before writing and they double as the checklist. Every
+ *  watchFor points at the section that teaches the fix. */
+const S17_TASK: TaskSection = {
+  type: 'task',
+  id: 's17-task',
+  title: 'Quand j’étais petit(e)...',
+  frSub: 'Écris ton souvenir',
+  brief: 'Comme Awa avec sa photo, raconte un endroit de ton enfance : une maison, un quartier, une école. Qui était là ? Qu’est-ce que tu faisais ?',
+  briefEn: 'Like Awa with her photo, describe a place from your childhood: who was there, and what you used to do.',
+  produce: 'Écris un texte de 50 à 80 mots qui commence par « Quand j’étais petit » ou « Quand j’étais petite », avec au moins cinq verbes différents à l’imparfait, dont être et un verbe en -ger ou -cer.',
+  responseSpec: { kind: 'text', minWords: 50, maxWords: 80 },
+  rubric: {
+    criteria: [
+      {
+        key: 'formation',
+        label: 'Les formes de l’imparfait',
+        maxPoints: 4,
+        descriptors: [
+          '4 : tous les verbes à l’imparfait ont la bonne base (nous moins -ons, ét- pour être) et la bonne fin pour leur sujet.',
+          '3 : une ou deux erreurs de base ou de fin, le reste est correct.',
+          '2 : plusieurs erreurs, ou des verbes au présent là où il faut l’imparfait.',
+          '1 : l’imparfait est rare ou presque toujours mal formé.',
+        ],
+      },
+      {
+        key: 'orthographe',
+        label: 'L’orthographe difficile',
+        maxPoints: 3,
+        descriptors: [
+          '3 : -ger et -cer sont corrects devant a et devant i (mangeait, mangions, commençait, commencions), et les fins qui sonnent pareil (-ais, -ait, -aient) sont bien écrites. Deux i quand il faut (étudiions).',
+          '2 : une erreur dans ces cas-là.',
+          '1 : plusieurs erreurs dans ces cas-là.',
+        ],
+      },
+      {
+        key: 'variete',
+        label: 'La variété des verbes',
+        maxPoints: 2,
+        descriptors: [
+          '2 : au moins cinq verbes différents à l’imparfait, dont être et un verbe en -ger ou -cer, avec au moins deux personnes (je, nous, il...).',
+          '1 : moins de cinq verbes différents, ou il manque être, ou il manque le verbe en -ger ou -cer.',
+        ],
+      },
+      {
+        key: 'tache',
+        label: 'La tâche',
+        maxPoints: 1,
+        descriptors: [
+          '1 : le texte commence par « Quand j’étais petit(e) », parle d’un endroit ou d’une habitude d’enfance, et fait entre 50 et 80 mots.',
+          '0 : le texte ne parle pas de l’enfance, ou il est trop court ou trop long.',
+        ],
+      },
+    ],
+  },
+  scaffold: [
+    'Quand j’étais petit(e), j’habitais...',
+    'Il y avait...',
+    'Le dimanche, nous...',
+    'Ma mère / mon père...',
+    'L’hiver, il...',
+    'C’était...',
+  ],
+  modelAnswer: "Quand j'étais petite, j'habitais chez ma grand-mère, à Dakar. La maison avait une grande cour avec un manguier. Le matin, ma grand-mère commençait sa journée très tôt. Nous mangions ensemble dans la cour et nous parlions wolof. L'après-midi, je jouais avec mes cousins dans la rue. Quand il pleuvait, nous restions à l'intérieur et mon grand-père nous racontait des histoires. C'était une vie simple.",
+  modelAnswerEn: 'When I was little, I lived with my grandmother in Dakar. The house had a big courtyard with a mango tree. In the morning, my grandmother started her day very early. We ate together in the courtyard and spoke Wolof. In the afternoon, I played with my cousins in the street. When it rained, we stayed inside and my grandfather told us stories. It was a simple life.',
+  watchFor: [
+    { pattern: 'mangeions, partageions, voyageions (e kept before i)', criterion: 'orthographe', feedback: 'Devant i, le g fait déjà [ʒ] : nous mangions, sans e.', ref: 's10-gercer' },
+    { pattern: 'commençions, commencait, commencaient (cedilla on the wrong side)', criterion: 'orthographe', feedback: 'Le ç va devant a (commençait), jamais devant i (commencions).', ref: 's10-gercer' },
+    { pattern: 'mangait, mangaient, voyagait (e missing before a)', criterion: 'orthographe', feedback: 'Devant a, le g a besoin du e : mangeait.', ref: 's10-gercer' },
+    { pattern: 'nous étudions / vous étudiez / nous rions / nous voyons / nous payons used for a past habit', criterion: 'orthographe', feedback: 'La base finit par i ou y, la fin commence par i : écris les deux. nous étudiions, nous voyions.', ref: 's11-ii' },
+    { pattern: 'plural subject + -ait, or je/tu + -ait, or il + -ais', criterion: 'orthographe', feedback: 'Ces fins sonnent pareil, mais le sujet choisit l’orthographe : je -ais, il -ait, ils -aient.', ref: 's05-endings' },
+    { pattern: 'je sommais, nous sommions, j’étions, j’été', criterion: 'formation', feedback: 'être a sa propre base : ét-. j’étais, nous étions.', ref: 's09-etre' },
+    { pattern: 'je boivais, je prendais, je croiais, je fesais, j’écrisais (stem not from nous)', criterion: 'formation', feedback: 'Pars de nous : nous buvons, buv- ; nous prenons, pren- ; nous faisons, fais-.', ref: 's07-stems' },
+    { pattern: 'present tense where the text describes the past (j’habite, il y a, c’est)', criterion: 'formation', feedback: 'Le présent dit que c’est encore vrai. Pour ton enfance, utilise l’imparfait.', ref: 's08-sens' },
+    { pattern: 'fewer than five distinct imparfait verbs, or no être, or no -ger/-cer verb', criterion: 'variete', feedback: 'Il faut au moins cinq verbes différents, avec être et un verbe comme manger ou commencer.', ref: 's15-flash' },
+    { pattern: 'under 50 or over 80 words, or not about childhood', criterion: 'tache', feedback: 'Vérifie la longueur (50 à 80 mots) et le sujet : un souvenir d’enfance.', ref: 's17-task' },
+  ],
+  graderNotes: [
+    'Formative lesson task, not an exam: judge the criteria and quote the learner’s own forms back. Never report a band.',
+    'Do NOT penalise passé composé forms that are correctly formed; the usage contrast is b1.03/b1.04. Only mark a present tense used for the past (criterion formation).',
+    'Count distinct imparfait VERBS, not tokens: habitait and habitais count once. il y avait counts as avoir.',
+    'Spoken on + imparfait (on mangeait) is correct and counts; a learner who writes on instead of nous is not avoiding the -ions cells.',
+    'Accents: do not deduct for a missing accent on é unless it creates a different word. The cedilla on -cer DOES count (criterion orthographe).',
+    'petit/petite: accept either, and do not comment on the learner’s gender.',
+  ],
+};
+
+/** skill 'speak' needs voiceflash on every item: new rows (all carry it) and
+ *  the fr.a2.verbes present rows. The imports in NOT_SPEAKABLE are excluded. */
+const SPEAK_IDS = [
+  ...ALL_ROWS.filter((r) => (r.drills as string[]).includes('voiceflash')).map((r) => r.id),
+  ...IMPORTED.presentNous,
+].filter((id) => !NOT_SPEAKABLE.includes(id));
+
+const S18_SPEAK: LessonSection = {
+  type: 'practice',
+  id: 's18-speak',
+  layer: 'core',
+  title: 'Dis-le à voix haute',
+  frSub: 'Présent, puis imparfait',
+  skill: 'speak',
+  itemIds: SPEAK_IDS,
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['son'],
+};
+
+const S19_CHECK: LessonSection = {
+  type: 'progressCheck',
+  id: 's19-check',
+  layer: 'core',
+  title: 'Où tu en es',
+  body: 'Tu sais fabriquer l’imparfait de presque tous les verbes avec une seule recette. Le plus difficile, ce n’est pas la recette, c’est l’orthographe : quatre formes sonnent pareil, et -ger, -cer et les deux i ne s’entendent pas bien. Ces erreurs ne gênent pas à l’oral, donc personne ne te corrigera. Relis ton texte de l’acte 4 et cherche trois choses : le sujet et sa fin, le e ou le ç devant a, les deux i. EN: the recipe is easy; the spelling is where the errors hide, and nobody will correct them aloud.',
+  stats: [
+    { k: 'La recette', v: 'nous, moins -ons, plus la fin' },
+    { k: 'Une exception', v: 'être : ét-' },
+    { k: 'Même son', v: '-ais, -ait, -aient' },
+    { k: 'À surveiller', v: '-ger, -cer, deux i' },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  ACT 5 — L'EXAMEN
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+/** ONE QUIZ, 28 questions, 4 rounds (8/7/7/6). Each round's FIRST target is
+ *  a distinct errorTrigger, so each round fires its own drill.
+ *
+ *  FORMAT MIX: typeIn 13, mcq 8, errorSpot 4, listenChoose 3.
+ *  -cer is tested by mcq ONLY (fold() strips the cedilla). -ger, the endings
+ *  and the doubled i are typeable (different letters under fold()).
+ *
+ *  CLOSED-FORMAT correct slots: 0 x4, 1 x4, 2 x3 of 11 (max 36%, cap 40%). */
+const S20_QUIZ: LessonSection = {
+  type: 'quiz',
+  id: 's20-quiz',
+  layer: 'core',
+  title: 'L’examen',
+  passMark: 70,
+  roundFailThreshold: 60,
+  rounds: [
+    {
+      id: 'r1-base',
+      label: 'La base nous',
+      targets: ['nous-stem'],
+      questions: [
+        { format: 'typeIn', q: 'prendre. Présent : nous prenons. Écris avec je, à l’imparfait.', answer: 'je prenais', accept: ['je prenais'], why: 'pren- + ais. Un seul n, comme dans nous prenons.', ref: 's07-stems' },
+        { format: 'typeIn', q: 'boire. Présent : nous buvons. Écris avec je.', answer: 'je buvais', accept: ['je buvais'], why: 'La base vient de nous buvons : buv-.', ref: 's07-stems' },
+        { format: 'typeIn', q: 'faire. Présent : nous faisons. Écris avec nous.', answer: 'nous faisions', accept: ['nous faisions'], why: 'fais- + ions. On dit [fə.zjɔ̃], on écrit ai.', ref: 's04-nous' },
+        { format: 'mcq', q: 'nous écrivons. Quelle est la base de l’imparfait ?', opts: ['écri-', 'écriv-', 'écrir-'], correct: 1, why: 'On coupe -ons à nous écrivons : écriv-.', ref: 's07-stems' },
+        { format: 'typeIn', q: 'être, avec je, à l’imparfait.', answer: "j'étais", accept: ["j'étais"], why: 'être a sa propre base : ét-. Et je devient j’ devant une voyelle.', ref: 's09-etre' },
+        { format: 'errorSpot', q: 'Une forme est fausse. Écris la phrase correcte.', prompt: 'Quand j’étais petit, je boivais du lait.', answer: 'Quand j’étais petit, je buvais du lait.', accept: ['Quand j’étais petit, je buvais du lait.', "Quand j'étais petit, je buvais du lait."], why: 'Pars de nous buvons, pas de je bois.', ref: 's07-stems' },
+        { format: 'mcq', q: 'nous sommes ne finit pas par -ons. Quelle est la base de être ?', opts: ['ét-', 'somm-', 'êt-'], correct: 0, why: 'ét-, sans accent circonflexe. C’est la seule exception.', ref: 's09-etre' },
+        { format: 'listenChoose', q: 'Écoute. Ça vient de quel verbe ?', say: 'Il y avait un grand arbre dans la cour.', opts: ['avoir', 'aller', 'être'], correct: 0, why: 'il y avait vient de il y a, donc de avoir : av- + ait.', ref: 's09-etre' },
+      ],
+    },
+    {
+      id: 'r2-fins',
+      label: 'Les fins qui sonnent pareil',
+      targets: ['ending-spelling'],
+      questions: [
+        { format: 'typeIn', q: 'parler, avec ils.', answer: 'ils parlaient', accept: ['ils parlaient'], why: 'ils prend -aient. On l’entend comme -ais, mais on l’écrit en entier.', ref: 's05-endings' },
+        { format: 'typeIn', q: 'habiter, avec tu.', answer: 'tu habitais', accept: ['tu habitais'], why: 'tu prend -ais, comme je.', ref: 's05-endings' },
+        { format: 'errorSpot', q: 'Une fin est fausse. Écris la phrase correcte.', prompt: 'Mes cousins jouait dans la rue.', answer: 'Mes cousins jouaient dans la rue.', accept: ['Mes cousins jouaient dans la rue.'], why: 'Le sujet est pluriel : -aient. Même son, autre orthographe.', ref: 's13-errors' },
+        { format: 'mcq', q: 'je parlais, tu parlais, il parlait, ils parlaient. Combien sonnent pareil ?', opts: ['deux', 'trois', 'les quatre'], correct: 2, why: 'Les quatre se disent [paʁ.lɛ]. Le sujet dit qui parle.', ref: 's06-listen' },
+        { format: 'listenChoose', q: 'Écoute. Présent ou imparfait ?', say: 'Nous parlions français.', opts: ['présent', 'imparfait'], correct: 1, why: 'On entend [jɔ̃] : parlions. C’est l’imparfait.', ref: 's12-contrast' },
+        { format: 'listenChoose', q: 'Écoute encore. Présent ou imparfait ?', say: 'Nous parlons français.', opts: ['présent', 'imparfait'], correct: 0, why: 'On entend [ɔ̃], sans i : parlons. C’est le présent.', ref: 's12-contrast' },
+        { format: 'typeIn', q: 'aller, avec vous. Présent : nous allons.', answer: 'vous alliez', accept: ['vous alliez'], why: 'all- + iez. aller est irrégulier au présent, pas à l’imparfait.', ref: 's05-endings' },
+      ],
+    },
+    {
+      id: 'r3-ger-cer',
+      label: '-ger et -cer',
+      targets: ['ger-cer'],
+      questions: [
+        { format: 'typeIn', q: 'manger, avec je.', answer: 'je mangeais', accept: ['je mangeais'], why: 'Devant a, le e garde le son [ʒ] : mangeais.', ref: 's10-gercer' },
+        { format: 'typeIn', q: 'manger, avec nous.', answer: 'nous mangions', accept: ['nous mangions'], why: 'Devant i, pas besoin de e : mangions.', ref: 's10-gercer' },
+        { format: 'mcq', q: 'commencer, avec je. Quelle orthographe ?', opts: ['je commencais', 'je commençais', 'je commenceais'], correct: 1, why: 'Devant a, le ç garde le son [s].', ref: 's10-gercer' },
+        { format: 'mcq', q: 'commencer, avec nous. Quelle orthographe ?', opts: ['nous commençions', 'nous commenceions', 'nous commencions'], correct: 2, why: 'Devant i, le c fait déjà [s]. Pas de cédille.', ref: 's10-gercer' },
+        { format: 'errorSpot', q: 'Une forme est fausse. Écris la phrase correcte.', prompt: 'Nous mangeions dans la cour.', answer: 'Nous mangions dans la cour.', accept: ['Nous mangions dans la cour.'], why: 'Le e ne sert que devant a et o.', ref: 's13-errors' },
+        { format: 'typeIn', q: 'voyager, avec ils.', answer: 'ils voyageaient', accept: ['ils voyageaient'], why: '-aient commence par a, donc le e reste.', ref: 's10-gercer' },
+        { format: 'mcq', q: 'Pourquoi mangeais a un e, mais pas mangions ?', opts: ['devant a, le e garde le son [ʒ]', 'le e marque le singulier', 'c’est une exception à apprendre par cœur'], correct: 0, why: 'C’est une règle de son, pas une exception : le g reste doux.', ref: 's10-gercer' },
+      ],
+    },
+    {
+      id: 'r4-deux-i',
+      label: 'Les deux i',
+      targets: ['ii-doubling', 'wrong-tense'],
+      questions: [
+        { format: 'typeIn', q: 'étudier, avec nous, à l’imparfait.', answer: 'nous étudiions', accept: ['nous étudiions'], why: 'étudi- + ions : deux i.', ref: 's11-ii' },
+        { format: 'typeIn', q: 'étudier, avec vous, à l’imparfait.', answer: 'vous étudiiez', accept: ['vous étudiiez'], why: 'étudi- + iez : deux i.', ref: 's11-ii' },
+        { format: 'mcq', q: 'voir, avec nous, à l’imparfait.', opts: ['nous voyons', 'nous voiions', 'nous voyions'], correct: 2, why: 'voy- + ions. nous voyons, c’est le présent.', ref: 's11-ii' },
+        { format: 'errorSpot', q: 'On parle de 2010. Une forme ne va pas. Écris la phrase correcte.', prompt: 'En 2010, nous étudions le soir.', answer: 'En 2010, nous étudiions le soir.', accept: ['En 2010, nous étudiions le soir.'], why: 'C’est avant, donc l’imparfait, et la recette donne deux i.', ref: 's13-errors' },
+        { format: 'typeIn', q: 'rire, avec nous, à l’imparfait.', answer: 'nous riions', accept: ['nous riions'], why: 'ri- + ions : deux i, même si on entend peu la différence.', ref: 's11-ii' },
+        { format: 'mcq', q: 'Au Sénégal, avant, nous ... le pain au kiosque.', opts: ['payons', 'payions'], correct: 1, why: 'C’est avant, donc l’imparfait : pay- + ions.', ref: 's12-contrast' },
+      ],
+    },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+};
+
+const S21_REVIEW: LessonSection = {
+  type: 'reviewDeck',
+  id: 's21-review',
+  layer: 'core',
+  title: 'Une dernière fois',
+  cards: [
+    { front: 'parler · nous', back: 'nous parlions', say: 'nous parlions' },
+    { front: 'parler · ils', back: 'ils parlaient', say: 'ils parlaient' },
+    { front: 'faire · je', back: 'je faisais', say: 'je faisais' },
+    { front: 'être · je', back: "j'étais", say: "j'étais" },
+    { front: 'manger · nous', back: 'nous mangions', say: 'nous mangions' },
+    { front: 'commencer · je', back: 'je commençais', say: 'je commençais' },
+    { front: 'étudier · nous', back: 'nous étudiions', say: 'nous étudiions' },
+    { front: 'il y a · avant', back: 'il y avait', say: 'il y avait' },
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+};
+
+/** `points` capped at FOUR on a core screen. b1.02 is named: this lesson
+ *  built the form, the next one says what it is for. */
+const S22_ROUNDUP: LessonSection = {
+  type: 'roundup',
+  id: 's22-roundup',
+  layer: 'core',
+  title: 'Une recette, trois cas',
+  body: `${REFRAME} Ça marche pour presque tous les verbes, même ceux qui sont irréguliers au présent. La leçon suivante explique quand utiliser l’imparfait : ici, tu as appris à le fabriquer. EN: ${REFRAME_EN} The next lesson is about when to use it.`,
+  points: [
+    'être est le seul verbe à part : ét-.',
+    'Devant a : mangeais, commençais. Devant i : mangions, commencions.',
+    'Base en i ou y + -ions : deux i. nous étudiions, nous voyions.',
+    'Quatre formes sonnent [ɛ]. Le sujet dit qui, l’orthographe doit suivre.',
+  ],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['etre', 'gercer', 'deuxI'],
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  REFERENCE SHEET — the one `table`, in a sheet, never in the flow.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+const SHEET_IMPARFAIT: ReferenceSheet = {
+  id: 'sheet-imparfait',
+  title: 'L’imparfait sur une page',
+  layer: 'deep',
+  contains: ['la recette', 'les six fins', 'les cas à surveiller'],
+  sections: [
+    {
+      type: 'teach',
+      id: 'sheet-teach',
+      layer: 'deep',
+      render: 'sheet',
+      title: 'Comment lire ce tableau',
+      body: `Chaque ligne est un verbe. La colonne nous est le présent : c’est là que tu trouves la base, en coupant -ons. Les autres colonnes sont l’imparfait. être est la seule ligne où la base ne vient pas de nous. Pour -ger et -cer, regarde la lettre après la base : devant a, on ajoute e ou ç ; devant i, rien. EN: ${REFRAME_EN} être is the only exception; -ger/-cer add a letter before a only.`,
+    },
+    {
+      type: 'table',
+      id: 'sheet-table',
+      layer: 'deep',
+      render: 'sheet',
+      title: 'Du présent à l’imparfait',
+      cols: ['Présent (nous)', 'Base', 'je', 'nous', 'ils'],
+      rows: [
+        ['nous parlons', 'parl-', 'je parlais', 'nous parlions', 'ils parlaient'],
+        ['nous finissons', 'finiss-', 'je finissais', 'nous finissions', 'ils finissaient'],
+        ['nous prenons', 'pren-', 'je prenais', 'nous prenions', 'ils prenaient'],
+        ['nous faisons', 'fais-', 'je faisais', 'nous faisions', 'ils faisaient'],
+        ['nous buvons', 'buv-', 'je buvais', 'nous buvions', 'ils buvaient'],
+        ['nous sommes', 'ét-', "j'étais", 'nous étions', 'ils étaient'],
+        ['nous avons', 'av-', "j'avais", 'nous avions', 'ils avaient'],
+        ['nous mangeons', 'mange- / mang-', 'je mangeais', 'nous mangions', 'ils mangeaient'],
+        ['nous commençons', 'commenç- / commenc-', 'je commençais', 'nous commencions', 'ils commençaient'],
+        ['nous étudions', 'étudi-', "j'étudiais", 'nous étudiions', 'ils étudiaient'],
+        ['nous voyons', 'voy-', 'je voyais', 'nous voyions', 'ils voyaient'],
+      ],
+    },
+  ],
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  REMEDIATION DRILLS — not in `sections`. Each is the first resolving target
+ *  of exactly one quiz round, except d-avant, which the scene/scenario trigger
+ *  fires.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+const DRILLS: LessonDrill[] = [
+  {
+    id: 'd-stem',
+    title: 'Retrouve la base',
+    format: 'mcq' as const,
+    coach: 'Dis le verbe avec nous, au présent. Coupe -ons. Ce qui reste, c’est la base.',
+    q: 'nous buvons. Avec je, à l’imparfait :',
+    opts: ['je boivais', 'je buvais', 'je buvait'],
+    correct: 1,
+    why: 'buv- vient de nous buvons, et je prend -ais.',
+    items: [E(7), E(8), E(9), E(15), 'fr.a2.verbes.427', 'fr.a2.verbes.304'],
+    audio: AUDIO,
+  },
+  {
+    id: 'd-endings',
+    title: 'Le sujet choisit la fin',
+    format: 'mcq' as const,
+    coach: 'Tu entends la même chose. Regarde le sujet, et écris sa fin.',
+    q: 'Mes parents ... un dépanneur.',
+    opts: ['avait', 'avais', 'avaient'],
+    correct: 2,
+    why: 'Mes parents = ils, donc -aient.',
+    items: [E(1), E(2), E(5), E(59), E(70)],
+    audio: AUDIO,
+  },
+  {
+    id: 'd-gercer',
+    title: 'e, ç ou rien',
+    format: 'sort' as const,
+    coach: 'Deux piles. Regarde la lettre après la base : a, ou i ?',
+    buckets: ['devant a : e ou ç', 'devant i : rien'],
+    items: [E(20), E(21), E(22), E(23), E(24), E(25)],
+    audio: AUDIO,
+  },
+  {
+    id: 'd-ii',
+    title: 'Deux i',
+    format: 'mcq' as const,
+    coach: 'La base finit par i ou y ? La fin commence par i ? Alors écris les deux.',
+    q: 'étudier, avec nous, à l’imparfait :',
+    opts: ['nous étudions', 'nous étudiions', 'nous étudiyons'],
+    correct: 1,
+    why: 'étudi- + ions. La première forme est le présent.',
+    items: [E(26), E(27), E(28), E(29), E(11), E(13)],
+    audio: AUDIO,
+  },
+  {
+    id: 'd-avant',
+    title: 'Maintenant ou avant',
+    format: 'flashcard' as const,
+    coach: 'Lis la phrase. Elle parle d’aujourd’hui ou d’avant ? Dis-la avec la bonne forme.',
+    items: [E(61), E(62), E(41), E(42), 'fr.a2.verbes.103'],
+    audio: AUDIO,
+  },
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  THE LESSON
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+export const SECTIONS: DraftSection[] = [
+  S01_SCENE, S02_GOALS, S03_READ,
+  S04_NOUS, S05_ENDINGS, S06_LISTEN, S07_STEMS, S08_SENS,
+  S09_ETRE, S10_GERCER, S11_II, S12_CONTRAST, S13_ERRORS, S14_DICTEE,
+  S15_FLASH, S16_TALK, S17_TASK, S18_SPEAK, S19_CHECK,
+  S20_QUIZ, S21_REVIEW, S22_ROUNDUP,
+];
+
+/** Every id the lesson can put in front of a learner. */
+export const ITEM_IDS = [...new Set([...ALL_ROWS.map((r) => r.id), ...IMPORT_IDS])];
+
+const FLASHABLE = new Set([
+  ...ALL_ROWS.filter((r) => (r.drills as string[]).includes('flashcard')).map((r) => r.id),
+  ...IMPORT_IDS.filter((id) => !NOT_DECK_ABLE.includes(id)),
+]);
+const only = (ids: string[]) => ids.filter((id) => FLASHABLE.has(id));
+
+/** One slice per act. Nothing released before the act that shows it, nothing
+ *  without a flashcard drill (NOT_DECK_ABLE never appears). */
+export const DECK_TRANCHE: string[][] = [
+  // act 1: the scene and the reading
+  only([E(16), E(34), E(40), E(41), E(60), E(50), E(57), 'fr.sons.elision.035']),
+  // act 2: the recipe, the endings, the stems, now/before
+  only([
+    E(1), E(2), E(3), E(4), E(5), E(6), E(7), E(8), E(9), E(10), E(12), E(14), E(15),
+    E(33), E(35), E(36), E(37), E(42), E(45), E(46), E(47), E(61), E(62), E(63), E(64), E(65), E(68), E(69),
+    ...IMPORTED.presentNous, ...IMPORTED.presentCards,
+    'fr.b1.sports-et-loisirs.076', 'fr.a2.heure-et-date.109', 'fr.b1.cafe.079',
+  ]),
+  // act 3: être, the impersonals, -ger/-cer, the doubled i
+  only([
+    E(17), E(18), E(19), E(30), E(31), E(32), E(20), E(21), E(22), E(23), E(24), E(25), E(38),
+    E(26), E(27), E(28), E(29), E(11), E(13), E(43), E(44), E(48), E(49), E(51), E(52), E(53),
+    E(54), E(55), E(56), E(58), E(59), E(66), E(67), E(70), E(71), 'fr.b1.nombres.009',
+  ]),
+  // act 4: production releases nothing new
+  [],
+  // act 5: the exam releases nothing new
+  [],
+];
+
+/** The lesson as the schema sees it TODAY would need `task` filtered out. The
+ *  draft keeps it in, typed through DraftSection; see open question 10. */
+export const LESSON: Omit<Lesson, 'sections'> & { sections: DraftSection[] } = {
+  id: LESSON_ID,
+  unitId: UNIT.id,
+  seq: 1,
+  title: UNIT.sub,
+  level: LEVEL,
+  tag: 'B1 · LEÇON 01',
+  intro: 'You already know the present tense and the passé composé. The imparfait is the past you use for how things were: a house, a street, a habit. The good news is that you can build it for almost any verb from a form you already know, the present with nous. This lesson is about building it, and about the few places where the spelling does not follow the sound.',
+  skill: 'PE',
+  grammarAssumed: [
+    PRESENT_ER_UNIT, PRESENT_IR_UNIT, PRESENT_RE_UNIT, ER_EXC_UNIT,
+    FAIRE_UNIT, PRENDRE_UNIT, ALLER_UNIT, MODAUX_UNIT, 'a2.05',
+  ],
+  grammarIntroduced: [
+    'Formation of the imparfait: the present-tense nous form minus -ons as the stem, for every verb except être',
+    'The six imparfait endings -ais, -ais, -ait, -ions, -iez, -aient, identical across all conjugation groups',
+    'That four of the six imparfait forms are homophones [ɛ], so person is carried by the subject and the ending is a spelling-only distinction',
+    'être as the single irregular imparfait stem ét-',
+    'Orthographic adjustment of -ger and -cer stems before a (mangeais, commençais) and its absence before i (mangions, commencions)',
+    'The doubled i in -ions/-iez after stems ending in i or y (étudiions, étudiiez, riions, voyions, croyions, payions), largely inaudible',
+    'The impersonal imparfaits il pleuvait, il fallait and il y avait, learnt whole',
+    'The nous present / nous imparfait minimal contrast [ɔ̃] vs [jɔ̃] as the one audible marker in the nous cell',
+  ],
+  overview: {
+    titleEn: UNIT.title,
+    subFr: UNIT.sub,
+    introFr: 'Tu connais déjà le présent et le passé composé. L’imparfait, c’est le passé qui dit comment les choses étaient : une maison, une rue, une habitude. Bonne nouvelle : tu peux le fabriquer pour presque tous les verbes à partir d’une forme que tu connais, le présent avec nous.',
+    minutes: 35,
+    difficulty: 3,
+    glyph: 'ais',
+    screens: 104,
+  },
+  reframe: REFRAME,
+  acts: [
+    {
+      id: 'act1',
+      title: 'La photo',
+      sections: ['s01-scene', 's02-goals', 's03-read'],
+      milestone: 'Tu as vu le présent casser une histoire, et tu as lu quinze imparfaits avant la règle.',
+      estScreens: 18,
+      restPoints: ['s02-goals'],
+    },
+    {
+      id: 'act2',
+      title: 'Tout part de nous',
+      sections: ['s04-nous', 's05-endings', 's06-listen', 's07-stems', 's08-sens'],
+      milestone: 'Tu fabriques l’imparfait de n’importe quel verbe à partir de nous.',
+      estScreens: 30,
+      restPoints: ['s05-endings', 's07-stems'],
+    },
+    {
+      id: 'act3',
+      title: 'Les cas à surveiller',
+      sections: ['s09-etre', 's10-gercer', 's11-ii', 's12-contrast', 's13-errors', 's14-dictee'],
+      milestone: 'être, -ger, -cer et les deux i : tu sais où regarder.',
+      estScreens: 32,
+      restPoints: ['s10-gercer', 's12-contrast'],
+    },
+    {
+      id: 'act4',
+      title: 'À toi',
+      sections: ['s15-flash', 's16-talk', 's17-task', 's18-speak', 's19-check'],
+      milestone: 'Tu as raconté ton enfance, à l’oral et par écrit.',
+      estScreens: 14,
+      restPoints: ['s17-task'],
+    },
+    {
+      id: 'act5',
+      title: 'L’examen',
+      sections: ['s20-quiz', 's21-review', 's22-roundup'],
+      milestone: 'Vingt-huit questions, et la recette une dernière fois.',
+      estScreens: 10,
+      restPoints: ['s21-review'],
+    },
+  ],
+  errorTriggers: [
+    {
+      id: 'nous-stem',
+      description: 'Builds the stem from the infinitive or the je form (boivais, prendais, croiais) instead of the present nous form.',
+      detectOn: ['s07-stems', 's15-flash', 's17-task'],
+      drill: 'd-stem',
+      retest: 'd-stem',
+    },
+    {
+      id: 'ending-spelling',
+      description: 'Writes the wrong one of the homophone endings -ais / -ait / -aient for the subject.',
+      detectOn: ['s05-endings', 's06-listen', 's13-errors', 's14-dictee'],
+      drill: 'd-endings',
+      retest: 'd-endings',
+    },
+    {
+      id: 'ger-cer',
+      description: 'Keeps the e or the cedilla before i (mangeions, commençions), or drops it before a (mangait, commencait).',
+      detectOn: ['s10-gercer', 's13-errors', 's14-dictee', 's17-task'],
+      drill: 'd-gercer',
+      retest: 'd-gercer',
+    },
+    {
+      id: 'ii-doubling',
+      description: 'Writes a single i after a stem ending in i or y (étudions, voyons for the imparfait).',
+      detectOn: ['s11-ii', 's12-contrast', 's14-dictee', 's17-task'],
+      drill: 'd-ii',
+      retest: 'd-ii',
+    },
+    {
+      id: 'wrong-tense',
+      description: 'Produces the present where the imparfait is needed to describe the past (the scene breakdown).',
+      detectOn: ['s01-scene', 's08-sens', 's16-talk', 's17-task'],
+      drill: 'd-avant',
+    },
+  ],
+  drills: DRILLS,
+  deckTranche: DECK_TRANCHE,
+  sheets: [SHEET_IMPARFAIT],
+  terms: IMPARFAIT_FORMATION_TERMS,
+  sections: SECTIONS,
+  itemIds: ITEM_IDS,
+  version: 1,
+  audio: {
+    defaultLang: 'fr-FR',
+    speeds: [1, 0.65],
+    // Paul, 2026-09-22: every `say` is French and spoken by a fr-FR voice.
+    coachVoice: 'coach-fr-FR',
+    recorded: [
+      { id: 'rec-b1-01-read', desc: 'Awa’s paragraph, one take, one female voice with a light Senegalese French accent if the studio has one. Every final -ait/-ais is a clean [ɛ], never [e]: the listener is meant to notice the endings.' },
+      { id: 'rec-b1-01-nous', desc: 'The recipe cards. nous parlons, then je parlais / nous parlions. faisons and faisais must be read with [ə], fuh-ZOHⁿ and fuh-ZEH, never feh-ZEH: the card says so.' },
+      { id: 'rec-b1-01-listen', desc: 'REQUIRED FOR THE ONLY [ɛ] EAR MISSION. Julien, one take, one male voice, Québécois accent welcome. travaillais / travaillait / travaillaient on lines 3 and 4 MUST be read identically: no audible t, no audible -ent. A reader who lets one through makes question 1 wrong.' },
+      { id: 'rec-b1-01-etre', desc: "j'étais, nous étions, ils étaient, j'avais, il y avait, il pleuvait, il fallait. Liaison z in nous étions and ils étaient, carried onto the next syllable." },
+      { id: 'rec-b1-01-gercer', desc: 'The audio step plays each card’s CORRECT form. mangeais and mangions share the same [ʒ]; commençais and commencions share the same [s]. That is the point: the letters change so the sound does not.' },
+      { id: 'rec-b1-01-ii', desc: 'étudions [e.ty.djɔ̃] against étudiions [e.ty.di.jɔ̃]: the second has ONE MORE SYLLABLE and it must be audible. voyions, croyions, payions are read naturally, i.e. almost like the present. Do not over-articulate a double yod the card says is barely there.' },
+      { id: 'rec-b1-01-contrast', desc: 'Eight lines, ONE TAKE, ONE VOICE, recorded adjacently in authored order. Present and imparfait lines must differ ONLY in the ending: same pace, same pitch, same pauses. Lines 5 and 6 differ by one syllable and nothing else.' },
+    ],
+  },
+};
+
+/** The lesson as the CURRENT validators accept it: the draft `task` removed
+ *  from `sections` and from every act. Used by the scratch validation run only. */
+export function lessonWithoutTask(): Lesson {
+  const isTask = (s: DraftSection): s is TaskSection => s.type === 'task';
+  const taskIds = new Set(LESSON.sections.filter(isTask).map((s) => s.id));
+  return {
+    ...LESSON,
+    sections: LESSON.sections.filter((s): s is LessonSection => !isTask(s)),
+    acts: LESSON.acts?.map((a) => ({
+      ...a,
+      sections: a.sections.filter((id) => !taskIds.has(id)),
+      restPoints: a.restPoints?.filter((rp) => !taskIds.has(rp.split('/')[0])),
+    })),
+  };
+}

@@ -1,0 +1,92 @@
+// b1.01.l1 « L'imparfait : la formation » — the lesson glossary.
+//
+// DRAFT. Defined once, surfaced wherever used via a section's `terms` chips.
+// THREE CHIPS PER SECTION AT MOST, 37-character budget for the chip row, so
+// every `term` label here is short (longest: « la base nous », 12).
+//
+// B1 LANGUAGE RULE (brief, decision 4): the body is simple French and ends on
+// a one-line English gloss starting « EN: ». Every key is surfaced by at least
+// one section (checked by eye against the lesson; a guard belongs in the batch).
+//
+// The reframe lives in the corpus and is re-exported here, so b1.02 can import
+// it from either file.
+
+import type { LessonTerm } from '../../../../ealch-v2/src/content/schema.ts';
+import { E, REFRAME, REFRAME_EN, PRESENT_ER_REF, ER_EXC_REF, Cap } from './imparfait-formation-corpus.ts';
+
+export { REFRAME, REFRAME_EN };
+
+export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
+  /** THE OWNS, step one. */
+  base: {
+    term: 'la base nous',
+    title: 'Tout part de nous',
+    body: 'Pour trouver la base, prends le présent avec nous et enlève -ons. nous parlons donne parl-, nous finissons donne finiss-, nous faisons donne fais-. Ça marche pour presque tous les verbes. EN: the stem is the present nous form minus -ons, for almost every verb.',
+    examples: [
+      { itemId: 'fr.a2.verbes.103', note: 'nous parlons, donc parl-' },
+      { itemId: E(3), note: 'et voici nous parlions' },
+      { itemId: E(8), note: 'nous faisons, donc fais-, et on dit [fə]' },
+    ],
+  },
+
+  /** THE OWNS, step two. */
+  fins: {
+    term: 'six fins',
+    title: 'Les mêmes pour tous les verbes',
+    body: 'Les fins sont toujours -ais, -ais, -ait, -ions, -iez, -aient. Il n’y a pas de groupe à choisir : -er, -ir, -re, tous les verbes prennent les mêmes. EN: six endings, identical for every verb in French.',
+    examples: [
+      { itemId: E(1), note: 'je parlais' },
+      { itemId: E(4), note: 'vous parliez' },
+      { itemId: E(5), note: 'ils parlaient' },
+    ],
+  },
+
+  /** The listening and spelling point. Quotes a2.01 by reference only; the
+   *  quotation itself is on s05-endings. */
+  son: {
+    term: 'un seul son',
+    title: 'Quatre formes, un son',
+    body: `parlais, parlait et parlaient se disent tous [paʁ.lɛ]. À l'oral, c'est le sujet qui dit qui parle, comme au présent dans ${PRESENT_ER_REF}. À l'écrit, il faut choisir la bonne fin. EN: four forms, one sound; the subject tells you who, the spelling must still be right.`,
+    examples: [
+      { itemId: E(1), note: 'je parlais' },
+      { itemId: E(2), note: 'il parlait, même son' },
+      { itemId: E(5), note: 'ils parlaient, même son' },
+    ],
+  },
+
+  /** The one exception. */
+  etre: {
+    term: 'ét-',
+    title: 'Le seul verbe différent',
+    body: 'nous sommes ne finit pas par -ons, donc la recette ne marche pas. être a sa propre base : ét-. Les fins, elles, sont normales : j’étais, nous étions. EN: être is the only verb with its own stem, ét-, and it takes the usual endings.',
+    examples: [
+      { itemId: E(16), note: "j'étais" },
+      { itemId: E(17), note: 'nous étions' },
+      { itemId: E(66), note: 'nous étions six à la maison' },
+    ],
+  },
+
+  /** a2.09's rule, on new endings. */
+  gercer: {
+    term: '-ger, -cer',
+    title: 'Garder le son',
+    body: `${Cap(ER_EXC_REF)} l’a montré au présent : manger garde un e devant a et o, commencer prend un ç. Devant i, on n’en a pas besoin : mangions, commencions. EN: -ger adds e and -cer adds ç before a, never before i.`,
+    examples: [
+      { itemId: E(20), note: 'je mangeais, avec e' },
+      { itemId: E(21), note: 'nous mangions, sans e' },
+      { itemId: E(24), note: 'nous commencions, sans ç' },
+    ],
+  },
+
+  /** The doubled i. */
+  deuxI: {
+    term: 'deux i',
+    title: 'La base finit par i ou y',
+    body: 'étudier donne la base étudi-. Avec -ions, on écrit deux i : nous étudiions. Même chose avec y : nous voyions, nous payions. L’oreille aide peu, alors on applique la règle. EN: a stem ending in i or y plus -ions or -iez gives a double i; trust the rule, not your ear.',
+    examples: [
+      { itemId: E(26), note: 'nous étudiions' },
+      { itemId: E(11), note: 'nous voyions' },
+      { itemId: E(29), note: 'nous payions' },
+    ],
+  },
+};

@@ -1,0 +1,414 @@
+// b1.01.l1 « L'imparfait : la formation » — the authored corpus, the imports
+// and the citation constants.
+//
+// DRAFT. Nothing here is imported into Postgres or merged into seed.json. See
+// B1-PILOT-BRIEF.md. Paul reviews this lesson before any batch is written.
+//
+// ══════════════════════════════════════════════════════════════════════════
+//  WHAT THIS UNIT OWNS
+// ══════════════════════════════════════════════════════════════════════════
+//
+//   THE IMPARFAIT IS BUILT, NOT MEMORISED. One recipe, three cases to watch.
+//
+//     nous parlons  ->  parl-  ->  je parlais · nous parlions      the recipe
+//     nous sommes   ->  ét-                                        the one exception
+//     mangeais / mangions, commençais / commencions                -ger and -cer
+//     étudiions, riions, voyions, croyions, payions                the doubled i
+//
+//   Usage is NOT owned here. b1.02 teaches what the imparfait is for; this
+//   lesson gives it just enough meaning (« avant », « quand j'étais petit »)
+//   that the forms are not empty. b1.03 and b1.04 own the contrast with the
+//   passé composé, and no section here teaches it.
+//
+// QUOTED, NEVER TAUGHT (all imported, never retyped):
+//
+//   a2.01  REFRAME « Four of the six forms sound the same, so the pronoun
+//          carries the person. » It was said of the present, and it is true of
+//          the imparfait word for word. s05-endings and s06-listen.
+//   a2.01  NOUS_ON « nous parlons is what you write. on parle is what you
+//          say. » The recipe starts from the one cell spoken French avoids.
+//          s04-nous.
+//   a2.09  REFRAME « The spelling changes so the sound does not. » The -ger
+//          and -cer rule is a2.09's, applied to new endings. s10-gercer.
+//
+// LEANED ON: a2.10 (-iss- in finissons), a2.12 (faisons said [fə]), a2.15
+// (prenons), a2.02 (allons). The present `nous` of boire, voir, croire and
+// écrire is owned by NO A2 unit that this build could find (open question).
+//
+// ══════════════════════════════════════════════════════════════════════════
+//  §A. MEASURED, seed-checked only, DB check pending at import
+// ══════════════════════════════════════════════════════════════════════════
+//
+//  1. THEME: `recits-au-passe` (Paul, 2026-09-22). It already exists in seed
+//     `themes` (domain fondations, levelRange a2-b2) and holds ZERO items, so
+//     it is NOT created at import. The brief's proposed `imparfait` theme was
+//     dropped. Ids are `fr.b1.recits-au-passe.NNN`.
+//  2. ID BLOCK: b1.01 owns `fr.b1.recits-au-passe.001`-`.099`. b1.02 owns
+//     `.101`-`.199` (numbers unchanged from the brief). Used here: `.001`-`.071`, with gaps at `.036`..`.039`
+//     where noted.
+//  3. SEED IS ABOUT A QUARTER OF POSTGRES. 44 seed rows contain an imparfait
+//     form, most of them b1/b2 conditionals (`si j'avais`). Nine are clean
+//     imparfait-only sentences and are imported below. NOT ONE seed row is a
+//     standalone imparfait form (`je parlais`, `il y avait`, `nous étions`):
+//     `c'était` (fr.sons.elision.035) is the only one, and it is imported
+//     rather than re-authored. The DB may hold more; re-probe at import.
+//  4. The present `nous` rows this lesson pairs against are all published in
+//     `fr.a2.verbes.*` with flashcard + voiceflash, so they can be released,
+//     practised and named.
+//
+// ══════════════════════════════════════════════════════════════════════════
+
+import type { Item } from '../../../../ealch-v2/src/content/schema.ts';
+import { unitRef } from '../_unit-ref.ts';
+
+/** A citation that OPENS a sentence needs a capital. */
+export function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §B. IDENTITY
+ *
+ *  b1.01 does not exist in seed `units` yet. This block is the proposal the
+ *  import creates. Plan id `b1-l01` becomes unit `b1.01` (brief, decision 1).
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+export const UNIT = {
+  id: 'b1.01',
+  seq: 1,
+  title: 'The Imperfect: Formation',
+  sub: "L'imparfait : la formation",
+  canDo: 'Can build the imparfait of any verb from its present nous form, including être, -ger, -cer and the doubled -iions',
+  prereqUnitIds: ['a2.01', 'a2.09'],
+} as const;
+
+export const LESSON_ID = 'b1.01.l1';
+export const THEME = 'recits-au-passe';
+export const LEVEL = 'b1' as const;
+
+export const ID_FIRST = 1;
+export const ID_LAST = 99;
+
+export const E = (n: number) => `fr.b1.${THEME}.${String(n).padStart(3, '0')}`;
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §C. HOW THIS LESSON NAMES ITS NEIGHBOURS
+ *
+ *  Paul, 2026-09-22: A2 citations use the house English trail label, exactly
+ *  as a2.34 does (« lesson 2 in A2 »), resolved through `unitRef` from the
+ *  shipped `unit.seq`, never typed and never the raw id.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+export const PRESENT_ER_UNIT = 'a2.01';
+export const PRESENT_IR_UNIT = 'a2.10';
+export const PRESENT_RE_UNIT = 'a2.11';
+export const ER_EXC_UNIT = 'a2.09';
+export const FAIRE_UNIT = 'a2.12';
+export const PRENDRE_UNIT = 'a2.15';
+export const ALLER_UNIT = 'a2.02';
+export const MODAUX_UNIT = 'a2.13';
+
+export const PRESENT_ER_REF = unitRef(PRESENT_ER_UNIT);
+export const ER_EXC_REF = unitRef(ER_EXC_UNIT);
+export const FAIRE_REF = unitRef(FAIRE_UNIT);
+export const PRESENT_IR_REF = unitRef(PRESENT_IR_UNIT);
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §D. THE QUOTATIONS, IMPORTED
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+/** a2.01: four of six forms sound the same. True of the present, true here. */
+export { REFRAME as A201_REFRAME, NOUS_ON } from '../verbes-er-terms.ts';
+/** a2.09: -ger / -cer. The rule is theirs; the new endings are ours. */
+export { REFRAME as A209_REFRAME } from '../verbes-er-exceptions-terms.ts';
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §E. THE REFRAME
+ *
+ *  A production rule that runs in the half-second before the verb. French,
+ *  because B1 instruction is French; the gloss sits beside it.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+export const REFRAME = 'Pars de nous, coupe -ons, ajoute la fin.';
+export const REFRAME_EN = 'Start from nous, cut -ons, add the ending.';
+
+export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
+  {
+    text: 'Prends nous, garde le reste, ajoute la fin.',
+    why: "The brief's suggestion. « Garde le reste » never says what to throw away, and -ons is the one thing the learner must remove. « Le reste » of what? A learner who keeps -ons writes *parlonsais. Same rhythm, one verb changed.",
+  },
+  {
+    text: "L'imparfait, c'est nous moins -ons, plus -ais.",
+    why: 'A formula, and it names only one of six endings. It also reads as a definition of the tense, which is b1.02 territory.',
+  },
+  {
+    text: 'Tout part de nous.',
+    why: 'True and short, and it is the title of act 2. It says where to start and nothing about what to do next. Kept as a term instead.',
+  },
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §F. THE IMPORTS
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+export const IMPORTED = {
+  /** The present `nous` halves. Every one is flashcard + voiceflash, so they
+   *  can be released and practised. Respellings are theirs and are NOT
+   *  retouched here, even the ones with no final capital (.103, .184). */
+  presentNous: [
+    'fr.a2.verbes.103',  // Nous parlons français.
+    'fr.a2.verbes.184',  // Nous finissons tôt.
+    'fr.a2.verbes.427',  // Nous prenons la clé.
+    'fr.a2.verbes.304',  // Nous faisons le lit.      [fə], the reason faisais sounds like it does
+    'fr.a2.verbes.310',  // Nous disons bonjour.
+    'fr.a2.verbes.316',  // Nous lisons le menu.
+    'fr.a2.verbes.142',  // Nous mangeons ici.        the e before o
+    'fr.a2.verbes.144',  // Nous commençons.          the ç before o
+    'fr.a2.verbes.264',  // Nous allons au parc.      aller is irregular, its imparfait is not
+  ],
+  /** Conjugation cards already published for the present. flashcard only. */
+  presentCards: [
+    'fr.a1.cuisine.005',       // nous mangeons  (conjugation card)
+    'fr.a1.deplacements.009',  // nous prenons   (conjugation card)
+  ],
+  /** Published imparfait sentences with NO passé composé and no conditional.
+   *  The ones mixing tenses (e.g. fr.a2.objets.108) are b1.03's evidence and
+   *  are left for it. */
+  imparfaitSentences: [
+    'fr.a2.salutations.043',      // Quand j'étais petit, je disais toujours bonjour à mes grands-parents.
+    'fr.b1.sports-et-loisirs.076',// Quand j'étais plus jeune, je jouais au football tous les week-ends.
+    'fr.a2.animaux.010',          // J'avais un chat et il dormait toujours sur mon lit.
+    'fr.a2.corps.017',            // Quand j'étais enfant, j'avais souvent des otites.
+    'fr.b1.cafe.079',             // Quand j'étais étudiant, j'allais souvent au café pour réviser.
+    'fr.a2.heure-et-date.109',    // Il y a cinq ans, je ne parlais pas français.
+    'fr.b1.routines.059',         // Avant, je prenais le train, mais maintenant je conduis.
+    'fr.b1.nombres.009',          // Il y avait une centaine de spectateurs.
+    'fr.sons.elision.035',        // c'était
+  ],
+};
+
+export const IMPORT_IDS = [...new Set(Object.values(IMPORTED).flat())];
+
+/** Imports with NO flashcard drill: nameable in a section, never releasable
+ *  by deckTranche (it would validate and serve nothing). */
+export const NOT_DECK_ABLE = [
+  'fr.a2.salutations.043',   // sentence, review
+  'fr.a2.animaux.010',       // sentence, review
+  'fr.a2.corps.017',         // sentence, review
+  'fr.b1.routines.059',      // dictation only
+];
+
+/** Imports with NO voiceflash: never in a `practice` speak section. */
+export const NOT_SPEAKABLE = [
+  ...NOT_DECK_ABLE,
+  'fr.a1.cuisine.005', 'fr.a1.deplacements.009',
+  'fr.b1.sports-et-loisirs.076', 'fr.b1.cafe.079', 'fr.a2.heure-et-date.109', 'fr.b1.nombres.009',
+  'fr.sons.elision.035',
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §G. THE AUTHORED ROWS
+ *
+ *  Respell house style: hyphenated syllables, final stressed syllable in caps,
+ *  ü for French u, nasals with ⁿ. The three imparfait sounds:
+ *
+ *    -ais -ait -aient   [ɛ]    EH      four of six cells, one sound
+ *    -ions              [jɔ̃]   YOHⁿ
+ *    -iez               [je]   YAY
+ *
+ *  THE DOUBLED i IS A SPELLING POINT, NOT A SOUND POINT. voyions, croyions and
+ *  payions are [jjɔ̃] in the dictionary and [jɔ̃] in most mouths, so the
+ *  respelling is the same as the present (vwah-YOHⁿ) and the IPA keeps the
+ *  dictionary [jj]. étudiions is different: [di.jɔ̃] against étudions' [djɔ̃]
+ *  is a real extra syllable, and the respelling shows it (dee-YOHⁿ).
+ *
+ *  NO U+203F anywhere. Liaison consonants are written onto the next syllable
+ *  (noo zay-TYOHⁿ), and IPA runs them on (/nu.ze.tjɔ̃/).
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+type Row = Item;
+type VC = NonNullable<Item['verbCheck']>;
+
+const FCVR = ['flashcard', 'voiceflash', 'review'] as Item['drills'];
+const FCVDR = ['flashcard', 'voiceflash', 'dictation', 'review'] as Item['drills'];
+
+const vc = (infinitive: string, person: VC['person'], number: VC['number']): VC =>
+  ({ infinitive, tense: 'imparfait', person, number });
+
+/** A conjugation card. `prompt` is the card front, in the house shape of
+ *  fr.a1.cuisine.005 (« manger · présent · nous »). verbCheck asks the publish
+ *  gate to run it through the conjugator (open question: imparfait output
+ *  shape unverified against verbecc). */
+const conj = (
+  n: number, fr: string, en: string, ipa: string, respell: string,
+  prompt: string, check: VC, tags: string[], drills: Item['drills'] = FCVR,
+): Row => ({
+  id: E(n), kind: 'phrase', level: LEVEL, theme: THEME, fr, en, ipa, respell,
+  tags: ['imparfait', ...tags], drills, version: 1,
+  cardType: 'conjugation', prompt, verbCheck: check, grammarPoints: ['imparfait'],
+});
+
+const sent = (
+  n: number, fr: string, en: string, ipa: string, respell: string,
+  tags: string[], drills: Item['drills'] = FCVR,
+): Row => ({
+  id: E(n), kind: 'sentence', level: LEVEL, theme: THEME, fr, en, ipa, respell,
+  tags: ['imparfait', ...tags], drills, version: 1, grammarPoints: ['imparfait'],
+});
+
+/* ── THE RECIPE: parler in five cells, and the nous-stem verbs. .001-.015 ── */
+
+export const RECIPE_ROWS: Row[] = [
+  conj(1, 'je parlais', 'I used to speak / I was speaking', '/ʒə paʁ.lɛ/', 'zhuh par-LEH', 'parler · imparfait · je', vc('parler', '1', 's'), ['recipe', 'e-sound']),
+  conj(2, 'il parlait', 'he used to speak / he was speaking', '/il paʁ.lɛ/', 'eel par-LEH', 'parler · imparfait · il', vc('parler', '3', 's'), ['recipe', 'e-sound']),
+  conj(3, 'nous parlions', 'we used to speak / we were speaking', '/nu paʁ.ljɔ̃/', 'noo par-LYOHⁿ', 'parler · imparfait · nous', vc('parler', '1', 'p'), ['recipe', 'ions']),
+  conj(4, 'vous parliez', 'you used to speak / you were speaking', '/vu paʁ.lje/', 'voo par-LYAY', 'parler · imparfait · vous', vc('parler', '2', 'p'), ['recipe', 'iez']),
+  conj(5, 'ils parlaient', 'they used to speak / they were speaking', '/il paʁ.lɛ/', 'eel par-LEH', 'parler · imparfait · ils', vc('parler', '3', 'p'), ['recipe', 'e-sound', 'aient'], FCVDR),
+  conj(6, 'je finissais', 'I used to finish', '/ʒə fi.ni.sɛ/', 'zhuh fee-nee-SEH', 'finir · imparfait · je', vc('finir', '1', 's'), ['stem', 'iss']),
+  conj(7, 'nous prenions', 'we used to take', '/nu pʁə.njɔ̃/', 'noo pruh-NYOHⁿ', 'prendre · imparfait · nous', vc('prendre', '1', 'p'), ['stem']),
+  conj(8, 'je faisais', 'I used to do / make', '/ʒə fə.zɛ/', 'zhuh fuh-ZEH', 'faire · imparfait · je', vc('faire', '1', 's'), ['stem', 'schwa'], FCVDR),
+  conj(9, 'je buvais', 'I used to drink', '/ʒə by.vɛ/', 'zhuh bü-VEH', 'boire · imparfait · je', vc('boire', '1', 's'), ['stem']),
+  conj(10, 'je voyais', 'I used to see', '/ʒə vwa.jɛ/', 'zhuh vwah-YEH', 'voir · imparfait · je', vc('voir', '1', 's'), ['stem', 'y']),
+  conj(11, 'nous voyions', 'we used to see', '/nu vwa.jjɔ̃/', 'noo vwah-YOHⁿ', 'voir · imparfait · nous', vc('voir', '1', 'p'), ['stem', 'y', 'double-i'], FCVDR),
+  conj(12, 'je croyais', 'I used to believe', '/ʒə kʁwa.jɛ/', 'zhuh krwah-YEH', 'croire · imparfait · je', vc('croire', '1', 's'), ['stem', 'y']),
+  conj(13, 'nous croyions', 'we used to believe', '/nu kʁwa.jjɔ̃/', 'noo krwah-YOHⁿ', 'croire · imparfait · nous', vc('croire', '1', 'p'), ['stem', 'y', 'double-i'], FCVDR),
+  conj(14, 'je disais', 'I used to say', '/ʒə di.zɛ/', 'zhuh dee-ZEH', 'dire · imparfait · je', vc('dire', '1', 's'), ['stem']),
+  conj(15, "j'écrivais", 'I used to write', '/ʒe.kʁi.vɛ/', 'zhay-kree-VEH', 'écrire · imparfait · je', vc('écrire', '1', 's'), ['stem']),
+];
+
+/* ── ÊTRE, AVOIR AND THE IMPERSONALS. .016-.019, .030-.032 ─────────────────
+ *  être is the one verb whose stem is not its nous form (nous sommes has no
+ *  -ons to cut). avoir is irregular in the present and regular here.
+ *  pleuvoir and falloir have no nous at all, so they are learnt whole.       */
+
+export const ETRE_ROWS: Row[] = [
+  conj(16, "j'étais", 'I was / I used to be', '/ʒe.tɛ/', 'zhay-TEH', 'être · imparfait · je', vc('être', '1', 's'), ['etre'], FCVDR),
+  conj(17, 'nous étions', 'we were / we used to be', '/nu.ze.tjɔ̃/', 'noo zay-TYOHⁿ', 'être · imparfait · nous', vc('être', '1', 'p'), ['etre', 'ions']),
+  conj(18, 'ils étaient', 'they were / they used to be', '/il.ze.tɛ/', 'eel zay-TEH', 'être · imparfait · ils', vc('être', '3', 'p'), ['etre', 'aient']),
+  conj(19, "j'avais", 'I had / I used to have', '/ʒa.vɛ/', 'zhah-VEH', 'avoir · imparfait · je', vc('avoir', '1', 's'), ['avoir']),
+  conj(30, 'il pleuvait', 'it was raining / it used to rain', '/il plø.vɛ/', 'eel pleu-VEH', 'pleuvoir · imparfait · il', vc('pleuvoir', '3', 's'), ['impersonal']),
+  conj(31, 'il fallait', 'you had to / it was necessary', '/il fa.lɛ/', 'eel fah-LEH', 'falloir · imparfait · il', vc('falloir', '3', 's'), ['impersonal']),
+  conj(32, 'il y avait', 'there was / there were', '/i.li.ja.vɛ/', 'eel ee ah-VEH', 'il y a · imparfait', vc('avoir', '3', 's'), ['impersonal', 'avoir']),
+];
+
+/* ── -GER AND -CER. .020-.025, .038 ─────────────────────────────────────────
+ *  a2.09's rule on new endings: e before a, ç before a, nothing before i.
+ *  THE CEDILLA CANNOT BE TYPED-TESTED: fold() strips it (NFD + combining
+ *  marks), so « commencais » is accepted as « commençais ». The quiz tests -cer
+ *  by mcq only; dictation (letter tiles built from `fr`) can still test it. */
+
+export const GER_CER_ROWS: Row[] = [
+  conj(20, 'je mangeais', 'I used to eat', '/ʒə mɑ̃.ʒɛ/', 'zhuh mahⁿ-ZHEH', 'manger · imparfait · je', vc('manger', '1', 's'), ['ger'], FCVDR),
+  conj(21, 'nous mangions', 'we used to eat', '/nu mɑ̃.ʒjɔ̃/', 'noo mahⁿ-ZHYOHⁿ', 'manger · imparfait · nous', vc('manger', '1', 'p'), ['ger', 'ions'], FCVDR),
+  conj(22, 'ils mangeaient', 'they used to eat', '/il mɑ̃.ʒɛ/', 'eel mahⁿ-ZHEH', 'manger · imparfait · ils', vc('manger', '3', 'p'), ['ger', 'aient']),
+  conj(23, 'je commençais', 'I used to start', '/ʒə kɔ.mɑ̃.sɛ/', 'zhuh koh-mahⁿ-SEH', 'commencer · imparfait · je', vc('commencer', '1', 's'), ['cer'], FCVDR),
+  conj(24, 'nous commencions', 'we used to start', '/nu kɔ.mɑ̃.sjɔ̃/', 'noo koh-mahⁿ-SYOHⁿ', 'commencer · imparfait · nous', vc('commencer', '1', 'p'), ['cer', 'ions'], FCVDR),
+  conj(25, 'ils commençaient', 'they used to start', '/il kɔ.mɑ̃.sɛ/', 'eel koh-mahⁿ-SEH', 'commencer · imparfait · ils', vc('commencer', '3', 'p'), ['cer', 'aient']),
+  conj(38, 'ils voyageaient', 'they used to travel', '/il vwa.ja.ʒɛ/', 'eel vwah-yah-ZHEH', 'voyager · imparfait · ils', vc('voyager', '3', 'p'), ['ger', 'aient']),
+];
+
+/* ── THE DOUBLED i. .026-.029 ──────────────────────────────────────────────
+ *  Stem ends in i or y, ending starts with i: write both.                    */
+
+export const DOUBLE_I_ROWS: Row[] = [
+  conj(26, 'nous étudiions', 'we used to study', '/nu.ze.ty.di.jɔ̃/', 'noo zay-tü-dee-YOHⁿ', 'étudier · imparfait · nous', vc('étudier', '1', 'p'), ['double-i'], FCVDR),
+  conj(27, 'vous étudiiez', 'you used to study', '/vu.ze.ty.di.je/', 'voo zay-tü-dee-YAY', 'étudier · imparfait · vous', vc('étudier', '2', 'p'), ['double-i', 'iez'], FCVDR),
+  conj(28, 'nous riions', 'we used to laugh', '/nu ʁi.jɔ̃/', 'noo ree-YOHⁿ', 'rire · imparfait · nous', vc('rire', '1', 'p'), ['double-i'], FCVDR),
+  conj(29, 'nous payions', 'we used to pay', '/nu pɛ.jjɔ̃/', 'noo peh-YOHⁿ', 'payer · imparfait · nous', vc('payer', '1', 'p'), ['double-i', 'y'], FCVDR),
+];
+
+/* ── OTHER CELLS THE LESSON NEEDS. .033-.037 ───────────────────────────────
+ *  .036 and .037 are quiz targets. .039 is left empty: `c'était` is
+ *  published as fr.sons.elision.035 and is imported instead.                */
+
+export const MORE_ROWS: Row[] = [
+  conj(33, "j'allais", 'I used to go', '/ʒa.lɛ/', 'zhah-LEH', 'aller · imparfait · je', vc('aller', '1', 's'), ['stem', 'aller']),
+  conj(34, "j'habitais", 'I used to live', '/ʒa.bi.tɛ/', 'zhah-bee-TEH', 'habiter · imparfait · je', vc('habiter', '1', 's'), ['recipe', 'scene']),
+  conj(35, 'je lisais', 'I used to read', '/ʒə li.zɛ/', 'zhuh lee-ZEH', 'lire · imparfait · je', vc('lire', '1', 's'), ['stem']),
+  conj(36, 'tu habitais', 'you used to live', '/ty a.bi.tɛ/', 'tü ah-bee-TEH', 'habiter · imparfait · tu', vc('habiter', '2', 's'), ['recipe']),
+  conj(37, 'vous alliez', 'you used to go', '/vu.za.lje/', 'voo zah-LYAY', 'aller · imparfait · vous', vc('aller', '2', 'p'), ['aller', 'iez']),
+];
+
+/* ── SENTENCES. .040-.071 ──────────────────────────────────────────────────
+ *  Sentence budget 12 words. Childhood, Dakar, Montréal. No passé composé,
+ *  no conditional, no subjunctive in any authored sentence.
+ *
+ *  THE PRESENT/IMPARFAIT PAIRS match a published present row word for word,
+ *  so the one audible difference, [ɔ̃] against [jɔ̃], is the only thing that
+ *  moves (.042/.103, .043/.142, .045/.184, .046/.304, .047/.310).           */
+
+export const SENTENCE_ROWS: Row[] = [
+  sent(40, "Quand j'étais petite, j'habitais chez ma grand-mère.", 'When I was little, I lived at my grandmother’s.', '/kɑ̃ ʒe.tɛ pə.tit ʒa.bi.tɛ ʃe ma ɡʁɑ̃.mɛʁ/', 'kahⁿ zhay-teh puh-TEET zhah-bee-teh shay mah grahⁿ-MEHR', ['scene', 'etre', 'task']),
+  sent(41, 'Ma grand-mère habitait à Dakar.', 'My grandmother lived in Dakar.', '/ma ɡʁɑ̃.mɛ.ʁa.bi.tɛ a da.kaʁ/', 'mah grahⁿ-meh-rah-bee-teh ah dah-KAR', ['scene']),
+  sent(42, 'Nous parlions français.', 'We used to speak French.', '/nu paʁ.ljɔ̃ fʁɑ̃.sɛ/', 'noo par-lyohⁿ frahⁿ-SEH', ['pair', 'ions'], FCVDR),
+  sent(43, 'Nous mangions ici.', 'We used to eat here.', '/nu mɑ̃.ʒjɔ̃ i.si/', 'noo mahⁿ-zhyohⁿ ee-SEE', ['pair', 'ger', 'ions'], FCVDR),
+  sent(44, 'Nous commencions à huit heures.', 'We used to start at eight.', '/nu kɔ.mɑ̃.sjɔ̃ a ɥi.tœʁ/', 'noo koh-mahⁿ-syohⁿ ah wee-TUHR', ['pair', 'cer', 'ions']),
+  sent(45, 'Nous finissions tôt.', 'We used to finish early.', '/nu fi.ni.sjɔ̃ to/', 'noo fee-nee-syohⁿ TOH', ['pair', 'iss']),
+  sent(46, 'Nous faisions le lit.', 'We used to make the bed.', '/nu fə.zjɔ̃ lə li/', 'noo fuh-zyohⁿ luh LEE', ['pair', 'schwa']),
+  sent(47, 'Nous disions bonjour.', 'We used to say hello.', '/nu di.zjɔ̃ bɔ̃.ʒuʁ/', 'noo dee-zyohⁿ bohⁿ-ZHOOR', ['pair']),
+  sent(48, 'Il pleuvait souvent en novembre.', 'It often rained in November.', '/il plø.vɛ su.vɑ̃ ɑ̃ nɔ.vɑ̃bʁ/', 'eel pleu-veh soo-vahⁿ ahⁿ noh-VAHⁿBR', ['impersonal']),
+  sent(49, 'Il fallait prendre le bus.', 'We had to take the bus.', '/il fa.lɛ pʁɑ̃dʁ lə bys/', 'eel fah-leh prahⁿdr luh BÜS', ['impersonal']),
+  sent(50, 'Il y avait un grand arbre dans la cour.', 'There was a big tree in the courtyard.', '/i.li.ja.vɛ œ̃ ɡʁɑ̃.taʁbʁ dɑ̃ la kuʁ/', 'eel ee ah-veh uhⁿ grahⁿ-tarbr dahⁿ lah KOOR', ['impersonal', 'scene']),
+  sent(51, 'Nous étudiions le soir.', 'We used to study in the evening.', '/nu.ze.ty.di.jɔ̃ lə swaʁ/', 'noo zay-tü-dee-yohⁿ luh SWAR', ['double-i'], FCVDR),
+  sent(52, 'Vous étudiiez à Montréal.', 'You used to study in Montreal.', '/vu.ze.ty.di.je a mɔ̃.tʁe.al/', 'voo zay-tü-dee-yay ah mohⁿ-tray-AL', ['double-i', 'iez']),
+  sent(53, 'Nous riions beaucoup.', 'We used to laugh a lot.', '/nu ʁi.jɔ̃ bo.ku/', 'noo ree-yohⁿ boh-KOO', ['double-i']),
+  sent(54, 'Nous voyions la mer.', 'We could see the sea.', '/nu vwa.jjɔ̃ la mɛʁ/', 'noo vwah-yohⁿ lah MEHR', ['double-i', 'y']),
+  sent(55, 'Nous croyions au père Noël.', 'We used to believe in Santa Claus.', '/nu kʁwa.jjɔ̃ o pɛʁ nɔ.ɛl/', 'noo krwah-yohⁿ oh pehr noh-EL', ['double-i', 'y']),
+  sent(56, 'Nous payions le pain au kiosque.', 'We used to pay for bread at the kiosk.', '/nu pɛ.jjɔ̃ lə pɛ̃ o kjɔsk/', 'noo peh-yohⁿ luh pehⁿ oh KYOSK', ['double-i', 'y']),
+  sent(57, 'Le dimanche, nous mangions du thiéboudienne.', 'On Sundays, we used to eat thiéboudienne.', '/lə di.mɑ̃ʃ nu mɑ̃.ʒjɔ̃ dy tʃe.bu.dʒɛn/', 'luh dee-MAHⁿSH noo mahⁿ-zhyohⁿ dü chay-boo-JENN', ['ger', 'scene', 'dakar']),
+  sent(58, 'Ma grand-mère commençait sa journée à six heures.', 'My grandmother used to start her day at six.', '/ma ɡʁɑ̃.mɛʁ kɔ.mɑ̃.sɛ sa ʒuʁ.ne a si.zœʁ/', 'mah grahⁿ-mehr koh-mahⁿ-seh sah zhoor-nay ah see-ZUHR', ['cer', 'dakar']),
+  sent(59, 'Les enfants jouaient dans la rue.', 'The children used to play in the street.', '/le.zɑ̃.fɑ̃ ʒu.ɛ dɑ̃ la ʁy/', 'lay zahⁿ-fahⁿ zhoo-eh dahⁿ lah RÜ', ['aient']),
+  sent(60, "C'était la maison de ma grand-mère.", 'It was my grandmother’s house.', '/se.tɛ la mɛ.zɔ̃ də ma ɡʁɑ̃.mɛʁ/', 'say-teh lah meh-zohⁿ duh mah grahⁿ-MEHR', ['scene', 'etre']),
+  sent(61, "Avant, j'habitais à Dakar.", 'I used to live in Dakar.', '/a.vɑ̃ ʒa.bi.tɛ a da.kaʁ/', 'ah-VAHⁿ zhah-bee-teh ah dah-KAR', ['meaning', 'avant']),
+  sent(62, "Maintenant, j'habite à Montréal.", 'Now I live in Montreal.', '/mɛ̃t.nɑ̃ ʒa.bi.ta mɔ̃.tʁe.al/', 'mehⁿt-NAHⁿ zhah-bee-tah mohⁿ-tray-AL', ['meaning', 'present']),
+  // THE COUNTEREXAMPLE the brief requires for the one cue this lesson uses:
+  // « avant » is not a switch. « Avant de dormir » is a habit NOW, present.
+  sent(63, 'Avant de dormir, je lis.', 'Before I go to sleep, I read.', '/a.vɑ̃ də dɔʁ.miʁ ʒə li/', 'ah-vahⁿ duh dor-MEER zhuh LEE', ['meaning', 'avant', 'counterexample']),
+  sent(64, 'Dans mon quartier, il y avait un dépanneur au coin.', 'In my neighbourhood, there was a corner store on the corner.', '/dɑ̃ mɔ̃ kaʁ.tje i.li.ja.vɛ œ̃ de.pa.nœʁ o kwɛ̃/', 'dahⁿ mohⁿ kar-TYAY eel ee ah-veh uhⁿ day-pah-nuhr oh KWEHⁿ', ['impersonal', 'montreal']),
+  sent(65, "L'hiver, nous faisions du patin au parc.", 'In winter, we used to skate in the park.', '/li.vɛʁ nu fə.zjɔ̃ dy pa.tɛ̃ o paʁk/', 'lee-VEHR noo fuh-zyohⁿ dü pah-tehⁿ oh PARK', ['schwa', 'montreal']),
+  sent(66, 'Nous étions six à la maison.', 'There were six of us at home.', '/nu.ze.tjɔ̃ si.za la mɛ.zɔ̃/', 'noo zay-tyohⁿ see-zah lah meh-ZOHⁿ', ['etre']),
+  sent(67, 'Mon grand-père écrivait des lettres.', 'My grandfather used to write letters.', '/mɔ̃ ɡʁɑ̃.pɛ.ʁe.kʁi.vɛ de lɛtʁ/', 'mohⁿ grahⁿ-peh-ray-kree-veh day LETR', ['stem']),
+  sent(68, 'Je buvais du lait tous les matins.', 'I used to drink milk every morning.', '/ʒə by.vɛ dy lɛ tu le ma.tɛ̃/', 'zhuh bü-veh dü leh too lay mah-TEHⁿ', ['stem']),
+  sent(69, "Nous prenions le bus pour aller à l'école.", 'We used to take the bus to school.', '/nu pʁə.njɔ̃ lə bys puʁ a.le a le.kɔl/', 'noo pruh-nyohⁿ luh büs poor ah-lay ah lay-KOL', ['stem']),
+  sent(70, 'Mes cousins habitaient à Thiès.', 'My cousins lived in Thiès.', '/me ku.zɛ̃.za.bi.tɛ a tjɛs/', 'may koo-zehⁿ-zah-bee-teh ah TYESS', ['aient', 'dakar']),
+  sent(71, "L'école commençait à huit heures.", 'School used to start at eight.', '/le.kɔl kɔ.mɑ̃.sɛ a ɥi.tœʁ/', 'lay-kol koh-mahⁿ-seh ah wee-TUHR', ['cer']),
+];
+
+export const ALL_ROWS: Row[] = [
+  ...RECIPE_ROWS, ...ETRE_ROWS, ...GER_CER_ROWS, ...DOUBLE_I_ROWS, ...MORE_ROWS, ...SENTENCE_ROWS,
+].sort((a, b) => a.id.localeCompare(b.id));
+
+export const DICTEE_IDS = ALL_ROWS
+  .filter((r) => (r.drills as string[]).includes('dictation') && r.kind === 'phrase')
+  .map((r) => r.id);
+
+/* ══════════════════════════════════════════════════════════════════════════
+ *  §H. WHAT THE APP CAN AND CANNOT TEST HERE
+ *
+ *  fold() = NFD, strip combining marks, lowercase, strip . , ! ? ; : « » ( ) [ ]
+ *  and apostrophes/hyphens, strip whitespace. Measured consequences:
+ *
+ *    -ais / -ait / -aient     different letters, TYPEABLE     (the ear cannot)
+ *    mangeais / mangais       different letters, TYPEABLE
+ *    commençais / commencais  ONE STRING: the cedilla folds away. mcq only
+ *    étudiions / étudions     different letters, TYPEABLE
+ *    j'étais / jétais         ONE STRING (apostrophe and accent fold). Fine.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+export const FOLD_COLLISIONS: [string, string][] = [
+  ['je commençais', 'je commencais'],
+  ['ils commençaient', 'ils commencaient'],
+  ["j'étais", 'jetais'],
+];
+
+export const WANTED_AND_IMPOSSIBLE: readonly { want: string; why: string }[] = [
+  { want: 'a typeIn on commençais', why: 'fold() strips the cedilla, so « commencais » is marked right. Tested by mcq and by letter-tile dictation instead.' },
+  { want: 'a listenChoose between voyons and voyions', why: 'most speakers say both [vwa.jɔ̃]. An ear question would test a sound that is usually not there. It is a spelling point and is tested in writing.' },
+  { want: 'a listenChoose between parlais and parlait', why: 'one sound, [paʁ.lɛ]. That is the whole point of s06-listen, and it is why the endings are tested by typing.' },
+];
+
+/** The error forms the lesson prints on purpose, and only where it marks them
+ *  wrong: commonErrors `wrong`, trapDrill `promptSound`, errorSpot `prompt`,
+ *  quiz/drill distractors. Asserted absent from every authored row. */
+export const WRONG_FORMS = [
+  'mangeions', 'commençions', 'commencais', 'mangais', 'fesais', 'boivais',
+  'étudions le soir', 'je sommais', 'ils parlait',
+] as const;
