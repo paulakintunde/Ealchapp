@@ -236,7 +236,7 @@ Plans:
   7. The paywall appears in exactly two trail positions (end of the A1 trail, pinned above a locked band's trail), routes to `/paywall?from=gate:levels`, and leaves locked acts readable and pressable. `05-GATING-RULE.md` is unchanged by this phase.
   8. Every replaced screen is proven on a physical device, not only in tests.
 **Plans**: TBD
-**Pitfall Watch**: Three things bite here. (1) `Lesson.version` keys learner checkmarks and XP — nothing in this phase may bump it, whatever a batch guard asks for. There are 0 users today (`attempts`, `learning_sessions`, `entitlements` all 0 rows), which makes this the cheapest moment there will be for structural change, but the constraint outlives the emptiness. (2) The two-state English toggle is sitting uncommitted across thirteen files in `ealch-v2/` and has never run on a device; commit it and prove it before criterion 5 extends it to three states, or the refactor rests on an unverified base. (3) `src/content/gloss.logic.ts` already exists and is the reading-passage glossary matcher, not the language control. It has been overwritten once. Do not name anything `gloss*`.
+**Pitfall Watch**: Three things bite here. (1) `Lesson.version` keys learner checkmarks and XP — nothing in this phase may bump it, whatever a batch guard asks for. There are 0 users today (`attempts`, `learning_sessions`, `entitlements` all 0 rows), which makes this the cheapest moment there will be for structural change, but the constraint outlives the emptiness. (2) The two-state English toggle landed as `0b6a1a9` on 2026-09-23, green on typecheck and both suites, and its own message says "Not yet proven on device." Prove it on hardware before criterion 5 extends it to three states, or a device failure afterwards is ambiguous between the shipped work and the new third state. The persisted `useStore.lessonEnglish` boolean also needs a migration path to a three-valued preference. (3) `src/content/gloss.logic.ts` already exists and is the reading-passage glossary matcher, not the language control. It has been overwritten once. Do not name anything `gloss*`.
 **Design source**: the approved canvas, https://claude.ai/artifact/YcQn6EAGDab4rSAqiEe9Wt — boards C1 through C7 plus the level panel. Build from it rather than re-deriving the concept. Act and mission naming language is the one thing it leaves open.
 **UI hint**: yes
 
@@ -444,7 +444,7 @@ Plans:
 - [x] 22.1-05-PLAN.md — Reconcile the sons+a1 narration batch into Postgres and commit HEAD level with the working tree (D-14 precondition, checkpoint)
 - [x] 22.1-06-PLAN.md — Baseline seed bytes and Pixel 6 cold start on an exam-less preview build (D-09, checkpoint)
 - [x] 22.1-07-PLAN.md — Real publish of the exam-bearing seed, exam-ships.test.ts, full suites against the regenerated seed (checkpoint)
-- [ ] 22.1-08-PLAN.md — Offline first-launch device pass, after cold start, Phase 23 D-14 amendment (D-06/D-07/D-08/D-09/D-15, checkpoint)
+- [x] 22.1-08-PLAN.md — Offline first-launch device pass, after cold start, Phase 23 D-14 amendment (D-06/D-07/D-08/D-09/D-15, checkpoint)
 
 ### Phase 23: Exam Recording-Task Restore & Grading-Path Integrity
 **Goal**: A candidate who force-kills and relaunches mid-exam sees their recorded or spoken answer reflected on screen instead of a misleading fresh-start prompt, and a section that was genuinely answered is never silently reported as "not sat."

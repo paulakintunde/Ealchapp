@@ -35,9 +35,10 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — EXECUTING
-Plan: 7 of 8 complete — 22.1-08 (offline first-launch device pass) is the last one
-Status: Blocked on physical hardware. Nothing left that Claude can run alone
+Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED
+Plan: 8 of 8 complete — 22.1-08's offline device pass ran on a Pixel 9 (451e385)
+Status: Pending phase close-out (/gsd-verify-work or gsd-verifier). Not blocked
+Next phase: 07.1 (concept-c-spine-rewrite) — context written, planning underway
 Last activity: 2026-09-23
 
 Progress: [███░░░░░░░] 32% — 8 of 25 phases. See ROADMAP.md's "How to read this table"

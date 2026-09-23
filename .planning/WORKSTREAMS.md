@@ -26,9 +26,17 @@ accessibility, mascot, snapshot split.
 
 | | |
 |---|---|
-| Position | Phase 22.1, **plan 8 of 8**. 07 done, summarised and now checked off in ROADMAP.md; 08 is the device pass |
-| Next | 22.1-08: EAS preview build, Pixel, airplane mode, cold start vs plan 06's 524ms |
-| Blocked on | **Paul: it needs a physical device.** Nothing Claude can run |
+| Position | **Phase 22.1 is done.** 08's offline first-launch device pass ran on a Pixel 9 and is recorded (451e385): 15/15 published papers open from the bundled seed, genuinely offline, never signed in |
+| Next | Phase 07.1, the spine rewrite, is planned next. Phases 8, 9, 11, 12 and 13 are now behind it |
+| Blocked on | Nothing |
+
+**The device blocker is gone, and that matters beyond 22.1.** A Pixel 9 pass
+happened on 2026-09-23, so "nothing is proven on device" is no longer the
+standing state of this repo. Two things now have a measured figure rather than
+an estimate: D-09's cold-start delta is **+2.96%**, not the +9.92% a cross-day
+comparison suggested (the same baseline build drifted +33ms overnight, which was
+most of the original number), and a locked paper correctly returns the paywall
+offline with `examGateOn` cached true. The flag was restored to false.
 
 **Drift, closed 2026-09-23.** STATE.md used to read `Plan: 3 of 8` and report
 96%. Both are fixed: it now reads plan 7 of 8, and the headline figure is
@@ -52,40 +60,33 @@ narration scripts.
 
 | | |
 |---|---|
-| Position | Lessons committed (ff4fdf8): b1.01 formation (12 acts, 85 missions), b1.02 usages, b1.03 pc-imparfait, b1.04 paires. **Plus live uncommitted work in the tree — see below** |
+| Position | Lessons committed (ff4fdf8): b1.01 formation (12 acts, 85 missions), b1.02 usages, b1.03 pc-imparfait, b1.04 paires. The English toggle and the a2.20 gloss fix both landed 2026-09-23 |
 | Next | Paul's call — finish the b1.01–04 pilot, or publish b1.01 first |
 | Blocked on | Nothing |
 
-**The working tree is dirty on purpose.** Whoever opens this repo next: the
-uncommitted changes are this workstream mid-flight, not leftovers, and not
-something to reset. Two distinct pieces:
+**Three things this file was carrying as open are now committed.** All three
+landed on 2026-09-23, after this file last described them as dirty-tree work:
 
-1. **The B1+ English toggle.** The EN pill that hides glosses from b1 upward.
-   New: `src/content/english.logic.ts` + its test, `src/components/GlossContext.tsx`,
-   `src/content/dev-preview-b101.json`. Modified: `Type.tsx`, `LessonPager.tsx`,
-   `LessonRich.tsx`, `LessonSection.tsx`, `MissionRich.tsx`, `ScenePlayer.tsx`,
-   `WordCardXL.tsx`, `LessonDeck.tsx`, `app/den.tsx`, `app/lesson.tsx`,
-   `content/schema.ts`, `services/content.ts`, `store/useStore.ts`.
-   `english.logic.ts` is not `gloss.logic.ts` — that one is the reading matcher
-   and must not be overwritten.
-2. **a2.20 participes, text only — and git is behind Postgres here.**
-   `participes-corpus.ts` E604 "I knew the answer" to "I found out the answer"
-   and E606 "I wanted to leave" to "I tried to leave", the passé composé
-   readings b1.04 teaches, so the old glosses taught the error b1.04 corrects.
-   `participes-lesson.ts` carries the matching **NO BUMP** note (Corrections
-   §16.7): `Lesson.version` keys learner checkmarks and XP, so a text-only fix
-   does not touch it. The separate a2.20 v4-to-v3 *version* revert is already
-   committed, as f32f05d during 22.1-07.
+- `0b6a1a9` — **the B1+ English toggle.** `english.logic.ts` + 6 unit tests,
+  `GlossContext.tsx`, `TX`'s `gloss` prop, ten marked call sites, the pill in
+  `lesson.tsx`. Typecheck clean, 5472/5472 node and 5/5 component green.
+  **Still not proven on device**, which its own commit message says and which
+  Phase 07.1's D-17 depends on.
+- `ac97d69` — **the a2.20 participes glosses**, catching git up to content that
+  shipped in v73. `Lesson.version` deliberately not bumped.
+- `f6b8b24` — **alt text reaches the screen.** `RichImage` now passes
+  `accessibilityLabel`, so `lessonImageAlt()` has its caller at last. The 22
+  images with no alt text stay Phase 8's work.
 
-   **Commit these two files.** The corrected glosses already shipped: they are
-   in Postgres and in `seed.json` as of v73 (adb8129 — `grep "I found out the
-   answer" seed.json` returns 3 hits, the old wording 0). Only the authoring
-   source that generated them is still uncommitted, so HEAD's
-   `participes-corpus.ts` disagrees with the content it is supposed to be the
-   source of. Anything that regenerates from the committed source would undo a
-   published fix.
+**What is still uncommitted, and why it is not leftovers.** A `__DEV__`-only
+`DEV-PREVIEW-B101` card on `den.tsx` that opens the unpublished b1.01 draft,
+plus its supporting `dev-preview-b101.json` and small `schema.ts`,
+`content.ts` and `LessonPager.tsx` changes. It is the only way into that draft
+on a device. **It pushes `/lessonoverview`, a route Phase 07.1 deletes** —
+logged as D-30 in that phase's context so it gets a replacement rather than a
+breakage.
 
-The rest of the dirty tree, so nobody has to re-derive it:
+**The rest of the dirty tree, so nobody has to re-derive it.**
 `ealch-admin/PUBLISH-REPORT.md` is generated — it currently holds the
 **post-publish dry run**, "IDENTICAL to v73, not one byte differs", which is the
 proof 22.1-07 was actually finished rather than left mid-flight.
@@ -144,10 +145,13 @@ the three-state language control.
 show French act names under English unit headings, and C3 shows English mission
 names with French subs. Same question, not answered. It belongs in the phase.
 
-**Do this before planning 07.1.** The two-state English toggle is uncommitted
-across thirteen files in `ealch-v2/` and has never run on a device. Criterion 5
-extends it to three states. Extending an unverified base means a device failure
-will be ambiguous between the old work and the new.
+**Before extending the language control.** The two-state toggle is committed
+(`0b6a1a9`) and green on both suites, but has never run on a device. Prove it on
+hardware first: criterion 5 extends it to three states, and a device failure
+afterwards would be ambiguous between the shipped work and the new state. The
+hardware is there now — 22.1-08 ran on a Pixel 9 the same day. The persisted
+`useStore.lessonEnglish` boolean also needs a migration path to a three-valued
+preference.
 
 **What the insertion changed elsewhere.** Phases 8, 9, 11, 12 and 13 now depend
 on 07.1 and left the free-parallel set, because it replaces the screens they
@@ -204,11 +208,15 @@ script is runnable and carries alt text; the markdown is paste-into-a-chat.
 name describes work that finished long ago. Five stale branches sit beside it:
 four `worktree-agent-*` and `fix/sons06-lesson-layout`.
 
-**Alt text does not reach the screen yet.** `lessonImageAlt()` is committed;
-its caller in `LessonRich.tsx` is not. Lands when that in-flight change does.
+**Alt text reaches the screen.** Closed 2026-09-23 by `f6b8b24`: `RichImage`
+passes `accessibilityLabel`. The 22 registered images with no alt text are
+untouched and stay Phase 8's work — `lessonImageAlt()` returns undefined for
+them, which is the same silence as before rather than a wrong label.
 
-**Nothing is proven on device.** Code paths are complete, which is not the same
-as rendered. This is now the only blocker on path A.
+**Device proof has started but is not general.** 22.1-08's Pixel 9 pass
+(451e385) proved the offline exam path specifically. It did not sweep the app.
+The English toggle, and everything Phase 07.1 builds, still needs its own pass —
+"code paths are complete" is still not the same as rendered.
 
 **There are no users.** `attempts`, `learning_sessions`, `entitlements` and
 `subscriptions` are all 0 rows; 5 auth users and 1 profile are test accounts.
