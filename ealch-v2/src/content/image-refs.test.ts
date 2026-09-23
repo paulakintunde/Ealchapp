@@ -53,24 +53,10 @@ const ADMIN_DATA = resolve(here, '../../../ealch-admin/scripts/data');
 /* ═══ The baseline ════════════════════════════════════════════════════════ */
 
 /** Authored and published, with no bundled asset: these cards draw nothing on
- *  a device today. Four sons lessons whose art was specified and never made.
- *  Measured 2026-09-22. Delete a line when the art lands. */
+ *  a device. Emptied 2026-09-22 when the four sons lessons got their art
+ *  (gen-sons-missing-images.mjs). Keep it empty: a new entry here is a
+ *  deliberate decision to ship a blank card. */
 const KNOWN_UNREGISTERED = new Set([
-  'lessons/accents/anchor-marks.jpg',
-  'lessons/elision/blocked.jpg',
-  'lessons/elision/collision.jpg',
-  'lessons/elision/ear.jpg',
-  'lessons/elision/no-gap.jpg',
-  'lessons/elision/roundup.jpg',
-  'lessons/liaison/roundup.jpg',
-  'lessons/liaison/scene-guichet.jpg',
-  'lessons/liaison/the-stop.jpg',
-  'lessons/liaison/waiting.jpg',
-  'lessons/masterclass/group.jpg',
-  'lessons/masterclass/phrase.jpg',
-  'lessons/masterclass/push.jpg',
-  'lessons/masterclass/roundup.jpg',
-  'lessons/masterclass/speed.jpg',
 ]);
 
 /** Bundled and drawn, with no ALT entry: RichImage passes

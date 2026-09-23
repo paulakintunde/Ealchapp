@@ -49,6 +49,21 @@ const REG: Record<string, ImageSourcePropType> = {
   'lessons/imparfait/cover.jpg': require('../../assets/lessons/imparfait/cover.jpg'),
   'lessons/imparfait/unit-complete.jpg': require('../../assets/lessons/imparfait/unit-complete.jpg'),
   'lessons/imparfait/coming-soon.jpg': require('../../assets/lessons/imparfait/coming-soon.jpg'),
+  'lessons/accents/anchor-marks.jpg': require('../../assets/lessons/accents/anchor-marks.jpg'),
+  'lessons/elision/collision.jpg': require('../../assets/lessons/elision/collision.jpg'),
+  'lessons/elision/ear.jpg': require('../../assets/lessons/elision/ear.jpg'),
+  'lessons/elision/blocked.jpg': require('../../assets/lessons/elision/blocked.jpg'),
+  'lessons/elision/no-gap.jpg': require('../../assets/lessons/elision/no-gap.jpg'),
+  'lessons/elision/roundup.jpg': require('../../assets/lessons/elision/roundup.jpg'),
+  'lessons/liaison/waiting.jpg': require('../../assets/lessons/liaison/waiting.jpg'),
+  'lessons/liaison/the-stop.jpg': require('../../assets/lessons/liaison/the-stop.jpg'),
+  'lessons/liaison/scene-guichet.jpg': require('../../assets/lessons/liaison/scene-guichet.jpg'),
+  'lessons/liaison/roundup.jpg': require('../../assets/lessons/liaison/roundup.jpg'),
+  'lessons/masterclass/phrase.jpg': require('../../assets/lessons/masterclass/phrase.jpg'),
+  'lessons/masterclass/group.jpg': require('../../assets/lessons/masterclass/group.jpg'),
+  'lessons/masterclass/push.jpg': require('../../assets/lessons/masterclass/push.jpg'),
+  'lessons/masterclass/speed.jpg': require('../../assets/lessons/masterclass/speed.jpg'),
+  'lessons/masterclass/roundup.jpg': require('../../assets/lessons/masterclass/roundup.jpg'),
 };
 
 const ALT: Record<string, string> = {
@@ -67,6 +82,21 @@ const ALT: Record<string, string> = {
   'lessons/imparfait/cover.jpg': 'A continuous blue wave crosses a cream card, with one terracotta trough.',
   'lessons/imparfait/unit-complete.jpg': 'Small shapes drift upward from a wax seal pressed into cream paper.',
   'lessons/imparfait/coming-soon.jpg': 'Stepping stones lead toward the horizon, fading into the distance.',
+  'lessons/accents/anchor-marks.jpg': 'Small marks sit as structural parts of stone blocks rather than as ornament laid on top.',
+  'lessons/elision/collision.jpg': 'A large sphere and a much smaller one meet, and the small one compresses flat against it.',
+  'lessons/elision/ear.jpg': 'An ear shape listens to a shape whose outer shell is transparent and whose core is solid.',
+  'lessons/elision/blocked.jpg': 'Three identical doorways, one of them bricked up with no sign on the outside.',
+  'lessons/elision/no-gap.jpg': 'Two shapes pushed flush together with no space between them, beside a pair with a gap.',
+  'lessons/elision/roundup.jpg': 'A small cloth bag holding a few smooth stones, ready to be carried.',
+  'lessons/liaison/waiting.jpg': 'A dormant seed under soil, intact and waiting, with a sprouting one beside it.',
+  'lessons/liaison/the-stop.jpg': 'A hand held flat and firm to hold back two shapes that are leaning toward each other.',
+  'lessons/liaison/scene-guichet.jpg': 'A traveller speaks to a clerk through the window of a station ticket office.',
+  'lessons/liaison/roundup.jpg': 'A short loop of rope with a few beads threaded onto it, tied closed.',
+  'lessons/masterclass/phrase.jpg': 'Loose beads on the left are gathered into one strung group on the right.',
+  'lessons/masterclass/group.jpg': 'Stones in a stream form two clusters with a clear channel of water between them.',
+  'lessons/masterclass/push.jpg': 'A row of shapes where only the last one is raised and larger than the rest.',
+  'lessons/masterclass/speed.jpg': 'A hand catches a falling object without looking, the movement already complete.',
+  'lessons/masterclass/roundup.jpg': 'Three nested measuring tools stacked together into one compact object.',
 };
 
 export function lessonImage(ref: string): ImageSourcePropType | undefined {
