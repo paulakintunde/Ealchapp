@@ -45,7 +45,7 @@ Not in scope: resuming a recording mid-conversation, any redo affordance outside
 
 ### Device proof (criterion 4)
 - **D-13:** Split as in Phase 7: Claude builds, installs, sets up over adb and reads the screens; Paul supplies the real speech, force-kills, relaunches and submits. No scripted/synthetic speech (Phase 7's false-confidence rule).
-- **D-14:** Two passes. (1) A dev build with the two exam-content guards (`refreshFromRemote`'s `if (__DEV__) return`, `adoptedForLaunch(..., __DEV__)`) lifted by a **temporary, uncommitted local patch**, used only to inspect the restored draft in RKStorage via `run-as`; the patch is reverted afterwards and never merged. (2) An EAS `preview` build, the pass that counts, proving the real manifest to cache to merge path end to end. The guards themselves are deliberate and stay.
+- **D-14:** *(amended by 22.1 D-15, 2026-09-23)* Two passes. (1) A dev build, which **now shows the bundled papers directly** - phase 22.1 ships every published exam paper and the tasks it references inside `seed.json`, and a dev build reads exactly that seed. So this pass needs **no temporary patch** lifting the two exam-content guards (`refreshFromRemote`'s `if (__DEV__) return`, `adoptedForLaunch(..., __DEV__)`); **the guards stay**, untouched. The pass is still only for inspecting the restored draft in RKStorage via `run-as`. (2) An EAS `preview` build, the pass that counts, proving the real manifest to cache to merge path end to end - **unchanged**. Note the one thing a dev build still cannot show: a paper corrected *after* release, which arrives only by snapshot.
 - **D-15:** The device pass does not try to force the BUG-05 race; D-12's test proves it. The device pass proves only that a restored spoken answer yields a real grade or an honest "grading failed", never "Not sat".
 - **D-20:** The device pass also covers BUG-06 (criterion 5): Paul force-kills mid-recording on at least one task (mid-interview is the case Phase 7 hit), relaunches, and the task must open on its finished card with the saved part, then grade as that answer.
 
@@ -103,9 +103,10 @@ Not in scope: resuming a recording mid-conversation, any redo affordance outside
 - `surfaceFor` dispatch is exhaustive with a `never` check; no new surface is needed here.
 
 ### Integration Points
-- `tasks` is `useMemo`'d on `[section, corpus]`, and the corpus begins as the seed, which has no exams. `submit()`'s guard checks `section` but not whether every authored task resolved, so an early or racing submit grades a short (possibly empty) list and still routes to the report. This is one concrete BUG-05 trigger; the researcher should confirm whether it matches the TEF Canada Exam 3 reproduction.
+- `tasks` is `useMemo`'d on `[section, corpus]`. *(amended by 22.1 D-15, 2026-09-23: the seed **does** now carry exams, so the corpus no longer begins exam-less. The BUG-05 trigger below is therefore narrower than first written - it needs a task id that fails to resolve for some other reason, e.g. a snapshot/seed id mismatch, not simply "the seed has no exams yet". Confirm the TEF Canada Exam 3 reproduction against this.)* `submit()`'s guard checks `section` but not whether every authored task resolved, so an early or racing submit grades a short (possibly empty) list and still routes to the report. This is one concrete BUG-05 trigger; the researcher should confirm whether it matches the TEF Canada Exam 3 reproduction.
 - The draft restore sets `spoken`/`coverage`/`debate`, but the components receive none of it (only `onAnswer`), which is the entire BUG-04 gap.
 - `answeredCount` already counts restored spoken answers correctly (Phase 7 device evidence).
+- *(added by 22.1 D-15)* `exam-section.tsx` now reads its roster through the D-05 sitting pin (`pinSitting`, `src/utils/examSitting.logic.ts`), which freezes a sitting's task list against mid-session corpus replacement. The D-08 submit-time hold should resolve late tasks **through that pin, not a second one**.
 
 </code_context>
 
