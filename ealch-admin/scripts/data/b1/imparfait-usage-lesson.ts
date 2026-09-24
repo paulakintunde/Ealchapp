@@ -372,7 +372,7 @@ const ACT1: ActDef = {
     estScreens: 30, restPoints: ['a1-lecture'],
   },
   sections: [A1_SCENE, A1_GOALS, A1_RAPPEL, A1_LECTURE, A1_REPERER, A1_PANORAMA, A1_CHECK],
-  imports: [B(40), B(60), B(61), B(62), B(63), 'fr.sons.elision.035'],
+  imports: [B(1440), B(1460), B(1461), B(1462), B(1463), 'fr.sons.elision.035'],
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -473,7 +473,7 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(135), 'raconter'),
     ], chk('« Le samedi, ma mère ... à l’hôpital. » (travailler) EN: Which form?', ['travaillait', 'a travaillé', 'travaille'], 0, 'le samedi = chaque samedi, et c’est fini : travaillait. EN: every Saturday, and it is over.')),
     grp('Avec nous et on', [
-      it(E(112), 'aller'),
+      it(E(1512), 'aller'),
       it(E(120), 'aller, au Lac-Saint-Jean'),
       it(E(126), 'de temps en temps'),
       it(E(132), 'le vendredi soir'),
@@ -559,7 +559,7 @@ const ACT2: ActDef = {
     estScreens: 40, restPoints: ['a2-exemples', 'a2-ecoute'],
   },
   sections: [A2_HISTOIRE, A2_INDICES, A2_EXEMPLES, A2_CONSTRUIRE, A2_ECOUTE, A2_LIMITES, A2_DICTEE, A2_CHECK],
-  imports: ['fr.b1.routines.075', 'fr.b1.cafe.092', 'fr.b1.cuisine.087', 'fr.b1.sports-et-loisirs.076', 'fr.a2.salutations.043', 'fr.sons.jours-et-mois.129', 'fr.sons.mots-essentiels.056', 'fr.a2.routines.004', 'fr.a2.pronoms-essentiels.333', B(57), B(68)],
+  imports: ['fr.b1.routines.075', 'fr.b1.cafe.092', 'fr.b1.cuisine.087', 'fr.b1.sports-et-loisirs.076', 'fr.a2.salutations.043', 'fr.sons.jours-et-mois.129', 'fr.sons.mots-essentiels.056', 'fr.a2.routines.004', 'fr.a2.pronoms-essentiels.333', B(1457), B(1468)],
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -653,7 +653,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(148), 'maintenant'),
       it(E(154), 'aujourd’hui'),
       it(E(158), 'maintenant'),
-      it(B(62), 'maintenant, chez b1.01'),
+      it(B(1462), 'maintenant, chez b1.01'),
     ], chk('« Maintenant, tout le monde ... avec son téléphone. » (payer) EN: Which form?', ['payait', 'paie', 'a payé'], 1, 'Maintenant ramène le présent. EN: maintenant brings back the present.')),
     grp('Les deux dans une phrase', [
       it(E(141), 'avant, puis maintenant'),
@@ -1001,7 +1001,7 @@ const A5_EXEMPLES: Sec<'examples'> = {
     ex(E(807), 'devant la porte'),
     ex(E(815), 'où c’était'),
     ex(E(811), 'l’impression générale'),
-    ex(B(50), 'l’arbre, chez b1.01'),
+    ex(B(1450), 'l’arbre, chez b1.01'),
     ex(E(819), 'et la phrase qui ferme'),
   ],
   audio: AUDIO,
@@ -1095,7 +1095,7 @@ const ACT5: ActDef = {
     estScreens: 34, restPoints: ['a5-exemples', 'a5-ecoute'],
   },
   sections: [A5_LECTURE, A5_OUTILS, A5_EXEMPLES, A5_CONSTRUIRE, A5_GENS, A5_ECOUTE, A5_CHECK],
-  imports: [B(50), B(64), B(522), B(537), 'fr.b1.nombres.004', 'fr.b1.nombres.009', 'fr.b1.cafe.013', 'fr.b1.metiers.008', 'fr.a1.heure-et-date.051'],
+  imports: [B(1450), B(1464), B(522), B(537), 'fr.b1.nombres.004', 'fr.b1.nombres.009', 'fr.b1.cafe.013', 'fr.b1.metiers.008', 'fr.a1.heure-et-date.051'],
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1189,7 +1189,7 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(832), 'midi'),
     ], chk('« ... minuit quand le téléphone a sonné. » EN: Which opening?', ['Il avait', 'Il était', 'C’était'], 1, 'L’heure : il était. EN: clock time.')),
     grp('L’âge', [
-      it(E(105), 'douze ans'),
+      it(E(1505), 'douze ans'),
       it(E(833), 'trente ans'),
       it(E(834), 'comparer'),
       it(E(839), 'quand j’avais dix ans'),
@@ -1291,7 +1291,7 @@ const ACT6: ActDef = {
     estScreens: 38, restPoints: ['a6-table', 'a6-ecoute'],
   },
   sections: [A6_METEO, A6_TABLE, A6_AGE, A6_CONSTRUIRE, A6_PIEGE, A6_ECOUTE, A6_DICTEE, A6_CHECK],
-  imports: [B(30), B(32), B(513), B(514), B(515), B(517), B(518), B(519), 'fr.a2.heure-et-date.080', 'fr.b1.heure-et-date.039', 'fr.b1.heure-et-date.021', 'fr.b1.heure-et-date.010', 'fr.a2.heure-et-date.079'],
+  imports: [B(1430), B(1432), B(513), B(514), B(515), B(517), B(518), B(519), 'fr.a2.heure-et-date.080', 'fr.b1.heure-et-date.039', 'fr.b1.heure-et-date.021', 'fr.b1.heure-et-date.010', 'fr.a2.heure-et-date.079'],
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1423,7 +1423,7 @@ const ACT7: ActDef = {
     estScreens: 28, restPoints: ['a7-construire'],
   },
   sections: [A7_EXEMPLES, A7_CARTES, A7_CONSTRUIRE, A7_ECOUTE, A7_APERCU, A7_CHECK],
-  imports: [B(455), B(35), B(523)],
+  imports: [B(455), B(1435), B(523)],
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -2344,7 +2344,7 @@ const ACT10: ActDef = {
   // `E` is this lesson's id builder, and b1.01's rows share the theme, so it
   // names them correctly outside this lesson's own 101-199 / 800-899 blocks.
   imports: [
-    E(16), E(19), E(31), E(33), E(34),
+    E(1416), E(1419), E(1431), E(1433), E(1434),
     E(430), E(431), E(432), E(433), E(434), E(436), E(525),
   ],
 };
@@ -2360,7 +2360,7 @@ const DRILL_LIST: LessonDrill[] = [
     id: 'd-habitude', title: 'Regarder, ou compter', format: 'sort' as const,
     coach: 'Deux piles. Demande-toi : est-ce que je peux compter les fois ? EN: Can you count the times?',
     buckets: ['une habitude', 'une fois, ou un nombre'],
-    items: [E(101), E(112), E(118), E(138), E(102), E(131)],
+    items: [E(1501), E(1512), E(118), E(138), E(1502), E(131)],
     audio: AUDIO,
   },
   {
@@ -2408,7 +2408,7 @@ const DRILL_LIST: LessonDrill[] = [
     q: '« Quand j’... dix ans, j’apprenais le violon. » EN: Which verb?',
     opts: ['étais', 'avais'], correct: 1,
     why: 'avoir + ans, toujours. EN: always avoir plus ans.',
-    items: [E(105), E(829), E(831), E(833), E(834), E(839)],
+    items: [E(1505), E(829), E(831), E(833), E(834), E(839)],
     audio: AUDIO,
   },
   {
@@ -2424,7 +2424,7 @@ const DRILL_LIST: LessonDrill[] = [
     opts: ['Je me demandais si vous aviez encore mes notes.', 'Vous avez encore mes notes ?', 'Je veux mes notes.'],
     correct: 0,
     why: 'je me demandais si + imparfait : poli et naturel. EN: polite and natural.',
-    items: [E(108), E(853), E(854), E(859), E(866), E(868)],
+    items: [E(1508), E(853), E(854), E(859), E(866), E(868)],
     audio: AUDIO,
   },
   {

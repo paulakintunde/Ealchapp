@@ -49,8 +49,10 @@
 //  1. THEME: `recits-au-passe` (Paul, 2026-09-22). It already exists in seed
 //     `themes` (domain fondations, levelRange a2-b2) and holds ZERO items, so
 //     it is NOT created at import. Ids are `fr.b1.recits-au-passe.NNN`.
-//  2. ID BLOCK: b1.01 owns `.001`-`.099` and `.401`-`.799` (standard). Other
-//     pilot lessons own `.101`-`.399`. Used here: `.001`-`.071` (`.039` empty)
+//  2. ID BLOCK: b1.01 owns `.401`-`.799` and `.1401`-`.1499`. Other pilot
+//     lessons own `.101`-`.399`. `.001`-`.115` is PUBLISHED IN POSTGRES and is
+//     not available: the block that was `.001`-`.071` moved +1400 on
+//     2026-09-24. Used here: `.1401`-`.1471` (`.1439` empty)
 //     and `.401`-`.550` with gaps.
 //  3. SEED IS ABOUT A QUARTER OF POSTGRES. The seed holds no standalone
 //     imparfait form except `c'était` (fr.sons.elision.035), imported. The
@@ -87,7 +89,7 @@ export const LESSON_ID = 'b1.01.l1';
 export const THEME = 'recits-au-passe';
 export const LEVEL = 'b1' as const;
 
-export const ID_RANGES = [[1, 99], [401, 799]] as const;
+export const ID_RANGES = [[401, 799], [1401, 1499]] as const;
 
 export const E = (n: number) => `fr.b1.${THEME}.${String(n).padStart(3, '0')}`;
 
@@ -295,22 +297,22 @@ const sent = (n: number, fr: string, en: string, ipa: string, respell: string, t
 /* ── ACT 1 · LE SOUVENIR ────────────────────────────────────────────────── */
 
 export const ACT1_ROWS: Row[] = [
-  conj(34, "j'habitais", 'I used to live', '/ʒa.bi.tɛ/', 'zhah-bee-TEH', 'habiter', 'je', ['recipe', 'scene']),
-  sent(40, "Quand j'étais petite, j'habitais chez ma grand-mère.", 'When I was little, I lived at my grandmother’s.', '/kɑ̃ ʒe.tɛ pə.tit ʒa.bi.tɛ ʃe ma ɡʁɑ̃.mɛʁ/', 'kahⁿ zhay-teh puh-TEET zhah-bee-teh shay mah grahⁿ-MEHR', ['scene', 'etre', 'task']),
-  sent(41, 'Ma grand-mère habitait à Dakar.', 'My grandmother lived in Dakar.', '/ma ɡʁɑ̃.mɛ.ʁa.bi.tɛ a da.kaʁ/', 'mah grahⁿ-meh-rah-bee-teh ah dah-KAR', ['scene']),
-  sent(60, "C'était la maison de ma grand-mère.", 'It was my grandmother’s house.', '/se.tɛ la mɛ.zɔ̃ də ma ɡʁɑ̃.mɛʁ/', 'say-teh lah meh-zohⁿ duh mah grahⁿ-MEHR', ['scene', 'etre']),
-  sent(61, "Avant, j'habitais à Dakar.", 'I used to live in Dakar.', '/a.vɑ̃ ʒa.bi.tɛ a da.kaʁ/', 'ah-VAHⁿ zhah-bee-teh ah dah-KAR', ['meaning', 'avant']),
-  sent(62, "Maintenant, j'habite à Montréal.", 'Now I live in Montreal.', '/mɛ̃t.nɑ̃ ʒa.bi.ta mɔ̃.tʁe.al/', 'mehⁿt-NAHⁿ zhah-bee-tah mohⁿ-tray-AL', ['meaning', 'present']),
+  conj(1434, "j'habitais", 'I used to live', '/ʒa.bi.tɛ/', 'zhah-bee-TEH', 'habiter', 'je', ['recipe', 'scene']),
+  sent(1440, "Quand j'étais petite, j'habitais chez ma grand-mère.", 'When I was little, I lived at my grandmother’s.', '/kɑ̃ ʒe.tɛ pə.tit ʒa.bi.tɛ ʃe ma ɡʁɑ̃.mɛʁ/', 'kahⁿ zhay-teh puh-TEET zhah-bee-teh shay mah grahⁿ-MEHR', ['scene', 'etre', 'task']),
+  sent(1441, 'Ma grand-mère habitait à Dakar.', 'My grandmother lived in Dakar.', '/ma ɡʁɑ̃.mɛ.ʁa.bi.tɛ a da.kaʁ/', 'mah grahⁿ-meh-rah-bee-teh ah dah-KAR', ['scene']),
+  sent(1460, "C'était la maison de ma grand-mère.", 'It was my grandmother’s house.', '/se.tɛ la mɛ.zɔ̃ də ma ɡʁɑ̃.mɛʁ/', 'say-teh lah meh-zohⁿ duh mah grahⁿ-MEHR', ['scene', 'etre']),
+  sent(1461, "Avant, j'habitais à Dakar.", 'I used to live in Dakar.', '/a.vɑ̃ ʒa.bi.tɛ a da.kaʁ/', 'ah-VAHⁿ zhah-bee-teh ah dah-KAR', ['meaning', 'avant']),
+  sent(1462, "Maintenant, j'habite à Montréal.", 'Now I live in Montreal.', '/mɛ̃t.nɑ̃ ʒa.bi.ta mɔ̃.tʁe.al/', 'mehⁿt-NAHⁿ zhah-bee-tah mohⁿ-tray-AL', ['meaning', 'present']),
   // The counterexample for the one cue used: « avant » is not a switch.
-  sent(63, 'Avant de dormir, je lis.', 'Before I go to sleep, I read.', '/a.vɑ̃ də dɔʁ.miʁ ʒə li/', 'ah-vahⁿ duh dor-MEER zhuh LEE', ['meaning', 'avant', 'counterexample']),
+  sent(1463, 'Avant de dormir, je lis.', 'Before I go to sleep, I read.', '/a.vɑ̃ də dɔʁ.miʁ ʒə li/', 'ah-vahⁿ duh dor-MEER zhuh LEE', ['meaning', 'avant', 'counterexample']),
 ];
 
 /* ── ACT 2 · LA BASE : NOUS AU PRÉSENT (-er, -ir -iss-, -re) ────────────── */
 
 export const ACT2_ROWS: Row[] = [
-  conj(6, 'je finissais', 'I used to finish', '/ʒə fi.ni.sɛ/', 'zhuh fee-nee-SEH', 'finir', 'je', ['stem', 'iss']),
-  sent(42, 'Nous parlions français.', 'We used to speak French.', '/nu paʁ.ljɔ̃ fʁɑ̃.sɛ/', 'noo par-lyohⁿ frahⁿ-SEH', ['pair', 'ions'], FCVDR),
-  sent(45, 'Nous finissions tôt.', 'We used to finish early.', '/nu fi.ni.sjɔ̃ to/', 'noo fee-nee-syohⁿ TOH', ['pair', 'iss']),
+  conj(1406, 'je finissais', 'I used to finish', '/ʒə fi.ni.sɛ/', 'zhuh fee-nee-SEH', 'finir', 'je', ['stem', 'iss']),
+  sent(1442, 'Nous parlions français.', 'We used to speak French.', '/nu paʁ.ljɔ̃ fʁɑ̃.sɛ/', 'noo par-lyohⁿ frahⁿ-SEH', ['pair', 'ions'], FCVDR),
+  sent(1445, 'Nous finissions tôt.', 'We used to finish early.', '/nu fi.ni.sjɔ̃ to/', 'noo fee-nee-syohⁿ TOH', ['pair', 'iss']),
   conj(401, 'je regardais', 'I used to watch', '/ʒə ʁə.ɡaʁ.dɛ/', 'zhuh ruh-gar-DEH', 'regarder', 'je', ['stem', 'er']),
   conj(402, 'nous cherchions', 'we used to look for', '/nu ʃɛʁ.ʃjɔ̃/', 'noo shehr-SHYOHⁿ', 'chercher', 'nous', ['stem', 'er', 'ions']),
   conj(403, 'ils restaient', 'they used to stay', '/il ʁɛs.tɛ/', 'eel res-TEH', 'rester', 'ils', ['stem', 'er', 'aient']),
@@ -334,21 +336,21 @@ export const ACT2_ROWS: Row[] = [
 /* ── ACT 3 · LES SIX TERMINAISONS ──────────────────────────────────────── */
 
 export const ACT3_ROWS: Row[] = [
-  conj(1, 'je parlais', 'I used to speak / I was speaking', '/ʒə paʁ.lɛ/', 'zhuh par-LEH', 'parler', 'je', ['recipe', 'e-sound']),
+  conj(1401, 'je parlais', 'I used to speak / I was speaking', '/ʒə paʁ.lɛ/', 'zhuh par-LEH', 'parler', 'je', ['recipe', 'e-sound']),
   conj(414, 'tu parlais', 'you used to speak', '/ty paʁ.lɛ/', 'tü par-LEH', 'parler', 'tu', ['recipe', 'e-sound']),
-  conj(2, 'il parlait', 'he used to speak / he was speaking', '/il paʁ.lɛ/', 'eel par-LEH', 'parler', 'il', ['recipe', 'e-sound']),
+  conj(1402, 'il parlait', 'he used to speak / he was speaking', '/il paʁ.lɛ/', 'eel par-LEH', 'parler', 'il', ['recipe', 'e-sound']),
   conj(421, 'elle parlait', 'she used to speak', '/ɛl paʁ.lɛ/', 'el par-LEH', 'parler', 'elle', ['recipe', 'e-sound']),
   conj(422, 'on parlait', 'we used to speak (spoken)', '/ɔ̃ paʁ.lɛ/', 'ohⁿ par-LEH', 'parler', 'on', ['recipe', 'e-sound', 'on']),
-  conj(3, 'nous parlions', 'we used to speak / we were speaking', '/nu paʁ.ljɔ̃/', 'noo par-LYOHⁿ', 'parler', 'nous', ['recipe', 'ions']),
-  conj(4, 'vous parliez', 'you used to speak / you were speaking', '/vu paʁ.lje/', 'voo par-LYAY', 'parler', 'vous', ['recipe', 'iez']),
-  conj(5, 'ils parlaient', 'they used to speak / they were speaking', '/il paʁ.lɛ/', 'eel par-LEH', 'parler', 'ils', ['recipe', 'e-sound', 'aient'], FCVDR),
+  conj(1403, 'nous parlions', 'we used to speak / we were speaking', '/nu paʁ.ljɔ̃/', 'noo par-LYOHⁿ', 'parler', 'nous', ['recipe', 'ions']),
+  conj(1404, 'vous parliez', 'you used to speak / you were speaking', '/vu paʁ.lje/', 'voo par-LYAY', 'parler', 'vous', ['recipe', 'iez']),
+  conj(1405, 'ils parlaient', 'they used to speak / they were speaking', '/il paʁ.lɛ/', 'eel par-LEH', 'parler', 'ils', ['recipe', 'e-sound', 'aient'], FCVDR),
   conj(423, 'elles parlaient', 'they (f.) used to speak', '/ɛl paʁ.lɛ/', 'el par-LEH', 'parler', 'elles', ['recipe', 'e-sound', 'aient']),
-  conj(36, 'tu habitais', 'you used to live', '/ty a.bi.tɛ/', 'tü ah-bee-TEH', 'habiter', 'tu', ['recipe']),
+  conj(1436, 'tu habitais', 'you used to live', '/ty a.bi.tɛ/', 'tü ah-bee-TEH', 'habiter', 'tu', ['recipe']),
   sent(424, 'Tu parlais avec tes voisins.', 'You used to talk with your neighbours.', '/ty paʁ.lɛ a.vɛk te vwa.zɛ̃/', 'tü par-leh ah-vek tay vwah-ZEHⁿ', ['e-sound']),
   sent(425, "On jouait dehors tout l'après-midi.", 'We played outside all afternoon.', '/ɔ̃ ʒu.ɛ də.ɔʁ tu la.pʁɛ.mi.di/', 'ohⁿ zhoo-eh duh-or too lah-preh-mee-DEE', ['e-sound', 'on']),
   sent(426, 'Vous parliez créole à la maison.', 'You used to speak Creole at home.', '/vu paʁ.lje kʁe.ɔl a la mɛ.zɔ̃/', 'voo par-lyay kray-ol ah lah meh-ZOHⁿ', ['iez']),
-  sent(59, 'Les enfants jouaient dans la rue.', 'The children used to play in the street.', '/le.zɑ̃.fɑ̃ ʒu.ɛ dɑ̃ la ʁy/', 'lay zahⁿ-fahⁿ zhoo-eh dahⁿ lah RÜ', ['aient']),
-  sent(70, 'Mes cousins habitaient à Thiès.', 'My cousins lived in Thiès.', '/me ku.zɛ̃.za.bi.tɛ a tjɛs/', 'may koo-zehⁿ-zah-bee-teh ah TYESS', ['aient', 'dakar']),
+  sent(1459, 'Les enfants jouaient dans la rue.', 'The children used to play in the street.', '/le.zɑ̃.fɑ̃ ʒu.ɛ dɑ̃ la ʁy/', 'lay zahⁿ-fahⁿ zhoo-eh dahⁿ lah RÜ', ['aient']),
+  sent(1470, 'Mes cousins habitaient à Thiès.', 'My cousins lived in Thiès.', '/me ku.zɛ̃.za.bi.tɛ a tjɛs/', 'may koo-zehⁿ-zah-bee-teh ah TYESS', ['aient', 'dakar']),
 ];
 
 /* ── ACT 4 · IRRÉGULIERS AU PRÉSENT, RÉGULIERS ICI ─────────────────────── */
@@ -362,16 +364,16 @@ export const ACT4_ROWS: Row[] = [
   conj(463, 'nous dormons', 'we sleep', '/nu dɔʁ.mɔ̃/', 'noo dor-MOHⁿ', 'dormir', 'nous', ['stem-source'], FCVR, 'présent'),
   conj(464, 'nous vivons', 'we live', '/nu vi.vɔ̃/', 'noo vee-VOHⁿ', 'vivre', 'nous', ['stem-source'], FCVR, 'présent'),
   // The imparfait forms.
-  conj(8, 'je faisais', 'I used to do / make', '/ʒə fə.zɛ/', 'zhuh fuh-ZEH', 'faire', 'je', ['stem', 'schwa'], FCVDR),
+  conj(1408, 'je faisais', 'I used to do / make', '/ʒə fə.zɛ/', 'zhuh fuh-ZEH', 'faire', 'je', ['stem', 'schwa'], FCVDR),
   conj(441, 'nous faisions', 'we used to do / make', '/nu fə.zjɔ̃/', 'noo fuh-ZYOHⁿ', 'faire', 'nous', ['stem', 'schwa']),
   conj(440, 'je prenais', 'I used to take', '/ʒə pʁə.nɛ/', 'zhuh pruh-NEH', 'prendre', 'je', ['stem']),
-  conj(7, 'nous prenions', 'we used to take', '/nu pʁə.njɔ̃/', 'noo pruh-NYOHⁿ', 'prendre', 'nous', ['stem']),
-  conj(9, 'je buvais', 'I used to drink', '/ʒə by.vɛ/', 'zhuh bü-VEH', 'boire', 'je', ['stem']),
-  conj(10, 'je voyais', 'I used to see', '/ʒə vwa.jɛ/', 'zhuh vwah-YEH', 'voir', 'je', ['stem', 'y']),
-  conj(12, 'je croyais', 'I used to believe', '/ʒə kʁwa.jɛ/', 'zhuh krwah-YEH', 'croire', 'je', ['stem', 'y']),
-  conj(14, 'je disais', 'I used to say', '/ʒə di.zɛ/', 'zhuh dee-ZEH', 'dire', 'je', ['stem']),
-  conj(15, "j'écrivais", 'I used to write', '/ʒe.kʁi.vɛ/', 'zhay-kree-VEH', 'écrire', 'je', ['stem']),
-  conj(35, 'je lisais', 'I used to read', '/ʒə li.zɛ/', 'zhuh lee-ZEH', 'lire', 'je', ['stem']),
+  conj(1407, 'nous prenions', 'we used to take', '/nu pʁə.njɔ̃/', 'noo pruh-NYOHⁿ', 'prendre', 'nous', ['stem']),
+  conj(1409, 'je buvais', 'I used to drink', '/ʒə by.vɛ/', 'zhuh bü-VEH', 'boire', 'je', ['stem']),
+  conj(1410, 'je voyais', 'I used to see', '/ʒə vwa.jɛ/', 'zhuh vwah-YEH', 'voir', 'je', ['stem', 'y']),
+  conj(1412, 'je croyais', 'I used to believe', '/ʒə kʁwa.jɛ/', 'zhuh krwah-YEH', 'croire', 'je', ['stem', 'y']),
+  conj(1414, 'je disais', 'I used to say', '/ʒə di.zɛ/', 'zhuh dee-ZEH', 'dire', 'je', ['stem']),
+  conj(1415, "j'écrivais", 'I used to write', '/ʒe.kʁi.vɛ/', 'zhay-kree-VEH', 'écrire', 'je', ['stem']),
+  conj(1435, 'je lisais', 'I used to read', '/ʒə li.zɛ/', 'zhuh lee-ZEH', 'lire', 'je', ['stem']),
   conj(430, 'je venais', 'I used to come', '/ʒə və.nɛ/', 'zhuh vuh-NEH', 'venir', 'je', ['stem']),
   conj(442, 'ils venaient', 'they used to come', '/il və.nɛ/', 'eel vuh-NEH', 'venir', 'ils', ['stem', 'aient']),
   conj(431, 'je devais', 'I had to / I was supposed to', '/ʒə də.vɛ/', 'zhuh duh-VEH', 'devoir', 'je', ['stem', 'modal']),
@@ -381,19 +383,19 @@ export const ACT4_ROWS: Row[] = [
   conj(444, 'vous vouliez', 'you wanted', '/vu vu.lje/', 'voo voo-LYAY', 'vouloir', 'vous', ['stem', 'modal', 'iez']),
   conj(434, 'je savais', 'I knew', '/ʒə sa.vɛ/', 'zhuh sah-VEH', 'savoir', 'je', ['stem']),
   conj(445, 'ils savaient', 'they knew', '/il sa.vɛ/', 'eel sah-VEH', 'savoir', 'ils', ['stem', 'aient']),
-  conj(19, "j'avais", 'I had / I used to have', '/ʒa.vɛ/', 'zhah-VEH', 'avoir', 'je', ['avoir']),
-  conj(33, "j'allais", 'I used to go', '/ʒa.lɛ/', 'zhah-LEH', 'aller', 'je', ['stem', 'aller']),
-  conj(37, 'vous alliez', 'you used to go', '/vu.za.lje/', 'voo zah-LYAY', 'aller', 'vous', ['aller', 'iez']),
+  conj(1419, "j'avais", 'I had / I used to have', '/ʒa.vɛ/', 'zhah-VEH', 'avoir', 'je', ['avoir']),
+  conj(1433, "j'allais", 'I used to go', '/ʒa.lɛ/', 'zhah-LEH', 'aller', 'je', ['stem', 'aller']),
+  conj(1437, 'vous alliez', 'you used to go', '/vu.za.lje/', 'voo zah-LYAY', 'aller', 'vous', ['aller', 'iez']),
   conj(435, 'je mettais', 'I used to put / put on', '/ʒə mɛ.tɛ/', 'zhuh meh-TEH', 'mettre', 'je', ['stem']),
   conj(436, 'je connaissais', 'I knew (a person, a place)', '/ʒə kɔ.nɛ.sɛ/', 'zhuh koh-neh-SEH', 'connaître', 'je', ['stem']),
   conj(437, 'je sortais', 'I used to go out', '/ʒə sɔʁ.tɛ/', 'zhuh sor-TEH', 'sortir', 'je', ['stem']),
   conj(438, 'je dormais', 'I used to sleep', '/ʒə dɔʁ.mɛ/', 'zhuh dor-MEH', 'dormir', 'je', ['stem']),
   conj(439, 'je vivais', 'I used to live', '/ʒə vi.vɛ/', 'zhuh vee-VEH', 'vivre', 'je', ['stem']),
-  sent(46, 'Nous faisions le lit.', 'We used to make the bed.', '/nu fə.zjɔ̃ lə li/', 'noo fuh-zyohⁿ luh LEE', ['pair', 'schwa']),
-  sent(47, 'Nous disions bonjour.', 'We used to say hello.', '/nu di.zjɔ̃ bɔ̃.ʒuʁ/', 'noo dee-zyohⁿ bohⁿ-ZHOOR', ['pair']),
-  sent(67, 'Mon grand-père écrivait des lettres.', 'My grandfather used to write letters.', '/mɔ̃ ɡʁɑ̃.pɛ.ʁe.kʁi.vɛ de lɛtʁ/', 'mohⁿ grahⁿ-peh-ray-kree-veh day LETR', ['stem']),
-  sent(68, 'Je buvais du lait tous les matins.', 'I used to drink milk every morning.', '/ʒə by.vɛ dy lɛ tu le ma.tɛ̃/', 'zhuh bü-veh dü leh too lay mah-TEHⁿ', ['stem']),
-  sent(69, "Nous prenions le bus pour aller à l'école.", 'We used to take the bus to school.', '/nu pʁə.njɔ̃ lə bys puʁ a.le a le.kɔl/', 'noo pruh-nyohⁿ luh büs poor ah-lay ah lay-KOL', ['stem']),
+  sent(1446, 'Nous faisions le lit.', 'We used to make the bed.', '/nu fə.zjɔ̃ lə li/', 'noo fuh-zyohⁿ luh LEE', ['pair', 'schwa']),
+  sent(1447, 'Nous disions bonjour.', 'We used to say hello.', '/nu di.zjɔ̃ bɔ̃.ʒuʁ/', 'noo dee-zyohⁿ bohⁿ-ZHOOR', ['pair']),
+  sent(1467, 'Mon grand-père écrivait des lettres.', 'My grandfather used to write letters.', '/mɔ̃ ɡʁɑ̃.pɛ.ʁe.kʁi.vɛ de lɛtʁ/', 'mohⁿ grahⁿ-peh-ray-kree-veh day LETR', ['stem']),
+  sent(1468, 'Je buvais du lait tous les matins.', 'I used to drink milk every morning.', '/ʒə by.vɛ dy lɛ tu le ma.tɛ̃/', 'zhuh bü-veh dü leh too lay mah-TEHⁿ', ['stem']),
+  sent(1469, "Nous prenions le bus pour aller à l'école.", 'We used to take the bus to school.', '/nu pʁə.njɔ̃ lə bys puʁ a.le a le.kɔl/', 'noo pruh-nyohⁿ luh büs poor ah-lay ah lay-KOL', ['stem']),
   sent(447, 'Je venais ici tous les étés.', 'I used to come here every summer.', '/ʒə və.nɛ i.si tu le.ze.te/', 'zhuh vuh-neh ee-see too lay-zay-TAY', ['stem']),
   sent(448, 'Je devais rentrer avant six heures.', 'I had to be home before six.', '/ʒə də.vɛ ʁɑ̃.tʁe a.vɑ̃ si.zœʁ/', 'zhuh duh-veh rahⁿ-tray ah-vahⁿ see-ZUHR', ['modal']),
   sent(449, 'Nous pouvions jouer dans la rue.', 'We could play in the street.', '/nu pu.vjɔ̃ ʒu.e dɑ̃ la ʁy/', 'noo poo-vyohⁿ zhoo-ay dahⁿ lah RÜ', ['modal']),
@@ -411,14 +413,14 @@ export const ACT4_ROWS: Row[] = [
 /* ── ACT 5 · ÊTRE, LA SEULE EXCEPTION ───────────────────────────────────── */
 
 export const ACT5_ROWS: Row[] = [
-  conj(16, "j'étais", 'I was / I used to be', '/ʒe.tɛ/', 'zhay-TEH', 'être', 'je', ['etre'], FCVDR),
+  conj(1416, "j'étais", 'I was / I used to be', '/ʒe.tɛ/', 'zhay-TEH', 'être', 'je', ['etre'], FCVDR),
   conj(465, 'tu étais', 'you were', '/ty e.tɛ/', 'tü ay-TEH', 'être', 'tu', ['etre']),
   conj(466, 'il était', 'he was / it was', '/i.le.tɛ/', 'ee-lay-TEH', 'être', 'il', ['etre']),
   conj(468, 'elle était', 'she was', '/ɛ.le.tɛ/', 'eh-lay-TEH', 'être', 'elle', ['etre']),
-  conj(17, 'nous étions', 'we were / we used to be', '/nu.ze.tjɔ̃/', 'noo zay-TYOHⁿ', 'être', 'nous', ['etre', 'ions']),
+  conj(1417, 'nous étions', 'we were / we used to be', '/nu.ze.tjɔ̃/', 'noo zay-TYOHⁿ', 'être', 'nous', ['etre', 'ions']),
   conj(467, 'vous étiez', 'you were', '/vu.ze.tje/', 'voo zay-TYAY', 'être', 'vous', ['etre', 'iez']),
-  conj(18, 'ils étaient', 'they were / they used to be', '/il.ze.tɛ/', 'eel zay-TEH', 'être', 'ils', ['etre', 'aient']),
-  sent(66, 'Nous étions six à la maison.', 'There were six of us at home.', '/nu.ze.tjɔ̃ si.za la mɛ.zɔ̃/', 'noo zay-tyohⁿ see-zah lah meh-ZOHⁿ', ['etre']),
+  conj(1418, 'ils étaient', 'they were / they used to be', '/il.ze.tɛ/', 'eel zay-TEH', 'être', 'ils', ['etre', 'aient']),
+  sent(1466, 'Nous étions six à la maison.', 'There were six of us at home.', '/nu.ze.tjɔ̃ si.za la mɛ.zɔ̃/', 'noo zay-tyohⁿ see-zah lah meh-ZOHⁿ', ['etre']),
   sent(469, "J'étais très timide à l'école.", 'I was very shy at school.', '/ʒe.tɛ tʁɛ ti.mid a le.kɔl/', 'zhay-teh treh tee-meed ah lay-KOL', ['etre']),
   sent(470, "C'était un petit village.", 'It was a small village.', '/se.tɛ œ̃ pə.ti vi.laʒ/', 'say-teh uhⁿ puh-tee vee-LAZH', ['etre', 'cetait']),
   sent(471, 'Vous étiez voisins à Rosemont.', 'You were neighbours in Rosemont.', '/vu.ze.tje vwa.zɛ̃ a ʁoz.mɔ̃/', 'voo zay-tyay vwah-zehⁿ ah roz-MOHⁿ', ['etre', 'montreal']),
@@ -429,21 +431,21 @@ export const ACT5_ROWS: Row[] = [
 /* ── ACT 6 · -GER ──────────────────────────────────────────────────────── */
 
 export const ACT6_ROWS: Row[] = [
-  conj(20, 'je mangeais', 'I used to eat', '/ʒə mɑ̃.ʒɛ/', 'zhuh mahⁿ-ZHEH', 'manger', 'je', ['ger'], FCVDR),
-  conj(21, 'nous mangions', 'we used to eat', '/nu mɑ̃.ʒjɔ̃/', 'noo mahⁿ-ZHYOHⁿ', 'manger', 'nous', ['ger', 'ions'], FCVDR),
+  conj(1420, 'je mangeais', 'I used to eat', '/ʒə mɑ̃.ʒɛ/', 'zhuh mahⁿ-ZHEH', 'manger', 'je', ['ger'], FCVDR),
+  conj(1421, 'nous mangions', 'we used to eat', '/nu mɑ̃.ʒjɔ̃/', 'noo mahⁿ-ZHYOHⁿ', 'manger', 'nous', ['ger', 'ions'], FCVDR),
   conj(481, 'vous mangiez', 'you used to eat', '/vu mɑ̃.ʒje/', 'voo mahⁿ-ZHYAY', 'manger', 'vous', ['ger', 'iez'], FCVDR),
-  conj(22, 'ils mangeaient', 'they used to eat', '/il mɑ̃.ʒɛ/', 'eel mahⁿ-ZHEH', 'manger', 'ils', ['ger', 'aient']),
+  conj(1422, 'ils mangeaient', 'they used to eat', '/il mɑ̃.ʒɛ/', 'eel mahⁿ-ZHEH', 'manger', 'ils', ['ger', 'aient']),
   conj(475, 'je nageais', 'I used to swim', '/ʒə na.ʒɛ/', 'zhuh nah-ZHEH', 'nager', 'je', ['ger'], FCVDR),
   conj(474, 'nous nagions', 'we used to swim', '/nu na.ʒjɔ̃/', 'noo nah-ZHYOHⁿ', 'nager', 'nous', ['ger', 'ions'], FCVDR),
   conj(476, 'tu voyageais', 'you used to travel', '/ty vwa.ja.ʒɛ/', 'tü vwah-yah-ZHEH', 'voyager', 'tu', ['ger']),
   conj(477, 'nous voyagions', 'we used to travel', '/nu vwa.ja.ʒjɔ̃/', 'noo vwah-yah-ZHYOHⁿ', 'voyager', 'nous', ['ger', 'ions']),
-  conj(38, 'ils voyageaient', 'they used to travel', '/il vwa.ja.ʒɛ/', 'eel vwah-yah-ZHEH', 'voyager', 'ils', ['ger', 'aient'], FCVDR),
+  conj(1438, 'ils voyageaient', 'they used to travel', '/il vwa.ja.ʒɛ/', 'eel vwah-yah-ZHEH', 'voyager', 'ils', ['ger', 'aient'], FCVDR),
   conj(478, 'nous partagions', 'we used to share', '/nu paʁ.ta.ʒjɔ̃/', 'noo par-tah-ZHYOHⁿ', 'partager', 'nous', ['ger', 'ions']),
   conj(479, 'il changeait', 'it used to change', '/il ʃɑ̃.ʒɛ/', 'eel shahⁿ-ZHEH', 'changer', 'il', ['ger']),
   conj(480, 'elle bougeait', 'she used to move / fidget', '/ɛl bu.ʒɛ/', 'el boo-ZHEH', 'bouger', 'elle', ['ger']),
   conj(482, 'nous rangions', 'we used to tidy', '/nu ʁɑ̃.ʒjɔ̃/', 'noo rahⁿ-ZHYOHⁿ', 'ranger', 'nous', ['ger', 'ions']),
-  sent(43, 'Nous mangions ici.', 'We used to eat here.', '/nu mɑ̃.ʒjɔ̃ i.si/', 'noo mahⁿ-zhyohⁿ ee-SEE', ['pair', 'ger', 'ions'], FCVDR),
-  sent(57, 'Le dimanche, nous mangions du thiéboudienne.', 'On Sundays, we used to eat thiéboudienne.', '/lə di.mɑ̃ʃ nu mɑ̃.ʒjɔ̃ dy tʃe.bu.dʒɛn/', 'luh dee-MAHⁿSH noo mahⁿ-zhyohⁿ dü chay-boo-JENN', ['ger', 'dakar']),
+  sent(1443, 'Nous mangions ici.', 'We used to eat here.', '/nu mɑ̃.ʒjɔ̃ i.si/', 'noo mahⁿ-zhyohⁿ ee-SEE', ['pair', 'ger', 'ions'], FCVDR),
+  sent(1457, 'Le dimanche, nous mangions du thiéboudienne.', 'On Sundays, we used to eat thiéboudienne.', '/lə di.mɑ̃ʃ nu mɑ̃.ʒjɔ̃ dy tʃe.bu.dʒɛn/', 'luh dee-MAHⁿSH noo mahⁿ-zhyohⁿ dü chay-boo-JENN', ['ger', 'dakar']),
   sent(483, "L'été, nous nagions dans le lac.", 'In summer, we used to swim in the lake.', '/le.te nu na.ʒjɔ̃ dɑ̃ lə lak/', 'lay-TAY noo nah-zhyohⁿ dahⁿ luh LAK', ['ger', 'suisse']),
   sent(484, 'Mon oncle voyageait beaucoup pour son travail.', 'My uncle used to travel a lot for work.', '/mɔ̃.nɔ̃kl vwa.ja.ʒɛ bo.ku puʁ sɔ̃ tʁa.vaj/', 'moh-nohⁿkl vwah-yah-zheh boh-koo poor sohⁿ trah-VYE', ['ger']),
   sent(485, 'Nous partagions une chambre, mon frère et moi.', 'My brother and I used to share a room.', '/nu paʁ.ta.ʒjɔ̃ yn ʃɑ̃bʁ mɔ̃ fʁɛʁ e mwa/', 'noo par-tah-zhyohⁿ ün shahⁿbr mohⁿ frehr ay MWAH', ['ger']),
@@ -454,10 +456,10 @@ export const ACT6_ROWS: Row[] = [
 /* ── ACT 7 · -CER ──────────────────────────────────────────────────────── */
 
 export const ACT7_ROWS: Row[] = [
-  conj(23, 'je commençais', 'I used to start', '/ʒə kɔ.mɑ̃.sɛ/', 'zhuh koh-mahⁿ-SEH', 'commencer', 'je', ['cer'], FCVDR),
-  conj(24, 'nous commencions', 'we used to start', '/nu kɔ.mɑ̃.sjɔ̃/', 'noo koh-mahⁿ-SYOHⁿ', 'commencer', 'nous', ['cer', 'ions'], FCVDR),
+  conj(1423, 'je commençais', 'I used to start', '/ʒə kɔ.mɑ̃.sɛ/', 'zhuh koh-mahⁿ-SEH', 'commencer', 'je', ['cer'], FCVDR),
+  conj(1424, 'nous commencions', 'we used to start', '/nu kɔ.mɑ̃.sjɔ̃/', 'noo koh-mahⁿ-SYOHⁿ', 'commencer', 'nous', ['cer', 'ions'], FCVDR),
   conj(494, 'vous commenciez', 'you used to start', '/vu kɔ.mɑ̃.sje/', 'voo koh-mahⁿ-SYAY', 'commencer', 'vous', ['cer', 'iez'], FCVDR),
-  conj(25, 'ils commençaient', 'they used to start', '/il kɔ.mɑ̃.sɛ/', 'eel koh-mahⁿ-SEH', 'commencer', 'ils', ['cer', 'aient'], FCVDR),
+  conj(1425, 'ils commençaient', 'they used to start', '/il kɔ.mɑ̃.sɛ/', 'eel koh-mahⁿ-SEH', 'commencer', 'ils', ['cer', 'aient'], FCVDR),
   conj(489, 'il lançait', 'he used to throw', '/il lɑ̃.sɛ/', 'eel lahⁿ-SEH', 'lancer', 'il', ['cer']),
   conj(488, 'nous lancions', 'we used to throw', '/nu lɑ̃.sjɔ̃/', 'noo lahⁿ-SYOHⁿ', 'lancer', 'nous', ['cer', 'ions'], FCVDR),
   conj(490, 'elle plaçait', 'she used to place', '/ɛl pla.sɛ/', 'el plah-SEH', 'placer', 'elle', ['cer']),
@@ -465,9 +467,9 @@ export const ACT7_ROWS: Row[] = [
   conj(492, 'tu prononçais', 'you used to pronounce', '/ty pʁɔ.nɔ̃.sɛ/', 'tü proh-nohⁿ-SEH', 'prononcer', 'tu', ['cer'], FCVDR),
   conj(495, 'nous prononcions', 'we used to pronounce', '/nu pʁɔ.nɔ̃.sjɔ̃/', 'noo proh-nohⁿ-SYOHⁿ', 'prononcer', 'nous', ['cer', 'ions']),
   conj(493, 'elle annonçait', 'she used to announce', '/ɛ.la.nɔ̃.sɛ/', 'eh-lah-nohⁿ-SEH', 'annoncer', 'elle', ['cer']),
-  sent(44, 'Nous commencions à huit heures.', 'We used to start at eight.', '/nu kɔ.mɑ̃.sjɔ̃ a ɥi.tœʁ/', 'noo koh-mahⁿ-syohⁿ ah wee-TUHR', ['pair', 'cer', 'ions']),
-  sent(58, 'Ma grand-mère commençait sa journée à six heures.', 'My grandmother used to start her day at six.', '/ma ɡʁɑ̃.mɛʁ kɔ.mɑ̃.sɛ sa ʒuʁ.ne a si.zœʁ/', 'mah grahⁿ-mehr koh-mahⁿ-seh sah zhoor-nay ah see-ZUHR', ['cer', 'dakar']),
-  sent(71, "L'école commençait à huit heures.", 'School used to start at eight.', '/le.kɔl kɔ.mɑ̃.sɛ a ɥi.tœʁ/', 'lay-kol koh-mahⁿ-seh ah wee-TUHR', ['cer']),
+  sent(1444, 'Nous commencions à huit heures.', 'We used to start at eight.', '/nu kɔ.mɑ̃.sjɔ̃ a ɥi.tœʁ/', 'noo koh-mahⁿ-syohⁿ ah wee-TUHR', ['pair', 'cer', 'ions']),
+  sent(1458, 'Ma grand-mère commençait sa journée à six heures.', 'My grandmother used to start her day at six.', '/ma ɡʁɑ̃.mɛʁ kɔ.mɑ̃.sɛ sa ʒuʁ.ne a si.zœʁ/', 'mah grahⁿ-mehr koh-mahⁿ-seh sah zhoor-nay ah see-ZUHR', ['cer', 'dakar']),
+  sent(1471, "L'école commençait à huit heures.", 'School used to start at eight.', '/le.kɔl kɔ.mɑ̃.sɛ a ɥi.tœʁ/', 'lay-kol koh-mahⁿ-seh ah wee-TUHR', ['cer']),
   sent(496, 'La maîtresse plaçait les élèves par deux.', 'The teacher used to seat the pupils in pairs.', '/la mɛ.tʁɛs pla.sɛ le.ze.lɛv paʁ dø/', 'lah meh-tress plah-seh lay-zay-lev par DEU', ['cer', 'abidjan']),
   sent(497, 'Nous lancions la balle contre le mur.', 'We used to throw the ball against the wall.', '/nu lɑ̃.sjɔ̃ la bal kɔ̃.tʁə lə myʁ/', 'noo lahⁿ-syohⁿ lah bal kohⁿ-truh luh MÜR', ['cer']),
   sent(498, 'Tu prononçais mal mon prénom.', 'You used to mispronounce my first name.', '/ty pʁɔ.nɔ̃.sɛ mal mɔ̃ pʁe.nɔ̃/', 'tü proh-nohⁿ-seh mal mohⁿ pray-NOHⁿ', ['cer']),
@@ -480,25 +482,25 @@ export const ACT8_ROWS: Row[] = [
   conj(511, 'nous étudions', 'we study', '/nu.ze.ty.djɔ̃/', 'noo zay-tü-DYOHⁿ', 'étudier', 'nous', ['stem-source', 'double-i'], FCVR, 'présent'),
   conj(512, 'nous oublions', 'we forget', '/nu.zu.bli.jɔ̃/', 'noo zoo-blee-YOHⁿ', 'oublier', 'nous', ['stem-source', 'double-i'], FCVR, 'présent'),
   conj(507, "j'étudiais", 'I used to study', '/ʒe.ty.djɛ/', 'zhay-tü-DYEH', 'étudier', 'je', ['double-i']),
-  conj(26, 'nous étudiions', 'we used to study', '/nu.ze.ty.di.jɔ̃/', 'noo zay-tü-dee-YOHⁿ', 'étudier', 'nous', ['double-i'], FCVDR),
-  conj(27, 'vous étudiiez', 'you used to study', '/vu.ze.ty.di.je/', 'voo zay-tü-dee-YAY', 'étudier', 'vous', ['double-i', 'iez'], FCVDR),
+  conj(1426, 'nous étudiions', 'we used to study', '/nu.ze.ty.di.jɔ̃/', 'noo zay-tü-dee-YOHⁿ', 'étudier', 'nous', ['double-i'], FCVDR),
+  conj(1427, 'vous étudiiez', 'you used to study', '/vu.ze.ty.di.je/', 'voo zay-tü-dee-YAY', 'étudier', 'vous', ['double-i', 'iez'], FCVDR),
   conj(501, 'nous oubliions', 'we used to forget', '/nu.zu.bli.i.jɔ̃/', 'noo zoo-blee-YOHⁿ', 'oublier', 'nous', ['double-i'], FCVDR),
   conj(500, 'vous oubliiez', 'you used to forget', '/vu.zu.bli.i.je/', 'voo zoo-blee-YAY', 'oublier', 'vous', ['double-i', 'iez'], FCVDR),
-  conj(28, 'nous riions', 'we used to laugh', '/nu ʁi.jɔ̃/', 'noo ree-YOHⁿ', 'rire', 'nous', ['double-i'], FCVDR),
+  conj(1428, 'nous riions', 'we used to laugh', '/nu ʁi.jɔ̃/', 'noo ree-YOHⁿ', 'rire', 'nous', ['double-i'], FCVDR),
   conj(506, 'vous riiez', 'you used to laugh', '/vu ʁi.je/', 'voo ree-YAY', 'rire', 'vous', ['double-i', 'iez'], FCVDR),
   conj(502, 'nous criions', 'we used to shout', '/nu kʁi.jɔ̃/', 'noo kree-YOHⁿ', 'crier', 'nous', ['double-i'], FCVDR),
-  conj(11, 'nous voyions', 'we used to see', '/nu vwa.jjɔ̃/', 'noo vwah-YOHⁿ', 'voir', 'nous', ['stem', 'y', 'double-i'], FCVDR),
+  conj(1411, 'nous voyions', 'we used to see', '/nu vwa.jjɔ̃/', 'noo vwah-YOHⁿ', 'voir', 'nous', ['stem', 'y', 'double-i'], FCVDR),
   conj(505, 'vous voyiez', 'you used to see', '/vu vwa.jje/', 'voo vwah-YAY', 'voir', 'vous', ['y', 'double-i', 'iez'], FCVDR),
-  conj(13, 'nous croyions', 'we used to believe', '/nu kʁwa.jjɔ̃/', 'noo krwah-YOHⁿ', 'croire', 'nous', ['stem', 'y', 'double-i'], FCVDR),
-  conj(29, 'nous payions', 'we used to pay', '/nu pɛ.jjɔ̃/', 'noo peh-YOHⁿ', 'payer', 'nous', ['double-i', 'y'], FCVDR),
+  conj(1413, 'nous croyions', 'we used to believe', '/nu kʁwa.jjɔ̃/', 'noo krwah-YOHⁿ', 'croire', 'nous', ['stem', 'y', 'double-i'], FCVDR),
+  conj(1429, 'nous payions', 'we used to pay', '/nu pɛ.jjɔ̃/', 'noo peh-YOHⁿ', 'payer', 'nous', ['double-i', 'y'], FCVDR),
   conj(504, 'vous payiez', 'you used to pay', '/vu pɛ.jje/', 'voo peh-YAY', 'payer', 'vous', ['double-i', 'y', 'iez'], FCVDR),
   conj(503, 'nous envoyions', 'we used to send', '/nu.zɑ̃.vwa.jjɔ̃/', 'noo zahⁿ-vwah-YOHⁿ', 'envoyer', 'nous', ['double-i', 'y'], FCVDR),
-  sent(51, 'Nous étudiions le soir.', 'We used to study in the evening.', '/nu.ze.ty.di.jɔ̃ lə swaʁ/', 'noo zay-tü-dee-yohⁿ luh SWAR', ['double-i'], FCVDR),
-  sent(52, 'Vous étudiiez à Montréal.', 'You used to study in Montreal.', '/vu.ze.ty.di.je a mɔ̃.tʁe.al/', 'voo zay-tü-dee-yay ah mohⁿ-tray-AL', ['double-i', 'iez']),
-  sent(53, 'Nous riions beaucoup.', 'We used to laugh a lot.', '/nu ʁi.jɔ̃ bo.ku/', 'noo ree-yohⁿ boh-KOO', ['double-i']),
-  sent(54, 'Nous voyions la mer.', 'We could see the sea.', '/nu vwa.jjɔ̃ la mɛʁ/', 'noo vwah-yohⁿ lah MEHR', ['double-i', 'y']),
-  sent(55, 'Nous croyions au père Noël.', 'We used to believe in Santa Claus.', '/nu kʁwa.jjɔ̃ o pɛʁ nɔ.ɛl/', 'noo krwah-yohⁿ oh pehr noh-EL', ['double-i', 'y']),
-  sent(56, 'Nous payions le pain au kiosque.', 'We used to pay for bread at the kiosk.', '/nu pɛ.jjɔ̃ lə pɛ̃ o kjɔsk/', 'noo peh-yohⁿ luh pehⁿ oh KYOSK', ['double-i', 'y']),
+  sent(1451, 'Nous étudiions le soir.', 'We used to study in the evening.', '/nu.ze.ty.di.jɔ̃ lə swaʁ/', 'noo zay-tü-dee-yohⁿ luh SWAR', ['double-i'], FCVDR),
+  sent(1452, 'Vous étudiiez à Montréal.', 'You used to study in Montreal.', '/vu.ze.ty.di.je a mɔ̃.tʁe.al/', 'voo zay-tü-dee-yay ah mohⁿ-tray-AL', ['double-i', 'iez']),
+  sent(1453, 'Nous riions beaucoup.', 'We used to laugh a lot.', '/nu ʁi.jɔ̃ bo.ku/', 'noo ree-yohⁿ boh-KOO', ['double-i']),
+  sent(1454, 'Nous voyions la mer.', 'We could see the sea.', '/nu vwa.jjɔ̃ la mɛʁ/', 'noo vwah-yohⁿ lah MEHR', ['double-i', 'y']),
+  sent(1455, 'Nous croyions au père Noël.', 'We used to believe in Santa Claus.', '/nu kʁwa.jjɔ̃ o pɛʁ nɔ.ɛl/', 'noo krwah-yohⁿ oh pehr noh-EL', ['double-i', 'y']),
+  sent(1456, 'Nous payions le pain au kiosque.', 'We used to pay for bread at the kiosk.', '/nu pɛ.jjɔ̃ lə pɛ̃ o kjɔsk/', 'noo peh-yohⁿ luh pehⁿ oh KYOSK', ['double-i', 'y']),
   sent(508, 'Vous oubliiez toujours vos devoirs.', 'You always used to forget your homework.', '/vu.zu.bli.i.je tu.ʒuʁ vo də.vwaʁ/', 'voo zoo-blee-yay too-zhoor voh duh-VWAR', ['double-i', 'iez']),
   sent(509, 'Nous envoyions des lettres à nos cousins.', 'We used to send letters to our cousins.', '/nu.zɑ̃.vwa.jjɔ̃ de lɛtʁ a no ku.zɛ̃/', 'noo zahⁿ-vwah-yohⁿ day letr ah noh koo-ZEHⁿ', ['double-i', 'y']),
   sent(510, 'Les enfants criaient dans la cour.', 'The children used to shout in the playground.', '/le.zɑ̃.fɑ̃ kʁi.ɛ dɑ̃ la kuʁ/', 'lay zahⁿ-fahⁿ kree-eh dahⁿ lah KOOR', ['single-i']),
@@ -507,19 +509,19 @@ export const ACT8_ROWS: Row[] = [
 /* ── ACT 9 · LES IMPERSONNELS ──────────────────────────────────────────── */
 
 export const ACT9_ROWS: Row[] = [
-  chunk(32, 'il y avait', 'there was / there were', '/i.li.ja.vɛ/', 'eel ee ah-VEH', ['impersonal', 'avoir'], FCVDR),
-  chunk(31, 'il fallait', 'you had to / it was necessary', '/il fa.lɛ/', 'eel fah-LEH', ['impersonal']),
-  chunk(30, 'il pleuvait', 'it was raining / it used to rain', '/il plø.vɛ/', 'eel pleu-VEH', ['impersonal']),
+  chunk(1432, 'il y avait', 'there was / there were', '/i.li.ja.vɛ/', 'eel ee ah-VEH', ['impersonal', 'avoir'], FCVDR),
+  chunk(1431, 'il fallait', 'you had to / it was necessary', '/il fa.lɛ/', 'eel fah-LEH', ['impersonal']),
+  chunk(1430, 'il pleuvait', 'it was raining / it used to rain', '/il plø.vɛ/', 'eel pleu-VEH', ['impersonal']),
   chunk(513, 'il neigeait', 'it was snowing / it used to snow', '/il nɛ.ʒɛ/', 'eel neh-ZHEH', ['impersonal', 'ger'], FCVDR),
   chunk(514, 'il faisait beau', 'the weather was nice', '/il fə.zɛ bo/', 'eel fuh-zeh BOH', ['impersonal', 'schwa']),
   chunk(515, 'il faisait froid', 'it was cold', '/il fə.zɛ fʁwa/', 'eel fuh-zeh FRWAH', ['impersonal', 'schwa']),
   chunk(517, 'il faisait chaud', 'it was hot', '/il fə.zɛ ʃo/', 'eel fuh-zeh SHOH', ['impersonal', 'schwa']),
   chunk(516, 'il valait mieux', 'it was better to', '/il va.lɛ mjø/', 'eel vah-leh MYEU', ['impersonal']),
-  sent(48, 'Il pleuvait souvent en novembre.', 'It often rained in November.', '/il plø.vɛ su.vɑ̃ ɑ̃ nɔ.vɑ̃bʁ/', 'eel pleu-veh soo-vahⁿ ahⁿ noh-VAHⁿBR', ['impersonal']),
-  sent(49, 'Il fallait prendre le bus.', 'We had to take the bus.', '/il fa.lɛ pʁɑ̃dʁ lə bys/', 'eel fah-leh prahⁿdr luh BÜS', ['impersonal']),
-  sent(50, 'Il y avait un grand arbre dans la cour.', 'There was a big tree in the courtyard.', '/i.li.ja.vɛ œ̃ ɡʁɑ̃.taʁbʁ dɑ̃ la kuʁ/', 'eel ee ah-veh uhⁿ grahⁿ-tarbr dahⁿ lah KOOR', ['impersonal', 'scene']),
-  sent(64, 'Dans mon quartier, il y avait un dépanneur au coin.', 'In my neighbourhood, there was a corner store on the corner.', '/dɑ̃ mɔ̃ kaʁ.tje i.li.ja.vɛ œ̃ de.pa.nœʁ o kwɛ̃/', 'dahⁿ mohⁿ kar-TYAY eel ee ah-veh uhⁿ day-pah-nuhr oh KWEHⁿ', ['impersonal', 'montreal']),
-  sent(65, "L'hiver, nous faisions du patin au parc.", 'In winter, we used to skate in the park.', '/li.vɛʁ nu fə.zjɔ̃ dy pa.tɛ̃ o paʁk/', 'lee-VEHR noo fuh-zyohⁿ dü pah-tehⁿ oh PARK', ['schwa', 'montreal']),
+  sent(1448, 'Il pleuvait souvent en novembre.', 'It often rained in November.', '/il plø.vɛ su.vɑ̃ ɑ̃ nɔ.vɑ̃bʁ/', 'eel pleu-veh soo-vahⁿ ahⁿ noh-VAHⁿBR', ['impersonal']),
+  sent(1449, 'Il fallait prendre le bus.', 'We had to take the bus.', '/il fa.lɛ pʁɑ̃dʁ lə bys/', 'eel fah-leh prahⁿdr luh BÜS', ['impersonal']),
+  sent(1450, 'Il y avait un grand arbre dans la cour.', 'There was a big tree in the courtyard.', '/i.li.ja.vɛ œ̃ ɡʁɑ̃.taʁbʁ dɑ̃ la kuʁ/', 'eel ee ah-veh uhⁿ grahⁿ-tarbr dahⁿ lah KOOR', ['impersonal', 'scene']),
+  sent(1464, 'Dans mon quartier, il y avait un dépanneur au coin.', 'In my neighbourhood, there was a corner store on the corner.', '/dɑ̃ mɔ̃ kaʁ.tje i.li.ja.vɛ œ̃ de.pa.nœʁ o kwɛ̃/', 'dahⁿ mohⁿ kar-TYAY eel ee ah-veh uhⁿ day-pah-nuhr oh KWEHⁿ', ['impersonal', 'montreal']),
+  sent(1465, "L'hiver, nous faisions du patin au parc.", 'In winter, we used to skate in the park.', '/li.vɛʁ nu fə.zjɔ̃ dy pa.tɛ̃ o paʁk/', 'lee-VEHR noo fuh-zyohⁿ dü pah-tehⁿ oh PARK', ['schwa', 'montreal']),
   sent(518, 'Il neigeait de novembre à avril.', 'It snowed from November to April.', '/il nɛ.ʒɛ də nɔ.vɑ̃bʁ a a.vʁil/', 'eel neh-zheh duh noh-vahⁿbr ah ah-VREEL', ['impersonal', 'montreal']),
   sent(519, 'Il faisait froid, mais il faisait beau.', 'It was cold, but the weather was nice.', '/il fə.zɛ fʁwa mɛ il fə.zɛ bo/', 'eel fuh-zeh frwah meh eel fuh-zeh BOH', ['impersonal']),
   sent(520, 'Il valait mieux partir tôt.', 'It was better to leave early.', '/il va.lɛ mjø paʁ.tiʁ to/', 'eel vah-leh myeu par-teer TOH', ['impersonal']),

@@ -36,10 +36,12 @@
 //  1. THEME `recits-au-passe` (Paul, 2026-09-22). It exists in seed `themes`
 //     (domain fondations, levelRange a2-b2) and holds ZERO items, so it is NOT
 //     created at import.
-//  2. ID BLOCK: this lesson owns `.101`-`.199` and `.800`-`.999`. b1.01 owns
-//     `.001`-`.099` and `.401`-`.799`; b1.03 `.201`-`.299` + `.1000`-`.1199`;
-//     b1.04 `.301`-`.399` + `.1200`-`.1399`. Used here: `.101`-`.178` and
-//     `.800`-`.899`.
+//  2. ID BLOCK: this lesson owns `.116`-`.199`, `.800`-`.999` and
+//     `.1501`-`.1599`. b1.01 owns `.401`-`.799` + `.1401`-`.1499`; b1.03
+//     `.201`-`.299` + `.1000`-`.1199`; b1.04 `.301`-`.399` + `.1200`-`.1399`.
+//     `.001`-`.115` is PUBLISHED IN POSTGRES: the rows that were `.101`-`.115`
+//     moved +1400 on 2026-09-24. Used here: `.116`-`.178`, `.800`-`.899` and
+//     `.1501`-`.1515`.
 //  3. NO B1 UNIT EXISTS in seed `units`, so `unitRef('b1.01')` returns the raw
 //     id. b1.01 and b1.03 are cited by relative label (« la leçon précédente /
 //     suivante »), never by number.
@@ -57,8 +59,8 @@
 //  §B. ROWS PER ACT
 // ══════════════════════════════════════════════════════════════════════════
 //
-//    1  Le souvenir            .101-.112   12   the scene, the panorama
-//    2  L'habitude             .113-.138   25   cues, and cues that fail
+//    1  Le souvenir           .1501-.1512  12   the scene, the panorama
+//    2  L'habitude        .1513-.1515+.116-.138  25  cues, and cues that fail
 //    3  Avant et maintenant    .139-.158   20   two eras in one sentence
 //    4  Les états              .159-.178   20   être, avoir, savoir, connaître
 //    5  Le décor               .800-.819   20   places, people, things
@@ -94,7 +96,7 @@ export const LESSON_ID = 'b1.02.l1';
 export const THEME = 'recits-au-passe';
 export const LEVEL = 'b1' as const;
 
-export const ID_RANGES = [[101, 199], [800, 999]] as const;
+export const ID_RANGES = [[116, 199], [800, 999], [1501, 1599]] as const;
 
 export const E = (n: number) => `fr.b1.${THEME}.${String(n).padStart(3, '0')}`;
 /** A b1.01 row, imported by id. */
@@ -156,23 +158,23 @@ export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
 export const IMPORTED = {
   /** b1.01's forms, so this lesson never re-authors a form (§A.4). */
   b101Forms: [
-    B(16), B(19), B(32), B(31), B(30), B(513), B(514), B(515), B(517),
-    B(433), B(434), B(436), B(430), B(432), B(431), B(35), B(33), B(34), B(523), B(525),
+    B(1416), B(1419), B(1432), B(1431), B(1430), B(513), B(514), B(515), B(517),
+    B(433), B(434), B(436), B(430), B(432), B(431), B(1435), B(1433), B(1434), B(523), B(525),
   ],
   /** b1.01's sentences that already SAY a usage this lesson teaches. */
   b101Sentences: [
-    B(40),  // Quand j'étais petite, j'habitais chez ma grand-mère.
-    B(41),  // Ma grand-mère habitait à Dakar.
-    B(50),  // Il y avait un grand arbre dans la cour.
-    B(57),  // Le dimanche, nous mangions du thiéboudienne.
-    B(59),  // Les enfants jouaient dans la rue.
-    B(60),  // C'était la maison de ma grand-mère.
-    B(61),  // Avant, j'habitais à Dakar.
-    B(62),  // Maintenant, j'habite à Montréal.
-    B(63),  // Avant de dormir, je lis.
-    B(64),  // Dans mon quartier, il y avait un dépanneur au coin.
-    B(65),  // L'hiver, nous faisions du patin au parc.
-    B(68),  // Je buvais du lait tous les matins.
+    B(1440),  // Quand j'étais petite, j'habitais chez ma grand-mère.
+    B(1441),  // Ma grand-mère habitait à Dakar.
+    B(1450),  // Il y avait un grand arbre dans la cour.
+    B(1457),  // Le dimanche, nous mangions du thiéboudienne.
+    B(1459),  // Les enfants jouaient dans la rue.
+    B(1460),  // C'était la maison de ma grand-mère.
+    B(1461),  // Avant, j'habitais à Dakar.
+    B(1462),  // Maintenant, j'habite à Montréal.
+    B(1463),  // Avant de dormir, je lis.
+    B(1464),  // Dans mon quartier, il y avait un dépanneur au coin.
+    B(1465),  // L'hiver, nous faisions du patin au parc.
+    B(1468),  // Je buvais du lait tous les matins.
     B(450), // Je voulais devenir pilote.
     B(451), // Je savais nager à cinq ans.
     B(452), // Je connaissais tous les voisins.
@@ -312,29 +314,29 @@ const chunk = (n: number, fr: string, en: string, ipa: string, respell: string, 
   tags, drills, version: 1,
 });
 
-/* ── ACT 1 · LE SOUVENIR  .101-.112 ─────────────────────────────────────── */
+/* ── ACT 1 · LE SOUVENIR  .1501-.1512 ───────────────────────────────────── */
 
 export const ACT1_ROWS: Row[] = [
-  sent(101, 'Tous les samedis, on patinait sur le lac.', 'Every Saturday, we would skate on the lake.', '/tu le sam.di ɔ̃ pa.ti.nɛ syʁ lə lak/', 'too lay sam-DEE ohⁿ pa-tee-NEH sür luh LAK', ['habitude', 'scene'], FCVDR),
-  pc(102, 'Cet été-là, je suis allé trois fois au lac.', 'That summer, I went to the lake three times.', '/sɛ.te.te.la ʒə sɥi.za.le tʁwa fwa o lak/', 'seh-tay-tay-LAH zhuh swee-zah-LAY trwah fwah oh LAK', ['compter', 'scene']),
-  sent(103, "Il y avait une épicerie et un lac.", 'There was a grocery store and a lake.', '/i.li.ja.vɛ y.ne.pi.sə.ʁi e œ̃ lak/', 'eel ee ah-VEH ü-nay-pees-REE ay uhⁿ LAK', ['decor', 'scene']),
-  sent(104, "L'hiver, il faisait très froid.", 'In winter, it was very cold.', '/li.vɛʁ il fə.zɛ tʁɛ fʁwa/', 'lee-VEHR eel fuh-zeh treh FRWAH', ['meteo', 'scene']),
-  sent(105, "J'avais douze ans.", 'I was twelve.', '/ʒa.vɛ du.zɑ̃/', 'zha-VEH doo-ZAHⁿ', ['age'], FCVDR),
-  sent(106, 'Je connaissais tout le monde dans le village.', 'I knew everyone in the village.', '/ʒə kɔ.nɛ.sɛ tu lə mɔ̃d dɑ̃ lə vi.laʒ/', 'zhuh koh-neh-SEH too luh MOHⁿD dahⁿ luh vee-LAZH', ['etat']),
-  sent(107, 'Je lisais dans ma chambre.', 'I was reading in my room.', '/ʒə li.zɛ dɑ̃ ma ʃɑ̃bʁ/', 'zhuh lee-ZEH dahⁿ mah SHAHⁿBR', ['en-cours'], FCVDR),
-  sent(108, 'Je voulais vous demander un petit service.', 'I wanted to ask you a small favour.', '/ʒə vu.lɛ vu də.mɑ̃.de œ̃ pə.ti sɛʁ.vis/', 'zhuh voo-LEH voo duh-mahⁿ-DAY uhⁿ puh-tee sehr-VEES', ['poli']),
-  sent(109, "Avant, j'habitais à Bruxelles.", 'I used to live in Brussels.', '/a.vɑ̃ ʒa.bi.tɛ a bʁy.sɛl/', 'ah-VAHⁿ zha-bee-TEH ah brü-SELL', ['avant'], FCVDR),
-  pres(110, "Maintenant, j'habite à Bruxelles.", 'Now I live in Brussels.', '/mɛ̃t.nɑ̃ ʒa.bit a bʁy.sɛl/', 'mehⁿt-NAHⁿ zha-BEET ah brü-SELL', ['maintenant']),
-  sent(111, "C'était comment, chez toi ?", 'What was it like, where you grew up?', '/se.tɛ kɔ.mɑ̃ ʃe twa/', 'say-teh koh-MAHⁿ shay TWAH', ['scene', 'question'], FCVDR),
-  sent(112, 'Chaque été, nous allions chez ma grand-mère.', "Every summer, we went to my grandmother's.", '/ʃa.ke.te nu.za.ljɔ̃ ʃe ma ɡʁɑ̃.mɛʁ/', 'shah-kay-TAY noo-zah-LYOHⁿ shay mah grahⁿ-MEHR', ['habitude']),
+  sent(1501, 'Tous les samedis, on patinait sur le lac.', 'Every Saturday, we would skate on the lake.', '/tu le sam.di ɔ̃ pa.ti.nɛ syʁ lə lak/', 'too lay sam-DEE ohⁿ pa-tee-NEH sür luh LAK', ['habitude', 'scene'], FCVDR),
+  pc(1502, 'Cet été-là, je suis allé trois fois au lac.', 'That summer, I went to the lake three times.', '/sɛ.te.te.la ʒə sɥi.za.le tʁwa fwa o lak/', 'seh-tay-tay-LAH zhuh swee-zah-LAY trwah fwah oh LAK', ['compter', 'scene']),
+  sent(1503, "Il y avait une épicerie et un lac.", 'There was a grocery store and a lake.', '/i.li.ja.vɛ y.ne.pi.sə.ʁi e œ̃ lak/', 'eel ee ah-VEH ü-nay-pees-REE ay uhⁿ LAK', ['decor', 'scene']),
+  sent(1504, "L'hiver, il faisait très froid.", 'In winter, it was very cold.', '/li.vɛʁ il fə.zɛ tʁɛ fʁwa/', 'lee-VEHR eel fuh-zeh treh FRWAH', ['meteo', 'scene']),
+  sent(1505, "J'avais douze ans.", 'I was twelve.', '/ʒa.vɛ du.zɑ̃/', 'zha-VEH doo-ZAHⁿ', ['age'], FCVDR),
+  sent(1506, 'Je connaissais tout le monde dans le village.', 'I knew everyone in the village.', '/ʒə kɔ.nɛ.sɛ tu lə mɔ̃d dɑ̃ lə vi.laʒ/', 'zhuh koh-neh-SEH too luh MOHⁿD dahⁿ luh vee-LAZH', ['etat']),
+  sent(1507, 'Je lisais dans ma chambre.', 'I was reading in my room.', '/ʒə li.zɛ dɑ̃ ma ʃɑ̃bʁ/', 'zhuh lee-ZEH dahⁿ mah SHAHⁿBR', ['en-cours'], FCVDR),
+  sent(1508, 'Je voulais vous demander un petit service.', 'I wanted to ask you a small favour.', '/ʒə vu.lɛ vu də.mɑ̃.de œ̃ pə.ti sɛʁ.vis/', 'zhuh voo-LEH voo duh-mahⁿ-DAY uhⁿ puh-tee sehr-VEES', ['poli']),
+  sent(1509, "Avant, j'habitais à Bruxelles.", 'I used to live in Brussels.', '/a.vɑ̃ ʒa.bi.tɛ a bʁy.sɛl/', 'ah-VAHⁿ zha-bee-TEH ah brü-SELL', ['avant'], FCVDR),
+  pres(1510, "Maintenant, j'habite à Bruxelles.", 'Now I live in Brussels.', '/mɛ̃t.nɑ̃ ʒa.bit a bʁy.sɛl/', 'mehⁿt-NAHⁿ zha-BEET ah brü-SELL', ['maintenant']),
+  sent(1511, "C'était comment, chez toi ?", 'What was it like, where you grew up?', '/se.tɛ kɔ.mɑ̃ ʃe twa/', 'say-teh koh-MAHⁿ shay TWAH', ['scene', 'question'], FCVDR),
+  sent(1512, 'Chaque été, nous allions chez ma grand-mère.', "Every summer, we went to my grandmother's.", '/ʃa.ke.te nu.za.ljɔ̃ ʃe ma ɡʁɑ̃.mɛʁ/', 'shah-kay-TAY noo-zah-LYOHⁿ shay mah grahⁿ-MEHR', ['habitude']),
 ];
 
-/* ── ACT 2 · L'HABITUDE  .113-.138 ──────────────────────────────────────── */
+/* ── ACT 2 · L'HABITUDE  .1513-.1515 + .116-.138 ────────────────────────── */
 
 export const ACT2_ROWS: Row[] = [
-  chunk(113, 'tous les samedis', 'every Saturday', '/tu le sam.di/', 'too lay sam-DEE', ['indice', 'habitude']),
-  chunk(114, "d'habitude", 'usually', '/da.bi.tyd/', 'da-bee-TÜD', ['indice', 'habitude'], FCVDR),
-  chunk(115, 'chaque été', 'every summer', '/ʃa.ke.te/', 'shah-kay-TAY', ['indice', 'habitude']),
+  chunk(1513, 'tous les samedis', 'every Saturday', '/tu le sam.di/', 'too lay sam-DEE', ['indice', 'habitude']),
+  chunk(1514, "d'habitude", 'usually', '/da.bi.tyd/', 'da-bee-TÜD', ['indice', 'habitude'], FCVDR),
+  chunk(1515, 'chaque été', 'every summer', '/ʃa.ke.te/', 'shah-kay-TAY', ['indice', 'habitude']),
   chunk(116, 'de temps en temps', 'from time to time', '/də tɑ̃.zɑ̃ tɑ̃/', 'duh tahⁿ-zahⁿ TAHⁿ', ['indice', 'habitude']),
   sent(118, 'Tous les samedis, mon père faisait des crêpes.', 'Every Saturday, my father made crepes.', '/tu le sam.di mɔ̃ pɛʁ fə.zɛ de kʁɛp/', 'too lay sam-DEE mohⁿ pehr fuh-zeh day KREHP', ['habitude'], FCVDR),
   sent(119, "D'habitude, on se levait à six heures.", 'We usually got up at six.', '/da.bi.tyd ɔ̃ sə lə.vɛ a si.zœʁ/', 'da-bee-TÜD ohⁿ suh luh-VEH ah see-ZUHR', ['habitude', 'pronominal']),

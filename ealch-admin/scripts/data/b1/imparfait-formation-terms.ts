@@ -21,7 +21,7 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     body: 'Pour trouver la base, prends le présent avec nous et enlève -ons. nous parlons donne parl-, nous finissons donne finiss-, nous vendons donne vend-. EN: the stem is the present nous form minus -ons.',
     examples: [
       { itemId: 'fr.a2.verbes.103', note: 'nous parlons, donc parl-' },
-      { itemId: E(3), note: 'et voici nous parlions' },
+      { itemId: E(1403), note: 'et voici nous parlions' },
       { itemId: E(404), note: 'nous choisissons, donc choisiss-' },
     ],
   },
@@ -31,9 +31,9 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'Les mêmes pour tous les verbes',
     body: 'Les fins sont toujours -ais, -ais, -ait, -ions, -iez, -aient. Il n’y a pas de groupe à choisir : tous les verbes prennent les mêmes. EN: six endings, identical for every verb.',
     examples: [
-      { itemId: E(1), note: 'je parlais' },
-      { itemId: E(4), note: 'vous parliez' },
-      { itemId: E(5), note: 'ils parlaient' },
+      { itemId: E(1401), note: 'je parlais' },
+      { itemId: E(1404), note: 'vous parliez' },
+      { itemId: E(1405), note: 'ils parlaient' },
     ],
   },
 
@@ -42,9 +42,9 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'Quatre formes, un son',
     body: `parlais, parlait et parlaient se disent tous [paʁ.lɛ]. À l’oral, c’est le sujet qui dit qui parle, comme au présent dans ${PRESENT_ER_REF}. À l’écrit, choisis la bonne fin. EN: four forms, one sound; the subject says who.`,
     examples: [
-      { itemId: E(1), note: 'je parlais' },
-      { itemId: E(2), note: 'il parlait, même son' },
-      { itemId: E(5), note: 'ils parlaient, même son' },
+      { itemId: E(1401), note: 'je parlais' },
+      { itemId: E(1402), note: 'il parlait, même son' },
+      { itemId: E(1405), note: 'ils parlaient, même son' },
     ],
   },
 
@@ -53,8 +53,8 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'Irrégulier au présent, régulier ici',
     body: 'faire, prendre, boire, venir, vouloir... sont irréguliers au présent. Mais leur forme nous existe, alors la recette marche : fais-, pren-, buv-, ven-, voul-. EN: verbs irregular in the present follow the recipe here.',
     examples: [
-      { itemId: E(8), note: 'nous faisons, donc je faisais' },
-      { itemId: E(9), note: 'nous buvons, donc je buvais' },
+      { itemId: E(1408), note: 'nous faisons, donc je faisais' },
+      { itemId: E(1409), note: 'nous buvons, donc je buvais' },
       { itemId: E(430), note: 'nous venons, donc je venais' },
     ],
   },
@@ -64,8 +64,8 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'Le seul verbe différent',
     body: 'nous sommes ne finit pas par -ons, donc la recette ne marche pas. être a sa propre base : ét-. Les fins, elles, sont normales : j’étais, nous étions. EN: être alone has its own stem, ét-.',
     examples: [
-      { itemId: E(16), note: "j'étais" },
-      { itemId: E(17), note: 'nous étions' },
+      { itemId: E(1416), note: "j'étais" },
+      { itemId: E(1417), note: 'nous étions' },
       { itemId: E(470), note: "c'était, la forme la plus fréquente" },
     ],
   },
@@ -75,8 +75,8 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'Un e pour garder [ʒ]',
     body: `${Cap(ER_EXC_REF)} l’a montré au présent : manger garde un e devant a et o. Devant i, pas besoin : je mangeais, mais nous mangions. EN: -ger keeps e before a, never before i.`,
     examples: [
-      { itemId: E(20), note: 'je mangeais, avec e' },
-      { itemId: E(21), note: 'nous mangions, sans e' },
+      { itemId: E(1420), note: 'je mangeais, avec e' },
+      { itemId: E(1421), note: 'nous mangions, sans e' },
       { itemId: E(474), note: 'nous nagions, sans e' },
     ],
   },
@@ -86,8 +86,8 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'Une cédille pour garder [s]',
     body: 'commencer prend un ç devant a et o. Devant i, le c fait déjà [s] : je commençais, mais nous commencions. EN: -cer takes ç before a, never before i.',
     examples: [
-      { itemId: E(23), note: 'je commençais, avec ç' },
-      { itemId: E(24), note: 'nous commencions, sans ç' },
+      { itemId: E(1423), note: 'je commençais, avec ç' },
+      { itemId: E(1424), note: 'nous commencions, sans ç' },
       { itemId: E(489), note: 'il lançait, avec ç' },
     ],
   },
@@ -97,9 +97,9 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'La base finit par i ou y',
     body: 'étudier donne étudi-. Avec -ions ou -iez, tu écris deux i : nous étudiions. Même chose avec y : nous voyions, nous payions. L’oreille aide peu : suis la règle. EN: stem i or y plus -ions/-iez gives a double i.',
     examples: [
-      { itemId: E(26), note: 'nous étudiions' },
-      { itemId: E(11), note: 'nous voyions' },
-      { itemId: E(29), note: 'nous payions' },
+      { itemId: E(1426), note: 'nous étudiions' },
+      { itemId: E(1411), note: 'nous voyions' },
+      { itemId: E(1429), note: 'nous payions' },
     ],
   },
 
@@ -108,8 +108,8 @@ export const IMPARFAIT_FORMATION_TERMS: Record<string, LessonTerm> = {
     title: 'Les verbes sans personne',
     body: 'il y avait, il fallait, il pleuvait, il neigeait, il faisait beau, il valait mieux : ici, il ne représente personne. On les apprend entiers. EN: impersonal il; learn these as whole chunks.',
     examples: [
-      { itemId: E(32), note: 'il y avait' },
-      { itemId: E(31), note: 'il fallait' },
+      { itemId: E(1432), note: 'il y avait' },
+      { itemId: E(1431), note: 'il fallait' },
       { itemId: E(515), note: 'il faisait froid' },
     ],
   },

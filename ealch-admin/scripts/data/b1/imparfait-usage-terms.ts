@@ -18,7 +18,7 @@ export const IMPARFAIT_USAGE_TERMS: Record<string, LessonTerm> = {
     title: 'Une chose qui revenait',
     body: "Une habitude, c'est une action qui revenait, sans nombre précis. Tu ne comptes pas les fois : tu regardes la période. Alors, imparfait. EN: A habit came back again and again with no count, so you look at the period and use the imparfait.",
     examples: [
-      { itemId: E(101), note: 'chaque samedi, tout l’hiver' },
+      { itemId: E(1501), note: 'chaque samedi, tout l’hiver' },
       { itemId: E(118), note: 'chaque samedi, une personne' },
       { itemId: 'fr.b1.routines.075', note: 'toujours, quand j’étais enfant' },
     ],
@@ -53,7 +53,7 @@ export const IMPARFAIT_USAGE_TERMS: Record<string, LessonTerm> = {
     examples: [
       { itemId: E(159), note: 'le corps' },
       { itemId: E(160), note: 'un sentiment, avec avoir' },
-      { itemId: E(106), note: 'connaître : un état, pas une action' },
+      { itemId: E(1506), note: 'connaître : un état, pas une action' },
     ],
   },
 
@@ -85,7 +85,7 @@ export const IMPARFAIT_USAGE_TERMS: Record<string, LessonTerm> = {
     body: "L'heure au passé : il était. L'âge au passé : avoir, jamais être. En anglais, I was twelve ; en français, tu AS un âge. EN: Clock time takes il était; age takes avoir, never être.",
     examples: [
       { itemId: E(829), note: 'l’heure' },
-      { itemId: E(105), note: 'l’âge, avec avoir' },
+      { itemId: E(1505), note: 'l’âge, avec avoir' },
       { itemId: E(834), note: 'comparer deux âges' },
     ],
   },
@@ -95,7 +95,7 @@ export const IMPARFAIT_USAGE_TERMS: Record<string, LessonTerm> = {
     title: 'Ce qui se passait à ce moment-là',
     body: "Une action qui durait à un moment du passé : je lisais, elle attendait. En anglais, I was reading. Quand une autre action arrive et coupe, c'est la leçon suivante. EN: An action under way; when something interrupts it, that is the next lesson.",
     examples: [
-      { itemId: E(107), note: 'ce qui durait' },
+      { itemId: E(1507), note: 'ce qui durait' },
       { itemId: E(845), note: 'elle attendait' },
       { itemId: E(850), note: 'et là, quelque chose arrive' },
     ],
@@ -106,7 +106,7 @@ export const IMPARFAIT_USAGE_TERMS: Record<string, LessonTerm> = {
     title: 'Un pas en arrière',
     body: "Je voulais vous demander : la forme est passée, le sens est présent. Tu demandes maintenant. L'imparfait fait un petit pas en arrière, et la phrase devient plus douce. EN: Past in form, present in meaning; the step back makes the request softer.",
     examples: [
-      { itemId: E(108), note: 'une demande' },
+      { itemId: E(1508), note: 'une demande' },
       { itemId: E(853), note: 'à la porte' },
       { itemId: E(854), note: 'dans un courriel' },
     ],

@@ -302,9 +302,9 @@ const A1_REPERER: Sec<'groupDrill'> = {
   title: 'Deux sortes de futur écrit',
   groups: [
     grp('Ce qui est annoncé', [
-      it(E(5), 'un horaire de magasin'),
-      it(E(6), 'une heure de réunion'),
-      it(E(10), "l'heure de fermeture"),
+      it(E(1005), 'un horaire de magasin'),
+      it(E(1006), 'une heure de réunion'),
+      it(E(1010), "l'heure de fermeture"),
       it('fr.a2.transports-quotidiens.213', 'une annonce de quai'),
     ], chk(
       'Qui décide de ces quatre choses ?',
@@ -313,10 +313,10 @@ const A1_REPERER: Sec<'groupDrill'> = {
       "Un horaire existe avant la phrase. Le verbe ne fait que l'annoncer. EN: a timetable exists before the sentence; the verb only announces it.",
     )),
     grp('Ce qui est promis', [
-      it(E(2), 'une date que tu tiens'),
-      it(E(3), 'une signature'),
-      it(E(12), 'un engagement du propriétaire'),
-      it(E(13), 'un engagement écrit de l’agence'),
+      it(E(1002), 'une date que tu tiens'),
+      it(E(1003), 'une signature'),
+      it(E(1012), 'un engagement du propriétaire'),
+      it(E(1013), 'un engagement écrit de l’agence'),
     ], chk(
       'Que peut faire ton lecteur avec ces quatre phrases ?',
       ['rien, ce sont des idées', 'te les rappeler plus tard', 'les traduire'],
@@ -390,7 +390,7 @@ const A2_ECOUTE: Sec<'listening'> = {
   hideLines: true,
   title: 'Entends-tu le r ?',
   lines: [
-    ln(E(32)), ln(E(33)), ln(E(27)), ln(E(2)), ln(E(9)), ln(E(7)), ln(E(31)), ln(E(29)),
+    ln(E(1032)), ln(E(1033)), ln(E(1027)), ln(E(1002)), ln(E(1009)), ln(E(1007)), ln(E(1031)), ln(E(1029)),
   ],
   questions: [
     { q: 'Première phrase : le verbe parle du passé ou de demain ?', opts: ['du passé', 'de demain'], correct: 0,
@@ -458,11 +458,11 @@ const A2_AVOIR: Sec<'examples'> = {
   layer: 'core',
   title: "Avoir prête ses terminaisons",
   examples: [
-    ex(E(15), "la règle en une phrase"),
-    ex(E(24), "j'ai, tu as, il a : trois formes sur six, telles quelles"),
-    ex(E(25), 'nous avons devient -ons, pas -avons'),
-    ex(E(26), 'vous avez devient -ez, pas -avez'),
-    ex(E(21), 'ils ont revient entier : -ont'),
+    ex(E(1015), "la règle en une phrase"),
+    ex(E(1024), "j'ai, tu as, il a : trois formes sur six, telles quelles"),
+    ex(E(1025), 'nous avons devient -ons, pas -avons'),
+    ex(E(1026), 'vous avez devient -ez, pas -avez'),
+    ex(E(1021), 'ils ont revient entier : -ont'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -478,8 +478,8 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Assemble les deux morceaux',
   groups: [
     grp('Les verbes en -er', [
-      it(E(16), 'parler + ai'),
-      it(E(19), 'parler + ons'),
+      it(E(1016), 'parler + ai'),
+      it(E(1019), 'parler + ons'),
       it('fr.b1.gouvernement.006', 'voter + ons'),
       it('fr.b1.affaires.006', 'embaucher + ont'),
     ], chk(
@@ -489,10 +489,10 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       "On garde tout : parler plus ai donne parlerai. EN: keep the whole infinitive.",
     )),
     grp('Les verbes en -ir', [
-      it(E(22), 'finir + ai'),
-      it(E(23), 'finir + ons'),
+      it(E(1022), 'finir + ai'),
+      it(E(1023), 'finir + ons'),
       it('fr.b1.universite.006', 'réussir + as'),
-      it(E(30), 'remplir + ez'),
+      it(E(1030), 'remplir + ez'),
     ], chk(
       'Combien de r entend-on dans « nous finirons » ?',
       ['un seul, celui de finir', 'deux', 'aucun'],
@@ -539,10 +539,10 @@ const A2_FORMES: Sec<'groupDrill'> = {
   title: 'Qui fait quoi',
   groups: [
     grp('Une personne à la fois', [
-      it(E(27), 'moi, demain'),
-      it(E(29), 'toi, avant de répondre'),
-      it(E(31), 'eux, avec le temps'),
-      it(E(28), 'nous, un autre jour'),
+      it(E(1027), 'moi, demain'),
+      it(E(1029), 'toi, avant de répondre'),
+      it(E(1031), 'eux, avec le temps'),
+      it(E(1028), 'nous, un autre jour'),
     ], chk(
       'Dans « les enfants grandiront », pourquoi -ont et non -a ?',
       ['parce que c’est loin', 'parce que le sujet est pluriel'],
@@ -550,8 +550,8 @@ const A2_FORMES: Sec<'groupDrill'> = {
       "La terminaison suit le sujet, comme à tous les temps. EN: the ending follows the subject, as in every tense.",
     )),
     grp("Le même verbe, deux temps", [
-      it(E(32), 'hier, pas de r'),
-      it(E(33), 'demain, avec r'),
+      it(E(1032), 'hier, pas de r'),
+      it(E(1033), 'demain, avec r'),
       it('fr.a2.heure-et-date.094', 'plus tard, avec r'),
       free('je parlais · je parlerai', 'I was speaking · I will speak', 'une lettre, deux époques'),
     ], chk(
@@ -733,12 +733,12 @@ const A3_RE: Sec<'examples'> = {
   layer: 'core',
   title: 'Le e qui tombe, en six phrases',
   examples: [
-    ex(E(42), 'prendre donne prendr-'),
-    ex(E(44), 'répondre donne répondr-'),
-    ex(E(45), 'écrire donne écrir-'),
-    ex(E(48), 'vendre donne vendr-'),
-    ex(E(51), 'dire donne dir-'),
-    ex(E(52), 'suivre donne suivr-'),
+    ex(E(1042), 'prendre donne prendr-'),
+    ex(E(1044), 'répondre donne répondr-'),
+    ex(E(1045), 'écrire donne écrir-'),
+    ex(E(1048), 'vendre donne vendr-'),
+    ex(E(1051), 'dire donne dir-'),
+    ex(E(1052), 'suivre donne suivr-'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -754,10 +754,10 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Enlève un e, et rien d’autre',
   groups: [
     grp('Les formes nues', [
-      it(E(36), 'prendre moins le e'),
-      it(E(37), 'la même coupure au pluriel'),
-      it(E(38), 'attendre moins le e'),
-      it(E(39), 'répondre moins le e'),
+      it(E(1036), 'prendre moins le e'),
+      it(E(1037), 'la même coupure au pluriel'),
+      it(E(1038), 'attendre moins le e'),
+      it(E(1039), 'répondre moins le e'),
     ], chk(
       'Combien de lettres disparaissent entre prendre et prendrai ?',
       ['une seule', 'deux', 'trois'],
@@ -765,9 +765,9 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       "Seulement le e final. Le d et le r restent. EN: only the final e goes.",
     )),
     grp('Dans une phrase', [
-      it(E(43), 'attendre, au pluriel'),
-      it(E(46), 'lire, à vous'),
-      it(E(49), 'descendre, à on'),
+      it(E(1043), 'attendre, au pluriel'),
+      it(E(1046), 'lire, à vous'),
+      it(E(1049), 'descendre, à on'),
       it('fr.a2.transports-quotidiens.216', 'partir, une annonce de gare'),
     ], chk(
       'Dans « vous lirez », où est passé le e de lire ?',
@@ -804,7 +804,7 @@ const A3_ECOUTE: Sec<'listening'> = {
   hideLines: true,
   title: 'De quel groupe vient ce verbe',
   lines: [
-    ln(E(42)), ln(E(44)), ln(E(47)), ln(E(50)), ln(E(52)), ln(E(46)), ln(E(49)), ln('fr.a2.heure-et-date.088'),
+    ln(E(1042)), ln(E(1044)), ln(E(1047)), ln(E(1050)), ln(E(1052)), ln(E(1046)), ln(E(1049)), ln('fr.a2.heure-et-date.088'),
   ],
   questions: [
     { q: 'Première phrase : prendre ou prêter ?', opts: ['prendre', 'prêter'], correct: 0,
@@ -966,12 +966,12 @@ const A4_PAIRES: Sec<'examples'> = {
   layer: 'core',
   title: 'Six phrases, trois paires',
   examples: [
-    ex(E(54), 'décidé aujourd’hui'),
-    ex(E(55), 'un fait posé, avec une date'),
-    ex(E(61), 'ça commence dans dix secondes'),
-    ex(E(62), "l'horaire officiel du même train"),
-    ex(E(64), 'un projet déjà lancé'),
-    ex(E(63), "l'annonce de l'entreprise"),
+    ex(E(1054), 'décidé aujourd’hui'),
+    ex(E(1055), 'un fait posé, avec une date'),
+    ex(E(1061), 'ça commence dans dix secondes'),
+    ex(E(1062), "l'horaire officiel du même train"),
+    ex(E(1064), 'un projet déjà lancé'),
+    ex(E(1063), "l'annonce de l'entreprise"),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -987,9 +987,9 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Le fil, ou pas de fil',
   groups: [
     grp('Ça part de maintenant', [
-      it(E(56), 'tu vois le ciel'),
-      it(E(57), 'tu vois la personne trébucher'),
-      it(E(69), 'tu es sûr, et tu le dis là'),
+      it(E(1056), 'tu vois le ciel'),
+      it(E(1057), 'tu vois la personne trébucher'),
+      it(E(1069), 'tu es sûr, et tu le dis là'),
       it('fr.a2.heure-et-date.131', 'ça commence dans un instant'),
     ], chk(
       'Ces quatre phrases : pourrais-tu les écrire dans un contrat ?',
@@ -998,10 +998,10 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       "Elles décrivent ce que tu vois ou ce que tu viens de décider. EN: they describe what you see or have just decided.",
     )),
     grp('Un fait annoncé', [
-      it(E(58), 'un projet de vie'),
-      it(E(60), 'une prévision'),
-      it(E(70), 'une annonce officielle'),
-      it(E(66), 'la règle elle-même'),
+      it(E(1058), 'un projet de vie'),
+      it(E(1060), 'une prévision'),
+      it(E(1070), 'une annonce officielle'),
+      it(E(1066), 'la règle elle-même'),
     ], chk(
       'Qu’ont en commun ces quatre phrases ?',
       ['elles sont toutes loin dans le temps', 'elles posent un fait, sans lien avec ton humeur d’aujourd’hui'],
@@ -1024,7 +1024,7 @@ const A4_ECOUTE: Sec<'listening'> = {
   hideLines: true,
   title: 'Un mot ou deux',
   lines: [
-    ln(E(54)), ln(E(55)), ln(E(61)), ln(E(62)), ln('fr.a2.heure-et-date.084'), ln(E(58)), ln('fr.a2.cafe.053'), ln(E(63)),
+    ln(E(1054)), ln(E(1055)), ln(E(1061)), ln(E(1062)), ln('fr.a2.heure-et-date.084'), ln(E(1058)), ln('fr.a2.cafe.053'), ln(E(1063)),
   ],
   questions: [
     { q: 'Première phrase : le verbe tient en combien de mots ?', opts: ['un', 'deux'], correct: 1,
@@ -1089,8 +1089,8 @@ const A4_SENS: Sec<'groupDrill'> = {
     grp('Tu parles à quelqu’un, là, maintenant', [
       it('fr.a2.heure-et-date.099', 'un rappel immédiat'),
       it('fr.a2.heure-et-date.133', 'une urgence partagée'),
-      it(E(67), 'ce que tu viens de décider'),
-      it(E(59), 'ce qui est déjà prévu pour ce soir'),
+      it(E(1067), 'ce que tu viens de décider'),
+      it(E(1059), 'ce qui est déjà prévu pour ce soir'),
     ], chk(
       'Pourquoi le futur proche ici ?',
       ["parce que c'est bientôt", 'parce que ça part de la situation présente'],
@@ -1098,10 +1098,10 @@ const A4_SENS: Sec<'groupDrill'> = {
       "Le rappel, l'urgence, la décision : tout part de maintenant. EN: reminder, urgency, decision: all start from now.",
     )),
     grp('Tu poses un fait pour plus tard', [
-      it(E(68), 'un point reporté à la réunion suivante'),
-      it(E(60), 'une prévision sur dix ans'),
-      it(E(62), 'un horaire'),
-      it(E(70), 'une décision d’entreprise'),
+      it(E(1068), 'un point reporté à la réunion suivante'),
+      it(E(1060), 'une prévision sur dix ans'),
+      it(E(1062), 'un horaire'),
+      it(E(1070), 'une décision d’entreprise'),
     ], chk(
       'Laquelle de ces quatre phrases se passe le plus tôt ?',
       ["l'horaire du train", 'la prévision sur dix ans'],
@@ -1179,7 +1179,7 @@ const A5_ECOUTE: Sec<'listening'> = {
   hideLines: true,
   title: 'Compte les syllabes',
   lines: [
-    ln(E(77)), ln(E(78)), ln(E(79)), ln(E(80)), ln(E(81)), ln(E(82)), ln(E(84)), ln(E(86)),
+    ln(E(1077)), ln(E(1078)), ln(E(1079)), ln(E(1080)), ln(E(1081)), ln(E(1082)), ln(E(1084)), ln(E(1086)),
   ],
   questions: [
     { q: 'Première phrase : combien de syllabes dans le verbe ?', opts: ['quatre', 'cinq'], correct: 0,
@@ -1276,10 +1276,10 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Écris ce que tu n’entends pas',
   groups: [
     grp('Les formes nues', [
-      it(E(72), 'étudier, entier'),
-      it(E(73), 'oublier, entier'),
-      it(E(74), 'jouer, entier'),
-      it(E(76), 'continuer, entier'),
+      it(E(1072), 'étudier, entier'),
+      it(E(1073), 'oublier, entier'),
+      it(E(1074), 'jouer, entier'),
+      it(E(1076), 'continuer, entier'),
     ], chk(
       'Que fais-tu de l’infinitif de jouer avant d’ajouter -ons ?',
       ['tu enlèves le e', 'tu ne touches à rien'],
@@ -1287,9 +1287,9 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       "jouer plus ons donne jouerons. EN: jouer plus ons gives jouerons.",
     )),
     grp('Dans une phrase', [
-      it(E(77), 'toute une année'),
-      it(E(80), 'un service en septembre'),
-      it(E(83), 'un petit cadeau'),
+      it(E(1077), 'toute une année'),
+      it(E(1080), 'un service en septembre'),
+      it(E(1083), 'un petit cadeau'),
       it('fr.b1.journalisme.006', 'publier, à eux'),
     ], chk(
       'Combien de e écrits dans « ils publieront » ?',
@@ -1460,12 +1460,12 @@ const A6_Y: Sec<'examples'> = {
   layer: 'core',
   title: 'Le y qui devient i',
   examples: [
-    ex(E(92), 'payer, à vous'),
-    ex(E(93), 'essayer, à eux'),
-    ex(E(101), 'payer, dans une phrase'),
-    ex(E(104), 'employer, à elle'),
-    ex(E(105), 'nettoyer, à nous'),
-    ex(E(103), 'essayer, à je'),
+    ex(E(1092), 'payer, à vous'),
+    ex(E(1093), 'essayer, à eux'),
+    ex(E(1101), 'payer, dans une phrase'),
+    ex(E(1104), 'employer, à elle'),
+    ex(E(1105), 'nettoyer, à nous'),
+    ex(E(1103), 'essayer, à je'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1506,10 +1506,10 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Le radical change, partout',
   groups: [
     grp('Accent ou consonne doublée', [
-      it(E(88), 'acheter avec son accent'),
-      it(E(89), 'se lever, pronom devant'),
-      it(E(90), 'appeler avec ses deux l'),
-      it(E(91), 'jeter avec ses deux t'),
+      it(E(1088), 'acheter avec son accent'),
+      it(E(1089), 'se lever, pronom devant'),
+      it(E(1090), 'appeler avec ses deux l'),
+      it(E(1091), 'jeter avec ses deux t'),
     ], chk(
       'Ces quatre changements : à quelles personnes ?',
       ['seulement à je', 'seulement au singulier', 'aux six personnes'],
@@ -1517,10 +1517,10 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       "Au futur, le radical est le même partout. EN: in the future the stem is the same at every person.",
     )),
     grp('Le y devient i', [
-      it(E(92), 'payer'),
-      it(E(93), 'essayer'),
-      it(E(104), 'employer'),
-      it(E(105), 'nettoyer'),
+      it(E(1092), 'payer'),
+      it(E(1093), 'essayer'),
+      it(E(1104), 'employer'),
+      it(E(1105), 'nettoyer'),
     ], chk(
       'Quelle lettre remplace le y ?',
       ['un e', 'un i'],
@@ -1543,7 +1543,7 @@ const A6_ECOUTE: Sec<'listening'> = {
   hideLines: true,
   title: 'Entends-tu le changement',
   lines: [
-    ln(E(94)), ln(E(96)), ln(E(98)), ln(E(100)), ln(E(101)), ln(E(95)), ln(E(99)), ln(E(105)),
+    ln(E(1094)), ln(E(1096)), ln(E(1098)), ln(E(1100)), ln(E(1101)), ln(E(1095)), ln(E(1099)), ln(E(1105)),
   ],
   questions: [
     { q: 'Première phrase : achèterai ou acheterai ?', opts: ['on entend un è ouvert', 'on entend un e muet'], correct: 0,
@@ -1722,12 +1722,12 @@ const A7_NEGATION: Sec<'examples'> = {
   layer: 'core',
   title: 'Six refus au futur',
   examples: [
-    ex(E(109), 'ne ... pas'),
-    ex(E(110), 'ne ... rien'),
-    ex(E(112), 'ne ... personne'),
-    ex(E(118), 'ne ... plus, avec un pronom'),
-    ex(E(119), 'ne ... pas, verbe en -re'),
-    ex(E(120), 'ne ... pas, deux pronoms'),
+    ex(E(1109), 'ne ... pas'),
+    ex(E(1110), 'ne ... rien'),
+    ex(E(1112), 'ne ... personne'),
+    ex(E(1118), 'ne ... plus, avec un pronom'),
+    ex(E(1119), 'ne ... pas, verbe en -re'),
+    ex(E(1120), 'ne ... pas, deux pronoms'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1742,10 +1742,10 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Entoure, place, demande',
   groups: [
     grp('Les quatre négations', [
-      it(E(109), 'pas'),
-      it(E(110), 'rien'),
-      it(E(111), 'jamais'),
-      it(E(112), 'personne'),
+      it(E(1109), 'pas'),
+      it(E(1110), 'rien'),
+      it(E(1111), 'jamais'),
+      it(E(1112), 'personne'),
     ], chk(
       'Où se placent ne et le deuxième mot ?',
       ['autour du verbe', 'après le verbe', 'avant le sujet'],
@@ -1753,10 +1753,10 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       "Autour du verbe, qui tient en un mot. EN: around the verb, which is a single word.",
     )),
     grp('Pronoms et questions', [
-      it(E(113), 'deux pronoms, dans l’ordre'),
-      it(E(114), 'un pronom, puis le verbe'),
-      it(E(116), 'est-ce que'),
-      it(E(117), 'inversion'),
+      it(E(1113), 'deux pronoms, dans l’ordre'),
+      it(E(1114), 'un pronom, puis le verbe'),
+      it(E(1116), 'est-ce que'),
+      it(E(1117), 'inversion'),
     ], chk(
       'Dans « je te le rendrai », où sont te et le ?',
       ['après le verbe', 'devant le verbe'],
@@ -1814,10 +1814,10 @@ const A7_SENS: Sec<'groupDrill'> = {
   title: 'Dis exactement ce que tu refuses',
   groups: [
     grp('Chaque mot enlève autre chose', [
-      it(E(118), 'plus : ça s’arrête maintenant'),
-      it(E(119), 'pas : le fait lui-même'),
-      it(E(120), 'pas, avec deux pronoms'),
-      it(E(121), 'la règle de placement'),
+      it(E(1118), 'plus : ça s’arrête maintenant'),
+      it(E(1119), 'pas : le fait lui-même'),
+      it(E(1120), 'pas, avec deux pronoms'),
+      it(E(1121), 'la règle de placement'),
     ], chk(
       '« Je ne vous dérangerai plus » : t’ai-je déjà dérangé ?',
       ['non, jamais', 'oui, et ça s’arrête'],
@@ -1825,9 +1825,9 @@ const A7_SENS: Sec<'groupDrill'> = {
       "plus dit que ça existait avant. EN: plus says it was happening before.",
     )),
     grp('Trois façons de demander', [
-      it(E(115), 'mot interrogatif, puis est-ce que'),
-      it(E(113), 'la réponse, avec deux pronoms'),
-      it(E(114), 'un pronom objet devant le verbe'),
+      it(E(1115), 'mot interrogatif, puis est-ce que'),
+      it(E(1113), 'la réponse, avec deux pronoms'),
+      it(E(1114), 'un pronom objet devant le verbe'),
       it('fr.sons.liaisons.007', 'une promesse, sans question'),
     ], chk(
       'Laquelle de ces formes est la plus formelle ?',
@@ -1882,7 +1882,7 @@ const A8_ECOUTE: Sec<'listening'> = {
   hideLines: true,
   title: 'Le même demain, trois fois',
   lines: [
-    ln(E(123)), ln(E(132)), ln(E(135)), ln(E(125)), ln(E(127)), ln(E(128)), ln(E(130)), ln('fr.a2.heure-et-date.137'),
+    ln(E(1123)), ln(E(1132)), ln(E(1135)), ln(E(1125)), ln(E(1127)), ln(E(1128)), ln(E(1130)), ln('fr.a2.heure-et-date.137'),
   ],
   questions: [
     { q: 'Première phrase : quel futur entends-tu après demain ?', opts: ['le futur simple', 'le futur proche'], correct: 0,
@@ -1956,10 +1956,10 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Situe, puis choisis',
   groups: [
     grp('Des dates précises', [
-      it(E(124), 'après-demain'),
-      it(E(125), 'la semaine prochaine'),
-      it(E(133), 'le mois prochain'),
-      it(E(134), "l'année prochaine"),
+      it(E(1124), 'après-demain'),
+      it(E(1125), 'la semaine prochaine'),
+      it(E(1133), 'le mois prochain'),
+      it(E(1134), "l'année prochaine"),
     ], chk(
       'Où se place prochain ?',
       ['avant le nom', 'après le nom'],
@@ -1967,10 +1967,10 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       "la semaine prochaine, le mois prochain. EN: after the noun.",
     )),
     grp('Des moments flous', [
-      it(E(126), 'dans deux ans'),
-      it(E(127), 'un jour'),
-      it(E(128), 'bientôt'),
-      it(E(131), "à l'avenir"),
+      it(E(1126), 'dans deux ans'),
+      it(E(1127), 'un jour'),
+      it(E(1128), 'bientôt'),
+      it(E(1131), "à l'avenir"),
     ], chk(
       'Ces quatre phrases ont-elles une date ?',
       ['oui, toutes', 'non, aucune'],
@@ -1992,12 +1992,12 @@ const A8_CONTRE: Sec<'examples'> = {
   layer: 'core',
   title: 'Le même marqueur, trois temps',
   examples: [
-    ex(E(123), 'demain, futur simple'),
-    ex(E(132), 'demain, futur proche'),
-    ex(E(135), 'ce soir, présent'),
+    ex(E(1123), 'demain, futur simple'),
+    ex(E(1132), 'demain, futur proche'),
+    ex(E(1135), 'ce soir, présent'),
     ex('fr.a2.metiers.052', 'la semaine prochaine, au présent'),
     ex('fr.a2.heure-et-date.137', 'la semaine prochaine, au présent aussi'),
-    ex(E(122), 'la règle en une phrase'),
+    ex(E(1122), 'la règle en une phrase'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -2112,10 +2112,10 @@ const A9_SIMPLE: Sec<'groupDrill'> = {
   title: 'Ce que le projet annonce',
   groups: [
     grp('Le déménagement', [
-      it(E(137), 'le départ'),
-      it(E(138), 'la destination et le mois'),
-      it(E(143), 'ce qui se vend avant'),
-      it(E(144), 'ce qui reste'),
+      it(E(1137), 'le départ'),
+      it(E(1138), 'la destination et le mois'),
+      it(E(1143), 'ce qui se vend avant'),
+      it(E(1144), 'ce qui reste'),
     ], chk(
       'Ces quatre verbes : proche ou simple ?',
       ['futur proche', 'futur simple'],
@@ -2123,10 +2123,10 @@ const A9_SIMPLE: Sec<'groupDrill'> = {
       "Un seul mot chaque fois, et rien qui parte de maintenant. EN: one word each time.",
     )),
     grp('Le travail et l’argent', [
-      it(E(140), 'le même poste, ailleurs'),
-      it(E(141), 'la recherche de Malick'),
-      it(E(145), 'le coût'),
-      it(E(146), 'le paiement en deux fois'),
+      it(E(1140), 'le même poste, ailleurs'),
+      it(E(1141), 'la recherche de Malick'),
+      it(E(1145), 'le coût'),
+      it(E(1146), 'le paiement en deux fois'),
     ], chk(
       'Dans « ils paieront », qu’est-ce qui a changé par rapport à payer ?',
       ['le y est devenu i', 'rien'],
@@ -2150,8 +2150,8 @@ const A9_AUTRES: Sec<'groupDrill'> = {
   title: 'Ce qui est déjà vrai',
   groups: [
     grp('Aujourd’hui, au présent', [
-      it(E(139), 'son emploi actuel'),
-      it(E(151), 'ce qu’ils font ce mois-ci'),
+      it(E(1139), 'son emploi actuel'),
+      it(E(1151), 'ce qu’ils font ce mois-ci'),
       free('il envoie des candidatures depuis janvier', 'he has been sending applications since January', 'commencé avant, toujours en cours'),
       free('ils comptent les semaines', 'they are counting the weeks', "l'attente d'aujourd'hui"),
     ], chk(
@@ -2161,10 +2161,10 @@ const A9_AUTRES: Sec<'groupDrill'> = {
       "Un texte de projet a besoin d'un présent pour poser la situation. EN: a plan needs a present to set the situation.",
     )),
     grp('Le seul futur proche du texte', [
-      it(E(142), 'la visite des quartiers'),
+      it(E(1142), 'la visite des quartiers'),
       free('ils vont visiter trois quartiers avant de choisir', 'they are going to look at three neighbourhoods before choosing', 'la visite est déjà organisée'),
-      it(E(149), 'et le futur simple juste après'),
-      it(E(152), 'la conclusion, au futur simple'),
+      it(E(1149), 'et le futur simple juste après'),
+      it(E(1152), 'la conclusion, au futur simple'),
     ], chk(
       'Pourquoi « vont visiter » et non « visiteront » ?',
       ['parce que c’est bientôt', 'parce que la visite est déjà arrangée aujourd’hui'],
@@ -2907,16 +2907,16 @@ const ACT10: ActDef = {
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const DRILL_LIST: LessonDrill[] = [
-  { id: 'd-promesse', title: 'Annonce ou intention', format: 'sort' as const, coach: "Deux piles. Demande-toi : est-ce que ton lecteur pourra te le rappeler ? EN: sort by whether the reader can hold you to it.", buckets: ['une promesse datée', 'une intention'], items: [E(2), E(3), E(12), E(1), E(59), E(67)], audio: AUDIO },
-  { id: 'd-radical', title: 'Le r avant la terminaison', format: 'mcq' as const, coach: "Cherche le r. Sans r, c'est l'imparfait. EN: look for the r.", q: 'Demain, je ... à la maison. (travailler)', opts: ['travaillais', 'travaillerai'], correct: 1, why: 'Le r porte le futur. EN: the r carries the future.', items: [E(16), E(22), E(27), E(32), E(33), E(34)], audio: AUDIO },
-  { id: 'd-groupes', title: 'Un e part, rien ne s’ajoute', format: 'mcq' as const, coach: "Pour un verbe en -re, enlève le e et arrête-toi là. EN: for an -re verb, drop the e and stop.", q: 'Nous ... devant la gare. (attendre)', opts: ['attendrons', 'attenderons'], correct: 0, why: 'attendre donne attendr-, puis -ons. EN: attendre gives attendr-, then -ons.', items: [E(36), E(38), E(42), E(48), E(50), E(51)], audio: AUDIO },
-  { id: 'd-fil', title: 'Le fil avec maintenant', format: 'sort' as const, coach: 'Deux piles. Est-ce que la phrase part de maintenant, ou est-ce qu’elle annonce ? EN: does it start from now, or does it announce?', buckets: ['ça part de maintenant', 'un fait annoncé'], items: [E(54), E(56), E(57), E(55), E(62), E(70)], audio: AUDIO },
-  { id: 'd-emuet', title: 'Le e qu’on n’entend pas', format: 'flashcard' as const, coach: "Lis chaque phrase à voix haute, puis écris-la de mémoire. Le e est toujours là. EN: read each one aloud, then write it from memory.", items: [E(72), E(74), E(75), E(77), E(80), E(84)], audio: AUDIO },
-  { id: 'd-orthographe', title: 'Accent, consonne ou i', format: 'mcq' as const, coach: 'Au futur, le radical change aux six personnes, sans exception. EN: in the future the stem changes at all six persons.', q: 'Nous ... un taxi à la sortie. (appeler)', opts: ['appelerons', 'appellerons'], correct: 1, why: 'appeler double son l partout. EN: appeler doubles its l everywhere.', items: [E(88), E(90), E(92), E(95), E(99), E(105)], audio: AUDIO },
-  { id: 'd-phrase', title: 'Autour du verbe', format: 'mcq' as const, coach: 'Le verbe tient en un mot. ne passe devant, le deuxième mot suit. EN: the verb is one word; ne goes in front and the second word follows.', q: 'Je ... la maison. (ne ... pas, vendre)', opts: ['vendrai ne pas', 'ne vendrai pas'], correct: 1, why: 'ne avant, pas après. EN: ne before, pas after.', items: [E(109), E(111), E(113), E(118), E(120), E(121)], audio: AUDIO },
-  { id: 'd-marqueurs', title: 'Situe, ne commande pas', format: 'sort' as const, coach: "Deux piles. Le marqueur donne-t-il une date, ou seulement une direction ? EN: does the marker give a date or only a direction?", buckets: ['une date', 'un moment flou'], items: [E(124), E(125), E(133), E(127), E(128), E(131)], audio: AUDIO },
-  { id: 'd-annoter', title: 'Verbe par verbe', format: 'sort' as const, coach: "Trois piles dans ta tête, deux ici : ce qui est déjà vrai, et ce qui est annoncé. EN: what is already true, and what is announced.", buckets: ['déjà vrai', 'annoncé'], items: [E(139), E(151), E(142), E(137), E(145), E(153)], audio: AUDIO },
-  { id: 'd-projet', title: 'Un projet complet', format: 'mcq' as const, coach: 'Un présent pour partir, des étapes dans l’ordre, une fin qui donne ta raison. EN: a present to start from, steps in order, an ending that gives your reason.', q: 'Ton projet se termine par « Dans deux ans, je passerai un examen ». Que manque-t-il ?', opts: ['rien', 'une fin qui donne ta raison'], correct: 1, why: "Une dernière phrase ferme le texte. EN: a last sentence closes the text.", items: [E(154), E(155), E(156), E(163), E(164), E(165)], audio: AUDIO },
+  { id: 'd-promesse', title: 'Annonce ou intention', format: 'sort' as const, coach: "Deux piles. Demande-toi : est-ce que ton lecteur pourra te le rappeler ? EN: sort by whether the reader can hold you to it.", buckets: ['une promesse datée', 'une intention'], items: [E(1002), E(1003), E(1012), E(1001), E(1059), E(1067)], audio: AUDIO },
+  { id: 'd-radical', title: 'Le r avant la terminaison', format: 'mcq' as const, coach: "Cherche le r. Sans r, c'est l'imparfait. EN: look for the r.", q: 'Demain, je ... à la maison. (travailler)', opts: ['travaillais', 'travaillerai'], correct: 1, why: 'Le r porte le futur. EN: the r carries the future.', items: [E(1016), E(1022), E(1027), E(1032), E(1033), E(1034)], audio: AUDIO },
+  { id: 'd-groupes', title: 'Un e part, rien ne s’ajoute', format: 'mcq' as const, coach: "Pour un verbe en -re, enlève le e et arrête-toi là. EN: for an -re verb, drop the e and stop.", q: 'Nous ... devant la gare. (attendre)', opts: ['attendrons', 'attenderons'], correct: 0, why: 'attendre donne attendr-, puis -ons. EN: attendre gives attendr-, then -ons.', items: [E(1036), E(1038), E(1042), E(1048), E(1050), E(1051)], audio: AUDIO },
+  { id: 'd-fil', title: 'Le fil avec maintenant', format: 'sort' as const, coach: 'Deux piles. Est-ce que la phrase part de maintenant, ou est-ce qu’elle annonce ? EN: does it start from now, or does it announce?', buckets: ['ça part de maintenant', 'un fait annoncé'], items: [E(1054), E(1056), E(1057), E(1055), E(1062), E(1070)], audio: AUDIO },
+  { id: 'd-emuet', title: 'Le e qu’on n’entend pas', format: 'flashcard' as const, coach: "Lis chaque phrase à voix haute, puis écris-la de mémoire. Le e est toujours là. EN: read each one aloud, then write it from memory.", items: [E(1072), E(1074), E(1075), E(1077), E(1080), E(1084)], audio: AUDIO },
+  { id: 'd-orthographe', title: 'Accent, consonne ou i', format: 'mcq' as const, coach: 'Au futur, le radical change aux six personnes, sans exception. EN: in the future the stem changes at all six persons.', q: 'Nous ... un taxi à la sortie. (appeler)', opts: ['appelerons', 'appellerons'], correct: 1, why: 'appeler double son l partout. EN: appeler doubles its l everywhere.', items: [E(1088), E(1090), E(1092), E(1095), E(1099), E(1105)], audio: AUDIO },
+  { id: 'd-phrase', title: 'Autour du verbe', format: 'mcq' as const, coach: 'Le verbe tient en un mot. ne passe devant, le deuxième mot suit. EN: the verb is one word; ne goes in front and the second word follows.', q: 'Je ... la maison. (ne ... pas, vendre)', opts: ['vendrai ne pas', 'ne vendrai pas'], correct: 1, why: 'ne avant, pas après. EN: ne before, pas after.', items: [E(1109), E(1111), E(1113), E(1118), E(1120), E(1121)], audio: AUDIO },
+  { id: 'd-marqueurs', title: 'Situe, ne commande pas', format: 'sort' as const, coach: "Deux piles. Le marqueur donne-t-il une date, ou seulement une direction ? EN: does the marker give a date or only a direction?", buckets: ['une date', 'un moment flou'], items: [E(1124), E(1125), E(1133), E(1127), E(1128), E(1131)], audio: AUDIO },
+  { id: 'd-annoter', title: 'Verbe par verbe', format: 'sort' as const, coach: "Trois piles dans ta tête, deux ici : ce qui est déjà vrai, et ce qui est annoncé. EN: what is already true, and what is announced.", buckets: ['déjà vrai', 'annoncé'], items: [E(1139), E(1151), E(1142), E(1137), E(1145), E(1153)], audio: AUDIO },
+  { id: 'd-projet', title: 'Un projet complet', format: 'mcq' as const, coach: 'Un présent pour partir, des étapes dans l’ordre, une fin qui donne ta raison. EN: a present to start from, steps in order, an ending that gives your reason.', q: 'Ton projet se termine par « Dans deux ans, je passerai un examen ». Que manque-t-il ?', opts: ['rien', 'une fin qui donne ta raison'], correct: 1, why: "Une dernière phrase ferme le texte. EN: a last sentence closes the text.", items: [E(1154), E(1155), E(1156), E(1163), E(1164), E(1165)], audio: AUDIO },
 ];
 
 const TRIGGER_LIST: ErrorTrigger[] = [

@@ -24,14 +24,27 @@ Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev previ
 
 **Next: wave 2, b1.09 to b1.11.** Six more lessons to review gate 1 (after b1.14).
 
+## THE ID RULE, learned the hard way (2026-09-24)
+
+**Authored b1 ids start at 1000 in every theme, and you probe POSTGRES before claiming a block.** The seed is roughly a quarter of the database, so a theme that looks empty in `seed.json` is not empty: `recits-au-passe`, `projets-et-futur` and `conseils-et-suggestions` each hold 115 published `fr.b1.*` rows that the seed does not carry, and `pronoms-essentiels` holds 138. Blocks claimed from the seed alone put 200 authored rows straight on top of published ones (b1.01 70, b1.02 15, b1.05 115), which an import would have overwritten.
+
+The probe, from `ealch-admin/`:
+
+```
+select split_part(id,'.',2) lvl, theme, count(*), max(nullif(regexp_replace(split_part(id,'.',4),'[^0-9]','','g'),'')::int)
+from content_items where theme = 'your-theme' group by 1,2;
+```
+
 ## Id ledger, theme `recits-au-passe`
 
 Every B1 Unit 1 item lives in the existing `recits-au-passe` theme (fondations, a2-b2). Ids are `fr.b1.recits-au-passe.NNN`, built by each corpus's `E(n)`. **Before authoring, claim your block here in the same commit as the lesson.**
 
 | Block | Owner | Authored |
 |---|---|---|
-| 001-099 | b1.01 | 001-071 |
-| 101-199 | b1.02 | 101-178 |
+| 001-099 | **DB HOLDS 001-115** | do not use |
+| 1401-1499 | b1.01 (moved off the collision) | 1401-1471 |
+| 101-199 | b1.02 (116-178 only) | 116-178 |
+| 1501-1599 | b1.02 (moved off the collision) | 1501-1515 |
 | 201-299 | b1.03 | 201-281 |
 | 301-399 | b1.04 | 301-390 |
 | 401-799 | b1.01 (overflow) | 401-550 |
@@ -48,14 +61,34 @@ B1 Unit 2 is about the future and the conditional, which are not past narration,
 
 | Block | Owner | Authored |
 |---|---|---|
-| 001-199 | b1.05 futur simple, regular | 001-170 |
+| 001-199 | **DB HOLDS 001-115** | do not use |
+| 1001-1199 | b1.05 futur simple (moved off the collision) | 1001-1170 |
 | 200-399 | b1.06 futur simple, irregular stems | 200-397 |
 | 400-599 | b1.07 future usage and conditions | 400-577 |
 | 600-799 | b1.08 conditionnel présent | 600-789 |
-| 800-999 | b1.10 si clauses | not started |
-| 1000+ | FREE | |
+| 800-999 | FREE | |
+| 1200-1399 | b1.10 si clauses | not started |
+| 1400+ | FREE | |
 
-`conseils-et-suggestions` (fondations, a2-b2, also empty) is the home for b1.09 polite requests.
+### Theme `conseils-et-suggestions` (fondations, a2-b2)
+
+DB holds 115 `fr.b1.*` rows (001-115) that the seed does not show.
+
+| Block | Owner | Authored |
+|---|---|---|
+| 001-115 | **DB** | do not use |
+| 1000-1199 | b1.09 polite requests | not started |
+
+### Theme `pronoms-essentiels` (fondations, a1-b2)
+
+DB holds 138 `fr.b1.*` rows (001-138), and 693 rows across all levels.
+
+| Block | Owner | Authored |
+|---|---|---|
+| 001-138 | **DB** | do not use |
+| 1000-1199 | b1.11 qui and que | not started |
+| 1200-1399 | b1.12 dont and où | not started |
+| 1400-1599 | b1.13 lequel, ce qui, ce que | not started |
 
 ## The wave plan from here
 

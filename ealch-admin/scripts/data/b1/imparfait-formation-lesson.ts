@@ -258,11 +258,11 @@ const A1_REPERER: Sec<'groupDrill'> = {
   frSub: 'Avant, maintenant',
   groups: [
     grp('Dans le souvenir d’Awa', [
-      it(E(41), 'habitait'), it(E(60), 'était'), it(E(40), 'étais, habitais'), it('fr.a2.salutations.043', 'étais, disais'),
+      it(E(1441), 'habitait'), it(E(1460), 'était'), it(E(1440), 'étais, habitais'), it('fr.a2.salutations.043', 'étais, disais'),
     ], chk('Ces quatre phrases parlent de quand ? EN: When are these four sentences set?', ['de maintenant', 'd’avant', 'de demain'], 1, 'D’avant : la vie de l’enfance, qui n’existe plus. EN: before, a life that is over.')),
     grp('Avant, ou maintenant', [
-      it(E(61), 'avant'), it(E(62), 'maintenant'), it('fr.b1.routines.059', 'les deux'), it('fr.a2.heure-et-date.109', 'avant'),
-    ], chk('Quelle phrase parle de ta vie maintenant ? EN: Which sentence is about now?', [src(E(61)).fr, src(E(62)).fr, src('fr.a2.heure-et-date.109').fr], 1, 'j’habite : présent, sans -ais. EN: j’habite is the present.')),
+      it(E(1461), 'avant'), it(E(1462), 'maintenant'), it('fr.b1.routines.059', 'les deux'), it('fr.a2.heure-et-date.109', 'avant'),
+    ], chk('Quelle phrase parle de ta vie maintenant ? EN: Which sentence is about now?', [src(E(1461)).fr, src(E(1462)).fr, src('fr.a2.heure-et-date.109').fr], 1, 'j’habite : présent, sans -ais. EN: j’habite is the present.')),
     ctl('Et la forme ?', 'Regarde les verbes d’avant. Quelle fin revient ? EN: Which ending keeps coming back?', ['-ais, -ait', '-é', '-ons'], 0, 'habitais, habitait, était, disais : -ais et -ait. EN: the endings -ais and -ait.'),
   ],
   audio: AUDIO,
@@ -396,7 +396,7 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       it('fr.a2.verbes.106', 'regard-'), it(E(416), 'regard- + ions'), it('fr.a2.verbes.119', 'rest-'), it(E(417), 'rest- + ions'), it('fr.a2.verbes.114', 'cherch-'), it(E(402), 'cherch- + ions'),
     ], chk('nous chantons. Avec je, à l’imparfait : EN: With je, in the imparfait:', ['je chantais', 'je chantait', 'je chantonsais'], 0, 'chant- + ais. Pas de -ons, et je prend -ais. EN: no -ons, and je takes -ais.')),
     grp('Verbes en -ir (-iss-)', [
-      it('fr.a2.verbes.184', 'finiss-'), it(E(45), 'finiss- + ions'), it('fr.a2.verbes.196', 'réfléchiss-'), it(E(406), 'réfléchiss- + ions'), it('fr.a2.marche.004', 'choisiss-'), it(E(404), 'choisiss- + ais'),
+      it('fr.a2.verbes.184', 'finiss-'), it(E(1445), 'finiss- + ions'), it('fr.a2.verbes.196', 'réfléchiss-'), it(E(406), 'réfléchiss- + ions'), it('fr.a2.marche.004', 'choisiss-'), it(E(404), 'choisiss- + ais'),
     ], chk('nous grandissons. Avec nous : EN: With nous:', ['nous grandions', 'nous grandissions', 'nous grandissons'], 1, 'grandiss- + ions. La troisième est le présent. EN: the third one is the present.')),
     grp('Verbes en -re', [
       it('fr.a2.verbes.244', 'vend-'), it(E(408), 'vend- + ions'), it('fr.a2.verbes.239', 'perd-'), it(E(411), 'perd- + ait'), it(E(409), 'attend- + ais'), it(E(410), 'répond- + ais'),
@@ -581,11 +581,11 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Le sujet choisit la fin',
   frSub: 'je, tu, il, nous, vous, ils',
   groups: [
-    grp('je et tu : -ais', [it(E(1)), it(E(414)), it(E(36)), it(E(424))],
+    grp('je et tu : -ais', [it(E(1401)), it(E(414)), it(E(1436)), it(E(424))],
       chk('Mes cousins ... wolof. EN: My cousins spoke Wolof.', ['parlait', 'parlaient', 'parlais'], 1, 'Mes cousins = ils : -aient. EN: plural subject, -aient.')),
-    grp('il, elle, on : -ait', [it(E(2)), it(E(421)), it(E(422)), it(E(425))],
+    grp('il, elle, on : -ait', [it(E(1402)), it(E(421)), it(E(422)), it(E(425))],
       chk('On ... dehors tout l’après-midi. EN: We played outside all afternoon.', ['jouait', 'jouions', 'jouaient'], 0, 'on prend la fin de il : -ait. EN: on takes -ait.')),
-    grp('nous, vous, ils : -ions, -iez, -aient', [it(E(3)), it(E(4)), it(E(426)), it(E(5)), it(E(423)), it(E(59)), it(E(70))],
+    grp('nous, vous, ils : -ions, -iez, -aient', [it(E(1403)), it(E(1404)), it(E(426)), it(E(1405)), it(E(423)), it(E(1459)), it(E(1470))],
       chk('Toi et ta sœur, vous ... créole. EN: You and your sister spoke Creole.', ['parlais', 'parliez', 'parlait'], 1, 'vous : -iez. EN: vous takes -iez.')),
   ],
   audio: AUDIO,
@@ -787,19 +787,19 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
   frSub: 'Cinq familles',
   groups: [
     grp('faire, prendre, venir', [
-      it('fr.a2.verbes.304', 'fais-'), it(E(46)), it('fr.a2.verbes.427', 'pren-'), it(E(440)), it(E(69)), it('fr.a2.verbes.270', 'ven-'), it(E(430)), it(E(447)),
+      it('fr.a2.verbes.304', 'fais-'), it(E(1446)), it('fr.a2.verbes.427', 'pren-'), it(E(440)), it(E(1469)), it('fr.a2.verbes.270', 'ven-'), it(E(430)), it(E(447)),
     ], chk('nous revenons. Avec je : EN: With je:', ['je revenais', 'je revienais', 'je reviendais'], 0, 'reven- + ais, un seul n. EN: one n, no d.')),
     grp('boire, voir, croire', [
-      it(E(459), 'buv-'), it(E(9)), it(E(68)), it(E(460), 'voy-'), it(E(10)), it(E(461), 'croy-'), it(E(12)),
+      it(E(459), 'buv-'), it(E(1409)), it(E(1468)), it(E(460), 'voy-'), it(E(1410)), it(E(461), 'croy-'), it(E(1412)),
     ], chk('nous buvons. Avec ils : EN: With ils:', ['ils boivaient', 'ils buvaient', 'ils buvait'], 1, 'buv- + aient. EN: buv- plus -aient.')),
     grp('dire, écrire, lire, mettre', [
-      it('fr.a2.verbes.310', 'dis-'), it(E(14)), it(E(458)), it(E(462), 'écriv-'), it(E(15)), it(E(67)), it('fr.a2.verbes.316', 'lis-'), it(E(35)), it('fr.a2.verbes.433', 'mett-'), it(E(435)),
+      it('fr.a2.verbes.310', 'dis-'), it(E(1414)), it(E(458)), it(E(462), 'écriv-'), it(E(1415)), it(E(1467)), it('fr.a2.verbes.316', 'lis-'), it(E(1435)), it('fr.a2.verbes.433', 'mett-'), it(E(435)),
     ], chk('nous écrivons. Avec nous : EN: With nous:', ['nous écrivions', 'nous écrions', 'nous écrivons'], 0, 'écriv- + ions. La troisième est le présent. EN: the third is the present.')),
     grp('devoir, pouvoir, vouloir, savoir, connaître', [
       it('fr.a2.verbes.356', 'dev-'), it(E(431)), it(E(448)), it('fr.a2.verbes.350', 'pouv-'), it(E(443)), it('fr.a2.verbes.344', 'voul-'), it(E(450)), it('fr.a2.verbes.384', 'sav-'), it(E(434)), it('fr.a2.verbes.390', 'connaiss-'), it(E(436)),
     ], chk('nous connaissons. Avec tu : EN: With tu:', ['tu connaissais', 'tu connais', 'tu connaîtais'], 0, 'connaiss- + ais. tu connais, c’est le présent. EN: tu connais is the present.')),
     grp('aller, avoir, sortir, dormir, vivre', [
-      it('fr.a2.verbes.264', 'all-'), it(E(33)), it(E(37)), it('fr.a2.verbes.481', 'sort-'), it(E(437)), it(E(454)), it(E(463), 'dorm-'), it(E(438)), it(E(464), 'viv-'), it(E(439)), it(E(456)), it(E(19)),
+      it('fr.a2.verbes.264', 'all-'), it(E(1433)), it(E(1437)), it('fr.a2.verbes.481', 'sort-'), it(E(437)), it(E(454)), it(E(463), 'dorm-'), it(E(438)), it(E(464), 'viv-'), it(E(439)), it(E(456)), it(E(1419)),
     ], chk('nous allons. Avec vous : EN: With vous:', ['vous iriez', 'vous allez', 'vous alliez'], 2, 'all- + iez. vous allez, c’est le présent. EN: all- plus -iez.')),
   ],
   audio: AUDIO,
@@ -998,11 +998,11 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Construis être',
   frSub: 'ét- + la fin',
   groups: [
-    grp('je, tu, il, elle', [it(E(16)), it(E(465)), it(E(466)), it(E(468)), it(E(469)), it(E(473))],
+    grp('je, tu, il, elle', [it(E(1416)), it(E(465)), it(E(466)), it(E(468)), it(E(469)), it(E(473))],
       chk('Ma maîtresse ... sévère. EN: My teacher was strict.', ['était', 'étais', 'étaient'], 0, 'Une personne, elle : -ait. EN: one person, -ait.')),
-    grp('nous, vous, ils', [it(E(17)), it(E(467)), it(E(18)), it(E(66)), it(E(471)), it(E(472))],
+    grp('nous, vous, ils', [it(E(1417)), it(E(467)), it(E(1418)), it(E(1466)), it(E(471)), it(E(472))],
       chk('Mes parents ... fiers. EN: My parents were proud.', ['était', 'étaient', 'étiez'], 1, 'Mes parents = ils : -aient. EN: plural, -aient.')),
-    grp('c’était', [it('fr.sons.elision.035'), it(E(470)), it(E(60))],
+    grp('c’était', [it('fr.sons.elision.035'), it(E(470)), it(E(1460))],
       chk('« ... un petit village. » EN: It was a small village.', ['C’était', 'Ce était', 'C’étais'], 0, 'ce devient c’ devant é, et ce prend -ait. EN: c’ before é, and -ait.')),
   ],
   audio: AUDIO,
@@ -1159,10 +1159,10 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
   frSub: 'Regarde la fin',
   groups: [
     grp('Devant a : avec e', [
-      it(E(20)), it(E(475)), it(E(476)), it(E(22)), it(E(38)), it(E(479)), it(E(480)), it(E(484)), it(E(486)), it(E(487)),
+      it(E(1420)), it(E(475)), it(E(476)), it(E(1422)), it(E(1438)), it(E(479)), it(E(480)), it(E(484)), it(E(486)), it(E(487)),
     ], chk('changer, avec il : EN: changer, with il:', ['il changait', 'il changeait', 'il changiait'], 1, '-ait commence par a : e. EN: e before a.')),
     grp('Devant i : sans e', [
-      it('fr.a2.verbes.142', 'présent : e'), it(E(21)), it(E(43)), it(E(474)), it(E(483)), it('fr.a2.verbes.146', 'présent : e'), it(E(477)), it('fr.a2.verbes.161', 'présent : e'), it(E(478)), it(E(485)), it('fr.a2.verbes.166', 'présent : e'), it(E(482)), it(E(481)),
+      it('fr.a2.verbes.142', 'présent : e'), it(E(1421)), it(E(1443)), it(E(474)), it(E(483)), it('fr.a2.verbes.146', 'présent : e'), it(E(477)), it('fr.a2.verbes.161', 'présent : e'), it(E(478)), it(E(485)), it('fr.a2.verbes.166', 'présent : e'), it(E(482)), it(E(481)),
     ], chk('partager, avec nous : EN: partager, with nous:', ['nous partagions', 'nous partageions', 'nous partageons'], 0, '-ions commence par i : pas de e. La troisième est le présent. EN: no e before i.')),
     ctl('Et vous ?', 'ranger, avec vous : EN: ranger, with vous:', ['vous rangiez', 'vous rangeiez', 'vous rangez'], 0, '-iez commence par i : pas de e. EN: no e before i.'),
   ],
@@ -1313,10 +1313,10 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
   frSub: 'Regarde la fin',
   groups: [
     grp('Devant a : ç', [
-      it(E(23)), it(E(25)), it(E(489)), it(E(490)), it(E(492)), it(E(493)), it(E(58)), it(E(71)), it(E(496)), it(E(498)), it(E(499)),
+      it(E(1423)), it(E(1425)), it(E(489)), it(E(490)), it(E(492)), it(E(493)), it(E(1458)), it(E(1471)), it(E(496)), it(E(498)), it(E(499)),
     ], chk('avancer, avec il : EN: avancer, with il:', ['il avançait', 'il avancait', 'il avanceait'], 0, '-ait commence par a : ç. EN: ç before a.')),
     grp('Devant i : c', [
-      it('fr.a2.verbes.144', 'présent : ç'), it(E(24)), it(E(44)), it(E(494)), it(E(488)), it(E(497)), it(E(491)), it(E(495)),
+      it('fr.a2.verbes.144', 'présent : ç'), it(E(1424)), it(E(1444)), it(E(494)), it(E(488)), it(E(497)), it(E(491)), it(E(495)),
     ], chk('annoncer, avec nous : EN: annoncer, with nous:', ['nous annonçions', 'nous annoncions', 'nous annonçons'], 1, '-ions commence par i : c. La troisième est le présent. EN: plain c before i.')),
     ctl('Et vous ?', 'placer, avec vous : EN: placer, with vous:', ['vous placiez', 'vous plaçiez', 'vous placez'], 0, '-iez commence par i : c. EN: plain c before i.'),
   ],
@@ -1493,10 +1493,10 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
   frSub: 'nous et vous seulement',
   groups: [
     grp('Base en i : étudi-, oubli-, ri-, cri-', [
-      it(E(511), 'présent : un i'), it(E(26)), it(E(51)), it(E(27)), it(E(52)), it(E(512), 'présent'), it(E(501)), it(E(500)), it(E(508)), it(E(28)), it(E(53)), it(E(506)), it(E(502)),
+      it(E(511), 'présent : un i'), it(E(1426)), it(E(1451)), it(E(1427)), it(E(1452)), it(E(512), 'présent'), it(E(501)), it(E(500)), it(E(508)), it(E(1428)), it(E(1453)), it(E(506)), it(E(502)),
     ], chk('crier, avec vous : EN: crier, with vous:', ['vous criez', 'vous criiez', 'vous crieez'], 1, 'cri- + iez : deux i. vous criez est le présent. EN: cri- plus -iez.')),
     grp('Base en y : voy-, croy-, pay-, envoy-', [
-      it(E(460), 'présent'), it(E(11)), it(E(54)), it(E(505)), it(E(461), 'présent'), it(E(13)), it(E(55)), it(E(29)), it(E(56)), it(E(504)), it(E(503)), it(E(509)),
+      it(E(460), 'présent'), it(E(1411)), it(E(1454)), it(E(505)), it(E(461), 'présent'), it(E(1413)), it(E(1455)), it(E(1429)), it(E(1456)), it(E(504)), it(E(503)), it(E(509)),
     ], chk('envoyer, avec vous : EN: envoyer, with vous:', ['vous envoyiez', 'vous envoyez', 'vous envoiiez'], 0, 'envoy- + iez : y puis i. EN: y then i.')),
     grp('je, tu, il, ils : un seul i', [it(E(507)), it(E(510))],
       chk('étudier, avec ils : EN: étudier, with ils:', ['ils étudiaient', 'ils étudiiaient', 'ils étudaient'], 0, 'étudi- + aient : la fin commence par a, donc un seul i. EN: -aient starts with a.')),
@@ -1685,10 +1685,10 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
   frSub: 'Toujours avec il',
   groups: [
     grp('il y avait, il fallait, il valait mieux', [
-      it(E(32)), it(E(50)), it(E(64)), it(E(522)), it('fr.b1.nombres.009'), it(E(31)), it(E(49)), it(E(521)), it(E(516)), it(E(520)),
+      it(E(1432)), it(E(1450)), it(E(1464)), it(E(522)), it('fr.b1.nombres.009'), it(E(1431)), it(E(1449)), it(E(521)), it(E(516)), it(E(520)),
     ], chk('« Il ... mettre des bottes. » (falloir) EN: You had to wear boots.', ['fallait', 'faut', 'fallais'], 0, 'il fallait : il, donc -ait. il faut, c’est le présent. EN: il faut is the present.')),
     grp('La météo', [
-      it(E(30)), it(E(48)), it(E(513)), it(E(518)), it(E(514)), it(E(515)), it(E(517)), it(E(519)), it(E(65)),
+      it(E(1430)), it(E(1448)), it(E(513)), it(E(518)), it(E(514)), it(E(515)), it(E(517)), it(E(519)), it(E(1465)),
     ], chk('neiger, à l’imparfait : EN: neiger, in the imparfait:', ['il neigait', 'il neigeait', 'il neigeaient'], 1, 'neig- + e + ait : le e garde [ʒ]. EN: the -ger e.')),
     ctl('Qui est il ?', 'Dans « il faisait beau », il représente qui ? EN: Who is il?', ['personne', 'un homme', 'le soleil'], 0, 'Personne : c’est un il impersonnel. EN: nobody; impersonal il.'),
   ],
@@ -2039,7 +2039,7 @@ const A11_CONSTRUIRE: Sec<'groupDrill'> = {
       it('fr.sons.muettes.036', 'l’infinitif'), it('fr.a2.verbes.552', 'avec avoir'), it(E(543), 'avec avoir'), it(E(545), 'avec avoir'), it(E(549), 'après aimer'), it(E(550), 'après aimer'),
     ], chk('« Hier, j’ai ... avec ma tante. » EN: Yesterday I talked with my aunt.', ['parler', 'parlé', 'parlais'], 1, 'j’ai devant : parlé. Test : j’ai vendu. EN: after j’ai, the participle.')),
     grp('-é ou -ais', [
-      it(E(544), 'sans avoir'), it(E(546), 'sans avoir'), it(E(547), 'tu : -ais'), it(E(548), 'ils : -aient'), it(E(1)), it(E(5)),
+      it(E(544), 'sans avoir'), it(E(546), 'sans avoir'), it(E(547), 'tu : -ais'), it(E(548), 'ils : -aient'), it(E(1401)), it(E(1405)),
     ], chk('« Quand j’étais petite, je ... wolof. » EN: When I was little, I spoke Wolof.', ['parlé', 'parler', 'parlais'], 2, 'Pas d’avoir, et je : parlais. Test : je vendais. EN: no auxiliary, je: -ais.')),
     ctl('Après un verbe', '« Elle aimait ... . » (danser) EN: She loved to dance.', ['danser', 'dansé', 'dansait'], 0, 'Après aimer : l’infinitif. Test : aimer vendre. EN: infinitive after aimer.'),
   ],
@@ -2076,7 +2076,7 @@ const A11_DICTEE: Sec<'dictation'> = {
   layer: 'core',
   title: 'La grande dictée',
   frSub: 'Tout ce qu’on n’entend pas',
-  itemIds: [...dicteeFor(11), E(5), E(8), E(404), E(16), E(20), E(25), E(513), E(528)],
+  itemIds: [...dicteeFor(11), E(1405), E(1408), E(404), E(1416), E(1420), E(1425), E(513), E(528)],
   audio: AUDIO,
   say: 'Écoute, puis écris. Pense au sujet, au e, au ç, aux deux i.',
   terms: ['homo', 'son'],
@@ -2602,15 +2602,15 @@ const ACT12: ActDef = {
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const DRILL_LIST: LessonDrill[] = [
-  { id: 'd-avant', title: 'Maintenant ou avant', format: 'flashcard' as const, coach: 'Lis la phrase. Elle parle d’aujourd’hui ou d’avant ? Dis-la avec la bonne forme. EN: Today or before? Say it with the right form.', items: [E(61), E(62), E(41), E(40), E(42), 'fr.a2.verbes.103'], audio: AUDIO },
-  { id: 'd-stem', title: 'Retrouve la base', format: 'mcq' as const, coach: 'Dis le verbe avec nous, au présent. Coupe -ons. Ce qui reste, c’est la base. EN: Say nous, cut -ons: that is the stem.', q: 'nous finissons. Avec je : EN: With je:', opts: ['je finais', 'je finissais', 'je finissait'], correct: 1, why: 'finiss- + ais. EN: keep -iss-, and je takes -ais.', items: [E(6), E(404), E(405), E(407), E(409), 'fr.a2.verbes.184'], audio: AUDIO },
-  { id: 'd-endings', title: 'Le sujet choisit la fin', format: 'mcq' as const, coach: 'Tu entends la même chose. Regarde le sujet, et écris sa fin. EN: Same sound; the subject picks the spelling.', q: 'Mes parents ... un dépanneur. EN: My parents had a corner store.', opts: ['avait', 'avais', 'avaient'], correct: 2, why: 'Mes parents = ils : -aient. EN: plural subject.', items: [E(1), E(414), E(2), E(5), E(59), E(70)], audio: AUDIO },
-  { id: 'd-irreg', title: 'Irrégulier ? Pars de nous', format: 'mcq' as const, coach: 'Oublie je bois, je prends. Dis nous buvons, nous prenons. EN: Forget the je form; say the nous form.', q: 'nous prenons. Avec je : EN: With je:', opts: ['je prendais', 'je prenais', 'je prennais'], correct: 1, why: 'pren- : un n, pas de d. EN: one n, no d.', items: [E(8), E(440), E(9), E(430), E(434), E(436)], audio: AUDIO },
-  { id: 'd-etre', title: 'ét-', format: 'flashcard' as const, coach: 'être est le seul verbe à part. Dis ét-, puis la fin. EN: être alone uses ét-.', items: [E(16), E(465), E(466), E(17), E(467), E(18)], audio: AUDIO },
-  { id: 'd-ger', title: 'Un e, ou rien', format: 'sort' as const, coach: 'Deux piles. Regarde la lettre après le g : a, ou i ? EN: Sort by the letter after g.', buckets: ['devant a : e', 'devant i : rien'], items: [E(20), E(21), E(475), E(474), E(22), E(481)], audio: AUDIO },
-  { id: 'd-cer', title: 'Une cédille, ou rien', format: 'sort' as const, coach: 'Deux piles. Regarde la lettre après le c : a, ou i ? EN: Sort by the letter after c.', buckets: ['devant a : ç', 'devant i : c'], items: [E(23), E(24), E(489), E(488), E(25), E(494)], audio: AUDIO },
-  { id: 'd-ii', title: 'Deux i', format: 'mcq' as const, coach: 'La base finit par i ou y ? La fin commence par i ? Écris les deux. EN: Stem in i or y plus -ions: write both.', q: 'étudier, avec nous : EN: étudier with nous:', opts: ['nous étudions', 'nous étudiions', 'nous étudiyons'], correct: 1, why: 'étudi- + ions. La première est le présent. EN: the first is the present.', items: [E(26), E(27), E(28), E(29), E(11), E(503)], audio: AUDIO },
-  { id: 'd-impers', title: 'Avec il', format: 'mcq' as const, coach: 'il ne représente personne. Il prend toujours -ait. EN: impersonal il always takes -ait.', q: '« Il y ... des arbres. » EN: There were trees.', opts: ['avaient', 'avait', 'étaient'], correct: 1, why: 'il y avait, toujours au singulier. EN: always singular.', items: [E(32), E(31), E(30), E(513), E(515), E(516)], audio: AUDIO },
+  { id: 'd-avant', title: 'Maintenant ou avant', format: 'flashcard' as const, coach: 'Lis la phrase. Elle parle d’aujourd’hui ou d’avant ? Dis-la avec la bonne forme. EN: Today or before? Say it with the right form.', items: [E(1461), E(1462), E(1441), E(1440), E(1442), 'fr.a2.verbes.103'], audio: AUDIO },
+  { id: 'd-stem', title: 'Retrouve la base', format: 'mcq' as const, coach: 'Dis le verbe avec nous, au présent. Coupe -ons. Ce qui reste, c’est la base. EN: Say nous, cut -ons: that is the stem.', q: 'nous finissons. Avec je : EN: With je:', opts: ['je finais', 'je finissais', 'je finissait'], correct: 1, why: 'finiss- + ais. EN: keep -iss-, and je takes -ais.', items: [E(1406), E(404), E(405), E(407), E(409), 'fr.a2.verbes.184'], audio: AUDIO },
+  { id: 'd-endings', title: 'Le sujet choisit la fin', format: 'mcq' as const, coach: 'Tu entends la même chose. Regarde le sujet, et écris sa fin. EN: Same sound; the subject picks the spelling.', q: 'Mes parents ... un dépanneur. EN: My parents had a corner store.', opts: ['avait', 'avais', 'avaient'], correct: 2, why: 'Mes parents = ils : -aient. EN: plural subject.', items: [E(1401), E(414), E(1402), E(1405), E(1459), E(1470)], audio: AUDIO },
+  { id: 'd-irreg', title: 'Irrégulier ? Pars de nous', format: 'mcq' as const, coach: 'Oublie je bois, je prends. Dis nous buvons, nous prenons. EN: Forget the je form; say the nous form.', q: 'nous prenons. Avec je : EN: With je:', opts: ['je prendais', 'je prenais', 'je prennais'], correct: 1, why: 'pren- : un n, pas de d. EN: one n, no d.', items: [E(1408), E(440), E(1409), E(430), E(434), E(436)], audio: AUDIO },
+  { id: 'd-etre', title: 'ét-', format: 'flashcard' as const, coach: 'être est le seul verbe à part. Dis ét-, puis la fin. EN: être alone uses ét-.', items: [E(1416), E(465), E(466), E(1417), E(467), E(1418)], audio: AUDIO },
+  { id: 'd-ger', title: 'Un e, ou rien', format: 'sort' as const, coach: 'Deux piles. Regarde la lettre après le g : a, ou i ? EN: Sort by the letter after g.', buckets: ['devant a : e', 'devant i : rien'], items: [E(1420), E(1421), E(475), E(474), E(1422), E(481)], audio: AUDIO },
+  { id: 'd-cer', title: 'Une cédille, ou rien', format: 'sort' as const, coach: 'Deux piles. Regarde la lettre après le c : a, ou i ? EN: Sort by the letter after c.', buckets: ['devant a : ç', 'devant i : c'], items: [E(1423), E(1424), E(489), E(488), E(1425), E(494)], audio: AUDIO },
+  { id: 'd-ii', title: 'Deux i', format: 'mcq' as const, coach: 'La base finit par i ou y ? La fin commence par i ? Écris les deux. EN: Stem in i or y plus -ions: write both.', q: 'étudier, avec nous : EN: étudier with nous:', opts: ['nous étudions', 'nous étudiions', 'nous étudiyons'], correct: 1, why: 'étudi- + ions. La première est le présent. EN: the first is the present.', items: [E(1426), E(1427), E(1428), E(1429), E(1411), E(503)], audio: AUDIO },
+  { id: 'd-impers', title: 'Avec il', format: 'mcq' as const, coach: 'il ne représente personne. Il prend toujours -ait. EN: impersonal il always takes -ait.', q: '« Il y ... des arbres. » EN: There were trees.', opts: ['avaient', 'avait', 'étaient'], correct: 1, why: 'il y avait, toujours au singulier. EN: always singular.', items: [E(1432), E(1431), E(1430), E(513), E(515), E(516)], audio: AUDIO },
   { id: 'd-pronneg', title: 'Les petits mots', format: 'mcq' as const, coach: 'Le pronom et ne restent devant le verbe. pas va derrière. EN: pronoun and ne before, pas after.', q: 'Quelle phrase est correcte ? EN: Which is correct?', opts: ['Je levais me tôt.', 'Je ne me levais pas tôt.', 'Je me ne levais pas tôt.'], correct: 1, why: 'ne, puis me, puis le verbe, puis pas. EN: ne, pronoun, verb, pas.', items: [E(523), E(526), E(528), E(529), E(531), E(532)], audio: AUDIO },
   { id: 'd-homo', title: 'vendre, vendu, vendais', format: 'mcq' as const, coach: 'Remplace par vendre. Ce que tu entends te dit quoi écrire. EN: Swap in vendre and listen.', q: '« Tu as ... ta tante ? » (appeler) EN: Did you call your aunt?', opts: ['appeler', 'appelé', 'appelais'], correct: 1, why: 'Tu as vendu : appelé. EN: vendu, so the participle.', items: [E(543), E(544), E(545), E(546), E(549), 'fr.a2.verbes.552'], audio: AUDIO },
 ];
