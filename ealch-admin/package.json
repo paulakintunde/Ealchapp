@@ -70,6 +70,8 @@
     "content:pronominaux": "tsx scripts/author-pronominaux-batch.ts",
     "content:demonstratifs": "tsx scripts/author-demonstratifs-batch.ts",
     "content:pronoms-possessifs": "tsx scripts/author-pronoms-possessifs-batch.ts",
+    "content:sons-acts": "tsx scripts/author-sons-acts-batch.ts",
+    "content:sons-acts-merge": "tsx scripts/merge-sons-acts-into-seed.ts",
     "corpus:probe": "tsx scripts/probe-corpus.ts",
     "content:publish": "tsx scripts/publish-content.ts",
     "content:prune": "tsx scripts/prune-snapshots.ts",
