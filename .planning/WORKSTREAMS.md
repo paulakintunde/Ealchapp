@@ -12,8 +12,8 @@ reports the deltas before doing anything else. Claude writes it back at the end
 of a session, in the same commit as the work. Paul edits any line, any time —
 the human line is always right and Claude reconciles to it, never the reverse.
 
-Last sync: 2026-09-23, after publishing v73 (adb8129) and the tracking pass over
-ROADMAP.md / STATE.md.
+Last sync: 2026-09-24, after the 22.1 device pass (451e385), 07.1 planning, B1
+wave 1, and a second tracking pass over ROADMAP.md / STATE.md.
 
 ---
 
@@ -60,7 +60,7 @@ narration scripts.
 
 | | |
 |---|---|
-| Position | Lessons committed (ff4fdf8): b1.01 formation (12 acts, 85 missions), b1.02 usages, b1.03 pc-imparfait, b1.04 paires. The English toggle and the a2.20 gloss fix both landed 2026-09-23 |
+| Position | b1.01 formation, plus b1.02-b1.04 rebuilt to the rich standard, plus wave 1 (b1.05-b1.08, the future and the conditional) all committed. 200 authored ids moved off published rows (251ff95). The build playbook and a log that survives a cleared session are in. The English toggle and the a2.20 gloss fix landed 2026-09-23 |
 | Next | Paul's call — finish the b1.01–04 pilot, or publish b1.01 first |
 | Blocked on | Nothing |
 
@@ -78,13 +78,21 @@ landed on 2026-09-23, after this file last described them as dirty-tree work:
   `accessibilityLabel`, so `lessonImageAlt()` has its caller at last. The 22
   images with no alt text stay Phase 8's work.
 
-**What is still uncommitted, and why it is not leftovers.** A `__DEV__`-only
-`DEV-PREVIEW-B101` card on `den.tsx` that opens the unpublished b1.01 draft,
-plus its supporting `dev-preview-b101.json` and small `schema.ts`,
-`content.ts` and `LessonPager.tsx` changes. It is the only way into that draft
-on a device. **It pushes `/lessonoverview`, a route Phase 07.1 deletes** —
-logged as D-30 in that phase's context so it gets a replacement rather than a
-breakage.
+**What is still uncommitted, and why it is not leftovers.** Two things, both
+live. (1) **B1 wave 2**, untracked: `politesse`, `qui-que` and `si-clauses`,
+corpus/lesson/terms each. (2) A **temporary Phase 07.1 D-38 probe** —
+`app/devsheet.tsx` and a `_layout.tsx` hunk — settling whether
+`presentation: 'formSheet'` renders a real Android bottom sheet on this stack
+or falls back to a full-screen modal. expo-router’s vendored types say it
+falls back; the shipped react-native-screens 4.26.2 Kotlin says otherwise. Both
+files are self-labelled for deletion once the verdict is recorded.
+
+**Landed 2026-09-23, no longer in the tree:** the a2.20 gloss fix (`ac97d69`),
+the alt-text caller (`f6b8b24`), the B1+ English toggle (`0b6a1a9`), and the act
+chapter cards plus the `DEV-PREVIEW-B101` card and its `dev-preview-b101.json`
+(`39baeec`). That preview card **pushes `/lessonoverview`, a route Phase 07.1
+deletes** — logged as D-30 in that phase’s context so it gets a replacement
+rather than a breakage. `act.opener` shipped with **no test asserting on it**.
 
 **The rest of the dirty tree, so nobody has to re-derive it.**
 `ealch-admin/PUBLISH-REPORT.md` is generated — it currently holds the
@@ -96,10 +104,11 @@ v1.0 milestone audit, untracked because `*.md` is gitignored here (new ones need
 and `ealch-v2/supabase/.temp/cli-latest`.
 
 **Not on the roadmap.** No GSD phase covers B1 content. That is fine as long as
-we both know it, and stops being fine the moment it needs app changes — and the
-English toggle above **is** app changes, across thirteen files in `ealch-v2/`.
-That line has now been crossed. It wants either a GSD phase or an explicit
-decision to keep it outside `.planning/`.
+we both know it, and stopped being fine the moment it needed app changes. That
+line was crossed and then absorbed: the English toggle landed as `0b6a1a9`, and
+Phase 07.1 now owns its future — criterion 3 drives trail headings from
+`ENGLISH_TAUGHT_BANDS`, criterion 5 extends the control from two states to three.
+The B1 *content* itself is still unowned by any phase.
 
 **Watch:** b1.01 is still seed-absent, reachable only through the dev preview.
 Publishing is now unblocked: v73 went out cleanly, so b1.01 ships whenever it is
@@ -117,7 +126,7 @@ the three-state language control.
 | | |
 |---|---|
 | Position | **Phase 07.1 exists** (ROADMAP.md, inserted after Phase 7, NAV-01, 8 success criteria). Canvas v11, Concept C and all six outstanding boards approved. The design work is finished |
-| Next | `/gsd-plan-phase 07.1` — but commit and device-prove the two-state English toggle first, see below |
+| Next | Execute. Planning is finished: 11 plans in 7 waves, pre-execution audit done. 07.1-02 is the device gate and carries the toggle proof (D-17) and the formSheet probe (D-38) |
 | Blocked on | Nothing. The placement question that sat here since 2026-09-22 is answered |
 
 **Ratified 2026-09-23.** Decisions now, not options. Build from them:

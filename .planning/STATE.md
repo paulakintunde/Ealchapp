@@ -3,25 +3,28 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 22.1-07-PLAN.md
-last_updated: "2026-09-23T16:25:33.325Z"
-last_activity: 2026-09-23
+stopped_at: Completed 22.1-08-PLAN.md — Phase 22.1 fully executed
+last_updated: "2026-09-24T00:00:00.000Z"
+last_activity: 2026-09-24
 progress:
   total_phases: 25
-  completed_phases: 8
-  total_plans: 50
-  completed_plans: 49
-  percent: 32
+  completed_phases: 9
+  total_plans: 61
+  completed_plans: 50
+  percent: 36
   percent_basis: phases
   percent_note: >-
-    8 of 25 phases have all their plans executed (1-7, 18). The old 96/98% was
-    plans-complete over plans-WRITTEN, and Phases 8-17 and 19-23 are still
-    "0/TBD" in ROADMAP.md, so it divided by a denominator that excluded most of
-    the milestone. Phase share is the honest figure until the rest is planned.
-    Phase 07.1 was inserted 2026-09-23, taking the denominator from 24 to 25.
+    9 of 25 phases have all their plans executed (1-7, 18, 22.1). The old
+    96/98% was plans-complete over plans-WRITTEN, and Phases 8-17 and 19-23
+    have never been planned at all, so it divided by a denominator most of the
+    milestone is missing from. Phase share is the honest figure until the rest
+    is planned. Counted off disk 2026-09-24: 61 PLAN files, 50 SUMMARY files.
+    Phase 07.1 was inserted 2026-09-23, taking the denominator from 24 to 25,
+    and brought 11 written-but-unexecuted plans with it, which is most of the
+    gap between 61 and 50.
     NOTE: gsd-sdk's state handlers drop percent_basis/percent_note and
-    recompute percent from plans. If 98 reappears here, that is the handler,
-    not a real change.
+    recompute percent from plans. If 82 or 98 reappears here, that is the
+    handler, not a real change.
 ---
 
 # Project State
@@ -31,23 +34,24 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 22.1 — bundle-exam-content-in-the-seed-so-exams-load-at-first-launc
+**Current focus:** Phase 07.1 — concept-c-spine-rewrite (22.1 is executed, awaiting close-out)
 
 ## Current Position
 
 Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED
 Plan: 8 of 8 complete — 22.1-08's offline device pass ran on a Pixel 9 (451e385)
 Status: Pending phase close-out (/gsd-verify-work or gsd-verifier). Not blocked
-Next phase: 07.1 (concept-c-spine-rewrite) — context written, planning underway
-Last activity: 2026-09-23
+Next phase: 07.1 (concept-c-spine-rewrite) — **fully planned**, 11 plans in 7 waves,
+  pre-execution audit done, 0 executed. Ready to start. It blocks 8, 9, 11, 12 and 13
+Last activity: 2026-09-24
 
-Progress: [███░░░░░░░] 32% — 8 of 25 phases. See ROADMAP.md's "How to read this table"
+Progress: [████░░░░░░] 36% — 9 of 25 phases. See ROADMAP.md's "How to read this table"
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 49 (was recorded as 28; that count stopped being updated around Phase 5)
+- Total plans completed: 50 of 61 written (was recorded as 28 until 2026-09-23; that count stopped being updated around Phase 5)
 - Average duration: ~15 min
 - Total execution time: 0 hours
 
@@ -127,7 +131,10 @@ None yet.
 - REQUIREMENTS.md's summary line stated "30 total" v1 requirements; the enumerated requirement list actually contains 29 distinct IDs. Corrected to 29 during roadmap traceability update — worth a quick sanity check next time REQUIREMENTS.md is touched.
 - ANIM-01 is the one requirement mapped to two phases (11 and 12) rather than exactly one — a deliberate, documented exception from the Phase 11 split, not an orphan/duplicate error. Flag this if any future coverage-validation tooling assumes strict 1:1 requirement-to-phase mapping.
 - ~~Phase 22.1 Plan 05 flag: an uncommitted a2.20.l1 version 3-to-4 edit sitting in the working tree~~ — **resolved 2026-09-23 by plan 07**, committed as f32f05d so HEAD, the working tree and Postgres all agree on v3.
-- The working tree is **not clean, and that is expected** — see `WORKSTREAMS.md` section B. It holds two live, deliberate pieces of work, not leftover edits: (1) the B1+ English toggle (`english.logic.ts`, `GlossContext.tsx`, `Type.tsx`, `LessonPager.tsx`, `den.tsx`, `lesson.tsx`, `schema.ts` and the rest), and (2) a text-only gloss correction to a2.20's participes corpus (E604 "I knew" to "I found out", E606 "I wanted to" to "I tried to"), carrying an explicit NO BUMP note because `Lesson.version` keys learner checkmarks and XP. Do not `git checkout` either set — the a2.20 glosses in particular already shipped to Postgres and to `seed.json` in v73, so HEAD's authoring source is now *behind* the published content and reverting it would undo a live fix. The genuinely stray files in that tree are `ealch-v2/bash.exe.stackdump` and `ealch-v2/supabase/.temp/cli-latest`.
+- ~~The working tree holds the uncommitted B1+ English toggle and the a2.20 gloss correction~~ — **all committed 2026-09-23**: a2.20 glosses as `ac97d69`, the alt-text caller as `f6b8b24`, the English toggle as `0b6a1a9`, and the act chapter cards plus the b1.01 dev preview as `39baeec`.
+- The tree is **still deliberately dirty, with different contents now.** In flight as of 2026-09-24: B1 wave 2 (`politesse`, `qui-que`, `si-clauses`, corpus/lesson/terms each, untracked), and a temporary Phase 07.1 D-38 probe (`app/devsheet.tsx` plus a `_layout.tsx` hunk) that settles whether `presentation: 'formSheet'` gives a real Android bottom sheet or falls back to a full-screen modal — both self-labelled for deletion once the verdict is recorded. Genuinely stray: `ealch-v2/bash.exe.stackdump`. Generated and always flapping: `ealch-admin/PUBLISH-REPORT.md`, `ealch-v2/supabase/.temp/cli-latest`.
+- **`act.opener` shipped untested.** The chapter-card field and its `LessonPager` branch landed in `39baeec`, and nothing asserts on `act.opener` in any test. `image-refs.test.ts` walks every `imageRef` recursively so it *would* guard the 12 authored openers, but only for lessons in `seed.json`, and b1.01 is not published — so that guard is inert today. Pin it when b1.01 publishes.
+- **Two verifier boxes are owed and one was flipped early.** Phases 5 and 6 both have a `passed` VERIFICATION.md (12/12 each) and unchecked boxes; Phase 3's box is checked with no report written at all. `05-UAT.md` has sat untracked at `status: testing` since 2026-09-23. See ROADMAP.md's box-versus-table table.
 
 ## Deferred Items
 
@@ -139,6 +146,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-23
-Stopped at: Completed 22.1-07-PLAN.md (v73 published). 22.1-08 next — needs a physical device
+Last session: 2026-09-24
+Stopped at: Phase 22.1 fully executed (8/8). Next is 07.1, which is fully planned at 11 plans and not started
 Resume file: None
