@@ -235,7 +235,7 @@ Plans:
   6. A first-run learner with nothing completed sees a start marker in place of Reprendre, a dismissible orientation card and a dismissible placement offer, and both dismissals survive a relaunch.
   7. The paywall appears in exactly two trail positions (end of the A1 trail, pinned above a locked band's trail), routes to `/paywall?from=gate:levels`, and leaves locked acts readable and pressable. `05-GATING-RULE.md` is unchanged by this phase.
   8. Every replaced screen is proven on a physical device, not only in tests.
-**Plans**: 11 plans in 7 waves
+**Plans**: 11 plans in 8 waves
 
 Plans:
 - [ ] 07.1-01-PLAN.md - acts, section ids and tranches for sons.01 to sons.04, the content prerequisite that gates the trail (D-31)
@@ -488,7 +488,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 5. Paywall Coverage Expansion & Upgrade Nudge | 7/7 | Complete - 05-VERIFICATION.md passed, 12/12 must-haves | 2026-09-20 |
 | 6. Notification Correctness — Body Format & Toggles | 5/5 | Complete - 06-VERIFICATION.md passed, 12/12 must-haves | 2026-09-21 |
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
-| 7.1 Concept C Spine Rewrite (INSERTED) | 0/11 | Planned, not started - 11 plans in 7 waves, pre-execution audit done. Blocks Phases 8, 9, 11, 12, 13 | - |
+| 7.1 Concept C Spine Rewrite (INSERTED) | 0/11 | Planned, not started - 11 plans in 8 waves, pre-execution audit and readiness pass done. Blocks Phases 8, 9, 11, 12, 13 | - |
 | 8. Accessibility Retrofit | 0/TBD | Not started | - |
 | 9. Onboarding & Analytics Audit | 0/TBD | Not started | - |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |

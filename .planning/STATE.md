@@ -41,8 +41,8 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED
 Plan: 8 of 8 complete — 22.1-08's offline device pass ran on a Pixel 9 (451e385)
 Status: Pending phase close-out (/gsd-verify-work or gsd-verifier). Not blocked
-Next phase: 07.1 (concept-c-spine-rewrite) — **fully planned**, 11 plans in 7 waves,
-  pre-execution audit done, 0 executed. Ready to start. It blocks 8, 9, 11, 12 and 13
+Next phase: 07.1 (concept-c-spine-rewrite) — **fully planned**, 11 plans in 8 waves,
+  pre-execution audit done and a readiness pass on 2026-09-24 (D-38 settled on the Pixel 6: real bottom sheet), 0 executed. Ready to start. It blocks 8, 9, 11, 12 and 13
 Last activity: 2026-09-24
 
 Progress: [████░░░░░░] 36% — 9 of 25 phases. See ROADMAP.md's "How to read this table"
