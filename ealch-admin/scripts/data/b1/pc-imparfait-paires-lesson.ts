@@ -315,8 +315,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it(E(306), 'le départ, enfin'),
     ], chk(
       'Dans le texte, « je devais partir en septembre ». Est-elle partie en septembre ? EN: Did she leave in September?',
-      ["Oui, c'est sûr.", "Non, c'est sûr.", 'Le verbe ne le dit pas.'],
-      2,
+      ['Le verbe ne le dit pas.', "Oui, c'est sûr.", "Non, c'est sûr."],
+      0,
       "je devais donne le plan, pas le résultat. C'est « j'ai pu partir en novembre » qui répond. EN: devais gives the plan; the outcome comes later.",
     )),
     grp('Ce que tu savais, ce que tu apprends', [
@@ -325,8 +325,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it(E(319), 'un moment : la nouvelle arrive'),
     ], chk(
       "« En août, j'ai su que mon visa n'était pas prêt. » Quand l'a-t-elle appris ? EN: When did she find out?",
-      ['En août.', 'Avant août.', 'Elle ne le sait pas encore.'],
-      0,
+      ['Avant août.', 'En août.', 'Elle ne le sait pas encore.'],
+      1,
       "j'ai su marque le moment où la nouvelle arrive. EN: su marks the moment the news arrives.",
     )),
     grp('Les rencontres et les essais', [
@@ -335,8 +335,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it(E(303), 'les deux temps dans une phrase'),
     ], chk(
       "« J'ai connu Mathieu le premier soir. » Ça veut dire : EN: It means:",
-      ['Je le connaissais déjà.', 'Je l\'ai rencontré ce soir-là.', "J'ai appris son nom."],
-      1,
+      ['Je le connaissais déjà.', "J'ai appris son nom.", 'Je l\'ai rencontré ce soir-là.'],
+      2,
       "Au passé composé, connaître dit la rencontre. EN: connu is the meeting.",
     )),
   ],
@@ -373,9 +373,9 @@ const A1_NEUF: Sec<'examples'> = {
 };
 
 const A1_CHECK = actCheck('a1-check', 'Le point : acte 1', [
-  ctl('Le sens', "Nadia dit : « Je devais venir. » Est-elle venue ? EN: Did she come?", ['Oui.', 'Non.', 'La phrase ne le dit pas.'], 2, "je devais donne le plan. EN: devais gives the plan, not the outcome."),
-  ctl('La paire', "« J'ai dû partir à huit heures. » Est-ce que la personne est partie ? EN: Did the person leave?", ['Oui.', 'Non.', 'On ne sait pas.'], 0, "j'ai dû : obligé, et c'est fait. EN: had to, and did."),
-  ctl('Attention', 'Ces deux phrases sont-elles correctes : « Hier, il pleuvait » et « Hier, il a plu » ? EN: Are both correct?', ['Les deux.', 'Seulement la première.', 'Seulement la deuxième.'], 0, "Les deux. hier est un indice, pas une règle : acte 9. EN: both; hier is a clue, not a rule."),
+  ctl('Le sens', "Nadia dit : « Je devais venir. » Est-elle venue ? EN: Did she come?", ['La phrase ne le dit pas.', 'Oui.', 'Non.'], 0, "je devais donne le plan. EN: devais gives the plan, not the outcome."),
+  ctl('La paire', "« J'ai dû partir à huit heures. » Est-ce que la personne est partie ? EN: Did the person leave?", ['Non.', 'Oui.', 'On ne sait pas.'], 1, "j'ai dû : obligé, et c'est fait. EN: had to, and did."),
+  ctl('Attention', 'Ces deux phrases sont-elles correctes : « Hier, il pleuvait » et « Hier, il a plu » ? EN: Are both correct?', ['Seulement la première.', 'Seulement la deuxième.', 'Les deux.'], 2, "Les deux. hier est un indice, pas une règle : acte 9. EN: both; hier is a clue, not a rule."),
 ], ['resultat', 'indice']);
 
 const ACT1: ActDef = {
@@ -521,8 +521,8 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(318), 'tu le savais déjà'), it(E(319), 'tu l’apprends'), it(E(322), 'un état, au négatif'), it(E(327), 'la nouvelle n’est jamais arrivée'),
     ], chk(
       "« Je ___ que tu étais malade. » Tu l'as appris ce matin. EN: You found out this morning.",
-      ['savais', 'ai su'],
-      1,
+      ['ai su', 'savais'],
+      0,
       "L'information arrive ce matin : j'ai su. EN: the news arrived this morning.",
     )),
   ],
@@ -545,8 +545,8 @@ const A2_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Première phrase : la personne l’a appris à ce moment-là ? EN: Did the person find out at that moment?', opts: ['Oui.', 'Non, elle le savait déjà.'], correct: 1, why: "je savais : un état. EN: savais is a state." },
-    { q: 'Deuxième phrase : quand la nouvelle est-elle arrivée ? EN: When did the news arrive?', opts: ['Hier soir.', 'Depuis longtemps.', 'On ne sait pas.'], correct: 0, why: "Hier soir, j'ai su : le moment est dans la phrase. EN: the moment is in the sentence." },
-    { q: '« On l’a su par un collègue. » Ça veut dire : EN: It means:', opts: ['Nous le savions depuis longtemps.', 'Un collègue nous l’a appris.'], correct: 1, why: "l'a su : le moment où la nouvelle arrive, et par qui. EN: how the news reached us." },
+    { q: 'Deuxième phrase : quand la nouvelle est-elle arrivée ? EN: When did the news arrive?', opts: ['Depuis longtemps.', 'On ne sait pas.', 'Hier soir.'], correct: 2, why: "Hier soir, j'ai su : le moment est dans la phrase. EN: the moment is in the sentence." },
+    { q: '« On l’a su par un collègue. » Ça veut dire : EN: It means:', opts: ['Un collègue nous l’a appris.', 'Nous le savions depuis longtemps.'], correct: 0, why: "l'a su : le moment où la nouvelle arrive, et par qui. EN: how the news reached us." },
     { q: '« Je ne l’ai jamais su. » Est-ce que la personne sait, aujourd’hui ? EN: Does the person know today?', opts: ['Oui.', 'Non.'], correct: 1, why: "La nouvelle n'est jamais arrivée. EN: the news never came." },
     { q: 'Dernière phrase : « Je savais nager à cinq ans. » Ça parle de : EN: It talks about:', opts: ['une capacité', 'une nouvelle', 'un refus'], correct: 0, why: "savoir + verbe à l'imparfait : une capacité que tu avais. EN: a skill you had." },
   ],
@@ -579,13 +579,13 @@ const A2_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'Le moment où tu apprends.', promptSound: 'Quand je savais la nouvelle, j’ai appelé ma sœur.', fr: "Quand j'ai su la nouvelle, j'ai appelé ma sœur.", ipa: '/kɑ̃ ʒe sy la nu.vɛl ʒe a.ple ma sœʁ/', tip: "Deux moments qui se suivent. EN: two moments, one after the other." },
   ],
   drill: [
-    { promptSay: "Hier soir, j'... que tu déménageais. (tu l'as appris hier)", opts: ['savais', 'ai su'], correct: 1 },
-    { promptSay: 'Quand elle est entrée, il ... déjà la réponse.', opts: ['savait', 'a su'], correct: 0 },
+    { promptSay: "Hier soir, j'... que tu déménageais. (tu l'as appris hier)", opts: ['ai su', 'savais'], correct: 0 },
+    { promptSay: 'Quand elle est entrée, il ... déjà la réponse.', opts: ['a su', 'savait'], correct: 1 },
     { promptSay: 'Je ne ... pas que le café fermait si tôt.', opts: ['savais', 'ai su'], correct: 0 },
     { promptSay: 'Nous ... la nouvelle par un collègue.', opts: ['savions', 'avons su'], correct: 1 },
     { promptSay: 'À dix ans, elle ... déjà parler trois langues.', opts: ['savait', 'a su'], correct: 0 },
-    { promptSay: 'Je ne l’... jamais ... .', opts: ['ai su', 'savais'], correct: 0 },
-    { promptSay: 'Tout le monde le ... , sauf moi.', opts: ['a su', 'savait'], correct: 1 },
+    { promptSay: 'Je ne l’... jamais ... .', opts: ['savais', 'ai su'], correct: 1 },
+    { promptSay: 'Tout le monde le ... , sauf moi.', opts: ['savait', 'a su'], correct: 0 },
     { promptSay: "J'... la vérité trop tard.", opts: ['savais', 'ai su'], correct: 1 },
   ],
   steps: [
@@ -600,8 +600,8 @@ const A2_PIEGE: Sec<'trapDrill'> = {
 };
 
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
-  ctl('Le sens', "« Je savais qu'elle partait. » Quand l'as-tu appris ? EN: When did you find out?", ['À ce moment-là.', 'Avant, on ne sait pas quand.'], 1, "L'imparfait ne donne pas le moment : il donne l'état. EN: the imparfait gives the state, not the moment."),
-  ctl('La forme', 'Le participe de savoir : EN: The participle of savoir:', ['su', 'savu', 'savé'], 0, "su. EN: su."),
+  ctl('Le sens', "« Je savais qu'elle partait. » Quand l'as-tu appris ? EN: When did you find out?", ['Avant, on ne sait pas quand.', 'À ce moment-là.'], 0, "L'imparfait ne donne pas le moment : il donne l'état. EN: the imparfait gives the state, not the moment."),
+  ctl('La forme', 'Le participe de savoir : EN: The participle of savoir:', ['savu', 'su', 'savé'], 1, "su. EN: su."),
   ctl('Le deuxième sens', '« Je savais nager. » Ça veut dire : EN: It means:', ['I found out how to swim.', 'I could swim.'], 1, "savoir + verbe à l'imparfait : une capacité. EN: a skill you had."),
 ], ['etat', 'moment']);
 
@@ -737,16 +737,16 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(331), 'je'), it(E(332), 'tu'), it(E(333), 'nous'), it(E(334), 'ils'),
     ], chk(
       'nous connaissons au présent. La base de l’imparfait est : EN: The imparfait stem is:',
-      ['connaiss-', 'connait-', 'connu-'],
-      0,
+      ['connait-', 'connu-', 'connaiss-'],
+      2,
       `Coupe -ons : connaiss-. ${B101_REFRAME} EN: cut -ons from nous connaissons.`,
     )),
     grp('Le passé composé : la rencontre', [
       it(E(335), 'je'), it(E(336), 'elle'), it(E(338), 'la rencontre, en entier'), it('fr.a2.verbes.608', 'et la phrase publiée'),
     ], chk(
       "« Je ___ ta mère il y a vingt ans. » Tu l'as rencontrée à ce moment-là. EN: You met her then.",
-      ['connaissais', 'ai connu'],
-      1,
+      ['ai connu', 'connaissais'],
+      0,
       'La rencontre est un moment : passé composé. EN: the meeting is a moment.',
     )),
     grp('Le sens : ouvert ou fermé', [
@@ -774,10 +774,10 @@ const A3_ECOUTE: Sec<'listening'> = {
     ln(E(337)), ln(E(338)), ln(E(340)), ln(E(341)), ln(E(343)), ln(E(345)), ln(E(347)), ln(E(348)),
   ],
   questions: [
-    { q: 'Première phrase : y a-t-il une rencontre ? EN: Is there a meeting?', opts: ['Oui.', 'Non.'], correct: 1, why: 'je connaissais : un état, pas de rencontre. EN: a state, no meeting.' },
+    { q: 'Première phrase : y a-t-il une rencontre ? EN: Is there a meeting?', opts: ['Non.', 'Oui.'], correct: 0, why: 'je connaissais : un état, pas de rencontre. EN: a state, no meeting.' },
     { q: 'Deuxième phrase : où la rencontre a-t-elle eu lieu ? EN: Where did they meet?', opts: ['À Dakar.', 'À Genève.', 'On ne sait pas.'], correct: 0, why: "J'ai connu sa sœur à Dakar. EN: in Dakar." },
     { q: '« Il a connu des hivers très durs. » Ça veut dire : EN: It means:', opts: ['Il a rencontré des hivers.', 'Il a vécu ces hivers.'], correct: 1, why: 'Avec une période, connu = vivre cette période. EN: with a period, connu means lived through.' },
-    { q: '« Quand je l’ai connu, il avait vingt ans. » Quel âge a-t-il maintenant ? EN: How old is he now?', opts: ['Vingt ans.', 'Plus de vingt ans.', 'On ne sait pas.'], correct: 2, why: "L'imparfait donne son âge au moment de la rencontre, pas aujourd'hui. EN: the imparfait gives his age then." },
+    { q: '« Quand je l’ai connu, il avait vingt ans. » Quel âge a-t-il maintenant ? EN: How old is he now?', opts: ['Vingt ans.', 'On ne sait pas.', 'Plus de vingt ans.'], correct: 1, why: "L'imparfait donne son âge au moment de la rencontre, pas aujourd'hui. EN: the imparfait gives his age then." },
     { q: 'Les deux dernières : laquelle dit que la relation continue ? EN: Which one says the relationship continues?', opts: ['Je le connais depuis dix ans.', 'Je l’ai connu pendant dix ans.'], correct: 0, why: 'depuis + présent : c’est encore vrai. EN: depuis plus the present is still true.' },
   ],
   audio: REC('rec-b1-04-connaitre-ecoute'),
@@ -823,8 +823,8 @@ const A3_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
-  ctl('La rencontre', '« J’ai connu Awa en 2019. » Ça veut dire : EN: It means:', ['Je l’ai rencontrée en 2019.', 'Je la connaissais en 2019.'], 0, 'Au passé composé, la rencontre. EN: connu is the meeting.'),
-  ctl('La période', '« Elle a connu la guerre. » Il y a une rencontre ? EN: Is there a meeting?', ['Oui.', 'Non : elle a vécu cette période.'], 1, 'Avec une période, connu = vivre ça. EN: with a period, connu means lived through.'),
+  ctl('La rencontre', '« J’ai connu Awa en 2019. » Ça veut dire : EN: It means:', ['Je la connaissais en 2019.', 'Je l’ai rencontrée en 2019.'], 1, 'Au passé composé, la rencontre. EN: connu is the meeting.'),
+  ctl('La période', '« Elle a connu la guerre. » Il y a une rencontre ? EN: Is there a meeting?', ['Non : elle a vécu cette période.', 'Oui.'], 0, 'Avec une période, connu = vivre ça. EN: with a period, connu means lived through.'),
   ctl('Ouvert ou fermé', 'Ton voisin est toujours là. Tu dis : EN: Your neighbour is still around.', ['Je l’ai connu pendant dix ans.', 'Je le connais depuis dix ans.'], 1, 'depuis + présent, parce que ça continue. EN: depuis plus the present.'),
 ], ['rencontre', 'etat']);
 
@@ -979,8 +979,8 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(351), 'je'), it(E(352), 'il'), it(E(353), 'nous'), it(E(360), 'une permission'),
     ], chk(
       'nous pouvons au présent. La base de l’imparfait est : EN: The imparfait stem is:',
-      ['pouv-', 'peuv-', 'pu-'],
-      0,
+      ['peuv-', 'pu-', 'pouv-'],
+      2,
       `Coupe -ons de nous pouvons. ${B101_REFRAME} EN: cut -ons from nous pouvons.`,
     )),
     grp('Le passé composé', [
@@ -995,8 +995,8 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(358), 'un échec'), it(E(361), 'un échec, elle'), it(E(363), 'une situation qui dure'), it(E(364), 'une nuit précise'),
     ], chk(
       "Tu as essayé d'appeler trois fois, sans succès. Tu dis : EN: You tried three times, without success.",
-      ['Je ne pouvais pas te joindre.', "Je n'ai pas pu te joindre."],
-      1,
+      ["Je n'ai pas pu te joindre.", 'Je ne pouvais pas te joindre.'],
+      0,
       "Des essais qui échouent : je n'ai pas pu. EN: failed attempts take n'ai pas pu.",
     )),
   ],
@@ -1016,11 +1016,11 @@ const A4_ECOUTE: Sec<'listening'> = {
     ln(E(356)), ln(E(357)), ln(E(358)), ln(E(362)), ln(E(363)), ln(E(365)), ln(E(367)), ln(E(368)),
   ],
   questions: [
-    { q: 'Première phrase : la personne est-elle venue ? EN: Did the person come?', opts: ['Oui.', 'Non.', 'Le verbe ne le dit pas, mais la suite si.'], correct: 2, why: "je pouvais ne donne pas le résultat ; « je n'avais pas envie » le donne. EN: the verb gives no outcome; the rest does." },
-    { q: 'Deuxième phrase : réussi ou pas ? EN: Success or not?', opts: ['Réussi.', 'Pas réussi.'], correct: 0, why: "j'ai pu : la réussite. EN: pu is success." },
-    { q: 'Troisième phrase : réussi ou pas ? EN: Success or not?', opts: ['Réussi.', 'Pas réussi.'], correct: 1, why: "je n'ai pas pu : l'échec. EN: n'ai pas pu is failure." },
-    { q: '« Tu pouvais me le dire. » Qu’est-ce que ça veut dire ? EN: What does it mean?', opts: ['Tu me l’as dit.', 'Tu ne me l’as pas dit, et je le regrette.', 'Tu vas me le dire.'], correct: 1, why: "C'était possible, et ce n'est pas arrivé : un petit reproche. EN: a gentle reproach." },
-    { q: 'Dernière phrase : pourquoi « je n’ai pas pu acheter le pain » ? EN: Why n’ai pas pu?', opts: ['Le magasin était fermé.', 'Je n’avais pas faim.'], correct: 0, why: "Une raison précise, un essai qui échoue. EN: a precise reason, a failed attempt." },
+    { q: 'Première phrase : la personne est-elle venue ? EN: Did the person come?', opts: ['Oui.', 'Le verbe ne le dit pas, mais la suite si.', 'Non.'], correct: 1, why: "je pouvais ne donne pas le résultat ; « je n'avais pas envie » le donne. EN: the verb gives no outcome; the rest does." },
+    { q: 'Deuxième phrase : réussi ou pas ? EN: Success or not?', opts: ['Pas réussi.', 'Réussi.'], correct: 1, why: "j'ai pu : la réussite. EN: pu is success." },
+    { q: 'Troisième phrase : réussi ou pas ? EN: Success or not?', opts: ['Pas réussi.', 'Réussi.'], correct: 0, why: "je n'ai pas pu : l'échec. EN: n'ai pas pu is failure." },
+    { q: '« Tu pouvais me le dire. » Qu’est-ce que ça veut dire ? EN: What does it mean?', opts: ['Tu me l’as dit.', 'Tu vas me le dire.', 'Tu ne me l’as pas dit, et je le regrette.'], correct: 2, why: "C'était possible, et ce n'est pas arrivé : un petit reproche. EN: a gentle reproach." },
+    { q: 'Dernière phrase : pourquoi « je n’ai pas pu acheter le pain » ? EN: Why n’ai pas pu?', opts: ['Je n’avais pas faim.', 'Le magasin était fermé.'], correct: 1, why: "Une raison précise, un essai qui échoue. EN: a precise reason, a failed attempt." },
   ],
   audio: REC('rec-b1-04-pouvoir-ecoute'),
   say: `Cherche le résultat. ${THE_TEST}`,
@@ -1047,12 +1047,12 @@ const A4_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'Le reproche.', promptSound: "Tu n'as pas pu me le dire.", fr: 'Tu pouvais me le dire.', ipa: '/ty pu.vɛ mə lə diʁ/', tip: "C'était possible, et tu ne l'as pas fait. EN: it was possible, and you did not." },
   ],
   drill: [
-    { promptSay: "La porte était bloquée, mais j'... entrer par la fenêtre.", opts: ['pouvais', 'ai pu'], correct: 1 },
-    { promptSay: 'Cette année-là, je ... travailler de la maison.', opts: ['pouvais', 'ai pu'], correct: 0 },
+    { promptSay: "La porte était bloquée, mais j'... entrer par la fenêtre.", opts: ['ai pu', 'pouvais'], correct: 0 },
+    { promptSay: 'Cette année-là, je ... travailler de la maison.', opts: ['ai pu', 'pouvais'], correct: 1 },
     { promptSay: "Désolé, je n'... pas ... venir hier.", opts: ['ai pu', 'pouvais'], correct: 0 },
     { promptSay: 'Toute la nuit, je ne ... pas dormir.', opts: ['ai pu', 'pouvais'], correct: 1 },
-    { promptSay: 'Finalement, nous ... visiter le musée.', opts: ['pouvions', 'avons pu'], correct: 1 },
-    { promptSay: 'Elle n’... pas ... finir son rapport.', opts: ['a pu', 'pouvait'], correct: 0 },
+    { promptSay: 'Finalement, nous ... visiter le musée.', opts: ['avons pu', 'pouvions'], correct: 0 },
+    { promptSay: 'Elle n’... pas ... finir son rapport.', opts: ['pouvait', 'a pu'], correct: 1 },
     { promptSay: 'Tu ... me le dire, tu sais.', opts: ['pouvais', 'as pu'], correct: 0 },
     { promptSay: 'Le magasin était fermé, donc je n’... pas ... acheter le pain.', opts: ['pouvais', 'ai pu'], correct: 1 },
   ],
@@ -1068,7 +1068,7 @@ const A4_PIEGE: Sec<'trapDrill'> = {
 };
 
 const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
-  ctl('Le résultat', '« Je pouvais venir. » Est-ce que la personne est venue ? EN: Did the person come?', ['Oui.', 'On ne sait pas.', 'Non.'], 1, "pouvais ne donne pas le résultat. EN: pouvais gives no outcome."),
+  ctl('Le résultat', '« Je pouvais venir. » Est-ce que la personne est venue ? EN: Did the person come?', ['On ne sait pas.', 'Oui.', 'Non.'], 0, "pouvais ne donne pas le résultat. EN: pouvais gives no outcome."),
   ctl("L'échec", "Tu as essayé d'appeler, sans succès. Tu dis : EN: You tried to call, without success.", ["Je n'ai pas pu t'appeler.", 'Je ne pouvais pas t’appeler.'], 0, "Un essai précis : je n'ai pas pu. EN: a precise failed attempt."),
   ctl('La permission', '« Je pouvais travailler de la maison. » Ça veut dire : EN: It means:', ['J’ai réussi une fois.', 'On m’autorisait à le faire.'], 1, "pouvoir à l'imparfait couvre aussi la permission. EN: pouvais also covers permission."),
 ], ['resultat', 'moment']);
@@ -1199,16 +1199,16 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(371), 'je'), it(E(372), 'il'), it(E(373), 'nous'), it(E(382), 'une envie d’enfance'),
     ], chk(
       'nous voulons au présent. La base de l’imparfait est : EN: The imparfait stem is:',
-      ['voul-', 'veul-', 'voulu-'],
-      0,
+      ['veul-', 'voul-', 'voulu-'],
+      1,
       `Coupe -ons de nous voulons. ${B101_REFRAME} EN: cut -ons from nous voulons.`,
     )),
     grp("Le passé composé : l'essai", [
       it(E(374), 'je'), it(E(380), 'un essai concret'), it(E(381), 'une décision'), it('fr.a2.verbes.606', 'et la phrase publiée'),
     ], chk(
       "« J'ai voulu ouvrir la porte. » Qu'est-ce que la personne a fait ? EN: What did the person do?",
-      ['Elle a pensé à la porte.', 'Elle a essayé de l’ouvrir.'],
-      1,
+      ['Elle a essayé de l’ouvrir.', 'Elle a pensé à la porte.'],
+      0,
       "j'ai voulu : l'essai a eu lieu. EN: the attempt happened.",
     )),
     grp('Le refus', [
@@ -1474,8 +1474,8 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1200), 'je'), it(E(1201), 'il'), it(E(1202), 'nous'), it(E(1218), 'un rendez-vous manqué'),
     ], chk(
       'nous devons au présent. La base de l’imparfait est : EN: The imparfait stem is:',
-      ['doiv-', 'dev-', 'dû-'],
-      1,
+      ['doiv-', 'dû-', 'dev-'],
+      2,
       `Coupe -ons de nous devons. ${B101_REFRAME} EN: cut -ons from nous devons.`,
     )),
     grp("Le passé composé : l'obligation", [
@@ -1511,11 +1511,11 @@ const A6_ECOUTE: Sec<'listening'> = {
     ln(E(1205)), ln(E(1206)), ln(E(1207)), ln(E(1209)), ln(E(1212)), ln(E(1213)), ln(E(1217)), ln(E(1219)),
   ],
   questions: [
-    { q: 'Première phrase : le rapport est-il rendu ? EN: Was the report handed in?', opts: ['Oui.', 'Non.', 'La phrase ne le dit pas.'], correct: 2, why: 'je devais : le plan. EN: devais gives the plan.' },
+    { q: 'Première phrase : le rapport est-il rendu ? EN: Was the report handed in?', opts: ['Oui.', 'La phrase ne le dit pas.', 'Non.'], correct: 1, why: 'je devais : le plan. EN: devais gives the plan.' },
     { q: 'Deuxième phrase : le rapport est-il rendu ? EN: Was the report handed in?', opts: ['Oui, en retard.', 'Non.'], correct: 0, why: "j'ai dû rendre : c'est fait, en retard. EN: it happened, late." },
     { q: '« Tu as dû avoir peur. » Qu’est-ce que la personne fait ? EN: What is the speaker doing?', opts: ['Elle donne un ordre.', 'Elle imagine ce que tu as ressenti.'], correct: 1, why: 'a dû + verbe : une supposition. EN: a guess about your feelings.' },
-    { q: '« Je devais travailler samedi, mais c’était annulé. » A-t-elle travaillé ? EN: Did she work?', opts: ['Oui.', 'Non.'], correct: 1, why: "Le plan existait, l'annulation le ferme. EN: the plan was cancelled." },
-    { q: 'Dernière phrase : « Elle a dû annuler son vol. » Le vol est : EN: The flight is:', opts: ['annulé.', 'toujours réservé.'], correct: 0, why: "a dû + annuler, avec elle : ici, l'obligation, et c'est fait. EN: here it is the obligation, and it happened." },
+    { q: '« Je devais travailler samedi, mais c’était annulé. » A-t-elle travaillé ? EN: Did she work?', opts: ['Non.', 'Oui.'], correct: 0, why: "Le plan existait, l'annulation le ferme. EN: the plan was cancelled." },
+    { q: 'Dernière phrase : « Elle a dû annuler son vol. » Le vol est : EN: The flight is:', opts: ['toujours réservé.', 'annulé.'], correct: 1, why: "a dû + annuler, avec elle : ici, l'obligation, et c'est fait. EN: here it is the obligation, and it happened." },
   ],
   audio: REC('rec-b1-04-devoir-ecoute'),
   say: `Trois emplois à reconnaître. ${THE_TEST}`,
@@ -1542,14 +1542,14 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'Tu as attendu deux heures.', promptSound: 'Je devais attendre deux heures.', fr: "J'ai dû attendre deux heures.", ipa: '/ʒe dy a.tɑ̃dʁ dø.zœʁ/', tip: "L'attente a eu lieu. EN: the waiting happened." },
   ],
   drill: [
-    { promptSay: "J'... partir à huit heures, et je suis parti.", opts: ['devais', 'ai dû'], correct: 1 },
-    { promptSay: 'Je ... venir, mais finalement je suis resté.', opts: ['devais', 'ai dû'], correct: 0 },
-    { promptSay: "Il n'est pas là : il ... oublier.", opts: ['devait', 'a dû'], correct: 1 },
-    { promptSay: 'Elle ... me rappeler, et j’attends toujours.', opts: ['devait', 'a dû'], correct: 0 },
-    { promptSay: 'Nous ... partir plus tôt, à cause de la neige.', opts: ['devions', 'avons dû'], correct: 1 },
+    { promptSay: "J'... partir à huit heures, et je suis parti.", opts: ['ai dû', 'devais'], correct: 0 },
+    { promptSay: 'Je ... venir, mais finalement je suis resté.', opts: ['ai dû', 'devais'], correct: 1 },
+    { promptSay: "Il n'est pas là : il ... oublier.", opts: ['a dû', 'devait'], correct: 0 },
+    { promptSay: 'Elle ... me rappeler, et j’attends toujours.', opts: ['a dû', 'devait'], correct: 1 },
+    { promptSay: 'Nous ... partir plus tôt, à cause de la neige.', opts: ['avons dû', 'devions'], correct: 0 },
     { promptSay: 'Le sol est mouillé : il ... pleuvoir cette nuit.', opts: ['devait', 'a dû'], correct: 1 },
     { promptSay: "Samedi, j'... travailler, et j'ai travaillé.", opts: ['ai dû', 'devais'], correct: 0 },
-    { promptSay: 'Je ne ... pas être là ce jour-là.', opts: ['devais', 'ai dû'], correct: 0 },
+    { promptSay: 'Je ne ... pas être là ce jour-là.', opts: ['ai dû', 'devais'], correct: 1 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'had to ne dit pas si tu l’as fait' },
@@ -1563,9 +1563,9 @@ const A6_PIEGE: Sec<'trapDrill'> = {
 };
 
 const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
-  ctl('Le plan', '« Je devais rendre le rapport. » Est-il rendu ? EN: Was it handed in?', ['Oui.', 'On ne sait pas.', 'Non.'], 1, 'devais : le plan seulement. EN: devais gives only the plan.'),
+  ctl('Le plan', '« Je devais rendre le rapport. » Est-il rendu ? EN: Was it handed in?', ['Oui.', 'Non.', 'On ne sait pas.'], 2, 'devais : le plan seulement. EN: devais gives only the plan.'),
   ctl('La supposition', 'Ton collègue n’est pas venu et ne répond pas. Tu dis : EN: Your colleague did not come.', ['Il a dû oublier.', 'Il devait oublier.'], 0, 'a dû : ta conclusion. EN: a dû is your conclusion.'),
-  ctl("L'obligation", "« Nous avons dû partir plus tôt. » Sont-ils partis plus tôt ? EN: Did they leave earlier?", ['Oui.', 'On ne sait pas.'], 0, "avons dû : c'est fait. EN: it happened."),
+  ctl("L'obligation", "« Nous avons dû partir plus tôt. » Sont-ils partis plus tôt ? EN: Did they leave earlier?", ['On ne sait pas.', 'Oui.'], 1, "avons dû : c'est fait. EN: it happened."),
 ], ['resultat', 'supposition']);
 
 const ACT6: ActDef = {
@@ -1730,8 +1730,8 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1220), 'la peur'), it(E(1226), 'le mal de tête'), it(E(1228), "l'envie"), it(E(1230), 'une vieille voiture'),
     ], chk(
       '« J’avais mal à la tête toute la journée. » Le mal commence dans la phrase ? EN: Does the pain start here?',
-      ['Oui.', 'Non, il était déjà là.'],
-      1,
+      ['Non, il était déjà là.', 'Oui.'],
+      0,
       "L'imparfait décrit l'état, sans début. EN: the imparfait describes the state, with no start.",
     )),
     grp('Les débuts au passé composé', [
@@ -1769,9 +1769,9 @@ const A7_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Première phrase : la peur commence-t-elle dans la phrase ? EN: Does the fear start here?', opts: ['Oui.', 'Non.'], correct: 1, why: "j'avais peur : un état. EN: a state." },
     { q: 'Deuxième phrase : qu’est-ce qui fait commencer la peur ? EN: What starts the fear?', opts: ['Le chien qui aboie.', 'La nuit.', 'Rien.'], correct: 0, why: "Quand le chien a aboyé : le moment est là. EN: the barking is the moment." },
-    { q: 'Troisième et quatrième : laquelle raconte un début ? EN: Which one tells a beginning?', opts: ["J'avais mal à la tête toute la journée.", "J'ai eu mal au dos après le déménagement."], correct: 1, why: "après le déménagement place le début. EN: après places the start." },
-    { q: '« Il a été malade après le repas. » Avant le repas, il allait bien ? EN: Was he fine before the meal?', opts: ['Oui.', 'Non.'], correct: 0, why: "a été malade marque le passage à la maladie. EN: it marks the change." },
-    { q: 'Dernière phrase : « Ça a été difficile, mais on a réussi. » La difficulté est : EN: The difficulty is:', opts: ['toujours là.', 'finie.'], correct: 1, why: "Le passé composé ferme la période. EN: the passé composé closes the period." },
+    { q: 'Troisième et quatrième : laquelle raconte un début ? EN: Which one tells a beginning?', opts: ["J'ai eu mal au dos après le déménagement.", "J'avais mal à la tête toute la journée."], correct: 0, why: "après le déménagement place le début. EN: après places the start." },
+    { q: '« Il a été malade après le repas. » Avant le repas, il allait bien ? EN: Was he fine before the meal?', opts: ['Non.', 'Oui.'], correct: 1, why: "a été malade marque le passage à la maladie. EN: it marks the change." },
+    { q: 'Dernière phrase : « Ça a été difficile, mais on a réussi. » La difficulté est : EN: The difficulty is:', opts: ['finie.', 'toujours là.'], correct: 0, why: "Le passé composé ferme la période. EN: the passé composé closes the period." },
   ],
   audio: REC('rec-b1-04-etats-ecoute'),
   say: `Écoute le début, s'il existe. ${THE_TEST}`,
@@ -1815,8 +1815,8 @@ const A7_ERREURS: Sec<'commonErrors'> = {
 
 const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
   ctl('Le début', '« Quand la lumière s’est éteinte, j’___ peur. » EN: When the light went out...', ['avais', 'ai eu'], 1, 'Le moment fait commencer la peur. EN: the moment starts the fear.'),
-  ctl("L'enfance", '« Quand j’étais petit, j’___ peur des chiens. » EN: When I was little...', ['ai eu', 'avais'], 1, "Un état de l'enfance. EN: a childhood state."),
-  ctl('La période', 'Elle a été absente toute la semaine. La semaine est : EN: The week is:', ['comptée, du début à la fin.', 'en cours.'], 0, 'Le passé composé compte la période. EN: the passé composé counts it.'),
+  ctl("L'enfance", '« Quand j’étais petit, j’___ peur des chiens. » EN: When I was little...', ['avais', 'ai eu'], 0, "Un état de l'enfance. EN: a childhood state."),
+  ctl('La période', 'Elle a été absente toute la semaine. La semaine est : EN: The week is:', ['en cours.', 'comptée, du début à la fin.'], 1, 'Le passé composé compte la période. EN: the passé composé counts it.'),
 ], ['etat', 'moment']);
 
 const ACT7: ActDef = {
@@ -1966,8 +1966,8 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1242), 'la règle'), it(E(1243), 'et le besoin rempli'), it(E(1246), 'une règle qui durait'), it(E(1247), 'une durée comptée'),
     ], chk(
       '« Il ___ deux heures pour tout ranger. » Le rangement est fini. EN: The tidying is done.',
-      ['fallait', 'a fallu'],
-      1,
+      ['a fallu', 'fallait'],
+      0,
       "Une durée comptée, et le travail est fait : il a fallu. EN: a counted duration, and the job is done.",
     )),
     grp('croire et penser', [
@@ -2013,8 +2013,8 @@ const A8_EXEMPLES: Sec<'examples'> = {
 
 const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
   ctl('Le besoin', '« Il fallait partir tôt. » Est-on parti tôt ? EN: Did they leave early?', ['Oui.', 'On ne sait pas.'], 1, "fallait donne le besoin, pas le résultat. EN: fallait gives the need."),
-  ctl("L'idée fausse", 'Tu pensais que le café fermait à minuit. Il ferme à vingt heures. Tu dis : EN: You were wrong about the closing time.', ["J'ai cru qu'il fermait à minuit.", 'Je croyais qu’il fermait à minuit.'], 1, "Une idée que tu avais : je croyais. EN: a belief you held."),
-  ctl("L'instant", '« J’ai cru que tu étais parti. » Combien de temps as-tu cru ça ? EN: How long did you believe it?', ['Un instant.', 'Des semaines.'], 0, "j'ai cru : un moment court. EN: a short moment."),
+  ctl("L'idée fausse", 'Tu pensais que le café fermait à minuit. Il ferme à vingt heures. Tu dis : EN: You were wrong about the closing time.', ['Je croyais qu’il fermait à minuit.', "J'ai cru qu'il fermait à minuit."], 0, "Une idée que tu avais : je croyais. EN: a belief you held."),
+  ctl("L'instant", '« J’ai cru que tu étais parti. » Combien de temps as-tu cru ça ? EN: How long did you believe it?', ['Des semaines.', 'Un instant.'], 1, "j'ai cru : un moment court. EN: a short moment."),
 ], ['faux', 'resultat']);
 
 const ACT8: ActDef = {
@@ -2217,8 +2217,8 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1270), 'le décor du jour'), it(E(1271), "l'action du jour"), it(E(1278), 'une date + imparfait'), it(E(1268), 'depuis + imparfait'),
     ], chk(
       '« En 2019, je ___ à Genève. » Tu décris ta vie à cette époque. EN: You describe your life then.',
-      ['ai travaillé', 'travaillais'],
-      1,
+      ['travaillais', 'ai travaillé'],
+      0,
       "Une situation qui dure : l'imparfait, même avec une date. EN: a lasting situation, even with a date.",
     )),
   ],
@@ -2238,11 +2238,11 @@ const A9_ECOUTE: Sec<'listening'> = {
     ln(E(1260)), ln(E(1261)), ln(E(1262)), ln(E(1263)), ln(E(1274)), ln(E(1275)), ln(E(1278)), ln(E(1279)),
   ],
   questions: [
-    { q: 'Les deux premières phrases commencent par hier. Sont-elles correctes ? EN: Are both correct?', opts: ['Les deux.', 'Seulement la première.', 'Seulement la deuxième.'], correct: 0, why: 'hier va avec les deux temps. EN: hier works with both tenses.' },
-    { q: 'Troisième phrase : où est la personne à minuit ? EN: Where is the person at midnight?', opts: ['Encore au travail.', 'Déjà partie.'], correct: 0, why: "je travaillais encore : la scène continue. EN: the scene is still running." },
-    { q: '« Le matin, je prenais le bus. » Combien de fois ? EN: How many times?', opts: ['Une fois.', 'Souvent, c’était l’habitude.'], correct: 1, why: "Le matin + imparfait : une habitude. EN: a habit." },
-    { q: '« Ce matin-là, j’ai pris un taxi. » Combien de fois ? EN: How many times?', opts: ['Une fois.', 'Souvent.'], correct: 0, why: "Ce matin-là ferme la journée : une fois. EN: that one morning." },
-    { q: 'Les deux dernières commencent par En 2019. Pourquoi deux temps ? EN: Why two tenses?', opts: ['Une erreur.', 'La première décrit, la seconde raconte un changement.'], correct: 1, why: "Une date n'oblige rien : le sens décide. EN: a date forces nothing." },
+    { q: 'Les deux premières phrases commencent par hier. Sont-elles correctes ? EN: Are both correct?', opts: ['Seulement la première.', 'Les deux.', 'Seulement la deuxième.'], correct: 1, why: 'hier va avec les deux temps. EN: hier works with both tenses.' },
+    { q: 'Troisième phrase : où est la personne à minuit ? EN: Where is the person at midnight?', opts: ['Déjà partie.', 'Encore au travail.'], correct: 1, why: "je travaillais encore : la scène continue. EN: the scene is still running." },
+    { q: '« Le matin, je prenais le bus. » Combien de fois ? EN: How many times?', opts: ['Souvent, c’était l’habitude.', 'Une fois.'], correct: 0, why: "Le matin + imparfait : une habitude. EN: a habit." },
+    { q: '« Ce matin-là, j’ai pris un taxi. » Combien de fois ? EN: How many times?', opts: ['Souvent.', 'Une fois.'], correct: 1, why: "Ce matin-là ferme la journée : une fois. EN: that one morning." },
+    { q: 'Les deux dernières commencent par En 2019. Pourquoi deux temps ? EN: Why two tenses?', opts: ['La première décrit, la seconde raconte un changement.', 'Une erreur.'], correct: 0, why: "Une date n'oblige rien : le sens décide. EN: a date forces nothing." },
   ],
   audio: REC('rec-b1-04-indices-ecoute'),
   say: `Écoute, puis choisis avec le sens. ${THE_TEST}`,
@@ -2271,8 +2271,8 @@ const A9_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: 'Hier, il ... quand je suis sorti. (le décor)', opts: ['a plu', 'pleuvait'], correct: 1 },
     { promptSay: 'Hier, il ... toute la journée. (la journée comptée)', opts: ['a plu', 'pleuvait'], correct: 0 },
-    { promptSay: 'Tous les soirs, il ... pendant deux heures.', opts: ['lisait', 'a lu'], correct: 0 },
-    { promptSay: 'Samedi, il ... pendant deux heures, une seule fois.', opts: ['lisait', 'a lu'], correct: 1 },
+    { promptSay: 'Tous les soirs, il ... pendant deux heures.', opts: ['a lu', 'lisait'], correct: 1 },
+    { promptSay: 'Samedi, il ... pendant deux heures, une seule fois.', opts: ['a lu', 'lisait'], correct: 0 },
     { promptSay: 'En 2019, je ... à Genève. (ta vie à cette époque)', opts: ['ai travaillé', 'travaillais'], correct: 1 },
     { promptSay: 'En 2019, j’... de travail. (le changement)', opts: ['ai changé', 'changeais'], correct: 0 },
     { promptSay: 'Le matin, je ... le bus. (l’habitude)', opts: ['ai pris', 'prenais'], correct: 1 },
@@ -2291,8 +2291,8 @@ const A9_PIEGE: Sec<'trapDrill'> = {
 
 const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
   ctl('hier', '« Hier » oblige-t-il le passé composé ? EN: Does hier force the passé composé?', ['Oui.', 'Non : Hier, il pleuvait est correct.'], 1, 'hier est un indice, pas une règle. EN: a clue, not a rule.'),
-  ctl('pendant', '« Tous les soirs, il lisait pendant deux heures. » Pourquoi l’imparfait ? EN: Why the imparfait?', ['À cause de pendant.', 'Parce que c’est une habitude.'], 1, "L'habitude gagne contre l'indice. EN: the habit beats the cue."),
-  ctl('depuis', '« Il habitait là depuis deux ans quand il l’a rencontrée. » Ça veut dire : EN: It means:', ['Il y habitait déjà depuis deux ans.', 'Il y a habité deux ans, puis il est parti.'], 0, 'depuis + imparfait : un état qui durait encore. EN: a state still running then.'),
+  ctl('pendant', '« Tous les soirs, il lisait pendant deux heures. » Pourquoi l’imparfait ? EN: Why the imparfait?', ['Parce que c’est une habitude.', 'À cause de pendant.'], 0, "L'habitude gagne contre l'indice. EN: the habit beats the cue."),
+  ctl('depuis', '« Il habitait là depuis deux ans quand il l’a rencontrée. » Ça veut dire : EN: It means:', ['Il y a habité deux ans, puis il est parti.', 'Il y habitait déjà depuis deux ans.'], 1, 'depuis + imparfait : un état qui durait encore. EN: a state still running then.'),
 ], ['indice', 'choix']);
 
 const ACT9: ActDef = {
@@ -2416,16 +2416,16 @@ const A10_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1280), 'le décor'), it(E(1281), "l'action"), it(E(1291), 'le décor du matin'), it(E(1290), 'la semaine comptée'),
     ], chk(
       'Tu veux que ton ami imagine la scène. Tu dis : EN: You want your friend to picture the scene.',
-      ['Ce soir-là, il a neigé.', 'Ce soir-là, il neigeait.'],
-      1,
+      ['Ce soir-là, il neigeait.', 'Ce soir-là, il a neigé.'],
+      0,
       "Le décor, pour montrer l'ambiance. Les deux phrases sont correctes. EN: background, to show the mood. Both are correct.",
     )),
     grp('Une période de ta vie', [
       it(E(1282), 'dix ans comptés'), it(E(1283), 'le décor de l’époque'), it(E(1288), 'le décor'), it(E(1289), 'le bilan'),
     ], chk(
       'Tu comptes dix ans, du début à la fin. Tu dis : EN: You count ten years, start to finish.',
-      ["J'ai habité à Lyon pendant dix ans.", "J'habitais à Lyon pendant dix ans."],
-      0,
+      ["J'habitais à Lyon pendant dix ans.", "J'ai habité à Lyon pendant dix ans."],
+      1,
       "Compter la période ferme le passé composé. EN: counting the period takes the passé composé.",
     )),
     grp('Une soirée', [
@@ -2462,9 +2462,9 @@ const A10_HACKS: Sec<'hacks'> = {
 };
 
 const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
-  ctl('Le choix', '« Ce soir-là, il neigeait » et « Ce soir-là, il a neigé » : EN: Both sentences:', ['Une seule est correcte.', 'Les deux sont correctes.'], 1, 'Décor ou action : un choix. EN: background or action: a choice.'),
-  ctl('Le bilan', 'Tu donnes un bilan après un projet difficile. Tu dis : EN: A verdict after a hard project.', ['Ça a été difficile.', 'C’était difficile pendant le projet.'], 0, 'Le bilan arrive quand c’est fini. EN: the verdict comes when it is over.'),
-  ctl('La scène', 'Tu veux montrer la salle à minuit. Tu dis : EN: You want to show the hall at midnight.', ['Le concert a duré deux heures.', 'Le concert durait encore à minuit.'], 1, "L'imparfait te remet dans la scène. EN: the imparfait puts you back in the scene."),
+  ctl('Le choix', '« Ce soir-là, il neigeait » et « Ce soir-là, il a neigé » : EN: Both sentences:', ['Les deux sont correctes.', 'Une seule est correcte.'], 0, 'Décor ou action : un choix. EN: background or action: a choice.'),
+  ctl('Le bilan', 'Tu donnes un bilan après un projet difficile. Tu dis : EN: A verdict after a hard project.', ['C’était difficile pendant le projet.', 'Ça a été difficile.'], 1, 'Le bilan arrive quand c’est fini. EN: the verdict comes when it is over.'),
+  ctl('La scène', 'Tu veux montrer la salle à minuit. Tu dis : EN: You want to show the hall at midnight.', ['Le concert durait encore à minuit.', 'Le concert a duré deux heures.'], 0, "L'imparfait te remet dans la scène. EN: the imparfait puts you back in the scene."),
 ], ['choix']);
 
 const ACT10: ActDef = {
@@ -2499,8 +2499,8 @@ const A11_ANALYSE: Sec<'groupDrill'> = {
       it(E(1302), 'et voilà ce que sa phrase dit vraiment'),
     ], chk(
       'Qu’est-ce que Léo comprend ? EN: What does Léo understand?',
-      ['Maya a appelé.', 'Maya n’a peut-être pas appelé.', 'Maya va appeler demain.'],
-      1,
+      ['Maya n’a peut-être pas appelé.', 'Maya a appelé.', 'Maya va appeler demain.'],
+      0,
       "je devais laisse la question ouverte. Pour dire l'appel : j'ai dû t'appeler. EN: devais leaves the call in doubt.",
     )),
     grp('Sam, à Toronto', [
@@ -2509,8 +2509,8 @@ const A11_ANALYSE: Sec<'groupDrill'> = {
       it(E(1296), 'ou, pour la rencontre'),
     ], chk(
       'Que comprend son ami ? EN: What does his friend understand?',
-      ['La relation est finie.', 'Ils se sont rencontrés il y a vingt ans.', 'Ils se voient encore.'],
-      0,
+      ['Ils se sont rencontrés il y a vingt ans.', 'La relation est finie.', 'Ils se voient encore.'],
+      1,
       "Une période fermée au passé composé : on comprend que c'est terminé. EN: a closed period sounds over.",
     )),
     grp('Omar, à Dakar', [
@@ -2607,11 +2607,11 @@ const A11_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: "Hier soir, j'... que la réunion était annulée.", opts: ['savais', 'ai su'], correct: 1 },
     { promptSay: 'Je ... ce quartier avant de déménager.', opts: ['connaissais', 'ai connu'], correct: 0 },
-    { promptSay: "La porte était bloquée, mais j'... entrer.", opts: ['ai pu', 'pouvais'], correct: 0 },
-    { promptSay: 'On a insisté, mais il n’... pas ... nous aider.', opts: ['voulait', 'a voulu'], correct: 1 },
-    { promptSay: 'Elle ne répond pas : elle ... oublier.', opts: ['a dû', 'devait'], correct: 0 },
-    { promptSay: 'Quand la lumière s’est éteinte, j’... peur.', opts: ['avais', 'ai eu'], correct: 1 },
-    { promptSay: 'Ce jour-là, il ... malade, alors il est resté au lit.', opts: ['était', 'a été'], correct: 0 },
+    { promptSay: "La porte était bloquée, mais j'... entrer.", opts: ['pouvais', 'ai pu'], correct: 1 },
+    { promptSay: 'On a insisté, mais il n’... pas ... nous aider.', opts: ['a voulu', 'voulait'], correct: 0 },
+    { promptSay: 'Elle ne répond pas : elle ... oublier.', opts: ['devait', 'a dû'], correct: 1 },
+    { promptSay: 'Quand la lumière s’est éteinte, j’... peur.', opts: ['ai eu', 'avais'], correct: 0 },
+    { promptSay: 'Ce jour-là, il ... malade, alors il est resté au lit.', opts: ['a été', 'était'], correct: 1 },
     { promptSay: 'Je ... que le magasin fermait à vingt heures.', opts: ['croyais', 'ai cru'], correct: 0 },
   ],
   steps: [
@@ -2684,9 +2684,9 @@ const A11_FOCUS: Sec<'focus'> = {
 };
 
 const A11_CHECK = actCheck('a11-check', 'Le point : acte 11', [
-  ctl('Le malentendu', 'Tu as travaillé samedi, obligé. Tu dis : EN: You worked on Saturday, forced.', ["Samedi, j'ai dû travailler.", 'Samedi, je devais travailler.'], 0, "dû dit que tu as travaillé. EN: dû says you worked."),
-  ctl("L'excuse", "Tu n'as pas pu venir à la fête. Tu t'excuses : EN: You apologise for missing the party.", ['Je ne pouvais pas venir.', "Je n'ai pas pu venir."], 1, "Un empêchement précis : je n'ai pas pu. EN: a precise obstacle."),
-  ctl('L’ami vivant', 'Tu parles d’un ami que tu vois encore. Tu dis : EN: A friend you still see.', ['Je le connais depuis vingt ans.', "Je l'ai connu pendant vingt ans."], 0, 'depuis + présent, parce que ça continue. EN: depuis plus the present.'),
+  ctl('Le malentendu', 'Tu as travaillé samedi, obligé. Tu dis : EN: You worked on Saturday, forced.', ['Samedi, je devais travailler.', "Samedi, j'ai dû travailler."], 1, "dû dit que tu as travaillé. EN: dû says you worked."),
+  ctl("L'excuse", "Tu n'as pas pu venir à la fête. Tu t'excuses : EN: You apologise for missing the party.", ["Je n'ai pas pu venir.", 'Je ne pouvais pas venir.'], 0, "Un empêchement précis : je n'ai pas pu. EN: a precise obstacle."),
+  ctl('L’ami vivant', 'Tu parles d’un ami que tu vois encore. Tu dis : EN: A friend you still see.', ["Je l'ai connu pendant vingt ans.", 'Je le connais depuis vingt ans.'], 1, 'depuis + présent, parce que ça continue. EN: depuis plus the present.'),
 ], ['resultat', 'refus']);
 
 const ACT11: ActDef = {
@@ -2746,11 +2746,11 @@ const A12_ECOUTE: Sec<'listening'> = {
     ln(E(1311)), ln(E(1318)), ln(E(1312)), ln(E(1313)), ln(E(1319)), ln(E(1320)), ln(E(1315)), ln(E(1317)),
   ],
   questions: [
-    { q: 'Est-elle allée à Montréal ? EN: Did she go to Montreal?', opts: ['Oui.', 'Non.', 'La première phrase ne le dit pas.'], correct: 2, why: 'je devais aller : le plan seulement. EN: devais gives only the plan.' },
+    { q: 'Est-elle allée à Montréal ? EN: Did she go to Montreal?', opts: ['Oui.', 'La première phrase ne le dit pas.', 'Non.'], correct: 1, why: 'je devais aller : le plan seulement. EN: devais gives only the plan.' },
     { q: 'Quand a-t-elle appris pour le train ? EN: When did she find out about the train?', opts: ['À la gare.', 'La veille.'], correct: 0, why: "À la gare, j'ai su : le moment. EN: at the station." },
-    { q: '« J’ai voulu louer une voiture. » Elle a essayé ? EN: Did she try?', opts: ['Oui.', 'Non, elle y a seulement pensé.'], correct: 0, why: "j'ai voulu : l'essai a eu lieu. EN: the attempt happened." },
+    { q: '« J’ai voulu louer une voiture. » Elle a essayé ? EN: Did she try?', opts: ['Non, elle y a seulement pensé.', 'Oui.'], correct: 1, why: "j'ai voulu : l'essai a eu lieu. EN: the attempt happened." },
     { q: '« Elle pouvait présenter à ma place. » Nadia a-t-elle présenté ? EN: Did Nadia present?', opts: ['Oui.', 'Non.', 'Le verbe ne le dit pas.'], correct: 2, why: 'pouvait : la capacité, sans résultat. EN: ability, no outcome.' },
-    { q: 'Dernière phrase : « Il a dû aimer la présentation. » C’est : EN: It is:', opts: ['une obligation.', 'une supposition.'], correct: 1, why: 'a dû + verbe, avec il : une supposition. EN: a guess.' },
+    { q: 'Dernière phrase : « Il a dû aimer la présentation. » C’est : EN: It is:', opts: ['une supposition.', 'une obligation.'], correct: 0, why: 'a dû + verbe, avec il : une supposition. EN: a guess.' },
   ],
   audio: REC('rec-b1-04-final-ecoute'),
   say: `Dernière écoute avant de parler. ${THE_TEST}`,
@@ -3219,13 +3219,13 @@ const ACT12: ActDef = {
 
 const DRILL_LIST: LessonDrill[] = [
   { id: 'd-savoir', title: 'État, ou nouvelle', format: 'sort' as const, coach: `${THE_TEST} Deux tas : ce que tu savais déjà, et ce que tu apprends. EN: ${THE_TEST_EN}`, buckets: ['un état', 'une nouvelle'], items: [E(318), E(319), E(320), E(321), E(324), E(326)], audio: AUDIO },
-  { id: 'd-connaitre', title: 'Rencontre, ou pas', format: 'mcq' as const, coach: 'Cherche la rencontre. Si elle est là, passé composé. EN: look for the meeting.', q: 'Tu veux dire : I met her in Dakar. EN: I met her in Dakar.', opts: ['Je la connaissais à Dakar.', "Je l'ai connue à Dakar.", 'Je la connais depuis Dakar.'], correct: 1, why: 'La rencontre est un moment. EN: the meeting is a moment.', items: [E(337), E(338), E(341), E(347), E(348), 'fr.a2.verbes.608'], audio: AUDIO },
+  { id: 'd-connaitre', title: 'Rencontre, ou pas', format: 'mcq' as const, coach: 'Cherche la rencontre. Si elle est là, passé composé. EN: look for the meeting.', q: 'Tu veux dire : I met her in Dakar. EN: I met her in Dakar.', opts: ["Je l'ai connue à Dakar.", 'Je la connaissais à Dakar.', 'Je la connais depuis Dakar.'], correct: 0, why: 'La rencontre est un moment. EN: the meeting is a moment.', items: [E(337), E(338), E(341), E(347), E(348), 'fr.a2.verbes.608'], audio: AUDIO },
   { id: 'd-pouvoir', title: 'Réussi, échoué, inconnu', format: 'mcq' as const, coach: 'Cherche le résultat, pas la capacité. EN: look for the outcome.', q: 'Tu as essayé d’appeler, sans succès. EN: You tried to call, without success.', opts: ['Je ne pouvais pas appeler.', "Je n'ai pas pu appeler."], correct: 1, why: "Un essai précis qui échoue. EN: a precise failed attempt.", items: [E(356), E(357), E(358), E(363), E(364), 'fr.a2.verbes.605'], audio: AUDIO },
   { id: 'd-vouloir', title: 'Envie, essai, refus', format: 'sort' as const, coach: 'Trois tas. Qu’est-ce que la personne a fait. EN: three piles: what did the person do.', buckets: ['une envie', 'un essai', 'un refus'], items: [E(376), E(377), E(378), E(379), E(383), E(384)], audio: AUDIO },
-  { id: 'd-devoir', title: 'Plan, obligation, supposition', format: 'mcq' as const, coach: 'Trois emplois. Regarde le sujet et le contexte. EN: three readings; look at the subject and the context.', q: 'Il ne répond pas depuis hier. Tu dis : EN: He has not answered since yesterday.', opts: ['Il devait oublier.', 'Il a dû oublier.'], correct: 1, why: 'Ta conclusion : a dû. EN: your conclusion.', items: [E(1205), E(1206), E(1207), E(1213), E(1214), 'fr.a2.marche.128'], audio: AUDIO },
+  { id: 'd-devoir', title: 'Plan, obligation, supposition', format: 'mcq' as const, coach: 'Trois emplois. Regarde le sujet et le contexte. EN: three readings; look at the subject and the context.', q: 'Il ne répond pas depuis hier. Tu dis : EN: He has not answered since yesterday.', opts: ['Il a dû oublier.', 'Il devait oublier.'], correct: 0, why: 'Ta conclusion : a dû. EN: your conclusion.', items: [E(1205), E(1206), E(1207), E(1213), E(1214), 'fr.a2.marche.128'], audio: AUDIO },
   { id: 'd-etats', title: 'Ça dure, ou ça commence', format: 'sort' as const, coach: `${THE_TEST} Deux tas. EN: ${THE_TEST_EN}`, buckets: ['ça dure', 'ça commence'], items: [E(1222), E(1223), E(1234), E(1235), E(1226), E(1227)], audio: AUDIO },
   { id: 'd-falloir', title: 'Le besoin et l’idée', format: 'mcq' as const, coach: 'Le besoin a-t-il été rempli. L’idée était-elle fausse. EN: was the need met; was the idea wrong.', q: 'Vous avez attendu une heure, parce que c’était nécessaire. EN: You waited an hour, because it was necessary.', opts: ['Il fallait attendre une heure.', 'Il a fallu attendre une heure.'], correct: 1, why: "Le besoin est arrivé, et vous avez attendu. EN: the need came and was met.", items: [E(1244), E(1245), E(1247), E(1251), E(1252), E(1253)], audio: AUDIO },
-  { id: 'd-indices', title: 'Un indice, pas une règle', format: 'mcq' as const, coach: 'Le mot de temps aide. Le sens décide. EN: the time word helps; the meaning decides.', q: 'Avec hier, faut-il toujours le passé composé ? EN: With hier, always the passé composé?', opts: ['Oui, toujours.', 'Non : Hier, il pleuvait est correct.'], correct: 1, why: 'hier va avec les deux temps. EN: hier works with both.', items: [E(1260), E(1261), E(1264), E(1265), E(1278), E(1279)], audio: AUDIO },
+  { id: 'd-indices', title: 'Un indice, pas une règle', format: 'mcq' as const, coach: 'Le mot de temps aide. Le sens décide. EN: the time word helps; the meaning decides.', q: 'Avec hier, faut-il toujours le passé composé ? EN: With hier, always the passé composé?', opts: ['Non : Hier, il pleuvait est correct.', 'Oui, toujours.'], correct: 0, why: 'hier va avec les deux temps. EN: hier works with both.', items: [E(1260), E(1261), E(1264), E(1265), E(1278), E(1279)], audio: AUDIO },
   { id: 'd-choix', title: 'Montrer, ou compter', format: 'flashcard' as const, coach: 'Lis la phrase, puis dis ce que le narrateur fait : il montre, ou il compte. EN: is the narrator showing, or counting.', items: [E(1280), E(1281), E(1284), E(1285), E(1286), E(1287)], audio: AUDIO },
   { id: 'd-sens', title: 'Ce que ça dit vraiment', format: 'mcq' as const, coach: 'La phrase est correcte. Demande-toi ce que l’autre comprend. EN: the sentence is correct; ask what the listener hears.', q: '« Je devais t’appeler hier. » Ton ami comprend : EN: Your friend understands:', opts: ['Tu as appelé.', 'Tu n’as peut-être pas appelé.'], correct: 1, why: 'devais laisse la question ouverte. EN: devais leaves it open.', items: [E(1302), E(1295), E(1298), E(1299), E(1300), E(1304)], audio: AUDIO },
   { id: 'd-tout', title: 'Les neuf paires', format: 'flashcard' as const, coach: `${THE_TEST} Une carte, une question. EN: ${THE_TEST_EN}`, items: [E(318), E(338), E(357), E(377), E(1207), E(1223)], audio: AUDIO },

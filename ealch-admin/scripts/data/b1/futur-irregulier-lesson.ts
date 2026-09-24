@@ -329,8 +329,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it('fr.a2.heure-et-date.112', 'être, et là c’est autre chose'),
     ], chk(
       'Deux de ces trois verbes se construisent sur leur infinitif. Lequel refuse. EN: Which one refuses.',
-      ['arrivera', 'partirons', 'sera'],
-      2,
+      ['arrivera', 'sera', 'partirons'],
+      1,
       "sera ne contient pas être. C'est le sujet de la leçon. EN: sera contains nothing of être.",
     )),
     grp('Les deux du message de Sarah', [
@@ -339,8 +339,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it('fr.a2.hebergement.114', 'la même forme, dans un hôtel'),
     ], chk(
       '« Je serai là » et « J’aurai les clés ». De quels verbes viennent ces formes. EN: Which verbs are these.',
-      ['savoir et voir', 'être et avoir', 'serrer et aurer'],
-      1,
+      ['savoir et voir', 'serrer et aurer', 'être et avoir'],
+      2,
       'être donne ser-, avoir donne aur-. Aucun des deux ne se devine. EN: neither can be guessed.',
     )),
     grp('Ce qui suit le radical', [
@@ -349,8 +349,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it(E(208), 'venir'),
     ], chk(
       'fe-r-ai, i-r-ai, viend-r-ai. Quelle lettre revient juste avant la fin. EN: Which letter keeps coming back.',
-      ['un s', 'un r', 'un d'],
-      1,
+      ['un r', 'un s', 'un d'],
+      0,
       `${THE_R} EN: ${THE_R_EN}`,
     )),
   ],
@@ -429,13 +429,13 @@ const A1_RAPPEL: Sec<'cardDeck'> = {
 
 const A1_CHECK = actCheck('a1-check', 'Le point : acte 1', [
   ctl('Le mot coupé en deux', 'Dans « nous serons », quelle moitié est la nouveauté. EN: Which half is new.',
-    ['ser-', '-ons', 'les deux'], 0,
+    ['-ons', 'ser-', 'les deux'], 1,
     `-ons, tu l'as déjà. ${REFRAME} EN: ${REFRAME_EN}`),
   ctl('Le test', 'Tu viens de construire une forme au futur. Que vérifies-tu en premier. EN: What do you check first.',
-    ['qu’il y a un r avant la fin', 'qu’il y a un accent', 'qu’il y a deux syllabes'], 0,
+    ['qu’il y a un accent', 'qu’il y a deux syllabes', 'qu’il y a un r avant la fin'], 2,
     `${THE_R} Pas de r, pas de futur. EN: ${THE_R_EN}`),
   ctl('Combien', 'Combien de radicaux irréguliers cette leçon te demande. EN: How many stems.',
-    ['plus de cent', 'une vingtaine, en cinq familles', 'un par verbe'], 1,
+    ['une vingtaine, en cinq familles', 'plus de cent', 'un par verbe'], 0,
     'Une vingtaine, et les composés de l’acte 7 viennent gratuitement. EN: about twenty, in five families.'),
 ], ['radical', 'fin', 'famille']);
 
@@ -590,8 +590,8 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(222), 'nous aurons'),
     ], chk(
       'nous serons, nous aurons. Qu’est-ce qui est pareil dans les deux. EN: What is the same in both.',
-      ['la terminaison -ons', 'le radical', 'rien'],
-      0,
+      ['le radical', 'la terminaison -ons', 'rien'],
+      1,
       `Le radical n'a rien en commun, la fin est identique. ${REFRAME} EN: ${REFRAME_EN}`,
     )),
     grp('aller et faire', [
@@ -601,8 +601,8 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(233), 'ils feront'),
     ], chk(
       'Pour dire « they will go », tu écris : EN: For they will go, you write:',
-      ['ils alleront', 'ils iront', 'ils vont aller'],
-      1,
+      ['ils alleront', 'ils vont aller', 'ils iront'],
+      2,
       'aller donne ir-. L’infinitif ne sert à rien ici. EN: aller gives ir-.',
     )),
     grp('venir et vouloir', [
@@ -640,7 +640,7 @@ const A2_ECOUTE: Sec<'listening'> = {
     { q: 'Deuxième phrase : combien de personnes auront la réponse. EN: How many people.', opts: ['une', 'deux'], correct: 0, why: 'tu auras : une seule personne, la deuxième du singulier. EN: one person.' },
     { q: 'Troisième phrase : est-ce que quelqu’un part quelque part. EN: Is anyone going anywhere.', opts: ['Oui, à Québec.', 'Non, on reste.'], correct: 0, why: 'on ira vient de aller. EN: ira is aller.' },
     { q: 'Sixième phrase : le verbe est vouloir ou pouvoir. EN: vouloir or pouvoir.', opts: ['pouvoir', 'vouloir'], correct: 1, why: 'voudra : le d dit vouloir. pourra n’aurait pas de d. EN: the d says vouloir.' },
-    { q: 'Septième et huitième : même verbe ou deux verbes. EN: Same verb or two.', opts: ['le même', 'deux verbes'], correct: 1, why: 'sera vient de être, iront de aller. EN: être then aller.' },
+    { q: 'Septième et huitième : même verbe ou deux verbes. EN: Same verb or two.', opts: ['deux verbes', 'le même'], correct: 0, why: 'sera vient de être, iront de aller. EN: être then aller.' },
   ],
   audio: REC('rec-b1-06-grands-ecoute'),
   say: REFRAME,
@@ -670,14 +670,14 @@ const A2_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'vouloir', promptSound: 'je voulerai', fr: 'je voudrai', ipa: '/ʒə vu.dʁe/', tip: 'Le même d que venir. EN: the same d as venir.' },
   ],
   drill: [
-    { promptSay: 'Demain, je ... en formation. (être)', opts: ['serai', 'êtrai'], correct: 0 },
-    { promptSay: 'Mardi, j’... le dossier. (avoir)', opts: ['avoirai', 'aurai'], correct: 1 },
-    { promptSay: 'On ... au marché samedi. (aller)', opts: ['ira', 'allera'], correct: 0 },
-    { promptSay: 'Mercredi, nous ... le point. (faire)', opts: ['fairons', 'ferons', 'faisons'], correct: 1 },
-    { promptSay: 'Malik ... jeudi. (venir)', opts: ['venira', 'viendra'], correct: 1 },
-    { promptSay: 'Personne ne ... rester tard. (vouloir)', opts: ['voudra', 'voulera'], correct: 0 },
-    { promptSay: 'Vous ... contents du résultat. (être)', opts: ['êtrez', 'serez'], correct: 1 },
-    { promptSay: 'Ils ... tous les deux. (venir)', opts: ['viendront', 'veniront'], correct: 0 },
+    { promptSay: 'Demain, je ... en formation. (être)', opts: ['êtrai', 'serai'], correct: 1 },
+    { promptSay: 'Mardi, j’... le dossier. (avoir)', opts: ['aurai', 'avoirai'], correct: 0 },
+    { promptSay: 'On ... au marché samedi. (aller)', opts: ['allera', 'ira'], correct: 1 },
+    { promptSay: 'Mercredi, nous ... le point. (faire)', opts: ['fairons', 'faisons', 'ferons'], correct: 2 },
+    { promptSay: 'Malik ... jeudi. (venir)', opts: ['viendra', 'venira'], correct: 0 },
+    { promptSay: 'Personne ne ... rester tard. (vouloir)', opts: ['voulera', 'voudra'], correct: 1 },
+    { promptSay: 'Vous ... contents du résultat. (être)', opts: ['serez', 'êtrez'], correct: 0 },
+    { promptSay: 'Ils ... tous les deux. (venir)', opts: ['veniront', 'viendront'], correct: 1 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: "Quand l'infinitif ne suffit pas" },
@@ -710,7 +710,7 @@ const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
     ['allerons', 'irons', 'allons'], 1,
     'aller donne ir-. allons est le présent. EN: aller gives ir-.'),
   ctl('Le d', 'viendr- et voudr- : ce d vient de l’infinitif. EN: Does the d come from the infinitive.',
-    ['Oui.', 'Non, il arrive de nulle part.'], 1,
+    ['Non, il arrive de nulle part.', 'Oui.'], 0,
     "Il n'est ni dans venir ni dans vouloir. L'acte 4 en fait une famille. EN: it is in neither infinitive."),
 ], ['radical', 'fin', 'famille']);
 
@@ -840,8 +840,8 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(245), 'ils pourront'),
     ], chk(
       'Combien de r écris-tu dans « nous pourrons ». EN: How many r do you write.',
-      ['un', 'deux', 'trois'],
-      1,
+      ['un', 'trois', 'deux'],
+      2,
       'Deux, et tu n’en entends qu’un. EN: two written, one heard.',
     )),
     grp('voir et envoyer', [
@@ -882,11 +882,11 @@ const A3_ECOUTE: Sec<'listening'> = {
     ln(E(259)), ln(E(261)), ln(E(247)), ln(E(250)),
   ],
   questions: [
-    { q: 'Première phrase : le verbe est pouvoir ou vouloir. EN: pouvoir or vouloir.', opts: ['pouvoir', 'vouloir'], correct: 0, why: 'pourras, sans d. voudras en aurait un. EN: no d, so pouvoir.' },
+    { q: 'Première phrase : le verbe est pouvoir ou vouloir. EN: pouvoir or vouloir.', opts: ['vouloir', 'pouvoir'], correct: 1, why: 'pourras, sans d. voudras en aurait un. EN: no d, so pouvoir.' },
     { q: 'Entends-tu deux r dans « pourras ». EN: Do you hear two r.', opts: ['Oui', 'Non'], correct: 1, why: 'Un seul son. Le deuxième r est une affaire d’orthographe. EN: one sound only.' },
     { q: 'Troisième phrase : qui envoie quelque chose. EN: Who is sending something.', opts: ['toi', 'ton collègue'], correct: 0, why: 'je t’enverrai : c’est toi. EN: it is you.' },
     { q: 'Cinquième phrase : qui mourra. EN: Who will die.', opts: ['une personne', 'une plante'], correct: 1, why: 'Cette plante mourra sans lumière. EN: a plant without light.' },
-    { q: 'Dernière phrase : une ou plusieurs personnes. EN: One person or several.', opts: ['une', 'plusieurs'], correct: 1, why: 'ils verront : la terminaison -ont dit le pluriel. EN: -ont says plural.' },
+    { q: 'Dernière phrase : une ou plusieurs personnes. EN: One person or several.', opts: ['plusieurs', 'une'], correct: 0, why: 'ils verront : la terminaison -ont dit le pluriel. EN: -ont says plural.' },
   ],
   audio: REC('rec-b1-06-double-r-ecoute'),
   say: REFRAME,
@@ -918,10 +918,10 @@ const A3_ERREURS: Sec<'commonErrors'> = {
 
 const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
   ctl('La famille', 'Combien de verbes courants doublent le r au futur. EN: How many common verbs double the r.',
-    ['deux', 'cinq', 'vingt'], 1,
+    ['cinq', 'deux', 'vingt'], 0,
     'pouvoir, voir, envoyer, courir, mourir. EN: five.'),
   ctl('Le son', 'Comment vérifies-tu le double r. EN: How do you check the double r.',
-    ['en écrivant', 'en écoutant', 'en parlant plus lentement'], 0,
+    ['en écoutant', 'en écrivant', 'en parlant plus lentement'], 1,
     'Il ne s’entend pas. C’est une affaire d’orthographe. EN: it cannot be heard.'),
   ctl('envoyer', 'envoyer est régulier au futur. EN: Is envoyer regular in the future.',
     ['Oui.', 'Non.'], 1,
@@ -1055,8 +1055,8 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(279), 'vous tiendrez'),
     ], chk(
       'tenir donne tiendr-. venir donne donc : EN: So venir gives:',
-      ['venidr-', 'viendr-', 'tiendr-'],
-      1,
+      ['venidr-', 'tiendr-', 'viendr-'],
+      2,
       'Les deux verbes marchent ensemble, partout. EN: the two verbs move together.',
     )),
     grp('valoir et falloir', [
@@ -1098,10 +1098,10 @@ const A4_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Le d de viendra et voudra, l’entends-tu. EN: Can you hear the d.', opts: ['Oui', 'Non'], correct: 0, why: 'Oui. Ce d se prononce, contrairement au deuxième r de l’acte 3. EN: yes, unlike the second r.' },
-    { q: 'Deuxième phrase : un conseil ou une obligation. EN: Advice or obligation.', opts: ['un conseil', 'une obligation'], correct: 0, why: 'il vaudra mieux : un conseil. EN: it will be better: advice.' },
-    { q: 'Troisième phrase : qui doit prévenir le propriétaire. EN: Who has to tell the landlord.', opts: ['toi', 'le texte ne le dit pas'], correct: 1, why: 'il faudra ne nomme personne. C’est ce qui le rend pratique. EN: il faudra names nobody.' },
-    { q: 'Cinquième phrase : la voiture vaudra plus ou moins. EN: More or less.', opts: ['plus', 'moins'], correct: 1, why: 'moins cher dans deux ans. EN: less, in two years.' },
-    { q: 'Dernière phrase : est-ce un encouragement. EN: Is this encouragement.', opts: ['Oui', 'Non'], correct: 0, why: 'Tu tiendras le coup : oui, c’est un encouragement. EN: yes.' },
+    { q: 'Deuxième phrase : un conseil ou une obligation. EN: Advice or obligation.', opts: ['une obligation', 'un conseil'], correct: 1, why: 'il vaudra mieux : un conseil. EN: it will be better: advice.' },
+    { q: 'Troisième phrase : qui doit prévenir le propriétaire. EN: Who has to tell the landlord.', opts: ['le texte ne le dit pas', 'toi'], correct: 0, why: 'il faudra ne nomme personne. C’est ce qui le rend pratique. EN: il faudra names nobody.' },
+    { q: 'Cinquième phrase : la voiture vaudra plus ou moins. EN: More or less.', opts: ['moins', 'plus'], correct: 0, why: 'moins cher dans deux ans. EN: less, in two years.' },
+    { q: 'Dernière phrase : est-ce un encouragement. EN: Is this encouragement.', opts: ['Non', 'Oui'], correct: 1, why: 'Tu tiendras le coup : oui, c’est un encouragement. EN: yes.' },
   ],
   audio: REC('rec-b1-06-le-d-ecoute'),
   say: REFRAME,
@@ -1128,14 +1128,14 @@ const A4_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'tenir, au pluriel', promptSound: 'ils tenirons', fr: 'ils tiendront', ipa: '/il tjɛ̃.dʁɔ̃/', tip: 'Le radical ne bouge pas avec la personne. EN: the stem does not move with the person.' },
   ],
   drill: [
-    { promptSay: 'Mon frère ... jeudi. (venir)', opts: ['venira', 'viendra'], correct: 1 },
-    { promptSay: 'Je ... ma promesse. (tenir)', opts: ['tiendrai', 'tenirai'], correct: 0 },
-    { promptSay: 'Cette voiture ... moins cher. (valoir)', opts: ['valoira', 'vaudra'], correct: 1 },
-    { promptSay: 'Il ... deux voitures. (falloir)', opts: ['faudra', 'falloira', 'faudrait'], correct: 0 },
+    { promptSay: 'Mon frère ... jeudi. (venir)', opts: ['viendra', 'venira'], correct: 0 },
+    { promptSay: 'Je ... ma promesse. (tenir)', opts: ['tenirai', 'tiendrai'], correct: 1 },
+    { promptSay: 'Cette voiture ... moins cher. (valoir)', opts: ['vaudra', 'valoira'], correct: 0 },
+    { promptSay: 'Il ... deux voitures. (falloir)', opts: ['falloira', 'faudra', 'faudrait'], correct: 1 },
     { promptSay: 'Personne ne ... conduire la nuit. (vouloir)', opts: ['voulera', 'voudra'], correct: 1 },
     { promptSay: 'Ils ... le coup. (tenir)', opts: ['tiendront', 'tenirons'], correct: 0 },
-    { promptSay: 'Il ... mieux réserver. (valoir)', opts: ['vaudra', 'valera'], correct: 0 },
-    { promptSay: 'Vous ... peut-être partir avant. (vouloir)', opts: ['voulerez', 'voudrez'], correct: 1 },
+    { promptSay: 'Il ... mieux réserver. (valoir)', opts: ['valera', 'vaudra'], correct: 1 },
+    { promptSay: 'Vous ... peut-être partir avant. (vouloir)', opts: ['voudrez', 'voulerez'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Le d fait le radical' },
@@ -1153,7 +1153,7 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
     ['venir', 'aucun'], 1,
     "Dans aucun. Il n'existe qu'au futur et au conditionnel. EN: in none of them."),
   ctl('falloir', '« Nous faudrons réserver. » EN: Is this possible.',
-    ['Correct.', 'Impossible : seulement il faudra.'], 1,
+    ['Impossible : seulement il faudra.', 'Correct.'], 0,
     'falloir ne se conjugue qu’à il. EN: falloir takes il and nothing else.'),
   ctl('La famille', 'Lequel de ces radicaux n’est PAS de la famille en -dr-. EN: Which one is not in the family.',
     ['tiendr-', 'vaudr-', 'enverr-'], 2,
@@ -1302,8 +1302,8 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(285), 'ils sauront'),
     ], chk(
       'Que reste-t-il de savoir dans saurons. EN: What is left of savoir.',
-      ['sav-', 'sa-', 'savoi-'],
-      1,
+      ['sa-', 'sav-', 'savoi-'],
+      0,
       'sa- plus le r du futur. Le -voi- est parti. EN: sa- plus the future r.',
     )),
     grp('devoir et recevoir', [
@@ -1312,8 +1312,8 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(293), 'tu recevras'),
     ], chk(
       'devoir donne devr-. recevoir donne donc : EN: So recevoir gives:',
-      ['recevr-', 'recevoir-', 'recr-'],
-      0,
+      ['recevoir-', 'recevr-', 'recr-'],
+      1,
       'Le même geste : le -oi- part, le reste tient. EN: the same move.',
     )),
     grp('pleuvoir', [
@@ -1322,8 +1322,8 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(301), 'devoir, en contraste'),
     ], chk(
       '« Nous pleuvrons demain. » Cette phrase est : EN: This sentence is:',
-      ['impossible', 'correcte'],
-      0,
+      ['correcte', 'impossible'],
+      1,
       'pleuvoir n’a qu’une personne, il. EN: pleuvoir has one person.',
     )),
   ],
@@ -1344,11 +1344,11 @@ const A5_ECOUTE: Sec<'listening'> = {
     ln(E(300)), ln(E(301)), ln(E(284)), ln(E(294)),
   ],
   questions: [
-    { q: 'Première phrase : quand la personne saura-t-elle. EN: When will the person know.', opts: ['lundi', 'mardi', 'jeudi'], correct: 1, why: 'Tu sauras le résultat mardi. EN: on Tuesday.' },
+    { q: 'Première phrase : quand la personne saura-t-elle. EN: When will the person know.', opts: ['lundi', 'jeudi', 'mardi'], correct: 2, why: 'Tu sauras le résultat mardi. EN: on Tuesday.' },
     { q: 'Deuxième phrase : est-ce un choix ou une obligation. EN: A choice or an obligation.', opts: ['une obligation', 'un choix'], correct: 0, why: 'je devrai : devoir dit l’obligation. EN: devoir says obligation.' },
-    { q: 'Troisième phrase : comment arrive la confirmation. EN: How does the confirmation arrive.', opts: ['par courriel', 'par téléphone'], correct: 0, why: 'une confirmation par courriel. EN: by email.' },
-    { q: 'Quatrième phrase : combien de temps durera la pluie. EN: How long will the rain last.', opts: ['un jour', 'toute la semaine'], correct: 1, why: 'Il pleuvra toute la semaine. EN: all week.' },
-    { q: 'Dernière phrase : une ou plusieurs personnes recevront. EN: One person or several.', opts: ['plusieurs', 'une'], correct: 0, why: 'nous recevrons : la terminaison -ons dit le pluriel. EN: -ons says plural.' },
+    { q: 'Troisième phrase : comment arrive la confirmation. EN: How does the confirmation arrive.', opts: ['par téléphone', 'par courriel'], correct: 1, why: 'une confirmation par courriel. EN: by email.' },
+    { q: 'Quatrième phrase : combien de temps durera la pluie. EN: How long will the rain last.', opts: ['toute la semaine', 'un jour'], correct: 0, why: 'Il pleuvra toute la semaine. EN: all week.' },
+    { q: 'Dernière phrase : une ou plusieurs personnes recevront. EN: One person or several.', opts: ['une', 'plusieurs'], correct: 1, why: 'nous recevrons : la terminaison -ons dit le pluriel. EN: -ons says plural.' },
   ],
   audio: REC('rec-b1-06-oir-ecoute'),
   say: REFRAME,
@@ -1383,10 +1383,10 @@ const A5_CHECK = actCheck('a5-check', 'Le point : acte 5', [
     ['enlèves le -voi-', 'gardes tout', 'ajoutes un d'], 0,
     'sa- plus r plus la fin. EN: sa- plus r plus the ending.'),
   ctl('Deux familles', 'pouvoir appartient à combien de familles. EN: How many families does pouvoir belong to.',
-    ['une', 'deux'], 1,
+    ['deux', 'une'], 0,
     'Il perd son -oi- et double son r. EN: it loses the -oi- and doubles the r.'),
   ctl('La personne', 'Combien de personnes a pleuvoir au futur. EN: How many persons does pleuvoir have.',
-    ['six', 'trois', 'une'], 2,
+    ['six', 'une', 'trois'], 1,
     'Une seule : il pleuvra. EN: one only.'),
 ], ['famille', 'radical', 'impersonnel']);
 
@@ -1520,8 +1520,8 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(315), 'la présence, en négatif'),
     ], chk(
       'Tu veux dire : there will be nobody. EN: You want to say: there will be nobody.',
-      ['Il ne faudra personne.', "Il n'y aura personne.", 'Ça n’ira personne.'],
-      1,
+      ['Il ne faudra personne.', 'Ça n’ira personne.', "Il n'y aura personne."],
+      2,
       "il y aura est le futur de il y a. EN: il y aura is the future of il y a.",
     )),
     grp('Le temps qu’il fera', [
@@ -1562,11 +1562,11 @@ const A6_ECOUTE: Sec<'listening'> = {
     ln(E(310)), ln(E(315)), ln(E(318)), ln(E(319)),
   ],
   questions: [
-    { q: 'Première phrase : où y aura-t-il du monde. EN: Where will there be a crowd.', opts: ['au bureau', 'au marché', 'au parc'], correct: 1, why: 'du monde au marché samedi. EN: at the market.' },
-    { q: 'Troisième phrase : chaud ou froid. EN: Warm or cold.', opts: ['froid', 'chaud'], correct: 0, why: 'Il fera froid demain matin. EN: cold.' },
-    { q: 'Quatrième phrase : le week-end sera beau. EN: Will the weekend be fine.', opts: ['Oui', 'Non'], correct: 1, why: 'Il ne fera pas beau ce week-end. EN: no, the negative.' },
-    { q: 'Sixième phrase : combien de personnes au bureau lundi. EN: How many people at the office on Monday.', opts: ['aucune', 'quelques-unes'], correct: 0, why: 'Il n’y aura personne. EN: nobody.' },
-    { q: 'Septième phrase : le train sera à l’heure. EN: Will the train be on time.', opts: ['Oui', 'Non, du retard'], correct: 1, why: 'Il y aura sûrement du retard. EN: there will be a delay.' },
+    { q: 'Première phrase : où y aura-t-il du monde. EN: Where will there be a crowd.', opts: ['au bureau', 'au parc', 'au marché'], correct: 2, why: 'du monde au marché samedi. EN: at the market.' },
+    { q: 'Troisième phrase : chaud ou froid. EN: Warm or cold.', opts: ['chaud', 'froid'], correct: 1, why: 'Il fera froid demain matin. EN: cold.' },
+    { q: 'Quatrième phrase : le week-end sera beau. EN: Will the weekend be fine.', opts: ['Non', 'Oui'], correct: 0, why: 'Il ne fera pas beau ce week-end. EN: no, the negative.' },
+    { q: 'Sixième phrase : combien de personnes au bureau lundi. EN: How many people at the office on Monday.', opts: ['quelques-unes', 'aucune'], correct: 1, why: 'Il n’y aura personne. EN: nobody.' },
+    { q: 'Septième phrase : le train sera à l’heure. EN: Will the train be on time.', opts: ['Non, du retard', 'Oui'], correct: 0, why: 'Il y aura sûrement du retard. EN: there will be a delay.' },
   ],
   audio: REC('rec-b1-06-meteo-ecoute'),
   say: REFRAME,
@@ -1593,12 +1593,12 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'it will be fine', promptSound: 'il ira bien', fr: 'ça ira', ipa: '/sa i.ʁa/', tip: 'Celui-là prend ça, pas il. EN: this one takes ça.' },
   ],
   drill: [
-    { promptSay: '... deux voitures pour tout emporter.', opts: ['Il faudra', 'Nous faudrons'], correct: 0 },
-    { promptSay: '... du monde au marché samedi.', opts: ['Ils seront', 'Il y aura'], correct: 1 },
-    { promptSay: '... nuit avant six heures.', opts: ['Ce sera', 'Il fera', 'Il ira'], correct: 1 },
-    { promptSay: '... sur toute la région.', opts: ['Il pleuvra', 'Nous pleuvrons'], correct: 0 },
-    { promptSay: '... mieux réserver.', opts: ['Ce vaudra', 'Il vaudra'], correct: 1 },
-    { promptSay: '... mieux demain, ne t’inquiète pas.', opts: ['Ça ira', 'Il ira'], correct: 0 },
+    { promptSay: '... deux voitures pour tout emporter.', opts: ['Nous faudrons', 'Il faudra'], correct: 1 },
+    { promptSay: '... du monde au marché samedi.', opts: ['Il y aura', 'Ils seront'], correct: 0 },
+    { promptSay: '... nuit avant six heures.', opts: ['Il fera', 'Ce sera', 'Il ira'], correct: 0 },
+    { promptSay: '... sur toute la région.', opts: ['Nous pleuvrons', 'Il pleuvra'], correct: 1 },
+    { promptSay: '... mieux réserver.', opts: ['Il vaudra', 'Ce vaudra'], correct: 0 },
+    { promptSay: '... mieux demain, ne t’inquiète pas.', opts: ['Il ira', 'Ça ira'], correct: 1 },
     { promptSay: '... personne au bureau lundi.', opts: ['Il n’y aura', 'Ils ne seront'], correct: 0 },
     { promptSay: '... du temps, mais on y arrivera.', opts: ['Nous faudrons', 'Il faudra'], correct: 1 },
   ],
@@ -1615,10 +1615,10 @@ const A6_PIEGE: Sec<'trapDrill'> = {
 
 const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
   ctl('Le sujet', 'Dans « il faudra partir », qui est il. EN: In il faudra partir, who is il.',
-    ['personne', 'toi', 'le narrateur'], 0,
+    ['toi', 'personne', 'le narrateur'], 1,
     'Personne. Il tient la place du sujet, rien de plus. EN: nobody; it just holds the subject slot.'),
   ctl('La météo', 'Pour dire it will be cold, tu prends : EN: For it will be cold, you take:',
-    ['être', 'faire'], 1,
+    ['faire', 'être'], 0,
     'Il fera froid. La météo prend faire. EN: weather takes faire.'),
   ctl('ça', 'Quelle forme ne prend PAS il. EN: Which one does not take il.',
     ['il y aura', 'il vaudra mieux', 'ça ira'], 2,
@@ -1751,8 +1751,8 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(322), 'dans une phrase'),
     ], chk(
       'prévenir se conjugue donc comme : EN: So prévenir behaves like:',
-      ['prendre', 'venir', 'prévoir'],
-      1,
+      ['venir', 'prendre', 'prévoir'],
+      0,
       'je préviendrai. Le radical viendr- avec son préfixe. EN: je préviendrai.',
     )),
     grp('Sur tenir', [
@@ -1761,8 +1761,8 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(328), 'dans une phrase'),
     ], chk(
       'maintenir au futur, première personne : EN: maintenir, first person:',
-      ['je maintiendrai', 'je maintenirai', 'je maintirai'],
-      0,
+      ['je maintenirai', 'je maintiendrai', 'je maintirai'],
+      1,
       'tiendr- plus son préfixe. EN: tiendr- plus the prefix.',
     )),
     grp('Sur faire et voir', [
@@ -1771,8 +1771,8 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(335), 'et prévoir, qui refuse'),
     ], chk(
       'revoir donne reverr-. prévoir donne donc : EN: So prévoir gives:',
-      ['prévoir-', 'préverr-'],
-      0,
+      ['préverr-', 'prévoir-'],
+      1,
       "je prévoirai. C'est le seul composé de voir qui garde son -oi-. EN: the one compound that keeps its -oi-.",
     )),
   ],
@@ -1792,9 +1792,9 @@ const A7_ECOUTE: Sec<'listening'> = {
     ln(E(332)), ln(E(334)), ln(E(336)), ln(E(321)),
   ],
   questions: [
-    { q: 'Première phrase : la personne vient ou revient. EN: Coming, or coming back.', opts: ['elle vient', 'elle revient'], correct: 1, why: 'reviendrai : le préfixe re- dit le retour. EN: re- says the return.' },
-    { q: 'Deuxième phrase : quel poste. EN: Which post.', opts: ['directrice', 'comptable'], correct: 0, why: 'Elle deviendra directrice en janvier. EN: director.' },
-    { q: 'Quatrième phrase : retenir veut dire ici : EN: retenir here means:', opts: ['se souvenir', 'réserver'], correct: 1, why: 'retenir une table : réserver. EN: to book.' },
+    { q: 'Première phrase : la personne vient ou revient. EN: Coming, or coming back.', opts: ['elle revient', 'elle vient'], correct: 0, why: 'reviendrai : le préfixe re- dit le retour. EN: re- says the return.' },
+    { q: 'Deuxième phrase : quel poste. EN: Which post.', opts: ['comptable', 'directrice'], correct: 1, why: 'Elle deviendra directrice en janvier. EN: director.' },
+    { q: 'Quatrième phrase : retenir veut dire ici : EN: retenir here means:', opts: ['réserver', 'se souvenir'], correct: 0, why: 'retenir une table : réserver. EN: to book.' },
     { q: 'Septième phrase : le verbe est prévoir ou revoir. EN: prévoir or revoir.', opts: ['revoir', 'prévoir'], correct: 1, why: 'prévoirons garde le -oi-. reverrons ne l’aurait pas. EN: prévoirons keeps the -oi-.' },
     { q: 'Ces huit verbes demandent-ils des radicaux nouveaux. EN: Do these need new stems.', opts: ['Non, aucun', 'Oui, six'], correct: 0, why: 'Tous viennent des actes 2 et 3. EN: all of them come from acts 2 and 3.' },
   ],
@@ -1831,10 +1831,10 @@ const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
     ['Oui, toujours.', 'Non, jamais.'], 1,
     'reviendr-, obtiendr-, refer-, reverr- : le radical est celui du verbe simple. EN: never.'),
   ctl('La méthode', 'Devant un composé inconnu, tu cherches : EN: Faced with an unknown compound, you look for:',
-    ['le verbe simple dessous', 'un nouveau radical', 'la traduction'], 0,
+    ['un nouveau radical', 'la traduction', 'le verbe simple dessous'], 2,
     'Puis tu conjugues le verbe simple. EN: then you conjugate the simple verb.'),
   ctl('prévoir', 'prévoir se conjugue comme revoir. EN: Does prévoir behave like revoir.',
-    ['Oui.', 'Non : il garde son -oi-.'], 1,
+    ['Non : il garde son -oi-.', 'Oui.'], 0,
     "je prévoirai, contre je reverrai. C'est la seule exception. EN: the one exception."),
 ], ['compose', 'radical', 'famille']);
 
@@ -2025,14 +2025,14 @@ const A8_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'on, faire', promptSound: 'on ferons', fr: 'on fera', ipa: '/ɔ̃ fə.ʁa/', tip: 'on prend la fin de il. EN: on takes the il ending.' },
   ],
   drill: [
-    { promptSay: 'Demain, je ... en formation. (être)', opts: ['seré', 'serai'], correct: 1 },
-    { promptSay: 'Nous ... besoin de deux jours. (avoir)', opts: ['aurons', 'aurront'], correct: 0 },
-    { promptSay: 'Vous ... payer sur place. (pouvoir)', opts: ['pourrerez', 'pourrez'], correct: 1 },
-    { promptSay: 'Ils ... le tour du lac. (faire)', opts: ['feront', 'feronts'], correct: 0 },
-    { promptSay: 'Tu ... le résultat mardi. (savoir)', opts: ['sauras', 'saureras', 'saurais'], correct: 0 },
-    { promptSay: 'On ... de retour avant la nuit. (être)', opts: ['serons', 'sera'], correct: 1 },
-    { promptSay: 'Vous ... une pièce d’identité. (devoir)', opts: ['devrez', 'devrerez'], correct: 0 },
-    { promptSay: 'Elles ... demain matin. (venir)', opts: ['viendrons', 'viendront'], correct: 1 },
+    { promptSay: 'Demain, je ... en formation. (être)', opts: ['serai', 'seré'], correct: 0 },
+    { promptSay: 'Nous ... besoin de deux jours. (avoir)', opts: ['aurront', 'aurons'], correct: 1 },
+    { promptSay: 'Vous ... payer sur place. (pouvoir)', opts: ['pourrez', 'pourrerez'], correct: 0 },
+    { promptSay: 'Ils ... le tour du lac. (faire)', opts: ['feronts', 'feront'], correct: 1 },
+    { promptSay: 'Tu ... le résultat mardi. (savoir)', opts: ['saureras', 'saurais', 'sauras'], correct: 2 },
+    { promptSay: 'On ... de retour avant la nuit. (être)', opts: ['sera', 'serons'], correct: 0 },
+    { promptSay: 'Vous ... une pièce d’identité. (devoir)', opts: ['devrerez', 'devrez'], correct: 1 },
+    { promptSay: 'Elles ... demain matin. (venir)', opts: ['viendront', 'viendrons'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'La moitié facile' },
@@ -2053,7 +2053,7 @@ const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
     ['le radical', 'la terminaison'], 1,
     'devr- est juste. La fin du futur est -ai. EN: the stem is right; the ending is -ai.'),
   ctl('on', 'On dit : EN: You say:',
-    ['on serons', 'on sera'], 1,
+    ['on sera', 'on serons'], 0,
     'on prend la terminaison de il. EN: on takes the il ending.'),
 ], ['fin', 'radical', 'infinitif']);
 
@@ -2189,8 +2189,8 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(359), 'hier'),
     ], chk(
       '« J’aurai le temps ce soir. » De quel soir parle-t-on. EN: Which evening.',
-      ['ce soir qui vient', 'un soir passé'],
-      0,
+      ['un soir passé', 'ce soir qui vient'],
+      1,
       'aur- est le radical du futur. av- serait le passé. EN: aur- is the future stem.',
     )),
     grp('faire et savoir', [
@@ -2200,8 +2200,8 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(363), 'hier'),
     ], chk(
       'Lequel de ces deux radicaux appartient au futur. EN: Which stem is the future one.',
-      ['fais-', 'fer-'],
-      1,
+      ['fer-', 'fais-'],
+      0,
       'fer- est le futur, fais- est l’imparfait. EN: fer- is the future.',
     )),
     grp('voir et devoir', [
@@ -2235,8 +2235,8 @@ const A9_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Première phrase : hier ou demain. EN: Yesterday or tomorrow.', opts: ['hier', 'demain'], correct: 1, why: 'serai : le radical ser- est celui du futur. EN: ser- is the future stem.' },
     { q: 'Deuxième phrase : hier ou demain. EN: Yesterday or tomorrow.', opts: ['hier', 'demain'], correct: 0, why: 'avais : le radical av- est celui de l’imparfait. EN: av- is the imparfait.' },
-    { q: 'Cinquième phrase : l’obligation est passée ou à venir. EN: Past or future obligation.', opts: ['à venir', 'passée'], correct: 0, why: 'devrai : devr-, le futur. EN: devrai is the future.' },
-    { q: 'Sixième phrase : la personne voit le lac maintenant. EN: Does the person see the lake now.', opts: ['Oui', 'Non, avant'], correct: 1, why: 'voyions : l’imparfait. C’était avant. EN: voyions is the imparfait.' },
+    { q: 'Cinquième phrase : l’obligation est passée ou à venir. EN: Past or future obligation.', opts: ['passée', 'à venir'], correct: 1, why: 'devrai : devr-, le futur. EN: devrai is the future.' },
+    { q: 'Sixième phrase : la personne voit le lac maintenant. EN: Does the person see the lake now.', opts: ['Non, avant', 'Oui'], correct: 0, why: 'voyions : l’imparfait. C’était avant. EN: voyions is the imparfait.' },
     { q: 'Les deux dernières phrases : même temps ou deux temps. EN: Same tense or two.', opts: ['le même', 'deux temps'], correct: 1, why: 'viendront est le futur, venaient l’imparfait. EN: future then imparfait.' },
   ],
   audio: REC('rec-b1-06-oreille-ecoute'),
@@ -2266,9 +2266,9 @@ const A9_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: 'Demain, je ... à Lyon.', opts: ['serai', 'étais'], correct: 0 },
     { promptSay: 'Ce soir, j’... le temps.', opts: ['avais', 'aurai'], correct: 1 },
-    { promptSay: 'Quand j’étais petit, je ... les courses avec ma mère.', opts: ['ferai', 'faisais'], correct: 1 },
-    { promptSay: 'La semaine prochaine, je ... quoi dire.', opts: ['saurai', 'savais'], correct: 0 },
-    { promptSay: 'Lundi prochain, je ... partir tôt.', opts: ['devais', 'devrai', 'devrais'], correct: 1 },
+    { promptSay: 'Quand j’étais petit, je ... les courses avec ma mère.', opts: ['faisais', 'ferai'], correct: 0 },
+    { promptSay: 'La semaine prochaine, je ... quoi dire.', opts: ['savais', 'saurai'], correct: 1 },
+    { promptSay: 'Lundi prochain, je ... partir tôt.', opts: ['devais', 'devrais', 'devrai'], correct: 2 },
     { promptSay: 'Avant, nous ... le lac depuis la cuisine.', opts: ['voyions', 'verrons'], correct: 0 },
     { promptSay: 'L’an dernier, j’... un vélo.', opts: ['aurai', 'avais'], correct: 1 },
     { promptSay: 'Ils ... en train jeudi prochain.', opts: ['viendront', 'venaient'], correct: 0 },
@@ -2315,7 +2315,7 @@ const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
     ['le mot de temps de la phrase', 'la longueur du mot', 'le sujet'], 0,
     'Lundi prochain, ou lundi dernier : c’est ça qui tranche. EN: next Monday, or last Monday.'),
   ctl('Le r', 'Quel radical contient un r avant la terminaison. EN: Which stem has an r before the ending.',
-    ['fais-', 'voy-', 'fer-'], 2,
+    ['fais-', 'fer-', 'voy-'], 1,
     `${THE_R} L'imparfait, lui, n'en a pas. EN: ${THE_R_EN}`),
 ], ['oreille', 'radical', 'fin']);
 
@@ -2453,8 +2453,8 @@ const A10_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(379), 'les prix'),
     ], chk(
       'Ces trois phrases dépendent-elles de toi. EN: Do these depend on you.',
-      ['Oui', 'Non'],
-      1,
+      ['Non', 'Oui'],
+      0,
       'Ce sont des prévisions. Personne ne te tiendra responsable. EN: these are forecasts.',
     )),
     grp('Tu refuses ou tu nuances', [
@@ -2463,8 +2463,8 @@ const A10_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(383), 'la prévision négative'),
     ], chk(
       'Où se pose la négation dans « je ne pourrai pas venir ». EN: Where does the negation sit.',
-      ['autour du verbe conjugué', 'autour de l’infinitif', 'à la fin'],
-      0,
+      ['autour de l’infinitif', 'à la fin', 'autour du verbe conjugué'],
+      2,
       'ne ... pas entoure pourrai. venir reste dehors. EN: ne and pas wrap the conjugated verb.',
     )),
   ],
@@ -2484,11 +2484,11 @@ const A10_ECOUTE: Sec<'listening'> = {
     ln(E(386)), ln(E(387)), ln(E(389)), ln(E(391)),
   ],
   questions: [
-    { q: 'Première phrase : promesse ou prévision. EN: Promise or forecast.', opts: ['promesse', 'prévision'], correct: 0, why: 'Je te promets que je serai là : tu t’engages. EN: you are committing.' },
-    { q: 'Deuxième phrase : qui décide de la date. EN: Who decides the date.', opts: ['la personne qui parle', 'personne dans la phrase'], correct: 1, why: 'Le colis arrivera : une prévision. EN: a forecast.' },
+    { q: 'Première phrase : promesse ou prévision. EN: Promise or forecast.', opts: ['prévision', 'promesse'], correct: 1, why: 'Je te promets que je serai là : tu t’engages. EN: you are committing.' },
+    { q: 'Deuxième phrase : qui décide de la date. EN: Who decides the date.', opts: ['personne dans la phrase', 'la personne qui parle'], correct: 0, why: 'Le colis arrivera : une prévision. EN: a forecast.' },
     { q: 'Quatrième phrase : la personne viendra-t-elle. EN: Will the person come.', opts: ['Oui', 'Non'], correct: 1, why: 'Je ne pourrai pas venir : un refus. EN: a refusal.' },
     { q: 'Cinquième phrase : est-ce rassurant. EN: Is it reassuring.', opts: ['Oui', 'Non'], correct: 0, why: 'Ça ira, ne t’inquiète pas. EN: yes.' },
-    { q: 'Dernière phrase : dans combien de temps. EN: How long from now.', opts: ['un mois', 'un an', 'dix ans'], correct: 1, why: 'Dans un an, je parlerai français sans y penser. EN: in a year.' },
+    { q: 'Dernière phrase : dans combien de temps. EN: How long from now.', opts: ['un an', 'un mois', 'dix ans'], correct: 0, why: 'Dans un an, je parlerai français sans y penser. EN: in a year.' },
   ],
   audio: REC('rec-b1-06-messages'),
   say: REFRAME,
@@ -2521,10 +2521,10 @@ const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
     ['une prévision', 'une promesse'], 1,
     'Tu t’engages, et on te le rappellera. EN: you are committing.'),
   ctl('La négation', 'Dans « je ne pourrai pas venir », que trouve-t-on entre ne et pas. EN: What sits between ne and pas.',
-    ['pourrai', 'venir', 'pourrai venir'], 0,
+    ['venir', 'pourrai', 'pourrai venir'], 1,
     'Le verbe conjugué, comme partout. EN: the conjugated verb, as always.'),
   ctl('La limite', 'Après quand et dès que, le futur suit-il les mêmes règles. EN: Same rules after quand and dès que.',
-    ['Oui.', 'Non : une leçon à part.'], 1,
+    ['Non : une leçon à part.', 'Oui.'], 0,
     'La leçon suivante s’en occupe. EN: the next lesson covers it.'),
 ], ['promesse', 'prediction', 'fin']);
 
@@ -3050,12 +3050,12 @@ const DRILL_LIST: LessonDrill[] = [
   { id: 'd-grands', title: 'Les six grands', format: 'flashcard' as const, coach: `Une carte, un radical. ${REFRAME} EN: ${REFRAME_EN}`, items: [E(200), E(201), E(206), E(207), E(208), E(240)], audio: AUDIO },
   { id: 'd-double-r', title: 'Un r ou deux', format: 'mcq' as const, coach: 'Le son ne te dira rien. Regarde le radical. EN: the sound will not help; look at the stem.', q: 'Tu écris le futur de envoyer. EN: Write the future of envoyer.', opts: ['j’enverai', 'j’enverrai'], correct: 1, why: 'enverr-, avec deux r. EN: enverr-, two r.', items: [E(209), E(247), E(252), E(255), E(258), E(260)], audio: AUDIO },
   { id: 'd-le-d', title: 'Le d qui apparaît', format: 'sort' as const, coach: 'Deux tas : le d arrive, ou il n’arrive pas. EN: two piles: the d comes, or it does not.', buckets: ['avec un d', 'sans d'], items: [E(208), E(262), E(267), E(211), E(209), E(247)], audio: AUDIO },
-  { id: 'd-oir', title: 'Le -oi- qui part', format: 'mcq' as const, coach: 'savoir, devoir, recevoir, pleuvoir : enlève le -oi-. EN: take the -oi- out.', q: 'Le futur de savoir, première personne. EN: The future of savoir, je.', opts: ['je savoirai', 'je saurai', 'je saverai'], correct: 1, why: 'saur-. Le -oi- disparaît. EN: the -oi- vanishes.', items: [E(210), E(287), E(292), E(297), E(299), E(283)], audio: AUDIO },
+  { id: 'd-oir', title: 'Le -oi- qui part', format: 'mcq' as const, coach: 'savoir, devoir, recevoir, pleuvoir : enlève le -oi-. EN: take the -oi- out.', q: 'Le futur de savoir, première personne. EN: The future of savoir, je.', opts: ['je savoirai', 'je saverai', 'je saurai'], correct: 2, why: 'saur-. Le -oi- disparaît. EN: the -oi- vanishes.', items: [E(210), E(287), E(292), E(297), E(299), E(283)], audio: AUDIO },
   { id: 'd-impersonnels', title: 'Un seul sujet', format: 'flashcard' as const, coach: 'Lis la carte et dis la phrase entière, avec son il. EN: say the whole line, with its il.', items: [E(211), E(297), E(302), E(305), E(309), E(314)], audio: AUDIO },
   { id: 'd-composes', title: 'Le préfixe est gratuit', format: 'mcq' as const, coach: 'Trouve le verbe simple sous le composé. EN: find the simple verb underneath.', q: 'obtenir se conjugue comme : EN: obtenir behaves like:', opts: ['tenir', 'obtenir tout seul', 'avoir'], correct: 0, why: 'obtiendr-, exactement comme tiendr-. EN: exactly like tenir.', items: [E(320), E(323), E(326), E(331), E(333), E(335)], audio: AUDIO },
   { id: 'd-terminaisons', title: 'Les six fins', format: 'flashcard' as const, coach: `-ai, -as, -a, -ons, -ez, -ont. ${REFRAME} EN: ${REFRAME_EN}`, items: [E(338), E(339), E(341), E(343), E(348), E(353)], audio: AUDIO },
   { id: 'd-oreille', title: 'Futur ou imparfait', format: 'sort' as const, coach: 'Deux tas. Demain, ou hier. EN: two piles: tomorrow, or yesterday.', buckets: ['demain', 'hier'], items: [E(356), E(357), E(358), E(359), E(362), E(363)], audio: AUDIO },
-  { id: 'd-predire', title: 'Promettre ou annoncer', format: 'mcq' as const, coach: 'Est-ce que tu t’engages, ou est-ce que tu annonces. EN: are you committing, or announcing.', q: '« Je te tiendrai au courant. » C’est : EN: This is:', opts: ['une prédiction', 'une promesse'], correct: 1, why: 'Tu t’engages. EN: you are committing.', items: [E(376), E(377), E(384), E(387), E(390), E(391)], audio: AUDIO },
+  { id: 'd-predire', title: 'Promettre ou annoncer', format: 'mcq' as const, coach: 'Est-ce que tu t’engages, ou est-ce que tu annonces. EN: are you committing, or announcing.', q: '« Je te tiendrai au courant. » C’est : EN: This is:', opts: ['une promesse', 'une prédiction'], correct: 0, why: 'Tu t’engages. EN: you are committing.', items: [E(376), E(377), E(384), E(387), E(390), E(391)], audio: AUDIO },
   { id: 'd-melange', title: 'Les vingt radicaux', format: 'flashcard' as const, coach: `Une carte, une famille. ${THE_R} EN: ${THE_R_EN}`, items: [E(200), E(209), E(262), E(287), E(302), E(320)], audio: AUDIO },
 ];
 

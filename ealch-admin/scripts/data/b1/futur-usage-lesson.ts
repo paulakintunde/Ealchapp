@@ -312,8 +312,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it(E(410), 'une invitation, plus tard'),
     ], chk(
       'Ces quatre phrases : combien de verbes au futur dans chacune ?',
-      ['un seul', 'deux'],
-      1,
+      ['deux', 'un seul'],
+      0,
       'Les deux moitiés parlent du même moment à venir, donc les deux portent le futur. EN: both halves sit at the same future moment.',
     )),
     grp('Ce que tu fais d’habitude', [
@@ -322,8 +322,8 @@ const A1_REPERER: Sec<'groupDrill'> = {
       it(E(406), 'un état, maintenant'),
     ], chk(
       'Pourquoi l’employée ne note rien après « Quand j’ai les clés » ?',
-      ['la phrase est fausse', 'la phrase dit une habitude, pas une date'],
-      1,
+      ['la phrase dit une habitude, pas une date', 'la phrase est fausse'],
+      0,
       'Elle est correcte, et elle raconte ce que tu fais chaque fois. Une habitude n’a pas de jour. EN: correct French, but a habit has no date.',
     )),
     ctl('Le test', 'Tu hésites entre le présent et le futur après quand. Que fais-tu ?', ['tu regardes la fin du verbe', 'tu demandes si le moment est déjà passé ou encore à venir'], 1,
@@ -353,11 +353,11 @@ const A1_POURQUOI: Sec<'useCases'> = {
 
 const A1_CHECK = actCheck('a1-check', 'Le point : acte 1', [
   ctl('Le calendrier', '« Quand j’... les clés, je vous appellerai. » (avoir) EN: Which form books a date?',
-    ['ai', 'aurai'], 1, 'Un moment à venir, donc le futur des deux côtés. EN: a future moment, so both halves.'),
+    ['aurai', 'ai'], 0, 'Un moment à venir, donc le futur des deux côtés. EN: a future moment, so both halves.'),
   ctl('L’habitude', '« Quand j’arrive au bureau, je prends un café. » Cette phrase dit...',
-    ['ce que je ferai demain', 'ce que je fais chaque matin', 'ce que j’ai fait hier'], 1,
+    ['ce que je fais chaque matin', 'ce que je ferai demain', 'ce que j’ai fait hier'], 0,
     'Deux présents : une habitude, à chaque fois. EN: two presents mean every time.'),
-  ctl('Après si', 'Dans « Si tout va bien, je déménagerai samedi », quel verbe suit si ?', ['va, au présent', 'ira, au futur'], 0,
+  ctl('Après si', 'Dans « Si tout va bien, je déménagerai samedi », quel verbe suit si ?', ['ira, au futur', 'va, au présent'], 1,
     'Après si, le verbe reste au présent. C’est la règle que le français ne casse jamais. EN: after si the verb stays present.'),
 ], ['deuxfois', 'condition']);
 
@@ -525,8 +525,8 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(421), 'fera, mangerons'),
     ], chk(
       '« Quand nous ... prêts, nous partirons. » (être)',
-      ['sommes', 'serons'],
-      1,
+      ['serons', 'sommes'],
+      0,
       'Le départ est à venir, donc la charnière aussi. EN: the leaving is ahead, so the hinge clause is too.',
     )),
     grp('La charnière à la fin', [
@@ -540,7 +540,7 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       1,
       'La charnière garde le futur même quand elle passe en deuxième. EN: the hinge keeps the future even when it comes second.',
     )),
-    ctl('Le compte', 'Dans une phrase avec quand et un projet, combien de verbes au futur ?', ['un', 'deux', 'aucun'], 1,
+    ctl('Le compte', 'Dans une phrase avec quand et un projet, combien de verbes au futur ?', ['un', 'aucun', 'deux'], 2,
       'Un de chaque côté. C’est le cœur de la leçon. EN: one on each side.'),
   ],
   audio: AUDIO,
@@ -561,10 +561,10 @@ const A2_ECOUTE: Sec<'listening'> = {
     ln(E(421)), ln(E(454)), ln(E(428)), ln(E(467)),
   ],
   questions: [
-    { q: 'Première phrase : « Quand j’arrive au bureau... ». C’est...', opts: ['un projet pour demain', 'une habitude'], correct: 1, why: 'Deux présents, donc chaque matin. EN: two presents, so every morning.' },
-    { q: 'Deuxième phrase : combien de verbes au futur ?', opts: ['un', 'deux'], correct: 1, why: 'arriverai et enverrai : les deux moitiés. EN: both halves.' },
-    { q: 'Quatrième phrase : quand partiront-ils ?', opts: ['dès qu’ils seront prêts', 'tous les matins'], correct: 0, why: '« Quand nous serons prêts » annonce un moment unique. EN: one moment, not a routine.' },
-    { q: 'Sixième phrase : « Quand il pleut, je prends le métro. » Le métro, c’est...', opts: ['pour demain', 'à chaque pluie'], correct: 1, why: 'Présent + présent : une habitude. EN: present plus present is a habit.' },
+    { q: 'Première phrase : « Quand j’arrive au bureau... ». C’est...', opts: ['une habitude', 'un projet pour demain'], correct: 0, why: 'Deux présents, donc chaque matin. EN: two presents, so every morning.' },
+    { q: 'Deuxième phrase : combien de verbes au futur ?', opts: ['deux', 'un'], correct: 0, why: 'arriverai et enverrai : les deux moitiés. EN: both halves.' },
+    { q: 'Quatrième phrase : quand partiront-ils ?', opts: ['tous les matins', 'dès qu’ils seront prêts'], correct: 1, why: '« Quand nous serons prêts » annonce un moment unique. EN: one moment, not a routine.' },
+    { q: 'Sixième phrase : « Quand il pleut, je prends le métro. » Le métro, c’est...', opts: ['à chaque pluie', 'pour demain'], correct: 0, why: 'Présent + présent : une habitude. EN: present plus present is a habit.' },
     { q: 'Septième phrase : « Quand tu seras là... ». Tu es là maintenant ?', opts: ['oui', 'non, plus tard'], correct: 1, why: 'Le futur pose le moment devant nous. EN: the future places the moment ahead.' },
   ],
   audio: REC('rec-b1-07-projets-ecoute'),
@@ -592,8 +592,8 @@ const A2_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'la bonne habitude', promptSound: 'Quand j’arriverai au bureau, je prendrai un café tous les matins.', fr: 'Quand j’arrive au bureau, je prends un café.', ipa: '/kɑ̃ ʒa.ʁiv o by.ʁo ʒə pʁɑ̃.zœ̃ ka.fe/', tip: 'Pour une habitude, le présent est la bonne forme. EN: for a habit the present is right.' },
   ],
   drill: [
-    { promptSay: 'Quand tu ... , je serai déjà là. (arriver)', opts: ['arrives', 'arriveras'], correct: 1 },
-    { promptSay: 'Quand j’arrive au bureau, je ... un café. (prendre)', opts: ['prends', 'prendrai'], correct: 0 },
+    { promptSay: 'Quand tu ... , je serai déjà là. (arriver)', opts: ['arriveras', 'arrives'], correct: 0 },
+    { promptSay: 'Quand j’arrive au bureau, je ... un café. (prendre)', opts: ['prendrai', 'prends'], correct: 1 },
     { promptSay: 'Je te préviendrai quand la salle ... libre. (être)', opts: ['sera', 'est'], correct: 0 },
     { promptSay: 'Quand il ... beau, nous mangerons dehors. (faire)', opts: ['fait', 'fera'], correct: 1 },
     { promptSay: 'Quand vous aurez le temps, vous me ... . (dire)', opts: ['direz', 'dites'], correct: 0 },
@@ -613,11 +613,11 @@ const A2_PIEGE: Sec<'trapDrill'> = {
 };
 
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
-  ctl('Le compte', 'Un projet avec quand : combien de futurs ?', ['un', 'deux'], 1,
+  ctl('Le compte', 'Un projet avec quand : combien de futurs ?', ['deux', 'un'], 0,
     'Un de chaque côté de la charnière. EN: one on each side.'),
-  ctl('L’ordre', 'La charnière peut-elle passer en deuxième ?', ['oui, sans rien changer', 'non, jamais'], 0,
+  ctl('L’ordre', 'La charnière peut-elle passer en deuxième ?', ['non, jamais', 'oui, sans rien changer'], 1,
     '« Je te préviendrai quand la salle sera libre » : même phrase, autre ordre. EN: same sentence, other order.'),
-  ctl('Le sens', '« Quand je rentre, je fais les courses. » Cette phrase parle...', ['de demain', 'de chaque fois', 'd’hier'], 1,
+  ctl('Le sens', '« Quand je rentre, je fais les courses. » Cette phrase parle...', ['de chaque fois', 'de demain', 'd’hier'], 0,
     'Deux présents : une habitude. EN: two presents mean a habit.'),
 ], ['deuxfois', 'charniere']);
 
@@ -652,11 +652,11 @@ const A3_ECOUTE: Sec<'listening'> = {
     ln(E(442)), ln(E(434)), ln(E(445)), ln(E(446)),
   ],
   questions: [
-    { q: 'Première phrase : « Dès que le magasin ouvrira... ». Tu y vas...', opts: ['un peu plus tard', 'à la seconde où il ouvre'], correct: 1, why: 'Dès que donne l’instant exact. EN: dès que gives the exact instant.' },
-    { q: 'Deuxième phrase commence par lorsque. Le sens est...', opts: ['le même que quand', 'plus fort que quand'], correct: 0, why: 'Lorsque est le même mot, plus écrit. EN: the same word, more written.' },
+    { q: 'Première phrase : « Dès que le magasin ouvrira... ». Tu y vas...', opts: ['à la seconde où il ouvre', 'un peu plus tard'], correct: 0, why: 'Dès que donne l’instant exact. EN: dès que gives the exact instant.' },
+    { q: 'Deuxième phrase commence par lorsque. Le sens est...', opts: ['plus fort que quand', 'le même que quand'], correct: 1, why: 'Lorsque est le même mot, plus écrit. EN: the same word, more written.' },
     { q: 'Troisième phrase : « Tant que la pluie continuera... ». Vous sortez quand ?', opts: ['dès qu’elle s’arrête', 'pendant la pluie'], correct: 0, why: 'Tant que dit aussi longtemps que ça dure. EN: tant que means for as long as.' },
     { q: 'Quatrième phrase : les deux actions se passent...', opts: ['l’une après l’autre', 'en même temps'], correct: 1, why: 'Pendant que met les deux moitiés côte à côte. EN: pendant que runs them together.' },
-    { q: 'Cinquième phrase : « Une fois que le formulaire sera rempli... ». Il faut d’abord...', opts: ['le déposer', 'le remplir'], correct: 1, why: 'Une fois que marque une étape franchie. EN: une fois que marks a step completed.' },
+    { q: 'Cinquième phrase : « Une fois que le formulaire sera rempli... ». Il faut d’abord...', opts: ['le remplir', 'le déposer'], correct: 0, why: 'Une fois que marque une étape franchie. EN: une fois que marks a step completed.' },
     { q: 'Combien de ces phrases ont un verbe au futur après la charnière ?', opts: ['aucune', 'quelques-unes', 'toutes'], correct: 2, why: 'Toute la famille se comporte comme quand. EN: the whole family behaves like quand.' },
   ],
   audio: REC('rec-b1-07-charnieres-ecoute'),
@@ -762,8 +762,8 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it('fr.b1.heure-et-date.085', 'dès que : au douzième coup'),
     ], chk(
       'Tu veux dire « à la seconde où il arrive ». Quelle charnière ?',
-      ['pendant qu’il arrivera', 'dès qu’il arrivera', 'tant qu’il arrivera'],
-      1,
+      ['dès qu’il arrivera', 'pendant qu’il arrivera', 'tant qu’il arrivera'],
+      0,
       'Dès que donne l’instant. Pendant que donnerait une durée. EN: dès que gives the instant.',
     )),
     grp('La durée partagée', [
@@ -773,8 +773,8 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(446), 'pendant que : la sieste et la fête'),
     ], chk(
       'Deux choses qui durent ensemble, du début à la fin : quelle charnière ?',
-      ['dès que', 'une fois que', 'pendant que'],
-      2,
+      ['dès que', 'pendant que', 'une fois que'],
+      1,
       'Pendant que met les deux moitiés côte à côte. EN: pendant que runs them side by side.',
     )),
     ctl('Le temps', 'Toutes ces charnières, pour un projet, demandent...', ['le présent', 'le futur'], 1,
@@ -815,7 +815,7 @@ const A3_DICTEE: Sec<'dictation'> = {
 };
 
 const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
-  ctl('Le seuil', 'Quelle charnière dit « à la seconde exacte » ?', ['pendant que', 'dès que', 'une fois que'], 1,
+  ctl('Le seuil', 'Quelle charnière dit « à la seconde exacte » ?', ['pendant que', 'une fois que', 'dès que'], 2,
     'Dès que et aussitôt que donnent l’instant. EN: dès que and aussitôt que give the instant.'),
   ctl('Le registre', 'Quand et lorsque : quelle différence ?', ['aucune de sens, lorsque est plus écrit', 'lorsque est plus fort'], 0,
     'Le sens est le même ; le ton change. EN: same meaning, different tone.'),
@@ -943,7 +943,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       'Un moment unique, devant toi : futur des deux côtés. EN: one moment ahead, so both futures.',
     )),
     ctl('Le passé', '« Quand nous habitions à Bruxelles, nous allions au marché. » Cette phrase dit...',
-      ['un projet', 'une habitude finie'], 1,
+      ['une habitude finie', 'un projet'], 0,
       'Deux imparfaits : une habitude qui est terminée. EN: two imparfaits mean a habit that is over.'),
   ],
   audio: AUDIO,
@@ -981,11 +981,11 @@ const A4_ECOUTE: Sec<'listening'> = {
     ln(E(460)), ln(E(464)), ln(E(467)), ln(E(465)),
   ],
   questions: [
-    { q: 'Première phrase : de quand parle-t-elle ?', opts: ['de demain', 'de chaque jour', 'd’avant'], correct: 1, why: 'Deux présents : une habitude. EN: two presents, a habit.' },
-    { q: 'Deuxième phrase : « Quand j’étais étudiant... ». C’est...', opts: ['fini', 'à venir'], correct: 0, why: 'Deux imparfaits : une habitude passée. EN: a habit that is over.' },
-    { q: 'Troisième phrase : la retraite, c’est...', opts: ['maintenant', 'plus tard'], correct: 1, why: 'Deux futurs : un moment devant toi. EN: two futures, a moment ahead.' },
+    { q: 'Première phrase : de quand parle-t-elle ?', opts: ['de demain', 'd’avant', 'de chaque jour'], correct: 2, why: 'Deux présents : une habitude. EN: two presents, a habit.' },
+    { q: 'Deuxième phrase : « Quand j’étais étudiant... ». C’est...', opts: ['à venir', 'fini'], correct: 1, why: 'Deux imparfaits : une habitude passée. EN: a habit that is over.' },
+    { q: 'Troisième phrase : la retraite, c’est...', opts: ['plus tard', 'maintenant'], correct: 0, why: 'Deux futurs : un moment devant toi. EN: two futures, a moment ahead.' },
     { q: 'Cinquième phrase : « Dès que la cloche sonnait... ». Ça se passait...', opts: ['une seule fois', 'tous les jours d’école'], correct: 1, why: 'L’imparfait raconte l’habitude d’une époque. EN: the imparfait tells the habit of a period.' },
-    { q: 'Combien de ces huit phrases ont un futur ?', opts: ['aucune', 'trois', 'toutes'], correct: 1, why: 'Trois : la retraite, la fin du travail, la faim. EN: three of them.' },
+    { q: 'Combien de ces huit phrases ont un futur ?', opts: ['trois', 'aucune', 'toutes'], correct: 0, why: 'Trois : la retraite, la fin du travail, la faim. EN: three of them.' },
   ],
   audio: REC('rec-b1-07-routine-ecoute'),
   say: REFRAME,
@@ -1011,14 +1011,14 @@ const A4_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'la bonne habitude', promptSound: 'Pendant que je travaillerai, j’écouterai la radio.', fr: 'Pendant que je travaille, j’écoute la radio.', ipa: '/pɑ̃.dɑ̃ kə ʒə tʁa.vaj ʒe.kut la ʁa.djo/', tip: 'C’est ce que tu fais d’habitude. EN: this is what you usually do.' },
   ],
   drill: [
-    { promptSay: 'Quand je ... du travail, je prends une douche. (rentrer, chaque soir)', opts: ['rentrerai', 'rentre'], correct: 1 },
-    { promptSay: 'Quand je ... à la retraite, je voyagerai. (être, plus tard)', opts: ['serai', 'suis'], correct: 0 },
-    { promptSay: 'Quand j’... étudiant, je travaillais le samedi. (être)', opts: ['serai', 'étais'], correct: 1 },
-    { promptSay: 'Dès que le réveil ... , je me lève. (sonner, chaque matin)', opts: ['sonne', 'sonnera'], correct: 0 },
-    { promptSay: 'Dès que je ... , je te le dirai. (finir, ce soir)', opts: ['finis', 'finirai'], correct: 1 },
-    { promptSay: 'Quand il ... , je prends le métro. (pleuvoir, à chaque fois)', opts: ['pleut', 'pleuvra'], correct: 0 },
-    { promptSay: 'Quand tu ... faim, tu me le diras. (avoir, tout à l’heure)', opts: ['as', 'auras'], correct: 1 },
-    { promptSay: 'Pendant que je ... , j’écoute la radio. (travailler, d’habitude)', opts: ['travaille', 'travaillerai'], correct: 0 },
+    { promptSay: 'Quand je ... du travail, je prends une douche. (rentrer, chaque soir)', opts: ['rentre', 'rentrerai'], correct: 0 },
+    { promptSay: 'Quand je ... à la retraite, je voyagerai. (être, plus tard)', opts: ['suis', 'serai'], correct: 1 },
+    { promptSay: 'Quand j’... étudiant, je travaillais le samedi. (être)', opts: ['étais', 'serai'], correct: 0 },
+    { promptSay: 'Dès que le réveil ... , je me lève. (sonner, chaque matin)', opts: ['sonnera', 'sonne'], correct: 1 },
+    { promptSay: 'Dès que je ... , je te le dirai. (finir, ce soir)', opts: ['finirai', 'finis'], correct: 0 },
+    { promptSay: 'Quand il ... , je prends le métro. (pleuvoir, à chaque fois)', opts: ['pleuvra', 'pleut'], correct: 1 },
+    { promptSay: 'Quand tu ... faim, tu me le diras. (avoir, tout à l’heure)', opts: ['auras', 'as'], correct: 0 },
+    { promptSay: 'Pendant que je ... , j’écoute la radio. (travailler, d’habitude)', opts: ['travaillerai', 'travaille'], correct: 1 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Le mot ne décide de rien' },
@@ -1032,11 +1032,11 @@ const A4_PIEGE: Sec<'trapDrill'> = {
 };
 
 const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
-  ctl('Le décideur', 'Qui décide du temps du verbe après quand ?', ['le mot quand', 'le moment dont tu parles'], 1,
+  ctl('Le décideur', 'Qui décide du temps du verbe après quand ?', ['le moment dont tu parles', 'le mot quand'], 0,
     'La charnière ne commande rien. EN: the hinge commands nothing.'),
   ctl('L’habitude', '« Dès que le réveil sonne, je me lève. » Ça se passe...', ['demain matin', 'chaque matin'], 1,
     'Deux présents : à chaque fois. EN: two presents, every time.'),
-  ctl('Le souvenir', 'Pour une habitude d’école, terminée, quel temps ?', ['le futur', 'le présent', 'l’imparfait'], 2,
+  ctl('Le souvenir', 'Pour une habitude d’école, terminée, quel temps ?', ['le futur', 'l’imparfait', 'le présent'], 1,
     'Deux imparfaits, comme dans b1.02. EN: two imparfaits.'),
 ], ['charniere', 'verite']);
 
@@ -1157,8 +1157,8 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       it('fr.b1.sports-et-loisirs.077', 't’entraînes : à toi de décider'),
     ], chk(
       '« Si tu ... demain, je préparerai un gâteau. » (venir)',
-      ['viendras', 'viens'],
-      1,
+      ['viens', 'viendras'],
+      0,
       'Après si, jamais le futur. Le verbe reste au présent. EN: never the future after si.',
     )),
     grp('La suite, au futur', [
@@ -1172,7 +1172,7 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       1,
       'L’autre moitié porte tout le futur de la phrase. EN: the other half carries the whole future.',
     )),
-    ctl('La règle', 'Peut-on écrire « si j’aurai le temps » ?', ['oui, pour insister', 'non, jamais'], 1,
+    ctl('La règle', 'Peut-on écrire « si j’aurai le temps » ?', ['non, jamais', 'oui, pour insister'], 0,
       'C’est la seule règle absolue de la leçon. EN: this is the one absolute rule here.'),
   ],
   audio: AUDIO,
@@ -1232,9 +1232,9 @@ const A5_FLASH: Sec<'flashcards'> = {
 const A5_CHECK = actCheck('a5-check', 'Le point : acte 5', [
   ctl('La règle', 'Quel temps juste après si, dans une condition réelle ?', ['le futur', 'le présent'], 1,
     'Toujours le présent. C’est la seule règle absolue ici. EN: always the present.'),
-  ctl('L’autre moitié', '« Si tu ranges ta chambre, je t’... à peindre. » (aider)', ['aide', 'aiderai'], 1,
+  ctl('L’autre moitié', '« Si tu ranges ta chambre, je t’... à peindre. » (aider)', ['aiderai', 'aide'], 0,
     'Le futur vit de l’autre côté de la virgule. EN: the future lives past the comma.'),
-  ctl('L’ordre', 'Peut-on mettre la moitié en si à la fin ?', ['oui, elle reste au présent', 'non, jamais', 'oui, elle passe au futur'], 0,
+  ctl('L’ordre', 'Peut-on mettre la moitié en si à la fin ?', ['non, jamais', 'oui, elle passe au futur', 'oui, elle reste au présent'], 2,
     '« Je passerai te voir si j’ai le temps. » EN: the si half stays present wherever it sits.'),
 ], ['condition', 'deuxfois']);
 
@@ -1272,7 +1272,7 @@ const A6_ECOUTE: Sec<'listening'> = {
     { q: 'Première phrase : « Si on chauffe l’eau à cent degrés, elle bout. » C’est...', opts: ['une promesse', 'une vérité'], correct: 1, why: 'Deux présents : ce qui arrive à chaque fois. EN: two presents say every time.' },
     { q: 'Deuxième phrase : la deuxième moitié est...', opts: ['au futur', 'au présent'], correct: 0, why: '« je préparerai » : une promesse. EN: a promise takes the future.' },
     { q: 'Troisième phrase : « Si tu as froid, ferme la fenêtre. » C’est...', opts: ['une consigne', 'une vérité', 'une promesse'], correct: 0, why: 'Un impératif : on te dit quoi faire. EN: an imperative tells you what to do.' },
-    { q: 'Sixième phrase : « ce sera moins cher ». On te promet quelque chose ?', opts: ['oui', 'non'], correct: 0, why: 'Le futur ouvre une promesse de prix. EN: the future opens a promise.' },
+    { q: 'Sixième phrase : « ce sera moins cher ». On te promet quelque chose ?', opts: ['non', 'oui'], correct: 1, why: 'Le futur ouvre une promesse de prix. EN: the future opens a promise.' },
     { q: 'Combien de ces huit phrases donnent un ordre ?', opts: ['une', 'trois', 'six'], correct: 1, why: 'Trois impératifs : ferme, levez, sortez. EN: three imperatives.' },
   ],
   audio: REC('rec-b1-07-consignes-ecoute'),
@@ -1376,8 +1376,8 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it('fr.b1.cuisine.078', 'la recette, à chaque fois'),
     ], chk(
       '« Si tu bois du café le soir, tu ... mal. » (dormir)',
-      ['dormiras', 'dors'],
-      1,
+      ['dors', 'dormiras'],
+      0,
       'Une vérité sur ton corps, pas une promesse pour ce soir. EN: a truth, not a promise.',
     )),
     grp('Ce qu’il faut faire', [
@@ -1387,8 +1387,8 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(501), 'attends-moi : un message court'),
     ], chk(
       '« Si vous avez une question, ... la main. » (lever)',
-      ['vous lèverez', 'levez', 'vous levez'],
-      1,
+      ['vous lèverez', 'vous levez', 'levez'],
+      2,
       'Un impératif : on te dit quoi faire tout de suite. EN: an imperative tells you what to do.',
     )),
     ctl('La première moitié', 'Dans ces trois formes, qu’est-ce qui ne change jamais ?', ['la deuxième moitié', 'si plus le présent'], 1,
@@ -1418,14 +1418,14 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'si + conditionnel', promptSound: 'Si tu m’aiderais, nous finirions plus vite.', fr: 'Si tu m’aides, nous finirons plus vite.', ipa: '/si ty mɛd nu fi.ni.ʁɔ̃ ply vit/', tip: `Cette forme existe et elle est ${SI_UNREAL_REF}. EN: that form exists and belongs to a later lesson.` },
   ],
   drill: [
-    { promptSay: 'Si tu ... demain, je préparerai un gâteau. (venir)', opts: ['viendras', 'viens'], correct: 1 },
-    { promptSay: 'Si j’... le temps, je passerai te voir. (avoir)', opts: ['ai', 'aurai'], correct: 0 },
-    { promptSay: 'Si tu as froid, ... la fenêtre. (fermer)', opts: ['tu fermeras', 'ferme'], correct: 1 },
-    { promptSay: 'Si on chauffe l’eau à cent degrés, elle ... . (bouillir)', opts: ['bout', 'bouillira'], correct: 0 },
-    { promptSay: 'Si le train ... à l’heure, nous serons là à midi. (être)', opts: ['sera', 'est'], correct: 1 },
-    { promptSay: 'Si vous avez une question, ... la main. (lever)', opts: ['levez', 'vous lèverez'], correct: 0 },
-    { promptSay: 'Si tu ranges ta chambre, je t’... à peindre. (aider)', opts: ['aide', 'aiderai'], correct: 1 },
-    { promptSay: 'Si tu bois du café le soir, tu ... mal. (dormir)', opts: ['dors', 'dormiras'], correct: 0 },
+    { promptSay: 'Si tu ... demain, je préparerai un gâteau. (venir)', opts: ['viens', 'viendras'], correct: 0 },
+    { promptSay: 'Si j’... le temps, je passerai te voir. (avoir)', opts: ['aurai', 'ai'], correct: 1 },
+    { promptSay: 'Si tu as froid, ... la fenêtre. (fermer)', opts: ['ferme', 'tu fermeras'], correct: 0 },
+    { promptSay: 'Si on chauffe l’eau à cent degrés, elle ... . (bouillir)', opts: ['bouillira', 'bout'], correct: 1 },
+    { promptSay: 'Si le train ... à l’heure, nous serons là à midi. (être)', opts: ['est', 'sera'], correct: 0 },
+    { promptSay: 'Si vous avez une question, ... la main. (lever)', opts: ['vous lèverez', 'levez'], correct: 1 },
+    { promptSay: 'Si tu ranges ta chambre, je t’... à peindre. (aider)', opts: ['aiderai', 'aide'], correct: 0 },
+    { promptSay: 'Si tu bois du café le soir, tu ... mal. (dormir)', opts: ['dormiras', 'dors'], correct: 1 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Il reste du bon côté' },
@@ -1439,11 +1439,11 @@ const A6_PIEGE: Sec<'trapDrill'> = {
 };
 
 const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
-  ctl('La promesse', 'Pour annoncer ce que tu feras, quelle suite après si + présent ?', ['un présent', 'un futur', 'un impératif'], 1,
+  ctl('La promesse', 'Pour annoncer ce que tu feras, quelle suite après si + présent ?', ['un futur', 'un présent', 'un impératif'], 0,
     'Le futur annonce ce que tu feras. EN: the future announces what you will do.'),
-  ctl('La vérité', '« Si on paie en ligne, la livraison ... gratuite. » (être)', ['sera', 'est'], 1,
+  ctl('La vérité', '« Si on paie en ligne, la livraison ... gratuite. » (être)', ['est', 'sera'], 0,
     'Une information vraie à chaque fois : présent. EN: true every time, so present.'),
-  ctl('La consigne', 'Sur un panneau, quelle forme suit la condition ?', ['un impératif', 'un futur'], 0,
+  ctl('La consigne', 'Sur un panneau, quelle forme suit la condition ?', ['un futur', 'un impératif'], 1,
     '« Si l’alarme sonne, sortez par la porte de gauche. » EN: signs use the imperative.'),
 ], ['verite', 'consigne']);
 
@@ -1564,8 +1564,8 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(515), 'le mois d’août viendra'),
     ], chk(
       '« ... le bébé naîtra, nous changerons d’appartement. » Quel mot ?',
-      ['Si', 'Quand'],
-      1,
+      ['Quand', 'Si'],
+      0,
       'La naissance est attendue : quand, et le futur des deux côtés. EN: the birth is expected, so quand.',
     )),
     grp('Ce n’est pas sûr', [
@@ -1603,7 +1603,7 @@ const A7_ECOUTE: Sec<'listening'> = {
     { q: 'Deuxième phrase : partir plus tôt, c’est...', opts: ['sûr', 'peut-être'], correct: 1, why: 'Si plus le présent : ce n’est pas décidé. EN: si plus a present means undecided.' },
     { q: 'Troisième et quatrième phrases : la deuxième moitié est...', opts: ['la même', 'différente'], correct: 0, why: '« nous ouvrirons la terrasse » deux fois. Seule l’entrée change. EN: only the opening changes.' },
     { q: 'Sixième phrase : « Si je te vois ce soir... ». Vous vous verrez ?', opts: ['c’est prévu', 'on ne sait pas'], correct: 1, why: 'Si laisse la porte ouverte. EN: si leaves the door open.' },
-    { q: 'Comment reconnais-tu une phrase en si, à l’oreille ?', opts: ['au futur de la première moitié', 'au présent de la première moitié'], correct: 1, why: 'Après si, jamais le r du futur. EN: after si you never hear the future r.' },
+    { q: 'Comment reconnais-tu une phrase en si, à l’oreille ?', opts: ['au présent de la première moitié', 'au futur de la première moitié'], correct: 0, why: 'Après si, jamais le r du futur. EN: after si you never hear the future r.' },
   ],
   audio: REC('rec-b1-07-sur-ou-pas'),
   say: REFRAME,
@@ -1631,7 +1631,7 @@ const A7_ERREURS: Sec<'commonErrors'> = {
 const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
   ctl('Le test', '« L’été arrivera de toute façon. » Donc tu écris...', ['si l’été arrive', 'quand l’été arrivera'], 1,
     'Oui à la question, donc quand et le futur. EN: yes to the question means quand.'),
-  ctl('Le doute', 'Avec si, le doute porte sur...', ['la date', 'la chose elle-même'], 1,
+  ctl('Le doute', 'Avec si, le doute porte sur...', ['la chose elle-même', 'la date'], 0,
     'Avec quand, le doute est sur la date seulement. EN: with quand only the date is open.'),
   ctl('Le temps', 'Après si, même pour un projet très lointain, quel temps ?', ['le futur', 'le présent'], 1,
     'La distance ne change rien : après si, le présent. EN: distance changes nothing.'),
@@ -1735,8 +1735,8 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(528), 'seras, puis tu vas me faire signe'),
     ], chk(
       '« Quand je ... , je vais t’appeler. » (arriver)',
-      ['vais arriver', 'arriverai'],
-      1,
+      ['arriverai', 'vais arriver'],
+      0,
       'La charnière garde le futur simple, même à l’oral. EN: the hinge keeps the futur simple even in speech.',
     )),
     grp('La deuxième moitié, au futur proche', [
@@ -1750,7 +1750,7 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       1,
       'Aller plus l’infinitif : la forme de la conversation. EN: aller plus infinitive: the conversational form.',
     )),
-    ctl('Le test', 'Peut-on dire « quand je vais arriver, je vais t’appeler » ?', ['oui, à l’oral', 'non, jamais dans la charnière'], 1,
+    ctl('Le test', 'Peut-on dire « quand je vais arriver, je vais t’appeler » ?', ['non, jamais dans la charnière', 'oui, à l’oral'], 0,
       'Le futur proche reste du côté de la promesse. EN: the futur proche stays on the promise side.'),
   ],
   audio: AUDIO,
@@ -1787,7 +1787,7 @@ const A8_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Première phrase : quelle moitié prend aller ?', opts: ['celle en quand', 'la deuxième'], correct: 1, why: '« je vais t’appeler » : aller reste après la virgule. EN: aller stays past the comma.' },
     { q: 'Deuxième phrase : après « dès qu’il », tu entends...', opts: ['sera', 'va être'], correct: 0, why: 'La charnière garde le futur simple. EN: the hinge keeps the futur simple.' },
-    { q: 'Quatrième phrase : après si, le verbe est...', opts: ['au présent', 'au futur proche'], correct: 0, why: '« Si tu veux » : la règle de si ne bouge pas. EN: the si rule does not move.' },
+    { q: 'Quatrième phrase : après si, le verbe est...', opts: ['au futur proche', 'au présent'], correct: 1, why: '« Si tu veux » : la règle de si ne bouge pas. EN: the si rule does not move.' },
     { q: 'Cinquième phrase : « Il va pleuvoir tout à l’heure. » C’est pour...', opts: ['dans un moment', 'l’année prochaine'], correct: 0, why: 'Le futur proche colle souvent à ce qui est tout près. EN: the futur proche often sits close by.' },
     { q: 'Combien de ces huit phrases ont aller plus un infinitif ?', opts: ['deux', 'toutes les huit'], correct: 1, why: 'Toutes : c’est l’acte du futur parlé. EN: all of them; this is the spoken act.' },
   ],
@@ -1797,11 +1797,11 @@ const A8_ECOUTE: Sec<'listening'> = {
 };
 
 const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
-  ctl('La place', 'Où le futur proche a-t-il le droit d’aller ?', ['dans la charnière', 'dans la deuxième moitié'], 1,
+  ctl('La place', 'Où le futur proche a-t-il le droit d’aller ?', ['dans la deuxième moitié', 'dans la charnière'], 0,
     'Jamais après quand, dès que ou tant que. EN: never after quand, dès que or tant que.'),
-  ctl('Après si', '« Si tu veux, on ... regarder ça ensemble. » (aller)', ['va', 'ira'], 0,
+  ctl('Après si', '« Si tu veux, on ... regarder ça ensemble. » (aller)', ['ira', 'va'], 1,
     'Présent après si, futur proche après la virgule. EN: present after si, futur proche past the comma.'),
-  ctl('La charnière', '« Dès qu’il ... là, on va commencer. » (être)', ['va être', 'sera', 'est'], 1,
+  ctl('La charnière', '« Dès qu’il ... là, on va commencer. » (être)', ['va être', 'est', 'sera'], 2,
     'Futur simple dans la charnière, toujours. EN: futur simple in the hinge, always.'),
 ], ['oral', 'charniere']);
 
@@ -1930,8 +1930,8 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(544), 'quelques jours après aujourd’hui'),
     ], chk(
       '« Le train partira ... dix minutes. »',
-      ['en', 'dans'],
-      1,
+      ['dans', 'en'],
+      0,
       'On compte depuis maintenant. EN: counted from now.',
     )),
     grp('Le temps qu’il faut', [
@@ -1941,11 +1941,11 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(547), 'une journée pour tout régler'),
     ], chk(
       '« Elle a préparé le dossier ... trois jours. »',
-      ['dans', 'en', 'd’ici'],
-      1,
+      ['en', 'dans', 'd’ici'],
+      0,
       'C’est la durée du travail, pas un point de départ. EN: the length of the work.',
     )),
-    ctl('La limite', '« ... vendredi, tout sera prêt. » Quelle expression ?', ['D’ici', 'En', 'Dans'], 0,
+    ctl('La limite', '« ... vendredi, tout sera prêt. » Quelle expression ?', ['En', 'D’ici', 'Dans'], 1,
       'D’ici donne une limite : avant vendredi. EN: d’ici gives a deadline.'),
   ],
   audio: AUDIO,
@@ -1994,12 +1994,12 @@ const A9_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: 'Je serai de retour ... deux heures.', opts: ['en', 'dans'], correct: 1 },
     { promptSay: 'Elle a préparé le dossier ... trois jours.', opts: ['en', 'dans'], correct: 0 },
-    { promptSay: '... vendredi, tout sera prêt.', opts: ['D’ici', 'Dans'], correct: 0 },
-    { promptSay: 'Le train partira ... dix minutes.', opts: ['en', 'dans'], correct: 1 },
-    { promptSay: 'Le garagiste répare ça ... une demi-heure.', opts: ['en', 'dans'], correct: 0 },
-    { promptSay: '... quelques jours, tu recevras ta carte.', opts: ['En', 'Dans'], correct: 1 },
-    { promptSay: 'Il a tout réglé ... une seule journée.', opts: ['en', 'dans'], correct: 0 },
-    { promptSay: '... la fin du mois, je te donnerai une réponse.', opts: ['En', 'D’ici'], correct: 1 },
+    { promptSay: '... vendredi, tout sera prêt.', opts: ['Dans', 'D’ici'], correct: 1 },
+    { promptSay: 'Le train partira ... dix minutes.', opts: ['dans', 'en'], correct: 0 },
+    { promptSay: 'Le garagiste répare ça ... une demi-heure.', opts: ['dans', 'en'], correct: 1 },
+    { promptSay: '... quelques jours, tu recevras ta carte.', opts: ['Dans', 'En'], correct: 0 },
+    { promptSay: 'Il a tout réglé ... une seule journée.', opts: ['dans', 'en'], correct: 1 },
+    { promptSay: '... la fin du mois, je te donnerai une réponse.', opts: ['D’ici', 'En'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Deux mots, deux réunions' },
@@ -2015,9 +2015,9 @@ const A9_PIEGE: Sec<'trapDrill'> = {
 const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
   ctl('Le départ', 'Pour compter à partir de maintenant, quel mot ?', ['en', 'dans'], 1,
     'dans deux heures : deux heures après cet instant. EN: two hours after this moment.'),
-  ctl('La durée', '« Elle a lu tout le roman ... une nuit. »', ['dans', 'en'], 1,
+  ctl('La durée', '« Elle a lu tout le roman ... une nuit. »', ['en', 'dans'], 0,
     'C’est le temps que la lecture a pris. EN: the time the reading took.'),
-  ctl('La limite', 'Que dit « d’ici la fin du mois » ?', ['exactement le trente', 'avant la fin du mois', 'après la fin du mois'], 1,
+  ctl('La limite', 'Que dit « d’ici la fin du mois » ?', ['exactement le trente', 'après la fin du mois', 'avant la fin du mois'], 2,
     'Une limite, pas une date exacte. EN: a deadline, not an exact date.'),
 ], ['delai', 'charniere']);
 
@@ -2135,8 +2135,8 @@ const A10_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(555), 'enfin'),
     ], chk(
       '« Je passerai à la banque, ... j’irai au marché. »',
-      ['pendant que', 'puis', 'tant que'],
-      1,
+      ['puis', 'pendant que', 'tant que'],
+      0,
       'Puis enchaîne deux moments sans rien dire de plus. EN: puis simply chains two moments.',
     )),
     ctl('La méthode', 'Avant d’écrire une phrase à deux moments, que fais-tu ?', ['tu choisis la charnière', 'tu ranges les deux moments dans l’ordre'], 1,
@@ -2177,10 +2177,10 @@ const A10_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Première phrase : qu’est-ce qui arrive d’abord ?', opts: ['l’hôtel', 'le billet'], correct: 1, why: 'La charnière porte le premier moment. EN: the hinge carries the first moment.' },
-    { q: 'Troisième phrase : le déjeuner a lieu...', opts: ['avant la réunion', 'après la réunion'], correct: 1, why: 'Dès que la réunion finira : le déjeuner suit. EN: lunch follows the meeting.' },
+    { q: 'Troisième phrase : le déjeuner a lieu...', opts: ['après la réunion', 'avant la réunion'], correct: 0, why: 'Dès que la réunion finira : le déjeuner suit. EN: lunch follows the meeting.' },
     { q: 'Cinquième phrase : « Je t’écrirai dès que je saurai. » Tu sais déjà ?', opts: ['oui', 'non, pas encore'], correct: 1, why: 'Deux futurs : les deux moments sont devant toi. EN: both moments are ahead.' },
-    { q: 'Sixième phrase : l’attente s’arrête quand ?', opts: ['à la réponse', 'dans deux jours'], correct: 0, why: 'Tant que dit aussi longtemps que l’attente dure. EN: tant que ties the waiting to the answer.' },
-    { q: 'Septième phrase : la vérification a lieu...', opts: ['après le départ', 'avant le départ'], correct: 1, why: '« Avant de partir » place le moment lui-même. EN: avant de places the moment itself.' },
+    { q: 'Sixième phrase : l’attente s’arrête quand ?', opts: ['dans deux jours', 'à la réponse'], correct: 1, why: 'Tant que dit aussi longtemps que l’attente dure. EN: tant que ties the waiting to the answer.' },
+    { q: 'Septième phrase : la vérification a lieu...', opts: ['avant le départ', 'après le départ'], correct: 0, why: '« Avant de partir » place le moment lui-même. EN: avant de places the moment itself.' },
   ],
   audio: REC('rec-b1-07-ordre-ecoute'),
   say: REFRAME,
@@ -2800,7 +2800,7 @@ const ACT11: ActDef = {
 
 const DRILL_LIST: LessonDrill[] = [
   { id: 'd-deux-futurs', title: 'Projet ou habitude', format: 'sort' as const, coach: 'Deux piles. Demande-toi : un moment précis, ou chaque fois ? EN: sort by one moment against every time.', buckets: ['un projet', 'une habitude'], items: [E(400), E(407), E(410), E(401), E(431), E(452)], audio: AUDIO },
-  { id: 'd-double', title: 'Le futur des deux côtés', format: 'mcq' as const, coach: 'Si la deuxième moitié est au futur, la charnière l’est aussi. EN: if the second half is future, so is the hinge.', q: 'Quand nous ... prêts, nous partirons.', opts: ['sommes', 'serons'], correct: 1, why: 'Le départ est à venir, donc la charnière aussi. EN: the leaving is ahead.', items: [E(415), E(418), E(421), E(423), E(425), E(428)], audio: AUDIO },
+  { id: 'd-double', title: 'Le futur des deux côtés', format: 'mcq' as const, coach: 'Si la deuxième moitié est au futur, la charnière l’est aussi. EN: if the second half is future, so is the hinge.', q: 'Quand nous ... prêts, nous partirons.', opts: ['serons', 'sommes'], correct: 0, why: 'Le départ est à venir, donc la charnière aussi. EN: the leaving is ahead.', items: [E(415), E(418), E(421), E(423), E(425), E(428)], audio: AUDIO },
   { id: 'd-charnieres', title: 'L’instant ou la durée', format: 'sort' as const, coach: 'Une pile pour « à la seconde où », une pile pour « pendant tout ce temps ». EN: sort by instant against stretch.', buckets: ['l’instant', 'la durée'], items: [E(432), E(434), E(438), E(440), E(445), E(446)], audio: AUDIO },
   { id: 'd-moment', title: 'Chaque fois ou une fois', format: 'sort' as const, coach: 'Le mot quand ne décide de rien. Regarde le moment. EN: the word quand decides nothing; look at the moment.', buckets: ['chaque fois', 'à venir'], items: [E(452), E(454), E(455), E(463), E(464), E(465)], audio: AUDIO },
   { id: 'd-si', title: 'Après si, le présent', format: 'mcq' as const, coach: 'Le futur attend de l’autre côté de la virgule. EN: the future waits past the comma.', q: 'Si tu ... demain, je préparerai un gâteau.', opts: ['viendras', 'viens'], correct: 1, why: 'Après si, jamais le futur. EN: never the future after si.', items: [E(468), E(469), E(475), E(478), E(483), 'fr.b1.cuisine.073'], audio: AUDIO },

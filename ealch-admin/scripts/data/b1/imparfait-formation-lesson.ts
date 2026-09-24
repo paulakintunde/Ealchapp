@@ -259,11 +259,11 @@ const A1_REPERER: Sec<'groupDrill'> = {
   groups: [
     grp('Dans le souvenir d’Awa', [
       it(E(1441), 'habitait'), it(E(1460), 'était'), it(E(1440), 'étais, habitais'), it('fr.a2.salutations.043', 'étais, disais'),
-    ], chk('Ces quatre phrases parlent de quand ? EN: When are these four sentences set?', ['de maintenant', 'd’avant', 'de demain'], 1, 'D’avant : la vie de l’enfance, qui n’existe plus. EN: before, a life that is over.')),
+    ], chk('Ces quatre phrases parlent de quand ? EN: When are these four sentences set?', ['de maintenant', 'de demain', 'd’avant'], 2, 'D’avant : la vie de l’enfance, qui n’existe plus. EN: before, a life that is over.')),
     grp('Avant, ou maintenant', [
       it(E(1461), 'avant'), it(E(1462), 'maintenant'), it('fr.b1.routines.059', 'les deux'), it('fr.a2.heure-et-date.109', 'avant'),
     ], chk('Quelle phrase parle de ta vie maintenant ? EN: Which sentence is about now?', [src(E(1461)).fr, src(E(1462)).fr, src('fr.a2.heure-et-date.109').fr], 1, 'j’habite : présent, sans -ais. EN: j’habite is the present.')),
-    ctl('Et la forme ?', 'Regarde les verbes d’avant. Quelle fin revient ? EN: Which ending keeps coming back?', ['-ais, -ait', '-é', '-ons'], 0, 'habitais, habitait, était, disais : -ais et -ait. EN: the endings -ais and -ait.'),
+    ctl('Et la forme ?', 'Regarde les verbes d’avant. Quelle fin revient ? EN: Which ending keeps coming back?', ['-é', '-ons', '-ais, -ait'], 2, 'habitais, habitait, était, disais : -ais et -ait. EN: the endings -ais and -ait.'),
   ],
   audio: AUDIO,
   say: 'Trouve les verbes d’avant.',
@@ -290,8 +290,8 @@ const A1_POURQUOI: Sec<'useCases'> = {
 };
 
 const A1_CHECK = actCheck('a1-check', 'Le point : acte 1', [
-  ctl('Le sens', 'Une photo de 1998. « Ma grand-mère ... là. » Elle n’y habite plus. EN: She no longer lives there.', ['habite', 'habitait', 'habitaient'], 1, 'habitait : la vie d’avant, une personne. habitaient, c’est pour ils. EN: past life, one person.'),
-  ctl('La forme', 'Dans « nous mangions », quelle partie change avec la personne ? EN: Which part changes with the person?', ['mang-', '-ions', 'nous mang-'], 1, 'La fin. La base mang- reste. EN: the ending changes, the stem stays.'),
+  ctl('Le sens', 'Une photo de 1998. « Ma grand-mère ... là. » Elle n’y habite plus. EN: She no longer lives there.', ['habitait', 'habite', 'habitaient'], 0, 'habitait : la vie d’avant, une personne. habitaient, c’est pour ils. EN: past life, one person.'),
+  ctl('La forme', 'Dans « nous mangions », quelle partie change avec la personne ? EN: Which part changes with the person?', ['mang-', 'nous mang-', '-ions'], 2, 'La fin. La base mang- reste. EN: the ending changes, the stem stays.'),
   ctl('Attention', '« Avant de dormir, je lis. » Ce verbe est au présent ou à l’imparfait ? EN: Present or imparfait?', ['au présent', 'à l’imparfait'], 0, 'Au présent : c’est une habitude d’aujourd’hui. Le mot avant ne décide rien. EN: « avant » is not a switch.'),
 ], ['base', 'fins']);
 
@@ -394,7 +394,7 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
   groups: [
     grp('Verbes en -er', [
       it('fr.a2.verbes.106', 'regard-'), it(E(416), 'regard- + ions'), it('fr.a2.verbes.119', 'rest-'), it(E(417), 'rest- + ions'), it('fr.a2.verbes.114', 'cherch-'), it(E(402), 'cherch- + ions'),
-    ], chk('nous chantons. Avec je, à l’imparfait : EN: With je, in the imparfait:', ['je chantais', 'je chantait', 'je chantonsais'], 0, 'chant- + ais. Pas de -ons, et je prend -ais. EN: no -ons, and je takes -ais.')),
+    ], chk('nous chantons. Avec je, à l’imparfait : EN: With je, in the imparfait:', ['je chantait', 'je chantonsais', 'je chantais'], 2, 'chant- + ais. Pas de -ons, et je prend -ais. EN: no -ons, and je takes -ais.')),
     grp('Verbes en -ir (-iss-)', [
       it('fr.a2.verbes.184', 'finiss-'), it(E(1445), 'finiss- + ions'), it('fr.a2.verbes.196', 'réfléchiss-'), it(E(406), 'réfléchiss- + ions'), it('fr.a2.marche.004', 'choisiss-'), it(E(404), 'choisiss- + ais'),
     ], chk('nous grandissons. Avec nous : EN: With nous:', ['nous grandions', 'nous grandissions', 'nous grandissons'], 1, 'grandiss- + ions. La troisième est le présent. EN: the third one is the present.')),
@@ -427,9 +427,9 @@ const A2_ECOUTE: Sec<'listening'> = {
     { fr: "Toi et tes amis, vous choisissiez vos activités à l'école ?", en: 'Did you and your friends choose your activities at school?' },
   ],
   questions: [
-    { q: 'Ligne 3 : Lise parle de maintenant ou d’avant ? EN: Line 3: now or before?', opts: ['de maintenant', 'd’avant'], correct: 0, why: 'habitons : [ɔ̃], sans i. C’est le présent. EN: no i sound, present.' },
-    { q: 'Lignes 6 et 7 : laquelle parle d’avant ? EN: Which one is about before?', opts: ['la 7', 'la 6'], correct: 1, why: 'regardions, avec le son [jɔ̃]. EN: you hear [jɔ̃].' },
-    { q: 'Qui vendait des journaux ? EN: Who sold newspapers?', opts: ['le grand-père', 'la grand-mère', 'Léa'], correct: 0, why: 'Ton grand-père vendait. EN: the grandfather.' },
+    { q: 'Ligne 3 : Lise parle de maintenant ou d’avant ? EN: Line 3: now or before?', opts: ['d’avant', 'de maintenant'], correct: 1, why: 'habitons : [ɔ̃], sans i. C’est le présent. EN: no i sound, present.' },
+    { q: 'Lignes 6 et 7 : laquelle parle d’avant ? EN: Which one is about before?', opts: ['la 6', 'la 7'], correct: 0, why: 'regardions, avec le son [jɔ̃]. EN: you hear [jɔ̃].' },
+    { q: 'Qui vendait des journaux ? EN: Who sold newspapers?', opts: ['la grand-mère', 'le grand-père', 'Léa'], correct: 1, why: 'Ton grand-père vendait. EN: the grandfather.' },
     { q: 'Ligne 5 : finissais vient de quelle forme ? EN: Where does finissais come from?', opts: ['je finis', 'finir', 'nous finissons'], correct: 2, why: 'La base vient de nous finissons : finiss-. EN: from the nous form.' },
   ],
   audio: REC('rec-b1-01-lise'),
@@ -459,14 +459,14 @@ const A2_PIEGES: Sec<'trapDrill'> = {
     { promptLabel: 'attendre, ils', promptSound: 'ils attendent', fr: 'ils attendaient', ipa: '/il.za.tɑ̃.dɛ/', tip: 'attendent, c’est le présent. Pour avant : attend- + aient. EN: attendent is the present.' },
   ],
   drill: [
-    { promptSay: 'nous finissons → je ...', opts: ['finissais', 'finais'], correct: 0 },
-    { promptSay: 'nous choisissons → nous ...', opts: ['choisions', 'choisissions'], correct: 1 },
-    { promptSay: 'nous vendons → je ...', opts: ['vendais', 'vendrais'], correct: 0 },
-    { promptSay: 'nous parlons → ils ...', opts: ['parlonsaient', 'parlaient'], correct: 1 },
+    { promptSay: 'nous finissons → je ...', opts: ['finais', 'finissais'], correct: 1 },
+    { promptSay: 'nous choisissons → nous ...', opts: ['choisissions', 'choisions'], correct: 0 },
+    { promptSay: 'nous vendons → je ...', opts: ['vendrais', 'vendais'], correct: 1 },
+    { promptSay: 'nous parlons → ils ...', opts: ['parlaient', 'parlonsaient'], correct: 0 },
     { promptSay: 'nous remplissons → il ...', opts: ['remplait', 'remplissait'], correct: 1 },
     { promptSay: 'nous regardons → tu ...', opts: ['regardais', 'regardait'], correct: 0 },
-    { promptSay: 'nous attendons → vous ...', opts: ['attendiez', 'attendez'], correct: 0 },
-    { promptSay: 'nous perdons → elle ...', opts: ['perdais', 'perdait'], correct: 1 },
+    { promptSay: 'nous attendons → vous ...', opts: ['attendez', 'attendiez'], correct: 1 },
+    { promptSay: 'nous perdons → elle ...', opts: ['perdait', 'perdais'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'La base vient de nous' },
@@ -480,8 +480,8 @@ const A2_PIEGES: Sec<'trapDrill'> = {
 };
 
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
-  ctl('-ir', 'nous grandissons. Avec je, à l’imparfait : EN: With je:', ['je grandais', 'je grandissais', 'je grandirais'], 1, 'grandiss- + ais. EN: keep -iss-.'),
-  ctl('-re', 'nous répondons. Avec ils : EN: With ils:', ['ils répondaient', 'ils répondait', 'ils répondent'], 0, 'répond- + aient. EN: plural ending -aient.'),
+  ctl('-ir', 'nous grandissons. Avec je, à l’imparfait : EN: With je:', ['je grandissais', 'je grandais', 'je grandirais'], 0, 'grandiss- + ais. EN: keep -iss-.'),
+  ctl('-re', 'nous répondons. Avec ils : EN: With ils:', ['ils répondait', 'ils répondaient', 'ils répondent'], 1, 'répond- + aient. EN: plural ending -aient.'),
   ctl('La base', 'Quelle est la base de réfléchir à l’imparfait ? EN: What is the stem of réfléchir?', ['réfléch-', 'réfléchir-', 'réfléchiss-'], 2, 'nous réfléchissons, moins -ons. EN: nous form minus -ons.'),
 ], ['base']);
 
@@ -582,11 +582,11 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
   frSub: 'je, tu, il, nous, vous, ils',
   groups: [
     grp('je et tu : -ais', [it(E(1401)), it(E(414)), it(E(1436)), it(E(424))],
-      chk('Mes cousins ... wolof. EN: My cousins spoke Wolof.', ['parlait', 'parlaient', 'parlais'], 1, 'Mes cousins = ils : -aient. EN: plural subject, -aient.')),
+      chk('Mes cousins ... wolof. EN: My cousins spoke Wolof.', ['parlaient', 'parlait', 'parlais'], 0, 'Mes cousins = ils : -aient. EN: plural subject, -aient.')),
     grp('il, elle, on : -ait', [it(E(1402)), it(E(421)), it(E(422)), it(E(425))],
-      chk('On ... dehors tout l’après-midi. EN: We played outside all afternoon.', ['jouait', 'jouions', 'jouaient'], 0, 'on prend la fin de il : -ait. EN: on takes -ait.')),
+      chk('On ... dehors tout l’après-midi. EN: We played outside all afternoon.', ['jouions', 'jouait', 'jouaient'], 1, 'on prend la fin de il : -ait. EN: on takes -ait.')),
     grp('nous, vous, ils : -ions, -iez, -aient', [it(E(1403)), it(E(1404)), it(E(426)), it(E(1405)), it(E(423)), it(E(1459)), it(E(1470))],
-      chk('Toi et ta sœur, vous ... créole. EN: You and your sister spoke Creole.', ['parlais', 'parliez', 'parlait'], 1, 'vous : -iez. EN: vous takes -iez.')),
+      chk('Toi et ta sœur, vous ... créole. EN: You and your sister spoke Creole.', ['parlais', 'parlait', 'parliez'], 2, 'vous : -iez. EN: vous takes -iez.')),
   ],
   audio: AUDIO,
   say: 'Regarde le sujet, puis écris sa fin.',
@@ -616,7 +616,7 @@ const A3_ECOUTE: Sec<'listening'> = {
     { q: 'Lignes 3 et 4 : travaillais, travaillait, travaillaient. Combien de fins différentes tu entends ? EN: How many different endings do you hear?', opts: ['une seule', 'deux', 'trois'], correct: 0, why: 'Une seule : [ɛ]. Trois orthographes, un son. EN: three spellings, one sound.' },
     { q: 'Qui travaillait tous les jours ? Comment tu le sais ? EN: Who worked every day, and how do you know?', opts: ['Julien, par la fin', 'ses parents, par le sujet', 'sa sœur, par la fin'], correct: 1, why: 'La fin ne dit rien. Le sujet, mes parents, dit qui. EN: the subject tells you, not the ending.' },
     { q: 'Quelle forme a une fin qu’on entend vraiment ? EN: Which form has an ending you can hear?', opts: ['ils travaillaient', 'je travaillais', 'nous faisions'], correct: 2, why: '-ions se dit [jɔ̃]. EN: -ions is audible.' },
-    { q: 'Ligne 7 : Julien parle à qui ? EN: Line 7: who is Julien talking to?', opts: ['à Awa seule', 'à Awa et à ses cousins', 'à ses parents'], correct: 1, why: 'vous jouiez : -iez, plusieurs personnes. EN: -iez, several people.' },
+    { q: 'Ligne 7 : Julien parle à qui ? EN: Line 7: who is Julien talking to?', opts: ['à Awa et à ses cousins', 'à Awa seule', 'à ses parents'], correct: 0, why: 'vous jouiez : -iez, plusieurs personnes. EN: -iez, several people.' },
   ],
   audio: REC('rec-b1-01-julien'),
   say: 'Écoute Julien. Qui fait quoi ?',
@@ -646,8 +646,8 @@ const A3_ERREURS: Sec<'commonErrors'> = {
 
 const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
   ctl('ils', 'regarder, avec ils : EN: regarder, with ils:', ['ils regardait', 'ils regardaient', 'ils regardais'], 1, '-aient pour ils et elles. EN: -aient for ils/elles.'),
-  ctl('on', 'On ... tous ensemble. EN: We all ate together.', ['mangeait', 'mangions', 'mangeaient'], 0, 'on + -ait. EN: on takes -ait.'),
-  ctl('à l’oreille', 'Quelles deux personnes ont une fin qu’on entend ? EN: Which two persons have an audible ending?', ['je et tu', 'il et ils', 'nous et vous'], 2, '-ions [jɔ̃] et -iez [je]. EN: nous and vous.'),
+  ctl('on', 'On ... tous ensemble. EN: We all ate together.', ['mangions', 'mangeaient', 'mangeait'], 2, 'on + -ait. EN: on takes -ait.'),
+  ctl('à l’oreille', 'Quelles deux personnes ont une fin qu’on entend ? EN: Which two persons have an audible ending?', ['nous et vous', 'je et tu', 'il et ils'], 0, '-ions [jɔ̃] et -iez [je]. EN: nous and vous.'),
 ], ['fins', 'son']);
 
 const ACT3: ActDef = {
@@ -788,10 +788,10 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
   groups: [
     grp('faire, prendre, venir', [
       it('fr.a2.verbes.304', 'fais-'), it(E(1446)), it('fr.a2.verbes.427', 'pren-'), it(E(440)), it(E(1469)), it('fr.a2.verbes.270', 'ven-'), it(E(430)), it(E(447)),
-    ], chk('nous revenons. Avec je : EN: With je:', ['je revenais', 'je revienais', 'je reviendais'], 0, 'reven- + ais, un seul n. EN: one n, no d.')),
+    ], chk('nous revenons. Avec je : EN: With je:', ['je revienais', 'je revenais', 'je reviendais'], 1, 'reven- + ais, un seul n. EN: one n, no d.')),
     grp('boire, voir, croire', [
       it(E(459), 'buv-'), it(E(1409)), it(E(1468)), it(E(460), 'voy-'), it(E(1410)), it(E(461), 'croy-'), it(E(1412)),
-    ], chk('nous buvons. Avec ils : EN: With ils:', ['ils boivaient', 'ils buvaient', 'ils buvait'], 1, 'buv- + aient. EN: buv- plus -aient.')),
+    ], chk('nous buvons. Avec ils : EN: With ils:', ['ils boivaient', 'ils buvait', 'ils buvaient'], 2, 'buv- + aient. EN: buv- plus -aient.')),
     grp('dire, écrire, lire, mettre', [
       it('fr.a2.verbes.310', 'dis-'), it(E(1414)), it(E(458)), it(E(462), 'écriv-'), it(E(1415)), it(E(1467)), it('fr.a2.verbes.316', 'lis-'), it(E(1435)), it('fr.a2.verbes.433', 'mett-'), it(E(435)),
     ], chk('nous écrivons. Avec nous : EN: With nous:', ['nous écrivions', 'nous écrions', 'nous écrivons'], 0, 'écriv- + ions. La troisième est le présent. EN: the third is the present.')),
@@ -800,7 +800,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk('nous connaissons. Avec tu : EN: With tu:', ['tu connaissais', 'tu connais', 'tu connaîtais'], 0, 'connaiss- + ais. tu connais, c’est le présent. EN: tu connais is the present.')),
     grp('aller, avoir, sortir, dormir, vivre', [
       it('fr.a2.verbes.264', 'all-'), it(E(1433)), it(E(1437)), it('fr.a2.verbes.481', 'sort-'), it(E(437)), it(E(454)), it(E(463), 'dorm-'), it(E(438)), it(E(464), 'viv-'), it(E(439)), it(E(456)), it(E(1419)),
-    ], chk('nous allons. Avec vous : EN: With vous:', ['vous iriez', 'vous allez', 'vous alliez'], 2, 'all- + iez. vous allez, c’est le présent. EN: all- plus -iez.')),
+    ], chk('nous allons. Avec vous : EN: With vous:', ['vous iriez', 'vous alliez', 'vous allez'], 1, 'all- + iez. vous allez, c’est le présent. EN: all- plus -iez.')),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -826,9 +826,9 @@ const A4_ECOUTE: Sec<'listening'> = {
     { fr: 'Et toi, tu savais nager à dix ans ?', en: 'And you, could you swim at ten?' },
   ],
   questions: [
-    { q: 'Ligne 1 : vivais vient de quel verbe ? EN: Which verb is vivais from?', opts: ['vivre', 'voir', 'venir'], correct: 0, why: 'nous vivons, donc viv-. EN: from nous vivons.' },
+    { q: 'Ligne 1 : vivais vient de quel verbe ? EN: Which verb is vivais from?', opts: ['voir', 'venir', 'vivre'], correct: 2, why: 'nous vivons, donc viv-. EN: from nous vivons.' },
     { q: 'Ligne 5 : Bernard parle d’avant ou de maintenant ? EN: Line 5: before or now?', opts: ['d’avant', 'de maintenant'], correct: 1, why: 'je vis, je sors : présent. EN: present tense.' },
-    { q: 'Lignes 6 et 7 : laquelle est au présent ? EN: Which one is present?', opts: ['la 6', 'la 7'], correct: 1, why: 'je bois : présent. je buvais : imparfait. EN: bois is present.' },
+    { q: 'Lignes 6 et 7 : laquelle est au présent ? EN: Which one is present?', opts: ['la 7', 'la 6'], correct: 0, why: 'je bois : présent. je buvais : imparfait. EN: bois is present.' },
     { q: 'Ligne 4 : qui voulait savoir ? EN: Who wanted to know?', opts: ['son père', 'Bernard', 'sa petite-fille'], correct: 0, why: 'Mon père voulait. EN: his father.' },
   ],
   audio: REC('rec-b1-01-bernard-ecoute'),
@@ -857,14 +857,14 @@ const A4_PIEGES: Sec<'trapDrill'> = {
     { promptLabel: 'savoir, ils', promptSound: 'ils sachaient', fr: 'ils savaient', ipa: '/il sa.vɛ/', tip: 'nous savons : sav-. EN: sav-, not sach-.' },
   ],
   drill: [
-    { promptSay: 'nous buvons → je ...', opts: ['buvais', 'boivais'], correct: 0 },
-    { promptSay: 'nous prenons → tu ...', opts: ['prendais', 'prenais'], correct: 1 },
-    { promptSay: 'nous faisons → il ...', opts: ['faisait', 'fesait'], correct: 0 },
-    { promptSay: 'nous venons → nous ...', opts: ['viennions', 'venions'], correct: 1 },
+    { promptSay: 'nous buvons → je ...', opts: ['boivais', 'buvais'], correct: 1 },
+    { promptSay: 'nous prenons → tu ...', opts: ['prenais', 'prendais'], correct: 0 },
+    { promptSay: 'nous faisons → il ...', opts: ['fesait', 'faisait'], correct: 1 },
+    { promptSay: 'nous venons → nous ...', opts: ['venions', 'viennions'], correct: 0 },
     { promptSay: 'nous écrivons → elle ...', opts: ['écrisait', 'écrivait'], correct: 1 },
     { promptSay: 'nous voulons → je ...', opts: ['voulais', 'veulais'], correct: 0 },
-    { promptSay: 'nous savons → ils ...', opts: ['savaient', 'sachaient'], correct: 0 },
-    { promptSay: 'nous dormons → tu ...', opts: ['dorsais', 'dormais'], correct: 1 },
+    { promptSay: 'nous savons → ils ...', opts: ['sachaient', 'savaient'], correct: 1 },
+    { promptSay: 'nous dormons → tu ...', opts: ['dormais', 'dorsais'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Pars de nous' },
@@ -904,9 +904,9 @@ const A4_FLASH: Sec<'flashcards'> = {
 };
 
 const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
-  ctl('vivre', 'vivre, avec nous : EN: vivre, with nous:', ['nous vivions', 'nous vivrions', 'nous vivons'], 0, 'viv- + ions. EN: viv- plus -ions.'),
-  ctl('croire', 'croire, avec je : EN: croire, with je:', ['je croiais', 'je croyais', 'je croirais'], 1, 'nous croyons : croy-. EN: from croyons.'),
-  ctl('l’exception', 'Quel verbe ne suit pas la recette ? EN: Which verb does not follow the recipe?', ['avoir', 'aller', 'être'], 2, 'être : nous sommes n’a pas de -ons. L’acte 5 en parle. EN: être, next act.'),
+  ctl('vivre', 'vivre, avec nous : EN: vivre, with nous:', ['nous vivrions', 'nous vivions', 'nous vivons'], 1, 'viv- + ions. EN: viv- plus -ions.'),
+  ctl('croire', 'croire, avec je : EN: croire, with je:', ['je croiais', 'je croirais', 'je croyais'], 2, 'nous croyons : croy-. EN: from croyons.'),
+  ctl('l’exception', 'Quel verbe ne suit pas la recette ? EN: Which verb does not follow the recipe?', ['être', 'avoir', 'aller'], 0, 'être : nous sommes n’a pas de -ons. L’acte 5 en parle. EN: être, next act.'),
 ], ['irreg']);
 
 const ACT4: ActDef = {
@@ -999,9 +999,9 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
   frSub: 'ét- + la fin',
   groups: [
     grp('je, tu, il, elle', [it(E(1416)), it(E(465)), it(E(466)), it(E(468)), it(E(469)), it(E(473))],
-      chk('Ma maîtresse ... sévère. EN: My teacher was strict.', ['était', 'étais', 'étaient'], 0, 'Une personne, elle : -ait. EN: one person, -ait.')),
+      chk('Ma maîtresse ... sévère. EN: My teacher was strict.', ['étais', 'était', 'étaient'], 1, 'Une personne, elle : -ait. EN: one person, -ait.')),
     grp('nous, vous, ils', [it(E(1417)), it(E(467)), it(E(1418)), it(E(1466)), it(E(471)), it(E(472))],
-      chk('Mes parents ... fiers. EN: My parents were proud.', ['était', 'étaient', 'étiez'], 1, 'Mes parents = ils : -aient. EN: plural, -aient.')),
+      chk('Mes parents ... fiers. EN: My parents were proud.', ['était', 'étiez', 'étaient'], 2, 'Mes parents = ils : -aient. EN: plural, -aient.')),
     grp('c’était', [it('fr.sons.elision.035'), it(E(470)), it(E(1460))],
       chk('« ... un petit village. » EN: It was a small village.', ['C’était', 'Ce était', 'C’étais'], 0, 'ce devient c’ devant é, et ce prend -ait. EN: c’ before é, and -ait.')),
   ],
@@ -1031,8 +1031,8 @@ const A5_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Ligne 3 : combien d’élèves ? EN: How many pupils?', opts: ['quatorze', 'quarante', 'vingt-huit'], correct: 1, why: 'Nous étions quarante. EN: forty.' },
     { q: 'Ligne 7 : l’école existe encore aujourd’hui ? EN: Does the school still run today?', opts: ['oui', 'non'], correct: 1, why: 'est fermée : présent, aujourd’hui. EN: it is closed now.' },
-    { q: 'Ligne 5 : pourquoi étaient ? EN: Why étaient?', opts: ['Fatou et Khady, c’est ils', 'c’est vous', 'c’est la mer'], correct: 0, why: 'Deux personnes, donc -aient. EN: plural subject.' },
-    { q: 'Lignes 2 et 8 : laquelle parle d’avant ? EN: Which one is about the past?', opts: ['la 8', 'la 2'], correct: 1, why: 'c’était : imparfait. est : présent. EN: c’était is the imparfait.' },
+    { q: 'Ligne 5 : pourquoi étaient ? EN: Why étaient?', opts: ['c’est vous', 'c’est la mer', 'Fatou et Khady, c’est ils'], correct: 2, why: 'Deux personnes, donc -aient. EN: plural subject.' },
+    { q: 'Lignes 2 et 8 : laquelle parle d’avant ? EN: Which one is about the past?', opts: ['la 2', 'la 8'], correct: 0, why: 'c’était : imparfait. est : présent. EN: c’était is the imparfait.' },
   ],
   audio: REC('rec-b1-01-ecole-awa'),
   say: 'Écoute Awa. Avant, ou maintenant ?',
@@ -1061,8 +1061,8 @@ const A5_ERREURS: Sec<'commonErrors'> = {
 
 const A5_CHECK = actCheck('a5-check', 'Le point : acte 5', [
   ctl('vous', 'être, avec vous : EN: être, with vous:', ['vous étiez', 'vous êtes', 'vous étaient'], 0, 'ét- + iez. vous êtes, c’est le présent. EN: vous êtes is the present.'),
-  ctl('la base', 'La base de être à l’imparfait : EN: The imparfait stem of être:', ['somm-', 'êt-', 'ét-'], 2, 'ét-, avec un accent aigu. EN: ét-, acute accent.'),
-  ctl('la phrase', '« ... petite, j’habitais à Dakar. » EN: When I was little...', ['Quand j’étais', 'Quand je suis', 'Quand je étais'], 0, 'j’étais : imparfait et élision. EN: imparfait with elision.'),
+  ctl('la base', 'La base de être à l’imparfait : EN: The imparfait stem of être:', ['somm-', 'ét-', 'êt-'], 1, 'ét-, avec un accent aigu. EN: ét-, acute accent.'),
+  ctl('la phrase', '« ... petite, j’habitais à Dakar. » EN: When I was little...', ['Quand je suis', 'Quand je étais', 'Quand j’étais'], 2, 'j’étais : imparfait et élision. EN: imparfait with elision.'),
 ], ['etre']);
 
 const ACT5: ActDef = {
@@ -1160,11 +1160,11 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
   groups: [
     grp('Devant a : avec e', [
       it(E(1420)), it(E(475)), it(E(476)), it(E(1422)), it(E(1438)), it(E(479)), it(E(480)), it(E(484)), it(E(486)), it(E(487)),
-    ], chk('changer, avec il : EN: changer, with il:', ['il changait', 'il changeait', 'il changiait'], 1, '-ait commence par a : e. EN: e before a.')),
+    ], chk('changer, avec il : EN: changer, with il:', ['il changeait', 'il changait', 'il changiait'], 0, '-ait commence par a : e. EN: e before a.')),
     grp('Devant i : sans e', [
       it('fr.a2.verbes.142', 'présent : e'), it(E(1421)), it(E(1443)), it(E(474)), it(E(483)), it('fr.a2.verbes.146', 'présent : e'), it(E(477)), it('fr.a2.verbes.161', 'présent : e'), it(E(478)), it(E(485)), it('fr.a2.verbes.166', 'présent : e'), it(E(482)), it(E(481)),
     ], chk('partager, avec nous : EN: partager, with nous:', ['nous partagions', 'nous partageions', 'nous partageons'], 0, '-ions commence par i : pas de e. La troisième est le présent. EN: no e before i.')),
-    ctl('Et vous ?', 'ranger, avec vous : EN: ranger, with vous:', ['vous rangiez', 'vous rangeiez', 'vous rangez'], 0, '-iez commence par i : pas de e. EN: no e before i.'),
+    ctl('Et vous ?', 'ranger, avec vous : EN: ranger, with vous:', ['vous rangeiez', 'vous rangiez', 'vous rangez'], 1, '-iez commence par i : pas de e. EN: no e before i.'),
   ],
   audio: AUDIO,
   say: 'Regarde la première lettre de la fin.',
@@ -1190,8 +1190,8 @@ const A6_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Ligne 4 : avant ou maintenant ? EN: Line 4: before or now?', opts: ['avant', 'maintenant'], correct: 1, why: 'je nage : présent. EN: present tense.' },
-    { q: 'Qui voyageait beaucoup ? EN: Who used to travel a lot?', opts: ['le grand-père', 'les cousins', 'Nadia'], correct: 0, why: 'Mon grand-père voyageait. Les cousins voyagent aujourd’hui. EN: the grandfather, then.' },
-    { q: 'Ligne 7 : voyagent, c’est quel temps ? EN: Line 7: which tense?', opts: ['l’imparfait', 'le présent'], correct: 1, why: 'Aujourd’hui, voyagent : présent. EN: present.' },
+    { q: 'Qui voyageait beaucoup ? EN: Who used to travel a lot?', opts: ['les cousins', 'Nadia', 'le grand-père'], correct: 2, why: 'Mon grand-père voyageait. Les cousins voyagent aujourd’hui. EN: the grandfather, then.' },
+    { q: 'Ligne 7 : voyagent, c’est quel temps ? EN: Line 7: which tense?', opts: ['le présent', 'l’imparfait'], correct: 0, why: 'Aujourd’hui, voyagent : présent. EN: present.' },
     { q: 'Dans nagions, tu entends un e après le g ? EN: Do you hear an e after the g?', opts: ['oui', 'non'], correct: 1, why: 'Non. Le e de mangeais ne se dit pas non plus : il sert à l’écrit. EN: the e is silent anyway; it is a spelling device.' },
   ],
   audio: REC('rec-b1-01-nadia-message'),
@@ -1223,8 +1223,8 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'nous nag...ions', opts: ['nageions', 'nagions'], correct: 1 },
     { promptSay: 'ils rang...aient', opts: ['rangeaient', 'rangaient'], correct: 0 },
     { promptSay: 'vous mang...iez', opts: ['mangeiez', 'mangiez'], correct: 1 },
-    { promptSay: 'tu partag...ais', opts: ['partagais', 'partageais'], correct: 1 },
-    { promptSay: 'nous chang...ions', opts: ['changions', 'changeions'], correct: 0 },
+    { promptSay: 'tu partag...ais', opts: ['partageais', 'partagais'], correct: 0 },
+    { promptSay: 'nous chang...ions', opts: ['changeions', 'changions'], correct: 1 },
     { promptSay: 'il boug...ait', opts: ['bougeait', 'bougait'], correct: 0 },
     { promptSay: 'nous voyag...ions', opts: ['voyageions', 'voyagions'], correct: 1 },
   ],
@@ -1240,9 +1240,9 @@ const A6_PIEGE: Sec<'trapDrill'> = {
 };
 
 const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
-  ctl('nager', 'nager, avec tu : EN: nager, with tu:', ['tu nagais', 'tu nageais', 'tu nagiais'], 1, '-ais commence par a : e. EN: e before a.'),
-  ctl('bouger', 'bouger, avec nous : EN: bouger, with nous:', ['nous bougions', 'nous bougeions', 'nous bougeons'], 0, 'Devant i, pas de e. EN: no e before i.'),
-  ctl('combien ?', 'manger à l’imparfait : combien de formes ont un e ? EN: How many forms have an e?', ['deux', 'quatre', 'six'], 1, 'je, tu, il, ils : quatre. nous et vous : sans e. EN: four with e, two without.'),
+  ctl('nager', 'nager, avec tu : EN: nager, with tu:', ['tu nageais', 'tu nagais', 'tu nagiais'], 0, '-ais commence par a : e. EN: e before a.'),
+  ctl('bouger', 'bouger, avec nous : EN: bouger, with nous:', ['nous bougeions', 'nous bougions', 'nous bougeons'], 1, 'Devant i, pas de e. EN: no e before i.'),
+  ctl('combien ?', 'manger à l’imparfait : combien de formes ont un e ? EN: How many forms have an e?', ['deux', 'six', 'quatre'], 2, 'je, tu, il, ils : quatre. nous et vous : sans e. EN: four with e, two without.'),
 ], ['ger']);
 
 const ACT6: ActDef = {
@@ -1318,7 +1318,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
     grp('Devant i : c', [
       it('fr.a2.verbes.144', 'présent : ç'), it(E(1424)), it(E(1444)), it(E(494)), it(E(488)), it(E(497)), it(E(491)), it(E(495)),
     ], chk('annoncer, avec nous : EN: annoncer, with nous:', ['nous annonçions', 'nous annoncions', 'nous annonçons'], 1, '-ions commence par i : c. La troisième est le présent. EN: plain c before i.')),
-    ctl('Et vous ?', 'placer, avec vous : EN: placer, with vous:', ['vous placiez', 'vous plaçiez', 'vous placez'], 0, '-iez commence par i : c. EN: plain c before i.'),
+    ctl('Et vous ?', 'placer, avec vous : EN: placer, with vous:', ['vous plaçiez', 'vous placiez', 'vous placez'], 1, '-iez commence par i : c. EN: plain c before i.'),
   ],
   audio: AUDIO,
   say: 'Regarde la première lettre de la fin.',
@@ -1343,8 +1343,8 @@ const A7_ECOUTE: Sec<'listening'> = {
     { fr: 'Et vous, au Québec, vous commenciez tôt ?', en: 'And you, in Quebec, did you start early?' },
   ],
   questions: [
-    { q: 'Ligne 2 : avant ou maintenant ? EN: Line 2: before or now?', opts: ['avant', 'maintenant'], correct: 1, why: 'commencent : présent. EN: present.' },
-    { q: 'Qui plaçait les élèves ? EN: Who seated the pupils?', opts: ['la maîtresse', 'Koffi', 'Yao'], correct: 0, why: 'La maîtresse plaçait. EN: the teacher.' },
+    { q: 'Ligne 2 : avant ou maintenant ? EN: Line 2: before or now?', opts: ['maintenant', 'avant'], correct: 0, why: 'commencent : présent. EN: present.' },
+    { q: 'Qui plaçait les élèves ? EN: Who seated the pupils?', opts: ['Koffi', 'Yao', 'la maîtresse'], correct: 2, why: 'La maîtresse plaçait. EN: the teacher.' },
     { q: 'Lignes 6 et 7 : laquelle parle d’avant ? EN: Which is about the past?', opts: ['la 7', 'la 6'], correct: 1, why: 'lancions : [jɔ̃], imparfait. EN: you hear [jɔ̃].' },
     { q: 'Dans commençait, tu entends [s] ou [k] ? EN: Do you hear [s] or [k]?', opts: ['[s]', '[k]'], correct: 0, why: '[s]. La cédille garde ce son devant a. EN: the cedilla keeps [s].' },
   ],
@@ -1373,14 +1373,14 @@ const A7_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'annoncer, il', promptSound: 'il annoncait', fr: 'il annonçait', ipa: '/i.la.nɔ̃.sɛ/', tip: 'Même règle pour tous les -cer. EN: same for every -cer verb.' },
   ],
   drill: [
-    { promptSay: 'tu commen...ais', opts: ['commençais', 'commencais'], correct: 0 },
-    { promptSay: 'nous commen...ions', opts: ['commençions', 'commencions'], correct: 1 },
-    { promptSay: 'ils pla...aient', opts: ['plaçaient', 'placaient'], correct: 0 },
-    { promptSay: 'vous lan...iez', opts: ['lançiez', 'lanciez'], correct: 1 },
+    { promptSay: 'tu commen...ais', opts: ['commencais', 'commençais'], correct: 1 },
+    { promptSay: 'nous commen...ions', opts: ['commencions', 'commençions'], correct: 0 },
+    { promptSay: 'ils pla...aient', opts: ['placaient', 'plaçaient'], correct: 1 },
+    { promptSay: 'vous lan...iez', opts: ['lanciez', 'lançiez'], correct: 0 },
     { promptSay: 'elle avan...ait', opts: ['avancait', 'avançait'], correct: 1 },
     { promptSay: 'nous pronon...ions', opts: ['prononcions', 'prononçions'], correct: 0 },
-    { promptSay: 'je lan...ais', opts: ['lançais', 'lancais'], correct: 0 },
-    { promptSay: 'nous annon...ions', opts: ['annonçions', 'annoncions'], correct: 1 },
+    { promptSay: 'je lan...ais', opts: ['lancais', 'lançais'], correct: 1 },
+    { promptSay: 'nous annon...ions', opts: ['annoncions', 'annonçions'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Devant a, devant i' },
@@ -1396,7 +1396,7 @@ const A7_PIEGE: Sec<'trapDrill'> = {
 const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
   ctl('lancer', 'lancer, avec je : EN: lancer, with je:', ['je lançais', 'je lancais', 'je lanceais'], 0, 'ç devant a. EN: ç before a.'),
   ctl('prononcer', 'prononcer, avec vous : EN: prononcer, with vous:', ['vous prononçiez', 'vous prononciez', 'vous prononcez'], 1, 'c devant i. La troisième est le présent. EN: plain c before i.'),
-  ctl('pourquoi ?', 'Sans cédille, « ca » se lit : EN: Without a cedilla, ca reads:', ['[ka]', '[sa]'], 0, '[ka], comme dans café. La cédille donne [sa]. EN: [ka], as in café.'),
+  ctl('pourquoi ?', 'Sans cédille, « ca » se lit : EN: Without a cedilla, ca reads:', ['[sa]', '[ka]'], 1, '[ka], comme dans café. La cédille donne [sa]. EN: [ka], as in café.'),
 ], ['cer']);
 
 const ACT7: ActDef = {
@@ -1494,10 +1494,10 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
   groups: [
     grp('Base en i : étudi-, oubli-, ri-, cri-', [
       it(E(511), 'présent : un i'), it(E(1426)), it(E(1451)), it(E(1427)), it(E(1452)), it(E(512), 'présent'), it(E(501)), it(E(500)), it(E(508)), it(E(1428)), it(E(1453)), it(E(506)), it(E(502)),
-    ], chk('crier, avec vous : EN: crier, with vous:', ['vous criez', 'vous criiez', 'vous crieez'], 1, 'cri- + iez : deux i. vous criez est le présent. EN: cri- plus -iez.')),
+    ], chk('crier, avec vous : EN: crier, with vous:', ['vous criez', 'vous crieez', 'vous criiez'], 2, 'cri- + iez : deux i. vous criez est le présent. EN: cri- plus -iez.')),
     grp('Base en y : voy-, croy-, pay-, envoy-', [
       it(E(460), 'présent'), it(E(1411)), it(E(1454)), it(E(505)), it(E(461), 'présent'), it(E(1413)), it(E(1455)), it(E(1429)), it(E(1456)), it(E(504)), it(E(503)), it(E(509)),
-    ], chk('envoyer, avec vous : EN: envoyer, with vous:', ['vous envoyiez', 'vous envoyez', 'vous envoiiez'], 0, 'envoy- + iez : y puis i. EN: y then i.')),
+    ], chk('envoyer, avec vous : EN: envoyer, with vous:', ['vous envoyez', 'vous envoyiez', 'vous envoiiez'], 1, 'envoy- + iez : y puis i. EN: y then i.')),
     grp('je, tu, il, ils : un seul i', [it(E(507)), it(E(510))],
       chk('étudier, avec ils : EN: étudier, with ils:', ['ils étudiaient', 'ils étudiiaient', 'ils étudaient'], 0, 'étudi- + aient : la fin commence par a, donc un seul i. EN: -aient starts with a.')),
   ],
@@ -1524,10 +1524,10 @@ const A8_ECOUTE: Sec<'listening'> = {
     { fr: 'Moi, je les oubliais tout le temps.', en: 'I forgot them all the time.' },
   ],
   questions: [
-    { q: 'Ligne 2 : tu entends étudions ou étudiions ? EN: Which one do you hear?', opts: ['étudions', 'étudiions'], correct: 1, why: 'Une syllabe de plus : [di.jɔ̃]. EN: an extra syllable.' },
-    { q: 'Lignes 5 et 6 : laquelle parle d’avant ? EN: Which one is about the past?', opts: ['la 5', 'la 6'], correct: 0, why: 'La ligne 5 dit avant, la ligne 6 dit aujourd’hui. Le son aide peu : le sens décide. EN: the words around the verb decide.' },
-    { q: 'Tu entends bien la différence entre envoyons et envoyions ? EN: Can you clearly hear the difference?', opts: ['oui, très bien', 'presque pas'], correct: 1, why: 'Presque pas. C’est pour ça qu’il faut connaître la règle. EN: barely; that is why you need the rule.' },
-    { q: 'Ligne 8 : oubliais s’écrit avec combien de i ? EN: How many i’s in oubliais?', opts: ['un', 'deux'], correct: 0, why: 'Avec je, la fin -ais commence par a : un seul i. EN: je takes one i.' },
+    { q: 'Ligne 2 : tu entends étudions ou étudiions ? EN: Which one do you hear?', opts: ['étudiions', 'étudions'], correct: 0, why: 'Une syllabe de plus : [di.jɔ̃]. EN: an extra syllable.' },
+    { q: 'Lignes 5 et 6 : laquelle parle d’avant ? EN: Which one is about the past?', opts: ['la 6', 'la 5'], correct: 1, why: 'La ligne 5 dit avant, la ligne 6 dit aujourd’hui. Le son aide peu : le sens décide. EN: the words around the verb decide.' },
+    { q: 'Tu entends bien la différence entre envoyons et envoyions ? EN: Can you clearly hear the difference?', opts: ['presque pas', 'oui, très bien'], correct: 0, why: 'Presque pas. C’est pour ça qu’il faut connaître la règle. EN: barely; that is why you need the rule.' },
+    { q: 'Ligne 8 : oubliais s’écrit avec combien de i ? EN: How many i’s in oubliais?', opts: ['deux', 'un'], correct: 1, why: 'Avec je, la fin -ais commence par a : un seul i. EN: je takes one i.' },
   ],
   audio: REC('rec-b1-01-emilie-ecoute'),
   say: 'Écoute Émilie. Avant, ou maintenant ?',
@@ -1569,8 +1569,8 @@ const A8_DICTEE: Sec<'dictation'> = {
 
 const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
   ctl('rire', 'rire, avec nous : EN: rire, with nous:', ['nous rions', 'nous riions', 'nous riyons'], 1, 'ri- + ions. EN: ri- plus -ions.'),
-  ctl('croire', 'croire, avec vous : EN: croire, with vous:', ['vous croyiez', 'vous croyez', 'vous croiiez'], 0, 'croy- + iez. EN: croy- plus -iez.'),
-  ctl('je', 'oublier, avec je : EN: oublier, with je:', ['j’oubliiais', 'j’oublais', 'j’oubliais'], 2, 'oubli- + ais : un seul i. EN: one i with je.'),
+  ctl('croire', 'croire, avec vous : EN: croire, with vous:', ['vous croyez', 'vous croiiez', 'vous croyiez'], 2, 'croy- + iez. EN: croy- plus -iez.'),
+  ctl('je', 'oublier, avec je : EN: oublier, with je:', ['j’oubliais', 'j’oubliiais', 'j’oublais'], 0, 'oubli- + ais : un seul i. EN: one i with je.'),
 ], ['deuxI']);
 
 const ACT8: ActDef = {
@@ -1686,10 +1686,10 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
   groups: [
     grp('il y avait, il fallait, il valait mieux', [
       it(E(1432)), it(E(1450)), it(E(1464)), it(E(522)), it('fr.b1.nombres.009'), it(E(1431)), it(E(1449)), it(E(521)), it(E(516)), it(E(520)),
-    ], chk('« Il ... mettre des bottes. » (falloir) EN: You had to wear boots.', ['fallait', 'faut', 'fallais'], 0, 'il fallait : il, donc -ait. il faut, c’est le présent. EN: il faut is the present.')),
+    ], chk('« Il ... mettre des bottes. » (falloir) EN: You had to wear boots.', ['faut', 'fallait', 'fallais'], 1, 'il fallait : il, donc -ait. il faut, c’est le présent. EN: il faut is the present.')),
     grp('La météo', [
       it(E(1430)), it(E(1448)), it(E(513)), it(E(518)), it(E(514)), it(E(515)), it(E(517)), it(E(519)), it(E(1465)),
-    ], chk('neiger, à l’imparfait : EN: neiger, in the imparfait:', ['il neigait', 'il neigeait', 'il neigeaient'], 1, 'neig- + e + ait : le e garde [ʒ]. EN: the -ger e.')),
+    ], chk('neiger, à l’imparfait : EN: neiger, in the imparfait:', ['il neigait', 'il neigeaient', 'il neigeait'], 2, 'neig- + e + ait : le e garde [ʒ]. EN: the -ger e.')),
     ctl('Qui est il ?', 'Dans « il faisait beau », il représente qui ? EN: Who is il?', ['personne', 'un homme', 'le soleil'], 0, 'Personne : c’est un il impersonnel. EN: nobody; impersonal il.'),
   ],
   audio: AUDIO,
@@ -1715,10 +1715,10 @@ const A9_ECOUTE: Sec<'listening'> = {
     { fr: "Ici, il fait froid, mais on s'habitue.", en: 'Here it’s cold, but you get used to it.' },
   ],
   questions: [
-    { q: 'Ligne 4 : avant ou maintenant ? EN: Line 4: before or now?', opts: ['avant', 'maintenant'], correct: 1, why: 'il neige : présent. EN: present.' },
-    { q: 'Ligne 3 : il fallait veut dire... EN: il fallait means...', opts: ['c’était obligatoire', 'il tombait', 'il faisait froid'], correct: 0, why: 'falloir : une obligation. EN: an obligation.' },
+    { q: 'Ligne 4 : avant ou maintenant ? EN: Line 4: before or now?', opts: ['maintenant', 'avant'], correct: 0, why: 'il neige : présent. EN: present.' },
+    { q: 'Ligne 3 : il fallait veut dire... EN: il fallait means...', opts: ['il tombait', 'c’était obligatoire', 'il faisait froid'], correct: 1, why: 'falloir : une obligation. EN: an obligation.' },
     { q: 'Lignes 7 et 8 : laquelle est au présent ? EN: Which is present?', opts: ['la 7', 'la 8'], correct: 1, why: 'il fait : présent. il faisait : imparfait. EN: fait is present.' },
-    { q: 'Ligne 6 : quel était le conseil ? EN: What was the advice?', opts: ['rester à l’intérieur', 'sortir', 'mettre des mitaines'], correct: 0, why: 'il valait mieux rester à l’intérieur. EN: stay inside.' },
+    { q: 'Ligne 6 : quel était le conseil ? EN: What was the advice?', opts: ['sortir', 'mettre des mitaines', 'rester à l’intérieur'], correct: 2, why: 'il valait mieux rester à l’intérieur. EN: stay inside.' },
   ],
   audio: REC('rec-b1-01-hiver-ecoute'),
   say: 'Écoute Julien parler de l’hiver.',
@@ -1746,9 +1746,9 @@ const A9_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
-  ctl('il y avait', 'Quelle phrase est correcte ? EN: Which sentence is correct?', ['Il y avaient des arbres.', 'Il y avait des arbres.', 'Il y étaient des arbres.'], 1, 'il y avait, toujours au singulier. EN: always singular.'),
-  ctl('valoir mieux', 'valoir mieux, à l’imparfait : EN: in the imparfait:', ['il valait mieux', 'il vallait mieux', 'il valais mieux'], 0, 'val- + ait, un seul l. EN: one l, -ait.'),
-  ctl('faire froid', 'faire froid, à l’imparfait : EN: in the imparfait:', ['il fesait froid', 'il faisait froid', 'il faisais froid'], 1, 'fais- + ait. EN: fais- plus -ait.'),
+  ctl('il y avait', 'Quelle phrase est correcte ? EN: Which sentence is correct?', ['Il y avait des arbres.', 'Il y avaient des arbres.', 'Il y étaient des arbres.'], 0, 'il y avait, toujours au singulier. EN: always singular.'),
+  ctl('valoir mieux', 'valoir mieux, à l’imparfait : EN: in the imparfait:', ['il vallait mieux', 'il valait mieux', 'il valais mieux'], 1, 'val- + ait, un seul l. EN: one l, -ait.'),
+  ctl('faire froid', 'faire froid, à l’imparfait : EN: in the imparfait:', ['il fesait froid', 'il faisais froid', 'il faisait froid'], 2, 'fais- + ait. EN: fais- plus -ait.'),
 ], ['impers']);
 
 const ACT9: ActDef = {
@@ -1865,8 +1865,8 @@ const A10_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk('se coucher, avec nous : EN: se coucher, with nous:', ['nous nous couchions', 'nous couchions', 'nous nous couchons'], 0, 'Deux fois nous, et -ions. La troisième est le présent. EN: two nous and -ions.')),
     grp('La négation', [
       it(E(528)), it(E(536)), it(E(529)), it(E(537)), it('fr.a1.heure-et-date.051'), it(E(530)), it(E(531)), it(E(539)), it(E(540)),
-    ], chk('« Je ... nager. » (savoir, négation) EN: I couldn’t swim.', ['savais ne pas', 'ne savais pas', 'ne pas savais'], 1, 'ne devant, pas derrière le verbe. EN: ne before, pas after.')),
-    ctl('personne', 'Il n’y avait ... dans la rue. EN: There was nobody in the street.', ['personne', 'pas personne', 'jamais personne'], 0, 'personne prend la place de pas. EN: personne replaces pas.'),
+    ], chk('« Je ... nager. » (savoir, négation) EN: I couldn’t swim.', ['ne savais pas', 'savais ne pas', 'ne pas savais'], 0, 'ne devant, pas derrière le verbe. EN: ne before, pas after.')),
+    ctl('personne', 'Il n’y avait ... dans la rue. EN: There was nobody in the street.', ['pas personne', 'personne', 'jamais personne'], 1, 'personne prend la place de pas. EN: personne replaces pas.'),
   ],
   audio: AUDIO,
   say: 'Les petits mots restent à leur place.',
@@ -1891,9 +1891,9 @@ const A10_ECOUTE: Sec<'listening'> = {
     { fr: 'Et toi, Awa, tu te couchais tôt ?', en: 'And you, Awa, did you go to bed early?' },
   ],
   questions: [
-    { q: 'Ligne 2 : avant ou maintenant ? EN: Line 2: before or now?', opts: ['avant', 'maintenant'], correct: 1, why: 'je me lève : présent. EN: present.' },
+    { q: 'Ligne 2 : avant ou maintenant ? EN: Line 2: before or now?', opts: ['maintenant', 'avant'], correct: 0, why: 'je me lève : présent. EN: present.' },
     { q: 'Ligne 3 : Koffi mangeait le matin ? EN: Did Koffi eat in the morning?', opts: ['oui', 'non, jamais'], correct: 1, why: 'je ne mangeais jamais. EN: never.' },
-    { q: 'Ligne 5 : pour quoi se disputaient-ils ? EN: What did they fight over?', opts: ['la salle de bain', 'la télé', 'le petit-déjeuner'], correct: 0, why: 'pour la salle de bain. EN: the bathroom.' },
+    { q: 'Ligne 5 : pour quoi se disputaient-ils ? EN: What did they fight over?', opts: ['la télé', 'le petit-déjeuner', 'la salle de bain'], correct: 2, why: 'pour la salle de bain. EN: the bathroom.' },
     { q: 'Ligne 7 : ne s’ennuient, c’est quel temps ? EN: Which tense?', opts: ['le présent', 'l’imparfait'], correct: 0, why: 'Ses enfants, aujourd’hui : présent. EN: present, today.' },
   ],
   audio: REC('rec-b1-01-matins-ecoute'),
@@ -1921,14 +1921,14 @@ const A10_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'se promener, nous', promptSound: 'nous promenions', fr: 'nous nous promenions', ipa: '/nu nu pʁɔm.njɔ̃/', tip: 'Deux fois nous. EN: nous twice.' },
   ],
   drill: [
-    { promptSay: 'je ... levais', opts: ['me', 'se'], correct: 0 },
-    { promptSay: 'on se ...', opts: ['voyaient', 'voyait'], correct: 1 },
-    { promptSay: 'je ne ... pas', opts: ['savais', 'savait'], correct: 0 },
-    { promptSay: "il n'y avait ...", opts: ['pas personne', 'personne'], correct: 1 },
-    { promptSay: 'nous ... promenions', opts: ['nous', 'se'], correct: 0 },
+    { promptSay: 'je ... levais', opts: ['se', 'me'], correct: 1 },
+    { promptSay: 'on se ...', opts: ['voyait', 'voyaient'], correct: 0 },
+    { promptSay: 'je ne ... pas', opts: ['savait', 'savais'], correct: 1 },
+    { promptSay: "il n'y avait ...", opts: ['personne', 'pas personne'], correct: 0 },
+    { promptSay: 'nous ... promenions', opts: ['se', 'nous'], correct: 1 },
     { promptSay: 'ils ... amusaient', opts: ["s'", 'se'], correct: 0 },
     { promptSay: 'je ... ennuyais', opts: ['me', "m'"], correct: 1 },
-    { promptSay: 'vous ... disputiez', opts: ['se', 'vous'], correct: 1 },
+    { promptSay: 'vous ... disputiez', opts: ['vous', 'se'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Les petits mots ne bougent pas' },
@@ -1944,7 +1944,7 @@ const A10_PIEGE: Sec<'trapDrill'> = {
 const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
   ctl('se promener', 'se promener, avec nous : EN: se promener, with nous:', ['nous nous promenions', 'nous promenions', 'nous nous promenons'], 0, 'Deux fois nous, et -ions. EN: two nous, -ions.'),
   ctl('la négation', 'Quelle phrase est correcte ? EN: Which sentence is correct?', ['Je mangeais ne pas.', 'Je ne mangeais pas.', 'Je ne pas mangeais.'], 1, 'ne devant, pas derrière. EN: ne before, pas after.'),
-  ctl('s’amuser', 's’amuser, avec ils : EN: s’amuser, with ils:', ['ils s’amusaient', 'ils se amusaient', 'ils s’amusait'], 0, 's’ devant une voyelle, et -aient. EN: elision and -aient.'),
+  ctl('s’amuser', 's’amuser, avec ils : EN: s’amuser, with ils:', ['ils se amusaient', 'ils s’amusait', 'ils s’amusaient'], 2, 's’ devant une voyelle, et -aient. EN: elision and -aient.'),
 ], ['pron']);
 
 const ACT10: ActDef = {
@@ -2037,11 +2037,11 @@ const A11_CONSTRUIRE: Sec<'groupDrill'> = {
   groups: [
     grp('-er ou -é', [
       it('fr.sons.muettes.036', 'l’infinitif'), it('fr.a2.verbes.552', 'avec avoir'), it(E(543), 'avec avoir'), it(E(545), 'avec avoir'), it(E(549), 'après aimer'), it(E(550), 'après aimer'),
-    ], chk('« Hier, j’ai ... avec ma tante. » EN: Yesterday I talked with my aunt.', ['parler', 'parlé', 'parlais'], 1, 'j’ai devant : parlé. Test : j’ai vendu. EN: after j’ai, the participle.')),
+    ], chk('« Hier, j’ai ... avec ma tante. » EN: Yesterday I talked with my aunt.', ['parlé', 'parler', 'parlais'], 0, 'j’ai devant : parlé. Test : j’ai vendu. EN: after j’ai, the participle.')),
     grp('-é ou -ais', [
       it(E(544), 'sans avoir'), it(E(546), 'sans avoir'), it(E(547), 'tu : -ais'), it(E(548), 'ils : -aient'), it(E(1401)), it(E(1405)),
-    ], chk('« Quand j’étais petite, je ... wolof. » EN: When I was little, I spoke Wolof.', ['parlé', 'parler', 'parlais'], 2, 'Pas d’avoir, et je : parlais. Test : je vendais. EN: no auxiliary, je: -ais.')),
-    ctl('Après un verbe', '« Elle aimait ... . » (danser) EN: She loved to dance.', ['danser', 'dansé', 'dansait'], 0, 'Après aimer : l’infinitif. Test : aimer vendre. EN: infinitive after aimer.'),
+    ], chk('« Quand j’étais petite, je ... wolof. » EN: When I was little, I spoke Wolof.', ['parlé', 'parlais', 'parler'], 1, 'Pas d’avoir, et je : parlais. Test : je vendais. EN: no auxiliary, je: -ais.')),
+    ctl('Après un verbe', '« Elle aimait ... . » (danser) EN: She loved to dance.', ['dansé', 'dansait', 'danser'], 2, 'Après aimer : l’infinitif. Test : aimer vendre. EN: infinitive after aimer.'),
   ],
   audio: AUDIO,
   say: 'Remplace par vendre, et regarde avant le verbe.',
@@ -2058,8 +2058,8 @@ const A11_ECOUTE: Sec<'listening'> = {
   frSub: 'j’ai, ou pas',
   lines: [ln(E(543)), ln(E(544)), ln(E(545)), ln(E(546)), ln(E(547)), ln(E(549)), ln(E(550)), ln(E(548))],
   questions: [
-    { q: 'Ligne 1 : quel petit mot entends-tu avant le verbe ? EN: Which little word do you hear before the verb?', opts: ['j’ai', 'je'], correct: 0, why: 'j’ai, donc parlé. EN: j’ai, so parlé.' },
-    { q: 'Ligne 4 : mangé ou mangeais ? EN: mangé or mangeais?', opts: ['mangé', 'mangeais'], correct: 1, why: 'Pas de j’ai : je mangeais. EN: no auxiliary.' },
+    { q: 'Ligne 1 : quel petit mot entends-tu avant le verbe ? EN: Which little word do you hear before the verb?', opts: ['je', 'j’ai'], correct: 1, why: 'j’ai, donc parlé. EN: j’ai, so parlé.' },
+    { q: 'Ligne 4 : mangé ou mangeais ? EN: mangé or mangeais?', opts: ['mangeais', 'mangé'], correct: 0, why: 'Pas de j’ai : je mangeais. EN: no auxiliary.' },
     { q: 'Ligne 6 : danser s’écrit comment ? EN: How is danser spelled here?', opts: ['danser', 'dansé', 'dansait'], correct: 0, why: 'Après aimait : l’infinitif. EN: infinitive after a verb.' },
     { q: 'Ligne 8 : combien de personnes parlaient ? EN: How many people were talking?', opts: ['une', 'plusieurs'], correct: 1, why: 'ils : plusieurs. La fin ne s’entend pas, le sujet oui. EN: the subject tells you.' },
   ],
@@ -2103,8 +2103,8 @@ const A11_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A11_CHECK = actCheck('a11-check', 'Le point : acte 11', [
-  ctl('avec avoir', '« Hier, nous avons ... tard. » (manger) EN: Yesterday we ate late.', ['mangé', 'mangions', 'manger'], 0, 'avons devant : mangé. EN: after avoir, the participle.'),
-  ctl('sans avoir', '« Avant, je ... le bus. » (prendre) EN: Before, I used to take the bus.', ['pris', 'prenais', 'prendre'], 1, 'Pas d’avoir, et je : prenais. EN: imparfait with je.'),
+  ctl('avec avoir', '« Hier, nous avons ... tard. » (manger) EN: Yesterday we ate late.', ['mangions', 'mangé', 'manger'], 1, 'avons devant : mangé. EN: after avoir, the participle.'),
+  ctl('sans avoir', '« Avant, je ... le bus. » (prendre) EN: Before, I used to take the bus.', ['pris', 'prendre', 'prenais'], 2, 'Pas d’avoir, et je : prenais. EN: imparfait with je.'),
   ctl('l’astuce', 'Pour choisir entre parler et parlé, tu remplaces par : EN: To choose, you swap in:', ['vendre', 'être', 'aller'], 0, 'vendre et vendu ne se ressemblent pas. EN: they sound different.'),
 ], ['homo']);
 
@@ -2605,14 +2605,14 @@ const DRILL_LIST: LessonDrill[] = [
   { id: 'd-avant', title: 'Maintenant ou avant', format: 'flashcard' as const, coach: 'Lis la phrase. Elle parle d’aujourd’hui ou d’avant ? Dis-la avec la bonne forme. EN: Today or before? Say it with the right form.', items: [E(1461), E(1462), E(1441), E(1440), E(1442), 'fr.a2.verbes.103'], audio: AUDIO },
   { id: 'd-stem', title: 'Retrouve la base', format: 'mcq' as const, coach: 'Dis le verbe avec nous, au présent. Coupe -ons. Ce qui reste, c’est la base. EN: Say nous, cut -ons: that is the stem.', q: 'nous finissons. Avec je : EN: With je:', opts: ['je finais', 'je finissais', 'je finissait'], correct: 1, why: 'finiss- + ais. EN: keep -iss-, and je takes -ais.', items: [E(1406), E(404), E(405), E(407), E(409), 'fr.a2.verbes.184'], audio: AUDIO },
   { id: 'd-endings', title: 'Le sujet choisit la fin', format: 'mcq' as const, coach: 'Tu entends la même chose. Regarde le sujet, et écris sa fin. EN: Same sound; the subject picks the spelling.', q: 'Mes parents ... un dépanneur. EN: My parents had a corner store.', opts: ['avait', 'avais', 'avaient'], correct: 2, why: 'Mes parents = ils : -aient. EN: plural subject.', items: [E(1401), E(414), E(1402), E(1405), E(1459), E(1470)], audio: AUDIO },
-  { id: 'd-irreg', title: 'Irrégulier ? Pars de nous', format: 'mcq' as const, coach: 'Oublie je bois, je prends. Dis nous buvons, nous prenons. EN: Forget the je form; say the nous form.', q: 'nous prenons. Avec je : EN: With je:', opts: ['je prendais', 'je prenais', 'je prennais'], correct: 1, why: 'pren- : un n, pas de d. EN: one n, no d.', items: [E(1408), E(440), E(1409), E(430), E(434), E(436)], audio: AUDIO },
+  { id: 'd-irreg', title: 'Irrégulier ? Pars de nous', format: 'mcq' as const, coach: 'Oublie je bois, je prends. Dis nous buvons, nous prenons. EN: Forget the je form; say the nous form.', q: 'nous prenons. Avec je : EN: With je:', opts: ['je prenais', 'je prendais', 'je prennais'], correct: 0, why: 'pren- : un n, pas de d. EN: one n, no d.', items: [E(1408), E(440), E(1409), E(430), E(434), E(436)], audio: AUDIO },
   { id: 'd-etre', title: 'ét-', format: 'flashcard' as const, coach: 'être est le seul verbe à part. Dis ét-, puis la fin. EN: être alone uses ét-.', items: [E(1416), E(465), E(466), E(1417), E(467), E(1418)], audio: AUDIO },
   { id: 'd-ger', title: 'Un e, ou rien', format: 'sort' as const, coach: 'Deux piles. Regarde la lettre après le g : a, ou i ? EN: Sort by the letter after g.', buckets: ['devant a : e', 'devant i : rien'], items: [E(1420), E(1421), E(475), E(474), E(1422), E(481)], audio: AUDIO },
   { id: 'd-cer', title: 'Une cédille, ou rien', format: 'sort' as const, coach: 'Deux piles. Regarde la lettre après le c : a, ou i ? EN: Sort by the letter after c.', buckets: ['devant a : ç', 'devant i : c'], items: [E(1423), E(1424), E(489), E(488), E(1425), E(494)], audio: AUDIO },
   { id: 'd-ii', title: 'Deux i', format: 'mcq' as const, coach: 'La base finit par i ou y ? La fin commence par i ? Écris les deux. EN: Stem in i or y plus -ions: write both.', q: 'étudier, avec nous : EN: étudier with nous:', opts: ['nous étudions', 'nous étudiions', 'nous étudiyons'], correct: 1, why: 'étudi- + ions. La première est le présent. EN: the first is the present.', items: [E(1426), E(1427), E(1428), E(1429), E(1411), E(503)], audio: AUDIO },
   { id: 'd-impers', title: 'Avec il', format: 'mcq' as const, coach: 'il ne représente personne. Il prend toujours -ait. EN: impersonal il always takes -ait.', q: '« Il y ... des arbres. » EN: There were trees.', opts: ['avaient', 'avait', 'étaient'], correct: 1, why: 'il y avait, toujours au singulier. EN: always singular.', items: [E(1432), E(1431), E(1430), E(513), E(515), E(516)], audio: AUDIO },
-  { id: 'd-pronneg', title: 'Les petits mots', format: 'mcq' as const, coach: 'Le pronom et ne restent devant le verbe. pas va derrière. EN: pronoun and ne before, pas after.', q: 'Quelle phrase est correcte ? EN: Which is correct?', opts: ['Je levais me tôt.', 'Je ne me levais pas tôt.', 'Je me ne levais pas tôt.'], correct: 1, why: 'ne, puis me, puis le verbe, puis pas. EN: ne, pronoun, verb, pas.', items: [E(523), E(526), E(528), E(529), E(531), E(532)], audio: AUDIO },
-  { id: 'd-homo', title: 'vendre, vendu, vendais', format: 'mcq' as const, coach: 'Remplace par vendre. Ce que tu entends te dit quoi écrire. EN: Swap in vendre and listen.', q: '« Tu as ... ta tante ? » (appeler) EN: Did you call your aunt?', opts: ['appeler', 'appelé', 'appelais'], correct: 1, why: 'Tu as vendu : appelé. EN: vendu, so the participle.', items: [E(543), E(544), E(545), E(546), E(549), 'fr.a2.verbes.552'], audio: AUDIO },
+  { id: 'd-pronneg', title: 'Les petits mots', format: 'mcq' as const, coach: 'Le pronom et ne restent devant le verbe. pas va derrière. EN: pronoun and ne before, pas after.', q: 'Quelle phrase est correcte ? EN: Which is correct?', opts: ['Je levais me tôt.', 'Je me ne levais pas tôt.', 'Je ne me levais pas tôt.'], correct: 2, why: 'ne, puis me, puis le verbe, puis pas. EN: ne, pronoun, verb, pas.', items: [E(523), E(526), E(528), E(529), E(531), E(532)], audio: AUDIO },
+  { id: 'd-homo', title: 'vendre, vendu, vendais', format: 'mcq' as const, coach: 'Remplace par vendre. Ce que tu entends te dit quoi écrire. EN: Swap in vendre and listen.', q: '« Tu as ... ta tante ? » (appeler) EN: Did you call your aunt?', opts: ['appelé', 'appeler', 'appelais'], correct: 0, why: 'Tu as vendu : appelé. EN: vendu, so the participle.', items: [E(543), E(544), E(545), E(546), E(549), 'fr.a2.verbes.552'], audio: AUDIO },
 ];
 
 const TRIGGER_LIST: ErrorTrigger[] = [

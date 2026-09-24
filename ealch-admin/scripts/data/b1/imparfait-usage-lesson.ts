@@ -318,14 +318,14 @@ const A1_REPERER: Sec<'groupDrill'> = {
       { fr: "Tous les dimanches, j'allais au marché.", note: 'chaque semaine', en: 'Every Sunday, I went to the market.' },
       { fr: 'Je rentrais souvent à minuit.', note: 'souvent', en: 'I often came home at midnight.' },
       { fr: "D'habitude, vous preniez le café avec nous.", note: "d'habitude", en: 'You usually had coffee with us.' },
-    ], chk('Ces trois phrases racontent quoi ? EN: What do these three tell?', ['une seule fois', 'une chose qui revenait', 'une chose vraie aujourd’hui'], 1, 'Chaque dimanche, souvent, d’habitude : on ne compte pas les fois. EN: no count, and none needed.')),
+    ], chk('Ces trois phrases racontent quoi ? EN: What do these three tell?', ['une chose qui revenait', 'une seule fois', 'une chose vraie aujourd’hui'], 0, 'Chaque dimanche, souvent, d’habitude : on ne compte pas les fois. EN: no count, and none needed.')),
     grp('Comment c’était', [
       { fr: "L'appartement était petit.", note: 'un lieu', en: 'The flat was small.' },
       { fr: 'Il y avait une grande fenêtre.', note: 'un lieu', en: 'There was a big window.' },
       { fr: 'Il faisait froid.', note: 'la météo', en: 'It was cold.' },
       { fr: "J'avais vingt-deux ans.", note: 'l’âge', en: 'I was twenty-two.' },
-    ], chk('Ici, est-ce que quelque chose se passe ? EN: Is anything happening here?', ['Non, on regarde le décor.', 'Oui, une action commence.', 'Oui, une action finit.'], 0, 'Rien ne commence et rien ne finit. C’est une photo. EN: it is a photo.')),
-    ctl('Et la dernière phrase', '« Je me demandais si nous pouvions passer. » Benoît se demande ça quand ? EN: When is he wondering?', ['en 2006', 'maintenant, en écrivant', 'en mai, à Bruxelles'], 1, 'La forme est passée, le sens est présent. C’est l’acte 8. EN: past form, present meaning.'),
+    ], chk('Ici, est-ce que quelque chose se passe ? EN: Is anything happening here?', ['Oui, une action commence.', 'Non, on regarde le décor.', 'Oui, une action finit.'], 1, 'Rien ne commence et rien ne finit. C’est une photo. EN: it is a photo.')),
+    ctl('Et la dernière phrase', '« Je me demandais si nous pouvions passer. » Benoît se demande ça quand ? EN: When is he wondering?', ['en 2006', 'en mai, à Bruxelles', 'maintenant, en écrivant'], 2, 'La forme est passée, le sens est présent. C’est l’acte 8. EN: past form, present meaning.'),
   ],
   audio: AUDIO,
   say: `Trie les verbes de la lettre. ${REFRAME}`,
@@ -358,9 +358,9 @@ const A1_PANORAMA: Sec<'tapTable'> = {
 };
 
 const A1_CHECK = actCheck('a1-check', 'Le point : acte 1', [
-  ctl('Le sens', 'Une photo de 1998, un village. « Il ... une épicerie. » Elle a fermé en 2005. EN: The shop closed in 2005.', ['y a', 'y avait', 'y a eu'], 1, 'Le village d’avant : il y avait. Le présent dirait qu’elle est encore là. EN: the present would mean it is still open.'),
-  ctl('Compter ou regarder', '« Tous les samedis, on ... sur le lac. » Des années de samedis. EN: Years of Saturdays.', ['a patiné', 'patinait'], 1, 'On ne compte pas les samedis : imparfait. EN: no count, so the imparfait.'),
-  ctl('Attention', '« Avant de dormir, je lis. » Ce verbe est au présent ou à l’imparfait ? EN: Present or imparfait?', ['au présent', 'à l’imparfait'], 0, 'C’est une habitude d’aujourd’hui. Le mot avant ne décide rien. EN: avant is not a switch.'),
+  ctl('Le sens', 'Une photo de 1998, un village. « Il ... une épicerie. » Elle a fermé en 2005. EN: The shop closed in 2005.', ['y avait', 'y a', 'y a eu'], 0, 'Le village d’avant : il y avait. Le présent dirait qu’elle est encore là. EN: the present would mean it is still open.'),
+  ctl('Compter ou regarder', '« Tous les samedis, on ... sur le lac. » Des années de samedis. EN: Years of Saturdays.', ['patinait', 'a patiné'], 0, 'On ne compte pas les samedis : imparfait. EN: no count, so the imparfait.'),
+  ctl('Attention', '« Avant de dormir, je lis. » Ce verbe est au présent ou à l’imparfait ? EN: Present or imparfait?', ['à l’imparfait', 'au présent'], 1, 'C’est une habitude d’aujourd’hui. Le mot avant ne décide rien. EN: avant is not a switch.'),
 ], ['habitude', 'indice']);
 
 const ACT1: ActDef = {
@@ -471,13 +471,13 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(122), 'travailler'),
       it(E(125), 'appeler'),
       it(E(135), 'raconter'),
-    ], chk('« Le samedi, ma mère ... à l’hôpital. » (travailler) EN: Which form?', ['travaillait', 'a travaillé', 'travaille'], 0, 'le samedi = chaque samedi, et c’est fini : travaillait. EN: every Saturday, and it is over.')),
+    ], chk('« Le samedi, ma mère ... à l’hôpital. » (travailler) EN: Which form?', ['a travaillé', 'travaille', 'travaillait'], 2, 'le samedi = chaque samedi, et c’est fini : travaillait. EN: every Saturday, and it is over.')),
     grp('Avec nous et on', [
       it(E(1512), 'aller'),
       it(E(120), 'aller, au Lac-Saint-Jean'),
       it(E(126), 'de temps en temps'),
       it(E(132), 'le vendredi soir'),
-    ], chk('« Chaque été, nous ... chez ma grand-mère. » (aller) EN: Which form?', ['allons', 'sommes allés', 'allions'], 2, 'nous allons donne all-, puis -ions. EN: the nous stem plus -ions.')),
+    ], chk('« Chaque été, nous ... chez ma grand-mère. » (aller) EN: Which form?', ['allions', 'allons', 'sommes allés'], 0, 'nous allons donne all-, puis -ions. EN: the nous stem plus -ions.')),
   ],
   audio: AUDIO,
   say: 'À toi. Lis l’indice, puis choisis la forme.',
@@ -498,8 +498,8 @@ const A2_ECOUTE: Sec<'listening'> = {
     ln(E(130)), ln(E(133)), ln(E(136)), ln(E(135)), ln(E(129)),
   ],
   questions: [
-    { q: 'La première phrase : une fois, ou chaque semaine ? EN: Once, or every week?', opts: ['une fois', 'chaque semaine'], correct: 1, why: 'Tous les samedis : une habitude. EN: a habit.' },
-    { q: 'Phrase 6 : « Chaque hiver, la rivière gelait. » C’est quoi ? EN: What is it?', opts: ['une habitude, et la météo', 'une seule journée de gel', 'une action qui commence'], correct: 0, why: 'Chaque hiver : ça revenait, et c’est le temps qu’il faisait. EN: repeated, and weather.' },
+    { q: 'La première phrase : une fois, ou chaque semaine ? EN: Once, or every week?', opts: ['chaque semaine', 'une fois'], correct: 0, why: 'Tous les samedis : une habitude. EN: a habit.' },
+    { q: 'Phrase 6 : « Chaque hiver, la rivière gelait. » C’est quoi ? EN: What is it?', opts: ['une seule journée de gel', 'une habitude, et la météo', 'une action qui commence'], correct: 1, why: 'Chaque hiver : ça revenait, et c’est le temps qu’il faisait. EN: repeated, and weather.' },
     { q: 'Phrase 8 : « Chaque été, nous allons au Lac-Saint-Jean. » Avant ou aujourd’hui ? EN: Before or today?', opts: ['avant seulement', 'on ne sait pas', 'aujourd’hui encore'], correct: 2, why: 'nous allons est au présent : c’est encore vrai. EN: present tense, still true.' },
     { q: 'Phrase 10 : « Je ne mangeais jamais le matin. » Combien de fois ? EN: How many times?', opts: ['une seule', 'aucune, et ça durait'], correct: 1, why: 'jamais, pendant toute une période : imparfait. EN: never, over a whole period.' },
     { q: 'Dans ces dix phrases, combien sont au présent ? EN: How many are in the present?', opts: ['une', 'trois', 'aucune'], correct: 0, why: 'Une seule, la huitième. Les autres regardent le passé. EN: only the eighth.' },
@@ -546,8 +546,8 @@ const A2_DICTEE: Sec<'dictation'> = {
 
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
   ctl('Le sens', '« Quand j’étais petite, je ... du lait tous les matins. » (boire) EN: Which form?', ['ai bu', 'buvais', 'bois'], 1, 'Tous les matins, dans l’enfance : buvais. EN: a childhood habit.'),
-  ctl('L’indice', 'Quel mot NE choisit PAS le temps du verbe ? EN: Which word does not pick the tense?', ['d’habitude', 'aucun des deux', 'chaque été'], 1, 'Aucun des deux. Ils aident, le sens décide. EN: neither; they are clues.'),
-  ctl('Compter', '« ... , je suis allé deux fois au chalet. » Quel début va avec ce verbe ? EN: Which opening fits?', ['Tous les hivers', 'Cet hiver-là'], 1, 'Deux fois, dans un hiver précis : passé composé. EN: a count in a closed winter.'),
+  ctl('L’indice', 'Quel mot NE choisit PAS le temps du verbe ? EN: Which word does not pick the tense?', ['d’habitude', 'chaque été', 'aucun des deux'], 2, 'Aucun des deux. Ils aident, le sens décide. EN: neither; they are clues.'),
+  ctl('Compter', '« ... , je suis allé deux fois au chalet. » Quel début va avec ce verbe ? EN: Which opening fits?', ['Cet hiver-là', 'Tous les hivers'], 0, 'Deux fois, dans un hiver précis : passé composé. EN: a count in a closed winter.'),
 ], ['habitude', 'indice']);
 
 const ACT2: ActDef = {
@@ -648,7 +648,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(143), 'à l’époque'),
       it(E(146), 'à cette époque-là'),
       it(E(147), 'avant'),
-    ], chk('« Autrefois, le village ... une seule école. » (avoir) EN: Which form?', ['a', 'avait', 'a eu'], 1, 'Autrefois ouvre le passé, et c’est une description : avait. EN: description in the past.')),
+    ], chk('« Autrefois, le village ... une seule école. » (avoir) EN: Which form?', ['avait', 'a', 'a eu'], 0, 'Autrefois ouvre le passé, et c’est une description : avait. EN: description in the past.')),
     grp('Maintenant', [
       it(E(148), 'maintenant'),
       it(E(154), 'aujourd’hui'),
@@ -660,7 +660,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(149), 'il y a vingt ans'),
       it(E(150), 'quand j’avais vingt ans'),
       it(E(155), 'autrefois, les voisins'),
-    ], chk('Dans « Avant, je fumais. Maintenant, je cours. », qu’est-ce qui change ? EN: What changes?', ['le sujet', 'l’époque, donc le temps', 'rien du tout'], 1, 'Même personne, deux époques, deux temps. EN: same person, two eras, two tenses.')),
+    ], chk('Dans « Avant, je fumais. Maintenant, je cours. », qu’est-ce qui change ? EN: What changes?', ['le sujet', 'rien du tout', 'l’époque, donc le temps'], 2, 'Même personne, deux époques, deux temps. EN: same person, two eras, two tenses.')),
   ],
   audio: AUDIO,
   say: 'Range chaque phrase : avant, ou maintenant.',
@@ -694,9 +694,9 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'À l’époque, il n’y ... pas de portable.', opts: ['a', 'avait'], correct: 1 },
     { promptSay: 'Maintenant, je ... le métro. (prendre)', opts: ['prends', 'prenais'], correct: 0 },
     { promptSay: 'Autrefois, les voisins se ... plus. (parler)', opts: ['parlent', 'parlaient'], correct: 1 },
-    { promptSay: 'Il y a vingt ans, je ... à Bruxelles. (travailler)', opts: ['travaille', 'travaillais'], correct: 1 },
-    { promptSay: 'Aujourd’hui, la maison ... bleue. (être)', opts: ['est', 'était'], correct: 0 },
-    { promptSay: 'Avant le déménagement, nous ... près du parc. (habiter)', opts: ['habitons', 'habitions'], correct: 1 },
+    { promptSay: 'Il y a vingt ans, je ... à Bruxelles. (travailler)', opts: ['travaillais', 'travaille'], correct: 0 },
+    { promptSay: 'Aujourd’hui, la maison ... bleue. (être)', opts: ['était', 'est'], correct: 1 },
+    { promptSay: 'Avant le déménagement, nous ... près du parc. (habiter)', opts: ['habitions', 'habitons'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Regarde ce qui suit avant' },
@@ -723,7 +723,7 @@ const A3_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Phrase 1 : combien d’époques ? EN: How many eras?', opts: ['une', 'deux'], correct: 1, why: 'Avant, je fumais. Maintenant, je cours. EN: two eras in one sentence.' },
     { q: 'Phrase 3 : avant ou aujourd’hui ? EN: Before or today?', opts: ['aujourd’hui', 'avant'], correct: 0, why: 'Maintenant + paie : le présent. EN: present tense.' },
-    { q: 'Phrase 5 et phrase 6 : qu’est-ce qui change ? EN: What changes?', opts: ['le moyen de transport seulement', 'l’époque et le temps du verbe', 'rien'], correct: 1, why: 'Avant, je prenais le bus. Maintenant, je prends le métro. EN: era and tense.' },
+    { q: 'Phrase 5 et phrase 6 : qu’est-ce qui change ? EN: What changes?', opts: ['l’époque et le temps du verbe', 'le moyen de transport seulement', 'rien'], correct: 0, why: 'Avant, je prenais le bus. Maintenant, je prends le métro. EN: era and tense.' },
     { q: 'Phrase 8 : « Avant de partir, j’éteins la lumière. » C’est quand ? EN: When is it?', opts: ['dans le passé', 'aujourd’hui, chaque fois'], correct: 1, why: 'avant de + verbe : ici, une habitude d’aujourd’hui. EN: a habit today.' },
   ],
   audio: REC('rec-b1-02-epoques'),
@@ -733,7 +733,7 @@ const A3_ECOUTE: Sec<'listening'> = {
 
 const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
   ctl('Le mot', 'Quel mot ramène le présent ? EN: Which word brings the present back?', ['autrefois', 'maintenant', 'à l’époque'], 1, 'maintenant et aujourd’hui ferment le passé. EN: maintenant and aujourd’hui close the past.'),
-  ctl('Le piège', '« Avant de dormir, je ... un peu. » (lire) Habitude d’aujourd’hui. EN: A habit today.', ['lisais', 'lis'], 1, 'avant de + verbe ne met rien au passé. EN: avant de does not send it to the past.'),
+  ctl('Le piège', '« Avant de dormir, je ... un peu. » (lire) Habitude d’aujourd’hui. EN: A habit today.', ['lis', 'lisais'], 0, 'avant de + verbe ne met rien au passé. EN: avant de does not send it to the past.'),
   ctl('Les deux', '« Avant, nous ... près du parc, maintenant nous habitons en ville. » (habiter) EN: Which form?', ['habitions', 'habitons'], 0, 'La première moitié est au passé, la seconde au présent. EN: past then present.'),
 ], ['avant', 'indice']);
 
@@ -834,7 +834,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(169), 'détester'),
       it(E(172), 'être content'),
       it(E(173), 'être triste'),
-    ], chk('« Elle ... triste ce jour-là. » (être) EN: Which form?', ['a été', 'était', 'est'], 1, 'Un état, un jour précis : était. EN: a state, so the imparfait.')),
+    ], chk('« Elle ... triste ce jour-là. » (être) EN: Which form?', ['a été', 'est', 'était'], 2, 'Un état, un jour précis : était. EN: a state, so the imparfait.')),
     grp('La tête : savoir, croire, penser', [
       it(E(164), 'savoir'),
       it(E(170), 'penser à'),
@@ -866,7 +866,7 @@ const A4_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Phrase 2 : « Il avait peur du noir. » Quel verbe entends-tu ? EN: Which verb?', opts: ['être', 'avoir'], correct: 1, why: 'avoir peur. En anglais, he WAS afraid. EN: French uses avoir.' },
-    { q: 'Phrase 3 : « Je savais que la route était fermée. » Combien d’états ? EN: How many states?', opts: ['un', 'deux'], correct: 1, why: 'savais, et était : deux états dans une phrase. EN: two states.' },
+    { q: 'Phrase 3 : « Je savais que la route était fermée. » Combien d’états ? EN: How many states?', opts: ['deux', 'un'], correct: 0, why: 'savais, et était : deux états dans une phrase. EN: two states.' },
     { q: 'Phrase 7 : « Elle se sentait seule. » C’est quoi ? EN: What is it?', opts: ['une action courte', 'un sentiment qui durait'], correct: 1, why: 'se sentir : un état, pas un moment. EN: a state, not a moment.' },
     { q: 'Phrase 9 : « J’avais envie d’un café. » Ça veut dire quoi ? EN: What does it mean?', opts: ['I felt like a coffee.', 'I had a coffee.'], correct: 0, why: 'avoir envie de : le désir, pas le café. EN: the wish, not the drink.' },
     { q: 'Dans ces dix phrases, y a-t-il une action qui commence et qui finit ? EN: Any action with a start and an end?', opts: ['oui, deux', 'aucune'], correct: 1, why: 'Ce sont tous des états. C’est pour ça qu’ils sont à l’imparfait. EN: all states.' },
@@ -919,9 +919,9 @@ const A4_FLASH: Sec<'flashcards'> = {
 };
 
 const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
-  ctl('Le bon verbe', '« Ce matin-là, j’... froid et j’... peur. » EN: Which verb twice?', ['étais', 'avais'], 1, 'avoir froid, avoir peur. Deux fois avoir. EN: avoir both times.'),
-  ctl('L’état', '« Quand je suis arrivée, je ne ... personne. » (connaître) EN: Which form?', ['connaissais', 'connais', 'ai connu'], 0, 'Un état, à ce moment-là : connaissais. EN: a state at that time.'),
-  ctl('Le sens', 'Quel verbe N’EST PAS un état ? EN: Which one is not a state?', ['savoir', 'vouloir', 'tomber'], 2, 'tomber est une action : ça commence et ça finit. EN: falling starts and ends.'),
+  ctl('Le bon verbe', '« Ce matin-là, j’... froid et j’... peur. » EN: Which verb twice?', ['avais', 'étais'], 0, 'avoir froid, avoir peur. Deux fois avoir. EN: avoir both times.'),
+  ctl('L’état', '« Quand je suis arrivée, je ne ... personne. » (connaître) EN: Which form?', ['connais', 'ai connu', 'connaissais'], 2, 'Un état, à ce moment-là : connaissais. EN: a state at that time.'),
+  ctl('Le sens', 'Quel verbe N’EST PAS un état ? EN: Which one is not a state?', ['tomber', 'savoir', 'vouloir'], 0, 'tomber est une action : ça commence et ça finit. EN: falling starts and ends.'),
 ], ['etat']);
 
 const ACT4: ActDef = {
@@ -1034,7 +1034,7 @@ const A5_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(809), 'un portrait'),
       it(E(812), 'ce qu’on entendait'),
       it(E(813), 'ce que ça sentait'),
-    ], chk('« On ... les enfants dans la cour. » (entendre) EN: Which form?', ['entend', 'entendait', 'a entendu'], 1, 'Un bruit de fond, pas un moment : entendait. EN: background, so the imparfait.')),
+    ], chk('« On ... les enfants dans la cour. » (entendre) EN: Which form?', ['entend', 'a entendu', 'entendait'], 2, 'Un bruit de fond, pas un moment : entendait. EN: background, so the imparfait.')),
   ],
   audio: AUDIO,
   say: 'Construis la maison, phrase par phrase.',
@@ -1070,8 +1070,8 @@ const A5_ECOUTE: Sec<'listening'> = {
     ln(E(812)), ln(E(813)), ln(E(816)), ln(E(819)),
   ],
   questions: [
-    { q: 'Est-ce qu’il y avait un ascenseur ? EN: Was there a lift?', opts: ['oui', 'non'], correct: 1, why: 'Il n’y avait pas d’ascenseur. EN: there was none.' },
-    { q: 'Combien de chambres ? EN: How many bedrooms?', opts: ['deux', 'trois', 'on ne dit pas'], correct: 1, why: 'Il y avait trois chambres à l’étage. EN: three, upstairs.' },
+    { q: 'Est-ce qu’il y avait un ascenseur ? EN: Was there a lift?', opts: ['non', 'oui'], correct: 0, why: 'Il n’y avait pas d’ascenseur. EN: there was none.' },
+    { q: 'Combien de chambres ? EN: How many bedrooms?', opts: ['trois', 'deux', 'on ne dit pas'], correct: 0, why: 'Il y avait trois chambres à l’étage. EN: three, upstairs.' },
     { q: 'Phrase 6 : qu’est-ce qu’on sentait le matin ? EN: What could you smell?', opts: ['le café', 'le pain chaud'], correct: 1, why: 'Ça sentait le pain chaud le matin. EN: warm bread.' },
     { q: 'La dernière phrase donne quoi ? EN: What does the last line give?', opts: ['une taille et un sentiment', 'une date'], correct: 0, why: 'C’était petit, mais c’était chez nous. EN: size and feeling.' },
   ],
@@ -1081,7 +1081,7 @@ const A5_ECOUTE: Sec<'listening'> = {
 };
 
 const A5_CHECK = actCheck('a5-check', 'Le point : acte 5', [
-  ctl('La forme', '« Dans la cour, il y ... deux arbres et un banc. » EN: Which form?', ['avait', 'avaient'], 0, 'il y avait reste au singulier, toujours. EN: always singular.'),
+  ctl('La forme', '« Dans la cour, il y ... deux arbres et un banc. » EN: Which form?', ['avaient', 'avait'], 1, 'il y avait reste au singulier, toujours. EN: always singular.'),
   ctl('Le choix', 'Pour présenter la maison : « ... une vieille maison. » EN: To introduce it:', ['C’était', 'Elle était'], 0, 'Avec un nom, on dit c’était. Elle était va avec un adjectif. EN: c’était with a noun.'),
   ctl('Le sens', 'Tu décris ta chambre d’enfant. La maison a été vendue. EN: The house has been sold.', ['Ma chambre est bleue.', 'Ma chambre était bleue.'], 1, 'Le présent dirait qu’elle est encore à toi. EN: the present would mean it is still yours.'),
 ], ['decor']);
@@ -1187,13 +1187,13 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(830), 'sept heures'),
       it(E(831), 'tard'),
       it(E(832), 'midi'),
-    ], chk('« ... minuit quand le téléphone a sonné. » EN: Which opening?', ['Il avait', 'Il était', 'C’était'], 1, 'L’heure : il était. EN: clock time.')),
+    ], chk('« ... minuit quand le téléphone a sonné. » EN: Which opening?', ['Il avait', 'C’était', 'Il était'], 2, 'L’heure : il était. EN: clock time.')),
     grp('L’âge', [
       it(E(1505), 'douze ans'),
       it(E(833), 'trente ans'),
       it(E(834), 'comparer'),
       it(E(839), 'quand j’avais dix ans'),
-    ], chk('« Quand j’... dix ans, on a déménagé. » EN: Which form?', ['étais', 'avais'], 1, 'L’âge se dit avec avoir. EN: age takes avoir.')),
+    ], chk('« Quand j’... dix ans, on a déménagé. » EN: Which form?', ['avais', 'étais'], 0, 'L’âge se dit avec avoir. EN: age takes avoir.')),
   ],
   audio: AUDIO,
   say: 'Trois familles, trois formes.',
@@ -1225,10 +1225,10 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptSay: "Quand j'... dix ans, j'apprenais le violon.", opts: ['étais', 'avais'], correct: 1 },
     { promptSay: 'Il ... froid dans l’appartement.', opts: ['faisait', 'était'], correct: 0 },
     { promptSay: 'Il ... minuit et demi.', opts: ['avait', 'était'], correct: 1 },
-    { promptSay: 'Elle ... trente ans à l’époque.', opts: ['était', 'avait'], correct: 1 },
-    { promptSay: 'Il y ... du vent toute la nuit.', opts: ['avait', 'faisait'], correct: 0 },
-    { promptSay: 'Le ciel ... gris.', opts: ['avait', 'était'], correct: 1 },
-    { promptSay: 'Il ... moins vingt en janvier.', opts: ['faisait', 'était'], correct: 0 },
+    { promptSay: 'Elle ... trente ans à l’époque.', opts: ['avait', 'était'], correct: 0 },
+    { promptSay: 'Il y ... du vent toute la nuit.', opts: ['faisait', 'avait'], correct: 1 },
+    { promptSay: 'Le ciel ... gris.', opts: ['était', 'avait'], correct: 0 },
+    { promptSay: 'Il ... moins vingt en janvier.', opts: ['était', 'faisait'], correct: 1 },
     { promptSay: 'Mon frère ... deux ans de plus que moi.', opts: ['avait', 'était'], correct: 0 },
   ],
   steps: [
@@ -1254,10 +1254,10 @@ const A6_ECOUTE: Sec<'listening'> = {
     ln(E(828)), ln(E(825)), ln(E(830)), ln(E(836)),
   ],
   questions: [
-    { q: 'Phrase 1 : il faisait combien ? EN: What was the temperature?', opts: ['moins vingt', 'moins trente'], correct: 0, why: 'Il faisait moins vingt en janvier. EN: minus twenty.' },
-    { q: 'Phrase 5 : on est où ? EN: Where are we?', opts: ['au Québec', 'à Abidjan'], correct: 1, why: 'Il faisait trente degrés à Abidjan. EN: Abidjan.' },
+    { q: 'Phrase 1 : il faisait combien ? EN: What was the temperature?', opts: ['moins trente', 'moins vingt'], correct: 1, why: 'Il faisait moins vingt en janvier. EN: minus twenty.' },
+    { q: 'Phrase 5 : on est où ? EN: Where are we?', opts: ['à Abidjan', 'au Québec'], correct: 0, why: 'Il faisait trente degrés à Abidjan. EN: Abidjan.' },
     { q: 'Phrase 6 : « Il faisait nuit à cinq heures. » Quelle saison ? EN: Which season?', opts: ['l’été', 'l’hiver'], correct: 1, why: 'La nuit à cinq heures : l’hiver. EN: dark at five means winter.' },
-    { q: 'Phrase 8 : « On était en 2006. » Ça dit quoi ? EN: What does it give?', opts: ['l’heure', 'l’année'], correct: 1, why: 'on était en + année. EN: the year.' },
+    { q: 'Phrase 8 : « On était en 2006. » Ça dit quoi ? EN: What does it give?', opts: ['l’année', 'l’heure'], correct: 0, why: 'on était en + année. EN: the year.' },
   ],
   audio: REC('rec-b1-02-meteo-ecoute'),
   say: 'Écoute. Chaque phrase plante un décor.',
@@ -1277,8 +1277,8 @@ const A6_DICTEE: Sec<'dictation'> = {
 };
 
 const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
-  ctl('Le verbe', 'Pour la météo, quel verbe ? EN: Which verb for the weather?', ['être', 'faire', 'avoir'], 1, 'il faisait froid, chaud, beau. EN: faire does the weather.'),
-  ctl('L’âge', '« Elle ... vingt ans quand elle est arrivée. » EN: Which form?', ['avait', 'était'], 0, 'L’âge : avoir. EN: age takes avoir.'),
+  ctl('Le verbe', 'Pour la météo, quel verbe ? EN: Which verb for the weather?', ['faire', 'être', 'avoir'], 0, 'il faisait froid, chaud, beau. EN: faire does the weather.'),
+  ctl('L’âge', '« Elle ... vingt ans quand elle est arrivée. » EN: Which form?', ['était', 'avait'], 1, 'L’âge : avoir. EN: age takes avoir.'),
   ctl('L’heure', '« ... sept heures du matin. » EN: Which opening?', ['Il faisait', 'Il était', 'Il avait'], 1, 'L’heure : il était. EN: clock time takes être.'),
 ], ['meteo', 'heureAge']);
 
@@ -1352,7 +1352,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(844), 'le souper'),
       it(E(843), 'la radio'),
       it(E(842), 'les enfants'),
-    ], chk('« Hier à huit heures, je ... le souper. » (préparer) EN: Which form?', ['ai préparé', 'préparais', 'prépare'], 1, 'Ce qui durait à ce moment-là : préparais. EN: what was going on then.')),
+    ], chk('« Hier à huit heures, je ... le souper. » (préparer) EN: Which form?', ['ai préparé', 'prépare', 'préparais'], 2, 'Ce qui durait à ce moment-là : préparais. EN: what was going on then.')),
     grp('Dehors', [
       it(E(845), 'attendre'),
       it(E(841), 'travailler'),
@@ -1380,7 +1380,7 @@ const A7_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Est-ce que ces actions sont finies ? EN: Are these actions finished?', opts: ['oui, toutes', 'non, elles duraient'], correct: 1, why: 'On les regarde en cours, pas à la fin. EN: seen in progress.' },
     { q: 'Phrase 6 : elle faisait quoi ? EN: What was she doing?', opts: ['elle attendait l’autobus', 'elle prenait l’autobus'], correct: 0, why: 'Elle attendait l’autobus. EN: waiting for it.' },
-    { q: 'Phrase 8 : « J’étais en train de cuisiner. » Ça insiste sur quoi ? EN: What does it stress?', opts: ['le milieu de l’action', 'la fin de l’action'], correct: 0, why: 'en train de : au beau milieu. EN: right in the middle.' },
+    { q: 'Phrase 8 : « J’étais en train de cuisiner. » Ça insiste sur quoi ? EN: What does it stress?', opts: ['la fin de l’action', 'le milieu de l’action'], correct: 1, why: 'en train de : au beau milieu. EN: right in the middle.' },
     { q: 'Combien de ces huit phrases disent une action finie ? EN: How many are finished actions?', opts: ['aucune', 'trois'], correct: 0, why: 'Aucune. C’est tout l’acte. EN: none, and that is the whole act.' },
   ],
   audio: REC('rec-b1-02-encours-ecoute'),
@@ -1409,7 +1409,7 @@ const A7_APERCU: Sec<'cardDeck'> = {
 };
 
 const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
-  ctl('La forme', '« I was reading. » En français, le plus simple : EN: The simplest French:', ['Je lisais.', "J'étais en train de lire."], 0, 'Une seule forme, et elle suffit. EN: one form is enough.'),
+  ctl('La forme', '« I was reading. » En français, le plus simple : EN: The simplest French:', ["J'étais en train de lire.", 'Je lisais.'], 1, 'Une seule forme, et elle suffit. EN: one form is enough.'),
   ctl('Le sens', '« À minuit, il ... encore. » (travailler) EN: Which form?', ['travaillait', 'a travaillé'], 0, 'Ça durait à minuit. EN: still going on at midnight.'),
   ctl('La limite', 'Dans « Je lisais quand le téléphone a sonné », quel temps raconte l’action courte ? EN: Which tense tells the short action?', ['l’imparfait', 'le passé composé'], 1, 'C’est le sujet de la leçon suivante. EN: that is the next lesson.'),
 ], ['enCours']);
@@ -1533,14 +1533,14 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(859), 'plus doux'),
       it(E(856), 'plus doux'),
       it(E(865), 'plus doux'),
-    ], chk('« Je ... vous demander un conseil. » Tu veux être poli. EN: You want to be polite.', ['veux', 'voulais'], 1, 'voulais recule d’un pas. EN: voulais steps back.')),
+    ], chk('« Je ... vous demander un conseil. » Tu veux être poli. EN: You want to be polite.', ['voulais', 'veux'], 0, 'voulais recule d’un pas. EN: voulais steps back.')),
     grp('Avec si', [
       it(E(854), 'si + imparfait'),
       it(E(855), 'si vous aviez'),
       it(E(861), 'si je pouvais'),
       it(E(862), 'si la chambre était'),
     ], chk('« Je me demandais si vous ... libre jeudi. » (être) EN: Which form?', ['êtes', 'étiez'], 1, 'Après je me demandais si, l’imparfait continue. EN: the imparfait continues after si.')),
-    ctl('Le vrai passé', '« Hier soir, je voulais dormir tôt. » C’est une demande ? EN: Is this a request?', ['oui, c’est poli', 'non, c’est un vrai passé'], 1, 'Ici, je voulais raconte hier soir. Le contexte fait la différence. EN: context decides.'),
+    ctl('Le vrai passé', '« Hier soir, je voulais dormir tôt. » C’est une demande ? EN: Is this a request?', ['non, c’est un vrai passé', 'oui, c’est poli'], 0, 'Ici, je voulais raconte hier soir. Le contexte fait la différence. EN: context decides.'),
   ],
   audio: AUDIO,
   say: 'Rends chaque phrase plus douce.',
@@ -1665,8 +1665,8 @@ const A8_FLASH: Sec<'flashcards'> = {
 };
 
 const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
-  ctl('Le sens', '« Je voulais vous demander un service. » La personne demande quand ? EN: When is she asking?', ['maintenant', 'hier'], 0, 'Forme passée, sens présent. EN: past form, present meaning.'),
-  ctl('Après si', '« Je me demandais si vous ... le temps. » (avoir) EN: Which form?', ['avez', 'aviez'], 1, 'L’imparfait continue après si. EN: the imparfait continues.'),
+  ctl('Le sens', '« Je voulais vous demander un service. » La personne demande quand ? EN: When is she asking?', ['hier', 'maintenant'], 1, 'Forme passée, sens présent. EN: past form, present meaning.'),
+  ctl('Après si', '« Je me demandais si vous ... le temps. » (avoir) EN: Which form?', ['aviez', 'avez'], 0, 'L’imparfait continue après si. EN: the imparfait continues.'),
   ctl('La limite', 'Tu commandes un café. Tu dis : EN: You are ordering a coffee.', ['Je voulais un café.', 'Je voudrais un café.'], 1, 'Pour commander, l’usage a choisi je voudrais. EN: ordering takes je voudrais.'),
 ], ['poli']);
 
@@ -1747,14 +1747,14 @@ const A9_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'Did you want to talk to me?', promptSound: 'Est-ce que tu veux me parler, là, tout de suite ?', fr: 'Tu voulais me parler ?', ipa: '/ty vu.lɛ mə paʁ.le/', tip: 'Ici, l’imparfait est une politesse, pas un passé. EN: politeness, not a past.' },
   ],
   drill: [
-    { promptSay: 'When I was young, I would swim every day. → Je ... tous les jours.', opts: ['nagerais', 'nageais'], correct: 1 },
-    { promptSay: 'I used to live in Dakar. → Avant, j’... à Dakar.', opts: ['habitais', 'habiterais'], correct: 0 },
+    { promptSay: 'When I was young, I would swim every day. → Je ... tous les jours.', opts: ['nageais', 'nagerais'], correct: 0 },
+    { promptSay: 'I used to live in Dakar. → Avant, j’... à Dakar.', opts: ['habiterais', 'habitais'], correct: 1 },
     { promptSay: 'I was reading. → Je ... .', opts: ['lisais', 'lirais'], correct: 0 },
     { promptSay: 'If I had a car, I would come. → Si j’avais une voiture, je ... .', opts: ['venais', 'viendrais'], correct: 1 },
     { promptSay: 'I would like a coffee. → Je ... un café.', opts: ['voudrais', 'voulais'], correct: 0 },
     { promptSay: 'She would call every Sunday. → Elle ... chaque dimanche.', opts: ['appellerait', 'appelait'], correct: 1 },
-    { promptSay: 'Did you want to see me? → Tu ... me voir ?', opts: ['voudrais', 'voulais'], correct: 1 },
-    { promptSay: 'We used to walk along the river. → On se ... le long du fleuve.', opts: ['promenait', 'promènerait'], correct: 0 },
+    { promptSay: 'Did you want to see me? → Tu ... me voir ?', opts: ['voulais', 'voudrais'], correct: 0 },
+    { promptSay: 'We used to walk along the river. → On se ... le long du fleuve.', opts: ['promènerait', 'promenait'], correct: 1 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Un mot anglais, plusieurs français' },
@@ -1800,12 +1800,12 @@ const A9_CHOISIR: Sec<'groupDrill'> = {
       it(E(876), 'would come'),
       it(E(882), 'would talk'),
       it(E(878), 'would never lock'),
-    ], chk('Ces quatre phrases répondent à quelle question ? EN: Which question do they answer?', ['Qu’est-ce qui est arrivé une fois ?', 'Qu’est-ce qui revenait ?'], 1, 'Elles racontent ce qui revenait. EN: they tell what came back.')),
+    ], chk('Ces quatre phrases répondent à quelle question ? EN: Which question do they answer?', ['Qu’est-ce qui revenait ?', 'Qu’est-ce qui est arrivé une fois ?'], 0, 'Elles racontent ce qui revenait. EN: they tell what came back.')),
     grp('Ce sont des conditionnels', [
       it(E(885), 'avec si'),
       it(E(886), 'une commande polie'),
-    ], chk('Pourquoi « je viendrais » et pas « je venais » ? EN: Why the conditional?', ['parce qu’il y a un si', 'parce que c’est le passé'], 0, 'Le si change tout. EN: the si changes everything.')),
-    ctl('Et celle-ci', '« Tu voulais me parler ? » C’est quoi ? EN: What is this one?', ['une habitude', 'une politesse', 'un conditionnel'], 1, 'Un imparfait poli : tu demandes maintenant. EN: a polite imparfait.'),
+    ], chk('Pourquoi « je viendrais » et pas « je venais » ? EN: Why the conditional?', ['parce que c’est le passé', 'parce qu’il y a un si'], 1, 'Le si change tout. EN: the si changes everything.')),
+    ctl('Et celle-ci', '« Tu voulais me parler ? » C’est quoi ? EN: What is this one?', ['une politesse', 'une habitude', 'un conditionnel'], 0, 'Un imparfait poli : tu demandes maintenant. EN: a polite imparfait.'),
   ],
   audio: AUDIO,
   say: 'Trois familles. Le sens décide, toujours.',
@@ -1824,9 +1824,9 @@ const A9_ECOUTE: Sec<'listening'> = {
     ln(E(880)), ln(E(886)), ln(E(881)), ln(E(877)),
   ],
   questions: [
-    { q: 'Phrase 3 : « Si j’avais le temps, je viendrais avec toi. » C’est quoi ? EN: What is it?', opts: ['une habitude', 'une condition'], correct: 1, why: 'Le si, puis un conditionnel. EN: si plus the conditional.' },
-    { q: 'Phrase 4 : « Tu voulais me parler ? » C’est quoi ? EN: What is it?', opts: ['une politesse', 'un vrai passé'], correct: 0, why: 'Une façon douce de demander, maintenant. EN: a soft way of asking now.' },
-    { q: 'Phrase 6 : « Je voudrais un café. » Quel temps ? EN: Which tense?', opts: ['l’imparfait', 'le conditionnel'], correct: 1, why: 'voudrais, pas voulais. EN: the conditional.' },
+    { q: 'Phrase 3 : « Si j’avais le temps, je viendrais avec toi. » C’est quoi ? EN: What is it?', opts: ['une condition', 'une habitude'], correct: 0, why: 'Le si, puis un conditionnel. EN: si plus the conditional.' },
+    { q: 'Phrase 4 : « Tu voulais me parler ? » C’est quoi ? EN: What is it?', opts: ['un vrai passé', 'une politesse'], correct: 1, why: 'Une façon douce de demander, maintenant. EN: a soft way of asking now.' },
+    { q: 'Phrase 6 : « Je voudrais un café. » Quel temps ? EN: Which tense?', opts: ['le conditionnel', 'l’imparfait'], correct: 0, why: 'voudrais, pas voulais. EN: the conditional.' },
     { q: 'Combien de ces huit phrases racontent une habitude ? EN: How many tell a habit?', opts: ['deux', 'cinq'], correct: 1, why: 'Cinq. Les trois autres sont deux conditionnels et une politesse. EN: five habits.' },
   ],
   audio: REC('rec-b1-02-anglais-ecoute'),
@@ -1835,7 +1835,7 @@ const A9_ECOUTE: Sec<'listening'> = {
 };
 
 const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
-  ctl('Le test', 'Tu peux remplacer would par used to. Alors en français, tu mets : EN: Then in French you use:', ['le conditionnel', 'l’imparfait'], 1, 'used to marche = une habitude = imparfait. EN: a habit takes the imparfait.'),
+  ctl('Le test', 'Tu peux remplacer would par used to. Alors en français, tu mets : EN: Then in French you use:', ['l’imparfait', 'le conditionnel'], 0, 'used to marche = une habitude = imparfait. EN: a habit takes the imparfait.'),
   ctl('Le si', '« If I had a car, I would come. » Le deuxième verbe est : EN: The second verb is:', ['je venais', 'je viendrais'], 1, 'Avec si, c’est un conditionnel. EN: with si, the conditional.'),
   ctl('La politesse', '« I would like a coffee. » En français : EN: In French:', ['Je voudrais un café.', 'Je voulais un café.'], 0, 'Pour commander, je voudrais. EN: ordering takes je voudrais.'),
 ], ['would', 'poli']);
@@ -2397,7 +2397,7 @@ const DRILL_LIST: LessonDrill[] = [
     id: 'd-meteo', title: 'Le bon verbe pour la météo', format: 'mcq' as const,
     coach: 'faire pour le temps, être pour le ciel, il y avait pour le vent. EN: faire, être, il y avait.',
     q: '« Il ... froid et il y avait du vent. » EN: Which verb?',
-    opts: ['était', 'faisait'], correct: 1,
+    opts: ['faisait', 'était'], correct: 0,
     why: 'Le temps qu’il fait passe par faire. EN: weather takes faire.',
     items: [E(820), E(821), E(822), E(823), E(824), E(826)],
     audio: AUDIO,
@@ -2421,8 +2421,8 @@ const DRILL_LIST: LessonDrill[] = [
     id: 'd-poli', title: 'Plus doux', format: 'mcq' as const,
     coach: 'Tu demandes maintenant. Fais un pas en arrière. EN: You are asking now; step back.',
     q: 'Tu écris à ton ancien professeur. Le plus doux ? EN: Which is the softest?',
-    opts: ['Je me demandais si vous aviez encore mes notes.', 'Vous avez encore mes notes ?', 'Je veux mes notes.'],
-    correct: 0,
+    opts: ['Vous avez encore mes notes ?', 'Je veux mes notes.', 'Je me demandais si vous aviez encore mes notes.'],
+    correct: 2,
     why: 'je me demandais si + imparfait : poli et naturel. EN: polite and natural.',
     items: [E(1508), E(853), E(854), E(859), E(866), E(868)],
     audio: AUDIO,
@@ -2431,8 +2431,8 @@ const DRILL_LIST: LessonDrill[] = [
     id: 'd-anglais', title: 'Would sans conditionnel', format: 'mcq' as const,
     coach: 'Remplace would par used to. Si ça marche, c’est l’imparfait. EN: Swap would for used to.',
     q: '« When I was little, I would play outside. » EN: In French:',
-    opts: ["Quand j'étais petit, je jouerais dehors.", "Quand j'étais petit, je jouais dehors tous les jours.", "Quand j'étais petit, j'ai joué dehors."],
-    correct: 1,
+    opts: ["Quand j'étais petit, je jouais dehors tous les jours.", "Quand j'étais petit, je jouerais dehors.", "Quand j'étais petit, j'ai joué dehors."],
+    correct: 0,
     why: 'Une habitude d’enfance : imparfait. EN: a childhood habit.',
     items: [E(872), E(875), E(874), E(876), E(885), E(886)],
     audio: AUDIO,

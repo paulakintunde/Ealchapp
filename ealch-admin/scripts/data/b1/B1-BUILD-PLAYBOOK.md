@@ -1728,8 +1728,13 @@ TESTS
 [ ] At least one listenChoose per round, each with `say`
 [ ] Every typeIn and errorSpot has `prompt`
 [ ] No answer depends on an accent, comma, apostrophe, hyphen or spacing (fold())
-[ ] Correct-answer slots spread; no slot over 40% lesson-wide; never 3 in a row
+[ ] MISSION answer slots spread WITHIN each option-count class: 2-option checks
+    near 50/50, 3-option near a third each, nothing over 55%, never more than 3
+    the same in a row. Measured by `scripts/b1-answer-slots.test.ts`.
 [ ] correct indices scattered by hand in every trapDrill.drill, groupDrill check and listening
+[ ] the QUIZ is exempt: LessonRich re-shuffles its options on every attempt, so
+    authored quiz slots never reach a learner. validateDensity's quiz-spread rule
+    still applies to it, and it is the only spread rule any validator enforces.
 [ ] One errorTrigger per act, each naming a real drill (and retest where useful)
 [ ] One drill per trigger, six items, not in `sections`
 [ ] Every act ends in a gated act check (control-page groupDrill)
@@ -1784,6 +1789,16 @@ DONE
 ## 11. Where the four lessons disagree with the standards docs
 
 Read this before you treat a standards doc as binding.
+
+**11.0 The old "no slot over 40% lesson-wide" rule was unreachable and has been
+replaced.** Most checks in these lessons are two-option, and a two-option check
+can only answer in slot 0 or 1, so slot 2 is fed only by three-option items.
+Even a perfectly spread b1.03 lands at 47.7%. The rule was never met by any
+lesson: measured on 2026-09-24, b1.09 sat at 75% on one slot across its binary
+checks with a run of nineteen identical answers, and b1.10 at 72% with a run of
+13. All fourteen were rebalanced by permuting each item's options and its
+`correct` index together, which moves the answer without touching a word of
+content, and the rule is now stated per option-count class and held by a test.
 
 **11.1 `B1-PILOT-BRIEF.md` says "24 sections is the measured A2 shape and 30 is the
 ceiling".** Superseded by `RICH-LESSON-STANDARD.md` and by the builds: 76 to 91. Ignore
