@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 07.1-01-PLAN.md (sons acts content prerequisite, D-31). Phase 07.1 now 1 of 11 plans executed.
-last_updated: "2026-09-24T19:24:59.396Z"
+stopped_at: Completed 07.1-03-PLAN.md (c2 becomes a real Level, D-32). Phase 07.1 now 3 of 11 plans executed.
+last_updated: "2026-09-24T23:41:40.130Z"
 last_activity: 2026-09-24
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 61
-  completed_plans: 51
-  percent: 84
+  completed_plans: 53
+  percent: 87
 ---
 
 # Project State
@@ -25,14 +25,14 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 1 of 11 plans executed
-Plan: 1 of 11 complete — 07.1-01 authored acts/section-ids/deckTranche for the four act-less sons
-  lessons (D-31 content prerequisite), applied Postgres-first then merged into seed.json (7dd5050)
-Status: Executing — plan 01 done, plans 02-11 not started
+Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 3 of 11 plans executed
+Plan: 3 of 11 complete — 07.1-03 widened LEVELS to a real seventh band (c2, D-32) across the app's
+  type surface and the live Supabase database (drizzle/0022 applied, items_level_not_c2 dropped)
+Status: Executing — plans 01-03 done, plans 04-11 not started
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-24
 
-Progress: [████████░░] 84%
+Progress: [█████████░] 87%
 
 ## Performance Metrics
 
@@ -65,6 +65,7 @@ Progress: [████████░░] 84%
 | Phase 22.1 P05 | 25min | 3 tasks | 30 files |
 | Phase 22.1 P06 | 75min | 3 tasks | 1 files |
 | Phase 07.1 P01 | 40min | 4 tasks | 6 files |
+| Phase 07.1 P03 | 50min | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -109,6 +110,8 @@ Recent decisions affecting current work:
 - [Phase 22.1]: Plan 06: discovered the fresh-unauthenticated-install onboarding gate blocks the ealch://downloads deep link (redirects to sign-up/sign-in); recorded as a contingency for plan 08's after-pass rather than worked around
 - [Phase 22.1]: Plan 07 (2026-09-23): published **v73** (v71 exams, v72/v73 the a1.03 correction). The dry run blocked first on `a2.20.l1: DB is v3, committed seed is v4`; the tool's suggested remedy (`restore-lesson-bodies-from-seed.ts`) would have pushed the accidental v4 bump into Postgres and reset a2.20 progress, so the fix ran the other way — commit the working tree (f32f05d) and let the regeneration bring a2.20.l1 back as v3. `content:parity` clean, 78 lessons both sides. Recorded while there: `attempts`, `learning_sessions`, `entitlements` and `subscriptions` are all **0 rows**, so every version constraint on this repo is currently protecting nothing.
 - [Phase 07.1]: Plan 01: authored acts/section-ids/deckTranche for sons.01-04 (D-31), applied Postgres-first then merged into seed.json; Lesson.version held at 3/5/5/2 (D-25, check-version-bumps.ts demand ignored deliberately); Board C4's six invented sons.01 act rows accepted as indicative, not redrawn
+- [Phase 07.1]: Plan 03: D-32 implemented — LEVELS widened to 7 members (sons..c2), TRACKS stayed at 3, FREE_BANDS untouched. drizzle/0022 applied live to ogbothupjcivwruesgsu, dropping items_level_not_c2; content_level enum needed no migration (already carried c2, verified live before/after). c2 is now expressible everywhere but authored nowhere — 0 c2 content_items rows, confirmed both before and after the migration.
+- [Phase 07.1]: Plan 03: found but did not fix a same-shape band-list under-count in the live curriculum admin UI (src/app/admin/curriculum/actions.ts + NewThemeButton.tsx, both still capped at c1) — out of this plan's named file scope; documented in 07.1-03-SUMMARY.md as a follow-up for whichever plan next touches that screen.
 
 ### Pending Todos
 
@@ -135,6 +138,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-24T19:24:59.044Z
-Stopped at: Completed 07.1-01-PLAN.md (sons acts content prerequisite, D-31). Phase 07.1 now 1 of 11 plans executed.
+Last session: 2026-09-24T23:41:40.112Z
+Stopped at: Completed 07.1-03-PLAN.md (c2 becomes a real Level, D-32). Phase 07.1 now 3 of 11 plans executed.
 Resume file: None

@@ -240,7 +240,7 @@ Plans:
 Plans:
 - [x] 07.1-01-PLAN.md - acts, section ids and tranches for sons.01 to sons.04, the content prerequisite that gates the trail (D-31)
 - [x] 07.1-02-PLAN.md - device gate: the B1 door committed, formSheet proven (D-38), the two-state English toggle proven (D-17), the band fallback failed closed
-- [ ] 07.1-03-PLAN.md - c2 becomes a real Level across the app and the database plane (D-32)
+- [x] 07.1-03-PLAN.md - c2 becomes a real Level across the app and the database plane (D-32)
 - [ ] 07.1-04-PLAN.md - pure trail derivation, the band-keyed unit accessor and the Wave 0 test gaps, plus every i18n key the phase needs
 - [ ] 07.1-05-PLAN.md - the act screen and the Fiche pull-up sheet as new routes (D-02, D-03)
 - [ ] 07.1-06-PLAN.md - the seven-band level panel and the shared 44px panel row (D-06, D-07, D-14)
