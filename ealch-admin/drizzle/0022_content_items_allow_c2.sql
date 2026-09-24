@@ -1,0 +1,35 @@
+-- c2 becomes writable. Reverses 0004_content_items_no_c2.sql.
+--
+-- The 2026-09-22 curriculum decision that this reverses was ratified again as
+-- D-32 in phase 07.1 (2026-09-24): the level panel needs a real seventh band,
+-- not a display-only placeholder, so 'c2' was added to the app's content
+-- LEVELS list (ealch-v2/src/content/schema.ts). validateCorpus stopped
+-- refusing a c2-tagged item, unit, lesson or pack in that same change. This
+-- migration is the database half of the same reversal: it drops the one
+-- CHECK constraint that made c2 unauthorable at the write gate.
+--
+-- "public"."content_level" already contains 'c2' and is UNTOUCHED here.
+-- Postgres has no safe DROP VALUE — narrowing an enum means recreating the
+-- type and rewriting every dependent column — so the enum was never narrowed
+-- in the first place when 0004 landed. It has carried 'c2' since before this
+-- migration existed. Nothing about the enum needs to change to make c2
+-- writable; only the CHECK stood in the way.
+--
+-- 0004's own header names its design as two independent gates:
+--   1. the CHECK (this file drops it)       — an author could not write c2 at all
+--   2. validateCorpus (already lifted, see above) — c2 could not reach a phone
+--      even if gate 1 were ever dropped
+-- D-32 removes both deliberately, in the same phase, for the same reason. This
+-- migration is gate 1's half of that.
+--
+-- NO C2 CONTENT EXISTS AND NONE IS AUTHORISED BY THIS MIGRATION. It makes c2
+-- writable; the corpus still has zero units past a2. Verified immediately
+-- before and after applying this migration:
+--   select count(*) from content_items where level = 'c2';  -- 0 both times
+--
+-- ealch-v2/supabase/schema.sql is the OTHER migration plane in this project
+-- (two migration systems, one database) and is NOT involved: it carries no
+-- reference to c2, content_level or items_level_not_c2. This migration only
+-- touches the drizzle-owned content tables.
+
+ALTER TABLE "content_items" DROP CONSTRAINT IF EXISTS "items_level_not_c2";

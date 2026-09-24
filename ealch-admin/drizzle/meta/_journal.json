@@ -155,6 +155,13 @@
       "when": 1787640150879,
       "tag": "0021_po_debate",
       "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1787640150880,
+      "tag": "0022_content_items_allow_c2",
+      "breakpoints": true
     }
   ]
 }
