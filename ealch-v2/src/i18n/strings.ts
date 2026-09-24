@@ -365,6 +365,59 @@ export type Strings = {
   dcDoneT: string; dcDoneS: string; dcRedo: string; dcHome: string; dcTypePh: string; dcVoiceNote: string;
   errorTypes: string[];
   clock12T: string; clock24T: string;
+
+  // --- Phase 07.1 (Concept C: the trail, the level panel, the language
+  // control). Authored entirely in this one plan (07.1-04) so every plan
+  // downstream (05-10) consumes keys and adds none — one i18n-table change
+  // for the whole phase, not one per plan.
+
+  /** The trail's per-act release line. trailReleaseSome takes {n}; when a
+   *  tranche is empty or absent, the caller must reach for trailReleaseNone
+   *  instead of interpolating a zero count (D-45: never fabricate a "0 of
+   *  something" line). */
+  trailReleaseSome: string; trailReleaseNone: string;
+  /** The two D-21 paywall touchpoints' one-line trail-side lead-in. Neither
+   *  is PAYWALL_COPY (D-23) — the paywall's own title/lead are separate. */
+  trailGateLead: string; trailBoundaryLead: string;
+  /** Acte 00's row label (D-11). */
+  trailActe0: string;
+  /** The pre-roll sheet (D-12, plan 09). prerollShape interpolates three
+   *  counts supplied by the caller: {s} stages, {p} spoken passages, {m} mic
+   *  moments — never a baked literal, lessons differ (sons.01.l1 is 7/24/3).
+   *  prerollMicNote must never promise the mic opens on its own:
+   *  app/narrated.tsx deliberately waits for a tap. */
+  prerollTitle: string; prerollShape: string; prerollMicNote: string; prerollStart: string;
+  /** D-19's how-it-works and placement-offer cards, shown above the first
+   *  heading until dismissed. */
+  trailOrientationTitle: string; trailOrientationBody: string;
+  trailPlacementTitle: string; trailPlacementBody: string;
+
+  /** The level panel (plan 06, D-06/D-07). One entry per LEVELS member — all
+   *  seven, unlike trackLabels/trackDescs above (which stay capped at the
+   *  three beginner columns; they belong to the dying three-track Den and are
+   *  left untouched). For the four bands with no seed content, bandDescs
+   *  reuses uSoon's own text rather than inventing a second empty-state
+   *  string. */
+  bandNames: { sons: string; a1: string; a2: string; b1: string; b2: string; c1: string; c2: string };
+  bandDescs: { sons: string; a1: string; a2: string; b1: string; b2: string; c1: string; c2: string };
+  bandPanelTitle: string; bandChipLabel: string;
+  /** D-06: the paywall named in words on the panel row, not drawn as a
+   *  padlock. Not a PAYWALL_COPY key (D-23) — this is the panel row's own
+   *  line, not the paywall screen's. */
+  bandPremiereLine: string;
+
+  /** The language control (plan 07, D-13/D-14/D-35/D-16). Three states:
+   *  French only, French and English, English on demand. D-16: a flashcard
+   *  back, a quiz meaning and a glossary tap stay visible in ALL three
+   *  states — langModeOnDemandSub must not imply otherwise. */
+  langModeTitle: string;
+  langModeFr: string; langModeBoth: string; langModeOnDemand: string;
+  langModeFrSub: string; langModeBothSub: string; langModeOnDemandSub: string;
+  /** D-35: what the hidden translation's tap target reads before reveal. */
+  langRevealLabel: string;
+  /** The header chip's own accessibility label — short, font-scale 1.3 safe
+   *  (Type.tsx's maxScale exists for exactly this kind of fixed-width chip). */
+  langChipLabel: string;
 };
 
 export const T: Record<Lang, Strings> = {
@@ -819,6 +872,33 @@ export const T: Record<Lang, Strings> = {
     dcVoiceNote: 'Voix française de l’appareil. Muette si aucune voix FR n’est installée.',
     errorTypes: ['PRONONCIATION', 'REGISTRE', 'FLUIDITÉ'],
     clock12T: '12 H', clock24T: '24 H',
+
+    trailReleaseSome: '{n} mots partis en révision', trailReleaseNone: 'Aucun mot à réviser pour cet acte.',
+    trailGateLead: 'Ce niveau est réservé à Première.', trailBoundaryLead: 'A1 se termine ici. La suite est réservée à Première.',
+    trailActe0: 'Acte 00 · Narré',
+    prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro',
+    prerollMicNote: 'Le micro attend votre appui, il ne s’active jamais tout seul.', prerollStart: 'Commencer',
+    trailOrientationTitle: 'Comment ça marche',
+    trailOrientationBody: 'Un niveau, un seul défilement. Les titres en italique sont des unités, les lignes en dessous sont des actes. La puce en haut change de niveau.',
+    trailPlacementTitle: 'Pas sûr de votre niveau ?', trailPlacementBody: 'Faites le test de positionnement pour démarrer au bon endroit.',
+
+    bandNames: { sons: 'Sons', a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1', c2: 'C2' },
+    bandDescs: {
+      sons: "De l'alphabet à la masterclass de prononciation : les sons avant les mots.",
+      a1: 'Salutations, genre, être & avoir, la vie quotidienne : les 26 unités du niveau Découverte.',
+      a2: 'Verbes, passé composé, pronoms objets : le niveau Survie, en profondeur.',
+      b1: 'BIENTÔT', b2: 'BIENTÔT', c1: 'BIENTÔT', c2: 'BIENTÔT',
+    },
+    bandPanelTitle: 'Les niveaux', bandChipLabel: 'Niveau',
+    bandPremiereLine: 'Réservé à Première',
+
+    langModeTitle: 'Langue de la leçon',
+    langModeFr: 'Français seul', langModeBoth: 'Français et anglais', langModeOnDemand: 'Anglais à la demande',
+    langModeFrSub: 'Le corps de la leçon reste entièrement en français.',
+    langModeBothSub: 'Chaque ligne française s’accompagne de sa traduction anglaise.',
+    langModeOnDemandSub: 'La traduction reste cachée jusqu’à ce que vous la touchiez. Les réponses restent toujours visibles.',
+    langRevealLabel: 'Voir en anglais',
+    langChipLabel: 'Langue de la leçon, appuyez pour changer',
   },
   en: {
     greets: { morning: 'GOOD MORNING', afternoon: 'GOOD AFTERNOON', evening: 'GOOD EVENING', late: "YOU'RE WORKING LATE", early: 'EARLY RISER PRACTICE' },
@@ -1275,5 +1355,32 @@ export const T: Record<Lang, Strings> = {
     dcVoiceNote: 'Uses your device’s French voice. Silent on setups with no FR voice.',
     errorTypes: ['PRONUNCIATION', 'REGISTER', 'FLUENCY'],
     clock12T: '12 H', clock24T: '24 H',
+
+    trailReleaseSome: '{n} words sent to review', trailReleaseNone: 'Nothing to review from this act.',
+    trailGateLead: 'This level is Première-only.', trailBoundaryLead: "A1 ends here. What's next is Première-only.",
+    trailActe0: 'Act 00 · Narrated',
+    prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic',
+    prerollMicNote: 'The mic waits for your tap. It never listens on its own.', prerollStart: 'Start',
+    trailOrientationTitle: 'How this works',
+    trailOrientationBody: 'A level is one scroll. Italic headings are units, the rows under them are acts. The chip at the top changes the level.',
+    trailPlacementTitle: 'Not sure of your level?', trailPlacementBody: 'Take the placement test to start in the right place.',
+
+    bandNames: { sons: 'Sounds', a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1', c2: 'C2' },
+    bandDescs: {
+      sons: 'From the alphabet to the pronunciation masterclass: sounds before words.',
+      a1: 'Greetings, gender, être & avoir, daily life: the 26 units of level Découverte.',
+      a2: 'Verbs, the past tense, object pronouns: level Survie, in depth.',
+      b1: 'SOON', b2: 'SOON', c1: 'SOON', c2: 'SOON',
+    },
+    bandPanelTitle: 'Levels', bandChipLabel: 'Level',
+    bandPremiereLine: 'Première only',
+
+    langModeTitle: 'Lesson language',
+    langModeFr: 'French only', langModeBoth: 'French and English', langModeOnDemand: 'English on demand',
+    langModeFrSub: 'The lesson body stays entirely in French.',
+    langModeBothSub: 'Every French line is shown with its English translation.',
+    langModeOnDemandSub: 'The translation stays hidden until you tap it. Answers stay visible either way.',
+    langRevealLabel: 'Show English',
+    langChipLabel: 'Lesson language, tap to change',
   },
 };
