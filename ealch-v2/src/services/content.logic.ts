@@ -8,10 +8,15 @@
 // a runtime import of schema would force node to resolve the module (extension
 // and alias rules differ across node/tsc/Metro and fighting all three is not
 // worth it). Types are erased before node ever runs, so schema is never
-// resolved here. The one runtime thing verifySnapshot needs — the structural
-// validator — is passed IN (see `validate` below). Same spirit as
-// progress.logic.ts: this file stays a pure island.
+// resolved here for anything the file used to need. The one runtime thing
+// verifySnapshot needs — the structural validator — is passed IN (see
+// `validate` below). Same spirit as progress.logic.ts: this file stays a pure
+// island, with one deliberate exception below: `unitsInBand` needs the real
+// `unitBand()` read, not just its type, so that one value import resolves via
+// the explicit `.ts` extension the way narration.logic.ts's schema import
+// already does for the same reason.
 import type { CardType, Corpus, DrillKind, ExamFormat, ExamPaper, ExamSection, ExamSkill, ExamTask, Item, Lesson, LessonSection, Level, QcmItem, Scenario, SpeakStage, Track, Unit } from '../content/schema';
+import { unitBand } from '../content/schema.ts';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
 
@@ -317,6 +322,16 @@ export function getUnit(corpus: Corpus, id: string): Unit | null {
 /** Units of a track, in seq order. The Den's spine. */
 export function unitsInTrack(corpus: Corpus, track: Track): Unit[] {
   return corpus.units.filter((u) => u.track === track).sort((a, b) => a.seq - b.seq);
+}
+
+/** The units of one BAND, in seq order. The band-keyed sibling of
+ *  unitsInTrack, and the only accessor a trail past a2 can use: Unit.track is
+ *  "Absent past a2" by design (schema.ts:1725), so unitsInTrack returns [] for
+ *  b1 and does not typecheck for it either. Keyed on the id-derived band (see
+ *  unitBand below), which the schema itself calls the reliable read. Sorted on seq, NOT on the id
+ *  (schema.ts:1730-1734 explains why). */
+export function unitsInBand(corpus: Corpus, band: Level): Unit[] {
+  return corpus.units.filter((u) => unitBand(u.id) === band).sort((a, b) => a.seq - b.seq);
 }
 
 export function getScenario(corpus: Corpus, id: string): Scenario | null {

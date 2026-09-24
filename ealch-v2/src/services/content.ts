@@ -68,6 +68,7 @@ import {
   selectItems,
   shouldAdopt,
   speakStages,
+  unitsInBand,
   unitsInTrack,
   verifySnapshot,
   type ItemQuery,
@@ -496,6 +497,9 @@ export const content = {
   lesson: (id: string): Lesson | null => getLesson(useContent.getState().corpus, id),
   unit: (id: string): Unit | null => getUnit(useContent.getState().corpus, id),
   units: (track: Track): Unit[] => unitsInTrack(useContent.getState().corpus, track),
+  /** The band-keyed sibling of `units`. The only accessor a trail past a2 can
+   *  use — `Unit.track` is absent past a2 by design (schema.ts). */
+  unitsOfBand: (band: Level): Unit[] => unitsInBand(useContent.getState().corpus, band),
   lessonsOf: (unitId: string): Lesson[] => lessonsOfUnit(useContent.getState().corpus, unitId),
   scenario: (id: string): Scenario | null => getScenario(useContent.getState().corpus, id),
   scenarios: (q?: { level?: Level; theme?: string }): Scenario[] =>
