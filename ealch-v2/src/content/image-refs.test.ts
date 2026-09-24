@@ -160,10 +160,30 @@ function authoredLessonRefs(): Map<string, string> {
   return byRef;
 }
 
+/** Art that is commissioned but not yet drawn. The B1 playbook writes the
+ *  lesson and a `<slug>-image-prompts.md` naming every save path BEFORE the
+ *  images exist, and registers them only once they are on disk. So an authored
+ *  ref with a committed prompt behind it is pending, not forgotten. This is
+ *  deliberately narrow: it never covers a published ref (seed refs are checked
+ *  strictly below), and a ref with no prompt naming its exact path still fails,
+ *  which is the b1.01 failure mode. */
+function commissionedRefs(): Set<string> {
+  const out = new Set<string>();
+  if (!existsSync(ADMIN_DATA)) return out;
+  for (const rel of readdirSync(ADMIN_DATA, { recursive: true, encoding: 'utf8' })) {
+    if (!rel.endsWith('-image-prompts.md')) continue;
+    const src = readFileSync(join(ADMIN_DATA, rel), 'utf8');
+    for (const m of src.matchAll(/assets\/(lessons\/[a-z0-9/_.-]+\.(?:jpg|png|webp))/g)) out.add(m[1]);
+  }
+  return out;
+}
+
 const REG = readRegistry();
 const noAdmin = !existsSync(ADMIN_DATA);
+const SEED_REFS = seedLessonRefs();
+const COMMISSIONED = commissionedRefs();
 /** Every lesson ref the product knows about, published or merely authored. */
-const ALL_REFS = new Map([...seedLessonRefs(), ...authoredLessonRefs()]);
+const ALL_REFS = new Map([...SEED_REFS, ...authoredLessonRefs()]);
 
 const list = (rows: string[]) => rows.map((r) => `  ${r}`).join('\n');
 
@@ -192,8 +212,14 @@ test('every registered image exists on disk', () => {
 test('no new lesson imageRef is unregistered', { skip: noAdmin }, () => {
   const bad = [...ALL_REFS]
     .filter(([ref]) => !REG.keys.has(ref) && !KNOWN_UNREGISTERED.has(ref))
+    .filter(([ref]) => SEED_REFS.has(ref) || !COMMISSIONED.has(ref))
     .map(([ref, where]) => `${ref}  (${where})`);
-  ok(bad.length === 0, `authored against art that is not bundled. lessonImage() returns undefined and RichImage renders null, so the card draws nothing and no other check says so. Commit the asset, add it to lessonImages.ts, and give it alt text:\n${list(bad)}`);
+  ok(bad.length === 0, `authored against art that is not bundled. lessonImage() returns undefined and RichImage renders null, so the card draws nothing and no other check says so. Commit the asset, add it to lessonImages.ts, and give it alt text (or, for an unpublished lesson, commit its <slug>-image-prompts.md naming this exact save path):\n${list(bad)}`);
+});
+
+test('no published lesson ships with art that is only commissioned', () => {
+  const bad = [...SEED_REFS.keys()].filter((ref) => !REG.keys.has(ref) && !KNOWN_UNREGISTERED.has(ref));
+  ok(bad.length === 0, `these are in seed.json, so they reach a device as blank cards. A prompt file does not excuse a published ref: draw the art and register it before publishing:\n${list(bad)}`);
 });
 
 test('no new registered image is missing alt text', () => {
