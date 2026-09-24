@@ -1426,6 +1426,15 @@ export type LessonAct = {
   /** Mid-act stopping places, as 'sectionId/marker'. A save and a one-line
    *  note, without the milestone language reserved for act ends. */
   restPoints?: string[];
+  /** The chapter card shown BEFORE the act's first mission: artwork, the act
+   *  number, its title and one line saying what it covers.
+   *
+   *  This is not the checkpoint card that was removed. That one interrupted a
+   *  learner mid-flight to say "continue or stop"; this one opens a chapter, in
+   *  a lesson long enough to have chapters (85 missions in b1.01). Optional, so
+   *  a lesson without it pages exactly as before. `line` is the learner-facing
+   *  sentence, in the lesson's own instruction language. */
+  opener?: { line: string; imageRef?: string };
 };
 
 /** A mistake the lesson knows how to detect and answer. */
@@ -3816,6 +3825,16 @@ export function validateLesson(v: unknown, path = 'lesson'): Issue[] {
               push(`${ap}.sections[${j}] "${sid}" does not name a section in this lesson`);
             }
           });
+        }
+        if (act.opener !== undefined) {
+          const op = act.opener as Partial<NonNullable<LessonAct['opener']>>;
+          if (typeof op !== 'object' || op === null) push(`${ap}.opener must be an object`);
+          else {
+            if (!isStr(op.line)) push(`${ap}.opener.line is required`);
+            if (op.imageRef !== undefined && (!isStr(op.imageRef) || !IMAGE_REF_RE.test(op.imageRef))) {
+              push(`${ap}.opener.imageRef must be a valid image ref`);
+            }
+          }
         }
         if (act.restPoints !== undefined) {
           if (!isArr(act.restPoints)) push(`${ap}.restPoints must be an array when present`);

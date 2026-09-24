@@ -78,7 +78,13 @@ import {
 // stopped compiling the day seed.json first carried themes. The seed is
 // publish-validated (validateCorpus) before it is ever committed, which is the
 // guarantee the cast actually rests on.
-const SEED = seedJson as unknown as Corpus;
+// DEV-PREVIEW-B101 (temporary): the b1.01 draft overlaid on the seed in dev
+// builds only, so the lesson can be seen on a device before it exists anywhere
+// else. Remove this, the import below, the den row and the JSON together.
+import devPreviewB101 from '@/content/dev-preview-b101.json';
+const SEED = __DEV__
+  ? mergeCorpus(seedJson as unknown as Corpus, { version: 0, ...devPreviewB101 } as unknown as Corpus)
+  : (seedJson as unknown as Corpus);
 // The RAW verified snapshot text, byte-for-byte as downloaded. Caching the text
 // rather than a re-stringified object drops one full-corpus serialization and
 // one in-memory copy from the OTA apply path. (Caches written by older builds

@@ -92,8 +92,11 @@ function LessonScreenBody() {
   // deep link) lands here, so a lesson past A1 without 'levels.all' redirects
   // to the paywall instead of rendering.
   const levelsAll = useFeature('levels.all');
+  // DEV-PREVIEW-B101 (temporary): the b1.01 draft opens past the level gate in
+  // dev builds only. Nothing else is unlocked and no entitlement is written.
+  const devPreview = __DEV__ && L?.id === 'b1.01.l1';
   const bandLocked =
-    !!L && !levelsAll && !(FREE_BANDS as readonly string[]).includes(unitBand(L.unitId) ?? 'a1');
+    !!L && !levelsAll && !devPreview && !(FREE_BANDS as readonly string[]).includes(unitBand(L.unitId) ?? 'a1');
   useEffect(() => {
     if (bandLocked) {
       trackEvent('gate_blocked', { feature: 'levels.all', from: 'lesson' });

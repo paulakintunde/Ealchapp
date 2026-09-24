@@ -330,6 +330,9 @@ const HERO_SPLIT_TYPES = new Set<LessonSection['type']>([
 
 type PageEntry =
   | { kind: 'cover' }
+  /** The chapter card that opens an act (LessonAct.opener). Only acts that
+   *  authored an opener get one, so a lesson without them pages as before. */
+  | { kind: 'act'; actIx: number }
   | { kind: 'image'; sectionIx: number }
   | { kind: 'section'; sectionIx: number }
   | { kind: 'quiz' };
@@ -390,15 +393,30 @@ export function LessonPager({
   // Cover, then each section contributes one page — or two, image first, when
   // its image would otherwise push a deck/grid below the fold (HERO_SPLIT_TYPES)
   // — then the quiz page when the lesson has one.
+  // Which section index each act's chapter card sits in front of. Keyed on the
+  // act's FIRST section id, so inserting or reordering missions inside an act
+  // moves the card with it.
+  const openerBefore = useMemo(() => {
+    const m = new Map<number, number>();
+    (acts ?? []).forEach((a, ai) => {
+      if (!a.opener) return;
+      const first = sections.findIndex((s) => (s as { id?: string }).id === a.sections[0]);
+      if (first >= 0) m.set(first, ai);
+    });
+    return m;
+  }, [acts, sections]);
+
   const pages = useMemo<PageEntry[]>(() => {
     const out: PageEntry[] = [{ kind: 'cover' }];
     sections.forEach((s, i) => {
+      const ai = openerBefore.get(i);
+      if (ai !== undefined) out.push({ kind: 'act', actIx: ai });
       if (s.imageRef && HERO_SPLIT_TYPES.has(s.type)) out.push({ kind: 'image', sectionIx: i });
       out.push({ kind: 'section', sectionIx: i });
     });
     if (hasQuiz) out.push({ kind: 'quiz' });
     return out;
-  }, [sections, hasQuiz]);
+  }, [sections, hasQuiz, openerBefore]);
 
   // Which act each section CLOSES. The interstitial checkpoint PAGES are gone
   // (six "Act N / milestone / continue or stop" screens through a lesson read
@@ -768,6 +786,8 @@ export function LessonPager({
               ? 'cover'
               : entry.kind === 'quiz'
               ? 'quiz'
+              : entry.kind === 'act'
+              ? `act-${entry.actIx}`
               : `${entry.kind}-${entry.sectionIx}`;
 
           // Out of the window: an empty same-width spacer. Keeps the
@@ -790,6 +810,33 @@ export function LessonPager({
                   <TX role="body" color={t.txSecondary} lhMult={1.6}>
                     {intro}
                   </TX>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 26 }}>
+                    <TX font="semi" role="label" ls={1.6} color={t.accTx}>{T.lessonSwipeHint}</TX>
+                    <Icon name="chevronRight" size={14} color={t.accTx} strokeWidth={1.8} />
+                  </View>
+                </PageScroll>
+              </View>
+            );
+          }
+
+          if (entry.kind === 'act') {
+            const act = (acts ?? [])[entry.actIx];
+            const missions = act.sections.length;
+            return (
+              <View key={key} style={{ width }}>
+                <PageScroll contentStyle={{ paddingHorizontal: 24, paddingTop: 20, paddingBottom: 30, flexGrow: 1, justifyContent: 'center' }}>
+                  <RichImage refKey={act.opener?.imageRef} ratio={4 / 3} />
+                  <TX font="semi" role="meta" ls={2.4} color={t.tag('gold').c}>
+                    {`ACTE ${String(entry.actIx + 1).padStart(2, '0')} · ${missions} MISSIONS`}
+                  </TX>
+                  <TX font="serif" size={34} role="display" style={{ marginTop: 10 }}>
+                    {act.title}
+                  </TX>
+                  {act.opener?.line ? (
+                    <TX role="body" color={t.txSecondary} lhMult={1.6} style={{ marginTop: 12 }}>
+                      {act.opener.line}
+                    </TX>
+                  ) : null}
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 26 }}>
                     <TX font="semi" role="label" ls={1.6} color={t.accTx}>{T.lessonSwipeHint}</TX>
                     <Icon name="chevronRight" size={14} color={t.accTx} strokeWidth={1.8} />

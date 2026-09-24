@@ -152,6 +152,18 @@ export default function Den() {
           </TX>
         </View>
 
+        {/* DEV-PREVIEW-B101 (temporary): dev builds only, opens the b1.01 draft. */}
+        {__DEV__ && content.lesson('b1.01.l1') ? (
+          <Press
+            onPress={() => router.push({ pathname: '/lessonoverview', params: { key: 'b1.01.l1' } })}
+            cue="tap"
+            style={{ borderRadius: 16, borderWidth: 1, borderStyle: 'dashed', borderColor: t.accA(55), backgroundColor: t.card, padding: 14, paddingHorizontal: 16, marginBottom: 12 }}
+          >
+            <TX font="semi" role="meta" ls={2.2} color={t.tag('gold').c}>PREVIEW · B1 DRAFT</TX>
+            <TX font="semi" role="body" style={{ marginTop: 4 }}>{"L'imparfait : la formation"}</TX>
+          </Press>
+        ) : null}
+
         {/* Units */}
         <View style={{ gap: 9 }}>
           {list.map((u) => {
