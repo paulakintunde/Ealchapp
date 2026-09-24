@@ -16,4 +16,10 @@ module.exports = {
   // that matches nothing (confirmed via `npx jest --showConfig`). A rootDir-
   // relative pattern sidesteps the bug and still only matches __tests__/.
   testMatch: ['**/__tests__/**/*.test.tsx'],
+  // The first render of a real screen (settings.test.tsx) takes ~650ms on a
+  // quiet machine but blew Jest's 5s default once when the 5,400-test node
+  // suite ran alongside it (measured 2026-09-24). Phase plans run two executors
+  // in parallel, each running both suites, so that contention is the normal
+  // case, not a fluke. A slow test is still caught; a starved CPU is not a bug.
+  testTimeout: 30000,
 };
