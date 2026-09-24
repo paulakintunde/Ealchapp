@@ -18,11 +18,14 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.06 | futur-irregulier | 83 | 11 | 10x8 | 10 | 5 | 15 | 222 | 11 prompts, art not made | DONE |
 | b1.07 | futur-usage | 82 | 11 | 11x8 | 11 | 5 | 9 | 201 | 11 prompts, art not made | DONE |
 | b1.08 | conditionnel-present | 82 | 11 | 11x8 | 11 | 5 | 12 | 221 | 11 prompts, art not made | DONE |
-| b1.09 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.09 | politesse | 82 | 11 | 11x8 | 11 | 5 | 13 | 232 | 11 prompts, art not made | DONE |
+| b1.10 | si-clauses | 89 | 12 | 12x8 | 12 | 5 | 10 | 215 | 12 prompts, art not made | DONE |
+| b1.11 | qui-que | 83 | 11 | 11x8 | 11 | 5 | 18 | 246 | 11 prompts, art not made | DONE |
+| b1.12 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08).
 
-**Next: wave 2, b1.09 to b1.11.** Six more lessons to review gate 1 (after b1.14).
+**Next: wave 3, b1.12 (dont and où), b1.13 (lequel, ce qui, ce que), b1.14 (subjunctive formation). Then REVIEW GATE 1.**
 
 ## THE ID RULE, learned the hard way (2026-09-24)
 
@@ -67,7 +70,7 @@ B1 Unit 2 is about the future and the conditional, which are not past narration,
 | 400-599 | b1.07 future usage and conditions | 400-577 |
 | 600-799 | b1.08 conditionnel présent | 600-789 |
 | 800-999 | FREE | |
-| 1200-1399 | b1.10 si clauses | not started |
+| 1200-1399 | b1.10 si clauses | 1200-1378 |
 | 1400+ | FREE | |
 
 ### Theme `conseils-et-suggestions` (fondations, a2-b2)
@@ -77,7 +80,7 @@ DB holds 115 `fr.b1.*` rows (001-115) that the seed does not show.
 | Block | Owner | Authored |
 |---|---|---|
 | 001-115 | **DB** | do not use |
-| 1000-1199 | b1.09 polite requests | not started |
+| 1000-1199 | b1.09 polite requests | 1000-1190 |
 
 ### Theme `pronoms-essentiels` (fondations, a1-b2)
 
@@ -86,7 +89,7 @@ DB holds 138 `fr.b1.*` rows (001-138), and 693 rows across all levels.
 | Block | Owner | Authored |
 |---|---|---|
 | 001-138 | **DB** | do not use |
-| 1000-1199 | b1.11 qui and que | not started |
+| 1000-1199 | b1.11 qui and que | 1000-1196 |
 | 1200-1399 | b1.12 dont and où | not started |
 | 1400-1599 | b1.13 lequel, ce qui, ce que | not started |
 
@@ -122,8 +125,9 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 ## Open items carried forward
 
 - **b1.01 has no sheet links.** Four sheets, nothing points at them. Fix on the next touch of that lesson.
-- **75 images outstanding**: b1.02 to b1.04 (10 + 10 + 12) and b1.05 to b1.08 (10 + 11 + 11 + 11). Every prompt carries its full save path; the folders are `ealch-v2/assets/lessons/<slug>/`.
+- **109 images outstanding**: b1.02 to b1.04 (10 + 10 + 12) b1.05 to b1.08 (10 + 11 + 11 + 11) and b1.09 to b1.11 (11 + 12 + 11). Every prompt carries its full save path; the folders are `ealch-v2/assets/lessons/<slug>/`.
 - **The graded `task` section still has no renderer.** Every lesson authors one; the preview turns it into a teach card. It needs the schema, the act validator, a screen and a grading path before any of this reaches a learner.
+- **DB-only rows cannot be reused, so lessons author twins.** An author can only name an existing row that the SEED carries: `src()` resolves against seed.json and naming a DB-only id throws at module load. But Postgres holds ~115 published `fr.b1.*` rows per theme that the seed omits, and many are exactly on topic (b1.09 found ~40: « il faudrait », « à ta place », « et si on », « on pourrait »). Every lesson therefore authors near-duplicates of published content. b1.09 records seven of them in its corpus as `DB_ONLY_TWINS`. **This needs a decision at import time**: either dedupe against the DB and drop the twins, or keep both and accept the overlap. Until then, authors keep writing twins and the corpus grows redundant.
 - **No B1 import pipeline.** Nothing can reach Postgres or the seed until one exists.
 - **`coach-fr-FR` is an invented voice id** carried by every lesson.
 - **Two repo typecheck errors** in `check-genre-artifacts.ts` and `publish-content.ts` (WorthlessEnding/EndingClaim), from the genre-drift commits. Not from this work; do not "fix" them blind.
