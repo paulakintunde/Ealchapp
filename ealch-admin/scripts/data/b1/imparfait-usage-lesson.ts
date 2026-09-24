@@ -2336,7 +2336,17 @@ const ACT10: ActDef = {
     estScreens: 130, restPoints: ['a10-lecture', 'a10-talk', 'a10-task', 'a10-recap', 'a10-progress', 'a10-quiz/r4-etats', 'a10-quiz/r8-encours'],
   },
   sections: [A10_LECTURE, A10_FOCUS, A10_TALK, A10_TASK, A10_PARLER, A10_RECAP, A10_PROGRESS, A10_QUIZ, A10_REVIEW, A10_ROUNDUP],
-  imports: [],
+  // b1.01 rows this act's closing reading, quiz and review put on screen. They
+  // were named in the sections and declared nowhere, so ITEM_IDS did not hold
+  // them: the lesson showed twelve forms it did not claim to teach, and no
+  // tranche could ever release them. Nothing else in the four lessons does
+  // this; found by the reference sweep, 2026-09-23.
+  // `E` is this lesson's id builder, and b1.01's rows share the theme, so it
+  // names them correctly outside this lesson's own 101-199 / 800-899 blocks.
+  imports: [
+    E(16), E(19), E(31), E(33), E(34),
+    E(430), E(431), E(432), E(433), E(434), E(436), E(525),
+  ],
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
