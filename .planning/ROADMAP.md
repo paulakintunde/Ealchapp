@@ -235,7 +235,20 @@ Plans:
   6. A first-run learner with nothing completed sees a start marker in place of Reprendre, a dismissible orientation card and a dismissible placement offer, and both dismissals survive a relaunch.
   7. The paywall appears in exactly two trail positions (end of the A1 trail, pinned above a locked band's trail), routes to `/paywall?from=gate:levels`, and leaves locked acts readable and pressable. `05-GATING-RULE.md` is unchanged by this phase.
   8. Every replaced screen is proven on a physical device, not only in tests.
-**Plans**: TBD
+**Plans**: 11 plans in 7 waves
+
+Plans:
+- [ ] 07.1-01-PLAN.md - acts, section ids and tranches for sons.01 to sons.04, the content prerequisite that gates the trail (D-31)
+- [ ] 07.1-02-PLAN.md - device gate: the B1 door committed, formSheet proven (D-38), the two-state English toggle proven (D-17), the band fallback failed closed
+- [ ] 07.1-03-PLAN.md - c2 becomes a real Level across the app and the database plane (D-32)
+- [ ] 07.1-04-PLAN.md - pure trail derivation, the band-keyed unit accessor and the Wave 0 test gaps, plus every i18n key the phase needs
+- [ ] 07.1-05-PLAN.md - the act screen and the Fiche pull-up sheet as new routes (D-02, D-03)
+- [ ] 07.1-06-PLAN.md - the seven-band level panel and the shared 44px panel row (D-06, D-07, D-14)
+- [ ] 07.1-07-PLAN.md - the three-state language control, the v6 to v7 store migration and D-16's missing guard (D-13 to D-17, D-35, D-36, D-42)
+- [ ] 07.1-08-PLAN.md - the trail screen, FlashList virtualization, and the deletion commit that retargets lesson-siblings.test.ts (D-01, D-29, D-33, D-39, D-40, D-41)
+- [ ] 07.1-09-PLAN.md - acte 00, the pre-roll sheet and the paywall's two trail positions (D-10 to D-12, D-21 to D-23, D-34, D-37)
+- [ ] 07.1-10-PLAN.md - day one: the start marker and the two dismissible cards (D-18, D-19, D-20)
+- [ ] 07.1-11-PLAN.md - the full spine device pass on the Pixel 6 and the Pixel 9, at font scale 1.3 (criterion 8)
 **Pitfall Watch**: Three things bite here. (1) `Lesson.version` keys learner checkmarks and XP — nothing in this phase may bump it, whatever a batch guard asks for. There are 0 users today (`attempts`, `learning_sessions`, `entitlements` all 0 rows), which makes this the cheapest moment there will be for structural change, but the constraint outlives the emptiness. (2) The two-state English toggle landed as `0b6a1a9` on 2026-09-23, green on typecheck and both suites, and its own message says "Not yet proven on device." Prove it on hardware before criterion 5 extends it to three states, or a device failure afterwards is ambiguous between the shipped work and the new third state. The persisted `useStore.lessonEnglish` boolean also needs a migration path to a three-valued preference. (3) `src/content/gloss.logic.ts` already exists and is the reading-passage glossary matcher, not the language control. It has been overwritten once. Do not name anything `gloss*`.
 **Design source**: the approved canvas, https://claude.ai/artifact/YcQn6EAGDab4rSAqiEe9Wt — boards C1 through C7 plus the level panel. Build from it rather than re-deriving the concept. Act and mission naming language is the one thing it leaves open.
 **UI hint**: yes
