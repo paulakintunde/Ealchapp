@@ -238,7 +238,7 @@ Plans:
 **Plans**: 11 plans in 8 waves
 
 Plans:
-- [ ] 07.1-01-PLAN.md - acts, section ids and tranches for sons.01 to sons.04, the content prerequisite that gates the trail (D-31)
+- [x] 07.1-01-PLAN.md - acts, section ids and tranches for sons.01 to sons.04, the content prerequisite that gates the trail (D-31)
 - [ ] 07.1-02-PLAN.md - device gate: the B1 door committed, formSheet proven (D-38), the two-state English toggle proven (D-17), the band fallback failed closed
 - [ ] 07.1-03-PLAN.md - c2 becomes a real Level across the app and the database plane (D-32)
 - [ ] 07.1-04-PLAN.md - pure trail derivation, the band-keyed unit accessor and the Wave 0 test gaps, plus every i18n key the phase needs
@@ -488,7 +488,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 5. Paywall Coverage Expansion & Upgrade Nudge | 7/7 | Complete - 05-VERIFICATION.md passed, 12/12 must-haves | 2026-09-20 |
 | 6. Notification Correctness — Body Format & Toggles | 5/5 | Complete - 06-VERIFICATION.md passed, 12/12 must-haves | 2026-09-21 |
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
-| 7.1 Concept C Spine Rewrite (INSERTED) | 0/11 | Planned, not started - 11 plans in 8 waves, pre-execution audit and readiness pass done. Blocks Phases 8, 9, 11, 12, 13 | - |
+| 7.1 Concept C Spine Rewrite (INSERTED) | 1/11 | In Progress|  |
 | 8. Accessibility Retrofit | 0/TBD | Not started | - |
 | 9. Onboarding & Analytics Audit | 0/TBD | Not started | - |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |

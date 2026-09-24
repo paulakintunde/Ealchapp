@@ -82,7 +82,7 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 
 ### Navigation
 
-- [ ] **NAV-01**: The Den, lesson overview and mission list are replaced by the approved Concept C spine, so a learner reaches a mission in two taps at any level and the course reads as one continuous trail per level rather than a folder of units. Approved on the design canvas 2026-09-22/23, not through requirements discovery, which is why it enters the roadmap mid-milestone.
+- [ ] **NAV-01**: The Den, lesson overview and mission list are replaced by the approved Concept C spine, so a learner reaches a mission in two taps at any level and the course reads as one continuous trail per level rather than a folder of units. Approved on the design canvas 2026-09-22/23, not through requirements discovery, which is why it enters the roadmap mid-milestone. (07.1-01 landed the content prerequisite, D-31; the spine rewrite itself is plans 02-11, not yet executed — see 07.1-01-SUMMARY.md's flag.)
 
 ## v2 Requirements
 
@@ -145,7 +145,7 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | FEEDBACK-01 | Phase 10 | Pending |
 | FEEDBACK-02 | Phase 10 | Pending |
 | ANIM-01 | Phase 11 (core states) + Phase 12 (delight states) | Pending |
-| NAV-01 | Phase 07.1 | Pending |
+| NAV-01 | Phase 07.1 | In progress (1/11 plans, content prerequisite only) |
 | UX-01 | Phase 13 | Pending |
 | PERF-02 | Phase 15 (design spike: Phase 14) | Pending |
 | PERF-01 | Phase 16 | Pending |

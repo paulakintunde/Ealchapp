@@ -3,28 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 22.1-08-PLAN.md — Phase 22.1 fully executed
-last_updated: "2026-09-24T00:00:00.000Z"
+stopped_at: Completed 07.1-01-PLAN.md (sons acts content prerequisite, D-31). Phase 07.1 now 1 of 11 plans executed.
+last_updated: "2026-09-24T19:24:59.396Z"
 last_activity: 2026-09-24
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 61
-  completed_plans: 50
-  percent: 36
-  percent_basis: phases
-  percent_note: >-
-    9 of 25 phases have all their plans executed (1-7, 18, 22.1). The old
-    96/98% was plans-complete over plans-WRITTEN, and Phases 8-17 and 19-23
-    have never been planned at all, so it divided by a denominator most of the
-    milestone is missing from. Phase share is the honest figure until the rest
-    is planned. Counted off disk 2026-09-24: 61 PLAN files, 50 SUMMARY files.
-    Phase 07.1 was inserted 2026-09-23, taking the denominator from 24 to 25,
-    and brought 11 written-but-unexecuted plans with it, which is most of the
-    gap between 61 and 50.
-    NOTE: gsd-sdk's state handlers drop percent_basis/percent_note and
-    recompute percent from plans. If 82 or 98 reappears here, that is the
-    handler, not a real change.
+  completed_plans: 51
+  percent: 84
 ---
 
 # Project State
@@ -38,14 +25,14 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED
-Plan: 8 of 8 complete — 22.1-08's offline device pass ran on a Pixel 9 (451e385)
-Status: Pending phase close-out (/gsd-verify-work or gsd-verifier). Not blocked
-Next phase: 07.1 (concept-c-spine-rewrite) — **fully planned**, 11 plans in 8 waves,
-  pre-execution audit done and a readiness pass on 2026-09-24 (D-38 settled on the Pixel 6: real bottom sheet), 0 executed. Ready to start. It blocks 8, 9, 11, 12 and 13
+Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 1 of 11 plans executed
+Plan: 1 of 11 complete — 07.1-01 authored acts/section-ids/deckTranche for the four act-less sons
+  lessons (D-31 content prerequisite), applied Postgres-first then merged into seed.json (7dd5050)
+Status: Executing — plan 01 done, plans 02-11 not started
+Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-24
 
-Progress: [████░░░░░░] 36% — 9 of 25 phases. See ROADMAP.md's "How to read this table"
+Progress: [████████░░] 84%
 
 ## Performance Metrics
 
@@ -77,6 +64,7 @@ Progress: [████░░░░░░] 36% — 9 of 25 phases. See ROADMAP.m
 | Phase 06 P05 | 25min | 2 tasks | 1 files |
 | Phase 22.1 P05 | 25min | 3 tasks | 30 files |
 | Phase 22.1 P06 | 75min | 3 tasks | 1 files |
+| Phase 07.1 P01 | 40min | 4 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -120,6 +108,7 @@ Recent decisions affecting current work:
 - [Phase 22.1]: Plan 06: D-09 baseline recorded — EAS preview build 2987661d confirmed exam-less (gitCommitHash matches HEAD b85fa55), cold start median 524ms (514-570ms) on the connected Pixel 9, offline Examiner confirmed 'No exams available yet.'
 - [Phase 22.1]: Plan 06: discovered the fresh-unauthenticated-install onboarding gate blocks the ealch://downloads deep link (redirects to sign-up/sign-in); recorded as a contingency for plan 08's after-pass rather than worked around
 - [Phase 22.1]: Plan 07 (2026-09-23): published **v73** (v71 exams, v72/v73 the a1.03 correction). The dry run blocked first on `a2.20.l1: DB is v3, committed seed is v4`; the tool's suggested remedy (`restore-lesson-bodies-from-seed.ts`) would have pushed the accidental v4 bump into Postgres and reset a2.20 progress, so the fix ran the other way — commit the working tree (f32f05d) and let the regeneration bring a2.20.l1 back as v3. `content:parity` clean, 78 lessons both sides. Recorded while there: `attempts`, `learning_sessions`, `entitlements` and `subscriptions` are all **0 rows**, so every version constraint on this repo is currently protecting nothing.
+- [Phase 07.1]: Plan 01: authored acts/section-ids/deckTranche for sons.01-04 (D-31), applied Postgres-first then merged into seed.json; Lesson.version held at 3/5/5/2 (D-25, check-version-bumps.ts demand ignored deliberately); Board C4's six invented sons.01 act rows accepted as indicative, not redrawn
 
 ### Pending Todos
 
@@ -146,6 +135,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-24
-Stopped at: Phase 22.1 fully executed (8/8). Next is 07.1, which is fully planned at 11 plans and not started
+Last session: 2026-09-24T19:24:59.044Z
+Stopped at: Completed 07.1-01-PLAN.md (sons acts content prerequisite, D-31). Phase 07.1 now 1 of 11 plans executed.
 Resume file: None
