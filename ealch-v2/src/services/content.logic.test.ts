@@ -38,6 +38,7 @@ import {
   sha256Hex,
   shouldAdopt,
   stableStringify,
+  unitsInBand,
   unitsInTrack,
   verifySnapshot,
   type Manifest,
@@ -212,6 +213,62 @@ test('unitsInTrack and lessonsOfUnit both return seq order', () => {
 test('lessonsOfUnit drops links to lessons that are not present', () => {
   const c: Corpus = { ...corpus, units: [unit('sons.01', 1, ['sons.01.l1', 'sons.01.l9'])] };
   deepStrictEqual(lessonsOfUnit(c, 'sons.01').map((l) => l.id), ['sons.01.l1']);
+});
+
+/* ─── unitsInBand (Finding A1) ───────────────────────────────────────────
+ * A B1+ trail cannot source from unitsInTrack: Unit.track is documented
+ * "Absent past a2" and does not even typecheck for 'b1'. unitsInBand is the
+ * band-keyed sibling, keyed on unitBand(u.id) — the read schema.ts itself
+ * calls reliable — never on Unit.track. */
+
+// No `track` field at all: the dev-preview b1.01 shape (schema.ts: `level` is
+// present, `track` is absent past a2). unitsInTrack would return [] for this
+// unit and would not even typecheck for 'b1'; unitsInBand must still find it.
+const bandUnit = (id: string, seq: number, over: Partial<Unit> = {}): Unit => ({
+  id, seq, title: 'U', sub: 's', lessonIds: [], ...over,
+});
+
+test('unitsInBand keys on unitBand(u.id) and sorts on seq, not on the id', () => {
+  const c: Corpus = {
+    version: 1,
+    units: [bandUnit('a2.02', 2, { track: 'a2' }), bandUnit('a2.01', 1, { track: 'a2' })],
+    lessons: [],
+    items: [],
+  };
+  deepStrictEqual(unitsInBand(c, 'a2').map((u) => u.id), ['a2.01', 'a2.02']);
+});
+
+test('unitsInBand(corpus, "b1") is [] against a corpus with no b1 units (the shipped-seed case)', () => {
+  strictEqual(unitsInBand(corpus, 'b1').length, 0);
+});
+
+test('unitsInBand finds a unit carrying level "b1" and NO track once one exists (the merged-overlay case)', () => {
+  const merged: Corpus = { ...corpus, units: [...corpus.units, bandUnit('b1.01', 1, { level: 'b1' })] };
+  deepStrictEqual(unitsInBand(merged, 'b1').map((u) => u.id), ['b1.01']);
+  // The rest of the band-keyed corpus is untouched by the new unit.
+  deepStrictEqual(unitsInBand(merged, 'sons').map((u) => u.id), ['sons.01']);
+});
+
+test('unitsInBand(corpus, "c2") is [] and does not throw — c2 is a real Level after plan 03', () => {
+  strictEqual(unitsInBand(corpus, 'c2').length, 0);
+});
+
+test('unitsInBand keeps a stable relative order for two units sharing a seq', () => {
+  const c: Corpus = {
+    version: 1,
+    units: [bandUnit('a2.first', 5, { track: 'a2' }), bandUnit('a2.second', 5, { track: 'a2' })],
+    lessons: [],
+    items: [],
+  };
+  deepStrictEqual(unitsInBand(c, 'a2').map((u) => u.id), ['a2.first', 'a2.second']);
+});
+
+test('unitsInTrack is unchanged: still keys on Unit.track alone', () => {
+  deepStrictEqual(unitsInTrack(corpus, 'sons').map((u) => u.id), ['sons.01']);
+  // A unit with a matching band but no track (the dev-preview b1 shape) must
+  // NOT surface from unitsInTrack — that is exactly the gap unitsInBand closes.
+  const merged: Corpus = { ...corpus, units: [...corpus.units, bandUnit('b1.01', 1, { level: 'b1' })] };
+  strictEqual(unitsInTrack(merged, 'a1').map((u) => u.id).includes('b1.01'), false);
 });
 
 /* ─── positional deep-link anchors ──────────────────────────────────────── */
