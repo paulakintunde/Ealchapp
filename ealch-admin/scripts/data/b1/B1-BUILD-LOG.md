@@ -10,7 +10,7 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Links | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| b1.01 | imparfait-formation | 91 | 12 | 11x8 | 11 | 4 | 0 | 261 | 12 images, registered | DONE (sheet links missing) |
+| b1.01 | imparfait-formation | 91 | 12 | 11x8 | 11 | 4 | 22 | 261 | 12 images, registered + alt | DONE |
 | b1.02 | imparfait-usage | 76 | 10 | 10x8 | 10 | 5 | 10 | 233 | 10 images, registered + alt | DONE |
 | b1.03 | pc-imparfait | 76 | 10 | 10x8 | 10 | 5 | 7 | 161 | 10 images, registered + alt | DONE |
 | b1.04 | pc-imparfait-paires | 86 | 12 | 11x8 | 11 | 5 | 19 | 224 | 12 images, registered + alt | DONE |
@@ -145,7 +145,7 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 
 ## Open items carried forward
 
-- **b1.01 has no sheet links.** Four sheets, nothing points at them. Fix on the next touch of that lesson.
+- **FIXED 2026-09-24: b1.01's sheet links.** Four sheets, nothing pointed at them, so a learner could never open one; it was the only lesson of fourteen with none. 22 missions now carry a `sheetId`: sheet-recette from acts 2, 3, 5 and the recap, sheet-irreg from act 4, sheet-ortho from acts 6, 7, 8 and 11, sheet-il-me-ne from acts 9 and 10. `Lesson.version` was NOT bumped, because a bump wipes every learner's checkmarks and XP. Held by `ealch-admin/scripts/b1-lesson-integrity.test.ts`, which was checked against the pre-fix lesson and fails on it.
 - **The 109 images are made, registered and COMMITTED** (`d63bb5c`, 2026-09-24). Counted on disk: b1.02 10, b1.03 10, b1.04 12, b1.05 10, b1.06 11, b1.07 11, b1.08 11, b1.09 11, b1.10 12, b1.11 11 = 109, plus b1.01 regenerated. `lessonImages.ts` carries the registrations and is also uncommitted. Every act opener in b1.01 to b1.11 resolves: 121 files on disk, 161 registered paths, none missing in either direction. None of it has been seen on a device, so REVIEW GATE 1 is the first look. Wave 3 (b1.12, b1.13, b1.14) has 33 prompts and no art yet.
 - **FIXED 2026-09-24: the answer-slot skew.** Every lesson had piled its answers onto one slot. b1.09 sat at 75% on one slot across its binary checks with a run of NINETEEN identical answers in a row, b1.10 at 72% with a run of 13. Nothing caught it: the playbook asked for "no slot over 40% lesson-wide", but `validateDensity`'s only spread rule is `quiz-spread`, which inspects the quiz alone, so authors hit ~36% there and the missions drifted. The old rule was also unreachable, because a two-option check can only answer in slot 0 or 1. All fourteen lessons were rebalanced by permuting each item's options and its `correct` index together, which moves the answer without changing a word: the option sets and the correct answer strings are byte-identical before and after, and 52 items whose `why` names a position ("La troisième est le présent") were left alone. The quiz was excluded, because LessonRich re-shuffles its options every attempt. Result: every class is now 50/50 or a third each, and no lesson repeats a slot more than 3 times. Held by `ealch-admin/scripts/b1-answer-slots.test.ts`, which was checked against the pre-fix b1.09 and fails on it.
 - **The graded `task` section still has no renderer.** Every lesson authors one; the preview turns it into a teach card. It needs the schema, the act validator, a screen and a grading path before any of this reaches a learner.

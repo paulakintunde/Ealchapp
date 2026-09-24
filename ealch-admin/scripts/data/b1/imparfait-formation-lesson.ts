@@ -346,6 +346,7 @@ const A2_RECETTE: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'La recette en trois gestes',
   frSub: 'Pars de nous',
+  sheetId: 'sheet-recette',
   hint: 'Six cartes. Les trois premières sont la recette entière. EN: Six cards; the first three are the whole recipe.',
   audio: REC('rec-b1-01-recette'),
   say: REFRAME,
@@ -391,6 +392,7 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
   size: 'lg',
   title: 'Construis la forme',
   frSub: '-er, -ir, -re',
+  sheetId: 'sheet-recette',
   groups: [
     grp('Verbes en -er', [
       it('fr.a2.verbes.106', 'regard-'), it(E(416), 'regard- + ions'), it('fr.a2.verbes.119', 'rest-'), it(E(417), 'rest- + ions'), it('fr.a2.verbes.114', 'cherch-'), it(E(402), 'cherch- + ions'),
@@ -536,6 +538,7 @@ const A3_FINS: Sec<'tapTable'> = {
   layer: 'core',
   title: 'Six fins pour tous les verbes',
   frSub: 'Touche une ligne pour l’écouter',
+  sheetId: 'sheet-recette',
   cols: ['Qui', 'Fin', 'parler'],
   rows: [
     { cells: ['je', '-ais', 'je parlais'], say: 'je parlais', detail: { title: '-ais, son [ɛ]', body: 'Le s ne se dit pas. EN: the s is silent.', say: 'Je parlais français.' } },
@@ -580,6 +583,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
   size: 'lg',
   title: 'Le sujet choisit la fin',
   frSub: 'je, tu, il, nous, vous, ils',
+  sheetId: 'sheet-recette',
   groups: [
     grp('je et tu : -ais', [it(E(1401)), it(E(414)), it(E(1436)), it(E(424))],
       chk('Mes cousins ... wolof. EN: My cousins spoke Wolof.', ['parlaient', 'parlait', 'parlais'], 0, 'Mes cousins = ils : -aient. EN: plural subject, -aient.')),
@@ -704,6 +708,7 @@ const A4_IDEE: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Irrégulier ? Pas ici.',
   frSub: 'La recette marche encore',
+  sheetId: 'sheet-irreg',
   hint: 'Huit cartes, une famille par carte. EN: Eight cards, one verb family each.',
   audio: REC('rec-b1-01-irreg'),
   say: REFRAME,
@@ -749,6 +754,7 @@ const A4_EXEMPLES: Sec<'examples'> = {
   layer: 'core',
   title: 'Vingt verbes, une recette',
   frSub: 'De nous à je',
+  sheetId: 'sheet-irreg',
   examples: [
     { fr: 'nous faisons → je faisais', en: 'we do → I used to do', note: '[fə]' },
     { fr: 'nous prenons → je prenais', en: 'we take → I used to take' },
@@ -785,6 +791,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
   size: 'lg',
   title: 'Construis les irréguliers',
   frSub: 'Cinq familles',
+  sheetId: 'sheet-irreg',
   groups: [
     grp('faire, prendre, venir', [
       it('fr.a2.verbes.304', 'fais-'), it(E(1446)), it('fr.a2.verbes.427', 'pren-'), it(E(440)), it(E(1469)), it('fr.a2.verbes.270', 'ven-'), it(E(430)), it(E(447)),
@@ -884,6 +891,7 @@ const A4_FLASH: Sec<'flashcards'> = {
   layer: 'core',
   title: 'Fabrique la forme',
   frSub: 'Le verbe, la personne, puis la forme',
+  sheetId: 'sheet-irreg',
   cards: [
     { front: 'faire · je', back: 'je faisais', say: 'je faisais' },
     { front: 'prendre · nous', back: 'nous prenions', say: 'nous prenions' },
@@ -976,6 +984,7 @@ const A5_TABLEAU: Sec<'tapTable'> = {
   layer: 'core',
   title: 'être, les six formes',
   frSub: 'Touche pour écouter le z',
+  sheetId: 'sheet-recette',
   cols: ['Qui', 'être'],
   rows: [
     { cells: ['je', "j'étais"], say: "j'étais", detail: { title: 'je', body: 'j’ devant la voyelle. EN: elision before the vowel.', say: "J'étais très timide à l'école." } },
@@ -1116,6 +1125,7 @@ const A6_REGLE: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Un e pour garder [ʒ]',
   frSub: 'manger, nager, voyager...',
+  sheetId: 'sheet-ortho',
   hint: 'Cinq cartes. Regarde la lettre après le g. EN: Five cards; look at the letter after the g.',
   audio: REC('rec-b1-01-ger'),
   say: 'Devant a, un e. Devant i, rien.',
@@ -1291,6 +1301,7 @@ const A7_REGLE: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Une cédille pour garder [s]',
   frSub: 'commencer, lancer, placer...',
+  sheetId: 'sheet-ortho',
   hint: 'Cinq cartes. Même logique que -ger. EN: Five cards; same logic as -ger.',
   audio: REC('rec-b1-01-cer'),
   say: 'Devant a, une cédille. Devant i, rien.',
@@ -1449,6 +1460,7 @@ const A8_REGLE: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Deux i qui se touchent',
   frSub: 'La recette, lettre par lettre',
+  sheetId: 'sheet-ortho',
   hint: 'Six cartes. Applique la recette, même quand elle donne une forme bizarre. EN: Six cards; trust the recipe even when the form looks odd.',
   audio: REC('rec-b1-01-ii'),
   say: REFRAME,
@@ -1491,6 +1503,7 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
   size: 'lg',
   title: 'Deux i, ou y puis i',
   frSub: 'nous et vous seulement',
+  sheetId: 'sheet-ortho',
   groups: [
     grp('Base en i : étudi-, oubli-, ri-, cri-', [
       it(E(511), 'présent : un i'), it(E(1426)), it(E(1451)), it(E(1427)), it(E(1452)), it(E(512), 'présent'), it(E(501)), it(E(500)), it(E(508)), it(E(1428)), it(E(1453)), it(E(506)), it(E(502)),
@@ -1624,6 +1637,7 @@ const A9_FORMES: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Il, mais personne',
   frSub: 'Six formes à apprendre entières',
+  sheetId: 'sheet-il-me-ne',
   hint: 'Six cartes. Ici, il ne représente personne. EN: Six cards; here il stands for nobody.',
   audio: REC('rec-b1-01-impers'),
   say: 'Ici, il ne représente personne.',
@@ -1662,6 +1676,7 @@ const A9_TABLEAU: Sec<'tapTable'> = {
   layer: 'core',
   title: 'Maintenant, avant',
   frSub: 'Touche pour écouter',
+  sheetId: 'sheet-il-me-ne',
   cols: ['Maintenant', 'Avant'],
   rows: [
     { cells: ['il y a', 'il y avait'], say: 'il y avait', detail: { title: 'il y a', body: 'De avoir. Toujours au singulier. EN: from avoir, always singular.', say: 'Il y avait de la neige partout.' } },
@@ -1798,6 +1813,7 @@ const A10_PRONOMS: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Les verbes pronominaux',
   frSub: 'Le pronom reste, le verbe change',
+  sheetId: 'sheet-il-me-ne',
   hint: 'Cinq cartes. Le pronom ne bouge pas. EN: Five cards; the pronoun does not move.',
   audio: REC('rec-b1-01-pronominaux'),
   say: 'Le pronom reste à sa place. Seul le verbe change.',
@@ -1817,6 +1833,7 @@ const A10_NEGATION: Sec<'examples'> = {
   layer: 'core',
   title: 'La négation autour du verbe',
   frSub: 'ne... pas, ne... jamais, ne... personne',
+  sheetId: 'sheet-il-me-ne',
   examples: [
     { fr: 'Je ne savais pas nager.', en: "I couldn't swim.", note: 'ne devant le verbe, pas après. EN: ne before, pas after.' },
     { fr: 'Je ne mangeais jamais le matin.', en: 'I never ate in the morning.', note: 'jamais prend la place de pas. EN: jamais replaces pas.' },
@@ -1838,6 +1855,7 @@ const A10_TABLEAU: Sec<'tapTable'> = {
   layer: 'core',
   title: 'se lever, les six formes',
   frSub: 'Touche pour la négation',
+  sheetId: 'sheet-il-me-ne',
   cols: ['Qui', 'se lever'],
   rows: [
     { cells: ['je', 'je me levais'], say: 'je me levais', detail: { title: 'je', body: 'Négatif : je ne me levais pas. EN: the negative form.', say: 'je ne me levais pas' } },
@@ -1997,6 +2015,7 @@ const A11_FORMES: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Cinq formes qui se ressemblent',
   frSub: 'Même verbe, autre travail',
+  sheetId: 'sheet-ortho',
   hint: 'Six cartes, une forme par carte. EN: Six cards, one form each.',
   audio: REC('rec-b1-01-homo'),
   say: 'Même verbe, cinq formes voisines.',
@@ -2017,6 +2036,7 @@ const A11_ASTUCES: Sec<'hacks'> = {
   layer: 'core',
   title: 'Trois astuces pour bien écrire',
   frSub: 'Avant de choisir la fin',
+  sheetId: 'sheet-ortho',
   hacks: [
     { hack: 'Remplace par vendre. EN: swap in vendre.', why: 'vendre, vendu, vendais ne se ressemblent pas. Ils te disent quelle forme écrire : parler, parlé, parlais. EN: vendre’s forms sound different, so they reveal the right one.' },
     { hack: 'Cherche avoir devant le verbe. EN: look for avoir before the verb.', why: 'j’ai, tu as, il a, nous avons : alors c’est parlé. Sinon, c’est l’imparfait. EN: avoir before it means the participle.' },
@@ -2089,6 +2109,7 @@ const A11_ERREURS: Sec<'commonErrors'> = {
   swipe: true,
   size: 'lg',
   title: 'Les formes voisines',
+  sheetId: 'sheet-ortho',
   errors: [
     { wrong: 'Hier, j’ai parlais avec elle.', right: 'Hier, j’ai parlé avec elle.', why: 'Avec j’ai, c’est le participe : parlé. EN: after j’ai, the participle.' },
     { wrong: 'Quand j’étais petit, je parlé wolof.', right: 'Quand j’étais petit, je parlais wolof.', why: 'Pas d’avoir devant : imparfait. EN: no auxiliary, so imparfait.' },
@@ -2323,6 +2344,7 @@ const A12_RECAP: Sec<'cheatSheet'> = {
   id: 'a12-recap',
   layer: 'core',
   title: 'Toute la leçon, en huit lignes',
+  sheetId: 'sheet-recette',
   rows: [
     { k: 'La recette', v: 'nous − ons + fin', say: 'nous parlons, parl-, je parlais', detail: { title: 'La recette', body: `${REFRAME} Ça marche pour presque tous les verbes. EN: ${REFRAME_EN}`, say: 'je parlais' } },
     { k: 'Les fins', v: '-ais -ais -ait -ions -iez -aient', say: 'je parlais, nous parlions', detail: { title: 'Six fins, quatre sons pareils', body: '-ais, -ait, -aient se disent [ɛ]. -ions et -iez s’entendent. EN: four endings sound alike.', say: 'ils parlaient' } },

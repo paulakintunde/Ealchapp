@@ -61,31 +61,11 @@ const KNOWN_UNREGISTERED = new Set([
 
 /** Bundled and drawn, with no ALT entry: RichImage passes
  *  accessibilityLabel={undefined}, so TalkBack announces an unlabelled image
- *  (UDL 01). All of these predate the ALT table. Measured 2026-09-22.
- *  Delete a line when the alt text is written. */
+ *  (UDL 01). Emptied 2026-09-24: the last 22, all sons and A1 art that
+ *  predated the ALT table, were written against the images themselves.
+ *  Keep it empty: a new entry here is a deliberate decision to ship an image
+ *  a screen reader cannot announce. */
 const KNOWN_UNLABELLED = new Set([
-  'lessons/alphabet/ambush.jpg',
-  'lessons/alphabet/cover.jpg',
-  'lessons/alphabet/ladder.jpg',
-  'lessons/alphabet/song.jpg',
-  'lessons/alphabet/theme-food.jpg',
-  'lessons/alphabet/theme-greetings.jpg',
-  'lessons/alphabet/theme-people.jpg',
-  'lessons/alphabet/theme-travel.jpg',
-  'lessons/muettes/alarm-clock.jpg',
-  'lessons/muettes/careful.jpg',
-  'lessons/muettes/cover.jpg',
-  'lessons/muettes/ghost-h.jpg',
-  'lessons/muettes/roundup.jpg',
-  'lessons/muettes/scene-boulangerie.jpg',
-  'lessons/muettes/scene-marche.jpg',
-  'lessons/muettes/the-stop.jpg',
-  'lessons/rythme/errors.jpg',
-  'lessons/salutations/ca-va.jpg',
-  'lessons/salutations/cover.jpg',
-  'lessons/salutations/roundup.jpg',
-  'lessons/salutations/story-bakery.jpg',
-  'lessons/salutations/tu-vous.jpg',
 ]);
 
 /* ═══ Reading the registry and the corpus ═════════════════════════════════ */

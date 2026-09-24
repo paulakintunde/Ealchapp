@@ -222,6 +222,31 @@ const REG: Record<string, ImageSourcePropType> = {
 };
 
 const ALT: Record<string, string> = {
+  // The sons and A1 art predates this registry and had no alt text. Written
+  // 2026-09-24 against the images themselves, in the same voice as the rest:
+  // one line saying what the picture is doing, not an inventory of it.
+  'lessons/alphabet/cover.jpg': 'Two letters travelling down a phone line to the person writing them down.',
+  'lessons/alphabet/ambush.jpg': 'Letters waiting round a corner, ready to be named.',
+  'lessons/alphabet/ladder.jpg': 'One sound at the bottom of the ladder, a whole street name at the top.',
+  'lessons/alphabet/song.jpg': 'A class singing the letters rather than reciting them.',
+  'lessons/alphabet/theme-food.jpg': 'A table of food, every item waiting to be spelled out.',
+  'lessons/alphabet/theme-greetings.jpg': 'A greeting given cheek to cheek, under the word for it.',
+  'lessons/alphabet/theme-people.jpg': 'A household and a visitor, waving across the garden wall.',
+  'lessons/alphabet/theme-travel.jpg': 'A suitcase, a taxi and a station clock: the words a traveller needs.',
+  'lessons/muettes/cover.jpg': 'The last letters of a word fading out while the first three hold.',
+  'lessons/muettes/alarm-clock.jpg': 'A bell ringing at a letter that will not wake.',
+  'lessons/muettes/careful.jpg': 'Four letters standing at the front, four asleep behind them.',
+  'lessons/muettes/ghost-h.jpg': 'A letter you can see straight through, beside two you cannot.',
+  'lessons/muettes/roundup.jpg': 'A quiet street walk, every silent ending already behind her.',
+  'lessons/muettes/scene-boulangerie.jpg': 'A bakery counter, where the endings are written and not heard.',
+  'lessons/muettes/scene-marche.jpg': 'A market exchange, the bag passing from one hand to the other.',
+  'lessons/muettes/the-stop.jpg': 'A finger stopping on one small word in the middle of a line.',
+  'lessons/rythme/errors.jpg': 'One shape larger than the six around it, and the only one you would hear.',
+  'lessons/salutations/cover.jpg': 'A wave returned across a bakery counter.',
+  'lessons/salutations/ca-va.jpg': 'Two neighbours greeting each other in passing.',
+  'lessons/salutations/tu-vous.jpg': 'The same greeting twice: once between friends, once across a counter.',
+  'lessons/salutations/roundup.jpg': 'A street where everyone passing is greeting someone.',
+  'lessons/salutations/story-bakery.jpg': 'A customer hesitating at the counter before he speaks.',
   'lessons/imparfait/act01.jpg': 'One warm image held inside a cool room.',
   'lessons/imparfait/act02.jpg': 'One object divided once, with spare parts waiting.',
   'lessons/imparfait/act03.jpg': 'Sameness on the left, audible difference on the right.',
