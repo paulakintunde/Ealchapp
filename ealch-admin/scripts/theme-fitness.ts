@@ -11,6 +11,7 @@
 // at those bands. Prints the fit, so authoring draws from a checked vocabulary
 // instead of plausible-sounding slugs.
 import './env';
+import { LEVELS } from '../../ealch-v2/src/content/schema.ts';
 
 async function main() {
   const { Pool } = await import('pg');
@@ -31,8 +32,12 @@ async function main() {
       by.get(r.theme)![r.level] = r.n;
     }
 
-    // TEF sits on A2-C1, so those are the bands a topic can be pitched at.
-    const BANDS = ['a1', 'a2', 'b1', 'b2', 'c1'];
+    // TEF's content bands, exam scoring aside: every LEVELS member except
+    // 'sons' (our own pronunciation track, not a CEFR band). Derived from
+    // LEVELS rather than restated, so a future band (or c2, added D-32) is
+    // never half-added here while every other consumer picks it up — the same
+    // discipline BANDS_RE follows in schema.ts.
+    const BANDS = LEVELS.filter((l) => l !== 'sons');
     const usable = [...by.entries()]
       .filter(([t]) => valid.has(t))
       .map(([theme, lv]) => ({ theme, lv, total: BANDS.reduce((s, b) => s + (lv[b] ?? 0), 0) }))

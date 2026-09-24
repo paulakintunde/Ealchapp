@@ -54,14 +54,15 @@ export const flagStatus = pgEnum('flag_status', ['open', 'resolved']);
 // NOT userLevel: a *user* is never at level "sons", but content is — and the
 // Sons track is the deepest content in the curriculum. Content needs its own.
 //
-// 'c2' is here and is NOT in the app's LEVELS. That asymmetry is deliberate and
-// permanent: we author no c2 content, but Postgres has no safe way to drop an
-// enum value (it means recreating the type and rewriting every dependent column)
-// and doing that for a value no row uses is pure downtime risk. So the value
-// stays reachable in the type and is forbidden at two other gates instead — the
-// items_level_not_c2 CHECK below (drizzle/0004) stops an author writing it, and
-// the app's validateCorpus stops it shipping. Asserted by ealch-v2's
-// enum-parity.test.ts, which requires the difference to be exactly c2.
+// 'c2' is here, and — since phase 07.1's D-32 (2026-09-24) — is ALSO in the
+// app's LEVELS, expressible even though no c2 content is authored yet. This
+// enum never needed a migration to widen: Postgres has no safe way to drop an
+// enum value (it means recreating the type and rewriting every dependent
+// column), so 'c2' was never narrowed out of content_level in the first
+// place, back when it WAS narrowed out of the app's LEVELS (drizzle/0004,
+// since reversed by drizzle/0022). ealch-v2's enum-parity.test.ts now asserts
+// this enum equals LEVELS exactly, closing the asymmetry that comment used to
+// describe as permanent.
 export const contentLevel = pgEnum('content_level', ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2']);
 export const itemKind = pgEnum('item_kind', ['word', 'phrase', 'sentence']);
 export const itemGender = pgEnum('item_gender', ['m', 'f']);
