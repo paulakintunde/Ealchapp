@@ -31,10 +31,7 @@ export type SonsActPlan = {
   deckTranche: string[][];
 };
 
-// Task 1 authors ONLY the teach-shaped pair, sons.01.l1 and sons.04.l1. Task 2
-// adds sons.02.l1 and sons.03.l1 (the journey-shaped pair) into this same
-// object and widens this type to all four keys.
-export const SONS_ACTS: Record<'sons.01.l1' | 'sons.04.l1', SonsActPlan> = {
+export const SONS_ACTS: Record<'sons.01.l1' | 'sons.02.l1' | 'sons.03.l1' | 'sons.04.l1', SonsActPlan> = {
   // ── sons.01.l1 — teach-shaped, 26 sections, 6 acts (matches Board C4) ────
   'sons.01.l1': {
     sectionIds: [
@@ -164,6 +161,117 @@ export const SONS_ACTS: Record<'sons.01.l1' | 'sons.04.l1', SonsActPlan> = {
         'fr.sons.consonnes.004', 'fr.sons.consonnes.005', 'fr.sons.consonnes.006', 'fr.sons.consonnes.007',
         'fr.sons.consonnes.008', 'fr.sons.consonnes.009', 'fr.sons.consonnes.010',
       ],
+    ],
+  },
+
+  // ── sons.02.l1 — journey-shaped, 20 sections, 5 acts. REUSES the two ids
+  //    this lesson already carries: s01-scene (section 0) and s06-trap-u-ou
+  //    (section 5). ──────────────────────────────────────────────────────
+  'sons.02.l1': {
+    sectionIds: [
+      's01-scene', 's02-goals', 's03-basic-idea', 's04-sound-grid', 's05-group-drill',
+      's06-trap-u-ou', 's07-pronunciation-lab', 's08-vocab', 's09-examples', 's10-dictation',
+      's11-cafe-listening', 's12-speak-aloud', 's13-bakery-scenario', 's14-common-errors',
+      's15-ear-u-ou', 's16-reading', 's17-review-deck', 's18-progress-check', 's19-quiz', 's20-roundup',
+    ],
+    acts: [
+      {
+        id: 'act1',
+        title: 'A misunderstanding, named',
+        sections: ['s01-scene', 's02-goals', 's03-basic-idea'],
+        milestone: 'You know what the seven oral vowels are and why one mix-up caused it.',
+        estScreens: 8,
+      },
+      {
+        id: 'act2',
+        title: 'The seven vowels and the U/OU trap',
+        sections: ['s04-sound-grid', 's05-group-drill', 's06-trap-u-ou', 's07-pronunciation-lab'],
+        milestone: 'You can place each vowel sound and hear the difference between U and OU.',
+        estScreens: 4,
+      },
+      {
+        id: 'act3',
+        title: 'Vocabulary and real sentences',
+        sections: ['s08-vocab', 's09-examples', 's10-dictation', 's11-cafe-listening', 's12-speak-aloud'],
+        milestone: 'You have ten reusable sentences and can spell what you hear.',
+        estScreens: 5,
+      },
+      {
+        id: 'act4',
+        title: 'At the café and the bakery',
+        sections: ['s13-bakery-scenario', 's14-common-errors', 's15-ear-u-ou', 's16-reading'],
+        milestone: 'You can use the vowels in a real order and catch the eight classic traps.',
+        estScreens: 4,
+      },
+      {
+        id: 'act5',
+        title: 'Review and the final quiz',
+        sections: ['s17-review-deck', 's18-progress-check', 's19-quiz', 's20-roundup'],
+        milestone: 'You have reviewed the rounded pairs and proven all seven vowels on the quiz.',
+        estScreens: 15,
+      },
+    ],
+    deckTranche: [
+      ['fr.sons.voyelles.001', 'fr.sons.voyelles.003', 'fr.sons.voyelles.008', 'fr.sons.voyelles.075'],
+      ['fr.sons.voyelles.096', 'fr.sons.voyelles.004', 'fr.sons.voyelles.100', 'fr.sons.voyelles.103', 'fr.sons.voyelles.102'],
+      ['fr.sons.voyelles.077', 'fr.sons.voyelles.082', 'fr.sons.voyelles.009', 'fr.sons.voyelles.164', 'fr.sons.voyelles.061', 'fr.sons.voyelles.065'],
+      ['fr.sons.voyelles.087', 'fr.sons.voyelles.092', 'fr.sons.voyelles.107', 'fr.sons.voyelles.078', 'fr.sons.voyelles.083'],
+      ['fr.sons.voyelles.069', 'fr.sons.voyelles.002', 'fr.sons.voyelles.071', 'fr.sons.voyelles.073', 'fr.sons.voyelles.072'],
+    ],
+  },
+
+  // ── sons.03.l1 — journey-shaped, 20 sections, 5 acts. REUSES the one id
+  //    this lesson already carries: s01-scene (section 0). ────────────────
+  'sons.03.l1': {
+    sectionIds: [
+      's01-scene', 's02-goals', 's03-basic-idea', 's04-sound-grid', 's05-group-drill',
+      's06-trap-anti-rule', 's07-pronunciation-lab', 's08-vocab', 's09-examples', 's10-dictation',
+      's11-breakfast-listening', 's12-speak-aloud', 's13-bakery-scenario', 's14-common-errors',
+      's15-bon-bonne', 's16-reading', 's17-review-deck', 's18-progress-check', 's19-quiz', 's20-roundup',
+    ],
+    acts: [
+      {
+        id: 'act1',
+        title: 'A welcome, misheard',
+        sections: ['s01-scene', 's02-goals', 's03-basic-idea'],
+        milestone: 'You know what the four nasal vowels are and why one of them caused the mix-up.',
+        estScreens: 8,
+      },
+      {
+        id: 'act2',
+        title: 'The four nasal families and the anti-rule trap',
+        sections: ['s04-sound-grid', 's05-group-drill', 's06-trap-anti-rule', 's07-pronunciation-lab'],
+        milestone: 'You can sort the four nasal families and avoid the anti-rule trap.',
+        estScreens: 4,
+      },
+      {
+        id: 'act3',
+        title: 'Nasal vocabulary and real phrases',
+        sections: ['s08-vocab', 's09-examples', 's10-dictation', 's11-breakfast-listening', 's12-speak-aloud'],
+        milestone: 'You have ten reusable phrases and can spell the nasals you hear.',
+        estScreens: 5,
+      },
+      {
+        id: 'act4',
+        title: 'At the bakery, in writing',
+        sections: ['s13-bakery-scenario', 's14-common-errors', 's15-bon-bonne', 's16-reading'],
+        milestone: 'You can use the nasals in a real order and write the bon/bonne trap correctly.',
+        estScreens: 4,
+      },
+      {
+        id: 'act5',
+        title: 'Review and the final quiz',
+        sections: ['s17-review-deck', 's18-progress-check', 's19-quiz', 's20-roundup'],
+        milestone: 'You have reviewed the four-anchor compass and proven the nasals on the quiz.',
+        estScreens: 15,
+      },
+    ],
+    deckTranche: [
+      ['fr.sons.voyelles.108', 'fr.sons.nasales.166', 'fr.sons.voyelles.119'],
+      ['fr.sons.nasales.168', 'fr.sons.nasales.176', 'fr.sons.nasales.167'],
+      ['fr.sons.nasales.169', 'fr.sons.nasales.177', 'fr.sons.voyelles.117', 'fr.sons.nasales.002'],
+      ['fr.sons.nasales.066', 'fr.sons.nasales.130', 'fr.sons.nasales.003'],
+      ['fr.sons.nasales.129', 'fr.sons.nasales.170', 'fr.sons.nasales.171'],
     ],
   },
 };
