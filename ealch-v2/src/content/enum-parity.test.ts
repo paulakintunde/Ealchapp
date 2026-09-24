@@ -122,27 +122,30 @@ test("SCORE_BANDS is user_level — a learner's level is an exam band, never 'so
   deepStrictEqual(dbEnum('user_level'), [...SCORE_BANDS], 'SCORE_BANDS ↔ user_level');
 });
 
-test('content_level keeps c2 and LEVELS does not — the one deliberate asymmetry', () => {
+test('content_level and LEVELS now agree exactly — the c2 asymmetry is closed', () => {
   // THE DECISION (guardrail G3), recorded here as an executable note rather than
   // a comment nobody reads:
   //
-  // We dropped 'c2' from the app's content LEVELS. We CANNOT drop it from the
-  // content_level pgEnum, because Postgres has no safe DROP VALUE — removing an
-  // enum value means recreating the type and rewriting every dependent column,
-  // for a value that no row uses. That is a migration with real downtime risk to
-  // buy nothing.
+  // Until 2026-09-24, 'c2' was dropped from the app's content LEVELS but could
+  // not be dropped from the content_level pgEnum, because Postgres has no safe
+  // DROP VALUE — removing an enum value means recreating the type and rewriting
+  // every dependent column, for a value that no row uses. That left the DB ahead
+  // of the app: content_level could always store a c2 row, and the app's
+  // validator refused one. Enforcement sat at two gates — a CHECK constraint on
+  // content_items (drizzle/0004) stopped an author writing c2 at all, and
+  // validateCorpus stopped it reaching a phone even if the CHECK were dropped.
   //
-  // So the asymmetry is permanent and intentional: the DB *can* store a c2
-  // content row, and the app's validator refuses one. Enforcement is at two
-  // gates, not one — a CHECK constraint on content_items (drizzle/0004) stops an
-  // author writing c2 at all, and validateCorpus stops it reaching a phone even
-  // if the CHECK is ever dropped.
+  // Phase 07.1 D-32 closed the asymmetry from the app side: LEVELS gained 'c2'
+  // (ealch-v2/src/content/schema.ts), and drizzle/0022 drops the CHECK that
+  // enforced the now-obsolete half of the gap. content_level itself needed no
+  // migration — it already carried c2, because it was never narrowed in the
+  // first place (see above).
   //
-  // This test asserts the asymmetry is EXACTLY c2 and nothing else, so the
-  // exception can never quietly widen into general drift.
+  // This test now asserts the two lists are identical, so any future drift
+  // between them is a red test rather than a silent disagreement.
   const dbLevels = dbEnum('content_level');
-  deepStrictEqual(dbLevels, [...LEVELS, 'c2'], 'content_level must be LEVELS plus exactly c2');
-  ok(!(LEVELS as readonly string[]).includes('c2'), 'the app must never author c2 content');
+  deepStrictEqual(dbLevels, [...LEVELS], 'content_level must equal LEVELS exactly — no asymmetry remains');
+  ok((LEVELS as readonly string[]).includes('c2'), 'c2 is now a real Level the app can express');
 });
 
 test('content_kind carries playlist and template — the two new content_units document kinds', () => {
@@ -163,11 +166,14 @@ test('content_kind carries playlist and template — the two new content_units d
   ok(TEMPLATE_TARGETS.includes('playlist'), "TEMPLATE_TARGETS must carry 'playlist' — a template can author one");
 });
 
-test('the c2 CHECK constraint that enforces the asymmetry actually exists', () => {
-  // The comment above claims a CHECK stops authors writing c2. Claims in
-  // comments rot. Assert the migration is really there.
+test('0004 is on record as having added a c2 CHECK constraint (D-32 later reverses it)', () => {
+  // Historical record, not live state: 0004 really did add items_level_not_c2,
+  // and this file proves that claim rather than trusting a comment. Phase 07.1
+  // D-32 reverses the decision that constraint enforced — a later migration
+  // (drizzle/0022) drops it rather than editing 0004, because a migration
+  // already applied to a live database is history, not something to rewrite.
   const migration = resolve(here, '../../../ealch-admin/drizzle/0004_content_items_no_c2.sql');
   const sql = readFileSync(migration, 'utf8');
-  ok(/items_level_not_c2/.test(sql), 'the c2 CHECK constraint is named and present');
-  ok(/CHECK\s*\(\s*level\s*<>\s*'c2'/i.test(sql), "the CHECK actually forbids level = 'c2'");
+  ok(/items_level_not_c2/.test(sql), 'the c2 CHECK constraint is named and present in 0004');
+  ok(/CHECK\s*\(\s*level\s*<>\s*'c2'/i.test(sql), "0004's CHECK actually forbade level = 'c2'");
 });

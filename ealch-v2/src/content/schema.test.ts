@@ -56,6 +56,7 @@ import {
   validatePack,
   validatePlaylist,
   validateScenario,
+  validateSpeakStage,
   validateTemplate,
   validateTheme,
   validateUnit,
@@ -295,25 +296,56 @@ const narration = (over: Partial<LessonNarration> = {}): LessonNarration => ({
 
 /* ─── value lists ────────────────────────────────────────────────────────── */
 
-test('content stops at c1; only an exam SCORE can be c2', () => {
-  // The two lists do different jobs and neither contains the other. LEVELS is
-  // what we author; SCORE_BANDS is what a paper can award. 'sons' is our own
-  // pronunciation track and not a CEFR band at all, so it can never be a score.
-  deepStrictEqual([...LEVELS], ['sons', 'a1', 'a2', 'b1', 'b2', 'c1']);
+test('c2 is a real Level now (D-32, reversed 2026-09-24) — LEVELS and SCORE_BANDS are still two different lists', () => {
+  // Until 2026-09-24, 'c2' was deliberately absent from LEVELS: a c2 candidate
+  // is not learning French from an app, and an empty c2 band was a promise the
+  // corpus could not keep. D-32 reversed that argument — the band selector now
+  // carries all seven bands (phase 07.1, D-07), and c2 is expressible even
+  // though the corpus still has no unit past a2. SCORE_BANDS is unaffected: it
+  // was never the list this decision was about.
+  deepStrictEqual([...LEVELS], ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2']);
   deepStrictEqual([...SCORE_BANDS], ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']);
-  ok(!(LEVELS as readonly string[]).includes('c2'), 'we author no c2 content');
-  ok((SCORE_BANDS as readonly string[]).includes('c2'), 'but a learner can score c2');
+  ok((LEVELS as readonly string[]).includes('c2'), 'c2 is now a real Level');
+  ok((SCORE_BANDS as readonly string[]).includes('c2'), 'and it was always a real score band');
   ok(!(SCORE_BANDS as readonly string[]).includes('sons'), "nobody's CEFR level is 'sons'");
 });
 
-test('a c2 content id is now rejected everywhere an id is parsed', () => {
-  // Dropping c2 from LEVELS must drop it from the id regexes too. It does,
-  // because they are derived from LEVELS rather than restating it — this test
-  // is what proves the derivation is wired up and not just described.
-  ok(validateItem(item({ id: 'fr.c2.affaires.001', level: 'c2' as never })).length > 0);
-  ok(validateScenario(scenario({ id: 'sc.c2.affaires.001', level: 'c2' as never })).length > 0);
-  // c1 is the highest band we author, and it must still pass.
+test('a c2 content id is now accepted everywhere an id is parsed (D-32)', () => {
+  // Adding c2 to LEVELS adds it to the id regexes too, because they are derived
+  // from LEVELS rather than restating it — this test is what proves the
+  // derivation is wired up and not just described. BANDS_RE itself is asserted
+  // to still be a derivation, not a literal, below.
+  deepStrictEqual(validateItem(item({ id: 'fr.c2.affaires.001', level: 'c2', theme: 'affaires' })), []);
+  deepStrictEqual(validateScenario(scenario({ id: 'sc.c2.affaires.001', level: 'c2', theme: 'affaires' })), []);
+  // c1 is unaffected and must still pass.
   deepStrictEqual(validateItem(item({ id: 'fr.c1.affaires.001', level: 'c1', theme: 'affaires' })), []);
+});
+
+test('the Speak path world contract is pinned to the first six of LEVELS, not to LEVELS.length', () => {
+  // Before D-32, world 1..6 -> LEVELS[world-1] was correct only because c2 was
+  // absent from LEVELS. Now that LEVELS has seven members, the contract is
+  // pinned explicitly (SPEAK_WORLD_LEVELS) rather than left to fall out of
+  // LEVELS.length by coincidence.
+  const stageFor = (world: number, level: string) => ({
+    id: `speak.${world}.1`,
+    world,
+    seq: 1,
+    level: level as never,
+    title: 'Station',
+    themes: ['cafe'],
+    blocks: [{ itemIds: ['fr.a1.cafe.001'] }],
+    version: 1,
+  });
+  // All six real worlds still map to sons..c1 exactly as before.
+  const worldLevel = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1'];
+  for (let w = 1; w <= 6; w++) {
+    const c = corpus({ speakPath: [stageFor(w, worldLevel[w - 1])] as never });
+    ok(!validateCorpus(c).some((i) => /does not map to level/.test(i.message)), `world ${w} should map cleanly`);
+  }
+  // world 7 does not exist on the Speak path (c2 has no world) — rejected as a
+  // malformed stage in its own right, not merely a level mismatch.
+  const issues = validateSpeakStage(stageFor(7, 'c2'));
+  ok(issues.some((i) => /world must be an integer between 1 and 6/.test(i.message)), 'world 7 must be rejected');
 });
 
 test('the new value lists exist and hold what the rest of the phase assumes', () => {
@@ -713,13 +745,15 @@ test('a b1 unit and its lesson are now legal — the Den cap is lifted', () => {
   deepStrictEqual(validateCorpus(corpus({ units: [b1], lessons: [b1Lesson] })), []);
 });
 
-test('every band we author is a legal unit band, and none we do not is', () => {
-  // Derived from LEVELS, so this cannot drift from the list above it.
+test('every band in LEVELS (now including c2) is a legal unit band, and a non-band is not', () => {
+  // Derived from LEVELS, so this cannot drift from the list above it. c2 joined
+  // LEVELS 2026-09-24 (D-32) — it is expressible, not authored: the corpus
+  // still has no unit past a2.
   for (const l of LEVELS) {
     ok(UNIT_ID_RE.test(`${l}.01`), `${l}.01 should be a legal unit id`);
     ok(LESSON_ID_RE.test(`${l}.01.l1`), `${l}.01.l1 should be a legal lesson id`);
   }
-  ok(!UNIT_ID_RE.test('c2.01'), 'c2 is not a band we author');
+  ok(UNIT_ID_RE.test('c2.01'), 'c2 is now a band the id regex accepts');
   ok(!UNIT_ID_RE.test('zz.01'));
 });
 
@@ -727,8 +761,11 @@ test('unitBand reads the band off the id, and refuses to guess', () => {
   strictEqual(unitBand('sons.03'), 'sons');
   strictEqual(unitBand('b1.01'), 'b1');
   strictEqual(unitBand('b1.01.l1'), 'b1');
-  // Null, not a fallback. A caller must not mistake a parse failure for a band.
-  strictEqual(unitBand('c2.01'), null);
+  // c2 now resolves to a real band, not null (D-32, 2026-09-24) — it returned
+  // null before c2 joined LEVELS.
+  strictEqual(unitBand('c2.01'), 'c2');
+  // Still null for anything that is not a unit or lesson id at all. A caller
+  // must not mistake a parse failure for a band.
   strictEqual(unitBand('nonsense'), null);
 });
 
@@ -817,7 +854,10 @@ test('an inverted level range is rejected — it selects nothing, silently', () 
 });
 
 test('a level range must be made of bands we actually author', () => {
-  ok(validateTheme(theme({ levelRange: ['a1', 'c2'] as never })).length > 0, 'c2 is not authored');
+  // c2 is now a real Level (D-32, 2026-09-24): a range ending at c2 is legal
+  // shape, same as any other LEVELS member, even though nothing is authored
+  // there yet.
+  deepStrictEqual(validateTheme(theme({ levelRange: ['a1', 'c2'] })), []);
   ok(validateTheme(theme({ levelRange: ['zz', 'b1'] as never })).length > 0);
   ok(validateTheme(theme({ levelRange: ['a1'] as never })).length > 0, 'a range needs both ends');
   ok(validateTheme(theme({ levelRange: 'a1' as never })).length > 0);
@@ -852,7 +892,11 @@ test('a pack id must match pack.<level>.<theme> and agree with its fields', () =
   // filtering on (level, theme), so a pack whose id says a1 and whose fields say
   // a2 collects a different set of items than its name claims.
   ok(validatePack(pack({ id: 'pack.a1' })).length > 0);
-  ok(validatePack(pack({ id: 'pack.c2.affaires', level: 'c2' as never })).length > 0, 'c2 is not authored');
+  // c2 is now a real Level (D-32): an id/level/theme-agreeing c2 pack is legal.
+  deepStrictEqual(validatePack(pack({ id: 'pack.c2.affaires', level: 'c2', theme: 'affaires' })), []);
+  // This still fails, but for a theme mismatch (default theme 'cafe' vs id
+  // theme 'affaires'), not because c2 is unauthored.
+  ok(validatePack(pack({ id: 'pack.c2.affaires', level: 'c2' as never })).length > 0, 'theme disagreement, not c2');
   const issues = validatePack(pack({ id: 'pack.a1.cafe', level: 'a2', theme: 'marche' }));
   ok(issues.some((i) => /id level .* disagrees/.test(i.message)));
   ok(issues.some((i) => /id theme .* disagrees/.test(i.message)));

@@ -39,20 +39,29 @@
  * The bands CONTENT can be authored at. Deliberately not the same list as the
  * bands a learner can SCORE at — see SCORE_BANDS.
  *
- * 'c2' is absent on purpose. We author no c2 content: a c2 candidate is not
- * learning French from an app, and pretending the corpus reaches c2 would put an
- * empty band in every level picker. c2 remains meaningful as an exam RESULT,
- * which is why the two lists are split rather than one list doing both jobs.
+ * 'c2' IS a level. It was deliberately absent until 2026-09-22, on the argument
+ * that a c2 candidate is not learning French from an app and an empty c2 band
+ * is a promise the corpus cannot keep. That argument was reversed: the band
+ * selector carries all seven bands (phase 07.1, D-07), and a band that is a
+ * display string in one place and not a Level in another is exactly the drift
+ * this list exists to prevent. c2 is expressible; it is not yet authored. The
+ * corpus has no unit past a2 today, and a c2 row resolves to an empty band the
+ * same way b1, b2 and c1 do.
+ * SCORE_BANDS stays a separate list: it is what a LEARNER is scored at
+ * (user_level), which is a different question from what content is tagged.
  */
-export const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1'] as const;
+export const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as const;
 export type Level = (typeof LEVELS)[number];
 
 /**
- * The bands a learner can be SCORED at on a real exam paper. Display only: a TEF
- * or TCF result can legitimately come back c2, and 'sons' is not a CEFR band at
- * all — it is our own pronunciation track. So this list is neither a superset
- * nor a subset of LEVELS, and conflating them would either invent c2 content or
- * report a learner's level as "sons".
+ * The bands a learner can be SCORED at on a real exam paper. Now a SUBSET of
+ * LEVELS (every SCORE_BANDS member is a Level too), not the "neither a superset
+ * nor a subset" relationship this comment used to describe — that stopped being
+ * true the moment 'c2' joined LEVELS. The lists still answer two different
+ * questions and still cannot be merged: 'sons' is a Level (our own pronunciation
+ * track) but is not a CEFR band and can never be a score, so LEVELS is not a
+ * subset of SCORE_BANDS either. Conflating them would report a learner's level
+ * as "sons", which is not a real exam result.
  */
 export const SCORE_BANDS = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as const;
 export type ScoreBand = (typeof SCORE_BANDS)[number];
@@ -299,8 +308,8 @@ export type ContentStatus = (typeof CONTENT_STATUSES)[number];
  * Hand-maintained copies of this list had already drifted: the item and scenario
  * regexes accepted all seven bands while the unit and lesson regexes silently
  * capped at (sons|a1|a2). Nothing caught it, because each regex looked correct on
- * its own. Deriving means dropping 'c2' from LEVELS drops it from all four ids at
- * once, and a future band cannot be half-added.
+ * its own. Deriving means adding 'c2' to LEVELS added it to all four ids at once
+ * (D-32, 2026-09-24), and a future band cannot be half-added either.
  *
  * `new RegExp` rather than a literal is not a runtime import — the constraint at
  * the top of this file is about modules, and RegExp is a language builtin.
@@ -2646,10 +2655,25 @@ export type SpeakBlock = {
   itemIds: string[];
 };
 
+/**
+ * The Speak path's world/level contract, pinned explicitly rather than left to
+ * incidentally fall out of `LEVELS.length`. Worlds 1..6 map 1:1 to the first six
+ * `LEVELS` members (sons..c1). This was correct-by-coincidence before D-32
+ * (c2 happened to append at index 6, past every real world), and is correct-by-
+ * contract now: adding an eighth `LEVELS` member in the future cannot silently
+ * shift which band world 6 means, because this slice is fixed at six.
+ */
+const SPEAK_WORLD_LEVELS = LEVELS.slice(0, 6);
+
 export type SpeakStage = {
   /** 'speak.<world>.<seq>' — e.g. 'speak.2.3'. Stable: progress keys on it. */
   id: string;
-  /** 1..6, mapped 1:1 to LEVELS (world 1 = sons … world 6 = c1). */
+  /**
+   * 1..6, mapped 1:1 to the first six of LEVELS (world 1 = sons … world 6 =
+   * c1) — see SPEAK_WORLD_LEVELS. Not "mapped to LEVELS": since D-32 added
+   * 'c2' as a seventh member, the Speak path's contract is explicitly pinned
+   * to the six worlds that exist rather than to LEVELS.length.
+   */
   world: number;
   /** Display order within the world. The path sorts on (world, seq). */
   seq: number;
@@ -4946,8 +4970,13 @@ export function validateSpeakStage(v: unknown, path = 'speakStage'): Issue[] {
 
   if (!isStr(s.id)) push('id must be a non-empty string');
   else if (!/^speak\.\d+\.\d+$/.test(s.id)) push(`id "${s.id}" must match speak.<world>.<seq>`);
-  if (typeof s.world !== 'number' || !Number.isInteger(s.world) || s.world < 1) {
-    push('world must be a positive integer');
+  if (
+    typeof s.world !== 'number' ||
+    !Number.isInteger(s.world) ||
+    s.world < 1 ||
+    s.world > SPEAK_WORLD_LEVELS.length
+  ) {
+    push(`world must be an integer between 1 and ${SPEAK_WORLD_LEVELS.length}`);
   }
   if (typeof s.seq !== 'number' || !Number.isInteger(s.seq) || s.seq < 1) {
     push('seq must be a positive integer');
@@ -5229,8 +5258,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   // at publish time so a hand-edit cannot quietly undo it.
   const speakSeen = new Map<string, string>();
   for (const s of speakPath) {
-    if (isStr(s.level) && typeof s.world === 'number' && LEVELS[s.world - 1] !== s.level) {
-      out.push({ path: `${path}.speakPath`, message: `stage "${s.id}" world ${s.world} does not map to level "${s.level}" (expected "${LEVELS[s.world - 1] ?? '?'}")` });
+    if (isStr(s.level) && typeof s.world === 'number' && SPEAK_WORLD_LEVELS[s.world - 1] !== s.level) {
+      out.push({ path: `${path}.speakPath`, message: `stage "${s.id}" world ${s.world} does not map to level "${s.level}" (expected "${SPEAK_WORLD_LEVELS[s.world - 1] ?? '?'}")` });
     }
     for (const b of isArr(s.blocks) ? s.blocks : []) {
       for (const id of isArr(b?.itemIds) ? b.itemIds : []) {
