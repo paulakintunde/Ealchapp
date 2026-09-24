@@ -22,6 +22,13 @@ Status 2026-09-22. B1 Unit 1 (b1.01 to b1.04) is drafted, and b1.01 has been see
 
 ## Phase 1: B1 grammar, the proven shape (20 lessons, 5 waves of 4)
 
+> **The wave table below is the ORIGINAL plan and its wave numbers have drifted.**
+> The build actually ran wave 2 as b1.09-b1.11 and wave 3 as b1.12-b1.14, because
+> three lessons per wave fits a session window better than four. `B1-BUILD-LOG.md`
+> is the resume point and its wave plan is the one that is being executed. Read the
+> log for wave membership; read this table only for the ORDER of the topics and for
+> the phases past B1, which have not drifted.
+
 | Wave | Lessons | Topic |
 |---|---|---|
 | 1 | b1.05-08 | Futur simple (regular, irregular, after quand/dès que), conditionnel présent |

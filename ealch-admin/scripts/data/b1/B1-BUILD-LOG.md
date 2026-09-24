@@ -11,21 +11,27 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Links | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|---|
 | b1.01 | imparfait-formation | 91 | 12 | 11x8 | 11 | 4 | 0 | 261 | 12 images, registered | DONE (sheet links missing) |
-| b1.02 | imparfait-usage | 76 | 10 | 10x8 | 10 | 5 | 10 | 233 | 10 prompts, art not made | DONE |
-| b1.03 | pc-imparfait | 76 | 10 | 10x8 | 10 | 5 | 7 | 161 | 10 prompts, art not made | DONE |
-| b1.04 | pc-imparfait-paires | 86 | 12 | 11x8 | 11 | 5 | 19 | 224 | 12 prompts, art not made | DONE |
-| b1.05 | futur-simple | 80 | 10 | 10x8 | 10 | 5 | 14 | 196 | 10 prompts, art not made | DONE |
-| b1.06 | futur-irregulier | 83 | 11 | 10x8 | 10 | 5 | 15 | 222 | 11 prompts, art not made | DONE |
-| b1.07 | futur-usage | 82 | 11 | 11x8 | 11 | 5 | 9 | 201 | 11 prompts, art not made | DONE |
-| b1.08 | conditionnel-present | 82 | 11 | 11x8 | 11 | 5 | 12 | 221 | 11 prompts, art not made | DONE |
-| b1.09 | politesse | 82 | 11 | 11x8 | 11 | 5 | 13 | 232 | 11 prompts, art not made | DONE |
-| b1.10 | si-clauses | 89 | 12 | 12x8 | 12 | 5 | 10 | 215 | 12 prompts, art not made | DONE |
-| b1.11 | qui-que | 83 | 11 | 11x8 | 11 | 5 | 18 | 246 | 11 prompts, art not made | DONE |
-| b1.12 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.02 | imparfait-usage | 76 | 10 | 10x8 | 10 | 5 | 10 | 233 | 10 images, registered + alt | DONE |
+| b1.03 | pc-imparfait | 76 | 10 | 10x8 | 10 | 5 | 7 | 161 | 10 images, registered + alt | DONE |
+| b1.04 | pc-imparfait-paires | 86 | 12 | 11x8 | 11 | 5 | 19 | 224 | 12 images, registered + alt | DONE |
+| b1.05 | futur-simple | 80 | 10 | 10x8 | 10 | 5 | 14 | 196 | 10 images, registered + alt | DONE |
+| b1.06 | futur-irregulier | 83 | 11 | 10x8 | 10 | 5 | 15 | 222 | 11 images, registered + alt | DONE |
+| b1.07 | futur-usage | 82 | 11 | 11x8 | 11 | 5 | 9 | 201 | 11 images, registered + alt | DONE |
+| b1.08 | conditionnel-present | 82 | 11 | 11x8 | 11 | 5 | 12 | 221 | 11 images, registered + alt | DONE |
+| b1.09 | politesse | 82 | 11 | 11x8 | 11 | 5 | 13 | 232 | 11 images, registered + alt | DONE |
+| b1.10 | si-clauses | 89 | 12 | 12x8 | 12 | 5 | 10 | 215 | 12 images, registered + alt | DONE |
+| b1.11 | qui-que | 83 | 11 | 11x8 | 11 | 5 | 18 | 246 | 11 images, registered + alt | DONE |
+| b1.12 | dont-ou | 84 | 11 | 11x8 | 11 | 5 | 22 | 217 | 11 prompts, art not made | DONE |
+| b1.13 | lequel-ce-qui | 84 | 11 | 11x8 | 11 | 5 | 17 | 215 | 11 prompts, art not made | DONE |
+| b1.14 | subjonctif-formation | 82 | 11 | 11x8 | 11 | 5 | 15 | 234 | 11 prompts, art not made | DONE |
+| b1.15 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
 
-Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08).
+Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
 
-**Next: wave 3, b1.12 (dont and où), b1.13 (lequel, ce qui, ce que), b1.14 (subjunctive formation). Then REVIEW GATE 1.**
+**Wave 3 LANDED 2026-09-24: b1.12, b1.13 and b1.14, each verified independently by the
+orchestrator (not just self-reported). That is ten lessons, so the next step is
+REVIEW GATE 1: regenerate the previews, put them on the Pixel 6, and stop until Paul
+has looked. Nothing in wave 4 starts before that.**
 
 ## THE ID RULE, learned the hard way (2026-09-24)
 
@@ -90,8 +96,23 @@ DB holds 138 `fr.b1.*` rows (001-138), and 693 rows across all levels.
 |---|---|---|
 | 001-138 | **DB** | do not use |
 | 1000-1199 | b1.11 qui and que | 1000-1196 |
-| 1200-1399 | b1.12 dont and où | not started |
-| 1400-1599 | b1.13 lequel, ce qui, ce que | not started |
+| 1200-1399 | b1.12 dont and où, prepositional relatives | 1200-1399 (182 rows) |
+| 1400-1599 | b1.13 lequel, ce qui, ce que | 1400-1592 (193 rows) |
+| 1600+ | FREE | |
+
+### Theme `opinions-et-avis` (fondations, a2-b2)
+
+B1 Unit 4 is the subjunctive, which lives in opinion, will and doubt, not in
+pronouns. Probed 2026-09-24: 295 rows in all, 115 of them `fr.b1.*` at 001-115,
+highest number in the theme 132, and NOTHING at or above 900. The theme already
+exists, so nothing is created at import.
+
+| Block | Owner | Authored |
+|---|---|---|
+| 001-132 | **DB** | do not use |
+| 1000-1199 | b1.14 subjunctive formation | 1000-1195 (196 rows) |
+| 1200-1399 | b1.15 subjunctive triggers (wave 4) | reserved |
+| 1400-1599 | b1.16 subjunctive vs infinitive (wave 4) | reserved |
 
 ## The wave plan from here
 
@@ -125,7 +146,8 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 ## Open items carried forward
 
 - **b1.01 has no sheet links.** Four sheets, nothing points at them. Fix on the next touch of that lesson.
-- **109 images outstanding**: b1.02 to b1.04 (10 + 10 + 12) b1.05 to b1.08 (10 + 11 + 11 + 11) and b1.09 to b1.11 (11 + 12 + 11). Every prompt carries its full save path; the folders are `ealch-v2/assets/lessons/<slug>/`.
+- **The 109 images were made on 2026-09-24 (04:30 to 05:07) and are UNCOMMITTED.** Counted on disk: b1.02 10, b1.03 10, b1.04 12, b1.05 10, b1.06 11, b1.07 11, b1.08 11, b1.09 11, b1.10 12, b1.11 11 = 109, plus b1.01 regenerated. `lessonImages.ts` carries the registrations and is also uncommitted. None of it has been seen on a device, so REVIEW GATE 1 is the first look. Wave 3 (b1.12, b1.13, b1.14) has 33 prompts and no art yet.
+- **The lesson-wide answer-slot rule has never been met outside the quiz.** The §10 checklist says "no slot over 40% lesson-wide; never 3 in a row", but `validateDensity` only inspects the quiz, so authors hit ~36% there, tick the line, and let the missions drift. Measured across every lesson on disk (`scratch/orch-slot-spread.mts`): b1.09 63.6% with 65 three-in-a-row runs, b1.10 62.6%/49, b1.07 58.2%/36, b1.02 57.1%/33, b1.05 56.2%/29, b1.11 53.6%/21, b1.03 51.0%/13, b1.12 48.2%/9, b1.13 47.9%, b1.06 47.4%, b1.04 46.8%, b1.01 44.6%, b1.08 40.3%. **Only b1.14 passes, at 39.7%.** Slot 1 is the house default everywhere. A learner who always taps the middle option clears most of b1.09's gated act checks. Fixing it means widening binary checks to three options, as b1.14 did; retrofitting the other twelve is Paul's call at the gate.
 - **The graded `task` section still has no renderer.** Every lesson authors one; the preview turns it into a teach card. It needs the schema, the act validator, a screen and a grading path before any of this reaches a learner.
 - **DB-only rows cannot be reused, so lessons author twins.** An author can only name an existing row that the SEED carries: `src()` resolves against seed.json and naming a DB-only id throws at module load. But Postgres holds ~115 published `fr.b1.*` rows per theme that the seed omits, and many are exactly on topic (b1.09 found ~40: « il faudrait », « à ta place », « et si on », « on pourrait »). Every lesson therefore authors near-duplicates of published content. b1.09 records seven of them in its corpus as `DB_ONLY_TWINS`. **This needs a decision at import time**: either dedupe against the DB and drop the twins, or keep both and accept the overlap. Until then, authors keep writing twins and the corpus grows redundant.
 - **No B1 import pipeline.** Nothing can reach Postgres or the seed until one exists.
