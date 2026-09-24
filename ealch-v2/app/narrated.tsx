@@ -52,8 +52,15 @@ export default function Narrated() {
   // Same level-gate chokepoint as lesson.tsx: a narrated lesson past A1
   // redirects to the paywall before a word is spoken.
   const levelsAll = useFeature('levels.all');
+  // D-32: unitBand returns null for a band LEVELS does not know. The old
+  // fallback-to-a1 default made an unknown band read as FREE. An id no band
+  // claims is now locked, not free. This closes a latent fail-open; it does
+  // not change the rule (05-GATING-RULE.md, FREE_BANDS and PREMIERE_FEATURES
+  // are untouched).
+  const band = L ? unitBand(L.unitId) : null;
   const bandLocked =
-    !!L && !levelsAll && !(FREE_BANDS as readonly string[]).includes(unitBand(L.unitId) ?? 'a1');
+    !!L && !levelsAll &&
+    (band === null || !(FREE_BANDS as readonly string[]).includes(band));
   useEffect(() => {
     if (bandLocked) {
       trackEvent('gate_blocked', { feature: 'levels.all', from: 'narrated' });

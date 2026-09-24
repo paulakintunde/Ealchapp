@@ -95,8 +95,15 @@ function LessonScreenBody() {
   // DEV-PREVIEW-B101 (temporary): the b1.01 draft opens past the level gate in
   // dev builds only. Nothing else is unlocked and no entitlement is written.
   const devPreview = __DEV__ && L?.id === 'b1.01.l1';
+  // D-32: unitBand returns null for a band LEVELS does not know. The old
+  // fallback-to-a1 default made an unknown band read as FREE. An id no band
+  // claims is now locked, not free. This closes a latent fail-open; it does
+  // not change the rule (05-GATING-RULE.md, FREE_BANDS and PREMIERE_FEATURES
+  // are untouched).
+  const band = L ? unitBand(L.unitId) : null;
   const bandLocked =
-    !!L && !levelsAll && !devPreview && !(FREE_BANDS as readonly string[]).includes(unitBand(L.unitId) ?? 'a1');
+    !!L && !levelsAll && !devPreview &&
+    (band === null || !(FREE_BANDS as readonly string[]).includes(band));
   useEffect(() => {
     if (bandLocked) {
       trackEvent('gate_blocked', { feature: 'levels.all', from: 'lesson' });
