@@ -153,6 +153,7 @@ export default function Den() {
         </View>
 
         {/* DEV-PREVIEW-B101 (temporary): dev builds only, opens the b1.01 draft. */}
+        {/* DEV-PREVIEW-B101 (D-30): the B1 authors' only door. Phase 07.1 plan 08 re-points this at the trail; do not delete it. */}
         {__DEV__ && content.lesson('b1.01.l1') ? (
           <Press
             onPress={() => router.push({ pathname: '/lessonoverview', params: { key: 'b1.01.l1' } })}

@@ -81,6 +81,8 @@ import {
 // DEV-PREVIEW-B101 (temporary): the b1.01 draft overlaid on the seed in dev
 // builds only, so the lesson can be seen on a device before it exists anywhere
 // else. Remove this, the import below, the den row and the JSON together.
+// Phase 07.1: deleting /lessonoverview (D-02) breaks den.tsx's preview row
+// above, so plan 08 must re-point it at the trail rather than delete it.
 import devPreviewB101 from '@/content/dev-preview-b101.json';
 const SEED = __DEV__
   ? mergeCorpus(seedJson as unknown as Corpus, { version: 0, ...devPreviewB101 } as unknown as Corpus)
