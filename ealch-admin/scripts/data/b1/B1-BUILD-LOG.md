@@ -14,9 +14,15 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.02 | imparfait-usage | 76 | 10 | 10x8 | 10 | 5 | 10 | 233 | 10 prompts, art not made | DONE |
 | b1.03 | pc-imparfait | 76 | 10 | 10x8 | 10 | 5 | 7 | 161 | 10 prompts, art not made | DONE |
 | b1.04 | pc-imparfait-paires | 86 | 12 | 11x8 | 11 | 5 | 19 | 224 | 12 prompts, art not made | DONE |
-| b1.05 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.05 | futur-simple | 80 | 10 | 10x8 | 10 | 5 | 14 | 196 | 10 prompts, art not made | DONE |
+| b1.06 | futur-irregulier | 83 | 11 | 10x8 | 10 | 5 | 15 | 222 | 11 prompts, art not made | DONE |
+| b1.07 | futur-usage | 82 | 11 | 11x8 | 11 | 5 | 9 | 201 | 11 prompts, art not made | DONE |
+| b1.08 | conditionnel-present | 82 | 11 | 11x8 | 11 | 5 | 12 | 221 | 11 prompts, art not made | DONE |
+| b1.09 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
 
-Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt).
+Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08).
+
+**Next: wave 2, b1.09 to b1.11.** Six more lessons to review gate 1 (after b1.14).
 
 ## Id ledger, theme `recits-au-passe`
 
@@ -42,10 +48,10 @@ B1 Unit 2 is about the future and the conditional, which are not past narration,
 
 | Block | Owner | Authored |
 |---|---|---|
-| 001-199 | b1.05 futur simple, regular | not started |
-| 200-399 | b1.06 futur simple, irregular stems | not started |
-| 400-599 | b1.07 future usage and conditions | not started |
-| 600-799 | b1.08 conditionnel présent | not started |
+| 001-199 | b1.05 futur simple, regular | 001-170 |
+| 200-399 | b1.06 futur simple, irregular stems | 200-397 |
+| 400-599 | b1.07 future usage and conditions | 400-577 |
+| 600-799 | b1.08 conditionnel présent | 600-789 |
 | 800-999 | b1.10 si clauses | not started |
 | 1000+ | FREE | |
 
@@ -83,7 +89,7 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 ## Open items carried forward
 
 - **b1.01 has no sheet links.** Four sheets, nothing points at them. Fix on the next touch of that lesson.
-- **32 images outstanding** for b1.02 to b1.04 (10 + 10 + 12), prompts written with full save paths.
+- **75 images outstanding**: b1.02 to b1.04 (10 + 10 + 12) and b1.05 to b1.08 (10 + 11 + 11 + 11). Every prompt carries its full save path; the folders are `ealch-v2/assets/lessons/<slug>/`.
 - **The graded `task` section still has no renderer.** Every lesson authors one; the preview turns it into a teach card. It needs the schema, the act validator, a screen and a grading path before any of this reaches a learner.
 - **No B1 import pipeline.** Nothing can reach Postgres or the seed until one exists.
 - **`coach-fr-FR` is an invented voice id** carried by every lesson.
