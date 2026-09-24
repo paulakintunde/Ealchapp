@@ -87043,7 +87043,8 @@
           "body": "You say « un café, s’il vous plaît » with confidence, but the barista hesitates before understanding you. Your C slipped toward an S, and your R never left the tip of your tongue.\n\nThe good news: most French consonants are nearly identical to English. B, D, F, L, M, N, P, T, V, Z sound the way you already say them. This lesson is not a new consonant system, it is a short, closed list of exceptions to the one you already have.",
           "type": "teach",
           "frSub": "Pourquoi ça compte",
-          "title": "Why this matters"
+          "title": "Why this matters",
+          "id": "s01-why"
         },
         {
           "say": "By the end of this lesson you can produce the throat R and soft J, apply the C and G rule from spelling alone, read every forced-spelling override, and handle CH, GN, QU, PH, TH and silent H on sight.",
@@ -87057,14 +87058,16 @@
             "Apply the matching G rule, plus the three forced-spelling overrides: ç, gu, ge.",
             "Read CH, GN, QU, PH, TH and silent H correctly, every time.",
             "Tell which ten consonants need zero new muscle memory."
-          ]
+          ],
+          "id": "s02-goals"
         },
         {
           "say": "Three buckets. Bucket one is unchanged from English, nothing to learn. Bucket two is a new but fixed sound: R, J, CH, GN, QU, PH, TH, H. Bucket three is a letter that switches sound depending on what follows it: C and G. Today lives almost entirely in buckets two and three.",
           "body": "Every French consonant sorts into one of three buckets. Bucket one: unchanged from English, no new skill, that’s B D F L M N P T V Z. Bucket two: a genuinely different but fixed sound, no ambiguity once learned, that’s R, J, CH, GN, QU, PH, TH, H. Bucket three: a letter that switches between two sounds depending on the next letter, that’s C and G.\n\nThis lesson spends almost all its time in buckets two and three, because that’s where every real mistake lives.",
           "type": "teach",
           "frSub": "Les trois catégories",
-          "title": "The three buckets"
+          "title": "The three buckets",
+          "id": "s03-buckets"
         },
         {
           "say": "Five letters, one grid. Tap any letter to open its card: its French name, the sound it makes inside words, and an example. C and G each carry two sounds, that’s worth extra attention, and it’s exactly what the next few cards go deep on.",
@@ -87117,7 +87120,8 @@
               "sound": "hard g before a, o, u; soft zh before e, i, y",
               "exNote": "cake · gel"
             }
-          ]
+          ],
+          "id": "s04-ambush-letters"
         },
         {
           "say": "Building the throat R, one step at a time. Start from a relaxed hard G, drop the scrape in front of a vowel, then try it in a cluster and at the end of a word. The last card stacks five R’s into one sentence.",
@@ -87161,7 +87165,8 @@
             }
           ],
           "frSub": "Construire le R de gorge",
-          "title": "Build the throat R"
+          "title": "Build the throat R",
+          "id": "s05-throat-r"
         },
         {
           "say": "J is always soft in French, and soft G is the exact same sound wearing a different spelling. Swipe through and say each one, feeling for that buzzy measure sound with no hard stop at the front.",
@@ -87205,7 +87210,8 @@
             }
           ],
           "frSub": "J et G doux : un seul son",
-          "title": "J and soft G: one sound, two spellings"
+          "title": "J and soft G: one sound, two spellings",
+          "id": "s06-j-soft-g"
         },
         {
           "say": "The single most useful rule in this lesson. C and G both flip sound depending on the very next letter. A, o, u keeps them hard. E, i, y makes them soft. Tap any row for the detail, and watch the third and sixth rows: ç and gu are how French forces the “wrong” sound on purpose.",
@@ -87296,7 +87302,8 @@
           ],
           "type": "tapTable",
           "frSub": "C et G : la double porte",
-          "title": "C and G: the two-sound gate"
+          "title": "C and G: the two-sound gate",
+          "id": "s07-c-g-gate"
         },
         {
           "say": "Three override spellings do all the work: ç forces a soft sound before a, o, u. Gu forces a hard sound before e, i. Ge forces a soft sound before a, o. Once you see them as a permission slip rather than an exception, they stop needing memorization word by word.",
@@ -87333,7 +87340,8 @@
             }
           ],
           "frSub": "Le piège de l'orthographe forcée",
-          "title": "The forced-spelling trap"
+          "title": "The forced-spelling trap",
+          "id": "s08-forced-spelling"
         },
         {
           "say": "CH and GN behave as single, indivisible units. CH is always the plain sh sound. GN is always one merged nasal sound, never a hard g followed by a separate n.",
@@ -87370,7 +87378,8 @@
             }
           ],
           "frSub": "CH et GN : deux sons fixes",
-          "title": "CH and GN: two fixed digraphs"
+          "title": "CH and GN: two fixed digraphs",
+          "id": "s09-ch-gn"
         },
         {
           "say": "The vocabulary bank, sorted by sound rather than by topic: throat R words, soft J and soft G words, hard C and hard G words, then CH and GN. Tap a theme to open its own mini deck.",
@@ -87488,7 +87497,8 @@
               ],
               "title": "CH and GN"
             }
-          ]
+          ],
+          "id": "s10-vocab"
         },
         {
           "say": "A simple scanning habit turns this rule from a guess into a reflex. Spot every C and G, check the next letter, watch for the three override spellings, then speak. A few days of doing this on short phrases and it becomes automatic.",
@@ -87500,7 +87510,8 @@
             "Watch for the three overrides: ç forces soft, gu forces hard, ge forces soft.",
             "Say the phrase once in your head, then say it out loud."
           ],
-          "title": "Read any C or G before you say it"
+          "title": "Read any C or G before you say it",
+          "id": "s11-read-c-g"
         },
         {
           "say": "Four borrowed spellings, each simplified to one clean sound. QU is k, never a kw glide. PH is f. TH is t. And H, no matter where it sits, makes no sound at all.",
@@ -87565,7 +87576,8 @@
           ],
           "type": "tapTable",
           "frSub": "QU, PH, TH et le H muet",
-          "title": "QU, PH, TH, and silent H"
+          "title": "QU, PH, TH, and silent H",
+          "id": "s12-qu-ph-th-h"
         },
         {
           "say": "A short phrase ladder. Tap each line, listen, then say it yourself before moving to the next. Watch the last line: it runs the C and G rule twice in one breath.",
@@ -87577,7 +87589,8 @@
             "un grand café, merci",
             "Ce garçon regarde la guitare rouge."
           ],
-          "title": "Say it back"
+          "title": "Say it back",
+          "id": "s13-say-it-back"
         },
         {
           "say": "Six mistakes almost every English speaker makes with these consonants, one per card. Each one gets the fix and the reason your mouth wants to make it.",
@@ -87628,7 +87641,8 @@
             }
           ],
           "frSub": "Les erreurs fréquentes",
-          "title": "Common mistakes"
+          "title": "Common mistakes",
+          "id": "s14-mistakes"
         },
         {
           "say": "Speaking drills. Tap each word to hear it, say it out loud, then grade yourself: got it, or missed it. Your answers feed your review deck, so accurate grading means better practice later.",
@@ -87653,7 +87667,8 @@
             "fr.sons.consonnes.008",
             "fr.sons.consonnes.007",
             "fr.sons.consonnes.009"
-          ]
+          ],
+          "id": "s15-speaking"
         },
         {
           "say": "Four minimal pairs, the exact contrasts that trip up an English-trained ear. Say each pair out loud and feel your mouth change between the two.",
@@ -87690,7 +87705,8 @@
             }
           ],
           "frSub": "Les paires minimales",
-          "title": "Minimal pairs"
+          "title": "Minimal pairs",
+          "id": "s16-minimal-pairs"
         },
         {
           "say": "Shadowing. Tap each line, then say it three times, matching a smooth rhythm. Three sentences, three different consonant combinations stacked together.",
@@ -87701,7 +87717,8 @@
             "Ce garçon regarde la guitare rouge.",
             "Le chien dort près de la montagne."
           ],
-          "title": "Shadowing"
+          "title": "Shadowing",
+          "id": "s17-shadowing"
         },
         {
           "say": "Now ears only. Play each word without looking if you can, decide what you heard, then check. These are the digraphs and borrowed spellings that fool an English-trained ear the longest.",
@@ -87725,7 +87742,8 @@
             "fr.sons.consonnes.005",
             "fr.sons.consonnes.006",
             "fr.sons.consonnes.010"
-          ]
+          ],
+          "id": "s18-ear-training"
         },
         {
           "say": "Practice flashcards. Answer out loud, tap the card to flip it, then grade yourself. The effort of recalling is what makes it stick.",
@@ -87791,7 +87809,8 @@
             }
           ],
           "frSub": "Cartes de révision",
-          "title": "Practice flashcards"
+          "title": "Practice flashcards",
+          "id": "s19-flashcards"
         },
         {
           "say": "Bravo. Before the quiz, your key takeaways. Ten letters need nothing new. R is a throat scrape. J and soft G are the same buzzy sound. C and G both flip on the next letter, and ç, gu, ge are the built-in overrides. Ready? The quiz is one tap away.",
@@ -87806,7 +87825,8 @@
             "C and G both flip on the next letter: a, o, u is hard, e, i, y is soft.",
             "Ç forces soft, GU forces hard, GE forces soft. The rule’s built-in overrides.",
             "CH is sh, GN is one merged sound, QU is k, PH is f, TH is t, H is silent."
-          ]
+          ],
+          "id": "s20-roundup"
         },
         {
           "type": "quiz",
@@ -87933,7 +87953,8 @@
               ],
               "correct": 1
             }
-          ]
+          ],
+          "id": "s21-quiz"
         }
       ],
       "narration": {
@@ -88130,6 +88151,111 @@
         "throat-r",
         "c-g-two-sound-rule",
         "ch-gn-digraphs"
+      ],
+      "acts": [
+        {
+          "id": "act1",
+          "title": "Consonants versus vowels",
+          "sections": [
+            "s01-why",
+            "s02-goals",
+            "s03-buckets"
+          ],
+          "milestone": "You understand why French consonants need their own map.",
+          "estScreens": 3
+        },
+        {
+          "id": "act2",
+          "title": "The throat R and the ambush letters",
+          "sections": [
+            "s04-ambush-letters",
+            "s05-throat-r",
+            "s06-j-soft-g",
+            "s07-c-g-gate",
+            "s08-forced-spelling",
+            "s09-ch-gn"
+          ],
+          "milestone": "You can produce the throat R and place R, J, H, C and G correctly.",
+          "estScreens": 20
+        },
+        {
+          "id": "act3",
+          "title": "Reading C and G before you say them",
+          "sections": [
+            "s10-vocab",
+            "s11-read-c-g",
+            "s12-qu-ph-th-h",
+            "s13-say-it-back"
+          ],
+          "milestone": "You can read any C or G and spell the tricky groups aloud.",
+          "estScreens": 4
+        },
+        {
+          "id": "act4",
+          "title": "Common mistakes and shadowing",
+          "sections": [
+            "s14-mistakes",
+            "s15-speaking",
+            "s16-minimal-pairs",
+            "s17-shadowing",
+            "s18-ear-training"
+          ],
+          "milestone": "You can catch the classic consonant slips and repeat them cleanly.",
+          "estScreens": 13
+        },
+        {
+          "id": "act5",
+          "title": "Review and the final quiz",
+          "sections": [
+            "s19-flashcards",
+            "s20-roundup",
+            "s21-quiz"
+          ],
+          "milestone": "You have reviewed every consonant and proven it on the quiz.",
+          "estScreens": 14
+        }
+      ],
+      "deckTranche": [
+        [],
+        [
+          "fr.sons.voyelles.003",
+          "fr.sons.alphabet.005",
+          "fr.sons.voyelles.176",
+          "fr.sons.alphabet.001",
+          "fr.sons.voyelles.146",
+          "fr.sons.alphabet.003",
+          "fr.sons.alphabet.004",
+          "fr.sons.voyelles.009",
+          "fr.sons.mots-essentiels.089",
+          "fr.sons.alphabet.190"
+        ],
+        [
+          "fr.sons.alphabet.191",
+          "fr.sons.voyelles.061",
+          "fr.sons.alphabet.198",
+          "fr.sons.alphabet.199",
+          "fr.sons.alphabet.002",
+          "fr.sons.noms-essentiels.057"
+        ],
+        [
+          "fr.sons.verbes-essentiels.033",
+          "fr.sons.alphabet.205",
+          "fr.sons.alphabet.203",
+          "fr.sons.questions.001",
+          "fr.sons.nombres.003",
+          "fr.sons.consonnes.001",
+          "fr.sons.consonnes.002",
+          "fr.sons.consonnes.003"
+        ],
+        [
+          "fr.sons.consonnes.004",
+          "fr.sons.consonnes.005",
+          "fr.sons.consonnes.006",
+          "fr.sons.consonnes.007",
+          "fr.sons.consonnes.008",
+          "fr.sons.consonnes.009",
+          "fr.sons.consonnes.010"
+        ]
       ]
     },
     {
@@ -121010,7 +121136,8 @@
           "type": "teach",
           "frSub": "Pourquoi ça compte",
           "title": "Why this matters",
-          "imageRef": "lessons/alphabet/cover.jpg"
+          "imageRef": "lessons/alphabet/cover.jpg",
+          "id": "s01-why"
         },
         {
           "say": "By the end of this lesson you will be able to name all twenty six letters the French way, keep a letter's name and its sound in separate boxes, survive the ambush letters, and spell your own name and email out loud, slowly and clearly, like a local.",
@@ -121025,14 +121152,16 @@
             "Spell your own name out loud in French, slowly and clearly.",
             "Dictate an email address in French, including the @, the dot, and the tricky letters.",
             "Recognise the French alphabet song and why its ending sounds different."
-          ]
+          ],
+          "id": "s02-goals"
         },
         {
           "say": "Here is the one idea that fixes half your mistakes. A letter has two separate jobs. Its name is what you say when you spell out loud. Its sound is the noise it makes inside a word. When you dictate your email, you use names. When you read a word aloud, you use sounds. Keep those two jobs in separate boxes in your head, and most of the confusion disappears.",
           "body": "A letter has two completely separate jobs, and beginners jam them together.\n\nThe NAME of a letter is what you say when you spell a word out loud, letter by letter. The SOUND is the noise it makes inside a word: the B in boat does not go bee, it goes a short buh.\n\nFrench works the same way. When you dictate your email, you use names. When you read a French word aloud, you use sounds.\n\nKEY RULE: Spelling out loud = letter NAMES. Reading a word = letter SOUNDS. Different tools for different jobs.",
           "type": "teach",
           "frSub": "Nom contre son",
-          "title": "The core concept: name versus sound"
+          "title": "The core concept: name versus sound",
+          "id": "s03-concept"
         },
         {
           "say": "A quick note on how sounds are written in this lesson. Every sound appears three ways: the precise phonetic symbol in slashes, a plain sounds-like hint, and a respelling in brackets with the stressed syllable in capitals. One special code to remember: z h means the soft buzzy sound in the middle of measure. Hold onto that, it is the key to the letters G and J.",
@@ -121074,7 +121203,8 @@
           ],
           "type": "cheatSheet",
           "frSub": "Notre notation",
-          "title": "How sounds are written here"
+          "title": "How sounds are written here",
+          "id": "s04-notation"
         },
         {
           "say": "This is the master grid, all twenty six letters. Tap any letter to open its card: you will hear its French name, see the sound it makes inside words, and get an example. Take your time here. And watch the AY family: B, C, D, G, P, T and V all rhyme, which is exactly why they cause email disasters on the phone.",
@@ -121308,7 +121438,8 @@
               "sound": "z",
               "exNote": "zero"
             }
-          ]
+          ],
+          "id": "s05-letters"
         },
         {
           "say": "These are the traps, the letters that ambush English speakers. Spend most of your time here. Swipe through each card, listen, and say each French word out loud. The two biggest offenders: E, which is uh and never ee. And the great G J swap: G goes AY, J goes EE.",
@@ -121381,7 +121512,8 @@
           ],
           "frSub": "Les lettres pièges",
           "title": "The letters that ambush you",
-          "imageRef": "lessons/alphabet/ambush.jpg"
+          "imageRef": "lessons/alphabet/ambush.jpg",
+          "id": "s06-ambush"
         },
         {
           "say": "English vowel letters are lazy and change constantly. French vowels are stable and clean. Tap any row to open that vowel's card and hear it. Your English autopilot will read A as ay, I as eye and E as ee. All three are wrong in French. Retrain them: A is ah, E is uh, I is ee.",
@@ -121472,7 +121604,8 @@
           ],
           "type": "tapTable",
           "frSub": "Les voyelles comparées",
-          "title": "Vowels: French versus English"
+          "title": "Vowels: French versus English",
+          "id": "s07-vowels"
         },
         {
           "say": "Twenty two everyday words showing the tricky letters in real context. Each word gets its own card: tap to hear it, then say it out loud yourself. Watch cards seven and eight closely. The same letter G makes two different sounds depending on the letter after it. That rule, and its friends, live in the Pattern Bank coming up.",
@@ -121613,7 +121746,8 @@
             }
           ],
           "frSub": "Exemples guidés",
-          "title": "Worked examples"
+          "title": "Worked examples",
+          "id": "s08-examples"
         },
         {
           "say": "Time to climb the sound ladder. Five rungs, each one adding a little difficulty. Start with a single sound, end with a full phrase. Tap each card to hear it, repeat it out loud, and only move up when the rung below feels easy.",
@@ -121658,7 +121792,8 @@
           ],
           "frSub": "L'échelle des sons",
           "title": "The sound ladder",
-          "imageRef": "lessons/alphabet/ladder.jpg"
+          "imageRef": "lessons/alphabet/ladder.jpg",
+          "id": "s09-ladder"
         },
         {
           "say": "The Pattern Bank: ten reusable rules for turning letters into sounds, each with three real examples. Patterns three and four, the soft and hard C and G, are the highest-value sound rules in all of French. And pattern eight gives you the memory word careful: C, R, F, L are the final consonants that usually get pronounced.",
@@ -121737,7 +121872,8 @@
             }
           ],
           "frSub": "La banque de motifs",
-          "title": "Pattern bank"
+          "title": "Pattern bank",
+          "id": "s10-patterns"
         },
         {
           "say": "The vocabulary bank. Five themes: greetings, food and drink, travel and town, people and home, and handy small words. Tap a theme card to open its own mini deck, then swipe through and say each word aloud. One gem to notice: aujourd'hui, today, looks terrifying but is just your friends stacked together. The O sound, the buzzy J, the throaty R, a silent H, and the U. Every scary piece is a letter you already met.",
@@ -121934,7 +122070,8 @@
               ],
               "title": "Handy small words and numbers"
             }
-          ]
+          ],
+          "id": "s11-vocab"
         },
         {
           "say": "This is the part that pays for the whole lesson. When French speakers spell something important on the phone, they do three things you should copy. One: they use the letter names, slowly. Two: they confirm blurry letters with a helper word, B comme Bernard, B as in Bernard. Three: for an email they name the symbols too. Let us build each piece.",
@@ -121945,7 +122082,8 @@
             "Confirm blurry letters with a helper word, because B, C, D, G, P, T, V all rhyme on the phone. The formula is B comme Bernard: B as in Bernard. Any well-known first name works.",
             "For an email, name the symbols too: arobase for @, point for the dot. The full list is two cards away."
           ],
-          "title": "Spell your name like a local"
+          "title": "Spell your name like a local",
+          "id": "s12-spell-name"
         },
         {
           "say": "The classic French confirmation formula: the letter, then comme, then a well-known first name. B comme Bernard, P comme Pierre. Tap any row to hear it spoken. These helper words are exactly how French people survive the AY family on the phone.",
@@ -122053,7 +122191,8 @@
           ],
           "type": "tapTable",
           "frSub": "Les mots repères",
-          "title": "Helper words for blurry letters"
+          "title": "Helper words for blurry letters",
+          "id": "s13-helper-words"
         },
         {
           "say": "To dictate an email you also need the symbols. The word you absolutely cannot skip is arobase, the French name for the at sign. If you memorise only one email word, memorise that one. Tap each row to hear the French.",
@@ -122183,7 +122322,8 @@
           ],
           "type": "tapTable",
           "frSub": "Les mots de l'email",
-          "title": "Email words you must know"
+          "title": "Email words you must know",
+          "id": "s14-email-words"
         },
         {
           "say": "A full worked example. Say you want to give the address paul point h, at gmail dot com. Tap each line in order and repeat it. Hear how the helper words rescue the P and the G, and how arobase and point carry the structure. Then rehearse your own email the same way. It takes ninety seconds and it is the single most useful thing you can prepare before you travel.",
@@ -122197,7 +122337,8 @@
             "G comme Georges, M, A, I, L",
             "point com"
           ],
-          "title": "The full email, out loud"
+          "title": "The full email, out loud",
+          "id": "s15-email-audio"
         },
         {
           "say": "Good news: you already know the tune of the French alphabet song. It is Twinkle Twinkle Little Star, same as the English ABC song. Only the words change. Slow down at the unfamiliar ending: double vé, iks, i grec, zède. Singing it a few times is a genuinely good way to lock the order in.",
@@ -122205,7 +122346,8 @@
           "type": "teach",
           "frSub": "La chanson de l'alphabet",
           "title": "The alphabet song",
-          "imageRef": "lessons/alphabet/song.jpg"
+          "imageRef": "lessons/alphabet/song.jpg",
+          "id": "s16-song"
         },
         {
           "say": "Here are the four lines of the song, letter names written out the French way. Tap each line, listen, then sing it back on the Twinkle Twinkle tune.",
@@ -122217,7 +122359,8 @@
             "o, pé, ku, erre, esse, té, u",
             "vé, double vé, iks, i grec, zède"
           ],
-          "title": "Sing along, line by line"
+          "title": "Sing along, line by line",
+          "id": "s17-sing-along"
         },
         {
           "say": "Eight mistakes almost every English speaker makes, one per card. For each one you get the fix and the reason your mouth wants to make it. The reason matters: once you know why a mistake happens, you can catch yourself before it does.",
@@ -122282,7 +122425,8 @@
             }
           ],
           "frSub": "Les erreurs classiques",
-          "title": "Common mistakes"
+          "title": "Common mistakes",
+          "id": "s18-mistakes"
         },
         {
           "say": "Reading practice, three levels. Five isolated words, three simple sentences, then a real mini dialogue: Amira booking a table by phone in Lyon, spelling her name and her email. Tap each card to hear the French, then read it aloud yourself before you swipe on.",
@@ -122368,7 +122512,8 @@
             }
           ],
           "frSub": "Lecture guidée",
-          "title": "Reading practice"
+          "title": "Reading practice",
+          "id": "s19-reading"
         },
         {
           "say": "Speaking drills. Tap each word to hear it, say it out loud, then grade yourself: got it, or missed it. Your answers feed your review deck, so accurate grading means better practice later.",
@@ -122387,7 +122532,8 @@
             "fr.sons.alphabet.006",
             "fr.sons.alphabet.007",
             "fr.sons.alphabet.008"
-          ]
+          ],
+          "id": "s20-speaking"
         },
         {
           "say": "Minimal pairs: six pairs of sounds that English speakers blur. Say each pair out loud and feel your mouth change between the two. If a pair sounds identical when you say it, slow down and exaggerate the difference until it splits.",
@@ -122436,7 +122582,8 @@
             }
           ],
           "frSub": "Les paires minimales",
-          "title": "Minimal pairs"
+          "title": "Minimal pairs",
+          "id": "s21-minimal-pairs"
         },
         {
           "say": "Shadowing: tap each line, then say it three times, matching a smooth rhythm. These are the three sentence starters you will actually use: introducing yourself, saying where you live, and giving your email.",
@@ -122447,7 +122594,8 @@
             "J'habite rue...",
             "Mon email, c'est... arobase... point com."
           ],
-          "title": "Shadowing"
+          "title": "Shadowing",
+          "id": "s22-shadowing"
         },
         {
           "say": "Eight memory hacks, one per card. These are the tricks a good teacher slips you at the end of class. If you keep only three: E is uh and I is ee. G goes AY, J goes EE. And arobase is the at sign.",
@@ -122496,7 +122644,8 @@
             }
           ],
           "frSub": "Les astuces mémoire",
-          "title": "Memory hacks"
+          "title": "Memory hacks",
+          "id": "s23-memory-hacks"
         },
         {
           "say": "Practice flashcards. Answer out loud, tap the card to flip it, then grade yourself. The effort of recalling is what makes it stick.",
@@ -122558,7 +122707,8 @@
             }
           ],
           "frSub": "Les cartes de révision",
-          "title": "Practice flashcards"
+          "title": "Practice flashcards",
+          "id": "s24-flashcards"
         },
         {
           "say": "Bravo! You have taken the whole French alphabet apart and put it back together. Before the quiz, here are your key takeaways. Names for spelling, sounds for reading. E is uh, I is ee. G goes AY, J goes EE. H is silent. And when it is time to give your email: arobase. Ready? The quiz is one tap away. Bonne chance!",
@@ -122575,7 +122725,8 @@
             "To dictate an email: letter names, helper words like B comme Bernard, arobase and point.",
             "Rehearse your own name and email out loud. Ninety seconds now saves a frustrating phone call later."
           ],
-          "imageRef": "lessons/alphabet/cover.jpg"
+          "imageRef": "lessons/alphabet/cover.jpg",
+          "id": "s25-roundup"
         },
         {
           "type": "quiz",
@@ -122714,7 +122865,8 @@
               ],
               "correct": 1
             }
-          ]
+          ],
+          "id": "s26-quiz"
         }
       ],
       "narration": {
@@ -122888,7 +123040,106 @@
         ],
         "ratioEnFr": 0.7,
         "camilleVoiceId": "camille-fr-ca-01"
-      }
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "Sounds versus letters",
+          "sections": [
+            "s01-why",
+            "s02-goals",
+            "s03-concept",
+            "s04-notation"
+          ],
+          "milestone": "You know why French spelling and French sound are different games.",
+          "estScreens": 4
+        },
+        {
+          "id": "act2",
+          "title": "The alphabet, the ambush letters, the vowels",
+          "sections": [
+            "s05-letters",
+            "s06-ambush",
+            "s07-vowels",
+            "s08-examples",
+            "s09-ladder",
+            "s10-patterns"
+          ],
+          "milestone": "You can say every letter and hear the vowels that trip up English speakers.",
+          "estScreens": 48
+        },
+        {
+          "id": "act3",
+          "title": "Spelling out loud",
+          "sections": [
+            "s11-vocab",
+            "s12-spell-name",
+            "s13-helper-words",
+            "s14-email-words"
+          ],
+          "milestone": "You can spell your own name and read an email address out loud.",
+          "estScreens": 4
+        },
+        {
+          "id": "act4",
+          "title": "The alphabet song and common slips",
+          "sections": [
+            "s15-email-audio",
+            "s16-song",
+            "s17-sing-along",
+            "s18-mistakes",
+            "s19-reading"
+          ],
+          "milestone": "You can sing the alphabet and catch the mistakes that repeat most.",
+          "estScreens": 24
+        },
+        {
+          "id": "act5",
+          "title": "Speaking and listening drills",
+          "sections": [
+            "s20-speaking",
+            "s21-minimal-pairs",
+            "s22-shadowing",
+            "s23-memory-hacks"
+          ],
+          "milestone": "You can hear and say the pairs that sound almost the same.",
+          "estScreens": 16
+        },
+        {
+          "id": "act6",
+          "title": "Review and the final quiz",
+          "sections": [
+            "s24-flashcards",
+            "s25-roundup",
+            "s26-quiz"
+          ],
+          "milestone": "You have reviewed the whole alphabet and proven it on the quiz.",
+          "estScreens": 14
+        }
+      ],
+      "deckTranche": [
+        [],
+        [
+          "fr.sons.alphabet.001",
+          "fr.sons.voyelles.001",
+          "fr.sons.voyelles.003",
+          "fr.sons.alphabet.002"
+        ],
+        [
+          "fr.sons.alphabet.003",
+          "fr.sons.alphabet.004"
+        ],
+        [
+          "fr.sons.alphabet.005",
+          "fr.sons.alphabet.006"
+        ],
+        [
+          "fr.sons.alphabet.007"
+        ],
+        [
+          "fr.sons.alphabet.008"
+        ]
+      ]
     },
     {
       "id": "a2.33.l1",
@@ -143804,7 +144055,8 @@
               "t": "Liaison"
             }
           ],
-          "title": "What you'll master"
+          "title": "What you'll master",
+          "id": "s02-goals"
         },
         {
           "hint": "Six cards, then you'll hear all four nasals in action.",
@@ -143844,7 +144096,8 @@
             }
           ],
           "frSub": "La grande idée",
-          "title": "The basic idea"
+          "title": "The basic idea",
+          "id": "s03-basic-idea"
         },
         {
           "type": "soundGrid",
@@ -143927,7 +144180,8 @@
                 "oin"
               ]
             }
-          ]
+          ],
+          "id": "s04-sound-grid"
         },
         {
           "type": "groupDrill",
@@ -144082,7 +144336,8 @@
               ],
               "label": "IEN · OIN"
             }
-          ]
+          ],
+          "id": "s05-group-drill"
         },
         {
           "type": "trapDrill",
@@ -144159,7 +144414,8 @@
             }
           ],
           "frSub": "Le piège de l'anti-règle",
-          "title": "The anti-rule trap"
+          "title": "The anti-rule trap",
+          "id": "s06-trap-anti-rule"
         },
         {
           "type": "pronunciationLab",
@@ -144201,7 +144457,8 @@
                 "fr.sons.nasales.169"
               ]
             }
-          ]
+          ],
+          "id": "s07-pronunciation-lab"
         },
         {
           "type": "flashcards",
@@ -144303,7 +144560,8 @@
             }
           ],
           "frSub": "Le vocabulaire nasal",
-          "title": "Nasal vocabulary"
+          "title": "Nasal vocabulary",
+          "id": "s08-vocab"
         },
         {
           "type": "examples",
@@ -144360,7 +144618,8 @@
               "fr": "Combien d'enfants avez-vous ?",
               "note": "Drills combien's [jɛ̃] glide against enfant's double [ɑ̃]."
             }
-          ]
+          ],
+          "id": "s09-examples"
         },
         {
           "type": "dictation",
@@ -144372,7 +144631,8 @@
             "fr.sons.nasales.167",
             "fr.sons.nasales.169",
             "fr.sons.voyelles.117"
-          ]
+          ],
+          "id": "s10-dictation"
         },
         {
           "type": "listening",
@@ -144461,7 +144721,8 @@
               ],
               "correct": 1
             }
-          ]
+          ],
+          "id": "s11-breakfast-listening"
         },
         {
           "type": "practice",
@@ -144474,7 +144735,8 @@
             "fr.sons.nasales.130",
             "fr.sons.nasales.003",
             "fr.sons.nasales.129"
-          ]
+          ],
+          "id": "s12-speak-aloud"
         },
         {
           "type": "scenario",
@@ -144578,7 +144840,8 @@
               "userEn": "Thank you, you too!"
             }
           ],
-          "setting": "BAKERY MARIE, LYON · 8:12 AM"
+          "setting": "BAKERY MARIE, LYON · 8:12 AM",
+          "id": "s13-bakery-scenario"
         },
         {
           "type": "commonErrors",
@@ -144625,7 +144888,8 @@
               "right": "Give the nasal or oral contrast the same care you'd give any other grammar rule, it changes meaning, not just accent.",
               "wrong": "Forgetting that nasal versus oral is often the only spoken signal of grammatical gender, as in américain versus américaine."
             }
-          ]
+          ],
+          "id": "s14-common-errors"
         },
         {
           "type": "practice",
@@ -144639,7 +144903,8 @@
             "fr.sons.nasales.169",
             "fr.sons.nasales.170",
             "fr.sons.nasales.171"
-          ]
+          ],
+          "id": "s15-bon-bonne"
         },
         {
           "text": "Bonjour ! Je m'appelle Jean. J'ai un chien brun, et j'ai un grand jardin. Le matin, j'ai faim, alors je mange du bon pain. Combien d'enfants avons-nous ? Nous avons deux enfants : un garçon et une fille. Ils sont contents dans la maison. Quand il fait beau, nous mangeons dans le jardin. C'est bien. Maintenant, j'ai un peu de temps. À demain !",
@@ -144667,7 +144932,8 @@
               "a": "Contents / content.",
               "q": "Which word means happy?"
             }
-          ]
+          ],
+          "id": "s16-reading"
         },
         {
           "type": "reviewDeck",
@@ -144714,7 +144980,8 @@
             }
           ],
           "frSub": "La boussole des quatre ancres",
-          "title": "The four-anchor compass"
+          "title": "The four-anchor compass",
+          "id": "s17-review-deck"
         },
         {
           "body": "You have unlocked all four nasal vowels, the sounds that carry French gender when nothing else does.",
@@ -144738,7 +145005,8 @@
               "v": "A1"
             }
           ],
-          "title": "Lesson wrap-up"
+          "title": "Lesson wrap-up",
+          "id": "s18-progress-check"
         },
         {
           "type": "quiz",
@@ -144866,7 +145134,8 @@
               ],
               "correct": 1
             }
-          ]
+          ],
+          "id": "s19-quiz"
         },
         {
           "body": "You just mastered the one feature of French that English has no equivalent for at all: four pure vowel sounds carried entirely through the nose. That skill alone unlocks an entire hidden layer of French grammar you could not hear before.",
@@ -144880,7 +145149,8 @@
             "You hear grammatical gender that used to be invisible, in pairs like bon and bonne, un and une, américain and américaine.",
             "You predict liaison correctly, keeping the nasal in un homme and denasalizing bon ami.",
             "This closes out the Sons unit. Your next stop is A1."
-          ]
+          ],
+          "id": "s20-roundup"
         }
       ],
       "narration": {
@@ -145042,7 +145312,97 @@
         ],
         "ratioEnFr": 0.7,
         "camilleVoiceId": "camille-fr-ca-01"
-      }
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "A welcome, misheard",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-basic-idea"
+          ],
+          "milestone": "You know what the four nasal vowels are and why one of them caused the mix-up.",
+          "estScreens": 8
+        },
+        {
+          "id": "act2",
+          "title": "The four nasal families and the anti-rule trap",
+          "sections": [
+            "s04-sound-grid",
+            "s05-group-drill",
+            "s06-trap-anti-rule",
+            "s07-pronunciation-lab"
+          ],
+          "milestone": "You can sort the four nasal families and avoid the anti-rule trap.",
+          "estScreens": 4
+        },
+        {
+          "id": "act3",
+          "title": "Nasal vocabulary and real phrases",
+          "sections": [
+            "s08-vocab",
+            "s09-examples",
+            "s10-dictation",
+            "s11-breakfast-listening",
+            "s12-speak-aloud"
+          ],
+          "milestone": "You have ten reusable phrases and can spell the nasals you hear.",
+          "estScreens": 5
+        },
+        {
+          "id": "act4",
+          "title": "At the bakery, in writing",
+          "sections": [
+            "s13-bakery-scenario",
+            "s14-common-errors",
+            "s15-bon-bonne",
+            "s16-reading"
+          ],
+          "milestone": "You can use the nasals in a real order and write the bon/bonne trap correctly.",
+          "estScreens": 4
+        },
+        {
+          "id": "act5",
+          "title": "Review and the final quiz",
+          "sections": [
+            "s17-review-deck",
+            "s18-progress-check",
+            "s19-quiz",
+            "s20-roundup"
+          ],
+          "milestone": "You have reviewed the four-anchor compass and proven the nasals on the quiz.",
+          "estScreens": 15
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.sons.voyelles.108",
+          "fr.sons.nasales.166",
+          "fr.sons.voyelles.119"
+        ],
+        [
+          "fr.sons.nasales.168",
+          "fr.sons.nasales.176",
+          "fr.sons.nasales.167"
+        ],
+        [
+          "fr.sons.nasales.169",
+          "fr.sons.nasales.177",
+          "fr.sons.voyelles.117",
+          "fr.sons.nasales.002"
+        ],
+        [
+          "fr.sons.nasales.066",
+          "fr.sons.nasales.130",
+          "fr.sons.nasales.003"
+        ],
+        [
+          "fr.sons.nasales.129",
+          "fr.sons.nasales.170",
+          "fr.sons.nasales.171"
+        ]
+      ]
     },
     {
       "id": "a1.07.l1",
@@ -154621,7 +154981,8 @@
               "t": "Read a vowel right the first time"
             }
           ],
-          "title": "What You'll Be Able to Do"
+          "title": "What You'll Be Able to Do",
+          "id": "s02-goals"
         },
         {
           "hint": "Six anchors before we dive into the detail",
@@ -154653,7 +155014,8 @@
             }
           ],
           "frSub": "La grande idée",
-          "title": "The Basic Idea"
+          "title": "The Basic Idea",
+          "id": "s03-basic-idea"
         },
         {
           "type": "soundGrid",
@@ -154796,7 +155158,8 @@
                 "où"
               ]
             }
-          ]
+          ],
+          "id": "s04-sound-grid"
         },
         {
           "type": "groupDrill",
@@ -154970,7 +155333,8 @@
               ],
               "label": "Closed EU · Open EU · OU"
             }
-          ]
+          ],
+          "id": "s05-group-drill"
         },
         {
           "id": "s06-trap-u-ou",
@@ -155111,7 +155475,8 @@
                 "fr.sons.voyelles.103"
               ]
             }
-          ]
+          ],
+          "id": "s07-pronunciation-lab"
         },
         {
           "type": "flashcards",
@@ -155194,7 +155559,8 @@
             }
           ],
           "frSub": "Le vocabulaire des voyelles",
-          "title": "Vocabulary for the Seven Vowels"
+          "title": "Vocabulary for the Seven Vowels",
+          "id": "s08-vocab"
         },
         {
           "type": "examples",
@@ -155251,7 +155617,8 @@
               "fr": "C'est un peu, ou c'est beaucoup ?",
               "note": "drills closed EU (peu) against OU (beaucoup)"
             }
-          ]
+          ],
+          "id": "s09-examples"
         },
         {
           "type": "dictation",
@@ -155263,7 +155630,8 @@
             "fr.sons.voyelles.082",
             "fr.sons.voyelles.009",
             "fr.sons.voyelles.164"
-          ]
+          ],
+          "id": "s10-dictation"
         },
         {
           "type": "listening",
@@ -155346,7 +155714,8 @@
               ],
               "correct": 1
             }
-          ]
+          ],
+          "id": "s11-cafe-listening"
         },
         {
           "type": "practice",
@@ -155362,7 +155731,8 @@
             "fr.sons.voyelles.078",
             "fr.sons.voyelles.083",
             "fr.sons.voyelles.069"
-          ]
+          ],
+          "id": "s12-speak-aloud"
         },
         {
           "type": "scenario",
@@ -155450,7 +155820,8 @@
               "userEn": "Thank you, have a good day!"
             }
           ],
-          "setting": "BAKERY · LYON, LATE MORNING"
+          "setting": "BAKERY · LYON, LATE MORNING",
+          "id": "s13-bakery-scenario"
         },
         {
           "type": "commonErrors",
@@ -155497,7 +155868,8 @@
               "right": "Both are a single fixed spelling for [o], to memorize as one unit",
               "wrong": "Reading eau or au letter by letter, as three separate sounds"
             }
-          ]
+          ],
+          "id": "s14-common-errors"
         },
         {
           "type": "practice",
@@ -155511,7 +155883,8 @@
             "fr.sons.voyelles.071",
             "fr.sons.voyelles.073",
             "fr.sons.voyelles.072"
-          ]
+          ],
+          "id": "s15-ear-u-ou"
         },
         {
           "text": "C'est une famille heureuse. Il y a un père, une mère, un garçon et une fille. Le garçon a un chat. La fille a une fleur bleue. Le matin, la famille boit un café avec un peu de lait. « Tu veux du sucre ? » demande le père. « Un peu, merci », répond la mère. C'est une belle journée. Ils sont heureux, tous les deux.",
@@ -155539,7 +155912,8 @@
               "a": "'Heureuse', and 'heureux' for the father.",
               "q": "Which word in the text means 'happy'?"
             }
-          ]
+          ],
+          "id": "s16-reading"
         },
         {
           "type": "reviewDeck",
@@ -155578,7 +155952,8 @@
             }
           ],
           "frSub": "Le système des paires arrondies",
-          "title": "The System of Rounded Pairs"
+          "title": "The System of Rounded Pairs",
+          "id": "s17-review-deck"
         },
         {
           "say": "A quick look at how far your ear and your voice have come.",
@@ -155603,7 +155978,8 @@
               "v": "Nasal vowels"
             }
           ],
-          "title": "Where You Stand"
+          "title": "Where You Stand",
+          "id": "s18-progress-check"
         },
         {
           "type": "quiz",
@@ -155730,7 +156106,8 @@
               ],
               "correct": 0
             }
-          ]
+          ],
+          "id": "s19-quiz"
         },
         {
           "say": "Nice work. Take a moment to see how much ground you just covered.",
@@ -155745,7 +156122,8 @@
             "You can produce U [y], the sound with no English equivalent.",
             "You've got closed EU and open EU down, the two keys to the second 100% French sound.",
             "Next up: nasal vowels, a whole new playground for your ear."
-          ]
+          ],
+          "id": "s20-roundup"
         }
       ],
       "narration": {
@@ -155911,6 +156289,105 @@
       "grammarIntroduced": [
         "oral-vowels",
         "vowel-purity"
+      ],
+      "acts": [
+        {
+          "id": "act1",
+          "title": "A misunderstanding, named",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-basic-idea"
+          ],
+          "milestone": "You know what the seven oral vowels are and why one mix-up caused it.",
+          "estScreens": 8
+        },
+        {
+          "id": "act2",
+          "title": "The seven vowels and the U/OU trap",
+          "sections": [
+            "s04-sound-grid",
+            "s05-group-drill",
+            "s06-trap-u-ou",
+            "s07-pronunciation-lab"
+          ],
+          "milestone": "You can place each vowel sound and hear the difference between U and OU.",
+          "estScreens": 4
+        },
+        {
+          "id": "act3",
+          "title": "Vocabulary and real sentences",
+          "sections": [
+            "s08-vocab",
+            "s09-examples",
+            "s10-dictation",
+            "s11-cafe-listening",
+            "s12-speak-aloud"
+          ],
+          "milestone": "You have ten reusable sentences and can spell what you hear.",
+          "estScreens": 5
+        },
+        {
+          "id": "act4",
+          "title": "At the café and the bakery",
+          "sections": [
+            "s13-bakery-scenario",
+            "s14-common-errors",
+            "s15-ear-u-ou",
+            "s16-reading"
+          ],
+          "milestone": "You can use the vowels in a real order and catch the eight classic traps.",
+          "estScreens": 4
+        },
+        {
+          "id": "act5",
+          "title": "Review and the final quiz",
+          "sections": [
+            "s17-review-deck",
+            "s18-progress-check",
+            "s19-quiz",
+            "s20-roundup"
+          ],
+          "milestone": "You have reviewed the rounded pairs and proven all seven vowels on the quiz.",
+          "estScreens": 15
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.sons.voyelles.001",
+          "fr.sons.voyelles.003",
+          "fr.sons.voyelles.008",
+          "fr.sons.voyelles.075"
+        ],
+        [
+          "fr.sons.voyelles.096",
+          "fr.sons.voyelles.004",
+          "fr.sons.voyelles.100",
+          "fr.sons.voyelles.103",
+          "fr.sons.voyelles.102"
+        ],
+        [
+          "fr.sons.voyelles.077",
+          "fr.sons.voyelles.082",
+          "fr.sons.voyelles.009",
+          "fr.sons.voyelles.164",
+          "fr.sons.voyelles.061",
+          "fr.sons.voyelles.065"
+        ],
+        [
+          "fr.sons.voyelles.087",
+          "fr.sons.voyelles.092",
+          "fr.sons.voyelles.107",
+          "fr.sons.voyelles.078",
+          "fr.sons.voyelles.083"
+        ],
+        [
+          "fr.sons.voyelles.069",
+          "fr.sons.voyelles.002",
+          "fr.sons.voyelles.071",
+          "fr.sons.voyelles.073",
+          "fr.sons.voyelles.072"
+        ]
       ]
     },
     {
