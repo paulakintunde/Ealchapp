@@ -228,6 +228,32 @@ publish.
 | 1000-1199 | b1.21 inversion | 1000-1194 (181 rows) |
 | 1200+ | FREE | |
 
+### Wave 6 themes, all EXISTING, edited in Postgres 2026-09-25
+
+None of the three needed a new theme. All three had empty `sub_themes`, now
+filled. **These edits live in POSTGRES ONLY. `import-seed.ts` upserts seed.json's
+themes over Postgres, so running it would revert them; a publish carries them
+into the seed instead.** Nothing validates an item's level against its
+theme's range, so the widening is for the label, not for a gate.
+
+| Theme | Change | Probed 2026-09-25 |
+|---|---|---|
+| `description-personnes-objets` | range a1-a2 WIDENED to a1-b1; sub-themes: le portrait et le caractère, les objets et leurs qualités, c'est ou il est | 300 rows, 0 `fr.b1`, highest 180 |
+| `expressions-de-quantite` (a1-b2) | sub-themes: les quantités et les mesures, beaucoup peu assez, tout et la totalité | 521 rows, 167 `fr.b1`, highest 170 |
+| `comparaisons` (a2-b2) | sub-themes: le comparatif, le superlatif, le même et la différence | 319 rows, 111 `fr.b1`, highest 163 |
+
+Why `description-personnes-objets` for c'est vs il est rather than
+`pronoms-essentiels`: the choice IS describing people and things, the theme
+had no b1 rows, and `pronoms-essentiels` already carries four B1 lessons.
+
+| Theme | Block | Owner | Authored |
+|---|---|---|---|
+| `description-personnes-objets` | 1000-1199 | b1.22 c'est vs il est | |
+| `expressions-de-quantite` | 1000-1199 | b1.23 tout | |
+| `comparaisons` | 1000-1199 | b1.24 même | |
+
+In each, everything below 1000 is published or reserved: do not use.
+
 ## The wave plan from here
 
 Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing in the next wave starts until he has.
