@@ -27,7 +27,8 @@ import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
 import { GlossContext } from '@/components/GlossContext';
-import { englishShown, glossToggleApplies } from '@/content/english.logic';
+import { englishMode, glossToggleApplies } from '@/content/english.logic';
+import { LanguageChip, LanguagePanel } from '@/components/LanguagePanel';
 
 // Callers written before the corpus used short keys; map them to the real ids so
 // existing links (home's weak-spots row, etc.) keep working until they're updated.
@@ -43,33 +44,12 @@ export default function LessonScreen() {
   const params = useLocalSearchParams<{ key?: string }>();
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
   const lesson = content.lesson(raw ? LEGACY[raw] ?? raw : '');
-  const pref = useStore((s) => s.lessonEnglish);
-  const show = englishShown(lesson ? unitBand(lesson.unitId) : null, pref);
+  const pref = useStore((s) => s.lessonEnglishMode);
+  const mode = englishMode(lesson ? unitBand(lesson.unitId) : null, pref);
   return (
-    <GlossContext.Provider value={show}>
+    <GlossContext.Provider value={mode}>
       <LessonScreenBody />
     </GlossContext.Provider>
-  );
-}
-
-/** The B1+ header control: English translations on or off, for every B1+
- *  lesson at once. Absent on A1/A2, where English is how the lesson teaches. */
-function EnglishToggle() {
-  const t = useTheme();
-  const on = useStore((s) => s.lessonEnglish);
-  const set = useStore((s) => s.setLessonEnglish);
-  return (
-    <Press
-      cue={null}
-      onPress={() => set(!on)}
-      accessibilityRole="switch"
-      accessibilityState={{ checked: on }}
-      accessibilityLabel={on ? 'Hide English translations' : 'Show English translations'}
-      hitSlop={8}
-      style={{ height: 32, paddingHorizontal: 10, borderRadius: 16, borderWidth: 1, borderColor: on ? t.acc : t.line(14), backgroundColor: on ? t.accA(18) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
-    >
-      <TX font="bold" role="label" ls={1} color={on ? t.accTx : t.txSecondary}>EN</TX>
-    </Press>
   );
 }
 
@@ -131,6 +111,13 @@ function LessonScreenBody() {
   const setLessonKeySeen = useStore((s) => s.setLessonKeySeen);
   const [showKeyOverride, setShowKeyOverride] = useState(false);
   const showKey = !lessonKeySeen || showKeyOverride;
+
+  // The B1+ language control (D-13/D-14): the chip in the header opens this
+  // panel, a local-state overlay like plan 06's LevelPanel — never persisted,
+  // never a route (see LanguagePanel.tsx's own back-handling note).
+  const lessonEnglishMode = useStore((s) => s.lessonEnglishMode);
+  const setLessonEnglishMode = useStore((s) => s.setLessonEnglishMode);
+  const [langPanelOpen, setLangPanelOpen] = useState(false);
 
   const [playingId, setPlayingId] = useState<string | null>(null);
   // itemIds self-rated this visit — purely a UI dim/highlight cue, never read
@@ -712,10 +699,15 @@ function LessonScreenBody() {
           title={L.tag}
           extra={
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              {/* D-15: the chip renders only where the toggle applies at
+                  all — b1, b2, c1, c2 — and never on sons/a1/a2. That single
+                  line is D-15 and it does not change shape. */}
+              {glossToggleApplies(band) ? (
+                <LanguageChip mode={lessonEnglishMode} expanded={langPanelOpen} onPress={() => setLangPanelOpen(true)} />
+              ) : null}
               {/* The persistent reference link: one tap to the sheets from
                   any screen of the lesson, which is what stops material
                   pulled out of the flow from being lost. */}
-              {glossToggleApplies(unitBand(L.unitId)) ? <EnglishToggle /> : null}
               <SheetLink count={L.sheets?.length ?? 0} onPress={() => setSheetId('')} />
               <Press
                 cue={null}
@@ -731,6 +723,16 @@ function LessonScreenBody() {
           }
         />
       </View>
+
+      <LanguagePanel
+        mode={lessonEnglishMode}
+        onSelect={(m) => {
+          setLessonEnglishMode(m);
+          setLangPanelOpen(false);
+        }}
+        open={langPanelOpen}
+        onClose={() => setLangPanelOpen(false)}
+      />
 
       <LessonPager
         key={`${L.id}-${runNonce}`}
