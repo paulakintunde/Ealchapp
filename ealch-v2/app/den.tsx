@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import { View } from 'react-native';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -9,6 +9,7 @@ import { Icon } from '@/components/Icon';
 import { TrailRow as TrailRowCmp } from '@/components/TrailRow';
 import { TrailHeading } from '@/components/TrailHeading';
 import { TrailGateRow } from '@/components/TrailGateRow';
+import { TrailCard } from '@/components/TrailCard';
 import { LevelChip, LevelPanel, type BandUnitCount } from '@/components/LevelPanel';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -22,6 +23,7 @@ import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
 import { useUI } from '@/store/useUI';
+import { useStore } from '@/store/useStore';
 
 // The Den is the trail (Concept C, D-01): a band is one column of acts, and
 // the unit is a heading you scroll past rather than a place you go. This
@@ -89,11 +91,13 @@ export default function Den() {
     [resumeByMode],
   );
 
-  // D-19: dismissible above the first heading. Session-only for now (local
-  // state, not persisted) — plan 10 owns where the dismissal itself lives;
-  // this plan only needs trailRows() to accept the flag. See the SUMMARY.
-  const [orientationDismissed, setOrientationDismissed] = useState(false);
-  const [placementDismissed, setPlacementDismissed] = useState(false);
+  // D-19: dismissible above the first heading, persisted for good
+  // (src/store/dayOne.test.ts's partialize round trip) — plan 08 left this
+  // session-only; this plan wires the two store fields in.
+  const denOrientationSeen = useStore((s) => s.denOrientationSeen);
+  const setDenOrientationSeen = useStore((s) => s.setDenOrientationSeen);
+  const denPlacementSeen = useStore((s) => s.denPlacementSeen);
+  const setDenPlacementSeen = useStore((s) => s.setDenPlacementSeen);
 
   const rows: TrailRowT[] = useMemo(
     () =>
@@ -105,11 +109,11 @@ export default function Den() {
         freeBands: FREE_BANDS,
         doneActs,
         hasFreshResume,
-        orientationDismissed,
-        placementDismissed,
+        orientationDismissed: denOrientationSeen,
+        placementDismissed: denPlacementSeen,
         T: { trailReleaseSome: T.trailReleaseSome, trailReleaseNone: T.trailReleaseNone },
       }),
-    [band, levelsAll, doneActs, hasFreshResume, orientationDismissed, placementDismissed, T],
+    [band, levelsAll, doneActs, hasFreshResume, denOrientationSeen, denPlacementSeen, T],
   );
 
   // The level panel's per-band read (D-06/D-07): MET drives it, MASTERED
@@ -199,78 +203,14 @@ export default function Den() {
         case 'acte0':
           return <TrailRowCmp row={item} onPressAct={goAct} onPressActe0={goActe0} onPressLocked={onLockedPress} />;
         case 'orientation':
-          return (
-            <View
-              style={{
-                borderRadius: 16,
-                borderWidth: 1,
-                borderColor: t.line(10),
-                backgroundColor: t.card,
-                padding: 16,
-                marginBottom: 12,
-                flexDirection: 'row',
-                alignItems: 'flex-start',
-                gap: 10,
-              }}
-            >
-              <View style={{ flex: 1, minWidth: 0 }}>
-                <TX font="semi" role="body">
-                  {T.trailOrientationTitle}
-                </TX>
-                <TX role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>
-                  {T.trailOrientationBody}
-                </TX>
-              </View>
-              <Press
-                onPress={() => setOrientationDismissed(true)}
-                accessibilityRole="button"
-                accessibilityState={{ disabled: false }}
-                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-                style={{ width: 28, minHeight: 28, alignItems: 'center', justifyContent: 'center' }}
-              >
-                <Icon name="x" size={14} color={t.txSubtle} />
-              </Press>
-            </View>
-          );
+          return <TrailCard variant="orientation" onDismiss={() => setDenOrientationSeen(true)} />;
         case 'placement':
           return (
-            <View
-              style={{
-                borderRadius: 16,
-                borderWidth: 1,
-                borderColor: t.accA(35),
-                backgroundColor: t.accA(6),
-                padding: 14,
-                marginBottom: 12,
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 12,
-              }}
-            >
-              <Press
-                cue="tap"
-                onPress={() => router.push('/placement')}
-                accessibilityRole="button"
-                accessibilityState={{ disabled: false }}
-                style={{ flex: 1, minWidth: 0 }}
-              >
-                <TX font="semi" role="bodySm">
-                  {T.trailPlacementTitle}
-                </TX>
-                <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>
-                  {T.trailPlacementBody}
-                </TX>
-              </Press>
-              <Press
-                onPress={() => setPlacementDismissed(true)}
-                accessibilityRole="button"
-                accessibilityState={{ disabled: false }}
-                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-                style={{ width: 28, minHeight: 28, alignItems: 'center', justifyContent: 'center' }}
-              >
-                <Icon name="x" size={14} color={t.txSubtle} />
-              </Press>
-            </View>
+            <TrailCard
+              variant="placement"
+              onOpen={() => router.push('/placement')}
+              onDismiss={() => setDenPlacementSeen(true)}
+            />
           );
         case 'gate':
           return <TrailGateRow variant="gate" />;

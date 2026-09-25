@@ -161,7 +161,12 @@ export default function Placement() {
             <TX role="bodySm" lhMult={1.7} color={t.txSecondary} center style={{ maxWidth: 290, marginBottom: 26 }}>
               {T.plNoBank}
             </TX>
-            <Press onPress={() => router.replace('/den')} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            {/* D-41: prefer back() over replace(), the same one-line fix
+                narrated.tsx got in plan 09 — a replace() destroys the trail
+                entry and lands the learner at row 0 of a 251-row list. The
+                ONLY edit this plan makes to placement.tsx (D-20): grading and
+                the Première CTA below are untouched. */}
+            <Press onPress={() => (router.canGoBack() ? router.back() : router.replace('/den'))} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.backFeed}
               </TX>
