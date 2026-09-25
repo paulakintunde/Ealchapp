@@ -8,6 +8,7 @@ import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { TrailRow as TrailRowCmp } from '@/components/TrailRow';
 import { TrailHeading } from '@/components/TrailHeading';
+import { TrailGateRow } from '@/components/TrailGateRow';
 import { LevelChip, LevelPanel, type BandUnitCount } from '@/components/LevelPanel';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -269,60 +270,9 @@ export default function Den() {
             </View>
           );
         case 'gate':
-          return (
-            <Press
-              onPress={onLockedPress}
-              cue="tap"
-              accessibilityRole="button"
-              accessibilityState={{ disabled: false }}
-              style={{
-                borderRadius: 16,
-                borderWidth: 1,
-                borderColor: t.accA(35),
-                backgroundColor: t.accA(8),
-                padding: 16,
-                marginBottom: 12,
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 10,
-              }}
-            >
-              <Icon name="lock" size={16} color={t.accTx} strokeWidth={1.8} />
-              <View style={{ flex: 1, minWidth: 0 }}>
-                <TX role="bodySm" color={t.accTx}>
-                  {T.trailGateLead}
-                </TX>
-              </View>
-            </Press>
-          );
+          return <TrailGateRow variant="gate" />;
         case 'boundary':
-          return (
-            <Press
-              onPress={onLockedPress}
-              cue="tap"
-              accessibilityRole="button"
-              accessibilityState={{ disabled: false }}
-              style={{
-                borderRadius: 16,
-                borderWidth: 1,
-                borderColor: t.accA(35),
-                backgroundColor: t.accA(8),
-                padding: 16,
-                marginTop: 4,
-                marginBottom: 12,
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 10,
-              }}
-            >
-              <Icon name="lock" size={16} color={t.accTx} strokeWidth={1.8} />
-              <View style={{ flex: 1, minWidth: 0 }}>
-                <TX role="bodySm" color={t.accTx}>
-                  {T.trailBoundaryLead}
-                </TX>
-              </View>
-            </Press>
-          );
+          return <TrailGateRow variant="boundary" />;
         default:
           return null;
       }
