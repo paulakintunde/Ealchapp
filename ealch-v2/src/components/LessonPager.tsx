@@ -469,6 +469,21 @@ export function LessonPager({
   const missionNumber = (sectionIx: number): number =>
     missionNumberOf ? missionNumberOf(sectionIx) : sectionIx + 1;
 
+  // The section whose number the header shows. An act's chapter card (kind
+  // 'act') has no section of its own, and falling back to index 0 made every
+  // opener read "MISSION 1 / N" wherever it sat (device pass, 2026-09-24:
+  // act 05's opener a third of the way in, labelled mission 1). The card is
+  // always pushed immediately before its act's first section, so it takes
+  // that section's number: the mission it opens onto.
+  const headerSectionIx = useMemo(() => {
+    const at = (ix: number) => {
+      const e = pages[ix];
+      return e && (e.kind === 'image' || e.kind === 'section') ? e.sectionIx : undefined;
+    };
+    if (currentEntry?.kind === 'act') return at(page + 1) ?? at(page + 2) ?? 0;
+    return at(page) ?? 0;
+  }, [pages, page, currentEntry]);
+
   // The SUB-mission: which card of a swipe deck the learner is on, so mission
   // 15 reads 15.1 … 15.5 as they move through it rather than freezing on 15.
   //
@@ -706,7 +721,7 @@ export function LessonPager({
               onFirst || page === quizPage
                 ? undefined
                 : a11yMissionLabel(
-                    missionNumber(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0),
+                    missionNumber(headerSectionIx),
                     sub,
                     currentSubCount,
                     missionTotal ?? sections.length,
@@ -718,7 +733,7 @@ export function LessonPager({
               : page === quizPage
                 ? T.quizWord
                 : formatMissionLabel(
-                    missionNumber(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0),
+                    missionNumber(headerSectionIx),
                     sub,
                     missionTotal ?? sections.length,
                   )}

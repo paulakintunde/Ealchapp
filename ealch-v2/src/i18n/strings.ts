@@ -381,9 +381,10 @@ export type Strings = {
   trailGateLead: string; trailBoundaryLead: string;
   /** Acte 00's row label (D-11). */
   trailActe0: string;
-  /** The pre-roll sheet (D-12, plan 09). prerollShape interpolates three
+  /** The pre-roll sheet (D-12, plan 09). prerollShape interpolates four
    *  counts supplied by the caller: {s} stages, {p} spoken passages, {m} mic
-   *  moments — never a baked literal, lessons differ (sons.01.l1 is 7/24/3).
+   *  moments and {ms} stages holding them — never a baked literal, lessons
+   *  differ (sons.01.l1 is 7/24/7 across 3).
    *  prerollMicNote must never promise the mic opens on its own:
    *  app/narrated.tsx deliberately waits for a tap. */
   prerollTitle: string; prerollShape: string; prerollMicNote: string; prerollStart: string;
@@ -876,7 +877,7 @@ export const T: Record<Lang, Strings> = {
     trailReleaseSome: '{n} mots partis en révision', trailReleaseNone: 'Aucun mot à réviser pour cet acte.',
     trailGateLead: 'Ce niveau est réservé à Première.', trailBoundaryLead: 'A1 se termine ici. La suite est réservée à Première.',
     trailActe0: 'Acte 00 · Narré',
-    prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro',
+    prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
     prerollMicNote: 'Le micro attend votre appui, il ne s’active jamais tout seul.', prerollStart: 'Commencer',
     trailOrientationTitle: 'Comment ça marche',
     trailOrientationBody: 'Un niveau, un seul défilement. Les titres en italique sont des unités, les lignes en dessous sont des actes. La puce en haut change de niveau.',
@@ -1359,7 +1360,7 @@ export const T: Record<Lang, Strings> = {
     trailReleaseSome: '{n} words sent to review', trailReleaseNone: 'Nothing to review from this act.',
     trailGateLead: 'This level is Première-only.', trailBoundaryLead: "A1 ends here. What's next is Première-only.",
     trailActe0: 'Act 00 · Narrated',
-    prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic',
+    prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',
     prerollMicNote: 'The mic waits for your tap. It never listens on its own.', prerollStart: 'Start',
     trailOrientationTitle: 'How this works',
     trailOrientationBody: 'A level is one scroll. Italic headings are units, the rows under them are acts. The chip at the top changes the level.',

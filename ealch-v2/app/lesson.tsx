@@ -374,6 +374,18 @@ function LessonScreenBody() {
     return () => sub.remove();
   }, [sheetId, preface, showKeyOverride]);
 
+  // Where inside the current mission the learner is, 1-based, or null on a
+  // mission with no sub-position. Held in a ref rather than state: it changes
+  // on every swipe of a deck and nothing on this screen RENDERS from it — it
+  // only needs to be readable when a resume is written.
+  //
+  // Declared ABOVE the early returns below. It used to sit after them, so the
+  // render that follows the first-run LessonKeyIntro (`showKey` true, early
+  // return) ran one more hook than the render before it, and React threw
+  // "Rendered more hooks than during the previous render" on every new
+  // learner's first lesson (device pass, 2026-09-24, after a pm clear).
+  const lastSub = useRef<number | null>(null);
+
   if (!L) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
@@ -517,11 +529,6 @@ function LessonScreenBody() {
     writeResume(fullIx, null);
   };
 
-  // Where inside the current mission the learner is, 1-based, or null on a
-  // mission with no sub-position. Held in a ref rather than state: it changes
-  // on every swipe of a deck and nothing on this screen RENDERS from it — it
-  // only needs to be readable when a resume is written.
-  const lastSub = useRef<number | null>(null);
 
   const writeResume = (fullIx: number, sub: number | null) => {
     const anchor = `${L.id}#s${fullIx}.0`;

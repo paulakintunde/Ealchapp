@@ -1,6 +1,6 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { View } from 'react-native';
-import { useRouter, useFocusEffect } from 'expo-router';
+import { useRouter, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList, type FlashListRef } from '@shopify/flash-list';
 import { TX } from '@/components/Type';
@@ -54,6 +54,19 @@ export default function Den() {
   const setLevelPanelOpen = useUI((s) => s.setLevelPanelOpen);
   const trailAnchor = useUI((s) => s.trailAnchor);
   const setTrailAnchor = useUI((s) => s.setTrailAnchor);
+
+  // `ealch://den?band=<band>` opens a band's trail directly (07.1-11's route
+  // table; the device-proof recipe needs it to reach a band in one step). The
+  // param is untrusted input: anything not in LEVELS is ignored rather than
+  // cast, so a bad link lands on the trail the learner already had. A locked
+  // band is honoured like any other, because the trail shows it readable
+  // with the gate row above it (D-21/D-22), never the lesson behind it.
+  const params = useLocalSearchParams<{ band?: string | string[] }>();
+  const bandParam = Array.isArray(params.band) ? params.band[0] : params.band;
+  useEffect(() => {
+    const wanted = bandParam?.toLowerCase();
+    if (wanted && (LEVELS as readonly string[]).includes(wanted)) setBand(wanted as Level);
+  }, [bandParam, setBand]);
 
   // The Phase 10 level gate: sons and A1 are free forever; everything past A1
   // is Première ('levels.all'). The gate sits on the press, not the render —
@@ -256,7 +269,10 @@ export default function Den() {
         {/* DEV-PREVIEW-B101 (D-30): the B1 authors' only door. Re-pointed at
             the Fiche sheet, replacing the old overview screen's route. Do not
             delete it. */}
-        {__DEV__ && content.lesson('b1.01.l1') ? (
+        {/* Shown on the B1 trail only: on every other band it sat above the
+            day-one cards and headings, a B1 draft pushing sons and A1 down
+            (device pass, 2026-09-24). */}
+        {__DEV__ && band === 'b1' && content.lesson('b1.01.l1') ? (
           <Press
             onPress={() => router.push({ pathname: '/fiche', params: { key: 'b1.01.l1' } })}
             cue="tap"

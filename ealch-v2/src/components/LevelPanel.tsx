@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Animated, BackHandler, Pressable, ScrollView, View } from 'react-native';
-import { useRouter } from 'expo-router';
 import { TX } from './Type';
 import { Press } from './ui';
 import { PanelRow } from './PanelRow';
@@ -9,7 +8,6 @@ import { useT } from '@/i18n/useT';
 import { useReduceMotion } from '@/utils/reduceMotion';
 import { LEVELS, type Level } from '@/content/schema';
 import { FREE_BANDS } from '@/store/entitlement.logic';
-import { track as trackEvent } from '@/services/analytics';
 
 // The band selector D-06 approved and D-07's arithmetic demands: a full-row
 // panel rather than seven equal-flex columns (43.7px at 342px content width,
@@ -88,7 +86,6 @@ export function LevelPanel({
 }) {
   const t = useTheme();
   const T = useT();
-  const router = useRouter();
   const reduceMotion = useReduceMotion();
   const y = useRef(new Animated.Value(600)).current;
   const op = useRef(new Animated.Value(0)).current;
@@ -136,12 +133,14 @@ export function LevelPanel({
 
   if (!mounted) return null;
 
-  const onRowPress = (l: Level, locked: boolean) => {
-    if (locked) {
-      trackEvent('gate_blocked', { feature: 'levels.all', from: 'den' });
-      router.push({ pathname: '/paywall', params: { from: 'gate:levels' } });
-      return;
-    }
+  // A locked band is SELECTED, not bounced to the paywall. D-21/D-22: a locked
+  // band's trail stays readable, with TrailGateRow pinned above it as the
+  // paywall's touchpoint, and every locked act row routes there on press. The
+  // first build pushed /paywall straight from this row, so a learner without
+  // Première could never see that trail at all (device pass, 2026-09-24,
+  // block G). The row still names the paywall in words, so nothing about
+  // the band is hidden before the tap.
+  const onRowPress = (l: Level) => {
     onSelect(l);
   };
 
@@ -204,7 +203,7 @@ export function LevelPanel({
                   sub={T.bandDescs[l]}
                   selected={l === band}
                   trailing={trailing}
-                  onPress={() => onRowPress(l, locked)}
+                  onPress={() => onRowPress(l)}
                   testID={`level-panel-row-${l}`}
                 />
               );

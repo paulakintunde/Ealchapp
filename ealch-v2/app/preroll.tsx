@@ -71,9 +71,13 @@ export default function Preroll() {
   const stageCount = stages.length;
   const passageCount = segs.filter((s) => s.kind === 'segment').length;
   const micCount = segs.filter((s) => s.kind === 'interaction').length;
+  // How many of those stages hold a mic moment: the "across N stages" half of
+  // D-12's shape, read from the same flattened steps the player walks.
+  const micStageCount = new Set(segs.filter((s) => s.kind === 'interaction').map((s) => s.stageIndex)).size;
   const shape = T.prerollShape
     .replace('{s}', String(stageCount))
     .replace('{p}', String(passageCount))
+    .replace('{ms}', String(micStageCount))
     .replace('{m}', String(micCount));
 
   const start = () => {

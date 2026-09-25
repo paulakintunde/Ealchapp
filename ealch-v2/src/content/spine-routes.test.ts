@@ -165,6 +165,17 @@ test('preroll.tsx derives its stated shape from flattenNarration/stageRanges, ne
   ok(src.includes('flattenNarration('), 'preroll.tsx must call flattenNarration');
   ok(src.includes('stageRanges('), 'preroll.tsx must call stageRanges');
   ok(!/\b(7|24)\s+(stages|passages)/.test(src), 'preroll.tsx must not hardcode sons.01.l1\'s own numbers');
+  // D-12 names the mic moments AND how many stages hold them ("7 across 3").
+  // The 2026-09-24 device pass found the sheet stating only the first half.
+  ok(src.includes("replace('{ms}'"), 'preroll.tsx must fill {ms}, the count of stages holding a mic moment');
+  ok(src.indexOf("replace('{ms}'") < src.indexOf("replace('{m}'"), '{ms} must be replaced before {m}, or "{m}" eats the front of "{ms}"');
+});
+
+test('prerollShape carries {ms} in both languages (D-12 "across N stages")', () => {
+  const src = readFileSync(resolve(appDir, '../src/i18n/strings.ts'), 'utf8');
+  const lines = src.split('\n').filter((l) => /prerollShape: '/.test(l));
+  ok(lines.length === 2, `expected fr and en prerollShape, found ${lines.length}`);
+  for (const l of lines) ok(l.includes('{ms}'), `prerollShape must state the mic stages: ${l.trim()}`);
 });
 
 test('_layout.tsx registers preroll with the same formSheet shape as fiche (one sheet mechanism, D-38)', () => {
@@ -197,4 +208,48 @@ test('neither new screen fixes a non-square height on anything text-bearing (D-4
       );
     }
   }
+});
+
+/* ─── Gap closure after the 07.1-11 device pass (2026-09-24) ─────────────── */
+
+const readSrc = (rel: string) => readFileSync(resolve(srcDir, rel), 'utf8').replace(/\r\n/g, '\n');
+
+test('LevelPanel selects a locked band instead of pushing the paywall (D-21/D-22)', () => {
+  // Pushing /paywall from the panel row made a locked band's trail, and the
+  // gate row pinned above it, unreachable for anyone without Première.
+  const src = readSrc('components/LevelPanel.tsx');
+  ok(!src.includes("pathname: '/paywall'"), 'LevelPanel.tsx must not route to /paywall; the gate row on the trail is the touchpoint');
+  ok(/const onRowPress = \(l: Level\) => \{\s*onSelect\(l\);/.test(src), 'every panel row, locked or not, must call onSelect');
+});
+
+test('den.tsx honours ?band= only for a value in LEVELS', () => {
+  const src = readScreen('den');
+  ok(src.includes('useLocalSearchParams'), 'den.tsx must read its params for ealch://den?band=');
+  ok(/\(LEVELS as readonly string\[\]\)\.includes\(wanted\)/.test(src), 'the band param must be checked against LEVELS before it is set');
+});
+
+test('den.tsx shows the B1 dev-preview door on the B1 trail only', () => {
+  const src = readScreen('den');
+  ok(/__DEV__ && band === 'b1' && content\.lesson\('b1\.01\.l1'\)/.test(src), 'the DEV-PREVIEW-B101 door must be gated on __DEV__ AND the b1 band');
+});
+
+test("LessonPager labels an act chapter card with the mission it opens, not mission 1", () => {
+  const src = readSrc('components/LessonPager.tsx');
+  ok(src.includes("currentEntry?.kind === 'act'") && src.includes('at(page + 1)'), 'an act opener must take the next section\'s mission number');
+  ok(!src.includes("currentEntry.sectionIx : 0)"), 'the old fallback to section 0 must be gone from the header label');
+});
+
+test('lesson.tsx declares no hook after its early returns (first-lesson crash, 2026-09-24)', () => {
+  // The LessonKeyIntro early return (`if (showKey) return ...`) ran before
+  // `useRef` at the old line 524, so closing the intro rendered one more hook
+  // than the render before and React threw on every new learner's first lesson.
+  const src = readScreen('lesson');
+  const body = src.slice(src.indexOf('function LessonScreenBody'));
+  const firstEarly = body.search(/\n  if \(!L\) \{\n    return/);
+  ok(firstEarly > 0, 'expected the `if (!L)` early return in LessonScreenBody');
+  const after = body.slice(firstEarly);
+  const end = after.search(/\n}\n/);
+  const tail = end > 0 ? after.slice(0, end) : after;
+  const hook = tail.match(/\n  (?:const|let) [^=\n]+= use[A-Z]\w*(?:<[^>\n]*>)?\(|\n  use[A-Z]\w*(?:<[^>\n]*>)?\(/);
+  ok(!hook, `a hook is declared after LessonScreenBody's early returns: ${hook?.[0]?.trim()}`);
 });
