@@ -21,9 +21,9 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.09 | politesse | 82 | 11 | 11x8 | 11 | 5 | 13 | 232 | 11 images, registered + alt | DONE |
 | b1.10 | si-clauses | 89 | 12 | 12x8 | 12 | 5 | 10 | 215 | 12 images, registered + alt | DONE |
 | b1.11 | qui-que | 83 | 11 | 11x8 | 11 | 5 | 18 | 246 | 11 images, registered + alt | DONE |
-| b1.12 | dont-ou | 84 | 11 | 11x8 | 11 | 5 | 22 | 217 | 11 prompts, art not made | DONE |
-| b1.13 | lequel-ce-qui | 84 | 11 | 11x8 | 11 | 5 | 17 | 215 | 11 prompts, art not made | DONE |
-| b1.14 | subjonctif-formation | 82 | 11 | 11x8 | 11 | 5 | 15 | 234 | 11 prompts, art not made | DONE |
+| b1.12 | dont-ou | 84 | 11 | 11x8 | 11 | 5 | 22 | 217 | 11 images, registered + alt | DONE |
+| b1.13 | lequel-ce-qui | 84 | 11 | 11x8 | 11 | 5 | 17 | 215 | 11 images, registered + alt | DONE |
+| b1.14 | subjonctif-formation | 82 | 11 | 11x8 | 11 | 5 | 15 | 234 | 11 images, registered + alt | DONE |
 | b1.15 | subjonctif-declencheurs | 86 | 11 | 11x8 | 11 | 5 | 16 | 253 | 11 prompts, art not made | DONE |
 | b1.16 | subjonctif-infinitif | 85 | 11 | 11x8 | 11 | 5 | 20 | 235 | 11 prompts, art not made | DONE |
 | b1.17 | ordre-pronoms | 87 | 11 | 11x8 | 11 | 5 | 9 | 235 | 11 prompts, art not made | DONE |
@@ -299,6 +299,7 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 4. At a review gate: regenerate the previews, put them on the Pixel 6, and stop until Paul has looked.
 
 ## Open items carried forward
+- **DRAFT 2026-09-25: a2.36 « Les pronoms toniques », the stressed-pronoun gap.** Nobody taught moi/toi/lui/eux (a1.05 deferred them to a lesson never built), and b1.22 and b1.24 assume them. Paul chose DRAFT ONLY. Files: `scripts/data/pronoms-toniques-{corpus,terms,lesson}.ts`, `scripts/author-pronoms-toniques-batch.ts` (dry by default, writes only with `--apply`), `scripts/merge-pronoms-toniques-into-seed.ts`. 24 missions in 6 acts, 30-question quiz, 37 rows at `fr.a2.pronoms-essentiels.400-436` (block 400-499 claimed), 44 imports. Dry run clean. Sits at seq 36, AFTER the Bilan A2, until Paul picks its place. **Applying it will break** `a2-35-bilan.test.ts` (a2.35 must be the last A2 unit) and `spine-drift.test.ts` (spine script lacks a2.36); both need a decision, not a blind fix. Moving it earlier than 36 shifts every later « lesson N in A2 » label (~220 baked citations). Also found: NO lesson teaches the imperative; a1.05's sheet omits elle from the forms shared by both sets. The A2 doctrine files live OUTSIDE this repo, in `C:/Users/harki/Downloads/appsroleealch/ealch-admin/`.
 
 - **FIXED 2026-09-24: b1.01's sheet links.** Four sheets, nothing pointed at them, so a learner could never open one; it was the only lesson of fourteen with none. 22 missions now carry a `sheetId`: sheet-recette from acts 2, 3, 5 and the recap, sheet-irreg from act 4, sheet-ortho from acts 6, 7, 8 and 11, sheet-il-me-ne from acts 9 and 10. `Lesson.version` was NOT bumped, because a bump wipes every learner's checkmarks and XP. Held by `ealch-admin/scripts/b1-lesson-integrity.test.ts`, which was checked against the pre-fix lesson and fails on it.
 - **The 109 images are made, registered and COMMITTED** (`d63bb5c`, 2026-09-24). Counted on disk: b1.02 10, b1.03 10, b1.04 12, b1.05 10, b1.06 11, b1.07 11, b1.08 11, b1.09 11, b1.10 12, b1.11 11 = 109, plus b1.01 regenerated. `lessonImages.ts` carries the registrations and is also uncommitted. Every act opener in b1.01 to b1.11 resolves: 121 files on disk, 161 registered paths, none missing in either direction. None of it has been seen on a device, so REVIEW GATE 1 is the first look. Wave 3 (b1.12, b1.13, b1.14) has 33 prompts and no art yet.
