@@ -4,6 +4,16 @@
 // something and then judge it against named criteria, because a B1 unit outcome
 // ("narrate a coherent past episode") cannot be measured by picking an option.
 //
+// THE EXAMINER'S GRADER CANNOT BE REUSED HERE, and this is not an oversight.
+// `examGrader.grade()` requires a `paperId` and a `skill`, and the grade-exam
+// edge function calls `attemptAuthorized(uid, paperId, skill)` against the
+// `exam_attempts` table before it grades anything. A lesson task has no exam
+// attempt, so the server would refuse it. The draft spec assumed the grader
+// could be reused; what is reusable is the TYPES (Rubric, ResponseSpec), not
+// the call. Grading lesson tasks needs its own endpoint, ungated by an attempt
+// but still metered, which is a product decision about LLM spend rather than a
+// wiring job. Until that exists, do not reach for examGrader from here.
+//
 // IT WORKS OFFLINE, BY DESIGN. The lesson must never block on a network call,
 // so the shipped path is self-check: the criteria are shown before writing, the
 // model answer is revealed after, and the learner ticks each criterion against
