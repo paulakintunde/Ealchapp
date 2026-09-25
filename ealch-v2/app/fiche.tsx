@@ -202,7 +202,7 @@ export default function Fiche() {
         ) : null}
 
         {/* CTA */}
-        <Press cue="tap" onPress={goAct} style={{ marginTop: 26, height: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+        <Press cue="tap" onPress={goAct} style={{ marginTop: 26, minHeight: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
           <TX font="bold" role="body" color={t.accInk}>{T.ovStart}</TX>
         </Press>
         <Press cue={null} onPress={goAct} style={{ marginTop: 16, alignItems: 'center' }}>

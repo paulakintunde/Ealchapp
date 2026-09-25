@@ -197,7 +197,7 @@ export default function Act() {
           <Press
             cue={null}
             onPress={listenIntro}
-            style={{ alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 9, marginTop: 16, height: 37, paddingHorizontal: 15, borderRadius: 18.5, borderWidth: 1, borderColor: introPlaying ? t.acc : t.accA(45), backgroundColor: introPlaying ? t.accA(12) : 'transparent' }}
+            style={{ alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 9, marginTop: 16, minHeight: 37, paddingHorizontal: 15, borderRadius: 18.5, borderWidth: 1, borderColor: introPlaying ? t.acc : t.accA(45), backgroundColor: introPlaying ? t.accA(12) : 'transparent' }}
           >
             <Icon name="speaker" size={16} color={t.acc} />
             <TX font="semi" role="meta" ls={1} color={t.accTx}>{T.moListen}</TX>
