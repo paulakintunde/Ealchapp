@@ -114,6 +114,22 @@ exists, so nothing is created at import.
 | 1200-1399 | b1.15 subjunctive triggers (wave 4) | reserved |
 | 1400-1599 | b1.16 subjunctive vs infinitive (wave 4) | reserved |
 
+## Seeing the drafts on a phone (READY, 2026-09-24)
+
+`pnpm tsx scripts/data/b1/_preview-b1.ts` from `ealch-admin/` rebuilds
+`ealch-v2/src/content/dev-preview-b1.json`, the whole draft band in one file.
+A dev build merges it over the seed, and because the seed carries NO b1 units,
+the B1 band then appears in the Den trail on its own: 14 headings and 154 act
+rows. Switch the level chip to B1, or deep-link `ealch://den?band=b1`.
+
+- **Adding a lesson is ONE line** in the generator's `SLUGS` list.
+- **Rebuild after ANY source change.** `scripts/b1-preview-fixture.test.ts`
+  fails if the fixture and the sources disagree, and names what drifted. The
+  old b1.01-only fixture went three commits stale and shipped 0 sheet links.
+- **Release builds are unaffected**, measured by `expo export`: no string
+  unique to the fixture survives into the bundle.
+- The drafts open past the level gate in dev only, from `DRAFT_LESSON_IDS`.
+
 ## The wave plan from here
 
 Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing in the next wave starts until he has.
