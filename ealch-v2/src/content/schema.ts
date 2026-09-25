@@ -1544,6 +1544,17 @@ export type ReferenceSheet = {
 export type LessonAudio = {
   defaultLang?: string;
   speeds?: number[];
+  /** NOT READ BY ANY RUNTIME MODULE (checked 2026-09-25: the only references
+   *  are this declaration, content files and one test fixture). Narration
+   *  language does not come from here — `services/tts.ts` defaults to fr-FR and
+   *  picks a device French voice, so French `say` lines already speak French.
+   *
+   *  This matters because every B1 draft carries `coachVoice: 'coach-fr-FR'`,
+   *  an id no voice registry defines, and it was tracked as a blocker on B1
+   *  narration. It is not one: the id is inert. What A2 and B1 actually need
+   *  for a narrated way in is a `narration` SCRIPT plus the 'narrated' feature
+   *  flag, which is content, not configuration. Wire this field or delete it,
+   *  but do not assume it is doing anything today. */
   coachVoice?: string;
   interfaceSounds?: string[];
   ambienceDefault?: 'on' | 'off';

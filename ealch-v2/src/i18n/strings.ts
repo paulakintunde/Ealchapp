@@ -372,7 +372,15 @@ export type Strings = {
   // for the whole phase, not one per plan.
 
   /** The trail's per-act release line. trailReleaseSome takes {n}; when a
-   *  tranche is empty or absent, the caller must reach for trailReleaseNone
+   *  tranche is empty or absent, the caller must reach for trailReleaseNone.
+   *
+   *  117 of the seed's 452 act rows take the empty line, and that is NOT a
+   *  content gap: 61 of them are the LAST act of a lesson and 49 are titled
+   *  "Prove it". A closing act consolidates, so releasing nothing new is
+   *  correct. The line therefore says what the act IS ("Practice only, no new
+   *  words") rather than what it lacks ("Nothing to review from this act"),
+   *  which read as a defect on a quarter of the trail. D-45's rule is
+   *  unchanged: never a fabricated count, always the truth.
    *  instead of interpolating a zero count (D-45: never fabricate a "0 of
    *  something" line). */
   trailReleaseSome: string; trailReleaseNone: string;
@@ -881,7 +889,7 @@ export const T: Record<Lang, Strings> = {
     errorTypes: ['PRONONCIATION', 'REGISTRE', 'FLUIDITÉ'],
     clock12T: '12 H', clock24T: '24 H',
 
-    trailReleaseSome: '{n} mots partis en révision', trailReleaseNone: 'Aucun mot à réviser pour cet acte.',
+    trailReleaseSome: '{n} mots partis en révision', trailReleaseNone: 'De la pratique, pas de nouveaux mots.',
     trailGateLead: 'Ce niveau est réservé à Première.', trailBoundaryLead: 'A1 se termine ici. La suite est réservée à Première.',
     trailActe0: 'Acte 00 · Narré', trailFiche: 'La fiche',
     prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
@@ -1365,7 +1373,7 @@ export const T: Record<Lang, Strings> = {
     errorTypes: ['PRONUNCIATION', 'REGISTER', 'FLUENCY'],
     clock12T: '12 H', clock24T: '24 H',
 
-    trailReleaseSome: '{n} words sent to review', trailReleaseNone: 'Nothing to review from this act.',
+    trailReleaseSome: '{n} words sent to review', trailReleaseNone: 'Practice only, no new words.',
     trailGateLead: 'This level is Première-only.', trailBoundaryLead: "A1 ends here. What's next is Première-only.",
     trailActe0: 'Act 00 · Narrated', trailFiche: 'Unit info',
     prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',
