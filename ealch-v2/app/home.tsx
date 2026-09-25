@@ -466,9 +466,11 @@ export default function Home() {
         ) : null}
 
         {/* Foundations — the Den keeps its own full-width tile: it is a guided
-            course, not a deck, so it does not belong inside the hub grid. */}
+            course, not a deck, so it does not belong inside the hub grid.
+            It opens the Levels page first: the learner picks a band, then
+            lands on that band's trail. */}
         <SectionHead title={T.found} right="SONS · A1 · A2" />
-        <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '100%', minHeight: 118, padding: 16 }}>
+        <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push({ pathname: '/levels', params: { from: 'home' } })} style={{ width: '100%', minHeight: 118, padding: 16 }}>
           <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`${denUnits} ${T.unitsWord}`} />
           <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
             {T.denT}

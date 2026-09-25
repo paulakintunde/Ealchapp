@@ -225,7 +225,7 @@ export default function Den() {
       <View style={{ paddingTop: insets.top + 14, paddingHorizontal: 24 }}>
         {/* Header */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-          <Press onPress={() => router.replace('/home')} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
+          <Press onPress={() => (router.canGoBack() ? router.back() : router.replace('/home'))} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
           </Press>
           <TX font="semi" role="eyebrow" ls={2.6} color={t.txSubtle}>

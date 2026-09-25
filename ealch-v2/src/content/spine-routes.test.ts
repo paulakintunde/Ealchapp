@@ -301,3 +301,12 @@ test('the den chip opens the Levels page; levels.tsx is registered', () => {
   const layout = readFileSync(resolve(appDir, '_layout.tsx'), 'utf8');
   ok(layout.includes('name="levels"'), 'levels must be a registered Stack.Screen');
 });
+
+test("home's Refresher Course card opens the Levels page first, and a pick from there goes forward to the trail", () => {
+  const home = readScreen('home');
+  ok(home.includes("router.push({ pathname: '/levels', params: { from: 'home' } })"), 'the course card must open /levels?from=home');
+  ok(!home.includes("router.push('/den')"), 'no home control may skip the Levels page');
+  const levels = readScreen('levels');
+  ok(levels.includes("if (fromHome) router.push('/den');"), 'a pick from the course front door must push the trail');
+  ok(readScreen('den').includes("router.canGoBack() ? router.back() : router.replace('/home')"), "the trail's back arrow must return to Levels, not jump home");
+});

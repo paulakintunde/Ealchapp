@@ -1,5 +1,5 @@
 import { ScrollView, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, ProgressBar } from '@/components/ui';
@@ -13,7 +13,8 @@ import { useUI } from '@/store/useUI';
 import { useBandCounts } from '@/store/useBandCounts';
 
 // The Levels page (`ealch://levels`): every CEFR band on one screen, each row
-// a hot link to that band's trail. It is a page rather than a sheet so all
+// a hot link to that band's trail. Home's Refresher Course card opens it
+// first; it is a page rather than a sheet so all
 // seven bands, their progress and their lock state read at a glance with no
 // drag to a larger detent and no scroll inside an overlay. The den's level
 // chip opens it; a long press on the chip still opens the quick panel.
@@ -35,9 +36,16 @@ export default function Levels() {
   const levelsAll = useFeature('levels.all');
   const counts = useBandCounts();
 
+  // Two ways in. From home's Refresher Course card (`from=home`) this page is
+  // the course's front door, so a pick goes FORWARD to the trail and back from
+  // the trail returns here. From the den's level chip it is a detour, so a
+  // pick goes back to the trail it came from.
+  const params = useLocalSearchParams<{ from?: string | string[] }>();
+  const fromHome = (Array.isArray(params.from) ? params.from[0] : params.from) === 'home';
   const pick = (l: Level) => {
     setBand(l);
-    if (router.canGoBack()) router.back();
+    if (fromHome) router.push('/den');
+    else if (router.canGoBack()) router.back();
     else router.replace('/den');
   };
 
