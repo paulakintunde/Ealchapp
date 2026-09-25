@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 07.1-03-PLAN.md (c2 becomes a real Level, D-32). Phase 07.1 now 3 of 11 plans executed.
-last_updated: "2026-09-24T23:41:40.130Z"
-last_activity: 2026-09-24
+stopped_at: Completed 07.1-04-PLAN.md
+last_updated: "2026-09-25T00:09:08.772Z"
+last_activity: 2026-09-25
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 61
-  completed_plans: 53
-  percent: 87
+  completed_plans: 54
+  percent: 89
 ---
 
 # Project State
@@ -25,14 +25,15 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 3 of 11 plans executed
-Plan: 3 of 11 complete — 07.1-03 widened LEVELS to a real seventh band (c2, D-32) across the app's
-  type surface and the live Supabase database (drizzle/0022 applied, items_level_not_c2 dropped)
-Status: Executing — plans 01-03 done, plans 04-11 not started
+Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 4 of 11 plans executed
+Plan: 4 of 11 complete — 07.1-04 added unitsInBand and trail.logic.ts (the pure row composition
+  for the whole trail: TrailRow, trailRows, D-08/D-11/D-27/D-45/D-18/D-19/D-21) plus every
+  phase 07.1 i18n key, authored once in strings.ts
+Status: Ready to execute
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
-Last activity: 2026-09-24
+Last activity: 2026-09-25
 
-Progress: [█████████░] 87%
+Progress: [█████████░] 89%
 
 ## Performance Metrics
 
@@ -66,6 +67,7 @@ Progress: [█████████░] 87%
 | Phase 22.1 P06 | 75min | 3 tasks | 1 files |
 | Phase 07.1 P01 | 40min | 4 tasks | 6 files |
 | Phase 07.1 P03 | 50min | 3 tasks | 7 files |
+| Phase 07.1 P04 | 55min | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -112,6 +114,8 @@ Recent decisions affecting current work:
 - [Phase 07.1]: Plan 01: authored acts/section-ids/deckTranche for sons.01-04 (D-31), applied Postgres-first then merged into seed.json; Lesson.version held at 3/5/5/2 (D-25, check-version-bumps.ts demand ignored deliberately); Board C4's six invented sons.01 act rows accepted as indicative, not redrawn
 - [Phase 07.1]: Plan 03: D-32 implemented — LEVELS widened to 7 members (sons..c2), TRACKS stayed at 3, FREE_BANDS untouched. drizzle/0022 applied live to ogbothupjcivwruesgsu, dropping items_level_not_c2; content_level enum needed no migration (already carried c2, verified live before/after). c2 is now expressible everywhere but authored nowhere — 0 c2 content_items rows, confirmed both before and after the migration.
 - [Phase 07.1]: Plan 03: found but did not fix a same-shape band-list under-count in the live curriculum admin UI (src/app/admin/curriculum/actions.ts + NewThemeButton.tsx, both still capped at c1) — out of this plan's named file scope; documented in 07.1-03-SUMMARY.md as a follow-up for whichever plan next touches that screen.
+- [Phase 07.1]: D-37: acte 00 renders on a locked band and routes to the paywall like every other locked row (reverses den.tsx's old hide-on-lock). — D-22 requires locked rows to stay readable and pressable; narrated.tsx still gates on arrival regardless of visibility.
+- [Phase 07.1]: Act and mission titles render exactly as authored, with no language swap and no titleFr/titleEn schema addition (the deferred naming question CONTEXT flagged). — Titles are already authored in each lesson's own instruction language, so 'as authored' is the no-op that invents no parallel copy table; a later phase may revisit once the act screen is in front of a reviewer.
 
 ### Pending Todos
 
@@ -138,6 +142,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-24T23:41:40.112Z
-Stopped at: Completed 07.1-03-PLAN.md (c2 becomes a real Level, D-32). Phase 07.1 now 3 of 11 plans executed.
+Last session: 2026-09-25T00:09:08.754Z
+Stopped at: Completed 07.1-04-PLAN.md
 Resume file: None
