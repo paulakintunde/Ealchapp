@@ -29,7 +29,7 @@ import { buildPreview, serialise, PREVIEW_PATH } from './data/b1/_preview-b1.ts'
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SEED = resolve(HERE, '../../ealch-v2/src/content/seed.json');
-const EXPECTED_LESSONS = 14;
+const EXPECTED_LESSONS = 18;  // waves 1-4
 
 const onDisk = () => readFileSync(fileURLToPath(PREVIEW_PATH), 'utf8');
 

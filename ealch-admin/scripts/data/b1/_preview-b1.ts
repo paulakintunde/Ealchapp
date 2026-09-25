@@ -22,6 +22,8 @@ const SLUGS = [
   'futur-simple', 'futur-irregulier', 'futur-usage', 'conditionnel-present',
   'politesse', 'si-clauses', 'qui-que', 'dont-ou', 'lequel-ce-qui',
   'subjonctif-formation',
+  // wave 4
+  'subjonctif-declencheurs', 'subjonctif-infinitif', 'ordre-pronoms', 'voix-passive',
 ] as const;
 
 /** The `task` section now has a real renderer (`TaskView`, wired into

@@ -330,7 +330,14 @@ const PAIR_SEPARATOR = /\s(?:·|\/)\s/u;
  *
  *  Note this exempts the section's PROSE only. Everything else in them, and
  *  every other section type, is still capped. */
-const PASSAGE_SECTIONS: ReadonlySet<string> = new Set(['reading', 'progressCheck', 'roundup', 'inhibitionDrill']);
+// `task` joined this list on 2026-09-25, when the section stopped being a
+// draft type. Its `modelAnswer` is contractually 90 to 150 words, because it
+// is the yardstick the offline self-check measures a learner's answer
+// against, and its `brief` sets a whole situation up. Both are passages by
+// nature, exactly like a `reading`. Without this a task author must set
+// `layer: 'more'` to dodge the 45-word core budget, which changes nothing on
+// screen and hides the section from every other core check.
+const PASSAGE_SECTIONS: ReadonlySet<string> = new Set(['reading', 'progressCheck', 'roundup', 'inhibitionDrill', 'task']);
 
 /** Every (French spelling, respelling) pair reachable in a section, at any
  *  nesting depth. The nasal rule needs both halves together: the respelling

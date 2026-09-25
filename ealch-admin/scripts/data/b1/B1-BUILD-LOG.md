@@ -24,14 +24,19 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.12 | dont-ou | 84 | 11 | 11x8 | 11 | 5 | 22 | 217 | 11 prompts, art not made | DONE |
 | b1.13 | lequel-ce-qui | 84 | 11 | 11x8 | 11 | 5 | 17 | 215 | 11 prompts, art not made | DONE |
 | b1.14 | subjonctif-formation | 82 | 11 | 11x8 | 11 | 5 | 15 | 234 | 11 prompts, art not made | DONE |
-| b1.15 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.15 | subjonctif-declencheurs | 86 | 11 | 11x8 | 11 | 5 | 16 | 253 | 11 prompts, art not made | DONE |
+| b1.16 | subjonctif-infinitif | 85 | 11 | 11x8 | 11 | 5 | 20 | 235 | 11 prompts, art not made | DONE |
+| b1.17 | ordre-pronoms | 87 | 11 | 11x8 | 11 | 5 | 9 | 235 | 11 prompts, art not made | DONE |
+| b1.18 | voix-passive | 85 | 11 | 11x8 | 11 | 5 | 15 | 195 | 11 prompts, art not made | DONE |
+| b1.19 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
 
-**Wave 3 LANDED 2026-09-24: b1.12, b1.13 and b1.14, each verified independently by the
-orchestrator (not just self-reported). That is ten lessons, so the next step is
-REVIEW GATE 1: regenerate the previews, put them on the Pixel 6, and stop until Paul
-has looked. Nothing in wave 4 starts before that.**
+**Wave 4 LANDED 2026-09-25: b1.15, b1.16, b1.17 and b1.18, each verified
+independently by the orchestrator. That is EIGHTEEN lessons authored and NONE
+has reached a learner: the import pipeline exists and its dry run is clean, but
+it has never been applied. Applying it, then the seed merge, then a publish, is
+the work that matters more than a nineteenth lesson.**
 
 ## THE ID RULE, learned the hard way (2026-09-24)
 
@@ -111,8 +116,8 @@ exists, so nothing is created at import.
 |---|---|---|
 | 001-132 | **DB** | do not use |
 | 1000-1199 | b1.14 subjunctive formation | 1000-1195 (196 rows) |
-| 1200-1399 | b1.15 subjunctive triggers | CLAIMED wave 4 |
-| 1400-1599 | b1.16 subjunctive vs infinitive | CLAIMED wave 4 |
+| 1200-1399 | b1.15 subjunctive triggers | 1200-1398 (199 rows) |
+| 1400-1599 | b1.16 subjunctive vs infinitive | 1400-1591 (192 rows) |
 | 1600+ | FREE | |
 
 b1.15 is the TRIGGERS lesson, so this theme is exactly right for it: `il faut
@@ -141,7 +146,7 @@ rows. Switch the level chip to B1, or deep-link `ealch://den?band=b1`.
 
 | Block | Owner | Authored |
 |---|---|---|
-| 1600-1799 | b1.17 pronoun order | CLAIMED wave 4 |
+| 1600-1799 | b1.17 pronoun order | 1600-1797 (198 rows) |
 | 1800+ | FREE | |
 
 ### Theme `faits-et-procedures` (fondations, a2-b2) — CREATED 2026-09-25
@@ -163,7 +168,7 @@ then. That warning is expected, not a defect.
 | Block | Owner | Authored |
 |---|---|---|
 | 001-999 | reserved for a future published import | do not use |
-| 1000-1199 | b1.18 the passive | CLAIMED wave 4 |
+| 1000-1199 | b1.18 the passive | 1000-1192 (173 rows) |
 | 1200+ | FREE | |
 
 ## The wave plan from here
