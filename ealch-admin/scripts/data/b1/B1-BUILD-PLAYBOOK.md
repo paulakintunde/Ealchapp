@@ -1743,7 +1743,12 @@ TESTS
 LANGUAGE
 [ ] `tu` in every instruction, coach line, prompt, break body and milestone
 [ ] Every explanatory French string carries English: an `en` field or a trailing "EN: " LAST
-[ ] Answers (flashcard backs, reviewDeck backs, glossary, scenario userEn) are NOT behind "EN: "
+[ ] NEVER an "EN: " tail on an ANSWER: quiz options, accepted answers, open
+    answers, flashcard and reviewDeck backs, glossary entries, scenario userEn.
+    Type.tsx strips a trailing "EN: " from ANY string when English is off, and
+    the gloss flag does not protect an answer, so the learner would be asked to
+    pick something they can no longer read. Put that English in plainly.
+    Held by `scripts/b1-en-tail-on-answers.test.ts`.
 [ ] Titles, frSub, labels, card heads and stat keys carry NO "EN: " tail
 [ ] Lesson.title and overview.introFr French; Lesson.intro and overview.titleEn English
 [ ] tag is 'B1 · LEÇON NN'

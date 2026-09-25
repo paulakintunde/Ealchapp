@@ -483,11 +483,11 @@
           "format": "flashcard",
           "coach": "Lis la phrase. Elle parle d’aujourd’hui ou d’avant ? Dis-la avec la bonne forme. EN: Today or before? Say it with the right form.",
           "items": [
-            "fr.b1.recits-au-passe.061",
-            "fr.b1.recits-au-passe.062",
-            "fr.b1.recits-au-passe.041",
-            "fr.b1.recits-au-passe.040",
-            "fr.b1.recits-au-passe.042",
+            "fr.b1.recits-au-passe.1461",
+            "fr.b1.recits-au-passe.1462",
+            "fr.b1.recits-au-passe.1441",
+            "fr.b1.recits-au-passe.1440",
+            "fr.b1.recits-au-passe.1442",
             "fr.a2.verbes.103"
           ],
           "audio": {
@@ -513,7 +513,7 @@
           "correct": 1,
           "why": "finiss- + ais. EN: keep -iss-, and je takes -ais.",
           "items": [
-            "fr.b1.recits-au-passe.006",
+            "fr.b1.recits-au-passe.1406",
             "fr.b1.recits-au-passe.404",
             "fr.b1.recits-au-passe.405",
             "fr.b1.recits-au-passe.407",
@@ -543,12 +543,12 @@
           "correct": 2,
           "why": "Mes parents = ils : -aient. EN: plural subject.",
           "items": [
-            "fr.b1.recits-au-passe.001",
+            "fr.b1.recits-au-passe.1401",
             "fr.b1.recits-au-passe.414",
-            "fr.b1.recits-au-passe.002",
-            "fr.b1.recits-au-passe.005",
-            "fr.b1.recits-au-passe.059",
-            "fr.b1.recits-au-passe.070"
+            "fr.b1.recits-au-passe.1402",
+            "fr.b1.recits-au-passe.1405",
+            "fr.b1.recits-au-passe.1459",
+            "fr.b1.recits-au-passe.1470"
           ],
           "audio": {
             "lang": "fr-FR",
@@ -566,16 +566,16 @@
           "coach": "Oublie je bois, je prends. Dis nous buvons, nous prenons. EN: Forget the je form; say the nous form.",
           "q": "nous prenons. Avec je : EN: With je:",
           "opts": [
-            "je prendais",
             "je prenais",
+            "je prendais",
             "je prennais"
           ],
-          "correct": 1,
+          "correct": 0,
           "why": "pren- : un n, pas de d. EN: one n, no d.",
           "items": [
-            "fr.b1.recits-au-passe.008",
+            "fr.b1.recits-au-passe.1408",
             "fr.b1.recits-au-passe.440",
-            "fr.b1.recits-au-passe.009",
+            "fr.b1.recits-au-passe.1409",
             "fr.b1.recits-au-passe.430",
             "fr.b1.recits-au-passe.434",
             "fr.b1.recits-au-passe.436"
@@ -595,12 +595,12 @@
           "format": "flashcard",
           "coach": "être est le seul verbe à part. Dis ét-, puis la fin. EN: être alone uses ét-.",
           "items": [
-            "fr.b1.recits-au-passe.016",
+            "fr.b1.recits-au-passe.1416",
             "fr.b1.recits-au-passe.465",
             "fr.b1.recits-au-passe.466",
-            "fr.b1.recits-au-passe.017",
+            "fr.b1.recits-au-passe.1417",
             "fr.b1.recits-au-passe.467",
-            "fr.b1.recits-au-passe.018"
+            "fr.b1.recits-au-passe.1418"
           ],
           "audio": {
             "lang": "fr-FR",
@@ -621,11 +621,11 @@
             "devant i : rien"
           ],
           "items": [
-            "fr.b1.recits-au-passe.020",
-            "fr.b1.recits-au-passe.021",
+            "fr.b1.recits-au-passe.1420",
+            "fr.b1.recits-au-passe.1421",
             "fr.b1.recits-au-passe.475",
             "fr.b1.recits-au-passe.474",
-            "fr.b1.recits-au-passe.022",
+            "fr.b1.recits-au-passe.1422",
             "fr.b1.recits-au-passe.481"
           ],
           "audio": {
@@ -647,11 +647,11 @@
             "devant i : c"
           ],
           "items": [
-            "fr.b1.recits-au-passe.023",
-            "fr.b1.recits-au-passe.024",
+            "fr.b1.recits-au-passe.1423",
+            "fr.b1.recits-au-passe.1424",
             "fr.b1.recits-au-passe.489",
             "fr.b1.recits-au-passe.488",
-            "fr.b1.recits-au-passe.025",
+            "fr.b1.recits-au-passe.1425",
             "fr.b1.recits-au-passe.494"
           ],
           "audio": {
@@ -677,11 +677,11 @@
           "correct": 1,
           "why": "étudi- + ions. La première est le présent. EN: the first is the present.",
           "items": [
-            "fr.b1.recits-au-passe.026",
-            "fr.b1.recits-au-passe.027",
-            "fr.b1.recits-au-passe.028",
-            "fr.b1.recits-au-passe.029",
-            "fr.b1.recits-au-passe.011",
+            "fr.b1.recits-au-passe.1426",
+            "fr.b1.recits-au-passe.1427",
+            "fr.b1.recits-au-passe.1428",
+            "fr.b1.recits-au-passe.1429",
+            "fr.b1.recits-au-passe.1411",
             "fr.b1.recits-au-passe.503"
           ],
           "audio": {
@@ -707,9 +707,9 @@
           "correct": 1,
           "why": "il y avait, toujours au singulier. EN: always singular.",
           "items": [
-            "fr.b1.recits-au-passe.032",
-            "fr.b1.recits-au-passe.031",
-            "fr.b1.recits-au-passe.030",
+            "fr.b1.recits-au-passe.1432",
+            "fr.b1.recits-au-passe.1431",
+            "fr.b1.recits-au-passe.1430",
             "fr.b1.recits-au-passe.513",
             "fr.b1.recits-au-passe.515",
             "fr.b1.recits-au-passe.516"
@@ -731,10 +731,10 @@
           "q": "Quelle phrase est correcte ? EN: Which is correct?",
           "opts": [
             "Je levais me tôt.",
-            "Je ne me levais pas tôt.",
-            "Je me ne levais pas tôt."
+            "Je me ne levais pas tôt.",
+            "Je ne me levais pas tôt."
           ],
-          "correct": 1,
+          "correct": 2,
           "why": "ne, puis me, puis le verbe, puis pas. EN: ne, pronoun, verb, pas.",
           "items": [
             "fr.b1.recits-au-passe.523",
@@ -760,11 +760,11 @@
           "coach": "Remplace par vendre. Ce que tu entends te dit quoi écrire. EN: Swap in vendre and listen.",
           "q": "« Tu as ... ta tante ? » (appeler) EN: Did you call your aunt?",
           "opts": [
-            "appeler",
             "appelé",
+            "appeler",
             "appelais"
           ],
-          "correct": 1,
+          "correct": 0,
           "why": "Tu as vendu : appelé. EN: vendu, so the participle.",
           "items": [
             "fr.b1.recits-au-passe.543",
@@ -786,20 +786,20 @@
       ],
       "deckTranche": [
         [
-          "fr.b1.recits-au-passe.034",
-          "fr.b1.recits-au-passe.040",
-          "fr.b1.recits-au-passe.041",
-          "fr.b1.recits-au-passe.060",
-          "fr.b1.recits-au-passe.061",
-          "fr.b1.recits-au-passe.062",
-          "fr.b1.recits-au-passe.063",
+          "fr.b1.recits-au-passe.1434",
+          "fr.b1.recits-au-passe.1440",
+          "fr.b1.recits-au-passe.1441",
+          "fr.b1.recits-au-passe.1460",
+          "fr.b1.recits-au-passe.1461",
+          "fr.b1.recits-au-passe.1462",
+          "fr.b1.recits-au-passe.1463",
           "fr.a2.heure-et-date.109",
           "fr.b1.sports-et-loisirs.076"
         ],
         [
-          "fr.b1.recits-au-passe.006",
-          "fr.b1.recits-au-passe.042",
-          "fr.b1.recits-au-passe.045",
+          "fr.b1.recits-au-passe.1406",
+          "fr.b1.recits-au-passe.1442",
+          "fr.b1.recits-au-passe.1445",
           "fr.b1.recits-au-passe.401",
           "fr.b1.recits-au-passe.402",
           "fr.b1.recits-au-passe.403",
@@ -834,21 +834,21 @@
           "fr.a2.marche.004"
         ],
         [
-          "fr.b1.recits-au-passe.001",
+          "fr.b1.recits-au-passe.1401",
           "fr.b1.recits-au-passe.414",
-          "fr.b1.recits-au-passe.002",
+          "fr.b1.recits-au-passe.1402",
           "fr.b1.recits-au-passe.421",
           "fr.b1.recits-au-passe.422",
-          "fr.b1.recits-au-passe.003",
-          "fr.b1.recits-au-passe.004",
-          "fr.b1.recits-au-passe.005",
+          "fr.b1.recits-au-passe.1403",
+          "fr.b1.recits-au-passe.1404",
+          "fr.b1.recits-au-passe.1405",
           "fr.b1.recits-au-passe.423",
-          "fr.b1.recits-au-passe.036",
+          "fr.b1.recits-au-passe.1436",
           "fr.b1.recits-au-passe.424",
           "fr.b1.recits-au-passe.425",
           "fr.b1.recits-au-passe.426",
-          "fr.b1.recits-au-passe.059",
-          "fr.b1.recits-au-passe.070"
+          "fr.b1.recits-au-passe.1459",
+          "fr.b1.recits-au-passe.1470"
         ],
         [
           "fr.b1.recits-au-passe.459",
@@ -857,16 +857,16 @@
           "fr.b1.recits-au-passe.462",
           "fr.b1.recits-au-passe.463",
           "fr.b1.recits-au-passe.464",
-          "fr.b1.recits-au-passe.008",
+          "fr.b1.recits-au-passe.1408",
           "fr.b1.recits-au-passe.441",
           "fr.b1.recits-au-passe.440",
-          "fr.b1.recits-au-passe.007",
-          "fr.b1.recits-au-passe.009",
-          "fr.b1.recits-au-passe.010",
-          "fr.b1.recits-au-passe.012",
-          "fr.b1.recits-au-passe.014",
-          "fr.b1.recits-au-passe.015",
-          "fr.b1.recits-au-passe.035",
+          "fr.b1.recits-au-passe.1407",
+          "fr.b1.recits-au-passe.1409",
+          "fr.b1.recits-au-passe.1410",
+          "fr.b1.recits-au-passe.1412",
+          "fr.b1.recits-au-passe.1414",
+          "fr.b1.recits-au-passe.1415",
+          "fr.b1.recits-au-passe.1435",
           "fr.b1.recits-au-passe.430",
           "fr.b1.recits-au-passe.442",
           "fr.b1.recits-au-passe.431",
@@ -876,19 +876,19 @@
           "fr.b1.recits-au-passe.444",
           "fr.b1.recits-au-passe.434",
           "fr.b1.recits-au-passe.445",
-          "fr.b1.recits-au-passe.019",
-          "fr.b1.recits-au-passe.033",
-          "fr.b1.recits-au-passe.037",
+          "fr.b1.recits-au-passe.1419",
+          "fr.b1.recits-au-passe.1433",
+          "fr.b1.recits-au-passe.1437",
           "fr.b1.recits-au-passe.435",
           "fr.b1.recits-au-passe.436",
           "fr.b1.recits-au-passe.437",
           "fr.b1.recits-au-passe.438",
           "fr.b1.recits-au-passe.439",
-          "fr.b1.recits-au-passe.046",
-          "fr.b1.recits-au-passe.047",
-          "fr.b1.recits-au-passe.067",
-          "fr.b1.recits-au-passe.068",
-          "fr.b1.recits-au-passe.069",
+          "fr.b1.recits-au-passe.1446",
+          "fr.b1.recits-au-passe.1447",
+          "fr.b1.recits-au-passe.1467",
+          "fr.b1.recits-au-passe.1468",
+          "fr.b1.recits-au-passe.1469",
           "fr.b1.recits-au-passe.447",
           "fr.b1.recits-au-passe.448",
           "fr.b1.recits-au-passe.449",
@@ -919,14 +919,14 @@
           "fr.b1.cafe.079"
         ],
         [
-          "fr.b1.recits-au-passe.016",
+          "fr.b1.recits-au-passe.1416",
           "fr.b1.recits-au-passe.465",
           "fr.b1.recits-au-passe.466",
           "fr.b1.recits-au-passe.468",
-          "fr.b1.recits-au-passe.017",
+          "fr.b1.recits-au-passe.1417",
           "fr.b1.recits-au-passe.467",
-          "fr.b1.recits-au-passe.018",
-          "fr.b1.recits-au-passe.066",
+          "fr.b1.recits-au-passe.1418",
+          "fr.b1.recits-au-passe.1466",
           "fr.b1.recits-au-passe.469",
           "fr.b1.recits-au-passe.470",
           "fr.b1.recits-au-passe.471",
@@ -935,21 +935,21 @@
           "fr.sons.elision.035"
         ],
         [
-          "fr.b1.recits-au-passe.020",
-          "fr.b1.recits-au-passe.021",
+          "fr.b1.recits-au-passe.1420",
+          "fr.b1.recits-au-passe.1421",
           "fr.b1.recits-au-passe.481",
-          "fr.b1.recits-au-passe.022",
+          "fr.b1.recits-au-passe.1422",
           "fr.b1.recits-au-passe.475",
           "fr.b1.recits-au-passe.474",
           "fr.b1.recits-au-passe.476",
           "fr.b1.recits-au-passe.477",
-          "fr.b1.recits-au-passe.038",
+          "fr.b1.recits-au-passe.1438",
           "fr.b1.recits-au-passe.478",
           "fr.b1.recits-au-passe.479",
           "fr.b1.recits-au-passe.480",
           "fr.b1.recits-au-passe.482",
-          "fr.b1.recits-au-passe.043",
-          "fr.b1.recits-au-passe.057",
+          "fr.b1.recits-au-passe.1443",
+          "fr.b1.recits-au-passe.1457",
           "fr.b1.recits-au-passe.483",
           "fr.b1.recits-au-passe.484",
           "fr.b1.recits-au-passe.485",
@@ -962,10 +962,10 @@
           "fr.a1.cuisine.005"
         ],
         [
-          "fr.b1.recits-au-passe.023",
-          "fr.b1.recits-au-passe.024",
+          "fr.b1.recits-au-passe.1423",
+          "fr.b1.recits-au-passe.1424",
           "fr.b1.recits-au-passe.494",
-          "fr.b1.recits-au-passe.025",
+          "fr.b1.recits-au-passe.1425",
           "fr.b1.recits-au-passe.489",
           "fr.b1.recits-au-passe.488",
           "fr.b1.recits-au-passe.490",
@@ -973,9 +973,9 @@
           "fr.b1.recits-au-passe.492",
           "fr.b1.recits-au-passe.495",
           "fr.b1.recits-au-passe.493",
-          "fr.b1.recits-au-passe.044",
-          "fr.b1.recits-au-passe.058",
-          "fr.b1.recits-au-passe.071",
+          "fr.b1.recits-au-passe.1444",
+          "fr.b1.recits-au-passe.1458",
+          "fr.b1.recits-au-passe.1471",
           "fr.b1.recits-au-passe.496",
           "fr.b1.recits-au-passe.497",
           "fr.b1.recits-au-passe.498",
@@ -986,43 +986,43 @@
           "fr.b1.recits-au-passe.511",
           "fr.b1.recits-au-passe.512",
           "fr.b1.recits-au-passe.507",
-          "fr.b1.recits-au-passe.026",
-          "fr.b1.recits-au-passe.027",
+          "fr.b1.recits-au-passe.1426",
+          "fr.b1.recits-au-passe.1427",
           "fr.b1.recits-au-passe.501",
           "fr.b1.recits-au-passe.500",
-          "fr.b1.recits-au-passe.028",
+          "fr.b1.recits-au-passe.1428",
           "fr.b1.recits-au-passe.506",
           "fr.b1.recits-au-passe.502",
-          "fr.b1.recits-au-passe.011",
+          "fr.b1.recits-au-passe.1411",
           "fr.b1.recits-au-passe.505",
-          "fr.b1.recits-au-passe.013",
-          "fr.b1.recits-au-passe.029",
+          "fr.b1.recits-au-passe.1413",
+          "fr.b1.recits-au-passe.1429",
           "fr.b1.recits-au-passe.504",
           "fr.b1.recits-au-passe.503",
-          "fr.b1.recits-au-passe.051",
-          "fr.b1.recits-au-passe.052",
-          "fr.b1.recits-au-passe.053",
-          "fr.b1.recits-au-passe.054",
-          "fr.b1.recits-au-passe.055",
-          "fr.b1.recits-au-passe.056",
+          "fr.b1.recits-au-passe.1451",
+          "fr.b1.recits-au-passe.1452",
+          "fr.b1.recits-au-passe.1453",
+          "fr.b1.recits-au-passe.1454",
+          "fr.b1.recits-au-passe.1455",
+          "fr.b1.recits-au-passe.1456",
           "fr.b1.recits-au-passe.508",
           "fr.b1.recits-au-passe.509",
           "fr.b1.recits-au-passe.510"
         ],
         [
-          "fr.b1.recits-au-passe.032",
-          "fr.b1.recits-au-passe.031",
-          "fr.b1.recits-au-passe.030",
+          "fr.b1.recits-au-passe.1432",
+          "fr.b1.recits-au-passe.1431",
+          "fr.b1.recits-au-passe.1430",
           "fr.b1.recits-au-passe.513",
           "fr.b1.recits-au-passe.514",
           "fr.b1.recits-au-passe.515",
           "fr.b1.recits-au-passe.517",
           "fr.b1.recits-au-passe.516",
-          "fr.b1.recits-au-passe.048",
-          "fr.b1.recits-au-passe.049",
-          "fr.b1.recits-au-passe.050",
-          "fr.b1.recits-au-passe.064",
-          "fr.b1.recits-au-passe.065",
+          "fr.b1.recits-au-passe.1448",
+          "fr.b1.recits-au-passe.1449",
+          "fr.b1.recits-au-passe.1450",
+          "fr.b1.recits-au-passe.1464",
+          "fr.b1.recits-au-passe.1465",
           "fr.b1.recits-au-passe.518",
           "fr.b1.recits-au-passe.519",
           "fr.b1.recits-au-passe.520",
@@ -1549,7 +1549,7 @@
               "note": "nous parlons, donc parl-"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.003",
+              "itemId": "fr.b1.recits-au-passe.1403",
               "note": "et voici nous parlions"
             },
             {
@@ -1564,15 +1564,15 @@
           "body": "Les fins sont toujours -ais, -ais, -ait, -ions, -iez, -aient. Il n’y a pas de groupe à choisir : tous les verbes prennent les mêmes. EN: six endings, identical for every verb.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.001",
+              "itemId": "fr.b1.recits-au-passe.1401",
               "note": "je parlais"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.004",
+              "itemId": "fr.b1.recits-au-passe.1404",
               "note": "vous parliez"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.005",
+              "itemId": "fr.b1.recits-au-passe.1405",
               "note": "ils parlaient"
             }
           ]
@@ -1583,15 +1583,15 @@
           "body": "parlais, parlait et parlaient se disent tous [paʁ.lɛ]. À l’oral, c’est le sujet qui dit qui parle, comme au présent dans lesson 1 in A2. À l’écrit, choisis la bonne fin. EN: four forms, one sound; the subject says who.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.001",
+              "itemId": "fr.b1.recits-au-passe.1401",
               "note": "je parlais"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.002",
+              "itemId": "fr.b1.recits-au-passe.1402",
               "note": "il parlait, même son"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.005",
+              "itemId": "fr.b1.recits-au-passe.1405",
               "note": "ils parlaient, même son"
             }
           ]
@@ -1602,11 +1602,11 @@
           "body": "faire, prendre, boire, venir, vouloir... sont irréguliers au présent. Mais leur forme nous existe, alors la recette marche : fais-, pren-, buv-, ven-, voul-. EN: verbs irregular in the present follow the recipe here.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.008",
+              "itemId": "fr.b1.recits-au-passe.1408",
               "note": "nous faisons, donc je faisais"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.009",
+              "itemId": "fr.b1.recits-au-passe.1409",
               "note": "nous buvons, donc je buvais"
             },
             {
@@ -1621,11 +1621,11 @@
           "body": "nous sommes ne finit pas par -ons, donc la recette ne marche pas. être a sa propre base : ét-. Les fins, elles, sont normales : j’étais, nous étions. EN: être alone has its own stem, ét-.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.016",
+              "itemId": "fr.b1.recits-au-passe.1416",
               "note": "j'étais"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.017",
+              "itemId": "fr.b1.recits-au-passe.1417",
               "note": "nous étions"
             },
             {
@@ -1640,11 +1640,11 @@
           "body": "Lesson 2 in A2 l’a montré au présent : manger garde un e devant a et o. Devant i, pas besoin : je mangeais, mais nous mangions. EN: -ger keeps e before a, never before i.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.020",
+              "itemId": "fr.b1.recits-au-passe.1420",
               "note": "je mangeais, avec e"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.021",
+              "itemId": "fr.b1.recits-au-passe.1421",
               "note": "nous mangions, sans e"
             },
             {
@@ -1659,11 +1659,11 @@
           "body": "commencer prend un ç devant a et o. Devant i, le c fait déjà [s] : je commençais, mais nous commencions. EN: -cer takes ç before a, never before i.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.023",
+              "itemId": "fr.b1.recits-au-passe.1423",
               "note": "je commençais, avec ç"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.024",
+              "itemId": "fr.b1.recits-au-passe.1424",
               "note": "nous commencions, sans ç"
             },
             {
@@ -1678,15 +1678,15 @@
           "body": "étudier donne étudi-. Avec -ions ou -iez, tu écris deux i : nous étudiions. Même chose avec y : nous voyions, nous payions. L’oreille aide peu : suis la règle. EN: stem i or y plus -ions/-iez gives a double i.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.026",
+              "itemId": "fr.b1.recits-au-passe.1426",
               "note": "nous étudiions"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.011",
+              "itemId": "fr.b1.recits-au-passe.1411",
               "note": "nous voyions"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.029",
+              "itemId": "fr.b1.recits-au-passe.1429",
               "note": "nous payions"
             }
           ]
@@ -1697,11 +1697,11 @@
           "body": "il y avait, il fallait, il pleuvait, il neigeait, il faisait beau, il valait mieux : ici, il ne représente personne. On les apprend entiers. EN: impersonal il; learn these as whole chunks.",
           "examples": [
             {
-              "itemId": "fr.b1.recits-au-passe.032",
+              "itemId": "fr.b1.recits-au-passe.1432",
               "note": "il y avait"
             },
             {
-              "itemId": "fr.b1.recits-au-passe.031",
+              "itemId": "fr.b1.recits-au-passe.1431",
               "note": "il fallait"
             },
             {
@@ -2063,19 +2063,19 @@
               "items": [
                 {
                   "fr": "Ma grand-mère habitait à Dakar.",
-                  "itemId": "fr.b1.recits-au-passe.041",
+                  "itemId": "fr.b1.recits-au-passe.1441",
                   "en": "My grandmother lived in Dakar.",
                   "note": "habitait"
                 },
                 {
                   "fr": "C'était la maison de ma grand-mère.",
-                  "itemId": "fr.b1.recits-au-passe.060",
+                  "itemId": "fr.b1.recits-au-passe.1460",
                   "en": "It was my grandmother’s house.",
                   "note": "était"
                 },
                 {
                   "fr": "Quand j'étais petite, j'habitais chez ma grand-mère.",
-                  "itemId": "fr.b1.recits-au-passe.040",
+                  "itemId": "fr.b1.recits-au-passe.1440",
                   "en": "When I was little, I lived at my grandmother’s.",
                   "note": "étais, habitais"
                 },
@@ -2090,10 +2090,10 @@
                 "q": "Ces quatre phrases parlent de quand ? EN: When are these four sentences set?",
                 "opts": [
                   "de maintenant",
-                  "d’avant",
-                  "de demain"
+                  "de demain",
+                  "d’avant"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "D’avant : la vie de l’enfance, qui n’existe plus. EN: before, a life that is over."
               }
             },
@@ -2102,13 +2102,13 @@
               "items": [
                 {
                   "fr": "Avant, j'habitais à Dakar.",
-                  "itemId": "fr.b1.recits-au-passe.061",
+                  "itemId": "fr.b1.recits-au-passe.1461",
                   "en": "I used to live in Dakar.",
                   "note": "avant"
                 },
                 {
                   "fr": "Maintenant, j'habite à Montréal.",
-                  "itemId": "fr.b1.recits-au-passe.062",
+                  "itemId": "fr.b1.recits-au-passe.1462",
                   "en": "Now I live in Montreal.",
                   "note": "maintenant"
                 },
@@ -2142,11 +2142,11 @@
               "check": {
                 "q": "Regarde les verbes d’avant. Quelle fin revient ? EN: Which ending keeps coming back?",
                 "opts": [
-                  "-ais, -ait",
                   "-é",
-                  "-ons"
+                  "-ons",
+                  "-ais, -ait"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "why": "habitais, habitait, était, disais : -ais et -ait. EN: the endings -ais and -ait."
               }
             }
@@ -2219,11 +2219,11 @@
               "check": {
                 "q": "Une photo de 1998. « Ma grand-mère ... là. » Elle n’y habite plus. EN: She no longer lives there.",
                 "opts": [
-                  "habite",
                   "habitait",
+                  "habite",
                   "habitaient"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "habitait : la vie d’avant, une personne. habitaient, c’est pour ils. EN: past life, one person."
               }
             },
@@ -2234,10 +2234,10 @@
                 "q": "Dans « nous mangions », quelle partie change avec la personne ? EN: Which part changes with the person?",
                 "opts": [
                   "mang-",
-                  "-ions",
-                  "nous mang-"
+                  "nous mang-",
+                  "-ions"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "La fin. La base mang- reste. EN: the ending changes, the stem stays."
               }
             },
@@ -2344,6 +2344,7 @@
           "size": "lg",
           "title": "La recette en trois gestes",
           "frSub": "Pars de nous",
+          "sheetId": "sheet-recette",
           "hint": "Six cartes. Les trois premières sont la recette entière. EN: Six cards; the first three are the whole recipe.",
           "audio": {
             "mode": "tts",
@@ -2472,6 +2473,7 @@
           "size": "lg",
           "title": "Construis la forme",
           "frSub": "-er, -ir, -re",
+          "sheetId": "sheet-recette",
           "groups": [
             {
               "label": "Verbes en -er",
@@ -2516,11 +2518,11 @@
               "check": {
                 "q": "nous chantons. Avec je, à l’imparfait : EN: With je, in the imparfait:",
                 "opts": [
-                  "je chantais",
                   "je chantait",
-                  "je chantonsais"
+                  "je chantonsais",
+                  "je chantais"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "why": "chant- + ais. Pas de -ons, et je prend -ais. EN: no -ons, and je takes -ais."
               }
             },
@@ -2535,7 +2537,7 @@
                 },
                 {
                   "fr": "Nous finissions tôt.",
-                  "itemId": "fr.b1.recits-au-passe.045",
+                  "itemId": "fr.b1.recits-au-passe.1445",
                   "en": "We used to finish early.",
                   "note": "finiss- + ions"
                 },
@@ -2686,29 +2688,29 @@
             {
               "q": "Ligne 3 : Lise parle de maintenant ou d’avant ? EN: Line 3: now or before?",
               "opts": [
-                "de maintenant",
-                "d’avant"
+                "d’avant",
+                "de maintenant"
               ],
-              "correct": 0,
+              "correct": 1,
               "why": "habitons : [ɔ̃], sans i. C’est le présent. EN: no i sound, present."
             },
             {
               "q": "Lignes 6 et 7 : laquelle parle d’avant ? EN: Which one is about before?",
               "opts": [
-                "la 7",
-                "la 6"
+                "la 6",
+                "la 7"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "regardions, avec le son [jɔ̃]. EN: you hear [jɔ̃]."
             },
             {
               "q": "Qui vendait des journaux ? EN: Who sold newspapers?",
               "opts": [
-                "le grand-père",
                 "la grand-mère",
+                "le grand-père",
                 "Léa"
               ],
-              "correct": 0,
+              "correct": 1,
               "why": "Ton grand-père vendait. EN: the grandfather."
             },
             {
@@ -2795,34 +2797,34 @@
             {
               "promptSay": "nous finissons → je ...",
               "opts": [
-                "finissais",
-                "finais"
+                "finais",
+                "finissais"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "nous choisissons → nous ...",
               "opts": [
-                "choisions",
-                "choisissions"
-              ],
-              "correct": 1
-            },
-            {
-              "promptSay": "nous vendons → je ...",
-              "opts": [
-                "vendais",
-                "vendrais"
+                "choisissions",
+                "choisions"
               ],
               "correct": 0
             },
             {
-              "promptSay": "nous parlons → ils ...",
+              "promptSay": "nous vendons → je ...",
               "opts": [
-                "parlonsaient",
-                "parlaient"
+                "vendrais",
+                "vendais"
               ],
               "correct": 1
+            },
+            {
+              "promptSay": "nous parlons → ils ...",
+              "opts": [
+                "parlaient",
+                "parlonsaient"
+              ],
+              "correct": 0
             },
             {
               "promptSay": "nous remplissons → il ...",
@@ -2843,18 +2845,18 @@
             {
               "promptSay": "nous attendons → vous ...",
               "opts": [
-                "attendiez",
-                "attendez"
+                "attendez",
+                "attendiez"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "nous perdons → elle ...",
               "opts": [
-                "perdais",
-                "perdait"
+                "perdait",
+                "perdais"
               ],
-              "correct": 1
+              "correct": 0
             }
           ],
           "steps": [
@@ -2908,11 +2910,11 @@
               "check": {
                 "q": "nous grandissons. Avec je, à l’imparfait : EN: With je:",
                 "opts": [
-                  "je grandais",
                   "je grandissais",
+                  "je grandais",
                   "je grandirais"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "grandiss- + ais. EN: keep -iss-."
               }
             },
@@ -2922,11 +2924,11 @@
               "check": {
                 "q": "nous répondons. Avec ils : EN: With ils:",
                 "opts": [
-                  "ils répondaient",
                   "ils répondait",
+                  "ils répondaient",
                   "ils répondent"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "répond- + aient. EN: plural ending -aient."
               }
             },
@@ -3032,6 +3034,7 @@
           "layer": "core",
           "title": "Six fins pour tous les verbes",
           "frSub": "Touche une ligne pour l’écouter",
+          "sheetId": "sheet-recette",
           "cols": [
             "Qui",
             "Fin",
@@ -3199,13 +3202,14 @@
           "size": "lg",
           "title": "Le sujet choisit la fin",
           "frSub": "je, tu, il, nous, vous, ils",
+          "sheetId": "sheet-recette",
           "groups": [
             {
               "label": "je et tu : -ais",
               "items": [
                 {
                   "fr": "je parlais",
-                  "itemId": "fr.b1.recits-au-passe.001",
+                  "itemId": "fr.b1.recits-au-passe.1401",
                   "en": "I used to speak / I was speaking"
                 },
                 {
@@ -3215,7 +3219,7 @@
                 },
                 {
                   "fr": "tu habitais",
-                  "itemId": "fr.b1.recits-au-passe.036",
+                  "itemId": "fr.b1.recits-au-passe.1436",
                   "en": "you used to live"
                 },
                 {
@@ -3227,11 +3231,11 @@
               "check": {
                 "q": "Mes cousins ... wolof. EN: My cousins spoke Wolof.",
                 "opts": [
-                  "parlait",
                   "parlaient",
+                  "parlait",
                   "parlais"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "Mes cousins = ils : -aient. EN: plural subject, -aient."
               }
             },
@@ -3240,7 +3244,7 @@
               "items": [
                 {
                   "fr": "il parlait",
-                  "itemId": "fr.b1.recits-au-passe.002",
+                  "itemId": "fr.b1.recits-au-passe.1402",
                   "en": "he used to speak / he was speaking"
                 },
                 {
@@ -3262,11 +3266,11 @@
               "check": {
                 "q": "On ... dehors tout l’après-midi. EN: We played outside all afternoon.",
                 "opts": [
-                  "jouait",
                   "jouions",
+                  "jouait",
                   "jouaient"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "on prend la fin de il : -ait. EN: on takes -ait."
               }
             },
@@ -3275,12 +3279,12 @@
               "items": [
                 {
                   "fr": "nous parlions",
-                  "itemId": "fr.b1.recits-au-passe.003",
+                  "itemId": "fr.b1.recits-au-passe.1403",
                   "en": "we used to speak / we were speaking"
                 },
                 {
                   "fr": "vous parliez",
-                  "itemId": "fr.b1.recits-au-passe.004",
+                  "itemId": "fr.b1.recits-au-passe.1404",
                   "en": "you used to speak / you were speaking"
                 },
                 {
@@ -3290,7 +3294,7 @@
                 },
                 {
                   "fr": "ils parlaient",
-                  "itemId": "fr.b1.recits-au-passe.005",
+                  "itemId": "fr.b1.recits-au-passe.1405",
                   "en": "they used to speak / they were speaking"
                 },
                 {
@@ -3300,12 +3304,12 @@
                 },
                 {
                   "fr": "Les enfants jouaient dans la rue.",
-                  "itemId": "fr.b1.recits-au-passe.059",
+                  "itemId": "fr.b1.recits-au-passe.1459",
                   "en": "The children used to play in the street."
                 },
                 {
                   "fr": "Mes cousins habitaient à Thiès.",
-                  "itemId": "fr.b1.recits-au-passe.070",
+                  "itemId": "fr.b1.recits-au-passe.1470",
                   "en": "My cousins lived in Thiès."
                 }
               ],
@@ -3313,10 +3317,10 @@
                 "q": "Toi et ta sœur, vous ... créole. EN: You and your sister spoke Creole.",
                 "opts": [
                   "parlais",
-                  "parliez",
-                  "parlait"
+                  "parlait",
+                  "parliez"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "vous : -iez. EN: vous takes -iez."
               }
             }
@@ -3410,11 +3414,11 @@
             {
               "q": "Ligne 7 : Julien parle à qui ? EN: Line 7: who is Julien talking to?",
               "opts": [
-                "à Awa seule",
                 "à Awa et à ses cousins",
+                "à Awa seule",
                 "à ses parents"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "vous jouiez : -iez, plusieurs personnes. EN: -iez, several people."
             }
           ],
@@ -3513,11 +3517,11 @@
               "check": {
                 "q": "On ... tous ensemble. EN: We all ate together.",
                 "opts": [
-                  "mangeait",
                   "mangions",
-                  "mangeaient"
+                  "mangeaient",
+                  "mangeait"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "why": "on + -ait. EN: on takes -ait."
               }
             },
@@ -3527,11 +3531,11 @@
               "check": {
                 "q": "Quelles deux personnes ont une fin qu’on entend ? EN: Which two persons have an audible ending?",
                 "opts": [
+                  "nous et vous",
                   "je et tu",
-                  "il et ils",
-                  "nous et vous"
+                  "il et ils"
                 ],
-                "correct": 2,
+                "correct": 0,
                 "why": "-ions [jɔ̃] et -iez [je]. EN: nous and vous."
               }
             }
@@ -3626,6 +3630,7 @@
           "size": "lg",
           "title": "Irrégulier ? Pas ici.",
           "frSub": "La recette marche encore",
+          "sheetId": "sheet-irreg",
           "hint": "Huit cartes, une famille par carte. EN: Eight cards, one verb family each.",
           "audio": {
             "mode": "tts",
@@ -3810,6 +3815,7 @@
           "layer": "core",
           "title": "Vingt verbes, une recette",
           "frSub": "De nous à je",
+          "sheetId": "sheet-irreg",
           "examples": [
             {
               "fr": "nous faisons → je faisais",
@@ -3913,6 +3919,7 @@
           "size": "lg",
           "title": "Construis les irréguliers",
           "frSub": "Cinq familles",
+          "sheetId": "sheet-irreg",
           "groups": [
             {
               "label": "faire, prendre, venir",
@@ -3925,7 +3932,7 @@
                 },
                 {
                   "fr": "Nous faisions le lit.",
-                  "itemId": "fr.b1.recits-au-passe.046",
+                  "itemId": "fr.b1.recits-au-passe.1446",
                   "en": "We used to make the bed."
                 },
                 {
@@ -3941,7 +3948,7 @@
                 },
                 {
                   "fr": "Nous prenions le bus pour aller à l'école.",
-                  "itemId": "fr.b1.recits-au-passe.069",
+                  "itemId": "fr.b1.recits-au-passe.1469",
                   "en": "We used to take the bus to school."
                 },
                 {
@@ -3964,11 +3971,11 @@
               "check": {
                 "q": "nous revenons. Avec je : EN: With je:",
                 "opts": [
-                  "je revenais",
                   "je revienais",
+                  "je revenais",
                   "je reviendais"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "reven- + ais, un seul n. EN: one n, no d."
               }
             },
@@ -3983,12 +3990,12 @@
                 },
                 {
                   "fr": "je buvais",
-                  "itemId": "fr.b1.recits-au-passe.009",
+                  "itemId": "fr.b1.recits-au-passe.1409",
                   "en": "I used to drink"
                 },
                 {
                   "fr": "Je buvais du lait tous les matins.",
-                  "itemId": "fr.b1.recits-au-passe.068",
+                  "itemId": "fr.b1.recits-au-passe.1468",
                   "en": "I used to drink milk every morning."
                 },
                 {
@@ -3999,7 +4006,7 @@
                 },
                 {
                   "fr": "je voyais",
-                  "itemId": "fr.b1.recits-au-passe.010",
+                  "itemId": "fr.b1.recits-au-passe.1410",
                   "en": "I used to see"
                 },
                 {
@@ -4010,7 +4017,7 @@
                 },
                 {
                   "fr": "je croyais",
-                  "itemId": "fr.b1.recits-au-passe.012",
+                  "itemId": "fr.b1.recits-au-passe.1412",
                   "en": "I used to believe"
                 }
               ],
@@ -4018,10 +4025,10 @@
                 "q": "nous buvons. Avec ils : EN: With ils:",
                 "opts": [
                   "ils boivaient",
-                  "ils buvaient",
-                  "ils buvait"
+                  "ils buvait",
+                  "ils buvaient"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "buv- + aient. EN: buv- plus -aient."
               }
             },
@@ -4036,7 +4043,7 @@
                 },
                 {
                   "fr": "je disais",
-                  "itemId": "fr.b1.recits-au-passe.014",
+                  "itemId": "fr.b1.recits-au-passe.1414",
                   "en": "I used to say"
                 },
                 {
@@ -4052,12 +4059,12 @@
                 },
                 {
                   "fr": "j'écrivais",
-                  "itemId": "fr.b1.recits-au-passe.015",
+                  "itemId": "fr.b1.recits-au-passe.1415",
                   "en": "I used to write"
                 },
                 {
                   "fr": "Mon grand-père écrivait des lettres.",
-                  "itemId": "fr.b1.recits-au-passe.067",
+                  "itemId": "fr.b1.recits-au-passe.1467",
                   "en": "My grandfather used to write letters."
                 },
                 {
@@ -4068,7 +4075,7 @@
                 },
                 {
                   "fr": "je lisais",
-                  "itemId": "fr.b1.recits-au-passe.035",
+                  "itemId": "fr.b1.recits-au-passe.1435",
                   "en": "I used to read"
                 },
                 {
@@ -4180,12 +4187,12 @@
                 },
                 {
                   "fr": "j'allais",
-                  "itemId": "fr.b1.recits-au-passe.033",
+                  "itemId": "fr.b1.recits-au-passe.1433",
                   "en": "I used to go"
                 },
                 {
                   "fr": "vous alliez",
-                  "itemId": "fr.b1.recits-au-passe.037",
+                  "itemId": "fr.b1.recits-au-passe.1437",
                   "en": "you used to go"
                 },
                 {
@@ -4233,7 +4240,7 @@
                 },
                 {
                   "fr": "j'avais",
-                  "itemId": "fr.b1.recits-au-passe.019",
+                  "itemId": "fr.b1.recits-au-passe.1419",
                   "en": "I had / I used to have"
                 }
               ],
@@ -4241,10 +4248,10 @@
                 "q": "nous allons. Avec vous : EN: With vous:",
                 "opts": [
                   "vous iriez",
-                  "vous allez",
-                  "vous alliez"
+                  "vous alliez",
+                  "vous allez"
                 ],
-                "correct": 2,
+                "correct": 1,
                 "why": "all- + iez. vous allez, c’est le présent. EN: all- plus -iez."
               }
             }
@@ -4308,11 +4315,11 @@
             {
               "q": "Ligne 1 : vivais vient de quel verbe ? EN: Which verb is vivais from?",
               "opts": [
-                "vivre",
                 "voir",
-                "venir"
+                "venir",
+                "vivre"
               ],
-              "correct": 0,
+              "correct": 2,
               "why": "nous vivons, donc viv-. EN: from nous vivons."
             },
             {
@@ -4327,10 +4334,10 @@
             {
               "q": "Lignes 6 et 7 : laquelle est au présent ? EN: Which one is present?",
               "opts": [
-                "la 6",
-                "la 7"
+                "la 7",
+                "la 6"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "je bois : présent. je buvais : imparfait. EN: bois is present."
             },
             {
@@ -4424,34 +4431,34 @@
             {
               "promptSay": "nous buvons → je ...",
               "opts": [
-                "buvais",
-                "boivais"
+                "boivais",
+                "buvais"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "nous prenons → tu ...",
               "opts": [
-                "prendais",
-                "prenais"
-              ],
-              "correct": 1
-            },
-            {
-              "promptSay": "nous faisons → il ...",
-              "opts": [
-                "faisait",
-                "fesait"
+                "prenais",
+                "prendais"
               ],
               "correct": 0
             },
             {
-              "promptSay": "nous venons → nous ...",
+              "promptSay": "nous faisons → il ...",
               "opts": [
-                "viennions",
-                "venions"
+                "fesait",
+                "faisait"
               ],
               "correct": 1
+            },
+            {
+              "promptSay": "nous venons → nous ...",
+              "opts": [
+                "venions",
+                "viennions"
+              ],
+              "correct": 0
             },
             {
               "promptSay": "nous écrivons → elle ...",
@@ -4472,18 +4479,18 @@
             {
               "promptSay": "nous savons → ils ...",
               "opts": [
-                "savaient",
-                "sachaient"
+                "sachaient",
+                "savaient"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "nous dormons → tu ...",
               "opts": [
-                "dorsais",
-                "dormais"
+                "dormais",
+                "dorsais"
               ],
-              "correct": 1
+              "correct": 0
             }
           ],
           "steps": [
@@ -4529,6 +4536,7 @@
           "layer": "core",
           "title": "Fabrique la forme",
           "frSub": "Le verbe, la personne, puis la forme",
+          "sheetId": "sheet-irreg",
           "cards": [
             {
               "front": "faire · je",
@@ -4618,11 +4626,11 @@
               "check": {
                 "q": "vivre, avec nous : EN: vivre, with nous:",
                 "opts": [
-                  "nous vivions",
                   "nous vivrions",
+                  "nous vivions",
                   "nous vivons"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "viv- + ions. EN: viv- plus -ions."
               }
             },
@@ -4633,10 +4641,10 @@
                 "q": "croire, avec je : EN: croire, with je:",
                 "opts": [
                   "je croiais",
-                  "je croyais",
-                  "je croirais"
+                  "je croirais",
+                  "je croyais"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "nous croyons : croy-. EN: from croyons."
               }
             },
@@ -4646,11 +4654,11 @@
               "check": {
                 "q": "Quel verbe ne suit pas la recette ? EN: Which verb does not follow the recipe?",
                 "opts": [
+                  "être",
                   "avoir",
-                  "aller",
-                  "être"
+                  "aller"
                 ],
-                "correct": 2,
+                "correct": 0,
                 "why": "être : nous sommes n’a pas de -ons. L’acte 5 en parle. EN: être, next act."
               }
             }
@@ -4797,6 +4805,7 @@
           "layer": "core",
           "title": "être, les six formes",
           "frSub": "Touche pour écouter le z",
+          "sheetId": "sheet-recette",
           "cols": [
             "Qui",
             "être"
@@ -4901,7 +4910,7 @@
               "items": [
                 {
                   "fr": "j'étais",
-                  "itemId": "fr.b1.recits-au-passe.016",
+                  "itemId": "fr.b1.recits-au-passe.1416",
                   "en": "I was / I used to be"
                 },
                 {
@@ -4933,11 +4942,11 @@
               "check": {
                 "q": "Ma maîtresse ... sévère. EN: My teacher was strict.",
                 "opts": [
-                  "était",
                   "étais",
+                  "était",
                   "étaient"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "Une personne, elle : -ait. EN: one person, -ait."
               }
             },
@@ -4946,7 +4955,7 @@
               "items": [
                 {
                   "fr": "nous étions",
-                  "itemId": "fr.b1.recits-au-passe.017",
+                  "itemId": "fr.b1.recits-au-passe.1417",
                   "en": "we were / we used to be"
                 },
                 {
@@ -4956,12 +4965,12 @@
                 },
                 {
                   "fr": "ils étaient",
-                  "itemId": "fr.b1.recits-au-passe.018",
+                  "itemId": "fr.b1.recits-au-passe.1418",
                   "en": "they were / they used to be"
                 },
                 {
                   "fr": "Nous étions six à la maison.",
-                  "itemId": "fr.b1.recits-au-passe.066",
+                  "itemId": "fr.b1.recits-au-passe.1466",
                   "en": "There were six of us at home."
                 },
                 {
@@ -4979,10 +4988,10 @@
                 "q": "Mes parents ... fiers. EN: My parents were proud.",
                 "opts": [
                   "était",
-                  "étaient",
-                  "étiez"
+                  "étiez",
+                  "étaient"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "Mes parents = ils : -aient. EN: plural, -aient."
               }
             },
@@ -5001,7 +5010,7 @@
                 },
                 {
                   "fr": "C'était la maison de ma grand-mère.",
-                  "itemId": "fr.b1.recits-au-passe.060",
+                  "itemId": "fr.b1.recits-au-passe.1460",
                   "en": "It was my grandmother’s house."
                 }
               ],
@@ -5094,20 +5103,20 @@
             {
               "q": "Ligne 5 : pourquoi étaient ? EN: Why étaient?",
               "opts": [
-                "Fatou et Khady, c’est ils",
                 "c’est vous",
-                "c’est la mer"
+                "c’est la mer",
+                "Fatou et Khady, c’est ils"
               ],
-              "correct": 0,
+              "correct": 2,
               "why": "Deux personnes, donc -aient. EN: plural subject."
             },
             {
               "q": "Lignes 2 et 8 : laquelle parle d’avant ? EN: Which one is about the past?",
               "opts": [
-                "la 8",
-                "la 2"
+                "la 2",
+                "la 8"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "c’était : imparfait. est : présent. EN: c’était is the imparfait."
             }
           ],
@@ -5206,10 +5215,10 @@
                 "q": "La base de être à l’imparfait : EN: The imparfait stem of être:",
                 "opts": [
                   "somm-",
-                  "êt-",
-                  "ét-"
+                  "ét-",
+                  "êt-"
                 ],
-                "correct": 2,
+                "correct": 1,
                 "why": "ét-, avec un accent aigu. EN: ét-, acute accent."
               }
             },
@@ -5219,11 +5228,11 @@
               "check": {
                 "q": "« ... petite, j’habitais à Dakar. » EN: When I was little...",
                 "opts": [
-                  "Quand j’étais",
                   "Quand je suis",
-                  "Quand je étais"
+                  "Quand je étais",
+                  "Quand j’étais"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "why": "j’étais : imparfait et élision. EN: imparfait with elision."
               }
             }
@@ -5312,6 +5321,7 @@
           "size": "lg",
           "title": "Un e pour garder [ʒ]",
           "frSub": "manger, nager, voyager...",
+          "sheetId": "sheet-ortho",
           "hint": "Cinq cartes. Regarde la lettre après le g. EN: Five cards; look at the letter after the g.",
           "audio": {
             "mode": "tts",
@@ -5482,7 +5492,7 @@
               "items": [
                 {
                   "fr": "je mangeais",
-                  "itemId": "fr.b1.recits-au-passe.020",
+                  "itemId": "fr.b1.recits-au-passe.1420",
                   "en": "I used to eat"
                 },
                 {
@@ -5497,12 +5507,12 @@
                 },
                 {
                   "fr": "ils mangeaient",
-                  "itemId": "fr.b1.recits-au-passe.022",
+                  "itemId": "fr.b1.recits-au-passe.1422",
                   "en": "they used to eat"
                 },
                 {
                   "fr": "ils voyageaient",
-                  "itemId": "fr.b1.recits-au-passe.038",
+                  "itemId": "fr.b1.recits-au-passe.1438",
                   "en": "they used to travel"
                 },
                 {
@@ -5534,11 +5544,11 @@
               "check": {
                 "q": "changer, avec il : EN: changer, with il:",
                 "opts": [
-                  "il changait",
                   "il changeait",
+                  "il changait",
                   "il changiait"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "-ait commence par a : e. EN: e before a."
               }
             },
@@ -5553,12 +5563,12 @@
                 },
                 {
                   "fr": "nous mangions",
-                  "itemId": "fr.b1.recits-au-passe.021",
+                  "itemId": "fr.b1.recits-au-passe.1421",
                   "en": "we used to eat"
                 },
                 {
                   "fr": "Nous mangions ici.",
-                  "itemId": "fr.b1.recits-au-passe.043",
+                  "itemId": "fr.b1.recits-au-passe.1443",
                   "en": "We used to eat here."
                 },
                 {
@@ -5632,11 +5642,11 @@
               "check": {
                 "q": "ranger, avec vous : EN: ranger, with vous:",
                 "opts": [
-                  "vous rangiez",
                   "vous rangeiez",
+                  "vous rangiez",
                   "vous rangez"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "-iez commence par i : pas de e. EN: no e before i."
               }
             }
@@ -5708,20 +5718,20 @@
             {
               "q": "Qui voyageait beaucoup ? EN: Who used to travel a lot?",
               "opts": [
-                "le grand-père",
                 "les cousins",
-                "Nadia"
+                "Nadia",
+                "le grand-père"
               ],
-              "correct": 0,
+              "correct": 2,
               "why": "Mon grand-père voyageait. Les cousins voyagent aujourd’hui. EN: the grandfather, then."
             },
             {
               "q": "Ligne 7 : voyagent, c’est quel temps ? EN: Line 7: which tense?",
               "opts": [
-                "l’imparfait",
-                "le présent"
+                "le présent",
+                "l’imparfait"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "Aujourd’hui, voyagent : présent. EN: present."
             },
             {
@@ -5839,18 +5849,18 @@
             {
               "promptSay": "tu partag...ais",
               "opts": [
-                "partagais",
-                "partageais"
+                "partageais",
+                "partagais"
               ],
-              "correct": 1
+              "correct": 0
             },
             {
               "promptSay": "nous chang...ions",
               "opts": [
-                "changions",
-                "changeions"
+                "changeions",
+                "changions"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "il boug...ait",
@@ -5920,11 +5930,11 @@
               "check": {
                 "q": "nager, avec tu : EN: nager, with tu:",
                 "opts": [
-                  "tu nagais",
                   "tu nageais",
+                  "tu nagais",
                   "tu nagiais"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "-ais commence par a : e. EN: e before a."
               }
             },
@@ -5934,11 +5944,11 @@
               "check": {
                 "q": "bouger, avec nous : EN: bouger, with nous:",
                 "opts": [
-                  "nous bougions",
                   "nous bougeions",
+                  "nous bougions",
                   "nous bougeons"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "Devant i, pas de e. EN: no e before i."
               }
             },
@@ -5949,10 +5959,10 @@
                 "q": "manger à l’imparfait : combien de formes ont un e ? EN: How many forms have an e?",
                 "opts": [
                   "deux",
-                  "quatre",
-                  "six"
+                  "six",
+                  "quatre"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "je, tu, il, ils : quatre. nous et vous : sans e. EN: four with e, two without."
               }
             }
@@ -6035,6 +6045,7 @@
           "size": "lg",
           "title": "Une cédille pour garder [s]",
           "frSub": "commencer, lancer, placer...",
+          "sheetId": "sheet-ortho",
           "hint": "Cinq cartes. Même logique que -ger. EN: Five cards; same logic as -ger.",
           "audio": {
             "mode": "tts",
@@ -6101,12 +6112,12 @@
               "items": [
                 {
                   "fr": "je commençais",
-                  "itemId": "fr.b1.recits-au-passe.023",
+                  "itemId": "fr.b1.recits-au-passe.1423",
                   "en": "I used to start"
                 },
                 {
                   "fr": "ils commençaient",
-                  "itemId": "fr.b1.recits-au-passe.025",
+                  "itemId": "fr.b1.recits-au-passe.1425",
                   "en": "they used to start"
                 },
                 {
@@ -6131,12 +6142,12 @@
                 },
                 {
                   "fr": "Ma grand-mère commençait sa journée à six heures.",
-                  "itemId": "fr.b1.recits-au-passe.058",
+                  "itemId": "fr.b1.recits-au-passe.1458",
                   "en": "My grandmother used to start her day at six."
                 },
                 {
                   "fr": "L'école commençait à huit heures.",
-                  "itemId": "fr.b1.recits-au-passe.071",
+                  "itemId": "fr.b1.recits-au-passe.1471",
                   "en": "School used to start at eight."
                 },
                 {
@@ -6177,12 +6188,12 @@
                 },
                 {
                   "fr": "nous commencions",
-                  "itemId": "fr.b1.recits-au-passe.024",
+                  "itemId": "fr.b1.recits-au-passe.1424",
                   "en": "we used to start"
                 },
                 {
                   "fr": "Nous commencions à huit heures.",
-                  "itemId": "fr.b1.recits-au-passe.044",
+                  "itemId": "fr.b1.recits-au-passe.1444",
                   "en": "We used to start at eight."
                 },
                 {
@@ -6228,11 +6239,11 @@
               "check": {
                 "q": "placer, avec vous : EN: placer, with vous:",
                 "opts": [
-                  "vous placiez",
                   "vous plaçiez",
+                  "vous placiez",
                   "vous placez"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "-iez commence par i : c. EN: plain c before i."
               }
             }
@@ -6295,20 +6306,20 @@
             {
               "q": "Ligne 2 : avant ou maintenant ? EN: Line 2: before or now?",
               "opts": [
-                "avant",
-                "maintenant"
+                "maintenant",
+                "avant"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "commencent : présent. EN: present."
             },
             {
               "q": "Qui plaçait les élèves ? EN: Who seated the pupils?",
               "opts": [
-                "la maîtresse",
                 "Koffi",
-                "Yao"
+                "Yao",
+                "la maîtresse"
               ],
-              "correct": 0,
+              "correct": 2,
               "why": "La maîtresse plaçait. EN: the teacher."
             },
             {
@@ -6403,34 +6414,34 @@
             {
               "promptSay": "tu commen...ais",
               "opts": [
-                "commençais",
-                "commencais"
+                "commencais",
+                "commençais"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "nous commen...ions",
               "opts": [
-                "commençions",
-                "commencions"
-              ],
-              "correct": 1
-            },
-            {
-              "promptSay": "ils pla...aient",
-              "opts": [
-                "plaçaient",
-                "placaient"
+                "commencions",
+                "commençions"
               ],
               "correct": 0
             },
             {
-              "promptSay": "vous lan...iez",
+              "promptSay": "ils pla...aient",
               "opts": [
-                "lançiez",
-                "lanciez"
+                "placaient",
+                "plaçaient"
               ],
               "correct": 1
+            },
+            {
+              "promptSay": "vous lan...iez",
+              "opts": [
+                "lanciez",
+                "lançiez"
+              ],
+              "correct": 0
             },
             {
               "promptSay": "elle avan...ait",
@@ -6451,18 +6462,18 @@
             {
               "promptSay": "je lan...ais",
               "opts": [
-                "lançais",
-                "lancais"
+                "lancais",
+                "lançais"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "nous annon...ions",
               "opts": [
-                "annonçions",
-                "annoncions"
+                "annoncions",
+                "annonçions"
               ],
-              "correct": 1
+              "correct": 0
             }
           ],
           "steps": [
@@ -6544,10 +6555,10 @@
               "check": {
                 "q": "Sans cédille, « ca » se lit : EN: Without a cedilla, ca reads:",
                 "opts": [
-                  "[ka]",
-                  "[sa]"
+                  "[sa]",
+                  "[ka]"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "[ka], comme dans café. La cédille donne [sa]. EN: [ka], as in café."
               }
             }
@@ -6636,6 +6647,7 @@
           "size": "lg",
           "title": "Deux i qui se touchent",
           "frSub": "La recette, lettre par lettre",
+          "sheetId": "sheet-ortho",
           "hint": "Six cartes. Applique la recette, même quand elle donne une forme bizarre. EN: Six cards; trust the recipe even when the form looks odd.",
           "audio": {
             "mode": "tts",
@@ -6807,6 +6819,7 @@
           "size": "lg",
           "title": "Deux i, ou y puis i",
           "frSub": "nous et vous seulement",
+          "sheetId": "sheet-ortho",
           "groups": [
             {
               "label": "Base en i : étudi-, oubli-, ri-, cri-",
@@ -6819,22 +6832,22 @@
                 },
                 {
                   "fr": "nous étudiions",
-                  "itemId": "fr.b1.recits-au-passe.026",
+                  "itemId": "fr.b1.recits-au-passe.1426",
                   "en": "we used to study"
                 },
                 {
                   "fr": "Nous étudiions le soir.",
-                  "itemId": "fr.b1.recits-au-passe.051",
+                  "itemId": "fr.b1.recits-au-passe.1451",
                   "en": "We used to study in the evening."
                 },
                 {
                   "fr": "vous étudiiez",
-                  "itemId": "fr.b1.recits-au-passe.027",
+                  "itemId": "fr.b1.recits-au-passe.1427",
                   "en": "you used to study"
                 },
                 {
                   "fr": "Vous étudiiez à Montréal.",
-                  "itemId": "fr.b1.recits-au-passe.052",
+                  "itemId": "fr.b1.recits-au-passe.1452",
                   "en": "You used to study in Montreal."
                 },
                 {
@@ -6860,12 +6873,12 @@
                 },
                 {
                   "fr": "nous riions",
-                  "itemId": "fr.b1.recits-au-passe.028",
+                  "itemId": "fr.b1.recits-au-passe.1428",
                   "en": "we used to laugh"
                 },
                 {
                   "fr": "Nous riions beaucoup.",
-                  "itemId": "fr.b1.recits-au-passe.053",
+                  "itemId": "fr.b1.recits-au-passe.1453",
                   "en": "We used to laugh a lot."
                 },
                 {
@@ -6883,10 +6896,10 @@
                 "q": "crier, avec vous : EN: crier, with vous:",
                 "opts": [
                   "vous criez",
-                  "vous criiez",
-                  "vous crieez"
+                  "vous crieez",
+                  "vous criiez"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "cri- + iez : deux i. vous criez est le présent. EN: cri- plus -iez."
               }
             },
@@ -6901,12 +6914,12 @@
                 },
                 {
                   "fr": "nous voyions",
-                  "itemId": "fr.b1.recits-au-passe.011",
+                  "itemId": "fr.b1.recits-au-passe.1411",
                   "en": "we used to see"
                 },
                 {
                   "fr": "Nous voyions la mer.",
-                  "itemId": "fr.b1.recits-au-passe.054",
+                  "itemId": "fr.b1.recits-au-passe.1454",
                   "en": "We could see the sea."
                 },
                 {
@@ -6922,22 +6935,22 @@
                 },
                 {
                   "fr": "nous croyions",
-                  "itemId": "fr.b1.recits-au-passe.013",
+                  "itemId": "fr.b1.recits-au-passe.1413",
                   "en": "we used to believe"
                 },
                 {
                   "fr": "Nous croyions au père Noël.",
-                  "itemId": "fr.b1.recits-au-passe.055",
+                  "itemId": "fr.b1.recits-au-passe.1455",
                   "en": "We used to believe in Santa Claus."
                 },
                 {
                   "fr": "nous payions",
-                  "itemId": "fr.b1.recits-au-passe.029",
+                  "itemId": "fr.b1.recits-au-passe.1429",
                   "en": "we used to pay"
                 },
                 {
                   "fr": "Nous payions le pain au kiosque.",
-                  "itemId": "fr.b1.recits-au-passe.056",
+                  "itemId": "fr.b1.recits-au-passe.1456",
                   "en": "We used to pay for bread at the kiosk."
                 },
                 {
@@ -6959,11 +6972,11 @@
               "check": {
                 "q": "envoyer, avec vous : EN: envoyer, with vous:",
                 "opts": [
-                  "vous envoyiez",
                   "vous envoyez",
+                  "vous envoyiez",
                   "vous envoiiez"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "envoy- + iez : y puis i. EN: y then i."
               }
             },
@@ -7051,37 +7064,37 @@
             {
               "q": "Ligne 2 : tu entends étudions ou étudiions ? EN: Which one do you hear?",
               "opts": [
-                "étudions",
-                "étudiions"
+                "étudiions",
+                "étudions"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "Une syllabe de plus : [di.jɔ̃]. EN: an extra syllable."
             },
             {
               "q": "Lignes 5 et 6 : laquelle parle d’avant ? EN: Which one is about the past?",
               "opts": [
-                "la 5",
-                "la 6"
+                "la 6",
+                "la 5"
               ],
-              "correct": 0,
+              "correct": 1,
               "why": "La ligne 5 dit avant, la ligne 6 dit aujourd’hui. Le son aide peu : le sens décide. EN: the words around the verb decide."
             },
             {
               "q": "Tu entends bien la différence entre envoyons et envoyions ? EN: Can you clearly hear the difference?",
               "opts": [
-                "oui, très bien",
-                "presque pas"
+                "presque pas",
+                "oui, très bien"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "Presque pas. C’est pour ça qu’il faut connaître la règle. EN: barely; that is why you need the rule."
             },
             {
               "q": "Ligne 8 : oubliais s’écrit avec combien de i ? EN: How many i’s in oubliais?",
               "opts": [
-                "un",
-                "deux"
+                "deux",
+                "un"
               ],
-              "correct": 0,
+              "correct": 1,
               "why": "Avec je, la fin -ais commence par a : un seul i. EN: je takes one i."
             }
           ],
@@ -7158,17 +7171,17 @@
           "title": "Dictée : les deux i",
           "frSub": "Écris ce que tu entends",
           "itemIds": [
-            "fr.b1.recits-au-passe.026",
-            "fr.b1.recits-au-passe.027",
+            "fr.b1.recits-au-passe.1426",
+            "fr.b1.recits-au-passe.1427",
             "fr.b1.recits-au-passe.501",
             "fr.b1.recits-au-passe.500",
-            "fr.b1.recits-au-passe.028",
+            "fr.b1.recits-au-passe.1428",
             "fr.b1.recits-au-passe.506",
             "fr.b1.recits-au-passe.502",
-            "fr.b1.recits-au-passe.011",
+            "fr.b1.recits-au-passe.1411",
             "fr.b1.recits-au-passe.505",
-            "fr.b1.recits-au-passe.013",
-            "fr.b1.recits-au-passe.029",
+            "fr.b1.recits-au-passe.1413",
+            "fr.b1.recits-au-passe.1429",
             "fr.b1.recits-au-passe.504",
             "fr.b1.recits-au-passe.503"
           ],
@@ -7213,11 +7226,11 @@
               "check": {
                 "q": "croire, avec vous : EN: croire, with vous:",
                 "opts": [
-                  "vous croyiez",
                   "vous croyez",
-                  "vous croiiez"
+                  "vous croiiez",
+                  "vous croyiez"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "why": "croy- + iez. EN: croy- plus -iez."
               }
             },
@@ -7227,11 +7240,11 @@
               "check": {
                 "q": "oublier, avec je : EN: oublier, with je:",
                 "opts": [
+                  "j’oubliais",
                   "j’oubliiais",
-                  "j’oublais",
-                  "j’oubliais"
+                  "j’oublais"
                 ],
-                "correct": 2,
+                "correct": 0,
                 "why": "oubli- + ais : un seul i. EN: one i with je."
               }
             }
@@ -7320,6 +7333,7 @@
           "size": "lg",
           "title": "Il, mais personne",
           "frSub": "Six formes à apprendre entières",
+          "sheetId": "sheet-il-me-ne",
           "hint": "Six cartes. Ici, il ne représente personne. EN: Six cards; here il stands for nobody.",
           "audio": {
             "mode": "tts",
@@ -7426,6 +7440,7 @@
           "layer": "core",
           "title": "Maintenant, avant",
           "frSub": "Touche pour écouter",
+          "sheetId": "sheet-il-me-ne",
           "cols": [
             "Maintenant",
             "Avant"
@@ -7530,17 +7545,17 @@
               "items": [
                 {
                   "fr": "il y avait",
-                  "itemId": "fr.b1.recits-au-passe.032",
+                  "itemId": "fr.b1.recits-au-passe.1432",
                   "en": "there was / there were"
                 },
                 {
                   "fr": "Il y avait un grand arbre dans la cour.",
-                  "itemId": "fr.b1.recits-au-passe.050",
+                  "itemId": "fr.b1.recits-au-passe.1450",
                   "en": "There was a big tree in the courtyard."
                 },
                 {
                   "fr": "Dans mon quartier, il y avait un dépanneur au coin.",
-                  "itemId": "fr.b1.recits-au-passe.064",
+                  "itemId": "fr.b1.recits-au-passe.1464",
                   "en": "In my neighbourhood, there was a corner store on the corner."
                 },
                 {
@@ -7555,12 +7570,12 @@
                 },
                 {
                   "fr": "il fallait",
-                  "itemId": "fr.b1.recits-au-passe.031",
+                  "itemId": "fr.b1.recits-au-passe.1431",
                   "en": "you had to / it was necessary"
                 },
                 {
                   "fr": "Il fallait prendre le bus.",
-                  "itemId": "fr.b1.recits-au-passe.049",
+                  "itemId": "fr.b1.recits-au-passe.1449",
                   "en": "We had to take the bus."
                 },
                 {
@@ -7582,11 +7597,11 @@
               "check": {
                 "q": "« Il ... mettre des bottes. » (falloir) EN: You had to wear boots.",
                 "opts": [
-                  "fallait",
                   "faut",
+                  "fallait",
                   "fallais"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "il fallait : il, donc -ait. il faut, c’est le présent. EN: il faut is the present."
               }
             },
@@ -7595,12 +7610,12 @@
               "items": [
                 {
                   "fr": "il pleuvait",
-                  "itemId": "fr.b1.recits-au-passe.030",
+                  "itemId": "fr.b1.recits-au-passe.1430",
                   "en": "it was raining / it used to rain"
                 },
                 {
                   "fr": "Il pleuvait souvent en novembre.",
-                  "itemId": "fr.b1.recits-au-passe.048",
+                  "itemId": "fr.b1.recits-au-passe.1448",
                   "en": "It often rained in November."
                 },
                 {
@@ -7635,7 +7650,7 @@
                 },
                 {
                   "fr": "L'hiver, nous faisions du patin au parc.",
-                  "itemId": "fr.b1.recits-au-passe.065",
+                  "itemId": "fr.b1.recits-au-passe.1465",
                   "en": "In winter, we used to skate in the park."
                 }
               ],
@@ -7643,10 +7658,10 @@
                 "q": "neiger, à l’imparfait : EN: neiger, in the imparfait:",
                 "opts": [
                   "il neigait",
-                  "il neigeait",
-                  "il neigeaient"
+                  "il neigeaient",
+                  "il neigeait"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "neig- + e + ait : le e garde [ʒ]. EN: the -ger e."
               }
             },
@@ -7723,20 +7738,20 @@
             {
               "q": "Ligne 4 : avant ou maintenant ? EN: Line 4: before or now?",
               "opts": [
-                "avant",
-                "maintenant"
+                "maintenant",
+                "avant"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "il neige : présent. EN: present."
             },
             {
               "q": "Ligne 3 : il fallait veut dire... EN: il fallait means...",
               "opts": [
-                "c’était obligatoire",
                 "il tombait",
+                "c’était obligatoire",
                 "il faisait froid"
               ],
-              "correct": 0,
+              "correct": 1,
               "why": "falloir : une obligation. EN: an obligation."
             },
             {
@@ -7751,11 +7766,11 @@
             {
               "q": "Ligne 6 : quel était le conseil ? EN: What was the advice?",
               "opts": [
-                "rester à l’intérieur",
                 "sortir",
-                "mettre des mitaines"
+                "mettre des mitaines",
+                "rester à l’intérieur"
               ],
-              "correct": 0,
+              "correct": 2,
               "why": "il valait mieux rester à l’intérieur. EN: stay inside."
             }
           ],
@@ -7839,11 +7854,11 @@
               "check": {
                 "q": "Quelle phrase est correcte ? EN: Which sentence is correct?",
                 "opts": [
-                  "Il y avaient des arbres.",
                   "Il y avait des arbres.",
+                  "Il y avaient des arbres.",
                   "Il y étaient des arbres."
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "il y avait, toujours au singulier. EN: always singular."
               }
             },
@@ -7853,11 +7868,11 @@
               "check": {
                 "q": "valoir mieux, à l’imparfait : EN: in the imparfait:",
                 "opts": [
-                  "il valait mieux",
                   "il vallait mieux",
+                  "il valait mieux",
                   "il valais mieux"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "val- + ait, un seul l. EN: one l, -ait."
               }
             },
@@ -7868,10 +7883,10 @@
                 "q": "faire froid, à l’imparfait : EN: in the imparfait:",
                 "opts": [
                   "il fesait froid",
-                  "il faisait froid",
-                  "il faisais froid"
+                  "il faisais froid",
+                  "il faisait froid"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "fais- + ait. EN: fais- plus -ait."
               }
             }
@@ -7959,6 +7974,7 @@
           "size": "lg",
           "title": "Les verbes pronominaux",
           "frSub": "Le pronom reste, le verbe change",
+          "sheetId": "sheet-il-me-ne",
           "hint": "Cinq cartes. Le pronom ne bouge pas. EN: Five cards; the pronoun does not move.",
           "audio": {
             "mode": "tts",
@@ -8017,6 +8033,7 @@
           "layer": "core",
           "title": "La négation autour du verbe",
           "frSub": "ne... pas, ne... jamais, ne... personne",
+          "sheetId": "sheet-il-me-ne",
           "examples": [
             {
               "fr": "Je ne savais pas nager.",
@@ -8073,6 +8090,7 @@
           "layer": "core",
           "title": "se lever, les six formes",
           "frSub": "Touche pour la négation",
+          "sheetId": "sheet-il-me-ne",
           "cols": [
             "Qui",
             "se lever"
@@ -8295,11 +8313,11 @@
               "check": {
                 "q": "« Je ... nager. » (savoir, négation) EN: I couldn’t swim.",
                 "opts": [
-                  "savais ne pas",
                   "ne savais pas",
+                  "savais ne pas",
                   "ne pas savais"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "ne devant, pas derrière le verbe. EN: ne before, pas after."
               }
             },
@@ -8309,11 +8327,11 @@
               "check": {
                 "q": "Il n’y avait ... dans la rue. EN: There was nobody in the street.",
                 "opts": [
-                  "personne",
                   "pas personne",
+                  "personne",
                   "jamais personne"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "personne prend la place de pas. EN: personne replaces pas."
               }
             }
@@ -8376,10 +8394,10 @@
             {
               "q": "Ligne 2 : avant ou maintenant ? EN: Line 2: before or now?",
               "opts": [
-                "avant",
-                "maintenant"
+                "maintenant",
+                "avant"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "je me lève : présent. EN: present."
             },
             {
@@ -8394,11 +8412,11 @@
             {
               "q": "Ligne 5 : pour quoi se disputaient-ils ? EN: What did they fight over?",
               "opts": [
-                "la salle de bain",
                 "la télé",
-                "le petit-déjeuner"
+                "le petit-déjeuner",
+                "la salle de bain"
               ],
-              "correct": 0,
+              "correct": 2,
               "why": "pour la salle de bain. EN: the bathroom."
             },
             {
@@ -8484,42 +8502,42 @@
             {
               "promptSay": "je ... levais",
               "opts": [
-                "me",
-                "se"
+                "se",
+                "me"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "on se ...",
               "opts": [
-                "voyaient",
-                "voyait"
+                "voyait",
+                "voyaient"
               ],
-              "correct": 1
+              "correct": 0
             },
             {
               "promptSay": "je ne ... pas",
               "opts": [
-                "savais",
-                "savait"
-              ],
-              "correct": 0
-            },
-            {
-              "promptSay": "il n'y avait ...",
-              "opts": [
-                "pas personne",
-                "personne"
+                "savait",
+                "savais"
               ],
               "correct": 1
             },
             {
-              "promptSay": "nous ... promenions",
+              "promptSay": "il n'y avait ...",
               "opts": [
-                "nous",
-                "se"
+                "personne",
+                "pas personne"
               ],
               "correct": 0
+            },
+            {
+              "promptSay": "nous ... promenions",
+              "opts": [
+                "se",
+                "nous"
+              ],
+              "correct": 1
             },
             {
               "promptSay": "ils ... amusaient",
@@ -8540,10 +8558,10 @@
             {
               "promptSay": "vous ... disputiez",
               "opts": [
-                "se",
-                "vous"
+                "vous",
+                "se"
               ],
-              "correct": 1
+              "correct": 0
             }
           ],
           "steps": [
@@ -8625,11 +8643,11 @@
               "check": {
                 "q": "s’amuser, avec ils : EN: s’amuser, with ils:",
                 "opts": [
-                  "ils s’amusaient",
                   "ils se amusaient",
-                  "ils s’amusait"
+                  "ils s’amusait",
+                  "ils s’amusaient"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "why": "s’ devant une voyelle, et -aient. EN: elision and -aient."
               }
             }
@@ -8712,6 +8730,7 @@
           "size": "lg",
           "title": "Cinq formes qui se ressemblent",
           "frSub": "Même verbe, autre travail",
+          "sheetId": "sheet-ortho",
           "hint": "Six cartes, une forme par carte. EN: Six cards, one form each.",
           "audio": {
             "mode": "tts",
@@ -8778,6 +8797,7 @@
           "layer": "core",
           "title": "Trois astuces pour bien écrire",
           "frSub": "Avant de choisir la fin",
+          "sheetId": "sheet-ortho",
           "hacks": [
             {
               "hack": "Remplace par vendre. EN: swap in vendre.",
@@ -8857,11 +8877,11 @@
               "check": {
                 "q": "« Hier, j’ai ... avec ma tante. » EN: Yesterday I talked with my aunt.",
                 "opts": [
-                  "parler",
                   "parlé",
+                  "parler",
                   "parlais"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "j’ai devant : parlé. Test : j’ai vendu. EN: after j’ai, the participle."
               }
             },
@@ -8894,12 +8914,12 @@
                 },
                 {
                   "fr": "je parlais",
-                  "itemId": "fr.b1.recits-au-passe.001",
+                  "itemId": "fr.b1.recits-au-passe.1401",
                   "en": "I used to speak / I was speaking"
                 },
                 {
                   "fr": "ils parlaient",
-                  "itemId": "fr.b1.recits-au-passe.005",
+                  "itemId": "fr.b1.recits-au-passe.1405",
                   "en": "they used to speak / they were speaking"
                 }
               ],
@@ -8907,10 +8927,10 @@
                 "q": "« Quand j’étais petite, je ... wolof. » EN: When I was little, I spoke Wolof.",
                 "opts": [
                   "parlé",
-                  "parler",
-                  "parlais"
+                  "parlais",
+                  "parler"
                 ],
-                "correct": 2,
+                "correct": 1,
                 "why": "Pas d’avoir, et je : parlais. Test : je vendais. EN: no auxiliary, je: -ais."
               }
             },
@@ -8920,11 +8940,11 @@
               "check": {
                 "q": "« Elle aimait ... . » (danser) EN: She loved to dance.",
                 "opts": [
-                  "danser",
                   "dansé",
-                  "dansait"
+                  "dansait",
+                  "danser"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "why": "Après aimer : l’infinitif. Test : aimer vendre. EN: infinitive after aimer."
               }
             }
@@ -8987,19 +9007,19 @@
             {
               "q": "Ligne 1 : quel petit mot entends-tu avant le verbe ? EN: Which little word do you hear before the verb?",
               "opts": [
-                "j’ai",
-                "je"
+                "je",
+                "j’ai"
               ],
-              "correct": 0,
+              "correct": 1,
               "why": "j’ai, donc parlé. EN: j’ai, so parlé."
             },
             {
               "q": "Ligne 4 : mangé ou mangeais ? EN: mangé or mangeais?",
               "opts": [
-                "mangé",
-                "mangeais"
+                "mangeais",
+                "mangé"
               ],
-              "correct": 1,
+              "correct": 0,
               "why": "Pas de j’ai : je mangeais. EN: no auxiliary."
             },
             {
@@ -9045,12 +9065,12 @@
           "itemIds": [
             "fr.b1.recits-au-passe.546",
             "fr.b1.recits-au-passe.549",
-            "fr.b1.recits-au-passe.005",
-            "fr.b1.recits-au-passe.008",
+            "fr.b1.recits-au-passe.1405",
+            "fr.b1.recits-au-passe.1408",
             "fr.b1.recits-au-passe.404",
-            "fr.b1.recits-au-passe.016",
-            "fr.b1.recits-au-passe.020",
-            "fr.b1.recits-au-passe.025",
+            "fr.b1.recits-au-passe.1416",
+            "fr.b1.recits-au-passe.1420",
+            "fr.b1.recits-au-passe.1425",
             "fr.b1.recits-au-passe.513",
             "fr.b1.recits-au-passe.528"
           ],
@@ -9075,6 +9095,7 @@
           "swipe": true,
           "size": "lg",
           "title": "Les formes voisines",
+          "sheetId": "sheet-ortho",
           "errors": [
             {
               "wrong": "Hier, j’ai parlais avec elle.",
@@ -9134,11 +9155,11 @@
               "check": {
                 "q": "« Hier, nous avons ... tard. » (manger) EN: Yesterday we ate late.",
                 "opts": [
-                  "mangé",
                   "mangions",
+                  "mangé",
                   "manger"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "avons devant : mangé. EN: after avoir, the participle."
               }
             },
@@ -9149,10 +9170,10 @@
                 "q": "« Avant, je ... le bus. » (prendre) EN: Before, I used to take the bus.",
                 "opts": [
                   "pris",
-                  "prenais",
-                  "prendre"
+                  "prendre",
+                  "prenais"
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "Pas d’avoir, et je : prenais. EN: imparfait with je."
               }
             },
@@ -9434,38 +9455,38 @@
           "frSub": "Les phrases de toute la leçon",
           "skill": "speak",
           "itemIds": [
-            "fr.b1.recits-au-passe.040",
-            "fr.b1.recits-au-passe.041",
-            "fr.b1.recits-au-passe.042",
-            "fr.b1.recits-au-passe.043",
-            "fr.b1.recits-au-passe.044",
-            "fr.b1.recits-au-passe.045",
-            "fr.b1.recits-au-passe.046",
-            "fr.b1.recits-au-passe.047",
-            "fr.b1.recits-au-passe.048",
-            "fr.b1.recits-au-passe.049",
-            "fr.b1.recits-au-passe.050",
-            "fr.b1.recits-au-passe.051",
-            "fr.b1.recits-au-passe.052",
-            "fr.b1.recits-au-passe.053",
-            "fr.b1.recits-au-passe.054",
-            "fr.b1.recits-au-passe.055",
-            "fr.b1.recits-au-passe.056",
-            "fr.b1.recits-au-passe.057",
-            "fr.b1.recits-au-passe.058",
-            "fr.b1.recits-au-passe.059",
-            "fr.b1.recits-au-passe.060",
-            "fr.b1.recits-au-passe.061",
-            "fr.b1.recits-au-passe.062",
-            "fr.b1.recits-au-passe.063",
-            "fr.b1.recits-au-passe.064",
-            "fr.b1.recits-au-passe.065",
-            "fr.b1.recits-au-passe.066",
-            "fr.b1.recits-au-passe.067",
-            "fr.b1.recits-au-passe.068",
-            "fr.b1.recits-au-passe.069",
-            "fr.b1.recits-au-passe.070",
-            "fr.b1.recits-au-passe.071",
+            "fr.b1.recits-au-passe.1440",
+            "fr.b1.recits-au-passe.1441",
+            "fr.b1.recits-au-passe.1442",
+            "fr.b1.recits-au-passe.1443",
+            "fr.b1.recits-au-passe.1444",
+            "fr.b1.recits-au-passe.1445",
+            "fr.b1.recits-au-passe.1446",
+            "fr.b1.recits-au-passe.1447",
+            "fr.b1.recits-au-passe.1448",
+            "fr.b1.recits-au-passe.1449",
+            "fr.b1.recits-au-passe.1450",
+            "fr.b1.recits-au-passe.1451",
+            "fr.b1.recits-au-passe.1452",
+            "fr.b1.recits-au-passe.1453",
+            "fr.b1.recits-au-passe.1454",
+            "fr.b1.recits-au-passe.1455",
+            "fr.b1.recits-au-passe.1456",
+            "fr.b1.recits-au-passe.1457",
+            "fr.b1.recits-au-passe.1458",
+            "fr.b1.recits-au-passe.1459",
+            "fr.b1.recits-au-passe.1460",
+            "fr.b1.recits-au-passe.1461",
+            "fr.b1.recits-au-passe.1462",
+            "fr.b1.recits-au-passe.1463",
+            "fr.b1.recits-au-passe.1464",
+            "fr.b1.recits-au-passe.1465",
+            "fr.b1.recits-au-passe.1466",
+            "fr.b1.recits-au-passe.1467",
+            "fr.b1.recits-au-passe.1468",
+            "fr.b1.recits-au-passe.1469",
+            "fr.b1.recits-au-passe.1470",
+            "fr.b1.recits-au-passe.1471",
             "fr.b1.recits-au-passe.416",
             "fr.b1.recits-au-passe.417",
             "fr.b1.recits-au-passe.418",
@@ -9573,6 +9594,7 @@
           "id": "a12-recap",
           "layer": "core",
           "title": "Toute la leçon, en huit lignes",
+          "sheetId": "sheet-recette",
           "rows": [
             {
               "k": "La recette",
@@ -10937,76 +10959,76 @@
         }
       ],
       "itemIds": [
-        "fr.b1.recits-au-passe.001",
-        "fr.b1.recits-au-passe.002",
-        "fr.b1.recits-au-passe.003",
-        "fr.b1.recits-au-passe.004",
-        "fr.b1.recits-au-passe.005",
-        "fr.b1.recits-au-passe.006",
-        "fr.b1.recits-au-passe.007",
-        "fr.b1.recits-au-passe.008",
-        "fr.b1.recits-au-passe.009",
-        "fr.b1.recits-au-passe.010",
-        "fr.b1.recits-au-passe.011",
-        "fr.b1.recits-au-passe.012",
-        "fr.b1.recits-au-passe.013",
-        "fr.b1.recits-au-passe.014",
-        "fr.b1.recits-au-passe.015",
-        "fr.b1.recits-au-passe.016",
-        "fr.b1.recits-au-passe.017",
-        "fr.b1.recits-au-passe.018",
-        "fr.b1.recits-au-passe.019",
-        "fr.b1.recits-au-passe.020",
-        "fr.b1.recits-au-passe.021",
-        "fr.b1.recits-au-passe.022",
-        "fr.b1.recits-au-passe.023",
-        "fr.b1.recits-au-passe.024",
-        "fr.b1.recits-au-passe.025",
-        "fr.b1.recits-au-passe.026",
-        "fr.b1.recits-au-passe.027",
-        "fr.b1.recits-au-passe.028",
-        "fr.b1.recits-au-passe.029",
-        "fr.b1.recits-au-passe.030",
-        "fr.b1.recits-au-passe.031",
-        "fr.b1.recits-au-passe.032",
-        "fr.b1.recits-au-passe.033",
-        "fr.b1.recits-au-passe.034",
-        "fr.b1.recits-au-passe.035",
-        "fr.b1.recits-au-passe.036",
-        "fr.b1.recits-au-passe.037",
-        "fr.b1.recits-au-passe.038",
-        "fr.b1.recits-au-passe.040",
-        "fr.b1.recits-au-passe.041",
-        "fr.b1.recits-au-passe.042",
-        "fr.b1.recits-au-passe.043",
-        "fr.b1.recits-au-passe.044",
-        "fr.b1.recits-au-passe.045",
-        "fr.b1.recits-au-passe.046",
-        "fr.b1.recits-au-passe.047",
-        "fr.b1.recits-au-passe.048",
-        "fr.b1.recits-au-passe.049",
-        "fr.b1.recits-au-passe.050",
-        "fr.b1.recits-au-passe.051",
-        "fr.b1.recits-au-passe.052",
-        "fr.b1.recits-au-passe.053",
-        "fr.b1.recits-au-passe.054",
-        "fr.b1.recits-au-passe.055",
-        "fr.b1.recits-au-passe.056",
-        "fr.b1.recits-au-passe.057",
-        "fr.b1.recits-au-passe.058",
-        "fr.b1.recits-au-passe.059",
-        "fr.b1.recits-au-passe.060",
-        "fr.b1.recits-au-passe.061",
-        "fr.b1.recits-au-passe.062",
-        "fr.b1.recits-au-passe.063",
-        "fr.b1.recits-au-passe.064",
-        "fr.b1.recits-au-passe.065",
-        "fr.b1.recits-au-passe.066",
-        "fr.b1.recits-au-passe.067",
-        "fr.b1.recits-au-passe.068",
-        "fr.b1.recits-au-passe.069",
-        "fr.b1.recits-au-passe.070",
-        "fr.b1.recits-au-passe.071",
+        "fr.b1.recits-au-passe.1401",
+        "fr.b1.recits-au-passe.1402",
+        "fr.b1.recits-au-passe.1403",
+        "fr.b1.recits-au-passe.1404",
+        "fr.b1.recits-au-passe.1405",
+        "fr.b1.recits-au-passe.1406",
+        "fr.b1.recits-au-passe.1407",
+        "fr.b1.recits-au-passe.1408",
+        "fr.b1.recits-au-passe.1409",
+        "fr.b1.recits-au-passe.1410",
+        "fr.b1.recits-au-passe.1411",
+        "fr.b1.recits-au-passe.1412",
+        "fr.b1.recits-au-passe.1413",
+        "fr.b1.recits-au-passe.1414",
+        "fr.b1.recits-au-passe.1415",
+        "fr.b1.recits-au-passe.1416",
+        "fr.b1.recits-au-passe.1417",
+        "fr.b1.recits-au-passe.1418",
+        "fr.b1.recits-au-passe.1419",
+        "fr.b1.recits-au-passe.1420",
+        "fr.b1.recits-au-passe.1421",
+        "fr.b1.recits-au-passe.1422",
+        "fr.b1.recits-au-passe.1423",
+        "fr.b1.recits-au-passe.1424",
+        "fr.b1.recits-au-passe.1425",
+        "fr.b1.recits-au-passe.1426",
+        "fr.b1.recits-au-passe.1427",
+        "fr.b1.recits-au-passe.1428",
+        "fr.b1.recits-au-passe.1429",
+        "fr.b1.recits-au-passe.1430",
+        "fr.b1.recits-au-passe.1431",
+        "fr.b1.recits-au-passe.1432",
+        "fr.b1.recits-au-passe.1433",
+        "fr.b1.recits-au-passe.1434",
+        "fr.b1.recits-au-passe.1435",
+        "fr.b1.recits-au-passe.1436",
+        "fr.b1.recits-au-passe.1437",
+        "fr.b1.recits-au-passe.1438",
+        "fr.b1.recits-au-passe.1440",
+        "fr.b1.recits-au-passe.1441",
+        "fr.b1.recits-au-passe.1442",
+        "fr.b1.recits-au-passe.1443",
+        "fr.b1.recits-au-passe.1444",
+        "fr.b1.recits-au-passe.1445",
+        "fr.b1.recits-au-passe.1446",
+        "fr.b1.recits-au-passe.1447",
+        "fr.b1.recits-au-passe.1448",
+        "fr.b1.recits-au-passe.1449",
+        "fr.b1.recits-au-passe.1450",
+        "fr.b1.recits-au-passe.1451",
+        "fr.b1.recits-au-passe.1452",
+        "fr.b1.recits-au-passe.1453",
+        "fr.b1.recits-au-passe.1454",
+        "fr.b1.recits-au-passe.1455",
+        "fr.b1.recits-au-passe.1456",
+        "fr.b1.recits-au-passe.1457",
+        "fr.b1.recits-au-passe.1458",
+        "fr.b1.recits-au-passe.1459",
+        "fr.b1.recits-au-passe.1460",
+        "fr.b1.recits-au-passe.1461",
+        "fr.b1.recits-au-passe.1462",
+        "fr.b1.recits-au-passe.1463",
+        "fr.b1.recits-au-passe.1464",
+        "fr.b1.recits-au-passe.1465",
+        "fr.b1.recits-au-passe.1466",
+        "fr.b1.recits-au-passe.1467",
+        "fr.b1.recits-au-passe.1468",
+        "fr.b1.recits-au-passe.1469",
+        "fr.b1.recits-au-passe.1470",
+        "fr.b1.recits-au-passe.1471",
         "fr.b1.recits-au-passe.401",
         "fr.b1.recits-au-passe.402",
         "fr.b1.recits-au-passe.403",
@@ -11362,7 +11384,7 @@
   ],
   "items": [
     {
-      "id": "fr.b1.recits-au-passe.001",
+      "id": "fr.b1.recits-au-passe.1401",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11394,7 +11416,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.002",
+      "id": "fr.b1.recits-au-passe.1402",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11426,7 +11448,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.003",
+      "id": "fr.b1.recits-au-passe.1403",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11458,7 +11480,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.004",
+      "id": "fr.b1.recits-au-passe.1404",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11490,7 +11512,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.005",
+      "id": "fr.b1.recits-au-passe.1405",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11524,7 +11546,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.006",
+      "id": "fr.b1.recits-au-passe.1406",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11556,7 +11578,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.007",
+      "id": "fr.b1.recits-au-passe.1407",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11587,7 +11609,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.008",
+      "id": "fr.b1.recits-au-passe.1408",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11620,7 +11642,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.009",
+      "id": "fr.b1.recits-au-passe.1409",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11651,7 +11673,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.010",
+      "id": "fr.b1.recits-au-passe.1410",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11683,7 +11705,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.011",
+      "id": "fr.b1.recits-au-passe.1411",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11717,7 +11739,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.012",
+      "id": "fr.b1.recits-au-passe.1412",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11749,7 +11771,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.013",
+      "id": "fr.b1.recits-au-passe.1413",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11783,7 +11805,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.014",
+      "id": "fr.b1.recits-au-passe.1414",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11814,7 +11836,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.015",
+      "id": "fr.b1.recits-au-passe.1415",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11845,7 +11867,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.016",
+      "id": "fr.b1.recits-au-passe.1416",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11877,7 +11899,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.017",
+      "id": "fr.b1.recits-au-passe.1417",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11909,7 +11931,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.018",
+      "id": "fr.b1.recits-au-passe.1418",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11941,7 +11963,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.019",
+      "id": "fr.b1.recits-au-passe.1419",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -11972,7 +11994,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.020",
+      "id": "fr.b1.recits-au-passe.1420",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12004,7 +12026,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.021",
+      "id": "fr.b1.recits-au-passe.1421",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12037,7 +12059,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.022",
+      "id": "fr.b1.recits-au-passe.1422",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12069,7 +12091,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.023",
+      "id": "fr.b1.recits-au-passe.1423",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12101,7 +12123,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.024",
+      "id": "fr.b1.recits-au-passe.1424",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12134,7 +12156,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.025",
+      "id": "fr.b1.recits-au-passe.1425",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12167,7 +12189,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.026",
+      "id": "fr.b1.recits-au-passe.1426",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12199,7 +12221,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.027",
+      "id": "fr.b1.recits-au-passe.1427",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12232,7 +12254,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.028",
+      "id": "fr.b1.recits-au-passe.1428",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12264,7 +12286,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.029",
+      "id": "fr.b1.recits-au-passe.1429",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12297,7 +12319,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.030",
+      "id": "fr.b1.recits-au-passe.1430",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12320,7 +12342,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.031",
+      "id": "fr.b1.recits-au-passe.1431",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12343,7 +12365,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.032",
+      "id": "fr.b1.recits-au-passe.1432",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12368,7 +12390,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.033",
+      "id": "fr.b1.recits-au-passe.1433",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12400,7 +12422,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.034",
+      "id": "fr.b1.recits-au-passe.1434",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12432,7 +12454,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.035",
+      "id": "fr.b1.recits-au-passe.1435",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12463,7 +12485,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.036",
+      "id": "fr.b1.recits-au-passe.1436",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12494,7 +12516,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.037",
+      "id": "fr.b1.recits-au-passe.1437",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12526,7 +12548,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.038",
+      "id": "fr.b1.recits-au-passe.1438",
       "kind": "phrase",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12559,7 +12581,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.040",
+      "id": "fr.b1.recits-au-passe.1440",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12584,7 +12606,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.041",
+      "id": "fr.b1.recits-au-passe.1441",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12607,7 +12629,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.042",
+      "id": "fr.b1.recits-au-passe.1442",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12632,7 +12654,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.043",
+      "id": "fr.b1.recits-au-passe.1443",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12658,7 +12680,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.044",
+      "id": "fr.b1.recits-au-passe.1444",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12683,7 +12705,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.045",
+      "id": "fr.b1.recits-au-passe.1445",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12707,7 +12729,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.046",
+      "id": "fr.b1.recits-au-passe.1446",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12731,7 +12753,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.047",
+      "id": "fr.b1.recits-au-passe.1447",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12754,7 +12776,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.048",
+      "id": "fr.b1.recits-au-passe.1448",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12777,7 +12799,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.049",
+      "id": "fr.b1.recits-au-passe.1449",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12800,7 +12822,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.050",
+      "id": "fr.b1.recits-au-passe.1450",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12824,7 +12846,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.051",
+      "id": "fr.b1.recits-au-passe.1451",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12848,7 +12870,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.052",
+      "id": "fr.b1.recits-au-passe.1452",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12872,7 +12894,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.053",
+      "id": "fr.b1.recits-au-passe.1453",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12895,7 +12917,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.054",
+      "id": "fr.b1.recits-au-passe.1454",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12919,7 +12941,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.055",
+      "id": "fr.b1.recits-au-passe.1455",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12943,7 +12965,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.056",
+      "id": "fr.b1.recits-au-passe.1456",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12967,7 +12989,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.057",
+      "id": "fr.b1.recits-au-passe.1457",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -12991,7 +13013,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.058",
+      "id": "fr.b1.recits-au-passe.1458",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13015,7 +13037,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.059",
+      "id": "fr.b1.recits-au-passe.1459",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13038,7 +13060,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.060",
+      "id": "fr.b1.recits-au-passe.1460",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13062,7 +13084,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.061",
+      "id": "fr.b1.recits-au-passe.1461",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13086,7 +13108,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.062",
+      "id": "fr.b1.recits-au-passe.1462",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13110,7 +13132,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.063",
+      "id": "fr.b1.recits-au-passe.1463",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13135,7 +13157,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.064",
+      "id": "fr.b1.recits-au-passe.1464",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13159,7 +13181,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.065",
+      "id": "fr.b1.recits-au-passe.1465",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13183,7 +13205,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.066",
+      "id": "fr.b1.recits-au-passe.1466",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13206,7 +13228,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.067",
+      "id": "fr.b1.recits-au-passe.1467",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13229,7 +13251,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.068",
+      "id": "fr.b1.recits-au-passe.1468",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13252,7 +13274,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.069",
+      "id": "fr.b1.recits-au-passe.1469",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13275,7 +13297,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.070",
+      "id": "fr.b1.recits-au-passe.1470",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",
@@ -13299,7 +13321,7 @@
       ]
     },
     {
-      "id": "fr.b1.recits-au-passe.071",
+      "id": "fr.b1.recits-au-passe.1471",
       "kind": "sentence",
       "level": "b1",
       "theme": "recits-au-passe",

@@ -201,8 +201,9 @@ broken.
 **Debt, baselined in `image-refs.test.ts` so it stays visible:**
 
 - ~~15 published refs with no art~~ — closed d205bdf, KNOWN_UNREGISTERED is empty
-- 22 registered images with no alt text, all predating the ALT table. This is
-  the remaining image debt and it belongs to Phase 8, accessibility.
+- ~~22 registered images with no alt text~~ — closed 8dbc275, KNOWN_UNLABELLED
+  is empty. `lessonImages.ts` is now 194 registrations and 194 alt entries with
+  nothing orphaned either way. The image debt is clear.
 
 **Duplication to resolve:** `b1/imparfait-image-prompts.md` and
 `gen-imparfait-images.mjs` describe the same twelve images. Keep one. The
@@ -218,9 +219,10 @@ name describes work that finished long ago. Five stale branches sit beside it:
 four `worktree-agent-*` and `fix/sons06-lesson-layout`.
 
 **Alt text reaches the screen.** Closed 2026-09-23 by `f6b8b24`: `RichImage`
-passes `accessibilityLabel`. The 22 registered images with no alt text are
-untouched and stay Phase 8's work — `lessonImageAlt()` returns undefined for
-them, which is the same silence as before rather than a wrong label.
+passes `accessibilityLabel`. The 22 that had no alt text were written on
+2026-09-24 (8dbc275), against the images themselves, so `lessonImageAlt()` no
+longer returns undefined for any registered image. Both image baselines in
+`image-refs.test.ts` are now empty and guarded.
 
 **Device proof has started but is not general.** 22.1-08's Pixel 9 pass
 (451e385) proved the offline exam path specifically. It did not sweep the app.

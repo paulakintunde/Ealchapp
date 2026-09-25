@@ -24,11 +24,33 @@ const sections = LESSON.sections.map((s) => {
   };
 });
 
-const out = {
-  units: [{ ...UNIT, level: 'b1', lessonIds: [LESSON.id] }],
-  lessons: [{ ...LESSON, sections }],
-  items: ALL_ROWS,
-};
-const path = new URL('../../../../ealch-v2/src/content/dev-preview-b101.json', import.meta.url);
-writeFileSync(path, JSON.stringify(out, null, 2) + '\n');
-console.log(`wrote ${out.lessons[0].sections.length} sections, ${out.items.length} items`);
+/** What the fixture SHOULD hold, built from the live source files.
+ *
+ *  Exported so `b1-preview-fixture.test.ts` can rebuild it and compare with the
+ *  JSON on disk. This fixture is the ONLY way b1.01 reaches a phone, and it sat
+ *  through three b1.01 source commits without being rebuilt: it shipped with 0
+ *  sheetIds, so the four reference sheets were unreachable on device, and 4 of
+ *  its item ids collided with published seed rows, which a dev build overlays
+ *  (services/content.ts merges this file ON TOP of the seed when __DEV__).
+ *  Reading the source files alone catches none of that. */
+export function buildPreview() {
+  return {
+    units: [{ ...UNIT, level: 'b1', lessonIds: [LESSON.id] }],
+    lessons: [{ ...LESSON, sections }],
+    items: ALL_ROWS,
+  };
+}
+
+export const PREVIEW_PATH = new URL('../../../../ealch-v2/src/content/dev-preview-b101.json', import.meta.url);
+
+/** The exact bytes the script writes, so the test compares like with like. */
+export function serialise(out: ReturnType<typeof buildPreview>): string {
+  return JSON.stringify(out, null, 2) + '\n';
+}
+
+// Running this file writes the fixture. Importing it must not.
+if (process.argv[1] && process.argv[1].includes('_preview-b101')) {
+  const out = buildPreview();
+  writeFileSync(PREVIEW_PATH, serialise(out));
+  console.log(`wrote ${out.lessons[0].sections.length} sections, ${out.items.length} items`);
+}
