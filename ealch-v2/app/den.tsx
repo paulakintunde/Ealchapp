@@ -15,7 +15,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content, DRAFT_LESSON_IDS } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
-import { foldCards, itemsPracticed, masteredItems, resumeIsFresh, localDay } from '@/store/progress.logic';
+import { resumeIsFresh, localDay } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { trailRows, type TrailRow as TrailRowT } from '@/content/trail.logic';
 import { LEVELS, type Level } from '@/content/schema';
@@ -23,6 +23,7 @@ import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
 import { useUI } from '@/store/useUI';
+import { useBandCounts } from '@/store/useBandCounts';
 import { useStore } from '@/store/useStore';
 
 // The Den is the trail (Concept C, D-01): a band is one column of acts, and
@@ -76,7 +77,6 @@ export default function Den() {
 
   const lessonMissions = useProgress((s) => s.lessonMissions);
   const resumeByMode = useProgress((s) => s.resumeByMode);
-  const attempts = useProgress((s) => s.attempts);
 
   // Act indices already done for a lesson, resolved ONCE per band from
   // lessonMissions (den.tsx:60-72's old per-unit derivation, moved here and
@@ -133,29 +133,9 @@ export default function Den() {
     [band, levelsAll, doneActs, hasFreshResume, denOrientationSeen, denPlacementSeen, T],
   );
 
-  // The level panel's per-band read (D-06/D-07): MET drives it, MASTERED
-  // rides alongside — memoised once, keyed on the attempts, never per row.
-  const met = useMemo(() => itemsPracticed(attempts), [attempts]);
-  const mastered = useMemo(() => masteredItems(foldCards(attempts)), [attempts]);
-  const unitCounts: Record<Level, BandUnitCount> = useMemo(() => {
-    const out = {} as Record<Level, BandUnitCount>;
-    for (const l of LEVELS) {
-      const units = content.unitsOfBand(l);
-      let total = 0;
-      let metN = 0;
-      let masteredN = 0;
-      for (const u of units) {
-        const ids = new Set(content.lessonsOf(u.id).flatMap((lesson) => lesson.itemIds));
-        total += ids.size;
-        for (const id of ids) {
-          if (met.has(id)) metN += 1;
-          if (mastered.has(id)) masteredN += 1;
-        }
-      }
-      out[l] = { total, met: metN, mastered: masteredN };
-    }
-    return out;
-  }, [met, mastered]);
+  // The level panel's per-band read (D-06/D-07), shared with app/levels.tsx
+  // through useBandCounts so the panel and the Levels page never disagree.
+  const unitCounts: Record<Level, BandUnitCount> = useBandCounts();
 
   const onLockedPress = useCallback(() => {
     trackEvent('gate_blocked', { feature: 'levels.all', from: 'den' });
@@ -263,7 +243,14 @@ export default function Den() {
               {T.denT}
             </TX>
           </View>
-          <LevelChip band={band} expanded={levelPanelOpen} onPress={() => setLevelPanelOpen(true)} />
+          {/* Tap opens the Levels page (every band on one screen, no scroll in
+              an overlay). Long press keeps the quick panel as the alternative. */}
+          <LevelChip
+            band={band}
+            expanded={levelPanelOpen}
+            onPress={() => router.push('/levels')}
+            onLongPress={() => setLevelPanelOpen(true)}
+          />
         </View>
         <TX role="bodySm" color={t.txMuted} style={{ maxWidth: 310, marginBottom: 16 }}>
           {T.denIntro}

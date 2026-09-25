@@ -265,3 +265,39 @@ test('lesson.tsx declares no hook after its early returns (first-lesson crash, 2
   const hook = tail.match(/\n  (?:const|let) [^=\n]+= use[A-Z]\w*(?:<[^>\n]*>)?\(|\n  use[A-Z]\w*(?:<[^>\n]*>)?\(/);
   ok(!hook, `a hook is declared after LessonScreenBody's early returns: ${hook?.[0]?.trim()}`);
 });
+
+/* ─── UI audit, 2026-09-24 ────────────────────────────────────────────────── */
+
+test('act.tsx counts done missions within the act, not the whole lesson', () => {
+  // b1.01 act 03 read "13 / 7": the lesson-wide done set against the act's rows.
+  const src = readScreen('act');
+  ok(src.includes('const actDone = rows.filter((r) => done.has(r.ix)).length'), 'the act counter must intersect done with this act\'s rows');
+  ok(!src.includes('`${done.size} / ${rows.length}`'), 'the lesson-wide done.size must not be shown over the act\'s row count');
+});
+
+test('act.tsx draws the act\'s chapter art when one is authored', () => {
+  const src = readScreen('act');
+  ok(/act\?\.opener\?\.imageRef \?/.test(src) && src.includes('<RichImage refKey={act.opener.imageRef}'), 'the act screen must render act.opener.imageRef');
+});
+
+test('an explicit mission tap opens the lesson with pick=1, and the recap offers Ignore', () => {
+  ok(readScreen('act').includes("pick: '1'"), 'act.tsx mission rows must pass pick=1');
+  const lesson = readScreen('lesson');
+  ok(lesson.includes('if (!resume || picked) return setPreface(null);'), 'a picked mission must skip the warm-back/recap preface');
+  ok(lesson.includes('onIgnore={'), 'the recap must be given an Ignore handler');
+});
+
+test('the Fiche and pre-roll sheets open at their single full detent (no drag, no half-height)', () => {
+  const src = readFileSync(resolve(appDir, '_layout.tsx'), 'utf8').replace(/\r\n/g, '\n');
+  for (const name of ['fiche', 'preroll']) {
+    const at = src.indexOf(`name="${name}"`);
+    const block = src.slice(at, src.indexOf('/>', at));
+    ok(/sheetAllowedDetents:\s*\[0\.92\]/.test(block), `${name} must open at one 0.92 detent`);
+  }
+});
+
+test('the den chip opens the Levels page; levels.tsx is registered', () => {
+  ok(readScreen('den').includes("router.push('/levels')"), 'the level chip must open /levels');
+  const layout = readFileSync(resolve(appDir, '_layout.tsx'), 'utf8');
+  ok(layout.includes('name="levels"'), 'levels must be a registered Stack.Screen');
+});

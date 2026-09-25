@@ -59,7 +59,7 @@ function LessonScreenBody() {
   useReadingBrightness();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const params = useLocalSearchParams<{ key?: string; at?: string; card?: string }>();
+  const params = useLocalSearchParams<{ key?: string; at?: string; card?: string; pick?: string }>();
 
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
   const id = raw ? LEGACY[raw] ?? raw : '';
@@ -313,8 +313,15 @@ function LessonScreenBody() {
 
   // The warm-back and recap are shown once per visit, before the lesson.
   const [preface, setPreface] = useState<'warmBack' | 'recap' | null>(null);
+  // An explicit mission tap (act screen, `pick=1`) is not a return: the
+  // learner already chose where to go, so no warm-back or recap stands in
+  // front of it. Only a genuine resume (home's Continue) gets the preface.
+  const picked = (Array.isArray(params.pick) ? params.pick[0] : params.pick) === '1';
+  // "Ignore" on the recap: the learner declines the saved spot and starts
+  // this lesson from its cover instead.
+  const [ignoredResume, setIgnoredResume] = useState(false);
   useEffect(() => {
-    if (!resume) return setPreface(null);
+    if (!resume || picked) return setPreface(null);
     setPreface(resume.warmBack ? 'warmBack' : resume.showRecap ? 'recap' : null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [L?.id]);
@@ -666,6 +673,10 @@ function LessonScreenBody() {
           />
         ) : (
           <ResumeRecapCard
+            onIgnore={() => {
+              setIgnoredResume(true);
+              setPreface(null);
+            }}
             act={act ?? null}
             sectionsSoFar={actSectionsSoFar(L, (L.sections[L.sections.indexOf(contentSectionsOf(L)[deepLinkIx ?? 0])] as { id?: string })?.id ?? '')}
             onContinue={() => setPreface(null)}
@@ -768,12 +779,12 @@ function LessonScreenBody() {
         onRestartLesson={restartLesson}
         onNextLesson={nextL ? goNextLesson : undefined}
         nextTitle={nextL?.title}
-        initialIndex={deepLinkIx}
+        initialIndex={ignoredResume ? null : deepLinkIx}
         initialQuiz={wantsQuiz}
-        highlightIndex={deepLinkIx}
+        highlightIndex={ignoredResume ? null : deepLinkIx}
         onIndexChange={onLessonIndexChange}
         onSubIndexChange={onLessonSubIndexChange}
-        initialSub={deepLinkSub}
+        initialSub={ignoredResume ? null : deepLinkSub}
         bottomInset={insets.bottom}
         terms={L.terms}
         // Remember which mission the sheet was opened from, so closing it can

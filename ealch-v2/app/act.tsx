@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, ProgressBar } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { RichImage } from '@/components/LessonRich';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content } from '@/services/content';
@@ -94,6 +95,10 @@ export default function Act() {
   const validRec = rec && rec.v === L.version ? rec : undefined;
   const done = validRec ? new Set(validRec.done) : new Set<number>();
   const xp = validRec ? validRec.xp : 0;
+  // `done` holds finished missions across the WHOLE lesson; the counter is
+  // this act's. Counting the lesson set against the act's rows read "13 / 7"
+  // on b1.01's act 03 (UI audit, 2026-09-24).
+  const actDone = rows.filter((r) => done.has(r.ix)).length;
 
   // The two numbers (D-05), moved from den.tsx:60-72. If the bar were driven
   // by mastery alone it would read 0/N for the first three weeks of daily
@@ -132,7 +137,9 @@ export default function Act() {
     if (s.type === 'quiz') {
       router.push({ pathname: '/lesson', params: { key: L.id, at: 'quiz' } });
     } else {
-      router.push({ pathname: '/lesson', params: { key: L.id, at: `${L.id}#s${ix}.0` } });
+      // pick=1: the learner chose this mission, so the lesson must not open on a
+      // "where you were" recap for some other place they once stopped.
+      router.push({ pathname: '/lesson', params: { key: L.id, at: `${L.id}#s${ix}.0`, pick: '1' } });
     }
   };
 
@@ -188,6 +195,16 @@ export default function Act() {
           </View>
         ) : null}
 
+        {/* The act's chapter art. LessonPager draws it on the opener page, but
+            the trail lands here first, so without it every B1 act (all 154
+            carry art) opened on text alone. RichImage renders nothing when the
+            ref is absent or unregistered, so acts without art are unchanged. */}
+        {act?.opener?.imageRef ? (
+          <View style={{ marginBottom: 18 }}>
+            <RichImage refKey={act.opener.imageRef} ratio={16 / 9} />
+          </View>
+        ) : null}
+
         {/* Title + description (D-03's opener/milestone fallback) */}
         <TX font="serifI" role="display">{title}</TX>
         <TX role="body" color={t.txSecondary} style={{ marginTop: 10 }}>{description}</TX>
@@ -207,9 +224,9 @@ export default function Act() {
         {/* The two numbers (D-05): MET drives the bar, MASTERED rides
             alongside it — never blended into one. */}
         <View style={{ marginTop: 20, marginBottom: 10 }}>
-          <ProgressBar pct={(done.size / Math.max(1, rows.length)) * 100} height={4} color={t.acc} track={t.line(10)} />
+          <ProgressBar pct={(actDone / Math.max(1, rows.length)) * 100} height={4} color={t.acc} track={t.line(10)} />
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 7 }}>
-            <TX role="meta" color={t.txSubtle}>{`${done.size} / ${rows.length}`}</TX>
+            <TX role="meta" color={t.txSubtle}>{`${actDone} / ${rows.length}`}</TX>
             <TX font="semi" role="meta" color={t.accTx}>{T.moXp.replace('{n}', String(xp))}</TX>
           </View>
           <TX role="eyebrow" color={t.txSubtle} style={{ marginTop: 6 }}>

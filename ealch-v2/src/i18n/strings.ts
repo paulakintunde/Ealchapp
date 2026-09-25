@@ -381,6 +381,10 @@ export type Strings = {
   trailGateLead: string; trailBoundaryLead: string;
   /** Acte 00's row label (D-11). */
   trailActe0: string;
+  /** The visible label on a trail heading's Fiche button. It was an
+   *  unlabelled book glyph, so the unit sheet (and the A1 exam behind it)
+   *  was easy to miss. */
+  trailFiche: string;
   /** The pre-roll sheet (D-12, plan 09). prerollShape interpolates four
    *  counts supplied by the caller: {s} stages, {p} spoken passages, {m} mic
    *  moments and {ms} stages holding them — never a baked literal, lessons
@@ -402,6 +406,9 @@ export type Strings = {
   bandNames: { sons: string; a1: string; a2: string; b1: string; b2: string; c1: string; c2: string };
   bandDescs: { sons: string; a1: string; a2: string; b1: string; b2: string; c1: string; c2: string };
   bandPanelTitle: string; bandChipLabel: string;
+  /** app/levels.tsx, the standalone Levels page: "{n} units", "{p}% learned",
+   *  the empty-band line, and the page's one-sentence lead. */
+  levelsUnits: string; levelsLearned: string; levelsWriting: string; levelsLead: string;
   /** D-06: the paywall named in words on the panel row, not drawn as a
    *  padlock. Not a PAYWALL_COPY key (D-23) — this is the panel row's own
    *  line, not the paywall screen's. */
@@ -876,7 +883,7 @@ export const T: Record<Lang, Strings> = {
 
     trailReleaseSome: '{n} mots partis en révision', trailReleaseNone: 'Aucun mot à réviser pour cet acte.',
     trailGateLead: 'Ce niveau est réservé à Première.', trailBoundaryLead: 'A1 se termine ici. La suite est réservée à Première.',
-    trailActe0: 'Acte 00 · Narré',
+    trailActe0: 'Acte 00 · Narré', trailFiche: 'La fiche',
     prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
     prerollMicNote: 'Le micro attend votre appui, il ne s’active jamais tout seul.', prerollStart: 'Commencer',
     trailOrientationTitle: 'Comment ça marche',
@@ -891,6 +898,7 @@ export const T: Record<Lang, Strings> = {
       b1: 'BIENTÔT', b2: 'BIENTÔT', c1: 'BIENTÔT', c2: 'BIENTÔT',
     },
     bandPanelTitle: 'Les niveaux', bandChipLabel: 'Niveau',
+    levelsUnits: '{n} unités', levelsLearned: '{p} % appris', levelsWriting: 'en écriture', levelsLead: 'Choisis un niveau. Chaque niveau est une seule liste, du premier acte au dernier.',
     bandPremiereLine: 'Réservé à Première',
 
     langModeTitle: 'Langue de la leçon',
@@ -1359,7 +1367,7 @@ export const T: Record<Lang, Strings> = {
 
     trailReleaseSome: '{n} words sent to review', trailReleaseNone: 'Nothing to review from this act.',
     trailGateLead: 'This level is Première-only.', trailBoundaryLead: "A1 ends here. What's next is Première-only.",
-    trailActe0: 'Act 00 · Narrated',
+    trailActe0: 'Act 00 · Narrated', trailFiche: 'Unit info',
     prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',
     prerollMicNote: 'The mic waits for your tap. It never listens on its own.', prerollStart: 'Start',
     trailOrientationTitle: 'How this works',
@@ -1374,6 +1382,7 @@ export const T: Record<Lang, Strings> = {
       b1: 'SOON', b2: 'SOON', c1: 'SOON', c2: 'SOON',
     },
     bandPanelTitle: 'Levels', bandChipLabel: 'Level',
+    levelsUnits: '{n} units', levelsLearned: '{p}% learned', levelsWriting: 'being written', levelsLead: 'Pick a level. Each level is one list, from its first act to its last.',
     bandPremiereLine: 'Première only',
 
     langModeTitle: 'Lesson language',

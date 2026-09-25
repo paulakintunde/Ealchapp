@@ -125,6 +125,8 @@ export default function RootLayout() {
               <Stack.Screen name="reset" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="home" />
               <Stack.Screen name="den" />
+              {/* The Levels page: every band on one screen, a hot link each. */}
+              <Stack.Screen name="levels" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="lesson" options={{ animation: 'slide_from_right' }} />
               {/* D-02: the unit Fiche, a real Android bottom sheet (D-38, PASS,
                   07.1-VALIDATION.md). Max 3 Android detents; 0.92 not 1.0, or
@@ -135,10 +137,13 @@ export default function RootLayout() {
                   handled inside fiche.tsx itself (no numberOfLines truncation,
                   no fixed-height text containers). */}
               <Stack.Screen
+                // One detent (0.92): a tap opens the WHOLE sheet. The old
+                // [0.55, 0.92] pair opened at half height, so the Fiche's
+                // siblings (the only way to a1.30.l2) sat below the fold.
                 name="fiche"
                 options={{
                   presentation: 'formSheet',
-                  sheetAllowedDetents: [0.55, 0.92],
+                  sheetAllowedDetents: [0.92],
                   sheetInitialDetentIndex: 0,
                   sheetCornerRadius: 26,
                   sheetGrabberVisible: true,
@@ -154,7 +159,7 @@ export default function RootLayout() {
                 name="preroll"
                 options={{
                   presentation: 'formSheet',
-                  sheetAllowedDetents: [0.55, 0.92],
+                  sheetAllowedDetents: [0.92],
                   sheetInitialDetentIndex: 0,
                   sheetCornerRadius: 26,
                   sheetGrabberVisible: true,

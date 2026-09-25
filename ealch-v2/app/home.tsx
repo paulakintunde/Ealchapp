@@ -1,5 +1,5 @@
 import { useCallback, useMemo, type ReactNode } from 'react';
-import { LayoutAnimation, Platform, ScrollView, UIManager, View, useWindowDimensions } from 'react-native';
+import { Image, LayoutAnimation, Platform, ScrollView, UIManager, View, useWindowDimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -22,6 +22,7 @@ import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
 import { listenPlaylistForDay, playerRouteFor, playlistPool } from '@/utils/speakDeck.logic';
 import { content, useContent } from '@/services/content';
+import { lessonImage } from '@/content/lessonImages';
 import { EXAM_FORMAT_FACTS, EXAM_FORMAT_ORDER, formatSitting, sectionBreakdown } from '@/content/examFormats';
 import { wordOfDay, dayOfYear } from '@/content/wordOfDay';
 import { pickGreeting } from '@/content/greetings';
@@ -195,6 +196,24 @@ export default function Home() {
   const pool = playlistPool(useContent((s) => s.corpus.playlists));
   const listenOffer = useMemo(() => listenPlaylistForDay(level, dayOfYear(), pool), [today, level, pool]);
 
+  // The resumed lesson's chapter art, when its act has one: the act the saved
+  // anchor sits in, else the lesson's first illustrated act. The hero's top
+  // half was an empty gradient; B1 lessons carry art for every act, and a
+  // lesson without any keeps the gradient exactly as before.
+  const heroArt = useMemo(() => {
+    const route = primaryResume?.activity === 'lesson' ? primaryResume.route : null;
+    if (!route) return undefined;
+    const q = route.split('?')[1] ?? '';
+    const qp = new URLSearchParams(q);
+    const L = qp.get('key') ? content.lesson(qp.get('key')!) : undefined;
+    if (!L?.acts?.length) return undefined;
+    const sIx = Number((qp.get('at') ?? '').match(/#s(\d+)/)?.[1] ?? NaN);
+    const sid = Number.isFinite(sIx) ? L.sections[sIx]?.id : undefined;
+    const act = (sid && L.acts.find((a) => a.sections.includes(sid))) || undefined;
+    const ref = act?.opener?.imageRef ?? L.acts.find((a) => a.opener?.imageRef)?.opener?.imageRef;
+    return ref ? lessonImage(ref) : undefined;
+  }, [primaryResume]);
+
   // The hero is a view over real state, in three honest tiers. A resume only
   // survives while it is fresh (see resumeIsFresh); once it lapses, or when
   // nothing was ever started, the card recommends what to do next instead of
@@ -364,6 +383,15 @@ export default function Home() {
 
         {/* Hero */}
         <Press onPress={() => router.push(hero.route as never)} scale={0.99} style={{ minHeight: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
+          {heroArt ? (
+            <>
+              <Image source={heroArt} resizeMode="cover" accessible={false} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '62%' }} />
+              <LinearGradient colors={['transparent', t.isDark ? '#1B1712' : t.card]} start={{ x: 0.5, y: 0.25 }} end={{ x: 0.5, y: 0.64 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
+              {/* A scrim under the eyebrow: the chapter art is light, and the
+                  CONTINUE label over it lost its contrast. */}
+              <LinearGradient colors={['rgba(0,0,0,0.55)', 'transparent']} start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 0.22 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
+            </>
+          ) : null}
           <LinearGradient colors={[t.isDark ? 'rgba(214,160,96,0.24)' : 'rgba(214,160,96,0.35)', 'transparent']} start={{ x: 0.72, y: 0 }} end={{ x: 0.3, y: 0.55 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <LinearGradient colors={['transparent', t.accA(22)]} start={{ x: 0.15, y: 0.4 }} end={{ x: 0.15, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <View style={{ position: 'absolute', top: 20, left: 22, right: 62, flexDirection: 'row', alignItems: 'center', gap: 8 }}>

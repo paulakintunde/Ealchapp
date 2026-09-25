@@ -3,6 +3,7 @@ import { Animated, BackHandler, Pressable, ScrollView, View } from 'react-native
 import { TX } from './Type';
 import { Press } from './ui';
 import { PanelRow } from './PanelRow';
+import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useReduceMotion } from '@/utils/reduceMotion';
@@ -33,12 +34,15 @@ export function LevelChip({
   band,
   expanded,
   onPress,
+  onLongPress,
 }: {
   band: Level;
   /** Whether the panel this chip opens is currently mounted — announced so a
    *  screen reader user knows the panel state without seeing it. */
   expanded: boolean;
   onPress: () => void;
+  /** The alternative route in: the quick panel, while a tap opens the page. */
+  onLongPress?: () => void;
 }) {
   const t = useTheme();
   const T = useT();
@@ -46,15 +50,24 @@ export function LevelChip({
     <Press
       cue={null}
       onPress={onPress}
+      onLongPress={onLongPress}
       accessibilityRole="button"
       accessibilityState={{ expanded }}
-      accessibilityLabel={T.bandChipLabel}
-      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+      accessibilityLabel={`${T.bandChipLabel} ${levelLabel(band)}`}
+      accessibilityHint={T.bandPanelTitle}
+      hitSlop={{ top: 6, bottom: 6, left: 6, right: 6 }}
+      // A bordered pill with a chevron: the old 4px-padded tinted tag read as
+      // a label, not a control, so the seven-band switch was easy to miss.
       style={{
-        paddingHorizontal: 8,
-        paddingVertical: 4,
-        borderRadius: 7,
-        backgroundColor: t.accA(14),
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 6,
+        minHeight: 36,
+        paddingHorizontal: 14,
+        borderRadius: 18,
+        borderWidth: 1,
+        borderColor: t.accA(55),
+        backgroundColor: t.accA(10),
         alignSelf: 'flex-start',
       }}
     >
@@ -65,6 +78,7 @@ export function LevelChip({
       <TX font="semi" role="eyebrow" ls={1} color={t.accTx} maxScale={1.3}>
         {levelLabel(band)}
       </TX>
+      <Icon name="chevronDown" size={14} color={t.accTx} strokeWidth={2} />
     </Press>
   );
 }

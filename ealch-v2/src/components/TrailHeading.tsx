@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { TX } from './Type';
 import { Press } from './ui';
 import { Icon } from './Icon';
+import { useT } from '@/i18n/useT';
 import { useTheme } from '@/theme/useTheme';
 import type { TrailRow as TrailRowData } from '@/content/trail.logic';
 
@@ -22,8 +23,18 @@ export type TrailHeadingProps = {
 
 export function TrailHeading({ row, onPressFiche }: TrailHeadingProps) {
   const t = useTheme();
+  const T = useT();
+  const open = () => row.ficheLessonId && onPressFiche(row.ficheLessonId);
   return (
-    <View
+    // The whole heading opens the Fiche, not only the glyph: the unit sheet
+    // holds the blurb, the stats and the unit's other lessons (a1.30.l2, the
+    // A1 exam), and a lone grey book icon was easy to miss.
+    <Press
+      cue={null}
+      onPress={open}
+      accessibilityRole="button"
+      accessibilityLabel={`${row.label}. ${T.trailFiche}`}
+      accessibilityState={{ disabled: !row.ficheLessonId }}
       style={{
         marginTop: 26,
         marginBottom: 10,
@@ -40,15 +51,23 @@ export function TrailHeading({ row, onPressFiche }: TrailHeadingProps) {
       </View>
       {row.sealed ? <Icon name="check" size={16} color={t.acc} strokeWidth={2.2} /> : null}
       {row.locked ? <Icon name="lock" size={14} color={t.txNonText} strokeWidth={1.8} /> : null}
-      <Press
-        onPress={() => onPressFiche(row.ficheLessonId)}
-        accessibilityRole="button"
-        accessibilityState={{ disabled: !row.ficheLessonId }}
-        hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-        style={{ minHeight: 34, minWidth: 34, alignItems: 'center', justifyContent: 'center' }}
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: 5,
+          minHeight: 34,
+          paddingHorizontal: 10,
+          borderRadius: 17,
+          borderWidth: 1,
+          borderColor: t.line(14),
+        }}
       >
-        <Icon name="book" size={17} color={t.txNonText} />
-      </Press>
-    </View>
+        <Icon name="book" size={14} color={t.txMuted} />
+        <TX font="semi" role="eyebrow" ls={0.6} color={t.txMuted}>
+          {T.trailFiche}
+        </TX>
+      </View>
+    </Press>
   );
 }

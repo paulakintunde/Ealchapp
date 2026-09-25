@@ -1,5 +1,5 @@
 import { useMemo, useState, type ReactNode } from 'react';
-import { ScrollView, TextInput, View } from 'react-native';
+import { Image, ScrollView, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -14,6 +14,7 @@ import { useProgress } from '@/store/useProgress';
 import { itemsPracticed, localDay, minutesToday, mondayIndex, shiftDay, streak, topWeaknesses, weekDots } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
 import { accentData } from '@/content/onboarding';
+import { avatarSrc, avatarName } from '@/content/avatars';
 import { openWeakRows } from '@/content/weakness';
 import { auth } from '@/services';
 
@@ -96,6 +97,7 @@ export default function Profile() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { userName, setField, level, lang, setLang, region, setRegion, freeze, signOut } = useStore();
+  const avatarId = useStore((s) => s.avatarId);
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
   const errors = useProgress((s) => s.errors);
@@ -213,15 +215,18 @@ export default function Profile() {
               backgroundColor: t.card2,
               alignItems: 'center',
               justifyContent: 'center',
+              overflow: 'hidden',
             }}
           >
-            {userName ? (
-              <TX font="serif" role="display" size={26}>
-                {userName.charAt(0).toUpperCase()}
-              </TX>
-            ) : (
-              <Icon name="user" size={26} color={t.txNonText} strokeWidth={1.6} />
-            )}
+            {/* The coach avatar chosen in Settings → Appearance. The circle
+                showed only an initial or a person outline, so the picture a
+                learner picked never appeared on their own profile. */}
+            <Image
+              source={avatarSrc(avatarId)}
+              resizeMode="contain"
+              style={{ width: 52, height: 52 }}
+              accessibilityLabel={avatarName(avatarId)}
+            />
           </View>
           <View style={{ flex: 1 }}>
             {editingName ? (

@@ -73,10 +73,15 @@ export function ResumeRecapCard({
   act,
   sectionsSoFar,
   onContinue,
+  onIgnore,
 }: {
   act: LessonAct | null;
   sectionsSoFar: LessonSection[];
   onContinue: () => void;
+  /** Declines the saved spot and opens the lesson from its cover. Without it
+   *  the recap was a one-button wall: a learner who came in for something
+   *  else had no way past it except resuming. */
+  onIgnore?: () => void;
 }) {
   const t = useTheme();
   return (
@@ -98,7 +103,21 @@ export function ResumeRecapCard({
       </View>
 
       <View style={{ flex: 1 }} />
-      <Button label="Pick up where you left off" onPress={() => { sound.play('tap'); onContinue(); }} />
+      <View style={{ gap: 10 }}>
+        <Button label="Pick up where you left off" onPress={() => { sound.play('tap'); onContinue(); }} />
+        {onIgnore ? (
+          <Press
+            cue="tap"
+            onPress={onIgnore}
+            accessibilityRole="button"
+            accessibilityLabel="Ignore"
+            accessibilityHint="Starts this lesson from the beginning instead"
+            style={{ alignItems: 'center', justifyContent: 'center', minHeight: 48 }}
+          >
+            <TX role="body" color={t.txSecondary}>Ignore, start from the beginning</TX>
+          </Press>
+        ) : null}
+      </View>
     </View>
   );
 }

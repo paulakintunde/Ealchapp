@@ -228,6 +228,17 @@ test('startMarker lands on exactly one act row (the first unstarted one) when th
   strictEqual(marked.length, 1);
 });
 
+test('no row carries startMarker on a locked band: every act there routes to the paywall', () => {
+  // Device pass 2026-09-24: the ring sat on a2.01's first act for a guest,
+  // inviting a tap that could only reach the paywall. The gate row is the
+  // locked band's call to action; the same band unlocked still gets a marker.
+  const units = unitsOfBand(seedUnits, 'a2');
+  const locked = trailRows({ ...baseInput('a2', units), levelsAll: false, freeBands: ['sons', 'a1'], hasFreshResume: false });
+  strictEqual(locked.filter((r) => r.kind === 'act' && r.startMarker).length, 0);
+  const open = trailRows({ ...baseInput('a2', units), levelsAll: true, hasFreshResume: false });
+  strictEqual(open.filter((r) => r.kind === 'act' && r.startMarker).length, 1);
+});
+
 test('no row carries startMarker when a fresh resume exists', () => {
   const units = unitsOfBand(seedUnits, 'sons');
   const rows = trailRows({ ...baseInput('sons', units), hasFreshResume: true });

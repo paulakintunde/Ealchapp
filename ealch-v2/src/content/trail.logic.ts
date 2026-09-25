@@ -229,7 +229,10 @@ export function trailRows(input: TrailInput): TrailRow[] {
   // D-18: the start marker is a property of the WHOLE trail, not of any one
   // unit — the first unstarted act row across the entire band, and only when
   // there is no fresh lesson resume to prioritise instead.
-  if (!input.hasFreshResume) {
+  // Never on a locked band: the marker says "start here", and every act on a
+  // locked band routes to the paywall, so it pointed at a door that does not
+  // open (device pass, 2026-09-24). The gate row is that band's call to action.
+  if (!input.hasFreshResume && !locked) {
     const firstUnstarted = allActRows.find((r) => !r.done);
     if (firstUnstarted) firstUnstarted.startMarker = true;
   }
