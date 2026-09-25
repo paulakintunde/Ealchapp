@@ -171,6 +171,47 @@ then. That warning is expected, not a defect.
 | 1000-1199 | b1.18 the passive | 1000-1192 (173 rows) |
 | 1200+ | FREE | |
 
+### Theme `paroles-rapportees` (fondations, a2-b2) — CREATED 2026-09-25
+
+« Les paroles rapportées ». Made for b1.19, reported speech. Probed all 130
+themes: nothing about speech, quotation or saying. Named for the function, like
+the others: you report what someone said. Sub-themes: le discours indirect,
+la concordance des temps, les verbes introducteurs. POSTGRES ONLY until the
+next publish, so the readiness warning about the seed's theme list is expected.
+
+| Block | Owner | Authored |
+|---|---|---|
+| 001-999 | reserved for a future published import | do not use |
+| 1000-1199 | b1.19 reported speech | |
+| 1200+ | FREE | |
+
+### Theme `negation-et-restriction` (fondations, a1-b2) — existing
+
+Probed 2026-09-25: 631 rows, 281 `fr.b1.*`, highest number 283.
+
+| Block | Owner | Authored |
+|---|---|---|
+| 001-283 | **DB** | do not use |
+| 1000-1199 | b1.20 advanced negation | |
+| 1200+ | FREE | |
+
+### Theme `langue-soignee` (fondations, a2-b2) — CREATED 2026-09-25
+
+« La langue soignée ». Made for b1.21, inversion. `questions` is a sons theme
+and `questions-du-quotidien` stops at a2, and a1.20 already owns the simple
+question inversion. What b1.21 adds is the CAREFUL register: complex inversion
+(« Votre fille viendra-t-elle ? »), inversion after « peut-être », « sans
+doute », « à peine », and the incise (« dit-elle »). That is a register, not a
+question type, and b1.25 (register) can reuse the theme. Sub-themes:
+l'inversion, les incises, le registre soutenu. POSTGRES ONLY until the next
+publish.
+
+| Block | Owner | Authored |
+|---|---|---|
+| 001-999 | reserved for a future published import | do not use |
+| 1000-1199 | b1.21 inversion | |
+| 1200+ | FREE | |
+
 ## The wave plan from here
 
 Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing in the next wave starts until he has.
