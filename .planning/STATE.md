@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 07.1-05-PLAN.md
-last_updated: "2026-09-25T00:28:21.883Z"
+stopped_at: Completed 07.1-06-PLAN.md
+last_updated: "2026-09-25T00:44:26.609Z"
 last_activity: 2026-09-25
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 61
-  completed_plans: 55
-  percent: 90
+  completed_plans: 56
+  percent: 92
 ---
 
 # Project State
@@ -25,16 +25,16 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 5 of 11 plans executed
-Plan: 5 of 11 complete — 07.1-05 added app/act.tsx (D-03, the act screen) and app/fiche.tsx
-  (D-02, the formSheet unit Fiche), plus SheetChrome.tsx and spine-routes.test.ts's source
-  guard on both routes' param handling. lessonoverview.tsx/missions.tsx still stand; plan 08
-  deletes them.
+Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 6 of 11 plans executed
+Plan: 6 of 11 complete — 07.1-06 added PanelRow.tsx (the shared 44px panel row), LevelPanel.tsx
+  (the seven-band selector, D-06/D-07) and the LanguagePanel.tsx shell (D-14), plus
+  level-panel.test.ts's 44px/flex source guard. Both panels take their data as props (no
+  store read) so plans 07/08 wire them in without editing either file.
 Status: Ready to execute
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-25
 
-Progress: [█████████░] 90%
+Progress: [█████████░] 92%
 
 ## Performance Metrics
 
@@ -70,6 +70,7 @@ Progress: [█████████░] 90%
 | Phase 07.1 P03 | 50min | 3 tasks | 7 files |
 | Phase 07.1 P04 | 55min | 3 tasks | 7 files |
 | Phase 07.1 P05 | 70min | 3 tasks | 4 files |
+| Phase 07.1 P06 | 45min | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -120,6 +121,9 @@ Recent decisions affecting current work:
 - [Phase 07.1]: Act and mission titles render exactly as authored, with no language swap and no titleFr/titleEn schema addition (the deferred naming question CONTEXT flagged). — Titles are already authored in each lesson's own instruction language, so 'as authored' is the no-op that invents no parallel copy table; a later phase may revisit once the act screen is in front of a reviewer.
 - [Phase 07.1]: Plan 05: D-38's PASS verdict (real Android bottom sheet, plan 02) consumed without re-testing; fiche.tsx built as a formSheet route with the three measured defects handled at registration (contentStyle background, 0.92 top detent) and in the screen body (no numberOfLines truncation, minHeight not height on text-bearing UI). act.tsx resolves the mission deep-link section index against L.sections (not act.sections' own index).
 - [Phase 07.1]: Plan 05: both act.tsx and fiche.tsx use router.back() first and router.replace('/den') only when router.canGoBack() is false — the plan's explicit correction to missions.tsx's own dead-link verb (D-41).
+- [Phase 07.1]: Plan 06: PanelRow.tsx built as the shared presentational row (props only, no store read) both LevelPanel and LanguagePanel are built on; leading/trailing render outside the title's own flex:1 wrapper, carrying the flex-on-a-TX fix forward from lessonoverview.tsx
+- [Phase 07.1]: Plan 06: LevelPanel (D-06/D-07) and LanguagePanel (D-13/D-14) both take their data (unitCounts/levelsAll/band, mode/open) as props, not a store read - keeps plan 07/08's wiring additive and lets level-panel.test.ts prove the 44px/flex rules with no device
+- [Phase 07.1]: Plan 06: level-panel.test.ts extends sons-07-elision.test.ts's flex/44px finding to PanelRow/LevelPanel/LanguagePanel, anchored on PanelRow's own flex-wrapper boundary rather than a blind 400-char scan (which would flag the BottomSheet.tsx row analog the plan named to copy)
 
 ### Pending Todos
 
@@ -146,6 +150,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-25T00:28:21.868Z
-Stopped at: Completed 07.1-05-PLAN.md
+Last session: 2026-09-25T00:44:26.593Z
+Stopped at: Completed 07.1-06-PLAN.md
 Resume file: None

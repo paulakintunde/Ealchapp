@@ -243,7 +243,7 @@ Plans:
 - [x] 07.1-03-PLAN.md - c2 becomes a real Level across the app and the database plane (D-32)
 - [x] 07.1-04-PLAN.md - pure trail derivation, the band-keyed unit accessor and the Wave 0 test gaps, plus every i18n key the phase needs
 - [x] 07.1-05-PLAN.md - the act screen and the Fiche pull-up sheet as new routes (D-02, D-03)
-- [ ] 07.1-06-PLAN.md - the seven-band level panel and the shared 44px panel row (D-06, D-07, D-14)
+- [x] 07.1-06-PLAN.md - the seven-band level panel and the shared 44px panel row (D-06, D-07, D-14)
 - [ ] 07.1-07-PLAN.md - the three-state language control, the v6 to v7 store migration and D-16's missing guard (D-13 to D-17, D-35, D-36, D-42)
 - [ ] 07.1-08-PLAN.md - the trail screen, FlashList virtualization, and the deletion commit that retargets lesson-siblings.test.ts (D-01, D-29, D-33, D-39, D-40, D-41)
 - [ ] 07.1-09-PLAN.md - acte 00, the pre-roll sheet and the paywall's two trail positions (D-10 to D-12, D-21 to D-23, D-34, D-37)
