@@ -21,6 +21,10 @@ const SLUGS = [
   'imparfait-formation', 'imparfait-usage', 'pc-imparfait', 'pc-imparfait-paires',
   'futur-simple', 'futur-irregulier', 'futur-usage', 'conditionnel-present',
   'politesse', 'si-clauses', 'qui-que', 'dont-ou', 'lequel-ce-qui', 'subjonctif-formation',
+  // wave 4
+  'subjonctif-declencheurs', 'subjonctif-infinitif', 'ordre-pronoms', 'voix-passive',
+  // wave 5
+  'discours-indirect', 'negation-avancee', 'inversion',
 ];
 
 type Row = { id: string; theme?: string; level?: string };
@@ -81,7 +85,7 @@ for (const slug of SLUGS) {
 }
 
 console.log('B1 IMPORT READINESS (nothing was written)\n');
-console.log(`lessons 14 | units 14 | authored items ${items} | reused published items ${reused}`);
+console.log(`lessons ${SLUGS.length} | units ${SLUGS.length} | authored items ${items} | reused published items ${reused}`);
 console.log(`\nBLOCKERS  ${blockers.length}`);
 for (const b of blockers.slice(0, 25)) console.log('  x ' + b);
 if (blockers.length > 25) console.log(`  ...and ${blockers.length - 25} more`);
@@ -102,9 +106,9 @@ for (const id of batchIds) {
 console.log('\nauthored id floor per theme (no published fr.b1 row may sit at or above it):');
 for (const [th, lo] of [...floors].sort()) console.log(`  ${th.padEnd(26)} ${lo}`);
 
-console.log('\nDATABASE PLANE, probed read-only 2026-09-25:');
-console.log('  No published fr.b1 row sits at or above any floor, in any of the five');
-console.log('  themes. Nothing would be overwritten.');
+console.log('\nDATABASE PLANE, probed read-only 2026-09-25 after wave 5:');
+console.log('  No published fr.b1 row sits at or above any floor, in any of the nine');
+console.log('  themes above. Nothing would be overwritten.');
 console.log('');
 console.log('  BEWARE THE NEAR MISS. recits-au-passe and projets-et-futur each hold 17');
 console.log('  published rows numbered 116-132, which reads as a collision against');

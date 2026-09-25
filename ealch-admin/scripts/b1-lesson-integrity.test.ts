@@ -31,7 +31,7 @@ const IMAGES = resolve(HERE, '../../ealch-v2/src/content/lessonImages.ts');
  *  art still fails, which a blanket skip would hide.
  *
  *  Wave 4 (44 openers) added 2026-09-25. Delete a line when its art lands. */
-const ART_PENDING = new Set(['b1.15', 'b1.16', 'b1.17', 'b1.18']);
+const ART_PENDING = new Set(['b1.15', 'b1.16', 'b1.17', 'b1.18', 'b1.19', 'b1.20', 'b1.21']);
 
 const LESSONS: [string, string][] = [
   ['b1.01', 'imparfait-formation'], ['b1.02', 'imparfait-usage'],
@@ -41,6 +41,7 @@ const LESSONS: [string, string][] = [
   ['b1.09', 'politesse'], ['b1.10', 'si-clauses'], ['b1.11', 'qui-que'],
   ['b1.12', 'dont-ou'], ['b1.13', 'lequel-ce-qui'], ['b1.14', 'subjonctif-formation'],
   ['b1.15', 'subjonctif-declencheurs'], ['b1.16', 'subjonctif-infinitif'], ['b1.17', 'ordre-pronoms'], ['b1.18', 'voix-passive'],
+  ['b1.19', 'discours-indirect'], ['b1.20', 'negation-avancee'], ['b1.21', 'inversion'],
 ];
 
 /** The two maps in lessonImages.ts, read as text so the test needs no bundler. */

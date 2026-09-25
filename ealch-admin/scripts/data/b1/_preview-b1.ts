@@ -24,6 +24,8 @@ const SLUGS = [
   'subjonctif-formation',
   // wave 4
   'subjonctif-declencheurs', 'subjonctif-infinitif', 'ordre-pronoms', 'voix-passive',
+  // wave 5
+  'discours-indirect', 'negation-avancee', 'inversion',
 ] as const;
 
 /** The `task` section now has a real renderer (`TaskView`, wired into

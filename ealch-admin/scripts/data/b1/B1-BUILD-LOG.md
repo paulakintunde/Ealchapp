@@ -28,7 +28,10 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.16 | subjonctif-infinitif | 85 | 11 | 11x8 | 11 | 5 | 20 | 235 | 11 prompts, art not made | DONE |
 | b1.17 | ordre-pronoms | 87 | 11 | 11x8 | 11 | 5 | 9 | 235 | 11 prompts, art not made | DONE |
 | b1.18 | voix-passive | 85 | 11 | 11x8 | 11 | 5 | 15 | 195 | 11 prompts, art not made | DONE |
-| b1.19 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.19 | discours-indirect | 85 | 11 | 11x8 | 11 | 5 | 18 | 181 | 11 prompts, art not made | DONE |
+| b1.20 | negation-avancee | 85 | 11 | 11x8 | 11 | 5 | 19 | 200 | 11 prompts, art not made | DONE |
+| b1.21 | inversion | 88 | 11 | 11x8 | 11 | 5 | 13 | 181 | 11 prompts, art not made | DONE |
+| b1.22 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
 
@@ -37,6 +40,19 @@ independently by the orchestrator. That is EIGHTEEN lessons authored and NONE
 has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
+
+**Wave 5 LANDED 2026-09-25: b1.19 reported speech, b1.20 advanced negation,
+b1.21 inversion, verified independently (validators 0/0/0 on all three, 562
+rows, zero id collisions across the batch, a live Postgres probe clean on all
+nine themes). TWENTY-ONE lessons authored, none has reached a learner. Next:
+wave 6 (b1.22-24), then REVIEW GATE 2. Findings from this wave:**
+
+- **a1.18 does NOT teach ne...plus / jamais / rien / personne.** Its corpus guard excludes them and no A1 or A2 lesson introduces them, so b1.20 act 2 TEACHES them rather than recapping. Open: is one act enough.
+- **Simple question inversion is a1.19's, not a1.20's.** a1.19 « Questions oui / non » owns the three strategies and the closed list of twelve forms; a1.20 owns the question words. b1.21 cites both.
+- **b1.19 is the first lesson to BUILD the plus-que-parfait**, only as a reported passé composé. Whether a later lesson owns it as a narrative tense is open.
+- **b1.21 has 2 stories, not 3-6**: a bubble cannot carry a spaced « ? » and most of its French is questions.
+- **`fr.sons.liaisons.023`** « Dis-moi quand est-ce que ça commence. » is published and is exactly what b1.19 act 4 teaches NOT to write. Left alone; Paul to decide.
+- **`b1-import-readiness.ts` had never picked up wave 4**, and printed a hard-coded « lessons 14 ». It now lists all 21 slugs and counts them.
 
 ## THE ID RULE, learned the hard way (2026-09-24)
 
@@ -182,7 +198,7 @@ next publish, so the readiness warning about the seed's theme list is expected.
 | Block | Owner | Authored |
 |---|---|---|
 | 001-999 | reserved for a future published import | do not use |
-| 1000-1199 | b1.19 reported speech | |
+| 1000-1199 | b1.19 reported speech | 1000-1193 (181 rows) |
 | 1200+ | FREE | |
 
 ### Theme `negation-et-restriction` (fondations, a1-b2) — existing
@@ -192,7 +208,7 @@ Probed 2026-09-25: 631 rows, 281 `fr.b1.*`, highest number 283.
 | Block | Owner | Authored |
 |---|---|---|
 | 001-283 | **DB** | do not use |
-| 1000-1199 | b1.20 advanced negation | |
+| 1000-1199 | b1.20 advanced negation | 1000-1199 (200 rows, the whole block) |
 | 1200+ | FREE | |
 
 ### Theme `langue-soignee` (fondations, a2-b2) — CREATED 2026-09-25
@@ -209,7 +225,7 @@ publish.
 | Block | Owner | Authored |
 |---|---|---|
 | 001-999 | reserved for a future published import | do not use |
-| 1000-1199 | b1.21 inversion | |
+| 1000-1199 | b1.21 inversion | 1000-1194 (181 rows) |
 | 1200+ | FREE | |
 
 ## The wave plan from here
