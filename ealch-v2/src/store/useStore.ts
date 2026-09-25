@@ -68,6 +68,16 @@ export type AppState = {
   // a `?` in the lesson header reopens it afterward regardless of this flag.
   lessonKeySeen: boolean;
 
+  // D-19: the trail's two day-one cards (how-it-works, placement offer), each
+  // dismissed for good the same one-way contract LessonKeyIntro documents
+  // above — seeing a card again never un-marks it. Both MUST stay in
+  // `partialize` below: `partialize` is an explicit allow-list, and a field
+  // missing from it does not persist, silently, while every test still
+  // passes in-session (dayOne.test.ts). Neither implies an entitlement — see
+  // the `currencyChosen` comment below on why a stored boolean is dangerous.
+  denOrientationSeen: boolean;
+  denPlacementSeen: boolean;
+
   // home: whether the "Browse" fold is expanded — a UI preference that should
   // survive remounts, not reset to collapsed on every visit.
   browseOpen: boolean;
@@ -147,6 +157,8 @@ export type AppState = {
   setBrightBoost: (on: boolean) => void;
   setLessonEnglishMode: (mode: EnglishMode) => void;
   setLessonKeySeen: (seen: boolean) => void;
+  setDenOrientationSeen: (seen: boolean) => void;
+  setDenPlacementSeen: (seen: boolean) => void;
   setAlarm: (t: string) => void;
   setClock24: (v: boolean) => void;
   setNotif: (k: keyof Notifs, v: boolean) => void;
@@ -186,6 +198,8 @@ const initialData = () => ({
   brightBoost: true,
   lessonEnglishMode: 'fr' as EnglishMode, // the old boolean default was false
   lessonKeySeen: false,
+  denOrientationSeen: false,
+  denPlacementSeen: false,
   browseOpen: false,
 
   sound: true,
@@ -236,6 +250,8 @@ export const useStore = create<AppState>()(
       setBrightBoost: (brightBoost) => set({ brightBoost }),
       setLessonEnglishMode: (lessonEnglishMode) => set({ lessonEnglishMode }),
       setLessonKeySeen: (lessonKeySeen) => set({ lessonKeySeen }),
+      setDenOrientationSeen: (denOrientationSeen) => set({ denOrientationSeen }),
+      setDenPlacementSeen: (denPlacementSeen) => set({ denPlacementSeen }),
       setAlarm: (alarmTime) => {
         set({ alarmTime });
         // scheduleDaily replaces the one 'daily-reminder' request, so at most
@@ -395,6 +411,10 @@ export const useStore = create<AppState>()(
       // "Anglais à la demande" is new and has no old value, so nothing
       // migrates into it. lessonEnglish is REPLACED, not extended — see the
       // AppState comment on lessonEnglishMode above.
+      // Still v7: denOrientationSeen/denPlacementSeen (D-19) are a pure
+      // ADDITION, not a rename of an existing field, so no ladder step and no
+      // version bump — zustand/persist fills an absent key from initialData()
+      // on its own.
       migrate: (persisted, version) => {
         const s = persisted as Partial<AppState> & Record<string, unknown>;
         if (version === 0) {
