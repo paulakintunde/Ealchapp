@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { DictEntry } from '@/content/wordOfDay';
+import type { Level } from '@/content/schema';
 
 export type SheetKind = 'vocab' | 'grammar' | null;
 
@@ -37,6 +38,26 @@ type UIState = {
   dictEntry: DictEntry | null;
   dictSaved: boolean;
 
+  /** Phase 07.1 / D-06: the trail's band selector panel, open state. A
+   *  panel that reopens after a relaunch is a bug — this store keeps no
+   *  saved copy of it, unlike the language mode, which is a real
+   *  preference (see useStore's v6-to-v7 migration for that one). */
+  levelPanelOpen: boolean;
+  setLevelPanelOpen: (open: boolean) => void;
+  /** The trail's selected band, ephemeral by design (den.tsx used to keep
+   *  this in local useState; it moves here only so the level panel and the
+   *  trail screen can both read/write it without prop-drilling). Saving it
+   *  across relaunches would be a deliberate, separate change — not made
+   *  here. */
+  trailBand: Level;
+  setTrailBand: (band: Level) => void;
+  /** D-41: the trail's scroll anchor, one stable row id per band, resolved
+   *  to an index at restore time — never a pixel offset. Session-only: a
+   *  scroll position surviving a two-week-old relaunch is noise, and
+   *  within-session restoration is the whole requirement. */
+  trailAnchor: Record<string, string | null>;
+  setTrailAnchor: (band: string, rowId: string | null) => void;
+
   openSheet: (k: SheetKind) => void;
   openVocabSheet: (items: VocabPrimerItem[]) => void;
   closeSheet: () => void;
@@ -55,6 +76,13 @@ export const useUI = create<UIState>((set) => ({
   dictOpen: false,
   dictEntry: null,
   dictSaved: false,
+  levelPanelOpen: false,
+  trailBand: 'sons',
+  trailAnchor: {},
+
+  setLevelPanelOpen: (levelPanelOpen) => set({ levelPanelOpen }),
+  setTrailBand: (trailBand) => set({ trailBand }),
+  setTrailAnchor: (band, rowId) => set((s) => ({ trailAnchor: { ...s.trailAnchor, [band]: rowId } })),
 
   openSheet: (sheet) => set({ sheet }),
   openVocabSheet: (vocabItems) => set({ sheet: 'vocab', vocabItems }),

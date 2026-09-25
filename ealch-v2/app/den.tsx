@@ -1,27 +1,42 @@
-import { useMemo, useState } from 'react';
-import { ScrollView, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useCallback, useMemo, useRef, useState } from 'react';
+import { View } from 'react-native';
+import { useRouter, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FlashList, type FlashListRef } from '@shopify/flash-list';
 import { TX } from '@/components/Type';
-import { Press, ProgressBar } from '@/components/ui';
+import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { TrailRow as TrailRowCmp } from '@/components/TrailRow';
+import { TrailHeading } from '@/components/TrailHeading';
+import { LevelChip, LevelPanel, type BandUnitCount } from '@/components/LevelPanel';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
-import { foldCards, itemsPracticed, masteredItems } from '@/store/progress.logic';
+import { foldCards, itemsPracticed, masteredItems, resumeIsFresh, localDay } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
-import type { Track } from '@/content/schema';
+import { trailRows, type TrailRow as TrailRowT } from '@/content/trail.logic';
+import { LEVELS, type Level } from '@/content/schema';
 import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
+import { useUI } from '@/store/useUI';
+
+// The Den is the trail (Concept C, D-01): a band is one column of acts, and
+// the unit is a heading you scroll past rather than a place you go. This
+// screen composes trailRows() (trail.logic.ts) from inputs alone and renders
+// the flat result through ONE virtualized FlashList — it derives nothing
+// about composition itself; an `if` about row order belongs in trail.logic.ts.
+//
+// D-01/SC-1: a mission is two taps away at any level — trail row to act
+// screen (app/act.tsx), act row to mission (app/lesson.tsx).
 
 // Den progress is REAL and now honest about the difference between MET and
-// MASTERED (Phase 5, CF-03). The bar and the "learned" count track MET — items
-// answered correctly at least once — so it fills from the first right answer.
-// The mastered count (recognise AND produce held for weeks) rides alongside, and
-// the completion check is reserved for the real milestone: every item mastered.
-// No fabricated bars: a unit reads 0/N until the learner actually earns it.
+// MASTERED (Phase 5, CF-03). If the bar were driven by mastery alone it would
+// read 0/N for the first three weeks of daily practice — the exact D1-D14
+// window where a blank bar makes people quit — so MET drives the level
+// panel's per-band read and the mastered count rides alongside it, never
+// blended. No fabricated bars: a band reads 0/N until the learner earns it.
 
 export default function Den() {
   const t = useTheme();
@@ -30,59 +45,294 @@ export default function Den() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
-  const [denTab, setDenTab] = useState<Track>('sons');
+  const band = useUI((s) => s.trailBand);
+  const setBand = useUI((s) => s.setTrailBand);
+  const levelPanelOpen = useUI((s) => s.levelPanelOpen);
+  const setLevelPanelOpen = useUI((s) => s.setLevelPanelOpen);
+  const trailAnchor = useUI((s) => s.trailAnchor);
+  const setTrailAnchor = useUI((s) => s.setTrailAnchor);
 
   // The Phase 10 level gate: sons and A1 are free forever; everything past A1
   // is Première ('levels.all'). The gate sits on the press, not the render —
   // locked units stay fully visible (what you would get), they just route to
   // the paywall instead of the lesson.
   const levelsAll = useFeature('levels.all');
-  const tabLocked = !levelsAll && !(FREE_BANDS as readonly string[]).includes(denTab);
 
-  const byTrack = useMemo(
-    () => ({
-      sons: content.units('sons'),
-      a1: content.units('a1'),
-      a2: content.units('a2'),
-    }),
-    []
-  );
-  const list = byTrack[denTab];
-  const ready = list.filter((u) => u.lessonIds.length > 0).length;
-
-  // Two honest numbers per unit, not one. MET is "you got it right at least
-  // once" (early progress — it fills from the first correct answer). MASTERED is
-  // retention: recognise AND produce both held for weeks (progress.logic). If the
-  // bar were driven by mastery alone it would read 0/N for the first three weeks
-  // of daily practice — the exact D1–D14 window where a blank bar makes people
-  // quit — so MET drives the bar and the mastered count rides alongside it. The
-  // check is reserved for the real milestone: every item mastered.
+  const lessonMissions = useProgress((s) => s.lessonMissions);
+  const resumeByMode = useProgress((s) => s.resumeByMode);
   const attempts = useProgress((s) => s.attempts);
+
+  // Act indices already done for a lesson, resolved ONCE per band from
+  // lessonMissions (den.tsx:60-72's old per-unit derivation, moved here and
+  // reshaped to per-act) — never recomputed inside a row renderer (T-07.1-16).
+  const doneActs = useMemo(() => {
+    return (lessonId: string): Set<number> => {
+      const L = content.lesson(lessonId);
+      const rec = lessonMissions[lessonId];
+      if (!L || !rec || rec.v !== L.version) return new Set<number>();
+      const doneSectionIds = new Set(
+        rec.done.map((ix) => L.sections[ix]?.id).filter((id): id is string => Boolean(id)),
+      );
+      const out = new Set<number>();
+      (L.acts ?? []).forEach((act, actIx) => {
+        if (act.sections.length > 0 && act.sections.every((sid) => doneSectionIds.has(sid))) out.add(actIx);
+      });
+      return out;
+    };
+  }, [lessonMissions]);
+
+  // D-18: the start marker is the first unstarted act row across the WHOLE
+  // band, only when there is no fresh lesson resume to prioritise instead.
+  const hasFreshResume = useMemo(
+    () => resumeIsFresh(resumeByMode.lesson ?? null, localDay()),
+    [resumeByMode],
+  );
+
+  // D-19: dismissible above the first heading. Session-only for now (local
+  // state, not persisted) — plan 10 owns where the dismissal itself lives;
+  // this plan only needs trailRows() to accept the flag. See the SUMMARY.
+  const [orientationDismissed, setOrientationDismissed] = useState(false);
+  const [placementDismissed, setPlacementDismissed] = useState(false);
+
+  const rows: TrailRowT[] = useMemo(
+    () =>
+      trailRows({
+        units: content.unitsOfBand(band),
+        lessonsOf: (unitId) => content.lessonsOf(unitId),
+        band,
+        levelsAll,
+        freeBands: FREE_BANDS,
+        doneActs,
+        hasFreshResume,
+        orientationDismissed,
+        placementDismissed,
+        T: { trailReleaseSome: T.trailReleaseSome, trailReleaseNone: T.trailReleaseNone },
+      }),
+    [band, levelsAll, doneActs, hasFreshResume, orientationDismissed, placementDismissed, T],
+  );
+
+  // The level panel's per-band read (D-06/D-07): MET drives it, MASTERED
+  // rides alongside — memoised once, keyed on the attempts, never per row.
   const met = useMemo(() => itemsPracticed(attempts), [attempts]);
   const mastered = useMemo(() => masteredItems(foldCards(attempts)), [attempts]);
-  const progressOf = (unitId: string) => {
-    const ids = new Set(content.lessonsOf(unitId).flatMap((l) => l.itemIds));
-    let metN = 0;
-    let masteredN = 0;
-    for (const id of ids) {
-      if (met.has(id)) metN += 1;
-      if (mastered.has(id)) masteredN += 1;
+  const unitCounts: Record<Level, BandUnitCount> = useMemo(() => {
+    const out = {} as Record<Level, BandUnitCount>;
+    for (const l of LEVELS) {
+      const units = content.unitsOfBand(l);
+      let total = 0;
+      let metN = 0;
+      let masteredN = 0;
+      for (const u of units) {
+        const ids = new Set(content.lessonsOf(u.id).flatMap((lesson) => lesson.itemIds));
+        total += ids.size;
+        for (const id of ids) {
+          if (met.has(id)) metN += 1;
+          if (mastered.has(id)) masteredN += 1;
+        }
+      }
+      out[l] = { total, met: metN, mastered: masteredN };
     }
-    return { total: ids.size, met: metN, mastered: masteredN };
-  };
+    return out;
+  }, [met, mastered]);
 
-  const tabs: { id: Track; name: string }[] = [
-    { id: 'sons', name: 'SONS' },
-    { id: 'a1', name: 'A1' },
-    { id: 'a2', name: 'A2' },
-  ];
+  const onLockedPress = useCallback(() => {
+    trackEvent('gate_blocked', { feature: 'levels.all', from: 'den' });
+    router.push({ pathname: '/paywall', params: { from: 'gate:levels' } });
+  }, [router]);
+
+  const goAct = useCallback(
+    (lessonId: string, actIx: number) => {
+      router.push({ pathname: '/act', params: { key: lessonId, act: String(actIx) } });
+    },
+    [router],
+  );
+  const goActe0 = useCallback(
+    (lessonId: string) => {
+      router.push({ pathname: '/narrated', params: { key: lessonId } });
+    },
+    [router],
+  );
+  const goFiche = useCallback(
+    (lessonId: string) => {
+      if (!lessonId) return;
+      router.push({ pathname: '/fiche', params: { key: lessonId } });
+    },
+    [router],
+  );
+
+  // D-41: the scroll anchor. Capture the first visible row's STABLE id on
+  // blur (getFirstVisibleIndex, present in FlashList 2.0.2), never a pixel
+  // offset — speakmap.tsx's fixed two-constant pixel arithmetic is already
+  // known wrong at font scale 1.3, and the trail is 251 variable-height rows.
+  const listRef = useRef<FlashListRef<TrailRowT>>(null);
+  useFocusEffect(
+    useCallback(() => {
+      return () => {
+        const ix = listRef.current?.getFirstVisibleIndex();
+        if (typeof ix === 'number' && ix >= 0 && rows[ix]) {
+          setTrailAnchor(band, rows[ix].id);
+        }
+      };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [rows, band]),
+  );
+  // Resolved back to an index at mount. The FlashList below is keyed on
+  // `band` so a band switch remounts it and this resolves fresh each time —
+  // the prop below only ever applies at mount, never on a later prop change.
+  const initialScrollIndex = useMemo(() => {
+    const anchorId = trailAnchor[band];
+    if (!anchorId) return undefined;
+    const ix = rows.findIndex((r) => r.id === anchorId);
+    return ix >= 0 ? ix : undefined;
+  }, [trailAnchor, band, rows]);
+
+  const renderItem = useCallback(
+    ({ item }: { item: TrailRowT }) => {
+      switch (item.kind) {
+        case 'heading':
+          return <TrailHeading row={item} onPressFiche={goFiche} />;
+        case 'act':
+        case 'acte0':
+          return <TrailRowCmp row={item} onPressAct={goAct} onPressActe0={goActe0} onPressLocked={onLockedPress} />;
+        case 'orientation':
+          return (
+            <View
+              style={{
+                borderRadius: 16,
+                borderWidth: 1,
+                borderColor: t.line(10),
+                backgroundColor: t.card,
+                padding: 16,
+                marginBottom: 12,
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                gap: 10,
+              }}
+            >
+              <View style={{ flex: 1, minWidth: 0 }}>
+                <TX font="semi" role="body">
+                  {T.trailOrientationTitle}
+                </TX>
+                <TX role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>
+                  {T.trailOrientationBody}
+                </TX>
+              </View>
+              <Press
+                onPress={() => setOrientationDismissed(true)}
+                accessibilityRole="button"
+                accessibilityState={{ disabled: false }}
+                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                style={{ width: 28, minHeight: 28, alignItems: 'center', justifyContent: 'center' }}
+              >
+                <Icon name="x" size={14} color={t.txSubtle} />
+              </Press>
+            </View>
+          );
+        case 'placement':
+          return (
+            <View
+              style={{
+                borderRadius: 16,
+                borderWidth: 1,
+                borderColor: t.accA(35),
+                backgroundColor: t.accA(6),
+                padding: 14,
+                marginBottom: 12,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 12,
+              }}
+            >
+              <Press
+                cue="tap"
+                onPress={() => router.push('/placement')}
+                accessibilityRole="button"
+                accessibilityState={{ disabled: false }}
+                style={{ flex: 1, minWidth: 0 }}
+              >
+                <TX font="semi" role="bodySm">
+                  {T.trailPlacementTitle}
+                </TX>
+                <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>
+                  {T.trailPlacementBody}
+                </TX>
+              </Press>
+              <Press
+                onPress={() => setPlacementDismissed(true)}
+                accessibilityRole="button"
+                accessibilityState={{ disabled: false }}
+                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                style={{ width: 28, minHeight: 28, alignItems: 'center', justifyContent: 'center' }}
+              >
+                <Icon name="x" size={14} color={t.txSubtle} />
+              </Press>
+            </View>
+          );
+        case 'gate':
+          return (
+            <Press
+              onPress={onLockedPress}
+              cue="tap"
+              accessibilityRole="button"
+              accessibilityState={{ disabled: false }}
+              style={{
+                borderRadius: 16,
+                borderWidth: 1,
+                borderColor: t.accA(35),
+                backgroundColor: t.accA(8),
+                padding: 16,
+                marginBottom: 12,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 10,
+              }}
+            >
+              <Icon name="lock" size={16} color={t.accTx} strokeWidth={1.8} />
+              <View style={{ flex: 1, minWidth: 0 }}>
+                <TX role="bodySm" color={t.accTx}>
+                  {T.trailGateLead}
+                </TX>
+              </View>
+            </Press>
+          );
+        case 'boundary':
+          return (
+            <Press
+              onPress={onLockedPress}
+              cue="tap"
+              accessibilityRole="button"
+              accessibilityState={{ disabled: false }}
+              style={{
+                borderRadius: 16,
+                borderWidth: 1,
+                borderColor: t.accA(35),
+                backgroundColor: t.accA(8),
+                padding: 16,
+                marginTop: 4,
+                marginBottom: 12,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 10,
+              }}
+            >
+              <Icon name="lock" size={16} color={t.accTx} strokeWidth={1.8} />
+              <View style={{ flex: 1, minWidth: 0 }}>
+                <TX role="bodySm" color={t.accTx}>
+                  {T.trailBoundaryLead}
+                </TX>
+              </View>
+            </Press>
+          );
+        default:
+          return null;
+      }
+    },
+    [goFiche, goAct, goActe0, onLockedPress, router, t, T],
+  );
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
-      <ScrollView
-        contentContainerStyle={{ paddingTop: insets.top + 14, paddingHorizontal: 24, paddingBottom: insets.bottom + 60 }}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={{ paddingTop: insets.top + 14, paddingHorizontal: 24 }}>
         {/* Header */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
           <Press onPress={() => router.replace('/home')} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
@@ -96,67 +346,26 @@ export default function Den() {
           </Press>
         </View>
 
-        <TX font="serif" role="display" size={38} style={{ marginBottom: 8 }}>
-          {T.denT}
-        </TX>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+          {/* flex lives on the wrapper, never on a TX, or the title clips */}
+          <View style={{ flex: 1, minWidth: 0 }}>
+            <TX font="serif" role="display" size={38}>
+              {T.denT}
+            </TX>
+          </View>
+          <LevelChip band={band} expanded={levelPanelOpen} onPress={() => setLevelPanelOpen(true)} />
+        </View>
         <TX role="bodySm" color={t.txMuted} style={{ maxWidth: 310, marginBottom: 16 }}>
           {T.denIntro}
         </TX>
 
-        {/* Placement banner */}
-        <Press
-          onPress={() => router.push('/placement')}
-          style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(35), backgroundColor: t.accA(6), padding: 14, paddingHorizontal: 16, marginBottom: 20, flexDirection: 'row', alignItems: 'center', gap: 13 }}
-        >
-          <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="bold" role="label" color={t.accTx}>A?</TX>
-          </View>
-          <View style={{ flex: 1 }}>
-            <TX font="semi" role="bodySm">{T.denBanT}</TX>
-            <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>{T.denBanS}</TX>
-          </View>
-          <Icon name="chevronRight" size={13} color={t.acc} strokeWidth={1.6} />
-        </Press>
-
-        {/* Track tabs — counts are real (from the corpus) */}
-        <View style={{ flexDirection: 'row', gap: 8, marginBottom: 20 }}>
-          {tabs.map((tab) => {
-            const on = denTab === tab.id;
-            return (
-              <Press
-                key={tab.id}
-                onPress={() => setDenTab(tab.id)}
-                style={{ flex: 1, minHeight: 44, paddingVertical: 6, borderRadius: 22, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(10), backgroundColor: on ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
-              >
-                <TX font="bold" role="meta" ls={1.4} color={on ? t.accTx : t.txMuted}>{tab.name}</TX>
-                <TX role="eyebrow" color={on ? t.accA(70) : t.txSubtle} style={{ marginTop: 1 }}>
-                  {byTrack[tab.id].length}
-                </TX>
-              </Press>
-            );
-          })}
-        </View>
-
-        {/* Track summary — content availability, not a fabricated completion count */}
-        <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 18, marginBottom: 22 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 }}>
-            <TX font="semi" role="meta" ls={2.2} color={t.tag('gold').c}>
-              {T.trackLabels[denTab]}
-            </TX>
-            <TX role="label" color={t.txMuted}>
-              {T.denLessonsReady.replace('{n}', String(ready))}
-            </TX>
-          </View>
-          <TX role="label" color={t.txSubtle}>
-            {T.trackDescs[denTab]}
-          </TX>
-        </View>
-
         {/* DEV-PREVIEW-B101 (temporary): dev builds only, opens the b1.01 draft. */}
-        {/* DEV-PREVIEW-B101 (D-30): the B1 authors' only door. Phase 07.1 plan 08 re-points this at the trail; do not delete it. */}
+        {/* DEV-PREVIEW-B101 (D-30): the B1 authors' only door. Re-pointed at
+            the Fiche sheet, replacing the old overview screen's route. Do not
+            delete it. */}
         {__DEV__ && content.lesson('b1.01.l1') ? (
           <Press
-            onPress={() => router.push({ pathname: '/lessonoverview', params: { key: 'b1.01.l1' } })}
+            onPress={() => router.push({ pathname: '/fiche', params: { key: 'b1.01.l1' } })}
             cue="tap"
             style={{ borderRadius: 16, borderWidth: 1, borderStyle: 'dashed', borderColor: t.accA(55), backgroundColor: t.card, padding: 14, paddingHorizontal: 16, marginBottom: 12 }}
           >
@@ -164,103 +373,34 @@ export default function Den() {
             <TX font="semi" role="body" style={{ marginTop: 4 }}>{"L'imparfait : la formation"}</TX>
           </Press>
         ) : null}
+      </View>
 
-        {/* Units */}
-        <View style={{ gap: 9 }}>
-          {list.map((u) => {
-            const hasLesson = u.lessonIds.length > 0;
-            const prog = hasLesson ? progressOf(u.id) : { total: 0, met: 0, mastered: 0 };
-            const done = prog.total > 0 && prog.mastered === prog.total;
-            const started = prog.met > 0;
-            const onPress = () => {
-              if (!hasLesson) return;
-              if (tabLocked) {
-                trackEvent('gate_blocked', { feature: 'levels.all', from: 'den' });
-                router.push({ pathname: '/paywall', params: { from: 'gate:levels' } });
-                return;
-              }
-              router.push({ pathname: '/lessonoverview', params: { key: u.lessonIds[0] } });
-            };
-            // A unit can declare 'narrated' before its script is written (schema.ts's
-            // own comment on Lesson.narration) — only offer the Den's spoken mode once
-            // a lesson actually carries both the feature flag and the script.
-            const narratedLesson = hasLesson
-              ? content.lessonsOf(u.id).find((l) => l.narration && l.features?.includes('narrated'))
-              : undefined;
-            return (
-              <Press
-                key={u.id}
-                onPress={onPress}
-                cue={hasLesson ? 'tap' : null}
-                scale={hasLesson ? 0.99 : 1}
-                style={{ borderRadius: 16, borderWidth: 1, borderColor: done ? t.accA(55) : hasLesson ? t.accA(30) : t.line(7), backgroundColor: t.card, padding: 14, paddingHorizontal: 16, opacity: hasLesson ? 1 : 0.6 }}
-              >
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
-                  <View style={{ width: 36, minHeight: 36, paddingVertical: 6, borderRadius: 18, borderWidth: 1, borderColor: done ? t.acc : hasLesson ? t.accA(45) : t.line(14), backgroundColor: done ? t.acc : 'transparent', alignItems: 'center', justifyContent: 'center' }}>
-                    {done ? (
-                      <Icon name="check" size={16} color={t.accInk} strokeWidth={2.4} />
-                    ) : (
-                      <TX font="serif" role="body" color={hasLesson ? t.accTx : t.txMuted}>
-                        {String(u.seq).padStart(2, '0')}
-                      </TX>
-                    )}
-                  </View>
-                  <View style={{ flex: 1, minWidth: 0 }}>
-                    <TX font="semi" role="body">{u.title}</TX>
-                    <TX font="serifI" role="label" color={t.txSubtle} style={{ marginTop: 2 }} numberOfLines={1}>
-                      {u.sub}
-                    </TX>
-                    {/* Real per-unit progress, only once it has words to track. */}
-                    {hasLesson && prog.total > 0 && !done ? (
-                      <View style={{ marginTop: 9, gap: 5 }}>
-                        {/* The bar tracks MET, so it fills from the first correct
-                            answer instead of staying empty for three weeks. */}
-                        <ProgressBar pct={(prog.met / prog.total) * 100} height={3} color={t.acc} track={t.line(10)} />
-                        <TX role="meta" color={started ? t.accTx : t.txSubtle}>
-                          {T.denLearnedPct.replace('{p}', String(Math.round((prog.met / prog.total) * 100)))}
-                          {prog.mastered > 0 ? '  ·  ' + T.denMastered.replace('{k}', String(prog.mastered)) : ''}
-                        </TX>
-                        <TX role="eyebrow" color={t.txSubtle}>
-                          {T.denLearned.replace('{n}', String(prog.met)).replace('{m}', String(prog.total))}
-                        </TX>
-                      </View>
-                    ) : null}
-                  </View>
-                  {!hasLesson ? (
-                    <TX font="semi" role="eyebrow" ls={1.4} color={t.txSubtle}>
-                      {T.uSoon}
-                    </TX>
-                  ) : (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                      {narratedLesson && !tabLocked ? (
-                        <Press
-                          cue="tap"
-                          onPress={() => router.push({ pathname: '/narrated', params: { key: narratedLesson.id } })}
-                          style={{ paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, borderWidth: 1, borderColor: t.accA(45), backgroundColor: t.accA(10) }}
-                        >
-                          <TX font="semi" role="eyebrow" ls={1.2} color={t.accTx}>
-                            {T.narrCta}
-                          </TX>
-                        </Press>
-                      ) : null}
-                      {tabLocked ? (
-                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 11, backgroundColor: t.accA(12) }}>
-                          <Icon name="lock" size={11} color={t.accTx} strokeWidth={2} />
-                          <TX font="bold" role="eyebrow" ls={1.2} color={t.accTx}>
-                            {T.premLockTag}
-                          </TX>
-                        </View>
-                      ) : (
-                        <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
-                      )}
-                    </View>
-                  )}
-                </View>
-              </Press>
-            );
-          })}
-        </View>
-      </ScrollView>
+      {/* The trail: one FlashList over trailRows()'s flat, heterogeneous
+          array. NOT inside a ScrollView — MissionSection.tsx:202-204 records
+          what nesting a virtualized list inside one costs. */}
+      <FlashList
+        key={band}
+        ref={listRef}
+        data={rows}
+        keyExtractor={(row) => row.id}
+        getItemType={(row) => row.kind}
+        renderItem={renderItem}
+        initialScrollIndex={initialScrollIndex}
+        contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 60 }}
+        showsVerticalScrollIndicator={false}
+      />
+
+      <LevelPanel
+        open={levelPanelOpen}
+        onClose={() => setLevelPanelOpen(false)}
+        band={band}
+        onSelect={(b) => {
+          setBand(b);
+          setLevelPanelOpen(false);
+        }}
+        unitCounts={unitCounts}
+        levelsAll={levelsAll}
+      />
     </View>
   );
 }
