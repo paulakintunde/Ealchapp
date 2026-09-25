@@ -15,7 +15,6 @@
 //
 // Remove with the rest of the DEV-PREVIEW-B1 marker (grep for it).
 import { writeFileSync } from 'node:fs';
-import type { TaskSection } from './_task-section.ts';
 
 /** Every B1 draft, in trail order. A new lesson is one line here. */
 const SLUGS = [
@@ -25,20 +24,10 @@ const SLUGS = [
   'subjonctif-formation',
 ] as const;
 
-/** The `task` section has no renderer yet. Shown as a `teach` card in place, so
- *  the lesson keeps its shape and the brief, criteria and model answer sit
- *  where the real task will. */
-function taskAsTeach(s: any) {
-  if (s.type !== 'task') return s;
-  const t = s as TaskSection;
-  const criteria = t.rubric.criteria.map((c) => `• ${c.label} (${c.maxPoints} pts)`).join('\n');
-  return {
-    type: 'teach', id: t.id, frSub: t.frSub,
-    title: `${t.title} (aperçu de la tâche)`,
-    body: [t.brief, t.briefEn ? `EN: ${t.briefEn}` : '', `À faire : ${t.produce}`, `Critères :\n${criteria}`, `Exemple de réponse :\n${t.modelAnswer}`]
-      .filter(Boolean).join('\n\n'),
-  };
-}
+/** The `task` section now has a real renderer (`TaskView`, wired into
+ *  MissionSection), and the schema carries the type, so the preview ships the
+ *  task AS a task. It used to be flattened into a `teach` card here because
+ *  nothing could draw it. */
 
 /** What the fixture SHOULD hold, built from the live source files. Exported so
  *  `b1-preview-fixture.test.ts` can rebuild it and compare with what is on
@@ -52,7 +41,7 @@ export async function buildPreview() {
     const L: any = await import(`./${slug}-lesson.ts`);
     const C: any = await import(`./${slug}-corpus.ts`);
     units.push({ ...C.UNIT, level: 'b1', lessonIds: [L.LESSON.id] });
-    lessons.push({ ...L.LESSON, sections: L.LESSON.sections.map(taskAsTeach) });
+    lessons.push({ ...L.LESSON });
     // Lessons quote each other's rows, so the same id can arrive twice. Last
     // write wins, which is safe: a quoted row is the same row.
     for (const row of C.ALL_ROWS) items.set(row.id, row);

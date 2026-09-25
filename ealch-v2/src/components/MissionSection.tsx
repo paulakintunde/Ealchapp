@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Modal, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { SectionView } from '@/components/LessonSection';
+import { TaskView } from '@/components/TaskView';
 import { RichImage } from '@/components/LessonRich';
 import {
   StoryView,
@@ -609,6 +610,18 @@ export function MissionSectionView({
           {chips}
           {hero}
           <ProgressCheckView s={s} />
+        </View>
+      );
+    // The graded production task. It draws its own brief, criteria, response
+    // box and self-check; the shared fallback below would render only its
+    // title, which is what the dev preview used to fake with a teach card.
+    case 'task':
+      return (
+        <View>
+          {label}
+          {chips}
+          {hero}
+          <TaskView s={s} />
         </View>
       );
     default:

@@ -9635,11 +9635,166 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a12-task",
+          "title": "Quand j’étais petit(e)...",
           "frSub": "Écris ton souvenir",
-          "title": "Quand j’étais petit(e)... (aperçu de la tâche)",
-          "body": "Comme Awa dans sa lettre, raconte un endroit de ton enfance : une maison, un quartier, une école. Qui était là ? Qu’est-ce que tu faisais ? Quel temps faisait-il ?\n\nEN: Like Awa in her letter, describe a place from your childhood: who was there, what you used to do, what the weather was like.\n\nÀ faire : Écris un texte de 50 à 80 mots qui commence par « Quand j’étais petit » ou « Quand j’étais petite », avec au moins cinq verbes différents à l’imparfait, dont être et un verbe en -ger ou -cer.\n\nCritères :\n• Les formes de l’imparfait (4 pts)\n• L’orthographe difficile (3 pts)\n• La variété des verbes (2 pts)\n• La tâche (1 pts)\n\nExemple de réponse :\nQuand j'étais petite, j'habitais chez ma grand-mère, à Dakar. La maison avait une grande cour avec un manguier. Le matin, ma grand-mère commençait sa journée très tôt. Nous mangions ensemble dans la cour et nous parlions wolof. L'après-midi, je jouais avec mes cousins dans la rue. Quand il pleuvait, nous restions à l'intérieur et mon grand-père nous racontait des histoires. C'était une vie simple."
+          "brief": "Comme Awa dans sa lettre, raconte un endroit de ton enfance : une maison, un quartier, une école. Qui était là ? Qu’est-ce que tu faisais ? Quel temps faisait-il ?",
+          "briefEn": "Like Awa in her letter, describe a place from your childhood: who was there, what you used to do, what the weather was like.",
+          "produce": "Écris un texte de 50 à 80 mots qui commence par « Quand j’étais petit » ou « Quand j’étais petite », avec au moins cinq verbes différents à l’imparfait, dont être et un verbe en -ger ou -cer.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 50,
+            "maxWords": 80
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "formation",
+                "label": "Les formes de l’imparfait",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : tous les verbes à l’imparfait ont la bonne base (nous moins -ons, ét- pour être) et la bonne fin pour leur sujet.",
+                  "3 : une ou deux erreurs de base ou de fin, le reste est correct.",
+                  "2 : plusieurs erreurs, ou des verbes au présent là où il faut l’imparfait.",
+                  "1 : l’imparfait est rare ou presque toujours mal formé."
+                ]
+              },
+              {
+                "key": "orthographe",
+                "label": "L’orthographe difficile",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : -ger et -cer sont corrects devant a et devant i, les fins qui sonnent pareil (-ais, -ait, -aient) sont bien écrites, et il y a deux i quand il faut.",
+                  "2 : une erreur dans ces cas-là.",
+                  "1 : plusieurs erreurs dans ces cas-là."
+                ]
+              },
+              {
+                "key": "variete",
+                "label": "La variété des verbes",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : au moins cinq verbes différents à l’imparfait, dont être et un verbe en -ger ou -cer, avec au moins deux personnes.",
+                  "1 : moins de cinq verbes différents, ou il manque être, ou il manque le verbe en -ger ou -cer."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La tâche",
+                "maxPoints": 1,
+                "descriptors": [
+                  "1 : le texte commence par « Quand j’étais petit(e) », parle d’un souvenir d’enfance, et fait entre 50 et 80 mots.",
+                  "0 : le texte ne parle pas de l’enfance, ou il est trop court ou trop long."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Quand j’étais petit(e), j’habitais...",
+            "Il y avait...",
+            "Le dimanche, nous...",
+            "Ma mère / mon père...",
+            "L’hiver, il faisait...",
+            "Je ne... jamais...",
+            "C’était..."
+          ],
+          "modelAnswer": "Quand j'étais petite, j'habitais chez ma grand-mère, à Dakar. La maison avait une grande cour avec un manguier. Le matin, ma grand-mère commençait sa journée très tôt. Nous mangions ensemble dans la cour et nous parlions wolof. L'après-midi, je jouais avec mes cousins dans la rue. Quand il pleuvait, nous restions à l'intérieur et mon grand-père nous racontait des histoires. C'était une vie simple.",
+          "modelAnswerEn": "When I was little, I lived with my grandmother in Dakar. The house had a big courtyard with a mango tree. In the morning, my grandmother started her day very early. We ate together in the courtyard and spoke Wolof. In the afternoon, I played with my cousins in the street. When it rained, we stayed inside and my grandfather told us stories. It was a simple life.",
+          "watchFor": [
+            {
+              "pattern": "mangeions, partageions, voyageions (e kept before i)",
+              "criterion": "orthographe",
+              "feedback": "Devant i, le g fait déjà [ʒ] : nous mangions, sans e.",
+              "ref": "a6-regle"
+            },
+            {
+              "pattern": "mangait, voyagait, neigait (e missing before a)",
+              "criterion": "orthographe",
+              "feedback": "Devant a, le g a besoin du e : mangeait.",
+              "ref": "a6-piege"
+            },
+            {
+              "pattern": "commençions, commencait, commencaient (cedilla on the wrong side)",
+              "criterion": "orthographe",
+              "feedback": "Le ç va devant a (commençait), jamais devant i (commencions).",
+              "ref": "a7-regle"
+            },
+            {
+              "pattern": "nous étudions / vous oubliez / nous voyons / nous payons used for a past habit",
+              "criterion": "orthographe",
+              "feedback": "Base en i ou y, fin en i : écris les deux. nous étudiions, nous voyions.",
+              "ref": "a8-regle"
+            },
+            {
+              "pattern": "plural subject + -ait, or je/tu + -ait, or il + -ais",
+              "criterion": "orthographe",
+              "feedback": "Ces fins sonnent pareil, mais le sujet choisit : je -ais, il -ait, ils -aient.",
+              "ref": "a3-fins"
+            },
+            {
+              "pattern": "je parlé / j’ai parlais / aimait dansait (look-alike forms)",
+              "criterion": "orthographe",
+              "feedback": "Remplace par vendre : vendu, vendais ou vendre ?",
+              "ref": "a11-astuces"
+            },
+            {
+              "pattern": "je sommais, nous sommions, j’étions, il été",
+              "criterion": "formation",
+              "feedback": "être a sa propre base : ét-. j’étais, nous étions.",
+              "ref": "a5-etre"
+            },
+            {
+              "pattern": "je boivais, je prendais, je croiais, je fesais, j’écrisais (stem not from nous)",
+              "criterion": "formation",
+              "feedback": "Pars de nous : nous buvons, buv- ; nous prenons, pren- ; nous faisons, fais-.",
+              "ref": "a4-idee"
+            },
+            {
+              "pattern": "je finais, nous choisions (stem from the infinitive)",
+              "criterion": "formation",
+              "feedback": "nous finissons : la base est finiss-.",
+              "ref": "a2-recette"
+            },
+            {
+              "pattern": "il y avaient, il fallais, il pleuvais",
+              "criterion": "formation",
+              "feedback": "Les impersonnels restent avec il : il y avait, il fallait.",
+              "ref": "a9-formes"
+            },
+            {
+              "pattern": "je levais (pronoun dropped), je mangeais ne pas, il n’y avait pas personne",
+              "criterion": "formation",
+              "feedback": "Le pronom et ne... pas restent à leur place : je me levais, je ne mangeais pas.",
+              "ref": "a10-pronoms"
+            },
+            {
+              "pattern": "present tense where the text describes the past (j’habite, il y a, c’est)",
+              "criterion": "formation",
+              "feedback": "Le présent dit que c’est encore vrai. Pour ton enfance, utilise l’imparfait.",
+              "ref": "a1-scene"
+            },
+            {
+              "pattern": "fewer than five distinct imparfait verbs, or no être, or no -ger/-cer verb",
+              "criterion": "variete",
+              "feedback": "Il faut au moins cinq verbes différents, avec être et un verbe comme manger ou commencer.",
+              "ref": "a4-flash"
+            },
+            {
+              "pattern": "under 50 or over 80 words, or not about childhood",
+              "criterion": "tache",
+              "feedback": "Vérifie la longueur (50 à 80 mots) et le sujet : un souvenir d’enfance.",
+              "ref": "a12-task"
+            }
+          ],
+          "graderNotes": [
+            "Formative lesson task, not an exam: judge the criteria and quote the learner’s own forms back. Never report a band.",
+            "Do NOT penalise correctly formed passé composé; the usage contrast is b1.03/b1.04. Only mark a present tense used for the past.",
+            "Count distinct imparfait VERBS, not tokens. il y avait counts as avoir.",
+            "on + imparfait (on mangeait) is correct and counts.",
+            "Accents: do not deduct for a missing é unless it makes another word. The cedilla on -cer DOES count (orthographe).",
+            "petit/petite: accept either, and never comment on the learner’s gender."
+          ]
         },
         {
           "type": "practice",
@@ -18705,11 +18860,167 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a10-task",
+          "title": "Ton souvenir, par écrit",
           "frSub": "La tâche",
-          "title": "Ton souvenir, par écrit (aperçu de la tâche)",
-          "body": "Tu écris à une personne de ton passé : un ancien professeur, ou un ancien propriétaire. Tu décris un lieu où tu habitais et une habitude de cette époque. À la fin, tu lui demandes quelque chose, poliment. Dans ta lettre, tu dis vous à cette personne.\n\nEN: You write to someone from your past, a former teacher or landlord: describe a place you lived and a habit from that time, then ask them for something politely.\n\nÀ faire : Écris 90 à 130 mots : le lieu, la météo, ton âge, une habitude de la semaine, un état, puis une demande polie à l'imparfait.\n\nCritères :\n• L'imparfait au bon endroit (4 pts)\n• Une description riche (3 pts)\n• Des formes correctes (4 pts)\n• La demande polie (3 pts)\n• La consigne (2 pts)\n\nExemple de réponse :\nChère Madame Gagnon, quand j'avais dix ans, j'habitais à Chicoutimi, tout près de votre école. Notre maison était jaune, et il y avait une grande cour derrière. L'hiver, il faisait moins vingt et il neigeait presque tous les matins. Tous les samedis, mon frère et moi, nous allions à la patinoire avec les voisins. Ma mère préparait du chocolat chaud et mon père déneigeait l'entrée avant le déjeuner. J'étais timide et j'avais toujours froid aux pieds, mais je ne voulais jamais rentrer. À l'époque, je trouvais cette vie normale. Aujourd'hui, j'habite à Abidjan. Je me demandais si vous aviez encore des photos de notre classe."
+          "brief": "Tu écris à une personne de ton passé : un ancien professeur, ou un ancien propriétaire. Tu décris un lieu où tu habitais et une habitude de cette époque. À la fin, tu lui demandes quelque chose, poliment. Dans ta lettre, tu dis vous à cette personne.",
+          "briefEn": "You write to someone from your past, a former teacher or landlord: describe a place you lived and a habit from that time, then ask them for something politely.",
+          "produce": "Écris 90 à 130 mots : le lieu, la météo, ton âge, une habitude de la semaine, un état, puis une demande polie à l'imparfait.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 90,
+            "maxWords": 130
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "emplois",
+                "label": "L'imparfait au bon endroit",
+                "maxPoints": 4,
+                "descriptors": [
+                  "0 : presque pas d’imparfait. Les habitudes et le décor sont au présent ou au passé composé.",
+                  "1 : quelques imparfaits, mais la plupart des habitudes ou du décor sont à un autre temps.",
+                  "2 : l’imparfait est là, mais une habitude ou le décor passe souvent au passé composé ou au présent.",
+                  "3 : l’imparfait est bien choisi presque partout. Une ou deux hésitations.",
+                  "4 : chaque habitude, état et détail du décor est à l’imparfait. Le présent sert seulement pour aujourd’hui."
+                ]
+              },
+              {
+                "key": "description",
+                "label": "Une description riche",
+                "maxPoints": 3,
+                "descriptors": [
+                  "0 : pas de description, seulement une liste.",
+                  "1 : un ou deux éléments (le lieu, ou l’âge), sans détails.",
+                  "2 : le lieu, la météo, l’âge et une habitude sont là, mais simplement.",
+                  "3 : le lieu, la météo, l’âge, une habitude et un état sont là, avec des détails précis : des gens, des couleurs, des bruits."
+                ]
+              },
+              {
+                "key": "formes",
+                "label": "Des formes correctes",
+                "maxPoints": 4,
+                "descriptors": [
+                  "0 : les formes sont presque toujours fausses.",
+                  "1 : beaucoup de fins fausses (-ait pour je, -ions oublié) ou de bases fausses.",
+                  "2 : des erreurs régulières, par exemple j’étais douze ans, ou nous étaions.",
+                  "3 : une ou deux erreurs de forme, et le sens reste clair.",
+                  "4 : toutes les formes sont correctes, être compris (j’étais), l’âge avec avoir et la météo avec faire."
+                ]
+              },
+              {
+                "key": "demande",
+                "label": "La demande polie",
+                "maxPoints": 3,
+                "descriptors": [
+                  "0 : pas de demande, ou un ordre (Envoyez-moi...).",
+                  "1 : une demande directe au présent (Je veux..., Vous pouvez... ?).",
+                  "2 : une demande polie, mais pas à l’imparfait (je voudrais), ou si suivi du présent (si vous avez).",
+                  "3 : Je voulais vous demander... ou Je me demandais si... avec l’imparfait après si, et une demande qui va avec la personne."
+                ]
+              },
+              {
+                "key": "consigne",
+                "label": "La consigne",
+                "maxPoints": 2,
+                "descriptors": [
+                  "0 : moins de 60 mots, ou le texte ne répond pas à la tâche.",
+                  "1 : un élément manque (la demande, la météo, l’âge, l’état ou l’habitude), ou le texte sort de 90 à 130 mots.",
+                  "2 : tout est là, adressé à une personne, entre 90 et 130 mots."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Quand j’avais ... ans,",
+            "À l’époque, j’habitais ...",
+            "Il y avait ...",
+            "L’hiver, il faisait ...",
+            "Tous les samedis, ...",
+            "D’habitude, ...",
+            "J’étais ... , mais ...",
+            "Je voulais vous demander si ...",
+            "Je me demandais si ..."
+          ],
+          "modelAnswer": "Chère Madame Gagnon, quand j'avais dix ans, j'habitais à Chicoutimi, tout près de votre école. Notre maison était jaune, et il y avait une grande cour derrière. L'hiver, il faisait moins vingt et il neigeait presque tous les matins. Tous les samedis, mon frère et moi, nous allions à la patinoire avec les voisins. Ma mère préparait du chocolat chaud et mon père déneigeait l'entrée avant le déjeuner. J'étais timide et j'avais toujours froid aux pieds, mais je ne voulais jamais rentrer. À l'époque, je trouvais cette vie normale. Aujourd'hui, j'habite à Abidjan. Je me demandais si vous aviez encore des photos de notre classe.",
+          "modelAnswerEn": "Dear Madame Gagnon, when I was ten, I lived in Chicoutimi, very close to your school. Our house was yellow, and there was a big yard behind it. In winter it was minus twenty and it snowed almost every morning. Every Saturday, my brother and I would go to the rink with the neighbours. My mother made hot chocolate and my father cleared the snow from the driveway before breakfast. I was shy and my feet were always cold, but I never wanted to go home. Back then, I found that life normal. Today I live in Abidjan. I was wondering if you still had photos of our class.",
+          "watchFor": [
+            {
+              "pattern": "passé composé for a repeated weekly habit (« tous les samedis, on a patiné »)",
+              "criterion": "emplois",
+              "feedback": "Une habitude revient : on ne compte pas. Mets ce verbe à l’imparfait.",
+              "ref": "a2-indices"
+            },
+            {
+              "pattern": "present tense for a place or a habit that belongs to the past (« Avant, j’habite »)",
+              "criterion": "emplois",
+              "feedback": "Avant, à l’époque : le verbe suit dans le passé.",
+              "ref": "a3-piege"
+            },
+            {
+              "pattern": "conditionnel for an English « would » habit (« je jouerais », « on irait »)",
+              "criterion": "emplois",
+              "feedback": "Ici, would est une habitude : imparfait, pas conditionnel.",
+              "ref": "a9-piege"
+            },
+            {
+              "pattern": "« être en train de » for every background action",
+              "criterion": "emplois",
+              "feedback": "Pas faux, mais lourd. Par défaut, l’imparfait simple : je lisais.",
+              "ref": "a7-cartes"
+            },
+            {
+              "pattern": "« j'étais X ans » for age, or « il était froid » for the weather",
+              "criterion": "formes",
+              "feedback": "L’âge se dit avec avoir, la météo avec faire : j’avais dix ans, il faisait froid.",
+              "ref": "a6-piege"
+            },
+            {
+              "pattern": "wrong stem or ending (« je finisais », « nous étaions », « il faisais »)",
+              "criterion": "formes",
+              "feedback": "Revois la base de nous et les fins : -ais, -ait, -ions.",
+              "ref": "a1-rappel"
+            },
+            {
+              "pattern": "only one or two description elements (no weather, or no age)",
+              "criterion": "description",
+              "feedback": "Ajoute la météo et ton âge : il faisait..., j’avais... ans.",
+              "ref": "a5-outils"
+            },
+            {
+              "pattern": "no state at all: only actions and places",
+              "criterion": "description",
+              "feedback": "Dis aussi comment tu étais : j’étais timide, j’avais froid.",
+              "ref": "a4-verbes"
+            },
+            {
+              "pattern": "request in the present (« je veux », « vous pouvez ? ») or as an order",
+              "criterion": "demande",
+              "feedback": "Plus doux : je voulais vous demander..., je me demandais si...",
+              "ref": "a8-formules"
+            },
+            {
+              "pattern": "« je me demandais si » followed by the present (« si vous avez »)",
+              "criterion": "demande",
+              "feedback": "Après je me demandais si, garde l’imparfait : si vous aviez, si vous pouviez.",
+              "ref": "a8-construire"
+            },
+            {
+              "pattern": "under 90 or over 130 words, or no request at the end",
+              "criterion": "consigne",
+              "feedback": "Vérifie la longueur, et finis par une demande.",
+              "ref": "a10-task"
+            }
+          ],
+          "graderNotes": [
+            "B1 learner. A single completed event in the passé composé (« j’ai déménagé en 2010 ») is correct French and b1.03 content: do not penalise it under `emplois` if it is right.",
+            "Québec, Belgian and West African vocabulary (dépanneur, souper, déneiger, patinoire, calorifère, maquis) is correct French. Never mark it as an error.",
+            "`je voudrais` as the softener is polite and correct, but it is not the imparfait the task asks for: 2 of 3 on `demande`, and no deduction under `formes`.",
+            "The model answer is 105 words. Length is judged on the learner text only, salutation and signature included.",
+            "Sequence of tenses after « je voulais savoir si / je me demandais si » (imparfait in the si-clause) is the target; a conditional there (« si vous pourriez ») is a form error.",
+            "Accept any francophone setting. The task never requires a Canadian winter."
+          ]
         },
         {
           "type": "practice",
@@ -26974,11 +27285,152 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a10-mission",
+          "title": "Raconte un imprévu",
           "frSub": "Mission écrite",
-          "title": "Raconte un imprévu (aperçu de la tâche)",
-          "body": "Il t'est arrivé quelque chose d'imprévu : une panne, une rencontre ou un oubli. Ton amie Fatou, à Dakar, te demande ce qui s'est passé. Écris-lui un court message. Pose d'abord le décor, puis raconte les actions, jusqu'à la fin.\n\nEN: Something unexpected happened to you: a breakdown, a chance meeting or something you forgot. Your friend Fatou in Dakar asks what happened. Write her a short message: set the scene first, then tell the events, through to the end.\n\nÀ faire : Écris un récit de 80 à 120 mots au passé, avec au moins trois verbes à l'imparfait pour le décor, au moins trois verbes au passé composé pour les actions, une coupure avec quand ou pendant que, et une fin.\n\nCritères :\n• Le bon temps pour chaque rôle (4 pts)\n• Des formes justes (3 pts)\n• Un récit qui se suit (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nSalut Fatou ! Samedi dernier, j'ai passé une drôle de journée. Il était sept heures du matin et il faisait encore nuit. Je conduisais vers Québec pour voir ma cousine. La route était vide et j'écoutais la radio. Soudain, la voiture a fait un bruit bizarre. Pendant que je cherchais un endroit pour m'arrêter, le moteur s'est éteint. Je suis sortie, j'ai ouvert le capot, mais je ne comprenais rien. Alors j'ai appelé une dépanneuse et j'ai attendu deux heures dans le froid. Finalement, un garagiste très gentil a réparé la voiture, et je suis arrivée chez ma cousine pour le dîner. Bises !"
+          "brief": "Il t'est arrivé quelque chose d'imprévu : une panne, une rencontre ou un oubli. Ton amie Fatou, à Dakar, te demande ce qui s'est passé. Écris-lui un court message. Pose d'abord le décor, puis raconte les actions, jusqu'à la fin.",
+          "briefEn": "Something unexpected happened to you: a breakdown, a chance meeting or something you forgot. Your friend Fatou in Dakar asks what happened. Write her a short message: set the scene first, then tell the events, through to the end.",
+          "produce": "Écris un récit de 80 à 120 mots au passé, avec au moins trois verbes à l'imparfait pour le décor, au moins trois verbes au passé composé pour les actions, une coupure avec quand ou pendant que, et une fin.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 80,
+            "maxWords": 120
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "temps",
+                "label": "Le bon temps pour chaque rôle",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Chaque verbe a le temps de son rôle. Au moins trois imparfaits pour le décor, au moins trois passés composés pour les actions, et une coupure claire avec quand ou pendant que.",
+                  "3 : Presque tous les verbes ont le bon temps. Une ou deux hésitations, mais on comprend toujours ce qui se passait et ce qui s'est passé.",
+                  "2 : Le décor et les actions sont mélangés à plusieurs endroits, ou la coupure manque. Le lecteur hésite sur l'ordre des événements.",
+                  "1 : Presque tout est au même temps. On ne peut pas séparer le décor de l'action."
+                ]
+              },
+              {
+                "key": "formes",
+                "label": "Des formes justes",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Les imparfaits et les passés composés sont bien formés : le bon auxiliaire (avoir ou être) et l'accord du participe avec être.",
+                  "2 : Quelques fautes de forme (terminaison, auxiliaire ou accord), mais elles ne gênent pas la lecture.",
+                  "1 : Beaucoup de formes fausses. Le lecteur doit deviner le verbe ou le temps."
+                ]
+              },
+              {
+                "key": "recit",
+                "label": "Un récit qui se suit",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : L'histoire a un début (le décor), un milieu (l'imprévu) et une fin. Des mots comme d'abord, puis, ensuite, alors, finalement guident le lecteur.",
+                  "2 : L'ordre est clair, mais les liens sont pauvres (seulement et, puis) ou une étape manque.",
+                  "1 : Des phrases isolées. Le lecteur ne suit pas l'histoire."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Un imprévu (panne, rencontre ou oubli), entre 80 et 120 mots, une vraie fin.",
+                  "1 : Il manque un élément : pas d'imprévu, pas de fin, ou moins de 80 mots."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "C'était...",
+            "Il faisait...",
+            "Je ... quand...",
+            "Pendant que...",
+            "D'abord,",
+            "Ensuite,",
+            "Soudain,",
+            "Finalement,"
+          ],
+          "modelAnswer": "Salut Fatou ! Samedi dernier, j'ai passé une drôle de journée. Il était sept heures du matin et il faisait encore nuit. Je conduisais vers Québec pour voir ma cousine. La route était vide et j'écoutais la radio. Soudain, la voiture a fait un bruit bizarre. Pendant que je cherchais un endroit pour m'arrêter, le moteur s'est éteint. Je suis sortie, j'ai ouvert le capot, mais je ne comprenais rien. Alors j'ai appelé une dépanneuse et j'ai attendu deux heures dans le froid. Finalement, un garagiste très gentil a réparé la voiture, et je suis arrivée chez ma cousine pour le dîner. Bises !",
+          "modelAnswerEn": "Hi Fatou! Last Saturday I had a strange day. It was seven in the morning and still dark. I was driving to Québec City to see my cousin. The road was empty and I was listening to the radio. Suddenly, the car made a strange noise. While I was looking for a place to stop, the engine died. I got out, opened the hood, but I didn't understand a thing. So I called a tow truck and waited two hours in the cold. In the end, a very kind mechanic fixed the car, and I got to my cousin's in time for dinner. Love!",
+          "watchFor": [
+            {
+              "pattern": "The setting told in the passé composé: weather, time, states and ongoing actions before the event (il a fait nuit, la route a été vide, j'ai écouté la radio).",
+              "criterion": "temps",
+              "feedback": "Ton décor avance comme une liste d'actions. Mets à l'imparfait ce qui se passait déjà : il faisait nuit, la route était vide.",
+              "ref": "a2-trier"
+            },
+            {
+              "pattern": "One-off events in the imparfait, so the story never moves (le moteur s'éteignait, j'appelais une dépanneuse).",
+              "criterion": "temps",
+              "feedback": "Ces verbes font avancer l'histoire : ce sont des actions, au passé composé.",
+              "ref": "a5-sens"
+            },
+            {
+              "pattern": "The interruption with both verbs in one tense (je conduisais quand la voiture faisait un bruit; j'ai conduit quand la voiture a fait un bruit), or no quand / pendant que clause at all.",
+              "criterion": "temps",
+              "feedback": "Dans la coupure, la bande est à l'imparfait et le point au passé composé : je conduisais quand la voiture a fait un bruit.",
+              "ref": "a3-regle"
+            },
+            {
+              "pattern": "A stated, finished duration in the imparfait (j'attendais deux heures, j'habitais là pendant dix ans).",
+              "criterion": "temps",
+              "feedback": "Deux heures, et c'est fini : une durée fermée prend le passé composé, même si elle est longue.",
+              "ref": "a6-regle"
+            },
+            {
+              "pattern": "A cue word used as a trigger: imparfait forced after d'habitude or tous les jours for a one-off event, or every verb after soudain forced into the passé composé.",
+              "criterion": "temps",
+              "feedback": "Soudain ou d'habitude sont des indices, pas des règles. Demande-toi : décor ou action ?",
+              "ref": "a8-piege"
+            },
+            {
+              "pattern": "Two simultaneous backgrounds written as events (pendant que j'ai cuisiné, il a regardé la télé).",
+              "criterion": "temps",
+              "feedback": "Si les deux duraient ensemble, les deux verbes restent à l'imparfait.",
+              "ref": "a4-regle"
+            },
+            {
+              "pattern": "Wrong auxiliary: j'ai sorti (intransitive), j'ai arrivé, j'ai tombé, je m'ai levé.",
+              "criterion": "formes",
+              "feedback": "Sortir, arriver, tomber et les verbes pronominaux prennent être : je suis sortie, je me suis levée.",
+              "ref": "a5-erreurs"
+            },
+            {
+              "pattern": "Missing or wrong agreement after être, judged against the narrator the text itself sets up (a woman writing « je suis sorti », « nous sommes arrivé »).",
+              "criterion": "formes",
+              "feedback": "Avec être, le participe s'accorde avec le sujet : je suis arrivée, nous sommes arrivés.",
+              "ref": "a5-regle"
+            },
+            {
+              "pattern": "Imparfait form errors: wrong stem or ending (je conduiais, il faisais, j'étai).",
+              "criterion": "formes",
+              "feedback": "Revois la forme de l'imparfait : « Pars de nous, coupe -ons, ajoute la fin. »",
+              "ref": "a2-decor"
+            },
+            {
+              "pattern": "A list of sentences with no connectors, or a story that stops at the problem with no ending.",
+              "criterion": "recit",
+              "feedback": "Guide ton lecteur : d'abord, ensuite, alors, finalement. Et raconte comment ça s'est fini.",
+              "ref": "a10-plan"
+            },
+            {
+              "pattern": "Under 80 words, no unexpected event (panne, rencontre, oubli), or the text is not in the past.",
+              "criterion": "tache",
+              "feedback": "Relis la mission : un imprévu, au passé, de 80 à 120 mots, avec une fin.",
+              "ref": "a10-lecture"
+            }
+          ],
+          "graderNotes": [
+            "Judge tense by FUNCTION in this text, not by surface cues. A verb after « soudain » can legitimately be imparfait if it describes a new state that lasts (« Soudain, il faisait noir »); do not mark it wrong.",
+            "Count imparfait and passé composé verbs separately for the checklist: at least 3 each. Auxiliary + participle is one passé composé verb.",
+            "The interruption requirement is met by « quand » or « pendant que » with one ongoing imparfait and one passé composé event, in either clause order. « Quand » + two passés composés is a sequence, not an interruption.",
+            "Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (72-132) before criterion « tache » loses its point.",
+            "Narrator gender is unknown: judge être agreement for internal consistency only.",
+            "Do not score the meaning-shift verbs of b1.04 (savoir, connaître, vouloir, pouvoir, devoir, avoir) as errors in either tense.",
+            "Accept regional vocabulary (dépanneuse / remorqueuse, char in Québec, taxi-brousse in West Africa).",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -36805,11 +37257,150 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a12-task",
+          "title": "Raconte un plan raté",
           "frSub": "Ta tâche, à voix haute",
-          "title": "Raconte un plan raté (aperçu de la tâche)",
-          "body": "Pense à un jour où un plan n'a pas marché : un voyage, un rendez-vous, un déménagement, une réunion. Tu le racontes à voix haute, comme à un collègue, pendant une à deux minutes.\n\nEN: Think of a day when a plan went wrong. Tell it out loud, as you would to a colleague, for one to two minutes.\n\nÀ faire : Raconte ce plan raté : sépare le décor et l'action, et utilise au moins trois verbes des paires, choisis pour leur sens.\n\nCritères :\n• Les verbes des paires, choisis pour le sens (4 pts)\n• Le décor et l'action (4 pts)\n• Les formes (3 pts)\n• Le fil et la fin (3 pts)\n\nExemple de réponse :\nC'était en février, l'année dernière. Je travaillais à Ottawa et je devais aller à Montréal pour une présentation. Je voulais prendre le train de sept heures. Ce matin-là, il neigeait beaucoup. À la gare, j'ai su que le train était annulé. J'ai voulu louer une voiture, mais il n'y en avait plus. J'avais un peu peur, parce que le client était exigeant et je ne le connaissais pas bien. Alors j'ai appelé ma collègue Nadia. Elle pouvait présenter à ma place, mais elle ne connaissait pas le dossier. Finalement, j'ai pu faire la présentation en vidéo, depuis un café de la gare. Le client n'a pas voulu rester jusqu'à la fin. J'ai cru que tout était perdu. Mais le lendemain, il a signé. Il a dû aimer la présentation."
+          "brief": "Pense à un jour où un plan n'a pas marché : un voyage, un rendez-vous, un déménagement, une réunion. Tu le racontes à voix haute, comme à un collègue, pendant une à deux minutes.",
+          "briefEn": "Think of a day when a plan went wrong. Tell it out loud, as you would to a colleague, for one to two minutes.",
+          "produce": "Raconte ce plan raté : sépare le décor et l'action, et utilise au moins trois verbes des paires, choisis pour leur sens.",
+          "responseSpec": {
+            "kind": "audio",
+            "minDurationS": 60,
+            "maxDurationS": 120
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "paires",
+                "label": "Les verbes des paires, choisis pour le sens",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : quatre verbes des paires ou plus, bien choisis, dont au moins un sens que l'anglais ne montre pas : j'ai su, j'ai voulu, il a dû (supposition).",
+                  "3 : trois verbes ou plus, bien choisis, dont une paire complète (je devais puis j'ai dû, par exemple).",
+                  "2 : trois verbes des paires, et le temps de chacun dit ce que tu veux dire.",
+                  "1 : deux verbes des paires, ou trois dont un dit autre chose que ton histoire.",
+                  "0 : aucun verbe des paires, ou un seul."
+                ]
+              },
+              {
+                "key": "decor",
+                "label": "Le décor et l'action",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : la séparation est claire du début à la fin, et tu utilises un indice (hier, pendant, ce jour-là) sans le traiter comme une règle.",
+                  "3 : la séparation est claire, et l'histoire avance.",
+                  "2 : le décor à l'imparfait et l'action au passé composé, la plupart du temps.",
+                  "1 : quelques verbes au bon temps, mais le décor et l'action se mélangent.",
+                  "0 : tout au même temps. On ne voit pas ce qui arrive."
+                ]
+              },
+              {
+                "key": "formes",
+                "label": "Les formes",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : les formes sont justes, ou presque : auxiliaire, participe, terminaisons.",
+                  "2 : quelques erreurs, mais elles ne changent pas le sens.",
+                  "1 : des erreurs sur les participes des paires (pouvu, devu, connaissé).",
+                  "0 : beaucoup de formes fausses."
+                ]
+              },
+              {
+                "key": "fil",
+                "label": "Le fil et la fin",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : clair, facile à suivre, et la fin dit ce que le plan est devenu.",
+                  "2 : un ordre clair, des mots de liaison (mais, alors, finalement), et une fin.",
+                  "1 : un ordre, mais on ne sait pas comment le plan finit.",
+                  "0 : des phrases sans ordre, et pas de fin."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Ce jour-là, ...",
+            "Je devais ...",
+            "Je voulais ...",
+            "Mais ...",
+            "Alors ...",
+            "Finalement, ..."
+          ],
+          "modelAnswer": "C'était en février, l'année dernière. Je travaillais à Ottawa et je devais aller à Montréal pour une présentation. Je voulais prendre le train de sept heures. Ce matin-là, il neigeait beaucoup. À la gare, j'ai su que le train était annulé. J'ai voulu louer une voiture, mais il n'y en avait plus. J'avais un peu peur, parce que le client était exigeant et je ne le connaissais pas bien. Alors j'ai appelé ma collègue Nadia. Elle pouvait présenter à ma place, mais elle ne connaissait pas le dossier. Finalement, j'ai pu faire la présentation en vidéo, depuis un café de la gare. Le client n'a pas voulu rester jusqu'à la fin. J'ai cru que tout était perdu. Mais le lendemain, il a signé. Il a dû aimer la présentation.",
+          "modelAnswerEn": "It was February, last year. I was working in Ottawa and I was supposed to go to Montreal for a presentation. I wanted to take the seven o'clock train. That morning it was snowing hard. At the station I found out the train was cancelled. I tried to rent a car, but there were none left. I was a bit scared, because the client was demanding and I did not know him well. So I called my colleague Nadia. She could have presented in my place, but she did not know the file. In the end I managed to give the presentation by video, from a café in the station. The client refused to stay until the end. For a moment I thought everything was lost. But the next day he signed. He must have liked the presentation.",
+          "watchFor": [
+            {
+              "pattern": "je devais / il devait used as if the thing happened, with nothing after it saying what happened",
+              "criterion": "paires",
+              "feedback": "Avec je devais, on ne sait pas si c'est arrivé. Si c'est arrivé, dis j'ai dû, ou raconte la suite.",
+              "ref": "a6-paire"
+            },
+            {
+              "pattern": "j'ai su for knowledge the speaker already had before the story",
+              "criterion": "paires",
+              "feedback": "j'ai su veut dire : je l'ai appris à ce moment-là. Si tu le savais déjà, dis je savais.",
+              "ref": "a2-paire"
+            },
+            {
+              "pattern": "je voulais / je pouvais where the story shows a real attempt or a success",
+              "criterion": "paires",
+              "feedback": "Tu as essayé ou réussi ? Dis j'ai voulu, j'ai pu. je voulais et je pouvais laissent la question ouverte.",
+              "ref": "a4-paire"
+            },
+            {
+              "pattern": "je n'ai pas voulu used for an absent wish, or je ne voulais pas used for a real refusal",
+              "criterion": "paires",
+              "feedback": "Un refus dit à voix haute : je n'ai pas voulu. Une simple envie qui manquait : je ne voulais pas.",
+              "ref": "a5-refus"
+            },
+            {
+              "pattern": "je l'ai connu(e) pendant + duration for a relationship that still continues",
+              "criterion": "paires",
+              "feedback": "Le passé composé ferme la période. Pour une relation qui continue : je le connais depuis...",
+              "ref": "a3-periode"
+            },
+            {
+              "pattern": "background (weather, feelings, what was going on) in the passé composé throughout, or every action in the imparfait so nothing moves",
+              "criterion": "decor",
+              "feedback": "Sépare le décor (imparfait) et l'action (passé composé), pour que l'histoire avance.",
+              "ref": "a10-choix"
+            },
+            {
+              "pattern": "a time word treated as a switch: hier or pendant forcing one tense against the meaning",
+              "criterion": "decor",
+              "feedback": "hier et pendant sont des indices, pas des règles. Choisis le temps pour le sens.",
+              "ref": "a9-paires"
+            },
+            {
+              "pattern": "wrong participle or auxiliary on a pair verb: pouvu, devu, voulé, connaissé, je suis dû, j’ai été peur",
+              "criterion": "formes",
+              "feedback": "Revois les participes : su, connu, pu, voulu, dû, eu, été, fallu, cru.",
+              "ref": "a11-dictee"
+            },
+            {
+              "pattern": "the story stops with no outcome: the listener cannot tell whether the plan was saved or lost",
+              "criterion": "fil",
+              "feedback": "Dis comment ça finit : finalement, au bout du compte, le lendemain.",
+              "ref": "a12-talk"
+            },
+            {
+              "pattern": "under 60 seconds, or a list of sentences with no connectors",
+              "criterion": "fil",
+              "feedback": "Parle une minute au moins, et relie tes phrases : mais, alors, parce que, finalement.",
+              "ref": "a12-lecture"
+            }
+          ],
+          "graderNotes": [
+            "Grading is transcript-based. The response is transcribed by speech-to-text and graded on the transcript only. Pronunciation, accent and fluency are never scored.",
+            "Never mark a transcription artefact as a form error: je savais / il savait, a / à, é / ai endings, du / dû and missing accents are homophones or STT noise, not learner mistakes.",
+            "A meaning-shift verb counts only when its tense matches the meaning the story gives it. Count distinct verbs, not tokens: je devais twice is one.",
+            "Décor or action is a speaker's choice (act 10). Accept a tense that differs from the model whenever the story supports it; only mark a tense wrong when it says something the story contradicts.",
+            "depuis + imparfait is recognition-only in this lesson. Do not require it; accept it if correct.",
+            "Do not require or reward the conditional, the subjunctive or the plus-que-parfait. Accept them if correct.",
+            "Under 60 seconds: cap `fil` at 1. Over 120 seconds: grade the first 120 seconds.",
+            "Formative, not an exam: quote the learner’s own forms back and name the mission to revisit. Never report a band."
+          ]
         },
         {
           "type": "practice",
@@ -45988,11 +46579,164 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a10-mission",
+          "title": "Écris ton projet",
           "frSub": "Mission écrite",
-          "title": "Écris ton projet (aperçu de la tâche)",
-          "body": "Ton ancien professeur de français t'écrit et te demande ce que tu feras dans les deux prochaines années. Réponds-lui par un message. Dis d'abord où tu en es aujourd'hui, puis raconte tes étapes dans l'ordre, jusqu'à la fin.\n\nEN: Your old French teacher writes and asks what you will be doing over the next two years. Answer with a message: say where you are now, then give your steps in order, through to the end.\n\nÀ faire : Écris un projet de 90 à 130 mots, avec au moins six verbes au futur simple, au moins un verbe au présent pour dire où tu en es, une phrase négative, trois marqueurs de temps et une fin qui donne ta raison.\n\nCritères :\n• Des futurs bien construits (4 pts)\n• Le bon futur au bon endroit (3 pts)\n• Des phrases complètes (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nBonjour Madame, merci de votre message. Pour l'instant, je travaille dans un magasin et je suis des cours du soir. D'abord, je terminerai ma formation en juin. Ensuite, je chercherai un travail à Montréal, parce que ma cousine y habite déjà. Je préparerai mon dossier pendant tout le mois de juillet : le CV, les lettres, les diplômes traduits. Au mois de septembre, je déménagerai et je louerai un petit appartement près du métro. Je continuerai mes cours de français le soir, deux fois par semaine. Dans deux ans, je passerai un examen officiel. Je ne changerai pas d'avis : ce projet me demandera du travail, mais il en vaut la peine."
+          "brief": "Ton ancien professeur de français t'écrit et te demande ce que tu feras dans les deux prochaines années. Réponds-lui par un message. Dis d'abord où tu en es aujourd'hui, puis raconte tes étapes dans l'ordre, jusqu'à la fin.",
+          "briefEn": "Your old French teacher writes and asks what you will be doing over the next two years. Answer with a message: say where you are now, then give your steps in order, through to the end.",
+          "produce": "Écris un projet de 90 à 130 mots, avec au moins six verbes au futur simple, au moins un verbe au présent pour dire où tu en es, une phrase négative, trois marqueurs de temps et une fin qui donne ta raison.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 90,
+            "maxWords": 130
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "formes",
+                "label": "Des futurs bien construits",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Six verbes au futur simple au moins, tous corrects : le radical garde son r, les terminaisons suivent le sujet, et les verbes en -ier, -uer ou à radical changeant sont bien écrits.",
+                  "3 : Presque tous les futurs sont corrects. Une ou deux fautes de terminaison ou un e muet oublié.",
+                  "2 : Plusieurs radicaux sont coupés ou rallongés, ou les terminaisons ne suivent pas le sujet. Le lecteur comprend, mais il bute.",
+                  "1 : Moins de six futurs, ou des formes inventées à presque chaque verbe."
+                ]
+              },
+              {
+                "key": "choix",
+                "label": "Le bon futur au bon endroit",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Le futur simple porte les étapes annoncées, le présent dit où tu en es aujourd'hui, et un futur proche, s'il y en a un, parle bien d'une décision déjà prise.",
+                  "2 : Le partage tient dans l’ensemble, mais une ou deux phrases prennent la mauvaise forme.",
+                  "1 : Tout est au même temps, ou le futur proche et le futur simple sont mis l'un pour l'autre sans raison."
+                ]
+              },
+              {
+                "key": "phrase",
+                "label": "Des phrases complètes",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Au moins une phrase négative correcte, les pronoms devant le verbe, et trois marqueurs de temps bien placés.",
+                  "2 : La négation ou la place d’un marqueur hésite une fois, sans gêner la lecture.",
+                  "1 : ne ou pas est mal placé plusieurs fois, ou les marqueurs manquent et le lecteur ne sait plus quand."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Un projet sur deux ans, entre 90 et 130 mots, dans l’ordre, avec une fin qui donne ta raison.",
+                  "1 : Il manque un élément : pas d'ordre, pas de fin, ou moins de 90 mots."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Pour l'instant,",
+            "D'abord,",
+            "Ensuite,",
+            "Au mois de",
+            "Dans deux ans,",
+            "Je ne ... pas",
+            "Finalement,",
+            "Parce que"
+          ],
+          "modelAnswer": "Bonjour Madame, merci de votre message. Pour l'instant, je travaille dans un magasin et je suis des cours du soir. D'abord, je terminerai ma formation en juin. Ensuite, je chercherai un travail à Montréal, parce que ma cousine y habite déjà. Je préparerai mon dossier pendant tout le mois de juillet : le CV, les lettres, les diplômes traduits. Au mois de septembre, je déménagerai et je louerai un petit appartement près du métro. Je continuerai mes cours de français le soir, deux fois par semaine. Dans deux ans, je passerai un examen officiel. Je ne changerai pas d'avis : ce projet me demandera du travail, mais il en vaut la peine.",
+          "modelAnswerEn": "Hello Madam, thank you for your message. For now I work in a shop and I take evening classes. First, I will finish my training in June. Then I will look for work in Montréal, because my cousin already lives there. I will get my file ready all through July: the CV, the letters, the translated diplomas. In September I will move and rent a small flat near the metro. I will carry on with my French classes in the evening, twice a week. In two years I will sit an official exam. I will not change my mind: this plan will take work, but it is worth it.",
+          "watchFor": [
+            {
+              "pattern": "The r of the stem missing, so the future reads as an imparfait (je terminais ma formation en juin, je cherchais un travail).",
+              "criterion": "formes",
+              "feedback": "Il manque le r du futur : je terminerai, je chercherai. Sans lui, ta phrase parle du passé.",
+              "ref": "a2-piege"
+            },
+            {
+              "pattern": "The infinitive cut before the ending (je parlai, je terminai, nous choisirerons, je vendai).",
+              "criterion": "formes",
+              "feedback": "Écris l'infinitif en entier, puis la terminaison : terminer plus ai donne terminerai.",
+              "ref": "a2-construire"
+            },
+            {
+              "pattern": "An -re verb mishandled: the e kept (je prendreai), an -er added (nous attenderons), or the r dropped (ils vendont).",
+              "criterion": "formes",
+              "feedback": "Pour un verbe en -re, enlève seulement le e final : prendre donne prendr-, attendre donne attendr-.",
+              "ref": "a3-construire"
+            },
+            {
+              "pattern": "The silent e dropped from an -ier, -uer or -éer verb (j’étudirai, je continurai, je jourai, je lourai).",
+              "criterion": "formes",
+              "feedback": "Ces verbes gardent tout leur infinitif : étudierai, continuerai, jouerai, louerai. Le e s'écrit même si tu ne l'entends pas.",
+              "ref": "a5-construire"
+            },
+            {
+              "pattern": "A stem-changing -er verb left unchanged, or changed only at je (j'acheterai, nous achetrons, nous appelerons, elle jetera, je payerai written as payrai).",
+              "criterion": "formes",
+              "feedback": "Au futur, ces radicaux changent aux six personnes : j'achèterai et nous achèterons, j'appellerai et nous appellerons.",
+              "ref": "a6-tableau"
+            },
+            {
+              "pattern": "An ending that does not follow the subject (les cours commencera, nous terminerai, ils partira).",
+              "criterion": "formes",
+              "feedback": "La terminaison suit le sujet, comme à tous les temps : ils partiront, nous terminerons.",
+              "ref": "a2-formes"
+            },
+            {
+              "pattern": "An irregular stem attempted: serai, aurai, irai, ferai, viendrai, pourrai, verrai, enverrai, or an invented regular version of one (je alerai, je faisera, j’envoierai).",
+              "criterion": "formes",
+              "feedback": "Ces verbes ont un radical à eux, et la leçon 6 du B1 te les donne. Ici, choisis des verbes réguliers.",
+              "ref": "a6-construire"
+            },
+            {
+              "pattern": "The whole message in the futur simple, with no present tense saying where the writer stands today.",
+              "criterion": "choix",
+              "feedback": "Commence par une phrase au présent : pour l'instant, je travaille, je suis des cours. Sans elle, on ne sait pas d'où tu pars.",
+              "ref": "a9-autres"
+            },
+            {
+              "pattern": "Aller plus the infinitive used for every announced step, so a plan reads as a list of intentions (je vais terminer, je vais chercher, je vais déménager).",
+              "criterion": "choix",
+              "feedback": "Dans un message qui annonce un projet, le futur simple engage : je terminerai, je chercherai, je déménagerai.",
+              "ref": "a4-quand"
+            },
+            {
+              "pattern": "The two futures stacked in one verb (je vais terminerai, je vais déménagerai).",
+              "criterion": "choix",
+              "feedback": "Une machine à la fois : soit je vais terminer, soit je terminerai.",
+              "ref": "a4-erreurs"
+            },
+            {
+              "pattern": "Negation in English order or doubled (je changerai ne pas, je ne changerai pas rien), or object pronouns behind the verb (je préparerai le en juillet).",
+              "criterion": "phrase",
+              "feedback": "ne passe devant le verbe et pas le suit. rien prend la place de pas, et les pronoms restent devant.",
+              "ref": "a7-construire"
+            },
+            {
+              "pattern": "Time markers missing or misplaced (la prochaine semaine, le prochain mois, il y a deux ans for a future date, après demain without its hyphen).",
+              "criterion": "phrase",
+              "feedback": "prochain se met après le nom, et dans compte vers l’avenir : la semaine prochaine, dans deux ans.",
+              "ref": "a8-marqueurs"
+            },
+            {
+              "pattern": "Under 90 words, no ending, or a text that stops at the last step with no reason given.",
+              "criterion": "tache",
+              "feedback": "Relis la mission : un projet sur deux ans, de 90 à 130 mots, avec une dernière phrase qui donne ta raison.",
+              "ref": "a10-plan"
+            }
+          ],
+          "graderNotes": [
+            "Count the futur simple verbs by FORM, not by meaning: a stem ending in r plus one of the six endings. An auxiliary plus infinitive (je vais partir) is a futur proche and counts for criterion « choix », never for the six.",
+            "Word count EXCLUDES the greeting and the sign-off. Count the body only, with 10% tolerance (81-143) before criterion « tache » loses its point.",
+            "Do NOT mark an irregular stem wrong if it is correctly formed: serai, aurai, irai, fera, pourra and the rest are right French and simply belong to the next lesson. Mark them only when the learner has invented a regular version of one.",
+            "Both paierai and payerai are correct. Accept either without comment. Accept both essaierai and essayerai, and both nettoierai and nettoyerai only where the -ayer pattern applies; -oyer and -uyer verbs must change.",
+            "A present tense with future meaning is correct French for a settled near plan (« en juin je termine ma formation »). Count it under « choix » only if the whole text does it and nothing is ever announced.",
+            "Narrator gender is unknown: judge agreement for internal consistency only, and do not require it, since nothing in this task needs a past participle.",
+            "Accept any destination and any professional plan, including regional vocabulary (le cégep in Québec, la haute école in Belgium, une formation en alternance in France).",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -55533,11 +56277,159 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Écris tes cinq prochaines années",
           "frSub": "Mission écrite",
-          "title": "Écris tes cinq prochaines années (aperçu de la tâche)",
-          "body": "Une amie francophone t'a demandé où tu te vois dans cinq ans. Réponds-lui par écrit. Parle de toi, de quelqu'un d'autre autour de toi, et d'une chose que tu ne contrôles pas. Tu n'es pas obligé d'être sûr de toi : dis aussi ce que tu ne sais pas encore.\n\nEN: A French-speaking friend has asked where you see yourself in five years. Write back: about you, about somebody around you, and about one thing you do not control.\n\nÀ faire : Écris un message de 90 à 130 mots, tout au futur simple, avec au moins six radicaux irréguliers différents, au moins un verbe impersonnel, au moins une phrase sur quelqu'un d'autre que toi, et une formule de fin.\n\nCritères :\n• Les radicaux irréguliers (4 pts)\n• Les terminaisons (3 pts)\n• Ce que le message dit (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nDans cinq ans, j'aurai trente-deux ans et je ne sais pas encore où je serai. Je crois que je vivrai toujours ici, mais je n'en suis pas sûre. Ma sœur, elle, sera repartie à Lyon, et nous irons la voir souvent. Ses enfants seront assez grands pour faire le voyage en train tout seuls. Côté travail, j'aurai peut-être mon propre atelier. Il faudra emprunter, et il vaudra mieux attendre d'avoir des clients réguliers. Je devrai aussi apprendre la comptabilité, ce qui ne me fera pas plaisir. Il y aura sûrement des choses que je ne prévoirai pas. On verra bien."
+          "brief": "Une amie francophone t'a demandé où tu te vois dans cinq ans. Réponds-lui par écrit. Parle de toi, de quelqu'un d'autre autour de toi, et d'une chose que tu ne contrôles pas. Tu n'es pas obligé d'être sûr de toi : dis aussi ce que tu ne sais pas encore.",
+          "briefEn": "A French-speaking friend has asked where you see yourself in five years. Write back: about you, about somebody around you, and about one thing you do not control.",
+          "produce": "Écris un message de 90 à 130 mots, tout au futur simple, avec au moins six radicaux irréguliers différents, au moins un verbe impersonnel, au moins une phrase sur quelqu'un d'autre que toi, et une formule de fin.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 90,
+            "maxWords": 130
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "radicaux",
+                "label": "Les radicaux irréguliers",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Six radicaux irréguliers différents au moins, tous justes. Aucun verbe construit sur son infinitif quand il ne faut pas.",
+                  "3 : Six radicaux différents, une ou deux erreurs qui ne gênent pas la lecture.",
+                  "2 : Moins de six radicaux différents, ou plusieurs formes construites sur l’infinitif (je venirai, je savoirai).",
+                  "1 : Les radicaux irréguliers sont évités ou presque tous faux."
+                ]
+              },
+              {
+                "key": "fins",
+                "label": "Les terminaisons",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Les six terminaisons sont justes partout, y compris -ont sans s et -ai plutôt que -é.",
+                  "2 : Une ou deux terminaisons abîmées sur un radical par ailleurs correct.",
+                  "1 : Les terminaisons changent d’un verbe à l’autre, ou viennent d’un autre temps."
+                ]
+              },
+              {
+                "key": "contenu",
+                "label": "Ce que le message dit",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Toi, quelqu’un d’autre, et une chose que tu ne contrôles pas. Le message se lit comme un vrai message.",
+                  "2 : Deux de ces trois éléments, ou un message qui reste une liste de phrases sans lien.",
+                  "1 : Une seule personne et aucune incertitude : le message ne répond pas à la question."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Entre 90 et 130 mots, au moins un impersonnel, une formule de fin.",
+                  "1 : La longueur ou l’un des éléments demandés manque."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Dans cinq ans,",
+            "J'aurai",
+            "Je serai",
+            "Je ne sais pas encore",
+            "Il faudra",
+            "Il y aura",
+            "Mon frère",
+            "Ça ira"
+          ],
+          "modelAnswer": "Dans cinq ans, j'aurai trente-deux ans et je ne sais pas encore où je serai. Je crois que je vivrai toujours ici, mais je n'en suis pas sûre. Ma sœur, elle, sera repartie à Lyon, et nous irons la voir souvent. Ses enfants seront assez grands pour faire le voyage en train tout seuls. Côté travail, j'aurai peut-être mon propre atelier. Il faudra emprunter, et il vaudra mieux attendre d'avoir des clients réguliers. Je devrai aussi apprendre la comptabilité, ce qui ne me fera pas plaisir. Il y aura sûrement des choses que je ne prévoirai pas. On verra bien.",
+          "modelAnswerEn": "In five years I will be thirty-two and I do not know yet where I will be. I think I will still be living here, though I am not sure. My sister will have gone back to Lyon, and we will go and see her often. Her children will be big enough to make the trip by train on their own. Work-wise, I may well have my own workshop. Borrowing will be needed, and it will be better to wait until I have regular customers. I will also have to learn bookkeeping, which will not please me. There will surely be things I do not plan for. We shall see.",
+          "watchFor": [
+            {
+              "pattern": "A future built on the infinitive of an irregular verb (je venirai, je savoirai, je allerai, je fairai).",
+              "criterion": "radicaux",
+              "feedback": "Tu as collé la terminaison derrière l'infinitif. Sur ces verbes-là, il faut le radical : venir donne viendr-, savoir donne saur-.",
+              "ref": "a2-piege"
+            },
+            {
+              "pattern": "A single r in pourrai, verrai, enverrai, courrai or mourrai.",
+              "criterion": "radicaux",
+              "feedback": "Deux r à ces verbes-là. Tu n’en entends qu’un, mais tu en écris deux : je pourrai, je verrai.",
+              "ref": "a3-erreurs"
+            },
+            {
+              "pattern": "The d of viendr-, tiendr-, vaudr-, faudr- or voudr- missing.",
+              "criterion": "radicaux",
+              "feedback": "Il manque le d. venir donne viendr-, tenir donne tiendr-, falloir donne faudr-.",
+              "ref": "a4-piege"
+            },
+            {
+              "pattern": "The -oi- kept in the stem of savoir, devoir, recevoir or pleuvoir.",
+              "criterion": "radicaux",
+              "feedback": "Enlève le -oi- avant la terminaison : je saurai, je devrai, je recevrai.",
+              "ref": "a5-erreurs"
+            },
+            {
+              "pattern": "An impersonal given a real subject (nous faudrons, ils seront du monde), or être used for the weather.",
+              "criterion": "radicaux",
+              "feedback": "Ces verbes ne prennent que il : il faudra, il y aura, il fera froid.",
+              "ref": "a6-piege"
+            },
+            {
+              "pattern": "A compound conjugated as a new verb (je revenirai, j’obtenirai), or verr- applied to prévoir.",
+              "criterion": "radicaux",
+              "feedback": "Cherche le verbe simple dessous : revenir suit venir, obtenir suit tenir. Seul prévoir garde son -oi-.",
+              "ref": "a7-erreurs"
+            },
+            {
+              "pattern": "-é written for the -ai ending, or an s added to -ont.",
+              "criterion": "fins",
+              "feedback": "La terminaison du futur est -ai, jamais -é. Et -ont ne prend pas de s.",
+              "ref": "a8-piege"
+            },
+            {
+              "pattern": "The nous ending used with on (on serons, on ferons).",
+              "criterion": "fins",
+              "feedback": "on prend la terminaison de il : on sera, on fera.",
+              "ref": "a8-construire"
+            },
+            {
+              "pattern": "An imparfait form where the sentence looks forward (Dans cinq ans, j’avais).",
+              "criterion": "fins",
+              "feedback": "Le mot de temps regarde devant, alors le verbe aussi : dans cinq ans, j’aurai.",
+              "ref": "a9-erreurs"
+            },
+            {
+              "pattern": "No impersonal verb anywhere in the answer.",
+              "criterion": "tache",
+              "feedback": "Ajoute une phrase avec il faudra, il y aura ou il vaudra mieux : c’est demandé dans la mission.",
+              "ref": "a6-cartes"
+            },
+            {
+              "pattern": "Every sentence in the first person singular, with nobody else mentioned.",
+              "criterion": "contenu",
+              "feedback": "Parle aussi de quelqu’un d’autre. Ça t’oblige à sortir du je et à utiliser d’autres personnes.",
+              "ref": "a11-plan"
+            },
+            {
+              "pattern": "Only certainties, with no hedging (peut-être, je crois que, je ne sais pas encore).",
+              "criterion": "contenu",
+              "feedback": "Personne ne sait ce qui arrivera. Ajoute un peut-être ou un je ne sais pas encore, comme le modèle.",
+              "ref": "a11-lecture"
+            }
+          ],
+          "graderNotes": [
+            "Count the DIFFERENT irregular stems, not the number of irregular verbs: three uses of aur- is one stem.",
+            "Regular futures (je vivrai, je partirai, ça se passera) are correct and expected. Do not mark them down; the task asks for six irregular stems, not for an all-irregular text.",
+            "Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance before criterion « tache » loses its point.",
+            "Do NOT mark the conditional as an error if the learner writes « je voudrais » or « j’aimerais » in a polite hedge: that form is taught in a later lesson and appears once in act 4 as a preview.",
+            "Do NOT mark a futur antérieur (« ma sœur sera repartie ») as an error. It is above the level, it is correct, and the model answer uses it once.",
+            "Do NOT mark tense choice after quand, dès que or si: those rules belong to the next lessons and are named as out of scope in act 10.",
+            "Narrator gender is unknown: judge past-participle and adjective agreement for internal consistency only.",
+            "Accept regional vocabulary (un atelier, une shop in Québec; un appartement, un logement).",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -64610,11 +65502,159 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Écris ton plan",
           "frSub": "Mission écrite",
-          "title": "Écris ton plan (aperçu de la tâche)",
-          "body": "Tu prépares quelque chose : un voyage, un déménagement, une formation ou un projet au travail. Ton amie Salma, à Casablanca, te demande comment tu vas t’organiser. Écris-lui un message. Annonce la période, mets tes étapes dans l’ordre, et dis ce qui n’est pas encore sûr.\n\nEN: You are getting something ready: a trip, a move, a course or a project at work. Your friend Salma in Casablanca asks how you will organise it. Write her a message: name the period, put your steps in order, and say what is not yet certain.\n\nÀ faire : Écris un plan de 90 à 130 mots au futur, avec au moins trois charnières différentes (quand, dès que, lorsque, tant que, pendant que, une fois que), au moins une vraie condition avec si, une expression de délai (dans, en ou d’ici), et une ligne qui ferme le plan.\n\nCritères :\n• Le futur des deux côtés (4 pts)\n• Une vraie condition (3 pts)\n• Un plan qui se suit (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nSalut Salma ! Voici ce que je ferai le mois prochain. Je pars à Sherbrooke pour un stage de six semaines. D’abord, je réglerai le logement : dès que l’agence me donnera une réponse, je signerai et j’enverrai le dépôt. Quand j’aurai l’adresse, je commanderai une carte de transport. Si le stage commence le lundi, je prendrai le train du dimanche soir. Une fois que je connaîtrai mes horaires, je m’inscrirai à un cours du soir. Tant que je serai là-bas, j’écrirai chaque semaine. D’ici la fin du stage, je saurai si je veux rester. Je te raconterai tout à mon retour. Bises !"
+          "brief": "Tu prépares quelque chose : un voyage, un déménagement, une formation ou un projet au travail. Ton amie Salma, à Casablanca, te demande comment tu vas t’organiser. Écris-lui un message. Annonce la période, mets tes étapes dans l’ordre, et dis ce qui n’est pas encore sûr.",
+          "briefEn": "You are getting something ready: a trip, a move, a course or a project at work. Your friend Salma in Casablanca asks how you will organise it. Write her a message: name the period, put your steps in order, and say what is not yet certain.",
+          "produce": "Écris un plan de 90 à 130 mots au futur, avec au moins trois charnières différentes (quand, dès que, lorsque, tant que, pendant que, une fois que), au moins une vraie condition avec si, une expression de délai (dans, en ou d’ici), et une ligne qui ferme le plan.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 90,
+            "maxWords": 130
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "charnieres",
+                "label": "Le futur des deux côtés",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Trois charnières différentes au moins, et chacune porte le futur des deux côtés. Aucun présent ne traîne dans une moitié qui parle de l’avenir.",
+                  "3 : Trois charnières, et une ou deux moitiés seulement restent au présent par distraction. Le plan se lit sans hésitation.",
+                  "2 : Une ou deux charnières, ou plusieurs moitiés au présent. Le lecteur ne sait plus si tu racontes une habitude ou un projet.",
+                  "1 : Les charnières manquent, ou toutes leurs moitiés sont au présent. On lit une routine, pas un plan."
+                ]
+              },
+              {
+                "key": "condition",
+                "label": "Une vraie condition",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Au moins une condition avec si, le présent juste après si, et un futur, un présent ou un impératif de l’autre côté.",
+                  "2 : Une condition est là, mais le temps après si hésite une fois, ou la suite manque de clarté.",
+                  "1 : Pas de condition, ou un futur après si."
+                ]
+              },
+              {
+                "key": "ordre",
+                "label": "Un plan qui se suit",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Les étapes sont dans l’ordre, guidées par d’abord, ensuite, puis, enfin, et une expression de délai situe le tout.",
+                  "2 : L’ordre est lisible mais les liens sont pauvres, ou le délai manque.",
+                  "1 : Des phrases isolées. Le lecteur ne voit pas ce qui vient avant quoi."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Un vrai projet, entre 90 et 130 mots, et une ligne finale qui ferme le plan.",
+                  "1 : Il manque un élément : pas de fin, moins de 90 mots, ou le texte ne parle pas de l’avenir."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Voici ce que je ferai...",
+            "D’abord,",
+            "Quand j’aurai...",
+            "Dès que...",
+            "Une fois que...",
+            "Si tout va bien,",
+            "D’ici...",
+            "Enfin,"
+          ],
+          "modelAnswer": "Salut Salma ! Voici ce que je ferai le mois prochain. Je pars à Sherbrooke pour un stage de six semaines. D’abord, je réglerai le logement : dès que l’agence me donnera une réponse, je signerai et j’enverrai le dépôt. Quand j’aurai l’adresse, je commanderai une carte de transport. Si le stage commence le lundi, je prendrai le train du dimanche soir. Une fois que je connaîtrai mes horaires, je m’inscrirai à un cours du soir. Tant que je serai là-bas, j’écrirai chaque semaine. D’ici la fin du stage, je saurai si je veux rester. Je te raconterai tout à mon retour. Bises !",
+          "modelAnswerEn": "Hi Salma! Here is what I will do next month. I am going to Sherbrooke for a six-week placement. First I will sort out the accommodation: as soon as the agency answers me, I will sign and send the deposit. When I have the address, I will order a travel card. If the placement starts on the Monday, I will take the Sunday evening train. Once I know my hours, I will sign up for an evening class. As long as I am over there, I will write every week. By the end of the placement I will know whether I want to stay. I will tell you all about it when I get back. Love!",
+          "watchFor": [
+            {
+              "pattern": "A present tense in the charnière clause of a plan (quand j’arrive, dès que je finis, une fois que tout est réglé), carried over from English.",
+              "criterion": "charnieres",
+              "feedback": "Cette moitié parle de l’avenir, elle aussi. Mets le futur des deux côtés : quand j’arriverai, dès que je finirai.",
+              "ref": "a2-piege"
+            },
+            {
+              "pattern": "One future only, in the second half, with the charnière clause left in the present.",
+              "criterion": "charnieres",
+              "feedback": "Compte tes futurs : il en faut un de chaque côté de la charnière.",
+              "ref": "a2-construire"
+            },
+            {
+              "pattern": "A future after si (si j’aurai le temps, si le train sera à l’heure, si je viendrai).",
+              "criterion": "condition",
+              "feedback": "Après si, jamais le futur. Le verbe reste au présent : si j’ai le temps, si le train est à l’heure.",
+              "ref": "a5-regle"
+            },
+            {
+              "pattern": "A conditionnel after si (si tu m’aiderais, si je pouvais), which belongs to the present-unreal lesson.",
+              "criterion": "condition",
+              "feedback": "Cette forme dit « ce n’est pas le cas », et elle appartient à la leçon 10 du B1. Ici, si plus le présent suffit.",
+              "ref": "a5-erreurs"
+            },
+            {
+              "pattern": "si used where the event will happen anyway (si l’été arrive, si je pars à la retraite), or quand used for something genuinely uncertain.",
+              "criterion": "condition",
+              "feedback": "Pose-toi la question : est-ce que ça arrivera de toute façon ? Oui, alors quand et le futur. Non, alors si et le présent.",
+              "ref": "a7-regle"
+            },
+            {
+              "pattern": "Fewer than three charnières, or the same one repeated (quand, quand, quand).",
+              "criterion": "charnieres",
+              "feedback": "Varie : dès que dit l’instant, tant que dit la durée, une fois que dit l’étape franchie.",
+              "ref": "a3-table"
+            },
+            {
+              "pattern": "dans and en swapped (je finirai le rapport dans deux heures for a length of work, je serai de retour en deux heures for a point in time).",
+              "criterion": "ordre",
+              "feedback": "dans deux heures compte à partir de maintenant ; en deux heures, c’est le temps que ça prend.",
+              "ref": "a9-cartes"
+            },
+            {
+              "pattern": "The two moments in the wrong order across a charnière (quand je réserverai l’hôtel, j’aurai le billet).",
+              "criterion": "ordre",
+              "feedback": "Le premier des deux moments va dans la charnière. Range-les avant d’écrire.",
+              "ref": "a10-regle"
+            },
+            {
+              "pattern": "A futur proche inside the charnière clause (quand je vais arriver, dès qu’il va être là).",
+              "criterion": "charnieres",
+              "feedback": "Aller et l’infinitif restent après la virgule. Dans la charnière, le futur simple : quand j’arriverai.",
+              "ref": "a8-regle"
+            },
+            {
+              "pattern": "Future-stem errors carried over from the formation lessons (je finirai written je finerai, je viendrai written je venirai, il faudra written il falera).",
+              "criterion": "charnieres",
+              "feedback": "Revois la forme du futur : « Le radical change, la fin ne change jamais. »",
+              "ref": "a5-regle"
+            },
+            {
+              "pattern": "A list of sentences with no connectors and no delay expression, or a plan that stops without an ending.",
+              "criterion": "ordre",
+              "feedback": "Guide ta lectrice : d’abord, ensuite, puis, enfin. Et ferme le plan par une dernière ligne.",
+              "ref": "a11-plan"
+            },
+            {
+              "pattern": "Under 90 words, no real project, or a text written about the past rather than what is ahead.",
+              "criterion": "tache",
+              "feedback": "Relis la mission : un vrai projet, au futur, de 90 à 130 mots, avec une fin.",
+              "ref": "a11-lecture"
+            }
+          ],
+          "graderNotes": [
+            "Count a charnière only when it is one of quand, lorsque, dès que, aussitôt que, tant que, pendant que, une fois que. Avant de and après are ordering words, not charnières, and do not count towards the three.",
+            "THREE DIFFERENT charnières means three different words, not three occurrences. Two uses of quand plus one dès que is two, not three.",
+            "A present tense inside a charnière clause is an error ONLY when the passage is about the future. If the learner writes a habit on purpose (« quand je rentre, je cuisine »), leave it alone and say nothing.",
+            "Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (81-143) before criterion « tache » loses its point.",
+            "The futur proche is fully acceptable in the second half, including in a written message. Mark it only inside a charnière clause.",
+            "Do NOT mark a futur antérieur (« quand j’aurai fini ») as an error. It is correct French and belongs to a later unit; it simply earns no extra credit here.",
+            "Do NOT mark si + imparfait + conditionnel as a grammar failure in isolation; name it, say it belongs to a later lesson, and score criterion « condition » on whether a REAL condition is also present.",
+            "Accept regional vocabulary (un stage / une formation, un courriel / un mail, une carte de transport / un abonnement).",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -73849,11 +74889,159 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Écris à l’agence",
           "frSub": "Mission écrite",
-          "title": "Écris à l’agence (aperçu de la tâche)",
-          "body": "Tu as vu une annonce : un appartement, un studio ou une chambre, dans une ville que tu connais. Quelque chose n'est pas clair dans l'annonce. Écris un courriel à l'agence ou au propriétaire pour organiser une visite et poser ta question.\n\nEN: You have seen a listing for a flat, a studio or a room. Something in it is unclear. Write an email to arrange a viewing and ask your question.\n\nÀ faire : Écris un courriel de 110 à 150 mots avec : une phrase au présent qui dit pourquoi tu écris, un souhait ouvert par j'aimerais ou je voudrais, une demande avec pourriez-vous ou auriez-vous, une proposition avec il faudrait ou ce serait, et une information de l'annonce que tu rapportes sans la garantir.\n\nCritères :\n• Des formes justes (4 pts)\n• Le bon métier au bon moment (4 pts)\n• Aucun ordre resté au présent (2 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nBonjour Madame,\n\nJe vous écris au sujet du studio de la rue des Tanneurs, annoncé à six cent vingt euros. J'aimerais savoir si une visite serait possible cette semaine, de préférence en fin de journée. Je travaille jusqu'à dix-sept heures, mais je serais libre à partir de dix-huit heures du lundi au jeudi.\n\nPourriez-vous me confirmer l'étage et la surface exacte ? Selon l'annonce, le studio ferait trente mètres carrés, mais le plan en montre vingt-cinq. Il faudrait aussi savoir si les charges sont comprises dans le loyer.\n\nEnfin, à votre place, je proposerais deux créneaux, parce que la rue est fermée le mercredi. Ce serait plus simple pour tout le monde.\n\nJe vous remercie d'avance de votre réponse.\n\nBien à vous,\nSamira Cheriet"
+          "brief": "Tu as vu une annonce : un appartement, un studio ou une chambre, dans une ville que tu connais. Quelque chose n'est pas clair dans l'annonce. Écris un courriel à l'agence ou au propriétaire pour organiser une visite et poser ta question.",
+          "briefEn": "You have seen a listing for a flat, a studio or a room. Something in it is unclear. Write an email to arrange a viewing and ask your question.",
+          "produce": "Écris un courriel de 110 à 150 mots avec : une phrase au présent qui dit pourquoi tu écris, un souhait ouvert par j'aimerais ou je voudrais, une demande avec pourriez-vous ou auriez-vous, une proposition avec il faudrait ou ce serait, et une information de l'annonce que tu rapportes sans la garantir.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 110,
+            "maxWords": 150
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "formes",
+                "label": "Des formes justes",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Chaque conditionnel est bien construit : radical du futur, terminaison de l'imparfait. Les radicaux irréguliers sont corrects.",
+                  "3 : Presque tous les conditionnels sont justes. Une seule forme boite, et on comprend quand même.",
+                  "2 : Plusieurs formes mélangent le radical du présent ou de l'imparfait avec la bonne terminaison.",
+                  "1 : Les formes sont devinées. Le radical du futur n'apparaît pas de façon fiable."
+                ]
+              },
+              {
+                "key": "metiers",
+                "label": "Le bon métier au bon moment",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Le souhait, la demande, la proposition et l'information rapportée sont là, chacun à sa place et avec son ouverture.",
+                  "3 : Les quatre sont là, mais l'un d'eux est ouvert avec la mauvaise formule.",
+                  "2 : Deux des quatre manquent, ou deux d'entre eux se répètent avec la même ouverture.",
+                  "1 : Une seule formule sert à tout, ou le courriel ne demande rien de précis."
+                ]
+              },
+              {
+                "key": "recul",
+                "label": "Aucun ordre resté au présent",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Rien ne sonne comme une instruction. Vous devez, il faut et je veux ont tous reculé.",
+                  "1 : Il reste au moins une phrase qui donne un ordre au lecteur."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Le courriel fait 110 à 150 mots, il ouvre, il demande et il se termine poliment.",
+                  "1 : Il manque l'ouverture, la question ou la formule de fin, ou la longueur est hors des bornes."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Je vous écris au sujet de",
+            "J'aimerais savoir si",
+            "Je voudrais également",
+            "Pourriez-vous",
+            "Auriez-vous",
+            "Il faudrait",
+            "Selon l'annonce,",
+            "Je vous remercie d'avance"
+          ],
+          "modelAnswer": "Bonjour Madame,\n\nJe vous écris au sujet du studio de la rue des Tanneurs, annoncé à six cent vingt euros. J'aimerais savoir si une visite serait possible cette semaine, de préférence en fin de journée. Je travaille jusqu'à dix-sept heures, mais je serais libre à partir de dix-huit heures du lundi au jeudi.\n\nPourriez-vous me confirmer l'étage et la surface exacte ? Selon l'annonce, le studio ferait trente mètres carrés, mais le plan en montre vingt-cinq. Il faudrait aussi savoir si les charges sont comprises dans le loyer.\n\nEnfin, à votre place, je proposerais deux créneaux, parce que la rue est fermée le mercredi. Ce serait plus simple pour tout le monde.\n\nJe vous remercie d'avance de votre réponse.\n\nBien à vous,\nSamira Cheriet",
+          "modelAnswerEn": "Hello Madame, I am writing about the studio on rue des Tanneurs, listed at six hundred and twenty euros. I would like to know whether a viewing would be possible this week, preferably late in the day. I work until five, but I would be free from six o clock, Monday to Thursday. Could you confirm the floor and the exact size for me? According to the listing, the studio is said to be thirty square metres, but the plan shows twenty-five. It would also be necessary to know whether the charges are included in the rent. Finally, in your place, I would offer two slots, because the street is closed on Wednesdays. That would be simpler for everyone. Thank you in advance for your reply. Best wishes, Samira Cheriet",
+          "watchFor": [
+            {
+              "pattern": "An order left in the present: « Vous devez me rappeler », « Il faut me répondre avant vendredi », « Je veux visiter ».",
+              "criterion": "recul",
+              "feedback": "Ton message donne un ordre. Recule d'un pas : « Pourriez-vous me rappeler », « Il faudrait une réponse avant vendredi », « Je voudrais visiter ».",
+              "ref": "a1-scene"
+            },
+            {
+              "pattern": "The imparfait endings attached to the present or imparfait stem: « je parlais » for « je parlerais », « je faisais » for « je ferais », « je voulais » for « je voudrais ».",
+              "criterion": "formes",
+              "feedback": "Il manque le r du radical. Le conditionnel part du radical du FUTUR : parler-, fer-, voudr-. Relis l'acte 3.",
+              "ref": "a3-piege"
+            },
+            {
+              "pattern": "A missing s on the je form where the sentence is not a dated plan: « Demain je signerai » is right, « Dans ce cas je signerai » is not.",
+              "criterion": "formes",
+              "feedback": "Regarde ce que la phrase fait. Si elle imagine, si elle propose ou si elle conseille, le s est obligatoire.",
+              "ref": "a4-piege"
+            },
+            {
+              "pattern": "An added s on a genuine dated plan: « Je vous enverrais le dossier demain matin » where the writer is actually committing.",
+              "criterion": "formes",
+              "feedback": "Ici tu t'engages vraiment, avec une date. Enlève le s : « je vous enverrai ».",
+              "ref": "a4-indices"
+            },
+            {
+              "pattern": "A conditional after « si »: « si je serais », « si vous pourriez ».",
+              "criterion": "formes",
+              "feedback": "Après si, on n'écrit jamais je serais. Utilise « à votre place » ou « dans ce cas », qui font le même travail.",
+              "ref": "a9-erreurs"
+            },
+            {
+              "pattern": "« de » inserted after pouvoir or vouloir: « Pourriez-vous de m'envoyer », « Je voudrais de visiter ».",
+              "criterion": "formes",
+              "feedback": "Après pouvoir, vouloir et aimer, l'infinitif arrive nu. Le de appartient à « ce serait possible de ».",
+              "ref": "a6-erreurs"
+            },
+            {
+              "pattern": "The wish, the request, the proposal or the reported information missing from the email.",
+              "criterion": "metiers",
+              "feedback": "Relis le plan en cinq étapes. Il te manque un des quatre morceaux : le souhait, la demande, la proposition ou l'information de l'annonce.",
+              "ref": "a11-plan"
+            },
+            {
+              "pattern": "One opener doing every job: three or four sentences all starting « je voudrais ».",
+              "criterion": "metiers",
+              "feedback": "Varie : j'aimerais pour le souhait, pourriez-vous pour la demande, il faudrait pour la proposition.",
+              "ref": "a8-table"
+            },
+            {
+              "pattern": "Information taken from the listing and stated as fact: « le chauffage est collectif » where the writer has only read it.",
+              "criterion": "metiers",
+              "feedback": "Tu n'as pas vérifié : écris « selon l'annonce, le chauffage serait collectif ». Sinon, c'est toi qui signes.",
+              "ref": "a10-piege"
+            },
+            {
+              "pattern": "« vouloir que » plus an indicative: « Je voudrais que vous m'envoyez le contrat ».",
+              "criterion": "metiers",
+              "feedback": "Vouloir que appelle un temps que tu verras plus tard. Ici, une question avec pourriez-vous fait le même travail.",
+              "ref": "a5-erreurs"
+            },
+            {
+              "pattern": "An email with no reason for writing, or with no closing thanks.",
+              "criterion": "tache",
+              "feedback": "Ouvre par une phrase au présent qui dit pourquoi tu écris, et ferme par un remerciement, au présent aussi.",
+              "ref": "a11-lecture"
+            },
+            {
+              "pattern": "A body outside 110 to 150 words, counted without the greeting and the sign-off.",
+              "criterion": "tache",
+              "feedback": "Compte tes mots sans le bonjour et sans la signature. En dessous de cent dix, il manque un des quatre morceaux.",
+              "ref": "a11-plan"
+            }
+          ],
+          "graderNotes": [
+            "Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (99-165) before criterion « tache » loses its point.",
+            "DO NOT SCORE si CLAUSES. « si + imparfait + conditionnel » is b1.10 ground and has not been taught. A learner who writes one correctly is not rewarded and one who writes it wrongly is not penalised, EXCEPT for a conditional placed directly after si, which this lesson does name as an error.",
+            "Do not score the subjunctive. « il faudrait que » and « je voudrais que » are outside this lesson; a wrong verb after them is ignored.",
+            "The conditionnel passé (« j’aurais voulu », « il aurait fallu ») is outside this lesson. Accept it if correct, do not penalise it if wrong.",
+            "Judge « le bon métier » by what the sentence DOES in the email, not by the opener alone. « Ce serait plus simple » can be a proposal or a hypothesis and both count.",
+            "Writer gender is unknown: judge adjective agreement for internal consistency only.",
+            "Accept regional vocabulary and currency (euros, francs suisses, dollars canadiens, francs CFA) and regional address forms (Madame, Monsieur, Chère Madame).",
+            "Accept a rented room or a shared flat in place of a studio: the situation is the learner’s to choose.",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -83714,11 +84902,160 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Écris ta demande",
           "frSub": "Mission écrite",
-          "title": "Écris ta demande (aperçu de la tâche)",
-          "body": "Tu as besoin de quelque chose et tu dois l'écrire. Choisis une des deux situations. Un : tu écris à une personne que tu ne connais pas, dans une école, une mairie ou une entreprise, pour demander un rendez-vous ou une information, et tu relances parce que personne n'a répondu. Deux : tu écris à un collègue que tu tutoies pour lui demander une heure de son temps cette semaine. Dans les deux cas, mesure d'abord ce que tu demandes et à qui, puis écris.\n\nEN: Choose one: a written request to a stranger at an institution, or a message to a colleague you are on tu terms with asking for an hour of their time. Measure the favour and the distance first, then write.\n\nÀ faire : Écris un message de 110 à 150 mots. Il doit contenir : une phrase qui dit pourquoi tu écris, UNE demande principale au barreau juste, un souhait ou une préférence, UN seul adoucisseur, quelque chose que tu proposes toi, et une formule de fin. Pas plus d'une excuse dans tout le message.\n\nCritères :\n• Le bon barreau pour la bonne personne (4 pts)\n• Des formes justes (3 pts)\n• Un message qui se suit (3 pts)\n• La bonne dose (2 pts)\n\nExemple de réponse :\nBonjour Madame Lambert,\n\nJe vous écris au sujet de ma demande de rendez-vous du douze mars. Je me permets de vous relancer, car je n'ai pas encore eu de réponse et mon dossier doit partir avant la fin du mois.\n\nPourriez-vous me dire si un créneau reste libre la semaine prochaine ? Je voudrais également savoir s'il faut apporter les originaux de mes diplômes, ou si une simple copie suffit. Dans la mesure du possible, je préférerais le matin, mais je m'adapterai à vos disponibilités.\n\nSi cela vous arrange, je pourrais aussi passer déposer les documents directement au bureau, ce qui vous éviterait de me rappeler. Dites-moi simplement ce qui vous convient le mieux.\n\nJe vous remercie d'avance de votre réponse et je reste joignable toute la semaine.\n\nBien cordialement,\nKarim Benali"
+          "brief": "Tu as besoin de quelque chose et tu dois l'écrire. Choisis une des deux situations. Un : tu écris à une personne que tu ne connais pas, dans une école, une mairie ou une entreprise, pour demander un rendez-vous ou une information, et tu relances parce que personne n'a répondu. Deux : tu écris à un collègue que tu tutoies pour lui demander une heure de son temps cette semaine. Dans les deux cas, mesure d'abord ce que tu demandes et à qui, puis écris.",
+          "briefEn": "Choose one: a written request to a stranger at an institution, or a message to a colleague you are on tu terms with asking for an hour of their time. Measure the favour and the distance first, then write.",
+          "produce": "Écris un message de 110 à 150 mots. Il doit contenir : une phrase qui dit pourquoi tu écris, UNE demande principale au barreau juste, un souhait ou une préférence, UN seul adoucisseur, quelque chose que tu proposes toi, et une formule de fin. Pas plus d'une excuse dans tout le message.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 110,
+            "maxWords": 150
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "barreau",
+                "label": "Le bon barreau pour la bonne personne",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : La demande principale est exactement à la hauteur que la situation appelle. Un inconnu reçoit pourriez-vous ou auriez-vous ; un collègue tutoyé reçoit tu pourrais ou est-ce que tu pourrais. Rien n'est ni trop sec ni trop lourd.",
+                  "3 : La demande principale est à la bonne hauteur, mais une phrase secondaire est un cran trop bas ou trop haut.",
+                  "2 : La hauteur est tenue par endroits et perdue ailleurs : un impératif reste debout, ou une formule très lourde arrive chez quelqu'un de proche.",
+                  "1 : Le message est écrit à une seule hauteur, sans rapport avec la personne ni avec le service demandé."
+                ]
+              },
+              {
+                "key": "formes",
+                "label": "Des formes justes",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Le conditionnel, l'inversion et l'imparfait de politesse sont corrects partout. Après il faudrait vient un infinitif ; après à ta place viennent je et le conditionnel.",
+                  "2 : Une ou deux formes sont fausses, mais la demande reste claire.",
+                  "1 : Les formes polies sont amorcées puis abandonnées, ou construites au hasard."
+                ]
+              },
+              {
+                "key": "message",
+                "label": "Un message qui se suit",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Les cinq morceaux sont là et dans l'ordre : pourquoi j'écris, la demande, la préférence, ce que je propose, la formule de fin. UNE demande principale, pas trois.",
+                  "2 : Les morceaux sont là mais mélangés, ou deux demandes se disputent la place principale.",
+                  "1 : Le lecteur doit chercher ce qu'on lui demande."
+                ]
+              },
+              {
+                "key": "dose",
+                "label": "La bonne dose",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Un seul adoucisseur, une seule excuse au maximum, un seul remerciement. La longueur est dans les bornes.",
+                  "1 : Les adoucisseurs, les excuses ou les remerciements s'empilent, ou la longueur sort des bornes."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Je vous écris au sujet de",
+            "Je me permets de",
+            "Pourriez-vous",
+            "Je voudrais également",
+            "Dans la mesure du possible",
+            "Si cela ne vous dérange pas",
+            "Je pourrais aussi",
+            "Je vous remercie d'avance",
+            "Bien cordialement"
+          ],
+          "modelAnswer": "Bonjour Madame Lambert,\n\nJe vous écris au sujet de ma demande de rendez-vous du douze mars. Je me permets de vous relancer, car je n'ai pas encore eu de réponse et mon dossier doit partir avant la fin du mois.\n\nPourriez-vous me dire si un créneau reste libre la semaine prochaine ? Je voudrais également savoir s'il faut apporter les originaux de mes diplômes, ou si une simple copie suffit. Dans la mesure du possible, je préférerais le matin, mais je m'adapterai à vos disponibilités.\n\nSi cela vous arrange, je pourrais aussi passer déposer les documents directement au bureau, ce qui vous éviterait de me rappeler. Dites-moi simplement ce qui vous convient le mieux.\n\nJe vous remercie d'avance de votre réponse et je reste joignable toute la semaine.\n\nBien cordialement,\nKarim Benali",
+          "modelAnswerEn": "Hello Mrs Lambert, I am writing about my appointment request of the twelfth of March. I am taking the liberty of following up, as I have had no reply and my file has to go before the end of the month. Could you tell me whether a slot is still free next week? I would also like to know whether I need to bring the originals of my diplomas, or whether a copy will do. As far as possible I would prefer the morning, but I will fit around you. If it suits you, I could also come and drop the documents off at the office, which would save you calling me back. Just tell me what works best for you. Thank you in advance for your reply, and I am reachable all week. Kind regards, Karim Benali",
+          "watchFor": [
+            {
+              "pattern": "An imperative addressed to a stranger, with or without a trailing please (envoyez-moi le formulaire, donnez-moi un rendez-vous).",
+              "criterion": "barreau",
+              "feedback": "Enlève « s'il vous plaît » et relis : il reste un ordre. C'est le verbe qu'il faut changer, pas la fin de la phrase.",
+              "ref": "a7-piege"
+            },
+            {
+              "pattern": "The heaviest formula (auriez-vous la gentillesse de, je vous prie de bien vouloir) used on a colleague the writer is on tu terms with.",
+              "criterion": "barreau",
+              "feedback": "Trop haut se remarque autant que trop bas. Avec un collègue que tu tutoies, est-ce que tu pourrais suffit largement.",
+              "ref": "a1-barreaux"
+            },
+            {
+              "pattern": "je veux used to open the request at a counter or in a letter, where the decision is not the message.",
+              "criterion": "barreau",
+              "feedback": "Je veux ferme la porte avant que l'autre ait pu répondre. Ouvre avec je voudrais ou j'aimerais.",
+              "ref": "a3-cartes"
+            },
+            {
+              "pattern": "The present of pouvoir, vouloir, devoir or falloir where the sentence is asking, wishing or advising (vous pouvez me confirmer, il faut vérifier).",
+              "criterion": "formes",
+              "feedback": "Au présent, ta phrase suppose la réponse. Passe au conditionnel : vous pourriez, il faudrait.",
+              "ref": "a2-erreurs"
+            },
+            {
+              "pattern": "A wrong continuation after a fixed formula: à ta place plus infinitive, il faudrait plus conjugated verb, et si on plus infinitive.",
+              "criterion": "formes",
+              "feedback": "Chaque formule appelle une suite fixe : à ta place + je et le conditionnel, il faudrait + infinitif, et si on + imparfait.",
+              "ref": "a9-tableau"
+            },
+            {
+              "pattern": "Three or more softeners stacked in one sentence (juste, si possible, par hasard, peut-être together).",
+              "criterion": "dose",
+              "feedback": "Un seul adoucisseur suffit, deux si le service est gros. Trois font chercher le vrai problème derrière.",
+              "ref": "a5-choisir"
+            },
+            {
+              "pattern": "Repeated apologies: more than one désolé or excusez-moi in the message.",
+              "criterion": "dose",
+              "feedback": "Une excuse ouvre la demande, trois annoncent une catastrophe. Remplace la deuxième par la durée : ce sera court.",
+              "ref": "a7-hacks"
+            },
+            {
+              "pattern": "Three or four separate requests competing for the main slot, so the reader cannot tell what is actually being asked.",
+              "criterion": "message",
+              "feedback": "Une demande principale, et une seule. Les autres deviennent des questions secondaires ou attendent un autre message.",
+              "ref": "a11-plan"
+            },
+            {
+              "pattern": "No reason given for writing: the message opens directly on the request.",
+              "criterion": "message",
+              "feedback": "Commence par une phrase qui dit pourquoi tu écris. Le lecteur a besoin de situer la demande avant de la lire.",
+              "ref": "a11-lecture"
+            },
+            {
+              "pattern": "Nothing offered in return: the whole message asks and proposes nothing.",
+              "criterion": "message",
+              "feedback": "Propose quelque chose, toi : passer déposer, rappeler, attendre. Ça allège tout le message d'un coup.",
+              "ref": "a8-choisir"
+            },
+            {
+              "pattern": "A refusal of an offered slot with no clear no in it (je vais voir, on verra, peut-être).",
+              "criterion": "message",
+              "feedback": "Si tu refuses un créneau, dis-le clairement, puis propose la suite. Sans le non, on te le reproposera.",
+              "ref": "a10-construire"
+            },
+            {
+              "pattern": "The politeness imparfait used for something genuinely past, or the present used to open at a counter (je viens pour, je veux vous demander).",
+              "criterion": "formes",
+              "feedback": "Je venais pour et je voulais vous demander ouvrent une demande qui a lieu maintenant. Garde-les pour l'ouverture.",
+              "ref": "a6-piege"
+            }
+          ],
+          "graderNotes": [
+            "Judge the RUNG by the situation the learner chose, not by an absolute scale. A message to a tutoyed colleague scoring full marks will look far less formal than one to an institution, and that is correct.",
+            "Word count EXCLUDES the greeting line and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance before criterion « dose » loses its point.",
+            "The writer’s gender is unknown: judge past-participle and adjective agreement for internal consistency only.",
+            "Do NOT score si clauses either way. « si possible », « si cela ne vous dérange pas » and « si ça vous arrange » are taught here as fixed softeners; the si system belongs to the next lesson.",
+            "Do NOT score « il faudrait que » plus subjunctive as an error, in either direction. The subjunctive is not taught until later; accept it if it is correct and do not require it.",
+            "Accept regional usage: courriel and e-mail and mail, magasiner in Québec, and the Belgian and Swiss number words.",
+            "Accept « Je peux avoir » only in a message to a friend. In a written request to an institution it costs a point on « barreau ».",
+            "A message that is entirely correct but written at one single height throughout scores at most 2 on « barreau », even with no grammatical error anywhere.",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -93412,11 +94749,160 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a12-mission",
+          "title": "Écris pour réserver une salle",
           "frSub": "Mission écrite",
-          "title": "Écris pour réserver une salle (aperçu de la tâche)",
-          "body": "Tu organises quelque chose : un tournoi, une répétition, un atelier ou une fête d'immeuble. Il te faut une salle, et une chose n'est pas sûre dans ton projet. Écris à la personne qui gère la salle.\n\nEN: You are organising something and you need a room. One thing in your plan is not certain. Write to the person who manages the room.\n\nÀ faire : Écris un message de 120 à 160 mots qui contient : une question rapportée avec « savoir si », une condition réelle (si + présent, puis futur), une condition irréelle (si + imparfait, puis conditionnel), une forme courte (sinon, si oui ou si possible), et une phrase avec quand pour ce qui est déjà sûr.\n\nCritères :\n• Les paires sont complètes (4 pts)\n• Rien derrière si (3 pts)\n• Les autres si sont là (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nBonjour Monsieur,\n\nJe vous écris pour savoir si la petite salle du centre est libre le samedi 14 mars, de quatorze à dix-huit heures. Notre association y organiserait un atelier de réparation de vélos.\n\nSi la salle est disponible ce jour-là, nous confirmerons dès le lundi suivant et nous enverrons la liste des participants. Si le nombre d'inscrits dépasse vingt personnes, il nous faudra aussi la cour, et je vous le dirai tout de suite.\n\nSi nous avions un local à nous, nous ne vous dérangerions pas chaque année. Ce n'est pas encore le cas, et votre salle reste la seule assez grande dans le quartier.\n\nSi possible, envoyez-nous une réponse avant vendredi. Sinon, nous reporterions l'atelier au mois d'avril. Quand la date sera fixée, nous préviendrons les familles.\n\nJe vous remercie d'avance de votre réponse.\n\nBien cordialement,\nSamira Cheriet"
+          "brief": "Tu organises quelque chose : un tournoi, une répétition, un atelier ou une fête d'immeuble. Il te faut une salle, et une chose n'est pas sûre dans ton projet. Écris à la personne qui gère la salle.",
+          "briefEn": "You are organising something and you need a room. One thing in your plan is not certain. Write to the person who manages the room.",
+          "produce": "Écris un message de 120 à 160 mots qui contient : une question rapportée avec « savoir si », une condition réelle (si + présent, puis futur), une condition irréelle (si + imparfait, puis conditionnel), une forme courte (sinon, si oui ou si possible), et une phrase avec quand pour ce qui est déjà sûr.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 120,
+            "maxWords": 160
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "paires",
+                "label": "Les paires sont complètes",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : La paire réelle et la paire irréelle sont toutes les deux là, chacune avec ses deux temps corrects.",
+                  "3 : Les deux paires sont là, mais une seule moitié boite. On comprend quand même.",
+                  "2 : Une seule des deux paires est présente, ou une paire est cassée : un temps d’une paire avec un temps de l’autre.",
+                  "1 : Les temps sont choisis un par un. Aucune paire ne tient du début à la fin."
+                ]
+              },
+              {
+                "key": "regle",
+                "label": "Rien derrière si",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Aucun -rai et aucun -rais derrière un si de condition, nulle part dans le message.",
+                  "2 : Une seule forme en r derrière un si, et le reste est propre.",
+                  "1 : Plusieurs futurs ou conditionnels sont posés derrière si."
+                ]
+              },
+              {
+                "key": "autres",
+                "label": "Les autres si sont là",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : La question rapportée, la forme courte et la phrase avec quand sont toutes les trois présentes et justes.",
+                  "2 : Deux des trois sont là, ou la troisième est présente mais mal employée.",
+                  "1 : Le message n’utilise si que pour conditionner."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Le message fait 120 à 160 mots, il ouvre, il demande une chose précise et il se termine poliment.",
+                  "1 : Il manque l’ouverture, la demande ou la formule de fin, ou la longueur est hors des bornes."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Je vous écris pour savoir si",
+            "Si la salle est",
+            "Si vous pouviez",
+            "Sinon,",
+            "Si possible,",
+            "Si oui,",
+            "Quand",
+            "Je vous remercie d’avance"
+          ],
+          "modelAnswer": "Bonjour Monsieur,\n\nJe vous écris pour savoir si la petite salle du centre est libre le samedi 14 mars, de quatorze à dix-huit heures. Notre association y organiserait un atelier de réparation de vélos.\n\nSi la salle est disponible ce jour-là, nous confirmerons dès le lundi suivant et nous enverrons la liste des participants. Si le nombre d'inscrits dépasse vingt personnes, il nous faudra aussi la cour, et je vous le dirai tout de suite.\n\nSi nous avions un local à nous, nous ne vous dérangerions pas chaque année. Ce n'est pas encore le cas, et votre salle reste la seule assez grande dans le quartier.\n\nSi possible, envoyez-nous une réponse avant vendredi. Sinon, nous reporterions l'atelier au mois d'avril. Quand la date sera fixée, nous préviendrons les familles.\n\nJe vous remercie d'avance de votre réponse.\n\nBien cordialement,\nSamira Cheriet",
+          "modelAnswerEn": "Hello Sir, I am writing to find out whether the small hall at the centre is free on Saturday 14 March, from two until six. Our association would run a bicycle repair workshop there. If the hall is available that day, we will confirm the following Monday and send the list of participants. If the number of registrations goes over twenty, we will also need the yard, and I will tell you straight away. If we had premises of our own, we would not disturb you every year. That is not the case yet, and your hall is still the only one big enough in the neighbourhood. If possible, send us an answer before Friday. Otherwise, we would put the workshop back to April. When the date is set, we will let the families know. Thank you in advance for your reply. Best wishes, Samira Cheriet",
+          "watchFor": [
+            {
+              "pattern": "A future or a conditional directly after a conditional si: « si je serai », « si nous aurions », « si vous pourriez ».",
+              "criterion": "regle",
+              "feedback": "Derrière un si de condition, aucune forme en r. Mets le présent ou l’imparfait, et garde le -rai ou le -rais pour l’autre moitié.",
+              "ref": "a3-piege"
+            },
+            {
+              "pattern": "A broken pair: si + imparfait followed by a future, or si + présent followed by a present conditional.",
+              "criterion": "paires",
+              "feedback": "Tu as changé une moitié et laissé l’autre. Les deux bougent ensemble : présent avec futur, imparfait avec conditionnel.",
+              "ref": "a6-piege"
+            },
+            {
+              "pattern": "Only the real pair in the whole message, with no unreal one anywhere.",
+              "criterion": "paires",
+              "feedback": "Il manque la paire irréelle. Ajoute une phrase sur ce qui te manque : si nous avions..., nous ...ions.",
+              "ref": "a6-cartes"
+            },
+            {
+              "pattern": "Only the unreal pair, used even for things that can really happen.",
+              "criterion": "paires",
+              "feedback": "Tout ton message parle d’un monde qui n’existe pas. Ce qui peut arriver prend si + présent et un futur.",
+              "ref": "a7-choisir"
+            },
+            {
+              "pattern": "A missing comma after a si half placed first, or a comma written where si comes second.",
+              "criterion": "tache",
+              "feedback": "Si devant, une virgule après la condition. Si derrière, aucune ponctuation entre les deux moitiés.",
+              "ref": "a5-focus"
+            },
+            {
+              "pattern": "An indirect question opened with que instead of si: « savoir que la salle est libre ».",
+              "criterion": "autres",
+              "feedback": "Avec que tu affirmes, avec si tu demandes. Ici tu ne sais pas encore : écris « savoir si ».",
+              "ref": "a8-erreurs"
+            },
+            {
+              "pattern": "The reported question missing entirely: the message never says why it is being written.",
+              "criterion": "autres",
+              "feedback": "Ouvre par « Je vous écris pour savoir si... ». C’est la phrase qui dit ce que tu cherches.",
+              "ref": "a12-plan"
+            },
+            {
+              "pattern": "A future removed from a reported question out of caution: « je me demande si la salle est libre samedi prochain » where the writer means will be.",
+              "criterion": "autres",
+              "feedback": "Ici si rapporte une question, donc le futur est permis : « si la salle sera libre ». La règle dure ne s’applique qu’aux conditions.",
+              "ref": "a8-focus"
+            },
+            {
+              "pattern": "Si used where the event is certain and dated: « si la date est fixée, nous préviendrons les familles ».",
+              "criterion": "autres",
+              "feedback": "La date sera fixée de toute façon : écris « quand la date sera fixée », avec le futur des deux côtés.",
+              "ref": "a10-piege"
+            },
+            {
+              "pattern": "No short form anywhere: no sinon, no si oui, no si possible.",
+              "criterion": "autres",
+              "feedback": "Ajoute une forme courte. Sinon annonce ce que tu feras en cas de refus, en un seul mot.",
+              "ref": "a9-table"
+            },
+            {
+              "pattern": "A si + plus-que-parfait pattern, correct or not.",
+              "criterion": "paires",
+              "feedback": "Cette paire n’est pas demandée ici. Tu la reconnais, et tu la construiras au niveau suivant.",
+              "ref": "a11-cartes"
+            },
+            {
+              "pattern": "A body outside 120 to 160 words, counted without the greeting and the sign-off.",
+              "criterion": "tache",
+              "feedback": "Compte tes mots sans le bonjour et sans la signature. En dessous de cent vingt, il manque une des cinq phrases demandées.",
+              "ref": "a12-plan"
+            }
+          ],
+          "graderNotes": [
+            "Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (108-176) before criterion « tache » loses its point.",
+            "DO NOT SCORE si + plus-que-parfait > conditionnel passé. Act 11 teaches recognition only. A learner who writes one correctly gains nothing and one who writes it wrongly loses nothing.",
+            "Do not score the subjunctive. « il faudrait que » and « je voudrais que » are outside this lesson; a wrong verb after them is ignored.",
+            "A future after si IS correct when si reports a question (savoir si, se demander si, dire si, vérifier si). Do not mark it as the act 3 error. Read what the verb in front of si is doing before scoring.",
+            "Accept both « si le budget ne suffit pas » and « si le budget ne suffisait pas » in the same message: the choice between the pairs is the writer’s, and both are defensible for a budget.",
+            "Judge « même si » as a concession, never as a condition, and never penalise the present after it.",
+            "Writer gender is unknown: judge adjective and participle agreement for internal consistency only.",
+            "Accept regional vocabulary and institutions (la mairie, la commune, le conseil municipal, la maison de quartier, le centre communautaire) and regional address forms.",
+            "Accept any venue and any event: the situation is the learner’s to choose.",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -102860,11 +104346,159 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Écris ton annonce",
           "frSub": "Mission écrite",
-          "title": "Écris ton annonce (aperçu de la tâche)",
-          "body": "Tu as perdu quelque chose : un sac, une valise, un manteau, un instrument, un animal. Tu écris une annonce que le bureau des objets trouvés va afficher. Les gens qui la liront ne connaissent pas ton objet : il faut qu'ils puissent le reconnaître parmi dix autres du même genre.\n\nEN: You have lost something. Write a notice for the lost property office. The people reading it must be able to pick your thing out from ten others like it.\n\nÀ faire : Écris une annonce de 110 à 150 mots avec au moins quatre relatives : au moins une avec qui, au moins deux avec que, au moins une accordée au participe passé, et une relative encadrée par deux virgules.\n\nCritères :\n• Le bon mot à chaque fois (4 pts)\n• Aucun mot sauté (3 pts)\n• L'accord du participe (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nPERDU : étui à violon noir\n\nL'étui que j'ai perdu samedi dernier est un étui à violon noir, de taille normale. Je l'ai laissé dans le train qui va de Québec à Montréal, vers vingt heures.\n\nLe violon qui était dedans appartient à l'école de musique du quartier, et les partitions que j'ai rangées dans la poche avant sont les seules copies que je possède.\n\nL'étui, que j'utilise depuis six ans, porte deux autocollants bleus sur le couvercle : c'est le détail qui permet de le reconnaître parmi les autres. La poignée que mon frère a réparée l'an dernier est un peu tordue.\n\nCe qui compte vraiment pour moi, ce sont les partitions. Voici le numéro que vous pouvez composer entre neuf heures et midi.\n\nMerci d'avance à la personne qui le rapportera au bureau des objets trouvés."
+          "brief": "Tu as perdu quelque chose : un sac, une valise, un manteau, un instrument, un animal. Tu écris une annonce que le bureau des objets trouvés va afficher. Les gens qui la liront ne connaissent pas ton objet : il faut qu'ils puissent le reconnaître parmi dix autres du même genre.",
+          "briefEn": "You have lost something. Write a notice for the lost property office. The people reading it must be able to pick your thing out from ten others like it.",
+          "produce": "Écris une annonce de 110 à 150 mots avec au moins quatre relatives : au moins une avec qui, au moins deux avec que, au moins une accordée au participe passé, et une relative encadrée par deux virgules.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 110,
+            "maxWords": 150
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "choix",
+                "label": "Le bon mot à chaque fois",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Chaque relative porte le bon mot, et le choix suit ce qui vient derrière, jamais le nom de devant.",
+                  "3 : Une seule relative se trompe, et le reste est juste.",
+                  "2 : Plusieurs relatives prennent qui pour que ou le contraire, souvent quand le nom est une personne.",
+                  "1 : Le choix semble fait au hasard, ou toujours avec le même mot."
+                ]
+              },
+              {
+                "key": "presence",
+                "label": "Aucun mot sauté",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Le petit mot est écrit partout où il faut, et qui n'est jamais élidé.",
+                  "2 : Une phrase laisse deux sujets se toucher, ou porte un qu' à la place de qui.",
+                  "1 : Plusieurs phrases s'arrêtent au milieu parce que le mot manque."
+                ]
+              },
+              {
+                "key": "accord",
+                "label": "L'accord du participe",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Chaque participe après que et avoir s'accorde avec le nom passé devant, et aucun ne s'accorde après qui.",
+                  "2 : Un accord manque, ou un accord de trop apparaît après qui.",
+                  "1 : Les participes restent tous au masculin singulier, ou s'accordent partout sans distinction."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : L'annonce fait 110 à 150 mots, elle porte au moins quatre relatives dont une entre deux virgules, et un lecteur peut reconnaître l'objet.",
+                  "1 : Il manque une des quatre relatives, ou la longueur est hors des bornes, ou la description conviendrait à n'importe quel objet du même genre."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Le sac que j'ai perdu",
+            "Le détail qui permet de le reconnaître",
+            "Je l'ai laissé dans",
+            "Les papiers que j'ai laissés",
+            ", que j'utilise tous les jours,",
+            "Ce qui compte pour moi",
+            "Voici le numéro que",
+            "Merci à la personne qui"
+          ],
+          "modelAnswer": "PERDU : étui à violon noir\n\nL'étui que j'ai perdu samedi dernier est un étui à violon noir, de taille normale. Je l'ai laissé dans le train qui va de Québec à Montréal, vers vingt heures.\n\nLe violon qui était dedans appartient à l'école de musique du quartier, et les partitions que j'ai rangées dans la poche avant sont les seules copies que je possède.\n\nL'étui, que j'utilise depuis six ans, porte deux autocollants bleus sur le couvercle : c'est le détail qui permet de le reconnaître parmi les autres. La poignée que mon frère a réparée l'an dernier est un peu tordue.\n\nCe qui compte vraiment pour moi, ce sont les partitions. Voici le numéro que vous pouvez composer entre neuf heures et midi.\n\nMerci d'avance à la personne qui le rapportera au bureau des objets trouvés.",
+          "modelAnswerEn": "LOST: black violin case. The case I lost last Saturday is a normal sized black violin case. I left it on the train that runs from Quebec City to Montreal, around eight in the evening. The violin that was inside belongs to the local music school, and the scores I put in the front pocket are the only copies I own. The case, which I have been using for six years, has two blue stickers on the lid: that is the detail that lets you recognise it among the others. The handle my brother repaired last year is slightly bent. What really matters to me is the scores. Here is the number you can ring between nine and noon. Thank you in advance to whoever brings it back to the lost property office.",
+          "watchFor": [
+            {
+              "pattern": "The pronoun left out on the English pattern: « le sac je cherche », « les papiers j'ai laissés », « le train nous prenons ».",
+              "criterion": "presence",
+              "feedback": "Il manque le petit mot. En anglais on peut l'effacer, en français jamais : écris « le sac que je cherche ».",
+              "ref": "a7-piege"
+            },
+            {
+              "pattern": "qui elided before a vowel: « le livre qu'est dedans », « la personne qu'a trouvé ».",
+              "criterion": "presence",
+              "feedback": "qui garde toujours ses trois lettres. Écris « le livre qui est dedans ».",
+              "ref": "a5-cartes"
+            },
+            {
+              "pattern": "que left unelided before a vowel: « le message que on attend », « le pull que Anne a choisi ».",
+              "criterion": "presence",
+              "feedback": "Devant une voyelle, le e de que tombe : « qu'on attend », « qu'Anne a choisi ».",
+              "ref": "a5-construire"
+            },
+            {
+              "pattern": "que chosen where nothing follows the gap: « le livre que était dedans », « la rue que mène à la gare ».",
+              "criterion": "choix",
+              "feedback": "Regarde derrière le trou : il n'y a aucun sujet, donc qui. « le livre qui était dedans ».",
+              "ref": "a2-construire"
+            },
+            {
+              "pattern": "qui chosen where a subject already follows: « le sac qui j'ai perdu », « les gens qui tu connais ».",
+              "criterion": "choix",
+              "feedback": "j' et tu sont déjà des sujets, donc la place est prise. Écris que.",
+              "ref": "a3-piege"
+            },
+            {
+              "pattern": "The pronoun chosen by the antecedent: qui for every person and que for every thing, whatever follows.",
+              "criterion": "choix",
+              "feedback": "Le nom de devant ne décide rien. Une chose peut prendre qui, une personne peut prendre que.",
+              "ref": "a6-erreurs"
+            },
+            {
+              "pattern": "A doubled subject after qui: « la personne qui elle a trouvé », « le train qui il part ».",
+              "criterion": "choix",
+              "feedback": "qui EST déjà le sujet. Un second sujet est un de trop.",
+              "ref": "a2-erreurs"
+            },
+            {
+              "pattern": "The participle left in the masculine singular after a preceding object: « la valise que j'ai perdu », « les photos que j'ai pris ».",
+              "criterion": "accord",
+              "feedback": "que a fait passer le nom devant le verbe, alors le participe le suit : perdue, prises.",
+              "ref": "a8-piege"
+            },
+            {
+              "pattern": "An agreement added after qui, where nothing has moved in front: « la dame qui a trouvée mon sac ».",
+              "criterion": "accord",
+              "feedback": "Après qui, le nom est sujet, pas complément. Aucun accord : « qui a trouvé ».",
+              "ref": "a8-cartes"
+            },
+            {
+              "pattern": "Only one comma around an inserted clause: « Le sac, que j'utilise tous les jours a une poche déchirée. »",
+              "criterion": "tache",
+              "feedback": "On encadre des deux côtés, ou pas du tout. Remets la seconde virgule après « jours ».",
+              "ref": "a9-erreurs"
+            },
+            {
+              "pattern": "A sentence that opens a long clause and never reaches its main verb.",
+              "criterion": "tache",
+              "feedback": "Relis à voix haute : après la relative, la phrase doit repartir sur son verbe principal.",
+              "ref": "a9-construire"
+            },
+            {
+              "pattern": "A run of short separate sentences with no clause at all, so nothing identifies the object among ten like it.",
+              "criterion": "tache",
+              "feedback": "Quatre phrases vraies ne désignent aucun objet. Colle-les : « le sac que j'ai perdu contient... »",
+              "ref": "a1-scene"
+            }
+          ],
+          "graderNotes": [
+            "Word count EXCLUDES the heading line (PERDU : ...) and any signature. Count the body only, with 10% tolerance (99-165) before criterion « tache » loses its point.",
+            "DO NOT SCORE dont, où, lequel, duquel or any prepositional relative (à qui, avec qui, chez qui). They belong to later lessons and have not been taught. A learner who uses one correctly is not rewarded and one who uses it wrongly is not penalised.",
+            "ce qui and ce que were PREVIEWED in act 10 only. Accept them when correct; do not penalise a learner who avoids them, and do not penalise ce que where ce qui was wanted.",
+            "Judge the pronoun choice by what follows it in the learner text, not by what the learner probably meant. A sentence can be right for a different reason than intended and still scores.",
+            "Participle agreement is judged only after que plus avoir. Agreement with être (elle est partie) belongs to a2.21 and is out of scope here.",
+            "An agreement that is correct but inaudible (perdue, laissés, réservées) counts exactly as much as an audible one (écrite, prise). The criterion is written accuracy.",
+            "Writer gender is unknown: judge adjective agreement for internal consistency only.",
+            "Accept any lost object and any francophone city. Accept regional vocabulary (cégep, char, sac à dos, sacoche, valise, malle).",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -112662,11 +114296,159 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Décris ton nouveau logement",
           "frSub": "Mission écrite",
-          "title": "Décris ton nouveau logement (aperçu de la tâche)",
-          "body": "Tu viens de trouver un logement dans une ville francophone : un appartement, une chambre, une colocation, peu importe. Tu écris à un ami qui ne connaît ni le lieu ni les gens. Il doit pouvoir imaginer l'endroit, le quartier, la personne avec qui tu partages, et savoir quand tu emménages.\n\nEN: You have just found somewhere to live in a French-speaking city. Write to a friend who knows neither the place nor the people.\n\nÀ faire : Écris un message de 110 à 150 mots avec au moins cinq relatives : au moins deux avec dont, au moins deux avec où dont une de temps, et au moins une avec une préposition devant qui.\n\nCritères :\n• La bonne porte à chaque fois (4 pts)\n• La préposition à sa place (3 pts)\n• Ce qui suit le mot (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nSalut Karim,\n\nÇa y est, j'ai signé. L'appartement dont je t'ai parlé au téléphone est au troisième étage d'un immeuble en brique, rue Galt.\n\nC'est exactement le genre de logement dont j'avais besoin : deux pièces, calme, et à dix minutes du campus. Le quartier où il se trouve descend vers le fleuve, et la rue où je vais habiter est bordée d'érables. Il y a une épicerie où on trouve du pain jusqu'à tard, et une bibliothèque où je pourrai travailler le soir.\n\nJe partage avec une étudiante dont le frère travaille justement à cette bibliothèque. C'est la personne avec qui j'ai visité deux fois, et elle est très facile à vivre.\n\nLe jour où j'emménage, c'est le premier septembre. Viens me voir.\n\nNadia"
+          "brief": "Tu viens de trouver un logement dans une ville francophone : un appartement, une chambre, une colocation, peu importe. Tu écris à un ami qui ne connaît ni le lieu ni les gens. Il doit pouvoir imaginer l'endroit, le quartier, la personne avec qui tu partages, et savoir quand tu emménages.",
+          "briefEn": "You have just found somewhere to live in a French-speaking city. Write to a friend who knows neither the place nor the people.",
+          "produce": "Écris un message de 110 à 150 mots avec au moins cinq relatives : au moins deux avec dont, au moins deux avec où dont une de temps, et au moins une avec une préposition devant qui.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 110,
+            "maxWords": 150
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "porte",
+                "label": "La bonne porte à chaque fois",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Chaque relative porte le mot que son verbe réclame, et le choix suit le verbe, jamais le nom de devant.",
+                  "3 : Une seule relative se trompe de mot, et le reste est juste.",
+                  "2 : Plusieurs relatives prennent où pour dont ou le contraire, souvent parce que le nom est un lieu.",
+                  "1 : Le mot semble choisi au hasard, ou c'est toujours le même."
+                ]
+              },
+              {
+                "key": "place",
+                "label": "La préposition à sa place",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Aucune relative ne finit par une préposition, et aucune n'en ajoute une là où le français n'en veut pas.",
+                  "2 : Une phrase laisse un petit mot suspendu à la fin, ou en ajoute un après attendre, chercher, écouter ou regarder.",
+                  "1 : Plusieurs phrases sont construites à l'anglaise, avec la préposition au bout."
+                ]
+              },
+              {
+                "key": "forme",
+                "label": "Ce qui suit le mot",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Après dont, la chose possédée prend le, la ou les, et le de ne se réécrit jamais derrière.",
+                  "2 : Un possessif reste après dont, ou un de apparaît une deuxième fois.",
+                  "1 : Les deux fautes reviennent plusieurs fois."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Le message fait 110 à 150 mots, il porte au moins cinq relatives réparties comme demandé, et un lecteur peut imaginer le lieu, la personne et la date.",
+                  "1 : Il manque une des cinq relatives, ou la longueur est hors des bornes, ou la description conviendrait à n'importe quel logement."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "L'appartement dont je t'ai parlé",
+            "le genre de logement dont j'avais besoin",
+            "Le quartier où il se trouve",
+            "la rue où je vais habiter",
+            "une étudiante dont le frère",
+            "la personne avec qui j'ai visité",
+            "Le jour où j'emménage",
+            "la première personne à qui"
+          ],
+          "modelAnswer": "Salut Karim,\n\nÇa y est, j'ai signé. L'appartement dont je t'ai parlé au téléphone est au troisième étage d'un immeuble en brique, rue Galt.\n\nC'est exactement le genre de logement dont j'avais besoin : deux pièces, calme, et à dix minutes du campus. Le quartier où il se trouve descend vers le fleuve, et la rue où je vais habiter est bordée d'érables. Il y a une épicerie où on trouve du pain jusqu'à tard, et une bibliothèque où je pourrai travailler le soir.\n\nJe partage avec une étudiante dont le frère travaille justement à cette bibliothèque. C'est la personne avec qui j'ai visité deux fois, et elle est très facile à vivre.\n\nLe jour où j'emménage, c'est le premier septembre. Viens me voir.\n\nNadia",
+          "modelAnswerEn": "Hi Karim, that is it, I have signed. The flat I told you about on the phone is on the third floor of a brick building on rue Galt. It is exactly the kind of place I needed: two rooms, quiet, ten minutes from campus. The neighbourhood it is in runs down towards the river, and the street I am going to live in is lined with maples. There is a grocery where you can get bread until late, and a library where I will be able to work in the evening. I am sharing with a student whose brother works at that very library. She is the person I viewed it with twice, and she is very easy to live with. The day I move in is the first of September. Come and see me. Nadia",
+          "watchFor": [
+            {
+              "pattern": "que written where the verb brought a de of its own: « l'appartement que j'ai besoin », « le livre que je t'ai parlé ».",
+              "criterion": "porte",
+              "feedback": "Redis la phrase courte : « j'ai besoin DE ». Le de passe devant et devient dont.",
+              "ref": "a2-piege"
+            },
+            {
+              "pattern": "The de of an adjective dropped: « le projet que je suis fier », « la date que tu es sûr ».",
+              "criterion": "porte",
+              "feedback": "fier de, sûr de : l'adjectif réclame de comme un verbe. Écris dont.",
+              "ref": "a3-erreurs"
+            },
+            {
+              "pattern": "A second de written behind dont: « le dossier dont j'ai besoin de », « la chose dont je suis sûr de ».",
+              "criterion": "forme",
+              "feedback": "dont contient déjà le de. L'écrire une deuxième fois, c'est le dire deux fois.",
+              "ref": "a2-check"
+            },
+            {
+              "pattern": "A possessive kept after dont: « dont son fils », « dont sa porte », « dont je connais son frère ».",
+              "criterion": "forme",
+              "feedback": "dont dit déjà à qui est la chose. Écris le, la ou les.",
+              "ref": "a4-piege"
+            },
+            {
+              "pattern": "quand written after a time noun: « le jour quand j'emménage », « l'année quand je suis arrivé ».",
+              "criterion": "porte",
+              "feedback": "Un nom de temps devant, donc où. quand ne reprend jamais un nom.",
+              "ref": "a6-piege"
+            },
+            {
+              "pattern": "que or où used in front of a person where the verb required a preposition: « la personne que j'ai parlé », « les amis où j'ai dormi ».",
+              "criterion": "porte",
+              "feedback": "Écris la préposition en entier, puis qui : à qui, avec qui, chez qui.",
+              "ref": "a7-erreurs"
+            },
+            {
+              "pattern": "A preposition left at the end of the clause: « la personne que je travaille avec », « le bureau que je travaille dans ».",
+              "criterion": "place",
+              "feedback": "Rien ne reste suspendu. Le petit mot ouvre la relative : avec qui, où.",
+              "ref": "a8-piege"
+            },
+            {
+              "pattern": "A preposition added where the French verb is direct: « l'ami pour qui j'attends », « la personne pour qui je cherche ».",
+              "criterion": "place",
+              "feedback": "attendre, chercher, écouter et regarder sont directs en français. que suffit.",
+              "ref": "a8-construire"
+            },
+            {
+              "pattern": "A preposition written in front of où: « dans où j'habite », « à où je travaille ».",
+              "criterion": "place",
+              "feedback": "où contient déjà la préposition. Écris où tout seul.",
+              "ref": "a5-erreurs"
+            },
+            {
+              "pattern": "The relative word chosen from the antecedent rather than the verb: où for every place and qui for every person, whatever the verb asks for.",
+              "criterion": "porte",
+              "feedback": "Le nom de devant ne décide rien. « le quartier dont tout le monde parle » est un lieu et prend dont.",
+              "ref": "a9-piege"
+            },
+            {
+              "pattern": "A sentence that opens one or two clauses and never reaches its main verb.",
+              "criterion": "tache",
+              "feedback": "Relis à voix haute : après la relative, la phrase doit repartir sur son verbe principal.",
+              "ref": "a10-construire"
+            },
+            {
+              "pattern": "Only one comma around an inserted clause: « Le village dont je viens, où mes parents vivent encore compte trois cents habitants. »",
+              "criterion": "tache",
+              "feedback": "On encadre des deux côtés, ou pas du tout. Remets la seconde virgule.",
+              "ref": "a10-erreurs"
+            }
+          ],
+          "graderNotes": [
+            "Word count EXCLUDES the greeting and the sign-off. Count the body only, with 10% tolerance (99-165) before criterion « tache » loses its point.",
+            "DO NOT SCORE lequel, laquelle, auquel, duquel, ce qui, ce que or ce dont. They belong to the next lesson and have not been taught. A learner who uses one correctly is not rewarded and one who uses it wrongly is not penalised.",
+            "DO NOT SCORE the subjunctive in either direction: it belongs to the lesson after next.",
+            "Judge the relative word by what the learner’s own verb requires in their own sentence, not by what they probably meant. A clause can be right for a different reason than intended and still scores.",
+            "de qui and duquel for a person are grammatically possible and belong to a more formal register. Accept them as correct, but do not treat their absence as a gap.",
+            "Past-participle agreement after a preceding que belongs to the previous lesson. Mark it only if it is wrong in a way that also breaks this lesson’s point.",
+            "Writer gender is unknown: judge adjective agreement for internal consistency only.",
+            "Accept any francophone city and any kind of housing. Accept regional vocabulary (colocation, coloc, logement, appart, cégep, stationnement, char).",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -122108,11 +123890,160 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Écris ta fiche de réparation",
           "frSub": "Mission écrite",
-          "title": "Écris ta fiche de réparation (aperçu de la tâche)",
-          "body": "Un objet à toi ne marche plus : une lampe, un grille-pain, un vélo, un ordinateur, une machine à coudre. Tu l'apportes à un atelier de quartier et tu remplis la fiche que le réparateur lira avant de t'appeler. Il ne verra pas l'objet avant de te lire.\n\nEN: Something of yours has stopped working. Write the card the repairer will read before calling you back; they will not see the object first.\n\nÀ faire : Écris une fiche de 110 à 150 mots avec au moins six relatives : au moins deux avec lequel après une préposition, une avec à ou de soudés, une avec un groupe qui finit par de, une avec ce qui ou ce que, et une avec ce dont.\n\nCritères :\n• Le bon mot à chaque fois (4 pts)\n• L'accord et la soudure (3 pts)\n• La place de la préposition (3 pts)\n• La mission complète (2 pts)\n\nExemple de réponse :\nFICHE DE RÉPARATION : grille-pain\n\nL'objet que j'apporte est un grille-pain qui ne chauffe plus d'un seul côté. Le tournevis avec lequel j'ai ouvert le boîtier était trop gros, et j'ai abîmé deux vis. La boîte à côté de laquelle j'ai posé l'appareil est grise ; une vis est peut-être tombée dedans.\n\nCe qui m'inquiète, c'est le fil rouge, qui noircit près de la résistance. Ce dont j'ai besoin, c'est d'une résistance neuve et d'un tournevis plus fin. Tout ce qui reste à faire tient en un quart d'heure.\n\nLa raison pour laquelle je reviens samedi, c'est la pièce. Voici le numéro auquel vous pouvez me joindre entre neuf heures et midi. Merci à la personne grâce à laquelle il remarchera."
+          "brief": "Un objet à toi ne marche plus : une lampe, un grille-pain, un vélo, un ordinateur, une machine à coudre. Tu l'apportes à un atelier de quartier et tu remplis la fiche que le réparateur lira avant de t'appeler. Il ne verra pas l'objet avant de te lire.",
+          "briefEn": "Something of yours has stopped working. Write the card the repairer will read before calling you back; they will not see the object first.",
+          "produce": "Écris une fiche de 110 à 150 mots avec au moins six relatives : au moins deux avec lequel après une préposition, une avec à ou de soudés, une avec un groupe qui finit par de, une avec ce qui ou ce que, et une avec ce dont.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 110,
+            "maxWords": 150
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "choix",
+                "label": "Le bon mot à chaque fois",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Chaque relative porte le bon mot, et le choix suit ce qui est écrit devant le trou, jamais la traduction anglaise.",
+                  "3 : Une seule relative se trompe, et le reste est juste.",
+                  "2 : Plusieurs fois, un nom est écrit devant et tu écris quand même ce, ou l'inverse.",
+                  "1 : Le choix semble fait au hasard, ou la même forme revient partout."
+                ]
+              },
+              {
+                "key": "forme",
+                "label": "L'accord et la soudure",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : lequel s'accorde chaque fois avec le nom de devant, et à et de se soudent partout sauf au féminin singulier.",
+                  "2 : Un accord manque, ou une soudure est écrite en deux mots.",
+                  "1 : lequel ne bouge jamais, ou les soudures sont faites au hasard."
+                ]
+              },
+              {
+                "key": "place",
+                "label": "La place de la préposition",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Aucune phrase ne se termine par une préposition, et chaque préposition est écrite devant le petit mot.",
+                  "2 : Une phrase laisse avec, sur ou dans au bout.",
+                  "1 : Plusieurs phrases gardent l'ordre anglais, et le lecteur doit deviner à quoi la fin se rattache."
+                ]
+              },
+              {
+                "key": "tache",
+                "label": "La mission complète",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : La fiche fait 110 à 150 mots, elle porte les six relatives demandées, et un réparateur peut reconnaître ton objet et ton problème sans le voir.",
+                  "1 : Il manque une des six relatives, ou la longueur est hors des bornes, ou la fiche conviendrait à n'importe quel objet du même genre."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "L'objet que j'apporte est",
+            "Le tournevis avec lequel",
+            "La boîte à côté de laquelle",
+            "La raison pour laquelle",
+            "Ce qui m'inquiète,",
+            "Ce dont j'ai besoin,",
+            "Tout ce qui reste à faire",
+            "Voici le numéro auquel"
+          ],
+          "modelAnswer": "FICHE DE RÉPARATION : grille-pain\n\nL'objet que j'apporte est un grille-pain qui ne chauffe plus d'un seul côté. Le tournevis avec lequel j'ai ouvert le boîtier était trop gros, et j'ai abîmé deux vis. La boîte à côté de laquelle j'ai posé l'appareil est grise ; une vis est peut-être tombée dedans.\n\nCe qui m'inquiète, c'est le fil rouge, qui noircit près de la résistance. Ce dont j'ai besoin, c'est d'une résistance neuve et d'un tournevis plus fin. Tout ce qui reste à faire tient en un quart d'heure.\n\nLa raison pour laquelle je reviens samedi, c'est la pièce. Voici le numéro auquel vous pouvez me joindre entre neuf heures et midi. Merci à la personne grâce à laquelle il remarchera.",
+          "modelAnswerEn": "REPAIR CARD: toaster. The thing I am bringing in is a toaster that has stopped heating on one side. The screwdriver I opened the case with was too big and I damaged two screws. The box I put the appliance next to is grey; a screw may have fallen into it. What worries me is the red wire, which is going black near the element. What I need is a new element and a thinner screwdriver. Everything left to do takes a quarter of an hour. The reason why I am coming back on Saturday is the part. Here is the number you can reach me on between nine and noon. Thank you to whoever gets it working again.",
+          "watchFor": [
+            {
+              "pattern": "The preposition stranded at the end on the English pattern: « le tournevis que j'ai ouvert le boîtier avec », « la table que je l'ai posé sur ».",
+              "criterion": "place",
+              "feedback": "La préposition ne reste pas au bout. Fais-la monter : « le tournevis avec lequel j'ai ouvert le boîtier ».",
+              "ref": "a2-piege"
+            },
+            {
+              "pattern": "que kept after a preposition: « avec que », « sur que », « dans que ».",
+              "criterion": "choix",
+              "feedback": "que ne supporte aucune préposition devant lui. Après avec, sur ou dans, écris lequel.",
+              "ref": "a2-cartes"
+            },
+            {
+              "pattern": "lequel left in the masculine singular for a feminine or plural antecedent: « la pince avec lequel », « les outils sans lequel ».",
+              "criterion": "forme",
+              "feedback": "Regarde le nom écrit devant : la pince donne laquelle, les outils donnent lesquels.",
+              "ref": "a3-erreurs"
+            },
+            {
+              "pattern": "The two plurals confused, since they sound identical: « les caisses dans lesquels », « les cartons dans lesquelles ».",
+              "criterion": "forme",
+              "feedback": "L'oreille ne t'aidera pas ici. caisses est féminin, cartons est masculin.",
+              "ref": "a3-tableau"
+            },
+            {
+              "pattern": "The contraction of à written in two words, or applied to the feminine singular: « à lequel », « auquelle », « aulaquelle ».",
+              "criterion": "forme",
+              "feedback": "auquel, auxquels et auxquelles se soudent. Seul à laquelle reste en deux mots.",
+              "ref": "a4-piege"
+            },
+            {
+              "pattern": "dont used after a compound preposition: « près dont », « à côté dont », « au bout dont ».",
+              "criterion": "choix",
+              "feedback": "Après un groupe qui finit par de, dont n'existe pas. Écris duquel, de laquelle, desquels ou desquelles.",
+              "ref": "a5-erreurs"
+            },
+            {
+              "pattern": "duquel used where a lone de from the verb would have taken dont: « le tiroir duquel je parle ».",
+              "criterion": "choix",
+              "feedback": "parler de porte un de tout seul, donc dont. Compte les mots qui portent le de.",
+              "ref": "a5-frontiere"
+            },
+            {
+              "pattern": "The block broken apart or translated word for word: « la raison pourquoi », « la raison que », « grâce à lequel ».",
+              "criterion": "choix",
+              "feedback": "Le bloc ne se découpe pas : la raison pour laquelle, grâce auquel.",
+              "ref": "a6-erreurs"
+            },
+            {
+              "pattern": "The ce dropped where no noun precedes: « Qui m'inquiète, c'est le fil », « Que je voudrais, c'est... ».",
+              "criterion": "choix",
+              "feedback": "Aucun nom n'est écrit devant, donc ce prend sa place : « Ce qui m'inquiète ».",
+              "ref": "a7-piege"
+            },
+            {
+              "pattern": "ce que written after a verb that carries de: « ce que j'ai besoin », « ce que tu parles ».",
+              "criterion": "choix",
+              "feedback": "Dis le verbe tout seul : avoir besoin DE. Le de te donne ce dont.",
+              "ref": "a8-erreurs"
+            },
+            {
+              "pattern": "The ce dropped after tout: « tout qui reste à faire », « tout que tu as dit ».",
+              "criterion": "choix",
+              "feedback": "tout n'est pas un nom et ne reprend rien. Écris tout ce qui, tout ce que, tout ce dont.",
+              "ref": "a9-piege"
+            },
+            {
+              "pattern": "qui or que after a comma to pick up the whole preceding sentence: « il a réparé la lampe en dix minutes, qui m’a étonné ».",
+              "criterion": "choix",
+              "feedback": "Devant la virgule il y a une phrase, pas un nom. Écris ce qui, ce que ou ce dont.",
+              "ref": "a10-erreurs"
+            }
+          ],
+          "graderNotes": [
+            "Word count EXCLUDES the heading line (FICHE DE RÉPARATION : ...) and any signature. Count the body only, with 10% tolerance (99-165) before criterion « tache » loses its point.",
+            "DO NOT SCORE the prepositional relatives for PEOPLE (avec qui, à qui, chez qui) or où. They belong to the parallel lesson on dont and où and have not been taught here. A learner who uses one correctly is not rewarded and one who uses it wrongly is not penalised.",
+            "dont ON ITS OWN is treated as known, not as new: score it only in the one contrast this lesson owns, which is dont against duquel after a compound preposition. Do not mark dont for anything else.",
+            "The subjunctive belongs to the next lesson. Do not mark a mood error in any subordinate clause.",
+            "lequel for a person (la personne à laquelle je pense) is correct French and is accepted, but the lesson taught the thing case, so it is never required.",
+            "Judge the relative by what is WRITTEN in front of the gap in the learner text, not by what the learner probably meant. A sentence can be right for a different reason than intended and still scores.",
+            "An agreement that is correct but inaudible (lesquels against lesquelles) counts exactly as much as an audible one. The criterion is written accuracy.",
+            "Writer gender is unknown: judge adjective agreement for internal consistency only.",
+            "Accept any broken object and any francophone city. Accept regional vocabulary (grille-pain, toaster, char, magasin de quartier, ressort, résistance).",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",
@@ -131701,11 +133632,160 @@
           ]
         },
         {
-          "type": "teach",
+          "type": "task",
           "id": "a11-mission",
+          "title": "Organise quelque chose par écrit",
           "frSub": "Mission écrite",
-          "title": "Organise quelque chose par écrit (aperçu de la tâche)",
-          "body": "Tu organises quelque chose à plusieurs : un week-end, un déménagement, une fête, un projet au travail. Écris le message que tu envoies au groupe. Dis ce qu'il faut faire, ce que tu veux, ce qui te fait plaisir, et ce qui est difficile malgré tout. Adresse-toi à des gens que tu tutoies.\n\nEN: You are organising something with other people: a weekend away, a move, a party, a work project. Write the message you send to the group, saying what has to happen, what you want, what pleases you, and what is difficult all the same.\n\nÀ faire : Écris un message de 100 à 140 mots. Il doit contenir : au moins quatre des cinq porteurs, au moins une forme en nous ou en vous, au moins deux verbes parmi les dix à apprendre, et au moins un verbe à deux radicaux. Souligne les formes de subjonctif si tu peux.\n\nCritères :\n• Des formes justes (4 pts)\n• Les quatre familles (3 pts)\n• Les porteurs (3 pts)\n• Un message utilisable (2 pts)\n\nExemple de réponse :\nSalut à tous,\n\nIl faut que nous décidions la date du déménagement cette semaine, sinon le camion sera pris. Je veux que chacun donne ses disponibilités avant jeudi soir, même si ce n'est qu'une heure.\n\nIl faut aussi que quelqu'un aille chercher les cartons chez Malik samedi matin. Bien que ce soit un peu tôt, c'est le seul créneau libre du garage.\n\nAvant que vous arriviez, je vais vider la cave. Il faut juste que j'aie deux personnes pour l'escalier, parce que je ne veux pas que le canapé finisse dehors sous la pluie.\n\nJe suis content que tout le monde puisse venir. On mange sur place, apportez ce qui vous fait plaisir.\n\nÀ samedi,\nSofia"
+          "brief": "Tu organises quelque chose à plusieurs : un week-end, un déménagement, une fête, un projet au travail. Écris le message que tu envoies au groupe. Dis ce qu'il faut faire, ce que tu veux, ce qui te fait plaisir, et ce qui est difficile malgré tout. Adresse-toi à des gens que tu tutoies.",
+          "briefEn": "You are organising something with other people: a weekend away, a move, a party, a work project. Write the message you send to the group, saying what has to happen, what you want, what pleases you, and what is difficult all the same.",
+          "produce": "Écris un message de 100 à 140 mots. Il doit contenir : au moins quatre des cinq porteurs, au moins une forme en nous ou en vous, au moins deux verbes parmi les dix à apprendre, et au moins un verbe à deux radicaux. Souligne les formes de subjonctif si tu peux.",
+          "responseSpec": {
+            "kind": "text",
+            "minWords": 100,
+            "maxWords": 140
+          },
+          "rubric": {
+            "criteria": [
+              {
+                "key": "forme",
+                "label": "Des formes justes",
+                "maxPoints": 4,
+                "descriptors": [
+                  "4 : Chaque verbe derrière un que est au subjonctif et il est correct. Les radicaux sortent de la forme ils, les fins sont les bonnes, et rien n'est resté au présent.",
+                  "3 : Une forme est fausse, ou une seule est restée au présent. Tout le reste tient.",
+                  "2 : Deux ou trois formes sont fausses, souvent les mêmes : nous et vous, ou un des dix verbes.",
+                  "1 : La plupart des verbes derrière que sont au présent, ou construits à partir de l'infinitif."
+                ]
+              },
+              {
+                "key": "familles",
+                "label": "Les quatre familles",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Le message contient un verbe régulier, une forme en nous ou en vous, un verbe à deux radicaux et deux verbes parmi les dix.",
+                  "2 : Trois familles sur quatre sont là. Il manque en général la forme longue ou le verbe à deux radicaux.",
+                  "1 : Le message n'utilise qu'une seule famille, presque toujours des verbes en -er à la troisième personne."
+                ]
+              },
+              {
+                "key": "porte",
+                "label": "Les porteurs",
+                "maxPoints": 3,
+                "descriptors": [
+                  "3 : Quatre porteurs différents au moins, chacun suivi de que et d'un verbe conjugué.",
+                  "2 : Deux ou trois porteurs, ou un porteur répété quatre fois.",
+                  "1 : Un seul porteur dans tout le message, ou un que suivi d'un infinitif."
+                ]
+              },
+              {
+                "key": "message",
+                "label": "Un message utilisable",
+                "maxPoints": 2,
+                "descriptors": [
+                  "2 : Le groupe sait quoi faire en le lisant une fois. La longueur est dans les bornes et le ton est celui d'un message entre gens qui se tutoient.",
+                  "1 : Le lecteur doit relire pour comprendre ce qu'on lui demande, ou la longueur sort des bornes."
+                ]
+              }
+            ]
+          },
+          "scaffold": [
+            "Il faut que",
+            "Je veux que",
+            "Je suis content que",
+            "Bien que",
+            "Avant que",
+            "Il faut aussi que",
+            "Et surtout, il faut que",
+            "Dites-moi vite"
+          ],
+          "modelAnswer": "Salut à tous,\n\nIl faut que nous décidions la date du déménagement cette semaine, sinon le camion sera pris. Je veux que chacun donne ses disponibilités avant jeudi soir, même si ce n'est qu'une heure.\n\nIl faut aussi que quelqu'un aille chercher les cartons chez Malik samedi matin. Bien que ce soit un peu tôt, c'est le seul créneau libre du garage.\n\nAvant que vous arriviez, je vais vider la cave. Il faut juste que j'aie deux personnes pour l'escalier, parce que je ne veux pas que le canapé finisse dehors sous la pluie.\n\nJe suis content que tout le monde puisse venir. On mange sur place, apportez ce qui vous fait plaisir.\n\nÀ samedi,\nSofia",
+          "modelAnswerEn": "Hi everyone. We have to decide the moving date this week, or the van will be taken. I want everyone to give their availability before Thursday evening, even if it is only an hour. Somebody also has to go and get the boxes from Malik on Saturday morning. Although it is a bit early, it is the only free slot at the garage. Before you arrive I am going to empty the cellar. I just need two people for the stairs, because I do not want the sofa to end up outside in the rain. I am glad everybody can come. We will eat there, bring whatever you like. See you Saturday, Sofia",
+          "watchFor": [
+            {
+              "pattern": "The present indicative left after a carrier (il faut que nous sommes, je veux que tu viens, bien que c’est difficile).",
+              "criterion": "forme",
+              "feedback": "Après que, le verbe change de forme. Dis-le avec ils, coupe -ent, et remets la fin.",
+              "ref": "a2-regle"
+            },
+            {
+              "pattern": "A stem built from the infinitive rather than from the ils form (que je connaisse written connaîsse, que j’écrive written écrise, que je prene).",
+              "criterion": "forme",
+              "feedback": "L'infinitif cache le radical. Ils connaissent, ils écrivent, ils prennent : c'est là qu'il se montre.",
+              "ref": "a4-cartes"
+            },
+            {
+              "pattern": "The present -ons or -ez kept on nous and vous (que nous parlons, que vous arrivez).",
+              "criterion": "forme",
+              "feedback": "Il manque un i. Nous parlons devient que nous parlions, vous arrivez devient que vous arriviez.",
+              "ref": "a6-construire"
+            },
+            {
+              "pattern": "The stem’s own i or y dropped before -ions or -iez (que nous vérifions, que vous croyez, que nous oublions).",
+              "criterion": "forme",
+              "feedback": "Deux i, l'un après l'autre : que nous vérifiions. On ne l'entend pas et il faut l'écrire.",
+              "ref": "a6-doublei"
+            },
+            {
+              "pattern": "A two-stem verb flattened in either direction (que nous boivions, que nous prennions, que je buve, que je prene).",
+              "criterion": "forme",
+              "feedback": "Nous et vous sortent de la botte : buvions, prenions. Les quatre autres personnes restent dedans.",
+              "ref": "a5-piege"
+            },
+            {
+              "pattern": "The regular rule applied to être or avoir (que je soie, que tu ayes, que nous soyions, que nous ayions).",
+              "criterion": "forme",
+              "feedback": "Ces deux-là ont leurs propres fins : sois, soyons, soyez ; aie, ayons, ayez. Aucun i.",
+              "ref": "a7-tableau"
+            },
+            {
+              "pattern": "One of the ten regularised (que je peuve, que je save, que je voule, qu’il alle, que nous faisions for faire).",
+              "criterion": "forme",
+              "feedback": "Ces radicaux ne se calculent pas : puiss-, sach-, veuill-, aill-, fass-. Reprends la carte des dix.",
+              "ref": "a9-flashcards"
+            },
+            {
+              "pattern": "Only -er verbs in the third person, so no subjunctive form in the message is actually visible.",
+              "criterion": "familles",
+              "feedback": "Tout ton message est au sosie : rien ne prouve que tu sais construire la forme. Ajoute un nous ou un vous.",
+              "ref": "a3-sosie"
+            },
+            {
+              "pattern": "No verb from the ten anywhere in the message, although être, avoir and faire are hard to avoid in a plan.",
+              "criterion": "familles",
+              "feedback": "Un message qui organise quelque chose contient presque toujours soit, ait ou fasse. Cherche-les.",
+              "ref": "a7-cartes"
+            },
+            {
+              "pattern": "One carrier repeated for every sentence (il faut que four or five times) with no other expression.",
+              "criterion": "porte",
+              "feedback": "Tu en as cinq. Bien que et avant que changent le rythme du message autant que le sens.",
+              "ref": "a1-porte"
+            },
+            {
+              "pattern": "An infinitive directly after que (il faut que partir, je veux que venir).",
+              "criterion": "porte",
+              "feedback": "Après que vient toujours un sujet et un verbe conjugué. Il faut que nous partions.",
+              "ref": "a1-reperer"
+            },
+            {
+              "pattern": "A verb marked or treated as subjunctive although no que stands in front of it (dis-moi quand tu arrives).",
+              "criterion": "porte",
+              "feedback": "Sans que devant lui, le verbe garde sa forme ordinaire. Ici, tu arrives est un présent et il est juste.",
+              "ref": "a10-lecture"
+            }
+          ],
+          "graderNotes": [
+            "Judge the FORM only. Whether a given expression genuinely takes the subjunctive in French is the next lesson’s subject, so do not mark a carrier choice right or wrong: mark the form that follows it.",
+            "The five carriers taught here are il faut que, je veux que, je suis content que, bien que and avant que. Accept any other real subjunctive trigger the learner brings in (pour que, à condition que, je doute que) without comment, and accept « il faudrait que » as a variant of « il faut que ».",
+            "Do NOT score subjunctive against infinitive in either direction (Paul, 2026-09-24). « Je veux partir » and « je veux que je parte » are the next-but-one lesson’s topic; if a learner writes the second, note it in the comment and take no point.",
+            "Do NOT require or reward the past subjunctive. It is outside B1. If « que j’aie fait » appears and is correct, accept it silently.",
+            "Word count EXCLUDES the greeting line and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance before criterion « message » loses its point.",
+            "The writer’s gender is unknown: judge past-participle and adjective agreement for internal consistency only. « Je suis content » and « je suis contente » are both right.",
+            "A missing i on nous or vous is ONE error, not two, even if it happens twice on the same verb.",
+            "Accept regional usage: courriel and e-mail, char in Québec, and the Belgian and Swiss number words.",
+            "A message that is entirely correct but uses only third-person -er verbs scores at most 1 on « familles », because nothing in it is observable.",
+            "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
+          ]
         },
         {
           "type": "practice",

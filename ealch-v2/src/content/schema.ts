@@ -236,6 +236,11 @@ export const SECTION_TYPES = [
   // training the STOP, which is a physical reflex drill, not articulation.
   'scene',
   'inhibitionDrill',
+  // The graded production task that closes a B1+ lesson. Every other type is
+  // fixed-answer and marks an index; a B1 unit outcome is productive, so it
+  // needs an open answer graded against a rubric. Formative, not a measurement
+  // — see the union member for how it differs from an ExamTask.
+  'task',
 ] as const;
 export type SectionType = (typeof SECTION_TYPES)[number];
 
@@ -1309,6 +1314,48 @@ export type LessonSection = (
       intro?: string;
       targets: InhibitionTarget[];
       closing?: { text: string };
+    }
+  /** The graded production task that closes a B1+ lesson.
+   *
+   *  Every other section is fixed-answer: quiz, trapDrill, listening and
+   *  groupDrill all mark an index. A B1 unit outcome is productive ("narrate a
+   *  coherent past episode"), and marking an index cannot tell whether a
+   *  learner can do that.
+   *
+   *  It is FORMATIVE, not a measurement, which is what separates it from an
+   *  `ExamTask`: the criteria are shown BEFORE the learner writes, a scaffold
+   *  is offered, and feedback names the lesson section to revisit (`ref`)
+   *  rather than a band. No timer, no scoringMap. `Rubric` and `ResponseSpec`
+   *  are the Examiner's own types, imported rather than reinvented, so one
+   *  grader contract serves both.
+   *
+   *  Exactly one per lesson, in the closing act, after the scenario and before
+   *  the progressCheck. `validateLesson` enforces that. */
+  | {
+      type: 'task';
+      title: string;
+      /** The situation, in the lesson's instruction language (B1: simple French). */
+      brief: string;
+      /** One-line English gloss of the brief. B1 only; B2 drops it. */
+      briefEn?: string;
+      /** Exactly what to produce, as a single imperative sentence. */
+      produce: string;
+      responseSpec: ResponseSpec;
+      /** At B1 the learner reads the descriptors before writing, so they
+       *  double as the checklist. */
+      rubric: Rubric;
+      /** Tap-to-insert sentence starters. Scaffolding, not an answer: none of
+       *  them may complete the task alone. */
+      scaffold?: string[];
+      /** What a good answer looks like AT the level, not above it. Also the
+       *  yardstick for the offline self-check. */
+      modelAnswer: string;
+      modelAnswerEn?: string;
+      /** Errors the grader should name, each pointing at the section that
+       *  teaches the fix. `criterion` is a rubric key. */
+      watchFor: { pattern: string; criterion: string; feedback: string; ref?: string }[];
+      /** Notes for the grader prompt only, never shown to the learner. */
+      graderNotes?: string[];
     }
 ) &
   SectionExtras;
@@ -2867,7 +2914,10 @@ function validateSilent(silent: unknown, word: unknown, path: string): Issue[] {
   return out;
 }
 
-function validateSection(s: unknown, path: string): Issue[] {
+/** Exported so a section type can be tested on its own. `task-section.test.ts`
+ *  builds one minimal task and breaks exactly one field per case, which a
+ *  whole-lesson fixture cannot do without carrying 90 other sections. */
+export function validateSection(s: unknown, path = 'section'): Issue[] {
   const out: Issue[] = [];
   const push = (m: string) => out.push({ path, message: m });
   if (typeof s !== 'object' || s === null) return [{ path, message: 'not an object' }];
@@ -3713,6 +3763,52 @@ function validateSection(s: unknown, path: string): Issue[] {
     case 'progressCheck': {
       if (!isStr(sec.body)) push('body is required');
       objList('stats', ['k', 'v']);
+      break;
+    }
+    // The graded production task. Everything here exists so the section can be
+    // MARKED and REVISITED: without a rubric there is nothing to grade against,
+    // and without a model answer the offline self-check has no yardstick, which
+    // is the path taken whenever the grader is unreachable.
+    case 'task': {
+      if (!isStr(sec.brief)) push('brief is required');
+      if (!isStr(sec.produce)) push('produce is required');
+      if (!isStr(sec.modelAnswer)) push('modelAnswer is required: it is the offline self-check yardstick');
+
+      const spec = sec.responseSpec as { kind?: unknown } | undefined;
+      if (typeof spec !== 'object' || spec === null) push('responseSpec is required');
+      else if (spec.kind !== 'text' && spec.kind !== 'audio') push("responseSpec.kind must be 'text' or 'audio'");
+
+      const rubric = sec.rubric as { criteria?: unknown } | undefined;
+      if (typeof rubric !== 'object' || rubric === null || !isArr(rubric.criteria)) {
+        push('rubric.criteria must be an array');
+      } else if (rubric.criteria.length === 0) {
+        push('rubric.criteria is empty, so nothing can be graded or checked');
+      } else {
+        const keys = new Set<string>();
+        rubric.criteria.forEach((c: unknown, i: number) => {
+          const cr = c as { key?: unknown; label?: unknown; maxPoints?: unknown };
+          if (!isStr(cr.key)) push(`rubric.criteria[${i}].key is required`);
+          else if (keys.has(cr.key)) push(`rubric.criteria[${i}].key "${cr.key}" is repeated`);
+          else keys.add(cr.key);
+          if (!isStr(cr.label)) push(`rubric.criteria[${i}].label is required`);
+          if (typeof cr.maxPoints !== 'number' || cr.maxPoints <= 0) {
+            push(`rubric.criteria[${i}].maxPoints must be a positive number`);
+          }
+        });
+        // A watchFor pointing at a criterion that does not exist cannot mark
+        // anything, and the learner would get feedback attached to nothing.
+        if (isArr(sec.watchFor)) {
+          sec.watchFor.forEach((w: unknown, i: number) => {
+            const wf = w as { pattern?: unknown; criterion?: unknown; feedback?: unknown };
+            if (!isStr(wf.pattern)) push(`watchFor[${i}].pattern is required`);
+            if (!isStr(wf.feedback)) push(`watchFor[${i}].feedback is required`);
+            if (!isStr(wf.criterion)) push(`watchFor[${i}].criterion is required`);
+            else if (!keys.has(wf.criterion)) push(`watchFor[${i}].criterion "${wf.criterion}" names no rubric key`);
+          });
+        }
+      }
+
+      if (sec.scaffold !== undefined && !isArr(sec.scaffold)) push('scaffold must be an array when present');
       break;
     }
   }
