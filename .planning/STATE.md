@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 07.1-04-PLAN.md
-last_updated: "2026-09-25T00:09:08.772Z"
+stopped_at: Completed 07.1-05-PLAN.md
+last_updated: "2026-09-25T00:28:21.883Z"
 last_activity: 2026-09-25
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 61
-  completed_plans: 54
-  percent: 89
+  completed_plans: 55
+  percent: 90
 ---
 
 # Project State
@@ -25,15 +25,16 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 4 of 11 plans executed
-Plan: 4 of 11 complete — 07.1-04 added unitsInBand and trail.logic.ts (the pure row composition
-  for the whole trail: TrailRow, trailRows, D-08/D-11/D-27/D-45/D-18/D-19/D-21) plus every
-  phase 07.1 i18n key, authored once in strings.ts
+Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 5 of 11 plans executed
+Plan: 5 of 11 complete — 07.1-05 added app/act.tsx (D-03, the act screen) and app/fiche.tsx
+  (D-02, the formSheet unit Fiche), plus SheetChrome.tsx and spine-routes.test.ts's source
+  guard on both routes' param handling. lessonoverview.tsx/missions.tsx still stand; plan 08
+  deletes them.
 Status: Ready to execute
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-25
 
-Progress: [█████████░] 89%
+Progress: [█████████░] 90%
 
 ## Performance Metrics
 
@@ -68,6 +69,7 @@ Progress: [█████████░] 89%
 | Phase 07.1 P01 | 40min | 4 tasks | 6 files |
 | Phase 07.1 P03 | 50min | 3 tasks | 7 files |
 | Phase 07.1 P04 | 55min | 3 tasks | 7 files |
+| Phase 07.1 P05 | 70min | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -116,6 +118,8 @@ Recent decisions affecting current work:
 - [Phase 07.1]: Plan 03: found but did not fix a same-shape band-list under-count in the live curriculum admin UI (src/app/admin/curriculum/actions.ts + NewThemeButton.tsx, both still capped at c1) — out of this plan's named file scope; documented in 07.1-03-SUMMARY.md as a follow-up for whichever plan next touches that screen.
 - [Phase 07.1]: D-37: acte 00 renders on a locked band and routes to the paywall like every other locked row (reverses den.tsx's old hide-on-lock). — D-22 requires locked rows to stay readable and pressable; narrated.tsx still gates on arrival regardless of visibility.
 - [Phase 07.1]: Act and mission titles render exactly as authored, with no language swap and no titleFr/titleEn schema addition (the deferred naming question CONTEXT flagged). — Titles are already authored in each lesson's own instruction language, so 'as authored' is the no-op that invents no parallel copy table; a later phase may revisit once the act screen is in front of a reviewer.
+- [Phase 07.1]: Plan 05: D-38's PASS verdict (real Android bottom sheet, plan 02) consumed without re-testing; fiche.tsx built as a formSheet route with the three measured defects handled at registration (contentStyle background, 0.92 top detent) and in the screen body (no numberOfLines truncation, minHeight not height on text-bearing UI). act.tsx resolves the mission deep-link section index against L.sections (not act.sections' own index).
+- [Phase 07.1]: Plan 05: both act.tsx and fiche.tsx use router.back() first and router.replace('/den') only when router.canGoBack() is false — the plan's explicit correction to missions.tsx's own dead-link verb (D-41).
 
 ### Pending Todos
 
@@ -142,6 +146,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-25T00:09:08.754Z
-Stopped at: Completed 07.1-04-PLAN.md
+Last session: 2026-09-25T00:28:21.868Z
+Stopped at: Completed 07.1-05-PLAN.md
 Resume file: None
