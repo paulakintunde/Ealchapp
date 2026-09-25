@@ -15,7 +15,7 @@ import { useProgress, useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { lessonSkill } from '@/content/curriculum';
 import { sound, audio } from '@/services';
-import { content } from '@/services/content';
+import { content, DRAFT_LESSON_IDS } from '@/services/content';
 import { quizQuestions, unitBand, type Lesson, type LessonSection, type QuizQuestion } from '@/content/schema';
 import { buildQuizConfig } from '@/content/quizRounds.logic';
 import { actSectionsSoFar, checkpointFor, resumePlan, tranche, warmBackQuestions } from '@/content/acts.logic';
@@ -72,9 +72,11 @@ function LessonScreenBody() {
   // deep link) lands here, so a lesson past A1 without 'levels.all' redirects
   // to the paywall instead of rendering.
   const levelsAll = useFeature('levels.all');
-  // DEV-PREVIEW-B101 (temporary): the b1.01 draft opens past the level gate in
-  // dev builds only. Nothing else is unlocked and no entitlement is written.
-  const devPreview = __DEV__ && L?.id === 'b1.01.l1';
+  // DEV-PREVIEW-B1 (temporary): the B1 drafts open past the level gate in dev
+  // builds only. Nothing else is unlocked and no entitlement is written. The id
+  // list comes from the overlay itself, so it cannot fall behind the fixture the
+  // way a hard-coded 'b1.01.l1' did once the band grew to fourteen lessons.
+  const devPreview = __DEV__ && !!L && DRAFT_LESSON_IDS.has(L.id);
   // D-32: unitBand returns null for a band LEVELS does not know. The old
   // fallback-to-a1 default made an unknown band read as FREE. An id no band
   // claims is now locked, not free. This closes a latent fail-open; it does

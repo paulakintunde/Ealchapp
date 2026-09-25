@@ -40,9 +40,14 @@ test('both gate chokepoints derive bandLocked so a null band reads as LOCKED', (
   }
 });
 
-test('lesson.tsx keeps its __DEV__ devPreview bypass exactly where it was', () => {
+test('lesson.tsx keeps its __DEV__ devPreview bypass, now for the whole draft band', () => {
   const src = readScreen('lesson');
-  ok(src.includes('const devPreview = __DEV__ && L?.id === \'b1.01.l1\';'), 'devPreview bypass must survive Task 2 untouched');
+  // It was `L?.id === 'b1.01.l1'`. The B1 drafts grew to fourteen lessons, and
+  // a hard-coded id silently gated the other thirteen behind the paywall, so
+  // the set now comes from the overlay itself and cannot fall behind it.
+  ok(src.includes('DRAFT_LESSON_IDS.has(L.id)'), 'devPreview must read the draft id set from the overlay');
+  ok(src.includes('__DEV__'), 'the bypass must stay dev-only');
+  ok(!src.includes("L?.id === 'b1.01.l1'"), 'the single hard-coded draft id must be gone');
   ok(src.includes('!devPreview'), 'bandLocked must still exempt the dev preview');
 });
 

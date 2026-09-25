@@ -228,9 +228,21 @@ test('den.tsx honours ?band= only for a value in LEVELS', () => {
   ok(/\(LEVELS as readonly string\[\]\)\.includes\(wanted\)/.test(src), 'the band param must be checked against LEVELS before it is set');
 });
 
-test('den.tsx shows the B1 dev-preview door on the B1 trail only', () => {
+test('den.tsx shows the B1 dev-preview banner on the B1 trail only', () => {
   const src = readScreen('den');
-  ok(/__DEV__ && band === 'b1' && content\.lesson\('b1\.01\.l1'\)/.test(src), 'the DEV-PREVIEW-B101 door must be gated on __DEV__ AND the b1 band');
+  ok(
+    /__DEV__ && band === 'b1' && draftCount > 0/.test(src),
+    'the DEV-PREVIEW-B1 banner must be gated on __DEV__ AND the b1 band',
+  );
+  // It used to open one hard-coded lesson. The whole draft band is merged into
+  // the corpus now, so the trail renders all fourteen units itself and the
+  // banner only says why they are there. A door to a single id would go stale
+  // the moment the band grew, which is exactly what happened at fourteen.
+  ok(
+    !/content\.lesson\('b1\.01\.l1'\)/.test(src),
+    'the banner must not hard-code a single draft lesson id',
+  );
+  ok(src.includes('DRAFT_LESSON_IDS'), 'the draft count must come from the overlay, not a literal');
 });
 
 test("LessonPager labels an act chapter card with the mission it opens, not mission 1", () => {

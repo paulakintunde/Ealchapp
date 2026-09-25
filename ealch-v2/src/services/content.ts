@@ -79,15 +79,30 @@ import {
 // stopped compiling the day seed.json first carried themes. The seed is
 // publish-validated (validateCorpus) before it is ever committed, which is the
 // guarantee the cast actually rests on.
-// DEV-PREVIEW-B101 (temporary): the b1.01 draft overlaid on the seed in dev
-// builds only, so the lesson can be seen on a device before it exists anywhere
-// else. Remove this, the import below, the den row and the JSON together.
-// Phase 07.1: deleting /lessonoverview (D-02) breaks den.tsx's preview row
-// above, so plan 08 must re-point it at the trail rather than delete it.
-import devPreviewB101 from '@/content/dev-preview-b101.json';
+// DEV-PREVIEW-B1 (temporary): the whole B1 draft band overlaid on the seed in
+// dev builds only, so the lessons can be reviewed on a device before they exist
+// anywhere else. Remove this, the import below and the JSON together.
+//
+// The seed carries NO b1 units, so merging this is all it takes for the B1 band
+// to appear in den.tsx's trail on its own. There is no bespoke preview surface
+// and no per-lesson wiring: adding a lesson is one line in the generator,
+// `ealch-admin/scripts/data/b1/_preview-b1.ts`.
+//
+// Rebuild after ANY b1 source change: pnpm tsx scripts/data/b1/_preview-b1.ts
+// The b1.01-only fixture drifted through three source commits before anyone
+// noticed, shipping 0 sheet links and 4 ids that collided with published rows.
+// `ealch-admin/scripts/b1-preview-fixture.test.ts` now fails if it drifts again.
+import devPreviewB1 from '@/content/dev-preview-b1.json';
 const SEED = __DEV__
-  ? mergeCorpus(seedJson as unknown as Corpus, { version: 0, ...devPreviewB101 } as unknown as Corpus)
+  ? mergeCorpus(seedJson as unknown as Corpus, { version: 0, ...devPreviewB1 } as unknown as Corpus)
   : (seedJson as unknown as Corpus);
+
+/** The draft lessons this dev build overlays, empty in a release build. The one
+ *  list every dev-only branch reads, so the level gate and any preview surface
+ *  cannot disagree about what counts as a draft. */
+export const DRAFT_LESSON_IDS: ReadonlySet<string> = new Set(
+  __DEV__ ? (devPreviewB1.lessons as { id: string }[]).map((l) => l.id) : []
+);
 // The RAW verified snapshot text, byte-for-byte as downloaded. Caching the text
 // rather than a re-stringified object drops one full-corpus serialization and
 // one in-memory copy from the OTA apply path. (Caches written by older builds

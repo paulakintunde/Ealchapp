@@ -47,5 +47,5 @@ This extends B1-PILOT-BRIEF.md (house rules, corpus rules, cross-references) and
 1. **Act plan:** acts, sub-topic, missions per act, items per act. Written in the lesson header.
 2. **Author act by act.** Run `validateLesson` and `validateDensity` after each act, never only at the end.
 3. **Assemble:** the quiz rounds, drills, sheets and deck tranches, then the full validation and typecheck.
-4. **Preview:** regenerate `dev-preview-*.json` (`_preview-b101.ts` for b1.01), then check on the Pixel 6 through Metro on 8083.
+4. **Preview:** regenerate the draft band (`pnpm tsx scripts/data/b1/_preview-b1.ts`), then check on the Pixel 6 through Metro. The B1 band appears in the Den trail on its own.
 5. **Paul reviews on the phone.** The next lesson starts only after his OK.

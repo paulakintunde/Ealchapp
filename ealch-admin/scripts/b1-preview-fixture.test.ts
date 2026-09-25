@@ -1,8 +1,10 @@
-// `dev-preview-b101.json` is the only way b1.01 reaches a phone. A dev build
-// merges it ON TOP of the seed (services/content.ts, `__DEV__ ? mergeCorpus(...)`),
-// and in `mergeCorpus` the overlay wins for any id present in both.
+// `dev-preview-b1.json` is the only way the B1 drafts reach a phone. A dev
+// build merges it ON TOP of the seed (services/content.ts, `__DEV__ ?
+// mergeCorpus(...)`), and in `mergeCorpus` the overlay wins for any id present
+// in both. The seed carries no b1 units at all, so this fixture IS the B1 band.
 //
-// It drifted through three b1.01 source commits without anyone noticing:
+// Its predecessor, the b1.01-only fixture, drifted through three source commits
+// without anyone noticing:
 //
 //   251ff95  moved 200 authored ids off published rows
 //   bef9a0b  spread the answer slots
@@ -14,37 +16,53 @@
 // "je parlais" where the published sentence "La lettre qu'elle a ecrite hier
 // n'est jamais arrivee." belongs. Release builds were never affected.
 //
-// Reading the lesson source cannot catch any of this, which is why the source
-// side guards all passed. These tests read the FIXTURE.
+// Reading the lesson source cannot catch any of this, which is why every
+// source-side guard passed through all three. These tests read the FIXTURE.
 //
-// If one fails, the fix is almost always: pnpm tsx scripts/data/b1/_preview-b101.ts
+// If one fails, the fix is almost always: pnpm tsx scripts/data/b1/_preview-b1.ts
 import { ok, deepStrictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { buildPreview, serialise, PREVIEW_PATH } from './data/b1/_preview-b101.ts';
+import { buildPreview, serialise, PREVIEW_PATH } from './data/b1/_preview-b1.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SEED = resolve(HERE, '../../ealch-v2/src/content/seed.json');
+const EXPECTED_LESSONS = 14;
 
 const onDisk = () => readFileSync(fileURLToPath(PREVIEW_PATH), 'utf8');
 
-test('the fixture is what _preview-b101.ts would build today', () => {
-  const expected = serialise(buildPreview());
+test('the fixture is what _preview-b1.ts would build today', async () => {
+  const expected = serialise(await buildPreview());
   const actual = onDisk();
   if (expected === actual) return ok(true);
-  // Say WHAT drifted, not just that something did.
-  const e = JSON.parse(expected), a = JSON.parse(actual);
-  const eL = e.lessons[0], aL = a.lessons[0];
-  const sheetIds = (L: any) => (L.sections ?? []).filter((s: any) => s.sheetId).length;
+  // Say WHAT drifted, not merely that something did.
+  const e = JSON.parse(expected);
+  const a = JSON.parse(actual);
+  const sheetIds = (c: any) => (c.lessons ?? []).reduce((n: number, l: any) => n + (l.sections ?? []).filter((s: any) => s.sheetId).length, 0);
+  const acts = (c: any) => (c.lessons ?? []).reduce((n: number, l: any) => n + (l.acts?.length ?? 0), 0);
   const notes = [
-    `sections ${aL.sections?.length} on disk vs ${eL.sections?.length} expected`,
-    `sheetId links ${sheetIds(aL)} vs ${sheetIds(eL)}`,
+    `lessons ${a.lessons?.length} on disk vs ${e.lessons?.length} expected`,
+    `units ${a.units?.length} vs ${e.units?.length}`,
+    `acts ${acts(a)} vs ${acts(e)}`,
+    `sheetId links ${sheetIds(a)} vs ${sheetIds(e)}`,
     `items ${a.items?.length} vs ${e.items?.length}`,
-    `version ${aL.version} vs ${eL.version}`,
   ];
-  ok(false, `the fixture is stale, so the phone is not showing the current b1.01:\n  ${notes.join('\n  ')}\n  Rebuild it: pnpm tsx scripts/data/b1/_preview-b101.ts`);
+  ok(false, `the fixture is stale, so the phone is not showing the current drafts:\n  ${notes.join('\n  ')}\n  Rebuild it: pnpm tsx scripts/data/b1/_preview-b1.ts`);
+});
+
+test('the fixture carries every draft lesson', () => {
+  const fx = JSON.parse(onDisk());
+  deepStrictEqual(fx.lessons.length, EXPECTED_LESSONS, `expected ${EXPECTED_LESSONS} draft lessons in the fixture`);
+  deepStrictEqual(fx.units.length, EXPECTED_LESSONS, 'one unit per draft lesson');
+  const seqs = fx.units.map((u: any) => u.seq);
+  deepStrictEqual(new Set(seqs).size, seqs.length, 'two units share a seq, so the trail order is undefined');
+  deepStrictEqual([...seqs], [...seqs].sort((x: number, y: number) => x - y), 'units must be written in trail order');
+  for (const u of fx.units) {
+    deepStrictEqual(u.level, 'b1', `${u.id} must carry level b1 or the trail will not show it`);
+    ok((u.lessonIds ?? []).length > 0, `${u.id} has no lessonIds, so its heading opens nothing`);
+  }
 });
 
 test('no fixture item id collides with a published seed id', () => {
@@ -59,20 +77,37 @@ test('no fixture item id collides with a published seed id', () => {
   );
 });
 
-test('every reference sheet in the fixture is reachable from a mission', () => {
+test('no fixture unit or lesson id collides with a published one', () => {
   const fx = JSON.parse(onDisk());
-  const L = fx.lessons[0];
-  const sheets: string[] = (L.sheets ?? []).map((s: any) => s.id);
-  ok(sheets.length > 0, 'the fixture lesson carries no sheets at all');
-  const linked = new Set((L.sections ?? []).map((s: any) => s.sheetId).filter(Boolean));
-  const unreachable = sheets.filter((s) => !linked.has(s));
-  ok(unreachable.length === 0, `unreachable on a phone: ${unreachable.join(', ')}`);
+  const seed = JSON.parse(readFileSync(SEED, 'utf8'));
+  const su = new Set<string>((seed.units ?? []).map((u: any) => u.id));
+  const sl = new Set<string>((seed.lessons ?? []).map((l: any) => l.id));
+  const uClash = fx.units.map((u: any) => u.id).filter((id: string) => su.has(id));
+  const lClash = fx.lessons.map((l: any) => l.id).filter((id: string) => sl.has(id));
+  ok(uClash.length === 0, `draft units would replace published ones: ${uClash.join(', ')}`);
+  ok(lClash.length === 0, `draft lessons would replace published ones: ${lClash.join(', ')}`);
 });
 
-test('the fixture lesson and unit still agree with the source', () => {
+test('every reference sheet in every draft is reachable from a mission', () => {
   const fx = JSON.parse(onDisk());
-  const built = buildPreview();
-  deepStrictEqual(fx.units[0].id, built.units[0].id);
-  deepStrictEqual(fx.lessons[0].id, built.lessons[0].id);
-  deepStrictEqual(fx.lessons[0].version, built.lessons[0].version);
+  const broken: string[] = [];
+  for (const L of fx.lessons) {
+    const sheets: string[] = (L.sheets ?? []).map((s: any) => s.id);
+    const linked = new Set((L.sections ?? []).map((s: any) => s.sheetId).filter(Boolean));
+    const unreachable = sheets.filter((s) => !linked.has(s));
+    if (unreachable.length) broken.push(`${L.id}: ${unreachable.join(', ')}`);
+  }
+  ok(broken.length === 0, `unreachable on a phone:\n  ${broken.join('\n  ')}`);
+});
+
+test('every draft act carries an opener the trail and act screen can draw', () => {
+  const fx = JSON.parse(onDisk());
+  const bad: string[] = [];
+  for (const L of fx.lessons) {
+    (L.acts ?? []).forEach((a: any, i: number) => {
+      if (!a.title) bad.push(`${L.id} act ${i}: no title, the trail row reads blank`);
+      if (!a.opener?.line && !a.milestone) bad.push(`${L.id} act ${i}: no opener line and no milestone, so act.tsx has nothing to show`);
+    });
+  }
+  ok(bad.length === 0, bad.slice(0, 8).join('\n  '));
 });

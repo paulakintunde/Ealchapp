@@ -467,7 +467,10 @@ continuous take, so say so in capitals as b1.03 does.
 
 ### 1.7 The preview generator
 
-`_preview-b101.ts` is the pattern. Copy it, change the three imports and the output
+`_preview-b1.ts` builds the preview for the WHOLE draft band. Adding a lesson is one
+line in its `SLUGS` list, not a new file. Rebuild it after ANY source change
+(`pnpm tsx scripts/data/b1/_preview-b1.ts`); `scripts/b1-preview-fixture.test.ts`
+fails if you forget. What follows described the old one-file-per-lesson
 path:
 
 ```ts

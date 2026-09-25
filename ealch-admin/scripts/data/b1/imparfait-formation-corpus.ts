@@ -4,7 +4,7 @@
 // DRAFT. Nothing here is imported into Postgres or merged into seed.json. The
 // pilot v1 that Paul saw on the phone is in `_pilot-v1/*.ts.txt`.
 //
-// STABLE EXPORTS (imported by b1.02, b1.03, b1.04 and _preview-b101.ts; do not
+// STABLE EXPORTS (imported by b1.02, b1.03, b1.04 and _preview-b1.ts; do not
 // rename): REFRAME, REFRAME_EN, UNIT, LESSON_ID, THEME, LEVEL, E, ALL_ROWS.
 //
 // ══════════════════════════════════════════════════════════════════════════

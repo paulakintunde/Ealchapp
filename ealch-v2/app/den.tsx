@@ -13,7 +13,7 @@ import { TrailCard } from '@/components/TrailCard';
 import { LevelChip, LevelPanel, type BandUnitCount } from '@/components/LevelPanel';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { content } from '@/services/content';
+import { content, DRAFT_LESSON_IDS } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
 import { foldCards, itemsPracticed, masteredItems, resumeIsFresh, localDay } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
@@ -99,6 +99,10 @@ export default function Den() {
 
   // D-18: the start marker is the first unstarted act row across the WHOLE
   // band, only when there is no fresh lesson resume to prioritise instead.
+  // DEV-PREVIEW-B1: how many unpublished B1 lessons this build is carrying.
+  // Zero in a release build, because the overlay is dev-only.
+  const draftCount = DRAFT_LESSON_IDS.size;
+
   const hasFreshResume = useMemo(
     () => resumeIsFresh(resumeByMode.lesson ?? null, localDay()),
     [resumeByMode],
@@ -265,22 +269,24 @@ export default function Den() {
           {T.denIntro}
         </TX>
 
-        {/* DEV-PREVIEW-B101 (temporary): dev builds only, opens the b1.01 draft. */}
-        {/* DEV-PREVIEW-B101 (D-30): the B1 authors' only door. Re-pointed at
-            the Fiche sheet, replacing the old overview screen's route. Do not
-            delete it. */}
-        {/* Shown on the B1 trail only: on every other band it sat above the
-            day-one cards and headings, a B1 draft pushing sons and A1 down
-            (device pass, 2026-09-24). */}
-        {__DEV__ && band === 'b1' && content.lesson('b1.01.l1') ? (
-          <Press
-            onPress={() => router.push({ pathname: '/fiche', params: { key: 'b1.01.l1' } })}
-            cue="tap"
+        {/* DEV-PREVIEW-B1 (temporary, D-30): the B1 authors' door, dev only.
+            It no longer opens one hard-coded lesson. The whole draft band is
+            merged into the corpus, so the trail below renders all fourteen
+            units on its own — this banner only says why they are there and
+            that none of it is published.
+            Shown on the B1 trail only: on every other band it sat above the
+            day-one cards and headings, pushing sons and A1 down (device pass,
+            2026-09-24). */}
+        {__DEV__ && band === 'b1' && draftCount > 0 ? (
+          <View
+            accessibilityRole="summary"
             style={{ borderRadius: 16, borderWidth: 1, borderStyle: 'dashed', borderColor: t.accA(55), backgroundColor: t.card, padding: 14, paddingHorizontal: 16, marginBottom: 12 }}
           >
-            <TX font="semi" role="meta" ls={2.2} color={t.tag('gold').c}>PREVIEW · B1 DRAFT</TX>
-            <TX font="semi" role="body" style={{ marginTop: 4 }}>{"L'imparfait : la formation"}</TX>
-          </Press>
+            <TX font="semi" role="meta" ls={2.2} color={t.tag('gold').c}>PREVIEW · B1 DRAFTS</TX>
+            <TX role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>
+              {`${draftCount} unpublished lessons, dev builds only. Not in the seed and not in the database.`}
+            </TX>
+          </View>
         ) : null}
       </View>
 

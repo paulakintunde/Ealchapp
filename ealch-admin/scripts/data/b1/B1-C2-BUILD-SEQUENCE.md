@@ -18,7 +18,7 @@ Status 2026-09-22. B1 Unit 1 (b1.01 to b1.04) is drafted, and b1.01 has been see
 3. **The bubble punctuation fix,** so French can use a spaced « ? » in scene bubbles.
 4. **A B1 import pipeline.** One generic author-batch and merge script for B1+ lessons, not one per lesson as in A2. It must cover item upsert under `recits-au-passe` and the other themes, unit creation, the seed merge, and version guards that follow the no-text-bump rule.
 5. **The a2.20 database row back to v3.** This is already fixed in the source file and the seed; the database still holds v4.
-6. **Import and publish b1.01 to b1.04,** then remove the `DEV-PREVIEW-B101` scaffolding.
+6. **Import and publish b1.01 to b1.04,** then remove the `DEV-PREVIEW-B1` scaffolding.
 
 ## Phase 1: B1 grammar, the proven shape (20 lessons, 5 waves of 4)
 
