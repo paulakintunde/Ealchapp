@@ -31,7 +31,17 @@ const levelLabel = (l: Level) => (l === 'sons' ? 'SONS' : l.toUpperCase());
 /** The chip beside the Den/trail title that opens the panel. 38px visual with
  *  hitSlop to reach the 44dp target (ui.tsx:286-289's rule for a small header
  *  control) — the exact guard sons-06-muettes.test.ts:472-482 checks for. */
-export function LevelChip({ band, onPress }: { band: Level; onPress: () => void }) {
+export function LevelChip({
+  band,
+  expanded,
+  onPress,
+}: {
+  band: Level;
+  /** Whether the panel this chip opens is currently mounted — announced so a
+   *  screen reader user knows the panel state without seeing it. */
+  expanded: boolean;
+  onPress: () => void;
+}) {
   const t = useTheme();
   const T = useT();
   return (
@@ -39,6 +49,7 @@ export function LevelChip({ band, onPress }: { band: Level; onPress: () => void 
       cue={null}
       onPress={onPress}
       accessibilityRole="button"
+      accessibilityState={{ expanded }}
       accessibilityLabel={T.bandChipLabel}
       hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
       style={{
