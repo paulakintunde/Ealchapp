@@ -26,6 +26,8 @@ const SLUGS = [
   'subjonctif-declencheurs', 'subjonctif-infinitif', 'ordre-pronoms', 'voix-passive',
   // wave 5
   'discours-indirect', 'negation-avancee', 'inversion',
+  // wave 6
+  'cest-il-est', 'tout', 'meme',
 ] as const;
 
 /** The `task` section now has a real renderer (`TaskView`, wired into

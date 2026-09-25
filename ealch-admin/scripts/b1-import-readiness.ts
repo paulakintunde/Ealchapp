@@ -25,6 +25,8 @@ const SLUGS = [
   'subjonctif-declencheurs', 'subjonctif-infinitif', 'ordre-pronoms', 'voix-passive',
   // wave 5
   'discours-indirect', 'negation-avancee', 'inversion',
+  // wave 6
+  'cest-il-est', 'tout', 'meme',
 ];
 
 type Row = { id: string; theme?: string; level?: string };
@@ -106,8 +108,8 @@ for (const id of batchIds) {
 console.log('\nauthored id floor per theme (no published fr.b1 row may sit at or above it):');
 for (const [th, lo] of [...floors].sort()) console.log(`  ${th.padEnd(26)} ${lo}`);
 
-console.log('\nDATABASE PLANE, probed read-only 2026-09-25 after wave 5:');
-console.log('  No published fr.b1 row sits at or above any floor, in any of the nine');
+console.log('\nDATABASE PLANE, probed read-only 2026-09-25 after wave 6:');
+console.log('  No published fr.b1 row sits at or above any floor, in any of the twelve');
 console.log('  themes above. Nothing would be overwritten.');
 console.log('');
 console.log('  BEWARE THE NEAR MISS. recits-au-passe and projets-et-futur each hold 17');

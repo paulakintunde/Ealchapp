@@ -33,6 +33,7 @@ const LESSONS: [string, string][] = [
   ['b1.12', 'dont-ou'], ['b1.13', 'lequel-ce-qui'], ['b1.14', 'subjonctif-formation'],
   ['b1.15', 'subjonctif-declencheurs'], ['b1.16', 'subjonctif-infinitif'], ['b1.17', 'ordre-pronoms'], ['b1.18', 'voix-passive'],
   ['b1.19', 'discours-indirect'], ['b1.20', 'negation-avancee'], ['b1.21', 'inversion'],
+  ['b1.22', 'cest-il-est'], ['b1.23', 'tout'], ['b1.24', 'meme'],
 ];
 
 const OPT_KEYS = ['opts', 'options', 'choices', 'answers'];

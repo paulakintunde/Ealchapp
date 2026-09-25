@@ -31,7 +31,10 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.19 | discours-indirect | 85 | 11 | 11x8 | 11 | 5 | 18 | 181 | 11 prompts, art not made | DONE |
 | b1.20 | negation-avancee | 85 | 11 | 11x8 | 11 | 5 | 19 | 200 | 11 prompts, art not made | DONE |
 | b1.21 | inversion | 88 | 11 | 11x8 | 11 | 5 | 13 | 181 | 11 prompts, art not made | DONE |
-| b1.22 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.22 | cest-il-est | 86 | 11 | 11x8 | 11 | 5 | 19 | 192 | 11 prompts, art not made | DONE |
+| b1.23 | tout | 85 | 11 | 11x8 | 11 | 5 | 16 | 196 | 11 prompts, art not made | DONE |
+| b1.24 | meme | 85 | 11 | 11x8 | 11 | 5 | 19 | 180 | 11 prompts, art not made | DONE |
+| b1.25 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
 
@@ -40,6 +43,18 @@ independently by the orchestrator. That is EIGHTEEN lessons authored and NONE
 has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
+
+**Wave 6 LANDED 2026-09-25: b1.22 c'est vs il est, b1.23 tout, b1.24 même,
+verified independently (validators 0/0/0, 568 rows, zero id collisions, 104/104
+house tests, readiness 0 blockers, live Postgres probe clean on all twelve
+themes). TWENTY-FOUR lessons authored. REVIEW GATE 2 IS NEXT: nothing in wave 7
+starts until Paul has looked. 143 prompts (b1.12 to b1.24) have no art yet. Findings:**
+
+- **a1.06 owns the c'est / il est determiner test**, a1.11 jobs, a1.22 nationality, a1.12 the clock. b1.22 builds on them. Open: act 6 calls spoken « c'est mes collègues » normal where a1.06 calls it wrong (the written rule stays ce sont).
+- **No A1/A2 lesson teaches tout as a system**, only chunks (a1.08, a1.25, a2.07, a2.27-30; sons.06 owns the sounded s of pronoun tous).
+- **NOBODY OWNS THE STRESSED PRONOUNS.** a1.05 defers them to a lesson that was never built. b1.24 uses moi, toi, lui as known forms for moi-même. A gap for Paul to decide.
+- **même respells MEM** (the seed's spelling, and it passes hasPlainNasal). b1.23 had MEMM in one row; aligned by the orchestrator.
+- **b1.20 did not cover « ne ... même pas »**; b1.24 act 7 teaches it.
 
 **Wave 5 LANDED 2026-09-25: b1.19 reported speech, b1.20 advanced negation,
 b1.21 inversion, verified independently (validators 0/0/0 on all three, 562
@@ -248,9 +263,9 @@ had no b1 rows, and `pronoms-essentiels` already carries four B1 lessons.
 
 | Theme | Block | Owner | Authored |
 |---|---|---|---|
-| `description-personnes-objets` | 1000-1199 | b1.22 c'est vs il est | |
-| `expressions-de-quantite` | 1000-1199 | b1.23 tout | |
-| `comparaisons` | 1000-1199 | b1.24 même | |
+| `description-personnes-objets` | 1000-1199 | b1.22 c'est vs il est | 1000-1191 (192 rows) |
+| `expressions-de-quantite` | 1000-1199 | b1.23 tout | 1000-1195 (196 rows) |
+| `comparaisons` | 1000-1199 | b1.24 même | 1000-1179 (180 rows) |
 
 In each, everything below 1000 is published or reserved: do not use.
 
