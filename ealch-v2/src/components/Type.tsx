@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { PixelRatio, Text, type TextProps, type TextStyle } from 'react-native';
 import { F } from '@/theme/fonts';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { typeMetrics, type RoleKey as RK } from './type.logic';
-import { useShowEnglish } from './GlossContext';
+import { useEnglishMode } from './GlossContext';
 import { enTailOf, stripEnTail } from '@/content/english.logic';
 
 type FontKey = 'serif' | 'serifI' | 'sans' | 'med' | 'semi' | 'bold' | 'notation';
@@ -104,9 +106,17 @@ export function TX({
   ...rest
 }: TXProps) {
   const t = useTheme();
-  // The English fallback (B1+). Read before any early return so the hook order
-  // never changes. Off only inside a B1+ lesson with English turned off.
-  const showEnglish = useShowEnglish();
+  const T = useT();
+  // The three-valued English mode (B1+, content/english.logic.ts). Read
+  // before any early return so the hook order never changes. 'fr' hides a
+  // gloss entirely; 'onDemand' hides it behind a tap; 'both' (and every
+  // screen outside a lesson, where nothing provides a value) shows it unasked.
+  const mode = useEnglishMode();
+  const showEnglish = mode !== 'fr';
+  // The on-demand reveal's own local state (D-35). Declared unconditionally,
+  // like every hook above: this is ONE TX instance's own hook order, never
+  // shared with or affected by any other TX instance's props.
+  const [revealed, setRevealed] = useState(false);
 
   // The OS font scale is applied to the glyphs and the line box together, once,
   // in typeMetrics — and React Native's own scaling is switched off below, so
@@ -134,18 +144,60 @@ export function TX({
   if (ls != null) base.letterSpacing = ls;
   if (center) base.textAlign = 'center';
 
-  if (gloss && !showEnglish) return null;
-  // An authored `EN: …` tail inside a French string. Hidden with the toggle,
-  // and when shown it becomes its OWN line under the French rather than the
-  // next sentence of the same paragraph.
+  if (gloss && mode === 'fr') return null;
+
+  // D-35, the tap target. `gloss` marks a translation, never an answer (the
+  // header rule above, and answers-not-glosses.test.ts, D-36) — so nothing
+  // hides HOW it is asked for in 'onDemand', only whether it is on screen
+  // before a tap. Rendered as a nested `<Text onPress>`, not a Pressable
+  // wrapper: TX must still be usable as a child of another Text (several call
+  // sites nest one TX inside another — MissionRich.tsx:453 is one), which a
+  // View-based Pressable cannot be. `Text` in this RN version (0.86) has no
+  // `hitSlop` prop (Pressable-only), so the affordance's tap area is its own
+  // rendered glyph box rather than a padded target — a real, if untested-for-
+  // 44dp, reveal.
+  if (gloss && mode === 'onDemand' && !revealed) {
+    return (
+      <Text
+        style={[base, style as TextStyle, { color: t.txSubtle }]}
+        allowFontScaling={false}
+        onPress={() => setRevealed(true)}
+        accessibilityRole="button"
+        accessibilityLabel={T.langRevealLabel}
+        accessibilityState={{ expanded: false }}
+        {...rest}
+      >
+        {T.langRevealLabel}
+      </Text>
+    );
+  }
+
+  // An authored `EN: …` tail inside a French string. Hidden entirely in 'fr',
+  // shown unasked in 'both' as its own line under the French, and in
+  // 'onDemand' rendered as a SEPARATE trailing element behind its own tap —
+  // never a press handler on a substring of the same run.
   const tail = typeof children === 'string' ? enTailOf(children) : null;
   const body = tail
-    ? showEnglish
-      ? [
-          stripEnTail(children as string),
-          <Text key="en" style={{ color: t.txSubtle }}>{`\n${tail}`}</Text>,
-        ]
-      : stripEnTail(children as string)
+    ? mode === 'fr'
+      ? stripEnTail(children as string)
+      : mode === 'both'
+        ? [
+            stripEnTail(children as string),
+            <Text key="en" style={{ color: t.txSubtle }}>{`\n${tail}`}</Text>,
+          ]
+        : [
+            stripEnTail(children as string),
+            <Text
+              key="en"
+              style={{ color: t.txSubtle }}
+              onPress={() => setRevealed(true)}
+              accessibilityRole="button"
+              accessibilityLabel={T.langRevealLabel}
+              accessibilityState={{ expanded: revealed }}
+            >
+              {revealed ? `\n${tail}` : `\n${T.langRevealLabel}`}
+            </Text>,
+          ]
     : showEnglish
       ? children
       : Array.isArray(children)

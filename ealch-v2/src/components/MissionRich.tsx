@@ -15,7 +15,7 @@ import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
 import { normalizeFr, barsForLevel } from '@/utils/score';
 import { resolveAudio, speedsFor, NORMAL_RATE } from '@/content/lessonAudio.logic';
-import { useShowEnglish } from './GlossContext';
+import { useEnglishMode } from './GlossContext';
 import { dicteeMode, dicteeTarget, dicteeWords, wordDecoys } from '@/content/dictee.logic';
 import {
   BEAT,
@@ -318,7 +318,16 @@ function OneGroup({
   initialIndex?: number | null;
 }) {
   const t = useTheme();
-  const showEnglish = useShowEnglish();
+  const T = useT();
+  // D-35: threaded directly rather than through TX's `gloss` prop, because
+  // this cell's English is one half of a joined "respell · en" string, not
+  // its own marked line — see the note on `second` below.
+  const mode = useEnglishMode();
+  const showEnglish = mode !== 'fr';
+  // Per-card reveal state for the 'onDemand' group-drill cell (D-35): keyed
+  // by the item's index within THIS group, so revealing one card's English
+  // never reveals its neighbours'.
+  const [revealed, setRevealed] = useState<Set<number>>(new Set());
   const [picked, setPicked] = useState(-1);
 
   // A group carries words, a check, or both. At size xl sons.06 splits them
@@ -475,6 +484,38 @@ function OneGroup({
              *  the gloss in exactly this shape). Otherwise the two fields are
              *  joined the same way, so both paths look identical on glass. */}
             {(() => {
+              // D-35: 'onDemand' gets a real reveal here, not the documented
+              // fallback — the row already has a dedicated flex:1 column for
+              // this exact TX (line 443), so there is a place to hang a tap
+              // that a bare join into a single string did not have. `note`
+              // wins when present (see the comment above), and `note` is
+              // never an authored translation, so it is never gated by mode.
+              if (!it.note && it.en && mode === 'onDemand') {
+                const isRevealed = revealed.has(i);
+                const second = [it.respell, isRevealed ? it.en : null].filter(Boolean).join(' · ');
+                return (
+                  <Press
+                    cue={null}
+                    onPress={() =>
+                      setRevealed((prev) => {
+                        const next = new Set(prev);
+                        next.add(i);
+                        return next;
+                      })
+                    }
+                    accessibilityRole="button"
+                    accessibilityState={{ expanded: isRevealed }}
+                    accessibilityLabel={T.langRevealLabel}
+                    hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                    style={{ alignSelf: 'flex-start', marginTop: 2 }}
+                  >
+                    <TX role="bodySm" color={t.txMuted}>
+                      {second}
+                      {isRevealed ? '' : (second ? '  ' : '') + T.langRevealLabel}
+                    </TX>
+                  </Press>
+                );
+              }
               const second = it.note ?? [it.respell, showEnglish ? it.en : null].filter(Boolean).join(' · ');
               return second ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{second}</TX> : null;
             })()}
