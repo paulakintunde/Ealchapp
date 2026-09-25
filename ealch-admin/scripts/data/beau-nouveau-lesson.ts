@@ -456,7 +456,7 @@ const SECTIONS: LessonSection[] = [
        it last, as an appendix, is the version of this screen that teaches three
        exceptions instead of one rule. */
     type: 'tapTable',
-    id: GRID_SECTION_ID,
+    id: GRID_SECTION_ID, sheetId: 'sheet.a2.16.forms',
     title: 'Three Words, Five Shapes',
     frSub: 'Les cinq formes',
     layer: 'core',

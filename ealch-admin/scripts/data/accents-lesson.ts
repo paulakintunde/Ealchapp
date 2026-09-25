@@ -256,7 +256,7 @@ const SCENE: LessonSection = {
 /* ─── Mission 2 · Goals ───────────────────────────────────────────────────── */
 
 const GOALS: LessonSection = {
-  id: 's02-goals',
+  id: 's02-goals', sheetId: 'sheet.sons.05.notation',
   type: 'goals',
   layer: 'core',
   render: 'screens',
@@ -638,7 +638,7 @@ const GRAVE_CHECK: LessonSection = {
 };
 
 const CIRCONFLEXE_DRILL: LessonSection = {
-  id: 's07-circonflexe',
+  id: 's07-circonflexe', sheetId: 'sheet.sons.05.circonflexe',
   type: 'groupDrill',
   layer: 'core',
   render: 'screens',
@@ -702,7 +702,7 @@ const CIRCONFLEXE_CHECK: LessonSection = {
 
 
 const PAIRS_LAB: LessonSection = {
-  id: 's08-pairs',
+  id: 's08-pairs', sheetId: 'sheet.sons.05.pairs',
   type: 'groupDrill',
   layer: 'core',
   render: 'screens',

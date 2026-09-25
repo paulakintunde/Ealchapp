@@ -678,7 +678,7 @@ const SECTIONS: LessonSection[] = [
 
   {
     type: 'goals',
-    id: 's02-goals',
+    id: 's02-goals', sheetId: 'sheet.sons.06.notation',
     title: 'What you walk out with',
     frSub: 'Vos objectifs',
     render: 'screens',
@@ -702,7 +702,7 @@ const SECTIONS: LessonSection[] = [
 
   {
     type: 'cardDeck',
-    id: 's03-anchors',
+    id: 's03-anchors', sheetId: 'sheet.sons.06.why',
     title: 'Seven things to hold on to',
     frSub: 'Les idées clés',
     render: 'deck',

@@ -249,7 +249,7 @@ const S_SCENE: LessonSection = {
  *  NO `itemIds` HERE. A cardDeck does not read it; the rows are released
  *  through DECK_TRANCHE. */
 const S_FOURMOVES: LessonSection = {
-  type: 'cardDeck', id: FOURMOVES, render: 'deck', layer: 'core', size: 'lg',
+  type: 'cardDeck', id: FOURMOVES, sheetId: 'sheet.a2.30.parcours', render: 'deck', layer: 'core', size: 'lg',
   title: 'Four moves, and the fourth is the one nobody teaches',
   hint: 'Swipe. The last card is all four joined.',
   cards: [

@@ -432,7 +432,7 @@ const SECTIONS: LessonSection[] = [
        The row ORDER is PATTERN_ORDER and `invariable` is last deliberately: it
        only reads as a class once three patterns that do change sit above it. */
     type: 'tapTable',
-    id: GRID_SECTION_ID,
+    id: GRID_SECTION_ID, sheetId: 'sheet.a2.03.patterns',
     title: 'Four Words, Four Ways',
     frSub: 'Les quatre formes',
     layer: 'core',

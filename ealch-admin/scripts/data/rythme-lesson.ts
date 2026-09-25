@@ -424,7 +424,7 @@ export const RYTHME_LESSON: Lesson = {
       ],
     },
     {
-      id: 's03-anchors',
+      id: 's03-anchors', sheetId: 'sheet-rhythm',
       type: 'cardDeck',
       title: 'Five things to hold on to',
       layer: 'core',
