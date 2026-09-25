@@ -128,6 +128,27 @@ export default function RootLayout() {
               <Stack.Screen name="lesson" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="lessonoverview" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="missions" options={{ animation: 'slide_from_right' }} />
+              {/* D-02: the unit Fiche, a real Android bottom sheet (D-38, PASS,
+                  07.1-VALIDATION.md). Max 3 Android detents; 0.92 not 1.0, or
+                  the grabber lands on the status bar clock (D-38 defect 2).
+                  contentStyle paints the surface below the last child — without
+                  it the unpainted detent shows the app background (D-38
+                  defect 1). Font scale 1.3 dropping tails (D-38 defect 3) is
+                  handled inside fiche.tsx itself (no numberOfLines truncation,
+                  no fixed-height text containers). */}
+              <Stack.Screen
+                name="fiche"
+                options={{
+                  presentation: 'formSheet',
+                  sheetAllowedDetents: [0.55, 0.92],
+                  sheetInitialDetentIndex: 0,
+                  sheetCornerRadius: 26,
+                  sheetGrabberVisible: true,
+                  gestureDirection: 'vertical',
+                  contentStyle: { backgroundColor: t.sheet },
+                }}
+              />
+              <Stack.Screen name="act" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="speakmap" />
               <Stack.Screen name="speak" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="player" options={{ animation: 'slide_from_bottom' }} />
