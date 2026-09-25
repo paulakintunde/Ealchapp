@@ -245,6 +245,20 @@ test('den.tsx shows the B1 dev-preview banner on the B1 trail only', () => {
   ok(src.includes('DRAFT_LESSON_IDS'), 'the draft count must come from the overlay, not a literal');
 });
 
+// A locked trail row calls onLockedPress and goes to the paywall, so it never
+// reaches lesson.tsx's DRAFT_LESSON_IDS bypass. Exempting the chokepoint alone
+// left all fourteen drafts visible on the B1 trail and unopenable.
+test('the B1 drafts are openable on a dev build, and only B1', () => {
+  const src = readScreen('den');
+  ok(
+    /levelsAll: levelsAll \|\| \(__DEV__ && band === 'b1' && draftCount > 0\)/.test(src),
+    'the trail must unlock B1 in dev, or the drafts route to the paywall instead of opening',
+  );
+  // Scoped to b1: the seed has no published b1 units, so this unlocks drafts
+  // only. A2 and above keep the gate that plan 11 block G tests.
+  ok(!/levelsAll: true/.test(src), 'the gate must not be unlocked outright');
+});
+
 test("LessonPager labels an act chapter card with the mission it opens, not mission 1", () => {
   const src = readSrc('components/LessonPager.tsx');
   ok(src.includes("currentEntry?.kind === 'act'") && src.includes('at(page + 1)'), 'an act opener must take the next section\'s mission number');

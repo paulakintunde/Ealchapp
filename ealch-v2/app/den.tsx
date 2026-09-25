@@ -122,7 +122,15 @@ export default function Den() {
         units: content.unitsOfBand(band),
         lessonsOf: (unitId) => content.lessonsOf(unitId),
         band,
-        levelsAll,
+        // DEV-PREVIEW-B1: the B1 drafts must be openable on a dev build, and a
+        // locked row never reaches lesson.tsx's bypass — `onLockedPress` sends
+        // it to the paywall first, so the chokepoint exemption alone left all
+        // fourteen unreachable from the trail.
+        //
+        // Scoped to B1 on purpose. The seed carries no published b1 units, so
+        // every unit in this band IS a draft: nothing paid is unlocked by this.
+        // A2 and above keep their gate, which is what plan 11 block G tests.
+        levelsAll: levelsAll || (__DEV__ && band === 'b1' && draftCount > 0),
         freeBands: FREE_BANDS,
         doneActs,
         hasFreshResume,
@@ -130,7 +138,7 @@ export default function Den() {
         placementDismissed: denPlacementSeen,
         T: { trailReleaseSome: T.trailReleaseSome, trailReleaseNone: T.trailReleaseNone },
       }),
-    [band, levelsAll, doneActs, hasFreshResume, denOrientationSeen, denPlacementSeen, T],
+    [band, levelsAll, draftCount, doneActs, hasFreshResume, denOrientationSeen, denPlacementSeen, T],
   );
 
   // The level panel's per-band read (D-06/D-07), shared with app/levels.tsx
