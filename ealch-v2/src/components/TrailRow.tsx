@@ -1,10 +1,12 @@
-import { View } from 'react-native';
+import { useEffect, useRef } from 'react';
+import { Animated, Easing, View } from 'react-native';
 import { TX } from './Type';
 import { Press } from './ui';
 import { Icon } from './Icon';
 import { PremiereLockTag } from './PremiereLockTag';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
+import { useReduceMotion } from '@/utils/reduceMotion';
 import type { TrailRow as TrailRowData } from '@/content/trail.logic';
 
 // The act row and the acte 00 row (D-05, D-10) — the trail's two pressable
@@ -22,6 +24,76 @@ import type { TrailRow as TrailRowData } from '@/content/trail.logic';
 type ActRow = Extract<TrailRowData, { kind: 'act' }>;
 type Acte0Row = Extract<TrailRowData, { kind: 'acte0' }>;
 
+// D-18: the start marker — a first-run learner with nothing completed sees
+// this in place of a `Reprendre` they have nothing to resume to. Modelled on
+// speakmap.tsx's StationPulse (the project's one other "ring beside the
+// current node" affordance): a looping Animated.timing ring, useNativeDriver
+// true. Gated on the shared reduce-motion hook (the project's accessibility
+// convention, speakmap.tsx:20/178/231/309) — but T-07.1-40 (Denial of Service,
+// accessibility) means reduced motion renders a STATIC ring rather than no
+// marker at all, since this is the primary affordance on a first run and an
+// accessibility preference must not hide the way in.
+const MARKER = 34; // matches the act row's own leading circle (below)
+const MARKER_RING = MARKER + 14;
+
+function StartMarker({ color, active, reduceMotion }: { color: string; active: boolean; reduceMotion: boolean }) {
+  const v = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!active || reduceMotion) {
+      v.setValue(0);
+      return;
+    }
+    const loop = Animated.loop(
+      Animated.timing(v, { toValue: 1, duration: 1600, easing: Easing.out(Easing.ease), useNativeDriver: true }),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [active, reduceMotion, v]);
+
+  if (!active) return null;
+
+  // Positioned like speakmap.tsx's ProgressRing: a fixed negative offset
+  // against the leading circle's own 34px box, not flexbox centering — the
+  // ring is bigger than the circle it surrounds, on purpose.
+  const OFFSET = -(MARKER_RING - MARKER) / 2;
+
+  if (reduceMotion) {
+    return (
+      <View
+        pointerEvents="none"
+        style={{
+          position: 'absolute',
+          left: OFFSET,
+          top: OFFSET,
+          width: MARKER_RING,
+          height: MARKER_RING,
+          borderRadius: MARKER_RING / 2,
+          borderWidth: 1.5,
+          borderColor: color,
+        }}
+      />
+    );
+  }
+
+  return (
+    <Animated.View
+      pointerEvents="none"
+      style={{
+        position: 'absolute',
+        left: OFFSET,
+        top: OFFSET,
+        width: MARKER_RING,
+        height: MARKER_RING,
+        borderRadius: MARKER_RING / 2,
+        borderWidth: 1.5,
+        borderColor: color,
+        opacity: v.interpolate({ inputRange: [0, 1], outputRange: [0.55, 0] }),
+        transform: [{ scale: v.interpolate({ inputRange: [0, 1], outputRange: [1, 1.5] }) }],
+      }}
+    />
+  );
+}
+
 export type TrailRowProps = {
   row: ActRow | Acte0Row;
   onPressAct: (lessonId: string, actIx: number) => void;
@@ -32,6 +104,10 @@ export type TrailRowProps = {
 export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: TrailRowProps) {
   const t = useTheme();
   const T = useT();
+  // Read unconditionally, before either branch's early return — the acte0
+  // row never shows a start marker (only an `act` row carries the field at
+  // all), but a hook cannot itself be conditional.
+  const reduceMotion = useReduceMotion();
 
   if (row.kind === 'acte0') {
     const onPress = () => (row.locked ? onPressLocked() : onPressActe0(row.lessonId));
@@ -114,6 +190,7 @@ export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: Trail
           justifyContent: 'center',
         }}
       >
+        <StartMarker color={t.acc} active={row.startMarker} reduceMotion={reduceMotion} />
         {row.done ? (
           <Icon name="check" size={15} color={t.accInk} strokeWidth={2.4} />
         ) : row.locked ? (

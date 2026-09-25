@@ -18,7 +18,6 @@
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execFileSync } from 'node:child_process';
 import { ok, strictEqual, deepStrictEqual } from 'node:assert';
 import { test } from 'node:test';
 
@@ -66,17 +65,30 @@ test('version is still 7 — an addition needs no ladder step and no bump', () =
   strictEqual(bumps.length, 1, 'persist version must appear exactly once, still at 7');
 });
 
+// The pre-plan-10 partialize allow-list, copied verbatim from
+// 07.1-07-SUMMARY.md's shipped shape (the last plan to touch this block) —
+// a FIXED baseline, not `git show HEAD`. HEAD moves the instant this plan's
+// own store commit lands, which would make a HEAD-relative diff report zero
+// gained keys forever after (caught by running the full suite mid-plan: the
+// first draft of this test used `git show HEAD` and went red the moment the
+// GREEN commit landed, since HEAD then WAS the "after" state). A fixed list
+// is the only baseline that still means something as a permanent regression
+// guard, long after this plan is history.
+const PRE_PLAN10_PARTIALIZE_KEYS = [
+  'lang', 'appLang', 'mode', 'accent', 'avatarId', 'brightBoost',
+  'lessonEnglishMode', 'lessonKeySeen', 'browseOpen', 'sound', 'alarmTime',
+  'clock24', 'notifs', 'goal', 'exp', 'pace', 'level', 'region', 'userName',
+  'email', 'accountType', 'signedIn', 'onboarded', 'currency', 'planPick',
+  'currencyChosen', 'freeze', 'lastGreetAt', 'lastNudgeAt',
+];
+
 test('the partialize key set gained exactly these two keys and nothing else (T-07.1-38)', () => {
-  // Diff against HEAD's own copy of this file: this is the security half of
-  // the test, not only the persistence half. A stored boolean that implies
-  // entitlement is exactly the bug class `premium` was removed for
-  // (useStore.ts:104-113) — this assertion fails if plan 10 (or anything
-  // after it, unreverted) adds a THIRD key the same way.
-  const before = execFileSync('git', ['show', 'HEAD:ealch-v2/src/store/useStore.ts'], {
-    encoding: 'utf8',
-    cwd: resolve(storeDir, '../../..'),
-  }).replace(/\r\n/g, '\n');
-  const beforeKeys = new Set(partializeKeys(before));
+  // This is the security half of the test, not only the persistence half. A
+  // stored boolean that implies entitlement is exactly the bug class
+  // `premium` was removed for (useStore.ts:104-113) — this assertion fails
+  // if plan 10 (or anything after it, unreverted) adds a THIRD key the same
+  // way, or silently removes one of the pre-existing ones.
+  const beforeKeys = new Set(PRE_PLAN10_PARTIALIZE_KEYS);
   const afterKeys = new Set(partializeKeys(readStore()));
 
   const gained = [...afterKeys].filter((k) => !beforeKeys.has(k)).sort();

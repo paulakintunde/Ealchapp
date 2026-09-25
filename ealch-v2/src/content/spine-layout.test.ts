@@ -60,6 +60,8 @@ const FILES: { name: string; dir: 'components' | 'app' }[] = [
   { name: 'PremiereLockTag', dir: 'components' },
   { name: 'TrailGateRow', dir: 'components' },
   { name: 'preroll', dir: 'app' },
+  // 07.1-10: the two day-one cards (D-19).
+  { name: 'TrailCard', dir: 'components' },
 ];
 
 // Normalize CRLF -> LF: this checkout's *.tsx files carry Windows line
