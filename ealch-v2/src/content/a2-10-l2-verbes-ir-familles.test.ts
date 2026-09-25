@@ -273,9 +273,11 @@ test('THE UNIT CARRIES BOTH, AND THE REAL lessonsOfUnit ORDERS THEM l1 THEN l2',
   strictEqual(got[1].seq, 2);
 });
 
-test('den.tsx opens lessonIds[0], so l1 must be first in the array too', { skip: noLesson }, () => {
-  // Belt and braces on top of the seq sort: the Den does not sort, it indexes.
-  // If l2 ever became lessonIds[0] the Den would open the second lesson first.
+test('l1 stays first in the unit\'s lessonIds array, matching its seq', { skip: noLesson }, () => {
+  // Belt and braces on top of the seq sort: the trail renders every lesson a
+  // unit carries (trail.logic.ts's trailRows), in lessonIds order, under one
+  // heading — this pins the order itself, so a mis-sequenced array would
+  // still surface l2's acts before l1's even though nothing indexes [0] alone.
   const u = seed.units.find((x) => x.id === 'a2.10')!;
   strictEqual((u.lessonIds ?? [])[0], 'a2.10.l1');
   strictEqual((u.lessonIds ?? []).length, 2);

@@ -164,7 +164,7 @@ test('the source either imports or is genuinely absent', () => {
 test('a2.35 ships two lessons, review first', () => {
   ok(review, `${REVIEW_ID} is not in the seed`);
   ok(exam, `${EXAM_ID} is not in the seed`);
-  deepStrictEqual(unit.lessonIds, [REVIEW_ID, EXAM_ID], 'den.tsx opens lessonIds[0], so the review must be first');
+  deepStrictEqual(unit.lessonIds, [REVIEW_ID, EXAM_ID], 'the trail renders both lessons in lessonIds order, so the review must be first');
 });
 
 test('the unit identity is what the curriculum says', () => {

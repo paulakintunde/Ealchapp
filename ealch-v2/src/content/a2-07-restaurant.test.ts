@@ -167,7 +167,7 @@ test('the repair ladder is monotonic in face cost, and s17 renders all six in or
 test('the unit and the lesson agree, and there is exactly one lesson', () => {
   ok(UNIT, `${UNIT_ID} is not in the seed`);
   strictEqual(UNIT!.seq, 24, 'a2.07 is seq 24 on the A2 trail');
-  deepStrictEqual(UNIT!.lessonIds, [LESSON_ID], 'den.tsx opens lessonIds[0] and nothing else; a second lesson is unreachable');
+  deepStrictEqual(UNIT!.lessonIds, [LESSON_ID], 'a2.07 is a one-lesson unit; the trail enumerates every lesson a unit carries, so a second entry here would draw a second row');
   strictEqual(L!.unitId, UNIT_ID);
   // The canDo lives on the UNIT and nowhere else. An earlier draft copied it onto
   // the lesson too; `canDo` is not a Lesson field, a2.07 was the only lesson of 66

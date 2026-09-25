@@ -126,8 +126,6 @@ export default function RootLayout() {
               <Stack.Screen name="home" />
               <Stack.Screen name="den" />
               <Stack.Screen name="lesson" options={{ animation: 'slide_from_right' }} />
-              <Stack.Screen name="lessonoverview" options={{ animation: 'slide_from_right' }} />
-              <Stack.Screen name="missions" options={{ animation: 'slide_from_right' }} />
               {/* D-02: the unit Fiche, a real Android bottom sheet (D-38, PASS,
                   07.1-VALIDATION.md). Max 3 Android detents; 0.92 not 1.0, or
                   the grabber lands on the status bar clock (D-38 defect 2).

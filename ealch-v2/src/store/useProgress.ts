@@ -227,10 +227,29 @@ export const useProgress = create<ProgressState>()(
       // slot per Activity — see ResumeByMode in progress.logic.ts and
       // migrateProgressToV4, which folds any existing v1-v3 `resume` into its
       // own activity's slot.
-      version: 4,
+      //
+      // Version 5 (Phase 07.1 plan 08): app/lessonoverview.tsx and
+      // app/missions.tsx were deleted, replaced by app/fiche.tsx and
+      // app/act.tsx. `ResumeState.route` stores a FULL URL
+      // (progress.logic.ts: "position lives in the route, not as a separate
+      // field here"), so any stored `/lessonoverview?key=...` or
+      // `/missions?key=...` is now a dead route. Dropping the slot (not
+      // rewriting it) is deliberate: the new screens take different params
+      // in a different shape (`/act?key=&act=`), so there is no honest
+      // rewrite, only a stale position that is better forgotten than mis-resumed
+      // into the wrong screen.
+      version: 5,
       migrate: (persisted, version) => {
-        if (version >= 4) return persisted as ReturnType<typeof migrateProgressToV4>;
-        return migrateProgressToV4(persisted);
+        const v4 = version >= 4 ? (persisted as ReturnType<typeof migrateProgressToV4>) : migrateProgressToV4(persisted);
+        if (version >= 5) return v4;
+        const resumeByMode = { ...v4.resumeByMode };
+        for (const key of Object.keys(resumeByMode) as (keyof typeof resumeByMode)[]) {
+          const route = resumeByMode[key]?.route;
+          if (route && (route.startsWith('/lessonoverview') || route.startsWith('/missions'))) {
+            delete resumeByMode[key];
+          }
+        }
+        return { ...v4, resumeByMode };
       },
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({

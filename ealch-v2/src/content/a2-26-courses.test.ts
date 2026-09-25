@@ -74,8 +74,9 @@ test('a2.26.l1 is in the seed, and the unit row points at it', () => {
   strictEqual(UNIT.seq, 25);
   strictEqual(LESSON.level, 'a2');
   deepStrictEqual(UNIT.lessonIds, ['a2.26.l1'], 'the unit row must name exactly this lesson');
-  // One lesson per unit, band-wide (collation §C6). `den.tsx:169` opens
-  // lessonIds[0] and nothing else, so a second lesson would be unreachable.
+  // One lesson per unit, band-wide (collation §C6). The trail (trail.logic.ts)
+  // renders every lesson a unit carries under its one heading, so a second
+  // lesson here would draw a second, unauthored row rather than going unread.
   strictEqual((UNIT.lessonIds ?? []).length, 1, 'one lesson per unit, band-wide');
 });
 

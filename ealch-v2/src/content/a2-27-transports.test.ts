@@ -144,8 +144,9 @@ test('23 sections, six acts, exactly one quiz', () => {
   strictEqual((LESSON.acts ?? []).length, 6);
   // A SECOND QUIZ SECTION IS SILENTLY NEVER RENDERED.
   strictEqual(LESSON.sections.filter((s) => s.type === 'quiz').length, 1);
-  // den.tsx:169 pushes lessonIds[0] and reads nothing else, so a second lesson
-  // in this unit would be unreachable.
+  // The trail (trail.logic.ts) renders every lesson a unit carries under its
+  // one heading, so a second lesson in this unit would draw a second row
+  // rather than going unread.
   strictEqual(UNIT.lessonIds?.length, 1, 'one lesson per unit, band-wide (collation C6)');
 });
 

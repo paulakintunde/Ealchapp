@@ -20,13 +20,27 @@
 // deletes lessonoverview.tsx — this file is why that fix is needed, not an
 // example that the old pattern was fine.
 
-import { readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 
 const appDir = resolve(dirname(fileURLToPath(import.meta.url)), '../../app');
+const srcDir = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+// Every .ts/.tsx file under app/ and src/, recursively, excluding this file's
+// own directory noise (node_modules never lives under either).
+function walkSourceFiles(dir: string): string[] {
+  const out: string[] = [];
+  for (const entry of readdirSync(dir)) {
+    const p = join(dir, entry);
+    const st = statSync(p);
+    if (st.isDirectory()) out.push(...walkSourceFiles(p));
+    else if (/\.tsx?$/.test(entry)) out.push(p);
+  }
+  return out;
+}
 // This checkout's app/*.tsx files carry Windows line endings; a literal
 // multiline/source match false-negatives on every file here without
 // normalizing first (the same note drillGateWiring.test.ts:13-17 states).
@@ -66,17 +80,38 @@ test('both routes carry a dead-link guard for a null lesson', () => {
   }
 });
 
-test('_layout.tsx registers both new routes, and the two it replaces stay registered', () => {
+test('_layout.tsx registers both new routes, and the two screens they replaced are gone', () => {
   const src = readFileSync(resolve(appDir, '_layout.tsx'), 'utf8').replace(/\r\n/g, '\n');
   ok(/<Stack\.Screen\s+name="act"/.test(src), '_layout.tsx must register the act screen');
   ok(/name="fiche"/.test(src), '_layout.tsx must register the fiche sheet');
-  // Deliberately temporary: plan 08 flips both assertions below to assert
-  // ABSENCE, in the same commit that deletes lessonoverview.tsx/missions.tsx
-  // and retargets lesson-siblings.test.ts. Do not "fix" this file to assert
-  // the opposite before that plan runs — the old screens are still the only
-  // live route to a two-lesson unit's sibling until plan 08 lands.
-  ok(src.includes('name="lessonoverview"'), '_layout.tsx must still register lessonoverview (plan 08 removes this)');
-  ok(src.includes('name="missions"'), '_layout.tsx must still register missions (plan 08 removes this)');
+  // Flipped by plan 08, in the same commit that deletes the two screens
+  // below and retargets lesson-siblings.test.ts — see that file's own
+  // header for why the retarget and the deletion must land together.
+  ok(!src.includes('name="lessonoverview"'), '_layout.tsx must no longer register the deleted lessonoverview screen');
+  ok(!src.includes('name="missions"'), '_layout.tsx must no longer register the deleted missions screen');
+});
+
+test('no file under app/ or src/ still pushes a route string to the two deleted screens (D-33)', () => {
+  // Route STRINGS only, not prose: this plan's own spine-layout.test.ts
+  // header names lessonoverview.tsx:160 as the source of the flex fix it
+  // carries forward, and content.ts's own DEV-PREVIEW-B101 comment names the
+  // deleted route too — a bare word-level scan would fail this plan on its
+  // own required historical comments. Scoped to the two literal shapes a
+  // real route reference takes: a quoted path ('/lessonoverview') or a
+  // Stack.Screen name attribute ("lessonoverview").
+  // Excludes this guard's own file (its regex source necessarily spells out
+  // the forbidden shape in order to name it) and useProgress.ts's v5
+  // migration, which legitimately RECOGNISES the dead prefix in order to
+  // drop it (`route.startsWith('/lessonoverview')`) — a different shape from
+  // a PUSH (`pathname: '/lessonoverview'`), which is what this test guards.
+  const self = fileURLToPath(import.meta.url);
+  const migration = resolve(dirname(fileURLToPath(import.meta.url)), '../store/useProgress.ts');
+  const files = [...walkSourceFiles(appDir), ...walkSourceFiles(srcDir)].filter((f) => f !== self && f !== migration);
+  for (const f of files) {
+    const src = readFileSync(f, 'utf8');
+    ok(!/pathname:\s*'\/lessonoverview'|name="lessonoverview"/.test(src), `${f} still references the deleted /lessonoverview route`);
+    ok(!/pathname:\s*'\/missions'|name="missions"/.test(src), `${f} still pushes to the deleted /missions route`);
+  }
 });
 
 test('the formSheet registration for fiche stays inside Android\'s 3-detent ceiling', () => {
