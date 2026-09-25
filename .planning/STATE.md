@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 07.1-07-PLAN.md
-last_updated: "2026-09-25T01:11:07.918Z"
+stopped_at: Completed 07.1-08-PLAN.md
+last_updated: "2026-09-25T01:42:10.892Z"
 last_activity: 2026-09-25
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 61
-  completed_plans: 57
-  percent: 93
+  completed_plans: 58
+  percent: 95
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 7 of 11 plans executed
-Plan: 7 of 11 complete — 07.1-07 shipped the three-state B1+ language control
+Plan: 8 of 11 complete — 07.1-07 shipped the three-state B1+ language control
   (fr/both/onDemand): englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7
   store migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal, LanguageChip/
   LanguagePanel wired into app/lesson.tsx, and answers-not-glosses.test.ts (D-36's first guard).
@@ -34,7 +34,7 @@ Status: Ready to execute
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-25
 
-Progress: [█████████░] 93%
+Progress: [██████████] 95%
 
 ## Performance Metrics
 
@@ -72,6 +72,7 @@ Progress: [█████████░] 93%
 | Phase 07.1 P05 | 70min | 3 tasks | 4 files |
 | Phase 07.1 P06 | 45min | 3 tasks | 4 files |
 | Phase 07.1 P07 | 45min | 3 tasks | 10 files |
+| Phase 07.1 P08 | 50min | 3 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -128,6 +129,8 @@ Recent decisions affecting current work:
 - [Phase 07.1]: Plan 07: shipped the three-state B1+ language control (fr/both/onDemand) end to end — english.logic.ts's englishMode(), a v6-to-v7 store migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal, and LanguageChip/LanguagePanel wired into app/lesson.tsx
 - [Phase 07.1]: Plan 07: the v6-to-v7 store migration's mapping was pulled into a pure, exported migrateLessonEnglishMode() in english.logic.ts because useStore.ts cannot be imported under node --test at all (proved by probing its imports; same reason useProgress.ts keeps its own migration math in progress.logic.ts) — store SHAPE is pinned by a source-guard, mapping BEHAVIOUR by a real function call
 - [Phase 07.1]: Plan 07: D-36's answers-not-glosses.test.ts anchors the flashcard-back check on app/flashcards.tsx (the real, hardware-uncovered D-16 surface) rather than the plan's named LessonDeck.tsx/WordCardXL.tsx, whose own gloss sites are legitimate members of the known-13 count, not answers
+- [Phase ?]: [Phase 07.1]: Plan 08 shipped the trail - den.tsx is now a FlashList 2.0.2 over trailRows(), the level panel mounted, the three-tab pill row gone (SC-2); band/level-panel-open/scroll-anchor moved into useUI.ts (not persisted), useStore.ts untouched
+- [Phase ?]: [Phase 07.1]: Plan 08 deleted app/lessonoverview.tsx and app/missions.tsx in the same commit that repaired lesson-siblings.test.ts's module-scope read (D-33) and retargeted its den-tap assertion at trail.logic.ts's row enumeration; useProgress bumped to persist v5 to drop stale resumeByMode routes
 
 ### Pending Todos
 
@@ -154,6 +157,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-25T01:11:07.903Z
-Stopped at: Completed 07.1-07-PLAN.md
+Last session: 2026-09-25T01:42:10.870Z
+Stopped at: Completed 07.1-08-PLAN.md
 Resume file: None
