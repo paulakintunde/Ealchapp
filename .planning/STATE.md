@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 07.1-06-PLAN.md
-last_updated: "2026-09-25T00:44:26.609Z"
+stopped_at: Completed 07.1-07-PLAN.md
+last_updated: "2026-09-25T01:11:07.918Z"
 last_activity: 2026-09-25
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 61
-  completed_plans: 56
-  percent: 92
+  completed_plans: 57
+  percent: 93
 ---
 
 # Project State
@@ -25,16 +25,16 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 6 of 11 plans executed
-Plan: 6 of 11 complete — 07.1-06 added PanelRow.tsx (the shared 44px panel row), LevelPanel.tsx
-  (the seven-band selector, D-06/D-07) and the LanguagePanel.tsx shell (D-14), plus
-  level-panel.test.ts's 44px/flex source guard. Both panels take their data as props (no
-  store read) so plans 07/08 wire them in without editing either file.
+Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 7 of 11 plans executed
+Plan: 7 of 11 complete — 07.1-07 shipped the three-state B1+ language control
+  (fr/both/onDemand): englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7
+  store migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal, LanguageChip/
+  LanguagePanel wired into app/lesson.tsx, and answers-not-glosses.test.ts (D-36's first guard).
 Status: Ready to execute
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-25
 
-Progress: [█████████░] 92%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
@@ -71,6 +71,7 @@ Progress: [█████████░] 92%
 | Phase 07.1 P04 | 55min | 3 tasks | 7 files |
 | Phase 07.1 P05 | 70min | 3 tasks | 4 files |
 | Phase 07.1 P06 | 45min | 3 tasks | 4 files |
+| Phase 07.1 P07 | 45min | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -124,6 +125,9 @@ Recent decisions affecting current work:
 - [Phase 07.1]: Plan 06: PanelRow.tsx built as the shared presentational row (props only, no store read) both LevelPanel and LanguagePanel are built on; leading/trailing render outside the title's own flex:1 wrapper, carrying the flex-on-a-TX fix forward from lessonoverview.tsx
 - [Phase 07.1]: Plan 06: LevelPanel (D-06/D-07) and LanguagePanel (D-13/D-14) both take their data (unitCounts/levelsAll/band, mode/open) as props, not a store read - keeps plan 07/08's wiring additive and lets level-panel.test.ts prove the 44px/flex rules with no device
 - [Phase 07.1]: Plan 06: level-panel.test.ts extends sons-07-elision.test.ts's flex/44px finding to PanelRow/LevelPanel/LanguagePanel, anchored on PanelRow's own flex-wrapper boundary rather than a blind 400-char scan (which would flag the BottomSheet.tsx row analog the plan named to copy)
+- [Phase 07.1]: Plan 07: shipped the three-state B1+ language control (fr/both/onDemand) end to end — english.logic.ts's englishMode(), a v6-to-v7 store migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal, and LanguageChip/LanguagePanel wired into app/lesson.tsx
+- [Phase 07.1]: Plan 07: the v6-to-v7 store migration's mapping was pulled into a pure, exported migrateLessonEnglishMode() in english.logic.ts because useStore.ts cannot be imported under node --test at all (proved by probing its imports; same reason useProgress.ts keeps its own migration math in progress.logic.ts) — store SHAPE is pinned by a source-guard, mapping BEHAVIOUR by a real function call
+- [Phase 07.1]: Plan 07: D-36's answers-not-glosses.test.ts anchors the flashcard-back check on app/flashcards.tsx (the real, hardware-uncovered D-16 surface) rather than the plan's named LessonDeck.tsx/WordCardXL.tsx, whose own gloss sites are legitimate members of the known-13 count, not answers
 
 ### Pending Todos
 
@@ -150,6 +154,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-25T00:44:26.593Z
-Stopped at: Completed 07.1-06-PLAN.md
+Last session: 2026-09-25T01:11:07.903Z
+Stopped at: Completed 07.1-07-PLAN.md
 Resume file: None
