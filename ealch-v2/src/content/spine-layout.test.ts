@@ -55,6 +55,11 @@ const FILES: { name: string; dir: 'components' | 'app' }[] = [
   { name: 'PanelRow', dir: 'components' },
   { name: 'LevelPanel', dir: 'components' },
   { name: 'LanguagePanel', dir: 'components' },
+  // 07.1-09: the two extracted lock/paywall components and the pre-roll
+  // sheet — the three files this plan adds to the row-shaped-surface family.
+  { name: 'PremiereLockTag', dir: 'components' },
+  { name: 'TrailGateRow', dir: 'components' },
+  { name: 'preroll', dir: 'app' },
 ];
 
 // Normalize CRLF -> LF: this checkout's *.tsx files carry Windows line

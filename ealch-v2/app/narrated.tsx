@@ -208,6 +208,14 @@ export default function Narrated() {
     advance();
   };
 
+  // D-41: acte 00 makes this the most-travelled exit in the app. `replace`
+  // destroyed the trail entry and remounted it, landing the learner at row 0
+  // of a 251-row list. The native stack keeps the previous screen mounted
+  // under a push, so going back preserves scroll for free; `replace` is only
+  // for the case where this screen was opened by a deep link with nothing
+  // behind it (the same shape fiche.tsx/act.tsx already use).
+  const exit = () => (router.canGoBack() ? router.back() : router.replace('/den'));
+
   if (!L || !L.narration || steps.length === 0) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
@@ -227,14 +235,14 @@ export default function Narrated() {
   if (done) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/den')} title={T.narrTag} />
+        <FocusHeader onClose={exit} title={T.narrTag} />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 18 }}>
           <MascotAvatar size={72} state="celebrate" tier="medium" celebrateKey="narration-done" />
           <TX font="serifI" size={28} role="display" center>{T.narrDoneT}</TX>
           <TX role="body" color={t.txSecondary} center>{T.narrDoneS.replace('{name}', coachName)}</TX>
           <Press
             cue="tap"
-            onPress={() => router.replace('/den')}
+            onPress={exit}
             style={{ marginTop: 10, minHeight: 54, paddingHorizontal: 28, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
           >
             <TX font="semi" role="bodyLg" color={t.accInk}>{T.backToDen}</TX>
