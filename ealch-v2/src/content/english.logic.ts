@@ -24,9 +24,47 @@ export function glossToggleApplies(band: string | null | undefined): boolean {
   return !!band && !(ENGLISH_TAUGHT_BANDS as readonly string[]).includes(band);
 }
 
-/** Whether English is shown for a lesson of this band, given the preference. */
+/** Whether English is shown for a lesson of this band, given the preference.
+ *  UNCHANGED (D-13): kept so every existing caller that only needs "is there
+ *  English on screen" keeps a boolean, and so this file's own pre-existing
+ *  tests stay green untouched. */
 export function englishShown(band: string | null | undefined, pref: boolean): boolean {
   return !glossToggleApplies(band) || pref;
+}
+
+/** The three states D-13 approved for the B1+ language control.
+ *  'fr' — Français seul, the body stays entirely French.
+ *  'both' — Français et anglais, every gloss and EN: tail prints unasked.
+ *  'onDemand' — Anglais à la demande, the translation stays hidden until
+ *  tapped. In none of the three does an ANSWER (a flashcard back, a quiz
+ *  meaning, a glossary tap) ever hide — that rule is `english.logic.ts`'s own
+ *  header note and `answers-not-glosses.test.ts`'s (D-36). */
+export type EnglishMode = 'fr' | 'both' | 'onDemand';
+
+/** The mode that actually applies on a band, given the stored preference.
+ *  English-taught bands are always 'both': the control does not render there
+ *  (D-15) and the lesson is taught in English, so a stored preference has
+ *  nothing to act on. A null band (an id no band claims) also reads 'both',
+ *  matching englishShown's existing default-on contract above. */
+export function englishMode(band: string | null | undefined, pref: EnglishMode): EnglishMode {
+  if (!band || (ENGLISH_TAUGHT_BANDS as readonly string[]).includes(band)) return 'both';
+  return pref;
+}
+
+/** The exact mapping the store's v6 -> v7 migration performs on the old
+ *  boolean, pulled out as its own pure function so the mapping DIRECTION is
+ *  independently testable under `node --test`. `useStore.ts` cannot be
+ *  imported there at all — it pulls in AsyncStorage/react-native the same way
+ *  `useProgress.ts` does, whose own header note says exactly why its math
+ *  lives in a plain logic file instead: "so it stays testable under
+ *  `node --test`". This is that same move, for one line.
+ *
+ *  `true` was "Français et anglais" — the translation printed under every
+ *  line — which is `'both'`, never `'onDemand'`. `false`, or a value missing
+ *  entirely (the old default), is `'fr'`. `'onDemand'` is new; nothing old
+ *  ever migrates into it. */
+export function migrateLessonEnglishMode(oldValue: boolean | undefined): EnglishMode {
+  return oldValue ? 'both' : 'fr';
 }
 
 /** A trailing `EN: …` sentence, and the whitespace before it. The gloss is

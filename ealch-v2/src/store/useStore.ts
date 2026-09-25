@@ -14,6 +14,7 @@ import { T as STRINGS } from '@/i18n/strings';
 import { setSessionEndListener, useProgress } from './useProgress';
 import { device24h, formatTime } from '@/utils/time';
 import { formatNotifText } from '@/utils/notifText.logic';
+import { migrateLessonEnglishMode, type EnglishMode } from '@/content/english.logic';
 
 export type Lang = 'fr' | 'en';
 
@@ -55,8 +56,12 @@ export type AppState = {
   // B1 and above are French-first: English translations are hidden until the
   // learner turns them on (content/english.logic.ts). One choice for every B1+
   // lesson, kept across sessions. Has no effect on A1/A2, which are taught in
-  // English.
-  lessonEnglish: boolean;
+  // English. Three-valued (D-13): 'fr' hides every gloss, 'both' shows every
+  // one unasked, 'onDemand' hides until tapped. REPLACES the old boolean
+  // lessonEnglish rather than sitting beside it — two fields that can
+  // disagree is the same bug class the currencyChosen comment above and the
+  // premium removal both exist to prevent.
+  lessonEnglishMode: EnglishMode;
 
   // The swipeable "how lessons work" intro (LessonKeyIntro) auto-shows once,
   // ever, before the first lesson a user opens, then never again on its own —
@@ -140,7 +145,7 @@ export type AppState = {
   setAvatarId: (id: string) => void;
   setSound: (on: boolean) => void;
   setBrightBoost: (on: boolean) => void;
-  setLessonEnglish: (on: boolean) => void;
+  setLessonEnglishMode: (mode: EnglishMode) => void;
   setLessonKeySeen: (seen: boolean) => void;
   setAlarm: (t: string) => void;
   setClock24: (v: boolean) => void;
@@ -179,7 +184,7 @@ const initialData = () => ({
   avatarId: DEFAULT_AVATAR_ID as string,
 
   brightBoost: true,
-  lessonEnglish: false,
+  lessonEnglishMode: 'fr' as EnglishMode, // the old boolean default was false
   lessonKeySeen: false,
   browseOpen: false,
 
@@ -229,7 +234,7 @@ export const useStore = create<AppState>()(
       setAvatarId: (avatarId) => set({ avatarId }),
       setSound: (sound) => set({ sound }),
       setBrightBoost: (brightBoost) => set({ brightBoost }),
-      setLessonEnglish: (lessonEnglish) => set({ lessonEnglish }),
+      setLessonEnglishMode: (lessonEnglishMode) => set({ lessonEnglishMode }),
       setLessonKeySeen: (lessonKeySeen) => set({ lessonKeySeen }),
       setAlarm: (alarmTime) => {
         set({ alarmTime });
@@ -370,7 +375,7 @@ export const useStore = create<AppState>()(
     }),
     {
       name: 'ealch-store',
-      version: 6,
+      version: 7,
       // v0 → v1: language used to be hardcoded French; re-derive from the device.
       // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
       // clear it so the no-name greeting applies until the user sets a real name.
@@ -384,6 +389,12 @@ export const useStore = create<AppState>()(
       // v5 → v6: premium is gone — paid access is derived from the RevenueCat
       // entitlement (useEntitlement), never stored where local code could write
       // it. Every persisted value of it was false anyway: nothing ever set it.
+      // v6 → v7: lessonEnglish was a boolean; the control now has three states
+      // (content/english.logic.ts). true was "Français et anglais" (the
+      // translation prints under each line), false was "Français seul".
+      // "Anglais à la demande" is new and has no old value, so nothing
+      // migrates into it. lessonEnglish is REPLACED, not extended — see the
+      // AppState comment on lessonEnglishMode above.
       migrate: (persisted, version) => {
         const s = persisted as Partial<AppState> & Record<string, unknown>;
         if (version === 0) {
@@ -404,6 +415,10 @@ export const useStore = create<AppState>()(
         if (version <= 5) {
           delete s.premium;
         }
+        if (version <= 6) {
+          s.lessonEnglishMode = migrateLessonEnglishMode(s.lessonEnglish as boolean | undefined);
+          delete s.lessonEnglish;
+        }
         return s as AppState;
       },
       storage: createJSONStorage(() => AsyncStorage),
@@ -414,7 +429,7 @@ export const useStore = create<AppState>()(
         accent: s.accent,
         avatarId: s.avatarId,
         brightBoost: s.brightBoost,
-        lessonEnglish: s.lessonEnglish,
+        lessonEnglishMode: s.lessonEnglishMode,
         lessonKeySeen: s.lessonKeySeen,
         browseOpen: s.browseOpen,
         sound: s.sound,
