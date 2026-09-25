@@ -451,6 +451,8 @@ export const useStore = create<AppState>()(
         brightBoost: s.brightBoost,
         lessonEnglishMode: s.lessonEnglishMode,
         lessonKeySeen: s.lessonKeySeen,
+        denOrientationSeen: s.denOrientationSeen,
+        denPlacementSeen: s.denPlacementSeen,
         browseOpen: s.browseOpen,
         sound: s.sound,
         alarmTime: s.alarmTime,
