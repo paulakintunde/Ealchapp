@@ -85,3 +85,36 @@ test('lessonImages: every registered image has alt text, and vice versa', () => 
   ok(noAlt.length === 0, `registered but no alt text (${noAlt.length}): ${noAlt.slice(0, 8).join(', ')}`);
   ok(noReq.length === 0, `alt text but never registered (${noReq.length}): ${noReq.slice(0, 8).join(', ')}`);
 });
+
+// A spaced "?" or "!" inside a scene or story BUBBLE makes the French line drop
+// its last word on a Pixel 6, while the gloss still translates it in full. The
+// rule is bubble-shaped for a reason: BubbleBeat hugs its content and is capped
+// at 92%. A scene's choice `prompt` is a full-width title, and a choice's
+// right/wrong rows go through ReadingRow, which already carries the
+// flex-on-a-wrapper fix, so neither of those can clip.
+//
+// Getting the FIELD wrong makes this check silently pass: a story's bubbles
+// live under `bubbles`, not `lines`. Reading `lines` checked 0 strings across
+// all fourteen lessons and reported them clean.
+test('no scene or story bubble carries a spaced ? or !', async () => {
+  let checked = 0;
+  const hits: string[] = [];
+  for (const [id, slug] of LESSONS) {
+    const mod: any = await import(`./data/b1/${slug}-lesson.ts`);
+    const L = mod.lessonWithoutTask ? mod.lessonWithoutTask() : mod.LESSON;
+    const spaced = / [?!]/;
+    for (const s of L.sections) {
+      const strs: [string, string][] =
+        s.type === 'scene' ? (s.beats ?? []).filter((b: any) => b.kind === 'bubble').map((b: any, i: number) => [`${id} ${s.id} beat ${i}`, b.fr])
+        : s.type === 'story' ? (s.bubbles ?? []).map((b: any, i: number) => [`${id} ${s.id} bubble ${i}`, b.fr])
+        : [];
+      for (const [where, fr] of strs) {
+        if (typeof fr !== 'string') continue;
+        checked++;
+        if (spaced.test(fr)) hits.push(`${where}: ${JSON.stringify(fr).slice(0, 90)}`);
+      }
+    }
+  }
+  ok(checked > 300, `only ${checked} bubble strings found, the walker is reading the wrong field`);
+  ok(hits.length === 0, ['these bubbles will drop their last word on a device:', ...hits].join('\n  '));
+});
