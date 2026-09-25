@@ -446,6 +446,8 @@ export function LessonPager({
     });
     return i >= 0 ? i : null;
   }, [sections, acts]);
+  /** The Overview page's picture: the first act that authored chapter art. */
+  const coverArt = useMemo(() => (acts ?? []).find((a) => a.opener?.imageRef)?.opener?.imageRef, [acts]);
   const pageCount = pages.length;
   const lastPage = pageCount - 1;
   const quizPage = hasQuiz ? lastPage : -1;
@@ -604,7 +606,21 @@ export function LessonPager({
     } else if (initialIndex != null && initialIndex >= 0) {
       // Land on the section's CONTENT page, never its (optional) image page.
       const found = pages.findIndex((p) => p.kind === 'section' && p.sectionIx === initialIndex);
-      const target = found >= 0 ? found : Math.min(lastPage, initialIndex + 1);
+      // ...unless that section OPENS an act with a chapter card: then land on
+      // the card, so starting an act shows its art and its framing line. A
+      // mission tap on an act's first mission skipped straight past it, which
+      // is why most B1 acts' pictures were never seen (UI audit, 2026-09-24).
+      // Not when a card inside the deck was named: that is a resume mid-deck.
+      const before = found - 1;
+      const opener =
+        initialSub == null && found > 0
+          ? pages[before]?.kind === 'act'
+            ? before
+            : pages[before]?.kind === 'image' && pages[before - 1]?.kind === 'act'
+              ? before - 1
+              : -1
+          : -1;
+      const target = opener >= 0 ? opener : found >= 0 ? found : Math.min(lastPage, initialIndex + 1);
       requestAnimationFrame(() => {
         ref.current?.scrollTo({ x: target * measured, animated: false });
         setPage(target);
@@ -819,6 +835,19 @@ export function LessonPager({
             return (
               <View key={key} style={{ width }}>
                 <PageScroll contentStyle={{ paddingHorizontal: 24, paddingTop: 20, paddingBottom: 30, flexGrow: 1, justifyContent: 'center' }}>
+                  {/* The lesson's first chapter art. The Overview is where most
+                      visits start (Start lesson, Resume, a mission link) and its
+                      top half sat empty, so a B1 lesson opened on text alone
+                      though every act carries a picture (UI audit, 2026-09-24).
+                      RichImage renders nothing for a lesson without art. */}
+                  {coverArt ? (
+                    <View style={{ marginBottom: 22 }}>
+                      {/* 16:9, not the act card's 4:3: the overview also holds the
+                          lesson's intro, and at 4:3 the longer intros pushed
+                          "Swipe to begin" below the fold. */}
+                      <RichImage refKey={coverArt} ratio={16 / 9} />
+                    </View>
+                  ) : null}
                   <TX font="serif" size={38} role="display" style={{ marginBottom: 16 }}>
                     {title}
                   </TX>

@@ -310,3 +310,13 @@ test("home's Refresher Course card opens the Levels page first, and a pick from 
   ok(levels.includes("if (fromHome) router.push('/den');"), 'a pick from the course front door must push the trail');
   ok(readScreen('den').includes("router.canGoBack() ? router.back() : router.replace('/home')"), "the trail's back arrow must return to Levels, not jump home");
 });
+
+test('starting an act lands on its chapter card, and the lesson overview shows the first act art', () => {
+  // UI audit 2026-09-24: tapping an act's first mission skipped the chapter
+  // card (the act's picture), and the overview's top half was empty, so the
+  // first ten B1 lessons all opened with no image.
+  const src = readSrc('components/LessonPager.tsx');
+  ok(/pages\[before\]\?\.kind === 'act'/.test(src), 'landing on an act\'s first section must step back onto its chapter card');
+  ok(src.includes('initialSub == null && found > 0'), 'a resume that named a card inside the deck must still land in the deck');
+  ok(src.includes('<RichImage refKey={coverArt}'), 'the overview page must render the lesson\'s first chapter art');
+});
