@@ -26,6 +26,7 @@ export const RUNTIME_DEPS: Attribution[] = [
   { name: '@expo-google-fonts/instrument-serif', licence: 'MIT AND OFL-1.1' },
   { name: '@expo/metro-runtime', licence: 'MIT' },
   { name: '@react-native-async-storage/async-storage', licence: 'MIT' },
+  { name: '@shopify/flash-list', licence: 'MIT' },
   { name: '@supabase/supabase-js', licence: 'MIT' },
   { name: 'expo', licence: 'MIT' },
   { name: 'expo-asset', licence: 'MIT' },
