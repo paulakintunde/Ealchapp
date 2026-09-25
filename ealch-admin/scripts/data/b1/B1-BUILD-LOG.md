@@ -111,8 +111,15 @@ exists, so nothing is created at import.
 |---|---|---|
 | 001-132 | **DB** | do not use |
 | 1000-1199 | b1.14 subjunctive formation | 1000-1195 (196 rows) |
-| 1200-1399 | b1.15 subjunctive triggers (wave 4) | reserved |
-| 1400-1599 | b1.16 subjunctive vs infinitive (wave 4) | reserved |
+| 1200-1399 | b1.15 subjunctive triggers | CLAIMED wave 4 |
+| 1400-1599 | b1.16 subjunctive vs infinitive | CLAIMED wave 4 |
+| 1600+ | FREE | |
+
+b1.15 is the TRIGGERS lesson, so this theme is exactly right for it: `il faut
+que`, `je doute que`, `je suis content que` are opinion, will and doubt. The
+open question about whether `opinions-et-avis` suits the subjunctive is about
+b1.14, the FORMATION lesson, which found no reusable rows here. That question
+can be settled later without holding wave 4 up.
 
 ## Seeing the drafts on a phone (READY, 2026-09-24)
 
@@ -129,6 +136,35 @@ rows. Switch the level chip to B1, or deep-link `ealch://den?band=b1`.
 - **Release builds are unaffected**, measured by `expo export`: no string
   unique to the fixture survives into the bundle.
 - The drafts open past the level gate in dev only, from `DRAFT_LESSON_IDS`.
+
+### Theme `pronoms-essentiels`, continued
+
+| Block | Owner | Authored |
+|---|---|---|
+| 1600-1799 | b1.17 pronoun order | CLAIMED wave 4 |
+| 1800+ | FREE | |
+
+### Theme `faits-et-procedures` (fondations, a2-b2) — CREATED 2026-09-25
+
+« Les faits et les procédures ». Made for b1.18, the passive, because no
+existing theme fitted: `verbes` is the most crowded in the corpus (870 rows,
+highest number 833), and `connecteurs-logiques` is the wrong meaning.
+
+Named for the FUNCTION rather than the grammar, which is the convention every
+other B1 theme follows (`recits-au-passe`, `projets-et-futur`,
+`conseils-et-suggestions`). The French passive lives in notices, rules and
+official language: « Le magasin sera fermé », « Les documents seront envoyés ».
+Sub-themes: la voix passive, on et se faire, les avis et les consignes.
+
+It exists in POSTGRES only. The seed gets it at the next publish, so a
+readiness run will warn that the theme is not in the seed's theme list until
+then. That warning is expected, not a defect.
+
+| Block | Owner | Authored |
+|---|---|---|
+| 001-999 | reserved for a future published import | do not use |
+| 1000-1199 | b1.18 the passive | CLAIMED wave 4 |
+| 1200+ | FREE | |
 
 ## The wave plan from here
 
