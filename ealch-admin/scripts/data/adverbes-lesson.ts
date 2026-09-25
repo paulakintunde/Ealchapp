@@ -557,7 +557,7 @@ const SECTIONS: LessonSection[] = [
        learner met that grid one lesson ago and the first two columns of this one
        are the same two columns, which is the continuity worth having. */
     type: 'tapTable',
-    id: CHAIN_SECTION_ID, sheetId: 'sheet.a2.17.adverbes',
+    id: CHAIN_SECTION_ID,
     title: 'Three Steps, Not Two',
     frSub: 'Trois étapes',
     layer: 'core',

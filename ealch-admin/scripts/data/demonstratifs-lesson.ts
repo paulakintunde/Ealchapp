@@ -278,7 +278,7 @@ const S03_BOTH: LessonSection = {
  *  `la`, `les` and false of these. */
 const S04_GRID: LessonSection = {
   type: 'cardDeck',
-  id: 's04-grid', sheetId: 'sheet-huit',
+  id: 's04-grid',
   render: 'deck',
   layer: 'core',
   size: 'lg',

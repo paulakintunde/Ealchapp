@@ -272,7 +272,7 @@ const SECTIONS_ACT1: LessonSection[] = [
 const SECTIONS_ACT2: LessonSection[] = [
   {
     type: 'teach',
-    id: 's04-rule', sheetId: 'sheet.sons.10.states',
+    id: 's04-rule',
     title: 'One condition, and it is next door',
     frSub: 'La règle',
     render: 'screens',
@@ -471,7 +471,7 @@ const SECTIONS_ACT2: LessonSection[] = [
 const SECTIONS_ACT3: LessonSection[] = [
   {
     type: 'trapDrill',
-    id: 's08-trap-sound', sheetId: 'sheet.sons.10.sounds',
+    id: 's08-trap-sound',
     title: 'The letter you write is not the sound you get',
     frSub: 'Le piège du son',
     render: 'screens',

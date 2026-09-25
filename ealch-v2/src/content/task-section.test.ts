@@ -82,7 +82,12 @@ test('the renderer draws a task rather than falling through to the title-only fa
 test('the task view works with no network: model answer and self-check, no grader call', () => {
   const src = read('components/TaskView.tsx');
   ok(src.includes('modelAnswer'), 'the model answer is the offline yardstick');
-  ok(!/fetch\(|supabase|grade-exam/.test(src), 'the shipped path must not depend on a network call');
+  // Strip comments first. This guard read the whole file and failed the moment
+  // the component EXPLAINED why it cannot call the Examiner's grader: the words
+  // "grade-exam" and "examGrader" in a comment tripped a check meant for code.
+  // A guard that forbids naming a thing stops anyone documenting it.
+  const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+  ok(!/fetch\(|supabase|examGrader|grade-exam/.test(code), 'the shipped path must not depend on a network call');
   // The criteria are shown before writing. That is what makes it formative
   // rather than a test, and it is why this is not an ExamTask.
   ok(src.includes('CE QUI COMPTE'), 'the criteria must be visible before the learner writes');
