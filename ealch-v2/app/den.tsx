@@ -147,9 +147,12 @@ export default function Den() {
     },
     [router],
   );
+  // D-10/D-12: acte 00 opens the pre-roll sheet first, never the player
+  // directly — the sheet states the real shape of the lesson before the mic
+  // is ever in play.
   const goActe0 = useCallback(
     (lessonId: string) => {
-      router.push({ pathname: '/narrated', params: { key: lessonId } });
+      router.push({ pathname: '/preroll', params: { key: lessonId } });
     },
     [router],
   );

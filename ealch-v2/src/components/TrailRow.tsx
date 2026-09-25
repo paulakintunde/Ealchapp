@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { TX } from './Type';
 import { Press } from './ui';
 import { Icon } from './Icon';
+import { PremiereLockTag } from './PremiereLockTag';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import type { TrailRow as TrailRowData } from '@/content/trail.logic';
@@ -73,11 +74,8 @@ export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: Trail
             {T.trailActe0}
           </TX>
         </View>
-        {row.locked ? (
-          <Icon name="lock" size={14} color={t.txNonText} strokeWidth={1.8} />
-        ) : (
-          <Icon name="chevronRight" size={16} color={t.txNonText} strokeWidth={1.7} />
-        )}
+        {/* D-34: the shared PREMIERE lock pill / chevron, not a bespoke copy */}
+        <PremiereLockTag locked={row.locked} />
       </Press>
     );
   }
@@ -135,7 +133,8 @@ export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: Trail
           {row.releaseLine}
         </TX>
       </View>
-      <Icon name="chevronRight" size={16} color={t.txNonText} strokeWidth={1.7} />
+      {/* D-34: the shared PREMIERE lock pill / chevron, not a bespoke copy */}
+      <PremiereLockTag locked={row.locked} />
     </Press>
   );
 }

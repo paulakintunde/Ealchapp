@@ -147,6 +147,21 @@ export default function RootLayout() {
                 }}
               />
               <Stack.Screen name="act" options={{ animation: 'slide_from_right' }} />
+              {/* D-10/D-12: the acte 00 pre-roll sheet, one sheet mechanism
+                  shared with the Fiche above — same formSheet options, same
+                  three D-38 defects handled the same way. */}
+              <Stack.Screen
+                name="preroll"
+                options={{
+                  presentation: 'formSheet',
+                  sheetAllowedDetents: [0.55, 0.92],
+                  sheetInitialDetentIndex: 0,
+                  sheetCornerRadius: 26,
+                  sheetGrabberVisible: true,
+                  gestureDirection: 'vertical',
+                  contentStyle: { backgroundColor: t.sheet },
+                }}
+              />
               <Stack.Screen name="speakmap" />
               <Stack.Screen name="speak" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="player" options={{ animation: 'slide_from_bottom' }} />

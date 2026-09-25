@@ -150,6 +150,32 @@ test('neither new screen puts flex or flexShrink inline on a <TX> tag (D-43)', (
   }
 });
 
+// 07.1-09: app/preroll.tsx is the same untrusted-input surface act.tsx and
+// fiche.tsx already are (a deep link naming any lesson id) — same guard idiom.
+test('preroll.tsx normalises ?key= from an array before it touches content.lesson, and carries a dead-link guard', () => {
+  const src = readScreen('preroll');
+  ok(src.includes('Array.isArray(params.key)'), 'preroll.tsx must normalise params.key');
+  ok(!/content\.lesson\(params\.key\)/.test(src), 'preroll.tsx must not pass params.key straight into content.lesson');
+  ok(/content\.lesson\(/.test(src), 'preroll.tsx must resolve the key through content.lesson');
+  ok(/if\s*\(!L/.test(src), 'preroll.tsx must guard a null lesson');
+});
+
+test('preroll.tsx derives its stated shape from flattenNarration/stageRanges, never a hardcoded count (D-12)', () => {
+  const src = readScreen('preroll');
+  ok(src.includes('flattenNarration('), 'preroll.tsx must call flattenNarration');
+  ok(src.includes('stageRanges('), 'preroll.tsx must call stageRanges');
+  ok(!/\b(7|24)\s+(stages|passages)/.test(src), 'preroll.tsx must not hardcode sons.01.l1\'s own numbers');
+});
+
+test('_layout.tsx registers preroll with the same formSheet shape as fiche (one sheet mechanism, D-38)', () => {
+  const src = readFileSync(resolve(appDir, '_layout.tsx'), 'utf8').replace(/\r\n/g, '\n');
+  const at = src.indexOf('name="preroll"');
+  ok(at > 0, 'expected a preroll Stack.Screen registration');
+  const block = src.slice(at, src.indexOf('/>', at));
+  ok(/presentation:\s*'formSheet'/.test(block), 'preroll must use presentation: formSheet, not a second sheet mechanism');
+  ok(!block.includes('1.0') && !/sheetAllowedDetents:\s*\[[^\]]*\b1\b/.test(block), 'the top detent must stay below 1.0 (D-38 defect 2)');
+});
+
 test('neither new screen fixes a non-square height on anything text-bearing (D-44)', () => {
   // A square width===height pair is an icon/badge/dot container sized to a
   // glyph, not text flowing to an edge — the repo-wide header-button shape
