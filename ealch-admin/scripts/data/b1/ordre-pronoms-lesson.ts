@@ -22,7 +22,7 @@
 //    3  La chose, puis la personne 8  le la les before lui leur
 //    4  Moi d'abord                8  me te nous vous before le la les
 //    5  y et en, les deux dernières 8 y fourth, en always last
-//    6  La bascule                 8  the affirmative order: behind, hyphenated, moi
+//    6  À l’impératif              8  the affirmative order: behind, hyphenated, moi
 //    7  Rien ne bouge              7  the negative order keeps the ordinary file
 //    8  Au passé composé           8  in front of the auxiliary, and the agreement
 //    9  Avec un deuxième verbe     7  the file lands on the infinitive
@@ -1611,7 +1611,7 @@ const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
 
 const ACT6: ActDef = {
   act: {
-    id: 'act6', title: 'La bascule',
+    id: 'act6', title: 'À l’impératif',
     opener: {
       line: 'Tu demandes quelque chose à quelqu’un, et toute la file change de côté en même temps. EN: You ask somebody for something, and the whole queue changes sides at once.',
       imageRef: 'lessons/ordre-pronoms/act06.jpg',

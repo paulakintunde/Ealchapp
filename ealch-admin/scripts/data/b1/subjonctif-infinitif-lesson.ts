@@ -3114,7 +3114,7 @@ const ACT11: ActDef = {
     id: 'act11',
     title: 'Écrire les deux formes',
     opener: {
-      line: "Un message à un groupe demande les deux formes dix fois en dix lignes : ici tu écris le tien. EN: A message to a group needs both shapes ten times in ten lines: here you write yours.",
+      line: "Toi, tu fais ta part, et les autres font la leur : ici tu écris le message qui dit qui fait quoi, et pourquoi. EN: You do your part and the others do theirs: here you write the message that says who does what, and why.",
       imageRef: 'lessons/subjonctif-infinitif/act11.jpg',
     },
     sections: [],

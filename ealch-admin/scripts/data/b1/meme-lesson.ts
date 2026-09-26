@@ -21,7 +21,7 @@
 //    4  Le même, tout seul         7   the pronoun: c'est le même, les mêmes
 //    5  Moi-même                   8   emphasis, fais-le toi-même, soi-même,
 //                                      and the reflexive trap
-//    6  Même, c'est even           7   même Paul, même en hiver, même moi
+//    6  Même Paul                  7   même Paul, même en hiver, même moi
 //    7  La place de même           7   il a même ri, il ne m'a même pas
 //    8  Avant ou après le nom      7   le même jour / le jour même, ici même
 //    9  Quand même                 8   anyway, the reproach, the ONE même si
@@ -1562,7 +1562,7 @@ const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
 
 const ACT6: ActDef = {
   act: {
-    id: 'act6', title: 'Même, c’est even',
+    id: 'act6', title: 'Même Paul',
     opener: {
       line: "Tout le monde est venu, et même Paul : ici tu apprends le même qui ajoute le cas qu'on n'attendait pas. EN: Everyone came, even Paul: here you learn the même that adds the case nobody expected.",
       imageRef: 'lessons/meme/act06.jpg',
@@ -2929,7 +2929,7 @@ const ROUNDS: Round[] = [
     ],
   },
   {
-    id: 'r6-even', label: 'Même, c’est even', targets: ['even-traduit'],
+    id: 'r6-even', label: 'Même Paul', targets: ['even-traduit'],
     questions: [
       mc('« Even the children understood. »', ['Même les enfants ont compris.', 'Les mêmes enfants ont compris.', 'Aussi les enfants ont compris.'], 0, "Même devant l'article. EN: même les enfants.", 'a6-meme'),
       mc('« even me »', ['même je', 'même moi'], 1, 'Même moi. EN: stressed pronoun.', 'a6-construire'),

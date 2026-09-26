@@ -146512,7 +146512,7 @@
           "id": "act11",
           "title": "Écrire les deux formes",
           "opener": {
-            "line": "Un message à un groupe demande les deux formes dix fois en dix lignes : ici tu écris le tien. EN: A message to a group needs both shapes ten times in ten lines: here you write yours.",
+            "line": "Toi, tu fais ta part, et les autres font la leur : ici tu écris le message qui dit qui fait quoi, et pourquoi. EN: You do your part and the others do theirs: here you write the message that says who does what, and why.",
             "imageRef": "lessons/subjonctif-infinitif/act11.jpg"
           },
           "sections": [
@@ -156263,7 +156263,7 @@
         },
         {
           "id": "act6",
-          "title": "La bascule",
+          "title": "À l’impératif",
           "opener": {
             "line": "Tu demandes quelque chose à quelqu’un, et toute la file change de côté en même temps. EN: You ask somebody for something, and the whole queue changes sides at once.",
             "imageRef": "lessons/ordre-pronoms/act06.jpg"
@@ -225395,7 +225395,7 @@
         },
         {
           "id": "act6",
-          "title": "Même, c’est even",
+          "title": "Même Paul",
           "opener": {
             "line": "Tout le monde est venu, et même Paul : ici tu apprends le même qui ajoute le cas qu'on n'attendait pas. EN: Everyone came, even Paul: here you learn the même that adds the case nobody expected.",
             "imageRef": "lessons/meme/act06.jpg"
@@ -233939,7 +233939,7 @@
             },
             {
               "id": "r6-even",
-              "label": "Même, c’est even",
+              "label": "Même Paul",
               "targets": [
                 "even-traduit"
               ],
