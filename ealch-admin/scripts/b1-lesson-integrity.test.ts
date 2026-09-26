@@ -30,8 +30,10 @@ const IMAGES = resolve(HERE, '../../ealch-v2/src/content/lessonImages.ts');
  *  and clears when the art batch runs. Named here so a lesson that LOSES its
  *  art still fails, which a blanket skip would hide.
  *
- *  Wave 4 (44 openers) added 2026-09-25. Delete a line when its art lands. */
-const ART_PENDING = new Set(['b1.15', 'b1.16', 'b1.17', 'b1.18', 'b1.19', 'b1.20', 'b1.21', 'b1.22', 'b1.23', 'b1.24']);
+ *  EMPTY since 2026-09-25: the 110 openers for b1.15 to b1.24 landed and are
+ *  registered. Add a lesson here when it is authored ahead of its art, and
+ *  delete it when the art lands. */
+const ART_PENDING = new Set<string>([]);
 
 const LESSONS: [string, string][] = [
   ['b1.01', 'imparfait-formation'], ['b1.02', 'imparfait-usage'],

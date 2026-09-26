@@ -24,16 +24,16 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.12 | dont-ou | 84 | 11 | 11x8 | 11 | 5 | 22 | 217 | 11 images, registered + alt | DONE |
 | b1.13 | lequel-ce-qui | 84 | 11 | 11x8 | 11 | 5 | 17 | 215 | 11 images, registered + alt | DONE |
 | b1.14 | subjonctif-formation | 82 | 11 | 11x8 | 11 | 5 | 15 | 234 | 11 images, registered + alt | DONE |
-| b1.15 | subjonctif-declencheurs | 86 | 11 | 11x8 | 11 | 5 | 16 | 253 | 11 prompts, art not made | DONE |
-| b1.16 | subjonctif-infinitif | 85 | 11 | 11x8 | 11 | 5 | 20 | 235 | 11 prompts, art not made | DONE |
-| b1.17 | ordre-pronoms | 87 | 11 | 11x8 | 11 | 5 | 9 | 235 | 11 prompts, art not made | DONE |
-| b1.18 | voix-passive | 85 | 11 | 11x8 | 11 | 5 | 15 | 195 | 11 prompts, art not made | DONE |
-| b1.19 | discours-indirect | 85 | 11 | 11x8 | 11 | 5 | 18 | 181 | 11 prompts, art not made | DONE |
-| b1.20 | negation-avancee | 85 | 11 | 11x8 | 11 | 5 | 19 | 200 | 11 prompts, art not made | DONE |
-| b1.21 | inversion | 88 | 11 | 11x8 | 11 | 5 | 13 | 181 | 11 prompts, art not made | DONE |
-| b1.22 | cest-il-est | 86 | 11 | 11x8 | 11 | 5 | 19 | 192 | 11 prompts, art not made | DONE |
-| b1.23 | tout | 85 | 11 | 11x8 | 11 | 5 | 16 | 196 | 11 prompts, art not made | DONE |
-| b1.24 | meme | 85 | 11 | 11x8 | 11 | 5 | 19 | 180 | 11 prompts, art not made | DONE |
+| b1.15 | subjonctif-declencheurs | 86 | 11 | 11x8 | 11 | 5 | 16 | 253 | 11 images, registered + alt | DONE |
+| b1.16 | subjonctif-infinitif | 85 | 11 | 11x8 | 11 | 5 | 20 | 235 | 11 images, registered + alt | DONE |
+| b1.17 | ordre-pronoms | 87 | 11 | 11x8 | 11 | 5 | 9 | 235 | 11 images, registered + alt | DONE |
+| b1.18 | voix-passive | 85 | 11 | 11x8 | 11 | 5 | 15 | 195 | 11 images, registered + alt | DONE |
+| b1.19 | discours-indirect | 85 | 11 | 11x8 | 11 | 5 | 18 | 181 | 11 images, registered + alt | DONE |
+| b1.20 | negation-avancee | 85 | 11 | 11x8 | 11 | 5 | 19 | 200 | 11 images, registered + alt | DONE |
+| b1.21 | inversion | 88 | 11 | 11x8 | 11 | 5 | 13 | 181 | 11 images, registered + alt | DONE |
+| b1.22 | cest-il-est | 86 | 11 | 11x8 | 11 | 5 | 19 | 192 | 11 images, registered + alt | DONE |
+| b1.23 | tout | 85 | 11 | 11x8 | 11 | 5 | 16 | 196 | 11 images, registered + alt | DONE |
+| b1.24 | meme | 85 | 11 | 11x8 | 11 | 5 | 19 | 180 | 11 images, registered + alt | DONE |
 | b1.25 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
