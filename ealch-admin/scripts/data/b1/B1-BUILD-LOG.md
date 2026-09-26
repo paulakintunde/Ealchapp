@@ -276,6 +276,34 @@ had no b1 rows, and `pronoms-essentiels` already carries four B1 lessons.
 
 In each, everything below 1000 is published or reserved: do not use.
 
+### Waves 7 to 9 themes, set in Postgres 2026-09-26
+
+Probed first: every theme below has NOTHING at or above 1000 at any level.
+Two themes are NEW and exist in POSTGRES ONLY until the next publish (the
+readiness warning about the seed's theme list is expected for them). The
+sub-theme edits are Postgres-only too: `import-seed.ts` would revert them.
+Shapes for these lessons: `B1-WORKSHOP-AND-VOCAB-SHAPES.md`.
+
+| Theme | State | Probed | Block | Owner | Authored |
+|---|---|---|---|---|---|
+| `langue-soignee` (fondations, a2-b2) | sub-theme « les trois registres » added | b1.21 only, 1000-1194 | 1200-1399 | b1.25 register and formality | |
+| `rp-etiquette` « Les bonnes manières » (relations, a1-b2) | sub-themes added: tu ou vous, la politesse au quotidien, les formules | 425 rows, 91 fr.b1, highest 115 | 1000-1199 | b1.26 tu vs vous | |
+| `expressions-imagees` « Les expressions imagées » (fondations, b1-b2) | **NEW**; sub-themes le corps, les animaux et la nourriture, les couleurs | empty | 1000-1199 | b1.27 body idioms | |
+| `expressions-imagees` | | | 1200-1399 | b1.28 animal and food idioms | |
+| `expressions-imagees` | | | 1400-1599 | b1.29 colour expressions | |
+| `connecteurs-logiques` (fondations, a2-b2) | sub-themes added: la coordination, la subordination, la concession | 295 rows, 115 fr.b1, highest 132 | 1000-1199 | b1.30 coordination | |
+| `connecteurs-logiques` | | | 1200-1399 | b1.31 subordination | |
+| `connecteurs-logiques` | | | 1400-1599 | b1.32 concession | |
+| `ecologie` (nature, b1-b2) | sub-themes added: l'environnement, la société et l'environnement, agir au quotidien | 319 rows, 154 fr.b1, highest 165 | 1000-1199 | b1.33 environment and society | |
+| `strategies-de-comprehension` « Les stratégies de compréhension » (education, b1-b2) | **NEW**; sub-themes lire un texte, écouter, deviner le sens. b1.38 listening takes 1200-1399 later | empty | 1000-1199 | b1.37 reading strategy | |
+
+Why these homes: `corps` stops at a2 and holds the literal body; idioms are a
+separate job, so one new theme holds all three idiom lessons in three blocks.
+`connecteurs-logiques` is exactly coordination, subordination and concession.
+`ecologie` was preferred to `questions-sociales` because the lesson's core is
+the environment; society comes in through it. b1.25 reuses `langue-soignee`,
+as b1.21 planned.
+
 ## The wave plan from here
 
 Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing in the next wave starts until he has.
