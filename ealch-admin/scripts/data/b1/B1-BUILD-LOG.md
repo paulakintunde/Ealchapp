@@ -44,12 +44,12 @@ has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
 
-**REVIEW GATE 2, DEVICE PASS DONE 2026-09-26 on the Pixel 6. PAUL'S VERDICT PENDING: wave 7 still waits for him.**
+**REVIEW GATE 2 PASSED 2026-09-26. Paul reviewed b1.15 to b1.24 on the Pixel 6 and passed the gate. Wave 7 (b1.25 register, b1.37 reading strategy, the NEW workshop shape) is unblocked; Paul reviews those two before the rest of the workshop lessons.**
 
 - All 110 act openers of b1.15 to b1.24 opened by deep link (`ealch://act?key=b1.NN.l1&act=N`, N counts from 0) and screenshotted: right lesson number, own art on every act (none blank), French title and intro with the English under it. The b1.24 graded task (mission 79) renders brief, bold requirement and weighted criteria, and « French only » hides the English.
 - **The Metro that was running served a bundle WITHOUT b1.18 to b1.24** (it predated wave 5). Restarted per [[ealch-manifest-retry-pileup]]: Metro `CI=1 --clear` on 8083, the manifest-cache proxy on 8082, both ports reversed. The first manifest took 5 minutes because an emulator and other sessions had the CPU at 100%; cached after that. **CI mode means Metro does not see edits: restart it after any source change before looking on the phone.**
 - FIXED: b1.20 act 2 intro read « Pas dit non, sans plus », broken French without the quote marks. Now « « Pas » dit non ». Text only, no version bump.
-- FOR PAUL: b1.24 act 6 is titled « Même, c'est even » on purpose (act plan), an English word in a French title; b1.15 and b1.17 both have an act 6 called « La bascule »; b1.15 and b1.16 close on almost the same intro line; a round gear button floats over the top right of every act picture and the task card.
+- PAUL DECIDED (`cd1d420`): b1.24 act 6 retitled « Même Paul »; b1.17 act 6 « La bascule » retitled « À l’impératif » (the term stays); b1.16's closing intro rewritten so it no longer echoes b1.15's; the floating gear was the Expo dev menu's button (debug builds only), switched off on the phone.
 
 **Wave 6 LANDED 2026-09-25: b1.22 c'est vs il est, b1.23 tout, b1.24 même,
 verified independently (validators 0/0/0, 568 rows, zero id collisions, 104/104
@@ -289,7 +289,7 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 | 4 | b1.15 b1.16 b1.17 b1.18 | Subjunctive triggers, subjunctive vs infinitive, pronoun order, passive |
 | 5 | b1.19 b1.20 b1.21 | Reported speech, advanced negation, inversion |
 | 6 | b1.22 b1.23 b1.24 | C'est vs il est, tout, même |
-| **REVIEW GATE 2** | after b1.24 (20 lessons) | Paul reviews |
+| **REVIEW GATE 2** | after b1.24 (20 lessons) | PASSED 2026-09-26 |
 | 7 | b1.25 b1.37 | The workshop shape pilot (register, reading strategy). NEW SHAPE: Paul reviews these two before the rest of the workshop lessons |
 | 8 | b1.26 b1.27 b1.28 b1.29 | Tu vs vous, body idioms, animal and food idioms, colour expressions |
 | 9 | b1.30 b1.31 b1.32 b1.33 | Coordination, subordination, concession, environment and society |
