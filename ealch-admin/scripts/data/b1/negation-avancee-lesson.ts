@@ -660,7 +660,7 @@ const ACT2: ActDef = {
   act: {
     id: 'act2', title: 'Plus, jamais, rien, personne',
     opener: {
-      line: "Pas dit non, sans plus : ici tu apprends quatre mots qui disent ce qui a cessé, quand, quoi et qui. EN: Pas just says no: here you learn four words that say what stopped, when, what and who.",
+      line: "« Pas » dit non, sans plus : ici tu apprends quatre mots qui disent ce qui a cessé, quand, quoi et qui. EN: \"Pas\" just says no: here you learn four words that say what stopped, when, what and who.",
       imageRef: 'lessons/negation-avancee/act02.jpg',
     },
     sections: [],

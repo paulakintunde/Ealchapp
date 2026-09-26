@@ -44,6 +44,13 @@ has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
 
+**REVIEW GATE 2, DEVICE PASS DONE 2026-09-26 on the Pixel 6. PAUL'S VERDICT PENDING: wave 7 still waits for him.**
+
+- All 110 act openers of b1.15 to b1.24 opened by deep link (`ealch://act?key=b1.NN.l1&act=N`, N counts from 0) and screenshotted: right lesson number, own art on every act (none blank), French title and intro with the English under it. The b1.24 graded task (mission 79) renders brief, bold requirement and weighted criteria, and « French only » hides the English.
+- **The Metro that was running served a bundle WITHOUT b1.18 to b1.24** (it predated wave 5). Restarted per [[ealch-manifest-retry-pileup]]: Metro `CI=1 --clear` on 8083, the manifest-cache proxy on 8082, both ports reversed. The first manifest took 5 minutes because an emulator and other sessions had the CPU at 100%; cached after that. **CI mode means Metro does not see edits: restart it after any source change before looking on the phone.**
+- FIXED: b1.20 act 2 intro read « Pas dit non, sans plus », broken French without the quote marks. Now « « Pas » dit non ». Text only, no version bump.
+- FOR PAUL: b1.24 act 6 is titled « Même, c'est even » on purpose (act plan), an English word in a French title; b1.15 and b1.17 both have an act 6 called « La bascule »; b1.15 and b1.16 close on almost the same intro line; a round gear button floats over the top right of every act picture and the task card.
+
 **Wave 6 LANDED 2026-09-25: b1.22 c'est vs il est, b1.23 tout, b1.24 même,
 verified independently (validators 0/0/0, 568 rows, zero id collisions, 104/104
 house tests, readiness 0 blockers, live Postgres probe clean on all twelve
