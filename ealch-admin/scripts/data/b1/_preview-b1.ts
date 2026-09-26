@@ -28,6 +28,9 @@ const SLUGS = [
   'discours-indirect', 'negation-avancee', 'inversion',
   // wave 6
   'cest-il-est', 'tout', 'meme',
+  // waves 7 to 9
+  'registres', 'tu-ou-vous', 'expressions-corps', 'expressions-animaux', 'expressions-couleurs',
+  'coordination', 'subordination', 'concession', 'environnement', 'strategies-lecture',
 ] as const;
 
 /** The `task` section now has a real renderer (`TaskView`, wired into

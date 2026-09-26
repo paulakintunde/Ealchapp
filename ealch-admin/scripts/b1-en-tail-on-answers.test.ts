@@ -28,6 +28,8 @@ const LESSONS: [string, string][] = [
   ['b1.15', 'subjonctif-declencheurs'], ['b1.16', 'subjonctif-infinitif'], ['b1.17', 'ordre-pronoms'], ['b1.18', 'voix-passive'],
   ['b1.19', 'discours-indirect'], ['b1.20', 'negation-avancee'], ['b1.21', 'inversion'],
   ['b1.22', 'cest-il-est'], ['b1.23', 'tout'], ['b1.24', 'meme'],
+  ['b1.25', 'registres'], ['b1.26', 'tu-ou-vous'], ['b1.27', 'expressions-corps'], ['b1.28', 'expressions-animaux'], ['b1.29', 'expressions-couleurs'],
+  ['b1.30', 'coordination'], ['b1.31', 'subordination'], ['b1.32', 'concession'], ['b1.33', 'environnement'], ['b1.37', 'strategies-lecture'],
 ];
 
 /** Fields whose strings ARE the answer: what the learner picks, types, or is

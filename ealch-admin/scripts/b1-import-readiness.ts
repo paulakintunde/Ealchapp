@@ -27,6 +27,9 @@ const SLUGS = [
   'discours-indirect', 'negation-avancee', 'inversion',
   // wave 6
   'cest-il-est', 'tout', 'meme',
+  // waves 7 to 9
+  'registres', 'tu-ou-vous', 'expressions-corps', 'expressions-animaux', 'expressions-couleurs',
+  'coordination', 'subordination', 'concession', 'environnement', 'strategies-lecture',
 ];
 
 type Row = { id: string; theme?: string; level?: string };
@@ -108,9 +111,9 @@ for (const id of batchIds) {
 console.log('\nauthored id floor per theme (no published fr.b1 row may sit at or above it):');
 for (const [th, lo] of [...floors].sort()) console.log(`  ${th.padEnd(26)} ${lo}`);
 
-console.log('\nDATABASE PLANE, probed read-only 2026-09-25 after wave 6:');
-console.log('  No published fr.b1 row sits at or above any floor, in any of the twelve');
-console.log('  themes above. Nothing would be overwritten.');
+console.log('\nDATABASE PLANE, probed read-only 2026-09-26 after wave 9:');
+console.log('  No published fr.b1 row sits at or above any floor, in any theme');
+console.log('  listed above. Nothing would be overwritten.');
 console.log('');
 console.log('  BEWARE THE NEAR MISS. recits-au-passe and projets-et-futur each hold 17');
 console.log('  published rows numbered 116-132, which reads as a collision against');

@@ -77,6 +77,38 @@ per round, 3 to 5 sheets all linked by `sheetId`, the English always authored,
 tu for the learner, no em dash, the banned lists, the answer-slot rules, the
 id block, the image prompt file, the per-act validate loop.
 
+### 1.4 Amended after the pilots (2026-09-26, b1.25, b1.26, b1.37)
+
+What three workshop lessons found when they built to 1.1-1.3:
+
+- **Every act still ends with its act check.** The loop in 1.1 is the body of
+  the act; the gated check closes it, as in every B1 lesson.
+- **The "use it" beat has no free-writing surface.** Short of the `task`, the
+  flow has no in-mission free text. So "use it" is a short `scenario` (pick
+  the line that fits), or, in a strategy lesson, choosing the best summary
+  line. Vary the mechanic across acts where you can; eight identical
+  scenarios in a row were the pilot's weak spot.
+- **Name the beat the same way in every act** (b1.37 titled it « Pour ton
+  résumé » throughout). A reviewer, and a learner, then see the loop.
+- **Practise on new material, except when the anchor text needs one more
+  look.** A single check on the anchor, placed as part of "meet", is fine.
+- **Sizes that landed:** 67 to 77 missions, 10 or 11 acts, about 6 missions
+  per act before the closing act.
+- **Text counts:** 6 to 9 texts for a register lesson; a STRATEGY lesson needs
+  one per act, so about 12.
+- **Stories:** the playbook's "3 to 6 stories" does not apply. Workshop acts
+  open on readings and listenings, so 1 or 2 stories is normal.
+- **Summary tasks need their source text on screen.** `TaskView` has no source
+  field, so the text is printed again inside the brief. That works; a
+  `source` field on `task` would be the cleaner fix and is an open question.
+- **`Lesson.skill` follows what the lesson remediates**: 'CE' for a reading
+  lesson, not 'PE', even though its task is written.
+- **The quiz is reshuffled every attempt, but validateDensity's quiz-spread
+  still checks the authored order.** Rotate each question's options together
+  with its `correct` index (`spreadSlots()`), which changes no text.
+- **Register lessons may fill each row's `register` field** (familier,
+  courant, soutenu). b1.25 is the first corpus to use it.
+
 ## 2. The vocab shape (idiom and topic lessons)
 
 Lessons: b1.27 body idioms, b1.28 animal and food idioms, b1.29 colour
@@ -115,6 +147,27 @@ collocations and a reading.
 - **Size.** 75 to 90 missions in 10 to 12 acts, like a grammar lesson.
 - **Task.** A short text that uses a set number of the lesson's expressions
   correctly and naturally (a message, an anecdote), graded on fit, not count.
+
+### 2.2a Amended after b1.27 and b1.28 (2026-09-26)
+
+- **The loop held with no new section types:** meet in context, `cardDeck`
+  (register, literal picture, meaning, English), build from the A1 literal
+  word to the idiom, use in situations, a named trap, then the act check.
+  About 7 missions per act, 88 in all.
+- **Open each build drill with the literal seed word beside its idiom**
+  (« un lapin » → « poser un lapin »). That is how the A1 vocabulary rows get
+  reused and cited.
+- **Traps run both ways:** the English picture carried into French (« donner
+  une main »), and a look-alike French phrase that does not exist.
+- **Two groupDrills per act is normal** for this shape, so a vocab lesson runs
+  to about 30 groupDrills.
+- **An idiom whose key image is ambiguous is orphaned** unless someone owns
+  it. « avoir la chair de poule » fell between b1.27 and b1.28 and is taught
+  by neither. Assign ambiguous idioms by name in the brief.
+- **`fold()` does not decompose « œ »**, so a typed answer with cœur, œil or
+  œuf also accepts « oe ». And a regex `\w` does not match accented letters:
+  count usage with explicit character classes.
+- **Mark `register` on every row** (familier or courant), as b1.27 did.
 
 ### 2.3 Rules for topic vocabulary (b1.33 and later)
 

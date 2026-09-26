@@ -34,7 +34,17 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.22 | cest-il-est | 86 | 11 | 11x8 | 11 | 5 | 19 | 192 | 11 images, registered + alt | DONE |
 | b1.23 | tout | 85 | 11 | 11x8 | 11 | 5 | 16 | 196 | 11 images, registered + alt | DONE |
 | b1.24 | meme | 85 | 11 | 11x8 | 11 | 5 | 19 | 180 | 11 images, registered + alt | DONE |
-| b1.25 to b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.25 | registres (workshop) | 67 | 10 | 10x8 | 10 | 5 | 9 | 163 | 10 prompts, art not made | DONE |
+| b1.26 | tu-ou-vous (workshop) | 72 | 11 | 11x8 | 11 | 5 | 10 | 151 | 11 prompts, art not made | DONE |
+| b1.27 | expressions-corps (vocab) | 88 | 12 | 12x8 | 12 | 5 | 17 | 179 | 12 prompts, art not made | DONE |
+| b1.28 | expressions-animaux (vocab) | 88 | 12 | 11x8 | 11 | 5 | 19 | 175 | 12 prompts, art not made | DONE |
+| b1.29 | expressions-couleurs (vocab) | 88 | 12 | 11x8 | 12 | 5 | 25 | 190 | 12 prompts, art not made | DONE |
+| b1.30 | coordination | 86 | 11 | 11x8 | 11 | 5 | 19 | 185 | 11 prompts, art not made | DONE |
+| b1.31 | subordination | 86 | 11 | 11x8 | 11 | 5 | 20 | 191 | 11 prompts, art not made | DONE |
+| b1.32 | concession | 87 | 11 | 11x8 | 11 | 5 | 16 | 187 | 11 prompts, art not made | DONE |
+| b1.33 | environnement (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 200 | 11 prompts, art not made | DONE |
+| b1.34 to b1.36, b1.38, b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
+| b1.37 | strategies-lecture (workshop) | 77 | 11 | 11x8 | 11 | 5 | 13 | 191 | 11 prompts, art not made | DONE |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
 
@@ -43,6 +53,23 @@ independently by the orchestrator. That is EIGHTEEN lessons authored and NONE
 has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
+
+**WAVES 7 TO 9 LANDED 2026-09-26: b1.25 to b1.33 and b1.37, ten lessons, verified
+independently (validators 0/0/0 on all ten, 1,812 rows, zero id collisions across
+the batch, 144/144 house tests, readiness 0 blockers over 34 lessons, live
+Postgres probe clean on all six themes). THIRTY-FOUR lessons authored. REVIEW
+GATE 3 IS NEXT: nothing in wave 10 starts until Paul has looked. 113 prompts
+(b1.25 to b1.33, b1.37) have no art yet. Findings:**
+
+- **Two new shapes, both built from existing section types.** Workshop (b1.25 register, b1.26 tu or vous, b1.37 reading strategy): 67 to 77 missions, an anchor text per act. Vocab (b1.27 to b1.29 idioms, b1.33 environment): 81 to 88 missions, a family of expressions per act. `B1-WORKSHOP-AND-VOCAB-SHAPES.md` §1.4 and §2.2a record what the lessons found. **b1.26 was built on the workshop shape BEFORE Paul reviewed the pilots**, because he asked for waves 7 to 9 through to gate 3; he sees all three workshop lessons together at gate 3.
+- **The three idiom lessons do not overlap**: 544 rows checked, no expression taught twice, every contested idiom where it was assigned. **« avoir la chair de poule » is taught by none of them** (its key image is ambiguous).
+- **The three connector lessons split cleanly**: b1.30 owns the coordinators and cites nothing forward; b1.31 cause, consequence, purpose; b1.32 concession, citing b1.30 for pourtant and cependant. Both b1.30 and b1.31 contrast car with parce que.
+- **No A1 or A2 lesson names et, mais, ou as a system**, and none teaches comme, puisque, à cause de or any consequence link. B1 is where they are first taught.
+- **b1.25 is the first corpus to fill the `register` field** (familier, courant, soutenu); b1.27 followed. And b1.25 names 11 DRAFT rows of b1.20 to b1.22 by id, which ties its import to theirs.
+- **b1.37 sets `Lesson.skill` to 'CE'** (it remediates reading), and prints its source article twice because `task` has no source field.
+- **b1.33 carries dated facts** (the 2023 wildfire smoke over Montréal, Québec hydro, France's nuclear share, the Vaud bag tax, the belugas, and others): a fact check before publish.
+- **Every lesson authored twins of Postgres-only rows** (`DB_ONLY_TWINS`), from 6 to 19 per lesson. The dedupe decision at import is still open.
+- **Five agents hit the API session limit mid-lesson** (2026-09-26 04:50) and were resumed from their own transcripts; no file was lost.
 
 **REVIEW GATE 2 PASSED 2026-09-26. Paul reviewed b1.15 to b1.24 on the Pixel 6 and passed the gate. Wave 7 (b1.25 register, b1.37 reading strategy, the NEW workshop shape) is unblocked; Paul reviews those two before the rest of the workshop lessons.**
 
@@ -286,16 +313,16 @@ Shapes for these lessons: `B1-WORKSHOP-AND-VOCAB-SHAPES.md`.
 
 | Theme | State | Probed | Block | Owner | Authored |
 |---|---|---|---|---|---|
-| `langue-soignee` (fondations, a2-b2) | sub-theme « les trois registres » added | b1.21 only, 1000-1194 | 1200-1399 | b1.25 register and formality | |
-| `rp-etiquette` « Les bonnes manières » (relations, a1-b2) | sub-themes added: tu ou vous, la politesse au quotidien, les formules | 425 rows, 91 fr.b1, highest 115 | 1000-1199 | b1.26 tu vs vous | |
-| `expressions-imagees` « Les expressions imagées » (fondations, b1-b2) | **NEW**; sub-themes le corps, les animaux et la nourriture, les couleurs | empty | 1000-1199 | b1.27 body idioms | |
-| `expressions-imagees` | | | 1200-1399 | b1.28 animal and food idioms | |
-| `expressions-imagees` | | | 1400-1599 | b1.29 colour expressions | |
-| `connecteurs-logiques` (fondations, a2-b2) | sub-themes added: la coordination, la subordination, la concession | 295 rows, 115 fr.b1, highest 132 | 1000-1199 | b1.30 coordination | |
-| `connecteurs-logiques` | | | 1200-1399 | b1.31 subordination | |
-| `connecteurs-logiques` | | | 1400-1599 | b1.32 concession | |
-| `ecologie` (nature, b1-b2) | sub-themes added: l'environnement, la société et l'environnement, agir au quotidien | 319 rows, 154 fr.b1, highest 165 | 1000-1199 | b1.33 environment and society | |
-| `strategies-de-comprehension` « Les stratégies de compréhension » (education, b1-b2) | **NEW**; sub-themes lire un texte, écouter, deviner le sens. b1.38 listening takes 1200-1399 later | empty | 1000-1199 | b1.37 reading strategy | |
+| `langue-soignee` (fondations, a2-b2) | sub-theme « les trois registres » added | b1.21 only, 1000-1194 | 1200-1399 | b1.25 register and formality | 1200-1392 (163 rows) |
+| `rp-etiquette` « Les bonnes manières » (relations, a1-b2) | sub-themes added: tu ou vous, la politesse au quotidien, les formules | 425 rows, 91 fr.b1, highest 115 | 1000-1199 | b1.26 tu vs vous | 1000-1150 (151 rows) |
+| `expressions-imagees` « Les expressions imagées » (fondations, b1-b2) | **NEW**; sub-themes le corps, les animaux et la nourriture, les couleurs | empty | 1000-1199 | b1.27 body idioms | 1000-1178 (179 rows) |
+| `expressions-imagees` | | | 1200-1399 | b1.28 animal and food idioms | 1200-1374 (175 rows) |
+| `expressions-imagees` | | | 1400-1599 | b1.29 colour expressions | 1400-1589 (190 rows) |
+| `connecteurs-logiques` (fondations, a2-b2) | sub-themes added: la coordination, la subordination, la concession | 295 rows, 115 fr.b1, highest 132 | 1000-1199 | b1.30 coordination | 1000-1184 (185 rows) |
+| `connecteurs-logiques` | | | 1200-1399 | b1.31 subordination | 1200-1390 (191 rows) |
+| `connecteurs-logiques` | | | 1400-1599 | b1.32 concession | 1400-1586 (187 rows) |
+| `ecologie` (nature, b1-b2) | sub-themes added: l'environnement, la société et l'environnement, agir au quotidien | 319 rows, 154 fr.b1, highest 165 | 1000-1199 | b1.33 environment and society | 1000-1199 (200 rows, the whole block) |
+| `strategies-de-comprehension` « Les stratégies de compréhension » (education, b1-b2) | **NEW**; sub-themes lire un texte, écouter, deviner le sens. b1.38 listening takes 1200-1399 later | empty | 1000-1199 | b1.37 reading strategy | 1000-1199 (191 rows) |
 
 Why these homes: `corps` stops at a2 and holds the literal body; idioms are a
 separate job, so one new theme holds all three idiom lessons in three blocks.
@@ -321,7 +348,7 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 | 7 | b1.25 b1.37 | The workshop shape pilot (register, reading strategy). NEW SHAPE: Paul reviews these two before the rest of the workshop lessons |
 | 8 | b1.26 b1.27 b1.28 b1.29 | Tu vs vous, body idioms, animal and food idioms, colour expressions |
 | 9 | b1.30 b1.31 b1.32 b1.33 | Coordination, subordination, concession, environment and society |
-| **REVIEW GATE 3** | after b1.33 (30 lessons) | Paul reviews |
+| **REVIEW GATE 3** | after b1.33 (30 lessons) | NEXT: waves 7 to 9 landed 2026-09-26, Paul reviews |
 | 10 | b1.34 b1.35 b1.36 | Media, emotions, business |
 | 11 | b1.38 b1.39 | Listening strategy, emails and letters (B1 capstone) |
 | **REVIEW GATE 4** | after b1.39 (B1 complete) | Paul reviews, then B2 |
