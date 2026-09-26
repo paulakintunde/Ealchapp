@@ -8,10 +8,10 @@ last_updated: "2026-09-25T02:17:40.882Z"
 last_activity: 2026-09-25
 progress:
   total_phases: 25
-  completed_phases: 9
+  completed_phases: 10
   total_plans: 61
-  completed_plans: 60
-  percent: 98
+  completed_plans: 61
+  percent: 100
 ---
 
 # Project State
@@ -25,22 +25,28 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 
 ## Current Position
 
-Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — 7 of 11 plans executed
-Plan: 10 of 11 complete — 07.1-07 shipped the three-state B1+ language control
-  (fr/both/onDemand): englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7
-  store migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal, LanguageChip/
-  LanguagePanel wired into app/lesson.tsx, and answers-not-glosses.test.ts (D-36's first guard).
-Status: Ready to execute
+Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — ALL 11 PLANS EXECUTED
+Plan: 11 of 11 complete — 07.1-11 was the two-device pass (Pixel 6 and Pixel 9,
+  font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
+  07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
+  englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
+  migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal,
+  LanguageChip/LanguagePanel in app/lesson.tsx, and answers-not-glosses.test.ts.
+Status: Pending gsd-verifier close-out. No plan left to run in any phase
+NOTE: `percent: 100` above means 61 of 61 WRITTEN plans are done. It is not milestone
+  progress - 15 of 25 phases have never been planned. The figure of record is
+  **10/25 phases**, in ROADMAP.md's "How to read this table". Do not re-add
+  percent_basis/percent_note here; the handler has deleted them twice.
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-25
 
-Progress: [██████████] 98%
+Progress: 10 of 25 phases (ROADMAP.md is the figure of record)
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 50 of 61 written (was recorded as 28 until 2026-09-23; that count stopped being updated around Phase 5)
+- Total plans completed: 61 of 61 written (was recorded as 28 until 2026-09-23; that count stopped being updated around Phase 5). Every written plan is executed; 15 of the 25 phases have never been planned, which is what that ratio hides.
 - Average duration: ~15 min
 - Total execution time: 0 hours
 
@@ -150,6 +156,15 @@ None yet.
 - ~~The working tree holds the uncommitted B1+ English toggle and the a2.20 gloss correction~~ — **all committed 2026-09-23**: a2.20 glosses as `ac97d69`, the alt-text caller as `f6b8b24`, the English toggle as `0b6a1a9`, and the act chapter cards plus the b1.01 dev preview as `39baeec`.
 - The tree is **still deliberately dirty, with different contents now.** In flight as of 2026-09-24: B1 wave 2 (`politesse`, `qui-que`, `si-clauses`, corpus/lesson/terms each, untracked), and a temporary Phase 07.1 D-38 probe (`app/devsheet.tsx` plus a `_layout.tsx` hunk) that settles whether `presentation: 'formSheet'` gives a real Android bottom sheet or falls back to a full-screen modal — both self-labelled for deletion once the verdict is recorded. Genuinely stray: `ealch-v2/bash.exe.stackdump`. Generated and always flapping: `ealch-admin/PUBLISH-REPORT.md`, `ealch-v2/supabase/.temp/cli-latest`.
 - **`act.opener` shipped untested.** The chapter-card field and its `LessonPager` branch landed in `39baeec`, and nothing asserts on `act.opener` in any test. `image-refs.test.ts` walks every `imageRef` recursively so it *would* guard the 12 authored openers, but only for lessons in `seed.json`, and b1.01 is not published — so that guard is inert today. Pin it when b1.01 publishes.
+- **STATE.md's `percent` is machine output. The figure of record is in ROADMAP.md.**
+  `gsd-sdk`'s plan-completion handlers rewrite this file's frontmatter and its
+  Current Position section on every run, and they recompute `percent` as
+  completed_plans/total_plans. A `percent_basis`/`percent_note` pair was written
+  into the frontmatter twice (2026-09-23 and 2026-09-24) to carry the explanation,
+  and the handler deleted both fields both times. Do not try a third. The phase
+  figure lives in ROADMAP.md under "How to read this table", which nothing
+  rewrites. Everything in THIS section survives the handler; the frontmatter does
+  not.
 - **Two verifier boxes are owed and one was flipped early.** Phases 5 and 6 both have a `passed` VERIFICATION.md (12/12 each) and unchecked boxes; Phase 3's box is checked with no report written at all. `05-UAT.md` has sat untracked at `status: testing` since 2026-09-23. See ROADMAP.md's box-versus-table table.
 
 ## Deferred Items

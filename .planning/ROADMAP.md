@@ -488,7 +488,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 5. Paywall Coverage Expansion & Upgrade Nudge | 7/7 | Complete - 05-VERIFICATION.md passed, 12/12 must-haves | 2026-09-20 |
 | 6. Notification Correctness — Body Format & Toggles | 5/5 | Complete - 06-VERIFICATION.md passed, 12/12 must-haves | 2026-09-21 |
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
-| 7.1 Concept C Spine Rewrite (INSERTED) | 1/11 | In Progress|  |
+| 7.1 Concept C Spine Rewrite (INSERTED) | 11/11 | All plans executed - trail replaces lessonoverview/missions, three-state language control, acte 00, day-one cards, paywall trail positions. Device pass recorded (bd63572, a72f284). Pending gsd-verifier close-out | 2026-09-25 |
 | 8. Accessibility Retrofit | 0/TBD | Not started | - |
 | 9. Onboarding & Analytics Audit | 0/TBD | Not started | - |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |
@@ -507,7 +507,25 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 22.1. Bundle Exam Content in the Seed (INSERTED) | 8/8 | All plans executed - v73 published, exams ship in the seed, offline first-launch proven on a Pixel 9 (451e385). Cold start 524ms to 576ms, +9.92%, under the D-09 stop line. Pending gsd-verifier close-out | 2026-09-23 |
 | 23. Exam Recording-Task Restore & Grading-Path Integrity | 0/TBD | Not started | - |
 
-**How to read this table.** 25 phases exist (23 integer slots plus the inserted 07.1 and 22.1); **9 have all their plans executed** - Phases 1-7, 18 and 22.1. That is the milestone figure: **9/25 phases**. Do not use a plan-count percentage: 61 plans are written and 50 are done, but Phases 8-17 and 19-23 have never been planned at all, so that ratio divides by a denominator most of the milestone is missing from and reads far higher than the work actually done.
+**How to read this table. This file is the figure of record, not STATE.md.**
+25 phases exist (23 integer slots plus the inserted 07.1 and 22.1). **10 have all
+their plans executed** - Phases 1-7, 07.1, 18 and 22.1. The milestone figure is
+**10/25 phases**, measured 2026-09-25.
+
+**Ignore any plan-count percentage, including the one in STATE.md.** As of today
+every plan that has ever been written is also executed: **61 of 61**. A plans-done
+ratio therefore reads 100%, and the milestone is nowhere near done - Phases 8 to
+17 and 19 to 23, fifteen of the twenty-five, have never been planned at all, so
+they contribute nothing to that denominator. The ratio is not wrong arithmetic; it
+is the wrong question.
+
+**Why the figure lives here.** `gsd-sdk`'s plan-completion handlers rewrite
+STATE.md's frontmatter and its Current Position section on every run. Twice now
+(2026-09-23, 2026-09-24) a `percent_basis`/`percent_note` pair was written there to
+carry this explanation, and both times the handler deleted the fields and
+recomputed `percent` from plans. Nothing that explains the number can survive in
+that file. Update the phase count here; treat STATE.md's `percent` as machine
+output.
 
 The `- [x]` boxes in the Phases list above and this table answer different questions. A box flips when the phase is closed out; the table records what has been executed. As of 2026-09-24 the two do not line up, in both directions:
 
@@ -530,4 +548,5 @@ Two boxes are owed on a passed report (5 and 6) and one was flipped without a re
 *Roadmap revised: 2026-09-22 — Phase 23 (Exam Recording-Task Restore & Grading-Path Integrity) added, surfaced live during Phase 7's own BUG-02 device-verification pass. BUG-04 (recording-task screens never show a restored answer) and BUG-05 (submit()/sectionStatusFor task-list divergence, found by code audit) added to REQUIREMENTS.md and mapped here rather than folded into Phase 7, whose plans and CONTEXT.md were already scoped and written against the original three bugs. Appended as an integer slot; no renumbering required.*
 *Roadmap revised: 2026-09-23 — tracking correction only, no scope change. 22.1-07 checked off (v73 published). Progress table brought back in line with what is on disk: Phases 3, 5, 6 and 7 were showing 0/TBD despite complete plan+summary sets, and Phase 22.1 had no row at all. Added the "How to read this table" note fixing the milestone figure at 8/24 phases and retiring the plan-count percentage, which was inflated by the unplanned "0/TBD" phases.*
 *Roadmap revised: 2026-09-24 — tracking correction only, no scope change. 22.1 closed at 8/8 after the Pixel 9 offline pass (451e385); 07.1 recorded at 0/11 rather than "0/TBD"; Phase 6 moved to Complete on its passed VERIFICATION.md; Phase 3 recorded as closed out with the note that no report was written for it. The milestone figure moved from 8/24 to **9/25** (07.1 inserted, 22.1 finished), and the box-versus-table mismatch is now tabulated rather than described in prose.*
+*Roadmap revised: 2026-09-25 — tracking correction only, no scope change. Phase 07.1 recorded at 11/11 after its device pass; the milestone figure moves to **10/25 phases**, and 61 of 61 written plans are now executed. The "How to read this table" note is now the figure of record: the same explanation was twice deleted from STATE.md by gsd-sdk's handlers, so it is kept here, where nothing rewrites it.*
 *Granularity: fine (25 phases — large, diverse backlog across 14 requirement categories; most phases are independent/parallelizable per research)*
