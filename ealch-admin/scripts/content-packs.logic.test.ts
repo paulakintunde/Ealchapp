@@ -98,7 +98,7 @@ test('core + every pack merged == the legacy full snapshot', () => {
 });
 
 test('skeletonUnit carries act titles and card counts, never lesson content', () => {
-  const l = lesson('b1.02.l1', ['fr.b1.x.001'], { narration: { stages: [] }, features: ['narrated'] } as Partial<Lesson>);
+  const l = lesson('b1.02.l1', ['fr.b1.x.001'], { narration: { stages: [] }, features: ['narrated'] } as unknown as Partial<Lesson>);
   const sk = skeletonUnit(unit('b1.02', ['b1.02.l1']), new Map([[l.id, l]]));
   deepStrictEqual(sk.outline, [{ lessonId: 'b1.02.l1', title: 'T b1.02.l1', acts: [{ title: 'Act', cards: 1 }], narrated: true }]);
   ok(!JSON.stringify(sk).includes('fr.b1.x.001'), 'no item id leaks into the skeleton');

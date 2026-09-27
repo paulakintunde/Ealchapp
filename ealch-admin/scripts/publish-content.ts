@@ -24,6 +24,17 @@
 //   pnpm content:publish --allow-noop publish even if the corpus has not moved
 //   pnpm content:publish --prune-keep 20   keep 20 snapshots instead of 10
 //   pnpm content:publish --no-prune        leave old snapshot bytes in place
+//   pnpm content:publish --packs           premium content packs (PREMIUM-PACKS-SPEC.md):
+//                                          ALSO upload the free core (public, core/vN.json),
+//                                          each changed pack (PRIVATE bucket content-packs,
+//                                          <pack>/vN.json) and manifest-v2.json, and cut the
+//                                          seed as the free core (CORE_SEED_CUT). The legacy
+//                                          full snapshot + manifest.json publish unchanged.
+//                                          Off until the rollout steps at the end of the spec
+//                                          are approved and done (the bucket must exist).
+//
+// Every run, --dry-run included, splits the corpus into core + packs, validates
+// each partial state a device can be in, and prints every file and its size.
 import './env';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -33,8 +44,10 @@ import { describeTarget } from './env';
 import { contentItems } from '../src/db/schema';
 import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCLED_VOCAB_FLOOR } from '../src/lib/vocab';
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
-import { SEED_CUT, describeCut } from './seed-cut.config.ts';
-import { cutExamTasks, cutItems } from './seed-cut.logic.ts';
+import { CORE_SEED_CUT, SEED_CUT, describeCut } from './seed-cut.config.ts';
+import { buildCoreSeed, cutExamTasks, cutItems } from './seed-cut.logic.ts';
+import { MANIFEST_V2, PACK_BUCKET, mergeSplit, planPublish, splitCorpus, type Split } from './content-packs.logic.ts';
+import { heldBands, isPacksManifest, partialValidationView, type PackName, type PacksManifest } from '../../ealch-v2/src/services/packs.logic.ts';
 import { measureEnding, type GenderRow } from '../../ealch-v2/src/content/gender.logic.ts';
 import { ENDING_RULES, WORTHLESS_ENDINGS, MORE_ENDINGS, RULE_FLOOR } from './data/genre-endings.ts';
 import {
@@ -91,6 +104,8 @@ const NO_UPLOAD = args.has('--no-upload') || DRY_RUN;
 // refusal, because there are legitimate reasons to reissue the same bytes (a
 // corrupted upload, a Storage object deleted by hand).
 const ALLOW_NOOP = args.has('--allow-noop');
+// Premium content packs: see the usage note at the top.
+const PACKS = args.has('--packs');
 
 const rolloutIx = argv.indexOf('--rollout');
 const ROLLOUT = rolloutIx === -1 ? 100 : Number(argv[rolloutIx + 1]);
@@ -1138,7 +1153,7 @@ async function main() {
   //     overlay a no-op.
   //   · It is reference data: 14 domains and 130 themes is roughly 26 KiB
   //     against a 5 MiB ceiling, and it does not grow with the corpus.
-  const seed: Corpus = {
+  const legacySeed: Corpus = {
     version, domains, themes,
     units: seedUnits, lessons: seedLessons, items: seedItems,
     scenarios: seedScenarios, playlists: seedPlaylists, speakPath: seedSpeak,
@@ -1148,8 +1163,9 @@ async function main() {
 
   // The seed must be a coherent corpus IN ITS OWN RIGHT. It is what a user with
   // no network sees, so a dangling reference here is invisible until someone is
-  // offline — the worst possible time to discover it.
-  const seedIssues = validateCorpus(seed);
+  // offline — the worst possible time to discover it. (Under --packs the
+  // legacy cut is not what ships, so it is not held to this.)
+  const seedIssues = PACKS ? [] : validateCorpus(legacySeed);
   if (seedIssues.length) {
     await pool.end();
     console.error(`\n✖ The SEED CUT is not a valid corpus — ${seedIssues.length} issue(s). NOTHING was published.`);
@@ -1158,11 +1174,82 @@ async function main() {
     console.error('');
     process.exit(1);
   }
-  console.log(
-    `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items · ` +
-      `${seedScenarios.length} scenarios · ${seedPlaylists.length} playlists · ${seedSpeak.length} speak stages · ` +
-      `${examPapers.length} exam papers · ${seedExamTasks.length} exam tasks`
-  );
+  if (!PACKS) {
+    console.log(
+      `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items · ` +
+        `${seedScenarios.length} scenarios · ${seedPlaylists.length} playlists · ${seedSpeak.length} speak stages · ` +
+        `${examPapers.length} exam papers · ${seedExamTasks.length} exam tasks`
+    );
+  }
+
+  // ── 5b. PREMIUM CONTENT PACKS (PREMIUM-PACKS-SPEC.md) ───────────────────
+  //
+  // Runs on EVERY publish, dry runs included, so the split is exercised and
+  // measured long before --packs turns it on. The corpus is split into the
+  // free core and one pack per paid band plus `exam` (content-packs.logic.ts),
+  // then every partial state a device can actually be in is validated: the
+  // core alone (a free user), the core plus each band pack in fetch order (a
+  // subscriber mid-download), and the core plus the exam pack alone (an exam
+  // holder without Premiere). A reference dangling inside a held layer fails;
+  // one pointing into a layer the device does not hold is the design.
+  //
+  // Without --packs a failure here is a WARNING, because nothing of the split
+  // ships yet and it must not block the publishes B2 depends on. With
+  // --packs it is a refusal like every other gate.
+  let split: Split | null = null;
+  const packIssues: string[] = [];
+  try {
+    split = splitCorpus(corpus);
+  } catch (e) {
+    packIssues.push((e as Error).message);
+  }
+  if (split) {
+    const view = (c: Corpus, loaded: PackName[]) =>
+      partialValidationView(c, { bands: heldBands(loaded), exam: loaded.includes('exam') });
+    const check = (label: string, c: Corpus, loaded: PackName[]) => {
+      const issues = validateCorpus(view(c, loaded));
+      if (issues.length) packIssues.push(`${label}: ${issues.length} issue(s)\n${formatIssues(issues.slice(0, 8))}`);
+    };
+    check('core alone', split.core, []);
+    const loaded: PackName[] = [];
+    let merged: Corpus = split.core;
+    for (const p of split.packs.filter((x) => x.pack !== 'exam')) {
+      merged = mergeSplit(merged, [p]);
+      loaded.push(p.pack);
+      check(`core + ${loaded.join(' + ')}`, merged, loaded);
+    }
+    const exam = split.packs.find((x) => x.pack === 'exam');
+    if (exam) check('core + exam only', mergeSplit(split.core, [exam]), ['exam']);
+    const pulled = Object.entries(split.pulledDown).map(([k, n]) => `${k} ${n}`).join(', ');
+    console.log(
+      `  packs: core ${split.core.items.length} items · ` +
+        split.packs.map((p) => `${p.pack} ${p.lessons.length} lessons/${p.items.length} items`).join(' · ') +
+        (pulled ? `\n         borrowed items brought down to the lesson that names them: ${pulled}` : '')
+    );
+  }
+  let coreSeed: Corpus | null = null;
+  if (split) {
+    coreSeed = buildCoreSeed(split.core, CORE_SEED_CUT);
+    const issues = validateCorpus(partialValidationView(coreSeed, { bands: heldBands([]), exam: false }));
+    if (issues.length) packIssues.push(`core seed: ${issues.length} issue(s)\n${formatIssues(issues.slice(0, 8))}`);
+  }
+  if (packIssues.length) {
+    if (PACKS) {
+      await pool.end();
+      console.error(`\n✖ premium packs: the split is not valid. NOTHING was published.\n`);
+      for (const m of packIssues) console.error(`  ${m}`);
+      process.exit(1);
+    }
+    console.log(`\n  ⚠ premium packs (not shipping yet, publish continues):`);
+    for (const m of packIssues) console.log(`    · ${m.split('\n').join('\n      ')}`);
+  } else if (split) {
+    console.log('  ✓ packs valid: core alone, every band in fetch order, exam alone, core seed');
+  }
+
+  // What ships in the binary: the free core cut under --packs, else the
+  // legacy cut, unchanged.
+  const seed: Corpus = PACKS && coreSeed ? coreSeed : legacySeed;
+  if (PACKS) console.log(`  seed = the free core cut (${seed.units.length} units · ${seed.lessons.length} lessons · ${seed.items.length} items)`);
 
   // ── 6. Bytes ───────────────────────────────────────────────────────────
   const snapshotJson = stableStringify(corpus);
@@ -1230,6 +1317,53 @@ async function main() {
   // even at 100 so the field's presence is the norm, not the exception.
   const manifest = { version, path, checksum, rollout: ROLLOUT, counts, publishedAt: new Date().toISOString() };
   if (ROLLOUT < 100) console.log(`  staged rollout: ${ROLLOUT}% of devices adopt v${version}`);
+
+  // ── 6b. Premium packs: the files, and every file this publish writes ────
+  //
+  // The previous manifest-v2 decides which packs actually changed: an
+  // unchanged band keeps its old version and path and is not uploaded, so no
+  // device re-downloads it. No manifest-v2 yet (the first --packs publish, or
+  // no credentials on a dry run) simply means every pack is new.
+  let packPlan: ReturnType<typeof planPublish> | null = null;
+  if (split) {
+    let previousV2: PacksManifest | null = null;
+    const url = process.env.SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (url && key) {
+      try {
+        const raw = JSON.parse(await downloadFromStorage(url, key, MANIFEST_V2));
+        if (isPacksManifest(raw)) previousV2 = raw;
+      } catch {
+        // Not published yet. Every pack is new.
+      }
+    }
+    packPlan = planPublish({ version, rollout: ROLLOUT, split, previous: previousV2, stringify: stableStringify, sha256 });
+    const tooBig = packPlan.uploads.filter((f) => f.bytes > MAX_SNAPSHOT_BYTES);
+    if (tooBig.length && PACKS) {
+      await pool.end();
+      die(`${tooBig.map((f) => f.path).join(', ')} past the app's ${MAX_SNAPSHOT_BYTES}-byte ceiling; devices would refuse it.`);
+    }
+  }
+  {
+    const mb = (n: number) => `${(n / 1024 / 1024).toFixed(2)} MiB`.padStart(11);
+    const row = (where: string, bytes: number | null, note: string) =>
+      console.log(`    ${where.padEnd(34)} ${bytes === null ? '           ' : mb(bytes)}  ${note}`);
+    console.log(`\n  files this publish writes${DRY_RUN ? ' (dry run: none are)' : NO_UPLOAD ? ' (--no-upload: only seed.json is)' : ''}:`);
+    row(`content/${path}`, Buffer.byteLength(snapshotJson, 'utf8'), 'legacy full snapshot, public (installs from before packs)');
+    row('content/manifest.json', null, 'legacy manifest, unchanged shape');
+    if (packPlan) {
+      const off = PACKS ? '' : '  [--packs off: not written]';
+      for (const f of packPlan.uploads) {
+        row(`${f.bucket}/${f.path}`, f.bytes, (f.bucket === PACK_BUCKET ? 'pack, PRIVATE' : 'free core, public') + off);
+      }
+      for (const name of packPlan.reused) {
+        const e = packPlan.manifest.packs.find((p) => p.name === name)!;
+        row(`${PACK_BUCKET}/${e.path}`, e.bytes, `pack unchanged, kept at v${e.version}, not re-uploaded${off}`);
+      }
+      row(`content/${MANIFEST_V2}`, null, `pack names, versions, checksums, sizes; no content${off}`);
+    }
+    row('ealch-v2/src/content/seed.json', Buffer.byteLength(JSON.stringify(seed, null, 2), 'utf8'), PACKS ? 'free core cut' : 'legacy cut');
+  }
 
   // ── 7. What changed ────────────────────────────────────────────────────
   //
@@ -1312,11 +1446,11 @@ async function main() {
     };
     const allClaims = [...ENDING_RULES, ...WORTHLESS_ENDINGS, ...MORE_ENDINGS] as EndingClaim[];
     const genreLines = formatGenreDrift(
-      findFigureMoves(allClaims, genreLookup(seedItems as unknown as GenderRow[])),
+      findFigureMoves(allClaims, genreLookup(seed.items as unknown as GenderRow[])),
       findArtifacts(
         ENDING_RULES as EndingClaim[],
         WORTHLESS_ENDINGS as EndingClaim[],
-        genreLookup(seedItems as unknown as GenderRow[]),
+        genreLookup(seed.items as unknown as GenderRow[]),
         genreLookup(items as unknown as GenderRow[]),
         RULE_FLOOR,
       ),
@@ -1362,12 +1496,24 @@ async function main() {
           '  Re-run with --no-upload to generate seed.json without publishing over the air.'
       );
     }
+    // Packs and the core FIRST, under --packs: a missing private bucket (the
+    // rollout step not done yet) then fails the publish before a single
+    // legacy byte moves, and manifest-v2 below never names a file that is
+    // not already there.
+    if (PACKS && packPlan) {
+      for (const f of packPlan.uploads) await uploadToStorage(url, key, f.path, f.json, f.bucket);
+      console.log(`\n  ↑ uploaded ${packPlan.uploads.map((f) => `${f.bucket}/${f.path}`).join(', ')}`);
+    }
     await uploadToStorage(url, key, path, snapshotJson);
     // The manifest is written LAST and points at a snapshot that is already
     // there. A client that reads the manifest must never be told about bytes
     // that have not finished uploading.
     await uploadToStorage(url, key, 'manifest.json', JSON.stringify(manifest, null, 2));
     console.log(`\n  ↑ uploaded ${path} and manifest.json`);
+    if (PACKS && packPlan) {
+      await uploadToStorage(url, key, MANIFEST_V2, JSON.stringify(packPlan.manifest, null, 2));
+      console.log(`  ↑ uploaded ${MANIFEST_V2}`);
+    }
   } else {
     console.log('\n  (--no-upload: Storage untouched)');
   }
