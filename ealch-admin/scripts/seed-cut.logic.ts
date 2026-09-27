@@ -37,9 +37,9 @@
 // tested before it is published. Until that decision is made, this module at
 // least gives every writer ONE definition to be checked against.
 
-import type { ExamPaper, ExamTask, Item, Lesson } from '../../ealch-v2/src/content/schema.ts';
+import type { Corpus, ExamPaper, ExamTask, Item, Lesson } from '../../ealch-v2/src/content/schema.ts';
 import { ITEM_ID_RE, canonicalJson } from '../../ealch-v2/src/content/schema.ts';
-import { SEED_CUT } from './seed-cut.config.ts';
+import { SEED_CUT, type SeedCut } from './seed-cut.config.ts';
 
 /** A speak stage, reduced to the part the cut cares about. */
 export type SpeakStageLike = { world: number; blocks?: { itemIds?: string[] }[] };
@@ -195,4 +195,39 @@ export function examCutDrift(
     .sort();
 
   return { seedOnlyPapers, seedOnlyTasks, missingPapers, missingTasks, changedPapers };
+}
+
+/**
+ * THE CORE SEED (premium content packs, PREMIUM-PACKS-SPEC.md section 7).
+ *
+ * The bundled seed becomes a cut of the free CORE snapshot rather than of the
+ * full corpus: `core` is splitCorpus(corpus).core (content-packs.logic.ts),
+ * which already holds only sons/a1 lessons, sons/a1 items (plus the handful a
+ * free lesson borrows from a higher band), sons/a1 scenarios, playlists and
+ * speak stages, the whole catalogue, and every paid unit as a skeleton. This
+ * cut keeps all of that except items and speak stages, which it narrows the
+ * way the seed always has: an item ships when a bundled lesson or speak stage
+ * names it or its theme is in `cut.themes`; a speak stage ships when its world
+ * is in `cut.speakWorlds`.
+ *
+ * No prereq closure is needed (every unit is in the core, paid ones as
+ * skeletons), and no exam content ships: exams are the `exam` pack. Because
+ * the input is the core, a theme in cut.themes can no longer drag a2 or b1
+ * rows into the binary.
+ */
+export function buildCoreSeed(core: Corpus, cut: Pick<SeedCut, 'themes' | 'speakWorlds'>): Corpus {
+  const speakPath = (core.speakPath ?? []).filter((s) => cut.speakWorlds.includes(s.world));
+  const needed = neededItemIds(core.lessons, speakPath);
+  const items = core.items.filter((i) => needed.has(i.id) || cut.themes.includes(i.theme));
+  return {
+    version: core.version,
+    ...(core.domains ? { domains: core.domains } : {}),
+    ...(core.themes ? { themes: core.themes } : {}),
+    units: core.units,
+    lessons: core.lessons,
+    items,
+    scenarios: core.scenarios ?? [],
+    playlists: core.playlists ?? [],
+    speakPath,
+  };
 }

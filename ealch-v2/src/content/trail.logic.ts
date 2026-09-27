@@ -126,7 +126,11 @@ export function acteZeroLessonOf(lessons: readonly Lesson[]): Lesson | undefined
  * than inventing a number.
  */
 export function releaseLine(tranche: string[] | undefined, T: TrailStrings): string {
-  const n = tranche?.length ?? 0;
+  return releaseCountLine(tranche?.length ?? 0, T);
+}
+
+/** releaseLine from a bare count: what a skeleton outline carries. */
+export function releaseCountLine(n: number, T: TrailStrings): string {
   if (n === 0) return T.trailReleaseNone;
   return T.trailReleaseSome.replace('{n}', String(n));
 }
@@ -136,9 +140,40 @@ export function releaseLine(tranche: string[] | undefined, T: TrailStrings): str
  *  unit contribute, under the one heading). Returns the rows AND the act rows
  *  alone (so the caller can find the single global start-marker candidate
  *  across the whole band without re-walking every unit's rows). */
+/** What one lesson contributes to the trail, whichever source it came from:
+ *  the lesson body itself, or a skeleton unit's outline. */
+type TrailLesson = { id: string; actTitles: string[]; cards: number[]; narrated: boolean };
+
+function fromLesson(l: Lesson): TrailLesson {
+  const acts: readonly LessonAct[] = l.acts ?? [];
+  return {
+    id: l.id,
+    actTitles: acts.map((a) => a.title),
+    cards: acts.map((_, i) => l.deckTranche?.[i]?.length ?? 0),
+    narrated: !!(l.narration && l.features?.includes('narrated')),
+  };
+}
+
+/**
+ * The trail lessons of one unit. The lesson bodies when the device has them;
+ * otherwise the unit's `outline`, which is how a paid band whose pack is not
+ * on the device (a free user, or a subscriber whose download has not landed)
+ * still draws every heading and act row (PREMIUM-PACKS-SPEC.md section 3).
+ * The outline is only a fallback: one real lesson and the outline is ignored.
+ */
+export function trailLessonsOf(unit: Unit, lessons: readonly Lesson[]): TrailLesson[] {
+  if (lessons.length > 0 || !unit.outline?.length) return lessons.map(fromLesson);
+  return unit.outline.map((o) => ({
+    id: o.lessonId,
+    actTitles: o.acts.map((a) => a.title),
+    cards: o.acts.map((a) => a.cards),
+    narrated: !!o.narrated,
+  }));
+}
+
 function unitRows(
   unit: Unit,
-  lessons: readonly Lesson[],
+  lessonBodies: readonly Lesson[],
   band: Level,
   locked: boolean,
   doneActs: (lessonId: string) => Set<number>,
@@ -146,6 +181,7 @@ function unitRows(
 ): { rows: TrailRow[]; actRows: Extract<TrailRow, { kind: 'act' }>[] } {
   const rows: TrailRow[] = [];
   const actRows: Extract<TrailRow, { kind: 'act' }>[] = [];
+  const lessons = trailLessonsOf(unit, lessonBodies);
 
   const heading: Extract<TrailRow, { kind: 'heading' }> = {
     kind: 'heading',
@@ -159,23 +195,24 @@ function unitRows(
   };
   rows.push(heading);
 
-  const a0Lesson = acteZeroLessonOf(lessons);
+  // Same predicate as acteZeroLessonOf, read off the normalized view so an
+  // outline row and a lesson row cannot disagree about it.
+  const a0Lesson = lessons.find((l) => l.narrated);
   if (a0Lesson) {
     rows.push({ kind: 'acte0', id: `trail.a0.${a0Lesson.id}`, unitId: unit.id, lessonId: a0Lesson.id, locked });
   }
 
   for (const lesson of lessons) {
-    const acts: readonly LessonAct[] = lesson.acts ?? [];
     const done = doneActs(lesson.id);
-    acts.forEach((act, actIx) => {
+    lesson.actTitles.forEach((title, actIx) => {
       const row: Extract<TrailRow, { kind: 'act' }> = {
         kind: 'act',
         id: `trail.act.${lesson.id}.${actIx}`,
         unitId: unit.id,
         lessonId: lesson.id,
         actIx,
-        title: act.title,
-        releaseLine: releaseLine(lesson.deckTranche?.[actIx], T),
+        title,
+        releaseLine: releaseCountLine(lesson.cards[actIx] ?? 0, T),
         done: done.has(actIx),
         startMarker: false,
         locked,

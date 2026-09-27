@@ -24,14 +24,15 @@ export const sha256 = (s: string) => createHash('sha256').update(s, 'utf8').dige
 
 export const BUCKET = 'content';
 
-/** Upload a JSON body to the `content` Storage bucket (upsert). */
-export async function uploadToStorage(baseUrl: string, key: string, path: string, body: string): Promise<void> {
+/** Upload a JSON body to a Storage bucket (upsert). `content` (public) unless
+ *  another bucket is named: premium packs go to the PRIVATE `content-packs`. */
+export async function uploadToStorage(baseUrl: string, key: string, path: string, body: string, bucket: string = BUCKET): Promise<void> {
   // Send the key in BOTH headers. New-style secret keys (sb_secret_…) are NOT
   // JWTs, so Storage's gateway rejects them in `Authorization: Bearer` with
   // "Invalid Compact JWS" — it validates that header as a JWT. The `apikey`
   // header is where the new format authenticates. Legacy service_role JWTs work
   // in either, so setting both is correct for both key formats.
-  const res = await fetch(`${baseUrl}/storage/v1/object/${BUCKET}/${path}`, {
+  const res = await fetch(`${baseUrl}/storage/v1/object/${bucket}/${path}`, {
     method: 'POST',
     headers: {
       apikey: key,
@@ -47,9 +48,9 @@ export async function uploadToStorage(baseUrl: string, key: string, path: string
   }
 }
 
-/** Download an object from the `content` bucket as text. */
-export async function downloadFromStorage(baseUrl: string, key: string, path: string): Promise<string> {
-  const res = await fetch(`${baseUrl}/storage/v1/object/${BUCKET}/${path}`, {
+/** Download an object from a bucket (`content` by default) as text. */
+export async function downloadFromStorage(baseUrl: string, key: string, path: string, bucket: string = BUCKET): Promise<string> {
+  const res = await fetch(`${baseUrl}/storage/v1/object/${bucket}/${path}`, {
     headers: { apikey: key, Authorization: `Bearer ${key}` },
   });
   if (!res.ok) {
