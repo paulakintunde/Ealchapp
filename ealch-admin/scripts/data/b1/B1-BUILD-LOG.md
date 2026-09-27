@@ -59,7 +59,7 @@ it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
 
 **WAVES 10 AND 11 DRAFTED 2026-09-27 (`f269c5c`): b1.34 to b1.36, b1.38, b1.39, the last five B1 lessons. Every validator 0, app checks 0,
-import dry run 890 rows / 0 blockers, trial merge green except the art tests. REVIEW GATE 4 IS NEXT, then import and publish (v76).**
+import dry run 890 rows / 0 blockers, trial merge green except the art tests. REVIEW GATE 4 PASSED 2026-09-27; import and publish (v76) wait only on the 24 images.**
 
 - **Themes (Postgres only until the publish):** sub-themes set on `journalisme`, `emotions`, `affaires`; `correspondance` « Les courriels et les lettres » is NEW (fondations, b1-b2). The merge scripts now carry a Postgres-only theme into the seed's catalogue (`addMissingThemes`), because catalogue-ships.test refuses items on an uncatalogued theme.
 - **Art:** `scripts/gen-b1-images.mjs <slug>` generates from the prompt file via Fal (1024x768). Fal ran out of credit after 43; Paul makes the other 24 himself (b1.34 all 11, b1.38 all 11, b1.36 acts 10-11). Until then `lessonImages.ts` registers b1.35 and b1.39 only, and the app's unregistered-imageRef test fails for the other three.
@@ -388,7 +388,7 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 | **REVIEW GATE 3** | after b1.33 (30 lessons) | PASSED 2026-09-27 |
 | 10 | b1.34 b1.35 b1.36 | Media, emotions, business |
 | 11 | b1.38 b1.39 | Listening strategy, emails and letters (B1 capstone) |
-| **REVIEW GATE 4** | after b1.39 (B1 complete) | Paul reviews, then B2 |
+| **REVIEW GATE 4** | after b1.39 (B1 complete) | PASSED 2026-09-27 |
 
 ## How a wave runs
 
