@@ -24,6 +24,7 @@ import { contentSections as contentSectionsOf, quizSection as quizSectionOf } fr
 import { parseCardParam } from '@/content/subMission.logic';
 import { audioIndex, resolveByText } from '@/content/lessonAudio.logic';
 import { FREE_BANDS } from '@/store/entitlement.logic';
+import { missingLessonState } from '@/services/packs.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
 import { GlossContext } from '@/components/GlossContext';
@@ -65,13 +66,21 @@ function LessonScreenBody() {
   const id = raw ? LEGACY[raw] ?? raw : '';
   // Fall back to the first available lesson if the id is unknown, so a bad link
   // shows real content rather than crashing.
-  const L: Lesson | null = content.lesson(id) ?? content.units('sons').flatMap((u) => content.lessonsOf(u.id))[0] ?? null;
+  //
+  // EXCEPT a paid lesson that is simply not on this device (premium content
+  // packs: the free core carries paid units as skeletons). Falling back there
+  // would open a free lesson from a locked row, so missingLessonState decides
+  // it instead: the paywall for a free user, a download wait for a subscriber.
+  const levelsAll = useFeature('levels.all');
+  const found = content.lesson(id);
+  const missing = found ? null : missingLessonState(id, levelsAll);
+  const L: Lesson | null =
+    found ?? (missing === 'fallback' ? content.units('sons').flatMap((u) => content.lessonsOf(u.id))[0] ?? null : null);
 
   // The level-gate CHOKEPOINT (Phase 10). The Den's row gate is UX; this is
   // enforcement — every route into a lesson (den, resume, placement start,
   // deep link) lands here, so a lesson past A1 without 'levels.all' redirects
   // to the paywall instead of rendering.
-  const levelsAll = useFeature('levels.all');
   // DEV-PREVIEW-B1 (temporary): the B1 drafts open past the level gate in dev
   // builds only. Nothing else is unlocked and no entitlement is written. The id
   // list comes from the overlay itself, so it cannot fall behind the fixture the
@@ -84,8 +93,9 @@ function LessonScreenBody() {
   // are untouched).
   const band = L ? unitBand(L.unitId) : null;
   const bandLocked =
-    !!L && !levelsAll && !devPreview &&
-    (band === null || !(FREE_BANDS as readonly string[]).includes(band));
+    missing === 'locked' ||
+    (!!L && !levelsAll && !devPreview &&
+      (band === null || !(FREE_BANDS as readonly string[]).includes(band)));
   useEffect(() => {
     if (bandLocked) {
       trackEvent('gate_blocked', { feature: 'levels.all', from: 'lesson' });
@@ -395,13 +405,26 @@ function LessonScreenBody() {
   // learner's first lesson (device pass, 2026-09-24, after a pm clear).
   const lastSub = useRef<number | null>(null);
 
+  // A locked paid lesson that is not on the device is redirecting too: blank,
+  // exactly like the bandLocked gap below, never the "coming soon" copy.
+  if (!L && missing === 'locked') {
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
+  }
+
   if (!L) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
         <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 18 }}>
           <MascotAvatar size={80} rounded={false} state="thinking" />
-          <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
+          {missing === 'pending' ? (
+            <>
+              <TX role="title" center>{T.packPendingT}</TX>
+              <TX role="body" color={t.txMuted} center>{T.packPendingS}</TX>
+            </>
+          ) : (
+            <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
+          )}
         </View>
       </View>
     );

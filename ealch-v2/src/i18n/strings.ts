@@ -384,6 +384,9 @@ export type Strings = {
    *  instead of interpolating a zero count (D-45: never fabricate a "0 of
    *  something" line). */
   trailReleaseSome: string; trailReleaseNone: string;
+  /** A paid lesson a subscriber opened before its band's pack finished
+   *  downloading (premium content packs). */
+  packPendingT: string; packPendingS: string;
   /** The two D-21 paywall touchpoints' one-line trail-side lead-in. Neither
    *  is PAYWALL_COPY (D-23) — the paywall's own title/lead are separate. */
   trailGateLead: string; trailBoundaryLead: string;
@@ -890,6 +893,7 @@ export const T: Record<Lang, Strings> = {
     clock12T: '12 H', clock24T: '24 H',
 
     trailReleaseSome: '{n} mots partis en révision', trailReleaseNone: 'De la pratique, pas de nouveaux mots.',
+    packPendingT: 'Ce niveau arrive', packPendingS: "Les leçons de ce niveau se téléchargent. Elles s'ouvrent dès qu'elles sont là, puis fonctionnent hors ligne.",
     trailGateLead: 'Ce niveau est réservé à Première.', trailBoundaryLead: 'A1 se termine ici. La suite est réservée à Première.',
     trailActe0: 'Acte 00 · Narré', trailFiche: 'La fiche',
     prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
@@ -1374,6 +1378,7 @@ export const T: Record<Lang, Strings> = {
     clock12T: '12 H', clock24T: '24 H',
 
     trailReleaseSome: '{n} words sent to review', trailReleaseNone: 'Practice only, no new words.',
+    packPendingT: 'This level is on its way', packPendingS: 'The lessons for this level are downloading. They open as soon as they arrive, and then work offline.',
     trailGateLead: 'This level is Première-only.', trailBoundaryLead: "A1 ends here. What's next is Première-only.",
     trailActe0: 'Act 00 · Narrated', trailFiche: 'Unit info',
     prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',

@@ -1820,6 +1820,24 @@ export type Unit = {
    *  is merely "earlier in the book" is sequence, not dependency, and belongs in
    *  seq. The gate a learner actually hits belongs here. */
   prereqUnitIds?: string[];
+
+  /** The trail outline of a PAID unit whose lessons are not on the device
+   *  (premium content packs, PREMIUM-PACKS-SPEC.md). The free core ships every
+   *  paid unit as a skeleton with this outline so the Den draws the same
+   *  headings and act rows as before, while the lesson bodies live in the
+   *  band's pack. Absent on every unit whose lessons ship with it: the pack's
+   *  full unit replaces the skeleton on merge, outline and all. */
+  outline?: UnitOutlineLesson[];
+};
+
+/** One lesson of a skeleton unit's outline: exactly what the trail renders
+ *  (the act titles, the card count on each act's release line, and whether an
+ *  acte 00 row is drawn), and nothing a learner could study from. */
+export type UnitOutlineLesson = {
+  lessonId: string;
+  title: string;
+  acts: { title: string; cards: number }[];
+  narrated?: boolean;
 };
 
 /**
@@ -4226,6 +4244,29 @@ export function validateUnit(v: unknown, path = 'unit'): Issue[] {
       if (!isStr(id) || !UNIT_ID_RE.test(id)) push(`prereqUnitIds[${i}] "${String(id)}" is not a valid unit id`);
       else if (id === u.id) push(`prereqUnitIds[${i}] — a unit cannot be its own prerequisite`);
     });
+  }
+  if (u.outline !== undefined) {
+    if (!isArr(u.outline)) push('outline must be an array when present');
+    else {
+      const listed = new Set(isArr(u.lessonIds) ? u.lessonIds : []);
+      u.outline.forEach((o, i) => {
+        const op = `outline[${i}]`;
+        if (typeof o !== 'object' || o === null) {
+          push(`${op} is not an object`);
+          return;
+        }
+        const e = o as Partial<UnitOutlineLesson>;
+        if (!isStr(e.lessonId) || !listed.has(e.lessonId)) push(`${op}.lessonId "${String(e.lessonId)}" is not one of this unit's lessonIds`);
+        if (!isStr(e.title)) push(`${op}.title is required`);
+        if (e.narrated !== undefined && typeof e.narrated !== 'boolean') push(`${op}.narrated must be a boolean when present`);
+        if (!isArr(e.acts)) push(`${op}.acts must be an array`);
+        else e.acts.forEach((a, k) => {
+          if (typeof a !== 'object' || a === null || !isStr((a as { title?: unknown }).title)) push(`${op}.acts[${k}].title is required`);
+          const cards = (a as { cards?: unknown } | null)?.cards;
+          if (typeof cards !== 'number' || !Number.isInteger(cards) || cards < 0) push(`${op}.acts[${k}].cards must be an integer >= 0`);
+        });
+      });
+    }
   }
 
   return out;
