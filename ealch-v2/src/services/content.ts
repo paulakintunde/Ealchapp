@@ -72,7 +72,25 @@ import {
   unitsInTrack,
   verifySnapshot,
   type ItemQuery,
+  type Manifest,
 } from './content.logic';
+import {
+  composeCorpus,
+  heldBands,
+  partialValidationView,
+  shouldAdoptCore,
+  type PacksManifest,
+  type SnapshotKind,
+} from './packs.logic';
+import {
+  bindPacks,
+  fetchPacksManifest,
+  loadCachedPacks,
+  packLayer,
+  packsPending,
+  startPackSync,
+  syncPacks,
+} from './packs';
 
 // Through `unknown`: a JSON import widens literals, so the catalogue's
 // levelRange [from, to] tuples arrive typed as string[] and the direct cast
@@ -179,6 +197,39 @@ let initStarted = false;
 // against this (0 until a snapshot is cached) is what makes a seed-only install
 // fetch the full corpus, instead of thinking it is already up to date.
 let cachedSnapshotVersion = 0;
+/** What the snapshot slot holds: the legacy FULL snapshot or the free CORE
+ *  (premium content packs). Meaningful only while cachedSnapshotVersion > 0. */
+let cachedSnapshotKind: SnapshotKind = 'full';
+
+/* ─── The layers, composed ────────────────────────────────────────────────
+ *
+ * The live corpus is  seed ⊕ adopted snapshot (full or core) ⊕ packs.  The
+ * first two are the BASE and change rarely; the pack layer changes whenever a
+ * pack lands or the entitlement moves. Everything that used to setCorpus the
+ * base directly now goes through setBase, so a pack is never dropped by a
+ * snapshot upgrade and a snapshot is never dropped by a pack. */
+let baseCorpus: Corpus = SEED;
+
+function recompose(): void {
+  const { order, packs } = packLayer();
+  useContent.getState().setCorpus(order.length ? composeCorpus(baseCorpus, packs, order) : baseCorpus);
+}
+
+function setBase(c: Corpus): void {
+  baseCorpus = c;
+  recompose();
+}
+
+/** The validator a snapshot of this kind must pass. A core is a partial
+ *  corpus by design (paid units are skeletons), so it is validated through
+ *  partialValidationView with only the free bands held; a full snapshot is
+ *  validated whole, as it always was. */
+const validatorFor = (kind: SnapshotKind) =>
+  kind === 'core'
+    ? (c: unknown) => validateCorpus(partialValidationView(c as Corpus, { bands: heldBands([]), exam: false }))
+    : validateCorpus;
+
+bindPacks({ base: () => baseCorpus, changed: recompose });
 
 // The dev exam fixture used to be appended here, so the runner could be sat on
 // a phone before any real paper existed. TEF Canada blanc-01 published as
@@ -213,14 +264,24 @@ export async function initContent(): Promise<void> {
     // shared with it, so an edited lesson stayed invisible through any number of
     // Metro rebuilds. See adoptedForLaunch in content.logic.ts for the full
     // account; it is the other half of the dev guard on refreshFromRemote.
-    adopted = adoptedForLaunch(await readCache(), __DEV__);
-    if (adopted) cachedSnapshotVersion = adopted.version;
-    useContent.getState().setCorpus(mergeCorpus(SEED, adopted));
+    const cached = await readCache();
+    adopted = adoptedForLaunch(cached?.corpus, __DEV__);
+    if (adopted && cached) {
+      cachedSnapshotVersion = adopted.version;
+      cachedSnapshotKind = cached.kind;
+    }
+    // Premium packs held on this device, so a subscriber's paid lessons are
+    // there offline from the first frame. Merged only while entitled
+    // (packLayer); a no-op in dev.
+    await loadCachedPacks();
+    setBase(mergeCorpus(SEED, adopted));
   } catch {
     // Seed already stands as the initial corpus; nothing more to do.
   } finally {
     useContent.getState().setHydrated();
   }
+  // From here on a purchase, restore or lapse re-merges (or locks) at once.
+  startPackSync();
 
   // The full structural validation of the cache, AFTER paint (the perf budget:
   // readCache only shape-checked in O(1); validateCorpus walks every entity and
@@ -229,15 +290,16 @@ export async function initContent(): Promise<void> {
   // since — roll back to the seed and purge, exactly as if it had never been.
   if (adopted) {
     const suspect = adopted;
+    const validate = validatorFor(cachedSnapshotKind);
     void new Promise<void>((r) => InteractionManager.runAfterInteractions(() => r())).then(async () => {
-      if (validateCorpus(suspect).length === 0) return;
+      if (validate(suspect).length === 0) return;
       await purgeCache();
-      // Roll back only if the corpus we painted is still the one we are
+      // Roll back only if the base we painted is still the one we are
       // invalidating — a refreshFromRemote that landed meanwhile has already
       // replaced it with a freshly verified one, which must stand.
-      if (useContent.getState().corpus.version === suspect.version) {
+      if (baseCorpus.version === suspect.version) {
         cachedSnapshotVersion = 0;
-        useContent.getState().setCorpus(SEED);
+        setBase(SEED);
       }
     });
   }
@@ -309,7 +371,7 @@ async function purgeCache(): Promise<void> {
 export async function clearContentCache(): Promise<void> {
   await purgeCache();
   cachedSnapshotVersion = 0;
-  useContent.getState().setCorpus(SEED);
+  setBase(SEED);
 }
 
 /** This install's staged-rollout lot number, 0-99: drawn once, persisted, and
@@ -339,7 +401,7 @@ async function rolloutBucket(): Promise<number> {
  *  and rolls back if storage corrupted the bytes since they were written.
  *  Anything short of coherent — no meta, no text, version disagreement, parse
  *  failure, wrong shape — is simply no cache; the seed backstops it. */
-async function readCache(): Promise<Corpus | null> {
+async function readCache(): Promise<{ corpus: Corpus; kind: SnapshotKind } | null> {
   try {
     const metaRaw = await AsyncStorage.getItem(CACHE_META_KEY);
     if (!metaRaw) return null;
@@ -349,7 +411,9 @@ async function readCache(): Promise<Corpus | null> {
     if (!isCacheMeta(meta)) return null;
     const parsed = JSON.parse(raw);
     if (!looksLikeCorpus(parsed) || parsed.version !== meta.version) return null;
-    return parsed;
+    // A marker written before packs has no kind: that cache is the full
+    // snapshot, which is all there was.
+    return { corpus: parsed, kind: (meta as { kind?: unknown }).kind === 'core' ? 'core' : 'full' };
   } catch {
     return null;
   }
@@ -399,23 +463,51 @@ export async function refreshFromRemote(): Promise<void> {
   if (__DEV__) return;
 
   try {
-    const manRes = await fetch(`${STORAGE_BASE}/manifest.json`, { cache: 'no-store' as RequestCache });
-    // Server time, from a response the app already makes on every launch. This
-    // is what keeps the entitlement clock floor moving without a clock
-    // endpoint or an extra round trip — see services/serverClock.ts. Read
-    // before the ok-check: a 404 still carries an honest Date.
-    noteServerDateHeader(manRes.headers.get('date'));
-    if (!manRes.ok) return;
-    const manifest = await manRes.json();
-    if (!isManifest(manifest)) return;
+    // ── Premium content packs: manifest-v2 first ──────────────────────────
+    //
+    // When it is published, this build takes the FREE CORE as its snapshot
+    // and the packs the user is entitled to on top (packs.ts). Packs are
+    // synced BEFORE the core is considered, because swapping a legacy full
+    // snapshot for the core is what takes paid content off a free device and
+    // must not take it off a subscriber before their packs are here
+    // (shouldAdoptCore). No manifest-v2 yet means the legacy path below,
+    // unchanged.
+    let manifest: Manifest;
+    let kind: SnapshotKind;
+    const v2: PacksManifest | null = await fetchPacksManifest();
+    if (v2) {
+      await syncPacks(v2);
+      const adopt = shouldAdoptCore({
+        core: v2.core,
+        rollout: v2.rollout,
+        cached: cachedSnapshotVersion > 0 ? { version: cachedSnapshotVersion, kind: cachedSnapshotKind } : null,
+        bucket: await rolloutBucket(),
+        packsPending: packsPending(v2),
+      });
+      if (!adopt) return;
+      manifest = { version: v2.core.version, path: v2.core.path, checksum: v2.core.checksum };
+      kind = 'core';
+    } else {
+      const manRes = await fetch(`${STORAGE_BASE}/manifest.json`, { cache: 'no-store' as RequestCache });
+      // Server time, from a response the app already makes on every launch. This
+      // is what keeps the entitlement clock floor moving without a clock
+      // endpoint or an extra round trip — see services/serverClock.ts. Read
+      // before the ok-check: a 404 still carries an honest Date.
+      noteServerDateHeader(manRes.headers.get('date'));
+      if (!manRes.ok) return;
+      const legacy = await manRes.json();
+      if (!isManifest(legacy)) return;
+      manifest = legacy;
+      kind = 'full';
 
-    // Compare against the cached SNAPSHOT version, not the merged corpus version:
-    // a seed-only install has no snapshot (0) and must fetch even when the
-    // manifest's version equals the seed's. And honor the staged rollout: this
-    // install adopts only if its persisted lot falls inside the manifest's
-    // rollout share (rollout 0 is the kill switch — everyone freezes on what
-    // they hold; see shouldAdopt in content.logic.ts for the full contract).
-    if (!shouldAdopt(manifest, cachedSnapshotVersion, await rolloutBucket())) return;
+      // Compare against the cached SNAPSHOT version, not the merged corpus version:
+      // a seed-only install has no snapshot (0) and must fetch even when the
+      // manifest's version equals the seed's. And honor the staged rollout: this
+      // install adopts only if its persisted lot falls inside the manifest's
+      // rollout share (rollout 0 is the kill switch — everyone freezes on what
+      // they hold; see shouldAdopt in content.logic.ts for the full contract).
+      if (!shouldAdopt(manifest, cachedSnapshotVersion, await rolloutBucket())) return;
+    }
 
     // ── Streamed to disk, not pulled into a string ────────────────────────
     //
@@ -461,7 +553,7 @@ export async function refreshFromRemote(): Promise<void> {
     await new Promise<void>((r) => InteractionManager.runAfterInteractions(() => r()));
 
     // validateCorpus is injected — content.logic stays a type-only pure island.
-    const verified = verifySnapshot(text, manifest, validateCorpus);
+    const verified = verifySnapshot(text, manifest, validatorFor(kind));
     if (!verified.ok) return; // parse/checksum/invalid/version — keep what we have
 
     // Cache the RAW verified text — the exact bytes that just passed the
@@ -481,18 +573,19 @@ export async function refreshFromRemote(): Promise<void> {
       await moveVerifiedSnapshot();
       await AsyncStorage.setItem(
         CACHE_META_KEY,
-        JSON.stringify({ version: verified.corpus.version, checksum: manifest.checksum })
+        JSON.stringify({ version: verified.corpus.version, checksum: manifest.checksum, kind })
       );
       // Anything still under the old key is now dead weight against the 6 MB
       // AsyncStorage budget the rest of the app shares.
       await AsyncStorage.removeItem(LEGACY_CACHE_KEY).catch(() => {});
+      cachedSnapshotKind = kind;
       cachedSnapshotVersion = verified.corpus.version;
     } catch {
       // Genuinely out of disk, or unwritable — the live upgrade below still
       // applies for this session; next launch simply refetches. This is now a
       // real out-of-space, not a 27 MB blob against a 6 MB row budget.
     }
-    useContent.getState().setCorpus(mergeCorpus(SEED, verified.corpus));
+    setBase(mergeCorpus(SEED, verified.corpus));
   } catch {
     // Any network or parse failure: the seed (and cache) stand. This is the
     // offline path, and it must be silent, not fatal.
