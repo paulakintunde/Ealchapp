@@ -101,6 +101,28 @@ export const SEED_CUT: SeedCut = {
   speakWorlds: [1],
 };
 
+/**
+ * THE FREE-CORE CUT (premium content packs, PREMIUM-PACKS-SPEC.md section 7,
+ * approved 2026-09-27): sons and a1 in full, every paid unit as a skeleton,
+ * no exams (they are the `exam` pack). Applied by `buildCoreSeed` in
+ * seed-cut.logic.ts, on the core that content-packs.logic.ts splits off, and
+ * used by `content:publish --packs`.
+ *
+ * NOT YET the default cut, deliberately. A plain `content:publish` still cuts
+ * with `SEED_CUT` above until the rollout, for three measured reasons written
+ * up in the spec's rollout steps: b1-merge-into-seed.ts (and the B2 pipeline
+ * built on it) refuses any unit missing from SEED_CUT.units, about 48 app test
+ * files read A2/B1 lessons straight out of seed.json, and a publish that
+ * uploads packs needs the private bucket to exist first. The rollout's seed
+ * step is making --packs the default and retiring SEED_CUT.units.
+ */
+export const CORE_SEED_CUT: SeedCut = {
+  tracks: ['sons', 'a1'],
+  units: [],
+  themes: SEED_CUT.themes,
+  speakWorlds: [1],
+};
+
 /** Every unit id explicitly named, for the cut summary. */
 export function describeCut(): string {
   const parts = [
