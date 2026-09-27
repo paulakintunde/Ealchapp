@@ -31,11 +31,11 @@
 //    9  Têtu comme une mule           7   portraits in « comme »       (8)
 //   10  Revenons à nos moutons        7   other people, and the point  (6)
 //   11  La cerise sur le gâteau       7   good news and bad news       (5)
-//   12  Raconte ta journée           11   model, plan, role play, TASK, quiz
+//   12  Ta journée en images         11   model, plan, role play, TASK, quiz
 //
-//   TOTAL 88 missions, 12 acts. Corpus: 175 authored rows (.1200-.1374)
-//   plus 23 reused seed rows (the literal words), 198 item ids in all, every
-//   one of them released act by act through `deckTranche`. 57 expressions
+//   TOTAL 88 missions, 12 acts. Corpus: 176 authored rows (.1200-.1375)
+//   plus 23 reused seed rows (the literal words), 199 item ids in all, every
+//   one of them released act by act through `deckTranche`. 58 expressions
 //   taught (§E of the corpus), plus « il pleut à boire debout » as the answer
 //   to an English animal idiom. Quiz: 11 rounds of 8. Eleven error triggers,
 //   eleven drills, five reference sheets, nine terms. Three tapTables (acts
@@ -60,7 +60,7 @@
 //  OWNS / QUOTES / LEAVES
 // ══════════════════════════════════════════════════════════════════════════
 //
-//   OWNS    the idioms whose key image is an animal or a food, 57 of them in
+//   OWNS    the idioms whose key image is an animal or a food, 58 of them in
 //           ten families; the register of each (familier / courant); the
 //           Québec and France variants of two; the « adjectif + comme +
 //           animal » portrait and its agreement; the word-for-word trap in
@@ -90,13 +90,13 @@
 //  OPEN QUESTIONS FOR PAUL
 // ══════════════════════════════════════════════════════════════════════════
 //
-//   1. « avoir la chair de poule » (goosebumps) is left out on purpose: its
-//      picture is skin AND a hen, so it sits on the border with b1.27. If
-//      b1.27 does not take it, should it join act 4 here?
+//   1. RESOLVED (Paul, gate 3, 2026-09-26): « avoir la chair de poule »
+//      (goosebumps) joins act 4 here as row `.1375`: a card in a4-cartes and
+//      a group in a4-choisir. b1.27 does not take it.
 //   2. « il pleut à boire debout » has no animal and no food, but it is the
 //      only natural answer to « raining cats and dogs », the most
 //      famous word-for-word trap there is. Taught here as an EQUIVALENT, not
-//      counted in the 57. Keep it, or move it to b1.27 or b1.29?
+//      counted in the 58. Keep it, or move it to b1.27 or b1.29?
 //   3. Two regional forms are taught as a pair, Québec first (papillons dans
 //      l'estomac / dans le ventre; une poule pas de tête / un poulet sans
 //      tête). « poireauter » and « avoir la frite » are marked France. Is
@@ -883,7 +883,7 @@ const A4_CARTES: Sec<'cardDeck'> = {
   sheetId: 'sheet-quotidien',
   title: 'La peur et le courage',
   frSub: 'Une poule, un loup, un taureau, un lion',
-  hint: 'Six cartes. Les deux dernières disent la même chose, dans deux pays.',
+  hint: 'Sept cartes. Les deux dernières disent la même chose, dans deux pays.',
   audio: REC('rec-b1-28-peur-cartes'),
   say: REFRAME,
   terms: ['image', 'variante'],
@@ -892,6 +892,7 @@ const A4_CARTES: Sec<'cardDeck'> = {
     card(E(1243), 'Aller vers le danger', "Image : sauter dans la gueule ouverte du loup. Sens : aller tout seul vers le danger. L'anglais met un lion. EN: to walk into the lion's den."),
     card(E(1244), 'Attaquer le problème', "Image : attraper le taureau par devant. Sens : attaquer un problème de face. L'anglais garde la même image. EN: to take the bull by the horns."),
     card(E(1245), 'Beaucoup de courage', "Image : un lion qui défend les siens. Sens : se battre avec un grand courage. Pour une femme, on dit aussi : comme une lionne. EN: to fight like a lion."),
+    card(E(1375), 'Des frissons', "Image : la peau d'une poule plumée, couverte de petits points. Sens : avoir des frissons, de froid ou d'émotion. L'anglais met une oie. EN: to have goosebumps."),
     card(E(1246), 'Nerveux, au Québec', "Image : des papillons qui volent dans le ventre. Sens : être nerveux, ou amoureux. EN: butterflies in your stomach."),
     card(E(1247), 'Nerveux, en France', "Image : la même. Sens : le même. La forme de France et de Belgique. Les deux sont justes. EN: butterflies in your stomach."),
   ],
@@ -977,6 +978,12 @@ const A4_CHOISIR: Sec<'groupDrill'> = {
     ctl('La peur', 'Ton cousin refuse de monter dans la grande roue. Tu te moques gentiment :',
       ["C'est un lion.", "C'est une poule mouillée.", "C'est un loup."], 1,
       "Il a peur : une poule mouillée. EN: a scaredy-cat."),
+    grp('Les frissons', [
+      it(E(1375), "de froid, ou d'émotion"),
+    ], chk(
+      'Au concert, la chanson est si belle que tes bras frissonnent. Tu dis :',
+      ["J'ai la chair de poule.", 'Je suis une poule mouillée.'], 0,
+      "La chair de poule, c'est la peau qui frissonne, de froid ou d'émotion. La poule mouillée, c'est la peur. EN: goosebumps, not cowardice.")),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -2491,7 +2498,7 @@ const ACT11: ActDef = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
- *  ACT 12 — RACONTE TA JOURNÉE
+ *  ACT 12 — TA JOURNÉE EN IMAGES
  *
  *  The production act: Awa's reply as the model, a plan, a role play, the
  *  graded anecdote, then the quiz. The task is graded on FIT, not count
@@ -2838,7 +2845,7 @@ const A12_PROGRESS: Sec<'progressCheck'> = {
   title: 'Où tu en es',
   body: "Tu reconnais une cinquantaine d'images françaises, tu sais ce que chacune veut dire, et tu les dis avec leur verbe et leur registre. Le piège qui reste est le plus naturel : quand tu écris vite, l'image anglaise revient, une grenouille, un morceau de gâteau, des chats qui pleuvent. Avant l'examen, prends ton message et souligne chaque expression. Au-dessus, écris l'animal ou l'aliment : s'il n'est pas celui de la leçon, cherche la vraie image. EN: Underline each idiom and check its animal or food against the lesson.",
   stats: [
-    { k: 'Les images', v: '57 expressions' },
+    { k: 'Les images', v: '58 expressions' },
     { k: 'Les familles', v: 'dix, une par acte' },
     { k: 'Le registre', v: 'familier ou courant' },
     { k: 'Les pays', v: 'Québec, France, Belgique' },
@@ -3063,7 +3070,7 @@ const A12_ROUNDUP: Sec<'roundup'> = {
 
 const ACT12: ActDef = {
   act: {
-    id: 'act12', title: 'Raconte ta journée',
+    id: 'act12', title: 'Ta journée en images',
     opener: {
       line: "Chloé a raconté son lapin, Awa son entretien : à toi de raconter ta journée avec les images de la leçon. EN: Chloé told her rabbit story and Awa her interview: your turn to tell your day with the lesson's pictures.",
       imageRef: 'lessons/expressions-animaux/act12.jpg',
@@ -3228,7 +3235,7 @@ const REC_DESC: Record<string, string> = {
   'rec-b1-28-bureau': "Chloé and the learner (act 3), two voices: Chloé, a Montréal voice, amused and a little annoyed; the learner, calm and teasing. « poireauté » is [pwa.ʁo.te]; « il n'y avait pas un chat » is ordinary speech with no weight on chat; the liaison after pas is optional, keep whichever the actor says naturally.",
   'rec-b1-28-lapin-cartes': 'The four cards of act 3, one voice, plain delivery. « poser un lapin » is [po.ze œ̃ la.pɛ̃]: the nasal of lapin is clean, with no n heard.',
   'rec-b1-28-peur-ecoute': "REQUIRED FOR THE EAR MISSION (act 4): ten lines, ONE TAKE, ONE VOICE, in authored order, at conversational speed. Lines 6 and 7 are the regional pair: read line 6 (« dans l'estomac », « entrevue ») with a Québec accent if the actor has one, and line 7 (« dans le ventre ») neutrally. « poule mouillée » is [pul mu.je], two clear syllables in mouillée.",
-  'rec-b1-28-peur-cartes': "The six fear and courage cards, TWO VOICES: a Québec voice for cards one to five, a France voice for card six only, so the learner hears that the papillons pair is regional.",
+  'rec-b1-28-peur-cartes': "The seven fear and courage cards, TWO VOICES: a Québec voice for cards one to six, a France voice for card seven only, so the learner hears that the papillons pair is regional.",
   'rec-b1-28-cantine': "Moussa and the learner (act 5), two voices: Moussa, a warm voice in his thirties, Belgian or West African French both welcome, cheerful and hungry; the learner, tired and low. « j'ai la frite » is said with a Brussels lilt if the actor has one.",
   'rec-b1-28-humeur-cartes': 'The six hunger and mood cards, one voice, plain delivery. « une faim de loup » is [yn fɛ̃d lu], the de reduced to a d.',
   'rec-b1-28-piege-humeur': "The audio step plays each card's CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.",

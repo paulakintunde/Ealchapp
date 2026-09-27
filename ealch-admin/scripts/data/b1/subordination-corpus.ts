@@ -234,7 +234,6 @@ export const IMPORTED = {
   act2: [
     'fr.a1.maison.149',               // Je ferme la fenêtre parce qu'il fait froid.
     'fr.a2.routines.061',             // Je me suis dépêché ce matin parce que j'étais en retard.
-    'fr.b1.connecteurs-logiques.010', // Le vol a été annulé car les conditions météo étaient trop mauvaises.  (named only)
   ],
   act3: [
     'fr.a2.sports-et-loisirs.064',    // Puisque j'aime le sport, je me suis inscrit à trois clubs.
@@ -273,7 +272,6 @@ export const IMPORT_IDS = [...new Set(Object.values(IMPORTED).flat())];
 /** No `flashcard` drill in the seed: nameable, never releasable. */
 export const NOT_DECK_ABLE = [
   'fr.b1.connecteurs-logiques.005',   // dictation
-  'fr.b1.connecteurs-logiques.010',   // dictation
   'fr.a1.deplacements.285',           // dictation
   'fr.b1.connecteurs-logiques.008',   // dictation
   'fr.b1.courses.003',                // dictation
@@ -370,7 +368,7 @@ export const ACT1_ROWS: Row[] = [
   sent(1214, 'Je vous explique pourquoi nous avons changé de fournisseur.', 'I will explain to you why we changed supplier.', '/ʒə vu.zɛk.splik puʁ.kwa nu.za.vɔ̃ ʃɑ̃.ʒe də fuʁ.ni.sœʁ/', 'zhuh voo-zehk-spleek poor-KWA | noo-za-vohⁿ shahⁿ-zhay duh foor-nee-SUHR', ['rapport', 'pourquoi']),
 ];
 
-/* ── ACT 2 · PARCE QUE ET CAR ───────────────────────────────────────────── */
+/* ── ACT 2 · PARCE QUE ──────────────────────────────────────────────────── */
 
 export const ACT2_ROWS: Row[] = [
   sent(1215, 'Parce que mon train part à huit heures.', 'Because my train leaves at eight.', '/paʁs kə mɔ̃ tʁɛ̃ paʁ a ɥi.tœʁ/', 'pars kuh mohⁿ trehⁿ par a wee-TUHR', ['reponse', 'parce-que', 'oral'], FCVDR),
@@ -380,14 +378,12 @@ export const ACT2_ROWS: Row[] = [
   sent(1219, "Il a changé de travail parce qu'il voulait voyager.", 'He changed jobs because he wanted to travel.', '/i.la ʃɑ̃.ʒe də tʁa.vaj paʁs kil vu.lɛ vwa.ja.ʒe/', 'ee-la shahⁿ-zhay duh tra-VAHY | pars keel voo-leh vwa-ya-ZHAY', ['parce-que']),
   sent(1220, 'Parce que ouvre une subordonnée : un sujet et un verbe suivent.', 'Parce que opens a subordinate clause: a subject and a verb follow.', '/paʁs kə uvʁ yn sy.bɔʁ.dɔ.ne œ̃ sy.ʒɛ e œ̃ vɛʁb sɥiv/', 'pars kuh OOVR ünn sü-bor-do-NAY | uhⁿ sü-zheh ay uhⁿ vehrb SWEEV', ['rule', 'parce-que'], ['flashcard'],
     rule('« Parce que la pluie. » Qu’est-ce qui manque ?', "Un verbe. Parce qu'il pleuvait, ou alors à cause de la pluie.")),
-  sent(1221, 'Le vol est annulé, car le pilote est malade.', 'The flight is cancelled, for the pilot is ill.', '/lə vɔl ɛ.ta.ny.le kaʁ lə pi.lɔt ɛ ma.lad/', 'luh vol eh-ta-nü-LAY | kar luh pee-lot eh ma-LAD', ['car', 'ecrit']),
   sent(1222, "Je t'appelle parce que j'ai une question.", 'I am calling you because I have a question.', '/ʒə ta.pɛl paʁs kə ʒe yn kɛs.tjɔ̃/', 'zhuh ta-PEHL | pars kuh zhay ünn kehs-TYOHⁿ', ['parce-que'], FCVDR),
   sent(1223, "J'ai refusé le poste parce que le salaire était trop bas.", 'I turned the job down because the salary was too low.', '/ʒe ʁə.fy.ze lə pɔst paʁs kə lə sa.lɛʁ e.tɛ tʁo ba/', 'zhay ruh-fü-zay luh POST | pars kuh luh sa-lehr ay-teh troh BA', ['parce-que', 'travail']),
   sent(1224, 'Tu dois partir maintenant parce que le dernier bus passe à minuit.', 'You have to leave now because the last bus comes at midnight.', '/ty dwa paʁ.tiʁ mɛ̃t.nɑ̃ paʁs kə lə dɛʁ.nje bys pas a mi.nɥi/', 'tü dwa par-teer mehⁿt-NAHⁿ | pars kuh luh dehr-nyay büs pass a mee-NWEE', ['parce-que']),
   sent(1225, 'Elle a pleuré parce que le film était triste.', 'She cried because the film was sad.', '/ɛ.la plœ.ʁe paʁs kə lə film e.tɛ tʁist/', 'eh-la pluh-RAY | pars kuh luh feelm ay-teh TREEST', ['parce-que']),
   sent(1226, "Il reste chez lui parce qu'il est malade.", 'He is staying at home because he is ill.', '/il ʁɛst ʃe lɥi paʁs ki.lɛ ma.lad/', 'eel rehst shay LWEE | pars kee-leh ma-LAD', ['parce-que', 'elision'], FCVR,
     gap('Il reste chez lui ___ il est malade.', "parce qu' : devant il, parce que perd son e, comme que.")),
-  sent(1227, 'Je ne peux pas sortir, car je dois travailler.', 'I cannot go out, for I have to work.', '/ʒə nə pø pa sɔʁ.tiʁ kaʁ ʒə dwa tʁa.va.je/', 'zhuh nuh peu pa sor-TEER | kar zhuh dwa tra-va-YAY', ['car', 'ecrit']),
   sent(1228, "On mange dehors parce qu'il fait beau.", 'We are eating outside because the weather is nice.', '/ɔ̃ mɑ̃ʒ də.ɔʁ paʁs kil fɛ bo/', 'ohⁿ mahⁿzh duh-OR | pars keel feh BOH', ['parce-que'], FCVDR),
   sent(1229, "C'est parce que tu es arrivé tard qu'on a raté le début.", 'It is because you got here late that we missed the start.', '/sɛ paʁs kə ty ɛ.za.ʁi.ve taʁ kɔ̃.na ʁa.te lə de.by/', 'seh pars kuh tü eh-za-ree-vay TAR | kohⁿ-na ra-tay luh day-BÜ', ['parce-que', 'insistance']),
   sent(1230, "Il est parti tôt parce qu'il avait un rendez-vous.", 'He left early because he had an appointment.', '/i.lɛ paʁ.ti to paʁs ki.la.vɛ œ̃ ʁɑ̃.de.vu/', 'ee-leh par-tee TOH | pars kee-la-veh uhⁿ rahⁿ-day-VOO', ['parce-que']),
@@ -396,6 +392,10 @@ export const ACT2_ROWS: Row[] = [
 /* ── ACT 3 · PUISQUE ET COMME ───────────────────────────────────────────── */
 
 export const ACT3_ROWS: Row[] = [
+  // car is b1.30's (Paul, gate 3): its two rows sit with act 3's cause
+  // table, which cites it, so act 2 teaches parce que on its own terms.
+  sent(1221, 'Le vol est annulé, car le pilote est malade.', 'The flight is cancelled, for the pilot is ill.', '/lə vɔl ɛ.ta.ny.le kaʁ lə pi.lɔt ɛ ma.lad/', 'luh vol eh-ta-nü-LAY | kar luh pee-lot eh ma-LAD', ['car', 'ecrit']),
+  sent(1227, 'Je ne peux pas sortir, car je dois travailler.', 'I cannot go out, for I have to work.', '/ʒə nə pø pa sɔʁ.tiʁ kaʁ ʒə dwa tʁa.va.je/', 'zhuh nuh peu pa sor-TEER | kar zhuh dwa tra-va-YAY', ['car', 'ecrit']),
   sent(1231, 'Puisque tu as une voiture, tu peux nous conduire.', 'Since you have a car, you can drive us.', '/pɥis.kə ty a yn vwa.tyʁ ty pø nu kɔ̃.dɥiʁ/', 'pweess-kuh tü a ünn vwa-TÜR | tü peu noo kohⁿ-DWEER', ['puisque'], FCVDR),
   sent(1232, 'Puisque tu connais Québec, choisis le restaurant.', 'Since you know Québec, you choose the restaurant.', '/pɥis.kə ty kɔ.nɛ ke.bɛk ʃwa.zi lə ʁɛs.to.ʁɑ̃/', 'pweess-kuh tü ko-neh kay-BEHK | shwa-zee luh rehs-to-RAHⁿ', ['puisque', 'quebec']),
   sent(1233, "Puisqu'il pleut, on reste à l'intérieur.", 'Since it is raining, we are staying inside.', '/pɥis.kil plø ɔ̃ ʁɛst a lɛ̃.te.ʁjœʁ/', 'pweess-keel PLEU | ohⁿ rehst a lehⁿ-tay-RYUHR', ['puisque', 'elision'], FCVDR),

@@ -110,7 +110,7 @@ A gentle illustration of the French idioms about other people and getting back t
 
 A gentle illustration of the French idioms about good and bad news, drawn literally. On the left, a tall round cream cake on a stand, and a single bright terracotta cherry being lowered onto its very top by a small hand entering from the edge of the frame, no face visible. On the right, on a stove, a small dusty slate blue pot holds carrots that have been cooked far too long, soft and slumped, a thin wisp of steam rising. The two halves are separated by generous empty space. The subject is a cherry placed on top of a cake on one side and a pot of overcooked carrots on the other. Landscape 4:3 composition. Flat editorial vector illustration, in the style of a modern French language textbook. Muted warm palette: cream and bone backgrounds, dusty slate blue, terracotta, warm ochre, sage green. Soft rounded geometric figures with simple calm faces, no black outlines, gentle flat shading. Subtle paper grain texture over the whole image. Warm even light. No text unless explicitly described. Uncluttered composition with generous empty space. Absolutely no lettering, captions, watermarks or logos beyond what is described.
 
-## Act 12 — Raconte ta journée · `act12.jpg`
+## Act 12 — Ta journée en images · `act12.jpg`
 
 **Save the image as:** `C:/Users/harki/Downloads/gitbuild appealch/Ealchapp/ealch-v2/assets/lessons/expressions-animaux/act12.jpg`
 

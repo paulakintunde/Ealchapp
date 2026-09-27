@@ -2476,7 +2476,7 @@
           "questionsInModal": true,
           "title": "Chez Mame, à Dakar",
           "frSub": "Lis d’abord. La règle vient après.",
-          "text": "Sur la photo, on voit la maison de ma grand-mère, à Dakar. J'y passais toutes mes vacances quand j'étais petite. La maison n'était pas grande, mais il y avait une cour avec un manguier. Ma grand-mère commençait sa journée avant le soleil. Elle allait au marché, puis elle préparait le repas. À midi, nous mangions tous ensemble dans la cour. Nous étions souvent dix autour du plat. Mes cousins parlaient wolof avec elle, et moi, je répondais en français. L'après-midi, il faisait très chaud. Il fallait rester à l'ombre, alors nous jouions aux cartes. En août, il pleuvait fort, et la cour devenait une petite rivière. Aujourd'hui, j'habite à Montréal. La maison n'existe plus, mais j'ai encore la photo.",
+          "text": "Sur la photo, on voit la maison de Mame, ma grand-mère, à Dakar. J'y passais toutes mes vacances quand j'étais petite. La maison n'était pas grande, mais il y avait une cour avec un manguier. Ma grand-mère commençait sa journée avant le soleil. Elle allait au marché, puis elle préparait le repas. À midi, nous mangions tous ensemble dans la cour. Nous étions souvent dix autour du plat. Mes cousins parlaient wolof avec elle, et moi, je répondais en français. L'après-midi, il faisait très chaud. Il fallait rester à l'ombre, alors nous jouions aux cartes. En août, il pleuvait fort, et la cour devenait une petite rivière. Aujourd'hui, j'habite à Montréal. La maison n'existe plus, mais j'ai encore la photo.",
           "glossary": [
             {
               "word": "Mame",
@@ -5757,7 +5757,7 @@
           "text": "Chaque été, nous partions chez mes grands-parents, au bord du lac Léman. Mon grand-père voyageait beaucoup pour son travail, mais en juillet, il restait avec nous. Le matin, nous nagions dans le lac. L'eau était froide, alors je nageais vite. À midi, nous mangions sur la terrasse. Ma grand-mère changeait le menu tous les jours, mais le dessert, lui, ne changeait pas : une tarte aux abricots. Mon petit frère bougeait tout le temps et il mangeait debout. Nous partagions une chambre sous le toit, et le soir, nous rangions nos affaires avant de dormir.",
           "glossary": [
             {
-              "word": "le lac Léman",
+              "word": "lac Léman",
               "en": "Lake Geneva",
               "note": "Le grand lac entre la Suisse et la France. EN: between Switzerland and France."
             },
@@ -5767,7 +5767,7 @@
               "note": "Un espace dehors, à côté de la maison. EN: an outdoor space by the house."
             },
             {
-              "word": "des abricots",
+              "word": "abricots",
               "en": "apricots",
               "note": "Un fruit orange de l’été. EN: an orange summer fruit."
             },
@@ -9912,7 +9912,7 @@
               "userEn": "Yes, it was cold and it often snowed. (neigeait: e before a)",
               "alts": [
                 {
-                  "fr": "Non, il faisait chaud toute l’année.",
+                  "fr": "Non, il faisait chaud toute l'année.",
                   "en": "No, it was hot all year round."
                 },
                 {
@@ -10092,7 +10092,7 @@
           ],
           "graderNotes": [
             "Formative lesson task, not an exam: judge the criteria and quote the learner’s own forms back. Never report a band.",
-            "Do NOT penalise correctly formed passé composé; the usage contrast is b1.03/b1.04. Only mark a present tense used for the past.",
+            "Do NOT penalise correctly formed passé composé; the usage contrast belongs to lesson 3 in B1 and lesson 4 in B1. Only mark a present tense used for the past.",
             "Count distinct imparfait VERBS, not tokens. il y avait counts as avoir.",
             "on + imparfait (on mangeait) is correct and counts.",
             "Accents: do not deduct for a missing é unless it makes another word. The cedilla on -cer DOES count (orthographe).",
@@ -14592,7 +14592,7 @@
               "why": "Tous les samedis : une habitude. EN: a habit."
             },
             {
-              "q": "Phrase 6 : « Chaque hiver, la rivière gelait. » C’est quoi ? EN: What is it?",
+              "q": "Phrase 6 : c’est quoi ? EN: What is it?",
               "opts": [
                 "une seule journée de gel",
                 "une habitude, et la météo",
@@ -14602,7 +14602,7 @@
               "why": "Chaque hiver : ça revenait, et c’est le temps qu’il faisait. EN: repeated, and weather."
             },
             {
-              "q": "Phrase 8 : « Chaque été, nous allons au Lac-Saint-Jean. » Avant ou aujourd’hui ? EN: Before or today?",
+              "q": "Phrase 8 : avant ou aujourd’hui ? EN: Before or today?",
               "opts": [
                 "avant seulement",
                 "on ne sait pas",
@@ -14612,7 +14612,7 @@
               "why": "nous allons est au présent : c’est encore vrai. EN: present tense, still true."
             },
             {
-              "q": "Phrase 10 : « Je ne mangeais jamais le matin. » Combien de fois ? EN: How many times?",
+              "q": "Phrase 10 : combien de fois ? EN: How many times?",
               "opts": [
                 "une seule",
                 "aucune, et ça durait"
@@ -15045,7 +15045,7 @@
                   "fr": "Maintenant, j'habite à Montréal.",
                   "itemId": "fr.b1.recits-au-passe.1462",
                   "en": "Now I live in Montreal.",
-                  "note": "maintenant, chez b1.01"
+                  "note": "maintenant, dans la leçon 1 du B1"
                 }
               ],
               "check": {
@@ -15342,7 +15342,7 @@
               "why": "Avant, je prenais le bus. Maintenant, je prends le métro. EN: era and tense."
             },
             {
-              "q": "Phrase 8 : « Avant de partir, j’éteins la lumière. » C’est quand ? EN: When is it?",
+              "q": "Phrase 8 : c’est quand ? EN: When is it?",
               "opts": [
                 "dans le passé",
                 "aujourd’hui, chaque fois"
@@ -15731,7 +15731,7 @@
                   "fr": "Je voulais devenir pilote.",
                   "itemId": "fr.b1.recits-au-passe.450",
                   "en": "I wanted to become a pilot.",
-                  "note": "vouloir, chez b1.01"
+                  "note": "vouloir, dans la leçon 1 du B1"
                 }
               ],
               "check": {
@@ -15810,7 +15810,7 @@
           ],
           "questions": [
             {
-              "q": "Phrase 2 : « Il avait peur du noir. » Quel verbe entends-tu ? EN: Which verb?",
+              "q": "Phrase 2 : quel verbe entends-tu ? EN: Which verb?",
               "opts": [
                 "être",
                 "avoir"
@@ -15819,7 +15819,7 @@
               "why": "avoir peur. En anglais, he WAS afraid. EN: French uses avoir."
             },
             {
-              "q": "Phrase 3 : « Je savais que la route était fermée. » Combien d’états ? EN: How many states?",
+              "q": "Phrase 3 : combien d’états ? EN: How many states?",
               "opts": [
                 "deux",
                 "un"
@@ -15828,7 +15828,7 @@
               "why": "savais, et était : deux états dans une phrase. EN: two states."
             },
             {
-              "q": "Phrase 7 : « Elle se sentait seule. » C’est quoi ? EN: What is it?",
+              "q": "Phrase 7 : c’est quoi ? EN: What is it?",
               "opts": [
                 "une action courte",
                 "un sentiment qui durait"
@@ -15837,7 +15837,7 @@
               "why": "se sentir : un état, pas un moment. EN: a state, not a moment."
             },
             {
-              "q": "Phrase 9 : « J’avais envie d’un café. » Ça veut dire quoi ? EN: What does it mean?",
+              "q": "Phrase 9 : ça veut dire quoi ? EN: What does it mean?",
               "opts": [
                 "I felt like a coffee.",
                 "I had a coffee."
@@ -16211,7 +16211,7 @@
             {
               "fr": "Il y avait un grand arbre dans la cour.",
               "en": "There was a big tree in the courtyard.",
-              "note": "l’arbre, chez b1.01"
+              "note": "l’arbre, dans la leçon 1 du B1"
             },
             {
               "fr": "C'était petit, mais c'était chez nous.",
@@ -17152,7 +17152,7 @@
               "why": "Il faisait trente degrés à Abidjan. EN: Abidjan."
             },
             {
-              "q": "Phrase 6 : « Il faisait nuit à cinq heures. » Quelle saison ? EN: Which season?",
+              "q": "Phrase 6 : quelle saison ? EN: Which season?",
               "opts": [
                 "l’été",
                 "l’hiver"
@@ -17161,7 +17161,7 @@
               "why": "La nuit à cinq heures : l’hiver. EN: dark at five means winter."
             },
             {
-              "q": "Phrase 8 : « On était en 2006. » Ça dit quoi ? EN: What does it give?",
+              "q": "Phrase 8 : ça dit quoi ? EN: What does it give?",
               "opts": [
                 "l’année",
                 "l’heure"
@@ -17320,7 +17320,7 @@
             {
               "fr": "Le bébé dormait dans ma chambre.",
               "en": "The baby used to sleep in my room.",
-              "note": "le bébé, chez b1.01"
+              "note": "le bébé, dans la leçon 1 du B1"
             }
           ],
           "audio": {
@@ -17563,7 +17563,7 @@
               "why": "Elle attendait l’autobus. EN: waiting for it."
             },
             {
-              "q": "Phrase 8 : « J’étais en train de cuisiner. » Ça insiste sur quoi ? EN: What does it stress?",
+              "q": "Phrase 8 : ça insiste sur quoi ? EN: What does it stress?",
               "opts": [
                 "la fin de l’action",
                 "le milieu de l’action"
@@ -18832,7 +18832,7 @@
           ],
           "questions": [
             {
-              "q": "Phrase 3 : « Si j’avais le temps, je viendrais avec toi. » C’est quoi ? EN: What is it?",
+              "q": "Phrase 3 : c’est quoi ? EN: What is it?",
               "opts": [
                 "une condition",
                 "une habitude"
@@ -18841,7 +18841,7 @@
               "why": "Le si, puis un conditionnel. EN: si plus the conditional."
             },
             {
-              "q": "Phrase 4 : « Tu voulais me parler ? » C’est quoi ? EN: What is it?",
+              "q": "Phrase 4 : c’est quoi ? EN: What is it?",
               "opts": [
                 "un vrai passé",
                 "une politesse"
@@ -18850,7 +18850,7 @@
               "why": "Une façon douce de demander, maintenant. EN: a soft way of asking now."
             },
             {
-              "q": "Phrase 6 : « Je voudrais un café. » Quel temps ? EN: Which tense?",
+              "q": "Phrase 6 : quel temps ? EN: Which tense?",
               "opts": [
                 "le conditionnel",
                 "l’imparfait"
@@ -19317,7 +19317,7 @@
             }
           ],
           "graderNotes": [
-            "B1 learner. A single completed event in the passé composé (« j’ai déménagé en 2010 ») is correct French and b1.03 content: do not penalise it under `emplois` if it is right.",
+            "B1 learner. A single completed event in the passé composé (« j’ai déménagé en 2010 ») is correct French and the content of lesson 3 in B1: do not penalise it under `emplois` if it is right.",
             "Québec, Belgian and West African vocabulary (dépanneur, souper, déneiger, patinoire, calorifère, maquis) is correct French. Never mark it as an error.",
             "`je voudrais` as the softener is polite and correct, but it is not the imparfait the task asks for: 2 of 3 on `demande`, and no deduction under `formes`.",
             "The model answer is 105 words. Length is judged on the learner text only, salutation and signature included.",
@@ -21940,10 +21940,10 @@
           "fr.b1.recits-au-passe.1112",
           "fr.b1.recits-au-passe.1113",
           "fr.b1.recits-au-passe.1114",
-          "fr.b1.recits-au-passe.1115",
           "fr.b1.recits-au-passe.1116",
-          "fr.b1.recits-au-passe.1117",
-          "fr.b1.recits-au-passe.1118"
+          "fr.b1.recits-au-passe.1118",
+          "fr.b1.recits-au-passe.1514",
+          "fr.b1.recits-au-passe.1515"
         ],
         [
           "fr.b1.recits-au-passe.1130",
@@ -23106,7 +23106,7 @@
               "body": "Le café a commencé avant le bruit et il continue après. C'est le décor de l'action. EN: the coffee frames the noise."
             },
             {
-              "head": "Ce que b1.02 t'a déjà donné",
+              "head": "Ce que la leçon 2 du B1 t'a déjà donné",
               "label": "La leçon 2 du B1",
               "fr": "il faisait froid · j'avais vingt ans",
               "sub": "[eel fuh-zeh FRWA] · [zha-veh vehⁿ-TAHⁿ]",
@@ -25238,7 +25238,7 @@
               "body": "La pluie est souvent le décor. Mais « toute la journée » ferme la durée. EN: a closed duration makes it an event."
             },
             {
-              "head": "Ce que b1.02 disait déjà",
+              "head": "Ce que la leçon 2 du B1 disait déjà",
               "label": "La leçon 2 du B1",
               "fr": "deux heures · dix ans · toute la nuit",
               "sub": "[deu-ZUHR] · [dee-ZAHⁿ] · [toot la NWEE]",
@@ -27730,7 +27730,7 @@
             "The interruption requirement is met by « quand » or « pendant que » with one ongoing imparfait and one passé composé event, in either clause order. « Quand » + two passés composés is a sequence, not an interruption.",
             "Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (72-132) before criterion « tache » loses its point.",
             "Narrator gender is unknown: judge être agreement for internal consistency only.",
-            "Do not score the meaning-shift verbs of b1.04 (savoir, connaître, vouloir, pouvoir, devoir, avoir) as errors in either tense.",
+            "Do not score the meaning-shift verbs of lesson 4 in B1 (savoir, connaître, vouloir, pouvoir, devoir, avoir) as errors in either tense.",
             "Accept regional vocabulary (dépanneuse / remorqueuse, char in Québec, taxi-brousse in West Africa).",
             "Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment."
           ]
@@ -27856,9 +27856,7 @@
             "fr.b1.recits-au-passe.1112",
             "fr.b1.recits-au-passe.1113",
             "fr.b1.recits-au-passe.1114",
-            "fr.b1.recits-au-passe.1115",
             "fr.b1.recits-au-passe.1116",
-            "fr.b1.recits-au-passe.1117",
             "fr.b1.recits-au-passe.1118",
             "fr.b1.recits-au-passe.1130",
             "fr.b1.recits-au-passe.1131",
@@ -29225,9 +29223,7 @@
         "fr.b1.recits-au-passe.1112",
         "fr.b1.recits-au-passe.1113",
         "fr.b1.recits-au-passe.1114",
-        "fr.b1.recits-au-passe.1115",
         "fr.b1.recits-au-passe.1116",
-        "fr.b1.recits-au-passe.1117",
         "fr.b1.recits-au-passe.1118",
         "fr.b1.recits-au-passe.1130",
         "fr.b1.recits-au-passe.1131",
@@ -29268,6 +29264,8 @@
         "fr.a2.heure-et-date.138",
         "fr.a2.deplacements.011",
         "fr.sons.liaisons.048",
+        "fr.b1.recits-au-passe.1514",
+        "fr.b1.recits-au-passe.1515",
         "fr.a2.objets.109"
       ],
       "version": 2,
@@ -31857,7 +31855,7 @@
               "why": "Hier soir, j'ai su : le moment est dans la phrase. EN: the moment is in the sentence."
             },
             {
-              "q": "« On l’a su par un collègue. » Ça veut dire : EN: It means:",
+              "q": "Cinquième phrase : ça veut dire : EN: It means:",
               "opts": [
                 "Un collègue nous l’a appris.",
                 "Nous le savions depuis longtemps."
@@ -31875,7 +31873,7 @@
               "why": "La nouvelle n'est jamais arrivée. EN: the news never came."
             },
             {
-              "q": "Dernière phrase : « Je savais nager à cinq ans. » Ça parle de : EN: It talks about:",
+              "q": "Dernière phrase : ça parle de : EN: It talks about:",
               "opts": [
                 "une capacité",
                 "une nouvelle",
@@ -32507,7 +32505,7 @@
               "why": "J'ai connu sa sœur à Dakar. EN: in Dakar."
             },
             {
-              "q": "« Il a connu des hivers très durs. » Ça veut dire : EN: It means:",
+              "q": "Quatrième phrase : ça veut dire : EN: It means:",
               "opts": [
                 "Il a rencontré des hivers.",
                 "Il a vécu ces hivers."
@@ -32516,7 +32514,7 @@
               "why": "Avec une période, connu = vivre cette période. EN: with a period, connu means lived through."
             },
             {
-              "q": "« Quand je l’ai connu, il avait vingt ans. » Quel âge a-t-il maintenant ? EN: How old is he now?",
+              "q": "Sixième phrase : quel âge a-t-il maintenant ? EN: How old is he now?",
               "opts": [
                 "Vingt ans.",
                 "On ne sait pas.",
@@ -33100,7 +33098,7 @@
               "why": "je n'ai pas pu : l'échec. EN: n'ai pas pu is failure."
             },
             {
-              "q": "« Tu pouvais me le dire. » Qu’est-ce que ça veut dire ? EN: What does it mean?",
+              "q": "Sixième phrase : qu’est-ce que ça veut dire ? EN: What does it mean?",
               "opts": [
                 "Tu me l’as dit.",
                 "Tu vas me le dire.",
@@ -33110,7 +33108,7 @@
               "why": "C'était possible, et ce n'est pas arrivé : un petit reproche. EN: a gentle reproach."
             },
             {
-              "q": "Dernière phrase : pourquoi « je n’ai pas pu acheter le pain » ? EN: Why n’ai pas pu?",
+              "q": "Dernière phrase : pourquoi pas de pain ? EN: Why no bread?",
               "opts": [
                 "Je n’avais pas faim.",
                 "Le magasin était fermé."
@@ -34299,7 +34297,7 @@
               "why": "j'ai dû rendre : c'est fait, en retard. EN: it happened, late."
             },
             {
-              "q": "« Tu as dû avoir peur. » Qu’est-ce que la personne fait ? EN: What is the speaker doing?",
+              "q": "Quatrième phrase : qu’est-ce que la personne fait ? EN: What is the speaker doing?",
               "opts": [
                 "Elle donne un ordre.",
                 "Elle imagine ce que tu as ressenti."
@@ -34308,7 +34306,7 @@
               "why": "a dû + verbe : une supposition. EN: a guess about your feelings."
             },
             {
-              "q": "« Je devais travailler samedi, mais c’était annulé. » A-t-elle travaillé ? EN: Did she work?",
+              "q": "Cinquième phrase : a-t-elle travaillé ? EN: Did she work?",
               "opts": [
                 "Non.",
                 "Oui."
@@ -34317,7 +34315,7 @@
               "why": "Le plan existait, l'annulation le ferme. EN: the plan was cancelled."
             },
             {
-              "q": "Dernière phrase : « Elle a dû annuler son vol. » Le vol est : EN: The flight is:",
+              "q": "Dernière phrase : le vol est : EN: The flight is:",
               "opts": [
                 "toujours réservé.",
                 "annulé."
@@ -34578,7 +34576,7 @@
               "note": "la veille de : le jour avant."
             },
             {
-              "word": "des rideaux",
+              "word": "rideaux",
               "en": "curtains",
               "note": "Aux fenêtres. Un rideau, des rideaux."
             },
@@ -34971,7 +34969,7 @@
               "why": "après le déménagement place le début. EN: après places the start."
             },
             {
-              "q": "« Il a été malade après le repas. » Avant le repas, il allait bien ? EN: Was he fine before the meal?",
+              "q": "Sixième phrase : avant le repas, il allait bien ? EN: Was he fine before the meal?",
               "opts": [
                 "Non.",
                 "Oui."
@@ -34980,7 +34978,7 @@
               "why": "a été malade marque le passage à la maladie. EN: it marks the change."
             },
             {
-              "q": "Dernière phrase : « Ça a été difficile, mais on a réussi. » La difficulté est : EN: The difficulty is:",
+              "q": "Dernière phrase : la difficulté est : EN: The difficulty is:",
               "opts": [
                 "finie.",
                 "toujours là."
@@ -36034,7 +36032,7 @@
               "why": "je travaillais encore : la scène continue. EN: the scene is still running."
             },
             {
-              "q": "« Le matin, je prenais le bus. » Combien de fois ? EN: How many times?",
+              "q": "Cinquième phrase : combien de fois ? EN: How many times?",
               "opts": [
                 "Souvent, c’était l’habitude.",
                 "Une fois."
@@ -36043,7 +36041,7 @@
               "why": "Le matin + imparfait : une habitude. EN: a habit."
             },
             {
-              "q": "« Ce matin-là, j’ai pris un taxi. » Combien de fois ? EN: How many times?",
+              "q": "Sixième phrase : combien de fois ? EN: How many times?",
               "opts": [
                 "Souvent.",
                 "Une fois."
@@ -37396,7 +37394,7 @@
               "why": "À la gare, j'ai su : le moment. EN: at the station."
             },
             {
-              "q": "« J’ai voulu louer une voiture. » Elle a essayé ? EN: Did she try?",
+              "q": "Quatrième phrase : elle a essayé ? EN: Did she try?",
               "opts": [
                 "Non, elle y a seulement pensé.",
                 "Oui."
@@ -37405,7 +37403,7 @@
               "why": "j'ai voulu : l'essai a eu lieu. EN: the attempt happened."
             },
             {
-              "q": "« Elle pouvait présenter à ma place. » Nadia a-t-elle présenté ? EN: Did Nadia present?",
+              "q": "Sixième phrase : Nadia a-t-elle présenté ? EN: Did Nadia present?",
               "opts": [
                 "Oui.",
                 "Non.",
@@ -37415,7 +37413,7 @@
               "why": "pouvait : la capacité, sans résultat. EN: ability, no outcome."
             },
             {
-              "q": "Dernière phrase : « Il a dû aimer la présentation. » C’est : EN: It is:",
+              "q": "Dernière phrase : avec a dû, c’est : EN: With a dû, it is:",
               "opts": [
                 "une supposition.",
                 "une obligation."
@@ -136401,7 +136399,7 @@
           "correct": 2,
           "why": "Vouloir que ouvre la porte : soyons. EN: vouloir que opens the door, so soyons.",
           "items": [
-            "fr.b1.opinions-et-avis.1220",
+            "fr.b1.opinions-et-avis.1150",
             "fr.b1.opinions-et-avis.1221",
             "fr.b1.opinions-et-avis.1223",
             "fr.b1.opinions-et-avis.1225",
@@ -136431,7 +136429,7 @@
           "correct": 1,
           "why": "Vous arrivez au présent, que vous arriviez au subjonctif. EN: vous arrivez in the present, que vous arriviez in the subjunctive.",
           "items": [
-            "fr.b1.opinions-et-avis.1240",
+            "fr.b1.opinions-et-avis.1147",
             "fr.b1.opinions-et-avis.1242",
             "fr.b1.opinions-et-avis.1244",
             "fr.b1.opinions-et-avis.1245",
@@ -136457,11 +136455,11 @@
             "autre chose"
           ],
           "items": [
-            "fr.b1.opinions-et-avis.1258",
+            "fr.b1.opinions-et-avis.1151",
             "fr.b1.opinions-et-avis.1262",
             "fr.b1.opinions-et-avis.1264",
-            "fr.b1.opinions-et-avis.1220",
-            "fr.b1.opinions-et-avis.1240",
+            "fr.b1.opinions-et-avis.1150",
+            "fr.b1.opinions-et-avis.1147",
             "fr.b1.opinions-et-avis.1278"
           ],
           "audio": {
@@ -136545,7 +136543,7 @@
             "fr.b1.opinions-et-avis.1316",
             "fr.b1.opinions-et-avis.1317",
             "fr.b1.opinions-et-avis.1320",
-            "fr.b1.opinions-et-avis.1318",
+            "fr.b1.opinions-et-avis.1148",
             "fr.b1.opinions-et-avis.1319",
             "fr.b1.opinions-et-avis.1330"
           ],
@@ -136568,7 +136566,7 @@
             "deja fait"
           ],
           "items": [
-            "fr.b1.opinions-et-avis.1334",
+            "fr.b1.opinions-et-avis.1149",
             "fr.b1.opinions-et-avis.1335",
             "fr.b1.opinions-et-avis.1336",
             "fr.b1.opinions-et-avis.1356",
@@ -136668,8 +136666,8 @@
             "ça laisse fermé"
           ],
           "items": [
-            "fr.b1.opinions-et-avis.1220",
-            "fr.b1.opinions-et-avis.1240",
+            "fr.b1.opinions-et-avis.1150",
+            "fr.b1.opinions-et-avis.1147",
             "fr.b1.opinions-et-avis.1278",
             "fr.b1.opinions-et-avis.1352",
             "fr.b1.opinions-et-avis.1354",
@@ -136711,7 +136709,6 @@
           "fr.b1.routines.089"
         ],
         [
-          "fr.b1.opinions-et-avis.1220",
           "fr.b1.opinions-et-avis.1221",
           "fr.b1.opinions-et-avis.1222",
           "fr.b1.opinions-et-avis.1223",
@@ -136730,10 +136727,10 @@
           "fr.b1.opinions-et-avis.1236",
           "fr.b1.opinions-et-avis.1237",
           "fr.b1.opinions-et-avis.1238",
-          "fr.b1.opinions-et-avis.1239"
+          "fr.b1.opinions-et-avis.1239",
+          "fr.b1.opinions-et-avis.1150"
         ],
         [
-          "fr.b1.opinions-et-avis.1240",
           "fr.b1.opinions-et-avis.1241",
           "fr.b1.opinions-et-avis.1242",
           "fr.b1.opinions-et-avis.1243",
@@ -136751,10 +136748,10 @@
           "fr.b1.opinions-et-avis.1255",
           "fr.b1.opinions-et-avis.1256",
           "fr.b1.opinions-et-avis.1257",
-          "fr.b1.routines.079"
+          "fr.b1.routines.079",
+          "fr.b1.opinions-et-avis.1147"
         ],
         [
-          "fr.b1.opinions-et-avis.1258",
           "fr.b1.opinions-et-avis.1259",
           "fr.b1.opinions-et-avis.1260",
           "fr.b1.opinions-et-avis.1261",
@@ -136773,7 +136770,8 @@
           "fr.b1.opinions-et-avis.1274",
           "fr.b1.opinions-et-avis.1275",
           "fr.b1.opinions-et-avis.1276",
-          "fr.b1.opinions-et-avis.1277"
+          "fr.b1.opinions-et-avis.1277",
+          "fr.b1.opinions-et-avis.1151"
         ],
         [
           "fr.b1.opinions-et-avis.1278",
@@ -136824,7 +136822,6 @@
         [
           "fr.b1.opinions-et-avis.1316",
           "fr.b1.opinions-et-avis.1317",
-          "fr.b1.opinions-et-avis.1318",
           "fr.b1.opinions-et-avis.1319",
           "fr.b1.opinions-et-avis.1320",
           "fr.b1.opinions-et-avis.1321",
@@ -136841,10 +136838,10 @@
           "fr.b1.opinions-et-avis.1332",
           "fr.b1.opinions-et-avis.1333",
           "fr.b1.communaute.003",
-          "fr.b1.tourisme.005"
+          "fr.b1.tourisme.005",
+          "fr.b1.opinions-et-avis.1148"
         ],
         [
-          "fr.b1.opinions-et-avis.1334",
           "fr.b1.opinions-et-avis.1335",
           "fr.b1.opinions-et-avis.1336",
           "fr.b1.opinions-et-avis.1337",
@@ -136862,7 +136859,8 @@
           "fr.b1.opinions-et-avis.1349",
           "fr.b1.opinions-et-avis.1350",
           "fr.b1.opinions-et-avis.1351",
-          "fr.b1.maison.004"
+          "fr.b1.maison.004",
+          "fr.b1.opinions-et-avis.1149"
         ],
         [
           "fr.b1.opinions-et-avis.1352",
@@ -137508,7 +137506,7 @@
           "body": "Vouloir, souhaiter, désirer, exiger, demander, préférer : tu dis ce que tu veux voir arriver, et ce n'est pas encore arrivé. Toutes ces expressions ouvrent la porte. EN: with vouloir, souhaiter, exiger and the rest, you say what you want to happen, and it has not happened yet.",
           "examples": [
             {
-              "itemId": "fr.b1.opinions-et-avis.1220",
+              "itemId": "fr.b1.opinions-et-avis.1150",
               "note": "la clé la plus courante"
             },
             {
@@ -137527,7 +137525,7 @@
           "body": "Il faut que, il est nécessaire que, il est important que, il vaut mieux que, il est temps que. Toutes commencent par « il », et ce « il » ne désigne personne : c'est la nécessité elle-même. EN: the necessity family all starts with an il that stands for nobody.",
           "examples": [
             {
-              "itemId": "fr.b1.opinions-et-avis.1240",
+              "itemId": "fr.b1.opinions-et-avis.1147",
               "note": "la clé la plus fréquente du français"
             },
             {
@@ -137546,7 +137544,7 @@
           "body": "Content, triste, surpris, désolé, fier, ravi, avoir peur, regretter, c'est dommage. Le fait est sûr : tu le sais déjà. Ce n'est pas le doute qui ouvre la porte ici, c'est le sentiment. EN: with a feeling the fact is certain, and the subjunctive comes all the same.",
           "examples": [
             {
-              "itemId": "fr.b1.opinions-et-avis.1258",
+              "itemId": "fr.b1.opinions-et-avis.1151",
               "note": "la clé la plus douce"
             },
             {
@@ -137603,7 +137601,7 @@
           "body": "Pour que, afin que, bien que, quoique, avant que, jusqu'à ce que, à condition que, sans que, pourvu que, à moins que. Ce sont des mots de liaison, et ils portent leur « que » avec eux. Tous ouvrent la porte. EN: these joining words carry their own que, and every one of them opens the door.",
           "examples": [
             {
-              "itemId": "fr.b1.opinions-et-avis.1318",
+              "itemId": "fr.b1.opinions-et-avis.1148",
               "note": "la concession"
             },
             {
@@ -141802,7 +141800,7 @@
                 },
                 {
                   "fr": "bien que",
-                  "itemId": "fr.b1.opinions-et-avis.1318",
+                  "itemId": "fr.b1.opinions-et-avis.1148",
                   "en": "although",
                   "note": "bien que"
                 },
@@ -142567,7 +142565,7 @@
               "items": [
                 {
                   "fr": "avant que",
-                  "itemId": "fr.b1.opinions-et-avis.1334",
+                  "itemId": "fr.b1.opinions-et-avis.1149",
                   "en": "before",
                   "note": "le lien avant que"
                 },
@@ -144521,7 +144519,6 @@
             "fr.b1.opinions-et-avis.1216",
             "fr.b1.opinions-et-avis.1217",
             "fr.b1.opinions-et-avis.1218",
-            "fr.b1.opinions-et-avis.1220",
             "fr.b1.opinions-et-avis.1221",
             "fr.b1.opinions-et-avis.1222",
             "fr.b1.opinions-et-avis.1223",
@@ -144538,7 +144535,6 @@
             "fr.b1.opinions-et-avis.1234",
             "fr.b1.opinions-et-avis.1235",
             "fr.b1.opinions-et-avis.1239",
-            "fr.b1.opinions-et-avis.1240",
             "fr.b1.opinions-et-avis.1241",
             "fr.b1.opinions-et-avis.1242",
             "fr.b1.opinions-et-avis.1243",
@@ -144553,7 +144549,6 @@
             "fr.b1.opinions-et-avis.1252",
             "fr.b1.opinions-et-avis.1253",
             "fr.b1.opinions-et-avis.1257",
-            "fr.b1.opinions-et-avis.1258",
             "fr.b1.opinions-et-avis.1259",
             "fr.b1.opinions-et-avis.1260",
             "fr.b1.opinions-et-avis.1261",
@@ -144604,7 +144599,6 @@
             "fr.b1.opinions-et-avis.1315",
             "fr.b1.opinions-et-avis.1316",
             "fr.b1.opinions-et-avis.1317",
-            "fr.b1.opinions-et-avis.1318",
             "fr.b1.opinions-et-avis.1319",
             "fr.b1.opinions-et-avis.1320",
             "fr.b1.opinions-et-avis.1321",
@@ -144617,7 +144611,6 @@
             "fr.b1.opinions-et-avis.1328",
             "fr.b1.opinions-et-avis.1329",
             "fr.b1.opinions-et-avis.1333",
-            "fr.b1.opinions-et-avis.1334",
             "fr.b1.opinions-et-avis.1335",
             "fr.b1.opinions-et-avis.1336",
             "fr.b1.opinions-et-avis.1337",
@@ -146036,7 +146029,6 @@
         "fr.b1.opinions-et-avis.1217",
         "fr.b1.opinions-et-avis.1218",
         "fr.b1.opinions-et-avis.1219",
-        "fr.b1.opinions-et-avis.1220",
         "fr.b1.opinions-et-avis.1221",
         "fr.b1.opinions-et-avis.1222",
         "fr.b1.opinions-et-avis.1223",
@@ -146056,7 +146048,6 @@
         "fr.b1.opinions-et-avis.1237",
         "fr.b1.opinions-et-avis.1238",
         "fr.b1.opinions-et-avis.1239",
-        "fr.b1.opinions-et-avis.1240",
         "fr.b1.opinions-et-avis.1241",
         "fr.b1.opinions-et-avis.1242",
         "fr.b1.opinions-et-avis.1243",
@@ -146074,7 +146065,6 @@
         "fr.b1.opinions-et-avis.1255",
         "fr.b1.opinions-et-avis.1256",
         "fr.b1.opinions-et-avis.1257",
-        "fr.b1.opinions-et-avis.1258",
         "fr.b1.opinions-et-avis.1259",
         "fr.b1.opinions-et-avis.1260",
         "fr.b1.opinions-et-avis.1261",
@@ -146134,7 +146124,6 @@
         "fr.b1.opinions-et-avis.1315",
         "fr.b1.opinions-et-avis.1316",
         "fr.b1.opinions-et-avis.1317",
-        "fr.b1.opinions-et-avis.1318",
         "fr.b1.opinions-et-avis.1319",
         "fr.b1.opinions-et-avis.1320",
         "fr.b1.opinions-et-avis.1321",
@@ -146150,7 +146139,6 @@
         "fr.b1.opinions-et-avis.1331",
         "fr.b1.opinions-et-avis.1332",
         "fr.b1.opinions-et-avis.1333",
-        "fr.b1.opinions-et-avis.1334",
         "fr.b1.opinions-et-avis.1335",
         "fr.b1.opinions-et-avis.1336",
         "fr.b1.opinions-et-avis.1337",
@@ -146225,12 +146213,15 @@
         "fr.b1.metiers.052",
         "fr.b1.metiers.060",
         "fr.b1.famille.076",
+        "fr.b1.opinions-et-avis.1150",
         "fr.b1.routines.079",
         "fr.b1.sports-et-loisirs.057",
         "fr.b1.dictee.040",
         "fr.b1.heure-et-date.070",
         "fr.b1.cuisine.065",
         "fr.b1.cuisine.046",
+        "fr.b1.opinions-et-avis.1147",
+        "fr.b1.opinions-et-avis.1151",
         "fr.b1.cafe.069",
         "fr.b1.maison.060",
         "fr.b1.famille.069",
@@ -146250,11 +146241,13 @@
         "fr.b1.tourisme.005",
         "fr.b1.argent-quotidien.001",
         "fr.b1.dictee.055",
+        "fr.b1.opinions-et-avis.1148",
         "fr.b1.heure-et-date.083",
         "fr.b1.appareils.001",
         "fr.b1.maison.004",
         "fr.b1.dictee.042",
         "fr.b1.courses.002",
+        "fr.b1.opinions-et-avis.1149",
         "fr.sons.voyelles.438",
         "fr.b1.connecteurs-logiques.002",
         "fr.b1.connecteurs-logiques.005",
@@ -147028,10 +147021,10 @@
           "format": "flashcard",
           "coach": "Pour chaque carte, dis si l’expression peut se raccourcir, et par quoi sinon. EN: for each card, say whether the expression can be shortened, and what replaces it if not.",
           "items": [
-            "fr.b1.opinions-et-avis.1538",
-            "fr.b1.opinions-et-avis.1539",
-            "fr.b1.opinions-et-avis.1540",
-            "fr.b1.opinions-et-avis.1541",
+            "fr.b1.opinions-et-avis.1148",
+            "fr.b1.opinions-et-avis.1319",
+            "fr.b1.opinions-et-avis.1335",
+            "fr.b1.opinions-et-avis.1338",
             "fr.b1.opinions-et-avis.1542",
             "fr.b1.opinions-et-avis.1548"
           ],
@@ -147058,8 +147051,8 @@
             "fr.b1.opinions-et-avis.1555",
             "fr.b1.opinions-et-avis.1557",
             "fr.b1.opinions-et-avis.1554",
-            "fr.b1.opinions-et-avis.1538",
-            "fr.b1.opinions-et-avis.1540"
+            "fr.b1.opinions-et-avis.1148",
+            "fr.b1.opinions-et-avis.1335"
           ],
           "audio": {
             "lang": "fr-FR",
@@ -147290,10 +147283,6 @@
           "fr.b1.opinions-et-avis.1535",
           "fr.b1.opinions-et-avis.1536",
           "fr.b1.opinions-et-avis.1537",
-          "fr.b1.opinions-et-avis.1538",
-          "fr.b1.opinions-et-avis.1539",
-          "fr.b1.opinions-et-avis.1540",
-          "fr.b1.opinions-et-avis.1541",
           "fr.b1.opinions-et-avis.1542",
           "fr.b1.opinions-et-avis.1543",
           "fr.b1.opinions-et-avis.1544",
@@ -147302,7 +147291,11 @@
           "fr.b1.opinions-et-avis.1547",
           "fr.b1.opinions-et-avis.1548",
           "fr.b1.opinions-et-avis.1549",
-          "fr.b1.routines.089"
+          "fr.b1.routines.089",
+          "fr.b1.opinions-et-avis.1148",
+          "fr.b1.opinions-et-avis.1319",
+          "fr.b1.opinions-et-avis.1335",
+          "fr.b1.opinions-et-avis.1338"
         ],
         [
           "fr.b1.opinions-et-avis.1550",
@@ -147350,7 +147343,6 @@
           "fr.b1.opinions-et-avis.1584",
           "fr.b1.opinions-et-avis.1585",
           "fr.b1.opinions-et-avis.1586",
-          "fr.b1.opinions-et-avis.1587",
           "fr.b1.opinions-et-avis.1588",
           "fr.b1.opinions-et-avis.1589",
           "fr.b1.opinions-et-avis.1590",
@@ -148011,7 +148003,7 @@
           "body": "Bien que, quoique, jusqu'à ce que et pourvu que n'ont pas de forme courte. « que » reste, même si la personne ne change pas : bien que je sois fatigué, je continue. Compter ne sert à rien ici. EN: These four have no short form, so que stays even when the person does not change.",
           "examples": [
             {
-              "itemId": "fr.b1.opinions-et-avis.1538",
+              "itemId": "fr.b1.opinions-et-avis.1148",
               "note": "bien que, le bloc entier"
             },
             {
@@ -152589,13 +152581,13 @@
                 },
                 {
                   "fr": "bien que",
-                  "itemId": "fr.b1.opinions-et-avis.1538",
+                  "itemId": "fr.b1.opinions-et-avis.1148",
                   "en": "although",
                   "note": "bien que, sans version courte"
                 },
                 {
                   "fr": "pourvu que",
-                  "itemId": "fr.b1.opinions-et-avis.1541",
+                  "itemId": "fr.b1.opinions-et-avis.1338",
                   "en": "as long as",
                   "note": "pourvu que, sans version courte"
                 }
@@ -154530,10 +154522,6 @@
             "fr.b1.opinions-et-avis.1535",
             "fr.b1.opinions-et-avis.1536",
             "fr.b1.opinions-et-avis.1537",
-            "fr.b1.opinions-et-avis.1538",
-            "fr.b1.opinions-et-avis.1539",
-            "fr.b1.opinions-et-avis.1540",
-            "fr.b1.opinions-et-avis.1541",
             "fr.b1.opinions-et-avis.1544",
             "fr.b1.opinions-et-avis.1545",
             "fr.b1.opinions-et-avis.1546",
@@ -154574,7 +154562,6 @@
             "fr.b1.opinions-et-avis.1584",
             "fr.b1.opinions-et-avis.1585",
             "fr.b1.opinions-et-avis.1586",
-            "fr.b1.opinions-et-avis.1587",
             "fr.b1.opinions-et-avis.1588",
             "fr.b1.opinions-et-avis.1591"
           ],
@@ -156057,10 +156044,6 @@
         "fr.b1.opinions-et-avis.1535",
         "fr.b1.opinions-et-avis.1536",
         "fr.b1.opinions-et-avis.1537",
-        "fr.b1.opinions-et-avis.1538",
-        "fr.b1.opinions-et-avis.1539",
-        "fr.b1.opinions-et-avis.1540",
-        "fr.b1.opinions-et-avis.1541",
         "fr.b1.opinions-et-avis.1542",
         "fr.b1.opinions-et-avis.1543",
         "fr.b1.opinions-et-avis.1544",
@@ -156106,7 +156089,6 @@
         "fr.b1.opinions-et-avis.1584",
         "fr.b1.opinions-et-avis.1585",
         "fr.b1.opinions-et-avis.1586",
-        "fr.b1.opinions-et-avis.1587",
         "fr.b1.opinions-et-avis.1588",
         "fr.b1.opinions-et-avis.1589",
         "fr.b1.opinions-et-avis.1590",
@@ -156146,6 +156128,10 @@
         "fr.b1.dictee.042",
         "fr.b2.recherche.004",
         "fr.b1.dictee.055",
+        "fr.b1.opinions-et-avis.1148",
+        "fr.b1.opinions-et-avis.1319",
+        "fr.b1.opinions-et-avis.1335",
+        "fr.b1.opinions-et-avis.1338",
         "fr.b1.cafe.004",
         "fr.b1.collegues.004",
         "fr.b1.journalisme.005",
@@ -243397,7 +243383,7 @@
         },
         {
           "id": "act8",
-          "title": "Le faux pas",
+          "title": "Rattraper le tu",
           "opener": {
             "line": "Le tu t’a échappé devant une cliente : ici tu répares en trois mots, et tu passes à la suite. EN: The tu slipped out in front of a client: here you repair it in three words and move on.",
             "imageRef": "lessons/tu-ou-vous/act08.jpg"
@@ -251125,7 +251111,7 @@
             },
             {
               "id": "r8-faux-pas",
-              "label": "Le faux pas",
+              "label": "Rattraper le tu",
               "targets": [
                 "faux-pas-rate"
               ],
@@ -262580,7 +262566,7 @@
         },
         {
           "id": "act12",
-          "title": "Raconte ta journée",
+          "title": "Ta journée en images",
           "opener": {
             "line": "Chloé a raconté son lapin, Awa son entretien : à toi de raconter ta journée avec les images de la leçon. EN: Chloé told her rabbit story and Awa her interview: your turn to tell your day with the lesson's pictures.",
             "imageRef": "lessons/expressions-animaux/act12.jpg"
@@ -263107,6 +263093,7 @@
           "fr.b1.expressions-imagees.1255",
           "fr.b1.expressions-imagees.1256",
           "fr.b1.expressions-imagees.1257",
+          "fr.b1.expressions-imagees.1375",
           "fr.a1.animaux.026"
         ],
         [
@@ -263480,6 +263467,12 @@
                   "se battre comme un lion",
                   "courant",
                   "to fight like a lion",
+                  "partout"
+                ],
+                [
+                  "avoir la chair de poule",
+                  "courant",
+                  "to have goosebumps",
                   "partout"
                 ],
                 [
@@ -265967,7 +265960,7 @@
           "sheetId": "sheet-quotidien",
           "title": "La peur et le courage",
           "frSub": "Une poule, un loup, un taureau, un lion",
-          "hint": "Six cartes. Les deux dernières disent la même chose, dans deux pays.",
+          "hint": "Sept cartes. Les deux dernières disent la même chose, dans deux pays.",
           "audio": {
             "mode": "tts",
             "lang": "fr-FR",
@@ -266010,6 +266003,13 @@
               "fr": "se battre comme un lion",
               "sub": "[suh BATR ko-muhⁿ LYOHⁿ]",
               "body": "Image : un lion qui défend les siens. Sens : se battre avec un grand courage. Pour une femme, on dit aussi : comme une lionne. EN: to fight like a lion."
+            },
+            {
+              "head": "Des frissons",
+              "label": "courant",
+              "fr": "avoir la chair de poule",
+              "sub": "[a-vwar la SHEHR duh POOL]",
+              "body": "Image : la peau d'une poule plumée, couverte de petits points. Sens : avoir des frissons, de froid ou d'émotion. L'anglais met une oie. EN: to have goosebumps."
             },
             {
               "head": "Nerveux, au Québec",
@@ -266262,6 +266262,26 @@
                 ],
                 "correct": 1,
                 "why": "Il a peur : une poule mouillée. EN: a scaredy-cat."
+              }
+            },
+            {
+              "label": "Les frissons",
+              "items": [
+                {
+                  "fr": "avoir la chair de poule",
+                  "itemId": "fr.b1.expressions-imagees.1375",
+                  "en": "to have goosebumps",
+                  "note": "de froid, ou d'émotion"
+                }
+              ],
+              "check": {
+                "q": "Au concert, la chanson est si belle que tes bras frissonnent. Tu dis :",
+                "opts": [
+                  "J'ai la chair de poule.",
+                  "Je suis une poule mouillée."
+                ],
+                "correct": 0,
+                "why": "La chair de poule, c'est la peau qui frissonne, de froid ou d'émotion. La poule mouillée, c'est la peur. EN: goosebumps, not cowardice."
               }
             }
           ],
@@ -270947,6 +270967,7 @@
             "fr.b1.expressions-imagees.1255",
             "fr.b1.expressions-imagees.1256",
             "fr.b1.expressions-imagees.1257",
+            "fr.b1.expressions-imagees.1375",
             "fr.b1.expressions-imagees.1258",
             "fr.b1.expressions-imagees.1259",
             "fr.b1.expressions-imagees.1260",
@@ -271192,7 +271213,7 @@
           "stats": [
             {
               "k": "Les images",
-              "v": "57 expressions"
+              "v": "58 expressions"
             },
             {
               "k": "Les familles",
@@ -272498,6 +272519,7 @@
         "fr.b1.expressions-imagees.1255",
         "fr.b1.expressions-imagees.1256",
         "fr.b1.expressions-imagees.1257",
+        "fr.b1.expressions-imagees.1375",
         "fr.b1.expressions-imagees.1258",
         "fr.b1.expressions-imagees.1259",
         "fr.b1.expressions-imagees.1260",
@@ -272678,7 +272700,7 @@
           },
           {
             "id": "rec-b1-28-peur-cartes",
-            "desc": "The six fear and courage cards, TWO VOICES: a Québec voice for cards one to five, a France voice for card six only, so the learner hears that the papillons pair is regional."
+            "desc": "The seven fear and courage cards, TWO VOICES: a Québec voice for cards one to six, a France voice for card seven only, so the learner hears that the papillons pair is regional."
           },
           {
             "id": "rec-b1-28-cantine",
@@ -272798,7 +272820,7 @@
           "id": "act1",
           "title": "La palette",
           "opener": {
-            "line": "Tes mots sont français et ta couleur est anglaise : ici tu apprends que chaque langue a ses couleurs. EN: Your words are French and your colour is English: here you learn that each language has its own colours.",
+            "line": "Broyer du noir, avoir une peur bleue, passer une nuit blanche : ici tu apprends que le français peint avec ses propres couleurs. EN: Grinding black, a blue fear, a white night: here you learn that French paints with its own colours.",
             "imageRef": "lessons/expressions-couleurs/act01.jpg"
           },
           "sections": [
@@ -293131,7 +293153,7 @@
         },
         {
           "id": "act2",
-          "title": "Parce que et car",
+          "title": "Parce que",
           "opener": {
             "line": "Pourquoi, pourquoi, pourquoi : ici tu réponds avec une vraie phrase, pas avec un mot. EN: Why, why, why: here you answer with a real clause, not a single word.",
             "imageRef": "lessons/subordination/act02.jpg"
@@ -293146,7 +293168,7 @@
             "a2-dictee",
             "a2-check"
           ],
-          "milestone": "Tu construis parce que avec un sujet et un verbe, et tu sais pourquoi car ne répond pas à pourquoi. EN: You build parce que with a subject and a verb, and you know why car does not answer pourquoi.",
+          "milestone": "Tu construis parce que avec un sujet et un verbe, et tu réponds à pourquoi avec une vraie phrase, à l'oral comme à l'écrit. EN: You build parce que with a subject and a verb, and answer pourquoi with a real clause, in speech and in writing.",
           "estScreens": 32,
           "restPoints": [
             "a2-exemples"
@@ -293383,7 +293405,7 @@
         },
         {
           "id": "car-pourquoi",
-          "description": "Answers pourquoi with car, opens a sentence with car, or skips the elision in parce qu’il.",
+          "description": "Answers pourquoi with parce que and a bare noun, cuts the written cause off from its main clause, or skips the elision in parce qu’il.",
           "detectOn": [
             "a2-construire",
             "a2-erreurs",
@@ -293530,23 +293552,23 @@
         },
         {
           "id": "d-parce",
-          "title": "Parce que ou car",
+          "title": "Parce que, puis une phrase",
           "format": "mcq",
-          "coach": "Seul parce que répond à pourquoi. Car ne commence jamais. EN: only parce que answers pourquoi.",
-          "q": "« Pourquoi tu pars ? » « ... mon train part à huit heures. »",
+          "coach": "Parce que répond à pourquoi, et il attend un sujet et un verbe. EN: parce que answers pourquoi and needs a subject and a verb.",
+          "q": "« Pourquoi tu pars ? » « Parce que ... »",
           "opts": [
-            "Parce que",
-            "Car"
+            "mon train part à huit heures",
+            "mon train"
           ],
           "correct": 0,
-          "why": "Parce que. EN: parce que.",
+          "why": "Un sujet et un verbe : mon train part. EN: a clause, not a noun.",
           "items": [
             "fr.b1.connecteurs-logiques.1215",
             "fr.b1.connecteurs-logiques.1216",
             "fr.b1.connecteurs-logiques.1217",
             "fr.b1.connecteurs-logiques.1222",
-            "fr.b1.connecteurs-logiques.1221",
-            "fr.b1.connecteurs-logiques.1227"
+            "fr.b1.connecteurs-logiques.1218",
+            "fr.b1.connecteurs-logiques.1224"
           ],
           "audio": {
             "lang": "fr-FR",
@@ -293824,13 +293846,11 @@
           "fr.b1.connecteurs-logiques.1218",
           "fr.b1.connecteurs-logiques.1219",
           "fr.b1.connecteurs-logiques.1220",
-          "fr.b1.connecteurs-logiques.1221",
           "fr.b1.connecteurs-logiques.1222",
           "fr.b1.connecteurs-logiques.1223",
           "fr.b1.connecteurs-logiques.1224",
           "fr.b1.connecteurs-logiques.1225",
           "fr.b1.connecteurs-logiques.1226",
-          "fr.b1.connecteurs-logiques.1227",
           "fr.b1.connecteurs-logiques.1228",
           "fr.b1.connecteurs-logiques.1229",
           "fr.b1.connecteurs-logiques.1230",
@@ -293838,6 +293858,8 @@
           "fr.a2.routines.061"
         ],
         [
+          "fr.b1.connecteurs-logiques.1221",
+          "fr.b1.connecteurs-logiques.1227",
           "fr.b1.connecteurs-logiques.1231",
           "fr.b1.connecteurs-logiques.1232",
           "fr.b1.connecteurs-logiques.1233",
@@ -295375,7 +295397,7 @@
           "sheetId": "sheet-cause",
           "title": "Parce que, de près",
           "frSub": "La cause qui répond à pourquoi",
-          "hint": "Quatre cartes. La dernière parle de car.",
+          "hint": "Quatre cartes. Car, l'autre mot de la cause, est expliqué dans la leçon 30 du B1.",
           "audio": {
             "mode": "tts",
             "lang": "fr-FR",
@@ -295413,11 +295435,11 @@
               "body": "Devant il, elle, on, un : parce qu'. C'est l'élision de lesson 8 in Sounds, la même que pour que. EN: before a vowel, parce que elides."
             },
             {
-              "head": "Car, à l’écrit",
-              "label": "car",
-              "fr": "Le vol est annulé, car le pilote est malade.",
-              "sub": "[luh vol eh-ta-nü-LAY | kar luh pee-lot eh ma-LAD]",
-              "body": "Car donne aussi une cause, mais il ne répond pas à pourquoi et ne commence jamais la phrase. Il est expliqué dans la leçon 30 du B1. EN: car never answers pourquoi and never opens a sentence."
+              "head": "Une cause au passé",
+              "label": "parce que",
+              "fr": "Elle a pleuré parce que le film était triste.",
+              "sub": "[eh-la pluh-RAY | pars kuh luh feelm ay-teh TREEST]",
+              "body": "Parce que ne change jamais. Le verbe après lui prend le temps de l'histoire : était, avait, voulait. EN: parce que never changes; the verb after it takes the story's tense."
             }
           ]
         },
@@ -295510,11 +295532,11 @@
               "check": {
                 "q": "« Pourquoi tu pars ? » Quelle réponse est naturelle à l’oral ?",
                 "opts": [
-                  "Car mon train part à huit heures.",
+                  "Parce que mon train.",
                   "Parce que mon train part à huit heures."
                 ],
                 "correct": 1,
-                "why": "Parce que répond à pourquoi ; car, jamais. EN: only parce que answers pourquoi."
+                "why": "Même courte, la réponse garde un sujet et un verbe : mon train part. EN: even a short answer keeps a subject and a verb."
               }
             }
           ],
@@ -295559,9 +295581,9 @@
               "note": "parce qu'il avait : l'élision devant il."
             },
             {
-              "fr": "Le vol a été annulé car les conditions météo étaient trop mauvaises.",
-              "en": "The flight was cancelled because the weather conditions were too bad.",
-              "note": "car : même sens, mais à l’écrit, et jamais en réponse."
+              "fr": "Tu dois partir maintenant parce que le dernier bus passe à minuit.",
+              "en": "You have to leave now because the last bus comes at midnight.",
+              "note": "un conseil, puis sa raison."
             },
             {
               "fr": "Il n'a pas pu venir parce que sa voiture est tombée en panne.",
@@ -295587,7 +295609,7 @@
           "id": "a2-choisir",
           "layer": "core",
           "size": "lg",
-          "title": "Parce que ou car",
+          "title": "Pourquoi, parce que",
           "groups": [
             {
               "label": "La réponse à pourquoi",
@@ -295618,45 +295640,45 @@
                 }
               ],
               "check": {
-                "q": "Lequel peut répondre seul à « Pourquoi ? »",
+                "q": "« Pourquoi tu m’appelles ? » Tu réponds :",
                 "opts": [
-                  "car",
-                  "parce que"
+                  "Pourquoi j'ai une question.",
+                  "Je t'appelle parce que j'ai une question."
                 ],
                 "correct": 1,
-                "why": "Parce que, et lui seul. EN: only parce que."
+                "why": "Pourquoi pose la question, parce que donne la réponse. EN: pourquoi asks, parce que answers."
               }
             },
             {
-              "label": "Car, dans un texte",
+              "label": "La cause au passé",
               "items": [
                 {
-                  "fr": "Le vol est annulé, car le pilote est malade.",
-                  "itemId": "fr.b1.connecteurs-logiques.1221",
-                  "en": "The flight is cancelled, for the pilot is ill.",
-                  "note": "un avis écrit"
+                  "fr": "Elle a pleuré parce que le film était triste.",
+                  "itemId": "fr.b1.connecteurs-logiques.1225",
+                  "en": "She cried because the film was sad.",
+                  "note": "le film"
                 },
                 {
-                  "fr": "Je ne peux pas sortir, car je dois travailler.",
-                  "itemId": "fr.b1.connecteurs-logiques.1227",
-                  "en": "I cannot go out, for I have to work.",
-                  "note": "une excuse écrite"
+                  "fr": "Il a changé de travail parce qu'il voulait voyager.",
+                  "itemId": "fr.b1.connecteurs-logiques.1219",
+                  "en": "He changed jobs because he wanted to travel.",
+                  "note": "le voyage"
                 },
                 {
-                  "fr": "Le vol a été annulé car les conditions météo étaient trop mauvaises.",
-                  "itemId": "fr.b1.connecteurs-logiques.010",
-                  "en": "The flight was cancelled because the weather conditions were too bad.",
-                  "note": "une annonce"
+                  "fr": "Il n'a pas pu venir parce que sa voiture est tombée en panne.",
+                  "itemId": "fr.b1.connecteurs-logiques.005",
+                  "en": "He couldn't come because his car broke down.",
+                  "note": "la panne"
                 }
               ],
               "check": {
-                "q": "Où trouves-tu surtout car ?",
+                "q": "« Elle a pleuré parce que le film ... triste. »",
                 "opts": [
-                  "dans un texte écrit",
-                  "dans une réponse orale rapide"
+                  "était",
+                  "soit"
                 ],
                 "correct": 0,
-                "why": "Car est un mot d'écrit, et il vient toujours en deuxième. EN: car is written and never first."
+                "why": "La cause est un fait : l'indicatif, ici l'imparfait. EN: the cause is a fact, so the indicative."
               }
             },
             {
@@ -295706,14 +295728,14 @@
               "why": "On l'entend presque ainsi à l'oral rapide. À l'écrit, que devient qu' devant une voyelle. EN: write parce qu' before a vowel."
             },
             {
-              "wrong": "Car il pleut, je prends un taxi.",
-              "right": "Je prends un taxi parce qu'il pleut.",
-              "why": "En anglais, for peut être formel partout. Car, lui, ne commence jamais la phrase. Mets la cause après, ou commence par comme. EN: car never opens a sentence."
+              "wrong": "Elle a pleuré parce que le film soit triste.",
+              "right": "Elle a pleuré parce que le film était triste.",
+              "why": "Après le subjonctif, le réflexe est normal. Mais la cause est un fait : parce que prend l'indicatif. EN: parce que takes the indicative."
             },
             {
-              "wrong": "Pourquoi tu pars ? Car mon train part à huit heures.",
-              "right": "Pourquoi tu pars ? Parce que mon train part à huit heures.",
-              "why": "Car et parce que se traduisent pareil, alors c'est un bon réflexe. Mais car ne répond jamais à pourquoi. EN: only parce que answers pourquoi."
+              "wrong": "Je repars demain. Parce que mon train part à huit heures.",
+              "right": "Je repars demain parce que mon train part à huit heures.",
+              "why": "À l'oral, parce que répond seul à pourquoi. À l'écrit, la cause suit sa principale, dans la même phrase. EN: in writing, keep the cause in its main clause's sentence."
             }
           ],
           "audio": {
@@ -295791,16 +295813,16 @@
               }
             },
             {
-              "label": "Car",
+              "label": "Pourquoi",
               "items": [],
               "check": {
-                "q": "Car peut-il répondre à pourquoi ?",
+                "q": "« Pourquoi tu restes ? » Quelle réponse est complète ?",
                 "opts": [
-                  "oui",
-                  "non"
+                  "Parce que le rapport.",
+                  "Parce que je dois finir un rapport."
                 ],
                 "correct": 1,
-                "why": "Non : seulement parce que. EN: no, only parce que."
+                "why": "Parce que, puis un sujet et un verbe. EN: a subject and a verb."
               }
             }
           ],
@@ -301087,7 +301109,7 @@
               "pattern": "car at the head of a sentence, or car used to answer a question.",
               "criterion": "liens",
               "feedback": "Car ne commence jamais la phrase. En tête, utilise comme : Comme il pleuvait, ...",
-              "ref": "a2-erreurs"
+              "ref": "a3-tableau"
             },
             {
               "pattern": "comme of cause placed after the main clause (nous sommes restés comme il pleuvait).",
@@ -301193,16 +301215,16 @@
             "fr.b1.connecteurs-logiques.1217",
             "fr.b1.connecteurs-logiques.1218",
             "fr.b1.connecteurs-logiques.1219",
-            "fr.b1.connecteurs-logiques.1221",
             "fr.b1.connecteurs-logiques.1222",
             "fr.b1.connecteurs-logiques.1223",
             "fr.b1.connecteurs-logiques.1224",
             "fr.b1.connecteurs-logiques.1225",
             "fr.b1.connecteurs-logiques.1226",
-            "fr.b1.connecteurs-logiques.1227",
             "fr.b1.connecteurs-logiques.1228",
             "fr.b1.connecteurs-logiques.1229",
             "fr.b1.connecteurs-logiques.1230",
+            "fr.b1.connecteurs-logiques.1221",
+            "fr.b1.connecteurs-logiques.1227",
             "fr.b1.connecteurs-logiques.1231",
             "fr.b1.connecteurs-logiques.1232",
             "fr.b1.connecteurs-logiques.1233",
@@ -301581,7 +301603,7 @@
             },
             {
               "id": "r2-parce",
-              "label": "Parce que et car",
+              "label": "Parce que",
               "targets": [
                 "car-pourquoi"
               ],
@@ -301591,23 +301613,23 @@
                   "q": "« Pourquoi tu pars ? » Quelle réponse est naturelle ?",
                   "opts": [
                     "Parce que mon train part à huit heures.",
-                    "Car mon train part à huit heures."
+                    "Parce que mon train."
                   ],
                   "correct": 0,
-                  "why": "Seul parce que répond à pourquoi. EN: only parce que.",
+                  "why": "Même courte, la réponse garde un sujet et un verbe. EN: a subject and a verb, even when short.",
                   "ref": "a2-construire"
                 },
                 {
                   "format": "mcq",
-                  "q": "Où trouves-tu surtout car ?",
+                  "q": "À l'écrit, où va la cause avec parce que ?",
                   "opts": [
-                    "en réponse à pourquoi",
-                    "en tête de phrase",
-                    "dans un texte écrit"
+                    "seule, dans sa propre phrase",
+                    "avant pourquoi",
+                    "après sa principale"
                   ],
                   "correct": 2,
-                  "why": "Car est écrit, et toujours en deuxième. EN: written, never first.",
-                  "ref": "a2-choisir"
+                  "why": "Après la principale, dans la même phrase. EN: after the main clause.",
+                  "ref": "a2-erreurs"
                 },
                 {
                   "format": "mcq",
@@ -301657,26 +301679,25 @@
                 {
                   "format": "errorSpot",
                   "q": "Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.",
-                  "prompt": "Car il pleut, je prends un taxi.",
-                  "answer": "Je prends un taxi parce qu'il pleut.",
+                  "prompt": "Elle a pleuré parce que le film soit triste.",
+                  "answer": "Elle a pleuré parce que le film était triste.",
                   "accept": [
-                    "Je prends un taxi parce qu'il pleut.",
-                    "Comme il pleut, je prends un taxi."
+                    "Elle a pleuré parce que le film était triste."
                   ],
-                  "why": "Car ne commence jamais la phrase. EN: car never goes first.",
+                  "why": "La cause est un fait : l'indicatif. EN: parce que takes the indicative.",
                   "ref": "a2-erreurs"
                 },
                 {
                   "format": "listenChoose",
                   "q": "Écoute. Quel mot donne la cause ?",
-                  "say": "Je ne peux pas sortir, car je dois travailler.",
+                  "say": "Je t'appelle parce que j'ai une question.",
                   "opts": [
-                    "car",
                     "parce que",
-                    "puisque"
+                    "puisque",
+                    "comme"
                   ],
                   "correct": 0,
-                  "why": "Car, à l'écrit, en deuxième. EN: car.",
+                  "why": "Parce que : la raison de l'appel. EN: parce que.",
                   "ref": "a2-parce"
                 }
               ]
@@ -302717,16 +302738,16 @@
         "fr.b1.connecteurs-logiques.1218",
         "fr.b1.connecteurs-logiques.1219",
         "fr.b1.connecteurs-logiques.1220",
-        "fr.b1.connecteurs-logiques.1221",
         "fr.b1.connecteurs-logiques.1222",
         "fr.b1.connecteurs-logiques.1223",
         "fr.b1.connecteurs-logiques.1224",
         "fr.b1.connecteurs-logiques.1225",
         "fr.b1.connecteurs-logiques.1226",
-        "fr.b1.connecteurs-logiques.1227",
         "fr.b1.connecteurs-logiques.1228",
         "fr.b1.connecteurs-logiques.1229",
         "fr.b1.connecteurs-logiques.1230",
+        "fr.b1.connecteurs-logiques.1221",
+        "fr.b1.connecteurs-logiques.1227",
         "fr.b1.connecteurs-logiques.1231",
         "fr.b1.connecteurs-logiques.1232",
         "fr.b1.connecteurs-logiques.1233",
@@ -302891,7 +302912,6 @@
         "fr.a2.objets.106",
         "fr.a1.maison.149",
         "fr.a2.routines.061",
-        "fr.b1.connecteurs-logiques.010",
         "fr.a2.sports-et-loisirs.064",
         "fr.a2.sports-et-loisirs.061",
         "fr.b1.routines.092",
@@ -302930,7 +302950,7 @@
           },
           {
             "id": "rec-b1-31-parce",
-            "desc": "The four parce que cards, one voice. On card three, « parce qu'il » runs as one group /paʁs kil/. Card four (car) is read in a slightly more formal tone, the way it is written."
+            "desc": "The four parce que cards, one voice. On card three, « parce qu'il » runs as one group /paʁs kil/. Card four is a cause in the past: read « était » plainly, with no stress on the tense."
           },
           {
             "id": "rec-b1-31-puisque-ecoute",
@@ -303851,13 +303871,13 @@
           "fr.b1.connecteurs-logiques.1477",
           "fr.b1.connecteurs-logiques.1478",
           "fr.b1.connecteurs-logiques.1479",
-          "fr.b1.connecteurs-logiques.1480",
           "fr.b1.connecteurs-logiques.1481",
           "fr.b1.connecteurs-logiques.1482",
           "fr.b1.connecteurs-logiques.1483",
           "fr.b1.connecteurs-logiques.1484",
           "fr.b1.connecteurs-logiques.1485",
-          "fr.b1.connecteurs-logiques.1486"
+          "fr.b1.connecteurs-logiques.1486",
+          "fr.b1.connecteurs-logiques.1149"
         ],
         [
           "fr.b1.connecteurs-logiques.1487",
@@ -311449,7 +311469,6 @@
             "fr.b1.connecteurs-logiques.1477",
             "fr.b1.connecteurs-logiques.1478",
             "fr.b1.connecteurs-logiques.1479",
-            "fr.b1.connecteurs-logiques.1480",
             "fr.b1.connecteurs-logiques.1481",
             "fr.b1.connecteurs-logiques.1482",
             "fr.b1.connecteurs-logiques.1483",
@@ -311549,7 +311568,8 @@
             "fr.b1.connecteurs-logiques.1583",
             "fr.b1.connecteurs-logiques.1584",
             "fr.b1.connecteurs-logiques.1585",
-            "fr.b1.connecteurs-logiques.1586"
+            "fr.b1.connecteurs-logiques.1586",
+            "fr.b1.connecteurs-logiques.1149"
           ],
           "audio": {
             "lang": "fr-FR",
@@ -312964,7 +312984,6 @@
         "fr.b1.connecteurs-logiques.1477",
         "fr.b1.connecteurs-logiques.1478",
         "fr.b1.connecteurs-logiques.1479",
-        "fr.b1.connecteurs-logiques.1480",
         "fr.b1.connecteurs-logiques.1481",
         "fr.b1.connecteurs-logiques.1482",
         "fr.b1.connecteurs-logiques.1483",
@@ -313079,6 +313098,7 @@
         "fr.b1.sports-et-loisirs.090",
         "fr.b1.communaute.003",
         "fr.b1.metiers.062",
+        "fr.b1.connecteurs-logiques.1149",
         "fr.a2.famille.012",
         "fr.a1.mots-de-liaison.025",
         "fr.a1.jours-et-mois.123",
@@ -313244,7 +313264,7 @@
           "id": "act1",
           "title": "Un mot n'arrive jamais seul",
           "opener": {
-            "line": "Tes mots sont français et ton verbe est anglais : ici tu apprends chaque mot avec ses voisins. EN: Your words are French and your verb is English: here you learn every word with its neighbours.",
+            "line": "Trier, le tri, faire le tri : ici tu apprends chaque mot avec sa famille et ses voisins. EN: To sort, sorting, doing the sorting: here you learn every word with its family and its neighbours.",
             "imageRef": "lessons/environnement/act01.jpg"
           },
           "sections": [
@@ -314465,7 +314485,7 @@
                 ],
                 [
                   "l'éolien",
-                  "au Sénégal, près de Thiès",
+                  "au Sénégal, région de Thiès",
                   "une éolienne"
                 ],
                 [
@@ -318176,9 +318196,9 @@
                   "note": "le nucléaire, en France"
                 },
                 {
-                  "fr": "Près de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
+                  "fr": "Dans la région de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
                   "itemId": "fr.b1.ecologie.1103",
-                  "en": "Near Thiès, in Senegal, wind turbines produce electricity.",
+                  "en": "In the Thiès region, in Senegal, wind turbines produce electricity.",
                   "note": "le vent, au Sénégal"
                 },
                 {
@@ -318318,10 +318338,10 @@
             {
               "cells": [
                 "l'éolien",
-                "le Sénégal, près de Thiès",
+                "le Sénégal, région de Thiès",
                 "une éolienne"
               ],
-              "say": "Près de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
+              "say": "Dans la région de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
               "detail": {
                 "title": "Le vent",
                 "body": "Le vent fait tourner les éoliennes. Il ne souffle pas toujours. EN: wind power, not constant.",
@@ -318491,9 +318511,9 @@
             },
             {
               "promptLabel": "windmill",
-              "promptSound": "Près de Thiès, au Sénégal, des moulins à vent produisent de l'électricité.",
-              "fr": "Près de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
-              "ipa": "/pʁɛ də tjɛs o se.ne.ɡal de.ze.ɔ.ljɛn pʁɔ.dɥiz də le.lɛk.tʁi.si.te/",
+              "promptSound": "Dans la région de Thiès, au Sénégal, des moulins à vent produisent de l'électricité.",
+              "fr": "Dans la région de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
+              "ipa": "/dɑ̃ la ʁe.ʒjɔ̃ də tjɛs o se.ne.ɡal de.ze.ɔ.ljɛn pʁɔ.dɥiz də le.lɛk.tʁi.si.te/",
               "tip": "Un moulin fait de la farine. Une éolienne fait de l'électricité. EN: a wind turbine."
             },
             {
@@ -318537,7 +318557,7 @@
               "correct": 1
             },
             {
-              "promptSay": "Près de Thiès, les ... tournent avec le vent.",
+              "promptSay": "Dans la région de Thiès, les ... tournent avec le vent.",
               "opts": [
                 "éoliennes",
                 "moulins"
@@ -318723,8 +318743,8 @@
             },
             {
               "from": "coach",
-              "fr": "Une voiture électrique coûte cher, mais elle ne pollue pas la rue.",
-              "en": "An electric car is expensive, but it does not pollute the street."
+              "fr": "Une voiture électrique coûte cher, mais elle ne rejette pas de gaz dans la rue.",
+              "en": "An electric car is expensive, but it does not release any exhaust into the street."
             }
           ],
           "closing": {
@@ -318881,9 +318901,9 @@
                   "note": "la zone à faibles émissions"
                 },
                 {
-                  "fr": "Une voiture électrique coûte cher, mais elle ne pollue pas la rue.",
+                  "fr": "Une voiture électrique coûte cher, mais elle ne rejette pas de gaz dans la rue.",
                   "itemId": "fr.b1.ecologie.1125",
-                  "en": "An electric car is expensive, but it does not pollute the street.",
+                  "en": "An electric car is expensive, but it does not release any exhaust into the street.",
                   "note": "la voiture électrique"
                 },
                 {
@@ -319923,7 +319943,7 @@
                   "note": "les familles qui habitent loin"
                 },
                 {
-                  "fr": "En France, en 2018, une hausse de la taxe sur l'essence a provoqué la crise des gilets jaunes.",
+                  "fr": "En France, en 2018, une hausse de la taxe sur les carburants a provoqué la crise des gilets jaunes.",
                   "itemId": "fr.b1.ecologie.1164",
                   "en": "In France, in 2018, a rise in the fuel tax set off the yellow vests crisis.",
                   "note": "les gilets jaunes, en 2018"
@@ -322320,10 +322340,10 @@
                 {
                   "format": "errorSpot",
                   "q": "Un mot ne va pas. Écris la phrase correcte. EN: One word is wrong; write the sentence correctly.",
-                  "prompt": "Près de Thiès, au Sénégal, des moulins produisent de l'électricité.",
-                  "answer": "Près de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
+                  "prompt": "Dans la région de Thiès, au Sénégal, des moulins produisent de l'électricité.",
+                  "answer": "Dans la région de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
                   "accept": [
-                    "Près de Thiès, au Sénégal, des éoliennes produisent de l'électricité."
+                    "Dans la région de Thiès, au Sénégal, des éoliennes produisent de l'électricité."
                   ],
                   "why": "Des éoliennes. EN: wind turbines.",
                   "ref": "a6-piege"
@@ -345271,25 +345291,6 @@
       "version": 1
     },
     {
-      "id": "fr.b1.recits-au-passe.1115",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "recits-au-passe",
-      "fr": "d'habitude",
-      "en": "usually",
-      "ipa": "/da.bi.tyd/",
-      "respell": "da-bee-TÜD",
-      "tags": [
-        "indice"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1
-    },
-    {
       "id": "fr.b1.recits-au-passe.1116",
       "kind": "phrase",
       "level": "b1",
@@ -345298,25 +345299,6 @@
       "en": "that day",
       "ipa": "/sə ʒuʁ la/",
       "respell": "suh zhoor-LA",
-      "tags": [
-        "indice"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1
-    },
-    {
-      "id": "fr.b1.recits-au-passe.1117",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "recits-au-passe",
-      "fr": "chaque été",
-      "en": "every summer",
-      "ipa": "/ʃak e.te/",
-      "respell": "shak ay-TAY",
       "tags": [
         "indice"
       ],
@@ -397267,30 +397249,6 @@
       "notes": "Il faut que ouvre la porte : le verbe passe au subjonctif."
     },
     {
-      "id": "fr.b1.opinions-et-avis.1220",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "je veux que",
-      "en": "I want (someone) to",
-      "ipa": "/ʒə vø kə/",
-      "respell": "zhuh VEU kuh",
-      "tags": [
-        "declencheur",
-        "volonte",
-        "cle"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-declencheurs"
-      ]
-    },
-    {
       "id": "fr.b1.opinions-et-avis.1221",
       "kind": "phrase",
       "level": "b1",
@@ -397739,30 +397697,6 @@
       ]
     },
     {
-      "id": "fr.b1.opinions-et-avis.1240",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "il faut que",
-      "en": "it is necessary that",
-      "ipa": "/il fo kə/",
-      "respell": "eel FOH kuh",
-      "tags": [
-        "declencheur",
-        "necessite",
-        "cle"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-declencheurs"
-      ]
-    },
-    {
       "id": "fr.b1.opinions-et-avis.1241",
       "kind": "phrase",
       "level": "b1",
@@ -398155,30 +398089,6 @@
       "tags": [
         "declencheur",
         "necessite"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-declencheurs"
-      ]
-    },
-    {
-      "id": "fr.b1.opinions-et-avis.1258",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "je suis content que",
-      "en": "I am glad that",
-      "ipa": "/ʒə sɥi kɔ̃.tɑ̃ kə/",
-      "respell": "zhuh swee kohⁿ-TAHⁿ kuh",
-      "tags": [
-        "declencheur",
-        "sentiment",
-        "cle"
       ],
       "drills": [
         "flashcard",
@@ -399602,30 +399512,6 @@
       ]
     },
     {
-      "id": "fr.b1.opinions-et-avis.1318",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "bien que",
-      "en": "although",
-      "ipa": "/bjɛ̃ kə/",
-      "respell": "byehⁿ kuh",
-      "tags": [
-        "declencheur",
-        "lien",
-        "concession"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-declencheurs"
-      ]
-    },
-    {
       "id": "fr.b1.opinions-et-avis.1319",
       "kind": "phrase",
       "level": "b1",
@@ -399980,30 +399866,6 @@
         "declencheur",
         "lien",
         "concession"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-declencheurs"
-      ]
-    },
-    {
-      "id": "fr.b1.opinions-et-avis.1334",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "avant que",
-      "en": "before",
-      "ipa": "/a.vɑ̃ kə/",
-      "respell": "a-vahⁿ kuh",
-      "tags": [
-        "declencheur",
-        "lien",
-        "temps"
       ],
       "drills": [
         "flashcard",
@@ -404936,102 +404798,6 @@
       ]
     },
     {
-      "id": "fr.b1.opinions-et-avis.1538",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "bien que",
-      "en": "although",
-      "ipa": "/bjɛ̃ kə/",
-      "respell": "byehⁿ KUH",
-      "tags": [
-        "subjonctif-infinitif",
-        "sanspaire",
-        "bloc"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-ou-infinitif"
-      ]
-    },
-    {
-      "id": "fr.b1.opinions-et-avis.1539",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "quoique",
-      "en": "although",
-      "ipa": "/kwak/",
-      "respell": "KWAK",
-      "tags": [
-        "subjonctif-infinitif",
-        "sanspaire",
-        "bloc"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-ou-infinitif"
-      ]
-    },
-    {
-      "id": "fr.b1.opinions-et-avis.1540",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "jusqu’à ce que",
-      "en": "until",
-      "ipa": "/ʒys.ka sə kə/",
-      "respell": "zhüs-ka suh KUH",
-      "tags": [
-        "subjonctif-infinitif",
-        "sanspaire",
-        "bloc"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-ou-infinitif"
-      ]
-    },
-    {
-      "id": "fr.b1.opinions-et-avis.1541",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "pourvu que",
-      "en": "as long as",
-      "ipa": "/puʁ.vy kə/",
-      "respell": "poor-vü KUH",
-      "tags": [
-        "subjonctif-infinitif",
-        "sanspaire",
-        "bloc"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-ou-infinitif"
-      ]
-    },
-    {
       "id": "fr.b1.opinions-et-avis.1542",
       "kind": "sentence",
       "level": "b1",
@@ -406116,30 +405882,6 @@
         "flashcard",
         "voiceflash",
         "dictation",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subjonctif-ou-infinitif"
-      ]
-    },
-    {
-      "id": "fr.b1.opinions-et-avis.1587",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "opinions-et-avis",
-      "fr": "avant de partir",
-      "en": "before setting off",
-      "ipa": "/a.vɑ̃ də paʁ.tiʁ/",
-      "respell": "a-vahⁿ duh par-TEER",
-      "tags": [
-        "subjonctif-infinitif",
-        "ecrire",
-        "bloc"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
         "review"
       ],
       "version": 1,
@@ -454072,6 +453814,31 @@
       ]
     },
     {
+      "id": "fr.b1.expressions-imagees.1375",
+      "kind": "phrase",
+      "level": "b1",
+      "theme": "expressions-imagees",
+      "fr": "avoir la chair de poule",
+      "en": "to have goosebumps",
+      "ipa": "/a.vwaʁ la ʃɛʁ də pul/",
+      "respell": "a-vwar la SHEHR duh POOL",
+      "tags": [
+        "expression",
+        "courant"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "grammarPoints": [
+        "expressions-imagees"
+      ],
+      "notes": "Image : la peau d'une poule plumée, couverte de petits points. Sens : avoir des frissons, de froid ou d'émotion. L'anglais met une oie : goosebumps. EN: to have goosebumps."
+    },
+    {
       "id": "fr.b1.expressions-imagees.1258",
       "kind": "phrase",
       "level": "b1",
@@ -466260,29 +466027,6 @@
       "notes": "Un verbe. Parce qu'il pleuvait, ou alors à cause de la pluie."
     },
     {
-      "id": "fr.b1.connecteurs-logiques.1221",
-      "kind": "sentence",
-      "level": "b1",
-      "theme": "connecteurs-logiques",
-      "fr": "Le vol est annulé, car le pilote est malade.",
-      "en": "The flight is cancelled, for the pilot is ill.",
-      "ipa": "/lə vɔl ɛ.ta.ny.le kaʁ lə pi.lɔt ɛ ma.lad/",
-      "respell": "luh vol eh-ta-nü-LAY | kar luh pee-lot eh ma-LAD",
-      "tags": [
-        "car",
-        "ecrit"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subordination"
-      ]
-    },
-    {
       "id": "fr.b1.connecteurs-logiques.1222",
       "kind": "sentence",
       "level": "b1",
@@ -466399,29 +466143,6 @@
       "notes": "parce qu' : devant il, parce que perd son e, comme que."
     },
     {
-      "id": "fr.b1.connecteurs-logiques.1227",
-      "kind": "sentence",
-      "level": "b1",
-      "theme": "connecteurs-logiques",
-      "fr": "Je ne peux pas sortir, car je dois travailler.",
-      "en": "I cannot go out, for I have to work.",
-      "ipa": "/ʒə nə pø pa sɔʁ.tiʁ kaʁ ʒə dwa tʁa.va.je/",
-      "respell": "zhuh nuh peu pa sor-TEER | kar zhuh dwa tra-va-YAY",
-      "tags": [
-        "car",
-        "ecrit"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1,
-      "grammarPoints": [
-        "subordination"
-      ]
-    },
-    {
       "id": "fr.b1.connecteurs-logiques.1228",
       "kind": "sentence",
       "level": "b1",
@@ -466478,6 +466199,52 @@
       "respell": "ee-leh par-tee TOH | pars kee-la-veh uhⁿ rahⁿ-day-VOO",
       "tags": [
         "parce-que"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "grammarPoints": [
+        "subordination"
+      ]
+    },
+    {
+      "id": "fr.b1.connecteurs-logiques.1221",
+      "kind": "sentence",
+      "level": "b1",
+      "theme": "connecteurs-logiques",
+      "fr": "Le vol est annulé, car le pilote est malade.",
+      "en": "The flight is cancelled, for the pilot is ill.",
+      "ipa": "/lə vɔl ɛ.ta.ny.le kaʁ lə pi.lɔt ɛ ma.lad/",
+      "respell": "luh vol eh-ta-nü-LAY | kar luh pee-lot eh ma-LAD",
+      "tags": [
+        "car",
+        "ecrit"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "grammarPoints": [
+        "subordination"
+      ]
+    },
+    {
+      "id": "fr.b1.connecteurs-logiques.1227",
+      "kind": "sentence",
+      "level": "b1",
+      "theme": "connecteurs-logiques",
+      "fr": "Je ne peux pas sortir, car je dois travailler.",
+      "en": "I cannot go out, for I have to work.",
+      "ipa": "/ʒə nə pø pa sɔʁ.tiʁ kaʁ ʒə dwa tʁa.va.je/",
+      "respell": "zhuh nuh peu pa sor-TEER | kar zhuh dwa tra-va-YAY",
+      "tags": [
+        "car",
+        "ecrit"
       ],
       "drills": [
         "flashcard",
@@ -472009,25 +471776,6 @@
       ]
     },
     {
-      "id": "fr.b1.connecteurs-logiques.1480",
-      "kind": "phrase",
-      "level": "b1",
-      "theme": "connecteurs-logiques",
-      "fr": "pourtant",
-      "en": "and yet, even so",
-      "ipa": "/puʁ.tɑ̃/",
-      "respell": "poor-TAHⁿ",
-      "tags": [
-        "pourtant"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "version": 1
-    },
-    {
       "id": "fr.b1.connecteurs-logiques.1481",
       "kind": "phrase",
       "level": "b1",
@@ -475665,10 +475413,10 @@
       "kind": "sentence",
       "level": "b1",
       "theme": "ecologie",
-      "fr": "Les autobus électriques ne polluent pas l'air de la rue.",
-      "en": "Electric buses do not pollute the air of the street.",
-      "ipa": "/le.zo.to.bys e.lɛk.tʁik nə pɔ.ly pa lɛʁ də la ʁy/",
-      "respell": "lay-zo-to-BÜS ay-lehk-TREEK nuh po-LÜ pa LEHR duh la RÜ",
+      "fr": "Les autobus électriques ne rejettent pas de gaz dans la rue.",
+      "en": "Electric buses do not release any exhaust into the street.",
+      "ipa": "/le.zo.to.bys e.lɛk.tʁik nə ʁə.ʒɛt pa də ɡaz dɑ̃ la ʁy/",
+      "respell": "lay-zo-to-BÜS ay-lehk-TREEK nuh ruh-ZHEHT pa duh GAZ dahⁿ la RÜ",
       "tags": [
         "pollution"
       ],
@@ -476962,10 +476710,10 @@
       "kind": "sentence",
       "level": "b1",
       "theme": "ecologie",
-      "fr": "Près de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
-      "en": "Near Thiès, in Senegal, wind turbines produce electricity.",
-      "ipa": "/pʁɛ də tjɛs o se.ne.ɡal de.ze.ɔ.ljɛn pʁɔ.dɥiz də le.lɛk.tʁi.si.te/",
-      "respell": "preh duh TYEHSS oh say-nay-GAL | day-zay-o-LYEHNN pro-DWEEZ duh lay-lehk-tree-see-TAY",
+      "fr": "Dans la région de Thiès, au Sénégal, des éoliennes produisent de l'électricité.",
+      "en": "In the Thiès region, in Senegal, wind turbines produce electricity.",
+      "ipa": "/dɑ̃ la ʁe.ʒjɔ̃ də tjɛs o se.ne.ɡal de.ze.ɔ.ljɛn pʁɔ.dɥiz də le.lɛk.tʁi.si.te/",
+      "respell": "dahⁿ la ray-ZHYOHⁿ duh TYEHSS oh say-nay-GAL | day-zay-o-LYEHNN pro-DWEEZ duh lay-lehk-tree-see-TAY",
       "tags": [
         "energie",
         "senegal"
@@ -477493,10 +477241,10 @@
       "kind": "sentence",
       "level": "b1",
       "theme": "ecologie",
-      "fr": "Une voiture électrique coûte cher, mais elle ne pollue pas la rue.",
-      "en": "An electric car is expensive, but it does not pollute the street.",
-      "ipa": "/yn vwa.tyʁ e.lɛk.tʁik kut ʃɛʁ mɛ ɛl nə pɔ.ly pa la ʁy/",
-      "respell": "ün vwa-TÜR ay-lehk-TREEK koot SHEHR | meh ehl nuh po-LÜ pa la RÜ",
+      "fr": "Une voiture électrique coûte cher, mais elle ne rejette pas de gaz dans la rue.",
+      "en": "An electric car is expensive, but it does not release any exhaust into the street.",
+      "ipa": "/yn vwa.tyʁ e.lɛk.tʁik kut ʃɛʁ mɛ ɛl nə ʁə.ʒɛt pa də ɡaz dɑ̃ la ʁy/",
+      "respell": "ün vwa-TÜR ay-lehk-TREEK koot SHEHR | meh ehl nuh ruh-ZHEHT pa duh GAZ dahⁿ la RÜ",
       "tags": [
         "transport"
       ],
@@ -478435,10 +478183,10 @@
       "kind": "sentence",
       "level": "b1",
       "theme": "ecologie",
-      "fr": "En France, en 2018, une hausse de la taxe sur l'essence a provoqué la crise des gilets jaunes.",
+      "fr": "En France, en 2018, une hausse de la taxe sur les carburants a provoqué la crise des gilets jaunes.",
       "en": "In France, in 2018, a rise in the fuel tax set off the yellow vests crisis.",
-      "ipa": "/ɑ̃ fʁɑ̃s ɑ̃ dø.mil.diz.ɥit yn os də la taks syʁ le.sɑ̃s a pʁɔ.vɔ.ke la kʁiz de ʒi.lɛ ʒon/",
-      "respell": "ahⁿ FRAHⁿSS | ahⁿ deu-meel-deez-WEET | ün OHSS duh la TAX sür lay-SAHⁿSS | a pro-vo-KAY la KREEZ day zhee-leh ZHOHNN",
+      "ipa": "/ɑ̃ fʁɑ̃s ɑ̃ dø.mil.diz.ɥit yn os də la taks syʁ le kaʁ.by.ʁɑ̃ a pʁɔ.vɔ.ke la kʁiz de ʒi.lɛ ʒon/",
+      "respell": "ahⁿ FRAHⁿSS | ahⁿ deu-meel-deez-WEET | ün OHSS duh la TAX sür lay kar-bü-RAHⁿ | a pro-vo-KAY la KREEZ day zhee-leh ZHOHNN",
       "tags": [
         "societe",
         "france"

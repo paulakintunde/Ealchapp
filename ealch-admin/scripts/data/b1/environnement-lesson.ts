@@ -535,7 +535,7 @@ const ACT1: ActDef = {
   act: {
     id: 'act1', title: "Un mot n'arrive jamais seul",
     opener: {
-      line: "Tes mots sont français et ton verbe est anglais : ici tu apprends chaque mot avec ses voisins. EN: Your words are French and your verb is English: here you learn every word with its neighbours.",
+      line: "Trier, le tri, faire le tri : ici tu apprends chaque mot avec sa famille et ses voisins. EN: To sort, sorting, doing the sorting: here you learn every word with its family and its neighbours.",
       imageRef: 'lessons/environnement/act01.jpg',
     },
     sections: [],

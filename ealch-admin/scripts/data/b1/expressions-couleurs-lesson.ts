@@ -458,7 +458,7 @@ const ACT1: ActDef = {
   act: {
     id: 'act1', title: 'La palette',
     opener: {
-      line: "Tes mots sont français et ta couleur est anglaise : ici tu apprends que chaque langue a ses couleurs. EN: Your words are French and your colour is English: here you learn that each language has its own colours.",
+      line: "Broyer du noir, avoir une peur bleue, passer une nuit blanche : ici tu apprends que le français peint avec ses propres couleurs. EN: Grinding black, a blue fear, a white night: here you learn that French paints with its own colours.",
       imageRef: 'lessons/expressions-couleurs/act01.jpg',
     },
     sections: [],

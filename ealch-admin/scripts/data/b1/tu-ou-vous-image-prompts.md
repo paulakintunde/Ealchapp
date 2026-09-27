@@ -83,7 +83,7 @@ A conceptual illustration about one person behind a formal distance. A wide bone
 
 A conceptual illustration about everything following one choice. Two identical small scenes sit side by side on a cream field, each framed by a thin sage green border. In both, the same kitchen: a fridge with one pale blank note on it, a sleeping cat on a chair, a set of keys on the table. In the left scene every object is tinted warm terracotta, from the note to the keys to the cat's cushion; in the right scene every one of the same objects is tinted dusty slate blue. Nothing else differs between the two. The subject is one kitchen shown twice, where every small object has taken the colour of the choice. Flat editorial vector illustration, in the style of a modern French language textbook. Muted warm palette: cream and bone backgrounds, dusty slate blue, terracotta, warm ochre, sage green. Soft rounded geometric figures with simple calm faces, no black outlines, gentle flat shading. Subtle paper grain texture over the whole image. Warm even light. No text unless explicitly described. Uncluttered composition with generous empty space. Absolutely no lettering, captions, watermarks or logos beyond what is described.
 
-## Act 08 · Le faux pas · `act08.jpg`
+## Act 08 · Rattraper le tu · `act08.jpg`
 
 **Save the image as:** `C:/Users/harki/Downloads/gitbuild appealch/Ealchapp/ealch-v2/assets/lessons/tu-ou-vous/act08.jpg`
 

@@ -16,7 +16,7 @@
 //   commonErrors), check (gated control pages before the checkpoint).
 //
 //    1  Le retard                     7   main and subordinate; parce que de
-//    2  Parce que et car              8   the answer to pourquoi; car cited
+//    2  Parce que                     8   the answer to pourquoi; car cited once
 //    3  Puisque et comme              8   known cause, cause in front, vu que
 //    4  À cause de, grâce à           7   a cause that is a noun
 //    5  Si bien que, de sorte que     7   the result, in the indicative
@@ -95,11 +95,12 @@
 //  OPEN QUESTIONS FOR PAUL
 // ══════════════════════════════════════════════════════════════════════════
 //
-//   1. car and donc belong to b1.30, which is being written in parallel.
-//      This lesson uses car only to CONTRAST it with parce que (act 2) and
-//      donc only in the register ladder (act 7). If b1.30 already contrasts
-//      car with parce que, act 2's car card and one check overlap it. Keep
-//      both, or cut the car card here?
+//   1. RESOLVED (Paul, gate 3, 2026-09-26): b1.30 owns the car / parce que
+//      contrast. Act 2 is « Parce que », teaches parce que on its own terms
+//      and names car in ONE line (the a2-parce hint) that points back to
+//      b1.30. Its car checks were repurposed to parce que and pourquoi; the
+//      two car rows moved to act 3, whose cause table still cites car.
+//      donc stays only in the register ladder (act 7).
 //   2. après que. The lesson teaches the INDICATIVE for writing and names the
 //      spoken subjunctive (« après qu'il soit parti ») as recognition only,
 //      in one rule card, one trap card and one sheet line. The task marks a
@@ -451,10 +452,11 @@ const ACT1: ActDef = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
- *  ACT 2 · PARCE QUE ET CAR
+ *  ACT 2 · PARCE QUE
  *
  *  a1.20 gave parce que as the answer word to pourquoi. Here it becomes a
- *  clause-opener. car is b1.30's and is shown only as a contrast.
+ *  clause-opener. car is b1.30's: one line in the card deck's hint points
+ *  back to it, and nothing else in this act teaches it.
  * ══════════════════════════════════════════════════════════════════════════ */
 
 /** MEET: three whys from a cousin in Lausanne. No « ? » or « ! » in bubbles. */
@@ -490,7 +492,7 @@ const A2_PARCE: Sec<'cardDeck'> = {
   sheetId: 'sheet-cause',
   title: 'Parce que, de près',
   frSub: 'La cause qui répond à pourquoi',
-  hint: 'Quatre cartes. La dernière parle de car.',
+  hint: `Quatre cartes. Car, l'autre mot de la cause, est expliqué dans ${COORDINATION_REF}.`,
   audio: REC('rec-b1-31-parce'),
   say: REFRAME,
   terms: ['parceque', 'conjonction'],
@@ -514,10 +516,10 @@ const A2_PARCE: Sec<'cardDeck'> = {
       body: `Devant il, elle, on, un : parce qu'. C'est l'élision de ${ELISION_REF}, la même que pour que. EN: before a vowel, parce que elides.`,
     },
     {
-      head: 'Car, à l’écrit', label: 'car',
-      fr: fr(E(1221)),
-      sub: rsOf(E(1221)),
-      body: `Car donne aussi une cause, mais il ne répond pas à pourquoi et ne commence jamais la phrase. Il est expliqué dans ${COORDINATION_REF}. EN: car never answers pourquoi and never opens a sentence.`,
+      head: 'Une cause au passé', label: 'parce que',
+      fr: fr(E(1225)),
+      sub: rsOf(E(1225)),
+      body: "Parce que ne change jamais. Le verbe après lui prend le temps de l'histoire : était, avait, voulait. EN: parce que never changes; the verb after it takes the story's tense.",
     },
   ],
 };
@@ -548,8 +550,8 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
       ["on écrit parce qu'il pleut", 'rien ne change'], 0,
       "Devant une voyelle, que devient qu'. EN: que elides before a vowel.")),
     ctl('La réponse courte', '« Pourquoi tu pars ? » Quelle réponse est naturelle à l’oral ?',
-      ['Car mon train part à huit heures.', fr(E(1215))], 1,
-      "Parce que répond à pourquoi ; car, jamais. EN: only parce que answers pourquoi."),
+      ['Parce que mon train.', fr(E(1215))], 1,
+      "Même courte, la réponse garde un sujet et un verbe : mon train part. EN: even a short answer keeps a subject and a verb."),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -567,7 +569,7 @@ const A2_EXEMPLES: Sec<'examples'> = {
     ex(E(1225), 'une cause au passé : était, à l’imparfait.'),
     ex(E(1229), "c'est parce que ... que : tu mets la cause en avant."),
     ex(E(1230), "parce qu'il avait : l'élision devant il."),
-    ex('fr.b1.connecteurs-logiques.010', 'car : même sens, mais à l’écrit, et jamais en réponse.'),
+    ex(E(1224), 'un conseil, puis sa raison.'),
     ex('fr.b1.connecteurs-logiques.005', 'parce que, puis une cause au passé composé.'),
   ],
   audio: AUDIO,
@@ -575,13 +577,13 @@ const A2_EXEMPLES: Sec<'examples'> = {
   terms: ['parceque'],
 };
 
-/** CHOOSE: parce que or car, by what the sentence is doing. */
+/** CHOOSE: the question or the answer, and the tense of the cause. */
 const A2_CHOISIR: Sec<'groupDrill'> = {
   type: 'groupDrill',
   id: 'a2-choisir',
   layer: 'core',
   size: 'lg',
-  title: 'Parce que ou car',
+  title: 'Pourquoi, parce que',
   groups: [
     grp('La réponse à pourquoi', [
       it(E(1215), 'une réponse orale'),
@@ -589,17 +591,17 @@ const A2_CHOISIR: Sec<'groupDrill'> = {
       it(E(1228), 'une conversation'),
       it(E(1230), 'une explication simple'),
     ], chk(
-      'Lequel peut répondre seul à « Pourquoi ? »',
-      ['car', 'parce que'], 1,
-      "Parce que, et lui seul. EN: only parce que.")),
-    grp('Car, dans un texte', [
-      it(E(1221), 'un avis écrit'),
-      it(E(1227), 'une excuse écrite'),
-      it('fr.b1.connecteurs-logiques.010', 'une annonce'),
+      '« Pourquoi tu m’appelles ? » Tu réponds :',
+      ["Pourquoi j'ai une question.", fr(E(1222))], 1,
+      "Pourquoi pose la question, parce que donne la réponse. EN: pourquoi asks, parce que answers.")),
+    grp('La cause au passé', [
+      it(E(1225), 'le film'),
+      it(E(1219), 'le voyage'),
+      it('fr.b1.connecteurs-logiques.005', 'la panne'),
     ], chk(
-      'Où trouves-tu surtout car ?',
-      ['dans un texte écrit', 'dans une réponse orale rapide'], 0,
-      "Car est un mot d'écrit, et il vient toujours en deuxième. EN: car is written and never first.")),
+      '« Elle a pleuré parce que le film ... triste. »',
+      ['était', 'soit'], 0,
+      "La cause est un fait : l'indicatif, ici l'imparfait. EN: the cause is a fact, so the indicative.")),
     ctl('L’insistance', "« C'est parce que tu es arrivé tard qu'on a raté le début. » Que met la phrase en avant ?",
       ['le lieu', 'la conséquence', 'la cause'], 2,
       "C'est parce que ... que pousse la cause au premier plan. EN: it puts the cause in the spotlight."),
@@ -629,14 +631,14 @@ const A2_ERREURS: Sec<'commonErrors'> = {
       why: "On l'entend presque ainsi à l'oral rapide. À l'écrit, que devient qu' devant une voyelle. EN: write parce qu' before a vowel.",
     },
     {
-      wrong: 'Car il pleut, je prends un taxi.',
-      right: fr(E(1216)),
-      why: "En anglais, for peut être formel partout. Car, lui, ne commence jamais la phrase. Mets la cause après, ou commence par comme. EN: car never opens a sentence.",
+      wrong: 'Elle a pleuré parce que le film soit triste.',
+      right: fr(E(1225)),
+      why: "Après le subjonctif, le réflexe est normal. Mais la cause est un fait : parce que prend l'indicatif. EN: parce que takes the indicative.",
     },
     {
-      wrong: 'Pourquoi tu pars ? Car mon train part à huit heures.',
-      right: `Pourquoi tu pars ? ${fr(E(1215))}`,
-      why: "Car et parce que se traduisent pareil, alors c'est un bon réflexe. Mais car ne répond jamais à pourquoi. EN: only parce que answers pourquoi.",
+      wrong: 'Je repars demain. Parce que mon train part à huit heures.',
+      right: 'Je repars demain parce que mon train part à huit heures.',
+      why: "À l'oral, parce que répond seul à pourquoi. À l'écrit, la cause suit sa principale, dans la même phrase. EN: in writing, keep the cause in its main clause's sentence.",
     },
   ],
   audio: AUDIO,
@@ -663,20 +665,20 @@ const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
   ctl('L’élision', "« Parce que il pleut » s'écrit...",
     ["parce qu'il pleut", 'parce que il pleut'], 0,
     "Que devient qu' devant il. EN: que elides."),
-  ctl('Car', 'Car peut-il répondre à pourquoi ?',
-    ['oui', 'non'], 1,
-    "Non : seulement parce que. EN: no, only parce que."),
+  ctl('Pourquoi', '« Pourquoi tu restes ? » Quelle réponse est complète ?',
+    ['Parce que le rapport.', 'Parce que je dois finir un rapport.'], 1,
+    "Parce que, puis un sujet et un verbe. EN: a subject and a verb."),
 ], ['parceque']);
 
 const ACT2: ActDef = {
   act: {
-    id: 'act2', title: 'Parce que et car',
+    id: 'act2', title: 'Parce que',
     opener: {
       line: "Pourquoi, pourquoi, pourquoi : ici tu réponds avec une vraie phrase, pas avec un mot. EN: Why, why, why: here you answer with a real clause, not a single word.",
       imageRef: 'lessons/subordination/act02.jpg',
     },
     sections: [],
-    milestone: "Tu construis parce que avec un sujet et un verbe, et tu sais pourquoi car ne répond pas à pourquoi. EN: You build parce que with a subject and a verb, and you know why car does not answer pourquoi.",
+    milestone: "Tu construis parce que avec un sujet et un verbe, et tu réponds à pourquoi avec une vraie phrase, à l'oral comme à l'écrit. EN: You build parce que with a subject and a verb, and answer pourquoi with a real clause, in speech and in writing.",
     estScreens: 32, restPoints: ['a2-exemples'],
   },
   sections: [A2_HISTOIRE, A2_PARCE, A2_CONSTRUIRE, A2_EXEMPLES, A2_CHOISIR, A2_ERREURS, A2_DICTEE, A2_CHECK],
@@ -2760,7 +2762,7 @@ const A11_MISSION: Sec<'task'> = {
       pattern: 'car at the head of a sentence, or car used to answer a question.',
       criterion: 'liens',
       feedback: "Car ne commence jamais la phrase. En tête, utilise comme : Comme il pleuvait, ...",
-      ref: 'a2-erreurs',
+      ref: 'a3-tableau',
     },
     {
       pattern: 'comme of cause placed after the main clause (nous sommes restés comme il pleuvait).',
@@ -2928,16 +2930,16 @@ const A11_QUIZ: Sec<'quiz'> = {
       ],
     },
     {
-      id: 'r2-parce', label: 'Parce que et car', targets: ['car-pourquoi'],
+      id: 'r2-parce', label: 'Parce que', targets: ['car-pourquoi'],
       questions: [
-        mc('« Pourquoi tu pars ? » Quelle réponse est naturelle ?', ['Car mon train part à huit heures.', fr(E(1215))], 1, "Seul parce que répond à pourquoi. EN: only parce que.", 'a2-construire'),
-        mc('Où trouves-tu surtout car ?', ['dans un texte écrit', 'en réponse à pourquoi', 'en tête de phrase'], 0, "Car est écrit, et toujours en deuxième. EN: written, never first.", 'a2-choisir'),
+        mc('« Pourquoi tu pars ? » Quelle réponse est naturelle ?', ['Parce que mon train.', fr(E(1215))], 1, "Même courte, la réponse garde un sujet et un verbe. EN: a subject and a verb, even when short.", 'a2-construire'),
+        mc("À l'écrit, où va la cause avec parce que ?", ['après sa principale', 'seule, dans sa propre phrase', 'avant pourquoi'], 0, "Après la principale, dans la même phrase. EN: after the main clause.", 'a2-erreurs'),
         mc("« C'est parce que tu es arrivé tard qu'on a raté le début. » La phrase met en avant...", ['la cause', 'le résultat'], 0, "C'est parce que ... que : la cause. EN: the cause.", 'a2-choisir'),
         mc('« Elle ne vient pas parce que ... »', ['sa maladie', "qu'elle est malade", 'de sa maladie'], 1, "Parce qu'elle est malade : élision, sujet, verbe. EN: a clause, elided.", 'a2-parce'),
         tI('Relie avec parce que.', 'Il reste chez lui. Il est malade.', fr(E(1226)), "Parce qu' devant il. EN: elide before il.", 'a2-construire'),
         tI('Relie avec parce que.', "Je t'appelle. J'ai une question.", fr(E(1222)), "Parce que + j'ai. EN: parce que + clause.", 'a2-parce'),
-        eS('Car il pleut, je prends un taxi.', fr(E(1216)), "Car ne commence jamais la phrase. EN: car never goes first.", 'a2-erreurs', ['Comme il pleut, je prends un taxi.']),
-        lC('Écoute. Quel mot donne la cause ?', fr(E(1227)), ['car', 'parce que', 'puisque'], 0, "Car, à l'écrit, en deuxième. EN: car.", 'a2-parce'),
+        eS('Elle a pleuré parce que le film soit triste.', fr(E(1225)), "La cause est un fait : l'indicatif. EN: parce que takes the indicative.", 'a2-erreurs'),
+        lC('Écoute. Quel mot donne la cause ?', fr(E(1222)), ['parce que', 'puisque', 'comme'], 0, "Parce que : la raison de l'appel. EN: parce que.", 'a2-parce'),
       ],
     },
     {
@@ -3258,7 +3260,7 @@ const ACTS: ActDef[] = [ACT1, ACT2, ACT3, ACT4, ACT5, ACT6, ACT7, ACT8, ACT9, AC
 
 const DRILL_LIST: LessonDrill[] = [
   { id: 'd-phrase-nom', title: 'Une phrase ou un nom', format: 'sort' as const, coach: "Deux piles : après le lien, une phrase avec un verbe, ou un nom seul. EN: sort by what follows the link.", buckets: ['parce que + phrase', 'à cause de + nom'], items: [E(1201), E(1200), E(1264), E(1249), E(1218), E(1253)], audio: AUDIO },
-  { id: 'd-parce', title: 'Parce que ou car', format: 'mcq' as const, coach: "Seul parce que répond à pourquoi. Car ne commence jamais. EN: only parce que answers pourquoi.", q: '« Pourquoi tu pars ? » « ... mon train part à huit heures. »', opts: ['Parce que', 'Car'], correct: 0, why: "Parce que. EN: parce que.", items: [E(1215), E(1216), E(1217), E(1222), E(1221), E(1227)], audio: AUDIO },
+  { id: 'd-parce', title: 'Parce que, puis une phrase', format: 'mcq' as const, coach: "Parce que répond à pourquoi, et il attend un sujet et un verbe. EN: parce que answers pourquoi and needs a subject and a verb.", q: '« Pourquoi tu pars ? » « Parce que ... »', opts: ['mon train part à huit heures', 'mon train'], correct: 0, why: "Un sujet et un verbe : mon train part. EN: a clause, not a noun.", items: [E(1215), E(1216), E(1217), E(1222), E(1218), E(1224)], audio: AUDIO },
   { id: 'd-comme', title: 'Comme devant', format: 'mcq' as const, coach: "Comme de cause ouvre la phrase ; puisque rappelle ce qu'on sait. EN: comme first; puisque for known causes.", q: '... il faisait beau, nous avons mangé dehors.', opts: ['Car', 'Comme'], correct: 1, why: "Comme, en tête. EN: comme first.", items: [E(1231), E(1233), E(1234), E(1235), E(1242), E(1247)], audio: AUDIO },
   { id: 'd-cause-nom', title: 'Bonne ou mauvaise cause', format: 'sort' as const, coach: "Deux piles : grâce à pour un bon résultat, à cause de pour un mauvais. EN: good or bad cause.", buckets: ['grâce à', 'à cause de'], items: [E(1251), E(1250), E(1256), E(1253), E(1261), E(1259)], audio: AUDIO },
   { id: 'd-resultat', title: 'La cause, puis le résultat', format: 'flashcard' as const, coach: "Lis chaque phrase à voix haute : la cause, une virgule, si bien que, le résultat. EN: read each aloud in order.", items: [E(1267), E(1268), E(1269), E(1270), E(1275), E(1276)], audio: AUDIO },
@@ -3272,7 +3274,7 @@ const DRILL_LIST: LessonDrill[] = [
 
 const TRIGGER_LIST: ErrorTrigger[] = [
   { id: 'parce-que-nom', description: 'Puts parce que in front of a bare noun (parce que de la tempête), translating because of word for word, so the subordinate clause has no verb.', detectOn: ['a1-scene', 'a1-reperer', 'a1-check', 'a11-mission'], drill: 'd-phrase-nom', retest: 'd-phrase-nom' },
-  { id: 'car-pourquoi', description: 'Answers pourquoi with car, opens a sentence with car, or skips the elision in parce qu’il.', detectOn: ['a2-construire', 'a2-erreurs', 'a2-check', 'a11-mission'], drill: 'd-parce', retest: 'd-parce' },
+  { id: 'car-pourquoi', description: 'Answers pourquoi with parce que and a bare noun, cuts the written cause off from its main clause, or skips the elision in parce qu’il.', detectOn: ['a2-construire', 'a2-erreurs', 'a2-check', 'a11-mission'], drill: 'd-parce', retest: 'd-parce' },
   { id: 'comme-au-bout', description: 'Puts comme of cause at the end of the sentence, or uses puisque to announce news the listener does not have.', detectOn: ['a3-construire', 'a3-piege', 'a3-check', 'a11-mission'], drill: 'd-comme', retest: 'd-comme' },
   { id: 'cause-renversee', description: 'Uses grâce à for a bad result or à cause de for a good one, or leaves de le and à les uncontracted.', detectOn: ['a4-construire', 'a4-erreurs', 'a4-check', 'a11-mission'], drill: 'd-cause-nom', retest: 'd-cause-nom' },
   { id: 'resultat-envers', description: 'Introduces the cause with si bien que or de sorte que, puts them at the head of the sentence, or follows them with a subjunctive.', detectOn: ['a5-construire', 'a5-piege', 'a5-check', 'a11-mission'], drill: 'd-resultat', retest: 'd-resultat' },
@@ -3309,7 +3311,7 @@ const REC_DESC: Record<string, string> = {
   'rec-b1-31-rapport': "Karim's email (act 1), ONE VOICE, one take, a young Montréal man reading his own email aloud to his boss: clear, a little apologetic, never dramatic. Every link word (parce que, comme, pendant que, à cause de, si bien que, grâce aux, c'est pourquoi, pour) is audible and unstressed; the elision in « pendant qu'il » is kept.",
   'rec-b1-31-systeme': "The four system cards. Card one (« Le métro était bloqué ») is read as a complete, falling sentence; card two with a slight rise before « parce que » and the fall at the end, so the learner hears the join. Card four is read at the same pace as card one.",
   'rec-b1-31-sophie': "The Lausanne evening (act 2), two voices: Sophie, a Swiss Romande woman in her thirties, teasing and curious, and the learner, relaxed. The learner's three answers each start with or contain « parce que »; it is said quickly, /paʁs kə/, never /paʁ.sə.kə/.",
-  'rec-b1-31-parce': "The four parce que cards, one voice. On card three, « parce qu'il » runs as one group /paʁs kil/. Card four (car) is read in a slightly more formal tone, the way it is written.",
+  'rec-b1-31-parce': "The four parce que cards, one voice. On card three, « parce qu'il » runs as one group /paʁs kil/. Card four is a cause in the past: read « était » plainly, with no stress on the tense.",
   'rec-b1-31-puisque-ecoute': "REQUIRED FOR THE EAR MISSION (act 3): eight lines, ONE TAKE, ONE VOICE, in authored order, at conversational speed. « puisque » lines carry the slight « as you well know » tone of a shared fact; « comme » lines put the cause first with a clear comma pause. Line eight (« Vu que ») is casual.",
   'rec-b1-31-causes': "The four cause cards. Cards three and four (vu que, étant donné que) are recognition: read them at the same pace as the others, card three casual, card four formal.",
   'rec-b1-31-piege-comme': "The audio step plays each card's CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.",

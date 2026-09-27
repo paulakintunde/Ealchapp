@@ -470,7 +470,7 @@ export const ACT7_ROWS: Row[] = [
   sent(1108, "Tenez, c'est pour vous.", 'Here, this is for you.', '/tə.ne sɛ puʁ vu/', 'tuh-NAY | seh poor VOO', ['echo', 'toi', 'vous']),
 ];
 
-/* ── ACT 8 · LE FAUX PAS ────────────────────────────────────────────────── */
+/* ── ACT 8 · RATTRAPER LE TU ────────────────────────────────────────────── */
 
 export const ACT8_ROWS: Row[] = [
   sent(1109, 'Pardon, je vous ai dit tu.', 'Sorry, I said tu to you.', '/paʁ.dɔ̃ ʒə vu.ze di ty/', 'par-DOHⁿ | zhuh voo-zay dee TÜ', ['fauxpas', 'reparer']),

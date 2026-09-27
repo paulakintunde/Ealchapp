@@ -22,11 +22,11 @@
 //   peur bleue » (b1.29). No body-part image and no colour idiom is a taught
 //   item in this file.
 //
-//   57 expressions in ten families, one family per act from act 2 to act 11,
+//   58 expressions in ten families, one family per act from act 2 to act 11,
 //   never more than eight in an act (§E lists them with their register):
 //     2  le temps qu'il fait et l'heure       6
 //     3  attendre, et ne pas venir            4
-//     4  la peur et le courage                5 (+ the France variant)
+//     4  la peur et le courage                6 (+ the France variant)
 //     5  la faim et l'humeur                  6
 //     6  la santé                             5
 //     7  les salades et les secrets           6
@@ -61,7 +61,11 @@
 //     (body) owns `.1000`-`.1199` and b1.29 (colours) `.1400`-`.1599`, and
 //     both are being written in parallel. `.001`-`.999` stays free for a
 //     future published import. Used here: `.1200`-`.1374`, one contiguous run
-//     in twelve act blocks. 175 rows.
+//     in twelve act blocks, plus `.1375` (« avoir la chair de poule », added
+//     to act 4 by Paul's gate 3 decision, 2026-09-26). 176 rows. The seed also
+//     holds fr.a1.corps.201 with the same French, in theme `corps`: a
+//     different theme, so not a flashcard-hub twin, and it carries no
+//     `flashcard` drill and no image note, so it is not reused here.
 //
 //  3. THE SEED HOLDS NONE OF THESE IDIOMS, BUT POSTGRES HOLDS FOURTEEN. The
 //     seed was searched on 2026-09-26 for every expression in §E: zero hits.
@@ -198,7 +202,7 @@ export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════
- *  §E. THE 57 EXPRESSIONS, BY ACT, WITH REGISTER
+ *  §E. THE 58 EXPRESSIONS, BY ACT, WITH REGISTER
  *
  *  The cards, the sheets and the task checklist all read this list. `reg` is
  *  what the card's eyebrow says; `where` marks a regional one, and a regional
@@ -211,7 +215,7 @@ export type Reg = 'familier' | 'courant';
 export const FAMILIES: readonly { act: number; title: string; ids: readonly number[] }[] = [
   { act: 2, title: 'le temps et l’heure', ids: [1210, 1211, 1212, 1213, 1214, 1215] },
   { act: 3, title: 'attendre, et ne pas venir', ids: [1228, 1229, 1230, 1231] },
-  { act: 4, title: 'la peur et le courage', ids: [1242, 1243, 1244, 1245, 1246, 1247] },
+  { act: 4, title: 'la peur et le courage', ids: [1242, 1243, 1244, 1245, 1375, 1246, 1247] },
   { act: 5, title: 'la faim et l’humeur', ids: [1258, 1259, 1260, 1261, 1262, 1263] },
   { act: 6, title: 'la santé', ids: [1274, 1275, 1276, 1277, 1278] },
   { act: 7, title: 'les salades et les secrets', ids: [1289, 1290, 1291, 1292, 1293, 1294] },
@@ -225,7 +229,7 @@ export const FAMILIES: readonly { act: number; title: string; ids: readonly numb
  *  English animal idiom (raining cats and dogs), not as an animal idiom of
  *  its own: it has no animal and no food in it. Counted separately. The two
  *  France variants (1247, 1311) are the same expression as their Québec
- *  twin and are not counted twice. So: 57 taught expressions. */
+ *  twin and are not counted twice. So: 58 taught expressions. */
 export const EQUIVALENT_ONLY = [1216] as const;
 export const VARIANT_OF: Record<number, number> = { 1247: 1246, 1311: 1310 };
 
@@ -447,6 +451,9 @@ export const ACT4_ROWS: Row[] = [
   sent(1255, 'Il faut prendre le taureau par les cornes.', 'You have to take the bull by the horns.', '/il fo pʁɑ̃dʁ lə to.ʁo paʁ le kɔʁn/', 'eel foh prahⁿdr luh toh-ROH par lay KORN', ['courage']),
   sent(1256, 'Tu vas te jeter dans la gueule du loup.', "You are going to walk into the lion's den.", '/ty va tʒə.te dɑ̃ la ɡœl dy lu/', 'tü vat zhuh-TAY dahⁿ la GUHL dü LOO', ['danger']),
   sent(1257, 'Pour sa fille, elle se bat comme une lionne.', 'For her daughter she fights like a lioness.', '/puʁ sa fij ɛl sə ba kɔm yn ljɔn/', 'poor sa FEEY ehl suh BA kom ün LYON', ['courage']),
+  // Paul, gate 3 (2026-09-26): the border case with b1.27 joins act 4 here.
+  expr(1375, 'avoir la chair de poule', 'to have goosebumps', '/a.vwaʁ la ʃɛʁ də pul/', 'a-vwar la SHEHR duh POOL', 'courant',
+    "Image : la peau d'une poule plumée, couverte de petits points. Sens : avoir des frissons, de froid ou d'émotion. L'anglais met une oie : goosebumps."),
 ];
 
 /* ── ACT 5 · LA FAIM ET L'HUMEUR ────────────────────────────────────────── */
@@ -639,7 +646,7 @@ export const ACT11_ROWS: Row[] = [
   sent(1369, "Il n'a pas encore signé, ne vendons pas la peau de l'ours.", 'He has not signed yet, let us not count our chickens.', '/il na pa.zɑ̃.kɔʁ si.ɲe nə vɑ̃.dɔ̃ pa la po də luʁs/', 'eel na pa-zahⁿ-KOR see-NYAY nuh vahⁿ-dohⁿ pa la POH duh LOORS', ['prudence']),
 ];
 
-/* ── ACT 12 · RACONTE TA JOURNÉE ────────────────────────────────────────── */
+/* ── ACT 12 · TA JOURNÉE EN IMAGES ──────────────────────────────────────── */
 
 export const ACT12_ROWS: Row[] = [
   sent(1370, "Samedi, il faisait un temps de chien et j'avais le cafard.", 'On Saturday the weather was foul and I felt low.', '/sam.di il fə.zɛ œ̃ tɑ̃d ʃjɛ̃ e ʒa.vɛ lə ka.faʁ/', 'sam-DEE eel fuh-zeh uhⁿ tahⁿd SHYEHⁿ ay zha-veh luh ka-FAR', ['anecdote'], FCVDR),
@@ -665,7 +672,7 @@ export const ALL_ROWS: Row[] = ROWS_BY_ACT.flat();
 export const dicteeFor = (act: number): string[] =>
   (ROWS_BY_ACT[act - 1] ?? []).filter((r) => (r.drills as string[]).includes('dictation')).map((r) => r.id);
 
-/** Every TAUGHT expression id (the 57), in act order. */
+/** Every TAUGHT expression id (the 58), in act order. */
 export const TAUGHT_IDS: string[] = FAMILIES.flatMap((f) => f.ids.filter((n) => !(n in VARIANT_OF)).map(E));
 
 /* ══════════════════════════════════════════════════════════════════════════

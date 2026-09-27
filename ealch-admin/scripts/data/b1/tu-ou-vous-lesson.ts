@@ -23,7 +23,7 @@
 //    5  Au bureau, en famille        6   start-ups and sites tu, firms and offices vous, in-laws
 //    6  Une seule personne           6   vous êtes gentille, Madame; arrivé / arrivée / arrivés
 //    7  Les échos                    6   te/vous, ton/votre, tes/vos, viens/venez, assieds-toi
-//    8  Le faux pas                  6   the three-word repair, receiving a slip
+//    8  Rattraper le tu              6   the three-word repair, receiving a slip
 //    9  À l'écrit                    6   Madame, Monsieur / Bonjour Maître / Bonjour Julie / Salut
 //   10  Ailleurs en français         6   Québec, Belgium, Switzerland, West Africa
 //   11  Deux messages, deux distances 11 model, plan, role play, TASK, quiz
@@ -1523,7 +1523,7 @@ const ACT7: ActDef = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
- *  ACT 8 · LE FAUX PAS
+ *  ACT 8 · RATTRAPER LE TU
  *
  *  What a slip sounds like, the three-word repair, and how to receive one.
  *  The scenario gives the learner the other side: the client slips, then
@@ -1735,7 +1735,7 @@ const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
 
 const ACT8: ActDef = {
   act: {
-    id: 'act8', title: 'Le faux pas',
+    id: 'act8', title: 'Rattraper le tu',
     opener: {
       line: 'Le tu t’a échappé devant une cliente : ici tu répares en trois mots, et tu passes à la suite. EN: The tu slipped out in front of a client: here you repair it in three words and move on.',
       imageRef: 'lessons/tu-ou-vous/act08.jpg',
@@ -2601,7 +2601,7 @@ const A11_QUIZ: Sec<'quiz'> = {
       ],
     },
     {
-      id: 'r8-faux-pas', label: 'Le faux pas', targets: ['faux-pas-rate'],
+      id: 'r8-faux-pas', label: 'Rattraper le tu', targets: ['faux-pas-rate'],
       questions: [
         mc('Tu as dit tu à une cliente. La meilleure réparation :', ['Je suis vraiment, vraiment désolé, je ne voulais pas vous manquer de respect.', 'Rien, tu continues en tu.', fr(E(1110))], 2, 'Trois mots, et tu continues. EN: short.', 'a8-reparer'),
         mc('Un client te tutoie par erreur, puis s’excuse. Tu dis...', ['Vous devriez faire attention.', fr(E(1118))], 1, 'Tu le rassures en un mot. EN: reassure.', 'a8-juger'),
