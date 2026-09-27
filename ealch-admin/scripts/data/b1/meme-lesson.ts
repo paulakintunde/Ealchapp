@@ -787,7 +787,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk(
       '« la même chose que lui » : pourquoi lui et pas il ?',
       ['parce qu’après que, on met moi, toi, lui', 'parce que lui est plus poli'], 0,
-      `Après que, sans verbe, on prend moi, toi, lui : ${Cap(PRONOMS_SUJETS_REF)} te les a montrés. EN: after que, stressed pronouns.`)),
+      `Après que, sans verbe, on prend moi, toi, lui : ${PRONOMS_SUJETS_REF} te les a montrés. EN: after que, stressed pronouns.`)),
     ctl('Nom ou adjectif', 'Ton frère et toi mesurez 1,80 m. Que dis-tu ?',
       ["J'ai la même taille que mon frère.", "J'ai aussi grand que mon frère."], 0,
       'Taille est un nom : la même taille que. EN: a noun, so la même.'),
@@ -1271,7 +1271,7 @@ const A5_CHOISIR: Sec<'groupDrill'> = {
     ], chk(
       '« I cut myself. » Que dis-tu ?',
       ['Je me suis coupé.', "J'ai coupé moi-même."], 0,
-      `Le verbe pronominal dit déjà myself : ${Cap(PRONOMINAUX_REF)}. EN: the reflexive already says myself.`)),
+      `Le verbe pronominal dit déjà myself : ${PRONOMINAUX_REF}. EN: the reflexive already says myself.`)),
     grp('Sans aide', [
       it(E(1069), 'nous, sans peintre'),
       it(E(1070), 'vous, sans demander'),
