@@ -1,6 +1,6 @@
 # Premium content packs: spec for approval
 
-Status: DRAFT for Paul, 2026-09-27. Nothing is built until this is approved.
+Status: APPROVED by Paul, 2026-09-27, with decisions 1 to 3 below settled.
 
 ## Why
 
@@ -108,9 +108,8 @@ ceiling raise. Proven on the Pixel with two accounts:
 - premium: packs download, work offline in airplane mode, and a simulated
   expiry locks them and keeps progress.
 
-## Decisions for Paul
+## Decisions (Paul, 2026-09-27)
 
-1. Cached packs after expiry: keep locked for 30 days (recommended) or delete at once?
-2. Downloads on mobile data: allowed in v1 (recommended), or Wi-Fi only?
-3. Exam papers: a separate `exam` pack behind the exam access level (recommended),
-   or included with Première?
+1. After expiry, cached packs stay on the device, locked, for 30 days, then are deleted.
+2. Packs download on any connection, mobile data included.
+3. Exam papers are their own `exam` pack behind the exam access level.

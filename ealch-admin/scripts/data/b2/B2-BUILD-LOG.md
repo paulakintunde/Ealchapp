@@ -165,8 +165,7 @@ They never ask the learner to produce the form.
   the learner reaches a paper.
 - **The Examiner stays the place for full papers** (15 published: TEF, TCF,
   DELF blanc 01 to 05). Lessons prepare; papers measure.
-- **Open question for Paul:** a « Bilan B2 » (a closing review-and-exam lesson,
-  as a2.35 is for A2) is not in the 34. Add it as b2.35?
+- **No « Bilan B2 »** (Paul, 2026-09-27): B2 stays at 34 lessons.
 
 ## Wave 0: enablers, before the first B2 lesson
 
