@@ -2880,7 +2880,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     ]),
   ]),
   sheet('sheet-temps', 'Dire quand', ['dans, en, d’ici', 'les repères'], [
-    teach('sheet-temps-teach', 'D’où on compte', `dans deux heures se compte à partir de l’instant où tu parles. en deux heures est le temps que la chose prend, du début à la fin, et ne dit pas quand elle commence. d’ici vendredi donne une limite : avant vendredi, sans promettre le jour. ${TIME_PREP_REF} a posé les prépositions ; ici elles servent à situer un projet. EN: dans counts from now, en is how long it takes, d'ici is a deadline.`),
+    teach('sheet-temps-teach', 'D’où on compte', `dans deux heures se compte à partir de l’instant où tu parles. en deux heures est le temps que la chose prend, du début à la fin, et ne dit pas quand elle commence. d’ici vendredi donne une limite : avant vendredi, sans promettre le jour. ${Cap(TIME_PREP_REF)} a posé les prépositions ; ici elles servent à situer un projet. EN: dans counts from now, en is how long it takes, d'ici is a deadline.`),
     table('sheet-temps-table', 'Les expressions', ['Expression', 'D’où on compte', 'Exemple'], [
       ['dans + durée', 'de maintenant', 'Le train partira dans dix minutes.'],
       ['en + durée', 'du début du travail', 'Je finirai ce rapport en deux heures.'],

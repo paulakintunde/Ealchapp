@@ -1692,7 +1692,7 @@ const A7_REGLE: Sec<'cardDeck'> = {
       head: 'Un seul mot à entourer', label: 'la négation',
       fr: 'Je ne partirai pas avant la fin du mois.',
       sub: '[zhuh nuh par-tee-RAY pa a-vahⁿ la fehⁿ dü MWA]',
-      body: `Au passé composé, il fallait viser l'auxiliaire. Ici le verbe est en un mot, donc ne et pas l'entourent. EN: ${Cap(NEGATION_REF)} taught the pattern, and one word makes it easier.`,
+      body: `Au passé composé, il fallait viser l'auxiliaire. Ici le verbe est en un mot, donc ne et pas l'entourent. EN: ${NEGATION_REF} taught the pattern, and one word makes it easier.`,
     },
     {
       head: 'Rien, jamais, personne', label: 'les autres négations',

@@ -1915,7 +1915,7 @@ const A8_CARTES: Sec<'cardDeck'> = {
       head: 'pouvoir', label: 'un seul radical',
       fr: 'que je puisse · que nous puissions',
       sub: '[kuh zhuh PWEESS] · [kuh noo pwee-SYOHⁿ]',
-      body: `Puiss- partout, avec les six fins normales. Ils peuvent ne te donne rien : ${Cap(MODAUX_REF)} t'avait déjà prévenu que ce verbe fait ce qu'il veut. EN: puiss- everywhere, and ils peuvent gives you nothing.`,
+      body: `Puiss- partout, avec les six fins normales. Ils peuvent ne te donne rien : ${MODAUX_REF} t'avait déjà prévenu que ce verbe fait ce qu'il veut. EN: puiss- everywhere, and ils peuvent gives you nothing.`,
     },
     {
       head: 'savoir', label: 'un seul radical',

@@ -1290,7 +1290,7 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1095), 'un auteur est lu'),
       it(E(1102), 'un technicien est attendu'),
       it(E(1107), 'une personne est cherchée'),
-      it(E(1105), 'le même auteur, en carte'),
+      it(E(1105), 'une voisine est croisée'),
     ], chk('Ces quatre noms sont des personnes. Quel mot les suit ?',
         ["que, parce qu'un sujet suit", 'qui, parce que ce sont des personnes'], 0,
         "Une personne peut subir. EN: a person can be acted on.")),
