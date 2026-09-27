@@ -26,12 +26,13 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { buildPreview, serialise, PREVIEW_PATH } from './data/b1/_preview-b1.ts';
+import { B1_SLUGS } from './b1-import.logic.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SEED = resolve(HERE, '../../ealch-v2/src/content/seed.json');
-// Waves 1-9 authored 34; an imported lesson (in the seed) leaves the fixture.
+// Every authored lesson is in B1_SLUGS (39 after wave 11); an imported one (in the seed) leaves the fixture.
 const SEEDED_B1 = (JSON.parse(readFileSync(SEED, 'utf8')).lessons ?? []).filter((l: any) => /^b1\./.test(l.id)).length;
-const EXPECTED_LESSONS = 34 - SEEDED_B1;
+const EXPECTED_LESSONS = B1_SLUGS.length - SEEDED_B1;
 
 const onDisk = () => readFileSync(fileURLToPath(PREVIEW_PATH), 'utf8');
 
