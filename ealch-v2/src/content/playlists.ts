@@ -1669,7 +1669,7 @@ export const playlists: Playlist[] = [
         id: 'societe-t4',
         title: 'Valeurs et croyances',
         lines: [
-          { fr: "Pour moi, l'honnêteté compte plus que tout.", en: 'For me, honesty matters more than anything.' },
+          { fr: 'Pour moi, la sincérité compte plus que tout.', en: 'For me, sincerity matters more than anything.' },
           { fr: "Chacun est libre de croire ce qu'il veut.", en: 'Everyone is free to believe what they want.' },
           { fr: 'Le respect des autres est une valeur essentielle.', en: 'Respect for others is an essential value.' },
           { fr: 'Nos valeurs ont beaucoup changé avec le temps.', en: 'Our values have changed a lot over time.' },

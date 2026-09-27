@@ -46,6 +46,12 @@ const argv = process.argv.slice(2);
 const BUILD_ONLY = argv.includes('--build-only');
 const outIdx = argv.indexOf('--out');
 const OUT = outIdx >= 0 ? argv[outIdx + 1] : undefined;
+// --only <slug,slug,...>: merge ONLY these lessons on top of the committed seed,
+// as one batch import would. Rows authored by a B1 lesson outside the batch are
+// then NOT available from source: they must already be published in Postgres,
+// exactly as in a real batch publish. The twin decision stays band-wide.
+const onlyIdx = argv.indexOf('--only');
+const ONLY = onlyIdx >= 0 ? new Set(argv[onlyIdx + 1].split(',').map((x) => x.trim()).filter(Boolean)) : null;
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, '../..');
@@ -101,10 +107,12 @@ async function buildTrialSeed() {
     const twins = await resolveDedupe(c, source);
     const all = source.map((x) => applyDedupe(x, twins.map));
     bandAuthored = new Set(source.flatMap((x) => x.rows.map((r) => r.id)));
-    const authoredRow = new Map(all.flatMap((x) => x.rows.map((r) => [r.id, r] as const)));
+    const batch = ONLY ? all.filter((x) => ONLY.has(x.slug)) : all;
+    if (ONLY && batch.length !== ONLY.size) die(`--only names ${ONLY.size} slug(s) but ${batch.length} match B1_SLUGS`);
+    const authoredRow = new Map(batch.flatMap((x) => x.rows.map((r) => [r.id, r] as const)));
 
     const refs = new Map<string, string[]>();
-    for (const x of all) refs.set(x.lesson.id, [...new Set(itemsReferencedBy(x.lesson as never))]);
+    for (const x of batch) refs.set(x.lesson.id, [...new Set(itemsReferencedBy(x.lesson as never))]);
     const outsideIds = [...new Set([...refs.values()].flat())].filter((id) => !authoredRow.has(id));
     const q = await c.query(
       `select id, kind::text as kind, level::text as level, theme, fr, en, ipa, respell,
@@ -116,7 +124,7 @@ async function buildTrialSeed() {
     const pub = new Map(q.rows.filter((r) => r.status === 'published').map((r) => [r.id as string, dbRowToItem(r)]));
 
     const missing: string[] = [];
-    for (const x of all) {
+    for (const x of batch) {
       units.push(unitBody(x.unit, x.lesson.id));
       lessons.push(x.lesson as Obj);
       const ids = refs.get(x.lesson.id)!;
@@ -143,7 +151,7 @@ async function buildTrialSeed() {
     die(`mergeIntoSeed refused: ${(e as Error).message}`);
   }
   const s = merged.stats;
-  console.log(`B1 TRIAL MERGE  (HEAD seed v${seed.version} + ${B1_SLUGS.length} source lessons; Postgres read-only)`);
+  console.log(`B1 TRIAL MERGE  (HEAD seed v${seed.version} + ${ONLY ? ONLY.size : B1_SLUGS.length} source lessons${ONLY ? ' (--only)' : ''}; Postgres read-only)`);
   for (const l of perLesson) console.log(l);
   if (carried.length) console.log(`  playlists carried from the working-tree seed (changed since HEAD): ${carried.join(', ')}`);
   if (a103Moved) console.log('  ! a1.03.l1 re-rendered from genre-lesson.ts (its printed figures moved). Postgres still holds the old body: it must be updated before a publish.');
