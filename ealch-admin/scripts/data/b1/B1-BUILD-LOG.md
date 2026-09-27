@@ -54,6 +54,17 @@ has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
 
+**B1 IS LIVE, 2026-09-27: content v74 PUBLISHED with b1.01 to b1.04, the first B1 lessons to reach
+learners. REVIEW GATE 3 PASSED the same day: wave 10 (b1.34 media, b1.35 emotions, b1.36 business)
+is unblocked.**
+
+- **The pipeline exists:** `scripts/b1-import.ts <slugs> [--apply] [--reapply]` (dry by default) and `scripts/b1-merge-into-seed.ts <slugs> [--dry]`, logic in `b1-import.logic.ts` with tests. Rows land as `published` because `publish-content.ts` reads only published rows. `seed-cut.config.ts` names the b1 units that ride in the seed: ADD EACH NEW B1 UNIT THERE when it is imported, or the next publish cuts it back out.
+- **Twins dedupe to the published row** (Paul, 2026-09-27): at import a declared twin or a flashcard clash whose French matches a published row is not inserted; every reference is rewritten to the published id and the merge pulls that row into the seed. 65 deduped and 89 kept (wording differs) across the 34.
+- **What happened on the way:** the first apply wrote b1.01 to b1.04 as published before the app suite had seen them, and the suite then found defects. With Paul's approval the 737 rows were set to draft, the content was fixed (`502ce28`, `ae9368e`), four orphan draft rows (.514, .1112, .1115, .1117) were deleted, and `--reapply --apply` published them again. **Rule from this: run the seed merge and `npm test` in ealch-v2 BEFORE `--apply` writes published rows.**
+- **v74:** +5 themes (the Postgres-only ones now reach the seed, which closes the import-seed.ts revert trap for them), +4 units, +4 lessons, +725 items, no deletions, snapshot 27.4 to 28.6 MB. `a2-13-modaux.test.ts`'s "largest lesson" claim is now scoped to sons, A1 and A2.
+- **BEFORE THE NEXT IMPORT: about 150 app-check defects remain in the other 30 lessons** (raw unit ids mostly in grader notes, a few on screen in b1.07, b1.12 and b1.15; dead glossary entries in ~15 lessons; hidden-line leaks in b1.07 and b1.24; mixed apostrophes in ~10 role plays). `ealch-admin/scratch/_app-checks-b1.mts --all` finds them. Fix a lesson's before it is imported.
+- **Gate 3 decisions applied (`e3e2626`):** « avoir la chair de poule » in b1.28 act 4; b1.30 owns car vs parce que and b1.31 act 2 is now « Parce que »; b1.37 keeps skill 'CE'; b1.25 keeps naming b1.20-b1.22 rows by id (import them first); b1.26 act 8 « Rattraper le tu », b1.28 act 12 « Ta journée en images », new act 1 openers for b1.29 and b1.33. b1.33's real-world claims were fact-checked (`4c9d41b`).
+
 **WAVES 7 TO 9 LANDED 2026-09-26: b1.25 to b1.33 and b1.37, ten lessons, verified
 independently (validators 0/0/0 on all ten, 1,812 rows, zero id collisions across
 the batch, 144/144 house tests, readiness 0 blockers over 34 lessons, live
@@ -348,7 +359,7 @@ Lessons are built in waves. **Paul reviews after every 10 lessons**, and nothing
 | 7 | b1.25 b1.37 | The workshop shape pilot (register, reading strategy). NEW SHAPE: Paul reviews these two before the rest of the workshop lessons |
 | 8 | b1.26 b1.27 b1.28 b1.29 | Tu vs vous, body idioms, animal and food idioms, colour expressions |
 | 9 | b1.30 b1.31 b1.32 b1.33 | Coordination, subordination, concession, environment and society |
-| **REVIEW GATE 3** | after b1.33 (30 lessons) | NEXT: waves 7 to 9 landed 2026-09-26, Paul reviews |
+| **REVIEW GATE 3** | after b1.33 (30 lessons) | PASSED 2026-09-27 |
 | 10 | b1.34 b1.35 b1.36 | Media, emotions, business |
 | 11 | b1.38 b1.39 | Listening strategy, emails and letters (B1 capstone) |
 | **REVIEW GATE 4** | after b1.39 (B1 complete) | Paul reviews, then B2 |
