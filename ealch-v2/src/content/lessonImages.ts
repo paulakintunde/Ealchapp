@@ -461,6 +461,31 @@ const REG: Record<string, ImageSourcePropType> = {
   'lessons/strategies-lecture/act09.jpg': require('../../assets/lessons/strategies-lecture/act09.jpg'),
   'lessons/strategies-lecture/act10.jpg': require('../../assets/lessons/strategies-lecture/act10.jpg'),
   'lessons/strategies-lecture/act11.jpg': require('../../assets/lessons/strategies-lecture/act11.jpg'),
+  // b1.35 Les émotions
+  'lessons/emotions/act01.jpg': require('../../assets/lessons/emotions/act01.jpg'),
+  'lessons/emotions/act02.jpg': require('../../assets/lessons/emotions/act02.jpg'),
+  'lessons/emotions/act03.jpg': require('../../assets/lessons/emotions/act03.jpg'),
+  'lessons/emotions/act04.jpg': require('../../assets/lessons/emotions/act04.jpg'),
+  'lessons/emotions/act05.jpg': require('../../assets/lessons/emotions/act05.jpg'),
+  'lessons/emotions/act06.jpg': require('../../assets/lessons/emotions/act06.jpg'),
+  'lessons/emotions/act07.jpg': require('../../assets/lessons/emotions/act07.jpg'),
+  'lessons/emotions/act08.jpg': require('../../assets/lessons/emotions/act08.jpg'),
+  'lessons/emotions/act09.jpg': require('../../assets/lessons/emotions/act09.jpg'),
+  'lessons/emotions/act10.jpg': require('../../assets/lessons/emotions/act10.jpg'),
+  'lessons/emotions/act11.jpg': require('../../assets/lessons/emotions/act11.jpg'),
+  // b1.39 Courriels et lettres
+  'lessons/courriels-lettres/act01.jpg': require('../../assets/lessons/courriels-lettres/act01.jpg'),
+  'lessons/courriels-lettres/act02.jpg': require('../../assets/lessons/courriels-lettres/act02.jpg'),
+  'lessons/courriels-lettres/act03.jpg': require('../../assets/lessons/courriels-lettres/act03.jpg'),
+  'lessons/courriels-lettres/act04.jpg': require('../../assets/lessons/courriels-lettres/act04.jpg'),
+  'lessons/courriels-lettres/act05.jpg': require('../../assets/lessons/courriels-lettres/act05.jpg'),
+  'lessons/courriels-lettres/act06.jpg': require('../../assets/lessons/courriels-lettres/act06.jpg'),
+  'lessons/courriels-lettres/act07.jpg': require('../../assets/lessons/courriels-lettres/act07.jpg'),
+  'lessons/courriels-lettres/act08.jpg': require('../../assets/lessons/courriels-lettres/act08.jpg'),
+  'lessons/courriels-lettres/act09.jpg': require('../../assets/lessons/courriels-lettres/act09.jpg'),
+  'lessons/courriels-lettres/act10.jpg': require('../../assets/lessons/courriels-lettres/act10.jpg'),
+  'lessons/courriels-lettres/act11.jpg': require('../../assets/lessons/courriels-lettres/act11.jpg'),
+  'lessons/courriels-lettres/act12.jpg': require('../../assets/lessons/courriels-lettres/act12.jpg'),
 };
 
 const ALT: Record<string, string> = {
@@ -883,6 +908,31 @@ const ALT: Record<string, string> = {
   'lessons/masterclass/push.jpg': 'A row of shapes where only the last one is raised and larger than the rest.',
   'lessons/masterclass/speed.jpg': 'A hand catches a falling object without looking, the movement already complete.',
   'lessons/masterclass/roundup.jpg': 'Three nested measuring tools stacked together into one compact object.',
+  // b1.35 Les émotions
+  'lessons/emotions/act01.jpg': 'One person receiving news, and the feeling spreading from it.',
+  'lessons/emotions/act02.jpg': 'One feeling growing in four clear steps.',
+  'lessons/emotions/act03.jpg': 'One person and one letter, and the quiet after bad news.',
+  'lessons/emotions/act04.jpg': 'One needle moving towards the strong end of a dial.',
+  'lessons/emotions/act05.jpg': 'Three people waiting, each carrying the worry differently.',
+  'lessons/emotions/act06.jpg': 'One silence, and the warmth that breaks it.',
+  'lessons/emotions/act07.jpg': 'A weight let go, the before and the after side by side.',
+  'lessons/emotions/act08.jpg': 'One feeling with two possible roads after it: back to yourself, or on to someone else.',
+  'lessons/emotions/act09.jpg': 'One person and a feeling that turns from worry to belonging.',
+  'lessons/emotions/act10.jpg': 'One person listening to another, without words.',
+  'lessons/emotions/act11.jpg': 'Two messages crossing, and the feeling they carry.',
+  // b1.39 Courriels et lettres
+  'lessons/courriels-lettres/act01.jpg': 'A tilted sofa, a blank glowing laptop and a friend about to say something.',
+  'lessons/courriels-lettres/act02.jpg': 'One page assembled from five blank coloured bands.',
+  'lessons/courriels-lettres/act03.jpg': 'One envelope shape repeated three times, each dressed for a different occasion, none of them wrong.',
+  'lessons/courriels-lettres/act04.jpg': 'The first thing inside the door: one envelope in a pool of light.',
+  'lessons/courriels-lettres/act05.jpg': 'A small farewell gathering, with one yes and one kind no.',
+  'lessons/courriels-lettres/act06.jpg': 'Three separate, tidy questions handed across a counter.',
+  'lessons/courriels-lettres/act07.jpg': 'Facts gathered calmly on a table: a bill, a folder, a steady hand.',
+  'lessons/courriels-lettres/act08.jpg': 'One letter travelling from one warm place to another.',
+  'lessons/courriels-lettres/act09.jpg': 'A missed meeting and a folder of notes offered with both hands.',
+  'lessons/courriels-lettres/act10.jpg': 'A path of stones with a blank signpost at every step.',
+  'lessons/courriels-lettres/act11.jpg': 'A pause, a lamp and a magnifying glass over a page.',
+  'lessons/courriels-lettres/act12.jpg': 'One sealed envelope going into a mailbox, the job done.',
 };
 
 export function lessonImage(ref: string): ImageSourcePropType | undefined {

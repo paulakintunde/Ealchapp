@@ -743,8 +743,16 @@ export function looksLikeCorpus(v: unknown): v is Corpus {
  *  size. At 50 MiB that is a plausible OOM on a low-end Android heap, and it is
  *  now the binding constraint rather than the transfer. This raise buys room to
  *  roughly double the corpus; it does not make the number free, and the
- *  slimming follow-up above is closer than it was, not further away. */
-export const MAX_SNAPSHOT_BYTES = 50 * 1024 * 1024;
+ *  slimming follow-up above is closer than it was, not further away.
+ *
+ *  Raised 50 MiB → 80 MiB (Paul, 2026-09-27), chosen over per-band lesson
+ *  packs and over taking B1 out of the binary. v75 is 38.3 MB with all of B1
+ *  but five lessons; B1 lessons run ~232 KB each, so B2's 34 would land at
+ *  about 51 MB, on the old line. The parse-cost warning above applies in
+ *  full. AND: a device enforces the ceiling of the BUILD it runs, so a
+ *  snapshot past 50 MiB is refused by every install that predates this
+ *  change. Ship this in a binary or OTA well before a publish crosses 50. */
+export const MAX_SNAPSHOT_BYTES = 80 * 1024 * 1024;
 
 export type VerifyResult =
   | { ok: true; corpus: Corpus }

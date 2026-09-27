@@ -38,7 +38,7 @@ import { dirname, resolve } from 'node:path';
 import { validateCorpus } from '../../ealch-v2/src/content/schema.ts';
 import { itemsReferencedBy } from './seed-cut.logic.ts';
 import {
-  B1_SLUGS, applyDedupe, dbRowToItem, mergeIntoSeed, normaliseItem, sameDoc, unitBody, type Obj, type SeedLike,
+  B1_SLUGS, addMissingThemes, applyDedupe, dbRowToItem, mergeIntoSeed, normaliseItem, sameDoc, unitBody, type Obj, type SeedLike, type ThemeRow,
 } from './b1-import.logic.ts';
 import { loadLesson, resolveDedupe } from './b1-import.ts';
 
@@ -102,6 +102,7 @@ async function buildTrialSeed() {
   const items = new Map<string, Obj>();
   const perLesson: string[] = [];
   let bandAuthored: Set<string>;
+  let themeRows: ThemeRow[] = [];
   try {
     await c.query('set session characteristics as transaction read only');
     const twins = await resolveDedupe(c, source);
@@ -139,6 +140,10 @@ async function buildTrialSeed() {
       perLesson.push(`  ${String(x.lesson.id).padEnd(9)} ${x.slug.padEnd(24)} ${String(ids.length).padStart(4)} refs (${fromSrc} source, ${fromDb} published), ${x.deduped.length} twins deduped`);
     }
     if (missing.length) die(`${missing.length} referenced id(s) are neither B1-authored nor published:\n  ${missing.slice(0, 12).join('\n  ')}`);
+    const themeQ = await c.query<ThemeRow>(
+      `select slug, title, domain, level_range_lo::text as level_range_lo, level_range_hi::text as level_range_hi,
+              exam_flag, immig_flag, sub_themes from content_themes`);
+    themeRows = themeQ.rows;
   } finally {
     c.release();
     await pool.end();
@@ -151,8 +156,10 @@ async function buildTrialSeed() {
     die(`mergeIntoSeed refused: ${(e as Error).message}`);
   }
   const s = merged.stats;
+  const newThemes = addMissingThemes(merged.seed as never, themeRows);
   console.log(`B1 TRIAL MERGE  (HEAD seed v${seed.version} + ${ONLY ? ONLY.size : B1_SLUGS.length} source lessons${ONLY ? ' (--only)' : ''}; Postgres read-only)`);
   for (const l of perLesson) console.log(l);
+  if (newThemes.length) console.log(`  themes +${newThemes.length} carried from Postgres into the catalogue: ${newThemes.join(', ')}`);
   if (carried.length) console.log(`  playlists carried from the working-tree seed (changed since HEAD): ${carried.join(', ')}`);
   if (a103Moved) console.log('  ! a1.03.l1 re-rendered from genre-lesson.ts (its printed figures moved). Postgres still holds the old body: it must be updated before a publish.');
   console.log(`  units +${s.unitsAdded.length} added, ${s.unitsReplaced.length} replaced | lessons +${s.lessonsAdded.length} added, ${s.lessonsReplaced.length} replaced ${s.lessonsReplaced.length ? JSON.stringify(s.lessonsReplaced) : ''}`);

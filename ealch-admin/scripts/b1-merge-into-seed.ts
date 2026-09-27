@@ -38,7 +38,7 @@ import { validateCorpus } from '../../ealch-v2/src/content/schema.ts';
 import { itemsReferencedBy } from './seed-cut.logic.ts';
 import { SEED_CUT } from './seed-cut.config.ts';
 import {
-  B1_SLUGS, applyDedupe, dbRowToItem, mergeIntoSeed, sameDoc, unitBody, type SeedLike,
+  B1_SLUGS, applyDedupe, dbRowToItem, addMissingThemes, type ThemeRow, mergeIntoSeed, sameDoc, unitBody, type SeedLike,
 } from './b1-import.logic.ts';
 import { loadLesson, resolveDedupe } from './b1-import.ts';
 
@@ -76,6 +76,7 @@ async function main() {
   const units: Record<string, unknown>[] = [];
   const lessons: Record<string, unknown>[] = [];
   const items = new Map<string, Record<string, unknown>>();
+  let themeRows: ThemeRow[] = [];
   try {
     // The SAME twin decision the import made, so the lesson compared against
     // Postgres is the rewritten one, and the published twin rows it now names
@@ -109,6 +110,10 @@ async function main() {
       const pulledTwins = ids.filter((id) => targets.has(id)).length;
       console.log(`  ${x.lesson.id.padEnd(9)} ${x.slug.padEnd(22)} ${String(ids.length).padStart(4)} referenced items read from Postgres, ${pulledTwins} of them published rows a twin was deduped to (${x.deduped.length} twins dropped)`);
     }
+    const themeQ = await c.query<ThemeRow>(
+      `select slug, title, domain, level_range_lo::text as level_range_lo, level_range_hi::text as level_range_hi,
+              exam_flag, immig_flag, sub_themes from content_themes`);
+    themeRows = themeQ.rows;
   } finally {
     c.release();
     await pool.end();
@@ -127,10 +132,8 @@ async function main() {
   if (stats.itemsLeftAlone.length) {
     console.log(`  ! ${stats.itemsLeftAlone.length} referenced row(s) not owned by B1 differ from Postgres and were LEFT AS THE SEED HAS THEM (a publish carries the DB copy): ${stats.itemsLeftAlone.join(', ')}`);
   }
-  const added = new Set(stats.itemsAdded);
-  const newThemes = [...new Set([...items.values()].filter((i) => added.has(i.id as string)).map((i) => i.theme as string))]
-    .filter((t) => !((seed.themes ?? []) as { slug: string }[]).some((th) => th.slug === t));
-  if (newThemes.length) console.log(`  ! themes not in the seed's catalogue (it arrives at the next publish): ${newThemes.join(', ')}`);
+  const newThemes = addMissingThemes(merged.seed as never, themeRows);
+  if (newThemes.length) console.log(`  themes +${newThemes.length} carried from Postgres into the seed's catalogue: ${newThemes.join(', ')}`);
 
   const issuesAfter = validateCorpus(merged.seed);
   if (issuesAfter.length > issuesBefore) {

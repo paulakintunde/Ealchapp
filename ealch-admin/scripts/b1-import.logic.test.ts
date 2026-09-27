@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import { deepStrictEqual, ok, strictEqual, throws } from 'node:assert';
 import {
-  B1_SLUGS, authoredFloors, crossLessonClashes, dbRowToItem, mergeIntoSeed, normaliseItem,
+  B1_SLUGS, addMissingThemes, authoredFloors, crossLessonClashes, dbRowToItem, mergeIntoSeed, normaliseItem,
   planLesson, sameItem, twinCount, unitBody, versionVerdict, headwordClashes, headwordKey,
   normFr, declaredTwins, decideTwins, rewriteIds, applyDedupe,
   type DbState, type LessonInput,
@@ -43,7 +43,7 @@ const ctx = { reapply: false, runAuthored: new Set(['fr.b1.recits-au-passe.1401'
 
 test('the slug registry lists every authored lesson once', () => {
   strictEqual(new Set(B1_SLUGS).size, B1_SLUGS.length);
-  strictEqual(B1_SLUGS.length, 34);
+  strictEqual(B1_SLUGS.length, 39);
   strictEqual(B1_SLUGS[0], 'imparfait-formation');
 });
 
@@ -353,4 +353,17 @@ test('applyDedupe drops the twin row and rewrites the lesson, and the plan then 
   deepStrictEqual(p.insert, ['fr.b1.recits-au-passe.1401']);
   strictEqual(p.reusedPublished, 1);
   deepStrictEqual(p.blockers, []);
+});
+
+test('addMissingThemes carries a Postgres-only theme into the catalogue, in slug order, and touches nothing else', () => {
+  const kept = { slug: 'affaires', title: 'Les affaires', domain: 'travail', levelRange: ['b1', 'b2'], examFlag: false, immigFlag: false, subThemes: [] };
+  const seed = { themes: [kept, { slug: 'emotions' }], items: [{ id: 'a', theme: 'affaires' }, { id: 'b', theme: 'correspondance' }, { id: 'c', theme: 'rythme' }] };
+  const row = (slug: string) => ({ slug, title: 'T ' + slug, domain: 'fondations', level_range_lo: 'b1', level_range_hi: 'b2', exam_flag: false, immig_flag: false, sub_themes: ['x'] });
+  // 'rythme' has no Postgres row (the uncatalogued sons themes): left alone, not invented.
+  const added = addMissingThemes(seed as never, [row('correspondance'), row('affaires')]);
+  deepStrictEqual(added, ['correspondance']);
+  deepStrictEqual(seed.themes.map((t) => t.slug), ['affaires', 'correspondance', 'emotions']);
+  deepStrictEqual(seed.themes[0], kept);
+  deepStrictEqual(seed.themes[1], { slug: 'correspondance', title: 'T correspondance', domain: 'fondations', levelRange: ['b1', 'b2'], examFlag: false, immigFlag: false, subThemes: ['x'] });
+  deepStrictEqual(addMissingThemes(seed as never, [row('correspondance')]), []);
 });

@@ -1378,6 +1378,22 @@ export type DueExamSkill = {
 };
 
 /**
+ * The lesson a band's failed open skill sends the learner to, when it is not
+ * simply "the first lesson with that Lesson.skill". Keyed `skill@band`.
+ *
+ * Needed because Lesson.skill does two jobs. It says what a lesson remediates,
+ * and at B1 nearly every grammar lesson says 'PE' (they end on a written task),
+ * so a failed B1 writing section would land on b1.01, the imparfait, rather
+ * than on the capstone built for it: b1.39, emails and letters (Paul, the
+ * B1-C2 sequence: "the B1 PE remediation target"). A named target wins; when
+ * it is absent from the corpus (not yet published, or cut) the old first-match
+ * rule still answers, so this can never turn a resolvable skill into null.
+ */
+export const EXAM_PREP_TARGETS: Readonly<Record<string, string>> = {
+  'PE@b1': 'b1.39.l1',
+};
+
+/**
  * OPEN misses, grouped by (format, skill, band) — the granularity a bad essay
  * or a shaky monologue can actually be blamed at — each resolved to the real
  * lesson that remediates it. See the module note above for why this is a
@@ -1390,7 +1406,10 @@ export function dueExamSkills(results: ExamResult[], lessons: Lesson[]): DueExam
     if (!OPEN_EXAM_TASK_TYPES.has(r.taskType) || r.passed) continue;
     const key = `${r.format}::${r.skill}::${r.band}`;
     if (seen.has(key)) continue;
-    const lesson = lessons.find((l) => l.skill === r.skill && l.level === r.band);
+    const target = EXAM_PREP_TARGETS[`${r.skill}@${r.band}`];
+    const lesson =
+      (target ? lessons.find((l) => l.id === target) : undefined) ??
+      lessons.find((l) => l.skill === r.skill && l.level === r.band);
     seen.set(key, { format: r.format, skill: r.skill, band: r.band, prepLessonId: lesson?.id ?? null });
   }
   return [...seen.values()];

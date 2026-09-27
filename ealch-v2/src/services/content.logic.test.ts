@@ -664,14 +664,15 @@ test('the snapshot ceiling is a real number and the current seed clears it', () 
   // The ceiling exists on both ends (publish refuses to produce, the app
   // refuses to parse); this pins it against accidental edits to something
   // meaninglessly small or absurdly large. Band widened with the deliberate
-  // 30 MiB raise (2026-07-28) and again with the 50 MiB raise (2026-09-07),
-  // when v66 at 26 MiB left only four MiB of headroom.
+  // 30 MiB raise (2026-07-28), again with the 50 MiB raise (2026-09-07),
+  // when v66 at 26 MiB left only four MiB of headroom, and with the 80 MiB
+  // raise (2026-09-27), when B2 at B1's lesson density projected to ~51 MB.
   //
   // The upper bound is not decoration. The download streams to disk now, so
   // transfer scales, but verify still parses the whole snapshot in memory —
   // so an accidental extra zero here is an OOM on a low-end device, not a
   // slow launch.
-  ok(MAX_SNAPSHOT_BYTES >= 1024 * 1024 && MAX_SNAPSHOT_BYTES <= 64 * 1024 * 1024);
+  ok(MAX_SNAPSHOT_BYTES >= 1024 * 1024 && MAX_SNAPSHOT_BYTES <= 96 * 1024 * 1024);
 });
 
 // ── mergeArticleTiles: the article travels with its noun (Phase 6b) ──────────

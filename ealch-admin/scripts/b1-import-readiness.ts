@@ -31,6 +31,8 @@ const SLUGS = [
   // waves 7 to 9
   'registres', 'tu-ou-vous', 'expressions-corps', 'expressions-animaux', 'expressions-couleurs',
   'coordination', 'subordination', 'concession', 'environnement', 'strategies-lecture',
+  // waves 10 and 11
+  'medias', 'emotions', 'affaires', 'strategies-ecoute', 'courriels-lettres',
 ];
 
 type Row = { id: string; theme?: string; level?: string };

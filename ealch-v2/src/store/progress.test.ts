@@ -15,6 +15,7 @@ import {
   dueBacklog,
   dueCards,
   dueExamSkills,
+  EXAM_PREP_TARGETS,
   foldCards,
   gradeAttempt,
   goalTarget,
@@ -1293,6 +1294,20 @@ test('dueExamSkills reports null, not silently nothing, when no prep lesson exis
 test('dueExamSkills ignores passed results and closed task types', () => {
   deepStrictEqual(dueExamSkills([examResult({ passed: true })], []), []);
   deepStrictEqual(dueExamSkills([examResult({ taskType: 'co_mcq', skill: 'CO' })], []), []);
+});
+
+test('dueExamSkills sends a failed B1 writing section to the B1 capstone, not the first PE lesson', () => {
+  // Nearly every B1 grammar lesson says skill 'PE'. Without the named target the
+  // first of them (the imparfait) would be the "remediation" for a bad letter.
+  const mk = (id: string): Lesson => ({
+    id, unitId: id.slice(0, 5), seq: 1, title: id, level: 'b1', tag: 'B1',
+    intro: '', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1, skill: 'PE',
+  });
+  const r = examResult({ format: 'tef_canada' as ExamResult['format'], band: 'b1' });
+  strictEqual(EXAM_PREP_TARGETS['PE@b1'], 'b1.39.l1');
+  deepStrictEqual(dueExamSkills([r], [mk('b1.01.l1'), mk('b1.39.l1')]).map((d) => d.prepLessonId), ['b1.39.l1']);
+  // Target not in the corpus yet: the first-match rule still answers, never null.
+  deepStrictEqual(dueExamSkills([r], [mk('b1.01.l1')]).map((d) => d.prepLessonId), ['b1.01.l1']);
 });
 
 test('dueExamSkills dedupes repeated misses at the same (format, skill, band)', () => {

@@ -31,9 +31,46 @@ export const B1_SLUGS = [
   'cest-il-est', 'tout', 'meme',
   'registres', 'tu-ou-vous', 'expressions-corps', 'expressions-animaux', 'expressions-couleurs',
   'coordination', 'subordination', 'concession', 'environnement', 'strategies-lecture',
+  // waves 10 and 11
+  'medias', 'emotions', 'affaires', 'strategies-ecoute', 'courriels-lettres',
 ] as const;
 
 export type Obj = Record<string, unknown>;
+
+/** A content_themes row, as b1-merge-into-seed.ts and b1-trial-merge.ts read it. */
+export type ThemeRow = {
+  slug: string; title: string; domain: string; level_range_lo: string; level_range_hi: string;
+  exam_flag: boolean; immig_flag: boolean; sub_themes: string[] | null;
+};
+
+/**
+ * Put every theme the merged items use, and the seed's catalogue lacks, into
+ * seed.themes, shaped exactly as publish-content.ts shapes it, in slug order.
+ *
+ * A B1 lesson can open a NEW theme (b1.39 opened `correspondance`), and it
+ * exists in Postgres only until a publish carries it. Merging its items without
+ * the theme row leaves them on a theme no hub lists, which catalogue-ships.test
+ * refuses. Existing theme rows are never touched: a publish refreshes those.
+ * Returns the slugs added; a slug with no Postgres row is the caller's error.
+ */
+export function addMissingThemes(seed: { themes?: Obj[]; items: Obj[] }, rows: ThemeRow[]): string[] {
+  const have = new Set((seed.themes ?? []).map((t) => t.slug as string));
+  const used = [...new Set(seed.items.map((i) => i.theme as string))].filter((t) => t && !have.has(t));
+  const bySlug = new Map(rows.map((r) => [r.slug, r]));
+  const add = used.filter((t) => bySlug.has(t)).sort();
+  if (!add.length) return [];
+  const themes = [...(seed.themes ?? [])];
+  for (const slug of add) {
+    const r = bySlug.get(slug)!;
+    themes.push({
+      slug: r.slug, title: r.title, domain: r.domain, levelRange: [r.level_range_lo, r.level_range_hi],
+      examFlag: r.exam_flag, immigFlag: r.immig_flag, subThemes: r.sub_themes ?? [],
+    });
+  }
+  themes.sort((a, b) => String(a.slug).localeCompare(String(b.slug)));
+  seed.themes = themes;
+  return add;
+}
 export type AuthoredRow = Obj & { id: string; theme: string; level: string };
 
 /* ── ITEM IDENTITY ─────────────────────────────────────────────────────── */
