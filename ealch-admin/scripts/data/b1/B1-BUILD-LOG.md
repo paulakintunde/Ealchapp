@@ -43,12 +43,12 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.31 | subordination | 86 | 11 | 11x8 | 11 | 5 | 20 | 191 | 11 prompts, art not made | DONE |
 | b1.32 | concession | 87 | 11 | 11x8 | 11 | 5 | 16 | 187 | 11 prompts, art not made | DONE |
 | b1.33 | environnement (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 200 | 11 prompts, art not made | DONE |
-| b1.34 | medias (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 186 | 11 prompts, art is Paul's to make | DRAFT, gate 4 |
-| b1.35 | emotions (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 178 | 11 images, registered + alt | DRAFT, gate 4 |
-| b1.36 | affaires (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 182 | acts 1-9 on disk, 10-11 Paul's; not registered | DRAFT, gate 4 |
+| b1.34 | medias (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 186 | 11 images, registered + alt | DONE |
+| b1.35 | emotions (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 178 | 11 images, registered + alt | DONE |
+| b1.36 | affaires (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 182 | 11 images, registered + alt | DONE |
 | b1.37 | strategies-lecture (workshop) | 77 | 11 | 11x8 | 11 | 5 | 13 | 191 | 11 images, registered + alt | DONE |
-| b1.38 | strategies-ecoute (workshop) | 73 | 11 | 11x8 | 11 | 5 | 13 | 185 | 11 prompts, art is Paul's to make | DRAFT, gate 4 |
-| b1.39 | courriels-lettres (workshop, B1 capstone) | 77 | 12 | 11x8 | 11 | 5 | 11 | 161 | 12 images, registered + alt | DRAFT, gate 4 |
+| b1.38 | strategies-ecoute (workshop) | 73 | 11 | 11x8 | 11 | 5 | 13 | 185 | 11 images, registered + alt | DONE |
+| b1.39 | courriels-lettres (workshop, B1 capstone) | 77 | 12 | 11x8 | 11 | 5 | 11 | 161 | 12 images, registered + alt | DONE |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
 
@@ -57,6 +57,8 @@ independently by the orchestrator. That is EIGHTEEN lessons authored and NONE
 has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
+
+**B1 IS COMPLETE, 2026-09-27: content v76 PUBLISHED (checksum 1bdcc2ca..., matching the dry run) with b1.34 to b1.36, b1.38 and b1.39. All 39 B1 lessons reach learners; the trail runs 1 to 39 with no gap. +1 theme (correspondance), +5 units, +5 lessons, +890 items, no deletions, snapshot 39.9 MB (ceiling now 80 MiB in the app, 50 MiB on installs that predate the raise). Paul made the last 24 images. NEXT: B2, exam gaps first (b2.23, b2.25, b2.26, b2.22), per B1-C2-BUILD-SEQUENCE.md.**
 
 **WAVES 10 AND 11 DRAFTED 2026-09-27 (`f269c5c`): b1.34 to b1.36, b1.38, b1.39, the last five B1 lessons. Every validator 0, app checks 0,
 import dry run 890 rows / 0 blockers, trial merge green except the art tests. REVIEW GATE 4 PASSED 2026-09-27; import and publish (v76) wait only on the 24 images.**
