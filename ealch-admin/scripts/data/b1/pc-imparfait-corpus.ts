@@ -37,7 +37,10 @@
 //  2. ID BLOCK: this lesson owns `.201`-`.299` and `.1000`-`.1199`. b1.01 owns
 //     `.001`-`.099` + `.401`-`.799`, b1.02 `.101`-`.199` + `.800`-`.999`,
 //     b1.04 `.301`-`.399` + `.1200`-`.1399`. Used here: `.201`-`.281` (the
-//     pilot rows, kept) and `.1000`-`.1161`. 139 rows in ten act blocks.
+//     pilot rows, kept) and `.1000`-`.1161`. 137 rows in ten act blocks.
+//     `.1115` and `.1117` are retired (2026-09-26): « d'habitude » and
+//     « chaque été » are b1.02's headwords (`.1514`, `.1515`), so act 8 names
+//     those by id instead of authoring the same flashcard twice.
 //  3. The seed cut holds NO row for « je dormais », « a sonné », « soudain »,
 //     « j'ai habité », « je me suis levé », « il faisait noir » or « tous les
 //     jours » + passé composé, so they are authored here. Re-probe at import.
@@ -188,7 +191,11 @@ export const IMPORTED = {
     'fr.a2.heure-et-date.138',                // La semaine dernière, il a fait très froid.
   ],
   act7: ['fr.a2.deplacements.011'],           // Il faisait froid et nous avons pris un taxi pour rentrer.  (named only)
-  act8: ['fr.sons.liaisons.048'],             // Tout à coup, la lumière s'est éteinte.  (named only)
+  act8: [
+    'fr.sons.liaisons.048',                   // Tout à coup, la lumière s'est éteinte.  (named only)
+    'fr.b1.recits-au-passe.1514',             // d'habitude   (b1.02 owns the headword)
+    'fr.b1.recits-au-passe.1515',             // chaque été   (b1.02 owns the headword)
+  ],
   act9: [] as string[],
   act10: ['fr.a2.objets.109'],                // J'ai laissé mon portefeuille à la maison, alors je n'ai pas payé.
 };
@@ -427,9 +434,7 @@ export const ACT8_ROWS: Row[] = [
   phrase(1112, 'tout à coup', 'all of a sudden', '/tu.ta.ku/', 'too-ta-KOO', ['indice']),
   phrase(1113, 'un jour', 'one day', '/œ̃ ʒuʁ/', 'uhⁿ ZHOOR', ['indice']),
   phrase(1114, 'tous les jours', 'every day', '/tu le ʒuʁ/', 'too lay ZHOOR', ['indice']),
-  phrase(1115, "d'habitude", 'usually', '/da.bi.tyd/', 'da-bee-TÜD', ['indice']),
   phrase(1116, 'ce jour-là', 'that day', '/sə ʒuʁ la/', 'suh zhoor-LA', ['indice']),
-  phrase(1117, 'chaque été', 'every summer', '/ʃak e.te/', 'shak ay-TAY', ['indice']),
   phrase(1118, 'une fois', 'once', '/yn fwa/', 'ün FWA', ['indice']),
 ];
 

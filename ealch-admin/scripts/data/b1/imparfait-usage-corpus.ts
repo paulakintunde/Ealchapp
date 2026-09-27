@@ -114,6 +114,16 @@ export const B103_UNIT = 'b1.03';
 export const B101_REF = 'la leçon précédente';
 export const B103_REF = 'la leçon suivante';
 
+/** The numbered house label, for a note that names b1.01 or b1.03 outside a
+ *  sentence that can say « précédente ». Planned seq until the b1 units are in
+ *  the seed (the same fallback as refFr in b1.03 and later). Never the raw id. */
+const B1_SEQ_FROM_PLAN: Record<string, number> = { 'b1.01': 1, 'b1.02': 2, 'b1.03': 3, 'b1.04': 4 };
+export function b1Label(unitId: string): string {
+  const planned = B1_SEQ_FROM_PLAN[unitId];
+  return planned ? `la leçon ${planned} du B1` : frRef(unitId);
+}
+export const B101_LABEL = b1Label(B101_UNIT);
+
 /** An A2 unit, cited in simple French: « la leçon 16 du niveau A2 ». Resolved
  *  through the shipped `unit.seq`, never typed. An unresolved id comes back
  *  unchanged, so a typo shows up as a raw id instead of a wrong number. */

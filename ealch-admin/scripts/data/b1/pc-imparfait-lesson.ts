@@ -25,8 +25,9 @@
 //    9  Annoter un récit            7   a 174-word narrative, marked verb by verb
 //   10  Raconter                   11   model, plan, role play, TASK, quiz, roundup
 //
-//   TOTAL 76 missions, 10 acts. Corpus: 139 authored rows in ten blocks plus
-//   22 reused seed rows, 155 of them released act by act through `deckTranche`.
+//   TOTAL 76 missions, 10 acts. Corpus: 137 authored rows in ten blocks plus
+//   22 reused seed rows and 2 of b1.02's, 155 of them released act by act
+//   through `deckTranche`.
 //   Chapter artwork: `pc-imparfait-image-prompts.md`, ten prompts, one per act.
 //
 // ══════════════════════════════════════════════════════════════════════════
@@ -434,7 +435,7 @@ const A2_DECOR: Sec<'cardDeck'> = {
       body: "Le café a commencé avant le bruit et il continue après. C'est le décor de l'action. EN: the coffee frames the noise.",
     },
     {
-      head: "Ce que b1.02 t'a déjà donné",
+      head: `Ce que ${IMP_USE_REF} t'a déjà donné`,
       label: Cap(IMP_USE_REF),
       fr: "il faisait froid · j'avais vingt ans",
       sub: '[eel fuh-zeh FRWA] · [zha-veh vehⁿ-TAHⁿ]',
@@ -1389,7 +1390,7 @@ const A6_REGLE: Sec<'cardDeck'> = {
       body: "La pluie est souvent le décor. Mais « toute la journée » ferme la durée. EN: a closed duration makes it an event.",
     },
     {
-      head: 'Ce que b1.02 disait déjà',
+      head: `Ce que ${IMP_USE_REF} disait déjà`,
       label: Cap(IMP_USE_REF),
       fr: 'deux heures · dix ans · toute la nuit',
       sub: '[deu-ZUHR] · [dee-ZAHⁿ] · [toot la NWEE]',
@@ -2440,7 +2441,7 @@ const A10_TASK: TaskSection = {
     'The interruption requirement is met by « quand » or « pendant que » with one ongoing imparfait and one passé composé event, in either clause order. « Quand » + two passés composés is a sequence, not an interruption.',
     'Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (72-132) before criterion « tache » loses its point.',
     'Narrator gender is unknown: judge être agreement for internal consistency only.',
-    'Do not score the meaning-shift verbs of b1.04 (savoir, connaître, vouloir, pouvoir, devoir, avoir) as errors in either tense.',
+    'Do not score the meaning-shift verbs of lesson 4 in B1 (savoir, connaître, vouloir, pouvoir, devoir, avoir) as errors in either tense.',
     'Accept regional vocabulary (dépanneuse / remorqueuse, char in Québec, taxi-brousse in West Africa).',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
   ],

@@ -227,7 +227,7 @@ const A1_LECTURE: Sec<'reading'> = {
   questionsInModal: true,
   title: 'Chez Mame, à Dakar',
   frSub: 'Lis d’abord. La règle vient après.',
-  text: "Sur la photo, on voit la maison de ma grand-mère, à Dakar. J'y passais toutes mes vacances quand j'étais petite. La maison n'était pas grande, mais il y avait une cour avec un manguier. Ma grand-mère commençait sa journée avant le soleil. Elle allait au marché, puis elle préparait le repas. À midi, nous mangions tous ensemble dans la cour. Nous étions souvent dix autour du plat. Mes cousins parlaient wolof avec elle, et moi, je répondais en français. L'après-midi, il faisait très chaud. Il fallait rester à l'ombre, alors nous jouions aux cartes. En août, il pleuvait fort, et la cour devenait une petite rivière. Aujourd'hui, j'habite à Montréal. La maison n'existe plus, mais j'ai encore la photo.",
+  text: "Sur la photo, on voit la maison de Mame, ma grand-mère, à Dakar. J'y passais toutes mes vacances quand j'étais petite. La maison n'était pas grande, mais il y avait une cour avec un manguier. Ma grand-mère commençait sa journée avant le soleil. Elle allait au marché, puis elle préparait le repas. À midi, nous mangions tous ensemble dans la cour. Nous étions souvent dix autour du plat. Mes cousins parlaient wolof avec elle, et moi, je répondais en français. L'après-midi, il faisait très chaud. Il fallait rester à l'ombre, alors nous jouions aux cartes. En août, il pleuvait fort, et la cour devenait une petite rivière. Aujourd'hui, j'habite à Montréal. La maison n'existe plus, mais j'ai encore la photo.",
   glossary: [
     { word: 'Mame', en: 'grandma', note: 'Mot wolof pour grand-mère, très courant au Sénégal. EN: Wolof word for grandmother.' },
     { word: 'un manguier', en: 'a mango tree', note: 'L’arbre qui donne les mangues. EN: the tree that bears mangoes.' },
@@ -1100,9 +1100,9 @@ const A6_LECTURE: Sec<'reading'> = {
   frSub: 'Nadia, Lausanne',
   text: "Chaque été, nous partions chez mes grands-parents, au bord du lac Léman. Mon grand-père voyageait beaucoup pour son travail, mais en juillet, il restait avec nous. Le matin, nous nagions dans le lac. L'eau était froide, alors je nageais vite. À midi, nous mangions sur la terrasse. Ma grand-mère changeait le menu tous les jours, mais le dessert, lui, ne changeait pas : une tarte aux abricots. Mon petit frère bougeait tout le temps et il mangeait debout. Nous partagions une chambre sous le toit, et le soir, nous rangions nos affaires avant de dormir.",
   glossary: [
-    { word: 'le lac Léman', en: 'Lake Geneva', note: 'Le grand lac entre la Suisse et la France. EN: between Switzerland and France.' },
+    { word: 'lac Léman', en: 'Lake Geneva', note: 'Le grand lac entre la Suisse et la France. EN: between Switzerland and France.' },
     { word: 'la terrasse', en: 'the terrace', note: 'Un espace dehors, à côté de la maison. EN: an outdoor space by the house.' },
-    { word: 'des abricots', en: 'apricots', note: 'Un fruit orange de l’été. EN: an orange summer fruit.' },
+    { word: 'abricots', en: 'apricots', note: 'Un fruit orange de l’été. EN: an orange summer fruit.' },
     { word: 'debout', en: 'standing up', note: 'Pas assis. EN: not sitting.' },
     { word: 'sous le toit', en: 'under the roof', note: 'En haut de la maison. EN: in the attic room.' },
   ],
@@ -2235,7 +2235,7 @@ const A12_TALK: Sec<'scenario'> = {
     {
       ai: "Et l'hiver, il faisait froid chez toi ?", en: 'And in winter, was it cold where you lived?',
       user: 'Oui, il faisait froid et il neigeait souvent.', userEn: 'Yes, it was cold and it often snowed. (neigeait: e before a)',
-      alts: [{ fr: 'Non, il faisait chaud toute l’année.', en: 'No, it was hot all year round.' }, { fr: 'Il pleuvait beaucoup, alors il fallait rester dedans.', en: 'It rained a lot, so we had to stay in.' }],
+      alts: [{ fr: "Non, il faisait chaud toute l'année.", en: 'No, it was hot all year round.' }, { fr: 'Il pleuvait beaucoup, alors il fallait rester dedans.', en: 'It rained a lot, so we had to stay in.' }],
     },
   ],
   audio: AUDIO,
@@ -2310,7 +2310,7 @@ const A12_TASK: TaskSection = {
   ],
   graderNotes: [
     'Formative lesson task, not an exam: judge the criteria and quote the learner’s own forms back. Never report a band.',
-    'Do NOT penalise correctly formed passé composé; the usage contrast is b1.03/b1.04. Only mark a present tense used for the past.',
+    'Do NOT penalise correctly formed passé composé; the usage contrast belongs to lesson 3 in B1 and lesson 4 in B1. Only mark a present tense used for the past.',
     'Count distinct imparfait VERBS, not tokens. il y avait counts as avoir.',
     'on + imparfait (on mangeait) is correct and counts.',
     'Accents: do not deduct for a missing é unless it makes another word. The cedilla on -cer DOES count (orthographe).',
