@@ -218,6 +218,9 @@ export function examCutDrift(
 export function buildCoreSeed(core: Corpus, cut: Pick<SeedCut, 'themes' | 'speakWorlds'>): Corpus {
   const speakPath = (core.speakPath ?? []).filter((s) => cut.speakWorlds.includes(s.world));
   const needed = neededItemIds(core.lessons, speakPath);
+  // The free exam papers' targets too, where the core holds them: a task that
+  // names an item the seed cut dropped fails validateCorpus on a fresh install.
+  for (const t of core.examTasks ?? []) for (const id of t.targetItemIds ?? []) needed.add(id);
   const items = core.items.filter((i) => needed.has(i.id) || cut.themes.includes(i.theme));
   return {
     version: core.version,
@@ -229,5 +232,8 @@ export function buildCoreSeed(core: Corpus, cut: Pick<SeedCut, 'themes' | 'speak
     scenarios: core.scenarios ?? [],
     playlists: core.playlists ?? [],
     speakPath,
+    // The free papers ride in the core (content-packs.logic.ts FREE_EXAM_PAPERS),
+    // so a fresh offline install can open them too.
+    ...(core.examPapers?.length ? { examPapers: core.examPapers, examTasks: core.examTasks ?? [] } : {}),
   };
 }

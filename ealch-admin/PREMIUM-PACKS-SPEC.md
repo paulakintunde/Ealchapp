@@ -113,6 +113,7 @@ ceiling raise. Proven on the Pixel with two accounts:
 1. After expiry, cached packs stay on the device, locked, for 30 days, then are deleted.
 2. Packs download on any connection, mobile data included.
 3. Exam papers are their own `exam` pack behind the exam access level.
+4. **Free papers stay in the core** (2026-09-27): paper 1 of each format and its tasks (`FREE_EXAM_PAPERS` = 1, pinned to `RemoteConfig.examFreePapers`), in the core snapshot and the bundled core seed; the `exam` pack holds papers 2 and up. Core seed measured 5.88 MB (24.08 MB today).
 
 ## What was built (2026-09-27, code and tests only, nothing deployed)
 

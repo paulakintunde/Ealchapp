@@ -7,6 +7,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  FREE_EXAM_PAPERS,
   corpusFingerprint,
   itemHomes,
   itemPlacements,
@@ -52,8 +53,14 @@ function tiny(): Corpus {
     scenarios: [{ id: 'sc.a2.x.001', level: 'a2' }, { id: 'sc.a1.x.001', level: 'a1' }] as Corpus['scenarios'],
     playlists: [{ id: 'pl.b1', minLevel: 'b1' }] as Corpus['playlists'],
     speakPath: [{ id: 'speak.1.1', world: 1, seq: 1, level: 'sons', blocks: [] }] as unknown as Corpus['speakPath'],
-    examPapers: [{ id: 'paper.tef.x.1', sections: [] }] as unknown as Corpus['examPapers'],
-    examTasks: [{ id: 'exam.t1', targetItemIds: ['fr.b2.x.001'] }] as unknown as Corpus['examTasks'],
+    examPapers: [
+      { id: 'paper.tef.x.1', paperNo: 1, sections: [{ taskIds: ['exam.t1'] }] },
+      { id: 'paper.tef.x.2', paperNo: 2, sections: [{ taskIds: ['exam.t2'] }] },
+    ] as unknown as Corpus['examPapers'],
+    examTasks: [
+      { id: 'exam.t1', targetItemIds: ['fr.b2.x.001'] },
+      { id: 'exam.t2', targetItemIds: ['fr.b2.x.001'] },
+    ] as unknown as Corpus['examTasks'],
   };
 }
 
@@ -76,18 +83,20 @@ test('every item goes to exactly one place', () => {
   deepStrictEqual(split.pulledDown, { 'a2->a1': 1, 'b1->a2': 1 });
 });
 
-test('the core carries no paid lesson, no exam, and every paid unit as a skeleton', () => {
+test('the core carries no paid lesson, only the free exam paper, and every paid unit as a skeleton', () => {
   const { core, packs } = splitCorpus(tiny());
   deepStrictEqual(core.lessons.map((l) => l.id), ['a1.01.l1']);
-  strictEqual(core.examPapers, undefined);
-  strictEqual(core.examTasks, undefined);
+  // The free paper (paper 1 of each format) and its tasks stay in the core.
+  deepStrictEqual(core.examPapers?.map((x) => x.id), ['paper.tef.x.1']);
+  deepStrictEqual(core.examTasks?.map((x) => x.id), ['exam.t1']);
   deepStrictEqual(core.units.map((u) => u.id), ['a1.01', 'a2.01', 'b1.01', 'b2.01']);
   deepStrictEqual(core.units.find((u) => u.id === 'a2.01')?.outline, [{ lessonId: 'a2.01.l1', title: 'T a2.01.l1', acts: [{ title: 'Act', cards: 3 }] }]);
   strictEqual(core.units.find((u) => u.id === 'b2.01')?.outline, undefined, 'a lesson-less unit is its own skeleton');
   deepStrictEqual(core.scenarios.map((s) => s.id), ['sc.a1.x.001']);
   deepStrictEqual(packs.map((p) => p.pack), ['a2', 'b1', 'b2', 'exam']);
   const exam = packs.find((p) => p.pack === 'exam')!;
-  strictEqual(exam.examTasks?.length, 1);
+  deepStrictEqual(exam.examPapers?.map((x) => x.id), ['paper.tef.x.2']);
+  deepStrictEqual(exam.examTasks?.map((x) => x.id), ['exam.t2']);
   strictEqual(exam.items.length, 0);
 });
 
@@ -162,7 +171,9 @@ test('real seed: the free core validates on its own, and carries nothing paid bu
   deepStrictEqual(real.core.units.flatMap((u) => validateUnit(u)).slice(0, 5), [], 'every skeleton, outline included, is a valid unit');
   ok(real.core.units.some((u) => u.outline?.length), 'paid units carry outlines');
   ok(real.core.lessons.every((l) => ['sons', 'a1'].includes(l.unitId.split('.')[0])));
-  strictEqual((real.core.examTasks ?? []).length, 0);
+  const free = (seed.examPapers ?? []).filter((x) => x.paperNo === 1);
+  deepStrictEqual((real.core.examPapers ?? []).map((x) => x.id).sort(), free.map((x) => x.id).sort(), 'paper 1 of each format stays free');
+  strictEqual((real.core.examTasks ?? []).length, new Set(free.flatMap((x) => x.sections.flatMap((sec) => sec.taskIds ?? []))).size);
 });
 
 test('real seed: each paid band on top of the core validates, in fetch order', () => {
@@ -193,4 +204,11 @@ test('real seed: the core seed is a subset of the core and validates', () => {
   console.log(`  seed today (min) ${mb(JSON.stringify(seed))} MB | core seed (min) ${mb(JSON.stringify(coreSeed))} MB, pretty ${mb(JSON.stringify(coreSeed, null, 2))} MB`);
   console.log(`  core snapshot ${mb(stableStringify(real.core))} MB | ` + real.packs.map((p) => `${p.pack} ${mb(stableStringify(p))} MB`).join(' | '));
   console.log(`  pulled down: ${JSON.stringify(real.pulledDown)}`);
+});
+
+test('FREE_EXAM_PAPERS matches the app\'s free allowance (RemoteConfig.examFreePapers default)', () => {
+  const cfg = readFileSync(new URL('../../ealch-v2/src/services/config.ts', import.meta.url), 'utf8');
+  const m = cfg.match(/examFreePapers:\s*(\d+),/);
+  ok(m, 'config.ts must set a default examFreePapers');
+  strictEqual(Number(m![1]), FREE_EXAM_PAPERS, 'the core carries the papers the app lets a free user open; move both together');
 });

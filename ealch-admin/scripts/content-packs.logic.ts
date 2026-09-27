@@ -120,6 +120,20 @@ export function packOfBand(band: string | null): PackName | 'core' {
 }
 
 /** Split one validated corpus into the core and the packs. */
+/**
+ * Mock papers every learner may open: paper 1..FREE_EXAM_PAPERS of each format.
+ * They stay in the free CORE (Paul, 2026-09-27: "keep the free papers in the
+ * core"), with their tasks; every other paper is the `exam` pack. Mirrors the
+ * app's free allowance, `RemoteConfig.examFreePapers` (default 1 in
+ * ealch-v2/src/services/config.ts, pinned by a test): raising that remotely
+ * opens papers the core does not carry, so raise both together.
+ */
+export const FREE_EXAM_PAPERS = 1;
+
+export function isFreePaper(p: Pick<ExamPaper, 'paperNo'>): boolean {
+  return p.paperNo >= 1 && p.paperNo <= FREE_EXAM_PAPERS;
+}
+
 export function splitCorpus(corpus: Corpus): Split {
   const version = corpus.version;
   const homes = itemHomes(corpus);
@@ -164,6 +178,11 @@ export function splitCorpus(corpus: Corpus): Split {
   for (const p of corpus.playlists ?? []) into(packOfBand(p.minLevel)).playlists.push(p);
   for (const s of corpus.speakPath ?? []) into(packOfBand(s.level)).speakPath.push(s);
 
+  const allPapers: ExamPaper[] = corpus.examPapers ?? [];
+  const freePapers = allPapers.filter(isFreePaper);
+  const freeTaskIds = new Set(freePapers.flatMap((pp) => pp.sections.flatMap((sec) => sec.taskIds ?? [])));
+  const freeTasks = (corpus.examTasks ?? []).filter((t) => freeTaskIds.has(t.id));
+
   const coreCorpus: Corpus = {
     version,
     ...(corpus.domains ? { domains: corpus.domains } : {}),
@@ -176,13 +195,14 @@ export function splitCorpus(corpus: Corpus): Split {
     scenarios: core.scenarios,
     playlists: core.playlists,
     speakPath: core.speakPath,
+    ...(freePapers.length ? { examPapers: freePapers, examTasks: freeTasks } : {}),
   };
 
   const packs: PackBody[] = [];
   for (const name of PACK_ORDER) {
     if (name === EXAM_PACK) {
-      const examPapers: ExamPaper[] = corpus.examPapers ?? [];
-      const examTasks: ExamTask[] = corpus.examTasks ?? [];
+      const examPapers: ExamPaper[] = allPapers.filter((pp) => !isFreePaper(pp));
+      const examTasks: ExamTask[] = (corpus.examTasks ?? []).filter((t) => !freeTaskIds.has(t.id));
       if (examPapers.length || examTasks.length) {
         packs.push({ version, pack: EXAM_PACK, units: [], lessons: [], items: [], scenarios: [], examPapers, examTasks });
       }
