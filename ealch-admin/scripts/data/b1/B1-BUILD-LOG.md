@@ -54,6 +54,14 @@ has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
 
+**ALL 34 B1 LESSONS ARE LIVE, 2026-09-27: content v75 PUBLISHED (checksum 16f9f5be..., matching the dry run). +30 units, +30 lessons, +5,506 items, no deletions, snapshot 38.3 MB (limit 50 MiB: B2 will need the seed-cut size decision). b1.34 to b1.36, b1.38 and b1.39 are not yet written.**
+
+- **One import, one publish, not three batches** (Paul). Each batch alone moves the word counts a1.03 prints, so each would have needed its own a1.03 update.
+- **`scripts/b1-trial-merge.ts` is the test-before-apply step.** It builds HEAD seed + the source lessons, runs the full ealch-v2 suite, and restores seed.json byte-identical. `--only <slugs>` tests one batch alone. Run it BEFORE any `--apply`: the seed merge can only run after apply, because it reads Postgres.
+- **a1.03 moves with the seed.** Any change to which nouns the seed carries moves its printed ending counts: re-measure (`_a1_genre_remeasure.ts`), then `pnpm content:gender` (v14 stays v14) and `merge-noun-gender-into-seed.ts`, after the B1 merge.
+- **Bundling B1 brings B1 playlists into the seed.** pl.b1.societe carried the banned word; fixed to « la sincérité » in source, Postgres and seed.
+- **v74 phone check done:** b1.01 to b1.04 load from the published seed with art, progress and the graded task. The level gate is the paywall gate (B1 is not a free band); drafts no longer bypass it.
+
 **B1 IS LIVE, 2026-09-27: content v74 PUBLISHED with b1.01 to b1.04, the first B1 lessons to reach
 learners. REVIEW GATE 3 PASSED the same day: wave 10 (b1.34 media, b1.35 emotions, b1.36 business)
 is unblocked.**
