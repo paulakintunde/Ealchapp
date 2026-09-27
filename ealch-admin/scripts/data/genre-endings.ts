@@ -197,7 +197,8 @@ const MASCULINE: EndingRule[] = [
     // seed on 2026-08-16. Zero of that unit's 34 AUTHORED rows join this
     // population; all 18 joiners are IMPORTS. The accuracy did not move.
         // 28 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 28,
+        // 30 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population.
+    items: 30,
     article: 'un',
     // Elided on the card, deliberately: the ending is the only thing that gives
     // the article back, which is the act after next, previewed here on a word
@@ -550,7 +551,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // ends in -e as well as -ine. See the -ier note for why this oscillates.
     // The accuracy did not move.
         // 1044 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 1044,
+        // 1045 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population.
+    items: 1045,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -620,7 +622,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // point. Still far under the floor, so the lesson's dismissal is unchanged.
     accuracy: 53,
         // 74 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 74,
+        // 75 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population.
+    items: 75,
     bothWays: [
       { id: 'fr.a1.routines.103', fr: 'le café', en: 'the coffee' },
       { id: 'fr.a1.maison.022', fr: 'la clé', en: 'the key' },
@@ -661,7 +664,7 @@ export const MORE_ENDINGS: SheetEnding[] = [
   // flipped. See the note on -e in WORTHLESS_ENDINGS for why a packaging
   // decision moves figures printed on cards.
   { ending: 'in', predicts: 'm', accuracy: 98, items: 54 },   // 45 until a2.27 carried `le chemin`, 2026-08-16; 54 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
-  { ending: 'ent', predicts: 'm', accuracy: 97, items: 39 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16; 39 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ent', predicts: 'm', accuracy: 98, items: 41 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16; 39 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 41 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population
   { ending: 'ard', predicts: 'm', accuracy: 100, items: 19 }, // 17 until a2.27 carried `le retard`, 2026-08-16; 19 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'ant', predicts: 'm', accuracy: 100, items: 25 },   // 18 until a2.26, 2026-08-15; 22 since a2.32 carried `un identifiant` from BOTH internet and rp-technologie, 2026-08-16; 25 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 17 },   // 17 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
@@ -672,7 +675,7 @@ export const MORE_ENDINGS: SheetEnding[] = [
   // happens to end in the letters -ail and happens to be masculine, so the rule
   // holds by luck rather than by morphology. Worth knowing if it ever moves.
   { ending: 'ail', predicts: 'm', accuracy: 100, items: 8 },
-  { ending: 'ité', predicts: 'f', accuracy: 96, items: 26 },   // 26 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ité', predicts: 'f', accuracy: 96, items: 27 },   // 26 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 27 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population
   { ending: 'ance', predicts: 'f', accuracy: 100, items: 14 },// 10 until a2.27 carried `la correspondance`, 2026-08-16; 14 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'sion', predicts: 'f', accuracy: 100, items: 11 },   // 8 until a2.32 AUTHORED `la baladodiffusion`, 2026-08-16; 11 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
