@@ -113,3 +113,133 @@ ceiling raise. Proven on the Pixel with two accounts:
 1. After expiry, cached packs stay on the device, locked, for 30 days, then are deleted.
 2. Packs download on any connection, mobile data included.
 3. Exam papers are their own `exam` pack behind the exam access level.
+
+## What was built (2026-09-27, code and tests only, nothing deployed)
+
+- `ealch-admin/scripts/content-packs.logic.ts` splits one validated corpus into
+  the free core and one pack per paid band plus `exam`. An item goes to exactly
+  one place. An item a lesson borrows from a HIGHER band comes down to the
+  lowest band that names it (measured on the v76 seed: 5 a2 rows come down to
+  a1, 38 b1/b2 rows to a2, 32 b2 rows to b1), so a free lesson never has a
+  blank card and A2 never waits on B2. This is the one exception to "a pack
+  holds only its own level's items". Core + every pack, merged, equals the
+  legacy full snapshot (tested on the committed seed).
+- Paid units in the core are skeletons: the whole unit (a few hundred bytes)
+  plus a new optional `Unit.outline` (lesson id, title, act titles, card count
+  per act, narrated flag). `trail.logic.ts` draws a band's rows from it when
+  the lesson bodies are not on the device, so the trail looks the same.
+- The public core is ALL free content (every sons/a1 item); the bundled seed is
+  a cut of it (`buildCoreSeed` + `CORE_SEED_CUT`: same core themes, speak world
+  1). Measured on the current seed: core seed 5.60 MB minified (8.67 MB
+  pretty-printed as committed) against 24.08 MB minified today. On the same
+  seed: core snapshot 5.68 MB, a2 3.96 MB, b1 12.96 MB, b2 0.14 MB, c1 0.02 MB,
+  exam 1.37 MB. The seed is a cut of Postgres, so the published core will be
+  larger; a `--dry-run` prints the real figures.
+- `content:publish`: every run, dry runs included, splits, validates each
+  partial state (core alone, core + each band in fetch order, core + exam
+  alone, core seed) and prints every file with its size. `--packs` uploads the
+  core (public `content/core/vN.json`), each CHANGED pack (private
+  `content-packs/<pack>/vN.json`; an unchanged band keeps its old version and
+  is not re-uploaded) and `content/manifest-v2.json` last, and cuts the seed as
+  the free core. Without `--packs` the legacy snapshot, `manifest.json` and
+  seed publish exactly as before.
+- Edge function `content-pack-url`: JWT verified in the function, guests and
+  free users refused, the Adapty server API as the authority, the
+  `entitlements` mirror as the fallback when Adapty cannot answer
+  (unconfigured, 5xx, timeout, unreadable body). A 404 from Adapty
+  (`profile_does_not_exist`) is an answer: not entitled. Signs only the path
+  manifest-v2 lists, for 600 seconds.
+- App: `packs.logic.ts` (pure) and `packs.ts` (I/O). Packs sync on launch and
+  on every entitlement change (purchase, restore, foreground reconcile,
+  sign-in), A2 first, each streamed to a `.part` file, size-checked, checksum
+  verified, validated merged, then promoted to `Paths.document` and recorded.
+  A lapse stops merging at once; the bytes stay 30 days, then are deleted;
+  progress is never read or written. The app reads `manifest-v2.json` when it
+  exists and falls back to the legacy `manifest.json` path when it does not. A
+  device holding the legacy full snapshot swaps it for the core, but a
+  subscriber only once their packs are cached. `lesson.tsx` no longer falls
+  back to a free lesson for an absent paid one: the paywall for a free user,
+  "This level is on its way" for a subscriber whose pack is still downloading.
+
+### Not done, and why
+
+- `SEED_CUT` itself is unchanged: `CORE_SEED_CUT` sits beside it and is used
+  only under `--packs`. Flipping `SEED_CUT` today would break three things at
+  once: `b1-merge-into-seed.ts` (and the B2 pipeline built on it) refuses any
+  unit missing from `SEED_CUT.units`; about 48 app test files read A2/B1
+  lessons straight from `seed.json`; and a publish that uploads packs fails
+  until the private bucket exists.
+- `seed.json` was not regenerated (another session is merging into it).
+- The download indicator is a store (`usePackSync`: status, current pack,
+  done/total); no screen renders it yet.
+- Old `core/vN.json` and pack versions are not pruned by the publisher yet
+  (the legacy `snapshots/` prune is untouched). At about 6 MB of core per
+  publish, add them to `planPrune` before many `--packs` publishes pile up.
+- Exams, a decision for Paul: today `examGateOn` is false and one paper per
+  format is free. With every paper in the `exam` pack, a user without the exam
+  level sees NO papers once the seed is the core cut (decision 3 read
+  literally). If free papers should stay visible, the change is small: keep
+  them and their tasks in the core in `splitCorpus`.
+
+## Rollout steps (needs approval)
+
+Nothing below has been run. Project ref: `ogbothupjcivwruesgsu`.
+
+1. **Private bucket** (SQL editor):
+
+   ```sql
+   insert into storage.buckets (id, name, public, file_size_limit)
+   values ('content-packs', 'content-packs', false, 83886080)
+   on conflict (id) do update set public = false;
+   -- No storage.objects policy for anon or authenticated, on purpose: only the
+   -- service role (the publisher, and content-pack-url when signing) touches
+   -- it. Confirm nothing grants it:
+   select policyname, roles, cmd from pg_policies
+    where schemaname = 'storage' and tablename = 'objects'
+      and (qual ilike '%content-packs%' or with_check ilike '%content-packs%');
+   ```
+
+2. **Adapty secret** (the SECRET key, `secret_live_...`, Adapty App settings,
+   API keys). Optional: without it the function decides on the mirror alone
+   and logs `served_from_mirror`.
+
+   ```bash
+   npx supabase secrets set ADAPTY_SECRET_KEY=secret_live_... --project-ref ogbothupjcivwruesgsu
+   ```
+
+3. **Deploy the function:**
+
+   ```bash
+   cd ealch-v2
+   npx supabase functions deploy content-pack-url --project-ref ogbothupjcivwruesgsu --no-verify-jwt
+   ```
+
+4. **Before the first `--packs` publish:** migrate the app tests that read
+   A2/B1 from `seed.json` to a seed-plus-packs fixture, move
+   `b1-merge-into-seed.ts` and the B2 pipeline off `SEED_CUT.units`, and
+   settle the exam question above. Then:
+
+   ```bash
+   cd ealch-admin
+   pnpm content:publish --dry-run            # every file and size, uploads nothing
+   pnpm content:publish --packs --dry-run    # the same, with the core seed cut
+   pnpm content:publish --packs              # packs, core, legacy snapshot, manifest.json, manifest-v2.json, seed
+   ```
+
+5. **Verify storage and the function:** `manifest-v2.json` is public and holds
+   no content; a public URL under `content-packs/` fails; the function answers
+   403 for a free account and a working URL for a premium one:
+
+   ```bash
+   curl -s -X POST "https://ogbothupjcivwruesgsu.supabase.co/functions/v1/content-pack-url" \
+     -H "Authorization: Bearer <user access token>" -H "apikey: <anon key>" \
+     -H "Content-Type: application/json" -d '{"pack":"a2"}'
+   ```
+
+6. **Ship the app** (EAS build or update carrying packs.ts, the outline trail,
+   the lesson gate and the 80 MiB ceiling), then the Pixel pass from section 8
+   with a free and a premium account.
+
+7. **Later, once most installs run the new build:** stop publishing the full
+   public snapshot (section 7). Until then paid content stays publicly
+   downloadable through `snapshots/vN.json`.
