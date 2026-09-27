@@ -100,7 +100,7 @@ export const SUBJONCTIF_INFINITIF_TERMS: Record<string, LessonTerm> = {
     title: 'Quatre qui gardent toujours que',
     body: "Bien que, quoique, jusqu'à ce que et pourvu que n'ont pas de forme courte. « que » reste, même si la personne ne change pas : bien que je sois fatigué, je continue. Compter ne sert à rien ici. EN: These four have no short form, so que stays even when the person does not change.",
     examples: [
-      { itemId: E(1538), note: 'bien que, le bloc entier' },
+      { itemId: E(1148), note: 'bien que, le bloc entier' },
       { itemId: E(1542), note: 'la règle, en une ligne' },
       { itemId: E(1532), note: 'je suis fatigué, je finis : que reste' },
     ],

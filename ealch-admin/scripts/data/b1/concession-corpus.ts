@@ -249,7 +249,9 @@ export const IMPORTED = {
     'fr.b1.metiers.062',              // Quoiqu'il soit compétent, il n'a pas obtenu la promotion promise.  (named only)
   ],
   act4: [] as string[],               // §A.5: the seed carries no malgré row at a1-b1.
-  act5: [] as string[],               // §A.5: no pourtant, cependant, néanmoins or toutefois row in the seed.
+  act5: [                            // §A.5: no pourtant, cependant, néanmoins or toutefois row in the seed.
+    'fr.b1.connecteurs-logiques.1149', // pourtant   (b1.30 owns the headword; named, never re-authored)
+  ],
   act6: [
     'fr.a2.famille.012',              // Ma tante était malade, mais elle est venue au mariage quand même.  (named only)
   ],
@@ -450,7 +452,6 @@ export const ACT5_ROWS: Row[] = [
   sent(1477, "Je l'ai prévenu. Il a pourtant oublié.", 'I warned him. And yet he forgot.', '/ʒə le pʁe.və.ny i.la puʁ.tɑ̃ u.bli.je/', 'zhuh lay pray-vuh-NÜ | ee-la poor-tahⁿ oo-blee-YAY', ['pourtant', 'milieu']),
   sent(1478, 'Les résultats sont bons. Ils restent néanmoins fragiles.', 'The results are good. They nevertheless remain fragile.', '/le ʁe.zyl.ta sɔ̃ bɔ̃ il ʁɛst ne.ɑ̃.mwɛ̃ fʁa.ʒil/', 'lay ray-zül-ta sohⁿ BOHⁿ | eel rehst nay-ahⁿ-mwehⁿ fra-ZHEEL', ['neanmoins', 'ecrit', 'milieu']),
   sent(1479, "La salle était petite ; toutefois, personne ne s'est plaint.", 'The hall was small; however, nobody complained.', '/la sal e.tɛ pə.tit tut.fwa pɛʁ.sɔn nə sɛ plɛ̃/', 'la sal ay-teh puh-TEET | toot-FWA | pehr-sonn nuh seh PLEHⁿ', ['toutefois', 'ecrit']),
-  phrase(1480, 'pourtant', 'and yet, even so', '/puʁ.tɑ̃/', 'poor-TAHⁿ', ['pourtant']),
   phrase(1481, 'cependant', 'however', '/sə.pɑ̃.dɑ̃/', 'suh-pahⁿ-DAHⁿ', ['cependant', 'ecrit']),
   phrase(1482, 'néanmoins', 'nevertheless', '/ne.ɑ̃.mwɛ̃/', 'nay-ahⁿ-MWEHⁿ', ['neanmoins', 'ecrit']),
   phrase(1483, 'toutefois', 'however, all the same', '/tut.fwa/', 'toot-FWA', ['toutefois', 'ecrit']),

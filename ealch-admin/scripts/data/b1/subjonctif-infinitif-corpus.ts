@@ -292,6 +292,12 @@ export const IMPORTED = {
     'fr.b1.dictee.042',              // Pourvu que le certificat arrive à temps, elle pourra commencer son nouveau poste.
     'fr.b2.recherche.004',           // Quoique les résultats préliminaires soient prometteurs, l'équipe se garde de tirer des conclusions hâtives.
     'fr.b1.dictee.055',              // Bien que l'inscription soit gratuite, il faut réserver sa place à l'avance.
+    // The four bare connectors are named, never re-authored: the flashcard hub
+    // deals one card per headword per theme (2026-09-26).
+    'fr.b1.opinions-et-avis.1148',   // bien que         (b1.14 owns the headword)
+    'fr.b1.opinions-et-avis.1319',   // quoique          (b1.15 owns the headword)
+    'fr.b1.opinions-et-avis.1335',   // jusqu’à ce que   (b1.15 owns the headword)
+    'fr.b1.opinions-et-avis.1338',   // pourvu que       (b1.15 owns the headword)
   ],
   act9: [
     'fr.b1.cafe.004',                // Il vaut mieux boire son café avant qu'il ne refroidisse.
@@ -589,10 +595,6 @@ export const ACT8_ROWS: Row[] = [
   sent(1535, 'Attends ici jusqu’à ce que le médecin t’appelle.', 'Wait here until the doctor calls you.', '/a.tɑ̃.zi.si ʒys.ka sə kə lə med.sɛ̃ ta.pɛl/', 'a-tahⁿ-zee-see zhüs-ka suh kuh luh mayd-sehⁿ ta-PEHL', ['sanspaire', 'jusqua'], FCVDR),
   sent(1536, 'Reste au chaud jusqu’à ce que la fièvre tombe.', 'Stay warm until the fever goes down.', '/ʁɛs.to ʃo ʒys.ka sə kə la fjɛvʁ tɔ̃b/', 'rehs-toh SHOH zhüs-ka suh kuh la fyehvr TOHⁿB', ['sanspaire', 'jusqua']),
   sent(1537, 'Pourvu que le colis arrive avant jeudi, tout ira bien.', 'As long as the parcel arrives before Thursday, all will be well.', '/puʁ.vy kə lə kɔ.li a.ʁiv a.vɑ̃ ʒø.di tu.ti.ʁa bjɛ̃/', 'poor-vü kuh luh ko-lee a-REEV a-vahⁿ zheu-DEE | too-tee-ra byehⁿ', ['sanspaire', 'pourvu']),
-  chunk(1538, 'bien que', 'although', '/bjɛ̃ kə/', 'byehⁿ KUH', ['sanspaire', 'bloc']),
-  chunk(1539, 'quoique', 'although', '/kwak/', 'KWAK', ['sanspaire', 'bloc']),
-  chunk(1540, 'jusqu’à ce que', 'until', '/ʒys.ka sə kə/', 'zhüs-ka suh KUH', ['sanspaire', 'bloc']),
-  chunk(1541, 'pourvu que', 'as long as', '/puʁ.vy kə/', 'poor-vü KUH', ['sanspaire', 'bloc']),
   sent(1542, 'Ces quatre-là n’ont pas de version courte.', 'These four have no short version.', '/se katʁ.la nɔ̃ pa də vɛʁ.sjɔ̃ kuʁt/', 'say katr-LA nohⁿ pa duh vehr-syohⁿ KOORT', ['sanspaire', 'regle'], ['flashcard'],
     rule('Que fais-tu avec bien que quand le sujet ne change pas ?', 'Ex : Bien que je sois fatigué. Tu gardes que.')),
   sent(1543, 'Avec eux, compter les sujets ne sert à rien.', 'With these four, counting the subjects gets you nowhere.', '/a.vɛk ø kɔ̃.te le sy.ʒɛ nə sɛʁ a ʁjɛ̃/', 'a-vehk EU | kohⁿ-tay lay sü-zheh nuh sehr a RYEHⁿ', ['sanspaire', 'regle'], ['flashcard'],
@@ -658,7 +660,6 @@ export const ACT11_ROWS: Row[] = [
   sent(1584, 'Merci d’avoir accepté de venir un samedi.', 'Thank you for agreeing to come on a Saturday.', '/mɛʁ.si da.vwaʁ ak.sɛp.te də və.niʁ œ̃ sam.di/', 'mehr-see da-vwar ak-sehp-tay duh vuh-neer uhⁿ sam-DEE', ['ecrire', 'de']),
   sent(1585, 'Je suis content que vous soyez tous libres ce jour-là.', 'I am glad you are all free that day.', '/ʒə sɥi kɔ̃.tɑ̃ kə vu swa.je tus libʁ sə ʒuʁ la/', 'zhuh swee kohⁿ-tahⁿ kuh voo swa-yay tooss leebr suh zhoor-LA', ['ecrire', 'que']),
   sent(1586, 'Préviens-moi avant de partir, pour que je descende ouvrir.', 'Let me know before you set off, so that I can come down and open up.', '/pʁe.vjɛ̃ mwa a.vɑ̃ də paʁ.tiʁ puʁ kə ʒə de.sɑ̃d u.vʁiʁ/', 'pray-vyehⁿ MWA a-vahⁿ duh par-TEER | poor kuh zhuh day-sahⁿd oo-VREER', ['ecrire', 'paire'], FCVDR),
-  chunk(1587, 'avant de partir', 'before setting off', '/a.vɑ̃ də paʁ.tiʁ/', 'a-vahⁿ duh par-TEER', ['ecrire', 'bloc']),
   chunk(1588, 'pour que je descende', 'so that I can come down', '/puʁ kə ʒə de.sɑ̃d/', 'poor kuh zhuh day-SAHⁿD', ['ecrire', 'bloc']),
   sent(1589, 'Relis ton message et souligne chaque que.', 'Read your message again and underline every que.', '/ʁə.li tɔ̃ mɛ.saʒ e su.liɲ ʃak kə/', 'ruh-lee tohⁿ may-SAZH | ay soo-leeñ shak KUH', ['ecrire', 'regle'], ['flashcard'],
     rule('Comment relis-tu un message écrit ce soir ?', 'Ex : Chaque que doit avoir un sujet nouveau derrière lui.')),

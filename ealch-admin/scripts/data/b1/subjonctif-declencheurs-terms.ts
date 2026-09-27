@@ -41,7 +41,7 @@ export const DECLENCHEURS_TERMS: Record<string, LessonTerm> = {
     title: 'Tu veux que quelque chose arrive',
     body: "Vouloir, souhaiter, désirer, exiger, demander, préférer : tu dis ce que tu veux voir arriver, et ce n'est pas encore arrivé. Toutes ces expressions ouvrent la porte. EN: with vouloir, souhaiter, exiger and the rest, you say what you want to happen, and it has not happened yet.",
     examples: [
-      { itemId: E(1220), note: 'la clé la plus courante' },
+      { itemId: E(1150), note: 'la clé la plus courante' },
       { itemId: E(1228), note: 'exiger que, au travail' },
       { itemId: E(1236), note: 'la règle de la famille' },
     ],
@@ -53,7 +53,7 @@ export const DECLENCHEURS_TERMS: Record<string, LessonTerm> = {
     title: 'Quelque chose doit arriver',
     body: "Il faut que, il est nécessaire que, il est important que, il vaut mieux que, il est temps que. Toutes commencent par « il », et ce « il » ne désigne personne : c'est la nécessité elle-même. EN: the necessity family all starts with an il that stands for nobody.",
     examples: [
-      { itemId: E(1240), note: 'la clé la plus fréquente du français' },
+      { itemId: E(1147), note: 'la clé la plus fréquente du français' },
       { itemId: E(1254), note: 'pourquoi elles commencent toutes par il' },
       { itemId: E(1247), note: 'il est temps que, dans une réunion' },
     ],
@@ -65,7 +65,7 @@ export const DECLENCHEURS_TERMS: Record<string, LessonTerm> = {
     title: 'Ce que le fait te fait',
     body: "Content, triste, surpris, désolé, fier, ravi, avoir peur, regretter, c'est dommage. Le fait est sûr : tu le sais déjà. Ce n'est pas le doute qui ouvre la porte ici, c'est le sentiment. EN: with a feeling the fact is certain, and the subjunctive comes all the same.",
     examples: [
-      { itemId: E(1258), note: 'la clé la plus douce' },
+      { itemId: E(1151), note: 'la clé la plus douce' },
       { itemId: E(1275), note: 'la règle, et l’objection qu’elle règle' },
       { itemId: E(1269), note: 'avoir peur que, avant un train' },
     ],
@@ -101,7 +101,7 @@ export const DECLENCHEURS_TERMS: Record<string, LessonTerm> = {
     title: 'Des mots qui finissent par que',
     body: "Pour que, afin que, bien que, quoique, avant que, jusqu'à ce que, à condition que, sans que, pourvu que, à moins que. Ce sont des mots de liaison, et ils portent leur « que » avec eux. Tous ouvrent la porte. EN: these joining words carry their own que, and every one of them opens the door.",
     examples: [
-      { itemId: E(1318), note: 'la concession' },
+      { itemId: E(1148), note: 'la concession' },
       { itemId: E(1316), note: 'le but' },
       { itemId: E(1349), note: 'les cinq derniers, en une ligne' },
     ],

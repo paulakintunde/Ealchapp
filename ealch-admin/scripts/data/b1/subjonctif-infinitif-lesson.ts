@@ -138,6 +138,8 @@ import {
   FORM_REF, TRIGGERS_REF, POLI_REF, MODAUX_REF, PRENDRE_REF,
 } from './subjonctif-infinitif-corpus.ts';
 import { SUBJONCTIF_INFINITIF_TERMS } from './subjonctif-infinitif-terms.ts';
+import { ALL_ROWS as B114_ROWS } from './subjonctif-formation-corpus.ts';
+import { ALL_ROWS as B115_ROWS } from './subjonctif-declencheurs-corpus.ts';
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  HELPERS
@@ -154,11 +156,16 @@ const REC = (recordingId: string): SectionAudio => ({ mode: 'tts', lang: 'fr-FR'
 type SrcItem = { id: string; fr: string; en: string };
 const SEED = new Map((seed as unknown as { items: SrcItem[] }).items.map((i) => [i.id, i]));
 const ROW = new Map<string, SrcItem>(ALL_ROWS.map((r) => [r.id, r]));
+/** b1.14's and b1.15's rows, named by id where they own the headword (bien
+ *  que, quoique, jusqu’à ce que, pourvu que): the flashcard hub deals one card
+ *  per headword per theme, so this lesson never re-authors them. Kept out of
+ *  ROW so FLASHABLE still treats them as imports. */
+const SIBLING = new Map<string, SrcItem>([...B114_ROWS, ...B115_ROWS].map((r) => [r.id, r]));
 
-/** An item's fr/en, from this corpus or the seed. Throws on a typo, so no
- *  section can name an id that does not exist. */
+/** An item's fr/en, from this corpus, b1.14's, b1.15's or the seed. Throws on
+ *  a typo, so no section can name an id that does not exist. */
 function src(id: string): SrcItem {
-  const r = ROW.get(id) ?? SEED.get(id);
+  const r = ROW.get(id) ?? SIBLING.get(id) ?? SEED.get(id);
   if (!r) throw new Error(`b1.16: no item ${id}`);
   return r;
 }
@@ -2006,8 +2013,8 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
     grp('Les cinq paires, pour comparer', [
       it(E(1504), 'pour, version courte'),
       it(E(1506), 'avant de, version courte'),
-      it(E(1538), 'bien que, sans version courte'),
-      it(E(1541), 'pourvu que, sans version courte'),
+      it(E(1148), 'bien que, sans version courte'),
+      it(E(1338), 'pourvu que, sans version courte'),
     ], chk('Qu’est-ce qui sépare les deux premières des deux dernières ?',
       ['le sens', 'l’existence d’une forme sans que', 'le registre'], 1,
       "Pour et avant ont une version courte, bien que et pourvu que n'en ont pas. EN: the first two have a short version and the last two do not.")),
@@ -3188,13 +3195,13 @@ const DRILL_LIST: LessonDrill[] = [
   {
     id: 'd-sanspaire', title: 'Les quatre à part', format: 'flashcard' as const,
     coach: "Pour chaque carte, dis si l’expression peut se raccourcir, et par quoi sinon. EN: for each card, say whether the expression can be shortened, and what replaces it if not.",
-    items: [E(1538), E(1539), E(1540), E(1541), E(1542), E(1548)], audio: AUDIO,
+    items: [E(1148), E(1319), E(1335), E(1338), E(1542), E(1548)], audio: AUDIO,
   },
   {
     id: 'd-tri', title: 'Deux questions, dans l’ordre', format: 'sort' as const,
     coach: "Deux piles : ce qui se décide au compte, et ce qui est réglé d’avance. EN: sort what the count decides from what is settled in advance.",
     buckets: ['le compte décide', 'réglé d’avance'],
-    items: [E(1550), E(1555), E(1557), E(1554), E(1538), E(1540)], audio: AUDIO,
+    items: [E(1550), E(1555), E(1557), E(1554), E(1148), E(1335)], audio: AUDIO,
   },
   {
     id: 'd-anglais', title: 'Traduire l’idée', format: 'mcq' as const,

@@ -148,6 +148,7 @@ import {
   FORMATION_REF, POLI_REF, INFINITIF_REF, SI_REF,
 } from './subjonctif-declencheurs-corpus.ts';
 import { DECLENCHEURS_TERMS } from './subjonctif-declencheurs-terms.ts';
+import { ALL_ROWS as B114_ROWS } from './subjonctif-formation-corpus.ts';
 
 /* ══════════════════════════════════════════════════════════════════════════
  *  HELPERS
@@ -164,11 +165,16 @@ const REC = (recordingId: string): SectionAudio => ({ mode: 'tts', lang: 'fr-FR'
 type SrcItem = { id: string; fr: string; en: string };
 const SEED = new Map((seed as unknown as { items: SrcItem[] }).items.map((i) => [i.id, i]));
 const ROW = new Map<string, SrcItem>(ALL_ROWS.map((r) => [r.id, r]));
+/** b1.14's rows, named by id where b1.14 owns the headword (je veux que,
+ *  il faut que, je suis content que, bien que, avant que): the flashcard hub
+ *  deals one card per headword per theme, so this lesson never re-authors
+ *  them. Kept out of ROW so FLASHABLE still treats them as imports. */
+const SIBLING = new Map<string, SrcItem>(B114_ROWS.map((r) => [r.id, r]));
 
-/** An item's fr/en, from this corpus or the seed. Throws on a typo, so no
- *  section can name an id that does not exist. */
+/** An item's fr/en, from this corpus, b1.14's or the seed. Throws on a typo,
+ *  so no section can name an id that does not exist. */
 function src(id: string): SrcItem {
-  const r = ROW.get(id) ?? SEED.get(id);
+  const r = ROW.get(id) ?? SIBLING.get(id) ?? SEED.get(id);
   if (!r) throw new Error(`b1.15: no item ${id}`);
   return r;
 }
@@ -1889,7 +1895,7 @@ const A7_CHOISIR: Sec<'groupDrill'> = {
   groups: [
     grp('Ces liens ouvrent', [
       it(E(1316), 'pour que'),
-      it(E(1318), 'bien que'),
+      it(E(1148), 'bien que'),
       it(E(1319), 'quoique'),
       it(E(1320), 'de peur que'),
     ], chk('Qu’ont en commun ces quatre liens ?',
@@ -2153,7 +2159,7 @@ const A8_CHOISIR: Sec<'groupDrill'> = {
   frSub: 'Deux groupes et deux contrôles',
   groups: [
     grp('Avant, donc pas encore', [
-      it(E(1334), 'le lien avant que'),
+      it(E(1149), 'le lien avant que'),
       it(E(1378), 'avant que le film commence'),
       it(E(1216), 'avant que la pluie arrive'),
       it(E(1348), 'la règle de la paire'),
@@ -3262,20 +3268,20 @@ const DRILL_LIST: LessonDrill[] = [
     coach: 'Quelqu’un veut la chose, et elle n’est pas encore là. La forme change. EN: somebody wants it and it has not happened, so the form changes.',
     q: 'Le coach veut que nous ... prêts avant le match. (être)', opts: ['sommes', 'serons', 'soyons'], correct: 2,
     why: 'Vouloir que ouvre la porte : soyons. EN: vouloir que opens the door, so soyons.',
-    items: [E(1220), E(1221), E(1223), E(1225), E(1226), E(1236)], audio: AUDIO,
+    items: [E(1150), E(1221), E(1223), E(1225), E(1226), E(1236)], audio: AUDIO,
   },
   {
     id: 'd-necessite', title: 'Il faut, et ce qui suit', format: 'mcq' as const,
     coach: 'Le il de il faut ne désigne personne. Après que, le verbe change quand même. EN: the il of il faut stands for nobody, and the verb still changes.',
     q: 'Il est important que vous ... à l’heure. (arriver)', opts: ['arriverez', 'arriviez', 'arrivez'], correct: 1,
     why: 'Vous arrivez au présent, que vous arriviez au subjonctif. EN: vous arrivez in the present, que vous arriviez in the subjunctive.',
-    items: [E(1240), E(1242), E(1244), E(1245), E(1254), E(1255)], audio: AUDIO,
+    items: [E(1147), E(1242), E(1244), E(1245), E(1254), E(1255)], audio: AUDIO,
   },
   {
     id: 'd-sentiment', title: 'Sûr, et quand même', format: 'sort' as const,
     coach: 'Deux piles : la clé dit un sentiment, ou elle dit autre chose. EN: sort by whether the key states a feeling or something else.',
     buckets: ['un sentiment', 'autre chose'],
-    items: [E(1258), E(1262), E(1264), E(1220), E(1240), E(1278)], audio: AUDIO,
+    items: [E(1151), E(1262), E(1264), E(1150), E(1147), E(1278)], audio: AUDIO,
   },
   {
     id: 'd-doute', title: 'Possible ou probable', format: 'mcq' as const,
@@ -3295,13 +3301,13 @@ const DRILL_LIST: LessonDrill[] = [
     id: 'd-liens', title: 'Le but ou la concession', format: 'sort' as const,
     coach: 'Deux piles : le lien vise un but, ou il admet quelque chose. EN: sort by whether the connector aims at a goal or admits something.',
     buckets: ['un but', 'une concession'],
-    items: [E(1316), E(1317), E(1320), E(1318), E(1319), E(1330)], audio: AUDIO,
+    items: [E(1316), E(1317), E(1320), E(1148), E(1319), E(1330)], audio: AUDIO,
   },
   {
     id: 'd-temps', title: 'Pas encore, ou deja', format: 'sort' as const,
     coach: 'Deux piles : la chose est encore a venir, ou elle a deja eu lieu. EN: sort by whether the thing is still to come or has already happened.',
     buckets: ['pas encore', 'deja fait'],
-    items: [E(1334), E(1335), E(1336), E(1356), E(1355), E(1348)], audio: AUDIO,
+    items: [E(1149), E(1335), E(1336), E(1356), E(1355), E(1348)], audio: AUDIO,
   },
   {
     id: 'd-indicatif', title: 'Celles qui ne changent rien', format: 'mcq' as const,
@@ -3324,7 +3330,7 @@ const DRILL_LIST: LessonDrill[] = [
     id: 'd-cle', title: 'Ça ouvre, ça n’ouvre pas', format: 'sort' as const,
     coach: "Deux piles. Pour chaque expression, demande-toi si le verbe derrière elle va changer. EN: sort by whether the verb behind the expression changes.",
     buckets: ['ça ouvre la porte', 'ça laisse fermé'],
-    items: [E(1220), E(1240), E(1278), E(1352), E(1354), E(1355)], audio: AUDIO,
+    items: [E(1150), E(1147), E(1278), E(1352), E(1354), E(1355)], audio: AUDIO,
   },
 ];
 

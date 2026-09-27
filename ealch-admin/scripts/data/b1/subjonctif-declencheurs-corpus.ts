@@ -260,6 +260,7 @@ export const IMPORTED = {
     'fr.b1.metiers.052',             // Le patron souhaite que nous finissions le rapport avant la réunion.
     'fr.b1.metiers.060',             // Le directeur exige que chaque employé signe le règlement intérieur.
     'fr.b1.famille.076',             // Ma grand-mère aimerait que ses petits-enfants viennent la voir plus souvent.
+    'fr.b1.opinions-et-avis.1150',   // je veux que        (b1.14 owns the headword)
   ],
   act3: [
     'fr.b1.routines.079',            // Il faut que je me couche plus tôt si je veux être productif.
@@ -268,8 +269,11 @@ export const IMPORTED = {
     'fr.b1.heure-et-date.070',       // Il est essentiel que vous arriviez à l'heure pour l'entretien.
     'fr.b1.cuisine.065',             // Il vaut mieux que nous réservions une table avant huit heures.
     'fr.b1.cuisine.046',             // Il faut que nous mangions des légumes variés chaque jour.
+    'fr.b1.opinions-et-avis.1147',   // il faut que        (b1.14 owns the headword)
   ],
-  act4: [] as string[],
+  act4: [
+    'fr.b1.opinions-et-avis.1151',   // je suis content que (b1.14 owns the headword)
+  ],
   act5: [
     'fr.b1.cafe.069',                // Je doute que ce serveur se souvienne de notre commande.
     'fr.b1.maison.060',              // Je doute que ce studio soit assez grand pour deux.
@@ -294,6 +298,7 @@ export const IMPORTED = {
     'fr.b1.tourisme.005',            // Bien que la visite guidée soit un peu chère, elle vaut vraiment le détour.
     'fr.b1.argent-quotidien.001',    // Bien que le salaire ait augmenté, les dépenses restent élevées.
     'fr.b1.dictee.055',              // Bien que l'inscription soit gratuite, il faut réserver sa place à l'avance.
+    'fr.b1.opinions-et-avis.1148',   // bien que           (b1.14 owns the headword)
   ],
   act8: [
     'fr.b1.heure-et-date.083',       // Il a fallu attendre près d'une heure avant que le médecin nous reçoive.
@@ -301,6 +306,7 @@ export const IMPORTED = {
     'fr.b1.maison.004',              // Il faut refaire la toiture avant que l'hiver n'arrive.
     'fr.b1.dictee.042',              // Pourvu que le certificat arrive à temps, elle pourra commencer son nouveau poste.
     'fr.b1.courses.002',             // Il faut qu'on fasse les courses avant que les magasins ferment.
+    'fr.b1.opinions-et-avis.1149',   // avant que          (b1.14 owns the headword)
   ],
   act9: [
     'fr.sons.voyelles.438',          // J'espère qu'il fera très beau ce week-end.
@@ -487,7 +493,6 @@ export const ACT1_ROWS: Row[] = [
 /* ── ACT 2 · LA VOLONTÉ ─────────────────────────────────────────────────── */
 
 export const ACT2_ROWS: Row[] = [
-  chunk(1220, 'je veux que', 'I want (someone) to', '/ʒə vø kə/', 'zhuh VEU kuh', ['volonte', 'cle']),
   chunk(1221, 'je souhaite que', 'I wish that', '/ʒə swɛt kə/', 'zhuh SWEHT kuh', ['volonte', 'cle']),
   chunk(1222, 'je désire que', 'I wish that', '/ʒə de.ziʁ kə/', 'zhuh day-ZEER kuh', ['volonte', 'cle']),
   chunk(1223, 'j’exige que', 'I insist that', '/ʒɛɡ.ziʒ kə/', 'zheg-ZEEZH kuh', ['volonte', 'cle']),
@@ -515,7 +520,6 @@ export const ACT2_ROWS: Row[] = [
 /* ── ACT 3 · LA NÉCESSITÉ ───────────────────────────────────────────────── */
 
 export const ACT3_ROWS: Row[] = [
-  chunk(1240, 'il faut que', 'it is necessary that', '/il fo kə/', 'eel FOH kuh', ['necessite', 'cle']),
   chunk(1241, 'il est nécessaire que', 'it is necessary that', '/i.lɛ ne.se.sɛʁ kə/', 'ee-leh nay-say-SEHR kuh', ['necessite', 'cle']),
   chunk(1242, 'il est important que', 'it is important that', '/i.lɛ.tɛ̃.pɔʁ.tɑ̃ kə/', 'ee-leh-tehⁿ-por-TAHⁿ kuh', ['necessite', 'cle']),
   chunk(1243, 'il est essentiel que', 'it is essential that', '/i.lɛ.te.sɑ̃.sjɛl kə/', 'ee-leh-tay-sahⁿ-SYEL kuh', ['necessite', 'cle']),
@@ -541,7 +545,6 @@ export const ACT3_ROWS: Row[] = [
 /* ── ACT 4 · LE SENTIMENT ───────────────────────────────────────────────── */
 
 export const ACT4_ROWS: Row[] = [
-  chunk(1258, 'je suis content que', 'I am glad that', '/ʒə sɥi kɔ̃.tɑ̃ kə/', 'zhuh swee kohⁿ-TAHⁿ kuh', ['sentiment', 'cle']),
   chunk(1259, 'je suis triste que', 'I am sad that', '/ʒə sɥi tʁist kə/', 'zhuh swee TREEST kuh', ['sentiment', 'cle']),
   chunk(1260, 'je suis surpris que', 'I am surprised that', '/ʒə sɥi syʁ.pʁi kə/', 'zhuh swee sür-PREE kuh', ['sentiment', 'cle']),
   chunk(1261, 'je suis désolé que', 'I am sorry that', '/ʒə sɥi de.zɔ.le kə/', 'zhuh swee day-zo-LAY kuh', ['sentiment', 'cle']),
@@ -625,7 +628,6 @@ export const ACT6_ROWS: Row[] = [
 export const ACT7_ROWS: Row[] = [
   chunk(1316, 'pour que', 'so that', '/puʁ kə/', 'poor kuh', ['lien', 'but']),
   chunk(1317, 'afin que', 'in order that', '/a.fɛ̃ kə/', 'a-fehⁿ kuh', ['lien', 'but']),
-  chunk(1318, 'bien que', 'although', '/bjɛ̃ kə/', 'byehⁿ kuh', ['lien', 'concession']),
   chunk(1319, 'quoique', 'although', '/kwa.kə/', 'KWA-kuh', ['lien', 'concession']),
   chunk(1320, 'de peur que', 'for fear that', '/də pœʁ kə/', 'duh PUHR kuh', ['lien', 'but']),
   sent(1321, 'Je te laisse la clé pour que tu puisses entrer.', 'I am leaving you the key so that you can get in.', '/ʒə tə lɛs la kle puʁ kə ty pɥis ɑ̃.tʁe/', 'zhuh tuh less la KLAY poor kuh tü PWEESS ahⁿ-TRAY', ['lien', 'but'], FCVDR),
@@ -649,7 +651,6 @@ export const ACT7_ROWS: Row[] = [
 /* ── ACT 8 · AVANT QUE, JUSQU’À CE QUE ──────────────────────────────────── */
 
 export const ACT8_ROWS: Row[] = [
-  chunk(1334, 'avant que', 'before', '/a.vɑ̃ kə/', 'a-vahⁿ kuh', ['lien', 'temps']),
   chunk(1335, 'jusqu’à ce que', 'until', '/ʒys.ka sə kə/', 'zhüs-ka suh kuh', ['lien', 'temps']),
   chunk(1336, 'à condition que', 'provided that', '/a kɔ̃.di.sjɔ̃ kə/', 'a kohⁿ-dee-SYOHⁿ kuh', ['lien', 'condition']),
   chunk(1337, 'sans que', 'without', '/sɑ̃ kə/', 'sahⁿ kuh', ['lien', 'condition']),
