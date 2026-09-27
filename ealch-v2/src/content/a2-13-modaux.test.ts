@@ -355,8 +355,13 @@ test('the spine is exactly these thirty-two sections, in this order', { skip: no
   strictEqual(L!.sections.length, EXPECTED_SECTIONS);
 });
 
-test('IT IS THE LARGEST LESSON IN THE CORPUS, and that is deliberate', { skip: noLesson }, () => {
-  const bigger = seed.lessons.filter((l) => l.id !== L!.id && l.sections.length >= L!.sections.length);
+// Scoped to sons, A1 and A2. B1 onwards is built to a different, larger
+// standard on purpose (RICH-LESSON-STANDARD.md: 80 to 90 missions per lesson),
+// so a B1 lesson outgrowing this one says nothing about this lesson being trimmed.
+const PRE_B1 = /^(sons|a1|a2)\./;
+
+test('IT IS THE LARGEST LESSON UP TO A2, and that is deliberate', { skip: noLesson }, () => {
+  const bigger = seed.lessons.filter((l) => PRE_B1.test(l.id) && l.id !== L!.id && l.sections.length >= L!.sections.length);
   ok(
     bigger.length === 0,
     `${bigger.length} lesson(s) are at least as large: ${bigger.map((l) => `${l.id}:${l.sections.length}`).join(', ')}.\n`
