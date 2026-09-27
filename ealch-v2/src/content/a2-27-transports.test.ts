@@ -577,8 +577,11 @@ test('the announcement tranche exists, and it was 0 rows in 48,325 before', () =
     ok(annonces.some((r) => shape.test(r.fr)), `no announcement uses ${shape}`);
   }
   // Nothing else in the corpus should have beaten this build to it, which is
-  // the claim that justified authoring the tranche.
-  const others = S.items.filter((i) => /à destination de|en provenance de/.test(i.fr) && !MINE.some((m) => m.id === i.id));
+  // the claim that justified authoring the tranche. Scoped to rows up to A2:
+  // a later band quoting an announcement (b1.37 reads one as a comprehension
+  // text) builds on this tranche rather than beating it to it.
+  const others = S.items.filter((i) => !/^fr\.(b1|b2|c1|c2)\./.test(i.id)
+    && /à destination de|en provenance de/.test(i.fr) && !MINE.some((m) => m.id === i.id));
   strictEqual(others.length, 0, `${others.length} announcement row(s) already existed: ${others.map((o) => o.id).join(', ')}`);
 });
 

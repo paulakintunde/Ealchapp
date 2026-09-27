@@ -774,7 +774,11 @@ test('MULTIPLE-PRONOUN ORDER IS NAMED AS SOMEBODY ELSE\'S, on a learner surface'
     'multiple-pronoun order is reserved and no surface says so, so the learner is left with a system that looks finished');
   /* AND NO LATER A2 UNIT HAS QUIETLY TAKEN IT SINCE. If one does, this lesson's
    * hand-off is out of date and the next author should find out here. */
-  const owners = seed.units.filter((u) => /ordre des pronoms|pronoun order|two pronouns/i.test(`${u.title} ${u.sub} ${u.canDo}`));
+  // Scoped to A2, as the comment above says. B1 is where this was always going
+  // to land: b1.17 (ordre-pronoms) owns pronoun order, so a B1 owner is the
+  // hand-off arriving, not an A2 unit taking it quietly.
+  const owners = seed.units.filter((u) => /^a2\./.test(u.id)
+    && /ordre des pronoms|pronoun order|two pronouns/i.test(`${u.title} ${u.sub} ${u.canDo}`));
   strictEqual(owners.length, 0,
     `${owners.map((u) => u.id).join(', ')} now names pronoun order, so a2.25's hand-off should point at it`);
 });

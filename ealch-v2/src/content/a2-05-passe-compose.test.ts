@@ -704,7 +704,13 @@ test('every unit this lesson leans on is named by its lesson label, including th
   }
   // THE BRIEF SAID FOUR UNITS DEPEND ON THIS ONE AND THERE ARE THREE. a2.31 is
   // the one no document in this band mentions.
-  const dependents = seed.units.filter((u) => (u.prereqUnitIds ?? []).includes('a2.05')).map((u) => u.id).sort();
+  //
+  // Scoped to sons, A1 and A2, the band the brief counted. B1 units lean on
+  // the passé composé too (b1.20 and b1.23 name a2.05 as a prerequisite), and
+  // this lesson already names every unit it hands over to inside A2.
+  const dependents = seed.units
+    .filter((u) => /^(sons|a1|a2)\./.test(u.id) && (u.prereqUnitIds ?? []).includes('a2.05'))
+    .map((u) => u.id).sort();
   deepStrictEqual(dependents, [IRREGULAR_UNIT, ETRE_UNIT, SCHOOL_UNIT].sort());
 });
 

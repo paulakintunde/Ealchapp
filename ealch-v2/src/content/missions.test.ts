@@ -89,6 +89,20 @@ test('every seed lesson gets an eyebrow matching its position in its track', () 
     const unit = byId.get(L.unitId);
     ok(unit, `${L.id} resolves its unit ${L.unitId}`);
     const eyebrow = lessonEyebrow(L, unit);
+    // PAST A2 THERE IS NO TRACK (schema: "Absent past a2"), and the band is
+    // published out of order: b1.37 ships before b1.34 to b1.36 exist. Every
+    // citation label names such a unit by its seq (« Lesson 37 in B1 »), so the
+    // eyebrow must too, and the rank among whatever happens to be shipped would
+    // contradict them. What must hold instead is that no two units of the band
+    // share a seq.
+    if (unit!.track === undefined) {
+      const band = unit!.id.split('.')[0];
+      const clash = seed.units.filter((u) => u.id !== unit!.id && u.id.split('.')[0] === band && u.seq === unit!.seq);
+      deepStrictEqual(clash.map((u) => u.id), [], `${unit!.id} shares seq ${unit!.seq} with another ${band} unit`);
+      strictEqual(eyebrow, `${L.level.toUpperCase()} · LEÇON ${String(unit!.seq).padStart(2, '0')}`,
+        `${L.id} should be numbered by its seq ${unit!.seq}, got "${eyebrow}"`);
+      continue;
+    }
     // The number in the eyebrow is the unit's rank among its own track, which
     // is what the Den sorts on and what the learner counts through.
     const rank = seed.units
