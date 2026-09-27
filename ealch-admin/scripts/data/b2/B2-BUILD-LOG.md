@@ -167,6 +167,26 @@ They never ask the learner to produce the form.
   DELF blanc 01 to 05). Lessons prepare; papers measure.
 - **No « Bilan B2 »** (Paul, 2026-09-27): B2 stays at 34 lessons.
 
+## Progress
+
+**WAVE 0 DONE 2026-09-27 (`b7b1c91`):** the pipeline takes `--band b2`
+(`b1-import.ts`, `b1-merge-into-seed.ts`, `b1-trial-merge.ts`), lessons load
+from `data/<band>/`, `B2_SLUGS` in `b1-import.logic.ts`, unit level from the
+unit id, preview carries every band's drafts, the Den unlocks in dev whichever
+band has drafts. B1 proven unchanged (full dry run: 39 lessons, 7121 rows
+identical, 0 to insert). App checks: `scratch/_app-checks-b1.mts --band b2`.
+
+**WAVE 1 DRAFTED 2026-09-27:** b2.22 to b2.26, every validator and app check 0,
+house tests 216/216, B2 import dry run 910 rows / 0 blockers (3 of b2.22's
+declared twins dedupe to published rows). All at `version: 1`. On ART_PENDING
+until Paul's 55 images land. Gate B2-1 questions: the recycling quiz rounds in
+b2.23, b2.25, b2.26 cite B2 lessons not yet written (relabel as B1 review until
+Units 1-3 publish); b2.23's dated facts need a check before publish (corpus
+header §A.7); exam-target rubrics use 5-6 criteria to mirror the grids.
+
+**Premium packs:** spec approved (`ealch-admin/PREMIUM-PACKS-SPEC.md`); built in
+a separate worktree, nothing deployed.
+
 ## Wave 0: enablers, before the first B2 lesson
 
 1. **Make the import pipeline band-aware.** It is B1-only today:
@@ -231,10 +251,23 @@ They never ask the learner to produce the form.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Links | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| b2.01 to b2.34 | | | | | | | | | | NOT STARTED |
+| b2.22 | style-academique (workshop) | 71 | 11 | 11x8 | 11 | 5 | 11 | 165 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
+| b2.23 | argumentation (workshop, PE target) | 71 | 11 | 11x8 | 11 | 5 | 11 | 190 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
+| b2.24 | lecture-critique (workshop, CE target) | 76 | 11 | 11x8 | 11 | 4 | 13 | 200 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
+| b2.25 | ecoute-vitesse-reelle (workshop, CO target) | 73 | 11 | 11x8 | 11 | 5 | 13 | 165 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
+| b2.26 | reunions-negociation (workshop, PO target) | 73 | 11 | 11x8 | 11 | 5 | 16 | 190 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
+| b2.01 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 ## Id ledger
 
 | Theme | Block | Owner | Authored |
 |---|---|---|---|
-| (none claimed yet) | | | |
+| `universite` (education, b1-b2; sub-themes set 2026-09-27) | 1000-1199 | b2.22 academic style | 1000-1167 (165 after 3 twins deduped) |
+| `opinions-et-avis` (fondations, a2-b2; sub-themes set) | 1600-1799 (below 1600 taken at some level) | b2.23 argumentation | 1600-1789 (190) |
+| `strategies-de-comprehension` (sub-theme « lire de façon critique ») | 1400-1599 | b2.24 critical reading | 1400-1599 (200, the whole block) |
+| `strategies-de-comprehension` (sub-theme « écouter à vitesse réelle ») | 1600-1799 | b2.25 native-speed listening | 1600-1764 (165) |
+| `affaires` (sub-theme « négocier et conclure ») | 1200-1399 | b2.26 meetings and negotiation | 1200-1389 (190) |
+
+**Rule for blocks at B2:** pick a block unused at EVERY level in the theme
+(ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
+invites confusion).

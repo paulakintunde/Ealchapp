@@ -37,7 +37,10 @@ export const B1_SLUGS = [
 
 /** Every B2 lesson authored so far, in trail order (files in data/b2/). A wave
  *  adds its slugs here when it lands. */
-export const B2_SLUGS: readonly string[] = [];
+export const B2_SLUGS: readonly string[] = [
+  // wave 1 (exam-skill targets and academic style)
+  'style-academique', 'argumentation', 'lecture-critique', 'ecoute-vitesse-reelle', 'reunions-negociation',
+];
 
 /** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
 export type Band = 'b1' | 'b2';
