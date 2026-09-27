@@ -445,7 +445,11 @@ test('no lesson ships an empty section', () => {
         Array.isArray(s.hacks) ||
         Array.isArray(s.cases) ||
         Array.isArray(s.steps) ||
-        Array.isArray(s.rows);
+        Array.isArray(s.rows) ||
+        // A `task` (B1+) renders through TaskView: the brief, what to produce
+        // and the rubric. It has none of the list fields above, and it is not
+        // empty when it carries a brief.
+        (sec.type === 'task' && typeof s.brief === 'string' && s.brief.length > 0);
       ok(hasBody, `${where(id, lesson, sec)}: a ${sec.type} section with no content to render`);
     }
   }

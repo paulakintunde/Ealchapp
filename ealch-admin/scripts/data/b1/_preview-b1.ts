@@ -14,24 +14,25 @@
 // all, so merging this fixture makes the B1 band appear on its own.
 //
 // Remove with the rest of the DEV-PREVIEW-B1 marker (grep for it).
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { B1_SLUGS } from '../../b1-import.logic.ts';
 
-/** Every B1 draft, in trail order. A new lesson is one line here. */
-const SLUGS = [
-  'imparfait-formation', 'imparfait-usage', 'pc-imparfait', 'pc-imparfait-paires',
-  'futur-simple', 'futur-irregulier', 'futur-usage', 'conditionnel-present',
-  'politesse', 'si-clauses', 'qui-que', 'dont-ou', 'lequel-ce-qui',
-  'subjonctif-formation',
-  // wave 4
-  'subjonctif-declencheurs', 'subjonctif-infinitif', 'ordre-pronoms', 'voix-passive',
-  // wave 5
-  'discours-indirect', 'negation-avancee', 'inversion',
-  // wave 6
-  'cest-il-est', 'tout', 'meme',
-  // waves 7 to 9
-  'registres', 'tu-ou-vous', 'expressions-corps', 'expressions-animaux', 'expressions-couleurs',
-  'coordination', 'subordination', 'concession', 'environnement', 'strategies-lecture',
-] as const;
+/** Every B1 lesson authored, in trail order: the one registry the import
+ *  pipeline also reads (B1_SLUGS in scripts/b1-import.logic.ts). A new lesson is
+ *  one line there.
+ *
+ *  A lesson stops being a DRAFT when it is imported: b1-import.ts puts it in
+ *  Postgres and b1-merge-into-seed.ts puts it in seed.json. From then on the
+ *  seed carries it, so the preview SKIPS it (overlaying the draft copy on the
+ *  published one would hide what actually ships). No list to edit by hand:
+ *  run the merge, then rebuild this fixture. */
+const SLUGS = B1_SLUGS;
+
+/** Lesson ids already in the seed, which are therefore no longer drafts. */
+function seededLessonIds(): Set<string> {
+  const seed = JSON.parse(readFileSync(new URL('../../../../ealch-v2/src/content/seed.json', import.meta.url), 'utf8'));
+  return new Set((seed.lessons ?? []).map((l: { id: string }) => l.id));
+}
 
 /** The `task` section now has a real renderer (`TaskView`, wired into
  *  MissionSection), and the schema carries the type, so the preview ships the
@@ -45,9 +46,11 @@ export async function buildPreview() {
   const units: any[] = [];
   const lessons: any[] = [];
   const items = new Map<string, any>();
+  const seeded = seededLessonIds();
 
   for (const slug of SLUGS) {
     const L: any = await import(`./${slug}-lesson.ts`);
+    if (seeded.has(L.LESSON.id)) continue;
     const C: any = await import(`./${slug}-corpus.ts`);
     units.push({ ...C.UNIT, level: 'b1', lessonIds: [L.LESSON.id] });
     lessons.push({ ...L.LESSON });

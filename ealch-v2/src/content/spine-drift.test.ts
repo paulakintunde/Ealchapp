@@ -86,7 +86,11 @@ test('it declares exactly the units the seed ships', { skip: noSpine }, () => {
   // outside the three tracks the spine declares. It was deleted on 2026-09-07
   // (ealch-admin/scripts/remove-b2-01-stub.ts) and the two sides now agree, so
   // this is no longer a narrower check than one against the database.
-  const seedIds = seed.units.map((u) => u.id).sort();
+  // The spine owns the three Den tracks only (its own uncovered-unit check says
+  // b1+ units are "correctly out of scope"). B1 units reach the seed through
+  // SEED_CUT.units and ealch-admin/scripts/b1-import.ts, not through the spine,
+  // so they are left out of this comparison rather than added to the spine.
+  const seedIds = seed.units.map((u) => u.id).filter((id) => /^(sons|a1|a2)\./.test(id)).sort();
   deepStrictEqual(spineIds, seedIds, 'the spine and the seed disagree about which units exist');
 });
 

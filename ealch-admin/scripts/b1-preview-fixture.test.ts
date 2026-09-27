@@ -29,7 +29,9 @@ import { buildPreview, serialise, PREVIEW_PATH } from './data/b1/_preview-b1.ts'
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SEED = resolve(HERE, '../../ealch-v2/src/content/seed.json');
-const EXPECTED_LESSONS = 34;  // waves 1-9
+// Waves 1-9 authored 34; an imported lesson (in the seed) leaves the fixture.
+const SEEDED_B1 = (JSON.parse(readFileSync(SEED, 'utf8')).lessons ?? []).filter((l: any) => /^b1\./.test(l.id)).length;
+const EXPECTED_LESSONS = 34 - SEEDED_B1;
 
 const onDisk = () => readFileSync(fileURLToPath(PREVIEW_PATH), 'utf8');
 
