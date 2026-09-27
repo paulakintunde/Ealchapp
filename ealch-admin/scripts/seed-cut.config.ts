@@ -47,8 +47,12 @@ export const SEED_CUT: SeedCut = {
   // install with no network, which is the property this file exists to protect.
   tracks: ['sons', 'a1', 'a2'],
 
-  // Nothing extra: every Den unit is already covered by `tracks` above.
-  units: [],
+  // B1 is not a bundled track, so each B1 unit that ships in the binary is
+  // named here. b1-merge-into-seed.ts refuses to merge a unit missing from this
+  // list, because the next publish would cut it straight back out of the seed.
+  // Side effect worth knowing: a bundled b1 unit puts 'b1' in the publish's
+  // seedLevels, so published b1 scenarios and playlists ship in the seed too.
+  units: ['b1.01', 'b1.02', 'b1.03', 'b1.04'],
 
   // Core themes: the vocabulary a survival-level learner needs first, and drills
   // draw from these on a fresh install. 'objets' and 'dictee' are here so Voice

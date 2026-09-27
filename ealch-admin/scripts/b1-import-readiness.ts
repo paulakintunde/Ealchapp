@@ -11,6 +11,7 @@
 // Postgres, so "it validates" says nothing about whether it can land.
 import { validateLesson, validateItem, validateUnit } from '../../ealch-v2/src/content/schema.ts';
 import { readFileSync } from 'node:fs';
+import { sameDoc, sameItem, unitBody } from './b1-import.logic.ts';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -35,8 +36,8 @@ const SLUGS = [
 type Row = { id: string; theme?: string; level?: string };
 
 const seedItems = new Map<string, Row>((SEED.items ?? []).map((i: Row) => [i.id, i]));
-const seedLessons = new Set<string>((SEED.lessons ?? []).map((l: { id: string }) => l.id));
-const seedUnits = new Set<string>((SEED.units ?? []).map((u: { id: string }) => u.id));
+const seedLessons = new Map<string, unknown>((SEED.lessons ?? []).map((l: { id: string }) => [l.id, l]));
+const seedUnits = new Map<string, unknown>((SEED.units ?? []).map((u: { id: string }) => [u.id, u]));
 const seedThemes = new Set<string>((SEED.themes ?? []).map((t: { slug: string }) => t.slug));
 
 async function main() {
@@ -44,6 +45,7 @@ const blockers: string[] = [];
 const warnings: string[] = [];
 let items = 0;
 let reused = 0;
+const imported: string[] = [];
 
 // The fourteen import as ONE batch and quote each other freely: b1.02 names
 // 39 of b1.01's rows. Checking a lesson against its own corpus alone reports
@@ -63,8 +65,15 @@ for (const slug of SLUGS) {
   for (const i of validateLesson(lesson)) blockers.push(`${lesson.id} lesson: ${i.path} ${i.message}`);
   for (const i of validateUnit(unit)) blockers.push(`${unit.id} unit: ${i.path} ${i.message}`);
 
-  if (seedLessons.has(lesson.id)) blockers.push(`${lesson.id}: a lesson with this id is already published`);
-  if (seedUnits.has(unit.id)) blockers.push(`${unit.id}: a unit with this id is already published`);
+  // Already imported (b1-import.ts + b1-merge-into-seed.ts) and identical to
+  // the source: not a blocker. A DIFFERENT published copy still is.
+  if (seedLessons.has(lesson.id)) {
+    if (sameDoc(seedLessons.get(lesson.id), lesson)) imported.push(lesson.id);
+    else blockers.push(`${lesson.id}: a DIFFERENT lesson with this id is already published`);
+  }
+  if (seedUnits.has(unit.id) && !sameDoc(seedUnits.get(unit.id), unitBody(C.UNIT, lesson.id))) {
+    blockers.push(`${unit.id}: a DIFFERENT unit with this id is already published`);
+  }
 
   const themes = new Set<string>();
   for (const row of C.ALL_ROWS as Row[]) {
@@ -72,7 +81,7 @@ for (const slug of SLUGS) {
     for (const i of validateItem(row, row.id)) blockers.push(`${row.id}: ${i.message}`);
     if (row.theme) themes.add(row.theme);
     const clash = seedItems.get(row.id);
-    if (clash) blockers.push(`${row.id}: would OVERWRITE a published row`);
+    if (clash && !sameItem(clash as never, row as never)) blockers.push(`${row.id}: would OVERWRITE a published row`);
   }
   for (const th of themes) {
     if (!seedThemes.has(th)) warnings.push(`${lesson.id}: theme "${th}" is not in the seed's theme list`);
@@ -91,6 +100,7 @@ for (const slug of SLUGS) {
 
 console.log('B1 IMPORT READINESS (nothing was written)\n');
 console.log(`lessons ${SLUGS.length} | units ${SLUGS.length} | authored items ${items} | reused published items ${reused}`);
+if (imported.length) console.log(`already imported, identical in the seed: ${imported.join(', ')}`);
 console.log(`\nBLOCKERS  ${blockers.length}`);
 for (const b of blockers.slice(0, 25)) console.log('  x ' + b);
 if (blockers.length > 25) console.log(`  ...and ${blockers.length - 25} more`);
