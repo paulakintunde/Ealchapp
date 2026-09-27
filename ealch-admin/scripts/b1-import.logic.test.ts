@@ -6,6 +6,7 @@ import { deepStrictEqual, ok, strictEqual, throws } from 'node:assert';
 import {
   B1_SLUGS, authoredFloors, crossLessonClashes, dbRowToItem, mergeIntoSeed, normaliseItem,
   planLesson, sameItem, twinCount, unitBody, versionVerdict, headwordClashes, headwordKey,
+  normFr, declaredTwins, decideTwins, rewriteIds, applyDedupe,
   type DbState, type LessonInput,
 } from './b1-import.logic.ts';
 
@@ -230,4 +231,126 @@ test('the flashcard-hub duplicate rule: article dropped, sentences and non-vocab
   ]);
   deepStrictEqual(headwordClashes([b], [b]), [], 'a row already published as itself is not its own twin');
   strictEqual(headwordKey(s1), null);
+});
+
+test('an identical row, unit or lesson that is not published plans as PROMOTE, not a conflict', () => {
+  const x = input();
+  const db = emptyDb({ units: new Map([
+    ['b1.01', { kind: 'curriculum_unit', status: 'draft', body: unitBody(x.unit, 'b1.01.l1') }],
+    ['b1.01.l1', { kind: 'lesson', status: 'draft', body: lesson() }],
+  ]) });
+  db.items.set('fr.b1.recits-au-passe.1401', { status: 'draft', item: normaliseItem(row(1401)) });
+  const p = planLesson(x, db, ctx);
+  deepStrictEqual(p.promote, ['fr.b1.recits-au-passe.1401']);
+  deepStrictEqual(p.skip, []);
+  strictEqual(p.unit, 'promote');
+  strictEqual(p.lesson, 'promote');
+  deepStrictEqual(p.blockers, []);
+  db.items.set('fr.b1.recits-au-passe.1401', { status: 'draft', item: normaliseItem(row(1401, { fr: 'Changé.' })) });
+  ok(planLesson(x, db, ctx).blockers.some((b) => /DIFFERENT content/.test(b)), 'a draft with different content is still a conflict');
+});
+
+/* ── TWIN DEDUPE ─────────────────────────────────────────────────────────── */
+
+test('normFr ignores case, apostrophe style, punctuation and spacing, but not accents', () => {
+  strictEqual(normFr('À ta place, j’attendrais !'), normFr("à ta place j'attendrais"));
+  strictEqual(normFr('Et si on partait ?'), normFr('et si on partait'));
+  ok(normFr('été') !== normFr('ete'), 'accents count');
+  ok(normFr('le tutoiement') !== normFr('tutoiement'), 'an article is wording');
+});
+
+test('DB_ONLY_TWINS is read in all three shapes', () => {
+  deepStrictEqual(declaredTwins([{ dbId: 'fr.a2.x.001', fr: 'a', twin: 'fr.b1.x.1000' }]), [{ dbId: 'fr.a2.x.001', authored: 'fr.b1.x.1000' }]);
+  deepStrictEqual(declaredTwins([{ id: 'fr.a2.x.001', fr: 'a', mine: 'act 9, E(1303)' }]), [{ dbId: 'fr.a2.x.001' }], 'mine is prose, never an id');
+  deepStrictEqual(declaredTwins({ 'fr.b1.y.019': 'poser un lapin' }), [{ dbId: 'fr.b1.y.019' }]);
+  deepStrictEqual(declaredTwins(undefined), []);
+});
+
+const twinLesson = (rows: ReturnType<typeof row>[], twins: unknown, id = 'b1.20.l1') => ({
+  lesson: { id }, rows: rows as never, twins,
+});
+
+test('a declared pair with the same French is deduped; different wording is KEPT and reported', () => {
+  const pub = new Map([['fr.a1.neg.012', { fr: 'Jamais de la vie !' }], ['fr.a1.neg.032', { fr: 'ne ... que' }]]);
+  const r = decideTwins([twinLesson(
+    [row(1154, { fr: 'jamais de la vie' }), row(1035, { fr: 'Il ne mange que des fruits.' })],
+    [{ dbId: 'fr.a1.neg.012', fr: 'x', twin: 'fr.b1.recits-au-passe.1154' }, { dbId: 'fr.a1.neg.032', fr: 'x', twin: 'fr.b1.recits-au-passe.1035' }],
+  )], pub, []);
+  deepStrictEqual([...r.map], [['fr.b1.recits-au-passe.1154', 'fr.a1.neg.012']]);
+  strictEqual(r.dedupe[0]!.source, 'declared');
+  strictEqual(r.kept.length, 1);
+  ok(/wording differs/.test(r.kept[0]!.reason));
+  strictEqual(r.kept[0]!.authored, 'fr.b1.recits-au-passe.1035');
+});
+
+test('a declaration without a twin id pairs by wording, and says so when nothing matches', () => {
+  const pub = new Map([['fr.b1.cs.001', { fr: 'Tu devrais partir.' }], ['fr.b1.cs.002', { fr: 'Il faudrait vérifier.' }]]);
+  const r = decideTwins([twinLesson(
+    [row(1023, { fr: 'Tu devrais partir' }), row(1024, { fr: 'Il faudrait tout vérifier.' })],
+    [{ id: 'fr.b1.cs.001', fr: 'x', mine: 'act 9' }, { id: 'fr.b1.cs.002', fr: 'x', mine: 'act 9' }],
+  )], pub, []);
+  deepStrictEqual([...r.map], [['fr.b1.recits-au-passe.1023', 'fr.b1.cs.001']]);
+  strictEqual(r.kept.length, 1);
+  ok(/no authored row has the published wording/.test(r.kept[0]!.reason));
+});
+
+test('a declared row that is not published is kept, never deduped', () => {
+  const r = decideTwins([twinLesson([row(1001, { fr: 'poser un lapin' })], { 'fr.b1.argot.019': 'poser un lapin' })], new Map(), []);
+  strictEqual(r.map.size, 0);
+  ok(/not published/.test(r.kept[0]!.reason));
+});
+
+test('hub clashes dedupe on the same French and keep a different article', () => {
+  const pub = new Map([['fr.a2.et.008', { fr: 'tutoyer' }], ['fr.a2.et.010', { fr: 'le tutoiement' }]]);
+  const r = decideTwins([twinLesson([row(1012, { fr: 'tutoyer' }), row(1014, { fr: 'tutoiement' })], undefined, 'b1.26.l1')], pub, [
+    { authored: 'fr.b1.recits-au-passe.1012', published: 'fr.a2.et.008' },
+    { authored: 'fr.b1.recits-au-passe.1014', published: 'fr.a2.et.010' },
+  ]);
+  deepStrictEqual([...r.map], [['fr.b1.recits-au-passe.1012', 'fr.a2.et.008']]);
+  strictEqual(r.dedupe[0]!.source, 'hub');
+  strictEqual(r.kept[0]!.source, 'hub');
+  strictEqual(r.kept[0]!.lesson, 'b1.26.l1');
+});
+
+test('a declaration wins over a hub clash for the same row, and one row maps to one published id', () => {
+  const pub = new Map([['fr.a2.a.001', { fr: 'donc' }], ['fr.a2.a.002', { fr: 'donc' }]]);
+  const r = decideTwins([twinLesson([row(1016, { fr: 'donc' })], [{ dbId: 'fr.a2.a.001', fr: 'donc', twin: 'fr.b1.recits-au-passe.1016' }])], pub,
+    [{ authored: 'fr.b1.recits-au-passe.1016', published: 'fr.a2.a.002' }]);
+  deepStrictEqual([...r.map], [['fr.b1.recits-au-passe.1016', 'fr.a2.a.001']]);
+  strictEqual(r.dedupe.length, 1);
+});
+
+test('rewriteIds reaches every reference, collapses repeats and never re-releases a deck row', () => {
+  const map = new Map([['fr.b1.recits-au-passe.1402', 'fr.a2.verbes.001']]);
+  const L = lesson({
+    itemIds: ['fr.b1.recits-au-passe.1401', 'fr.b1.recits-au-passe.1402', 'fr.a2.verbes.001'],
+    sections: [
+      { id: 's01', type: 'teach', practiceOn: ['fr.b1.recits-au-passe.1402'] },
+      { id: 's02', type: 'quiz', questions: [{ itemId: 'fr.b1.recits-au-passe.1402', opts: ['a', 'b'] }] },
+    ],
+    terms: [{ term: 't', examples: [{ itemId: 'fr.b1.recits-au-passe.1402' }] }],
+    drills: [{ id: 'd1', items: ['fr.b1.recits-au-passe.1402'] }],
+    deckTranche: [['fr.a2.verbes.001'], ['fr.b1.recits-au-passe.1401', 'fr.b1.recits-au-passe.1402']],
+  });
+  const before = JSON.stringify(L);
+  const { lesson: out, replaced } = rewriteIds(L, map);
+  strictEqual(JSON.stringify(L), before, 'the input is not mutated');
+  strictEqual(replaced, 6);
+  ok(!JSON.stringify(out).includes('.1402'), 'no reference to the twin survives');
+  deepStrictEqual(out.itemIds, ['fr.b1.recits-au-passe.1401', 'fr.a2.verbes.001']);
+  deepStrictEqual((out.sections as any)[1].questions[0].itemId, 'fr.a2.verbes.001');
+  deepStrictEqual((out as any).terms[0].examples[0].itemId, 'fr.a2.verbes.001');
+  deepStrictEqual((out as any).deckTranche, [['fr.a2.verbes.001'], ['fr.b1.recits-au-passe.1401']]);
+  deepStrictEqual((out.sections as any)[1].questions[0].opts, ['a', 'b'], 'prose arrays are untouched');
+});
+
+test('applyDedupe drops the twin row and rewrites the lesson, and the plan then reuses the published row', () => {
+  const map = new Map([['fr.b1.recits-au-passe.1402', 'fr.a2.verbes.001']]);
+  const x = applyDedupe(input({ rows: [row(1401), row(1402)], lesson: lesson({ itemIds: ['fr.b1.recits-au-passe.1401', 'fr.b1.recits-au-passe.1402'] }) }), map);
+  deepStrictEqual(x.deduped, ['fr.b1.recits-au-passe.1402']);
+  deepStrictEqual(x.rows.map((r) => r.id), ['fr.b1.recits-au-passe.1401']);
+  const p = planLesson(x, emptyDb(), ctx);
+  deepStrictEqual(p.insert, ['fr.b1.recits-au-passe.1401']);
+  strictEqual(p.reusedPublished, 1);
+  deepStrictEqual(p.blockers, []);
 });

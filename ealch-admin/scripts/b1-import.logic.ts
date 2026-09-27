@@ -17,7 +17,7 @@
 //     in Postgres, or authored by another lesson in the SAME run.
 //  5. DB_ONLY_TWINS are imported as authored. Their count is reported, never
 //     acted on: the dedupe decision is Paul's.
-import { canonicalJson } from '../../ealch-v2/src/content/schema.ts';
+import { canonicalJson, ITEM_ID_RE } from '../../ealch-v2/src/content/schema.ts';
 import { itemsReferencedBy } from './seed-cut.logic.ts';
 
 /** Every B1 lesson authored so far, in trail order. The import and the merge
@@ -138,7 +138,10 @@ export type PlanContext = {
   images?: ReadonlySet<string>;
 };
 
-export type Action = 'create' | 'skip' | 'update' | 'conflict';
+/** `promote`: the row is already there and identical but not published (for
+ *  example set back to draft while its content was fixed); an apply flips the
+ *  status and nothing else. */
+export type Action = 'create' | 'skip' | 'promote' | 'update' | 'conflict';
 
 export type LessonPlan = {
   slug: string;
@@ -148,6 +151,8 @@ export type LessonPlan = {
   authored: number;
   insert: string[];
   skip: string[];
+  /** Identical rows that exist at a status other than published. */
+  promote: string[];
   update: string[];
   conflict: string[];
   reusedPublished: number;
@@ -183,7 +188,7 @@ export function planLesson(input: LessonInput, db: DbState, ctx: PlanContext): L
   const unit = unitBody(input.unit, lesson.id);
   const blockers: string[] = [];
   const warnings: string[] = [];
-  const insert: string[] = [], skip: string[] = [], update: string[] = [], conflict: string[] = [];
+  const insert: string[] = [], skip: string[] = [], promote: string[] = [], update: string[] = [], conflict: string[] = [];
 
   const own = new Set(rows.map((r) => r.id));
   if (own.size !== rows.length) blockers.push(`${lesson.id}: the corpus authors the same id twice`);
@@ -192,7 +197,7 @@ export function planLesson(input: LessonInput, db: DbState, ctx: PlanContext): L
   for (const r of rows) {
     const found = db.items.get(r.id);
     if (!found) { insert.push(r.id); continue; }
-    if (sameItem(found.item, r)) { skip.push(r.id); continue; }
+    if (sameItem(found.item, r)) { (found.status === 'published' ? skip : promote).push(r.id); continue; }
     if (ctx.reapply) update.push(r.id);
     else conflict.push(r.id);
   }
@@ -225,7 +230,7 @@ export function planLesson(input: LessonInput, db: DbState, ctx: PlanContext): L
   const u = db.units.get(unit.id as string);
   if (u) {
     if (u.kind !== 'curriculum_unit') blockers.push(`${unit.id}: the slug is taken by a ${u.kind} row`);
-    else if (sameDoc(u.body, unit)) unitAction = 'skip';
+    else if (sameDoc(u.body, unit)) unitAction = u.status === 'published' ? 'skip' : 'promote';
     else if (ctx.reapply) unitAction = 'update';
     else { unitAction = 'conflict'; blockers.push(`${unit.id}: a curriculum unit with this id exists with a different body`); }
   }
@@ -238,7 +243,7 @@ export function planLesson(input: LessonInput, db: DbState, ctx: PlanContext): L
     else {
       const v = versionVerdict(l.body as LessonLike, lesson as LessonLike);
       if (!v.ok) { lessonAction = 'conflict'; blockers.push(v.reason); }
-      else if (v.kind === 'identical') lessonAction = 'skip';
+      else if (v.kind === 'identical') lessonAction = l.status === 'published' ? 'skip' : 'promote';
       else if (ctx.reapply) lessonAction = 'update';
       else { lessonAction = 'conflict'; blockers.push(`${lesson.id}: already in Postgres with a different body (${v.kind}); pass --reapply to replace it`); }
     }
@@ -256,7 +261,7 @@ export function planLesson(input: LessonInput, db: DbState, ctx: PlanContext): L
 
   return {
     slug: input.slug, lessonId: lesson.id, unitId: unit.id as string, themes,
-    authored: rows.length, insert, skip, update, conflict,
+    authored: rows.length, insert, skip, promote, update, conflict,
     reusedPublished, reusedInRun, twins: twinCount(input.twins),
     unit: unitAction, lesson: lessonAction, lessonVersion: lesson.version ?? 1,
     blockers, warnings,
@@ -387,4 +392,165 @@ export function mergeIntoSeed(
   }
 
   return { seed: { ...seed, units, lessons, items }, stats };
+}
+
+/* ── TWIN DEDUPE (Paul, 2026-09-26: DEDUPE TO THE PUBLISHED ROW) ──────────
+ *
+ * A lesson could only name rows the SEED carries, so it authored twins of
+ * rows published in Postgres alone. At import the twin is dropped and every
+ * reference in every lesson points at the published row instead. The seed
+ * merge then pulls that published row from Postgres, because the rewritten
+ * lesson references it.
+ *
+ * Candidates come from two places: the corpus's own DB_ONLY_TWINS
+ * declaration, and the flashcard-hub rule (an authored non-sentence row that
+ * the hub would deal as the same card as a published row). A candidate is
+ * deduped ONLY when the French is the same after `normFr`. Any other candidate
+ * is KEPT as authored and reported for Paul. */
+
+/** Case, apostrophe style, punctuation and spacing do not count; accents do. */
+export function normFr(s: unknown): string {
+  return String(s ?? '')
+    .normalize('NFC')
+    .toLowerCase()
+    .replace(/[’‘`´]/g, "'")
+    .replace(/[.,!?;:«»"“”…()\[\]]/g, ' ')
+    .replace(/[\s\u00a0\u202f]+/g, ' ')
+    .trim();
+}
+
+/** One declared twin. `authored` is set only when the corpus names its own
+ *  row; otherwise the pairing is found by wording. */
+export type TwinDecl = { dbId: string; authored?: string };
+
+/** DB_ONLY_TWINS arrives in three shapes: `{dbId, fr, twin}`,
+ *  `{id, fr, mine}` (mine is prose, not an id) and `Record<dbId, fr>`. */
+export function declaredTwins(t: unknown): TwinDecl[] {
+  if (!t) return [];
+  if (Array.isArray(t)) {
+    return t.map((d: Obj) => {
+      const dbId = String(d.dbId ?? d.id ?? '');
+      const tw = typeof d.twin === 'string' && ITEM_ID_RE.test(d.twin) ? d.twin : undefined;
+      return tw ? { dbId, authored: tw } : { dbId };
+    }).filter((d) => d.dbId);
+  }
+  if (typeof t === 'object') return Object.keys(t as Obj).map((dbId) => ({ dbId }));
+  return [];
+}
+
+export type TwinPair = {
+  lesson: string;
+  authored: string;
+  published: string;
+  source: 'declared' | 'hub';
+  authoredFr: string;
+  publishedFr: string;
+};
+export type TwinKept = {
+  lesson: string;
+  authored?: string;
+  published: string;
+  source: 'declared' | 'hub';
+  reason: string;
+};
+
+/**
+ * Decide every twin in the band. `published` holds Postgres rows that are
+ * published and NOT authored by any B1 lesson, keyed by id. `hub` holds
+ * (authored, published) flashcard clashes.
+ *
+ * One authored id maps to at most one published id; the first decision wins
+ * (declarations before hub clashes, lessons in trail order).
+ */
+export function decideTwins(
+  inputs: { lesson: { id: string }; rows: AuthoredRow[]; twins?: unknown }[],
+  published: ReadonlyMap<string, { fr: string }>,
+  hub: { authored: string; published: string }[],
+): { dedupe: TwinPair[]; kept: TwinKept[]; map: Map<string, string> } {
+  const dedupe: TwinPair[] = [];
+  const kept: TwinKept[] = [];
+  const map = new Map<string, string>();
+  const decided = new Set<string>();
+
+  const take = (lesson: string, row: AuthoredRow, pubId: string, source: 'declared' | 'hub') => {
+    const pub = published.get(pubId)!;
+    if (map.has(row.id)) return;
+    if (normFr(row.fr) === normFr(pub.fr)) {
+      map.set(row.id, pubId);
+      dedupe.push({ lesson, authored: row.id, published: pubId, source, authoredFr: String(row.fr), publishedFr: pub.fr });
+    } else {
+      kept.push({ lesson, authored: row.id, published: pubId, source, reason: `wording differs: authored « ${row.fr} », published « ${pub.fr} »` });
+    }
+    decided.add(row.id);
+  };
+
+  for (const x of inputs) {
+    const byId = new Map(x.rows.map((r) => [r.id, r]));
+    for (const d of declaredTwins(x.twins)) {
+      const pub = published.get(d.dbId);
+      if (!pub) {
+        kept.push({ lesson: x.lesson.id, authored: d.authored, published: d.dbId, source: 'declared', reason: 'the declared row is not published in Postgres (or is itself B1-authored)' });
+        continue;
+      }
+      if (d.authored) {
+        const row = byId.get(d.authored);
+        if (!row) { kept.push({ lesson: x.lesson.id, authored: d.authored, published: d.dbId, source: 'declared', reason: 'the declared twin id is not authored by this lesson' }); continue; }
+        take(x.lesson.id, row, d.dbId, 'declared');
+        continue;
+      }
+      const matches = x.rows.filter((r) => normFr(r.fr) === normFr(pub.fr));
+      if (!matches.length) {
+        kept.push({ lesson: x.lesson.id, published: d.dbId, source: 'declared', reason: `no authored row has the published wording « ${pub.fr} »` });
+        continue;
+      }
+      for (const row of matches) take(x.lesson.id, row, d.dbId, 'declared');
+    }
+  }
+  for (const h of hub) {
+    if (decided.has(h.authored) || !published.has(h.published)) continue;
+    const owner = inputs.find((x) => x.rows.some((r) => r.id === h.authored));
+    if (!owner) continue;
+    take(owner.lesson.id, owner.rows.find((r) => r.id === h.authored)!, h.published, 'hub');
+  }
+  return { dedupe, kept, map };
+}
+
+/** Rewrite every item reference in a lesson through `map`. Any array of item
+ *  ids that now names one row twice keeps its first occurrence, and a deck
+ *  tranche never re-releases a row an earlier tranche already dealt. Returns a
+ *  new lesson; the input is not mutated. */
+export function rewriteIds<T>(lesson: T, map: ReadonlyMap<string, string>): { lesson: T; replaced: number } {
+  let replaced = 0;
+  const walk = (v: unknown): unknown => {
+    if (typeof v === 'string') {
+      const to = map.get(v);
+      if (to) { replaced++; return to; }
+      return v;
+    }
+    if (Array.isArray(v)) {
+      const out = v.map(walk);
+      if (out.length && out.every((x) => typeof x === 'string' && ITEM_ID_RE.test(x))) {
+        return [...new Set(out as string[])];
+      }
+      return out;
+    }
+    if (v && typeof v === 'object') {
+      return Object.fromEntries(Object.entries(v as Obj).map(([k, x]) => [k, walk(x)]));
+    }
+    return v;
+  };
+  const out = walk(lesson) as Obj;
+  if (Array.isArray(out.deckTranche)) {
+    const seen = new Set<string>();
+    out.deckTranche = (out.deckTranche as string[][]).map((t) => t.filter((id) => !seen.has(id) && (seen.add(id), true)));
+  }
+  return { lesson: out as T, replaced };
+}
+
+/** A lesson with its twins dropped from the authored rows and its references
+ *  rewritten. */
+export function applyDedupe<X extends LessonInput>(x: X, map: ReadonlyMap<string, string>): X & { deduped: string[]; replaced: number } {
+  const deduped = x.rows.filter((r) => map.has(r.id)).map((r) => r.id);
+  const { lesson, replaced } = rewriteIds(x.lesson, map);
+  return { ...x, lesson, rows: x.rows.filter((r) => !map.has(r.id)), deduped, replaced };
 }

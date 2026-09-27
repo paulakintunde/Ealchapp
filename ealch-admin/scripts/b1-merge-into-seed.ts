@@ -22,6 +22,9 @@
  *    never rewritten here; if Postgres has moved ahead of it, it is listed and
  *    left for the next publish to carry;
  *  - Lesson.version follows the no-text-bump rule;
+ *  - twins are resolved exactly as b1-import.ts resolves them (resolveDedupe),
+ *    so the lesson carried is the REWRITTEN one, and the published row each
+ *    twin was deduped to is pulled from Postgres with the other references;
  *  - the seed must round-trip byte-identically before the write, and must not
  *    gain a single validateCorpus issue.
  *
@@ -35,9 +38,9 @@ import { validateCorpus } from '../../ealch-v2/src/content/schema.ts';
 import { itemsReferencedBy } from './seed-cut.logic.ts';
 import { SEED_CUT } from './seed-cut.config.ts';
 import {
-  B1_SLUGS, dbRowToItem, mergeIntoSeed, sameDoc, unitBody, type SeedLike,
+  B1_SLUGS, applyDedupe, dbRowToItem, mergeIntoSeed, sameDoc, unitBody, type SeedLike,
 } from './b1-import.logic.ts';
-import { loadLesson } from './b1-import.ts';
+import { loadLesson, resolveDedupe } from './b1-import.ts';
 
 const argv = process.argv.slice(2);
 const DRY = argv.includes('--dry');
@@ -74,7 +77,13 @@ async function main() {
   const lessons: Record<string, unknown>[] = [];
   const items = new Map<string, Record<string, unknown>>();
   try {
-    for (const x of run) {
+    // The SAME twin decision the import made, so the lesson compared against
+    // Postgres is the rewritten one, and the published twin rows it now names
+    // are pulled into the seed below like any other referenced row.
+    const twins = await resolveDedupe(c, all);
+    const targets = new Set(twins.map.values());
+    for (const x0 of run) {
+      const x = applyDedupe(x0, twins.map);
       const r = await c.query<{ slug: string; kind: string; status: string; body: Record<string, unknown> }>(
         `select slug, kind::text as kind, status::text as status, body from content_units where slug = any($1::text[])`,
         [[x.unit.id, x.lesson.id]]);
@@ -97,7 +106,8 @@ async function main() {
       const missing = ids.filter((id) => !q.rows.some((y) => y.id === id && y.status === 'published'));
       if (missing.length) die(`${x.lesson.id} references ${missing.length} id(s) not published in Postgres, first ${missing[0]}`);
       for (const y of q.rows) items.set(y.id, dbRowToItem(y));
-      console.log(`  ${x.lesson.id.padEnd(9)} ${x.slug.padEnd(22)} ${String(ids.length).padStart(4)} referenced items read from Postgres`);
+      const pulledTwins = ids.filter((id) => targets.has(id)).length;
+      console.log(`  ${x.lesson.id.padEnd(9)} ${x.slug.padEnd(22)} ${String(ids.length).padStart(4)} referenced items read from Postgres, ${pulledTwins} of them published rows a twin was deduped to (${x.deduped.length} twins dropped)`);
     }
   } finally {
     c.release();
