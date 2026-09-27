@@ -119,12 +119,20 @@
 //   5. Facts used: Canada's 2023 record wildfire season and the smoke over
 //      Montréal; the 2021 Belgian floods; Québec hydro (« presque toute »);
 //      France nuclear (« environ deux tiers »); the Taiba Ndiaye wind farm
-//      near Thiès; the Vaud bag tax since 2013; the 2018 fuel-tax rise and
-//      the gilets jaunes; the 2019 Montréal climate march; the Saint-
-//      Laurent belugas (< 2,000, endangered); the Great Green Wall. All
-//      phrased without exact figures where they could date. Lyon's ZFE is
-//      said to « fait débat » because its legal status moved in 2025.
-//      Worth a fact pass before publish?
+//      in the Thiès region; the Vaud bag tax since 2013; the 2018 fuel-tax
+//      rise and the gilets jaunes; the 2019 Montréal climate march; the
+//      Saint-Laurent belugas (< 2,000, endangered); the Great Green Wall.
+//      All phrased without exact figures where they could date. Lyon's ZFE
+//      is said to « fait débat »: Parliament voted to abolish ZFEs on
+//      2026-04-14, the Conseil constitutionnel struck that out on
+//      2026-05-21, and Lyon's zone is in force and still contested.
+//      FACT PASS DONE 2026-09-26: Thiès row reworded to « dans la région
+//      de Thiès » (Taïba Ndiaye is in the Tivaouane department, past
+//      Tivaouane, which is itself 28 km from Thiès city); gilets jaunes
+//      row says « la taxe sur les carburants » (the 2018 rise hit diesel
+//      hardest, not only « l'essence »); the two EV rows say « ne rejette
+//      pas de gaz » (no exhaust) instead of « ne pollue pas » (tyre and
+//      brake particles remain).
 //   6. Nineteen published Postgres rows are twinned (corpus DB_ONLY_TWINS);
 //      the DB holds 145 fr.b1 ecologie rows the seed does not. Dedupe at
 //      import or keep both?
@@ -1462,7 +1470,7 @@ const A6_TABLEAU: Sec<'tapTable'> = {
       detail: { title: "L'eau", body: "Renouvelable, mais les grands barrages ont inondé des terres. EN: renewable, with a cost.", say: fr(E(1111)) } },
     { cells: ['le nucléaire', 'la France', 'une centrale'], say: fr(E(1102)),
       detail: { title: "L'atome", body: "Peu de gaz à effet de serre, mais des déchets à garder très longtemps. EN: low-carbon, long-lived waste.", say: fr(E(1111)) } },
-    { cells: ["l'éolien", 'le Sénégal, près de Thiès', 'une éolienne'], say: fr(E(1103)),
+    { cells: ["l'éolien", 'le Sénégal, région de Thiès', 'une éolienne'], say: fr(E(1103)),
       detail: { title: 'Le vent', body: "Le vent fait tourner les éoliennes. Il ne souffle pas toujours. EN: wind power, not constant.", say: fr(E(1109)) } },
     { cells: ['le solaire', 'partout, sur les toits', 'un panneau'], say: fr(E(1104)),
       detail: { title: 'Le soleil', body: "Des panneaux à l'école, à la maison. La nuit, rien. EN: solar, daytime only.", say: fr(E(1109)) } },
@@ -1516,7 +1524,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'save, mot à mot', promptSound: "Chez moi, je sauve toujours de l'énergie.", fr: fr(E(1005)), ipa: ipaOf(E(1005)), tip: "On économise l'énergie. EN: économiser." },
     { promptLabel: 'power plant', promptSound: "Une plante, c'est une usine qui produit de l'électricité.", fr: fr(E(1111)), ipa: ipaOf(E(1111)), tip: "Une plante pousse dans un jardin. Power plant : une centrale. EN: une centrale." },
     { promptLabel: 'power cut', promptSound: 'Hier soir, il y a eu une panne de pouvoir dans tout le quartier.', fr: fr(E(1110)), ipa: ipaOf(E(1110)), tip: "Le courant. Le pouvoir, c'est la politique. EN: une panne de courant." },
-    { promptLabel: 'windmill', promptSound: "Près de Thiès, au Sénégal, des moulins à vent produisent de l'électricité.", fr: fr(E(1103)), ipa: ipaOf(E(1103)), tip: "Un moulin fait de la farine. Une éolienne fait de l'électricité. EN: a wind turbine." },
+    { promptLabel: 'windmill', promptSound: "Dans la région de Thiès, au Sénégal, des moulins à vent produisent de l'électricité.", fr: fr(E(1103)), ipa: ipaOf(E(1103)), tip: "Un moulin fait de la farine. Une éolienne fait de l'électricité. EN: a wind turbine." },
     { promptLabel: 'panel', promptSound: "L'école a installé des panels solaires sur son toit.", fr: fr(E(1104)), ipa: ipaOf(E(1104)), tip: "Un panneau solaire. Un panel, c'est un groupe de personnes. EN: a solar panel." },
     { promptLabel: 'renouvelé', promptSound: 'Le vent et le soleil sont des énergies renouvelées.', fr: fr(E(1109)), ipa: ipaOf(E(1109)), tip: "Renouvelable : qui peut se renouveler. EN: renewable." },
   ],
@@ -1524,7 +1532,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptSay: "Je fais attention : j'... l'énergie.", opts: ['économise', 'sauve'], correct: 0 },
     { promptSay: "Une ... nucléaire produit de l'électricité.", opts: ['plante', 'centrale'], correct: 1 },
     { promptSay: 'Il y a eu une panne de ... .', opts: ['courant', 'pouvoir'], correct: 0 },
-    { promptSay: 'Près de Thiès, les ... tournent avec le vent.', opts: ['moulins', 'éoliennes'], correct: 1 },
+    { promptSay: 'Dans la région de Thiès, les ... tournent avec le vent.', opts: ['moulins', 'éoliennes'], correct: 1 },
     { promptSay: 'Des ... solaires sur le toit.', opts: ['panneaux', 'panels'], correct: 0 },
     { promptSay: 'Le soleil est une énergie ... .', opts: ['renouvelée', 'renouvelante', 'renouvelable'], correct: 2 },
     { promptSay: 'Le soir, on ... le chauffage.', opts: ['descend', 'baisse'], correct: 1 },
@@ -2844,7 +2852,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI("L'école a installé des ___ solaires sur son toit.", fr(E(1104)), "Des panneaux. EN: panels.", 'a6-piege'),
         tI("Le soir, on ___ le chauffage d'un degré. (to turn down)", fr(E(1105)), "Baisser le chauffage. EN: baisser.", 'a6-cartes'),
         eS('Le vent et le soleil sont des énergies renouvelées.', fr(E(1109)), "Renouvelables. EN: renewable.", 'a6-piege'),
-        eS("Près de Thiès, au Sénégal, des moulins produisent de l'électricité.", fr(E(1103)), "Des éoliennes. EN: wind turbines.", 'a6-piege'),
+        eS("Dans la région de Thiès, au Sénégal, des moulins produisent de l'électricité.", fr(E(1103)), "Des éoliennes. EN: wind turbines.", 'a6-piege'),
         lC('Écoute. De quel pays parle-t-on ?', fr(E(1102)), ['de la France', 'du Québec', 'du Sénégal'], 0, "Le nucléaire en France. EN: France.", 'a6-tableau'),
       ],
     },
@@ -3030,7 +3038,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     table('sheet-climat-energie', "Les sources d'énergie", ['Énergie', 'Où', 'Le mot qui va avec'], [
       ["l'hydroélectricité", 'au Québec, presque toute l’électricité', 'un barrage, une centrale'],
       ['le nucléaire', 'en France, environ deux tiers', 'une centrale nucléaire'],
-      ["l'éolien", 'au Sénégal, près de Thiès', 'une éolienne'],
+      ["l'éolien", 'au Sénégal, région de Thiès', 'une éolienne'],
       ['le solaire', 'sur les toits, partout', 'un panneau solaire'],
       ['les énergies fossiles', 'le pétrole, le gaz, le charbon', 'une centrale thermique'],
       ["les économies d'énergie", 'chez toi', 'baisser le chauffage, éteindre la lumière'],
