@@ -15,7 +15,7 @@
 //
 // Remove with the rest of the DEV-PREVIEW-B1 marker (grep for it).
 import { readFileSync, writeFileSync } from 'node:fs';
-import { B1_SLUGS } from '../../b1-import.logic.ts';
+import { BAND_SLUGS, type Band } from '../../b1-import.logic.ts';
 
 /** Every B1 lesson authored, in trail order: the one registry the import
  *  pipeline also reads (B1_SLUGS in scripts/b1-import.logic.ts). A new lesson is
@@ -26,7 +26,9 @@ import { B1_SLUGS } from '../../b1-import.logic.ts';
  *  seed carries it, so the preview SKIPS it (overlaying the draft copy on the
  *  published one would hide what actually ships). No list to edit by hand:
  *  run the merge, then rebuild this fixture. */
-const SLUGS = B1_SLUGS;
+const SLUGS = BAND_SLUGS;
+// B2 drafts ride in the same fixture (2026-09-27): one overlay, one bypass list
+// (DRAFT_LESSON_IDS), and the Den unlocks whichever band carries drafts.
 
 /** Lesson ids already in the seed, which are therefore no longer drafts. */
 function seededLessonIds(): Set<string> {
@@ -48,18 +50,19 @@ export async function buildPreview() {
   const items = new Map<string, any>();
   const seeded = seededLessonIds();
 
-  for (const slug of SLUGS) {
-    const L: any = await import(`./${slug}-lesson.ts`);
+  for (const band of Object.keys(SLUGS) as Band[]) for (const slug of SLUGS[band]) {
+    const L: any = await import(`../${band}/${slug}-lesson.ts`);
     if (seeded.has(L.LESSON.id)) continue;
-    const C: any = await import(`./${slug}-corpus.ts`);
-    units.push({ ...C.UNIT, level: 'b1', lessonIds: [L.LESSON.id] });
+    const C: any = await import(`../${band}/${slug}-corpus.ts`);
+    units.push({ ...C.UNIT, level: band, lessonIds: [L.LESSON.id] });
     lessons.push({ ...L.LESSON });
     // Lessons quote each other's rows, so the same id can arrive twice. Last
     // write wins, which is safe: a quoted row is the same row.
     for (const row of C.ALL_ROWS) items.set(row.id, row);
   }
 
-  units.sort((a, b) => (a.seq ?? 0) - (b.seq ?? 0));
+  // Trail order within each band (B1 before B2).
+  units.sort((a, b) => String(a.level).localeCompare(String(b.level)) || (a.seq ?? 0) - (b.seq ?? 0));
   return { units, lessons, items: [...items.values()] };
 }
 

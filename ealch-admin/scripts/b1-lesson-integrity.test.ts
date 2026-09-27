@@ -66,7 +66,7 @@ function registries(): { req: Set<string>; alt: Set<string> } {
 
 for (const [id, slug] of LESSONS) {
   test(`${id} ${slug}: every reference sheet is reachable from a mission`, async () => {
-    const mod: any = await import(`./data/b1/${slug}-lesson.ts`);
+    const mod: any = await import(`./data/${id.split(".")[0]}/${slug}-lesson.ts`);
     const L = mod.lessonWithoutTask ? mod.lessonWithoutTask() : mod.LESSON;
     const sheets: string[] = (L.sheets ?? []).map((s: any) => s.id);
     ok(sheets.length >= 4, `${id}: ${sheets.length} sheets, the standard is 4 to 5`);
@@ -84,7 +84,7 @@ for (const [id, slug] of LESSONS) {
   });
 
   test(`${id} ${slug}: every act opener image is registered`, async () => {
-    const mod: any = await import(`./data/b1/${slug}-lesson.ts`);
+    const mod: any = await import(`./data/${id.split(".")[0]}/${slug}-lesson.ts`);
     const L = mod.lessonWithoutTask ? mod.lessonWithoutTask() : mod.LESSON;
     const { req } = registries();
     const refs: string[] = (L.acts ?? []).map((a: any) => a.opener?.imageRef).filter(Boolean);
@@ -127,7 +127,7 @@ test('no scene or story bubble carries a spaced ? or !', async () => {
   let checked = 0;
   const hits: string[] = [];
   for (const [id, slug] of LESSONS) {
-    const mod: any = await import(`./data/b1/${slug}-lesson.ts`);
+    const mod: any = await import(`./data/${id.split(".")[0]}/${slug}-lesson.ts`);
     const L = mod.lessonWithoutTask ? mod.lessonWithoutTask() : mod.LESSON;
     const spaced = / [?!]/;
     for (const s of L.sections) {

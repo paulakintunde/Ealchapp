@@ -42,7 +42,7 @@ const EN_TAIL = /(^|\s)EN: /;
 
 for (const [id, slug] of LESSONS) {
   test(`${id} ${slug}: no answer carries an EN: tail`, async () => {
-    const mod: any = await import(`./data/b1/${slug}-lesson.ts`);
+    const mod: any = await import(`./data/${id.split(".")[0]}/${slug}-lesson.ts`);
     const L = mod.lessonWithoutTask ? mod.lessonWithoutTask() : mod.LESSON;
 
     const hits: string[] = [];

@@ -35,6 +35,24 @@ export const B1_SLUGS = [
   'medias', 'emotions', 'affaires', 'strategies-ecoute', 'courriels-lettres',
 ] as const;
 
+/** Every B2 lesson authored so far, in trail order (files in data/b2/). A wave
+ *  adds its slugs here when it lands. */
+export const B2_SLUGS: readonly string[] = [];
+
+/** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
+export type Band = 'b1' | 'b2';
+export const BAND_SLUGS: Record<Band, readonly string[]> = { b1: B1_SLUGS, b2: B2_SLUGS };
+
+/** `--band b2` picks the band (default b1, so every B1 command runs as before);
+ *  `rest` is argv without the flag and its value. */
+export function parseBand(argv: readonly string[]): { band: Band; rest: string[] } {
+  const i = argv.indexOf('--band');
+  if (i < 0) return { band: 'b1', rest: [...argv] };
+  const band = argv[i + 1];
+  if (band !== 'b1' && band !== 'b2') throw new Error(`--band must be b1 or b2, got ${band ?? '(nothing)'}`);
+  return { band, rest: argv.filter((_, j) => j !== i && j !== i + 1) };
+}
+
 export type Obj = Record<string, unknown>;
 
 /** A content_themes row, as b1-merge-into-seed.ts and b1-trial-merge.ts read it. */
@@ -211,7 +229,8 @@ export function twinCount(t: unknown): number {
 
 /** The unit document as it lands: the corpus UNIT plus band and lesson list. */
 export function unitBody(unit: Obj & { id: string }, lessonId: string): Obj {
-  return { ...unit, level: 'b1', lessonIds: [lessonId] };
+  // The level is the unit id's band (b1.07 -> b1, b2.23 -> b2).
+  return { ...unit, level: unit.id.split('.')[0], lessonIds: [lessonId] };
 }
 
 /** Every act opener image the lesson names. */
@@ -247,7 +266,7 @@ export function planLesson(input: LessonInput, db: DbState, ctx: PlanContext): L
   for (const th of themes) if (!db.themes.has(th)) blockers.push(`${lesson.id}: theme "${th}" is not in content_themes`);
   for (const th of themes) {
     const f = db.foreignAboveFloor?.get(th) ?? [];
-    if (f.length) blockers.push(`${lesson.id}: ${th} holds ${f.length} fr.b1 row(s) at or above the authored floor that no B1 lesson authors, first ${f[0]}`);
+    if (f.length) blockers.push(`${lesson.id}: ${th} holds ${f.length} fr.${lesson.id.split('.')[0]} row(s) at or above the authored floor that no ${lesson.id.split('.')[0].toUpperCase()} lesson authors, first ${f[0]}`);
   }
 
   // 3. Everything the lesson NAMES that it does not author.

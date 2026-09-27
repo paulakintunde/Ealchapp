@@ -60,12 +60,13 @@ import { validateLesson, validateItem, validateUnit } from '../../ealch-v2/src/c
 import { describeTarget } from './env';
 import { itemsReferencedBy } from './seed-cut.logic.ts';
 import {
-  B1_SLUGS, applyDedupe, authoredFloors, crossLessonClashes, dbRowToItem, decideTwins, declaredTwins,
+  BAND_SLUGS, parseBand, applyDedupe, authoredFloors, crossLessonClashes, dbRowToItem, decideTwins, declaredTwins,
   headwordClashes, planLesson, sameItem, unitBody,
   type AuthoredRow, type DbState, type LessonInput, type LessonPlan,
 } from './b1-import.logic.ts';
 
-const argv = process.argv.slice(2);
+const { band: BAND, rest: argv } = parseBand(process.argv.slice(2));
+const SLUGS = BAND_SLUGS[BAND];
 const APPLY = argv.includes('--apply');
 const REAPPLY = argv.includes('--reapply');
 const named = argv.filter((a) => !a.startsWith('--'));
@@ -76,9 +77,9 @@ function die(msg: string): never {
   process.exit(1);
 }
 
-export async function loadLesson(slug: string): Promise<LessonInput> {
-  const L: any = await import(`./data/b1/${slug}-lesson.ts`);
-  const C: any = await import(`./data/b1/${slug}-corpus.ts`);
+export async function loadLesson(slug: string, band: string = 'b1'): Promise<LessonInput> {
+  const L: any = await import(`./data/${band}/${slug}-lesson.ts`);
+  const C: any = await import(`./data/${band}/${slug}-corpus.ts`);
   return { slug, unit: C.UNIT, lesson: L.LESSON, rows: C.ALL_ROWS as AuthoredRow[], twins: C.DB_ONLY_TWINS };
 }
 
@@ -115,13 +116,13 @@ export async function resolveDedupe(c: PoolClient, all: LessonInput[]) {
 }
 
 async function main() {
-  const unknown = named.filter((s) => !(B1_SLUGS as readonly string[]).includes(s));
-  if (unknown.length) die(`unknown slug(s): ${unknown.join(', ')}. Known: B1_SLUGS in b1-import.logic.ts`);
-  const slugs = named.length ? named : [...B1_SLUGS];
+  const unknown = named.filter((s) => !SLUGS.includes(s));
+  if (unknown.length) die(`unknown slug(s): ${unknown.join(', ')}. Known: ${BAND.toUpperCase()}_SLUGS in b1-import.logic.ts`);
+  const slugs = named.length ? named : [...SLUGS];
   if (REAPPLY && !APPLY) console.log('  (--reapply without --apply: the plan shows what a re-apply would replace)');
 
   /* ── 1. LOAD. Every B1 lesson, so ownership is judged against the band. ── */
-  const source = await Promise.all(B1_SLUGS.map(loadLesson));
+  const source = await Promise.all(SLUGS.map((x) => loadLesson(x, BAND)));
   const bandAuthored = new Set(source.flatMap((x) => x.rows.map((r) => r.id)));
 
   const offline: string[] = [];
@@ -132,7 +133,7 @@ async function main() {
   offline.push(...crossLessonClashes(source));
   if (offline.length) die(`${offline.length} content problem(s), the database was not opened:\n  ${offline.slice(0, 12).join('\n  ')}`);
 
-  console.log(`B1 IMPORT  ${APPLY ? '*** APPLY ***' : 'DRY RUN, nothing will be written'}${REAPPLY ? '  (--reapply)' : ''}`);
+  console.log(`${BAND.toUpperCase()} IMPORT  ${APPLY ? '*** APPLY ***' : 'DRY RUN, nothing will be written'}${REAPPLY ? '  (--reapply)' : ''}`);
   console.log(`  ${describeTarget()}`);
   console.log(`  lessons in this run: ${slugs.length} of ${source.length} authored`);
 
@@ -167,8 +168,8 @@ async function main() {
     for (const [theme, floor] of floors) {
       const q = await c.query<{ id: string }>(
         `select id from content_items
-          where theme = $1 and id like 'fr.b1.%'
-            and nullif(regexp_replace(split_part(id,'.',4),'[^0-9]','','g'),'')::int >= $2`, [theme, floor]);
+          where theme = $1 and id like 'fr.' || $3 || '.%'
+            and nullif(regexp_replace(split_part(id,'.',4),'[^0-9]','','g'),'')::int >= $2`, [theme, floor, BAND]);
       foreign.set(theme, q.rows.map((r) => r.id).filter((id) => !bandAuthored.has(id)));
     }
 
@@ -331,9 +332,9 @@ async function main() {
       const upsertUnit = async (slug: string, title: string, kind: 'curriculum_unit' | 'lesson', body: unknown, upd: boolean) => {
         const res = await c.query(
           `insert into content_units (slug, title, kind, level, locale, status, body, version, generated_by, published_at)
-           values ($1,$2,$3::content_kind,'b1','fr','published',$4::jsonb,1,'human',now())
+           values ($1,$2,$3::content_kind,$5::content_level,'fr','published',$4::jsonb,1,'human',now())
            ${upd ? `on conflict (slug) do update set title=excluded.title, body=excluded.body, status='published', published_at=now(), updated_at=now()` : ''}`,
-          [slug, title, kind, JSON.stringify(body)],
+          [slug, title, kind, JSON.stringify(body), BAND],
         );
         if (res.rowCount !== 1) throw new Error(`${slug}: the write touched ${res.rowCount} rows`);
       };

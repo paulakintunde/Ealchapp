@@ -228,11 +228,17 @@ test('den.tsx honours ?band= only for a value in LEVELS', () => {
   ok(/\(LEVELS as readonly string\[\]\)\.includes\(wanted\)/.test(src), 'the band param must be checked against LEVELS before it is set');
 });
 
-test('den.tsx shows the B1 dev-preview banner on the B1 trail only', () => {
+test('den.tsx shows the dev-preview banner only on a band that carries drafts', () => {
   const src = readScreen('den');
+  // B2 drafts joined the overlay (2026-09-27), so the count is per band: the
+  // banner and the unlock follow whichever band has drafts, never a hard-coded one.
   ok(
-    /__DEV__ && band === 'b1' && draftCount > 0/.test(src),
-    'the DEV-PREVIEW-B1 banner must be gated on __DEV__ AND the b1 band',
+    /const draftCount = \[\.\.\.DRAFT_LESSON_IDS\]\.filter\(\(id\) => id\.startsWith\(`\$\{band\}\.`\)\)\.length/.test(src),
+    'draftCount must count only the drafts of the band on screen',
+  );
+  ok(
+    /__DEV__ && draftCount > 0 \? \(/.test(src),
+    'the DEV-PREVIEW banner must be gated on __DEV__ AND this band having drafts',
   );
   // It used to open one hard-coded lesson. The whole draft band is merged into
   // the corpus now, so the trail renders all fourteen units itself and the
@@ -248,14 +254,14 @@ test('den.tsx shows the B1 dev-preview banner on the B1 trail only', () => {
 // A locked trail row calls onLockedPress and goes to the paywall, so it never
 // reaches lesson.tsx's DRAFT_LESSON_IDS bypass. Exempting the chokepoint alone
 // left all fourteen drafts visible on the B1 trail and unopenable.
-test('the B1 drafts are openable on a dev build, and only B1', () => {
+test('the drafts are openable on a dev build, and only on a band that has drafts', () => {
   const src = readScreen('den');
   ok(
-    /levelsAll: levelsAll \|\| \(__DEV__ && band === 'b1' && draftCount > 0\)/.test(src),
-    'the trail must unlock B1 in dev, or the drafts route to the paywall instead of opening',
+    /levelsAll: levelsAll \|\| \(__DEV__ && draftCount > 0\)/.test(src),
+    'the trail must unlock a band with drafts in dev, or the drafts route to the paywall instead of opening',
   );
-  // Scoped to b1: the seed has no published b1 units, so this unlocks drafts
-  // only. A2 and above keep the gate that plan 11 block G tests.
+  // Dev builds only, and only a band carrying drafts (draftCount is per band).
+  // A band with no drafts keeps the gate that plan 11 block G tests.
   ok(!/levelsAll: true/.test(src), 'the gate must not be unlocked outright');
 });
 

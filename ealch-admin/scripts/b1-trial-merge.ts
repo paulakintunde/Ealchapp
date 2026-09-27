@@ -38,11 +38,12 @@ import { dirname, resolve } from 'node:path';
 import { validateCorpus } from '../../ealch-v2/src/content/schema.ts';
 import { itemsReferencedBy } from './seed-cut.logic.ts';
 import {
-  B1_SLUGS, addMissingThemes, applyDedupe, dbRowToItem, mergeIntoSeed, normaliseItem, sameDoc, unitBody, type Obj, type SeedLike, type ThemeRow,
+  BAND_SLUGS, parseBand, addMissingThemes, applyDedupe, dbRowToItem, mergeIntoSeed, normaliseItem, sameDoc, unitBody, type Obj, type SeedLike, type ThemeRow,
 } from './b1-import.logic.ts';
 import { loadLesson, resolveDedupe } from './b1-import.ts';
 
-const argv = process.argv.slice(2);
+const { band: BAND, rest: argv } = parseBand(process.argv.slice(2));
+const SLUGS = BAND_SLUGS[BAND];
 const BUILD_ONLY = argv.includes('--build-only');
 const outIdx = argv.indexOf('--out');
 const OUT = outIdx >= 0 ? argv[outIdx + 1] : undefined;
@@ -93,7 +94,7 @@ async function buildTrialSeed() {
   if (a103Moved) seed.lessons[a103] = JSON.parse(JSON.stringify(GENRE_LESSON)) as Obj;
   const issuesBefore = validateCorpus(seed).length;
 
-  const source = await Promise.all(B1_SLUGS.map(loadLesson));
+  const source = await Promise.all(SLUGS.map((x) => loadLesson(x, BAND)));
   if (!process.env.DATABASE_URL) die('DATABASE_URL is not set; the twin decision needs a READ of Postgres.');
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
   const c = await pool.connect();
@@ -109,7 +110,7 @@ async function buildTrialSeed() {
     const all = source.map((x) => applyDedupe(x, twins.map));
     bandAuthored = new Set(source.flatMap((x) => x.rows.map((r) => r.id)));
     const batch = ONLY ? all.filter((x) => ONLY.has(x.slug)) : all;
-    if (ONLY && batch.length !== ONLY.size) die(`--only names ${ONLY.size} slug(s) but ${batch.length} match B1_SLUGS`);
+    if (ONLY && batch.length !== ONLY.size) die(`--only names ${ONLY.size} slug(s) but ${batch.length} match ${BAND.toUpperCase()}_SLUGS`);
     const authoredRow = new Map(batch.flatMap((x) => x.rows.map((r) => [r.id, r] as const)));
 
     const refs = new Map<string, string[]>();
@@ -157,7 +158,7 @@ async function buildTrialSeed() {
   }
   const s = merged.stats;
   const newThemes = addMissingThemes(merged.seed as never, themeRows);
-  console.log(`B1 TRIAL MERGE  (HEAD seed v${seed.version} + ${ONLY ? ONLY.size : B1_SLUGS.length} source lessons${ONLY ? ' (--only)' : ''}; Postgres read-only)`);
+  console.log(`${BAND.toUpperCase()} TRIAL MERGE  (HEAD seed v${seed.version} + ${ONLY ? ONLY.size : SLUGS.length} source lessons${ONLY ? ' (--only)' : ''}; Postgres read-only)`);
   for (const l of perLesson) console.log(l);
   if (newThemes.length) console.log(`  themes +${newThemes.length} carried from Postgres into the catalogue: ${newThemes.join(', ')}`);
   if (carried.length) console.log(`  playlists carried from the working-tree seed (changed since HEAD): ${carried.join(', ')}`);

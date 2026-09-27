@@ -38,11 +38,12 @@ import { validateCorpus } from '../../ealch-v2/src/content/schema.ts';
 import { itemsReferencedBy } from './seed-cut.logic.ts';
 import { SEED_CUT } from './seed-cut.config.ts';
 import {
-  B1_SLUGS, applyDedupe, dbRowToItem, addMissingThemes, type ThemeRow, mergeIntoSeed, sameDoc, unitBody, type SeedLike,
+  BAND_SLUGS, parseBand, applyDedupe, dbRowToItem, addMissingThemes, type ThemeRow, mergeIntoSeed, sameDoc, unitBody, type SeedLike,
 } from './b1-import.logic.ts';
 import { loadLesson, resolveDedupe } from './b1-import.ts';
 
-const argv = process.argv.slice(2);
+const { band: BAND, rest: argv } = parseBand(process.argv.slice(2));
+const SLUGS = BAND_SLUGS[BAND];
 const DRY = argv.includes('--dry');
 const named = argv.filter((a) => !a.startsWith('--'));
 const SEED = new URL('../../ealch-v2/src/content/seed.json', import.meta.url);
@@ -54,10 +55,10 @@ function die(msg: string): never {
 
 async function main() {
   if (!named.length) die('name the lesson slugs to merge; there is no default, a merge is always deliberate');
-  const unknown = named.filter((s) => !(B1_SLUGS as readonly string[]).includes(s));
+  const unknown = named.filter((s) => !SLUGS.includes(s));
   if (unknown.length) die(`unknown slug(s): ${unknown.join(', ')}`);
 
-  const all = await Promise.all(B1_SLUGS.map(loadLesson));
+  const all = await Promise.all(SLUGS.map((x) => loadLesson(x, BAND)));
   const run = all.filter((x) => named.includes(x.slug));
   const bandAuthored = new Set(all.flatMap((x) => x.rows.map((r) => r.id)));
 
@@ -68,7 +69,7 @@ async function main() {
   const seed = JSON.parse(raw) as SeedLike;
   if (`${JSON.stringify(seed, null, 2)}\n` !== raw) die('seed.json does not round-trip byte-identically; it is not in canonical form, so a rewrite would reformat it');
   const issuesBefore = validateCorpus(seed).length;
-  console.log(`B1 SEED MERGE  ${DRY ? 'DRY, nothing will be written' : '*** WRITE ***'}`);
+  console.log(`${BAND.toUpperCase()} SEED MERGE  ${DRY ? 'DRY, nothing will be written' : '*** WRITE ***'}`);
   console.log(`  seed v${seed.version}: ${seed.units.length} units, ${seed.lessons.length} lessons, ${seed.items.length} items, ${issuesBefore} validateCorpus issue(s) before`);
 
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });

@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import { deepStrictEqual, ok, strictEqual, throws } from 'node:assert';
 import {
-  B1_SLUGS, addMissingThemes, authoredFloors, crossLessonClashes, dbRowToItem, mergeIntoSeed, normaliseItem,
+  B1_SLUGS, BAND_SLUGS, addMissingThemes, authoredFloors, parseBand, unitBody, crossLessonClashes, dbRowToItem, mergeIntoSeed, normaliseItem,
   planLesson, sameItem, twinCount, unitBody, versionVerdict, headwordClashes, headwordKey,
   normFr, declaredTwins, decideTwins, rewriteIds, applyDedupe,
   type DbState, type LessonInput,
@@ -366,4 +366,17 @@ test('addMissingThemes carries a Postgres-only theme into the catalogue, in slug
   deepStrictEqual(seed.themes[0], kept);
   deepStrictEqual(seed.themes[1], { slug: 'correspondance', title: 'T correspondance', domain: 'fondations', levelRange: ['b1', 'b2'], examFlag: false, immigFlag: false, subThemes: ['x'] });
   deepStrictEqual(addMissingThemes(seed as never, [row('correspondance')]), []);
+});
+
+test('parseBand defaults to b1 and strips the flag and its value from the slugs', () => {
+  deepStrictEqual(parseBand(['medias', '--apply']), { band: 'b1', rest: ['medias', '--apply'] });
+  deepStrictEqual(parseBand(['--band', 'b2', 'argumentation', '--apply']), { band: 'b2', rest: ['argumentation', '--apply'] });
+  throws(() => parseBand(['--band', 'c1']));
+  throws(() => parseBand(['--band']));
+  strictEqual(BAND_SLUGS.b1, B1_SLUGS);
+});
+
+test('unitBody takes the level from the unit id, so a b1 unit is unchanged and a b2 unit says b2', () => {
+  deepStrictEqual(unitBody({ id: 'b1.07', title: 'T' }, 'b1.07.l1'), { id: 'b1.07', title: 'T', level: 'b1', lessonIds: ['b1.07.l1'] });
+  strictEqual(unitBody({ id: 'b2.23' }, 'b2.23.l1').level, 'b2');
 });

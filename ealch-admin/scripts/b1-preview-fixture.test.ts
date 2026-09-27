@@ -26,13 +26,14 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { buildPreview, serialise, PREVIEW_PATH } from './data/b1/_preview-b1.ts';
-import { B1_SLUGS } from './b1-import.logic.ts';
+import { BAND_SLUGS } from './b1-import.logic.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SEED = resolve(HERE, '../../ealch-v2/src/content/seed.json');
-// Every authored lesson is in B1_SLUGS (39 after wave 11); an imported one (in the seed) leaves the fixture.
-const SEEDED_B1 = (JSON.parse(readFileSync(SEED, 'utf8')).lessons ?? []).filter((l: any) => /^b1\./.test(l.id)).length;
-const EXPECTED_LESSONS = B1_SLUGS.length - SEEDED_B1;
+// Every authored lesson is in BAND_SLUGS (B1 and B2); an imported one (in the seed) leaves the fixture.
+const SEEDED = (JSON.parse(readFileSync(SEED, 'utf8')).lessons ?? []).filter((l: any) => /^b[12]\./.test(l.id)).length;
+const AUTHORED = Object.values(BAND_SLUGS).reduce((n, l) => n + l.length, 0);
+const EXPECTED_LESSONS = AUTHORED - SEEDED;
 
 const onDisk = () => readFileSync(fileURLToPath(PREVIEW_PATH), 'utf8');
 
@@ -59,11 +60,13 @@ test('the fixture carries every draft lesson', () => {
   const fx = JSON.parse(onDisk());
   deepStrictEqual(fx.lessons.length, EXPECTED_LESSONS, `expected ${EXPECTED_LESSONS} draft lessons in the fixture`);
   deepStrictEqual(fx.units.length, EXPECTED_LESSONS, 'one unit per draft lesson');
-  const seqs = fx.units.map((u: any) => u.seq);
-  deepStrictEqual(new Set(seqs).size, seqs.length, 'two units share a seq, so the trail order is undefined');
-  deepStrictEqual([...seqs], [...seqs].sort((x: number, y: number) => x - y), 'units must be written in trail order');
+  for (const band of new Set(fx.units.map((u: any) => u.level))) {
+    const seqs = fx.units.filter((u: any) => u.level === band).map((u: any) => u.seq);
+    deepStrictEqual(new Set(seqs).size, seqs.length, `two ${band} units share a seq, so the trail order is undefined`);
+    deepStrictEqual([...seqs], [...seqs].sort((x: number, y: number) => x - y), `${band} units must be written in trail order`);
+  }
   for (const u of fx.units) {
-    deepStrictEqual(u.level, 'b1', `${u.id} must carry level b1 or the trail will not show it`);
+    deepStrictEqual(u.level, String(u.id).split('.')[0], `${u.id} must carry its own band as level or the trail will not show it`);
     ok((u.lessonIds ?? []).length > 0, `${u.id} has no lessonIds, so its heading opens nothing`);
   }
 });

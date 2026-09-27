@@ -99,9 +99,10 @@ export default function Den() {
 
   // D-18: the start marker is the first unstarted act row across the WHOLE
   // band, only when there is no fresh lesson resume to prioritise instead.
-  // DEV-PREVIEW-B1: how many unpublished B1 lessons this build is carrying.
-  // Zero in a release build, because the overlay is dev-only.
-  const draftCount = DRAFT_LESSON_IDS.size;
+  // DEV-PREVIEW-B1: how many unpublished lessons of THIS band the build is
+  // carrying (B1 or B2 drafts share one overlay). Zero in a release build,
+  // because the overlay is dev-only.
+  const draftCount = [...DRAFT_LESSON_IDS].filter((id) => id.startsWith(`${band}.`)).length;
 
   const hasFreshResume = useMemo(
     () => resumeIsFresh(resumeByMode.lesson ?? null, localDay()),
@@ -130,7 +131,7 @@ export default function Den() {
         // Scoped to B1 on purpose. The seed carries no published b1 units, so
         // every unit in this band IS a draft: nothing paid is unlocked by this.
         // A2 and above keep their gate, which is what plan 11 block G tests.
-        levelsAll: levelsAll || (__DEV__ && band === 'b1' && draftCount > 0),
+        levelsAll: levelsAll || (__DEV__ && draftCount > 0),
         freeBands: FREE_BANDS,
         doneActs,
         hasFreshResume,
@@ -272,12 +273,12 @@ export default function Den() {
             Shown on the B1 trail only: on every other band it sat above the
             day-one cards and headings, pushing sons and A1 down (device pass,
             2026-09-24). */}
-        {__DEV__ && band === 'b1' && draftCount > 0 ? (
+        {__DEV__ && draftCount > 0 ? (
           <View
             accessibilityRole="summary"
             style={{ borderRadius: 16, borderWidth: 1, borderStyle: 'dashed', borderColor: t.accA(55), backgroundColor: t.card, padding: 14, paddingHorizontal: 16, marginBottom: 12 }}
           >
-            <TX font="semi" role="meta" ls={2.2} color={t.tag('gold').c}>PREVIEW · B1 DRAFTS</TX>
+            <TX font="semi" role="meta" ls={2.2} color={t.tag('gold').c}>{`PREVIEW · ${band.toUpperCase()} DRAFTS`}</TX>
             <TX role="bodySm" color={t.txMuted} style={{ marginTop: 4 }}>
               {`${draftCount} unpublished lessons, dev builds only. Not in the seed and not in the database.`}
             </TX>

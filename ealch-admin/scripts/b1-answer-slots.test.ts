@@ -67,7 +67,7 @@ function missionItems(L: any): Item[] {
 
 for (const [id, slug] of LESSONS) {
   test(`${id} ${slug}: answers are spread across the slots`, async () => {
-    const mod: any = await import(`./data/b1/${slug}-lesson.ts`);
+    const mod: any = await import(`./data/${id.split(".")[0]}/${slug}-lesson.ts`);
     const L = mod.lessonWithoutTask ? mod.lessonWithoutTask() : mod.LESSON;
     const items = missionItems(L);
     ok(items.length > 50, `${id}: only ${items.length} closed items found, the walker is probably broken`);
