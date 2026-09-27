@@ -96,6 +96,12 @@
 //     nearly ten million visitors in 2019; Stockholm's congestion charge cut
 //     traffic and was kept after a local vote. Nothing else is presented as
 //     fact; the rest is the opinion of invented writers.
+//     FACT-CHECKED 2026-09-27, all five hold: Paris vote 2 April 2023, ~89%
+//     for the ban on ~8% turnout, in force 1 Sept 2023; Québec CPA ss. 248-249,
+//     passed 1978, in force 1980; Australia compulsory federal voting 1924,
+//     first used 1925; Louvre 9.6 million visitors in 2019 (museum press
+//     office); Stockholm trial 2006, cordon traffic about -20%, city
+//     referendum 17 Sept 2006, 53% to keep it. No text changed.
 //
 // ══════════════════════════════════════════════════════════════════════════
 

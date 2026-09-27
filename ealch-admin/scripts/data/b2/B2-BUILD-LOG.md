@@ -184,6 +184,11 @@ b2.23, b2.25, b2.26 cite B2 lessons not yet written (relabel as B1 review until
 Units 1-3 publish); b2.23's dated facts need a check before publish (corpus
 header §A.7); exam-target rubrics use 5-6 criteria to mirror the grids.
 
+**Gate B2-1 decisions (Paul, 2026-09-27):** the recycling quiz rounds that
+cite B2 lessons 1-16 stay as written; the exam-target lessons keep their
+exam-grid rubrics (5-6 criteria); b2.23's five dated facts were fact-checked
+and all hold (see its corpus header §A.7), no text changed.
+
 **Premium packs:** spec approved (`ealch-admin/PREMIUM-PACKS-SPEC.md`); built in
 a separate worktree, nothing deployed.
 
