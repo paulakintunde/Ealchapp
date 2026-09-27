@@ -2618,7 +2618,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Tu vas l’annoncer comment à la direction ?',
+      ai: "Tu vas l'annoncer comment à la direction ?",
       en: 'How are you going to tell management?',
       user: 'Par courriel ou par téléphone, je ne sais pas encore.',
       userEn: 'By email or by phone, I do not know yet. (ou: a choice.)',
@@ -2790,7 +2790,7 @@ const A11_MISSION: Sec<'task'> = {
   graderNotes: [
     'The greeting (Bonjour Nadia, Salut Mathieu) and the sign-off (Merci pour tout, et à bientôt, then the name) do NOT count toward the word budget. Count the body only, with 10% tolerance (81 to 143) before criterion « tache » loses its point.',
     "« Different connectors » means different linking words from this lesson: mais, ou, et, donc, or, ni, car, alors, en plus, de plus, en effet, c'est-à-dire, sinon, puis, ensuite, non seulement ... mais. ni ... ni counts once. Two uses of mais count once. At least three must come from the seven.",
-    "parce que, quand, si, alors que and bien que are SUBORDINATION (b1.31, b1.32). Accept them where correct, never mark them as errors, but they do not count toward the five.",
+    "parce que, quand, si, alors que and bien que are SUBORDINATION (lessons 31 and 32 in B1). Accept them where correct, never mark them as errors, but they do not count toward the five.",
     "pourtant and cependant are recognition only in this lesson. Accept a correct one; do not count it toward the five, and do not mark a slightly forced one harshly.",
     "or is recognition only. Do not require it. A correct written « Or, » counts toward the five.",
     "Serial comma before et (a, b, et c) loses at most one point under « forme » across the whole text, however often it recurs.",
@@ -3313,7 +3313,7 @@ const REC_DESC: Record<string, string> = {
   'rec-b1-30-or': "The four or and ni cards, one voice. Card two is a syllogism: two sentences, a clear pause between them. On cards three and four, both ni are unstressed and evenly weighted.",
   'rec-b1-30-piege-ni': "The audio step plays each card's CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.",
   'rec-b1-30-ajout-ecoute': "REQUIRED FOR THE EAR MISSION (act 8): eight lines, ONE TAKE, ONE VOICE, in authored order, at conversational speed. « en plus » and « de plus » are both /plys/ with the s sounded; « en effet » runs as one group with the n carried over.",
-  'rec-b1-30-ajout': "The four linking-adverb cards. Card one holds two sentences across a middot: the first spoken, the second read like written French. Card four quotes a2.27: read it plainly.",
+  'rec-b1-30-ajout': "The four linking-adverb cards. Card one holds two sentences across a middot: the first spoken, the second read like written French. Card four quotes lesson 26 in A2: read it plainly.",
   'rec-b1-30-lyon': "The departure (act 9), two voices: Sophie, brisk and organised, Lyon, and the learner, sleepy and amused. Each « sinon » is followed by a slight warning lift. The learner's « pourtant » line is relaxed and a little ironic.",
   'rec-b1-30-sinon': "The four sinon and pourtant cards. Card three (« Ça va, sinon ? ») is casual spoken French with a rising end. Card four is read like a written text, neutral.",
   'rec-b1-30-ellipse-ecoute': "REQUIRED FOR THE EAR MISSION (act 10): eight lines, ONE TAKE, ONE VOICE, in authored order, at conversational speed. The short second halves (« mais pas espagnol », « et moi aussi », « et lui non plus ») are said naturally, never slowed: the learner must catch the missing verb from the rhythm.",

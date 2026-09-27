@@ -2236,7 +2236,7 @@ const A11_LETTRE: Sec<'reading'> = {
   text: ADIEU_TEXT,
   glossary: [
     { word: 'en écrivant', en: 'while writing', note: 'Pendant que j’écris.' },
-    { word: 'un fou rire', en: 'a fit of giggles', note: 'Un rire qu’on ne peut pas arrêter.' },
+    { word: 'fou rire', en: 'fit of giggles', note: 'Un rire qu’on ne peut pas arrêter.' },
     { word: 'promis', en: 'I promise', note: 'Je le promets.' },
   ],
   questions: [
@@ -2687,12 +2687,12 @@ const A12_MISSION: Sec<'task'> = {
   ],
   graderNotes: [
     'Grade on FIT, not count (shapes doc §2.2): an idiom used in a situation where its meaning does not apply scores under « sens » even if it is well built. Five fitting idioms beat eight forced ones.',
-    'Count as « different » any two idioms from this lesson with different blocks. A reused idiom counts once. Idioms from other lessons (b1.28 animals and food, b1.29 colours) are accepted if correct but do not count toward the five.',
+    'Count as « different » any two idioms from this lesson with different blocks. A reused idiom counts once. Idioms from other lessons (lesson 28 in B1, animals and food; lesson 29 in B1, colours) are accepted if correct but do not count toward the five.',
     'Word count INCLUDES the greeting and the sign-off: they are part of the message. 10% tolerance (72 to 132) before criterion « tache » loses its point.',
     'Accept both Québec and France variants (les yeux dans la graisse de bine, ne pas avoir les yeux en face des trous; coûter un bras, coûter les yeux de la tête). Accept « donner une main » as a heard Québec form but suggest « un coup de main » in feedback, without removing a point.',
-    'Tenses (b1.03) are judged under « recit » only, and only when they break the story; do not deduct twice for the same verb.',
-    'Participle agreement in pronominal idioms (ils se sont serré les coudes, elle s’est levée du pied gauche) belongs to a2.22 / a2.23: accept either spelling of serré / serrés without penalty; mark only a missing auxiliary.',
-    'Do not score the subjunctive (b1.14 to b1.16) if a learner uses one: accept a correct one, ignore an incorrect one under this lesson’s criteria.',
+    'Tenses (lesson 3 in B1) are judged under « recit » only, and only when they break the story; do not deduct twice for the same verb.',
+    'Participle agreement in pronominal idioms (ils se sont serré les coudes, elle s’est levée du pied gauche) belongs to lessons 19 and 20 in A2: accept either spelling of serré / serrés without penalty; mark only a missing auxiliary.',
+    'Do not score the subjunctive (lessons 14 to 16 in B1) if a learner uses one: accept a correct one, ignore an incorrect one under this lesson’s criteria.',
     'Accept regional vocabulary (souper, dîner, entrevue, courriel, char, auto, appart).',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
   ],

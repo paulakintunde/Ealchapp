@@ -784,7 +784,7 @@ const A3_SCENARIO: Sec<'scenario'> = {
     {
       ai: 'Hugo n’est pas là ce matin. Vous savez pourquoi ?',
       en: 'Hugo is not here this morning. Do you know why?',
-      user: "Oui, sa voiture est tombée en panne sur l'autoroute. Il vient en bus.",
+      user: "Oui, sa voiture est tombée en panne sur l’autoroute. Il vient en bus.",
       userEn: 'Yes, his car broke down on the motorway. He is coming by bus. (Voiture, not bagnole.)',
       alts: [
         { fr: 'Sa voiture est au garage, alors il prend le bus.', en: 'His car is at the garage, so he is taking the bus.' },
@@ -1443,13 +1443,13 @@ const A6_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Et « dsl, j’aurai 10 min de retard » ?',
+      ai: "Et « dsl, j'aurai 10 min de retard » ?",
       en: 'And this one?',
       user: fr(E(1315)),
       userEn: "Sorry, I'll be ten minutes late. (dsl: désolé.)",
       alts: [
         { fr: fr(E(1316)), en: `${src(E(1316)).en} (The version for a manager.)` },
-        { fr: 'Il s’excuse : il arrive dix minutes en retard.', en: 'He is apologising: he will be ten minutes late.' },
+        { fr: "Il s'excuse : il arrive dix minutes en retard.", en: 'He is apologising: he will be ten minutes late.' },
       ],
     },
   ],
@@ -1826,32 +1826,32 @@ const A8_SCENARIO: Sec<'scenario'> = {
       user: fr(E(1348)),
       userEn: 'Sorry for that rather too casual message. (Courant, and an apology for the slip.)',
       alts: [
-        { fr: 'Oui. Pardon pour mon message d’hier, il était un peu rapide.', en: 'Yes. Sorry about my message yesterday, it was a bit hasty.' },
+        { fr: "Oui. Pardon pour mon message d'hier, il était un peu rapide.", en: 'Yes. Sorry about my message yesterday, it was a bit hasty.' },
         { fr: 'Oui, et excusez-moi pour le ton de mon message.', en: 'Yes, and sorry about the tone of my message.' },
       ],
     },
     {
-      ai: 'Ce n’est rien. Alors, demain ?',
+      ai: "Ce n'est rien. Alors, demain ?",
       en: 'It is nothing. So, tomorrow?',
-      user: 'Je serai absent demain matin : j’ai un rendez-vous chez le dentiste.',
+      user: "Je serai absent demain matin : j'ai un rendez-vous chez le dentiste.",
       userEn: 'I will be away tomorrow morning: I have a dentist appointment. (Courant, the same facts.)',
       alts: [
         { fr: fr(E(1342)), en: `${src(E(1342)).en} (Je serai absent le matin.)` },
-        { fr: 'Je ne serai pas là demain matin, j’ai le dentiste.', en: 'I will not be in tomorrow morning, I have the dentist. (Fine out loud.)' },
+        { fr: "Je ne serai pas là demain matin, j'ai le dentiste.", en: 'I will not be in tomorrow morning, I have the dentist. (Fine out loud.)' },
       ],
     },
     {
-      ai: 'Allô ? T’es fâché contre moi ?',
+      ai: "Allô ? T'es fâché contre moi ?",
       en: 'Hello? Are you angry with me?',
       user: fr(E(1347)),
       userEn: 'Sorry, I wrote to you like a lawyer. (Familier: the tone of friends again.)',
       alts: [
-        { fr: 'Mais non, pas du tout ! Mon message était bizarre, c’est tout.', en: 'No, not at all! My message was weird, that is all.' },
-        { fr: 'Pas du tout, j’étais juste fatigué.', en: 'Not at all, I was just tired.' },
+        { fr: "Mais non, pas du tout ! Mon message était bizarre, c'est tout.", en: 'No, not at all! My message was weird, that is all.' },
+        { fr: "Pas du tout, j'étais juste fatigué.", en: 'Not at all, I was just tired.' },
       ],
     },
     {
-      ai: 'D’accord. Alors samedi, c’est non ?',
+      ai: "D'accord. Alors samedi, c'est non ?",
       en: 'Right. So Saturday is a no?',
       user: 'Non, je peux pas venir samedi, désolé. On se voit dimanche ?',
       userEn: "No, I can't come on Saturday, sorry. See you Sunday? (The ne dropped: normal with a friend.)",
@@ -2042,9 +2042,9 @@ const A9_SCENARIO: Sec<'scenario'> = {
   setting: "Geneviève, une collègue de Montréal, te parle en familier québécois à la pause. Tu la comprends, et tu lui réponds en français courant, gentiment.",
   turns: [
     {
-      ai: 'Mon char est encore au garage, c’est plate.',
+      ai: "Mon char est encore au garage, c'est plate.",
       en: 'My car is still at the garage, what a drag.',
-      user: 'Ah non, ta voiture est encore au garage ? C’est ennuyeux.',
+      user: "Ah non, ta voiture est encore au garage ? C'est ennuyeux.",
       userEn: 'Oh no, your car is still at the garage? That is annoying. (Courant, and you understood char and plate.)',
       alts: [
         { fr: 'Encore ? Tu veux que je te dépose ce soir ?', en: 'Again? Do you want me to drop you off tonight?' },
@@ -2198,7 +2198,7 @@ const A10_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Mais non, je serai là. Tu m’envoies l’heure ?',
+      ai: "Mais non, je serai là. Tu m'envoies l'heure ?",
       en: 'Of course I will be there. Will you send me the time?',
       user: fr(E(1392)),
       userEn: "I'll send you the time tomorrow. (Familier: fine with a friend.)",
@@ -2380,10 +2380,10 @@ const A10_MISSION: Sec<'task'> = {
   graderNotes: [
     'Count the words of the two BODIES only: the subject line, the greetings and the sign-offs do not count. Total 90 to 170 with 10% tolerance (81 to 187); each text roughly within its own range (30-60, 60-110) before criterion « tache » loses its point.',
     'In the FRIEND message, texto abbreviations (dsl, bcp, tkt), the dropped ne, t’as, y a, on and familiar words are EXPECTED and must never be marked as errors. They are evidence for criterion « registre ».',
-    'In the EMAIL, est-ce que questions are fully acceptable; inversion is not required (b1.21 owns it). Courant is enough for a manager; soutenu is welcome for an administration.',
-    'tu or vous belongs to b1.26. Expect vous to a manager or an administration and do not penalise tu to a friend. Do not explain the tu / vous choice in feedback beyond one line.',
+    'In the EMAIL, est-ce que questions are fully acceptable; inversion is not required (lesson 21 in B1 owns it). Courant is enough for a manager; soutenu is welcome for an administration.',
+    'tu or vous belongs to lesson 26 in B1. Expect vous to a manager or an administration and do not penalise tu to a friend. Do not explain the tu / vous choice in feedback beyond one line.',
     'Accept Québec courant words everywhere (courriel, fin de semaine, dîner for lunch, magasiner, Au plaisir). Québec familiar words (char, chum, blonde, plate, pantoute) are right in the friend message and count as familiar markers in the email.',
-    'The subjunctive belongs to b1.14 to b1.16. Do not ask for it and do not mark a correct one as an error.',
+    'The subjunctive belongs to lessons 14 to 16 in B1. Do not ask for it and do not mark a correct one as an error.',
     'Grammar mistakes that do not touch register (an agreement, a tense) are noted once in feedback but do not cost points here.',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
   ],
@@ -2856,7 +2856,7 @@ const REC_IDS = [...new Set(JSON.stringify(SECTIONS).match(/rec-b1-25-[a-z0-9-]+
 const REC_DESC: Record<string, string> = {
   'rec-b1-25-ines': "Inès's two messages (act 1), ONE VOICE, one take, Québécoise, read as she reads them back before sending: the texto to Chloé quick and warm, the courriel to Mme Bouchard slower and even. A clear beat between the two. « dsl » is read as « désolé ».",
   'rec-b1-25-trois-ecoute': "REQUIRED FOR THE EAR MISSION (act 2): nine lines, ONE TAKE, THREE VOICES, in authored order. Lines 1, 4 and 7 (familier) by a young speaker, relaxed and quick; lines 2, 5 and 8 (courant) by a second voice, neutral; lines 3, 6 and 9 (soutenu) by a third voice, careful and slightly slower. The register must be audible in delivery as well as in the words.",
-  'rec-b1-25-trois': "The four register cards. Each card holds three items across middots: a clear beat between them, each read in its own register (relaxed, neutral, careful). Card four is b1.21's reframe, read plainly.",
+  'rec-b1-25-trois': "The four register cards. Each card holds three items across middots: a clear beat between them, each read in its own register (relaxed, neutral, careful). Card four is the reframe of lesson 21 in B1, read plainly.",
   'rec-b1-25-hugo': "Hugo's message to Léa (act 3), ONE VOICE, one take, a Lyon speaker in his thirties, read as a voice note to a friend: quick, warm, a little tired. Every familiar word (bagnole, boulot, bosse, bouquine, potes, crevé) said naturally, never stressed or mocked.",
   'rec-b1-25-piege-mots': "The audio step plays each card's CORRECT sentence, the one that fits the reader. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.",
   'rec-b1-25-awa': "REQUIRED FOR THE EAR MISSION (act 4): Awa's voicemail, eight lines, ONE TAKE, ONE VOICE, a West African francophone voice welcome (Dakar or Abidjan), spoken as a real voicemail: fast, friendly, no ne anywhere, « y a » and « t'es » fully reduced. The learner is asked what was NOT said, so nothing may be restored for clarity.",

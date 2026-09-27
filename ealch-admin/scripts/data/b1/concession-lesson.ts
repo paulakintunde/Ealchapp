@@ -2572,7 +2572,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Les commerçants disent qu’ils vont perdre des clients.',
+      ai: "Les commerçants disent qu'ils vont perdre des clients.",
       en: 'The shopkeepers say they are going to lose customers.',
       user: fr(E(1401)),
       userEn: 'I am for the pedestrian street, even if the shops lose customers. (même si + present: the obstacle is the light pan.)',

@@ -2516,7 +2516,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ai: "Et la ville, qu'est-ce qu'elle devrait faire d'autre ?",
       en: 'And what else should the town do?',
       user: fr(E(1182)),
-      userEn: 'The town needs to listen to the shopkeepers too. (il faut que + subjunctive, b1.14 to b1.16.)',
+      userEn: 'The town needs to listen to the shopkeepers too. (il faut que + subjunctive, lessons 14 to 16 in B1.)',
       alts: [
         { fr: fr(E(1179)), en: 'There should be more trees in the schoolyard. (il faudrait.)' },
         { fr: fr(E(1180)), en: 'We should put compost bins in the park. (on devrait.)' },
@@ -2526,7 +2526,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ai: 'Merci. Autre chose ?',
       en: 'Thank you. Anything else?',
       user: fr(E(1196)),
-      userEn: 'Thank you for your attention. (the polite close, b1.09.)',
+      userEn: 'Thank you for your attention. (the polite close, lesson 9 in B1.)',
       alts: [
         { fr: fr(E(1198)), en: 'Every small action counts, but so do the big decisions. (a closing thought.)' },
         { fr: "Non, merci de m'avoir écouté.", en: 'No, thank you for listening to me.' },
@@ -2683,8 +2683,8 @@ const A11_MISSION: Sec<'task'> = {
     'Word count EXCLUDES the greeting and the sign-off, as in the other B1 writing tasks. 10% tolerance (99 to 165) before criterion « tache » loses its point.',
     'Accept either viewpoint. A learner AGAINST the measure scores the same as one for it: grade the reasons, the other side and the proposal, never the position.',
     'Accept regional variants without comment (le bac bleu, fermer la lumière, l’autobus, le stationnement, le conseil de ville, les transports publics, le gymnase).',
-    'The subjunctive is expected only after il faut que or je voudrais que (b1.14 to b1.16). Accept a correct one; mark an infinitive after il faut que under « avis » once; ignore other subjunctive slips under this lesson.',
-    'Connectors (b1.30 to b1.32) are graded for the link they say, not for rarity: two well-chosen simple ones beat four forced ones.',
+    'The subjunctive is expected only after il faut que or je voudrais que (lessons 14 to 16 in B1). Accept a correct one; mark an infinitive after il faut que under « avis » once; ignore other subjunctive slips under this lesson.',
+    'Connectors (lessons 30 to 32 in B1) are graded for the link they say, not for rarity: two well-chosen simple ones beat four forced ones.',
     'Do not mark facts: a learner may invent a local measure, a street or a number.',
     'Formal register (vous, Madame la conseillère) is expected for the council; a forum reply may use a friendly courant register. Either is fine if it stays the same from start to end.',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',

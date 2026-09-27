@@ -1946,7 +1946,7 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk(
       'Après pour que, quel mode trouves-tu ici ?',
       ["l'indicatif", 'le subjonctif'], 1,
-      `Le subjonctif, comme dans ${SUBJ_INF_REF}. EN: the subjunctive, from b1.16.`)),
+      `Le subjonctif, comme dans ${SUBJ_INF_REF}. EN: the subjunctive, as in lesson 16 in B1.`)),
     ctl('Afin de', '« Elle économise ... acheter une maison. »',
       ['afin que', 'afin de', 'afin'], 1,
       "Un seul sujet : afin de. EN: afin de."),
@@ -2020,7 +2020,7 @@ const A8_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Nous partons tôt pour que nous évitions les bouchons.',
       right: fr(E(1318)),
-      why: "En anglais, so that we avoid est normal. En français, un seul sujet donne pour + infinitif. EN: one subject, pour plus infinitive (b1.16).",
+      why: "En anglais, so that we avoid est normal. En français, un seul sujet donne pour + infinitif. EN: one subject, pour plus infinitive (lesson 16 in B1).",
     },
     {
       wrong: 'Elle économise afin que d’acheter une maison.',
@@ -2119,7 +2119,7 @@ const A9_TEMPS: Sec<'cardDeck'> = {
       head: 'En même temps', label: 'pendant que',
       fr: fr(E(1333)),
       sub: rsOf(E(1333)),
-      body: `Deux choses en même temps. Au passé, tu connais la coupure : « ${B103_REFRAME} » EN: two things at once; in the past, b1.03's interruption.`,
+      body: `Deux choses en même temps. Au passé, tu connais la coupure : « ${B103_REFRAME} » EN: two things at once; in the past, the interruption from lesson 3 in B1.`,
     },
     {
       head: 'Depuis un début', label: 'depuis que',
@@ -2161,7 +2161,7 @@ const A9_TABLEAU: Sec<'tapTable'> = {
     { cells: ['après que', 'une fois que', 'indicatif'], say: fr(E(1339)),
       detail: { title: 'après que', body: "L'indicatif à l'écrit ; le subjonctif s'entend à l'oral. EN: indicative in writing.", say: fr(E(1350)) } },
     { cells: ['avant que', 'plus tôt que', 'subjonctif'], say: fr(E(1355)),
-      detail: { title: 'avant que', body: "Lui prend le subjonctif : leçon 16 du B1. EN: subjunctive, b1.16.", say: fr(E(1355)) } },
+      detail: { title: 'avant que', body: "Lui prend le subjonctif : leçon 16 du B1. EN: subjunctive, lesson 16 in B1.", say: fr(E(1355)) } },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -2374,7 +2374,7 @@ const A10_MODE: Sec<'cardDeck'> = {
       head: 'Une concession', label: 'bien que',
       fr: fr(E(1354)),
       sub: rsOf(E(1354)),
-      body: `Bien que prend aussi le subjonctif. Tu l'étudieras dans ${CONCESSION_REF}. Ici, retiens seulement : c'est la conjonction qui décide. EN: bien que takes the subjunctive too, see b1.32.`,
+      body: `Bien que prend aussi le subjonctif. Tu l'étudieras dans ${CONCESSION_REF}. Ici, retiens seulement : c'est la conjonction qui décide. EN: bien que takes the subjunctive too. You will study it in lesson 32 in B1. Here, remember only: the conjunction decides.`,
     },
     {
       head: 'Deux conjonctions', label: Cap(SUBJ_DECL_REF),
@@ -2650,13 +2650,13 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Est-ce que quelqu’un a été blessé ?',
+      ai: "Est-ce que quelqu'un a été blessé ?",
       en: 'Was anyone hurt?',
       user: fr(E(1377)),
       userEn: 'Thanks to the volunteers, nobody was hurt. (grâce à: a positive cause.)',
       alts: [
         { fr: 'Non, personne, grâce aux bénévoles.', en: 'No, nobody, thanks to the volunteers.' },
-        { fr: 'Non. Les bénévoles ont tout organisé, si bien que personne n’a été blessé.', en: 'No. The volunteers organised everything, so nobody was hurt.' },
+        { fr: "Non. Les bénévoles ont tout organisé, si bien que personne n'a été blessé.", en: 'No. The volunteers organised everything, so nobody was hurt.' },
       ],
     },
     {
@@ -2675,7 +2675,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       user: fr(E(1376)),
       userEn: 'To avoid another problem, we are going to hire a second generator. (pour + infinitive: the aim.)',
       alts: [
-        { fr: 'Afin d’éviter ce problème, nous allons louer un deuxième générateur.', en: 'In order to avoid this problem, we will hire a second generator. (afin de: more written.)' },
+        { fr: "Afin d'éviter ce problème, nous allons louer un deuxième générateur.", en: 'In order to avoid this problem, we will hire a second generator. (afin de: more written.)' },
         { fr: 'Nous allons louer un deuxième générateur pour être tranquilles.', en: 'We will hire a second generator to be on the safe side.' },
       ],
     },
@@ -2821,10 +2821,10 @@ const A11_MISSION: Sec<'task'> = {
   ],
   graderNotes: [
     'The greeting (Chers parents, Madame, Bonjour ...) and the sign-off (Cordialement, name) do NOT count toward the word budget. Count the body only, with 10% tolerance (90 to 154) before criterion « tache » loses its point.',
-    '« Different links » means different connectors: parce que, puisque, comme, vu que, étant donné que, à cause de, grâce à, en raison de, être dû à, si bien que, de sorte que, si / tellement / tant ... que, c’est pourquoi, par conséquent, c’est pour ça que. car and donc (b1.30) COUNT as links and are not errors when used correctly.',
-    'The purpose may be pour / afin de + infinitive. A correct pour que or afin que + subjunctive (b1.16) is accepted and is NOT required. An incorrect one (pour que + one subject, pour que + indicative) is marked under « mode ».',
+    '« Different links » means different connectors: parce que, puisque, comme, vu que, étant donné que, à cause de, grâce à, en raison de, être dû à, si bien que, de sorte que, si / tellement / tant ... que, c’est pourquoi, par conséquent, c’est pour ça que. car and donc (lesson 30 in B1) COUNT as links and are not errors when used correctly.',
+    'The purpose may be pour / afin de + infinitive. A correct pour que or afin que + subjunctive (lesson 16 in B1) is accepted and is NOT required. An incorrect one (pour que + one subject, pour que + indicative) is marked under « mode ».',
     "après que + subjunctive is heard in speech; in this WRITTEN task mark it once under « mode », gently, and quote the indicative form. Do not mark it twice.",
-    'Concession (bien que, même si, pourtant, malgré) is b1.32. Do not require it and do not mark a correct one as an error.',
+    'Concession (bien que, même si, pourtant, malgré) belongs to lesson 32 in B1. Do not require it and do not mark a correct one as an error.',
     'Accept regional vocabulary (courriel and email, autobus and bus, char in Québec for a car, septante in Belgium and Switzerland).',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
   ],

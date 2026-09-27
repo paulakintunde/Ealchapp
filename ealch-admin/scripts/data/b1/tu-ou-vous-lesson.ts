@@ -1671,12 +1671,12 @@ const A8_SCENARIO: Sec<'scenario'> = {
       user: "Bonjour Maître, c'est pour le contrat. Vous pouvez me l'envoyer aujourd'hui ?",
       userEn: 'Hello Maître, it is about the contract. Could you send it to me today? (vous, and your request in vous.)',
       alts: [
-        { fr: "Bonjour Maître, vous pourriez m'envoyer le contrat aujourd'hui ?", en: 'Hello Maître, could you send me the contract today? (The conditional from b1.09: also right.)' },
+        { fr: "Bonjour Maître, vous pourriez m'envoyer le contrat aujourd'hui ?", en: 'Hello Maître, could you send me the contract today? (The conditional from lesson 9 in B1: also right.)' },
         { fr: "Bonjour, c'est au sujet du contrat. Vous l'avez prêt ?", en: 'Hello, it is about the contract. Do you have it ready?' },
       ],
     },
     {
-      ai: 'Bien sûr. Tu... pardon, vous l’aurez avant midi.',
+      ai: "Bien sûr. Tu... pardon, vous l'aurez avant midi.",
       en: 'Of course. You (tu)... sorry, you (vous) will have it before noon.',
       user: 'Parfait, merci beaucoup.',
       userEn: 'Perfect, thank you very much. (She slipped and repaired it herself: you say nothing about it.)',
@@ -1711,7 +1711,7 @@ const A8_SCENARIO: Sec<'scenario'> = {
       user: 'Oui, je te rappelle vendredi matin.',
       userEn: 'Yes, I will call you back on Friday morning. (Straight into tu: te, not vous.)',
       alts: [
-        { fr: 'Oui, sans faute. Je t’appelle vendredi.', en: 'Yes, without fail. I will call you on Friday.' },
+        { fr: "Oui, sans faute. Je t'appelle vendredi.", en: 'Yes, without fail. I will call you on Friday.' },
         { fr: 'Promis, je te rappelle vendredi.', en: 'Promise, I will call you back on Friday.' },
       ],
     },
@@ -2152,7 +2152,7 @@ const A11_MODELE: Sec<'reading'> = {
     { word: 'changement de plan', en: 'change of plan', note: 'Une façon légère d’annoncer une nouvelle date.' },
     { word: 'maquettes', en: 'mock-ups', note: 'Les premiers dessins d’un projet.' },
     { word: 'fin de semaine', en: 'weekend (Québec)', note: 'Au Québec, on dit la fin de semaine pour le week-end.' },
-    { word: 'je reste à votre disposition', en: 'please let me know if you need anything', note: 'Une formule polie de fin de courriel, en vous.' },
+    { word: 'à votre disposition', en: 'at your service', note: 'Je reste à votre disposition : une formule polie de fin de courriel, en vous.' },
     { word: 'graphiste', en: 'graphic designer', note: 'La personne qui fait les images et les logos.' },
   ],
   questions: [
@@ -2209,13 +2209,13 @@ const A11_SCENARIO: Sec<'scenario'> = {
   setting: 'Lundi, visioconférence. Julie est à Montréal, Maître Girard à Lyon. Tu parles à l’une en tu, à l’autre en vous, dans la même conversation.',
   turns: [
     {
-      ai: 'Julie : Salut ! Alors, la réunion avec le cabinet, c’est quand ?',
+      ai: "Julie : Salut ! Alors, la réunion avec le cabinet, c'est quand ?",
       en: 'Julie: Hi! So when is the meeting with the firm?',
       user: 'Salut Julie ! Elle passe à vendredi, dix heures.',
       userEn: 'Hi Julie! It moves to Friday, ten o’clock. (Julie is your colleague: Salut, and tu.)',
       alts: [
         { fr: 'Salut ! Vendredi, à dix heures.', en: 'Hi! Friday, at ten.' },
-        { fr: 'Petite nouvelle : c’est vendredi, dix heures.', en: 'Quick news: it is Friday, ten o’clock.' },
+        { fr: "Petite nouvelle : c'est vendredi, dix heures.", en: 'Quick news: it is Friday, ten o’clock.' },
       ],
     },
     {
@@ -2224,12 +2224,12 @@ const A11_SCENARIO: Sec<'scenario'> = {
       user: fr(E(1145)),
       userEn: 'Can you send me your plans before Thursday? (tu, tes.)',
       alts: [
-        { fr: 'Envoie-moi tes plans avant jeudi, s’il te plaît.', en: 'Send me your plans before Thursday, please. (The tu imperative: also right.)' },
-        { fr: 'Tu pourrais m’envoyer tes plans avant jeudi ?', en: 'Could you send me your plans before Thursday?' },
+        { fr: "Envoie-moi tes plans avant jeudi, s'il te plaît.", en: 'Send me your plans before Thursday, please. (The tu imperative: also right.)' },
+        { fr: "Tu pourrais m'envoyer tes plans avant jeudi ?", en: 'Could you send me your plans before Thursday?' },
       ],
     },
     {
-      ai: 'Maître Girard : Bonjour à tous. Vendredi dix heures, c’est confirmé de mon côté.',
+      ai: "Maître Girard : Bonjour à tous. Vendredi dix heures, c'est confirmé de mon côté.",
       en: 'Maître Girard: Hello everyone. Friday at ten is confirmed on my side.',
       user: 'Merci, Maître. Je vous confirme aussi notre rendez-vous.',
       userEn: 'Thank you, Maître. I confirm our meeting too. (The client: vous, notre.)',
@@ -2239,7 +2239,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Maître Girard : Vous avez besoin d’autre chose ?',
+      ai: "Maître Girard : Vous avez besoin d'autre chose ?",
       en: 'Maître Girard: Do you need anything else?',
       user: fr(E(1146)),
       userEn: 'Could you send me your contract before Thursday? (vous, votre, and the careful question.)',
@@ -2249,7 +2249,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Maître Girard : Bien sûr. On se parle souvent, maintenant : vous pouvez m’appeler Hélène, et me tutoyer.',
+      ai: "Maître Girard : Bien sûr. On se parle souvent, maintenant : vous pouvez m'appeler Hélène, et me tutoyer.",
       en: 'Maître Girard: Of course. We talk often now: you can call me Hélène, and say tu.',
       user: "Avec plaisir. Alors, je t'appelle jeudi, Hélène.",
       userEn: 'With pleasure. So, I will call you on Thursday, Hélène. (She offers, you accept, and switch at once: te.)',
@@ -2414,7 +2414,7 @@ const A11_MISSION: Sec<'task'> = {
     '« Bonjour Julie » and « Salut Julie » are both right for Julie. For the lawyer accept « Bonjour Maître », « Bonjour Maître Girard », « Madame » or « Bonjour Madame Girard »; only « Salut » or a first name without an offer is a formules error.',
     'The switching line is right if it PROPOSES tu to a peer (Théo, a colleague of the same age) with on, OR ACCEPTS an offer from someone older, senior or a client (Avec plaisir, on se tutoie ; Volontiers). A proposal TO Maître Girard, or « vous pouvez me tutoyer » said to a senior, is a distance error.',
     '« Je peux te tutoyer ? » is common spoken French and is NOT an error in the switching line if addressed to a peer.',
-    'Pourriez-vous, Vous pourriez, Est-ce que vous pourriez and Vous pouvez are all accepted in the vous message (b1.09, b1.21). Do not mark register beyond tu and vous: that is b1.25’s.',
+    'Pourriez-vous, Vous pourriez, Est-ce que vous pourriez and Vous pouvez are all accepted in the vous message (lessons 9 and 21 in B1). Do not mark register beyond tu and vous: that belongs to lesson 25 in B1.',
     'The subjunctive is not taught here; do not require it, and do not mark a correct one as an error.',
     'Learner gender is unknown: judge agreement with the learner’s own self (je suis arrivé or arrivée) for internal consistency only. Agreement with Maître Girard, a woman, is marked.',
     'Accept Québec forms (courriel, fin de semaine, Bonjour plus first name between colleagues).',
