@@ -33,7 +33,7 @@ const IMAGES = resolve(HERE, '../../ealch-v2/src/content/lessonImages.ts');
  *  EMPTY since 2026-09-25: the 110 openers for b1.15 to b1.24 landed and are
  *  registered. Add a lesson here when it is authored ahead of its art, and
  *  delete it when the art lands. */
-const ART_PENDING = new Set<string>(['b1.25', 'b1.26', 'b1.27', 'b1.28', 'b1.29', 'b1.30', 'b1.31', 'b1.32', 'b1.33', 'b1.37']);
+const ART_PENDING = new Set<string>([]);
 
 const LESSONS: [string, string][] = [
   ['b1.01', 'imparfait-formation'], ['b1.02', 'imparfait-usage'],
