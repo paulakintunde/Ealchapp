@@ -43,8 +43,12 @@ Legend: DONE = built to the rich standard, validated, committed. Drafts only: no
 | b1.31 | subordination | 86 | 11 | 11x8 | 11 | 5 | 20 | 191 | 11 prompts, art not made | DONE |
 | b1.32 | concession | 87 | 11 | 11x8 | 11 | 5 | 16 | 187 | 11 prompts, art not made | DONE |
 | b1.33 | environnement (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 200 | 11 prompts, art not made | DONE |
-| b1.34 to b1.36, b1.38, b1.39 | see the sequence doc | | | | | | | | | NOT STARTED |
-| b1.37 | strategies-lecture (workshop) | 77 | 11 | 11x8 | 11 | 5 | 13 | 191 | 11 prompts, art not made | DONE |
+| b1.34 | medias (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 186 | 11 prompts, art is Paul's to make | DRAFT, gate 4 |
+| b1.35 | emotions (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 178 | 11 images, registered + alt | DRAFT, gate 4 |
+| b1.36 | affaires (vocab) | 81 | 11 | 11x8 | 11 | 5 | 15 | 182 | acts 1-9 on disk, 10-11 Paul's; not registered | DRAFT, gate 4 |
+| b1.37 | strategies-lecture (workshop) | 77 | 11 | 11x8 | 11 | 5 | 13 | 191 | 11 images, registered + alt | DONE |
+| b1.38 | strategies-ecoute (workshop) | 73 | 11 | 11x8 | 11 | 5 | 13 | 185 | 11 prompts, art is Paul's to make | DRAFT, gate 4 |
+| b1.39 | courriels-lettres (workshop, B1 capstone) | 77 | 12 | 11x8 | 11 | 5 | 11 | 161 | 12 images, registered + alt | DRAFT, gate 4 |
 
 Commits: `ff4fdf8` (b1.01 + standards), `39baeec` (act chapter cards + dev preview), `b1e47c9` (b1.02 to b1.04 rebuilt), then the playbook and log, then wave 1 (b1.05 to b1.08), wave 2 (b1.09 to b1.11), wave 3 (b1.12 to b1.14).
 
@@ -53,6 +57,15 @@ independently by the orchestrator. That is EIGHTEEN lessons authored and NONE
 has reached a learner: the import pipeline exists and its dry run is clean, but
 it has never been applied. Applying it, then the seed merge, then a publish, is
 the work that matters more than a nineteenth lesson.**
+
+**WAVES 10 AND 11 DRAFTED 2026-09-27 (`f269c5c`): b1.34 to b1.36, b1.38, b1.39, the last five B1 lessons. Every validator 0, app checks 0,
+import dry run 890 rows / 0 blockers, trial merge green except the art tests. REVIEW GATE 4 IS NEXT, then import and publish (v76).**
+
+- **Themes (Postgres only until the publish):** sub-themes set on `journalisme`, `emotions`, `affaires`; `correspondance` « Les courriels et les lettres » is NEW (fondations, b1-b2). The merge scripts now carry a Postgres-only theme into the seed's catalogue (`addMissingThemes`), because catalogue-ships.test refuses items on an uncatalogued theme.
+- **Art:** `scripts/gen-b1-images.mjs <slug>` generates from the prompt file via Fal (1024x768). Fal ran out of credit after 43; Paul makes the other 24 himself (b1.34 all 11, b1.38 all 11, b1.36 acts 10-11). Until then `lessonImages.ts` registers b1.35 and b1.39 only, and the app's unregistered-imageRef test fails for the other three.
+- **Snapshot ceiling:** Paul chose to raise `MAX_SNAPSHOT_BYTES` 50 -> 80 MiB rather than band packs or unbundling B1. B1 stays in the seed cut. A device enforces its own build's ceiling: ship the raise in a binary or OTA before any publish passes 50 MiB.
+- **b1.39 is the B1 PE target:** `EXAM_PREP_TARGETS` in `progress.logic.ts` routes `PE@b1` to b1.39.l1 (32 B1 lessons carry skill 'PE', and first-match would have picked b1.01).
+- **Reviewer questions from the authors** (none blocking): b1.34 skill 'CE' vs 'PE'; b1.35 « je suis excité » taught as a false friend, « avoir de la peine » Québec; b1.36 Québec business usages taught as correct (soumission, échéancier) and anglicisms as traps (canceller, céduler), « le planning » as courant, sign-off facts (Meilleures salutations CH, Salutations QC, Bien à vous BE); b1.38 transcript printed in the task brief (no `source` field on `task`), 14 listenings; b1.39 12 texts, 5-criterion rubric, two task situations to choose from.
 
 **ALL 34 B1 LESSONS ARE LIVE, 2026-09-27: content v75 PUBLISHED (checksum 16f9f5be..., matching the dry run). +30 units, +30 lessons, +5,506 items, no deletions, snapshot 38.3 MB (limit 50 MiB: B2 will need the seed-cut size decision). b1.34 to b1.36, b1.38 and b1.39 are not yet written.**
 
@@ -342,6 +355,11 @@ Shapes for these lessons: `B1-WORKSHOP-AND-VOCAB-SHAPES.md`.
 | `connecteurs-logiques` | | | 1400-1599 | b1.32 concession | 1400-1586 (187 rows) |
 | `ecologie` (nature, b1-b2) | sub-themes added: l'environnement, la société et l'environnement, agir au quotidien | 319 rows, 154 fr.b1, highest 165 | 1000-1199 | b1.33 environment and society | 1000-1199 (200 rows, the whole block) |
 | `strategies-de-comprehension` « Les stratégies de compréhension » (education, b1-b2) | **NEW**; sub-themes lire un texte, écouter, deviner le sens. b1.38 listening takes 1200-1399 later | empty | 1000-1199 | b1.37 reading strategy | 1000-1199 (191 rows) |
+| `journalisme` « Le journalisme » (technologie, b1-b2) | sub-themes added 2026-09-27 | 321 rows, 149 fr.b1, highest 172 | 1000-1199 | b1.34 media | 1000-1185 (186 rows) |
+| `emotions` « Les émotions » (concepts, a1-b1) | sub-themes added 2026-09-27 | 312 rows, 122 fr.b1, highest 122 | 1000-1199 | b1.35 emotions | 1000-1177 (178 rows) |
+| `affaires` « Les affaires » (travail, b1-b2) | sub-themes added 2026-09-27 | 316 rows, 149 fr.b1, highest 167 | 1000-1199 | b1.36 business | 1000-1181 (182 rows) |
+| `strategies-de-comprehension` | | | 1200-1399 | b1.38 listening strategy | 1200-1389 (185 rows, 6 gaps) |
+| `correspondance` « Les courriels et les lettres » (fondations, b1-b2) | **NEW** 2026-09-27 | empty | 1000-1199 | b1.39 emails and letters | 1000-1183 (161 rows, gaps) |
 
 Why these homes: `corps` stops at a2 and holds the literal body; idioms are a
 separate job, so one new theme holds all three idiom lessons in three blocks.
