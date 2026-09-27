@@ -432,7 +432,7 @@ const A1_LECTURE: Sec<'reading'> = {
   frSub: 'Lis, et regarde le mot qui revient',
   text: READING_PORTE,
   glossary: [
-    { word: 'le local', en: 'the premises, the room', note: "La salle qu'une association loue ou prête. EN: the room an association uses." },
+    { word: 'local', en: 'premises, room', note: "La salle qu'une association loue ou prête. EN: the room an association uses." },
     { word: 'le repas de quartier', en: 'the neighbourhood meal', note: "Un repas où toute la rue apporte quelque chose." },
     { word: 'quand même', en: 'all the same, anyway', note: "Malgré la phrase qui vient d'être dite. EN: in spite of what was just said." },
   ],
@@ -806,7 +806,7 @@ const A3_LECTURE: Sec<'reading'> = {
   frSub: 'Deux phrases au tableau',
   text: READING_SOSIE,
   glossary: [
-    { word: 'la prononciation', en: 'pronunciation', note: "La façon de dire les sons d'une langue." },
+    { word: 'prononciation', en: 'pronunciation', note: "La façon de dire les sons d'une langue." },
     { word: 'pareil', en: 'the same', note: "Sans aucune différence. EN: with no difference at all." },
     { word: 'invisible', en: 'invisible', note: "Là, mais impossible à voir. EN: present, but impossible to see." },
   ],
@@ -1885,7 +1885,7 @@ const A8_LECTURE: Sec<'reading'> = {
   frSub: 'Quatre verbes, toute la matinée',
   text: READING_POUVOIR,
   glossary: [
-    { word: 'le bureau des inscriptions', en: 'the registration office', note: "Le guichet qui reçoit les dossiers des étudiants." },
+    { word: 'bureau des inscriptions', en: 'registration office', note: "Le guichet qui reçoit les dossiers des étudiants." },
     { word: 'une file', en: 'a queue', note: "Les gens qui attendent l'un derrière l'autre." },
     { word: 'quelque part', en: 'somewhere', note: "À un endroit, sans savoir lequel. EN: at some place, without knowing which." },
   ],
@@ -2283,7 +2283,7 @@ const A10_LECTURE: Sec<'reading'> = {
   frSub: 'Cinq portes, deux pièges',
   text: READING_MESSAGE,
   glossary: [
-    { word: 'le trajet', en: 'the journey', note: "La distance entre le départ et l'arrivée. EN: the distance from start to finish." },
+    { word: 'trajet', en: 'journey', note: "La distance entre le départ et l'arrivée. EN: the distance from start to finish." },
     { word: 'ça vaut le coup', en: 'it is worth it', note: "L'effort en vaut la peine. EN: the effort pays off." },
     { word: 'la surprend', en: 'surprises her', note: "Elle ne s'y attendait pas. EN: she was not expecting it." },
   ],

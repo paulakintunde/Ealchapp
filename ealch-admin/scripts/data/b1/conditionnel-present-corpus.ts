@@ -402,7 +402,7 @@ export const ACT3_ROWS: Row[] = [
   conj(653, 'il faudrait', 'it would be necessary', '/il fo.dʁɛ/', 'eel foh-DREH', 'falloir', 'il', ['radical', 'faudr']),
   conj(654, "j'enverrais", 'I would send', '/ʒɑ̃.vɛ.ʁɛ/', 'zhahⁿ-veh-REH', 'envoyer', 'je', ['radical', 'enverr']),
   conj(655, 'je recevrais', 'I would receive', '/ʒə ʁə.sə.vʁɛ/', 'zhuh ruh-suh-VREH', 'recevoir', 'je', ['radical', 'recevr']),
-  sent(656, 'Ce serait une bonne idée.', 'That would be a good idea.', '/sə sə.ʁɛ yn bɔ.n‿i.de/', 'suh suh-reh ün boh-nee-DAY', ['radical', 'ser']),
+  sent(656, 'Ce serait une bonne idée.', 'That would be a good idea.', '/sə sə.ʁɛ yn bɔ.ni.de/', 'suh suh-reh ün boh-nee-DAY', ['radical', 'ser']),
   sent(657, "On irait à pied, ce n'est pas loin.", 'We would walk, it is not far.', '/ɔ̃.ni.ʁɛ a pje sə nɛ pa lwɛ̃/', 'ohⁿ-nee-reh ah pyay suh neh pah LWEHⁿ', ['radical', 'ir']),
   sent(658, 'Nous verrions la mer depuis le balcon.', 'We would see the sea from the balcony.', '/nu vɛ.ʁjɔ̃ la mɛʁ də.pɥi lə bal.kɔ̃/', 'noo veh-ryohⁿ lah mehr duh-pwee luh bal-KOHⁿ', ['radical', 'verr', 'ions']),
   sent(659, 'Tu aurais un peu de temps ce soir ?', 'Would you have a moment this evening?', '/ty o.ʁɛ œ̃ pø də tɑ̃ sə swaʁ/', 'tü oh-reh uhⁿ puh duh tahⁿ suh SWAR', ['radical', 'aur', 'politesse']),

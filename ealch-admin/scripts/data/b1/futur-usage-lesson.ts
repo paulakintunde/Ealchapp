@@ -112,7 +112,7 @@ import {
   READING_ROUTINE, READING_TEXT,
   B105_REFRAME, B105_REFRAME_EN, B106_REFRAME, B106_REFRAME_EN,
   FUT_FORM_UNIT, FUT_IRREG_UNIT, PROCHE_UNIT, TIME_PREP_UNIT, MODAUX_UNIT, PC_AVOIR_UNIT,
-  FUT_FORM_REF, FUT_IRREG_REF, SI_UNREAL_REF, COND_REF, PROCHE_REF, TIME_PREP_REF,
+  FUT_FORM_REF, FUT_IRREG_REF, SI_UNREAL_REF, COND_REF, PROCHE_REF, TIME_PREP_REF, refFr,
 } from './futur-usage-corpus.ts';
 import { FUTUR_USAGE_TERMS } from './futur-usage-terms.ts';
 
@@ -437,7 +437,7 @@ const A2_REGLE: Sec<'cardDeck'> = {
       body: 'Tu peux commencer par la charnière ou par l’autre moitié. Les deux futurs restent. EN: either half may come first; both futures stay.',
     },
     {
-      head: 'Ce que b1.05 t’a déjà donné',
+      head: `Ce que ${FUT_FORM_REF} t’a déjà donné`,
       label: Cap(FUT_FORM_REF),
       fr: 'j’arriverai · tu arriveras · il arrivera',
       sub: '[zha-reev-REH] · [tü a-reev-RA] · [eel a-reev-RA]',
@@ -564,7 +564,7 @@ const A2_ECOUTE: Sec<'listening'> = {
     { q: 'Première phrase : « Quand j’arrive au bureau... ». C’est...', opts: ['une habitude', 'un projet pour demain'], correct: 0, why: 'Deux présents, donc chaque matin. EN: two presents, so every morning.' },
     { q: 'Deuxième phrase : combien de verbes au futur ?', opts: ['deux', 'un'], correct: 0, why: 'arriverai et enverrai : les deux moitiés. EN: both halves.' },
     { q: 'Quatrième phrase : quand partiront-ils ?', opts: ['tous les matins', 'dès qu’ils seront prêts'], correct: 1, why: '« Quand nous serons prêts » annonce un moment unique. EN: one moment, not a routine.' },
-    { q: 'Sixième phrase : « Quand il pleut, je prends le métro. » Le métro, c’est...', opts: ['à chaque pluie', 'pour demain'], correct: 0, why: 'Présent + présent : une habitude. EN: present plus present is a habit.' },
+    { q: 'Sixième phrase : le métro, c’est...', opts: ['à chaque pluie', 'pour demain'], correct: 0, why: 'Présent + présent : une habitude. EN: present plus present is a habit.' },
     { q: 'Septième phrase : « Quand tu seras là... ». Tu es là maintenant ?', opts: ['oui', 'non, plus tard'], correct: 1, why: 'Le futur pose le moment devant nous. EN: the future places the moment ahead.' },
   ],
   audio: REC('rec-b1-07-projets-ecoute'),
@@ -851,8 +851,8 @@ const A4_LECTURE: Sec<'reading'> = {
   frSub: 'Compte les futurs, il y en a quatre',
   text: READING_ROUTINE,
   glossary: [
-    { word: 'la fournée', en: 'the batch', note: 'Tout le pain qui cuit en même temps dans le four.' },
-    { word: 'le comptoir', en: 'the counter', note: 'La table où l’on sert les clients.' },
+    { word: 'fournée', en: 'batch', note: 'Tout le pain qui cuit en même temps dans le four.' },
+    { word: 'comptoir', en: 'counter', note: 'La table où l’on sert les clients.' },
     { word: 'la caisse', en: 'the till', note: 'La boîte où l’on met l’argent.' },
     { word: 'se rendormait', en: 'went back to sleep', note: 'Il se rendormait après le réveil.' },
     { word: 'le lever du soleil', en: 'the sunrise', note: 'Le moment où le soleil se lève.' },
@@ -1037,7 +1037,7 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
   ctl('L’habitude', '« Dès que le réveil sonne, je me lève. » Ça se passe...', ['demain matin', 'chaque matin'], 1,
     'Deux présents : à chaque fois. EN: two presents, every time.'),
   ctl('Le souvenir', 'Pour une habitude d’école, terminée, quel temps ?', ['le futur', 'l’imparfait', 'le présent'], 1,
-    'Deux imparfaits, comme dans b1.02. EN: two imparfaits.'),
+    `Deux imparfaits, comme dans ${refFr('b1.02')}. EN: two imparfaits, as in lesson 2 in B1.`),
 ], ['charniere', 'verite']);
 
 const ACT4: ActDef = {
@@ -1116,7 +1116,7 @@ const A5_REGLE: Sec<'cardDeck'> = {
       body: 'En anglais, if you will help me existe dans certains cas. En français, jamais. EN: English allows if you will help in some cases; French never does.',
     },
     {
-      head: 'Ce que b1.06 t’a déjà donné',
+      head: `Ce que ${FUT_IRREG_REF} t’a déjà donné`,
       label: Cap(FUT_IRREG_REF),
       fr: 'je serai · j’aurai · je ferai · j’irai',
       sub: '[zhuh suh-REH] · [zho-REH] · [zhuh fuh-REH] · [zhee-REH]',
@@ -1269,9 +1269,9 @@ const A6_ECOUTE: Sec<'listening'> = {
     ln(E(490)), ln(E(485)), ln(E(495)), ln(E(493)),
   ],
   questions: [
-    { q: 'Première phrase : « Si on chauffe l’eau à cent degrés, elle bout. » C’est...', opts: ['une promesse', 'une vérité'], correct: 1, why: 'Deux présents : ce qui arrive à chaque fois. EN: two presents say every time.' },
+    { q: 'Première phrase : c’est...', opts: ['une promesse', 'une vérité'], correct: 1, why: 'Deux présents : ce qui arrive à chaque fois. EN: two presents say every time.' },
     { q: 'Deuxième phrase : la deuxième moitié est...', opts: ['au futur', 'au présent'], correct: 0, why: '« je préparerai » : une promesse. EN: a promise takes the future.' },
-    { q: 'Troisième phrase : « Si tu as froid, ferme la fenêtre. » C’est...', opts: ['une consigne', 'une vérité', 'une promesse'], correct: 0, why: 'Un impératif : on te dit quoi faire. EN: an imperative tells you what to do.' },
+    { q: 'Troisième phrase : c’est...', opts: ['une consigne', 'une vérité', 'une promesse'], correct: 0, why: 'Un impératif : on te dit quoi faire. EN: an imperative tells you what to do.' },
     { q: 'Sixième phrase : « ce sera moins cher ». On te promet quelque chose ?', opts: ['non', 'oui'], correct: 1, why: 'Le futur ouvre une promesse de prix. EN: the future opens a promise.' },
     { q: 'Combien de ces huit phrases donnent un ordre ?', opts: ['une', 'trois', 'six'], correct: 1, why: 'Trois impératifs : ferme, levez, sortez. EN: three imperatives.' },
   ],
@@ -1712,7 +1712,7 @@ const A8_REGLE: Sec<'cardDeck'> = {
       body: 'La règle de si ne bouge pas non plus : présent après si, futur proche après la virgule. EN: present after si, futur proche past the comma.',
     },
     {
-      head: 'Ce que a2.19 t’a déjà donné',
+      head: `Ce que ${PROCHE_REF} t’a déjà donné`,
       label: Cap(PROCHE_REF),
       fr: 'je vais partir · on va voir · il va pleuvoir',
       sub: '[zhuh veh par-TEER] · [ohⁿ va VWAR] · [eel va pleu-VWAR]',
@@ -1788,7 +1788,7 @@ const A8_ECOUTE: Sec<'listening'> = {
     { q: 'Première phrase : quelle moitié prend aller ?', opts: ['celle en quand', 'la deuxième'], correct: 1, why: '« je vais t’appeler » : aller reste après la virgule. EN: aller stays past the comma.' },
     { q: 'Deuxième phrase : après « dès qu’il », tu entends...', opts: ['sera', 'va être'], correct: 0, why: 'La charnière garde le futur simple. EN: the hinge keeps the futur simple.' },
     { q: 'Quatrième phrase : après si, le verbe est...', opts: ['au futur proche', 'au présent'], correct: 1, why: '« Si tu veux » : la règle de si ne bouge pas. EN: the si rule does not move.' },
-    { q: 'Cinquième phrase : « Il va pleuvoir tout à l’heure. » C’est pour...', opts: ['dans un moment', 'l’année prochaine'], correct: 0, why: 'Le futur proche colle souvent à ce qui est tout près. EN: the futur proche often sits close by.' },
+    { q: 'Cinquième phrase : c’est pour...', opts: ['dans un moment', 'l’année prochaine'], correct: 0, why: 'Le futur proche colle souvent à ce qui est tout près. EN: the futur proche often sits close by.' },
     { q: 'Combien de ces huit phrases ont aller plus un infinitif ?', opts: ['deux', 'toutes les huit'], correct: 1, why: 'Toutes : c’est l’acte du futur parlé. EN: all of them; this is the spoken act.' },
   ],
   audio: REC('rec-b1-07-oral-ecoute'),
@@ -2050,8 +2050,8 @@ const A10_LECTURE: Sec<'reading'> = {
   text: "Samedi, j'ai une longue journée. D'abord je finirai le rapport, ensuite je partirai. Je passerai à la banque, puis j'irai au marché. Quand j'aurai le billet, je réserverai l'hôtel : dans l'autre sens, ça ne marche pas, parce que l'hôtel dépend de la date du train. Dès que la réunion finira, nous irons déjeuner. Ensuite, nous prendrons le train de dix-huit heures. Une fois que tout sera réglé, je te téléphonerai. Après, on se retrouvera devant la gare. Avant de partir, je vérifierai les billets, parce que je les oublie une fois sur deux. Enfin, nous rentrerons par le dernier bus. Tant que nous n'aurons pas de réponse pour dimanche, nous attendrons.",
   glossary: [
     { word: 'le rapport', en: 'the report', note: 'Un document de travail.' },
-    { word: 'réserver', en: 'to book', note: 'Garder une place à l’avance.' },
-    { word: 'régler', en: 'to settle', note: 'Finir quelque chose, payer ou organiser.' },
+    { word: 'réserverai', en: 'I will book', note: 'Garder une place à l’avance.' },
+    { word: 'réglé', en: 'settled', note: 'Finir quelque chose, payer ou organiser.' },
     { word: 'une fois sur deux', en: 'half the time', note: 'Une fois oui, une fois non.' },
   ],
   questions: [
@@ -2246,7 +2246,7 @@ const A11_LECTURE: Sec<'reading'> = {
   glossary: [
     { word: 'un stage', en: 'a work placement', note: 'Une période de travail pour apprendre un métier.' },
     { word: 'le dépôt', en: 'the deposit', note: 'L’argent qu’on donne à l’avance pour un logement.' },
-    { word: 's’inscrire', en: 'to sign up', note: 'Donner son nom pour participer à quelque chose.' },
+    { word: 'm’inscrirai', en: 'I will sign up', note: 'Donner son nom pour participer à quelque chose.' },
     { word: 'un cours du soir', en: 'an evening class', note: 'Un cours après les heures de travail.' },
     { word: 'là-bas', en: 'over there', note: 'À l’endroit dont on vient de parler.' },
   ],

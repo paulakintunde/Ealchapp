@@ -1188,7 +1188,7 @@ const A5_LECTURE: Sec<'reading'> = {
   frSub: 'Lis, puis réponds',
   text: "Bonjour, voici comment la formation se passera. Vous recevrez le programme complet lundi prochain, par courriel. Vous devrez choisir deux ateliers sur les six proposés, et vous saurez le jeudi si vos choix sont acceptés. Le nombre de places est limité, et il faudra répondre vite. Les cours du matin commencent à neuf heures. Ceux qui viennent de loin pourront suivre la première semaine en ligne : nous enverrons les liens la veille. À la fin du mois, vous recevrez une attestation. Elle ne vaudra pas un diplôme, mais elle prouvera que vous avez suivi les quarante heures. Une dernière chose : la sortie de terrain du douze aura lieu par tous les temps. Il pleuvra peut-être ce jour-là, alors prévoyez des bottes.",
   glossary: [
-    { word: 'un atelier', en: 'a workshop', note: 'Un cours court, en petit groupe, sur un sujet précis.' },
+    { word: 'ateliers', en: 'workshops', note: 'Un cours court, en petit groupe, sur un sujet précis.' },
     { word: 'une attestation', en: 'a certificate of attendance', note: 'Un papier qui prouve que tu étais là. Ce n’est pas un diplôme.' },
     { word: 'la veille', en: 'the day before', note: 'La veille du douze, c’est le onze.' },
     { word: 'la sortie de terrain', en: 'the field trip', note: 'Une journée de cours dehors, sur le lieu du travail.' },
@@ -1866,7 +1866,7 @@ const A8_LECTURE: Sec<'reading'> = {
     { word: 'le trajet', en: 'the journey', note: 'Le temps et la route entre le départ et l’arrivée.' },
     { word: 'la frontière', en: 'the border', note: 'La ligne entre deux pays. Ici, on la passe en car.' },
     { word: 'une pièce d’identité', en: 'an identity document', note: 'Une carte ou un passeport. À garder sur soi.' },
-    { word: 'le poste', en: 'the border post', note: 'Le bâtiment où les gardes contrôlent les papiers.' },
+    { word: 'poste', en: 'border post', note: 'Le bâtiment où les gardes contrôlent les papiers.' },
     { word: 'le car', en: 'the coach', note: 'Le grand bus des sorties. Pas le bus de ville.' },
     { word: 'traînera', en: 'will dawdle', note: 'De traîner : aller trop lentement, faire attendre les autres.' },
   ],
@@ -2553,7 +2553,7 @@ const A11_LECTURE: Sec<'reading'> = {
   frSub: 'Le modèle que tu vas imiter',
   text: "Dans cinq ans, j'aurai trente-deux ans et je ne sais pas encore où je serai. Je crois que je vivrai toujours à Montréal, mais je n'en suis pas sûre. Mon frère, lui, sera reparti à Dakar : il le dit depuis deux ans et cette fois il partira vraiment. Nous reviendrons souvent le voir, et les enfants seront assez grands pour faire le voyage sans pleurer. Côté travail, j'aurai peut-être mon propre atelier. Il faudra emprunter, et il vaudra mieux attendre d'avoir des clients réguliers. Je devrai aussi apprendre la comptabilité, ce qui ne me fera pas plaisir. Il y aura des choses que je ne prévoirai pas, évidemment. Tout ne se passera pas comme prévu, et ça ira quand même.",
   glossary: [
-    { word: 'un atelier', en: 'a workshop', note: 'Un local où on travaille de ses mains.' },
+    { word: 'atelier', en: 'workshop', note: 'Un local où on travaille de ses mains.' },
     { word: 'emprunter', en: 'to borrow', note: 'Demander de l’argent à une banque, et le rendre ensuite.' },
     { word: 'des clients réguliers', en: 'regular customers', note: 'Des gens qui reviennent, et sur qui on peut compter.' },
     { word: 'la comptabilité', en: 'bookkeeping', note: 'Les comptes d’une entreprise. Ce que gagne et ce que dépense l’atelier.' },
@@ -2644,7 +2644,7 @@ const A11_PARLER: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Qu’est-ce qu’il faudra faire pour y arriver ?', en: 'What will have to be done to get there?',
+      ai: "Qu'est-ce qu'il faudra faire pour y arriver ?", en: 'What will have to be done to get there?',
       user: 'Il faudra emprunter, et il vaudra mieux attendre un peu.',
       userEn: 'Borrowing will be needed, and it will be better to wait a bit. (Two impersonals.)',
       alts: [

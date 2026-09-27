@@ -334,7 +334,7 @@ const A1_PORTES: Sec<'cardDeck'> = {
       body: "à, avec, chez, pour, sans ne fusionnent avec rien. Tu les écris en entier, puis qui. EN: these prepositions fuse with nothing and stay written in full.",
     },
     {
-      head: "Ce que b1.11 t'a déjà donné", label: Cap(QUI_QUE_REF),
+      head: `Ce que ${QUI_QUE_REF} t'a déjà donné`, label: Cap(QUI_QUE_REF),
       fr: "le sac qui est là · le sac que je cherche",
       sub: '[luh sak kee eh LAH] · [luh sak kuh zhuh SHEHRSH]',
       body: `« ${B111_REFRAME} » Sans petit mot, rien ne change : qui et que restent. EN: ${B111_REFRAME_EN}`,

@@ -2275,7 +2275,7 @@ const A10_LECTURE: Sec<'reading'> = {
     { word: 'la rentrée', en: 'the start of the new season or school year', note: 'Le moment où tout recommence, après les vacances.' },
     { word: 'embêtant', en: 'annoying, a nuisance', note: 'Pas grave, mais gênant.' },
     { word: 'les habitués', en: 'the regulars', note: 'Les gens qui viennent chaque semaine.' },
-    { word: "perdre l'habitude", en: 'to get out of the habit', note: "Arrêter de faire une chose qu'on faisait régulièrement." },
+    { word: "perde l'habitude", en: 'get out of the habit', note: "Arrêter de faire une chose qu'on faisait régulièrement." },
   ],
   questions: [
     { q: 'Que reprend « ce dont nous devons parler » dans la première phrase ?', a: "Le départ de Nadia en août, c'est-à-dire toute la phrase de devant, et non un nom." },

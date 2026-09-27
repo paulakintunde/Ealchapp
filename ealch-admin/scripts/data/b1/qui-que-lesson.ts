@@ -1429,7 +1429,7 @@ const A7_LECTURE: Sec<'reading'> = {
   text: READING_TRADUCTION,
   glossary: [
     { word: 'se percutent', en: 'collide', note: 'Ils se rentrent dedans, comme deux voitures.' },
-    { word: 'de son point de vue', en: 'from her point of view', note: "Vu depuis sa langue à elle, l'anglais." },
+    { word: 'son point de vue', en: 'her point of view', note: "Vu depuis sa langue à elle, l'anglais." },
     { word: 'laisse le mot tomber', en: 'lets the word drop', note: "L'anglais permet de ne pas l'écrire." },
     { word: 'se remet en place', en: 'falls back into place', note: 'Tout redevient lisible.' },
   ],
@@ -2262,7 +2262,7 @@ const A11_LECTURE: Sec<'reading'> = {
   text: READING_ANNONCE,
   glossary: [
     { word: 'de taille moyenne', en: 'medium sized', note: 'Ni grand ni petit.' },
-    { word: 'le cégep', en: 'the college', note: "L'établissement entre le secondaire et l'université, au Québec." },
+    { word: 'cégep', en: 'college', note: "L'établissement entre le secondaire et l'université, au Québec." },
     { word: 'déchirée', en: 'torn', note: 'Le tissu est ouvert, il y a un trou.' },
     { word: 'le reconnaître', en: 'to recognise it', note: "Savoir avec certitude que c'est celui-là." },
   ],
@@ -2493,7 +2493,7 @@ const A11_TASK: TaskSection = {
     'DO NOT SCORE dont, où, lequel, duquel or any prepositional relative (à qui, avec qui, chez qui). They belong to later lessons and have not been taught. A learner who uses one correctly is not rewarded and one who uses it wrongly is not penalised.',
     'ce qui and ce que were PREVIEWED in act 10 only. Accept them when correct; do not penalise a learner who avoids them, and do not penalise ce que where ce qui was wanted.',
     'Judge the pronoun choice by what follows it in the learner text, not by what the learner probably meant. A sentence can be right for a different reason than intended and still scores.',
-    'Participle agreement is judged only after que plus avoir. Agreement with être (elle est partie) belongs to a2.21 and is out of scope here.',
+    'Participle agreement is judged only after que plus avoir. Agreement with être (elle est partie) belongs to lesson 18 in A2 and is out of scope here.',
     'An agreement that is correct but inaudible (perdue, laissés, réservées) counts exactly as much as an audible one (écrite, prise). The criterion is written accuracy.',
     'Writer gender is unknown: judge adjective agreement for internal consistency only.',
     'Accept any lost object and any francophone city. Accept regional vocabulary (cégep, char, sac à dos, sacoche, valise, malle).',

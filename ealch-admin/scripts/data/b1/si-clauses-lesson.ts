@@ -286,7 +286,7 @@ const A1_LECTURE: Sec<'reading'> = {
   frSub: 'Quatre si dans un seul texte',
   text: READING_SORTIE,
   glossary: [
-    { word: 'le refuge', en: 'the mountain hut', note: 'La maison de pierre où les marcheurs dorment ou attendent la fin de la pluie.' },
+    { word: 'refuge', en: 'mountain hut', note: 'La maison de pierre où les marcheurs dorment ou attendent la fin de la pluie.' },
     { word: 'hausse les épaules', en: 'shrugs', note: 'Le geste de quelqu’un qui trouve la phrase évidente.' },
     { word: 'au feutre bleu', en: 'in blue marker', note: 'Écrit gros, pour que toute la salle lise.' },
     { word: 'efface', en: 'rubs out', note: 'Enlève ce qui est écrit sur le tableau.' },
@@ -2113,7 +2113,7 @@ const A10_LECTURE: Sec<'reading'> = {
   frSub: 'Le même projet, deux certitudes',
   text: "Ousmane et Léa préparent la même candidature. Les deux veulent partir travailler à l'étranger l'an prochain. Les deux passent leur diplôme en juin.\n\nOusmane a écrit : « Quand j'aurai mon diplôme, je chercherai un poste à l'étranger. » Il a déjà validé tous ses examens sauf un, et il sait qu'il l'aura.\n\nLéa a écrit : « Si j'ai mon diplôme, je chercherai un poste à l'étranger. » Il lui reste trois examens et un stage, et elle ne se sent pas sûre.\n\nLes deux phrases sont correctes. Elles ne disent pas la même chose du tout. Quand annonce une date qui viendra ; si annonce une chose qui viendra peut-être.\n\nUne différence les sépare encore : quand prend le futur des deux côtés, et si ne le prend jamais. « Quand j'aurai » contre « Si j'ai ». C'est la même idée dans les deux phrases, et deux temps différents.\n\nMme Roussel a lu les deux lettres. « Même si je ne décide rien, a-t-elle dit, je préfère la tienne, Ousmane. Elle ne demande pas la permission d'exister. »",
   glossary: [
-    { word: 'la candidature', en: 'the application', note: 'Le dossier envoyé pour obtenir un poste ou une place.' },
+    { word: 'candidature', en: 'application', note: 'Le dossier envoyé pour obtenir un poste ou une place.' },
     { word: 'validé', en: 'passed', note: 'Réussi, pour un examen ou un module.' },
     { word: 'un stage', en: 'a work placement', note: 'Une période de travail qui fait partie des études.' },
     { word: 'la permission d’exister', en: 'permission to exist', note: 'Une image : la phrase ne s’excuse pas d’être là.' },

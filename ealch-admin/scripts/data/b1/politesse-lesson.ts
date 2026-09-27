@@ -286,7 +286,7 @@ const A1_LECTURE: Sec<'reading'> = {
   glossary: [
     { word: 'un grand service', en: 'a big favour', note: "La phrase qui dit tout haut ce que ta demande coûte. EN: the sentence that names the cost out loud." },
     { word: 'à la bonne hauteur', en: 'at the right height', note: "Ni trop sec, ni trop lourd : au barreau que la situation demande. EN: on the rung the situation calls for." },
-    { word: 'le plombier', en: 'the plumber', note: "Celui qui répare les tuyaux et les robinets." },
+    { word: 'plombier', en: 'plumber', note: "Celui qui répare les tuyaux et les robinets." },
   ],
   questions: [
     { q: 'Quelles demandes de Salima tiennent en deux secondes de travail ?', a: "« Tu peux me tenir la porte » et « Passe-moi le numéro du plombier ». Les deux sont au barreau du bas, et les deux sont justes." },
@@ -1350,7 +1350,7 @@ const A6_LECTURE: Sec<'reading'> = {
   frSub: 'Le bureau des inscriptions',
   text: READING_BUREAU,
   glossary: [
-    { word: 'les inscriptions', en: 'registrations, enrolments', note: "Le bureau où on dépose son dossier pour entrer dans une formation." },
+    { word: 'inscriptions', en: 'registrations, enrolments', note: "Le bureau où on dépose son dossier pour entrer dans une formation." },
     { word: 'complet', en: 'complete', note: "Il ne manque aucune pièce. EN: no document is missing." },
     { word: 'la session', en: 'the intake, the session', note: "Le groupe qui commence à une date donnée." },
   ],
@@ -1985,9 +1985,9 @@ const A9_LECTURE: Sec<'reading'> = {
   frSub: 'Le bail de Yann',
   text: READING_CONSEIL,
   glossary: [
-    { word: 'le bail', en: 'the lease', note: "Le contrat qui te loue un logement pour une durée fixée." },
+    { word: 'bail', en: 'lease', note: "Le contrat qui te loue un logement pour une durée fixée." },
     { word: 'un devis', en: 'a quote, an estimate', note: "Le papier qui dit combien des travaux vont coûter." },
-    { word: 'une lettre recommandée', en: 'a registered letter', note: "Une lettre dont la poste garde la preuve d'envoi. EN: a letter the post office keeps proof of." },
+    { word: 'lettre recommandée', en: 'registered letter', note: "Une lettre dont la poste garde la preuve d'envoi. EN: a letter the post office keeps proof of." },
   ],
   questions: [
     { q: 'Laquelle des quatre formes met le conseiller dans les chaussures de Yann ?', a: "« À ta place, je demanderais un devis écrit. » Le conseiller parle de lui, pas de Yann." },

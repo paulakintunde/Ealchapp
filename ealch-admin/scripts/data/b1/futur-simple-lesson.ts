@@ -279,8 +279,8 @@ const A1_LECTURE: Sec<'reading'> = {
   glossary: [
     { word: 'le bail', en: 'the lease', note: 'Le contrat entre toi et le propriétaire.' },
     { word: "l'état des lieux", en: 'the inventory, the check-in report', note: "On note ensemble l'état de l'appartement avant ton arrivée." },
-    { word: 'le rez-de-chaussée', en: 'the ground floor', note: "L'étage qui touche la rue." },
-    { word: 'les locataires', en: 'the tenants', note: 'Les gens qui louent, pas ceux qui achètent.' },
+    { word: 'rez-de-chaussée', en: 'ground floor', note: "L'étage qui touche la rue." },
+    { word: 'locataires', en: 'tenants', note: 'Les gens qui louent, pas ceux qui achètent.' },
   ],
   questions: [
     { q: 'Combien de verbes annoncent quelque chose qui n’est pas encore arrivé ?', a: 'Neuf : examinerons, confirmerons, arrivera, trouverez, marchera, ouvrira, commencera, plus ferme et demandons qui, eux, sont au présent.' },
@@ -1394,7 +1394,6 @@ const A6_LECTURE: Sec<'reading'> = {
   frSub: 'Sept verbes qui changent de radical',
   text: "Chers voisins, voici ce qui changera dans l'immeuble au mois de mars. Nous appellerons une entreprise lundi pour le chauffage du deuxième étage. Les techniciens nettoieront les conduits mardi et mercredi, entre huit heures et midi. Vous ne paierez rien de plus ce mois-ci : la copropriété emploiera son budget de réserve. Chacun jettera ses cartons dans le local du fond, et non dans la cour. Le gardien se lèvera plus tôt pendant les travaux et il ouvrira la porte dès sept heures. Nous achèterons aussi deux vélos pour les livraisons du rez-de-chaussée. En cas de bruit, appelez-moi directement. Nous essaierons de finir avant les vacances de printemps.",
   glossary: [
-    { word: 'le syndic', en: 'the managing agent', note: "La personne qui s'occupe de l'immeuble pour tous les propriétaires." },
     { word: 'les conduits', en: 'the ducts, the pipes', note: "Les tuyaux qui portent l'air chaud dans l'immeuble." },
     { word: 'la copropriété', en: 'the co-ownership, the block', note: 'Tous les propriétaires de l’immeuble ensemble.' },
     { word: 'le local du fond', en: 'the back storeroom', note: 'La petite pièce au bout de la cour.' },
@@ -2270,7 +2269,7 @@ const A10_LECTURE: Sec<'reading'> = {
     { word: 'mon dossier', en: 'my file, my application pack', note: 'Les papiers qu’on rassemble pour une candidature.' },
     { word: 'les diplômes traduits', en: 'the translated diplomas', note: 'Les diplômes passés dans une autre langue par un traducteur.' },
     { word: 'un examen officiel', en: 'an official exam', note: 'Un examen reconnu par un État ou une université.' },
-    { word: "j'y pense depuis trop longtemps", en: 'I have been thinking about it far too long', note: 'Ça dure, et ça a commencé bien avant aujourd’hui.' },
+    { word: 'depuis trop longtemps', en: 'for far too long', note: 'Ça dure, et ça a commencé bien avant aujourd’hui.' },
   ],
   questions: [
     { q: 'Quelle phrase ouvre le texte, et à quel temps ?', a: '« Voici mon projet pour l’année prochaine. » Au présent : elle annonce ce qui va suivre.' },
@@ -2367,7 +2366,7 @@ const A10_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Certains changent d’avis après six mois. Et vous.',
+      ai: "Certains changent d'avis après six mois. Et vous.",
       en: 'Some people change their minds after six months. What about you.',
       user: "Je ne changerai pas d'avis.",
       userEn: 'I will not change my mind. (ne and pas around a one-word verb.)',

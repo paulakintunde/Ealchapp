@@ -277,7 +277,7 @@ const A1_LECTURE: Sec<'reading'> = {
   frSub: 'Lis, et compte les formes en -rait',
   text: READING_ANNONCE,
   glossary: [
-    { word: 'le bail', en: 'the lease', note: 'Le contrat de location. Au pluriel : les baux.' },
+    { word: 'bail', en: 'lease', note: 'Le contrat de location. Au pluriel : les baux.' },
     { word: 'les charges', en: 'the service charges', note: "Ce qu'on paie en plus du loyer : eau, chauffage, entretien." },
     { word: 'un état des lieux', en: 'an inventory check', note: "On note l'état de l'appartement avant d'entrer et en partant." },
     { word: 'noir sur blanc', en: 'in black and white', note: 'Écrit, donc vérifiable.' },
@@ -2043,7 +2043,7 @@ const A10_LECTURE: Sec<'reading'> = {
   glossary: [
     { word: 'en fuite', en: 'on the run', note: 'La personne a quitté les lieux et la police la cherche.' },
     { word: 'la direction', en: 'the management', note: "Les responsables d'une entreprise." },
-    { word: 'le conseil communal', en: 'the town council', note: "L'assemblée élue d'une commune, en Belgique." },
+    { word: 'conseil communal', en: 'town council', note: "L'assemblée élue d'une commune, en Belgique." },
     { word: 'dévié', en: 'diverted', note: 'Le tram passerait par une autre rue.' },
   ],
   questions: [
@@ -2484,7 +2484,7 @@ const A11_TASK: TaskSection = {
   ],
   graderNotes: [
     'Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (99-165) before criterion « tache » loses its point.',
-    'DO NOT SCORE si CLAUSES. « si + imparfait + conditionnel » is b1.10 ground and has not been taught. A learner who writes one correctly is not rewarded and one who writes it wrongly is not penalised, EXCEPT for a conditional placed directly after si, which this lesson does name as an error.',
+    'DO NOT SCORE si CLAUSES. « si + imparfait + conditionnel » is the ground of lesson 10 in B1 and has not been taught. A learner who writes one correctly is not rewarded and one who writes it wrongly is not penalised, EXCEPT for a conditional placed directly after si, which this lesson does name as an error.',
     'Do not score the subjunctive. « il faudrait que » and « je voudrais que » are outside this lesson; a wrong verb after them is ignored.',
     'The conditionnel passé (« j’aurais voulu », « il aurait fallu ») is outside this lesson. Accept it if correct, do not penalise it if wrong.',
     'Judge « le bon métier » by what the sentence DOES in the email, not by the opener alone. « Ce serait plus simple » can be a proposal or a hypothesis and both count.',
