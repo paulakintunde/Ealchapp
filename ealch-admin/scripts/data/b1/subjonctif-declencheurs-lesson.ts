@@ -446,7 +446,7 @@ const A1_LECTURE: Sec<'reading'> = {
   frSub: 'Lis, et compte les que',
   text: READING_CLE,
   glossary: [
-    { word: 'la colocation', en: 'the house share', note: "Un logement partagé entre plusieurs personnes. EN: a shared flat." },
+    { word: 'colocation', en: 'a house share', note: "Un logement partagé entre plusieurs personnes. EN: a shared flat." },
     { word: 'la remorque', en: 'the trailer', note: "Ce qu’on accroche derrière une voiture pour transporter des meubles." },
     { word: 'doute', en: 'doubts', note: "Du verbe douter : il ne croit pas que ça arrive. EN: from douter, to doubt." },
   ],
@@ -480,7 +480,7 @@ const A1_CLE: Sec<'cardDeck'> = {
       body: "Même mot, même place, même verbe. Une seule chose diffère : ce qui est écrit devant. EN: same word, same place, same verb; only what stands in front differs.",
     },
     {
-      head: 'Ce que b1.14 t’a déjà donné', label: Cap(FORMATION_REF),
+      head: `Ce que ${FORMATION_REF} t’a déjà donné`, label: Cap(FORMATION_REF),
       fr: 'que tu viennes · que nous soyons',
       sub: '[kuh tü VYENN] · [kuh noo swa-YOHⁿ]',
       body: `« ${B114_REFRAME} » Tu sais déjà fabriquer la forme. Ici, tu apprends quand elle est demandée. EN: ${B114_REFRAME_EN}`,
@@ -870,7 +870,7 @@ const A3_CARTES: Sec<'cardDeck'> = {
       head: 'Au conditionnel aussi', label: Cap(POLI_REF),
       fr: 'il faudrait que nous parlions',
       sub: '[eel foh-dreh kuh noo par-LYOHⁿ]',
-      body: "« Il faudrait » adoucit la nécessité, comme b1.09 l'a montré pour les demandes. Après que, rien ne bouge. EN: il faudrait softens the necessity and nothing after que changes.",
+      body: `« Il faudrait » adoucit la nécessité, comme ${POLI_REF} l'a montré pour les demandes. Après que, rien ne bouge. EN: il faudrait softens the necessity and nothing after que changes.`,
     },
   ],
 };
@@ -1961,7 +1961,7 @@ const A8_LECTURE: Sec<'reading'> = {
   frSub: 'Six consignes, et une septième à part',
   text: READING_CONDITION,
   glossary: [
-    { word: 'le gîte', en: 'the holiday cottage', note: "Une maison qu'on loue pour quelques jours à la campagne." },
+    { word: 'gîte', en: 'a holiday cottage', note: "Une maison qu'on loue pour quelques jours à la campagne." },
     { word: 'la tuyauterie', en: 'the pipework', note: "L'ensemble des tuyaux d'eau d'une maison. EN: the water pipes of a house." },
     { word: 'dégagée', en: 'clear', note: "Sans neige et sans obstacle, en parlant d'une route." },
   ],
@@ -2689,7 +2689,7 @@ const A11_LECTURE: Sec<'reading'> = {
   frSub: 'Le modèle que tu vas imiter',
   text: READING_MESSAGE,
   glossary: [
-    { word: 'le pot de départ', en: 'the leaving do', note: "Le verre qu'on organise quand quelqu'un quitte son travail." },
+    { word: 'pot de départ', en: 'leaving do', note: "Le verre qu'on organise quand quelqu'un quitte son travail." },
     { word: 'le traiteur', en: 'the caterer', note: "L'entreprise qui prépare et livre les plats." },
     { word: 'ça m’enlève un souci', en: 'that is one worry off my mind', note: "Une chose de moins à gérer. EN: one less thing to handle." },
   ],

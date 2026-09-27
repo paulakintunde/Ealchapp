@@ -2619,7 +2619,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
   setting: "Le lendemain de la panne. Tu appelles le syndic de l'immeuble. Il est pressé, il prend des notes, et il écrit un avis pour le hall à partir de ce que tu dis.",
   turns: [
     {
-      ai: 'Bonjour, syndic Lemoine. Qu’est-ce qui se passe chez vous ?',
+      ai: "Bonjour, syndic Lemoine. Qu'est-ce qui se passe chez vous ?",
       en: 'Hello, Lemoine, building management. What is going on at your place?',
       user: "On a arrêté l'ascenseur deux fois cette semaine.",
       userEn: 'They stopped the lift twice this week. (Speaking, so on rather than the passive.)',
@@ -2629,7 +2629,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Est-ce que quelqu’un vous a prévenus ?',
+      ai: "Est-ce que quelqu'un vous a prévenus ?",
       en: 'Did anybody warn you?',
       user: 'On nous a prévenus la veille au soir, par un papier dans le hall.',
       userEn: 'We were told the night before, by a note in the hall. (The person cannot be the subject, so on.)',
@@ -2645,7 +2645,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       userEn: 'Yes, it has been closed since Friday. (A state, so the present passive.)',
       alts: [
         { fr: 'Oui, il est encore fermé.', en: 'Yes, it is still closed.' },
-        { fr: 'Oui, on l’a fermé vendredi et personne ne l’a rouvert.', en: 'Yes, they closed it on Friday and nobody has reopened it.' },
+        { fr: "Oui, on l'a fermé vendredi et personne ne l'a rouvert.", en: 'Yes, they closed it on Friday and nobody has reopened it.' },
       ],
     },
     {
@@ -2654,7 +2654,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       user: 'Je me suis fait abîmer mon vélo par un ouvrier.',
       userEn: 'A workman damaged my bike. (It happened to me, so se faire, and par earns its place here.)',
       alts: [
-        { fr: 'On m’a abîmé mon vélo.', en: 'They damaged my bike.' },
+        { fr: "On m'a abîmé mon vélo.", en: 'They damaged my bike.' },
         { fr: 'Mon vélo a été abîmé pendant les travaux.', en: 'My bike was damaged during the work. (Correct, and it leaves you out of the sentence.)' },
       ],
     },
@@ -2669,7 +2669,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Et pour les vélos laissés dans le hall, qu’est-ce qu’on met ?',
+      ai: "Et pour les vélos laissés dans le hall, qu'est-ce qu'on met ?",
       en: 'And for the bikes left in the hall, what do we put?',
       user: 'Les vélos laissés dans le hall seront enlevés sans préavis.',
       userEn: 'Bikes left in the hall will be removed without notice. (A future consequence, in the passive, naming nobody.)',
@@ -2825,7 +2825,7 @@ const A11_MISSION: Sec<'task'> = {
     'A function used instead of a name (la personne de garde, le responsable du matériel, l’accueil) is CORRECT and must not be marked as naming somebody.',
     '« il est interdit de » and « les visiteurs sont priés de » are fixed formulas, not passives to be counted twice: they count once each toward criterion « passif ».',
     'A present passive that describes a state (la salle est ouverte) and one that describes a repeated action (les tasses sont lavées) are both correct here; do not ask for a distinction the lesson did not teach.',
-    'The subjunctive belongs to b1.14 to b1.16 and is not taught here. Do not mark its absence, and do not mark a correct one as an error.',
+    'The subjunctive belongs to lessons 14 to 16 in B1 and is not taught here. Do not mark its absence, and do not mark a correct one as an error.',
     'Accept regional vocabulary (courriel and email, le frigo and le réfrigérateur, la buanderie and la salle de lavage).',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
   ],

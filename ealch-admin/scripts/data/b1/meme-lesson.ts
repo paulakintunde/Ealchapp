@@ -2032,8 +2032,8 @@ const A9_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Première phrase : est-il venu ?', opts: ['Oui, malgré la fatigue.', 'Non, il était fatigué.'], correct: 0, why: 'Quand même : la fatigue ne change rien. EN: he came anyway.' },
     { q: 'Achète-t-on l’objet cher ?', opts: ['Non', 'Oui'], correct: 1, why: 'Je l’achète quand même. EN: yes.' },
-    { q: '« Merci quand même » : as-tu eu ce que tu voulais ?', opts: ['Oui, tout.', 'Non, mais tu remercies.'], correct: 1, why: 'On remercie malgré le refus. EN: thanks anyway.' },
-    { q: '« Quand même ! », dit seul : la personne est...', opts: ['indignée', 'contente', 'fatiguée'], correct: 0, why: 'Dit seul, avec force : un reproche. EN: indignant.' },
+    { q: 'Phrase 3 : as-tu eu ce que tu voulais ?', opts: ['Oui, tout.', 'Non, mais tu remercies.'], correct: 1, why: 'On remercie malgré le refus. EN: thanks anyway.' },
+    { q: 'Phrase 7, dite seule : la personne est...', opts: ['indignée', 'contente', 'fatiguée'], correct: 0, why: 'Dit seul, avec force : un reproche. EN: indignant.' },
     { q: 'Dernière phrase : ont-ils gagné ?', opts: ['Oui', 'Non, mais ils se sont amusés.', 'On ne sait pas.'], correct: 1, why: 'On a perdu, mais amusés quand même. EN: they lost.' },
   ],
   audio: REC('rec-b1-24-quand-ecoute'),
@@ -2517,7 +2517,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Mais le travail, c’est pareil ?',
+      ai: "Mais le travail, c'est pareil ?",
       en: 'But the work, is it the same?',
       user: fr(E(1166)),
       userEn: 'It is not the same job at all. (pas du tout le même.)',
@@ -2527,7 +2527,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Québec, c’est tout près de chez moi.',
+      ai: "Québec, c'est tout près de chez moi.",
       en: 'Québec is really close to my place.',
       user: 'Oui, tu pourrais même y aller à pied.',
       userEn: 'Yes, you could even walk there. (même = even, after the conjugated verb.)',
@@ -2537,12 +2537,12 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'La directrice de Lévis m’a appelé elle-même.',
+      ai: "La directrice de Lévis m'a appelé elle-même.",
       en: 'The director in Lévis called me herself.',
       user: "Et le jour même de l'entrevue, en plus.",
       userEn: 'And on the very day of the interview, too. (le jour même: that very day.)',
       alts: [
-        { fr: 'Elle-même ? C’est un bon signe.', en: 'Herself? That is a good sign.' },
+        { fr: "Elle-même ? C'est un bon signe.", en: 'Herself? That is a good sign.' },
         { fr: "L'autre ne t'a même pas répondu.", en: 'The other one did not even answer you. (ne ... même pas.)' },
       ],
     },
@@ -2709,10 +2709,10 @@ const A11_MISSION: Sec<'task'> = {
   graderNotes: [
     'Word count covers the whole text; there is no greeting or sign-off to exclude. Allow 10% tolerance (72 to 132) before criterion « tache » loses its point.',
     "« Different emplois » means different JOBS of même: same (+ noun or que), the pronoun le même, -même, even (including ne ... même pas), after-the-noun (le jour même, ici même), quand même / tout de même, en même temps / de même. Two uses of le même + noun count once.",
-    "« même si » is concession and belongs to b1.32. It is NOT taught here: do not count it toward the four emplois, and do not mark a correct one as an error.",
-    'Do not mark the comparative (plus, moins, aussi ... que) or the superlative; they are a2.08 and welcome in a comparison.',
+    "« même si » is concession and belongs to lesson 32 in B1. It is NOT taught here: do not count it toward the four emplois, and do not mark a correct one as an error.",
+    `Do not mark the comparative (plus, moins, aussi ... que) or the superlative; they belong to ${COMPARATIFS_REF} and are welcome in a comparison.`,
     "« pas même » (il ne m'a pas même répondu) is correct but literary; accept it without reward, and do not mark it under « formes ».",
-    'The subjunctive is not taught before b1.14: if a learner writes one correctly, do not mark it; if incorrectly, mark it under « formes » only when it blocks meaning.',
+    'The subjunctive is not taught before lesson 14 in B1: if a learner writes one correctly, do not mark it; if incorrectly, mark it under « formes » only when it blocks meaning.',
     'Accept regional vocabulary (entrevue / entretien, logement / appart, char in Québec for a car, traversier / ferry).',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
   ],

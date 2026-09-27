@@ -2818,7 +2818,7 @@ const A11_MISSION: Sec<'task'> = {
     "Spoken c'est + plural (c'est mes voisins) is heard everywhere, but in this WRITTEN task it counts under « formes ». Do not mark c'est eux as an error: it is tolerated in writing too, if less careful than ce sont eux.",
     "« Elle est ma voisine » and « il est mon collègue » are heard and accepted; do not mark them. What is marked is il est un / une before a job or noun phrase, and il est + first name.",
     "« Il est rare de » and « c'est rare de » are both accepted: the task is not a register test. Accept c'est + adjective + de throughout.",
-    "The subjunctive (c'est dommage que, il est important que) is b1.14 to b1.16's. Do not require it; do not mark a correct one as an error.",
+    "The subjunctive (c'est dommage que, il est important que) belongs to lessons 14 to 16 in B1. Do not require it; do not mark a correct one as an error.",
     "Nationality in lower case after il est, with a capital after un / une. A wrong capital is one error under « formes », not under « choix ».",
     'Accept regional vocabulary (dîner for lunch in Québec, déneiger, dépanneur, char for a car).',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
@@ -3314,7 +3314,7 @@ const REC_DESC: Record<string, string> = {
   'rec-b1-22-relief': "The four emphasis cards. On each, lean slightly on the word between c'est and qui / que (Hugo, demain, ce dossier, moi), never on qui or que themselves.",
   'rec-b1-22-piege-relief': PIEGE_BRIEF,
   'rec-b1-22-heure-ecoute': "REQUIRED FOR THE EAR MISSION (act 10): eight lines, ONE TAKE, ONE VOICE, late in an evening among friends, relaxed. « Il est tard » and « c'est trop tard » must both be clear; do not reduce « il est » to /jɛ/ here, the learner needs to hear il.",
-  'rec-b1-22-fige': "The four frozen-il cards. Card one is a1.12's clock phrase; read it identically in rhythm to card two (« Il est tard, je rentre ») so the learner hears one il doing both.",
+  'rec-b1-22-fige': `The four frozen-il cards. Card one is the clock phrase from ${HEURE_REF}; read it identically in rhythm to card two (« Il est tard, je rentre ») so the learner hears one il doing both.`,
   'rec-b1-22-portrait': "The model portrait (act 11), ONE VOICE, one take: Hugo introducing Aïcha to a friend, warm and admiring, never gushing. The three moves (point, describe, tell) are audible as three blocks. The two « c'est elle qui » lines put a light stress on elle.",
 };
 

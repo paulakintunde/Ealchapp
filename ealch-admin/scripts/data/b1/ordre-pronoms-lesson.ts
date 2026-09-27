@@ -1858,7 +1858,7 @@ const A8_LECTURE: Sec<'reading'> = {
   frSub: 'Lis, et regarde où tombe le bloc',
   text: "Objet : les documents du dossier Lambert. Bonjour Sonia, j’ai bien reçu les contrats, merci. Je les ai lus hier soir et je les ai transmis au service juridique ce matin. La version française, je la leur ai envoyée en premier. La version anglaise, ils me l’ont demandée cet après-midi et je la leur ai envoyée aussi. Les annexes, en revanche, je ne les ai pas trouvées : tu me les as peut-être envoyées dans un autre message. Si tu les as encore, renvoie-les-moi avant vendredi. Le client nous en a reparlé ce matin, et je préfère lui répondre avec le dossier complet. Merci d’avance, Thomas.",
   glossary: [
-    { word: 'le service juridique', en: 'the legal department', note: 'Les avocats de l’entreprise. EN: the company lawyers.' },
+    { word: 'service juridique', en: 'legal department', note: 'Les avocats de l’entreprise. EN: the company lawyers.' },
     { word: 'les annexes', en: 'the appendices', note: 'Les documents ajoutés à la fin d’un contrat.' },
     { word: 'en revanche', en: 'on the other hand', note: 'Sert à marquer un contraste, comme par contre.' },
     { word: 'le dossier complet', en: 'the complete file', note: 'Tous les papiers ensemble, sans rien qui manque.' },
@@ -2543,7 +2543,7 @@ const A11_LECTURE: Sec<'reading'> = {
   frSub: 'La forme que tu vas écrire',
   text: MODEL_TEXT,
   glossary: [
-    { word: 'un chargeur', en: 'a charger', note: 'Le câble qui recharge un téléphone.' },
+    { word: 'chargeur', en: 'charger', note: 'Le câble qui recharge un téléphone.' },
     { word: 'les doubles des clés', en: 'the spare keys', note: 'Les deuxièmes clés, celles qu’on prête.' },
     { word: 'la veille', en: 'the day before', note: 'Le jour juste avant. EN: the day before, not the evening.' },
     { word: 'par contre', en: 'on the other hand', note: 'Sert à marquer un contraste, comme en revanche.' },
@@ -2810,8 +2810,8 @@ const A11_MISSION: Sec<'task'> = {
     'Word count EXCLUDES the greeting and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance (81-143) before criterion « tache » loses its point.',
     'A hyphenated command counts as ONE word for the count (garde-le-moi), because wordCount splits on whitespace.',
     'Accept « par contre » and « en revanche » equally, and accept Québec usage (courriel, char, dépanneuse) as well as France usage.',
-    'Do NOT mark relative pronouns (qui, que, dont, où, lequel) in either direction: they belong to b1.11 to b1.13 and are outside this rubric.',
-    'Do NOT mark tense choice between passé composé and imparfait: that is b1.03 and b1.04. Mark only where the pronoun block sits and what the participle agrees with.',
+    'Do NOT mark relative pronouns (qui, que, dont, où, lequel) in either direction: they belong to lessons 11 to 13 in B1 and are outside this rubric.',
+    'Do NOT mark tense choice between passé composé and imparfait: that is lesson 3 in B1 and lesson 4 in B1. Mark only where the pronoun block sits and what the participle agrees with.',
     'A learner who avoids the combination altogether by repeating the nouns has not failed « ordre », but cannot score above 1 on « tache »: the mission asks for the blocks.',
     'Narrator gender is unknown: judge participle agreement against the object the text itself names, never against the writer.',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',

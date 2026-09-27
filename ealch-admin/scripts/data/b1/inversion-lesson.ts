@@ -2676,7 +2676,7 @@ const A11_LECTURE: Sec<'reading'> = {
     { word: 'vignette de stationnement', en: 'residential parking permit', note: 'Le permis qui te laisse garer ta voiture dans ta rue.' },
     { word: 'emménagé', en: 'moved in', note: 'Arrivé dans un nouveau logement.' },
     { word: 'bail', en: 'lease', note: 'Le contrat de location de ton logement.' },
-    { word: 'suffit', en: 'is enough', note: 'Suffire : être assez.' },
+    { word: 'suffit-elle', en: 'is it enough', note: 'Suffire : être assez. Ici, avec l’inversion.' },
     { word: 'contravention', en: 'parking ticket', note: 'Une amende pour une voiture mal garée.' },
   ],
   questions: [
@@ -2733,7 +2733,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
   setting: "Lundi, dix heures, à la bibliothèque du quartier. Julie Tremblay mène l'entretien. À la fin, elle te laisse poser tes questions.",
   turns: [
     {
-      ai: 'Bonjour, et merci d’être là. Avez-vous trouvé la bibliothèque facilement ?',
+      ai: "Bonjour, et merci d'être là. Avez-vous trouvé la bibliothèque facilement ?",
       en: 'Hello, and thank you for coming. Did you find the library easily?',
       user: 'Oui, merci. Et le poste, commence-t-il en septembre ?',
       userEn: 'Yes, thank you. And the job, does it start in September? (A noun subject in front, then commence-t-il.)',
@@ -2936,10 +2936,10 @@ const A11_MISSION: Sec<'task'> = {
   graderNotes: [
     'The subject line (Objet), the greeting (Madame, Monsieur), the signature and the closing formula do NOT count toward the word budget. Count the body only, with 10% tolerance (72 to 132) before criterion « tache » loses its point.',
     'Conditional inversions (Pourriez-vous, Serait-il possible de, Auriez-vous) COUNT as inversions for criterion « inversion ».',
-    'Puis-je, dois-je and peut-on count as inversions. Ai-je and suis-je are not taught (a1.19 withheld them on purpose): do not mark a correct one as an error, and do not ask for one.',
+    `Puis-je, dois-je and peut-on count as inversions. Ai-je and suis-je are not taught (${YESNO_REF} withheld them on purpose): do not mark a correct one as an error, and do not ask for one.`,
     'Questions with est-ce que are correct French. They do not count toward the three inversions and must not be marked as errors on their own; only est-ce que COMBINED with inversion is an error.',
-    'An indirect question (je voudrais savoir si, pourriez-vous me dire si) belongs to b1.19. It is correct and does not count as one of the three inversions.',
-    'The subjunctive belongs to b1.14 to b1.16 and is not taught here. Do not mark its absence, and do not mark a correct one as an error.',
+    'An indirect question (je voudrais savoir si, pourriez-vous me dire si) belongs to lesson 19 in B1. It is correct and does not count as one of the three inversions.',
+    'The subjunctive belongs to lessons 14 to 16 in B1 and is not taught here. Do not mark its absence, and do not mark a correct one as an error.',
     'Accept regional vocabulary (courriel and e-mail, mairie and hôtel de ville, bail and contrat de location, dîner and déjeuner).',
     'Feedback language: simple French (B1), addressed as « tu », with one short English gloss allowed per comment.',
   ],

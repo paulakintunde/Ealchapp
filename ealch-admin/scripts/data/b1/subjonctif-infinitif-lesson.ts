@@ -2738,8 +2738,8 @@ const A11_MISSION: Sec<'task'> = {
     { pattern: 'A future or a present indicative left after avant que, pour que, sans que or bien que (avant que tu partiras).', criterion: 'branche', feedback: "Ces expressions ne prennent jamais le futur. Ce qui suit que est une forme de subjonctif.", ref: 'a6-erreurs' },
   ],
   graderNotes: [
-    'Judge the BRANCH, not the conjugation. Whether a given subjunctive form is spelled right belongs to b1.14; if the branch is correct and the form is misspelled, say so in the comment and take no point under « branche ».',
-    'Do NOT mark which expressions take the subjunctive. That inventory is b1.15’s. If a learner puts a subjunctive behind an expression that does not take one (« j’espère que tu viennes »), note it and take no point here.',
+    'Judge the BRANCH, not the conjugation. Whether a given subjunctive form is spelled right belongs to lesson 14 in B1; if the branch is correct and the form is misspelled, say so in the comment and take no point under « branche ».',
+    'Do NOT mark which expressions take the subjunctive. That inventory belongs to lesson 15 in B1. If a learner puts a subjunctive behind an expression that does not take one (« j’espère que tu viennes »), note it and take no point here.',
     '« Espérer que » takes the indicative and is therefore never an error of this lesson in either direction.',
     'Accept « avant que » with or without the ne explétif, and accept « après que » however the learner writes it: it is outside this lesson.',
     'Word count EXCLUDES the greeting line and the sign-off (Paul, 2026-09-22). Count the body only, with 10% tolerance before criterion « message » loses its point.',

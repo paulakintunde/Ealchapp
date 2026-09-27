@@ -2673,7 +2673,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
   setting: "Jeudi matin. Sophie revient de trois jours de congé. Elle pose son sac et te demande ce qui s'est passé pendant son absence. Madame Diallo a appelé mardi.",
   turns: [
     {
-      ai: 'Salut ! Est-ce que quelqu’un a appelé pour moi ?',
+      ai: "Salut ! Est-ce que quelqu'un a appelé pour moi ?",
       en: 'Hi! Did anyone call for me?',
       user: 'Oui, Madame Diallo a appelé de Dakar mardi.',
       userEn: 'Yes, Mrs Diallo called from Dakar on Tuesday. (Who called and when: the relay starts here.)',
@@ -2683,7 +2683,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Qu’est-ce qu’elle voulait ?',
+      ai: "Qu'est-ce qu'elle voulait ?",
       en: 'What did she want?',
       user: 'Elle voulait savoir si tu avais reçu ses photos.',
       userEn: 'She wanted to know whether you had got her photos. (A yes-or-no question: si, and a pluperfect.)',
@@ -2705,7 +2705,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
     {
       ai: 'Je dois la rappeler ?',
       en: 'Do I have to call her back?',
-      user: 'Oui, elle t’a demandé de la rappeler avant dix-sept heures.',
+      user: "Oui, elle t'a demandé de la rappeler avant dix-sept heures.",
       userEn: 'Yes, she asked you to call her back before five. (A request: de + infinitive.)',
       alts: [
         { fr: 'Oui, elle a dit de la rappeler vite.', en: 'Yes, she said to call her back quickly.' },
@@ -2713,7 +2713,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       ],
     },
     {
-      ai: 'Elle a parlé d’une visite ?',
+      ai: "Elle a parlé d'une visite ?",
       en: 'Did she mention a visit?',
       user: 'Elle a demandé quand tu pourrais faire une visite vidéo.',
       userEn: 'She asked when you could do a video visit. (The question word stays; the future becomes the conditional.)',
@@ -2728,7 +2728,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       user: "Mardi, elle a dit qu'elle serait joignable le lendemain, donc hier.",
       userEn: 'On Tuesday she said she would be reachable the next day, so yesterday. (Her tomorrow is already in the past.)',
       alts: [
-        { fr: 'Elle a précisé qu’elle serait joignable toute la journée de mercredi.', en: 'She said she would be reachable all day Wednesday.' },
+        { fr: "Elle a précisé qu'elle serait joignable toute la journée de mercredi.", en: 'She said she would be reachable all day Wednesday.' },
         { fr: "Elle a promis qu'elle rappellerait si c'était urgent.", en: 'She promised she would call back if it was urgent. (A promise with que and the conditional.)' },
       ],
     },
@@ -2879,7 +2879,7 @@ const A11_MISSION: Sec<'task'> = {
     'The shift after a past reporting verb is expected (level 4 of « temps »). A present or future kept for something still true or still ahead today (le conseil se réunit jeudi, since Thursday has not come yet) is ordinary speech: it may cost at most one point on « temps », and feedback calls it spoken, never wrong.',
     '« Hier » for the day of the call and « ce matin » for the voicemail’s « demain matin » are CORRECT, because the learner writes the next day. « le lendemain matin » is a real error here: for Marc it points to tomorrow.',
     'The conditionnel passé (elle a dit qu’elle t’aurait répondu) is B2 and not taught; do not require it, and do not mark a correct one as an error.',
-    'The subjunctive (b1.14 to b1.16) is not needed here. A correct one is not an error; an incorrect one is not marked under this lesson.',
+    'The subjunctive (lessons 14 to 16 in B1) is not needed here. A correct one is not an error; an incorrect one is not marked under this lesson.',
     'Accept « elle voulait savoir », « elle a demandé » and « elle se demandait » interchangeably for the reported questions, and any reporting verb from act 10 with its correct construction.',
     'The learner’s own gender is unknown: judge agreement for internal consistency only. « elle t’a remercié » agrees with Marc and is correct.',
     'Accept regional vocabulary (courriel and email, boîte vocale and messagerie, cellulaire and portable).',
