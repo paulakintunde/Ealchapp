@@ -39,6 +39,7 @@ const LESSONS: [string, string][] = [
   ['b1.34', 'medias'], ['b1.35', 'emotions'], ['b1.36', 'affaires'], ['b1.38', 'strategies-ecoute'], ['b1.39', 'courriels-lettres'],
   ['b2.22', 'style-academique'], ['b2.23', 'argumentation'], ['b2.24', 'lecture-critique'], ['b2.25', 'ecoute-vitesse-reelle'], ['b2.26', 'reunions-negociation'],
   ['b2.01', 'plus-que-parfait'], ['b2.02', 'conditionnel-passe'], ['b2.03', 'si-irreel-passe'], ['b2.04', 'si-mixtes'],
+  ['b2.05', 'subjonctif-passe'], ['b2.06', 'subjonctif-indicatif'], ['b2.07', 'futur-anterieur'], ['b2.08', 'passe-simple'],
 ];
 
 const OPT_KEYS = ['opts', 'options', 'choices', 'answers'];

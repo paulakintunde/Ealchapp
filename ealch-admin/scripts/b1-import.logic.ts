@@ -40,6 +40,8 @@ export const B1_SLUGS = [
 export const B2_SLUGS: readonly string[] = [
   // wave 2 (Unit 1, first half)
   'plus-que-parfait', 'conditionnel-passe', 'si-irreel-passe', 'si-mixtes',
+  // wave 3 (Unit 1, second half)
+  'subjonctif-passe', 'subjonctif-indicatif', 'futur-anterieur', 'passe-simple',
   // wave 1 (exam-skill targets and academic style)
   'style-academique', 'argumentation', 'lecture-critique', 'ecoute-vitesse-reelle', 'reunions-negociation',
 ];
