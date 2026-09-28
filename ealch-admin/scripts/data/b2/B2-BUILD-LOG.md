@@ -169,6 +169,19 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**B2 IS LIVE, 2026-09-27: content v77 PUBLISHED** (checksum 9e63e1c4...) with
+b2.22 to b2.26 after gate B2-1 passed. +5 units, +5 lessons, +910 items, no
+deletions, snapshot 41.6 MB. `EXAM_PREP_TARGETS` routes PE/CE/CO/PO@b2 to
+b2.23-b2.26 (reaches learners with the next app update). The published
+checksum differs from the dry run's (3c095604...) only because wave 2's
+sub-themes were set in Postgres while the dry run ran: set themes BEFORE a
+dry run, not during it.
+
+**WAVE 2 IN PROGRESS:** b2.01 plus-que-parfait (`recits-au-passe` 1600-1799),
+b2.02 conditionnel passé (`conseils-et-suggestions` 1200-1399), b2.03 si + plus-que-parfait
+(`projets-et-futur` 1400-1599), b2.04 mixed si (`projets-et-futur` 1600-1799).
+
+
 **WAVE 0 DONE 2026-09-27 (`b7b1c91`):** the pipeline takes `--band b2`
 (`b1-import.ts`, `b1-merge-into-seed.ts`, `b1-trial-merge.ts`), lessons load
 from `data/<band>/`, `B2_SLUGS` in `b1-import.logic.ts`, unit level from the
@@ -256,11 +269,11 @@ a separate worktree, nothing deployed.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Links | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| b2.22 | style-academique (workshop) | 71 | 11 | 11x8 | 11 | 5 | 11 | 165 | 11 images, registered + alt | DRAFT, gate B2-1 |
-| b2.23 | argumentation (workshop, PE target) | 71 | 11 | 11x8 | 11 | 5 | 11 | 190 | 11 images, registered + alt | DRAFT, gate B2-1 |
-| b2.24 | lecture-critique (workshop, CE target) | 76 | 11 | 11x8 | 11 | 4 | 13 | 200 | 11 images, registered + alt | DRAFT, gate B2-1 |
-| b2.25 | ecoute-vitesse-reelle (workshop, CO target) | 73 | 11 | 11x8 | 11 | 5 | 13 | 165 | 11 images, registered + alt | DRAFT, gate B2-1 |
-| b2.26 | reunions-negociation (workshop, PO target) | 73 | 11 | 11x8 | 11 | 5 | 16 | 190 | 11 images, registered + alt | DRAFT, gate B2-1 |
+| b2.22 | style-academique (workshop) | 71 | 11 | 11x8 | 11 | 5 | 11 | 165 | 11 images, registered + alt | DONE, v77 |
+| b2.23 | argumentation (workshop, PE target) | 71 | 11 | 11x8 | 11 | 5 | 11 | 190 | 11 images, registered + alt | DONE, v77 |
+| b2.24 | lecture-critique (workshop, CE target) | 76 | 11 | 11x8 | 11 | 4 | 13 | 200 | 11 images, registered + alt | DONE, v77 |
+| b2.25 | ecoute-vitesse-reelle (workshop, CO target) | 73 | 11 | 11x8 | 11 | 5 | 13 | 165 | 11 images, registered + alt | DONE, v77 |
+| b2.26 | reunions-negociation (workshop, PO target) | 73 | 11 | 11x8 | 11 | 5 | 16 | 190 | 11 images, registered + alt | DONE, v77 |
 | b2.01 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 ## Id ledger
