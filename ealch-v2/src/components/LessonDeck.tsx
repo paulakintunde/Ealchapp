@@ -29,6 +29,7 @@ import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
 import { SilentText } from '@/components/WordCardXL';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { checkAnswer } from '@/content/answer.logic';
 import type { QuizQuestion } from '@/content/schema';
@@ -147,21 +148,22 @@ export function FrenchLine({
   note?: string;
 }) {
   const t = useTheme();
+  const T = useT();
   const on = playingId === id;
   const big = size === 'lg';
   const slowFn: PlayFn | undefined =
     onPlaySlow ?? (onPlay ? (i, fr2) => onPlay(i, fr2, null, true) : undefined);
 
   return (
-    <Press
+    <Press accessibilityRole="button"
       cue={null}
       onPress={() => onPlay?.(id, fr)}
       // Long-press is the slow reading everywhere in the product, so it comes
       // free from onPlay rather than needing its own prop threaded down. An
       // explicit onPlaySlow still overrides, for callers that speak directly.
       onLongPress={slowFn ? () => slowFn(id, fr) : undefined}
-      accessibilityLabel={fr}
-      accessibilityHint={slowFn ? 'Long press for the slow reading' : undefined}
+      accessibilityLabel={T.a11yPlayItem.replace('{item}', fr)}
+      accessibilityHint={slowFn ? T.a11yPlaySlow : undefined}
       style={{
         borderRadius: 16,
         borderWidth: 1,
@@ -556,6 +558,7 @@ export function QuestionModal({
 }) {
   const t = useTheme();
   const [picked, setPicked] = useState<number | null>(null);
+  const T = useT();
 
   const close = () => {
     setPicked(null);
@@ -573,7 +576,7 @@ export function QuestionModal({
   };
 
   return (
-    <LessonModal open={open} onClose={close} size="sheet">
+    <LessonModal open={open} onClose={close} size="sheet" title={question.q}>
       <View style={{ gap: 18 }}>
         {index != null && total != null ? (
           <TX role="meta" color={t.txSubtle} ls={0.6} style={{ textTransform: 'uppercase' }}>
@@ -588,7 +591,7 @@ export function QuestionModal({
             cue={null}
             onPress={() => onPlay?.('qmodal', question.audio?.clip ?? question.q)}
             accessibilityRole="button"
-            accessibilityLabel="Play the audio"
+            accessibilityLabel={T.playAudioA11y}
             style={{ flexDirection: 'row', alignItems: 'center', gap: 10, alignSelf: 'flex-start' }}
           >
             <View
@@ -623,7 +626,7 @@ export function QuestionModal({
                 accessibilityLabel={o}
                 accessibilityState={{ selected: isPicked, disabled: picked !== null }}
                 accessibilityHint={
-                  picked === null ? undefined : isRight ? 'Correct answer' : isPicked ? 'Your answer, incorrect' : undefined
+                  picked === null ? undefined : isRight ? T.a11yAnswerCorrect : isPicked ? T.a11yAnswerIncorrect : undefined
                 }
                 style={{
                   borderRadius: 14,
@@ -680,14 +683,15 @@ export function TermChip({
   playingId?: string | null;
 }) {
   const t = useTheme();
+  const T = useT();
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Press
+      <Press accessibilityRole="button"
         cue="tap"
         onPress={() => setOpen(true)}
-        accessibilityLabel={`What is ${term}`}
+        accessibilityLabel={T.a11yOpenTerm.replace('{item}', term)}
         style={{
           flexDirection: 'row',
           alignItems: 'center',
@@ -705,7 +709,7 @@ export function TermChip({
         <Icon name="chevronRight" size={11} color={t.txNonText} />
       </Press>
 
-      <LessonModal open={open} onClose={() => setOpen(false)} size="sheet">
+      <LessonModal open={open} onClose={() => setOpen(false)} size="sheet" title={title}>
         <View style={{ gap: 16 }}>
           <TX role="titleLg" font="semi">{title}</TX>
           <TX role="body" color={t.txSecondary} style={{ lineHeight: 24 }}>{body}</TX>

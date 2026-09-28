@@ -147,8 +147,8 @@ export function WordPractice({
     v === 'good' ? t.accTx : v === 'close' ? t.txPrimary : v ? missColor : t.txSubtle;
 
   return (
-    <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 50 }}>
-      <Pressable onPress={onClose} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: t.alpha(t.bgDeep, 62) }} />
+    <View accessibilityViewIsModal style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 50 }}>
+      <Pressable accessibilityRole="button" accessibilityLabel={T.a11yDismissPanel} onPress={onClose} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: t.alpha(t.bgDeep, 62) }} />
       <Animated.View
         style={{
           position: 'absolute',
@@ -231,7 +231,7 @@ export function WordPractice({
 
         {/* Transport: hear it · say it · next wrong word */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 34, marginTop: 8 }}>
-          <Press
+          <Press accessibilityRole="button"
             onPress={() => {
               sound.play('tap');
               if (word) tts.speak(word);
@@ -241,7 +241,7 @@ export function WordPractice({
           >
             <Icon name="speaker" size={20} color={t.acc} />
           </Press>
-          <Press
+          <Press accessibilityRole="button"
             onPress={micTap}
             cue={null}
             scale={0.94}
@@ -253,12 +253,13 @@ export function WordPractice({
               <Path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke={listening ? t.accInk : t.txNonText} strokeWidth={1.8} strokeLinecap="round" />
             </Svg>
           </Press>
-          <Press
+          <Press accessibilityRole="button"
             onPress={() => {
               sound.play('tap');
               goTo(nextTarget >= 0 ? nextTarget : ix + 1);
             }}
             accessibilityLabel={T.speakNextWord}
+            disabled={nextTarget < 0 && ix + 1 >= words.length}
             accessibilityState={{ disabled: nextTarget < 0 && ix + 1 >= words.length }}
             style={{ width: 46, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center', opacity: nextTarget >= 0 || ix + 1 < words.length ? 1 : 0.35 }}
           >
@@ -285,7 +286,7 @@ export function WordPractice({
         </View>
 
         {/* Mastered (or done trying): back to the sentence and say it whole. */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={onClose}
           cue="tap"
           style={{ alignSelf: 'center', marginTop: 12, minHeight: 44, paddingVertical: 10, paddingHorizontal: 28, borderRadius: 22, backgroundColor: allDone ? t.acc : 'transparent', borderWidth: 1, borderColor: allDone ? t.acc : t.line(16), alignItems: 'center', justifyContent: 'center' }}

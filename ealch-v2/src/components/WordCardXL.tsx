@@ -30,6 +30,7 @@ import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { glyphs as splitGlyphs } from '@/content/silent.logic';
 import { displayIpa } from '@/services/content.logic';
 
@@ -191,15 +192,16 @@ function PlayButton({
   label: string;
 }) {
   const t = useTheme();
+  const T = useT();
   const SIZE = 56;
   return (
     <View style={{ alignItems: 'center', gap: 12, marginTop: 6 }}>
-      <Press
+      <Press accessibilityRole="button"
         cue={null}
         onPress={onPress}
         onLongPress={onLongPress}
-        accessibilityLabel={`Play ${label}`}
-        accessibilityHint={onLongPress ? 'Long press for the slow reading' : undefined}
+        accessibilityLabel={T.a11yPlayItem.replace('{item}', label)}
+        accessibilityHint={onLongPress ? T.a11yPlaySlow : undefined}
         style={{
           width: SIZE,
           height: SIZE,

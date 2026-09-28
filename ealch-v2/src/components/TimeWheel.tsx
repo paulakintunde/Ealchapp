@@ -6,11 +6,13 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 
-function Unit({ value, onStep }: { value: string; onStep: (dir: 1 | -1) => void }) {
+function Unit({ value, onStep, upLabel, downLabel, valueLabel }: { value: string; onStep: (dir: 1 | -1) => void; upLabel: string; downLabel: string; valueLabel: string }) {
   const t = useTheme();
   const arrow = (dir: 1 | -1) => (
-    <Press
+    <Press accessibilityRole="button"
       onPress={() => onStep(dir)}
+      accessibilityLabel={dir === 1 ? upLabel : downLabel}
+      accessibilityHint={valueLabel}
       scale={0.92}
       style={{
         width: 44,
@@ -27,7 +29,7 @@ function Unit({ value, onStep }: { value: string; onStep: (dir: 1 | -1) => void 
   return (
     <View style={{ alignItems: 'center', gap: 8 }}>
       {arrow(1)}
-      <View
+      <View accessible accessibilityLabel={valueLabel}
         style={{
           width: 72,
           minHeight: 58,
@@ -67,7 +69,7 @@ export function ClockToggle() {
       {([false, true] as const).map((v) => {
         const on = clock24 === v;
         return (
-          <Press key={String(v)} onPress={() => setClock24(v)} style={{ paddingHorizontal: 13, paddingVertical: 4, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
+          <Press accessibilityRole="radio" accessibilityState={{ selected: on }} key={String(v)} onPress={() => setClock24(v)} style={{ paddingHorizontal: 13, paddingVertical: 4, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
             <TX font="semi" role="meta" ls={1} color={on ? t.accInk : t.txMuted}>
               {v ? T.clock24T : T.clock12T}
             </TX>
@@ -85,6 +87,7 @@ export function ClockToggle() {
  */
 export function TimeWheel({ value, onChange }: { value: string; onChange: (hhmm: string) => void }) {
   const t = useTheme();
+  const T = useT();
   const clock24 = useStore((s) => s.clock24);
   const valid = /^\d{2}:\d{2}$/.test(value);
   const [h, m] = (valid ? value : '19:00').split(':').map((n) => parseInt(n, 10));
@@ -107,17 +110,17 @@ export function TimeWheel({ value, onChange }: { value: string; onChange: (hhmm:
         paddingBottom: 18,
       }}
     >
-      <Unit value={hourLabel} onStep={stepH} />
+      <Unit value={hourLabel} onStep={stepH} upLabel={T.a11yHourUp} downLabel={T.a11yHourDown} valueLabel={T.a11yCurrentValue.replace('{value}', hourLabel)} />
       <TX font="serif" role="display" size={26} color={t.txSubtle} numberOfLines={1}>
         :
       </TX>
-      <Unit value={pad(m)} onStep={stepM} />
+      <Unit value={pad(m)} onStep={stepM} upLabel={T.a11yMinuteUp} downLabel={T.a11yMinuteDown} valueLabel={T.a11yCurrentValue.replace('{value}', pad(m))} />
       {!clock24 ? (
         <View style={{ gap: 8, marginLeft: 4 }}>
           {(['AM', 'PM'] as const).map((mer) => {
             const on = mer === 'PM' ? h >= 12 : h < 12;
             return (
-              <Press
+              <Press accessibilityRole="radio" accessibilityState={{ selected: on }}
                 key={mer}
                 onPress={() => setMeridiem(mer === 'PM')}
                 style={{

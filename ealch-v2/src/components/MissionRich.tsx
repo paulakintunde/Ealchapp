@@ -66,6 +66,7 @@ type ProgressCheckSec = Extract<LessonSection, { type: 'progressCheck' }>;
  *  hear a French line — always via the real tts service, never auto-played. */
 function PlayDot({ text, size = 34 }: { text: string; size?: number }) {
   const t = useTheme();
+  const T = useT();
   const [playing, setPlaying] = useState(false);
   const go = () => {
     if (playing) return;
@@ -74,9 +75,11 @@ function PlayDot({ text, size = 34 }: { text: string; size?: number }) {
     tts.speak(text, { onDone: () => setPlaying(false), onError: () => setPlaying(false) });
   };
   return (
-    <Press
+    <Press accessibilityRole="button"
       cue={null}
       onPress={go}
+      accessibilityLabel={T.a11yPlayItem.replace('{item}', text)}
+      accessibilityState={{ disabled: playing }}
       style={{
         width: size,
         height: size,
@@ -104,13 +107,18 @@ function OptRow({
   state?: 'correct' | 'wrong' | 'other';
 }) {
   const t = useTheme();
+  const T = useT();
   const bg = state === 'correct' ? t.accA(10) : state === 'wrong' ? t.dangerA(8) : t.card;
   const bd = state === 'correct' ? t.accA(60) : state === 'wrong' ? t.dangerA(55) : t.line(12);
   const fg = state === 'other' ? t.txSubtle : t.txPrimary;
   return (
-    <Press
+    <Press accessibilityRole="button"
       cue={state ? null : 'tap'}
       onPress={state ? undefined : onPress}
+      disabled={!!state}
+      accessibilityLabel={label}
+      accessibilityState={{ disabled: !!state, selected: state === 'correct' || state === 'wrong' }}
+      accessibilityHint={state === 'correct' ? T.a11yAnswerCorrect : state === 'wrong' ? T.a11yAnswerIncorrect : undefined}
       style={{
         minHeight: 50,
         borderRadius: 15,
@@ -230,10 +238,12 @@ export function GoalsView({ s }: { s: Goals }) {
 
 function SoundCell({ snd, onPress }: { snd: GridSound; onPress: () => void }) {
   const t = useTheme();
+  const T = useT();
   return (
-    <Press
+    <Press accessibilityRole="button"
       cue="tap"
       onPress={onPress}
+      accessibilityLabel={T.a11yOpenTerm.replace('{item}', `${snd.ipa}, ${snd.graphemes.join(', ')}`)}
       style={{
         width: '23%',
         borderRadius: 14,
@@ -262,7 +272,7 @@ export function SoundGridView({ s }: { s: SoundGridSec }) {
           <SoundCell key={i} snd={snd} onPress={() => setSel(snd)} />
         ))}
       </View>
-      <LessonModal open={!!sel} onClose={() => setSel(null)} size="full">
+      <LessonModal open={!!sel} onClose={() => setSel(null)} size="full" title={sel?.ipa}>
         {sel ? (
           <View>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 12 }}>
@@ -735,7 +745,7 @@ export function GroupDrillView({
         <OneGroup key={ix} g={s.groups[ix]} xl={false} hideLabel={sameAsTitle(s.groups[ix].label)} />
       )}
       {!last ? (
-        <Press
+        <Press accessibilityRole="button"
           cue="tap"
           onPress={() => setIx((n) => n + 1)}
           style={{ height: 48, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginTop: 14 }}
@@ -774,6 +784,7 @@ function TrapFlipCard({ c, height = null }: { c: TrapCard; height?: number | nul
       onPress={() => setFlipped((f) => !f)}
       accessibilityRole="button"
       accessibilityLabel={flipped ? `${c.fr}. ${c.tip}` : `${c.promptLabel}. ${T.tapToFlip}.`}
+      accessibilityState={{ expanded: flipped }}
       style={height ? { flex: 1 } : { marginBottom: 10 }}
     >
       {!flipped ? (
@@ -890,6 +901,7 @@ function TrapCardsStep({ cards }: { cards: TrapCard[] }) {
  *  edit. */
 function TrapAudioStep({ s }: { s: TrapDrillSec }) {
   const t = useTheme();
+  const T = useT();
   const spec = (s as { audio?: SectionAudio }).audio;
   const rates = speedsFor(spec);
   const [playing, setPlaying] = useState<string | null>(null);
@@ -962,10 +974,11 @@ function TrapAudioStep({ s }: { s: TrapDrillSec }) {
             {rates.map((rate) => {
               const on = playing === `${c.fr}@${rate}`;
               return (
-                <Press
+                <Press accessibilityRole="button"
                   key={rate}
                   cue="tap"
                   onPress={() => say(c.fr, rate)}
+                  accessibilityLabel={`${T.a11yPlayItem.replace('{item}', c.fr)}, ${rate < NORMAL_RATE ? T.a11ySlow : T.a11yNormal}`}
                   style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -980,7 +993,7 @@ function TrapAudioStep({ s }: { s: TrapDrillSec }) {
                 >
                   <Icon name={on ? 'pause' : 'play'} size={13} color={t.acc} />
                   <TX role="bodySm" color={t.accTx}>
-                    {rate < NORMAL_RATE ? 'Lent' : 'Normal'}
+                    {rate < NORMAL_RATE ? T.a11ySlow : T.a11yNormal}
                   </TX>
                 </Press>
               );
@@ -1239,6 +1252,7 @@ export function TrapDrillView({
 
 function LabWordRow({ itemId }: { itemId: string }) {
   const t = useTheme();
+  const T = useT();
   const item = content.item(itemId);
   const logAttempt = useProgress((st) => st.logAttempt);
   const [listening, setListening] = useState(false);
@@ -1282,9 +1296,10 @@ function LabWordRow({ itemId }: { itemId: string }) {
           {item.ipa ? <TX font="notation" role="bodySm" color={t.txMuted}>{item.ipa}</TX> : null}
         </View>
         <PlayDot text={item.fr} />
-        <Press
+        <Press accessibilityRole="button"
           cue={null}
           onPress={mic}
+          accessibilityLabel={T.micA11y}
           style={{
             width: 42,
             height: 42,
@@ -1323,7 +1338,7 @@ export function PronunciationLabView({ s }: { s: PronunciationLabSec }) {
       {s.sounds.length > 1 ? (
         <View style={{ flexDirection: 'row', gap: 8, marginBottom: 14 }}>
           {s.sounds.map((so, i) => (
-            <Press
+            <Press accessibilityRole="tab" accessibilityState={{ selected: i === tab }}
               key={i}
               cue="tap"
               onPress={() => setTab(i)}
@@ -1473,9 +1488,12 @@ function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'a
 
   return (
     <View>
-      <Press
+      <Press accessibilityRole="button"
         cue={null}
         onPress={play}
+        disabled={plays <= 0 || speaking}
+        accessibilityLabel={T.a11yPlayItem.replace('{item}', item.fr)}
+        accessibilityState={{ disabled: plays <= 0 || speaking }}
         style={{
           height: 58,
           borderRadius: 18,
@@ -1541,9 +1559,11 @@ function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'a
       ) : null}
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginBottom: 16 }}>
         {bank.map((b) => (
-          <Press
+          <Press accessibilityRole="button"
             key={b.id}
             cue={null}
+            accessibilityLabel={b.ch}
+            disabled={used.includes(b.id) || checked !== null}
             onPress={() => tap(b.id)}
             style={{
               // A word tile sizes to its word; a letter tile stays the square
@@ -1567,24 +1587,27 @@ function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'a
             </TX>
           </Press>
         ))}
-        <Press
+        <Press accessibilityRole="button"
           cue={null}
           onPress={del}
+          accessibilityLabel={T.a11yDeleteTile}
+          disabled={used.length === 0 || checked !== null}
           style={{ width: 42, height: 46, borderRadius: 11, borderWidth: 1, borderColor: t.dangerA(35), alignItems: 'center', justifyContent: 'center' }}
         >
           <Icon name="x" size={15} color={t.danger} />
         </Press>
       </View>
       {checked === null ? (
-        <Press
+        <Press accessibilityRole="button"
           cue={null}
+          disabled={filled.length === 0}
           onPress={filled.length > 0 ? check : undefined}
           style={{ height: 50, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', opacity: filled.length > 0 ? 1 : 0.35 }}
         >
-          <TX font="semi" role="body" color={t.accInk}>Vérifier</TX>
+          <TX font="semi" role="body" color={t.accInk}>{T.checkT}</TX>
         </Press>
       ) : (
-        <Press
+        <Press accessibilityRole="button"
           cue="tap"
           onPress={() => onDone(!!checked)}
           style={{ height: 50, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
@@ -1914,7 +1937,7 @@ function ScenarioTurnView({
              and never below the fold competing with the pager's Next. ── */}
       <View style={{ paddingTop: 10 }}>
         {phase === 'reveal' && attempt ? (
-          <Press
+          <Press accessibilityRole="button"
             cue="tap"
             onPress={onNext}
             style={{ height: 48, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
@@ -1933,7 +1956,7 @@ function ScenarioTurnView({
               </View>
             ) : null}
             <View style={{ flexDirection: 'row', gap: 10 }}>
-              <Press
+              <Press accessibilityRole="button"
                 cue={null}
                 onPress={mic}
                 style={{ flex: 1, height: 48, borderRadius: 24, backgroundColor: listening ? t.dangerA(16) : t.accA(14), borderWidth: 1, borderColor: listening ? t.dangerA(45) : t.accA(45), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 }}
@@ -1943,7 +1966,7 @@ function ScenarioTurnView({
                   {listening ? T.rpListening : T.rpSpeak}
                 </TX>
               </Press>
-              <Press
+              <Press accessibilityRole="button"
                 cue={null}
                 onPress={show}
                 disabled={listening}
@@ -2132,6 +2155,7 @@ function ListeningQuestionLauncher({
   setAnswers: (fn: (a: Record<number, number>) => Record<number, number>) => void;
 }) {
   const t = useTheme();
+  const T = useT();
   const [open, setOpen] = useState<number | null>(null);
   const done = Object.keys(answers).length;
 
@@ -2149,10 +2173,11 @@ function ListeningQuestionLauncher({
         const answered = picked !== undefined;
         const right = answered && picked === q.correct;
         return (
-          <Press
+          <Press accessibilityRole="button"
             key={qi}
             cue="tap"
             onPress={() => setOpen(qi)}
+            accessibilityLabel={`${q.q}${answered ? `, ${right ? T.a11yAnswerCorrect : T.a11yAnswerIncorrect}` : ''}`}
             style={{
               flexDirection: 'row',
               alignItems: 'center',
@@ -2208,7 +2233,7 @@ export function ReadingView({ s }: { s: ReadingSec }) {
         </View>
       </View>
       {s.questions?.map((q, i) => (
-        <Press
+        <Press accessibilityRole="button" accessibilityState={{ expanded: !!open[i] }} accessibilityLabel={q.q}
           key={i}
           cue="tap"
           onPress={() => setOpen((o) => ({ ...o, [i]: !o[i] }))}
@@ -2259,7 +2284,7 @@ export function ReviewDeckView({ s }: { s: ReviewDeckSec }) {
   return (
     <View style={{ flex: 1 }} onLayout={onBoxLayout}>
       <TX font="semi" role="meta" ls={2} color={t.txSubtle} style={{ marginBottom: 12 }}>{ix + 1} / {s.cards.length}</TX>
-      <Press cue="flip" onPress={() => setFlipped((f) => !f)}>
+      <Press accessibilityRole="button" accessibilityState={{ expanded: flipped }} accessibilityLabel={`${T.flipCardA11y}: ${flipped ? c.back : c.front}`} cue="flip" onPress={() => setFlipped((f) => !f)}>
         {/* Sized to the viewport, not fixed: the Encore / Difficile / Facile
             row sits BELOW this card, and a fixed height pushed it under the
             fold on shorter phones, so the learner had to scroll to rate a card
@@ -2271,14 +2296,14 @@ export function ReviewDeckView({ s }: { s: ReviewDeckSec }) {
       </Press>
       {flipped ? (
         <View style={{ flexDirection: 'row', gap: 8, marginTop: 14 }}>
-          <Press cue={null} onPress={() => bump('again')} style={{ flex: 1, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.dangerA(40), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" role="bodySm" color={t.danger}>Encore</TX>
+          <Press accessibilityRole="button" cue={null} onPress={() => bump('again')} style={{ flex: 1, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.dangerA(40), alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="semi" role="bodySm" color={t.danger}>{T.again}</TX>
           </Press>
-          <Press cue={null} onPress={() => bump('hard')} style={{ flex: 1, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" role="bodySm" color={t.txSecondary}>Difficile</TX>
+          <Press accessibilityRole="button" cue={null} onPress={() => bump('hard')} style={{ flex: 1, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="semi" role="bodySm" color={t.txSecondary}>{T.a11yHard}</TX>
           </Press>
-          <Press cue={null} onPress={() => bump('easy')} style={{ flex: 1, height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" role="bodySm" color={t.accInk}>Facile</TX>
+          <Press accessibilityRole="button" cue={null} onPress={() => bump('easy')} style={{ flex: 1, height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="semi" role="bodySm" color={t.accInk}>{T.a11yEasy}</TX>
           </Press>
         </View>
       ) : null}

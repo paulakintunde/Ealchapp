@@ -254,9 +254,10 @@ function BubbleBeat({
       {beat.speaker ? (
         <TX role="meta" color={t.txSubtle}>{beat.speaker}</TX>
       ) : null}
-      <Press
+      <Press accessibilityRole="button"
         cue={null}
         disabled={!speakable}
+        accessibilityState={{ disabled: !speakable }}
         onPress={speakable ? () => onPlay?.(id, beat.fr) : undefined}
         accessibilityLabel={beat.fr}
         style={{
@@ -343,11 +344,12 @@ function ChoiceBeat({
         {beat.options.map((o, i) => {
           const isPicked = picked === i;
           return (
-            <Press
+            <Press accessibilityRole="button"
               key={i}
               cue={null}
               onPress={() => onPick(i)}
               disabled={answered}
+              accessibilityState={{ selected: isPicked, disabled: answered }}
               accessibilityLabel={`${o.fr} ${o.respell ?? ''}`}
               style={{
                 borderRadius: 16,
@@ -454,6 +456,7 @@ function ReadingRow({
   playing?: boolean;
 }) {
   const t = useTheme();
+  const T = useT();
   // The app's existing right/wrong pair (see MissionRich's verdict colours):
   // the accent as text for correct, danger for wrong. Both are contrast-safe
   // in either mode, which a hardcoded green would not be on the dark surface.
@@ -466,7 +469,7 @@ function ReadingRow({
       accessibilityRole={onPlay ? 'button' : 'text'}
       // The tick and cross are icons, and the two rows are told apart by
       // colour. Neither reaches a screen reader, so the verdict is said.
-      accessibilityLabel={`${tone === 'right' ? 'Correct' : 'Incorrect'}: ${side.fr}, ${side.en}`}
+      accessibilityLabel={`${tone === 'right' ? T.a11yAnswerCorrect : T.a11yAnswerIncorrect}: ${side.fr}, ${side.en}`}
       style={{
         borderRadius: 16,
         borderWidth: 1,

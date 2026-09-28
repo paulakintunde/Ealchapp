@@ -88,7 +88,7 @@ export function SilentLetterRow({
   // Does this row merely restate the default the grid already announced?
   const isDefaultRule = !!letter.rule && isDefaultSilentRule(letter.rule);
   return (
-    <Press
+    <Press accessibilityRole="button"
       cue={null}
       onPress={() => onPlay?.(id, letter.ex)}
       // The rule is dropped from the row's ink, never from what a screen reader
@@ -418,6 +418,7 @@ function PracticeWords({
   playingId?: string | null;
 }) {
   const t = useTheme();
+  const T = useT();
   // Unresolvable ids are dropped rather than rendered as blanks: a corpus that
   // has moved on should cost the card a word, never a hole in the row.
   const words = itemIds
@@ -441,7 +442,7 @@ function PracticeWords({
               onPress={() => onPlay?.(pid, item.fr, audio ? undefined : item.audioRef)}
               accessibilityRole="button"
               accessibilityLabel={`${item.fr}, ${item.en ?? ''}`}
-              accessibilityHint="Play this word"
+              accessibilityHint={T.playAudioA11y}
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -725,6 +726,7 @@ export function ListenChooseCard({
   id: string;
 }) {
   const t = useTheme();
+  const T = useT();
   const [heard, setHeard] = useState(false);
   const [picked, setPicked] = useState<number | null>(null);
   const on = playingId === id;
@@ -774,10 +776,10 @@ export function ListenChooseCard({
           of height on exactly the card that could least afford them. */}
       <TX role="title" lhMult={1.4}>{question.q}</TX>
 
-      <Press
+      <Press accessibilityRole="button"
         cue={null}
         onPress={play}
-        accessibilityLabel="Play the audio"
+        accessibilityLabel={T.playAudioA11y}
         style={{ alignSelf: 'center', alignItems: 'center', gap: 8, paddingVertical: 2 }}
       >
         <View
@@ -816,7 +818,7 @@ export function ListenChooseCard({
                 accessibilityLabel={o}
                 accessibilityState={{ selected: isPicked, disabled: picked !== null }}
                 accessibilityHint={
-                  picked === null ? undefined : isRight ? 'Correct answer' : isPicked ? 'Your answer, incorrect' : undefined
+                  picked === null ? undefined : isRight ? T.a11yAnswerCorrect : isPicked ? T.a11yAnswerIncorrect : undefined
                 }
                 style={{
                   borderRadius: 14,
@@ -868,6 +870,7 @@ export function ErrorSpotCard({
   onAnswer?: (correct: boolean) => void;
 }) {
   const t = useTheme();
+  const T = useT();
   const [text, setText] = useState('');
   const [checked, setChecked] = useState<boolean | null>(null);
 
@@ -927,7 +930,7 @@ export function ErrorSpotCard({
       />
 
       {checked === null ? (
-        <Button label="Check" onPress={submit} disabled={!text.trim()} />
+        <Button label={T.checkT} onPress={submit} disabled={!text.trim()} />
       ) : (
         <View style={{ gap: 6 }}>
           <TX role="body" font="med" color={checked ? t.accTx : t.danger}>

@@ -213,12 +213,13 @@ function DeckHint({ hint, ix, total }: { hint?: string; ix: number; total: numbe
  *  animates while its id is playing. Sits on its own row, never beside text. */
 function ListenButton({ id, text, onPlay, playingId, size = 63 }: { id: string; text: string; size?: number } & PlayProps) {
   const t = useTheme();
+  const T = useT();
   const on = playingId === id;
   return (
-    <Press
+    <Press accessibilityRole="button"
       cue={null}
       onPress={() => onPlay(id, text)}
-      accessibilityLabel={text}
+      accessibilityLabel={T.a11yPlayItem.replace('{item}', text)}
       style={{ flexDirection: 'row', alignItems: 'center', gap: 12, alignSelf: 'flex-start', minHeight: size }}
     >
       <View
@@ -244,11 +245,13 @@ function ListenButton({ id, text, onPlay, playingId, size = 63 }: { id: string; 
  *  waveform while it is the playing id. */
 function SpeakRow({ id, text, label, onPlay, playingId }: { id: string; text: string; label: string } & PlayProps) {
   const t = useTheme();
+  const T = useT();
   const on = playingId === id;
   return (
-    <Press
+    <Press accessibilityRole="button"
       cue={null}
       onPress={() => onPlay(id, text)}
+      accessibilityLabel={T.a11yPlayItem.replace('{item}', label)}
       style={{ minHeight: 66, borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 16, paddingVertical: 10 }}
     >
       <View style={{ width: 45, height: 45, borderRadius: 22.5, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
@@ -282,9 +285,10 @@ export function LetterGridView({ letters, sectionTitle, onPlay, playingId }: { l
       <TX role="meta" color={t.txSubtle} style={{ marginBottom: 12 }}>{T.lessonTapLetter}</TX>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
         {letters.map((l) => (
-          <Press
+          <Press accessibilityRole="button"
             key={l.ch}
             cue={null}
+            accessibilityLabel={T.a11yOpenTerm.replace('{item}', `${l.ch} ${l.name}`)}
             onPress={() => {
               sound.play('flip');
               setSel(l);
@@ -297,7 +301,7 @@ export function LetterGridView({ letters, sectionTitle, onPlay, playingId }: { l
         ))}
       </View>
 
-      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full" title={sel ? `${sel.ch} ${sel.name}` : undefined}>
         {sel ? (
           <View>
             <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 14, marginBottom: 6 }}>
@@ -650,6 +654,7 @@ type TapTableSection = Extract<LessonSection, { type: 'tapTable' }>;
 
 export function TapTableView({ s, onPlay, playingId }: { s: TapTableSection } & PlayProps) {
   const t = useTheme();
+  const T = useT();
   const [sel, setSel] = useState<TapRow | null>(null);
 
   return (
@@ -662,9 +667,11 @@ export function TapTableView({ s, onPlay, playingId }: { s: TapTableSection } & 
           <View style={{ width: 14 }} />
         </View>
         {s.rows.map((row, ri) => (
-          <Press
+          <Press accessibilityRole="button"
             key={ri}
             cue={null}
+            disabled={!row.detail && !row.say}
+            accessibilityLabel={(row.detail ? T.a11yOpenTerm : T.a11yPlayItem).replace('{item}', row.cells.join(', '))}
             onPress={() => {
               sound.play('flip');
               if (row.detail) setSel(row);
@@ -682,7 +689,7 @@ export function TapTableView({ s, onPlay, playingId }: { s: TapTableSection } & 
         ))}
       </View>
 
-      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full" title={sel?.detail?.title}>
         {sel?.detail ? (
           <View>
             <TX font="serif" size={28} role="display" lhMult={1.2} style={{ marginBottom: 12 }}>{sel.detail.title}</TX>
@@ -722,7 +729,7 @@ export function TableView({ s, onPlay, playingId }: { s: TableSection } & PlayPr
         {s.rows.map((row, ri) => {
           const detail = s.rowDetails?.[ri] ?? null;
           return (
-            <Press
+            <Press accessibilityRole="button"
               key={ri}
               cue={null}
               disabled={!detail}
@@ -753,7 +760,7 @@ export function TableView({ s, onPlay, playingId }: { s: TableSection } & PlayPr
         })}
       </View>
 
-      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full" title={sel?.detail.title}>
         {sel ? (
           <View>
             <TX font="serif" size={28} role="display" lhMult={1.2} style={{ marginBottom: 12 }}>{sel.detail.title}</TX>
@@ -785,7 +792,7 @@ export function CheatSheetView({ s, onPlay, playingId }: { s: CheatSheetSection 
   return (
     <View style={{ gap: 8 }}>
       {s.rows.map((r, i) => (
-        <Press
+        <Press accessibilityRole="button"
           key={i}
           cue={null}
           disabled={!r.detail}
@@ -813,7 +820,7 @@ export function CheatSheetView({ s, onPlay, playingId }: { s: CheatSheetSection 
         </Press>
       ))}
 
-      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full" title={sel?.detail?.title}>
         {sel?.detail ? (
           <View>
             <TX font="serif" size={28} role="display" lhMult={1.2} style={{ marginBottom: 12 }}>{sel.detail.title}</TX>
@@ -858,9 +865,10 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
         {themes.map((th) => {
           const img = th.imageRef ? lessonImage(th.imageRef) : undefined;
           return (
-            <Press
+            <Press accessibilityRole="button"
               key={th.title}
               cue={null}
+              accessibilityLabel={T.a11yOpenTerm.replace('{item}', th.title)}
               scale={0.98}
               onPress={() => {
                 sound.play('flip');
@@ -890,7 +898,7 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
         })}
       </View>
 
-      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="sheet">
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="sheet" title={sel?.title}>
         {sel ? (
           <View>
             <TX font="serif" size={26} role="display" lhMult={1.2} style={{ marginBottom: 4 }}>{sel.title}</TX>
@@ -1019,13 +1027,13 @@ export function FlashcardsView({ s, onPlay, playingId }: { s: FlashSection } & P
           <MascotAvatar size={64} rounded={false} state="celebrate" tier="medium" celebrateKey={`${pid}-done`} />
           <TX font="serif" size={56} role="display" color={t.accTx}>{known}/{s.cards.length}</TX>
           <TX font="serifI" size={24} role="display" center style={{ width: '100%', marginTop: 8, marginBottom: 24 }}>{T.deckDone}</TX>
-          <Press cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityRole="button" cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="semi" role="body" color={t.accInk}>{T.redo}</TX>
           </Press>
         </View>
       ) : (
         <View>
-          <Press onPress={flip} cue={null} scale={1} style={{ height: cardH }}>
+          <Press accessibilityRole="button" accessibilityLabel={`${T.flipCardA11y}: ${flipped ? card.back : card.front}`} accessibilityState={{ expanded: flipped }} onPress={flip} cue={null} scale={1} style={{ height: cardH }}>
             {/* Front: the question */}
             <Animated.View style={[faceBase, { borderColor: t.line(10), backgroundColor: t.card2, transform: [{ perspective: 1200 }, { rotateY: frontRotate }] }]}>
               <TX font="semi" role="eyebrow" ls={2.8} color={t.accTx} style={{ marginBottom: 18 }}>{T.flashQuestion}</TX>
@@ -1038,23 +1046,23 @@ export function FlashcardsView({ s, onPlay, playingId }: { s: FlashSection } & P
             <Animated.View style={[faceBase, { borderColor: t.accA(40), backgroundColor: t.accCard(10), transform: [{ perspective: 1200 }, { rotateY: backRotate }] }]}>
               <TX font="semi" role="eyebrow" ls={2.8} color={t.txMuted} style={{ marginBottom: 18 }}>{T.flashAnswer}</TX>
               <TX font="serif" size={24} role="titleLg" lhMult={1.35} center style={{ width: '100%' }}>{card.back}</TX>
-              {card.say ? (
-                <Press
-                  cue={null}
-                  onPress={() => onPlay(pid, card.say!)}
-                  style={{ marginTop: 24, width: 64, height: 64, borderRadius: 32, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
-                >
-                  <Icon name="speaker" size={26} color={playingId === pid ? t.accTx : t.acc} />
-                </Press>
-              ) : null}
             </Animated.View>
           </Press>
+          {flipped && card.say ? (
+            <Press accessibilityRole="button" accessibilityLabel={T.a11yPlayItem.replace('{item}', card.say)}
+              cue={null}
+              onPress={() => onPlay(pid, card.say!)}
+              style={{ position: 'absolute', top: cardH - 88, alignSelf: 'center', width: 64, height: 64, borderRadius: 32, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
+            >
+              <Icon name="speaker" size={26} color={playingId === pid ? t.accTx : t.acc} />
+            </Press>
+          ) : null}
 
           <View style={{ flexDirection: 'row', gap: 12, marginTop: 18 }}>
-            <Press cue={null} onPress={() => answer(false)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" cue={null} onPress={() => answer(false)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.txSecondary}>{T.again}</TX>
             </Press>
-            <Press cue={null} onPress={() => answer(true)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" cue={null} onPress={() => answer(true)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>{T.know}</TX>
             </Press>
           </View>
@@ -1130,7 +1138,7 @@ export function PracticeVFView({
           <MascotAvatar size={64} rounded={false} state="celebrate" tier="medium" celebrateKey={`${sectionTitle}-vf-done`} />
           <TX font="serif" size={56} role="display" color={t.accTx}>{score} / {total}</TX>
           <TX font="serifI" size={24} role="display" center style={{ width: '100%', marginTop: 8, marginBottom: 24 }}>{T.vfDoneT}</TX>
-          <Press cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityRole="button" cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="semi" role="body" color={t.accInk}>{T.redo}</TX>
           </Press>
         </View>
@@ -1168,9 +1176,10 @@ export function PracticeVFView({
               {item.en}{noteFor(item) ? ` · ${noteFor(item)}` : ''}
             </TX>
             {/* Audio chip — plays the French word */}
-            <Press
+            <Press accessibilityRole="button"
               cue={null}
               onPress={() => onPlay(pid, item.fr, item.audioRef)}
+              accessibilityLabel={T.a11yPlayItem.replace('{item}', item.fr)}
               style={{ flexDirection: 'row', alignItems: 'center', gap: 14, height: 50, paddingHorizontal: 21, borderRadius: 25, borderWidth: 1, borderColor: t.accA(40), marginBottom: 16 }}
             >
               <Icon name="play" size={17} color={t.acc} />
@@ -1180,10 +1189,10 @@ export function PracticeVFView({
           </View>
 
           <View style={{ flexDirection: 'row', gap: 12, marginTop: 18 }}>
-            <Press cue={null} onPress={() => grade(false)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" cue={null} onPress={() => grade(false)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.txSecondary}>{T.vfMissed}</TX>
             </Press>
-            <Press cue={null} onPress={() => grade(true)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" cue={null} onPress={() => grade(true)} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>{T.vfGot}</TX>
             </Press>
           </View>
@@ -1304,7 +1313,7 @@ export function PracticeWriteView({
           <MascotAvatar size={64} rounded={false} state="celebrate" tier="medium" celebrateKey={`${sectionTitle}-wr-done`} />
           <TX font="serif" size={56} role="display" color={t.accTx}>{score} / {total}</TX>
           <TX font="serifI" size={24} role="display" center style={{ width: '100%', marginTop: 8, marginBottom: 24 }}>{T.vfDoneT}</TX>
-          <Press cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityRole="button" cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="semi" role="body" color={t.accInk}>{T.redo}</TX>
           </Press>
         </View>
@@ -1356,7 +1365,7 @@ export function PracticeWriteView({
                     </View>
                     {/* Audio only once the answer is out: before that it would
                         be the answer. */}
-                    <Press cue={null} onPress={() => onPlay(pid, item.fr, item.audioRef)} style={{ width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: t.accA(40), alignItems: 'center', justifyContent: 'center' }}>
+                    <Press accessibilityRole="button" accessibilityLabel={T.a11yPlayItem.replace('{item}', item.fr)} cue={null} onPress={() => onPlay(pid, item.fr, item.audioRef)} style={{ width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: t.accA(40), alignItems: 'center', justifyContent: 'center' }}>
                       <Icon name="play" size={16} color={on ? t.acc : t.txNonText} />
                     </Press>
                   </View>
@@ -1372,15 +1381,15 @@ export function PracticeWriteView({
           <View style={{ flexDirection: 'row', gap: 12, marginTop: 18 }}>
             {phase === 'idle' ? (
               <>
-                <Press cue={null} onPress={reveal} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
+                <Press accessibilityRole="button" cue={null} onPress={reveal} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
                   <TX font="semi" role="body" color={t.txSecondary}>{T.wrReveal}</TX>
                 </Press>
-                <Press cue={null} onPress={check} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: typed.trim() ? t.acc : t.line(12), alignItems: 'center', justifyContent: 'center' }}>
+                <Press accessibilityRole="button" disabled={!typed.trim()} cue={null} onPress={check} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: typed.trim() ? t.acc : t.line(12), alignItems: 'center', justifyContent: 'center' }}>
                   <TX font="semi" role="body" color={typed.trim() ? t.accInk : t.txNonText}>{T.checkT}</TX>
                 </Press>
               </>
             ) : (
-              <Press cue={null} onPress={next} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <Press accessibilityRole="button" cue={null} onPress={next} style={{ flex: 1, minHeight: 50, paddingVertical: 8, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                 <TX font="semi" role="body" color={t.accInk}>{T.nextCard}</TX>
               </Press>
             )}
@@ -1512,7 +1521,7 @@ export function QuizDeckView({
                   const bg = isAnswered && isCorrect ? t.accA(10) : isAnswered && isSel && !isCorrect ? t.dangerA(10) : t.card2;
                   const color = isAnswered && isSel && !isCorrect ? t.danger : t.txPrimary;
                   return (
-                    <Press key={oi} cue={null} onPress={() => pick(qi, oi)} style={{ minHeight: 52, borderRadius: 14, borderWidth: 1.5, borderColor: border, backgroundColor: bg, justifyContent: 'center', paddingHorizontal: 16, paddingVertical: 10 }}>
+                    <Press accessibilityRole="button" accessibilityLabel={q.opts[oi]} accessibilityState={{ selected: isSel, disabled: isAnswered }} accessibilityHint={isAnswered ? isCorrect ? T.a11yAnswerCorrect : isSel ? T.a11yAnswerIncorrect : undefined : undefined} disabled={isAnswered} key={oi} cue={null} onPress={() => pick(qi, oi)} style={{ minHeight: 52, borderRadius: 14, borderWidth: 1.5, borderColor: border, backgroundColor: bg, justifyContent: 'center', paddingHorizontal: 16, paddingVertical: 10 }}>
                       <TX font="med" role="body" lhMult={1.35} color={color}>{q.opts[oi]}</TX>
                     </Press>
                   );
@@ -1557,7 +1566,7 @@ export function QuizDeckView({
               <TX font="serif" size={58} role="display" color={t.accTx}>{score} / {total}</TX>
               {/* Primary: on to the next lesson when there is one; plain
                   finish otherwise. Restart and quiz-retry sit below. */}
-              <Press
+              <Press accessibilityRole="button"
                 cue={null}
                 onPress={onNextLesson ?? onFinish}
                 style={{ marginTop: 26, minHeight: 56, paddingVertical: 10, paddingHorizontal: 30, borderRadius: 28, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch' }}
@@ -1572,7 +1581,7 @@ export function QuizDeckView({
                 ) : null}
               </Press>
               {onRestart ? (
-                <Press
+                <Press accessibilityRole="button"
                   cue={null}
                   onPress={onRestart}
                   style={{ marginTop: 12, minHeight: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', paddingVertical: 6 }}
@@ -1580,7 +1589,7 @@ export function QuizDeckView({
                   <TX font="semi" role="bodySm" color={t.txSecondary}>{T.lessonRestart}</TX>
                 </Press>
               ) : null}
-              <Press cue={null} onPress={retry} style={{ marginTop: 14 }}>
+              <Press accessibilityRole="button" cue={null} onPress={retry} style={{ marginTop: 14 }}>
                 <TX role="bodySm" color={t.txMuted}>{T.retry}</TX>
               </Press>
             </>

@@ -101,7 +101,7 @@ function CommonErrorCard({
         <TX role="eyebrow" font="med" color={t.accTx} ls={1.4} style={{ textTransform: 'uppercase' }}>
           Say instead
         </TX>
-        <Press
+        <Press accessibilityRole="button"
           cue={null}
           onPress={() => onPlay(rid, error.right)}
           accessibilityLabel={error.right}
@@ -124,13 +124,14 @@ function CommonErrorCard({
 /** The "say it and be heard" control at the foot of a routine card. */
 function InhibitionMicRow({ onPress }: { onPress: () => void }) {
   const t = useTheme();
+  const T = useT();
   return (
     <Press
       cue="tap"
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel="Say these words"
-      accessibilityHint="Opens the microphone to score your pronunciation"
+      accessibilityLabel={T.a11ySayWords}
+      accessibilityHint={T.a11yMicScores}
       style={{
         flexDirection: 'row',
         alignItems: 'center',
@@ -144,7 +145,7 @@ function InhibitionMicRow({ onPress }: { onPress: () => void }) {
       }}
     >
       <Icon name="mic" size={16} color={t.acc} />
-      <TX font="med" role="body" color={t.accTx}>Say these words</TX>
+      <TX font="med" role="body" color={t.accTx}>{T.a11ySayWords}</TX>
     </Press>
   );
 }
@@ -356,7 +357,7 @@ export function MissionSectionView({
           onPress={() => setChipsOpen(true)}
           accessibilityRole="button"
           accessibilityLabel={T.termsMore.replace('{n}', String(hiddenTerms))}
-          accessibilityHint="Shows the rest of this mission's terms"
+          accessibilityHint={T.a11yMoreTerms}
           style={{
             minHeight: 34,
             paddingHorizontal: 12,

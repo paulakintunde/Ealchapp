@@ -396,6 +396,18 @@ export type Strings = {
   a11yClose: string; a11yOpenSettings: string; a11yBack: string; a11yDismissPanel: string;
   a11yPreviousAct: string; a11yNextAct: string; a11yOpenFiche: string;
   a11yDetails: string;
+  a11yPlayItem: string; a11yPlaySlow: string; a11yOpenTerm: string;
+  a11yDeleteTile: string; a11yHourUp: string; a11yHourDown: string;
+  a11yMinuteUp: string; a11yMinuteDown: string; a11yCurrentValue: string;
+  a11yAnswerCorrect: string; a11yAnswerIncorrect: string;
+  a11yHard: string; a11yEasy: string;
+  a11ySayWords: string; a11yMicScores: string; a11yMoreTerms: string;
+  a11yInsert: string; a11yShowModel: string;
+  a11yPlayPassage: string; a11yPlaySentence: string; a11yTranslation: string; a11yBackText: string;
+  a11yReadingQuestion: string; a11yReadingAnswer: string;
+  a11ySeeAgain: string; a11ySeeAgainHint: string; a11ySaidIt: string; a11yDone: string;
+  a11ySlow: string; a11yNormal: string;
+  a11yTextUnderstood: string;
   restSaved: string; restStop: string; restStopHint: string; recapWhere: string; recapResume: string; recapRestart: string; recapRestartHint: string;
   warmBackTitle: string; warmBackIntro: string; warmCorrect: string; warmIncorrect: string; warmStart: string;
   /** The visible label on a trail heading's Fiche button. It was an
@@ -906,6 +918,18 @@ export const T: Record<Lang, Strings> = {
     a11yClose: 'Fermer', a11yOpenSettings: 'Ouvrir les réglages', a11yBack: 'Retour', a11yDismissPanel: 'Fermer le panneau',
     a11yPreviousAct: 'Acte précédent', a11yNextAct: 'Acte suivant', a11yOpenFiche: 'Ouvrir la fiche',
     a11yDetails: 'Détails',
+    a11yPlayItem: 'Écouter {item}', a11yPlaySlow: 'Écouter lentement', a11yOpenTerm: 'En savoir plus sur {item}',
+    a11yDeleteTile: 'Effacer la dernière lettre', a11yHourUp: 'Heure suivante', a11yHourDown: 'Heure précédente',
+    a11yMinuteUp: 'Minutes suivantes', a11yMinuteDown: 'Minutes précédentes', a11yCurrentValue: 'Valeur actuelle : {value}',
+    a11yAnswerCorrect: 'Bonne réponse', a11yAnswerIncorrect: 'Réponse incorrecte',
+    a11yHard: 'Difficile', a11yEasy: 'Facile',
+    a11ySayWords: 'Prononcer ces mots', a11yMicScores: 'Ouvre le micro pour évaluer votre prononciation', a11yMoreTerms: 'Affiche les autres termes de cette mission',
+    a11yInsert: 'Insérer : {item}', a11yShowModel: 'Voir un modèle et me corriger',
+    a11yPlayPassage: 'Écouter tout le passage', a11yPlaySentence: 'Écouter la phrase {n}', a11yTranslation: 'Voir la traduction de {item}', a11yBackText: 'Retour au texte',
+    a11yReadingQuestion: 'Question {n}. {item}. Touchez pour voir la réponse.', a11yReadingAnswer: 'Réponse : {item}',
+    a11ySeeAgain: 'Revoir cette notion', a11ySeeAgainHint: 'Ouvre la mission qui a enseigné cette notion', a11ySaidIt: "Je l’ai dit", a11yDone: 'Terminé',
+    a11ySlow: 'Lent', a11yNormal: 'Normal',
+    a11yTextUnderstood: 'Texte compris',
     restSaved: 'Votre place est enregistrée. Continuez quand vous êtes prêt.', restStop: "S'arrêter ici", restStopHint: 'Quitte la leçon en gardant votre place', recapWhere: 'Où vous en étiez', recapResume: 'Reprendre où vous en étiez', recapRestart: 'Recommencer au début', recapRestartHint: 'Recommence cette leçon depuis le début',
     warmBackTitle: 'De retour après une pause', warmBackIntro: 'Trois questions rapides sur {title}, puis on continue.', warmCorrect: 'Bonne réponse', warmIncorrect: 'Votre réponse est incorrecte', warmStart: 'Commencer',
     prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
@@ -1397,6 +1421,18 @@ export const T: Record<Lang, Strings> = {
     a11yClose: 'Close', a11yOpenSettings: 'Open settings', a11yBack: 'Back', a11yDismissPanel: 'Close panel',
     a11yPreviousAct: 'Previous act', a11yNextAct: 'Next act', a11yOpenFiche: 'Open unit info',
     a11yDetails: 'Details',
+    a11yPlayItem: 'Play {item}', a11yPlaySlow: 'Play slowly', a11yOpenTerm: 'Learn about {item}',
+    a11yDeleteTile: 'Delete last letter', a11yHourUp: 'Increase hour', a11yHourDown: 'Decrease hour',
+    a11yMinuteUp: 'Increase minutes', a11yMinuteDown: 'Decrease minutes', a11yCurrentValue: 'Current value: {value}',
+    a11yAnswerCorrect: 'Correct answer', a11yAnswerIncorrect: 'Incorrect answer',
+    a11yHard: 'Hard', a11yEasy: 'Easy',
+    a11ySayWords: 'Say these words', a11yMicScores: 'Opens the microphone to score your pronunciation', a11yMoreTerms: 'Shows the rest of this mission’s terms',
+    a11yInsert: 'Insert: {item}', a11yShowModel: 'See an example and self-check',
+    a11yPlayPassage: 'Play the whole passage', a11yPlaySentence: 'Play sentence {n}', a11yTranslation: 'Show translation of {item}', a11yBackText: 'Back to the text',
+    a11yReadingQuestion: 'Question {n}. {item}. Tap to reveal the answer.', a11yReadingAnswer: 'Answer: {item}',
+    a11ySeeAgain: 'See this again', a11ySeeAgainHint: 'Opens the mission that taught this', a11ySaidIt: 'I said it', a11yDone: 'Done',
+    a11ySlow: 'Slow', a11yNormal: 'Normal',
+    a11yTextUnderstood: 'Text understood',
     restSaved: 'Saved. Carry on when you are ready.', restStop: 'Stop here', restStopHint: 'Leaves the lesson, keeping your place', recapWhere: 'Where you were', recapResume: 'Pick up where you left off', recapRestart: 'Ignore, start from the beginning', recapRestartHint: 'Starts this lesson from the beginning instead',
     warmBackTitle: 'Back after a break', warmBackIntro: 'Three quick ones from {title}, then straight on.', warmCorrect: 'Correct answer', warmIncorrect: 'Your answer, incorrect', warmStart: 'Start',
     prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',

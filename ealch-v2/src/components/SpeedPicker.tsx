@@ -40,7 +40,7 @@ export function SpeedPicker({
             key={v}
             cue={null}
             onPress={() => onChange(v)}
-            accessibilityRole="button"
+            accessibilityRole="radio"
             accessibilityState={{ selected: on }}
             style={{
               flex: 1,

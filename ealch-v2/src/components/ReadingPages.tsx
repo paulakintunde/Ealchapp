@@ -49,7 +49,7 @@ export function PassagePage({
   onPlay,
   playingId,
   onContinue,
-  continueLabel = 'Text understood',
+  continueLabel,
   eyebrow,
 }: {
   text: string;
@@ -61,6 +61,7 @@ export function PassagePage({
   eyebrow?: string;
 }) {
   const t = useTheme();
+  const T = useT();
   const [open, setOpen] = useState<Glossed | null>(null);
 
   // Split into sentences so each can be played on its own. The lookbehind
@@ -95,7 +96,7 @@ export function PassagePage({
         <Press
           cue={null}
           onPress={() => onPlay?.('passage', text)}
-          accessibilityLabel="Play the whole passage"
+          accessibilityLabel={T.a11yPlayPassage}
           accessibilityRole="button"
           style={{
             flexDirection: 'row',
@@ -172,7 +173,7 @@ export function PassagePage({
             key={i}
             cue={null}
             onPress={() => onPlay?.(`sentence-${i}`, s)}
-            accessibilityLabel={`Play sentence ${i + 1}`}
+            accessibilityLabel={T.a11yPlaySentence.replace('{n}', String(i + 1))}
             accessibilityRole="button"
             style={{
               flexDirection: 'row',
@@ -193,9 +194,9 @@ export function PassagePage({
         ))}
       </ScrollView>
 
-      {onContinue ? <Button label={`${continueLabel} →`} onPress={onContinue} /> : null}
+      {onContinue ? <Button label={`${continueLabel ?? T.a11yTextUnderstood} →`} onPress={onContinue} /> : null}
 
-      <LessonModal open={!!open} onClose={() => setOpen(null)} size="sheet">
+      <LessonModal open={!!open} onClose={() => setOpen(null)} size="sheet" title={open?.word}>
         {open ? (
           <View style={{ gap: 14 }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
@@ -203,7 +204,7 @@ export function PassagePage({
               <Press
                 cue={null}
                 onPress={() => onPlay?.('gloss', open.word)}
-                accessibilityLabel={`Play ${open.word}`}
+                accessibilityLabel={T.a11yPlayItem.replace('{item}', open.word)}
                 accessibilityRole="button"
                 style={{
                   width: 48,
@@ -244,6 +245,7 @@ function Sentence({
   onWord: (g: Glossed) => void;
 }) {
   const t = useTheme();
+  const T = useT();
   // The matching lives in gloss.logic.ts so it can be tested; see the note
   // there for the three ways the old one-line lookup silently missed. This
   // component now only draws what that returned.
@@ -263,7 +265,8 @@ function Sentence({
               role="titleSm"
               color={t.accTx}
               onPress={() => onWord(g)}
-              accessibilityLabel={`${core}, tap for translation`}
+              accessibilityRole="button"
+              accessibilityLabel={T.a11yTranslation.replace('{item}', core)}
               style={{ lineHeight: 34, textDecorationLine: 'underline' }}
             >
               {core}
@@ -294,18 +297,19 @@ export function ReadingQuestionsPage({
   onBack?: () => void;
 }) {
   const t = useTheme();
+  const T = useT();
   return (
     <View style={{ flex: 1, gap: 14 }}>
       {onBack ? (
         <Press
           cue="tap"
           onPress={onBack}
-          accessibilityLabel="Back to the text"
+          accessibilityLabel={T.a11yBackText}
           accessibilityRole="button"
           style={{ flexDirection: 'row', alignItems: 'center', gap: 7, alignSelf: 'flex-start', minHeight: 44 }}
         >
           <Icon name="arrowLeft" size={15} color={t.txSecondary} />
-          <TX role="bodySm" color={t.txSecondary}>Back to the text</TX>
+          <TX role="bodySm" color={t.txSecondary}>{T.a11yBackText}</TX>
         </Press>
       ) : null}
 
@@ -356,7 +360,8 @@ function ReadingQuestionCard({
         sound.play('flip');
         setShown((s) => !s);
       }}
-      accessibilityLabel={shown ? `Answer: ${question.a}` : `Question ${index + 1}. ${question.q}. Tap to reveal the answer.`}
+      accessibilityLabel={shown ? T.a11yReadingAnswer.replace('{item}', question.a) : T.a11yReadingQuestion.replace('{n}', String(index + 1)).replace('{item}', question.q)}
+      accessibilityState={{ expanded: shown }}
       accessibilityRole="button"
     >
       <CardFrame

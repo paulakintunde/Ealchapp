@@ -28,12 +28,14 @@ import { TextInput, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press } from '@/components/ui';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import type { LessonSection } from '@/content/schema';
 
 type Task = Extract<LessonSection, { type: 'task' }>;
 
 export function TaskView({ s }: { s: Task }) {
   const t = useTheme();
+  const T = useT();
   const [answer, setAnswer] = useState('');
   const [revealed, setRevealed] = useState(false);
   const [ticked, setTicked] = useState<Record<string, boolean>>({});
@@ -116,11 +118,12 @@ export function TaskView({ s }: { s: Task }) {
           <TX font="semi" role="meta" ls={2.2} color={t.txMuted}>POUR COMMENCER</TX>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
             {s.scaffold.map((chip) => (
-              <Press
+              <Press accessibilityRole="button"
                 key={chip}
                 cue="tap"
-                onPress={() => !audio && setAnswer((a) => (a ? `${a} ${chip}` : chip))}
-                accessibilityLabel={`Insérer : ${chip}`}
+                disabled={audio}
+                onPress={() => setAnswer((a) => (a ? `${a} ${chip}` : chip))}
+                accessibilityLabel={T.a11yInsert.replace('{item}', chip)}
                 style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(12), paddingHorizontal: 12, paddingVertical: 7 }}
               >
                 <TX role="bodySm">{chip}</TX>
@@ -177,12 +180,12 @@ export function TaskView({ s }: { s: Task }) {
           ) : null}
         </View>
       ) : (
-        <Press
+        <Press accessibilityRole="button"
           cue="tap"
           onPress={() => setRevealed(true)}
           style={{ alignSelf: 'flex-start', borderRadius: 18.5, borderWidth: 1, borderColor: t.accA(45), paddingHorizontal: 15, minHeight: 37, justifyContent: 'center' }}
         >
-          <TX font="semi" role="bodySm" color={t.accTx}>Voir un modèle et me corriger</TX>
+          <TX font="semi" role="bodySm" color={t.accTx}>{T.a11yShowModel}</TX>
         </Press>
       )}
     </View>

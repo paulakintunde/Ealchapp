@@ -16,6 +16,7 @@ import { Press, Button } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { TapSilentCard, ListenChooseCard, ErrorSpotCard } from '@/components/SilentCards';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { checkAnswer, isClosedFormat } from '@/content/answer.logic';
 import {
@@ -57,6 +58,7 @@ export function QuizRoundsView({
   playingId?: string | null;
 }) {
   const t = useTheme();
+  const T = useT();
   const [state, setState] = useState(initialQuizState);
   const [answered, setAnswered] = useState(false);
   const drillById = useMemo(() => new Map(drills.map((d) => [d.id, d])), [drills]);
@@ -196,16 +198,16 @@ export function QuizRoundsView({
               cue="tap"
               onPress={() => onJumpToRef(question.ref!)}
               accessibilityRole="button"
-              accessibilityLabel="See this again"
-              accessibilityHint="Opens the mission that taught this"
+              accessibilityLabel={T.a11ySeeAgain}
+              accessibilityHint={T.a11ySeeAgainHint}
               hitSlop={8}
               style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 8 }}
             >
               <Icon name="book" size={15} color={t.accTx} />
-              <TX role="bodySm" font="med" color={t.accTx}>See this again</TX>
+              <TX role="bodySm" font="med" color={t.accTx}>{T.a11ySeeAgain}</TX>
             </Press>
           ) : null}
-          <Button label="Continue" onPress={next} />
+          <Button label={T.continueT} onPress={next} />
         </View>
       ) : null}
     </View>
@@ -244,6 +246,7 @@ function QuestionCard({
 
 function McqCard({ question, onAnswer }: { question: QuizQuestion; onAnswer: (correct: boolean) => void }) {
   const t = useTheme();
+  const T = useT();
   const [picked, setPicked] = useState<number | null>(null);
   const opts = question.opts ?? [];
 
@@ -284,9 +287,9 @@ function McqCard({ question, onAnswer }: { question: QuizQuestion; onAnswer: (co
                 picked === null
                   ? undefined
                   : isRight
-                    ? 'Correct answer'
+                    ? T.a11yAnswerCorrect
                     : isPicked
-                      ? 'Your answer, incorrect'
+                      ? T.a11yAnswerIncorrect
                       : undefined
               }
               style={{
@@ -337,6 +340,7 @@ function SpeakQuestionCard({
   id: string;
 }) {
   const t = useTheme();
+  const T = useT();
   const [said, setSaid] = useState(false);
   const target = question.target ?? '';
 
@@ -348,8 +352,8 @@ function SpeakQuestionCard({
         onPress={() => onPlay?.(id, target)}
         onLongPress={onPlay ? () => onPlay(id, target, null, true) : undefined}
         accessibilityRole="button"
-        accessibilityLabel={`Play ${target}`}
-        accessibilityHint="Long press for the slow reading"
+        accessibilityLabel={T.a11yPlayItem.replace('{item}', target)}
+        accessibilityHint={T.a11yPlaySlow}
         style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card, padding: 16, gap: 6 }}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
@@ -361,7 +365,7 @@ function SpeakQuestionCard({
 
       {!said ? (
         <Button
-          label="I said it"
+          label={T.a11ySaidIt}
           icon="mic"
           onPress={() => {
             setSaid(true);
@@ -389,13 +393,14 @@ function DrillCard({
   onDone: () => void;
 }) {
   const t = useTheme();
+  const T = useT();
   const [answered, setAnswered] = useState<number | null>(null);
 
   if (!drill) {
     // Nothing to show. Move on rather than stranding the learner.
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 }}>
-        <Button label="Continue" onPress={onDone} />
+        <Button label={T.continueT} onPress={onDone} />
       </View>
     );
   }
@@ -444,7 +449,7 @@ function DrillCard({
                   accessibilityLabel={o}
                   accessibilityState={{ selected: answered === i, disabled: answered !== null }}
                   accessibilityHint={
-                    answered === null ? undefined : isRight ? 'Correct answer' : answered === i ? 'Your answer, incorrect' : undefined
+                    answered === null ? undefined : isRight ? T.a11yAnswerCorrect : answered === i ? T.a11yAnswerIncorrect : undefined
                   }
                   style={{ borderRadius: 14, borderWidth: 1, borderColor: border, backgroundColor: t.card, paddingHorizontal: 16, paddingVertical: 13 }}
                 >
@@ -458,7 +463,7 @@ function DrillCard({
       ) : null}
 
       <View style={{ flex: 1 }} />
-      <Button label="Continue" onPress={onDone} disabled={hasInlineQuestion && answered === null} />
+      <Button label={T.continueT} onPress={onDone} disabled={hasInlineQuestion && answered === null} />
     </View>
   );
 }
@@ -489,6 +494,7 @@ function ResultCard({
   finishLabel?: string;
 }) {
   const t = useTheme();
+  const T = useT();
   const missed = review?.filter((r) => !r.correct) ?? [];
   return (
     <View style={{ flex: 1 }}>
@@ -537,7 +543,7 @@ function ResultCard({
 
       {onFinish ? (
         <View style={{ paddingHorizontal: 24, paddingBottom: 16, paddingTop: 8 }}>
-          <Button label={finishLabel ?? 'Done'} onPress={onFinish} />
+          <Button label={finishLabel ?? T.a11yDone} onPress={onFinish} />
         </View>
       ) : null}
     </View>
