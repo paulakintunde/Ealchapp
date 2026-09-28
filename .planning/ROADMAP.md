@@ -266,7 +266,7 @@ Plans:
 
 Plans:
 **Wave 1**
-- [ ] 08-01-PLAN.md — shared Button semantics, home/Den/Levels trail audit, and level-panel focus
+- [x] 08-01-PLAN.md — shared Button semantics, home/Den/Levels trail audit, and level-panel focus
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 08-02-PLAN.md — act and lesson navigation, language panel, and overlay focus

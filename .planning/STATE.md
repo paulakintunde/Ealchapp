@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 8 UI-SPEC approved
-last_updated: "2026-09-28T03:58:57.468Z"
-last_activity: 2026-09-28 -- Phase 8 planning complete
+stopped_at: Completed 08-01-PLAN.md
+last_updated: "2026-09-28T05:32:30.079Z"
+last_activity: 2026-09-28
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 73
-  completed_plans: 61
-  percent: 84
+  completed_plans: 62
+  percent: 85
 ---
 
 # Project State
@@ -21,12 +21,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 07.1 — concept-c-spine-rewrite (22.1 is executed, awaiting close-out)
+**Current focus:** Phase 08 — accessibility-retrofit
 
 ## Current Position
 
-Phase: 07.1 (concept-c-spine-rewrite-trail-act-screen-language-control) — ALL 11 PLANS EXECUTED
-Plan: 11 of 11 complete — 07.1-11 was the two-device pass (Pixel 6 and Pixel 9,
+Phase: 08 (accessibility-retrofit) — EXECUTING
+Plan: 2 of 10
   font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
   07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
@@ -38,9 +38,9 @@ NOTE: `percent: 100` above means 61 of 61 WRITTEN plans are done. It is not mile
   **10/25 phases**, in ROADMAP.md's "How to read this table". Do not re-add
   percent_basis/percent_note here; the handler has deleted them twice.
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
-Last activity: 2026-09-28 -- Phase 8 planning complete
+Last activity: 2026-09-28
 
-Progress: 10 of 25 phases (ROADMAP.md is the figure of record)
+Progress: [█████████░] 85%
 
 ## Performance Metrics
 
@@ -81,6 +81,7 @@ Progress: 10 of 25 phases (ROADMAP.md is the figure of record)
 | Phase 07.1 P08 | 50min | 3 tasks | 18 files |
 | Phase 07.1 P09 | 65min | 3 tasks | 10 files |
 | Phase 07.1 P10 | 1h10min | 3 tasks | 8 files |
+| Phase 08 P01 | 90min | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -178,6 +179,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-28T03:07:21.972Z
-Stopped at: Phase 8 UI-SPEC approved
-Resume file: .planning/phases/08-accessibility-retrofit/08-UI-SPEC.md
+Last session: 2026-09-28T05:32:30.050Z
+Stopped at: Completed 08-01-PLAN.md
+Resume file: None
