@@ -23,15 +23,17 @@
 import { ok, deepStrictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
+import { seedPlusPacks } from '../../ealch-v2/src/content/seed-plus-packs.ts';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { buildPreview, serialise, PREVIEW_PATH } from './data/b1/_preview-b1.ts';
 import { BAND_SLUGS } from './b1-import.logic.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const SEED = resolve(HERE, '../../ealch-v2/src/content/seed.json');
+// Under premium packs seed.json is the free core; the published B1/B2 lessons
+// are in seed.json plus the paid layer, which is what seedPlusPacks() reads.
 // Every authored lesson is in BAND_SLUGS (B1 and B2); an imported one (in the seed) leaves the fixture.
-const SEEDED = (JSON.parse(readFileSync(SEED, 'utf8')).lessons ?? []).filter((l: any) => /^b[12]\./.test(l.id)).length;
+const SEEDED = (seedPlusPacks<any>().lessons ?? []).filter((l: any) => /^b[12]\./.test(l.id)).length;
 const AUTHORED = Object.values(BAND_SLUGS).reduce((n, l) => n + l.length, 0);
 const EXPECTED_LESSONS = AUTHORED - SEEDED;
 
@@ -73,7 +75,7 @@ test('the fixture carries every draft lesson', () => {
 
 test('no fixture item id collides with a published seed id', () => {
   const fx = JSON.parse(onDisk());
-  const seed = JSON.parse(readFileSync(SEED, 'utf8'));
+  const seed = seedPlusPacks<any>();
   const seedIds = new Set<string>((seed.items ?? []).map((i: any) => i.id));
   const clash = (fx.items ?? []).map((i: any) => i.id).filter((id: string) => seedIds.has(id));
   ok(
@@ -85,7 +87,7 @@ test('no fixture item id collides with a published seed id', () => {
 
 test('no fixture unit or lesson id collides with a published one', () => {
   const fx = JSON.parse(onDisk());
-  const seed = JSON.parse(readFileSync(SEED, 'utf8'));
+  const seed = seedPlusPacks<any>();
   const su = new Set<string>((seed.units ?? []).map((u: any) => u.id));
   const sl = new Set<string>((seed.lessons ?? []).map((l: any) => l.id));
   const uClash = fx.units.map((u: any) => u.id).filter((id: string) => su.has(id));

@@ -37,8 +37,8 @@
 // tested before it is published. Until that decision is made, this module at
 // least gives every writer ONE definition to be checked against.
 
-import type { Corpus, ExamPaper, ExamTask, Item, Lesson } from '../../ealch-v2/src/content/schema.ts';
-import { ITEM_ID_RE, canonicalJson } from '../../ealch-v2/src/content/schema.ts';
+import type { Corpus, ExamPaper, ExamTask, Item, Lesson, Unit } from '../../ealch-v2/src/content/schema.ts';
+import { ITEM_ID_RE, canonicalJson, unitBand } from '../../ealch-v2/src/content/schema.ts';
 import { SEED_CUT, type SeedCut } from './seed-cut.config.ts';
 
 /** A speak stage, reduced to the part the cut cares about. */
@@ -195,6 +195,89 @@ export function examCutDrift(
     .sort();
 
   return { seedOnlyPapers, seedOnlyTasks, missingPapers, missingTasks, changedPapers };
+}
+
+/** The rows a seed cut reads, as publish-content.ts assembles them. */
+export type CutInput = Pick<Corpus, 'version' | 'units' | 'lessons' | 'items'> & {
+  domains: NonNullable<Corpus['domains']>;
+  themes: NonNullable<Corpus['themes']>;
+  scenarios: NonNullable<Corpus['scenarios']>;
+  playlists: NonNullable<Corpus['playlists']>;
+  speakPath: NonNullable<Corpus['speakPath']>;
+  examPapers: ExamPaper[];
+  examTasks: ExamTask[];
+};
+
+/**
+ * THE SEED CUT, applied to a whole corpus: the legacy seed with SEED_CUT, the
+ * packs-era test corpus with TEST_CUT. Moved here VERBATIM from
+ * publish-content.ts step 5 (which now calls it), so the publisher, the tests
+ * and anything else that wants "what would the seed be" share one rule. The
+ * reasons for each clause stay written where publish-content.ts calls it.
+ *
+ *   units      a band in cut.tracks or an id in cut.units, then PREREQ-CLOSED
+ *              (a bundled unit's prerequisites ship too, transitively)
+ *   lessons    every lesson of a cut unit
+ *   speak      the stages of cut.speakWorlds
+ *   exams      every paper; only the tasks a paper names (cutExamTasks)
+ *   items      cutItems (referenced by a cut lesson or speak stage, or in a
+ *              cut theme) plus every target item of a cut exam task
+ *   scenarios  and playlists: at a level the cut's tracks or units represent
+ *   catalogue  whole
+ *
+ * `pulledIn` lists the units the prereq closure added, for the publish log.
+ */
+export function cutSeed(c: CutInput, cut: SeedCut): { seed: Corpus; pulledIn: Unit[] } {
+  const wantUnit = (u: Unit) =>
+    (cut.tracks as readonly string[]).includes(unitBand(u.id) ?? '') || cut.units.includes(u.id);
+  const unitById = new Map(c.units.map((u) => [u.id, u]));
+  const seedUnitMap = new Map(c.units.filter(wantUnit).map((u) => [u.id, u]));
+  const cutUnitIds = new Set(seedUnitMap.keys());
+  const queue = [...seedUnitMap.values()];
+  while (queue.length) {
+    const u = queue.pop()!;
+    for (const p of u.prereqUnitIds ?? []) {
+      const pu = unitById.get(p);
+      if (pu && !seedUnitMap.has(pu.id)) {
+        seedUnitMap.set(pu.id, pu);
+        queue.push(pu);
+      }
+    }
+  }
+  const seedUnits = [...seedUnitMap.values()];
+  const pulledIn = seedUnits.filter((u) => !cutUnitIds.has(u.id));
+  const seedUnitIds = new Set(seedUnitMap.keys());
+  const seedLessons = c.lessons.filter((l) => seedUnitIds.has(l.unitId));
+  const seedSpeak = c.speakPath.filter((s) => cut.speakWorlds.includes(s.world));
+  const seedExamTasks = cutExamTasks(c.examTasks, c.examPapers);
+  const examTargetItemIds = new Set(seedExamTasks.flatMap((t) => t.targetItemIds ?? []));
+  const seedItems = [
+    ...new Map(
+      [...cutItemsWith(c.items, seedLessons, seedSpeak, cut), ...c.items.filter((i) => examTargetItemIds.has(i.id))].map(
+        (i) => [i.id, i] as const
+      )
+    ).values(),
+  ];
+  const seedLevels = new Set<string>([
+    ...cut.tracks,
+    ...seedUnits.map((u) => unitBand(u.id)).filter((b): b is NonNullable<typeof b> => b !== null),
+  ]);
+  const seed: Corpus = {
+    version: c.version, domains: c.domains, themes: c.themes,
+    units: seedUnits, lessons: seedLessons, items: seedItems,
+    scenarios: c.scenarios.filter((s) => seedLevels.has(s.level)),
+    playlists: c.playlists.filter((p) => seedLevels.has(p.minLevel)),
+    speakPath: seedSpeak,
+    examPapers: c.examPapers,
+    examTasks: seedExamTasks,
+  };
+  return { seed, pulledIn };
+}
+
+/** cutItems for an explicit cut (cutItems itself reads SEED_CUT.themes). */
+function cutItemsWith(items: Item[], lessons: Lesson[], speakStages: SpeakStageLike[], cut: Pick<SeedCut, 'themes'>): Item[] {
+  const needed = neededItemIds(lessons, speakStages);
+  return items.filter((i) => needed.has(i.id) || cut.themes.includes(i.theme));
 }
 
 /**

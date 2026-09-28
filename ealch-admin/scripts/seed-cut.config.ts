@@ -16,7 +16,7 @@
 export type SeedCut = {
   /** Whole tracks bundled in full. Their units, their lessons, and every item
    *  those lessons reference are pulled in automatically. */
-  tracks: ('sons' | 'a1' | 'a2')[];
+  tracks: ('sons' | 'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2')[];
   /** Individual units to bundle from tracks NOT listed above. */
   units: string[];
   /** Themed vocabulary bundled regardless of which lesson references it — this
@@ -122,6 +122,27 @@ export const CORE_SEED_CUT: SeedCut = {
   units: [],
   themes: SEED_CUT.themes,
   speakWorlds: [1],
+};
+
+/**
+ * THE TEST CUT (premium packs): what the content tests read once the binary is
+ * the free core. Every band's units in full (so every published lesson and
+ * every item it names), the same themes and speak worlds as SEED_CUT. It is
+ * SEED_CUT with the unit list retired: SEED_CUT.units existed only because b1
+ * and b2 were not bundled tracks, and under packs nothing paid is bundled, so
+ * the question "is this unit in the seed?" becomes "is it published?".
+ *
+ * `content:publish --packs` cuts the corpus with it (cutSeed) and writes the
+ * rows the core seed does not already carry to ealch-v2/src/content/
+ * seed-packs.json; seedPlusPacks() composes the two for the tests. A band
+ * merge under packs (b1-merge-into-seed.ts) therefore needs no unit list: a
+ * published unit of any band is in this cut.
+ */
+export const TEST_CUT: SeedCut = {
+  tracks: ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'],
+  units: [],
+  themes: SEED_CUT.themes,
+  speakWorlds: SEED_CUT.speakWorlds,
 };
 
 /** Every unit id explicitly named, for the cut summary. */

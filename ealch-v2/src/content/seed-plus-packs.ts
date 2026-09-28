@@ -63,7 +63,9 @@ const keyOf = (k: ArrayKey, r: unknown): string => {
 
 /** A layer with nothing in it: what seed-packs.json holds before packs. */
 export function emptyLayer(version: number): Corpus {
-  return { version, units: [], lessons: [], items: [] };
+  // A layer is an overlay, not a corpus: the arrays it has nothing for are
+  // left out, and mergeCorpus reads an absent array as empty.
+  return { version, units: [], lessons: [], items: [] } as unknown as Corpus;
 }
 
 /** Whether a layer carries any row at all. */
