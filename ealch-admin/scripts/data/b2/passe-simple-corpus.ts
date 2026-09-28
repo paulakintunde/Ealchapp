@@ -93,6 +93,13 @@
 //     midnight, demolition over months), the Tennis Court Oath (20 June 1789,
 //     the closed hall, the jeu de paume room), and the Moon landing (July
 //     1969). NO real literary quotation is used anywhere.
+//     FACT-CHECKED 2026-09-28, all hold: Québec founded 1608 on the cape
+//     above the St Lawrence, the Abitation's wooden buildings and palisade,
+//     20 of 28 men dead in the first winter mostly of scurvy, alliances with
+//     Indigenous nations, royal province 1663 under Louis XIV; the Wall
+//     opened 9 Nov 1989 with thousands crossing that night; 20 June 1789 the
+//     deputies found their hall shut and met in the jeu de paume; Moon walk
+//     July 1969. No text changed.
 //
 //  7. APOSTROPHES. Corpus rows and texts use the straight ' as the seed does.
 //     The one `scenario` uses ’ only and embeds no corpus row.
