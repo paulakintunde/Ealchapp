@@ -11,8 +11,9 @@ import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { MAX_GLOSS_WORDS, deElide, glossKeys, segmentSentence, splitAffixes } from './gloss.logic.ts';
 import type { Lesson } from './schema.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
-const seed = JSON.parse(readFileSync(new URL('./seed.json', import.meta.url), 'utf8')) as {
+const seed = seedPlusPacks() as {
   lessons: Lesson[];
 };
 

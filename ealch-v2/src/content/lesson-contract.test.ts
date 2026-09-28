@@ -33,9 +33,10 @@ import { ok, strictEqual } from 'node:assert';
 import { before, test } from 'node:test';
 import type { Lesson, LessonSection } from './schema.ts';
 import { subCount } from './subMission.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   items: { id: string }[];
   lessons: Lesson[];
 };

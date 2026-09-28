@@ -20,6 +20,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { formatIssues, quizQuestions, validateItem, validateLesson, type Lesson } from './schema.ts';
 import { formatDensity, validateDensity } from './density.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -522,7 +523,7 @@ test('the UI chrome is English and only the content is French', { skip }, () => 
 
 // ── Once published ─────────────────────────────────────────────────────────
 
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   units: { id: string; lessonIds: string[]; seq?: number }[];
   lessons: Lesson[];
   items: { id: string; theme?: string }[];

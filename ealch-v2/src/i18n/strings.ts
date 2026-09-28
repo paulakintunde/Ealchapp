@@ -387,6 +387,8 @@ export type Strings = {
   /** A paid lesson a subscriber opened before its band's pack finished
    *  downloading (premium content packs). */
   packPendingT: string; packPendingS: string;
+  /** The pack download indicator (components/PackProgress.tsx). {band} {n} {total}. */
+  packDlT: string; packDlS: string; packDlDenS: string; packDlStepFmt: string; packDlCountFmt: string; packDlExam: string;
   /** The two D-21 paywall touchpoints' one-line trail-side lead-in. Neither
    *  is PAYWALL_COPY (D-23) — the paywall's own title/lead are separate. */
   trailGateLead: string; trailBoundaryLead: string;
@@ -911,6 +913,7 @@ export const T: Record<Lang, Strings> = {
     clock12T: '12 H', clock24T: '24 H',
 
     trailReleaseSome: '{n} mots partis en révision', trailReleaseNone: 'De la pratique, pas de nouveaux mots.',
+    packDlT: 'Téléchargement de vos niveaux', packDlS: "Vous pouvez continuer à apprendre. Chaque niveau s'ouvre dès qu'il est arrivé, puis fonctionne hors ligne.", packDlDenS: "Les leçons de ce niveau arrivent. Elles s'ouvrent dès qu'elles sont là.", packDlStepFmt: '{band} · {n} sur {total}', packDlCountFmt: '{n} sur {total}', packDlExam: 'Examens',
     packPendingT: 'Ce niveau arrive', packPendingS: "Les leçons de ce niveau se téléchargent. Elles s'ouvrent dès qu'elles sont là, puis fonctionnent hors ligne.",
     trailGateLead: 'Ce niveau est réservé à Première.', trailBoundaryLead: 'A1 se termine ici. La suite est réservée à Première.',
     trailActe0: 'Acte 00 · Narré', trailFiche: 'La fiche',
@@ -1414,6 +1417,7 @@ export const T: Record<Lang, Strings> = {
     clock12T: '12 H', clock24T: '24 H',
 
     trailReleaseSome: '{n} words sent to review', trailReleaseNone: 'Practice only, no new words.',
+    packDlT: 'Downloading your levels', packDlS: 'You can keep learning. Each level opens as soon as it arrives, then works offline.', packDlDenS: "This level's lessons are on their way. They open as soon as they arrive.", packDlStepFmt: '{band} · {n} of {total}', packDlCountFmt: '{n} of {total}', packDlExam: 'Exams',
     packPendingT: 'This level is on its way', packPendingS: 'The lessons for this level are downloading. They open as soon as they arrive, and then work offline.',
     trailGateLead: 'This level is Première-only.', trailBoundaryLead: "A1 ends here. What's next is Première-only.",
     trailActe0: 'Act 00 · Narrated', trailFiche: 'Unit info',

@@ -27,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { formatIssues, validateItem, type Item } from './schema.ts';
 import { hasPlainNasal, hasPlainNasalFor } from './density.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -66,7 +67,7 @@ function superscriptCount(respell: string): number {
 }
 
 type SeedItem = { id: string; level: string; theme: string; fr: string; ipa?: string; respell?: string };
-const SEED = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as { items: SeedItem[] };
+const SEED = seedPlusPacks() as { items: SeedItem[] };
 
 /* ─── The consonnes corpus ────────────────────────────────────────────────── */
 

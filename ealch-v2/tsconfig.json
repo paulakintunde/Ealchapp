@@ -29,6 +29,9 @@
   "exclude": [
     "node_modules",
     "**/*.test.ts",
+    // Test-and-tooling only (reads the disk with node:fs; nothing the app
+    // bundles imports it). Typechecked by ealch-admin's tsc, which imports it.
+    "src/content/seed-plus-packs.ts",
     "supabase/functions"
   ]
 }

@@ -28,6 +28,7 @@ import { hasPlainNasalFor, isDelimitedIpa } from './density.logic.ts';
 import { pendingRecordings, referencedRecordingIds } from './lessonAudio.logic.ts';
 import { checkpointFor, releasedThrough, stoppingPoints, tranche } from './acts.logic.ts';
 import { buildQuizConfig, drillForRound } from './quizRounds.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -245,7 +246,7 @@ test('the reused items exist in the shipped seed and still say what this lesson 
   // lesson never wrote, and that claim is only true while the ids resolve AND
   // the sentences are unchanged: a rewrite upstream would leave a mission
   // teaching a contrast that is no longer in the sentence.
-  const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     items: { id: string; fr: string }[];
   };
   const byId = new Map(seed.items.map((i) => [i.id, i.fr]));
@@ -806,7 +807,7 @@ test('once published, the seed copy matches what was authored', () => {
   // as a literal, so this check never has to be edited when the content
   // legitimately changes. A parity check that needs editing whenever the
   // content changes is a check that will eventually be edited to match a bug.
-  const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons: Lesson[];
     items: { id: string; theme: string; fr: string }[];
     units: { id: string; lessonIds?: string[] }[];

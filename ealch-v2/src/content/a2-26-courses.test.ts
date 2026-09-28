@@ -13,7 +13,8 @@
 // the corpus file is self-consistent and proves nothing about the learner.
 import { test } from 'node:test';
 import { strictEqual, ok, deepStrictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { namesUnitLabel } from './unit-label.ts';
 
 type Item = { id: string; kind: string; level: string; theme: string; fr: string; en: string; respell?: string; drills?: string[]; tags?: string[] };

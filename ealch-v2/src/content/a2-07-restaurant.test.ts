@@ -17,6 +17,7 @@ import { quizQuestions, validateLesson, type Lesson, type LessonSection } from '
 import { hasPlainNasalFor, validateDensity } from './density.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { namesUnitLabel } from './unit-label.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 /** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.
  *
@@ -39,7 +40,7 @@ try {
 }
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   version: number;
   units: Array<{ id: string; themes?: string[]; lessonIds?: string[]; canDo?: string; seq?: number }>;
   lessons: Lesson[];

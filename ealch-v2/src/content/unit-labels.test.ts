@@ -39,7 +39,8 @@
 
 import { test } from 'node:test';
 import { ok, deepStrictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { unitLabel } from './unit-label.ts';
 
 type Unit = { id: string; seq: number; lessonIds?: string[] };

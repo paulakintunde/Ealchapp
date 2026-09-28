@@ -19,6 +19,7 @@ import {
   type PackBody,
 } from './content-packs.logic.ts';
 import { buildCoreSeed } from './seed-cut.logic.ts';
+import { seedPlusPacks } from '../../ealch-v2/src/content/seed-plus-packs.ts';
 import { CORE_SEED_CUT } from './seed-cut.config.ts';
 import { stableStringify, sha256 } from './snapshot-utils.ts';
 import { validateCorpus, validateUnit, type Corpus, type Lesson, type Unit } from '../../ealch-v2/src/content/schema.ts';
@@ -150,7 +151,9 @@ test('planPublish: an unchanged pack keeps its version and is not uploaded again
 // The committed seed is itself a valid corpus holding sons, a1, a2, most of
 // b1, exam papers and the b2/c1 rows the exams target, so it is the honest
 // stand-in for a published snapshot here.
-const seed = JSON.parse(readFileSync(resolve(here, '../../ealch-v2/src/content/seed.json'), 'utf8')) as Corpus;
+// seed.json plus the paid layer: the committed seed today, core + layer once
+// --packs has published (ealch-v2/src/content/seed-plus-packs.ts).
+const seed = seedPlusPacks<Corpus>();
 const real = splitCorpus(seed);
 const packMap = new Map(real.packs.map((p) => [p.pack, p] as const));
 const view = (c: Corpus, loaded: PackName[]) => partialValidationView(c, { bands: heldBands(loaded), exam: loaded.includes('exam') });

@@ -25,6 +25,9 @@ import { track as trackEvent } from '@/services/analytics';
 import { useUI } from '@/store/useUI';
 import { useBandCounts } from '@/store/useBandCounts';
 import { useStore } from '@/store/useStore';
+import { PackProgress } from '@/components/PackProgress';
+import { usePackSync, isLoaded } from '@/services/packs';
+import { denPackBanner } from '@/services/packs.logic';
 
 // The Den is the trail (Concept C, D-01): a band is one column of acts, and
 // the unit is a heading you scroll past rather than a place you go. This
@@ -234,6 +237,9 @@ export default function Den() {
     [goFiche, goAct, goActe0, onLockedPress, router, t, T],
   );
 
+  const packSync = usePackSync();
+  const showPackBanner = denPackBanner(packSync, band, isLoaded(band));
+
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <View style={{ flex: 1 }} importantForAccessibility={levelPanelOpen ? 'no-hide-descendants' : 'auto'}>
@@ -271,6 +277,10 @@ export default function Den() {
         <TX role="bodySm" color={t.txMuted} style={{ maxWidth: 310, marginBottom: 16 }}>
           {T.denIntro}
         </TX>
+
+        {/* A paid band whose pack is still downloading: say so, calmly, above
+            the trail (the rows are the skeleton's outline until it lands). */}
+        {showPackBanner ? <PackProgress sub={T.packDlDenS} /> : null}
 
         {/* DEV-PREVIEW-B1 (temporary, D-30): the B1 authors' door, dev only.
             It no longer opens one hard-coded lesson. The whole draft band is

@@ -9,6 +9,7 @@ import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { cefrLabel, lessonEyebrow, missionLabel, missionRole, missionStats } from './missions.ts';
 import type { Lesson, LessonSection, Unit } from './schema.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 test('roles: gates, badge, milestones, required', () => {
   strictEqual(missionRole('quiz'), 'gate');
@@ -58,7 +59,7 @@ test('cefr display band', () => {
 
 test('the live seed derives sane stats for sons.02.l1', () => {
   const here = dirname(fileURLToPath(import.meta.url));
-  const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as { lessons: Lesson[] };
+  const seed = seedPlusPacks() as { lessons: Lesson[] };
   const L = seed.lessons.find((l) => l.id === 'sons.02.l1');
   ok(L, 'sons.02.l1 present');
   const s = missionStats(L!.sections);
@@ -80,7 +81,7 @@ test('the eyebrow numbers a lesson by its unit seq, not by its id', () => {
 
 test('every seed lesson gets an eyebrow matching its position in its track', () => {
   const here = dirname(fileURLToPath(import.meta.url));
-  const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons: Lesson[];
     units: Unit[];
   };

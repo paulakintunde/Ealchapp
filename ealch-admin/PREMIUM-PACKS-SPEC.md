@@ -162,17 +162,56 @@ ceiling raise. Proven on the Pixel with two accounts:
   back to a free lesson for an absent paid one: the paywall for a free user,
   "This level is on its way" for a subscriber whose pack is still downloading.
 
+### Done since (2026-09-28, code and tests only, nothing deployed or published)
+
+- **The tests read seed + packs.** `ealch-v2/src/content/seed-packs.json` (the
+  PAID LAYER, committed beside seed.json, empty today) holds every row of the
+  test cut the bundled seed lacks or holds differently; `seedPlusPacks()`
+  (`src/content/seed-plus-packs.ts`, tests and tooling only, kept out of the
+  EAS upload and the app's tsc) composes the two with the app's own
+  `mergeCorpus`. With an empty layer it IS seed.json, so today's suite is
+  unchanged. 95 content test files moved to it; the binary tests
+  (catalogue-ships, trail.logic, spine-drift) still read seed.json, and
+  seed.backcompat / exam-ships are regime-aware (the core validates as a free
+  device holds it; seed + packs validates in full; under packs the binary
+  carries paper 1 only). Proof: with `buildCoreSeed(splitCorpus(seed).core,
+  CORE_SEED_CUT)` as seed.json and its layer beside it, `npm test` is
+  5686/5686; with the committed files 5685 pass + 1 skipped (the packs-only
+  exam check); per file the two runs are identical. Before the move, the core
+  alone failed 368 tests and silently dropped 154.
+- **The publisher writes the layer.** The legacy cut moved verbatim into
+  `cutSeed()` (seed-cut.logic.ts; on the committed seed `cutSeed(SEED_CUT)`
+  reproduces it exactly). `TEST_CUT` is SEED_CUT with every band a track and
+  no unit list. Under `--packs`, `seed-packs.json` = TEST_CUT minus the core
+  seed, and the publish refuses if core + layer does not validate in full;
+  without `--packs` the layer is written EMPTY.
+- **The band merge works in both regimes** (`band-merge.logic.ts`, read off
+  the committed layer). Legacy: unchanged; the B1 and `--band b2` merge dry
+  runs print byte for byte what they did. Packs: full unit, lesson and new
+  rows into the layer, the outlined skeleton into seed.json; no unit list.
+  Measured with the core + layer swapped in: the B1 and B2 merge dry runs
+  add, replace and re-skeleton nothing (the merge's skeleton is the
+  publisher's).
+- **The download indicator is drawn** (`components/PackProgress.tsx`): on the
+  downloads screen while any pack syncs, and on the Den while the paid band
+  on screen is still arriving. Pure parts (`packProgress`,
+  `packProgressLine`, `denPackBanner`) and the fr/en copy are tested.
+
 ### Not done, and why
 
-- `SEED_CUT` itself is unchanged: `CORE_SEED_CUT` sits beside it and is used
-  only under `--packs`. Flipping `SEED_CUT` today would break three things at
-  once: `b1-merge-into-seed.ts` (and the B2 pipeline built on it) refuses any
-  unit missing from `SEED_CUT.units`; about 48 app test files read A2/B1
-  lessons straight from `seed.json`; and a publish that uploads packs fails
-  until the private bucket exists.
+- **The B1/B2 lesson sources still import seed.json** (46 files in
+  `scripts/data/b1` and `b2`, owned by the B2 authoring session, so not edited
+  here). Under packs the rows they borrow move to the layer and every one of
+  them throws at import, taking b1-import, the band merge and the preview
+  fixture down. `pnpm tsx scripts/lesson-data-seed-plus-packs.ts --apply`
+  rewrites that one import to `seedPlusPacks()` (a no-op before packs). Run
+  on a scratch copy with the core + layer in place, the B1 and B2 import dry
+  runs then print byte for byte what they print today. MUST land before the
+  first `--packs` publish.
+- `SEED_CUT` itself is unchanged and still what a plain publish bundles;
+  `--packs` is still opt-in. `SEED_CUT.units` is now only the legacy seed's
+  list; the packs world does not read it.
 - `seed.json` was not regenerated (another session is merging into it).
-- The download indicator is a store (`usePackSync`: status, current pack,
-  done/total); no screen renders it yet.
 - Old `core/vN.json` and pack versions are not pruned by the publisher yet
   (the legacy `snapshots/` prune is untouched). At about 6 MB of core per
   publish, add them to `planPrune` before many `--packs` publishes pile up.
@@ -215,10 +254,12 @@ Nothing below has been run. Project ref: `ogbothupjcivwruesgsu`.
    npx supabase functions deploy content-pack-url --project-ref ogbothupjcivwruesgsu --no-verify-jwt
    ```
 
-4. **Before the first `--packs` publish:** migrate the app tests that read
-   A2/B1 from `seed.json` to a seed-plus-packs fixture, move
-   `b1-merge-into-seed.ts` and the B2 pipeline off `SEED_CUT.units`, and
-   settle the exam question above. Then:
+4. **Before the first `--packs` publish:** the app tests, the band merge and
+   the download indicator are done (see "Done since"). Left: run the lesson
+   source codemod where the B2 lessons are merged (`pnpm tsx
+   scripts/lesson-data-seed-plus-packs.ts --apply`, then the app and admin
+   suites). A `--packs` publish rewrites BOTH seed.json and seed-packs.json;
+   commit them together. Then:
 
    ```bash
    cd ealch-admin

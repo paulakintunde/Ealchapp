@@ -28,8 +28,11 @@
 //                                          ALSO upload the free core (public, core/vN.json),
 //                                          each changed pack (PRIVATE bucket content-packs,
 //                                          <pack>/vN.json) and manifest-v2.json, and cut the
-//                                          seed as the free core (CORE_SEED_CUT). The legacy
+//                                          seed as the free core (CORE_SEED_CUT), writing the
+//                                          paid rows the content tests read (TEST_CUT minus
+//                                          the core) to seed-packs.json beside it. The legacy
 //                                          full snapshot + manifest.json publish unchanged.
+//                                          Without --packs, seed-packs.json is written EMPTY.
 //                                          Off until the rollout steps at the end of the spec
 //                                          are approved and done (the bucket must exist).
 //
@@ -44,8 +47,9 @@ import { describeTarget } from './env';
 import { contentItems } from '../src/db/schema';
 import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCLED_VOCAB_FLOOR } from '../src/lib/vocab';
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
-import { CORE_SEED_CUT, SEED_CUT, describeCut } from './seed-cut.config.ts';
-import { buildCoreSeed, cutExamTasks, cutItems } from './seed-cut.logic.ts';
+import { CORE_SEED_CUT, SEED_CUT, TEST_CUT, describeCut } from './seed-cut.config.ts';
+import { buildCoreSeed, cutSeed } from './seed-cut.logic.ts';
+import { PACKS_LAYER_PATH, composeTestCorpus, emptyLayer, packsLayer } from '../../ealch-v2/src/content/seed-plus-packs.ts';
 import { MANIFEST_V2, PACK_BUCKET, mergeSplit, planPublish, splitCorpus, type Split } from './content-packs.logic.ts';
 import { heldBands, isPacksManifest, partialValidationView, type PackName, type PacksManifest } from '../../ealch-v2/src/services/packs.logic.ts';
 import { measureEnding, type GenderRow } from '../../ealch-v2/src/content/gender.logic.ts';
@@ -69,7 +73,6 @@ import { MAX_SNAPSHOT_BYTES } from '../../ealch-v2/src/services/content.logic.ts
 // content the app cannot render.
 import {
   formatIssues,
-  unitBand,
   validateCorpus,
   ITEM_ID_RE,
   type Corpus,
@@ -1044,8 +1047,12 @@ async function main() {
   // SEED_CUT.units would ship while contributing `undefined` to seedLevels below,
   // taking its scenarios with it. unitBand() reads the one field that is always
   // present and cannot disagree.
-  const wantUnit = (u: Unit) =>
-    (SEED_CUT.tracks as readonly string[]).includes(unitBand(u.id) ?? '') || SEED_CUT.units.includes(u.id);
+  //
+  // THE CUT ITSELF IS `cutSeed` in seed-cut.logic.ts (moved there verbatim on
+  // 2026-09-27 so the premium-packs test cut can reuse it). The reasons for
+  // each clause stay here, where the publish log prints their effects.
+  const cutInput = { version, domains, themes, units: prunedUnits, lessons, items, scenarios, playlists, speakPath, examPapers, examTasks };
+  const { seed: legacySeed, pulledIn } = cutSeed(cutInput, SEED_CUT);
 
   // The cut must be PREREQ-CLOSED: if a unit ships in the binary, the units it
   // gates on ship too, transitively. A seed unit whose prerequisite lives only
@@ -1060,33 +1067,14 @@ async function main() {
   // honest cost of shipping the gate; today's prereqs are lesson-less A1 units
   // and cost bytes, not megabytes. If closure ever drags in something heavy,
   // the fix is in seed-cut.config.ts (name a lighter cut), never here.
-  const unitById = new Map(prunedUnits.map((u) => [u.id, u]));
-  const seedUnitMap = new Map(prunedUnits.filter(wantUnit).map((u) => [u.id, u]));
-  const cutUnitIds = new Set(seedUnitMap.keys());
-  const queue = [...seedUnitMap.values()];
-  while (queue.length) {
-    const u = queue.pop()!;
-    for (const p of u.prereqUnitIds ?? []) {
-      const pu = unitById.get(p);
-      if (pu && !seedUnitMap.has(pu.id)) {
-        seedUnitMap.set(pu.id, pu);
-        queue.push(pu);
-      }
-    }
-  }
-  const seedUnits = [...seedUnitMap.values()];
-  const pulledIn = seedUnits.filter((u) => !cutUnitIds.has(u.id));
   if (pulledIn.length) {
     console.log(`  prereq closure pulled in: ${pulledIn.map((u) => u.id).join(', ')}`);
   }
-  const seedUnitIds = new Set(seedUnitMap.keys());
-  const seedLessons = lessons.filter((l) => seedUnitIds.has(l.unitId));
 
   // Speak stages ship for the configured worlds, and their blocks' items come
   // with them — a bundled stage whose sentences live only on the network is a
   // trail a fresh offline install cannot walk (and a validateCorpus failure
   // below, which is the guard that makes forgetting this impossible).
-  const seedSpeak = speakPath.filter((s) => SEED_CUT.speakWorlds.includes(s.world));
 
   // Exams (phase 22.1, D-01/D-02): every published paper ships unfiltered;
   // only the tasks a bundled paper's sections reference ship with it, the
@@ -1097,7 +1085,6 @@ async function main() {
   // Computed BEFORE seedItems (below) because closed exam tasks name the items
   // they test via targetItemIds, and those items must ship too — see the note
   // there.
-  const seedExamTasks = cutExamTasks(examTasks, examPapers);
 
   // Everything the bundled lessons depend on, plus the core themes, plus the
   // bundled speak stages' blocks. A seed that ships a lesson without its items
@@ -1121,26 +1108,11 @@ async function main() {
   // outside the lesson/speak/theme cut — measured: 2137 dangling references,
   // all real published items (b2/c1-band exam vocabulary the a1/a2/sons-scoped
   // item cut never had a reason to include) on the first dry run this phase ran.
-  const examTargetItemIds = new Set(seedExamTasks.flatMap((t) => t.targetItemIds ?? []));
-  const seedItems = [
-    ...new Map(
-      [...cutItems(items, seedLessons, seedSpeak), ...items.filter((i) => examTargetItemIds.has(i.id))].map(
-        (i) => [i.id, i] as const
-      )
-    ).values(),
-  ];
 
   // Scenarios ship in the seed when their level is represented in the seed — by a
   // bundled track OR a bundled unit (a1.01 pulls a1 in). So a fresh, offline
   // install can run Role Play at the levels it actually ships content for.
-  const seedLevels = new Set<string>([
-    ...SEED_CUT.tracks,
-    ...seedUnits.map((u) => unitBand(u.id)).filter((b): b is NonNullable<typeof b> => b !== null),
-  ]);
-  const seedScenarios = scenarios.filter((s) => seedLevels.has(s.level));
-  // Playlists ship in the seed on the same rule as scenarios: honest listening
-  // for a level a fresh offline install actually has content for.
-  const seedPlaylists = playlists.filter((p) => seedLevels.has(p.minLevel));
+  // Playlists ship in the seed on the same rule as scenarios.
 
   // The catalogue ships WHOLE, not cut. Three reasons, in order of weight:
   //
@@ -1153,13 +1125,16 @@ async function main() {
   //     overlay a no-op.
   //   · It is reference data: 14 domains and 130 themes is roughly 26 KiB
   //     against a 5 MiB ceiling, and it does not grow with the corpus.
-  const legacySeed: Corpus = {
-    version, domains, themes,
-    units: seedUnits, lessons: seedLessons, items: seedItems,
-    scenarios: seedScenarios, playlists: seedPlaylists, speakPath: seedSpeak,
-    examPapers,                  // D-01: every published paper, unfiltered
-    examTasks: seedExamTasks,    // D-02: only tasks a bundled paper references
-  };
+  //
+  // Exams: D-01 every published paper, unfiltered; D-02 only the tasks a
+  // bundled paper references.
+  const seedUnits = legacySeed.units;
+  const seedLessons = legacySeed.lessons;
+  const seedItems = legacySeed.items;
+  const seedScenarios = legacySeed.scenarios;
+  const seedPlaylists = legacySeed.playlists ?? [];
+  const seedSpeak = legacySeed.speakPath ?? [];
+  const seedExamTasks = legacySeed.examTasks ?? [];
 
   // The seed must be a coherent corpus IN ITS OWN RIGHT. It is what a user with
   // no network sees, so a dangling reference here is invisible until someone is
@@ -1232,6 +1207,24 @@ async function main() {
     coreSeed = buildCoreSeed(split.core, CORE_SEED_CUT);
     const issues = validateCorpus(partialValidationView(coreSeed, { bands: heldBands([]), exam: false }));
     if (issues.length) packIssues.push(`core seed: ${issues.length} issue(s)\n${formatIssues(issues.slice(0, 8))}`);
+  }
+  // THE PAID LAYER the content tests read (ealch-v2/src/content/
+  // seed-plus-packs.ts): the TEST_CUT of this corpus (every band, published
+  // lessons and what they name, the SEED_CUT themes) minus what the core seed
+  // already carries. Written beside seed.json under --packs, so the ~50 test
+  // files that check A2/B1/B2 lessons keep seeing them once seed.json is the
+  // core. seed + layer must validate IN FULL: it is what a device holding
+  // every pack sees, and seed.backcompat.test.ts asserts exactly that.
+  let testLayer: Corpus | null = null;
+  if (coreSeed) {
+    testLayer = packsLayer(cutSeed(cutInput, TEST_CUT).seed, coreSeed);
+    const issues = validateCorpus(composeTestCorpus(coreSeed, testLayer));
+    if (issues.length) packIssues.push(`core seed + test layer: ${issues.length} issue(s)\n${formatIssues(issues.slice(0, 8))}`);
+    const layerBytes = Buffer.byteLength(JSON.stringify(testLayer, null, 2), 'utf8');
+    console.log(
+      `  test layer (seed-packs.json under --packs): ${testLayer.units.length} units · ${testLayer.lessons.length} lessons · ` +
+        `${testLayer.items.length} items · ${mib(layerBytes)} pretty-printed`
+    );
   }
   if (packIssues.length) {
     if (PACKS) {
@@ -1526,6 +1519,13 @@ async function main() {
   mkdirSync(dirname(SEED_PATH), { recursive: true });
   writeFileSync(SEED_PATH, JSON.stringify(seed, null, 2) + '\n', 'utf8');
   console.log(`  ✎ ${SEED_PATH}`);
+  // The paid layer beside it, from the same run so the two cannot disagree:
+  // under --packs the test cut minus the core seed, otherwise EMPTY (the seed
+  // is already everything the tests read; an old layer left behind would
+  // overlay stale rows on a fresh seed).
+  const layer = PACKS && testLayer ? testLayer : emptyLayer(version);
+  writeFileSync(PACKS_LAYER_PATH, JSON.stringify(layer, null, 2) + '\n', 'utf8');
+  console.log(`  ✎ ${PACKS_LAYER_PATH}${PACKS ? '' : ' (empty: legacy seed)'}`);
 
   // ── 10. Record it. The DB is the version counter. ──────────────────────
   await pool.query(

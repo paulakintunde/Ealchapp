@@ -38,7 +38,8 @@
 
 import { test } from 'node:test';
 import { ok, strictEqual, deepStrictEqual, notStrictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { fold } from './answer.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
 import { hasPlainNasalFor } from './density.logic.ts';

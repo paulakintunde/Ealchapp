@@ -21,9 +21,10 @@ import {
   measureEnding,
   type GenderRow,
 } from './gender.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as { items: GenderRow[] };
+const seed = seedPlusPacks() as { items: GenderRow[] };
 const ITEMS = seed.items;
 
 test('bareNoun strips every article form the corpus uses', () => {

@@ -19,9 +19,10 @@ import { dirname, resolve } from 'node:path';
 import { ok, strictEqual, deepStrictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { validateLesson, type Lesson, type LessonSection } from './schema.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as { lessons: Lesson[] };
+const seed = seedPlusPacks() as { lessons: Lesson[] };
 
 const listeningSections = seed.lessons.flatMap((l) =>
   (l.sections as LessonSection[]).filter((s) => s.type === 'listening').map((s) => ({ lesson: l.id, sec: s })));

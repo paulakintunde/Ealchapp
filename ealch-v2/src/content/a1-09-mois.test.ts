@@ -45,9 +45,10 @@ import { hasPlainNasalFor, validateDensity, formatDensity } from './density.logi
 import { glossKeys, segmentSentence } from './gloss.logic.ts';
 import { dicteeMode, wordDecoys } from './dictee.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   units: { id: string; seq: number; lessonIds: string[]; themes?: unknown; canDo?: string; sub?: string; title?: string }[];
   lessons: Lesson[];
   items: { id: string; kind: string; level: string; theme: string; fr: string; en: string; respell?: string; ipa?: string; drills: string[]; cardType?: string; gender?: string }[];

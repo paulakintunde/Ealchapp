@@ -37,9 +37,10 @@ import { narrationOf, quizQuestions, validateLesson, type Lesson } from './schem
 import { glossKeys, segmentSentence } from './gloss.logic.ts';
 import { dicteeMode, dicteeWords, wordDecoys } from './dictee.logic.ts';
 import { bareNoun, carriesArticle, isPluralOnly, measureEnding, type GenderRow } from './gender.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   units: { id: string; seq: number; title: string; canDo: string; sub: string; lessonIds: string[]; themes?: string[]; prereqUnitIds?: string[] }[];
   lessons: Lesson[];
   items: (GenderRow & { level: string; theme: string; en: string; drills: string[] })[];

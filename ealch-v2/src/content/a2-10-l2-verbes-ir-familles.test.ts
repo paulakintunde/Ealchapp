@@ -43,9 +43,10 @@ import { matchesAccept } from './answer.logic.ts';
 import { lessonsOfUnit } from '../services/content.logic.ts';
 import { normalizeFr } from '../utils/score.ts';
 import { namesUnitLabel } from './unit-label.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   version: number; items: Item[]; lessons: Lesson[];
   units: { id: string; title?: string; sub?: string; canDo?: string; seq?: string | number; lessonIds?: string[]; prereqUnitIds?: string[] }[];
 };
