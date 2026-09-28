@@ -272,7 +272,7 @@ Plans:
 - [x] 08-02-PLAN.md — act and lesson navigation, language panel, and overlay focus
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 08-03-PLAN.md — lesson and mission exercise control audit
+- [x] 08-03-PLAN.md — lesson and mission exercise control audit
 
 **Wave 4** *(blocked on Wave 3 completion)*
 - [ ] 08-04-PLAN.md — Settings, paywall, and account action semantics
