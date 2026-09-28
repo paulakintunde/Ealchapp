@@ -365,13 +365,14 @@ export default function Onboarding() {
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 24 }}>
               <View style={{ flexDirection: 'row', minHeight: 40, paddingVertical: 6, borderRadius: 20, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
-                {(['dark', 'light'] as const).map((m) => {
+                {(['automatic', 'dark', 'light'] as const).map((m) => {
                   const on = s.mode === m;
+                  const label = m === 'automatic' ? T.modeAutomatic : m === 'dark' ? T.modeDark : T.modeLight;
                   return (
-                    <Press key={m} onPress={() => s.setMode(m)} style={{ paddingHorizontal: 22, flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: on ? t.acc : 'transparent' }}>
-                      <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txNonText} />
+                    <Press key={m} accessibilityRole="radio" accessibilityState={{ selected: on }} accessibilityLabel={label} onPress={() => s.setMode(m)} style={{ paddingHorizontal: 12, flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: on ? t.acc : 'transparent' }}>
+                      {m !== 'automatic' ? <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txNonText} /> : null}
                       <TX font="bold" role="meta" ls={1.4} color={on ? t.accInk : t.txSecondary}>
-                        {m === 'dark' ? T.modeDark : T.modeLight}
+                        {label}
                       </TX>
                     </Press>
                   );

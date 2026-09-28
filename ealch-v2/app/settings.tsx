@@ -367,23 +367,26 @@ export default function Settings() {
         <GroupTitle>{T.modeT}</GroupTitle>
         <View style={{ flexDirection: 'row', marginBottom: 18 }}>
           <View style={{ flexDirection: 'row', minHeight: 40, paddingVertical: 6, borderRadius: 20, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
-            {(['dark', 'light'] as const).map((m) => {
+            {(['automatic', 'dark', 'light'] as const).map((m) => {
               const on = mode === m;
+              const label = m === 'automatic'
+                ? (on ? `${T.modeAutomatic} · ${t.isDark ? T.modeDark : T.modeLight}` : T.modeAutomatic)
+                : m === 'dark' ? T.modeDark : T.modeLight;
               return (
-                <Press accessibilityRole="radio" accessibilityState={{ selected: on }} accessibilityLabel={m === 'dark' ? T.modeDark : T.modeLight}
+                <Press accessibilityRole="radio" accessibilityState={{ selected: on }} accessibilityLabel={label}
                   key={m}
                   onPress={() => setMode(m)}
                   style={{
-                    paddingHorizontal: 20,
+                    paddingHorizontal: 12,
                     flexDirection: 'row',
                     alignItems: 'center',
                     gap: 7,
                     backgroundColor: on ? t.acc : 'transparent',
                   }}
                 >
-                  <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txNonText} />
+                  {m !== 'automatic' ? <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txNonText} /> : null}
                   <TX font="bold" role="meta" ls={1.2} color={on ? t.accInk : t.txMuted}>
-                    {m === 'dark' ? T.modeDark : T.modeLight}
+                    {label}
                   </TX>
                 </Press>
               );

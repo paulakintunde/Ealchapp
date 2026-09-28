@@ -71,4 +71,23 @@ describe('Settings screen', () => {
     expect(useStore.getState().mode).toBe('light');
     expect(screen.getByRole('radio', { name: /light/i }).props.accessibilityState.selected).toBe(true);
   });
+
+  test('Automatic names the resolved appearance and follows OS changes', async () => {
+    const scheme = jest.spyOn(require('react-native'), 'useColorScheme').mockReturnValue('dark');
+    try {
+      useStore.setState({ mode: 'automatic' });
+      const view = await renderSettings();
+      expect(screen.getByRole('radio', { name: 'AUTOMATIC · DARK' }).props.accessibilityState.selected).toBe(true);
+      scheme.mockReturnValue('light');
+      await view.rerender(
+        <SafeAreaProvider initialMetrics={metrics}>
+          <Settings />
+        </SafeAreaProvider>,
+      );
+      expect(screen.getByRole('radio', { name: 'AUTOMATIC · LIGHT' }).props.accessibilityState.selected).toBe(true);
+      expect(useStore.getState().mode).toBe('automatic');
+    } finally {
+      scheme.mockRestore();
+    }
+  });
 });

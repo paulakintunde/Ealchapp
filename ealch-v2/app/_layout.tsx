@@ -1,9 +1,11 @@
 import '../global.css';
 import { useEffect } from 'react';
-import { Platform, View } from 'react-native';
+import { Appearance, Platform, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+import { NavigationBar } from 'expo-navigation-bar';
+import * as SystemUI from 'expo-system-ui';
 import { Stack } from 'expo-router';
 import * as Notifications from 'expo-notifications';
 import * as SplashScreen from 'expo-splash-screen';
@@ -77,6 +79,7 @@ export default function RootLayout() {
   const contentHydrated = useContent((s) => s.hydrated);
   const ready = fontsLoaded && hydrated && progressHydrated && contentHydrated;
   const t = useTheme();
+  const appearancePreference = useStore((s) => s.mode);
   const rootOverlayOpen = useUI((s) => !!s.sheet || s.dictOpen);
   useAlarmWatcher();
   useAuthSession();
@@ -84,6 +87,16 @@ export default function RootLayout() {
   // Entitlement: cached copy first (offline honest), then RevenueCat
   // customerInfo reconciled on boot, on foreground and on sign-in/out.
   useEntitlementSync();
+
+  useEffect(() => {
+    Appearance.setColorScheme(
+      appearancePreference === 'automatic' ? 'unspecified' : appearancePreference,
+    );
+  }, [appearancePreference]);
+
+  useEffect(() => {
+    void SystemUI.setBackgroundColorAsync(t.bg).catch(() => {});
+  }, [t.bg]);
 
   useEffect(() => {
     // BEFORE the first gate is evaluated: the clock floor that stops a wound-back
@@ -104,7 +117,7 @@ export default function RootLayout() {
   }, [ready]);
 
   if (!ready) {
-    return <View style={{ flex: 1, backgroundColor: '#0B0C0E' }} />;
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
   }
 
   return (
@@ -113,6 +126,7 @@ export default function RootLayout() {
         <AppFrame>
           <View style={{ flex: 1, backgroundColor: t.bg }}>
             <StatusBar style={t.isDark ? 'light' : 'dark'} />
+            {Platform.OS === 'android' ? <NavigationBar style={t.isDark ? 'light' : 'dark'} /> : null}
             <View style={{ flex: 1 }} importantForAccessibility={rootOverlayOpen ? 'no-hide-descendants' : 'auto'} accessibilityElementsHidden={rootOverlayOpen}>
             <Stack
               screenOptions={{

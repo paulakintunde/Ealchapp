@@ -2,7 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { ACCENTS, type Mode } from '@/theme/palette';
+import { ACCENTS } from '@/theme/palette';
+import { DEFAULT_APPEARANCE, normalizeAppearancePreference, type AppearancePreference } from '@/theme/appearance.logic';
 import { avatarName, DEFAULT_AVATAR_ID } from '@/content/avatars';
 // Import the service module directly (not '@/services') — the barrel pulls in
 // sound.ts, which imports this store back.
@@ -45,7 +46,7 @@ export type AppState = {
   appLang: string;
 
   // appearance
-  mode: Mode;
+  mode: AppearancePreference;
   accent: string; // active accent hex (accentPick)
   avatarId: string; // selected coach avatar (AvatarId from content/avatars.ts)
 
@@ -149,8 +150,7 @@ export type AppState = {
   setHydrated: () => void;
   setLang: (l: Lang) => void;
   toggleLang: () => void;
-  setMode: (m: Mode) => void;
-  toggleMode: () => void;
+  setMode: (m: AppearancePreference) => void;
   setAccent: (hex: string) => void;
   setAvatarId: (id: string) => void;
   setSound: (on: boolean) => void;
@@ -191,7 +191,7 @@ const initialData = () => ({
   lang: deviceLang(),
   appLang: deviceLang() as string,
 
-  mode: 'dark' as Mode,
+  mode: DEFAULT_APPEARANCE,
   accent: ACCENTS[0].c,
   avatarId: DEFAULT_AVATAR_ID as string,
 
@@ -242,8 +242,7 @@ export const useStore = create<AppState>()(
       setHydrated: () => set({ hydrated: true }),
       setLang: (lang) => set({ lang }),
       toggleLang: () => set({ lang: get().lang === 'fr' ? 'en' : 'fr' }),
-      setMode: (mode) => set({ mode }),
-      toggleMode: () => set({ mode: get().mode === 'dark' ? 'light' : 'dark' }),
+      setMode: (mode) => set({ mode: normalizeAppearancePreference(mode) }),
       setAccent: (accent) => set({ accent }),
       setAvatarId: (avatarId) => set({ avatarId }),
       setSound: (sound) => set({ sound }),
@@ -439,7 +438,14 @@ export const useStore = create<AppState>()(
           s.lessonEnglishMode = migrateLessonEnglishMode(s.lessonEnglish as boolean | undefined);
           delete s.lessonEnglish;
         }
+        s.mode = normalizeAppearancePreference(s.mode);
         return s as AppState;
+      },
+      // Hydration also runs when the stored version is already current.
+      // Validate this local presentation preference without touching account data.
+      merge: (persisted, current) => {
+        const saved = persisted as Partial<AppState> | undefined;
+        return { ...current, ...saved, mode: normalizeAppearancePreference(saved?.mode) };
       },
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({
