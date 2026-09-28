@@ -38,6 +38,8 @@ export const B1_SLUGS = [
 /** Every B2 lesson authored so far, in trail order (files in data/b2/). A wave
  *  adds its slugs here when it lands. */
 export const B2_SLUGS: readonly string[] = [
+  // wave 2 (Unit 1, first half)
+  'plus-que-parfait', 'conditionnel-passe', 'si-irreel-passe', 'si-mixtes',
   // wave 1 (exam-skill targets and academic style)
   'style-academique', 'argumentation', 'lecture-critique', 'ecoute-vitesse-reelle', 'reunions-negociation',
 ];

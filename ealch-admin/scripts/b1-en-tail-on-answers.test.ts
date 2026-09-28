@@ -32,6 +32,7 @@ const LESSONS: [string, string][] = [
   ['b1.30', 'coordination'], ['b1.31', 'subordination'], ['b1.32', 'concession'], ['b1.33', 'environnement'], ['b1.37', 'strategies-lecture'],
   ['b1.34', 'medias'], ['b1.35', 'emotions'], ['b1.36', 'affaires'], ['b1.38', 'strategies-ecoute'], ['b1.39', 'courriels-lettres'],
   ['b2.22', 'style-academique'], ['b2.23', 'argumentation'], ['b2.24', 'lecture-critique'], ['b2.25', 'ecoute-vitesse-reelle'], ['b2.26', 'reunions-negociation'],
+  ['b2.01', 'plus-que-parfait'], ['b2.02', 'conditionnel-passe'], ['b2.03', 'si-irreel-passe'], ['b2.04', 'si-mixtes'],
 ];
 
 /** Fields whose strings ARE the answer: what the learner picks, types, or is
