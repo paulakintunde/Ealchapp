@@ -10,6 +10,7 @@ import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { useContent, refreshFromRemote, contentCacheInfo } from '@/services/content';
 import { playlistPool } from '@/utils/speakDeck.logic';
+import { PackProgress } from '@/components/PackProgress';
 
 // Offline/content status, told accurately.
 //
@@ -113,6 +114,9 @@ export default function Downloads() {
         <TX role="bodySm" lhMult={1.6} color={t.txMuted} style={{ marginBottom: 24 }}>
           {T.offlineReadyS}
         </TX>
+
+        {/* Premium packs still arriving (draws nothing when none are) */}
+        <PackProgress sub={T.packDlS} />
 
         {/* Content version + real counts */}
         <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, padding: 18, marginBottom: 12 }}>

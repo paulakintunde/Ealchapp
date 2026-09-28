@@ -384,6 +384,52 @@ export function missingLessonState(id: string, levelsAll: boolean): 'locked' | '
   return levelsAll ? 'pending' : 'locked';
 }
 
+/* ─── The download indicator (spec section 4) ─────────────────────────────── */
+
+/** What packs.ts's usePackSync store holds while a sync runs. */
+export type PackSyncSnapshot = { status: 'idle' | 'downloading'; current: PackName | null; done: number; total: number };
+
+/** What a progress surface draws, or null when there is nothing to draw. */
+export type PackProgress = {
+  current: PackName | null;
+  /** Packs fully saved this run, 0..total. */
+  done: number;
+  total: number;
+  /** The pack being fetched, 1-based, never past total. */
+  step: number;
+  /** done / total, for the bar. Moves when a pack LANDS, never on a guess. */
+  fraction: number;
+};
+
+export function packProgress(s: PackSyncSnapshot): PackProgress | null {
+  if (s.status !== 'downloading' || !(s.total > 0)) return null;
+  const done = Math.min(s.total, Math.max(0, Math.floor(s.done)));
+  return { current: s.current, done, total: s.total, step: Math.min(s.total, done + 1), fraction: done / s.total };
+}
+
+/** The pack's name as a learner reads it: the CEFR band in capitals, or the
+ *  localized word for exams. */
+export function packDisplayName(p: PackName, examWord: string): string {
+  return p === EXAM_PACK ? examWord : p.toUpperCase();
+}
+
+/** "A2 · 1 of 3" (or "1 of 3" before the first pack is named). The formats
+ *  come from the i18n table: {band}, {n}, {total}. */
+export function packProgressLine(p: PackProgress, strs: { stepFmt: string; countFmt: string; examWord: string }): string {
+  const fmt = p.current ? strs.stepFmt : strs.countFmt;
+  return fmt
+    .replace('{band}', p.current ? packDisplayName(p.current, strs.examWord) : '')
+    .replace('{n}', String(p.step))
+    .replace('{total}', String(p.total));
+}
+
+/** The Den banner: only while a sync runs AND the band on screen is a paid
+ *  band whose pack is not loaded yet. A free band, or a paid one already on
+ *  the device, reads exactly as before. */
+export function denPackBanner(s: PackSyncSnapshot, band: string, bandLoaded: boolean): boolean {
+  return packProgress(s) !== null && (PAID_BANDS as readonly string[]).includes(band) && !bandLoaded;
+}
+
 /** The band of a pack, or null for the exam pack. */
 export function packBand(p: PackName): Level | null {
   return p === EXAM_PACK ? null : p;
