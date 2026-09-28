@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Animated, Pressable, ScrollView, View } from 'react-native';
+import * as ReactNative from 'react-native';
+import { AccessibilityInfo, Animated, Pressable, ScrollView, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import Svg, { Path } from 'react-native-svg';
 import { TX } from './Type';
@@ -9,7 +10,6 @@ import { useT } from '@/i18n/useT';
 import { useUI } from '@/store/useUI';
 import { useStore } from '@/store/useStore';
 import { avatarName } from '@/content/avatars';
-import { sound } from '@/services';
 
 const LIAISONS = [
   { fr: 'un‿allongé', hint: '« un-nallongé » — the n carries over' },
@@ -27,6 +27,12 @@ export function BottomSheet() {
   const y = useRef(new Animated.Value(600)).current;
   const op = useRef(new Animated.Value(0)).current;
   const [mounted, setMounted] = useState<boolean>(!!sheet);
+  const titleRef = useRef<View>(null);
+  const focusTitle = () => {
+    if (!sheet) return;
+    const node = ReactNative.findNodeHandle(titleRef.current);
+    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+  };
 
   useEffect(() => {
     if (sheet) {
@@ -54,9 +60,9 @@ export function BottomSheet() {
   };
 
   return (
-    <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}>
+    <View accessibilityViewIsModal style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}>
       <Animated.View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: op }}>
-        <Pressable onPress={() => closeThen()} style={{ flex: 1, backgroundColor: t.alpha(t.bgDeep, 60) }} />
+        <Pressable onPress={() => closeThen()} accessibilityRole="button" accessibilityLabel={T.a11yDismissPanel} style={{ flex: 1, backgroundColor: t.alpha(t.bgDeep, 60) }} />
       </Animated.View>
 
       <Animated.View
@@ -84,9 +90,11 @@ export function BottomSheet() {
               <TX font="semi" role="meta" ls={2.6} color={t.accTx} style={{ marginBottom: 10 }}>
                 {T.vocabTag}
               </TX>
-              <TX font="serif" role="display" size={28} style={{ marginBottom: 6 }}>
-                {T.vocabPrimerTitle}
-              </TX>
+              <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.vocabPrimerTitle} onLayout={focusTitle}>
+                <TX font="serif" role="display" size={28} style={{ marginBottom: 6 }}>
+                  {T.vocabPrimerTitle}
+                </TX>
+              </View>
               <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 22 }}>
                 {T.vocabSub}
               </TX>
@@ -99,6 +107,9 @@ export function BottomSheet() {
                       cue="tap"
                       scale={0.99}
                       onPress={() => setDone((d) => ({ ...d, [i]: !d[i] }))}
+                      accessibilityRole="checkbox"
+                      accessibilityLabel={`${v.fr}. ${v.en}`}
+                      accessibilityState={{ checked: on }}
                       style={{
                         minHeight: 56,
                         borderRadius: 14,
@@ -163,6 +174,8 @@ export function BottomSheet() {
               <Press
                 cue="tap"
                 onPress={() => closeThen(() => router.push('/speak'))}
+                accessibilityRole="button"
+                accessibilityLabel={T.go}
                 style={{ minHeight: 54, paddingVertical: 12, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
               >
                 <TX font="semi" role="bodyLg" color={t.accInk}>
@@ -175,9 +188,11 @@ export function BottomSheet() {
               <TX font="semi" role="meta" ls={2.6} color={t.accTx} style={{ marginBottom: 10 }}>
                 {T.grammarTag}
               </TX>
-              <TX font="serif" role="display" size={28} style={{ marginBottom: 14 }}>
-                La liaison obligatoire
-              </TX>
+              <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel="La liaison obligatoire" onLayout={focusTitle}>
+                <TX font="serif" role="display" size={28} style={{ marginBottom: 14 }}>
+                  La liaison obligatoire
+                </TX>
+              </View>
               <TX role="body" lhMult={1.65} color={t.txSecondary} style={{ marginBottom: 22 }}>
                 {T.grammarBody}
               </TX>
@@ -198,15 +213,11 @@ export function BottomSheet() {
                       paddingVertical: 8,
                     }}
                   >
-                    <Press
-                      cue={null}
-                      onPress={() => sound.play('tap')}
-                      style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}
-                    >
+                    <View accessibilityElementsHidden importantForAccessibility="no" style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                       <Svg width={11} height={13} viewBox="0 0 11 13">
                         <Path d="M0 0.8C0 0.24 0.61-0.1 1.09 0.19l9.4 5.45a0.72 0.72 0 0 1 0 1.25L1.09 12.34C0.61 12.63 0 12.29 0 11.73V0.8Z" fill={t.acc} />
                       </Svg>
-                    </Press>
+                    </View>
                     <View style={{ flex: 1 }}>
                       <TX font="serifI" role="title">
                         {l.fr}
@@ -221,6 +232,8 @@ export function BottomSheet() {
               <Press
                 cue="tap"
                 onPress={() => closeThen(() => router.push('/chat'))}
+                accessibilityRole="button"
+                accessibilityLabel={T.askCoach.replace('{name}', coachName)}
                 style={{ minHeight: 54, paddingVertical: 12, borderRadius: 27, borderWidth: 1, borderColor: t.accA(55), alignItems: 'center', justifyContent: 'center' }}
               >
                 <TX font="semi" role="bodyLg" color={t.accTx}>

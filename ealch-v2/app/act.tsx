@@ -164,11 +164,11 @@ export default function Act() {
       <ScrollView contentContainerStyle={{ paddingTop: insets.top + 8, paddingHorizontal: 24, paddingBottom: insets.bottom + 28 }} showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-          <Press onPress={() => router.back()} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
+          <Press onPress={() => router.back()} accessibilityRole="button" accessibilityLabel={T.a11yBack} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
           </Press>
           <TX font="semi" role="meta" ls={2.2} color={t.txSecondary}>{lessonEyebrow(L, content.unit(L.unitId))}</TX>
-          <Press onPress={goFiche} style={{ width: 44, height: 44, marginRight: -12, alignItems: 'center', justifyContent: 'center' }}>
+          <Press onPress={goFiche} accessibilityRole="button" accessibilityLabel={T.a11yOpenFiche} style={{ width: 44, height: 44, marginRight: -12, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name="book" size={18} color={t.txNonText} />
           </Press>
         </View>
@@ -178,7 +178,7 @@ export default function Act() {
         {acts ? (
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
             {actIx > 0 ? (
-              <Press onPress={goPrev} hitSlop={8} style={{ width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}>
+              <Press onPress={goPrev} accessibilityRole="button" accessibilityLabel={T.a11yPreviousAct} hitSlop={8} style={{ width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="chevronLeft" size={16} color={t.accTx} strokeWidth={1.7} />
               </Press>
             ) : (
@@ -186,7 +186,7 @@ export default function Act() {
             )}
             <TX font="bold" role="eyebrow" ls={1.4} color={t.txSubtle}>{`${actIx + 1} / ${acts.length}`}</TX>
             {actIx < acts.length - 1 ? (
-              <Press onPress={goNext} hitSlop={8} style={{ width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}>
+              <Press onPress={goNext} accessibilityRole="button" accessibilityLabel={T.a11yNextAct} hitSlop={8} style={{ width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="chevronRight" size={16} color={t.accTx} strokeWidth={1.7} />
               </Press>
             ) : (
@@ -214,6 +214,8 @@ export default function Act() {
           <Press
             cue={null}
             onPress={listenIntro}
+            accessibilityRole="button"
+            accessibilityLabel={T.moListen}
             style={{ alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 9, marginTop: 16, minHeight: 37, paddingHorizontal: 15, borderRadius: 18.5, borderWidth: 1, borderColor: introPlaying ? t.acc : t.accA(45), backgroundColor: introPlaying ? t.accA(12) : 'transparent' }}
           >
             <Icon name="speaker" size={16} color={t.acc} />
@@ -251,6 +253,8 @@ export default function Act() {
                 cue="tap"
                 scale={0.99}
                 onPress={() => openMission(ix)}
+                accessibilityRole="button"
+                accessibilityLabel={`${ix + 1}. ${s.title}${isDone ? `. ${T.doneTag}` : ''}`}
                 style={{ flexDirection: 'row', alignItems: 'center', gap: 13, borderRadius: 16, borderWidth: 1, borderColor: isDone ? t.accA(55) : t.line(8), backgroundColor: t.card, padding: 13, paddingHorizontal: 15 }}
               >
                 <View style={{ width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: isDone ? t.acc : t.accA(40), backgroundColor: isDone ? t.acc : 'transparent', alignItems: 'center', justifyContent: 'center' }}>

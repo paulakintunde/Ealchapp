@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { BackHandler, View } from 'react-native';
+import { AccessibilityInfo, BackHandler, findNodeHandle, View } from 'react-native';
 import { useRouter, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
@@ -130,6 +130,11 @@ function LessonScreenBody() {
   const lessonEnglishMode = useStore((s) => s.lessonEnglishMode);
   const setLessonEnglishMode = useStore((s) => s.setLessonEnglishMode);
   const [langPanelOpen, setLangPanelOpen] = useState(false);
+  const langChipRef = useRef<View>(null);
+  const focusLangChip = useCallback(() => {
+    const node = findNodeHandle(langChipRef.current);
+    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+  }, []);
 
   const [playingId, setPlayingId] = useState<string | null>(null);
   // itemIds self-rated this visit — purely a UI dim/highlight cue, never read
@@ -735,7 +740,7 @@ function LessonScreenBody() {
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
-      <View style={{ paddingTop: insets.top }}>
+      <View style={{ paddingTop: insets.top }} importantForAccessibility={langPanelOpen ? 'no-hide-descendants' : 'auto'}>
         <FocusHeader
           onClose={() => router.back()}
           onSettings={() => router.push('/settings')}
@@ -746,7 +751,7 @@ function LessonScreenBody() {
                   all — b1, b2, c1, c2 — and never on sons/a1/a2. That single
                   line is D-15 and it does not change shape. */}
               {glossToggleApplies(band) ? (
-                <LanguageChip mode={lessonEnglishMode} expanded={langPanelOpen} onPress={() => setLangPanelOpen(true)} />
+                <LanguageChip mode={lessonEnglishMode} expanded={langPanelOpen} onPress={() => setLangPanelOpen(true)} focusRef={langChipRef} />
               ) : null}
               {/* The persistent reference link: one tap to the sheets from
                   any screen of the lesson, which is what stops material
@@ -775,8 +780,10 @@ function LessonScreenBody() {
         }}
         open={langPanelOpen}
         onClose={() => setLangPanelOpen(false)}
+        onDismissed={focusLangChip}
       />
 
+      <View style={{ flex: 1 }} importantForAccessibility={langPanelOpen ? 'no-hide-descendants' : 'auto'}>
       <LessonPager
         key={`${L.id}-${runNonce}`}
         title={L.title}
@@ -831,6 +838,7 @@ function LessonScreenBody() {
         acts={L.acts}
         onCheckpointReached={releaseTranche}
       />
+      </View>
     </View>
   );
 }

@@ -294,6 +294,7 @@ function ListenChip({ onPress, playing }: { onPress: () => void; playing: boolea
     <Press
       cue={null}
       onPress={onPress}
+      accessibilityRole="button"
       accessibilityLabel={T.lessonListen}
       style={{
         flexDirection: 'row',
@@ -1027,6 +1028,9 @@ export function LessonPager({
         <Press
           cue={null}
           onPress={onFirst ? undefined : () => goTo(page - 1)}
+          accessibilityRole="button"
+          accessibilityLabel={T.lessonPrev}
+          accessibilityState={{ disabled: onFirst }}
           style={{
             minHeight: 52,
             paddingHorizontal: 20,
@@ -1048,6 +1052,7 @@ export function LessonPager({
           cue={null}
           onPress={onLast ? (finishBlocked ? undefined : onFinish) : nextBlocked ? undefined : () => goTo(page + 1)}
           accessibilityRole="button"
+          accessibilityLabel={onLast ? finishLabel : T.lessonNext}
           accessibilityState={{ disabled: finishBlocked || nextBlocked }}
           accessibilityHint={nextBlocked ? T.checkAnswerFirst : undefined}
           style={{

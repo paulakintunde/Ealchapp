@@ -142,7 +142,7 @@ export default function Fiche() {
               <TX font="serif" role="title">{String(stats.missions)}</TX>
               <TX font="semi" role="body">{T.ovMissionsWord}</TX>
             </View>
-            <Press cue="tap" onPress={goAct} hitSlop={8}>
+            <Press cue="tap" onPress={goAct} accessibilityRole="button" accessibilityLabel={T.ovSeeList} hitSlop={8}>
               <TX font="semi" role="label" color={t.accTx}>{T.ovSeeList + ' →'}</TX>
             </Press>
           </View>
@@ -178,6 +178,8 @@ export default function Fiche() {
                 <Press
                   cue="tap"
                   onPress={() => router.push({ pathname: '/fiche', params: { key: s.id } })}
+                  accessibilityRole="button"
+                  accessibilityLabel={s.overview?.titleEn ?? s.title}
                   style={{ flex: 1, minWidth: 0, flexDirection: 'row', alignItems: 'center', gap: 12 }}
                 >
                   {/* flex lives on the wrapper, never on a TX, or the title clips */}
@@ -191,6 +193,8 @@ export default function Fiche() {
                 <Press
                   cue="tap"
                   onPress={() => router.push({ pathname: '/act', params: { key: s.id, act: '0' } })}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${T.a11yOpenAct}. ${s.overview?.titleEn ?? s.title}`}
                   hitSlop={8}
                   style={{ padding: 6 }}
                 >
@@ -202,10 +206,10 @@ export default function Fiche() {
         ) : null}
 
         {/* CTA */}
-        <Press cue="tap" onPress={goAct} style={{ marginTop: 26, minHeight: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+        <Press cue="tap" onPress={goAct} accessibilityRole="button" accessibilityLabel={T.ovStart} style={{ marginTop: 26, minHeight: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
           <TX font="bold" role="body" color={t.accInk}>{T.ovStart}</TX>
         </Press>
-        <Press cue={null} onPress={goAct} style={{ marginTop: 16, alignItems: 'center' }}>
+        <Press cue={null} onPress={goAct} accessibilityRole="button" accessibilityLabel={T.ovSeeAll.replace('{n}', String(stats.missions))} style={{ marginTop: 16, alignItems: 'center' }}>
           <TX font="semi" role="label" color={t.accTx}>{T.ovSeeAll.replace('{n}', String(stats.missions))}</TX>
         </Press>
       </ScrollView>

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import * as ReactNative from 'react-native';
 import {
+  AccessibilityInfo,
   Modal,
   Pressable,
   ScrollView,
@@ -8,7 +10,9 @@ import {
   type NativeSyntheticEvent,
 } from 'react-native';
 import { Icon } from '@/components/Icon';
+import { TX } from '@/components/Type';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { audio } from '@/services';
 
 // The shared tap-to-open modal for every lesson detail card: table/cheatSheet
@@ -29,14 +33,22 @@ export function LessonModal({
   open,
   onClose,
   size = 'sheet',
+  title,
   children,
 }: {
   open: boolean;
   onClose: () => void;
   size?: LessonModalSize;
+  title?: string;
   children: React.ReactNode;
 }) {
   const t = useTheme();
+  const T = useT();
+  const titleRef = useRef<View>(null);
+  const focusTitle = () => {
+    const node = ReactNative.findNodeHandle(titleRef.current);
+    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+  };
   const [more, setMore] = useState(false);
   const layoutH = useRef(0);
   const contentH = useRef(0);
@@ -65,9 +77,10 @@ export function LessonModal({
   if (!open) return null;
 
   return (
-    <Modal visible transparent animationType="slide" onRequestClose={onClose}>
-      <Pressable onPress={onClose} style={{ flex: 1, backgroundColor: t.alpha(t.bgDeep, 60) }} />
+    <Modal visible transparent animationType="slide" onRequestClose={onClose} onShow={focusTitle}>
+      <Pressable onPress={onClose} accessibilityRole="button" accessibilityLabel={T.a11yDismissPanel} style={{ flex: 1, backgroundColor: t.alpha(t.bgDeep, 60) }} />
       <View
+        accessibilityViewIsModal
         style={{
           maxHeight: size === 'full' ? '95%' : '78%',
           borderTopLeftRadius: 26,
@@ -83,7 +96,8 @@ export function LessonModal({
         <Pressable
           onPress={onClose}
           hitSlop={10}
-          accessibilityLabel="Close"
+          accessibilityRole="button"
+          accessibilityLabel={T.a11yClose}
           style={{
             position: 'absolute',
             top: 14,
@@ -115,6 +129,9 @@ export function LessonModal({
           }}
           scrollEventThrottle={64}
         >
+          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={title ?? T.a11yDetails} onLayout={focusTitle} style={{ marginRight: 40, marginBottom: 8 }}>
+            <TX role="meta" color={t.txMuted}>{title ?? T.a11yDetails}</TX>
+          </View>
           {children}
         </ScrollView>
         {more ? (

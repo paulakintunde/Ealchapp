@@ -142,8 +142,7 @@ export function SectionView({
                   cue={null}
                   onPress={() => onPlay(id, ex.fr)}
                   accessibilityRole="button"
-                  accessibilityLabel={`${ex.fr}. ${ex.en}`}
-                  accessibilityHint="Plays the French sentence"
+                  accessibilityLabel={`${ex.fr}. ${T.playAudioA11y}`}
                   style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}
                 >
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
@@ -249,7 +248,7 @@ export function SectionView({
               const id = `${s.title}-${i}`;
               const on = playingId === id;
               return (
-                <Press key={i} cue={null} onPress={() => onPlay(id, str)} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}>
+                <Press key={i} cue={null} onPress={() => onPlay(id, str)} accessibilityRole="button" accessibilityLabel={`${str}. ${T.playAudioA11y}`} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}>
                   <View style={{ width: 45, height: 45, borderRadius: 22.5, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                     <Icon name="play" size={17} color={t.acc} />
                   </View>

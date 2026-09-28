@@ -10,6 +10,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import type { ErrorBoundaryProps } from 'expo-router';
 import { useAppFonts } from '@/theme/fonts';
 import { useStore } from '@/store/useStore';
+import { useUI } from '@/store/useUI';
 import { useTheme } from '@/theme/useTheme';
 import { useAlarmWatcher } from '@/hooks/useAlarmWatcher';
 import { AppFrame } from '@/components/AppFrame';
@@ -76,6 +77,7 @@ export default function RootLayout() {
   const contentHydrated = useContent((s) => s.hydrated);
   const ready = fontsLoaded && hydrated && progressHydrated && contentHydrated;
   const t = useTheme();
+  const rootOverlayOpen = useUI((s) => !!s.sheet || s.dictOpen);
   useAlarmWatcher();
   useAuthSession();
   useForegroundSync();
@@ -111,6 +113,7 @@ export default function RootLayout() {
         <AppFrame>
           <View style={{ flex: 1, backgroundColor: t.bg }}>
             <StatusBar style={t.isDark ? 'light' : 'dark'} />
+            <View style={{ flex: 1 }} importantForAccessibility={rootOverlayOpen ? 'no-hide-descendants' : 'auto'} accessibilityElementsHidden={rootOverlayOpen}>
             <Stack
               screenOptions={{
                 headerShown: false,
@@ -195,6 +198,7 @@ export default function RootLayout() {
               <Stack.Screen name="exam-report" options={{ animation: 'slide_from_right' }} />
             </Stack>
             <PushBanner />
+            </View>
             <BottomSheet />
             <DictionaryOverlay />
           </View>

@@ -394,6 +394,10 @@ export type Strings = {
   trailActe0: string;
   a11yLockedPaywall: string; a11yOpenAct: string; a11yOpenNarrated: string;
   a11yClose: string; a11yOpenSettings: string; a11yBack: string; a11yDismissPanel: string;
+  a11yPreviousAct: string; a11yNextAct: string; a11yOpenFiche: string;
+  a11yDetails: string;
+  restSaved: string; restStop: string; restStopHint: string; recapWhere: string; recapResume: string; recapRestart: string; recapRestartHint: string;
+  warmBackTitle: string; warmBackIntro: string; warmCorrect: string; warmIncorrect: string; warmStart: string;
   /** The visible label on a trail heading's Fiche button. It was an
    *  unlabelled book glyph, so the unit sheet (and the A1 exam behind it)
    *  was easy to miss. */
@@ -900,6 +904,10 @@ export const T: Record<Lang, Strings> = {
     trailActe0: 'Acte 00 · Narré', trailFiche: 'La fiche',
     a11yLockedPaywall: 'verrouillé, ouvre Ealch Première', a11yOpenAct: "ouvrir l'acte", a11yOpenNarrated: 'ouvrir la présentation narrée',
     a11yClose: 'Fermer', a11yOpenSettings: 'Ouvrir les réglages', a11yBack: 'Retour', a11yDismissPanel: 'Fermer le panneau',
+    a11yPreviousAct: 'Acte précédent', a11yNextAct: 'Acte suivant', a11yOpenFiche: 'Ouvrir la fiche',
+    a11yDetails: 'Détails',
+    restSaved: 'Votre place est enregistrée. Continuez quand vous êtes prêt.', restStop: "S'arrêter ici", restStopHint: 'Quitte la leçon en gardant votre place', recapWhere: 'Où vous en étiez', recapResume: 'Reprendre où vous en étiez', recapRestart: 'Recommencer au début', recapRestartHint: 'Recommence cette leçon depuis le début',
+    warmBackTitle: 'De retour après une pause', warmBackIntro: 'Trois questions rapides sur {title}, puis on continue.', warmCorrect: 'Bonne réponse', warmIncorrect: 'Votre réponse est incorrecte', warmStart: 'Commencer',
     prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
     prerollMicNote: 'Le micro attend votre appui, il ne s’active jamais tout seul.', prerollStart: 'Commencer',
     trailOrientationTitle: 'Comment ça marche',
@@ -1387,6 +1395,10 @@ export const T: Record<Lang, Strings> = {
     trailActe0: 'Act 00 · Narrated', trailFiche: 'Unit info',
     a11yLockedPaywall: 'locked, opens Ealch Première', a11yOpenAct: 'open act', a11yOpenNarrated: 'open narrated introduction',
     a11yClose: 'Close', a11yOpenSettings: 'Open settings', a11yBack: 'Back', a11yDismissPanel: 'Close panel',
+    a11yPreviousAct: 'Previous act', a11yNextAct: 'Next act', a11yOpenFiche: 'Open unit info',
+    a11yDetails: 'Details',
+    restSaved: 'Saved. Carry on when you are ready.', restStop: 'Stop here', restStopHint: 'Leaves the lesson, keeping your place', recapWhere: 'Where you were', recapResume: 'Pick up where you left off', recapRestart: 'Ignore, start from the beginning', recapRestartHint: 'Starts this lesson from the beginning instead',
+    warmBackTitle: 'Back after a break', warmBackIntro: 'Three quick ones from {title}, then straight on.', warmCorrect: 'Correct answer', warmIncorrect: 'Your answer, incorrect', warmStart: 'Start',
     prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',
     prerollMicNote: 'The mic waits for your tap. It never listens on its own.', prerollStart: 'Start',
     trailOrientationTitle: 'How this works',

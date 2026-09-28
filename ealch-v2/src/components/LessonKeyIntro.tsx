@@ -166,7 +166,7 @@ export function LessonKeyIntro({ onDone }: { onDone: () => void }) {
             <View key={i} style={{ width: i === ix ? 16 : 5, height: 5, borderRadius: 3, backgroundColor: i === ix ? t.acc : t.line(14) }} />
           ))}
         </View>
-        <Press cue={null} onPress={finish} hitSlop={8}>
+        <Press cue={null} onPress={finish} accessibilityRole="button" accessibilityLabel={T.lkSkip} hitSlop={8}>
           <TX font="semi" role="meta" ls={1} color={t.txSubtle}>{T.lkSkip}</TX>
         </Press>
       </View>
@@ -196,6 +196,9 @@ export function LessonKeyIntro({ onDone }: { onDone: () => void }) {
         <Press
           cue={null}
           onPress={ix === 0 ? undefined : () => goTo(ix - 1)}
+          accessibilityRole="button"
+          accessibilityLabel={T.lessonPrev}
+          accessibilityState={{ disabled: ix === 0 }}
           style={{
             minHeight: 52,
             paddingHorizontal: 20,
@@ -216,6 +219,8 @@ export function LessonKeyIntro({ onDone }: { onDone: () => void }) {
           <Press
             cue={null}
             onPress={() => goTo(ix + 1)}
+            accessibilityRole="button"
+            accessibilityLabel={T.lessonNext}
             style={{ flex: 1, minHeight: 52, borderRadius: 26, backgroundColor: t.acc, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 }}
           >
             <TX font="semi" role="bodyLg" color={t.accInk}>{T.lessonNext}</TX>

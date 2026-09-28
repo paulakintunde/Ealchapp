@@ -14,8 +14,9 @@
 // Reachable from a persistent header link on any screen of the lesson, so the
 // answer to "wait, what was the rule for -c again" is always one tap away.
 
-import { useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { useRef, useState } from 'react';
+import * as ReactNative from 'react-native';
+import { AccessibilityInfo, ScrollView, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
@@ -78,6 +79,8 @@ export function SheetIndex({
             key={s.id}
             cue="tap"
             onPress={() => onOpen(s.id)}
+            accessibilityRole="button"
+            accessibilityLabel={s.title}
             style={{
               borderRadius: 16,
               borderWidth: 1,
@@ -210,6 +213,7 @@ export function ReferenceSheetView({
 function SheetHeader({ title, onBack }: { title: string; onBack: () => void }) {
   const t = useTheme();
   const T = useT();
+  const titleRef = useRef<View>(null);
   return (
     <View
       style={{
@@ -232,7 +236,12 @@ function SheetHeader({ title, onBack }: { title: string; onBack: () => void }) {
       >
         <Icon name="arrowLeft" size={18} color={t.txSecondary} />
       </Press>
-      <TX role="titleSm" font="semi" style={{ flex: 1 }} numberOfLines={1}>{title}</TX>
+      <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={title} onLayout={() => {
+        const node = ReactNative.findNodeHandle(titleRef.current);
+        if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+      }} style={{ flex: 1 }}>
+        <TX role="titleSm" font="semi" numberOfLines={1}>{title}</TX>
+      </View>
     </View>
   );
 }

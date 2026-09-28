@@ -20,6 +20,7 @@ import { TX } from '@/components/Type';
 import { Button, Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { checkAnswer } from '@/content/answer.logic';
 import type { Checkpoint } from '@/content/acts.logic';
@@ -39,24 +40,25 @@ export function RestPointCard({
   onStop: () => void;
 }) {
   const t = useTheme();
+  const T = useT();
   return (
     <View style={{ flex: 1, paddingHorizontal: 24, paddingVertical: 28, gap: 18 }}>
       <TX role="eyebrow" font="med" color={t.txMuted} ls={0.8} style={{ textTransform: 'uppercase' }}>
         {actTitle}
       </TX>
-      <TX role="title" style={{ lineHeight: 26 }}>Saved. Carry on when you are ready.</TX>
+      <TX role="title" style={{ lineHeight: 26 }}>{T.restSaved}</TX>
       <View style={{ flex: 1 }} />
       <View style={{ gap: 10 }}>
-        <Button label="Continue" onPress={() => { sound.play('tap'); onContinue(); }} />
+        <Button label={T.cont} onPress={() => { sound.play('tap'); onContinue(); }} />
         <Press
           cue="tap"
           onPress={onStop}
           accessibilityRole="button"
-          accessibilityLabel="Stop here"
-          accessibilityHint="Leaves the lesson, keeping your place"
+          accessibilityLabel={T.restStop}
+          accessibilityHint={T.restStopHint}
           style={{ alignItems: 'center', paddingVertical: 12 }}
         >
-          <TX role="body" color={t.txSecondary}>Stop here</TX>
+          <TX role="body" color={t.txSecondary}>{T.restStop}</TX>
         </Press>
       </View>
     </View>
@@ -84,11 +86,12 @@ export function ResumeRecapCard({
   onIgnore?: () => void;
 }) {
   const t = useTheme();
+  const T = useT();
   return (
     <View style={{ flex: 1, paddingHorizontal: 24, paddingVertical: 28, gap: 20 }}>
       <View style={{ gap: 8 }}>
         <TX role="eyebrow" font="med" color={t.txMuted} ls={0.8} style={{ textTransform: 'uppercase' }}>
-          Where you were
+          {T.recapWhere}
         </TX>
         {act ? <TX role="titleLg" font="semi">{act.title}</TX> : null}
       </View>
@@ -104,17 +107,17 @@ export function ResumeRecapCard({
 
       <View style={{ flex: 1 }} />
       <View style={{ gap: 10 }}>
-        <Button label="Pick up where you left off" onPress={() => { sound.play('tap'); onContinue(); }} />
+        <Button label={T.recapResume} onPress={() => { sound.play('tap'); onContinue(); }} />
         {onIgnore ? (
           <Press
             cue="tap"
             onPress={onIgnore}
             accessibilityRole="button"
-            accessibilityLabel="Ignore"
-            accessibilityHint="Starts this lesson from the beginning instead"
+            accessibilityLabel={T.recapRestart}
+            accessibilityHint={T.recapRestartHint}
             style={{ alignItems: 'center', justifyContent: 'center', minHeight: 48 }}
           >
-            <TX role="body" color={t.txSecondary}>Ignore, start from the beginning</TX>
+            <TX role="body" color={t.txSecondary}>{T.recapRestart}</TX>
           </Press>
         ) : null}
       </View>
@@ -140,6 +143,7 @@ export function WarmBackCard({
   onDone: () => void;
 }) {
   const t = useTheme();
+  const T = useT();
   const [ix, setIx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const q = questions[ix];
@@ -147,7 +151,7 @@ export function WarmBackCard({
   if (!q) {
     return (
       <View style={{ flex: 1, paddingHorizontal: 24, paddingVertical: 28, justifyContent: 'flex-end' }}>
-        <Button label="Continue" onPress={onDone} />
+        <Button label={T.cont} onPress={onDone} />
       </View>
     );
   }
@@ -169,10 +173,10 @@ export function WarmBackCard({
     <View style={{ flex: 1, paddingHorizontal: 24, paddingVertical: 28, gap: 20 }}>
       <View style={{ gap: 8 }}>
         <TX role="eyebrow" font="med" color={t.txMuted} ls={0.8} style={{ textTransform: 'uppercase' }}>
-          Back after a break
+          {T.warmBackTitle}
         </TX>
         <TX role="body" color={t.txSecondary}>
-          Three quick ones from {act.title}, then straight on.
+          {T.warmBackIntro.replace('{title}', act.title)}
         </TX>
       </View>
 
@@ -193,7 +197,7 @@ export function WarmBackCard({
               accessibilityLabel={o}
               accessibilityState={{ selected: isPicked, disabled: picked !== null }}
               accessibilityHint={
-                picked === null ? undefined : isRight ? 'Correct answer' : isPicked ? 'Your answer, incorrect' : undefined
+                picked === null ? undefined : isRight ? T.warmCorrect : isPicked ? T.warmIncorrect : undefined
               }
               style={{
                 borderRadius: 14,
@@ -215,7 +219,7 @@ export function WarmBackCard({
         <>
           {q.why ? <TX role="bodySm" color={t.txSecondary}>{q.why}</TX> : null}
           <View style={{ flex: 1 }} />
-          <Button label={ix >= questions.length - 1 ? 'Start' : 'Next'} onPress={next} />
+          <Button label={ix >= questions.length - 1 ? T.warmStart : T.lessonNext} onPress={next} />
         </>
       ) : (
         <View style={{ flex: 1 }} />
