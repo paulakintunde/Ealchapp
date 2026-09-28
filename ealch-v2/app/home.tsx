@@ -42,10 +42,10 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 // gone; see the note at the top of content/examFormats.ts for what was wrong
 // with describing an exam by one of its épreuves.
 
-function GlowTile({ base, glow, children, onPress, style }: { base: string; glow: string; children: ReactNode; onPress: () => void; style?: object }) {
+function GlowTile({ base, glow, children, onPress, label, style }: { base: string; glow: string; children: ReactNode; onPress: () => void; label: string; style?: object }) {
   const t = useTheme();
   return (
-    <Press onPress={onPress} scale={0.98} style={[{ borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.isDark ? base : t.card, ...t.cardShadow }, style]}>
+    <Press onPress={onPress} accessibilityRole="button" accessibilityLabel={label} scale={0.98} style={[{ borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.isDark ? base : t.card, ...t.cardShadow }, style]}>
       <LinearGradient colors={[glow, 'transparent']} start={{ x: 0.85, y: 0 }} end={{ x: 0.2, y: 0.7 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
       {children}
     </Press>
@@ -338,7 +338,7 @@ export default function Home() {
             Numbers and padding compact on narrow screens (narrowStrip) so
             both columns stay comfortable instead of crowding or wrapping. */}
         <View style={{ minHeight: 66, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
-          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14 }}>
+          <Press cue={null} onPress={() => router.push('/profile')} accessibilityRole="button" accessibilityLabel={`${T.tabProfile}. ${run.days} ${T.daysWord}. ${freezeLine}`} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14 }}>
             {run.days > 0 ? (
               <>
                 <TX font="serif" size={narrowStrip ? 20 : 25} role="display" color={t.accTx}>
@@ -366,7 +366,7 @@ export default function Home() {
             )}
           </Press>
           <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
-          <Press cue={null} onPress={() => router.push('/smartreview')} style={{ flex: 1.1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14, backgroundColor: t.accA(8) }}>
+          <Press cue={null} onPress={() => router.push('/smartreview')} accessibilityRole="button" accessibilityLabel={`${revNum}. ${revLabel}. ${revSub}`} style={{ flex: 1.1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14, backgroundColor: t.accA(8) }}>
             <TX font="serif" size={narrowStrip ? 20 : 25} role="display" color={t.accTx}>
               {revNum}
             </TX>
@@ -382,7 +382,8 @@ export default function Home() {
         </View>
 
         {/* Hero */}
-        <Press onPress={() => router.push(hero.route as never)} scale={0.99} style={{ minHeight: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
+        <View style={{ minHeight: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
+        <Press onPress={() => router.push(hero.route as never)} accessibilityRole="button" accessibilityLabel={`${hero.title}. ${hero.sub}. ${hero.cta}`} scale={0.99} style={{ minHeight: 400 }}>
           {heroArt ? (
             <>
               <Image source={heroArt} resizeMode="cover" accessible={false} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '62%' }} />
@@ -400,44 +401,28 @@ export default function Home() {
               {hero.eyebrow}
             </TX>
           </View>
-          <View style={{ position: 'absolute', left: 22, right: 22, bottom: 22 }}>
+          <View style={{ position: 'absolute', left: 22, right: 22, bottom: 86 }}>
             <TX font="serifI" size={46} role="display" numberOfLines={2} style={{ marginBottom: 8 }}>
               {hero.title}
             </TX>
             <TX role="body" color={t.txSecondary} numberOfLines={2} style={{ marginBottom: 18 }}>
               {hero.sub}
             </TX>
-            {/* No "4:12 left" pill: nothing persists a playback position yet, so any
-                duration here is invented. It returns when the player reports a real one. */}
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-              <View style={{ height: 46, paddingHorizontal: 22, borderRadius: 23, backgroundColor: t.acc, flexDirection: 'row', alignItems: 'center', gap: 9 }}>
-                <Icon name="play" size={13} color={t.accInk} />
-                <TX font="semi" role="body" color={t.accInk}>
-                  {hero.cta}
-                </TX>
-              </View>
-              {/* The vocab primer — a labeled pill, not a ⋯ overflow kebab. A
-                  three-dot icon reads as share/hide/report; this opens the
-                  pre-lesson vocabulary sheet, so it says so.
-                  Gated on freshN, not on which hero branch is showing: a pure
-                  review day (freshN === 0) has nothing new to prime, and the
-                  listen fallback is only reached when freshN is already 0, so
-                  this condition covers both without special-casing hero.eyebrow. */}
-              {freshN > 0 ? (
-                <Press
-                  onPress={() => openVocabSheet(session.fresh.slice(0, 4).map((i) => ({ fr: i.fr, en: i.en })))}
-                  cue="tap"
-                  style={{ height: 46, paddingHorizontal: 18, borderRadius: 23, borderWidth: 1, borderColor: t.line(20), flexDirection: 'row', alignItems: 'center', gap: 8 }}
-                >
-                  <Icon name="book" size={15} color={t.txSecondary} strokeWidth={1.7} />
-                  <TX font="semi" role="body" color={t.txSecondary}>
-                    {T.vocabPrime}
-                  </TX>
-                </Press>
-              ) : null}
-            </View>
           </View>
         </Press>
+        <View pointerEvents="box-none" style={{ position: 'absolute', left: 22, right: 22, bottom: 22, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <View pointerEvents="none" style={{ height: 46, paddingHorizontal: 22, borderRadius: 23, backgroundColor: t.acc, flexDirection: 'row', alignItems: 'center', gap: 9 }}>
+            <Icon name="play" size={13} color={t.accInk} />
+            <TX font="semi" role="body" color={t.accInk}>{hero.cta}</TX>
+          </View>
+          {freshN > 0 ? (
+            <Press onPress={() => openVocabSheet(session.fresh.slice(0, 4).map((i) => ({ fr: i.fr, en: i.en })))} accessibilityRole="button" accessibilityLabel={T.vocabPrime} cue="tap" style={{ height: 46, paddingHorizontal: 18, borderRadius: 23, borderWidth: 1, borderColor: t.line(20), flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              <Icon name="book" size={15} color={t.txSecondary} strokeWidth={1.7} />
+              <TX font="semi" role="body" color={t.txSecondary}>{T.vocabPrime}</TX>
+            </Press>
+          ) : null}
+        </View>
+        </View>
 
         {/* Continue row — the other fresh per-mode resume slots the hero
             didn't pick, so switching modes never quietly loses your place in
@@ -450,6 +435,8 @@ export default function Home() {
                 <Press
                   key={r.activity}
                   onPress={() => router.push(r.route as never)}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${T.resumeTag}. ${r.title}`}
                   scale={0.98}
                   style={{ width: 200, minHeight: 92, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18, justifyContent: 'center' }}
                 >
@@ -470,7 +457,7 @@ export default function Home() {
             It opens the Levels page first: the learner picks a band, then
             lands on that band's trail. */}
         <SectionHead title={T.found} right="SONS · A1 · A2" />
-        <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push({ pathname: '/levels', params: { from: 'home' } })} style={{ width: '100%', minHeight: 118, padding: 16 }}>
+        <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push({ pathname: '/levels', params: { from: 'home' } })} label={`${T.denT}. ${T.denS}`} style={{ width: '100%', minHeight: 118, padding: 16 }}>
           <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`${denUnits} ${T.unitsWord}`} />
           <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
             {T.denT}
@@ -486,7 +473,7 @@ export default function Home() {
         <SectionHead title={T.hubT} right={T.hubMeta} />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
           {hubDecks.map((d) => (
-            <GlowTile key={d.key} base={d.base} glow={d.glow} onPress={() => router.push(d.route as never)} style={{ width: '47.5%', minHeight: 122, padding: 14 }}>
+            <GlowTile key={d.key} base={d.base} glow={d.glow} onPress={() => router.push(d.route as never)} label={`${d.title}. ${d.sub}`} style={{ width: '47.5%', minHeight: 122, padding: 14 }}>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
                 <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: d.disc, alignItems: 'center', justifyContent: 'center' }}>
                   {d.icon}
@@ -509,6 +496,8 @@ export default function Home() {
         {!isPremium ? (
           <Press
             onPress={() => router.push({ pathname: '/paywall', params: { from: 'home' } })}
+            accessibilityRole="button"
+            accessibilityLabel={`${T.homePremT}. ${T.homePremS}`}
             style={{ marginTop: 22, minHeight: 54, borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 16, paddingVertical: 10 }}
           >
             <Icon name="star" size={16} color={t.accTx} />
@@ -523,7 +512,7 @@ export default function Home() {
         ) : null}
 
         {/* Browse fold */}
-        <Press onPress={toggleBrowse} style={{ marginTop: 26, minHeight: 48, paddingVertical: 8, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+        <Press onPress={toggleBrowse} accessibilityRole="button" accessibilityLabel={browseOpen ? T.browseLess : T.browseOpen} accessibilityState={{ expanded: browseOpen }} style={{ marginTop: 26, minHeight: 48, paddingVertical: 8, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
           <TX font="semi" role="bodySm" color={t.txSecondary}>
             {browseOpen ? T.browseLess : T.browseOpen}
           </TX>
@@ -534,8 +523,8 @@ export default function Home() {
           <View>
             {/* Word of the day — the card opens the full entry; the play button
                 is a real Press that speaks the word inline without opening it. */}
-            <Press onPress={() => openDict(wod)} style={{ marginTop: 22, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, padding: 14, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-              <View style={{ flex: 1 }}>
+            <View style={{ marginTop: 22, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, padding: 14, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+              <Press onPress={() => openDict(wod)} accessibilityRole="button" accessibilityLabel={`${T.wordOfDay}. ${wod.word}`} style={{ flex: 1 }}>
                 <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle} style={{ marginBottom: 4 }}>
                   {T.wordOfDay}
                 </TX>
@@ -547,18 +536,18 @@ export default function Home() {
                     {lang === 'fr' ? wod.posFr : wod.posEn}
                   </TX>
                 </View>
-              </View>
-              <Press onPress={() => tts.speak(wod.speak)} cue={null} style={{ width: 48, height: 48, borderRadius: 24, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
+              </Press>
+              <Press onPress={() => tts.speak(wod.speak)} cue={null} accessibilityRole="button" accessibilityLabel={T.playAudioA11y} style={{ width: 48, height: 48, borderRadius: 24, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="play" size={18} color={t.acc} />
               </Press>
-            </Press>
+            </View>
 
             {/* Playlists — real sets now; SEE ALL routes to the index, and each
                 card plays its first track through the player. */}
             <SectionHead title={T.playlists} right={T.seeAll} onPress={() => router.push('/playlists')} />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
               {pool.map((p) => (
-                <Press key={p.id} onPress={() => router.push(playerRouteFor(p.id, 0))} scale={0.98} style={{ width: 158 }}>
+                <Press key={p.id} onPress={() => router.push(playerRouteFor(p.id, 0))} accessibilityRole="button" accessibilityLabel={lang === 'fr' ? p.labelFr : p.labelEn} scale={0.98} style={{ width: 158 }}>
                   <View style={{ height: 198, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', marginBottom: 10, backgroundColor: t.isDark ? '#12100E' : t.card, ...t.cardShadow }}>
                     <LinearGradient colors={[p.glow, 'transparent']} start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.7 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
                     <TX font="semi" role="eyebrow" ls={2.2} color={t.txMuted} style={{ position: 'absolute', top: 14, left: 16 }}>
@@ -591,6 +580,8 @@ export default function Home() {
                   <Press
                     key={fmt}
                     onPress={() => router.push({ pathname: '/exam', params: { format: fmt } })}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${facts.label}. ${papers} ${papers === 1 ? T.examPapersCountOne : T.examPapersCount}`}
                     style={{ width: 244, minHeight: 132, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}
                   >
                     <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 8 }}>
@@ -631,7 +622,7 @@ export default function Home() {
                   const d = weakRows[w.skill];
                   const meta = (w.count === 1 ? T.weakSlip : T.weakSlipPl).replace('{n}', String(w.count));
                   return (
-                    <Press key={w.skill} onPress={d.open} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
+                    <Press key={w.skill} onPress={d.open} accessibilityRole="button" accessibilityLabel={`${d.title}. ${meta}`} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
                       <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                         <TX font="serif" role="titleSm" color={t.accTx}>
                           {d.glyph}
@@ -675,7 +666,7 @@ function SectionHead({ title, right, onPress }: { title: string; right: string; 
         {title}
       </TX>
       {onPress ? (
-        <Press onPress={onPress} accessibilityRole="button" style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+        <Press onPress={onPress} accessibilityRole="button" accessibilityLabel={right} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           {caption}
           <Icon name="chevronRight" size={12} color={t.txSubtle} strokeWidth={1.8} />
         </Press>

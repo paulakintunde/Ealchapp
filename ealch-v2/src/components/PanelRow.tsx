@@ -39,9 +39,10 @@ export function PanelRow({
     <Press
       cue={disabled ? null : 'tap'}
       scale={0.99}
-      onPress={onPress}
+      onPress={disabled ? undefined : onPress}
       testID={testID}
       accessibilityRole="button"
+      accessibilityLabel={[title, sub].filter(Boolean).join('. ')}
       // A disabled-but-mounted row keeps announcing its disabled state rather
       // than being pulled from the tree (D-22's visibility rule for the
       // trail applies here too).

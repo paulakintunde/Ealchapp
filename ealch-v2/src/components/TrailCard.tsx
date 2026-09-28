@@ -75,7 +75,7 @@ export function TrailCard(props: TrailCardProps) {
           placement route" (D-20) — the same tappable-row idiom TrailRow.tsx
           and TrailGateRow.tsx already use, never a second accent-filled CTA
           competing with the start marker. */}
-      <Press cue="tap" onPress={props.onOpen} accessibilityRole="button" accessibilityState={{ disabled: false }}>
+      <Press cue="tap" onPress={props.onOpen} accessibilityRole="button" accessibilityLabel={T.trailPlacementTitle}>
         {/* flex lives on the wrapper, never on a TX, or the title clips */}
         <View style={{ minWidth: 0 }}>
           <TX font="semi" role="bodySm">

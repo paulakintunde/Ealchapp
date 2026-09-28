@@ -45,7 +45,7 @@ export function TrailGateRow({ variant }: TrailGateRowProps) {
       onPress={onPress}
       cue="tap"
       accessibilityRole="button"
-      accessibilityState={{ disabled: false }}
+      accessibilityLabel={`${lead}. ${T.a11yLockedPaywall}`}
       style={{
         marginHorizontal: variant === 'gate' ? -24 : 0,
         paddingHorizontal: variant === 'gate' ? 24 : 16,

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Animated, BackHandler, Pressable, ScrollView, View } from 'react-native';
+import type { Ref } from 'react';
+import * as ReactNative from 'react-native';
+import { AccessibilityInfo, Animated, BackHandler, Pressable, ScrollView, View } from 'react-native';
 import { TX } from './Type';
 import { Press } from './ui';
 import { PanelRow } from './PanelRow';
@@ -35,6 +37,7 @@ export function LevelChip({
   expanded,
   onPress,
   onLongPress,
+  focusRef,
 }: {
   band: Level;
   /** Whether the panel this chip opens is currently mounted — announced so a
@@ -43,11 +46,13 @@ export function LevelChip({
   onPress: () => void;
   /** The alternative route in: the quick panel, while a tap opens the page. */
   onLongPress?: () => void;
+  focusRef?: Ref<View>;
 }) {
   const t = useTheme();
   const T = useT();
   return (
     <Press
+      ref={focusRef}
       cue={null}
       onPress={onPress}
       onLongPress={onLongPress}
@@ -86,6 +91,7 @@ export function LevelChip({
 export function LevelPanel({
   open,
   onClose,
+  onDismissed,
   band,
   onSelect,
   unitCounts,
@@ -93,6 +99,7 @@ export function LevelPanel({
 }: {
   open: boolean;
   onClose: () => void;
+  onDismissed?: () => void;
   band: Level;
   onSelect: (band: Level) => void;
   unitCounts: Record<Level, BandUnitCount>;
@@ -104,6 +111,13 @@ export function LevelPanel({
   const y = useRef(new Animated.Value(600)).current;
   const op = useRef(new Animated.Value(0)).current;
   const [mounted, setMounted] = useState<boolean>(open);
+  const titleRef = useRef<View>(null);
+
+  const focusTitle = () => {
+    if (!open) return;
+    const node = ReactNative.findNodeHandle(titleRef.current);
+    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+  };
 
   useEffect(() => {
     if (open) {
@@ -122,14 +136,18 @@ export function LevelPanel({
         y.setValue(600);
         op.setValue(0);
         setMounted(false);
+        onDismissed?.();
       } else {
         Animated.parallel([
           Animated.timing(y, { toValue: 600, duration: 320, useNativeDriver: true }),
           Animated.timing(op, { toValue: 0, duration: 300, useNativeDriver: true }),
-        ]).start(() => setMounted(false));
+        ]).start(() => {
+          setMounted(false);
+          onDismissed?.();
+        });
       }
     }
-  }, [open, mounted, reduceMotion, y, op]);
+  }, [open, mounted, reduceMotion, y, op, onDismissed]);
 
   // Android hardware back closes the panel rather than popping the screen
   // under it — the exact bug class sons-06-muettes.test.ts:484-491 records
@@ -159,9 +177,9 @@ export function LevelPanel({
   };
 
   return (
-    <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}>
+    <View accessibilityViewIsModal style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}>
       <Animated.View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: op }}>
-        <Pressable onPress={onClose} style={{ flex: 1, backgroundColor: t.alpha(t.bgDeep, 60) }} />
+        <Pressable onPress={onClose} accessibilityRole="button" accessibilityLabel={T.a11yDismissPanel} style={{ flex: 1, backgroundColor: t.alpha(t.bgDeep, 60) }} />
       </Animated.View>
 
       <Animated.View
@@ -184,9 +202,11 @@ export function LevelPanel({
         </View>
 
         <ScrollView contentContainerStyle={{ paddingHorizontal: 26, paddingTop: 14, paddingBottom: 44 }}>
-          <TX font="serif" role="display" size={28} style={{ marginBottom: 14 }}>
-            {T.bandPanelTitle}
-          </TX>
+          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.bandPanelTitle} onLayout={focusTitle}>
+            <TX font="serif" role="display" size={28} style={{ marginBottom: 14 }}>
+              {T.bandPanelTitle}
+            </TX>
+          </View>
 
           <View style={{ gap: 9 }}>
             {LEVELS.map((l) => {

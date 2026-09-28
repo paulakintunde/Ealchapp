@@ -392,6 +392,8 @@ export type Strings = {
   trailGateLead: string; trailBoundaryLead: string;
   /** Acte 00's row label (D-11). */
   trailActe0: string;
+  a11yLockedPaywall: string; a11yOpenAct: string; a11yOpenNarrated: string;
+  a11yClose: string; a11yOpenSettings: string; a11yBack: string; a11yDismissPanel: string;
   /** The visible label on a trail heading's Fiche button. It was an
    *  unlabelled book glyph, so the unit sheet (and the A1 exam behind it)
    *  was easy to miss. */
@@ -896,6 +898,8 @@ export const T: Record<Lang, Strings> = {
     packPendingT: 'Ce niveau arrive', packPendingS: "Les leçons de ce niveau se téléchargent. Elles s'ouvrent dès qu'elles sont là, puis fonctionnent hors ligne.",
     trailGateLead: 'Ce niveau est réservé à Première.', trailBoundaryLead: 'A1 se termine ici. La suite est réservée à Première.',
     trailActe0: 'Acte 00 · Narré', trailFiche: 'La fiche',
+    a11yLockedPaywall: 'verrouillé, ouvre Ealch Première', a11yOpenAct: "ouvrir l'acte", a11yOpenNarrated: 'ouvrir la présentation narrée',
+    a11yClose: 'Fermer', a11yOpenSettings: 'Ouvrir les réglages', a11yBack: 'Retour', a11yDismissPanel: 'Fermer le panneau',
     prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
     prerollMicNote: 'Le micro attend votre appui, il ne s’active jamais tout seul.', prerollStart: 'Commencer',
     trailOrientationTitle: 'Comment ça marche',
@@ -1381,6 +1385,8 @@ export const T: Record<Lang, Strings> = {
     packPendingT: 'This level is on its way', packPendingS: 'The lessons for this level are downloading. They open as soon as they arrive, and then work offline.',
     trailGateLead: 'This level is Première-only.', trailBoundaryLead: "A1 ends here. What's next is Première-only.",
     trailActe0: 'Act 00 · Narrated', trailFiche: 'Unit info',
+    a11yLockedPaywall: 'locked, opens Ealch Première', a11yOpenAct: 'open act', a11yOpenNarrated: 'open narrated introduction',
+    a11yClose: 'Close', a11yOpenSettings: 'Open settings', a11yBack: 'Back', a11yDismissPanel: 'Close panel',
     prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',
     prerollMicNote: 'The mic waits for your tap. It never listens on its own.', prerollStart: 'Start',
     trailOrientationTitle: 'How this works',

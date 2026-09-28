@@ -38,6 +38,9 @@ export function TabBar() {
             <Press
               key={tab.key}
               onPress={() => router.replace(tab.route as never)}
+              accessibilityRole="tab"
+              accessibilityLabel={tab.label}
+              accessibilityState={{ selected: on }}
               scale={0.92}
               style={{ flex: 1, alignItems: 'center', gap: 6, minWidth: 64, paddingVertical: 6 }}
             >

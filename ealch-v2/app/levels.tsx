@@ -56,7 +56,7 @@ export default function Levels() {
           <Press
             onPress={() => (router.canGoBack() ? router.back() : router.replace('/den'))}
             accessibilityRole="button"
-            accessibilityLabel={T.denTag}
+            accessibilityLabel={T.a11yBack}
             style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}
           >
             <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />

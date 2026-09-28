@@ -116,7 +116,7 @@ export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: Trail
         cue={row.locked ? null : 'tap'}
         onPress={onPress}
         accessibilityRole="button"
-        accessibilityState={{ disabled: row.locked }}
+        accessibilityLabel={`${T.trailActe0}. ${row.locked ? T.a11yLockedPaywall : T.a11yOpenNarrated}`}
         style={{
           flexDirection: 'row',
           alignItems: 'center',
@@ -163,7 +163,7 @@ export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: Trail
       scale={0.99}
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityState={{ disabled: row.locked, selected: row.startMarker }}
+      accessibilityLabel={`${row.title}. ${row.releaseLine}. ${row.locked ? T.a11yLockedPaywall : T.a11yOpenAct}`}
       style={{
         flexDirection: 'row',
         alignItems: 'center',

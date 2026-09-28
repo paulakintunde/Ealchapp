@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { View } from 'react-native';
+import { AccessibilityInfo, findNodeHandle, View } from 'react-native';
 import { useRouter, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList, type FlashListRef } from '@shopify/flash-list';
@@ -53,6 +53,11 @@ export default function Den() {
   const setBand = useUI((s) => s.setTrailBand);
   const levelPanelOpen = useUI((s) => s.levelPanelOpen);
   const setLevelPanelOpen = useUI((s) => s.setLevelPanelOpen);
+  const levelChipRef = useRef<View>(null);
+  const focusLevelChip = useCallback(() => {
+    const node = findNodeHandle(levelChipRef.current);
+    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+  }, []);
   const trailAnchor = useUI((s) => s.trailAnchor);
   const setTrailAnchor = useUI((s) => s.setTrailAnchor);
 
@@ -231,16 +236,17 @@ export default function Den() {
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
+      <View style={{ flex: 1 }} importantForAccessibility={levelPanelOpen ? 'no-hide-descendants' : 'auto'}>
       <View style={{ paddingTop: insets.top + 14, paddingHorizontal: 24 }}>
         {/* Header */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-          <Press onPress={() => (router.canGoBack() ? router.back() : router.replace('/home'))} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
+          <Press onPress={() => (router.canGoBack() ? router.back() : router.replace('/home'))} accessibilityRole="button" accessibilityLabel={T.a11yBack} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
           </Press>
           <TX font="semi" role="eyebrow" ls={2.6} color={t.txSubtle}>
             {T.denTag}
           </TX>
-          <Press onPress={() => router.push('/settings')} style={{ width: 44, height: 44, marginRight: -12, alignItems: 'center', justifyContent: 'center' }}>
+          <Press onPress={() => router.push('/settings')} accessibilityRole="button" accessibilityLabel={T.a11yOpenSettings} style={{ width: 44, height: 44, marginRight: -12, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name="gear" size={18} color={t.txNonText} />
           </Press>
         </View>
@@ -255,6 +261,7 @@ export default function Den() {
           {/* Tap opens the Levels page (every band on one screen, no scroll in
               an overlay). Long press keeps the quick panel as the alternative. */}
           <LevelChip
+            focusRef={levelChipRef}
             band={band}
             expanded={levelPanelOpen}
             onPress={() => router.push('/levels')}
@@ -300,10 +307,12 @@ export default function Den() {
         contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 60 }}
         showsVerticalScrollIndicator={false}
       />
+      </View>
 
       <LevelPanel
         open={levelPanelOpen}
         onClose={() => setLevelPanelOpen(false)}
+        onDismissed={focusLevelChip}
         band={band}
         onSelect={(b) => {
           setBand(b);

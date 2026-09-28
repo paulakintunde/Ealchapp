@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { forwardRef, useEffect, useRef, type ReactNode } from 'react';
 import {
   Animated,
   Easing,
@@ -12,6 +12,7 @@ import { TX } from './Type';
 import { RadialGlow } from './RadialGlow';
 import { Icon, type IconName } from './Icon';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { sound, type Cue } from '@/services';
 
 // ── Pressable with a subtle press-scale + optional sound cue ──
@@ -22,9 +23,10 @@ export type PressProps = PressableProps & {
   children?: ReactNode;
 };
 
-export function Press({ cue = 'tap', scale = 0.96, onPress, style, children, ...rest }: PressProps) {
+export const Press = forwardRef<View, PressProps>(function Press({ cue = 'tap', scale = 0.96, onPress, style, children, ...rest }, ref) {
   return (
     <Pressable
+      ref={ref}
       onPress={(e) => {
         sound.unlock();
         if (cue) sound.play(cue);
@@ -39,7 +41,7 @@ export function Press({ cue = 'tap', scale = 0.96, onPress, style, children, ...
       {children}
     </Pressable>
   );
-}
+});
 
 // ── Card surface ──
 export function Card({
@@ -97,6 +99,9 @@ export function Button({
     <Press
       cue={cue}
       onPress={disabled ? undefined : onPress}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ disabled: !!disabled }}
       style={[
         {
           minHeight: 54,
@@ -269,6 +274,7 @@ export function FocusHeader({
   extra?: ReactNode;
 }) {
   const t = useTheme();
+  const T = useT();
   return (
     <View
       style={{
@@ -282,7 +288,7 @@ export function FocusHeader({
       <Press
         onPress={onClose}
         accessibilityRole="button"
-        accessibilityLabel="Close"
+        accessibilityLabel={T.a11yClose}
         // The visible circle stays 38 for the design, but the TAP TARGET is
         // grown to the 44dp minimum with hitSlop. At 38 the button sat under
         // the platform minimum and close taps landed just outside it — the
@@ -319,6 +325,8 @@ export function FocusHeader({
         {onSettings ? (
           <Press
             onPress={onSettings}
+            accessibilityRole="button"
+            accessibilityLabel={T.a11yOpenSettings}
             style={{
               width: 38,
               height: 38,
