@@ -290,7 +290,7 @@ Plans:
 - [x] 08-08-PLAN.md — dictation, sentence, roleplay, chat, and theme route audit
 
 **Wave 9** *(blocked on Wave 8 completion)*
-- [ ] 08-09-PLAN.md — exam, onboarding, placement, and media route audit
+- [x] 08-09-PLAN.md — exam, onboarding, placement, and media route audit
 
 **Wave 10** *(blocked on Wave 9 completion)*
 - [ ] 08-10-PLAN.md — full action inventory and real-device TalkBack/theme/font-scale proof
