@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
+status: executing
 stopped_at: Phase 8 UI-SPEC approved
-last_updated: "2026-09-28T03:07:22.292Z"
-last_activity: 2026-09-25
+last_updated: "2026-09-28T03:58:57.468Z"
+last_activity: 2026-09-28 -- Phase 8 planning complete
 progress:
   total_phases: 25
   completed_phases: 9
-  total_plans: 63
+  total_plans: 73
   completed_plans: 61
-  percent: 97
+  percent: 84
 ---
 
 # Project State
@@ -32,13 +32,13 @@ Plan: 11 of 11 complete — 07.1-11 was the two-device pass (Pixel 6 and Pixel 9
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
   migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal,
   LanguageChip/LanguagePanel in app/lesson.tsx, and answers-not-glosses.test.ts.
-Status: Pending gsd-verifier close-out. No plan left to run in any phase
+Status: Ready to execute
 NOTE: `percent: 100` above means 61 of 61 WRITTEN plans are done. It is not milestone
   progress - 15 of 25 phases have never been planned. The figure of record is
   **10/25 phases**, in ROADMAP.md's "How to read this table". Do not re-add
   percent_basis/percent_note here; the handler has deleted them twice.
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
-Last activity: 2026-09-25
+Last activity: 2026-09-28 -- Phase 8 planning complete
 
 Progress: 10 of 25 phases (ROADMAP.md is the figure of record)
 

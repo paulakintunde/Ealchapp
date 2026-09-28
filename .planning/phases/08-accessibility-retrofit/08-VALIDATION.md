@@ -1,25 +1,25 @@
 ---
 phase: 8
 slug: accessibility-retrofit
-status: draft
-nyquist_compliant: false
+status: planned
+nyquist_compliant: true
 wave_0_complete: false
 created: 2026-09-27
 ---
 
 # Phase 8 — Validation Strategy
 
-> Per-phase feedback and device evidence contract. Task IDs and waves are assigned when Phase 8 plans are written.
+> Per-phase feedback and device evidence contract. All 20 planned tasks have an automated command; Plan 10 also has a blocking hardware checkpoint. Test results remain pending execution.
 
 ## Test Infrastructure
 
 | Property | Value |
 |----------|-------|
 | **Framework** | Jest 30 with React Native Testing Library 14; Node test runner for pure logic |
-| **Config file** | `ealch-v2/jest.config.js` (confirm filename when planning); `ealch-v2/package.json` scripts |
+| **Config file** | `ealch-v2/jest.config.js`; `ealch-v2/package.json` scripts |
 | **Quick run command** | `npm run typecheck` plus a focused `npm run test:component -- --runInBand <test-file>` from `ealch-v2/` |
 | **Full suite command** | `npm run typecheck`, `npm test`, `npm run test:component -- --runInBand` from `ealch-v2/` |
-| **Estimated runtime** | Measure first run; do not assume a timeout before it is observed |
+| **Estimated runtime** | Baseline to be measured during Plan 01 and full-suite time recorded by Plan 10 |
 
 ## Sampling Rate
 
@@ -30,21 +30,25 @@ created: 2026-09-27
 
 ## Per-Task Verification Map
 
-| Capability | Requirement | Automated check to assign to plan tasks | File exists | Status |
-|------------|-------------|-----------------------------------------|-------------|--------|
-| Shared action semantics and states | A11Y-01 | RNTL role/state/value assertions for representative buttons, tabs, switches, and trail rows; source inventory for remaining `Press` sites | Existing Settings/Toggle test patterns; phase-specific tests pending | ⬜ pending |
-| Icon labels and panel focus | A11Y-02 | RNTL label/focus event assertions where host refs and timing can be simulated | Phase-specific tests pending | ⬜ pending |
-| Automatic preference and resolved theme | A11Y-03 | Pure preference × OS resolver tests; persisted explicit choice; Settings selected state | Phase-specific tests pending | ⬜ pending |
-| Flashcard overflow and flip reset | A11Y-04 | Component structure and scroll-reset behavior tests, with meaningful long-content fixture | Phase-specific tests pending | ⬜ pending |
-
-*Plan task IDs, waves, exact commands, and threat references must be filled in during `/gsd-plan-phase 8`.*
+| Task ID | Wave | Requirement | Threat ref | Automated command from `ealch-v2/` | Test file at plan time | Status |
+|---------|------|-------------|------------|------------------------------------|------------------------|--------|
+| 08-01-01/02 | 1 | A11Y-01/02 | T-08-01/02 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-trail.test.tsx` | Created in Plan 01 | ⬜ pending |
+| 08-02-01/02 | 2 | A11Y-01/02 | T-08-03/04 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-lesson-navigation.test.tsx` | Created in Plan 02 | ⬜ pending |
+| 08-03-01/02 | 3 | A11Y-01/02 | T-08-05/06 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-lesson-controls.test.tsx` | Created in Plan 03 | ⬜ pending |
+| 08-04-01/02 | 4 | A11Y-01/02 | T-08-07/08 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-settings-paywall.test.tsx` | Created in Plan 04 | ⬜ pending |
+| 08-05-01 | 5 | A11Y-03 | T-08-09 | `node --test src/theme/appearance.logic.test.ts`; `npm run typecheck` | Created in task | ⬜ pending |
+| 08-05-02 | 5 | A11Y-03 | T-08-10 | `npm run typecheck`; resolver test; `npm run test:component -- --runInBand __tests__/settings.test.tsx` | Settings test exists | ⬜ pending |
+| 08-06-01/02 | 6 | A11Y-01/02/04 | T-08-11/12 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-flashcards.test.tsx` | Created in Plan 06 | ⬜ pending |
+| 08-07-01/02 | 7 | A11Y-01/02 | T-08-13/14 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-practice-a.test.tsx` | Created in Plan 07 | ⬜ pending |
+| 08-08-01/02 | 8 | A11Y-01/02 | T-08-15/16 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-practice-b.test.tsx` | Created in Plan 08 | ⬜ pending |
+| 08-09-01/02 | 9 | A11Y-01/02 | T-08-17/18 | `npm run typecheck`; `npm run test:component -- --runInBand __tests__/a11y-exam-entry.test.tsx` | Created in Plan 09 | ⬜ pending |
+| 08-10-01 | 10 | A11Y-01/02/03/04 | T-08-19/20 | `npm run typecheck`; `npm test`; `npm run test:component -- --runInBand` | Existing suites plus new tests | ⬜ pending |
+| 08-10-02 | 10 | A11Y-01/02/03/04 | T-08-19/20 | `npm run typecheck`; blocking device checkpoint also required | Existing | ⬜ pending |
 
 ## Wave 0 Requirements
 
-- [ ] Add focused accessibility component tests near existing `__tests__/settings.test.tsx` and `__tests__/toggle.test.tsx`.
-- [ ] Add a pure theme resolution test if a resolver module is introduced.
-- [ ] Add a flashcard test fixture that exercises a long prompt or note and face reset.
-- [ ] Confirm the actual Jest config path and baseline test runtime before writing plan verification commands.
+- No separate Wave 0 plan is required: each plan creates its focused test before running its own `<automated>` command. The first task in each plan must write the named test file before verification.
+- `jest.config.js` exists. Record baseline runtime during Plan 01 and full-suite runtime during Plan 10.
 
 No new test framework is required. [VERIFIED: `ealch-v2/package.json`]
 
@@ -59,11 +63,11 @@ No new test framework is required. [VERIFIED: `ealch-v2/package.json`]
 
 ## Validation Sign-Off
 
-- [ ] All planned tasks have automated verification or a documented device-only reason.
-- [ ] No three consecutive planned tasks lack automated verification.
-- [ ] Wave 0 test dependencies exist before implementation tasks use them.
-- [ ] No watch-mode commands in plan verification.
-- [ ] Full suite baseline runtime measured.
-- [ ] `nyquist_compliant: true` set after plan task mapping is complete.
+- [x] All 20 planned tasks have an `<automated>` verification command; the device checkpoint is additional.
+- [x] No three consecutive tasks lack automated verification.
+- [x] No `MISSING` test reference or separate Wave 0 dependency; tests are created in their owning tasks.
+- [x] No watch-mode commands in plan verification.
+- [ ] Full suite runtime measured during execution.
+- [x] `nyquist_compliant: true` reflects plan coverage, not passing implementation results.
 
-**Approval:** pending plan generation and device execution.
+**Approval:** planned verification coverage complete; test and device results pending execution.

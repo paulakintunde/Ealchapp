@@ -262,7 +262,38 @@ Plans:
   2. Remaining icon-only/custom buttons not covered by `Press`'s default have explicit, curated accessible labels (not derived from concatenated children).
   3. Selecting "automatic" theme makes the app follow the OS dark/light setting.
   4. Increasing the OS font-scale setting no longer clips flashcard text.
-**Plans**: TBD
+**Plans**: 10 plans in 10 waves
+
+Plans:
+**Wave 1**
+- [ ] 08-01-PLAN.md — shared Button semantics, home/Den/Levels trail audit, and level-panel focus
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 08-02-PLAN.md — act and lesson navigation, language panel, and overlay focus
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 08-03-PLAN.md — lesson and mission exercise control audit
+
+**Wave 4** *(blocked on Wave 3 completion)*
+- [ ] 08-04-PLAN.md — Settings, paywall, and account action semantics
+
+**Wave 5** *(blocked on Wave 4 completion)*
+- [ ] 08-05-PLAN.md — Automatic appearance, saved-choice preservation, and native bars
+
+**Wave 6** *(blocked on Wave 5 completion)*
+- [ ] 08-06-PLAN.md — scrollable large-text flashcards and separate Flip/audio actions
+
+**Wave 7** *(blocked on Wave 6 completion)*
+- [ ] 08-07-PLAN.md — flash, voice, speech, and review route audit
+
+**Wave 8** *(blocked on Wave 7 completion)*
+- [ ] 08-08-PLAN.md — dictation, sentence, roleplay, chat, and theme route audit
+
+**Wave 9** *(blocked on Wave 8 completion)*
+- [ ] 08-09-PLAN.md — exam, onboarding, placement, and media route audit
+
+**Wave 10** *(blocked on Wave 9 completion)*
+- [ ] 08-10-PLAN.md — full action inventory and real-device TalkBack/theme/font-scale proof
 **Pitfall Watch**: PITFALLS.md Pitfall 3 — do not ship a single blanket `accessibilityRole="button"` default on `Press`; thread role as an explicit per-call-site prop and audit real usage in batches by screen, since a blanket default would misannounce switches/tabs/links. Verification must be a real-device TalkBack sweep per touched screen (not a grep for role presence), and every switch/tab role must be paired with the matching `accessibilityState`/`accessibilityValue`. Also check `position: absolute` elements (modals, overlays, FABs) separately — TalkBack on Android can fail to reach them regardless of role correctness.
 **UI hint**: yes
 

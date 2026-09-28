@@ -39,7 +39,7 @@ Single-tier mobile client for these requirements. Native OS settings and accessi
 
 The shared `Press` forwards `PressableProps` and adds no role. Retrofit semantics at each action call site, with the shared component remaining neutral. Existing `Toggle` already demonstrates a switch role plus checked state. A screen-reader audit must cover current Phase 07.1 surfaces, icon actions, overlay focus, and hidden animated content. [VERIFIED: `src/components/ui.tsx`, `src/components/TrailRow.tsx`, Phase 8 roadmap]
 
-The app declares native `userInterfaceStyle: "automatic"` but stores `mode: 'dark' | 'light'` with a fresh default of dark and derives palettes directly from that preference. Introduce a three-way preference while keeping the resolved theme binary. Preserve persisted explicit choices and make system changes observable while open. Android's Expo configuration needs `expo-system-ui` and a native build check. [VERIFIED: `app.json`, `useStore.ts`, `palette.ts`, `useTheme.ts`, `settings.tsx`; CITED: https://docs.expo.dev/versions/v57.0.0/sdk/system-ui/]
+The app declares native `userInterfaceStyle: "automatic"` but stores `mode: 'dark' | 'light'` with a fresh default of dark and derives palettes directly from that preference. Introduce a three-way preference while keeping the resolved theme binary. Preserve persisted explicit choices and make system changes observable while open. Android's Expo configuration needs `expo-system-ui` and a native build check. React Native **0.86** uses `Appearance.setColorScheme('unspecified')` to remove an app override; the newer unversioned docs use `'auto'`, so execution must follow the 0.86 API. [VERIFIED: `app.json`, `useStore.ts`, `palette.ts`, `useTheme.ts`, `settings.tsx`; CITED: https://docs.expo.dev/versions/v57.0.0/sdk/system-ui/, https://reactnative.dev/docs/0.86/appearance]
 
 The flashcard already scales `TX` text but clips both absolute-positioned faces with `overflow: hidden` in a card capped at 480 px. Make the text region bounded and scrollable, keep progress and actions anchored, reset the new face to top, and correct the nested Flip/audio interaction. [VERIFIED: `app/flashcards.tsx`, `src/components/Type.tsx`; CITED: https://reactnative.dev/docs/scrollview]
 
@@ -87,7 +87,7 @@ Panels need an accessible title and deliberate focus after presentation. React N
 
 ### Appearance preference
 
-Keep the saved preference distinct from the effective theme. A fresh install can default to `automatic` while a hydrated older install retains persisted `dark` or `light`. `buildTheme` continues to accept only an effective binary mode. Settings shows the selected preference and, when Automatic, the current effective mode. Watch OS changes through `useColorScheme` or documented `Appearance` events; verify active-app switching. Explicit modes must control the native appearance too, not just React colors. [VERIFIED: `useStore.ts`, `palette.ts`, `useTheme.ts`; CITED: https://reactnative.dev/docs/appearance, https://docs.expo.dev/develop/user-interface/color-themes/]
+Keep the saved preference distinct from the effective theme. A fresh install can default to `automatic` while a hydrated older install retains persisted `dark` or `light`. `buildTheme` continues to accept only an effective binary mode. Settings shows the selected preference and, when Automatic, the current effective mode. Watch OS changes through `useColorScheme` or documented `Appearance` events; verify active-app switching. Explicit modes must control the native appearance too, not just React colors. In RN 0.86, remove the app override with `Appearance.setColorScheme('unspecified')`. [VERIFIED: `useStore.ts`, `palette.ts`, `useTheme.ts`; CITED: https://reactnative.dev/docs/0.86/appearance, https://docs.expo.dev/develop/user-interface/color-themes/]
 
 ### Flashcard structure
 
@@ -126,11 +126,11 @@ The outer card is currently a Flip `Press` containing an audio `Press`; the sour
 
 Existing commands: `npm run typecheck`, `npm test`, and `npm run test:component` from `ealch-v2/`. Existing `settings.test.tsx` and `toggle.test.tsx` provide RNTL patterns. New tests should target behavior that grep or typecheck cannot prove. Device evidence cannot be replaced by an automated role count. [VERIFIED: `package.json`, `__tests__/settings.test.tsx`, `__tests__/toggle.test.tsx`, Phase 8 roadmap]
 
-## Open Questions for Execution
+## Open Questions (RESOLVED for planning; device proof pending)
 
-1. Confirm the effective Android native setup after installing `expo-system-ui`: this repo includes an `android/` directory, so inspect whether Expo config changes alone are applied or native project configuration needs updating, then rebuild the test binary. [VERIFIED: local repository; CITED: https://docs.expo.dev/versions/v57.0.0/sdk/system-ui/]
-2. Verify which focus event target and timing work on the actual level/language panels and paywall. The API exists; correct behavior depends on mounted host refs and navigation timing. [CITED: https://reactnative.dev/docs/accessibilityinfo]
-3. Establish a device evidence record for the final TalkBack/appearance/font-scale sweep. Hardware behavior is not proven by this research pass. [VERIFIED: Phase 8 roadmap]
+1. **RESOLVED for planning — Plan 05:** Confirm the effective Android native setup after installing `expo-system-ui`: this repo includes an `android/` directory, so inspect whether Expo config changes alone are applied or native project configuration needs updating, then rebuild the test binary. The actual native behavior still needs device proof. [VERIFIED: local repository; CITED: https://docs.expo.dev/versions/v57.0.0/sdk/system-ui/]
+2. **RESOLVED for planning — Plans 01, 02, 04, and 10:** Implement title focus for level/language panels and paywall, then verify target and timing on device. The API exists; correct behavior depends on mounted host refs and navigation timing. [CITED: https://reactnative.dev/docs/accessibilityinfo]
+3. **RESOLVED for planning — Plan 10:** Establish a device evidence record for the final TalkBack/appearance/font-scale sweep. Hardware behavior is not proven by this research pass. [VERIFIED: Phase 8 roadmap]
 
 ## Sources
 
