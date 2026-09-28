@@ -223,6 +223,12 @@ ceiling raise. Proven on the Pixel with two accounts:
 
 ## Rollout steps (needs approval)
 
+**Progress (2026-09-28, approved by Paul):**
+- Step 1 DONE: private bucket `content-packs` created (public=false, 80 MiB limit). `storage.objects` has no policies at all, so only the service role and signed URLs can read it; a public URL into it is refused (400).
+- Step 2 DONE: `content-pack-url` deployed (v1, ACTIVE, verify_jwt off, JWT checked in code) through the Supabase API; the CLI deploy stalled in Docker. Probed: no auth 401, forged bearer 401, GET 405.
+- Adapty secret: Paul sets `ADAPTY_SECRET_KEY` themselves; until then the function decides from the entitlements mirror.
+- Still to do: the app suite has 5 source-shape failures from the separate accessibility phase 8 work (TrailRow, LessonDeck, a close button) that must be green before any publish; then the `--packs` dry run and publish, then the app update.
+
 Nothing below has been run. Project ref: `ogbothupjcivwruesgsu`.
 
 1. **Private bucket** (SQL editor):
