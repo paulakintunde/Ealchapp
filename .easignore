@@ -61,6 +61,10 @@ web-build/
 seed.*.json
 !seed.json
 *.bak
+# The paid layer the content tests read (seed-plus-packs.ts). Tests only;
+# nothing in the app imports it, and under premium packs it is ~30 MB of paid
+# content that must not ride in the binary's upload.
+seed-packs.json
 
 # ─── Local noise, scratch files and audit output ───────────────────────────
 # Measured with _a235_archivesize.mjs: .playwright-mcp alone was 2.3 MB of
