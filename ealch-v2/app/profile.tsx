@@ -253,12 +253,12 @@ export default function Profile() {
                     fontFamily: 'InstrumentSerif',
                   }}
                 />
-                <Press onPress={saveName} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <Press accessibilityRole="button" accessibilityLabel={T.a11ySaveName} onPress={saveName} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                   <Icon name="check" size={16} color={t.accInk} />
                 </Press>
               </View>
             ) : (
-              <Press onPress={startEditName} cue={null} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'flex-start' }}>
+              <Press accessibilityRole="button" accessibilityLabel={`${T.a11yEditName}, ${userName || T.guestName}`} onPress={startEditName} cue={null} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'flex-start' }}>
                 <TX font="serif" role="display" size={30}>
                   {userName || T.guestName}
                 </TX>
@@ -287,7 +287,7 @@ export default function Profile() {
               {(['fr', 'en'] as const).map((l) => {
                 const on = lang === l;
                 return (
-                  <Press key={l} onPress={() => setLang(l)} style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
+                  <Press accessibilityRole="radio" accessibilityState={{ selected: on }} key={l} onPress={() => setLang(l)} style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
                     <TX font="semi" role="meta" ls={1} color={on ? t.accInk : t.txMuted}>
                       {l.toUpperCase()}
                     </TX>
@@ -295,7 +295,7 @@ export default function Profile() {
                 );
               })}
             </View>
-            <Press onPress={() => router.push('/settings')} style={{ width: 36, height: 36, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" accessibilityLabel={T.a11yOpenSettings} onPress={() => router.push('/settings')} style={{ width: 36, height: 36, alignItems: 'center', justifyContent: 'center' }}>
               <Icon name="gear" size={18} color={t.txNonText} />
             </Press>
           </View>
@@ -426,7 +426,7 @@ export default function Profile() {
               // The real count from the error log, not a fixed caption per row.
               const meta = (w.count === 1 ? T.weakSlip : T.weakSlipPl).replace('{n}', String(w.count));
               return (
-                <Press
+                <Press accessibilityRole="button"
                   key={w.skill}
                   onPress={d.open}
                   style={{
@@ -470,7 +470,7 @@ export default function Profile() {
           {accentData.map((a) => {
             const on = region === a.id;
             return (
-              <Press
+              <Press accessibilityRole="radio" accessibilityState={{ selected: on }}
                 key={a.id}
                 onPress={() => setRegion(a.id)}
                 style={{
@@ -523,7 +523,7 @@ export default function Profile() {
         </CardBox>
 
         {/* Settings link */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={() => router.push('/settings')}
           style={{
             minHeight: 56,
@@ -547,7 +547,7 @@ export default function Profile() {
         </Press>
 
         {/* Sign out */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={() => {
             void auth.signOut();
             signOut();

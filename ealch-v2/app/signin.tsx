@@ -130,7 +130,7 @@ export default function SignIn() {
         </TX>
       ) : null}
       {FLAGS.forgotPassword && hasSupabase() ? (
-        <Press onPress={doReset} cue={null} style={{ alignSelf: 'flex-end', marginBottom: 18, opacity: reset === 'pending' ? 0.5 : 1 }}>
+        <Press accessibilityRole="button" disabled={reset === 'pending'} onPress={doReset} cue={null} style={{ alignSelf: 'flex-end', marginBottom: 18, opacity: reset === 'pending' ? 0.5 : 1 }}>
           <TX role="label" color={reset === 'sent' ? t.accTx : t.txSubtle}>
             {reset === 'sent' ? T.resetSent : T.forgotPw}
           </TX>
@@ -152,7 +152,7 @@ export default function SignIn() {
           <Button label={T.withGoogle} icon="google" variant="outline" onPress={() => oauth('google')} style={oauthStyle} />
         </>
       ) : null}
-      <Press onPress={() => router.replace('/onboarding')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
+      <Press accessibilityRole="button" onPress={() => router.replace('/onboarding')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
         <TX role="bodySm" color={t.txMuted}>
           {T.newHere} <TX font="semi" role="bodySm" color={t.accTx}>{T.createAccount}</TX>
         </TX>

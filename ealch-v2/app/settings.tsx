@@ -180,7 +180,7 @@ export default function Settings() {
 
         {/* Current plan — the real entitlement, tappable through to the
             paywall (free: to subscribe; premium: to see the plan stated). */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={() => router.push({ pathname: '/paywall', params: { from: 'settings' } })}
           style={{
             borderRadius: 18,
@@ -239,7 +239,7 @@ export default function Settings() {
             This one runs a real Adapty restore and reports what it found
             (services/purchases.logic.ts decides which of the four things it
             says). */}
-        <Press
+        <Press accessibilityRole="button" disabled={restoring}
           onPress={() => void doRestore()}
           style={{
             minHeight: 58,
@@ -270,7 +270,7 @@ export default function Settings() {
         </Press>
 
         {/* downloads */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={() => router.push('/downloads')}
           style={{
             minHeight: 58,
@@ -306,7 +306,7 @@ export default function Settings() {
             const on = appLang === lg.id;
             const soon = !lg.available;
             return (
-              <Press key={lg.id} onPress={soon ? undefined : () => setAppLang(lg.id)} cue={soon ? null : 'tap'} style={{ alignItems: 'center', gap: 7, width: 48, opacity: soon ? 0.38 : 1 }}>
+              <Press accessibilityRole="radio" accessibilityState={{ selected: on, disabled: soon }} accessibilityLabel={`${lg.ch}${soon ? `, ${T.soonT}` : ''}`} disabled={soon} key={lg.id} onPress={soon ? undefined : () => setAppLang(lg.id)} cue={soon ? null : 'tap'} style={{ alignItems: 'center', gap: 7, width: 48, opacity: soon ? 0.38 : 1 }}>
                 <View
                   style={{
                     width: 48,
@@ -340,7 +340,7 @@ export default function Settings() {
           {accentData.map((a) => {
             const on = region === a.id;
             return (
-              <Press
+              <Press accessibilityRole="radio" accessibilityState={{ selected: on }}
                 key={a.id}
                 onPress={() => setRegion(a.id)}
                 style={{
@@ -370,7 +370,7 @@ export default function Settings() {
             {(['dark', 'light'] as const).map((m) => {
               const on = mode === m;
               return (
-                <Press
+                <Press accessibilityRole="radio" accessibilityState={{ selected: on }} accessibilityLabel={m === 'dark' ? T.modeDark : T.modeLight}
                   key={m}
                   onPress={() => setMode(m)}
                   style={{
@@ -396,7 +396,7 @@ export default function Settings() {
           {ACCENTS.map((th) => {
             const on = accent === th.c;
             return (
-              <Press key={th.c} onPress={() => setAccent(th.c)} style={{ alignItems: 'center', gap: 8 }}>
+              <Press accessibilityRole="radio" accessibilityState={{ selected: on }} accessibilityLabel={th.n} key={th.c} onPress={() => setAccent(th.c)} style={{ alignItems: 'center', gap: 8 }}>
                 <View
                   style={{
                     width: 42,
@@ -421,7 +421,7 @@ export default function Settings() {
           {AVATARS.map((a) => {
             const on = avatarId === a.id;
             return (
-              <Press key={a.id} onPress={() => setAvatarId(a.id)} style={{ alignItems: 'center', gap: 8, width: 64 }}>
+              <Press accessibilityRole="radio" accessibilityState={{ selected: on }} accessibilityLabel={a.name} key={a.id} onPress={() => setAvatarId(a.id)} style={{ alignItems: 'center', gap: 8, width: 64 }}>
                 <View
                   style={{
                     width: 56,
@@ -469,7 +469,7 @@ export default function Settings() {
                 {T.customTime}
               </TX>
             </View>
-            <Press
+            <Press accessibilityRole="button" accessibilityLabel={`${T.a11yChangeAlarm}, ${formatTime(alarmTime, clock24)}`} accessibilityState={{ expanded: showWheel }}
               onPress={() => setShowWheel((v) => !v)}
               style={{
                 minHeight: 42,
@@ -500,7 +500,7 @@ export default function Settings() {
             {alarmData.map((chip) => {
               const on = alarmTime === chip.time;
               return (
-                <Press
+                <Press accessibilityRole="radio" accessibilityState={{ selected: on }}
                   key={chip.time}
                   onPress={() => setAlarm(chip.time)}
                   style={{
@@ -522,7 +522,7 @@ export default function Settings() {
               );
             })}
           </View>
-          <Press
+          <Press accessibilityRole="button"
             onPress={testAlarm}
             cue={null}
             style={{

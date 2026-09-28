@@ -109,7 +109,7 @@ export function LegalConsent() {
     Linking.openURL(url).catch(() => {});
   };
   const link = (label: string, url: string) => (
-    <TX font="semi" role="label" color={t.txSecondary} onPress={() => open(url)} style={{ textDecorationLine: 'underline' }}>
+    <TX accessibilityRole="link" font="semi" role="label" color={t.txSecondary} onPress={() => open(url)} style={{ textDecorationLine: 'underline' }}>
       {label}
     </TX>
   );

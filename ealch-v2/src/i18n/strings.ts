@@ -266,7 +266,7 @@ export type Strings = {
   monthlyL: string; annualL: string; perMoShort: string; billedYear: string;
   saveFmt: string; bestValue: string; pwTrialFmt: string;
   pwCta: string; pwCtaGuest: string;
-  pwUnavailableT: string; pwUnavailableS: string;
+  pwUnavailableT: string; pwUnavailableS: string; pwReturnFree: string;
   pwSuccessT: string; pwSuccessS: string;
   restoreT: string; restoreDone: string; restoreNone: string; restoreFail: string;
   pwTermsAuto: string;
@@ -410,6 +410,7 @@ export type Strings = {
   a11ySeeAgain: string; a11ySeeAgainHint: string; a11ySaidIt: string; a11yDone: string;
   a11ySlow: string; a11yNormal: string;
   a11yTextUnderstood: string;
+  a11ySaveName: string; a11yEditName: string; a11yChangeAlarm: string;
   restSaved: string; restStop: string; restStopHint: string; recapWhere: string; recapResume: string; recapRestart: string; recapRestartHint: string;
   warmBackTitle: string; warmBackIntro: string; warmCorrect: string; warmIncorrect: string; warmStart: string;
   /** The visible label on a trail heading's Fiche button. It was an
@@ -742,6 +743,7 @@ export const T: Record<Lang, Strings> = {
     pwCta: 'Continuer', pwCtaGuest: 'Connectez-vous pour vous abonner',
     pwUnavailableT: 'Les achats ne sont pas disponibles dans cette version',
     pwUnavailableS: 'Cette version ne peut pas encore encaisser de paiement. Rien ne vous a été facturé.',
+    pwReturnFree: 'Revenir au parcours gratuit',
     pwSuccessT: 'Bienvenue dans Première', pwSuccessS: 'Tout est débloqué. Profitez-en.',
     restoreT: 'Restaurer les achats', restoreDone: 'Achats restaurés', restoreNone: 'Aucun achat à restaurer sur ce compte',
     restoreFail: 'Impossible de joindre la boutique. Réessayez',
@@ -933,6 +935,7 @@ export const T: Record<Lang, Strings> = {
     a11ySeeAgain: 'Revoir cette notion', a11ySeeAgainHint: 'Ouvre la mission qui a enseigné cette notion', a11ySaidIt: "Je l’ai dit", a11yDone: 'Terminé',
     a11ySlow: 'Lent', a11yNormal: 'Normal',
     a11yTextUnderstood: 'Texte compris',
+    a11ySaveName: 'Enregistrer le nom', a11yEditName: 'Modifier le nom', a11yChangeAlarm: "Modifier l’heure du rappel",
     restSaved: 'Votre place est enregistrée. Continuez quand vous êtes prêt.', restStop: "S'arrêter ici", restStopHint: 'Quitte la leçon en gardant votre place', recapWhere: 'Où vous en étiez', recapResume: 'Reprendre où vous en étiez', recapRestart: 'Recommencer au début', recapRestartHint: 'Recommence cette leçon depuis le début',
     warmBackTitle: 'De retour après une pause', warmBackIntro: 'Trois questions rapides sur {title}, puis on continue.', warmCorrect: 'Bonne réponse', warmIncorrect: 'Votre réponse est incorrecte', warmStart: 'Commencer',
     prerollTitle: 'Avant de commencer', prerollShape: '{s} étapes, {p} passages parlés, {m} avec le micro sur {ms} étapes',
@@ -1242,6 +1245,7 @@ export const T: Record<Lang, Strings> = {
     pwCta: 'Continue', pwCtaGuest: 'Sign in to subscribe',
     pwUnavailableT: 'Purchases are not available in this build',
     pwUnavailableS: 'This build cannot take payment yet. Nothing was charged.',
+    pwReturnFree: 'Return to the free path',
     pwSuccessT: 'Welcome to Première', pwSuccessS: 'Everything is unlocked. Enjoy it.',
     restoreT: 'Restore purchases', restoreDone: 'Purchases restored', restoreNone: 'No purchases to restore on this account',
     restoreFail: 'Could not reach the store. Try again',
@@ -1437,6 +1441,7 @@ export const T: Record<Lang, Strings> = {
     a11ySeeAgain: 'See this again', a11ySeeAgainHint: 'Opens the mission that taught this', a11ySaidIt: 'I said it', a11yDone: 'Done',
     a11ySlow: 'Slow', a11yNormal: 'Normal',
     a11yTextUnderstood: 'Text understood',
+    a11ySaveName: 'Save name', a11yEditName: 'Edit name', a11yChangeAlarm: 'Change reminder time',
     restSaved: 'Saved. Carry on when you are ready.', restStop: 'Stop here', restStopHint: 'Leaves the lesson, keeping your place', recapWhere: 'Where you were', recapResume: 'Pick up where you left off', recapRestart: 'Ignore, start from the beginning', recapRestartHint: 'Starts this lesson from the beginning instead',
     warmBackTitle: 'Back after a break', warmBackIntro: 'Three quick ones from {title}, then straight on.', warmCorrect: 'Correct answer', warmIncorrect: 'Your answer, incorrect', warmStart: 'Start',
     prerollTitle: 'Before you start', prerollShape: '{s} stages, {p} spoken passages, {m} with the mic across {ms} stages',

@@ -62,4 +62,13 @@ describe('Settings screen', () => {
       screen.getByRole('switch', { name: 'Sound effects' }).props.accessibilityState?.checked,
     ).toBe(false);
   });
+
+  test('appearance choice announces selection and updates the saved mode', async () => {
+    useStore.setState({ mode: 'dark' });
+    await renderSettings();
+    expect(screen.getByRole('radio', { name: /dark/i }).props.accessibilityState.selected).toBe(true);
+    await fireEvent.press(screen.getByRole('radio', { name: /light/i }));
+    expect(useStore.getState().mode).toBe('light');
+    expect(screen.getByRole('radio', { name: /light/i }).props.accessibilityState.selected).toBe(true);
+  });
 });

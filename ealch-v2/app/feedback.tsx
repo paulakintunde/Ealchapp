@@ -139,7 +139,7 @@ export default function Feedback() {
             <TX role="bodySm" center lhMult={1.6} color={t.txMuted} style={{ maxWidth: 300, marginBottom: 30 }}>
               {T.reportEmptyS}
             </TX>
-            <Press onPress={() => router.replace('/home')} style={{ minHeight: 50, paddingVertical: 6, paddingHorizontal: 30, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" onPress={() => router.replace('/home')} style={{ minHeight: 50, paddingVertical: 6, paddingHorizontal: 30, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.backFeed}
               </TX>
@@ -223,7 +223,7 @@ export default function Feedback() {
                   if (w.anchor) {
                     const anchor = w.anchor;
                     return (
-                      <Press
+                      <Press accessibilityRole="button"
                         key={w.itemId}
                         cue={null}
                         onPress={() => {
@@ -254,7 +254,7 @@ export default function Feedback() {
             {/* Action — practise the weak words for real (Voice Flash reads the
                 same corpus these items came from). */}
             {report.weak.length ? (
-              <Press onPress={() => router.push('/voiceflash')} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <Press accessibilityRole="button" onPress={() => router.push('/voiceflash')} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                 <TX font="semi" role="body" color={t.accInk}>
                   {T.practiceWeak}
                 </TX>

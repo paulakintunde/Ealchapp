@@ -10,7 +10,10 @@ const rows = [];
 const heading = process.env.PHASE8_AUDIT_HEADING;
 
 for (const name of names) {
-  const file = path.join(root, `${name}.tsx`);
+  const inApp = name.startsWith('app:');
+  const shortName = inApp ? name.slice(4) : name;
+  const file = inApp ? path.join(__dirname, '..', 'app', `${shortName}.tsx`) : path.join(root, `${shortName}.tsx`);
+  const link = inApp ? `../../../ealch-v2/app/${shortName}.tsx` : `../../../ealch-v2/src/components/${shortName}.tsx`;
   const source = fs.readFileSync(file, 'utf8');
   const tree = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
   const visit = (node) => {
@@ -31,7 +34,7 @@ for (const name of names) {
         const state = attrs.accessibilityState ?? attrs.accessibilityValue ?? attrs.disabled ?? 'none';
         const action = attrs.onPress ?? attrs.onLongPress ?? 'none';
         const esc = (s) => s.replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').slice(0, 160);
-        rows.push(`| [${name}.tsx:${line}](../../../ealch-v2/src/components/${name}.tsx#L${line}) | ${esc(tag)} | ${esc(role)} | ${esc(label)} | ${esc(state)} | ${esc(action)} |`);
+        rows.push(`| [${shortName}.tsx:${line}](${link}#L${line}) | ${esc(tag)} | ${esc(role)} | ${esc(label)} | ${esc(state)} | ${esc(action)} |`);
       }
     }
     ts.forEachChild(node, visit);

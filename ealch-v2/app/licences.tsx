@@ -40,6 +40,7 @@ export default function Licences() {
       key={c.name}
       cue={null}
       onPress={() => open(c.url)}
+      disabled={!c.url}
       accessibilityRole={c.url ? 'link' : 'text'}
       accessibilityLabel={`${c.name}. ${c.note}`}
       style={{

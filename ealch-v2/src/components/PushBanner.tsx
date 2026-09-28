@@ -84,6 +84,8 @@ export function PushBanner() {
   return (
     <Animated.View
       pointerEvents={visible ? 'auto' : 'none'}
+      accessibilityElementsHidden={!visible}
+      importantForAccessibility={visible ? 'auto' : 'no-hide-descendants'}
       style={{
         position: 'absolute',
         top: 58,
@@ -93,10 +95,11 @@ export function PushBanner() {
         transform: [{ translateY: y }],
       }}
     >
-      <Press
+      <Press accessibilityRole="button"
         cue={null}
         scale={0.98}
         onPress={onBannerPress}
+        accessibilityLabel={`${masthead}. ${bodyText}`}
         style={{
           borderRadius: 20,
           backgroundColor: t.card2,

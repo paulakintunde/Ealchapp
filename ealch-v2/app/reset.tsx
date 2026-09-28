@@ -158,7 +158,7 @@ export default function ResetPassword() {
             disabled={pending || !checked || !tokens}
             style={{ minHeight: 54, paddingVertical: 6, marginTop: 6 }}
           />
-          <Press onPress={() => router.replace('/signin')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
+          <Press accessibilityRole="button" onPress={() => router.replace('/signin')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
             <TX role="bodySm" color={t.txMuted}>
               {T.backToSignIn}
             </TX>

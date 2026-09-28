@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Linking, ScrollView, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import * as ReactNative from 'react-native';
+import { AccessibilityInfo, Linking, ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -72,6 +73,11 @@ export default function Paywall() {
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [purchased, setPurchased] = useState(false);
+  const titleRef = useRef<View>(null);
+  const focusTitle = () => {
+    const node = ReactNative.findNodeHandle(titleRef.current);
+    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+  };
 
   useEffect(() => {
     track('paywall_viewed', { from: from ?? 'direct' });
@@ -198,13 +204,14 @@ export default function Paywall() {
           <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: t.line(10), alignItems: 'center', justifyContent: 'center', marginBottom: 6 }}>
             <Icon name="lock" size={26} color={t.txSubtle} strokeWidth={2.4} />
           </View>
-          <TX font="serif" role="display" size={28} style={{ textAlign: 'center' }}>
-            {T.pwExamTitle}
-          </TX>
+          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.pwExamTitle} onLayout={focusTitle}>
+            <TX font="serif" role="display" size={28} style={{ textAlign: 'center' }}>{T.pwExamTitle}</TX>
+          </View>
           <TX role="bodySm" color={t.txMuted} style={{ textAlign: 'center', maxWidth: 300 }}>
             {T.pwExamBody}
           </TX>
           <Press
+            accessibilityRole="button"
             onPress={() => router.back()}
             style={{ marginTop: 18, minHeight: 52, paddingVertical: 8, paddingHorizontal: 40, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
           >
@@ -230,13 +237,13 @@ export default function Paywall() {
           <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center', marginBottom: 6 }}>
             <Icon name="check" size={26} color={t.acc} strokeWidth={2.4} />
           </View>
-          <TX font="serif" role="display" size={28} style={{ textAlign: 'center' }}>
-            {T.pwSuccessT}
-          </TX>
+          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.pwSuccessT} onLayout={focusTitle}>
+            <TX font="serif" role="display" size={28} style={{ textAlign: 'center' }}>{T.pwSuccessT}</TX>
+          </View>
           <TX role="bodySm" color={t.txMuted} style={{ textAlign: 'center', maxWidth: 300 }}>
             {purchased ? T.pwSuccessS : planLabel}
           </TX>
-          <Press onPress={() => router.back()} style={{ marginTop: 18, minHeight: 52, paddingVertical: 8, paddingHorizontal: 40, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityRole="button" onPress={() => router.back()} style={{ marginTop: 18, minHeight: 52, paddingVertical: 8, paddingHorizontal: 40, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="semi" role="body" color={t.accInk}>
               {T.cont}
             </TX>
@@ -258,9 +265,9 @@ export default function Paywall() {
         <TX font="semi" role="eyebrow" ls={2.6} color={t.accTx} style={{ marginBottom: 10 }}>
           {T.pwTag}
         </TX>
-        <TX font="serif" role="display" size={34} style={{ marginBottom: 8 }}>
-          {copy.title}
-        </TX>
+        <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={copy.title} onLayout={focusTitle} style={{ marginBottom: 8 }}>
+          <TX font="serif" role="display" size={34}>{copy.title}</TX>
+        </View>
         <TX role="bodySm" color={t.txMuted} style={{ maxWidth: 320, marginBottom: 22 }}>
           {copy.lead}
         </TX>
@@ -292,6 +299,9 @@ export default function Paywall() {
               <Press
                 key={row.id}
                 onPress={() => pick(row.id)}
+                accessibilityRole="radio"
+                accessibilityLabel={`${row.label}, ${row.price}, ${row.sub}`}
+                accessibilityState={{ selected: on }}
                 style={{
                   borderRadius: 18,
                   borderWidth: on ? 1.6 : 1,
@@ -344,6 +354,8 @@ export default function Paywall() {
         {/* Purchase, or the honest reason there is none */}
         {status === 'ready' ? (
           <Press
+            accessibilityRole="button"
+            disabled={busy}
             onPress={() => void buy()}
             style={{ minHeight: 54, borderRadius: 27, backgroundColor: busy ? t.accA(40) : t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}
           >
@@ -359,10 +371,13 @@ export default function Paywall() {
             <TX role="label" color={t.txMuted} style={{ marginTop: 2 }}>
               {T.pwUnavailableS}
             </TX>
+            <Press accessibilityRole="button" onPress={() => router.replace('/den')} style={{ alignSelf: 'flex-start', minHeight: 44, justifyContent: 'center', marginTop: 8 }}>
+              <TX font="semi" role="label" color={t.accTx}>{T.pwReturnFree}</TX>
+            </Press>
           </View>
         )}
 
-        <Press onPress={() => void restore()} cue={null} style={{ alignItems: 'center', paddingVertical: 10, marginBottom: 4 }}>
+        <Press accessibilityRole="button" disabled={busy} onPress={() => void restore()} cue={null} style={{ alignItems: 'center', paddingVertical: 10, marginBottom: 4 }}>
           <TX role="label" color={t.txSubtle}>
             {T.restoreT}
           </TX>
@@ -392,6 +407,8 @@ export default function Paywall() {
                   <Press
                     key={c}
                     onPress={() => setCurrency(c)}
+                    accessibilityRole="radio"
+                    accessibilityState={{ selected: on }}
                     style={{ paddingVertical: 8, paddingHorizontal: 14, borderRadius: 14, borderWidth: 1, borderColor: on ? t.acc : t.line(10), backgroundColor: on ? t.accA(10) : t.card }}
                   >
                     <TX font={on ? 'semi' : 'sans'} role="label" color={on ? t.accTx : t.txMuted}>
@@ -429,6 +446,7 @@ export default function Paywall() {
           </TX>
           <View style={{ flexDirection: 'row', gap: 18, marginTop: 2 }}>
             <TX
+              accessibilityRole="link"
               font="semi"
               role="label"
               color={t.txSubtle}
@@ -438,6 +456,7 @@ export default function Paywall() {
               {T.legalTerms}
             </TX>
             <TX
+              accessibilityRole="link"
               font="semi"
               role="label"
               color={t.txSubtle}
