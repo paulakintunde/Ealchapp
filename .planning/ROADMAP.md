@@ -287,7 +287,7 @@ Plans:
 - [x] 08-07-PLAN.md — flash, voice, speech, and review route audit
 
 **Wave 8** *(blocked on Wave 7 completion)*
-- [ ] 08-08-PLAN.md — dictation, sentence, roleplay, chat, and theme route audit
+- [x] 08-08-PLAN.md — dictation, sentence, roleplay, chat, and theme route audit
 
 **Wave 9** *(blocked on Wave 8 completion)*
 - [ ] 08-09-PLAN.md — exam, onboarding, placement, and media route audit
