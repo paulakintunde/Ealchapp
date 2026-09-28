@@ -109,13 +109,12 @@ export const SEED_CUT: SeedCut = {
  * seed-cut.logic.ts, on the core that content-packs.logic.ts splits off, and
  * used by `content:publish --packs`.
  *
- * NOT YET the default cut, deliberately. A plain `content:publish` still cuts
- * with `SEED_CUT` above until the rollout, for three measured reasons written
- * up in the spec's rollout steps: b1-merge-into-seed.ts (and the B2 pipeline
- * built on it) refuses any unit missing from SEED_CUT.units, about 48 app test
- * files read A2/B1 lessons straight out of seed.json, and a publish that
- * uploads packs needs the private bucket to exist first. The rollout's seed
- * step is making --packs the default and retiring SEED_CUT.units.
+ * NOT YET the default cut, deliberately: a plain `content:publish` still cuts
+ * with `SEED_CUT` above until the rollout (the private bucket must exist
+ * first). The tests and the band merge are ready for it (2026-09-28): the
+ * content tests read seed.json plus seed-packs.json (TEST_CUT below), and
+ * b1-merge-into-seed.ts writes both files under packs. The rollout's seed step
+ * is making --packs the default and retiring SEED_CUT.units.
  */
 export const CORE_SEED_CUT: SeedCut = {
   tracks: ['sons', 'a1'],
