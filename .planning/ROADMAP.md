@@ -278,7 +278,7 @@ Plans:
 - [x] 08-04-PLAN.md — Settings, paywall, and account action semantics
 
 **Wave 5** *(blocked on Wave 4 completion)*
-- [ ] 08-05-PLAN.md — Automatic appearance, saved-choice preservation, and native bars
+- [x] 08-05-PLAN.md — Automatic appearance, saved-choice preservation, and native bars
 
 **Wave 6** *(blocked on Wave 5 completion)*
 - [ ] 08-06-PLAN.md — scrollable large-text flashcards and separate Flip/audio actions
