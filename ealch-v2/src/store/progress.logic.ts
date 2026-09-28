@@ -1391,6 +1391,12 @@ export type DueExamSkill = {
  */
 export const EXAM_PREP_TARGETS: Readonly<Record<string, string>> = {
   'PE@b1': 'b1.39.l1',
+  // B2 wave 1 (2026-09-27): one lesson per exam skill. b2.22 is also 'PE' and
+  // comes first in the trail, so writing needs the named target most.
+  'PE@b2': 'b2.23.l1',
+  'CE@b2': 'b2.24.l1',
+  'CO@b2': 'b2.25.l1',
+  'PO@b2': 'b2.26.l1',
 };
 
 /**

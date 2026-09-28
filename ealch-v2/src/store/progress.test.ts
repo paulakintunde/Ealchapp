@@ -1310,6 +1310,13 @@ test('dueExamSkills sends a failed B1 writing section to the B1 capstone, not th
   deepStrictEqual(dueExamSkills([r], [mk('b1.01.l1')]).map((d) => d.prepLessonId), ['b1.01.l1']);
 });
 
+test('each B2 exam skill has its own remediation lesson', () => {
+  deepStrictEqual(
+    ['PE', 'CE', 'CO', 'PO'].map((k) => EXAM_PREP_TARGETS[`${k}@b2`]),
+    ['b2.23.l1', 'b2.24.l1', 'b2.25.l1', 'b2.26.l1'],
+  );
+});
+
 test('dueExamSkills dedupes repeated misses at the same (format, skill, band)', () => {
   const due = dueExamSkills([examResult({ id: 'exr-1' }), examResult({ id: 'exr-2' })], []);
   strictEqual(due.length, 1);
