@@ -24,6 +24,7 @@ import { hasPlainNasalFor, isDelimitedIpa } from './density.logic.ts';
 import { pendingRecordings, referencedRecordingIds } from './lessonAudio.logic.ts';
 import { checkpointFor, releasedThrough, stoppingPoints, tranche } from './acts.logic.ts';
 import { buildQuizConfig, drillForRound } from './quizRounds.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -640,7 +641,7 @@ test('the reused corpus items exist in the shipped seed', { skip }, () => {
   // The lesson's claim is that it teaches from words the learner has already
   // met. That claim is only true while the ids actually resolve, and they live
   // in a corpus this file does not own.
-  const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     items: { id: string; fr: string }[];
   };
   const byId = new Map(seed.items.map((i) => [i.id, i.fr]));
@@ -705,7 +706,7 @@ test('once published, the seed copy matches what was authored', () => {
   // withdrawn as a duplicate this test failed on its own stale number instead
   // of on a real drift. A parity check that needs editing whenever the content
   // changes is a check that will eventually be edited to match a bug.
-  const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as { lessons: Lesson[] };
+  const seed = seedPlusPacks() as { lessons: Lesson[] };
   const shipped = seed.lessons.find((l) => l.id === 'sons.07.l1');
   if (!shipped) return;
   if (!LESSON) return; // admin repo absent: nothing to compare against

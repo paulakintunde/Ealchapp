@@ -10,9 +10,10 @@ import { dirname, resolve } from 'node:path';
 import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { NARRATION_STAGES, validateLesson, type Lesson } from './schema.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   units: { id: string; lessonIds: string[] }[];
   lessons: Lesson[];
   items: { id: string }[];

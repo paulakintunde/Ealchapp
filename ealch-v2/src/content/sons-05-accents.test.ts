@@ -23,6 +23,7 @@ import { formatDensity, validateDensity } from './density.logic.ts';
 import { hasSlow, pendingRecordings, referencedRecordingIds, resolveByText, audioIndex } from './lessonAudio.logic.ts';
 import { checkpointFor, releasedThrough, stoppingPoints, tranche } from './acts.logic.ts';
 import { advanceQuiz, answerQuestion, buildQuizConfig, drillForRound, initialQuizState } from './quizRounds.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -790,7 +791,7 @@ test('the seed copy matches what was authored, once the batch has run', () => {
   // Runs unconditionally. Until content:accents has been applied and published,
   // the lesson is simply absent from the seed and there is nothing to compare;
   // once it is there, it must not have drifted from the authored source.
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as { lessons: Lesson[] };
+  const seed = seedPlusPacks() as { lessons: Lesson[] };
   const published = seed.lessons.find((l) => l.id === 'sons.05.l1');
   if (!published) return;
 
@@ -805,7 +806,7 @@ test('the seed copy matches what was authored, once the batch has run', () => {
 });
 
 test('the unit points at the lesson once it has been published', () => {
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     units: { id: string; lessonIds?: string[] }[];
     lessons: { id: string }[];
   };

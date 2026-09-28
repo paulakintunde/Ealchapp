@@ -19,6 +19,7 @@ import { silentIndicesValid } from './silent.logic.ts';
 import { audioIndex, hasSlow, pendingRecordings, referencedRecordingIds, resolveByText } from './lessonAudio.logic.ts';
 import { checkpointFor, releasedThrough, resumePlan, stoppingPoints, tranche, warmBackQuestions } from './acts.logic.ts';
 import { advanceQuiz, answerQuestion, buildQuizConfig, drillForRound, initialQuizState } from './quizRounds.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -1070,7 +1071,7 @@ test('no transcription is restated: the lesson reads them from the corpus', { sk
 
 // ── The published copy, once the batch has been applied ────────────────────
 
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   units: { id: string; lessonIds: string[] }[];
   lessons: Lesson[];
   items: { id: string }[];

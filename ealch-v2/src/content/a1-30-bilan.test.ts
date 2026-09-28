@@ -48,9 +48,10 @@ import { validateDensity, formatDensity } from './density.logic.ts';
 import { contentSections, quizSection, lessonHasQuiz } from './lessonPager.logic.ts';
 import { buildQuizConfig, drillForRound } from './quizRounds.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   version: number; items: Item[]; lessons: Lesson[];
   units: { id: string; lessonIds?: string[]; canDo?: string; prereqUnitIds?: string[] }[];
 };

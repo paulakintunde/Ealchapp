@@ -25,7 +25,8 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { PRACTICE_SKILLS } from './schema.ts';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import type { Lesson, LessonSection } from './schema.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));

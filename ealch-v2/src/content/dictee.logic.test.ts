@@ -4,10 +4,9 @@ import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { DICTEE_LETTER_LIMIT, dicteeMode, dicteeTarget, dicteeWords, letterCount, wordDecoys } from './dictee.logic.ts';
 import type { Item, Lesson } from './schema.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
-const seed = JSON.parse(
-  readFileSync(new URL('./seed.json', import.meta.url), 'utf8')
-) as { items: Item[]; lessons: Lesson[] };
+const seed = seedPlusPacks() as { items: Item[]; lessons: Lesson[] };
 
 test('the threshold is the authored one and does not drift', () => {
   strictEqual(DICTEE_LETTER_LIMIT, 16);

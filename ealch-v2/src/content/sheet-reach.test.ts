@@ -17,6 +17,7 @@ import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED_PATH = resolve(here, 'seed.json');
@@ -50,7 +51,7 @@ type Lesson = {
 };
 
 function unreachable(): { pairs: string[]; sheets: number } {
-  const seed = JSON.parse(readFileSync(SEED_PATH, 'utf8')) as { lessons?: Lesson[] };
+  const seed = seedPlusPacks() as { lessons?: Lesson[] };
   const pairs: string[] = [];
   let sheets = 0;
   for (const l of seed.lessons ?? []) {
@@ -86,7 +87,7 @@ test('the unreachable baseline has not gone stale', () => {
 });
 
 test('every sheetId in a mission names a sheet that exists', () => {
-  const seed = JSON.parse(readFileSync(SEED_PATH, 'utf8')) as { lessons?: Lesson[] };
+  const seed = seedPlusPacks() as { lessons?: Lesson[] };
   const dangling: string[] = [];
   for (const l of seed.lessons ?? []) {
     const ids = new Set((l.sheets ?? []).map((s) => s.id));

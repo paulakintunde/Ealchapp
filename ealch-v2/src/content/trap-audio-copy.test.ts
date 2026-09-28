@@ -31,7 +31,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { ok } from 'node:assert';
 import { test } from 'node:test';
-import seedJson from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seedJson = seedPlusPacks();
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SRC = readFileSync(resolve(here, '../components/MissionRich.tsx'), 'utf8');

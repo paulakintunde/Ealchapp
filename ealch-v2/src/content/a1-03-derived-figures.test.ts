@@ -13,7 +13,8 @@
 
 import { test } from 'node:test';
 import { ok, strictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { measureEnding } from './gender.logic.ts';
 
 const LESSON_ID = 'a1.03.l1';

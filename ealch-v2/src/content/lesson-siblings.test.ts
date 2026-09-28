@@ -48,9 +48,10 @@ import { lessonsOfUnit } from '../services/content.logic.ts';
 import { lessonEyebrow } from './missions.ts';
 import { trailRows } from './trail.logic.ts';
 import { T } from '../i18n/strings.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+const seed = seedPlusPacks() as {
   lessons: Lesson[];
   units: { id: string; seq?: string | number; lessonIds?: string[] }[];
 };

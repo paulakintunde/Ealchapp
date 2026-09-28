@@ -10,7 +10,8 @@
 // the corpus file is self-consistent and proves nothing about the learner.
 import { test } from 'node:test';
 import { strictEqual, ok, deepStrictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { namesUnitLabel } from './unit-label.ts';
 
 /** THE AUTHORED BLOCK, FROM THE SOURCE, which the publish cut cannot touch.

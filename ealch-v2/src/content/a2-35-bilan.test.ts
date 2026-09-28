@@ -57,7 +57,8 @@
 
 import { test } from 'node:test';
 import { ok, strictEqual, deepStrictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { fold, matchesAccept } from './answer.logic.ts';
 import { quizQuestions } from './schema.ts';
 import { validateDensity } from './density.logic.ts';

@@ -26,6 +26,7 @@ import {
   parseCardParam,
   subCount,
 } from './subMission.logic.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -212,7 +213,7 @@ test('clampSub lands on the last card when the section got shorter', () => {
 /* ─── Pinned against the real content and the real renderers ──────────────── */
 
 test('missions 14 and 15 of sons.06 number as the lesson already describes them', () => {
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons: { id: string; sections: LessonSection[] }[];
   };
   const lesson = seed.lessons.find((l) => l.id === 'sons.06.l1');
@@ -268,7 +269,7 @@ test('every sub-dividing section in sons.06 is one the pager lets own its layout
   // stack. Sub-missions are swipe positions, so a section with a sub-count
   // above 1 must also be one the pager hands the viewport to — otherwise the
   // header would count cards the learner never swipes between.
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons: { id: string; sections: LessonSection[] }[];
   };
   const lesson = seed.lessons.find((l) => l.id === 'sons.06.l1');
@@ -448,7 +449,7 @@ test('a group drill does not print its own title twice', () => {
   // and once by OneGroup. Four missions read "CaReFuL: the four that stay
   // awake" / "The alarm clock" / "The ghost letter" / "The default: silent"
   // twice, one line under the other.
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons: { id: string; sections: LessonSection[] }[];
   };
   const lesson = seed.lessons.find((l) => l.id === 'sons.06.l1');
@@ -508,7 +509,7 @@ test('the lesson states a repeated rule once, not on every row', () => {
   // Five of the eight preview rows in mission 4 read "not a CaReFuL letter"
   // verbatim, so the rows that BREAK the default looked exactly like the ones
   // that keep it — and the row worth noticing was the hardest to spot.
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons: { id: string; sections: LessonSection[] }[];
   };
   const lesson = seed.lessons.find((l) => l.id === 'sons.06.l1');
@@ -635,7 +636,7 @@ test('every routine in mission 15 has words to perform it on, and they resolve',
   // word on the card, that is a paragraph about a routine rather than a
   // routine. practiceOn had been authored and validated since the section
   // shipped and rendered nowhere.
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     items: { id: string; fr: string }[];
     lessons: { id: string; sections: LessonSection[] }[];
   };
@@ -746,7 +747,7 @@ test('a control-page group renders, rather than crashing on its missing items', 
   // Pinned from two directions, because either alone would rot: the content
   // side proves such groups really exist to be rendered, and the source side
   // proves the renderer still guards.
-  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons: { id: string; sections: LessonSection[] }[];
   };
 

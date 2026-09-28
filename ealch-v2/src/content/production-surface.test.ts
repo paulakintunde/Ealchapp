@@ -30,7 +30,8 @@
 
 import { test } from 'node:test';
 import { ok, deepStrictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 
 type Row = { id: string; fr: string };
 type Sec = Record<string, unknown> & { type: string; id?: string };

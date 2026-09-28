@@ -42,6 +42,7 @@ import { test } from 'node:test';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const REGISTRY_PATH = resolve(here, 'lessonImages.ts');
@@ -112,7 +113,7 @@ function imageRefsIn(node: unknown, out: Map<string, string>, where: string): Ma
 
 /** Published lesson refs, from the seed the app ships with. */
 function seedLessonRefs(): Map<string, string> {
-  const seed = JSON.parse(readFileSync(SEED_PATH, 'utf8')) as { lessons?: unknown };
+  const seed = seedPlusPacks() as { lessons?: unknown };
   return imageRefsIn(seed.lessons ?? [], new Map(), 'seed.json');
 }
 

@@ -17,7 +17,8 @@
 // "consistency fix" goes red instead of shipping.
 import { test } from 'node:test';
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { hasPlainNasalFor } from './density.logic.ts';
 import { matchesAccept } from './answer.logic.ts';
 import { quizQuestions } from './schema.ts';

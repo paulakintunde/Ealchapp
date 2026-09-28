@@ -20,13 +20,27 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { deepStrictEqual, ok } from 'node:assert';
 import { test } from 'node:test';
-import { formatIssues, validateCorpus } from './schema.ts';
+import { formatIssues, validateCorpus, type Corpus } from './schema.ts';
+import { heldBands, partialValidationView } from '../services/packs.logic.ts';
+import { seedPlusPacks, seedRegime } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as unknown;
 
+// Under premium packs (PREMIUM-PACKS-SPEC.md) the binary is the free CORE:
+// every paid unit is a skeleton whose lessonIds name bodies that live in a
+// pack. validateCorpus would read each of those as a dangling reference, so
+// the core is validated as a FREE device holds it, through the same
+// partialValidationView the publisher and the device use: a reference into
+// an unheld band is the design, a reference dangling inside the core still
+// fails. Before packs (the legacy regime) the view is the seed itself.
+const asShipped = (): unknown =>
+  seedRegime() === 'packs'
+    ? partialValidationView(seed as Corpus, { bands: heldBands([]), exam: false })
+    : seed;
+
 test('the real, committed seed.json validates against the current schema', () => {
-  const issues = validateCorpus(seed);
+  const issues = validateCorpus(asShipped());
   deepStrictEqual(
     issues,
     [],
@@ -43,4 +57,11 @@ test('the seed is a real corpus, not an empty one that would validate trivially'
   ok(Array.isArray(c.units) && c.units.length > 0, 'seed has units');
   ok(Array.isArray(c.lessons) && c.lessons.length > 0, 'seed has lessons');
   ok(Array.isArray(c.items) && c.items.length > 0, 'seed has items');
+});
+
+test('seed.json plus the paid layer (what the content tests read) validates in full', () => {
+  // The layer is the paid bands a subscriber's packs add. Composed, nothing
+  // may dangle at all: this is the corpus a device holding every pack sees.
+  const issues = validateCorpus(seedPlusPacks());
+  deepStrictEqual(issues, [], `seed.json + seed-packs.json no longer validates:\n${formatIssues(issues)}`);
 });

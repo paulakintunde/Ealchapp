@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { BEAT, acceptedReplies, bestReply, transcriptOf, unheardReason, type Attempt } from './scenario.logic.ts';
 import { barsForLevel } from '../utils/score.ts';
 import type { ScenarioTurn } from './schema.ts';
+import { seedPlusPacks } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const bars = barsForLevel('sons');
@@ -234,7 +235,7 @@ test('speaking is offered, never required', () => {
 
 /** Every role play in the seed, as { lessonId, section }. */
 function seedScenarios(): { id: string; turns: ScenarioTurn[]; title: string }[] {
-  const seed = JSON.parse(readFileSync(resolve(here, './seed.json'), 'utf8')) as {
+  const seed = seedPlusPacks() as {
     lessons?: { id: string; sections?: { type: string; title?: string; turns?: ScenarioTurn[] }[] }[];
   };
   const out: { id: string; turns: ScenarioTurn[]; title: string }[] = [];

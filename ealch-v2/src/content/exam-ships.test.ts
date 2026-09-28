@@ -29,6 +29,8 @@ import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { validateCorpus, type Corpus } from './schema.ts';
 import { instrumentFor } from '../utils/examInstrument.logic.ts';
+import { heldBands, partialValidationView } from '../services/packs.logic.ts';
+import { seedPlusPacks, seedRegime } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as Corpus & {
@@ -79,8 +81,24 @@ test('every seed exam paper has a reporting instrument', () => {
 });
 
 test('validateCorpus reports no exam issues against the shipped seed', () => {
-  const issues = validateCorpus(seed).filter((i) => /exam/i.test(i.path) || /exam/i.test(i.message));
+  // Under premium packs the binary is the free core (PREMIUM-PACKS-SPEC.md,
+  // decision 4): paper 1 of each format and its tasks. A free paper's task may
+  // target a paid-band item (DELF B2 blanc-01 names fr.b2.* rows), which lives
+  // in that band's pack. A target is SRS metadata, so it is validated the way
+  // a free device holds the corpus: a target into an unheld band is dropped
+  // from the view, a target dangling inside the core still fails.
+  const view = seedRegime() === 'packs' ? partialValidationView(seed, { bands: heldBands([]), exam: false }) : seed;
+  const issues = validateCorpus(view).filter((i) => /exam/i.test(i.path) || /exam/i.test(i.message));
   strictEqual(issues.length, 0, `validateCorpus complains about the seed's exams:\n  ${issues.map((i) => `${i.path}: ${i.message}`).join('\n  ')}`);
+});
+
+test('under packs the binary carries the free papers only, and the exam pack the rest', { skip: seedRegime() !== 'packs' }, () => {
+  // FREE_EXAM_PAPERS in ealch-admin content-packs.logic.ts, pinned there to
+  // RemoteConfig.examFreePapers (default 1): paper 1 of each format is free.
+  const paid = papers.filter((p) => (p as { paperNo?: number }).paperNo !== 1).map((p) => p.id);
+  strictEqual(paid.length, 0, `the free core bundles papers past the free allowance:\n  ${paid.join('\n  ')}`);
+  const all = seedPlusPacks<{ examPapers?: { id: string }[] }>().examPapers ?? [];
+  ok(all.length > papers.length, `seed + packs holds ${all.length} papers against ${papers.length} bundled; the exam pack's papers are missing from the test corpus`);
 });
 
 test('no source file still says exam content is snapshot-only (D-13)', () => {

@@ -9,7 +9,8 @@
 // because the seed is what ships.
 import { test } from 'node:test';
 import { strictEqual, ok, deepStrictEqual } from 'node:assert';
-import seed from './seed.json' with { type: 'json' };
+import { seedPlusPacks } from './seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { hasPlainNasalFor } from './density.logic.ts';
 import { namesUnitLabel } from './unit-label.ts';
 
