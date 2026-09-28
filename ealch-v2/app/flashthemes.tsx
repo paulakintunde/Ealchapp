@@ -93,7 +93,7 @@ export default function FlashThemes() {
         {/* The type picker stays one tap away — it drills the WHOLE category
             by exercise kind (with the difficulty chips), which no single
             sub-theme deck replaces. */}
-        <Press
+        <Press accessibilityRole="button" accessibilityLabel={T.byTypeT}
           onPress={() => router.push({ pathname: '/flashtypes', params: { domain: slug } })}
           style={{ marginTop: 18, minHeight: 64, paddingVertical: 8, paddingHorizontal: 16, borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), flexDirection: 'row', alignItems: 'center', gap: 14 }}
         >
@@ -118,7 +118,8 @@ export default function FlashThemes() {
         {/* The one-column stack: rows of one, each card its own deck. */}
         <View style={{ gap: 10 }}>
           {rows.map((r) => (
-            <Press
+            <Press accessibilityRole="button"
+              accessibilityLabel={`${lang === 'fr' ? r.title : r.en}, ${T.ctCardsN.replace('{n}', String(r.count))}${!levelsAll && !(FREE_BANDS as readonly string[]).includes(r.lo) ? `, ${T.premLockTag}` : ''}`}
               key={r.slug}
               onPress={() => router.push({ pathname: '/flashcards', params: { domain: slug, theme: r.slug } })}
               scale={0.99}

@@ -62,7 +62,8 @@ export default function VoiceHub() {
       >
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
           {cats.map(({ slug, meta, count }) => (
-            <Press
+            <Press accessibilityRole="button"
+              accessibilityLabel={`${lang === 'fr' ? meta.fr : meta.en}, ${T.ctCardsN.replace('{n}', String(count))}`}
               key={slug}
               onPress={() => router.push({ pathname: '/voicethemes', params: { domain: slug } })}
               scale={0.98}

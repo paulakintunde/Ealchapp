@@ -7,6 +7,7 @@ import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 
 // DEV-ONLY Camille voice audition (Blocker 4, CF-04). This route is guarded by
 // __DEV__: in a production build it renders nothing and is not linked from any
@@ -33,6 +34,7 @@ type Row = { identifier: string; name: string; quality: string; language: string
 
 export default function Voices() {
   const t = useTheme();
+  const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const [rows, setRows] = useState<Row[] | null>(null);
@@ -117,7 +119,9 @@ export default function Voices() {
               const on = speakingId === r.identifier;
               const delivery = deliveryOf(r.identifier);
               return (
-                <Press
+                <Press accessibilityRole="button"
+                  accessibilityLabel={`${T.playAudioA11y}: ${r.name || r.identifier}`}
+                  accessibilityState={{ selected: on }}
                   key={r.identifier}
                   onPress={() => play(r.identifier)}
                   cue={null}

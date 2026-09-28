@@ -132,7 +132,8 @@ export default function FlashTypes() {
                 <Press
                   key={b ?? 'all'}
                   onPress={() => { setPicked(true); setLvl(b); }}
-                  accessibilityRole="button"
+                  accessibilityRole="radio"
+                  accessibilityLabel={b === null ? T.lvlAll : b.toUpperCase()}
                   accessibilityState={{ selected: on }}
                   style={{
                     minHeight: 32,
@@ -179,6 +180,7 @@ export default function FlashTypes() {
                         })
                 }
                 accessibilityRole="button"
+                accessibilityLabel={`${r.label}, ${empty ? T.ctSoon : T.ctCardsN.replace('{n}', String(r.count))}`}
                 accessibilityState={{ disabled: empty }}
                 style={{
                   minHeight: 72,

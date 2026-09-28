@@ -396,6 +396,7 @@ export type Strings = {
   trailActe0: string;
   a11yLockedPaywall: string; a11yOpenAct: string; a11yOpenNarrated: string;
   a11yClose: string; a11yOpenSettings: string; a11yBack: string; a11yDismissPanel: string;
+  a11yStartRecording: string; a11yStopRecording: string;
   a11yPreviousAct: string; a11yNextAct: string; a11yOpenFiche: string;
   a11yDetails: string;
   a11yPlayItem: string; a11yPlaySlow: string; a11yOpenTerm: string;
@@ -921,6 +922,7 @@ export const T: Record<Lang, Strings> = {
     trailActe0: 'Acte 00 · Narré', trailFiche: 'La fiche',
     a11yLockedPaywall: 'verrouillé, ouvre Ealch Première', a11yOpenAct: "ouvrir l'acte", a11yOpenNarrated: 'ouvrir la présentation narrée',
     a11yClose: 'Fermer', a11yOpenSettings: 'Ouvrir les réglages', a11yBack: 'Retour', a11yDismissPanel: 'Fermer le panneau',
+    a11yStartRecording: "Commencer l'enregistrement", a11yStopRecording: "Arrêter l'enregistrement",
     a11yPreviousAct: 'Acte précédent', a11yNextAct: 'Acte suivant', a11yOpenFiche: 'Ouvrir la fiche',
     a11yDetails: 'Détails',
     a11yPlayItem: 'Écouter {item}', a11yPlaySlow: 'Écouter lentement', a11yOpenTerm: 'En savoir plus sur {item}',
@@ -1427,6 +1429,7 @@ export const T: Record<Lang, Strings> = {
     trailActe0: 'Act 00 · Narrated', trailFiche: 'Unit info',
     a11yLockedPaywall: 'locked, opens Ealch Première', a11yOpenAct: 'open act', a11yOpenNarrated: 'open narrated introduction',
     a11yClose: 'Close', a11yOpenSettings: 'Open settings', a11yBack: 'Back', a11yDismissPanel: 'Close panel',
+    a11yStartRecording: 'Start recording', a11yStopRecording: 'Stop recording',
     a11yPreviousAct: 'Previous act', a11yNextAct: 'Next act', a11yOpenFiche: 'Open unit info',
     a11yDetails: 'Details',
     a11yPlayItem: 'Play {item}', a11yPlaySlow: 'Play slowly', a11yOpenTerm: 'Learn about {item}',

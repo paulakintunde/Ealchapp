@@ -101,7 +101,7 @@ export default function SmartReview() {
               </>
             ) : null}
 
-            <Press onPress={() => router.replace('/home')} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityLabel={T.backFeed} accessibilityRole="button" onPress={() => router.replace('/home')} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.backFeed}
               </TX>
@@ -135,7 +135,7 @@ export default function SmartReview() {
             </View>
 
             {/* Start */}
-            <Press onPress={() => router.push('/review')} style={{ minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 26 }}>
+            <Press accessibilityLabel={T.startReview} accessibilityRole="button" onPress={() => router.push('/review')} style={{ minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 26 }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.startReview}
               </TX>

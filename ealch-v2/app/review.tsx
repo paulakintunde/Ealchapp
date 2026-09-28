@@ -99,7 +99,7 @@ export default function Review() {
           <TX font="serifI" size={30} role="display" center style={{ marginBottom: 20 }}>
             {T.allCaught}
           </TX>
-          <Press onPress={() => router.replace('/home')} style={{ minHeight: 50, paddingVertical: 6, paddingHorizontal: 30, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityLabel={T.backFeed} accessibilityRole="button" onPress={() => router.replace('/home')} style={{ minHeight: 50, paddingVertical: 6, paddingHorizontal: 30, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="semi" role="body" color={t.accInk}>
               {T.backFeed}
             </TX>
@@ -127,7 +127,7 @@ export default function Review() {
           <TX role="bodySm" lhMult={1.7} color={t.txSecondary} center style={{ maxWidth: 280, marginBottom: 30 }}>
             {T.srDoneS.replace('{n}', String(got)).replace('{m}', String(total))}
           </TX>
-          <Press onPress={() => router.replace('/home')} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityLabel={T.backFeed} accessibilityRole="button" onPress={() => router.replace('/home')} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="semi" role="body" color={t.accInk}>
               {T.backFeed}
             </TX>
@@ -175,7 +175,7 @@ export default function Review() {
                   {q.example.fr}
                 </TX>
               ) : null}
-              <Press onPress={() => tts.speak(q.fr)} cue={null} style={{ marginTop: 20, width: 64, height: 64, borderRadius: 32, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
+              <Press accessibilityLabel={T.playAudioA11y} accessibilityRole="button" onPress={() => tts.speak(q.fr)} cue={null} style={{ marginTop: 20, width: 64, height: 64, borderRadius: 32, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="speaker" size={26} color={t.acc} />
               </Press>
             </>
@@ -185,19 +185,19 @@ export default function Review() {
         {/* Actions */}
         {revealed ? (
           <View style={{ flexDirection: 'row', gap: 10 }}>
-            <Press onPress={() => grade(false)} cue={null} style={{ flex: 1, minHeight: 52, paddingVertical: 8, borderRadius: 26, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityLabel={T.srAgain} accessibilityRole="button" onPress={() => grade(false)} cue={null} style={{ flex: 1, minHeight: 52, paddingVertical: 8, borderRadius: 26, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.txSecondary}>
                 {T.srAgain}
               </TX>
             </Press>
-            <Press onPress={() => grade(true)} cue={null} style={{ flex: 1.4, minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityLabel={T.srGot} accessibilityRole="button" onPress={() => grade(true)} cue={null} style={{ flex: 1.4, minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.srGot} ✓
               </TX>
             </Press>
           </View>
         ) : (
-          <Press cue={null} onPress={reveal} style={{ minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityLabel={T.srReveal} accessibilityRole="button" cue={null} onPress={reveal} style={{ minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="semi" role="body" color={t.accInk}>
               {T.srReveal}
             </TX>

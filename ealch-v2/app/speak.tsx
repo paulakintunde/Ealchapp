@@ -420,7 +420,7 @@ export default function Speak() {
     return (
       <View style={{ flex: 1, backgroundColor: t.bgDeep, paddingTop: insets.top }}>
         <View style={{ flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: 20, paddingVertical: 12 }}>
-          <Press onPress={() => router.replace('/home')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
+          <Press accessibilityLabel={T.a11yClose} accessibilityRole="button" onPress={() => router.replace('/home')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
             <Svg width={15} height={15} viewBox="0 0 15 15" fill="none">
               <Path d="M2 2l11 11M13 2L2 13" stroke={t.txNonText} strokeWidth={1.7} strokeLinecap="round" />
             </Svg>
@@ -509,7 +509,7 @@ export default function Speak() {
             </View>
           ) : null}
           {nextStage ? (
-            <Press
+            <Press accessibilityLabel={nextStage.world !== stage.world ? T.speakNextWorld.replace('{w}', WORLD_TITLES[nextStage.world] ?? '') : T.speakNextStation} accessibilityRole="button"
               cue={null}
               onPress={() => {
                 sound.play('tap');
@@ -525,7 +525,7 @@ export default function Speak() {
               </TX>
             </Press>
           ) : deck.mode === 'playlist' && pl ? (
-            <Press
+            <Press accessibilityLabel={T.speakBackPlaylist} accessibilityRole="button"
               cue={null}
               onPress={() => {
                 sound.play('tap');
@@ -540,21 +540,21 @@ export default function Speak() {
               </TX>
             </Press>
           ) : nextIx >= 0 ? (
-            <Press cue={null} onPress={() => startBlock(nextIx)} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityLabel={T.cont} accessibilityRole="button" cue={null} onPress={() => startBlock(nextIx)} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.cont}
               </TX>
             </Press>
           ) : null}
-          <Press cue={null} onPress={endSession} style={{ marginTop: 16 }}>
+          <Press accessibilityLabel={`${T.end}, ${T.reportTag}`} accessibilityRole="button" cue={null} onPress={endSession} style={{ marginTop: 16 }}>
             <TX role="bodySm" color={t.txMuted}>
-              {T.end} · Le Rapport →
+              {T.end} · {T.reportTag} →
             </TX>
           </Press>
           {/* A playlist is not on the trail, so it does not offer a door back
               to a map it never left. */}
           {deck.mode === 'trail' ? (
-            <Press cue={null} onPress={() => router.replace('/speakmap')} style={{ marginTop: 12 }}>
+            <Press accessibilityLabel={T.speakBackMap} accessibilityRole="button" cue={null} onPress={() => router.replace('/speakmap')} style={{ marginTop: 12 }}>
               <TX role="bodySm" color={t.txMuted}>
                 {T.speakBackMap}
               </TX>
@@ -580,7 +580,7 @@ export default function Speak() {
       {/* Header: X → home, station + block, gear → settings */}
       <View style={{ paddingTop: insets.top }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 12 }}>
-          <Press onPress={() => router.replace('/home')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
+          <Press accessibilityLabel={T.a11yClose} accessibilityRole="button" onPress={() => router.replace('/home')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
             <Svg width={15} height={15} viewBox="0 0 15 15" fill="none">
               <Path d="M2 2l11 11M13 2L2 13" stroke={t.txNonText} strokeWidth={1.7} strokeLinecap="round" />
             </Svg>
@@ -596,7 +596,7 @@ export default function Speak() {
               {blockMeta} · {cardIx + 1}/{deck.cards.length}
             </TX>
           </View>
-          <Press onPress={() => router.push('/settings')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
+          <Press accessibilityLabel={T.a11yOpenSettings} accessibilityRole="button" onPress={() => router.push('/settings')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
             <Icon name="gear" size={18} color={t.txNonText} strokeWidth={1.7} />
           </Press>
         </View>
@@ -629,7 +629,7 @@ export default function Speak() {
         </TX>
         {/* Hear the line on demand — the same replay as the transport bar, but
             right under the words so it is actually found. */}
-        <Press
+        <Press accessibilityLabel={T.playAudioA11y} accessibilityRole="button"
           onPress={replayCoach}
           cue={null}
           style={{ marginTop: 14, width: 60, height: 60, borderRadius: 30, borderWidth: 1, borderColor: speaking ? t.acc : t.accA(50), backgroundColor: speaking ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
@@ -685,7 +685,7 @@ export default function Speak() {
                       </TX>
                       {/* Each missed word is a door into word-level practice. */}
                       {missedWords.map((w, i) => (
-                        <Press
+                        <Press accessibilityLabel={`${w}, ${T.speakWordTap}`} accessibilityRole="button"
                           key={`${w}-${i}`}
                           cue="tap"
                           onPress={() => setPracticeIx(i)}
@@ -728,20 +728,20 @@ export default function Speak() {
                 {/* Retry is always on the table while the mic works — a good
                     take can still be polished. */}
                 {!micBlocked ? (
-                  <Press onPress={micTap} cue="tap" style={{ paddingVertical: 4 }}>
+                  <Press accessibilityLabel={T.speakRetry} accessibilityRole="button" onPress={micTap} cue="tap" style={{ paddingVertical: 4 }}>
                     <TX font="semi" role="label" color={passedCard ? t.txMuted : t.accTx}>
                       {T.speakRetry}
                     </TX>
                   </Press>
                 ) : null}
                 {passedCard || micBlocked || micStuck ? (
-                  <Press onPress={nextCard} cue="tap" style={{ paddingVertical: 4 }}>
+                  <Press accessibilityLabel={T.cont} accessibilityRole="button" onPress={nextCard} cue="tap" style={{ paddingVertical: 4 }}>
                     <TX font="semi" role="label" color={t.accTx}>
                       {T.cont}
                     </TX>
                   </Press>
                 ) : canSkip ? (
-                  <Press onPress={nextCard} cue={null} style={{ paddingVertical: 4 }}>
+                  <Press accessibilityLabel={T.speakSkip} accessibilityRole="button" onPress={nextCard} cue={null} style={{ paddingVertical: 4 }}>
                     <TX font="semi" role="label" color={t.txMuted}>
                       {T.speakSkip}
                     </TX>
@@ -751,23 +751,23 @@ export default function Speak() {
             </View>
           </View>
         ) : null}
-        <Press onPress={endSession} style={{ alignSelf: 'center', marginTop: 14, minHeight: 34, paddingVertical: 6, paddingHorizontal: 18, borderRadius: 17, borderWidth: 1, borderColor: t.line(16), flexDirection: 'row', alignItems: 'center' }}>
+        <Press accessibilityLabel={`${T.end}, ${T.reportTag}`} accessibilityRole="button" onPress={endSession} style={{ alignSelf: 'center', marginTop: 14, minHeight: 34, paddingVertical: 6, paddingHorizontal: 18, borderRadius: 17, borderWidth: 1, borderColor: t.line(16), flexDirection: 'row', alignItems: 'center' }}>
           <TX font="semi" role="meta" color={t.txSecondary}>
-            {T.end} · Le Rapport →
+            {T.end} · {T.reportTag} →
           </TX>
         </Press>
       </View>
 
       {/* Transport: replay · mic · next card */}
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 38, paddingBottom: 20 }}>
-        <Press onPress={replayCoach} style={{ width: 46, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
+        <Press accessibilityLabel={T.playAudioA11y} accessibilityRole="button" onPress={replayCoach} style={{ width: 46, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
           <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
             <Path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6" stroke={t.txNonText} strokeWidth={1.7} strokeLinecap="round" />
           </Svg>
         </Press>
         <View style={{ width: 80, height: 80, alignItems: 'center', justifyContent: 'center' }}>
           <PulseRing color={t.acc} active={listening} />
-          <Press
+          <Press accessibilityLabel={listening ? T.a11yStopRecording : T.a11yStartRecording} accessibilityRole="button"
             onPress={micTap}
             cue={null}
             scale={0.94}
@@ -781,7 +781,7 @@ export default function Speak() {
         </View>
         {/* Next is earned, not free: a good take, five real tries, or a mic
             that genuinely cannot record. Otherwise this card is the work. */}
-        <Press
+        <Press accessibilityLabel={T.nextCard} accessibilityRole="button"
           onPress={() => {
             if (canAdvance) nextCard();
           }}

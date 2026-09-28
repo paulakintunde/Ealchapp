@@ -354,7 +354,7 @@ export default function VoiceFlash() {
             <TX role="bodySm" center color={t.txMuted} style={{ marginBottom: 32, maxWidth: 260 }}>
               {T.vfEmptyS}
             </TX>
-            <Press onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
+            <Press accessibilityRole="button" accessibilityLabel={T.backFeed} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
               <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>
@@ -368,8 +368,9 @@ export default function VoiceFlash() {
             <TX font="serifI" size={26} role="display" center style={{ marginTop: 10, marginBottom: 32 }}>
               {T.vfDoneT}
             </TX>
-            <Press
+            <Press accessibilityRole="button"
               onPress={restart}
+              accessibilityLabel={T.redo}
               cue={null}
               style={{ minHeight: 52, paddingVertical: 8, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
             >
@@ -377,7 +378,7 @@ export default function VoiceFlash() {
                 {T.redo}
               </TX>
             </Press>
-            <Press onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
+            <Press accessibilityRole="button" accessibilityLabel={T.backFeed} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
               <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>
@@ -568,8 +569,9 @@ export default function VoiceFlash() {
                   : null}
                 {vfCorrect === null ? (
                   <View style={{ flexDirection: 'row', gap: 10, marginTop: 16, alignSelf: 'stretch' }}>
-                    <Press
+                    <Press accessibilityRole="button"
                       onPress={() => vfSelf(false)}
+                      accessibilityLabel={T.vfMissed}
                       cue={null}
                       style={{
                         flex: 1,
@@ -586,8 +588,9 @@ export default function VoiceFlash() {
                         {T.vfMissed}
                       </TX>
                     </Press>
-                    <Press
+                    <Press accessibilityRole="button"
                       onPress={() => vfSelf(true)}
+                      accessibilityLabel={T.vfGot}
                       cue={null}
                       style={{
                         flex: 1,
@@ -609,8 +612,9 @@ export default function VoiceFlash() {
                   // path is vfCorrect === null above): offer another go at
                   // THIS card, not just moving on past it.
                   <View style={{ flexDirection: 'row', gap: 10, marginTop: 16, alignSelf: 'stretch' }}>
-                    <Press
+                    <Press accessibilityRole="button"
                       onPress={retryItem}
+                      accessibilityLabel={T.retry}
                       cue={null}
                       style={{
                         flex: 1,
@@ -627,8 +631,9 @@ export default function VoiceFlash() {
                         {T.retry}
                       </TX>
                     </Press>
-                    <Press
+                    <Press accessibilityRole="button"
                       onPress={vfNext}
+                      accessibilityLabel={T.nextCard}
                       cue={null}
                       style={{
                         flex: 1,
@@ -646,8 +651,9 @@ export default function VoiceFlash() {
                     </Press>
                   </View>
                 ) : (
-                  <Press
+                  <Press accessibilityRole="button"
                     onPress={vfNext}
+                    accessibilityLabel={T.nextCard}
                     cue={null}
                     style={{
                       minHeight: 46,
@@ -675,7 +681,7 @@ export default function VoiceFlash() {
                   onPress={vfMic}
                   cue={null}
                   accessibilityRole="button"
-                  accessibilityLabel={T.micA11y}
+                  accessibilityLabel={listening ? T.a11yStopRecording : T.a11yStartRecording}
                   style={{
                     width: 72,
                     height: 72,
@@ -716,8 +722,9 @@ export default function VoiceFlash() {
                           fontSize: 14,
                         }}
                       />
-                      <Press
+                      <Press accessibilityRole="button"
                         onPress={vfCheck}
+                        accessibilityLabel={T.checkT}
                         cue={null}
                         style={{
                           minHeight: 48,

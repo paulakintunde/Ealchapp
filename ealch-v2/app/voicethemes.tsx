@@ -95,7 +95,8 @@ export default function VoiceThemes() {
 
         <View style={{ gap: 10 }}>
           {rows.map((r) => (
-            <Press
+            <Press accessibilityRole="button"
+              accessibilityLabel={`${lang === 'fr' ? r.title : r.en}, ${T.ctCardsN.replace('{n}', String(r.count))}${!levelsAll && !(FREE_BANDS as readonly string[]).includes(r.lo) ? `, ${T.premLockTag}` : ''}`}
               key={r.slug}
               onPress={() => router.push({ pathname: '/voiceflash', params: { theme: r.slug } })}
               scale={0.99}
