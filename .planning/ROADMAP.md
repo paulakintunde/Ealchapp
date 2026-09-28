@@ -281,7 +281,7 @@ Plans:
 - [x] 08-05-PLAN.md — Automatic appearance, saved-choice preservation, and native bars
 
 **Wave 6** *(blocked on Wave 5 completion)*
-- [ ] 08-06-PLAN.md — scrollable large-text flashcards and separate Flip/audio actions
+- [x] 08-06-PLAN.md — scrollable large-text flashcards and separate Flip/audio actions
 
 **Wave 7** *(blocked on Wave 6 completion)*
 - [ ] 08-07-PLAN.md — flash, voice, speech, and review route audit
