@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Animated, Easing, View } from 'react-native';
+import { Animated, Easing, ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -133,6 +133,12 @@ export default function Flashcards() {
   // the one that did not, so its bars sat frozen even mid-utterance and the
   // control that signals audio showed no sign of playing.
   const [speaking, setSpeaking] = useState(false);
+  const frontScroll = useRef<ScrollView>(null);
+  const backScroll = useRef<ScrollView>(null);
+  const resetFaceScroll = () => {
+    frontScroll.current?.scrollTo({ y: 0, animated: false });
+    backScroll.current?.scrollTo({ y: 0, animated: false });
+  };
 
   // Cleanup: without this, closing mid-card leaves the answer timer to fire
   // setState on an unmounted component, and any in-flight TTS keeps speaking.
@@ -228,6 +234,7 @@ export default function Flashcards() {
 
   const flipCard = () => {
     sound.play('flip');
+    resetFaceScroll();
     setFlipped((f) => !f);
   };
 
@@ -235,6 +242,7 @@ export default function Flashcards() {
     if (answeringRef.current) return;
     answeringRef.current = true;
     sound.play(know ? 'success' : 'tap');
+    resetFaceScroll();
     setFlipped(false);
     setKnown((k) => (know ? k + 1 : k));
     // Self-rated recall: nothing is captured, so `heard` is empty and the score
@@ -276,12 +284,14 @@ export default function Flashcards() {
 
   const flipDir = () => {
     sound.play('tap');
+    resetFaceScroll();
     setFlipped(false);
     setCardDir((d) => (d === 'fr' ? 'en' : 'fr'));
   };
 
   const restart = () => {
     sound.play('tap');
+    resetFaceScroll();
     if (answerTimer.current) clearTimeout(answerTimer.current);
     answeringRef.current = false;
     setCardIx(0);
@@ -291,10 +301,8 @@ export default function Flashcards() {
 
   const frontRotate = anim.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '180deg'] });
   const backRotate = anim.interpolate({ inputRange: [0, 1], outputRange: ['180deg', '360deg'] });
-  // Faces are a top-to-bottom COLUMN now, not a centered blob: eyebrow at the
-  // top, the question/answer card flex-centered in the free space, the audio
-  // pill below it, the instruction at the foot. Vertical order carries the
-  // reading order: what kind of card, what is asked, hear it, what to do.
+  // The two animated faces share a bounded viewport. Only the face text
+  // scrolls; audio and grading controls stay visible at large OS text sizes.
   const faceBase = {
     position: 'absolute' as const,
     top: 0,
@@ -306,7 +314,6 @@ export default function Flashcards() {
     padding: 20,
     alignItems: 'center' as const,
     backfaceVisibility: 'hidden' as const,
-    overflow: 'hidden' as const,
   };
 
   // Redirecting to the paywall (effect above) — never flash gated content.
@@ -347,6 +354,8 @@ export default function Flashcards() {
             <Press
               onPress={flipDir}
               cue={null}
+              accessibilityRole="button"
+              accessibilityLabel={frFront ? 'FR → EN' : 'EN → FR'}
               style={{
                 minHeight: 32,
                 paddingVertical: 4,
@@ -391,7 +400,7 @@ export default function Flashcards() {
             <TX role="bodySm" center color={t.txMuted} style={{ marginBottom: 36, maxWidth: 260 }}>
               {T.deckEmptyS}
             </TX>
-            <Press onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
+            <Press accessibilityRole="button" accessibilityLabel={T.backFeed} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
               <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>
@@ -414,6 +423,8 @@ export default function Flashcards() {
             <Press
               onPress={restart}
               cue={null}
+              accessibilityRole="button"
+              accessibilityLabel={T.redo}
               style={{
                 minHeight: 52,
                 paddingVertical: 8,
@@ -428,7 +439,7 @@ export default function Flashcards() {
                 {T.redo}
               </TX>
             </Press>
-            <Press onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
+            <Press accessibilityRole="button" accessibilityLabel={T.backFeed} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
               <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>
@@ -437,14 +448,7 @@ export default function Flashcards() {
         ) : (
           <View style={{ flex: 1 }}>
             {/* Flip card */}
-            <Press
-              onPress={flipCard}
-              cue={null}
-              scale={1}
-              accessibilityRole="button"
-              accessibilityLabel={T.flipCardA11y}
-              style={{ flex: 1, maxHeight: 480 }}
-            >
+            <View style={{ flex: 1, maxHeight: 480 }}>
               {/* Front. Both faces stay mounted and stacked; backfaceVisibility
                   hides the turned-away one VISUALLY only — on Android it still
                   captures touches, and the back face renders later so it sits
@@ -454,6 +458,8 @@ export default function Flashcards() {
                   for the visible face. */}
               <Animated.View
                 pointerEvents={flipped ? 'none' : 'auto'}
+                importantForAccessibility={flipped ? 'no-hide-descendants' : 'auto'}
+                accessibilityElementsHidden={flipped}
                 style={[
                   faceBase,
                   {
@@ -471,7 +477,7 @@ export default function Flashcards() {
                     own inset card, flex-centered in the free space. IPA only
                     when the French is the question; the English NEVER prints
                     on a front — recall means answering before the flip. */}
-                <View style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center', paddingVertical: 14 }}>
+                <ScrollView ref={frontScroll} testID="flashcard-front-scroll" nestedScrollEnabled style={{ flex: 1, alignSelf: 'stretch', marginVertical: 14 }} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
                   <View style={{ alignSelf: 'stretch', borderRadius: 18, borderWidth: 1, borderColor: t.accA(20), backgroundColor: t.accA(6), paddingVertical: 20, paddingHorizontal: 16, alignItems: 'center', gap: 8 }}>
                     {/* alignSelf:stretch, not the box's alignItems:'center'.
                         Centred, the line is shrink-wrapped to its own measured
@@ -496,7 +502,7 @@ export default function Flashcards() {
                       </TX>
                     ) : null}
                   </View>
-                </View>
+                </ScrollView>
                 {/* Audio pill — its own container, sitting between the
                     question (IPA) and the instruction. Only where the French
                     is already the question: on EN → FR and prompt fronts the
@@ -507,12 +513,7 @@ export default function Flashcards() {
                     <Press
                       onPress={say}
                       cue={null}
-                      // No accessibilityRole="button" here: this Press sits
-                      // inside the card's own Flip-card button (:345), and on
-                      // web RN renders role="button" as a real <button> tag —
-                      // nesting one <button> in another is invalid HTML (React
-                      // warns) and a WCAG nested-interactive-controls violation.
-                      // accessibilityLabel alone still announces it to AT.
+                      accessibilityRole="button"
                       accessibilityLabel={T.playAudioA11y}
                       style={{ width: 53, height: 53, borderRadius: 26.5, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
                     >
@@ -528,6 +529,8 @@ export default function Flashcards() {
               {/* Back */}
               <Animated.View
                 pointerEvents={flipped ? 'auto' : 'none'}
+                importantForAccessibility={flipped ? 'auto' : 'no-hide-descendants'}
+                accessibilityElementsHidden={!flipped}
                 style={[
                   faceBase,
                   {
@@ -543,7 +546,7 @@ export default function Flashcards() {
                 {/* Answer container — mirrors the front's question card so the
                     flip reads as the same object turning over. The gloss and
                     the teaching note live with the answer, inside it. */}
-                <View style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center', paddingVertical: 14 }}>
+                <ScrollView ref={backScroll} testID="flashcard-back-scroll" nestedScrollEnabled style={{ flex: 1, alignSelf: 'stretch', marginVertical: 14 }} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
                   <View style={{ alignSelf: 'stretch', borderRadius: 18, borderWidth: 1, borderColor: t.accA(35), backgroundColor: t.accA(8), paddingVertical: 20, paddingHorizontal: 16, alignItems: 'center', gap: 10 }}>
                     {/* Same reason as the front face. */}
                     <TX font="serif" size={promptMode ? 23 : 28} role="display" center style={{ alignSelf: 'stretch' }}>
@@ -573,7 +576,7 @@ export default function Flashcards() {
                       </TX>
                     ) : null}
                   </View>
-                </View>
+                </ScrollView>
                 {/* Audio pill in the same slot as the front's, so the control
                     stays under the thumb through the flip. The back always
                     speaks the French — here it is the answer, revealed. */}
@@ -582,10 +585,7 @@ export default function Flashcards() {
                   <Press
                     onPress={say}
                     cue={null}
-                    // See the matching front-face Press above: no
-                    // accessibilityRole="button" — this one nests inside the
-                    // Flip-card button too, and a nested <button> is invalid
-                    // HTML on web (and an AT anti-pattern either platform).
+                    accessibilityRole="button"
                     accessibilityLabel={T.playAudioA11y}
                     style={{ width: 53, height: 53, borderRadius: 26.5, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
                   >
@@ -593,13 +593,25 @@ export default function Flashcards() {
                   </Press>
                 </View>
               </Animated.View>
+            </View>
+
+            <Press
+              onPress={flipCard}
+              cue={null}
+              accessibilityRole="button"
+              accessibilityLabel={T.flipCardA11y}
+              style={{ minHeight: 48, marginTop: 12, borderRadius: 24, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
+            >
+              <TX font="semi" role="bodySm" color={t.accTx}>{T.flipCardA11y}</TX>
             </Press>
 
             {/* Actions */}
-            <View style={{ flexDirection: 'row', gap: 12, marginTop: 26 }}>
+            <View style={{ flexDirection: 'row', gap: 12, marginTop: 12 }}>
               <Press
                 onPress={() => answerCard(false)}
                 cue={null}
+                accessibilityRole="button"
+                accessibilityLabel={T.again}
                 style={{
                   flex: 1,
                   minHeight: 54,
@@ -618,6 +630,8 @@ export default function Flashcards() {
               <Press
                 onPress={() => answerCard(true)}
                 cue={null}
+                accessibilityRole="button"
+                accessibilityLabel={T.know}
                 style={{
                   flex: 1,
                   minHeight: 54,
