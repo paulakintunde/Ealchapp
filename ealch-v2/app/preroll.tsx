@@ -107,9 +107,10 @@ export default function Preroll() {
           {T.prerollMicNote}
         </TX>
 
-        <Press
+        <Press accessibilityRole="button"
           cue="tap"
           onPress={start}
+          accessibilityLabel={T.prerollStart}
           style={{
             marginTop: 26,
             minHeight: 54,

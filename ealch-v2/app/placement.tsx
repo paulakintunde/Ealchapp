@@ -166,7 +166,7 @@ export default function Placement() {
                 entry and lands the learner at row 0 of a 251-row list. The
                 ONLY edit this plan makes to placement.tsx (D-20): grading and
                 the Première CTA below are untouched. */}
-            <Press onPress={() => (router.canGoBack() ? router.back() : router.replace('/den'))} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" onPress={() => (router.canGoBack() ? router.back() : router.replace('/den'))} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.backFeed}
               </TX>
@@ -191,7 +191,7 @@ export default function Placement() {
             {/* The word — with its sound, because recognising French includes
                 recognising it spoken. Playback is on demand, never a surprise. */}
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 22, marginBottom: 20, flexDirection: 'row', alignItems: 'center', gap: 16 }}>
-              <Press cue="tap" onPress={() => tts.speak(q.item.fr)} style={{ width: 73, height: 73, borderRadius: 36.5, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <Press accessibilityRole="button" accessibilityLabel={T.a11yPlayItem.replace('{item}', q.item.fr)} cue="tap" onPress={() => tts.speak(q.item.fr)} style={{ width: 73, height: 73, borderRadius: 36.5, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="play" size={22} color={t.accInk} />
               </Press>
               <TX font="serifI" role="display" size={30} style={{ flex: 1, minWidth: 0 }}>
@@ -209,7 +209,7 @@ export default function Placement() {
                 const border = revealed && isAnswer ? t.acc : picked ? t.dangerA(70) : t.line(8);
                 const bg = revealed && isAnswer ? t.accA(10) : picked ? t.dangerA(8) : t.card;
                 return (
-                  <Press
+                  <Press accessibilityRole="radio" accessibilityLabel={o} accessibilityState={{ selected: picked, disabled: revealed }}
                     key={i}
                     cue={revealed ? null : 'tap'}
                     onPress={() => pick(i)}
@@ -225,7 +225,7 @@ export default function Placement() {
             </View>
 
             {sel !== null ? (
-              <Press cue={null} onPress={advance} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
+              <Press accessibilityRole="button" cue={null} onPress={advance} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
                 <TX font="semi" role="body" color={t.accInk}>
                   {T.cont}
                 </TX>
@@ -272,7 +272,7 @@ export default function Placement() {
             )}
 
             {offerPremiere ? (
-              <Press
+              <Press accessibilityRole="button"
                 onPress={() => router.push({ pathname: '/paywall', params: { from: 'placement' } })}
                 style={{ alignSelf: 'stretch', borderRadius: 18, borderWidth: 1, borderColor: t.accA(40), backgroundColor: t.accA(8), paddingVertical: 14, paddingHorizontal: 16, marginBottom: 14, flexDirection: 'row', alignItems: 'center', gap: 13 }}
               >
@@ -291,12 +291,12 @@ export default function Placement() {
               </Press>
             ) : null}
 
-            <Press cue={null} onPress={begin} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+            <Press accessibilityRole="button" cue={null} onPress={begin} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {T.plStartCta}
               </TX>
             </Press>
-            <Press cue={null} onPress={redo} style={{ minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" cue={null} onPress={redo} style={{ minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="bodySm" color={t.txMuted}>
                 {T.plRetake}
               </TX>

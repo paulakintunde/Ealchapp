@@ -258,16 +258,19 @@ export function ExamAudioPart({ part, mode, queueId, onUnplayable, children }: E
           listening item into a reading item. */}
       {mode === 'practice' && pb.phase !== 'unplayable' ? (
         <View style={{ flexDirection: 'row', gap: 10, marginBottom: 12 }}>
-          <Press
+          <Press accessibilityRole="button"
             onPress={play}
+            accessibilityLabel={T.examReplay}
             style={{ flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 20, borderWidth: 1, borderColor: t.line(12), paddingHorizontal: 14, minHeight: 38, justifyContent: 'center' }}
           >
             <Icon name="play" size={13} color={t.txSecondary} />
             <TX font="semi" role="meta" color={t.txSecondary}>{T.examReplay}</TX>
           </Press>
           {part.text ? (
-            <Press
+            <Press accessibilityRole="button"
               onPress={() => setTranscriptOpen((v) => !v)}
+              accessibilityLabel={transcriptOpen ? T.a11yHideTranscript : T.a11yShowTranscript}
+              accessibilityState={{ expanded: transcriptOpen }}
               style={{ flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 20, borderWidth: 1, borderColor: t.line(12), paddingHorizontal: 14, minHeight: 38, justifyContent: 'center' }}
             >
               <TX font="semi" role="meta" color={t.txSecondary}>{T.examTranscript}</TX>

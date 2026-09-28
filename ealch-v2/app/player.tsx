@@ -284,13 +284,13 @@ export default function Player() {
 
         {/* Transport */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 34, marginBottom: 22 }}>
-          <Press onPress={() => go(ix - 1)} cue={null} disabled={ix === 0} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center', opacity: ix === 0 ? 0.35 : 1 }}>
+          <Press accessibilityRole="button" accessibilityLabel={T.a11yPreviousPhrase} accessibilityState={{ disabled: ix === 0 }} onPress={() => go(ix - 1)} cue={null} disabled={ix === 0} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center', opacity: ix === 0 ? 0.35 : 1 }}>
             <Icon name="skipBack" size={22} color={t.txNonText} />
           </Press>
-          <Press onPress={togglePlay} cue={null} scale={0.94} style={{ width: 74, height: 74, borderRadius: 37, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityRole="button" accessibilityLabel={playing ? T.a11yPause : T.a11yPlay} onPress={togglePlay} cue={null} scale={0.94} style={{ width: 74, height: 74, borderRadius: 37, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name={playing ? 'pause' : 'play'} size={26} color={t.accInk} />
           </Press>
-          <Press onPress={() => go(ix + 1)} cue={null} disabled={ix >= total - 1} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center', opacity: ix >= total - 1 ? 0.35 : 1 }}>
+          <Press accessibilityRole="button" accessibilityLabel={T.a11yNextPhrase} accessibilityState={{ disabled: ix >= total - 1 }} onPress={() => go(ix + 1)} cue={null} disabled={ix >= total - 1} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center', opacity: ix >= total - 1 ? 0.35 : 1 }}>
             <Icon name="skipForward" size={22} color={t.txNonText} />
           </Press>
         </View>
@@ -298,8 +298,9 @@ export default function Player() {
         {/* Speed + restart — every control here is real (rate reaches the TTS) */}
         <View style={{ marginBottom: 'auto', gap: 12 }}>
           <SpeedPicker value={speed} onChange={setSpeedLive} />
-          <Press
+          <Press accessibilityRole="button"
             onPress={restart}
+            accessibilityLabel={T.restart}
             cue={null}
             style={{ alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 36, paddingVertical: 6, paddingHorizontal: 18, borderRadius: 18, borderWidth: 1, borderColor: t.line(14) }}
           >
@@ -311,7 +312,7 @@ export default function Player() {
         </View>
 
         {/* Practice out loud → Speak Mode */}
-        <Press onPress={practiceOutLoud} cue={null} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, borderWidth: 1, borderColor: t.accA(60), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 18 }}>
+        <Press accessibilityRole="button" accessibilityLabel={T.practice} onPress={practiceOutLoud} cue={null} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, borderWidth: 1, borderColor: t.accA(60), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 18 }}>
           <TX font="semi" role="bodyLg" color={t.accTx}>
             {T.practice}
           </TX>

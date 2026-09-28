@@ -191,8 +191,9 @@ function PaperRow({
   const anyPractice = progress.some((p) => p.practice);
 
   return (
-    <Press
+    <Press accessibilityRole="button"
       onPress={onPress}
+      accessibilityLabel={`${label}, ${T.examPaperTitle} ${paper.paperNo}`}
       style={{
         flexDirection: 'row', alignItems: 'center', gap: 12,
         borderRadius: 16, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card,

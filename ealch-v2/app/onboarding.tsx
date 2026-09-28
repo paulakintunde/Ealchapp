@@ -41,7 +41,7 @@ function SelectRow({
 }) {
   const t = useTheme();
   return (
-    <Press
+    <Press accessibilityRole="radio" accessibilityLabel={title} accessibilityState={{ selected: active }}
       onPress={onPress}
       scale={0.99}
       style={{
@@ -237,7 +237,7 @@ export default function Onboarding() {
       {showHead ? (
         <View style={{ paddingTop: insets.top + 14, paddingHorizontal: 24 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-            <Press onPress={back} style={{ width: 38, height: 38, marginLeft: -10, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" accessibilityLabel={T.a11yBack} onPress={back} style={{ width: 38, height: 38, marginLeft: -10, alignItems: 'center', justifyContent: 'center' }}>
               <Icon name="chevronLeft" size={20} color={t.txNonText} />
             </Press>
             <View style={{ flex: 1, height: 3, borderRadius: 2, backgroundColor: t.line(10) }}>
@@ -268,7 +268,7 @@ export default function Onboarding() {
               {T.obIntro}
             </TX>
             <Button label={T.createAccount} onPress={next} />
-            <Press onPress={() => router.push('/signin')} style={{ alignItems: 'center', marginTop: 18 }}>
+            <Press accessibilityRole="button" onPress={() => router.push('/signin')} style={{ alignItems: 'center', marginTop: 18 }}>
               <TX role="bodySm" color={t.txMuted}>
                 {T.alreadyAccount} <TX font="semi" role="bodySm" color={t.accTx}>{T.signInLink}</TX>
               </TX>
@@ -293,7 +293,7 @@ export default function Onboarding() {
             <Button label={T.continueT} onPress={submitAccount} disabled={acctPending} style={{ height: 54, marginTop: 6 }} />
             {/* Consent is disclosed at the moment of account creation. */}
             <LegalConsent />
-            <Press onPress={continueAsGuest} style={{ alignItems: 'center', marginTop: 18 }}>
+            <Press accessibilityRole="button" onPress={continueAsGuest} style={{ alignItems: 'center', marginTop: 18 }}>
               <TX font="semi" role="bodySm" color={t.accTx}>
                 {T.continueGuest}
               </TX>
@@ -332,7 +332,7 @@ export default function Onboarding() {
               maxLength={30}
             />
             <Button label={T.continueT} onPress={submitName} style={{ height: 54, marginTop: 6 }} />
-            <Press onPress={skipName} style={{ alignItems: 'center', marginTop: 18 }}>
+            <Press accessibilityRole="button" onPress={skipName} style={{ alignItems: 'center', marginTop: 18 }}>
               <TX font="semi" role="bodySm" color={t.txMuted}>
                 {T.skipT}
               </TX>
@@ -354,7 +354,7 @@ export default function Onboarding() {
               {ACCENTS.map((a) => {
                 const on = s.accent === a.c;
                 return (
-                  <Press key={a.c} onPress={() => s.setAccent(a.c)} style={{ alignItems: 'center', gap: 9 }}>
+                  <Press accessibilityRole="radio" accessibilityLabel={a.n} accessibilityState={{ selected: on }} key={a.c} onPress={() => s.setAccent(a.c)} style={{ alignItems: 'center', gap: 9 }}>
                     <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: a.c, borderWidth: on ? 3 : 0, borderColor: t.bg, ...(on ? { shadowColor: a.c, shadowOpacity: 0.9, shadowRadius: 8, elevation: 6 } : {}) }} />
                     <TX font="semi" role="meta" color={on ? t.txPrimary : t.txSubtle}>
                       {a.n}
@@ -387,7 +387,7 @@ export default function Onboarding() {
                 const on = s.appLang === lg.id;
                 const soon = !lg.available;
                 return (
-                  <Press key={lg.id} onPress={soon ? undefined : () => s.setAppLang(lg.id)} cue={soon ? null : 'tap'} style={{ alignItems: 'center', gap: 6, width: 52, opacity: soon ? 0.38 : 1 }}>
+                  <Press accessibilityRole="radio" accessibilityLabel={lg.name} accessibilityState={{ selected: on, disabled: soon }} key={lg.id} onPress={soon ? undefined : () => s.setAppLang(lg.id)} cue={soon ? null : 'tap'} style={{ alignItems: 'center', gap: 6, width: 52, opacity: soon ? 0.38 : 1 }}>
                     <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.card2, alignItems: 'center', justifyContent: 'center', borderWidth: on ? 2 : 0, borderColor: t.acc }}>
                       <TX font="bold" role="bodyLg" color={on ? t.accTx : t.txSecondary}>
                         {lg.ch}
@@ -435,7 +435,7 @@ export default function Onboarding() {
               {paceData.map((p, i) => {
                 const on = s.pace === p.id;
                 return (
-                  <Press
+                  <Press accessibilityRole="radio" accessibilityLabel={`${p.v}, ${T.paceSubs[i] ?? p.s}`} accessibilityState={{ selected: on }}
                     key={p.id}
                     onPress={() => s.setField('pace', p.id)}
                     style={{ width: '47%', minHeight: 104, paddingVertical: 8, borderRadius: 18, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(9), backgroundColor: on ? t.accCard(8) : t.card, ...t.cardShadow, justifyContent: 'center', paddingHorizontal: 18 }}
@@ -481,7 +481,7 @@ export default function Onboarding() {
               {alarmData.map((c, i) => {
                 const on = s.alarmTime === c.time;
                 return (
-                  <Press
+                  <Press accessibilityRole="radio" accessibilityLabel={`${formatTime(c.time, s.clock24)}, ${T.alarmChips[i] ?? c.label}`} accessibilityState={{ selected: on }}
                     key={c.time}
                     onPress={() => s.setAlarm(c.time)}
                     style={{ width: '47%', minHeight: 58, paddingVertical: 6, borderRadius: 16, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(9), backgroundColor: on ? t.accCard(8) : t.card, ...t.cardShadow, alignItems: 'center', justifyContent: 'center' }}
@@ -497,7 +497,7 @@ export default function Onboarding() {
               })}
             </View>
             <View style={{ borderRadius: 16, borderWidth: 1, borderColor: showWheel ? t.accA(60) : t.line(9), backgroundColor: t.card, ...t.cardShadow, marginBottom: 22 }}>
-              <Press onPress={() => setShowWheel((v) => !v)} style={{ minHeight: 58, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16 }}>
+              <Press accessibilityRole="button" accessibilityLabel={`${T.customTime}, ${formatTime(s.alarmTime, s.clock24)}`} accessibilityState={{ expanded: showWheel }} onPress={() => setShowWheel((v) => !v)} style={{ minHeight: 58, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16 }}>
                 <View style={{ flex: 1 }}>
                   <TX font="semi" role="body">
                     {T.customTime}
@@ -579,8 +579,9 @@ export default function Onboarding() {
             ) : null}
 
             <View style={{ alignItems: 'center', gap: 16 }}>
-              <Press
+              <Press accessibilityRole="button"
                 onPress={() => void doCalib()}
+                accessibilityLabel={calib === 'rec' ? T.a11yStopRecording : T.a11yStartRecording}
                 cue={null}
                 style={{ width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center', backgroundColor: calib === 'rec' ? t.acc : 'transparent', borderWidth: 1, borderColor: calib === 'rec' ? t.acc : t.line(22) }}
               >
@@ -615,7 +616,7 @@ export default function Onboarding() {
               {AVATARS.map((a) => {
                 const on = s.avatarId === a.id;
                 return (
-                  <Press key={a.id} onPress={() => s.setAvatarId(a.id)} style={{ alignItems: 'center', gap: 9, width: 76 }}>
+                  <Press accessibilityRole="radio" accessibilityLabel={a.name} accessibilityState={{ selected: on }} key={a.id} onPress={() => s.setAvatarId(a.id)} style={{ alignItems: 'center', gap: 9, width: 76 }}>
                     <View
                       style={{
                         width: 68,

@@ -208,7 +208,7 @@ export function ExamSpeakTask({
       </TX>
 
       {phase === 'idle' ? (
-        <Press
+        <Press accessibilityRole="button"
           onPress={startPrep}
           disabled={!editable}
           style={{ alignItems: 'center', minHeight: 50, justifyContent: 'center', borderRadius: 16, backgroundColor: t.acc }}
@@ -240,7 +240,7 @@ export function ExamSpeakTask({
           {partial ? (
             <TX role="meta" color={t.txMuted} lhMult={1.5} style={{ marginBottom: 10 }}>{partial}</TX>
           ) : null}
-          <Press
+          <Press accessibilityRole="button"
             onPress={() => void stopRecogniser()}
             style={{ alignItems: 'center', minHeight: 44, justifyContent: 'center', borderRadius: 14, borderWidth: 1, borderColor: t.line(14) }}
           >

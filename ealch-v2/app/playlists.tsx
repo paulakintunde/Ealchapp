@@ -37,8 +37,9 @@ export default function Playlists() {
         {pool.map((p) => (
           <View key={p.id} style={{ marginBottom: 26 }}>
             {/* Playlist header — word tile + label + honest count */}
-            <Press
+            <Press accessibilityRole="button"
               onPress={() => router.push(playerRouteFor(p.id, 0))}
+              accessibilityLabel={`${lang === 'fr' ? p.labelFr : p.labelEn}, ${p.tracks.length} ${T.tracksWord}`}
               style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 12 }}
             >
               <View style={{ width: 76, height: 76, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.isDark ? '#12100E' : t.card, ...t.cardShadow }}>
@@ -63,9 +64,10 @@ export default function Playlists() {
             {/* Track rows — each deep-links straight to its track */}
             <View style={{ gap: 8 }}>
               {p.tracks.map((tk, i) => (
-                <Press
+                <Press accessibilityRole="button"
                   key={tk.id}
                   onPress={() => router.push(playerRouteFor(p.id, i))}
+                  accessibilityLabel={`${tk.title}, ${T.a11yPlay}`}
                   style={{ minHeight: 56, paddingVertical: 8, borderRadius: 14, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}
                 >
                   <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center' }}>

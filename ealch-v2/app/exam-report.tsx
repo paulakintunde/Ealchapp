@@ -278,7 +278,7 @@ export default function ExamReportScreen() {
                   {T.examSkillNames[d.skill]} · {d.band.toUpperCase()}
                 </TX>
                 {d.prepLessonId ? (
-                  <Press onPress={() => router.push({ pathname: '/lesson', params: { id: d.prepLessonId! } })}>
+                  <Press accessibilityRole="button" accessibilityLabel={T.examReviewLesson} onPress={() => router.push({ pathname: '/lesson', params: { id: d.prepLessonId! } })}>
                     <TX font="semi" role="label" color={t.accTx}>{T.examReviewLesson}</TX>
                   </Press>
                 ) : (
@@ -400,7 +400,7 @@ function GradedRow({
 
       {g.modelAnswer ? (
         <View style={{ marginTop: 12 }}>
-          <Press onPress={() => setOpen((v) => !v)}>
+          <Press accessibilityRole="button" accessibilityLabel={open ? T.examHideModel : T.examShowModel} accessibilityState={{ expanded: open }} onPress={() => setOpen((v) => !v)}>
             <TX font="semi" role="label" color={t.accTx}>
               {open ? T.examHideModel : `${T.examShowModel} →`}
             </TX>

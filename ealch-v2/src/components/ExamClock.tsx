@@ -113,7 +113,7 @@ export function ExamClock({ clock, onChange, onExpire, mode, lang }: ExamClockPr
           clock, and the mode check lives here rather than inside pauseClock so
           it reads as a property of the mode, not a property of time. */}
       {mode === 'practice' ? (
-        <Press
+        <Press accessibilityRole="button"
           onPress={() => onChange(paused ? resumeClock(clock, Date.now()) : pauseClock(clock, Date.now()))}
           hitSlop={10}
           accessibilityLabel={

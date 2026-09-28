@@ -208,6 +208,7 @@ export default function ExamPaperScreen() {
                 key={m}
                 onPress={() => setMode(m)}
                 accessibilityRole="radio"
+                accessibilityLabel={title}
                 accessibilityState={{ selected: on }}
                 style={{
                   flexDirection: 'row', alignItems: 'flex-start', gap: 12,
@@ -230,11 +231,13 @@ export default function ExamPaperScreen() {
         </View>
 
         {/* ── Sitting mode ── */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={() => {
             const first = paper.sections[0];
             if (first) openSection(first.skill);
           }}
+          accessibilityLabel={T.examSitting}
+          accessibilityState={{ disabled: starting || checking }}
           disabled={starting || checking}
           style={{
             borderRadius: 16, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card,
@@ -251,8 +254,9 @@ export default function ExamPaperScreen() {
         <TX role="meta" color={t.txMuted} lhMult={1.45} style={{ marginBottom: 12 }}>{T.examSectionOneSub}</TX>
 
         {progress.some((p) => p.answered > 0) ? (
-          <Press
+          <Press accessibilityRole="button"
             onPress={() => router.push({ pathname: '/exam-report', params: { paperId } })}
+            accessibilityLabel={T.examReport}
             style={{
               alignItems: 'center', minHeight: 48, justifyContent: 'center', borderRadius: 14,
               borderWidth: 1, borderColor: t.acc, backgroundColor: t.accA(8), marginBottom: 14,
@@ -376,6 +380,7 @@ function SectionRow({
         padding: 16, marginBottom: 10,
       }}
       accessibilityRole="button"
+      accessibilityLabel={`${T.examSkillNames[section.skill]}, ${statusLabel}`}
       accessibilityLanguage={lang}
     >
       <View style={{ flex: 1 }}>

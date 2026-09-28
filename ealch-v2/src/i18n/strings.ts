@@ -398,6 +398,8 @@ export type Strings = {
   a11yClose: string; a11yOpenSettings: string; a11yBack: string; a11yDismissPanel: string;
   a11yStartRecording: string; a11yStopRecording: string; a11yStopPlayback: string;
   a11ySendMessage: string; a11yAddWord: string; a11yRemoveWord: string;
+  a11yPlay: string; a11yPause: string; a11yPreviousPhrase: string; a11yNextPhrase: string;
+  a11yShowTranscript: string; a11yHideTranscript: string;
   a11yPreviousAct: string; a11yNextAct: string; a11yOpenFiche: string;
   a11yDetails: string;
   a11yPlayItem: string; a11yPlaySlow: string; a11yOpenTerm: string;
@@ -925,6 +927,8 @@ export const T: Record<Lang, Strings> = {
     a11yClose: 'Fermer', a11yOpenSettings: 'Ouvrir les réglages', a11yBack: 'Retour', a11yDismissPanel: 'Fermer le panneau',
     a11yStartRecording: "Commencer l'enregistrement", a11yStopRecording: "Arrêter l'enregistrement", a11yStopPlayback: 'Arrêter la lecture',
     a11ySendMessage: 'Envoyer le message', a11yAddWord: 'Ajouter : {item}', a11yRemoveWord: 'Retirer : {item}',
+    a11yPlay: 'Lire', a11yPause: 'Mettre en pause', a11yPreviousPhrase: 'Phrase précédente', a11yNextPhrase: 'Phrase suivante',
+    a11yShowTranscript: 'Afficher la transcription', a11yHideTranscript: 'Masquer la transcription',
     a11yPreviousAct: 'Acte précédent', a11yNextAct: 'Acte suivant', a11yOpenFiche: 'Ouvrir la fiche',
     a11yDetails: 'Détails',
     a11yPlayItem: 'Écouter {item}', a11yPlaySlow: 'Écouter lentement', a11yOpenTerm: 'En savoir plus sur {item}',
@@ -1433,6 +1437,8 @@ export const T: Record<Lang, Strings> = {
     a11yClose: 'Close', a11yOpenSettings: 'Open settings', a11yBack: 'Back', a11yDismissPanel: 'Close panel',
     a11yStartRecording: 'Start recording', a11yStopRecording: 'Stop recording', a11yStopPlayback: 'Stop playback',
     a11ySendMessage: 'Send message', a11yAddWord: 'Add: {item}', a11yRemoveWord: 'Remove: {item}',
+    a11yPlay: 'Play', a11yPause: 'Pause', a11yPreviousPhrase: 'Previous phrase', a11yNextPhrase: 'Next phrase',
+    a11yShowTranscript: 'Show transcript', a11yHideTranscript: 'Hide transcript',
     a11yPreviousAct: 'Previous act', a11yNextAct: 'Next act', a11yOpenFiche: 'Open unit info',
     a11yDetails: 'Details',
     a11yPlayItem: 'Play {item}', a11yPlaySlow: 'Play slowly', a11yOpenTerm: 'Learn about {item}',

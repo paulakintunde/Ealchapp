@@ -640,13 +640,13 @@ export default function ExamSectionScreen() {
               {T.examConfirmSubmitBody}
             </TX>
             <View style={{ flexDirection: 'row', gap: 10 }}>
-              <Press
+              <Press accessibilityRole="button"
                 onPress={() => setConfirming(false)}
                 style={{ flex: 1, alignItems: 'center', minHeight: 46, justifyContent: 'center', borderRadius: 14, borderWidth: 1, borderColor: t.line(14) }}
               >
                 <TX font="semi" role="label" color={t.txSecondary}>{T.examStay}</TX>
               </Press>
-              <Press
+              <Press accessibilityRole="button"
                 onPress={submit}
                 style={{ flex: 1, alignItems: 'center', minHeight: 46, justifyContent: 'center', borderRadius: 14, backgroundColor: t.acc }}
               >
@@ -656,9 +656,11 @@ export default function ExamSectionScreen() {
           </View>
         ) : (
           <>
-            <Press
+            <Press accessibilityRole="button"
               onPress={() => setConfirming(true)}
               disabled={phase !== 'answering'}
+              accessibilityLabel={phase === 'submitting' ? T.examGrading : T.examSubmit}
+              accessibilityState={{ disabled: phase !== 'answering' }}
               style={{
                 alignItems: 'center', minHeight: 50, justifyContent: 'center', borderRadius: 16,
                 backgroundColor: t.acc, opacity: phase === 'answering' ? 1 : 0.6,
@@ -895,7 +897,8 @@ function Question({
             disabled={!editable}
             onPress={() => onSelect(oIx)}
             accessibilityRole="radio"
-            accessibilityState={{ selected: on }}
+            accessibilityLabel={opt}
+            accessibilityState={{ selected: on, disabled: !editable }}
             style={{
               flexDirection: 'row', alignItems: 'center', gap: 8,
               borderRadius: 12, borderWidth: 1,

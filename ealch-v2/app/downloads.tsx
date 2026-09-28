@@ -140,8 +140,10 @@ export default function Downloads() {
         </View>
 
         {/* Real "check for updates" — runs the same refresh the app does */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={check}
+          accessibilityLabel={checking ? T.updatingL : T.checkUpdates}
+          accessibilityState={{ disabled: checking }}
           cue={null}
           style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, borderWidth: 1, borderColor: t.accA(50), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 10 }}
         >

@@ -240,7 +240,7 @@ export default function Narrated() {
           <MascotAvatar size={72} state="celebrate" tier="medium" celebrateKey="narration-done" />
           <TX font="serifI" size={28} role="display" center>{T.narrDoneT}</TX>
           <TX role="body" color={t.txSecondary} center>{T.narrDoneS.replace('{name}', coachName)}</TX>
-          <Press
+          <Press accessibilityRole="button"
             cue="tap"
             onPress={exit}
             style={{ marginTop: 10, minHeight: 54, paddingHorizontal: 28, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
@@ -317,9 +317,10 @@ export default function Narrated() {
             ) : null}
             <View style={{ alignItems: 'center', gap: 12 }}>
               {listening ? <Waveform count={22} height={22} color={t.acc} active barWidth={3} gap={3.5} /> : null}
-              <Press
+              <Press accessibilityRole="button"
                 cue={null}
                 onPress={mic}
+                accessibilityLabel={listening ? T.a11yStopRecording : T.a11yStartRecording}
                 scale={0.94}
                 style={{ width: 70, height: 70, borderRadius: 35, alignItems: 'center', justifyContent: 'center', backgroundColor: listening ? t.acc : t.line(4), borderWidth: 1, borderColor: listening ? t.acc : t.line(20) }}
               >
@@ -330,7 +331,7 @@ export default function Narrated() {
         )}
       </View>
 
-      <Press cue={null} onPress={skip} style={{ alignSelf: 'center', marginBottom: insets.bottom + 16, paddingVertical: 8, paddingHorizontal: 16 }}>
+      <Press accessibilityRole="button" cue={null} onPress={skip} style={{ alignSelf: 'center', marginBottom: insets.bottom + 16, paddingVertical: 8, paddingHorizontal: 16 }}>
         <TX role="bodySm" color={t.txMuted}>{T.narrSkip}</TX>
       </Press>
     </View>

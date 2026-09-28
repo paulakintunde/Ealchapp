@@ -291,7 +291,7 @@ export function ExamInterlocutorTask({
       </TX>
 
       {phase === 'idle' ? (
-        <Press
+        <Press accessibilityRole="button"
           onPress={startPrep}
           disabled={!editable}
           style={{ alignItems: 'center', minHeight: 50, justifyContent: 'center', borderRadius: 16, backgroundColor: t.acc }}
