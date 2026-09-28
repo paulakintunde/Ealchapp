@@ -613,7 +613,7 @@ test('the close button clears the platform minimum tap target', () => {
   const ui = readFileSync(join(here, '..', 'components', 'ui.tsx'), 'utf8');
   const header = ui.slice(ui.indexOf('export function FocusHeader'));
   ok(/hitSlop=\{\{ top: 8, bottom: 8, left: 8, right: 8 \}\}/.test(header), 'hitSlop grows it to 54');
-  ok(/accessibilityLabel="Close"/.test(header), 'and it names itself');
+  ok(/accessibilityLabel=\{T\.a11yClose\}/.test(header), 'and it names itself in the current app language');
 });
 
 test('a deck told to open on a card waits for its width before jumping', () => {

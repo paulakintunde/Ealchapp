@@ -62,11 +62,12 @@ test("TrailGateRow.tsx is one component with a 'gate' and a 'boundary' variant, 
 });
 
 // 07.1-09 / D-22: on a locked band, act/acte0/heading rows stay in the tree
-// and stay pressable (accessibilityState disabled), never removed — the
+// and stay pressable with a named paywall action, never removed — the
 // opposite of den.tsx's old `!tabLocked` hide.
-test('a locked trail row stays rendered and pressable: accessibilityState disabled, not removed from the tree', () => {
+test('a locked trail row stays rendered and pressable with a named paywall action', () => {
   const trailRow = readComponent('TrailRow.tsx');
-  ok(/accessibilityState=\{\{[^}]*disabled:\s*row\.locked/.test(trailRow), 'TrailRow.tsx must announce row.locked as accessibilityState.disabled, not conditionally render null');
+  ok(/row\.locked \? onPressLocked\(\)/.test(trailRow), 'TrailRow.tsx must route locked rows to the paywall action');
+  ok(/row\.locked \? T\.a11yLockedPaywall/.test(trailRow), 'TrailRow.tsx must announce the paywall destination');
   ok(!/if\s*\(row\.locked\)\s*return\s*null/.test(trailRow), 'TrailRow.tsx must not remove a locked row from the tree');
 });
 

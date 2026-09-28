@@ -193,7 +193,7 @@ test('TrailRow and TrailHeading take their row as a prop and read no store', () 
   }
 });
 
-test('every pressable in TrailRow and TrailHeading carries accessibilityRole, and locked stays disabled-but-mounted (D-22)', () => {
+test('every pressable in TrailRow and TrailHeading carries accessibilityRole, and locked opens the paywall (D-22)', () => {
   for (const name of ['TrailRow', 'TrailHeading'] as const) {
     const src = readFile({ name, dir: 'components' });
     const pressCount = (src.match(/<Press\b/g) ?? []).length;
@@ -202,5 +202,7 @@ test('every pressable in TrailRow and TrailHeading carries accessibilityRole, an
     ok(roleCount >= pressCount, `${name}.tsx: ${pressCount} Press elements, only ${roleCount} accessibilityRole`);
   }
   const trailRow = readFile({ name: 'TrailRow', dir: 'components' });
-  ok(/accessibilityState=\{\{\s*disabled:\s*row\.locked/.test(trailRow), 'TrailRow.tsx must announce a locked row as disabled while staying mounted (D-22)');
+  ok(/row\.locked \? onPressLocked\(\)/.test(trailRow), 'TrailRow.tsx must keep locked rows actionable through the paywall');
+  ok(/row\.locked \? T\.a11yLockedPaywall/.test(trailRow), 'TrailRow.tsx must announce the paywall destination');
+  ok(!/if\s*\(row\.locked\)\s*return\s*null/.test(trailRow), 'TrailRow.tsx must keep locked rows mounted');
 });

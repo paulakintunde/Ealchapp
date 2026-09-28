@@ -466,7 +466,7 @@ test('every answer option announces itself as a button with its state', () => {
     if (options === 0) continue;
     const stated = src.split(/accessibilityState=\{\{\s*selected:/).length - 1;
     ok(stated >= options, `${f}: ${options} option lists, ${stated} announce selection`);
-    ok(/accessibilityHint=\{[\s\S]*?Correct answer/.test(src), `${f}: the verdict is spoken, not only coloured`);
+    ok(/accessibilityHint=\{[\s\S]*?T\.(?:a11yAnswerCorrect|warmCorrect)/.test(src), `${f}: the localized verdict is spoken, not only coloured`);
   }
 });
 
