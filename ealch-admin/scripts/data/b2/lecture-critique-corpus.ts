@@ -116,7 +116,8 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 import type { Item } from '../../../../ealch-v2/src/content/schema.ts';
-import seed from '../../../../ealch-v2/src/content/seed.json' with { type: 'json' };
+import { seedPlusPacks } from '../../../../ealch-v2/src/content/seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import { unitRef } from '../_unit-ref.ts';
 
 /** A citation that OPENS a sentence needs a capital. */
