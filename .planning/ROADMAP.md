@@ -275,7 +275,7 @@ Plans:
 - [x] 08-03-PLAN.md — lesson and mission exercise control audit
 
 **Wave 4** *(blocked on Wave 3 completion)*
-- [ ] 08-04-PLAN.md — Settings, paywall, and account action semantics
+- [x] 08-04-PLAN.md — Settings, paywall, and account action semantics
 
 **Wave 5** *(blocked on Wave 4 completion)*
 - [ ] 08-05-PLAN.md — Automatic appearance, saved-choice preservation, and native bars
