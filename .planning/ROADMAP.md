@@ -284,7 +284,7 @@ Plans:
 - [x] 08-06-PLAN.md — scrollable large-text flashcards and separate Flip/audio actions
 
 **Wave 7** *(blocked on Wave 6 completion)*
-- [ ] 08-07-PLAN.md — flash, voice, speech, and review route audit
+- [x] 08-07-PLAN.md — flash, voice, speech, and review route audit
 
 **Wave 8** *(blocked on Wave 7 completion)*
 - [ ] 08-08-PLAN.md — dictation, sentence, roleplay, chat, and theme route audit

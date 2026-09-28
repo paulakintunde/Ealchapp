@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 08-06-PLAN.md
-last_updated: "2026-09-28T08:59:28.751Z"
+stopped_at: Completed 08-07-PLAN.md
+last_updated: "2026-09-28T14:28:49.065Z"
 last_activity: 2026-09-28
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 73
-  completed_plans: 67
-  percent: 92
+  completed_plans: 68
+  percent: 93
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 08 (accessibility-retrofit) — EXECUTING
-Plan: 7 of 10
+Plan: 8 of 10
   font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
   07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
@@ -40,7 +40,7 @@ NOTE: `percent: 100` above means 61 of 61 WRITTEN plans are done. It is not mile
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-28
 
-Progress: [█████████░] 92%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
@@ -87,6 +87,7 @@ Progress: [█████████░] 92%
 | Phase 08 P04 | 25min | 2 tasks | 14 files |
 | Phase 08 P05 | 35min | 2 tasks | 13 files |
 | Phase 08 P06 | 30min | 2 tasks | 5 files |
+| Phase 08 P07 | 40min | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -184,6 +185,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-09-28T08:59:28.718Z
-Stopped at: Completed 08-06-PLAN.md
+Last session: 2026-09-28T14:28:49.037Z
+Stopped at: Completed 08-07-PLAN.md
 Resume file: None
