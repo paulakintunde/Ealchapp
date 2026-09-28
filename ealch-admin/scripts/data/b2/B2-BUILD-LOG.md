@@ -256,11 +256,11 @@ a separate worktree, nothing deployed.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Links | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| b2.22 | style-academique (workshop) | 71 | 11 | 11x8 | 11 | 5 | 11 | 165 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
-| b2.23 | argumentation (workshop, PE target) | 71 | 11 | 11x8 | 11 | 5 | 11 | 190 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
-| b2.24 | lecture-critique (workshop, CE target) | 76 | 11 | 11x8 | 11 | 4 | 13 | 200 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
-| b2.25 | ecoute-vitesse-reelle (workshop, CO target) | 73 | 11 | 11x8 | 11 | 5 | 13 | 165 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
-| b2.26 | reunions-negociation (workshop, PO target) | 73 | 11 | 11x8 | 11 | 5 | 16 | 190 | 11 prompts, Paul makes art | DRAFT, gate B2-1 |
+| b2.22 | style-academique (workshop) | 71 | 11 | 11x8 | 11 | 5 | 11 | 165 | 11 images, registered + alt | DRAFT, gate B2-1 |
+| b2.23 | argumentation (workshop, PE target) | 71 | 11 | 11x8 | 11 | 5 | 11 | 190 | 11 images, registered + alt | DRAFT, gate B2-1 |
+| b2.24 | lecture-critique (workshop, CE target) | 76 | 11 | 11x8 | 11 | 4 | 13 | 200 | 11 images, registered + alt | DRAFT, gate B2-1 |
+| b2.25 | ecoute-vitesse-reelle (workshop, CO target) | 73 | 11 | 11x8 | 11 | 5 | 13 | 165 | 11 images, registered + alt | DRAFT, gate B2-1 |
+| b2.26 | reunions-negociation (workshop, PO target) | 73 | 11 | 11x8 | 11 | 5 | 16 | 190 | 11 images, registered + alt | DRAFT, gate B2-1 |
 | b2.01 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 ## Id ledger
