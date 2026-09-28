@@ -121,7 +121,8 @@
 import type {
   Lesson, LessonSection, LessonAct, LessonDrill, SectionAudio, ReferenceSheet, SoundGroup, ErrorTrigger, QuizQuestion,
 } from '../../../../ealch-v2/src/content/schema.ts';
-import seed from '../../../../ealch-v2/src/content/seed.json' with { type: 'json' };
+import { seedPlusPacks } from '../../../../ealch-v2/src/content/seed-plus-packs.ts';
+const seed = seedPlusPacks();
 import {
   UNIT, LESSON_ID, LEVEL, E, REFRAME, REFRAME_EN, THE_FILE, THE_FILE_IMP, THE_TEST, Cap,
   ALL_ROWS, ROWS_BY_ACT, IMPORTED, NOT_DECK_ABLE, NOT_SPEAKABLE, dicteeFor,
