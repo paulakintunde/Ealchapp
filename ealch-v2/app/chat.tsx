@@ -134,7 +134,7 @@ export default function Chat() {
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       {/* Top bar */}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingTop: insets.top + 8, paddingBottom: 14, paddingHorizontal: 20, borderBottomWidth: 1, borderBottomColor: t.line(7) }}>
-        <Press cue={null} onPress={() => router.replace('/home')} style={{ width: 36, height: 44, marginLeft: -8, alignItems: 'center', justifyContent: 'center' }}>
+        <Press accessibilityRole="button" accessibilityLabel={T.a11yBack} cue={null} onPress={() => router.replace('/home')} style={{ width: 36, height: 44, marginLeft: -8, alignItems: 'center', justifyContent: 'center' }}>
           <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
         </Press>
         {/* Was a hardcoded letter-"C" circle for Camille — a leftover from
@@ -189,8 +189,9 @@ export default function Chat() {
                   {m.text}
                 </TX>
                 {m.capped ? (
-                  <Press
+                  <Press accessibilityRole="button"
                     onPress={() => router.push({ pathname: '/paywall', params: { from: 'gate:coach' } })}
+                    accessibilityLabel={T.coachCapCta}
                     style={{ marginTop: 10, alignSelf: 'flex-start', paddingVertical: 8, paddingHorizontal: 14, borderRadius: 15, backgroundColor: t.acc }}
                   >
                     <TX font="semi" role="label" color={t.accInk}>
@@ -218,7 +219,7 @@ export default function Chat() {
       {/* Quick replies */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingHorizontal: 18, paddingVertical: 8, alignItems: 'center' }}>
         {quickReplies.map((q, i) => (
-          <Press key={i} onPress={() => send(q.msg)} style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 15, borderRadius: 17, borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}>
+          <Press accessibilityRole="button" accessibilityLabel={q.label} accessibilityState={{ disabled: typing }} key={i} onPress={() => send(q.msg)} style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 15, borderRadius: 17, borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}>
             <TX font="med" role="label" color={t.accTx}>
               {q.label}
             </TX>
@@ -238,14 +239,14 @@ export default function Chat() {
           style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.input, color: t.tx, paddingHorizontal: 18, fontSize: 14 }}
         />
         {/* Speak instead of type */}
-        <Press
+        <Press accessibilityRole="button"
           onPress={micTap}
-          accessibilityLabel={T.placeholder}
+          accessibilityLabel={listening ? T.a11yStopRecording : T.a11yStartRecording}
           style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: listening ? t.acc : t.card2, borderWidth: 1, borderColor: listening ? t.acc : t.line(12), alignItems: 'center', justifyContent: 'center' }}
         >
           <Icon name="mic" size={18} color={listening ? t.accInk : t.txNonText} strokeWidth={1.8} />
         </Press>
-        <Press onPress={() => send(draft)} style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+        <Press accessibilityRole="button" accessibilityLabel={T.a11ySendMessage} accessibilityState={{ disabled: !draft.trim() || typing }} onPress={() => send(draft)} style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
           <Icon name="arrowRight" size={16} color={t.accInk} strokeWidth={1.8} />
         </Press>
       </View>

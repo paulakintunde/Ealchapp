@@ -52,8 +52,9 @@ export default function RoleplayHub() {
       >
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
           {cats.map(({ slug, meta, visual, count }) => (
-            <Press
+            <Press accessibilityRole="button"
               key={slug}
+              accessibilityLabel={`${lang === 'fr' ? meta.fr : meta.en}, ${T.rpScenesN.replace('{n}', String(count))}`}
               onPress={() => router.push({ pathname: '/roleplay', params: { theme: slug } })}
               scale={0.98}
               style={{

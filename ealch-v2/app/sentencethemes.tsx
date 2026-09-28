@@ -101,8 +101,9 @@ export default function SentenceThemes() {
 
         <View style={{ gap: 10 }}>
           {rows.map((r) => (
-            <Press
+            <Press accessibilityRole="button"
               key={r.slug}
+              accessibilityLabel={`${lang === 'fr' ? r.title : r.en}, ${T.ctPhrasesN.replace('{n}', String(r.count))}${!levelsAll && !(FREE_BANDS as readonly string[]).includes(r.lo) ? `, ${T.a11yLockedPaywall}` : ''}`}
               onPress={() => router.push({ pathname: '/sentence', params: { theme: r.slug } })}
               scale={0.99}
               style={{

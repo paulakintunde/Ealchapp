@@ -97,7 +97,8 @@ export default function Themes() {
               <Press
                 key={l ?? 'all'}
                 onPress={() => setBand(l)}
-                accessibilityRole="button"
+                accessibilityRole="radio"
+                accessibilityLabel={l === undefined ? T.allLevels : levelLabel(l)}
                 accessibilityState={{ selected: on }}
                 style={{
                   minHeight: 34,
@@ -120,7 +121,7 @@ export default function Themes() {
 
         {/* Theme of the week */}
         {week ? (
-          <Press onPress={() => openTheme(week.slug)} scale={0.99} style={{ borderRadius: 22, borderWidth: 1, borderColor: t.accA(40), backgroundColor: t.card, ...t.cardShadow, overflow: 'hidden', padding: 20, marginBottom: 16 }}>
+          <Press accessibilityRole="button" accessibilityLabel={`${themeMeta(week.slug).fr}, ${T.themeContinue}`} onPress={() => openTheme(week.slug)} scale={0.99} style={{ borderRadius: 22, borderWidth: 1, borderColor: t.accA(40), backgroundColor: t.card, ...t.cardShadow, overflow: 'hidden', padding: 20, marginBottom: 16 }}>
             <LinearGradient colors={[t.accA(16), 'transparent']} start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.8 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
               <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx}>
@@ -161,7 +162,7 @@ export default function Themes() {
                 ? `${levelLabel(th.levels[0])} · ${levelLabel(th.levels[th.levels.length - 1])}`
                 : levelLabel(th.levels[0]);
             return (
-              <Press key={th.slug} onPress={() => openTheme(th.slug)} scale={0.98} style={{ width: '47.5%', minHeight: 132, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16 }}>
+              <Press accessibilityRole="button" accessibilityLabel={`${meta.fr}, ${range}`} key={th.slug} onPress={() => openTheme(th.slug)} scale={0.98} style={{ width: '47.5%', minHeight: 132, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16 }}>
                 <TX font="serifI" size={24} role="display" color={t.accTx}>
                   {meta.fr.replace(/^(Au |Le |La |Les |L')/, '').charAt(0).toUpperCase()}.
                 </TX>

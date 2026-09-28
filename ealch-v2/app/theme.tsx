@@ -93,7 +93,8 @@ export default function ThemeDetail() {
               <Press
                 key={l}
                 onPress={has ? () => setBand(l) : undefined}
-                accessibilityRole="button"
+                accessibilityRole="radio"
+                accessibilityLabel={levelLabel(l)}
                 accessibilityState={{ selected: on, disabled: !has }}
                 style={{
                   minHeight: 34,
@@ -143,6 +144,7 @@ export default function ThemeDetail() {
                 onPress={tappable ? () => router.push(stepRoute(s.drill, slug, band) as never) : undefined}
                 scale={tappable ? 0.99 : 1}
                 accessibilityRole="button"
+                accessibilityLabel={`${T.stepNames[s.key]}${rightTag ? `, ${rightTag}` : ''}${bandLocked && tappable ? `, ${T.a11yLockedPaywall}` : ''}`}
                 accessibilityState={{ disabled: !tappable }}
                 style={{
                   borderRadius: 18,

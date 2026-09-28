@@ -328,7 +328,7 @@ export default function Sentence() {
   };
 
   const primaryBtn = (label: string, onPress: () => void) => (
-    <Press cue={null} onPress={onPress} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+    <Press accessibilityRole="button" accessibilityLabel={label} cue={null} onPress={onPress} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
       <TX font="semi" role="bodyLg" color={t.accInk}>
         {label}
       </TX>
@@ -375,21 +375,23 @@ export default function Sentence() {
               {sbWords.map((w, i) => {
                 const active = playW === i || practiceW === i;
                 return (
-                  <Press
+                  <View
                     key={i}
-                    cue={null}
-                    onPress={() => {
-                      sound.play('tap');
-                      setOpenWord((o) => (o === i ? null : i));
-                    }}
-                    scale={1}
                     style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 12, paddingHorizontal: 16 }}
                   >
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
-                      <Press cue={null} onPress={() => playWord(i)} style={{ width: 50, height: 50, borderRadius: 25, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                      <Press accessibilityRole="button" accessibilityLabel={`${T.playAudioA11y}: ${w.w}`} cue={null} onPress={() => playWord(i)} style={{ width: 50, height: 50, borderRadius: 25, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                         <Icon name="play" size={17} color={t.acc} />
                       </Press>
-                      <View style={{ flex: 1 }}>
+                      <Press accessibilityRole="button" accessibilityLabel={w.w} accessibilityState={{ expanded: openWord === i }}
+                        cue={null}
+                        onPress={() => {
+                          sound.play('tap');
+                          setOpenWord((o) => (o === i ? null : i));
+                        }}
+                        scale={1}
+                        style={{ flex: 1 }}
+                      >
                         <TX font="serifI" role="titleLg" size={20}>
                           {w.w}
                         </TX>
@@ -398,14 +400,15 @@ export default function Sentence() {
                             {w.t}
                           </TX>
                         ) : null}
-                      </View>
+                      </Press>
                     </View>
                     {openWord === i ? (
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 14, marginTop: 12, borderTopWidth: 1, borderTopColor: t.line(7), paddingTop: 12 }}>
                         <Waveform count={16} height={22} barWidth={3.25} gap={3.5} active={active} color={active ? t.acc : t.txNonText} />
-                        <Press
+                        <Press accessibilityRole="button"
                           cue={null}
                           onPress={() => practiceWord(i)}
+                          accessibilityLabel={`${practiceW === i ? T.a11yStopRecording : T.repeatWord}: ${w.w}`}
                           style={{ flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 34, paddingVertical: 6, paddingHorizontal: 15, borderRadius: 17, borderWidth: 1, borderColor: t.accA(50), backgroundColor: practiceW === i ? t.acc : 'transparent' }}
                         >
                           <Icon name="mic" size={14} color={practiceW === i ? t.accInk : t.acc} />
@@ -415,7 +418,7 @@ export default function Sentence() {
                         </Press>
                       </View>
                     ) : null}
-                  </Press>
+                  </View>
                 );
               })}
             </View>
@@ -438,8 +441,9 @@ export default function Sentence() {
               style={{ transform: [{ translateX: shakeX }], minHeight: 104, borderRadius: 18, borderWidth: 1.5, borderStyle: 'dashed', borderColor: err ? t.danger : t.line(10), padding: 14, flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'flex-start', alignContent: 'flex-start', marginBottom: 20 }}
             >
               {picked.map((i, ix) => (
-                <Press
+                <Press accessibilityRole="button"
                   key={`${i}-${ix}`}
+                  accessibilityLabel={T.a11yRemoveWord.replace('{item}', arrangeTiles[i].w)}
                   cue={null}
                   onPress={() => {
                     sound.play('tap');
@@ -457,8 +461,9 @@ export default function Sentence() {
               {sbShuffle
                 .filter((i) => !picked.includes(i))
                 .map((i) => (
-                  <Press
+                  <Press accessibilityRole="button"
                     key={i}
+                    accessibilityLabel={T.a11yAddWord.replace('{item}', arrangeTiles[i].w)}
                     cue={null}
                     onPress={() => {
                       sound.play('tap');
@@ -519,7 +524,7 @@ export default function Sentence() {
               <View style={{ marginBottom: 18 }}>
                 <Waveform count={26} height={28} barWidth={3} gap={4} active={saying} color={t.acc} />
               </View>
-              <Press cue={null} onPress={mic} scale={0.94} style={{ width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center', backgroundColor: saying ? t.acc : t.line(4), borderWidth: 1, borderColor: saying ? t.acc : t.line(20) }}>
+              <Press accessibilityRole="button" accessibilityLabel={saying ? T.a11yStopRecording : T.a11yStartRecording} cue={null} onPress={mic} scale={0.94} style={{ width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center', backgroundColor: saying ? t.acc : t.line(4), borderWidth: 1, borderColor: saying ? t.acc : t.line(20) }}>
                 <Icon name="mic" size={27} color={saying ? t.accInk : t.txNonText} />
               </Press>
               {/* Advance is a separate, deliberate step now — not an automatic
@@ -569,12 +574,12 @@ export default function Sentence() {
             <TX font="serif" role="titleLg" size={19} color={t.accTx} center style={{ marginBottom: 34 }}>
               « {sbTarget} »
             </TX>
-            <Press cue={null} onPress={restart} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" cue={null} onPress={restart} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
                 {deck.length > 1 ? T.sbNextSentence : T.redo}
               </TX>
             </Press>
-            <Press cue={null} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
+            <Press accessibilityRole="button" cue={null} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
               <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>

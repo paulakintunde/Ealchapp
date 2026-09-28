@@ -83,10 +83,8 @@ export default function DictationHub() {
           {cats.map(({ slug, meta, count, sample }) => {
             const isOn = previewing === slug;
             return (
-              <Press
+              <View
                 key={slug}
-                onPress={() => router.push({ pathname: '/dictationthemes', params: { domain: slug } })}
-                scale={0.98}
                 style={{
                   width: '47.5%',
                   minHeight: 150,
@@ -99,6 +97,12 @@ export default function DictationHub() {
                   ...t.cardShadow,
                 }}
               >
+                <Press accessibilityRole="button"
+                  accessibilityLabel={`${lang === 'fr' ? meta.fr : meta.en}, ${T.ctDicteeN.replace('{n}', String(count))}`}
+                  onPress={() => router.push({ pathname: '/dictationthemes', params: { domain: slug } })}
+                  scale={0.98}
+                  style={{ flex: 1 }}
+                >
                 <LinearGradient
                   colors={[meta.glow, 'transparent']}
                   start={{ x: 0.85, y: 0 }}
@@ -119,10 +123,11 @@ export default function DictationHub() {
                 <TX role="meta" color={t.txMuted} numberOfLines={2} style={{ marginTop: 4, marginBottom: 10 }}>
                   {lang === 'fr' ? meta.subFr : meta.subEn}
                 </TX>
-                {/* Preview chip — a nested Press, so a tap here plays the sample
-                    without opening the sub-theme list underneath it. */}
-                <Press
+                </Press>
+                {/* Preview is a sibling action, separate from opening the category. */}
+                <Press accessibilityRole="button"
                   onPress={() => preview(slug, sample)}
+                  accessibilityLabel={`${isOn ? T.a11yStopPlayback : T.previewT}: ${lang === 'fr' ? meta.fr : meta.en}`}
                   cue={null}
                   scale={0.95}
                   style={{
@@ -145,7 +150,7 @@ export default function DictationHub() {
                     {isOn ? T.dcPlaying : T.previewT}
                   </TX>
                 </Press>
-              </Press>
+              </View>
             );
           })}
         </View>

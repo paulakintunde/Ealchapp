@@ -298,7 +298,7 @@ export default function Dictation() {
             <TX role="bodySm" lhMult={1.7} center color={t.txSecondary} style={{ maxWidth: 280, marginBottom: 30 }}>
               {T.dcDoneS.replace('{n}', String(dcScore)).replace('{m}', String(sentences.length))}
             </TX>
-            <Press
+            <Press accessibilityRole="button"
               onPress={restart}
               cue={null}
               style={{ width: '100%', minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}
@@ -307,7 +307,7 @@ export default function Dictation() {
                 {T.dcRedo}
               </TX>
             </Press>
-            <Press onPress={() => router.replace('/home')} cue={null} style={{ minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center' }}>
+            <Press accessibilityRole="button" onPress={() => router.replace('/home')} cue={null} style={{ minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="bodySm" color={t.txMuted}>
                 {T.dcHome}
               </TX>
@@ -337,8 +337,10 @@ export default function Dictation() {
                 gap: 16,
               }}
             >
-              <Press
+              <Press accessibilityRole="button"
                 onPress={play}
+                accessibilityLabel={dcSpeaking ? T.dcPlaying : dcPlays > 0 ? T.dcPlay : T.dcNoPlays}
+                accessibilityState={{ disabled: dcSpeaking || dcPlays <= 0 }}
                 cue={null}
                 style={{
                   width: 73,
@@ -484,9 +486,11 @@ export default function Dictation() {
             {/* Accent key row */}
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8, marginBottom: 24 }}>
               {accentKeys.map((ch) => (
-                <Press
+                <Press accessibilityRole="button"
                   key={ch}
                   onPress={() => addAccent(ch)}
+                  accessibilityLabel={T.a11yInsert.replace('{item}', ch)}
+                  accessibilityState={{ disabled: dcPhase !== 'idle' }}
                   cue={null}
                   scale={0.92}
                   style={{
@@ -509,8 +513,10 @@ export default function Dictation() {
             </View>
 
             {/* Action button */}
-            <Press
+            <Press accessibilityRole="button"
               onPress={dcPhase === 'idle' ? check : advance}
+              accessibilityLabel={btnLabel}
+              accessibilityState={{ disabled: !btnActive }}
               cue={null}
               style={{
                 minHeight: 52,

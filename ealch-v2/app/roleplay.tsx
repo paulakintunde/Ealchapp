@@ -289,7 +289,7 @@ export default function Roleplay() {
             {LEVELS.map((l) => {
               const on = level === l;
               return (
-                <Press
+                <Press accessibilityRole="radio" accessibilityLabel={l} accessibilityState={{ selected: on }}
                   key={l}
                   cue={null}
                   onPress={() => {
@@ -322,9 +322,11 @@ export default function Roleplay() {
                 </TX>
               </View>
             ) : null}
-            <Press
+            <Press accessibilityRole="button"
               cue={nTurns && !capLocked ? 'tap' : null}
               onPress={start}
+              accessibilityLabel={capLocked ? T.coachCapCta : T.startRp}
+              accessibilityState={{ disabled: !nTurns && !capLocked }}
               style={{ minHeight: 54, paddingVertical: 8, borderRadius: 27, backgroundColor: nTurns ? t.acc : t.line(10), alignItems: 'center', justifyContent: 'center' }}
             >
               <TX font="semi" role="bodyLg" color={nTurns ? t.accInk : t.txSubtle}>
@@ -426,18 +428,18 @@ export default function Roleplay() {
                 {T.rpDoneS.replace('{name}', coachName)}
               </TX>
               <View style={{ flexDirection: 'row', gap: 10, alignSelf: 'stretch' }}>
-                <Press cue={null} onPress={restart} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
+                <Press accessibilityRole="button" cue={null} onPress={restart} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
                   <TX font="semi" role="bodySm">
                     {T.redo}
                   </TX>
                 </Press>
-                <Press cue={null} onPress={() => router.push('/feedback')} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <Press accessibilityRole="button" cue={null} onPress={() => router.push('/feedback')} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                   <TX font="semi" role="bodySm" color={t.accInk}>
                     {T.rpReport}
                   </TX>
                 </Press>
               </View>
-              <Press cue={null} onPress={() => router.replace('/home')} style={{ marginTop: 14 }}>
+              <Press accessibilityRole="button" cue={null} onPress={() => router.replace('/home')} style={{ marginTop: 14 }}>
                 <TX role="bodySm" color={t.txMuted}>
                   {T.backFeed}
                 </TX>
@@ -447,7 +449,7 @@ export default function Roleplay() {
             // Attempt made and the model line revealed on the bubble above.
             // Advance only on an explicit tap, so the learner can compare first.
             <View style={{ paddingTop: 10 }}>
-              <Press cue="tap" onPress={continueTurn} style={{ minHeight: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <Press accessibilityRole="button" cue="tap" onPress={continueTurn} style={{ minHeight: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                 <TX font="semi" role="bodyLg" color={t.accInk}>
                   {T.cont}
                 </TX>
@@ -473,7 +475,7 @@ export default function Roleplay() {
               ) : null}
               <View style={{ alignItems: 'center', gap: 12 }}>
                 {listening ? <Waveform count={22} height={22} color={t.acc} active barWidth={3} gap={3.5} /> : null}
-                <Press cue={null} onPress={mic} scale={0.94} style={{ width: 70, height: 70, borderRadius: 35, alignItems: 'center', justifyContent: 'center', backgroundColor: listening ? t.acc : t.line(4), borderWidth: 1, borderColor: listening ? t.acc : t.line(20) }}>
+                <Press accessibilityRole="button" accessibilityLabel={listening ? T.a11yStopRecording : T.a11yStartRecording} cue={null} onPress={mic} scale={0.94} style={{ width: 70, height: 70, borderRadius: 35, alignItems: 'center', justifyContent: 'center', backgroundColor: listening ? t.acc : t.line(4), borderWidth: 1, borderColor: listening ? t.acc : t.line(20) }}>
                   <Icon name="mic" size={26} color={listening ? t.accInk : t.tx} />
                 </Press>
               </View>

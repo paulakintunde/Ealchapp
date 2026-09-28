@@ -33,7 +33,7 @@ for (const name of names) {
         const label = attrs.accessibilityLabel ?? attrs.label ?? (body || 'UNSET');
         const state = attrs.accessibilityState ?? attrs.accessibilityValue ?? attrs.disabled ?? 'none';
         const action = attrs.onPress ?? attrs.onLongPress ?? 'none';
-        const esc = (s) => s.replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').slice(0, 160);
+        const esc = (s) => s.replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').slice(0, 400);
         rows.push(`| [${shortName}.tsx:${line}](${link}#L${line}) | ${esc(tag)} | ${esc(role)} | ${esc(label)} | ${esc(state)} | ${esc(action)} |`);
       }
     }

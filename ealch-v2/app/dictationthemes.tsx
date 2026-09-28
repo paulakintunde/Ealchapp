@@ -113,10 +113,8 @@ export default function DictationThemes() {
           {rows.map((r, ix) => {
             const isOn = previewing === r.slug;
             return (
-              <Press
+              <View
                 key={r.slug}
-                onPress={() => router.push({ pathname: '/dictation', params: { theme: r.slug } })}
-                scale={0.99}
                 style={{
                   minHeight: 76,
                   paddingVertical: 10,
@@ -138,10 +136,10 @@ export default function DictationThemes() {
                   end={{ x: 0.25, y: 0.8 }}
                   style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
                 />
-                {/* Nested Press: tapping the ear plays the sample; tapping
-                    anywhere else on the row opens the deck. */}
-                <Press
+                {/* Preview and deck navigation are separate actions. */}
+                <Press accessibilityRole="button"
                   onPress={() => preview(r.slug, r.sample, ix)}
+                  accessibilityLabel={`${isOn ? T.a11yStopPlayback : T.previewT}: ${lang === 'fr' ? r.title : r.en}`}
                   cue={null}
                   scale={0.9}
                   style={{
@@ -161,6 +159,12 @@ export default function DictationThemes() {
                     <Icon name="play" size={18} color={meta.ink} />
                   )}
                 </Press>
+                <Press accessibilityRole="button"
+                  accessibilityLabel={`${lang === 'fr' ? r.title : r.en}, ${T.ctDicteeN.replace('{n}', String(r.count))}${!levelsAll && !(FREE_BANDS as readonly string[]).includes(r.lo) ? `, ${T.a11yLockedPaywall}` : ''}`}
+                  onPress={() => router.push({ pathname: '/dictation', params: { theme: r.slug } })}
+                  scale={0.99}
+                  style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 14 }}
+                >
                 <View style={{ flex: 1 }}>
                   <TX font="serifI" role="titleLg" size={19} numberOfLines={1}>
                     {lang === 'fr' ? r.title : r.en}
@@ -181,7 +185,8 @@ export default function DictationThemes() {
                 ) : (
                   <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} />
                 )}
-              </Press>
+                </Press>
+              </View>
             );
           })}
         </View>

@@ -72,8 +72,9 @@ export default function SentenceHub() {
       >
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
           {cats.map(({ slug, meta, count, words }) => (
-            <Press
+            <Press accessibilityRole="button"
               key={slug}
+              accessibilityLabel={`${lang === 'fr' ? meta.fr : meta.en}, ${T.ctPhrasesN.replace('{n}', String(count))}`}
               onPress={() => router.push({ pathname: '/sentencethemes', params: { domain: slug } })}
               scale={0.98}
               style={{
