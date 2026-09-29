@@ -188,6 +188,25 @@ tests 216/216, app suite 5689/5690 (1 skipped, 0 fail), and the trial merge
 0 fail on the trial seed, seed.json restored byte-identical. Next: Paul reviews
 on the Pixel (gate B2-2), then `--apply`, merge, both suites, dry run, v78.
 
+**Gate B2-2 pre-review, 2026-09-29 (`94eb076`).** One reviewer per lesson
+(French, answer keys, glosses, explanations, pacing, house style) found 36
+blockers and 145 fixes; all applied, low-risk nits taken, the rest skipped with
+reasons. Typical blockers: a correct sentence taught as an error, a distractor
+that is also correct, a false rule (« -re verbs take -it »), a false claim
+about a real street. No version bumps, no id renames; 4 new rows (b2.01
+.1715-.1717, b2.05 .1348). After the fixes: app checks 0, house tests
+216/216, trial merge +1313 items / 0 twins / validateCorpus 0, app suite 5689
+pass / 0 fail. Phone pass on the Pixel 6: all 89 act openers render with art,
+title and bilingual intro (the first load of some images takes over 4 s).
+
+**Gate B2-2 author questions (Paul, 2026-09-29):** keep 12 quiz rounds where
+a lesson has them; keep the spoken-variant line (written norm taught and
+tested, « quand t'as fini », « je ne crois pas qu'il est venu », superlative +
+indicatif named as spoken, at most one point lost; « si j'aurais » stays
+wrong); b2.08 stays recognition-only with sentence tiles and skill CE; every
+other author question accepted as written. The b2.05 superlative question
+(its open question 2) is settled by the spoken-variant decision.
+
 
 **WAVE 0 DONE 2026-09-27 (`b7b1c91`):** the pipeline takes `--band b2`
 (`b1-import.ts`, `b1-merge-into-seed.ts`, `b1-trial-merge.ts`), lessons load
