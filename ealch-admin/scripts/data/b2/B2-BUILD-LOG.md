@@ -177,9 +177,16 @@ checksum differs from the dry run's (3c095604...) only because wave 2's
 sub-themes were set in Postgres while the dry run ran: set themes BEFORE a
 dry run, not during it.
 
-**WAVE 2 IN PROGRESS:** b2.01 plus-que-parfait (`recits-au-passe` 1600-1799),
-b2.02 conditionnel passé (`conseils-et-suggestions` 1200-1399), b2.03 si + plus-que-parfait
-(`projets-et-futur` 1400-1599), b2.04 mixed si (`projets-et-futur` 1600-1799).
+**UNIT 1 (b2.01 to b2.08) READY FOR GATE B2-2, 2026-09-29.** Wave 2 drafted
+(`84448cc`), wave 3 drafted (`28c0c75`, b2.08 passé simple recognition-only,
+its historical passages fact-checked in `0bf2ea3`). All 89 act openers drawn by
+Paul and registered with alt text (wave 2 in `28c0c75`, wave 3 in `7234aa8`);
+ART_PENDING is empty. Checks on 2026-09-29: app checks 0 on all eight, house
+tests 216/216, app suite 5689/5690 (1 skipped, 0 fail), and the trial merge
+(HEAD seed v77 + the eight source lessons, Postgres read-only) adds 8 units,
+8 lessons and 1309 items, 0 twins, validateCorpus 0, app suite 5689 pass /
+0 fail on the trial seed, seed.json restored byte-identical. Next: Paul reviews
+on the Pixel (gate B2-2), then `--apply`, merge, both suites, dry run, v78.
 
 
 **WAVE 0 DONE 2026-09-27 (`b7b1c91`):** the pipeline takes `--band b2`
@@ -202,8 +209,11 @@ cite B2 lessons 1-16 stay as written; the exam-target lessons keep their
 exam-grid rubrics (5-6 criteria); b2.23's five dated facts were fact-checked
 and all hold (see its corpus header §A.7), no text changed.
 
-**Premium packs:** spec approved (`ealch-admin/PREMIUM-PACKS-SPEC.md`); built in
-a separate worktree, nothing deployed.
+**Premium packs:** spec approved (`ealch-admin/PREMIUM-PACKS-SPEC.md`); code
+merged (`6a1b716`); rollout steps 1 and 2 done (private `content-packs` bucket,
+`content-pack-url` deployed). `ADAPTY_SECRET_KEY` set by Paul 2026-09-28, not
+yet proven against Adapty (curl check or the free/premium Pixel run). Next:
+`--packs` dry run, then publish with packs, each with Paul's OK.
 
 ## Wave 0: enablers, before the first B2 lesson
 
@@ -274,7 +284,20 @@ a separate worktree, nothing deployed.
 | b2.24 | lecture-critique (workshop, CE target) | 76 | 11 | 11x8 | 11 | 4 | 13 | 200 | 11 images, registered + alt | DONE, v77 |
 | b2.25 | ecoute-vitesse-reelle (workshop, CO target) | 73 | 11 | 11x8 | 11 | 5 | 13 | 165 | 11 images, registered + alt | DONE, v77 |
 | b2.26 | reunions-negociation (workshop, PO target) | 73 | 11 | 11x8 | 11 | 5 | 16 | 190 | 11 images, registered + alt | DONE, v77 |
-| b2.01 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
+| b2.01 | plus-que-parfait | 85 | 11 | 12x8 | 12 | 5 | | 166 | 11 images, registered + alt | DRAFT, gate B2-2 |
+| b2.02 | conditionnel-passe | 84 | 11 | 11x8 | 11 | 5 | | 151 | 11 images, registered + alt | DRAFT, gate B2-2 |
+| b2.03 | si-irreel-passe | 83 | 11 | 12x8 | 12 | 5 | | 149 | 11 images, registered + alt | DRAFT, gate B2-2 |
+| b2.04 | si-mixtes | 87 | 11 | 11x8 | 11 | 5 | | 165 | 11 images, registered + alt | DRAFT, gate B2-2 |
+| b2.05 | subjonctif-passe | 85 | 11 | 12x8 | 12 | 5 | | 171 | 11 images, registered + alt | DRAFT, gate B2-2 |
+| b2.06 | subjonctif-indicatif | 84 | 11 | 12x8 | 12 | 5 | | 162 | 11 images, registered + alt | DRAFT, gate B2-2 |
+| b2.07 | futur-anterieur | 84 | 11 | 12x8 | 12 | 5 | | 167 | 11 images, registered + alt | DRAFT, gate B2-2 |
+| b2.08 | passe-simple (recognition) | 86 | 12 | 11x8 | 11 | 5 | | 178 | 12 images, registered + alt | DRAFT, gate B2-2 |
+| b2.09 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
+
+Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
+trial merge (the published rows each lesson reuses are not counted); Links
+left blank, not recounted. Quiz rounds and their 8 questions each, and the
+ledger's id spans, read from the source on the same day.
 
 ## Id ledger
 
@@ -285,6 +308,14 @@ a separate worktree, nothing deployed.
 | `strategies-de-comprehension` (sub-theme « lire de façon critique ») | 1400-1599 | b2.24 critical reading | 1400-1599 (200, the whole block) |
 | `strategies-de-comprehension` (sub-theme « écouter à vitesse réelle ») | 1600-1799 | b2.25 native-speed listening | 1600-1764 (165) |
 | `affaires` (sub-theme « négocier et conclure ») | 1200-1399 | b2.26 meetings and negotiation | 1200-1389 (190) |
+| `recits-au-passe` | 1600-1799 | b2.01 plus-que-parfait | 1600-1798 (166) |
+| `conseils-et-suggestions` | 1200-1399 | b2.02 conditionnel passé | 1200-1350 (151) |
+| `projets-et-futur` | 1400-1599 | b2.03 si + plus-que-parfait | 1400-1548 (149) |
+| `projets-et-futur` | 1600-1799 | b2.04 mixed si | 1600-1764 (165) |
+| `emotions` (range widened to b2) | 1200-1399 | b2.05 subjonctif passé | 1200-1390 (171) |
+| `opinions-et-avis` | 1800-1999 | b2.06 subjonctif or indicatif | 1800-1981 (162) |
+| `projets-et-futur` | 1800-1999 | b2.07 futur antérieur | 1800-1988 (167) |
+| `litterature` | 1000-1199 | b2.08 passé simple | 1000-1198 (178) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
