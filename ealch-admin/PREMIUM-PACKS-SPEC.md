@@ -227,7 +227,10 @@ ceiling raise. Proven on the Pixel with two accounts:
 - Step 1 DONE: private bucket `content-packs` created (public=false, 80 MiB limit). `storage.objects` has no policies at all, so only the service role and signed URLs can read it; a public URL into it is refused (400).
 - Step 2 DONE: `content-pack-url` deployed (v1, ACTIVE, verify_jwt off, JWT checked in code) through the Supabase API; the CLI deploy stalled in Docker. Probed: no auth 401, forged bearer 401, GET 405.
 - Adapty secret: Paul sets `ADAPTY_SECRET_KEY` themselves; until then the function decides from the entitlements mirror.
-- Still to do: the app suite has 5 source-shape failures from the separate accessibility phase 8 work (TrailRow, LessonDeck, a close button) that must be green before any publish; then the `--packs` dry run and publish, then the app update.
+- `ADAPTY_SECRET_KEY` set by Paul 2026-09-28 (present in Supabase secrets; not yet proven against Adapty).
+- Steps 4 and 5 DONE 2026-09-29 (approved by Paul): v78 published B2 Unit 1 in the legacy regime; then **v79 = `--packs --allow-noop`** (content identical to v78): core 9.73 MiB public, packs a2 6.99 / b1 16.46 / b2 7.74 / c1 0.35 / exam 1.05 MiB private, legacy snapshot 42.25 MiB still public. seed.json is now the 8.65 MiB core, seed-packs.json the paid layer (`9c6c8b4`). Verified: manifest v79 at 100; manifest-v2 public, 1.2 KB, no content; public URL into content-packs 400; core 200; content-pack-url 401 without a login. Two readers of seed.json fixed to read seed + packs: the publish-time a1.03 figure check and `_a1_genre_remeasure.ts` (`f7537b5`), and `_preview-b1.ts` (`9c6c8b4`). App 5690/5690, admin green, B2 app checks 0.
+- Watch at the next B2 wave: `b1-trial-merge.ts` builds its trial seed from the committed seed.json, which is now the core; check it composes the packs layer before trusting a trial.
+- Still to do: step 6 (preview build, then the Pixel 9 pass with a free account first, then a premium one).
 
 Nothing below has been run. Project ref: `ogbothupjcivwruesgsu`.
 
