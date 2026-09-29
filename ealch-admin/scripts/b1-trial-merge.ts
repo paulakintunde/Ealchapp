@@ -21,6 +21,13 @@
  * POSTGRES IS ONLY READ. Two selects: the twin decision and the referenced
  * published rows. Nothing is inserted, updated or promoted.
  *
+ * PREMIUM PACKS (band-merge.logic.ts): when the committed paid layer
+ * (seed-packs.json) has rows, seed.json is only the free core, so the trial
+ * does what b1-merge-into-seed.ts does in that regime: the full units, lessons
+ * and every row the core lacks go into the LAYER (mergeIntoPacksLayer), the
+ * unit's skeleton into seed.json, and BOTH files are swapped for the run and
+ * restored. Validation reads core + layer, as the tests do.
+ *
  * THE SWAP: the working-tree seed.json is read into memory (and copied beside
  * it as seed.json.trial-backup), the trial seed is written in its place,
  * `npm test` runs, and a finally block puts the original bytes back and proves
@@ -41,6 +48,9 @@ import {
   BAND_SLUGS, parseBand, addMissingThemes, applyDedupe, dbRowToItem, mergeIntoSeed, normaliseItem, sameDoc, unitBody, type Obj, type SeedLike, type ThemeRow,
 } from './b1-import.logic.ts';
 import { loadLesson, resolveDedupe } from './b1-import.ts';
+import { mergeIntoPacksLayer } from './band-merge.logic.ts';
+import { PACKS_LAYER_PATH, composeTestCorpus, regimeOf } from '../../ealch-v2/src/content/seed-plus-packs.ts';
+import type { Corpus } from '../../ealch-v2/src/content/schema.ts';
 
 const { band: BAND, rest: argv } = parseBand(process.argv.slice(2));
 const SLUGS = BAND_SLUGS[BAND];
@@ -59,6 +69,8 @@ const REPO = resolve(HERE, '../..');
 const APP = resolve(REPO, 'ealch-v2');
 const SEED = resolve(APP, 'src/content/seed.json');
 const BACKUP = `${SEED}.trial-backup`;
+const LAYER = PACKS_LAYER_PATH;
+const LAYER_BACKUP = `${LAYER}.trial-backup`;
 const LOG = resolve(HERE, '../scratch/b1-trial-merge.last.log');
 
 const sha = (b: Buffer | string) => createHash('sha256').update(b).digest('hex');
@@ -72,6 +84,18 @@ async function buildTrialSeed() {
     cwd: REPO, maxBuffer: 1 << 30,
   }).toString('utf8');
   const seed = JSON.parse(head) as SeedLike;
+  // The committed paid layer decides the regime; a checkout from before packs
+  // has no such file, which reads as the legacy regime.
+  let layer: SeedLike | null = null;
+  try {
+    layer = JSON.parse(execFileSync('git', ['show', 'HEAD:ealch-v2/src/content/seed-packs.json'], {
+      cwd: REPO, maxBuffer: 1 << 30, stdio: ['ignore', 'pipe', 'ignore'],
+    }).toString('utf8')) as SeedLike;
+  } catch {
+    layer = null;
+  }
+  const PACKS = regimeOf(layer as unknown as Corpus | null) === 'packs';
+  const testCorpus = (sd: SeedLike, ly: SeedLike | null) => composeTestCorpus(sd as unknown as Corpus, ly as unknown as Corpus | null);
   // PLAYLISTS ride with the working tree. Publish reads them from Postgres,
   // which is already ahead of HEAD (pl.b1.societe: « la sincérité » replaced a
   // banned word on 2026-09-26, uncommitted in seed.json). Carry any playlist the
@@ -92,7 +116,7 @@ async function buildTrialSeed() {
   const a103 = seed.lessons.findIndex((l) => l.id === 'a1.03.l1');
   const a103Moved = a103 >= 0 && !sameDoc(seed.lessons[a103], GENRE_LESSON);
   if (a103Moved) seed.lessons[a103] = JSON.parse(JSON.stringify(GENRE_LESSON)) as Obj;
-  const issuesBefore = validateCorpus(seed).length;
+  const issuesBefore = validateCorpus(testCorpus(seed, layer)).length;
 
   const source = await Promise.all(SLUGS.map((x) => loadLesson(x, BAND)));
   if (!process.env.DATABASE_URL) die('DATABASE_URL is not set; the twin decision needs a READ of Postgres.');
@@ -150,27 +174,33 @@ async function buildTrialSeed() {
     await pool.end();
   }
 
-  let merged: ReturnType<typeof mergeIntoSeed>;
+  let merged: { seed: SeedLike; layer: SeedLike | null; stats: ReturnType<typeof mergeIntoSeed>['stats'] };
   try {
-    merged = mergeIntoSeed(seed, { units, lessons, items: [...items.values()] }, (id) => bandAuthored.has(id));
+    const add = { units, lessons, items: [...items.values()] };
+    const owned = (id: string) => bandAuthored.has(id);
+    merged = PACKS ? mergeIntoPacksLayer(seed, layer!, add, owned) : { ...mergeIntoSeed(seed, add, owned), layer };
   } catch (e) {
-    die(`mergeIntoSeed refused: ${(e as Error).message}`);
+    die(`${PACKS ? 'mergeIntoPacksLayer' : 'mergeIntoSeed'} refused: ${(e as Error).message}`);
   }
   const s = merged.stats;
   const newThemes = addMissingThemes(merged.seed as never, themeRows);
-  console.log(`${BAND.toUpperCase()} TRIAL MERGE  (HEAD seed v${seed.version} + ${ONLY ? ONLY.size : SLUGS.length} source lessons${ONLY ? ' (--only)' : ''}; Postgres read-only)`);
+  console.log(`${BAND.toUpperCase()} TRIAL MERGE  (HEAD seed v${seed.version}${PACKS ? ' + packs layer' : ''} + ${ONLY ? ONLY.size : SLUGS.length} source lessons${ONLY ? ' (--only)' : ''}; Postgres read-only)`);
   for (const l of perLesson) console.log(l);
   if (newThemes.length) console.log(`  themes +${newThemes.length} carried from Postgres into the catalogue: ${newThemes.join(', ')}`);
   if (carried.length) console.log(`  playlists carried from the working-tree seed (changed since HEAD): ${carried.join(', ')}`);
   if (a103Moved) console.log('  ! a1.03.l1 re-rendered from genre-lesson.ts (its printed figures moved). Postgres still holds the old body: it must be updated before a publish.');
   console.log(`  units +${s.unitsAdded.length} added, ${s.unitsReplaced.length} replaced | lessons +${s.lessonsAdded.length} added, ${s.lessonsReplaced.length} replaced ${s.lessonsReplaced.length ? JSON.stringify(s.lessonsReplaced) : ''}`);
   console.log(`  items +${s.itemsAdded.length} added, ${s.itemsReplaced.length} replaced, ${s.itemsUnchanged} identical${s.itemsLeftAlone.length ? `, ${s.itemsLeftAlone.length} non-B1 rows left as the seed has them` : ''}`);
-  const issuesAfter = validateCorpus(merged.seed);
+  const composed = testCorpus(merged.seed, merged.layer) as unknown as SeedLike;
+  const issuesAfter = validateCorpus(composed as unknown as Corpus);
   console.log(`  validateCorpus: ${issuesAfter.length} after (${issuesBefore} before)`);
   if (issuesAfter.length > issuesBefore) for (const i of issuesAfter.slice(0, 10)) console.log(`    ${i.path}: ${i.message}`);
-  const b1 = merged.seed.lessons.filter((l) => /^b1\./.test(String(l.id))).length;
-  console.log(`  trial seed: ${merged.seed.units.length} units, ${merged.seed.lessons.length} lessons (${b1} B1), ${merged.seed.items.length} items`);
-  return `${JSON.stringify(merged.seed, null, 2)}\n`;
+  const b1 = composed.lessons.filter((l) => /^b1\./.test(String(l.id))).length;
+  console.log(`  trial ${PACKS ? 'core + layer' : 'seed'}: ${composed.units.length} units, ${composed.lessons.length} lessons (${b1} B1), ${composed.items.length} items`);
+  return {
+    seed: `${JSON.stringify(merged.seed, null, 2)}\n`,
+    layer: PACKS ? `${JSON.stringify(merged.layer, null, 2)}\n` : null,
+  };
 }
 
 function summarise(out: string) {
@@ -188,19 +218,30 @@ function summarise(out: string) {
 }
 
 async function main() {
-  const trial = await buildTrialSeed();
-  if (OUT) { writeFileSync(OUT, trial, 'utf8'); console.log(`  wrote the trial seed to ${OUT}`); }
+  const built = await buildTrialSeed();
+  const trial = built.seed;
+  if (OUT) {
+    writeFileSync(OUT, trial, 'utf8');
+    if (built.layer !== null) writeFileSync(`${OUT}.packs.json`, built.layer, 'utf8');
+    console.log(`  wrote the trial seed to ${OUT}${built.layer !== null ? ` (and its layer to ${OUT}.packs.json)` : ''}`);
+  }
   if (BUILD_ONLY) return;
 
   const original = readFileSync(SEED);
   const originalHash = sha(original);
   copyFileSync(SEED, BACKUP);
   const trialHash = sha(trial);
+  // Under packs the layer is swapped too, and restored the same way.
+  const layerOriginal = built.layer !== null ? readFileSync(LAYER) : null;
+  const layerOriginalHash = layerOriginal ? sha(layerOriginal) : '';
+  if (layerOriginal) copyFileSync(LAYER, LAYER_BACKUP);
+  const layerTrialHash = built.layer !== null ? sha(built.layer) : '';
   let output = '';
   let status: number | null = null;
   const t0 = Date.now();
   try {
     writeFileSync(SEED, trial, 'utf8');
+    if (built.layer !== null) writeFileSync(LAYER, built.layer, 'utf8');
     const r = spawnSync('npm test', { cwd: APP, shell: true, encoding: 'utf8', maxBuffer: 1 << 30, env: { ...process.env, FORCE_COLOR: '0', NO_COLOR: '1' } });
     output = `${r.stdout ?? ''}\n${r.stderr ?? ''}`;
     status = r.status;
@@ -218,6 +259,22 @@ async function main() {
       } else {
         rmSync(BACKUP);
         console.log(`\n  seed.json restored byte-identical (sha256 ${originalHash.slice(0, 16)}...), swap window ${((Date.now() - t0) / 1000).toFixed(0)}s`);
+      }
+    }
+    if (layerOriginal) {
+      const nowL = readFileSync(LAYER);
+      if (sha(nowL) !== layerTrialHash && sha(nowL) !== layerOriginalHash) {
+        console.error(`\n  !! seed-packs.json changed during the trial run (another writer). NOT restored. The pre-trial bytes are in ${LAYER_BACKUP} (sha256 ${layerOriginalHash}).`);
+        process.exitCode = 2;
+      } else {
+        writeFileSync(LAYER, layerOriginal);
+        if (sha(readFileSync(LAYER)) !== layerOriginalHash) {
+          console.error(`\n  !! seed-packs.json restore FAILED. The pre-trial bytes are in ${LAYER_BACKUP}.`);
+          process.exitCode = 2;
+        } else {
+          rmSync(LAYER_BACKUP);
+          console.log(`  seed-packs.json restored byte-identical (sha256 ${layerOriginalHash.slice(0, 16)}...)`);
+        }
       }
     }
   }
