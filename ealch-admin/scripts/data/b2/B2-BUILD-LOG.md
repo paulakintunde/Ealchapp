@@ -169,6 +169,15 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**UNIT 1 IS LIVE, 2026-09-29: content v78 PUBLISHED** (checksum aaa95300...,
+matches the dry run) with b2.01 to b2.08 after gate B2-2 passed (`d29cde2`).
++8 units, +8 lessons, +1313 items, no deletions, snapshot 42.25 MiB (still
+under the 50 MiB ceiling of pre-raise installs). Import read back identical;
+the seed merge was proven purely additive (0 lost, 0 changed); the seed cut
+now lists b2.01-08; the preview fixture is empty of B2 drafts. Admin 919/919,
+app 5689 pass / 0 fail. Retention pruned one old snapshot; rollback reaches v69.
+
+
 **B2 IS LIVE, 2026-09-27: content v77 PUBLISHED** (checksum 9e63e1c4...) with
 b2.22 to b2.26 after gate B2-1 passed. +5 units, +5 lessons, +910 items, no
 deletions, snapshot 41.6 MB. `EXAM_PREP_TARGETS` routes PE/CE/CO/PO@b2 to
@@ -303,14 +312,14 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
 | b2.24 | lecture-critique (workshop, CE target) | 76 | 11 | 11x8 | 11 | 4 | 13 | 200 | 11 images, registered + alt | DONE, v77 |
 | b2.25 | ecoute-vitesse-reelle (workshop, CO target) | 73 | 11 | 11x8 | 11 | 5 | 13 | 165 | 11 images, registered + alt | DONE, v77 |
 | b2.26 | reunions-negociation (workshop, PO target) | 73 | 11 | 11x8 | 11 | 5 | 16 | 190 | 11 images, registered + alt | DONE, v77 |
-| b2.01 | plus-que-parfait | 85 | 11 | 12x8 | 12 | 5 | | 166 | 11 images, registered + alt | DRAFT, gate B2-2 |
-| b2.02 | conditionnel-passe | 84 | 11 | 11x8 | 11 | 5 | | 151 | 11 images, registered + alt | DRAFT, gate B2-2 |
-| b2.03 | si-irreel-passe | 83 | 11 | 12x8 | 12 | 5 | | 149 | 11 images, registered + alt | DRAFT, gate B2-2 |
-| b2.04 | si-mixtes | 87 | 11 | 11x8 | 11 | 5 | | 165 | 11 images, registered + alt | DRAFT, gate B2-2 |
-| b2.05 | subjonctif-passe | 85 | 11 | 12x8 | 12 | 5 | | 171 | 11 images, registered + alt | DRAFT, gate B2-2 |
-| b2.06 | subjonctif-indicatif | 84 | 11 | 12x8 | 12 | 5 | | 162 | 11 images, registered + alt | DRAFT, gate B2-2 |
-| b2.07 | futur-anterieur | 84 | 11 | 12x8 | 12 | 5 | | 167 | 11 images, registered + alt | DRAFT, gate B2-2 |
-| b2.08 | passe-simple (recognition) | 86 | 12 | 11x8 | 11 | 5 | | 178 | 12 images, registered + alt | DRAFT, gate B2-2 |
+| b2.01 | plus-que-parfait | 85 | 11 | 12x8 | 12 | 5 | | 169 | 11 images, registered + alt | DONE, v78 |
+| b2.02 | conditionnel-passe | 84 | 11 | 11x8 | 11 | 5 | | 151 | 11 images, registered + alt | DONE, v78 |
+| b2.03 | si-irreel-passe | 83 | 11 | 12x8 | 12 | 5 | | 149 | 11 images, registered + alt | DONE, v78 |
+| b2.04 | si-mixtes | 87 | 11 | 11x8 | 11 | 5 | | 165 | 11 images, registered + alt | DONE, v78 |
+| b2.05 | subjonctif-passe | 85 | 11 | 12x8 | 12 | 5 | | 172 | 11 images, registered + alt | DONE, v78 |
+| b2.06 | subjonctif-indicatif | 84 | 11 | 12x8 | 12 | 5 | | 162 | 11 images, registered + alt | DONE, v78 |
+| b2.07 | futur-anterieur | 84 | 11 | 12x8 | 12 | 5 | | 167 | 11 images, registered + alt | DONE, v78 |
+| b2.08 | passe-simple (recognition) | 86 | 12 | 11x8 | 11 | 5 | | 178 | 12 images, registered + alt | DONE, v78 |
 | b2.09 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
