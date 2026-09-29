@@ -306,7 +306,21 @@ Plans:
   2. Key engagement user actions (lesson complete, purchase, exam submit, streak event, etc.) are confirmed to fire the correct `services/analytics.ts` events with correct payloads, or gaps are logged and closed.
   3. Acquisition events are confirmed to exist and fire correctly: first-open, signup started, signup completed, and store-listing referrer capture.
   4. An activation funnel is confirmed instrumented end-to-end at step granularity — `onboarding_started` → per-step events → `placement_result` → `first_lesson_started` — and D1 return is measurable, so real acquisition/activation data is available post-launch, not just crash/correctness verification.
-**Plans**: TBD
+**Plans**: 6 plans in 3 waves
+
+**Wave 1**
+- [ ] 09-01-PLAN.md — typed events, guest/account identity boundaries, and accepted-capture diagnostics
+
+**Wave 2** *(blocked on Wave 1 completion; plans 02–05 may run in parallel where files do not overlap)*
+- [ ] 09-02-PLAN.md — resumable wizard, explicit skip/recovery actions, and onboarding/signup milestones
+- [ ] 09-03-PLAN.md — durable placement attempts, outcome boundaries, and recovery UI
+- [ ] 09-04-PLAN.md — per-install first open, local-day D1, Android Play referrer, and iPhone unavailable status
+- [ ] 09-05-PLAN.md — first lesson, completion, exam, streak, and purchase events
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 09-06-PLAN.md — automated event audit, Android/iPhone walkthrough, accepted capture, and store sandbox proof
+
+**Cross-cutting constraints:** Analytics failures never interrupt learner actions; every event has an idempotent milestone boundary and excludes answer text, speech transcripts, email, and raw referrers. UI changes obey 09-UI-SPEC.md. Phase 9 completion requires accepted-capture evidence and passing Android/iPhone critical paths, not merely green unit tests.
 **UI hint**: yes
 
 ### Phase 10: Feedback & Rating Flow

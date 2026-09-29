@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 09 UI-SPEC approved
-last_updated: "2026-09-29T20:39:57.000Z"
+stopped_at: Phase 09 plans verified; ready to execute 6 plans
+last_updated: "2026-09-29T21:12:04.000Z"
 last_activity: 2026-09-29
 progress:
   total_phases: 25
   completed_phases: 9
-  total_plans: 73
+  total_plans: 79
   completed_plans: 70
-  percent: 96
+  percent: 89
 ---
 
 # Project State
@@ -21,26 +21,26 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 09 - onboarding-analytics-audit
+**Current focus:** Phase 09 - onboarding-analytics-audit (6 plans ready)
 
 ## Current Position
 
-Phase: 09 (onboarding-analytics-audit) - READY FOR PLANNING
-Plan: UI design contract approved; ready for planning
+Phase: 09 (onboarding-analytics-audit) - READY TO EXECUTE
+Plan: 6 plans in 3 waves; next is 09-01
   font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
   07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
   migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal,
   LanguageChip/LanguagePanel in app/lesson.tsx, and answers-not-glosses.test.ts.
-Status: Ready for Phase 09 planning
-NOTE: `percent: 100` above means 61 of 61 WRITTEN plans are done. It is not milestone
-  progress - 15 of 25 phases have never been planned. The figure of record is
-  **10/25 phases**, in ROADMAP.md's "How to read this table". Do not re-add
+Status: Phase 09 planned; ready for execution
+NOTE: The frontmatter `percent` above measures written plans, not milestone
+  progress. Phase 09 now has 6 unexecuted plans. The figure of record is
+  in ROADMAP.md's "How to read this table". Do not re-add
   percent_basis/percent_note here; the handler has deleted them twice.
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
 Last activity: 2026-09-28
 
-Progress: [██████████] 96%
+Progress: [█████████░] 89%
 
 ## Performance Metrics
 
@@ -191,6 +191,6 @@ Phase 09 (onboarding-analytics-audit) discussion and UI design contract are comp
 
 ## Session Continuity
 
-Last session: 2026-09-29T20:39:57.000Z
-Stopped at: Phase 09 UI-SPEC approved
-Resume file: .planning/phases/09-onboarding-analytics-audit/09-UI-SPEC.md
+Last session: 2026-09-29T21:12:04.000Z
+Stopped at: Phase 09 plans verified; ready to execute 09-01
+Resume file: .planning/phases/09-onboarding-analytics-audit/09-01-PLAN.md
