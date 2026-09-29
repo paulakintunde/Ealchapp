@@ -95,6 +95,7 @@ Use existing `npm test` for pure date, schema, identity, parser, idempotency, an
 
 ## Open Risks
 
+- Supabase may return an obfuscated/fake signup user for an existing confirmed email when confirmation is enabled. An accepted signup response alone does not prove a new account. Plan 01 requires a later authenticated session matching both the signup response user ID and a random `options.data.ealch_signup_nonce` before linking the guest journey; see [Supabase signup behavior](https://supabase.com/docs/reference/javascript/v1/auth-signup).
 - The exact PostHog manual identity event payload and any alias restriction need an ingestion test before the identity plan is accepted. Do not silently rely on SDK behavior in an HTTP-only client.
 - Android native bridge needs a development build and Play-delivered test to prove the source, separate from parser unit tests.
 - iPhone physical build and sandbox purchase credentials may be unavailable during execution; this is a planned blocking evidence gate, not a reason to mark Phase 9 complete early.

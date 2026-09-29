@@ -36,14 +36,14 @@ created: 2026-09-29
 | 09-01-02 | 01 | 1 | QA-02 | T-09-02, T-09-03 | Accepted/rejected capture and verified link | Node/fake HTTP | `npm test; npm run typecheck` | ❌ W1 | ⬜ pending |
 | 09-02-01 | 02 | 2 | QA-01, QA-02 | T-09-04, T-09-05 | No credential persistence; one-time milestones | Node/typecheck | `npm test; npm run typecheck` | ❌ W2 | ⬜ pending |
 | 09-02-02 | 02 | 2 | QA-01, QA-02 | T-09-04 | Recoverable signup/mic/reminder actions | Jest/typecheck | `npm run test:component -- --runInBand; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-03-01 | 03 | 2 | QA-01, QA-02 | T-09-06, T-09-07 | Validated attempt restore, safe payload | Node/typecheck | `npm test; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-03-02 | 03 | 2 | QA-01, QA-02 | T-09-06 | Recoverable skip/load/exit states | Jest/typecheck | `npm run test:component -- --runInBand; npm run typecheck` | ❌ W2 | ⬜ pending |
+| 09-03-01 | 03 | 3 | QA-01, QA-02 | T-09-06, T-09-07 | Validated attempt restore, safe payload | Node/typecheck | `npm test; npm run typecheck` | ❌ W3 | ⬜ pending |
+| 09-03-02 | 03 | 3 | QA-01, QA-02 | T-09-06 | Recoverable skip/load/exit states | Jest/typecheck | `npm run test:component -- --runInBand; npm run typecheck` | ❌ W3 | ⬜ pending |
 | 09-04-01 | 04 | 2 | QA-02 | — | Per-install/local-day dedupe | Node/typecheck | `npm test; npm run typecheck` | ❌ W2 | ⬜ pending |
 | 09-04-02 | 04 | 2 | QA-02 | T-09-08, T-09-09, T-09-10 | No raw referrer; async safe lookup | Node/typecheck/native build | `npm test; npm run typecheck; npx expo run:android` | ❌ W2 | ⬜ pending |
 | 09-05-01 | 05 | 2 | QA-02 | T-09-11 | Lesson event only after content/progress | Node/Jest/typecheck | `npm test; npm run test:component -- --runInBand; npm run typecheck` | ❌ W2 | ⬜ pending |
 | 09-05-02 | 05 | 2 | QA-02 | T-09-11, T-09-12 | Safe exam/purchase/streak outcome | Node/Jest/typecheck | `npm test; npm run test:component -- --runInBand; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-06-01 | 06 | 3 | QA-01, QA-02 | T-09-13, T-09-14 | All event/payload/capture rows audited | Full suite | `npm run typecheck; npm test; npm run test:component -- --runInBand` | ❌ W3 | ⬜ pending |
-| 09-06-02 | 06 | 3 | QA-01, QA-02 | T-09-13, T-09-14 | Both-platform accepted capture and sandbox proof | Device + typecheck | `npm run typecheck` plus evidence | ❌ W3 | ⬜ pending |
+| 09-06-01 | 06 | 4 | QA-01, QA-02 | T-09-13, T-09-14 | All event/payload/capture rows audited | Full suite | `npm run typecheck; npm test; npm run test:component -- --runInBand` | ❌ W4 | ⬜ pending |
+| 09-06-02 | 06 | 4 | QA-01, QA-02 | T-09-13, T-09-14 | Both-platform accepted capture and sandbox proof | Device + typecheck | `npm run typecheck` plus evidence | ❌ W4 | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky. File-exists marks planned test/evidence files that have not been created yet.*
 
