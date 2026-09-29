@@ -293,7 +293,7 @@ Plans:
 - [x] 08-09-PLAN.md — exam, onboarding, placement, and media route audit
 
 **Wave 10** *(blocked on Wave 9 completion)*
-- [ ] 08-10-PLAN.md — full action inventory and real-device TalkBack/theme/font-scale proof
+- [x] 08-10-PLAN.md - full action inventory and real-device TalkBack/theme/font-scale proof (Pixel 6 checkpoint passed)
 **Pitfall Watch**: PITFALLS.md Pitfall 3 — do not ship a single blanket `accessibilityRole="button"` default on `Press`; thread role as an explicit per-call-site prop and audit real usage in batches by screen, since a blanket default would misannounce switches/tabs/links. Verification must be a real-device TalkBack sweep per touched screen (not a grep for role presence), and every switch/tab role must be paired with the matching `accessibilityState`/`accessibilityValue`. Also check `position: absolute` elements (modals, overlays, FABs) separately — TalkBack on Android can fail to reach them regardless of role correctness.
 **UI hint**: yes
 
