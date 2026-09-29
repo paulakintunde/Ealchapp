@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 09 context gathered
-last_updated: "2026-09-29T20:13:33.000Z"
+stopped_at: Phase 09 UI-SPEC approved
+last_updated: "2026-09-29T20:39:57.000Z"
 last_activity: 2026-09-29
 progress:
   total_phases: 25
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-09-19)
 ## Current Position
 
 Phase: 09 (onboarding-analytics-audit) - READY FOR PLANNING
-Plan: context gathered
+Plan: UI design contract approved; ready for planning
   font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
   07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
@@ -187,10 +187,10 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Phase transition note (2026-09-29)
 
-Phase 09 (onboarding-analytics-audit) discussion is complete. Its decisions are in `.planning/phases/09-onboarding-analytics-audit/09-CONTEXT.md`. Phase 08's spoken TalkBack sweep and fresh-install Automatic hardware checkpoint are complete.
+Phase 09 (onboarding-analytics-audit) discussion and UI design contract are complete. Decisions are in `.planning/phases/09-onboarding-analytics-audit/09-CONTEXT.md`; the approved contract is `09-UI-SPEC.md` in the same directory. Phase 08's spoken TalkBack sweep and fresh-install Automatic hardware checkpoint are complete.
 
 ## Session Continuity
 
-Last session: 2026-09-29T20:13:33.000Z
-Stopped at: Phase 09 context gathered
-Resume file: .planning/phases/09-onboarding-analytics-audit/09-CONTEXT.md
+Last session: 2026-09-29T20:39:57.000Z
+Stopped at: Phase 09 UI-SPEC approved
+Resume file: .planning/phases/09-onboarding-analytics-audit/09-UI-SPEC.md
