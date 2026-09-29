@@ -42,3 +42,19 @@ export function examPaperAllowed(input: {
   if (paperNo <= Math.max(0, Math.floor(freePapers))) return { allowed: true };
   return { allowed: false, reason: 'needs-exam-tier' };
 }
+
+/**
+ * examPaperAllowed, plus the one case the server never sees: a paper that is
+ * only an OUTLINE on this device (ExamPaper.outline, the premium packs core's
+ * skeleton of a paid paper). Its questions are in the exam pack, so it cannot
+ * be sat whatever the gate says; it is listed, locked, so a learner can see
+ * what the exam pack holds, and opening an épreuve goes to the paywall.
+ *
+ * Kept OUT of examPaperAllowed on purpose: that body is pinned byte-for-byte
+ * to start-exam-attempt's copy by examGate.parity.test.ts, and the server
+ * always holds the full paper, so the outline case is client-only.
+ */
+export function examPaperOpen(input: Parameters<typeof examPaperAllowed>[0] & { outline?: boolean }): GateDecision {
+  if (input.outline) return { allowed: false, reason: 'needs-exam-tier' };
+  return examPaperAllowed(input);
+}

@@ -134,6 +134,12 @@ export function isFreePaper(p: Pick<ExamPaper, 'paperNo'>): boolean {
   return p.paperNo >= 1 && p.paperNo <= FREE_EXAM_PAPERS;
 }
 
+/** The core's skeleton of a paid paper: the same paper marked `outline`, its
+ *  épreuves and timings intact, its tasks left in the exam pack. */
+export function outlinePaper(p: ExamPaper): ExamPaper {
+  return { ...p, outline: true };
+}
+
 export function splitCorpus(corpus: Corpus): Split {
   const version = corpus.version;
   const homes = itemHomes(corpus);
@@ -195,7 +201,13 @@ export function splitCorpus(corpus: Corpus): Split {
     scenarios: core.scenarios,
     playlists: core.playlists,
     speakPath: core.speakPath,
-    ...(freePapers.length ? { examPapers: freePapers, examTasks: freeTasks } : {}),
+    // Every paper rides in the core: the free ones whole, the rest as outline
+    // skeletons (sections and timings, tasks left in the exam pack), so the
+    // Examiner can list a paper a learner has not bought, locked. The exam
+    // pack's full paper replaces the skeleton on merge (same id).
+    ...(allPapers.length
+      ? { examPapers: allPapers.map((pp) => (isFreePaper(pp) ? pp : outlinePaper(pp))), examTasks: freeTasks }
+      : {}),
   };
 
   const packs: PackBody[] = [];

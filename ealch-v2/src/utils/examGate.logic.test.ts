@@ -3,7 +3,7 @@
 // happen as a side effect of touching something else.
 import { deepStrictEqual } from 'node:assert';
 import { test } from 'node:test';
-import { examPaperAllowed } from './examGate.logic.ts';
+import { examPaperAllowed, examPaperOpen } from './examGate.logic.ts';
 
 // THE SHIP-DAY CASE. system_config.config.examGateOn is false in production
 // and nobody holds 'examiner' yet, so a server gate that only asked "does
@@ -52,6 +52,22 @@ test('a fractional or negative allowance never widens the gate', () => {
   // max(0, -5) = 0: a negative allowance is never fewer than zero free papers.
   deepStrictEqual(
     examPaperAllowed({ gateOn: true, entitled: false, freePapers: -5, paperNo: 1 }),
+    { allowed: false, reason: 'needs-exam-tier' }
+  );
+});
+
+// Premium packs: the core lists every paper, paid ones as outline skeletons.
+test('an outline paper is locked whatever the gate says, and a full one follows examPaperAllowed', () => {
+  deepStrictEqual(
+    examPaperOpen({ gateOn: false, entitled: true, freePapers: 1, paperNo: 2, outline: true }),
+    { allowed: false, reason: 'needs-exam-tier' }
+  );
+  deepStrictEqual(
+    examPaperOpen({ gateOn: false, entitled: false, freePapers: 1, paperNo: 2 }),
+    examPaperAllowed({ gateOn: false, entitled: false, freePapers: 1, paperNo: 2 })
+  );
+  deepStrictEqual(
+    examPaperOpen({ gateOn: true, entitled: false, freePapers: 1, paperNo: 2, outline: false }),
     { allowed: false, reason: 'needs-exam-tier' }
   );
 });

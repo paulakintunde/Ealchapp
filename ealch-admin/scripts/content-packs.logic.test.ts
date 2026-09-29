@@ -87,8 +87,10 @@ test('every item goes to exactly one place', () => {
 test('the core carries no paid lesson, only the free exam paper, and every paid unit as a skeleton', () => {
   const { core, packs } = splitCorpus(tiny());
   deepStrictEqual(core.lessons.map((l) => l.id), ['a1.01.l1']);
-  // The free paper (paper 1 of each format) and its tasks stay in the core.
-  deepStrictEqual(core.examPapers?.map((x) => x.id), ['paper.tef.x.1']);
+  // Every paper is listed in the core: the free one (paper 1 of each format)
+  // whole with its tasks, the paid one as an outline skeleton, its task in
+  // the exam pack.
+  deepStrictEqual(core.examPapers?.map((x) => [x.id, x.outline ?? null]), [['paper.tef.x.1', null], ['paper.tef.x.2', true]]);
   deepStrictEqual(core.examTasks?.map((x) => x.id), ['exam.t1']);
   deepStrictEqual(core.units.map((u) => u.id), ['a1.01', 'a2.01', 'b1.01', 'b2.01']);
   deepStrictEqual(core.units.find((u) => u.id === 'a2.01')?.outline, [{ lessonId: 'a2.01.l1', title: 'T a2.01.l1', acts: [{ title: 'Act', cards: 3 }] }]);
@@ -175,7 +177,9 @@ test('real seed: the free core validates on its own, and carries nothing paid bu
   ok(real.core.units.some((u) => u.outline?.length), 'paid units carry outlines');
   ok(real.core.lessons.every((l) => ['sons', 'a1'].includes(l.unitId.split('.')[0])));
   const free = (seed.examPapers ?? []).filter((x) => x.paperNo === 1);
-  deepStrictEqual((real.core.examPapers ?? []).map((x) => x.id).sort(), free.map((x) => x.id).sort(), 'paper 1 of each format stays free');
+  const whole = (real.core.examPapers ?? []).filter((x) => x.outline !== true);
+  deepStrictEqual(whole.map((x) => x.id).sort(), free.map((x) => x.id).sort(), 'paper 1 of each format stays free');
+  deepStrictEqual((real.core.examPapers ?? []).map((x) => x.id).sort(), (seed.examPapers ?? []).map((x) => x.id).sort(), 'every paper is listed, paid ones as outlines');
   strictEqual((real.core.examTasks ?? []).length, new Set(free.flatMap((x) => x.sections.flatMap((sec) => sec.taskIds ?? []))).size);
 });
 

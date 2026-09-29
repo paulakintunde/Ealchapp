@@ -591,7 +591,8 @@ test('the exam entry point actually calls the gate', () => {
   // checked it: the screens were free by omission rather than by decision.
   const hub = readFileSync(resolve(appDir, 'exam.tsx'), 'utf8');
   ok(hub.includes("useFeature('examiner')"), 'the hub must ask about entitlement');
-  ok(hub.includes('examPaperAllowed('), 'and route the answer through the gate');
+  // examPaperOpen is examPaperAllowed plus the premium packs outline case.
+  ok(hub.includes('examPaperAllowed(') || hub.includes('examPaperOpen('), 'and route the answer through the gate');
   // Phase 5 / D-08: a blocked paper now routes to the paywall with exam
   // context — see paywallContextWiring.test.ts for the full contract.
   ok(hub.includes("router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } })"), 'a blocked paper must go somewhere');

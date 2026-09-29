@@ -22,7 +22,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
-import { Icon } from '@/components/Icon';
+import { PremiereLockTag } from '@/components/PremiereLockTag';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
@@ -30,7 +30,7 @@ import { useProgress } from '@/store/useProgress';
 import { useFeature } from '@/store/useEntitlement';
 import { getConfig } from '@/services/config';
 import { track } from '@/services/analytics';
-import { examPaperAllowed } from '@/utils/examGate.logic';
+import { examPaperOpen } from '@/utils/examGate.logic';
 import { paperProgress } from '@/store/progress.logic';
 import { useContent } from '@/services/content';
 import { examPapersFor } from '@/services/content.logic';
@@ -119,33 +119,35 @@ export default function ExamFormatHub() {
         {papers.length === 0 ? (
           <TX role="label" color={t.txSecondary}>{T.examNoPapersYet}</TX>
         ) : (
-          papers.map((p) => (
-            <PaperRow
-              key={p.id}
-              paper={p}
-              results={results}
-              label={facts?.label ?? p.format}
-              locked={
-                !examPaperAllowed({
-                  gateOn: cfg.examGateOn,
-                  entitled,
-                  freePapers: cfg.examFreePapers,
-                  paperNo: p.paperNo,
-                }).allowed
-              }
-              onPress={() =>
-                examPaperAllowed({
-                  gateOn: cfg.examGateOn,
-                  entitled,
-                  freePapers: cfg.examFreePapers,
-                  paperNo: p.paperNo,
-                }).allowed
-                  ? router.push({ pathname: '/exam-paper', params: { paperId: p.id } })
-                  : (track('gate_blocked', { feature: 'examiner', from: 'exam' }),
-                    router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } }))
-              }
-            />
-          ))
+          papers.map((p) => {
+            // Every paper is listed. One the learner cannot sit (an outline
+            // skeleton from the premium packs core, or a paper the gate
+            // refuses) carries the PREMIÈRE pill. An outline still opens, so its
+            // four épreuves can be seen, each locked; the paper screen owns the
+            // paywall for it.
+            const open = examPaperOpen({
+              gateOn: cfg.examGateOn,
+              entitled,
+              freePapers: cfg.examFreePapers,
+              paperNo: p.paperNo,
+              outline: p.outline === true,
+            }).allowed;
+            return (
+              <PaperRow
+                key={p.id}
+                paper={p}
+                results={results}
+                label={facts?.label ?? p.format}
+                locked={!open}
+                onPress={() =>
+                  open || p.outline === true
+                    ? router.push({ pathname: '/exam-paper', params: { paperId: p.id } })
+                    : (track('gate_blocked', { feature: 'examiner', from: 'exam' }),
+                      router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } }))
+                }
+              />
+            );
+          })
         )}
       </ScrollView>
     </View>
@@ -217,7 +219,7 @@ function PaperRow({
         </View>
       </View>
       {locked ? (
-        <Icon name="lock" size={16} color={t.txMuted} />
+        <PremiereLockTag locked />
       ) : (
         <TX font="semi" role="label" color={t.accTx}>
           {started ? T.examResume : T.examStart}

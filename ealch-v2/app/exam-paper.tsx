@@ -19,6 +19,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { PremiereLockTag } from '@/components/PremiereLockTag';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
@@ -103,6 +104,18 @@ export default function ExamPaperScreen() {
     );
   }
 
+  // Locked: an outline paper (the premium packs core's skeleton, its questions
+  // in the exam pack) or a paper the gate refuses. Its four épreuves are still
+  // listed, each with the PREMIÈRE pill, and every door leads to the paywall.
+  const locked =
+    paper.outline === true ||
+    !examPaperAllowed({
+      gateOn: cfg.examGateOn,
+      entitled,
+      freePapers: cfg.examFreePapers,
+      paperNo: paper.paperNo,
+    }).allowed;
+
   const go = async (skill: ExamSkill) => {
     if (starting) return;
 
@@ -112,7 +125,7 @@ export default function ExamPaperScreen() {
       freePapers: cfg.examFreePapers,
       paperNo: paper.paperNo,
     });
-    if (!decision.allowed) {
+    if (paper.outline === true || !decision.allowed) {
       track('gate_blocked', { feature: 'examiner', from: 'exam-paper' });
       router.push({ pathname: '/paywall', params: { from: 'gate:examiner' } });
       return;
@@ -168,7 +181,7 @@ export default function ExamPaperScreen() {
     // sitting mode, one-épreuve rows, and the audio-warning panel's "start
     // anyway" — already converges.
     if (starting) return;
-    if (skill !== 'CO' || checking) return void go(skill);
+    if (locked || skill !== 'CO' || checking) return void go(skill);
     const co = paper.sections.find((sec) => sec.skill === 'CO');
     const refs = (co ? examTasksOfSection(corpus, co) : [])
       .flatMap((task) => task.parts ?? [])
@@ -332,6 +345,7 @@ export default function ExamPaperScreen() {
             section={section}
             progress={progress[i]}
             lang={lang}
+            locked={locked}
             onPress={() => openSection(section.skill)}
           />
         ))}
@@ -341,11 +355,12 @@ export default function ExamPaperScreen() {
 }
 
 function SectionRow({
-  section, progress, lang, onPress,
+  section, progress, lang, locked, onPress,
 }: {
   section: ExamSection;
   progress: SectionProgress | undefined;
   lang: 'fr' | 'en';
+  locked: boolean;
   onPress: () => void;
 }) {
   const t = useTheme();
@@ -380,7 +395,7 @@ function SectionRow({
         padding: 16, marginBottom: 10,
       }}
       accessibilityRole="button"
-      accessibilityLabel={`${T.examSkillNames[section.skill]}, ${statusLabel}`}
+      accessibilityLabel={`${T.examSkillNames[section.skill]}, ${locked ? T.premLockTag : statusLabel}`}
       accessibilityLanguage={lang}
     >
       <View style={{ flex: 1 }}>
@@ -390,6 +405,7 @@ function SectionRow({
         <TX role="meta" color={t.txMuted}>
           {questions > 0 ? `${questions} ${T.examQuestionCount} · ` : ''}{minutes} {T.examMinutes}
         </TX>
+        {locked ? null : (
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 6 }}>
           <TX font="semi" role="meta" color={done ? t.accTx : started ? t.txSecondary : t.txMuted}>
             {statusLabel}
@@ -403,10 +419,15 @@ function SectionRow({
             <TX font="semi" role="meta" color={t.txMuted}>· {T.examUnscored}</TX>
           ) : null}
         </View>
+        )}
       </View>
-      <TX font="semi" role="label" color={t.accTx}>
-        {started ? T.examResume : T.examStart}
-      </TX>
+      {locked ? (
+        <PremiereLockTag locked />
+      ) : (
+        <TX font="semi" role="label" color={t.accTx}>
+          {started ? T.examResume : T.examStart}
+        </TX>
+      )}
     </Press>
   );
 }

@@ -2694,6 +2694,13 @@ export type ExamPaper = {
   paperNo: number;
   /** Exactly four, skills in EXAM_SECTION_ORDER. Validated. */
   sections: ExamSection[];
+  /** A paper whose tasks are NOT on this device: the premium packs core
+   *  carries every paper past the free allowance as this skeleton (its four
+   *  épreuves and timings, taskIds naming tasks the exam pack holds), so the
+   *  Examiner can LIST it, locked, to a learner without the exam pack. The
+   *  exam pack's full paper replaces the skeleton on merge (same id). Only
+   *  `true` or absent; referential checks skip its taskIds. */
+  outline?: true;
 };
 
 /** Every task the paper contains, in sitting order. The flat view the runner
@@ -5031,6 +5038,7 @@ export function validateExamPaper(v: unknown, path = 'examPaper'): Issue[] {
 
   if (!oneOf(EXAM_FORMATS, p.format)) push(`format must be one of ${EXAM_FORMATS.join(' | ')}`);
   if (!isStr(p.variant)) push('variant is required');
+  if (p.outline !== undefined && p.outline !== true) push('outline must be true when present');
 
   if (typeof p.paperNo !== 'number' || !Number.isInteger(p.paperNo) || p.paperNo < 1 || p.paperNo > MAX_PAPER_NO) {
     push(`paperNo must be an integer 1..${MAX_PAPER_NO}`);
@@ -5352,6 +5360,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   // their eligibility.
   const examTaskById2 = new Map(examTasks.filter((t) => isStr(t.id)).map((t) => [t.id, t]));
   for (const p of examPapers) {
+    // A skeleton paper names tasks that live in the exam pack, by design.
+    if (p.outline === true) continue;
     for (const sec of isArr(p.sections) ? p.sections : []) {
       if (typeof sec !== 'object' || sec === null) continue;
       const secSkill = (sec as ExamSection).skill;

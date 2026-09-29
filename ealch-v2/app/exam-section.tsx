@@ -140,10 +140,13 @@ export default function ExamSectionScreen() {
   // Fire-and-forget: a refusal here cannot be acted on (the candidate is
   // already in the runner, having been let in by the paper screen), and the
   // server's grade-time check is the real boundary.
+  // An outline paper (premium packs skeleton) has no questions on the device;
+  // nothing is sat, so no attempt is opened for it.
+  const outline = paper?.outline === true;
   useEffect(() => {
-    if (!paperId || !skill) return;
+    if (!paperId || !skill || outline) return;
     void startExamAttempt({ paperId, skill, mode });
-  }, [paperId, skill, mode]);
+  }, [paperId, skill, mode, outline]);
 
   // Submission must happen exactly once, whichever way it is triggered — the
   // candidate tapping finish, or the clock expiring underneath them. Without
@@ -427,7 +430,7 @@ export default function ExamSectionScreen() {
     router.replace({ pathname: '/exam-report', params: { paperId } });
   }, [answers, texts, spoken, coverage, debate, pinnedTasks, unplayable, paperId, skill, pinnedSection, mode, lang, key, writeDraft, logExamResult, logSession, router]);
 
-  if (!paper || !pinnedSection || !skill) {
+  if (!paper || outline || !pinnedSection || !skill) {
     return (
       <Shell title={T.examiner} onClose={() => router.replace('/home')}>
         <TX role="label" color={t.txSecondary}>{T.examNone}</TX>

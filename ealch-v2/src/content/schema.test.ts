@@ -1390,6 +1390,16 @@ test('a series pointing at an unknown task is caught', () => {
   ok(issues.some((i) => /paper "paper\.tcf_canada\.2024a\.1" references unknown exam task "exam\.tcf_canada\.2024a\.ce_mcq\.009"/.test(i.message)));
 });
 
+test('an outline paper (premium packs skeleton) may name tasks the core does not hold', () => {
+  // The core lists every paper; a paid one's tasks are in the exam pack.
+  const skeleton = { ...paper(), outline: true as const };
+  const issues = validateCorpus(corpus({ examTasks: [], examPapers: [skeleton] }));
+  ok(!issues.some((i) => /references unknown exam task/.test(i.message)), JSON.stringify(issues.slice(0, 3)));
+  ok(validateExamPaper({ ...paper(), outline: false }).some((i) => /outline must be true/.test(i.message)));
+  // Without the flag the same paper is still caught.
+  ok(validateCorpus(corpus({ examTasks: [], examPapers: [paper()] })).some((i) => /references unknown exam task/.test(i.message)));
+});
+
 test('a task filed in the wrong épreuve is caught', () => {
   // Nothing about this looks broken: it renders, it marks, it scores. It just
   // reports its marks against the wrong skill, and since the headline NCLC is
