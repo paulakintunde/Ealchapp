@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 08-09-PLAN.md
-last_updated: "2026-09-28T14:57:50.377Z"
-last_activity: 2026-09-28
+stopped_at: Phase 09 context gathered
+last_updated: "2026-09-29T20:13:33.000Z"
+last_activity: 2026-09-29
 progress:
   total_phases: 25
   completed_phases: 9
@@ -21,18 +21,18 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 08 — accessibility-retrofit
+**Current focus:** Phase 09 - onboarding-analytics-audit
 
 ## Current Position
 
-Phase: 08 (accessibility-retrofit) — EXECUTING
-Plan: 10 of 10
+Phase: 09 (onboarding-analytics-audit) - READY FOR PLANNING
+Plan: context gathered
   font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
   07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
   migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal,
   LanguageChip/LanguagePanel in app/lesson.tsx, and answers-not-glosses.test.ts.
-Status: Ready to execute
+Status: Ready for Phase 09 planning
 NOTE: `percent: 100` above means 61 of 61 WRITTEN plans are done. It is not milestone
   progress - 15 of 25 phases have never been planned. The figure of record is
   **10/25 phases**, in ROADMAP.md's "How to read this table". Do not re-add
@@ -185,8 +185,12 @@ Items acknowledged and carried forward from previous milestone close:
 |----------|------|--------|-------------|
 | *(none — first milestone)* | | | |
 
+## Phase transition note (2026-09-29)
+
+Phase 09 (onboarding-analytics-audit) discussion is complete. Its decisions are in `.planning/phases/09-onboarding-analytics-audit/09-CONTEXT.md`. Phase 08's spoken TalkBack sweep and fresh-install Automatic hardware checkpoint are complete.
+
 ## Session Continuity
 
-Last session: 2026-09-28T14:57:50.338Z
-Stopped at: Completed 08-09-PLAN.md
-Resume file: None
+Last session: 2026-09-29T20:13:33.000Z
+Stopped at: Phase 09 context gathered
+Resume file: .planning/phases/09-onboarding-analytics-audit/09-CONTEXT.md
