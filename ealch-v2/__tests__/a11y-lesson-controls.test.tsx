@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 import { fireEvent, render, screen } from '@testing-library/react-native';
-import { QuestionModal } from '@/components/LessonDeck';
+import { DeckNavigation, QuestionModal } from '@/components/LessonDeck';
 import { ClockToggle, TimeWheel } from '@/components/TimeWheel';
 import { useStore } from '@/store/useStore';
 
@@ -34,4 +34,27 @@ test('time stepper icon controls announce their function and current value', asy
   await fireEvent.press(increaseHour);
   expect(onChange).toHaveBeenCalledWith('20:30');
   expect(screen.queryByRole('button', { name: ':' })).toBeNull();
+});
+
+test('card navigation names its actions and disables only the unavailable edge', async () => {
+  const onPrevious = jest.fn();
+  const onNext = jest.fn();
+  const view = await render(<DeckNavigation index={0} total={3} onPrevious={onPrevious} onNext={onNext} />);
+  expect(screen.getByText(/TalkBack, you can also swipe with two fingers/)).toBeTruthy();
+  expect(screen.getByRole('progressbar', { name: 'Card 1 of 3' })).toBeTruthy();
+  expect(screen.getByRole('button', { name: 'Previous card' }).props.accessibilityState.disabled).toBe(true);
+  await fireEvent.press(screen.getByRole('button', { name: 'Next card' }));
+  expect(onNext).toHaveBeenCalledTimes(1);
+  expect(onPrevious).not.toHaveBeenCalled();
+
+  await view.rerender(<DeckNavigation index={2} total={3} onPrevious={onPrevious} onNext={onNext} />);
+  expect(screen.getByRole('progressbar', { name: 'Card 3 of 3' })).toBeTruthy();
+  expect(screen.getByRole('button', { name: 'Next card' }).props.accessibilityState.disabled).toBe(true);
+  await fireEvent.press(screen.getByRole('button', { name: 'Previous card' }));
+  expect(onPrevious).toHaveBeenCalledTimes(1);
+
+  useStore.setState({ lang: 'fr' });
+  await view.rerender(<DeckNavigation index={1} total={3} onPrevious={onPrevious} onNext={onNext} />);
+  expect(screen.getByRole('button', { name: 'Carte précédente' })).toBeTruthy();
+  expect(screen.getByRole('button', { name: 'Carte suivante' })).toBeTruthy();
 });

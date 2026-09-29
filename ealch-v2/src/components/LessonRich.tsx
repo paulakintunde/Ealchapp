@@ -18,7 +18,7 @@ import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
 // One implementation of "this deck moves sideways", shared with SwipeDeck.
 // LessonDeck does not import from here, so this adds no cycle.
-import { SwipeAffordance } from '@/components/LessonDeck';
+import { DeckNavigation } from '@/components/LessonDeck';
 import { BeatRow, fits as beatFits } from '@/components/BeatRow';
 
 /** The rhythm groups of an item, or null when a beat row is not the right thing
@@ -415,6 +415,7 @@ function DeckCard({
 
   return (
     <View
+      importantForAccessibility={current ? 'auto' : 'no-hide-descendants'}
       // FIXED height, not minHeight. minHeight let a long card grow past its
       // budget, which put the bottom of the card under the fold and forced a
       // page scroll. The card is a sealed box; overflow is handled inside it.
@@ -497,6 +498,7 @@ export function CardDeckView({
   const t = useTheme();
   const { width } = useWindowDimensions();
   const [ix, setIx] = useState(0);
+  const railRef = useRef<ScrollView>(null);
   // Card width leaves a peek of the next card so the deck reads as swipeable
   // at a glance; snap keeps one card centered.
   const cardW = width - 48 - 28;
@@ -547,6 +549,13 @@ export function CardDeckView({
     }
   };
 
+  const goCard = (next: number) => {
+    if (next < 0 || next >= entries.length || next === ix) return;
+    railRef.current?.scrollTo({ x: next * step, animated: true });
+    setIx(next);
+    onIndexChange?.(next);
+  };
+
   /** Same edge hand-off as SwipeDeck, and for the same reason: this rail also
    *  simply stopped at its last card, so the swipe the learner had been using
    *  all mission silently became a no-op. See the note on SwipeDeck.onEdgeSwipe.
@@ -585,6 +594,7 @@ export function CardDeckView({
       }}
     >
       <ScrollView
+        ref={railRef}
         horizontal
         directionalLockEnabled
         nestedScrollEnabled
@@ -631,17 +641,16 @@ export function CardDeckView({
           if (Math.abs(h - footH) > 1) setFootH(h);
         }}
       >
-        {/* Dots count ENTRIES, not authored cards: after a short-screen split
-            there are more things to swipe through than the content declares,
-            and dots that disagree with the rail are worse than no dots.
-
-            SwipeAffordance rather than a local dots row: it carries the same
-            dots AND the breathing arrow, so this deck says "I move sideways"
-            the way every other deck in the lesson does. It also speaks its
-            position to a screen reader, which the bare dots never did. */}
-        <SwipeAffordance index={ix} total={entries.length} />
+        {/* The card actions and position count the rendered entries, including
+            image/text splits on shorter screens. */}
+        <DeckNavigation
+          index={ix}
+          total={entries.length}
+          onPrevious={() => goCard(ix - 1)}
+          onNext={() => goCard(ix + 1)}
+        />
         {s.hint ? (
-          <TX role="meta" color={t.txSubtle} style={{ textAlign: 'center' }} numberOfLines={1}>{s.hint}</TX>
+          <TX role="meta" color={t.txSubtle} style={{ textAlign: 'center' }}>{s.hint}</TX>
         ) : null}
       </View>
     </View>

@@ -337,6 +337,15 @@ export function SwipeDeck<T>({
     }
   };
 
+  const goCard = (next: number) => {
+    if (!w || next < 0 || next >= items.length || next === ix) return;
+    railRef.current?.scrollTo({ x: next * w, animated: true });
+    last.current = next;
+    setIx(next);
+    onIndexChange?.(next);
+    sound.play('flip');
+  };
+
   /** How far past the last (or before the first) card a drag has to travel
    *  before it counts as "I am trying to leave this deck" rather than a
    *  bounce. A third of a card is past any accidental overshoot and well short
@@ -440,7 +449,11 @@ export function SwipeDeck<T>({
             decelerationRate="fast"
           >
             {items.map((item, i) => (
-              <View key={keyFor(item, i)} style={{ width: w }}>
+              <View
+                key={keyFor(item, i)}
+                style={{ width: w }}
+                importantForAccessibility={i === ix ? 'auto' : 'no-hide-descendants'}
+              >
                 {renderItem(item, i, fill ? h : null)}
               </View>
             ))}
@@ -448,7 +461,72 @@ export function SwipeDeck<T>({
         ) : null}
       </View>
 
-      <SwipeAffordance index={ix} total={items.length} />
+      <DeckNavigation
+        index={ix}
+        total={items.length}
+        onPrevious={() => goCard(ix - 1)}
+        onNext={() => goCard(ix + 1)}
+      />
+    </View>
+  );
+}
+
+/** Explicit card actions make a nested deck usable without a two-finger
+ * TalkBack gesture, while the instruction still explains that gesture. */
+export function DeckNavigation({
+  index,
+  total,
+  onPrevious,
+  onNext,
+}: {
+  index: number;
+  total: number;
+  onPrevious: () => void;
+  onNext: () => void;
+}) {
+  const t = useTheme();
+  const T = useT();
+  if (total <= 1) return <SwipeAffordance index={index} total={total} />;
+
+  const buttonStyle = {
+    flex: 1,
+    minHeight: 44,
+    paddingHorizontal: 6,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: t.line(16),
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    gap: 4,
+  };
+
+  return (
+    <View style={{ gap: 6 }}>
+      <TX role="meta" color={t.txSubtle} style={{ textAlign: 'center' }}>{T.lessonDeckHelp}</TX>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <Press
+          onPress={index > 0 ? onPrevious : undefined}
+          accessibilityRole="button"
+          accessibilityLabel={T.lessonPrevCard}
+          accessibilityState={{ disabled: index === 0 }}
+          style={[buttonStyle, { opacity: index === 0 ? 0.4 : 1 }]}
+        >
+          <Icon name="chevronLeft" size={14} color={t.txSecondary} />
+          <TX role="label" color={t.txSecondary} style={{ textAlign: 'center' }}>{T.lessonPrevCard}</TX>
+        </Press>
+        <SwipeAffordance index={index} total={total} />
+        <Press
+          onPress={index < total - 1 ? onNext : undefined}
+          accessibilityRole="button"
+          accessibilityLabel={T.lessonNextCard}
+          accessibilityState={{ disabled: index === total - 1 }}
+          style={[buttonStyle, { opacity: index === total - 1 ? 0.4 : 1 }]}
+        >
+          <TX role="label" color={t.txSecondary} style={{ textAlign: 'center' }}>{T.lessonNextCard}</TX>
+          <Icon name="chevronRight" size={14} color={t.txSecondary} />
+        </Press>
+      </View>
     </View>
   );
 }

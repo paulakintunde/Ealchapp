@@ -190,6 +190,7 @@ export type Strings = {
   lessonDone: string; lessonSoon: string; builderTag: string; sbSkipSay: string; sbNextSentence: string;
   practiceGotIt: string; practiceMissed: string;
   lessonNext: string; lessonPrev: string; lessonOverview: string; lessonSwipeHint: string;
+  lessonNextPage: string; lessonPrevPage: string; lessonNextCard: string; lessonPrevCard: string; lessonDeckHelp: string;
   lessonTapLetter: string; lessonMemo: string; lessonReplay: string; lessonNarration: string;
   lessonListen: string; lessonListening: string;
   lkWelcomeT: string; lkWelcomeS: string;
@@ -662,6 +663,7 @@ export const T: Record<Lang, Strings> = {
     lessonDone: 'Terminer la leçon', lessonSoon: 'Leçon bientôt disponible', builderTag: 'CONSTRUCTEUR', sbSkipSay: 'Passer', sbNextSentence: 'Phrase suivante',
     practiceGotIt: 'Je savais', practiceMissed: 'Raté',
     lessonNext: 'Suivant', lessonPrev: 'Précédent', lessonOverview: 'Aperçu', lessonSwipeHint: 'Glissez pour commencer',
+    lessonNextPage: 'Page suivante', lessonPrevPage: 'Page précédente', lessonNextCard: 'Carte suivante', lessonPrevCard: 'Carte précédente', lessonDeckHelp: 'Utilisez les boutons pour changer de carte. Avec TalkBack, vous pouvez aussi balayer avec deux doigts.',
     lessonTapLetter: 'Touchez une lettre pour ouvrir sa carte', lessonMemo: 'À RETENIR', lessonReplay: 'Réécouter la narration', lessonNarration: 'Narration',
     lessonListen: 'Écouter', lessonListening: 'Écoute…',
     lkWelcomeT: 'Glissez pour naviguer',
@@ -1168,6 +1170,7 @@ export const T: Record<Lang, Strings> = {
     lessonDone: 'Finish the lesson', lessonSoon: 'Lesson coming soon', builderTag: 'BUILDER', sbSkipSay: 'Skip', sbNextSentence: 'Next sentence',
     practiceGotIt: 'I knew it', practiceMissed: 'Missed it',
     lessonNext: 'Next', lessonPrev: 'Back', lessonOverview: 'Overview', lessonSwipeHint: 'Swipe to begin',
+    lessonNextPage: 'Next page', lessonPrevPage: 'Previous page', lessonNextCard: 'Next card', lessonPrevCard: 'Previous card', lessonDeckHelp: 'Use the buttons to change cards. With TalkBack, you can also swipe with two fingers.',
     lessonTapLetter: 'Tap a letter to open its card', lessonMemo: 'MEMORIZE', lessonReplay: 'Replay narration', lessonNarration: 'Narration',
     lessonListen: 'Listen', lessonListening: 'Listening…',
     lkWelcomeT: 'Swipe to move around',

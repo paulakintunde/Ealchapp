@@ -1029,35 +1029,43 @@ export function LessonPager({
           cue={null}
           onPress={onFirst ? undefined : () => goTo(page - 1)}
           accessibilityRole="button"
-          accessibilityLabel={T.lessonPrev}
+          accessibilityLabel={T.lessonPrevPage}
           accessibilityState={{ disabled: onFirst }}
           style={{
+            width: '48%',
             minHeight: 52,
-            paddingHorizontal: 20,
+            paddingHorizontal: 6,
+            paddingVertical: 8,
             borderRadius: 26,
             borderWidth: 1.5,
             borderColor: t.line(12),
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: 6,
+            gap: 4,
             opacity: onFirst ? 0.35 : 1,
           }}
         >
           <Icon name="chevronLeft" size={15} color={t.txSecondary} strokeWidth={1.8} />
-          <TX font="semi" role="body" color={t.txSecondary}>{T.lessonPrev}</TX>
+          {/* flexShrink lives on the wrapper, never on a TX, or the label
+              clips its tail (ealch-flex-on-text-clips-tail); it wraps instead. */}
+          <View style={{ flexShrink: 1 }}>
+            <TX font="semi" role="body" color={t.txSecondary} maxScale={1.3} style={{ textAlign: 'center' }}>{T.lessonPrevPage}</TX>
+          </View>
         </Press>
 
         <Press
           cue={null}
           onPress={onLast ? (finishBlocked ? undefined : onFinish) : nextBlocked ? undefined : () => goTo(page + 1)}
           accessibilityRole="button"
-          accessibilityLabel={onLast ? finishLabel : T.lessonNext}
+          accessibilityLabel={onLast ? finishLabel : T.lessonNextPage}
           accessibilityState={{ disabled: finishBlocked || nextBlocked }}
           accessibilityHint={nextBlocked ? T.checkAnswerFirst : undefined}
           style={{
-            flex: 1,
+            width: '48%',
             minHeight: 52,
+            paddingHorizontal: 6,
+            paddingVertical: 8,
             borderRadius: 26,
             backgroundColor: t.acc,
             flexDirection: 'row',
@@ -1067,7 +1075,9 @@ export function LessonPager({
             opacity: finishBlocked || nextBlocked ? 0.35 : 1,
           }}
         >
-          <TX font="semi" role="bodyLg" color={t.accInk}>{onLast ? finishLabel : T.lessonNext}</TX>
+          <View style={{ flexShrink: 1 }}>
+            <TX font="semi" role="body" color={t.accInk} maxScale={1.3} style={{ textAlign: 'center' }}>{onLast ? finishLabel : T.lessonNextPage}</TX>
+          </View>
           {onLast ? null : <Icon name="chevronRight" size={15} color={t.accInk} strokeWidth={2} />}
         </Press>
       </View>
