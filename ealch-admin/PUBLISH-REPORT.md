@@ -1,8 +1,8 @@
 # Publish report
 
-Generated: 2026-09-29T21:12:39.356Z
+Generated: 2026-09-29T21:34:48.668Z
 Mode: publish
-Status: v77 → v78
+Status: IDENTICAL to v78 — not one byte of content differs.
 
 ## What changed
 
@@ -10,9 +10,9 @@ Status: v77 → v78
 |---|---|---|---|
 | domains | 14 | 14 | +0 |
 | themes | 136 | 136 | +0 |
-| units | 119 | 127 | +8 |
-| lessons | 122 | 130 | +8 |
-| items | 57009 | 58322 | +1313 |
+| units | 127 | 127 | +0 |
+| lessons | 130 | 130 | +0 |
+| items | 58322 | 58322 | +0 |
 | scenarios | 107 | 107 | +0 |
 | playlists | 20 | 20 | +0 |
 | speakPath | 31 | 31 | +0 |
@@ -23,7 +23,7 @@ Status: v77 → v78
 
 | | previous | now | delta |
 |---|---|---|---|
-| snapshot bytes | 41567654 | 44298727 | +2731073 |
+| snapshot bytes | 44298727 | 44298727 | +0 |
 
-checksum: aaa95300725db6867695e0c770f8cc212e82a64b82ad54e492a48f5dd83c9b23
+checksum: d18f681dee9a2c95f2951b289a6dadd11a9f283372001580c545a6aff6faf3cb
 content digest: a97f6525c1fdb2bb6ed39573041569c1a04186968c444ba354a50f42d21c6574

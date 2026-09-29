@@ -14,7 +14,8 @@
 // all, so merging this fixture makes the B1 band appear on its own.
 //
 // Remove with the rest of the DEV-PREVIEW-B1 marker (grep for it).
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
+import { seedPlusPacks } from '../../../../ealch-v2/src/content/seed-plus-packs.ts';
 import { BAND_SLUGS, type Band } from '../../b1-import.logic.ts';
 
 /** Every B1 lesson authored, in trail order: the one registry the import
@@ -30,10 +31,12 @@ const SLUGS = BAND_SLUGS;
 // B2 drafts ride in the same fixture (2026-09-27): one overlay, one bypass list
 // (DRAFT_LESSON_IDS), and the Den unlocks whichever band carries drafts.
 
-/** Lesson ids already in the seed, which are therefore no longer drafts. */
+/** Lesson ids already in the seed, which are therefore no longer drafts. Seed
+ *  plus the packs layer: under premium packs seed.json is only the free core,
+ *  and a published B1/B2 lesson lives in the layer, not in seed.json. */
 function seededLessonIds(): Set<string> {
-  const seed = JSON.parse(readFileSync(new URL('../../../../ealch-v2/src/content/seed.json', import.meta.url), 'utf8'));
-  return new Set((seed.lessons ?? []).map((l: { id: string }) => l.id));
+  const seed = seedPlusPacks<{ lessons?: { id: string }[] }>();
+  return new Set((seed.lessons ?? []).map((l) => l.id));
 }
 
 /** The `task` section now has a real renderer (`TaskView`, wired into
