@@ -309,7 +309,7 @@ Plans:
 **Plans**: 6 plans in 4 waves
 
 **Wave 1**
-- [ ] 09-01-PLAN.md — typed events, guest/account identity boundaries, and accepted-capture diagnostics
+- [x] 09-01-PLAN.md — typed events, guest/account identity boundaries, and accepted-capture diagnostics
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 09-02-PLAN.md — resumable wizard, explicit skip/recovery actions, and onboarding/signup milestones
@@ -537,7 +537,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
 | 7.1 Concept C Spine Rewrite (INSERTED) | 11/11 | All plans executed - trail replaces lessonoverview/missions, three-state language control, acte 00, day-one cards, paywall trail positions. Device pass recorded (bd63572, a72f284). Pending gsd-verifier close-out | 2026-09-25 |
 | 8. Accessibility Retrofit | 0/TBD | Not started | - |
-| 9. Onboarding & Analytics Audit | 0/TBD | Not started | - |
+| 9. Onboarding & Analytics Audit | 1/6 | In progress | 09-01 analytics foundation complete; device proof remains |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |
 | 11. Brix Mascot Rive Animation Rollout — Core States | 0/TBD | Not started | - |
 | 12. Brix Mascot Rive Animation Rollout — Delight States | 0/TBD | Not started | - |

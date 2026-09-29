@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 09 plans quality-reviewed; ready to execute 6 plans
-last_updated: "2026-09-29T21:39:53.000Z"
+stopped_at: Phase 09 plan 01 executed; next 09-02
+last_updated: "2026-09-29T22:15:09.000Z"
 last_activity: 2026-09-29
 progress:
   total_phases: 25
   completed_phases: 9
   total_plans: 79
-  completed_plans: 70
-  percent: 89
+  completed_plans: 71
+  percent: 90
 ---
 
 # Project State
@@ -21,20 +21,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 09 - onboarding-analytics-audit (6 plans ready)
+**Current focus:** Phase 09 - onboarding-analytics-audit (1/6 plans executed)
 
 ## Current Position
 
-Phase: 09 (onboarding-analytics-audit) - READY TO EXECUTE
-Plan: 6 plans in 4 waves; next is 09-01
+Phase: 09 (onboarding-analytics-audit) - EXECUTING
+Plan: 1/6 plans executed; next is 09-02
   font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
   07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
   migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal,
   LanguageChip/LanguagePanel in app/lesson.tsx, and answers-not-glosses.test.ts.
-Status: Phase 09 planned; ready for execution
+Status: Phase 09 Plan 01 complete; continue with 09-02
 NOTE: The frontmatter `percent` above measures written plans, not milestone
-  progress. Phase 09 now has 6 unexecuted plans. The figure of record is
+  progress. Phase 09 now has 5 unexecuted plans. The figure of record is
   in ROADMAP.md's "How to read this table". Do not re-add
   percent_basis/percent_note here; the handler has deleted them twice.
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
