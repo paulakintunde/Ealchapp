@@ -51,7 +51,7 @@ export const SI_PASSE_TERMS: Record<string, LessonTerm> = {
   inverse: {
     term: 'l’inverse',
     title: 'Le contraire des faits',
-    body: "Une paire au passé dit ce qui n’a pas eu lieu. Pour retrouver les faits, retourne les deux moitiés : si j’avais su veut dire je ne savais pas. Avec une négation dans la paire, le fait est positif. EN: A past pair states what did not happen; turn both halves over to find the facts.",
+    body: "Avec un si simple, une paire au passé dit ce qui n’a pas eu lieu. Pour retrouver les faits, retourne les deux moitiés : si j’avais su veut dire je ne savais pas. Avec une négation dans la paire, le fait est positif. EN: A past pair states what did not happen; turn both halves over to find the facts.",
     examples: [
       { itemId: E(1400), note: 'donc : je n’ai pas vérifié, j’ai raté le train' },
       { itemId: E(1467), note: 'donc : tu m’as appelé, je n’ai rien raté' },
@@ -66,7 +66,7 @@ export const SI_PASSE_TERMS: Record<string, LessonTerm> = {
     examples: [
       { itemId: E(1454), note: 'un regret complet' },
       { itemId: E(1456), note: 'si seulement : la moitié seule' },
-      { itemId: E(1460), note: 'un regret qu’on pèse, et qu’on ne regrette pas' },
+      { itemId: E(1460), note: 'un regret pesé : ce qu’on a perdu, ce qu’on a gagné' },
     ],
   },
 

@@ -398,8 +398,8 @@ export const ACT2_ROWS: Row[] = [
     "J'___ le devis ce soir. (envoyer · avoir ou être ?)",
     "Envoyer prend avoir. EN: envoyer takes avoir.",
     ['avoir'], FCVDR),
-  rule(1836, 'Le futur de avoir ou être, puis le participe passé.', 'The future of avoir or être, then the past participle.',
-    '/lə fy.tyʁ də a.vwaʁ u ɛtʁ pɥi lə paʁ.ti.sip pa.se/', 'luh fü-TÜR | duh a-VWAR oo EHTR | pwee luh par-tee-seep pa-SAY',
+  rule(1836, "Le futur d'avoir ou d'être, puis le participe passé.", 'The future of avoir or être, then the past participle.',
+    '/lə fy.tyʁ da.vwaʁ u dɛtʁ pɥi lə paʁ.ti.sip pa.se/', 'luh fü-TÜR | da-VWAR oo DEHTR | pwee luh par-tee-seep pa-SAY',
     'Comment se forme le futur antérieur ?',
     "Deux mots, comme au passé composé : seul l'auxiliaire passe au futur.",
     ['forme']),
@@ -586,12 +586,12 @@ export const ACT6_ROWS: Row[] = [
   rule(1905, "When you've finished : quand tu auras fini.", 'When you’ve finished: quand tu auras fini.',
     '/kɑ̃ ty o.ʁa fi.ni/', 'kahⁿ tü oh-ra fee-NEE',
     "L'anglais met un present perfect après when. Et le français ?",
-    "Un futur antérieur, si la chose sera finie plus tard. Le passé composé seulement pour une habitude.",
+    "Un futur antérieur, si la chose sera finie plus tard. Le passé composé pour une habitude ou un fait passé.",
     ['calque']),
-  gap(1906, "Dès que j'aurai eu les résultats, je t'appellerai.", 'As soon as I have had the results, I will call you.',
-    '/dɛ kə ʒo.ʁe y le ʁe.zyl.ta ʒə ta.pɛl.ʁe/', 'deh kuh zhoh-ray Ü lay ray-zül-TA | zhuh ta-pel-RAY',
-    "Dès que j'___ les résultats, je t'appellerai. (avoir · as soon as I've had)",
-    "Le present perfect anglais devient un futur antérieur : j'aurai eu. EN: as soon as I've had.",
+  gap(1906, "Dès que j'aurai reçu les résultats, je t'appellerai.", 'As soon as I have received the results, I will call you.',
+    '/dɛ kə ʒo.ʁe ʁə.sy le ʁe.zyl.ta ʒə ta.pɛl.ʁe/', 'deh kuh zhoh-ray ruh-SÜ lay ray-zül-TA | zhuh ta-pel-RAY',
+    "Dès que j'___ les résultats, je t'appellerai. (recevoir · as soon as I've received)",
+    "Le present perfect anglais devient ici un futur antérieur : j'aurai reçu. EN: as soon as I've received.",
     ['calque', 'des-que']),
   gap(1907, 'Quand tu te seras reposé, on en reparlera.', 'When you have rested, we will talk about it again.',
     '/kɑ̃ ty tə sə.ʁa ʁə.po.ze ɔ̃.nɑ̃ ʁə.paʁ.lə.ʁa/', 'kahⁿ tü tuh suh-ra ruh-poh-ZAY | ohⁿ-nahⁿ ruh-par-luh-RA',
@@ -710,16 +710,16 @@ export const ACT9_ROWS: Row[] = [
   rule(1953, 'Un bilan : tu te places à la fin et tu regardes ce qui aura été fait.', 'A review: you stand at the end and look at what will have been done.',
     '/œ̃ bi.lɑ̃ ty tə plas a la fɛ̃ e ty ʁə.ɡaʁd sə ki o.ʁa e.te fɛ/', 'uhⁿ bee-LAHⁿ | tü tuh PLASS a la FEHⁿ | ay tü ruh-GARD | suh kee oh-ra ay-tay FEH',
     "Pour faire le bilan d'une période, quel temps ?",
-    "Le futur antérieur, même pour une période qui se termine aujourd'hui : cette année aura été difficile.",
+    "Souvent le futur antérieur, qui donne le ton du bilan, même pour une période qui se termine aujourd'hui : cette année aura été difficile. Le passé composé reste possible : cette année a été difficile.",
     ['bilan']),
   gap(1954, 'En trois ans, elle aura changé trois fois de poste.', 'In three years, she will have changed jobs three times.',
     '/ɑ̃ tʁwa.zɑ̃ ɛ.lo.ʁa ʃɑ̃.ʒe tʁwa fwa də pɔst/', 'ahⁿ trwa-ZAHⁿ | eh-loh-ra shahⁿ-ZHAY | trwa fwa duh POST',
-    'En trois ans, elle ___ trois fois de poste. (changer · le bilan)',
+    'En trois ans, elle ___ trois fois de poste. (changer · le bilan, futur antérieur)',
     "Le compte se fait à la fin des trois ans : futur antérieur. EN: counted at the end.",
     ['bilan']),
   gap(1955, 'Ce semestre, nous serons allés trois fois à Québec.', 'This term, we will have been to Québec City three times.',
     '/sə sə.mɛstʁ nu sə.ʁɔ̃.za.le tʁwa fwa a ke.bɛk/', 'suh suh-MESTR | noo suh-rohⁿ-za-LAY | trwa fwa a kay-BEK',
-    'Ce semestre, nous ___ trois fois à Québec. (aller · le compte à la fin)',
+    'Ce semestre, nous ___ trois fois à Québec. (aller · le compte à la fin, futur antérieur)',
     "Aller garde être : nous serons allés. EN: aller keeps être.",
     ['bilan', 'etre'], FCVDR),
   sent(1956, 'Cette année a été difficile.', 'This year has been hard.',
@@ -745,10 +745,10 @@ export const ACT10_ROWS: Row[] = [
     '/sɑ̃ la pan nu sə.ʁjɔ̃ ʁɑ̃.tʁe a.vɑ̃ la nɥi/', 'sahⁿ la PANN | noo suh-ryohⁿ rahⁿ-TRAY | a-vahⁿ la NWEE', ['lettre', 'conditionnel-passe']),
   sent(1965, 'Si tu as fini avant midi, on pourra déjeuner ensemble.', 'If you have finished before noon, we can have lunch together.',
     '/si ty a fi.ni a.vɑ̃ mi.di ɔ̃ pu.ʁa de.ʒø.ne ɑ̃.sɑ̃bl/', 'see tü a fee-NEE a-vahⁿ mee-DEE | ohⁿ poo-RA day-zheu-NAY ahⁿ-SAHⁿBL', ['si', 'passe-compose'], FCVDR),
-  rule(1966, 'Après si, jamais de futur : si tu as fini, pas si tu auras fini.', 'After si, never a future: si tu as fini, not si tu auras fini.',
-    '/a.pʁɛ si ʒa.mɛ də fy.tyʁ si ty a fi.ni pa si ty o.ʁa fi.ni/', 'a-preh SEE | zha-meh duh fü-TÜR | see tü a fee-NEE | pa see tü oh-ra fee-NEE',
+  rule(1966, 'Après le si de condition, jamais de futur : si tu as fini, pas si tu auras fini.', 'After the si of condition, never a future: si tu as fini, not si tu auras fini.',
+    '/a.pʁɛ lə si də kɔ̃.di.sjɔ̃ ʒa.mɛ də fy.tyʁ si ty a fi.ni pa si ty o.ʁa fi.ni/', 'a-preh luh SEE duh kohⁿ-dee-SYOHⁿ | zha-meh duh fü-TÜR | see tü a fee-NEE | pa see tü oh-ra fee-NEE',
     'Si + futur antérieur ?',
-    "Jamais. Pour une chose finie avant, si prend le passé composé : si tu as fini à midi, on déjeunera.",
+    "Jamais quand si pose une condition. Pour une chose finie avant, si prend le passé composé : si tu as fini à midi, on déjeunera. Le si d'une question indirecte, lui, accepte le futur : dis-moi si tu auras fini.",
     ['si']),
   rule(1967, "Aurai + un nom : le futur d'avoir. Aurai + un participe : le futur antérieur.", 'Aurai + a noun: the future of avoir. Aurai + a participle: the futur antérieur.',
     '/o.ʁe œ̃ nɔ̃ lə fy.tyʁ da.vwaʁ o.ʁe œ̃ paʁ.ti.sip lə fy.ty.ʁɑ̃.te.ʁjœʁ/', 'oh-RAY uhⁿ NOHⁿ | luh fü-tür da-VWAR | oh-RAY uhⁿ par-tee-SEEP | luh fü-tü-rahⁿ-tay-RYUHR',
@@ -760,10 +760,10 @@ export const ACT10_ROWS: Row[] = [
     'Demain, à cette heure-ci, tu ___ ta réponse. (recevoir · auras ou aurais ?)',
     "Un moment réel à venir : auras, sans i. EN: a real future moment.",
     ['lettre', 'futur-anterieur']),
-  gap(1969, "Sans ton aide, je n'aurais jamais fini à temps.", 'Without your help, I would never have finished in time.',
-    '/sɑ̃ tɔ̃.nɛd ʒə no.ʁɛ ʒa.mɛ fi.ni a tɑ̃/', 'sahⁿ toh-NED | zhuh noh-reh zha-meh fee-NEE | a TAHⁿ',
-    "Sans ton aide, je n'___ jamais fini à temps. (avoir · aurai ou aurais ?)",
-    "Sans pose une condition : ce qui aurait eu lieu, donc aurais. EN: a condition, so aurais.",
+  gap(1969, "Sans ton aide hier, je n'aurais jamais fini à temps.", 'Without your help yesterday, I would never have finished in time.',
+    '/sɑ̃ tɔ̃.nɛd jɛʁ ʒə no.ʁɛ ʒa.mɛ fi.ni a tɑ̃/', 'sahⁿ toh-NED YEHR | zhuh noh-reh zha-meh fee-NEE | a TAHⁿ',
+    "Sans ton aide hier, je n'___ jamais fini à temps. (avoir · aurai ou aurais ?)",
+    "La condition porte sur le passé (hier) : ce qui aurait eu lieu, donc aurais. EN: an unreal past condition, so aurais.",
     ['lettre', 'conditionnel-passe'], FCVDR),
   sent(1970, "Elles seront parties avant l'aube.", 'They will have left before dawn.',
     '/ɛl sə.ʁɔ̃ paʁ.ti a.vɑ̃ lob/', 'el suh-rohⁿ par-TEE | a-vahⁿ LOHB', ['lettre', 'futur-anterieur']),
@@ -826,11 +826,11 @@ export const dicteeFor = (act: number): string[] =>
 
 /** Act 1: Sophie's project calendar, a Montréal design agency. */
 export const LECTURE_CALENDRIER =
-  "Objet : le calendrier de votre nouveau site. Bonjour Monsieur Diallo, comme promis, voici où nous en serons à chaque étape de la semaine. Lundi soir, nous aurons validé les maquettes avec vous par visioconférence. Mardi et mercredi, Karine intégrera les textes et les photos que vous nous aurez envoyés. Mercredi, l'équipe aura corrigé les dernières erreurs, et Julien lancera les essais sur téléphone. Jeudi, je ne serai pas au bureau : je serai à Toronto pour un autre client, et je ne serai pas encore rentrée quand les essais se termineront. Julien vous écrira dès qu'il aura vérifié chaque page. Vendredi à neuf heures, quand vous arriverez à l'agence, nous aurons tout installé sur notre serveur de démonstration, et vous pourrez naviguer vous-même sur le site. Si vous remarquez un problème, nous le corrigerons dans la journée. Dès que vous aurez signé le bon de livraison, nous mettrons le site en ligne. Une précision : notre graphiste sera parti en vacances la semaine suivante, donc toute modification du logo devra être demandée avant jeudi midi. Une fois que le site sera en ligne, je vous appellerai pour faire le point. Dans trois mois, vous aurez recueilli assez de données pour mesurer ce que le site vous aura apporté. Bien cordialement, Sophie Tremblay.";
+  "Objet : le calendrier de votre nouveau site. Bonjour Monsieur Diallo, comme promis, voici où nous en serons à chaque étape de la semaine. Lundi soir, nous aurons validé les maquettes avec vous par visioconférence. Mardi et mercredi, Karine intégrera les textes et les photos que vous nous aurez envoyés. Mercredi, l'équipe aura corrigé les dernières erreurs, et Julien lancera les essais sur téléphone. Jeudi, je ne serai pas au bureau : je serai à Toronto pour un autre client, et je ne serai pas encore rentrée quand les essais se termineront. Julien vous écrira dès qu'il aura vérifié chaque page. Vendredi à neuf heures, quand vous arriverez à l'agence, nous aurons tout installé sur notre serveur de démonstration, et vous pourrez naviguer vous-même sur le site. Si vous remarquez un problème, nous le corrigerons dans la journée. Dès que vous aurez signé le bon de livraison, nous mettrons le site en ligne. Une précision : notre graphiste sera parti en vacances dès jeudi soir, donc toute modification du logo devra être demandée avant jeudi midi. Une fois que le site sera en ligne, je vous appellerai pour faire le point. Dans trois mois, vous aurez recueilli assez de données pour mesurer ce que le site vous aura apporté. Bien cordialement, Sophie Tremblay.";
 
 /** Act 8: the missed meeting, Liège. */
 export const LECTURE_RDV =
-  "Samedi, midi et quart, au café du Carré, à Liège. Lucie attend Hugo depuis vingt minutes. Ils avaient rendez-vous à midi pour préparer l'anniversaire de leur amie Mélanie, et Hugo n'est jamais en retard. Lucie lui envoie un message : pas de réponse. Elle appelle : messagerie. Elle commence à faire des hypothèses. Il aura oublié, tout simplement. Non, impossible : il lui a encore écrit la veille pour confirmer. Il se sera trompé de café ; il y en a deux avec presque le même nom dans le quartier. Ou alors son tram aura eu du retard, comme souvent le samedi. Son téléphone, lui, se sera déchargé : Hugo oublie toujours de le recharger. À midi et demi, Lucie commande un croque-monsieur et se dit que, de toute façon, elle aura au moins passé un moment tranquille. À midi quarante, Hugo arrive en courant, rouge et essoufflé. « Désolé ! J'étais au bon café, mais dans la salle du fond. Je t'attendais depuis midi moins dix ! » Lucie éclate de rire : pendant tout ce temps, ils étaient à dix mètres l'un de l'autre, et aucune de ses hypothèses n'était la bonne. La prochaine fois, promet Hugo, il enverra une photo de sa table dès qu'il se sera assis.";
+  "Samedi, midi et quart, au café du Carré, à Liège. Lucie attend Hugo depuis vingt minutes. Ils avaient rendez-vous à midi pour préparer l'anniversaire de leur amie Mélanie, et Hugo n'est jamais en retard. Lucie lui envoie un message : pas de réponse. Elle appelle : messagerie. Elle commence à faire des hypothèses. Il aura oublié, tout simplement. Non, impossible : il lui a encore écrit la veille pour confirmer. Il se sera trompé de café ; il y en a deux avec presque le même nom dans le quartier. Ou alors son bus aura eu du retard, comme souvent le samedi. Son téléphone, lui, se sera déchargé : Hugo oublie toujours de le recharger. À midi et demi, Lucie commande un croque-monsieur et se dit que, de toute façon, elle aura au moins passé un moment tranquille. À midi quarante, Hugo arrive en courant, rouge et essoufflé. « Désolé ! J'étais au bon café, mais dans la salle du fond. Je t'attendais depuis midi moins dix ! » Lucie éclate de rire : pendant tout ce temps, ils étaient à dix mètres l'un de l'autre, et aucune de ses hypothèses n'était la bonne. La prochaine fois, promet Hugo, il enverra une photo de sa table dès qu'il se sera assis.";
 
 /** Act 11: the model the learner imitates, a letter to one's future self. */
 export const LECTURE_MODELE =
@@ -850,7 +850,7 @@ export const TEXTE_A6 =
   "Emma, stagiaire anglaise à Genève, écrit à son tuteur. Elle a traduit l'anglais mot à mot : « Quand j'ai fini le rapport, je vous l'envoie. Dès que j'ai eu la réponse du client, je vous appelle. Une fois que vous l'avez lu, dites-moi ce que vous en pensez. Je pars en congé dès que j'ai fermé les dossiers. » Son tuteur lui répond gentiment : « Tout est clair, mais en français, ces actions sont encore à venir. » Réécris le message d'Emma avec le futur antérieur et le futur simple.";
 
 export const TEXTE_A7 =
-  "Compte rendu de la réunion de lundi : les engagements de l'équipe. Mets chaque verbe au futur antérieur. « D'ici mercredi, Samir (contacter) les trois fournisseurs. Avant jeudi midi, Léa et Paul (préparer) le budget, et je (relire) leur tableau. Au plus tard vendredi, nous (envoyer) la proposition au client. D'ici la fin du mois, le client (prendre) sa décision, et nous (fixer) une date pour le lancement. Si un délai ne peut pas être tenu, prévenez-moi dès que vous l'(apprendre). »";
+  "Compte rendu de la réunion de lundi : les engagements de l'équipe. Mets chaque verbe au futur antérieur. « D'ici mercredi, Samir (contacter) les trois fournisseurs. Avant jeudi midi, Léa et Paul (préparer) le budget, et j'(relire) leur tableau. Au plus tard vendredi, nous (envoyer) la proposition au client. D'ici la fin du mois, le client (prendre) sa décision, et nous (fixer) une date pour le lancement. Si un délai ne peut pas être tenu, prévenez-moi dès que vous l'(apprendre). »";
 
 export const TEXTE_A8 =
   "Tu rentres chez toi un samedi soir. Le frigo est vide, la fenêtre de la cuisine est grande ouverte et il y a de la farine partout sur la table. Ton colocataire Malik n'est pas là, et son vélo a disparu de l'entrée. Sur le frigo, il reste un aimant, mais plus aucune liste de courses. Écris quatre hypothèses au futur antérieur pour expliquer la scène, avec faire, oublier, sortir et prendre. Puis choisis celle qui te semble la plus probable, et dis pourquoi.";

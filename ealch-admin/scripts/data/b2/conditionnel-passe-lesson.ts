@@ -247,7 +247,7 @@ const A1_SCENE: Sec<'scene'> = {
     {
       kind: 'break',
       heading: 'Le même pas en arrière, posé sur le passé',
-      body: "Tu devrais regarde devant : c'est un conseil pour la suite. Tu aurais pu regarde derrière : vendredi, une chose était possible, et elle n'a pas été faite. EN: devrais looks ahead; aurais pu looks back at something possible that was not done.",
+      body: "« Tu devrais » regarde devant : c'est un conseil pour la suite. « Tu aurais pu » regarde derrière : vendredi, une chose était possible, et elle n'a pas été faite. EN: devrais looks ahead; aurais pu looks back at something possible that was not done.",
       wrong: { fr: fr(E(1200)), ipa: ipaOf(E(1200)), respell: rsOf(E(1200)), en: en(E(1200)) },
       right: { fr: fr(E(1201)), ipa: ipaOf(E(1201)), respell: rsOf(E(1201)), en: en(E(1201)) },
       coach: `${REFRAME} EN: ${REFRAME_EN}`,
@@ -343,7 +343,7 @@ const A1_USAGES: Sec<'useCases'> = {
   cases: [
     { situation: "Tu t'excuses auprès d'un collègue", fr: fr(E(1202)), en: en(E(1202)) },
     { situation: 'Tu fais un reproche sans humilier', fr: fr(E(1201)), en: en(E(1201)) },
-    { situation: 'Tu racontes un accident évité de peu', fr: fr(E(1212)), en: en(E(1212)) },
+    { situation: 'Tu racontes un ennui évité de justesse', fr: fr(E(1212)), en: en(E(1212)) },
     { situation: 'Tu résumes une dépêche que tu ne peux pas vérifier', fr: fr('fr.b1.journalisme.1093'), en: en('fr.b1.journalisme.1093') },
   ],
   audio: AUDIO,
@@ -429,9 +429,9 @@ const A2_ETRE: Sec<'cardDeck'> = {
   say: REFRAME,
   terms: ['forme'],
   cards: [
-    { head: 'Les verbes de mouvement', label: 'être',
+    { head: 'Les verbes en être', label: 'être',
       fr: fr(E(1219)), sub: rsOf(E(1219)),
-      body: "Aller, venir, partir, arriver, rester, tomber : être, comme au passé composé. EN: movement verbs take être." },
+      body: "Aller, venir, partir, arriver, rester, tomber : être, comme au passé composé. EN: these verbs take être, as in the passé composé." },
     { head: "L'accord", label: 'elle, nous, elles',
       fr: fr(E(1220)), sub: rsOf(E(1220)),
       body: "Avec être, le participe s'accorde avec le sujet : venue, restés, arrivées. À l'oral, rien ne s'entend. EN: with être the participle agrees; you cannot hear it." },
@@ -491,7 +491,7 @@ const A2_ECOUTE: Sec<'listening'> = {
     { q: 'Troisième phrase : quelle erreur ont-ils faite ?', opts: ['une erreur de salle', 'une erreur de date', 'une erreur de train'], correct: 0,
       why: "« Ils se seraient trompés de salle. » EN: the wrong room." },
     { q: 'Quatrième phrase : sans toi, la personne serait-elle venue ?', opts: ['Non', 'Oui'], correct: 0,
-      why: "« Je ne serais pas venu sans toi » : c'est toi qui as tout décidé. EN: you made the difference." },
+      why: "« Je ne serais pas venu sans toi » : c'est toi qui as fait la différence. EN: you made the difference." },
     { q: 'Sixième phrase : quand seraient-elles arrivées ?', opts: ['avant midi', 'après midi'], correct: 0,
       why: "« avant midi ». EN: before noon." },
   ],
@@ -576,8 +576,8 @@ const A3_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Première phrase : peut-on encore appeler la sœur à temps ?', opts: ["Non, le moment est passé", 'Oui, ce soir'], correct: 0,
       why: "« Tu aurais dû » : le moment est derrière. EN: the moment is behind." },
-    { q: 'Deuxième et troisième phrases : le concert a-t-il eu lieu ?', opts: ['Oui, mais sans lui', "Non, il est annulé"], correct: 0,
-      why: "« aurait été », « aurait dansé » : ce qu'il a manqué. EN: what he missed." },
+    { q: 'Deuxième et troisième phrases : de quelle soirée parlent-elles ?', opts: ['d’une soirée passée', 'de ce soir'], correct: 0,
+      why: "« aurait été », « aurait dansé » : le moment est derrière. EN: an evening that is over." },
     { q: 'Quatrième phrase : conseil ou reproche ?', opts: ['un conseil', 'un reproche'], correct: 0,
       why: "« Tu devrais » regarde devant. EN: devrais looks ahead." },
     { q: 'Cinquième et sixième phrases : laquelle parle d’un départ déjà manqué ?', opts: ['la sixième', 'la cinquième'], correct: 0,
@@ -606,13 +606,13 @@ const A3_PAIRES: Sec<'cardDeck'> = {
   cards: [
     { head: 'Un conseil, un reproche', label: 'devant · derrière',
       fr: 'tu devrais · tu aurais dû', sub: '[tü duh-VREH] · [tü oh-reh DÜ]',
-      body: "Tu devrais pousse vers ce qui reste à faire. Tu aurais dû montre ce qui n'a pas été fait. EN: advice looks ahead, reproach looks back." },
+      body: "« Tu devrais » pousse vers ce qui reste à faire. « Tu aurais dû » montre ce qui n'a pas été fait. EN: advice looks ahead, reproach looks back." },
     { head: 'Une envie, un regret', label: 'devant · derrière',
       fr: "j'aimerais · j'aurais aimé", sub: '[zheh-muh-REH] · [zhoh-reh-zeh-MAY]',
       body: "J'aimerais : c'est encore possible. J'aurais aimé : l'occasion est passée. EN: a wish still open, then a wish that is closed." },
     { head: 'Un résultat, deux moments', label: 'ce ou ça',
       fr: 'ce serait · ça aurait été', sub: '[suh suh-REH] · [sah oh-reh-tay-TAY]',
-      body: "Ce serait parle d'aujourd'hui ou de demain. Ça aurait été parle d'hier. Devant aurait, on dit ça. EN: ce before serait, ça before aurait." },
+      body: "« Ce serait » parle d'aujourd'hui ou de demain. « Ça aurait été » parle d'hier. Devant aurait, on dit ça. EN: ce before serait, ça before aurait." },
     { head: 'Le B1 en arrière-plan', label: Cap(COND_REF),
       fr: fr('fr.b1.projets-et-futur.713'), sub: '[tü duh-vreh prahⁿdr rahⁿ-day-voo set suh-MENN]',
       body: "Tout ce que tu as appris au présent a son double au passé : tu aurais dû prendre rendez-vous. EN: every present form has its past twin." },
@@ -694,7 +694,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     trap(E(1233), 'hier soir', 'Hier soir, je resterais bien à la maison.', "Hier soir est fini : on le regarde derrière soi. EN: last night is over."),
     trap(E(1244), 'la prochaine fois', 'La prochaine fois, tu aurais dû me prévenir.', "La prochaine fois n'est pas encore arrivée : rien n'a pu manquer. EN: next time has not come yet."),
     trap(E(1243), 'à ce moment-là', 'À ce moment-là, je devrais appeler.', "Tu montres un instant passé : le conseil arrive trop tard, il devient regret. EN: too late for advice."),
-    trap(E(1242), 'maintenant', 'À ta place, je serais parti maintenant.', "Maintenant est ouvert : il reste temps de partir. EN: there is still time."),
+    trap(E(1242), 'maintenant', 'À ta place, je serais parti maintenant.', "Maintenant est ouvert : il est encore temps de partir. EN: there is still time."),
     trap(E(1241), 'le concert était hier', 'Le concert serait magnifique.', "Il a eu lieu hier : ce qu'il aurait été, tu l'as manqué. EN: it happened; you missed it."),
     trap(E(1237), 'elle attendait hier', 'Hier, tu devrais appeler ta sœur.', "Hier ferme le moment : devrais ne peut plus rien pousser. EN: yesterday closes it."),
   ],
@@ -704,7 +704,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Ce soir, je ... bien au cinéma.', opts: ['irais', 'serais allé'], correct: 0 },
     { promptSay: "Samedi dernier, j'... venir avec vous.", opts: ['aurais aimé', 'aimerais'], correct: 0 },
     { promptSay: "Un jour, j'... vivre à Dakar.", opts: ['aimerais', 'aurais aimé'], correct: 0 },
-    { promptSay: 'À ce moment-là, il ... partir.', opts: ['aurait fallu', 'faudrait'], correct: 0 },
+    { promptSay: 'Hier, à ce moment-là, il ... partir.', opts: ['aurait fallu', 'faudrait'], correct: 0 },
     { promptSay: 'Maintenant, ce ... trop tard.', opts: ['serait', 'aurait été'], correct: 0 },
     { promptSay: "Le concert d'hier ... magnifique.", opts: ['aurait été', 'serait'], correct: 0 },
   ],
@@ -778,7 +778,7 @@ const A4_HISTOIRE: Sec<'story'> = {
     { from: 'narrator', fr: 'Une photo : Samuel à vingt ans, derrière un piano.', en: 'A photo: Samuel at twenty, behind a piano.' },
     { from: 'coach', fr: fr(E(1250)), en: en(E(1250)) },
     { from: 'user', fr: 'Pourtant, tu aimes ton travail.', en: 'And yet you love your job.' },
-    { from: 'coach', fr: "Oui. Je ne dis pas que j'ai eu tort.", en: 'Yes. I am not saying I was wrong.' },
+    { from: 'coach', fr: 'Oui. Et pourtant, je me pose la question.', en: 'Yes. And yet I do wonder.' },
     { from: 'coach', fr: fr(E(1255)), en: en(E(1255)), warn: 'une envie qui ne peut plus se réaliser' },
     { from: 'coach', fr: "Mais le piano, je n'aurais jamais dû l'abandonner.", en: 'But the piano, I should never have given it up.', warn: 'un acte fait, désapprouvé' },
     { from: 'narrator', fr: 'Le regret ne change pas le passé. Il le regarde, et il le juge.', en: 'Regret does not change the past. It looks at it, and judges it.' },
@@ -850,7 +850,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
     grp("Ce que j'ai fait", [
       it(E(1252), 'un poste accepté'),
       it(E(1259), 'une phrase dite'),
-      it(E(1256), 'un départ trop tardif'),
+      it(E(1248), "l'ouverture du regret sur un acte"),
     ], chk("Ici, l'action a-t-elle eu lieu ?",
         ['Oui, et on la regrette', 'Non, jamais'], 0,
         "Je n'aurais pas dû : l'acte est fait, le jugement arrive après. EN: the act happened; the judgement comes later.")),
@@ -872,11 +872,11 @@ const A4_ECOUTE: Sec<'listening'> = {
   lines: [ln(E(1249)), ln(E(1250)), ln(E(1251)), ln(E(1252)), ln(E(1253)), ln(E(1254)), ln(E(1255)), ln(E(1258))],
   questions: [
     { q: 'Première phrase : qui la personne aurait-elle aimé connaître ?', opts: ['son grand-père', 'sa grand-mère', 'son père'], correct: 0,
-      why: "« mon grand-père ». EN: her grandfather." },
+      why: "« mon grand-père ». EN: their grandfather." },
     { q: 'Troisième phrase : où la personne aurait-elle préféré rester ?', opts: ['à Lyon', 'à Montréal'], correct: 0,
-      why: "« rester à Lyon » : elle est donc partie. EN: so she left." },
+      why: "« rester à Lyon » : elle est donc partie. EN: so the speaker left." },
     { q: 'Quatrième phrase : la personne a-t-elle accepté le poste ?', opts: ['Oui, et elle le regrette', 'Non'], correct: 0,
-      why: "« Je n'aurais jamais dû accepter » : l'acte est fait. EN: she did accept." },
+      why: "« Je n'aurais jamais dû accepter » : l'acte est fait. EN: the speaker did accept." },
     { q: "Sixième phrase : de quel instrument s'agit-il ?", opts: ['le piano', 'la guitare', 'le violon'], correct: 0,
       why: "« apprendre le piano ». EN: the piano." },
     { q: 'Dernière phrase : quelle fête auraient-ils préférée ?', opts: ['une fête plus simple', 'une fête plus grande'], correct: 0,
@@ -1082,7 +1082,7 @@ const A5_PIEGE: Sec<'trapDrill'> = {
     trap(E(1264), 'la décision est prise', 'Vous deviez nous consulter.', "Deviez rappelle une règle d'un ton sec ; auriez dû garde la politesse. EN: deviez sounds curt."),
     trap(E(1272), 'la réunion est finie', 'Nous devrions en discuter ensemble.', "La décision est prise : devrions arrive trop tard. EN: too late for devrions."),
     trap(E(1273), "il a lu le courriel", 'Tu ne devrais pas lire ce courriel.', "Il l'a déjà lu : ne devrais pas ne peut plus l'arrêter. EN: it cannot stop him now."),
-    trap(E(1270), "c'est déjà dit à d'autres", 'Vous pourriez me le dire en face.', "C'est trop tard : tu parles de ce qui s'est passé. EN: you are talking about what happened."),
+    trap(E(1270), "il l'a déjà dit à d'autres", 'Vous pourriez me le dire en face.', "C'est trop tard : tu parles de ce qui s'est passé. EN: you are talking about what happened."),
     trap(E(1265), 'le colis est revenu', "Il fallait vérifier l'adresse.", "Il fallait est possible, mais sec. Il aurait fallu reste neutre. EN: il fallait is curt."),
   ],
   drill: [
@@ -1162,7 +1162,7 @@ const A6_HISTOIRE: Sec<'story'> = {
   frSub: 'Deviner, attendre, soupirer',
   setting: 'Liège, un samedi à onze heures. Le plombier devait venir à neuf heures. Tu attends avec Léa, ta colocataire.',
   bubbles: [
-    { from: 'narrator', fr: "Onze heures. Toujours personne à la porte.", en: 'Eleven o clock. Still nobody at the door.' },
+    { from: 'narrator', fr: "Onze heures. Toujours personne à la porte.", en: 'Eleven o’clock. Still nobody at the door.' },
     { from: 'user', fr: 'Il aurait dû arriver à neuf heures.', en: 'He should have arrived at nine.', warn: 'une attente déçue' },
     { from: 'coach', fr: fr(E(1275)), en: en(E(1275)), warn: 'une supposition' },
     { from: 'user', fr: 'Ou il a eu un problème. Il aurait pu appeler, quand même.', en: 'Or he had a problem. He could have called, all the same.' },
@@ -1375,8 +1375,8 @@ const A7_HISTOIRE: Sec<'story'> = {
   id: 'a7-histoire',
   layer: 'core',
   title: 'Il manque un s',
-  frSub: 'Chloé relit ses excuses',
-  setting: "Montréal, mardi matin. Chloé relit son courriel d'excuses avant de l'envoyer. Marc passe derrière elle.",
+  frSub: 'Chloé relit son second message',
+  setting: "Montréal, mardi matin. Chloé t'écrit un second message pour proposer une suite, et elle le relit avant de l'envoyer. Marc passe derrière elle.",
   bubbles: [
     { from: 'user', fr: "J'ai écrit : j'aurai dû t'écrire vendredi.", en: 'I wrote: j’aurai dû t’écrire vendredi.' },
     { from: 'coach', fr: 'Il te manque un s.', en: 'You are missing an s.' },
@@ -1433,7 +1433,7 @@ const A7_ECOUTE: Sec<'listening'> = {
     { q: 'Troisième et quatrième phrases : laquelle est une promesse ?', opts: ['la troisième', 'la quatrième'], correct: 0,
       why: "« aurons », sans i : c'est le futur antérieur. EN: aurons, no i." },
     { q: 'Sixième phrase : la personne est-elle partie ?', opts: ['Non, grâce à un appel', 'Oui'], correct: 0,
-      why: "« Sans ton appel, je serais déjà parti » : l'appel l'a retenue. EN: the call kept her." },
+      why: "« Sans ton appel, je serais déjà parti » : l'appel l'a retenue. EN: the call kept the speaker there." },
     { q: 'Dernière phrase : le courriel est-il arrivé ?', opts: ['Non, il était attendu', 'Oui'], correct: 0,
       why: "« auriez dû recevoir » : une attente déçue. EN: it did not arrive." },
   ],
@@ -1531,7 +1531,7 @@ const A7_TEXTE: Sec<'reading'> = {
   id: 'a7-texte',
   layer: 'core',
   questionsInModal: true,
-  title: 'Dans un texte : la fin du courriel',
+  title: 'Dans un texte : le second message',
   frSub: 'Derrière avec un s, devant sans',
   text: TEXT_EXCUSES,
   glossary: [
@@ -1587,8 +1587,8 @@ const A8_HISTOIRE: Sec<'story'> = {
   frSub: "À l'aéroport d'Abidjan",
   setting: "Abidjan, l'aéroport. Tu arrives au comptoir une minute avant la fermeture. Kouadio, ton ami, t'a conduit par les petites rues.",
   bubbles: [
-    { from: 'coach', fr: fr(E(1306)), en: en(E(1306)) },
-    { from: 'user', fr: fr(E(1313)), en: en(E(1313)), warn: 'sans : la condition en trois mots' },
+    { from: 'coach', fr: 'Une minute plus tard, le comptoir aurait fermé.', en: 'One minute later, the counter would have closed.' },
+    { from: 'user', fr: 'Sans ton raccourci, je serais encore dans les bouchons.', en: 'Without your shortcut, I would still be stuck in traffic.', warn: 'sans : la condition en trois mots' },
     { from: 'coach', fr: fr(E(1309)), en: en(E(1309)) },
     { from: 'user', fr: "À ta place, je n'aurais rien dit.", en: 'In your place, I would not have said anything.' },
     { from: 'coach', fr: "Allez, file. Tu me raconteras.", en: 'Go on, off you go. Tell me all about it.' },
@@ -1708,14 +1708,14 @@ const A8_ERREURS: Sec<'commonErrors'> = {
   layer: 'core',
   swipe: true,
   size: 'lg',
-  title: 'Quatre irréels mal construits',
+  title: 'Quatre irréels à reprendre',
   errors: [
     { wrong: 'Si j’aurais su, j’aurais pris un autre train.', right: fr('fr.b1.projets-et-futur.1352'),
       why: "Normal : les deux moitiés parlent de ce qui n'a pas eu lieu, alors on met le conditionnel partout. Mais après si, jamais de conditionnel. EN: never a conditional after si." },
     { wrong: 'Avec un peu de chance, nous gagnerions hier.', right: fr(E(1302)),
       why: "Hier est fini : le résultat imaginé doit regarder derrière. EN: a past result takes the past conditional." },
-    { wrong: "Heureusement qu'il a freiné, sinon il y avait un accident.", right: fr(E(1305)),
-      why: "L'imparfait raconte ce qui s'est passé. L'accident n'a pas eu lieu : c'est un résultat imaginé. EN: the accident did not happen." },
+    { wrong: "Heureusement qu'il a freiné, sinon il y aurait un accident.", right: fr(E(1305)),
+      why: "Le conditionnel présent imagine maintenant ; l'accident aurait eu lieu au moment du freinage : il y aurait eu. À l'oral, tu entendras aussi « sinon il y avait un accident » : c'est familier, pas faux, mais à l'écrit, prends le conditionnel passé. EN: a past unreal result takes the past conditional; the spoken imparfait is informal, not wrong." },
     { wrong: 'Si tu m’aurais prévenu, je serais venu t’aider.', right: fr('fr.b1.projets-et-futur.1353'),
       why: `Le si refuse le conditionnel, même quand toute la phrase est imaginée. ${Cap(SI_PASSE_REF)} construit cette paire. EN: si refuses the conditional.` },
   ],
@@ -1734,7 +1734,7 @@ const A8_TEXTE: Sec<'reading'> = {
   text: TEXT_AVION,
   glossary: [
     { word: 'failli', en: 'nearly (did)', note: "J'ai failli rater : j'ai presque raté, mais non." },
-    { word: 'bouchons', en: 'traffic jams', note: 'Les embouteillages. Au Québec, on dit aussi le trafic.' },
+    { word: 'bouchons', en: 'traffic jams', note: 'Les embouteillages.' },
   ],
   questions: [
     { q: 'Trouve trois résultats imaginés, et leur condition.', a: "« Sans le raccourci de Kouadio, je serais encore dans les bouchons », « Une minute plus tard, le comptoir aurait fermé », « en partant plus tôt, j'aurais évité tout ça »." },
@@ -1788,7 +1788,7 @@ const A9_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: fr(E(1314)), en: en(E(1314)) },
     { from: 'coach', fr: 'Je vous écoute.', en: 'I am listening.' },
     { from: 'user', fr: "J'aurais aimé savoir si mon dossier est complet.", en: 'I would like to know whether my file is complete.' },
-    { from: 'coach', fr: 'Il manque une photo. Vous en auriez une sur vous, par hasard.', en: 'A photo is missing. You would not have one on you, by any chance.' },
+    { from: 'coach', fr: 'Il manque une photo. Vous en auriez une sur vous, par hasard.', en: 'A photo is missing. You wouldn’t happen to have one on you.' },
     { from: 'narrator', fr: "Le passé ne parle pas d'hier ici. Il ajoute un pas de plus en arrière.", en: 'The past does not talk about yesterday here. It adds one more step back.' },
   ],
   closing: { fr: "J'aurais voulu : la demande la plus prudente, un pas plus loin que je voudrais.", en: 'J’aurais voulu: the most careful request, one step further than je voudrais.' },
@@ -1804,7 +1804,7 @@ const A9_ECHELLE: Sec<'cardDeck'> = {
   layer: 'core',
   size: 'lg',
   sheetId: 'sheet-emplois',
-  title: 'Trois pas en arrière',
+  title: 'Du direct au plus prudent',
   frSub: 'La même demande, de plus en plus prudente',
   hint: 'Quatre cartes. Chaque carte recule un peu plus.',
   audio: REC('rec-b2-02-politesse'),
@@ -1816,7 +1816,7 @@ const A9_ECHELLE: Sec<'cardDeck'> = {
     { head: 'Je voudrais', label: Cap(COND_REF), fr: 'Je voudrais un renseignement.', sub: '[zhuh voo-dreh uhⁿ rahⁿ-seny-MAHⁿ]',
       body: `« ${B108_REFRAME} » C'est la forme normale d'une demande. EN: one step back, the normal request.` },
     { head: 'Je voulais', label: Cap(POLI_REF), fr: 'Je voulais vous demander un renseignement.', sub: '[zhuh voo-leh voo duh-mahⁿ-day uhⁿ rahⁿ-seny-MAHⁿ]',
-      body: `« ${B109_REFRAME} » L'imparfait recule d'un pas de plus. EN: politeness matches the favour.` },
+      body: `« ${B109_REFRAME} » L'imparfait fait le même pas en arrière, par le passé plutôt que par le conditionnel. EN: politeness matches the favour.` },
     { head: "J'aurais voulu", label: 'le conditionnel passé', fr: fr(E(1314)), sub: rsOf(E(1314)),
       body: "Deux pas en arrière : pour un grand service, ou une personne que tu ne veux pas brusquer. EN: two steps back, for real favours." },
   ],
@@ -2053,16 +2053,16 @@ const A10_PIEGE: Sec<'trapDrill'> = {
     trap(E(1335), 'le bilan officiel', "L'accident aurait fait trois blessés.", "Le bilan est officiel : la rédaction signe. EN: the figure is official."),
     trap(E(1328), 'des témoins le disent', 'Plusieurs témoins ont entendu une explosion.', "La rédaction ne l'a pas entendue : elle rapporte. EN: the newsroom did not hear it."),
     trap(E(1338), 'tu étais sur place', 'Les pompiers seraient intervenus vers minuit.', "Tu les as vus : tu signes. EN: you saw them."),
-    trap(E(1330), "la mairie l'affirme", "D'après la mairie, les travaux ont coûté deux millions.", "D'après annonce une source : le verbe prend la même distance. EN: the source calls for distance."),
+    trap(E(1336), 'rien de confirmé', 'Le chanteur a annulé sa tournée.', "Personne ne l'a confirmé : au passé composé, la rédaction signerait une rumeur. EN: unconfirmed, so no guarantee."),
   ],
   drill: [
-    { promptSay: 'Selon la police, le voleur ... entré par la fenêtre.', opts: ['serait', 'est'], correct: 0 },
+    { promptSay: 'Pas encore confirmé : le voleur ... entré par la fenêtre.', opts: ['serait', 'est'], correct: 0 },
     { promptSay: 'Confirmé ce matin : le président ... démissionné.', opts: ['a', 'aurait'], correct: 0 },
-    { promptSay: "D'après la presse, le club ... refusé l'offre.", opts: ['aurait', 'a'], correct: 0 },
+    { promptSay: "Rumeur non confirmée : le club ... refusé l'offre.", opts: ['aurait', 'a'], correct: 0 },
     { promptSay: "Bilan officiel : l'accident ... fait trois blessés.", opts: ['a', 'aurait'], correct: 0 },
-    { promptSay: 'Selon nos informations, rien ... été signé.', opts: ["n'aurait", "n'a"], correct: 0 },
+    { promptSay: 'Information non vérifiée : rien ... été signé.', opts: ["n'aurait", "n'a"], correct: 0 },
     { promptSay: 'Nous étions sur place : les pompiers ... intervenus vers minuit.', opts: ['sont', 'seraient'], correct: 0 },
-    { promptSay: 'Selon un témoin, le conducteur ... perdu le contrôle.', opts: ['aurait', 'a'], correct: 0 },
+    { promptSay: "Un témoin le dit, rien n'est prouvé : le conducteur ... perdu le contrôle.", opts: ['aurait', 'a'], correct: 0 },
     { promptSay: "L'enquête l'a prouvé : l'entreprise ... licencié trente salariés.", opts: ['a', 'aurait'], correct: 0 },
   ],
   steps: STEPS('Qui garantit', 'Ce que le mauvais temps promet'),
@@ -2097,7 +2097,7 @@ const A10_TEXTE: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Quels faits la rédaction garantit-elle ?', a: "L'incendie, l'intervention des pompiers, l'évacuation, le silence de la régie et l'ouverture de l'enquête : tout ce qui est au passé composé." },
-    { q: 'Quelles informations restent à vérifier ?', a: "L'origine du feu, les deux blessés et l'alarme : trois conditionnels passés, chacun avec sa source." },
+    { q: 'Quelles informations restent à vérifier ?', a: "L'origine du feu, les deux blessés et l'alarme : trois conditionnels passés. Deux ont une source nommée ; les blessés, eux, attendent la confirmation des hôpitaux." },
     { q: "Réécris « l'alarme n'aurait pas fonctionné » si la police le confirme.", a: "« L'alarme n'a pas fonctionné » : le fait est vérifié, la rédaction le signe." },
   ],
   audio: REC('rec-b2-02-breve'),
@@ -2121,7 +2121,7 @@ const ACT10: ActDef = {
   act: {
     id: 'act10', title: 'Selon nos informations',
     opener: {
-      line: "Un journaliste ne dit pas « je doute » : il choisit un temps. Ici tu lis, et tu écris, comme lui. EN: A journalist never says « I doubt »: he picks a tense. Here you read and write like him.",
+      line: "Un journaliste ne dit pas « je doute » : il choisit un temps. Ici tu lis, et tu écris, comme lui. EN: A journalist never says « I doubt »: a journalist picks a tense. Here you read and write the same way.",
       imageRef: 'lessons/conditionnel-passe/act10.jpg',
     },
     sections: [],
@@ -2183,7 +2183,7 @@ const A11_USAGES: Sec<'useCases'> = {
   id: 'a11-usages',
   layer: 'core',
   sheetId: 'sheet-emplois',
-  title: 'Cinq phrases pour ta lettre',
+  title: 'Quatre phrases pour ta lettre',
   cases: [
     { situation: 'Tu ouvres la lettre', fr: fr(E(1340)), en: en(E(1340)) },
     { situation: 'Tu regrettes, et tu reproches doucement', fr: fr(E(1341)), en: en(E(1341)) },
@@ -2335,7 +2335,7 @@ const A11_TASK: Sec<'task'> = {
       ref: 'a7-piege' },
     { pattern: "A conditional after si: « si vous m'auriez prévenu », « si j'aurais su ».",
       criterion: 'correction',
-      feedback: "Après si, jamais de conditionnel. Écris « si vous m'aviez prévenu », ou passe par sans : « sans prévenir personne ».",
+      feedback: "Après si, jamais de conditionnel. Écris « si vous m'aviez prévenu », ou passe par sans : « sans un simple appel de votre part, nous aurions... ».",
       ref: 'a8-erreurs' },
     { pattern: "avoir with a verb that takes être, or no agreement with être: « nous aurions restés », « les familles se seraient retrouvé ».",
       criterion: 'correction',
@@ -2385,7 +2385,7 @@ const A11_TASK: Sec<'task'> = {
     "Accept the futur antérieur where it is a real future (« d'ici là, nous aurons préparé le dossier »): that is correct and must not be marked as the j'aurai dû error.",
     "Do not score the subjunctive after « regretter que », « j'aurais aimé que »: it is the ground of lessons 5 and 6 in B2. Accept either mood if the sentence is otherwise sound.",
     "Accept « ç'aurait été » and « ça aurait été » alike.",
-    'Accept regional formulas and settings: Swiss « régie », Belgian « bourgmestre », Québec « arrondissement » and « Veuillez agréer » variants, « Salutations distinguées », « Bien à vous ».',
+    'Accept regional formulas and settings: Swiss « régie », Belgian « bourgmestre », « Veuillez agréer » variants, « Salutations distinguées », « Bien à vous ».',
     'Writer gender is unknown: judge agreement with je for internal consistency only.',
     'The criterion « registre » is about DISTANCE in the reproach and about keeping the conditional on unverified claims, not about vocabulary level alone.',
     'Feedback language: natural B2 French, addressed as « tu », with one short English gloss allowed per comment.',
@@ -2459,12 +2459,12 @@ const A11_PROGRESS: Sec<'progressCheck'> = {
  *  apostrophes, so no answer turns on one. */
 
 type QQ = QuizQuestion;
-const tI = (q: string, prompt: string, answer: string, why: string, ref: string): QQ =>
-  ({ format: 'typeIn', q, prompt, answer, accept: [answer], why, ref });
+const tI = (q: string, prompt: string, answer: string, why: string, ref: string, also: string[] = []): QQ =>
+  ({ format: 'typeIn', q, prompt, answer, accept: [answer, ...also], why, ref });
 const mc = (q: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'mcq', q, opts, correct, why, ref });
-const eS = (prompt: string, answer: string, why: string, ref: string): QQ =>
-  ({ format: 'errorSpot', q: 'Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.', prompt, answer, accept: [answer], why, ref });
+const eS = (prompt: string, answer: string, why: string, ref: string, also: string[] = []): QQ =>
+  ({ format: 'errorSpot', q: 'Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.', prompt, answer, accept: [answer, ...also], why, ref });
 const lC = (q: string, say: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'listenChoose', q, say, opts, correct, why, ref });
 
@@ -2498,7 +2498,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         eS("J'aurais allé au cinéma avec toi.", 'Je serais allé au cinéma avec toi.', "Aller prend être, comme au passé composé. EN: aller takes être.", 'a2-erreurs'),
         eS('Elle serait venu plus tôt.', 'Elle serait venue plus tôt.', "Avec être, l'accord avec le sujet : venue. EN: agreement with être.", 'a2-erreurs'),
         mc("Où se place pas dans « je n'aurais pas dû » ?", ["après l'auxiliaire", 'après le participe', 'avant ne'], 0, "Ne et pas entourent l'auxiliaire. EN: around the auxiliary.", 'a2-etre'),
-        tI('Mets au conditionnel passé.', 'rester · nous', 'nous serions restés', 'serions + restés, accordé. EN: serions plus restés.', 'a2-construire'),
+        tI('Mets au conditionnel passé.', 'rester · nous', 'nous serions restés', 'serions + restés, accordé. EN: serions plus restés.', 'a2-construire', ['nous serions restées']),
         lC('Écoute. Combien de personnes seraient restées ?', fr(E(1226)), ['plusieurs', 'une'], 0, "Le i de serions s'entend. EN: the i is audible.", 'a2-ecoute'),
       ],
     },
@@ -2507,10 +2507,10 @@ const A11_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Tu devrais appeler ta sœur » : de quel moment parle-t-on ?', ['de maintenant ou de plus tard', "d'hier"], 0, "Devrais regarde devant. EN: devrais looks ahead.", 'a3-paires'),
         tI('Recule la phrase dans le temps.', "J'aimerais voir ce film.", "J'aurais aimé voir ce film.", "Aimerais devient aurais aimé. EN: aimerais becomes aurais aimé.", 'a3-choisir'),
-        mc('Hier soir, je ... bien resté à la maison.', ['serais', 'serai', 'suis'], 0, "Hier est fini, et c'est un souhait : serais resté. EN: serais resté.", 'a3-piege'),
+        mc('Un souhait sur hier, pas un fait : « Hier soir, je ... bien resté à la maison. »', ['serais', 'serai', 'suis'], 0, "Hier est fini, et c'est un souhait : serais resté. EN: serais resté.", 'a3-piege'),
         eS('La prochaine fois, tu aurais dû me prévenir.', 'La prochaine fois, tu devrais me prévenir.', "La prochaine fois n'est pas arrivée : le conseil regarde devant. EN: next time is ahead.", 'a3-piege'),
         mc('Devant aurait été, on dit le plus souvent...', ['ça', 'ce'], 0, "Ça aurait été bien. EN: ça.", 'a3-check'),
-        tI('Mets au conditionnel passé.', 'Ce serait bien de partir tôt.', 'Ça aurait été bien de partir tôt.', "Ce serait devient ça aurait été. EN: ce serait becomes ça aurait été.", 'a3-table'),
+        tI('Mets au conditionnel passé.', 'Ce serait bien de partir tôt.', 'Ça aurait été bien de partir tôt.', "Ce serait devient ça aurait été. EN: ce serait becomes ça aurait été.", 'a3-table', ["Ç'aurait été bien de partir tôt."]),
         mc('Laquelle regarde devant ?', ["Un jour, j'aimerais vivre à Dakar.", "À ce moment-là, j'aurais dû appeler."], 0, "Un jour : un moment encore ouvert. EN: still open.", 'a3-table'),
         lC('Écoute. La soirée est-elle passée ?', 'Tu aurais dû venir hier soir.', ['Oui', 'Non'], 0, "Hier soir, et aurais dû : c'est derrière. EN: it is behind.", 'a3-texte'),
       ],
@@ -2522,7 +2522,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI('Exprime le regret avec aimer.', "Je n'ai pas connu mon grand-père.", "J'aurais aimé connaître mon grand-père.", "Aurais aimé + infinitif nu. EN: bare infinitive.", 'a4-construire'),
         eS("J'aurais aimé de connaître mon grand-père.", "J'aurais aimé connaître mon grand-père.", "Pas de de après aimer. EN: no de.", 'a4-erreurs'),
         mc('Tu as accepté un poste, et tu le regrettes. Tu dis...', ["Je n'aurais pas dû accepter ce poste.", "J'aurais aimé accepter ce poste."], 0, "Un acte fait se juge avec devoir au négatif. EN: negative devoir.", 'a4-cartes'),
-        eS('Je regrette de ne pas partir plus tôt hier.', 'Je regrette de ne pas être parti plus tôt hier.', "Une action passée : l'infinitif passé. EN: the past infinitive.", 'a4-erreurs'),
+        eS('Je regrette de ne pas partir plus tôt hier.', 'Je regrette de ne pas être parti plus tôt hier.', "Une action passée : l'infinitif passé. EN: the past infinitive.", 'a4-erreurs', ['Je regrette de ne pas être partie plus tôt hier.']),
         tI('Mets au conditionnel passé.', 'Elle (vouloir) apprendre le piano plus jeune.', 'Elle aurait voulu apprendre le piano plus jeune.', 'aurait + voulu. EN: aurait voulu.', 'a4-ecoute'),
         mc("« J'aurais préféré rester à Lyon. » Où est la personne aujourd'hui ?", ['ailleurs qu’à Lyon', 'à Lyon'], 0, "Préférer nomme le chemin qui n'a pas été pris. EN: the road not taken.", 'a4-construire'),
         lC('Écoute. La personne a-t-elle abandonné le piano ?', "Je n'aurais jamais dû abandonner le piano.", ['Oui', 'Non'], 0, "Je n'aurais jamais dû : l'acte est fait. EN: it happened.", 'a4-texte'),
@@ -2532,7 +2532,7 @@ const A11_QUIZ: Sec<'quiz'> = {
       id: 'r5-reproche', label: 'Le reproche', targets: ['reproche-brutal'],
       questions: [
         mc('Laquelle vise le moins la personne ?', ['il aurait fallu', 'tu aurais dû', 'tu aurais au moins pu'], 0, "Il aurait fallu nomme le travail. EN: the task, not the person.", 'a5-cartes'),
-        tI('Transforme en reproche partagé, avec on.', 'Tu aurais dû en parler avant.', 'On aurait pu en parler avant.', "On partage la faute. EN: shared blame.", 'a5-table'),
+        tI('Transforme en reproche partagé, avec on.', 'Tu aurais dû en parler avant.', 'On aurait pu en parler avant.', "On partage la faute. EN: shared blame.", 'a5-table', ['On aurait dû en parler avant.']),
         mc("Qu'ajoute au moins dans « tu aurais au moins pu répondre » ?", ['de la colère', 'de la politesse'], 0, "Au moins durcit le reproche. EN: it hardens it.", 'a5-table'),
         eS('Hier, vous devriez nous consulter.', 'Hier, vous auriez dû nous consulter.', "Hier est fini : le reproche regarde derrière. EN: yesterday is over.", 'a5-piege'),
         tI('Mets au conditionnel passé.', "Il (falloir) vérifier l'adresse.", "Il aurait fallu vérifier l'adresse.", 'aurait + fallu. EN: aurait fallu.', 'a5-doser'),
@@ -2574,7 +2574,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc("Dans « Sans ton aide, je n'aurais jamais réussi », as-tu réussi ?", ['Oui', 'Non'], 0, "L'irréel imagine le monde sans l'aide. EN: in reality, yes.", 'a8-construire'),
         tI('Mets au conditionnel passé.', 'Avec un peu de chance, nous (gagner).', 'Avec un peu de chance, nous aurions gagné.', 'aurions + gagné. EN: aurions gagné.', 'a8-cartes'),
         mc('Quelle forme prend le verbe après si, pour le passé ?', ['le plus-que-parfait', 'le conditionnel passé'], 0, `Si j'avais su : ${PQP_REF} le construit. EN: the pluperfect.`, 'a8-si'),
-        eS("Heureusement qu'il a freiné, sinon il y avait un accident.", "Heureusement qu'il a freiné, sinon il y aurait eu un accident.", "L'accident n'a pas eu lieu : il y aurait eu. EN: it did not happen.", 'a8-erreurs'),
+        eS("Heureusement qu'il a freiné, sinon il y aurait un accident.", "Heureusement qu'il a freiné, sinon il y aurait eu un accident.", "Le résultat imaginé est au passé : il y aurait eu. EN: a past unreal result takes the past conditional.", 'a8-erreurs'),
         tI('Mets au conditionnel passé.', 'À ta place, je (refuser).', "À ta place, j'aurais refusé.", 'aurais + refusé. EN: aurais refusé.', 'a8-cartes'),
         mc("« Sinon, le vol s'est très bien passé. » Ici, sinon veut dire...", ['à part ça', 'dans le cas contraire'], 0, "Suivi du passé composé, sinon parle du réel. EN: here it means apart from that.", 'a8-texte'),
         lC('Écoute. Avez-vous raté le train ?', fr(E(1306)), ['Non', 'Oui'], 0, "Le retard est imaginé. EN: the delay is imagined.", 'a8-construire'),
@@ -2586,9 +2586,9 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Laquelle est la plus prudente ?', ["J'aurais voulu vous demander un renseignement.", 'Je voudrais un renseignement.', 'Je veux un renseignement.'], 0, "Deux pas en arrière. EN: two steps back.", 'a9-echelle'),
         mc("« J'aurais voulu vous demander un renseignement. » La demande est pour quand ?", ['maintenant', 'hier'], 0, "Le passé ajoute de la distance. EN: distance, not time.", 'a9-histoire'),
         eS("J'aurais aimé de savoir si la salle est libre jeudi.", "J'aurais aimé savoir si la salle est libre jeudi.", "Pas de de après aimer. EN: no de.", 'a9-erreurs'),
-        tI('Recule la demande de deux pas.', 'Je voudrais vous demander un renseignement.', "J'aurais voulu vous demander un renseignement.", 'voudrais devient aurais voulu. EN: aurais voulu.', 'a9-echelle'),
+        tI("Recule la demande d'un pas de plus.",'Je voudrais vous demander un renseignement.', "J'aurais voulu vous demander un renseignement.", 'voudrais devient aurais voulu. EN: aurais voulu.', 'a9-echelle'),
         mc('Tu demandes le sel à un ami. Quelle forme ?', ['Tu pourrais me passer le sel ?', "J'aurais voulu te demander le sel."], 0, "Entre amis, pour le sel, la forme lourde sonne ironique. EN: keep it light.", 'a9-erreurs'),
-        tI('Adoucis la question.', 'Vous avez vu mes clés ?', "Vous n'auriez pas vu mes clés ?", "Le conditionnel passé et la négation n'accusent personne. EN: it accuses nobody.", 'a9-construire'),
+        tI('Adoucis la question.', 'Vous avez vu mes clés ?', "Vous n'auriez pas vu mes clés ?", "Le conditionnel passé et la négation n'accusent personne. EN: it accuses nobody.", 'a9-construire', ["Vous n'auriez pas vu mes clés, par hasard ?", 'Auriez-vous vu mes clés ?']),
         mc('Dans le courriel de Yanis, « vous auriez dû la recevoir » est...', ['un reproche discret', 'un conseil'], 0, "Une attente déçue, dite poliment. EN: a polite letdown.", 'a9-texte'),
         lC('Écoute. Qui parle probablement ?', fr(E(1318)), ["quelqu'un qui écrit une lettre formelle", 'un ami au café'], 0, "Souhaité, précisions : le registre soutenu. EN: formal register.", 'a9-construire'),
       ],
@@ -2599,7 +2599,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('« Le suspect aurait été arrêté. » Est-ce confirmé ?', ['Non', 'Oui'], 0, "Conditionnel passé : rapporté. EN: reported.", 'a10-cartes'),
         tI('Rapporte sans garantir.', 'Le voleur est entré par la fenêtre.', 'Le voleur serait entré par la fenêtre.', "Entrer prend être : serait entré. EN: serait entré.", 'a10-trier'),
         mc('Tu étais sur place et tu as vu les pompiers. Tu écris...', ['Les pompiers sont intervenus vers minuit.', 'Les pompiers seraient intervenus vers minuit.'], 0, "Ce que tu as vu, tu le signes. EN: what you saw, you sign.", 'a10-piege'),
-        eS('Selon la police, le conducteur a perdu le contrôle de son véhicule.', 'Selon la police, le conducteur aurait perdu le contrôle de son véhicule.', "Selon annonce une source : aurait perdu. EN: the source calls for distance.", 'a10-piege'),
+        eS("Le suspect a été arrêté hier soir, mais rien n'est confirmé.", "Le suspect aurait été arrêté hier soir, mais rien n'est confirmé.", "Rien n'est confirmé : la rédaction ne signe pas, donc aurait été arrêté. EN: unconfirmed, so the conditional.", 'a10-piege'),
         mc('« Le suspect serait en fuite » et « le suspect aurait fui » : quelle différence ?', ['un état actuel, puis un fait passé', 'aucune'], 0, "Présent : maintenant ; passé : ce qui se serait produit. EN: now, against what happened.", 'a10-cartes'),
         tI('Rapporte sans garantir.', "L'entreprise a licencié trente salariés.", "L'entreprise aurait licencié trente salariés.", 'a devient aurait. EN: a becomes aurait.', 'a10-trier'),
         mc('Dans la brève de Genève, quel fait la rédaction garantit-elle ?', ["l'ouverture d'une enquête", 'les deux blessés', "l'origine du feu"], 0, "Une enquête a été ouverte : passé composé. EN: passé composé.", 'a10-texte'),
@@ -2609,7 +2609,7 @@ const A11_QUIZ: Sec<'quiz'> = {
     {
       id: 'r11-examen', label: "Comme à l'examen", targets: ['lettre-incomplete'],
       questions: [
-        mc("Style TCF. Choisis la forme correcte : « Sans la grève, nous ... à l'heure. »", ['serions arrivés', 'aurions arrivé', 'serons arrivés', 'arriverions'], 0, "Arriver prend être, accordé ; sans pose la condition. EN: être, agreed.", 'a2-etre'),
+        mc("Style TCF. Choisis la forme correcte : « Sans la grève d'hier, nous ... à l'heure. »", ['serions arrivés', 'aurions arrivé', 'serons arrivés', 'arriverions'], 0, "Arriver prend être, accordé ; sans pose la condition. EN: être, agreed.", 'a2-etre'),
         mc("Style TCF : « L'an dernier, il ... prévenir les habitants plus tôt. »", ['aurait fallu', 'aura fallu', 'faudrait', 'aurait falloir'], 0, "L'an dernier est fini : aurait fallu. EN: aurait fallu.", 'a5-cartes'),
         mc("Style TCF : « Selon le gardien, la décision ... en mai. »", ['aurait été prise', 'aurait été pris', 'serait prendre', 'aura été prise'], 0, "Passif au conditionnel passé, accordé avec décision. EN: agreed with la décision.", 'a10-cartes'),
         mc("Style DELF, la lettre d'Inès : quel est son but principal ?", ["annoncer l'annulation et proposer une suite", 'se plaindre du gardien', 'inviter les voisins à une réunion'], 0, "Elle annonce, regrette, reproche, puis propose. EN: announce and propose.", 'a11-lecture'),
@@ -2690,7 +2690,7 @@ const ACT11: ActDef = {
       imageRef: 'lessons/conditionnel-passe/act11.jpg',
     },
     sections: [],
-    milestone: "Tu as écrit ta lettre et passé l'examen : quatre-vingt-huit questions, onze rounds. EN: You wrote your letter and sat the exam: eighty-eight questions, eleven rounds.",
+    milestone: "Tu as écrit ta lettre et passé l'examen : quatre-vingt-huit questions, onze manches. EN: You wrote your letter and sat the exam: eighty-eight questions, eleven rounds.",
     estScreens: 140,
     restPoints: ['a11-plan', 'a11-scenario', 'a11-mission', 'a11-parler', 'a11-cheat', 'a11-progress', 'a11-quiz'],
   },
@@ -2727,7 +2727,7 @@ const TRIGGER_LIST: ErrorTrigger[] = [
   { id: 'reproche-brutal', description: 'Delivers every reproach at the person (tu, vous, au moins) or in the curt imparfait, never reaching for il aurait fallu, on aurait pu or j’aurais apprécié.', detectOn: ['a5-doser', 'a5-piege', 'a5-check', 'a11-mission'], drill: 'd-reproche', retest: 'd-reproche' },
   { id: 'modal-confondu', description: 'Confuses j’ai dû with j’aurais dû (or pu, voulu), so a supposition becomes an obligation, a success becomes a missed chance, or an attempt disappears.', detectOn: ['a6-construire', 'a6-piege', 'a6-check'], drill: 'd-modaux', retest: 'd-modaux' },
   { id: 'aurai-pour-aurais', description: 'Writes the futur antérieur for a regret or reproach (j’aurai dû), or adds an s to a real future moment, choosing by ear.', detectOn: ['a7-construire', 'a7-piege', 'a7-check', 'a11-mission'], drill: 'd-s', retest: 'd-s' },
-  { id: 'si-conditionnel', description: 'Puts the conditional after si (si j’aurais su), or narrates an unreal past result in the imparfait or the present conditional.', detectOn: ['a8-construire', 'a8-erreurs', 'a8-check', 'a11-mission'], drill: 'd-irreel', retest: 'd-irreel' },
+  { id: 'si-conditionnel', description: 'Puts the conditional after si (si j’aurais su), or narrates an unreal past result in the present conditional (the spoken imparfait, sinon il y avait, is informal and not counted as an error).', detectOn: ['a8-construire', 'a8-erreurs', 'a8-check', 'a11-mission'], drill: 'd-irreel', retest: 'd-irreel' },
   { id: 'politesse-mal-dosee', description: 'Uses the polite past for trivial requests between friends, or reads j’aurais voulu vous demander as a request about yesterday.', detectOn: ['a9-construire', 'a9-erreurs', 'a9-check'], drill: 'd-politesse', retest: 'd-politesse' },
   { id: 'fait-rapporte', description: 'Reports an unverified past event in the passé composé, taking on a guarantee, or hedges a fact the writer witnessed.', detectOn: ['a10-trier', 'a10-piege', 'a10-check', 'a11-mission'], drill: 'd-presse', retest: 'd-presse' },
   { id: 'lettre-incomplete', description: 'Writes the letter with correct forms but missing jobs: no regret, no reported information, no request for the future, or a reproach that closes the door.', detectOn: ['a11-plan', 'a11-scenario', 'a11-mission'], drill: 'd-lettre', retest: 'd-lettre' },
@@ -2785,7 +2785,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     ]),
     table('sheet-forme-etre', 'Avec être : partir', ['Personne', 'Conditionnel passé'], [
       ['je', 'je serais parti, partie'], ['tu', 'tu serais parti, partie'], ['il, elle', 'il serait parti, elle serait partie'],
-      ['nous', 'nous serions partis, parties'], ['vous', 'vous seriez parti, partis'], ['ils, elles', 'ils seraient partis, elles seraient parties'],
+      ['nous', 'nous serions partis, parties'], ['vous', 'vous seriez parti, partie, partis, parties'], ['ils, elles', 'ils seraient partis, elles seraient parties'],
     ]),
     table('sheet-forme-s', 'Aurai ou aurais', ['Forme', 'Temps', 'Quand', 'Exemple'], [
       ["j'aurai fini", 'futur antérieur', 'un moment réel à venir', fr(E(1291))],
@@ -2814,7 +2814,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   sheet('sheet-regret', 'Regretter et reprocher', ['les regrets', "l'échelle du reproche"], [
     teach('sheet-regret-teach', 'Une porte fermée',
       "Le regret regarde une envie restée sans suite (j'aurais aimé, voulu, préféré) ou un acte désapprouvé (je n'aurais pas dû). Le reproche regarde ce que l'autre aurait dû faire : plus la forme s'éloigne de la personne, plus il passe. EN: regret looks at a closed door; a reproach passes better at a distance."),
-    table('sheet-regret-regrets', 'Quatre regrets', ['Forme', 'Ce qu’elle dit', 'Exemple'], [
+    table('sheet-regret-regrets', 'Les regrets', ['Forme', 'Ce qu’elle dit', 'Exemple'], [
       ["j'aurais aimé", 'une envie légère', fr(E(1249))],
       ["j'aurais voulu", 'une volonté déçue', fr(E(1250))],
       ["j'aurais préféré", "l'autre chemin", fr(E(1251))],
@@ -2833,7 +2833,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   sheet('sheet-modaux', 'Devoir, pouvoir, vouloir au passé', ['passé composé ou conditionnel passé'], [
     teach('sheet-modaux-teach', 'Est-ce arrivé',
       "Au passé composé, devoir, pouvoir et vouloir racontent ce qui a eu lieu, ce qu'on a tenté, ou ce qu'on suppose. Au conditionnel passé, ils regardent ce qui aurait dû ou pu avoir lieu. EN: the passé composé happened or was tried; the past conditional did not."),
-    table('sheet-modaux-table', 'Six formes', ['Forme', 'Sens', 'Exemple'], [
+    table('sheet-modaux-table', 'Sept formes', ['Forme', 'Sens', 'Exemple'], [
       ["j'ai dû", 'obligation remplie', fr(E(1277))],
       ['il a dû', 'supposition', fr(E(1275))],
       ["j'aurais dû", 'obligation manquée, attente déçue', fr(E(1278))],
@@ -2929,7 +2929,7 @@ const REC_DESC: Record<string, string> = {
   'rec-b2-02-paires-s': 'The aurai / aurais deck (act 7). One voice. The je pair read naturally, with NO exaggerated [e] against [ɛ]; the nous pair read normally, where the i does the work.',
   'rec-b2-02-s-ecoute': 'REQUIRED FOR THE EAR MISSION (act 7): eight lines, ONE TAKE, ONE VOICE, authored order. The je forms carry no extra help; the learner answers from the meaning and from the nous forms.',
   'rec-b2-02-piege-s': "The audio step plays each card's CORRECT sentence. Six lines, one voice, no lean on the final syllable.",
-  'rec-b2-02-excuses': "Act 7 reading: the end of Chloé's email, ONE VOICE (Chloé), one take.",
+  'rec-b2-02-excuses': "Act 7 reading: Chloé's second message (Tuesday morning), ONE VOICE (Chloé), one take.",
   'rec-b2-02-aeroport': 'Kouadio and you at Abidjan airport (act 8), two voices, one take, breathless and relieved; Kouadio (an Ivorian man) teasing. Quick pace: everything here is imagined and light.',
   'rec-b2-02-irreel': 'The four condition cards (act 8). One voice. A small pause after sans, avec, à ta place and sinon, so the condition is heard as a unit.',
   'rec-b2-02-si': 'The si pair cards (act 8). One voice. Read the si sentences as ordinary sentences, no pause at si: this is recognition, not a drill.',

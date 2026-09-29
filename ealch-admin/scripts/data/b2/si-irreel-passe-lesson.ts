@@ -265,7 +265,7 @@ const A1_SCENE: Sec<'scene'> = {
     },
     {
       kind: 'choice',
-      prompt: 'Quelle phrase parle du train qui vient de partir.',
+      prompt: 'Choisis la phrase qui parle du train qui vient de partir.',
       size: 'lg',
       options: [
         { fr: fr(E(1401)), respell: rsOf(E(1401)), en: en(E(1401)), outcome: 'breaks', audio: AUDIO },
@@ -390,7 +390,7 @@ const A1_USAGES: Sec<'useCases'> = {
 
 const A1_CHECK = actCheck('a1-check', 'Le point : acte 1', [
   ctl('Le message', 'Pourquoi « Si je vérifiais l’horaire » a-t-il inquiété Inès ?',
-    ['parce qu’elle parle de maintenant, comme d’une habitude', 'parce que la phrase est fausse', 'parce qu’elle est trop longue'], 0,
+    ['parce que la phrase parle de maintenant, comme d’une habitude', 'parce que la phrase est fausse', 'parce qu’elle est trop longue'], 0,
     'La forme est juste. C’est le moment qu’elle vise qui ne va pas. EN: the form is right; the moment is wrong.'),
   ctl('Les faits', '« Si le café avait été plein, je serais restée sur le quai. » Le café était-il plein ?',
     ['non', 'oui'], 0,
@@ -481,7 +481,7 @@ const A2_PAIRES: Sec<'cardDeck'> = {
       head: 'Deux formes que tu connais', label: 'l’attelage',
       fr: 'si j’avais pris · j’aurais pris',
       sub: '[see zha-veh PREE] · [zhoh-reh PREE]',
-      body: `Le plus-que-parfait vient de ${PQP_REF}, le conditionnel passé de ${COND_PASSE_REF}. Ici, tu les attelles, et toujours dans cet ordre de moitiés. EN: two forms you already built, now harnessed together.`,
+      body: `Le plus-que-parfait vient de ${PQP_REF}, le conditionnel passé de ${COND_PASSE_REF}. Ici, tu les attelles : le plus-que-parfait toujours après si, le conditionnel passé dans le résultat. EN: two forms you already built, now harnessed together.`,
     },
   ],
 };
@@ -493,7 +493,7 @@ const A2_TABLE: Sec<'tapTable'> = {
   sheetId: 'sheet-paires',
   title: 'Six lignes du système',
   frSub: 'Touche une ligne',
-  cols: ['Devant si', 'Derrière', 'Ce que ça dit'],
+  cols: ['Après si', 'Le résultat', 'Ce que ça dit'],
   rows: [
     {
       cells: ['présent', 'futur', 'ça peut arriver'],
@@ -508,7 +508,7 @@ const A2_TABLE: Sec<'tapTable'> = {
     {
       cells: ['plus-que-parfait', 'conditionnel passé', 'pas arrivé'],
       say: fr(E(1414)),
-      detail: { title: 'La paire du passé', body: 'Le car n’était pas complet, et vous n’avez pas pris le train : on réécrit. EN: the coach was not full and you did not take the train.', say: fr(E(1415)) },
+      detail: { title: 'La paire du passé', body: 'Le car n’était pas complet, et nous n’avons pas pris le train : on réécrit. EN: the coach was not full and we did not take the train.', say: fr(E(1415)) },
     },
     {
       cells: ['présent', 'présent, impératif', 'toujours vrai, ou fais-le'],
@@ -518,7 +518,7 @@ const A2_TABLE: Sec<'tapTable'> = {
     {
       cells: ['plus-que-parfait', 'conditionnel présent', 'une autre leçon'],
       say: 'Si j’avais accepté ce poste, je vivrais à Genève.',
-      detail: { title: 'La paire mixte', body: `Le passé change le présent : ${MIXTE_REF} la construit. Ici, tu la reconnais seulement. EN: a past cause with a present result, built in the next lesson but one.`, say: 'Si j’avais accepté ce poste, je vivrais à Genève.' },
+      detail: { title: 'La paire mixte', body: `Le passé change le présent : ${MIXTE_REF} la construit. Ici, tu la reconnais seulement. EN: a past cause with a present result, built in the next lesson.`, say: 'Si j’avais accepté ce poste, je vivrais à Genève.' },
     },
     {
       cells: ['conditionnel', 'rien', 'interdit'],
@@ -577,7 +577,7 @@ const A2_ECOUTE: Sec<'listening'> = {
     { q: 'Première phrase : de quel moment parle-t-elle ?', opts: ['de demain', 'd’hier', 'd’aujourd’hui, en imaginant'], correct: 0, why: 'Un présent devant, un futur derrière : on prévoit. EN: present then future, so a plan.' },
     { q: 'Troisième phrase : ont-ils pris le train ?', opts: ['non', 'oui'], correct: 0, why: 'Le car n’était pas complet : pas de train. EN: the coach was not full, so no train.' },
     { q: 'Cinquième phrase : sont-ils restés au refuge ?', opts: ['oui', 'non'], correct: 1, why: 'Il ne faisait pas mauvais : ils sont sortis. EN: the weather was fine.' },
-    { q: 'Sixième phrase : fait-il mauvais aujourd’hui ?', opts: ['oui', 'non'], correct: 1, why: 'L’imparfait après si dit que ce n’est pas le cas maintenant. EN: si + imparfait says it is not the case now.' },
+    { q: 'Sixième phrase : le locuteur s’attend-il à du mauvais temps ?', opts: ['oui', 'non'], correct: 1, why: 'L’imparfait après si : une hypothèse qu’on n’attend pas, ou qui n’est pas le cas. EN: si + imparfait: not expected, or not the case.' },
     { q: 'Septième phrase : Ousmane a-t-il accepté ?', opts: ['non', 'oui'], correct: 0, why: 'La paire du passé retourne les faits : il a refusé. EN: he said no.' },
   ],
   audio: REC('rec-b2-03-trois-ecoute'),
@@ -670,7 +670,7 @@ const A3_HISTOIRE: Sec<'story'> = {
     { from: 'coach', fr: 'Si vous ne vous étiez pas trompés de route, vous seriez arrivés à temps.', en: 'If you had not taken the wrong road, you would have arrived in time.', warn: 'Pronominal, et la négation autour' },
     { from: 'narrator', fr: 'Les Martin finissent la nuit dans un gîte, à dix kilomètres.', en: 'The Martins end up spending the night in a guest house ten kilometres away.' },
   ],
-  closing: { fr: 'Devant si, l’auxiliaire du passé composé, mis à l’imparfait.', en: 'In front: the passé composé auxiliary, put into the imparfait.' },
+  closing: { fr: 'Dans la moitié si, l’auxiliaire du passé composé, mis à l’imparfait.', en: 'In the si half: the passé composé auxiliary, put into the imparfait.' },
   audio: REC('rec-b2-03-hotel'),
   say: REFRAME,
   terms: ['condition'],
@@ -758,7 +758,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   title: 'La moitié si qui déraille',
   frSub: 'Six phrases, six réflexes',
   rule: {
-    title: 'Devant si, un plus-que-parfait, et rien d’autre',
+    title: 'Après si, un plus-que-parfait, et rien d’autre',
     body: "Ni conditionnel, ni imparfait pour hier, ni auxiliaire inventé. Si ta moitié si ne sonne pas comme un passé composé mis à l’imparfait, recommence-la. EN: the si half is a passé composé moved into the imparfait, nothing else.",
   },
   cards: [
@@ -780,7 +780,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Si elle ... du code, elle serait entrée tout de suite.', opts: ['avait souvenu', 's’était souvenue'], correct: 1 },
   ],
   steps: [
-    { label: 'La règle', kind: 'rule', title: 'Devant si, un plus-que-parfait' },
+    { label: 'La règle', kind: 'rule', title: 'Après si, un plus-que-parfait' },
     { label: 'Six cartes', kind: 'cards', title: 'Ce que la main écrit trop vite' },
     { label: 'Écoute', kind: 'audio', title: 'Écoute les six phrases correctes' },
     { label: 'À toi', kind: 'drill', title: 'Huit phrases', gate: true },
@@ -886,7 +886,7 @@ const A4_HISTOIRE: Sec<'story'> = {
     { from: 'coach', fr: 'Si je l’avais su, je l’aurais apportée.', en: 'If I had known, I would have brought it.', warn: 'L’accord avec le pronom : apportée' },
     { from: 'narrator', fr: 'Trois résultats, deux auxiliaires, et une guitare restée à la maison.', en: 'Three results, two auxiliaries, and a guitar left at home.' },
   ],
-  closing: { fr: 'Derrière, avoir ou être au conditionnel, puis le participe.', en: 'Behind: avoir or être in the conditional, then the participle.' },
+  closing: { fr: 'Dans le résultat, avoir ou être au conditionnel, puis le participe.', en: 'In the result: avoir or être in the conditional, then the participle.' },
   audio: REC('rec-b2-03-diner'),
   say: REFRAME,
   terms: ['resultat'],
@@ -1043,7 +1043,7 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
     'J’aurais pris, je serais venu. EN: conditional auxiliary plus participle.'),
   ctl('Le s', '« Je serai venu » : que dit cette forme ?',
     ['un futur antérieur, qui parle de demain', 'un regret sur hier', 'un conditionnel passé'], 0,
-    'Sans s, c’est un futur. EN: without the s it is a future.'),
+    'Sans s, c’est un futur antérieur. EN: without the s it is a future perfect.'),
   ctl('Les modaux', 'Comment dis-tu « we would have had to sleep there » ?',
     ['nous aurions dû y dormir', 'nous devrions y dormir'], 0,
     'Devoir au conditionnel passé. EN: devoir in the past conditional.'),
@@ -1079,7 +1079,7 @@ const A5_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: 'Si j’étais arrivé à l’heure, nous aurions commencé ensemble.', en: 'If I had arrived on time, we would have started together.', warn: 'Un regret : je' },
     { from: 'coach', fr: 'Si tu m’avais prévenue, j’aurais changé l’ordre.', en: 'If you had warned me, I would have changed the order.', warn: 'Un reproche, adouci par je' },
     { from: 'user', fr: 'Si seulement j’avais pris le train d’avant.', en: 'If only I had taken the earlier train.', warn: 'Si seulement : la moitié seule' },
-    { from: 'coach', fr: 'Si nous avions répété la veille, personne ne l’aurait remarqué.', en: 'If we had rehearsed the day before, nobody would have noticed.', warn: 'Nous : un regret partagé' },
+    { from: 'coach', fr: 'Si nous avions répété la veille, personne n’aurait remarqué ton retard.', en: 'If we had rehearsed the day before, nobody would have noticed you were late.', warn: 'Nous : un regret partagé' },
     { from: 'narrator', fr: 'Chacun dit ce qu’il aurait pu faire, et la conversation passe à la prochaine fois.', en: 'Each says what they could have done, and the talk moves on to next time.' },
   ],
   closing: { fr: 'Je pour le regret, tu pour le reproche : la paire, elle, ne change pas.', en: 'Je for a regret, tu for a reproach: the pair itself does not change.' },
@@ -1270,7 +1270,7 @@ const A6_HISTOIRE: Sec<'story'> = {
     { from: 'coach', fr: 'Sans mon appel, tu aurais raté le train.', en: 'Without my call, you would have missed the train.', warn: 'Sans + nom : une condition négative' },
     { from: 'user', fr: fr(E(1467)), en: en(E(1467)), warn: 'Tu m’as appelé, je ne l’ai pas raté' },
     { from: 'coach', fr: 'Et si tu l’avais raté, tu aurais manqué le mariage de ta sœur.', en: 'And if you had missed it, you would have missed your sister’s wedding.', warn: 'Une chaîne : un si en appelle un autre' },
-    { from: 'narrator', fr: 'Deux négations, deux faits heureux : l’appel a eu lieu, le train n’a pas été raté.', en: 'Two negatives, two happy facts: the call happened and the train was not missed.' },
+    { from: 'narrator', fr: 'Une négation, deux faits heureux : l’appel a eu lieu, le train n’a pas été raté.', en: 'One negative, two happy facts: the call happened and the train was not missed.' },
   ],
   closing: { fr: 'Une négation dans la paire annonce ce qui s’est bien passé.', en: 'A negative inside the pair announces what went well.' },
   audio: REC('rec-b2-03-lausanne'),
@@ -1296,13 +1296,13 @@ const A6_CARTES: Sec<'cardDeck'> = {
       head: 'La paire négative', label: 'le soulagement',
       fr: fr(E(1467)),
       sub: rsOf(E(1467)),
-      body: "Tu ne m’avais pas appelé : faux, tu m’as appelé. J’aurais raté : faux, je ne l’ai pas raté. Deux négations retournées, deux bonnes nouvelles. EN: turn both halves over: two pieces of good news.",
+      body: "Tu ne m’avais pas appelé : faux, tu m’as appelé. J’aurais raté : faux, je ne l’ai pas raté. Deux moitiés retournées, deux bonnes nouvelles. EN: turn both halves over: two pieces of good news.",
     },
     {
       head: 'Sans + nom', label: 'la version courte',
       fr: fr(E(1475)),
       sub: rsOf(E(1475)),
-      body: "Sans ton appel veut dire si tu n’avais pas appelé. C’est plus court, et très courant à l’écrit. EN: sans + noun stands for a negative si half.",
+      body: "Sans ton appel veut dire si tu ne m’avais pas appelé. C’est plus court, et très courant. EN: sans + noun stands for a negative si half.",
     },
     {
       head: 'Presque arrivé', label: 'j’ai failli',
@@ -1335,7 +1335,7 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk('Dans ces quatre histoires, le pire est-il arrivé ?',
       ['non, il a été évité', 'oui, chaque fois'], 0,
       'Chaque négation retournée donne un fait positif : il a senti, elle a freiné. EN: every negative turns into a positive fact.')),
-    grp('Trois façons de le dire', [
+    grp('Quatre façons de le dire', [
       it(E(1467), 'la paire complète'),
       it(E(1475), 'sans + nom'),
       it(E(1474), 'j’ai failli'),
@@ -1368,7 +1368,7 @@ const A6_ECOUTE: Sec<'listening'> = {
     { q: 'Deuxième phrase : le cycliste a-t-il été renversé ?', opts: ['oui', 'non'], correct: 1, why: 'Elle a freiné. EN: she braked.' },
     { q: 'Troisième phrase : sont-ils partis sans les passeports ?', opts: ['non', 'oui'], correct: 0, why: 'Ils ont relu la liste. EN: they reread the list.' },
     { q: 'Cinquième phrase : portait-il sa ceinture ?', opts: ['non', 'oui'], correct: 1, why: 'Sans sa ceinture : il l’avait, donc il n’a pas été gravement blessé. EN: he had it on.' },
-    { q: 'Septième phrase : le conducteur a-t-il freiné à temps ?', opts: ['non', 'oui'], correct: 0, why: 'Ici la paire est positive : il n’a pas freiné plus tôt, et quelque chose est arrivé. EN: a positive pair, so the facts are negative.' },
+    { q: 'Septième phrase : le conducteur a-t-il freiné à temps ?', opts: ['non', 'oui'], correct: 0, why: 'Ici la condition est positive : il n’a pas freiné plus tôt, et quelque chose est arrivé. EN: a positive condition, so that fact is negative.' },
   ],
   audio: REC('rec-b2-03-chance-ecoute'),
   say: REFRAME,
@@ -1404,7 +1404,7 @@ const A6_TEXTE = texte('a6-texte', 'La casserole oubliée', TEXTE_FUMEE,
 const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
   ctl('Retourner', '« Si tu ne m’avais pas appelé, j’aurais raté le train. » Que s’est-il passé ?',
     ['tu m’as appelé, et je n’ai pas raté le train', 'tu ne m’as pas appelé, et j’ai raté le train'], 0,
-    'Les deux négations se retournent en faits positifs. EN: both negatives turn into positive facts.'),
+    'Les deux moitiés se retournent : tu m’as appelé, je n’ai pas raté le train. EN: both halves turn over into the facts.'),
   ctl('Sans', '« Sans ton aide » remplace quelle moitié si ?',
     ['si tu ne m’avais pas aidé', 'si tu m’avais aidé', 'si tu m’aidais'], 0,
     'Sans + nom : une condition négative. EN: a negative condition.'),
@@ -1445,7 +1445,7 @@ const A7_HISTOIRE: Sec<'story'> = {
     { from: 'coach', fr: 'Si je t’avais prévenu plus tôt, tu aurais trouvé une excuse.', en: 'If I had told you sooner, you would have found an excuse.', warn: 'Si devant : une virgule' },
     { from: 'user', fr: 'Dis-moi ce que tu aurais fait à ma place.', en: 'Tell me what you would have done in my place.' },
     { from: 'coach', fr: 'Je serais venu, même sans billet.', en: 'I would have come, even without a ticket.' },
-    { from: 'narrator', fr: 'Quatre phrases, deux ordres, et aucune moitié n’a changé de temps.', en: 'Four sentences, two orders, and no half changed its tense.' },
+    { from: 'narrator', fr: 'Trois paires, deux ordres, et aucune moitié n’a changé de temps.', en: 'Three pairs, two orders, and no half changed its tense.' },
   ],
   closing: { fr: 'Ce qui compte vient en premier. Les temps, eux, restent à leur place.', en: 'What matters comes first. The tenses stay where they are.' },
   audio: REC('rec-b2-03-concert'),
@@ -1477,7 +1477,7 @@ const A7_CARTES: Sec<'cardDeck'> = {
       head: 'Le résultat devant', label: 'aucune virgule',
       fr: fr(E(1481)),
       sub: rsOf(E(1481)),
-      body: "Le résultat ouvre, et rien ne sépare les deux moitiés. On met en avant ce qui aurait pu être. EN: the result opens, and nothing separates the halves.",
+      body: "Le résultat ouvre, et le plus souvent rien ne sépare les deux moitiés. On met en avant ce qui aurait pu être. EN: the result opens, and usually nothing separates the halves.",
     },
     {
       head: 'Si en second', label: 'le piège',
@@ -1507,7 +1507,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1481), 'le résultat devant'),
       it('fr.b2.maison.085', 'le résultat devant'),
       it(E(1483), 'le résultat devant'),
-    ], chk('Quand tu retournes une phrase, que change-t-il ?',
+    ], chk('Quand tu retournes une phrase, qu’est-ce qui change ?',
       ['l’ordre et la virgule, pas les temps', 'les temps aussi'], 0,
       'Chaque moitié garde son temps, où qu’elle soit. EN: each half keeps its tense.')),
     grp('Le résultat d’abord', [
@@ -1520,7 +1520,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       'La moitié si arrive en second et garde son temps. EN: the si half comes second and keeps its tense.')),
     ctl('La virgule', '« J’aurais accepté si tu me l’avais demandé. » Faut-il une virgule avant si ?',
       ['non', 'oui'], 0,
-      'Le résultat devant : rien entre les deux moitiés. EN: result first, no comma.'),
+      'Le résultat devant : le plus souvent, rien entre les deux moitiés. EN: result first, usually no comma.'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1566,7 +1566,7 @@ const A7_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Nous serions venus, si nous avions été invités.',
       right: 'Nous serions venus si nous avions été invités.',
-      why: "Normal : en anglais, une virgule passe souvent. En français, quand le résultat ouvre, rien ne sépare les deux moitiés. EN: result first, no comma in French.",
+      why: "Normal : en anglais, une virgule passe souvent. En français, quand le résultat ouvre, le plus souvent rien ne sépare les deux moitiés. EN: result first, usually no comma in French.",
     },
     {
       wrong: 'Si tu me l’avais demandé j’aurais accepté.',
@@ -1593,7 +1593,7 @@ const A7_TEXTE = texte('a7-texte', 'Le discours de départ', TEXTE_DISCOURS,
     { q: 'Trouve : combien de phrases commencent par le résultat ?', a: "Trois : je serais partie, je n’aurais jamais tenu, je n’aurais pas appris. Celle sur Paul commence par si, avec une virgule." },
     { q: 'Explique : pourquoi mettre le résultat en tête, dans un discours de remerciement ?', a: "Il met en avant ce que les collègues ont rendu possible : ce qu’elle aurait perdu sans eux." },
     { q: 'Réécris : retourne la phrase sur Paul.', a: "J’aurais travaillé dans le couloir pendant six mois si Paul ne m’avait pas prêté son bureau." },
-    { q: 'Complète : dans « si Nadia ne m’avait pas montré », peut-on écrire « si Nadia ne m’aurait pas montré » ? Pourquoi ?', a: "Non. Même en second, la moitié si garde le plus-que-parfait." },
+    { q: 'Explique : dans « si Nadia ne m’avait pas montré », peut-on écrire « si Nadia ne m’aurait pas montré » ? Pourquoi ?', a: "Non. Même en second, la moitié si garde le plus-que-parfait." },
   ],
   'rec-b2-03-discours', ['condition', 'resultat']);
 
@@ -1641,10 +1641,10 @@ const A8_HISTOIRE: Sec<'story'> = {
   setting: 'Inès fête ses dix ans à Montréal. Sa mère, venue de Lyon, lève son verre.',
   bubbles: [
     { from: 'coach', fr: 'Même si tu avais raté dix trains, tu aurais fini ici.', en: 'Even if you had missed ten trains, you would have ended up here.', warn: 'Même si : le résultat aurait été le même' },
-    { from: 'user', fr: fr(E(1499)), en: en(E(1499)), warn: 'Sauf si : la seule exception' },
+    { from: 'user', fr: 'Je n’aurais jamais quitté Lyon, sauf si on m’avait proposé de venir à Montréal.', en: 'I would never have left Lyon, unless someone had asked me to come to Montréal.', warn: 'Sauf si : la seule exception' },
     { from: 'coach', fr: 'Et on te l’a proposé.', en: 'And someone did offer it to you.' },
     { from: 'user', fr: 'Même si j’avais su pour les hivers, je serais venue.', en: 'Even if I had known about the winters, I would have come.', warn: 'Même si : je serais venue quand même' },
-    { from: 'narrator', fr: 'Une concession, une exception, et un poste qui a bel et bien été proposé.', en: 'A concession, an exception, and a job that really was offered.' },
+    { from: 'narrator', fr: 'Une concession, une exception, et une proposition qui a bel et bien été faite.', en: 'A concession, an exception, and an offer that really was made.' },
   ],
   closing: { fr: 'Même si : rien n’aurait changé. Sauf si : une seule chose aurait tout changé.', en: 'Même si: nothing would have changed. Sauf si: one thing alone would have changed everything.' },
   audio: REC('rec-b2-03-anniversaire'),
@@ -1682,7 +1682,7 @@ const A8_CARTES: Sec<'cardDeck'> = {
       head: 'La seule exception', label: 'sauf si',
       fr: fr(E(1499)),
       sub: rsOf(E(1499)),
-      body: "Sauf si + plus-que-parfait nomme la seule condition qui aurait tout changé. Tout le reste n’aurait rien fait. EN: sauf si names the one condition that would have changed everything.",
+      body: "Sauf si + plus-que-parfait nomme la seule condition qui aurait tout changé. Rien d’autre n’aurait compté. EN: sauf si names the one condition that would have changed everything.",
     },
     {
       head: 'Dans un récit', label: 'sauf si rapporté',
@@ -1725,7 +1725,7 @@ const A8_TABLE: Sec<'tapTable'> = {
     {
       cells: ['sauf si + PQP', 'conditionnel passé', 'la seule exception'],
       say: fr(E(1501)),
-      detail: { title: 'Sauf si, au passé', body: 'Une seule condition aurait tout changé, et elle n’a pas eu lieu. EN: one condition would have changed it all, and it did not happen.', say: fr(E(1499)) },
+      detail: { title: 'Sauf si, au passé', body: 'Une seule condition aurait tout changé. Le contexte dit si elle a eu lieu : pour Lyon, oui ; pour la mairie, non. EN: one condition would have changed it all; the context tells you whether it happened.', say: fr(E(1499)) },
     },
     {
       cells: ['sauf si + imparfait', 'dans un récit', 'une annonce rapportée'],
@@ -1756,8 +1756,8 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       'Même si : la condition ne pèse rien sur le résultat. EN: the condition weighs nothing.')),
     grp('Réel ou imaginé', [
       it(E(1496), 'il a vraiment plu'),
-      it(E(1498), 'ils n’ont pas couru'),
-      it(E(1507), 'il n’est pas parti plus tôt'),
+      it(E(1498), 'nous n’avons pas couru'),
+      it(E(1507), 'je ne suis pas parti plus tôt'),
       it(B110(1347), 'demain, la course aura lieu'),
     ], chk('Laquelle concède un fait réel du passé ?',
       [fr(E(1496)), fr(E(1498)), fr(E(1507))], 0,
@@ -1780,7 +1780,7 @@ const A8_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six phrases, six réflexes',
   rule: {
     title: 'Même si et sauf si suivent la règle de si',
-    body: "Derrière même si et sauf si, jamais de conditionnel : un plus-que-parfait pour hier, un imparfait dans un récit rapporté. Le résultat, lui, reste au conditionnel passé. EN: même si and sauf si obey the si rule.",
+    body: "Derrière même si et sauf si, jamais de conditionnel : un plus-que-parfait pour hier, un imparfait dans un récit rapporté. Le résultat imaginé, lui, prend le conditionnel passé. EN: même si and sauf si obey the si rule.",
   },
   cards: [
     { promptLabel: 'même si + conditionnel', promptSound: 'Même si j’aurais su, je serais venu.', fr: fr(E(1494)), ipa: ipaOf(E(1494)), tip: 'Même si est un si : j’avais su. EN: même si is still si.' },
@@ -1820,7 +1820,7 @@ const A8_TEXTE = texte('a8-texte', 'Le marathon sous la pluie', TEXTE_MARATHON,
   [
     { q: 'Trouve : « Même s’il avait plu toute la nuit » : a-t-il plu ? La course a-t-elle eu lieu ?', a: "Oui et oui. Avec un passé composé derrière, même si concède un fait réel." },
     { q: 'Explique : « sauf si la rivière débordait » : pourquoi l’imparfait ?', a: "C’est l’annonce de jeudi, rapportée : « sauf si la rivière déborde » devient « sauf si la rivière débordait ». Ce n’est pas une hypothèse sur hier." },
-    { q: 'Inférence : Karine aurait-elle couru s’il avait fait beau ?', a: "Oui. Même si dit que le résultat aurait été le même." },
+    { q: 'Inférence : si Karine avait su qu’il pleuvrait autant, serait-elle restée chez elle ?', a: "Non. Même si dit que le résultat aurait été le même : elle serait venue." },
     { q: 'Complète pour le mari : « Même si on l’avait payé, ... »', a: "Il n’aurait pas couru." },
   ],
   'rec-b2-03-marathon', ['memeSi', 'saufSi']);
@@ -1898,7 +1898,7 @@ const A9_CARTES: Sec<'cardDeck'> = {
       head: 'La faute célèbre', label: 'si j’aurais su',
       fr: fr(E(1508)),
       sub: rsOf(E(1508)),
-      body: "On entend si j’aurais su dans la rue et au cinéma. À l’écrit et à l’examen, c’est toujours si j’avais su. EN: you hear it in the street; you always write si j’avais su.",
+      body: "On entend si j’aurais su dans la rue et au cinéma, mais c’est une faute : on dit et on écrit si j’avais su. EN: you hear it in the street, but it is a mistake; say and write si j’avais su.",
     },
     {
       head: 'Le s qui manque', label: 'serai ou serais',
@@ -1991,7 +1991,7 @@ const A9_TABLE: Sec<'tapTable'> = {
     {
       cells: ['se demander si + conditionnel', 'une question rapportée', 'permis'],
       say: fr(E(1522)),
-      detail: { title: 'Le conditionnel permis', body: 'Ce si ne pose aucune condition : il rapporte une question sur un futur passé. EN: the conditional is allowed after whether.', say: fr('fr.b1.conseils-et-suggestions.1105') },
+      detail: { title: 'Le conditionnel permis', body: 'Ce si ne pose aucune condition : il rapporte une question sur un futur vu du passé. EN: the conditional is allowed after whether.', say: fr('fr.b1.conseils-et-suggestions.1105') },
     },
   ],
   audio: AUDIO,
@@ -2024,9 +2024,9 @@ const A9_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Si j’avais fini, je ... parti.', opts: ['serais', 'serai'], correct: 0 },
     { promptSay: 'Quand j’étais petit, si j’avais fini mes devoirs, j’... le droit de sortir.', opts: ['aurais eu', 'avais'], correct: 1 },
     { promptSay: 'Si tu ... venir, ça aurait été parfait.', opts: ['avais pu', 'pouvais'], correct: 0 },
-    { promptSay: 'Je me demandais si elle ... le temps.', opts: ['aurait', 'avait eu'], correct: 0 },
+    { promptSay: 'Je me demandais si elle ... le temps.', opts: ['aurait', 'aura'], correct: 0 },
     { promptSay: 'Si j’avais su que tu ... malade, je serais passé te voir.', opts: ['es', 'étais'], correct: 1 },
-    { promptSay: 'Il a dit que si j’avais fini, je ... partir.', opts: ['pouvais', 'aurais pu'], correct: 0 },
+    { promptSay: 'Il a dit : « Si tu as fini, tu peux partir. » Il a dit que si j’avais fini, je ... partir.', opts: ['pouvais', 'aurais pu'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Regarde devant si, puis derrière' },
@@ -2231,8 +2231,8 @@ const A10_SCENARIO: Sec<'scenario'> = {
   turns: [
     {
       ai: 'Bonsoir, vous êtes en direct. Quel moment de votre vie voulez-vous refaire ?', en: 'Good evening, you are on air. Which moment of your life do you want to redo?',
-      user: 'Mon premier emploi. J’ai refusé un poste à Québec à vingt-deux ans.',
-      userEn: 'My first job. I turned down a post in Québec City at twenty-two. (The fact first, in the passé composé.)',
+      user: 'Ma première offre d’emploi. J’ai refusé un poste à Québec à vingt-deux ans.',
+      userEn: 'My first job offer. I turned down a post in Québec City at twenty-two. (The fact first, in the passé composé.)',
       alts: [
         { fr: 'Un départ raté : à vingt-deux ans, j’ai dit non à Québec.', en: 'A departure that never happened: at twenty-two, I said no to Québec City.' },
         { fr: 'Le jour où j’ai refusé mon premier contrat.', en: 'The day I turned down my first contract.' },
@@ -2258,11 +2258,11 @@ const A10_SCENARIO: Sec<'scenario'> = {
     },
     {
       ai: 'Qu’est-ce qui vous a retenu ?', en: 'What held you back?',
-      user: 'Ma mère était malade. Sans elle, je serais parti.',
-      userEn: 'My mother was ill. Without her, I would have left. (Sans + noun: a negative condition.)',
+      user: 'Ma mère était malade. Sans sa maladie, je serais parti.',
+      userEn: 'My mother was ill. Without her illness, I would have left. (Sans + noun: a negative condition.)',
       alts: [
         { fr: 'Si ma mère n’avait pas été malade, je serais parti.', en: 'If my mother had not been ill, I would have left.' },
-        { fr: 'Je serais parti, sauf si ma mère avait eu besoin de moi, et c’était le cas.', en: 'I would have left, unless my mother had needed me, and she did. (Sauf si: the one exception.)' },
+        { fr: 'Rien ne m’aurait retenu, sauf si ma mère avait eu besoin de moi. Et elle avait besoin de moi.', en: 'Nothing would have held me back, unless my mother had needed me. And she did. (Sauf si: the one exception.)' },
       ],
     },
     {
@@ -2280,7 +2280,7 @@ const A10_SCENARIO: Sec<'scenario'> = {
       userEn: 'First tell what happened, and only then what would have happened. (Facts first, hypotheses after.)',
       alts: [
         { fr: 'Ne passez pas trop de temps sur les si : le passé ne bouge plus.', en: 'Do not spend too long on the ifs: the past does not move any more.' },
-        { fr: 'Si j’avais eu un conseil, ç’aurait été celui-là : décidez vite.', en: 'If I had had one piece of advice, it would have been this: decide quickly.' },
+        { fr: 'Si je n’avais qu’un conseil, ce serait celui-là : décidez vite.', en: 'If I had only one piece of advice, it would be this: decide quickly.' },
       ],
     },
   ],
@@ -2382,9 +2382,9 @@ const A11_USAGES: Sec<'useCases'> = {
   layer: 'core',
   title: 'Où tu vas t’en servir',
   cases: [
-    { situation: 'À l’écrit du DELF B2 : raconter une expérience et la commenter', fr: fr(E(1538)), en: en(E(1538)) },
+    { situation: 'Au DELF B2 : illustrer un argument par une expérience vécue', fr: fr(E(1538)), en: en(E(1538)) },
     { situation: 'Dans un courriel d’excuse au travail', fr: fr(E(1400)), en: en(E(1400)) },
-    { situation: 'Dans un discours de remerciement', fr: fr(E(1486)), en: en(E(1486)) },
+    { situation: 'Dans un discours de remerciement', fr: fr(E(1544)), en: en(E(1544)) },
     { situation: 'Pour expliquer un choix de vie', fr: fr(E(1499)), en: en(E(1499)) },
   ],
   audio: AUDIO,
@@ -2434,7 +2434,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       userEn: 'A drawing teacher. Without her, I would never have dared. (Sans + noun.)',
       alts: [
         { fr: 'Si ma professeure de dessin ne m’avait pas encouragé, je n’aurais jamais osé.', en: 'If my drawing teacher had not encouraged me, I would never have dared.' },
-        { fr: 'Rien ne m’aurait fait changer, sauf si quelqu’un y avait cru pour moi.', en: 'Nothing would have made me change, unless someone had believed in it for me. (Sauf si.)' },
+        { fr: 'Rien ne m’aurait fait changer, sauf si quelqu’un avait cru en moi.', en: 'Nothing would have made me change, unless someone had believed in me. (Sauf si.)' },
       ],
     },
     {
@@ -2543,9 +2543,9 @@ const A11_MISSION: Sec<'task'> = {
     { pattern: 'Only hypotheses, no story: the facts of the turning point are never told.', criterion: 'tache', feedback: 'Raconte d’abord ce qui s’est passé, au passé composé ; les si viennent ensuite.', ref: 'a11-plan' },
     { pattern: 'Fewer than three past pairs, or no regret or relief among them.', criterion: 'tache', feedback: 'Ajoute une paire qui dit un regret ou un soulagement : si tu ne m’avais pas appelé, j’aurais raté le train.', ref: 'a6-cartes' },
     { pattern: 'No même si or sauf si anywhere in the story.', criterion: 'etendue', feedback: 'Ajoute un même si : dis ce qui n’aurait rien changé.', ref: 'a8-cartes' },
-    { pattern: 'Every pair built the same way, si first, never the result first.', criterion: 'etendue', feedback: 'Retourne une de tes phrases : mets le résultat en tête, sans virgule.', ref: 'a7-construire' },
+    { pattern: 'Every pair built the same way, si first, never the result first.', criterion: 'etendue', feedback: 'Retourne une de tes phrases : mets le résultat en tête, le plus souvent sans virgule.', ref: 'a7-construire' },
     { pattern: 'A si that comes before the fact it rewrites, so the reader cannot tell what happened.', criterion: 'coherence', feedback: 'Raconte le fait avant de le réécrire : le lecteur doit savoir ce qui a eu lieu.', ref: 'a10-construire' },
-    { pattern: 'A comma where the result comes first, or none after a leading si half.', criterion: 'coherence', feedback: 'Si devant : une virgule. Le résultat devant : rien entre les deux moitiés.', ref: 'a7-erreurs' },
+    { pattern: 'No comma after a leading si half. A comma before a si half that comes second is optional (usual before sauf si): do not penalise it.', criterion: 'coherence', feedback: 'Si devant : une virgule. Le résultat devant : le plus souvent, rien entre les deux moitiés.', ref: 'a7-erreurs' },
     { pattern: 'Spoken forms in the written story: « j’aurais pas », « si j’aurais su », « ça aurait été » repeated.', criterion: 'registre', feedback: 'À l’écrit, garde la négation complète : je n’aurais pas.', ref: 'a9-cartes' },
     { pattern: 'A reproach aimed at someone with no softening, which breaks the tone of a personal story.', criterion: 'registre', feedback: 'Parle de toi dans le résultat : si tu m’en avais parlé, j’aurais compris.', ref: 'a5-hacks' },
   ],
@@ -2606,7 +2606,7 @@ const A11_CHEAT: Sec<'cheatSheet'> = {
     },
     {
       k: 'même si, sauf si', v: 'rien n’aurait changé, sauf une chose', say: fr(E(1494)),
-      detail: { title: 'Concéder, excepter', body: 'Même si + passé composé derrière concède un fait réel. EN: with a passé composé behind, même si concedes a real fact.', say: fr(E(1499)) },
+      detail: { title: 'Concéder, excepter', body: 'Même si + plus-que-parfait, avec un passé composé derrière, concède un fait réel. EN: with a passé composé behind, même si concedes a real fact.', say: fr(E(1499)) },
     },
     {
       k: 'pas une hypothèse', v: 'demander si, dire que si, chaque fois que', say: fr(E(1512)),
@@ -2623,7 +2623,7 @@ const A11_PROGRESS: Sec<'progressCheck'> = {
   id: 'a11-progress',
   layer: 'core',
   title: 'Où tu en es',
-  body: "Tu construis la paire du passé sans y penser, dans les deux ordres, avec le bon auxiliaire devant et le s du conditionnel derrière. Tu t’en sers pour regretter, reprocher sans blesser, dire merci et refaire l’histoire, et tu reconnais les si + plus-que-parfait qui n’imaginent rien. Le piège qui reste est l’oreille : si j’aurais su et je serai venu s’entendent partout, et la main les écrit quand elle va vite. Avant l’examen, reprends ton récit et entoure chaque si. Pour chacun, vérifie le mot qui le suit, puis le verbe d’en face. EN: Circle every si in your story and check the word after it and the verb opposite.",
+  body: "Tu construis la paire du passé sans y penser, dans les deux ordres, avec le bon auxiliaire après si et le s du conditionnel dans le résultat. Tu t’en sers pour regretter, reprocher sans blesser, dire merci et refaire l’histoire, et tu reconnais les si + plus-que-parfait qui n’imaginent rien. Le piège qui reste est l’oreille : si j’aurais su et je serai venu s’entendent partout, et la main les écrit quand elle va vite. Avant l’examen, reprends ton récit et entoure chaque si. Pour chacun, vérifie le mot qui le suit, puis le verbe d’en face. EN: Circle every si in your story and check the word after it and the verb opposite.",
   stats: [
     { k: 'La condition', v: 'si + plus-que-parfait' },
     { k: 'Le résultat', v: 'conditionnel passé, avec un s' },
@@ -2707,7 +2707,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         eS('Si j’avais eu ton numéro, je t’aurai appelé.', fr(E(1440)), 'Avec un s : l’appel n’a pas eu lieu. EN: with an s.', 'a4-erreurs', ['Si j’avais eu ton numéro, je t’aurais appelée.']),
         eS('Si le taxi était venu, nous aurions arrivés à temps.', fr(E(1448)), 'Arriver prend être. EN: arriver takes être.', 'a4-erreurs', ['Si le taxi était venu, nous serions arrivées à temps.']),
         mc('Comment dis-tu « you could have caught the bus » ?', ['tu aurais pu attraper le bus', 'tu pourrais attraper le bus', 'tu as pu attraper le bus'], 0, 'Pouvoir au conditionnel passé. EN: pouvoir in the past conditional.', 'a4-construire'),
-        mc('« Je serai venu » est...', ['un futur antérieur', 'un conditionnel passé'], 0, 'Sans s, c’est un futur. EN: without the s, a future.', 'a4-check'),
+        mc('« Je serai venu » est...', ['un futur antérieur', 'un conditionnel passé'], 0, 'Sans s, c’est un futur antérieur. EN: without the s, a future perfect.', 'a4-check'),
         lC('Écoute. Ont-ils perdu leur argent ?', fr(E(1449)), ['oui', 'non'], 0, 'N’auriez pas perdu : ils l’ont perdu. EN: they lost it.', 'a4-ecoute'),
       ],
     },
@@ -2720,14 +2720,14 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI('Complète le regret.', 'Si j’(travailler) plus régulièrement, j’aurais réussi l’examen.', fr(E(1454)), 'Travailler prend avoir. EN: travailler takes avoir.', 'a5-exemples'),
         eS('Si seulement je l’aurais su plus tôt.', fr(E(1456)), 'Si seulement reste un si. EN: si seulement is still si.', 'a5-piege'),
         mc('« Si seulement j’avais osé. » Faut-il ajouter un résultat ?', ['non', 'oui'], 0, 'Si seulement se suffit à lui-même. EN: it stands alone.', 'a5-choisir'),
-        tI('Écris le reproche direct.', 'Tu ne m’as pas écouté, et nous avons perdu le dossier. Si tu...', fr(E(1457)), 'Deux faits retournés en une paire. EN: two facts turned into a pair.', 'a5-histoire'),
+        tI('Écris le reproche direct.', 'Tu ne m’as pas écouté, et nous avons perdu le dossier. Si tu...', fr(E(1457)), 'Deux faits retournés en une paire. EN: two facts turned into a pair.', 'a5-histoire', ['Si tu m’avais écoutée, nous n’aurions pas perdu le dossier.']),
         lC('Écoute. À qui s’adresse le reproche ?', fr(E(1458)), ['à vous', 'à moi'], 0, 'Si vous aviez relu : le reproche vise vous. EN: it is aimed at vous.', 'a5-texte'),
       ],
     },
     {
       id: 'r6-soulagement', label: 'Le soulagement', targets: ['negation-mal-lue'],
       questions: [
-        mc('« Si tu ne m’avais pas appelé, j’aurais raté le train. » As-tu raté le train ?', ['non', 'oui'], 0, 'Les négations se retournent : tu m’as appelé, je ne l’ai pas raté. EN: both negatives turn positive.', 'a6-cartes'),
+        mc('« Si tu ne m’avais pas appelé, j’aurais raté le train. » As-tu raté le train ?', ['non', 'oui'], 0, 'Les deux moitiés se retournent : tu m’as appelé, je ne l’ai pas raté. EN: both halves turn over.', 'a6-cartes'),
         mc('« Sans ton appel » veut dire...', ['si tu n’avais pas appelé', 'si tu avais appelé'], 0, 'Sans + nom : une condition négative. EN: a negative condition.', 'a6-construire'),
         tI('Réécris avec sans.', 'Si elle n’avait pas eu sa ceinture, elle aurait été gravement blessée.', 'Sans sa ceinture, elle aurait été gravement blessée.', 'Sans + nom remplace la moitié si négative. EN: sans + noun.', 'a6-construire'),
         tI('Réécris avec si.', 'Sans ton appel, j’aurais raté le train.', fr(E(1467)), 'Une moitié si négative, avec ne... pas autour de l’auxiliaire. EN: a negative si half.', 'a6-cartes', ['Si tu ne m’avais pas appelée, j’aurais raté le train.']),
@@ -2746,7 +2746,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         eS('Personne ne serait parti si la réunion aurait commencé à l’heure.', fr(E(1486)), 'En second, si garde le plus-que-parfait. EN: si keeps the pluperfect in second place.', 'a7-erreurs'),
         mc('Quand tu retournes la phrase, les temps changent-ils ?', ['non', 'oui'], 0, 'Chaque moitié garde son temps. EN: each half keeps its tense.', 'a7-check'),
         tI('Complète la moitié si, placée en second.', 'Ils auraient signé si le prix (baisser).', fr(E(1488)), 'Plus-que-parfait derrière si. EN: pluperfect after si.', 'a7-ecoute'),
-        mc('Laquelle est ponctuée correctement ?', ['Elle aurait gagné si elle ne s’était pas blessée.', 'Elle aurait gagné, si elle ne s’était pas blessée.'], 0, 'Le résultat devant : pas de virgule. EN: result first, no comma.', 'a7-erreurs'),
+        mc('Laquelle suit la ponctuation la plus courante ?', ['Elle aurait gagné si elle ne s’était pas blessée.', 'Elle aurait gagné, si elle ne s’était pas blessée.'], 0, 'Le résultat devant : le plus souvent, pas de virgule. EN: result first, usually no comma.', 'a7-erreurs'),
         lC('Écoute. Par quoi commence la phrase ?', fr(E(1483)), ['par le résultat', 'par la condition'], 0, 'Nous serions venus ouvre la phrase. EN: the result opens.', 'a7-ecoute'),
       ],
     },
@@ -2760,7 +2760,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         eS('Elle avait promis de venir, sauf s’il neige.', fr(E(1500)), 'Dans un récit au passé : neigeait. EN: in a past narrative, neigeait.', 'a8-piege'),
         mc('« Je n’aurais jamais quitté Lyon, sauf si on m’avait proposé un poste à Montréal. » Que nomme sauf si ?', ['la seule exception', 'une concession', 'une cause certaine'], 0, 'La seule condition qui aurait tout changé. EN: the one exception.', 'a8-cartes'),
         eS('Même si j’aurais su, je serais venu.', fr(E(1494)), 'Même si est un si : j’avais su. EN: même si is still si.', 'a8-piege', ['Même si j’avais su, je serais venue.']),
-        lC('Écoute Karine. Aurait-elle couru sans la pluie ?', 'Même si j’avais su qu’il pleuvrait autant, je serais venue.', ['oui', 'non'], 0, 'Même si : elle serait venue de toute façon. EN: she would have come anyway.', 'a8-texte'),
+        lC('Écoute Karine. Si elle avait su qu’il pleuvrait autant, serait-elle restée chez elle ?', 'Même si j’avais su qu’il pleuvrait autant, je serais venue.', ['non', 'oui'], 0, 'Même si : elle serait venue de toute façon. EN: she would have come anyway.', 'a8-texte'),
       ],
     },
     {
@@ -2797,9 +2797,9 @@ const A11_QUIZ: Sec<'quiz'> = {
         eS('Si j’avais le temps hier, je serais venu.', 'Si j’avais eu le temps hier, je serais venu.', 'Hier : le plus-que-parfait. EN: yesterday needs the pluperfect.', 'a2-erreurs', ['Si j’avais eu le temps hier, je serais venue.']),
         mc(`Rappel de ${PQP_REF} : le plus-que-parfait de partir, avec nous ?`, ['nous étions partis', 'nous avions partis', 'nous serions partis'], 0, 'Être à l’imparfait, puis le participe accordé. EN: être in the imparfait.', 'a3-cartes'),
         mc(`Rappel de ${COND_PASSE_REF} : le conditionnel passé de voir, avec je ?`, ['j’aurais vu', 'j’avais vu', 'j’aurai vu'], 0, 'Avoir au conditionnel, puis vu. EN: avoir in the conditional.', 'a4-cartes'),
-        tI(`Rappel de ${DISCOURS_REF} : rapporte la question.`, '« As-tu reçu mes photos ? » Elle voulait savoir...', fr('fr.b1.paroles-rapportees.1180'), 'Si pour la question, plus-que-parfait pour le passé. EN: si for the question.', 'a9-cartes'),
+        tI(`Rappel de ${DISCOURS_REF} : rapporte la question.`, '« As-tu reçu mes photos ? » Elle voulait savoir...', fr('fr.b1.paroles-rapportees.1180'), 'Si pour la question, plus-que-parfait pour le passé. EN: si for the question.', 'a9-cartes', ['Elle voulait savoir si j’avais reçu ses photos.']),
         mc(`Rappel de ${CONCESSION_REF} : même si pose-t-il une condition ?`, ['non, il concède : le résultat ne change pas', 'oui, comme si'], 0, 'Même si pèse deux faits. EN: même si concedes.', 'a8-cartes'),
-        lC(`Rappel de ${SI_B1_REF} : écoute. Le car est-il complet aujourd’hui ?`, fr(B110(1205)), ['non', 'oui'], 0, 'L’imparfait après si : pas le cas maintenant. EN: not the case now.', 'a2-ecoute'),
+        lC(`Rappel de ${SI_B1_REF} : écoute. Le locuteur s’attend-il à un car complet ?`, fr(B110(1205)), ['non', 'oui'], 0, 'L’imparfait après si : une hypothèse qu’on n’attend pas, ou qui n’est pas le cas. EN: not expected, or not the case.', 'a2-ecoute'),
       ],
     },
     {
@@ -2849,11 +2849,11 @@ const A11_REVIEW: Sec<'reviewDeck'> = {
   cards: [
     { front: 'la paire du passé', back: 'si + plus-que-parfait, puis conditionnel passé', say: fr(E(1400)) },
     { front: 'le cran', back: 'les deux moitiés reculent ensemble', say: fr(E(1412)) },
-    { front: 'avoir ou être devant', back: 'comme au passé composé', say: fr(E(1426)) },
+    { front: 'avoir ou être après si', back: 'comme au passé composé', say: fr(E(1426)) },
     { front: 'le résultat', back: 'aurais, serais : avec un s', say: fr(E(1443)) },
     { front: 'le reproche adouci', back: 'je dans le résultat', say: fr(E(1463)) },
     { front: 'le soulagement', back: 'une négation retournée, sans + nom', say: fr(E(1467)) },
-    { front: 'le résultat en tête', back: 'pas de virgule, les mêmes temps', say: fr(E(1481)) },
+    { front: 'le résultat en tête', back: 'le plus souvent sans virgule, les mêmes temps', say: fr(E(1481)) },
     { front: 'même si, sauf si', back: 'rien n’aurait changé, sauf une chose', say: fr(E(1499)) },
     { front: 'pas une hypothèse', back: 'demander si, dire que si, chaque fois que', say: fr(E(1512)) },
   ],
@@ -2868,8 +2868,8 @@ const A11_ROUNDUP: Sec<'roundup'> = {
   title: 'Un cran plus loin',
   body: `${REFRAME} Tu montes la paire du passé sans y penser, tu la retournes pour lire les faits, et tu t’en sers pour regretter, reprocher, dire merci et refaire l’histoire. Tu sais aussi que certains si + plus-que-parfait n’imaginent rien. ${Cap(MIXTE_REF)} mélange les deux temps : une cause passée, une conséquence présente. EN: Next, a past cause with a present result: the mixed pairs.`,
   points: [
-    'Devant si : le plus-que-parfait, jamais le conditionnel.',
-    'Derrière : aurais ou serais, avec un s.',
+    'Après si : le plus-que-parfait, jamais le conditionnel.',
+    'Dans le résultat : aurais ou serais, avec un s.',
     'La paire dit le contraire des faits.',
     'Regarde autour de si avant de décider que c’est une hypothèse.',
   ],
@@ -2909,13 +2909,13 @@ const table = (id: string, title: string, cols: string[], rows: string[][]): Les
 const SHEET_LIST: ReferenceSheet[] = [
   sheet('sheet-paires', 'Les trois paires', ['le système', 'le cran', 'lire les faits'], [
     teach('sheet-paires-teach', 'Un système, trois distances',
-      `${REFRAME} ${Cap(SI_B1_REF)} t’a appris qu’une phrase avec si est une paire : « ${B110_REFRAME} » Cette leçon recule la paire d’un cran. Les deux moitiés bougent ensemble, et la paire du passé dit toujours le contraire des faits. EN: ${REFRAME_EN}`),
-    table('sheet-paires-table', 'Les trois paires', ['Devant si', 'Derrière', 'Ce que ça dit', 'Exemple'], [
+      `${REFRAME} ${Cap(SI_B1_REF)} t’a appris qu’une phrase avec si est une paire : « ${B110_REFRAME} » Cette leçon recule la paire d’un cran. Les deux moitiés bougent ensemble, et, avec un si simple, la paire du passé dit le contraire des faits. EN: ${REFRAME_EN}`),
+    table('sheet-paires-table', 'Les trois paires', ['Après si', 'Le résultat', 'Ce que ça dit', 'Exemple'], [
       ['présent', 'futur', 'ça peut arriver', fr(B110(1204))],
       ['imparfait', 'conditionnel', 'pas le cas maintenant', fr(B110(1205))],
       ['plus-que-parfait', 'conditionnel passé', 'pas arrivé', fr(E(1414))],
       ['plus-que-parfait', 'conditionnel présent', `la paire mixte, ${MIXTE_REF}`, 'Si j’avais accepté ce poste, je vivrais à Genève.'],
-      ['conditionnel', 'rien', 'interdit', 'Aucune phrase française ne commence ainsi.'],
+      ['conditionnel', 'rien', 'interdit', 'Si j’aurais su : la faute célèbre.'],
     ]),
     table('sheet-paires-faits', 'Retourner la paire', ['Tu lis', 'Les faits'], [
       [fr(E(1400)), 'Je n’ai pas vérifié l’horaire, et j’ai raté le train.'],
@@ -2926,8 +2926,8 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-formes', 'Monter les deux moitiés', ['la condition', 'le résultat', 'négation et pronoms'], [
     teach('sheet-formes-teach', 'L’auxiliaire décide',
-      `Dans les deux moitiés, l’auxiliaire est celui du passé composé : avoir pour la plupart des verbes, être pour les verbes de mouvement et les pronominaux. Devant si, il se met à l’imparfait ; derrière, au conditionnel, avec un s. Les formes elles-mêmes sont celles de ${PQP_REF} et de ${COND_PASSE_REF}. EN: the passé composé auxiliary, imparfait in front, conditional behind.`),
-    table('sheet-formes-table', 'Les deux moitiés', ['Verbe', 'Devant si', 'Derrière'], [
+      `Dans les deux moitiés, l’auxiliaire est celui du passé composé : avoir pour la plupart des verbes, être pour une courte liste (aller, venir, partir, arriver, rester, tomber, naître...) et pour les pronominaux. Dans la moitié si, il se met à l’imparfait ; dans le résultat, au conditionnel, avec un s. Les formes elles-mêmes sont celles de ${PQP_REF} et de ${COND_PASSE_REF}. EN: the passé composé auxiliary, imparfait in the si half, conditional in the result.`),
+    table('sheet-formes-table', 'Les deux moitiés', ['Verbe', 'Après si', 'Le résultat'], [
       ['réserver (avoir)', 'si nous avions réservé', 'nous aurions réservé'],
       ['arriver (être)', 'si elle était arrivée', 'elle serait arrivée'],
       ['se lever (être)', 'si vous vous étiez levés', 'vous vous seriez levés'],
@@ -2958,7 +2958,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-ordre', 'L’ordre, même si, sauf si', ['l’ordre et la virgule', 'même si', 'sauf si'], [
     teach('sheet-ordre-teach', 'Les mêmes temps, où qu’ils soient',
-      `L’ordre des moitiés est libre, et chacune garde son temps. Si devant : une virgule. Le résultat devant : rien entre les deux. Même si et sauf si suivent la règle de si ; ${CONCESSION_REF} t’a donné même si : « ${B132_REFRAME} » EN: free order, same tenses; même si and sauf si follow the si rule.`),
+      `L’ordre des moitiés est libre, et chacune garde son temps. Si devant : une virgule. Le résultat devant : le plus souvent, rien entre les deux. Même si et sauf si suivent la règle de si ; ${CONCESSION_REF} t’a donné même si : « ${B132_REFRAME} » EN: free order, same tenses; même si and sauf si follow the si rule.`),
     table('sheet-ordre-table', 'L’ordre et la virgule', ['Ordre', 'Ponctuation', 'Exemple'], [
       ['si devant', 'une virgule', fr(E(1482))],
       ['résultat devant', 'aucune', fr(E(1481))],
@@ -3003,7 +3003,7 @@ const SHEET_LIST: ReferenceSheet[] = [
 const DRILL_LIST: LessonDrill[] = [
   { id: 'd-passe', title: 'Maintenant ou hier', format: 'sort' as const, coach: 'Deux piles : ce qui manque aujourd’hui, ce qui a manqué hier. EN: sort by today or yesterday.', buckets: ['maintenant', 'hier'], items: [E(1401), E(1400), B110(1203), E(1413), B110(1205), E(1414)], audio: AUDIO },
   { id: 'd-paires', title: 'Trois distances', format: 'sort' as const, coach: 'Trois piles : possible, pas le cas, pas arrivé. EN: three piles by distance from the real.', buckets: ['possible', 'pas le cas', 'pas arrivé'], items: [E(1420), E(1421), E(1422), E(1417), E(1418), E(1419)], audio: AUDIO },
-  { id: 'd-condition', title: 'L’auxiliaire devant si', format: 'mcq' as const, coach: 'Mets le verbe au passé composé dans ta tête, puis l’auxiliaire à l’imparfait. EN: think passé composé, then imparfait.', q: 'Si elle ... à l’heure, elle aurait vu le début.', opts: ['était arrivée', 'avait arrivé'], correct: 0, why: 'Elle est arrivée, donc elle était arrivée. EN: arriver takes être.', items: [E(1425), E(1426), E(1427), E(1428), E(1429), E(1434)], audio: AUDIO },
+  { id: 'd-condition', title: 'L’auxiliaire après si', format: 'mcq' as const, coach: 'Mets le verbe au passé composé dans ta tête, puis l’auxiliaire à l’imparfait. EN: think passé composé, then imparfait.', q: 'Si elle ... à l’heure, elle aurait vu le début.', opts: ['était arrivée', 'avait arrivé'], correct: 0, why: 'Elle est arrivée, donc elle était arrivée. EN: arriver takes être.', items: [E(1425), E(1426), E(1427), E(1428), E(1429), E(1434)], audio: AUDIO },
   { id: 'd-resultat', title: 'Le s du résultat', format: 'mcq' as const, coach: 'Le résultat d’hier prend le s du conditionnel. EN: the past result takes the s.', q: 'Si nous avions su, nous ... plus tôt.', opts: ['serions partis', 'serons partis'], correct: 0, why: 'Serons partis est un futur antérieur. EN: serons is a future.', items: [E(1440), E(1442), E(1443), E(1444), E(1447), E(1448)], audio: AUDIO },
   { id: 'd-regret', title: 'Regretter, reprocher', format: 'flashcard' as const, coach: 'Pour chaque carte, dis qui porte la faute, puis adoucis-la si c’est un reproche. EN: say who is to blame, then soften it.', items: [E(1454), E(1455), E(1457), E(1459), E(1463), E(1464)], audio: AUDIO },
   { id: 'd-soulagement', title: 'Évité ou arrivé', format: 'sort' as const, coach: 'Retourne chaque paire : le pire a-t-il eu lieu ? EN: turn each pair over.', buckets: ['évité', 'arrivé'], items: [E(1469), E(1470), E(1467), B110(1354), E(1449), E(1472)], audio: AUDIO },
@@ -3154,7 +3154,7 @@ export const LESSON: Lesson = {
   overview: {
     titleEn: UNIT.title,
     subFr: UNIT.sub,
-    introFr: "Au B1, tu as appris à lire « si j’avais su, j’aurais... ». Ici, tu la construis jusqu’à ce qu’elle vienne seule : la paire recule d’un cran, les deux moitiés ensemble. Tu t’en sers pour regretter, reprocher sans blesser, dire merci, refaire l’histoire, et tu évites les pièges célèbres. À la fin, tu racontes en 180 à 250 mots le tournant d’une vie.",
+    introFr: "Au B1, tu as appris à lire « si j’avais su, j’aurais... ». Ici, tu construis cette paire jusqu’à ce qu’elle vienne seule : la paire recule d’un cran, les deux moitiés ensemble. Tu t’en sers pour regretter, reprocher sans blesser, dire merci, refaire l’histoire, et tu évites les pièges célèbres. À la fin, tu racontes en 180 à 250 mots le tournant d’une vie.",
     minutes: 160,
     difficulty: 4,
     glyph: 'si',

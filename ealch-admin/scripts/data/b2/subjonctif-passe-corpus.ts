@@ -244,7 +244,6 @@ export const IMPORTED = {
   act8: [
     'fr.b2.affaires.1350',                     // C’est la meilleure vitrine que nous puissions avoir en Europe.  (lesson 26 in B2)
     'fr.b2.opinions-et-avis.1786',             // L'argent liquide reste le seul moyen de paiement qui ne dépend d'aucune banque.  (lesson 23 in B2)
-    'fr.b1.pronoms-essentiels.1397',           // Tu es la première personne à qui j'avais envie d'écrire.  (lesson 13)
   ],
   act9: [
     'fr.b1.connecteurs-logiques.1435',         // Bien que la salle soit petite, tout le monde est venu.  (lesson 32)
@@ -426,7 +425,7 @@ export const ACT3_ROWS: Row[] = [
     '/sɛ la ply bɛl lɛtʁ kɔ̃ mɛ.te.kʁit/', 'seh la plü bel LETR | kohⁿ meh-tay-KREET', ['avoir', 'accord', 'que']),
   sent(1244, 'Je regrette que tu aies vendu la maison.', 'I am sorry you sold the house.',
     '/ʒə ʁə.ɡʁɛt kə ty ɛ vɑ̃.dy la mɛ.zɔ̃/', 'zhuh ruh-GRET | kuh tü eh vahⁿ-DÜ | la meh-ZOHⁿ', ['avoir', 'sans-accord']),
-  sent(1245, 'Je suis content que vous vous soyez réconciliés.', 'I am glad you two made up.',
+  sent(1245, 'Je suis content que vous vous soyez réconciliés.', 'I am glad you made up.',
     '/ʒə sɥi kɔ̃.tɑ̃ kə vu vu swa.je ʁe.kɔ̃.si.lje/', 'zhuh swee kohⁿ-TAHⁿ | kuh voo voo swa-yay ray-kohⁿ-see-LYAY', ['pronominal', 'accord']),
   sent(1246, "Je suis surpris qu'elle se soit levée si tôt.", 'I am surprised she got up so early.',
     '/ʒə sɥi syʁ.pʁi kɛl sə swa lə.ve si to/', 'zhuh swee sür-PREE | kel suh swa luh-VAY | see TOH', ['pronominal', 'accord'], FCVDR),
@@ -651,13 +650,13 @@ export const ACT7_ROWS: Row[] = [
     '/i.lɛ.tɛ̃.pɔʁ.tɑ̃ kə vu.ze.je ly lə do.sje a.vɑ̃ la ʁe.y.njɔ̃/', 'ee-leh-tehⁿ-por-TAHⁿ | kuh voo-zay-yay LÜ luh do-SYAY | a-vahⁿ la ray-ü-NYOHⁿ', ['echeance']),
   sent(1328, "Je souhaite que nous ayons tout réglé d'ici vendredi.", 'I would like us to have settled everything by Friday.',
     '/ʒə swɛt kə nu.ze.jɔ̃ tu ʁe.ɡle di.si vɑ̃.dʁə.di/', 'zhuh SWET | kuh noo-zay-yohⁿ too ray-GLAY | dee-see vahⁿ-druh-DEE', ['echeance']),
-  sent(1329, 'Elle est partie avant que nous ayons pu lui dire au revoir.', 'She left before we had been able to say goodbye.',
+  sent(1329, 'Elle est partie avant que nous ayons pu lui dire au revoir.', 'She left before we could say goodbye.',
     '/ɛ.lɛ paʁ.ti a.vɑ̃ kə nu.ze.jɔ̃ py lɥi diʁ o ʁə.vwaʁ/', 'eh-leh par-TEE | a-vahⁿ kuh noo-zay-yohⁿ PÜ | lwee deer oh ruh-VWAR', ['echeance', 'avant-que']),
   sent(1330, "Il faudrait que tu aies pris une décision d'ici ce soir.", 'You would need to have made a decision by this evening.',
     '/il fo.dʁɛ kə ty ɛ pʁi yn de.si.zjɔ̃ di.si sə swaʁ/', 'eel foh-DREH | kuh tü eh PREE ün day-see-ZYOHⁿ | dee-see suh SWAR', ['echeance']),
 ];
 
-/* ── ACT 8 · LE MEILLEUR FILM QUE J'AIE VU (.1333-.1347) ──────────────────── */
+/* ── ACT 8 · LE MEILLEUR FILM QUE J'AIE VU (.1333-.1348) ──────────────────── */
 
 export const ACT8_ROWS: Row[] = [
   sent(1333, "C'est le meilleur film que j'aie vu depuis des années.", 'It is the best film I have seen in years.',
@@ -697,8 +696,10 @@ export const ACT8_ROWS: Row[] = [
     ['superlatif']),
   sent(1346, "C'est le plus beau cadeau qu'on m'ait fait.", 'It is the most beautiful present anyone has given me.',
     '/sɛ lə ply bo ka.do kɔ̃ mɛ fɛ/', 'seh luh plü boh ka-DOH | kohⁿ meh FEH', ['superlatif']),
-  sent(1347, "C'est la dernière fois que je prête ma voiture.", 'It is the last time I lend my car.',
+  sent(1347, "C'est la dernière fois que je prête ma voiture.", 'That is the last time I lend my car.',
     '/sɛ la dɛʁ.njɛʁ fwa kə ʒə pʁɛt ma vwa.tyʁ/', 'seh la dehr-nyehr FWA | kuh zhuh PRET | ma vwa-TÜR', ['indicatif', 'premiere-fois']),
+  sent(1348, "C'est le livre que j'ai lu cet été.", 'It is the book I read this summer.',
+    '/sɛ lə livʁ kə ʒe ly sɛ.te.te/', 'seh luh LEEVR | kuh zhay LÜ | seh-tay-TAY', ['indicatif']),
 ];
 
 /* ── ACT 9 · BIEN QUE CE SOIT FINI (.1350-.1362) ──────────────────────────── */
@@ -833,15 +834,15 @@ export const dicteeFor = (act: number): string[] =>
 
 /** Act 1: Inès writes to her friends the day after her housewarming, Montréal. */
 export const LECTURE_FETE =
-  "Salut tout le monde, je vous écris le lendemain de la fête, encore un peu fatiguée. D'abord, je suis ravie que vous ayez pu venir si nombreux : nous étions presque quarante dans un appartement prévu pour dix. Malik, ça me touche que tu aies fait toute cette route depuis Québec, sous la pluie en plus. C'est dommage qu'il ait plu toute la soirée, mais le balcon a quand même servi, sous les parapluies. Je regrette seulement que Samir soit parti avant le gâteau : il ne sait pas ce qu'il a manqué. Je suis aussi un peu gênée, je l'avoue. Je suis désolée que la musique ait réveillé les voisins du dessous. Je suis descendue ce matin avec des croissants, et ils ont ri : ils avaient eu vingt ans, eux aussi. Bref, tout s'est bien terminé. Il me reste une chose à organiser : le déménagement de ma sœur, le mois prochain. Je suis contente que plusieurs d'entre vous viennent l'aider, et je serais encore plus contente que quelqu'un ait une camionnette. Encore merci d'être venus. Vous avez fait de ce nouvel appartement un vrai chez-moi, et je ne l'oublierai pas. Inès";
+  "Salut tout le monde, je vous écris le lendemain de la fête, encore un peu fatiguée. D'abord, je suis ravie que vous ayez pu venir si nombreux : nous étions presque quarante dans un appartement prévu pour dix. Malik, ça me touche que tu aies fait toute cette route depuis Québec, sous la pluie en plus. C'est dommage qu'il ait plu toute la soirée, mais le balcon a quand même servi, sous les parapluies. Je regrette seulement que Samir soit parti avant le gâteau : il ne sait pas ce qu'il a manqué. Je suis aussi un peu gênée, je l'avoue. Je suis désolée que la musique ait réveillé les voisins du dessous. Je suis descendue ce matin avec des croissants, et ils ont ri : ils avaient eu vingt ans, eux aussi. Bref, tout s'est bien terminé. Il me reste une chose à organiser : le déménagement de ma sœur, le mois prochain. Je suis contente que plusieurs d'entre vous viennent l'aider, et ce serait parfait que quelqu'un ait une camionnette. Encore merci d'être venus. Vous avez fait de ce nouvel appartement un vrai chez-moi, et je ne l'oublierai pas. Inès";
 
 /** Act 5: a reader's letter to an advice column, and the reply. */
 export const LECTURE_COURRIER =
-  "Chère Hélène, j'ai quarante ans et, jusqu'au mois dernier, j'avais une meilleure amie, Claire. Nous nous connaissons depuis le lycée. En mars, j'ai appris par une collègue qu'elle avait déménagé à Bruxelles. Je suis blessée qu'elle ne m'ait rien dit, bien sûr. Mais ce qui me fait le plus mal, c'est autre chose : je suis déçue de ne pas l'avoir remarqué. Elle m'avait parlé d'un nouveau travail, et je n'avais pas posé de questions. Aujourd'hui, j'ai honte qu'on se soit éloignées sans que je m'en rende compte. Faut-il que je lui écrive ? Sophie, Lyon. La réponse d'Hélène. Chère Sophie, il est normal que vous vous soyez sentie trahie : on n'apprend pas le départ d'une amie par une collègue. Pourtant, je suis frappée que vous parliez surtout de vous. Il est possible que Claire n'ait pas osé vous l'annoncer, ou qu'elle ait craint votre réaction. Il se peut aussi qu'elle ait attendu d'être sûre de rester. Écrivez-lui. Dites-lui que vous êtes triste qu'elle soit partie sans un mot, mais que vous êtes heureuse qu'elle ait trouvé ce poste. Les deux sont vrais, et une amitié de vingt-cinq ans mérite les deux phrases. Hélène";
+  "Chère Hélène, j'ai quarante ans et, jusqu'au mois dernier, j'avais une meilleure amie, Claire. Nous nous connaissions depuis le lycée. En mars, j'ai appris par une collègue qu'elle avait déménagé à Bruxelles. Je suis blessée qu'elle ne m'ait rien dit, bien sûr. Mais ce qui me fait le plus mal, c'est autre chose : je suis déçue de ne pas l'avoir remarqué. Elle m'avait parlé d'un nouveau travail, et je n'avais pas posé de questions. Aujourd'hui, j'ai honte qu'on se soit éloignées sans que je m'en rende compte. Faut-il que je lui écrive ? Sophie, Lyon. La réponse d'Hélène. Chère Sophie, il est normal que vous vous soyez sentie trahie : on n'apprend pas le départ d'une amie par une collègue. Pourtant, je suis frappée que vous parliez surtout de vous. Il est possible que Claire n'ait pas osé vous l'annoncer, ou qu'elle ait craint votre réaction. Il se peut aussi qu'elle ait attendu d'être sûre de rester. Écrivez-lui. Dites-lui que vous êtes triste qu'elle soit partie sans un mot, mais que vous êtes heureuse qu'elle ait trouvé ce poste. Les deux sont vrais, et une amitié de vingt-cinq ans mérite les deux phrases. Hélène";
 
 /** Act 7: a letting agency writes to an outgoing tenant, Lausanne. */
 export const LECTURE_REGIE =
-  "Madame, Monsieur, vous nous avez informés de votre départ de l'appartement du chemin des Roses, à Lausanne. Voici les étapes à respecter. Il faut que vous ayez libéré l'appartement avant le trente juin à midi. L'état des lieux aura lieu le même jour à quatorze heures ; il est donc indispensable que les clés aient été rendues à l'agence avant cette heure-là. Nous souhaitons également que les petites réparations (trous dans les murs, joints de la salle de bains) aient été faites avant l'état des lieux. Si ce n'est pas le cas, elles vous seront facturées. Enfin, il est important que vous ayez résilié vos contrats d'électricité et d'internet d'ici la fin du mois, afin que le prochain locataire puisse s'installer dès le premier juillet. Attendez que l'état des lieux ait été signé par les deux parties avant de quitter la ville : aucune réclamation ne sera acceptée ensuite. Nous restons à votre disposition jusqu'à ce que tout soit réglé. Veuillez agréer, Madame, Monsieur, nos salutations distinguées. La Régie du Lac";
+  "Madame, Monsieur, vous nous avez informés de votre départ de l'appartement du chemin des Roses, à Lausanne. Voici les étapes à respecter. Il faut que vous ayez libéré l'appartement avant le trente juin à midi. L'état des lieux aura lieu le même jour à quatorze heures ; il est donc indispensable que les clés aient été rendues à l'agence avant cette heure-là. Nous souhaitons également que les petites réparations (trous dans les murs, joints de la salle de bains) aient été faites avant l'état des lieux. Si ce n'est pas le cas, elles vous seront facturées. Enfin, il est important que vous ayez résilié vos contrats d'électricité et d'internet d'ici la fin du mois, afin que le prochain locataire puisse s'installer dès le premier juillet. Attendez que l'état des lieux ait été signé par les deux parties avant de quitter la ville : aucune réclamation ne sera acceptée ensuite. Nous restons à votre disposition jusqu'à ce que tout soit réglé. Veuillez agréer, Madame, Monsieur, l'expression de nos salutations distinguées. La Régie du Lac";
 
 /** Act 9: a regional news item, Namur. */
 export const LECTURE_FESTIVAL =
@@ -874,7 +875,7 @@ export const TEXTE_A9 =
   "Le mot du capitaine, après la saison. Bien que notre équipe (perdre) la finale dimanche, la saison reste la meilleure de notre histoire. Quoique nous (s'entraîner) sous la neige tout l'hiver, personne n'a abandonné. Même si l'arbitre (faire) des erreurs, nous ne lui en voulons pas. Bien que le club (vendre) moins de billets cette année, les tribunes étaient pleines dimanche. Et bien que je (ne jamais marquer) de but, je suis fier de cette équipe.";
 
 export const TEXTE_A10 =
-  "Merci à tous. Samedi, pour mes cinquante ans, vous m'avez fait la surprise. Je suis heureux que vous (venir) si nombreux, et je suis heureux (voir) enfin tous mes amis réunis. Je regrette (ne pas prévenir) mon voisin, qui a appelé la police à minuit. Ma fille est fière (tout organiser) en secret, et moi, je suis fier qu'elle (réussir) à me cacher tout ça pendant deux mois. Je m'en veux seulement (s'endormir) avant le dessert. Vincent";
+  "Merci à tous. Samedi, pour mes cinquante ans, vous m'avez fait la surprise. Je suis heureux que vous (venir) si nombreux, et je suis heureux (enfin voir) tous mes amis réunis. Je regrette (ne pas prévenir) mon voisin, qui a appelé la police à minuit. Ma fille est fière (tout organiser) en secret, et moi, je suis fier qu'elle (réussir) à me cacher tout ça pendant deux mois. Je m'en veux seulement (s'endormir) avant le dessert. Vincent";
 
 /** The act 11 exam round's listening: a voicemail (TEF format). */
 export const MESSAGE_VOCAL =

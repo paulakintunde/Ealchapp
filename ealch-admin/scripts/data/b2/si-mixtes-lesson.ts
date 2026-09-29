@@ -257,7 +257,7 @@ const A1_SCENE: Sec<'scene'> = {
     },
     {
       kind: 'choice',
-      prompt: "Tu recommences. Quelle phrase dit que le regret pèse encore aujourd'hui.",
+      prompt: "Tu recommences. Choisis la phrase qui dit que le regret pèse encore aujourd'hui.",
       size: 'lg',
       options: [
         { fr: "Si j'avais continué mes études, j'aurais eu un meilleur poste.", respell: '[see zha-veh kohⁿ-tee-nway may-zay-TÜD | zhoh-reh-zü uhⁿ meh-yeur POST]', en: 'If I had continued my studies, I would have had a better job.', outcome: 'breaks', audio: AUDIO },
@@ -545,7 +545,7 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk('Dans ces phrases, que change « aurait été » par rapport à « serait » ?',
       ['le moment du résultat', 'la politesse', 'rien'], 0,
       "Serait regarde maintenant ; aurait été regarde hier. EN: serait is now, aurait été is then.")),
-    ctl('La moitié si', 'Pour l’irréel, combien de temps la moitié si peut-elle prendre ?',
+    ctl('La moitié si', 'Pour l’irréel, combien de temps verbaux la moitié si peut-elle prendre ?',
       ['deux : l’imparfait ou le plus-que-parfait', 'quatre', 'un seul'], 0,
       "Jamais de conditionnel derrière si : il en reste deux. EN: only two, never a conditional."),
   ],
@@ -628,11 +628,11 @@ const A3_HISTOIRE: Sec<'story'> = {
   setting: 'Lausanne. Il y a cinq ans, Julien a quitté la faculté de droit pour ouvrir une boulangerie.',
   bubbles: [
     { from: 'narrator', fr: 'Sa mère ne s’en remet pas tout à fait.', en: 'His mother has not quite got over it.' },
-    { from: 'coach', fr: fr(E(1629)), en: en(E(1629)), warn: 'Il y a cinq ans, puis aujourd’hui' },
-    { from: 'user', fr: fr(E(1639)), en: en(E(1639)), warn: 'Chaque matin, encore maintenant' },
-    { from: 'coach', fr: fr(E(1630)), en: en(E(1630)), warn: 'La même horloge : présent' },
+    { from: 'coach', fr: 'Si tu avais fini ton droit, tu serais avocat aujourd’hui.', en: 'If you had finished your law degree, you would be a lawyer today.', warn: 'Il y a cinq ans, puis aujourd’hui' },
+    { from: 'user', fr: 'Et si j’étais resté à la faculté, je ne me lèverais pas à quatre heures.', en: 'And if I had stayed at university, I would not get up at four.', warn: 'Chaque matin, encore maintenant' },
+    { from: 'coach', fr: 'Si tu n’avais pas ouvert ta boulangerie, tu travaillerais dans un bureau.', en: 'If you had not opened your bakery, you would be working in an office.', warn: 'La même horloge : présent' },
     { from: 'user', fr: 'C’est vrai. Mais j’aime ce que je fais.', en: 'That is true. But I love what I do.' },
-    { from: 'narrator', fr: 'Chaque phrase de sa mère part d’un choix ancien et arrive dans leur vie d’aujourd’hui.', en: "Each of his mother's sentences starts from an old choice and lands in their life today." },
+    { from: 'narrator', fr: 'Chaque phrase part d’un choix ancien et arrive dans la vie d’aujourd’hui.', en: 'Each sentence starts from an old choice and lands in life today.' },
   ],
   closing: { fr: 'La cause date d’hier, l’effet se voit encore : deux horloges.', en: 'The cause dates from yesterday, the effect still shows: two clocks.' },
   audio: REC('rec-b2-04-julien'),
@@ -662,8 +662,8 @@ const A3_CARTES: Sec<'cardDeck'> = {
     },
     {
       head: 'À côté', label: 'la paire du passé',
-      fr: "Si j'avais dormi cette nuit, j'aurais été moins fatigué hier.",
-      sub: '[see zha-veh dor-mee set NWEE | zhoh-reh-tay mwehⁿ fa-tee-gay YEHR]',
+      fr: "Si j'avais dormi la nuit d'avant, j'aurais été moins fatigué hier.",
+      sub: '[see zha-veh dor-mee la nwee da-VAHⁿ | zhoh-reh-tay mwehⁿ fa-tee-gay YEHR]',
       body: "Même cause, autre résultat : la fatigue d'hier, déjà finie. C'est la paire de la leçon 3 du B2. EN: same cause, a result that is over.",
     },
     {
@@ -687,7 +687,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
   layer: 'core',
   size: 'lg',
   title: 'Construis le résultat d’aujourd’hui',
-  frSub: 'Deux groupes, une gâchette chacun',
+  frSub: 'Deux groupes, une question chacun',
   groups: [
     grp('Ce qui manque maintenant', [
       it(E(1632), 'la pluie de tout à l’heure, les vêtements mouillés'),
@@ -759,7 +759,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: "Si j'avais dormi cette nuit, je ... moins fatigué ce matin.", opts: ['serais', 'aurais été'], correct: 0 },
     { promptSay: "Si tu avais pris le train de sept heures, tu ... déjà là maintenant.", opts: ['aurais été', 'serais'], correct: 1 },
-    { promptSay: "Si j'avais économisé, je ... partir en vacances cet été.", opts: ['pourrais', 'aurais pu'], correct: 0 },
+    { promptSay: "Si j'avais économisé, je ... partir en vacances l'été prochain.", opts: ['pourrais', 'aurais pu'], correct: 0 },
     { promptSay: "Si elle n'avait pas raté son bus, elle ... avec nous en ce moment.", opts: ['aurait été', 'serait'], correct: 1 },
     { promptSay: "S'il était resté à la faculté, il ... son droit à l'époque.", opts: ['aurait fini', 'finirait'], correct: 0 },
     { promptSay: "Si nous avions vendu l'appartement, nous ... de l'argent de côté aujourd'hui.", opts: ['aurions eu', 'aurions'], correct: 1 },
@@ -816,7 +816,7 @@ const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
     ['mettre le résultat au passé parce que la cause l’est', 'mettre un futur après si'], 0,
     "La cause ne tire pas le résultat en arrière. EN: the cause does not drag the result back."),
   ctl('Le signal', 'Quel mot t’aide le plus à régler le résultat ?',
-    ['aujourd’hui, maintenant, déjà', 'si'], 0,
+    ['aujourd’hui, maintenant', 'si'], 0,
     "Ce sont les témoins de l'horloge du résultat. EN: they witness the result's clock."),
 ], ['cause', 'resultat']);
 
@@ -848,11 +848,11 @@ const A4_HISTOIRE: Sec<'story'> = {
   setting: 'Dakar. Awa a encore perdu ses clés. Son colocataire, Moussa, l’a fait entrer.',
   bubbles: [
     { from: 'narrator', fr: 'C’est la troisième fois ce mois-ci.', en: 'It is the third time this month.' },
-    { from: 'coach', fr: fr(E(1647)), en: en(E(1647)), warn: 'Ta nature, puis hier' },
+    { from: 'coach', fr: 'Si tu étais plus prudente, tu n’aurais pas perdu tes clés.', en: 'If you were more careful, you would not have lost your keys.', warn: 'Ta nature, puis hier' },
     { from: 'user', fr: 'Je suis prudente. C’est juste que ce jour-là, j’étais pressée.', en: 'I am careful. It is just that on that day I was in a hurry.' },
-    { from: 'coach', fr: fr(E(1657)), en: en(E(1657)), warn: 'Ce jour-là, puis ce jour-là' },
+    { from: 'coach', fr: 'Alors, si tu avais été plus prudente ce jour-là, tu n’aurais pas perdu tes clés.', en: 'Then if you had been more careful that day, you would not have lost your keys.', warn: 'Ce jour-là, puis ce jour-là' },
     { from: 'narrator', fr: 'La première phrase parle de son caractère. La seconde, d’un seul moment.', en: 'The first sentence is about her character. The second, about one moment.' },
-    { from: 'user', fr: fr(E(1654)), en: en(E(1654)) },
+    { from: 'coach', fr: 'Et si tu étais moins têtue, tu aurais accepté notre aide.', en: 'And if you were less stubborn, you would have accepted our help.' },
   ],
   closing: { fr: 'L’imparfait après si garde un état qui dure. Le résultat, lui, est déjà passé.', en: 'The imparfait after si keeps a lasting state. The result is already past.' },
   audio: REC('rec-b2-04-awa'),
@@ -907,7 +907,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
   layer: 'core',
   size: 'lg',
   title: 'Construis l’état et l’occasion manquée',
-  frSub: 'Deux groupes, une gâchette chacun',
+  frSub: 'Deux groupes, une question chacun',
   groups: [
     grp('Un trait de caractère', [
       it(E(1650), 'la timidité, puis hier soir'),
@@ -924,7 +924,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1662), 'les billets restent chers'),
     ], chk('Et le résultat, dans ces phrases ?',
       ['il est passé', 'il est à venir', 'il se voit maintenant'], 0,
-      "Aurait préparé, serais perdu, aurait su : tout est déjà joué. EN: already over.")),
+      "Aurait préparé, me serais perdu, aurait su : tout est déjà joué. EN: already over.")),
     ctl('Le contraste', '« Si j’étais plus prudent » et « si j’avais été plus prudent » : est-ce la même idée ?',
       ['non : une nature, ou un moment', 'oui, c’est pareil'], 0,
       "L'imparfait parle de toi ; le plus-que-parfait, de ce jour-là. EN: your nature, or that day."),
@@ -979,8 +979,8 @@ const A4_CHOISIR: Sec<'groupDrill'> = {
     ctl('Moussa parle de ton caractère', 'Tu perds souvent tes affaires. Moussa te dit...',
       ['Si tu étais plus ordonnée, tu ne les aurais pas oubliées.', 'Si tu avais été plus ordonnée, tu ne les aurais pas oubliées.'], 0,
       "Souvent : c'est ta nature, donc l'imparfait. EN: often means your nature."),
-    ctl('Un seul matin', 'D’habitude, tu es ordonnée. Mardi, tu as tout laissé au café. Tu dis...',
-      ['Si j’étais plus ordonnée, je ne les aurais pas oubliées.', 'Si j’avais été plus attentive mardi, je ne les aurais pas oubliées.'], 1,
+    ctl('Un seul matin', 'D’habitude, tu es attentive. Mardi, tu as oublié tes clés au café. Tu dis...',
+      ['Si j’étais plus attentive, je ne les aurais pas oubliées.', 'Si j’avais été plus attentive, je ne les aurais pas oubliées.'], 1,
       "Un seul jour, un seul moment : le plus-que-parfait. EN: one day, the pluperfect."),
     ctl('Un fait qui ne change pas', 'Le musée ferme tous les lundis. Tu dis...',
       ['S’il était ouvert le lundi, nous l’aurions visité.', 'S’il avait été ouvert le lundi, nous le visiterions.'], 0,
@@ -1014,7 +1014,7 @@ const A4_TEXTE = texte('a4-texte', 'Dans un texte : les clés d’Awa', 'Complè
   [
     { q: 'Complète : « Si tu ... plus ordonnée, tu ne les aurais pas oubliées au café. »', a: "étais : Moussa parle du caractère d'Awa, toujours le même." },
     { q: 'Complète : « Si tu rangeais le salon, j’... le double tout de suite. »', a: "aurais trouvé : la recherche du double a eu lieu mardi." },
-    { q: 'Pourquoi Moussa dit-il ensuite « si elle avait été là plus tôt » ?', a: "Parce que la boîte n'existait pas avant ce soir : c'est un moment passé, plus une nature." },
+    { q: 'Pourquoi Moussa dit-il ensuite « si elle avait été là plus tôt » ?', a: "Parce que la boîte n'existait pas avant ce soir : c'est un moment passé, pas une nature." },
     { q: 'Réécris pour un seul oubli : « Si tu étais plus ordonnée… »', a: "Si tu avais été plus attentive mardi, tu ne les aurais pas oubliées : un moment, donc le plus-que-parfait." },
   ],
   'rec-b2-04-texte-4', ['trait', 'resultat']);
@@ -1059,10 +1059,10 @@ const A5_HISTOIRE: Sec<'story'> = {
   setting: 'Montréal, un soir de neige. Yasmine, douze ans, demande à son père pourquoi il a quitté Oran.',
   bubbles: [
     { from: 'narrator', fr: 'Karim sort un crayon et trace une ligne sur une serviette en papier.', en: 'Karim takes out a pencil and draws a line on a paper napkin.' },
-    { from: 'coach', fr: fr(E(1664)), en: en(E(1664)), warn: 'Un point il y a douze ans, un point aujourd’hui' },
-    { from: 'coach', fr: fr(E(1665)), en: en(E(1665)), warn: 'Deux points il y a douze ans' },
+    { from: 'coach', fr: 'Si je n’étais pas parti au Canada, j’habiterais encore à Oran.', en: 'If I had not left for Canada, I would still live in Oran.', warn: 'Un point il y a douze ans, un point aujourd’hui' },
+    { from: 'coach', fr: 'Si je n’étais pas parti au Canada, je n’aurais pas rencontré ta mère.', en: 'If I had not left for Canada, I would not have met your mother.', warn: 'Deux points il y a douze ans' },
     { from: 'user', fr: 'Et tu n’as jamais eu envie de rentrer.', en: 'And you never wanted to go back.' },
-    { from: 'coach', fr: fr(E(1666)), en: en(E(1666)), warn: 'Un point partout, un point hier' },
+    { from: 'coach', fr: 'Si je n’aimais pas le froid, je serais déjà rentré.', en: 'If I did not like the cold, I would already have gone back.', warn: 'Un point toujours, un point hier' },
     { from: 'narrator', fr: 'Sur la serviette, chaque phrase a deux croix. Parfois au même endroit, parfois non.', en: 'On the napkin, every sentence has two crosses. Sometimes in the same place, sometimes not.' },
   ],
   closing: { fr: 'Avant d’écrire, place deux points sur la ligne : un pour la condition, un pour le résultat.', en: 'Before writing, put two points on the line: one for the condition, one for the result.' },
@@ -1144,7 +1144,7 @@ const A5_TABLE: Sec<'tapTable'> = {
     {
       cells: ['hier', 'demain', 'tu commencerais lundi'],
       say: fr(E(1676)),
-      detail: { title: 'Hier, puis demain', body: "Le dossier non envoyé, le travail qui aurait commencé lundi prochain. EN: past cause, coming result.", say: fr(E(1674)) },
+      detail: { title: 'Hier, puis demain', body: "Le dossier non envoyé, le travail qui commencerait lundi prochain. EN: past cause, coming result.", say: fr(E(1674)) },
     },
     {
       cells: ['toujours', 'hier', 'on m’aurait confié ce dossier'],
@@ -1172,7 +1172,7 @@ const A5_CHOISIR: Sec<'groupDrill'> = {
       ['Si Léa était plus sportive, elle aurait fini la course.', 'Si Léa avait été plus sportive, elle finirait la course.'], 0,
       "Un trait qui dure, une course finie. EN: a lasting trait, a finished race."),
     ctl('Le dossier', 'Tu n’as pas envoyé ton dossier. Le poste commence lundi prochain. Tu dis...',
-      ['Si tu avais envoyé ton dossier, tu aurais commencé lundi.', 'Si tu avais envoyé ton dossier, tu commencerais lundi.'], 1,
+      ['Si j’avais envoyé mon dossier, j’aurais commencé lundi.', 'Si j’avais envoyé mon dossier, je commencerais lundi.'], 1,
       "Lundi prochain : un résultat à venir, au conditionnel présent. EN: a coming result."),
     ctl('Le téléphone', 'Tu as cassé ton téléphone hier. Ton ami veut la photo maintenant. Tu dis...',
       ['Si je n’avais pas cassé mon téléphone, je t’enverrais la photo.', 'Si je ne cassais pas mon téléphone, je t’aurais envoyé la photo.'], 0,
@@ -1238,7 +1238,7 @@ const A5_TEXTE = texte('a5-texte', 'Dans un texte : Karim et la neige', 'Complè
   ],
   [
     { q: 'Complète : « S’il n’était pas parti, il ... encore près de la mer. »', a: "habiterait : le départ est passé, sa vie serait autre aujourd'hui." },
-    { q: 'Complète : « il n’... pas ... ses hivers à moins trente » (connaître).', a: "n'aurait pas connu : les hivers sont déjà vécus." },
+    { q: 'Complète : « il n’... pas ... ces hivers à moins trente » (connaître).', a: "n'aurait pas connu : les hivers sont déjà vécus." },
     { q: 'Pourquoi « s’il supportait moins bien le froid » est-il à l’imparfait ?', a: "Parce que Karim supporte le froid depuis toujours : c'est un état qui dure." },
     { q: 'Réécris pour dire qu’il ne serait pas à Montréal aujourd’hui : « S’il n’avait pas rencontré Sophie, il… »', a: "S'il n'avait pas rencontré Sophie, il ne serait sans doute pas à Montréal aujourd'hui." },
   ],
@@ -1280,7 +1280,7 @@ const A6_ECOUTE: Sec<'listening'> = {
   id: 'a6-ecoute',
   layer: 'core',
   hideLines: true,
-  title: 'Le message de Nadia',
+  title: 'Neuf phrases, neuf marqueurs',
   frSub: 'Écoute les petits mots de temps',
   lines: [
     ln(E(1679)), ln(E(1680)), ln(E(1681)), ln(E(1682)), ln(E(1683)),
@@ -1290,8 +1290,8 @@ const A6_ECOUTE: Sec<'listening'> = {
     { q: 'Phrase 1 : quel mot place la cause dans le passé ?', opts: ['à l’époque', 'maintenant'], correct: 0, why: "À l'époque règle la condition ; maintenant, le résultat. EN: à l'époque sets the condition." },
     { q: 'Phrase 3 : les routes sont-elles fermées en ce moment ?', opts: ['non', 'oui'], correct: 0, why: "Elles seraient fermées aujourd'hui : elles ne le sont pas. EN: they are not." },
     { q: 'Phrase 4 : et là, le résultat regarde quand ?', opts: ['hier soir', 'aujourd’hui'], correct: 0, why: "Auraient été fermées hier soir : deux points dans le passé. EN: last night." },
-    { q: 'Phrase 6 : quel est le métier de la personne ?', opts: ['réalisateur', 'acteur', 'on ne sait pas'], correct: 0, why: "Je ne serais pas réalisateur aujourd'hui : il l'est. EN: he is a director." },
-    { q: 'Phrase 8 : la personne travaille-t-elle le samedi ?', opts: ['oui', 'non'], correct: 0, why: "Si je ne travaillais pas le samedi : elle y travaille, toujours. EN: she does." },
+    { q: 'Phrase 6 : quel est le métier de la personne ?', opts: ['réalisateur', 'acteur', 'on ne sait pas'], correct: 0, why: "Je ne serais pas réalisateur aujourd'hui : il l'est. EN: he is a film director." },
+    { q: 'Phrase 8 : la personne travaille-t-elle le samedi ?', opts: ['oui', 'non'], correct: 0, why: "Si je ne travaillais pas le samedi : il y travaille, toujours. EN: yes, every Saturday." },
   ],
   audio: REC('rec-b2-04-marqueurs-ecoute'),
   say: REFRAME,
@@ -1385,7 +1385,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six phrases qui se disputent',
   rule: {
     title: 'Le marqueur et le temps doivent dire la même heure',
-    body: "Un résultat au conditionnel passé avec aujourd'hui, ou au conditionnel présent avec hier soir : la phrase se contredit. Accorde le temps au moment. EN: the tense and the marker must name the same moment.",
+    body: "Un résultat qui se voit encore aujourd'hui mis au conditionnel passé, ou un résultat d'hier soir mis au conditionnel présent : la phrase se contredit. Accorde le temps au moment. EN: the tense and the marker must name the same moment.",
   },
   cards: [
     { promptLabel: 'hier + présent', promptSound: "Si je ne travaillais pas le samedi, je viendrais à ta fête hier.", fr: fr(E(1691)), ipa: ipaOf(E(1691)), tip: "Hier : la fête est passée. EN: the party is over." },
@@ -1472,9 +1472,9 @@ const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
   ctl('Le rôle', 'Un marqueur de temps...',
     ['confirme le moment de sa moitié', 'choisit le temps à ta place'], 0,
     "Le sens décide, le marqueur témoigne. EN: the marker witnesses."),
-  ctl('Aujourd’hui', 'Avec aujourd’hui dans le résultat, tu écris...',
+  ctl('Aujourd’hui', 'Le résultat se voit encore aujourd’hui. Tu écris...',
     ['il serait', 'il aurait été'], 0,
-    "Aujourd'hui : conditionnel présent. EN: present conditional."),
+    "Il se voit encore : conditionnel présent. EN: present conditional."),
   ctl('Cette année', '« Cette année » est-elle finie ?',
     ['non, elle est en cours', 'oui'], 0,
     "Une période en cours reste au présent. EN: an unfinished period stays present."),
@@ -1508,8 +1508,8 @@ const A7_HISTOIRE: Sec<'story'> = {
   setting: 'Liège. Inès s’est disputée avec son amie Clara il y a une semaine. Elle en parle à Marie.',
   bubbles: [
     { from: 'user', fr: 'Clara ne me parle plus depuis samedi.', en: 'Clara has not spoken to me since Saturday.' },
-    { from: 'coach', fr: fr(E(1694)), en: en(E(1694)), warn: 'Un reproche : hier, puis maintenant' },
-    { from: 'user', fr: 'Je sais. Qu’est-ce que tu aurais fait, toi.', en: 'I know. What would you have done?' },
+    { from: 'coach', fr: 'Si tu m’avais écoutée, tu ne serais pas dans cette situation.', en: 'If you had listened to me, you would not be in this situation.', warn: 'Un reproche : hier, puis maintenant' },
+    { from: 'user', fr: 'Je sais. Dis-moi ce que tu aurais fait, toi.', en: 'I know. What would you have done?' },
     { from: 'coach', fr: fr('fr.b1.conseils-et-suggestions.1154'), en: en('fr.b1.conseils-et-suggestions.1154'), warn: 'Un conseil pour maintenant' },
     { from: 'coach', fr: 'Mais pour samedi, je l’aurais appelée le soir même.', en: 'But on Saturday, I would have called her that same evening.', warn: 'Un conseil qui arrive tard' },
     { from: 'narrator', fr: 'Marie mêle le reproche, le conseil et le regret. Chaque fois, elle règle ses deux horloges.', en: 'Marie mixes reproach, advice and regret. Each time she sets her two clocks.' },
@@ -1550,7 +1550,7 @@ const A7_CARTES: Sec<'cardDeck'> = {
       head: 'Le conseil trop tard', label: 'si j’étais toi',
       fr: fr(E(1695)),
       sub: rsOf(E(1695)),
-      body: "Si j'étais toi reste à l'imparfait : ta place, tu ne la prendras jamais. Le geste manqué, lui, est passé. EN: the advice holds, the chance has gone.",
+      body: "Si j'étais toi reste à l'imparfait : la place de l'autre, tu ne la prendras jamais. Le geste manqué, lui, est passé. EN: the advice holds, the chance has gone.",
     },
     {
       head: 'Le bilan', label: 'aucun regret',
@@ -1846,7 +1846,7 @@ const A8_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'recule', promptSound: "Si on avait planté des arbres il y a vingt ans, nos rues auraient été plus fraîches aujourd'hui.", fr: fr(E(1712)), ipa: ipaOf(E(1712)), tip: "Les rues d'aujourd'hui : seraient. EN: today's streets." },
     { promptLabel: 'si + cond.', promptSound: "Si les loyers seraient moins élevés, les jeunes familles ne seraient pas parties.", fr: fr(E(1711)), ipa: ipaOf(E(1711)), tip: "Jamais de conditionnel après si : étaient. EN: étaient." },
     { promptLabel: 'recule', promptSound: "Si le projet avait été mieux expliqué, les habitants l'auraient soutenu aujourd'hui.", fr: fr(E(1714)), ipa: ipaOf(E(1714)), tip: "Leur soutien serait maintenant. EN: the support would be now." },
-    { promptLabel: 'avance', promptSound: "Si nous avions agi plus tôt, nous n'aurions pas été là.", fr: fr(E(1721)), ipa: ipaOf(E(1721)), tip: "Là, c'est aujourd'hui : nous n'en serions pas là. EN: where we are today." },
+    { promptLabel: 'recule', promptSound: "Si nous avions agi plus tôt, nous n'aurions pas été là.", fr: fr(E(1721)), ipa: ipaOf(E(1721)), tip: "Là, c'est aujourd'hui : nous n'en serions pas là. EN: where we are today." },
   ],
   drill: [
     { promptSay: "Si la ville avait investi dans le tramway, les bouchons ... moins graves aujourd'hui.", opts: ['seraient', 'auraient été'], correct: 0 },
@@ -1890,7 +1890,7 @@ const A8_TEXTE = texte('a8-texte', 'Dans un texte : la piscine fermée', 'Compl�
     { q: 'Complète : « Si la piscine n’avait pas fermé, les enfants du quartier ... nager aujourd’hui. »', a: "sauraient : la fermeture est passée, le savoir-nager serait maintenant." },
     { q: 'Complète : « si les élus ... plus attentifs aux besoins des familles, ils auraient cherché une autre solution. »', a: "étaient : leur manque d'attention dure encore." },
     { q: 'Où est la concession dans ce texte ?', a: "« Certes, si la ville l'avait gardée, elle aurait dû financer de lourds travaux. »" },
-    { q: 'Rends plus prudente la deuxième phrase de l’argument, avec « sans doute ».', a: "Si la piscine n'avait pas fermé, les enfants du quartier sauraient sans doute nager aujourd'hui." },
+    { q: 'Rends plus prudente la phrase sur les enfants du quartier, avec « sans doute ».', a: "Si la piscine n'avait pas fermé, les enfants du quartier sauraient sans doute nager aujourd'hui." },
   ],
   'rec-b2-04-texte-8', ['argument', 'horloge']);
 
@@ -2049,7 +2049,7 @@ const A9_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Prends un parapluie au cas où il pleuve.',
       right: fr(E(1724)),
-      why: "Normal : au cas où ressemble à pour que, qui prend le subjonctif. Mais au cas où prend le conditionnel. EN: au cas où takes the conditional.",
+      why: "Normal : on le confond avec à condition que, qui prend le subjonctif. Mais au cas où prend le conditionnel. EN: au cas où takes the conditional.",
     },
     {
       wrong: "Je t'accompagne, à condition que tu conduis au retour.",
@@ -2062,9 +2062,9 @@ const A9_ERREURS: Sec<'commonErrors'> = {
       why: "Avec si, jamais de conditionnel. C'est au cas où qui en prend un. EN: si never takes the conditional; au cas où does.",
     },
     {
-      wrong: "Tu peux emprunter ma voiture, à condition que tu me la rendes ce soir, à condition de payer l'essence.",
+      wrong: 'Tu peux emprunter ma voiture, à condition de tu me la rendes ce soir.',
       right: fr(E(1730)),
-      why: "Deux exigences empilées alourdissent la phrase. Avec un seul sujet, à condition de suffit. EN: one subject, à condition de.",
+      why: "À condition de se construit avec un infinitif, jamais avec un sujet et un verbe conjugué : à condition de me la rendre. EN: à condition de takes an infinitive.",
     },
   ],
   audio: AUDIO,
@@ -2225,7 +2225,7 @@ const A10_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk('Le résultat, dans ces phrases, regarde...',
       ['maintenant ou demain', 'hier'], 0,
       "Conditionnel présent : serais, connaîtrais, serions, conduirait. EN: now or later.")),
-    grp('Un cousin de la leçon 32 du B1', [
+    grp('Même si, et la règle de si', [
       it('fr.b1.connecteurs-logiques.1422', 'même si : la condition ne changerait rien'),
       it(PF(1236), 'la règle de la leçon 10 du B1'),
       it(E(1743), 'la même règle, au B2'),
@@ -2258,9 +2258,9 @@ const A10_ERREURS: Sec<'commonErrors'> = {
       why: "Aujourd'hui règle le résultat : conditionnel présent. EN: today calls for the present conditional.",
     },
     {
-      wrong: "Si nous avions eu un jardin, nous aurions fêté ton anniversaire dehors.",
-      right: fr(E(1740)),
-      why: "Juste si le jardin a existé puis disparu. Si tu n'en as toujours pas, l'imparfait dit mieux la vérité. EN: right only if the garden is gone.",
+      wrong: "Si tu n'avais pas oublié les billets, nous aurions été dans le train maintenant.",
+      right: "Si tu n'avais pas oublié les billets, nous serions dans le train maintenant.",
+      why: "Maintenant : le résultat se voit encore, donc conditionnel présent. EN: now calls for the present conditional.",
     },
     {
       wrong: 'Si Inès avait passé son permis, elle nous aurait conduits à l’aéroport demain.',
@@ -2319,8 +2319,8 @@ const A10_TEXTE = texte('a10-texte', 'Dans un texte : le message de Lucas', 'Ré
     { word: 'pardonner', en: 'forgive', note: 'Ici : se faire pardonner, obtenir que l’autre oublie la faute.' },
   ],
   [
-    { q: 'Réécris la première phrase avec si.', a: "Si j'avais su que ton train arrivait à midi, je serais venu te chercher." },
-    { q: 'Réécris la deuxième phrase : Lucas est encore gêné en écrivant.', a: "Si j'avais noté l'heure hier, je ne serais pas si gêné aujourd'hui, et tu n'aurais pas attendu une heure sous la pluie. La gêne dure : conditionnel présent ; l'attente est finie : conditionnel passé." },
+    { q: 'Réécris la première phrase avec si, « Si j’aurais su… ».', a: "Si j'avais su que ton train arrivait à midi, je serais venu te chercher." },
+    { q: 'Réécris la deuxième phrase avec si : Lucas est encore gêné en écrivant.', a: "Si j'avais noté l'heure hier, je ne serais pas si gêné aujourd'hui, et tu n'aurais pas attendu une heure sous la pluie. La gêne dure : conditionnel présent ; l'attente est finie : conditionnel passé." },
     { q: 'Réécris « Si j’aurais une voiture ».', a: "Si j'avais une voiture, tout aurait été plus simple : un état qui dure, un résultat passé." },
     { q: 'La phrase « Si j’étais moins distrait, je n’aurais pas oublié » est-elle juste ?', a: "Oui : une nature qui dure, un oubli passé." },
   ],
@@ -2406,7 +2406,7 @@ const A11_USAGES: Sec<'useCases'> = {
   layer: 'core',
   title: 'Où tu vas t’en servir',
   cases: [
-    { situation: "À l'épreuve écrite du DELF B2 : un texte de réflexion", fr: fr(E(1753)), en: en(E(1753)) },
+    { situation: "Un texte personnel : réfléchir à une décision de ta vie", fr: fr(E(1753)), en: en(E(1753)) },
     { situation: "Un entretien d'embauche : expliquer un parcours", fr: fr(E(1604)), en: en(E(1604)) },
     { situation: `${Cap(ARGUMENT_REF)} : un argument sur une décision publique`, fr: fr(E(1710)), en: en(E(1710)) },
     { situation: 'Une lettre à un ami : consoler ou conseiller', fr: fr(E(1695)), en: en(E(1695)) },
@@ -2470,7 +2470,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
       user: 'Je garde une porte ouverte, au cas où une autre occasion se présenterait.',
       userEn: 'I keep a door open, in case another opportunity comes up. (Au cas où with the conditional.)',
       alts: [
-        { fr: 'Je repartirais, à condition que ma famille puisse me suivre.', en: 'I would leave again, provided my family could follow me. (À condition que with the subjunctive.)' },
+        { fr: 'Je partirais, à condition que ma famille puisse me suivre.', en: 'I would leave, provided my family could follow me. (À condition que with the subjunctive.)' },
         { fr: 'Si une offre arrive, je l’étudierai sérieusement.', en: 'If an offer comes, I will study it seriously. (A real condition.)' },
       ],
     },
@@ -2684,7 +2684,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Julien a quitté le droit il y a cinq ans. « S’il avait fini son droit, il ... avocat aujourd’hui. »', ['serait', 'aurait été', 'sera'], 0, "Aujourd'hui règle le résultat. EN: today sets the result.", 'a3-construire'),
         mc('« Si nous avions réservé, nous aurions une table maintenant. » Quand a-t-on oublié de réserver ?', ['avant, dans le passé', 'maintenant'], 0, "Avions réservé : la cause est passée. EN: the cause is past.", 'a3-cartes'),
         lC('Écoute. Le résultat se voit quand ?', fr(E(1636)), ['maintenant', 'hier'], 0, "Je serais déjà au bureau : maintenant. EN: now.", 'a3-ecoute'),
-        tI('Mets le verbe au bon temps.', '« Si j’avais économisé, je (pouvoir) partir en vacances cet été. »', 'pourrais', "Cet été est devant toi : conditionnel présent. EN: pourrais.", 'a3-construire', ['je pourrais']),
+        tI('Mets le verbe au bon temps.', '« Si j’avais économisé, je (pouvoir) partir en vacances l’été prochain. »', 'pourrais', "L'été prochain est devant toi : conditionnel présent. EN: pourrais.", 'a3-construire', ['je pourrais']),
         tI('Mets le verbe au bon temps.', '« Si tu avais pris ton parapluie, tu ne (être) pas trempé maintenant. »', 'serais', "Maintenant : serais. EN: now, serais.", 'a3-piege', ['tu ne serais pas']),
         eS("Si Julien avait fini son droit, il aurait été avocat aujourd'hui.", fr(E(1629)), "Aujourd'hui : le résultat au conditionnel présent. EN: present conditional.", 'a3-piege'),
         lC('Écoute. Cette phrase est-elle mixte ?', fr(E(1640)), ['Non : les deux moitiés regardent le passé.', 'Oui : le résultat est présent.'], 0, "Il aurait fini son droit : à l'époque. EN: both halves past.", 'a3-ecoute'),
@@ -2788,7 +2788,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Type TCF : « Si j’étais plus organisé, je ... ce rendez-vous hier. »', ['n’aurais pas oublié', 'n’oublierais pas', 'n’avais pas oublié'], 0, "Un trait qui dure, un oubli d'hier. EN: past conditional.", 'a4-construire'),
         mc('Type TCF : « Prends ton chargeur, au cas où ta batterie ... . »', ['faiblirait', 'faiblisse', 'faiblira'], 0, "Au cas où + conditionnel. EN: the conditional.", 'a9-cartes'),
         lC('Compréhension, type DELF B2 : quelle est la position de l’auteur de cette phrase ?', fr(E(1719)), ['Il regrette une décision, avec prudence.', 'Il approuve la ville.', 'Il ne prend pas position.'], 0, "Sans doute : un regret nuancé. EN: a hedged regret.", 'a8-lecture'),
-        mc('DELF B2, production écrite : on te demande de réfléchir à une décision passée. Tu montres...', ['ses conséquences d’alors et d’aujourd’hui', 'seulement ce qui s’est passé ce jour-là', 'une liste de souvenirs'], 0, "Une réflexion relie les époques. EN: link then and now.", 'a11-plan'),
+        mc('Texte de réflexion : on te demande de réfléchir à une décision passée. Tu montres...', ['ses conséquences d’alors et d’aujourd’hui', 'seulement ce qui s’est passé ce jour-là', 'une liste de souvenirs'], 0, "Une réflexion relie les époques. EN: link then and now.", 'a11-plan'),
         tI('Type TCF : mets le verbe au bon temps.', '« Si elle n’avait pas raté son bus, elle (être) avec nous en ce moment. »', 'serait', "En ce moment : conditionnel présent. EN: serait.", 'a3-construire', ['elle serait']),
         eS('Si j’aurais pris ce vol, je serais à Paris ce soir.', fr(E(1671)), "Si j'avais pris. EN: si j'avais pris.", 'a10-piege'),
         lC('Écoute, type DELF B2 : le locuteur regrette-t-il son choix ?', fr(E(1757)), ['Non, il referait le même.', 'Oui, il le regrette.'], 0, "Avec le recul, je referais. EN: he would do it again.", 'a11-lecture'),
@@ -2799,7 +2799,7 @@ const A11_QUIZ: Sec<'quiz'> = {
       questions: [
         lC(`Écoute cette phrase de ${SI_REF}. Quelle paire utilise-t-elle ?`, fr(PF(1201)), ['imparfait, puis conditionnel présent', 'présent, puis futur'], 0, "Partais, arriverais : la paire irréelle. EN: the unreal pair.", 'a2-rappel'),
         mc(`${Cap(SI_REF)} disait : « ${B110_REFRAME} » Dans une phrase mixte...`, ['chaque moitié vient d’une paire différente', 'les deux moitiés viennent de la même paire'], 0, "La phrase mixte assortit deux paires. EN: two pairs.", 'a2-rappel'),
-        mc(`Comme le disait ${FUTUR_USE_REF}, après un si de condition, jamais de...`, ['futur ni conditionnel', 'présent', 'imparfait'], 0, `« ${B107_REFRAME} » EN: ${B107_REFRAME_EN}`, 'a10-piege'),
+        mc(`Comme le disait ${FUTUR_USE_REF}, après un si de condition, jamais de...`, ['futur', 'présent', 'imparfait'], 0, `« ${B107_REFRAME} » EN: ${B107_REFRAME_EN}`, 'a10-piege'),
         tI(`${Cap(COND_REF)} : mets le verbe au conditionnel présent.`, '« Si j’avais plus de place, j’(inviter) tout le monde. »', 'inviterais', `« ${B108_REFRAME} » EN: inviterais.`, 'a2-table', ["j'inviterais"]),
         mc(`${Cap(SUBJ_DECL_REF)} : « à condition que » est suivi...`, ['du subjonctif', 'de l’indicatif', 'du conditionnel'], 0, "Un déclencheur du subjonctif. EN: the subjunctive.", 'a9-cartes'),
         lC(`Écoute cette phrase de ${CONCESSION_REF}. Que dit « même si » ?`, fr('fr.b1.connecteurs-logiques.1422'), ['la condition ne changerait rien', 'la condition est réelle'], 0, "Même si : le résultat tient malgré la condition. EN: the result holds anyway.", 'a10-construire'),
@@ -2843,7 +2843,7 @@ const A11_REVIEW: Sec<'reviewDeck'> = {
     { front: 'un état qui dure, un effet passé', back: 'si + imparfait, conditionnel passé', say: fr(E(1647)) },
     { front: 'avant d’écrire', back: 'deux points sur la ligne du temps', say: fr(E(1668)) },
     { front: 'un résultat qui viendra demain', back: 'le conditionnel présent', say: fr(E(1674)) },
-    { front: 'aujourd’hui, cette année, maintenant', back: 'le résultat au présent', say: fr(E(1681)) },
+    { front: 'un résultat qui se voit encore aujourd’hui', back: 'le conditionnel présent', say: fr(E(1681)) },
     { front: 'un conseil qui arrive trop tard', back: 'si j’étais toi, j’aurais...', say: fr(E(1695)) },
     { front: 'une précaution', back: 'au cas où + conditionnel', say: fr(E(1724)) },
     { front: 'une exigence', back: 'à condition que + subjonctif', say: fr(E(1728)) },
@@ -2878,7 +2878,7 @@ const ACT11: ActDef = {
       imageRef: 'lessons/si-mixtes/act11.jpg',
     },
     sections: [],
-    milestone: "Tu as écrit sur une décision, hier et aujourd'hui, et passé l'examen : quatre-vingt-huit questions, onze rounds. EN: You wrote about a decision, then and now, and sat the exam: 88 questions, 11 rounds.",
+    milestone: "Tu as écrit sur une décision, hier et aujourd'hui, et passé l'examen : quatre-vingt-huit questions, onze manches. EN: You wrote about a decision, then and now, and sat the exam: 88 questions, 11 rounds.",
     estScreens: 150,
     restPoints: ['a11-scenario', 'a11-mission', 'a11-cheat', 'a11-quiz/r3-etat', 'a11-quiz/r6-regret', 'a11-quiz/r9-pieges', 'a11-review'],
   },
@@ -3083,7 +3083,7 @@ const REC_DESC: Record<string, string> = {
   'rec-b2-04-karim': "Act 5 story: Karim (Algerian-born Montréalais, fifties, warm, a light Oran accent welcome) and Yasmine (twelve, Montréal accent). Karim's sentences slow and reflective.",
   'rec-b2-04-ligne-ecoute': "REQUIRED FOR THE EAR MISSION (act 5): ten lines, ONE TAKE, ONE VOICE (Karim), in authored order, natural speed. The time words (encore, ce soir, dimanche) are NOT stressed: the learner must find them.",
   'rec-b2-04-texte-5': "Act 5 text: ONE VOICE, Karim's narrator, one take, reflective pace.",
-  'rec-b2-04-marqueurs-ecoute': "REQUIRED FOR THE EAR MISSION (act 6): nine lines as a voice message from Nadia, ONE TAKE, ONE VOICE (young Parisienne), in authored order, natural speed, small hesitations allowed.",
+  'rec-b2-04-marqueurs-ecoute': "REQUIRED FOR THE EAR MISSION (act 6): nine separate lines, ONE TAKE, ONE VOICE (a MAN, thirties, Parisian: the lines say réalisateur and je serais venu), in authored order, natural speed, small hesitations allowed.",
   'rec-b2-04-piege-marqueur': "The audio step plays each card's CORRECT sentence, where marker and tense agree. Read the six evenly; the contradicting versions in promptSound are never spoken.",
   'rec-b2-04-texte-6': "Act 6 text: narration voice, Nadia (young Parisienne) and Léo (young man). One take.",
   'rec-b2-04-ines': "Act 7 story: Inès and Marie, two Liège voices, thirties, intimate tone. Marie's reproach is gentle.",

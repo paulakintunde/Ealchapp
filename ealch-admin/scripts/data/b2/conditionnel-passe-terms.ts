@@ -61,7 +61,7 @@ export const CONDITIONNEL_PASSE_TERMS: Record<string, LessonTerm> = {
   reproche: {
     term: 'le reproche',
     title: 'Reprocher sans fermer la porte',
-    body: "Tu aurais dû vise la personne. Il aurait fallu vise le travail. On aurait pu partage la faute. Plus tu t'éloignes de la personne, plus le reproche passe. EN: The further the form moves from the person, the easier the reproach is to take.",
+    body: "« Tu aurais dû » vise la personne. « Il aurait fallu » vise le travail. « On aurait pu » partage la faute. Plus tu t'éloignes de la personne, plus le reproche passe. EN: The further the form moves from the person, the easier the reproach is to take.",
     examples: [
       { itemId: E(1264), note: 'direct : vous' },
       { itemId: E(1265), note: 'neutre : personne n’est nommé' },

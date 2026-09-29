@@ -39,7 +39,7 @@
 //   11  Raconter ce qui s'était     11  model, plan, role play, TASK, quiz
 //       passé
 //
-//   TOTAL 85 missions, 11 acts. Corpus: 166 authored rows (.1600-.1798) in
+//   TOTAL 85 missions, 11 acts. Corpus: 169 authored rows (.1600-.1798) in
 //   eleven blocks plus 23 reused seed rows, released act by act through
 //   `deckTranche`. Quiz: 12 rounds of 8 (one per act 1 to 10, a B1
 //   recycling round, an exam-format round). Chapter artwork:
@@ -421,12 +421,12 @@ const A2_RAPPEL: Sec<'cardDeck'> = {
       head: 'L’auxiliaire à l’imparfait', label: Cap(IMP_FORM_REF),
       fr: 'avais · avait · avions · aviez · avaient',
       sub: '[a-VEH] · [a-VEH] · [a-VYOHⁿ] · [a-VYAY] · [a-VEH]',
-      body: `« ${B101_REFRAME} » Avoir donne av-, être donne ét- : j'étais, nous étions. EN: ${B101_REFRAME_EN}`,
+      body: `« ${B101_REFRAME} » Avoir donne av- ; être, l'exception, donne ét- : j'étais, nous étions. EN: ${B101_REFRAME_EN}`,
     },
     {
       head: 'Avoir ou être', label: 'comme au passé composé',
       fr: fr(E(1626)), sub: rsOf(E(1626)),
-      body: "Aller, venir, partir, rester, naître et les autres verbes de mouvement gardent être, comme tous les pronominaux. Les autres prennent avoir. Tu n'as rien de nouveau à choisir. EN: same auxiliary as the passé composé.",
+      body: "Aller, venir, partir, rester, naître, mourir, tomber et les autres verbes de la liste de être (voir la fiche) gardent être, comme tous les pronominaux. Les autres prennent avoir. Tu n'as rien de nouveau à choisir. EN: same auxiliary as the passé composé.",
     },
     {
       head: 'Le participe ne bouge pas', label: 'le deuxième mot',
@@ -509,7 +509,7 @@ const A2_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Deuxième phrase : quel auxiliaire entends-tu ?', opts: ['être', 'avoir'], correct: 0, why: 'Aller garde être : elle était allée. EN: aller keeps être.' },
-    { q: 'Troisième phrase : comment sont-ils venus ?', opts: ['en voiture', 'en train', 'à pied'], correct: 1, why: 'Nous étions venus en train. EN: by train.' },
+    { q: 'Troisième phrase : quel moyen de transport ?', opts: ['en voiture', 'en train', 'à pied'], correct: 1, why: 'Nous étions venus en train. EN: by train.' },
     { q: 'Cinquième phrase : quelle heure avait-on donnée ?', opts: ['six heures', 'huit heures'], correct: 1, why: 'On avait dit huit heures. EN: eight o’clock.' },
     { q: 'Septième phrase : d’où était-elle rentrée ?', opts: ['de vacances', 'du travail'], correct: 0, why: 'Elle était déjà rentrée de vacances. EN: from holiday.' },
     { q: 'Dixième phrase : quel verbe se conjugue avec avoir alors qu’on attendait être ?', opts: ['être', 'rester', 'venir'], correct: 0, why: 'J’avais été malade : être prend avoir. EN: être takes avoir.' },
@@ -572,7 +572,7 @@ const A2_FLASH: Sec<'flashcards'> = {
   title: 'Huit formes à avoir en bouche',
   frSub: 'De l’anglais au français',
   cards: [
-    { front: 'I had finished', back: "j'avais fini", say: fr(E(1632)) },
+    { front: 'I had finished', back: "j'avais fini", say: fr(E(1615)) },
     { front: 'we had come', back: 'nous étions venus', say: fr(E(1627)) },
     { front: 'she had gone', back: 'elle était allée', say: fr(E(1626)) },
     { front: 'they had put', back: 'ils avaient mis', say: fr(E(1628)) },
@@ -625,7 +625,7 @@ const A3_HISTOIRE: Sec<'story'> = {
   frSub: 'Mariam et sa tante',
   setting: 'Marseille. Mariam vide le grenier de sa mère avec sa tante Nora, qui lit les lettres par-dessus son épaule.',
   bubbles: [
-    { from: 'narrator', fr: 'Mariam tient une liasse de lettres attachées par un ruban.', en: 'Mariam is holding a bundle of letters tied with a ribbon.' },
+    { from: 'narrator', fr: 'Mariam tient une liasse de lettres attachées par un ruban : des lettres d’avant le mariage de ses parents.', en: 'Mariam is holding a bundle of letters tied with a ribbon: letters from before her parents’ wedding.' },
     { from: 'user', fr: 'Ce sont les lettres que maman avait écrites à papa.', en: 'These are the letters Mum had written to Dad.' },
     { from: 'coach', fr: 'Écrites, avec es. Que les reprend, et il est placé avant.', en: 'Écrites, with es. Que stands for them, and it comes first.', warn: 'Avoir : accord avec que' },
     { from: 'user', fr: 'Elle était arrivée ici à dix-neuf ans.', en: 'She had arrived here at nineteen.' },
@@ -740,7 +740,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   title: 'L’accord qu’on oublie, l’accord qu’on invente',
   frSub: 'Six cartes, huit phrases',
   rule: {
-    title: 'Être regarde devant, avoir regarde avant',
+    title: 'Être regarde le sujet, avoir regarde avant',
     body: "Avec être, le participe s'accorde avec le sujet. Avec avoir, il ne s'accorde qu'avec un complément direct placé avant lui. Le sujet d'avoir ne compte jamais. EN: être agrees with the subject; avoir only with a direct object placed before.",
   },
   cards: [
@@ -762,7 +762,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Nous étions … d’accord très vite.', opts: ['tombés', 'tombé'], correct: 0 },
   ],
   steps: [
-    { label: 'La règle', kind: 'rule', title: 'Être regarde devant, avoir regarde avant' },
+    { label: 'La règle', kind: 'rule', title: 'Être regarde le sujet, avoir regarde avant' },
     { label: 'Six cartes', kind: 'cards', title: 'Ce que la main écrit toute seule' },
     { label: 'Écoute', kind: 'audio', title: 'Écoute les six phrases correctes' },
     { label: 'À toi', kind: 'drill', title: 'Huit phrases', gate: true },
@@ -816,13 +816,13 @@ const A4_HISTOIRE: Sec<'story'> = {
   layer: 'core',
   title: 'Le matin de l’oral',
   frSub: 'Léa raconte, Inès corrige',
-  setting: 'Rennes, devant la salle d’examen. Léa raconte sa matinée à une amie ; Inès, qui était avec elle, corrige au fur et à mesure.',
+  setting: 'Rennes, le soir de l’oral. Léa raconte à une amie le moment où l’examinateur les a appelées, et tout ce qui s’était passé avant ; Inès, qui était avec elle, corrige au fur et à mesure.',
   bubbles: [
     { from: 'narrator', fr: 'Léa parle vite, et son amie a du mal à suivre.', en: 'Léa is talking fast, and her friend is struggling to keep up.' },
     { from: 'user', fr: "Ce matin-là, on s'était levées à cinq heures.", en: 'That morning, we had got up at five.' },
     { from: 'coach', fr: 'Levées, avec es : un verbe pronominal prend être, et être accorde.', en: 'Levées, with es: a pronominal verb takes être, and être agrees.', warn: 'Toujours être' },
     { from: 'user', fr: "La veille, Inès et moi, on s'était disputées.", en: 'The day before, Inès and I had argued.' },
-    { from: 'coach', fr: "Oui. Mais le matin, elles s'étaient téléphoné, sans accord.", en: 'Yes. But in the morning they had phoned each other, with no agreement.', warn: 'Téléphoner à quelqu’un' },
+    { from: 'coach', fr: "Oui. Mais le matin, on s'était téléphoné, sans accord.", en: 'Yes. But in the morning we had phoned each other, with no agreement.', warn: 'Téléphoner à quelqu’un' },
     { from: 'user', fr: "Et moi, je m'étais coupé les cheveux la semaine d'avant.", en: 'And I had cut my hair the week before.' },
     { from: 'coach', fr: 'Coupé, sans e : les cheveux viennent après le verbe.', en: 'Coupé, no e: the hair comes after the verb.', warn: 'Complément après : pas d’accord' },
   ],
@@ -915,7 +915,7 @@ const A4_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Première phrase : quand s’était-elle levée ?', opts: ['avant l’aube', 'à midi'], correct: 0, why: 'Avant l’aube. EN: before dawn.' },
-    { q: 'Troisième phrase : où s’étaient-ils perdus ?', opts: ['en forêt', 'dans la vieille ville'], correct: 1, why: 'Dans la vieille ville. EN: in the old town.' },
+    { q: 'Troisième phrase : où le groupe s’était-il perdu ?', opts: ['en forêt', 'dans la vieille ville'], correct: 1, why: 'Dans la vieille ville. EN: in the old town.' },
     { q: 'Sixième phrase : où s’étaient-ils rencontrés ?', opts: ['à l’université', 'au travail', 'en voyage'], correct: 0, why: 'À l’université. EN: at university.' },
     { q: 'Huitième phrase : de quoi s’était-on trompé ?', opts: ['d’adresse', 'de jour'], correct: 1, why: 'Tu t’étais trompé de jour. EN: the day.' },
     { q: 'Dernière phrase : où s’était-elle installée ?', opts: ['à Genève', 'à Lausanne'], correct: 1, why: 'À Lausanne. EN: in Lausanne.' },
@@ -946,7 +946,7 @@ const A4_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: "Elle s'était coupée les cheveux avant de partir.",
       right: "Elle s'était coupé les cheveux avant de partir.",
-      why: "Correct sans complément (elle s'était coupée au doigt se dit aussi). Ici le complément direct, les cheveux, vient après : pas d'accord. EN: the object follows, so no agreement.",
+      why: "Normal : elle s'était coupée au doigt se dit, avec l'accord, car se y est complément direct. Ici le complément direct, les cheveux, vient après : pas d'accord. EN: the object follows, so no agreement.",
     },
     {
       wrong: 'Nous nous avions perdus dans la vieille ville.',
@@ -962,7 +962,7 @@ const A4_ERREURS: Sec<'commonErrors'> = {
 const A4_TEXTE = dansUnTexte('a4-texte', 'Compléter : le matin de l’oral', TEXTE_A4, [
   { q: 'Complète les trois premiers : elles (se lever), (se préparer), (se téléphoner).', a: "Elles s'étaient levées, elles s'étaient préparées, puis elles s'étaient téléphoné (on téléphone à quelqu'un : pas d'accord)." },
   { q: 'Complète : elles (se disputer), mais elles (se réconcilier).', a: "Elles s'étaient disputées, mais elles s'étaient réconciliées." },
-  { q: 'Complète : Léa (se couper) les cheveux, et elle (se trouver) très bien.', a: "Léa s'était coupé les cheveux (le complément vient après) ; elle s'était trouvée très bien." },
+  { q: 'Complète : Léa (se couper) les cheveux, et elle (se maquiller) avec soin.', a: "Léa s'était coupé les cheveux (le complément vient après) ; elle s'était maquillée avec soin (se est complément direct : accord)." },
   { q: 'Complète la fin : elles (ne pas encore se rendre compte) de leur chance.', a: "Elles ne s'étaient pas encore rendu compte de leur chance. Se rendre compte ne s'accorde jamais." },
 ], 'rec-b2-01-texte-a4', ['pronominal', 'accord']);
 
@@ -1014,7 +1014,7 @@ const A5_LECTURE: Sec<'reading'> = {
     { word: 'soupe aux pois', en: 'pea soup', note: 'Un plat traditionnel du Québec, épais et nourrissant.' },
   ],
   questions: [
-    { q: 'Quand Julien sort de l’aéroport, que se passait-il ?', a: "Il neigeait, et il faisait moins vingt : le décor, à l'imparfait." },
+    { q: 'Quand Julien est sorti de l’aéroport, que se passait-il ?', a: "Il neigeait, et il faisait moins vingt : le décor, à l'imparfait." },
     { q: 'Qu’avait-il fait avant ce moment ? Cite deux faits.', a: "Il avait quitté Lyon le matin même, et il n'avait presque pas dormi dans l'avion." },
     { q: 'Pourquoi la voisine n’ouvre-t-elle pas ?', a: "Parce qu'elle était sortie : son départ a eu lieu avant le coup de sonnette." },
     { q: 'Quelle phrase explique le retard de la voisine ?', a: "« Elle avait oublié qu'il arrivait ce jour-là. » L'oubli se situe avant son retour." },
@@ -1110,7 +1110,7 @@ const A5_ECOUTE: Sec<'listening'> = {
     { q: 'Première phrase : où était-elle quand il a sonné ?', opts: ['en train de sortir', 'déjà loin', 'chez elle, assise'], correct: 0, why: 'Elle sortait : l’action était en cours. EN: under way.' },
     { q: 'Deuxième phrase : pouvait-elle lui ouvrir ?', opts: ['oui', 'non'], correct: 1, why: 'Elle était sortie avant : personne à la maison. EN: she had already gone.' },
     { q: 'Troisième phrase : qu’est-ce qui vient en premier ?', opts: ['la sortie', 'le coup de sonnette'], correct: 1, why: 'Deux passés composés dans l’ordre des faits. EN: the ring came first.' },
-    { q: 'Cinquième phrase : quand avait-il décidé de ne pas prendre de manteau ?', opts: ['avant le voyage', 'à l’aéroport'], correct: 0, why: 'Il n’avait pas prévu : c’était fait avant. EN: before the trip.' },
+    { q: 'Cinquième phrase : quand aurait-il dû penser au manteau ?', opts: ['avant le voyage', 'à l’aéroport'], correct: 0, why: 'Il n’avait pas prévu de manteau : l’oubli date d’avant le voyage. EN: before the trip.' },
     { q: 'Septième phrase : quand s’était-il trompé ?', opts: ['avant de comprendre', 'après avoir compris'], correct: 0, why: 'L’erreur précède la compréhension. EN: the mistake came first.' },
   ],
   audio: REC('rec-b2-01-ligne-ecoute'),
@@ -1174,7 +1174,7 @@ const A5_HACKS: Sec<'hacks'> = {
 };
 
 const A5_TEXTE = dansUnTexte('a5-texte', 'Compléter : la nouvelle d’Amandine', TEXTE_A5, [
-  { q: 'Complète le début : quand Amandine (arriver), tout le monde la (regarder), il (faire) calme.', a: "Quand Amandine est arrivée au bureau, tout le monde la regardait en souriant. Il faisait étrangement calme. Une étape, puis deux décors." },
+  { q: 'Complète le début : quand Amandine (arriver), tout le monde la (regarder), il (faire) calme.', a: "Quand Amandine est arrivée au bureau, tout le monde la regardait en souriant. Il faisait étrangement calme. Une étape, puis deux décors. (Tout le monde l'a regardée est juste aussi, si tu en fais une réaction à son arrivée.)" },
   { q: 'Complète : quelqu’un (poser) un gâteau ; ses collègues (apprendre) la nouvelle ; elle (obtenir) le poste.', a: "Quelqu'un avait posé un gâteau ; ses collègues avaient appris la nouvelle ; elle avait obtenu le poste. Tout était fait avant son arrivée." },
   { q: 'Complète : Amandine (rougir), puis elle (éclater) de rire.', a: "Amandine a rougi, puis elle a éclaté de rire : deux étapes après le repère." },
   { q: 'Complète la fin : elle (ne rien dire), mais sa cheffe (parler) trop vite.', a: "Elle n'avait rien dit à personne, mais sa cheffe avait parlé un peu trop vite. Deux faits d'avant, qui expliquent la scène." },
@@ -1287,9 +1287,9 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       'Le repère vient d’abord, ce qui l’a précédé ensuite. EN: the text goes back in time.')),
     grp('Le récit avance', [
       it(E(1704), 'réserver, puis envoyer'),
-      it(E(1707), 'le début, puis la fin'),
-      it(E(1706), 'apprendre ce qui s’était passé'),
-      it(E(1710), 'l’arrivée et les fleurs'),
+      it(E(1715), 'arriver, puis manger'),
+      it(E(1716), 'danser, puis rentrer'),
+      it(E(1717), 'couper, puis remercier'),
     ], chk('« Elle a réservé la salle, puis elle a envoyé les invitations. » Faut-il un plus-que-parfait ?',
       ['non, les faits sont dans l’ordre', 'oui, la réservation est plus ancienne'], 0,
       'Puis enchaîne deux étapes : rien ne recule. EN: puis moves forward.')),
@@ -1345,7 +1345,7 @@ const A6_ERREURS: Sec<'commonErrors'> = {
     },
     {
       wrong: 'Quand les invités avaient arrivé, la pluie a cessé.',
-      right: 'Lorsque les invités sont arrivés, la pluie avait cessé.',
+      right: 'Quand les invités sont arrivés, la pluie avait cessé.',
       why: "Deux erreurs : arriver prend être, et le repère est l'arrivée. C'est la pluie qui a cessé avant. EN: arriver takes être, and the rain stopped first.",
     },
   ],
@@ -1445,7 +1445,7 @@ const A7_TABLE: Sec<'tapTable'> = {
     { cells: ['bien, souvent, tout', 'entre les deux mots', 'on avait tout prévu'], say: fr(E(1727)),
       detail: { title: 'bien, souvent, tout', body: "Les adverbes courts et tout, pronom, suivent la même place. EN: short adverbs and tout go in the middle.", say: fr(E(1734)) } },
     { cells: ['venait de', 'venir de à l’imparfait', 'elle venait de partir'], say: fr(E(1722)),
-      detail: { title: 'venait de', body: "Un passé tout proche du repère, plus fréquent à l'oral que était juste parti. EN: had just, the usual spoken form.", say: fr(E(1723)) } },
+      detail: { title: 'venait de', body: "Un passé tout proche du repère. Était juste parti se dit aussi, mais c'est familier : à l'écrit, venait de. EN: had just; était juste parti is informal.", say: fr(E(1723)) } },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1474,7 +1474,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1729), 'ne… encore rien'),
       it('fr.b1.journalisme.1178', 'ne… pas'),
     ], chk('« La réunion … commencé. » Quelle forme ?',
-      ['n’avait pas encore', 'avait pas encore', 'n’avait encore pas'], 0,
+      ['n’avait pas encore', 'avait pas encore', 'avait ne pas encore'], 0,
       'Ne avant, pas encore après l’auxiliaire. EN: ne before, pas encore after.')),
     ctl('Venait de', '« Elle venait de partir. » Le départ était…',
       ['tout récent', 'ancien', 'prévu pour plus tard'], 0,
@@ -1501,7 +1501,7 @@ const A7_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'ne mal placé', promptSound: 'Je avais ne pas encore fini mon rapport.', fr: fr(E(1721)), ipa: ipaOf(E(1721)), tip: 'Ne avant l’auxiliaire. EN: ne before avais.' },
     { promptLabel: 'jamais devant', promptSound: 'Nous jamais n’avions vu la mer.', fr: fr(E(1724)), ipa: ipaOf(E(1724)), tip: 'Jamais après l’auxiliaire. EN: jamais after avions.' },
     { promptLabel: 'venir au passé composé', promptSound: 'Elle est venue de partir quand j’ai appelé.', fr: fr(E(1722)), ipa: ipaOf(E(1722)), tip: 'Venir de se met à l’imparfait. EN: venir de takes the imparfait.' },
-    { promptLabel: 'encore oublié', promptSound: 'Elle n’avait rien dit encore à personne.', fr: fr(E(1729)), ipa: ipaOf(E(1729)), tip: 'Encore rien, entre les deux mots. EN: encore rien in the middle.' },
+    { promptLabel: 'encore mal placé', promptSound: 'Elle n’avait rien dit encore à personne.', fr: fr(E(1729)), ipa: ipaOf(E(1729)), tip: 'Encore rien, entre les deux mots. EN: encore rien in the middle.' },
     { promptLabel: 'à peine après', promptSound: 'Il avait fermé à peine la porte que le téléphone a sonné.', fr: fr(E(1725)), ipa: ipaOf(E(1725)), tip: 'À peine avant le participe. EN: à peine before the participle.' },
   ],
   drill: [
@@ -1509,10 +1509,10 @@ const A7_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Je … fini mon rapport.', opts: ['n’avais pas encore', 'avais pas encore'], correct: 0 },
     { promptSay: 'Elle … partir quand j’ai appelé.', opts: ['est venue de', 'venait de'], correct: 1 },
     { promptSay: 'Nous … vu la mer.', opts: ['jamais n’avions', 'n’avions jamais'], correct: 1 },
-    { promptSay: 'On … prévu, sauf la pluie.', opts: ['avait tout', 'avait prévu tout'], correct: 0 },
+    { promptSay: 'On … , sauf la pluie.', opts: ['avait tout prévu', 'avait prévu tout'], correct: 0 },
     { promptSay: 'Il avait … fermé la porte que le téléphone a sonné.', opts: ['à peine', 'juste à peine'], correct: 0 },
     { promptSay: 'Mon frère … venu à Bruxelles deux fois.', opts: ['était déjà', 'déjà était'], correct: 0 },
-    { promptSay: 'Nous … parlé de ce voyage.', opts: ['avions parlé souvent', 'avions souvent'], correct: 1 },
+    { promptSay: 'Nous … de ce voyage.', opts: ['souvent avions parlé', 'avions souvent parlé'], correct: 1 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Entre les deux mots, et ne devant' },
@@ -1548,7 +1548,7 @@ const A7_FLASH: Sec<'flashcards'> = {
 
 const A7_TEXTE = dansUnTexte('a7-texte', 'Compléter : le premier hiver d’Awa', TEXTE_A7, [
   { q: 'Complète : elle (ne jamais voir) la neige ; elle (déjà travailler) deux ans.', a: "Elle n'avait jamais vu la neige ; elle avait déjà travaillé deux ans à Dakar." },
-  { q: 'Complète : elle (juste finir) son master.', a: "Elle venait de finir son master (ou : elle avait juste fini son master). Venait de est la forme la plus courante." },
+  { q: 'Complète : elle (juste finir) son master.', a: "Elle venait de finir son master (ou, plus familier : elle avait juste fini son master). Venait de est la forme la plus courante." },
   { q: 'Complète : ses cousins lui (souvent parler) de l’hiver ; elle (ne pas encore acheter) de bottes.', a: "Ses cousins lui avaient souvent parlé de l'hiver québécois, mais elle n'avait pas encore acheté de bottes." },
   { q: 'Complète : elle (à peine ouvrir) la porte qu’elle a compris.', a: "Elle avait à peine ouvert la porte de l'immeuble qu'elle a compris son erreur." },
 ], 'rec-b2-01-texte-a7', ['adverbes']);
@@ -1684,7 +1684,7 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1748), 'je n’ai rien vu devient n’avait rien vu'),
       it(E(1749), 'le vol a été annulé'),
       it('fr.b1.paroles-rapportees.1113', 'nous sommes déjà partis'),
-    ], chk('« J’ai fini », dit-elle hier. Tu rapportes aujourd’hui…',
+    ], chk('« J’ai fini », a-t-elle dit hier. Tu rapportes aujourd’hui…',
       ['elle a dit qu’elle a fini', 'elle a dit qu’elle avait fini'], 1,
       'Après a dit, le passé composé recule. EN: after a dit, it steps back.')),
     grp('Des pensées', [
@@ -1751,9 +1751,9 @@ const A8_ERREURS: Sec<'commonErrors'> = {
       why: "Normal : savoir ne ressemble pas à un verbe de parole. Mais une pensée passée crée le même repère. EN: past thinking verbs work like saying verbs.",
     },
     {
-      wrong: "J'ai retrouvé le livre que tu m'as prêté l'an dernier.",
-      right: "J'ai retrouvé le livre que tu m'avais prêté l'an dernier.",
-      why: "Acceptable à l'oral. Mais le prêt précède la découverte : à l'écrit, la relative recule. EN: the lending comes first, so the relative steps back.",
+      wrong: "Il m'a demandé si j'ai déjà travaillé en équipe.",
+      right: "Il m'a demandé si j'avais déjà travaillé en équipe.",
+      why: "Normal : une question semble à part. Mais une question rapportée après a demandé recule comme une affirmation : si j'avais. EN: a reported question steps back too.",
     },
   ],
   audio: AUDIO,
@@ -1850,7 +1850,7 @@ const A9_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Le regret', label: 'si seulement',
       fr: fr(E(1761)), sub: rsOf(E(1761)),
-      body: "Si seulement suivi du plus-que-parfait se suffit à lui-même. C'est la forme écrite du regret. EN: si seulement plus pluperfect is a complete regret.",
+      body: "Si seulement suivi du plus-que-parfait se suffit à lui-même. C'est la forme du regret. EN: si seulement plus pluperfect is a complete regret.",
     },
     {
       head: 'Le résultat', label: 'la suite, au B2',
@@ -1908,8 +1908,8 @@ const A9_ECOUTE: Sec<'listening'> = {
     { q: 'Première phrase : la personne est-elle venue tôt ?', opts: ['non', 'oui'], correct: 0, why: 'Elle ne savait pas, donc elle n’est pas venue tôt. EN: she did not know.' },
     { q: 'Troisième phrase : a-t-elle été remboursée ?', opts: ['oui', 'non'], correct: 1, why: 'Elle n’a pas gardé ses reçus. EN: no receipts, no refund.' },
     { q: 'Quatrième phrase : parle-t-on du passé ?', opts: ['non, de maintenant', 'oui'], correct: 0, why: 'Si + imparfait : ce n’est pas le cas aujourd’hui. EN: present unreal.' },
-    { q: 'Septième phrase : a-t-il signé ?', opts: ['non', 'oui'], correct: 1, why: 'Il a signé sans savoir. EN: he signed.' },
-    { q: 'Dernière phrase : ont-ils réservé tôt ?', opts: ['oui', 'non'], correct: 1, why: 'Ils ne savaient pas, donc non. EN: they booked late.' },
+    { q: 'Septième phrase : la personne qui parle a-t-elle signé ?', opts: ['non', 'oui'], correct: 1, why: 'Elle a signé sans savoir. EN: the speaker signed.' },
+    { q: 'Dernière phrase : la réservation a-t-elle été faite tôt ?', opts: ['oui', 'non'], correct: 1, why: 'Ils ne savaient pas, donc non. EN: they booked late.' },
   ],
   audio: REC('rec-b2-01-si-ecoute'),
   say: REFRAME,
@@ -1931,7 +1931,7 @@ const A9_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'si + conditionnel', promptSound: "Si j'aurais su, je n'aurais pas signé.", fr: fr(E(1769)), ipa: ipaOf(E(1769)), tip: 'La faute la plus célèbre, au passé. EN: the classic error, in the past.' },
     { promptLabel: 'si + conditionnel', promptSound: "Si seulement il aurait lu le mode d'emploi.", fr: fr(E(1770)), ipa: ipaOf(E(1770)), tip: 'Si seulement suit la même règle. EN: same rule.' },
     { promptLabel: 'si + passé composé', promptSound: "Si tu as pris le train, tu serais arrivé à l'heure.", fr: fr(E(1764)), ipa: ipaOf(E(1764)), tip: 'Un passé qui n’a pas eu lieu : avais pris. EN: avais pris.' },
-    { promptLabel: 'si + imparfait', promptSound: "Si j'apprenais l'italien, j'aurais lu ce roman.", fr: fr(E(1767)), ipa: ipaOf(E(1767)), tip: 'Le résultat est passé : la condition aussi. EN: past result, past condition.' },
+    { promptLabel: 'si + imparfait', promptSound: "Si j'apprenais l'italien, j'aurais lu ce roman.", fr: fr(E(1767)), ipa: ipaOf(E(1767)), tip: 'Apprendre l’italien, c’était avant : un passé qui n’a pas eu lieu, j’avais appris. EN: the learning would have come first: avais appris.' },
     { promptLabel: 'être oublié', promptSound: 'Si seulement nous avions partis plus tôt.', fr: fr(E(1762)), ipa: ipaOf(E(1762)), tip: 'Partir garde être : étions partis. EN: partir keeps être.' },
     { promptLabel: 'si + conditionnel', promptSound: "Si elle ne m'aurait pas aidé, j'aurais abandonné.", fr: fr(E(1772)), ipa: ipaOf(E(1772)), tip: 'Ne… pas autour de avait. EN: ne... pas round avait.' },
   ],
@@ -1964,7 +1964,7 @@ const A9_EXEMPLES: Sec<'examples'> = {
   frSub: 'Lus au B1, compris maintenant',
   examples: [
     ex('fr.b1.projets-et-futur.1352', 'elle ne savait pas, et elle a pris ce train'),
-    ex('fr.b1.projets-et-futur.1353', 'personne ne l’a prévenu, il n’est pas venu'),
+    ex('fr.b1.projets-et-futur.1353', 'tu ne l’as pas prévenu, il n’est pas venu'),
     ex('fr.b1.projets-et-futur.1209', 'ils ont réservé trop tard'),
     ex('fr.b2.maison.078', 'ils ont emménagé en plein chantier'),
   ],
@@ -2065,7 +2065,7 @@ const A10_CARTES: Sec<'cardDeck'> = {
       body: "Had been living for se dit avec l'imparfait et depuis : elle habitait là depuis deux ans. Le plus-que-parfait couperait la durée. EN: had been doing for is imparfait plus depuis.",
     },
     {
-      head: 'Had, sans repère', label: 'le passé composé',
+      head: 'Have, pas had', label: 'le passé composé',
       fr: fr(E(1782)), sub: rsOf(E(1782)),
       body: "Une expérience jusqu'à aujourd'hui prend le passé composé : j'ai déjà vu ce film. Avec un repère passé, j'avais déjà vu. EN: experience up to now is passé composé.",
     },
@@ -2083,11 +2083,11 @@ const A10_TRIER: Sec<'groupDrill'> = {
     grp('Un vrai repère', [
       it(E(1783), 'la proposition est le repère'),
       it(E(1785), 'la fatigue vient d’une nuit d’avant'),
-      it(E(1787), 'une action faite avant la découverte'),
+      it(E(1787), 'le retour est le repère'),
       it(E(1789), 'le voyage est le repère'),
     ], chk('Dans ces phrases, où est le repère ?',
       ['dans un autre verbe ou un marqueur de la phrase', 'nulle part'], 0,
-      'Tu as proposé, il était fatigué, ce voyage : chaque fois, un moment passé. EN: each has a past reference point.')),
+      'Tu as proposé, il était fatigué, je suis rentré, ce voyage : chaque fois, un moment passé. EN: each has a past reference point.')),
     grp('Pas de plus-que-parfait', [
       it(E(1780), 'avait faim : un imparfait'),
       it(E(1786), 'était fermée : un état'),
@@ -2160,7 +2160,7 @@ const A10_FOCUS: Sec<'focus'> = {
 const A10_TEXTE = dansUnTexte('a10-texte', 'Corriger : le message de Clara', TEXTE_A10, [
   { q: 'Quel plus-que-parfait a un vrai repère ?', a: "« Le facteur avait déjà déposé un colis » : le retour du travail est le repère, et le dépôt était fait avant." },
   { q: 'Corrige les verbes du début : j’avais reçu, je l’avais lue, je l’avais montrée, elle avait souri.', a: "Hier, j'ai reçu ta carte. Je l'ai lue deux fois, puis je l'ai montrée à ma mère. Elle a souri. Les faits se suivent." },
-  { q: 'Corrige la dernière phrase.', a: "Je n'ai jamais reçu autant de cadeaux en une semaine. L'expérience va jusqu'à aujourd'hui : passé composé." },
+  { q: 'Corrige la dernière phrase.', a: "Le soir, j'ai appelé ma sœur pour lui raconter. L'appel suit le retour du travail : les faits avancent, passé composé." },
   { q: 'Pourquoi « J’étais très touchée » ne change-t-il pas ?', a: "Ce n'est pas un plus-que-parfait : c'est l'imparfait d'être, qui décrit un état." },
 ], 'rec-b2-01-texte-a10', ['piste']);
 
@@ -2212,7 +2212,7 @@ const A11_LECTURE: Sec<'reading'> = {
     { q: 'Quel moment sert de repère au milieu du texte ?', a: "L'arrivée à la salle : « Quand nous sommes arrivés à la salle, ma grand-mère était déjà là. »" },
     { q: 'Qu’avait fait la famille avant la fête ? Cite trois actions.', a: "La tante avait réservé une salle, le cousin avait retrouvé des photos, le narrateur avait écrit un discours." },
     { q: 'Pourquoi « la lettre qu’elle avait écrite » s’accorde-t-il ?', a: "Avoir, et que reprend la lettre, placé avant : écrite." },
-    { q: 'À quoi sert l’avant-dernière phrase ?', a: "Elle imagine un passé qui n'a pas eu lieu : si le voisin n'avait pas trahi le secret. En réalité, il l'a trahi." },
+    { q: 'À quoi sert la phrase qui commence par « Si le voisin » ?', a: "Elle imagine un passé qui n'a pas eu lieu : si le voisin n'avait pas trahi le secret. En réalité, il l'a trahi." },
   ],
   audio: REC('rec-b2-01-modele'),
   say: REFRAME,
@@ -2261,7 +2261,7 @@ const A11_SCENARIO: Sec<'scenario'> = {
   layer: 'core',
   title: 'Raconte ta journée à Samir',
   frSub: 'Six tours, à voix haute',
-  setting: 'Samir, un ami, t’appelle le soir. Il a vu que tu avais manqué la réunion de l’association et veut savoir ce qui s’est passé.',
+  setting: 'Samir, un ami, t’appelle le soir. Il a vu que tu étais arrivé en retard à la réunion de l’association et veut savoir ce qui s’est passé.',
   turns: [
     {
       ai: 'Alors, qu’est-ce qui s’est passé ce matin ? On t’a attendu.', en: 'So, what happened this morning? We waited for you.',
@@ -2292,8 +2292,8 @@ const A11_SCENARIO: Sec<'scenario'> = {
     },
     {
       ai: 'Léa m’a dit qu’elle n’avait rien reçu.', en: 'Léa told me she had received nothing.',
-      user: 'Oui, elle m’a expliqué qu’elle avait laissé son téléphone chez elle.',
-      userEn: 'Yes, she explained to me that she had left her phone at home. (Reported speech: the passé composé steps back.)',
+      user: 'Oui, elle m’a expliqué qu’elle avait éteint son téléphone pour la réunion.',
+      userEn: 'Yes, she explained to me that she had switched off her phone for the meeting. (Reported speech: the passé composé steps back.)',
       alts: [
         { fr: 'Elle m’a dit qu’elle avait oublié son chargeur.', en: 'She told me she had forgotten her charger.' },
         { fr: 'Je croyais qu’elle avait reçu mon message.', en: 'I thought she had got my message. (Je croyais que: a mistaken thought.)' },
@@ -2404,7 +2404,7 @@ const A11_MISSION: Sec<'task'> = {
     { pattern: 'The imparfait where an action was finished before the reference point, or the pluperfect for something still in progress.', criterion: 'etendue', feedback: 'Fini avant le repère : plus-que-parfait. En cours à ce moment-là : imparfait.', ref: 'a5-piege' },
     { pattern: 'The pluperfect used for events told in order (j’avais pris le train suivant, puis j’avais appelé).', criterion: 'coherence', feedback: 'Quand tu avances dans l’ordre des faits, reprends le passé composé.', ref: 'a6-erreurs' },
     { pattern: 'Adverbs outside the verb group: j’avais fini déjà, je avais pas encore vu.', criterion: 'correction', feedback: 'Déjà, pas encore, jamais se placent entre l’auxiliaire et le participe, et ne devant.', ref: 'a7-piege' },
-    { pattern: 'Reported speech or thought without the step back: elle m’a dit qu’elle a lu mon message.', criterion: 'etendue', feedback: 'Après un verbe de parole au passé, le passé composé recule : qu’elle avait lu.', ref: 'a8-erreurs' },
+    { pattern: 'Reported speech or thought without the step back: elle m’a dit qu’elle a lu mon message.', criterion: 'correction', feedback: 'Après un verbe de parole au passé, le passé composé recule : qu’elle avait lu.', ref: 'a8-erreurs' },
     { pattern: 'A conditional after si: si j’aurais su, si seulement j’aurais vérifié.', criterion: 'correction', feedback: 'Après si, le plus-que-parfait : si j’avais su.', ref: 'a9-piege' },
     { pattern: 'A pluperfect with no reference point: an experience up to now (j’avais déjà visité Québec) or a duration with depuis.', criterion: 'correction', feedback: 'Sans repère passé, pas de plus-que-parfait : j’ai déjà visité ; j’habitais là depuis.', ref: 'a10-erreurs' },
     { pattern: 'No reported speech and no si or si seulement anywhere; or a body outside 180 to 250 words.', criterion: 'tache', feedback: 'Ajoute une parole rapportée et une fin avec si seulement ; compte tes mots sans le titre.', ref: 'a11-plan' },
@@ -2565,7 +2565,7 @@ const A11_QUIZ: Sec<'quiz'> = {
     {
       id: 'r5-ligne', label: 'Une ligne, trois temps', targets: ['trois-temps'],
       questions: [
-        mc('« Elle … quand il a sonné. » Il l’a croisée dans l’escalier.', ['sortait', 'était sortie', 'est sortie'], 0, 'En cours au moment du repère. EN: in progress.', 'a5-cartes'),
+        mc('« Elle … quand il a sonné. » Il l’a croisée dans l’escalier.', ['sortait', 'était sortie', 'sort'], 0, 'En cours au moment du repère. EN: in progress.', 'a5-cartes'),
         mc('« Elle … quand il a sonné. » Personne n’a ouvert.', ['sortait', 'était sortie'], 1, 'Déjà partie avant le repère. EN: already gone.', 'a5-cartes'),
         tI('Mets le verbe au bon temps.', 'Quand elle est rentrée, il (appeler) trois fois.', fr(E(1691)), 'Les appels étaient faits avant le retour. EN: before her return.', 'a5-trier'),
         tI('Mets le verbe au bon temps.', 'Il (neiger) quand Julien est sorti de l’aéroport.', fr(E(1680)), 'Le décor, en cours : imparfait. EN: the background.', 'a5-trier'),
@@ -2645,22 +2645,22 @@ const A11_QUIZ: Sec<'quiz'> = {
       questions: [
         mc(`${Cap(PC_IMP_REF)} : « Il faisait chaud et les fenêtres étaient ouvertes. » Ces verbes…`, ['posent le décor', 'font avancer l’histoire'], 0, `« ${B103_REFRAME} » EN: ${B103_REFRAME_EN}`, 'a5-cartes'),
         mc(`${Cap(PAIRES_REF)} : « J’ai cru que tu étais parti. » La pensée a duré…`, ['un moment, puis elle a été corrigée', 'des années'], 0, 'J’ai cru : une pensée d’un instant. EN: a passing thought.', 'a5-trier'),
-        mc(`${Cap(SI_REF)} : « Si nous avions su, nous aurions réservé plus tôt. » Ont-ils réservé tôt ?`, ['non', 'oui'], 0, 'La paire du regret dit l’inverse des faits. EN: the opposite of the facts.', 'a9-exemples'),
+        mc(`${Cap(SI_REF)} : « Si nous avions su, nous aurions réservé plus tôt. » La réservation a-t-elle été faite tôt ?`, ['non', 'oui'], 0, 'La paire du regret dit l’inverse des faits. EN: the opposite of the facts.', 'a9-exemples'),
         mc(`${Cap(DISCOURS_REF)} : « Il a dit qu’il était parti à six heures. » Son message était…`, ['« Je suis parti à six heures. »', '« Je pars à six heures. »'], 0, 'Était parti rapporte un passé composé. EN: it reports a passé composé.', 'a8-rappel'),
         tI(`${Cap(IMP_FORM_REF)} : l’imparfait d’avoir, avec nous.`, 'nous (avoir)', 'nous avions', `« ${B101_REFRAME} » EN: ${B101_REFRAME_EN}`, 'a2-rappel'),
         tI(`${Cap(DISCOURS_REF)} : rapporte au passé. Son message : « J’ai oublié la réunion. »`, 'Il a dit qu’il (oublier) la réunion.', fr('fr.b1.paroles-rapportees.1120'), `« ${B119_REFRAME} » EN: ${B119_REFRAME_EN}`, 'a8-rappel'),
-        eS('Pendant que je lisais, il a regardé la télé.', 'Pendant que je lisais, il regardait la télé.', 'Leçon 3 du B1 : deux actions en cours ensemble, deux imparfaits. EN: two background actions.', 'a5-cartes'),
+        eS('Quand je suis sorti du cinéma, il a fait nuit et les rues étaient vides.', 'Quand je suis sorti du cinéma, il faisait nuit et les rues étaient vides.', `${Cap(PC_IMP_REF)} : la nuit est le décor, à l’imparfait, comme les rues vides. EN: the night is background, so imparfait.`, 'a5-cartes', ['Quand je suis sortie du cinéma, il faisait nuit et les rues étaient vides.']),
         lC(`Écoute. ${Cap(SI_REF)} : quelle paire entends-tu ?`, fr('fr.b1.projets-et-futur.1352'), ['la paire du regret', 'la paire réelle'], 0, `« ${B110_REFRAME} » EN: ${B110_REFRAME_EN}`, 'a9-cartes'),
       ],
     },
     {
       id: 'r12-examen', label: 'Comme à l’examen', targets: ['recit-sans-repere'],
       questions: [
-        mc('Format TCF. Choisissez la bonne réponse : « Quand les secours sont arrivés, les passagers … l’avion. »', ['avaient déjà quitté', 'ont déjà quitté', 'quittaient déjà', 'auraient déjà quitté'], 0, 'L’arrivée des secours est le repère ; le départ des passagers est avant. EN: before the rescuers arrived.', 'a5-cartes'),
+        mc('Format TCF. Choisissez la bonne réponse : « Quand les secours sont arrivés, les passagers … l’avion. »', ['avaient déjà quitté', 'ont déjà quitté', 'quittent déjà', 'auraient déjà quitté'], 0, 'L’arrivée des secours est le repère ; le départ des passagers est avant. EN: before the rescuers arrived.', 'a5-cartes'),
         mc('Format TCF : « Il m’a demandé si j’… déjà travaillé en équipe. »', ['avais', 'aurais', 'ai', 'avait'], 0, 'Question rapportée au passé : j’avais. EN: steps back, first person.', 'a8-table'),
         mc('Format DELF B2, compréhension écrite. « Le musée a rouvert lundi. Les travaux, commencés en 2022, avaient pris un an de retard. » Que dit le texte ?', ['le retard précède la réouverture', 'le retard suit la réouverture', 'le musée n’a pas rouvert'], 0, 'Avaient pris : avant la réouverture. EN: the delay came first.', 'a6-cartes'),
         mc('Format DELF B2. « Lorsque la ministre a pris la parole, les manifestants avaient quitté la place. » La place était-elle pleine pendant le discours ?', ['non', 'oui', 'on ne peut pas savoir'], 0, 'Ils étaient partis avant le discours. EN: they had left before.', 'a1-reperer'),
-        tI('Format TCF, phrase à compléter.', 'Lorsque nous sommes arrivés, la réunion (commencer) depuis une heure.', 'Lorsque nous sommes arrivés, la réunion avait commencé depuis une heure.', 'Le début est derrière l’arrivée. EN: the meeting started first.', 'a6-cartes'),
+        tI('Format TCF, phrase à compléter.', 'Lorsque nous sommes arrivés, la réunion (commencer) une heure plus tôt.', 'Lorsque nous sommes arrivés, la réunion avait commencé une heure plus tôt.', 'Le début est derrière l’arrivée. EN: the meeting started first.', 'a6-cartes'),
         tI('Format DELF B2, production. Mets au plus-que-parfait.', 'La veille, nous (se préparer) avec soin.', 'La veille, nous nous étions préparés avec soin.', 'Pronominal : être, accord avec nous. EN: être, agreeing with nous.', 'a11-plan', ['La veille, nous nous étions préparées avec soin.']),
         eS('Quand je suis arrivée au guichet, on a vendu la dernière place.', fr(E(1793)), 'La vente précède l’arrivée. EN: the sale came first.', 'a11-usages'),
         lC('Format TEF, compréhension orale. Écoute ce flash d’information. Qu’est-ce qui s’était passé avant l’arrivée des pompiers ?', FLASH_INFO, ['les employés avaient évacué le bâtiment', 'les pompiers avaient éteint le feu', 'un employé avait été blessé'], 0, 'Avaient déjà évacué : avant l’arrivée des pompiers. EN: evacuated before.', 'a11-lecture'),
@@ -2737,7 +2737,7 @@ const ACT11: ActDef = {
       imageRef: 'lessons/plus-que-parfait/act11.jpg',
     },
     sections: [],
-    milestone: "Tu as écrit ton récit et passé l'examen : quatre-vingt-seize questions, douze rounds. EN: You wrote your story and sat the exam: ninety-six questions, twelve rounds.",
+    milestone: "Tu as écrit ton récit et passé l'examen : quatre-vingt-seize questions, douze manches. EN: You wrote your story and sat the exam: ninety-six questions, twelve rounds.",
     estScreens: 150,
     restPoints: ['a11-plan', 'a11-scenario', 'a11-mission', 'a11-cheat', 'a11-quiz/r4-pronominaux', 'a11-quiz/r8-rapporte', 'a11-review'],
   },

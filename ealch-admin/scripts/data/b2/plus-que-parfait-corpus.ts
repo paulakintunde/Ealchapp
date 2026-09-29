@@ -541,7 +541,7 @@ export const ACT5_ROWS: Row[] = [
     '/ply taʁ il a kɔ̃.pʁi kil se.tɛ tʁɔ̃.pe da.dʁɛs/', 'plü TAR | eel a kohⁿ-PREE | keel seh-teh trohⁿ-pay da-DRESS', ['ligne', 'avant']),
 ];
 
-/* ── ACT 6 · RACONTER : QUAND, LORSQUE, LE RETOUR EN ARRIÈRE (.1700-.1714) ─ */
+/* ── ACT 6 · RACONTER : QUAND, LORSQUE, LE RETOUR EN ARRIÈRE (.1700-.1717) ─ */
 
 export const ACT6_ROWS: Row[] = [
   sent(1700, 'Lorsque les invités sont arrivés, la pluie avait cessé.', 'When the guests arrived, the rain had stopped.',
@@ -560,6 +560,12 @@ export const ACT6_ROWS: Row[] = [
     '/ɔ̃.na a.pʁi ɑ̃.sɥit kil se.tɛ.tɑ̃.dɔʁ.mi dɑ̃ sa ka.mjɔ.nɛt/', 'ohⁿ-na a-PREE ahⁿ-SWEET | keel seh-teh-tahⁿ-dor-MEE | dahⁿ sa ka-myo-NET', ['recit', 'avant']),
   sent(1707, "Ce jour-là, tout avait mal commencé, et pourtant tout s'est bien fini.", 'That day, everything had started badly, and yet it all ended well.',
     '/sə ʒuʁ.la tu.ta.vɛ mal kɔ.mɑ̃.se e puʁ.tɑ̃ tu sɛ bjɛ̃ fi.ni/', 'suh zhoor-LA | too-ta-veh mal ko-mahⁿ-SAY | ay poor-TAHⁿ | too seh byehⁿ fee-NEE', ['recit', 'avant']),
+  sent(1715, 'Puis le traiteur est arrivé, et on a mangé à minuit.', 'Then the caterer arrived, and we ate at midnight.',
+    '/pɥi lə tʁɛ.tœʁ ɛ.ta.ʁi.ve e ɔ̃.na mɑ̃.ʒe a mi.nɥi/', 'pwee luh treh-TUHR eh-ta-ree-VAY | ay ohⁿ-na mahⁿ-ZHAY a mee-NWEE', ['recit', 'ordre']),
+  sent(1716, 'Les invités ont dansé, puis ils sont rentrés chez eux.', 'The guests danced, then they went home.',
+    '/le.zɛ̃.vi.te ɔ̃ dɑ̃.se pɥi il sɔ̃ ʁɑ̃.tʁe ʃe.zø/', 'lay-zehⁿ-vee-TAY ohⁿ dahⁿ-SAY | pwee eel sohⁿ rahⁿ-TRAY | shay-ZEU', ['recit', 'ordre']),
+  sent(1717, 'Fatou a coupé le gâteau, puis elle a remercié tout le monde.', 'Fatou cut the cake, then she thanked everyone.',
+    '/fa.tu a ku.pe lə ɡa.to pɥi ɛ.la ʁə.mɛʁ.sje tu lə mɔ̃d/', 'fa-TOO a koo-PAY luh ga-TOH | pwee eh-la ruh-mehr-SYAY too luh MOHⁿD', ['recit', 'ordre']),
   sent(1708, "Quand la musique a commencé, les enfants s'étaient déjà endormis.", 'When the music started, the children had already fallen asleep.',
     '/kɑ̃ la my.zik a kɔ.mɑ̃.se le.zɑ̃.fɑ̃ se.tɛ de.ʒa ɑ̃.dɔʁ.mi/', 'kahⁿ la mü-ZEEK a ko-mahⁿ-SAY | lay-zahⁿ-FAHⁿ seh-teh day-zha ahⁿ-dor-MEE', ['recit', 'avant'], FCVDR),
   sent(1709, "Elle nous a montré la robe qu'elle avait cousue elle-même.", 'She showed us the dress she had sewn herself.',
@@ -577,7 +583,7 @@ export const ACT6_ROWS: Row[] = [
   rule(1712, "Dans l'ordre des faits, le passé composé suffit.", 'When you tell the facts in order, the passé composé is enough.',
     '/dɑ̃ lɔʁ.dʁə de fɛ lə pa.se kɔ̃.po.ze sy.fi/', 'dahⁿ lor-druh day FEH | luh pa-say kohⁿ-poh-ZAY sü-FEE',
     'Faut-il un plus-que-parfait quand tu racontes dans l’ordre ?', "Non. Il sert quand tu remontes le temps, pas quand tu le suis.", ['ordre']),
-  sent(1713, "Des années plus tard, j'ai revu la salle où ils s'étaient mariés.", 'Years later, I saw the hall where they had got married again.',
+  sent(1713, "Des années plus tard, j'ai revu la salle où ils s'étaient mariés.", 'Years later, I saw once again the hall where they had got married.',
     '/de.za.ne ply taʁ ʒe ʁə.vy la sal u il se.tɛ ma.ʁje/', 'day-za-nay plü TAR | zhay ruh-VÜ la SAL | oo eel seh-teh ma-RYAY', ['recit', 'retour']),
   sent(1714, 'Elle avait tout prévu, sauf le traiteur.', 'She had planned everything except the caterer.',
     '/ɛ.la.vɛ tu pʁe.vy sof lə tʁɛ.tœʁ/', 'eh-la-veh too pray-VÜ | sohf luh treh-TUHR', ['recit', 'avant']),
@@ -593,7 +599,7 @@ export const ACT7_ROWS: Row[] = [
   sent(1722, "Elle venait de partir quand j'ai appelé.", 'She had just left when I called.',
     '/ɛl və.nɛ də paʁ.tiʁ kɑ̃ ʒe a.ple/', 'el vuh-NEH duh par-TEER | kahⁿ zhay a-PLAY', ['adverbe', 'venir-de']),
   sent(1723, "Elle était juste partie quand j'ai appelé.", 'She had only just left when I called.',
-    '/ɛ.le.tɛ ʒys.tə paʁ.ti kɑ̃ ʒe a.ple/', 'eh-lay-teh zhüs-tuh par-TEE | kahⁿ zhay a-PLAY', ['adverbe', 'juste']),
+    '/ɛ.le.tɛ ʒys.tə paʁ.ti kɑ̃ ʒe a.ple/', 'eh-lay-teh zhüs-tuh par-TEE | kahⁿ zhay a-PLAY', ['adverbe', 'juste'], FCVR, { register: 'familier' }),
   sent(1724, "Nous n'avions jamais vu la mer.", 'We had never seen the sea.',
     '/nu na.vjɔ̃ ʒa.mɛ vy la mɛʁ/', 'noo na-vyohⁿ zha-meh VÜ | la MEHR', ['adverbe', 'jamais']),
   sent(1725, 'Il avait à peine fermé la porte que le téléphone a sonné.', 'He had barely shut the door when the phone rang.',
@@ -724,8 +730,8 @@ export const ACT10_ROWS: Row[] = [
     '/i.le.tɛ fa.ti.ɡe paʁs kil a.vɛ mal dɔʁ.mi/', 'ee-lay-teh fa-tee-GAY | pars keel a-veh mal dor-MEE', ['piste', 'cause']),
   sent(1786, 'La porte était fermée à clé.', 'The door was locked.',
     '/la pɔʁt e.tɛ fɛʁ.me a kle/', 'la PORT | ay-teh fehr-MAY a KLAY', ['piste', 'etat']),
-  sent(1787, "Quelqu'un avait fermé la porte à clé.", 'Someone had locked the door.',
-    '/kɛl.kœ̃ a.vɛ fɛʁ.me la pɔʁt a kle/', 'kel-KUHⁿ a-veh fehr-MAY | la PORT a KLAY', ['piste', 'avant']),
+  sent(1787, "Quand je suis rentré, quelqu'un avait fermé la porte à clé.", 'When I got home, someone had locked the door.',
+    '/kɑ̃ ʒə sɥi ʁɑ̃.tʁe kɛl.kœ̃ a.vɛ fɛʁ.me la pɔʁt a kle/', 'kahⁿ zhuh swee rahⁿ-TRAY | kel-KUHⁿ a-veh fehr-MAY | la PORT a KLAY', ['piste', 'avant']),
   rule(1788, 'Sans repère dans le passé, pas de plus-que-parfait.', 'No reference point in the past, no plus-que-parfait.',
     '/sɑ̃ ʁə.pɛʁ dɑ̃ lə pa.se pa də ply kə paʁ.fɛ/', 'sahⁿ ruh-PEHR dahⁿ luh pa-SAY | pa duh plü kuh par-FEH',
     'Quand le plus-que-parfait est-il faux ?', "Quand rien ne recule : un récit dans l'ordre, une expérience jusqu'à aujourd'hui, un état.", ['piste']),
@@ -781,7 +787,7 @@ export const dicteeFor = (act: number): string[] =>
 
 /** Act 1: the evening at the cinema, Lyon. */
 export const LECTURE_CINEMA =
-  "Samedi soir, Karim et moi avions rendez-vous devant le cinéma Comœdia, à Lyon, à vingt heures. Karim avait acheté les billets la veille, sur son téléphone. Moi, j'avais passé l'après-midi chez ma sœur, à Villeurbanne, et je n'avais pas vu l'heure passer. Quand je suis sorti de chez elle, il était déjà vingt heures moins le quart. J'ai couru jusqu'au tram. Évidemment, le tram venait de partir. J'ai attendu le suivant pendant dix minutes, sous la pluie. Quand je suis enfin arrivé devant le cinéma, Karim m'attendait sur le trottoir, les billets à la main. Il m'avait envoyé trois messages. Je ne les avais pas lus. Nous sommes entrés sans un mot. Dans la salle, les lumières étaient éteintes et le film avait commencé depuis un bon quart d'heure. Nous avions raté toute la scène d'ouverture, celle dont tout le monde parlait. Karim ne m'a rien reproché, mais je voyais bien qu'il était déçu : il avait attendu ce film pendant des mois, et il avait même relu le roman la semaine précédente. À la sortie, Karim m'a raconté ce que nous avions manqué : le héros avait perdu la mémoire avant même le début de l'histoire, et tout le film remontait vers ce moment-là. « En fait, a-t-il dit en riant, c'est un film au plus-que-parfait. » Sur le moment, je n'ai pas compris la plaisanterie. Aujourd'hui, je la comprends très bien.";
+  "Samedi soir, Karim et moi avions rendez-vous devant le cinéma Comœdia, à Lyon, à vingt heures. Karim avait acheté les billets la veille, sur son téléphone. Moi, j'avais passé l'après-midi chez ma sœur, à Villeurbanne, et je n'avais pas vu l'heure passer. Quand je suis sorti de chez elle, il était déjà vingt heures moins le quart. J'ai couru jusqu'au tram. Évidemment, le tram venait de partir. J'ai attendu le suivant pendant dix minutes, sous la pluie. Quand je suis enfin arrivé devant le cinéma, Karim m'attendait sur le trottoir, les billets à la main. Il m'avait envoyé trois messages. Je ne les avais pas lus. Nous sommes entrés sans un mot. Dans la salle, les lumières étaient éteintes et le film avait commencé un bon quart d'heure plus tôt. Nous avions raté toute la scène d'ouverture, celle dont tout le monde parlait. Karim ne m'a rien reproché, mais je voyais bien qu'il était déçu : il avait attendu ce film pendant des mois, et il avait même relu le roman la semaine précédente. À la sortie, Karim m'a raconté ce que nous avions manqué : le héros avait perdu la mémoire avant même le début de l'histoire, et tout le film remontait vers ce moment-là. « En fait, a-t-il dit en riant, c'est un film au plus-que-parfait. » Sur le moment, je n'ai pas compris la plaisanterie. Aujourd'hui, je la comprends très bien.";
 
 /** Act 5: Julien's first day in Québec. */
 export const LECTURE_JULIEN =
@@ -800,7 +806,7 @@ export const TEXTE_A3 =
   "En rangeant le grenier, Mariam a trouvé une boîte en fer. Dedans, il y avait les lettres que sa mère (écrire) à son père pendant ses études. Sa mère (naître) à Oran, et elle (arriver) à Marseille à dix-neuf ans. Ses deux sœurs (rester) là-bas. Les photos qu'elle (garder) étaient jaunies, et la bague qu'elle (recevoir) pour ses fiançailles avait disparu. Mariam a refermé la boîte sans bruit. Elle (ne jamais poser) de questions sur ces années-là, et elle a compris ce soir-là qu'il était temps de le faire.";
 
 export const TEXTE_A4 =
-  "Le matin de l'oral, Léa et Inès sont arrivées ensemble devant la salle. Tout ce qui est entre parenthèses s'était passé avant. Elles (se lever) à cinq heures. Elles (se préparer) en silence, puis elles (se téléphoner) pour vérifier l'adresse. La veille, elles (se disputer) à propos du trajet, mais elles (se réconcilier) avant de dormir. Léa (se couper) les cheveux la semaine précédente, et elle (se trouver) très bien. Quand l'examinateur leur a serré la main, elles (ne pas encore se rendre compte) de leur chance.";
+  "Le matin de l'oral, Léa et Inès sont arrivées ensemble devant la salle. Tout ce qui est entre parenthèses s'était passé avant. Elles (se lever) à cinq heures. Elles (se préparer) en silence, puis elles (se téléphoner) pour vérifier l'adresse. La veille, elles (se disputer) à propos du trajet, mais elles (se réconcilier) avant de dormir. Léa (se couper) les cheveux la semaine précédente, et le matin même, elle (se maquiller) avec soin. Quand l'examinateur leur a serré la main, elles (ne pas encore se rendre compte) de leur chance.";
 
 export const TEXTE_A5 =
   "Quand Amandine (arriver) au bureau lundi matin, tout le monde la (regarder) en souriant. Il (faire) étrangement calme dans l'open space. Sur son bureau, quelqu'un (poser) un gâteau et une grande carte. Ses collègues (apprendre) la nouvelle pendant le week-end : elle (obtenir) le poste de Montréal. Amandine (rougir), puis elle (éclater) de rire. Elle (ne rien dire) à personne, mais sa cheffe, visiblement, (parler) un peu trop vite. La réunion de neuf heures a commencé avec vingt minutes de retard.";
@@ -818,7 +824,7 @@ export const TEXTE_A9 =
   "Le jour du déménagement, tout est allé de travers. Nadia n'a pas réservé de camion à temps. Elle n'a pas vérifié la taille de l'ascenseur. Son frère n'est pas venu l'aider, parce qu'elle ne l'a pas prévenu. Le canapé est resté trois jours sur le trottoir, sous la pluie. Le soir, épuisée, assise sur un carton, elle a écrit dans son carnet quatre phrases qui commençaient toutes par « Si seulement ». Retrouve ces quatre phrases : chacune dit le contraire d'un fait de la journée.";
 
 export const TEXTE_A10 =
-  "Clara a écrit ce message à sa marraine, mais elle a mis trop de plus-que-parfaits. « Hier, j'avais reçu ta carte. J'étais très touchée. Je l'avais lue deux fois, puis je l'avais montrée à ma mère. Elle avait souri. Quand je suis rentrée du travail, le facteur avait déjà déposé un colis de ta part. Je n'avais jamais reçu autant de cadeaux en une semaine. » Un seul plus-que-parfait a un vrai repère. Trouve-le, puis remets tous les autres verbes au bon temps.";
+  "Clara a écrit ce message à sa marraine, mais elle a mis trop de plus-que-parfaits. « Hier, j'avais reçu ta carte. J'étais très touchée. Je l'avais lue deux fois, puis je l'avais montrée à ma mère. Elle avait souri. Quand je suis rentrée du travail, le facteur avait déjà déposé un colis de ta part. Le soir, j'avais appelé ma sœur pour lui raconter. » Un seul plus-que-parfait a un vrai repère. Trouve-le, puis remets tous les autres verbes au bon temps.";
 
 /** The four answers the act 9 text asks for (shown only as the answer). */
 export const TEXTE_A9_REPONSES = [

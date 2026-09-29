@@ -238,7 +238,7 @@ const A1_SCENE: Sec<'scene'> = {
     },
     {
       kind: 'choice',
-      prompt: 'Tu décris ce que tu veux, pas un appartement que tu connais. Quelle phrase dis-tu.',
+      prompt: 'Tu décris ce que tu veux, pas un appartement que tu connais. Choisis la phrase que tu dis.',
       size: 'lg',
       options: [
         { fr: fr(E(1801)), respell: rsOf(E(1801)), en: en(E(1801)), outcome: 'breaks', audio: AUDIO },
@@ -372,7 +372,7 @@ const ACT1: ActDef = {
   act: {
     id: 'act1', title: 'La pierre posée',
     opener: {
-      line: "Le même appartement, deux phrases, deux agences : ici tu découvres la seule question qui compte, affirmer le fait ou non. EN: The same flat, two sentences, two reactions: here you meet the one question that matters, asserting the fact or not.",
+      line: "Le même appartement, deux phrases, deux réactions : ici tu découvres la seule question qui compte, affirmer le fait ou non. EN: The same flat, two sentences, two reactions: here you meet the one question that matters, asserting the fact or not.",
       imageRef: 'lessons/subjonctif-indicatif/act01.jpg',
     },
     sections: [],
@@ -622,7 +622,7 @@ const A3_CARTES: Sec<'cardDeck'> = {
     {
       head: 'En question inversée', label: 'les deux, deux sens',
       fr: `${fr(E(1827))} · ${fr(E(1828))}`, sub: `${rsOf(E(1827))} · ${rsOf(E(1828))}`,
-      body: "Qu'il vienne : tu doutes toi-même. Qu'il viendra : tu demandes simplement l'avis de l'autre. Avec est-ce que ou l'intonation, l'indicatif. EN: inversion plus subjunctive signals your doubt.",
+      body: "Qu'il vienne : tu doutes toi-même. Qu'il viendra : tu demandes simplement l'avis de l'autre. Avec est-ce que ou l'intonation, le plus souvent l'indicatif. EN: inversion plus subjunctive signals your doubt.",
     },
     {
       head: 'La question négative', label: 'indicatif',
@@ -647,7 +647,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(OA(1302), 'penser'),
     ], chk('« Je ne doute pas qu’elle réussira. » La personne est-elle sûre ?',
       ['oui', 'non', 'elle ne le dit pas'], 0,
-      'Ne pas douter, c’est être sûr : l’indicatif suit. EN: no doubt, so indicative.')),
+      'Ne pas douter, c’est être sûr : l’indicatif est courant ; le subjonctif reste correct, plus soutenu. EN: no doubt, so the indicative is common; the subjunctive is also correct.')),
     grp('Tu nies ou tu doutes', [
       it(E(1826), 'ne pas croire'),
       it(E(1836), 'douter'),
@@ -710,7 +710,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'être sûr', promptSound: 'Je suis sûre que le bureau soit fermé.', fr: fr(E(1833)), ipa: ipaOf(E(1833)), tip: 'Sûr, à l’affirmatif : indicatif. EN: sure asserts.' },
     { promptLabel: 'pas sûr', promptSound: 'Je ne suis pas sûr qu’elle a le temps.', fr: fr(E(1837)), ipa: ipaOf(E(1837)), tip: 'Pas sûr : à l’écrit, subjonctif. EN: not sure, subjunctive in writing.' },
     { promptLabel: 'opinion niée', promptSound: 'Je ne pense pas que c’est une bonne idée.', fr: fr(E(1840)), ipa: ipaOf(E(1840)), tip: 'Très fréquent à l’oral ; à l’écrit, ce soit. EN: common in speech; write ce soit.' },
-    { promptLabel: 'question inversée', promptSound: 'Pensez-vous que ce plan est réaliste ?', fr: fr(E(1834)), ipa: ipaOf(E(1834)), tip: 'À l’écrit, l’inversion appelle le subjonctif. EN: in writing, inversion calls for the subjunctive.' },
+    { promptLabel: 'reconnaître', promptSound: 'Je reconnais que tu aies raison, mais je doute que ce soit si simple.', fr: fr(E(1842)), ipa: ipaOf(E(1842)), tip: 'Reconnaître, c’est admettre un fait : indicatif, as. EN: reconnaître asserts the fact.' },
   ],
   drill: [
     { promptSay: 'Je crois qu’il … à la réunion.', opts: ['viendra', 'vienne'], correct: 0 },
@@ -720,7 +720,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Ne crois-tu pas qu’il … raison ?', opts: ['a', 'ait'], correct: 0 },
     { promptSay: 'Je ne pense pas que ce … une bonne idée.', opts: ['soit', 'est'], correct: 0 },
     { promptSay: 'Je reconnais que tu … raison.', opts: ['as', 'aies'], correct: 0 },
-    { promptSay: 'Penses-tu vraiment qu’ils … accepter ?', opts: ['puissent', 'peuvent'], correct: 0 },
+    { promptSay: 'Je doute qu’ils … accepter.', opts: ['puissent', 'peuvent'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Affirmer ou non' },
@@ -747,7 +747,7 @@ const A3_DICTEE: Sec<'dictation'> = {
 
 const A3_TEXTE = dansUnTexte('a3-texte', 'Compléter : le message de Léo', TEXTE_A3, [
   { q: 'Complète les deux premiers : tu crois que la directrice (venir) ; je ne pense pas qu’elle (avoir) le temps.', a: "Tu crois que la directrice viendra (question par l'intonation : indicatif) ; je ne pense pas qu'elle ait le temps (opinion niée : subjonctif)." },
-  { q: 'Complète : crois-tu vraiment qu’elle (pouvoir) rentrer ; Karim est sûr qu’elle (faire) l’aller-retour.', a: "Crois-tu vraiment qu'elle puisse rentrer (inversion et doute : subjonctif) ; il est sûr qu'elle fera l'aller-retour (certitude : indicatif)." },
+  { q: 'Complète : crois-tu vraiment qu’elle (pouvoir) rentrer ; Karim est sûr qu’elle (faire) l’aller-retour.', a: "Crois-tu vraiment qu'elle puisse rentrer (inversion et doute : subjonctif ; pourra se dit aussi, pour une simple question) ; il est sûr qu'elle fera l'aller-retour (certitude : indicatif)." },
   { q: 'Complète : ne trouves-tu pas qu’il (être) trop optimiste ; elle (lire) notre rapport.', a: "Ne trouves-tu pas qu'il est un peu trop optimiste (question négative : indicatif) ; elle lira notre rapport (une certitude, au futur)." },
   { q: 'Complète la dernière : je doute qu’on (savoir) quoi que ce soit.', a: "Je doute qu'on sache quoi que ce soit avant vendredi. Douter : subjonctif." },
 ], 'rec-b2-06-texte-a3', ['question', 'affirmer']);
@@ -946,7 +946,7 @@ const A4_TEXTE = dansUnTexte('a4-texte', 'Compléter : le bulletin de février',
   { q: 'Complète : il est certain que les travaux (commencer) ; il est probable qu’ils (durer) six mois.', a: "Il est certain que les travaux commenceront le 3 mars ; il est probable qu'ils dureront six mois. Deux engagements : indicatif, au futur." },
   { q: 'Complète : il est possible qu’une partie du marché (devoir) déménager.', a: "Il est possible qu'une partie du marché doive déménager. Possible : subjonctif." },
   { q: 'Complète : il semble que les commerçants (être) prêts ; il nous semble que cette solution (être) la plus simple.', a: "Il semble que les commerçants soient prêts (subjonctif) ; il nous semble que cette solution est la plus simple (avec nous, un avis affirmé : indicatif)." },
-  { q: 'Complète : il est peu probable que le parking (rouvrir) ; il paraît que plusieurs habitants (vouloir) une réunion.', a: "Il est peu probable que le parking rouvre avant l'automne (subjonctif) ; il paraît que plusieurs habitants veulent une réunion (une information : indicatif)." },
+  { q: 'Complète : il est peu probable que le parking (pouvoir) rouvrir ; il paraît que plusieurs habitants (vouloir) une réunion.', a: "Il est peu probable que le parking puisse rouvrir avant l'automne (subjonctif) ; il paraît que plusieurs habitants veulent une réunion (une information : indicatif)." },
 ], 'rec-b2-06-texte-a4', ['certitude']);
 
 const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
@@ -995,7 +995,7 @@ const A5_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: 'Je cherche une colocataire qui sache cuisiner.', en: 'I am looking for a flatmate who can cook.' },
     { from: 'coach', fr: 'Sache : elle n’existe pas encore, tu la décris.', en: 'Sache: she does not exist yet, you are describing her.', warn: 'Cherchée : subjonctif' },
     { from: 'user', fr: 'Et j’ai déjà un appartement qui est tout près du métro.', en: 'And I already have a flat that is right by the metro.' },
-    { from: 'coach', fr: 'Est : celui-là existe, tu l’as signé.', en: 'Est: that one exists, you have signed for it.', warn: 'Trouvé : indicatif' },
+    { from: 'coach', fr: 'Est : celui-là existe, tu as signé le bail.', en: 'Est: that one exists, you have signed the lease.', warn: 'Trouvé : indicatif' },
     { from: 'user', fr: 'Mais il n’y a personne dans l’immeuble qui puisse garder mon chat.', en: 'But there is nobody in the building who could look after my cat.' },
     { from: 'coach', fr: 'Personne : tu nies qu’elle existe, donc puisse.', en: 'Personne: you deny she exists, so puisse.', warn: 'Nié : subjonctif' },
   ],
@@ -1118,7 +1118,7 @@ const A5_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'personne qui', promptSound: 'Il n’y a personne ici qui peut m’aider.', fr: fr(E(1868)), ipa: ipaOf(E(1868)), tip: 'Personne : la chose est niée. EN: denied.' },
     { promptLabel: 'aucun… qui', promptSound: 'Je ne connais aucun médecin qui fait des visites à domicile.', fr: fr(E(1871)), ipa: ipaOf(E(1871)), tip: 'Aucun : subjonctif à l’écrit. EN: subjunctive in writing.' },
     { promptLabel: 'déjà trouvée', promptSound: 'J’ai trouvé une colocataire qui sache cuisiner.', fr: fr(E(1865)), ipa: ipaOf(E(1865)), tip: 'Trouvée : elle existe, indicatif. EN: found, indicative.' },
-    { promptLabel: 'y a-t-il', promptSound: 'Y a-t-il quelqu’un qui sait où sont les clés ?', fr: fr(E(1872)), ipa: ipaOf(E(1872)), tip: 'Tu demandes si elle existe : subjonctif. EN: questioned existence.' },
+    { promptLabel: 'déjà trouvé', promptSound: 'Nous avons trouvé un logement qui soit proche de l’école.', fr: fr(E(1877)), ipa: ipaOf(E(1877)), tip: 'Trouvé : il existe, indicatif. EN: found, indicative.' },
     { promptLabel: 'déjà possédé', promptSound: 'Elle a un travail qui lui permette de voyager.', fr: fr(E(1874)), ipa: ipaOf(E(1874)), tip: 'Elle l’a : indicatif. EN: she has it.' },
     { promptLabel: 'rien qui', promptSound: 'Il n’y a rien qui peut la faire changer d’avis.', fr: fr(E(1878)), ipa: ipaOf(E(1878)), tip: 'Rien : subjonctif. EN: nothing, subjunctive.' },
   ],
@@ -1127,7 +1127,7 @@ const A5_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'J’ai trouvé une colocataire qui … cuisiner.', opts: ['sait', 'sache'], correct: 0 },
     { promptSay: 'Nous cherchons une salle qui … accueillir cent personnes.', opts: ['puisse', 'peut'], correct: 0 },
     { promptSay: 'Je connais un restaurant qui … ouvert le lundi.', opts: ['est', 'soit'], correct: 0 },
-    { promptSay: 'Y a-t-il quelqu’un qui … où sont les clés ?', opts: ['sache', 'sait'], correct: 0 },
+    { promptSay: 'Il n’y a rien qui … la faire changer d’avis.', opts: ['puisse', 'peut'], correct: 0 },
     { promptSay: 'Elle a un travail qui lui … de voyager.', opts: ['permet', 'permette'], correct: 0 },
     { promptSay: 'Je cherche le dossier que tu m’… envoyé hier.', opts: ['as', 'aies'], correct: 0 },
     { promptSay: 'Trouve-moi quelqu’un qui … bien le quartier.', opts: ['connaisse', 'connaît'], correct: 0 },
@@ -1164,7 +1164,7 @@ const A5_EXEMPLES: Sec<'examples'> = {
 const A5_TEXTE = dansUnTexte('a5-texte', 'Compléter : l’annonce des Jardins du Plateau', TEXTE_A5, [
   { q: 'Complète : des bénévoles qui (avoir) du temps et qui (savoir) jardiner.', a: "Des bénévoles qui aient un peu de temps et qui sachent jardiner : on les cherche, subjonctif." },
   { q: 'Complète : une voisine qui (vouloir) bien prêter ses outils ; personne qui (pouvoir) s’occuper de l’arrosage.', a: "Une voisine qui veut bien prêter ses outils (trouvée : indicatif) ; il n'y a encore personne qui puisse s'occuper de l'arrosage (niée : subjonctif)." },
-  { q: 'Complète : quelqu’un qui (être) disponible ; un local qui (faire) vingt mètres carrés.', a: "Connaissez-vous quelqu'un qui soit disponible (on demande s'il existe : subjonctif) ; un local qui fasse au moins vingt mètres carrés (cherché : subjonctif)." },
+  { q: 'Complète : quelqu’un qui (être) disponible ; un local qui (faire) vingt mètres carrés.', a: "Connaissez-vous quelqu'un qui soit disponible (on demande s'il existe : subjonctif ; qui est disponible se dit aussi) ; un local qui fasse au moins vingt mètres carrés (cherché : subjonctif)." },
   { q: 'Complète la dernière : le local que la mairie nous (proposer) l’an dernier.', a: "Le local que la mairie nous avait proposé l'an dernier, ou nous a proposé. Il existe, on le connaît : indicatif." },
 ], 'rec-b2-06-texte-a5', ['recherche']);
 
@@ -1334,7 +1334,7 @@ const A6_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Elle a été la dernière de quitter la salle.',
       right: fr(E(1896)),
-      why: "Normal : de suit souvent un adjectif. Après le premier, le dernier, le seul, c'est à. EN: le dernier à, not de.",
+      why: "Normal : l'anglais n'aide pas ici. Après le premier, le dernier, le seul, c'est à. EN: le dernier à, not de.",
     },
     {
       wrong: 'C’est le meilleur film que j’aille vu cette année.',
@@ -1348,7 +1348,7 @@ const A6_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A6_TEXTE = dansUnTexte('a6-texte', 'Compléter : la critique du Petit Zinc', TEXTE_A6, [
-  { q: 'Complète : le meilleur restaurant que je (connaître) ; le seul qui (servir) encore une cuisine de marché.', a: "Que je connaisse (ton jugement : subjonctif) ; le seul qui serve encore une vraie cuisine de marché (jugement : subjonctif ; sert si tu parles d'un fait vérifié)." },
+  { q: 'Complète : le meilleur restaurant que je (connaître) ; le seul qui (servir) encore une cuisine de marché.', a: "Que je connaisse (ton jugement : subjonctif ; que je connais se dit aussi) ; le seul qui serve encore une vraie cuisine de marché (jugement : subjonctif ; sert si tu parles d'un fait vérifié)." },
   { q: 'Complète : le seul restaurant de la rue qui (être) ouvert le lundi.', a: "Qui est ouvert le lundi : c'est écrit sur la porte, un fait vérifiable, indicatif." },
   { q: 'Complète : le chef a été le premier (proposer) un menu végétarien.', a: "Le premier à proposer : à et l'infinitif, sans choix de mode." },
   { q: 'Complète les deux dernières : le seul reproche qu’on (pouvoir) lui faire ; l’adresse la plus sûre que je (pouvoir) recommander.', a: "Qu'on puisse lui faire ; que je puisse vous recommander. Deux jugements : subjonctif." },
@@ -1428,7 +1428,7 @@ const A7_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Le but', label: 'subjonctif',
       fr: fr(E(1901)), sub: rsOf(E(1901)),
-      body: "Pour que, afin que, sans que : le fait n'est pas encore atteint, tu le vises. EN: a goal is not reached yet.",
+      body: "Pour que, afin que : le fait n'est pas encore atteint, tu le vises. Sans que prend le même mode : le fait ne se produit pas. EN: a goal is not reached yet; sans que also takes the subjunctive.",
     },
     {
       head: 'De sorte que, deux fois', label: Cap(SUBORD_REF),
@@ -1460,7 +1460,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1903), 'de sorte que, pour un but'),
       it(E(1905), 'de façon que, pour un but'),
       it(E(1908), 'afin que'),
-      it(E(1907), 'sans que'),
+      it(E(1915), 'pour que'),
     ], chk('« Installez des bancs de sorte que les personnes âgées … se reposer. »',
       ['puissent', 'peuvent'], 0,
       'Les bancs ne sont pas encore là : un but. EN: a goal, so subjunctive.')),
@@ -1513,7 +1513,7 @@ const A7_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Viser ou constater',
-    body: "Pour que, afin que, sans que, trop… pour que : subjonctif. Si bien que, tellement… que : indicatif. De sorte que et de façon que : le sens choisit. EN: goals take the subjunctive, results the indicative.",
+    body: "Pour que, afin que, trop… pour que : subjonctif. Sans que aussi, car le fait ne se produit pas. Si bien que, tellement… que : indicatif. De sorte que et de façon que : le sens choisit. EN: goals take the subjunctive, results the indicative; sans que takes the subjunctive too.",
   },
   cards: [
     { promptLabel: 'pour que', promptSound: 'La ville ferme la rue pour que les enfants peuvent jouer.', fr: fr(E(1901)), ipa: ipaOf(E(1901)), tip: 'Pour que : subjonctif, toujours. EN: always subjunctive.' },
@@ -1655,7 +1655,7 @@ const A8_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Les raccourcis', label: 'sans verbe conjugué',
       fr: `${fr(E(1927))} · ${fr(E(1928))}`, sub: `${rsOf(E(1927))} · ${rsOf(E(1928))}`,
-      body: "Bien que fatiguée : bien que devant un adjectif. Avoir beau, puis l'infinitif : la concession de l'oral, sans mode à choisir. EN: two ways round the choice.",
+      body: "Bien que fatiguée : bien que devant un adjectif. Avoir beau, puis l'infinitif : une concession sans mode à choisir. EN: two ways round the choice.",
     },
   ],
 };
@@ -1751,7 +1751,7 @@ const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
     ['soit', 'est'], 0,
     'Bien que : subjonctif. EN: subjunctive.'),
   ctl('Même si', '« Même si la ville … tout, je serais contre. »',
-    ['payait', 'paie', 'paye jamais'], 0,
+    ['payait', 'paie', 'paierait'], 0,
     'Une hypothèse avec même si : l’imparfait, comme après si. EN: imparfait for a hypothesis.'),
   ctl('L’orthographe', 'Quoi que tu fasses = …',
     ['quelle que soit la chose que tu fasses', 'bien que tu fasses'], 0,
@@ -1838,7 +1838,7 @@ const A9_CONSTRUIRE: Sec<'groupDrill'> = {
   title: 'Avant ou après sur la ligne',
   frSub: 'Deux groupes, un contrôle',
   groups: [
-    grp('Le fait a eu lieu : indicatif', [
+    grp('Le fait est posé : indicatif', [
       it(E(1937), 'après que'),
       it(E(1939), 'après que, avec être'),
       it(E(1943), 'depuis que'),
@@ -1981,7 +1981,7 @@ const A10_LECTURE: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Global : à quelle question répond la chronique ?', a: "Le subjonctif est-il en train de disparaître ? Réponse : non, il se porte bien ; ce sont les zones de choix qui bougent." },
-    { q: 'Détail : que dit l’auteur de la phrase « je ne crois pas qu’il est venu » ?', a: "Qu'elle n'est pas fautive à l'oral : elle garde le fait plus présent. Mais à l'écrit soigné et à l'examen, le subjonctif reste la norme." },
+    { q: 'Détail : que dit l’auteur de la phrase « je ne crois pas qu’il est venu » ?', a: "Qu'elle n'est pas fautive à l'oral : c'est une variante orale, plus familière. Mais à l'écrit soigné et à l'examen, le subjonctif reste la norme." },
     { q: 'Inférence : pourquoi « après qu’il soit parti » s’entend-il partout ?', a: "Par analogie avec avant que, qui prend le subjonctif : les deux conjonctions se ressemblent, alors on les aligne." },
     { q: 'Position : l’auteur accepte-t-il « après qu’il soit parti » ?', a: "Non : il donne raison aux grammairiens et aux correcteurs, et propose de contourner avec après son départ ou après être parti." },
   ],
@@ -2351,8 +2351,8 @@ const A11_MISSION: Sec<'task'> = {
     "Nous cherchons d'ailleurs des voisins qui",
     'Je souhaite que',
   ],
-  modelAnswer: "Bonjour à tous. J'habite à deux pas de la halle, et je voudrais distinguer ce que l'on sait de ce que l'on suppose. Il est certain que la halle est vide depuis trois ans : le marché s'est installé place de la Gare. Il est probable que la médiathèque attirera les familles et les étudiants, puisque la plus proche est à vingt minutes en bus. En revanche, je ne suis pas sûr que la suppression du parking soit une bonne idée. Je doute que les personnes âgées puissent venir à pied depuis le haut du quartier, et il n'est pas certain que la ligne 4 passe assez souvent. Bien que je comprenne l'envie d'un lieu sans voitures, il faut que la mairie garde au moins une vingtaine de places réservées. Je cherche d'ailleurs des voisins qui soient prêts à porter cette demande au conseil du 12 mars. Après que la bibliothèque de Carouge a ouvert ses portes, tout le quartier a changé en un an : c'est le meilleur exemple que je connaisse. Même si le projet coûte cher, il en vaut la peine. Mon souhait est donc simple : que la mairie fasse une vraie consultation, et qu'elle nous dise enfin combien de places elle compte garder. Bonne soirée à tous, Karim.\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : les faits, les doutes, le souhait et la position sont séparés ; la position est claire (pour, avec une condition).\n2. Cohérence : faits, puis en revanche et les doutes, puis bien que et la position, puis le souhait final ; d'ailleurs et donc relient les parties.\n3. Étendue : il est certain et il est probable à l'indicatif ; je ne suis pas sûr, je doute, il n'est pas certain au subjonctif ; une relative de recherche (des voisins qui soient prêts) ; un superlatif jugé (le meilleur exemple que je connaisse) ; après que et même si à l'indicatif.\n4. Correction : soit, puissent, passe, garde, connaisse, fasse ; aucun subjonctif après après que ni après même si.\n5. Registre : courtois et direct, adapté à des voisins.",
-  modelAnswerEn: "Hello everyone. I live a stone's throw from the hall, and I would like to separate what we know from what we assume. It is certain that the hall has been empty for three years: the market moved to the station square. The media library will probably draw families and students, since the nearest one is twenty minutes away by bus. On the other hand, I am not sure that removing the car park is a good idea. I doubt older people can walk down from the top of the neighbourhood, and it is not certain that the number 4 runs often enough. Although I understand the wish for a car-free place, the council must keep at least twenty reserved spaces. I am looking for neighbours who would be ready to take this request to the council meeting on 12 March. After the Carouge library opened, the whole area changed within a year: it is the best example I know. Even if the project costs a lot, it is worth it. So my wish is simple: that the council holds a real consultation and finally tells us how many spaces it intends to keep. Good evening, Karim. The marker's notes (not counted): 1. Task: facts, doubts, wish and position kept apart; a clear position with a condition. 2. Coherence: facts, then doubts, then a concession and the position, then the wish. 3. Range: certain and probable in the indicative; doubt and uncertainty in the subjunctive; a relative of search; a judged superlative; après que and même si in the indicative. 4. Accuracy: every mood right, no subjunctive after après que or même si. 5. Register: courteous and direct.",
+  modelAnswer: "Bonjour à tous. J'habite à deux pas de la halle, et je voudrais distinguer ce que l'on sait de ce que l'on suppose. Il est certain que la halle est vide depuis trois ans : le marché s'est installé place de la Gare. Il est probable que la médiathèque attirera les familles et les étudiants, puisque la plus proche est à vingt minutes en bus. En revanche, je ne suis pas sûr que la suppression du parking soit une bonne idée. Je doute que les personnes âgées puissent venir à pied depuis le haut du quartier, et il n'est pas certain que la ligne 4 passe assez souvent. Bien que je comprenne l'envie d'un lieu sans voitures, il faut que la mairie garde au moins une vingtaine de places réservées. Je cherche d'ailleurs des voisins qui soient prêts à porter cette demande au conseil du 12 mars. Après que la bibliothèque du quartier voisin a ouvert ses portes, tout le quartier a changé en un an : c'est le meilleur exemple que je connaisse. Même si le projet coûte cher, il en vaut la peine. Mon souhait est donc simple : que la mairie fasse une vraie consultation, et qu'elle nous dise enfin combien de places elle compte garder. Bonne soirée à tous, Karim.\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : les faits, les doutes, le souhait et la position sont séparés ; la position est claire (pour, avec une condition).\n2. Cohérence : faits, puis en revanche et les doutes, puis bien que et la position, puis le souhait final ; d'ailleurs et donc relient les parties.\n3. Étendue : il est certain et il est probable à l'indicatif ; je ne suis pas sûr, je doute, il n'est pas certain au subjonctif ; une relative de recherche (des voisins qui soient prêts) ; un superlatif jugé (le meilleur exemple que je connaisse) ; après que et même si à l'indicatif.\n4. Correction : soit, puissent, passe, garde, connaisse, fasse ; aucun subjonctif après après que ni après même si.\n5. Registre : courtois et direct, adapté à des voisins.",
+  modelAnswerEn: "Hello everyone. I live a stone's throw from the hall, and I would like to separate what we know from what we assume. It is certain that the hall has been empty for three years: the market moved to the station square. The media library will probably draw families and students, since the nearest one is twenty minutes away by bus. On the other hand, I am not sure that removing the car park is a good idea. I doubt older people can walk down from the top of the neighbourhood, and it is not certain that the number 4 runs often enough. Although I understand the wish for a car-free place, the council must keep at least twenty reserved spaces. I am looking for neighbours who would be ready to take this request to the council meeting on 12 March. After the library in the next neighbourhood opened, the whole area changed within a year: it is the best example I know. Even if the project costs a lot, it is worth it. So my wish is simple: that the council holds a real consultation and finally tells us how many spaces it intends to keep. Good evening, Karim. The marker's notes (not counted): 1. Task: facts, doubts, wish and position kept apart; a clear position with a condition. 2. Coherence: facts, then doubts, then a concession and the position, then the wish. 3. Range: certain and probable in the indicative; doubt and uncertainty in the subjunctive; a relative of search; a judged superlative; après que and même si in the indicative. 4. Accuracy: every mood right, no subjunctive after après que or même si. 5. Register: courteous and direct.",
   watchFor: [
     { pattern: 'Every clause in the same mood, so facts and doubts read alike (all indicative, or subjunctive sprinkled for elegance).', criterion: 'tache', feedback: 'Sépare ce que tu affirmes de ce que tu regardes sans l’affirmer : le mode doit changer avec ton intention.', ref: 'a1-reperer' },
     { pattern: 'Trigger errors already covered in B1: j’espère que tu viennes, il me semble qu’il soit, parce qu’il soit.', criterion: 'correction', feedback: 'Espérer, il me semble et parce que donnent le fait pour vrai : indicatif.', ref: 'a2-erreurs' },
@@ -2499,7 +2499,7 @@ const A11_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Crois-tu qu’il vienne à la réunion ? » Que laisse entendre celui qui parle ?', ['qu’il en doute', 'qu’il en est sûr'], 0, 'Le subjonctif dans la question laisse entendre le doute. EN: doubt.', 'a3-cartes'),
         mc('« Ne crois-tu pas qu’il … raison ? »', ['a', 'ait'], 0, 'Une question négative cherche l’accord : indicatif. EN: indicative.', 'a3-cartes'),
-        mc('Laquelle dit que tu en es sûr ?', [fr(E(1835)), fr(E(1836))], 0, 'Ne pas douter, c’est être sûr : l’indicatif suit. EN: no doubt.', 'a3-construire'),
+        mc('Laquelle dit que tu en es sûr ?', [fr(E(1835)), fr(E(1836))], 0, 'Ne pas douter, c’est être sûr : l’indicatif est courant, le subjonctif reste correct et plus soutenu. EN: no doubt.', 'a3-construire'),
         tI('Mets le verbe au bon mode.', 'Je suis sûre que le bureau (être) fermé.', fr(E(1833)), 'Certitude affirmée : indicatif. EN: indicative.', 'a3-construire', ['est']),
         tI('Mets le verbe au bon mode.', 'Je ne suis pas sûr qu’elle (avoir) le temps.', fr(E(1837)), 'Pas sûr : subjonctif. EN: subjunctive.', 'a3-piege', ['ait']),
         eS('Je crois qu’il vienne à la réunion.', fr(E(1825)), 'Croire à l’affirmatif : indicatif. EN: indicative.', 'a3-piege'),
@@ -2620,7 +2620,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Format DELF B2, compréhension écrite. « Il est peu probable que la ville revienne sur sa décision, même si les habitants protestent. » Que pense l’auteur ?', ['la décision ne changera sans doute pas', 'la ville va changer d’avis', 'les habitants ne protestent pas'], 0, 'Peu probable : il écarte le changement. EN: unlikely to change.', 'a4-echelle'),
         mc('Format DELF B2. « Je ne suis pas certaine que ce plan soit le bon ; il est clair, en revanche, que la situation actuelle ne peut pas durer. » De quoi l’autrice est-elle sûre ?', ['que la situation actuelle ne peut pas durer', 'que le plan est le bon', 'de rien'], 0, 'Il est clair que : indicatif, c’est ce qu’elle affirme. EN: what she asserts.', 'a4-construire'),
         tI('Format TCF, phrase à compléter.', 'Il faut que la commission (prendre) une décision avant l’été.', 'Il faut que la commission prenne une décision avant l’été.', 'Il faut que : subjonctif. EN: subjunctive.', 'a2-table', ['prenne']),
-        eS('Je doute que cette mesure va changer quelque chose.', 'Je doute que cette mesure puisse changer quelque chose.', 'Douter : subjonctif, puisse. EN: subjunctive.', 'a3-piege', ['Je doute que cette mesure change quelque chose.']),
+        eS('Je doute que cette mesure va changer quelque chose.', 'Je doute que cette mesure change quelque chose.', 'Douter : subjonctif, change (ou puisse changer). EN: subjunctive.', 'a3-piege', ['Je doute que cette mesure puisse changer quelque chose.']),
         lC('Format TEF, compréhension orale. Écoute cette annonce. Qu’est-ce qui est certain ?', ANNONCE, ['la fermeture de la rue le samedi', 'la fermeture le dimanche', 'l’accord des commerçants'], 0, 'Sera fermée : indicatif, c’est décidé. Le dimanche reste possible. EN: the Saturday closure is certain.', 'a4-ecoute'),
       ],
     },
@@ -2695,7 +2695,7 @@ const ACT11: ActDef = {
       imageRef: 'lessons/subjonctif-indicatif/act11.jpg',
     },
     sections: [],
-    milestone: "Tu as écrit ta réponse et passé l'examen : quatre-vingt-seize questions, douze rounds. EN: You wrote your reply and sat the exam: ninety-six questions, twelve rounds.",
+    milestone: "Tu as écrit ta réponse et passé l'examen : quatre-vingt-seize questions, douze séries. EN: You wrote your reply and sat the exam: ninety-six questions, twelve rounds.",
     estScreens: 150,
     restPoints: ['a11-plan', 'a11-scenario', 'a11-mission', 'a11-cheat', 'a11-quiz/r4-certitude', 'a11-quiz/r8-concession', 'a11-review'],
   },
@@ -2829,7 +2829,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['connue, même cherchée', 'indicatif', "Je cherche le dossier que tu m'as envoyé hier."],
       ['cherchée, souhaitée', 'subjonctif', 'Je cherche une colocataire qui sache cuisiner.'],
       ['niée : personne, rien, aucun', 'subjonctif', "Il n'y a personne ici qui puisse m'aider."],
-      ['mise en question', 'subjonctif', "Y a-t-il quelqu'un qui sache où sont les clés ?"],
+      ['mise en question', 'subjonctif possible', "Y a-t-il quelqu'un qui sache où sont les clés ?"],
     ]),
     table('sheet-relatives-seul', 'Le seul, le premier, le meilleur', ['Cas', 'Mode', 'Exemple'], [
       ['un jugement', 'subjonctif', "C'est le seul architecte qui puisse sauver ce bâtiment."],

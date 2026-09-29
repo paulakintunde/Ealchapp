@@ -458,7 +458,7 @@ const A2_GENRES: Sec<'cardDeck'> = {
     {
       head: 'Le conte', label: 'il était une fois',
       fr: fr(E(1020)), sub: rsOf(E(1020)),
-      body: "Le conte s'ouvre sur un imparfait (il était une fois), puis tout ce qui arrive passe au passé simple. C'est souvent là que tu l'as entendu enfant. EN: Tales open with the imparfait, then every event is in the passé simple.",
+      body: "Le conte s'ouvre sur un imparfait (il était une fois), puis tout ce qui arrive passe au passé simple. C'est souvent là qu'un enfant francophone l'entend pour la première fois. EN: Tales open with the imparfait, then every event is in the passé simple.",
     },
     {
       head: 'Le livre d’histoire', label: 'le manuel',
@@ -634,7 +634,7 @@ const A3_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Il, elle : -a', label: 'le singulier',
       fr: fr(E(1030)), sub: rsOf(E(1030)),
-      body: "Parla, ferma, regarda : une finale en -a tout court. Enlève-la, ajoute -er, et tu as l'infinitif. Tous les verbes en -er, même aller : il alla. EN: -a in the singular, for every -er verb.",
+      body: "Parla, ferma, regarda : une finale en -a tout court. Enlève-la, ajoute -er, et tu as l'infinitif. Mangea, commença : le e et le ç gardent le son de manger, commencer. Tous les verbes en -er, même aller : il alla. EN: -a in the singular, for every -er verb.",
     },
     {
       head: 'Ils, elles : -èrent', label: 'le pluriel',
@@ -726,8 +726,8 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'lu comme un imparfait', promptSound: 'Il parlait longtemps, puis il fermait les yeux.', fr: fr(E(1031)), ipa: ipaOf(E(1031)), tip: 'Parla, ferma : deux événements, pas une habitude. EN: two events.' },
     { promptLabel: 'lu comme un futur', promptSound: 'Les enfants rentreront avant la nuit.', fr: fr(E(1033)), ipa: ipaOf(E(1033)), tip: 'Rentrèrent est un passé : le futur dirait rentreront. EN: past, not future.' },
     { promptLabel: 'lu comme un présent', promptSound: 'Elle regarde la mer et pense à son frère.', fr: fr(E(1035)), ipa: ipaOf(E(1035)), tip: 'Regarda n’a pas de e : c’est le passé simple. EN: no final e, so past.' },
-    { promptLabel: 'je lu au futur', promptSound: 'Je demanderai mon chemin à un berger.', fr: fr(E(1039)), ipa: ipaOf(E(1039)), tip: 'Demandai sans r : le futur serait demanderai. EN: no r, not the future.' },
-    { promptLabel: 'nous lu au présent', promptSound: 'Nous arrivons à Tombouctou au lever du jour.', fr: fr(E(1041)), ipa: ipaOf(E(1041)), tip: 'Arrivâmes : le passé, avec nous. EN: past, with nous.' },
+    { promptLabel: 'je, lu comme un futur', promptSound: 'Je demanderai mon chemin à un berger.', fr: fr(E(1039)), ipa: ipaOf(E(1039)), tip: 'Demandai sans r : le futur serait demanderai. EN: no r, not the future.' },
+    { promptLabel: 'nous, lu comme un présent', promptSound: 'Nous arrivons à Tombouctou au lever du jour.', fr: fr(E(1041)), ipa: ipaOf(E(1041)), tip: 'Arrivâmes : le passé, avec nous. EN: past, with nous.' },
     { promptLabel: 'pronominal oublié', promptSound: 'Le train a arrêté en pleine campagne.', fr: fr(E(1046)), ipa: ipaOf(E(1046)), tip: 'S’arrêta : pronominal, donc être aujourd’hui. EN: pronominal, so être.' },
   ],
   drill: [
@@ -768,7 +768,7 @@ const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
     '-èrent : le pluriel. EN: plural.'),
   ctl('L’infinitif', 'Chargea vient de…',
     ['charger', 'changer'], 0,
-    'Charge-a, puis -er. EN: charger.'),
+    'Charg(e)a : le e garde le son [ʒ] devant a. L’infinitif est charger. EN: charger.'),
 ], ['finale']);
 
 const ACT3: ActDef = {
@@ -891,9 +891,9 @@ const A4_ERREURS: Sec<'commonErrors'> = {
   title: 'Quatre traductions ratées',
   errors: [
     {
-      wrong: "Elle a réponde d'une voix calme.",
+      wrong: "Elle a répondi d'une voix calme.",
       right: fr(E(1053)),
-      why: "Normal : répondit fait penser à un participe en -i, et réponde existe au subjonctif. Mais le participe de répondre est répondu. EN: répondit looks like an -i participle, but it is répondu.",
+      why: "Normal : partit donne parti, alors répondit semble donner répondi. Mais le participe de répondre est répondu. EN: répondit looks like an -i participle, but it is répondu.",
     },
     {
       wrong: "Il a parti à l'aube sans dire au revoir.",
@@ -1339,7 +1339,7 @@ const A7_TABLE: Sec<'tapTable'> = {
   id: 'a7-table',
   layer: 'core',
   sheetId: 'sheet-irreguliers',
-  title: 'Six irréguliers à reconnaître d’un coup d’œil',
+  title: 'Six irréguliers, et eut fini',
   cols: ['Tu lis', 'Le verbe', 'Aujourd’hui'],
   rows: [
     { cells: ['fut, furent', 'être', 'a été, ont été'], say: fr(E(1105)),
@@ -1354,6 +1354,8 @@ const A7_TABLE: Sec<'tapTable'> = {
       detail: { title: 'naquit', body: "Ne ressemble à rien : apprends à le reconnaître. Il ouvre presque toutes les biographies. EN: naquit is naître.", say: fr(E(1118)) } },
     { cells: ['mourut', 'mourir', 'est mort'], say: fr(E(1119)),
       detail: { title: 'mourut', body: "La fin de toutes les biographies. Aujourd'hui, être et le participe mort. EN: mourut is mourir.", say: fr(E(1120)) } },
+    { cells: ['quand il eut fini', 'avoir + fini', 'quand il a fini'], say: fr(E(1126)),
+      detail: { title: 'eut fini', body: "Eut suivi d'un participe : un passé antérieur, un cran avant le passé simple qui suit. Tu le reconnais à eut ; aujourd'hui, quand il a fini suffit. EN: eut + participle is the passé antérieur; today, quand il a fini.", say: fr(E(1127)) } },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1494,7 +1496,7 @@ const ACT7: ActDef = {
   act: {
     id: 'act7', title: 'Les irréguliers',
     opener: {
-      line: "Elle naquit, elle fut, elle fit, elle mourut : ici tu lis une vie entière et tu reconnais les douze formes qui portent les récits. EN: She was born, was, did, died: here you read a whole life and learn the twelve forms that carry stories.",
+      line: "Elle naquit, elle fut, elle fit, elle mourut : ici tu lis une vie entière et tu reconnais les douze formes qui portent les récits. EN: She was born, lived, worked, died: here you read a whole life and learn the twelve forms that carry stories.",
       imageRef: 'lessons/passe-simple/act07.jpg',
     },
     sections: [],
@@ -1900,7 +1902,7 @@ const A10_TABLE: Sec<'tapTable'> = {
       detail: { title: 'L’imparfait reste', body: "Le décor ne bouge pas : pleuvait, dormait, lisait. EN: the imparfait stays.", say: fr(E(1151)) } },
     { cells: ['était parti', 'était parti', 'le plus-que-parfait reste'], say: fr(E(1167)),
       detail: { title: 'Le plus-que-parfait reste', body: `Ce qui était déjà fait reste en arrière, comme dans ${PQP_REF}. EN: the plus-que-parfait stays.`, say: fr(E(1195)) } },
-    { cells: ['naquit, vint, tomba', 'est née, est venu, est tombé', 'être et l’accord'], say: fr(E(1161)),
+    { cells: ['naquit, vint, tomba', 'elle est née, il est venu, elle est tombée', 'être et l’accord'], say: fr(E(1161)),
       detail: { title: 'Les verbes avec être', body: "Naître, mourir, venir, partir, arriver, tomber et les pronominaux prennent être, avec l'accord. EN: être verbs agree.", say: fr(E(1019)) } },
     { cells: ['ne dit rien', 'n’a rien dit', 'rien, tout, enfin au milieu'], say: fr(E(1171)),
       detail: { title: 'Les petits mots', body: "Rien, tout, enfin, jamais se glissent entre l'auxiliaire et le participe. EN: short words go between the two parts.", say: fr(E(1066)) } },
@@ -2106,7 +2108,7 @@ const A11_TYPES: Sec<'cardDeck'> = {
     {
       head: 'Le point de vue', label: 'qui voit',
       fr: fr(E(1186)), sub: rsOf(E(1186)),
-      body: "Le récit montre ce que voit l'enfant ; l'adulte, lui, comprend plus tard. Les deux regards n'utilisent pas les mêmes temps. EN: the child sees, the adult understands later.",
+      body: "Le récit montre ce que voit l'enfant ; l'adulte, lui, comprend plus tard, et commente parfois depuis aujourd'hui, au passé composé. EN: the child sees, the adult understands later.",
     },
   ],
 };
@@ -2304,7 +2306,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
       user: 'Il a frappé à toutes les portes, mais personne ne lui a ouvert.',
       userEn: 'He knocked at every door, but nobody opened. (Two events: passé composé.)',
       alts: [
-        { fr: 'Il a frappé partout, et personne n’a voulu lui ouvrir.', en: 'He knocked everywhere, and nobody would open to him.' },
+        { fr: 'Il a frappé partout, et personne n’a voulu lui ouvrir.', en: 'He knocked everywhere, and nobody would let him in.' },
         { fr: 'Il a cherché un endroit pour dormir, sans succès.', en: 'He looked for somewhere to sleep, without success.' },
       ],
     },
@@ -2413,7 +2415,7 @@ const A12_MISSION: Sec<'task'> = {
     'La patronne lui a dit que',
     'À ton avis,',
   ],
-  modelAnswer: "Salut Inès, je viens de lire une page qui m'a donné des frissons, je te la raconte. Un matin, Mathieu s'est levé avant l'aube. Il faisait encore nuit et le village dormait. Il a pris son sac, il a fermé la porte sans bruit et il est descendu vers la gare. Mais le train de six heures était déjà parti, alors il a attendu une heure sur le quai, puis il est monté dans le suivant. À Lyon, personne ne l'attendait. Il a marché longtemps dans des rues qu'il ne reconnaissait plus. Vers midi, il est entré dans un petit café et il a demandé un verre d'eau. La patronne l'a regardé longuement, puis elle lui a dit qu'il était le fils Berthier. Mathieu n'a pas répondu. Il a sorti une photo de sa poche et il l'a posée sur le comptoir. La femme a pâli : c'était la photo de son propre mariage, qu'elle avait perdue trente ans plus tôt. Ce qui m'a le plus frappé, c'est qu'on ne sait rien de plus. À ton avis, comment Mathieu a-t-il eu cette photo ? Bises, Léa\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : toute la page, dans l'ordre, un avis (ce qui m'a le plus frappé), une question à Inès.\n2. Cohérence : le train était déjà parti et la photo avait été perdue restent en arrière ; alors, puis, vers midi relient les étapes.\n3. Correction : quatorze passés simples devenus passés composés, avec être pour descendre, monter, entrer ; l'accord de posée (la photo) ; l'imparfait (faisait, dormait, attendait, reconnaissait) et le plus-que-parfait (était parti, avait perdue) intacts ; la parole rapportée (elle lui a dit qu'il était).\n4. Registre : un message à une amie, avec tu et une salutation, naturel, sans passé simple.",
+  modelAnswer: "Salut Inès, je viens de lire une page qui m'a donné des frissons, je te la raconte. Un matin, Mathieu s'est levé avant l'aube. Il faisait encore nuit et le village dormait. Il a pris son sac, il a fermé la porte sans bruit et il est descendu vers la gare. Mais le train de six heures était déjà parti, alors il a attendu une heure sur le quai, puis il est monté dans le suivant. À Lyon, personne ne l'attendait. Il a marché longtemps dans des rues qu'il ne reconnaissait plus. Vers midi, il est entré dans un petit café et il a demandé un verre d'eau. La patronne l'a regardé longuement, puis elle lui a dit qu'il était le fils Berthier. Mathieu n'a pas répondu. Il a sorti une photo de sa poche et il l'a posée sur le comptoir. La femme a pâli : c'était la photo de son propre mariage, qu'elle avait perdue trente ans plus tôt. Ce qui m'a le plus frappé, c'est qu'on ne sait rien de plus. À ton avis, comment Mathieu a-t-il eu cette photo ? Bises, Léa\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : toute la page, dans l'ordre, un avis (ce qui m'a le plus frappé), une question à Inès.\n2. Cohérence : le train était déjà parti et la photo avait été perdue restent en arrière ; alors, puis, vers midi relient les étapes.\n3. Correction : quinze passés simples devenus passés composés, avec être pour descendre, monter, entrer ; l'accord de posée (la photo) ; l'imparfait (faisait, dormait, attendait, reconnaissait) et le plus-que-parfait (était parti, avait perdue) intacts ; la parole rapportée (elle lui a dit qu'il était).\n4. Registre : un message à une amie, avec tu et une salutation, naturel, sans passé simple.",
   modelAnswerEn: "Hi Inès, I have just read a page that gave me shivers, so here it is. One morning Mathieu got up before dawn. It was still dark and the village was asleep. He took his bag, closed the door without a sound and went down to the station. But the six o'clock train had already left, so he waited an hour on the platform, then got on the next one. In Lyon nobody was waiting for him. He walked for a long time through streets he no longer recognised. Around noon he went into a little café and asked for a glass of water. The owner looked at him for a long time, then told him he was the Berthier boy. Mathieu did not answer. He took a photo out of his pocket and laid it on the counter. The woman went pale: it was the photo of her own wedding, which she had lost thirty years before. What struck me most is that we learn nothing more. What do you think, how did Mathieu get that photo? Love, Léa. The marker's notes (not counted): 1. Task: the whole page, in order, an opinion and a question. 2. Coherence: the train that had left and the lost photo stay in the past before the events. 3. Accuracy: every passé simple retold in the passé composé with the right auxiliary and agreement; the imparfait and pluperfect untouched; reported speech. 4. Register: a natural message to a friend.",
   watchFor: [
     { pattern: 'A passé simple form copied from the extract into the retelling (il se leva, il prit, dit-elle).', criterion: 'correction', feedback: 'Tu racontes à une amie : chaque passé simple devient un passé composé. Il se leva : il s’est levé.', ref: 'a10-table' },
@@ -2425,7 +2427,7 @@ const A12_MISSION: Sec<'task'> = {
     { pattern: 'The imparfait used for the events (il prenait son sac, il marchait vers la gare), so the story reads as a habit.', criterion: 'coherence', feedback: 'Ces gestes arrivent une fois, dans l’ordre : passé composé.', ref: 'a1-scene' },
     { pattern: 'Agreement missed after avoir with la placed before: il l’a posé sur le comptoir.', criterion: 'correction', feedback: 'La photo est reprise par la, placé avant : il l’a posée.', ref: 'a4-texte' },
     { pattern: 'Word order copied from the book: il n’a répondu pas, il a regardé longuement elle.', criterion: 'correction', feedback: 'Ne et pas entourent l’auxiliaire : il n’a pas répondu.', ref: 'a10-construire' },
-    { pattern: 'The direct speech line left with its incise inverted wrongly (« Tu es le fils Berthier », a-t-elle dit enfin) or turned into il est le fils Berthier with the wrong tense.', criterion: 'correction', feedback: 'Garde les guillemets avec a-t-elle dit, ou rapporte : elle lui a dit qu’il était le fils Berthier.', ref: 'a10-exemples' },
+    { pattern: 'The direct speech line left with its incise inverted wrongly (« Tu es le fils Berthier », elle a dit-elle, or dit-elle kept from the book) or turned into il est le fils Berthier with the wrong tense.', criterion: 'correction', feedback: 'Garde les guillemets avec a-t-elle dit, ou rapporte : elle lui a dit qu’il était le fils Berthier.', ref: 'a10-exemples' },
     { pattern: 'Events skipped or invented, or the order changed (the photo before the café).', criterion: 'tache', feedback: 'Suis l’extrait pas à pas : la gare, Lyon, le café, la photo.', ref: 'a12-plan' },
     { pattern: 'No opinion, no question to Inès, no greeting; or a body outside 150 to 220 words.', criterion: 'registre', feedback: 'C’est un message à une amie : salue-la, donne ton avis, pose-lui une question.', ref: 'a12-usages' },
   ],
@@ -2567,7 +2569,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Donne l’infinitif de répondit.', fr(E(1052)), 'répondre', 'Répond-it : répondre. EN: répondre.', 'a4-cartes'),
         tI(`Une phrase de roman. ${RETELL}`, fr(E(1050)), fr(E(1051)), 'Partir prend être. EN: être.', 'a4-erreurs'),
         tI(`Une phrase de roman. ${RETELL}`, fr(E(1065)), fr(E(1066)), 'Tout entre ont et perdu. EN: tout in the middle.', 'a4-erreurs'),
-        eS("Elle a réponde d'une voix calme.", fr(E(1053)), 'Le participe de répondre est répondu. EN: répondu.', 'a4-erreurs'),
+        eS("Elle a répondi d'une voix calme.", fr(E(1053)), 'Le participe de répondre est répondu. EN: répondu.', 'a4-erreurs'),
         lC('Écoute. Combien de personnes choisissent la route ?', fr(E(1058)), ['plusieurs', 'une seule'], 0, 'Choisirent : elles. EN: several.', 'a4-construire'),
       ],
     },
@@ -2654,7 +2656,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc(`${Cap(PC_IMP_REF)} : « Il pleuvait et la terrasse était vide. » Ces verbes…`, ['posent le décor', 'font avancer l’histoire'], 0, `« ${B103_REFRAME} » EN: ${B103_REFRAME_EN}`, 'a9-cartes'),
         mc(`${Cap(PAIRES_REF)} : « Il sut la vérité le lendemain. » Sut veut dire…`, ['il l’a apprise', 'il la connaissait déjà'], 0, `« ${B104_REFRAME} » EN: ${B104_REFRAME_EN}`, 'a9-cartes'),
-        mc(`${Cap(INVERSION_REF)} : dans « « Nous arrivons », dit-elle », l’inversion sert à…`, ['introduire une parole citée', 'poser une question'], 0, `« ${B121_REFRAME} » EN: ${B121_REFRAME_EN}`, 'a10-exemples'),
+        mc(`${Cap(INVERSION_REF)} : dans la phrase « Nous arrivons », dit-elle, l’inversion sert à…`, ['introduire une parole citée', 'poser une question'], 0, `« ${B121_REFRAME} » EN: ${B121_REFRAME_EN}`, 'a10-exemples'),
         mc(`${Cap(LECTURE_B1_REF)} : devant une forme inconnue dans un roman, tu…`, ['cherches d’abord le sens de la phrase', 't’arrêtes pour chercher dans le dictionnaire'], 0, `« ${B137_REFRAME} » EN: ${B137_REFRAME_EN}`, 'a1-reperer'),
         mc(`${Cap(DISCOURS_REF)} : « Il dit qu’il reviendrait. » Dans un roman, dit est…`, ['un passé simple : il a dit', 'un présent : il dit maintenant'], 0, 'Reviendrait, le futur dans le passé : on est au passé. EN: reviendrait marks the past.', 'a4-check'),
         tI(`${Cap(PC_IMP_REF)} : raconte au passé composé, sans toucher au décor.`, 'Il faisait chaud quand le voisin frappa à la porte.', 'Il faisait chaud quand le voisin a frappé à la porte.', 'Le décor reste, l’événement change. EN: only the event changes.', 'a9-trier'),
@@ -2780,7 +2782,7 @@ const DRILL_LIST: LessonDrill[] = [
 const TRIGGER_LIST: ErrorTrigger[] = [
   { id: 'lu-comme-habitude', description: 'Reads the passé simple as a habit or a present (retells il entra as il entrait), or uses it in speech.', detectOn: ['a1-scene', 'a1-reperer', 'a2-trier', 'a12-mission'], drill: 'd-reperer', retest: 'd-reperer' },
   { id: 'finale-er', description: 'Confuses -a and -èrent with the imparfait or the future, or loses the person of -ai and -âmes.', detectOn: ['a3-reperer', 'a3-piege', 'a3-check'], drill: 'd-finale-er', retest: 'd-finale-er' },
-  { id: 'sosie-present', description: 'Takes il finit or il dit in a past narrative for a present, or builds a wrong participle from an -it form (réponde).', detectOn: ['a4-construire', 'a4-erreurs', 'a4-check', 'a12-mission'], drill: 'd-sosie', retest: 'd-sosie' },
+  { id: 'sosie-present', description: 'Takes il finit or il dit in a past narrative for a present, or builds a wrong participle from an -it form (répondi).', detectOn: ['a4-construire', 'a4-erreurs', 'a4-check', 'a12-mission'], drill: 'd-sosie', retest: 'd-sosie' },
   { id: 'finale-u-in', description: 'Cannot find the verb behind -ut and -int forms (dut, crut, vint), hears vint as vingt, or picks the wrong auxiliary for venir and tenir.', detectOn: ['a5-reperer', 'a6-construire', 'a6-piege', 'a6-check'], drill: 'd-finale-u-in', retest: 'd-finale-u-in' },
   { id: 'irregulier-confondu', description: 'Mixes up fut and fit, reads eut as être, takes il vit as vivre in front of an object, or keeps naquit with an auxiliary.', detectOn: ['a7-construire', 'a7-erreurs', 'a7-check', 'a12-mission'], drill: 'd-irreguliers', retest: 'd-irreguliers' },
   { id: 'personne-perdue', description: 'Loses track of who acts: reads -rent as singular, or misses je and nous in a first-person narrative.', detectOn: ['a8-construire', 'a8-check'], drill: 'd-personne', retest: 'd-personne' },
@@ -2849,7 +2851,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-terminaisons', 'Les finales', ['-a et -èrent', '-it et -irent', '-ut et -urent', '-int et -inrent', 'la clé du participe'], [
     teach('sheet-terminaisons-teach', 'Quatre familles, une clé',
-      "Au singulier (il, elle), le passé simple finit par -a, -it, -ut ou -int ; au pluriel (ils, elles), par -èrent, -irent, -urent ou -inrent. Tous les verbes en -er font -a. Pour les autres, pense au participe : lu et lut, pris et prit, fini et finit. Les verbes en -re font -it mais ont un participe en -u (répondit, répondu). EN: four ending families; the participle usually gives the verb away."),
+      "Au singulier (il, elle), le passé simple finit par -a, -it, -ut ou -int ; au pluriel (ils, elles), par -èrent, -irent, -urent ou -inrent. Tous les verbes en -er font -a. Pour les autres, pense au participe : lu et lut, pris et prit, fini et finit. Beaucoup de verbes en -re (attendre, répondre) font -it mais ont un participe en -u (répondit, répondu) ; d'autres (lire, croire, vivre) font -ut. EN: four ending families; the participle usually gives the verb away."),
     table('sheet-terminaisons-table', 'Les quatre familles', ['Famille', 'Il, elle', 'Ils, elles', 'Verbes'], [
       ['-a', 'il parla', 'ils parlèrent', 'tous les verbes en -er, aller compris'],
       ['-it', 'il partit', 'ils partirent', 'finir, partir, choisir, sortir, ouvrir'],
@@ -2866,7 +2868,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-irreguliers', 'Les irréguliers', ['les douze formes', 'les sosies', 'eut fini'], [
     teach('sheet-irreguliers-teach', 'Douze formes à reconnaître',
-      "Douze formes portent une grande partie des récits. Certaines ressemblent au participe (eut et eu, prit et pris, mit et mis, dit et dit, put et pu, dut et dû) ; d'autres non (fut, fit, vint, naquit, mourut). Attention aux sosies : fut et fit, il vit (voir ou vivre), vint et vingt. EN: recognise these twelve on sight."),
+      "Douze formes portent une grande partie des récits. Certaines ressemblent au participe (eut et eu, prit et pris, mit et mis, dit et dit, put et pu, dut et dû) ; d'autres non (fut, fit, vit, vint, naquit, mourut). Attention aux sosies : fut et fit, il vit (voir ou vivre), vint et vingt. EN: recognise these twelve on sight."),
     table('sheet-irreguliers-table', 'Les douze', ['Tu lis', 'Le verbe', 'Aujourd’hui'], [
       ['fut, furent', 'être', 'a été, ont été'],
       ['eut, eurent', 'avoir', 'a eu, ont eu'],
@@ -2921,7 +2923,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     table('sheet-aujourdhui-controle', 'La liste de contrôle', ['À vérifier', 'Comment'], [
       ['Aucun passé simple ne reste', 'Relis chaque verbe au passé'],
       ['Le participe est le bon', 'Remonte à l’infinitif : prit, prendre, pris'],
-      ['L’auxiliaire est le bon', 'Être pour les verbes de mouvement et les pronominaux'],
+      ['L’auxiliaire est le bon', 'Être pour naître, mourir, venir, partir, arriver, tomber, entrer, sortir, monter, descendre… et les pronominaux'],
       ['Le décor n’a pas bougé', 'Les imparfaits sont toujours là'],
       ['L’ordre des faits est le même', 'Le plus-que-parfait reste en arrière'],
     ]),
@@ -3010,7 +3012,7 @@ export const LESSON: Lesson = {
   grammarAssumed: [PC_IMP_UNIT, PAIRES_UNIT, INVERSION_UNIT, LECTURE_B1_UNIT, PQP_UNIT],
   grammarIntroduced: [
     'Recognition of the passé simple and its register: written narrative (tales, novels, history books, biographies, press retrospectives), never conversation',
-    'The four ending families for recognition: -a / -èrent (all -er verbs), -it / -irent (-ir and most -re verbs), -ut / -urent (pouvoir, devoir, lire, croire, recevoir, vivre), -int / -inrent (venir, tenir and compounds), with the participle as the recognition key',
+    'The four ending families for recognition: -a / -èrent (all -er verbs), -it / -irent (most -ir verbs and many -re verbs), -ut / -urent (pouvoir, devoir, lire, croire, recevoir, vivre), -int / -inrent (venir, tenir and compounds), with the participle as the recognition key',
     'The frequent irregular forms fut, eut, fit, vint, prit, dit, vit, put, dut, mit, naquit, mourut, and the look-alikes (fut and fit, il vit as voir or vivre, vint and vingt, il finit and il dit as present or past)',
     'Person in the passé simple: third person dominance, -rent as third person plural, je and nous forms in first-person narrative, tu and vous forms as rare',
     'The passé simple as narrative foreground beside the imparfait background, including closed long events (resta longtemps) and the interruption frame',

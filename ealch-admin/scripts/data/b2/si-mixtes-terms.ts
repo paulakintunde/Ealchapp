@@ -71,7 +71,7 @@ export const SI_MIXTES_TERMS: Record<string, LessonTerm> = {
   marqueur: {
     term: 'le marqueur',
     title: 'Le mot qui règle l’horloge',
-    body: "Aujourd'hui, maintenant, encore, cette année placent le résultat dans le présent. Hier, ce matin, l'an dernier, à l'époque le placent dans le passé. Le marqueur ne décide pas à ta place : il confirme le moment que tu as choisi. EN: A time marker confirms the moment of its half; it does not choose it for you.",
+    body: "Aujourd'hui, maintenant, encore, cette année placent le résultat dans le présent quand il se voit encore. Hier, hier soir, l'an dernier, à l'époque le placent dans le passé, et ce matin aussi une fois la matinée finie. Le marqueur ne décide pas à ta place : il confirme le moment que tu as choisi. EN: A time marker confirms the moment of its half; it does not choose it for you.",
     examples: [
       { itemId: E(1679), note: 'à l’époque, puis maintenant' },
       { itemId: E(1681), note: 'hier, puis aujourd’hui' },

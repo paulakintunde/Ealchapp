@@ -73,11 +73,11 @@ export const FUTUR_ANTERIEUR_TERMS: Record<string, LessonTerm> = {
   calque: {
     term: 'le calque',
     title: 'When you’ve finished',
-    body: "L'anglais met un present perfect après when, as soon as ou once : when you've finished. Le français, lui, regarde le moment : c'est à venir, donc quand tu auras fini. Le passé composé ne va après quand que pour une habitude. EN: English uses the present perfect after when; French uses the futur antérieur.",
+    body: "L'anglais met un present perfect après when, as soon as ou once : when you've finished. Le français, lui, regarde le moment : c'est à venir, donc quand tu auras fini. Le passé composé ne va après quand que pour une habitude ou pour le passé. EN: English uses the present perfect after when; French uses the futur antérieur.",
     examples: [
       { itemId: E(1899), note: 'à venir : futur antérieur' },
       { itemId: E(1898), note: 'une habitude : passé composé' },
-      { itemId: E(1906), note: 'as soon as I’ve had' },
+      { itemId: E(1906), note: 'as soon as I’ve received' },
     ],
   },
 

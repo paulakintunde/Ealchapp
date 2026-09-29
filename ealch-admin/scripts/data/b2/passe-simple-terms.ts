@@ -32,7 +32,7 @@ export const PS_TERMS: Record<string, LessonTerm> = {
   finale: {
     term: 'les finales',
     title: 'Quatre familles de finales',
-    body: "Tous les verbes en -er font -a et -èrent. Les verbes en -ir et presque tous les verbes en -re font -it et -irent. Beaucoup de verbes en -oir font -ut et -urent. Venir et tenir font -int et -inrent. EN: Four ending families: -a, -it, -ut, -int, each with its plural.",
+    body: "Tous les verbes en -er font -a et -èrent. La plupart des verbes en -ir et beaucoup de verbes en -re (attendre, répondre, prendre, mettre, dire) font -it et -irent. Beaucoup de verbes en -oir font -ut et -urent, et aussi lire, croire, vivre, courir, mourir. Venir et tenir font -int et -inrent. EN: Four ending families: -a, -it, -ut, -int, each with its plural.",
     examples: [
       { itemId: E(1030), note: '-a : parler, fermer' },
       { itemId: E(1050), note: '-it : partir' },

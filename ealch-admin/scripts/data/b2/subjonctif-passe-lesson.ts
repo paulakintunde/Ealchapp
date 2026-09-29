@@ -38,8 +38,8 @@
 //                                         (lesson 16 in B1)
 //   11  Réagir à une nouvelle        11  model, plan, role play, TASK, quiz
 //
-//   TOTAL 85 missions, 11 acts. Corpus: 171 authored rows (.1200-.1390) in
-//   eleven blocks plus 28 reused seed rows, released act by act through
+//   TOTAL 85 missions, 11 acts. Corpus: 172 authored rows (.1200-.1390) in
+//   eleven blocks plus 27 reused seed rows, released act by act through
 //   `deckTranche`. Quiz: 12 rounds of 8 (one per act 1 to 10, a B1 and B2
 //   recycling round, an exam-format round). Chapter artwork:
 //   `subjonctif-passe-image-prompts.md`, eleven prompts.
@@ -70,8 +70,8 @@
 //           and le seul / premier / dernier, bien que and quoique; the past
 //           infinitive as the one-subject alternative.
 //   QUOTES  the reframes of lessons 14, 15, 16, 32 and 35 in B1 and lesson 1
-//           in B2, re-exported from their corpus files; rows of lessons 13,
-//           14, 15, 16, 32, 35 and 39 in B1 and lessons 22, 23 and 26 in B2
+//           in B2, re-exported from their corpus files; rows of lessons 14,
+//           15, 16, 32, 35 and 39 in B1 and lessons 22, 23 and 26 in B2
 //           reused BY ID.
 //   LEAVES  the full subjunctive/indicative map (search, purpose, the
 //           relative after a negative antecedent) to lesson 6 in B2; the
@@ -418,7 +418,7 @@ const A2_RAPPEL: Sec<'cardDeck'> = {
     {
       head: 'Avoir ou être', label: 'comme au passé composé',
       fr: fr(E(1230)), sub: rsOf(E(1230)),
-      body: "Venir, partir, arriver, rester et tous les pronominaux gardent être. Les autres prennent avoir. Tu n'as rien de nouveau à choisir. EN: same auxiliary as the passé composé.",
+      body: "Les verbes qui prennent être au passé composé (venir, partir, arriver, rester, aller, tomber, naître...) et tous les pronominaux gardent être. Les autres prennent avoir. Tu n'as rien de nouveau à choisir. EN: same auxiliary as the passé composé.",
     },
     {
       head: 'Le participe ne bouge pas', label: 'le deuxième mot',
@@ -564,7 +564,7 @@ const A2_FLASH: Sec<'flashcards'> = {
   title: 'Huit formes à avoir en bouche',
   frSub: 'De l’anglais au français',
   cards: [
-    { front: 'that I (have) finished', back: "que j'aie fini", say: fr(E(1226)) },
+    { front: 'that I (have) finished', back: "que j'aie fini", say: fr(E(1212)) },
     { front: 'that we (have) left', back: 'que nous soyons partis', say: fr(E(1220)) },
     { front: 'that she (has) left', back: "qu'elle soit partie", say: fr(E(1219)) },
     { front: 'that they (have) finished', back: "qu'ils aient fini", say: fr(E(1217)) },
@@ -877,7 +877,7 @@ const A4_TRIER: Sec<'groupDrill'> = {
       it(E(1260), 'le départ est demain'),
       it(E(1262), 'il était là pendant la fête'),
       it(E(1264), 'il ne comprend pas, maintenant'),
-      it(E(1266), 'la pluie était attendue'),
+      it(E(1266), 'la pluie était à venir'),
     ], chk('« Hier soir, j’avais peur qu’il pleuve. » Pourquoi le présent, alors que c’est hier ?',
       ['la pluie était à venir au moment de la peur', 'on ne met jamais le passé après avoir peur'], 0,
       'L’horloge se règle sur j’avais peur, pas sur hier. EN: set on the main verb.')),
@@ -912,20 +912,20 @@ const A4_PIEGE: Sec<'trapDrill'> = {
   cards: [
     { promptLabel: 'présent pour du fini', promptSound: 'Je suis contente que Léo vienne à la fête hier soir.', fr: fr(E(1259)), ipa: ipaOf(E(1259)), tip: 'Hier soir : la venue est finie. EN: already over.' },
     { promptLabel: 'présent pour du fini', promptSound: "Je regrette qu'elle parte hier.", fr: fr(E(1261)), ipa: ipaOf(E(1261)), tip: 'Hier : soit partie. EN: soit partie.' },
-    { promptLabel: 'présent pour du fini', promptSound: "Je doute qu'il comprenne la question d'hier.", fr: fr(E(1265)), ipa: ipaOf(E(1265)), tip: 'Un doute sur une compréhension passée. EN: a past understanding.' },
-    { promptLabel: 'passé pour du simultané', promptSound: "J'étais content qu'il ait été là.", fr: fr(E(1262)), ipa: ipaOf(E(1262)), tip: 'Il était là en même temps que ta joie : présent. EN: simultaneous.' },
+    { promptLabel: 'présent pour du fini', promptSound: "Je doute qu'il comprenne la question hier.", fr: fr(E(1265)), ipa: ipaOf(E(1265)), tip: 'Un doute sur une compréhension passée. EN: a past understanding.' },
+    { promptLabel: 'passé pour du simultané', promptSound: "Pendant la soirée, j'étais content qu'il ait été là.", fr: fr(E(1262)), ipa: ipaOf(E(1262)), tip: 'Il était là en même temps que ta joie : présent. EN: simultaneous.' },
     { promptLabel: 'présent pour du fini', promptSound: 'Je suis désolé que tu doives attendre sous la pluie.', fr: fr(E(1269)), ipa: ipaOf(E(1269)), tip: 'L’attente est finie quand tu t’excuses. EN: the wait is over.' },
     { promptLabel: 'présent pour du fini', promptSound: 'Nous sommes heureux que vous choisissiez notre hôtel.', fr: fr(E(1271)), ipa: ipaOf(E(1271)), tip: 'Le choix est fait : tu remercies après. EN: the choice is made.' },
   ],
   drill: [
     { promptSay: 'Je suis contente que Léo … à la fête hier soir.', opts: ['vienne', 'soit venu'], correct: 1 },
     { promptSay: 'Je regrette qu’elle … demain.', opts: ['parte', 'soit partie'], correct: 0 },
-    { promptSay: 'J’étais content qu’il … là toute la soirée.', opts: ['ait été', 'soit'], correct: 1 },
-    { promptSay: 'Je doute qu’il … la question d’hier.', opts: ['ait compris', 'comprenne'], correct: 0 },
+    { promptSay: 'Pendant la soirée, j’étais content qu’il … là.', opts: ['ait été', 'soit'], correct: 1 },
+    { promptSay: 'Je doute qu’il … la question hier.', opts: ['ait compris', 'comprenne'], correct: 0 },
     { promptSay: 'Elle craint que son fils … ses papiers hier.', opts: ['perde', 'ait perdu'], correct: 1 },
     { promptSay: 'Hier soir, j’avais peur qu’il …', opts: ['pleuve', 'ait plu'], correct: 0 },
-    { promptSay: 'Je suis ravi que tu … là ce soir.', opts: ['sois', 'aies été'], correct: 0 },
-    { promptSay: 'Nous sommes heureux que vous … notre hôtel.', opts: ['choisissiez', 'ayez choisi'], correct: 1 },
+    { promptSay: 'Entre, je suis ravi que tu … là ce soir.', opts: ['sois', 'aies été'], correct: 0 },
+    { promptSay: 'À la fin du séjour : nous sommes heureux que vous … notre hôtel.', opts: ['choisissiez', 'ayez choisi'], correct: 1 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Fini au moment du verbe principal' },
@@ -946,7 +946,7 @@ const A4_HACKS: Sec<'hacks'> = {
   hacks: [
     { hack: 'Remplace par le passé composé : si c’est « tu es venu », le subjonctif est « que tu sois venu ».', why: "La même action, vue comme finie, donne les mêmes deux mots. EN: if the passé composé fits, so does the past subjunctive." },
     { hack: 'Ignore le calendrier : pose-toi la question au moment du verbe principal.', why: "Hier, j'avais peur qu'il pleuve : au moment de la peur, la pluie était à venir. EN: judge from the main verb." },
-    { hack: 'Avec un mot comme hier, déjà, la semaine dernière dans la subordonnée, le passé s’impose.', why: "Ces mots disent que l'action est terminée ; le présent les contredit. EN: past time words inside the clause call for the past." },
+    { hack: 'Avec un mot comme hier ou la semaine dernière dans la subordonnée, le passé s’impose.', why: "Ces mots disent que l'action est terminée ; le présent les contredit. EN: past time words inside the clause call for the past." },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -976,7 +976,7 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
   ctl('L’horloge', 'L’horloge du subjonctif se règle sur…',
     ['le verbe principal', 'le jour où tu parles', 'la date du calendrier'], 0,
     'Le moment du verbe principal. EN: the main verb.'),
-  ctl('Au passé', '« J’étais content qu’il … là. » Il était là pendant la soirée.',
+  ctl('Au passé', '« Pendant la soirée, j’étais content qu’il … là. »',
     ['soit', 'ait été'], 0,
     'En même temps : le présent, même au passé. EN: simultaneous.'),
   ctl('Déjà fait', '« Je regrette qu’elle … hier. »',
@@ -1075,11 +1075,11 @@ const A5_TABLE: Sec<'tapTable'> = {
   title: 'Six sentiments après coup',
   cols: ['Sentiment', 'Exemple', 'Le fait'],
   rows: [
-    { cells: ['la joie', 'je suis ravie que', 'vous êtes venus'], say: fr(E(1202)),
+    { cells: ['la joie', 'je suis ravie que', 'vous avez pu venir'], say: fr(E(1202)),
       detail: { title: 'la joie', body: "Content, heureux, ravi, soulagé : la joie après coup. EN: joy after the event.", say: fr(E(1293)) } },
     { cells: ['le regret', 'je regrette que', 'Samir est parti'], say: fr(E(1203)),
       detail: { title: 'le regret', body: "Je regrette que, c'est dommage que : la déception douce. EN: regret.", say: fr(E(1290)) } },
-    { cells: ['la surprise', 'ça m’étonne que', 'il n’a pas répondu'], say: fr(E(1283)),
+    { cells: ['la surprise', 'je m’étonne que', 'il n’a pas répondu'], say: fr(E(1283)),
       detail: { title: 'la surprise', body: "Je m'étonne, je suis surpris, c'est incroyable que. EN: surprise.", say: fr(E(1281)) } },
     { cells: ['la peine', 'je suis blessée que', 'elle n’a rien dit'], say: fr(E(1276)),
       detail: { title: 'la peine', body: "Blessé, déçu, triste, ça me fait de la peine que. EN: hurt and disappointment.", say: fr(E(1291)) } },
@@ -1187,7 +1187,7 @@ const A5_TEXTE = dansUnTexte('a5-texte', 'Compléter : le message à Nadia', TEX
   { q: 'Complète : que tu ne m’en (parler) pas plus tôt, que nous (ne pas pouvoir) nous dire au revoir.', a: "que tu ne m'en aies pas parlé plus tôt ; que nous n'ayons pas pu nous dire au revoir. Ne et pas autour de l'auxiliaire." },
   { q: 'Complète : je sais que tu (hésiter) longtemps.', a: "je sais que tu as hésité longtemps. Savoir affirme : indicatif, passé composé." },
   { q: 'Complète : je suis fière que tu (oser) partir.', a: "que tu aies osé partir." },
-  { q: 'Complète les deux dernières : que l’équipe (perdre), que tu (trouver).', a: "que l'équipe ait perdu sa meilleure analyste ; que tu aies trouvé un poste qui te ressemble." },
+  { q: 'Complète les deux dernières : que l’équipe (perdre), que tu (trouver).', a: "que l'équipe ait perdu sa meilleure analyste ; que tu aies trouvé un poste qui te ressemble. Que l'équipe perde est juste aussi, si l'on voit la perte encore en cours." },
 ], 'rec-b2-05-texte-a5', ['declencheur']);
 
 const A5_CHECK = actCheck('a5-check', 'Le point : acte 5', [
@@ -1274,7 +1274,7 @@ const A6_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Il semble, il me semble', label: 'une nuance fine',
       fr: `${fr(E(1304))} · ${fr(E(1305))}`, sub: `${rsOf(E(1304))} · ${rsOf(E(1305))}`,
-      body: "Il semble que prend le subjonctif ; il me semble que affirme, avec l'indicatif. Un seul mot, me, change le mode. EN: il semble takes the subjunctive; il me semble the indicative.",
+      body: "Il semble que prend le plus souvent le subjonctif ; il me semble que affirme, avec l'indicatif. Un seul mot, me, change le mode. EN: il semble takes the subjunctive; il me semble the indicative.",
     },
     {
       head: 'Ce qui reste à l’indicatif', label: 'probable, peut-être',
@@ -1349,7 +1349,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Douter : subjonctif. Affirmer : indicatif.',
-    body: "Je doute, je ne crois pas, il est possible, il semble : subjonctif, au passé si c'est fini. Je crois, il me semble, il est probable, peut-être que : indicatif, même pour un fait incertain. EN: doubt takes the subjunctive; belief and probability keep the indicative.",
+    body: "Je doute, je ne crois pas, il est possible, le plus souvent il semble : subjonctif, au passé si c'est fini. Je crois, il me semble, il est probable, peut-être que : indicatif, même pour un fait incertain. EN: doubt takes the subjunctive; belief and probability keep the indicative.",
   },
   cards: [
     { promptLabel: 'indicatif après un doute', promptSound: "Je doute qu'il est déjà rentré de Berlin.", fr: fr(E(1298)), ipa: ipaOf(E(1298)), tip: 'Douter : subjonctif. EN: doubt, subjunctive.' },
@@ -1364,7 +1364,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Je crois qu’il … le message.', opts: ['a reçu', 'ait reçu'], correct: 0 },
     { promptSay: 'Je ne crois pas qu’il … le message.', opts: ['a reçu', 'ait reçu'], correct: 1 },
     { promptSay: 'Il me semble que la réunion … déplacée.', opts: ['a été', 'ait été'], correct: 0 },
-    { promptSay: 'Il semble que la réunion … déplacée.', opts: ['ait été', 'a été'], correct: 0 },
+    { promptSay: 'Il est peu probable que le colis … arrivé avant midi.', opts: ['soit', 'est'], correct: 0 },
     { promptSay: 'Il est probable que le colis … arrivé.', opts: ['soit', 'est'], correct: 1 },
     { promptSay: 'Il se peut qu’il … un empêchement.', opts: ['a eu', 'ait eu'], correct: 1 },
     { promptSay: 'Peut-être qu’il … la réunion.', opts: ['a oublié', 'ait oublié'], correct: 0 },
@@ -1494,7 +1494,7 @@ const A7_TABLE: Sec<'tapTable'> = {
     { cells: ['il faut que… avant lundi', 'le résultat lundi', 'passé'], say: fr(E(1314)),
       detail: { title: 'il faut que', body: "Avec une date limite, le passé exige que ce soit fini. EN: the result by the deadline.", say: fr(E(1325)) } },
     { cells: ['il est important que… avant', 'être prêt à la réunion', 'passé'], say: fr(E(1327)),
-      detail: { title: 'il est important que', body: "Le dossier doit être lu quand la réunion commence. EN: read before the meeting.", say: fr(E(1328)) } },
+      detail: { title: 'il est important que', body: "Le dossier doit être lu quand la réunion commence. EN: read before the meeting.", say: fr(E(1327)) } },
     { cells: ['avant que', 'une fin à venir', 'passé'], say: fr(E(1319)),
       detail: { title: 'avant que', body: "Avant qu'il ait fini : avant la fin du discours. EN: before the end of it.", say: fr(E(1326)) } },
     { cells: ['avant que', 'le début', 'présent'], say: fr(E(1323)),
@@ -1594,10 +1594,10 @@ const A7_FOCUS: Sec<'focus'> = {
 };
 
 const A7_TEXTE = dansUnTexte('a7-texte', 'Compléter : la visite de la propriétaire', TEXTE_A7, [
-  { q: 'Complète : il faut que nous (ranger), il est important que quelqu’un (réparer).', a: "Il faut que nous ayons rangé le salon avant samedi midi ; il est important que quelqu'un ait réparé la poignée d'ici là. Le résultat à la date." },
-  { q: 'Complète : je veux que chacun (vider) son étagère avant que la propriétaire (arriver).', a: "que chacun ait vidé son étagère (fini avant) ; avant que la propriétaire arrive (le moment de l'arrivée : présent)." },
-  { q: 'Complète : attends que j’(finir) mon appel.', a: "attends que j'aie fini mon appel. Tu attends la fin." },
-  { q: 'Complète la dernière : ne partez pas avant que nous (faire) le tour.', a: "avant que nous ayons fait le tour de l'appartement ensemble. La visite doit être terminée d'abord." },
+  { q: 'Complète : il faut que nous (ranger), il est important que quelqu’un (réparer).', a: "Il faut que nous ayons rangé le salon avant samedi midi ; il est important que quelqu'un ait réparé la poignée d'ici là. Le résultat à la date. Le présent (rangions, répare) est juste aussi ; le passé insiste sur le résultat." },
+  { q: 'Complète : je veux que chacun (vider) son étagère avant que la propriétaire (arriver).', a: "que chacun ait vidé son étagère (fini avant ; vide est juste aussi) ; avant que la propriétaire arrive (le moment de l'arrivée : présent)." },
+  { q: 'Complète : attends que j’(finir) mon appel.', a: "attends que j'aie fini mon appel. Tu attends la fin. Que je finisse est juste aussi ; le passé insiste sur le résultat." },
+  { q: 'Complète la dernière : ne partez pas avant que nous (faire) le tour.', a: "avant que nous ayons fait le tour de l'appartement ensemble. La visite doit être terminée d'abord. Fassions est juste aussi ; le passé insiste sur la fin." },
 ], 'rec-b2-05-texte-a7', ['echeance']);
 
 const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
@@ -1638,7 +1638,7 @@ const A8_HISTOIRE: Sec<'story'> = {
   type: 'story',
   id: 'a8-histoire',
   layer: 'core',
-  title: 'Le festival de Québec',
+  title: 'Un festival à Québec',
   frSub: 'Deux amis, un palmarès',
   setting: 'Québec, en février, à la sortie du festival de cinéma. Camille écrit sa critique pour le blogue du ciné-club ; Luc relit.',
   bubbles: [
@@ -1721,7 +1721,7 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1338), 'la première fois que'),
       it(E(1347), 'la dernière fois que'),
       it(E(1339), 'pas de superlatif'),
-      it('fr.b1.pronoms-essentiels.1397', 'un récit, sans jugement'),
+      it(E(1348), 'une relative, sans jugement'),
     ], chk('« C’est la première fois que je … à Québec. »',
       ['viens', 'sois venu'], 0,
       'La première fois que : toujours l’indicatif. EN: indicative.')),
@@ -1810,7 +1810,7 @@ const A8_TEXTE = dansUnTexte('a8-texte', 'Compléter : le séjour à Québec', T
   { q: 'Complète : c’est la première fois que je (venir), le voyage le plus froid que je (faire).', a: "C'est la première fois que je viens au Canada (un fait : indicatif) ; le voyage le plus froid que j'aie fait (un superlatif : subjonctif passé)." },
   { q: 'Complète : la fête la plus joyeuse que j’(voir).', a: "que j'aie vue. Que reprend la fête, placé avant : accord au féminin." },
   { q: 'Complète : la seule personne qui (réussir), le premier ami que je me (faire).', a: "la seule personne qui ait réussi ; le premier ami québécois que je me sois fait (se faire un ami : être)." },
-  { q: 'Complète la dernière : c’est le moment que je (préférer).', a: "c'est le moment que j'ai préféré. Pas de superlatif : indicatif." },
+  { q: 'Complète la dernière : c’est le moment que je (préférer).', a: "c'est le moment que j'ai préféré (ou que je préfère). Pas de superlatif : indicatif." },
 ], 'rec-b2-05-texte-a8', ['superlatif']);
 
 const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
@@ -1862,7 +1862,7 @@ const A9_LECTURE: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Qu’est-ce qui a failli empêcher le festival ? Cite deux faits.', a: "La pluie toute la journée, la route fermée pendant deux heures, et deux groupes qui avaient annulé." },
-    { q: 'Pourquoi « bien qu’il ait plu » et non « bien qu’il pleuve » ?', a: "Parce que la pluie de samedi est finie quand le journaliste écrit, lundi. Bien que prend le subjonctif, au passé pour un fait terminé." },
+    { q: 'Pourquoi « bien qu’il ait plu » et non « bien qu’il pleuve » ?', a: "Bien que prend le subjonctif. La pluie de samedi est présentée comme un fait accompli, vu comme un tout par rapport au bilan du festival : ait plu." },
     { q: 'Pourquoi la phrase avec même si est-elle à l’indicatif ?', a: "Parce que même si garde toujours l'indicatif : même si les bénévoles ont distribué des ponchos." },
     { q: 'Le bilan est-il positif ou négatif ? Justifie.', a: "Positif malgré tout : le festival ne perd pas d'argent, bien que les recettes aient baissé de dix pour cent." },
     { q: 'Quel est l’état d’esprit de la directrice ?', a: "Émue et fière : elle est fière que le public soit resté fidèle, même sous la pluie." },
@@ -1894,7 +1894,7 @@ const A9_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Un fait terminé', label: 'bien que + passé',
       fr: fr(E(1350)), sub: rsOf(E(1350)),
-      body: "La pluie de samedi est finie : bien qu'il ait plu. Quoique suit la même règle, dans un style plus soutenu. EN: a finished fact: past subjunctive.",
+      body: "La pluie de samedi est un fait accompli, vu comme un tout par rapport au bilan : bien qu'il ait plu. Quoique suit la même règle, dans un style plus soutenu. EN: a finished fact: past subjunctive.",
     },
     {
       head: 'Ait, mais pas passé', label: 'un faux ami de forme',
@@ -1982,7 +1982,7 @@ const A9_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'présent pour du fini', promptSound: 'Bien que le spectacle commence tard, personne n’est parti.', fr: fr(E(1356)), ipa: ipaOf(E(1356)), tip: 'Le début du spectacle est passé. EN: already over.' },
     { promptLabel: 'mauvais auxiliaire', promptSound: "Bien qu'elle ait partie tôt, elle a raté son avion.", fr: fr(E(1359)), ipa: ipaOf(E(1359)), tip: 'Partir prend être. EN: être.' },
     { promptLabel: 'indicatif après quoique', promptSound: 'Quoique la route a été fermée, les secours sont arrivés à temps.', fr: fr(E(1357)), ipa: ipaOf(E(1357)), tip: 'Quoique : ait été. EN: subjunctive.' },
-    { promptLabel: 'mauvais auxiliaire', promptSound: "Bien qu'on se soit vu souvent, je ne la connais pas vraiment.", fr: fr(E(1361)), ipa: ipaOf(E(1361)), tip: 'On = nous : vus, au pluriel. EN: plural agreement with on.' },
+    { promptLabel: 'accord', promptSound: "Bien qu'on se soit vu souvent, je ne la connais pas vraiment.", fr: fr(E(1361)), ipa: ipaOf(E(1361)), tip: 'On = nous : vus est l’usage soigné. EN: careful usage agrees on = nous in the plural.' },
   ],
   drill: [
     { promptSay: 'Bien que nous … tout vérifié, il reste une erreur.', opts: ['avons', 'ayons'], correct: 1 },
@@ -2191,7 +2191,7 @@ const A10_FLASH: Sec<'flashcards'> = {
 };
 
 const A10_TEXTE = dansUnTexte('a10-texte', 'Compléter : le message de Vincent', TEXTE_A10, [
-  { q: 'Complète : je suis heureux que vous (venir), je suis heureux (voir).', a: "que vous soyez venus (deux sujets) ; heureux d'avoir vu enfin tous mes amis (un seul sujet, infinitif passé)." },
+  { q: 'Complète : je suis heureux que vous (venir), je suis heureux (voir).', a: "que vous soyez venus (deux sujets) ; heureux d'avoir enfin vu tous mes amis réunis (un seul sujet, infinitif passé)." },
   { q: 'Complète : je regrette (ne pas prévenir) mon voisin.', a: "je regrette de ne pas avoir prévenu mon voisin. Ne pas devant avoir." },
   { q: 'Complète : ma fille est fière (tout organiser), je suis fier qu’elle (réussir).', a: "fière d'avoir tout organisé (un sujet) ; fier qu'elle ait réussi (deux sujets)." },
   { q: 'Complète la dernière : je m’en veux (s’endormir).', a: "je m'en veux de m'être endormi. Pronominal : être, et le pronom suit le sujet, me." },
@@ -2433,13 +2433,13 @@ const A11_MISSION: Sec<'task'> = {
     { pattern: 'A present subjunctive for a reaction to something already done: je suis content que tu quittes ton poste, when he has already left.', criterion: 'correction', feedback: "C'est déjà fait quand tu réagis : que tu aies quitté.", ref: 'a1-reperer' },
     { pattern: 'The indicative or the conditional as auxiliary: que tu as osé, que tu es venu, qu’il aurait fini.', criterion: 'correction', feedback: 'Après un sentiment, l’auxiliaire au subjonctif : aies, sois, ait.', ref: 'a2-erreurs' },
     { pattern: 'Agreement missed or invented: qu’elle se soit lancé, que tu les aies gardé, que tu aies vendue la maison.', criterion: 'correction', feedback: 'Être et les pronominaux accordent avec le sujet ; avoir seulement avec un complément placé avant.', ref: 'a3-piege' },
-    { pattern: 'The past subjunctive for something simultaneous or still ahead (je suis triste que tu sois parti en septembre prochain), or the present for something finished.', criterion: 'etendue', feedback: 'Règle l’horloge sur le verbe principal : déjà fait, passé ; en même temps ou plus tard, présent.', ref: 'a4-piege' },
+    { pattern: 'The past subjunctive for something simultaneous or still ahead (je suis triste que tu sois parti en septembre prochain), or the present for something finished.', criterion: 'correction', feedback: 'Règle l’horloge sur le verbe principal : déjà fait, passé ; en même temps ou plus tard, présent.', ref: 'a4-piege' },
     { pattern: 'The indicative after a feeling (je suis fier que tu as choisi), or the subjunctive after savoir (je sais que tu aies).', criterion: 'correction', feedback: 'Un sentiment appelle le subjonctif ; savoir et être sûr gardent l’indicatif.', ref: 'a5-erreurs' },
     { pattern: 'The indicative after a doubt (je doute que vous avez eu), or the subjunctive after croire, il me semble, il est probable.', criterion: 'correction', feedback: 'Douter : subjonctif. Croire, il est probable : indicatif.', ref: 'a6-piege' },
     { pattern: 'A deadline written with the indicative or the future: il faut que tu auras gardé, avant que j’arriverai.', criterion: 'correction', feedback: 'Il faut que et avant que appellent le subjonctif : que tu aies gardé, avant que j’arrive.', ref: 'a7-erreurs' },
-    { pattern: 'A superlative followed by the indicative in writing (la plus jolie terrasse que j’ai vue), or the subjunctive after la première fois que.', criterion: 'etendue', feedback: 'Après un superlatif, à l’écrit : que j’aie vue. La première fois que garde l’indicatif.', ref: 'a8-erreurs' },
+    { pattern: 'A superlative followed by the indicative in writing (la plus jolie terrasse que j’ai vue), or the subjunctive after la première fois que.', criterion: 'correction', feedback: 'Après un superlatif, à l’écrit : que j’aie vue. La première fois que garde l’indicatif.', ref: 'a8-erreurs' },
     { pattern: 'Bien que with the indicative (bien que tout s’est passé), or même si with the subjunctive.', criterion: 'correction', feedback: 'Bien que : subjonctif, au passé pour un fait fini. Même si : indicatif.', ref: 'a9-piege' },
-    { pattern: 'Que + subjunctive with one subject (je regrette que je ne sois pas venu), or ne pas misplaced in the past infinitive.', criterion: 'etendue', feedback: 'Un seul sujet : de ne pas être venu.', ref: 'a10-erreurs' },
+    { pattern: 'Que + subjunctive with one subject (je regrette que je ne sois pas venu), or ne pas misplaced in the past infinitive.', criterion: 'correction', feedback: 'Un seul sujet : de ne pas être venu.', ref: 'a10-erreurs' },
     { pattern: 'Only congratulations, with no surprise, regret or suggestion; or a body outside 180 to 250 words.', criterion: 'tache', feedback: 'Ajoute une surprise, un regret et une proposition ; compte tes mots sans la formule de fin.', ref: 'a11-plan' },
     { pattern: 'An administrative tone (je vous prie d’agréer) or text-message shorthand in a message to a friend.', criterion: 'registre', feedback: 'Écris à un ami : chaleureux, soigné, avec tu.', ref: 'a1-usages' },
   ],
@@ -2564,7 +2564,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI('Mets au subjonctif passé.', 'C’est dommage que nous (manquer) le début.', fr(E(1226)), 'Que nous ayons manqué, sans i. EN: ayons.', 'a2-construire'),
         tI('Mets au subjonctif passé.', 'Je regrette qu’elle (être) malade pendant son séjour.', fr(E(1227)), 'Être se conjugue avec avoir : ait été. EN: ait été.', 'a2-erreurs'),
         eS('Je suis ravie que vous êtes venus.', fr(E(1230)), 'Après un sentiment : soyez, pas êtes. EN: soyez.', 'a2-erreurs', ['Je suis ravi que vous soyez venus.', 'Je suis ravie que vous soyez venues.']),
-        eS('Il est possible qu’elle aurait raté son train.', fr(E(1223)), 'Aurait est un conditionnel : il faut ait. EN: ait, not aurait.', 'a2-erreurs'),
+        eS('Il est possible qu’elle aurait raté son train.', fr(E(1223)), 'Aurait est un conditionnel : il faut « ait ». EN: ait, not aurait.', 'a2-erreurs'),
         lC('Écoute. Quel auxiliaire entends-tu ?', fr(E(1229)), ['être', 'avoir'], 0, 'Soyez restés : rester prend être. EN: être.', 'a2-ecoute'),
       ],
     },
@@ -2584,7 +2584,7 @@ const A11_QUIZ: Sec<'quiz'> = {
     {
       id: 'r4-horloge', label: 'Présent ou passé', targets: ['horloge-calendrier'],
       questions: [
-        mc('« J’étais content qu’il … là. » Il était là pendant la fête.', ['soit', 'ait été'], 0, 'En même temps que ma joie : présent, même dans un récit au passé. EN: simultaneous.', 'a4-cartes'),
+        mc('« Pendant la fête, j’étais content qu’il … là. »', ['soit', 'ait été'], 0, 'En même temps que ma joie : présent, même dans un récit au passé. EN: simultaneous.', 'a4-cartes'),
         mc('« J’étais content qu’il … » Il était arrivé avant moi.', ['soit venu', 'vienne'], 0, 'Avant la joie : passé. EN: before the feeling.', 'a4-cartes'),
         mc('Qu’est-ce qui choisit entre que tu viennes et que tu sois venu ?', ['le moment de l’action par rapport au verbe principal', 'la date sur le calendrier', 'le temps du verbe principal'], 0, 'L’horloge se règle sur le verbe principal. EN: relative to the main verb.', 'a4-hacks'),
         tI('Complète : tu es là en ce moment.', 'Je suis ravi que tu (être) là ce soir.', fr(E(1270)), 'Maintenant : subjonctif présent. EN: present.', 'a4-trier'),
@@ -2688,7 +2688,7 @@ const A11_QUIZ: Sec<'quiz'> = {
     {
       id: 'r12-examen', label: 'Comme à l’examen', targets: ['reaction-examen'],
       questions: [
-        mc('Format TCF. Choisissez la bonne réponse : « Nous regrettons que la conférence … annulée hier. »', ['ait été', 'a été', 'soit', 'avait été'], 0, 'Regretter que + subjonctif ; hier : passé. EN: past subjunctive.', 'a5-cartes'),
+        mc('Format TCF. Choisis la bonne réponse : « Nous regrettons que la conférence … annulée hier. »', ['ait été', 'a été', 'soit', 'avait été'], 0, 'Regretter que + subjonctif ; hier : passé. EN: past subjunctive.', 'a5-cartes'),
         mc('Format TCF : « Bien qu’il … toute la nuit, il s’est présenté à l’examen en pleine forme. »', ['ait révisé', 'a révisé', 'révisait', 'aurait révisé'], 0, 'Bien que + subjonctif, la nuit est finie. EN: past subjunctive after bien que.', 'a9-cartes'),
         mc('Format DELF B2, compréhension écrite. « La direction se félicite que le projet ait été mené à bien malgré les retards. » Que dit la phrase ?', ['le projet est terminé', 'le projet va commencer', 'le projet a été abandonné'], 0, 'Ait été mené à bien : c’est fait. EN: completed.', 'a5-exemples'),
         mc('Format DELF B2. « Il est indispensable que les formulaires aient été signés avant le premier mai. » Le premier mai, les formulaires doivent…', ['être déjà signés', 'être signés ce jour-là', 'être envoyés ce jour-là'], 0, 'L’échéance : déjà signés. EN: already signed by then.', 'a7-cartes'),
@@ -2769,7 +2769,7 @@ const ACT11: ActDef = {
       imageRef: 'lessons/subjonctif-passe/act11.jpg',
     },
     sections: [],
-    milestone: "Tu as écrit ton message de réaction et passé l'examen : quatre-vingt-seize questions, douze rounds. EN: You wrote your reaction and sat the exam: ninety-six questions, twelve rounds.",
+    milestone: "Tu as écrit ton message de réaction et passé l'examen : quatre-vingt-seize questions, douze manches. EN: You wrote your reaction and sat the exam: ninety-six questions, twelve rounds.",
     estScreens: 150,
     restPoints: ['a11-plan', 'a11-scenario', 'a11-mission', 'a11-cheat', 'a11-quiz/r4-horloge', 'a11-quiz/r8-superlatif', 'a11-review'],
   },
@@ -2948,7 +2948,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       "Un bon message de réaction commence par la nouvelle et ton sentiment, ose un léger reproche ou une surprise, ajoute un jugement, dit ton propre regret, puis propose une suite. Chaque réaction à un fait déjà accompli prend le subjonctif passé. EN: react, judge, regret, then suggest; every reaction to something done takes the past subjunctive."),
     table('sheet-ecrire-plan', 'Le plan', ['Partie', 'Structure', 'Exemple'], [
       ['la joie', 'sentiment + subjonctif passé', 'Je suis tellement contente que tu aies décroché ce poste à Lyon.'],
-      ['la surprise', 'négation autour de l’auxiliaire', "Je suis un peu triste que tu ne m'en aies pas parlé avant."],
+      ['le léger reproche', 'négation autour de l’auxiliaire', "Je suis un peu triste que tu ne m'en aies pas parlé avant."],
       ['le jugement', 'superlatif + subjonctif', "C'est la meilleure nouvelle qu'on m'ait annoncée cette année."],
       ['la concession', 'bien que + subjonctif', 'Bien que tu sois parti loin, on reste proches.'],
       ['le regret', 'un seul sujet : infinitif passé', 'Je regrette de ne pas avoir été là pour ta fête de départ.'],

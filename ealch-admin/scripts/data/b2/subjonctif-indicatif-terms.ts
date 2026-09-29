@@ -39,7 +39,7 @@ export const SUBJ_IND_TERMS: Record<string, LessonTerm> = {
   question: {
     term: 'la question',
     title: 'Crois-tu qu’il vienne, ou qu’il viendra',
-    body: "Avec l'inversion, le subjonctif laisse entendre ton doute ; l'indicatif demande simplement un avis. La question avec est-ce que ou l'intonation garde l'indicatif. La question négative (ne crois-tu pas que) affirme : indicatif. EN: Inversion plus subjunctive signals doubt; a negative question asserts.",
+    body: "Avec l'inversion, le subjonctif laisse entendre ton doute ; l'indicatif demande simplement un avis. La question avec est-ce que ou l'intonation garde le plus souvent l'indicatif. La question négative (ne crois-tu pas que) affirme : indicatif. EN: Inversion plus subjunctive signals doubt; a negative question asserts.",
     examples: [
       { itemId: E(1827), note: 'qu’il vienne : tu en doutes' },
       { itemId: E(1828), note: 'qu’il viendra : une vraie question' },
@@ -83,7 +83,7 @@ export const SUBJ_IND_TERMS: Record<string, LessonTerm> = {
   but: {
     term: 'but ou effet',
     title: 'Le but visé, ou le résultat obtenu',
-    body: "Un but n'est pas encore atteint : pour que, afin que, sans que, trop… pour que, subjonctif. Un résultat est là : si bien que, tellement… que, indicatif. De sorte que et de façon que disent les deux : le mode tranche. EN: A goal takes the subjunctive, a result the indicative.",
+    body: "Un but n'est pas encore atteint : pour que, afin que, trop… pour que, subjonctif. Sans que prend aussi le subjonctif : le fait ne se produit pas. Un résultat est là : si bien que, tellement… que, indicatif. De sorte que et de façon que disent les deux : le mode tranche. EN: A goal takes the subjunctive, a result the indicative.",
     examples: [
       { itemId: E(1901), note: 'pour que : le but' },
       { itemId: E(1902), note: 'si bien que : le résultat' },
@@ -105,7 +105,7 @@ export const SUBJ_IND_TERMS: Record<string, LessonTerm> = {
   apres: {
     term: 'après que',
     title: 'Le piège d’après que',
-    body: "Après que regarde un fait qui a eu lieu : indicatif, même si l'oreille entend partout après qu'il soit parti. Avant que, jusqu'à ce que et en attendant que regardent un fait à venir : subjonctif. EN: Après que takes the indicative; avant que takes the subjunctive.",
+    body: "Après que regarde un fait accompli, ou qui le sera : indicatif, même si l'oreille entend partout après qu'il soit parti. Avant que, jusqu'à ce que et en attendant que regardent un fait à venir : subjonctif. EN: Après que takes the indicative; avant que takes the subjunctive.",
     examples: [
       { itemId: E(1937), note: 'après que : a voté' },
       { itemId: E(1938), note: 'avant que : prenne' },
@@ -116,7 +116,7 @@ export const SUBJ_IND_TERMS: Record<string, LessonTerm> = {
   registre: {
     term: 'le registre',
     title: 'Quand les deux modes sont possibles',
-    body: "À l'oral, je ne crois pas qu'il est venu garde le fait plus présent, comme si tu en étais presque sûr. À l'écrit soigné et à l'examen, le subjonctif reste la norme. Et le ne explétif (avant qu'il ne parte) est un signe de registre soutenu. EN: Where both moods occur, the indicative is more spoken and keeps the fact in view.",
+    body: "À l'oral, je ne crois pas qu'il est venu est une variante courante, plus familière. À l'écrit soigné et à l'examen, le subjonctif reste la norme. Et le ne explétif (avant qu'il ne parte) est un signe de registre soutenu. EN: Where both moods occur, the indicative after a denied opinion is mainly a spoken variant.",
     examples: [
       { itemId: E(1955), note: 'l’écrit : soit venu' },
       { itemId: E(1956), note: 'l’oral : est venu' },
