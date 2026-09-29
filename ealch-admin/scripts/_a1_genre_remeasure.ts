@@ -14,6 +14,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { measureEnding } from '../../ealch-v2/src/content/gender.logic.ts';
+import { seedPlusPacks } from '../../ealch-v2/src/content/seed-plus-packs.ts';
 import * as endings from './data/genre-endings.ts';
 
 const WRITE = process.argv.includes('--write');
@@ -21,9 +22,9 @@ const WHY = process.argv.find((a) => a.startsWith('--why='))?.slice(6)
   ?? 'four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges';
 
 type Row = { ending: string; predicts: string; accuracy: number; items: number };
-const seed = JSON.parse(
-  readFileSync(new URL('../../ealch-v2/src/content/seed.json', import.meta.url), 'utf8'),
-) as { items: Array<{ id: string; fr: string; theme?: string; kind?: string }> };
+// Seed + packs layer, as the app's a1.03 tests read it: under --packs the
+// bundled seed is only the free core, and the figures describe the whole corpus.
+const seed = seedPlusPacks() as { items: Array<{ id: string; fr: string; theme?: string; kind?: string }> };
 
 // THREE ARRAYS, not one. The ten rule endings a1.03 teaches, the ones it names
 // as worthless, and the sheet's long tail — each prints its own population, and

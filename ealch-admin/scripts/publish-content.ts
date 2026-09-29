@@ -1437,13 +1437,18 @@ async function main() {
         return cache.get(ending) ?? null;
       };
     };
+    // Under --packs the bundled seed is only the free core, but a1.03's figures
+    // are measured on core + test layer, as the app's a1.03 tests read them
+    // (seedPlusPacks). Measuring the core alone would report every figure as
+    // moved when nothing a learner can reach has changed.
+    const genreSeed = PACKS && testLayer ? composeTestCorpus(seed, testLayer) : seed;
     const allClaims = [...ENDING_RULES, ...WORTHLESS_ENDINGS, ...MORE_ENDINGS] as EndingClaim[];
     const genreLines = formatGenreDrift(
-      findFigureMoves(allClaims, genreLookup(seed.items as unknown as GenderRow[])),
+      findFigureMoves(allClaims, genreLookup(genreSeed.items as unknown as GenderRow[])),
       findArtifacts(
         ENDING_RULES as EndingClaim[],
         WORTHLESS_ENDINGS as EndingClaim[],
-        genreLookup(seed.items as unknown as GenderRow[]),
+        genreLookup(genreSeed.items as unknown as GenderRow[]),
         genreLookup(items as unknown as GenderRow[]),
         RULE_FLOOR,
       ),
