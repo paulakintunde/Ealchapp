@@ -31,9 +31,9 @@ Jest uses `ealch-v2/jest.config.js` and React Native Testing Library. The Node s
 | 08-02-01/02 | A11Y-01/02 | `a11y-lesson-navigation.test.tsx`, typecheck, consolidated audit | Pending TalkBack panels/overlays |
 | 08-03-01/02 | A11Y-01/02 | `a11y-lesson-controls.test.tsx`, typecheck, consolidated audit | Pending TalkBack |
 | 08-04-01/02 | A11Y-01/02 | `a11y-settings-paywall.test.tsx`, typecheck, consolidated audit | Pending TalkBack/paywall |
-| 08-05-01 | A11Y-03 | `appearance.logic.test.ts`, full Node suite, typecheck | Pending OS theme switch |
-| 08-05-02 | A11Y-03 | `settings.test.tsx`, full component suite, typecheck | Pending native bars/sheets/restart |
-| 08-06-01/02 | A11Y-01/02/04 | `a11y-flashcards.test.tsx`, typecheck, consolidated audit | Pending font 1.3+ and TalkBack |
+| 08-05-01 | A11Y-03 | `appearance.logic.test.ts`, full Node suite, typecheck | Automatic Light/Dark switching passed visually on Settings; clean-install default pending |
+| 08-05-02 | A11Y-03 | `settings.test.tsx`, full component suite, typecheck | Saved Dark/Light restart, native bars, paywall, and open level panel passed visually; TalkBack pending |
+| 08-06-01/02 | A11Y-01/02/04 | `a11y-flashcards.test.tsx`, typecheck, consolidated audit | Font 1.3 and 1.5 visual scrolling/flip checks passed on Pixel 6; TalkBack pending |
 | 08-07-01/02 | A11Y-01/02 | `a11y-practice-a.test.tsx`, typecheck, consolidated audit | Pending TalkBack |
 | 08-08-01/02 | A11Y-01/02 | `a11y-practice-b.test.tsx`, typecheck, consolidated audit | Pending TalkBack |
 | 08-09-01/02 | A11Y-01/02 | `a11y-exam-entry.test.tsx`, typecheck, consolidated audit | Pending TalkBack |
@@ -42,14 +42,14 @@ Jest uses `ealch-v2/jest.config.js` and React Native Testing Library. The Node s
 
 ## Manual verification and sign-off
 
-The device protocol and empty result fields are in `08-DEVICE-EVIDENCE.md`. Record device model, Android/installed build and TalkBack version. Sweep all touched screens with panel title-first focus, covered-background suppression, truthful lock/paywall action, and stateful controls. Verify Automatic against OS light/dark changes while open and after explicit-mode restarts, including bars, sheets and paywall. At font scale 1.3 and a higher scale, verify long flashcards scroll fully in both directions, the new face resets to top, and progress/actions stay visible.
+The device protocol and partial results are in `08-DEVICE-EVIDENCE.md`. The Pixel 6, Android/build and installed TalkBack version are recorded. Sweep all touched screens with panel title-first focus, covered-background suppression, truthful lock/paywall action, and stateful controls. The visual Automatic, explicit-mode, bar/paywall/level-panel, and 1.3/1.5 flashcard runs are recorded; the clean-install default and spoken TalkBack outcomes remain open.
 
 - [x] All 20 implementation tasks had a focused or full automated check.
 - [x] All current direct action sites and custom wrappers classified in the source inventory.
 - [x] Full automated gate passed; runtime measured.
-- [ ] Android device/build identity and TalkBack traversal recorded.
-- [ ] Automatic theme and native bar/sheet behavior recorded.
-- [ ] Both large-font flashcard runs recorded.
+- [ ] Android device/build identity recorded; TalkBack traversal pending.
+- [ ] Automatic theme and native bar/paywall/level-panel behavior recorded; clean-install default pending.
+- [x] Both large-font flashcard visual runs recorded; TalkBack reachability pending.
 - [ ] Any failures fixed, retested, and the human checkpoint approved.
 
 **Approval:** Automated checks passed. Hardware sign-off remains open; Phase 8 is not yet verified complete.
