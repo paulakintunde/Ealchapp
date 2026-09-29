@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { supabase } from './supabase';
 import { useStore } from '@/store/useStore';
 import { ensureProfile, syncAttempts, syncResumePull } from './sync';
+import { handleAuthTransition } from './analytics';
 
 /** Call once, from app/_layout.tsx. Not a hook that returns anything — it only
  *  wires the subscription and lets useStore.userId (and everything derived
@@ -21,9 +22,10 @@ export function useAuthSession(): void {
     const sb = supabase();
     if (!sb) return; // unconfigured — userId stays null, exactly as initialData() sets it
 
-    const { data: sub } = sb.auth.onAuthStateChange((_event, session) => {
+    const { data: sub } = sb.auth.onAuthStateChange((event, session) => {
       const uid = session?.user.id ?? null;
       useStore.getState().setSession(uid, session?.user.email ?? null);
+      void handleAuthTransition(event, session?.user ?? null);
       if (uid) {
         void ensureProfile();
         void syncAttempts();

@@ -15,6 +15,7 @@ import { detectCurrency } from '@/store/entitlement.logic';
 import { useEntitlement, useIsPremium } from '@/store/useEntitlement';
 import { useStore, type Currency } from '@/store/useStore';
 import { track } from '@/services/analytics';
+import { paywallSource } from '@/services/analytics.logic';
 import {
   getLiveOffers,
   purchasePremiere,
@@ -80,7 +81,7 @@ export default function Paywall() {
   };
 
   useEffect(() => {
-    track('paywall_viewed', { from: from ?? 'direct' });
+    track('paywall_viewed', { from: paywallSource(from) });
     // Region detection fills the currency only while the user never chose one,
     // via setField so it is not recorded as a choice (see useStore).
     if (!useStore.getState().currencyChosen) {
@@ -122,7 +123,7 @@ export default function Paywall() {
     } else if (res.cancelled) {
       track('purchase_cancelled', { plan: planPick });
     } else {
-      track('purchase_failed', { plan: planPick, message: res.message });
+      track('purchase_failed', { plan: planPick, failure_category: 'other' });
       setNotice(T.restoreFail);
     }
   };

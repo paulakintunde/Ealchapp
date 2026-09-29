@@ -27,6 +27,7 @@ export const ENV = {
   // PostHog (analytics) public key — safe to ship.
   posthogKey: process.env.EXPO_PUBLIC_POSTHOG_KEY ?? '',
   posthogHost: process.env.EXPO_PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com',
+  analyticsTestBuild: process.env.EXPO_PUBLIC_ANALYTICS_TEST_BUILD === 'true',
 
   // Pre-rendered asset CDN (Phase 7 audio, AUDIO-RENDER-SPEC.md's end-state
   // R2 bucket) — a public base URL, no bucket credentials. Unset means "not

@@ -360,6 +360,12 @@ export const useStore = create<AppState>()(
           // Local sign-out still proceeds — see the comment on the next line.
         }
         set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest', userId: null });
+        // The local sign-out path must rotate the analytics guest identity even
+        // when Supabase is unavailable and emits no SIGNED_OUT callback.
+        try {
+          const { handleAuthTransition } = await import('@/services/analytics');
+          await handleAuthTransition('SIGNED_OUT', null);
+        } catch { /* Analytics cannot prevent sign-out. */ }
         // The session, attempt and error logs live in their own store and are a
         // record of what THIS account did. Leaving them on the device would hand
         // the next person to sign in the previous user's streak, minutes and

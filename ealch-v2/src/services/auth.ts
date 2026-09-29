@@ -12,6 +12,7 @@ import type { AuthError } from '@supabase/supabase-js';
 import { supabase } from './supabase';
 import { ENV } from './env';
 import { RESET_REDIRECT } from '@/config/legal';
+import { handleAuthTransition, prepareEmailSignup, recordAcceptedEmailSignup, track } from './analytics';
 
 export type AuthResult = { ok: boolean; email?: string; error?: string };
 
@@ -51,7 +52,13 @@ export const auth = {
     const sb = supabase();
     if (!sb) return unavailable;
     return attempt(async () => {
-      const { data, error } = await sb.auth.signUp({ email, password });
+      const { nonce, guestJourneyId } = await prepareEmailSignup();
+      track('signup_started', { method: 'email' });
+      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { ealch_signup_nonce: nonce } } });
+      if (!error && data?.user?.id) {
+        await recordAcceptedEmailSignup(data.user.id, nonce, guestJourneyId);
+        if (data.session?.user) void handleAuthTransition('SIGNED_IN', data.session.user);
+      }
       return { error, email: data?.user?.email ?? email };
     });
   },

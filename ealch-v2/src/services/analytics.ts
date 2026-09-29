@@ -1,81 +1,174 @@
-// Product analytics — the paywall funnel Phase 10 specs, and the seam every
-// later event goes through. PostHog over its plain HTTP capture endpoint: no
-// SDK, no autocapture, no session replay; one POST per event. With no
-// EXPO_PUBLIC_POSTHOG_KEY set this is a complete no-op — never a queue that
-// pretends it will flush somewhere.
-//
-// Phase 2 named "no cohort telemetry (PostHog)" as a gap; this closes the
-// client half. Events are fire-and-forget and this module never throws — an
-// analytics outage must not cost a purchase.
+// Explicit, fire-and-forget product events through PostHog HTTP capture.
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Crypto from 'expo-crypto';
 import { Platform } from 'react-native';
 import { ENV } from './env';
 import { useStore } from '@/store/useStore';
+import {
+  captureHttp, claimOnce, distinctId, identityCaptureBody, milestoneKey, safeProperties, verifiedSignup,
+  type AnalyticsEvent, type CaptureBody, type CaptureDiagnostic, type EventProperties,
+  type NoPropsEvent, type PendingSignup, type PropsEvent, type VerifiedUser,
+} from './analytics.logic';
 
-/** The funnel vocabulary — every event the paywall/gating layer may emit.
- *  A union, not free strings, so a typo is a compile error rather than a
- *  dashboard mystery. Server-side events (coach_turn_cap_reached, webhook
- *  renewals) are emitted by the edge functions under their own names. */
-export type AnalyticsEvent =
-  | 'paywall_viewed' // props: from (trigger entry point)
-  | 'plan_selected' // props: plan ('mo' | 'yr')
-  | 'purchase_started' // props: plan, currency
-  | 'purchase_completed' // props: plan, currency
-  | 'purchase_cancelled' // props: plan
-  | 'purchase_failed' // props: plan, message
-  | 'restore_started'
-  | 'restore_completed' // props: found (boolean)
-  | 'gate_blocked' // props: feature, from
-  | 'placement_paywall_offered' // props: level
-  | 'entitlement_downgraded' // props: fromPlan, toPlan, hadExpiry (boolean)
-  | 'upgrade_nudge_shown' // props: trigger ('roleplay')
-  | 'upgrade_nudge_tapped' // props: trigger ('roleplay')
-  | 'reconciliation_shown'; // no props — cause is deliberately not claimed (D-17)
+export type { AnalyticsEvent, EventProperties } from './analytics.logic';
 
-type Props = Record<string, string | number | boolean>;
+const INSTALL_KEY = 'ealch-analytics-id'; // preserve IDs made by older installs
+const JOURNEY_KEY = 'ealch-analytics-journey-id';
+const CLAIMS_KEY = 'ealch-analytics-milestones';
+const SIGNUP_KEY = 'ealch-analytics-pending-signup';
+const LINKED_KEY = 'ealch-analytics-linked-signups';
+let installCache: string | null = null;
+let journeyCache: string | null = null;
+let installPending: Promise<string> | null = null;
+let journeyPending: Promise<string> | null = null;
+let taskTail: Promise<void> = Promise.resolve();
+let identityTail: Promise<void> = Promise.resolve();
+const captureDiagnostics: CaptureDiagnostic[] = [];
+function recordDiagnostic(diagnostic: CaptureDiagnostic): void {
+  if (!ENV.analyticsTestBuild || !ENV.posthogKey) return;
+  captureDiagnostics.push(diagnostic);
+  if (captureDiagnostics.length > 200) captureDiagnostics.shift();
+}
 
-/** Stable per-install id for users with no account. Kept separate from any
- *  auth identity; once a user signs in, their auth uid becomes the distinct
- *  id and PostHog's own aliasing (if ever wanted) is a server-side concern. */
-let anonIdCache: string | null = null;
-async function anonId(): Promise<string> {
-  if (anonIdCache) return anonIdCache;
+async function storedId(key: string, cached: string | null, save: (id: string) => void): Promise<string> {
+  if (cached) return cached;
   try {
-    const stored = await AsyncStorage.getItem('ealch-analytics-id');
-    if (stored) return (anonIdCache = stored);
-    const fresh = Crypto.randomUUID();
-    await AsyncStorage.setItem('ealch-analytics-id', fresh);
-    return (anonIdCache = fresh);
+    const id = (await AsyncStorage.getItem(key)) || Crypto.randomUUID();
+    save(id);
+    await AsyncStorage.setItem(key, id);
+    return id;
   } catch {
-    // Storage refused: a per-launch id still beats dropping the event.
-    return (anonIdCache = Crypto.randomUUID());
+    const id = Crypto.randomUUID();
+    save(id);
+    return id;
   }
 }
 
-async function send(event: AnalyticsEvent, props: Props): Promise<void> {
+export function installId(): Promise<string> {
+  if (installCache) return Promise.resolve(installCache);
+  return (installPending ??= storedId(INSTALL_KEY, installCache, (id) => { installCache = id; }));
+}
+export async function guestJourneyId(): Promise<string> {
+  if (journeyCache) return journeyCache;
+  return (journeyPending ??= (async () => {
+    try {
+      // A legacy install ID can contain several people's guest activity on a
+      // shared device. Start a separate journey when this key first appears.
+      const id = (await AsyncStorage.getItem(JOURNEY_KEY)) || Crypto.randomUUID();
+      journeyCache = id;
+      await AsyncStorage.setItem(JOURNEY_KEY, id);
+      return id;
+    } catch {
+      return (journeyCache = Crypto.randomUUID());
+    }
+  })());
+}
+
+/** Keep each guest period distinct, including on a shared device. */
+export async function rotateGuestJourney(): Promise<string> {
+  await guestJourneyId();
+  const id = Crypto.randomUUID();
+  journeyCache = id;
+  try { await AsyncStorage.setItem(JOURNEY_KEY, id); } catch { /* best effort */ }
+  return id;
+}
+
+async function eventIdFor(key: string | null): Promise<string> {
+  if (!key) return Crypto.randomUUID();
+  const hex = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, key);
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-5${hex.slice(13, 16)}-a${hex.slice(17, 20)}-${hex.slice(20, 32)}`;
+}
+
+async function claimMilestone(key: string): Promise<boolean> {
   try {
-    const distinctId = useStore.getState().userId ?? (await anonId());
-    await fetch(`${ENV.posthogHost}/capture/`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        api_key: ENV.posthogKey,
-        event,
-        distinct_id: distinctId,
-        properties: { ...props, $lib: 'ealch-app', platform: Platform.OS },
-        timestamp: new Date().toISOString(),
-      }),
-    });
+    const claims = JSON.parse((await AsyncStorage.getItem(CLAIMS_KEY)) ?? '[]') as string[];
+    if (!claimOnce(new Set(claims), key)) return false;
+    claims.push(key);
+    await AsyncStorage.setItem(CLAIMS_KEY, JSON.stringify(claims));
+    return true;
   } catch {
-    // Offline or PostHog down — the event is lost, and that is the honest
-    // trade at this stage: no local queue claiming durability it lacks.
+    return true; // storage outage must not block a learner action
   }
 }
 
-/** Emit a funnel event. Synchronous signature on purpose — call sites must
- *  never await analytics on a user-facing path. */
-export function track(event: AnalyticsEvent, props: Props = {}): void {
+async function send<E extends AnalyticsEvent>(event: E, input: EventProperties[E], userId: string | null): Promise<void> {
+  try {
+    const [install_id, journey_id] = await Promise.all([installId(), guestJourneyId()]);
+    const properties = safeProperties(event, input);
+    const identity = distinctId(userId, journey_id);
+    const key = milestoneKey(event, properties, install_id, identity);
+    if (key && !(await claimMilestone(key))) return;
+    const event_id = await eventIdFor(key);
+    const body: CaptureBody = {
+      api_key: ENV.posthogKey, event, distinct_id: identity, uuid: event_id,
+      properties: { ...properties, event_id, install_id, journey_id, $lib: 'ealch-app', platform: Platform.OS },
+      timestamp: new Date().toISOString(),
+    };
+    const diagnostic = await captureHttp(fetch, ENV.posthogHost, body);
+    recordDiagnostic(diagnostic);
+  } catch { /* Analytics cannot interrupt the app. */ }
+}
+
+/** Capture call sites never await analytics. The UID is snapshotted at call time. */
+export function track<E extends PropsEvent>(event: E, props: EventProperties[E]): void;
+export function track<E extends NoPropsEvent>(event: E): void;
+export function track(event: AnalyticsEvent, props: EventProperties[AnalyticsEvent] = {}): void {
   if (!ENV.posthogKey) return;
-  void send(event, props);
+  const userId = useStore.getState().userId;
+  taskTail = taskTail.then(() => send(event, props, userId)).catch(() => {});
+}
+
+/** Test builds can inspect acceptance without exposing event bodies or credentials. */
+export function getCaptureDiagnostics(): readonly CaptureDiagnostic[] {
+  return ENV.analyticsTestBuild ? [...captureDiagnostics] : [];
+}
+
+export async function prepareEmailSignup(): Promise<{ nonce: string; guestJourneyId: string }> {
+  return { nonce: Crypto.randomUUID(), guestJourneyId: await guestJourneyId() };
+}
+
+export async function recordAcceptedEmailSignup(signupUserId: string, signupNonce: string, journeyId: string): Promise<void> {
+  const pending: PendingSignup = { signupUserId, signupNonce, guestJourneyId: journeyId };
+  try { await AsyncStorage.setItem(SIGNUP_KEY, JSON.stringify(pending)); } catch { /* no cross-restart link */ }
+}
+
+async function pendingSignup(): Promise<PendingSignup | null> {
+  try {
+    const raw = await AsyncStorage.getItem(SIGNUP_KEY);
+    if (!raw) return null;
+    const value = JSON.parse(raw) as PendingSignup;
+    return value.signupUserId && value.signupNonce && value.guestJourneyId ? value : null;
+  } catch { return null; }
+}
+
+/** Run after Supabase has confirmed a session, never on a signup form response alone. */
+async function applyAuthTransition(event: string, user: VerifiedUser | null): Promise<void> {
+  if (!user) {
+    if (event === 'SIGNED_OUT') {
+      try { await AsyncStorage.removeItem(SIGNUP_KEY); } catch { /* best effort */ }
+      await rotateGuestJourney();
+    }
+    return;
+  }
+  const pending = await pendingSignup();
+  if (!pending) return;
+  try { await AsyncStorage.removeItem(SIGNUP_KEY); } catch { /* best effort */ }
+  if (!verifiedSignup(pending, user)) return; // existing-account sign-in or fake signup response
+  let linked: string[] = [];
+  try { linked = JSON.parse((await AsyncStorage.getItem(LINKED_KEY)) ?? '[]') as string[]; } catch { /* best effort */ }
+  if (linked.includes(user.id)) return;
+  linked.push(user.id);
+  try { await AsyncStorage.setItem(LINKED_KEY, JSON.stringify(linked)); } catch { /* best effort */ }
+  taskTail = taskTail.then(async () => {
+    const [install_id] = await Promise.all([installId()]);
+    const event_id = Crypto.randomUUID();
+    const body = identityCaptureBody(ENV.posthogKey, user.id, pending.guestJourneyId, install_id, event_id, new Date().toISOString());
+    const diagnostic = await captureHttp(fetch, ENV.posthogHost, body);
+    recordDiagnostic(diagnostic);
+  }).then(() => send('signup_completed', { method: 'email', account_id: user.id }, user.id)).catch(() => {});
+}
+
+export function handleAuthTransition(event: string, user: VerifiedUser | null): Promise<void> {
+  identityTail = identityTail.then(() => applyAuthTransition(event, user)).catch(() => {});
+  return identityTail;
 }
