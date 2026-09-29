@@ -21,10 +21,10 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 
 ### Accessibility
 
-- [ ] **A11Y-01**: Every interactive control built on the shared `Press` component announces a role to screen readers by default
-- [ ] **A11Y-02**: Remaining icon-only/custom buttons not covered by the `Press` default have accessible labels
-- [ ] **A11Y-03**: The app's dark/light theme follows the OS setting when "automatic" is selected
-- [ ] **A11Y-04**: Flashcard text doesn't get clipped when the OS font-scale setting is increased
+- [x] **A11Y-01**: Every interactive control built on the shared `Press` component announces a role to screen readers by default
+- [x] **A11Y-02**: Remaining icon-only/custom buttons not covered by the `Press` default have accessible labels
+- [x] **A11Y-03**: The app's dark/light theme follows the OS setting when "automatic" is selected
+- [x] **A11Y-04**: Flashcard text doesn't get clipped when the OS font-scale setting is increased
 
 ### Notifications
 
@@ -136,10 +136,10 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | BUG-04 | Phase 23 | Pending |
 | BUG-05 | Phase 23 | Pending |
 | BUG-06 | Phase 23 | Pending |
-| A11Y-01 | Phase 8 | Pending |
-| A11Y-02 | Phase 8 | Pending |
-| A11Y-03 | Phase 8 | Pending |
-| A11Y-04 | Phase 8 | Pending |
+| A11Y-01 | Phase 8 | Complete |
+| A11Y-02 | Phase 8 | Complete |
+| A11Y-03 | Phase 8 | Complete |
+| A11Y-04 | Phase 8 | Complete |
 | QA-01 | Phase 9 | Pending |
 | QA-02 | Phase 9 | Pending |
 | FEEDBACK-01 | Phase 10 | Pending |

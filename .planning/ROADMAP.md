@@ -24,7 +24,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 6: Notification Correctness — Body Format & Toggles** - Fix unfilled notification placeholders and make Settings' notification toggles actually control what fires
 - [ ] **Phase 7: Known Bug Fixes** - Fix exam-response-lost-on-process-death (highest priority, revenue-adjacent), lock in the STT continuous-mode regression with a test, and fix audio-doesn't-pause-on-background (lowest priority, cosmetic)
 - [ ] **Phase 7.1: Concept C Spine Rewrite** (INSERTED) - Replace the Den, lesson overview and mission list with the approved Concept C trail, carrying the level panel, acte 00, the three-state language control, the day-one first run and the paywall's two trail positions
-- [ ] **Phase 8: Accessibility Retrofit** - Thread correct screen-reader roles/labels per control type across high-traffic screens, fix dark-mode OS-sync and flashcard font-scale clipping
+- [x] **Phase 8: Accessibility Retrofit** - Thread correct screen-reader roles/labels per control type across high-traffic screens, fix dark-mode OS-sync and flashcard font-scale clipping
 - [ ] **Phase 9: Onboarding & Analytics Audit** - Verify the onboarding/placement flow end-to-end and audit analytics event coverage/correctness across engagement AND the acquisition/activation funnel
 - [ ] **Phase 10: Feedback & Rating Flow** - Verify/fix "Le Rapport" and build a frequency-capped rating flow that routes positive ratings to the store and negative ratings to a private in-app report
 - [ ] **Phase 11: Brix Mascot Rive Animation Rollout — Core States** - Ship idle/listening/speaking/celebrating/thinking states for normal lesson flow, preserving existing accessibility-hiding and reduced-motion behavior
@@ -536,7 +536,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 6. Notification Correctness — Body Format & Toggles | 5/5 | Complete - 06-VERIFICATION.md passed, 12/12 must-haves | 2026-09-21 |
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
 | 7.1 Concept C Spine Rewrite (INSERTED) | 11/11 | All plans executed - trail replaces lessonoverview/missions, three-state language control, acte 00, day-one cards, paywall trail positions. Device pass recorded (bd63572, a72f284). Pending gsd-verifier close-out | 2026-09-25 |
-| 8. Accessibility Retrofit | 0/TBD | Not started | - |
+| 8. Accessibility Retrofit | 10/10 | Complete (verification human_needed: 5 device-evidence items open, see 08-VERIFICATION.md) | 2026-09-29 |
 | 9. Onboarding & Analytics Audit | 1/6 | In progress | 09-01 analytics foundation complete; device proof remains |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |
 | 11. Brix Mascot Rive Animation Rollout — Core States | 0/TBD | Not started | - |
