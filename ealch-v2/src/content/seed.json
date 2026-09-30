@@ -8360,6 +8360,373 @@
           ]
         }
       ]
+    },
+    {
+      "id": "b2.17",
+      "seq": 17,
+      "sub": "Le but",
+      "canDo": "Can express purpose by subject and register: the infinitive when the subject reaches the goal itself (pour, afin de, dans le but de, de façon à, de peur de), que + subjunctive when someone else does (pour que, afin que, de façon que, de sorte que, de peur que); can state a negative aim (pour ne pas, pour que… ne… pas), choose the register (histoire de, pour, afin de, à cette fin), tell purpose from result and from cause (pour + infinitif passé, pour + nom), and name aims with le but, l'objectif, viser à and avoir pour but de, in a formal letter requesting funding",
+      "level": "b2",
+      "title": "Purpose",
+      "lessonIds": [
+        "b2.17.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.16",
+        "b1.31",
+        "b2.06",
+        "b2.14",
+        "b2.15"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.17.l1",
+          "title": "Le but",
+          "acts": [
+            {
+              "title": "Viser un but",
+              "cards": 14
+            },
+            {
+              "title": "Un sujet ou deux",
+              "cards": 21
+            },
+            {
+              "title": "Pour ou afin de",
+              "cards": 18
+            },
+            {
+              "title": "Dans le but de, en vue de",
+              "cards": 16
+            },
+            {
+              "title": "De façon à, de manière que",
+              "cards": 21
+            },
+            {
+              "title": "Pour ne pas",
+              "cards": 20
+            },
+            {
+              "title": "De peur de, de crainte que",
+              "cards": 16
+            },
+            {
+              "title": "Le but familier",
+              "cards": 13
+            },
+            {
+              "title": "Pour : le but ou la cause",
+              "cards": 15
+            },
+            {
+              "title": "Les noms du but",
+              "cards": 15
+            },
+            {
+              "title": "Sous charge",
+              "cards": 13
+            },
+            {
+              "title": "Ta lettre de demande",
+              "cards": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.18",
+      "seq": 18,
+      "sub": "Les rapports de temps",
+      "canDo": "Can order events in a report by placing each subordinate event before, during or after the main one, choosing the mood that relation takes: avant que, jusqu'à ce que, en attendant que and d'ici à ce que with the subjunctive (or avant de, en attendant de with an infinitive for one subject); quand, lorsque, pendant que, au moment où, à mesure que, chaque fois que, tant que, depuis que, maintenant que, temporal alors que and tandis que with the indicative; après que with the indicative (après + noun or past infinitive as ways out); dès que, aussitôt que and une fois que with the compound tense that matches the main verb; the future after time words; can read and write the expletive ne and never read it as a negation",
+      "level": "b2",
+      "title": "Time Clauses",
+      "lessonIds": [
+        "b2.18.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.07",
+        "b1.16",
+        "b1.31",
+        "b2.06",
+        "b2.07"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.18.l1",
+          "title": "Les rapports de temps",
+          "acts": [
+            {
+              "title": "Mettre les faits dans l’ordre",
+              "cards": 14
+            },
+            {
+              "title": "La ligne du temps",
+              "cards": 19
+            },
+            {
+              "title": "Avant que, avant de",
+              "cards": 20
+            },
+            {
+              "title": "Jusqu’à ce que",
+              "cards": 21
+            },
+            {
+              "title": "Le ne explétif",
+              "cards": 19
+            },
+            {
+              "title": "En même temps",
+              "cards": 20
+            },
+            {
+              "title": "À mesure que, depuis que",
+              "cards": 20
+            },
+            {
+              "title": "Alors que : le temps ou non",
+              "cards": 18
+            },
+            {
+              "title": "Quand tu arriveras",
+              "cards": 19
+            },
+            {
+              "title": "Après que",
+              "cards": 18
+            },
+            {
+              "title": "Dès que, une fois que",
+              "cards": 19
+            },
+            {
+              "title": "Ton compte rendu",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.19",
+      "seq": 19,
+      "sub": "La restriction et l'exception",
+      "canDo": "Can restrict exactly what is meant, placing que right before the restricted element, restricting an action with ne faire que and a subject with seul or il n'y a que… qui, and choosing among seulement, uniquement, exclusivement, simplement and rien que by position and register; can say not only (ne… pas que, non seulement… mais); can state an exception with sauf, excepté, hormis, à part, mis à part, à l'exception de, sinon and si ce n'est, and an exception under condition with sauf si + indicative, à moins que + subjunctive, à moins de, sauf à, à condition que or de, pourvu que and faute de, in the register of a notice or a formal reply",
+      "level": "b2",
+      "title": "Restriction and Exception",
+      "lessonIds": [
+        "b2.19.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.10",
+        "b1.15",
+        "b1.16",
+        "b1.20",
+        "b1.30",
+        "b2.03",
+        "b2.06"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.19.l1",
+          "title": "La restriction et l'exception",
+          "acts": [
+            {
+              "title": "La limite et la porte",
+              "cards": 15
+            },
+            {
+              "title": "La portée de ne… que",
+              "cards": 21
+            },
+            {
+              "title": "Ne faire que",
+              "cards": 17
+            },
+            {
+              "title": "Seulement, uniquement, seul",
+              "cards": 17
+            },
+            {
+              "title": "Il n’y a que… qui",
+              "cards": 19
+            },
+            {
+              "title": "Pas seulement",
+              "cards": 18
+            },
+            {
+              "title": "Sauf, excepté, hormis",
+              "cards": 20
+            },
+            {
+              "title": "Sinon, si ce n’est, sauf que",
+              "cards": 17
+            },
+            {
+              "title": "Sauf si",
+              "cards": 19
+            },
+            {
+              "title": "À moins que",
+              "cards": 17
+            },
+            {
+              "title": "Ouvrir ou fermer la porte",
+              "cards": 22
+            },
+            {
+              "title": "Ton courrier",
+              "cards": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.20",
+      "seq": 20,
+      "sub": "Les tournures impersonnelles",
+      "canDo": "Can use the impersonal il to grade what the speaker commits to: necessity from il suffit que to il est indispensable que (subjunctive) and il faut, il convient de, il y a lieu de (infinitive); probability from il ne fait aucun doute que and il est probable que (indicative) down to il est possible, peu probable, douteux que (subjunctive), including the flip after a negation; a source with il semble que, il me semble que, il paraît que, il s'avère que; a judgement with il est dommage, regrettable, temps que; and distance with il a été décidé que, il est demandé que, il est interdit de; keeps impersonal verbs singular (il manque deux chaises) and writes an official note that grades its claims from certain to doubtful",
+      "level": "b2",
+      "title": "Impersonal Expressions",
+      "lessonIds": [
+        "b2.20.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.15",
+        "b1.16",
+        "b1.18",
+        "b1.22",
+        "b2.05",
+        "b2.06"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.20.l1",
+          "title": "Les tournures impersonnelles",
+          "acts": [
+            {
+              "title": "Un il qui ne désigne personne",
+              "cards": 14
+            },
+            {
+              "title": "Quatre familles, deux modes",
+              "cards": 19
+            },
+            {
+              "title": "Il faut, il suffit de",
+              "cards": 21
+            },
+            {
+              "title": "Il faut que, il importe que",
+              "cards": 20
+            },
+            {
+              "title": "Probable ou possible",
+              "cards": 24
+            },
+            {
+              "title": "La négation et la question",
+              "cards": 20
+            },
+            {
+              "title": "Il semble, il paraît",
+              "cards": 22
+            },
+            {
+              "title": "Il est dommage que",
+              "cards": 21
+            },
+            {
+              "title": "Il a été décidé que",
+              "cards": 21
+            },
+            {
+              "title": "Il manque deux chaises",
+              "cards": 20
+            },
+            {
+              "title": "Du certain au douteux",
+              "cards": 20
+            },
+            {
+              "title": "Ta note",
+              "cards": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.21",
+      "seq": 21,
+      "sub": "Les négations combinées",
+      "canDo": "Can combine negative words in the right order (plus jamais rien, plus aucun, plus ni… ni, jamais plus in formal style) and place them in simple and compound tenses and before an infinitive, never stacking pas with another negative word; can use a negative word as the subject (personne ne, rien ne, aucun… ne, nul ne, ni… ni… ne), the restrictive combinations (ne… plus que, ne… jamais que), told apart from ne… pas que, sans + rien, personne, aucun or jamais, and the formal negations (ne… guère, nullement, aucunement, ne alone with savoir, pouvoir, oser, cesser); controls the scope of a negation (je ne vous ai pas demandé de… / je vous ai demandé de ne pas…; pas tous / aucun), knows that the ne explétif negates nothing, keeps ne in writing, and writes a formal letter contesting an invoice or an accusation",
+      "level": "b2",
+      "title": "Negation Combinations",
+      "lessonIds": [
+        "b2.21.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.20",
+        "b2.06",
+        "b2.14"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.21.l1",
+          "title": "Les négations combinées",
+          "acts": [
+            {
+              "title": "Le démenti",
+              "cards": 14
+            },
+            {
+              "title": "Plusieurs mots, un seul ne",
+              "cards": 23
+            },
+            {
+              "title": "Au passé composé",
+              "cards": 22
+            },
+            {
+              "title": "Devant l’infinitif, après sans",
+              "cards": 24
+            },
+            {
+              "title": "Pas reste dehors",
+              "cards": 22
+            },
+            {
+              "title": "Le sujet négatif",
+              "cards": 22
+            },
+            {
+              "title": "Plus que, jamais que, pas que",
+              "cards": 17
+            },
+            {
+              "title": "Le registre soutenu",
+              "cards": 20
+            },
+            {
+              "title": "La portée",
+              "cards": 19
+            },
+            {
+              "title": "Le ne qui ne nie pas",
+              "cards": 21
+            },
+            {
+              "title": "Contester par écrit",
+              "cards": 18
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [

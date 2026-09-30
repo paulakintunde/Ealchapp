@@ -169,6 +169,16 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 6 IMPORTED AND MERGED, 2026-09-30; v83 dry run ready, NOT published.** All 59 openers
+registered with alt (alt lines that arrived double-quoted from outside this session converted). Trial
+merge with art: +910 items, app 5724/5724. `--apply`: 910 rows + 10 unit/lesson rows, read back
+identical. Merged into the packs layer (5 skeletons in the core); seed cut lists b2.09-21. App
+5724/5724; admin's only failures were the preview fixture still listing wave 6 as drafts, rebuilt (8
+draft lessons: waves 7 and 8). `--packs --dry-run`: v83, checksum 33cda10d..., b2 pack 26 lessons
+12.38 MiB, core 9.78 MiB, the legacy snapshot RETIRED (would have been 46.96 MiB), pack replay 12
+upgrades / 0 deadlocks, 4 of 5 packs reused. Next: gate B2-3 (Paul, B2 9-21 on the Pixel), then
+publish with Paul's OK. Wave 7 art is all in; wave 8 (46 openers) outstanding.
+
 **ART LANDED AND LINKED, 2026-09-30: waves 5, 6 and 7 carry every opener.** Wave 6
 (b2.17-b2.21, 59 openers) is registered with alt in `ealch-v2/src/content/lessonImages.ts`:
 b2.17-b2.20 in `651b1ac` (together with wave 7's b2.27-b2.30, 96 openers), b2.21's 11 in
@@ -507,15 +517,15 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 images, registered + alt | MERGED, v82 dry run |
-| b2.17 | expression-but | 88 | 12 | 12x8 | 12 | 5 | 16 | 171 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.18 | subordonnees-temps | 87 | 12 | 12x8 | 12 | 5 | 15 | 178 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 prompts, ART_PENDING | DRAFTED |
-| b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.17 | expression-but | 88 | 12 | 12x8 | 12 | 5 | 16 | 171 | 12 images, registered + alt | MERGED, v83 dry run |
+| b2.18 | subordonnees-temps | 87 | 12 | 12x8 | 12 | 5 | 15 | 178 | 12 images, registered + alt | MERGED, v83 dry run |
+| b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 images, registered + alt | MERGED, v83 dry run |
+| b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 images, registered + alt | MERGED, v83 dry run |
+| b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 images, registered + alt | MERGED, v83 dry run |
+| b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 images, registered + alt | REVIEWED, art in |
+| b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 images, registered + alt | REVIEWED, art in |
+| b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 images, registered + alt | REVIEWED, art in |
+| b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 images, registered + alt | REVIEWED, art in |
 | b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 prompts, ART_PENDING | DRAFTED |
 | b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 prompts, ART_PENDING | DRAFTED |
 | b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 prompts, ART_PENDING | DRAFTED |
