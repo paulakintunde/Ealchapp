@@ -169,6 +169,12 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVES 7 + 8 TRIAL-MERGED, 2026-09-30; HELD FOR v84 (Paul).** All 46 wave 8 openers registered
+(double-quoted alt converted); ART_PENDING empty, every B2 lesson has art. Trial merge of b2.27-b2.34:
++8 units, +8 lessons, +1514 items, 273 identical, 0 twins, validateCorpus 0, app 5724/5724, seed files
+restored byte-identical. Paul, 2026-09-30: v83 ships waves 4-6 content only (b2.17-21 new); waves 7
+and 8 are imported AFTER v83 publishes, then gate B2-4 and v84 completes B2.
+
 **WAVE 6 IMPORTED AND MERGED, 2026-09-30; v83 dry run ready, NOT published.** All 59 openers
 registered with alt (alt lines that arrived double-quoted from outside this session converted). Trial
 merge with art: +910 items, app 5724/5724. `--apply`: 910 rows + 10 unit/lesson rows, read back
@@ -526,10 +532,10 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 images, registered + alt | REVIEWED, art in |
 | b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 images, registered + alt | REVIEWED, art in |
 | b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 images, registered + alt | REVIEWED, art in |
-| b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 prompts, ART_PENDING | DRAFTED |
-| b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 prompts, ART_PENDING | DRAFTED |
-| b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.34 | proverbes (vocab) | 88 | 12 | 12x8 | 12 | 5 | 25 | 166 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 images, registered + alt | REVIEWED, art in |
+| b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 images, registered + alt | REVIEWED, art in |
+| b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 images, registered + alt | REVIEWED, art in |
+| b2.34 | proverbes (vocab) | 88 | 12 | 12x8 | 12 | 5 | 25 | 166 | 12 images, registered + alt | REVIEWED, art in |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links
