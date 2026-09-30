@@ -66,11 +66,11 @@ export type StorageObject = { name: string; size: number };
  *  Storage caps a page at 100 by default and silently returns a short list
  *  rather than erroring, so a single un-paged call would quietly under-report
  *  and a pruner that under-reports deletes less than it says it does. */
-export async function listStorage(baseUrl: string, key: string, prefix: string): Promise<StorageObject[]> {
+export async function listStorage(baseUrl: string, key: string, prefix: string, bucket: string = BUCKET): Promise<StorageObject[]> {
   const out: StorageObject[] = [];
   const limit = 100;
   for (let offset = 0; ; offset += limit) {
-    const res = await fetch(`${baseUrl}/storage/v1/object/list/${BUCKET}`, {
+    const res = await fetch(`${baseUrl}/storage/v1/object/list/${bucket}`, {
       method: 'POST',
       headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ prefix, limit, offset, sortBy: { column: 'name', order: 'asc' } }),

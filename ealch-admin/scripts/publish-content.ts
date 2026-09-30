@@ -31,7 +31,15 @@
 //                                          seed as the free core (CORE_SEED_CUT), writing the
 //                                          paid rows the content tests read (TEST_CUT minus
 //                                          the core) to seed-packs.json beside it. The legacy
-//                                          full snapshot + manifest.json publish unchanged.
+//                                          full snapshot + manifest.json are NOT written (Paul,
+//                                          2026-09-30, from v83): every install runs a packs
+//                                          build, and installs from before packs refuse a
+//                                          snapshot past 50 MiB anyway. manifest.json stays
+//                                          on the last legacy version (v82) for good.
+//   pnpm content:publish --packs --legacy-snapshot   also write the legacy pair, as before v83
+//   pnpm content:publish --packs --skip-replay       skip the mixed-version pack replay
+//                                          (pack-replay.ts; refuses a publish that would
+//                                          leave a phone on an older version stuck)
 //                                          Without --packs, seed-packs.json is written EMPTY.
 //                                          Off until the rollout steps at the end of the spec
 //                                          are approved and done (the bucket must exist).
@@ -51,7 +59,8 @@ import { CORE_SEED_CUT, SEED_CUT, TEST_CUT, describeCut } from './seed-cut.confi
 import { buildCoreSeed, cutSeed } from './seed-cut.logic.ts';
 import { PACKS_LAYER_PATH, composeTestCorpus, emptyLayer, packsLayer } from '../../ealch-v2/src/content/seed-plus-packs.ts';
 import { MANIFEST_V2, PACK_BUCKET, mergeSplit, planPublish, splitCorpus, type Split } from './content-packs.logic.ts';
-import { heldBands, isPacksManifest, partialValidationView, type PackName, type PacksManifest } from '../../ealch-v2/src/services/packs.logic.ts';
+import { heldBands, isPacksManifest, partialValidationView, verifyPack, type PackName, type PacksManifest } from '../../ealch-v2/src/services/packs.logic.ts';
+import { replayFromStorage } from './pack-replay.ts';
 import { measureEnding, type GenderRow } from '../../ealch-v2/src/content/gender.logic.ts';
 import { ENDING_RULES, WORTHLESS_ENDINGS, MORE_ENDINGS, RULE_FLOOR } from './data/genre-endings.ts';
 import {
@@ -109,6 +118,12 @@ const NO_UPLOAD = args.has('--no-upload') || DRY_RUN;
 const ALLOW_NOOP = args.has('--allow-noop');
 // Premium content packs: see the usage note at the top.
 const PACKS = args.has('--packs');
+// The legacy full snapshot + manifest.json. Always written without --packs; under
+// --packs only on request (retired from v83, see the usage note).
+const LEGACY_SNAPSHOT = !PACKS || args.has('--legacy-snapshot');
+// Skip the mixed-version pack replay (pack-replay.ts). An escape hatch only:
+// the replay is what would have caught the v82 pack deadlock.
+const SKIP_REPLAY = args.has('--skip-replay');
 
 const rolloutIx = argv.indexOf('--rollout');
 const ROLLOUT = rolloutIx === -1 ? 100 : Number(argv[rolloutIx + 1]);
@@ -1246,7 +1261,7 @@ async function main() {
 
   // ── 6. Bytes ───────────────────────────────────────────────────────────
   const snapshotJson = stableStringify(corpus);
-  if (snapshotJson.length > MAX_SNAPSHOT_BYTES) {
+  if (LEGACY_SNAPSHOT && snapshotJson.length > MAX_SNAPSHOT_BYTES) {
     await pool.end();
     die(
       `snapshot is ${snapshotJson.length} bytes — past the app's ${MAX_SNAPSHOT_BYTES}-byte ceiling; devices will refuse it.\n` +
@@ -1336,14 +1351,51 @@ async function main() {
       await pool.end();
       die(`${tooBig.map((f) => f.path).join(', ')} past the app's ${MAX_SNAPSHOT_BYTES}-byte ceiling; devices would refuse it.`);
     }
+
+    // ── 6c. Mixed-version replay ──────────────────────────────────────────
+    // Every partial state of THIS publish validating is not enough: v82 passed
+    // that and still deadlocked phones that held older packs. So rebuild the
+    // phones of the last few versions from Storage and update each to this
+    // publish with the app's own rules (pack-replay.logic.ts). A phone that
+    // never converges refuses a --packs publish.
+    if (SKIP_REPLAY) {
+      console.log('  pack replay: SKIPPED (--skip-replay)');
+    } else if (!url || !key) {
+      console.log('  pack replay: skipped, no Storage credentials to read the older versions');
+    } else {
+      const bodies = new Map<PackName, Corpus>();
+      for (const e of packPlan.manifest.packs) {
+        const up = packPlan.uploads.find((f) => f.bucket === PACK_BUCKET && f.path === e.path);
+        const text = up ? up.json : await downloadFromStorage(url, key, e.path, PACK_BUCKET);
+        const v = verifyPack(text, e);
+        if (!v.ok) {
+          await pool.end();
+          die(`pack replay: ${e.path} does not verify against the manifest this publish would write (${v.reason})`);
+        }
+        bodies.set(e.name, v.corpus as Corpus);
+      }
+      const t0 = Date.now();
+      const rep = await replayFromStorage({ url, key, target: { manifest: packPlan.manifest, core: split.core, packs: bodies } });
+      console.log(`  pack replay: ${rep.results.length} phone upgrades from ${rep.states.length} older states, ${rep.deadlocks} deadlock(s), ${((Date.now() - t0) / 1000).toFixed(0)} s`);
+      for (const l of rep.lines) console.log(l);
+      if (rep.deadlocks && PACKS) {
+        await pool.end();
+        die(`pack replay: ${rep.deadlocks} phone state(s) would never finish updating to v${version}. NOTHING was published.`);
+      }
+    }
   }
   {
     const mb = (n: number) => `${(n / 1024 / 1024).toFixed(2)} MiB`.padStart(11);
     const row = (where: string, bytes: number | null, note: string) =>
       console.log(`    ${where.padEnd(34)} ${bytes === null ? '           ' : mb(bytes)}  ${note}`);
     console.log(`\n  files this publish writes${DRY_RUN ? ' (dry run: none are)' : NO_UPLOAD ? ' (--no-upload: only seed.json is)' : ''}:`);
-    row(`content/${path}`, Buffer.byteLength(snapshotJson, 'utf8'), 'legacy full snapshot, public (installs from before packs)');
-    row('content/manifest.json', null, 'legacy manifest, unchanged shape');
+    if (LEGACY_SNAPSHOT) {
+      row(`content/${path}`, Buffer.byteLength(snapshotJson, 'utf8'), 'legacy full snapshot, public (installs from before packs)');
+      row('content/manifest.json', null, 'legacy manifest, unchanged shape');
+    } else {
+      row(`content/${path}`, Buffer.byteLength(snapshotJson, 'utf8'), 'legacy full snapshot: RETIRED, not written');
+      row('content/manifest.json', null, 'legacy manifest: not touched (stays on the last legacy version)');
+    }
     if (packPlan) {
       const off = PACKS ? '' : '  [--packs off: not written]';
       for (const f of packPlan.uploads) {
@@ -1370,7 +1422,12 @@ async function main() {
   let previousContent: string | null = null;
   let previousSnapshotBytes: number | null = null;
   let compareNote = '';
-  if (previous) {
+  if (previous && !LEGACY_SNAPSHOT) {
+    // No full snapshot to compare against from v83 on: the pack plan answers
+    // "would a device receive anything new". Nothing new = the core restamped
+    // is the previous core and every pack was reused.
+    console.log(`  no-op check: by the pack plan (core ${packPlan?.coreUnchanged ? 'unchanged' : 'changed'}, ${packPlan?.reused.length ?? 0} of ${packPlan?.manifest.packs.length ?? 0} packs reused)`);
+  } else if (previous) {
     const url = process.env.SUPABASE_URL;
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
     if (!url || !key) {
@@ -1385,7 +1442,9 @@ async function main() {
       }
     }
   }
-  const noop = !!previous && previousContent !== null && previousContent === candidateContent;
+  const noop = LEGACY_SNAPSHOT
+    ? !!previous && previousContent !== null && previousContent === candidateContent
+    : !!packPlan && packPlan.coreUnchanged && packPlan.reused.length === packPlan.manifest.packs.length;
 
   const report = formatDiffReport({
     version,
@@ -1502,12 +1561,16 @@ async function main() {
       for (const f of packPlan.uploads) await uploadToStorage(url, key, f.path, f.json, f.bucket);
       console.log(`\n  ↑ uploaded ${packPlan.uploads.map((f) => `${f.bucket}/${f.path}`).join(', ')}`);
     }
-    await uploadToStorage(url, key, path, snapshotJson);
-    // The manifest is written LAST and points at a snapshot that is already
-    // there. A client that reads the manifest must never be told about bytes
-    // that have not finished uploading.
-    await uploadToStorage(url, key, 'manifest.json', JSON.stringify(manifest, null, 2));
-    console.log(`\n  ↑ uploaded ${path} and manifest.json`);
+    if (LEGACY_SNAPSHOT) {
+      await uploadToStorage(url, key, path, snapshotJson);
+      // The manifest is written LAST and points at a snapshot that is already
+      // there. A client that reads the manifest must never be told about bytes
+      // that have not finished uploading.
+      await uploadToStorage(url, key, 'manifest.json', JSON.stringify(manifest, null, 2));
+      console.log(`\n  ↑ uploaded ${path} and manifest.json`);
+    } else {
+      console.log('\n  (legacy snapshot retired: snapshots/ and manifest.json untouched)');
+    }
     if (PACKS && packPlan) {
       await uploadToStorage(url, key, MANIFEST_V2, JSON.stringify(packPlan.manifest, null, 2));
       console.log(`  ↑ uploaded ${MANIFEST_V2}`);
@@ -1553,7 +1616,14 @@ async function main() {
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
     try {
       const rows = await pool.query<{ version: number }>(`select version from content_snapshots`);
-      const plan = planPrune(await listStorage(url, key, 'snapshots/'), rows.rows.map((r) => r.version), version, PRUNE_KEEP);
+      // The served legacy version is what manifest.json points at. With the
+      // legacy snapshot retired that is NOT this version but the last one
+      // written (v82), and it must never be pruned: a fresh pre-packs install
+      // still fetches it.
+      const live = LEGACY_SNAPSHOT
+        ? version
+        : (JSON.parse(await downloadFromStorage(url, key, 'manifest.json')) as { version: number }).version;
+      const plan = planPrune(await listStorage(url, key, 'snapshots/'), rows.rows.map((r) => r.version), live, PRUNE_KEEP);
       if (plan.doomed.length === 0) {
         console.log(`\n  retention: ${plan.kept.length} snapshot(s), ${mib(plan.totalBytes)}, nothing to prune`);
       } else {

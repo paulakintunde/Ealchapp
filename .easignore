@@ -84,3 +84,11 @@ _*.txt
 *.md
 # Google Play service-account key for `eas submit` (a credential: never commit or upload)
 **/play-service-account.json
+
+# The app's .env holds server-only keys (Adapty secret and webhook secret, Fal)
+# beside the public EXPO_PUBLIC_ values. Builds and OTAs take the public values
+# from the EAS environment named in eas.json (created 2026-09-30), so no .env
+# is uploaded any more. .env.example holds no values and may go.
+.env
+.env.*
+!.env.example

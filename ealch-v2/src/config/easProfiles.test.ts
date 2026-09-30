@@ -36,3 +36,13 @@ test('submit goes to the internal track first, and its key can never be committe
   ok(readFileSync(resolve(appRoot, '.gitignore'), 'utf8').includes('play-service-account.json'), 'gitignored');
   ok(readFileSync(resolve(appRoot, '../.easignore'), 'utf8').includes('play-service-account.json'), 'kept out of the EAS upload');
 });
+
+// Since 2026-09-30 the EXPO_PUBLIC_ values live in the EAS environments and the
+// .env (which also holds server-only keys) is not uploaded. A profile without
+// its environment would build with no Supabase URL and no Adapty key.
+test('preview and production take their public values from their EAS environment, never from an uploaded .env', () => {
+  strictEqual(eas.build.preview.environment, 'preview');
+  strictEqual(eas.build.production.environment, 'production');
+  const ignore = readFileSync(resolve(appRoot, '../.easignore'), 'utf8').split(/\r?\n/).map((l) => l.trim());
+  ok(ignore.includes('.env') && ignore.includes('.env.*'), '.env stays out of the EAS upload');
+});

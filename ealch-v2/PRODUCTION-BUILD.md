@@ -35,11 +35,15 @@ pinned by `src/config/easProfiles.test.ts`.
 6. OTA fixes for store installs: `eas update --channel production` (same
    fingerprint only; a native change needs a new build).
 
-## Known caveat
+## Where the public values come from
 
-EAS builds read the EXPO_PUBLIC values from the local `.env`, which is uploaded
-with the build archive. That file also holds server-only keys (they are never
-bundled into the app, only uploaded to the EAS build machine). Before the first
-store build, consider moving the EXPO_PUBLIC values to EAS environment variables
-(`eas env:create --environment production`) and adding `.env` to the root
-`.easignore`. Not done yet: it changes how preview builds get their values.
+Since 2026-09-30 the nine `EXPO_PUBLIC_` values live in the EAS **preview** and
+**production** environments (production has `EXPO_PUBLIC_ANALYTICS_TEST_BUILD=false`).
+`eas.json` names each profile's environment, and the root `.easignore` keeps
+`.env` out of the upload, so the server-only keys it also holds no longer go to
+the EAS build machine. OTAs (`eas update --environment …`) read the same
+environments. A new `EXPO_PUBLIC_` line in `.env` must be created in both EAS
+environments too (`eas env:create`), or builds and OTAs ship without it.
+
+The first build after this change is the proof: before installing it, grep its
+bundle for the Supabase project ref (the check in `ealch-admin`'s playbook §6.20).

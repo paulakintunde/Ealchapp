@@ -1402,6 +1402,35 @@ moved out of `default:`. Set `swipe: true` on `commonErrors` and `trapDrill`.
 section the learner still walks. Use `render: 'sheet'` plus `sheetId` for anything
 genuinely off the main path. All B1 flow sections are `layer: 'core'`.
 
+The next four are pipeline rules, not lesson rules. They cost B2 waves 4 and 5 real
+defects (2026-09-30); the wave runner follows them, an author agent never meets them.
+
+**6.17 One git index is shared by every session in the repo: commit with `--only`.**
+Another session's staged files ride along with a plain `git add` + `git commit`. Always
+`git commit --only -- <your paths>`. If a commit swept in foreign files, undo it with a
+soft reset and recommit with `--only`; never a hard reset.
+
+**6.18 `DATABASE_URL` is a transaction pooler: never a plain `SET`.** A session-level
+`SET` (e.g. `set session characteristics as transaction read only`) stays on the pooled
+backend after your script exits, and the NEXT client inherits it: B2 wave 4's trial merge
+left a backend read-only and a later write failed with 25006. Read-only work is
+`BEGIN TRANSACTION READ ONLY … COMMIT` (as `b1-trial-merge.ts` now does) or `SET LOCAL`
+inside a transaction.
+
+**6.19 Register each image once, by script, and count afterwards.** `lessonImages.ts`
+has two maps (the `require` map and the alt map). A key registered twice was committed in
+wave 5 and needed a dedupe commit. The registering script must assert each key is absent
+before inserting, write alt text single-quoted with apostrophes escaped (build the
+backslash with `chr(92)`: a bash heredoc halves backslashes), and afterwards the
+registered count per slug must equal the number of `.jpg` files in its folder.
+
+**6.20 An OTA takes its `EXPO_PUBLIC_` values from EAS, not from `.env`.**
+`eas update --environment preview` ignores the local `.env`; OTA 37e5a9d4 shipped with no
+Supabase URL and no Adapty key and was rolled back. Since 2026-09-30 the nine
+`EXPO_PUBLIC_` values live in the EAS preview and production environments (production
+has `ANALYTICS_TEST_BUILD=false`). A new `EXPO_PUBLIC_` line in `.env` must be created
+in EAS too, and before any OTA the exported `.hbc` is grepped for the Supabase project ref.
+
 ---
 
 ## 7. Reference sheets and sheet links

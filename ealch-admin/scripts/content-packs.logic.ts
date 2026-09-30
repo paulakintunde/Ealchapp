@@ -304,7 +304,7 @@ export function planPublish(args: {
   previous: PacksManifest | null;
   stringify: (v: unknown) => string;
   sha256: (s: string) => string;
-}): { manifest: PacksManifest; uploads: PlannedFile[]; reused: PackName[] } {
+}): { manifest: PacksManifest; uploads: PlannedFile[]; reused: PackName[]; coreUnchanged: boolean } {
   const { version, split, previous, stringify, sha256 } = args;
   const bytes = (s: string) => Buffer.byteLength(s, 'utf8');
   const uploads: PlannedFile[] = [];
@@ -313,6 +313,10 @@ export function planPublish(args: {
   const coreJson = stringify(split.core);
   const core = { version, path: corePath(version), checksum: sha256(coreJson), bytes: bytes(coreJson) };
   uploads.push({ bucket: 'content', path: core.path, json: coreJson, checksum: core.checksum, bytes: core.bytes });
+  // The core carries `version` inside its body, so compare it the way packs are
+  // compared: restamped with the previous version. This is the no-op test once
+  // the legacy full snapshot is no longer published (v83 on).
+  const coreUnchanged = !!previous && sha256(stringify({ ...split.core, version: previous.core.version })) === previous.core.checksum;
 
   const entries: PackEntry[] = [];
   for (const body of split.packs) {
@@ -332,5 +336,5 @@ export function planPublish(args: {
   }
 
   const manifest: PacksManifest = { schema: 2, version, rollout: args.rollout, core, packs: entries };
-  return { manifest, uploads, reused };
+  return { manifest, uploads, reused, coreUnchanged };
 }

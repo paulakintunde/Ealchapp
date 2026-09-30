@@ -148,6 +148,34 @@ test('planPublish: an unchanged pack keeps its version and is not uploaded again
   ok(verifyPack(stableStringify({ ...a2, version: entry.version }), entry).ok);
 });
 
+// From v83 the legacy full snapshot is not published, so the no-op guard is the
+// pack plan: nothing new = the core unchanged apart from its version stamp and
+// every pack reused.
+test('planPublish: coreUnchanged ignores the version stamp and sees a core edit', () => {
+  const first = planPublish({ version: 9, rollout: 100, split: splitCorpus(tiny()), previous: null, stringify: stableStringify, sha256 });
+  strictEqual(first.coreUnchanged, false, 'no previous manifest: never unchanged');
+
+  const same = tiny();
+  same.version = 10;
+  const again = planPublish({ version: 10, rollout: 100, split: splitCorpus(same), previous: first.manifest, stringify: stableStringify, sha256 });
+  strictEqual(again.coreUnchanged, true);
+  strictEqual(again.reused.length, again.manifest.packs.length, 'a republish of the same corpus reuses every pack');
+
+  const paid = tiny();
+  paid.version = 10;
+  paid.items = paid.items.map((i) => (i.id === 'fr.b1.x.001' ? { ...i, en: 'changed' } : i));
+  const b1Only = planPublish({ version: 10, rollout: 100, split: splitCorpus(paid), previous: first.manifest, stringify: stableStringify, sha256 });
+  strictEqual(b1Only.coreUnchanged, true, 'a pack edit leaves the core alone');
+  ok(b1Only.reused.length < b1Only.manifest.packs.length, 'but it is not a no-op');
+
+  const free = tiny();
+  free.version = 10;
+  const a1 = free.items.find((i) => i.level === 'a1')!;
+  free.items = free.items.map((i) => (i.id === a1.id ? { ...i, en: 'changed' } : i));
+  const coreEdit = planPublish({ version: 10, rollout: 100, split: splitCorpus(free), previous: first.manifest, stringify: stableStringify, sha256 });
+  strictEqual(coreEdit.coreUnchanged, false);
+});
+
 /* ─── the real seed ─── */
 
 // The committed seed is itself a valid corpus holding sons, a1, a2, most of

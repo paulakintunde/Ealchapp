@@ -169,6 +169,10 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 6 DISPATCHED, 2026-09-30** (b2.17 to b2.21, Unit 3 end). Five sub-themes set in
+Postgres (read back); blocks in the ledger. b2.18 owns the ne explétif; b2.17, b2.19 and
+b2.21 apply it and cite lesson 18. b2.19 owns plain ne…que; b2.21 owns its combinations.
+
 **PIXEL 9 REGRESSION PASSED, 2026-09-30** (preview build 5409e283 installed over the
 old one: no black screen on the first launch). Free: v82 core, B2 21 units all
 PREMIÈRE, DELF exam 1 free / 2-5 locked, new paywall row. Offline: cold launch + A1
@@ -376,6 +380,12 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
 6. Import: trial merge (whole app suite on a trial seed) → `--apply` → merge
    into the seed → both test suites → publish dry run → publish with Paul's OK.
 
+**Watchers learned in waves 4 and 5** (full text in the playbook, §6.17 to §6.20):
+commit with `git commit --only -- <paths>` (one index is shared by every session);
+never a plain `SET` over `DATABASE_URL` (transaction pooler; use `BEGIN TRANSACTION READ
+ONLY`); register each image once by script and count keys against files; an OTA takes
+its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before any OTA.
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Links | Items | Art | State |
@@ -401,7 +411,8 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
 | b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 images, registered + alt | MERGED, v82 dry run |
-| b2.17 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
+| b2.17 to b2.21 | expression-but, subordonnees-temps, restriction, tournures-impersonnelles, negations-combinees | | | | | | | | | DRAFTING (wave 6) |
+| b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links
@@ -433,6 +444,11 @@ ledger's id spans, read from the source on the same day.
 | `faits-et-procedures` (sub-theme « les constructions infinitives »; 1000-1199 are B1) | 1200-1399 | b2.14 constructions-infinitives | 1200-1397 (176) |
 | `connecteurs-logiques` (sub-theme « la cause et la conséquence ») | 1800-1999 | b2.15 cause-consequence | 1800-1991 (189) |
 | `connecteurs-logiques` (sub-theme « la concession », B1's) | 2000-2199 | b2.16 concession-avancee | 2000-2197 (184) |
+| `connecteurs-logiques` (sub-theme « le but », set 2026-09-30) | 2200-2399 | b2.17 expression-but | (drafting) |
+| `connecteurs-logiques` (sub-theme « les rapports de temps », set 2026-09-30) | 2400-2599 | b2.18 subordonnees-temps | (drafting) |
+| `negation-et-restriction` (sub-theme « la restriction et l'exception »; fr.b1 0-399 and 1000-1199, fr.b2 0-199 taken) | 1200-1399 | b2.19 restriction | (drafting) |
+| `opinions-et-avis` (sub-theme « les tournures impersonnelles », set 2026-09-30) | 2000-2199 | b2.20 tournures-impersonnelles | (drafting) |
+| `negation-et-restriction` (sub-theme « les négations combinées », set 2026-09-30) | 1400-1599 | b2.21 negations-combinees | (drafting) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
