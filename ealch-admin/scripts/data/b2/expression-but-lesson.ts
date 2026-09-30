@@ -308,7 +308,7 @@ const A1_SCENE: Sec<'scene'> = {
       ],
       followUp: {
         works: 'La présidente hoche la tête : l’association ouvrira l’atelier, c’est net. Elle passe déjà à la question du budget.',
-        breaks: 'Un membre du comité fronce les sourcils. Nous demandons, nous ouvrions : deux fois le même sujet, et la phrase s’alourdit. On retient la lourdeur plutôt que le projet.',
+        breaks: 'Un membre du comité fronce les sourcils. Nous demandons, nous ouvrions : le même sujet des deux côtés, et pour que ne convient pas. On retient la faute plutôt que le projet.',
       },
     },
     {
@@ -519,7 +519,7 @@ const A2_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Le sujet caché', label: 'à l’écrit',
       fr: fr(E(2219)), sub: rsOf(E(2219)),
-      body: "Pour le remplir, sans autre sujet, se lit d'abord comme : c'est moi qui remplis. À l'écrit soigné, l'infinitif prend le sujet du verbe principal. Si c'est toi, dis-le : pour que tu le remplisses. EN: the infinitive takes the main subject.",
+      body: "À l'écrit soigné, l'infinitif prend en principe le sujet du verbe principal : pour le remplir peut donc se lire « c'est moi qui le remplis ». À l'oral, on comprend sans peine, et ce n'est pas une faute. À l'écrit, si c'est toi, dis-le : pour que tu le remplisses. EN: in careful writing the infinitive takes the main subject; not an error, just unclear.",
     },
     {
       head: 'Un sujet général', label: 'il faut, le passif',
@@ -553,9 +553,9 @@ const A2_CONSTRUIRE: Sec<'groupDrill'> = {
     ], chk('« Il m’a prêté sa voiture pour que je … déménager. »',
       ['puisse', 'pouvoir', 'peux'], 0,
       'Deux sujets, il et je : que et le subjonctif. EN: puisse.')),
-    ctl('Le sujet caché', '« Je t’ai envoyé le formulaire … » : c’est toi qui le remplis.',
+    ctl('Le sujet caché', '« Je t’ai envoyé le formulaire … » : c’est toi qui le remplis. À l’écrit, la forme la plus claire :',
       ['pour que tu le remplisses', 'pour le remplir'], 0,
-      'À l’écrit, pour le remplir se lit d’abord comme : c’est moi. EN: pour que tu le remplisses.'),
+      'À l’écrit, pour le remplir peut se lire : c’est moi. Ce n’est pas une faute, mais pour que tu le remplisses lève le doute. EN: pour que tu le remplisses.'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -928,7 +928,7 @@ const A4_TABLE: Sec<'tapTable'> = {
   id: 'a4-table',
   layer: 'core',
   sheetId: 'sheet-registre',
-  title: 'Six outils, six registres',
+  title: 'Six outils et leur registre',
   cols: ['Tournure', 'Ce qui suit', 'Registre'],
   rows: [
     { cells: ['histoire de', 'infinitif', 'familier'], say: fr(E(2322)),
@@ -1190,7 +1190,7 @@ const A5_PIEGE: Sec<'trapDrill'> = {
   cards: [
     trap(E(2266), 'un seul sujet', 'Place les tables de façon que tu voies tous les élèves.', 'Tu places, tu vois : de façon à voir. EN: de façon à.'),
     trap(E(2274), 'de façon à ce que', 'Range la classe de façon à ce qu’on puisse circuler entre les tables.', 'Critiqué à l’écrit : de façon qu’on puisse. EN: de façon que.'),
-    trap(E(2277), 'un but à l’indicatif', 'Classe les copies de façon que le jury peut les retrouver vite.', 'Après un impératif, on vise : le subjonctif, puisse. EN: puisse.'),
+    trap(E(2277), 'un but à l’indicatif', 'Classe les copies de façon que le jury peut les retrouver vite.', 'On vise, rien n’est encore arrivé : le subjonctif, puisse. EN: puisse.'),
     trap(E(2279), 'à devant un sujet', 'Le professeur répète les consignes de façon à chacun puisse les noter.', 'Un autre sujet : de sorte que ou de façon que, jamais à. EN: que, not à.'),
     trap(E(2278), 'un résultat au subjonctif', 'Les élèves ont révisé ensemble, de sorte qu’ils aient tous réussi.', 'C’est arrivé : l’indicatif, ont réussi. EN: ont réussi.'),
     trap(E(2275), 'de manière à + sujet', 'L’examen est organisé de manière à chaque candidat ait le même temps.', 'Un autre sujet : de manière que + subjonctif. EN: de manière que.'),
@@ -1801,7 +1801,7 @@ const A8_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A8_TEXTE = dansUnTexte('a8-texte', 'Réécrire : les messages de Julien', TEXTE_A8, [
-  { q: 'La première phrase, pour Mme Garnier.', a: "Nous arriverons samedi à neuf heures afin d'éviter les embouteillages : histoire de reste entre amis, et bouchons est familier." },
+  { q: 'La première phrase, pour Mme Garnier.', a: "Nous arriverons samedi à neuf heures afin d'éviter les embouteillages : histoire de reste entre amis, et embouteillages sonne plus soigné que bouchons." },
   { q: 'La deuxième, avec afin que.', a: "Pourriez-vous ouvrir la porte du garage afin que nous puissions garer le camion ? Le que après un impératif est familier." },
   { q: 'La troisième, avec afin que.', a: "Pourriez-vous mettre un mot sur l'ascenseur afin que les voisins sachent qu'il est réservé ? Comme ça + indicatif devient afin que + subjonctif, sachent." },
   { q: 'Qu’est-ce qui change en plus des tournures ?', a: "Le vouvoiement, la question polie (pourriez-vous) au lieu de l'impératif, et on, qui devient nous." },
@@ -2324,7 +2324,7 @@ const A11_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Afin de ne pas dépasser le budget, du matériel d’occasion a été choisi.',
       right: fr(E(2378)),
-      why: "Normal : le passif est courant dans les rapports. Mais l'infinitif prend le sujet de la phrase, et ce n'est pas le matériel qui évite de dépasser : dis qui agit. EN: say who avoids exceeding the budget.",
+      why: "Normal : le passif est courant dans les rapports, et on comprend. Mais à l'écrit soigné, l'infinitif se rattache au sujet de la phrase, ici le matériel : la phrase manque de clarté. Dis qui agit : nous avons choisi. EN: unclear in careful writing; say who avoids exceeding the budget.",
     },
   ],
   audio: AUDIO,
@@ -2719,7 +2719,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Je t’entraîne tous les soirs pour que tu … le concours. »', ['réussisses', 'réussis', 'réussir'], 0, 'Deux sujets : pour que + subjonctif. EN: réussisses.', 'a2-cartes'),
         mc('Tu veux dire clairement, à l’écrit, que c’est l’autre qui remplit le formulaire : « Je t’ai envoyé le formulaire … »', ['pour que tu le remplisses', 'pour le remplir'], 0, 'À l’écrit, l’infinitif prend le sujet du verbe principal. EN: pour que tu le remplisses.', 'a2-cartes'),
         tI(MODE_Q, "Je t'aide pour que tu (finir) plus tôt.", fr(E(2226)), 'Pour que + subjonctif : finisses. EN: finisses.', 'a2-construire'),
-        tI('Relie les deux phrases avec pour, et écris la phrase.', 'Elle a appelé la mairie. Elle voulait obtenir un rendez-vous.', fr(E(2222)), 'Le même sujet : pour + infinitif. EN: pour obtenir.', 'a2-construire'),
+        tI('Relie les deux phrases avec pour, et écris la phrase.', 'Elle a appelé la mairie. Elle voulait obtenir un rendez-vous.', fr(E(2222)), 'Le même sujet : pour + infinitif. EN: pour obtenir.', 'a2-construire',
+          ['Pour obtenir un rendez-vous, elle a appelé la mairie.']),
         eS('Je travaille le soir pour que j’obtienne mon diplôme.', fr(E(2227)), 'Un seul sujet : pour obtenir. EN: pour obtenir.', 'a2-erreurs',
           ["Je travaille le soir afin d'obtenir mon diplôme.", 'Je travaille le soir dans le but d\'obtenir mon diplôme.', 'Je travaille le soir pour pouvoir obtenir mon diplôme.']),
         eS('Elle a appelé la mairie pour son père obtenir un rendez-vous.', fr(E(2223)), 'Un autre sujet demande que : pour que son père obtienne. EN: pour que.', 'a2-erreurs',
@@ -2796,7 +2797,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Nous avons réservé tôt de peur que l’hôtel … complet. »', ['soit', 'est', 'sera'], 0, 'De peur que + subjonctif. EN: soit.', 'a7-cartes'),
         mc('« De crainte qu’il ne pleuve » : que craint-on ?', ['la pluie', 'l’absence de pluie'], 0, 'Le ne ne nie rien. EN: the rain.', 'a7-construire'),
         tI(MODE_Q, 'Il répète son discours de crainte que le public ne le (suivre) pas.', fr(E(2314)), 'De crainte que + subjonctif : suive. EN: suive.', 'a7-erreurs'),
-        tI('Relie avec de peur de, et écris la phrase.', 'Il a baissé la voix. Il ne voulait pas réveiller le bébé.', fr(E(2307)), 'Un seul sujet : de peur de + infinitif. EN: de peur de réveiller.', 'a7-cartes'),
+        tI('Relie avec de peur de, et écris la phrase.', 'Il a baissé la voix. Il ne voulait pas réveiller le bébé.', fr(E(2307)), 'Un seul sujet : de peur de + infinitif. EN: de peur de réveiller.', 'a7-cartes',
+          ['De peur de réveiller le bébé, il a baissé la voix.']),
         eS('Prends une veste chaude, de peur que tu aies froid au sommet.', fr(E(2304)), 'Un seul sujet : de peur d’avoir froid. EN: de peur d’avoir.', 'a7-erreurs',
           ["Prends une veste chaude, de crainte d'avoir froid au sommet.", 'Prends une veste chaude, pour ne pas avoir froid au sommet.', 'Prends une veste chaude, afin de ne pas avoir froid au sommet.']),
         eS('Nous avons réservé tôt de peur que l’hôtel est complet.', fr(E(2310)), 'Le subjonctif : soit. EN: soit.', 'a7-erreurs',
@@ -2812,7 +2814,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Mets ton manteau, comme ça tu n’… pas froid. »', ['auras', 'aies'], 0, 'Comme ça + indicatif. EN: auras.', 'a8-erreurs'),
         tI(MODE_Q, 'Assieds-toi, que je te (faire) un café.', fr(E(2331)), 'Que + subjonctif après un impératif : fasse. EN: fasse.', 'a8-construire'),
         tI('Réécris pour une lettre, avec nous, le futur et afin de.', 'On passe samedi, histoire de vous aider à préparer les cartons.', fr(E(2329)), 'Afin de et le futur, en registre soutenu. EN: afin de.', 'a8-histoire',
-          ['Nous viendrons samedi afin de vous aider à préparer les cartons.']),
+          ['Nous viendrons samedi afin de vous aider à préparer les cartons.', 'Afin de vous aider à préparer les cartons, nous passerons samedi.', 'Afin de vous aider à préparer les cartons, nous viendrons samedi.']),
         eS('Madame, je vous écris histoire de solliciter une subvention pour notre association.', 'Madame, je vous écris afin de solliciter une subvention pour notre association.', 'Dans une lettre : afin de. EN: afin de.', 'a8-erreurs',
           ['Madame, je vous écris pour solliciter une subvention pour notre association.', 'Madame, je vous écris dans le but de solliciter une subvention pour notre association.'], ES_LETTRE),
         eS('Mets ton manteau, comme ça tu n’aies pas froid.', fr(E(2328)), 'Comme ça + indicatif. EN: n’auras pas.', 'a8-erreurs',
@@ -2857,7 +2859,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Dans le règlement d’un appel à projets, quelle phrase convient ?', ['Numérotez les pages de façon à faciliter la lecture.', 'Numérotez les pages, histoire de faciliter la lecture.', 'Numérotez les pages, comme ça la lecture sera facile.'], 0, 'Un règlement : de façon à, afin de. EN: formal.', 'a11-trier'),
         tI(MODE_Q, 'Joignez un budget détaillé afin que le jury (pouvoir) évaluer votre projet.', fr(E(2368)), 'Afin que + subjonctif. EN: puisse.', 'a11-erreurs'),
         tI('Relie avec pour que, et écris la phrase.', "Nous avons prévu une rampe d'accès. Les fauteuils roulants pourront entrer.", fr(E(2376)), 'Un autre sujet : pour que + subjonctif. EN: puissent.', 'a11-erreurs',
-          ["Nous avons prévu une rampe d'accès pour que les fauteuils roulants entrent."]),
+          ["Nous avons prévu une rampe d'accès pour que les fauteuils roulants entrent.", "Pour que les fauteuils roulants puissent entrer, nous avons prévu une rampe d'accès.", "Pour que les fauteuils roulants entrent, nous avons prévu une rampe d'accès."]),
         eS('Joignez un budget détaillé afin que le jury peut évaluer votre projet.', fr(E(2368)), 'Afin que : puisse. EN: puisse.', 'a11-erreurs',
           ['Joignez un budget détaillé pour que le jury puisse évaluer votre projet.']),
         eS('L’an dernier, beaucoup de dossiers sont arrivés en retard, de sorte que le jury ait dû en refuser vingt.', fr(E(2372)), 'Un résultat : l’indicatif. EN: a dû.', 'a11-erreurs',

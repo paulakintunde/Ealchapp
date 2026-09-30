@@ -41,7 +41,7 @@ export const NEGATIONS_COMBINEES_TERMS: Record<string, LessonTerm> = {
   participe: {
     term: 'le participe',
     title: 'Chaque mot garde sa place',
-    body: "Au passé composé, plus, jamais et rien vont avant le participe ; personne, aucun, nulle part, que et ni… ni vont après. Dans une combinaison, chaque mot garde sa place : je n'ai plus vu personne, je n'ai jamais rien signé. EN: in a compound tense, each negative word keeps its own side of the participle.",
+    body: "Au passé composé, plus, jamais et rien vont avant le participe ; personne, aucun, nulle part, que avec son complément, et ni… ni devant des compléments, vont après. Dans une combinaison, chaque mot garde sa place : je n'ai plus vu personne, je n'ai jamais rien signé. EN: in a compound tense, each negative word keeps its own side of the participle.",
     examples: [
       { itemId: E(1437), note: 'plus avant, personne après' },
       { itemId: E(1439), note: 'plus jamais rien, tous avant' },
@@ -63,7 +63,7 @@ export const NEGATIONS_COMBINEES_TERMS: Record<string, LessonTerm> = {
   empilement: {
     term: 'pas + rien',
     title: 'Pas reste dehors',
-    body: "Pas ne se combine jamais avec rien, personne, jamais, plus ou aucun : « je n'ai pas rien vu » brouille le sens et s'entend même comme « quelque chose ». Seule exception, figée : ce n'est pas rien, c'est-à-dire c'est important. Pas… non plus, pas un seul et pas du tout restent corrects. EN: pas never joins another negative word; ce n'est pas rien is a fixed phrase meaning it matters.",
+    body: "Pas ne se combine jamais avec rien, personne, jamais, plus ou aucun : « je n'ai pas rien vu » brouille le sens et s'entend même comme « quelque chose ». Exception figée : ce n'est pas rien, c'est-à-dire c'est important. Pas… non plus, pas un seul et pas du tout restent corrects. EN: pas never joins another negative word; ce n'est pas rien is a fixed phrase meaning it matters.",
     examples: [
       { itemId: E(1476), note: 'rien seul, sans pas' },
       { itemId: E(1480), note: 'ce n’est pas rien : c’est grave' },
@@ -85,7 +85,7 @@ export const NEGATIONS_COMBINEES_TERMS: Record<string, LessonTerm> = {
   restriction: {
     term: 'plus que',
     title: 'Plus que, jamais que, pas que',
-    body: "Ne… plus que dit ce qui reste désormais ; ne… jamais que, ce qui n'a jamais été autre chose ; ne… pas que, pas seulement. Que n'est pas un mot négatif : il peut suivre pas sans empilement. Ne… que tout seul, c'est la leçon 19 du B2. EN: plus que: only … now; jamais que: only ever; pas que: not only.",
+    body: "Ne… plus que dit ce qui reste désormais ; ne… jamais que, ce qui n'a jamais été autre chose. Leur contraire, ne… pas que (pas seulement), vient de la leçon 19 du B2, comme ne… que tout seul. Que n'est pas un mot négatif : il peut suivre pas sans empilement. EN: plus que: only … now; jamais que: only ever; pas que: not only.",
     examples: [
       { itemId: E(1516), note: 'plus que : il n’en reste que deux' },
       { itemId: E(1519), note: 'jamais que : rien d’autre' },

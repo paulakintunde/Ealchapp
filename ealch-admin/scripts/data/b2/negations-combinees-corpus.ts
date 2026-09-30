@@ -46,9 +46,10 @@
 //                       ni… ne with the plural, plus personne ne, jamais
 //                       personne ne; personne n'a rien vu; never pas, and ne
 //                       never dropped in writing (act 6)
-//     la restriction    ne… plus que, ne… jamais que, ne… pas que (not only),
-//                       ne… guère que (soutenu); plain ne… que is lesson 19 in
-//                       B2, cited (act 7)
+//     la restriction    ne… plus que, ne… jamais que, ne… guère que
+//                       (soutenu); plain ne… que and ne… pas que (not only)
+//                       are lesson 19 in B2: pas que is only RECALLED here, as
+//                       the contrast that says « pas seulement » (act 7)
 //     le soutenu        ne… guère, ne… plus guère, ne… nullement / aucunement,
 //                       ne… point (literary, recognition), ne alone with
 //                       savoir, pouvoir, oser, cesser; si je ne me trompe;
@@ -160,7 +161,7 @@ export const UNIT = {
   seq: 21,
   title: 'Negation Combinations',
   sub: 'Les négations combinées',
-  canDo: 'Can combine negative words in the right order (plus jamais rien, plus aucun, plus ni… ni, jamais plus in formal style) and place them in simple and compound tenses and before an infinitive, never stacking pas with another negative word; can use a negative word as the subject (personne ne, rien ne, aucun… ne, nul ne, ni… ni… ne), the restrictive combinations (ne… plus que, ne… jamais que, ne… pas que), sans + rien, personne, aucun or jamais, and the formal negations (ne… guère, nullement, aucunement, ne alone with savoir, pouvoir, oser, cesser); controls the scope of a negation (je ne vous ai pas demandé de… / je vous ai demandé de ne pas…; pas tous / aucun), knows that the ne explétif negates nothing, keeps ne in writing, and writes a formal letter contesting an invoice or an accusation',
+  canDo: 'Can combine negative words in the right order (plus jamais rien, plus aucun, plus ni… ni, jamais plus in formal style) and place them in simple and compound tenses and before an infinitive, never stacking pas with another negative word; can use a negative word as the subject (personne ne, rien ne, aucun… ne, nul ne, ni… ni… ne), the restrictive combinations (ne… plus que, ne… jamais que), told apart from ne… pas que, sans + rien, personne, aucun or jamais, and the formal negations (ne… guère, nullement, aucunement, ne alone with savoir, pouvoir, oser, cesser); controls the scope of a negation (je ne vous ai pas demandé de… / je vous ai demandé de ne pas…; pas tous / aucun), knows that the ne explétif negates nothing, keeps ne in writing, and writes a formal letter contesting an invoice or an accusation',
   prereqUnitIds: ['b1.20', 'b2.06', 'b2.14'],
 } as const;
 
@@ -606,7 +607,7 @@ export const ACT5_ROWS: Row[] = [
   rule(1485, "Ce n'est pas rien veut dire : c'est important.", 'Ce n’est pas rien means: it matters.',
     '/sə nɛ pa ʁjɛ̃ vø diʁ sɛ.tɛ̃.pɔʁ.tɑ̃/', 'suh neh pa RYEHⁿ | veu DEER | seh-tehⁿ-por-TAHⁿ',
     '« Trois mois de retard, ce n’est pas rien » : c’est grave, ou sans importance ?',
-    "Grave. C'est une expression figée : rien y veut dire une chose sans importance, et pas la nie. C'est la seule rencontre de pas et de rien à garder.",
+    "Grave. C'est une expression figée : rien y veut dire une chose sans importance, et pas la nie. Ce n'est pas un empilement, pas plus que dans « ce n'est pas pour rien que… ».",
     ['fige']),
   sent(1486, 'Je ne signerai pas, et mon associée non plus.', 'I will not sign, and neither will my partner.',
     '/ʒə nə si.ɲə.ʁe pa e mɔ̃.na.sɔ.sje nɔ̃ ply/', 'zhuh nuh see-nyuh-RAY PA | ay mohⁿ-na-so-SYAY | nohⁿ PLÜ', ['non-plus']),
@@ -706,7 +707,7 @@ export const ACT7_ROWS: Row[] = [
   rule(1525, 'Ne… pas que veut dire : pas seulement.', 'Ne… pas que means: not only.',
     '/nə pa kə vø diʁ pa sœl.mɑ̃/', 'nuh PA KUH | veu DEER | pa suhl-MAHⁿ',
     '« Il n’y a pas que l’argent » : l’argent compte-t-il ?',
-    "Oui, mais d'autres choses aussi. Ne… pas que nie la restriction : pas seulement. Ce n'est pas un empilement, car que n'est pas un mot négatif.",
+    "Oui, mais d'autres choses aussi : c'est un rappel de la leçon 19 du B2. Ne… pas que enlève la restriction (pas seulement), là où plus que et jamais que la gardent. Ce n'est pas un empilement, car que n'est pas un mot négatif.",
     ['pas-que']),
   sent(1526, "Je ne demande plus qu'une chose : une réponse écrite.", 'I now ask for only one thing: a written reply.',
     '/ʒə nə də.mɑ̃d ply kyn ʃoz yn ʁe.pɔ̃s e.kʁit/', 'zhuh nuh duh-MAHⁿD | plü künn SHOHZ | ünn ray-pohⁿs ay-KREET', ['restriction', 'plus-que']),
@@ -927,13 +928,13 @@ export const TEXTE_A4 =
   "Le courriel de Léa à son voisin du dessous, à Genève, après une plainte pour bruit. Remets les mots entre parenthèses dans le bon ordre. « Cher Monsieur Favre, je vous présente mes excuses pour samedi. Je m'engage à (déplacer / rien / ne / plus) après vingt-deux heures et à (inviter / plus / personne / ne) en semaine. Hier, mes amis sont repartis sans (aucun / faire / bruit). Je vous promets aussi de (claquer / ne / jamais) la porte de l'entrée. J'espère que nous pourrons en rester là sans (rien / signaler) à la régie. Léa Morel »";
 
 export const TEXTE_A5 =
-  "Le courriel de Hugo Lambert, contrôleur de gestion à Lyon, accusé d'avoir modifié un tableau. Cinq phrases contiennent une négation fautive ; une seule est correcte. Corrige les cinq. « Madame, je n'ai pas rien modifié dans ce tableau. Je ne l'ai pas jamais ouvert après le 3 mai. Il n'y avait pas personne au bureau ce soir-là, et je n'ai pas reçu aucun message du service. Ma collègue n'a rien vu, et moi aussi. Être accusé sans preuve, ce n'est pas rien. Hugo Lambert »";
+  "Le courriel de Hugo Lambert, contrôleur de gestion à Lyon, accusé d'avoir modifié un tableau. Le courriel contient cinq négations fautives, réparties dans quatre phrases ; une seule phrase est correcte. Corrige les cinq fautes. « Madame, je n'ai pas rien modifié dans ce tableau. Je ne l'ai pas jamais ouvert après le 3 mai. Il n'y avait pas personne au bureau ce soir-là, et je n'ai pas reçu aucun message du service. Ma collègue n'a rien vu, et moi aussi. Être accusé sans preuve, ce n'est pas rien. Hugo Lambert »";
 
 export const TEXTE_A6 =
   "Le compte rendu du conseil de copropriété d'un immeuble de la rue Saint-Denis, à Montréal. Mets chaque verbe entre parenthèses au passé composé. « Depuis la panne de mars, personne ne (réparer) l'ascenseur. Rien ne (être fait) pour les résidents âgés du sixième. Aucun technicien ne (se déplacer). Ni le gestionnaire ni le propriétaire ne (répondre) à nos courriels. Personne ne nous (proposer) jamais rien. Nul ne (pouvoir) nous dire quand les travaux commenceront. Le conseil demande une rencontre avant la fin du mois. »";
 
 export const TEXTE_A7 =
-  "Un souvenir d'enfance publié dans une revue de Gaspésie. Complète chaque blanc avec plus que, jamais que ou pas que. « Dans le village de ma grand-mère, l'école a fermé, puis le magasin ; il ne reste (___) l'église et deux maisons. Le soir, on n'y entend (___) le vent. Ma grand-mère disait en riant que ce n'était (___) un village comme les autres, mais elle ajoutait qu'il n'y avait (___) la pêche dans la vie : il y avait aussi les chansons. Aujourd'hui, je n'y retourne (___) l'été, pour une semaine. »";
+  "Un souvenir d'enfance publié dans une revue de Gaspésie. Complète chaque blanc avec plus que, jamais que ou pas que. « Dans le village de ma grand-mère, l'école a fermé, puis le magasin ; il ne reste (___) l'église et deux maisons. Le soir, depuis, on n'y entend (___) le vent. Ma grand-mère disait en riant que ce n'était (___) un village comme les autres, mais elle ajoutait qu'il n'y avait (___) la pêche dans la vie : il y avait aussi les chansons. Aujourd'hui, je n'y retourne (___) l'été, pour une semaine. »";
 
 export const TEXTE_A8 =
   "La réponse de Me Dubois, notaire à Namur, à une cliente mécontente. Réécris chaque phrase dans le registre soutenu, avec le mot indiqué entre parenthèses. « Madame, je ne conteste pas du tout votre demande (nullement). Ce retard n'est pas du tout de mon fait (aucunement). Je ne peux pas vous répondre avant lundi (ne seul, avec pouvoir). Je ne sais pas si votre voisin a signé l'acte (ne seul, avec savoir). Il ne vient presque plus à l'étude (plus guère). Veuillez agréer, Madame, mes salutations distinguées. »";

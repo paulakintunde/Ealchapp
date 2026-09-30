@@ -39,7 +39,7 @@ export const EXPRESSION_BUT_TERMS: Record<string, LessonTerm> = {
   registre: {
     term: 'le registre',
     title: 'Pour, afin de, à cette fin',
-    body: "Le but ne change pas, la manière de viser si : histoire de entre amis, pour partout, afin de et dans le but de à l'écrit, à cette fin dans une lettre très soutenue. EN: The aim stays the same; the register of the tool changes.",
+    body: "Le but ne change pas ; la manière de viser, si : histoire de entre amis, pour partout, afin de et dans le but de à l'écrit, à cette fin dans une lettre très soutenue. EN: The aim stays the same; the register of the tool changes.",
     examples: [
       { itemId: E(2234), note: 'pour : partout' },
       { itemId: E(2235), note: 'afin de : une lettre, un avis' },

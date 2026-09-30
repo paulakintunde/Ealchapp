@@ -95,7 +95,7 @@ export const RESTRICTION_TERMS: Record<string, LessonTerm> = {
   sauf: {
     term: 'sauf, hormis',
     title: 'Sauf, excepté, hormis, à part',
-    body: "Ces mots ouvrent la porte à un nom ou à un pronom : sauf moi, excepté le lundi. Sauf va partout, à part est surtout oral, excepté, hormis et à l'exception de sont plus soutenus. Excepté s'accorde seulement après le nom. EN: exception words before a noun, by register.",
+    body: "Ces mots ouvrent la porte à un nom ou à un pronom : sauf moi, excepté le lundi. Sauf va partout, à part est courant, excepté, hormis et à l'exception de sont plus soutenus. Excepté s'accorde seulement après le nom. EN: exception words before a noun, by register.",
     examples: [
       { itemId: E(1301), note: 'sauf : partout' },
       { itemId: E(1303), note: 'hormis : soutenu' },
@@ -139,7 +139,7 @@ export const RESTRICTION_TERMS: Record<string, LessonTerm> = {
   registre: {
     term: 'le registre',
     title: 'Qui dit quoi, et où',
-    body: "Un avis officiel écrit uniquement, exclusivement, à l'exception de, sauf avis contraire. La conversation dit seulement, à part, sauf que. Sinon au sens d'excepté, si ce n'est et sauf à appartiennent au registre soutenu. EN: pick the word that fits the text you are writing.",
+    body: "Un avis officiel écrit uniquement, exclusivement, à l'exception de, sauf avis contraire. La langue de tous les jours dit seulement, à part, sauf que. Sinon au sens d'excepté, si ce n'est et sauf à appartiennent au registre soutenu. EN: pick the word that fits the text you are writing.",
     examples: [
       { itemId: E(1250), note: 'exclusivement : un avis' },
       { itemId: E(1311), note: 'sauf avis contraire : une formule' },

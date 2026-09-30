@@ -19,7 +19,7 @@ export const TOURNURES_IMPERSONNELLES_TERMS: Record<string, LessonTerm> = {
     title: 'Un il qui ne désigne personne',
     body: "Dans il faut, il est probable ou il manque, le il ne remplace aucun nom : c'est un sujet vide que la phrase française exige. Il reste toujours masculin singulier. Ce qui compte, c'est ce qui le suit. EN: The impersonal il stands for nothing; what follows it carries the meaning.",
     examples: [
-      { itemId: E(2008), note: 'il manque : personne ne manque, deux signatures manquent' },
+      { itemId: E(2008), note: 'il manque : ce sont deux signatures qui manquent' },
       { itemId: E(2017), note: 'il faut : aucun nom derrière il' },
       { itemId: E(2012), note: 'il reste : le vrai sujet vient après' },
     ],

@@ -635,7 +635,7 @@ const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
   ctl('Le subjonctif', 'Lequel prend le subjonctif ?',
     ['jusqu’à ce que', 'pendant que', 'après que'], 0,
     'Une limite attendue, pas encore là. EN: jusqu’à ce que.'),
-  ctl('Après que', '« Après que le train … parti, le quai s’est vidé. »',
+  ctl('Après que', '« Après que le train … parti, le quai s’est vidé. » (à l’écrit)',
     ['est', 'soit'], 0,
     'Déjà fait : indicatif. EN: est.'),
   ctl('Un seul sujet', '« Appelle-moi … du train. »',
@@ -770,13 +770,13 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Avant que : pas encore, donc subjonctif',
-    body: "Avant que regarde un fait qui n'a pas encore eu lieu : subjonctif présent, ou passé pour un fait fini avant. Jamais l'indicatif, jamais le futur ; et avec un seul sujet, avant de. EN: always the subjunctive; one subject, avant de.",
+    body: "Avant que regarde un fait qui n'a pas encore eu lieu : subjonctif présent, ou passé pour un fait fini avant. Jamais l'indicatif, jamais le futur ; et avec un seul sujet, l'écrit soigné préfère avant de. EN: always the subjunctive; one subject, avant de in careful writing.",
   },
   cards: [
     trap(E(2433), 'avant que + indicatif', 'Vérifie la dose avant que le patient repart.', 'Pas encore reparti : subjonctif, reparte. EN: reparte.'),
     trap(E(2437), 'avant que + indicatif', 'Préviens le médecin avant qu’il est trop tard.', 'Avant que + subjonctif : soit. EN: soit.'),
     trap(E(2444), 'avant que + passé composé', 'Il est parti avant que j’ai pu le remercier.', 'Le merci n’a pas eu lieu : subjonctif, puisse. EN: puisse.'),
-    trap(E(2440), 'un seul sujet', 'Je relis toujours avant que je signe.', 'Toi seul : avant de signer. EN: avant de.'),
+    trap(E(2440), 'un seul sujet', 'Je relis toujours avant que je signe.', 'Pas une faute, mais un seul sujet : l’écrit soigné dit avant de signer. EN: avant de.'),
     trap(E(2434), 'avant que + futur', 'Range les flacons avant que les clients arriveront.', 'Jamais de futur : arrivent, au subjonctif. EN: arrivent.'),
     trap(E(2436), 'avant d’avoir + participe', 'Avant d’avoir finir son stage, Lucas savait déjà préparer un sirop.', 'Avant d’avoir, puis le participe : fini. EN: fini.'),
   ],
@@ -1009,10 +1009,10 @@ const A4_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A4_TEXTE = dansUnTexte('a4-texte', 'Compléter : le courriel de Thomas', TEXTE_A4, [
-  { q: 'Première phrase : je resterai à la gare (___) la compagnie (trouver) une solution.', a: "Jusqu'à ce que la compagnie trouve une solution : une limite attendue, subjonctif." },
+  { q: 'Première phrase : je resterai à la gare (___) la compagnie (trouver) une solution.', a: "Jusqu'à ce que la compagnie trouve une solution : une limite attendue, subjonctif. En attendant que la compagnie trouve irait aussi, avec le même subjonctif." },
   { q: 'Deuxième phrase : (___) (connaître) l’horaire du prochain départ, j’ai prévenu le client.', a: "En attendant de connaître l'horaire : Thomas attend et Thomas saura, un seul sujet, l'infinitif." },
-  { q: 'Troisième phrase : (___) les travaux (être) finis, la compagnie propose des bus.', a: "En attendant que les travaux soient finis : deux sujets, un fait attendu, subjonctif." },
-  { q: 'Dernière phrase : je ne pourrai rien vous confirmer (___) le train ne (être) pas annoncé.', a: "Tant que le train ne sera pas annoncé : tant que + négation, et l'avenir au futur. Sans ne… pas, on écrirait jusqu'à ce que le train soit annoncé." },
+  { q: 'Troisième phrase : (___) les travaux (être) finis, la compagnie propose des bus.', a: "En attendant que les travaux soient finis : deux sujets, un fait attendu, subjonctif. Jusqu'à ce que les travaux soient finis irait aussi." },
+  { q: 'Dernière phrase : je ne pourrai rien vous confirmer (___) le train ne (être) pas annoncé.', a: "Tant que le train ne sera pas annoncé : tant que + négation, et l'avenir au futur. Tant qu'il n'est pas annoncé se dit aussi, pour une attente déjà en cours. Sans ne… pas, on écrirait jusqu'à ce que le train soit annoncé." },
 ], 'rec-b2-18-texte-a4', ['limite']);
 
 const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
@@ -1168,7 +1168,7 @@ const A5_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: '« Avant qu’il ne parte » : il part…', opts: ['bientôt', 'jamais'], correct: 0 },
     { promptSay: 'Signons avant que le notaire ne …', opts: ['part', 'parte'], correct: 1 },
-    { promptSay: 'Elle est entrée sans …', opts: ['qu’on l’entende', 'qu’on ne l’entende'], correct: 0 },
+    { promptSay: 'Elle est entrée sans … (à l’écrit soigné)', opts: ['qu’on l’entende', 'qu’on ne l’entende'], correct: 0 },
     { promptSay: '« Je crains qu’il ne vienne pas » : j’ai peur…', opts: ['qu’il manque', 'qu’il vienne'], correct: 0 },
     { promptSay: 'Le trajet a été plus long que je ne le …', opts: ['pensais pas', 'pensais'], correct: 1 },
     { promptSay: 'Je crains que l’orage … pendant la cérémonie.', opts: ['n’éclate', 'n’éclatera'], correct: 0 },
@@ -1292,7 +1292,7 @@ const A6_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Juste à ce moment', label: 'comme + imparfait',
       fr: fr(E(2489)), sub: rsOf(E(2489)),
-      body: `En tête de phrase, comme + imparfait veut dire juste au moment où. Pour une cause, c'est le comme de ${SUBORD_REF}. Le comme de temps est surtout écrit. EN: just as; not the comme of cause.`,
+      body: `En tête de phrase, comme + imparfait veut dire juste au moment où quand l'autre fait tombe pendant l'action : je sortais, et le choc arrive. S'il en découle, c'est le comme de cause de ${SUBORD_REF} : comme nous étions en avance, nous avons visité le musée. Le comme de temps est surtout écrit. EN: just as, when the other event cuts in; if it follows from it, a cause.`,
     },
   ],
 };
@@ -1403,7 +1403,7 @@ const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
     'Même sens que quand, plus soigné, et l’indicatif. EN: the written quand.'),
   ctl('Comme', '« Comme je sortais, j’ai entendu un choc. » Ce comme veut dire…',
     ['juste au moment où', 'puisque'], 0,
-    'Comme + imparfait en tête : un moment. EN: just as.'),
+    'Le choc tombe pendant que je sors : un moment, pas une raison. EN: just as.'),
 ], ['pendant']);
 
 const ACT6: ActDef = {
@@ -1913,10 +1913,10 @@ const A9_PIEGE: Sec<'trapDrill'> = {
     trap(E(2551), 'dès que, vu du passé', 'Elle m’avait dit qu’elle passerait dès qu’elle aura fini.', 'Vu du passé, le futur antérieur devient conditionnel passé : aurait fini. EN: aurait fini.'),
   ],
   drill: [
-    { promptSay: 'Quand tu …, la clé sera sous le pot de fleurs.', opts: ['arrives', 'arriveras'], correct: 1 },
+    { promptSay: 'Quand tu …, la clé sera sous le pot de fleurs. (à l’écrit)', opts: ['arrives', 'arriveras'], correct: 1 },
     { promptSay: 'Si tu … un problème, appelle ma voisine.', opts: ['as', 'auras'], correct: 0 },
-    { promptSay: 'Pendant que je … à Lisbonne, tu pourras utiliser mon vélo.', opts: ['serai', 'suis'], correct: 0 },
-    { promptSay: 'Lorsque le plombier …, montre-lui la salle de bains.', opts: ['viendra', 'vient'], correct: 0 },
+    { promptSay: 'Pendant que je … à Lisbonne, tu pourras utiliser mon vélo. (à l’écrit)', opts: ['serai', 'suis'], correct: 0 },
+    { promptSay: 'Lorsque le plombier …, montre-lui la salle de bains. (à l’écrit)', opts: ['viendra', 'vient'], correct: 0 },
     { promptSay: 'Julien a promis qu’il appellerait quand il …', opts: ['arrivera', 'arriverait'], correct: 1 },
     { promptSay: 'Quand il … chaud, j’arrose le soir. (une habitude)', opts: ['fait', 'fera'], correct: 0 },
     { promptSay: 'Elle m’avait dit qu’elle passerait dès qu’elle … fini.', opts: ['aurait', 'aura'], correct: 0 },
@@ -2052,7 +2052,7 @@ const A10_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(2559), 'passé composé, au passif'),
       it(OA(1937), 'passé composé'),
       it(OA(1939), 'passé composé, avec être'),
-    ], chk('« Après que la présidente … la séance, le trésorier a parlé. »',
+    ], chk('« Après que la présidente … la séance, le trésorier a parlé. » (à l’écrit)',
       ['a ouvert', 'ait ouvert', 'ouvre'], 0,
       'Un fait accompli : indicatif. EN: a ouvert.')),
     grp('Plus court : un nom ou un infinitif', [
@@ -2092,9 +2092,9 @@ const A10_PIEGE: Sec<'trapDrill'> = {
     trap(E(2558), 'après que + nom', 'Après que le vote, la séance a été levée.', 'Devant un nom, après seul : après le vote. EN: après le vote.'),
   ],
   drill: [
-    { promptSay: 'Après que la présidente … la séance, le trésorier a parlé.', opts: ['a ouvert', 'ait ouvert'], correct: 0 },
+    { promptSay: 'Après que la présidente … la séance, le trésorier a parlé. (à l’écrit)', opts: ['a ouvert', 'ait ouvert'], correct: 0 },
     { promptSay: 'Après … les comptes, le trésorier a répondu.', opts: ['avoir présenté', 'présentant'], correct: 0 },
-    { promptSay: 'Après qu’il … élu, le secrétaire a pris la parole.', opts: ['ait été', 'a été'], correct: 1 },
+    { promptSay: 'Après qu’il … élu, le secrétaire a pris la parole. (à l’écrit)', opts: ['ait été', 'a été'], correct: 1 },
     { promptSay: 'Après …, la séance a été levée.', opts: ['le vote', 'que le vote'], correct: 0 },
     { promptSay: 'Après qu’on … la date, nous préviendrons les membres.', opts: ['fixera', 'aura fixé'], correct: 1 },
     { promptSay: 'Après être … en retard, la vice-présidente s’est excusée.', opts: ['arrivée', 'arrivé'], correct: 0 },
@@ -2132,7 +2132,7 @@ const A10_TEXTE = dansUnTexte('a10-texte', 'Réécrire : le procès-verbal de Li
 ], 'rec-b2-18-texte-a10', ['apres']);
 
 const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
-  ctl('Après que', '« Après qu’il … élu, le secrétaire a pris la parole. »',
+  ctl('Après que', '« Après qu’il … élu, le secrétaire a pris la parole. » (à l’écrit)',
     ['a été', 'ait été'], 0,
     'Un fait accompli : indicatif. EN: a été.'),
   ctl('L’oral', '« Après qu’il soit parti », à l’écrit soigné, c’est…',
@@ -2327,7 +2327,7 @@ const A11_TEXTE = dansUnTexte('a11-texte', 'Reconnaître : un extrait de roman',
 ], 'rec-b2-18-texte-a11', ['anteriorite']);
 
 const A11_CHECK = actCheck('a11-check', 'Le point : acte 11', [
-  ctl('Le futur', '« Dès que j’… fini ce livre, je te le prêterai. »',
+  ctl('Le futur', '« Dès que j’… fini ce livre, je te le prêterai. » (à l’écrit)',
     ['aurai', 'ai', 'avais'], 0,
     'Futur ensuite : futur antérieur. EN: aurai fini.'),
   ctl('L’imparfait', '« Dès que nous … dîné, mon père sortait les cartes. »',
@@ -2727,7 +2727,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         eS("Le contrôleur a répété l'annonce jusqu'à ce que tout le monde est descendu.", fr(E(2455)), 'Jusqu’à ce que : subjonctif, descende. EN: descende.', 'a4-erreurs',
           ["Le contrôleur a répété l'annonce jusqu'au moment où tout le monde est descendu.", "Le contrôleur a répété l'annonce jusqu'à ce que tout le monde soit descendu."]),
         eS("Reste dans la salle d'attente tant que le train est annoncé.", fr(E(2458)), 'Pour dire until : tant que + ne… pas. EN: n’est pas annoncé.', 'a4-erreurs',
-          ["Reste dans la salle d'attente jusqu'à ce que le train soit annoncé."]),
+          ["Reste dans la salle d'attente jusqu'à ce que le train soit annoncé.", "Reste dans la salle d'attente tant que le train n'a pas été annoncé."],
+          'Le sens voulu : until the train is announced. Une forme ne va pas : écris la phrase correcte. EN: The intended meaning is until; one form is wrong; write the sentence correctly.'),
         lC('Écoute. Le train est-il finalement arrivé ?', fr(E(2456)), ['oui', 'non', 'on ne le sait pas encore'], 0, 'Jusqu’au moment où + indicatif : un fait qui a eu lieu. EN: yes.', 'a4-ecoute'),
       ],
     },
@@ -2738,9 +2739,10 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Je crains que les témoins ne viennent pas. » J’ai peur…', ['qu’ils manquent', 'qu’ils viennent'], 0, 'Avec pas, une vraie négation. EN: that they will not come.', 'a5-cartes'),
         mc('Après quel mot le ne explétif n’a-t-il pas sa place à l’écrit soigné ?', ['sans que', 'avant que', 'craindre que'], 0, 'Sans que dit déjà sans. EN: sans que.', 'a5-cartes'),
         mc('Le ne explétif est…', ['facultatif : le sens ne change pas', 'obligatoire après avant que', 'une négation plus polie'], 0, 'Facultatif et soutenu. EN: optional.', 'a5-construire'),
-        tI('Mets le verbe au subjonctif en gardant le ne explétif, et écris la phrase.', "Réglons ce point avant qu'il ne (être) trop tard.", fr(E(2480)), 'Avant que + subjonctif : ne soit. EN: ne soit.', 'a5-piege'),
+        tI('Mets le verbe au subjonctif en gardant le ne explétif, et écris la phrase.', "Réglons ce point avant qu'il ne (être) trop tard.", fr(E(2480)), 'Avant que + subjonctif : ne soit. EN: ne soit.', 'a5-piege',
+          ["Réglons ce point avant qu'il soit trop tard."]),
         tI('Réécris la phrase sans le ne explétif.', 'Signons avant que le notaire ne parte.', fr(E(2469)), 'Sans le ne, le sens ne change pas. EN: same meaning.', 'a5-construire'),
-        eS("Elle est entrée sans qu'on ne l'entende.", fr(E(2479)), 'À l’écrit soigné, pas de ne après sans que. EN: no ne.', 'a5-piege', [], ES_SOIGNE),
+        eS("Elle est entrée sans qu'on ne l'entende.", fr(E(2479)), 'À l’écrit soigné, pas de ne après sans que. EN: no ne.', 'a5-piege', ['Elle est entrée sans être entendue.'], ES_SOIGNE),
         lC('Écoute. Le trajet a-t-il été plus court que prévu ?', fr(E(2473)), ['non, plus long', 'oui, plus court'], 0, 'Plus long que je ne le pensais : le ne ne nie rien. EN: no, longer.', 'a5-construire'),
       ],
     },
@@ -2748,14 +2750,14 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r6-simultane', label: 'En même temps', targets: ['moment-flou'],
       questions: [
         mc('« … le feu est passé au vert, une voiture a démarré. »', ['Au moment où', 'Pendant que'], 0, 'Un instant : au moment où. EN: au moment où.', 'a6-cartes'),
-        mc('« Comme je sortais, j’ai entendu un choc. » Ce comme veut dire…', ['juste au moment où', 'puisque', 'de la même façon que'], 0, 'Comme + imparfait en tête : un moment. EN: just as.', 'a6-cartes'),
+        mc('« Comme je sortais, j’ai entendu un choc. » Ce comme veut dire…', ['juste au moment où', 'puisque', 'de la même façon que'], 0, 'Le choc tombe pendant que je sors : un moment, pas une raison. EN: just as.', 'a6-cartes'),
         mc('Lorsque, c’est…', ['quand, en plus soigné', 'un mot suivi du subjonctif', 'pendant que, en plus court'], 0, 'Le quand de l’écrit, à l’indicatif. EN: the written quand.', 'a6-cartes'),
         tI('Mets le verbe à l’imparfait, et écris la phrase.', "Au moment où le camion (reculer), l'enfant a traversé.", fr(E(2498)), 'Une action en cours : reculait. EN: reculait.', 'a6-construire'),
         tI('Mets le verbe au temps de la situation, et écris la phrase.', "Lorsque le cycliste est tombé, j'(être) au coin de la rue.", fr(E(2497)), 'La situation autour de l’instant : imparfait, étais. EN: étais.', 'a6-construire'),
         eS('Pendant que le feu est passé au vert, une voiture a démarré.', fr(E(2486)), 'Un instant : au moment où. EN: au moment où.', 'a6-erreurs',
           ['Quand le feu est passé au vert, une voiture a démarré.', 'Lorsque le feu est passé au vert, une voiture a démarré.', 'Dès que le feu est passé au vert, une voiture a démarré.']),
         eS('Comme je suis sortie de la boulangerie, j’ai entendu un choc.', fr(E(2489)), 'Le comme de temps veut l’imparfait : je sortais. EN: je sortais.', 'a6-erreurs',
-          ["Au moment où je sortais de la boulangerie, j'ai entendu un choc.", "Alors que je sortais de la boulangerie, j'ai entendu un choc.", "Pendant que je sortais de la boulangerie, j'ai entendu un choc.", "Quand je sortais de la boulangerie, j'ai entendu un choc.", "Comme je sortais de la boulangerie, j'ai entendu un bruit de choc."]),
+          ["Au moment où je sortais de la boulangerie, j'ai entendu un choc.", "Alors que je sortais de la boulangerie, j'ai entendu un choc.", "Pendant que je sortais de la boulangerie, j'ai entendu un choc.", "Quand je sortais de la boulangerie, j'ai entendu un choc.", "Comme je sortais de la boulangerie, j'ai entendu un bruit de choc.", "Lorsque je sortais de la boulangerie, j'ai entendu un choc.", "Au moment où je suis sortie de la boulangerie, j'ai entendu un choc.", "Quand je suis sortie de la boulangerie, j'ai entendu un choc.", "Lorsque je suis sortie de la boulangerie, j'ai entendu un choc."]),
         lC('Écoute. Que faisait le cycliste quand la voiture a tourné ?', fr(E(2487)), ['il traversait', 'il attendait au feu', 'il était déjà par terre'], 0, 'Pendant que + imparfait : une action en cours. EN: he was crossing.', 'a6-ecoute'),
       ],
     },
@@ -2822,7 +2824,7 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r11-anteriorite', label: 'Dès que, une fois que', targets: ['temps-compose-manque'],
       questions: [
-        mc('« Dès que j’… fini ce livre, je te le prêterai. »', ['aurai', 'ai', 'avais'], 0, 'Futur ensuite : futur antérieur. EN: aurai.', 'a11-cartes'),
+        mc('À l’écrit : « Dès que j’… fini ce livre, je te le prêterai. »', ['aurai', 'ai', 'avais'], 0, 'Futur ensuite : futur antérieur. EN: aurai.', 'a11-cartes'),
         mc('« Dès que nous … dîné, mon père sortait les cartes. »', ['avions', 'avons', 'aurons'], 0, 'Imparfait ensuite : plus-que-parfait. EN: avions.', 'a11-cartes'),
         mc('« Dès qu’il eut fini son repas, il sortit. » Aujourd’hui, on écrit :', ['Dès qu’il a fini son repas, il est sorti.', 'Dès qu’il a fini son repas, il sortit.', 'Dès qu’il eut fini son repas, il est sorti.'], 0, 'Le passé antérieur va avec le passé simple ; aujourd’hui, le passé composé. EN: dès qu’il a fini.', 'a11-erreurs'),
         tI('Mets le verbe au plus-que-parfait, et écris la phrase.', 'Aussitôt que la cloche (sonner), nous courions vers la sortie.', fr(E(2576)), 'Une habitude passée, la cloche d’abord : avait sonné. EN: avait sonné.', 'a11-construire'),
@@ -2837,8 +2839,8 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r12-recyclage', label: 'Le B1 et le B2 en renfort', targets: ['recyclage'],
       questions: [
-        mc(`${Cap(SUBORD_REF)} : « Après qu’il … parti, nous avons fermé le bureau. »`, ['est', 'soit'], 0, `« ${B131_REFRAME} » EN: ${B131_REFRAME_EN}`, 'a2-rappel'),
-        mc(`${Cap(FUTUR_USAGE_REF)} : « Dès que tu … prêt, on partira. »`, ['seras', 'es'], 0, `« ${B107_REFRAME} » EN: ${B107_REFRAME_EN}`, 'a2-rappel'),
+        mc(`${Cap(SUBORD_REF)} : à l’écrit, « Après qu’il … parti, nous avons fermé le bureau. »`, ['est', 'soit'], 0, `« ${B131_REFRAME} » EN: ${B131_REFRAME_EN}`, 'a2-rappel'),
+        mc(`${Cap(FUTUR_USAGE_REF)} : à l’écrit, « Dès que tu … prêt, on partira. »`, ['seras', 'es'], 0, `« ${B107_REFRAME} » EN: ${B107_REFRAME_EN}`, 'a2-rappel'),
         mc(`${Cap(SUBJ_INF_REF)} : à l’écrit soigné, « Je relis toujours … »`, ['avant de signer', 'avant que je signe'], 0, `« ${B116_REFRAME} » EN: ${B116_REFRAME_EN}`, 'a3-cartes'),
         tI(`${Cap(MODES_REF)} : mets le verbe au mode qui convient, et écris la phrase.`, 'Avant que le conseil (prendre) sa décision, les habitants ont manifesté.', fr(OA(1938)), `« ${B206_REFRAME} » EN: ${B206_REFRAME_EN}`, 'a2-rappel',
           ['Avant que le conseil ne prenne sa décision, les habitants ont manifesté.']),

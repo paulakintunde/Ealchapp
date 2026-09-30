@@ -169,6 +169,19 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**Wave 6 pre-review, 2026-09-30.** One reviewer per lesson, fixes applied: b2.17 3 blockers
+(type-ins refusing the fronted purpose clause), the hidden subject (« pour le remplir ») reframed as
+unclear, not an error; b2.18 1 blocker (a connector fix refused), the false rule « comme + imparfait
+en tête = moment » replaced (moment or reason, the meaning decides), « à l'écrit » framing on 14
+items; b2.19 0 blockers, two model texts that contradicted their own ne…que, « à part » is courant
+not merely spoken, one wrong audio; b2.20 1 blocker (the future after « il n'est pas certain que »
+refused against its own grader notes), « syndic » to « gestionnaire » in a Montréal text; b2.21 2
+blockers (« jamais plus » refused, a first-word question with two right answers), « ce n'est pas
+rien » no longer « the only » pas + rien. Overlap settled: b2.19 owns « ne… pas que », b2.21 keeps it
+as a recall and contrast to plus que / jamais que; « que + complément avant le participe » is the error,
+« il n'a qu'effleuré » is correct. After: app checks 0, house tests 262/262, import dry run 910 /
+0 blockers, preview rebuilt (5 lessons, 59 acts).
+
 **WAVE 6 DRAFTED, 2026-09-30** (b2.17 to b2.21). 910 authored rows; app checks 0 on all five,
 house tests 262/262, B2 import dry run 910 to insert / 0 blockers / 0 conflicts, floors clear;
 177 published rows reused. On ART_PENDING until Paul's 59 openers land. The five cite each

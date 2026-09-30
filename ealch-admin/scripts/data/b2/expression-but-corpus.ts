@@ -482,7 +482,7 @@ export const ACT3_ROWS: Row[] = [
     '/la mɛ.ʁi a py.bli.je œ̃.na.vi a.fɛ̃ dɛ̃.fɔʁ.me le ʁi.və.ʁɛ̃ de tʁa.vo/', 'la meh-REE a pü-blee-YAY uhⁿ-na-VEE | a-fehⁿ dehⁿ-for-MAY | lay ree-vuh-REHⁿ day tra-VOH', ['registre', 'afin-de'], FCVR, SO),
   sent(2246, 'Pour que la fête soit réussie, chacun apporte un plat.', 'So that the party is a success, everyone brings a dish.',
     '/puʁ kə la fɛt swa ʁe.y.si ʃa.kœ̃ a.pɔʁt œ̃ pla/', 'poor kuh la FET swa ray-ü-SEE | sha-KUHⁿ a-PORT uhⁿ PLA', ['registre', 'pour-que']),
-  sent(2247, 'Afin que la fête soit réussie, chaque participant est invité à apporter un plat.', 'So that the event is a success, each participant is asked to bring a dish.',
+  sent(2247, 'Afin que la fête soit réussie, chaque participant est invité à apporter un plat.', 'So that the party is a success, each participant is asked to bring a dish.',
     '/a.fɛ̃ kə la fɛt swa ʁe.y.si ʃak paʁ.ti.si.pɑ̃ ɛ.tɛ̃.vi.te a a.pɔʁ.te œ̃ pla/', 'a-fehⁿ kuh la FET swa ray-ü-SEE | shak par-tee-see-PAHⁿ | eh-tehⁿ-vee-TAY a a-por-TAY uhⁿ PLA', ['registre', 'afin-que'], FCVR, SO),
 ];
 
@@ -592,7 +592,7 @@ export const ACT6_ROWS: Row[] = [
     '/kup lə ʃo.faʒ lə vɑ̃.dʁə.di puʁ kə la fak.tyʁ nə swa pa tʁo luʁd/', 'koop luh sho-FAZH luh vahⁿ-druh-DEE | poor kuh la fak-TÜR | nuh swa pa troh LOORD', ['negatif', 'subjonctif'], FCVDR),
   sent(2290, 'Afin de ne pas perdre de temps, nous commencerons les réunions à l\'heure.', 'So as not to waste time, we will start meetings on time.',
     '/a.fɛ̃ də nə pa pɛʁdʁ də tɑ̃ nu kɔ.mɑ̃s.ʁɔ̃ le ʁe.y.njɔ̃ a lœʁ/', 'a-fehⁿ duh nuh pa PEHRDR duh TAHⁿ | noo ko-mahⁿs-ROHⁿ | lay ray-ü-NYOHⁿ a LUHR', ['negatif', 'afin-de'], FCVR, SO),
-  sent(2291, "Préviens les clients afin qu'ils ne se déplacent pas pour rien.", 'Warn the customers so that they do not come for nothing.',
+  sent(2291, "Préviens les clients afin qu'ils ne se déplacent pas pour rien.", 'Warn the customers so that they do not make the trip for nothing.',
     '/pʁe.vjɛ̃ le kli.jɑ̃ a.fɛ̃ kil nə sə de.plas pa puʁ ʁjɛ̃/', 'pray-vyehⁿ lay klee-YAHⁿ | a-fehⁿ keel nuh suh day-PLASS pa | poor RYEHⁿ', ['negatif', 'afin-que']),
   rule(2292, 'Devant un infinitif, ne pas passe en bloc devant le verbe : pour ne pas le déranger.', 'Before an infinitive, ne pas goes as a block before the verb: pour ne pas le déranger.',
     '/də.vɑ̃ œ̃.nɛ̃.fi.ni.tif nə pa pas ɑ̃ blɔk də.vɑ̃ lə vɛʁb puʁ nə pa lə de.ʁɑ̃.ʒe/', 'duh-vahⁿ uhⁿ-nehⁿ-fee-nee-TEEF | nuh PA | pass ahⁿ BLOK | duh-vahⁿ luh VEHRB | poor nuh pa luh day-rahⁿ-ZHAY',

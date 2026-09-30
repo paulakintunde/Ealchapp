@@ -62,7 +62,7 @@ export const SUBORDONNEES_TEMPS_TERMS: Record<string, LessonTerm> = {
   pendant: {
     term: 'en même temps',
     title: 'Quand, lorsque, pendant que, au moment où',
-    body: "Les deux faits se passent en même temps, donc l'indicatif. Pendant que dit une durée, au moment où un instant, lorsque est le quand de l'écrit. Comme + imparfait, en tête de phrase, veut dire juste au moment où. EN: Same time, so the indicative: a stretch, an instant, or the written quand.",
+    body: "Les deux faits se passent en même temps, donc l'indicatif. Pendant que dit une durée, au moment où un instant, lorsque est le quand de l'écrit. Comme + imparfait, en tête de phrase, veut dire juste au moment où si l'autre fait tombe pendant l'action ; s'il en découle, c'est une cause. EN: Same time, so the indicative: a stretch, an instant, or the written quand.",
     examples: [
       { itemId: E(2487), note: 'pendant que : une action qui dure' },
       { itemId: E(2486), note: 'au moment où : un instant' },

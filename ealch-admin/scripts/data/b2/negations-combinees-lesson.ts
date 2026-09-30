@@ -42,7 +42,9 @@
 //                                           plus personne ne; personne n'a
 //                                           rien vu
 //    7  Plus que, jamais que, pas que  7   restriction combined (plain ne…
-//                                           que is lesson 19 in B2)
+//                                           que and ne… pas que are lesson
+//                                           19 in B2: pas que only recalled,
+//                                           as the contrast)
 //    8  Le registre soutenu            8   guère, plus guère, nullement,
 //                                           aucunement, point (recognise),
 //                                           ne alone with savoir, pouvoir,
@@ -91,7 +93,8 @@
 //           ban on stacking pas and its one fixed exception (ce n'est pas
 //           rien); pas… non plus; the negative subject with combinations
 //           (personne n'a rien vu, nul ne, ni… ni… ne); ne… plus que, ne…
-//           jamais que, ne… pas que, ne… guère que; the formal negations and
+//           jamais que, ne… guère que (ne… pas que belongs to lesson 19 in B2,
+//           recalled only as their contrast); the formal negations and
 //           ne alone; scope; the ne explétif named as NOT a negation; the
 //           dropped ne under the gate B2-2 spoken-variant decision.
 //   QUOTES  the reframes of lesson 20 in B1 and lessons 6, 9, 11, 14 in B2,
@@ -656,7 +659,7 @@ const A2_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
-  ctl('L’ordre', 'Quel mot vient en premier dans la combinaison ?',
+  ctl('L’ordre', 'Dans l’ordre courant, quel mot vient en premier dans la combinaison ?',
     ['plus', 'jamais', 'rien'], 0,
     'Plus, puis jamais, puis rien ou personne. EN: plus.'),
   ctl('Aucun', '« Il n’y a … commerce. »',
@@ -706,9 +709,9 @@ const A3_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: fr(E(1442)), en: en(E(1442)) },
     { from: 'coach', fr: 'Nulle part ferme la phrase, après le complément.', en: 'Nulle part closes the sentence, after the object.', warn: 'Nulle part' },
     { from: 'user', fr: fr(E(1443)), en: en(E(1443)) },
-    { from: 'coach', fr: 'Plus avant parlé, que après : il n’a parlé qu’à elle, désormais.', en: 'Plus before parlé, que after: from then on he spoke only to her.', warn: 'Plus… que' },
+    { from: 'coach', fr: 'Plus avant parlé, qu’à la gardienne après : il n’a parlé qu’à elle, désormais.', en: 'Plus before parlé, qu’à la gardienne after: from then on he spoke only to her.', warn: 'Plus… que' },
   ],
-  closing: { fr: 'Plus, jamais et rien avant le participe ; personne, aucun, nulle part et que après.', en: 'Plus, jamais and rien before the participle; personne, aucun, nulle part and que after.' },
+  closing: { fr: 'Plus, jamais et rien avant le participe ; personne, aucun, nulle part, et que avec son complément, après.', en: 'Plus, jamais and rien before the participle; personne, aucun, nulle part, and que with its complement, after.' },
   audio: REC('rec-b2-21-rochat'),
   say: REFRAME,
   terms: ['participe'],
@@ -798,7 +801,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Chacun de son côté du participe',
-    body: "Plus, jamais et rien vont avant le participe ; personne, aucun, nulle part et que vont après. Dans une combinaison, chaque mot garde sa place, sans pas. EN: each word keeps its side of the participle.",
+    body: "Plus, jamais et rien vont avant le participe ; personne, aucun, nulle part, et que avec son complément, vont après. Dans une combinaison, chaque mot garde sa place, sans pas. EN: each word keeps its side of the participle.",
   },
   cards: [
     trap(E(1437), 'personne avant', "Je n'ai plus personne vu après vingt heures.", 'Personne suit le participe : plus vu personne. EN: personne after.'),
@@ -881,7 +884,7 @@ const ACT3: ActDef = {
       imageRef: 'lessons/negations-combinees/act03.jpg',
     },
     sections: [],
-    milestone: "Tu places plus, jamais et rien avant le participe, personne, aucun, nulle part et que après, même quand ils se combinent. EN: You can place combined negative words in compound tenses.",
+    milestone: "Tu places plus, jamais et rien avant le participe, personne, aucun, nulle part, et que avec son complément, après, même quand ils se combinent. EN: You can place combined negative words in compound tenses.",
     estScreens: 40, restPoints: ['a3-construire', 'a3-dictee'],
   },
   sections: [A3_HISTOIRE, A3_CARTES, A3_CONSTRUIRE, A3_PIEGE, A3_DICTEE, A3_EXEMPLES, A3_TEXTE, A3_CHECK],
@@ -1158,7 +1161,7 @@ const A5_CARTES: Sec<'cardDeck'> = {
       body: "Rien, personne, jamais, plus et aucun ont déjà pris la place de pas. Ajouter pas brouille le sens : je n'ai rien remarqué. EN: never pas with another negative word.",
     },
     {
-      head: 'La seule exception', label: 'figée',
+      head: 'L’exception figée', label: 'figée',
       fr: fr(E(1480)), sub: rsOf(E(1480)),
       body: "Ce n'est pas rien veut dire : c'est important, c'est grave. Rien y désigne une chose sans importance, et pas la nie. EN: a fixed phrase meaning it matters.",
     },
@@ -1222,7 +1225,7 @@ const A5_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Pas reste dehors',
-    body: "Rien, personne, jamais, plus et aucun remplacent pas ; les deux ensemble brouillent la phrase. Après une négation, non plus remplace aussi. Seule exception, figée : ce n'est pas rien. EN: pas never joins; non plus after a negative.",
+    body: "Rien, personne, jamais, plus et aucun remplacent pas ; les deux ensemble brouillent la phrase. Après une négation, non plus remplace aussi. Exception figée : ce n'est pas rien. EN: pas never joins; non plus after a negative.",
   },
   cards: [
     trap(E(1476), 'pas + rien', "Je n'ai pas rien remarqué ce soir-là.", 'Rien suffit : je n’ai rien remarqué. EN: no pas.'),
@@ -1275,7 +1278,7 @@ const A5_HACKS: Sec<'hacks'> = {
   hacks: [
     { hack: 'Compte les mots négatifs : s’il y a rien, personne, jamais, plus ou aucun, efface pas.', why: "Ces mots ont déjà pris la place de pas. EN: if another negative word is there, drop pas." },
     { hack: 'Après une négation, remplace aussi par non plus.', why: "Aussi confirme une affirmation ; non plus confirme une négation. EN: aussi after a positive, non plus after a negative." },
-    { hack: 'Garde « ce n’est pas rien » quand tu veux dire « c’est grave ».', why: "C'est la seule rencontre de pas et de rien qui reste correcte, parce qu'elle est figée. EN: the one fixed exception." },
+    { hack: 'Garde « ce n’est pas rien » quand tu veux dire « c’est grave ».', why: "L'expression est figée : rien y veut dire « une chose sans importance », et pas la nie. Ce n'est pas un empilement. EN: a fixed phrase, not stacking." },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1305,7 +1308,7 @@ const ACT5: ActDef = {
   act: {
     id: 'act5', title: 'Pas reste dehors',
     opener: {
-      line: "Un courriel où chaque pas est de trop : ici tu apprends pourquoi pas ne se combine jamais avec rien ou personne, et la seule expression qui les garde ensemble. EN: An email where every pas is one too many: here you learn why pas never joins rien or personne, and the one phrase that keeps them together.",
+      line: "Un courriel où chaque pas est de trop : ici tu apprends pourquoi pas ne se combine jamais avec rien ou personne, et l'expression figée qui les garde ensemble. EN: An email where every pas is one too many: here you learn why pas never joins rien or personne, and the fixed phrase that keeps them together.",
       imageRef: 'lessons/negations-combinees/act05.jpg',
     },
     sections: [],
@@ -1422,7 +1425,7 @@ const A6_ECOUTE: Sec<'listening'> = {
     { q: 'Première phrase : quelqu’un a-t-il vu quelque chose ?', opts: ['non, personne', 'oui, une voisine'], correct: 0, why: 'Personne n’a rien vu. EN: nobody.' },
     { q: 'Troisième phrase : qui n’a rien entendu ?', opts: ['le gardien et les voisins', 'le gardien seulement'], correct: 0, why: 'Ni le gardien ni les voisins. EN: neither.' },
     { q: 'Cinquième phrase : combien de factures correspondent à la consommation ?', opts: ['aucune', 'une seule'], correct: 0, why: 'Aucune de ces factures. EN: none.' },
-    { q: 'Septième phrase : qui a la clé du local ?', opts: ['seulement la personne qui parle', 'tout le monde'], correct: 0, why: 'Personne d’autre n’a la clé : elle est la seule. EN: only the speaker.' },
+    { q: 'Septième phrase : d’autres gens ont-ils la clé du local ?', opts: ['non, personne d’autre', 'oui, tout le monde'], correct: 0, why: 'Personne d’autre n’a la clé. EN: nobody else.' },
     { q: 'Dernière phrase : la personne est-elle encore surprise ?', opts: ['non, plus du tout', 'oui, souvent'], correct: 0, why: 'Plus rien ne l’étonne. EN: nothing surprises her now.' },
   ],
   audio: REC('rec-b2-21-conseil-ecoute'),
@@ -1513,8 +1516,9 @@ const ACT6: ActDef = {
 /* ══════════════════════════════════════════════════════════════════════════
  *  ACT 7: PLUS QUE, JAMAIS QUE, PAS QUE
  *
- *  Plain ne… que is lesson 19 in B2 (cited). Here the restriction combines:
- *  ne… plus que, ne… jamais que, ne… pas que (not only), ne… guère que.
+ *  Plain ne… que and ne… pas que are lesson 19 in B2 (cited). Here the
+ *  restriction combines: ne… plus que, ne… jamais que, ne… guère que; ne…
+ *  pas que (not only) is only RECALLED, as the contrast (review 2026-09-30).
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const A7_HISTOIRE: Sec<'story'> = {
@@ -1531,7 +1535,7 @@ const A7_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: fr(E(1519)), en: en(E(1519)) },
     { from: 'coach', fr: 'Jamais que : il n’a fait que ça, toute sa vie, rien de plus.', en: 'Jamais que: that is all he ever did, all his life.', warn: 'Jamais que' },
     { from: 'user', fr: fr(E(1520)), en: en(E(1520)) },
-    { from: 'coach', fr: 'Pas que : l’argent compte, mais il n’est pas seul. Que n’est pas un mot négatif.', en: 'Pas que: money counts, but it is not alone. Que is not a negative word.', warn: 'Pas que' },
+    { from: 'coach', fr: `Pas que, tu le connais depuis ${RESTRICTION_REF} : l’argent compte, mais il n’est pas seul. C’est le contraire de plus que.`, en: 'Pas que, which you already know: money counts, but it is not alone. It is the opposite of plus que.', warn: 'Pas que' },
     { from: 'user', fr: fr(E(1527)), en: en(E(1527)) },
     { from: 'coach', fr: 'Guère que : presque rien d’autre que du pain. C’est soutenu, un peu ancien.', en: 'Guère que: hardly anything but bread. Formal, a little old-fashioned.', warn: 'Guère que' },
   ],
@@ -1566,9 +1570,9 @@ const A7_CARTES: Sec<'cardDeck'> = {
       body: "Ne… jamais que minimise : ce n'est jamais qu'une facture, ce n'est pas si grave. Ou il dit ce qui n'a jamais changé : il n'a jamais fait que son travail. EN: only ever; merely.",
     },
     {
-      head: 'Pas que', label: 'pas seulement',
+      head: 'Pas que, un rappel', label: Cap(RESTRICTION_REF),
       fr: fr(E(1520)), sub: rsOf(E(1520)),
-      body: "Ne… pas que nie la restriction : il n'y a pas que l'argent, d'autres choses comptent. Pas va avec que, car que n'est pas un mot négatif. EN: not only.",
+      body: `Tu l'as vu dans ${RESTRICTION_REF} : ne… pas que enlève la restriction, pas seulement. Ici, il sert de contraste : plus que et jamais que limitent, pas que ouvre. Pas va avec que, car que n'est pas un mot négatif. EN: a recall: not only.`,
     },
     {
       head: 'Guère que', label: 'soutenu',
@@ -1620,10 +1624,10 @@ const A7_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Que limite, le premier mot situe',
-    body: "Ne… plus que : seulement, désormais. Ne… jamais que : seulement, toujours. Ne… pas que : pas seulement. Plus ou jamais avant que, que après le participe, et jamais seulement en plus de que. EN: que limits; plus, jamais or pas come first.",
+    body: "Ne… plus que : seulement, désormais. Ne… jamais que : seulement, toujours. Ne… pas que : pas seulement. Plus ou jamais avant que, que et son complément après le participe, et jamais seulement en plus de que. EN: que limits; plus, jamais or pas come first.",
   },
   cards: [
-    trap(E(1522), 'que avant le participe', "Depuis le procès, elle n'a plus qu'à son avocate parlé.", 'Que et son complément suivent le participe. EN: parlé qu’à.'),
+    trap(E(1522), 'que et son complément avant le participe', "Depuis le procès, elle n'a plus qu'à son avocate parlé.", 'Que et son complément suivent le participe. EN: parlé qu’à.'),
     trap(E(1526), 'l’ordre', "Je ne demande que plus une chose : une réponse écrite.", 'Plus avant que : plus qu’une chose. EN: plus before que.'),
     trap(E(1518), 'l’ordre', "Ce n'est que jamais une facture de plus.", 'Jamais avant que : jamais qu’une facture. EN: jamais before que.'),
     trap(E(1519), 'l’ordre au passé', "Il n'a que jamais fait son travail.", 'Jamais avant le participe, que après : jamais fait que. EN: jamais… fait que.'),
@@ -1656,7 +1660,7 @@ const A7_EXEMPLES: Sec<'examples'> = {
     ex(NR(1144), 'plus que : désormais, seulement des légumes'),
     ex(NR(1192), `ne… que tout seul, que ${RESTRICTION_REF} détaille`),
     ex(E(1529), 'jamais que : ce n’était pas grave'),
-    ex(E(1530), 'pas que : d’autres sont concernés'),
+    ex(E(1530), `pas que, le contraste vu dans ${RESTRICTION_REF} : d’autres sont concernés`),
     ex(E(1473), 'plus que, devant un infinitif'),
   ],
   audio: AUDIO,
@@ -1675,9 +1679,9 @@ const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
   ctl('Plus que', '« Il ne reste plus que deux places » :',
     ['deux places, et il y en avait davantage avant', 'plus de deux places'], 0,
     'Plus que : seulement, désormais. EN: only two now.'),
-  ctl('Pas que', '« Il n’y a pas que l’argent » :',
-    ['l’argent n’est pas seul à compter', 'l’argent ne compte pas'], 0,
-    'Pas que : pas seulement. EN: not only.'),
+  ctl('Plus que ou pas que', 'Laquelle dit qu’il reste autre chose : « il ne reste plus que l’église » ou « il ne reste pas que l’église » ?',
+    ['pas que', 'plus que'], 0,
+    'Pas que : pas seulement, il reste autre chose. Plus que : l’église seule. EN: pas que, not only.'),
   ctl('Jamais que', '« Ce n’est jamais qu’une facture » : le ton ?',
     ['ce n’est pas si grave', 'c’est très grave'], 0,
     'Jamais que minimise. EN: not a big deal.'),
@@ -1687,11 +1691,11 @@ const ACT7: ActDef = {
   act: {
     id: 'act7', title: 'Plus que, jamais que, pas que',
     opener: {
-      line: "Un village où il ne reste plus que l'église : ici tu combines la restriction avec plus, jamais et pas, et tu dis exactement ce qui reste. EN: A village where only the church is left: here you combine restriction with plus, jamais and pas.",
+      line: "Un village où il ne reste plus que l'église : ici tu combines la restriction avec plus et jamais, tu la distingues de pas que, et tu dis exactement ce qui reste. EN: A village where only the church is left: here you combine restriction with plus and jamais, and tell it apart from pas que.",
       imageRef: 'lessons/negations-combinees/act07.jpg',
     },
     sections: [],
-    milestone: "Tu dis ce qui reste avec ne… plus que, tu minimises avec ne… jamais que, et tu dis pas seulement avec ne… pas que. EN: You can combine restriction with plus, jamais and pas.",
+    milestone: "Tu dis ce qui reste avec ne… plus que, tu minimises avec ne… jamais que, et tu ne les confonds pas avec ne… pas que (pas seulement). EN: You can combine restriction with plus and jamais.",
     estScreens: 34, restPoints: ['a7-construire'],
   },
   sections: [A7_HISTOIRE, A7_CARTES, A7_CONSTRUIRE, A7_PIEGE, A7_EXEMPLES, A7_TEXTE, A7_CHECK],
@@ -2040,7 +2044,7 @@ const A9_ECOUTE: Sec<'listening'> = {
     { q: 'Deuxième phrase : qu’a-t-elle demandé ?', opts: ['qu’on garde son contrat', 'qu’on l’annule'], correct: 0, why: 'De ne pas résilier : le garder. EN: to keep it.' },
     { q: 'Troisième phrase : des voisins sont-ils venus ?', opts: ['oui, certains', 'non, aucun'], correct: 0, why: 'Pas tous : certains. EN: some.' },
     { q: 'Cinquième phrase : le remboursement est-il arrivé ?', opts: ['non, pas encore', 'oui, parfois'], correct: 0, why: 'Toujours pas : pas encore. EN: not yet.' },
-    { q: 'Dernière phrase : l’homme est-il parti ?', opts: ['non, il était malade', 'oui, malgré sa maladie'], correct: 0, why: 'Avec la virgule, la négation touche le départ. EN: he stayed.' },
+    { q: 'Dernière phrase : l’homme est-il parti ?', opts: ['non, il était malade', 'oui, malgré sa maladie'], correct: 0, why: 'La pause (une virgule à l’écrit) : la négation touche le départ. EN: he stayed.' },
   ],
   audio: REC('rec-b2-21-portee-ecoute'),
   say: REFRAME,
@@ -2614,7 +2618,7 @@ const A11_CHEAT: Sec<'cheatSheet'> = {
     { k: "l'ordre", v: 'plus, jamais, puis le reste', say: fr(E(1422)),
       detail: { title: "L'ordre", body: 'Plus, puis jamais, puis rien, personne, aucun, nulle part, ni… ni ou que. Jamais plus : soutenu. EN: plus, jamais, then the rest.', say: fr(E(1423)) } },
     { k: 'le participe', v: 'rien avant, personne après', say: fr(E(1437)),
-      detail: { title: 'Le participe', body: 'Plus, jamais et rien avant le participe ; personne, aucun, nulle part et que après. EN: each word keeps its side.', say: fr(E(1439)) } },
+      detail: { title: 'Le participe', body: 'Plus, jamais et rien avant le participe ; personne, aucun, nulle part, et que avec son complément, après. EN: each word keeps its side.', say: fr(E(1439)) } },
     { k: "l'infinitif", v: 'ne plus rien dire, sans rien', say: fr(E(1456)),
       detail: { title: "L'infinitif", body: "Ne plus jamais rien devant l'infinitif, personne après ; sans tient la place de ne. EN: before the infinitive; sans replaces ne.", say: fr(E(1462)) } },
     { k: 'pas', v: 'jamais avec rien, personne, jamais', say: fr(E(1476)),
@@ -2634,7 +2638,7 @@ const A11_PROGRESS: Sec<'progressCheck'> = {
   id: 'a11-progress',
   layer: 'core',
   title: 'Où tu en es',
-  body: "Tu combines plusieurs mots négatifs autour d'un seul ne, dans l'ordre (plus, jamais, puis rien, personne ou aucun), tu les places autour du participe et devant l'infinitif, et tu laisses sans prendre la place de ne. Tu fais d'un mot négatif le sujet, tu combines la restriction (plus que, jamais que, pas que), tu choisis nullement, guère ou je ne saurais dans une lettre, et tu places la négation sur ce que tu nies vraiment. Le piège qui reste, c'est le pas de trop : je n'ai pas rien vu, personne n'est pas venu. Avant l'examen, relis ta lettre, entoure chaque ne, et vérifie qu'aucun pas ne s'ajoute à un autre mot négatif. EN: Circle every ne in your letter and check that no pas sits beside another negative word.",
+  body: "Tu combines plusieurs mots négatifs autour d'un seul ne, dans l'ordre (plus, jamais, puis rien, personne ou aucun), tu les places autour du participe et devant l'infinitif, et tu laisses sans prendre la place de ne. Tu fais d'un mot négatif le sujet, tu combines la restriction (plus que, jamais que) sans la confondre avec pas que, tu choisis nullement, guère ou je ne saurais dans une lettre, et tu places la négation sur ce que tu nies vraiment. Le piège qui reste, c'est le pas de trop : je n'ai pas rien vu, personne n'est pas venu. Avant l'examen, relis ta lettre, entoure chaque ne, et vérifie qu'aucun pas ne s'ajoute à un autre mot négatif. EN: Circle every ne in your letter and check that no pas sits beside another negative word.",
   stats: [
     { k: "L'ordre", v: 'plus jamais rien' },
     { k: 'La place', v: 'rien avant, personne après' },
@@ -2703,7 +2707,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI(PC_Q, 'Je ne vois plus personne après vingt heures.', fr(E(1437)), 'Plus avant vu, personne après. EN: plus vu personne.', 'a3-construire'),
         tI(PC_Q, 'Il ne me dit jamais rien de ce contrat.', fr(E(1451)), 'Jamais rien avant dit ; de ce contrat après. EN: jamais rien dit.', 'a3-construire'),
         tI(PC_Q, 'Je ne vois rien de suspect.', fr(E(1446)), 'Rien avant vu, de suspect après. EN: rien vu de suspect.', 'a3-cartes'),
-        eS('Ils ne sont revenus plus jamais au magasin.', fr(E(1452)), 'Plus jamais avant le participe. EN: plus jamais revenus.', 'a3-piege', [], ORDRE_Q),
+        eS('Ils ne sont revenus plus jamais au magasin.', fr(E(1452)), 'Plus jamais avant le participe. EN: plus jamais revenus.', 'a3-piege', ['Ils ne sont jamais plus revenus au magasin.'], ORDRE_Q),
         lC('Écoute. Qui la personne a-t-elle vu après vingt heures ?', fr(E(1437)), ['personne', 'tout le monde'], 0, 'Plus vu personne. EN: nobody.', 'a3-histoire'),
       ],
     },
@@ -2750,7 +2754,7 @@ const A11_QUIZ: Sec<'quiz'> = {
       id: 'r7-restriction', label: 'Plus que, jamais que, pas que', targets: ['restriction-confondue'],
       questions: [
         mc('« Il ne reste plus que deux places » : combien de places ?', ['deux', 'plus de deux', 'aucune'], 0, 'Plus que : seulement, désormais. EN: two.', 'a7-cartes'),
-        mc('« Il n’y a pas que l’argent » veut dire…', ['l’argent n’est pas la seule chose', 'l’argent ne compte pas'], 0, 'Pas que : pas seulement. EN: not only money.', 'a7-cartes'),
+        mc('Laquelle dit que tu paies aussi autre chose : « je ne paie pas que l’abonnement » ou « je ne paie plus que l’abonnement » ?', ['pas que', 'plus que'], 0, `Pas que, rappel de ${RESTRICTION_REF} : pas seulement. Plus que : seulement, désormais. EN: pas que, not only.`, 'a7-cartes'),
         mc('« Ce n’est jamais qu’une facture de plus » : le ton ?', ['ce n’est pas si grave', 'c’est la première facture'], 0, 'Jamais que minimise. EN: not a big deal.', 'a7-cartes'),
         tI('Complète avec plus que, et écris la phrase.', 'Il ne me reste ___ cent euros.', fr(E(1528)), 'Plus que : seulement, désormais. EN: plus que.', 'a7-construire'),
         tI('Réécris avec ne… plus que.', "Maintenant, je paie seulement l'abonnement de base.", "Maintenant, je ne paie plus que l'abonnement de base.", 'Plus que remplace seulement. EN: ne… plus que.', 'a7-construire', [fr(E(1517))]),
@@ -2931,7 +2935,7 @@ const TRIGGER_LIST: ErrorTrigger[] = [
   { id: 'infinitif-sans-ne', description: 'Puts personne before an infinitive, splits ne plus rien around it, or adds ne or pas after sans.', detectOn: ['a4-construire', 'a4-erreurs', 'a4-check', 'a11-mission'], drill: 'd-infinitif', retest: 'd-infinitif' },
   { id: 'pas-empile', description: 'Stacks pas on rien, personne, jamais, plus or aucun, or says aussi after a negative clause instead of non plus.', detectOn: ['a5-trier', 'a5-piege', 'a5-check', 'a11-mission'], drill: 'd-pas', retest: 'd-pas' },
   { id: 'sujet-bancal', description: 'Adds pas to a negative subject, drops ne in writing, or makes aucun plural or ni… ni… singular with a plural member.', detectOn: ['a6-construire', 'a6-erreurs', 'a6-check', 'a11-mission'], drill: 'd-sujet', retest: 'd-sujet' },
-  { id: 'restriction-confondue', description: 'Confuses ne… plus que, ne… jamais que and ne… pas que, stacks seulement on que, or puts que before the participle.', detectOn: ['a7-construire', 'a7-piege', 'a7-check', 'a11-mission'], drill: 'd-restriction', retest: 'd-restriction' },
+  { id: 'restriction-confondue', description: 'Confuses ne… plus que, ne… jamais que and ne… pas que, stacks seulement on que, or puts que and its complement before the participle (« qu’effleuré », where que bears on the verb itself, is correct: lesson 19 in B2).', detectOn: ['a7-construire', 'a7-piege', 'a7-check', 'a11-mission'], drill: 'd-restriction', retest: 'd-restriction' },
   { id: 'registre-mal-choisi', description: 'Stacks pas on guère, nullement or aucunement, misreads ne alone with savoir or cesser, or uses ne… point in a modern letter.', detectOn: ['a8-construire', 'a8-erreurs', 'a8-check', 'a11-mission'], drill: 'd-soutenu', retest: 'd-soutenu' },
   { id: 'portee-deplacee', description: 'Places the negation on the wrong element: denies a request that was made, reads pas tous as aucun, or toujours pas as pas toujours.', detectOn: ['a9-trier', 'a9-erreurs', 'a9-check', 'a11-mission'], drill: 'd-portee', retest: 'd-portee' },
   { id: 'ne-mal-lu', description: 'Reads the ne explétif as a negation, forgets pas for a real one after craindre, or drops ne in writing.', detectOn: ['a10-trier', 'a10-piege', 'a10-check', 'a11-mission'], drill: 'd-oral', retest: 'd-oral' },
@@ -3003,7 +3007,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['personne', "après le participe : je n'ai plus vu personne", 'après : ne plus voir personne'],
       ['aucun + nom', "après : je n'ai reçu aucune facture", 'après : ne faire aucune erreur'],
       ['nulle part', "après : je ne l'ai vu nulle part", 'après : ne plus aller nulle part'],
-      ['que', "après : je n'ai plus parlé qu'à elle", "après : ne plus m'écrire qu'à cette adresse"],
+      ['que + complément', "après : je n'ai plus parlé qu'à elle", "après : ne plus m'écrire qu'à cette adresse"],
       ['rien de + adjectif', "rien avant, de… après : je n'ai rien vu de suspect", 'ne rien voir de suspect'],
       ['infinitif passé', '', "n'avoir rien vu ou ne rien avoir vu ; n'avoir vu personne"],
       ['sans', '', 'sans rien dire, sans voir personne : jamais sans ne, jamais sans pas'],
@@ -3011,7 +3015,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-pas', 'Pas, que et les expressions figées', ['l’interdit de l’empilement', 'ce n’est pas rien, non plus', 'plus que, jamais que, pas que'], [
     teach('sheet-pas-teach', 'Pas reste dehors',
-      "Pas ne se combine jamais avec rien, personne, jamais, plus ou aucun : ces mots ont déjà pris sa place. Il peut en revanche aller avec des mots qui ne sont pas négatifs : pas un seul, pas du tout, pas encore, pas que, pas… non plus. Seule rencontre figée de pas et de rien : ce n'est pas rien, c'est-à-dire c'est important. EN: pas never stacks on a negative word; ce n'est pas rien is a fixed phrase."),
+      "Pas ne se combine jamais avec rien, personne, jamais, plus ou aucun : ces mots ont déjà pris sa place. Il peut en revanche aller avec des mots qui ne sont pas négatifs : pas un seul, pas du tout, pas encore, pas que, pas… non plus. Rencontre figée de pas et de rien : ce n'est pas rien, c'est-à-dire c'est important (de même, ce n'est pas pour rien que…). EN: pas never stacks on a negative word; ce n'est pas rien is a fixed phrase."),
     table('sheet-pas-table', 'Correct ou empilé', ['Phrase', 'Statut', 'Pourquoi'], [
       ["je n'ai pas rien vu", 'faux', 'rien remplace pas'],
       ["il n'y avait pas personne", 'faux', 'personne remplace pas'],
@@ -3027,7 +3031,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['ne… que', `seulement (${RESTRICTION_REF})`, 'Je ne veux que du pain.'],
       ['ne… plus que', 'seulement, désormais', 'Il ne reste plus que deux places.'],
       ['ne… jamais que', "seulement, toujours ; ce n'est pas grave", "Ce n'est jamais qu'une facture de plus."],
-      ['ne… pas que', 'pas seulement', "Il n'y a pas que l'argent dans la vie."],
+      ['ne… pas que', `pas seulement (${RESTRICTION_REF})`, "Il n'y a pas que l'argent dans la vie."],
       ['ne… guère que', 'presque seulement (soutenu)', 'Il ne mange guère que du pain.'],
       ['plus que, sans ne', 'une comparaison', 'Je paie plus que lui.'],
     ]),
@@ -3183,16 +3187,16 @@ export const LESSON: Lesson = {
   title: UNIT.sub,
   level: LEVEL,
   tag: 'B2 · LEÇON 21',
-  intro: 'At B1 you learned each negative word (plus, jamais, rien, personne, aucun, ni… ni) and a first combination. At B2 you combine them around ONE ne, in a fixed order (plus, then jamais, then the rest: plus jamais rien, plus aucun, plus ni… ni), place them around the participle and before an infinitive (je n’ai plus vu personne, ne plus rien dire, sans rien dire), and never stack pas on another negative word, except in the fixed « ce n’est pas rien » (it matters). You make a negative word the subject (personne n’a rien vu, nul ne), combine restriction (ne… plus que, ne… jamais que, ne… pas que), use the formal negations (nullement, guère, je ne saurais), and control the scope of a negation (je ne vous ai pas demandé de… / je vous ai demandé de ne pas…; pas tous / aucun). The ne explétif negates nothing, and written French always keeps ne. The task: a 200 to 250 word formal letter in DELF B2 format contesting an invoice or an accusation.',
+  intro: 'At B1 you learned each negative word (plus, jamais, rien, personne, aucun, ni… ni) and a first combination. At B2 you combine them around ONE ne, in a fixed order (plus, then jamais, then the rest: plus jamais rien, plus aucun, plus ni… ni), place them around the participle and before an infinitive (je n’ai plus vu personne, ne plus rien dire, sans rien dire), and never stack pas on another negative word, except in the fixed « ce n’est pas rien » (it matters). You make a negative word the subject (personne n’a rien vu, nul ne), combine restriction (ne… plus que, ne… jamais que, set against ne… pas que, not only), use the formal negations (nullement, guère, je ne saurais), and control the scope of a negation (je ne vous ai pas demandé de… / je vous ai demandé de ne pas…; pas tous / aucun). The ne explétif negates nothing, and written French always keeps ne. The task: a 200 to 250 word formal letter in DELF B2 format contesting an invoice or an accusation.',
   skill: 'PE',
   grammarAssumed: [NEG_B1_UNIT, MODES_UNIT, INFINITIVES_UNIT],
   grammarIntroduced: [
     'Combined negations around one ne in a fixed order: plus, then jamais, then rien, personne, aucun, nulle part, ni… ni or que (plus aucun, plus ni… ni, plus jamais personne, jamais aucun); jamais plus as a formal variant; rien de + adjective, personne d’autre',
-    'The place of each word of a combination in compound tenses (plus, jamais, rien before the participle; personne, aucun, nulle part, que after) and with a second verb',
+    'The place of each word of a combination in compound tenses (plus, jamais, rien before the participle; personne, aucun, nulle part, que with its complement after) and with a second verb',
     'Combined negations before an infinitive (ne plus rien dire, ne plus voir personne), both orders of the perfect infinitive (n’avoir rien vu / ne rien avoir vu), and sans + rien, personne, aucun, jamais with no ne and no pas',
     'The ban on stacking pas with another negative word; ce n’est pas rien as a fixed expression meaning it matters; pas… non plus; pas un seul, pas du tout, pas encore as legitimate company of pas',
     'Negative subjects in combination: personne n’a rien vu, rien n’a jamais été prouvé, aucun… ne, nul ne (formal), ni… ni… ne with a plural verb, plus personne ne, jamais personne ne; ne kept in writing',
-    'Restriction combined with negation: ne… plus que, ne… jamais que, ne… pas que (not only), ne… guère que',
+    'Restriction combined with negation: ne… plus que, ne… jamais que, ne… guère que, contrasted with ne… pas que (not only), recalled from lesson 19 in B2',
     'Formal negations: ne… guère, ne… plus guère, ne… nullement, ne… aucunement, ne… point for recognition, ne alone with savoir, pouvoir, oser, cesser, si je ne me trompe',
     'Scope: negating the request or the action (demander de / de ne pas), je ne pense pas que + subjunctive against je pense que… ne pas, pas tous against aucun, toujours pas against pas toujours, pas tout against rien, the negated cause',
     'The ne explétif named as not a negation (craindre que… ne against craindre que… ne… pas); the dropped ne of speech named as spoken, and plus [ply] / [plys]',

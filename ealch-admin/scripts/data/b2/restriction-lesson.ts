@@ -143,7 +143,8 @@
 //   4. « IL N'A QU'EFFLEURÉ LE SUJET » (que before a participle) is named
 //      once as formal, for recognition only; ne faire que is taught as the
 //      everyday way. Never asked for, never marked wrong.
-//   5. « À PART » and « SAUF QUE » are taught as correct and mostly spoken;
+//   5. « À PART » and « SAUF QUE » are taught as correct and courant (less at
+//      home in an official text than à l'exception de, si ce n'est que);
 //      the task never penalises them beyond one register point.
 //   6. TWELVE acts and TWELVE quiz rounds (act 1 has no round of its own, as
 //      lessons 10 and 16 in B2). THE TASK offers two situations (a formal
@@ -525,7 +526,7 @@ const A2_TABLE: Sec<'tapTable'> = {
     { cells: ["qu'à Genève", 'le lieu', 'une seule ville'], say: fr(E(1219)),
       detail: { title: 'Le lieu', body: "Le mardi, elle travaille dans une seule ville : Genève. EN: one place only.", say: fr(E(1219)) } },
     { cells: ["qu'hier", 'le moment', 'pas avant'], say: fr(E(1221)),
-      detail: { title: 'Le moment', body: "Que devant un moment veut dire pas avant : la facture est arrivée hier, et pas plus tôt. EN: not before.", say: fr(E(1227)) } },
+      detail: { title: 'Le moment', body: "Que devant un moment veut dire pas avant : la facture est arrivée hier, et pas plus tôt. EN: not before.", say: fr(E(1221)) } },
     { cells: ['seule Claire', 'le sujet', 'seul, accordé'], say: fr(E(1224)),
       detail: { title: 'Le sujet', body: "Ne… que ne peut pas restreindre le sujet : on dit seule Claire, ou il n'y a que Claire qui. EN: use seul for a subject.", say: fr(E(1224)) } },
   ],
@@ -1449,11 +1450,11 @@ const A7_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: fr(E(1316)), en: en(E(1316)) },
     { from: 'coach', fr: 'Après le nom, il s’accorde : exceptées, avec boissons.', en: 'After the noun, it agrees: exceptées, with boissons.', warn: 'Exceptées, accordé' },
     { from: 'user', fr: 'À part le spa, toutes les activités sont gratuites.', en: 'Apart from the spa, all activities are free.' },
-    { from: 'coach', fr: 'À part se dit surtout à l’oral. Sur le site, écris plutôt hormis le spa, ou à l’exception du spa.', en: 'À part is mostly spoken. On the website, write hormis le spa, or à l’exception du spa.', warn: 'Le registre' },
+    { from: 'coach', fr: 'À part est courant, et correct. Pour une page soignée, hormis le spa ou à l’exception du spa sonne plus officiel.', en: 'À part is everyday and correct. For a polished page, hormis le spa or à l’exception du spa sounds more official.', warn: 'Le registre' },
     { from: 'user', fr: 'Sauf avis contraire, le petit-déjeuner est servi de sept à dix heures.', en: 'Unless otherwise stated, breakfast is served from seven to ten.' },
     { from: 'coach', fr: 'Sauf avis contraire : une formule figée, sans article, faite pour un texte officiel.', en: 'Sauf avis contraire: a fixed formula, with no article, made for an official text.', warn: 'Une formule' },
   ],
-  closing: { fr: 'Sauf va partout, à part à l’oral, excepté et hormis à l’écrit ; excepté s’accorde après le nom.', en: 'Sauf goes everywhere, à part in speech, excepté and hormis in writing; excepté agrees after the noun.' },
+  closing: { fr: 'Sauf va partout, à part au quotidien, excepté et hormis à l’écrit soigné ; excepté s’accorde après le nom.', en: 'Sauf goes everywhere, à part in everyday French, excepté and hormis in careful writing; excepté agrees after the noun.' },
   audio: REC('rec-b2-19-chloe'),
   say: REFRAME,
   terms: ['sauf', 'registre'],
@@ -1469,8 +1470,8 @@ const A7_TABLE: Sec<'tapTable'> = {
   rows: [
     { cells: ['sauf', 'nom, pronom', 'courant'], say: fr(E(1301)),
       detail: { title: 'sauf', body: "Le mot passe-partout : sauf moi, sauf le dimanche, sauf pour les envois à l'étranger. EN: the all-purpose word.", say: fr(SAUF_MOI) } },
-    { cells: ['à part', 'nom, pronom', 'surtout oral'], say: fr(E(1304)),
-      detail: { title: 'à part', body: "Très courant en conversation ; dans un texte officiel, préfère sauf ou excepté. EN: mostly spoken.", say: fr(E(1304)) } },
+    { cells: ['à part', 'nom, pronom', 'courant'], say: fr(E(1304)),
+      detail: { title: 'à part', body: "Très courant, à l'oral comme à l'écrit ; dans un texte officiel, préfère sauf, excepté ou à l'exception de. EN: everyday; less at home in an official text.", say: fr(E(1304)) } },
     { cells: ['excepté', 'invariable devant', 'soutenu'], say: fr(E(1302)),
       detail: { title: 'excepté', body: "Devant le nom, invariable ; après le nom, accordé : les enfants exceptés. EN: agrees only after the noun.", say: fr(E(1308)) } },
     { cells: ['hormis', 'nom', 'soutenu'], say: fr(E(1303)),
@@ -1504,7 +1505,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
     grp('Le registre', [
       it(E(1303), 'hormis : soutenu'),
       it(E(1306), 'à l’exception de : officiel'),
-      it(E(1304), 'à part : oral'),
+      it(E(1304), 'à part : courant'),
       it(E(1305), 'mis à part : courant'),
     ], chk('Dans un avis de la mairie : « Tous les cours sont maintenus, … celui du jeudi. »',
       ['à l’exception de', 'à part'], 0,
@@ -1591,9 +1592,9 @@ const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
   ctl('L’accord', '« Les enfants … , tous paient l’entrée. »',
     ['exceptés', 'excepté'], 0,
     'Après le nom, il s’accorde. EN: exceptés.'),
-  ctl('Le registre', 'Le plus oral des mots d’exception :',
+  ctl('Le registre', 'Des trois, le plus courant, et le moins officiel :',
     ['à part', 'à l’exception de', 'hormis'], 0,
-    'À part, surtout à l’oral. EN: à part.'),
+    'À part : courant ; hormis et à l’exception de sont plus soutenus. EN: à part.'),
 ], ['sauf']);
 
 const ACT7: ActDef = {
@@ -2419,7 +2420,7 @@ const A12_LECTURE: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Global : que répond Rail Alpes à Mme Roux ?', a: "Non au remboursement complet, que la règle ne permet pas, mais oui à un geste : un avoir de quarante euros, ou les frais de réservation." },
-    { q: 'Détail : dans quels cas un billet est-il remboursé ?', a: "En cas d'annulation par Rail Alpes ; et, pour un tarif réduit, si le voyageur présente un certificat médical." },
+    { q: 'Détail : dans quels cas un billet est-il remboursé ?', a: "Sans justificatif, seulement en cas d'annulation par Rail Alpes ; dans les autres cas, si le voyageur présente un certificat médical." },
     { q: 'Inférence : pourquoi la lettre précise-t-elle que les agents n’ont fait qu’appliquer les règles ?', a: "Pour défendre les agents sans accuser la cliente : ils ont suivi la règle, rien de plus." },
     { q: 'Forme : trouve une limite, une exception avec l’indicatif et une avec le subjonctif.', a: "Ne prévoient un remboursement qu'en cas d'annulation ; sauf si le voyageur présente ; à moins que vous ne préfériez." },
     { q: 'Structure : dans quel ordre la lettre avance-t-elle ?', a: "L'accusé de réception, la règle et ses limites, l'application au cas de la cliente, le geste exceptionnel et ses conditions, la formule finale." },
@@ -2604,8 +2605,8 @@ const A12_MISSION: Sec<'task'> = {
     "Il n'y a que",
     'Nous restons à votre disposition',
   ],
-  modelAnswer: "Objet : votre demande de remboursement\n\nMonsieur,\n\nNous avons bien reçu votre courriel du douze octobre, et nous sommes désolés d'apprendre votre blessure au poignet. Vous nous demandez le remboursement de votre abonnement annuel. Notre règlement, que vous avez signé à l'inscription, ne prévoit un remboursement qu'en cas de fermeture de la salle : les abonnements ne sont donc pas remboursables, sauf si l'abonné déménage à plus de cinquante kilomètres. En revanche, un abonnement peut être suspendu pour raison médicale, à condition de nous transmettre un certificat qui précise la durée de l'arrêt. Faute de certificat, nous ne pourrons pas enregistrer la suspension. Il n'y a que notre responsable administrative qui puisse valider ce document ; elle le fera sous quarante-huit heures, et votre abonnement sera alors prolongé de trois mois, sans frais. Pendant la suspension, tous nos services restent accessibles, à l'exception de l'escalade elle-même : non seulement vous pourrez profiter du sauna et de l'espace détente, mais vous bénéficierez aussi d'une séance gratuite avec notre kinésithérapeute. À moins que vous ne préfériez passer nous voir à l'accueil, il vous suffit de répondre à ce courriel en joignant le certificat. Nos agents ne font qu'appliquer des règles communes à tous nos abonnés, mais nous tenons à vous accompagner jusqu'à votre retour sur les murs.\n\nNous vous souhaitons un prompt rétablissement et vous prions d'agréer, Monsieur, nos salutations distinguées.\n\nJulie Marchand, accueil de Vertige\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : la demande reprise, la règle et sa limite (ne prévoit un remboursement qu'en cas de fermeture), deux exceptions (sauf si, la suspension à condition de), une solution concrète et une formule finale.\n2. Cohérence : réception, règle, exception, conditions, solution, formule ; en revanche introduit la seconde porte.\n3. Étendue : ne… que, sauf si + indicatif, à condition de, faute de, il n'y a que… qui + subjonctif, à l'exception de, non seulement… mais, à moins que + subjonctif, ne faire que.\n4. Correction : déménage et précise à l'indicatif, puisse et préfériez au subjonctif, que placé devant en cas de fermeture.\n5. Registre : un courrier formel, ferme sur la règle et attentif à la personne ; aucune tournure orale.",
-  modelAnswerEn: "Subject: your refund request. Dear Sir, We have received your email of 12 October and we are sorry to hear about your wrist injury. You are asking for a refund of your annual membership. Our rules, which you signed when you joined, only provide for a refund if the gym closes: memberships are therefore not refundable, unless the member moves more than fifty kilometres away. On the other hand, a membership can be suspended for medical reasons, provided you send us a certificate stating how long you will be off. Without a certificate, we will not be able to record the suspension. Only our administrative manager can approve this document; she will do so within forty-eight hours, and your membership will then be extended by three months, free of charge. During the suspension, all our services remain open to you, except climbing itself: not only will you be able to enjoy the sauna and the relaxation area, you will also get a free session with our physiotherapist. Unless you would rather come and see us at the front desk, you simply need to reply to this email with the certificate attached. Our staff are only applying rules that hold for all our members, but we want to support you until you are back on the walls. We wish you a speedy recovery. Yours faithfully, Julie Marchand, Vertige front desk. The marker's notes (not counted): 1. Task: the request restated, the rule and its limit, two exceptions, a concrete solution, a closing formula. 2. Coherence: receipt, rule, exception, conditions, solution, formula. 3. Range: ne… que, sauf si, à condition de, faute de, il n'y a que… qui, à l'exception de, non seulement… mais, à moins que, ne faire que. 4. Accuracy: the mood follows the word. 5. Register: a formal letter, firm and courteous.",
+  modelAnswer: "Objet : votre demande de remboursement\n\nMonsieur,\n\nNous avons bien reçu votre courriel du douze octobre, et nous sommes désolés d'apprendre votre blessure au poignet. Vous nous demandez le remboursement de votre abonnement annuel. Notre règlement, que vous avez signé à l'inscription, ne prévoit un remboursement qu'en cas de fermeture de la salle ou de déménagement à plus de cinquante kilomètres : une blessure, même sérieuse, n'en fait pas partie. En revanche, un abonnement peut être suspendu pour raison médicale, à condition de nous transmettre un certificat qui précise la durée de l'arrêt. Faute de certificat, nous ne pourrons pas enregistrer la suspension. Il n'y a que notre responsable administrative qui puisse valider ce document ; elle le fera sous quarante-huit heures, et votre abonnement sera alors prolongé de trois mois, sans frais. La suspension commence le jour de votre blessure, sauf si vous préférez une autre date. Pendant la suspension, tous nos services restent accessibles, à l'exception de l'escalade elle-même : non seulement vous pourrez profiter du sauna et de l'espace détente, mais vous bénéficierez aussi d'une séance gratuite avec notre kinésithérapeute. À moins que vous ne préfériez passer nous voir à l'accueil, il vous suffit de répondre à ce courriel en joignant le certificat. Nos agents ne font qu'appliquer des règles communes à tous nos abonnés, mais nous tenons à vous accompagner jusqu'à votre retour sur les murs.\n\nNous vous souhaitons un prompt rétablissement et vous prions d'agréer, Monsieur, nos salutations distinguées.\n\nJulie Marchand, accueil de Vertige\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : la demande reprise, la règle et sa limite (ne prévoit un remboursement qu'en cas de fermeture ou de déménagement), deux exceptions (la suspension à condition de, la date sauf si), une solution concrète et une formule finale.\n2. Cohérence : réception, règle, exception, conditions, solution, formule ; en revanche introduit la seconde porte.\n3. Étendue : ne… que, sauf si + indicatif, à condition de, faute de, il n'y a que… qui + subjonctif, à l'exception de, non seulement… mais, à moins que + subjonctif, ne faire que.\n4. Correction : préférez et précise à l'indicatif, puisse et préfériez au subjonctif, que placé devant en cas de fermeture.\n5. Registre : un courrier formel, ferme sur la règle et attentif à la personne ; aucune tournure orale.",
+  modelAnswerEn: "Subject: your refund request. Dear Sir, We have received your email of 12 October and we are sorry to hear about your wrist injury. You are asking for a refund of your annual membership. Our rules, which you signed when you joined, only provide for a refund if the gym closes or if the member moves more than fifty kilometres away: an injury, however serious, is not one of those cases. On the other hand, a membership can be suspended for medical reasons, provided you send us a certificate stating how long you will be off. Without a certificate, we will not be able to record the suspension. Only our administrative manager can approve this document; she will do so within forty-eight hours, and your membership will then be extended by three months, free of charge. The suspension starts on the day of your injury, unless you would prefer another date. During the suspension, all our services remain open to you, except climbing itself: not only will you be able to enjoy the sauna and the relaxation area, you will also get a free session with our physiotherapist. Unless you would rather come and see us at the front desk, you simply need to reply to this email with the certificate attached. Our staff are only applying rules that hold for all our members, but we want to support you until you are back on the walls. We wish you a speedy recovery. Yours faithfully, Julie Marchand, Vertige front desk. The marker's notes (not counted): 1. Task: the request restated, the rule and its limit, two exceptions, a concrete solution, a closing formula. 2. Coherence: receipt, rule, exception, conditions, solution, formula. 3. Range: ne… que, sauf si, à condition de, faute de, il n'y a que… qui, à l'exception de, non seulement… mais, à moins que, ne faire que. 4. Accuracy: the mood follows the word. 5. Register: a formal letter, firm and courteous.",
   watchFor: [
     { pattern: 'Sauf si followed by a subjunctive (sauf si vous soyez) or a future (sauf si vous aurez).', criterion: 'correction', feedback: 'Sauf si est un si : l’indicatif, et jamais de futur juste après lui.', ref: 'a9-piege' },
     { pattern: 'À moins que followed by an indicative (à moins que vous préférez), or ne… pas used where no negation is meant.', criterion: 'correction', feedback: 'À moins que veut le subjonctif ; son ne ne nie rien, et pas ajoute une vraie négation.', ref: 'a10-piege' },
@@ -2614,7 +2615,7 @@ const A12_MISSION: Sec<'task'> = {
     { pattern: 'Sauf que or à ceci près que followed by a subjunctive, or sauf que used for a condition that has not happened.', criterion: 'correction', feedback: 'Sauf que pose un fait, à l’indicatif ; pour un cas possible, sauf si.', ref: 'a8-cartes' },
     { pattern: 'À condition de followed by a clause with its own subject, or à condition que followed by an indicative.', criterion: 'correction', feedback: 'Un sujet : à condition de + infinitif. Deux sujets : à condition que + subjonctif.', ref: 'a11-erreurs' },
     { pattern: 'A pleonasm (ne… seulement que, pas seulement que) or a dropped ne (il y a que, c’est que) in the letter.', criterion: 'registre', feedback: 'Un seul outil à la fois, et le ne à l’écrit : il n’y a que deux places.', ref: 'a4-erreurs' },
-    { pattern: 'Spoken exception words in a formal text (à part, sauf que repeated) where excepté, à l’exception de or si ce n’est que would fit.', criterion: 'registre', feedback: 'Dans un courrier formel, préfère à l’exception de, excepté ou si ce n’est que.', ref: 'a7-table' },
+    { pattern: 'Everyday exception words in a formal text (à part, sauf que repeated) where excepté, à l’exception de or si ce n’est que would fit.', criterion: 'registre', feedback: 'Dans un courrier formel, préfère à l’exception de, excepté ou si ce n’est que.', ref: 'a7-table' },
     { pattern: 'An exception given without the rule it opens, or rules and exceptions mixed in one paragraph.', criterion: 'coherence', feedback: 'Pose d’abord la règle, puis ouvre chaque porte : sauf si, à moins que, à condition de.', ref: 'a12-plan' },
     { pattern: 'Fewer than four different restriction or exception patterns, or all of them in the same mood.', criterion: 'etendue', feedback: 'Varie : une limite (ne… que), une porte (sauf), une porte sous condition à l’indicatif (sauf si) et au subjonctif (à moins que).', ref: 'a11-cartes' },
     { pattern: 'No exception at all, no concrete solution for the reader, or a body outside 200 to 250 words.', criterion: 'tache', feedback: 'Dis la règle, ses exceptions, et ce que le lecteur peut faire maintenant.', ref: 'a12-lecture' },
@@ -2668,7 +2669,7 @@ const A12_CHEAT: Sec<'cheatSheet'> = {
     { k: 'le relief', v: "il n'y a que… qui, ce n'est que… que", say: fr(E(1267)),
       detail: { title: 'La limite en relief', body: "Qui pour le sujet, que pour le reste ; subjonctif ou indicatif après qui ; ce n'est que… que : pas avant. EN: the spotlight.", say: fr(E(1270)) } },
     { k: 'la porte', v: 'sauf, excepté, hormis, à part', say: fr(E(1301)),
-      detail: { title: 'La porte', body: "Un nom ou un pronom tonique ; excepté s'accorde après le nom ; à part est oral, hormis soutenu. EN: exception words.", say: fr(E(1308)) } },
+      detail: { title: 'La porte', body: "Un nom ou un pronom tonique ; excepté s'accorde après le nom ; à part est courant, hormis soutenu. EN: exception words.", say: fr(E(1308)) } },
     { k: 'sous condition', v: 'sauf si + indicatif, à moins que + subjonctif', say: fr(E(1201)),
       detail: { title: 'La porte sous condition', body: "Sauf si garde l'indicatif ; à moins que veut le subjonctif, avec un ne qui ne nie rien ; à moins de + infinitif. EN: two doors, two moods.", say: fr(E(1352)) } },
     { k: 'ce qui manque', v: 'faute de, à condition de ou que', say: fr(E(1371)),
@@ -2738,7 +2739,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Dis-le avec ne… que : la facture est arrivée hier, pas avant.', 'Nous avons reçu la facture hier seulement.', fr(E(1221)), 'Que devant hier : pas avant. EN: qu’hier.', 'a2-table',
           ["Nous n'avons reçu qu'hier la facture."]),
         eS('Il ne que m’a téléphoné une fois depuis son départ.', fr(E(1227)), 'Que devant une fois. EN: qu’une fois.', 'a2-erreurs',
-          ["Il ne m'a téléphoné qu'une seule fois depuis son départ."]),
+          ["Il ne m'a téléphoné qu'une seule fois depuis son départ.", "Il m'a téléphoné seulement une fois depuis son départ.", "Il m'a téléphoné une seule fois depuis son départ."]),
         eS('Seul Claire a répondu à mon message.', fr(E(1224)), 'Seul s’accorde : seule. EN: seule.', 'a2-erreurs',
           ["Il n'y a que Claire qui a répondu à mon message.", "Il n'y a que Claire qui ait répondu à mon message.", 'Claire seule a répondu à mon message.']),
         lC('Écoute. Qu’est-ce qui est restreint ?', fr(E(1219)), ['le lieu', 'le jour'], 0, 'Qu’à Genève : une seule ville. EN: the place.', 'a2-ecoute'),
@@ -2817,7 +2818,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         eS('À part que toi, personne ne connaît le code.', fr(E(1304)), 'À part prend un pronom, sans que. EN: à part toi.', 'a7-piege',
           ['Sauf toi, personne ne connaît le code.', 'Excepté toi, personne ne connaît le code.', 'Hormis toi, personne ne connaît le code.', 'Mis à part toi, personne ne connaît le code.']),
         eS('Cet avoir est valable un an sur tous nos trajets, à l’exception de les trains de nuit.', fr(E(1391)), 'De + les : des. EN: des.', 'a7-piege',
-          ['Cet avoir est valable un an sur tous nos trajets, sauf les trains de nuit.', 'Cet avoir est valable un an sur tous nos trajets, excepté les trains de nuit.', 'Cet avoir est valable un an sur tous nos trajets, hormis les trains de nuit.']),
+          ['Cet avoir est valable un an sur tous nos trajets, sauf les trains de nuit.', 'Cet avoir est valable un an sur tous nos trajets, excepté les trains de nuit.', 'Cet avoir est valable un an sur tous nos trajets, hormis les trains de nuit.', 'Cet avoir est valable un an sur tous nos trajets, à part les trains de nuit.', 'Cet avoir est valable un an sur tous nos trajets, mis à part les trains de nuit.']),
       ],
     },
     {
@@ -2951,7 +2952,7 @@ const A12_REVIEW: Sec<'reviewDeck'> = {
     { front: 'only registered people (subject)', back: 'seules les personnes inscrites', say: fr(E(1260)) },
     { front: 'you are the only one who can help me', back: "il n'y a que toi qui puisses m'aider", say: fr(E(1267)) },
     { front: 'not until midnight', back: "ce n'est qu'à minuit que", say: fr(E(1270)) },
-    { front: 'money is not everything', back: 'ne… pas que, ou pas seulement', say: fr(E(1284)) },
+    { front: 'pay is not the only thing', back: 'ne… pas que, ou pas seulement', say: fr(E(1284)) },
     { front: 'children excepted', back: 'les enfants exceptés, accordé après le nom', say: fr(E(1308)) },
     { front: 'unless it rains (two ways)', back: "sauf s'il pleut ; à moins qu'il ne pleuve", say: fr(E(1352)) },
     { front: 'failing payment', back: 'faute de paiement', say: fr(E(1371)) },
@@ -3124,7 +3125,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       "Sauf, excepté, hormis, à part, mis à part et à l'exception de ouvrent la porte à un nom ou à un pronom tonique. Excepté et mis à part s'accordent seulement après le nom. Sauf que, si ce n'est que et à ceci près que posent un fait, à l'indicatif. EN: exception words take a noun; the que forms state a fact."),
     table('sheet-exception-mots', 'Les mots de l’exception', ['Mot', 'Construction', 'Registre', 'Exemple'], [
       ['sauf', 'nom, pronom tonique, complément', 'courant', "Toute l'équipe était présente, sauf le directeur."],
-      ['à part', 'nom, pronom', 'surtout oral', 'À part toi, personne ne connaît le code.'],
+      ['à part', 'nom, pronom', 'courant', 'À part toi, personne ne connaît le code.'],
       ['excepté', 'invariable devant, accordé après', 'soutenu', "Les enfants exceptés, tous paient l'entrée."],
       ['hormis', 'nom', 'soutenu', 'Hormis quelques retards, le chantier s’est bien déroulé.'],
       ["à l'exception de", 'nom ; du, des', 'officiel', "Tous les cours sont maintenus, à l'exception de celui du jeudi."],
@@ -3148,7 +3149,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ["il n'y a seulement que deux places", 'oral : pléonasme', "il n'y a que deux places"],
       ["il y a qu'une chose", 'oral : ne tombé', "il n'y a qu'une chose"],
       ['nous avons reçu la facture qu’hier', 'oral : ne tombé', "nous n'avons reçu la facture qu'hier"],
-      ['à part le spa', 'correct, surtout oral', "hormis le spa, à l'exception du spa"],
+      ['à part le spa', 'correct, courant', "hormis le spa, à l'exception du spa"],
       ['sauf que', 'correct, courant', "si ce n'est que, à ceci près que"],
       ['sauf si vous soyez', 'faute, à l’oral comme à l’écrit', 'sauf si vous êtes'],
     ]),
