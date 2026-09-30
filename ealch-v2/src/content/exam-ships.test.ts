@@ -34,7 +34,7 @@ import { seedPlusPacks, seedRegime } from './seed-plus-packs.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as Corpus & {
-  examPapers?: { id: string; format: string; sections?: { taskIds?: string[] }[] }[];
+  examPapers?: { id: string; format: string; outline?: true; sections?: { taskIds?: string[] }[] }[];
   examTasks?: { id: string }[];
 };
 
@@ -52,8 +52,10 @@ test('the seed ships exam content', () => {
 });
 
 test('every seed exam paper resolves all its task ids against seed.examTasks', () => {
+  // An outline paper (the packs core's skeleton of a paid paper, v80) names
+  // tasks the exam pack holds, by design; it is listed locked, never sat.
   const dangling: string[] = [];
-  for (const p of papers) {
+  for (const p of papers.filter((x) => x.outline !== true)) {
     for (const s of p.sections ?? []) {
       for (const t of s.taskIds ?? []) if (!taskIds.has(t)) dangling.push(`${p.id} -> ${t}`);
     }
@@ -92,13 +94,21 @@ test('validateCorpus reports no exam issues against the shipped seed', () => {
   strictEqual(issues.length, 0, `validateCorpus complains about the seed's exams:\n  ${issues.map((i) => `${i.path}: ${i.message}`).join('\n  ')}`);
 });
 
-test('under packs the binary carries the free papers only, and the exam pack the rest', { skip: seedRegime() !== 'packs' }, () => {
+test('under packs the binary carries the free papers whole, the rest as outlines, and the exam pack fills them', { skip: seedRegime() !== 'packs' }, () => {
   // FREE_EXAM_PAPERS in ealch-admin content-packs.logic.ts, pinned there to
   // RemoteConfig.examFreePapers (default 1): paper 1 of each format is free.
-  const paid = papers.filter((p) => (p as { paperNo?: number }).paperNo !== 1).map((p) => p.id);
-  strictEqual(paid.length, 0, `the free core bundles papers past the free allowance:\n  ${paid.join('\n  ')}`);
-  const all = seedPlusPacks<{ examPapers?: { id: string }[] }>().examPapers ?? [];
-  ok(all.length > papers.length, `seed + packs holds ${all.length} papers against ${papers.length} bundled; the exam pack's papers are missing from the test corpus`);
+  // Since v80 the core LISTS every paper: paper 1 whole, the rest as outline
+  // skeletons with no tasks bundled, so a free learner sees them locked.
+  const no = (p: unknown) => (p as { paperNo?: number }).paperNo;
+  const paidWhole = papers.filter((p) => no(p) !== 1 && p.outline !== true).map((p) => p.id);
+  strictEqual(paidWhole.length, 0, `the free core bundles a paid paper whole:\n  ${paidWhole.join('\n  ')}`);
+  const freeOutline = papers.filter((p) => no(p) === 1 && p.outline === true).map((p) => p.id);
+  strictEqual(freeOutline.length, 0, `a free paper ships as an outline:\n  ${freeOutline.join('\n  ')}`);
+  // The exam pack replaces every skeleton with its full paper.
+  const all = seedPlusPacks<{ examPapers?: { id: string; outline?: true }[] }>().examPapers ?? [];
+  strictEqual(all.length, papers.length, 'seed + packs lists the same papers the core does');
+  const stillOutline = all.filter((p) => p.outline === true).map((p) => p.id);
+  strictEqual(stillOutline.length, 0, `the exam pack left skeletons in the test corpus:\n  ${stillOutline.join('\n  ')}`);
 });
 
 test('no source file still says exam content is snapshot-only (D-13)', () => {
