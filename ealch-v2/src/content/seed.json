@@ -1,5 +1,5 @@
 {
-  "version": 81,
+  "version": 82,
   "domains": [
     {
       "slug": "fondations",
@@ -383,7 +383,9 @@
       "subThemes": [
         "la coordination",
         "la subordination",
-        "la concession"
+        "la concession",
+        "le gérondif",
+        "la cause et la conséquence"
       ]
     },
     {
@@ -752,7 +754,8 @@
       "subThemes": [
         "la voix passive",
         "on et se faire",
-        "les avis et les consignes"
+        "les avis et les consignes",
+        "les constructions infinitives"
       ]
     },
     {
@@ -905,7 +908,9 @@
         "l'inversion",
         "les incises",
         "le registre soutenu",
-        "les trois registres"
+        "les trois registres",
+        "la nominalisation",
+        "le participe présent et l'adjectif verbal"
       ]
     },
     {
@@ -933,7 +938,8 @@
       "subThemes": [
         "lire un récit",
         "le passé simple",
-        "le narrateur et le point de vue"
+        "le narrateur et le point de vue",
+        "le subjonctif littéraire"
       ]
     },
     {
@@ -1224,7 +1230,9 @@
       ],
       "examFlag": false,
       "immigFlag": false,
-      "subThemes": []
+      "subThemes": [
+        "les pronoms d'insistance"
+      ]
     },
     {
       "slug": "quebec-et-francophonie",

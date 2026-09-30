@@ -169,6 +169,12 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**v82 PUBLISHED, 2026-09-30: B2 lessons 9 to 16 are LIVE** (waves 4 + 5, Paul's OK).
+Checksum 11d741d6... matches the dry run; uploaded core/v82, content-packs/b2/v82
+(21 lessons), snapshots/v82 (47.25 MB) and both manifests; a2/b1/c1/exam packs
+unchanged. Retention pruned one snapshot; rollback reaches v73. B2: lessons 1-16
+and 22-26 live. Next: wave 6 (b2.17-b2.21), then GATE B2-3.
+
 **WAVE 5 IMPORTED AND MERGED, 2026-09-30; v82 (waves 4 + 5) dry run ready, NOT
 published.** Paul's 47 openers registered with alt. Trial merge +715 items, app
 5722/5722. `--apply`: 715 rows + 8 unit/lesson rows, read back identical. Merged
