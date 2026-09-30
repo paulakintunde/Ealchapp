@@ -169,6 +169,11 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**Wave 6 trial merge, 2026-09-30** (before the art): +5 units, +5 lessons, +910 items, 177
+identical, 0 twins, validateCorpus 0; app suite on the trial seed 5722/5724, the 2 failures being
+the unregistered-art guards (clear once Paul's 59 openers are registered); seed.json and
+seed-packs.json restored byte-identical. Next: art, then --apply, merge, suites, v83 dry run.
+
 **Wave 6 pre-review, 2026-09-30.** One reviewer per lesson, fixes applied: b2.17 3 blockers
 (type-ins refusing the fronted purpose clause), the hidden subject (« pour le remplir ») reframed as
 unclear, not an error; b2.18 1 blocker (a connector fix refused), the false rule « comme + imparfait
