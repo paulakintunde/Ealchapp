@@ -169,6 +169,12 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 6 DRAFTED, 2026-09-30** (b2.17 to b2.21). 910 authored rows; app checks 0 on all five,
+house tests 262/262, B2 import dry run 910 to insert / 0 blockers / 0 conflicts, floors clear;
+177 published rows reused. On ART_PENDING until Paul's 59 openers land. The five cite each
+other (b2.18 owns the ne explétif, b2.19 plain ne…que), so they publish together. Next:
+pre-review, one reviewer per lesson.
+
 **WAVE 6 DISPATCHED, 2026-09-30** (b2.17 to b2.21, Unit 3 end). Five sub-themes set in
 Postgres (read back); blocks in the ledger. b2.18 owns the ne explétif; b2.17, b2.19 and
 b2.21 apply it and cite lesson 18. b2.19 owns plain ne…que; b2.21 owns its combinations.
@@ -411,7 +417,11 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 images, registered + alt | MERGED, v82 dry run |
-| b2.17 to b2.21 | expression-but, subordonnees-temps, restriction, tournures-impersonnelles, negations-combinees | | | | | | | | | DRAFTING (wave 6) |
+| b2.17 | expression-but | 88 | 12 | 12x8 | 12 | 5 | 16 | 171 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.18 | subordonnees-temps | 87 | 12 | 12x8 | 12 | 5 | 15 | 178 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 prompts, ART_PENDING | DRAFTED |
 | b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
@@ -444,11 +454,11 @@ ledger's id spans, read from the source on the same day.
 | `faits-et-procedures` (sub-theme « les constructions infinitives »; 1000-1199 are B1) | 1200-1399 | b2.14 constructions-infinitives | 1200-1397 (176) |
 | `connecteurs-logiques` (sub-theme « la cause et la conséquence ») | 1800-1999 | b2.15 cause-consequence | 1800-1991 (189) |
 | `connecteurs-logiques` (sub-theme « la concession », B1's) | 2000-2199 | b2.16 concession-avancee | 2000-2197 (184) |
-| `connecteurs-logiques` (sub-theme « le but », set 2026-09-30) | 2200-2399 | b2.17 expression-but | (drafting) |
-| `connecteurs-logiques` (sub-theme « les rapports de temps », set 2026-09-30) | 2400-2599 | b2.18 subordonnees-temps | (drafting) |
-| `negation-et-restriction` (sub-theme « la restriction et l'exception »; fr.b1 0-399 and 1000-1199, fr.b2 0-199 taken) | 1200-1399 | b2.19 restriction | (drafting) |
-| `opinions-et-avis` (sub-theme « les tournures impersonnelles », set 2026-09-30) | 2000-2199 | b2.20 tournures-impersonnelles | (drafting) |
-| `negation-et-restriction` (sub-theme « les négations combinées », set 2026-09-30) | 1400-1599 | b2.21 negations-combinees | (drafting) |
+| `connecteurs-logiques` (sub-theme « le but », set 2026-09-30) | 2200-2399 | b2.17 expression-but | 2200-2391 (171) |
+| `connecteurs-logiques` (sub-theme « les rapports de temps », set 2026-09-30) | 2400-2599 | b2.18 subordonnees-temps | 2400-2599 (178) |
+| `negation-et-restriction` (sub-theme « la restriction et l'exception »; fr.b1 0-399 and 1000-1199, fr.b2 0-199 taken) | 1200-1399 | b2.19 restriction | 1200-1399 (189) |
+| `opinions-et-avis` (sub-theme « les tournures impersonnelles », set 2026-09-30) | 2000-2199 | b2.20 tournures-impersonnelles | 2000-2195 (191) |
+| `negation-et-restriction` (sub-theme « les négations combinées », set 2026-09-30) | 1400-1599 | b2.21 negations-combinees | 1400-1599 (181) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
