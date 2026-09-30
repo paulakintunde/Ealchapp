@@ -17,7 +17,6 @@ import { ACCENTS } from '@/theme/palette';
 import { AVATARS, avatarName } from '@/content/avatars';
 import { langs } from '@/content';
 import { auth, sound, stt, type SttResult } from '@/services';
-import { AUTH_UNAVAILABLE } from '@/services/auth';
 import { track } from '@/services/analytics';
 import { FLAGS } from '@/services/flags';
 import { PasswordField, LegalConsent } from '@/components/AuthFields';
@@ -90,6 +89,7 @@ export default function Onboarding() {
   const [showWheel, setShowWheel] = useState(false);
   const [password, setPassword] = useState('');
   const [acctErr, setAcctErr] = useState<string | null>(null);
+  const [signupFailed, setSignupFailed] = useState(false);
   const [acctPending, setAcctPending] = useState(false);
 
   // Async callbacks (signup, calibration) must not advance the wizard after
@@ -141,6 +141,11 @@ export default function Onboarding() {
     next();
   };
 
+  const skipReminders = () => {
+    s.setNotif('daily', false);
+    next();
+  };
+
   const beginner = isBeginnerExp(s.exp);
   const level = beginner ? 'A1' : 'B1';
 
@@ -175,6 +180,7 @@ export default function Onboarding() {
       return;
     }
     setAcctErr(null);
+    setSignupFailed(false);
     setAcctPending(true);
     // finally clears the pending latch no matter how we leave — the old code
     // returned on the step guard BEFORE resetting it, so navigating away
@@ -185,7 +191,8 @@ export default function Onboarding() {
       if (!mounted.current || stepRef.current !== 1) return;
       if (!res.ok) {
         sound.play('error');
-        setAcctErr(res.error === AUTH_UNAVAILABLE ? T.errAuthUnavailable : (res.error ?? T.errSignUp));
+        setSignupFailed(true);
+        setAcctErr(T.obSignupError);
         return;
       }
       s.setField('email', res.email ?? email);
@@ -198,6 +205,7 @@ export default function Onboarding() {
 
   const continueAsGuest = () => {
     setAcctErr(null);
+    setSignupFailed(false);
     s.setField('accountType', 'guest');
     next();
   };
@@ -226,10 +234,15 @@ export default function Onboarding() {
     setCalibHeard(null);
     setCalib('rec');
 
-    const res = await stt.listen(calibPhrase, {
-      maxMs: 10000,
-      onPartial: setCalibPartial,
-    });
+    let res: SttResult;
+    try {
+      res = await stt.listen(calibPhrase, {
+        maxMs: 10000,
+        onPartial: setCalibPartial,
+      });
+    } catch {
+      res = { ok: false, available: false, transcript: '', confidence: -1, score: 0, verdict: 'none', source: 'none', error: 'unavailable' };
+    }
 
     if (!mounted.current) return;
     // Left the mic step mid-record: reset the latch to 'idle' instead of
@@ -243,6 +256,11 @@ export default function Onboarding() {
     setCalibPartial('');
     setCalibHeard(res);
     setCalib('done');
+    if (!res.ok) {
+      track('onboarding_mic_failed', {
+        category: res.error === 'not-allowed' ? 'denied' : !res.available ? 'unavailable' : 'no_speech',
+      });
+    }
     sound.play(res.ok ? 'success' : 'flip');
   };
 
@@ -308,7 +326,7 @@ export default function Onboarding() {
                 {acctErr}
               </TX>
             ) : null}
-            <Button label={T.continueT} onPress={submitAccount} disabled={acctPending} style={{ height: 54, marginTop: 6 }} />
+            <Button label={signupFailed ? T.obSignupRetry : T.obCreateAccount} onPress={submitAccount} disabled={acctPending} style={{ minHeight: 54, marginTop: 6 }} />
             {/* Consent is disclosed at the moment of account creation. */}
             <LegalConsent />
             <Press accessibilityRole="button" onPress={continueAsGuest} style={{ alignItems: 'center', marginTop: 18 }}>
@@ -548,7 +566,10 @@ export default function Onboarding() {
                 );
               })}
             </View>
-            <Button label={T.enableReminders} onPress={() => void enableReminders()} style={{ marginTop: 'auto' }} />
+            {s.notifs.daily ? (
+              <Button label={T.enableReminders} onPress={() => void enableReminders()} style={{ marginTop: 'auto' }} />
+            ) : null}
+            <Button label={T.obSkipReminders} variant={s.notifs.daily ? 'outline' : 'primary'} onPress={skipReminders} style={{ marginTop: s.notifs.daily ? 16 : 'auto' }} />
           </View>
         ) : null}
 
@@ -587,10 +608,10 @@ export default function Onboarding() {
                 ) : (
                   <TX role="bodySm" color={t.txMuted}>
                     {calibHeard.error === 'not-allowed'
-                      ? T.micDenied
+                      ? T.obMicDenied
                       : !calibHeard.available
                         ? T.micUnavail
-                        : T.micNoSpeech}
+                        : T.obMicTransient}
                   </TX>
                 )}
               </View>
@@ -611,9 +632,12 @@ export default function Onboarding() {
             </View>
 
             {/* The mic check gates nothing — it can always be skipped. */}
+            {calib === 'done' && calibHeard && !calibHeard.ok ? (
+              <Button label={T.obMicRetry} onPress={() => void doCalib()} style={{ marginTop: 24 }} />
+            ) : null}
             <Button
-              label={calib === 'done' ? T.continueT : T.skipT}
-              variant={calib === 'done' ? 'primary' : 'outline'}
+              label={calibHeard?.ok ? T.continueT : T.obMicSkip}
+              variant={calibHeard?.ok ? 'primary' : 'outline'}
               onPress={next}
               style={{ marginTop: 'auto' }}
             />

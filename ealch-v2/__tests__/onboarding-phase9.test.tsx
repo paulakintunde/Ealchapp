@@ -6,6 +6,8 @@ import SignIn from '../app/signin';
 import { useStore } from '@/store/useStore';
 import { emptyWizard } from '@/store/onboarding.logic';
 import { auth } from '@/services/auth';
+import { stt } from '@/services';
+import { notifications } from '@/services/notifications';
 import { track } from '@/services/analytics';
 
 const mockRouter = { back: jest.fn(), push: jest.fn(), replace: jest.fn() };
@@ -66,4 +68,52 @@ test('existing-account sign-in does not count wizard completion', async () => {
   await waitFor(() => expect(auth.signInWithEmail).toHaveBeenCalledWith('learner@example.test', 'password123'));
   await waitFor(() => expect(mockRouter.replace).toHaveBeenCalledWith('/splash'));
   expect((track as jest.Mock).mock.calls.some(([event]) => event === 'onboarding_completed')).toBe(false);
+});
+
+test('reminder skip keeps other choices and never requests notification permission', async () => {
+  useStore.setState({ wizardId: 'wizard-reminders', wizardStep: 8, notifs: { daily: true, report: true, nudge: false } });
+  const view = await render(wrap(<Onboarding />));
+  await fireEvent.press(screen.getByRole('button', { name: 'Continue without reminders' }));
+  expect(notifications.requestPermissions).not.toHaveBeenCalled();
+  expect(useStore.getState().notifs).toEqual({ daily: false, report: true, nudge: false });
+  expect(useStore.getState().wizardStep).toBe(9);
+  await view.unmount();
+  const resumed = await render(wrap(<Onboarding />));
+  expect(useStore.getState().notifs.daily).toBe(false);
+  expect(screen.getByText('Read this aloud.')).toBeTruthy();
+  await resumed.unmount();
+});
+
+test('signup failure retains the form and offers retry or guest without completing signup', async () => {
+  useStore.setState({ wizardId: 'wizard-account', wizardStep: 1 });
+  jest.spyOn(auth, 'signUpWithEmail').mockResolvedValue({ ok: false, error: 'auth-unavailable' });
+  const view = await render(wrap(<Onboarding />));
+  await fireEvent.changeText(screen.getByPlaceholderText('Email'), 'learner@example.test');
+  await fireEvent.changeText(screen.getByPlaceholderText('Password'), 'password123');
+  await fireEvent.press(screen.getByRole('button', { name: 'Create account' }));
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Retry account creation' })).toBeTruthy());
+  expect(screen.getByDisplayValue('learner@example.test')).toBeTruthy();
+  expect(screen.getByDisplayValue('password123')).toBeTruthy();
+  expect(screen.getByText(/Could not create your account/)).toBeTruthy();
+  await fireEvent.press(screen.getByRole('button', { name: 'Retry account creation' }));
+  await waitFor(() => expect(auth.signUpWithEmail).toHaveBeenCalledTimes(2));
+  expect((track as jest.Mock).mock.calls.some(([event]) => event === 'signup_completed')).toBe(false);
+  await fireEvent.press(screen.getByText('Continue without an account'));
+  expect(useStore.getState().accountType).toBe('guest');
+  expect(useStore.getState().wizardStep).toBe(2);
+  await view.unmount();
+});
+
+test('denied microphone records only a category and allows retry or skip', async () => {
+  useStore.setState({ wizardId: 'wizard-mic', wizardStep: 9 });
+  jest.spyOn(stt, 'listen').mockResolvedValue({ ok: false, available: false, transcript: '', confidence: -1, score: 0, verdict: 'none', source: 'none', error: 'not-allowed' });
+  const view = await render(wrap(<Onboarding />));
+  await fireEvent.press(screen.getByRole('button', { name: 'Start recording' }));
+  await waitFor(() => expect(screen.getByText(/Microphone access is denied/)).toBeTruthy());
+  expect(track).toHaveBeenCalledWith('onboarding_mic_failed', { category: 'denied' });
+  await fireEvent.press(screen.getByRole('button', { name: 'Try microphone again' }));
+  await waitFor(() => expect(stt.listen).toHaveBeenCalledTimes(2));
+  await fireEvent.press(screen.getByRole('button', { name: 'Continue without mic check' }));
+  expect(useStore.getState().wizardStep).toBe(10);
+  await view.unmount();
 });

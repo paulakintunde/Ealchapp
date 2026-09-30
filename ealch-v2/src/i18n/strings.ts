@@ -288,11 +288,11 @@ export type Strings = {
   // --- onboarding & sign-in (English-primary, FR when device is French) ---
   obSteps: string[];
   obTagline: string; obIntro: string; createAccount: string; alreadyAccount: string; signInLink: string;
-  obCreateT: string; passwordPh: string; continueT: string; orT: string; withApple: string; withGoogle: string;
+  obCreateT: string; obCreateAccount: string; obSignupError: string; obSignupRetry: string; passwordPh: string; continueT: string; orT: string; withApple: string; withGoogle: string;
   obThemeT: string; obThemeS: string; obGoalT: string; obExpT: string; obPaceT: string; obAccentT: string;
-  obRemindT: string; obRemindS: string; enableReminders: string; alarmChips: string[]; paceSubs: string[];
+  obRemindT: string; obRemindS: string; enableReminders: string; obSkipReminders: string; alarmChips: string[]; paceSubs: string[];
   expTitles: string[]; expSubs: string[];
-  obCalibT: string; obCalibS: string; obCalibRec: string; obCalibTap: string;
+  obCalibT: string; obCalibS: string; obCalibRec: string; obCalibTap: string; obMicTransient: string; obMicDenied: string; obMicRetry: string; obMicSkip: string;
   obAvatarT: string; obAvatarS: string;
   obDecouverte: string; obSeuil: string; obResultA1: string; obResultB1: string; enterEalch: string;
   welcomeBack: string; helloAgain: string; forgotPw: string; signInBtn: string; newHere: string;
@@ -774,18 +774,19 @@ export const T: Record<Lang, Strings> = {
     obTagline: 'Parlez avec élégance.',
     obIntro: 'Vous avez fait la grammaire. Passez à la parole. Parlez à voix haute dès le premier jour, et faites-vous comprendre.',
     createAccount: 'Créer un compte', alreadyAccount: 'Vous avez déjà un compte ?', signInLink: 'Se connecter',
-    obCreateT: 'Créez votre compte.', passwordPh: 'Mot de passe', continueT: 'Continuer', orT: 'OU',
+    obCreateT: 'Créez votre compte.', obCreateAccount: 'Créer mon compte', obSignupError: 'Impossible de créer le compte. Vérifiez votre connexion, puis réessayez, ou continuez sans compte.', obSignupRetry: 'Réessayer la création du compte', passwordPh: 'Mot de passe', continueT: 'Continuer', orT: 'OU',
     withApple: 'Continuer avec Apple', withGoogle: 'Continuer avec Google',
     obThemeT: 'Choisissez votre\ncouleur signature.', obThemeS: "Un fil vibrant dans l'obscurité. Modifiable à tout moment dans votre profil.",
     obGoalT: 'Pourquoi le français ?', obExpT: 'Combien de français\nvit déjà en vous ?', obPaceT: 'Minutes par jour ?',
     obAccentT: 'Quel français\npour {name} ?',
     obRemindT: 'Quand devons-nous\nvous appeler pour pratiquer ?', obRemindS: "Une alarme quotidienne rend la série invisible, et l'habitude réelle.",
-    enableReminders: 'Activer les rappels', alarmChips: ['matin', 'midi', 'soir', 'nuit'],
+    enableReminders: 'Activer les rappels', obSkipReminders: 'Continuer sans rappels', alarmChips: ['matin', 'midi', 'soir', 'nuit'],
     paceSubs: ['une pause café', 'le trajet du matin', 'sérieux', 'immersion'],
     expTitles: ['Grand débutant', "Souvenirs d'école", 'Conversationnel', 'Avancé'],
     expSubs: ['je pars de zéro', 'le français scolaire, presque oublié', 'je tiens une conversation simple', "peaufiner l'accent et le registre"],
     obCalibT: 'Lisez ceci à voix haute.', obCalibS: 'Dix secondes suffisent. Lisez à voix haute et sentez le rythme, les liaisons et les voyelles nasales.',
     obCalibRec: 'Continuez à lire : rythme, liaisons, voyelles nasales', obCalibTap: 'Touchez le micro et lisez',
+    obMicTransient: 'Le micro n’a pas saisi votre voix. Réessayez ou continuez sans test micro.', obMicDenied: 'L’accès au micro est refusé. Activez-le dans les réglages du téléphone, ou continuez sans test micro.', obMicRetry: 'Réessayer le micro', obMicSkip: 'Continuer sans test micro',
     obAvatarT: 'Choisissez votre\navatar.', obAvatarS: 'Modifiable à tout moment dans les réglages.',
     obDecouverte: 'Découverte : le commencement.', obSeuil: 'Seuil : le passage.',
     obResultA1: 'Une page blanche. Votre parcours commence au Cours de remise à niveau : les sons d\'abord, puis les mots. {name} vous accompagnera en douceur.',
@@ -1281,18 +1282,19 @@ export const T: Record<Lang, Strings> = {
     obTagline: 'Speak with elegance.',
     obIntro: "You've done the grammar. Now do the talking. Speak French out loud from day one, and be understood.",
     createAccount: 'Create an account', alreadyAccount: 'Already have an account?', signInLink: 'Sign in',
-    obCreateT: 'Create your account.', passwordPh: 'Password', continueT: 'Continue', orT: 'OR',
+    obCreateT: 'Create your account.', obCreateAccount: 'Create account', obSignupError: 'Could not create your account. Check your connection and try again, or continue without an account.', obSignupRetry: 'Retry account creation', passwordPh: 'Password', continueT: 'Continue', orT: 'OR',
     withApple: 'Continue with Apple', withGoogle: 'Continue with Google',
     obThemeT: 'Choose your\nsignature color.', obThemeS: 'One vibrant thread through the dark. Change it anytime in your profile.',
     obGoalT: 'Why French?', obExpT: 'How much French\nlives in you already?', obPaceT: 'Minutes per day?',
     obAccentT: 'Which French\nfor {name}?',
     obRemindT: 'When should we\ncall you to practice?', obRemindS: 'A daily alarm keeps the streak invisible, and the habit real.',
-    enableReminders: 'Enable reminders', alarmChips: ['morning', 'noon', 'evening', 'night'],
+    enableReminders: 'Enable reminders', obSkipReminders: 'Continue without reminders', alarmChips: ['morning', 'noon', 'evening', 'night'],
     paceSubs: ['a coffee break', 'the morning commute', 'getting serious', 'immersion'],
     expTitles: ['Complete beginner', 'School memories', 'Conversational', 'Advanced'],
     expSubs: ['I am starting from zero', 'school French, mostly forgotten', 'I can hold simple conversations', 'polishing accent & register'],
     obCalibT: 'Read this aloud.', obCalibS: 'Ten seconds is enough. Read it aloud and feel the rhythm, the liaisons, the nasal vowels.',
     obCalibRec: 'Keep reading: rhythm, liaisons, nasal vowels', obCalibTap: 'Tap the mic and read',
+    obMicTransient: 'The microphone did not catch your voice. Try again or continue without the mic check.', obMicDenied: 'Microphone access is denied. Enable it in phone settings, or continue without the mic check.', obMicRetry: 'Try microphone again', obMicSkip: 'Continue without mic check',
     obAvatarT: 'Choose your\navatar.', obAvatarS: 'Change it anytime in Settings.',
     obDecouverte: 'Découverte: the beginning.', obSeuil: 'Seuil: the threshold.',
     obResultA1: 'A clean slate. Your journey starts in the Refresher Course: sounds first, then words. {name} will keep it gentle.',
