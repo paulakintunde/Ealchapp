@@ -314,7 +314,7 @@ Plans:
 **Wave 2** *(blocked on Wave 1 completion)*
 - [x] 09-02-PLAN.md — resumable wizard, explicit skip/recovery actions, and onboarding/signup milestones
 - [x] 09-04-PLAN.md — per-install first open, local-day D1, Android Play referrer, and iPhone unavailable status
-- [ ] 09-05-PLAN.md — first lesson, completion, exam, streak, and purchase events
+- [x] 09-05-PLAN.md — first lesson, completion, exam, streak, and purchase events
 
 **Wave 3** *(blocked on Plan 02 because both plans edit `useStore.ts` and `strings.ts`)*
 - [x] 09-03-PLAN.md — durable placement attempts, outcome boundaries, and recovery UI
