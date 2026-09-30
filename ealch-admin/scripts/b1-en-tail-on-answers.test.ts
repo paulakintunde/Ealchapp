@@ -37,6 +37,7 @@ const LESSONS: [string, string][] = [
   ['b2.09', 'subjonctif-litteraire'], ['b2.10', 'nominalisation'], ['b2.11', 'pronoms-insistance'], ['b2.12', 'gerondif'],
   ['b2.13', 'participe-adjectif'], ['b2.14', 'constructions-infinitives'], ['b2.15', 'cause-consequence'], ['b2.16', 'concession-avancee'],
   ['b2.17', 'expression-but'], ['b2.18', 'subordonnees-temps'], ['b2.19', 'restriction'], ['b2.20', 'tournures-impersonnelles'], ['b2.21', 'negations-combinees'],
+  ['b2.27', 'langage-juridique'], ['b2.28', 'francais-soins'], ['b2.29', 'science-pour-tous'], ['b2.30', 'lire-litterature'],
 ];
 
 /** Fields whose strings ARE the answer: what the learner picks, types, or is

@@ -169,7 +169,11 @@ They never ask the learner to produce the form.
 
 ## Progress
 
-**WAVE 7 DISPATCHED, 2026-09-30** (b2.27 to b2.30, while wave 6 waits for art). Three
+**WAVE 7 DRAFTED, 2026-09-30** (b2.27 to b2.30; the authors were stopped once by the session
+limit and resumed with nothing lost). 755 authored rows; app checks 0, house tests 278/278, import
+dry run 755 / 0 blockers, floors clear. On ART_PENDING (48 openers). Each corpus header §A.7 lists
+its factual claims (b2.30: ten public-domain extracts quoted from memory) for the pre-review fact
+check. b2.29 cites lesson 30, so wave 7 publishes together. (b2.27 to b2.30, while wave 6 waits for art). Three
 sub-themes set in Postgres (read back); blocks in the ledger. No legal or medical advice;
 every factual claim listed in each corpus header for a fact check; literary extracts public
 domain or labelled original.
@@ -445,7 +449,10 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 prompts, ART_PENDING | DRAFTED |
 | b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 prompts, ART_PENDING | DRAFTED |
 | b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 prompts, ART_PENDING | DRAFTED |
-| b2.27 to b2.30 | langage-juridique, francais-soins, science-pour-tous, lire-litterature | | | | | | | | | DRAFTING (wave 7) |
+| b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 prompts, ART_PENDING | DRAFTED |
 | b2.31 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
@@ -483,10 +490,10 @@ ledger's id spans, read from the source on the same day.
 | `negation-et-restriction` (sub-theme « la restriction et l'exception »; fr.b1 0-399 and 1000-1199, fr.b2 0-199 taken) | 1200-1399 | b2.19 restriction | 1200-1399 (189) |
 | `opinions-et-avis` (sub-theme « les tournures impersonnelles », set 2026-09-30) | 2000-2199 | b2.20 tournures-impersonnelles | 2000-2195 (191) |
 | `negation-et-restriction` (sub-theme « les négations combinées », set 2026-09-30) | 1400-1599 | b2.21 negations-combinees | 1400-1599 (181) |
-| `droit` (sub-theme « le langage juridique et administratif », set 2026-09-30; b1/b2 use 0-199) | 1000-1199 | b2.27 langage-juridique | (drafting) |
-| `soins` (sub-theme « le français des soins », set 2026-09-30; b1/b2 use 0-199) | 1000-1199 | b2.28 francais-soins | (drafting) |
-| `methode-scientifique` (sub-theme « la science pour tous », set 2026-09-30; b2 uses 0-399) | 1000-1199 | b2.29 science-pour-tous | (drafting) |
-| `litterature` (sub-theme « le narrateur et le point de vue »; b2.08/b2.09 use 1000-1399) | 1400-1599 | b2.30 lire-litterature | (drafting) |
+| `droit` (sub-theme « le langage juridique et administratif », set 2026-09-30; b1/b2 use 0-199) | 1000-1199 | b2.27 langage-juridique | 1000-1192 (193) |
+| `soins` (sub-theme « le français des soins », set 2026-09-30; b1/b2 use 0-199) | 1000-1199 | b2.28 francais-soins | 1000-1193 (194) |
+| `methode-scientifique` (sub-theme « la science pour tous », set 2026-09-30; b2 uses 0-399) | 1000-1199 | b2.29 science-pour-tous | 1000-1194 (191) |
+| `litterature` (sub-theme « le narrateur et le point de vue »; b2.08/b2.09 use 1000-1399) | 1400-1599 | b2.30 lire-litterature | 1400-1576 (177) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
