@@ -7775,6 +7775,289 @@
           ]
         }
       ]
+    },
+    {
+      "id": "b2.09",
+      "seq": 9,
+      "sub": "Reconnaître le subjonctif littéraire",
+      "canDo": "Can recognise the imperfect and pluperfect subjunctive and the second form of the past conditional in classic novels, careful history writing, formal speeches and journalism, use the circumflex and the trigger to tell them from the passé simple, map each form to its infinitive and to the form a writer would use today, read the fixed expressions still alive in formal French, and understand a literary page for its meaning, its implications and its irony, without ever needing to produce the forms",
+      "level": "b2",
+      "title": "Recognising the Literary Subjunctive",
+      "lessonIds": [
+        "b2.09.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.14",
+        "b1.15",
+        "b2.02",
+        "b2.03",
+        "b2.05",
+        "b2.08"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.09.l1",
+          "title": "Reconnaître le subjonctif littéraire",
+          "acts": [
+            {
+              "title": "Un chapeau sur le u",
+              "cards": 8
+            },
+            {
+              "title": "Où il vit encore",
+              "cards": 9
+            },
+            {
+              "title": "Fut ou fût",
+              "cards": 13
+            },
+            {
+              "title": "La forme",
+              "cards": 15
+            },
+            {
+              "title": "Eût fini, fût venue",
+              "cards": 11
+            },
+            {
+              "title": "Il eût fallu",
+              "cards": 12
+            },
+            {
+              "title": "La concordance",
+              "cards": 10
+            },
+            {
+              "title": "Aujourd’hui, tu dirais",
+              "cards": 7
+            },
+            {
+              "title": "Les formes vivantes",
+              "cards": 10
+            },
+            {
+              "title": "Comprendre l’extrait",
+              "cards": 9
+            },
+            {
+              "title": "Raconte-le à un ami",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.10",
+      "seq": 10,
+      "sub": "La nominalisation",
+      "canDo": "Can turn verbs and adjectives into nouns with the right suffix and gender, condense a clause into a noun phrase with the preposition that carries the relation and a clear doer, write headlines, agenda points, minutes and summaries in nominal style, and unfold an over-nominal text for a listener",
+      "level": "b2",
+      "title": "Nominalisation",
+      "lessonIds": [
+        "b2.10.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.18",
+        "b1.31",
+        "b1.32",
+        "b1.34",
+        "b2.22"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.10.l1",
+          "title": "La nominalisation",
+          "acts": [
+            {
+              "title": "Deux versions, un seul fait",
+              "cards": 12
+            },
+            {
+              "title": "Du verbe au nom",
+              "cards": 25
+            },
+            {
+              "title": "Le genre dans le suffixe",
+              "cards": 15
+            },
+            {
+              "title": "Les noms courts",
+              "cards": 24
+            },
+            {
+              "title": "De l’adjectif au nom",
+              "cards": 24
+            },
+            {
+              "title": "Une proposition, un groupe",
+              "cards": 20
+            },
+            {
+              "title": "La préposition dit le lien",
+              "cards": 19
+            },
+            {
+              "title": "Qui fait quoi",
+              "cards": 18
+            },
+            {
+              "title": "Titres et comptes rendus",
+              "cards": 18
+            },
+            {
+              "title": "Trop de noms",
+              "cards": 11
+            },
+            {
+              "title": "Ton compte rendu",
+              "cards": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.11",
+      "seq": 11,
+      "sub": "Les pronoms d'insistance",
+      "canDo": "Can use the stressed pronouns to set one person against another, to detach and resume a word in speech, to stand alone as a contrasted subject, to agree the verb after compound subjects and after c'est … qui, to reinforce with même, aussi, seul, tous and deux, to lift an ambiguity between two people, to choose soi or lui, and to say whose turn or whose thing it is, in the register the situation needs",
+      "level": "b2",
+      "title": "Emphatic Pronouns",
+      "lessonIds": [
+        "b2.11.l1"
+      ],
+      "prereqUnitIds": [
+        "a2.36",
+        "b1.22",
+        "b1.24"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.11.l1",
+          "title": "Les pronoms d'insistance",
+          "acts": [
+            {
+              "title": "Lui adore, moi je déteste",
+              "cards": 14
+            },
+            {
+              "title": "Deux camps, deux pronoms",
+              "cards": 23
+            },
+            {
+              "title": "La reprise",
+              "cards": 16
+            },
+            {
+              "title": "Seul devant le verbe",
+              "cards": 15
+            },
+            {
+              "title": "Toi et moi, nous",
+              "cards": 18
+            },
+            {
+              "title": "C’est moi qui",
+              "cards": 29
+            },
+            {
+              "title": "Le renfort",
+              "cards": 20
+            },
+            {
+              "title": "Qui est il",
+              "cards": 18
+            },
+            {
+              "title": "Soi",
+              "cards": 20
+            },
+            {
+              "title": "À moi, à lui",
+              "cards": 16
+            },
+            {
+              "title": "L’oral et l’écrit",
+              "cards": 15
+            },
+            {
+              "title": "Ta voix dans le débat",
+              "cards": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.12",
+      "seq": 12,
+      "sub": "Le gérondif",
+      "canDo": "Can build the gérondif (en + present participle, including avoir, être and savoir, pronominal verbs, object pronouns and negation) and use it to express simultaneity, manner and means, condition, cause and, with tout en, opposition, always with the subject of the main verb, switching to quand, pendant que, si, parce que or bien que when the subjects differ, and placing and punctuating it correctly",
+      "level": "b2",
+      "title": "The Gerund",
+      "lessonIds": [
+        "b2.12.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.01",
+        "b1.10",
+        "b1.31",
+        "b1.32",
+        "b2.02"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.12.l1",
+          "title": "Le gérondif",
+          "acts": [
+            {
+              "title": "Un seul sujet, deux actions",
+              "cards": 16
+            },
+            {
+              "title": "La forme",
+              "cards": 25
+            },
+            {
+              "title": "Trois à part, et les ajouts",
+              "cards": 21
+            },
+            {
+              "title": "En même temps",
+              "cards": 19
+            },
+            {
+              "title": "Comment ?",
+              "cards": 16
+            },
+            {
+              "title": "Si : la condition",
+              "cards": 16
+            },
+            {
+              "title": "Parce que : la cause",
+              "cards": 16
+            },
+            {
+              "title": "Tout en : l’opposition",
+              "cards": 15
+            },
+            {
+              "title": "Le sujet qui manque",
+              "cards": 19
+            },
+            {
+              "title": "La place et les faux amis",
+              "cards": 16
+            },
+            {
+              "title": "Tes conseils",
+              "cards": 9
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [

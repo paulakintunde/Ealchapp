@@ -169,6 +169,14 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 4 IMPORTED AND MERGED, 2026-09-30; v82 dry run ready, NOT published.**
+Paul's 45 openers registered with alt (ART_PENDING empty). Trial merge: +4 units,
++4 lessons, +684 items, app 5721/5721. `--apply`: 684 rows + 8 unit/lesson rows,
+read back identical. Merged into the packs layer (4 skeletons in the core), seed
+cut lists b2.09-12. App 5722/5722, admin 950/0. `--packs --dry-run`: v82, checksum
+0b3e394b..., b2 pack 17 lessons 9.03 MiB, snapshot 43.60 MiB, no regression.
+Publishing v82 waits for Paul's OK. b2.13 reuses three b2.12 rows (now published).
+
 **WAVE 4 DRAFTED, 2026-09-30** (b2.09 to b2.12, Unit 2 first half; b2.11 back in
 order now that a2.36 is live). 684 authored rows; app checks 0 on all four,
 house tests 258/258, B2 import dry run 684 to insert / 0 blockers / 0 conflicts,
@@ -348,10 +356,10 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
 | b2.06 | subjonctif-indicatif | 84 | 11 | 12x8 | 12 | 5 | | 162 | 11 images, registered + alt | DONE, v78 |
 | b2.07 | futur-anterieur | 84 | 11 | 12x8 | 12 | 5 | | 167 | 11 images, registered + alt | DONE, v78 |
 | b2.08 | passe-simple (recognition) | 86 | 12 | 11x8 | 11 | 5 | | 178 | 12 images, registered + alt | DONE, v78 |
-| b2.09 | subjonctif-litteraire (recognition) | 81 | 11 | 11x8 | 11 | 5 | 17 | 165 | 11 prompts, not drawn | DRAFTED |
-| b2.10 | nominalisation | 83 | 11 | 11x8 | 11 | 5 | 13 | 178 | 11 prompts, not drawn | DRAFTED |
-| b2.11 | pronoms-insistance | 89 | 12 | 12x8 | 12 | 5 | 16 | 180 | 12 prompts, not drawn | DRAFTED |
-| b2.12 | gerondif | 84 | 11 | 12x8 | 12 | 5 | 14 | 161 | 11 prompts, not drawn | DRAFTED |
+| b2.09 | subjonctif-litteraire (recognition) | 81 | 11 | 11x8 | 11 | 5 | 17 | 165 | 11 images, registered + alt | MERGED, v82 dry run |
+| b2.10 | nominalisation | 83 | 11 | 11x8 | 11 | 5 | 13 | 178 | 11 images, registered + alt | MERGED, v82 dry run |
+| b2.11 | pronoms-insistance | 89 | 12 | 12x8 | 12 | 5 | 16 | 180 | 12 images, registered + alt | MERGED, v82 dry run |
+| b2.12 | gerondif | 84 | 11 | 12x8 | 12 | 5 | 14 | 161 | 11 images, registered + alt | MERGED, v82 dry run |
 | b2.13 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
@@ -380,6 +388,10 @@ ledger's id spans, read from the source on the same day.
 | `langue-soignee` (sub-theme « la nominalisation »; 1000-1399 are B1) | 1400-1599 | b2.10 nominalisation | 1400-1581 (178) |
 | `pronoms-essentiels` (sub-theme « les pronoms d'insistance »; 1000-1799 are B1) | 1800-1999 | b2.11 emphatic pronouns | 1800-1990 (180) |
 | `connecteurs-logiques` (sub-theme « le gérondif »; 1000-1599 are B1) | 1600-1799 | b2.12 gérondif | 1600-1783 (161) |
+| `langue-soignee` (sub-theme « le participe présent et l'adjectif verbal », set 2026-09-30) | 1600-1799 | b2.13 participe-adjectif | drafting |
+| `faits-et-procedures` (sub-theme « les constructions infinitives »; 1000-1199 are B1) | 1200-1399 | b2.14 constructions-infinitives | drafting |
+| `connecteurs-logiques` (sub-theme « la cause et la conséquence ») | 1800-1999 | b2.15 cause-consequence | drafting |
+| `connecteurs-logiques` (sub-theme « la concession », B1's) | 2000-2199 | b2.16 concession-avancee | drafting |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
