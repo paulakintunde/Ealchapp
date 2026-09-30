@@ -16,6 +16,7 @@ import { setSessionEndListener, useProgress } from './useProgress';
 import { device24h, formatTime } from '@/utils/time';
 import { formatNotifText } from '@/utils/notifText.logic';
 import { migrateLessonEnglishMode, type EnglishMode } from '@/content/english.logic';
+import { advanceWizard, emptyWizard, finishWizard, normalizeWizard, startWizard } from './onboarding.logic';
 
 export type Lang = 'fr' | 'en';
 
@@ -102,6 +103,11 @@ export type AppState = {
   accountType: AccountType;
   signedIn: boolean;
   onboarded: boolean;
+  wizardId: string | null;
+  /** Highest unfinished step; Back/edit never reduces this saved checkpoint. */
+  wizardStep: number;
+  completedWizardSteps: number[];
+  wizardCompleted: boolean;
   /** The VERIFIED Supabase auth uid, or null. Set only by setSession, which is
    *  called only from src/services/session.ts's onAuthStateChange subscriber —
    *  never by signIn/completeOnboarding, which are UI-flow bookkeeping and
@@ -182,6 +188,9 @@ export type AppState = {
   /** Wipe every persisted field back to first-launch defaults. Used by account deletion. */
   eraseLocalData: () => Promise<void>;
   completeOnboarding: (level: string) => void;
+  beginWizard: (candidateId: string) => string;
+  advanceWizardStep: (visibleStep: number) => boolean;
+  markWizardCompleted: () => boolean;
 };
 
 /** Every data field at first-launch value. A function, not a constant, so that
@@ -218,6 +227,7 @@ const initialData = () => ({
   accountType: 'guest' as AccountType,
   signedIn: false,
   onboarded: false,
+  ...emptyWizard(),
   userId: null as string | null,
 
   currency: 'USD' as Currency,
@@ -349,6 +359,21 @@ export const useStore = create<AppState>()(
         set({ signedIn: true, email: email ?? get().email, userName: name ?? get().userName }),
       setSession: (userId, email) =>
         set({ userId, email: email ?? get().email }),
+      beginWizard: (candidateId) => {
+        const checkpoint = startWizard(get(), candidateId);
+        set(checkpoint);
+        return checkpoint.wizardId!;
+      },
+      advanceWizardStep: (visibleStep) => {
+        const result = advanceWizard(get(), visibleStep);
+        set(result.checkpoint);
+        return result.firstCompletion;
+      },
+      markWizardCompleted: () => {
+        const result = finishWizard(get());
+        set(result.checkpoint);
+        return result.firstCompletion;
+      },
       signOut: async () => {
         // Actually end the Supabase session. Before this fix, sign-out only
         // cleared local flags — the real session survived, so a device that
@@ -359,7 +384,7 @@ export const useStore = create<AppState>()(
         } catch {
           // Local sign-out still proceeds — see the comment on the next line.
         }
-        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest', userId: null });
+        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest', userId: null, ...emptyWizard() });
         // The local sign-out path must rotate the analytics guest identity even
         // when Supabase is unavailable and emits no SIGNED_OUT callback.
         try {
@@ -396,7 +421,7 @@ export const useStore = create<AppState>()(
     }),
     {
       name: 'ealch-store',
-      version: 7,
+      version: 8,
       // v0 → v1: language used to be hardcoded French; re-derive from the device.
       // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
       // clear it so the no-name greeting applies until the user sets a real name.
@@ -420,6 +445,8 @@ export const useStore = create<AppState>()(
       // ADDITION, not a rename of an existing field, so no ladder step and no
       // version bump — zustand/persist fills an absent key from initialData()
       // on its own.
+      // v7 -> v8: persist and validate the new first-run wizard checkpoint.
+      // This is a separate marker from `onboarded`, which existing sign-in can set.
       migrate: (persisted, version) => {
         const s = persisted as Partial<AppState> & Record<string, unknown>;
         if (version === 0) {
@@ -445,13 +472,14 @@ export const useStore = create<AppState>()(
           delete s.lessonEnglish;
         }
         s.mode = normalizeAppearancePreference(s.mode);
+        Object.assign(s, normalizeWizard(s));
         return s as AppState;
       },
       // Hydration also runs when the stored version is already current.
       // Validate this local presentation preference without touching account data.
       merge: (persisted, current) => {
         const saved = persisted as Partial<AppState> | undefined;
-        return { ...current, ...saved, mode: normalizeAppearancePreference(saved?.mode) };
+        return { ...current, ...saved, ...normalizeWizard(saved), mode: normalizeAppearancePreference(saved?.mode) };
       },
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({
@@ -480,6 +508,10 @@ export const useStore = create<AppState>()(
         accountType: s.accountType,
         signedIn: s.signedIn,
         onboarded: s.onboarded,
+        wizardId: s.wizardId,
+        wizardStep: s.wizardStep,
+        completedWizardSteps: s.completedWizardSteps,
+        wizardCompleted: s.wizardCompleted,
         currency: s.currency,
         planPick: s.planPick,
         currencyChosen: s.currencyChosen,

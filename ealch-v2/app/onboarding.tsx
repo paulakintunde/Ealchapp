@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Image, ScrollView, TextInput, View } from 'react-native';
+import { AccessibilityInfo, Image, ScrollView, TextInput, View, findNodeHandle } from 'react-native';
+import * as Crypto from 'expo-crypto';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
@@ -17,6 +18,7 @@ import { AVATARS, avatarName } from '@/content/avatars';
 import { langs } from '@/content';
 import { auth, sound, stt, type SttResult } from '@/services';
 import { AUTH_UNAVAILABLE } from '@/services/auth';
+import { track } from '@/services/analytics';
 import { FLAGS } from '@/services/flags';
 import { PasswordField, LegalConsent } from '@/components/AuthFields';
 import {
@@ -81,7 +83,7 @@ export default function Onboarding() {
   // Used in the pre-avatar-picker steps (name, accent, result) before step 10
   // has run — reflects the current default until the user actually picks.
   const avatarNameNow = avatarName(s.avatarId);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(s.wizardStep);
   const [calib, setCalib] = useState<'idle' | 'rec' | 'done'>('idle');
   const [calibPartial, setCalibPartial] = useState('');
   const [calibHeard, setCalibHeard] = useState<SttResult | null>(null);
@@ -96,6 +98,14 @@ export default function Onboarding() {
   const stepRef = useRef(step);
   stepRef.current = step;
   useEffect(() => () => { mounted.current = false; }, []);
+  useEffect(() => {
+    if (!s.hydrated) return;
+    const wizardId = s.beginWizard(Crypto.randomUUID());
+    setStep(s.wizardStep);
+    track('onboarding_started', { wizard_id: wizardId });
+    // The route has one wizard identity; Back/edit never creates a new one.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [s.hydrated]);
 
   const LABELS = ['', ...T.obSteps];
 
@@ -111,6 +121,11 @@ export default function Onboarding() {
 
   const next = () => {
     sound.play('tap');
+    const current = useStore.getState();
+    const wizardId = current.wizardId ?? current.beginWizard(Crypto.randomUUID());
+    if (current.advanceWizardStep(step)) {
+      track('onboarding_step_completed', { wizard_id: wizardId, step_index: step });
+    }
     setStep((x) => Math.min(11, x + 1));
   };
   const back = () => {
@@ -140,6 +155,9 @@ export default function Onboarding() {
       void auth.updateDisplayName(s.userName.trim());
     }
     s.completeOnboarding(level);
+    if (s.markWizardCompleted()) {
+      track('onboarding_completed', { wizard_id: s.wizardId ?? s.beginWizard(Crypto.randomUUID()), level, account_type: s.accountType });
+    }
     router.replace('/splash');
   };
 
@@ -596,7 +614,7 @@ export default function Onboarding() {
             <Button
               label={calib === 'done' ? T.continueT : T.skipT}
               variant={calib === 'done' ? 'primary' : 'outline'}
-              onPress={() => setStep(10)}
+              onPress={next}
               style={{ marginTop: 'auto' }}
             />
           </View>
@@ -668,10 +686,20 @@ export default function Onboarding() {
 
 function StepLabel({ children }: { children: string }) {
   const t = useTheme();
+  const ref = useRef<View>(null);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const node = findNodeHandle(ref.current);
+      if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
+    }, 80);
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 12 }}>
-      {children}
-    </TX>
+    <View ref={ref} accessible accessibilityRole="header" style={{ marginBottom: 12 }}>
+      <TX font="semi" role="meta" ls={2.8} color={t.txSubtle}>
+        {children}
+      </TX>
+    </View>
   );
 }
 

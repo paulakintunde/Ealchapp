@@ -61,8 +61,8 @@ test('both appear in the object partialize returns — the trap this test exists
 
 test('version is still 7 — an addition needs no ladder step and no bump', () => {
   const src = readStore();
-  const bumps = src.match(/version:\s*7,/g) ?? [];
-  strictEqual(bumps.length, 1, 'persist version must appear exactly once, still at 7');
+  const bumps = src.match(/version:\s*8,/g) ?? [];
+  strictEqual(bumps.length, 1, 'persist version must appear exactly once, at 8');
 });
 
 // The pre-plan-10 partialize allow-list, copied verbatim from
@@ -94,7 +94,10 @@ test('the partialize key set gained exactly these two keys and nothing else (T-0
   const gained = [...afterKeys].filter((k) => !beforeKeys.has(k)).sort();
   const lost = [...beforeKeys].filter((k) => !afterKeys.has(k));
 
-  deepStrictEqual(gained, ['denOrientationSeen', 'denPlacementSeen'].sort(), 'partialize must gain exactly these two keys, nothing else');
+  deepStrictEqual(gained, [
+    'denOrientationSeen', 'denPlacementSeen',
+    'wizardId', 'wizardStep', 'completedWizardSteps', 'wizardCompleted',
+  ].sort(), 'partialize must gain only the approved Phase 7.1 and Phase 9 keys');
   deepStrictEqual(lost, [], 'partialize must not drop any pre-existing key');
 });
 

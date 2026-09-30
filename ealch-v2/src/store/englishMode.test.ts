@@ -66,7 +66,7 @@ test('the setter is setLessonEnglishMode; setLessonEnglish is gone', () => {
 
 test('version is 7 and the v6 -> v7 step maps true to both, false to fr, and deletes the old key', () => {
   const src = readStore();
-  ok(src.includes('version: 7,'), 'persist version must be bumped to 7');
+  ok(src.includes('version: 8,'), 'persist version must be 8 after the wizard checkpoint migration');
   ok(/if \(version <= 6\) \{[\s\S]{0,200}migrateLessonEnglishMode\(s\.lessonEnglish as boolean \| undefined\)/.test(src),
     'the v6 -> v7 branch must call migrateLessonEnglishMode on the old field');
   ok(/if \(version <= 6\) \{[\s\S]{0,300}delete s\.lessonEnglish;/.test(src),
