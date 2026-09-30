@@ -187,7 +187,8 @@ Paul's 45 openers registered with alt (ART_PENDING empty). Trial merge: +4 units
 read back identical. Merged into the packs layer (4 skeletons in the core), seed
 cut lists b2.09-12. App 5722/5722, admin 950/0. `--packs --dry-run`: v82, checksum
 0b3e394b..., b2 pack 17 lessons 9.03 MiB, snapshot 43.60 MiB, no regression.
-Publishing v82 waits for Paul's OK. b2.13 reuses three b2.12 rows (now published).
+Paul, 2026-09-30: HOLD v82; publish waves 4 and 5 together once wave 5's art,
+import and dry run are done. b2.13 reuses three b2.12 rows (now in Postgres).
 
 **WAVE 4 DRAFTED, 2026-09-30** (b2.09 to b2.12, Unit 2 first half; b2.11 back in
 order now that a2.36 is live). 684 authored rows; app checks 0 on all four,
