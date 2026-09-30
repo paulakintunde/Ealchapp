@@ -8058,6 +8058,300 @@
           ]
         }
       ]
+    },
+    {
+      "id": "b2.13",
+      "seq": 13,
+      "sub": "Participe présent ou adjectif verbal",
+      "canDo": "Can use the present participle without en in place of a relative clause and at the head of a sentence to give a cause, including the perfect form with ayant and étant, in the written register of notices, adverts and the press; can use the verbal adjective to describe and judge, with agreement; can tell the two apart with the très, qui and complement tests, spell the pairs that differ (fatigant, convaincant, précédent, excellent…) and recognise the nouns among them; and can attach every participle to the right noun, unlike the gérondif",
+      "level": "b2",
+      "title": "Present Participle or Verbal Adjective",
+      "lessonIds": [
+        "b2.13.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.11",
+        "b1.18",
+        "b1.25",
+        "b1.31",
+        "b2.12"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.13.l1",
+          "title": "Participe présent ou adjectif verbal",
+          "acts": [
+            {
+              "title": "Parlant, sans s",
+              "cards": 15
+            },
+            {
+              "title": "Qui + verbe",
+              "cards": 20
+            },
+            {
+              "title": "L’avis et la dépêche",
+              "cards": 14
+            },
+            {
+              "title": "En tête : la cause",
+              "cards": 18
+            },
+            {
+              "title": "Ayant fini, étant arrivée",
+              "cards": 14
+            },
+            {
+              "title": "Une qualité qui s’accorde",
+              "cards": 18
+            },
+            {
+              "title": "Les trois tests",
+              "cards": 15
+            },
+            {
+              "title": "-quant ou -cant",
+              "cards": 17
+            },
+            {
+              "title": "-ant ou -ent, et les noms",
+              "cards": 22
+            },
+            {
+              "title": "Le bon nom",
+              "cards": 15
+            },
+            {
+              "title": "Ta critique, ton annonce",
+              "cards": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.14",
+      "seq": 14,
+      "sub": "Les constructions infinitives",
+      "canDo": "Can build and use infinitive constructions with control: the past infinitive with its auxiliary and agreement after après, pour and sans, the infinitive instead of a que-clause when the subject is the same (and both where both are correct), verbs followed by à, de or nothing, faire and laisser + infinitive with their pronouns and the invariable fait, and the infinitive on its own in instructions, as a subject, in questions and after nouns and adjectives, in a formal complaint",
+      "level": "b2",
+      "title": "Advanced Infinitive Constructions",
+      "lessonIds": [
+        "b2.14.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.16",
+        "b1.17",
+        "b1.18",
+        "b1.22",
+        "b2.05",
+        "b2.07",
+        "b2.12"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.14.l1",
+          "title": "Les constructions infinitives",
+          "acts": [
+            {
+              "title": "Qui agit, et quand ?",
+              "cards": 14
+            },
+            {
+              "title": "L’infinitif passé",
+              "cards": 23
+            },
+            {
+              "title": "Après et avant de",
+              "cards": 19
+            },
+            {
+              "title": "Pour : le but ou la faute",
+              "cards": 14
+            },
+            {
+              "title": "Sans",
+              "cards": 15
+            },
+            {
+              "title": "Un seul sujet, plus loin",
+              "cards": 21
+            },
+            {
+              "title": "À, de ou rien",
+              "cards": 24
+            },
+            {
+              "title": "Faire faire",
+              "cards": 17
+            },
+            {
+              "title": "Laisser, et les pronoms",
+              "cards": 16
+            },
+            {
+              "title": "Les consignes",
+              "cards": 13
+            },
+            {
+              "title": "Sujet, question, nom",
+              "cards": 19
+            },
+            {
+              "title": "Ta réclamation",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.15",
+      "seq": 15,
+      "sub": "Cause et conséquence",
+      "canDo": "Can express cause and consequence beyond parce que and donc, choosing the connector, preposition or verb by what the speaker assumes (an admitted cause, an added reason, a doubted or rejected cause), telling result from purpose and intensity, grading the certainty of a causal claim (sans doute, il semble que, the journalistic conditional), and writing an analysis of a social phenomenon that does not repeat the same link",
+      "level": "b2",
+      "title": "Cause and Consequence",
+      "lessonIds": [
+        "b2.15.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.30",
+        "b1.31",
+        "b1.15",
+        "b2.06",
+        "b2.10"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.15.l1",
+          "title": "Cause et conséquence",
+          "acts": [
+            {
+              "title": "Au-delà de parce que",
+              "cards": 14
+            },
+            {
+              "title": "La cause admise",
+              "cards": 22
+            },
+            {
+              "title": "La raison qui pèse",
+              "cards": 15
+            },
+            {
+              "title": "La cause qu’on conteste",
+              "cards": 16
+            },
+            {
+              "title": "La cause dans un nom",
+              "cards": 25
+            },
+            {
+              "title": "La cause dans le verbe",
+              "cards": 18
+            },
+            {
+              "title": "La conséquence, en connecteur",
+              "cards": 20
+            },
+            {
+              "title": "Le résultat ou le but",
+              "cards": 18
+            },
+            {
+              "title": "L’intensité",
+              "cards": 21
+            },
+            {
+              "title": "La conséquence dans le verbe",
+              "cards": 17
+            },
+            {
+              "title": "Doser la certitude",
+              "cards": 22
+            },
+            {
+              "title": "Ton analyse",
+              "cards": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.16",
+      "seq": 16,
+      "sub": "La concession",
+      "canDo": "Can grant a point before answering it, choosing among the subjunctive tools (bien que, quoique, encore que, sans que, quoi que, quel que soit, où que, qui que, si… que), the indicative ones (même si, tout… que, alors que), the conditional (quand bien même), the infinitive (avoir beau, loin de) and the noun (malgré, en dépit de), and linking whole sentences with pourtant, toutefois, néanmoins, il n'en reste pas moins que and toujours est-il que; can tell concession from opposition (en revanche, alors que, tandis que), knows the register of each tool and which spoken forms are criticised in writing",
+      "level": "b2",
+      "title": "Concession",
+      "lessonIds": [
+        "b2.16.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.10",
+        "b1.32",
+        "b2.03",
+        "b2.05",
+        "b2.06"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.16.l1",
+          "title": "La concession",
+          "acts": [
+            {
+              "title": "Accorder un point",
+              "cards": 14
+            },
+            {
+              "title": "Un point, cinq formes",
+              "cards": 18
+            },
+            {
+              "title": "Bien que, quoique, encore que",
+              "cards": 21
+            },
+            {
+              "title": "Quoi que, où que, qui que",
+              "cards": 23
+            },
+            {
+              "title": "Si riche qu’il soit",
+              "cards": 17
+            },
+            {
+              "title": "Même si, toujours l’indicatif",
+              "cards": 17
+            },
+            {
+              "title": "Quand bien même",
+              "cards": 13
+            },
+            {
+              "title": "Avoir beau, loin de, au lieu de",
+              "cards": 21
+            },
+            {
+              "title": "Malgré, en dépit de",
+              "cards": 17
+            },
+            {
+              "title": "Pourtant, toutefois…",
+              "cards": 19
+            },
+            {
+              "title": "Concéder ou opposer",
+              "cards": 18
+            },
+            {
+              "title": "Ton essai",
+              "cards": 12
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [

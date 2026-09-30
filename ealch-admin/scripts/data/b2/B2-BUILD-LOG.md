@@ -169,6 +169,14 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 5 IMPORTED AND MERGED, 2026-09-30; v82 (waves 4 + 5) dry run ready, NOT
+published.** Paul's 47 openers registered with alt. Trial merge +715 items, app
+5722/5722. `--apply`: 715 rows + 8 unit/lesson rows, read back identical. Merged
+into the packs layer; seed cut lists b2.09-16. App 5722/5722, admin 950/0.
+`--packs --dry-run`: v82 checksum 11d741d6..., b2 pack 21 lessons 10.49 MiB, legacy
+snapshot 45.06 MiB (under the 50 MiB pre-raise ceiling, ~5 MiB of room left:
+pre-raise installs will refuse it after about b2.21). Publish waits for Paul's OK.
+
 **WAVE 5 DRAFTED AND PRE-REVIEWED, 2026-09-30** (b2.13 to b2.16: Unit 2 end,
 Unit 3 start). 715 authored rows. Pre-review, fixes applied: b2.13 2 blockers
 (a type-in rejecting « équivalente à », a both-correct excellant/excellent choice),
@@ -373,10 +381,10 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
 | b2.10 | nominalisation | 83 | 11 | 11x8 | 11 | 5 | 13 | 178 | 11 images, registered + alt | MERGED, v82 dry run |
 | b2.11 | pronoms-insistance | 89 | 12 | 12x8 | 12 | 5 | 16 | 180 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.12 | gerondif | 84 | 11 | 12x8 | 12 | 5 | 14 | 161 | 11 images, registered + alt | MERGED, v82 dry run |
-| b2.13 | participe-adjectif | 87 | 11 | 12x8 | 12 | 5 | 16 | 166 | 11 prompts, not drawn | PRE-REVIEWED |
-| b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 prompts, not drawn | PRE-REVIEWED |
-| b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 prompts, not drawn | PRE-REVIEWED |
-| b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 prompts, not drawn | PRE-REVIEWED |
+| b2.13 | participe-adjectif | 87 | 11 | 12x8 | 12 | 5 | 16 | 166 | 11 images, registered + alt | MERGED, v82 dry run |
+| b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 images, registered + alt | MERGED, v82 dry run |
+| b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 images, registered + alt | MERGED, v82 dry run |
+| b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.17 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
