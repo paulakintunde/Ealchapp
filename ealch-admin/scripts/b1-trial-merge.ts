@@ -128,8 +128,16 @@ async function buildTrialSeed() {
   const perLesson: string[] = [];
   let bandAuthored: Set<string>;
   let themeRows: ThemeRow[] = [];
+  // Read-only for THIS transaction only. DATABASE_URL is Supabase's transaction
+  // pooler (port 6543): a session-level `set session characteristics ... read
+  // only` stays on the pooled server connection after we release it, and the
+  // next client handed that connection (a theme update, an import --apply)
+  // fails with 25006 « cannot execute UPDATE in a read-only transaction ».
+  // It happened 2026-09-30. BEGIN ... READ ONLY dies with its COMMIT/ROLLBACK.
+  let open = false;
   try {
-    await c.query('set session characteristics as transaction read only');
+    await c.query('begin transaction read only');
+    open = true;
     const twins = await resolveDedupe(c, source);
     const all = source.map((x) => applyDedupe(x, twins.map));
     bandAuthored = new Set(source.flatMap((x) => x.rows.map((r) => r.id)));
@@ -169,7 +177,10 @@ async function buildTrialSeed() {
       `select slug, title, domain, level_range_lo::text as level_range_lo, level_range_hi::text as level_range_hi,
               exam_flag, immig_flag, sub_themes from content_themes`);
     themeRows = themeQ.rows;
+    await c.query('commit');
+    open = false;
   } finally {
+    if (open) await c.query('rollback').catch(() => {});
     c.release();
     await pool.end();
   }
