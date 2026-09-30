@@ -62,7 +62,7 @@ export const LANGAGE_JURIDIQUE_TERMS: Record<string, LessonTerm> = {
   location: {
     term: 'la location',
     title: 'Le bail et ses mots',
-    body: "Le bail est le contrat de location. En France, il parle du bailleur et du locataire ; au Québec, le Code civil dit le locateur. La location, c'est le fait de louer, jamais un lieu, et la caution peut être une somme ou une personne. EN: The lease and its words; location means renting, not a place.",
+    body: "Le bail est le contrat de location. En France, il parle du bailleur et du locataire ; au Québec, le Code civil dit le locateur. La location, c'est le fait de louer, ou le logement loué, jamais l'emplacement, et la caution peut être une somme ou une personne. EN: The lease and its words; location means renting, not a place.",
     examples: [
       { itemId: E(1065), note: 'une famille : louer, la location, le loyer' },
       { itemId: E(1074), note: 'le locateur, au Québec' },

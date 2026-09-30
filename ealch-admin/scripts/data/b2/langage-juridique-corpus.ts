@@ -140,15 +140,23 @@
 //        also the person who stands guarantor (.1076 .1077).
 //     f. The act 5 lease (France, unfurnished, private landlord): three
 //        years, tacit renewal for the same length, tenant may leave at any
-//        time with three months' notice, landlord only at the end of the
-//        lease for reasons the law sets out, deposit of one month's rent,
-//        small repairs for the tenant and major ones for the landlord.
-//        Framed as « ce bail », never as the law; it matches the general
-//        French regime for an unfurnished lease from a natural person.
+//        time with three months' notice, reduced to one month in the cases
+//        the law provides (zones tendues, first job, job loss or transfer,
+//        RSA/AAH, health, social housing...: service-public F1168; the lease
+//        text says so, pre-review 2026-09-30), landlord only at the end of
+//        the lease for reasons the law sets out, deposit of one month's rent
+//        excluding charges, small repairs for the tenant and major ones for
+//        the landlord. Framed as « ce bail », never as the law; it matches
+//        the general French regime for an unfurnished lease from a natural
+//        person.
 //     g. The act 5 Québec extract: the tenant who does not want to renew a
 //        twelve-month lease notifies the landlord in writing three to six
-//        months before it ends; without notice the lease is renewed « de
-//        plein droit »; a tenant must notify the landlord before subletting.
+//        months before it ends (CCQ art. 1946 with 1942: the window for a
+//        tenant who has received no notice of modification; one who has
+//        answers that notice within a month, art. 1945); without notice the
+//        lease is renewed « de plein droit » (art. 1941); a tenant must
+//        notify the landlord before subletting (art. 1870). Framed as « un
+//        extrait de bail », never as the law.
 //     h. France: an « arrêté » opens with « vu » (the legal bases) and
 //        « considérant que » (the reasons), then « arrête » and numbered
 //        articles; a municipal order commonly states it may be challenged
@@ -618,7 +626,7 @@ export const ACT4_ROWS: Row[] = [
 
 export const ACT5_ROWS: Row[] = [
   fam(1065, 'louer, la location, le locataire, le loyer', 'to rent, renting, the tenant, the rent', '/lwe la lɔ.ka.sjɔ̃ lə lɔ.ka.tɛʁ lə lwa.je/', 'LWAY, la lo-ka-SYOHⁿ, luh lo-ka-TEHR, luh lwa-YAY', ['bail', 'faux-ami'],
-    "Famille : le verbe, l'action, la personne, la somme. La location, c'est le fait de louer, jamais un lieu."),
+    "Famille : le verbe, l'action, la personne, la somme. La location, c'est le fait de louer, ou le logement loué ; jamais l'emplacement."),
   col(1066, "signer un bail d'habitation", 'to sign a residential lease', '/si.ɲe œ̃ baj da.bi.ta.sjɔ̃/', 'see-NYAY uhⁿ BAHY da-bee-ta-SYOHⁿ', ['bail'],
     "Un bail d'habitation : pour un logement où l'on vit. Au pluriel : des baux."),
   col(1067, 'donner congé au locataire', 'to give the tenant notice', '/dɔ.ne kɔ̃.ʒe o lɔ.ka.tɛʁ/', 'do-NAY kohⁿ-ZHAY | oh lo-ka-TEHR', ['bail'],
@@ -796,7 +804,7 @@ export const ACT9_ROWS: Row[] = [
     "Considérant que + indicatif : une raison de la décision. Il y en a souvent plusieurs, l'un sous l'autre.", SO),
   col(1133, 'prendre un arrêté', 'to issue an order', '/pʁɑ̃.dʁœ̃.na.ʁɛ.te/', 'prahⁿ-druhⁿ-na-reh-TAY', ['decision'],
     "Un arrêté : une décision écrite d'une autorité, un maire, un préfet, un ministre."),
-  col(1134, "faire l'objet d'un recours", 'to be open to an appeal', '/fɛʁ lɔb.ʒɛ dœ̃ ʁə.kuʁ/', 'fehr lob-ZHEH duhⁿ ruh-KOOR', ['decision', 'recours'],
+  col(1134, "faire l'objet d'un recours", 'to be the subject of an appeal', '/fɛʁ lɔb.ʒɛ dœ̃ ʁə.kuʁ/', 'fehr lob-ZHEH duhⁿ ruh-KOOR', ['decision', 'recours'],
     "Faire l'objet de : être visé par. La décision peut être contestée.", SO),
   sent(1135, 'Le maire arrête les mesures suivantes.', 'The mayor orders the following measures.',
     '/lə mɛʁ a.ʁɛt le mə.zyʁ sɥi.vɑ̃t/', 'luh MEHR a-RET | lay muh-ZÜR swee-VAHⁿT', ['decision'], FCVR, SO),
@@ -984,7 +992,7 @@ export const LECTURE_LETTRE =
 
 /** Act 5: extracts of an unfurnished-flat lease, Lyon. */
 export const LECTURE_BAIL =
-  "Contrat de location d'un logement vide : extraits. Entre les soussignés : M. Gérard Fontaine, ci-après dénommé « le Bailleur », et M. Samuel Diallo, ci-après dénommé « le Locataire ». Article deux, durée. Le présent bail est conclu pour une durée de trois ans à compter du premier septembre. À défaut de congé donné par l'une des parties, il est reconduit tacitement pour la même durée. Article trois, congé. Le Locataire peut donner congé à tout moment, en respectant un préavis de trois mois. Le Bailleur ne peut donner congé qu'à l'échéance du bail, pour l'un des motifs prévus par la loi. Le congé est notifié par lettre recommandée avec accusé de réception, ou remis en main propre contre récépissé. Article quatre, loyer et charges. Le loyer mensuel s'élève à six cent cinquante euros, auxquels s'ajoutent quarante euros de charges, payables d'avance le premier de chaque mois. Article cinq, dépôt de garantie. Le Locataire verse un dépôt de garantie de six cent cinquante euros. Il lui sera restitué après la remise des clés, déduction faite, le cas échéant, des sommes restant dues. Article six, état des lieux. Un état des lieux d'entrée et un état des lieux de sortie sont établis par les deux parties, ensemble. Article sept, entretien. Les menues réparations sont à la charge du Locataire, les grosses réparations à la charge du Bailleur. Fait en deux exemplaires, à Lyon, le vingt août. Lu et approuvé.";
+  "Contrat de location d'un logement vide : extraits. Entre les soussignés : M. Gérard Fontaine, ci-après dénommé « le Bailleur », et M. Samuel Diallo, ci-après dénommé « le Locataire ». Article deux, durée. Le présent bail est conclu pour une durée de trois ans à compter du premier septembre. À défaut de congé donné par l'une des parties, il est reconduit tacitement pour la même durée. Article trois, congé. Le Locataire peut donner congé à tout moment, en respectant un préavis de trois mois, réduit à un mois dans les cas prévus par la loi. Le Bailleur ne peut donner congé qu'à l'échéance du bail, pour l'un des motifs prévus par la loi. Le congé est notifié par lettre recommandée avec accusé de réception, ou remis en main propre contre récépissé. Article quatre, loyer et charges. Le loyer mensuel s'élève à six cent cinquante euros, auxquels s'ajoutent quarante euros de charges, payables d'avance le premier de chaque mois. Article cinq, dépôt de garantie. Le Locataire verse un dépôt de garantie de six cent cinquante euros. Il lui sera restitué après la remise des clés, déduction faite, le cas échéant, des sommes restant dues. Article six, état des lieux. Un état des lieux d'entrée et un état des lieux de sortie sont établis par les deux parties, ensemble. Article sept, entretien. Les menues réparations sont à la charge du Locataire, les grosses réparations à la charge du Bailleur. Fait en deux exemplaires, à Lyon, le vingt août. Lu et approuvé.";
 
 /** Act 9: a municipal order on parking during works. */
 export const LECTURE_ARRETE =

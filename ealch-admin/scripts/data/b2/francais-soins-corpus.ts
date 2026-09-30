@@ -113,10 +113,15 @@
 //       comme KOMM · certaines sehr-TEHNN · vitamine vee-ta-MEENN ·
 //       sa-me pneumologue pnuh-mo-LOG (no nasal) · personne pehr-SONN
 //     « même » is MEM, the house spelling. No U+203F tie anywhere.
-//  7. FACTUAL CLAIMS FOR A FACT CHECK (every one is in a row or a text):
+//  7. FACTUAL CLAIMS FOR A FACT CHECK (every one is in a row or a text).
+//     CHECKED 2026-09-30 (pre-review) against ameli.fr, service-public.fr,
+//     quebec.ca, ramq.gouv.qc.ca, bag.admin.ch, ch.ch, socialsecurity.be,
+//     inami, legifrance, OQLF: all hold; a, i, o, s hedged as noted.
 //     a. France: a patient declares a médecin traitant to the Assurance
 //        maladie; consulting outside that pathway is reimbursed less
 //        (le parcours de soins coordonnés).                       (row .1115)
+//        HEDGED: the médecin traitant may be a specialist, « le plus souvent
+//        un généraliste »; some specialists are direct access (gynéco, ophtalmo).
 //     b. France: the carte Vitale lets the doctor send the claim
 //        electronically, so reimbursement comes faster.           (sheet)
 //     c. France: a mutuelle (complémentaire santé) reimburses part of what
@@ -132,6 +137,7 @@
 //        « physiothérapie » (Québec) and « kinésithérapie » (France).
 //     i. Belgium: being covered means joining (s'affilier à) a mutualité;
 //        112 is the emergency number.                             (row .1121)
+//        HEDGED: or the public CAAMI (tapTable detail and sheet say so).
 //     j. Switzerland: basic health insurance (assurance de base, LAMal) is
 //        compulsory; 144 is the ambulance number.        (rows .1119, .1120)
 //     k. France: « la personne de confiance » is a person a patient may
@@ -144,6 +150,7 @@
 //                                                            (rows .1070-.1071)
 //     o. An allergy is a reaction of the body that can be serious; an
 //        intolerance is not an allergy.                            (row .1062)
+//        HEDGED: an allergy is a reaction of the IMMUNE SYSTEM (ameli).
 //     p. Natural products and vitamins can interact with a medicine.
 //                                                           (ANTECEDENTS_TEXT)
 //     q. Some illnesses are more frequent within one family.
@@ -152,6 +159,8 @@
 //                                                  (row .1139, TEXTE_A9)
 //     s. A doctor needs the patient's agreement to send their file to
 //        another doctor.                                         (TEXTE_A8)
+//        In the text the copy goes to the family, with his signed letter;
+//        consent is the general rule in France and Québec (CMQ).
 //     t. Tachycardie = the heart beating too fast; céphalée = headache;
 //        asthénie = marked fatigue; dyspnée = breathlessness; prurit =
 //        itching; bénin = not serious.                     (rows .1148-.1157)
@@ -516,7 +525,7 @@ export const ACT4_ROWS: Row[] = [
   sent(1060, 'Je ne fume pas et je bois très peu d’alcool.', 'I do not smoke and I drink very little alcohol.', '/ʒə nə fym pa e ʒə bwa tʁɛ pø dal.kɔl/', 'zhuh nuh füm PA | ay zhuh bwa treh puh dal-KOL', ['habitudes']),
   sent(1061, 'Mes vaccins sont à jour.', 'My vaccinations are up to date.', '/me vak.sɛ̃ sɔ̃.ta ʒuʁ/', 'may vak-SEHⁿ | sohⁿ-ta ZHOOR', ['habitudes'], FCVDR),
   sent(1062, 'Allergie ou intolérance : dis toujours laquelle, ce n’est pas la même chose.', 'Allergy or intolerance: always say which, they are not the same thing.', '/a.lɛʁ.ʒi u ɛ̃.tɔ.le.ʁɑ̃s di tu.ʒuʁ la.kɛl sə nɛ pa la mɛm ʃoz/', 'a-lehr-ZHEE oo ehⁿ-to-lay-RAHⁿSS | dee too-zhoor la-KEHL | suh neh pa la mem SHOZ', ['rule', 'allergie'], ['flashcard'],
-    rule('Tu digères mal le lait. C’est une allergie ?', 'Non, une intolérance. Une allergie est une réaction du corps, parfois grave : le médecin doit savoir laquelle tu as.')),
+    rule('Tu digères mal le lait. C’est une allergie ?', 'Non, une intolérance. Une allergie est une réaction du système immunitaire, parfois grave : le médecin doit savoir laquelle tu as.')),
 ];
 
 /* ── ACT 5 · COMPRENDRE LE MÉDECIN ────────────────────────────────────── */
@@ -589,7 +598,7 @@ export const ACT7_ROWS: Row[] = [
 /* ── ACT 8 · LE PARCOURS DE SOINS ─────────────────────────────────────── */
 
 export const ACT8_ROWS: Row[] = [
-  ph(1113, 'le médecin traitant', 'the registered GP (France)', '/lə med.sɛ̃ tʁɛ.tɑ̃/', 'luh mayd-SEHⁿ | treh-TAHⁿ', ['systeme', 'france'], 'En France, le généraliste que tu déclares à l’Assurance maladie.'),
+  ph(1113, 'le médecin traitant', 'the registered GP (France)', '/lə med.sɛ̃ tʁɛ.tɑ̃/', 'luh mayd-SEHⁿ | treh-TAHⁿ', ['systeme', 'france'], 'En France, le médecin, le plus souvent un généraliste, que tu déclares à l’Assurance maladie.'),
   ph(1114, 'la carte Vitale', 'the French health insurance card', '/la kaʁt vi.tal/', 'la kart vee-TAL', ['systeme', 'france'], 'En France, la carte verte qu’on présente chez le médecin et à la pharmacie.'),
   sent(1115, 'En France, on déclare un médecin traitant pour être mieux remboursé.', 'In France, you register a GP to be reimbursed better.', '/ɑ̃ fʁɑ̃s ɔ̃ de.klaʁ œ̃ med.sɛ̃ tʁɛ.tɑ̃ puʁ ɛtʁ mjø ʁɑ̃.buʁ.se/', 'ahⁿ FRAHⁿSS | ohⁿ day-KLAR | uhⁿ mayd-sehⁿ treh-TAHⁿ | poor ehtr myuh rahⁿ-boor-SAY', ['systeme', 'france'], FCVDR),
   sent(1116, 'Au Québec, on présente sa carte d’assurance maladie à chaque visite.', 'In Québec, you show your health insurance card at every visit.', '/o ke.bɛk ɔ̃ pʁe.zɑ̃t sa kaʁt da.sy.ʁɑ̃s ma.la.di a ʃak vi.zit/', 'oh kay-BEHK | ohⁿ pray-ZAHⁿT | sa kart da-sü-rahⁿss ma-la-DEE | a shak vee-ZEET', ['systeme', 'quebec']),
@@ -801,13 +810,13 @@ export const TASK_MODEL =
   'Mon beau-père, M. Gérard Martin, soixante-quatorze ans, a rendez-vous avec vous le 3 novembre. Il s’est installé à Montréal cet été, et je me permets de vous résumer sa situation, car il entend mal et se fatigue vite en consultation.\n\n' +
   'Ses antécédents : une hypertension traitée depuis dix ans, une prothèse du genou gauche en 2019 et aucune allergie connue. Il ne fume pas. En mars, il a été hospitalisé trois jours à Lyon pour des malaises ; je joins le compte rendu d’hospitalisation, qui mentionne de brefs épisodes de tachycardie.\n\n' +
   'Le motif de la consultation : depuis trois semaines, il a des vertiges le matin, en se levant, et il se sent plus fatigué que d’habitude. Les vertiges sont apparus progressivement ; ils durent quelques secondes, par moments un peu plus. Il a aussi des maux de tête au réveil, qu’il situe à quatre sur une échelle de zéro à dix.\n\n' +
-  'Ce qui a été essayé : son médecin traitant de Lyon avait adapté son traitement contre l’hypertension, sans vraie amélioration. La semaine dernière, à l’urgence, on a demandé des examens complémentaires.\n\n' +
+  'Ce qui a été essayé : à Lyon, l’hôpital avait adapté son traitement contre l’hypertension, sans vraie amélioration. La semaine dernière, à l’urgence, on a demandé des examens complémentaires.\n\n' +
   'J’aimerais vous poser trois questions. Faut-il refaire ces examens, ou ceux de Lyon suffisent-ils ? Son traitement doit-il être revu ? Et puis-je rester avec lui pendant les consultations, pour qu’il ne manque rien ?\n\n' +
   'Je vous remercie par avance de votre attention et vous prie d’agréer, Docteure, mes salutations respectueuses.\n\n' +
   'Dominique Roy\n\n' +
   'Les repères de la correctrice (hors décompte) :\n' +
   '1. Tâche : qui écrit et pourquoi, les antécédents, le motif (début, durée, fréquence, intensité), ce qui a été essayé, trois questions précises, une pièce jointe.\n' +
   '2. Cohérence : un paragraphe par rubrique, dans l’ordre d’une consultation ; les étiquettes (Ses antécédents, Le motif) guident le médecin.\n' +
-  '3. Étendue : antécédents, hospitalisé, compte rendu d’hospitalisation, tachycardie, vertiges, apparus progressivement, par moments, une échelle de zéro à dix, examens complémentaires, médecin traitant, l’urgence.\n' +
+  '3. Étendue : antécédents, hospitalisé, compte rendu d’hospitalisation, tachycardie, vertiges, apparus progressivement, par moments, une échelle de zéro à dix, examens complémentaires, l’urgence.\n' +
   '4. Correction : depuis + durée au présent (il a des vertiges depuis), il y a pour un moment, être apparu au passé composé, pour qu’il ne manque rien au subjonctif.\n' +
   '5. Registre : vouvoiement, je me permets de, les formules d’un courrier formel ; aucune familiarité, aucun conseil médical.';

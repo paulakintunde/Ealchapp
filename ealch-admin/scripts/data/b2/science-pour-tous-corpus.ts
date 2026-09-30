@@ -995,7 +995,7 @@ export const TEXTE_A10 =
   'Le communiqué de l’Observatoire Noctua (étude imaginaire), et le titre qu’en a tiré un site d’information. Trouve les mots du titre qui vont trop loin. « Titre : Les lampadaires tuent les papillons de nuit : c’est prouvé. Communiqué : Une étude menée dans quarante communes du Jura observe davantage de papillons là où l’éclairage est coupé à minuit. Les auteurs soulignent qu’il s’agit d’une corrélation et appellent à une expérience dans des communes tirées au sort. »';
 
 export const TEXTE_A11 =
-  'Le brouillon d’un courriel d’Emma, attachée de presse d’un laboratoire, à Ottawa. Corrige les six mots entre crochets. « Bonjour, [actuellement], notre étude montre un effet très [significatif] : la mémoire progresse de trente pour cent. C’est une [évidence] solide. Notre [physicien], le docteur Morin, sera disponible pour une [lecture] publique jeudi. Nous espérons [éventuellement] publier dans une grande revue. Merci de tout relire avant l’envoi de demain matin. »';
+  'Le brouillon d’un courriel d’Emma, attachée de presse d’un laboratoire, à Ottawa. Corrige les six mots entre crochets. « Bonjour, [actuellement], notre étude montre un effet très [significatif] : la mémoire progresse de trente pour cent. C’est une [évidence] solide. Notre [physicien], le docteur Morin, qui soigne des patients atteints de troubles de la mémoire, répondra aux questions lors d’une [lecture] publique jeudi. Nous espérons [éventuellement] publier dans une grande revue. Merci de tout relire avant l’envoi de demain matin. »';
 
 /** The DELF B2 exam-format radio item (quiz round 13), a separate text so
  *  no listening line is reprinted in its own question. */

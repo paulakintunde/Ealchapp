@@ -169,6 +169,22 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**Wave 7 pre-review and fact check, 2026-09-30.** One reviewer per lesson, with WebSearch
+against official sources: b2.27 3 blockers (réclamation / plainte both fitting, « délai » refused),
+the French 3-month notice now names its 1-month exceptions, a gym-contract line that read as legal
+advice rewritten, 17 claims checked (service-public, Légis Québec, justice.fr, Éducaloi); b2.28 4
+blockers (type-ins refusing « d'accepter », « comporte », « envoyer vers »), a model answer that
+contradicted its letter, allergy/médecin traitant/Belgium hedged, 23 claims checked (ameli,
+service-public, RAMQ, admin.ch, INAMI, OQLF); b2.29 2 blockers (a numeric type-in that could never
+match, fold() keeps digits and %; a points/per-cent line contradicting the grader), sunburn = UV not
+heat, all 24 claims and every calculation checked; b2.30 5 blockers (distractors or type-ins with
+two right answers), all 13 quotations verified word for word on Wikisource/Gutenberg, a focalisation
+example taken from the wrong page. After: app checks 0, house tests 278/278, import dry run 755 / 0
+blockers, preview rebuilt (waves 6 + 7: 9 lessons, 107 acts). For the Pixel at gate B2-4: TTS on
+« 811 » (b2.28 row .1118), the « / » in b2.30's Hugo quote, speech scoring of digit rows (b2.29
+.1108, .1094). For Paul: b2.27's invented Montréal phone contract (« suspendu sans préavis ») may
+clash with the CRTC Wireless Code; drop « à Montréal » if you prefer.
+
 **WAVE 7 DRAFTED, 2026-09-30** (b2.27 to b2.30; the authors were stopped once by the session
 limit and resumed with nothing lost). 755 authored rows; app checks 0, house tests 278/278, import
 dry run 755 / 0 blockers, floors clear. On ART_PENDING (48 openers). Each corpus header §A.7 lists

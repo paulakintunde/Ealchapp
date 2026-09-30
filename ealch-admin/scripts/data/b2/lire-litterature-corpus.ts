@@ -96,7 +96,14 @@
 //  7. ATTRIBUTIONS AND QUOTATIONS, FOR THE FACT CHECK. Every real quotation
 //     is SHORT (one sentence, or a line of verse), by an author dead more
 //     than seventy years, and quoted word for word as I know it; each
-//     needs a check against an edition before publish. Everything else is
+//     needs a check against an edition before publish. CHECKED 2026-09-30
+//     (pre-review), all thirteen word for word against Wikisource or
+//     Gutenberg: Bovary matches Gutenberg #14155 (« l’Étude », « Proviseur »;
+//     Conard 1910 prints « l’étude »); Candide matches Garnier 1877
+//     (« Vestphalie », « M. le baron »; Beuchot 1829 has « Westphalie »,
+//     « monsieur »); « Mais la mienne était fausse. » sits in the story’s
+//     very last line; the wolf line ends Daudet’s narrative, the coda to
+//     Gringoire follows. Everything else is
 //     an ORIGINAL passage, labelled « texte original écrit pour la leçon »
 //     on screen, and attributed to NO real author.
 //
@@ -140,7 +147,8 @@
 //                     NON-FRANCE VOICE among the real authors), « Le Vaisseau
 //                     d’or », first line: « Ce fut un grand Vaisseau taillé
 //                     dans l’or massif » (published in Louis Dantin's
-//                     edition, 1904). Claim: the whole sonnet is an extended
+//                     edition, title page 1903, out in 1904; the line
+//                     ends with « : » in that edition). Claim: the whole sonnet is an extended
 //                     metaphor of the poet's heart.
 //       Q_NELLIGAN_2  same sonnet, near its end: « Qu’est devenu mon cœur,
 //                     navire déserté ? »
@@ -575,7 +583,7 @@ export const ACT4_ROWS: Row[] = [
     '/la sɛn sa.taʁd syʁ yn mi.nyt lə sɔ.mɛʁ ʁe.zym de.za.ne/', 'la SEN sa-TARD sür ün mee-NÜT | luh so-MEHR ray-ZÜM day-za-NAY', ['rythme']),
 ];
 
-/* ── ACT 5 · LES PAROLES ET LES PENSÉES (.1465-.1480) ────────────────────── */
+/* ── ACT 5 · LES PAROLES ET LES PENSÉES (.1465-.1479) ────────────────────── */
 
 export const ACT5_ROWS: Row[] = [
   sent(1465, 'Il avait ajouté : « Je t’appelle si j’ai un empêchement. »', 'He had added: “I will call you if something comes up.”',
@@ -612,7 +620,7 @@ export const ACT5_ROWS: Row[] = [
     '/o dis.kuʁ ɛ̃.di.ʁɛkt la pa.ʁɔl pas paʁ kə e paʁ œ̃ vɛʁb kɔm diʁ/', 'oh dees-koor ehⁿ-dee-REKT | la pa-ROL pass par KUH | ay par uhⁿ VEHRB kom DEER', ['indirect']),
 ];
 
-/* ── ACT 6 · LA TONALITÉ (.1480-.1500) ───────────────────────────────────── */
+/* ── ACT 6 · LA TONALITÉ (.1480-.1498) ───────────────────────────────────── */
 
 export const ACT6_ROWS: Row[] = [
   sent(1480, 'La tonalité est pathétique : le texte veut faire naître la pitié.', 'The tone is pathetic, in the literary sense: the text aims to stir pity.',
@@ -729,7 +737,7 @@ export const ACT8_ROWS: Row[] = [
     '/il sa.sɛ.jɛ a la.ʁjɛʁ dy ba.to ɑ̃ fy.mɑ̃ sa pip/', 'eel sa-seh-YEH | a la-RYEHR dü ba-TOH | ahⁿ fü-mahⁿ sa PEEP', ['action', 'gerondif']),
 ];
 
-/* ── ACT 9 · L’INCIPIT ET LA CHUTE (.1528-.1540) ─────────────────────────── */
+/* ── ACT 9 · L’INCIPIT ET LA CHUTE (.1528-.1539) ─────────────────────────── */
 
 export const ACT9_ROWS: Row[] = [
   sent(1528, 'Vous êtes sûre que c’est lui ?', 'Are you sure it is him?',

@@ -123,8 +123,8 @@
 //   decision and lesson 20 in B2’s mood policies (corpus §A.8): the written
 //   norm is taught; « crypter », « en gros », « un mail » are courant, never
 //   marked wrong; checks on a subjunctive after a negated certainty say
-//   « à l’écrit ». No typed answer contains a digit or « % » (fold() keeps
-//   them). Every scientific claim is real and uncontroversial or labelled
+//   « à l’écrit ». No typed answer's key contains a digit or « % » (fold() keeps
+//   them); where a figure is typed, `accept` lists the digit spellings too. Every scientific claim is real and uncontroversial or labelled
 //   « étude imaginaire »: the list for the fact check is corpus §A.7.
 //
 // ══════════════════════════════════════════════════════════════════════════
@@ -747,7 +747,7 @@ const A4_TABLEAU: Sec<'tapTable'> = {
       detail: { title: 'Être lié à', body: `Plus vague : ${CAUSE_REF} l’employait avec « probablement » pour une cause. Précise ce que tu veux dire. EN: vague; say which link you mean.`, say: fr(E(1051)) } },
     { cells: ['entraîner', 'une cause', 'une cause'], say: fr('fr.b2.connecteurs-logiques.1957'),
       detail: { title: 'Entraîner', body: 'Affirme une cause et son effet. À garder pour ce qui est établi. EN: claims a cause; keep it for what is established.', say: fr(E(1057)) } },
-    { cells: ['provoquer, causer', 'une cause directe', 'une cause'], say: 'La chaleur provoque des coups de soleil.',
+    { cells: ['provoquer, causer', 'une cause directe', 'une cause'], say: 'Les rayons ultraviolets provoquent des coups de soleil.',
       detail: { title: 'Provoquer, causer', body: 'Le plus fort : une cause directe. Un titre qui l’emploie pour une simple corrélation grossit le résultat. EN: the strongest; a headline that uses it for a correlation inflates.', say: fr(E(1063)) } },
     { cells: ['n’implique pas', 'la règle', 'le garde-fou'], say: fr(E(1058)),
       detail: { title: 'La règle', body: 'Une corrélation n’implique pas une causalité : cherche le troisième facteur, ou la cause à l’envers. EN: correlation does not imply causation.', say: fr(SC2(1438)) } },
@@ -791,7 +791,7 @@ const A4_ERREURS: Sec<'commonErrors'> = {
       why: 'Normal : deux courbes qui montent ensemble font penser à une cause. Ici, la chaleur explique les deux. EN: a third factor explains both.' },
     { wrong: 'Lire le soir fait mieux dormir, selon cette étude.', right: fr(E(1052)),
       why: 'L’étude observe un lien ; ceux qui lisent le soir ont peut-être aussi des horaires plus calmes. EN: the study observes a link, nothing more.' },
-    { wrong: 'Les grands enfants connaissent plus de mots : la taille aide à parler.', right: 'À âge égal, la taille n’a rien à voir avec le vocabulaire.',
+    { wrong: 'Les grands enfants connaissent plus de mots : la taille aide à parler.', right: 'À âge égal, le lien entre la taille et le vocabulaire disparaît.',
       why: 'Le chiffre est vrai, la cause est fausse : l’âge fait grandir les deux. EN: age drives both.' },
     { wrong: 'Les sportifs sont moins fatigués : c’est donc le sport qui supprime la fatigue.', right: fr(E(1061)),
       why: 'Le raisonnement va trop vite : la cause peut aller dans l’autre sens, puisqu’on fait du sport quand on a de l’énergie. EN: the cause may run the other way.' },
@@ -1157,7 +1157,7 @@ const A7_CARTES: Sec<'cardDeck'> = {
     card(E(1100), 'Le bon zéro', 'l’ordre de grandeur',
       'Des dizaines ou des milliers ? Avant le détail, vérifie la puissance de dix. EN: order of magnitude.'),
     card(E(1102), 'Dire une part sans chiffre exact', 'plus d’un tiers',
-      'Plus d’un tiers, près de la moitié, un sur trois, la plupart : des arrondis honorables, si le chiffre les permet. EN: rounded proportions.'),
+      'Plus d’un tiers, près de la moitié, un sur trois, la plupart : des arrondis corrects, si le chiffre les permet. EN: rounded proportions.'),
     card(E(1104), 'Relatif ou absolu', 'le risque double',
       'Doubler un risque d’un sur dix mille, cela fait deux sur dix mille. Donne toujours le risque de départ. EN: relative vs absolute risk.'),
     card(E(1110), 'Un piège de mots', 'une année-lumière',
@@ -1213,7 +1213,7 @@ const A7_EXEMPLES: Sec<'examples'> = {
   type: 'examples', id: 'a7-exemples', layer: 'core', sheetId: 'sheet-chiffres',
   title: 'Des ordres de grandeur à garder en tête',
   examples: [
-    ex(E(1108), 'une distance à l’échelle humaine du ciel'),
+    ex(E(1108), 'la distance de la Terre à la Lune'),
     ex(E(1109), 'la lumière va vite, mais pas instantanément'),
     ex(E(1101), 'mille fois : trois zéros de différence'),
     ex(E(1111), 'la définition'),
@@ -1631,7 +1631,7 @@ const A10_TITRES: Sec<'groupDrill'> = {
   groups: [
     ctl('Le chocolat', 'Soixante étudiants, trois points d’écart, pas de relecture.', ['Le chocolat noir rend intelligent', 'Chocolat et mémoire : un petit effet, à vérifier'], 1,
       'Le résultat, sa taille, et son étape. EN: the result, its size, its stage.'),
-    ctl('Les papillons', 'Une corrélation dans quarante communes, confirmée en laboratoire.', ['Les lampadaires, probable cause du déclin des papillons', 'Aucun lien entre lumière et papillons', 'Les lampadaires tuent les papillons'], 0,
+    ctl('Les papillons', 'Une corrélation dans quarante communes, confirmée en laboratoire.', ['Les lampadaires, une cause probable du déclin des papillons', 'Aucun lien entre lumière et papillons', 'Les lampadaires tuent les papillons'], 0,
       'Probable : ni prouvé ni nul. EN: probable.'),
     ctl('Le climat', 'Un consensus scientifique, des milliers d’études.', ['Le réchauffement, une hypothèse parmi d’autres', 'Le réchauffement dû à l’humain fait consensus'], 1,
       'Minimiser aussi trahit le résultat. EN: understating also distorts.'),
@@ -1901,7 +1901,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
       userEn: 'No: out of a hundred, it is little, and the difference is barely significant. (À peine significative.)',
       alts: [
         { fr: 'Pas vraiment : c’est un écart minuscule, qui pourrait être dû au hasard.', en: 'Not really: it is a tiny gap that could be down to chance. (Dû au hasard.)' },
-        { fr: 'C’est un petit effet, de l’ordre de trois pour cent du score.', en: 'It is a small effect, about three per cent of the score. (Ordre de grandeur: also right.)' },
+        { fr: 'C’est un petit effet : trois points sur cent, environ quatre pour cent de plus que le groupe témoin.', en: 'It is a small effect: three points out of a hundred, about four per cent more than the control group. (Points and per cent: also right.)' },
       ],
     },
     {
@@ -2070,12 +2070,18 @@ const A12_PROGRESS: Sec<'progressCheck'> = {
  *  recycles lessons 33, 34 and 37 in B1 and 10, 15, 20, 22 and 24 in B2
  *  (named in each question), and an exam-format round (TCF, DELF B2 CE, CO
  *  and PE). `fold()` strips accents, case, punctuation, apostrophes, hyphens
- *  and spaces but KEEPS digits and « % »: no typed answer contains a digit,
- *  and every equally correct answer is listed in `accept`. */
+ *  and spaces but KEEPS digits and « % »: no answer key contains a digit, the
+ *  digit spellings of a typed figure are listed in `accept` (`variants`),
+ *  and every equally correct answer is listed there too. */
 
 type QQ = QuizQuestion;
 const tI = (q: string, prompt: string, answer: string, why: string, ref: string, more: string[] = []): QQ =>
   ({ format: 'typeIn', q, prompt, answer, accept: [answer, ...more], why, ref });
+/** Every spelling of a figure a learner may type: fold() keeps digits and
+ *  « % », so « 9 % » never matches « neuf pour cent ». Cartesian product of
+ *  the parts, each part a list of equally correct forms. */
+const variants = (...parts: string[][]): string[] =>
+  parts.reduce<string[]>((acc, p) => acc.flatMap((a) => p.map((x) => a + x)), ['']);
 const mc = (q: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'mcq', q, opts, correct, why, ref });
 const ES_Q = 'Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.';
@@ -2114,7 +2120,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Un placebo contient…', ['rien d’actif', 'une dose plus faible du produit'], 0, 'Il ressemble au traitement, sans rien d’actif. EN: nothing active.', 'a3-piege'),
         tI('Complète avec le mot qui manque, et écris la phrase.', 'On compare le groupe qui teste la méthode à un groupe ….', fr(E(1040)), 'Le groupe témoin. EN: control group.', 'a3-cartes',
           ['On compare le groupe qui teste la méthode à un groupe de contrôle.', 'On compare le groupe qui teste la méthode à un groupe contrôle.']),
-        tI('Complète (by chance), et écris la phrase.', 'Les participants sont répartis … entre les deux groupes.', fr(E(1041)), 'Au hasard. EN: at random.', 'a3-cartes',
+        tI('Complète (at random), et écris la phrase.', 'Les participants sont répartis … entre les deux groupes.', fr(E(1041)), 'Au hasard. EN: at random.', 'a3-cartes',
           ['Les participants sont répartis aléatoirement entre les deux groupes.', 'Les participants sont répartis par tirage au sort entre les deux groupes.']),
         eS('Ni les participants ni les chercheurs ne savent qui reçoit quoi : l’étude est en double aveugles.', 'Ni les participants ni les chercheurs ne savent qui reçoit quoi : l’étude est en double aveugle.', 'En double aveugle : invariable. EN: aveugle.', 'a3-cartes'),
         lC('Écoute. Qui ignorait de quelle classe venaient les copies ?', fr(E(1037)), ['les correcteurs', 'les enseignants', 'les élèves'], 0, 'La correction était en aveugle. EN: the markers.', 'a3-ecoute'),
@@ -2132,7 +2138,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Récris avec « aller de pair », et écris la phrase.', 'Chez les enfants, la taille et le vocabulaire augmentent ensemble.', 'Chez les enfants, la taille et le vocabulaire vont de pair.', 'Aller de pair : ensemble, sans cause dite. EN: go hand in hand.', 'a4-cartes',
           ['Chez les enfants, la taille va de pair avec le vocabulaire.', 'Chez les enfants, le vocabulaire va de pair avec la taille.']),
         eS('Une corrélation implique une causalité.', fr(E(1058)), 'La règle dit le contraire. EN: correlation does not imply causation.', 'a4-construire',
-          ['Une corrélation n’implique pas forcément une causalité.', 'Une corrélation n’implique pas nécessairement une causalité.', 'Une corrélation n’implique pas de causalité.', 'Une corrélation n’est pas une causalité.'], FAUX_Q),
+          ['Corrélation n’implique pas causalité.', 'Une corrélation n’implique pas forcément une causalité.', 'Une corrélation n’implique pas nécessairement une causalité.', 'Une corrélation n’implique pas de causalité.', 'Une corrélation n’est pas une causalité.'], FAUX_Q),
         lC('Écoute. Qu’est-ce qui relie les glaces et les noyades ?', fr(E(1049)), ['la chaleur', 'les glaces elles-mêmes'], 0, 'La chaleur les fait monter toutes les deux. EN: heat.', 'a4-histoire'),
       ],
     },
@@ -2158,9 +2164,12 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Le prix a augmenté … dix pour cent. »', ['de', 'à'], 0, 'De : la variation. EN: by.', 'a6-construire'),
         mc('« Le taux a été porté … cinq pour cent. »', ['à', 'de'], 0, 'À : le nouveau niveau. EN: to.', 'a6-construire'),
         mc('Diviser par deux, c’est baisser de…', ['cinquante pour cent', 'cent pour cent', 'deux points'], 0, 'Moitié moins. EN: fifty per cent.', 'a6-piege'),
-        tI('Récris avec « ont doublé », et écris la phrase.', 'Les ventes ont été multipliées par deux en deux ans.', 'Les ventes ont doublé en deux ans.', 'Doubler : multiplier par deux. EN: doubled.', 'a6-tableau'),
-        tI('Corrige l’unité, et écris la phrase.', 'Le chômage est passé de neuf à sept pour cent : il a baissé de deux pour cent.', fr(E(1083)), 'Entre deux taux, des points. EN: points.', 'a6-piege'),
-        eS('Le nombre de cyclistes a augmenté à douze pour cent en un an.', fr(E(1082)), 'La variation se dit avec de. EN: de.', 'a6-piege'),
+        tI('Récris avec « ont doublé », et écris la phrase.', 'Les ventes ont été multipliées par deux en deux ans.', 'Les ventes ont doublé en deux ans.', 'Doubler : multiplier par deux. EN: doubled.', 'a6-tableau',
+          ['Les ventes ont doublé en 2 ans.']),
+        tI('Corrige l’unité, et écris la phrase.', 'Le taux de chômage est passé de neuf à sept pour cent : il a baissé de deux pour cent.', fr(E(1083)), 'Entre deux taux, des points. EN: points.', 'a6-piege',
+          variants(['Le taux de chômage', 'Le chômage'], [' est passé de '], ['neuf à sept pour cent', '9 à 7 %', '9 % à 7 %'], [' : il a baissé de '], ['deux points', '2 points', 'deux points de pourcentage', '2 points de pourcentage'], ['.'])),
+        eS('Le nombre de cyclistes a augmenté à douze pour cent en un an.', fr(E(1082)), 'La variation se dit avec de. EN: de.', 'a6-piege',
+          ['Le nombre de cyclistes a augmenté de 12 % en un an.']),
         lC('Écoute. Que devient le prix du ticket ?', fr(E(1080)), ['il passe à deux euros cinquante', 'il baisse de cinquante centimes'], 0, 'Passer à : le nouveau prix. EN: it goes up to 2.50.', 'a6-ecoute'),
       ],
     },
@@ -2447,7 +2456,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['être associé à', 'un lien mesuré', 'La lecture du soir est associée à un meilleur sommeil.'],
       ['être lié à', 'ambigu', 'Les ventes sont liées aux noyades.'],
       ['entraîner', 'une cause', 'La chaleur entraîne plus de baignades.'],
-      ['provoquer, causer', 'une cause directe', 'La chaleur provoque des coups de soleil.'],
+      ['provoquer, causer', 'une cause directe', 'Les rayons ultraviolets provoquent des coups de soleil.'],
       ['un facteur de confusion', 'le troisième qui explique tout', 'La chaleur, l’âge, le revenu.'],
     ]),
     table('sheet-solidite-etapes', 'Vers un résultat solide', ['Étape', 'Ce que ça garantit', 'Ce que ça ne garantit pas'], [

@@ -49,7 +49,7 @@ export const LIRE_LITTERATURE_TERMS: Record<string, LessonTerm> = {
     title: 'Ce qui avance, ce qui dure',
     body: 'Dans un récit au passé, le passé simple (ou le passé composé) fait avancer l’action : c’est le premier plan. L’imparfait pose le décor et ce qui dure : c’est l’arrière-plan. Le plus-que-parfait fait un pas en arrière, et le présent de narration rapproche la scène. EN: The passé simple moves the story on; the imparfait holds the background.',
     examples: [
-      { itemId: E(1456), note: 'l’arrière-plan, à l’imparfait' },
+      { itemId: E(1456), note: 'l’arrière-plan : un état, pas un événement' },
       { itemId: E(1458), note: 'le retour en arrière' },
       { itemId: E(1457), note: 'le présent de narration' },
     ],
