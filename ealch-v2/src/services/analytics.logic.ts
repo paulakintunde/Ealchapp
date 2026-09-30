@@ -6,7 +6,7 @@ export function paywallSource(value: string | undefined): PaywallSource {
 }
 
 export type EventProperties = {
-  first_open: { local_day: string };
+  first_open: { local_day: string; opened_at: string };
   install_attribution: { status: 'campaign' | 'no_campaign' | 'lookup_failed' | 'unavailable'; source?: string; medium?: string; campaign?: string };
   d1_return: { local_day: string };
   signup_started: { method: 'email' };
@@ -45,7 +45,7 @@ export type NoPropsEvent = 'restore_started' | 'reconciliation_shown';
 export type PropsEvent = Exclude<AnalyticsEvent, NoPropsEvent>;
 
 const allowed: { [K in AnalyticsEvent]: readonly (keyof EventProperties[K])[] } = {
-  first_open: ['local_day'], install_attribution: ['status', 'source', 'medium', 'campaign'], d1_return: ['local_day'],
+  first_open: ['local_day', 'opened_at'], install_attribution: ['status', 'source', 'medium', 'campaign'], d1_return: ['local_day'],
   signup_started: ['method'], signup_completed: ['method', 'account_id'], onboarding_started: ['wizard_id'],
   onboarding_step_completed: ['wizard_id', 'step_index'], onboarding_mic_failed: ['category'],
   onboarding_completed: ['wizard_id', 'level', 'account_type'], placement_started: ['attempt_id', 'source'],

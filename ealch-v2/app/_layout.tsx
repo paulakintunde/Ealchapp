@@ -1,6 +1,6 @@
 import '../global.css';
-import { useEffect } from 'react';
-import { Appearance, Platform, View } from 'react-native';
+import { useEffect, useRef } from 'react';
+import { AppState, Appearance, Platform, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -28,6 +28,7 @@ import { installErrorHandlers, logError } from '@/services/errors';
 import { useAuthSession } from '@/services/session';
 import { useForegroundSync } from '@/services/sync';
 import { useEntitlementSync } from '@/services/purchases';
+import { recordAppForeground, recordAppLaunch } from '@/services/acquisition';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -70,6 +71,7 @@ if (Platform.OS === 'android') {
 }
 
 export default function RootLayout() {
+  const lastAppState = useRef(AppState.currentState);
   const fontsLoaded = useAppFonts();
   // Gate first paint on ALL THREE persisted stores, not just useStore. Before
   // this, home could paint a zero-streak, empty-corpus frame while useProgress
@@ -87,6 +89,15 @@ export default function RootLayout() {
   // Entitlement: cached copy first (offline honest), then RevenueCat
   // customerInfo reconciled on boot, on foreground and on sign-in/out.
   useEntitlementSync();
+
+  useEffect(() => {
+    void recordAppLaunch();
+    const subscription = AppState.addEventListener('change', (next) => {
+      if (next === 'active' && lastAppState.current !== 'active') void recordAppForeground();
+      lastAppState.current = next;
+    });
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     Appearance.setColorScheme(
