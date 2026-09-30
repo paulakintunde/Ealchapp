@@ -49,11 +49,11 @@ export const auth = {
   },
 
   async signUpWithEmail(email: string, password: string): Promise<AuthResult> {
+    track('signup_started', { method: 'email' });
     const sb = supabase();
     if (!sb) return unavailable;
     return attempt(async () => {
       const { nonce, guestJourneyId } = await prepareEmailSignup();
-      track('signup_started', { method: 'email' });
       const { data, error } = await sb.auth.signUp({ email, password, options: { data: { ealch_signup_nonce: nonce } } });
       if (!error && data?.user?.id) {
         await recordAcceptedEmailSignup(data.user.id, nonce, guestJourneyId);

@@ -1,6 +1,6 @@
 import { deepStrictEqual, strictEqual } from 'node:assert';
 import { test } from 'node:test';
-import { claimOnce, distinctId, identityCaptureBody, milestoneKey, paywallSource, safeProperties, verifiedSignup } from './analytics.logic.ts';
+import { carryGuestMilestones, claimOnce, distinctId, identityCaptureBody, milestoneKey, paywallSource, safeProperties, verifiedSignup } from './analytics.logic.ts';
 
 test('only declared properties reach the product event body', () => {
   deepStrictEqual(safeProperties('first_open', { local_day: '2026-09-29', email: 'secret', transcript: 'private' } as any), { local_day: '2026-09-29' });
@@ -40,6 +40,16 @@ test('only the matching new signup links; existing sign in and fake signup user 
   strictEqual(distinctId('account-a', 'phone-guest'), distinctId('account-a', 'tablet-guest'));
   strictEqual(milestoneKey('first_lesson_started', {}, 'phone', distinctId('account-a', 'phone-guest')),
     milestoneKey('first_lesson_started', {}, 'tablet', distinctId('account-a', 'tablet-guest')));
+});
+
+test('verified signup can carry learner milestones without touching install milestones', () => {
+  const claims = ['first_lesson_started:guest-1', 'streak_updated:guest-1:2026-09-29', 'first_open:install-1', 'first_lesson_started:guest-2'];
+  const carried = carryGuestMilestones(claims, 'guest-1', 'account-1');
+  strictEqual(carried.includes('first_lesson_started:account-1'), true);
+  strictEqual(carried.includes('streak_updated:account-1:2026-09-29'), true);
+  strictEqual(carried.includes('first_open:install-1'), true);
+  strictEqual(carried.includes('first_lesson_started:guest-2'), true);
+  strictEqual(carried.includes('first_lesson_started:account-2'), false);
 });
 
 test('verified signup uses the documented identify wire shape without personal fields', () => {

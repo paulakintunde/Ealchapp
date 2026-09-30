@@ -54,6 +54,19 @@ test('failed question load offers Retry and Continue without recording a volunta
   await view.unmount();
 });
 
+test('an empty question bank records a load failure rather than a voluntary skip', async () => {
+  const original = useContent.getState().corpus;
+  useContent.setState({ corpus: { ...original, items: [] } });
+  try {
+    const view = await render(wrap(<Placement />));
+    await waitFor(() => expect((track as jest.Mock).mock.calls.some(([event]) => event === 'placement_load_failed')).toBe(true));
+    expect((track as jest.Mock).mock.calls.filter(([event]) => event === 'placement_skipped')).toHaveLength(0);
+    await view.unmount();
+  } finally {
+    useContent.setState({ corpus: original });
+  }
+});
+
 test('Retry after a failed load starts an initial attempt while keeping the initial outcome open', async () => {
   useStore.setState({ placementAttempt: createAttempt('failed-placement', []) });
   const view = await render(wrap(<Placement />));

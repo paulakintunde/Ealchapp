@@ -7,7 +7,7 @@ import { useStore } from '@/store/useStore';
 import { setPracticeDayListener } from '@/store/useProgress';
 import { practicedDayMilestone } from './engagement.logic';
 import {
-  captureHttp, claimOnce, distinctId, identityCaptureBody, milestoneKey, safeProperties, verifiedSignup,
+  captureHttp, carryGuestMilestones, claimOnce, distinctId, identityCaptureBody, milestoneKey, safeProperties, verifiedSignup,
   type AnalyticsEvent, type CaptureBody, type CaptureDiagnostic, type EventProperties,
   type NoPropsEvent, type PendingSignup, type PropsEvent, type VerifiedUser,
 } from './analytics.logic';
@@ -30,6 +30,8 @@ function recordDiagnostic(diagnostic: CaptureDiagnostic): void {
   if (!ENV.analyticsTestBuild || !ENV.posthogKey) return;
   captureDiagnostics.push(diagnostic);
   if (captureDiagnostics.length > 200) captureDiagnostics.shift();
+  // Safe to collect from Metro/Xcode/adb during QA: no event properties or key.
+  console.info('[analytics-capture]', diagnostic.event, diagnostic.event_id, diagnostic.status, diagnostic.accepted);
 }
 
 async function storedId(key: string, cached: string | null, save: (id: string) => void): Promise<string> {
@@ -91,6 +93,14 @@ async function claimMilestone(key: string): Promise<boolean> {
   } catch {
     return true; // storage outage must not block a learner action
   }
+}
+
+async function transferGuestMilestones(guestId: string, accountId: string): Promise<void> {
+  try {
+    const claims = JSON.parse((await AsyncStorage.getItem(CLAIMS_KEY)) ?? '[]') as string[];
+    const carried = carryGuestMilestones(claims, guestId, accountId);
+    if (carried.length !== claims.length) await AsyncStorage.setItem(CLAIMS_KEY, JSON.stringify(carried));
+  } catch { /* Analytics storage never blocks signup. */ }
 }
 
 async function send<E extends AnalyticsEvent>(event: E, input: EventProperties[E], userId: string | null): Promise<void> {
@@ -162,6 +172,8 @@ async function applyAuthTransition(event: string, user: VerifiedUser | null): Pr
   linked.push(user.id);
   try { await AsyncStorage.setItem(LINKED_KEY, JSON.stringify(linked)); } catch { /* best effort */ }
   taskTail = taskTail.then(async () => {
+    // Queued guest events have already claimed their milestone keys here.
+    await transferGuestMilestones(pending.guestJourneyId, user.id);
     const [install_id] = await Promise.all([installId()]);
     const event_id = Crypto.randomUUID();
     const body = identityCaptureBody(ENV.posthogKey, user.id, pending.guestJourneyId, install_id, event_id, new Date().toISOString());

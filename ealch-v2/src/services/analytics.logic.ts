@@ -111,6 +111,19 @@ export function milestoneKey(event: AnalyticsEvent, props: Record<string, unknow
 
 export function claimOnce(claimed: ReadonlySet<string>, key: string): boolean { return !claimed.has(key); }
 
+/** Carry only learner-scoped claims when a guest creates this account. */
+export function carryGuestMilestones(claims: readonly string[], guestId: string, accountId: string): string[] {
+  const scoped = ['first_lesson_started', 'lesson_completed', 'streak_updated', 'placement_skipped'];
+  const next = new Set(claims);
+  for (const claim of claims) {
+    for (const event of scoped) {
+      const prefix = `${event}:${guestId}`;
+      if (claim === prefix || claim.startsWith(`${prefix}:`)) next.add(`${event}:${accountId}${claim.slice(prefix.length)}`);
+    }
+  }
+  return [...next];
+}
+
 export type CaptureDiagnostic = { event_id: string; event: string; status: number | 'offline' | 'no_key'; accepted: boolean };
 export type CaptureBody = { api_key: string; event: string; distinct_id: string; uuid: string; properties: Record<string, unknown>; timestamp: string };
 

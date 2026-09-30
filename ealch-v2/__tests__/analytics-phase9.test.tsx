@@ -1,6 +1,7 @@
 /// <reference types="jest" />
 const mockStorage = new Map<string, string>();
 let mockCounter = 0;
+let mockUserId: string | null = null;
 jest.mock('@react-native-async-storage/async-storage', () => ({
   __esModule: true,
   default: {
@@ -17,7 +18,7 @@ jest.mock('expo-crypto', () => ({
 jest.mock('@/services/env', () => ({ ENV: {
   posthogKey: 'public-test-key', posthogHost: 'https://capture.test', analyticsTestBuild: true,
 } }));
-jest.mock('@/store/useStore', () => ({ useStore: { getState: () => ({ userId: null, freeze: 1 }) } }));
+jest.mock('@/store/useStore', () => ({ useStore: { getState: () => ({ userId: mockUserId, freeze: 1 }) } }));
 
 import {
   getCaptureDiagnostics, guestJourneyId, handleAuthTransition,
@@ -28,6 +29,7 @@ import { useProgress } from '@/store/useProgress';
 const flush = () => new Promise((resolve) => setTimeout(resolve, 20));
 const originalFetch = globalThis.fetch;
 afterAll(() => { globalThis.fetch = originalFetch; });
+beforeEach(() => { mockUserId = null; });
 
 test('track returns immediately; configured capture records HTTP acceptance and rejection', async () => {
   const calls: Array<{ event: string; properties: Record<string, unknown> }> = [];
@@ -90,4 +92,37 @@ test('the first logged practice session of a local day produces one accepted str
   expect(streaks[0].properties.days).toBe(1);
   expect(streaks[0].properties.event_id).toBeTruthy();
   expect(getCaptureDiagnostics().some((diagnostic) => diagnostic.event === 'streak_updated' && diagnostic.accepted)).toBe(true);
+});
+
+test('verified guest signup keeps first lesson once, while an existing sign-in stays separate', async () => {
+  const events: Array<{ event: string; distinct_id: string }> = [];
+  globalThis.fetch = jest.fn(async (_url: string, init: RequestInit) => {
+    events.push(JSON.parse(String(init.body)));
+    return { ok: true, status: 200, json: async () => ({ status: 1 }) };
+  }) as unknown as typeof fetch;
+  const guest = await guestJourneyId();
+  track('first_lesson_started', { lesson_id: 'sons.01.l1', unit_id: 'sons.01' });
+  await flush();
+  const { nonce, guestJourneyId: journey } = await prepareEmailSignup();
+  expect(journey).toBe(guest);
+  await recordAcceptedEmailSignup('linked-account', nonce, journey);
+  mockUserId = 'linked-account';
+  await handleAuthTransition('SIGNED_IN', { id: 'linked-account', user_metadata: { ealch_signup_nonce: nonce } });
+  track('first_lesson_started', { lesson_id: 'sons.02.l1', unit_id: 'sons.02' });
+  await flush();
+  expect(events.filter(({ event }) => event === 'first_lesson_started')).toHaveLength(1);
+
+  await handleAuthTransition('SIGNED_OUT', null);
+  mockUserId = null;
+  track('first_lesson_started', { lesson_id: 'sons.03.l1', unit_id: 'sons.03' });
+  await flush();
+  mockUserId = 'existing-account';
+  await handleAuthTransition('SIGNED_IN', { id: 'existing-account', user_metadata: {} });
+  track('first_lesson_started', { lesson_id: 'sons.04.l1', unit_id: 'sons.04' });
+  await flush();
+  const lessonEvents = events.filter(({ event }) => event === 'first_lesson_started');
+  expect(lessonEvents).toHaveLength(3);
+  expect(lessonEvents[0].distinct_id).toBe(guest);
+  expect(lessonEvents[1].distinct_id).not.toBe(guest);
+  expect(lessonEvents[2].distinct_id).toBe('existing-account');
 });
