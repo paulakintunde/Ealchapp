@@ -72,8 +72,8 @@ B2 in slices and a bad batch is small.
 | 2 | b2.01 b2.02 b2.03 b2.04 | Unit 1: plus-que-parfait, conditionnel passé, si clauses |
 | 3 | b2.05 b2.06 b2.07 b2.08 | Unit 1: subjunctive past, moods, futur antérieur, passé simple |
 | **GATE B2-2** | after 13 | review, import + publish |
-| 4 | b2.09 b2.10 b2.12 b2.13 | Unit 2 (b2.11 moves to wave 5, after a2.36) |
-| 5 | b2.11 b2.14 b2.15 b2.16 | Unit 2 end, Unit 3 start |
+| 4 | b2.09 b2.10 b2.11 b2.12 | Unit 2 (Paul, 2026-09-30: a2.36 is live, so b2.11 comes back in order) |
+| 5 | b2.13 b2.14 b2.15 b2.16 | Unit 2 end, Unit 3 start |
 | 6 | b2.17 b2.18 b2.19 b2.20 b2.21 | Unit 3 |
 | **GATE B2-3** | after 26 | review, import + publish |
 | 7 | b2.27 b2.28 b2.29 b2.30 | specialist domains, literature |
@@ -168,6 +168,17 @@ They never ask the learner to produce the form.
 - **No « Bilan B2 »** (Paul, 2026-09-27): B2 stays at 34 lessons.
 
 ## Progress
+
+**WAVE 4 DRAFTED, 2026-09-30** (b2.09 to b2.12, Unit 2 first half; b2.11 back in
+order now that a2.36 is live). 684 authored rows; app checks 0 on all four,
+house tests 258/258, B2 import dry run 684 to insert / 0 blockers / 0 conflicts,
+floors clear; preview fixture rebuilt (4 lessons, 45 acts). On ART_PENDING until
+Paul's 45 openers land. Author questions for the pre-review: b2.09 keeps the
+présent in modern maps of past narration; b2.10 has 11 rounds (no act 1 round)
+and teaches « suite à » as courant; b2.11 has 12 acts and teaches « Eux ont
+refusé », « Moi seul peux » as correct written French, spoken dislocation as
+familier; b2.11 cites lesson 12 in B2, so b2.11 and b2.12 must publish together;
+b2.12 accepts proverb/letter-formula gérondifs (« En vous remerciant… »).
 
 **a2.36 LIVE, 2026-09-30: content v81** (packs). « Les pronoms toniques » sits at A2 lesson 35, just before the Review (now 36); only a2.32.l1's one « lesson 35 in A2 » label moved. Pre-review: 2 blockers, 5 fixes. Wave 5 (b2.11) is now unblocked.
 
@@ -323,7 +334,11 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
 | b2.06 | subjonctif-indicatif | 84 | 11 | 12x8 | 12 | 5 | | 162 | 11 images, registered + alt | DONE, v78 |
 | b2.07 | futur-anterieur | 84 | 11 | 12x8 | 12 | 5 | | 167 | 11 images, registered + alt | DONE, v78 |
 | b2.08 | passe-simple (recognition) | 86 | 12 | 11x8 | 11 | 5 | | 178 | 12 images, registered + alt | DONE, v78 |
-| b2.09 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
+| b2.09 | subjonctif-litteraire (recognition) | 81 | 11 | 11x8 | 11 | 5 | 17 | 165 | 11 prompts, not drawn | DRAFTED |
+| b2.10 | nominalisation | 83 | 11 | 11x8 | 11 | 5 | 13 | 178 | 11 prompts, not drawn | DRAFTED |
+| b2.11 | pronoms-insistance | 89 | 12 | 12x8 | 12 | 5 | 16 | 180 | 12 prompts, not drawn | DRAFTED |
+| b2.12 | gerondif | 84 | 11 | 12x8 | 12 | 5 | 14 | 161 | 11 prompts, not drawn | DRAFTED |
+| b2.13 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links
@@ -347,6 +362,10 @@ ledger's id spans, read from the source on the same day.
 | `opinions-et-avis` | 1800-1999 | b2.06 subjonctif or indicatif | 1800-1981 (162) |
 | `projets-et-futur` | 1800-1999 | b2.07 futur antérieur | 1800-1988 (167) |
 | `litterature` | 1000-1199 | b2.08 passé simple | 1000-1198 (178) |
+| `litterature` (sub-theme « le subjonctif littéraire », set 2026-09-30) | 1200-1399 | b2.09 literary subjunctive | 1200-1396 (165) |
+| `langue-soignee` (sub-theme « la nominalisation »; 1000-1399 are B1) | 1400-1599 | b2.10 nominalisation | 1400-1581 (178) |
+| `pronoms-essentiels` (sub-theme « les pronoms d'insistance »; 1000-1799 are B1) | 1800-1999 | b2.11 emphatic pronouns | 1800-1990 (180) |
+| `connecteurs-logiques` (sub-theme « le gérondif »; 1000-1599 are B1) | 1600-1799 | b2.12 gérondif | 1600-1783 (161) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
