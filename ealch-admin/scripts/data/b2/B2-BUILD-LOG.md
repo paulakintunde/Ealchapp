@@ -169,6 +169,11 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 7 DISPATCHED, 2026-09-30** (b2.27 to b2.30, while wave 6 waits for art). Three
+sub-themes set in Postgres (read back); blocks in the ledger. No legal or medical advice;
+every factual claim listed in each corpus header for a fact check; literary extracts public
+domain or labelled original.
+
 **Wave 6 trial merge, 2026-09-30** (before the art): +5 units, +5 lessons, +910 items, 177
 identical, 0 twins, validateCorpus 0; app suite on the trial seed 5722/5724, the 2 failures being
 the unregistered-art guards (clear once Paul's 59 openers are registered); seed.json and
@@ -440,7 +445,8 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 prompts, ART_PENDING | DRAFTED |
 | b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 prompts, ART_PENDING | DRAFTED |
 | b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 prompts, ART_PENDING | DRAFTED |
-| b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
+| b2.27 to b2.30 | langage-juridique, francais-soins, science-pour-tous, lire-litterature | | | | | | | | | DRAFTING (wave 7) |
+| b2.31 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links
@@ -477,6 +483,10 @@ ledger's id spans, read from the source on the same day.
 | `negation-et-restriction` (sub-theme « la restriction et l'exception »; fr.b1 0-399 and 1000-1199, fr.b2 0-199 taken) | 1200-1399 | b2.19 restriction | 1200-1399 (189) |
 | `opinions-et-avis` (sub-theme « les tournures impersonnelles », set 2026-09-30) | 2000-2199 | b2.20 tournures-impersonnelles | 2000-2195 (191) |
 | `negation-et-restriction` (sub-theme « les négations combinées », set 2026-09-30) | 1400-1599 | b2.21 negations-combinees | 1400-1599 (181) |
+| `droit` (sub-theme « le langage juridique et administratif », set 2026-09-30; b1/b2 use 0-199) | 1000-1199 | b2.27 langage-juridique | (drafting) |
+| `soins` (sub-theme « le français des soins », set 2026-09-30; b1/b2 use 0-199) | 1000-1199 | b2.28 francais-soins | (drafting) |
+| `methode-scientifique` (sub-theme « la science pour tous », set 2026-09-30; b2 uses 0-399) | 1000-1199 | b2.29 science-pour-tous | (drafting) |
+| `litterature` (sub-theme « le narrateur et le point de vue »; b2.08/b2.09 use 1000-1399) | 1400-1599 | b2.30 lire-litterature | (drafting) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
