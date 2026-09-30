@@ -38,6 +38,7 @@ const LESSONS: [string, string][] = [
   ['b2.13', 'participe-adjectif'], ['b2.14', 'constructions-infinitives'], ['b2.15', 'cause-consequence'], ['b2.16', 'concession-avancee'],
   ['b2.17', 'expression-but'], ['b2.18', 'subordonnees-temps'], ['b2.19', 'restriction'], ['b2.20', 'tournures-impersonnelles'], ['b2.21', 'negations-combinees'],
   ['b2.27', 'langage-juridique'], ['b2.28', 'francais-soins'], ['b2.29', 'science-pour-tous'], ['b2.30', 'lire-litterature'],
+  ['b2.31', 'francais-regional'], ['b2.32', 'verlan-argot'], ['b2.33', 'traduire-sans-calquer'], ['b2.34', 'proverbes'],
 ];
 
 /** Fields whose strings ARE the answer: what the learner picks, types, or is

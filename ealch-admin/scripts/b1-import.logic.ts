@@ -50,6 +50,8 @@ export const B2_SLUGS: readonly string[] = [
   'expression-but', 'subordonnees-temps', 'restriction', 'tournures-impersonnelles', 'negations-combinees',
   // wave 7 (specialist domains, literature)
   'langage-juridique', 'francais-soins', 'science-pour-tous', 'lire-litterature',
+  // wave 8 (variation and nuance: B2 complete)
+  'francais-regional', 'verlan-argot', 'traduire-sans-calquer', 'proverbes',
   // wave 1 (exam-skill targets and academic style)
   'style-academique', 'argumentation', 'lecture-critique', 'ecoute-vitesse-reelle', 'reunions-negociation',
 ];

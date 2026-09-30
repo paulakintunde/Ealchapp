@@ -169,6 +169,12 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 8 DRAFTED, 2026-09-30** (b2.31 to b2.34: B2 fully drafted). 759 authored rows; app checks
+0, import dry run 759 / 0 blockers, floors clear. On ART_PENDING (46 openers). Open for the
+pre-review: b2.32 keeps « beur / rebeu » once with a sensitivity note; slang and idiom headwords
+published in Postgres but absent from the seed are taught in sentences only (no twins). Art
+arriving: wave 6 files for b2.17-b2.20 and all of wave 7 are on disk (b2.21 not yet).
+
 **WAVE 8 DISPATCHED, 2026-09-30** (b2.31 to b2.34, the last B2 wave). Four sub-themes set in
 Postgres; blocks in the ledger. Regional French and slang are receptive, no caricature, no slurs;
 every regionalism, slang item, calque judgement and proverb is listed for a fact check.
@@ -473,7 +479,10 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 prompts, ART_PENDING | DRAFTED |
 | b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 prompts, ART_PENDING | DRAFTED |
 | b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 prompts, ART_PENDING | DRAFTED |
-| b2.31 to b2.34 | francais-regional, verlan-argot, traduire-sans-calquer, proverbes | | | | | | | | | DRAFTING (wave 8) |
+| b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 prompts, ART_PENDING | DRAFTED |
+| b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 prompts, ART_PENDING | DRAFTED |
+| b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 prompts, ART_PENDING | DRAFTED |
+| b2.34 | proverbes (vocab) | 88 | 12 | 12x8 | 12 | 5 | 25 | 166 | 12 prompts, ART_PENDING | DRAFTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links
@@ -514,10 +523,10 @@ ledger's id spans, read from the source on the same day.
 | `soins` (sub-theme « le français des soins », set 2026-09-30; b1/b2 use 0-199) | 1000-1199 | b2.28 francais-soins | 1000-1193 (194) |
 | `methode-scientifique` (sub-theme « la science pour tous », set 2026-09-30; b2 uses 0-399) | 1000-1199 | b2.29 science-pour-tous | 1000-1194 (191) |
 | `litterature` (sub-theme « le narrateur et le point de vue »; b2.08/b2.09 use 1000-1399) | 1400-1599 | b2.30 lire-litterature | 1400-1576 (177) |
-| `quebec-et-francophonie` (sub-theme « les accents et le français régional », set 2026-09-30) | 1000-1199 | b2.31 francais-regional | (drafting) |
-| `argot-des-jeunes` (sub-theme « le verlan et l'argot d'aujourd'hui », set 2026-09-30) | 1000-1199 | b2.32 verlan-argot | (drafting) |
-| `langue-soignee` (sub-theme « traduire sans calquer », set 2026-09-30; 1000-1799 taken) | 1800-1999 | b2.33 traduire-sans-calquer | (drafting) |
-| `expressions-imagees` (sub-theme « les proverbes et les expressions figées », set 2026-09-30; b1 1000-1599) | 1600-1799 | b2.34 proverbes | (drafting) |
+| `quebec-et-francophonie` (sub-theme « les accents et le français régional », set 2026-09-30) | 1000-1199 | b2.31 francais-regional | 1000-1192 (193) |
+| `argot-des-jeunes` (sub-theme « le verlan et l'argot d'aujourd'hui », set 2026-09-30) | 1000-1199 | b2.32 verlan-argot | 1000-1199 (200, block full) |
+| `langue-soignee` (sub-theme « traduire sans calquer », set 2026-09-30; 1000-1799 taken) | 1800-1999 | b2.33 traduire-sans-calquer | 1800-1999 (200, block full) |
+| `expressions-imagees` (sub-theme « les proverbes et les expressions figées », set 2026-09-30; b1 1000-1599) | 1600-1799 | b2.34 proverbes | 1600-1765 (166) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme
