@@ -124,6 +124,7 @@ export default function Den() {
   const setDenOrientationSeen = useStore((s) => s.setDenOrientationSeen);
   const denPlacementSeen = useStore((s) => s.denPlacementSeen);
   const setDenPlacementSeen = useStore((s) => s.setDenPlacementSeen);
+  const recordPlacementSkip = useStore((s) => s.recordPlacementSkip);
 
   const rows: TrailRowT[] = useMemo(
     () =>
@@ -223,7 +224,10 @@ export default function Den() {
             <TrailCard
               variant="placement"
               onOpen={() => router.push('/placement')}
-              onDismiss={() => setDenPlacementSeen(true)}
+              onDismiss={() => {
+                setDenPlacementSeen(true);
+                if (recordPlacementSkip()) trackEvent('placement_skipped', { source: 'offer' });
+              }}
             />
           );
         case 'gate':

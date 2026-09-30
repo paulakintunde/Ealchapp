@@ -28,9 +28,9 @@ export function TrailCard(props: TrailCardProps) {
   const t = useTheme();
   const T = useT();
 
-  const dismissRow = (onDismiss: () => void) => (
+  const dismissRow = (onDismiss: () => void, label = T.lkSkip) => (
     <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
-      <Button label={T.lkSkip} variant="ghost" cue={null} onPress={onDismiss} style={{ minHeight: 36, paddingVertical: 6, paddingHorizontal: 16 }} />
+      <Button label={label} variant="ghost" cue={null} onPress={onDismiss} style={{ minHeight: 44, paddingVertical: 6, paddingHorizontal: 16 }} />
     </View>
   );
 
@@ -86,7 +86,7 @@ export function TrailCard(props: TrailCardProps) {
           </TX>
         </View>
       </Press>
-      {dismissRow(props.onDismiss)}
+      {dismissRow(props.onDismiss, T.plOfferSkip)}
     </View>
   );
 }

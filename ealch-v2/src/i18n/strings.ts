@@ -242,6 +242,8 @@ export type Strings = {
   plResA0: string; plResA1: string; plResA2: string;
   plStartUnit: string; plStartCta: string; plRetake: string;
   plScore: string; plNoBank: string;
+  plOfferSkip: string; plUnavailableTitle: string; plUnavailableBody: string; plRetry: string; plContinueWithout: string;
+  plResumed: string; plExitTitle: string; plExitBody: string; plKeepChecking: string; plEndCheck: string;
   dicteeT: string; dicteeS: string; play: string; slow: string; playsLeft: string;
   writeHeard: string; check2: string; perfectNoMistakes: string; youWrote: string; correctIs: string;
   downloadsT: string; downloadsS: string; storage: string; wifiOnly: string;
@@ -729,6 +731,8 @@ export const T: Record<Lang, Strings> = {
     plStartUnit: 'Votre point de départ', plStartCta: 'Commencer ici', plRetake: 'Refaire la vérification',
     plScore: '{n} sur {m} bonnes réponses',
     plNoBank: 'Pas encore assez de contenu pour une vérification. Réessayez après une mise à jour.',
+    plOfferSkip: 'Passer la vérification', plUnavailableTitle: 'Vérification indisponible', plUnavailableBody: 'Les questions ne sont pas disponibles pour le moment. Réessayez ou continuez votre parcours sans vérification.', plRetry: 'Réessayer la vérification', plContinueWithout: 'Continuer sans vérification',
+    plResumed: 'Vérification reprise', plExitTitle: 'Terminer cette vérification ?', plExitBody: 'Votre résultat ne sera pas calculé. Vous pourrez recommencer plus tard.', plKeepChecking: 'Poursuivre la vérification', plEndCheck: 'Terminer la vérification',
     dicteeT: 'La Dictée', dicteeS: "Entraînez l'oreille et l'orthographe : écrivez exactement ce que vous entendez.", play: 'Écouter', slow: '0,75×', playsLeft: 'écoutes',
     writeHeard: 'Écrivez ce que vous entendez', check2: 'Vérifier', perfectNoMistakes: 'Parfait, aucune faute', youWrote: 'Vous avez écrit', correctIs: 'La bonne réponse',
     downloadsT: 'Téléchargements', downloadsS: 'Écoutez hors connexion', storage: 'Stockage', wifiOnly: 'Wi-Fi uniquement',
@@ -1238,6 +1242,8 @@ export const T: Record<Lang, Strings> = {
     plStartUnit: 'Your starting point', plStartCta: 'Start here', plRetake: 'Retake the check',
     plScore: '{n} of {m} correct',
     plNoBank: 'Not enough content for a check yet. Try again after an update.',
+    plOfferSkip: 'Skip quick check', plUnavailableTitle: 'Quick check unavailable', plUnavailableBody: 'Questions are unavailable right now. Try again or continue learning without the quick check.', plRetry: 'Retry quick check', plContinueWithout: 'Continue without quick check',
+    plResumed: 'Quick check resumed', plExitTitle: 'End this quick check?', plExitBody: 'Your result will not be calculated. You can start a new check later.', plKeepChecking: 'Keep checking', plEndCheck: 'End quick check',
     dicteeT: 'La Dictée', dicteeS: 'Train your ear and spelling: write exactly what you hear.', play: 'Play', slow: '0.75×', playsLeft: 'plays',
     writeHeard: 'Write what you hear', check2: 'Check', perfectNoMistakes: 'Perfect, no mistakes', youWrote: 'You wrote', correctIs: 'The correct answer',
     downloadsT: 'Downloads', downloadsS: 'Listen offline', storage: 'Storage', wifiOnly: 'Wi-Fi only',

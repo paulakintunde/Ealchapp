@@ -17,6 +17,7 @@ import { device24h, formatTime } from '@/utils/time';
 import { formatNotifText } from '@/utils/notifText.logic';
 import { migrateLessonEnglishMode, type EnglishMode } from '@/content/english.logic';
 import { advanceWizard, emptyWizard, finishWizard, normalizeWizard, startWizard } from './onboarding.logic';
+import { answerAttempt, completeAttempt, firstOutcome, firstResult, type PlacementAttempt, type PlacementOutcome, type PlacementResult } from './placement.logic';
 
 export type Lang = 'fr' | 'en';
 
@@ -108,6 +109,9 @@ export type AppState = {
   wizardStep: number;
   completedWizardSteps: number[];
   wizardCompleted: boolean;
+  placementAttempt: PlacementAttempt | null;
+  firstPlacementOutcome: PlacementOutcome | null;
+  firstPlacementResult: PlacementResult | null;
   /** The VERIFIED Supabase auth uid, or null. Set only by setSession, which is
    *  called only from src/services/session.ts's onAuthStateChange subscriber —
    *  never by signIn/completeOnboarding, which are UI-flow bookkeeping and
@@ -191,6 +195,12 @@ export type AppState = {
   beginWizard: (candidateId: string) => string;
   advanceWizardStep: (visibleStep: number) => boolean;
   markWizardCompleted: () => boolean;
+  setPlacementAttempt: (attempt: PlacementAttempt) => void;
+  answerPlacement: (optionIndex: number) => boolean;
+  finishPlacement: (result: PlacementResult) => boolean;
+  abandonPlacement: () => boolean;
+  recordPlacementSkip: () => boolean;
+  recordPlacementLoadFailure: () => boolean;
 };
 
 /** Every data field at first-launch value. A function, not a constant, so that
@@ -228,6 +238,9 @@ const initialData = () => ({
   signedIn: false,
   onboarded: false,
   ...emptyWizard(),
+  placementAttempt: null as PlacementAttempt | null,
+  firstPlacementOutcome: null as PlacementOutcome | null,
+  firstPlacementResult: null as PlacementResult | null,
   userId: null as string | null,
 
   currency: 'USD' as Currency,
@@ -374,6 +387,48 @@ export const useStore = create<AppState>()(
         set(result.checkpoint);
         return result.firstCompletion;
       },
+      setPlacementAttempt: (placementAttempt) => set({ placementAttempt }),
+      answerPlacement: (optionIndex) => {
+        const current = get().placementAttempt;
+        if (!current) return false;
+        const next = answerAttempt(current, optionIndex);
+        if (next === current) return false;
+        set({ placementAttempt: next });
+        return true;
+      },
+      finishPlacement: (result) => {
+        const current = get().placementAttempt;
+        if (!current || current.attemptId !== result.attemptId) return false;
+        const next = completeAttempt(current, result.level);
+        if (next === current) return false;
+        set({
+          placementAttempt: next,
+          firstPlacementOutcome: firstOutcome(get().firstPlacementOutcome, { kind: 'result', attemptId: result.attemptId, level: result.level }),
+          firstPlacementResult: firstResult(get().firstPlacementResult, result),
+        });
+        return true;
+      },
+      abandonPlacement: () => {
+        const current = get().placementAttempt;
+        if (!current || current.status !== 'in_progress') return false;
+        set({
+          placementAttempt: { ...current, status: 'abandoned' },
+          firstPlacementOutcome: firstOutcome(get().firstPlacementOutcome, { kind: 'abandoned', attemptId: current.attemptId }),
+        });
+        return true;
+      },
+      recordPlacementSkip: () => {
+        if (get().firstPlacementOutcome) return false;
+        set({ firstPlacementOutcome: { kind: 'skipped', attemptId: null } });
+        return true;
+      },
+      recordPlacementLoadFailure: () => {
+        const current = get().placementAttempt;
+        if (!current || current.status !== 'load_failed') return false;
+        if (get().firstPlacementOutcome) return false;
+        set({ firstPlacementOutcome: { kind: 'load_failed', attemptId: current.attemptId } });
+        return true;
+      },
       signOut: async () => {
         // Actually end the Supabase session. Before this fix, sign-out only
         // cleared local flags — the real session survived, so a device that
@@ -384,7 +439,7 @@ export const useStore = create<AppState>()(
         } catch {
           // Local sign-out still proceeds — see the comment on the next line.
         }
-        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest', userId: null, ...emptyWizard() });
+        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest', userId: null, ...emptyWizard(), placementAttempt: null, firstPlacementOutcome: null, firstPlacementResult: null });
         // The local sign-out path must rotate the analytics guest identity even
         // when Supabase is unavailable and emits no SIGNED_OUT callback.
         try {
@@ -421,7 +476,7 @@ export const useStore = create<AppState>()(
     }),
     {
       name: 'ealch-store',
-      version: 8,
+      version: 9,
       // v0 → v1: language used to be hardcoded French; re-derive from the device.
       // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
       // clear it so the no-name greeting applies until the user sets a real name.
@@ -447,6 +502,7 @@ export const useStore = create<AppState>()(
       // on its own.
       // v7 -> v8: persist and validate the new first-run wizard checkpoint.
       // This is a separate marker from `onboarded`, which existing sign-in can set.
+      // v8 -> v9: persist placement attempts and the immutable initial outcome.
       migrate: (persisted, version) => {
         const s = persisted as Partial<AppState> & Record<string, unknown>;
         if (version === 0) {
@@ -473,6 +529,11 @@ export const useStore = create<AppState>()(
         }
         s.mode = normalizeAppearancePreference(s.mode);
         Object.assign(s, normalizeWizard(s));
+        if (version <= 8) {
+          s.placementAttempt = null;
+          s.firstPlacementOutcome = null;
+          s.firstPlacementResult = null;
+        }
         return s as AppState;
       },
       // Hydration also runs when the stored version is already current.
@@ -512,6 +573,9 @@ export const useStore = create<AppState>()(
         wizardStep: s.wizardStep,
         completedWizardSteps: s.completedWizardSteps,
         wizardCompleted: s.wizardCompleted,
+        placementAttempt: s.placementAttempt,
+        firstPlacementOutcome: s.firstPlacementOutcome,
+        firstPlacementResult: s.firstPlacementResult,
         currency: s.currency,
         planPick: s.planPick,
         currencyChosen: s.currencyChosen,
