@@ -169,6 +169,9 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**a2.36 LIVE, 2026-09-30: content v81** (packs). « Les pronoms toniques » sits at A2 lesson 35, just before the Review (now 36); only a2.32.l1's one « lesson 35 in A2 » label moved. Pre-review: 2 blockers, 5 fixes. Wave 5 (b2.11) is now unblocked.
+
+
 **UNIT 1 IS LIVE, 2026-09-29: content v78 PUBLISHED** (checksum aaa95300...,
 matches the dry run) with b2.01 to b2.08 after gate B2-2 passed (`d29cde2`).
 +8 units, +8 lessons, +1313 items, no deletions, snapshot 42.25 MiB (still
@@ -264,7 +267,7 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
    arrives by download, which the paywall already implies (B2 is not a free
    band). A band must be all-in or all-out: a partial band draws a trail with
    holes.
-5. **Settle a2.36 « Les pronoms toniques »** (drafted, never applied). b2.11
+5. **DONE 2026-09-30, v81:** a2.36 « Les pronoms toniques » placed at A2 lesson 35 (Paul), the Review moved to 36, pre-reviewed and applied (`ba542a8`, `00c326a`). Was: « Settle a2.36 » (drafted, never applied). b2.11
    emphatic pronouns assumes the stressed pronouns were taught.
 6. **Art:** Paul makes the art himself in ChatGPT from each lesson's
    `-image-prompts.md` (about 370 images for B2). Give him the prompt links and
