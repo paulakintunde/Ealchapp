@@ -8745,6 +8745,586 @@
           ]
         }
       ]
+    },
+    {
+      "id": "b2.27",
+      "seq": 27,
+      "sub": "Le langage juridique et administratif",
+      "canDo": "Can read an official letter, a lease, a contract clause, a municipal order and the terms of a public service, finding who must do what, by when, and what happens otherwise; can use the words of procedures, deadlines, rights and obligations, leases and complaints, recognise the formulas and the impersonal, passive and nominal style of official texts, rewrite them in plain French, avoid the faux amis of the field, and write a formal complaint or request with a deadline and supporting documents",
+      "level": "b2",
+      "title": "Legal and Administrative Language",
+      "lessonIds": [
+        "b2.27.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.18",
+        "b1.36",
+        "b1.39",
+        "b2.10",
+        "b2.19",
+        "b2.20"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.27.l1",
+          "title": "Le langage juridique et administratif",
+          "acts": [
+            {
+              "title": "Qui doit quoi",
+              "cards": 16
+            },
+            {
+              "title": "Les mots de la démarche",
+              "cards": 21
+            },
+            {
+              "title": "Le temps de l’administration",
+              "cards": 23
+            },
+            {
+              "title": "Droits et obligations",
+              "cards": 19
+            },
+            {
+              "title": "Le bail",
+              "cards": 28
+            },
+            {
+              "title": "Lire une clause",
+              "cards": 19
+            },
+            {
+              "title": "Style officiel, langage clair",
+              "cards": 22
+            },
+            {
+              "title": "Je soussigné",
+              "cards": 17
+            },
+            {
+              "title": "Vu, considérant, arrête",
+              "cards": 19
+            },
+            {
+              "title": "Réclamer et contester",
+              "cards": 19
+            },
+            {
+              "title": "Les faux amis",
+              "cards": 20
+            },
+            {
+              "title": "Ton courrier",
+              "cards": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.28",
+      "seq": 28,
+      "sub": "Le français des soins",
+      "canDo": "Can describe symptoms precisely (onset, duration, location, type, intensity, triggers), give a medical history, understand a doctor, a pharmacist, a leaflet and a hospital letter, ask the questions that informed consent needs, speak for a relative and follow cautious or difficult news, and write a clear account of a relative’s health problem for a new doctor",
+      "level": "b2",
+      "title": "Medical French for Care Situations",
+      "lessonIds": [
+        "b2.28.l1"
+      ],
+      "prereqUnitIds": [
+        "a2.28",
+        "b1.35",
+        "b2.20"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.28.l1",
+          "title": "Le français des soins",
+          "acts": [
+            {
+              "title": "Le patient précis",
+              "cards": 16
+            },
+            {
+              "title": "Où, quand, depuis quand",
+              "cards": 21
+            },
+            {
+              "title": "Quelle douleur, et combien",
+              "cards": 22
+            },
+            {
+              "title": "Tes antécédents",
+              "cards": 18
+            },
+            {
+              "title": "Comprendre le médecin",
+              "cards": 21
+            },
+            {
+              "title": "L’ordonnance et la pharmacie",
+              "cards": 23
+            },
+            {
+              "title": "La notice",
+              "cards": 16
+            },
+            {
+              "title": "Le parcours de soins",
+              "cards": 22
+            },
+            {
+              "title": "Poser ses questions, donner son accord",
+              "cards": 18
+            },
+            {
+              "title": "Le mot savant, le mot courant",
+              "cards": 16
+            },
+            {
+              "title": "Parler pour un proche",
+              "cards": 27
+            },
+            {
+              "title": "À toi d’écrire",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.29",
+      "seq": 29,
+      "sub": "La science pour tous",
+      "canDo": "Can read and discuss a science or technology story as an informed non-specialist: name the method (hypothesis, experiment, control group, random draw, blinding, bias), tell a link from a cause, judge how solid a result is (significance, margin of error, replication, peer review, preprint, consensus), handle figures (de and à, percentage points, average and median, orders of magnitude, relative and absolute risk), use the core digital vocabulary with its Québec and France variants, explain simply with reformulation and analogy while saying where the analogy stops, grade certainty with impersonal hedges, avoid the false friends of science, and write a blog post that explains a finding and corrects an exaggerated headline",
+      "level": "b2",
+      "title": "Science for Everyone",
+      "lessonIds": [
+        "b2.29.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.33",
+        "b1.34",
+        "b1.37",
+        "b2.15",
+        "b2.20",
+        "b2.22",
+        "b2.24"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.29.l1",
+          "title": "La science pour tous",
+          "acts": [
+            {
+              "title": "Le titre qui grossit",
+              "cards": 17
+            },
+            {
+              "title": "Du doute à l’expérience",
+              "cards": 21
+            },
+            {
+              "title": "Le groupe témoin et l’aveugle",
+              "cards": 19
+            },
+            {
+              "title": "Lié à n’est pas causé par",
+              "cards": 20
+            },
+            {
+              "title": "Un résultat solide",
+              "cards": 19
+            },
+            {
+              "title": "Les chiffres qui bougent",
+              "cards": 21
+            },
+            {
+              "title": "Moyenne, médiane, ordre de grandeur",
+              "cards": 19
+            },
+            {
+              "title": "Les mots du numérique",
+              "cards": 21
+            },
+            {
+              "title": "Expliquer simplement",
+              "cards": 19
+            },
+            {
+              "title": "Du labo au titre",
+              "cards": 22
+            },
+            {
+              "title": "Les faux amis de la science",
+              "cards": 23
+            },
+            {
+              "title": "Ton article",
+              "cards": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.30",
+      "seq": 30,
+      "sub": "Lire un texte littéraire",
+      "canDo": "Can tell the narrator from the author, identify who sees and who speaks in a literary text (first or third person, internal, external or omniscient focalisation, direct, indirect and free indirect speech), read how time, rhythm, tone, images and description produce an effect, recognise the main literary genres, and write a short commentary on an extract with brief quotations",
+      "level": "b2",
+      "title": "Reading a Literary Text",
+      "lessonIds": [
+        "b2.30.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.37",
+        "b2.08",
+        "b2.24"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.30.l1",
+          "title": "Lire un texte littéraire",
+          "acts": [
+            {
+              "title": "Qui raconte ?",
+              "cards": 14
+            },
+            {
+              "title": "Le narrateur et l’auteur",
+              "cards": 17
+            },
+            {
+              "title": "Par quels yeux",
+              "cards": 20
+            },
+            {
+              "title": "Le temps du récit",
+              "cards": 15
+            },
+            {
+              "title": "Les paroles et les pensées",
+              "cards": 17
+            },
+            {
+              "title": "La tonalité",
+              "cards": 22
+            },
+            {
+              "title": "Les images",
+              "cards": 16
+            },
+            {
+              "title": "Décrire, faire un portrait",
+              "cards": 17
+            },
+            {
+              "title": "Le début et la fin",
+              "cards": 14
+            },
+            {
+              "title": "Roman, nouvelle, théâtre",
+              "cards": 14
+            },
+            {
+              "title": "Écrire sur un texte",
+              "cards": 16
+            },
+            {
+              "title": "Ton commentaire",
+              "cards": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.31",
+      "seq": 31,
+      "sub": "Les accents et le français régional",
+      "canDo": "Can understand speakers of French from Québec, Belgium, Switzerland, the south of France, West and Central Africa, the Antilles, La Réunion, Acadia and the Maghreb, recognise the main features of their accents and the everyday words of their regions, tell a French word from a Creole one, handle an unfamiliar accent with polite strategies without switching to English, and write about a misunderstanding with respect for every variety",
+      "level": "b2",
+      "title": "Accents and Regional French",
+      "lessonIds": [
+        "b2.31.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.25",
+        "b1.26",
+        "b1.38",
+        "b2.25"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.31.l1",
+          "title": "Les accents et le français régional",
+          "acts": [
+            {
+              "title": "Pardon, je n’ai pas bien saisi",
+              "cards": 15
+            },
+            {
+              "title": "Une langue, plusieurs centres",
+              "cards": 17
+            },
+            {
+              "title": "Le Québec à l’oreille",
+              "cards": 19
+            },
+            {
+              "title": "Le Québec, les mots",
+              "cards": 35
+            },
+            {
+              "title": "La Belgique et la Suisse",
+              "cards": 24
+            },
+            {
+              "title": "En France aussi, des accents",
+              "cards": 16
+            },
+            {
+              "title": "Le français en Afrique",
+              "cards": 25
+            },
+            {
+              "title": "Les langues en contact",
+              "cards": 21
+            },
+            {
+              "title": "Quand tu ne comprends pas",
+              "cards": 27
+            },
+            {
+              "title": "Respect et institutions",
+              "cards": 17
+            },
+            {
+              "title": "Ta lettre",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.32",
+      "seq": 32,
+      "sub": "Le verlan et l’argot d’aujourd’hui",
+      "canDo": "Can recognise verlan, clipped and resuffixed words, borrowings, intensifiers and texting abbreviations in speech and messages, place each on the register ladder, say who can use it with whom and when it would embarrass or offend, and rewrite a slang-filled exchange as a neutral email",
+      "level": "b2",
+      "title": "Verlan and Modern Slang",
+      "lessonIds": [
+        "b2.32.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.25",
+        "b1.26",
+        "b1.39"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.32.l1",
+          "title": "Le verlan et l’argot d’aujourd’hui",
+          "acts": [
+            {
+              "title": "L’échelle",
+              "cards": 24
+            },
+            {
+              "title": "Le verlan",
+              "cards": 27
+            },
+            {
+              "title": "Les verlans qui sont restés",
+              "cards": 18
+            },
+            {
+              "title": "Couper les mots",
+              "cards": 27
+            },
+            {
+              "title": "Changer la fin",
+              "cards": 20
+            },
+            {
+              "title": "Les mots venus d’ailleurs",
+              "cards": 23
+            },
+            {
+              "title": "Les intensifs et les tics",
+              "cards": 22
+            },
+            {
+              "title": "Ce qui date, ce qui dure",
+              "cards": 17
+            },
+            {
+              "title": "Les textos",
+              "cards": 12
+            },
+            {
+              "title": "Traduire vers le neutre",
+              "cards": 21
+            },
+            {
+              "title": "À toi d’écrire",
+              "cards": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.33",
+      "seq": 33,
+      "sub": "Traduire sans calquer",
+      "canDo": "Can translate and adapt a short English text into natural French for a francophone reader, recognising calques of words, sentences and expressions, applying transposition, modulation, equivalence and expansion, handling -ing forms, articles, body parts, generic you, phrasal verbs, numbers and typography, keeping a literal translation where it is natural, and justifying the choices made",
+      "level": "b2",
+      "title": "Translating Without Calques",
+      "lessonIds": [
+        "b2.33.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.12",
+        "b1.18",
+        "b1.37",
+        "b2.10",
+        "b2.12",
+        "b2.14"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.33.l1",
+          "title": "Traduire sans calquer",
+          "acts": [
+            {
+              "title": "Le mot à mot",
+              "cards": 14
+            },
+            {
+              "title": "Des mots qui trompent",
+              "cards": 32
+            },
+            {
+              "title": "Des phrases calquées",
+              "cards": 22
+            },
+            {
+              "title": "Des expressions calquées",
+              "cards": 28
+            },
+            {
+              "title": "Changer la classe des mots",
+              "cards": 19
+            },
+            {
+              "title": "Changer de point de vue",
+              "cards": 21
+            },
+            {
+              "title": "Étoffer",
+              "cards": 19
+            },
+            {
+              "title": "Les formes en -ing",
+              "cards": 22
+            },
+            {
+              "title": "Les petits mots",
+              "cards": 19
+            },
+            {
+              "title": "Chiffres, guillemets et espaces",
+              "cards": 12
+            },
+            {
+              "title": "Quand le mot à mot suffit",
+              "cards": 11
+            },
+            {
+              "title": "Le ton juste",
+              "cards": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.34",
+      "seq": 34,
+      "sub": "Les proverbes et les expressions figées",
+      "canDo": "Can recognise, quote and use about twenty frequent French proverbs and a set of B2 fixed expressions, tell a proverb from a fixed expression and a locution, quote a proverb by half, twist it or use it as a hook in the right register, find the equivalent English proverb or explain that there is none, quote La Fontaine accurately, and write an opinion column that opens with a proverb and discusses whether it holds",
+      "level": "b2",
+      "title": "Proverbs and Fixed Expressions",
+      "lessonIds": [
+        "b2.34.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.27",
+        "b1.28",
+        "b1.29",
+        "b2.23"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.34.l1",
+          "title": "Les proverbes et les expressions figées",
+          "acts": [
+            {
+              "title": "Comme dit le proverbe",
+              "cards": 15
+            },
+            {
+              "title": "La forme d’un proverbe",
+              "cards": 16
+            },
+            {
+              "title": "L’effort et la patience",
+              "cards": 17
+            },
+            {
+              "title": "La prudence",
+              "cards": 16
+            },
+            {
+              "title": "Les autres et nous",
+              "cards": 13
+            },
+            {
+              "title": "Semer et récolter",
+              "cards": 16
+            },
+            {
+              "title": "La Fontaine",
+              "cards": 16
+            },
+            {
+              "title": "Le proverbe dans la conversation",
+              "cards": 17
+            },
+            {
+              "title": "D’une langue à l’autre",
+              "cards": 15
+            },
+            {
+              "title": "Des expressions pour le travail",
+              "cards": 17
+            },
+            {
+              "title": "Négocier, apaiser, trancher",
+              "cards": 18
+            },
+            {
+              "title": "À toi d’écrire",
+              "cards": 8
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [

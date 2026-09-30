@@ -60,6 +60,7 @@ export const SEED_CUT: SeedCut = {
     'b2.01', 'b2.02', 'b2.03', 'b2.04', 'b2.05', 'b2.06', 'b2.07', 'b2.08',
     'b2.09', 'b2.10', 'b2.11', 'b2.12', 'b2.13', 'b2.14', 'b2.15', 'b2.16', 'b2.17', 'b2.18', 'b2.19', 'b2.20', 'b2.21',
     'b2.22', 'b2.23', 'b2.24', 'b2.25', 'b2.26',
+    'b2.27', 'b2.28', 'b2.29', 'b2.30', 'b2.31', 'b2.32', 'b2.33', 'b2.34',
   ],
 
   // Core themes: the vocabulary a survival-level learner needs first, and drills

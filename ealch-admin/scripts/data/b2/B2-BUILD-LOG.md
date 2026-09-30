@@ -169,6 +169,13 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVES 7 + 8 IMPORTED AND MERGED, 2026-09-30; v84 dry run ready, NOT published.** `--apply`: 1514
+rows + 16 unit/lesson rows, read back identical. Merged into the packs layer (8 skeletons in the core),
+seed cut lists b2.27-34. App 5724/5724, admin 1009/1010 (0 fail). `--packs --dry-run`: v84, checksum
+1a5a64f2..., b2 pack 34 lessons 15.22 MiB, pack replay 12 upgrades / 0 deadlocks; the retired legacy
+snapshot would have been 49.80 MiB (just under the old 50 MiB limit). Next: gate B2-4 on the Pixel 6
+(temporary preview holding B2 1-34), then v84 with Paul's OK: B2 complete.
+
 **v83 PUBLISHED, 2026-09-30: B2 lessons 17 to 21 are LIVE; Units 2 and 3 complete** (gate B2-3
 passed: Paul reviewed B2 9-21 on the Pixel 6 through a dev preview holding the whole band; see memory
 ealch-dev-build-no-packs-layer). Before publishing, b2.19's title took the typographic apostrophe
@@ -537,14 +544,14 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 images, registered + alt | DONE, v83 |
 | b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 images, registered + alt | DONE, v83 |
 | b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 images, registered + alt | DONE, v83 |
-| b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 images, registered + alt | REVIEWED, art in |
-| b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 images, registered + alt | REVIEWED, art in |
-| b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 images, registered + alt | REVIEWED, art in |
-| b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 images, registered + alt | REVIEWED, art in |
-| b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 images, registered + alt | REVIEWED, art in |
-| b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 images, registered + alt | REVIEWED, art in |
-| b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 images, registered + alt | REVIEWED, art in |
-| b2.34 | proverbes (vocab) | 88 | 12 | 12x8 | 12 | 5 | 25 | 166 | 12 images, registered + alt | REVIEWED, art in |
+| b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 images, registered + alt | MERGED, v84 dry run |
+| b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 images, registered + alt | MERGED, v84 dry run |
+| b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 images, registered + alt | MERGED, v84 dry run |
+| b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 images, registered + alt | MERGED, v84 dry run |
+| b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 images, registered + alt | MERGED, v84 dry run |
+| b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 images, registered + alt | MERGED, v84 dry run |
+| b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 images, registered + alt | MERGED, v84 dry run |
+| b2.34 | proverbes (vocab) | 88 | 12 | 12x8 | 12 | 5 | 25 | 166 | 12 images, registered + alt | MERGED, v84 dry run |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links
