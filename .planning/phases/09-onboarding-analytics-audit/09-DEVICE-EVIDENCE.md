@@ -10,7 +10,7 @@ Status: **pending device and configured capture proof**. This is the execution s
 
 | Platform | Build ID | Device / OS | Account kind | Capture project / time | Result |
 |---|---|---|---|---|---|
-| Android | Pending | Pending | guest and email | Pending | Pending |
+| Android | Installed debug APK `1.0.0` (`versionCode=1`), updated 2026-09-29 19:48; predates Plan 09-07 | Pixel 6 / Android 17 (API 37), ADB connected | guest and email pending | Pending | Connectivity only; no walkthrough or capture claimed |
 | iPhone | Pending | Pending | guest and email | Pending | Pending |
 
 ## Onboarding and placement, on each platform
