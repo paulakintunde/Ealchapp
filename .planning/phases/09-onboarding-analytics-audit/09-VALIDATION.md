@@ -32,7 +32,7 @@ See `09-EVENT-AUDIT.md` for the event-by-event expected and automated observatio
 | Gate | Reason | Status |
 |---|---|---|
 | Android and iPhone guest/email wizard, placement skip/result/abandon/resume, recovery routes | Native permission, navigation, process-death, and focus behavior | Pending both devices |
-| Accepted capture for each critical event against a disposable PostHog project | Fake HTTP verifies code behavior, not project ingestion | Pending test configuration |
+| Accepted capture for each critical event against a disposable PostHog project | Local `.env` is configured; EAS preview values and project ingestion are unverified | Pending configured preview capture |
 | Play-delivered encoded Android campaign; no-campaign and lookup-failure cases | A sideload cannot prove Play Install Referrer | Pending |
 | iPhone `unavailable` app event and separate App Store Connect aggregate report | Per-install store source is unavailable in app | Pending |
 | Controlled local-clock D1 boundary and device foreground | Prove date logic and AppState integration | Pending device |

@@ -1,6 +1,6 @@
 # Phase 9 Event Audit
 
-Audit date: 2026-09-29. This records code and automated observations. Every row still needs a configured test-build capture ID and accepted response before QA-02 can pass. The repository's `.env` currently has no `EXPO_PUBLIC_POSTHOG_KEY` or `EXPO_PUBLIC_ANALYTICS_TEST_BUILD` entry, so no live capture is asserted here.
+Audit date: 2026-09-29; configuration rechecked 2026-09-30. This records code and automated observations. Every row still needs a configured test-build capture ID and accepted response before QA-02 can pass. Local `.env` now has the PostHog key, host, and enabled test flag, but no live capture is asserted here.
 
 | Event | Boundary, count, safe payload | Automated observation | Configured capture |
 |---|---|---|---|

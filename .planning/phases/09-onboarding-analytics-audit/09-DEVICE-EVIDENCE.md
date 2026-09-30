@@ -1,6 +1,6 @@
 # Phase 9 device and capture evidence
 
-Status: **pending device and configured capture proof**. This is the execution sheet for Plan 09-06 Task 2; blank results do not count as passes. Record build ID, device model/OS, account kind, event ID, accepted/rejected HTTP status, and outcome. Do not record email, credentials, answers, transcripts, raw referrer URLs, payment details, or the PostHog key.
+Status: **pending device and configured capture proof**. Local `.env` now contains a PostHog key, host, and enabled test flag; EAS preview values and live capture remain unverified. This is the execution sheet for Plan 09-06 Task 2; blank results do not count as passes. Record build ID, device model/OS, account kind, event ID, accepted/rejected HTTP status, and outcome. Do not record email, credentials, answers, transcripts, raw referrer URLs, payment details, or the PostHog key.
 
 ## Capture setup
 
