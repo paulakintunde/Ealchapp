@@ -169,6 +169,16 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**PIXEL 9 REGRESSION PASSED, 2026-09-30** (preview build 5409e283 installed over the
+old one: no black screen on the first launch). Free: v82 core, B2 21 units all
+PREMIÈRE, DELF exam 1 free / 2-5 locked, new paywall row. Offline: cold launch + A1
+lesson. Premium: B2 9-16 open with art, DELF exam 2 opens, b2.11 opens offline.
+FOUND AND FIXED: premium devices that cached packs before v81 re-downloaded a2/b2
+forever and kept v79 (the merge check judged each new pack against the other stale
+one; `3721ca4`, trialPacks), shipped to preview by OTA b2cc43b6. The first OTA
+(37e5a9d4) shipped WITHOUT the EXPO_PUBLIC env and was rolled back (see memory
+ealch-eas-update-drops-env). Store installs will need the fix in their binary.
+
 **v82 PUBLISHED, 2026-09-30: B2 lessons 9 to 16 are LIVE** (waves 4 + 5, Paul's OK).
 Checksum 11d741d6... matches the dry run; uploaded core/v82, content-packs/b2/v82
 (21 lessons), snapshots/v82 (47.25 MB) and both manifests; a2/b1/c1/exam packs
