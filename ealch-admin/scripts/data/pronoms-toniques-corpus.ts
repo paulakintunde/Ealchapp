@@ -16,15 +16,14 @@
 // uses the forms everywhere as unexplained chunks, and B1 now assumes them.
 //
 // ══════════════════════════════════════════════════════════════════════════
-//  POSITION: seq 36, AFTER THE BILAN, AND THAT IS PAUL'S CALL, NOT THIS FILE'S
+//  POSITION: seq 35, JUST BEFORE THE BILAN (Paul, 2026-09-30)
 // ══════════════════════════════════════════════════════════════════════════
 //
-// `a2.36` is the next free A2 id. `seq: 36` puts it after a2.35 « Bilan A2 »
-// (seq 35) so it collides with nothing while it is a draft. **The final trail
-// position is Paul's decision**, after seeing it on the phone. Moving it is not
-// free: every lesson that cites another by label resolves the label through
-// `unit.seq`, so a resequence moves printed lesson numbers across the band, and
-// a2.35's test asserts the capstone is the LAST A2 unit (see the batch header).
+// `a2.36` keeps the next free A2 id and sits at seq 35; a2.35 « Bilan A2 »
+// moved to seq 36, so the capstone is still the LAST A2 unit. Only one printed
+// label moved: a2.32.l1's « lesson 35 in A2 » (the Bilan) now reads 36, in
+// Postgres and in its source (which resolves it through unitRef). An earlier
+// place would have renumbered most of A2, about 60 printed citations.
 //
 // ══════════════════════════════════════════════════════════════════════════
 //  WHAT THIS UNIT OWNS
@@ -106,9 +105,8 @@ function Cap(s: string): string { return s.charAt(0).toUpperCase() + s.slice(1);
 
 export const UNIT = {
   id: 'a2.36',
-  /** DRAFT POSITION. After the Bilan so it collides with nothing. Paul decides
-   *  the final seq after seeing the lesson on a phone. */
-  seq: 36,
+  /** Paul, 2026-09-30: just before the Bilan (which moved to 36). */
+  seq: 35,
   title: 'Stressed Pronouns',
   sub: 'Les pronoms toniques',
   canDo: "Can use moi, toi, lui and the rest after a little word, after c'est, alone as an answer and for emphasis",

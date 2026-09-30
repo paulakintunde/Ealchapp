@@ -132,8 +132,8 @@ const S02_GOALS: LessonSection = {
   layer: 'core',
   title: 'By the end of this lesson',
   goals: [
-    { t: 'Say me, you, him and them when no verb follows', s: 'Act 2, and it is the intercom' },
-    { t: 'Know the six places this set turns up', s: 'Act 2: after a little word, after c\'est, alone, in front' },
+    { t: 'Say me, you, him and them when no verb follows', s: 'Acts 1 and 2, starting at the intercom' },
+    { t: 'Know the six places this set turns up', s: 'Act 2: after a little word, after c\'est, alone, in front, after que, with et' },
     { t: 'Keep lui and elle apart, and eux and elles', s: 'Act 3, where the gender comes back' },
     { t: 'Stop reaching for je where moi belongs', s: 'Act 4, the trap' },
   ],
@@ -217,7 +217,7 @@ const S04_PLACES: LessonSection = {
       label: 'who is it',
       fr: "C'est moi.",
       sub: '[seh MWAH]',
-      body: "The intercom. c'est is followed by a person, never by a verb, so the person is always this set: c'est moi, c'est lui, c'est nous.",
+      body: "The intercom. No verb is coming after c'est, so a person named there with a pronoun is always this set: c'est moi, c'est lui, c'est nous.",
     },
     {
       head: 'alone, as an answer',
@@ -324,7 +324,7 @@ const S07_SORT: LessonSection = {
         q: 'What do all four have straight after the pronoun?',
         opts: ['a little word like avec', 'a verb', 'nothing at all'],
         correct: 1,
-        why: 'A verb, every time. That is the only place je, tu, il and ils can go.',
+        why: 'A verb, every time. je, tu, il and ils always belong to a verb, even when ne or a small word like le or lui squeezes in between: je ne viens pas, je lui parle.',
       },
     },
     {
@@ -424,6 +424,8 @@ const S09_TABLE: LessonSection = {
   type: 'tapTable',
   id: 's09-table',
   layer: 'core',
+  // The only way into the reference sheet (sheet-reach.test.ts).
+  sheetId: 'sheet-eight',
   title: 'All eight, one screen',
   cols: ['Verb next', 'On its own', 'Example'],
   rows: [
@@ -476,7 +478,7 @@ const S10_LUI: LessonSection = {
       label: 'him · her',
       fr: 'Je parle avec lui. / Je parle avec elle.',
       sub: '[ah-vek LWEE] · [ah-vek EHL]',
-      body: `${A236_SHAPE} The lui in front of a verb lost the gender. This one never did.`,
+      body: `${A236_SHAPE} The lui in front of a verb lost the gender. This one has it.`,
     },
     {
       head: 'sans elle',
@@ -528,7 +530,7 @@ const S12_CEST: LessonSection = {
       label: "only c'est",
       fr: "C'est lui. / C'est elle.",
       sub: '[seh LWEE] · [seh TEHL]',
-      body: "Him, her. c'est elle has a t that moves across onto elle: seh TEHL, never seh EHL.",
+      body: "Him, her. c'est elle usually carries a t across onto elle: seh TEHL, the way most people say it.",
     },
     {
       head: 'us',
@@ -561,7 +563,7 @@ const S13_READ: LessonSection = {
   layer: 'core',
   questionsInModal: true,
   title: 'A dinner on the rue Mercière',
-  text: "Ce soir, Marc et Julie font une fête chez eux. Moi, je viens avec ma sœur Léa. Elle ne connaît pas les autres invités, alors elle reste à côté de moi. Mon frère vient aussi, mais sans sa copine : elle travaille ce soir. À la porte, Julie demande qui a apporté le gâteau. Léa répond : « C'est moi. » Plus tard, Marc et Hugo arrivent avec les boissons. Eux, ils ont oublié les verres. Julie rit : « Sans eux, pas de fête. »",
+  text: "Ce soir, Marc et Julie font une fête chez eux. Moi, je viens avec ma sœur Léa. Elle ne connaît pas les autres invités, alors elle reste à côté de moi. Mon frère vient aussi, mais sans sa copine : elle travaille ce soir. À la porte, Julie demande qui a apporté le gâteau. Léa répond : « C'est moi. » Plus tard, Hugo et Théo arrivent avec les boissons. Eux, ils ont oublié les verres. Julie rit : « Sans eux, pas de fête. »",
   glossary: [
     { word: 'une fête', en: 'a party', note: 'Feminine. Faire une fête is to throw a party.' },
     { word: 'les autres invités', en: 'the other guests', note: 'invité is a guest, somebody who was asked to come.' },
@@ -574,7 +576,7 @@ const S13_READ: LessonSection = {
     { q: 'Chez eux. Who is eux?', a: 'Marc and Julie, named just before. A man and a woman, so eux and not elles.' },
     { q: 'Elle reste à côté de moi. Who is moi?', a: 'The person telling the story. A little word, de, and then moi.' },
     { q: 'Why does Léa answer with moi?', a: "After c'est there is no verb coming, so the speaker is moi, never je." },
-    { q: 'Eux, ils ont oublié les verres. Why both eux and ils?', a: 'eux points at Marc and Hugo, then ils starts the verb. eux on its own cannot carry ont.' },
+    { q: 'Eux, ils ont oublié les verres. Why both eux and ils?', a: 'eux points at Hugo and Théo, then ils starts the verb. That is the everyday way to put weight on them.' },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -781,8 +783,8 @@ const S19_TALK: LessonSection = {
       ],
     },
     {
-      ai: 'Et Léa et Julie, elles viennent ?',
-      en: 'And Léa and Julie, are they coming?',
+      ai: 'Et Léa et Chloé, elles viennent ?',
+      en: 'And Léa and Chloé, are they coming?',
       user: 'Non, on part sans elles.',
       userEn: "No, we're leaving without them. (All women, so elles.)",
       alts: [
@@ -1114,7 +1116,7 @@ export const LESSON: Lesson = {
   seq: 1,
   title: UNIT.title,
   level: 'a2',
-  tag: 'A2 · LEÇON 36',
+  tag: 'A2 · LEÇON 35',
   intro: "English says I before a verb and me everywhere else, and you pick between them without thinking. French does the same with je and moi, and with three more pairs. You already say Et toi ? and chez moi. This lesson is the rule behind them.",
   skill: 'PE',
   grammarAssumed: [

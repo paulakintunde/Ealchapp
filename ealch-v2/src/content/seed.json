@@ -2354,7 +2354,7 @@
     },
     {
       "id": "a2.35",
-      "seq": 35,
+      "seq": 36,
       "sub": "Bilan A2",
       "canDo": "Can hold a conversation about their life past and present using the whole A2 band: verbs in three tenses, pronouns, and the everyday situations",
       "level": "a2",
@@ -7723,6 +7723,54 @@
             {
               "title": "Raconte-le à un ami",
               "cards": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2.36",
+      "seq": 35,
+      "sub": "Les pronoms toniques",
+      "canDo": "Can use moi, toi, lui and the rest after a little word, after c'est, alone as an answer and for emphasis",
+      "level": "a2",
+      "title": "Stressed Pronouns",
+      "track": "a2",
+      "lessonIds": [
+        "a2.36.l1"
+      ],
+      "prereqUnitIds": [
+        "a1.05",
+        "a2.24"
+      ],
+      "outline": [
+        {
+          "lessonId": "a2.36.l1",
+          "title": "Stressed Pronouns",
+          "acts": [
+            {
+              "title": "Le mot qui n'arrive pas",
+              "cards": 8
+            },
+            {
+              "title": "Où il se met",
+              "cards": 42
+            },
+            {
+              "title": "Là où le genre revient",
+              "cards": 16
+            },
+            {
+              "title": "Je ou moi",
+              "cards": 10
+            },
+            {
+              "title": "Production",
+              "cards": 0
+            },
+            {
+              "title": "L'examen",
+              "cards": 0
             }
           ]
         }

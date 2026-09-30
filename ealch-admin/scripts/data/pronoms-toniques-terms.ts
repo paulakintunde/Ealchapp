@@ -16,7 +16,7 @@ export const PRONOMS_TONIQUES_TERMS: Record<string, LessonTerm> = {
   onItsOwn: {
     term: 'on its own',
     title: 'No verb right after it',
-    body: `je, tu, il and ils need a verb straight after them. When the person is on its own, after a little word, after c'est, as a one-word answer or out in front, French uses the other set. ${Cap(SUBJECT_REF)} gave you the first set and saved this one for later.`,
+    body: `je, tu, il and ils need a verb straight after them (only ne or a small word like le or lui can squeeze in between). When the person is on its own, after a little word, after c'est, as a one-word answer or out in front, French uses the other set. ${Cap(SUBJECT_REF)} gave you the first set and saved this one for later.`,
     examples: [
       { itemId: E(400), note: 'a verb right after it, so je' },
       { itemId: E(401), note: 'nothing after it, so moi' },

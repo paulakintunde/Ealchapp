@@ -21,6 +21,15 @@
 // card renders empty, and prints the a1.03 genre impact before writing (10 a1
 // rows are carried).
 //
+// PREMIUM PACKS (2026-09-30). When seed-packs.json has rows, seed.json is only
+// the free core and A2 is a paid band, so the unit, lesson and every carried
+// row go into the LAYER through band-merge.logic.ts's mergeIntoPacksLayer (the
+// skeleton unit into seed.json), exactly as b1-merge-into-seed.ts does. The
+// same run carries the placement Paul chose: a2.36 at seq 35, the Review
+// (a2.35) moved to seq 36, and a2.32.l1 re-read from Postgres, whose one
+// printed « lesson 35 in A2 » now names the Review at 36. Both files are
+// written, canonical, and read back.
+//
 // NEVER `git checkout` seed.json to undo this. Re-run the merge.
 // DO NOT hand-bump `seed.version`: the publish step owns it.
 import './env';
@@ -32,9 +41,14 @@ import {
 } from './data/pronoms-toniques-corpus.ts';
 import { LESSON, ITEM_IDS } from './data/pronoms-toniques-lesson.ts';
 import { hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
+import { PACKS_LAYER_PATH, composeTestCorpus, regimeOf } from '../../ealch-v2/src/content/seed-plus-packs.ts';
+import { validateCorpus, type Corpus } from '../../ealch-v2/src/content/schema.ts';
+import { mergeIntoPacksLayer } from './band-merge.logic.ts';
 
 const SEED = new URL('../../ealch-v2/src/content/seed.json', import.meta.url);
 const DRY = process.argv.includes('--dry');
+/** Paul, 2026-09-30: a2.36 just before the Review, which moves to 36. */
+const REVIEW_SEQ = 36;
 const die: (m: string) => never = (m) => { console.error(`\n  STOP: ${m}\n`); process.exit(1); };
 
 type Item = { id: string; theme?: string; fr?: string; en?: string; respell?: string | null; drills?: unknown; level?: string };
@@ -80,13 +94,15 @@ async function main() {
   for (const n of NOT_IMPORTED) if (ITEM_IDS.includes(n.id)) die(`${n.id} is on the do-not-import list (${n.why})`);
 
   // The new unit's seq must not collide on the A2 trail.
-  const clash = seed.units.filter((u) => u.id !== UNIT.id && u.id.startsWith('a2.') && Number(u.seq) === UNIT.seq);
+  const clash = seed.units.filter((u) => u.id !== UNIT.id && u.id !== 'a2.35' && u.id.startsWith('a2.') && Number(u.seq) === UNIT.seq);
   if (clash.length) die(`seq ${UNIT.seq} is already held in the seed by ${clash.map((u) => u.id).join(', ')}`);
 
   const { Pool } = await import('pg');
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
   const c = await pool.connect();
   let carried: Item[] = [];
+  let reviewUnit: Unit | null = null;
+  let a232Lesson: (Lesson & Record<string, unknown>) | null = null;
   try {
     const wanted = [...new Set([...ALL_ROWS.map((r) => r.id), ...ITEM_IDS, ...REPAIR_IDS])];
     const r = await c.query<Item & { status: string; kind?: string; gender?: string | null }>(
@@ -109,6 +125,15 @@ async function main() {
     const unitRow = await c.query<{ body: Unit }>("select body from content_units where kind='curriculum_unit' and body->>'id'=$1", [UNIT.id]);
     if (!unitRow.rowCount) die(`${UNIT.id} is not in content_units. Apply the batch first.`);
     if (Number(unitRow.rows[0].body.seq) !== UNIT.seq) die(`${UNIT.id} is seq ${unitRow.rows[0].body.seq} in Postgres and ${UNIT.seq} here`);
+    // The placement's two neighbours, as Postgres holds them after the move.
+    const reviewRow = await c.query<{ body: Unit }>("select body from content_units where kind='curriculum_unit' and body->>'id'='a2.35'");
+    if (!reviewRow.rowCount) die('a2.35 is not in content_units');
+    reviewUnit = reviewRow.rows[0].body;
+    if (Number(reviewUnit.seq) !== REVIEW_SEQ) die(`a2.35 is seq ${reviewUnit.seq} in Postgres; move it to ${REVIEW_SEQ} first`);
+    const a232Row = await c.query<{ body: Lesson & Record<string, unknown> }>("select body from content_units where kind='lesson' and slug='a2.32.l1'");
+    if (!a232Row.rowCount) die('a2.32.l1 is not in content_units');
+    a232Lesson = a232Row.rows[0].body;
+    if (JSON.stringify(a232Lesson).includes('lesson 35 in A2')) die('a2.32.l1 still says « lesson 35 in A2 » in Postgres; patch it to 36 first');
 
     for (const rep of RESPELL_REPAIRS) {
       const row = r.rows.find((x) => x.id === rep.id)!;
@@ -137,6 +162,13 @@ async function main() {
   } finally {
     c.release();
     await pool.end();
+  }
+
+  const layerRaw = (() => { try { return readFileSync(PACKS_LAYER_PATH, 'utf8'); } catch { return null; } })();
+  const layer = layerRaw === null ? null : (JSON.parse(layerRaw) as Seed);
+  if (regimeOf(layer as unknown as Corpus | null) === 'packs') {
+    await mergePacks(seed, layer!, carried, reviewUnit!, a232Lesson!);
+    return;
   }
 
   const byId = new Map(seed.items.map((i) => [i.id, i]));
@@ -194,6 +226,56 @@ async function main() {
   console.log(`  units: ${beforeUnits} -> ${after.units.length}, ${UNIT.id} at seq ${UNIT.seq}`);
   console.log(`  seed.version left at ${after.version}`);
   console.log('\n  NEXT: run the suite. Expect a2-35-bilan.test.ts and spine-drift.test.ts to fail on the new unit.\n');
+}
+
+/** The premium packs regime: core skeleton + paid layer. */
+async function mergePacks(seed: Seed, layer: Seed, carried: Item[], reviewUnit: Unit, a232Lesson: Lesson & Record<string, unknown>) {
+  const canonical = (x: unknown) => `${JSON.stringify(x, null, 2)}\n`;
+  const owned = new Set<string>([...ALL_ROWS.map((r) => r.id), ...REPAIR_IDS]);
+  const unitRow: Unit = {
+    id: UNIT.id, seq: UNIT.seq, sub: UNIT.sub, canDo: UNIT.canDo, level: UNIT.level,
+    title: UNIT.title, track: UNIT.track, lessonIds: [LESSON.id], prereqUnitIds: [...UNIT.prereqUnitIds],
+  };
+  const issuesBefore = validateCorpus(composeTestCorpus(seed as unknown as Corpus, layer as unknown as Corpus)).length;
+  const merged = mergeIntoPacksLayer(
+    seed as never, layer as never,
+    { units: [unitRow], lessons: [LESSON as never], items: carried as never },
+    (id) => owned.has(id),
+  ) as unknown as { seed: Seed; layer: Seed; stats: Record<string, unknown> };
+
+  // The Review moves to 36: its full unit in the layer (from Postgres), its
+  // skeleton's seq in the core.
+  const li = merged.layer.units.findIndex((u) => u.id === 'a2.35');
+  if (li >= 0) merged.layer.units[li] = reviewUnit;
+  else merged.layer.units.push(reviewUnit);
+  const ci = merged.seed.units.findIndex((u) => u.id === 'a2.35');
+  if (ci < 0) die('a2.35 has no skeleton in the core');
+  merged.seed.units[ci] = { ...merged.seed.units[ci], seq: REVIEW_SEQ };
+  // a2.32.l1 as Postgres holds it (the one printed label that moved).
+  const ai = merged.layer.lessons.findIndex((l) => l.id === 'a2.32.l1');
+  if (ai >= 0) merged.layer.lessons[ai] = a232Lesson;
+  else merged.layer.lessons.push(a232Lesson);
+
+  const clash = [...merged.seed.units, ...merged.layer.units].filter((u) => u.id.startsWith('a2.') && u.id !== UNIT.id && Number(u.seq) === UNIT.seq);
+  if (clash.length) die(`seq ${UNIT.seq} is also held by ${clash.map((u) => u.id).join(', ')}`);
+  const composed = composeTestCorpus(merged.seed as unknown as Corpus, merged.layer as unknown as Corpus);
+  const issuesAfter = validateCorpus(composed);
+  console.log(`\n  PACKS REGIME: ${UNIT.id} (seq ${UNIT.seq}) into the layer, skeleton in the core; a2.35 -> seq ${REVIEW_SEQ}; a2.32.l1 from Postgres`);
+  console.log(`  stats: ${JSON.stringify({ unitsAdded: merged.stats.unitsAdded, lessonsAdded: merged.stats.lessonsAdded, itemsAdded: (merged.stats.itemsAdded as unknown[]).length, itemsReplaced: (merged.stats.itemsReplaced as unknown[]).length, itemsInCore: merged.stats.itemsInCore, skeletonsAdded: merged.stats.skeletonsAdded })}`);
+  console.log(`  validateCorpus (core + layer): ${issuesAfter.length} after (${issuesBefore} before)`);
+  if (issuesAfter.length > issuesBefore) {
+    for (const i of issuesAfter.slice(0, 10)) console.log(`    ${i.path}: ${i.message}`);
+    die('the merge adds validation issues');
+  }
+  const ids = new Set(composed.items.map((i) => i.id));
+  const unreachable = ITEM_IDS.filter((i) => !ids.has(i));
+  if (unreachable.length) die(`${unreachable.length} id(s) the lesson references are not in core + layer: ${unreachable.slice(0, 10).join(', ')}`);
+  if (DRY) { console.log('\n  --dry: nothing written.\n'); return; }
+  writeFileSync(SEED, canonical(merged.seed), 'utf8');
+  writeFileSync(PACKS_LAYER_PATH, canonical(merged.layer), 'utf8');
+  const back = composeTestCorpus(JSON.parse(readFileSync(SEED, 'utf8')), JSON.parse(readFileSync(PACKS_LAYER_PATH, 'utf8')));
+  if (!back.lessons.some((l) => l.id === LESSON.id)) die('read-back: the lesson is missing');
+  console.log('  WRITTEN: seed.json (core) and seed-packs.json (layer). NEXT: both suites, then content:publish --packs --dry-run.\n');
 }
 
 main();

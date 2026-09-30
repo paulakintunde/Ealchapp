@@ -866,9 +866,21 @@ const A2: SpineUnit[] = [
     canDo: 'Can say mine, yours and theirs with the right gender and number',
     prereqUnitIds: ['a1.17'],
   },
+  // a2.36 placed JUST BEFORE the Review (Paul, 2026-09-30): the id stays
+  // a2.36, the trail position is 35, and the Review moves to 36. Only one
+  // printed label moved (a2.32.l1's « lesson 35 in A2 », the Review).
+  {
+    id: 'a2.36',
+    seq: 35,
+    title: 'Stressed Pronouns',
+    sub: 'Les pronoms toniques',
+    gloss: 'moi, toi, lui, eux: after a little word, after c\'est, alone',
+    canDo: "Can use moi, toi, lui and the rest after a little word, after c'est, alone as an answer and for emphasis",
+    prereqUnitIds: ['a1.05', 'a2.24'],
+  },
   {
     id: 'a2.35',
-    seq: 35,
+    seq: 36,
     title: 'A2 Review',
     sub: 'Bilan A2',
     gloss: 'A2 capstone — everything, put together',

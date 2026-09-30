@@ -598,7 +598,8 @@ export const REVIEW_LESSON: Lesson = {
   seq: 1,
   title: 'Bilan A2 : leçon par leçon',
   level: 'a2',
-  tag: 'A2 · LEÇON 35',
+  // 36 since 2026-09-30: a2.36 « Les pronoms toniques » sits at 35.
+  tag: 'A2 · LEÇON 36',
   intro: 'One round for each of the thirty-four A2 units, five questions each, in the order you walked them. Nothing new is taught. A round that goes badly names the unit to sit again, and drills it before the next round starts.',
   itemIds: [],
   version: 1,

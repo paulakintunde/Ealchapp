@@ -62,15 +62,16 @@ const baseInput = (band: string, units: Unit[]): TrailInput => ({
 
 /* ─── the a2 band, measured against the shipped seed ────────────────────── */
 
-test('MEASURED: trailRows over the seed a2 band returns exactly 35 heading rows and 216 act rows', () => {
+test('MEASURED: trailRows over the seed a2 band returns exactly 36 heading rows and 222 act rows', () => {
   const units = unitsOfBand(seedUnits, 'a2');
-  strictEqual(units.length, 35, 'sanity: the seed carries 35 a2 units today');
+  // 36 since 2026-09-30: a2.36 « Les pronoms toniques » (6 acts) at seq 35.
+  strictEqual(units.length, 36, 'sanity: the seed carries 36 a2 units today');
   const rows = trailRows(baseInput('a2', units));
   const headings = rows.filter((r) => r.kind === 'heading');
   const acts = rows.filter((r) => r.kind === 'act');
-  strictEqual(headings.length, 35);
-  strictEqual(acts.length, 216);
-  strictEqual(rows.length, 251, 'no card, gate or boundary row: levelsAll is true and both cards are dismissed');
+  strictEqual(headings.length, 36);
+  strictEqual(acts.length, 222);
+  strictEqual(rows.length, 258, 'no card, gate or boundary row: levelsAll is true and both cards are dismissed');
 });
 
 test('MEASURED: every row has a unique, stable id, identical across two calls with the same inputs', () => {

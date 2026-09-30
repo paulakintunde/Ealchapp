@@ -169,7 +169,9 @@ test('a2.35 ships two lessons, review first', () => {
 });
 
 test('the unit identity is what the curriculum says', () => {
-  strictEqual(unit.seq, 35);
+  // 36 since 2026-09-30: a2.36 « Les pronoms toniques » sits at 35, just
+  // before the Review (Paul).
+  strictEqual(unit.seq, 36);
   strictEqual(unit.level, 'a2');
   strictEqual(unit.track, 'a2');
   strictEqual(unit.title, 'A2 Review');
@@ -180,7 +182,10 @@ test('a2.35 is the last unit on the A2 trail', () => {
   const a2 = UNITS.filter((u) => u.track === 'a2');
   const top = Math.max(...a2.map((u) => Number(u.seq)));
   strictEqual(Number(unit.seq), top, 'something now sits after the capstone on the trail');
-  strictEqual(a2.length, TRAIL.length + 1, `the A2 trail is ${a2.length} units and this capstone reviews ${TRAIL.length}`);
+  // + 2: the capstone itself, and a2.36 (seq 35), placed after the Review was
+  // built. The Review's rounds cover seq 1-34; the stressed pronouns are not
+  // one of its rounds.
+  strictEqual(a2.length, TRAIL.length + 2, `the A2 trail is ${a2.length} units and this capstone reviews ${TRAIL.length} (plus a2.36 and itself)`);
 });
 
 /* ─── 2. One quiz each, and the counts ────────────────────────────────────── */
