@@ -134,8 +134,10 @@ test('paywall.tsx\'s PAYWALL_COPY is unchanged and carries no key beyond the exi
   const block = src.slice(at, src.indexOf('};', at));
   const keys = [...block.matchAll(/'gate:[a-z]+'/g)].map((m) => m[0]);
   const unique = new Set(keys);
-  strictEqual(unique.size, 3, `PAYWALL_COPY must carry exactly its existing 3 gate keys, found: ${[...unique].join(', ')}`);
-  ok(unique.has("'gate:levels'") && unique.has("'gate:coach'") && unique.has("'gate:roleplay'"), 'PAYWALL_COPY must not have lost or gained a gate key');
+  // Four since 2026-09-29: 'gate:examiner' sells Première now that every mock
+  // exam is part of it (it used to be a separate explainer branch).
+  strictEqual(unique.size, 4, `PAYWALL_COPY must carry exactly its 4 gate keys, found: ${[...unique].join(', ')}`);
+  ok(unique.has("'gate:levels'") && unique.has("'gate:coach'") && unique.has("'gate:roleplay'") && unique.has("'gate:examiner'"), 'PAYWALL_COPY must not have lost or gained a gate key');
 });
 
 test('neither new screen puts flex or flexShrink inline on a <TX> tag (D-43)', () => {

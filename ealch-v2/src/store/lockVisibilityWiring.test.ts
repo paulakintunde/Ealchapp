@@ -80,5 +80,6 @@ test('app/paywall.tsx gained no new PAYWALL_COPY key from the trail work', () =>
   const block = src.slice(at, src.indexOf('};', at));
   const keys = [...block.matchAll(/'gate:[a-z]+'/g)].map((m) => m[0]);
   const unique = new Set(keys);
-  strictEqual(unique.size, 3, `PAYWALL_COPY must still carry exactly 3 gate keys, found: ${[...unique].join(', ')}`);
+  // Four since 2026-09-29: 'gate:examiner' (exams are part of Première).
+  strictEqual(unique.size, 4, `PAYWALL_COPY must still carry exactly 4 gate keys, found: ${[...unique].join(', ')}`);
 });

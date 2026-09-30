@@ -46,9 +46,9 @@ test('a free user is refused every pack', () => {
   }
 });
 
-test('Premiere opens bands but not exams; the exam level opens exams but not bands', () => {
+test('Premiere opens bands and exams (2026-09-29); the exam level opens exams but not bands', () => {
   ok(decide({ uid: 'u', pack: 'a2', access: PREMIUM, manifestPacks: packs }).ok);
-  strictEqual(decide({ uid: 'u', pack: 'exam', access: PREMIUM, manifestPacks: packs }).ok, false);
+  ok(decide({ uid: 'u', pack: 'exam', access: PREMIUM, manifestPacks: packs }).ok, 'every mock exam is part of Premiere');
   ok(decide({ uid: 'u', pack: 'exam', access: EXAM, manifestPacks: packs }).ok);
   strictEqual(decide({ uid: 'u', pack: 'a2', access: EXAM, manifestPacks: packs }).ok, false);
 });

@@ -255,7 +255,7 @@ export type Strings = {
   pwTitleLevels: string; pwLeadLevels: string;
   pwTitleCoach: string; pwLeadCoach: string;
   pwTitleRoleplay: string; pwLeadRoleplay: string;
-  pwExamTitle: string; pwExamBody: string; pwExamGotIt: string;
+  pwTitleExam: string; pwLeadExam: string;
   acctTag: string; reconcileBody: string; nudgeRoleplayBody: string;
   /** Store-required disclosure: names the product, the billing period and
    *  the price the button will actually charge. Apple 3.1.2 and Play both
@@ -738,7 +738,7 @@ export const T: Record<Lang, Strings> = {
     pwTitleLevels: 'Débloquez A2 et au-delà', pwLeadLevels: 'Tous les niveaux après A1, débloqués. Sons et A1 restent gratuits pour toujours.',
     pwTitleCoach: 'Conversations illimitées avec le coach', pwLeadCoach: 'Continuez à poser des questions une fois vos questions gratuites du jour épuisées.',
     pwTitleRoleplay: 'Jeux de rôle illimités', pwLeadRoleplay: 'Toutes les scènes, chaque jour. Le gratuit couvre un scénario par jour.',
-    pwExamTitle: 'Les épreuves d\'examen sont un accès distinct', pwExamBody: 'Première n\'inclut pas encore les épreuves TEF, TCF ou DELF.', pwExamGotIt: 'Compris',
+    pwTitleExam: 'Tous les examens blancs', pwLeadExam: 'Chaque examen TEF, TCF et DELF est inclus dans Première. Le premier examen de chaque format reste gratuit.',
     acctTag: 'COMPTE', reconcileBody: 'Votre accès Première a pris fin. Touchez pour vérifier votre abonnement.',
     nudgeRoleplayBody: 'Vous avez utilisé votre jeu de rôle gratuit du jour. Passez à l\'illimité pour plus de scènes.',
     pwFeatLevels: 'Tous les niveaux', pwFeatLevelsS: 'A2 et au-delà, aussi loin que vous irez',
@@ -1245,7 +1245,7 @@ export const T: Record<Lang, Strings> = {
     pwTitleLevels: 'Unlock A2 and beyond', pwLeadLevels: 'Every level past A1, unlocked. Sons and A1 stay free forever.',
     pwTitleCoach: 'Unlimited coach conversations', pwLeadCoach: 'Keep asking your coach after today\'s free questions run out.',
     pwTitleRoleplay: 'Unlimited role plays', pwLeadRoleplay: 'Every scene, every day. Free covers one scenario a day.',
-    pwExamTitle: 'Exam papers are a separate pass', pwExamBody: 'Première does not include TEF, TCF or DELF exam papers yet.', pwExamGotIt: 'Got it',
+    pwTitleExam: 'Every mock exam', pwLeadExam: 'Every TEF, TCF and DELF exam is included in Première. The first exam of each format stays free.',
     acctTag: 'ACCOUNT', reconcileBody: 'Your Première access has ended. Tap to check your subscription.',
     nudgeRoleplayBody: 'You used today\'s free role play. Go unlimited for more scenes.',
     pwFeatLevels: 'Every level', pwFeatLevelsS: 'A2 and beyond, as far as you go',

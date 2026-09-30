@@ -36,7 +36,8 @@ const cors = {
 /** Mirror of the app's featuresForPlan (entitlement.logic.ts) — the webhook
  *  cannot import the app's TS, so the mapping is restated here and the access
  *  level ids are pinned to the same strings (ACCESS_LEVEL_*). */
-const PREMIERE_FEATURES = ["levels.all", "coach.unlimited", "roleplay.unlimited", "audio.packs"];
+// "examiner" since 2026-09-29 (Paul): every mock exam is part of Premiere.
+const PREMIERE_FEATURES = ["levels.all", "coach.unlimited", "roleplay.unlimited", "audio.packs", "examiner"];
 // Was "premiere" until 2026-09-20 — the live Adapty dashboard's access level
 // is actually named "premium" (CC-B created it in English, not French). See
 // entitlement.logic.ts's ACCESS_LEVEL_PREMIERE comment for how this was found.

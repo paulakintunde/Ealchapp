@@ -48,11 +48,11 @@ test('the free plan grants nothing and never expires', () => {
   for (const f of FEATURES) ok(!hasFeature(free, f, NOW), `free must not carry ${f}`);
 });
 
-test('paid plans grant the Première features and never examiner', () => {
+test('paid plans grant the Première features, examiner included (2026-09-29)', () => {
   for (const plan of ['monthly', 'annual'] as const) {
     const fs = featuresForPlan(plan);
     deepStrictEqual(fs, PREMIERE_FEATURES);
-    ok(!fs.includes('examiner'), 'the exam tier is a distinct product, not a subscription perk');
+    ok(fs.includes('examiner'), 'every mock exam is part of Première');
   }
 });
 
@@ -189,7 +189,7 @@ test('Première plus exam stacks both grants; the adapty web store reads as stri
   );
   strictEqual(e.plan, 'annual');
   strictEqual(e.source, 'stripe');
-  deepStrictEqual([...e.features].sort(), [...PREMIERE_FEATURES, 'examiner'].sort());
+  deepStrictEqual([...e.features].sort(), [...new Set([...PREMIERE_FEATURES, 'examiner'])].sort());
 });
 
 test('billing issue and willRenew flags map through; neither revokes access', () => {

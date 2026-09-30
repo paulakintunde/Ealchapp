@@ -52,8 +52,9 @@ export function isPackName(v: unknown): v is PackName {
   return typeof v === 'string' && (PACK_NAMES as readonly string[]).includes(v);
 }
 
-/** Which access level unlocks a pack. Every band is Premiere; exams are
- *  their own level (decision 3). */
+/** Which access level a pack is SOLD under. Every band is Premiere; the exam
+ *  pack also answers to the `exam` level, but since 2026-09-29 (Paul) Premiere
+ *  opens it too: see decide(). */
 export function requiredLevel(pack: PackName): typeof LEVEL_PREMIERE | typeof LEVEL_EXAM {
   return pack === 'exam' ? LEVEL_EXAM : LEVEL_PREMIERE;
 }
@@ -173,7 +174,9 @@ export function decide(input: {
   if (!input.uid) return { ok: false, status: 401, reason: 'auth_required' };
   if (!isPackName(input.pack)) return { ok: false, status: 400, reason: 'bad_request' };
   const access = input.access ?? NO_ACCESS;
-  const allowed = requiredLevel(input.pack) === LEVEL_EXAM ? access.exam : access.premium;
+  // Every mock exam is part of Premiere (2026-09-29); the exam level still
+  // opens the exam pack for a profile that bought it on its own.
+  const allowed = requiredLevel(input.pack) === LEVEL_EXAM ? access.exam || access.premium : access.premium;
   if (!allowed) return { ok: false, status: 403, reason: 'not_entitled' };
   const entry = (input.manifestPacks ?? []).find((p) => p.name === input.pack);
   if (!entry || typeof entry.path !== 'string' || !entry.path.startsWith(`${input.pack}/`)) {

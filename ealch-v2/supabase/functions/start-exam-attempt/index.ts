@@ -186,7 +186,9 @@ async function isEntitledExaminer(uid: string): Promise<boolean> {
       .maybeSingle();
     if (error || !data) return false;
     const features: string[] = Array.isArray(data.features) ? data.features : [];
-    if (!features.includes("examiner")) return false;
+    // Premiere includes every mock exam (2026-09-29): 'levels.all' counts too,
+    // for a mirror row written before the webhook added 'examiner' to it.
+    if (!features.includes("examiner") && !features.includes("levels.all")) return false;
     return !data.expiry || new Date(data.expiry).getTime() > Date.now();
   } catch (_) {
     return false;

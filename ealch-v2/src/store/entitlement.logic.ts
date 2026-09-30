@@ -35,14 +35,17 @@ export const FEATURES = [
 ] as const;
 export type Feature = (typeof FEATURES)[number];
 
-/** What Première grants. Deliberately NOT 'examiner': the exam tier is a
- *  distinct product (Phase 11), not a subscription perk — see EALCH-MASTER-BUILD
- *  Phase 10/11. */
+/** What Première grants. INCLUDES 'examiner' since 2026-09-29 (Paul): every
+ *  mock exam is part of Première, not a separate product. The `exam` access
+ *  level still grants 'examiner' on its own (mapping below), so a profile that
+ *  ever bought it keeps working. Mirrored in adapty-webhook's
+ *  PREMIERE_FEATURES and content-pack-url's decide(). */
 export const PREMIERE_FEATURES: Feature[] = [
   'levels.all',
   'coach.unlimited',
   'roleplay.unlimited',
   'audio.packs',
+  'examiner',
 ];
 
 /** The features a plan carries. The single source the customerInfo mapping
