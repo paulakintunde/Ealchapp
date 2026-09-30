@@ -1,5 +1,5 @@
 {
-  "version": 82,
+  "version": 83,
   "domains": [
     {
       "slug": "fondations",
@@ -232,7 +232,9 @@
       ],
       "examFlag": false,
       "immigFlag": false,
-      "subThemes": []
+      "subThemes": [
+        "le verlan et l'argot d'aujourd'hui"
+      ]
     },
     {
       "slug": "argot-du-quotidien",
@@ -385,7 +387,9 @@
         "la subordination",
         "la concession",
         "le gérondif",
-        "la cause et la conséquence"
+        "la cause et la conséquence",
+        "le but",
+        "les rapports de temps"
       ]
     },
     {
@@ -566,7 +570,9 @@
       ],
       "examFlag": true,
       "immigFlag": true,
-      "subThemes": []
+      "subThemes": [
+        "le langage juridique et administratif"
+      ]
     },
     {
       "slug": "ecole",
@@ -726,7 +732,8 @@
       "subThemes": [
         "le corps",
         "les animaux et la nourriture",
-        "les couleurs"
+        "les couleurs",
+        "les proverbes et les expressions figées"
       ]
     },
     {
@@ -910,7 +917,8 @@
         "le registre soutenu",
         "les trois registres",
         "la nominalisation",
-        "le participe présent et l'adjectif verbal"
+        "le participe présent et l'adjectif verbal",
+        "traduire sans calquer"
       ]
     },
     {
@@ -1000,7 +1008,9 @@
       ],
       "examFlag": true,
       "immigFlag": false,
-      "subThemes": []
+      "subThemes": [
+        "la science pour tous"
+      ]
     },
     {
       "slug": "metiers",
@@ -1072,7 +1082,10 @@
       ],
       "examFlag": false,
       "immigFlag": false,
-      "subThemes": []
+      "subThemes": [
+        "la restriction et l'exception",
+        "les négations combinées"
+      ]
     },
     {
       "slug": "nombres",
@@ -1124,7 +1137,8 @@
         "donner son avis",
         "argumenter et réfuter",
         "nuancer son point de vue",
-        "croire, douter, affirmer"
+        "croire, douter, affirmer",
+        "les tournures impersonnelles"
       ]
     },
     {
@@ -1244,7 +1258,9 @@
       ],
       "examFlag": true,
       "immigFlag": true,
-      "subThemes": []
+      "subThemes": [
+        "les accents et le français régional"
+      ]
     },
     {
       "slug": "questions",
@@ -1576,7 +1592,9 @@
       ],
       "examFlag": false,
       "immigFlag": true,
-      "subThemes": []
+      "subThemes": [
+        "le français des soins"
+      ]
     },
     {
       "slug": "sports-et-loisirs",
@@ -8510,82 +8528,6 @@
       ]
     },
     {
-      "id": "b2.19",
-      "seq": 19,
-      "sub": "La restriction et l'exception",
-      "canDo": "Can restrict exactly what is meant, placing que right before the restricted element, restricting an action with ne faire que and a subject with seul or il n'y a que… qui, and choosing among seulement, uniquement, exclusivement, simplement and rien que by position and register; can say not only (ne… pas que, non seulement… mais); can state an exception with sauf, excepté, hormis, à part, mis à part, à l'exception de, sinon and si ce n'est, and an exception under condition with sauf si + indicative, à moins que + subjunctive, à moins de, sauf à, à condition que or de, pourvu que and faute de, in the register of a notice or a formal reply",
-      "level": "b2",
-      "title": "Restriction and Exception",
-      "lessonIds": [
-        "b2.19.l1"
-      ],
-      "prereqUnitIds": [
-        "b1.10",
-        "b1.15",
-        "b1.16",
-        "b1.20",
-        "b1.30",
-        "b2.03",
-        "b2.06"
-      ],
-      "outline": [
-        {
-          "lessonId": "b2.19.l1",
-          "title": "La restriction et l'exception",
-          "acts": [
-            {
-              "title": "La limite et la porte",
-              "cards": 15
-            },
-            {
-              "title": "La portée de ne… que",
-              "cards": 21
-            },
-            {
-              "title": "Ne faire que",
-              "cards": 17
-            },
-            {
-              "title": "Seulement, uniquement, seul",
-              "cards": 17
-            },
-            {
-              "title": "Il n’y a que… qui",
-              "cards": 19
-            },
-            {
-              "title": "Pas seulement",
-              "cards": 18
-            },
-            {
-              "title": "Sauf, excepté, hormis",
-              "cards": 20
-            },
-            {
-              "title": "Sinon, si ce n’est, sauf que",
-              "cards": 17
-            },
-            {
-              "title": "Sauf si",
-              "cards": 19
-            },
-            {
-              "title": "À moins que",
-              "cards": 17
-            },
-            {
-              "title": "Ouvrir ou fermer la porte",
-              "cards": 22
-            },
-            {
-              "title": "Ton courrier",
-              "cards": 14
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "b2.20",
       "seq": 20,
       "sub": "Les tournures impersonnelles",
@@ -8723,6 +8665,82 @@
             {
               "title": "Contester par écrit",
               "cards": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.19",
+      "seq": 19,
+      "sub": "La restriction et l’exception",
+      "canDo": "Can restrict exactly what is meant, placing que right before the restricted element, restricting an action with ne faire que and a subject with seul or il n'y a que… qui, and choosing among seulement, uniquement, exclusivement, simplement and rien que by position and register; can say not only (ne… pas que, non seulement… mais); can state an exception with sauf, excepté, hormis, à part, mis à part, à l'exception de, sinon and si ce n'est, and an exception under condition with sauf si + indicative, à moins que + subjunctive, à moins de, sauf à, à condition que or de, pourvu que and faute de, in the register of a notice or a formal reply",
+      "level": "b2",
+      "title": "Restriction and Exception",
+      "lessonIds": [
+        "b2.19.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.10",
+        "b1.15",
+        "b1.16",
+        "b1.20",
+        "b1.30",
+        "b2.03",
+        "b2.06"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.19.l1",
+          "title": "La restriction et l’exception",
+          "acts": [
+            {
+              "title": "La limite et la porte",
+              "cards": 15
+            },
+            {
+              "title": "La portée de ne… que",
+              "cards": 21
+            },
+            {
+              "title": "Ne faire que",
+              "cards": 17
+            },
+            {
+              "title": "Seulement, uniquement, seul",
+              "cards": 17
+            },
+            {
+              "title": "Il n’y a que… qui",
+              "cards": 19
+            },
+            {
+              "title": "Pas seulement",
+              "cards": 18
+            },
+            {
+              "title": "Sauf, excepté, hormis",
+              "cards": 20
+            },
+            {
+              "title": "Sinon, si ce n’est, sauf que",
+              "cards": 17
+            },
+            {
+              "title": "Sauf si",
+              "cards": 19
+            },
+            {
+              "title": "À moins que",
+              "cards": 17
+            },
+            {
+              "title": "Ouvrir ou fermer la porte",
+              "cards": 22
+            },
+            {
+              "title": "Ton courrier",
+              "cards": 14
             }
           ]
         }

@@ -1,8 +1,8 @@
 # Publish report
 
-Generated: 2026-09-30T05:59:36.502Z
+Generated: 2026-09-30T22:56:07.982Z
 Mode: publish
-Status: v81 → v82
+Status: v82 → v83
 
 ## What changed
 
@@ -10,9 +10,9 @@ Status: v81 → v82
 |---|---|---|---|
 | domains | 14 | 14 | +0 |
 | themes | 136 | 136 | +0 |
-| units | 128 | 136 | +8 |
-| lessons | 131 | 139 | +8 |
-| items | 58359 | 59758 | +1399 |
+| units | 136 | 141 | +5 |
+| lessons | 139 | 144 | +5 |
+| items | 59758 | 60668 | +910 |
 | scenarios | 107 | 107 | +0 |
 | playlists | 20 | 20 | +0 |
 | speakPath | 31 | 31 | +0 |
@@ -23,7 +23,7 @@ Status: v81 → v82
 
 | | previous | now | delta |
 |---|---|---|---|
-| snapshot bytes | 44367256 | 47253988 | +2886732 |
+| snapshot bytes | — | 49238236 | — |
 
-checksum: 11d741d63b574e9f255d69f3ff03458b433bf061eb8ccc0d524d2568ec73b00a
-content digest: e4ae06c4bf807fd8caef2c68842959fb7bb36af5d118ec977571e068239808b6
+checksum: c5b09de2c398c5712f2936598fcb0a5ee87304b600b490a96928a93929c6acec
+content digest: e8fe844586e75784d37a13221b4ff3cd77444f41819090261123a0abfe875c0d

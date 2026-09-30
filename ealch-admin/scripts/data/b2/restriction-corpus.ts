@@ -147,7 +147,7 @@ export const UNIT = {
   id: 'b2.19',
   seq: 19,
   title: 'Restriction and Exception',
-  sub: "La restriction et l'exception",
+  sub: 'La restriction et l’exception',
   canDo: "Can restrict exactly what is meant, placing que right before the restricted element, restricting an action with ne faire que and a subject with seul or il n'y a que… qui, and choosing among seulement, uniquement, exclusivement, simplement and rien que by position and register; can say not only (ne… pas que, non seulement… mais); can state an exception with sauf, excepté, hormis, à part, mis à part, à l'exception de, sinon and si ce n'est, and an exception under condition with sauf si + indicative, à moins que + subjunctive, à moins de, sauf à, à condition que or de, pourvu que and faute de, in the register of a notice or a formal reply",
   prereqUnitIds: ['b1.10', 'b1.15', 'b1.16', 'b1.20', 'b1.30', 'b2.03', 'b2.06'],
 } as const;

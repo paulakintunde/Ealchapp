@@ -169,6 +169,15 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**v83 PUBLISHED, 2026-09-30: B2 lessons 17 to 21 are LIVE; Units 2 and 3 complete** (gate B2-3
+passed: Paul reviewed B2 9-21 on the Pixel 6 through a dev preview holding the whole band; see memory
+ealch-dev-build-no-packs-layer). Before publishing, b2.19's title took the typographic apostrophe
+(« l’exception »; `--apply --reapply`, text edit, no version bump). Checksum c5b09de2... matches the
+final dry run. Uploaded core/v83 and content-packs/b2/v83 (26 lessons, 12.38 MiB) and manifest-v2;
+a2/b1/c1/exam reused. FIRST PUBLISH WITHOUT THE LEGACY SNAPSHOT: manifest.json stays on v82 (its
+snapshot kept, retention pruned v73). Live pack replay onto v83: 12 upgrades, 0 deadlocks. App
+5724/5724. Next: import waves 7 + 8, gate B2-4, v84 (B2 complete).
+
 **WAVES 7 + 8 TRIAL-MERGED, 2026-09-30; HELD FOR v84 (Paul).** All 46 wave 8 openers registered
 (double-quoted alt converted); ART_PENDING empty, every B2 lesson has art. Trial merge of b2.27-b2.34:
 +8 units, +8 lessons, +1514 items, 273 identical, 0 twins, validateCorpus 0, app 5724/5724, seed files
@@ -515,19 +524,19 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.06 | subjonctif-indicatif | 84 | 11 | 12x8 | 12 | 5 | | 162 | 11 images, registered + alt | DONE, v78 |
 | b2.07 | futur-anterieur | 84 | 11 | 12x8 | 12 | 5 | | 167 | 11 images, registered + alt | DONE, v78 |
 | b2.08 | passe-simple (recognition) | 86 | 12 | 11x8 | 11 | 5 | | 178 | 12 images, registered + alt | DONE, v78 |
-| b2.09 | subjonctif-litteraire (recognition) | 81 | 11 | 11x8 | 11 | 5 | 17 | 165 | 11 images, registered + alt | MERGED, v82 dry run |
-| b2.10 | nominalisation | 83 | 11 | 11x8 | 11 | 5 | 13 | 178 | 11 images, registered + alt | MERGED, v82 dry run |
-| b2.11 | pronoms-insistance | 89 | 12 | 12x8 | 12 | 5 | 16 | 180 | 12 images, registered + alt | MERGED, v82 dry run |
-| b2.12 | gerondif | 84 | 11 | 12x8 | 12 | 5 | 14 | 161 | 11 images, registered + alt | MERGED, v82 dry run |
-| b2.13 | participe-adjectif | 87 | 11 | 12x8 | 12 | 5 | 16 | 166 | 11 images, registered + alt | MERGED, v82 dry run |
-| b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 images, registered + alt | MERGED, v82 dry run |
-| b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 images, registered + alt | MERGED, v82 dry run |
-| b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 images, registered + alt | MERGED, v82 dry run |
-| b2.17 | expression-but | 88 | 12 | 12x8 | 12 | 5 | 16 | 171 | 12 images, registered + alt | MERGED, v83 dry run |
-| b2.18 | subordonnees-temps | 87 | 12 | 12x8 | 12 | 5 | 15 | 178 | 12 images, registered + alt | MERGED, v83 dry run |
-| b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 images, registered + alt | MERGED, v83 dry run |
-| b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 images, registered + alt | MERGED, v83 dry run |
-| b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 images, registered + alt | MERGED, v83 dry run |
+| b2.09 | subjonctif-litteraire (recognition) | 81 | 11 | 11x8 | 11 | 5 | 17 | 165 | 11 images, registered + alt | DONE, v82 |
+| b2.10 | nominalisation | 83 | 11 | 11x8 | 11 | 5 | 13 | 178 | 11 images, registered + alt | DONE, v82 |
+| b2.11 | pronoms-insistance | 89 | 12 | 12x8 | 12 | 5 | 16 | 180 | 12 images, registered + alt | DONE, v82 |
+| b2.12 | gerondif | 84 | 11 | 12x8 | 12 | 5 | 14 | 161 | 11 images, registered + alt | DONE, v82 |
+| b2.13 | participe-adjectif | 87 | 11 | 12x8 | 12 | 5 | 16 | 166 | 11 images, registered + alt | DONE, v82 |
+| b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 images, registered + alt | DONE, v82 |
+| b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 images, registered + alt | DONE, v82 |
+| b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 images, registered + alt | DONE, v82 |
+| b2.17 | expression-but | 88 | 12 | 12x8 | 12 | 5 | 16 | 171 | 12 images, registered + alt | DONE, v83 |
+| b2.18 | subordonnees-temps | 87 | 12 | 12x8 | 12 | 5 | 15 | 178 | 12 images, registered + alt | DONE, v83 |
+| b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 images, registered + alt | DONE, v83 |
+| b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 images, registered + alt | DONE, v83 |
+| b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 images, registered + alt | DONE, v83 |
 | b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 images, registered + alt | REVIEWED, art in |
 | b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 images, registered + alt | REVIEWED, art in |
 | b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 images, registered + alt | REVIEWED, art in |
