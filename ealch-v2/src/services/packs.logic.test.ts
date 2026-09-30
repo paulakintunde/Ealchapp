@@ -18,6 +18,7 @@ import {
   parseRegistry,
   partialValidationView,
   shouldAdoptCore,
+  trialPacks,
   verifyPack,
   type PackName,
   type PacksManifest,
@@ -161,6 +162,24 @@ test('partialValidationView: a skeleton unit of an unheld band validates; the ra
   const issues = validateCorpus(partialValidationView(c, { bands: heldBands([]), exam: false }));
   deepStrictEqual(issues, []);
   strictEqual(c.units[1].lessonIds.length, 1, 'the live corpus is never modified');
+});
+
+test('trialPacks: a stale pack still queued for update does not fail the candidate (v82 deadlock)', () => {
+  // The core carries a b1.01 outline whose lesson only the NEW b1 pack has.
+  // The device holds a stale b1 pack without it and is updating a2 first.
+  const base = skeletonCorpus();
+  const empty = { version: 1, units: [], lessons: [], items: [], examTasks: [] } as unknown as Corpus;
+  const loaded = new Map<PackName, Corpus>([['b1', empty], ['exam', empty]]);
+  const judge = (packs: Map<PackName, Corpus>) => {
+    const order = PACK_ORDER.filter((p) => packs.has(p));
+    return validateCorpus(partialValidationView(composeCorpus(base, packs, order), { bands: heldBands(order), exam: order.includes('exam') }));
+  };
+  const naive = new Map(loaded).set('a2', empty);
+  ok(judge(naive).some((i) => /unknown lesson "b1.01.l1"/.test(i.message)), 'the old trial kept the stale b1 and failed a2');
+  const trial = trialPacks(loaded, { name: 'a2', corpus: empty }, ['a2', 'b1']);
+  deepStrictEqual([...trial.keys()].sort(), ['a2', 'exam'], 'the queued b1 is left out, the settled exam pack stays');
+  deepStrictEqual(judge(trial), [], 'a2 now lands; b1 follows in the same pass');
+  strictEqual(loaded.size, 2, 'the in-memory map is never modified');
 });
 
 test('partialValidationView: a dangling reference INSIDE a held band still fails', () => {

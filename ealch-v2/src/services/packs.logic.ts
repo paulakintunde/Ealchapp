@@ -232,6 +232,29 @@ export function composeCorpus(base: Corpus, packs: ReadonlyMap<PackName, Corpus>
   return out;
 }
 
+/**
+ * The packs a newly downloaded pack is validated WITH: every pack in memory,
+ * minus the others this sync is about to replace, plus the candidate.
+ *
+ * A stale pack still queued for update must not judge the candidate. The v82
+ * core carries outline units for b2.09-b2.16; a device holding a2 v79 and b2
+ * v79 fetched a2 v81 first, the trial kept b2 v79 (no b2.09 lessons), failed,
+ * and b2 v82 then failed against the stale a2. Neither pack ever landed and
+ * every premium device that cached packs before v81 kept its old lessons
+ * (found on the Pixel 9, 2026-09-30). Leaving the queued packs out makes their
+ * bands unheld for the trial, which partialValidationView already accepts.
+ */
+export function trialPacks<C>(
+  loaded: ReadonlyMap<PackName, C>,
+  candidate: { name: PackName; corpus: C },
+  stillQueued: Iterable<PackName>,
+): Map<PackName, C> {
+  const trial = new Map(loaded);
+  for (const name of stillQueued) if (name !== candidate.name) trial.delete(name);
+  trial.set(candidate.name, candidate.corpus);
+  return trial;
+}
+
 /* ─── Verifying one pack ──────────────────────────────────────────────────── */
 
 export type PackVerifyResult =

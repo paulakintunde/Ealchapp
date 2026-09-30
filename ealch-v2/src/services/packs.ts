@@ -40,6 +40,7 @@ import {
   packsToMerge,
   parseRegistry,
   partialValidationView,
+  trialPacks,
   verifyPack,
   PACK_ORDER,
   type PackAccess,
@@ -199,7 +200,7 @@ async function signedUrl(name: PackName): Promise<{ url: string } | 'refused' | 
 }
 
 /** Download, verify and cache one pack. Returns whether it is now loaded. */
-async function fetchOne(entry: PackEntry): Promise<boolean | 'refused'> {
+async function fetchOne(entry: PackEntry, stillQueued: readonly PackName[] = []): Promise<boolean | 'refused'> {
   const got = await signedUrl(entry.name);
   if (got === 'refused') return 'refused';
   if (got === 'unreachable') return false;
@@ -225,8 +226,9 @@ async function fetchOne(entry: PackEntry): Promise<boolean | 'refused'> {
     if (host) {
       // Whole-corpus work: wait for the UI to be idle, like the snapshot does.
       await new Promise<void>((r) => InteractionManager.runAfterInteractions(() => r()));
-      const trial = new Map(loaded);
-      trial.set(entry.name, v.corpus);
+      // The other packs this sync is about to replace are left out: a stale
+      // one must not fail the candidate (see trialPacks).
+      const trial = trialPacks(loaded, { name: entry.name, corpus: v.corpus }, stillQueued);
       const order = PACK_ORDER.filter((p) => trial.has(p));
       const merged = composeCorpus(host.base(), trial, order);
       const issues = validateCorpus(partialValidationView(merged, { bands: heldBands(order), exam: order.includes('exam') }));
@@ -302,12 +304,18 @@ async function syncOnce(): Promise<void> {
   const todo = packsToFetch(manifest, registry, entitled);
   if (todo.length === 0) return;
   usePackSync.setState({ status: 'downloading', current: null, done: 0, total: todo.length });
+  // Every pack of this pass not yet landed, including one that failed: all of
+  // them are stale in memory and must not judge the next candidate.
+  const unlanded = new Set(todo.map((e) => e.name));
   try {
     for (const [i, entry] of todo.entries()) {
       usePackSync.setState({ current: entry.name, done: i });
-      const ok = await fetchOne(entry);
+      const ok = await fetchOne(entry, [...unlanded]);
       if (ok === 'refused') break; // the server says not entitled; stop asking
-      if (ok) host?.changed();
+      if (ok) {
+        unlanded.delete(entry.name);
+        host?.changed();
+      }
     }
   } finally {
     usePackSync.setState({ status: 'idle', current: null, done: 0, total: 0 });
