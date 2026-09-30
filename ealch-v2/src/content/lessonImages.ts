@@ -867,6 +867,17 @@ const REG: Record<string, ImageSourcePropType> = {
   'lessons/tournures-impersonnelles/act10.jpg': require('../../assets/lessons/tournures-impersonnelles/act10.jpg'),
   'lessons/tournures-impersonnelles/act11.jpg': require('../../assets/lessons/tournures-impersonnelles/act11.jpg'),
   'lessons/tournures-impersonnelles/act12.jpg': require('../../assets/lessons/tournures-impersonnelles/act12.jpg'),
+  'lessons/negations-combinees/act01.jpg': require('../../assets/lessons/negations-combinees/act01.jpg'),
+  'lessons/negations-combinees/act02.jpg': require('../../assets/lessons/negations-combinees/act02.jpg'),
+  'lessons/negations-combinees/act03.jpg': require('../../assets/lessons/negations-combinees/act03.jpg'),
+  'lessons/negations-combinees/act04.jpg': require('../../assets/lessons/negations-combinees/act04.jpg'),
+  'lessons/negations-combinees/act05.jpg': require('../../assets/lessons/negations-combinees/act05.jpg'),
+  'lessons/negations-combinees/act06.jpg': require('../../assets/lessons/negations-combinees/act06.jpg'),
+  'lessons/negations-combinees/act07.jpg': require('../../assets/lessons/negations-combinees/act07.jpg'),
+  'lessons/negations-combinees/act08.jpg': require('../../assets/lessons/negations-combinees/act08.jpg'),
+  'lessons/negations-combinees/act09.jpg': require('../../assets/lessons/negations-combinees/act09.jpg'),
+  'lessons/negations-combinees/act10.jpg': require('../../assets/lessons/negations-combinees/act10.jpg'),
+  'lessons/negations-combinees/act11.jpg': require('../../assets/lessons/negations-combinees/act11.jpg'),
 };
 
 const ALT: Record<string, string> = {
@@ -1695,6 +1706,17 @@ const ALT: Record<string, string> = {
   'lessons/tournures-impersonnelles/act10.jpg': 'One front row with two places missing.',
   'lessons/tournures-impersonnelles/act11.jpg': 'One person placing each observation in the tray it deserves.',
   'lessons/tournures-impersonnelles/act12.jpg': 'A table of decision-makers reading one careful note.',
+  'lessons/negations-combinees/act01.jpg': 'One person answering an accusation with a calm, exact gesture.',
+  'lessons/negations-combinees/act02.jpg': 'Several marks drawing one empty space in order, and one mark left outside.',
+  'lessons/negations-combinees/act03.jpg': 'A careful statement being taken down, word by word.',
+  'lessons/negations-combinees/act04.jpg': 'A quiet apology slipped under a neighbour\'s door without a sound.',
+  'lessons/negations-combinees/act05.jpg': 'A set that is complete, and one extra piece that stays outside.',
+  'lessons/negations-combinees/act06.jpg': 'A group noting, together, that no one has come.',
+  'lessons/negations-combinees/act07.jpg': 'A place where only a few things remain.',
+  'lessons/negations-combinees/act08.jpg': 'A careful, polished refusal being composed.',
+  'lessons/negations-combinees/act09.jpg': 'A light that chooses exactly which of two things it touches.',
+  'lessons/negations-combinees/act10.jpg': 'Someone listening closely to spoken words and writing them down.',
+  'lessons/negations-combinees/act11.jpg': 'A calm person answering an unfair bill, point by point, in writing.',
 };
 
 export function lessonImage(ref: string): ImageSourcePropType | undefined {
