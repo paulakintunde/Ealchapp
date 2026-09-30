@@ -180,6 +180,20 @@ refusé », « Moi seul peux » as correct written French, spoken dislocation as
 familier; b2.11 cites lesson 12 in B2, so b2.11 and b2.12 must publish together;
 b2.12 accepts proverb/letter-formula gérondifs (« En vous remerciant… »).
 
+**Wave 4 pre-review, 2026-09-30.** One reviewer per lesson, fixes applied: b2.09
+0 blockers / 9 fixes (a passé antérieur labelled passé simple, a map row that
+contradicted its note, the circumflex chip's false « au singulier » rule); b2.10
+8 blockers (type-in keys rejecting correct nominalisations, a distractor also
+correct, articles giving away gender) and about 20 fixes (« suite à » accepted but
+noted as criticised, -eur feminine only for quality nouns); b2.11 0 blockers / 15
+fixes (chacun takes soi OR lui, « Moi, ce film… » and « c'est eux qui » are
+courant, « être à » is neutral not spoken), plus the act 11 « nous, on » detail
+card fixed to match its audio; b2.12 3 blockers (prompts that did not fix the
+subject, keys rejecting correct clause rewrites, a stiff act 3 text) / 7 fixes.
+Contested rulings kept: « Eux ont refusé », « Moi seul peux », « Lui aussi a voté »
+correct; « Moi aussi ai » wrong; présent in modern maps of past narration.
+After: app checks 0, house tests 258/258, import dry run 684 / 0 blockers.
+
 **a2.36 LIVE, 2026-09-30: content v81** (packs). « Les pronoms toniques » sits at A2 lesson 35, just before the Review (now 36); only a2.32.l1's one « lesson 35 in A2 » label moved. Pre-review: 2 blockers, 5 fixes. Wave 5 (b2.11) is now unblocked.
 
 

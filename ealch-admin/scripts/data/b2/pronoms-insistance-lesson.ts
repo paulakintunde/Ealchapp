@@ -108,8 +108,10 @@
 //   1. TWELVE ACTS and twelve quiz rounds (acts 1 and 2 share round 1). Keep
 //      twelve acts, or fold act 11 (register) into the closing act?
 //   2. SPOKEN FORMS. « Nous, on », « c'est eux qui », « Il est fou, lui » and
-//      the detached sentences are taught as normal SPEECH, marked
-//      `familier`, and the task grader asks for the written forms. Keep that
+//      the detached sentences are taught as normal SPEECH (« nous, on » and
+//      the right-detached jabs marked `familier`; « c'est eux qui » and plain
+//      left detachment `courant` + tag `oral`, as a2.36 and b1.22 mark « C'est
+//      eux »), and the task grader asks for the written forms. Keep that
 //      line (same as the spoken-variant decision of gate B2-2)?
 //   3. « Lui aussi a voté contre », « Eux ont refusé » and « Moi seul peux »
 //      are taught as correct written French; « Moi aussi ai voté » and
@@ -593,7 +595,7 @@ const A2_FLASH: Sec<'flashcards'> = {
     { front: 'as for me, I…', back: 'moi, je…', say: fr(E(1823)) },
     { front: 'my brother, for his part', back: 'mon frère, lui', say: fr(E(1818)) },
     { front: 'they (the men), they want', back: 'eux, ils veulent', say: fr(E(1817)) },
-    { front: 'I have no idea, myself', back: "je n'en sais rien, moi", say: fr(E(1828)) },
+    { front: "don't ask me, I have no idea", back: "je n'en sais rien, moi", say: fr(E(1828)) },
     { front: 'you stay, I leave', back: 'toi, tu restes ; moi, je pars', say: fr(E(1814)) },
     { front: 'we are staying (spoken)', back: 'nous, on reste', say: fr(E(1816)) },
     { front: 'I voted against too', back: "moi aussi, j'ai voté contre", say: fr(E(1827)) },
@@ -677,7 +679,7 @@ const A3_CARTES: Sec<'cardDeck'> = {
     {
       head: 'À gauche', label: 'en tête',
       fr: fr(E(1834)), sub: rsOf(E(1834)),
-      body: "Le mot détaché ouvre la phrase ; l' le reprend devant le verbe. Sans lui, la phrase boite : ce livre, j'ai lu. EN: detached first, picked up by a pronoun.",
+      body: "Le mot détaché ouvre la phrase ; l' le reprend devant le verbe. Sans ce petit mot, la phrase boite : ce livre, j'ai lu. EN: detached first, picked up by a pronoun.",
     },
     {
       head: 'À droite', label: 'en fin',
@@ -833,7 +835,7 @@ const A4_HISTOIRE: Sec<'story'> = {
     { from: 'coach', fr: 'Dites-moi qui connaissait le code de la salle.', en: 'Tell me who knew the code of the room.' },
     { from: 'user', fr: 'Le directeur. Lui seul connaissait le code.', en: 'The director. He alone knew the code.' },
     { from: 'coach', fr: 'Lui seul : pas de il, parce que seul le met sous le projecteur.', en: 'Lui seul: no il, because seul puts him in the spotlight.', warn: 'Lui seul, sans il' },
-    { from: 'user', fr: "Les deux autres gardiens ont fait leur ronde. Eux ont tout fermé, moi, je suis resté à l'accueil.", en: 'The two other guards did their round. They locked everything; I stayed at reception.' },
+    { from: 'user', fr: "Les deux autres gardiens ont fait leur ronde. Eux ont tout fermé ; moi, je suis resté à l'accueil.", en: 'The two other guards did their round. They locked everything; I stayed at reception.' },
     { from: 'coach', fr: 'Eux porte le verbe tout seul, face à toi. Pour toi, il faut je.', en: 'Eux carries the verb on its own, against you. For you, you need je.', warn: 'Eux contre moi' },
     { from: 'user', fr: "Et le chef d'équipe, lui non plus n'a rien vu.", en: 'And the team leader did not see anything either.' },
   ],
@@ -1807,7 +1809,7 @@ const A9_CARTES: Sec<'cardDeck'> = {
     {
       head: 'On, chacun, personne', label: 'soi',
       fr: fr(E(1941)), sub: rsOf(E(1941)),
-      body: "Un sujet qui ne désigne personne de précis appelle soi : on, chacun, personne, tout le monde. EN: an indefinite subject takes soi.",
+      body: "Un sujet qui ne désigne personne de précis appelle soi : on, chacun, personne, tout le monde. Après chacun, lui se dit aussi : chacun est rentré chez lui. EN: an indefinite subject takes soi; after chacun, lui is also used.",
     },
     {
       head: 'Un sujet précis', label: 'lui, elle',
@@ -1918,7 +1920,7 @@ const A9_ERREURS: Sec<'commonErrors'> = {
 };
 
 const A9_TEXTE = dansUnTexte('a9-texte', 'Compléter : les règles de la colocation', TEXTE_A9, [
-  { q: 'Complète les règles un et deux.', a: 'Derrière soi (le sujet est chacun) ; sur soi (le sujet est on).' },
+  { q: 'Complète les règles un et deux.', a: 'Derrière soi (le sujet est chacun ; derrière lui se dit aussi) ; sur soi (le sujet est on).' },
   { q: 'Et la règle trois ?', a: 'Chez lui : Julien est une personne précise.' },
   { q: 'Et les règles quatre et cinq ?', a: "Pour soi (un infinitif sujet, n'importe qui) ; à elle (les chats sont à Sara, c'est à elle de les nourrir)." },
 ], 'rec-b2-11-texte-a9', ['soi']);
@@ -1989,7 +1991,7 @@ const A10_CARTES: Sec<'cardDeck'> = {
     {
       head: 'À qui c’est', label: Cap(POSSESSIFS_REF),
       fr: fr(E(1958)), sub: rsOf(E(1958)),
-      body: "Être à quelqu'un : ce vélo est à eux. C'est la façon parlée de dire c'est le leur. EN: être à + pronoun, possession.",
+      body: "Être à quelqu'un : ce vélo est à eux, il leur appartient. Avec le pronom possessif, on dirait c'est le leur. EN: être à + pronoun, possession.",
     },
     {
       head: 'À qui le tour', label: 'à moi de',
@@ -2004,7 +2006,7 @@ const A10_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Son livre à elle', label: 'lever le doute',
       fr: fr(E(1963)), sub: rsOf(E(1963)),
-      body: "Son livre peut être à lui ou à elle. À elle lève le doute et insiste : son livre à elle, pas à lui. EN: à elle says whose son it is.",
+      body: "Son livre peut être à lui ou à elle. À elle lève le doute et insiste : son livre à elle, pas à lui. EN: à elle says whose book it is.",
     },
   ],
 };
@@ -2066,9 +2068,9 @@ const A10_ERREURS: Sec<'commonErrors'> = {
       why: "Normal : le à se perd à l'oral rapide. Mais sans à, la phrase ne dit plus à qui revient le rôle. EN: keep à.",
     },
     {
-      wrong: "C'est son livre de elle, pas de lui.",
+      wrong: "C'est son livre d'elle, pas de lui.",
       right: fr(E(1963)),
-      why: "Normal : de sert souvent à dire à qui. Mais pour préciser son, sa, ses, on dit à elle, à lui. EN: à elle, not de elle.",
+      why: "Normal : de sert souvent à dire à qui. Mais pour préciser son, sa, ses, on dit à elle, à lui. EN: à elle, not d'elle.",
     },
   ],
   audio: AUDIO,
@@ -2096,7 +2098,7 @@ const A10_FOCUS: Sec<'focus'> = {
 
 const A10_TEXTE = dansUnTexte('a10-texte', 'Compléter : l’écharpe rose', TEXTE_A10, [
   { q: 'Complète les deux premiers blancs.', a: "Cette écharpe n'est pas à moi ; elle est peut-être à toi, Clara ?" },
-  { q: 'Complète le troisième.', a: 'Une amie à moi : une de mes amies.' },
+  { q: 'Complète le troisième.', a: 'Une amie à moi : une de mes amies. Une amie à elle (une amie de Clara) va aussi.' },
   { q: 'Complète les deux derniers.', a: "C'est à moi de décider ; ce sera à vous, les stagiaires, de choisir : un rôle, donc à + pronom + de." },
 ], 'rec-b2-11-texte-a10', ['aMoi']);
 
@@ -2108,7 +2110,7 @@ const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
     ['un ami à moi', 'un ami de moi'], 0,
     'Avec un pronom tonique : à. EN: à moi.'),
   ctl('Le doute', '« C’est son sac … » (le sac d’une femme)',
-    ['à elle', 'de elle'], 0,
+    ['à elle', 'd’elle'], 0,
     'À elle lève le doute de son. EN: à elle.'),
 ], ['aMoi']);
 
@@ -2167,7 +2169,7 @@ const A11_TABLE: Sec<'tapTable'> = {
     { cells: ['moi, je', 'pour ma part, quant à moi', 'Pour ma part, je pense que…'], say: fr(E(1970)),
       detail: { title: 'Moi, je', body: "Dans une lettre ou un essai, pour ma part ou quant à moi. EN: pour ma part in writing.", say: fr(E(1967)) } },
     { cells: ['nous, on', 'nous', 'Nous ne sommes pas d’accord.'], say: fr(E(1971)),
-      detail: { title: 'Nous, on', body: "À l'écrit, on retire le détachement et on garde nous. EN: nous alone in writing.", say: fr(E(1812)) } },
+      detail: { title: 'Nous, on', body: "À l'écrit, on garde nous sans on : nous ne sommes pas d'accord. Pour insister, on redouble : nous, nous avons voté pour la comédie. EN: nous without on in writing; nous, nous to insist.", say: fr(E(1812)) } },
     { cells: ['les parents, eux, ils', 'les parents, quant à eux', 'Les parents, quant à eux, s’inquiètent.'], say: fr(E(1974)),
       detail: { title: 'Quant à eux', body: "Le même contraste, sans ils en plus. EN: the same contrast, no extra ils.", say: fr(E(1978)) } },
     { cells: ["c'est eux qui", 'ce sont eux qui', 'Ce sont elles qui ont lancé le projet.'], say: fr(E(1885)),
@@ -2405,7 +2407,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
       user: 'Ce n’est pas à moi seul de décider : votons tous ensemble.',
       userEn: 'It is not up to me alone to decide: let us all vote together. (À moi seul de: whose role it is.)',
       alts: [
-        { fr: 'Oui, et chacun votera pour soi, sans pression.', en: 'Yes, and everyone will vote for themselves, without pressure. (Chacun, then soi.)' },
+        { fr: 'Oui, et chacun décidera pour soi, sans pression.', en: 'Yes, and everyone will decide for themselves, without pressure. (Chacun, then soi.)' },
         { fr: 'Je propose qu’on vote à la prochaine réunion.', en: 'I suggest we vote at the next meeting.' },
       ],
     },
@@ -2495,7 +2497,7 @@ const A12_MISSION: Sec<'task'> = {
     { pattern: 'The verb in the third person after c’est moi qui, c’est nous qui (c’est moi qui a, c’est nous qui ont).', criterion: 'correction', feedback: 'Après qui, le verbe garde la personne du pronom : c’est moi qui ai, c’est nous qui avons.', ref: 'a6-piege' },
     { pattern: 'Même left singular after a plural pronoun (nous-même, eux-même), or no reinforcement at all.', criterion: 'etendue', feedback: 'Nous-mêmes, eux-mêmes : même prend un s après un pronom pluriel.', ref: 'a7-erreurs' },
     { pattern: 'An il or elle that could be either neighbour, or lui and le mixed up (je lui pense, je le téléphone).', criterion: 'coherence', feedback: 'Pour passer à l’autre personne, lui en tête ; penser à lui, mais je lui téléphone.', ref: 'a8-piege' },
-    { pattern: 'Soi used for a named person (Karim pense à soi), or lui after on or chacun where soi is expected.', criterion: 'correction', feedback: 'Soi pour on, chacun, personne ; lui ou elle pour une personne précise.', ref: 'a9-erreurs' },
+    { pattern: 'Soi used for a named person (Karim pense à soi), or lui after on or personne where soi is expected (after chacun, lui is also correct).', criterion: 'correction', feedback: 'Soi pour on, personne, il faut (après chacun, soi ou lui) ; lui ou elle pour une personne précise.', ref: 'a9-erreurs' },
     { pattern: 'C’est à moi décider, c’est lui de, or un voisin de moi.', criterion: 'correction', feedback: 'C’est à moi de décider ; un voisin à moi.', ref: 'a10-erreurs' },
     { pattern: 'A spoken register in the written reply: moi, je throughout, nous, on, c’est eux qui, or a jab such as il exagère, lui.', criterion: 'registre', feedback: 'À l’écrit : pour ma part, quant à eux, ce sont eux qui. Garde l’idée, laisse le ton de l’oral.', ref: 'a11-table' },
     { pattern: 'Only one voice, no proposal, or a body outside 150 to 220 words.', criterion: 'tache', feedback: 'Présente les deux avis, oppose le tien, puis propose quelque chose : je propose donc…', ref: 'a12-plan' },
@@ -2609,7 +2611,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Tu résumes deux avis opposés. Laquelle fait entendre deux camps ?', [fr(E(1800)), fr(E(1801))], 0, 'Lui et moi donnent chaque avis à sa personne. EN: each opinion gets its owner.', 'a1-scene'),
         mc('« Mon frère, lui, n’a rien dit. » Que fait lui ?', ['il oppose le frère aux autres', 'il est complément du verbe', 'il remplace le verbe'], 0, 'Entre virgules, lui met le frère sous le projecteur. EN: it sets him against the others.', 'a2-rappel'),
         tI('Ajoute le pronom tonique qui s’oppose à lui.', '(…), je prends le métro ; lui, il prend son vélo.', fr(E(1823)), 'Moi, face à lui. EN: moi against lui.', 'a2-construire'),
-        tI('Oppose les deux personnes avec des pronoms toniques.', 'Elle vote pour ; il vote contre.', fr(E(1815)), 'Elle, elle ; lui, il : un pronom par camp. EN: one pronoun per side.', 'a2-table', ['Elle, elle vote pour ; lui, il vote contre']),
+        tI('Oppose les deux personnes avec des pronoms toniques.', 'Elle vote pour ; il vote contre.', fr(E(1815)), 'Elle, elle ; lui, il : un pronom par camp. EN: one pronoun per side.', 'a2-table', ['Elle, elle vote pour ; lui, il vote contre', 'Elle vote pour ; lui vote contre.', 'Elle, elle vote pour ; lui vote contre.']),
         mc('« Julie, elle, a trouvé la musique magnifique. » Que comprend le lecteur ?', ['que les autres ne l’ont pas trouvée magnifique', 'que Julie était seule', 'que Julie a composé la musique'], 0, 'Elle, entre virgules, oppose Julie à la salle. EN: Julie against the others.', 'a1-lecture'),
         eS("Moi suis d'accord avec toi.", "Moi, je suis d'accord avec toi.", 'Moi ne porte pas le verbe : je reste devant. EN: je stays.', 'a2-erreurs'),
         lC('Écoute. Qui vote contre ?', fr(E(1815)), ['lui', 'elle'], 0, 'Lui, il vote contre. EN: he does.', 'a2-ecoute'),
@@ -2727,7 +2729,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Nous, on n’est pas d’accord. » Ce registre est…', ['familier, à l’oral', 'soigné, à l’écrit'], 0, 'Nous, on : l’oral. EN: spoken.', 'a11-trier'),
         mc('À l’écrit soigné, « les parents, eux, ils s’inquiètent » devient…', [fr(E(1974)), 'Les parents, eux, ils s’inquiètent.', 'Eux, les parents, ils s’inquiètent.'], 0, 'Quant à eux, sans ils. EN: quant à eux.', 'a11-table'),
         tI('Réécris la phrase pour un compte rendu écrit.', "C'est eux qui ont gagné.", fr(E(1884)), 'À l’écrit, ce sont eux. EN: ce sont.', 'a11-table'),
-        tI('Écris la version soignée de eux.', 'Mes collègues, (…), préfèrent le télétravail.', fr(E(1978)), 'Quant à eux. EN: quant à eux.', 'a11-focus'),
+        tI('Remplace eux par sa version soignée.','Mes collègues, (…), préfèrent le télétravail.', fr(E(1978)), 'Quant à eux. EN: quant à eux.', 'a11-focus'),
         mc('Laquelle convient partout, à l’oral comme à l’écrit ?', [fr(E(1976)), fr(E(1975))], 0, 'Lui-même : neutre. EN: neutral.', 'a11-hacks'),
         mc('Dans le résumé écrit du débat, « Il exagère, lui » devient…', ['Mme Peeters juge ces propos exagérés.', 'Il exagère, lui, dit-elle.'], 0, 'L’écrit garde l’idée, pas le ton. EN: the idea, not the tone.', 'a11-lecture'),
         lC('Écoute. Cette phrase est plutôt…', fr(E(1971)), ['orale et familière', 'écrite et soignée'], 0, 'Nous, on : l’oral. EN: spoken.', 'a11-trier'),
@@ -2737,7 +2739,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r11-recyclage', label: 'L’A2, le B1 et le B2 en renfort', targets: ['recyclage'],
       questions: [
         mc(`${Cap(TONIQUES_REF)} : « C’est … » (la personne qui parle)`, ['moi', 'je'], 0, `« ${A236_REFRAME} » ${A236_REFRAME_FR} EN: no verb right after it, so moi.`, 'a2-rappel'),
-        mc(`${Cap(POSSESSIFS_REF)} : « C’est à moi » se dit aussi…`, ["c'est le mien", "c'est de moi"], 0, 'La même possession, au registre écrit. EN: c’est le mien.', 'a10-exemples'),
+        mc(`${Cap(POSSESSIFS_REF)} : « C’est à moi » se dit aussi…`, ["c'est le mien", "c'est de moi"], 0, 'La même possession, avec le pronom possessif. EN: c’est le mien.', 'a10-exemples'),
         mc(`${Cap(QUI_QUE_REF)} : « C’est toi … as trouvé le sac. »`, ['qui', 'que'], 0, `« ${B111_REFRAME} » EN: ${B111_REFRAME_EN}`, 'a6-cartes'),
         tI(`${Cap(CEST_REF)} : mets la personne en relief avec c’est … qui.`, 'Nous payons.', fr('fr.b1.description-personnes-objets.1150'), `« ${B122_REFRAME} » EN: ${B122_REFRAME_EN}`, 'a6-cartes'),
         mc(`${Cap(ORDRE_REF)} : « Je … ai parlé hier. » (à ta sœur)`, ['lui', 'la'], 0, `« ${B117_REFRAME} » EN: ${B117_REFRAME_EN}`, 'a8-cartes'),

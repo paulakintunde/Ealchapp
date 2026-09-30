@@ -99,9 +99,10 @@
 //   1. ELEVEN quiz rounds (88 questions): acts 2 to 10, a recycling round and
 //      an exam-format round. Act 1 has no round of its own (its contrast is
 //      tested again in every round). Add an act 1 round to make twelve?
-//   2. « SUITE À » is taught as courant, not as an error (act 7): à la suite
-//      de is the soigné form, and the task grader does not penalise suite à.
-//      Keep that line, or mark suite à as wrong in a report?
+//   2. « SUITE À » is taught as widespread in admin French but criticised by
+//      usage guides (act 7), never as an error: à la suite de is the soigné
+//      form, and the task grader does not penalise suite à. (Pre-review:
+//      kept, explanation made accurate.)
 //   3. HEADLINES keep digits (« Fermeture de la ligne 4 »), as real
 //      headlines do; those two rows carry no dictation drill.
 //   4. THE TASK is a compte rendu of a printed spoken account (a colleague's
@@ -721,7 +722,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1438), 'le musée'),
       it(E(1439), 'la page'),
     ], chk('Quel nom est masculin ?',
-      ['le musée', 'la plage', 'la page'], 0,
+      ['musée', 'plage', 'page'], 0,
       'Le musée, malgré -ée. EN: a masculine -ée.')),
   ],
   audio: AUDIO,
@@ -880,7 +881,7 @@ const A4_CARTES: Sec<'cardDeck'> = {
       head: 'Une autre forme', label: 'partir, choisir, commencer',
       fr: 'le départ · le choix · le début',
       sub: '[luh day-PAR] · [luh SHWA] · [luh day-BÜ]',
-      body: "Certains noms ont une autre forme, ou un autre mot : partir, le départ ; choisir, le choix ; commencer, le début. Ceux-là s'apprennent un par un. EN: some nouns have to be learnt one by one.",
+      body: "Certains noms ont une autre forme, ou un autre mot : partir, le départ ; choisir, le choix ; commencer, le début (le commencement existe aussi, plus rare). Ceux-là s'apprennent un par un. EN: some nouns have to be learnt one by one.",
     },
   ],
 };
@@ -962,7 +963,7 @@ const A4_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Le partement du train est retardé de vingt minutes.',
       right: fr(E(1460)),
-      why: "Normal : départ ne ressemble pas à partir. Mais le partement n'existe pas. EN: départ is the noun.",
+      why: "Normal : on part de partir et on ajoute -ment. Mais le partement n'existe pas : le nom est le départ. EN: départ is the noun.",
     },
     {
       wrong: "L'achètement des billets se fait uniquement en ligne.",
@@ -1462,7 +1463,7 @@ const A7_TABLE: Sec<'tapTable'> = {
     { cells: ['en raison de', 'la cause, neutre', "en raison d'une grève"], say: fr(E(1513)),
       detail: { title: 'en raison de', body: `La cause, sans jugement : le registre des avis et des rapports. ${Cap(SUBORD_REF)} t'a donné à cause de et grâce à. EN: a neutral, formal cause.`, say: fr('fr.b1.connecteurs-logiques.1266') } },
     { cells: ['à la suite de', "ce qui s'est passé avant", "à la suite d'une panne"], say: fr(E(1514)),
-      detail: { title: 'à la suite de', body: "Un événement antérieur qui a entraîné la suite. Suite à s'entend beaucoup dans les courriels ; à la suite de reste plus soigné. EN: following.", say: fr(E(1521)) } },
+      detail: { title: 'à la suite de', body: "Un événement antérieur qui a entraîné la suite. Suite à est très répandu dans les courriels et le français administratif, mais plusieurs guides d'usage le critiquent ; à la suite de reste la forme soignée, que personne ne reproche. EN: following; suite à is widespread but criticised by some usage guides.", say: fr(E(1521)) } },
     { cells: ['lors de', 'le moment', 'lors de la réunion'], say: fr(E(1515)),
       detail: { title: 'lors de', body: "Au moment de, à l'occasion de, toujours devant un nom : lors de sa visite. EN: during, at the time of.", say: fr(E(1526)) } },
     { cells: ['en vue de', 'le but', 'en vue du déménagement'], say: fr(E(1516)),
@@ -1491,7 +1492,7 @@ const A7_CHOISIR: Sec<'groupDrill'> = {
       it(E(1516), 'le but'),
       it(E(1528), 'le but'),
     ], chk('« … l’inventaire, le magasin fermera plus tôt. » (pour pouvoir le faire)',
-      ['En vue de', 'En raison de', 'Malgré'], 0,
+      ['En vue de', 'Faute de', 'Malgré'], 0,
       'Le but : en vue de. EN: the purpose.')),
     grp('Le moment', [
       it(E(1515), 'lors de'),
@@ -1571,7 +1572,7 @@ const A7_FLASH: Sec<'flashcards'> = {
 };
 
 const A7_TEXTE = dansUnTexte('a7-texte', 'Compléter : l’annonce de l’aéroport', TEXTE_A7, [
-  { q: 'Complète : (la cause) du brouillard ; (ce qui s’est passé avant) d’un incident technique.', a: "En raison du brouillard, plusieurs vols sont retardés. À la suite d'un incident technique, le vol pour Paris est annulé." },
+  { q: 'Complète : (la cause) du brouillard ; (ce qui s’est passé avant) d’un incident technique.', a: "En raison du brouillard (ou à cause du brouillard), plusieurs vols sont retardés. À la suite d'un incident technique, le vol pour Paris est annulé." },
   { q: 'Complète : (le moment) de l’embarquement ; (la condition) de retard.', a: "Lors de l'embarquement, présentez votre passeport. En cas de retard de plus de trois heures, un repas vous sera offert." },
   { q: 'Complète la fin : (l’obstacle) ces difficultés ; (le manque) de place.', a: 'Malgré ces difficultés, notre personnel reste à votre disposition. Faute de place, certains passagers seront logés à Laval.' },
   { q: 'Pourquoi une annonce d’aéroport aime-t-elle ces prépositions ?', a: "Elles disent le lien en deux ou trois mots, devant un nom : le voyageur pressé comprend la cause et la consigne d'un coup d'œil." },
@@ -1628,7 +1629,7 @@ const A8_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: 'Sa nomination à la tête de la police.', en: 'Her appointment as head of the police.' },
     { from: 'coach', fr: 'Sa : la personne qu’on a nommée. Le possessif peut aussi dire qui subit.', en: 'Sa: the person who was appointed. The possessive can also mean the one affected.', warn: 'Le possessif' },
   ],
-  closing: { fr: 'Dans un groupe nominal, de et le possessif restent flous ; par et contre disent qui fait quoi.', en: 'In a noun phrase, de and the possessive stay vague; par and contre say who does what.' },
+  closing: { fr: 'Dans un groupe nominal, de et le possessif peuvent rester flous ; par et contre disent qui fait quoi.', en: 'In a noun phrase, de and the possessive can stay vague; par and contre say who does what.' },
   audio: REC('rec-b2-10-kouadio'),
   say: REFRAME,
   terms: ['agent'],
@@ -1936,7 +1937,7 @@ const A9_FOCUS: Sec<'focus'> = {
 
 const A9_TEXTE = dansUnTexte('a9-texte', 'Condenser : la patinoire de Sherbrooke', TEXTE_A9, [
   { q: 'Écris le titre de la dépêche.', a: 'Fermeture de la patinoire du parc Jacques-Cartier pendant trois semaines.' },
-  { q: 'Écris la première phrase du chapeau : la cause et la date.', a: 'À la suite de la découverte de fissures dans la dalle, la Ville fermera la patinoire à partir de lundi.' },
+  { q: 'Écris la première phrase du chapeau : la cause et la date.', a: 'À la suite de la découverte de fissures dans la dalle, la Ville ferme la patinoire pendant trois semaines ; les réparations commencent lundi.' },
   { q: 'Écris la deuxième phrase du chapeau : la solution et la promesse.', a: 'Les patineurs pourront aller au lac des Nations ; réouverture promise avant Noël.' },
   { q: 'Quelle information peux-tu laisser dans le corps de l’article ?', a: "Les horaires prolongés du lac des Nations : utiles, mais pas essentiels dans le titre ni dans le chapeau." },
 ], 'rec-b2-10-texte-a9', ['titre']);
@@ -1986,7 +1987,7 @@ const A10_HISTOIRE: Sec<'story'> = {
   bubbles: [
     { from: 'narrator', fr: 'Julie lit la première phrase du communiqué, et s’arrête.', en: 'Julie reads the first sentence of the press release, and stops.' },
     { from: 'user', fr: 'La mise en place d’un dispositif de réduction de la consommation d’énergie est prévue.', en: 'The setting up of a scheme for the reduction of energy consumption is planned.' },
-    { from: 'coach', fr: 'À la radio, personne ne suit cette chaîne. Qui fait quoi, et pourquoi.', en: 'On the radio, nobody can follow that chain. Who does what, and why.', warn: 'Quatre noms à la suite' },
+    { from: 'coach', fr: 'À la radio, personne ne suit cette chaîne. Qui fait quoi, et pourquoi.', en: 'On the radio, nobody can follow that chain. Who does what, and why.', warn: 'Quatre de à la suite' },
     { from: 'user', fr: 'La mairie va installer un système pour consommer moins d’énergie.', en: 'The town hall is going to install a system to use less energy.' },
     { from: 'coach', fr: 'Voilà : un sujet, un verbe, un but. On comprend du premier coup.', en: 'That is it: a subject, a verb, a purpose. You get it first time.', warn: 'Déplié pour l’oreille' },
     { from: 'user', fr: 'Il est procédé à la vérification des chaudières.', en: 'A check of the boilers is being carried out.' },
@@ -2017,7 +2018,7 @@ const A10_CARTES: Sec<'cardDeck'> = {
     {
       head: 'La chaîne', label: 'de la… de la…',
       fr: fr('fr.b2.universite.1125'), sub: rsOf('fr.b2.universite.1125'),
-      body: "Quatre noms enchaînés par de : le lecteur doit tout déplier lui-même. Au-delà de deux, la phrase décroche. EN: past two chained nouns, the reader is lost.",
+      body: "Quatre noms enchaînés par trois de : le lecteur doit tout déplier lui-même. Au troisième de, la phrase décroche. EN: at the third de in a row, the reader is lost.",
     },
     {
       head: 'Le verbe vide', label: 'procéder à, effectuer',
@@ -2063,7 +2064,7 @@ const A10_DEPLIER: Sec<'groupDrill'> = {
       'Un sujet, un verbe, un complément : on suit du premier coup. EN: one subject, one verb.')),
     ctl('La mesure', 'Combien de noms d’action enchaînés par de un lecteur suit-il sans peine ?',
       ['un ou deux', 'quatre ou cinq', 'autant qu’on veut'], 0,
-      'Au-delà de deux, déplie. EN: past two, unfold.'),
+      'Au-delà, la phrase s’alourdit ; au troisième de, déplie. EN: beyond that it gets heavy; at the third de, unfold.'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -2356,8 +2357,8 @@ const A11_MISSION: Sec<'task'> = {
     'En vue du salon de Toronto,',
     'Nous suggérons',
   ],
-  modelAnswer: "Objet : compte rendu du salon de Montréal (4 au 6 mars)\n\nBonjour à toutes et à tous,\n\nVoici le bilan de notre participation au salon de Montréal. Il reprend les notes d'Inès Martin, présente sur le stand du mardi au jeudi.\n\nDéroulement. Dès l'installation du stand, mardi matin, l'affluence a été forte. La présentation de notre nouvelle application a suscité un vif intérêt : les visiteurs ont salué sa rapidité et sa simplicité. En revanche, plusieurs d'entre eux ont jugé nos prix trop élevés.\n\nIncident. Mercredi, à la suite d'une panne de courant, la conférence de Karim a été annulée par l'organisateur. Cette annulation nous a privés d'une partie des contacts prévus.\n\nRésultats. Point très positif : la signature de deux contrats de distribution, l'un à Québec, l'autre à Ottawa. Ces accords ouvrent deux nouveaux marchés à l'entreprise. Par ailleurs, avant notre départ, jeudi, la directrice d'un grand magasin est venue au stand. Elle souhaite être rappelée.\n\nRecommandations. Le bilan est donc globalement positif, malgré l'incident de mercredi. En vue du salon de Toronto, nous proposons une révision de nos tarifs, qui semblent freiner certains clients. Nous suggérons aussi de rappeler rapidement la directrice du magasin, dont l'intérêt paraissait réel.\n\nMerci à toute l'équipe pour son travail et sa bonne humeur.\n\nCamille Roy, pour l'équipe commerciale\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : un objet, quatre rubriques, tous les faits du message et aucun fait inventé ; environ 190 mots de corps.\n2. Cohérence : des rubriques dans l'ordre du temps puis du bilan ; les liens sont dits (à la suite de, en revanche, par ailleurs, donc) ; « cette annulation » reprend la phrase précédente.\n3. Étendue : des noms d'action (l'installation, la présentation, la signature, une révision), un nom court (notre départ), des noms de qualité (sa rapidité, sa simplicité), une proposition pliée (à la suite d'une panne), qui fait quoi (annulée par l'organisateur), et des verbes précis à côté (a suscité, ont jugé, ouvrent).\n4. Correction : des noms qui existent, au bon genre, et jamais trois de à la suite.\n5. Registre : un écrit professionnel courant ; les mots de l'oral d'Inès (bon, du coup, pas mal, voilà) ont disparu.",
-  modelAnswerEn: "Subject: report on the Montréal fair (4 to 6 March). Hello everyone, here is a review of our time at the Montréal fair. It is based on the notes of Inès Martin, who was on the stand from Tuesday to Thursday. How it went. As soon as the stand was set up on Tuesday morning, there were crowds. The presentation of our new app aroused keen interest: visitors praised its speed and simplicity. On the other hand, several of them felt our prices were too high. Incident. On Wednesday, following a power cut, Karim's talk was cancelled by the organiser. This cancellation cost us some of the contacts we had planned. Results. A very positive point: two distribution contracts were signed, one in Québec City and one in Ottawa. These agreements open two new markets for the company. Also, before we left on Thursday, the manager of a big department store came to the stand. She would like a call back. Recommendations. Overall, then, a positive review, despite Wednesday's incident. Ahead of the Toronto fair, we propose a review of our prices, which seem to hold some customers back. We also suggest calling the store manager back quickly, as her interest seemed genuine. Thanks to the whole team for their work and good humour. Camille Roy, for the sales team. The marker's notes (not counted): 1. Task: a subject line, four headings, every fact of the message and none invented; about 190 words of body. 2. Coherence: headings in time order, then the review; links are stated; « cette annulation » picks up the previous sentence. 3. Range: action nouns, a short noun, nouns of quality, a folded clause, who does what, and precise verbs alongside. 4. Accuracy: real nouns, right genders, never three de in a row. 5. Register: everyday professional writing; Inès's spoken fillers are gone.",
+  modelAnswer: "Objet : compte rendu du salon de Montréal\n\nBonjour à toutes et à tous,\n\nVoici le bilan de notre participation au salon de Montréal. Il reprend les notes d'Inès Martin, présente sur le stand du mardi au jeudi.\n\nDéroulement. Dès l'installation du stand, mardi matin, l'affluence a été forte. La présentation de notre nouvelle application a suscité un vif intérêt : les visiteurs ont salué sa rapidité et sa simplicité. En revanche, plusieurs d'entre eux ont jugé nos prix trop élevés.\n\nIncident. Mercredi, à la suite d'une panne de courant, la conférence de Karim a été annulée par l'organisateur. Cette annulation nous a privés d'une partie des contacts prévus.\n\nRésultats. Point très positif : la signature de deux contrats de distribution, l'un à Québec, l'autre à Ottawa. Ces accords ouvrent deux nouveaux marchés à l'entreprise. Par ailleurs, avant notre départ, jeudi, la directrice d'un grand magasin est venue au stand. Elle souhaite être rappelée.\n\nRecommandations. Le bilan est donc globalement positif, malgré l'incident de mercredi. En vue du salon de Toronto, nous proposons une révision de nos tarifs, qui semblent freiner certains clients. Nous suggérons aussi de rappeler rapidement la directrice du magasin, dont l'intérêt paraissait réel.\n\nMerci à toute l'équipe pour son travail et sa bonne humeur.\n\nCamille Roy, pour l'équipe commerciale\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : un objet, quatre rubriques, tous les faits du message et aucun fait inventé ; environ 190 mots de corps.\n2. Cohérence : des rubriques dans l'ordre du temps puis du bilan ; les liens sont dits (à la suite de, en revanche, par ailleurs, donc) ; « cette annulation » reprend la phrase précédente.\n3. Étendue : des noms d'action (l'installation, la présentation, la signature, une révision), un nom court (notre départ), des noms de qualité (sa rapidité, sa simplicité), une proposition pliée (à la suite d'une panne), qui fait quoi (annulée par l'organisateur), et des verbes précis à côté (a suscité, ont jugé, ouvrent).\n4. Correction : des noms qui existent, au bon genre, et jamais trois de à la suite.\n5. Registre : un écrit professionnel courant ; les mots de l'oral d'Inès (bon, du coup, pas mal, voilà) ont disparu.",
+  modelAnswerEn: "Subject: report on the Montréal fair. Hello everyone, here is a review of our time at the Montréal fair. It is based on the notes of Inès Martin, who was on the stand from Tuesday to Thursday. How it went. As soon as the stand was set up on Tuesday morning, there were crowds. The presentation of our new app aroused keen interest: visitors praised its speed and simplicity. On the other hand, several of them felt our prices were too high. Incident. On Wednesday, following a power cut, Karim's talk was cancelled by the organiser. This cancellation cost us some of the contacts we had planned. Results. A very positive point: two distribution contracts were signed, one in Québec City and one in Ottawa. These agreements open two new markets for the company. Also, before we left on Thursday, the manager of a big department store came to the stand. She would like a call back. Recommendations. Overall, then, a positive review, despite Wednesday's incident. Ahead of the Toronto fair, we propose a review of our prices, which seem to hold some customers back. We also suggest calling the store manager back quickly, as her interest seemed genuine. Thanks to the whole team for their work and good humour. Camille Roy, for the sales team. The marker's notes (not counted): 1. Task: a subject line, four headings, every fact of the message and none invented; about 190 words of body. 2. Coherence: headings in time order, then the review; links are stated; « cette annulation » picks up the previous sentence. 3. Range: action nouns, a short noun, nouns of quality, a folded clause, who does what, and precise verbs alongside. 4. Accuracy: real nouns, right genders, never three de in a row. 5. Register: everyday professional writing; Inès's spoken fillers are gone.",
   watchFor: [
     { pattern: 'A near-transcription of the voicemail: every fact still a verbal clause, with the spoken order and connectors (et puis, du coup).', criterion: 'etendue', feedback: 'Plie les faits principaux : dès l’installation du stand, à la suite d’une panne, la signature de deux contrats.', ref: 'a1-reperer' },
     { pattern: 'An invented action noun (l’augmentement, la livrance, le fermage for la fermeture).', criterion: 'correction', feedback: 'Chaque verbe a son suffixe : l’augmentation, la livraison, la fermeture. Au doute, vérifie.', ref: 'a2-erreurs' },
@@ -2375,7 +2376,7 @@ const A11_MISSION: Sec<'task'> = {
   graderNotes: [
     'Count the words of the body only; the subject line, greeting and signature do not count. 180 to 250 with 10% tolerance (162 to 275) before criterion « tache » loses a point. responseSpec allows 275.',
     'Judge nominalisation by fit, not by count. A clear sentence that keeps a verb is never an error; a correct noun phrase that makes the sentence heavier gains nothing under « etendue ». The target is a readable report, not a maximum of nouns.',
-    '« Suite à » is courant, not an error: accept it and do not penalise it; « à la suite de » is the soigné form.',
+    '« Suite à » is widespread in business and administrative French, though the Académie française and some usage guides advise against it: accept it and never count it as an error; « à la suite de » is the form no guide objects to. Feedback may mention it once, as a register tip.',
     'Accept either register-appropriate headline form: nominal (« Signature de deux contrats ») or participial (« Deux contrats signés »).',
     'Do not penalise a correct subjunctive after avant que (lesson 6 in B2) where the learner keeps the clause; the noun phrase avant notre départ is rewarded but not required.',
     'A chain of three or more de, or an empty verb (procéder à, effectuer, faire l’objet de), costs one point under « registre » once, not per occurrence.',
@@ -2415,7 +2416,7 @@ const A11_CHEAT: Sec<'cheatSheet'> = {
     { k: 'le suffixe', v: '-tion, -ment, -age, -ure, -ée', say: fr(E(1420)),
       detail: { title: 'Le suffixe', body: "Chaque verbe a son nom : l'annulation, le lancement, le nettoyage, la fermeture, l'arrivée. EN: each verb has its noun.", say: fr(E(1421)) } },
     { k: 'le genre', v: '-ment, -age : masculin', say: fr(E(1435)),
-      detail: { title: 'Le genre', body: "-tion, -ure, -ée, -ance, -ité, -eur : féminin. Les intrus : la plage, le silence, le musée, le bonheur. EN: the suffix gives the gender.", say: fr(E(1436)) } },
+      detail: { title: 'Le genre', body: "-tion, -ure, -ée, -ance, -ité, -eur de qualité : féminin. Les intrus : la plage, le silence, le musée, le bonheur. EN: the suffix gives the gender.", say: fr(E(1436)) } },
     { k: 'le nom court', v: 'le refus, la vente, la mise', say: fr(E(1458)),
       detail: { title: 'Le nom court', body: "Le verbe sans sa fin, un nom en -e, ou le participe : cherche-le avant d'inventer. EN: look for the short noun first.", say: fr(E(1463)) } },
     { k: 'la qualité', v: '-ité, -eur, -esse, -ise, -ence', say: fr(E(1481)),
@@ -2481,8 +2482,8 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Quel est le nom de nettoyer ?', ['le nettoyage', 'la nettoyation', 'la nettoyure'], 0, 'Une opération concrète : -age. EN: -age.', 'a2-table'),
         tI('Récris la phrase avec le nom d’action.', 'On livrera les meubles dans trois semaines. (La … des meubles prendra trois semaines.)', fr(E(1423)), 'Livrer, la livraison. EN: livraison.', 'a2-table', ['la livraison', 'livraison']),
         tI('Récris la phrase avec le nom d’action.', 'On répare le toit, et ça coûtera cher. (La … du toit coûtera cher.)', fr(E(1424)), 'Réparer, la réparation. EN: réparation.', 'a2-construire', ['la réparation', 'réparation']),
-        eS("L'augmentement des salaires entrera en vigueur en janvier.", fr(E(1425)), 'Augmenter, l’augmentation. EN: -ation.', 'a2-erreurs'),
-        eS('La lancée du site est prévue pour lundi.', fr(E(1421)), 'Le lancement, masculin : prévu. EN: le lancement.', 'a2-erreurs'),
+        eS("L'augmentement des salaires entrera en vigueur en janvier.", fr(E(1425)), 'Augmenter, l’augmentation. EN: -ation.', 'a2-erreurs', ['La hausse des salaires entrera en vigueur en janvier.']),
+        eS('La lancée du site est prévue pour lundi.', fr(E(1421)), 'Le lancement, masculin : prévu. EN: le lancement.', 'a2-erreurs', ['La mise en ligne du site est prévue pour lundi.']),
         lC('Écoute. Quel nom d’action entends-tu ?', fr(E(1422)), ['le nettoyage', 'la netteté'], 0, 'Nettoyer, le nettoyage. EN: cleaning.', 'a2-ecoute'),
       ],
     },
@@ -2491,10 +2492,10 @@ const A11_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« … stationnement est interdit devant l’école. »', ['Le', 'La'], 0, '-ment : masculin. EN: masculine.', 'a3-cartes'),
         mc('« L’arrivée des invités est … à dix-neuf heures. »', ['prévue', 'prévu'], 0, '-ée : féminin. EN: feminine.', 'a3-cartes'),
-        mc('Quel nom est féminin malgré -age ?', ['la plage', 'le passage', 'le nettoyage'], 0, 'La plage ne vient d’aucun verbe. EN: no verb behind it.', 'a3-piege'),
-        mc('Quel nom est masculin malgré son suffixe ?', ['le silence', 'la présence', 'la patience'], 0, 'Le silence, l’exception en -ence. EN: an outsider.', 'a3-piege'),
-        tI('Accorde le participe.', "L'ouverture du salon est (fixer) au trois juin.", fr(E(1446)), '-ure : féminin, fixée. EN: fixée.', 'a3-construire'),
-        tI('Écris l’article.', '(Le / La) chargement des camions commence à six heures.', fr(E(1445)), '-ment : masculin. EN: le.', 'a3-construire'),
+        mc('Quel nom est féminin malgré -age ?', ['plage', 'passage', 'nettoyage'], 0, 'La plage ne vient d’aucun verbe. EN: no verb behind it.', 'a3-piege'),
+        mc('Quel nom est masculin malgré son suffixe ?', ['silence', 'présence', 'patience'], 0, 'Le silence, l’exception en -ence. EN: an outsider.', 'a3-piege'),
+        tI('Accorde le participe.', "L'ouverture du salon est (fixer) au trois juin.", fr(E(1446)), '-ure : féminin, fixée. EN: fixée.', 'a3-construire', ['fixée']),
+        tI('Écris l’article.', '(Le / La) chargement des camions commence à six heures.', fr(E(1445)), '-ment : masculin. EN: le.', 'a3-construire', ['le']),
         eS('Le musée est fermée le mardi.', fr(E(1438)), 'Le musée est masculin : fermé. EN: masculine.', 'a3-exemples'),
         lC('Écoute. Ce nom est-il masculin ou féminin ?', fr(E(1443)), ['féminin', 'masculin'], 0, 'La croissance : -ance, féminin. EN: feminine.', 'a3-construire'),
       ],
@@ -2532,8 +2533,8 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('« Avant qu’elle parte » devient…', ['avant son départ', 'avant qu’elle départ'], 0, 'Avant + nom, sans que. EN: avant son départ.', 'a6-cartes'),
         mc('« Si le vol est annulé » devient…', ["en cas d'annulation du vol", "si l'annulation du vol"], 0, 'Si devient en cas de. EN: en cas de.', 'a6-construire'),
         tI('Plie la proposition : une préposition et un nom.', "Après qu'on a signé le contrat, les travaux ont commencé.", fr(E(1500)), 'Après la signature. EN: après + nom.', 'a6-cartes'),
-        tI('Plie la proposition : une préposition et un nom.', "Pendant qu'on rénove la gare, les trains s'arrêtent à Renens.", fr(E(1506)), 'Pendant la rénovation. EN: pendant + nom.', 'a6-exemples'),
-        eS('Parce que la hausse des prix, les ventes ont baissé.', fr(E(1502)), 'Devant un nom : en raison de. EN: a preposition.', 'a6-piege', ['À cause de la hausse des prix, les ventes ont baissé.']),
+        tI('Plie la proposition : une préposition et un nom.', "Pendant qu'on rénove la gare, les trains s'arrêtent à Renens.", fr(E(1506)), 'Pendant la rénovation. EN: pendant + nom.', 'a6-exemples', ["Durant la rénovation de la gare, les trains s'arrêtent à Renens."]),
+        eS('Parce que la hausse des prix, les ventes ont baissé.', fr(E(1502)), 'Devant un nom : en raison de. EN: a preposition.', 'a6-piege', ['À cause de la hausse des prix, les ventes ont baissé.', 'Du fait de la hausse des prix, les ventes ont baissé.', fr(E(1501))]),
         eS('Dès sa arrivée, préviens-moi.', fr(E(1504)), 'Son devant une voyelle. EN: son arrivée.', 'a6-piege'),
         lC('Écoute. Qu’est-ce qui s’est passé en premier ?', fr(E(1500)), ['la signature du contrat', 'le début des travaux'], 0, 'Après la signature : elle vient d’abord. EN: the signing.', 'a6-ecoute'),
       ],
@@ -2543,11 +2544,11 @@ const A11_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« … candidats, le poste reste vacant. »', ['Faute de', 'Malgré', 'En vue de'], 0, 'Le manque. EN: for lack of.', 'a7-table'),
         mc('« … la réunion, la directrice a présenté le budget. »', ['Lors de', 'Faute de'], 0, 'Le moment. EN: at the meeting.', 'a7-table'),
-        mc('« … la hausse des prix, les ventes ont progressé. »', ['Malgré', 'En raison de'], 0, 'L’obstacle n’a rien empêché. EN: despite.', 'a7-choisir'),
+        mc('« … la hausse des prix, les ventes ont progressé. »', ['Malgré', 'Faute de'], 0, 'L’obstacle n’a rien empêché. EN: despite.', 'a7-choisir'),
         mc('Quelle phrase est la plus soignée ?', ["À la suite d'une panne, le serveur a été redémarré.", 'Suite à une panne, le serveur a été redémarré.'], 0, 'À la suite de reste plus soigné. EN: more careful.', 'a7-table'),
-        tI('Complète avec la préposition du but.', '(…) du déménagement, chacun doit trier ses dossiers.', fr(E(1516)), 'En vue de : le but. EN: en vue de.', 'a7-table', ['en vue du déménagement', 'en vue du']),
-        tI('Complète avec la préposition du manque.', "(…) argent, ils ont renoncé au voyage.", fr(E(1527)), 'Faute de, sans article. EN: faute d’argent.', 'a7-choisir', ["faute d'argent"]),
-        eS("Malgré qu'il pleuve, le match a eu lieu.", 'Malgré la pluie, le match a eu lieu.', 'Malgré + nom, ou bien que + subjonctif. EN: malgré takes a noun.', 'a7-erreurs', ["Bien qu'il pleuve, le match a eu lieu."]),
+        tI('Complète avec la préposition du but.', '(…) du déménagement, chacun doit trier ses dossiers.', fr(E(1516)), 'En vue de : le but. EN: en vue de.', 'a7-table', ['en vue du déménagement', 'en vue du', 'en vue', 'en vue de', 'en prévision du', 'en prévision du déménagement', 'En prévision du déménagement, chacun doit trier ses dossiers.']),
+        tI('Complète avec la préposition du manque.', "(…) argent, ils ont renoncé au voyage.", fr(E(1527)), 'Faute de, sans article. EN: faute d’argent.', 'a7-choisir', ["faute d'argent", "faute d'", 'faute de', "par manque d'", "par manque d'argent", "Par manque d'argent, ils ont renoncé au voyage."]),
+        eS("Malgré qu'il pleuve, le match a eu lieu.", 'Malgré la pluie, le match a eu lieu.', 'Malgré + nom, ou bien que + subjonctif. EN: malgré takes a noun.', 'a7-erreurs', ["Bien qu'il pleuve, le match a eu lieu.", "Bien qu'il ait plu, le match a eu lieu.", "Quoiqu'il pleuve, le match a eu lieu."]),
         lC('Écoute. Quel lien dit cette phrase ?', fr(E(1520)), ['une condition', 'une cause', 'un but'], 0, 'En cas de : une condition. EN: a condition.', 'a7-ecoute'),
       ],
     },
@@ -2570,10 +2571,10 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Quel titre de presse est bien formé ?', ['Hausse des loyers à Lyon', 'Les loyers augmentent-ils à Lyon', 'La hausse elle est à Lyon'], 0, 'Le nom d’action, sans article. EN: noun first.', 'a9-cartes'),
         mc('Un point d’ordre du jour s’écrit…', ["avec un nom d'action : adoption du budget", 'avec un verbe conjugué : on adopte le budget'], 0, 'Une liste de noms. EN: nouns.', 'a9-focus'),
         mc('« Report de la réunion au jeudi suivant » veut dire…', ['la réunion aura lieu plus tard', 'la réunion est annulée', 'la réunion aura lieu plus tôt'], 0, 'Reporter : remettre à plus tard. EN: postponed.', 'a9-cartes'),
-        tI('Écris le titre.', 'On va modifier les horaires de la piscine à partir de lundi.', fr(E(1556)), 'Modifier, la modification. EN: noun first.', 'a9-construire'),
-        tI('Écris le titre.', 'On plantera trois arbres sur la place Bellecour.', fr(E(1557)), 'Planter, la plantation. EN: noun first.', 'a9-exemples'),
+        tI('Écris le titre.', 'On va modifier les horaires de la piscine à partir de lundi.', fr(E(1556)), 'Modifier, la modification. EN: noun first.', 'a9-construire', ['Modification des horaires de la piscine dès lundi', 'Changement des horaires de la piscine à partir de lundi', 'Changement des horaires de la piscine dès lundi', 'Nouveaux horaires de la piscine à partir de lundi', 'Nouveaux horaires de la piscine dès lundi']),
+        tI('Écris le titre.', 'On plantera trois arbres sur la place Bellecour.', fr(E(1557)), 'Planter, la plantation. EN: noun first.', 'a9-exemples', ['Plantation de trois arbres place Bellecour']),
         eS("Adoption de budget à l'unanimité", fr(E(1549)), 'Le titre enlève l’article du début, pas celui du complément : du budget. EN: du budget.', 'a9-cartes'),
-        eS('Démission du présidente du club', fr(E(1551)), 'De la présidente : féminin. EN: de la.', 'a9-construire'),
+        eS('Démission du présidente du club', fr(E(1551)), 'De la présidente : féminin. EN: de la.', 'a9-construire', ['Démission du président du club']),
         lC('Écoute. Est-ce un titre ou une phrase complète ?', fr(E(1552)), ['un titre', 'une phrase complète'], 0, 'Pas de verbe conjugué : un titre. EN: a headline.', 'a9-lecture'),
       ],
     },
@@ -2585,7 +2586,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Au troisième de à la suite, tu…', ['déplies un nom en verbe', 'ajoutes un quatrième nom'], 0, 'Déplie. EN: unfold.', 'a10-hacks'),
         mc("« Le projet fait l'objet d'une révision » veut dire…", ['on révise le projet', 'le projet révise quelque chose'], 0, 'Faire l’objet de : subir. EN: it is being reviewed.', 'a10-deplier'),
         tI('Déplie avec le verbe fort.', "Il est procédé à la vérification de l'installation par le technicien.", fr(E(1559)), 'Qui agit, avec le verbe fort. EN: the technician checks.', 'a10-erreurs'),
-        tI('Déplie pour l’oral.', "L'amélioration de la qualité de l'accueil des usagers est notre priorité.", fr(E(1565)), 'Un sujet, un verbe. EN: we want to welcome users better.', 'a10-erreurs', ['Nous voulons accueillir mieux les usagers.']),
+        tI('Déplie pour l’oral.', "L'amélioration de la qualité de l'accueil des usagers est notre priorité. (Nous voulons … les usagers.)", fr(E(1565)), 'Un sujet, un verbe. EN: we want to welcome users better.', 'a10-erreurs', ['Nous voulons accueillir mieux les usagers.', 'mieux accueillir', 'accueillir mieux']),
         tI('Déplie au futur.', "Il sera procédé à la vérification de l'installation. (Le technicien … l'installation.)", fr(E(1570)), 'Vérifier, au futur. EN: vérifiera.', 'a10-cartes', ['vérifiera']),
         lC('Écoute. Cette phrase est-elle faite pour l’oreille ?', fr(E(1571)), ['oui, elle garde des verbes', 'non, elle enchaîne des noms'], 0, 'Des verbes, et rien d’enchaîné. EN: yes.', 'a10-histoire'),
       ],
@@ -2598,7 +2599,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI(`${Cap(PASSIF_REF)} : plie la phrase en groupe nominal.`, 'La salle a été réservée par le directeur.', 'la réservation de la salle par le directeur', `« ${B118_REFRAME} » De pour ce qui subit, par pour celui qui agit. EN: ${B118_REFRAME_EN}`, 'a8-cartes'),
         mc(`${Cap(MEDIAS_REF)} : « Démission du ministre des Transports » veut dire…`, [fr('fr.b1.journalisme.1042'), 'Le ministre des Transports va démissionner.'], 0, `« ${B134_REFRAME} » Le titre dit un fait accompli. EN: ${B134_REFRAME_EN}`, 'a9-cartes'),
         tI(`${Cap(SUBJ_IND_REF)} : plie la proposition pour éviter le subjonctif.`, fr('fr.b2.opinions-et-avis.1940'), 'Finissons avant le départ du gardien.', 'Avant + nom : plus de subjonctif. EN: avant + noun.', 'a6-cartes'),
-        tI(`${Cap(FUT_ANT_REF)} : plie la proposition avec dès.`, fr('fr.b2.projets-et-futur.1808'), "Dès la signature, nous lancerons l'impression.", 'Dès que vous aurez signé devient dès la signature. EN: dès + noun.', 'a6-construire', ["Dès votre signature, nous lancerons l'impression."]),
+        tI(`${Cap(FUT_ANT_REF)} : plie la proposition avec dès.`, fr('fr.b2.projets-et-futur.1808'), "Dès la signature, nous lancerons l'impression.", 'Dès que vous aurez signé devient dès la signature. EN: dès + noun.', 'a6-construire', ["Dès votre signature, nous lancerons l'impression.", "Dès signature, nous lancerons l'impression."]),
         mc(`${Cap(STYLE_REF)} : une phrase qui empile quatre noms abstraits…`, ['se lit mal', 'se lit mieux'], 0, `« ${B222_REFRAME} » EN: ${B222_REFRAME_EN}`, 'a10-cartes'),
         lC(`Écoute. ${Cap(SUBORD_REF)} : quel lien dit cette phrase ?`, fr('fr.b1.connecteurs-logiques.1266'), ['une cause', 'un but', 'un obstacle'], 0, 'En raison de : la cause. EN: a cause.', 'a7-ecoute'),
       ],
@@ -2610,7 +2611,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Format TCF : « L’… du nouveau pont aura lieu en présence du maire. »', ['inauguration', 'inaugurement', 'inaugurage', 'inaugurée'], 0, 'Inaugurer, l’inauguration. EN: -ation.', 'a2-table'),
         mc('Format DELF B2, compréhension écrite. « À la suite de la hausse des loyers, de nombreux étudiants quittent le centre-ville. » Que dit la phrase ?', ['les loyers ont augmenté, puis les étudiants partent', 'les étudiants partent, puis les loyers augmentent', 'les loyers baissent grâce aux étudiants'], 0, 'À la suite de : la cause vient d’abord. EN: rents rose first.', 'a7-table'),
         mc('Format DELF B2, production écrite. Quelle phrase condense le mieux « Parce que le budget a été réduit, on a dû annuler le festival » ?', ['En raison de la réduction du budget, le festival a été annulé.', 'Parce que la réduction du budget, le festival a été annulé.', "La réduction de l'annulation du budget du festival a eu lieu."], 0, 'Une préposition, un nom, et un verbe clair. EN: a clear condensed sentence.', 'a6-cartes'),
-        tI('Format DELF B2. Plie la proposition en groupe nominal.', 'Quand le ministre est arrivé, les manifestants se sont tus.', "À l'arrivée du ministre, les manifestants se sont tus.", 'Quand devient à + nom. EN: à l’arrivée de.', 'a6-construire', ["Dès l'arrivée du ministre, les manifestants se sont tus.", "Lors de l'arrivée du ministre, les manifestants se sont tus."]),
+        tI('Format DELF B2. Plie la proposition en groupe nominal.', 'Quand le ministre est arrivé, les manifestants se sont tus.', "À l'arrivée du ministre, les manifestants se sont tus.", 'Quand devient à + nom. EN: à l’arrivée de.', 'a6-construire', ["Dès l'arrivée du ministre, les manifestants se sont tus.", "Lors de l'arrivée du ministre, les manifestants se sont tus.", "Au moment de l'arrivée du ministre, les manifestants se sont tus."]),
         tI('Format TCF. Écris le titre de presse.', "Le musée d'art de Lausanne rouvrira en mai.", "Réouverture du musée d'art de Lausanne en mai", 'Rouvrir, la réouverture. EN: noun first.', 'a9-construire', ["Réouverture en mai du musée d'art de Lausanne"]),
         eS("L'annulation du match de la fédération a surpris les joueurs.", "L'annulation du match par la fédération a surpris les joueurs.", 'Par dit qui annule. EN: par.', 'a8-piege'),
         lC('Format TEF, compréhension orale. Écoute cette annonce. Pourquoi le vol est-il retardé ?', ANNONCE_TEF, ['une panne technique', 'la météo', 'une grève'], 0, 'En raison d’une panne technique. EN: a technical fault.', 'a7-ecoute'),
@@ -2840,7 +2841,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     table('sheet-liens-table', 'Les prépositions', ['Préposition', 'Le lien', 'Exemple'], [
       ['en raison de', 'la cause, neutre, soignée', "En raison d'une grève, aucun train ne circulera demain."],
       ['à cause de, grâce à', 'la cause, négative ou positive', "J'ai réussi grâce à ton aide."],
-      ['à la suite de (suite à, courant)', 'ce qui a entraîné la suite', "À la suite d'une panne, le serveur a été redémarré."],
+      ['à la suite de (suite à : répandu, mais critiqué)', 'ce qui a entraîné la suite', "À la suite d'une panne, le serveur a été redémarré."],
       ['lors de', 'le moment', 'Lors de la réunion, la directrice a présenté le budget.'],
       ['dès', 'le point de départ', 'Dès réception du paiement, la commande sera expédiée.'],
       ['en vue de', 'le but', 'En vue du déménagement, chacun doit trier ses dossiers.'],
@@ -2959,7 +2960,7 @@ export const LESSON: Lesson = {
     'Zero-suffix and irregular action nouns (l’achat, le refus, la vente, la baisse, le départ, le choix) and participle nouns (la prise, la mise, la venue)',
     'Nouns of quality from adjectives with -ité, -eur, -esse, -ise, -ence and -ance, one-offs (la précision, la force, le calme) and le bonheur, le malheur',
     'Clause to noun phrase: quand, dès que, avant que, après que, pendant que, depuis que, parce que and si become a preposition plus a noun, with the subject as a possessive or a de-complement',
-    'Relation prepositions in a noun phrase: en raison de, à la suite de, lors de, en vue de, malgré, faute de, dès and en cas de, with suite à named as courant',
+    'Relation prepositions in a noun phrase: en raison de, à la suite de, lors de, en vue de, malgré, faute de, dès and en cas de, with suite à named as widespread but criticised by usage guides',
     'Doer and patient inside a noun phrase: de and the possessive, par beside a de-patient, contre, and the ambiguous de',
     'Nominal style in headlines, agenda points, minutes and summaries, with decisions keeping a verb',
     'The limit of nominalisation: chains of de, empty verbs (procéder à, effectuer, faire l’objet de) and unfolding nominal French for speech',

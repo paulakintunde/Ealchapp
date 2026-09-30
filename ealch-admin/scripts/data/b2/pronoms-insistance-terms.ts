@@ -106,7 +106,7 @@ export const PRONOMS_INSISTANCE_TERMS: Record<string, LessonTerm> = {
   soi: {
     term: 'le pronom soi',
     title: 'Soi, pour personne en particulier',
-    body: "Soi reprend un sujet qui ne désigne personne de précis : on, chacun, personne, tout le monde, il faut, un infinitif. Chacun pour soi, on est bien chez soi, il faut avoir confiance en soi. Dès que le sujet est une personne précise, c'est lui ou elle : Paul est rentré chez lui. EN: Soi refers back to an indefinite subject; a named person takes lui or elle.",
+    body: "Soi reprend un sujet qui ne désigne personne de précis : on, chacun, personne, tout le monde, il faut, un infinitif. Chacun pour soi, on est bien chez soi, il faut avoir confiance en soi. Après chacun, lui se dit aussi : chacun est rentré chez lui. Dès que le sujet est une personne précise, c'est lui ou elle : Paul est rentré chez lui. EN: Soi refers back to an indefinite subject; a named person takes lui or elle.",
     examples: [
       { itemId: E(1936), note: 'on : chez soi' },
       { itemId: E(1940), note: 'Paul : chez lui' },

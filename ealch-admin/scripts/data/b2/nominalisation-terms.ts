@@ -39,7 +39,7 @@ export const NOMINALISATION_TERMS: Record<string, LessonTerm> = {
   genre: {
     term: 'le genre',
     title: 'Le suffixe donne le genre',
-    body: "-ment et -age font des noms masculins ; -tion, -ure, -ée, -ance, -ité et -eur des noms féminins. Les pièges sont peu nombreux : la plage, la page, l'image, le silence, le musée, le bonheur. EN: The suffix almost always gives the gender; learn the few exceptions.",
+    body: "-ment et -age font des noms masculins ; -tion, -ure, -ée, -ance, -ité et le -eur de qualité (la lenteur) des noms féminins. Les pièges sont peu nombreux : la plage, la page, l'image, le silence, le musée, le bonheur. EN: The suffix almost always gives the gender; learn the few exceptions.",
     examples: [
       { itemId: E(1434), note: 'l’arrivée est prévue : féminin' },
       { itemId: E(1440), note: 'le stationnement : masculin' },
@@ -94,7 +94,7 @@ export const NOMINALISATION_TERMS: Record<string, LessonTerm> = {
   agent: {
     term: 'qui fait quoi',
     title: 'De, par, le possessif',
-    body: "Dans le groupe nominal, de introduit souvent ce qui subit l'action, et par celui qui la fait : l'annulation du vol par la compagnie. Quand de peut désigner les deux (la critique du ministre), ajoute par ou contre. EN: de often marks what undergoes the action, par the one who does it.",
+    body: "Dans le groupe nominal, de introduit souvent ce qui subit l'action, et par celui qui la fait : l'annulation du vol par la compagnie. Sans complément, de dit celui qui agit : l'arrivée du train. Quand de peut désigner les deux (la critique du ministre), ajoute par ou contre. EN: de often marks what undergoes the action, par the one who does it.",
     examples: [
       { itemId: E(1532), note: 'de subit, par agit' },
       { itemId: E(1530), note: 'de : celui qui décide' },
@@ -116,7 +116,7 @@ export const NOMINALISATION_TERMS: Record<string, LessonTerm> = {
   chaine: {
     term: 'la chaîne',
     title: 'Trop de noms à la suite',
-    body: "La chaîne, c'est de la... de la... de la... : chaque nom en ajoute un autre, et le lecteur doit tout déplier lui-même. Au-delà de deux noms enchaînés, rends-en un au verbe. EN: Past two nouns chained with de, turn one back into a verb.",
+    body: "La chaîne, c'est de la... de la... de la... : chaque nom en ajoute un autre, et le lecteur doit tout déplier lui-même. Au troisième de, rends un nom au verbe. EN: At the third de in a row, turn one noun back into a verb.",
     examples: [
       { itemId: E(1564), note: 'quatre noms enchaînés' },
       { itemId: E(1565), note: 'la même idée, dépliée' },

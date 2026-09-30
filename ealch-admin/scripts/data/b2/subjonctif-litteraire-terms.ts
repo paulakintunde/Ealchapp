@@ -32,7 +32,7 @@ export const SL_TERMS: Record<string, LessonTerm> = {
   chapeau: {
     term: 'le chapeau',
     title: 'Fut ou fût : un accent de différence',
-    body: "Au singulier, un accent circonflexe sépare le subjonctif du passé simple : il fut, qu'il fût ; il eut, qu'il eût ; il vint, qu'il vînt. À l'oreille, rien ne change : écoute plutôt le déclencheur devant que. EN: The circumflex marks the subjunctive in the singular; the ear hears no difference.",
+    body: "À la troisième personne du singulier, un accent circonflexe sépare le subjonctif du passé simple : il fut, qu'il fût ; il eut, qu'il eût ; il vint, qu'il vînt. À l'oreille, rien ne change : écoute plutôt le déclencheur devant que. EN: The circumflex marks the subjunctive in the third person singular; the ear hears no difference.",
     examples: [
       { itemId: E(1246), note: 'fut : un fait, au passé simple' },
       { itemId: E(1244), note: 'fût : un subjonctif, après il fallait que' },
@@ -98,7 +98,7 @@ export const SL_TERMS: Record<string, LessonTerm> = {
   aujourdhui: {
     term: 'aujourd’hui',
     title: 'Ce que tu dirais',
-    body: "Trois traductions suffisent. L'imparfait du subjonctif devient présent, le plus-que-parfait du subjonctif devient subjonctif passé, la deuxième forme devient conditionnel passé. Après si et comme si, le plus-que-parfait de l'indicatif. Le reste du texte ne bouge pas. EN: Three maps: present, past subjunctive, past conditional.",
+    body: "Trois traductions suffisent. L'imparfait du subjonctif devient présent, le plus-que-parfait du subjonctif devient subjonctif passé, la deuxième forme devient conditionnel passé. Après si et comme si, le plus-que-parfait de l'indicatif. Autour, le passé simple devient passé composé ; le reste ne bouge pas. EN: Three maps: present, past subjunctive, past conditional.",
     examples: [
       { itemId: E(1202), note: 'fût : soit' },
       { itemId: E(1278), note: 'eût travaillé : ait travaillé' },

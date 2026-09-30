@@ -1433,7 +1433,7 @@
         "chapeau": {
           "term": "le chapeau",
           "title": "Fut ou fût : un accent de différence",
-          "body": "Au singulier, un accent circonflexe sépare le subjonctif du passé simple : il fut, qu'il fût ; il eut, qu'il eût ; il vint, qu'il vînt. À l'oreille, rien ne change : écoute plutôt le déclencheur devant que. EN: The circumflex marks the subjunctive in the singular; the ear hears no difference.",
+          "body": "À la troisième personne du singulier, un accent circonflexe sépare le subjonctif du passé simple : il fut, qu'il fût ; il eut, qu'il eût ; il vint, qu'il vînt. À l'oreille, rien ne change : écoute plutôt le déclencheur devant que. EN: The circumflex marks the subjunctive in the third person singular; the ear hears no difference.",
           "examples": [
             {
               "itemId": "fr.b2.litterature.1246",
@@ -1547,7 +1547,7 @@
         "aujourdhui": {
           "term": "aujourd’hui",
           "title": "Ce que tu dirais",
-          "body": "Trois traductions suffisent. L'imparfait du subjonctif devient présent, le plus-que-parfait du subjonctif devient subjonctif passé, la deuxième forme devient conditionnel passé. Après si et comme si, le plus-que-parfait de l'indicatif. Le reste du texte ne bouge pas. EN: Three maps: present, past subjunctive, past conditional.",
+          "body": "Trois traductions suffisent. L'imparfait du subjonctif devient présent, le plus-que-parfait du subjonctif devient subjonctif passé, la deuxième forme devient conditionnel passé. Après si et comme si, le plus-que-parfait de l'indicatif. Autour, le passé simple devient passé composé ; le reste ne bouge pas. EN: Three maps: present, past subjunctive, past conditional.",
           "examples": [
             {
               "itemId": "fr.b2.litterature.1202",
@@ -2646,7 +2646,7 @@
               "head": "L’oreille ne voit rien",
               "label": "le piège",
               "fr": "Il fallait que ce fût un succès.",
-              "sub": "[eel fa-LEH | kuh suh FÜ | uhⁿ sük-SEH]",
+              "sub": "[eel fa-LEH | kuh suh fü-TUHⁿ sük-SEH]",
               "body": "Ce fût et ce fut se prononcent pareil. À l'oral, c'est le déclencheur qui te prévient : il fallait que, bien que, avant que. EN: you hear no difference; listen for the trigger."
             }
           ]
@@ -3039,7 +3039,7 @@
           "questions": [
             {
               "q": "Sépare les formes sans chapeau et les formes avec chapeau.",
-              "a": "Sans chapeau, des passés simples : fut (trois fois), tomba, se proposa, dit, partit, fit. Avec chapeau, des subjonctifs : descendît, fût, eût préféré, restât, eût (il n'y eût)."
+              "a": "Sans chapeau, des passés simples : fut (trois fois), tomba, se proposa, dit, partit, fit. Avec chapeau, des subjonctifs : descendît, fût, restât, eût (il n'y eût). Eût préféré, sans que, se lit aurait préféré."
             },
             {
               "q": "Dans « il fut de retour », pourquoi pas de chapeau ?",
@@ -4394,7 +4394,7 @@
             {
               "wrong": "On a dit un château de conte.",
               "right": "On aurait dit un château de conte.",
-              "why": "Normal : on eût dit ressemble à on eut dit, un passé simple. Mais le chapeau en fait une comparaison : on aurait dit. EN: it is a comparison, not something said."
+              "why": "Normal : on eût dit ressemble à on eut dit, un passé antérieur. Mais le chapeau en fait une comparaison : on aurait dit. EN: it is a comparison, not something said."
             },
             {
               "wrong": "Elle soit partie si elle avait pu.",
@@ -5397,10 +5397,10 @@
                   "note": "arriverions reste"
                 },
                 {
-                  "fr": "Elle s'est arrêtée, comme si elle avait entendu son nom.",
-                  "itemId": "fr.b2.litterature.1392",
-                  "en": "She stopped, as if she had heard her name.",
-                  "note": "avait entendu, après comme si"
+                  "fr": "Il était parti sans qu'on le remarque.",
+                  "itemId": "fr.b2.litterature.1323",
+                  "en": "He had left without anyone noticing.",
+                  "note": "était parti reste"
                 },
                 {
                   "fr": "Elle a attendu qu'il ait fini pour se lever.",
@@ -5819,10 +5819,10 @@
                   "note": "quoi qu’il en soit"
                 },
                 {
-                  "fr": "Je finirai ce livre, même si ça doit me prendre dix ans.",
+                  "fr": "Je finirai ce livre, même si ça devait me prendre dix ans.",
                   "itemId": "fr.b2.litterature.1359",
                   "en": "I will finish this book, even if it takes me ten years.",
-                  "note": "même si ça doit"
+                  "note": "même si ça devait"
                 }
               ],
               "check": {
@@ -5927,7 +5927,7 @@
             {
               "front": "dût-il",
               "back": "même s’il devait",
-              "say": "Je finirai ce livre, même si ça doit me prendre dix ans."
+              "say": "Je finirai ce livre, même si ça devait me prendre dix ans."
             },
             {
               "front": "qu’à cela ne tienne",
@@ -6997,6 +6997,7 @@
             "Accept the ne explétif or its absence after avoir peur que, craindre que and avant que (qu’elle ne parte, qu’elle parte). A real negation there is an error under « coherence ».",
             "Accept paraphrase of the literary wording (dire adieu or dire au revoir; bien qu’elle ait les larmes aux yeux or même si elle avait les larmes aux yeux; retenir or empêcher de partir) provided the meaning holds.",
             "Accept « il aurait fallu qu’on la retienne » or « quelqu’un aurait dû la retenir »: both keep the meaning.",
+            "The taught map for an imperfect subjunctive is the present subjunctive (bien qu’il soit tard). Also accept the subjonctif passé for a state that is simply over (bien qu’il ait été tard). Penalise a subjonctif passé under « correction » only when it turns a pending or ongoing action into a finished one (qu’elle soit partie for qu’elle partît, qu’elle ait vu Paris for qu’elle vît, qu’il ait plu depuis le matin for qu’il plût depuis le matin).",
             "Writer gender is unknown: judge agreements referring to the writer for internal consistency only.",
             "Feedback language: natural B2 French, addressed as « tu », with one short English gloss allowed per comment. Name the section to revisit from watchFor.ref. Cite other lessons by trail position (« la leçon 8 du B2 »), never by id."
           ],
@@ -7429,7 +7430,8 @@
                   "answer": "Ça a été un succès.",
                   "accept": [
                     "Ça a été un succès.",
-                    "Cela a été un succès."
+                    "Cela a été un succès.",
+                    "Ç'a été un succès."
                   ],
                   "why": "Fut, un fait : ça a été. EN: ça a été.",
                   "ref": "a3-piege"
@@ -7640,12 +7642,12 @@
                 {
                   "format": "errorSpot",
                   "q": "Une forme ne va pas dans cette version d’aujourd’hui. Écris la phrase correcte. EN: One form is wrong in this modern version; write the sentence correctly.",
-                  "prompt": "Il regrettait qu'elle l'ait jamais aimé.",
+                  "prompt": "Il regrettait qu'elle ne l'a jamais aimé.",
                   "answer": "Il regrettait qu'elle ne l'ait jamais aimé.",
                   "accept": [
                     "Il regrettait qu'elle ne l'ait jamais aimé."
                   ],
-                  "why": "Ne l’eût jamais aimé : une vraie négation, garde le ne. EN: keep ne.",
+                  "why": "Regretter que garde le subjonctif : ne l’eût jamais aimé devient ne l’ait jamais aimé. EN: ait, not a.",
                   "ref": "a5-piege"
                 },
                 {
@@ -8044,7 +8046,8 @@
                   "prompt": "Il ne voulait rien changer, même une virgule.",
                   "answer": "Il ne voulait rien changer, pas même une virgule.",
                   "accept": [
-                    "Il ne voulait rien changer, pas même une virgule."
+                    "Il ne voulait rien changer, pas même une virgule.",
+                    "Il ne voulait rien changer, même pas une virgule."
                   ],
                   "why": "Après une négation : pas même. EN: pas même.",
                   "ref": "a9-construire"
@@ -8745,7 +8748,7 @@
           },
           {
             "id": "rec-b2-09-concordance-ecoute",
-            "desc": "REQUIRED FOR THE EAR MISSION: ONE TAKE, ONE VOICE, lines in authored order, at natural B2 speed. Eight lines; each literary line is followed by its modern version with the same intonation, so the ear hears the meaning does not change."
+            "desc": "REQUIRED FOR THE EAR MISSION: ONE TAKE, ONE VOICE, lines in authored order, at natural B2 speed. Eight lines, literary and modern mixed (lines one and two, five and six are the same sentence in both forms); read every line with the same intonation, so the ear hears the meaning does not change."
           },
           {
             "id": "rec-b2-09-piege-concordance",
@@ -8824,7 +8827,7 @@
         "Zero-suffix and irregular action nouns (l’achat, le refus, la vente, la baisse, le départ, le choix) and participle nouns (la prise, la mise, la venue)",
         "Nouns of quality from adjectives with -ité, -eur, -esse, -ise, -ence and -ance, one-offs (la précision, la force, le calme) and le bonheur, le malheur",
         "Clause to noun phrase: quand, dès que, avant que, après que, pendant que, depuis que, parce que and si become a preposition plus a noun, with the subject as a possessive or a de-complement",
-        "Relation prepositions in a noun phrase: en raison de, à la suite de, lors de, en vue de, malgré, faute de, dès and en cas de, with suite à named as courant",
+        "Relation prepositions in a noun phrase: en raison de, à la suite de, lors de, en vue de, malgré, faute de, dès and en cas de, with suite à named as widespread but criticised by usage guides",
         "Doer and patient inside a noun phrase: de and the possessive, par beside a de-patient, contre, and the ambiguous de",
         "Nominal style in headlines, agenda points, minutes and summaries, with decisions keeping a verb",
         "The limit of nominalisation: chains of de, empty verbs (procéder à, effectuer, faire l’objet de) and unfolding nominal French for speech"
@@ -10107,7 +10110,7 @@
                   "J'ai réussi grâce à ton aide."
                 ],
                 [
-                  "à la suite de (suite à, courant)",
+                  "à la suite de (suite à : répandu, mais critiqué)",
                   "ce qui a entraîné la suite",
                   "À la suite d'une panne, le serveur a été redémarré."
                 ],
@@ -10319,7 +10322,7 @@
         "genre": {
           "term": "le genre",
           "title": "Le suffixe donne le genre",
-          "body": "-ment et -age font des noms masculins ; -tion, -ure, -ée, -ance, -ité et -eur des noms féminins. Les pièges sont peu nombreux : la plage, la page, l'image, le silence, le musée, le bonheur. EN: The suffix almost always gives the gender; learn the few exceptions.",
+          "body": "-ment et -age font des noms masculins ; -tion, -ure, -ée, -ance, -ité et le -eur de qualité (la lenteur) des noms féminins. Les pièges sont peu nombreux : la plage, la page, l'image, le silence, le musée, le bonheur. EN: The suffix almost always gives the gender; learn the few exceptions.",
           "examples": [
             {
               "itemId": "fr.b2.langue-soignee.1434",
@@ -10414,7 +10417,7 @@
         "agent": {
           "term": "qui fait quoi",
           "title": "De, par, le possessif",
-          "body": "Dans le groupe nominal, de introduit souvent ce qui subit l'action, et par celui qui la fait : l'annulation du vol par la compagnie. Quand de peut désigner les deux (la critique du ministre), ajoute par ou contre. EN: de often marks what undergoes the action, par the one who does it.",
+          "body": "Dans le groupe nominal, de introduit souvent ce qui subit l'action, et par celui qui la fait : l'annulation du vol par la compagnie. Sans complément, de dit celui qui agit : l'arrivée du train. Quand de peut désigner les deux (la critique du ministre), ajoute par ou contre. EN: de often marks what undergoes the action, par the one who does it.",
           "examples": [
             {
               "itemId": "fr.b2.langue-soignee.1532",
@@ -10452,7 +10455,7 @@
         "chaine": {
           "term": "la chaîne",
           "title": "Trop de noms à la suite",
-          "body": "La chaîne, c'est de la... de la... de la... : chaque nom en ajoute un autre, et le lecteur doit tout déplier lui-même. Au-delà de deux noms enchaînés, rends-en un au verbe. EN: Past two nouns chained with de, turn one back into a verb.",
+          "body": "La chaîne, c'est de la... de la... de la... : chaque nom en ajoute un autre, et le lecteur doit tout déplier lui-même. Au troisième de, rends un nom au verbe. EN: At the third de in a row, turn one noun back into a verb.",
           "examples": [
             {
               "itemId": "fr.b2.langue-soignee.1564",
@@ -11219,7 +11222,7 @@
                 {
                   "fr": "entrer, l'entrée",
                   "itemId": "fr.b2.langue-soignee.1416",
-                  "en": "to go in, the entrance",
+                  "en": "to enter, entry",
                   "note": "entrer"
                 },
                 {
@@ -11806,9 +11809,9 @@
               "check": {
                 "q": "Quel nom est masculin ?",
                 "opts": [
-                  "le musée",
-                  "la plage",
-                  "la page"
+                  "musée",
+                  "plage",
+                  "page"
                 ],
                 "correct": 0,
                 "why": "Le musée, malgré -ée. EN: a masculine -ée."
@@ -12260,7 +12263,7 @@
               "label": "partir, choisir, commencer",
               "fr": "le départ · le choix · le début",
               "sub": "[luh day-PAR] · [luh SHWA] · [luh day-BÜ]",
-              "body": "Certains noms ont une autre forme, ou un autre mot : partir, le départ ; choisir, le choix ; commencer, le début. Ceux-là s'apprennent un par un. EN: some nouns have to be learnt one by one."
+              "body": "Certains noms ont une autre forme, ou un autre mot : partir, le départ ; choisir, le choix ; commencer, le début (le commencement existe aussi, plus rare). Ceux-là s'apprennent un par un. EN: some nouns have to be learnt one by one."
             }
           ]
         },
@@ -12355,7 +12358,7 @@
                 {
                   "fr": "mettre en ligne, la mise en ligne",
                   "itemId": "fr.b2.langue-soignee.1453",
-                  "en": "to put online, the going live",
+                  "en": "to put online, putting online",
                   "note": "mis, la mise"
                 },
                 {
@@ -12525,7 +12528,7 @@
             {
               "wrong": "Le partement du train est retardé de vingt minutes.",
               "right": "Le départ du train est retardé de vingt minutes.",
-              "why": "Normal : départ ne ressemble pas à partir. Mais le partement n'existe pas. EN: départ is the noun."
+              "why": "Normal : on part de partir et on ajoute -ment. Mais le partement n'existe pas : le nom est le départ. EN: départ is the noun."
             },
             {
               "wrong": "L'achètement des billets se fait uniquement en ligne.",
@@ -14127,7 +14130,7 @@
               "say": "À la suite d'une panne, le serveur a été redémarré.",
               "detail": {
                 "title": "à la suite de",
-                "body": "Un événement antérieur qui a entraîné la suite. Suite à s'entend beaucoup dans les courriels ; à la suite de reste plus soigné. EN: following.",
+                "body": "Un événement antérieur qui a entraîné la suite. Suite à est très répandu dans les courriels et le français administratif, mais plusieurs guides d'usage le critiquent ; à la suite de reste la forme soignée, que personne ne reproche. EN: following; suite à is widespread but criticised by some usage guides.",
                 "say": "Suite à votre demande, je vous envoie le formulaire."
               }
             },
@@ -14237,7 +14240,7 @@
                 "q": "« … l’inventaire, le magasin fermera plus tôt. » (pour pouvoir le faire)",
                 "opts": [
                   "En vue de",
-                  "En raison de",
+                  "Faute de",
                   "Malgré"
                 ],
                 "correct": 0,
@@ -14449,7 +14452,7 @@
           "questions": [
             {
               "q": "Complète : (la cause) du brouillard ; (ce qui s’est passé avant) d’un incident technique.",
-              "a": "En raison du brouillard, plusieurs vols sont retardés. À la suite d'un incident technique, le vol pour Paris est annulé."
+              "a": "En raison du brouillard (ou à cause du brouillard), plusieurs vols sont retardés. À la suite d'un incident technique, le vol pour Paris est annulé."
             },
             {
               "q": "Complète : (le moment) de l’embarquement ; (la condition) de retard.",
@@ -14599,8 +14602,8 @@
             }
           ],
           "closing": {
-            "fr": "Dans un groupe nominal, de et le possessif restent flous ; par et contre disent qui fait quoi.",
-            "en": "In a noun phrase, de and the possessive stay vague; par and contre say who does what."
+            "fr": "Dans un groupe nominal, de et le possessif peuvent rester flous ; par et contre disent qui fait quoi.",
+            "en": "In a noun phrase, de and the possessive can stay vague; par and contre say who does what."
           },
           "audio": {
             "mode": "tts",
@@ -15466,7 +15469,7 @@
             },
             {
               "q": "Écris la première phrase du chapeau : la cause et la date.",
-              "a": "À la suite de la découverte de fissures dans la dalle, la Ville fermera la patinoire à partir de lundi."
+              "a": "À la suite de la découverte de fissures dans la dalle, la Ville ferme la patinoire pendant trois semaines ; les réparations commencent lundi."
             },
             {
               "q": "Écris la deuxième phrase du chapeau : la solution et la promesse.",
@@ -15575,7 +15578,7 @@
               "from": "coach",
               "fr": "À la radio, personne ne suit cette chaîne. Qui fait quoi, et pourquoi.",
               "en": "On the radio, nobody can follow that chain. Who does what, and why.",
-              "warn": "Quatre noms à la suite"
+              "warn": "Quatre de à la suite"
             },
             {
               "from": "user",
@@ -15660,7 +15663,7 @@
               "label": "de la… de la…",
               "fr": "La mise en œuvre de l'amélioration de la réduction des retards est nécessaire.",
               "sub": "[la mee-zahⁿ-NUHVR | duh la-may-lyo-ra-SYOHⁿ | duh la ray-dük-SYOHⁿ day ruh-TAR | eh nay-say-SEHR]",
-              "body": "Quatre noms enchaînés par de : le lecteur doit tout déplier lui-même. Au-delà de deux, la phrase décroche. EN: past two chained nouns, the reader is lost."
+              "body": "Quatre noms enchaînés par trois de : le lecteur doit tout déplier lui-même. Au troisième de, la phrase décroche. EN: at the third de in a row, the reader is lost."
             },
             {
               "head": "Le verbe vide",
@@ -15781,7 +15784,7 @@
                   "autant qu’on veut"
                 ],
                 "correct": 0,
-                "why": "Au-delà de deux, déplie. EN: past two, unfold."
+                "why": "Au-delà, la phrase s’alourdit ; au troisième de, déplie. EN: beyond that it gets heavy; at the third de, unfold."
               }
             }
           ],
@@ -16302,8 +16305,8 @@
             "En vue du salon de Toronto,",
             "Nous suggérons"
           ],
-          "modelAnswer": "Objet : compte rendu du salon de Montréal (4 au 6 mars)\n\nBonjour à toutes et à tous,\n\nVoici le bilan de notre participation au salon de Montréal. Il reprend les notes d'Inès Martin, présente sur le stand du mardi au jeudi.\n\nDéroulement. Dès l'installation du stand, mardi matin, l'affluence a été forte. La présentation de notre nouvelle application a suscité un vif intérêt : les visiteurs ont salué sa rapidité et sa simplicité. En revanche, plusieurs d'entre eux ont jugé nos prix trop élevés.\n\nIncident. Mercredi, à la suite d'une panne de courant, la conférence de Karim a été annulée par l'organisateur. Cette annulation nous a privés d'une partie des contacts prévus.\n\nRésultats. Point très positif : la signature de deux contrats de distribution, l'un à Québec, l'autre à Ottawa. Ces accords ouvrent deux nouveaux marchés à l'entreprise. Par ailleurs, avant notre départ, jeudi, la directrice d'un grand magasin est venue au stand. Elle souhaite être rappelée.\n\nRecommandations. Le bilan est donc globalement positif, malgré l'incident de mercredi. En vue du salon de Toronto, nous proposons une révision de nos tarifs, qui semblent freiner certains clients. Nous suggérons aussi de rappeler rapidement la directrice du magasin, dont l'intérêt paraissait réel.\n\nMerci à toute l'équipe pour son travail et sa bonne humeur.\n\nCamille Roy, pour l'équipe commerciale\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : un objet, quatre rubriques, tous les faits du message et aucun fait inventé ; environ 190 mots de corps.\n2. Cohérence : des rubriques dans l'ordre du temps puis du bilan ; les liens sont dits (à la suite de, en revanche, par ailleurs, donc) ; « cette annulation » reprend la phrase précédente.\n3. Étendue : des noms d'action (l'installation, la présentation, la signature, une révision), un nom court (notre départ), des noms de qualité (sa rapidité, sa simplicité), une proposition pliée (à la suite d'une panne), qui fait quoi (annulée par l'organisateur), et des verbes précis à côté (a suscité, ont jugé, ouvrent).\n4. Correction : des noms qui existent, au bon genre, et jamais trois de à la suite.\n5. Registre : un écrit professionnel courant ; les mots de l'oral d'Inès (bon, du coup, pas mal, voilà) ont disparu.",
-          "modelAnswerEn": "Subject: report on the Montréal fair (4 to 6 March). Hello everyone, here is a review of our time at the Montréal fair. It is based on the notes of Inès Martin, who was on the stand from Tuesday to Thursday. How it went. As soon as the stand was set up on Tuesday morning, there were crowds. The presentation of our new app aroused keen interest: visitors praised its speed and simplicity. On the other hand, several of them felt our prices were too high. Incident. On Wednesday, following a power cut, Karim's talk was cancelled by the organiser. This cancellation cost us some of the contacts we had planned. Results. A very positive point: two distribution contracts were signed, one in Québec City and one in Ottawa. These agreements open two new markets for the company. Also, before we left on Thursday, the manager of a big department store came to the stand. She would like a call back. Recommendations. Overall, then, a positive review, despite Wednesday's incident. Ahead of the Toronto fair, we propose a review of our prices, which seem to hold some customers back. We also suggest calling the store manager back quickly, as her interest seemed genuine. Thanks to the whole team for their work and good humour. Camille Roy, for the sales team. The marker's notes (not counted): 1. Task: a subject line, four headings, every fact of the message and none invented; about 190 words of body. 2. Coherence: headings in time order, then the review; links are stated; « cette annulation » picks up the previous sentence. 3. Range: action nouns, a short noun, nouns of quality, a folded clause, who does what, and precise verbs alongside. 4. Accuracy: real nouns, right genders, never three de in a row. 5. Register: everyday professional writing; Inès's spoken fillers are gone.",
+          "modelAnswer": "Objet : compte rendu du salon de Montréal\n\nBonjour à toutes et à tous,\n\nVoici le bilan de notre participation au salon de Montréal. Il reprend les notes d'Inès Martin, présente sur le stand du mardi au jeudi.\n\nDéroulement. Dès l'installation du stand, mardi matin, l'affluence a été forte. La présentation de notre nouvelle application a suscité un vif intérêt : les visiteurs ont salué sa rapidité et sa simplicité. En revanche, plusieurs d'entre eux ont jugé nos prix trop élevés.\n\nIncident. Mercredi, à la suite d'une panne de courant, la conférence de Karim a été annulée par l'organisateur. Cette annulation nous a privés d'une partie des contacts prévus.\n\nRésultats. Point très positif : la signature de deux contrats de distribution, l'un à Québec, l'autre à Ottawa. Ces accords ouvrent deux nouveaux marchés à l'entreprise. Par ailleurs, avant notre départ, jeudi, la directrice d'un grand magasin est venue au stand. Elle souhaite être rappelée.\n\nRecommandations. Le bilan est donc globalement positif, malgré l'incident de mercredi. En vue du salon de Toronto, nous proposons une révision de nos tarifs, qui semblent freiner certains clients. Nous suggérons aussi de rappeler rapidement la directrice du magasin, dont l'intérêt paraissait réel.\n\nMerci à toute l'équipe pour son travail et sa bonne humeur.\n\nCamille Roy, pour l'équipe commerciale\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : un objet, quatre rubriques, tous les faits du message et aucun fait inventé ; environ 190 mots de corps.\n2. Cohérence : des rubriques dans l'ordre du temps puis du bilan ; les liens sont dits (à la suite de, en revanche, par ailleurs, donc) ; « cette annulation » reprend la phrase précédente.\n3. Étendue : des noms d'action (l'installation, la présentation, la signature, une révision), un nom court (notre départ), des noms de qualité (sa rapidité, sa simplicité), une proposition pliée (à la suite d'une panne), qui fait quoi (annulée par l'organisateur), et des verbes précis à côté (a suscité, ont jugé, ouvrent).\n4. Correction : des noms qui existent, au bon genre, et jamais trois de à la suite.\n5. Registre : un écrit professionnel courant ; les mots de l'oral d'Inès (bon, du coup, pas mal, voilà) ont disparu.",
+          "modelAnswerEn": "Subject: report on the Montréal fair. Hello everyone, here is a review of our time at the Montréal fair. It is based on the notes of Inès Martin, who was on the stand from Tuesday to Thursday. How it went. As soon as the stand was set up on Tuesday morning, there were crowds. The presentation of our new app aroused keen interest: visitors praised its speed and simplicity. On the other hand, several of them felt our prices were too high. Incident. On Wednesday, following a power cut, Karim's talk was cancelled by the organiser. This cancellation cost us some of the contacts we had planned. Results. A very positive point: two distribution contracts were signed, one in Québec City and one in Ottawa. These agreements open two new markets for the company. Also, before we left on Thursday, the manager of a big department store came to the stand. She would like a call back. Recommendations. Overall, then, a positive review, despite Wednesday's incident. Ahead of the Toronto fair, we propose a review of our prices, which seem to hold some customers back. We also suggest calling the store manager back quickly, as her interest seemed genuine. Thanks to the whole team for their work and good humour. Camille Roy, for the sales team. The marker's notes (not counted): 1. Task: a subject line, four headings, every fact of the message and none invented; about 190 words of body. 2. Coherence: headings in time order, then the review; links are stated; « cette annulation » picks up the previous sentence. 3. Range: action nouns, a short noun, nouns of quality, a folded clause, who does what, and precise verbs alongside. 4. Accuracy: real nouns, right genders, never three de in a row. 5. Register: everyday professional writing; Inès's spoken fillers are gone.",
           "watchFor": [
             {
               "pattern": "A near-transcription of the voicemail: every fact still a verbal clause, with the spoken order and connectors (et puis, du coup).",
@@ -16381,7 +16384,7 @@
           "graderNotes": [
             "Count the words of the body only; the subject line, greeting and signature do not count. 180 to 250 with 10% tolerance (162 to 275) before criterion « tache » loses a point. responseSpec allows 275.",
             "Judge nominalisation by fit, not by count. A clear sentence that keeps a verb is never an error; a correct noun phrase that makes the sentence heavier gains nothing under « etendue ». The target is a readable report, not a maximum of nouns.",
-            "« Suite à » is courant, not an error: accept it and do not penalise it; « à la suite de » is the soigné form.",
+            "« Suite à » is widespread in business and administrative French, though the Académie française and some usage guides advise against it: accept it and never count it as an error; « à la suite de » is the form no guide objects to. Feedback may mention it once, as a register tip.",
             "Accept either register-appropriate headline form: nominal (« Signature de deux contrats ») or participial (« Deux contrats signés »).",
             "Do not penalise a correct subjunctive after avant que (lesson 6 in B2) where the learner keeps the clause; the noun phrase avant notre départ is rewarded but not required.",
             "A chain of three or more de, or an empty verb (procéder à, effectuer, faire l’objet de), costs one point under « registre » once, not per occurrence.",
@@ -16628,7 +16631,7 @@
               "say": "Le paiement doit être effectué avant la livraison.",
               "detail": {
                 "title": "Le genre",
-                "body": "-tion, -ure, -ée, -ance, -ité, -eur : féminin. Les intrus : la plage, le silence, le musée, le bonheur. EN: the suffix gives the gender.",
+                "body": "-tion, -ure, -ée, -ance, -ité, -eur de qualité : féminin. Les intrus : la plage, le silence, le musée, le bonheur. EN: the suffix gives the gender.",
                 "say": "La plage a été fermée au public tout l'été."
               }
             },
@@ -16804,7 +16807,8 @@
                   "prompt": "L'augmentement des salaires entrera en vigueur en janvier.",
                   "answer": "L'augmentation des salaires entrera en vigueur en janvier.",
                   "accept": [
-                    "L'augmentation des salaires entrera en vigueur en janvier."
+                    "L'augmentation des salaires entrera en vigueur en janvier.",
+                    "La hausse des salaires entrera en vigueur en janvier."
                   ],
                   "why": "Augmenter, l’augmentation. EN: -ation.",
                   "ref": "a2-erreurs"
@@ -16815,7 +16819,8 @@
                   "prompt": "La lancée du site est prévue pour lundi.",
                   "answer": "Le lancement du site est prévu pour lundi.",
                   "accept": [
-                    "Le lancement du site est prévu pour lundi."
+                    "Le lancement du site est prévu pour lundi.",
+                    "La mise en ligne du site est prévue pour lundi."
                   ],
                   "why": "Le lancement, masculin : prévu. EN: le lancement.",
                   "ref": "a2-erreurs"
@@ -16867,9 +16872,9 @@
                   "format": "mcq",
                   "q": "Quel nom est féminin malgré -age ?",
                   "opts": [
-                    "le passage",
-                    "le nettoyage",
-                    "la plage"
+                    "passage",
+                    "nettoyage",
+                    "plage"
                   ],
                   "correct": 2,
                   "why": "La plage ne vient d’aucun verbe. EN: no verb behind it.",
@@ -16879,9 +16884,9 @@
                   "format": "mcq",
                   "q": "Quel nom est masculin malgré son suffixe ?",
                   "opts": [
-                    "la patience",
-                    "le silence",
-                    "la présence"
+                    "patience",
+                    "silence",
+                    "présence"
                   ],
                   "correct": 1,
                   "why": "Le silence, l’exception en -ence. EN: an outsider.",
@@ -16893,7 +16898,8 @@
                   "prompt": "L'ouverture du salon est (fixer) au trois juin.",
                   "answer": "L'ouverture du salon est fixée au trois juin.",
                   "accept": [
-                    "L'ouverture du salon est fixée au trois juin."
+                    "L'ouverture du salon est fixée au trois juin.",
+                    "fixée"
                   ],
                   "why": "-ure : féminin, fixée. EN: fixée.",
                   "ref": "a3-construire"
@@ -16904,7 +16910,8 @@
                   "prompt": "(Le / La) chargement des camions commence à six heures.",
                   "answer": "Le chargement des camions commence à six heures.",
                   "accept": [
-                    "Le chargement des camions commence à six heures."
+                    "Le chargement des camions commence à six heures.",
+                    "le"
                   ],
                   "why": "-ment : masculin. EN: le.",
                   "ref": "a3-construire"
@@ -17199,7 +17206,8 @@
                   "prompt": "Pendant qu'on rénove la gare, les trains s'arrêtent à Renens.",
                   "answer": "Pendant la rénovation de la gare, les trains s'arrêtent à Renens.",
                   "accept": [
-                    "Pendant la rénovation de la gare, les trains s'arrêtent à Renens."
+                    "Pendant la rénovation de la gare, les trains s'arrêtent à Renens.",
+                    "Durant la rénovation de la gare, les trains s'arrêtent à Renens."
                   ],
                   "why": "Pendant la rénovation. EN: pendant + nom.",
                   "ref": "a6-exemples"
@@ -17211,7 +17219,9 @@
                   "answer": "En raison de la hausse des prix, les ventes ont baissé.",
                   "accept": [
                     "En raison de la hausse des prix, les ventes ont baissé.",
-                    "À cause de la hausse des prix, les ventes ont baissé."
+                    "À cause de la hausse des prix, les ventes ont baissé.",
+                    "Du fait de la hausse des prix, les ventes ont baissé.",
+                    "Parce que les prix ont augmenté, les ventes ont baissé."
                   ],
                   "why": "Devant un nom : en raison de. EN: a preposition.",
                   "ref": "a6-piege"
@@ -17275,7 +17285,7 @@
                   "format": "mcq",
                   "q": "« … la hausse des prix, les ventes ont progressé. »",
                   "opts": [
-                    "En raison de",
+                    "Faute de",
                     "Malgré"
                   ],
                   "correct": 1,
@@ -17301,7 +17311,12 @@
                   "accept": [
                     "En vue du déménagement, chacun doit trier ses dossiers.",
                     "en vue du déménagement",
-                    "en vue du"
+                    "en vue du",
+                    "en vue",
+                    "en vue de",
+                    "en prévision du",
+                    "en prévision du déménagement",
+                    "En prévision du déménagement, chacun doit trier ses dossiers."
                   ],
                   "why": "En vue de : le but. EN: en vue de.",
                   "ref": "a7-table"
@@ -17313,7 +17328,12 @@
                   "answer": "Faute d'argent, ils ont renoncé au voyage.",
                   "accept": [
                     "Faute d'argent, ils ont renoncé au voyage.",
-                    "faute d'argent"
+                    "faute d'argent",
+                    "faute d'",
+                    "faute de",
+                    "par manque d'",
+                    "par manque d'argent",
+                    "Par manque d'argent, ils ont renoncé au voyage."
                   ],
                   "why": "Faute de, sans article. EN: faute d’argent.",
                   "ref": "a7-choisir"
@@ -17325,7 +17345,9 @@
                   "answer": "Malgré la pluie, le match a eu lieu.",
                   "accept": [
                     "Malgré la pluie, le match a eu lieu.",
-                    "Bien qu'il pleuve, le match a eu lieu."
+                    "Bien qu'il pleuve, le match a eu lieu.",
+                    "Bien qu'il ait plu, le match a eu lieu.",
+                    "Quoiqu'il pleuve, le match a eu lieu."
                   ],
                   "why": "Malgré + nom, ou bien que + subjonctif. EN: malgré takes a noun.",
                   "ref": "a7-erreurs"
@@ -17495,7 +17517,12 @@
                   "prompt": "On va modifier les horaires de la piscine à partir de lundi.",
                   "answer": "Modification des horaires de la piscine à partir de lundi",
                   "accept": [
-                    "Modification des horaires de la piscine à partir de lundi"
+                    "Modification des horaires de la piscine à partir de lundi",
+                    "Modification des horaires de la piscine dès lundi",
+                    "Changement des horaires de la piscine à partir de lundi",
+                    "Changement des horaires de la piscine dès lundi",
+                    "Nouveaux horaires de la piscine à partir de lundi",
+                    "Nouveaux horaires de la piscine dès lundi"
                   ],
                   "why": "Modifier, la modification. EN: noun first.",
                   "ref": "a9-construire"
@@ -17506,7 +17533,8 @@
                   "prompt": "On plantera trois arbres sur la place Bellecour.",
                   "answer": "Plantation de trois arbres sur la place Bellecour",
                   "accept": [
-                    "Plantation de trois arbres sur la place Bellecour"
+                    "Plantation de trois arbres sur la place Bellecour",
+                    "Plantation de trois arbres place Bellecour"
                   ],
                   "why": "Planter, la plantation. EN: noun first.",
                   "ref": "a9-exemples"
@@ -17528,7 +17556,8 @@
                   "prompt": "Démission du présidente du club",
                   "answer": "Démission de la présidente du club",
                   "accept": [
-                    "Démission de la présidente du club"
+                    "Démission de la présidente du club",
+                    "Démission du président du club"
                   ],
                   "why": "De la présidente : féminin. EN: de la.",
                   "ref": "a9-construire"
@@ -17612,11 +17641,13 @@
                 {
                   "format": "typeIn",
                   "q": "Déplie pour l’oral.",
-                  "prompt": "L'amélioration de la qualité de l'accueil des usagers est notre priorité.",
+                  "prompt": "L'amélioration de la qualité de l'accueil des usagers est notre priorité. (Nous voulons … les usagers.)",
                   "answer": "Nous voulons mieux accueillir les usagers.",
                   "accept": [
                     "Nous voulons mieux accueillir les usagers.",
-                    "Nous voulons accueillir mieux les usagers."
+                    "Nous voulons accueillir mieux les usagers.",
+                    "mieux accueillir",
+                    "accueillir mieux"
                   ],
                   "why": "Un sujet, un verbe. EN: we want to welcome users better.",
                   "ref": "a10-erreurs"
@@ -17716,7 +17747,8 @@
                   "answer": "Dès la signature, nous lancerons l'impression.",
                   "accept": [
                     "Dès la signature, nous lancerons l'impression.",
-                    "Dès votre signature, nous lancerons l'impression."
+                    "Dès votre signature, nous lancerons l'impression.",
+                    "Dès signature, nous lancerons l'impression."
                   ],
                   "why": "Dès que vous aurez signé devient dès la signature. EN: dès + noun.",
                   "ref": "a6-construire"
@@ -17812,7 +17844,8 @@
                   "accept": [
                     "À l'arrivée du ministre, les manifestants se sont tus.",
                     "Dès l'arrivée du ministre, les manifestants se sont tus.",
-                    "Lors de l'arrivée du ministre, les manifestants se sont tus."
+                    "Lors de l'arrivée du ministre, les manifestants se sont tus.",
+                    "Au moment de l'arrivée du ministre, les manifestants se sont tus."
                   ],
                   "why": "Quand devient à + nom. EN: à l’arrivée de.",
                   "ref": "a6-construire"
@@ -20185,7 +20218,7 @@
         "soi": {
           "term": "le pronom soi",
           "title": "Soi, pour personne en particulier",
-          "body": "Soi reprend un sujet qui ne désigne personne de précis : on, chacun, personne, tout le monde, il faut, un infinitif. Chacun pour soi, on est bien chez soi, il faut avoir confiance en soi. Dès que le sujet est une personne précise, c'est lui ou elle : Paul est rentré chez lui. EN: Soi refers back to an indefinite subject; a named person takes lui or elle.",
+          "body": "Soi reprend un sujet qui ne désigne personne de précis : on, chacun, personne, tout le monde, il faut, un infinitif. Chacun pour soi, on est bien chez soi, il faut avoir confiance en soi. Après chacun, lui se dit aussi : chacun est rentré chez lui. Dès que le sujet est une personne précise, c'est lui ou elle : Paul est rentré chez lui. EN: Soi refers back to an indefinite subject; a named person takes lui or elle.",
           "examples": [
             {
               "itemId": "fr.b2.pronoms-essentiels.1936",
@@ -21186,7 +21219,7 @@
               "say": "Eux, ils veulent un jardin ; elles, elles préfèrent un parking."
             },
             {
-              "front": "I have no idea, myself",
+              "front": "don't ask me, I have no idea",
               "back": "je n'en sais rien, moi",
               "say": "Je n'en sais rien, moi."
             },
@@ -21380,7 +21413,7 @@
               "label": "en tête",
               "fr": "Ce livre, je l'ai lu en une nuit.",
               "sub": "[suh LEEVR | zhuh lay lü ahⁿ-nün NWEE]",
-              "body": "Le mot détaché ouvre la phrase ; l' le reprend devant le verbe. Sans lui, la phrase boite : ce livre, j'ai lu. EN: detached first, picked up by a pronoun."
+              "body": "Le mot détaché ouvre la phrase ; l' le reprend devant le verbe. Sans ce petit mot, la phrase boite : ce livre, j'ai lu. EN: detached first, picked up by a pronoun."
             },
             {
               "head": "À droite",
@@ -21857,7 +21890,7 @@
             },
             {
               "from": "user",
-              "fr": "Les deux autres gardiens ont fait leur ronde. Eux ont tout fermé, moi, je suis resté à l'accueil.",
+              "fr": "Les deux autres gardiens ont fait leur ronde. Eux ont tout fermé ; moi, je suis resté à l'accueil.",
               "en": "The two other guards did their round. They locked everything; I stayed at reception."
             },
             {
@@ -23878,7 +23911,7 @@
           "questionsInModal": true,
           "title": "Dans un texte",
           "frSub": "Compléter : le message d’Amina",
-          "text": "Amina écrit au groupe du jardin partagé. Complète chaque blanc avec même, mêmes, aussi, seuls, tous ou deux. « Bonjour à tous ! Samedi, nous avons monté la serre nous-(…), sans aucune aide. Les enfants (…) ont planté des tomates. Vous (…), vous êtes invités à la fête de dimanche. Paul et Léo, vous (…), vous apportez les chaises ? Eux (…) connaissent le code du cadenas : ne partez pas avant eux. Et Mme Roy, elle-(…), m'a promis qu'elle viendrait. »",
+          "text": "Amina écrit au groupe du jardin partagé. Complète chaque blanc avec même, mêmes, aussi, seuls, tous ou deux : chaque mot sert une fois. « Bonjour à tous ! Samedi, nous avons monté la serre nous-(…), sans aucune aide. Les enfants (…) ont planté des tomates. Vous (…), vous êtes invités à la fête de dimanche. Paul et Léo, vous (…), vous apportez les chaises ? Eux (…) connaissent le code du cadenas : ne partez pas avant eux. Et Mme Roy, elle-(…), m'a promis qu'elle viendrait. »",
           "questions": [
             {
               "q": "Complète le début : nous-(…) ; les enfants (…).",
@@ -24645,7 +24678,7 @@
               "label": "soi",
               "fr": "Chacun est rentré chez soi.",
               "sub": "[sha-kuhⁿ-neh rahⁿ-TRAY | shay SWA]",
-              "body": "Un sujet qui ne désigne personne de précis appelle soi : on, chacun, personne, tout le monde. EN: an indefinite subject takes soi."
+              "body": "Un sujet qui ne désigne personne de précis appelle soi : on, chacun, personne, tout le monde. Après chacun, lui se dit aussi : chacun est rentré chez lui. EN: an indefinite subject takes soi; after chacun, lui is also used."
             },
             {
               "head": "Un sujet précis",
@@ -24945,7 +24978,7 @@
           "questions": [
             {
               "q": "Complète les règles un et deux.",
-              "a": "Derrière soi (le sujet est chacun) ; sur soi (le sujet est on)."
+              "a": "Derrière soi (le sujet est chacun ; derrière lui se dit aussi) ; sur soi (le sujet est on)."
             },
             {
               "q": "Et la règle trois ?",
@@ -25106,7 +25139,7 @@
               "label": "Lesson 34 in A2",
               "fr": "Ce vélo est à eux, pas à nous.",
               "sub": "[suh vay-LOH | eh-ta EU | pa-za NOO]",
-              "body": "Être à quelqu'un : ce vélo est à eux. C'est la façon parlée de dire c'est le leur. EN: être à + pronoun, possession."
+              "body": "Être à quelqu'un : ce vélo est à eux, il leur appartient. Avec le pronom possessif, on dirait c'est le leur. EN: être à + pronoun, possession."
             },
             {
               "head": "À qui le tour",
@@ -25127,7 +25160,7 @@
               "label": "lever le doute",
               "fr": "C'est son livre à elle, pas à lui.",
               "sub": "[seh sohⁿ LEEVR a EL | pa-za LWEE]",
-              "body": "Son livre peut être à lui ou à elle. À elle lève le doute et insiste : son livre à elle, pas à lui. EN: à elle says whose son it is."
+              "body": "Son livre peut être à lui ou à elle. À elle lève le doute et insiste : son livre à elle, pas à lui. EN: à elle says whose book it is."
             }
           ]
         },
@@ -25266,9 +25299,9 @@
               "why": "Normal : le à se perd à l'oral rapide. Mais sans à, la phrase ne dit plus à qui revient le rôle. EN: keep à."
             },
             {
-              "wrong": "C'est son livre de elle, pas de lui.",
+              "wrong": "C'est son livre d'elle, pas de lui.",
               "right": "C'est son livre à elle, pas à lui.",
-              "why": "Normal : de sert souvent à dire à qui. Mais pour préciser son, sa, ses, on dit à elle, à lui. EN: à elle, not de elle."
+              "why": "Normal : de sert souvent à dire à qui. Mais pour préciser son, sa, ses, on dit à elle, à lui. EN: à elle, not d'elle."
             }
           ],
           "audio": {
@@ -25325,7 +25358,7 @@
             },
             {
               "q": "Complète le troisième.",
-              "a": "Une amie à moi : une de mes amies."
+              "a": "Une amie à moi : une de mes amies. Une amie à elle (une amie de Clara) va aussi."
             },
             {
               "q": "Complète les deux derniers.",
@@ -25387,7 +25420,7 @@
                 "q": "« C’est son sac … » (le sac d’une femme)",
                 "opts": [
                   "à elle",
-                  "de elle"
+                  "d’elle"
                 ],
                 "correct": 0,
                 "why": "À elle lève le doute de son. EN: à elle."
@@ -25502,7 +25535,7 @@
               "say": "Nous, on n'est pas d'accord.",
               "detail": {
                 "title": "Nous, on",
-                "body": "À l'écrit, on retire le détachement et on garde nous. EN: nous alone in writing.",
+                "body": "À l'écrit, on garde nous sans on : nous ne sommes pas d'accord. Pour insister, on redouble : nous, nous avons voté pour la comédie. EN: nous without on in writing; nous, nous to insist.",
                 "say": "Nous, nous avons voté pour la comédie."
               }
             },
@@ -26068,8 +26101,8 @@
               "userEn": "It is not up to me alone to decide: let us all vote together. (À moi seul de: whose role it is.)",
               "alts": [
                 {
-                  "fr": "Oui, et chacun votera pour soi, sans pression.",
-                  "en": "Yes, and everyone will vote for themselves, without pressure. (Chacun, then soi.)"
+                  "fr": "Oui, et chacun décidera pour soi, sans pression.",
+                  "en": "Yes, and everyone will decide for themselves, without pressure. (Chacun, then soi.)"
                 },
                 {
                   "fr": "Je propose qu’on vote à la prochaine réunion.",
@@ -26213,9 +26246,9 @@
               "ref": "a8-piege"
             },
             {
-              "pattern": "Soi used for a named person (Karim pense à soi), or lui after on or chacun where soi is expected.",
+              "pattern": "Soi used for a named person (Karim pense à soi), or lui after on or personne where soi is expected (after chacun, lui is also correct).",
               "criterion": "correction",
-              "feedback": "Soi pour on, chacun, personne ; lui ou elle pour une personne précise.",
+              "feedback": "Soi pour on, personne, il faut (après chacun, soi ou lui) ; lui ou elle pour une personne précise.",
               "ref": "a9-erreurs"
             },
             {
@@ -26658,7 +26691,9 @@
                   "answer": "Elle, elle vote pour ; lui, il vote contre.",
                   "accept": [
                     "Elle, elle vote pour ; lui, il vote contre.",
-                    "Elle, elle vote pour ; lui, il vote contre"
+                    "Elle, elle vote pour ; lui, il vote contre",
+                    "Elle vote pour ; lui vote contre.",
+                    "Elle, elle vote pour ; lui vote contre."
                   ],
                   "why": "Elle, elle ; lui, il : un pronom par camp. EN: one pronoun per side.",
                   "ref": "a2-table"
@@ -27564,7 +27599,7 @@
                 },
                 {
                   "format": "typeIn",
-                  "q": "Écris la version soignée de eux.",
+                  "q": "Remplace eux par sa version soignée.",
                   "prompt": "Mes collègues, (…), préfèrent le télétravail.",
                   "answer": "Mes collègues, quant à eux, préfèrent le télétravail.",
                   "accept": [
@@ -27635,7 +27670,7 @@
                     "c'est de moi"
                   ],
                   "correct": 0,
-                  "why": "La même possession, au registre écrit. EN: c’est le mien.",
+                  "why": "La même possession, avec le pronom possessif. EN: c’est le mien.",
                   "ref": "a10-exemples"
                 },
                 {
@@ -29606,8 +29641,8 @@
                 ],
                 [
                   "la formule de lettre",
-                  "En vous remerciant par avance, je vous prie d'agréer…",
-                  "le sujet est celui qui écrit"
+                  "En vous remerciant par avance.",
+                  "seule en fin de lettre : le sujet sous-entendu est celui qui écrit"
                 ],
                 [
                   "en attendant, seul",
@@ -29945,7 +29980,7 @@
             },
             {
               "itemId": "fr.b2.connecteurs-logiques.1712",
-              "note": "l’oubli a causé le retard"
+              "note": "l’oubli lui a fait rater l’avion"
             },
             {
               "itemId": "fr.a2.corps.001",
@@ -29994,7 +30029,7 @@
         "faux": {
           "term": "faux gérondif",
           "title": "En tout cas, en tant que",
-          "body": "Un gérondif, c'est en suivi d'un verbe en -ant. En tout cas, en tant que ou en avant n'en sont pas : cas est un nom, tant et avant sont d'autres mots. En attendant et soit dit en passant sont d'anciens gérondifs devenus des expressions figées. EN: en + a noun is not a gérondif.",
+          "body": "Un gérondif, c'est en suivi d'un verbe en -ant. En tout cas, en tant que ou en avant n'en sont pas : cas est un nom, tant et avant sont d'autres mots. En attendant et soit dit en passant sont d'anciens gérondifs devenus des expressions figées. EN: en without an -ant verb is not a gérondif.",
           "examples": [
             {
               "itemId": "fr.b1.expressions-de-quantite.1144",
@@ -31558,11 +31593,11 @@
           "questionsInModal": true,
           "title": "Dans un texte",
           "frSub": "Compléter : ta première semaine",
-          "text": "Mode d'emploi : ta première semaine dans un nouveau bureau. Mets chaque verbe entre parenthèses au gérondif. « Le premier jour, présente-toi à l'accueil en (avoir) ta pièce d'identité à la main. En (être) à l'heure, tu feras bonne impression. Tu gagneras du temps en (se renseigner) sur les horaires de la cantine. En (ne rien dire) pendant les réunions, tu passeras pour quelqu'un de timide : ose poser une question. En (savoir) écouter, tu comprendras vite qui décide quoi. Et en (se tromper) de salle, ne panique pas : tout le monde l'a fait. »",
+          "text": "Mode d'emploi : ta première semaine dans un nouveau bureau. Mets chaque verbe entre parenthèses au gérondif. « Le premier jour, en (avoir) ta pièce d'identité sur toi, tu entreras sans attendre. En (être) à l'heure, tu feras bonne impression. Tu gagneras du temps en (se renseigner) sur les horaires de la cantine. En (ne rien dire) pendant les réunions, tu passeras pour quelqu'un de timide : ose poser une question. En (savoir) écouter, tu comprendras vite qui décide quoi. Et si tu te trompes de salle, ne panique pas : c'est en (se tromper) que tu apprendras le plan de l'étage. »",
           "questions": [
             {
               "q": "Complète les deux premières : en (avoir) ta pièce d’identité ; en (être) à l’heure.",
-              "a": "En ayant ta pièce d'identité à la main ; en étant à l'heure. Avoir et être font partie des trois verbes à part."
+              "a": "En ayant ta pièce d'identité sur toi (si tu l'as sur toi : une condition) ; en étant à l'heure. Avoir et être font partie des trois verbes à part."
             },
             {
               "q": "Complète : tu gagneras du temps en (se renseigner).",
@@ -31573,8 +31608,8 @@
               "a": "En ne disant rien : ne avant le participe, rien après. En sachant écouter : savoir donne sachant."
             },
             {
-              "q": "Complète la fin : en (se tromper) de salle, ne panique pas.",
-              "a": "En te trompant de salle : l'impératif panique a pour sujet tu, donc te."
+              "q": "Complète la fin : c’est en (se tromper) que tu apprendras le plan de l’étage.",
+              "a": "C'est en te trompant : le sujet du verbe principal est tu, donc te. Avant, « si tu te trompes » garde si, et c'est très naturel ici."
             }
           ],
           "audio": {
@@ -31660,7 +31695,7 @@
           "layer": "core",
           "title": "La colocation d’Awa",
           "frSub": "Une personne ou deux",
-          "setting": "Bruxelles. Awa vient d’emménager avec Tom. Le soir, elle raconte sa journée à une amie au téléphone, pendant que Tom prépare le dîner.",
+          "setting": "Bruxelles. Awa vient d’emménager avec Tom. Le soir, pendant que Tom prépare le dîner, elle raconte sa journée à une amie au téléphone, et glisse de temps en temps un mot à Tom.",
           "bubbles": [
             {
               "from": "user",
@@ -32768,7 +32803,7 @@
               "label": "Par ou en",
               "items": [],
               "check": {
-                "q": "By working the evenings :",
+                "q": "By working in the evenings :",
                 "opts": [
                   "par travailler le soir",
                   "en travaillant le soir"
@@ -34215,7 +34250,7 @@
             },
             {
               "promptLabel": "deux sujets",
-              "promptSound": "Tout en saluant l’effort, le projet a été refusé.",
+              "promptSound": "Tout en saluant l’effort, le projet a été refusé par le jury.",
               "fr": "Tout en saluant l'effort, le jury a refusé le projet.",
               "ipa": "/tu.tɑ̃ sa.lɥɑ̃ le.fɔʁ lə ʒy.ʁi a ʁə.fy.ze lə pʁɔ.ʒɛ/",
               "tip": "Le projet ne salue pas : c’est le jury qui salue et qui refuse. EN: the jury is the subject."
@@ -36002,7 +36037,7 @@
           "graderNotes": [
             "Count the words of the body only; a subject line, greeting and signature do not count. 180 to 250 with 10% tolerance (162 to 275) before criterion « tache » loses a point. responseSpec allows 275.",
             "Judge each gérondif by its SUBJECT first: the doer of the -ant action must be the subject of the main verb (or the implied tu or vous of an imperative). A dangling gérondif costs one « correction » point once, not per occurrence, and « coherence » only if it actually misleads.",
-            "Letter formulas (« En vous remerciant par avance, je vous prie… », « En attendant de vous lire… ») and proverbs (« L’appétit vient en mangeant ») are fixed uses: never score them as dangling.",
+            "Letter formulas (« En vous remerciant par avance. » standing alone, « En vous remerciant par avance, je vous prie… », « En attendant de vous lire… ») and proverbs (« L’appétit vient en mangeant ») are fixed uses: never score them as dangling.",
             "The MEANING of a gérondif is read from context; where it carries two readings (time and cause, means and condition), accept either and do not ask the learner to choose.",
             "« Après avoir + participe » is the everyday alternative to « en ayant + participe »: accept both; « en ayant fini » earns no extra range credit.",
             "The participe présent WITHOUT en and the verbal adjective belong to a later lesson: do not score them as errors if a learner uses them correctly, and give them no range credit.",
@@ -36411,11 +36446,12 @@
                 },
                 {
                   "format": "errorSpot",
-                  "q": "Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.",
+                  "q": "Le sujet ne va pas : c’est moi qui prends le métro. Écris la phrase correcte, avec je. EN: The subject is wrong: I take the metro. Rewrite it with je.",
                   "prompt": "En prenant le métro, une heure par jour a été gagnée.",
                   "answer": "En prenant le métro, j'ai gagné une heure par jour.",
                   "accept": [
-                    "En prenant le métro, j'ai gagné une heure par jour."
+                    "En prenant le métro, j'ai gagné une heure par jour.",
+                    "J'ai gagné une heure par jour en prenant le métro."
                   ],
                   "why": "C’est moi qui prends le métro : j’ai gagné. EN: I am the subject.",
                   "ref": "a1-usages"
@@ -36527,7 +36563,8 @@
                   "prompt": "Elle chante en faire la vaisselle.",
                   "answer": "Elle chante en faisant la vaisselle.",
                   "accept": [
-                    "Elle chante en faisant la vaisselle."
+                    "Elle chante en faisant la vaisselle.",
+                    "Elle chante pendant qu'elle fait la vaisselle."
                   ],
                   "why": "En veut la forme en -ant. EN: en faisant.",
                   "ref": "a2-erreurs"
@@ -36616,7 +36653,9 @@
                   "prompt": "Tu te sentiras mieux en se couchant plus tôt.",
                   "answer": "Tu te sentiras mieux en te couchant plus tôt.",
                   "accept": [
-                    "Tu te sentiras mieux en te couchant plus tôt."
+                    "Tu te sentiras mieux en te couchant plus tôt.",
+                    "Tu te sentiras mieux si tu te couches plus tôt.",
+                    "En te couchant plus tôt, tu te sentiras mieux."
                   ],
                   "why": "Le sujet est tu : en te couchant. EN: te.",
                   "ref": "a3-piege"
@@ -36694,7 +36733,9 @@
                   "prompt": "Je prends des notes pendant que j’écoute le cours.",
                   "answer": "Je prends des notes en écoutant le cours.",
                   "accept": [
-                    "Je prends des notes en écoutant le cours."
+                    "Je prends des notes en écoutant le cours.",
+                    "Je prends des notes tout en écoutant le cours.",
+                    "En écoutant le cours, je prends des notes."
                   ],
                   "why": "Un seul sujet : en écoutant. EN: one subject.",
                   "ref": "a4-trier"
@@ -36705,7 +36746,8 @@
                   "prompt": "Quand elle a ouvert la porte, elle a entendu la musique.",
                   "answer": "En ouvrant la porte, elle a entendu la musique.",
                   "accept": [
-                    "En ouvrant la porte, elle a entendu la musique."
+                    "En ouvrant la porte, elle a entendu la musique.",
+                    "Elle a entendu la musique en ouvrant la porte."
                   ],
                   "why": "Même sujet, un instant : en ouvrant. EN: en ouvrant.",
                   "ref": "a4-trier"
@@ -36717,7 +36759,10 @@
                   "answer": "Quand je suis arrivé à la gare, le train était parti.",
                   "accept": [
                     "Quand je suis arrivé à la gare, le train était parti.",
-                    "Quand je suis arrivée à la gare, le train était parti."
+                    "Quand je suis arrivée à la gare, le train était parti.",
+                    "Lorsque je suis arrivé à la gare, le train était parti.",
+                    "Lorsque je suis arrivée à la gare, le train était parti.",
+                    "En arrivant à la gare, j'ai vu que le train était parti."
                   ],
                   "why": "Deux sujets : quand. EN: quand.",
                   "ref": "a4-piege"
@@ -36728,7 +36773,11 @@
                   "prompt": "En parlant au client, le camion est arrivé.",
                   "answer": "Pendant que je parlais au client, le camion est arrivé.",
                   "accept": [
-                    "Pendant que je parlais au client, le camion est arrivé."
+                    "Pendant que je parlais au client, le camion est arrivé.",
+                    "Quand je parlais au client, le camion est arrivé.",
+                    "Alors que je parlais au client, le camion est arrivé.",
+                    "Tandis que je parlais au client, le camion est arrivé.",
+                    "En parlant au client, j'ai vu le camion arriver."
                   ],
                   "why": "Deux sujets : pendant que. EN: pendant que.",
                   "ref": "a4-piege"
@@ -36893,7 +36942,10 @@
                   "prompt": "Si tu réserves aujourd'hui, tu paieras moins cher.",
                   "answer": "En réservant aujourd'hui, tu paieras moins cher.",
                   "accept": [
-                    "En réservant aujourd'hui, tu paieras moins cher."
+                    "En réservant aujourd'hui, tu paieras moins cher.",
+                    "En réservant aujourd'hui, tu payeras moins cher.",
+                    "Tu paieras moins cher en réservant aujourd'hui.",
+                    "Tu payeras moins cher en réservant aujourd'hui."
                   ],
                   "why": "Même sujet : en réservant. EN: en réservant.",
                   "ref": "a6-construire"
@@ -36904,7 +36956,8 @@
                   "prompt": "Si tu t'inscris avant vendredi, tu auras une réduction.",
                   "answer": "En t'inscrivant avant vendredi, tu auras une réduction.",
                   "accept": [
-                    "En t'inscrivant avant vendredi, tu auras une réduction."
+                    "En t'inscrivant avant vendredi, tu auras une réduction.",
+                    "Tu auras une réduction en t'inscrivant avant vendredi."
                   ],
                   "why": "Te, pour tu : en t’inscrivant. EN: en t’inscrivant.",
                   "ref": "a6-piege"
@@ -36916,7 +36969,9 @@
                   "answer": "En appuyant deux fois, tu arrêtes la machine.",
                   "accept": [
                     "En appuyant deux fois, tu arrêtes la machine.",
-                    "Si tu appuies deux fois, la machine s’arrête."
+                    "Si tu appuies deux fois, la machine s’arrête.",
+                    "Quand tu appuies deux fois, la machine s'arrête.",
+                    "Tu arrêtes la machine en appuyant deux fois."
                   ],
                   "why": "Tu appuies : tu dois être le sujet. EN: keep one subject.",
                   "ref": "a6-piege"
@@ -37016,7 +37071,11 @@
                   "prompt": "En oubliant son passeport, l'avion est parti sans elle.",
                   "answer": "En oubliant son passeport, elle a raté l'avion.",
                   "accept": [
-                    "En oubliant son passeport, elle a raté l'avion."
+                    "En oubliant son passeport, elle a raté l'avion.",
+                    "Comme elle avait oublié son passeport, elle a raté l'avion.",
+                    "Comme elle avait oublié son passeport, l'avion est parti sans elle.",
+                    "Parce qu'elle avait oublié son passeport, l'avion est parti sans elle.",
+                    "Parce qu'elle avait oublié son passeport, elle a raté l'avion."
                   ],
                   "why": "Elle oublie : elle est le sujet. EN: she is the subject.",
                   "ref": "a7-erreurs"
@@ -37028,7 +37087,8 @@
                   "answer": "En voulant aider, il a tout cassé.",
                   "accept": [
                     "En voulant aider, il a tout cassé.",
-                    "Parce qu'il voulait aider, il a tout cassé."
+                    "Parce qu'il voulait aider, il a tout cassé.",
+                    "Comme il voulait aider, il a tout cassé."
                   ],
                   "why": "La cause : en voulant. EN: en voulant.",
                   "ref": "a7-erreurs"
@@ -37115,7 +37175,10 @@
                   "prompt": "Tout en sache que c’était risqué, il a accepté.",
                   "answer": "Tout en sachant que c'était risqué, il a accepté.",
                   "accept": [
-                    "Tout en sachant que c'était risqué, il a accepté."
+                    "Tout en sachant que c'était risqué, il a accepté.",
+                    "Il a accepté alors qu'il savait que c'était risqué.",
+                    "Alors qu'il savait que c'était risqué, il a accepté.",
+                    "Bien qu'il sache que c'était risqué, il a accepté."
                   ],
                   "why": "Après tout en, le participe : sachant. EN: sachant.",
                   "ref": "a8-piege"
@@ -37123,10 +37186,11 @@
                 {
                   "format": "errorSpot",
                   "q": "Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.",
-                  "prompt": "Tout en saluant l’effort, le projet a été refusé.",
+                  "prompt": "Tout en saluant l’effort, le projet a été refusé par le jury.",
                   "answer": "Tout en saluant l'effort, le jury a refusé le projet.",
                   "accept": [
-                    "Tout en saluant l'effort, le jury a refusé le projet."
+                    "Tout en saluant l'effort, le jury a refusé le projet.",
+                    "Le jury a refusé le projet tout en saluant l'effort."
                   ],
                   "why": "C’est le jury qui salue : il doit être le sujet. EN: the jury.",
                   "ref": "a8-piege"
@@ -37202,7 +37266,12 @@
                   "prompt": "En signant le contrat, les conditions sont acceptées.",
                   "answer": "En signant le contrat, vous acceptez les conditions.",
                   "accept": [
-                    "En signant le contrat, vous acceptez les conditions."
+                    "En signant le contrat, vous acceptez les conditions.",
+                    "En signant le contrat, tu acceptes les conditions.",
+                    "En signant le contrat, on accepte les conditions.",
+                    "En signant le contrat, nous acceptons les conditions.",
+                    "En signant le contrat, j'accepte les conditions.",
+                    "Vous acceptez les conditions en signant le contrat."
                   ],
                   "why": "Vous signez, vous acceptez. EN: you.",
                   "ref": "a9-piege"
@@ -37217,6 +37286,7 @@
                     "Quand nous sommes entrés, la porte s'est refermée.",
                     "Quand je suis entré, la porte s'est refermée.",
                     "Quand je suis entrée, la porte s'est refermée.",
+                    "Quand on est entrés, la porte s'est refermée.",
                     "En entrant, j'ai vu la porte se refermer."
                   ],
                   "why": "La porte n’entre pas. EN: we are the subject.",
@@ -37229,7 +37299,10 @@
                   "answer": "En lisant ce rapport, on comprend l'enjeu.",
                   "accept": [
                     "En lisant ce rapport, on comprend l'enjeu.",
-                    "En lisant ce rapport, on comprend clairement l’enjeu."
+                    "En lisant ce rapport, on comprend clairement l’enjeu.",
+                    "En lisant ce rapport, on voit clairement l’enjeu.",
+                    "Quand on lit ce rapport, l’enjeu apparaît clairement.",
+                    "Si on lit ce rapport, l’enjeu apparaît clairement."
                   ],
                   "why": "L’enjeu ne lit pas : on comprend. EN: on.",
                   "ref": "a9-piege"
@@ -37317,7 +37390,8 @@
                   "prompt": "En attendant que tu trouveras un appartement, tu peux dormir ici.",
                   "answer": "En attendant que tu trouves un appartement, tu peux dormir ici.",
                   "accept": [
-                    "En attendant que tu trouves un appartement, tu peux dormir ici."
+                    "En attendant que tu trouves un appartement, tu peux dormir ici.",
+                    "Jusqu'à ce que tu trouves un appartement, tu peux dormir ici."
                   ],
                   "why": "En attendant que + subjonctif : trouves. EN: trouves.",
                   "ref": "a10-erreurs"
@@ -37521,7 +37595,8 @@
                   "prompt": "Quand je suis arrivé à Genève, j'ai ouvert un compte en banque.",
                   "answer": "En arrivant à Genève, j'ai ouvert un compte en banque.",
                   "accept": [
-                    "En arrivant à Genève, j'ai ouvert un compte en banque."
+                    "En arrivant à Genève, j'ai ouvert un compte en banque.",
+                    "J'ai ouvert un compte en banque en arrivant à Genève."
                   ],
                   "why": "Un seul sujet : en arrivant. EN: en arrivant.",
                   "ref": "a11-plan"
@@ -37886,7 +37961,7 @@
           },
           {
             "id": "rec-b2-12-awa",
-            "desc": "Awa on the phone and a coach voice (act 4), Brussels, one take, warm. Awa quotes « Pendant que tu cuisines, je mets la table » as her flatmate said it."
+            "desc": "Awa on the phone and a coach voice (act 4), Brussels, one take, warm. Awa says « Pendant que tu cuisines, je mets la table » to Tom, turning away from the phone."
           },
           {
             "id": "rec-b2-12-simultane",
@@ -38338,7 +38413,7 @@
       "theme": "litterature",
       "fr": "Le préfet ordonna que les travaux fussent achevés avant l'hiver.",
       "en": "The prefect ordered the work to be finished before winter.",
-      "ipa": "/lə pʁe.fɛ ɔʁ.dɔ.na kə le tʁa.vo fys.ta.ʃ.ve a.vɑ̃ li.vɛʁ/",
+      "ipa": "/lə pʁe.fɛ ɔʁ.dɔ.na kə le tʁa.vo fys.taʃ.ve a.vɑ̃ li.vɛʁ/",
       "respell": "luh pray-FEH or-do-NA | kuh lay tra-VOH füss-tash-VAY | a-vahⁿ lee-VEHR",
       "tags": [
         "litteraire",
@@ -38362,7 +38437,7 @@
       "theme": "litterature",
       "fr": "Le préfet a ordonné que les travaux soient achevés avant l'hiver.",
       "en": "The prefect ordered the work to be finished before winter.",
-      "ipa": "/lə pʁe.fɛ a ɔʁ.dɔ.ne kə le tʁa.vo swa.ta.ʃ.ve a.vɑ̃ li.vɛʁ/",
+      "ipa": "/lə pʁe.fɛ a ɔʁ.dɔ.ne kə le tʁa.vo swa.taʃ.ve a.vɑ̃ li.vɛʁ/",
       "respell": "luh pray-FEH a or-do-NAY | kuh lay tra-VOH swa-tash-VAY | a-vahⁿ lee-VEHR",
       "tags": [
         "aujourdhui",
@@ -39087,8 +39162,8 @@
       "theme": "litterature",
       "fr": "Il fallait que ce fût un succès.",
       "en": "It had to be a success.",
-      "ipa": "/il fa.lɛ kə sə fy œ̃ syk.sɛ/",
-      "respell": "eel fa-LEH | kuh suh FÜ | uhⁿ sük-SEH",
+      "ipa": "/il fa.lɛ kə sə fy.tœ̃ syk.sɛ/",
+      "respell": "eel fa-LEH | kuh suh fü-TUHⁿ sük-SEH",
       "tags": [
         "litteraire",
         "chapeau",
@@ -39297,7 +39372,7 @@
       "tags": [
         "litteraire",
         "forme",
-        "oir",
+        "re",
         "ne-expletif"
       ],
       "drills": [
@@ -39321,7 +39396,7 @@
       "tags": [
         "aujourdhui",
         "forme",
-        "oir",
+        "re",
         "ne-expletif"
       ],
       "drills": [
@@ -39336,7 +39411,7 @@
       ],
       "cardType": "grammar",
       "prompt": "« Il craignait qu'on ne le reconnût. » Aujourd'hui, tu dirais…",
-      "notes": "Reconnût : reconnaître, avec -ût. Le ne n’est pas une négation : il craignait qu’on le reconnaisse."
+      "notes": "Reconnût : reconnaître, avec -ût. Le ne n’est pas une négation ; tu peux le garder ou l’enlever : qu’on le reconnaisse, qu’on ne le reconnaisse."
     },
     {
       "id": "fr.b2.litterature.1256",
@@ -41507,10 +41582,10 @@
       "kind": "sentence",
       "level": "b2",
       "theme": "litterature",
-      "fr": "Je finirai ce livre, même si ça doit me prendre dix ans.",
+      "fr": "Je finirai ce livre, même si ça devait me prendre dix ans.",
       "en": "I will finish this book, even if it takes me ten years.",
-      "ipa": "/ʒə fi.ni.ʁe sə livʁ mɛm si sa dwa mə pʁɑ̃dʁ di.zɑ̃/",
-      "respell": "zhuh fee-nee-RAY suh LEEVR | mem see sa DWA | muh prahⁿdr dee-ZAHⁿ",
+      "ipa": "/ʒə fi.ni.ʁe sə livʁ mɛm si sa də.vɛ mə pʁɑ̃dʁ di.zɑ̃/",
+      "respell": "zhuh fee-nee-RAY suh LEEVR | mem see sa duh-VEH | muh prahⁿdr dee-ZAHⁿ",
       "tags": [
         "aujourdhui",
         "figee",
@@ -42586,7 +42661,7 @@
       "level": "b2",
       "theme": "langue-soignee",
       "fr": "entrer, l'entrée",
-      "en": "to go in, the entrance",
+      "en": "to enter, entry",
       "ipa": "/ɑ̃.tʁe lɑ̃.tʁe/",
       "respell": "ahⁿ-TRAY, lahⁿ-TRAY",
       "tags": [
@@ -43442,7 +43517,7 @@
       "level": "b2",
       "theme": "langue-soignee",
       "fr": "envoyer, l'envoi",
-      "en": "to send, the sending",
+      "en": "to send, dispatch",
       "ipa": "/ɑ̃.vwa.je lɑ̃.vwa/",
       "respell": "ahⁿ-vwa-YAY, lahⁿ-VWA",
       "tags": [
@@ -43466,7 +43541,7 @@
       "level": "b2",
       "theme": "langue-soignee",
       "fr": "mettre en ligne, la mise en ligne",
-      "en": "to put online, the going live",
+      "en": "to put online, putting online",
       "ipa": "/mɛ.tʁɑ̃ liɲ la mi.zɑ̃ liɲ/",
       "respell": "meh-trahⁿ LEENY, la mee-zahⁿ LEENY",
       "tags": [
@@ -44413,7 +44488,7 @@
       ],
       "cardType": "gapfill",
       "prompt": "Tout le monde a remarqué la ___ de sa réponse. (précis)",
-      "notes": "Précis, la précision : -ion, comme décidé, la décision. EN: precision, not précisité."
+      "notes": "Précis, la précision : -ion, comme concis, la concision. EN: precision, not précisité."
     },
     {
       "id": "fr.b2.langue-soignee.1493",
@@ -46265,10 +46340,10 @@
       "kind": "sentence",
       "level": "b2",
       "theme": "langue-soignee",
-      "fr": "Deux ou trois de à la suite : déplie un nom en verbe.",
-      "en": "Two or three de in a row: unfold one noun into a verb.",
-      "ipa": "/dø u tʁwa də a la sɥit de.pli œ̃ nɔ̃ ɑ̃ vɛʁb/",
-      "respell": "DEU oo TRWA DUH | a la SWEET | day-PLEE uhⁿ NOHⁿ ahⁿ VEHRB",
+      "fr": "Trois de à la suite : déplie un nom en verbe.",
+      "en": "Three de in a row: unfold one noun into a verb.",
+      "ipa": "/tʁwa də a la sɥit de.pli œ̃ nɔ̃ ɑ̃ vɛʁb/",
+      "respell": "TRWA DUH | a la SWEET | day-PLEE uhⁿ NOHⁿ ahⁿ VEHRB",
       "tags": [
         "regle",
         "chaine"
@@ -47279,7 +47354,7 @@
       "level": "b2",
       "theme": "pronoms-essentiels",
       "fr": "Je n'en sais rien, moi.",
-      "en": "I have no idea, myself.",
+      "en": "Don't ask me, I have no idea.",
       "ipa": "/ʒə nɑ̃ sɛ ʁjɛ̃ mwa/",
       "respell": "zhuh nahⁿ seh RYEHⁿ | MWA",
       "tags": [
@@ -47366,7 +47441,7 @@
         "review"
       ],
       "version": 1,
-      "register": "familier",
+      "register": "courant",
       "grammarPoints": [
         "pronoms-toniques-insistance"
       ]
@@ -47716,7 +47791,7 @@
       ],
       "cardType": "gapfill",
       "prompt": "Ces dossiers, je ___ ai relus hier soir. (reprends ces dossiers)",
-      "notes": "Les reprend ces dossiers, et relus s'accorde avec lui, placé avant. EN: les picks up the files."
+      "notes": "Les reprend ces dossiers, et relus s'accorde avec les, placé avant. EN: les picks up the files."
     },
     {
       "id": "fr.b2.pronoms-essentiels.1847",
@@ -48607,7 +48682,7 @@
         "review"
       ],
       "version": 1,
-      "register": "familier",
+      "register": "courant",
       "grammarPoints": [
         "pronoms-toniques-insistance"
       ]
@@ -50025,7 +50100,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Soi ou lui ?",
-      "notes": "Soi reprend un sujet qui ne désigne personne en particulier : on, chacun, personne, tout le monde, il faut, un infinitif. Un sujet précis prend lui ou elle : Paul est rentré chez lui."
+      "notes": "Soi reprend un sujet qui ne désigne personne en particulier : on, chacun, personne, tout le monde, il faut, un infinitif. Après chacun, lui se dit aussi : chacun est rentré chez lui. Un sujet précis prend lui ou elle : Paul est rentré chez lui."
     },
     {
       "id": "fr.b2.pronoms-essentiels.1946",
@@ -50796,7 +50871,7 @@
         "pronoms-toniques-insistance"
       ],
       "cardType": "gapfill",
-      "prompt": "Mes collègues, ___, préfèrent le télétravail. (la version écrite de eux)",
+      "prompt": "Mes collègues, ___, préfèrent le télétravail. (eux, au registre écrit)",
       "notes": "Quant à eux : le même contraste, au registre soigné. EN: the written way to say eux."
     },
     {

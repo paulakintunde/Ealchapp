@@ -88,7 +88,7 @@ export const GERONDIF_TERMS: Record<string, LessonTerm> = {
     body: "Le gérondif peut aussi dire pourquoi : en voulant aider, il a tout cassé, c'est-à-dire parce qu'il voulait aider. Souvent, le verbe principal raconte une conséquence au passé. Un même gérondif peut porter deux sens : c'est la phrase qui choisit. EN: The gérondif can give the cause of what follows.",
     examples: [
       { itemId: E(1611), note: 'parce qu’il voulait aider' },
-      { itemId: E(1712), note: 'l’oubli a causé le retard' },
+      { itemId: E(1712), note: 'l’oubli lui a fait rater l’avion' },
       { itemId: 'fr.a2.corps.001', note: 'la chute a causé la fracture' },
     ],
   },
@@ -118,7 +118,7 @@ export const GERONDIF_TERMS: Record<string, LessonTerm> = {
   faux: {
     term: 'faux gérondif',
     title: 'En tout cas, en tant que',
-    body: "Un gérondif, c'est en suivi d'un verbe en -ant. En tout cas, en tant que ou en avant n'en sont pas : cas est un nom, tant et avant sont d'autres mots. En attendant et soit dit en passant sont d'anciens gérondifs devenus des expressions figées. EN: en + a noun is not a gérondif.",
+    body: "Un gérondif, c'est en suivi d'un verbe en -ant. En tout cas, en tant que ou en avant n'en sont pas : cas est un nom, tant et avant sont d'autres mots. En attendant et soit dit en passant sont d'anciens gérondifs devenus des expressions figées. EN: en without an -ant verb is not a gérondif.",
     examples: [
       { itemId: 'fr.b1.expressions-de-quantite.1144', note: 'en tout cas : cas est un nom' },
       { itemId: E(1764), note: 'en tant que : pas de verbe' },

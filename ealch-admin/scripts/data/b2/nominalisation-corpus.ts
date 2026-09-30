@@ -33,7 +33,8 @@
 //                       raison de; si > en cas de; depuis que > depuis
 //     le mot-lien       the preposition carries the relation: en raison de,
 //                       à la suite de, lors de, en vue de, malgré, faute de,
-//                       dès, en cas de (suite à named as courant)
+//                       dès, en cas de (suite à named as widespread
+//                       in admin French but criticised by usage guides)
 //     qui fait quoi     de and the possessive for the doer or the patient,
 //                       par for the doer beside a de-patient; the ambiguous de
 //                       (« la critique du ministre ») and how to lift it
@@ -347,7 +348,7 @@ export const ACT1_ROWS: Row[] = [
 export const ACT2_ROWS: Row[] = [
   pair(1412, "annuler, l'annulation", 'to cancel, cancellation', '/a.ny.le la.ny.la.sjɔ̃/', 'a-nü-LAY, la-nü-la-SYOHⁿ', ['tion']),
   pair(1414, 'nettoyer, le nettoyage', 'to clean, cleaning', '/ne.twa.je lə ne.twa.jaʒ/', 'nay-twa-YAY, luh nay-twa-YAZH', ['age']),
-  pair(1416, "entrer, l'entrée", 'to go in, the entrance', '/ɑ̃.tʁe lɑ̃.tʁe/', 'ahⁿ-TRAY, lahⁿ-TRAY', ['ee']),
+  pair(1416, "entrer, l'entrée", 'to enter, entry', '/ɑ̃.tʁe lɑ̃.tʁe/', 'ahⁿ-TRAY, lahⁿ-TRAY', ['ee']),
   pair(1417, 'naître, la naissance', 'to be born, birth', '/nɛtʁ la nɛ.sɑ̃s/', 'NEHTR, la neh-SAHⁿS', ['ance']),
   pair(1418, "augmenter, l'augmentation", 'to increase, an increase', '/ɔɡ.mɑ̃.te lɔɡ.mɑ̃.ta.sjɔ̃/', 'og-mahⁿ-TAY, log-mahⁿ-ta-SYOHⁿ', ['tion']),
   sent(1420, C, "L'annulation du concert a déçu les abonnés.", 'The cancellation of the concert disappointed the subscribers.',
@@ -445,8 +446,8 @@ export const ACT4_ROWS: Row[] = [
   pair(1449, "acheter, l'achat", 'to buy, a purchase', '/aʃ.te la.ʃa/', 'ash-TAY, la-SHA', ['court']),
   pair(1450, 'partir, le départ', 'to leave, the departure', '/paʁ.tiʁ lə de.paʁ/', 'par-TEER, luh day-PAR', ['court']),
   pair(1451, 'choisir, le choix', 'to choose, the choice', '/ʃwa.ziʁ lə ʃwa/', 'shwa-ZEER, luh SHWA', ['court']),
-  pair(1452, "envoyer, l'envoi", 'to send, the sending', '/ɑ̃.vwa.je lɑ̃.vwa/', 'ahⁿ-vwa-YAY, lahⁿ-VWA', ['court']),
-  pair(1453, 'mettre en ligne, la mise en ligne', 'to put online, the going live', '/mɛ.tʁɑ̃ liɲ la mi.zɑ̃ liɲ/', 'meh-trahⁿ LEENY, la mee-zahⁿ LEENY', ['participe']),
+  pair(1452, "envoyer, l'envoi", 'to send, dispatch', '/ɑ̃.vwa.je lɑ̃.vwa/', 'ahⁿ-vwa-YAY, lahⁿ-VWA', ['court']),
+  pair(1453, 'mettre en ligne, la mise en ligne', 'to put online, putting online', '/mɛ.tʁɑ̃ liɲ la mi.zɑ̃ liɲ/', 'meh-trahⁿ LEENY, la mee-zahⁿ LEENY', ['participe']),
   pair(1454, 'prendre en charge, la prise en charge', 'to cover, the covering (of costs)', '/pʁɑ̃.dʁɑ̃ ʃaʁʒ la pʁi.zɑ̃ ʃaʁʒ/', 'prahⁿ-drahⁿ SHARZH, la pree-zahⁿ SHARZH', ['participe']),
   pair(1455, 'perdre, la perte', 'to lose, the loss', '/pɛʁdʁ la pɛʁt/', 'PEHRDR, la PEHRT', ['court']),
   pair(1456, 'demander, la demande', 'to ask, the request', '/də.mɑ̃.de la də.mɑ̃d/', 'duh-mahⁿ-DAY, la duh-MAHⁿD', ['court']),
@@ -529,7 +530,7 @@ export const ACT5_ROWS: Row[] = [
   gap(1492, C, 'Tout le monde a remarqué la précision de sa réponse.', 'Everyone noticed how precise her answer was.',
     '/tu lə mɔ̃d a ʁə.maʁ.ke la pʁe.si.zjɔ̃ də sa ʁe.pɔ̃s/', 'too luh MOHⁿD | a ruh-mar-KAY | la pray-see-ZYOHⁿ duh sa ray-POHⁿS',
     'Tout le monde a remarqué la ___ de sa réponse. (précis)',
-    'Précis, la précision : -ion, comme décidé, la décision. EN: precision, not précisité.',
+    'Précis, la précision : -ion, comme concis, la concision. EN: precision, not précisité.',
     ['qualite', 'ion']),
   gap(1493, C, 'La lenteur du réseau pose problème.', 'The slowness of the network is a problem.',
     '/la lɑ̃.tœʁ dy ʁe.zo poz pʁɔ.blɛm/', 'la lahⁿ-TUHR dü ray-ZOH | pohz pro-BLEM',
@@ -757,8 +758,8 @@ export const ACT10_ROWS: Row[] = [
     '/la vil va ɛ̃s.ta.le de bɑ̃ puʁ kə le pʁɔm.nœʁ pɥis sə ʁə.po.ze/', 'la VEEL va ehⁿs-ta-LAY day BAHⁿ | poor kuh lay prom-NUHR | pweess suh ruh-poh-ZAY', ['deplie']),
   sent(1567, S, "L'installation de bancs en vue du repos des promeneurs est prévue.", 'The installation of benches for the rest of walkers is planned (heavy).',
     '/lɛ̃s.ta.la.sjɔ̃ də bɑ̃ ɑ̃ vy dy ʁə.po de pʁɔm.nœʁ ɛ pʁe.vy/', 'lehⁿs-ta-la-SYOHⁿ duh BAHⁿ | ahⁿ vü dü ruh-POH day prom-NUHR | eh pray-VÜ', ['lourd', 'contre-exemple'], RECO),
-  rule(1568, 'Deux ou trois de à la suite : déplie un nom en verbe.', 'Two or three de in a row: unfold one noun into a verb.',
-    '/dø u tʁwa də a la sɥit de.pli œ̃ nɔ̃ ɑ̃ vɛʁb/', 'DEU oo TRWA DUH | a la SWEET | day-PLEE uhⁿ NOHⁿ ahⁿ VEHRB',
+  rule(1568, 'Trois de à la suite : déplie un nom en verbe.', 'Three de in a row: unfold one noun into a verb.',
+    '/tʁwa də a la sɥit de.pli œ̃ nɔ̃ ɑ̃ vɛʁb/', 'TRWA DUH | a la SWEET | day-PLEE uhⁿ NOHⁿ ahⁿ VEHRB',
     'Quand une phrase devient-elle trop lourde ?',
     "Quand les noms s'enchaînent avec de la... de la... Garde un nom, rends les autres au verbe : nous voulons mieux accueillir les usagers.",
     ['chaine']),

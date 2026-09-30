@@ -114,11 +114,13 @@
 //  6. APOSTROPHES. Corpus rows and texts use the straight ' as the seed
 //     mostly does. The one `scenario` uses ’ only and embeds no corpus row.
 //
-//  7. SPOKEN FORMS ARE MARKED. Rows that belong to speech carry register
-//     `familier` (« Nous, on reste », « C'est eux qui ont gagné », « Il
-//     exagère, lui », « Toi et moi, on s'est toujours compris »). Rows that
-//     belong to careful writing carry `soutenu` (« Quant à moi », « Pour ma
-//     part », « quant à eux »). Everything else is `courant`.
+//  7. SPOKEN FORMS ARE MARKED. Rows that belong to familiar speech carry
+//     register `familier` (« Nous, on reste », « Il exagère, lui », « Toi et
+//     moi, on s'est toujours compris »). Neutral spoken forms (a plain left
+//     detachment, « C'est eux qui ont gagné », as a2.36's « C'est eux. » and
+//     b1.22's « C'est eux, là-bas. ») stay `courant` with the tag `oral`.
+//     Rows that belong to careful writing carry `soutenu` (« Quant à moi »,
+//     « Pour ma part », « quant à eux »). Everything else is `courant`.
 //
 //  8. TWIN CHECK (2026-09-29): 0 exact `fr` twins against seedPlusPacks and
 //     against every `*-corpus.ts` under data/, data/b1 and data/b2 that
@@ -440,7 +442,7 @@ export const ACT2_ROWS: Row[] = [
     '/ʒy.li e maʁk ɛl ɛl vjɛ̃ lɥi i.lɛ ma.lad/', 'zhü-lee ay MARK | EL | el VYEHⁿ | LWEE | ee-leh ma-LAD', ['contraste', 'tete']),
   sent(1827, "Moi aussi, j'ai voté contre.", 'I voted against too.',
     '/mwa o.si ʒe vɔ.te kɔ̃tʁ/', 'mwa oh-SEE | zhay vo-tay KOHⁿTR', ['contraste', 'aussi']),
-  sent(1828, "Je n'en sais rien, moi.", 'I have no idea, myself.',
+  sent(1828, "Je n'en sais rien, moi.", "Don't ask me, I have no idea.",
     '/ʒə nɑ̃ sɛ ʁjɛ̃ mwa/', 'zhuh nahⁿ seh RYEHⁿ | MWA', ['contraste', 'fin'], FCVDR),
   sent(1829, 'Vous, vous êtes de quel avis ?', 'And you, what is your view?',
     '/vu vu.zɛt də kɛ.la.vi/', 'VOO | voo-zet duh keh-la-VEE', ['contraste', 'tete']),
@@ -452,7 +454,7 @@ export const ACT2_ROWS: Row[] = [
 
 export const ACT3_ROWS: Row[] = [
   sent(1832, "Moi, ce film, je l'ai adoré.", 'Me, I loved that film.',
-    '/mwa sə film ʒə le a.dɔ.ʁe/', 'MWA | suh FEELM | zhuh lay a-do-RAY', ['reprise', 'oral'], FCVDR, { register: FAM }),
+    '/mwa sə film ʒə le a.dɔ.ʁe/', 'MWA | suh FEELM | zhuh lay a-do-RAY', ['reprise', 'oral'], FCVDR),
   sent(1833, "J'ai adoré ce film.", 'I loved that film.',
     '/ʒe a.dɔ.ʁe sə film/', 'zhay a-do-ray suh FEELM', ['reprise', 'ecrit']),
   sent(1834, "Ce livre, je l'ai lu en une nuit.", 'That book, I read it in one night.',
@@ -486,7 +488,7 @@ export const ACT3_ROWS: Row[] = [
   gap(1846, 'Ces dossiers, je les ai relus hier soir.', 'These files, I reread them last night.',
     '/se do.sje ʒə le.ze ʁə.ly jɛʁ swaʁ/', 'say doh-SYAY | zhuh lay-zay ruh-LÜ | yehr SWAR',
     'Ces dossiers, je ___ ai relus hier soir. (reprends ces dossiers)',
-    "Les reprend ces dossiers, et relus s'accorde avec lui, placé avant. EN: les picks up the files.",
+    "Les reprend ces dossiers, et relus s'accorde avec les, placé avant. EN: les picks up the files.",
     ['reprise', 'les'], FCVDR),
   gap(1847, "Paris, j'y vais chaque été.", 'Paris, I go there every summer.',
     '/pa.ʁi ʒi vɛ ʃak e.te/', 'pa-REE | zhee veh shak ay-TAY',
@@ -597,7 +599,7 @@ export const ACT6_ROWS: Row[] = [
   sent(1884, 'Ce sont eux qui ont gagné.', 'They are the ones who won.',
     '/sə sɔ̃.tø ki ɔ̃ ɡa.ɲe/', 'suh sohⁿ-TEU | kee ohⁿ ga-NYAY', ['relief', 'qui', 'ecrit']),
   sent(1885, "C'est eux qui ont gagné.", 'They are the ones who won.',
-    '/sɛ.tø ki ɔ̃ ɡa.ɲe/', 'seh-TEU | kee ohⁿ ga-NYAY', ['relief', 'qui', 'oral'], FCVR, { register: FAM }),
+    '/sɛ.tø ki ɔ̃ ɡa.ɲe/', 'seh-TEU | kee ohⁿ ga-NYAY', ['relief', 'qui', 'oral'], FCVR),
   sent(1886, "C'est moi qui ai proposé cette idée.", 'I am the one who suggested this idea.',
     '/sɛ mwa ki e pʁɔ.po.ze sɛ.ti.de/', 'seh MWA | kee ay pro-poh-ZAY | seh-tee-DAY', ['relief', 'qui'], FCVDR),
   sent(1887, "C'est toi qui avais raison.", 'You were the one who was right.',
@@ -762,7 +764,7 @@ export const ACT9_ROWS: Row[] = [
     '/swa puʁ tu lə mɔ̃d lɥi puʁ kɛl.kœ̃ də pʁe.si/',
     'SWA poor too luh MOHⁿD | LWEE poor kel-kuhⁿ duh pray-SEE',
     'Soi ou lui ?',
-    "Soi reprend un sujet qui ne désigne personne en particulier : on, chacun, personne, tout le monde, il faut, un infinitif. Un sujet précis prend lui ou elle : Paul est rentré chez lui.",
+    "Soi reprend un sujet qui ne désigne personne en particulier : on, chacun, personne, tout le monde, il faut, un infinitif. Après chacun, lui se dit aussi : chacun est rentré chez lui. Un sujet précis prend lui ou elle : Paul est rentré chez lui.",
     ['soi']),
   gap(1946, 'Tout le monde veut une maison à soi.', 'Everyone wants a home of their own.',
     '/tu lə mɔ̃d vø yn mɛ.zɔ̃ a swa/', 'too luh MOHⁿD | veu ün meh-ZOHⁿ a SWA',
@@ -856,7 +858,7 @@ export const ACT11_ROWS: Row[] = [
     ['registre']),
   gap(1978, 'Mes collègues, quant à eux, préfèrent le télétravail.', 'My colleagues, for their part, prefer working from home.',
     '/me kɔ.lɛɡ kɑ̃.ta ø pʁe.fɛʁ lə te.le.tʁa.vaj/', 'may ko-LEG | kahⁿ-ta EU | pray-fehr luh tay-lay-tra-VAHY',
-    'Mes collègues, ___, préfèrent le télétravail. (la version écrite de eux)',
+    'Mes collègues, ___, préfèrent le télétravail. (eux, au registre écrit)',
     "Quant à eux : le même contraste, au registre soigné. EN: the written way to say eux.",
     ['registre', 'ecrit'], FCVR),
   sent(1979, "Elle, elle s'en fiche.", 'She could not care less.',
@@ -946,7 +948,7 @@ export const TEXTE_A6_REPONSES = [
 ] as const;
 
 export const TEXTE_A7 =
-  "Amina écrit au groupe du jardin partagé. Complète chaque blanc avec même, mêmes, aussi, seuls, tous ou deux. « Bonjour à tous ! Samedi, nous avons monté la serre nous-(…), sans aucune aide. Les enfants (…) ont planté des tomates. Vous (…), vous êtes invités à la fête de dimanche. Paul et Léo, vous (…), vous apportez les chaises ? Eux (…) connaissent le code du cadenas : ne partez pas avant eux. Et Mme Roy, elle-(…), m'a promis qu'elle viendrait. »";
+  "Amina écrit au groupe du jardin partagé. Complète chaque blanc avec même, mêmes, aussi, seuls, tous ou deux : chaque mot sert une fois. « Bonjour à tous ! Samedi, nous avons monté la serre nous-(…), sans aucune aide. Les enfants (…) ont planté des tomates. Vous (…), vous êtes invités à la fête de dimanche. Paul et Léo, vous (…), vous apportez les chaises ? Eux (…) connaissent le code du cadenas : ne partez pas avant eux. Et Mme Roy, elle-(…), m'a promis qu'elle viendrait. »";
 
 export const TEXTE_A8 =
   "Nora raconte une dispute entre deux voisins, mais on ne sait jamais de qui elle parle. Réécris les phrases avec il pour que le lecteur sache qui fait quoi. « Hier, M. Petit a croisé M. Blanc dans l'escalier. Il lui a reproché le bruit de sa télévision. Il a répondu qu'il n'avait jamais rien entendu. Il s'est énervé, et il a claqué la porte. Le soir, sa femme a appelé celle de M. Blanc, qui a promis de baisser le son. »";
