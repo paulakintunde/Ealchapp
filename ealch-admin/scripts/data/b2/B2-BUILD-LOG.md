@@ -169,6 +169,30 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**ART LANDED AND LINKED, 2026-09-30: waves 5, 6 and 7 carry every opener.** Wave 6
+(b2.17-b2.21, 59 openers) is registered with alt in `ealch-v2/src/content/lessonImages.ts`:
+b2.17-b2.20 in `651b1ac` (together with wave 7's b2.27-b2.30, 96 openers), b2.21's 11 in
+`c4f57ac`. Every file is on disk and tracked, each with one `require()` and one ALT line:
+expression-but 12, subordonnees-temps 12, restriction 12, tournures-impersonnelles 12,
+negations-combinees 11. Wave 5 (b2.13-b2.16, 47 openers, `299bfa9`) is unchanged and live in
+v82. `ART_PENDING` now holds only wave 8 (b2.31-b2.34). Guards: app `image-refs.test.ts` 8/8,
+admin `b1-lesson-integrity.test.ts` 148/148.
+
+**NEXT, in this order (Postgres first, seed second, publish last). Waves 6 and 7 go together**
+(b2.29 cites lesson 30):
+1. Import dry run, then the write. From `ealch-admin/`:
+   `pnpm tsx scripts/b1-import.ts expression-but subordonnees-temps restriction tournures-impersonnelles negations-combinees langage-juridique francais-soins science-pour-tous lire-litterature`
+   then the same line with `--apply`, and read it back. **The `--apply` writes Postgres: Paul's OK first**,
+   and re-poll Supabase (it auto-pauses).
+2. Merge into the packs layer: `pnpm tsx scripts/b1-merge-into-seed.ts <the same nine slugs> --dry`, then
+   without `--dry`. Never `git checkout` seed.json; re-run the merge instead.
+3. Suites: app `npm test` + `npm run test:component` (ealch-v2), admin `pnpm test`.
+4. `pnpm content:publish --packs --dry-run`, then record the v83 checksum and the b2 pack size.
+   **Watch the legacy snapshot**: v82 was 45.06 MiB against the 50 MiB pre-raise ceiling, and the
+   v82 entry warned that pre-raise installs refuse it after about b2.21. Waves 6 + 7 add ~1,665 rows.
+   If the dry run crosses 50 MiB, stop and decide with Paul before publishing.
+5. Publish v83 only on Paul's OK, then GATE B2-3 on the Pixel.
+
 **WAVE 8 DRAFTED, 2026-09-30** (b2.31 to b2.34: B2 fully drafted). 759 authored rows; app checks
 0, import dry run 759 / 0 blockers, floors clear. On ART_PENDING (46 openers). Open for the
 pre-review: b2.32 keeps « beur / rebeu » once with a sensitivity note; slang and idiom headwords
