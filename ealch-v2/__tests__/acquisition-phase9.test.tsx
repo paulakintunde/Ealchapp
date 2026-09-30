@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { recordAppForeground, recordAppLaunch } from '@/services/acquisition';
+import { lookupPlayReferrer, recordAppForeground, recordAppLaunch, recordInstallAttribution } from '@/services/acquisition';
 import { installId, track } from '@/services/analytics';
 
 jest.mock('@/services/analytics', () => ({
@@ -33,5 +33,41 @@ test('same-day foreground is ignored and next local day is D1 only once', async 
   await recordAppLaunch(new Date(2026, 8, 30, 13));
   expect((track as jest.Mock).mock.calls.filter(([event]) => event === 'd1_return')).toEqual([
     ['d1_return', { local_day: '2026-09-30' }],
+  ]);
+});
+
+test('iPhone reports unavailable without loading the Android native API', async () => {
+  const read = jest.fn(async () => { throw new Error('native module must not load'); });
+  expect(await lookupPlayReferrer('ios', read)).toEqual({ status: 'unsupported' });
+  expect(read).not.toHaveBeenCalled();
+  await recordInstallAttribution('ios');
+  await recordInstallAttribution('ios');
+  expect((track as jest.Mock).mock.calls.filter(([event]) => event === 'install_attribution')).toEqual([
+    ['install_attribution', { status: 'unavailable' }],
+  ]);
+});
+
+test('Android lookup sends parsed campaign fields once and no raw referrer', async () => {
+  await recordAppLaunch(new Date(2026, 8, 29, 9));
+  const lookup = jest.fn(async () => ({ status: 'ok' as const, raw: 'utm_source=play&utm_campaign=launch&email=private' }));
+  await recordInstallAttribution('android', lookup);
+  await recordInstallAttribution('android', lookup);
+  expect(lookup).toHaveBeenCalledTimes(1);
+  expect((track as jest.Mock).mock.calls.filter(([event]) => event === 'install_attribution')).toEqual([
+    ['install_attribution', { status: 'campaign', source: 'play', campaign: 'launch' }],
+  ]);
+  expect((track as jest.Mock).mock.calls.find(([event]) => event === 'first_open')).toBeTruthy();
+});
+
+test('Android unsupported and retryable errors map to different statuses', async () => {
+  const unsupported = Object.assign(new Error('unsupported'), { code: 'ERR_APPLICATION_INSTALL_REFERRER_UNAVAILABLE' });
+  expect(await lookupPlayReferrer('android', async () => { throw unsupported; })).toEqual({ status: 'unsupported' });
+  expect(await lookupPlayReferrer('android', async () => { throw new Error('offline'); })).toEqual({ status: 'failed' });
+  const lookup = jest.fn().mockResolvedValueOnce({ status: 'failed' }).mockResolvedValueOnce({ status: 'ok', raw: 'utm_medium=cpc' });
+  await recordInstallAttribution('android', lookup);
+  await recordInstallAttribution('android', lookup);
+  expect((track as jest.Mock).mock.calls.filter(([event]) => event === 'install_attribution')).toEqual([
+    ['install_attribution', { status: 'lookup_failed' }],
+    ['install_attribution', { status: 'campaign', medium: 'cpc' }],
   ]);
 });

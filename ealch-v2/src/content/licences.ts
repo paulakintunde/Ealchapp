@@ -29,6 +29,7 @@ export const RUNTIME_DEPS: Attribution[] = [
   { name: '@shopify/flash-list', licence: 'MIT' },
   { name: '@supabase/supabase-js', licence: 'MIT' },
   { name: 'expo', licence: 'MIT' },
+  { name: 'expo-application', licence: 'MIT' },
   { name: 'expo-asset', licence: 'MIT' },
   { name: 'expo-audio', licence: 'MIT' },
   { name: 'expo-blur', licence: 'MIT' },

@@ -28,7 +28,7 @@ import { installErrorHandlers, logError } from '@/services/errors';
 import { useAuthSession } from '@/services/session';
 import { useForegroundSync } from '@/services/sync';
 import { useEntitlementSync } from '@/services/purchases';
-import { recordAppForeground, recordAppLaunch } from '@/services/acquisition';
+import { recordAppForeground, recordAppLaunch, recordInstallAttribution } from '@/services/acquisition';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -91,7 +91,7 @@ export default function RootLayout() {
   useEntitlementSync();
 
   useEffect(() => {
-    void recordAppLaunch();
+    void recordAppLaunch().then(() => recordInstallAttribution());
     const subscription = AppState.addEventListener('change', (next) => {
       if (next === 'active' && lastAppState.current !== 'active') void recordAppForeground();
       lastAppState.current = next;
