@@ -150,6 +150,7 @@ export default function Paywall() {
     { icon: 'book' as const, title: T.pwFeatLevels, sub: T.pwFeatLevelsS },
     { icon: 'star' as const, title: T.pwFeatCoach, sub: T.pwFeatCoachS },
     { icon: 'mic' as const, title: T.pwFeatRoleplay, sub: T.pwFeatRoleplayS },
+    { icon: 'pencil' as const, title: T.pwFeatExam, sub: T.pwFeatExamS },
   ];
 
   const planRows = useMemo(

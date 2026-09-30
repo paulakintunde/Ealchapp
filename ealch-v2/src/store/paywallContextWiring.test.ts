@@ -41,13 +41,14 @@ test('every exam gate tells the paywall it was an exam gate', () => {
   ok(!read('exam-paper.tsx').includes("router.push('/paywall')"), 'no context-free push may remain');
 });
 
-test('D-03 and D-04: the paywall sells exactly the three features that are real gates', () => {
+test('D-03 and D-04: the paywall sells exactly the four features that are real gates', () => {
   // 05-RESEARCH.md Pitfall 1: CONTEXT.md's D-03 assumed an `audio.packs`
   // marketing bullet existed to remove. It does not, and must not appear.
   const src = read('paywall.tsx');
-  strictEqual(count(src, 'T.pwFeat'), 6, 'three feature rows, each with a title and a sub');
+  // The fourth, mock exams, joined 2026-09-30 when every exam moved into Première (gate:examiner).
+  strictEqual(count(src, 'T.pwFeat'), 8, 'four feature rows, each with a title and a sub');
   ok(!src.includes('audio.packs') && !src.includes('pwFeatPacks'), 'nothing may market the unbuilt audio packs');
-  ok(src.includes('T.pwFeatLevels') && src.includes('T.pwFeatCoach') && src.includes('T.pwFeatRoleplay'), 'D-04: the three bullets stay granular');
+  ok(src.includes('T.pwFeatLevels') && src.includes('T.pwFeatCoach') && src.includes('T.pwFeatRoleplay') && src.includes('T.pwFeatExam'), 'D-04: the four bullets stay granular');
 });
 
 test('D-09/D-10: every paywall branch dismisses back, and none of them unlocks anything', () => {

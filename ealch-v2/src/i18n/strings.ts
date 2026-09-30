@@ -264,6 +264,7 @@ export type Strings = {
   pwFeatLevels: string; pwFeatLevelsS: string;
   pwFeatCoach: string; pwFeatCoachS: string;
   pwFeatRoleplay: string; pwFeatRoleplayS: string;
+  pwFeatExam: string; pwFeatExamS: string;
   monthlyL: string; annualL: string; perMoShort: string; billedYear: string;
   saveFmt: string; bestValue: string; pwTrialFmt: string;
   pwCta: string; pwCtaGuest: string;
@@ -734,7 +735,7 @@ export const T: Record<Lang, Strings> = {
     subscription: 'Abonnement', currentPlan: 'FORMULE ACTUELLE',
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Débloquez tout le parcours',
     pwTermsPlan: 'Ealch Première · abonnement {plan} · {price}',
-    pwLead: 'A2 et au-delà, coach illimité et jeux de rôle illimités. Sons et A1 restent gratuits pour toujours.',
+    pwLead: 'A2 et au-delà, tous les examens blancs, coach illimité et jeux de rôle illimités. Sons et A1 restent gratuits pour toujours.',
     pwTitleLevels: 'Débloquez A2 et au-delà', pwLeadLevels: 'Tous les niveaux après A1, débloqués. Sons et A1 restent gratuits pour toujours.',
     pwTitleCoach: 'Conversations illimitées avec le coach', pwLeadCoach: 'Continuez à poser des questions une fois vos questions gratuites du jour épuisées.',
     pwTitleRoleplay: 'Jeux de rôle illimités', pwLeadRoleplay: 'Toutes les scènes, chaque jour. Le gratuit couvre un scénario par jour.',
@@ -744,6 +745,7 @@ export const T: Record<Lang, Strings> = {
     pwFeatLevels: 'Tous les niveaux', pwFeatLevelsS: 'A2 et au-delà, aussi loin que vous irez',
     pwFeatCoach: 'Coach illimité', pwFeatCoachS: 'Posez vos questions au-delà de la limite quotidienne gratuite',
     pwFeatRoleplay: 'Jeux de rôle illimités', pwFeatRoleplayS: 'Toutes les scènes, tous les jours. En gratuit : un scénario par jour',
+    pwFeatExam: 'Tous les examens blancs', pwFeatExamS: 'TEF, TCF et DELF. En gratuit : le premier examen de chaque format',
     monthlyL: 'Mensuel', annualL: 'Annuel', perMoShort: '/mois', billedYear: 'facturé {p} une fois par an',
     saveFmt: 'Économisez {p}', bestValue: 'MEILLEURE OFFRE', pwTrialFmt: 'Commence par un essai gratuit de {t}',
     pwCta: 'Continuer', pwCtaGuest: 'Connectez-vous pour vous abonner',
@@ -890,7 +892,7 @@ export const T: Record<Lang, Strings> = {
       { label: 'Le plan de demain ?', msg: 'Quel est le plan de demain ?' },
     ],
     planFree: 'Essentiel — Gratuit',
-    planFreeDesc: 'Feed quotidien · 1 scénario par jour · Le Cours de remise à niveau',
+    planFreeDesc: 'Feed quotidien · 1 scénario par jour · Le Cours de remise à niveau · 1 examen blanc par format',
     offlineTag: 'HORS LIGNE',
     dlCats: ['Playlists', 'Leçons', 'Audio du coach'],
     dlSubs: ['12 leçons · 210 Mo', 'playlist · 160 Mo', '24 leçons · 340 Mo'],
@@ -1242,7 +1244,7 @@ export const T: Record<Lang, Strings> = {
     subscription: 'Subscription', currentPlan: 'CURRENT PLAN',
     pwTag: 'EALCH PREMIÈRE', pwTitle: 'Unlock the whole path',
     pwTermsPlan: 'Ealch Première · {plan} subscription · {price}',
-    pwLead: 'A2 and beyond, unlimited coach turns and unlimited role plays. Sons and A1 stay free forever.',
+    pwLead: 'A2 and beyond, every mock exam, unlimited coach turns and unlimited role plays. Sons and A1 stay free forever.',
     pwTitleLevels: 'Unlock A2 and beyond', pwLeadLevels: 'Every level past A1, unlocked. Sons and A1 stay free forever.',
     pwTitleCoach: 'Unlimited coach conversations', pwLeadCoach: 'Keep asking your coach after today\'s free questions run out.',
     pwTitleRoleplay: 'Unlimited role plays', pwLeadRoleplay: 'Every scene, every day. Free covers one scenario a day.',
@@ -1252,6 +1254,7 @@ export const T: Record<Lang, Strings> = {
     pwFeatLevels: 'Every level', pwFeatLevelsS: 'A2 and beyond, as far as you go',
     pwFeatCoach: 'Unlimited coach', pwFeatCoachS: 'Ask past the free daily limit',
     pwFeatRoleplay: 'Unlimited role plays', pwFeatRoleplayS: 'Every scene, every day. Free covers one scenario a day',
+    pwFeatExam: 'Every mock exam', pwFeatExamS: 'TEF, TCF and DELF. Free covers the first exam of each format',
     monthlyL: 'Monthly', annualL: 'Annual', perMoShort: '/mo', billedYear: 'billed {p} once a year',
     saveFmt: 'Save {p}', bestValue: 'BEST VALUE', pwTrialFmt: 'Starts with a {t} free trial',
     pwCta: 'Continue', pwCtaGuest: 'Sign in to subscribe',
@@ -1398,7 +1401,7 @@ export const T: Record<Lang, Strings> = {
       { label: "What's next?", msg: "What's tomorrow's plan?" },
     ],
     planFree: 'Essential — Free',
-    planFreeDesc: 'Daily feed · 1 scenario per day · Refresher Course',
+    planFreeDesc: 'Daily feed · 1 scenario per day · Refresher Course · 1 mock exam per format',
     offlineTag: 'OFFLINE',
     dlCats: ['Playlists', 'Lessons', 'Coach audio'],
     dlSubs: ['12 lessons · 210 MB', 'playlist · 160 MB', '24 lessons · 340 MB'],
