@@ -29,7 +29,7 @@
 //             magasiner, blonde / chum, char (familier), présentement, c’est
 //             plate, tuque, breuvage, bienvenue; the sacres as a CATEGORY only
 //     act 5   Belgium and Switzerland: septante, nonante, huitante (Vaud,
-//             Valais), à tantôt, s’il vous plaît when handing, dîner / souper,
+//             Valais, Fribourg), à tantôt, s’il vous plaît when handing, dîner / souper,
 //             GSM, natel, drache, kot, savoir for pouvoir, « une fois »
 //     act 6   France has accents too: the Midi (final e, nasal with a
 //             consonant tail), chocolatine; insécurité linguistique,
@@ -137,15 +137,23 @@
 //         barrer (to lock), « si ça te tente », « bienvenue » as the
 //         answer to merci, mitaines, rôties (toast), casse-croûte,
 //         pâté chinois, cellulaire, stationnement ....................... H
+//         REVIEW 2026-09-30 (Usito): tuque, breuvage, jaser and barrer
+//         are marked Q/C FAM (breuvage and barrer also « critiqué »), so
+//         their rows and the sheet now say familier; bienvenue after
+//         merci is Q/C, « critiqué » as non-standard: the sheet says
+//         courant à l’oral. Rôtie and casse-croûte (snack bar) are Q/C.
 //       sacres: Québec swear words, largely from religious vocabulary:
 //         NAMED AS A CATEGORY, NONE LISTED ............................. H
 //     BELGIUM AND SWITZERLAND (act 5)
 //       septante, nonante: Belgium and Switzerland; Belgium keeps
 //         quatre-vingts ................................................ H
-//       huitante: Swiss, « notamment dans le canton de Vaud et en
-//         Valais » (also Fribourg, not claimed) ........................ H
-//       Geneva « plutôt quatre-vingts » ................................. M
-//       à tantôt (Belgium: see you later today) ......................... H
+//       huitante: Swiss, Vaud, Valais AND Fribourg (review: Fribourg
+//         now named everywhere) ........................................ H
+//       Geneva « plutôt quatre-vingts » (review: confirmed, Geneva and
+//         Neuchâtel say quatre-vingts) .................................. H
+//       à tantôt (Belgium: see you later today). Review: also Swiss and
+//         Québec (Usito « tantôt »), so it left the Belgium / Switzerland
+//         sort and its row and sheet say so ............................ H
 //       « s’il vous plaît » said when handing something (Belgium) ....... H
 //       dîner at noon / souper in the evening, « beaucoup de gens »
 //         (Belgium, Switzerland) ....................................... H
@@ -158,7 +166,8 @@
 //       Midi: the final e pronounced (petite, table), nasal vowels with a
 //         consonant tail (« pèng » for pain), Occitan historically spoken
 //         around Toulouse ............................................... H
-//       chocolatine: south-west (Toulouse, Bordeaux) .................... H
+//       chocolatine: south-west (Toulouse, Bordeaux); review: also the
+//         usual word in Québec (OQLF), now said on the row and sheet .... H
 //       insécurité linguistique; « glottophobie » (a term used by some
 //         linguists for discrimination by way of speaking) .............. H
 //     AFRICA (act 7). Country always named, never « l’Afrique »
@@ -166,11 +175,14 @@
 //         attiéké: Côte d’Ivoire ....................................... H
 //       tantie (respectful address): Côte d’Ivoire ....................... H
 //       gâter / « est gâté » (broken): Côte d’Ivoire, Cameroun ........... H
-//       enceinter: Côte d’Ivoire, Cameroun (named in a card body only) .. H
+//       enceinter: Cameroun and other African countries (review: the
+//         Côte d’Ivoire attribution was not confirmed; glossed « rendre
+//         enceinte » in the card body) ................................. H
 //       « On dit quoi ? » (how are you): Cameroun, Côte d’Ivoire ......... H
 //       essencerie (petrol station), dibiterie (grilled meat): Sénégal .. H
-//       deuxième bureau (a second, hidden partner): « en Afrique
-//         centrale et de l’Ouest, au Cameroun par exemple » ............. H
+//       deuxième bureau (a second, hidden partner). Review: attested
+//         for RD Congo (Kinshasa), Congo and Côte d’Ivoire; the Cameroun
+//         attribution was not confirmed and was replaced ................ H
 //       présentement also in West Africa (REUSED row) ................... H
 //       French the only official language of Côte d’Ivoire; dioula and
 //         baoulé also spoken; wolof / French code-switching in Dakar .... H
@@ -201,10 +213,11 @@
 //       a terminology recommendation does not bind private individuals .. H
 //       OIF: « des États et des gouvernements qui ont le français en
 //         partage » ...................................................... H
-//       Fédération Wallonie-Bruxelles: its own service de la langue
-//         française (sheet only) ........................................ M
-//       Suisse romande: a Délégation à la langue française, attached to
-//         the CIIP (sheet only) ......................................... M
+//       Fédération Wallonie-Bruxelles: review, the body is the
+//         Direction de la langue française (Service général des Lettres
+//         et du Livre); the sheet named it « Service », now corrected ... H
+//       Suisse romande: the Délégation à la langue française, a
+//         permanent commission of the CIIP (sheet only) ................. H
 //
 //     LEFT OUT, NOT SURE ENOUGH OR NOT WANTED: piastre, icitte, frette (b1.25
 //     owns it), « Service ! » (Swiss), cadeauter, doigter, « ça va un peu »,
@@ -618,12 +631,12 @@ export const ACT4_ROWS: Row[] = [
     '/o ke.bɛk ɔ̃ de.ʒœn lə ma.tɛ̃ ɔ̃ din a mi.di e ɔ̃ sup lə swaʁ/', 'oh kay-BEK | ohⁿ day-zhuhn luh ma-TEHⁿ | ohⁿ deen a mee-DEE | ay ohⁿ soop luh SWAR', ['mots', 'repas'], FCVDR),
   reg(1049, 'phrase', 'des rôties', 'toast, on a breakfast menu (Québec)',
     '/de ʁo.ti/', 'day roh-TEE', ['mots', 'quebec']),
-  reg(1050, 'phrase', 'un breuvage', 'a drink, on a menu (Québec)',
-    '/œ̃ bʁœ.vaʒ/', 'uhⁿ bruh-VAZH', ['mots', 'quebec']),
+  reg(1050, 'phrase', 'un breuvage', 'a drink, often on a menu (Québec, familiar)',
+    '/œ̃ bʁœ.vaʒ/', 'uhⁿ bruh-VAZH', ['mots', 'quebec'], 'familier'),
   reg(1051, 'phrase', 'jaser', 'to chat (Québec)',
     '/ʒa.ze/', 'zha-ZAY', ['mots', 'quebec'], 'familier'),
-  reg(1052, 'phrase', 'barrer la porte', 'to lock the door (Québec)',
-    '/ba.ʁe la pɔʁt/', 'ba-ray la PORT', ['mots', 'quebec']),
+  reg(1052, 'phrase', 'barrer la porte', 'to lock the door (Québec, familiar)',
+    '/ba.ʁe la pɔʁt/', 'ba-ray la PORT', ['mots', 'quebec'], 'familier'),
   sent(1053, 'Au Québec, on répond souvent « bienvenue » à un merci.', 'In Québec, people often answer a thank-you with bienvenue (you’re welcome).',
     '/o ke.bɛk ɔ̃ ʁe.pɔ̃ su.vɑ̃ bjɛ̃v.ny a œ̃ mɛʁ.si/', 'oh kay-BEK | ohⁿ ray-pohⁿ soo-VAHⁿ | byehⁿv-NÜ | a uhⁿ mehr-SEE', ['mots', 'quebec']),
   reg(1054, 'sentence', 'Je passe au dépanneur acheter du lait.', 'I’m popping to the corner store for milk. (Québec)',
@@ -633,7 +646,7 @@ export const ACT4_ROWS: Row[] = [
   reg(1056, 'sentence', 'Il est présentement en réunion.', 'He is in a meeting at the moment. (Québec, West Africa)',
     '/i.lɛ pʁe.zɑ̃t.mɑ̃ ɑ̃ ʁe.y.njɔ̃/', 'ee-leh pray-zahⁿt-MAHⁿ | ahⁿ ray-ü-NYOHⁿ', ['mots', 'quebec']),
   reg(1057, 'sentence', 'Mets ta tuque, il fait froid.', 'Put your hat on, it’s cold. (Québec)',
-    '/mɛ ta tyk il fɛ fʁwa/', 'meh ta TÜK | eel feh FRWA', ['mots', 'quebec']),
+    '/mɛ ta tyk il fɛ fʁwa/', 'meh ta TÜK | eel feh FRWA', ['mots', 'quebec'], 'familier'),
   sent(1058, 'Écris-moi un courriel ce soir.', 'Send me an email tonight.',
     '/e.kʁi.mwa œ̃ ku.ʁjɛl sə swaʁ/', 'ay-kree-MWA | uhⁿ koo-ryel suh SWAR', ['mots']),
   sent(1059, 'Chez nous, le dîner, c’est le repas du midi.', 'Where we live, dîner is the midday meal.',
@@ -663,9 +676,9 @@ export const ACT5_ROWS: Row[] = [
     '/sɛp.tɑ̃t/', 'sep-TAHⁿT', ['nombres', 'belgique', 'suisse']),
   reg(1068, 'phrase', 'nonante', 'ninety (Belgium, Switzerland)',
     '/nɔ.nɑ̃t/', 'no-NAHⁿT', ['nombres', 'belgique', 'suisse']),
-  reg(1069, 'phrase', 'huitante', 'eighty (Switzerland, notably Vaud and Valais)',
+  reg(1069, 'phrase', 'huitante', 'eighty (Switzerland: Vaud, Valais, Fribourg)',
     '/ɥi.tɑ̃t/', 'wee-TAHⁿT', ['nombres', 'suisse']),
-  reg(1070, 'phrase', 'à tantôt', 'see you later, later today (Belgium)',
+  reg(1070, 'phrase', 'à tantôt', 'see you later, later today (Belgium; also heard in Switzerland and Québec)',
     '/a tɑ̃.to/', 'a tahⁿ-TOH', ['mots', 'belgique']),
   reg(1071, 'phrase', 'un GSM', 'a mobile phone (Belgium)',
     '/œ̃ ʒe.ɛs.ɛm/', 'uhⁿ zhay-ess-EMM', ['mots', 'belgique']),
@@ -698,7 +711,7 @@ export const ACT5_ROWS: Row[] = [
   rule(1085, 'Septante, huitante, nonante : des nombres réguliers, pas des fautes.', 'Septante, huitante, nonante: regular numbers, not mistakes.',
     '/sɛp.tɑ̃t ɥi.tɑ̃t nɔ.nɑ̃t de nɔ̃bʁ ʁe.ɡy.lje pa de fot/', 'sep-TAHⁿT | wee-TAHⁿT | no-NAHⁿT | day nohⁿbr ray-gü-LYAY | pa day FOHT',
     'Au téléphone, une vendeuse de Lausanne te dit « septante-huit francs ». Tu as bien entendu ?',
-    'Oui : 78 francs. En Belgique et en Suisse, on dit septante et nonante ; dans le canton de Vaud et en Valais, huitante. Ces formes sont régulières, comme trente, quarante ou cinquante.', ['nombres']),
+    'Oui : 78 francs. En Belgique et en Suisse, on dit septante et nonante ; dans les cantons de Vaud, du Valais et de Fribourg, huitante. Ces formes sont régulières, comme trente, quarante ou cinquante.', ['nombres']),
   sent(1086, 'J’ai d’abord entendu septante, puis j’ai compris soixante-dix.', 'First I heard septante, then I understood seventy.',
     '/ʒe da.bɔʁ ɑ̃.tɑ̃.dy sɛp.tɑ̃t pɥi ʒe kɔ̃.pʁi swa.sɑ̃t.dis/', 'zhay da-BOR | ahⁿ-tahⁿ-dü sep-TAHⁿT | pwee zhay kohⁿ-pree swa-sahⁿt-DEESS', ['nombres', 'lettre']),
   reg(1087, 'sentence', 'Le kot de ma fille est à deux pas de l’université.', 'My daughter’s student room is a stone’s throw from the university. (Belgium)',
@@ -714,7 +727,7 @@ export const ACT6_ROWS: Row[] = [
     '/yn pə.tit tabl ʁɔ̃d pʁɛ də la fə.nɛtʁ/', 'ün puh-teet tabl ROHⁿD | preh duh la fuh-NETR', ['sons', 'midi', 'texte']),
   sent(1090, 'On a acheté du pain et du vin pour demain.', 'We bought bread and wine for tomorrow.',
     '/ɔ̃.na aʃ.te dy pɛ̃ e dy vɛ̃ puʁ də.mɛ̃/', 'ohⁿ-na ash-TAY | dü PEHⁿ ay dü VEHⁿ | poor duh-MEHⁿ', ['sons', 'midi', 'texte']),
-  reg(1091, 'phrase', 'une chocolatine', 'a pain au chocolat (south-west of France)',
+  reg(1091, 'phrase', 'une chocolatine', 'a pain au chocolat (south-west of France, and Québec)',
     '/yn ʃɔ.kɔ.la.tin/', 'ün sho-ko-la-TEEN', ['mots', 'midi']),
   phrase(1092, 'l’accent du Midi', 'the southern French accent',
     '/lak.sɑ̃ dy mi.di/', 'lak-sahⁿ dü mee-DEE', ['midi'], RV),
@@ -763,8 +776,8 @@ export const ACT7_ROWS: Row[] = [
     '/ɔ̃ di kwa/', 'ohⁿ dee KWA', ['mots', 'cameroun', 'cote-divoire'], 'familier'),
   reg(1111, 'sentence', 'Mon téléphone est gâté.', 'My phone is broken. (Côte d’Ivoire, Cameroon)',
     '/mɔ̃ te.le.fɔn ɛ ɡɑ.te/', 'mohⁿ tay-lay-FONN | eh gah-TAY', ['mots', 'cote-divoire', 'cameroun']),
-  reg(1112, 'phrase', 'un deuxième bureau', 'a second, hidden partner (Central and West Africa)',
-    '/œ̃ dø.zjɛm by.ʁo/', 'uhⁿ deu-zyem bü-ROH', ['mots', 'cameroun'], 'familier'),
+  reg(1112, 'phrase', 'un deuxième bureau', 'a second, hidden partner (DR Congo, Congo, Côte d’Ivoire)',
+    '/œ̃ dø.zjɛm by.ʁo/', 'uhⁿ deu-zyem bü-ROH', ['mots', 'congo', 'cote-divoire'], 'familier'),
   sent(1113, 'En Côte d’Ivoire, le français est la seule langue officielle.', 'In Côte d’Ivoire, French is the only official language.',
     '/ɑ̃ kot di.vwaʁ lə fʁɑ̃.sɛ ɛ la sœl lɑ̃ɡ ɔ.fi.sjɛl/', 'ahⁿ koht dee-VWAR | luh frahⁿ-SEH | eh la suhl lahⁿg o-fee-SYEL', ['fait', 'cote-divoire']),
   sent(1114, 'À Dakar, on passe souvent du wolof au français dans la même phrase.', 'In Dakar, people often switch from Wolof to French in the same sentence.',

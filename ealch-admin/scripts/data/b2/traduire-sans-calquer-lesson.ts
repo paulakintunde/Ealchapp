@@ -520,7 +520,7 @@ const A2_TRADUCTION = pourTaTraduction('a2-traduction', 'Le mot juste, pas le mo
     it(E(1821), 'realise'),
     it(E(1816), 'address'),
   ], chk('Laquelle est à la fois naturelle et sûre ?', ['« Nous nous sommes rendu compte du problème et nous nous y sommes attaqués. »', '« Nous avons réalisé le problème et nous l’avons adressé. »'], 0,
-    'Réaliser que est admis, mais réaliser un problème et adresser un problème ne le sont pas. EN: tackle, not address.')),
+    'Réaliser au sens de se rendre compte est admis, mais adresser un problème est un calque ; se rendre compte reste le plus sûr. EN: tackle, not address.')),
 ], ['fauxami']);
 
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
@@ -744,7 +744,7 @@ const A4_PIEGE: Sec<'trapDrill'> = {
   ],
   drill: [
     { promptSay: 'Le concert aura ... dans le parc.', opts: ['lieu', 'place'], correct: 0 },
-    { promptSay: 'Ton idée a du ... .', opts: ['sens', 'poids'], correct: 0 },
+    { promptSay: 'Ton idée ... du sens.', opts: ['a', 'fait'], correct: 0 },
     { promptSay: 'Elle a posé sa ... à la mairie.', opts: ['candidature', 'application'], correct: 0 },
     { promptSay: 'Le directeur met l’... sur la qualité.', opts: ['accent', 'emphase'], correct: 0 },
     { promptSay: 'Ce visage me dit quelque ... .', opts: ['chose', 'cloche'], correct: 0 },
@@ -760,7 +760,7 @@ const A4_ACCEPTES: Sec<'examples'> = {
   type: 'examples', id: 'a4-acceptes', layer: 'core', sheetId: 'sheet-calques',
   title: 'Venus de l’anglais, et acceptés',
   examples: [
-    ex(E(1865), 'l’OQLF juge l’expression acceptable'),
+    ex(E(1865), 'l’OQLF juge l’expression acceptable dans un registre familier'),
     ex(E(1866), 'ouvrir la voie ; paver la voie est aussi jugé acceptable'),
     ex(E(1877), 'mettre sur la glace est aussi admis ; en suspens reste le plus neutre'),
     ex(E(1878), 'être en charge de est critiqué, mais très courant en France ; chargé de et responsable de sont sûrs'),
@@ -796,7 +796,7 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
   ctl('Postuler', 'To apply for a job se dit…', ['postuler à un emploi', 'appliquer pour un emploi', 'demander pour un emploi'], 0,
     'Ou poser sa candidature. EN: postuler.'),
   ctl('Les calques acceptés', '« Ce n’est pas ma tasse de thé » est…', ['une expression acceptée', 'un calque à corriger'], 0,
-    'Venue de l’anglais, entrée dans l’usage. EN: accepted.'),
+    'Venue de l’anglais, entrée dans l’usage familier. EN: accepted, in an informal register.'),
 ], ['expression']);
 
 const ACT4: ActDef = {
@@ -1384,7 +1384,7 @@ const A9_CHOISIR: Sec<'groupDrill'> = {
       it(E(1959), 'my back hurts'),
       it(E(1960), 'he shrugged'),
     ], chk('« She washed her hair. » Quelle version est française ?', ['« Elle s’est lavé les cheveux. »', '« Elle s’est lavé ses cheveux. »'], 0,
-      'Le pronom se dit déjà à qui sont les cheveux : le possessif serait de trop. EN: the reflexive pronoun and the article.')),
+      'Le pronom réfléchi (s’) dit déjà à qui sont les cheveux : le possessif serait de trop. EN: the reflexive pronoun and the article.')),
     grp('Le général et le you', [
       it(E(1964), 'I like tea'),
       it(E(1962), 'if you want to improve'),
@@ -1408,7 +1408,7 @@ const A9_ERREURS: Sec<'commonErrors'> = {
     { wrong: 'Tu ne sais jamais si le train partira à l’heure.', right: fr(ON_NE_SAIT),
       why: 'Normal : you never know. Mais ce you parle de tout le monde : en français, on. EN: generic you → on.' },
     { wrong: 'Levez vos bras au-dessus de votre tête.', right: fr(E(1956)),
-      why: 'Normal : your arms, your head. Dans une consigne sur le corps, l’article suffit. EN: les bras, la tête.' },
+      why: 'Normal : your arms, your head. Ce n’est pas faux, mais dans une consigne sur le corps, le français dit simplement les bras, la tête. EN: les bras, la tête is the natural form.' },
   ],
   audio: AUDIO, say: REFRAME, terms: ['petitsmots'],
 };
@@ -1609,7 +1609,7 @@ const A11_JUSTE: Sec<'cardDeck'> = {
     { head: 'Le sens français du mot', label: 'supporter, définitivement', fr: fr(E(1982)), sub: rsOf(E(1982)),
       body: 'Définitivement au sens de pour toujours, supporter au sens de tolérer, réaliser un projet : ce sont leurs sens français. EN: the word’s own French sense is always right.' },
     { head: 'Le calque devenu français', label: 'réaliser, tasse de thé', fr: fr(E(1822)), sub: rsOf(E(1822)),
-      body: 'Réaliser au sens de se rendre compte, ce n’est pas ma tasse de thé : venus de l’anglais, acceptés aujourd’hui par l’OQLF. EN: some calques have become French.' },
+      body: 'Réaliser au sens de se rendre compte, ce n’est pas ma tasse de thé (familier) : venus de l’anglais, acceptés aujourd’hui par l’OQLF. EN: some calques have become French.' },
     { head: 'Le mot à mot naturel', label: 'every two minutes', fr: fr(E(1995)), sub: rsOf(E(1995)),
       body: 'Toutes les deux minutes, il est possible que, la réunion est à dix heures : le mot à mot est déjà la phrase française. EN: sometimes word for word is already natural.' },
   ],
@@ -1802,7 +1802,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
 };
 
 const MODEL_TRANSLATION = 'Du nouveau chez Spoke & Chain. Nous avons le plaisir de vous annoncer l’ouverture de notre nouvel atelier de réparation, le samedi 15 mai à 10 h. L’inauguration aura lieu au 4321, rue Rachel Est, à Montréal. Passez rencontrer nos mécaniciens, inscrivez-vous à une vérification de sécurité gratuite et profitez de 15 % de rabais sur tous les accessoires. Après un long hiver, il est fréquent qu’un vélo ait besoin d’une mise au point : n’attendez pas que vos freins vous lâchent. Vous ne pouvez pas venir ? N’hésitez pas à nous écrire : nous sommes ouverts sept jours sur sept. La vie est trop courte pour rouler sur un vélo qui grince ! À bientôt, l’équipe de Spoke & Chain';
-const MODEL_JUSTIFICATION = 'Mes trois choix. Premièrement, j’ai traduit « will take place » par « aura lieu » : « prendra place » serait un calque, car prendre place veut dire s’asseoir. Deuxièmement, « It’s not uncommon » est devenu « il est fréquent » : j’ai préféré dire la même chose en positif, ce qui est plus direct en français. Troisièmement, j’ai adapté le ton. L’anglais s’enthousiasme (« Big news », « thrilled ») ; une annonce de commerce en français reste plus sobre. J’ai donc écrit « Nous avons le plaisir de vous annoncer », vouvoyé les clients et gardé un seul point d’exclamation, pour le slogan final.';
+const MODEL_JUSTIFICATION = 'Mes trois choix. Premièrement, j’ai traduit « will take place » par « aura lieu » : « prendra place » serait un calque, car prendre place veut dire s’asseoir. Deuxièmement, « It’s not uncommon » est devenu « il est fréquent » : c’est une modulation. J’ai préféré dire la même chose en positif, ce qui est plus direct en français. Troisièmement, j’ai adapté le ton. L’anglais s’enthousiasme (« Big news », « thrilled ») ; une annonce de commerce en français reste plus sobre. J’ai donc écrit « Nous avons le plaisir de vous annoncer », vouvoyé les clients et gardé un seul point d’exclamation, pour le slogan final.';
 
 /** THE GRADED TASK: translate and adapt, then justify (mediation, DELF B2 PE
  *  register), graded on the B2 grid (task, coherence, range, accuracy,
@@ -1850,7 +1850,7 @@ const A12_MISSION: Sec<'task'> = {
     'J’ai préféré',
   ],
   modelAnswer: `${MODEL_TRANSLATION}\n\n${MODEL_JUSTIFICATION}\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : date, heure, adresse, offre, contact et slogan traduits ; trois choix justifiés (un calque évité, une modulation, le ton).\n2. Cohérence : une annonce qui se lit comme un texte français ; premièrement, deuxièmement, troisièmement, donc.\n3. Étendue : avoir lieu, passez, inscrivez-vous, profitez de, n’hésitez pas à, une mise au point ; calque, positif, ton.\n4. Correction : 15 %, 10 h, le samedi 15 mai, 4321, rue Rachel Est, guillemets français.\n5. Registre : vous, une seule exclamation, un ton sobre ; une justification précise.`,
-  modelAnswerEn: 'News from Spoke & Chain. We are pleased to announce the opening of our new repair workshop on Saturday 15 May at 10 a.m. The opening will take place at 4321 Rachel Street East, Montréal. Drop by to meet our mechanics, sign up for a free safety check and enjoy 15% off all accessories. After a long winter, a bike often needs a tune-up: do not wait until your brakes give out. Can’t come? Feel free to write to us: we are open seven days a week. Life is too short to ride a squeaky bike! See you soon, the Spoke & Chain team. My three choices. First, I translated “will take place” as “aura lieu”: “prendra place” would be a calque, since prendre place means to sit down. Second, “It’s not uncommon” became “il est fréquent”: I preferred to say the same thing in the positive, which is more direct in French. Third, I adapted the tone. The English is enthusiastic (“Big news”, “thrilled”); a French shop announcement stays more sober. So I wrote “Nous avons le plaisir de vous annoncer”, used vous with the customers and kept a single exclamation mark, for the final slogan. The marker’s notes (not counted): task, coherence, range, accuracy, register.',
+  modelAnswerEn: 'News from Spoke & Chain. We are pleased to announce the opening of our new repair workshop on Saturday 15 May at 10 a.m. The opening will take place at 4321 Rachel Street East, Montréal. Drop by to meet our mechanics, sign up for a free safety check and enjoy 15% off all accessories. After a long winter, a bike often needs a tune-up: do not wait until your brakes give out. Can’t come? Feel free to write to us: we are open seven days a week. Life is too short to ride a squeaky bike! See you soon, the Spoke & Chain team. My three choices. First, I translated “will take place” as “aura lieu”: “prendra place” would be a calque, since prendre place means to sit down. Second, “It’s not uncommon” became “il est fréquent”: a modulation. I preferred to say the same thing in the positive, which is more direct in French. Third, I adapted the tone. The English is enthusiastic (“Big news”, “thrilled”); a French shop announcement stays more sober. So I wrote “Nous avons le plaisir de vous annoncer”, used vous with the customers and kept a single exclamation mark, for the final slogan. The marker’s notes (not counted): task, coherence, range, accuracy, register.',
   watchFor: [
     { pattern: '« prendra place » for take place, or « fait du sens », « appliquer pour », « mettre l’emphase ».', criterion: 'etendue', feedback: 'Une expression se traduit par une expression : aura lieu, a du sens, postuler, mettre l’accent.', ref: 'a4-expressions' },
     { pattern: 'Phrasal verbs translated particle by particle (« signez en haut », « laissez tomber par »), or « drop by » left without a verb.', criterion: 'etendue', feedback: 'Un verbe à particule, un verbe français : passez, inscrivez-vous.', ref: 'a7-etoffer' },
@@ -1896,7 +1896,7 @@ const A12_CHEAT: Sec<'cheatSheet'> = {
     { k: 'les phrases', v: 'à qui, on m’a dit, poser une question', say: fr(ON_M_A_DIT),
       detail: { title: 'La construction française', body: 'La préposition devant, pas de passif anglais, pas de formule lourde. EN: the French construction.', say: fr(E(1842)) } },
     { k: 'les expressions', v: 'avoir lieu, avoir du sens, postuler', say: fr(E(1855)),
-      detail: { title: 'Une expression par une expression', body: 'Prendre place, faire du sens, appliquer pour : déconseillés. Tasse de thé : acceptée. EN: an expression for an expression.', say: fr(E(1872)) } },
+      detail: { title: 'Une expression par une expression', body: 'Prendre place, faire du sens, appliquer pour : déconseillés. Tasse de thé : acceptée, en registre familier. EN: an expression for an expression.', say: fr(E(1872)) } },
     { k: 'les techniques', v: 'transposer, moduler, étoffer', say: fr(E(1880)),
       detail: { title: 'Les outils du traducteur', body: 'Changer la classe, le point de vue, ajouter un verbe ; l’équivalence pour les panneaux. EN: the translator’s tools.', say: fr(E(1917)) } },
     { k: 'les détails', v: '-ing, articles, on, 15 %, « »', say: fr(E(1939)),
@@ -1950,8 +1950,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« We support local artists. » Dans un texte soigné, nous… les artistes du quartier.', ['soutenons', 'supportons', 'adressons'], 0, 'Soutenir est sûr ; supporter veut d’abord dire tolérer. EN: soutenir.', 'a2-mots'),
         mc('« She left Montréal for good. » Elle a quitté Montréal…', ['définitivement', 'certainement', 'éventuellement'], 0, 'Pour toujours : définitivement, dans son sens français. EN: for good.', 'a2-mots'),
         mc('« He pretends to be asleep. » Il…', ['fait semblant de dormir', 'prétend dormir'], 0, 'Prétendre dormir, ce serait affirmer qu’il dort. EN: faire semblant.', 'a2-faux-amis'),
-        tI(UN_MOT, '« The city must tackle the housing problem. » La ville doit s’... au problème du logement.', 'attaquer', 'S’attaquer à un problème ; jamais l’adresser. EN: s’attaquer à.', 'a2-piege'),
-        tI(UN_MOT, '« I attended the meeting. » J’ai ... à la réunion.', 'assisté', 'Assister à ; attendre, c’est to wait. EN: assisté.', 'a2-faux-amis', ['participé']),
+        tI(UN_MOT, '« The city must tackle the housing problem. » La ville doit s’... au problème du logement.', 'attaquer', 'S’attaquer à un problème, ou s’y atteler ; jamais l’adresser. EN: s’attaquer à.', 'a2-piege', ['atteler']),
+        tI(UN_MOT, '« I attended the meeting. » J’ai ... à la réunion.', 'assisté', 'Assister à ; attendre, c’est to wait. EN: assisté.', 'a2-faux-amis', ['participé', 'pris part', 'été']),
         mc('« The company offers job training. » Elle offre…', ['une formation', 'un entraînement'], 0, 'Au travail, la formation ; en sport, l’entraînement. EN: une formation.', 'a2-faux-amis'),
         eS('Laisse-moi t’introduire ma collègue Nadia.', 'Laisse-moi te présenter ma collègue Nadia.', 'On présente une personne. EN: présenter.', 'a2-piege', ['Je te présente ma collègue Nadia.', 'Permets-moi de te présenter ma collègue Nadia.']),
         lC('Écoute. Ici, définitivement veut-il dire « pour toujours » ?', fr(E(1820)), ['oui, pour toujours', 'non, il veut dire certainement'], 0, 'Quitter une ville définitivement : pour de bon. EN: for good.', 'a2-mots'),
@@ -1963,10 +1963,10 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« The person I spoke to » : la personne…', ['à qui j’ai parlé', 'que j’ai parlé à', 'qui j’ai parlé'], 0, 'La préposition ouvre la relative. EN: à qui.', 'a3-phrases'),
         mc('« What are you looking for? »', ['Que cherches-tu ?', 'Pour quoi cherches-tu ?', 'Que cherches-tu pour ?'], 0, 'Chercher, sans préposition. EN: chercher.', 'a3-construire'),
         mc('« I was told to wait. »', ['On m’a dit d’attendre.', 'J’ai été dit d’attendre.', 'Je me suis dit d’attendre.'], 0, 'Pas de passif pour la personne à qui l’on parle. EN: on m’a dit.', 'a3-erreurs'),
-        tI(UN_MOT, '« Can I ask you a question? » Puis-je vous ... une question ?', 'poser', 'On pose une question. EN: poser.', 'a3-erreurs', ['formuler', 'adresser']),
+        tI(UN_MOT, '« Can I ask you a question? » Puis-je vous ... une question ?', 'poser', 'On pose une question. EN: poser.', 'a3-erreurs', ['formuler', 'adresser', 'soumettre']),
         tI(UN_MOT, '« The first three days are free. » Les trois ... jours sont gratuits.', 'premiers', 'Le nombre avant premiers. EN: premiers.', 'a3-construire'),
         mc('« You will be answered within two days. »', ['On vous répondra sous deux jours.', 'Vous serez répondu sous deux jours.'], 0, 'On, et la personne en complément. EN: on vous répondra.', 'a3-lecture'),
-        eS('Je suis sous l’impression qu’il n’a pas compris.', 'J’ai l’impression qu’il n’a pas compris.', 'Avoir l’impression. EN: avoir l’impression.', 'a3-erreurs', ['J’ai le sentiment qu’il n’a pas compris.', 'Il me semble qu’il n’a pas compris.']),
+        eS('Je suis sous l’impression qu’il n’a pas compris.', 'J’ai l’impression qu’il n’a pas compris.', 'Avoir l’impression. EN: avoir l’impression.', 'a3-erreurs', ['J’ai le sentiment qu’il n’a pas compris.', 'Il me semble qu’il n’a pas compris.', 'Je crois qu’il n’a pas compris.', 'Je pense qu’il n’a pas compris.']),
         lC('Écoute. La préposition est-elle à la bonne place ?', fr(E(1838)), ['oui, devant qui', 'non, elle devrait finir la phrase'], 0, 'Avec qui : la préposition ouvre la question. EN: in front.', 'a3-lecture'),
       ],
     },
@@ -1975,10 +1975,10 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« The concert will take place in the park. » Le concert…', ['aura lieu au parc', 'prendra place au parc', 'fera lieu au parc'], 0, 'Un événement a lieu. EN: avoir lieu.', 'a4-expressions'),
         mc('« It makes sense. » Dans un texte soigné :', ['C’est logique.', 'Ça fait du sens.'], 0, 'Faire du sens est déconseillé par l’OQLF. EN: c’est logique.', 'a4-expressions'),
-        tI(UN_MOT, '« He applied for the job. » Il a ... sa candidature.', 'posé', 'Poser, présenter ou déposer sa candidature. EN: posé.', 'a4-expressions', ['présenté', 'déposé', 'envoyé', 'soumis']),
+        tI(UN_MOT, '« He applied for the job. » Il a ... sa candidature.', 'posé', 'Poser, présenter ou déposer sa candidature. EN: posé.', 'a4-expressions', ['présenté', 'déposé', 'envoyé', 'soumis', 'proposé', 'adressé', 'transmis']),
         tI(UN_MOT, '« The report puts the emphasis on safety. » Le rapport met l’... sur la sécurité.', 'accent', 'Mettre l’accent sur. EN: accent.', 'a4-piege'),
         mc('« That name rings a bell. » Ce nom…', ['me dit quelque chose', 'me sonne une cloche', 'me sonne la cloche'], 0, 'Dire quelque chose. EN: dire quelque chose.', 'a4-expressions'),
-        mc('« Ce n’est pas ma tasse de thé » : cette expression est…', ['acceptée', 'un calque à corriger'], 0, 'L’OQLF la juge acceptable. EN: accepted.', 'a4-acceptes'),
+        mc('« Ce n’est pas ma tasse de thé » : cette expression est…', ['acceptée', 'un calque à corriger'], 0, 'L’OQLF la juge acceptable, dans un registre familier. EN: accepted, informally.', 'a4-acceptes'),
         eS('À la fin de la journée, c’est le client qui décide.', 'En fin de compte, c’est le client qui décide.', 'At the end of the day, au sens figuré : en fin de compte. EN: en fin de compte.', 'a4-piege', ['Au bout du compte, c’est le client qui décide.', 'Finalement, c’est le client qui décide.', 'En définitive, c’est le client qui décide.', 'Tout compte fait, c’est le client qui décide.', 'Au final, c’est le client qui décide.'],
           'Au sens figuré, une tournure est calquée sur l’anglais. Écris la phrase correcte. EN: Used figuratively, one phrase is a calque; write the sentence correctly.'),
         lC('Écoute. Que veut dire la personne ?', fr(E(1873)), ['Le nom du formateur ne lui rappelle rien.', 'Elle connaît bien le formateur.'], 0, 'Ne rien dire : aucun souvenir. EN: it rings no bell.', 'a4-ecoute'),
@@ -1993,7 +1993,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI(UN_MOT, '« She ran out of the room. » Elle est ... de la pièce en courant.', 'sortie', 'Sortir dit la direction. EN: sortie.', 'a5-trier', ['partie']),
         mc('« Hopefully, the bridge will reopen. »', ['On espère que le pont rouvrira.', 'Espérablement, le pont rouvrira.', 'Avec espoir, le pont rouvrira.'], 0, 'Un verbe là où l’anglais a un adverbe. EN: on espère que.', 'a5-piege'),
         mc('« She is a poor sleeper. »', ['Elle dort mal.', 'Elle est une pauvre dormeuse.'], 0, 'Un verbe et un adverbe. EN: elle dort mal.', 'a5-transposer'),
-        eS('Avec espoir, le pont rouvrira avant l’hiver.', 'Avec un peu de chance, le pont rouvrira avant l’hiver.', 'Avec espoir calque hopefully ; le pont n’espère rien. EN: avec un peu de chance.', 'a5-piege', ['On espère que le pont rouvrira avant l’hiver.', 'Espérons que le pont rouvrira avant l’hiver.', 'J’espère que le pont rouvrira avant l’hiver.', 'Nous espérons que le pont rouvrira avant l’hiver.']),
+        eS('Avec espoir, le pont rouvrira avant l’hiver.', 'Avec un peu de chance, le pont rouvrira avant l’hiver.', 'Avec espoir calque hopefully ; le pont n’espère rien. EN: avec un peu de chance.', 'a5-piege', ['On espère que le pont rouvrira avant l’hiver.', 'Espérons que le pont rouvrira avant l’hiver.', 'J’espère que le pont rouvrira avant l’hiver.', 'Nous espérons que le pont rouvrira avant l’hiver.', 'Si tout va bien, le pont rouvrira avant l’hiver.']),
         lC('Écoute. Comment le nageur a-t-il atteint l’autre rive ?', fr(E(1880)), ['à la nage', 'en bateau'], 0, 'À la nage : la manière, en complément. EN: swimming.', 'a5-lecture'),
       ],
     },
@@ -2006,7 +2006,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI(UN_MOT, '« No smoking. » ... de fumer.', 'Défense', 'Défense, interdit ou interdiction de fumer. EN: défense.', 'a6-panneaux', ['Interdit', 'Interdiction']),
         mc('« You are wanted on the phone. »', ['On vous demande au téléphone.', 'Vous êtes voulu au téléphone.'], 0, 'On part de celui qui demande. EN: on vous demande.', 'a6-regard'),
         tI(UN_MOT, '« The show is sold out. » Le spectacle affiche ... .', 'complet', 'Afficher complet. EN: complet.', 'a6-panneaux'),
-        eS('Regardez votre pas.', 'Attention à la marche.', 'Le panneau français regarde la marche. EN: attention à la marche.', 'a6-panneaux', ['Attention, marche.', 'Faites attention à la marche.', 'Attention à la marche en montant.', 'Attention à la marche en descendant.'],
+        eS('Regardez votre pas.', 'Attention à la marche.', 'Le panneau français regarde la marche. EN: attention à la marche.', 'a6-panneaux', ['Attention, marche.', 'Faites attention à la marche.', 'Attention aux marches.', 'Prenez garde à la marche.', 'Attention à la marche en montant.', 'Attention à la marche en descendant.'],
           'Sur un panneau d’escalier, une tournure est calquée sur l’anglais. Écris le panneau correct. EN: On a stair sign, one phrase is a calque; write the correct sign.'),
         lC('Écoute. Où lis-tu cette phrase ?', fr(E(1902)), ['sur un emballage de nourriture', 'sur la porte d’un bureau'], 0, 'À conserver au réfrigérateur : une formule d’emballage. EN: on food packaging.', 'a6-regard'),
       ],
@@ -2043,7 +2043,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« I broke my arm. »', ['Je me suis cassé le bras.', 'Je me suis cassé mon bras.', 'J’ai cassé mon bras à moi.'], 0, 'Le pronom dit à qui est le bras. EN: le bras.', 'a9-petits'),
         mc('« Life is short. »', ['La vie est courte.', 'Vie est courte.'], 0, 'Le général garde l’article. EN: la vie.', 'a9-petits'),
         tI(UN_MOT, '« You never know. » ... ne sait jamais.', 'On', 'Le you de tout le monde. EN: on.', 'a9-petits'),
-        tI(UN_MOT, '« Close your eyes for a few seconds. » Fermez ... yeux quelques secondes.', 'les', 'Dans une consigne sur le corps, l’article. EN: les.', 'a9-petits'),
+        tI('Complète avec la forme la plus naturelle dans une consigne. Un mot.', '« Close your eyes for a few seconds. » Fermez ... yeux quelques secondes.', 'les', '« Vos yeux » s’entend, mais dans une consigne sur le corps, le français dit simplement les yeux. EN: les.', 'a9-petits'),
         mc('« Children need sleep. »', ['Les enfants ont besoin de sommeil.', 'Enfants ont besoin de sommeil.'], 0, 'Les enfants, en général. EN: les enfants.', 'a9-choisir'),
         mc('« Coffee is expensive this year. »', ['Le café coûte cher cette année.', 'Café coûte cher cette année.'], 0, 'Le café, en général. EN: le café.', 'a9-choisir'),
         eS('Elle s’est coupé son doigt en ouvrant la boîte.', 'Elle s’est coupé le doigt en ouvrant la boîte.', 'Se dit déjà à qui est le doigt. EN: le doigt.', 'a9-erreurs'),
@@ -2284,7 +2284,8 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['supporter (soutenir)', 'critiqué, courant en France', 'OQLF, Banque de dépannage linguistique'],
       ['être en charge de', 'critiqué, courant en France', 'OQLF, Banque de dépannage linguistique'],
       ['faire sens (sans du)', 'ancien, rare au Québec', 'OQLF, Banque de dépannage linguistique'],
-      ['ce n’est pas ma tasse de thé, paver la voie', 'acceptés', 'OQLF, Banque de dépannage linguistique'],
+      ['ce n’est pas ma tasse de thé', 'accepté, registre familier', 'OQLF, Banque de dépannage linguistique'],
+      ['paver la voie, mettre sur la glace', 'acceptés', 'OQLF, Banque de dépannage linguistique'],
       ['prendre place (s’asseoir)', 'correct', 'Dictionnaire de l’Académie française'],
     ]),
   ]),

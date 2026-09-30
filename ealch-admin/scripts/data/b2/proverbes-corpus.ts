@@ -108,7 +108,8 @@
 //  7. PROVERBS AND QUOTATIONS FOR A FACT CHECK (standard form as in Le Robert,
 //     Larousse and Wiktionnaire; every one is a row, a text or a card):
 //     a. Pierre qui roule n'amasse pas mousse.                     (.1612)
-//        Its old sense (one who keeps changing trade does not grow rich) and
+//        Its traditional sense, still the dictionary sense (Wiktionnaire: one
+//        who keeps changing trade or country does not grow rich), and
 //        « certains y entendent un éloge du mouvement » (.1615, .1616).
 //     b. Petit à petit, l'oiseau fait son nid.                     (.1627)
 //     c. Paris ne s'est pas fait en un jour. (.1629) / Rome ne s'est pas
@@ -160,8 +161,16 @@
 //     OTHER CLAIMS:
 //     aa. « When in Rome, do as the Romans do » has no single fixed French
 //         equivalent; « À Rome, fais comme les Romains » is heard and
-//         understood (.1722). « Hurler avec les loups » means to go along
-//         with the crowd, often against one's judgement (.1723).
+//         understood (.1722); « Autres pays, autres mœurs » is close but only
+//         observes that customs differ (en.wiktionary lists both). « Hurler
+//         avec les loups » (Larousse, Robert, Wiktionnaire) means to side
+//         with the majority, to conform to those around you though you do
+//         not approve: near « when in Rome » but pejorative (.1723).
+//         FACT-CHECKED 2026-09-30 (pre-review): La Fontaine v-y word for word
+//         on Wikisource (éd. 1874), book and fable numbers right; « Rien ne
+//         sert de courir ; » has the semicolon; « On a souvent besoin… » is
+//         the SECOND verse of Le Lion et le Rat; the Corbeau moral ends with a
+//         colon after « l'écoute ».
 //     bb. English equivalents given in `en` (modulation): don't count your
 //         chickens, once bitten twice shy, birds of a feather, like father
 //         like son, clothes do not make the man, sow the wind reap the
@@ -443,7 +452,7 @@ export const ACT2_ROWS: Row[] = [
   sent(1612, 'Pierre qui roule n’amasse pas mousse.', 'A rolling stone gathers no moss.', '/pjɛʁ ki ʁul na.mas pa mus/', 'pyehr kee ROOL | na-mass pa MOOSS', ['proverbe', 'forme'], FCVDR),
   sent(1613, 'Remarquez d’abord qu’il n’y a aucun article : pierre, et pas une pierre.', 'Notice first that there is no article: pierre, not une pierre.', '/ʁə.maʁ.ke da.bɔʁ kil nja o.kœ̃.naʁ.tikl pjɛʁ e pa yn pjɛʁ/', 'ruh-mar-KAY da-BOR | keel nya oh-kuhⁿ-nar-TEEKL | PYEHR | ay pa ün PYEHR', ['ecoute', 'forme']),
   sent(1614, 'Le verbe est au présent, parce que le proverbe parle de tous les temps.', 'The verb is in the present, because the proverb speaks for all times.', '/lə vɛʁb ɛ.to pʁe.zɑ̃ paʁs kə lə pʁɔ.vɛʁb paʁl də tu le tɑ̃/', 'luh VEHRB | eh-toh pray-ZAHⁿ | pars kuh luh pro-VEHRB | parl duh too lay TAHⁿ', ['ecoute', 'forme']),
-  sent(1615, 'Autrefois, il voulait dire : qui change sans cesse de métier ne s’enrichit pas.', 'In the past it meant: someone who keeps changing trade does not grow rich.', '/o.tʁə.fwa il vu.lɛ diʁ ki ʃɑ̃ʒ sɑ̃ sɛs də me.tje nə sɑ̃.ʁi.ʃi pa/', 'oh-truh-FWA | eel voo-leh DEER | kee shahⁿzh sahⁿ SESS duh may-TYAY | nuh sahⁿ-ree-SHEE PA', ['ecoute', 'sens']),
+  sent(1615, 'Au sens classique, il veut dire : qui change sans cesse de métier ne s’enrichit pas.', 'In its traditional sense it means: someone who keeps changing trade does not grow rich.', '/o sɑ̃s kla.sik il vø diʁ ki ʃɑ̃ʒ sɑ̃ sɛs də me.tje nə sɑ̃.ʁi.ʃi pa/', 'oh sahⁿss kla-SEEK | eel vuh DEER | kee shahⁿzh sahⁿ SESS duh may-TYAY | nuh sahⁿ-ree-SHEE PA', ['ecoute', 'sens']),
   sent(1616, 'Aujourd’hui, certains y entendent plutôt un éloge du mouvement.', 'Today some hear it rather as praise of moving on.', '/o.ʒuʁ.dɥi sɛʁ.tɛ̃ i ɑ̃.tɑ̃d ply.to œ̃.ne.lɔʒ dy muv.mɑ̃/', 'oh-zhoor-DWEE | sehr-tehⁿ ee ahⁿ-TAHⁿD | plü-TOH | uhⁿ-nay-LOZH dü moov-MAHⁿ', ['ecoute', 'sens']),
   sent(1617, 'Qui va lentement va sûrement.', 'Slow and steady wins the race.', '/ki va lɑ̃t.mɑ̃ va syʁ.mɑ̃/', 'kee va lahⁿt-MAHⁿ | va sür-MAHⁿ', ['proverbe', 'forme', 'patience'], FCVDR),
   sent(1618, 'Ici, qui veut dire celui qui : celui qui va lentement va sûrement.', 'Here qui means celui qui: the one who goes slowly goes surely.', '/i.si ki vø diʁ sə.lɥi ki sə.lɥi ki va lɑ̃t.mɑ̃ va syʁ.mɑ̃/', 'ee-SEE | KEE vuh deer suh-lwee KEE | suh-lwee kee va lahⁿt-MAHⁿ | va sür-MAHⁿ', ['ecoute', 'forme']),
@@ -594,7 +603,7 @@ export const ACT9_ROWS: Row[] = [
   sent(1720, 'Parfois, les deux langues ont la même image : tel père, tel fils.', 'Sometimes the two languages have the same image: like father, like son.', '/paʁ.fwa le dø lɑ̃g ɔ̃ la mɛm i.maʒ tɛl pɛʁ tɛl fis/', 'par-FWA | lay deu LAHⁿG | ohⁿ la mem ee-MAZH | tehl PEHR tehl FEESS', ['traduire']),
   ph(1721, 'traduire mot à mot', 'to translate word for word', '/tʁa.dɥiʁ mo.ta.mo/', 'tra-DWEER | moh-ta-MOH', ['traduire'], 'Garder chaque mot : parfois juste, souvent un calque.'),
   sent(1722, 'On entend parfois « à Rome, fais comme les Romains », mais aucune formule ne s’est imposée.', 'You sometimes hear « à Rome, fais comme les Romains », but no single phrase has become standard.', '/ɔ̃.nɑ̃.tɑ̃ paʁ.fwa a ʁɔm fɛ kɔm le ʁɔ.mɛ̃ mɛ o.kyn fɔʁ.myl nə sɛ.tɛ̃.po.ze/', 'ohⁿ-nahⁿ-tahⁿ par-FWA | a ROMM feh komm lay ro-MEHⁿ | meh oh-kün for-MÜL | nuh seh-tehⁿ-poh-ZAY', ['traduire']),
-  ph(1723, 'hurler avec les loups', 'to go along with the crowd', '/yʁ.le a.vɛk le lu/', 'ür-LAY | a-vehk lay LOO', ['traduire'], 'Faire comme le groupe, souvent contre son propre jugement : ce n’est pas when in Rome.'),
+  ph(1723, 'hurler avec les loups', 'to go along with the crowd', '/yʁ.le a.vɛk le lu/', 'ür-LAY | a-vehk lay LOO', ['traduire'], 'Faire comme le groupe, souvent contre son propre jugement : plus péjoratif que when in Rome, qui est un conseil neutre.'),
   sent(1724, 'Un bon traducteur cherche d’abord le proverbe qui existe déjà.', 'A good translator first looks for the proverb that already exists.', '/œ̃ bɔ̃ tʁa.dyk.tœʁ ʃɛʁʃ da.bɔʁ lə pʁɔ.vɛʁb ki ɛg.zist de.ʒa/', 'uhⁿ bohⁿ tra-dük-TUHR | shehrsh da-BOR | luh pro-VEHRB kee ehg-zeest day-ZHA', ['traduire']),
   sent(1725, 'Il faut s’adapter aux usages du pays où l’on vit.', 'You have to adapt to the customs of the country you live in.', '/il fo sa.dap.te o.zy.zaʒ dy pe.i u lɔ̃ vi/', 'eel foh sa-dap-TAY | oh-zü-ZAZH dü pay-EE | oo lohⁿ VEE', ['traduire'], FCVDR),
   sent(1726, 'Même image, autre image ou pas d’équivalent : pose-toi toujours la question.', 'Same image, another image or no equivalent: always ask yourself the question.', '/mɛ.mi.maʒ o.tʁi.maʒ u pa de.ki.va.lɑ̃ poz.twa tu.ʒuʁ la kɛs.tjɔ̃/', 'meh-mee-MAZH | oh-tree-MAZH | oo pa day-kee-va-LAHⁿ | poz-TWA too-zhoor la kehs-TYOHⁿ', ['traduire']),

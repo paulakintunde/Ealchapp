@@ -95,7 +95,7 @@ export const FRANCAIS_REGIONAL_TERMS: Record<string, LessonTerm> = {
   nombres: {
     term: 'septante',
     title: 'Septante, huitante, nonante',
-    body: 'En Belgique et en Suisse, on dit septante (70) et nonante (90). La Belgique garde quatre-vingts ; en Suisse, notamment dans le canton de Vaud et en Valais, on dit huitante. Ces nombres suivent la série trente, quarante, cinquante : ils sont réguliers. EN: 70 and 90 are septante and nonante in Belgium and Switzerland; 80 is huitante in parts of Switzerland.',
+    body: 'En Belgique et en Suisse, on dit septante (70) et nonante (90). La Belgique garde quatre-vingts ; en Suisse, dans les cantons de Vaud, du Valais et de Fribourg, on dit huitante. Ces nombres suivent la série trente, quarante, cinquante : ils sont réguliers. EN: 70 and 90 are septante and nonante in Belgium and Switzerland; 80 is huitante in parts of Switzerland.',
     examples: [
       { itemId: E(1078), note: 'en Belgique' },
       { itemId: E(1077), note: 'à Lausanne et à Genève' },

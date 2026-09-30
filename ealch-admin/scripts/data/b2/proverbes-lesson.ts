@@ -498,7 +498,7 @@ const A2_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Quel est le proverbe du jour ?', opts: ['celui de la pierre et de la mousse', 'celui du père et du fils', 'celui de la pluie et du soleil'], correct: 0, why: 'La pierre qui roule, sans article. EN: the rolling stone.' },
     { q: 'Pourquoi le verbe est-il au présent, selon l’animateur ?', opts: ['parce que le proverbe vaut pour tous les temps', 'parce que l’histoire se passe aujourd’hui'], correct: 0, why: 'Le présent de vérité générale. EN: the timeless present.' },
-    { q: 'Autrefois, que voulait dire ce proverbe ?', opts: ['qu’on ne s’enrichit pas en changeant sans cesse de métier', 'qu’il faut voyager pour réussir', 'que les pierres sont inutiles'], correct: 0, why: 'Le sens ancien ; aujourd’hui, certains y voient plutôt un éloge du mouvement. EN: the old sense.' },
+    { q: 'Au sens classique, que veut dire ce proverbe ?', opts: ['qu’on ne s’enrichit pas en changeant sans cesse de métier', 'qu’il faut voyager pour réussir', 'que les pierres sont inutiles'], correct: 0, why: 'Le sens classique, celui des dictionnaires ; aujourd’hui, certains y voient plutôt un éloge du mouvement. EN: the traditional sense.' },
     { q: 'Dans le deuxième proverbe cité, que veut dire qui ?', opts: ['celui qui', 'quelle personne', 'lequel'], correct: 0, why: 'Qui n’interroge pas : il désigne n’importe qui. EN: whoever.' },
     { q: 'Quel exemple donne-t-il d’un proverbe sans verbe ?', opts: ['celui du père et du fils', 'celui de la pierre', 'celui de la lenteur'], correct: 0, why: 'Tel père, tel fils : le verbe est sous-entendu. EN: no verb.' },
   ],
@@ -1669,7 +1669,8 @@ const ACT8: ActDef = {
  *  A subtitling studio in Ottawa: an English series full of proverbs. Three
  *  cases: the same image (tel père, tel fils), another image (the chickens
  *  become a bear, the bite a scalded cat), no fixed equivalent (« when in
- *  Rome »: translate the sense; « hurler avec les loups » is not it). The
+ *  Rome »: translate the sense; « hurler avec les loups » is near but
+ *  pejorative, « autres pays, autres mœurs » only observes). The
  *  calques trapped. Lesson 33 in B2 owns translation; this act owns proverbs.
  * ══════════════════════════════════════════════════════════════════════════ */
 
@@ -1715,7 +1716,7 @@ const A9_TABLEAU: Sec<'tapTable'> = {
     { cells: ['birds of a feather', 'qui se ressemble…', 'une autre'], say: fr(E(1654)),
       detail: { title: 'Une autre image', body: 'Les oiseaux disparaissent ; le français garde la rime. EN: another image.', say: fr(E(1659)) } },
     { cells: ['when in Rome…', 'pas de proverbe fixe', 'aucune'], say: fr(E(1722)),
-      detail: { title: 'Pas d’équivalent', body: 'On traduit le sens : il faut s’adapter aux usages du pays. EN: translate the meaning.', say: fr(E(1725)) } },
+      detail: { title: 'Pas d’équivalent', body: 'On traduit le sens : il faut s’adapter aux usages du pays. Autres pays, autres mœurs s’en approche, mais il constate sans conseiller. EN: translate the meaning; autres pays, autres mœurs only observes.', say: fr(E(1725)) } },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1744,8 +1745,8 @@ const A9_TRIER: Sec<'groupDrill'> = {
       ['chercher le proverbe français qui existe', 'traduire chaque mot'], 0,
       'Même idée, autre image. EN: find the French one.')),
     ctl('Aucune', 'When in Rome, do as the Romans do : la meilleure traduction est souvent…',
-      ['il faut s’adapter aux usages du pays', 'il faut hurler avec les loups', 'Rome ne s’est pas faite en un jour'], 0,
-      'Pas de proverbe figé : on traduit le sens. Hurler avec les loups dit autre chose : suivre le groupe. EN: translate the meaning.'),
+      ['il faut s’adapter aux usages du pays', 'qui se ressemble s’assemble', 'Rome ne s’est pas faite en un jour'], 0,
+      'Pas de proverbe figé : on traduit le sens. Hurler avec les loups s’en approche, mais il est péjoratif : suivre le groupe, souvent contre son jugement. EN: translate the meaning.'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1798,7 +1799,7 @@ const A9_ATOI = aToi('a9-atoi', 'tu sous-titres', [
     'Ici, la même image : le proverbe existe. EN: same image.'),
   ctl('Rome', 'La réplique dit : when in Rome, do as the Romans do.',
     ['Ici, fais comme les gens d’ici.', 'Quand tu es à Rome, hurle avec les loups.'], 0,
-    'Pas de proverbe fixe : traduis le sens. EN: the meaning.'),
+    'Pas de proverbe fixe : traduis le sens ; hurler avec les loups ajouterait un jugement négatif. EN: the meaning.'),
 ], ['equivalent', 'calque'], 'sheet-proverbes');
 
 const A9_TEXTE = dansUnTexte('a9-texte', 'La note de la traductrice', TEXTE_A9, [
@@ -1980,8 +1981,8 @@ const A10_ATOI = aToi('a10-atoi', 'l’expression qui tombe juste', [
 ], ['figement'], 'sheet-figees');
 
 const A10_TEXTE = dansUnTexte('a10-texte', 'La réponse de Léa', TEXTE_A10, [
-  { q: 'Quelles expressions Léa reprend-elle du courriel de Sophie ?', a: 'Faire d’une pierre deux coups, prendre son mal en patience, tomber des nues.' },
-  { q: 'Quelle expression ajoute-t-elle pour dire que Sophie a été directe ?', a: 'Tu n’as pas tourné autour du pot.' },
+  { q: 'Quelles expressions Léa reprend-elle du courriel de Sophie ?', a: 'Tourner autour du pot, faire d’une pierre deux coups, prendre son mal en patience, tomber des nues.' },
+  { q: 'Avec quelle expression dit-elle que Sophie a été directe ?', a: 'Tu n’as pas tourné autour du pot : Sophie l’avait demandé à l’équipe, Léa le lui renvoie.' },
   { q: 'Comment adapte-t-elle « prendre son mal en patience » ?', a: 'Au futur et à la première personne : je prendrai mon mal en patience.' },
 ], 'rec-b2-34-texte-a10', ['figement']);
 
@@ -2063,7 +2064,7 @@ const A11_CARTES: Sec<'cardDeck'> = {
     card(E(1746), 'Céder un peu', 'le compromis',
       'Image : couper son vin avec de l’eau, le rendre moins fort. Sens : modérer ses exigences. Le possessif suit le sujet. EN: to soften your position.'),
     card(E(1749), 'S’en sortir', 'l’habileté',
-      'Sens : se sortir d’une situation sans y perdre, souvent quand les autres y perdent. EN: to come out of it well.'),
+      'Sens : se dégager adroitement d’une situation délicate, sans y perdre, souvent quand les autres y perdent. EN: to come out of it well.'),
     card(E(1751), 'Aggraver', 'le conflit',
       'Image : de l’huile sur un feu, qui repart de plus belle. Sens : aggraver une tension. EN: to add fuel to the fire.'),
     card(E(1753), 'Le même sort', 'la solidarité',
@@ -2408,7 +2409,7 @@ const A12_MISSION: Sec<'task'> = {
     'Count the words of the body only: the subject line, the greeting and the signature do not count. 200 to 250 with 10% tolerance (180 to 275) before criterion « tache » loses a point. responseSpec allows 275.',
     'Accept every attested form of a proverb: Paris or Rome ne s’est pas fait or faite en un jour; il ne faut jamais or pas dire : Fontaine…; on récolte ce que l’on sème or ce qu’on sème; après la pluie, le beau temps or après la pluie vient le beau temps; vouloir, c’est pouvoir or quand on veut, on peut. A proverb adapted to the person (telle mère, telle fille; ne mets pas tous tes œufs) is correct.',
     'A proverb twisted on purpose (« Moncton ne s’est pas faite en un jour », « les absents n’ont pas toujours tort ») is welcome if the original stays recognisable; do not mark it as a misquotation. A La Fontaine moral must be exact unless the writer says it is twisted.',
-    `Fixed expressions from ${ANIMAUX_REF_EN}, lessons 27 and 29 in B1 count towards the three (avoir du pain sur la planche, couper la poire en deux, s’en mordre les doigts). Proverbs do not count as fixed expressions.`,
+    `Fixed expressions from ${ANIMAUX_REF_EN} and lessons 27 and 29 in B1 count towards the three (avoir du pain sur la planche, couper la poire en deux, s’en mordre les doigts). Proverbs do not count as fixed expressions.`,
     'Situation B: vous is expected in a letters-page reply; a consistent tu costs at most one register point, never a correction point. Situation A: the writer may use je, nous or on.',
     `The structure follows ${ARGUMENTATION_REF_EN} (position, proof, counter-argument) and the concession of ${CONCESSION_REF_EN} (certes, pourtant, avoir beau, encore faut-il); credit them under « coherence », do not require them by name.`,
     'Do not judge the advice itself (whether Malik should move); judge only whether it is argued, precise and in the right register.',
@@ -2528,7 +2529,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Petit à petit, l’oiseau ___.', fr(E(1627)), 'Fait son nid. EN: fait son nid.', 'a3-cartes', ['fait son nid']),
         tI('Rome ne s’est pas ___ en un jour.', 'Rome ne s’est pas faite en un jour.', 'Faite ou fait : les deux se disent. EN: faite or fait.', 'a3-cartes', ['Rome ne s’est pas fait en un jour.', 'faite', 'fait']),
         eS('Vouloir est pouvoir.', fr(E(1634)), 'Vouloir, c’est pouvoir. EN: c’est.', 'a3-erreurs', ['Quand on veut, on peut.']),
-        eS('Il ne faut pas vendre la peau de l’ours avant de le tuer.', 'Il ne faut pas vendre la peau de l’ours avant de l’avoir tué.', `L’infinitif passé, vu dans ${INFINITIVES_REF}. EN: avant de l’avoir tué.`, 'a3-erreurs'),
+        eS('Il ne faut pas vendre la peau de l’ours avant de le tuer.', 'Il ne faut pas vendre la peau de l’ours avant de l’avoir tué.', `L’infinitif passé, vu dans ${INFINITIVES_REF}. EN: avant de l’avoir tué.`, 'a3-erreurs', ['Il ne faut jamais vendre la peau de l’ours avant de l’avoir tué.']),
         lC('Écoute. Que conseille Moussa ?', fr(E(1631)), ['avancer pas à pas', 'ouvrir tous les jours', 'fermer la boulangerie'], 0, 'Un dimanche par mois d’abord. EN: step by step.', 'a3-histoire'),
       ],
     },
@@ -2540,7 +2541,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Ton ami jure qu’il ne prendra jamais l’avion. Tu lui dis :', ['Il ne faut jamais dire : Fontaine, je ne boirai pas de ton eau.', 'Chaque chose en son temps.', 'Mieux vaut tard que jamais.'], 0, 'On ne jure pas qu’on ne fera jamais une chose. EN: never say never.', 'a4-cartes'),
         tI('Mieux vaut prévenir que ___.', fr(E(1642)), 'Guérir. EN: guérir.', 'a4-cartes', ['guérir', 'Il vaut mieux prévenir que guérir.']),
         tI('Il ne faut pas mettre tous ses œufs dans le même ___.', fr(E(1650)), 'Le panier. EN: panier.', 'a4-cartes', ['panier']),
-        eS('Ne mets pas tous ses œufs dans le même panier.', 'Ne mets pas tous tes œufs dans le même panier.', 'À l’impératif, tu t’adresses à quelqu’un : tes œufs. EN: tes.', 'a4-atoi', ['Et ne mets pas tous tes œufs dans le même panier.']),
+        eS('Ne mets pas tous ses œufs dans le même panier.', 'Ne mets pas tous tes œufs dans le même panier.', 'À l’impératif, tu t’adresses à quelqu’un : tes œufs. EN: tes.', 'a4-atoi', ['Et ne mets pas tous tes œufs dans le même panier.', 'Il ne faut pas mettre tous ses œufs dans le même panier.', 'Ne mettez pas tous vos œufs dans le même panier.']),
         eS('Justement : chat brûlé craint l’eau froide.', 'Justement : chat échaudé craint l’eau froide.', 'Échaudé, le mot du proverbe. EN: échaudé.', 'a4-piege', ['Chat échaudé craint l’eau froide.']),
         lC('Écoute. Que conseille Léa ?', fr(E(1648)), ['de répartir ses économies', 'de tout investir', 'de ne rien faire'], 0, 'Pas tous les œufs dans le même panier. EN: spread the risk.', 'a4-ecoute'),
       ],
@@ -2565,8 +2566,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('The last straw :', ['la goutte d’eau qui fait déborder le vase', 'la paille qui casse le dos du chameau', 'la dernière goutte de pluie'], 0, 'Une autre image pour la même idée. EN: the last drop.', 'a6-piege'),
         mc('Il n’y a pas de fumée sans feu. Que peut-on en conclure d’une rumeur ?', ['qu’elle a sans doute une cause, pas forcément qu’elle est vraie', 'qu’elle est forcément vraie', 'qu’elle est fausse'], 0, 'Une cause n’est pas une preuve. EN: not proof.', 'a6-trier'),
         tI('On récolte ce que l’on ___.', fr(E(1668)), 'Sème. EN: sème.', 'a6-cartes', ['sème', 'On récolte ce qu’on sème.']),
-        tI('Après la pluie, ___.', fr(E(1670)), 'Le beau temps. EN: le beau temps.', 'a6-cartes', ['le beau temps', 'Après la pluie vient le beau temps.']),
-        eS('Où il y a de la fumée, il y a du feu.', fr(E(1669)), 'Le français dit : il n’y a pas de fumée sans feu. EN: the French form.', 'a6-piege'),
+        tI('Après la pluie, ___.', fr(E(1670)), 'Le beau temps. EN: le beau temps.', 'a6-cartes', ['le beau temps', 'Après la pluie vient le beau temps.', 'vient le beau temps']),
+        eS('Où il y a de la fumée, il y a du feu.', fr(E(1669)), 'Le français dit : il n’y a pas de fumée sans feu. EN: the French form.', 'a6-piege', ['Pas de fumée sans feu.']),
         eS('Ces trois jours de retard, c’est la goutte d’eau qui fait déborder le verre.', fr(E(1681)), 'Le vase, pas le verre. EN: le vase.', 'a6-piege'),
         lC('Écoute. Que conseille Sonia ?', fr(E(1678)), ['de parler au voisin, en espérant que ça s’arrange', 'de déménager', 'de répondre encore plus sèchement'], 0, 'Après la pluie, le beau temps. EN: talk to him.', 'a6-histoire'),
       ],
@@ -2591,7 +2592,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Quelle annonce convient à une chronique ?', ['si l’on en croit le proverbe', 'je connais la chanson', 'eh oui'], 0, 'Soutenu, pour l’écrit. EN: formal.', 'a8-cartes'),
         mc('Dans un texte argumenté, le proverbe sert…', ['d’accroche ou de conclusion', 'de preuve', 'de titre obligatoire'], 0, 'Tes arguments font la preuve. EN: a hook.', 'a8-erreurs'),
         mc('« Qui va lentement arrive en retard » est…', ['un proverbe détourné pour faire rire', 'le proverbe exact', 'une morale de La Fontaine'], 0, 'Un détournement. EN: a twist.', 'a8-tableau'),
-        tI('Certes, qui ne tente rien n’a rien ; ___ faut-il savoir ce que l’on tente.', fr(E(1711)), `Encore faut-il : la concession de ${CONCESSION_REF}. EN: encore faut-il.`, 'a8-tableau', ['encore']),
+        tI('Certes, qui ne tente rien n’a rien ; ___ faut-il savoir ce que l’on tente.', fr(E(1711)), `Encore faut-il : la concession de ${CONCESSION_REF}. EN: encore faut-il.`, 'a8-tableau', ['encore', 'Certes, qui ne tente rien n’a rien ; encore faut-il savoir ce qu’on tente.']),
         tI('Le proverbe a ___ dire, cette fois, la prudence ne nous a pas protégés.', fr(E(1710)), `Avoir beau dire, vu dans ${CONCESSION_REF}. EN: a beau.`, 'a8-tableau', ['beau']),
         eS('Bon, comme on dit, après la pluie, la tempête.', 'Bon, comme on dit, après la pluie, le beau temps.', 'Un proverbe, pas deux mélangés. EN: le beau temps.', 'a8-erreurs', ['Bon, comme on dit, après la pluie vient le beau temps.']),
         lC('Écoute. Quel ton a cette réponse ?', fr(E(1705)), ['un peu las, avec humour', 'très sérieux', 'en colère'], 0, 'Un proverbe contre un proverbe, en souriant. EN: weary humour.', 'a8-ecoute'),
@@ -2603,7 +2604,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Don’t count your chickens before they hatch :', ['Il ne faut pas vendre la peau de l’ours avant de l’avoir tué.', 'Ne compte pas tes poussins avant qu’ils éclosent.', 'Petit à petit, l’oiseau fait son nid.'], 0, 'Une autre image : l’ours. EN: the bear.', 'a9-piege'),
         mc('Like father, like son :', ['Tel père, tel fils.', 'Comme le père, comme le fils.', 'Qui se ressemble s’assemble.'], 0, 'La même image. EN: same image.', 'a9-tableau'),
         mc('When in Rome, do as the Romans do : que fait un bon traducteur ?', ['il traduit le sens', 'il traduit mot à mot', 'il met un autre proverbe sur Rome'], 0, 'Pas de proverbe figé : le sens. EN: the meaning.', 'a9-trier'),
-        mc('Hurler avec les loups veut dire…', ['suivre le groupe, même contre son jugement', 'respecter les usages du pays', 'crier très fort'], 0, 'Ce n’est pas when in Rome. EN: follow the crowd.', 'a9-trier'),
+        mc('Hurler avec les loups veut dire…', ['suivre le groupe, même contre son jugement', 'avoir peur de la foule', 'crier très fort'], 0, 'Faire comme les autres sans les approuver : c’est péjoratif, plus que when in Rome. EN: follow the crowd.', 'a9-trier'),
         tI('Vouloir, c’est ___.', fr(E(1634)), 'Pouvoir. EN: pouvoir.', 'a9-piege', ['pouvoir']),
         eS('Où il y a une volonté, il y a un chemin.', fr(E(1634)), 'Le proverbe français existe : vouloir, c’est pouvoir. EN: vouloir, c’est pouvoir.', 'a9-piege', ['Quand on veut, on peut.']),
         eS('Une fois mordu, deux fois timide.', fr(E(1645)), 'Chat échaudé craint l’eau froide. EN: the scalded cat.', 'a9-piege'),
@@ -2819,7 +2820,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['être dans le même bateau', 'partager la même situation', 'Nous sommes tous dans le même bateau.'],
       ['un coup d’épée dans l’eau', 'une action inutile', 'Ce serait un coup d’épée dans l’eau.'],
       ['une tempête dans un verre d’eau', 'beaucoup de bruit pour rien', 'C’est une tempête dans un verre d’eau.'],
-      ['tirer son épingle du jeu', 's’en sortir sans perte', 'Elle a tiré son épingle du jeu.'],
+      ['tirer son épingle du jeu', 's’en sortir adroitement, sans perte','Elle a tiré son épingle du jeu.'],
     ]),
   ]),
   sheet('sheet-ecrire', 'Citer, discuter, écrire', ['annoncer un proverbe', 'les registres', 'le plan de la chronique'], [

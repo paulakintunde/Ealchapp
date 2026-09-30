@@ -105,7 +105,9 @@
 //   2. BEUR / REBEU: shown ONCE (a3-construire, sheet-verlan) as the
 //      textbook example of re-verlanisation, with the line that words
 //      naming people by their origin are sensitive and not for the learner;
-//      the mechanism is practised on meuf → feumeu. Keep, or cut to feumeu?
+//      the mechanism is practised on meuf → feumeu. REVIEW 2026-09-30: KEPT,
+//      with a dated / can-hurt note on .1054 and in the sheet (not a slur;
+//      the textbook case of re-verlan; recognition only).
 //   3. DB-ONLY HEADWORDS: relou, meuf, wesh, kiffer, c’est chaud and about
 //      60 more exist in Postgres (verlan, argot-des-jeunes, expressions-
 //      argot) but not in the seed, so `src()` cannot import them. They are
@@ -525,7 +527,7 @@ const A2_CARTES: Sec<'cardDeck'> = {
       'Lourd, au sens de pénible, donne relou. Très répandu entre amis, à tout âge. EN: tiresome, a pain.'),
     card(E(1031), 'Louche', 'familier',
       'Chelou : bizarre, un peu suspect. Un type chelou, une histoire chelou. EN: shady, weird.'),
-    card(E(1032), 'Bizarre', 'familier, daté',
+    card(E(1032), 'Bizarre', 'familier, un peu daté',
       'Zarbi : bizarre. Compris de tous, mais il a un peu vieilli. EN: weird; a bit dated.'),
   ],
 };
@@ -957,7 +959,7 @@ const A4_ATOI = aToi('a4-atoi', 'court ou entier', [
 ], ['troncation']);
 
 const A4_TEXTE = dansUnTexte('a4-texte', 'Le message de la coloc', TEXTE_A4, [
-  { q: 'Trouve six mots coupés et donne le mot entier.', a: 'Ados (adolescentes), appart (appartement), resto (restaurant), ciné (cinéma), dispo (disponible), proprio (propriétaire), prof (professeur). Coloc aussi : colocation.' },
+  { q: 'Trouve au moins six mots coupés et donne le mot entier.', a: 'Ados (adolescentes), appart (appartement), resto (restaurant), ciné (cinéma), dispo (disponible), proprio (propriétaire), prof (professeur). Coloc aussi : colocation.' },
   { q: 'Quels mots coupés garderais-tu dans un courriel au propriétaire ?', a: 'Aucun : dans un courriel au propriétaire, on écrit propriétaire, appartement, chauffe-eau, et on vouvoie.' },
   { q: 'Pourquoi Yanis peut-il écrire ainsi sur ce groupe ?', a: 'Parce qu’il écrit à ses colocataires : entre proches, les mots coupés sont naturels.' },
   { q: 'Point de vue : quel ton a le message ?', a: 'Amical et pratique : il informe, il demande un service, il remercie (« vous êtes top »).' },
@@ -1012,7 +1014,7 @@ const A5_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: 'Rapidos, cinoche, valoche : le même mot, avec une autre fin.', en: 'Rapidos, cinoche, valoche: the same word, with another ending.' },
     { from: 'coach', fr: fr(E(1083)), en: en(E(1083)), warn: 'calmos : du calme' },
     { from: 'narrator', fr: 'Dans la rue, une voiture passe au rouge. Léa sursaute.', en: 'In the street a car goes through the red light. Léa jumps.' },
-    { from: 'coach', fr: fr(E(1088)), en: en(E(1088)), warn: 'chauffard : courant, jamais un compliment' },
+    { from: 'coach', fr: fr(E(1088)), en: en(E(1088)), warn: 'chauffard : jamais un compliment' },
     { from: 'user', fr: 'Chauffard, lui, je l’ai déjà entendu à la radio.', en: 'Chauffard, that one, I have already heard on the radio.' },
   ],
   closing: { fr: 'Une nouvelle fin fait descendre le mot d’un barreau ; une fin en -ard, en plus, se moque.', en: 'A new ending takes the word down a rung; an -ard ending mocks as well.' },
@@ -1043,8 +1045,8 @@ const A5_CARTES: Sec<'cardDeck'> = {
       'Cinéma et -oche : cinoche. Plus familier que ciné. Même fin : téloche, valoche. EN: the flicks.'),
     card(E(1094), 'Paresseux', 'familier, -ard',
       'La flemme et -ard : flemmard. Taquin entre proches, vexant devant les autres. EN: lazybones.'),
-    card(E(1095), 'Un conducteur dangereux', 'courant, -ard',
-      'Chauffard : un mot courant, même aux informations, et toujours péjoratif. EN: reckless driver.'),
+    card(E(1095), 'Un conducteur dangereux', 'péjoratif, -ard',
+      'Chauffard : un mot qu’on entend partout, même aux informations, et toujours péjoratif. EN: reckless driver.'),
   ],
 };
 
@@ -1070,7 +1072,7 @@ const A5_TRIER: Sec<'groupDrill'> = {
       it(E(1088), 'chauffard'),
     ], chk('Quel mot en -ard peux-tu entendre aux informations ?',
       ['chauffard', 'flemmard', 'froussard'], 0,
-      'Chauffard est courant ; les deux autres sont familiers et moqueurs. EN: chauffard is standard.')),
+      'Chauffard s’entend partout, même dans la presse ; les deux autres restent familiers et moqueurs. EN: chauffard is heard everywhere.')),
     ctl('Le suffixe', 'Tranquillos veut dire…',
       ['tranquillement', 'trop tranquille'], 0,
       'Tranquille et -os : sans se presser. EN: nice and easy.'),
@@ -1192,7 +1194,7 @@ const A6_CARTES: Sec<'cardDeck'> = {
   sheetId: 'sheet-procedes',
   title: 'Six mots venus d’ailleurs',
   frSub: 'Leur source, leur barreau, leur sens',
-  hint: 'Six cartes : quatre de l’arabe, une de l’anglais, une d’Afrique de l’Ouest.',
+  hint: 'Six cartes : cinq de l’arabe, une du français d’Afrique.',
   audio: AUDIO,
   say: REFRAME,
   terms: ['emprunt'],
@@ -1208,7 +1210,7 @@ const A6_CARTES: Sec<'cardDeck'> = {
     card(E(1108), 'Soi-disant', 'argotique, de l’arabe',
       'Zarma : on n’y croit pas. Il a fini, zarma : il prétend avoir fini. EN: yeah right.'),
     card(E(1109), 'La fille, la copine', 'argotique en France',
-      'La go : la fille, la petite amie. Courant en Côte d’Ivoire, arrivé en France par le rap. EN: girl, girlfriend.'),
+      'La go : la fille, la petite amie. Courant en Côte d’Ivoire et ailleurs en Afrique, arrivé en France par le rap. EN: girl, girlfriend.'),
   ],
 };
 
@@ -1222,7 +1224,7 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
     grp('D’où ils viennent', [
       it(E(1118), 'de l’arabe'),
       it(E(1119), 'de l’anglais'),
-      it(E(1120), 'de Côte d’Ivoire'),
+      it(E(1120), 'du français d’Afrique'),
       it(E(1110), 'chiller, dans une phrase'),
     ], chk('Chiller vient…',
       ['de l’anglais', 'de l’arabe', 'du verlan'], 0,
@@ -1270,7 +1272,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Kiffer vient … .', opts: ['de l’arabe', 'de l’anglais'], correct: 0 },
     { promptSay: 'Chiller vient … .', opts: ['de l’anglais', 'de l’arabe'], correct: 0 },
     { promptSay: 'Un bled perdu, c’est … .', opts: ['un coin isolé', 'le village d’origine'], correct: 0 },
-    { promptSay: 'La go vient du français … .', opts: ['de Côte d’Ivoire', 'du Québec'], correct: 0 },
+    { promptSay: 'La go vient surtout du français … .', opts: ['de Côte d’Ivoire', 'du Québec'], correct: 0 },
   ],
   steps: STEPS('Un emprunt garde sa couleur', 'Ce que l’emprunt dit de toi'),
   audio: REC('rec-b2-32-piege-emprunts'),
@@ -1365,7 +1367,7 @@ const A7_CARTES: Sec<'cardDeck'> = {
   size: 'lg',
   title: 'Cinq tics de l’oral',
   frSub: 'Ce qu’ils font, ce qu’on écrit à la place',
-  hint: 'Cinq cartes : trois qui renforcent, deux qui nuancent.',
+  hint: 'Cinq cartes : trois qui renforcent, puis c’est chaud et genre.',
   audio: AUDIO,
   say: REFRAME,
   terms: ['intensif'],
@@ -1537,14 +1539,14 @@ const A8_CARTES: Sec<'cardDeck'> = {
   terms: ['date'],
   cards: [
     card(E(1146), 'C’est génial', 'familier, daté',
-      'À la mode à la fin des années quatre-vingt-dix. Aujourd’hui, il fait sourire les ados. EN: the bomb; dated.'),
-    card(E(1152), 'Génial', 'familier, daté',
-      'Chanmé, verlan de méchant, au sens de génial. Il a eu son heure, surtout dans les années deux mille. EN: wicked; dated.'),
+      'À la mode à la fin des années quatre-vingt-dix et dans les années deux mille. Aujourd’hui, il fait sourire les ados. EN: the bomb; dated.'),
+    card(E(1152), 'Génial', 'familier, un peu daté',
+      'Chanmé, verlan de méchant, au sens de génial. Il a eu son heure dans les années quatre-vingt-dix et deux mille ; on l’entend moins aujourd’hui. EN: wicked; a bit dated.'),
     card(E(1149), 'Au plus mal', 'familier, récent',
-      'PLS : la position latérale de sécurité des premiers secours. Au figuré : épuisé, gêné, anéanti. EN: a wreck.'),
+      'PLS : la position latérale de sécurité des premiers secours. Au figuré : épuisé, anéanti, à bout. EN: a wreck.'),
     card(E(1150), 'Sans problème', 'familier, récent',
       'Ça passe crème : ça passe tout seul, sans difficulté. Récent, il peut vite dater. EN: it went through smoothly.'),
-    card(E(1151), 'Réglé', 'familier',
+    card(E(1151), 'Réglé', 'familier, récent',
       'C’est carré : c’est réglé, impeccable. EN: sorted.'),
   ],
 };
@@ -1919,7 +1921,7 @@ const A10_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'En entretien : mon dernier stage a été … au début.', opts: ['difficile', 'chaud'], correct: 0 },
     { promptSay: 'En entretien : j’y ai … appris.', opts: ['énormément', 'grave'], correct: 0 },
     { promptSay: 'En entretien : mon ancien responsable était très … .', opts: ['exigeant', 'relou'], correct: 0 },
-    { promptSay: 'À ta professeure : cette situation est … .', opts: ['délicate', 'chaude'], correct: 0 },
+    { promptSay: 'À ta professeure : pour moi, c’est … en ce moment.', opts: ['difficile', 'chaud'], correct: 0 },
     { promptSay: 'Dans une lettre : je suis … immédiatement.', opts: ['disponible', 'dispo'], correct: 0 },
     { promptSay: 'Tu ne connais pas ce mot : tu demandes s’il est … .', opts: ['poli', 'court'], correct: 0 },
     { promptSay: 'Un mot peut blesser : tu … .', opts: ['ne le répètes pas', 'le traduis quand même'], correct: 0 },
@@ -2323,7 +2325,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI('Chelou est le verlan de ___ .', 'louche', 'Lou-che, retourné : che-lou. EN: louche.', 'a2-tableau', ['Chelou est le verlan de louche.'], TI_MOT),
         tI('Relou est le verlan de ___ .', 'lourd', 'Lourd, avec un petit e, retourné : re-lou. EN: lourd.', 'a2-tableau', ['Relou est le verlan de lourd.'], TI_MOT),
         eS('Madame, votre consigne est un peu zarbi. (étrange)', 'Madame, votre consigne est un peu étrange.', 'Zarbi reste entre amis, et il a vieilli ; à une professeure : étrange. EN: étrange.', 'a2-piege', ['Madame, votre consigne me paraît un peu étrange.', 'Madame, votre consigne me semble un peu étrange.']),
-        eS('Monsieur l’agent, il y a un type chelou devant l’immeuble. (un homme à l’air louche)', 'Monsieur l’agent, il y a un homme à l’air louche devant l’immeuble.', 'Type et chelou descendent de deux barreaux ; à un agent, reste précis et neutre. EN: a suspicious-looking man.', 'a2-piege'),
+        eS('Monsieur l’agent, il y a un type chelou devant l’immeuble. (un homme à l’air louche)', 'Monsieur l’agent, il y a un homme à l’air louche devant l’immeuble.', 'Type et chelou sont familiers ; à un agent, reste précis et neutre. EN: a suspicious-looking man.', 'a2-piege'),
         lC('Écoute. Que pense la personne du cousin ?', fr(E(1030)), ['Il est pénible.', 'Il est drôle.', 'Il est timide.'], 0, 'Relou : pénible. EN: tiresome.', 'a2-cartes'),
       ],
     },
@@ -2362,7 +2364,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         tI('La téloche, c’est la ___ .', 'télévision', 'Télévision et -oche. EN: télévision.', 'a5-cartes', ['télé', 'La téloche, c’est la télévision.', 'La téloche, c’est la télé.'], TI_MOT),
         tI('Calmos veut dire : du ___ .', 'calme', 'Calme et -os. EN: calme.', 'a5-cartes', ['Calmos veut dire : du calme.'], TI_MOT),
         eS('Dans ma rédaction, les familles regardent la téloche le soir. (la télévision)', 'Dans ma rédaction, les familles regardent la télévision le soir.', 'Téloche est familier et un peu daté ; une rédaction garde le mot entier. EN: télévision.', 'a5-erreurs', [], 'Un mot n’a pas le bon registre pour une rédaction. Réécris la phrase avec les mots entre parenthèses. EN: One word is in the wrong register for an essay; rewrite the sentence with the words in brackets.'),
-        eS('Mon voisin est un chauffard : il conduit toujours prudemment. (un bon conducteur)', 'Mon voisin est un bon conducteur : il conduit toujours prudemment.', 'Chauffard est toujours péjoratif : il contredit la suite. EN: -ard is never praise.', 'a5-erreurs', [], 'Un mot contredit la phrase. Réécris-la avec les mots entre parenthèses. EN: One word contradicts the sentence; rewrite it with the words in brackets.'),
+        eS('Madame, je rentre tranquillos, je vous rappelle demain. (tranquillement)', 'Madame, je rentre tranquillement, je vous rappelle demain.', 'Tranquillos est gentil entre amis ; avec une cliente, garde l’adverbe. EN: tranquillement.', 'a5-erreurs'),
         lC('Écoute. Que fait la personne ?', fr(E(1085)), ['elle mange vite, puis va au cinéma', 'elle regarde la télévision', 'elle fait sa valise'], 0, 'Rapidos, cinoche : rapidement, cinéma. EN: a quick bite, then the cinema.', 'a5-histoire'),
       ],
     },
@@ -2426,7 +2428,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Traduire vers le neutre, c’est…', ['garder le sens et changer les mots', 'changer le sens pour être poli', 'supprimer toutes les émotions'], 0, 'Le fait reste, le costume change. EN: keep the meaning.', 'a10-cartes'),
         tI('C’est relou, ce retard. (pénible)', 'C’est pénible, ce retard.', 'Relou, au neutre : pénible. EN: tiresome.', 'a10-tableau', ['Ce retard est pénible.', 'Ce retard est vraiment pénible.'], TI_ECRIT),
         tI('Il est vénère depuis ce matin. (en colère)', 'Il est en colère depuis ce matin.', 'Vénère, au neutre : en colère. EN: angry.', 'a10-tableau', ['Il est très en colère depuis ce matin.'], TI_ECRIT),
-        eS('Madame, cette situation est vraiment chaude. (délicate)', 'Madame, cette situation est vraiment délicate.', 'Chaud, au sens de difficile, est familier ; à une professeure, délicate. EN: delicate.', 'a10-piege', ['Madame, cette situation est délicate.']),
+        eS('Madame, c’est chaud pour moi en ce moment. (difficile)', 'Madame, c’est difficile pour moi en ce moment.', 'C’est chaud, au sens de difficile, est familier ; à une professeure : c’est difficile. EN: difficult.', 'a10-piege', ['Madame, c’est très difficile pour moi en ce moment.']),
         eS('Madame, je suis dispo immédiatement. (disponible)', 'Madame, je suis disponible immédiatement.', 'Disponible, en entier. EN: available.', 'a10-piege'),
         lC('Écoute. Que fait Yanis dans cette phrase ?', fr(E(1175)), ['il corrige le registre de sa phrase', 'il change le nom de son stage', 'il annule son entretien'], 0, 'Pardon : il remonte d’un barreau. EN: he corrects his register.', 'a10-ecoute'),
       ],
@@ -2565,7 +2567,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-verlan', 'Le verlan', ['la fabrication', 'les mots restés', 'le verlan du verlan'], [
     teach('sheet-verlan-teach', 'Les sons à l’envers',
-      'Le mot verlan vient de l’envers. On coupe le mot en syllabes et on les inverse, à l’oreille : bizarre donne zarbi, louche donne chelou. Un mot d’une syllabe reçoit souvent un petit « e » avant d’être retourné (lourd, relou ; femme, meuf ; mère, reum), et la fin tombe parfois (fête, teuf ; flic, keuf). Fou se retourne son par son : ouf. Un verlan peut être retourné une deuxième fois : meuf donne feumeu. Beur, verlan d’arabe, a donné rebeu : ces mots désignent des gens par leur origine ; on les reconnaît, on ne les emploie pas. EN: Sounds reversed; one-syllable words take an extra e; re-verlan exists; origin words are not for you.'),
+      'Le mot verlan vient de l’envers. On coupe le mot en syllabes et on les inverse, à l’oreille : bizarre donne zarbi, louche donne chelou. Un mot d’une syllabe reçoit souvent un petit « e » avant d’être retourné (lourd, relou ; femme, meuf ; mère, reum), et la fin tombe parfois (fête, teuf ; flic, keuf). Fou se retourne son par son : ouf. Un verlan peut être retourné une deuxième fois : meuf donne feumeu. Beur, verlan d’arabe, aujourd’hui daté, a donné rebeu : ces mots désignent des gens par leur origine et peuvent blesser ; on les reconnaît, on ne les emploie pas. EN: Sounds reversed; one-syllable words take an extra e; re-verlan exists; origin words are not for you.'),
     table('sheet-verlan-table', 'Verlan, source, neutre', ['Verlan', 'Source', 'Au neutre'], [
       ['laisse béton (daté)', 'laisse tomber', 'laissons cela'],
       ['ouf', 'fou', 'incroyable'],
@@ -2590,12 +2592,12 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['calmos', '-os', 'du calme'],
       ['le cinoche', '-oche', 'le cinéma'],
       ['un flemmard', '-ard, moqueur', 'quelqu’un de paresseux'],
-      ['un chauffard', '-ard, courant', 'un conducteur dangereux'],
+      ['un chauffard', '-ard, même dans la presse', 'un conducteur dangereux'],
       ['kiffer', 'emprunt, arabe', 'aimer beaucoup'],
       ['avoir le seum', 'emprunt, arabe', 'être déçu, frustré'],
       ['zarma', 'emprunt, arabe', 'soi-disant'],
       ['chiller', 'emprunt, anglais', 'se détendre'],
-      ['la go', 'emprunt, Côte d’Ivoire', 'la fille, la petite amie'],
+      ['la go', 'emprunt, français d’Afrique', 'la fille, la petite amie'],
     ]),
   ]),
   sheet('sheet-neutre', 'Traduire vers le neutre', ['les intensifs', 'les textos', 'garder le sens, adoucir', 'la note de la tâche'], [
@@ -2746,7 +2748,7 @@ export const LESSON: Lesson = {
   title: UNIT.sub,
   level: LEVEL,
   tag: 'B2 · LEÇON 32',
-  intro: 'At B1 you learned three registers. At B2 you meet the fourth, below them: slang, the words of a group. You learn to recognise verlan (relou, chelou, ouf, teuf, vénère), clipped words (appart, dispo, ado), new endings (calmos, cinoche, flemmard), borrowings from Arabic, English and West African French (kiffer, le seum, wesh, la go), intensifiers and fillers (trop, grave, de ouf, genre) and texting shortcuts (mdr, jsp, oklm). Above all you learn judgement: which rung each word sits on, who can say it to whom, what is dated or forced, what can hurt, and how to translate it up into neutral French, softening as you go. You are taught to understand slang, not to speak it. The task: rewrite a slang-filled message thread as a neutral email to a lecturer, with a note on three changes, in DELF B2 format. The lesson covers France; regional slang is lesson 31 in B2.',
+  intro: 'At B1 you learned three registers. At B2 you meet the fourth, below them: slang, the words of a group. You learn to recognise verlan (relou, chelou, ouf, teuf, vénère), clipped words (appart, dispo, ado), new endings (calmos, cinoche, flemmard), borrowings from Arabic, English and African French (kiffer, le seum, wesh, la go), intensifiers and fillers (trop, grave, de ouf, genre) and texting shortcuts (mdr, jsp, oklm). Above all you learn judgement: which rung each word sits on, who can say it to whom, what is dated or forced, what can hurt, and how to translate it up into neutral French, softening as you go. You are taught to understand slang, not to speak it. The task: rewrite a slang-filled message thread as a neutral email to a lecturer, with a note on three changes, in DELF B2 format. The lesson covers France; regional slang is lesson 31 in B2.',
   skill: 'PE',
   grammarAssumed: [REGISTRES_UNIT, TUVOUS_UNIT, COURRIELS_UNIT, NEGATION_B1_UNIT, NEGATIONS_B2_UNIT],
   grammarIntroduced: [
@@ -2754,7 +2756,7 @@ export const LESSON: Lesson = {
     'How verlan is built: syllables inverted by sound, the added schwa of one-syllable words, re-verlanisation; laisse béton, ouf, relou, chelou, zarbi, teuf, meuf, vénère, reum, keuf',
     'Clipping and its outcomes: appart, resto, ado, dispo, prof against the clippings that became standard (métro, vélo, photo)',
     'Resuffixation: -os and -oche lower the register without changing the meaning; -ard adds scorn (flemmard, froussard, chauffard)',
-    'Borrowings in youth slang: kiffer, avoir le seum, le bled, wesh, zarma (Arabic), chiller, le crush (English), la go (West African French), and why a learner does not imitate them',
+    'Borrowings in youth slang: kiffer, avoir le seum, le bled, wesh, zarma (Arabic), chiller, le crush (English), la go (African French), and why a learner does not imitate them',
     'Spoken intensifiers and fillers and their written equivalents: trop, grave, de ouf, c’est chaud, genre, en mode',
     'Dated, recent and lasting slang; the adult who forces',
     'Texting abbreviations (mdr, ptdr, jsp, tkt, oklm, jpp) and their full written forms with the restored ne',

@@ -193,6 +193,19 @@ admin `b1-lesson-integrity.test.ts` 148/148.
    If the dry run crosses 50 MiB, stop and decide with Paul before publishing.
 5. Publish v83 only on Paul's OK, then GATE B2-3 on the Pixel.
 
+**Wave 8 pre-review and fact check, 2026-09-30** (stopped once by the session limit, resumed with
+nothing lost). b2.31 2 blockers (« à tantôt » is also Swiss and Québécois, « assibilation » refused),
+huitante adds Fribourg, the Belgian body is the Direction de la langue française, « deuxième bureau »
+is the two Congos and Côte d'Ivoire, four Québec words are familier (Usito); b2.32 3 blockers
+(errorSpots testing meaning not register, « une situation chaude » is standard), « la go » hedged to
+African French, beur/rebeu kept once for recognition with a sensitivity note; b2.33 7 blockers
+(type-ins refusing s'atteler à, soumettre, pris part, « j'ai été à la réunion »; « avoir du poids » a
+second right answer; « réaliser un problème » wrongly called unaccepted), « tasse de thé » is OQLF-
+acceptable in informal use only; b2.34 2 blockers (« hurler avec les loups » is close to « when in
+Rome », so two distractors fitted), La Fontaine quoted word for word (Wikisource), type-ins accept
+every standard proverb variant. After: app checks 0, house tests 294/294, import dry run 759 / 0
+blockers.
+
 **WAVE 8 DRAFTED, 2026-09-30** (b2.31 to b2.34: B2 fully drafted). 759 authored rows; app checks
 0, import dry run 759 / 0 blockers, floors clear. On ART_PENDING (46 openers). Open for the
 pre-review: b2.32 keeps « beur / rebeu » once with a sensitivity note; slang and idiom headwords

@@ -177,7 +177,19 @@
 //          never tested.
 //       m. « ce n’est pas ma tasse de thé », « paver la voie », « mettre sur
 //          la glace »: BDL « Emprunts idiomatiques », each « l’expression… »
-//          (acceptable). Taught as calques that became French.
+//          (acceptable). PRE-REVIEW 2026-09-30: the BDL says tasse de thé is
+//          acceptable « en contexte familier » only (vitrinelinguistique
+//          id=24704); every mention now says so. Paver la voie and mettre sur
+//          la glace are acceptable without that restriction (ids 24470,
+//          24471). Taught as calques that became French.
+//       l'. « faire sens »: the BDL presents it neutrally (old French, « peu
+//          employée au Québec »); the Académie française (Dire, ne pas dire,
+//          « Faire débat, faire polémique ») criticises the faire + noun
+//          pattern it belongs to: « critiqué par certains » stands.
+//       i'. « supporter » = soutenir: the Académie (« Supporter », Dire, ne
+//          pas dire) criticises it even for sport; still recorded by the
+//          dictionaries. Kept as criticised, keyed only « dans un texte
+//          soigné ».
 //     TYPOGRAPHY (act 10):
 //       n. France and Québec: decimal comma (1,5), a space between groups of
 //          three digits (10 000), a space before % (15 %), the currency
@@ -637,7 +649,7 @@ export const ACT4_ROWS: Row[] = [
   rule(1879, 'Certains calques sont devenus du bon français.', 'Some calques have become good French.',
     '/sɛʁ.tɛ̃ kalk sɔ̃ də.və.ny dy bɔ̃ fʁɑ̃.sɛ/', 'sehr-tehⁿ KALK | sohⁿ duh-vuh-NÜ | dü bohⁿ frahⁿ-SEH',
     '« Ce n’est pas ma tasse de thé » vient de l’anglais. Faut-il l’éviter ?',
-    'Non : l’OQLF la juge acceptable, comme paver la voie. Une expression venue de l’anglais n’est pas fautive si elle est entrée dans l’usage et ne remplace pas une expression française plus juste.', ['accepte']),
+    'Non : l’OQLF la juge acceptable dans un registre familier, et paver la voie l’est aussi. Une expression venue de l’anglais n’est pas fautive si elle est entrée dans l’usage et ne remplace pas une expression française plus juste.', ['accepte']),
 ];
 
 /* ── ACT 5 · CHANGER LA CLASSE DES MOTS (.1880-.1896) ────────────────────── */
@@ -995,7 +1007,7 @@ export const TEXTE_FAQ =
 
 /** Act 4: a language column in a Québec weekly. */
 export const TEXTE_CHRONIQUE =
-  `${ORIGINAL} Chronique « Le mot juste ». Cette semaine, une lectrice de Trois-Rivières m’écrit : « Au bureau, tout le monde dit que ça fait du sens. Est-ce une faute ? » Bonne question. L’expression vient de l’anglais to make sense, traduit mot à mot. L’Office québécois de la langue française la déconseille et propose avoir du sens, être sensé, être logique ou tenir debout. Même famille : on n’applique pas pour un emploi, on postule ou on pose sa candidature ; une réunion ne prend pas place, elle a lieu ; on ne met pas l’emphase sur un point, on met l’accent dessus. Et après le souper, on ne prend pas une marche : on va marcher, ou on fait une promenade. Faut-il pour autant chasser tout ce qui vient de l’anglais ? Non. Certaines expressions traduites de l’anglais sont entrées dans l’usage et ne posent aucun problème : on peut dire que le jazz n’est pas sa tasse de thé, ou qu’une découverte a pavé la voie à d’autres. Le français a toujours emprunté. La vraie question n’est pas de savoir d’où vient une expression, mais si elle dit la chose comme le français la dit déjà. Quant à faire sens, sans du, la tournure existe en français depuis longtemps ; elle reste rare au Québec, et certains la critiquent. Dans un texte soigné, avoir du sens ne vous trahira jamais. Écrivez-moi : la semaine prochaine, je vous parlerai de ça me sonne une cloche.`;
+  `${ORIGINAL} Chronique « Le mot juste ». Cette semaine, une lectrice de Trois-Rivières m’écrit : « Au bureau, tout le monde dit que ça fait du sens. Est-ce une faute ? » Bonne question. L’expression vient de l’anglais to make sense, traduit mot à mot. L’Office québécois de la langue française la déconseille et propose avoir du sens, être sensé, être logique ou tenir debout. Même famille : on n’applique pas pour un emploi, on postule ou on pose sa candidature ; une réunion ne prend pas place, elle a lieu ; on ne met pas l’emphase sur un point, on met l’accent dessus. Et après le souper, on ne prend pas une marche : on va marcher, ou on fait une promenade. Faut-il pour autant chasser tout ce qui vient de l’anglais ? Non. Certaines expressions traduites de l’anglais sont entrées dans l’usage : dans la conversation, on peut dire que le jazz n’est pas sa tasse de thé, et même à l’écrit, qu’une découverte a pavé la voie à d’autres. Le français a toujours emprunté. La vraie question n’est pas de savoir d’où vient une expression, mais si elle dit la chose comme le français la dit déjà. Quant à faire sens, sans du, la tournure existe en français depuis longtemps ; elle reste rare au Québec, et certains la critiquent. Dans un texte soigné, avoir du sens ne vous trahira jamais. Écrivez-moi : la semaine prochaine, je vous parlerai de ça me sonne une cloche.`;
 
 /** Act 5: a news item, translated well (Lausanne). Transpositions. */
 export const TEXTE_NAGEUR =

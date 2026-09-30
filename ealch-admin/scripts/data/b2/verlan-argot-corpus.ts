@@ -151,7 +151,7 @@
 //       beur, rebeu       SENSITIVE      verlan of arabe, then its re-verlan;
 //                                        words naming people by origin; beur
 //                                        dated (1980s); NOT for the learner
-//       chanmé            FAM, daté      méchant (au sens de génial): génial
+//       chanmé            FAM, un peu daté   méchant (au sens de génial): génial
 //       CLIPPING (troncation)
 //       l’appart, le resto, un ado, dispo, le prof, le ciné, sympa   FAM
 //       le métro, le vélo, la photo      COU (clippings that climbed:
@@ -167,20 +167,23 @@
 //       la valoche        FAM            la valise
 //       flemmard          FAM            paresseux (-ard: pejorative)
 //       froussard         FAM            peureux (-ard: pejorative)
-//       un chauffard      COU            a reckless driver (-ard: pejorative)
+//       un chauffard      COU/FAM        a reckless driver (-ard: pejorative);
+//                                        Larousse marks it familier, the press
+//                                        uses it freely (review 2026-09-30)
 //       BORROWINGS
 //       kiffer            FAM            aimer beaucoup (from Arabic kif)
 //       avoir le seum     FAM            être déçu, frustré (from Arabic,
 //                                        « venin »)
 //       le bled           FAM            the home village or country (Arabic
 //                                        blad); un bled perdu: a remote hole
-//       wesh              ARG            salut; also surprise (Algerian Arabic)
+//       wesh              ARG            salut; also surprise (Maghrebi Arabic)
 //       zarma             ARG            soi-disant, as if (Maghrebi Arabic)
 //       chiller           FAM            se détendre (English chill)
 //       le crush          FAM            a crush (English)
-//       la go             ARG in France  la fille, la petite amie; from the
-//                                        French of Côte d’Ivoire (and West
-//                                        Africa), spread by rap
+//       la go             ARG in France  la fille, la petite amie; African
+//                                        French, above all Ivorian (nouchi),
+//                                        also Cameroon; spread by rap; etymon
+//                                        uncertain, never stated
 //       INTENSIFIERS AND FILLERS
 //       trop (trop bien)  FAM            très (not negative here)
 //       grave             FAM            vraiment, très; « Grave. » = totally
@@ -189,8 +192,8 @@
 //       en mode + nom     FAM            comme, à la manière de
 //       RECENT, CAN DATE FAST
 //       être en PLS       FAM            PLS = position latérale de sécurité;
-//                                        figuratively: épuisé, anéanti, mal à
-//                                        l’aise
+//                                        figuratively: épuisé, anéanti, à bout
+//                                        (« gêné » dropped: no dictionary backs it)
 //       ça passe crème    FAM            ça passe sans problème
 //       c’est carré       FAM            c’est réglé, impeccable
 //       c’est de la balle FAM, daté      c’est génial (late 1990s-2000s)
@@ -548,7 +551,8 @@ export const ACT3_ROWS: Row[] = [
   sent(1052, 'Si les voisins appellent la police, c’est fini.', 'If the neighbours call the police, it is over.', '/si le vwa.zɛ̃ a.pɛl la pɔ.lis sɛ fi.ni/', 'see lay vwa-ZEHⁿ a-PEHL la po-LEESS | seh fee-NEE', ['neutre']),
   sent(1053, 'Meuf, remis à l’envers une deuxième fois, donne feumeu.', '“Meuf”, turned back to front a second time, gives “feumeu”.', '/mœf ʁə.mi a lɑ̃.vɛʁ yn dø.zjɛm fwa dɔn fø.mø/', 'MUHF | ruh-MEE a lahⁿ-VEHR | ün duh-ZYEMM FWA | donn fuh-MUH', ['rule', 'verlan'], FO,
     rule('Qu’est-ce que la reverlanisation ?', 'Remettre à l’envers un mot déjà en verlan : femme, meuf, puis feumeu.')),
-  sent(1054, 'Beur, le verlan d’arabe, a donné rebeu : ces mots désignent des gens par leur origine.', '“Beur”, the verlan of “arabe”, gave “rebeu”: these words label people by their origin.', '/bœʁ lə vɛʁ.lɑ̃ da.ʁab a dɔ.ne ʁə.bø se mo de.ziɲ de ʒɑ̃ paʁ lœʁ ɔ.ʁi.ʒin/', 'BUHR | luh vehr-LAHⁿ da-RAB | a do-NAY ruh-BUH | say MOH day-ZEENY | day ZHAHⁿ par luhr o-ree-ZHEENN', ['verlan', 'sensible'], FO),
+  sent(1054, 'Beur, le verlan d’arabe, a donné rebeu : ces mots désignent des gens par leur origine.', '“Beur”, the verlan of “arabe”, gave “rebeu”: these words label people by their origin.', '/bœʁ lə vɛʁ.lɑ̃ da.ʁab a dɔ.ne ʁə.bø se mo de.ziɲ de ʒɑ̃ paʁ lœʁ ɔ.ʁi.ʒin/', 'BUHR | luh vehr-LAHⁿ da-RAB | a do-NAY ruh-BUH | say MOH day-ZEENY | day ZHAHⁿ par luhr o-ree-ZHEENN', ['verlan', 'sensible'], FO,
+    { notes: 'Beur date des années quatre-vingt et sort de l’usage ; beaucoup le trouvent aujourd’hui dévalorisant. Rebeu, plus récent, est familier : certains l’emploient pour eux-mêmes, mais dans la bouche d’un autre, il peut blesser. Reconnais-les, ne les emploie pas.' }),
   sent(1055, 'Les mots qui désignent quelqu’un par son origine sont sensibles : ne les emploie pas.', 'Words that label someone by their origin are sensitive: do not use them.', '/le mo ki de.ziɲ kɛl.kœ̃ paʁ sɔ̃.nɔ.ʁi.ʒin sɔ̃ sɑ̃.sibl nə le.zɑ̃.plwa pa/', 'lay MOH kee day-ZEENY | kehl-KUHⁿ par sohⁿ-no-ree-ZHEENN | sohⁿ sahⁿ-SEEBL | nuh lay-zahⁿ-PLWA PA', ['rule', 'sensible'], FO,
     rule('Tu entends rebeu dans un film. Tu peux l’employer ?', 'Non. Comprends-le, mais ne l’emploie pas : il désigne des personnes par leur origine.')),
   sent(1056, 'Devant tes grands-parents, dis « ma mère », pas « ma reum ».', 'In front of your grandparents, say “ma mère”, not “ma reum”.', '/də.vɑ̃ te ɡʁɑ̃.pa.ʁɑ̃ di ma mɛʁ pa ma ʁœm/', 'duh-vahⁿ tay grahⁿ-pa-RAHⁿ | dee ma MEHR | pa ma RUHMM', ['jugement']),
@@ -602,7 +606,7 @@ export const ACT5_ROWS: Row[] = [
   ph(1092, 'le cinoche', 'the flicks, the pictures (informal)', '/lə si.nɔʃ/', 'luh see-NOSH', ['suffixe'], 'Cinéma et le suffixe -oche. Plus familier que ciné.', 'familier', FR),
   ph(1093, 'la téloche', 'the telly (informal)', '/la te.lɔʃ/', 'la tay-LOSH', ['suffixe', 'date'], 'Télévision et le suffixe -oche. Un peu daté.', 'familier', FR),
   ph(1094, 'un flemmard, une flemmarde', 'a lazybones', '/œ̃ fle.maʁ yn fle.maʁd/', 'uhⁿ fleh-MAR | ün fleh-MARD', ['suffixe'], 'La flemme et le suffixe -ard. Taquin entre proches, vexant devant les autres.', 'familier', FR),
-  ph(1095, 'un chauffard', 'a reckless driver, a road hog', '/œ̃ ʃo.faʁ/', 'uhⁿ shoh-FAR', ['suffixe'], 'Le suffixe -ard, péjoratif : un conducteur dangereux. Le mot est courant, même aux informations.'),
+  ph(1095, 'un chauffard', 'a reckless driver, a road hog', '/œ̃ ʃo.faʁ/', 'uhⁿ shoh-FAR', ['suffixe'], 'Le suffixe -ard, péjoratif : un conducteur dangereux. Certains dictionnaires le disent familier, mais on l’entend partout, même aux informations.'),
   ph(1096, 'un froussard, une froussarde', 'a coward, a scaredy-cat', '/œ̃ fʁu.saʁ yn fʁu.saʁd/', 'uhⁿ froo-SAR | ün froo-SARD', ['suffixe'], 'La frousse (la peur) et le suffixe -ard. Familier et moqueur.', 'familier', FR),
   sent(1097, 'Le suffixe -ard est souvent péjoratif : il ajoute de la moquerie ou du mépris.', 'The suffix -ard is often pejorative: it adds mockery or scorn.', '/lə sy.fiks aʁ ɛ su.vɑ̃ pe.ʒɔ.ʁa.tif il a.ʒut də la mɔ.kʁi u dy me.pʁi/', 'luh sü-FEEKS AR | eh soo-vahⁿ pay-zho-ra-TEEF | eel a-ZHOOT duh la mo-KREE | oo dü may-PREE', ['rule', 'suffixe'], FO,
     rule('Un chauffard, un flemmard : un compliment ?', 'Jamais. Le suffixe -ard ajoute de la moquerie ou du mépris.')),
@@ -621,9 +625,9 @@ export const ACT6_ROWS: Row[] = [
   fam(1104, 'Il a le seum depuis la finale.', 'He’s been gutted since the final.', '/i.la lə søm də.pɥi la fi.nal/', 'ee-la luh SUHMM | duh-pwee la fee-NAL', ['emprunt'], 'Avoir le seum : être déçu, frustré. Familier, venu de l’arabe.'),
   fam(1105, 'Cet été, je rentre au bled voir mes grands-parents.', 'This summer I’m going back to the home village to see my grandparents.', '/sɛ.te.te ʒə ʁɑ̃.tʁo blɛd vwaʁ me ɡʁɑ̃.pa.ʁɑ̃/', 'seh-tay-TAY | zhuh rahⁿ-troh BLEHD | vwar may grahⁿ-pa-RAHⁿ', ['emprunt'], 'Le bled : le village ou le pays d’origine. Familier, de l’arabe.'),
   fam(1106, 'On a dormi dans un bled perdu, sans réseau.', 'We slept in some place in the middle of nowhere, with no signal.', '/ɔ̃.na dɔʁ.mi dɑ̃.zœ̃ blɛd pɛʁ.dy sɑ̃ ʁe.zo/', 'ohⁿ-na dor-MEE | dahⁿ-zuhⁿ blehd pehr-DÜ | sahⁿ ray-ZOH', ['emprunt'], 'Un bled perdu : un coin isolé, avec une nuance moqueuse.'),
-  arg(1107, 'Wesh, bien ou quoi ?', 'Yo, you good?', '/wɛʃ bjɛ̃ u kwa/', 'WEHSH | byehⁿ oo KWA', ['emprunt'], 'Wesh : salut, entre amis d’un même groupe. Argotique, de l’arabe d’Algérie.'),
+  arg(1107, 'Wesh, bien ou quoi ?', 'Yo, you good?', '/wɛʃ bjɛ̃ u kwa/', 'WEHSH | byehⁿ oo KWA', ['emprunt'], 'Wesh : salut, entre amis d’un même groupe. Argotique, de l’arabe du Maghreb.'),
   arg(1108, 'Il a fini son mémoire, zarma.', 'He’s “finished” his dissertation, yeah right.', '/i.la fi.ni sɔ̃ me.mwaʁ zaʁ.ma/', 'ee-la fee-NEE sohⁿ may-MWAR | zar-MA', ['emprunt'], 'Zarma : soi-disant, on n’y croit pas. Argotique, de l’arabe du Maghreb.'),
-  arg(1109, 'Sa go l’attend devant la gare.', 'His girlfriend is waiting for him outside the station.', '/sa ɡo la.tɑ̃ də.vɑ̃ la ɡaʁ/', 'sa GOH | la-TAHⁿ duh-vahⁿ la GAR', ['emprunt'], 'La go : la fille, la petite amie. Du français de Côte d’Ivoire, arrivé par le rap.'),
+  arg(1109, 'Sa go l’attend devant la gare.', 'His girlfriend is waiting for him outside the station.', '/sa ɡo la.tɑ̃ də.vɑ̃ la ɡaʁ/', 'sa GOH | la-TAHⁿ duh-vahⁿ la GAR', ['emprunt'], 'La go : la fille, la petite amie. Du français d’Afrique, surtout de Côte d’Ivoire, arrivé en France par le rap.'),
   fam(1110, 'On va chiller chez Yanis ce soir.', 'We’re going to chill at Yanis’s tonight.', '/ɔ̃ va tʃi.le ʃe ja.nis sə swaʁ/', 'ohⁿ va chee-LAY | shay ya-NEESS suh SWAR', ['emprunt'], 'Chiller : se détendre. Familier, de l’anglais.'),
   sent(1111, 'J’aime beaucoup cette chanson, je l’écoute sans arrêt.', 'I really like this song, I listen to it all the time.', '/ʒɛm bo.ku sɛt ʃɑ̃.sɔ̃ ʒə le.kut sɑ̃.za.ʁɛ/', 'zhehmm boh-KOO seht shahⁿ-SOHⁿ | zhuh lay-KOOT sahⁿ-za-REH', ['neutre']),
   sent(1112, 'Il est très déçu depuis la finale.', 'He has been very disappointed since the final.', '/i.lɛ tʁɛ de.sy də.pɥi la fi.nal/', 'ee-leh treh day-SÜ | duh-pwee la fee-NAL', ['neutre'], FCVDR),
@@ -634,7 +638,7 @@ export const ACT6_ROWS: Row[] = [
   sent(1117, 'Nous allons nous détendre chez Yanis ce soir.', 'We are going to relax at Yanis’s this evening.', '/nu.za.lɔ̃ nu de.tɑ̃dʁ ʃe ja.nis sə swaʁ/', 'noo-za-LOHⁿ noo day-TAHⁿDR | shay ya-NEESS suh SWAR', ['neutre']),
   sent(1118, 'Kiffer, le seum, le bled et wesh viennent de l’arabe.', '“Kiffer”, “le seum”, “le bled” and “wesh” come from Arabic.', '/ki.fe lə søm lə blɛd e wɛʃ vjɛn də la.ʁab/', 'kee-FAY | luh SUHMM | luh BLEHD | ay WEHSH | vyehnn duh la-RAB', ['emprunt'], FO),
   sent(1119, 'Chiller et le crush viennent de l’anglais.', '“Chiller” and “le crush” come from English.', '/tʃi.le e lə kʁœʃ vjɛn də lɑ̃.ɡlɛ/', 'chee-LAY | ay luh KRUHSH | vyehnn duh lahⁿ-GLEH', ['emprunt'], FO),
-  sent(1120, 'La go vient du français de Côte d’Ivoire, et le rap l’a fait connaître en France.', '“La go” comes from the French of Côte d’Ivoire, and rap made it known in France.', '/la ɡo vjɛ̃ dy fʁɑ̃.sɛ d(ə) kot di.vwaʁ e lə ʁap la fɛ kɔ.nɛtʁ ɑ̃ fʁɑ̃s/', 'la GOH vyehⁿ dü frahⁿ-SEH | duh koht dee-VWAR | ay luh RAP | la feh ko-NEHTR ahⁿ FRAHⁿSS', ['emprunt'], FO),
+  sent(1120, 'La go vient du français d’Afrique, surtout de Côte d’Ivoire, et le rap l’a fait connaître en France.', '“La go” comes from African French, above all from Côte d’Ivoire, and rap made it known in France.', '/la ɡo vjɛ̃ dy fʁɑ̃.sɛ da.fʁik syʁ.tu d(ə) kot di.vwaʁ e lə ʁap la fɛ kɔ.nɛtʁ ɑ̃ fʁɑ̃s/', 'la GOH vyehⁿ dü frahⁿ-SEH da-FREEK | sür-too duh koht dee-VWAR | ay luh RAP | la feh ko-NEHTR ahⁿ FRAHⁿSS', ['emprunt'], FO),
   ph(1121, 'un mot d’emprunt', 'a loanword', '/œ̃ mo dɑ̃.pʁœ̃/', 'uhⁿ moh dahⁿ-PRUHⁿ', ['emprunt'], 'Un mot venu d’une autre langue : kiffer, chiller.'),
   sent(1122, 'Un mot d’emprunt garde souvent la couleur du groupe qui l’a apporté.', 'A loanword often keeps the colour of the group that brought it in.', '/œ̃ mo dɑ̃.pʁœ̃ ɡaʁd su.vɑ̃ la ku.lœʁ dy ɡʁup ki la a.pɔʁ.te/', 'uhⁿ moh dahⁿ-PRUHⁿ | gard soo-vahⁿ la koo-LUHR | dü GROOP kee la a-por-TAY', ['rule', 'emprunt']),
   sent(1123, 'Dans la bouche d’un étranger, wesh sonne souvent comme une imitation.', 'From a foreigner’s mouth, “wesh” often sounds like an imitation.', '/dɑ̃ la buʃ dœ̃.ne.tʁɑ̃.ʒe wɛʃ sɔn su.vɑ̃ kɔ.myn i.mi.ta.sjɔ̃/', 'dahⁿ la BOOSH | duhⁿ-nay-trahⁿ-ZHAY | WEHSH sonn soo-VAHⁿ | ko-mün ee-mee-ta-SYOHⁿ', ['jugement', 'emprunt']),
@@ -672,18 +676,18 @@ export const ACT7_ROWS: Row[] = [
 /* ── ACT 8 · CE QUI DATE, CE QUI DURE ─────────────────────────────────── */
 
 export const ACT8_ROWS: Row[] = [
-  fam(1146, 'Ce film, c’est de la balle.', 'That film is the bomb.', '/sə film sɛ d(ə) la bal/', 'suh FEELM | seh duh la BAL', ['date'], 'C’est de la balle : c’est génial. Familier et daté (fin des années quatre-vingt-dix).'),
+  fam(1146, 'Ce film, c’est de la balle.', 'That film is the bomb.', '/sə film sɛ d(ə) la bal/', 'suh FEELM | seh duh la BAL', ['date'], 'C’est de la balle : c’est génial. Familier et daté (fin des années quatre-vingt-dix et années deux mille).'),
   sent(1147, 'Plus personne ne dit ça : on dirait mon père.', 'Nobody says that any more: you sound like my dad.', '/ply pɛʁ.sɔn nə di sa ɔ̃ di.ʁɛ mɔ̃ pɛʁ/', 'plü pehr-SONN nuh dee SA | ohⁿ dee-REH mohⁿ PEHR', ['date']),
   sent(1148, 'Aujourd’hui, on dirait plutôt : ce film est ouf.', 'Today you would rather say: that film is insane.', '/o.ʒuʁ.dɥi ɔ̃ di.ʁɛ ply.to sə film ɛ uf/', 'oh-zhoor-DWEE | ohⁿ dee-reh plü-TOH | suh FEELM eh OOF', ['date'], FR, { register: 'familier' }),
   fam(1149, 'Après cette journée, je suis en PLS.', 'After today, I’m a total wreck.', '/a.pʁɛ sɛt ʒuʁ.ne ʒə sɥi.zɑ̃ pe.ɛl.ɛs/', 'a-PREH seht zhoor-NAY | zhuh swee-zahⁿ pay-ehl-EHSS', ['date', 'recent'], 'En PLS : épuisé, au plus mal. Familier et récent.'),
   fam(1150, 'J’ai rendu le dossier en retard, mais ça passe crème.', 'I handed the file in late, but it went through smoothly.', '/ʒe ʁɑ̃.dy lə dɔ.sje ɑ̃ ʁə.taʁ mɛ sa pas kʁɛm/', 'zhay rahⁿ-DÜ luh do-SYAY | ahⁿ ruh-TAR | meh sa pass KREHMM', ['date', 'recent'], 'Ça passe crème : ça passe sans problème. Familier et récent.'),
   fam(1151, 'Pour samedi, c’est carré : j’ai les billets.', 'Saturday’s sorted: I’ve got the tickets.', '/puʁ sam.di sɛ ka.ʁe ʒe le bi.jɛ/', 'poor sam-DEE | seh ka-RAY | zhay lay bee-YEH', ['date', 'recent'], 'C’est carré : c’est réglé, impeccable. Familier.'),
-  fam(1152, 'Ton nouveau vélo, il est chanmé.', 'Your new bike is wicked.', '/tɔ̃ nu.vo ve.lo i.lɛ ʃɑ̃.me/', 'tohⁿ noo-voh vay-LOH | ee-leh shahⁿ-MAY', ['date'], 'Chanmé, verlan de méchant, au sens de génial. Familier et daté.'),
+  fam(1152, 'Ton nouveau vélo, il est chanmé.', 'Your new bike is wicked.', '/tɔ̃ nu.vo ve.lo i.lɛ ʃɑ̃.me/', 'tohⁿ noo-voh vay-LOH | ee-leh shahⁿ-MAY', ['date'], 'Chanmé, verlan de méchant, au sens de génial. Familier, un peu daté.'),
   sent(1153, 'Relou et chelou ont duré : parents et enfants les emploient.', '“Relou” and “chelou” have lasted: parents and children both use them.', '/ʁə.lu e ʃə.lu ɔ̃ dy.ʁe pa.ʁɑ̃ e ɑ̃.fɑ̃ le.zɑ̃.plwa/', 'ruh-LOO ay shuh-LOO | ohⁿ dü-RAY | pa-rahⁿ ay ahⁿ-FAHⁿ | lay-zahⁿ-PLWA', ['date']),
   sent(1154, 'Un mot d’argot daté fait sourire : il donne ton âge, ou celui de ton manuel.', 'A dated slang word raises a smile: it gives away your age, or your textbook’s.', '/œ̃ mo daʁ.ɡo da.te fɛ su.ʁiʁ il dɔn tɔ̃.naʒ u sə.lɥi d(ə) tɔ̃ ma.nɥɛl/', 'uhⁿ moh dar-goh da-TAY | feh soo-REER | eel donn tohⁿ-NAZH | oo suh-lwee duh tohⁿ ma-NWEHL', ['date', 'jugement']),
   sent(1155, 'Un adulte qui imite l’argot des ados a souvent l’air de forcer.', 'An adult who imitates teenage slang often looks as if they are trying too hard.', '/œ̃.na.dylt ki i.mit laʁ.ɡo de.za.do a su.vɑ̃ lɛʁ də fɔʁ.se/', 'uhⁿ-na-DÜLT kee ee-MEET | lar-GOH day-za-DOH | a soo-vahⁿ LEHR duh for-SAY', ['date', 'jugement']),
   ph(1156, 'un mot daté', 'a dated word', '/œ̃ mo da.te/', 'uhⁿ moh da-TAY', ['date'], 'Un mot qui a eu son époque : il fait sourire, ou vieillir.'),
-  ph(1157, 'être en PLS', 'to be a wreck, totally floored (informal)', '/ɛtʁ ɑ̃ pe.ɛl.ɛs/', 'ehtr ahⁿ pay-ehl-EHSS', ['date', 'recent'], 'PLS : la position latérale de sécurité, celle des premiers secours. Au figuré : épuisé, au plus mal, très gêné. Récent.', 'familier', FR),
+  ph(1157, 'être en PLS', 'to be a wreck, totally floored (informal)', '/ɛtʁ ɑ̃ pe.ɛl.ɛs/', 'ehtr ahⁿ pay-ehl-EHSS', ['date', 'recent'], 'PLS : la position latérale de sécurité, celle des premiers secours. Au figuré : épuisé, au plus mal, à bout. Récent.', 'familier', FR),
   sent(1158, 'Après cette journée, je suis à bout de forces.', 'After today, I am at the end of my strength.', '/a.pʁɛ sɛt ʒuʁ.ne ʒə sɥi.za bu d(ə) fɔʁs/', 'a-PREH seht zhoor-NAY | zhuh swee-za BOO duh FORSS', ['neutre']),
   sent(1159, 'Pour samedi, tout est réglé : j’ai les billets.', 'For Saturday, everything is settled: I have the tickets.', '/puʁ sam.di tu.tɛ ʁe.ɡle ʒe le bi.jɛ/', 'poor sam-DEE | too-teh ray-GLAY | zhay lay bee-YEH', ['neutre'], FCVDR),
   sent(1160, 'J’ai rendu le dossier en retard, mais cela n’a posé aucun problème.', 'I handed the file in late, but that caused no problem at all.', '/ʒe ʁɑ̃.dy lə dɔ.sje ɑ̃ ʁə.taʁ mɛ sə.la na po.ze o.kœ̃ pʁɔ.blɛm/', 'zhay rahⁿ-DÜ luh do-SYAY ahⁿ ruh-TAR | meh suh-LA na poh-ZAY | oh-kuhⁿ pro-BLEHMM', ['neutre']),

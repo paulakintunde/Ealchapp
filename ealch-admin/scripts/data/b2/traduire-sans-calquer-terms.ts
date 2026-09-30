@@ -60,7 +60,7 @@ export const TRADUIRE_SANS_CALQUER_TERMS: Record<string, LessonTerm> = {
   expression: {
     term: 'expression',
     title: 'Une image par une image',
-    body: 'Une expression ne se traduit pas mot à mot : on cherche l’expression française qui dit la même chose. It makes sense : ça a du sens. To take place : avoir lieu. Certaines expressions venues de l’anglais sont pourtant entrées dans l’usage, comme ce n’est pas ma tasse de thé. EN: Translate an expression by the French expression that means the same.',
+    body: 'Une expression ne se traduit pas mot à mot : on cherche l’expression française qui dit la même chose. It makes sense : ça a du sens. To take place : avoir lieu. Certaines expressions venues de l’anglais sont pourtant entrées dans l’usage, comme paver la voie, ou, dans la conversation, ce n’est pas ma tasse de thé. EN: Translate an expression by the French expression that means the same.',
     examples: [
       { itemId: E(1869), note: 'faire du sens, déconseillé' },
       { itemId: E(1855), note: 'avoir lieu' },

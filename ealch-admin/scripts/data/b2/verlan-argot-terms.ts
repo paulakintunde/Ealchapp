@@ -64,7 +64,7 @@ export const VERLAN_ARGOT_TERMS: Record<string, LessonTerm> = {
     body: 'L’argot d’aujourd’hui emprunte à l’arabe (kiffer, le seum, le bled, wesh), à l’anglais (chiller, le crush) et au français d’Afrique (la go). Un emprunt garde souvent la couleur du groupe qui l’a apporté : dans ta bouche, il peut sonner comme une imitation. EN: Borrowed words keep the colour of the group that brought them.',
     examples: [
       { itemId: E(1118), note: 'venus de l’arabe' },
-      { itemId: E(1120), note: 'venue de Côte d’Ivoire' },
+      { itemId: E(1120), note: 'surtout de Côte d’Ivoire' },
       { itemId: E(1123), note: 'le risque de l’imitation' },
     ],
   },
