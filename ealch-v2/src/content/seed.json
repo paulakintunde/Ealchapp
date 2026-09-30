@@ -1,5 +1,5 @@
 {
-  "version": 79,
+  "version": 80,
   "domains": [
     {
       "slug": "fondations",
@@ -274332,6 +274332,548 @@
   ],
   "examPapers": [
     {
+      "id": "paper.tef_canada.blanc-03.3",
+      "format": "tef_canada",
+      "variant": "blanc-03",
+      "paperNo": 3,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 9
+              },
+              {
+                "raw": 2,
+                "scaled": 18
+              },
+              {
+                "raw": 3,
+                "scaled": 27
+              },
+              {
+                "raw": 4,
+                "scaled": 36
+              },
+              {
+                "raw": 5,
+                "scaled": 45
+              },
+              {
+                "raw": 6,
+                "scaled": 54
+              },
+              {
+                "raw": 7,
+                "scaled": 63
+              },
+              {
+                "raw": 8,
+                "scaled": 72
+              },
+              {
+                "raw": 9,
+                "scaled": 81
+              },
+              {
+                "raw": 10,
+                "scaled": 90
+              },
+              {
+                "raw": 11,
+                "scaled": 99
+              },
+              {
+                "raw": 12,
+                "scaled": 108
+              },
+              {
+                "raw": 13,
+                "scaled": 118
+              },
+              {
+                "raw": 14,
+                "scaled": 127
+              },
+              {
+                "raw": 15,
+                "scaled": 136
+              },
+              {
+                "raw": 16,
+                "scaled": 145
+              },
+              {
+                "raw": 17,
+                "scaled": 154
+              },
+              {
+                "raw": 18,
+                "scaled": 163
+              },
+              {
+                "raw": 19,
+                "scaled": 172
+              },
+              {
+                "raw": 20,
+                "scaled": 181
+              },
+              {
+                "raw": 21,
+                "scaled": 190
+              },
+              {
+                "raw": 22,
+                "scaled": 199
+              },
+              {
+                "raw": 23,
+                "scaled": 208
+              },
+              {
+                "raw": 24,
+                "scaled": 217
+              },
+              {
+                "raw": 25,
+                "scaled": 225
+              },
+              {
+                "raw": 26,
+                "scaled": 233
+              },
+              {
+                "raw": 27,
+                "scaled": 241
+              },
+              {
+                "raw": 28,
+                "scaled": 249
+              },
+              {
+                "raw": 29,
+                "scaled": 257
+              },
+              {
+                "raw": 30,
+                "scaled": 265
+              },
+              {
+                "raw": 31,
+                "scaled": 272
+              },
+              {
+                "raw": 32,
+                "scaled": 280
+              },
+              {
+                "raw": 33,
+                "scaled": 289
+              },
+              {
+                "raw": 34,
+                "scaled": 298
+              },
+              {
+                "raw": 35,
+                "scaled": 307
+              },
+              {
+                "raw": 36,
+                "scaled": 316
+              },
+              {
+                "raw": 37,
+                "scaled": 327
+              },
+              {
+                "raw": 38,
+                "scaled": 338
+              },
+              {
+                "raw": 39,
+                "scaled": 349
+              },
+              {
+                "raw": 40,
+                "scaled": 360
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 360
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-03.co_mcq.001",
+            "exam.tef_canada.blanc-03.co_mcq.002",
+            "exam.tef_canada.blanc-03.co_mcq.003",
+            "exam.tef_canada.blanc-03.co_mcq.004",
+            "exam.tef_canada.blanc-03.co_mcq.005",
+            "exam.tef_canada.blanc-03.co_mcq.006",
+            "exam.tef_canada.blanc-03.co_mcq.007"
+          ],
+          "timingS": 2400,
+          "blueprintId": "tef-canada-2025.09+G-elastic"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 8
+              },
+              {
+                "raw": 2,
+                "scaled": 15
+              },
+              {
+                "raw": 3,
+                "scaled": 23
+              },
+              {
+                "raw": 4,
+                "scaled": 30
+              },
+              {
+                "raw": 5,
+                "scaled": 38
+              },
+              {
+                "raw": 6,
+                "scaled": 45
+              },
+              {
+                "raw": 7,
+                "scaled": 53
+              },
+              {
+                "raw": 8,
+                "scaled": 60
+              },
+              {
+                "raw": 9,
+                "scaled": 68
+              },
+              {
+                "raw": 10,
+                "scaled": 75
+              },
+              {
+                "raw": 11,
+                "scaled": 83
+              },
+              {
+                "raw": 12,
+                "scaled": 90
+              },
+              {
+                "raw": 13,
+                "scaled": 98
+              },
+              {
+                "raw": 14,
+                "scaled": 106
+              },
+              {
+                "raw": 15,
+                "scaled": 113
+              },
+              {
+                "raw": 16,
+                "scaled": 121
+              },
+              {
+                "raw": 17,
+                "scaled": 129
+              },
+              {
+                "raw": 18,
+                "scaled": 136
+              },
+              {
+                "raw": 19,
+                "scaled": 144
+              },
+              {
+                "raw": 20,
+                "scaled": 151
+              },
+              {
+                "raw": 21,
+                "scaled": 159
+              },
+              {
+                "raw": 22,
+                "scaled": 166
+              },
+              {
+                "raw": 23,
+                "scaled": 174
+              },
+              {
+                "raw": 24,
+                "scaled": 181
+              },
+              {
+                "raw": 25,
+                "scaled": 188
+              },
+              {
+                "raw": 26,
+                "scaled": 194
+              },
+              {
+                "raw": 27,
+                "scaled": 201
+              },
+              {
+                "raw": 28,
+                "scaled": 207
+              },
+              {
+                "raw": 29,
+                "scaled": 214
+              },
+              {
+                "raw": 30,
+                "scaled": 220
+              },
+              {
+                "raw": 31,
+                "scaled": 227
+              },
+              {
+                "raw": 32,
+                "scaled": 233
+              },
+              {
+                "raw": 33,
+                "scaled": 241
+              },
+              {
+                "raw": 34,
+                "scaled": 248
+              },
+              {
+                "raw": 35,
+                "scaled": 256
+              },
+              {
+                "raw": 36,
+                "scaled": 263
+              },
+              {
+                "raw": 37,
+                "scaled": 272
+              },
+              {
+                "raw": 38,
+                "scaled": 282
+              },
+              {
+                "raw": 39,
+                "scaled": 291
+              },
+              {
+                "raw": 40,
+                "scaled": 300
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 300
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-03.ce_mcq.001",
+            "exam.tef_canada.blanc-03.ce_mcq.002",
+            "exam.tef_canada.blanc-03.ce_mcq.003",
+            "exam.tef_canada.blanc-03.ce_mcq.004",
+            "exam.tef_canada.blanc-03.ce_mcq.005",
+            "exam.tef_canada.blanc-03.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-03.pe_short.001",
+            "exam.tef_canada.blanc-03.pe_essay.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-03.po_interaction.001",
+            "exam.tef_canada.blanc-03.po_monologue.001"
+          ],
+          "timingS": 900,
+          "blueprintId": "tef-canada-2025.09"
+        }
+      ],
+      "outline": true
+    },
+    {
       "id": "paper.delf_b2.blanc-01.1",
       "format": "delf_b2",
       "variant": "blanc-01",
@@ -274918,6 +275460,2647 @@
       ]
     },
     {
+      "id": "paper.delf_b2.blanc-05.5",
+      "format": "delf_b2",
+      "variant": "blanc-05",
+      "paperNo": 5,
+      "sections": [
+        {
+          "skill": "CO",
+          "taskIds": [
+            "exam.delf_b2.blanc-05.co_mcq.001",
+            "exam.delf_b2.blanc-05.co_mcq.002",
+            "exam.delf_b2.blanc-05.co_mcq.003"
+          ],
+          "timingS": 1800,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "CE",
+          "taskIds": [
+            "exam.delf_b2.blanc-05.ce_mcq.001",
+            "exam.delf_b2.blanc-05.ce_mcq.002",
+            "exam.delf_b2.blanc-05.ce_mcq.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PE",
+          "taskIds": [
+            "exam.delf_b2.blanc-05.pe_short.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PO",
+          "taskIds": [
+            "exam.delf_b2.blanc-05.po_monologue.001",
+            "exam.delf_b2.blanc-05.po_debate.001"
+          ],
+          "timingS": 1200,
+          "blueprintId": "delf-b2-2026.09"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.tcf_canada.blanc-03.3",
+      "format": "tcf_canada",
+      "variant": "blanc-03",
+      "paperNo": 3,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 130
+              },
+              {
+                "raw": 32,
+                "scaled": 300
+              },
+              {
+                "raw": 62,
+                "scaled": 460
+              },
+              {
+                "raw": 90,
+                "scaled": 600
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 11,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 24,
+                "minRaw": 12,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 39,
+                "minRaw": 25,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 54,
+                "minRaw": 40,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 69,
+                "minRaw": 55,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 84,
+                "minRaw": 70,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 96,
+                "minRaw": 85,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 97,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-03.co_mcq.001",
+            "exam.tcf_canada.blanc-03.co_mcq.002",
+            "exam.tcf_canada.blanc-03.co_mcq.003",
+            "exam.tcf_canada.blanc-03.co_mcq.004",
+            "exam.tcf_canada.blanc-03.co_mcq.005",
+            "exam.tcf_canada.blanc-03.co_mcq.006"
+          ],
+          "timingS": 2100,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 120
+              },
+              {
+                "raw": 32,
+                "scaled": 290
+              },
+              {
+                "raw": 62,
+                "scaled": 450
+              },
+              {
+                "raw": 90,
+                "scaled": 595
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 12,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 26,
+                "minRaw": 13,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 42,
+                "minRaw": 27,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 57,
+                "minRaw": 43,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 72,
+                "minRaw": 58,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 87,
+                "minRaw": 73,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 98,
+                "minRaw": 88,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 99,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-03.ce_mcq.001",
+            "exam.tcf_canada.blanc-03.ce_mcq.002",
+            "exam.tcf_canada.blanc-03.ce_mcq.003",
+            "exam.tcf_canada.blanc-03.ce_mcq.004",
+            "exam.tcf_canada.blanc-03.ce_mcq.005",
+            "exam.tcf_canada.blanc-03.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-03.pe_short.001",
+            "exam.tcf_canada.blanc-03.pe_short.002",
+            "exam.tcf_canada.blanc-03.pe_short.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-03.po_monologue.001",
+            "exam.tcf_canada.blanc-03.po_interaction.001",
+            "exam.tcf_canada.blanc-03.po_monologue.002"
+          ],
+          "timingS": 720,
+          "blueprintId": "tcf-canada-2026.01"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.tcf_canada.blanc-05.5",
+      "format": "tcf_canada",
+      "variant": "blanc-05",
+      "paperNo": 5,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 130
+              },
+              {
+                "raw": 32,
+                "scaled": 300
+              },
+              {
+                "raw": 62,
+                "scaled": 460
+              },
+              {
+                "raw": 90,
+                "scaled": 600
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 11,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 24,
+                "minRaw": 12,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 39,
+                "minRaw": 25,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 54,
+                "minRaw": 40,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 69,
+                "minRaw": 55,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 84,
+                "minRaw": 70,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 96,
+                "minRaw": 85,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 97,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-05.co_mcq.001",
+            "exam.tcf_canada.blanc-05.co_mcq.002",
+            "exam.tcf_canada.blanc-05.co_mcq.003",
+            "exam.tcf_canada.blanc-05.co_mcq.004",
+            "exam.tcf_canada.blanc-05.co_mcq.005",
+            "exam.tcf_canada.blanc-05.co_mcq.006"
+          ],
+          "timingS": 2100,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 120
+              },
+              {
+                "raw": 32,
+                "scaled": 290
+              },
+              {
+                "raw": 62,
+                "scaled": 450
+              },
+              {
+                "raw": 90,
+                "scaled": 595
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 12,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 26,
+                "minRaw": 13,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 42,
+                "minRaw": 27,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 57,
+                "minRaw": 43,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 72,
+                "minRaw": 58,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 87,
+                "minRaw": 73,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 98,
+                "minRaw": 88,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 99,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-05.ce_mcq.001",
+            "exam.tcf_canada.blanc-05.ce_mcq.002",
+            "exam.tcf_canada.blanc-05.ce_mcq.003",
+            "exam.tcf_canada.blanc-05.ce_mcq.004",
+            "exam.tcf_canada.blanc-05.ce_mcq.005",
+            "exam.tcf_canada.blanc-05.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-05.pe_short.001",
+            "exam.tcf_canada.blanc-05.pe_short.002",
+            "exam.tcf_canada.blanc-05.pe_short.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-05.po_monologue.001",
+            "exam.tcf_canada.blanc-05.po_interaction.001",
+            "exam.tcf_canada.blanc-05.po_monologue.002"
+          ],
+          "timingS": 720,
+          "blueprintId": "tcf-canada-2026.01"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.tef_canada.blanc-05.5",
+      "format": "tef_canada",
+      "variant": "blanc-05",
+      "paperNo": 5,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 9
+              },
+              {
+                "raw": 2,
+                "scaled": 18
+              },
+              {
+                "raw": 3,
+                "scaled": 27
+              },
+              {
+                "raw": 4,
+                "scaled": 36
+              },
+              {
+                "raw": 5,
+                "scaled": 45
+              },
+              {
+                "raw": 6,
+                "scaled": 54
+              },
+              {
+                "raw": 7,
+                "scaled": 63
+              },
+              {
+                "raw": 8,
+                "scaled": 72
+              },
+              {
+                "raw": 9,
+                "scaled": 81
+              },
+              {
+                "raw": 10,
+                "scaled": 90
+              },
+              {
+                "raw": 11,
+                "scaled": 99
+              },
+              {
+                "raw": 12,
+                "scaled": 108
+              },
+              {
+                "raw": 13,
+                "scaled": 118
+              },
+              {
+                "raw": 14,
+                "scaled": 127
+              },
+              {
+                "raw": 15,
+                "scaled": 136
+              },
+              {
+                "raw": 16,
+                "scaled": 145
+              },
+              {
+                "raw": 17,
+                "scaled": 154
+              },
+              {
+                "raw": 18,
+                "scaled": 163
+              },
+              {
+                "raw": 19,
+                "scaled": 172
+              },
+              {
+                "raw": 20,
+                "scaled": 181
+              },
+              {
+                "raw": 21,
+                "scaled": 190
+              },
+              {
+                "raw": 22,
+                "scaled": 199
+              },
+              {
+                "raw": 23,
+                "scaled": 208
+              },
+              {
+                "raw": 24,
+                "scaled": 217
+              },
+              {
+                "raw": 25,
+                "scaled": 225
+              },
+              {
+                "raw": 26,
+                "scaled": 233
+              },
+              {
+                "raw": 27,
+                "scaled": 241
+              },
+              {
+                "raw": 28,
+                "scaled": 249
+              },
+              {
+                "raw": 29,
+                "scaled": 257
+              },
+              {
+                "raw": 30,
+                "scaled": 265
+              },
+              {
+                "raw": 31,
+                "scaled": 272
+              },
+              {
+                "raw": 32,
+                "scaled": 280
+              },
+              {
+                "raw": 33,
+                "scaled": 289
+              },
+              {
+                "raw": 34,
+                "scaled": 298
+              },
+              {
+                "raw": 35,
+                "scaled": 307
+              },
+              {
+                "raw": 36,
+                "scaled": 316
+              },
+              {
+                "raw": 37,
+                "scaled": 327
+              },
+              {
+                "raw": 38,
+                "scaled": 338
+              },
+              {
+                "raw": 39,
+                "scaled": 349
+              },
+              {
+                "raw": 40,
+                "scaled": 360
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 360
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-05.co_mcq.001",
+            "exam.tef_canada.blanc-05.co_mcq.002",
+            "exam.tef_canada.blanc-05.co_mcq.003",
+            "exam.tef_canada.blanc-05.co_mcq.004",
+            "exam.tef_canada.blanc-05.co_mcq.005",
+            "exam.tef_canada.blanc-05.co_mcq.006",
+            "exam.tef_canada.blanc-05.co_mcq.007"
+          ],
+          "timingS": 2400,
+          "blueprintId": "tef-canada-2025.09+G-elastic"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 8
+              },
+              {
+                "raw": 2,
+                "scaled": 15
+              },
+              {
+                "raw": 3,
+                "scaled": 23
+              },
+              {
+                "raw": 4,
+                "scaled": 30
+              },
+              {
+                "raw": 5,
+                "scaled": 38
+              },
+              {
+                "raw": 6,
+                "scaled": 45
+              },
+              {
+                "raw": 7,
+                "scaled": 53
+              },
+              {
+                "raw": 8,
+                "scaled": 60
+              },
+              {
+                "raw": 9,
+                "scaled": 68
+              },
+              {
+                "raw": 10,
+                "scaled": 75
+              },
+              {
+                "raw": 11,
+                "scaled": 83
+              },
+              {
+                "raw": 12,
+                "scaled": 90
+              },
+              {
+                "raw": 13,
+                "scaled": 98
+              },
+              {
+                "raw": 14,
+                "scaled": 106
+              },
+              {
+                "raw": 15,
+                "scaled": 113
+              },
+              {
+                "raw": 16,
+                "scaled": 121
+              },
+              {
+                "raw": 17,
+                "scaled": 129
+              },
+              {
+                "raw": 18,
+                "scaled": 136
+              },
+              {
+                "raw": 19,
+                "scaled": 144
+              },
+              {
+                "raw": 20,
+                "scaled": 151
+              },
+              {
+                "raw": 21,
+                "scaled": 159
+              },
+              {
+                "raw": 22,
+                "scaled": 166
+              },
+              {
+                "raw": 23,
+                "scaled": 174
+              },
+              {
+                "raw": 24,
+                "scaled": 181
+              },
+              {
+                "raw": 25,
+                "scaled": 188
+              },
+              {
+                "raw": 26,
+                "scaled": 194
+              },
+              {
+                "raw": 27,
+                "scaled": 201
+              },
+              {
+                "raw": 28,
+                "scaled": 207
+              },
+              {
+                "raw": 29,
+                "scaled": 214
+              },
+              {
+                "raw": 30,
+                "scaled": 220
+              },
+              {
+                "raw": 31,
+                "scaled": 227
+              },
+              {
+                "raw": 32,
+                "scaled": 233
+              },
+              {
+                "raw": 33,
+                "scaled": 241
+              },
+              {
+                "raw": 34,
+                "scaled": 248
+              },
+              {
+                "raw": 35,
+                "scaled": 256
+              },
+              {
+                "raw": 36,
+                "scaled": 263
+              },
+              {
+                "raw": 37,
+                "scaled": 272
+              },
+              {
+                "raw": 38,
+                "scaled": 282
+              },
+              {
+                "raw": 39,
+                "scaled": 291
+              },
+              {
+                "raw": 40,
+                "scaled": 300
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 300
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-05.ce_mcq.001",
+            "exam.tef_canada.blanc-05.ce_mcq.002",
+            "exam.tef_canada.blanc-05.ce_mcq.003",
+            "exam.tef_canada.blanc-05.ce_mcq.004",
+            "exam.tef_canada.blanc-05.ce_mcq.005",
+            "exam.tef_canada.blanc-05.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-05.pe_short.001",
+            "exam.tef_canada.blanc-05.pe_essay.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-05.po_interaction.001",
+            "exam.tef_canada.blanc-05.po_monologue.001"
+          ],
+          "timingS": 900,
+          "blueprintId": "tef-canada-2025.09"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.tef_canada.blanc-02.2",
+      "format": "tef_canada",
+      "variant": "blanc-02",
+      "paperNo": 2,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 9
+              },
+              {
+                "raw": 2,
+                "scaled": 18
+              },
+              {
+                "raw": 3,
+                "scaled": 27
+              },
+              {
+                "raw": 4,
+                "scaled": 36
+              },
+              {
+                "raw": 5,
+                "scaled": 45
+              },
+              {
+                "raw": 6,
+                "scaled": 54
+              },
+              {
+                "raw": 7,
+                "scaled": 63
+              },
+              {
+                "raw": 8,
+                "scaled": 72
+              },
+              {
+                "raw": 9,
+                "scaled": 81
+              },
+              {
+                "raw": 10,
+                "scaled": 90
+              },
+              {
+                "raw": 11,
+                "scaled": 99
+              },
+              {
+                "raw": 12,
+                "scaled": 108
+              },
+              {
+                "raw": 13,
+                "scaled": 118
+              },
+              {
+                "raw": 14,
+                "scaled": 127
+              },
+              {
+                "raw": 15,
+                "scaled": 136
+              },
+              {
+                "raw": 16,
+                "scaled": 145
+              },
+              {
+                "raw": 17,
+                "scaled": 154
+              },
+              {
+                "raw": 18,
+                "scaled": 163
+              },
+              {
+                "raw": 19,
+                "scaled": 172
+              },
+              {
+                "raw": 20,
+                "scaled": 181
+              },
+              {
+                "raw": 21,
+                "scaled": 190
+              },
+              {
+                "raw": 22,
+                "scaled": 199
+              },
+              {
+                "raw": 23,
+                "scaled": 208
+              },
+              {
+                "raw": 24,
+                "scaled": 217
+              },
+              {
+                "raw": 25,
+                "scaled": 225
+              },
+              {
+                "raw": 26,
+                "scaled": 233
+              },
+              {
+                "raw": 27,
+                "scaled": 241
+              },
+              {
+                "raw": 28,
+                "scaled": 249
+              },
+              {
+                "raw": 29,
+                "scaled": 257
+              },
+              {
+                "raw": 30,
+                "scaled": 265
+              },
+              {
+                "raw": 31,
+                "scaled": 272
+              },
+              {
+                "raw": 32,
+                "scaled": 280
+              },
+              {
+                "raw": 33,
+                "scaled": 289
+              },
+              {
+                "raw": 34,
+                "scaled": 298
+              },
+              {
+                "raw": 35,
+                "scaled": 307
+              },
+              {
+                "raw": 36,
+                "scaled": 316
+              },
+              {
+                "raw": 37,
+                "scaled": 327
+              },
+              {
+                "raw": 38,
+                "scaled": 338
+              },
+              {
+                "raw": 39,
+                "scaled": 349
+              },
+              {
+                "raw": 40,
+                "scaled": 360
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 360
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-02.co_mcq.001",
+            "exam.tef_canada.blanc-02.co_mcq.002",
+            "exam.tef_canada.blanc-02.co_mcq.003",
+            "exam.tef_canada.blanc-02.co_mcq.004",
+            "exam.tef_canada.blanc-02.co_mcq.005",
+            "exam.tef_canada.blanc-02.co_mcq.006",
+            "exam.tef_canada.blanc-02.co_mcq.007"
+          ],
+          "timingS": 2400,
+          "blueprintId": "tef-canada-2025.09+G-elastic"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 8
+              },
+              {
+                "raw": 2,
+                "scaled": 15
+              },
+              {
+                "raw": 3,
+                "scaled": 23
+              },
+              {
+                "raw": 4,
+                "scaled": 30
+              },
+              {
+                "raw": 5,
+                "scaled": 38
+              },
+              {
+                "raw": 6,
+                "scaled": 45
+              },
+              {
+                "raw": 7,
+                "scaled": 53
+              },
+              {
+                "raw": 8,
+                "scaled": 60
+              },
+              {
+                "raw": 9,
+                "scaled": 68
+              },
+              {
+                "raw": 10,
+                "scaled": 75
+              },
+              {
+                "raw": 11,
+                "scaled": 83
+              },
+              {
+                "raw": 12,
+                "scaled": 90
+              },
+              {
+                "raw": 13,
+                "scaled": 98
+              },
+              {
+                "raw": 14,
+                "scaled": 106
+              },
+              {
+                "raw": 15,
+                "scaled": 113
+              },
+              {
+                "raw": 16,
+                "scaled": 121
+              },
+              {
+                "raw": 17,
+                "scaled": 129
+              },
+              {
+                "raw": 18,
+                "scaled": 136
+              },
+              {
+                "raw": 19,
+                "scaled": 144
+              },
+              {
+                "raw": 20,
+                "scaled": 151
+              },
+              {
+                "raw": 21,
+                "scaled": 159
+              },
+              {
+                "raw": 22,
+                "scaled": 166
+              },
+              {
+                "raw": 23,
+                "scaled": 174
+              },
+              {
+                "raw": 24,
+                "scaled": 181
+              },
+              {
+                "raw": 25,
+                "scaled": 188
+              },
+              {
+                "raw": 26,
+                "scaled": 194
+              },
+              {
+                "raw": 27,
+                "scaled": 201
+              },
+              {
+                "raw": 28,
+                "scaled": 207
+              },
+              {
+                "raw": 29,
+                "scaled": 214
+              },
+              {
+                "raw": 30,
+                "scaled": 220
+              },
+              {
+                "raw": 31,
+                "scaled": 227
+              },
+              {
+                "raw": 32,
+                "scaled": 233
+              },
+              {
+                "raw": 33,
+                "scaled": 241
+              },
+              {
+                "raw": 34,
+                "scaled": 248
+              },
+              {
+                "raw": 35,
+                "scaled": 256
+              },
+              {
+                "raw": 36,
+                "scaled": 263
+              },
+              {
+                "raw": 37,
+                "scaled": 272
+              },
+              {
+                "raw": 38,
+                "scaled": 282
+              },
+              {
+                "raw": 39,
+                "scaled": 291
+              },
+              {
+                "raw": 40,
+                "scaled": 300
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 300
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-02.ce_mcq.001",
+            "exam.tef_canada.blanc-02.ce_mcq.002",
+            "exam.tef_canada.blanc-02.ce_mcq.003",
+            "exam.tef_canada.blanc-02.ce_mcq.004",
+            "exam.tef_canada.blanc-02.ce_mcq.005",
+            "exam.tef_canada.blanc-02.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-02.pe_short.001",
+            "exam.tef_canada.blanc-02.pe_essay.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-02.po_interaction.001",
+            "exam.tef_canada.blanc-02.po_monologue.001"
+          ],
+          "timingS": 900,
+          "blueprintId": "tef-canada-2025.09"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.tcf_canada.blanc-04.4",
+      "format": "tcf_canada",
+      "variant": "blanc-04",
+      "paperNo": 4,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 130
+              },
+              {
+                "raw": 32,
+                "scaled": 300
+              },
+              {
+                "raw": 62,
+                "scaled": 460
+              },
+              {
+                "raw": 90,
+                "scaled": 600
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 11,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 24,
+                "minRaw": 12,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 39,
+                "minRaw": 25,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 54,
+                "minRaw": 40,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 69,
+                "minRaw": 55,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 84,
+                "minRaw": 70,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 96,
+                "minRaw": 85,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 97,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-04.co_mcq.001",
+            "exam.tcf_canada.blanc-04.co_mcq.002",
+            "exam.tcf_canada.blanc-04.co_mcq.003",
+            "exam.tcf_canada.blanc-04.co_mcq.004",
+            "exam.tcf_canada.blanc-04.co_mcq.005",
+            "exam.tcf_canada.blanc-04.co_mcq.006"
+          ],
+          "timingS": 2100,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 120
+              },
+              {
+                "raw": 32,
+                "scaled": 290
+              },
+              {
+                "raw": 62,
+                "scaled": 450
+              },
+              {
+                "raw": 90,
+                "scaled": 595
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 12,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 26,
+                "minRaw": 13,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 42,
+                "minRaw": 27,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 57,
+                "minRaw": 43,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 72,
+                "minRaw": 58,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 87,
+                "minRaw": 73,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 98,
+                "minRaw": 88,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 99,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-04.ce_mcq.001",
+            "exam.tcf_canada.blanc-04.ce_mcq.002",
+            "exam.tcf_canada.blanc-04.ce_mcq.003",
+            "exam.tcf_canada.blanc-04.ce_mcq.004",
+            "exam.tcf_canada.blanc-04.ce_mcq.005",
+            "exam.tcf_canada.blanc-04.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-04.pe_short.001",
+            "exam.tcf_canada.blanc-04.pe_short.002",
+            "exam.tcf_canada.blanc-04.pe_short.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-04.po_monologue.001",
+            "exam.tcf_canada.blanc-04.po_interaction.001",
+            "exam.tcf_canada.blanc-04.po_monologue.002"
+          ],
+          "timingS": 720,
+          "blueprintId": "tcf-canada-2026.01"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.tef_canada.blanc-04.4",
+      "format": "tef_canada",
+      "variant": "blanc-04",
+      "paperNo": 4,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 9
+              },
+              {
+                "raw": 2,
+                "scaled": 18
+              },
+              {
+                "raw": 3,
+                "scaled": 27
+              },
+              {
+                "raw": 4,
+                "scaled": 36
+              },
+              {
+                "raw": 5,
+                "scaled": 45
+              },
+              {
+                "raw": 6,
+                "scaled": 54
+              },
+              {
+                "raw": 7,
+                "scaled": 63
+              },
+              {
+                "raw": 8,
+                "scaled": 72
+              },
+              {
+                "raw": 9,
+                "scaled": 81
+              },
+              {
+                "raw": 10,
+                "scaled": 90
+              },
+              {
+                "raw": 11,
+                "scaled": 99
+              },
+              {
+                "raw": 12,
+                "scaled": 108
+              },
+              {
+                "raw": 13,
+                "scaled": 118
+              },
+              {
+                "raw": 14,
+                "scaled": 127
+              },
+              {
+                "raw": 15,
+                "scaled": 136
+              },
+              {
+                "raw": 16,
+                "scaled": 145
+              },
+              {
+                "raw": 17,
+                "scaled": 154
+              },
+              {
+                "raw": 18,
+                "scaled": 163
+              },
+              {
+                "raw": 19,
+                "scaled": 172
+              },
+              {
+                "raw": 20,
+                "scaled": 181
+              },
+              {
+                "raw": 21,
+                "scaled": 190
+              },
+              {
+                "raw": 22,
+                "scaled": 199
+              },
+              {
+                "raw": 23,
+                "scaled": 208
+              },
+              {
+                "raw": 24,
+                "scaled": 217
+              },
+              {
+                "raw": 25,
+                "scaled": 225
+              },
+              {
+                "raw": 26,
+                "scaled": 233
+              },
+              {
+                "raw": 27,
+                "scaled": 241
+              },
+              {
+                "raw": 28,
+                "scaled": 249
+              },
+              {
+                "raw": 29,
+                "scaled": 257
+              },
+              {
+                "raw": 30,
+                "scaled": 265
+              },
+              {
+                "raw": 31,
+                "scaled": 272
+              },
+              {
+                "raw": 32,
+                "scaled": 280
+              },
+              {
+                "raw": 33,
+                "scaled": 289
+              },
+              {
+                "raw": 34,
+                "scaled": 298
+              },
+              {
+                "raw": 35,
+                "scaled": 307
+              },
+              {
+                "raw": 36,
+                "scaled": 316
+              },
+              {
+                "raw": 37,
+                "scaled": 327
+              },
+              {
+                "raw": 38,
+                "scaled": 338
+              },
+              {
+                "raw": 39,
+                "scaled": 349
+              },
+              {
+                "raw": 40,
+                "scaled": 360
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 360
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-04.co_mcq.001",
+            "exam.tef_canada.blanc-04.co_mcq.002",
+            "exam.tef_canada.blanc-04.co_mcq.003",
+            "exam.tef_canada.blanc-04.co_mcq.004",
+            "exam.tef_canada.blanc-04.co_mcq.005",
+            "exam.tef_canada.blanc-04.co_mcq.006",
+            "exam.tef_canada.blanc-04.co_mcq.007"
+          ],
+          "timingS": 2400,
+          "blueprintId": "tef-canada-2025.09+G-elastic"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 1,
+                "scaled": 8
+              },
+              {
+                "raw": 2,
+                "scaled": 15
+              },
+              {
+                "raw": 3,
+                "scaled": 23
+              },
+              {
+                "raw": 4,
+                "scaled": 30
+              },
+              {
+                "raw": 5,
+                "scaled": 38
+              },
+              {
+                "raw": 6,
+                "scaled": 45
+              },
+              {
+                "raw": 7,
+                "scaled": 53
+              },
+              {
+                "raw": 8,
+                "scaled": 60
+              },
+              {
+                "raw": 9,
+                "scaled": 68
+              },
+              {
+                "raw": 10,
+                "scaled": 75
+              },
+              {
+                "raw": 11,
+                "scaled": 83
+              },
+              {
+                "raw": 12,
+                "scaled": 90
+              },
+              {
+                "raw": 13,
+                "scaled": 98
+              },
+              {
+                "raw": 14,
+                "scaled": 106
+              },
+              {
+                "raw": 15,
+                "scaled": 113
+              },
+              {
+                "raw": 16,
+                "scaled": 121
+              },
+              {
+                "raw": 17,
+                "scaled": 129
+              },
+              {
+                "raw": 18,
+                "scaled": 136
+              },
+              {
+                "raw": 19,
+                "scaled": 144
+              },
+              {
+                "raw": 20,
+                "scaled": 151
+              },
+              {
+                "raw": 21,
+                "scaled": 159
+              },
+              {
+                "raw": 22,
+                "scaled": 166
+              },
+              {
+                "raw": 23,
+                "scaled": 174
+              },
+              {
+                "raw": 24,
+                "scaled": 181
+              },
+              {
+                "raw": 25,
+                "scaled": 188
+              },
+              {
+                "raw": 26,
+                "scaled": 194
+              },
+              {
+                "raw": 27,
+                "scaled": 201
+              },
+              {
+                "raw": 28,
+                "scaled": 207
+              },
+              {
+                "raw": 29,
+                "scaled": 214
+              },
+              {
+                "raw": 30,
+                "scaled": 220
+              },
+              {
+                "raw": 31,
+                "scaled": 227
+              },
+              {
+                "raw": 32,
+                "scaled": 233
+              },
+              {
+                "raw": 33,
+                "scaled": 241
+              },
+              {
+                "raw": 34,
+                "scaled": 248
+              },
+              {
+                "raw": 35,
+                "scaled": 256
+              },
+              {
+                "raw": 36,
+                "scaled": 263
+              },
+              {
+                "raw": 37,
+                "scaled": 272
+              },
+              {
+                "raw": 38,
+                "scaled": 282
+              },
+              {
+                "raw": 39,
+                "scaled": 291
+              },
+              {
+                "raw": 40,
+                "scaled": 300
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 21,
+                "minRaw": 16,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 25,
+                "minRaw": 22,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 29,
+                "minRaw": 26,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 32,
+                "minRaw": 30,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 35,
+                "minRaw": 33,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 40,
+                "minRaw": 36,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 300
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-04.ce_mcq.001",
+            "exam.tef_canada.blanc-04.ce_mcq.002",
+            "exam.tef_canada.blanc-04.ce_mcq.003",
+            "exam.tef_canada.blanc-04.ce_mcq.004",
+            "exam.tef_canada.blanc-04.ce_mcq.005",
+            "exam.tef_canada.blanc-04.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-04.pe_short.001",
+            "exam.tef_canada.blanc-04.pe_essay.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tef-canada-2025.09"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 180
+              },
+              {
+                "raw": 1,
+                "scaled": 300
+              },
+              {
+                "raw": 2,
+                "scaled": 400
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 5,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 7,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 450
+          },
+          "taskIds": [
+            "exam.tef_canada.blanc-04.po_interaction.001",
+            "exam.tef_canada.blanc-04.po_monologue.001"
+          ],
+          "timingS": 900,
+          "blueprintId": "tef-canada-2025.09"
+        }
+      ],
+      "outline": true
+    },
+    {
       "id": "paper.tcf_canada.blanc-01.1",
       "format": "tcf_canada",
       "variant": "blanc-01",
@@ -275238,6 +278421,467 @@
           "blueprintId": "tcf-canada-2026.01"
         }
       ]
+    },
+    {
+      "id": "paper.tcf_canada.blanc-02.2",
+      "format": "tcf_canada",
+      "variant": "blanc-02",
+      "paperNo": 2,
+      "sections": [
+        {
+          "skill": "CO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 130
+              },
+              {
+                "raw": 32,
+                "scaled": 300
+              },
+              {
+                "raw": 62,
+                "scaled": 460
+              },
+              {
+                "raw": 90,
+                "scaled": 600
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 11,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 24,
+                "minRaw": 12,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 39,
+                "minRaw": 25,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 54,
+                "minRaw": 40,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 69,
+                "minRaw": 55,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 84,
+                "minRaw": 70,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 96,
+                "minRaw": 85,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 97,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-02.co_mcq.001",
+            "exam.tcf_canada.blanc-02.co_mcq.002",
+            "exam.tcf_canada.blanc-02.co_mcq.003",
+            "exam.tcf_canada.blanc-02.co_mcq.004",
+            "exam.tcf_canada.blanc-02.co_mcq.005",
+            "exam.tcf_canada.blanc-02.co_mcq.006"
+          ],
+          "timingS": 2100,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "CE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 0
+              },
+              {
+                "raw": 12,
+                "scaled": 120
+              },
+              {
+                "raw": 32,
+                "scaled": 290
+              },
+              {
+                "raw": 62,
+                "scaled": 450
+              },
+              {
+                "raw": 90,
+                "scaled": 595
+              },
+              {
+                "raw": 105,
+                "scaled": 699
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 12,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 26,
+                "minRaw": 13,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 42,
+                "minRaw": 27,
+                "nclcLow": 5,
+                "nclcHigh": 6
+              },
+              {
+                "maxRaw": 57,
+                "minRaw": 43,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 72,
+                "minRaw": 58,
+                "nclcLow": 7,
+                "nclcHigh": 8
+              },
+              {
+                "maxRaw": 87,
+                "minRaw": 73,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              },
+              {
+                "maxRaw": 98,
+                "minRaw": 88,
+                "nclcLow": 9,
+                "nclcHigh": 10
+              },
+              {
+                "maxRaw": 105,
+                "minRaw": 99,
+                "nclcLow": 10,
+                "nclcHigh": 10
+              }
+            ],
+            "scale": 699,
+            "weights": {
+              "a1": 1,
+              "a2": 1.5,
+              "b1": 2,
+              "b2": 3,
+              "c1": 4,
+              "c2": 5
+            }
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-02.ce_mcq.001",
+            "exam.tcf_canada.blanc-02.ce_mcq.002",
+            "exam.tcf_canada.blanc-02.ce_mcq.003",
+            "exam.tcf_canada.blanc-02.ce_mcq.004",
+            "exam.tcf_canada.blanc-02.ce_mcq.005",
+            "exam.tcf_canada.blanc-02.ce_mcq.006"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PE",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-02.pe_short.001",
+            "exam.tcf_canada.blanc-02.pe_short.002",
+            "exam.tcf_canada.blanc-02.pe_short.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "tcf-canada-2026.01"
+        },
+        {
+          "skill": "PO",
+          "scoring": {
+            "map": [
+              {
+                "raw": 0,
+                "scaled": 4
+              },
+              {
+                "raw": 1,
+                "scaled": 5
+              },
+              {
+                "raw": 2,
+                "scaled": 9
+              },
+              {
+                "raw": 3,
+                "scaled": 13
+              }
+            ],
+            "nclc": [
+              {
+                "maxRaw": 0,
+                "minRaw": 0,
+                "nclcLow": 4,
+                "nclcHigh": 4
+              },
+              {
+                "maxRaw": 1,
+                "minRaw": 1,
+                "nclcLow": 4,
+                "nclcHigh": 5
+              },
+              {
+                "maxRaw": 2,
+                "minRaw": 2,
+                "nclcLow": 6,
+                "nclcHigh": 7
+              },
+              {
+                "maxRaw": 3,
+                "minRaw": 3,
+                "nclcLow": 8,
+                "nclcHigh": 9
+              }
+            ],
+            "scale": 20
+          },
+          "taskIds": [
+            "exam.tcf_canada.blanc-02.po_monologue.001",
+            "exam.tcf_canada.blanc-02.po_interaction.001",
+            "exam.tcf_canada.blanc-02.po_monologue.002"
+          ],
+          "timingS": 720,
+          "blueprintId": "tcf-canada-2026.01"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.delf_b2.blanc-02.2",
+      "format": "delf_b2",
+      "variant": "blanc-02",
+      "paperNo": 2,
+      "sections": [
+        {
+          "skill": "CO",
+          "taskIds": [
+            "exam.delf_b2.blanc-02.co_mcq.001",
+            "exam.delf_b2.blanc-02.co_mcq.002",
+            "exam.delf_b2.blanc-02.co_mcq.003"
+          ],
+          "timingS": 1800,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "CE",
+          "taskIds": [
+            "exam.delf_b2.blanc-02.ce_mcq.001",
+            "exam.delf_b2.blanc-02.ce_mcq.002",
+            "exam.delf_b2.blanc-02.ce_mcq.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PE",
+          "taskIds": [
+            "exam.delf_b2.blanc-02.pe_short.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PO",
+          "taskIds": [
+            "exam.delf_b2.blanc-02.po_monologue.001",
+            "exam.delf_b2.blanc-02.po_debate.001"
+          ],
+          "timingS": 1200,
+          "blueprintId": "delf-b2-2026.09"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.delf_b2.blanc-04.4",
+      "format": "delf_b2",
+      "variant": "blanc-04",
+      "paperNo": 4,
+      "sections": [
+        {
+          "skill": "CO",
+          "taskIds": [
+            "exam.delf_b2.blanc-04.co_mcq.001",
+            "exam.delf_b2.blanc-04.co_mcq.002",
+            "exam.delf_b2.blanc-04.co_mcq.003"
+          ],
+          "timingS": 1800,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "CE",
+          "taskIds": [
+            "exam.delf_b2.blanc-04.ce_mcq.001",
+            "exam.delf_b2.blanc-04.ce_mcq.002",
+            "exam.delf_b2.blanc-04.ce_mcq.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PE",
+          "taskIds": [
+            "exam.delf_b2.blanc-04.pe_short.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PO",
+          "taskIds": [
+            "exam.delf_b2.blanc-04.po_monologue.001",
+            "exam.delf_b2.blanc-04.po_debate.001"
+          ],
+          "timingS": 1200,
+          "blueprintId": "delf-b2-2026.09"
+        }
+      ],
+      "outline": true
+    },
+    {
+      "id": "paper.delf_b2.blanc-03.3",
+      "format": "delf_b2",
+      "variant": "blanc-03",
+      "paperNo": 3,
+      "sections": [
+        {
+          "skill": "CO",
+          "taskIds": [
+            "exam.delf_b2.blanc-03.co_mcq.001",
+            "exam.delf_b2.blanc-03.co_mcq.002",
+            "exam.delf_b2.blanc-03.co_mcq.003"
+          ],
+          "timingS": 1800,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "CE",
+          "taskIds": [
+            "exam.delf_b2.blanc-03.ce_mcq.001",
+            "exam.delf_b2.blanc-03.ce_mcq.002",
+            "exam.delf_b2.blanc-03.ce_mcq.003"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PE",
+          "taskIds": [
+            "exam.delf_b2.blanc-03.pe_short.001"
+          ],
+          "timingS": 3600,
+          "blueprintId": "delf-b2-2026.09"
+        },
+        {
+          "skill": "PO",
+          "taskIds": [
+            "exam.delf_b2.blanc-03.po_monologue.001",
+            "exam.delf_b2.blanc-03.po_debate.001"
+          ],
+          "timingS": 1200,
+          "blueprintId": "delf-b2-2026.09"
+        }
+      ],
+      "outline": true
     }
   ],
   "examTasks": [
