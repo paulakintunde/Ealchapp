@@ -4,7 +4,7 @@ Status: **pending device and configured capture proof**. This is the execution s
 
 ## Capture setup
 
-1. Use a disposable PostHog project. Set `EXPO_PUBLIC_POSTHOG_KEY`, `EXPO_PUBLIC_POSTHOG_HOST`, and `EXPO_PUBLIC_ANALYTICS_TEST_BUILD=true` in the local `ealch-v2/.env`, then rebuild each native app. Do not paste the key into this file or commit `.env`.
+1. Use a disposable PostHog project. The local `ealch-v2/.env` configures a Metro development run. For a cloud build with this repository's `preview` EAS profile, set `EXPO_PUBLIC_POSTHOG_KEY` and `EXPO_PUBLIC_ANALYTICS_TEST_BUILD=true` in the EAS **preview** environment as well; set `EXPO_PUBLIC_POSTHOG_HOST` there if the project is not on the default US host. Build a new preview app after those values are set. Do not paste the key into this file or commit `.env`.
 2. In device logs, filter `[analytics-capture]`. Each line gives event name, event ID, status, and accepted boolean. Confirm the accepted event ID appears in the disposable project as well. A local `track()` call or a fake HTTP test alone does not prove ingestion.
 3. For each critical event in `09-EVENT-AUDIT.md`, record its ID and accepted status. Exercise one offline or rejected capture: the learner flow must continue, and that missing event must be logged as a QA failure.
 
