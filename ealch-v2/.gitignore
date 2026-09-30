@@ -43,3 +43,5 @@ yarn-error.*
 /android
 .env.backend
 .env
+# Google Play service-account key for `eas submit` (a credential: never commit or upload)
+**/play-service-account.json

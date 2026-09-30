@@ -82,3 +82,5 @@ _*.txt
 
 # Markdown docs never belong in a build upload (README/AGENTS/CLAUDE/etc.)
 *.md
+# Google Play service-account key for `eas submit` (a credential: never commit or upload)
+**/play-service-account.json

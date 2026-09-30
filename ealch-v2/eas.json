@@ -17,7 +17,13 @@
     },
     "production": {
       "autoIncrement": true,
-      "channel": "production"
+      "channel": "production",
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "EXPO_PUBLIC_ANALYTICS_TEST_BUILD": "false"
+      }
     }
   },
   "submit": {
