@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import * as ReactNative from 'react-native';
 import { AccessibilityInfo, Linking, ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as Crypto from 'expo-crypto';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
@@ -72,6 +73,7 @@ export default function Paywall() {
   const status = purchasesStatus();
   const [offers, setOffers] = useState<LiveOffer[] | null>(null);
   const [busy, setBusy] = useState(false);
+  const purchaseBusy = useRef(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [purchased, setPurchased] = useState(false);
   const titleRef = useRef<View>(null);
@@ -105,25 +107,31 @@ export default function Paywall() {
   };
 
   const buy = async () => {
-    if (busy || status !== 'ready') return;
+    if (purchaseBusy.current || busy || status !== 'ready') return;
     if (!userId) {
       // The entitlement hangs off the auth uid (Phase 9) so it can be restored
       // on any device — a guest signs in first, then comes back.
       router.push('/signin');
       return;
     }
+    purchaseBusy.current = true;
     setBusy(true);
     setNotice(null);
-    track('purchase_started', { plan: planPick, currency });
-    const res = await purchasePremiere(planPick);
+    const attempt_id = Crypto.randomUUID();
+    const purchase = { plan: planPick, currency, attempt_id };
+    track('purchase_started', purchase);
+    let res: Awaited<ReturnType<typeof purchasePremiere>>;
+    try { res = await purchasePremiere(planPick); }
+    catch { res = { ok: false, cancelled: false, message: 'purchase-failed', failureCategory: 'other' }; }
+    purchaseBusy.current = res.ok;
     setBusy(false);
     if (res.ok) {
-      track('purchase_completed', { plan: planPick, currency });
+      track('purchase_completed', purchase);
       setPurchased(true);
     } else if (res.cancelled) {
-      track('purchase_cancelled', { plan: planPick });
+      track('purchase_cancelled', purchase);
     } else {
-      track('purchase_failed', { plan: planPick, failure_category: 'other' });
+      track('purchase_failed', { ...purchase, failure_category: res.failureCategory ?? 'other' });
       setNotice(T.restoreFail);
     }
   };

@@ -41,6 +41,8 @@ const baseInput = (over: Partial<Parameters<typeof buildDraft>[0]> = {}) => ({
   coverage: {} as Record<string, Coverage>,
   debate: {} as Record<string, DebateReport>,
   graded: [] as string[],
+  sittingId: 'sitting-1',
+  outcomes: {} as Record<string, 'graded' | 'ungraded'>,
   now: 1_700_000_000_000,
   ...over,
 });
@@ -64,9 +66,17 @@ test('measured delivery signals survive a serialize -> parse round trip unchange
 });
 
 test('parseDraft(serializeDraft(d)) deep-equals d, including graded', () => {
-  const d = buildDraft(baseInput({ graded: ['task-1'] }));
+  const d = buildDraft(baseInput({ graded: ['task-1'], outcomes: { 'task-1': 'ungraded' } }));
   const parsed = parseDraft(serializeDraft(d), d.paperId, d.skill);
   deepStrictEqual(parsed, d);
+});
+
+test('a restored sitting keeps its ID and only safe outcome categories', () => {
+  const d = buildDraft(baseInput({ sittingId: 'sitting-42', outcomes: { closed: 'graded', open: 'ungraded' } }));
+  deepStrictEqual(parseDraft(serializeDraft(d), d.paperId, d.skill, 'fresh-id')?.outcomes, d.outcomes);
+  strictEqual(parseDraft(serializeDraft(d), d.paperId, d.skill, 'fresh-id')?.sittingId, 'sitting-42');
+  const legacy = { ...d, sittingId: undefined, outcomes: undefined };
+  strictEqual(parseDraft(JSON.stringify(legacy), d.paperId, d.skill, 'legacy-restored')?.sittingId, 'legacy-restored');
 });
 
 test('parseDraft on garbage returns null and does not throw', () => {

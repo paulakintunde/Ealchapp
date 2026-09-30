@@ -21,15 +21,15 @@ export type EventProperties = {
   placement_abandoned: { attempt_id: string; answered_count: number };
   placement_result: { attempt_id: string; level: 'A0' | 'A1' | 'A2'; correct_count: number; question_count: number; initial_result: boolean };
   first_lesson_started: { lesson_id: string; unit_id: string };
-  lesson_completed: { lesson_id: string; lesson_version: string; completion_kind: 'quiz' | 'no_quiz' };
+  lesson_completed: { lesson_id: string; lesson_version: string; session_id: string; completion_kind: 'quiz' | 'no_quiz' };
   exam_submitted: { paper_id: string; skill: string; sitting_id: string; graded_count: number; ungraded_count: number };
   streak_updated: { local_day: string; days: number };
   paywall_viewed: { from: PaywallSource };
   plan_selected: { plan: 'mo' | 'yr' };
-  purchase_started: { plan: 'mo' | 'yr'; currency: string };
-  purchase_completed: { plan: 'mo' | 'yr'; currency: string };
-  purchase_cancelled: { plan: 'mo' | 'yr' };
-  purchase_failed: { plan: 'mo' | 'yr'; failure_category: 'cancelled' | 'unavailable' | 'pending' | 'other' };
+  purchase_started: { plan: 'mo' | 'yr'; currency: string; attempt_id: string };
+  purchase_completed: { plan: 'mo' | 'yr'; currency: string; attempt_id: string };
+  purchase_cancelled: { plan: 'mo' | 'yr'; currency: string; attempt_id: string };
+  purchase_failed: { plan: 'mo' | 'yr'; currency: string; attempt_id: string; failure_category: 'unavailable' | 'pending' | 'other' };
   restore_started: Record<string, never>;
   restore_completed: { found: boolean };
   gate_blocked: { feature: string; from: string };
@@ -52,11 +52,11 @@ const allowed: { [K in AnalyticsEvent]: readonly (keyof EventProperties[K])[] } 
   placement_skipped: ['source'], placement_load_failed: ['attempt_id', 'reason'],
   placement_abandoned: ['attempt_id', 'answered_count'],
   placement_result: ['attempt_id', 'level', 'correct_count', 'question_count', 'initial_result'],
-  first_lesson_started: ['lesson_id', 'unit_id'], lesson_completed: ['lesson_id', 'lesson_version', 'completion_kind'],
+  first_lesson_started: ['lesson_id', 'unit_id'], lesson_completed: ['lesson_id', 'lesson_version', 'session_id', 'completion_kind'],
   exam_submitted: ['paper_id', 'skill', 'sitting_id', 'graded_count', 'ungraded_count'],
   streak_updated: ['local_day', 'days'], paywall_viewed: ['from'], plan_selected: ['plan'],
-  purchase_started: ['plan', 'currency'], purchase_completed: ['plan', 'currency'],
-  purchase_cancelled: ['plan'], purchase_failed: ['plan', 'failure_category'], restore_started: [],
+  purchase_started: ['plan', 'currency', 'attempt_id'], purchase_completed: ['plan', 'currency', 'attempt_id'],
+  purchase_cancelled: ['plan', 'currency', 'attempt_id'], purchase_failed: ['plan', 'currency', 'attempt_id', 'failure_category'], restore_started: [],
   restore_completed: ['found'], gate_blocked: ['feature', 'from'], placement_paywall_offered: ['level'],
   entitlement_downgraded: ['fromPlan', 'toPlan', 'hadExpiry'], upgrade_nudge_shown: ['trigger'],
   upgrade_nudge_tapped: ['trigger'], reconciliation_shown: [],
@@ -100,9 +100,11 @@ export function milestoneKey(event: AnalyticsEvent, props: Record<string, unknow
     case 'placement_started': case 'placement_abandoned': case 'placement_result': return `${event}:${props.attempt_id}`;
     case 'placement_skipped': return `${event}:${journeyId}`;
     case 'first_lesson_started': return `${event}:${journeyId}`;
-    case 'lesson_completed': return `${event}:${journeyId}:${props.lesson_id}:${props.lesson_version}`;
+    case 'lesson_completed': return `${event}:${journeyId}:${props.lesson_id}:${props.lesson_version}:${props.session_id}`;
     case 'exam_submitted': return `${event}:${props.sitting_id}`;
     case 'streak_updated': return `${event}:${journeyId}:${props.local_day}`;
+    case 'purchase_started': case 'purchase_completed': case 'purchase_cancelled': case 'purchase_failed':
+      return `${event}:${props.attempt_id}`;
     default: return null;
   }
 }

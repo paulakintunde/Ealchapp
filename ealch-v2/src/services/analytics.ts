@@ -4,6 +4,8 @@ import * as Crypto from 'expo-crypto';
 import { Platform } from 'react-native';
 import { ENV } from './env';
 import { useStore } from '@/store/useStore';
+import { setPracticeDayListener } from '@/store/useProgress';
+import { practicedDayMilestone } from './engagement.logic';
 import {
   captureHttp, claimOnce, distinctId, identityCaptureBody, milestoneKey, safeProperties, verifiedSignup,
   type AnalyticsEvent, type CaptureBody, type CaptureDiagnostic, type EventProperties,
@@ -172,3 +174,10 @@ export function handleAuthTransition(event: string, user: VerifiedUser | null): 
   identityTail = identityTail.then(() => applyAuthTransition(event, user)).catch(() => {});
   return identityTail;
 }
+
+// Session persistence owns the boundary; analytics supplies the current freeze
+// count without introducing a useProgress -> useStore import cycle.
+setPracticeDayListener((before, after, day) => {
+  const milestone = practicedDayMilestone(before, after, day, useStore.getState().freeze);
+  if (milestone) track('streak_updated', milestone);
+});

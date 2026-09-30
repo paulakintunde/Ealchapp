@@ -17,12 +17,13 @@ jest.mock('expo-crypto', () => ({
 jest.mock('@/services/env', () => ({ ENV: {
   posthogKey: 'public-test-key', posthogHost: 'https://capture.test', analyticsTestBuild: true,
 } }));
-jest.mock('@/store/useStore', () => ({ useStore: { getState: () => ({ userId: null }) } }));
+jest.mock('@/store/useStore', () => ({ useStore: { getState: () => ({ userId: null, freeze: 1 }) } }));
 
 import {
   getCaptureDiagnostics, guestJourneyId, handleAuthTransition,
   prepareEmailSignup, recordAcceptedEmailSignup, track,
 } from '@/services/analytics';
+import { useProgress } from '@/store/useProgress';
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 20));
 const originalFetch = globalThis.fetch;
@@ -72,4 +73,21 @@ test('only a verified new signup sends identify before signup completed; existin
   expect(events).toHaveLength(2);
   await handleAuthTransition('SIGNED_OUT', null);
   expect(await guestJourneyId()).not.toBe(before);
+});
+
+test('the first logged practice session of a local day produces one accepted streak capture', async () => {
+  const events: Array<{ event: string; properties: Record<string, unknown> }> = [];
+  globalThis.fetch = jest.fn(async (_url: string, init: RequestInit) => {
+    events.push(JSON.parse(String(init.body)));
+    return { ok: true, status: 200, json: async () => ({ status: 1 }) };
+  }) as unknown as typeof fetch;
+  useProgress.setState({ sessions: [] });
+  useProgress.getState().logSession('placement', 1);
+  useProgress.getState().logSession('lesson', 1);
+  await flush();
+  const streaks = events.filter((event) => event.event === 'streak_updated');
+  expect(streaks).toHaveLength(1);
+  expect(streaks[0].properties.days).toBe(1);
+  expect(streaks[0].properties.event_id).toBeTruthy();
+  expect(getCaptureDiagnostics().some((diagnostic) => diagnostic.event === 'streak_updated' && diagnostic.accepted)).toBe(true);
 });

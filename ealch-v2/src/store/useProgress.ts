@@ -150,8 +150,10 @@ export const useProgress = create<ProgressState>()(
           // an app-left-open duration into the ring.
           minutes: Math.max(1, Math.round(clampMinutes(minutes))),
         };
-        const next = [...get().sessions, entry];
+        const before = get().sessions;
+        const next = [...before, entry];
         set({ sessions: next.length > MAX_SESSIONS ? next.slice(-MAX_SESSIONS) : next });
+        try { practiceDayListener?.(before, get().sessions, entry.date); } catch { /* Analytics never blocks a session. */ }
       },
 
       logAttempt: (attempt) => {
@@ -273,10 +275,17 @@ export const useProgress = create<ProgressState>()(
  *  it back would turn a deliberate one-way dependency into a real cycle. So the
  *  dependency is injected instead: useStore registers a listener at module
  *  load, and this file never learns what store it belongs to. Today there is
- *  exactly one — arming the post-session report notification (Phase 6, D-04). */
+ *  the post-session report and practice-day analytics. */
 export type SessionEndListener = (activity: Activity, minutes: number) => void;
+export type PracticeDayListener = (before: SessionEntry[], after: SessionEntry[], day: string) => void;
 
 let sessionEndListener: SessionEndListener | null = null;
+let practiceDayListener: PracticeDayListener | null = null;
+
+/** Registered by analytics once its module loads; the progress store stays cycle-free. */
+export function setPracticeDayListener(fn: PracticeDayListener | null): void {
+  practiceDayListener = fn;
+}
 
 /** Register (or with null, clear) the session-end side effect. */
 export function setSessionEndListener(fn: SessionEndListener | null): void {

@@ -27,6 +27,7 @@ import { FREE_BANDS } from '@/store/entitlement.logic';
 import { missingLessonState } from '@/services/packs.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
+import * as Crypto from 'expo-crypto';
 import { GlossContext } from '@/components/GlossContext';
 import { englishMode, glossToggleApplies } from '@/content/english.logic';
 import { LanguageChip, LanguagePanel } from '@/components/LanguagePanel';
@@ -38,6 +39,14 @@ const LEGACY: Record<string, string> = {
   a1_4: 'a1.04.l1',
   a2_1: 'a2.01.l1',
 };
+
+/** This component exists only in the actual pager branch, after every gate and preface. */
+function LessonContentActivation({ lessonId, unitId }: { lessonId: string; unitId: string }) {
+  useEffect(() => {
+    trackEvent('first_lesson_started', { lesson_id: lessonId, unit_id: unitId });
+  }, [lessonId, unitId]);
+  return null;
+}
 
 /** The English fallback (content/english.logic.ts). Provided around the whole
  *  screen so every branch, the pager and the sheets read the same answer. */
@@ -145,6 +154,11 @@ function LessonScreenBody() {
   // this flips once per visit and unlocks the finish button.
   const [quizDone, setQuizDone] = useState(false);
   const completedRef = useRef(false);
+  const visitRef = useRef<{ lessonId: string | undefined; sessionId: string } | null>(null);
+  if (!visitRef.current || visitRef.current.lessonId !== L?.id) {
+    visitRef.current = { lessonId: L?.id, sessionId: Crypto.randomUUID() };
+  }
+  const visitId = visitRef.current.sessionId;
   // The FULL-sections index of the section page the learner is currently on;
   // leaving it (to any other page) is what marks that mission done.
   const lastFullIx = useRef<number | null>(null);
@@ -655,6 +669,9 @@ function LessonScreenBody() {
     // never fires onIndexChange (no section anchor), so completion marks it.
     const quizIx = L.sections.findIndex((s) => s.type === 'quiz');
     if (quizIx >= 0) markMissionDone(L.id, L.version, quizIx);
+    trackEvent('lesson_completed', {
+      lesson_id: L.id, lesson_version: String(L.version), session_id: visitId, completion_kind: 'quiz',
+    });
   };
 
   const finish = () => {
@@ -662,9 +679,14 @@ function LessonScreenBody() {
     if (lastFullIx.current != null) markMissionDone(L.id, L.version, lastFullIx.current);
     sound.play('tap');
     if (quiz.length === 0) {
+      if (completedRef.current) return;
+      completedRef.current = true;
       // No quiz on this lesson: sitting the content is the completion.
       logSession('lesson');
       clearResume('lesson');
+      trackEvent('lesson_completed', {
+        lesson_id: L.id, lesson_version: String(L.version), session_id: visitId, completion_kind: 'no_quiz',
+      });
     }
     router.back();
   };
@@ -784,6 +806,7 @@ function LessonScreenBody() {
       />
 
       <View style={{ flex: 1 }} importantForAccessibility={langPanelOpen ? 'no-hide-descendants' : 'auto'}>
+      <LessonContentActivation lessonId={L.id} unitId={L.unitId} />
       <LessonPager
         key={`${L.id}-${runNonce}`}
         title={L.title}

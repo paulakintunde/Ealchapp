@@ -10,6 +10,10 @@ test('only declared properties reach the product event body', () => {
   strictEqual('raw_referrer' in campaign, false);
   strictEqual(safeProperties('install_attribution', { status: 'campaign', campaign: 'https://example.com/?email=a@b.com' }).campaign, 'redacted');
   strictEqual(paywallSource('person@example.com'), 'direct');
+  deepStrictEqual(safeProperties('lesson_completed', {
+    lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'visit-1', completion_kind: 'quiz',
+    answer: 'private answer', transcript: 'private speech',
+  } as any), { lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'visit-1', completion_kind: 'quiz' });
 });
 
 test('first open is per install and repeat milestones use a stable claim key', () => {
@@ -19,6 +23,10 @@ test('first open is per install and repeat milestones use a stable claim key', (
   strictEqual(claimOnce(new Set([a!]), a!), false);
   strictEqual(milestoneKey('streak_updated', { local_day: '2026-09-29' }, 'install-a', 'guest'), 'streak_updated:guest:2026-09-29');
   strictEqual(milestoneKey('placement_result', { attempt_id: 'one' }, 'install-a', 'guest'), 'placement_result:one');
+  const lesson = { lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'visit-1' };
+  strictEqual(milestoneKey('lesson_completed', lesson, 'install-a', 'guest'), milestoneKey('lesson_completed', lesson, 'install-b', 'guest'));
+  strictEqual(milestoneKey('lesson_completed', lesson, 'install-a', 'guest') ===
+    milestoneKey('lesson_completed', { ...lesson, session_id: 'visit-2' }, 'install-a', 'guest'), false);
 });
 
 test('only the matching new signup links; existing sign in and fake signup user stay separate', () => {

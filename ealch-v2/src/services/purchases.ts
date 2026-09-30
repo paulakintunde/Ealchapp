@@ -23,6 +23,7 @@ import { AppState } from 'react-native';
 import { ENV } from './env';
 import { setCachedEntitlement } from './entitlement';
 import { guardedNow } from './serverClock';
+import { purchaseFailureCategory } from './engagement.logic';
 import {
   entitlementFromProfile,
   isPremium,
@@ -201,27 +202,27 @@ export async function getLiveOffers(): Promise<LiveOffer[] | null> {
 
 export type PurchaseResult =
   | { ok: true }
-  | { ok: false; cancelled: boolean; message: string };
+  | { ok: false; cancelled: boolean; message: string; failureCategory: 'unavailable' | 'pending' | 'other' };
 
 /** Buy Première. The entitlement lands via apply(); the paywall only needs
  *  ok/cancelled/failed for its own state and funnel events. A 'pending'
  *  result (deferred/ask-to-buy) is reported as a non-cancel failure — the
  *  grant arrives later through the profile listener if it is approved. */
 export async function purchasePremiere(plan: 'mo' | 'yr'): Promise<PurchaseResult> {
-  if (!configured) return { ok: false, cancelled: false, message: 'purchases-unavailable' };
+  if (!configured) return { ok: false, cancelled: false, message: 'purchases-unavailable', failureCategory: purchaseFailureCategory('purchases-unavailable') };
   const A = loadModule()!;
   try {
     const product = (await premiereProducts()).get(plan);
-    if (!product) return { ok: false, cancelled: false, message: 'no-offering' };
+    if (!product) return { ok: false, cancelled: false, message: 'no-offering', failureCategory: purchaseFailureCategory('no-offering') };
     const result = await A.makePurchase(product);
     if (result.type === 'success') {
       await apply(result.profile as ProfileLike);
       return { ok: true };
     }
-    if (result.type === 'user_cancelled') return { ok: false, cancelled: true, message: 'cancelled' };
-    return { ok: false, cancelled: false, message: 'purchase-pending' };
-  } catch (err) {
-    return { ok: false, cancelled: false, message: (err as Error).message ?? 'purchase-failed' };
+    if (result.type === 'user_cancelled') return { ok: false, cancelled: true, message: 'cancelled', failureCategory: 'other' };
+    return { ok: false, cancelled: false, message: 'purchase-pending', failureCategory: purchaseFailureCategory('purchase-pending') };
+  } catch {
+    return { ok: false, cancelled: false, message: 'purchase-failed', failureCategory: 'other' };
   }
 }
 

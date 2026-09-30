@@ -13,6 +13,7 @@ import type { SpokenAnswer } from '../components/ExamSpeakTask';
 import type { DeliverySignals } from '../utils/deliverySignals.logic';
 import type { Coverage } from '../utils/interlocutor.logic';
 import type { DebateReport } from '../utils/debate.logic';
+import type { ExamOutcome } from './engagement.logic';
 
 export const DRAFT_VERSION = 1;
 /** D-02: long-form typing checkpoints this long after the last keystroke. */
@@ -32,6 +33,8 @@ export type ExamDraft = {
   paperId: string;
   skill: string;
   savedAt: number;
+  /** Stable across process death and the final event for this section sitting. */
+  sittingId: string;
   answers: Record<string, Record<string, number | null>>;
   texts: Record<string, string>;
   spoken: Record<string, DraftSpoken>;
@@ -39,6 +42,7 @@ export type ExamDraft = {
   debate: Record<string, DebateReport>;
   /** Task ids already graded IN THIS SITTING. */
   graded: string[];
+  outcomes: Record<string, ExamOutcome>;
 };
 
 // D-07 / Pitfall 1 correction (07-RESEARCH.md): the key is paperId+skill, NOT
@@ -61,6 +65,8 @@ export function buildDraft(input: {
   coverage: Record<string, Coverage>;
   debate: Record<string, DebateReport>;
   graded: string[];
+  sittingId: string;
+  outcomes: Record<string, ExamOutcome>;
   now?: number;
 }): ExamDraft {
   const spoken: Record<string, DraftSpoken> = {};
@@ -87,12 +93,14 @@ export function buildDraft(input: {
     paperId: input.paperId,
     skill: input.skill,
     savedAt: input.now ?? Date.now(),
+    sittingId: input.sittingId,
     answers: input.answers,
     texts: input.texts,
     spoken,
     coverage: input.coverage,
     debate: input.debate,
     graded: input.graded,
+    outcomes: input.outcomes,
   };
 }
 
@@ -105,7 +113,7 @@ export function serializeDraft(d: ExamDraft): string {
 // sitting. A schema change simply orphans one sitting's unreadable draft —
 // strictly better than carrying progress.logic.ts-style migration machinery
 // for a value this short-lived.
-export function parseDraft(raw: string | null, paperId: string, skill: string): ExamDraft | null {
+export function parseDraft(raw: string | null, paperId: string, skill: string, fallbackSittingId = 'legacy-sitting'): ExamDraft | null {
   if (raw === null) return null;
 
   let value: unknown;
@@ -122,6 +130,11 @@ export function parseDraft(raw: string | null, paperId: string, skill: string): 
   if (v.paperId !== paperId) return null;
   if (v.skill !== skill) return null;
 
+  const outcomes: Record<string, ExamOutcome> = {};
+  for (const [taskId, outcome] of Object.entries(v.outcomes ?? {})) {
+    if (outcome === 'graded' || outcome === 'ungraded') outcomes[taskId] = outcome;
+  }
+
   // Normalise missing containers to {}/[] so a partially-written draft still
   // restores whatever it has rather than crashing on an absent field.
   return {
@@ -129,12 +142,14 @@ export function parseDraft(raw: string | null, paperId: string, skill: string): 
     paperId,
     skill,
     savedAt: typeof v.savedAt === 'number' ? v.savedAt : 0,
+    sittingId: typeof v.sittingId === 'string' && v.sittingId.length > 0 && v.sittingId.length <= 100 ? v.sittingId : fallbackSittingId,
     answers: v.answers ?? {},
     texts: v.texts ?? {},
     spoken: v.spoken ?? {},
     coverage: v.coverage ?? {},
     debate: v.debate ?? {},
     graded: v.graded ?? [],
+    outcomes,
   };
 }
 

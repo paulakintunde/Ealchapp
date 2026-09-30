@@ -40,9 +40,12 @@ import { content, useContent } from '@/services/content';
 import { taskQuestions, scoreClosedTask, type ExamQuestion } from '@/services/content.logic';
 import { examGrader, startExamAttempt } from '@/services';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Crypto from 'expo-crypto';
+import { track } from '@/services/analytics';
+import { examOutcomeCounts, type ExamOutcome } from '@/services/engagement.logic';
 import {
   DRAFT_DEBOUNCE_MS, draftKey, buildDraft, serializeDraft, parseDraft, restoreState,
-  isGraded, markGraded, hasContent, type ExamDraft,
+  isGraded, markGraded, type ExamDraft,
 } from '@/services/examDraft.logic';
 import { startClock, type ClockState } from '@/utils/examClock.logic';
 import { pinSitting, pinnedTasksOf, type SittingPin } from '@/utils/examSitting.logic';
@@ -185,6 +188,8 @@ export default function ExamSectionScreen() {
     coverage: {} as Record<string, Coverage>,
     debate: {} as Record<string, DebateReport>,
     graded: [] as string[],
+    sittingId: Crypto.randomUUID(),
+    outcomes: {} as Record<string, ExamOutcome>,
   });
   /** Nothing is written until the mount-time read has finished. Without this the
    *  first render's empty state overwrites the very draft we are about to read. */
@@ -194,7 +199,6 @@ export default function ExamSectionScreen() {
   const writeDraft = useCallback(async () => {
     if (!key || !paperId || !skill || !restored.current) return;
     const d = buildDraft({ paperId, skill, ...draftRef.current });
-    if (!hasContent(d)) return;
     try {
       await AsyncStorage.setItem(key, serializeDraft(d));
     } catch {
@@ -219,10 +223,11 @@ export default function ExamSectionScreen() {
       } catch {
         // No draft is a normal state, not an error.
       }
-      const d = parseDraft(raw, paperId, skill);
+      if (!alive) return;
+      const d = parseDraft(raw, paperId, skill, draftRef.current.sittingId);
       if (d && alive) {
         const s = restoreState(d);
-        draftRef.current = { ...s, graded: d.graded };
+        draftRef.current = { ...s, graded: d.graded, sittingId: d.sittingId, outcomes: d.outcomes };
         setAnswers(s.answers);
         setTexts(s.texts);
         setSpoken(s.spoken);
@@ -230,12 +235,13 @@ export default function ExamSectionScreen() {
         setDebate(s.debate);
       }
       restored.current = true;
+      if (!d) void writeDraft(); // Persist the sitting ID even before the first answer.
     })();
     return () => { alive = false; };
     // Do NOT call submit() from here. D-03 is explicit: the candidate finishes
     // the section and submits themselves; a silent background re-submit to
     // grade-exam is forbidden.
-  }, [key, paperId, skill]);
+  }, [key, paperId, skill, writeDraft]);
 
   // An answer that was committed, not typed. Immediate.
   useEffect(() => { // CHECKPOINT_DISCRETE — see the note above submit()'s draft, too.
@@ -282,7 +288,7 @@ export default function ExamSectionScreen() {
     let draft: ExamDraft | null = null;
     if (key && paperId && skill) {
       try {
-        draft = parseDraft(await AsyncStorage.getItem(key), paperId, skill);
+        draft = parseDraft(await AsyncStorage.getItem(key), paperId, skill, draftRef.current.sittingId);
       } catch {
         // No draft just means nothing to skip.
       }
@@ -293,10 +299,10 @@ export default function ExamSectionScreen() {
       }
     }
 
-    const recordGraded = async (taskId: string) => {
+    const recordGraded = async (taskId: string, outcome: ExamOutcome) => {
       if (!key || !draft) return;
-      draft = markGraded(draft, taskId);
-      draftRef.current = { ...draftRef.current, graded: draft.graded };
+      draft = { ...markGraded(draft, taskId), outcomes: { ...draft.outcomes, [taskId]: outcome } };
+      draftRef.current = { ...draftRef.current, graded: draft.graded, outcomes: draft.outcomes };
       try {
         await AsyncStorage.setItem(key, serializeDraft(draft));
       } catch {
@@ -359,7 +365,7 @@ export default function ExamSectionScreen() {
           },
           task
         );
-        await recordGraded(task.id);
+        await recordGraded(task.id, audioFailed ? 'ungraded' : 'graded');
         continue;
       }
 
@@ -376,7 +382,7 @@ export default function ExamSectionScreen() {
       const spokenAnswer = task.skill === 'PO' ? spoken[task.id] : undefined;
       if (task.skill === 'PO' && spokenAnswer?.unavailable) {
         logExamResult({ ...base, audioFailed: true }, task);
-        await recordGraded(task.id);
+        await recordGraded(task.id, 'ungraded');
         continue;
       }
       const body = task.skill === 'PO'
@@ -384,7 +390,7 @@ export default function ExamSectionScreen() {
         : (texts[task.id] ?? '').trim();
       if (!body) {
         logExamResult(base, task);
-        await recordGraded(task.id);
+        await recordGraded(task.id, 'ungraded');
         continue;
       }
       const res = await examGrader.grade({
@@ -411,11 +417,17 @@ export default function ExamSectionScreen() {
       } else {
         logExamResult(base, task);
       }
-      await recordGraded(task.id);
+      await recordGraded(task.id, res.live ? 'graded' : 'ungraded');
     }
 
     logSession('exam');
+    const counts = examOutcomeCounts(pinnedTasks.map((task) => task.id), draft?.outcomes ?? draftRef.current.outcomes);
+    track('exam_submitted', {
+      paper_id: paperId, skill: skill ?? pinnedSection.skill, sitting_id: draft?.sittingId ?? draftRef.current.sittingId,
+      ...counts,
+    });
     setPhase('done');
+    restored.current = false; // Unmount cleanup must not resurrect a finished draft.
     // D-08: the draft exists only between a crash and the candidate finishing.
     if (key) {
       try {
