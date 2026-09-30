@@ -1,75 +1,53 @@
 ---
 phase: 09
 slug: onboarding-analytics-audit
-status: draft
+status: executing
 nyquist_compliant: false
 wave_0_complete: true
 created: 2026-09-29
 ---
 
-# Phase 9 — Validation Strategy
+# Phase 9 validation
 
-> This is the execution contract. No implementation or device result has passed merely because this plan exists.
+The automated code and route checks are separate from the configured capture and real-device release gate. A local `track()` assertion, fake HTTP 2xx, or sideloaded Android build does not satisfy QA-02. `nyquist_compliant` remains false until every critical row in `09-DEVICE-EVIDENCE.md` passes.
 
-## Test Infrastructure
+## Automated checks
 
-| Property | Value |
-|---|---|
-| Framework | Node `--test`, Jest 30 + jest-expo 57 + React Native Testing Library |
-| Config | `ealch-v2/package.json`, `ealch-v2/jest.config.js` |
-| Quick run | `cd ealch-v2; npm test; npm run typecheck` |
-| Full suite | `cd ealch-v2; npm run typecheck; npm test; npm run test:component -- --runInBand` |
-| Estimated runtime | Measure at execution; no estimate claimed from planning |
+| Plan | Evidence | Status |
+|---|---|---|
+| 09-01 typed identity, safe payloads, accepted/rejected/offline fake HTTP | `analytics.logic.test.ts`, `analytics-phase9.test.tsx`, typecheck | Pass |
+| 09-02 wizard milestones, resume, signup and mic recovery | `onboarding-phase9.test.tsx`, `signup-phase9.test.tsx` | Pass |
+| 09-03 persisted placement attempt, skip/result/abandon/load failure | placement logic and component tests | Pass |
+| 09-04 first open/D1/referrer and native Android integration | acquisition logic/component tests, Android native build and sideload | Pass for code; Play delivery pending |
+| 09-05 lesson/exam/streak/purchase events | engagement logic/component tests | Pass |
+| 09-07 guest claim transfer and direct event boundary proof | identity, no-quiz, exam, purchase, signup, placement tests | Pass |
+| 09-06 full `npm run typecheck` | TypeScript exit 0 | Pass |
+| 09-06 full `npm run test:component -- --runInBand` | 19 suites, 70 tests passed | Pass |
+| 09-06 full `npm test` | Isolated rerun: 5,722 tests passed, 0 failed | Pass |
 
-## Sampling Rate
+See `09-EVENT-AUDIT.md` for the event-by-event expected and automated observations. The capture client exposes event ID, HTTP status, and accepted boolean in configured test builds without logging event properties or keys.
 
-- After each implementation task: run its listed automated command and record exit status.
-- After each wave: run the full suite above.
-- Before `/gsd-verify-work`: full suite green plus the Plan 06 device and accepted-capture gate.
-- Maximum feedback latency: record observed runtime at first run; break out pure tests if full suite is slow.
+## Device and service checks
 
-## Per-Task Verification Map
+| Gate | Reason | Status |
+|---|---|---|
+| Android and iPhone guest/email wizard, placement skip/result/abandon/resume, recovery routes | Native permission, navigation, process-death, and focus behavior | Pending both devices |
+| Accepted capture for each critical event against a disposable PostHog project | Fake HTTP verifies code behavior, not project ingestion | Pending test configuration |
+| Play-delivered encoded Android campaign; no-campaign and lookup-failure cases | A sideload cannot prove Play Install Referrer | Pending |
+| iPhone `unavailable` app event and separate App Store Connect aggregate report | Per-install store source is unavailable in app | Pending |
+| Controlled local-clock D1 boundary and device foreground | Prove date logic and AppState integration | Pending device |
+| Android and iPhone store sandbox purchase | Prove store callback, entitlement, and accepted analytics without real charge | Pending |
 
-| Task ID | Plan | Wave | Requirement | Threat Ref | Secure behavior | Test type | Automated command | File exists | Status |
-|---|---|---:|---|---|---|---|---|---|---|
-| 09-01-01 | 01 | 1 | QA-02 | T-09-01, T-09-02 | Typed allowlist and identity separation | Node/typecheck | `npm test; npm run typecheck` | ❌ W1 | ⬜ pending |
-| 09-01-02 | 01 | 1 | QA-02 | T-09-02, T-09-03 | Accepted/rejected capture and verified link | Node/fake HTTP | `npm test; npm run typecheck` | ❌ W1 | ⬜ pending |
-| 09-02-01 | 02 | 2 | QA-01, QA-02 | T-09-04, T-09-05 | No credential persistence; one-time milestones | Node/typecheck | `npm test; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-02-02 | 02 | 2 | QA-01, QA-02 | T-09-04 | Recoverable signup/mic/reminder actions | Jest/typecheck | `npm run test:component -- --runInBand; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-03-01 | 03 | 3 | QA-01, QA-02 | T-09-06, T-09-07 | Validated attempt restore, safe payload | Node/typecheck | `npm test; npm run typecheck` | ❌ W3 | ⬜ pending |
-| 09-03-02 | 03 | 3 | QA-01, QA-02 | T-09-06 | Recoverable skip/load/exit states | Jest/typecheck | `npm run test:component -- --runInBand; npm run typecheck` | ❌ W3 | ⬜ pending |
-| 09-04-01 | 04 | 2 | QA-02 | — | Per-install/local-day dedupe | Node/typecheck | `npm test; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-04-02 | 04 | 2 | QA-02 | T-09-08, T-09-09, T-09-10 | No raw referrer; async safe lookup | Node/typecheck/native build | `npm test; npm run typecheck; npx expo run:android` | ❌ W2 | ⬜ pending |
-| 09-05-01 | 05 | 2 | QA-02 | T-09-11 | Lesson event only after content/progress | Node/Jest/typecheck | `npm test; npm run test:component -- --runInBand; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-05-02 | 05 | 2 | QA-02 | T-09-11, T-09-12 | Safe exam/purchase/streak outcome | Node/Jest/typecheck | `npm test; npm run test:component -- --runInBand; npm run typecheck` | ❌ W2 | ⬜ pending |
-| 09-06-01 | 06 | 4 | QA-01, QA-02 | T-09-13, T-09-14 | All event/payload/capture rows audited | Full suite | `npm run typecheck; npm test; npm run test:component -- --runInBand` | ❌ W4 | ⬜ pending |
-| 09-06-02 | 06 | 4 | QA-01, QA-02 | T-09-13, T-09-14 | Both-platform accepted capture and sandbox proof | Device + typecheck | `npm run typecheck` plus evidence | ❌ W4 | ⬜ pending |
+The full steps and evidence fields are in `09-DEVICE-EVIDENCE.md`. Missing or rejected capture is a QA failure even when the learner flow continues. Every critical gap remains blocking in `09-GAPS.md` until retested.
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky. File-exists marks planned test/evidence files that have not been created yet.*
+## Sign-off
 
-## Wave 0 Requirements
+- [x] Each implementation task has automated checks.
+- [x] No watch-mode commands were used.
+- [x] Full unit suite exits 0 on the final audited tree.
+- [ ] Android and iPhone critical paths pass.
+- [ ] Every critical event has accepted capture evidence.
+- [ ] Play, App Store aggregate, D1, and store sandbox checks pass.
+- [ ] Set `nyquist_compliant: true` only after all above evidence exists.
 
-Existing Node, Jest, and TypeScript infrastructure is sufficient. Plan 01 creates the fake HTTP/capture proof seam; no framework install is required. The local Android module and its native build are Plan 04 work, not a hidden prerequisite.
-
-## Manual-Only Verifications
-
-| Behavior | Requirement | Why manual/device | Test instructions |
-|---|---|---|---|
-| Guest/email wizard and placement skip/result/abandon/resume on Android and iPhone | QA-01 | Native permissions, navigation, process death and screen focus | Follow 09-06 Task 2 and record device/build/outcome. |
-| Accepted capture against configured PostHog test project | QA-02 | A mocked `track()` cannot prove endpoint acceptance | Correlate each event ID to HTTP response and ingestion result; no credentials in evidence. |
-| Android Play attribution | QA-02 | Sideloading does not prove Play delivery | Use Play internal-test install with campaign link, record parsed fields/status only. |
-| iPhone campaign reporting | QA-02 | App Store Connect aggregate view is external | Verify app emits `unavailable`; inspect campaign report separately without person-level inference. |
-| Store sandbox purchase | QA-02 | Real Adapty/store callback required | Complete sandbox transaction, check entitlement and accepted purchase event without a charge. |
-| Foreground D1 | QA-02 | AppState subscription must work on hardware | Foreground app on device; pair with controlled local-clock boundary test. |
-
-## Validation Sign-Off
-
-- [ ] Every task has an automated check or a device evidence dependency.
-- [ ] No three consecutive implementation tasks lack automated feedback.
-- [x] Existing infrastructure covers the framework; no Wave 0 install.
-- [ ] No watch-mode flags in executed commands.
-- [ ] Measured feedback runtime recorded.
-- [ ] All critical Android/iPhone and accepted-capture rows pass.
-- [ ] `nyquist_compliant: true` set only after passing evidence.
-
-**Approval:** pending execution and device proof.
+**QA-01:** Pending. **QA-02:** Pending. **Phase 9:** Incomplete.

@@ -306,7 +306,7 @@ Plans:
   2. Key engagement user actions (lesson complete, purchase, exam submit, streak event, etc.) are confirmed to fire the correct `services/analytics.ts` events with correct payloads, or gaps are logged and closed.
   3. Acquisition events are confirmed to exist and fire correctly: first-open, signup started, signup completed, and store-listing referrer capture.
   4. An activation funnel is confirmed instrumented end-to-end at step granularity — `onboarding_started` → per-step events → `placement_result` → `first_lesson_started` — and D1 return is measurable, so real acquisition/activation data is available post-launch, not just crash/correctness verification.
-**Plans**: 6 plans in 4 waves
+**Plans**: 7 plans in 4 waves
 
 **Wave 1**
 - [x] 09-01-PLAN.md — typed events, guest/account identity boundaries, and accepted-capture diagnostics
@@ -315,6 +315,7 @@ Plans:
 - [x] 09-02-PLAN.md — resumable wizard, explicit skip/recovery actions, and onboarding/signup milestones
 - [x] 09-04-PLAN.md — per-install first open, local-day D1, Android Play referrer, and iPhone unavailable status
 - [x] 09-05-PLAN.md — first lesson, completion, exam, streak, and purchase events
+- [x] 09-07-PLAN.md — close identity carryover and direct event-path test gaps found in the audit
 
 **Wave 3** *(blocked on Plan 02 because both plans edit `useStore.ts` and `strings.ts`)*
 - [x] 09-03-PLAN.md — durable placement attempts, outcome boundaries, and recovery UI
