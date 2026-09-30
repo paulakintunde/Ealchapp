@@ -41,6 +41,7 @@ const LESSONS: [string, string][] = [
   ['b2.01', 'plus-que-parfait'], ['b2.02', 'conditionnel-passe'], ['b2.03', 'si-irreel-passe'], ['b2.04', 'si-mixtes'],
   ['b2.05', 'subjonctif-passe'], ['b2.06', 'subjonctif-indicatif'], ['b2.07', 'futur-anterieur'], ['b2.08', 'passe-simple'],
   ['b2.09', 'subjonctif-litteraire'], ['b2.10', 'nominalisation'], ['b2.11', 'pronoms-insistance'], ['b2.12', 'gerondif'],
+  ['b2.13', 'participe-adjectif'], ['b2.14', 'constructions-infinitives'], ['b2.15', 'cause-consequence'], ['b2.16', 'concession-avancee'],
 ];
 
 const OPT_KEYS = ['opts', 'options', 'choices', 'answers'];

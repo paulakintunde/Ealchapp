@@ -169,6 +169,18 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**WAVE 5 DRAFTED AND PRE-REVIEWED, 2026-09-30** (b2.13 to b2.16: Unit 2 end,
+Unit 3 start). 715 authored rows. Pre-review, fixes applied: b2.13 2 blockers
+(a type-in rejecting « équivalente à », a both-correct excellant/excellent choice),
+the qui + verbe and complement tests given their limits; b2.14 2 blockers (a
+wrong listening key, « après manger » taught as an error), EU rail rule restated
+as indemnisation from 120 min; b2.15 3 blockers (il semble que + indicatif marked
+wrong against the lesson's own policy), « est à cause de » scoped to writing;
+b2.16 2 blockers (tout… que with a correct subjunctive distractor, loin/au lieu
+both fitting), a columnist renamed off a real Québec politician's name. After:
+app checks 0, house tests 274/274, import dry run 715 / 0 blockers, preview
+rebuilt (4 lessons, 47 acts). On ART_PENDING until Paul's 47 openers land.
+
 **WAVE 4 IMPORTED AND MERGED, 2026-09-30; v82 dry run ready, NOT published.**
 Paul's 45 openers registered with alt (ART_PENDING empty). Trial merge: +4 units,
 +4 lessons, +684 items, app 5721/5721. `--apply`: 684 rows + 8 unit/lesson rows,
@@ -360,7 +372,11 @@ yet proven against Adapty (curl check or the free/premium Pixel run). Next:
 | b2.10 | nominalisation | 83 | 11 | 11x8 | 11 | 5 | 13 | 178 | 11 images, registered + alt | MERGED, v82 dry run |
 | b2.11 | pronoms-insistance | 89 | 12 | 12x8 | 12 | 5 | 16 | 180 | 12 images, registered + alt | MERGED, v82 dry run |
 | b2.12 | gerondif | 84 | 11 | 12x8 | 12 | 5 | 14 | 161 | 11 images, registered + alt | MERGED, v82 dry run |
-| b2.13 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
+| b2.13 | participe-adjectif | 87 | 11 | 12x8 | 12 | 5 | 16 | 166 | 11 prompts, not drawn | PRE-REVIEWED |
+| b2.14 | constructions-infinitives | 90 | 12 | 12x8 | 12 | 5 | 13 | 176 | 12 prompts, not drawn | PRE-REVIEWED |
+| b2.15 | cause-consequence | 88 | 12 | 12x8 | 12 | 5 | 14 | 189 | 12 prompts, not drawn | PRE-REVIEWED |
+| b2.16 | concession-avancee | 88 | 12 | 12x8 | 12 | 5 | 14 | 184 | 12 prompts, not drawn | PRE-REVIEWED |
+| b2.17 to b2.21, b2.27 to b2.34 | | | | | | | | | | NOT STARTED |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links
@@ -388,10 +404,10 @@ ledger's id spans, read from the source on the same day.
 | `langue-soignee` (sub-theme « la nominalisation »; 1000-1399 are B1) | 1400-1599 | b2.10 nominalisation | 1400-1581 (178) |
 | `pronoms-essentiels` (sub-theme « les pronoms d'insistance »; 1000-1799 are B1) | 1800-1999 | b2.11 emphatic pronouns | 1800-1990 (180) |
 | `connecteurs-logiques` (sub-theme « le gérondif »; 1000-1599 are B1) | 1600-1799 | b2.12 gérondif | 1600-1783 (161) |
-| `langue-soignee` (sub-theme « le participe présent et l'adjectif verbal », set 2026-09-30) | 1600-1799 | b2.13 participe-adjectif | drafting |
-| `faits-et-procedures` (sub-theme « les constructions infinitives »; 1000-1199 are B1) | 1200-1399 | b2.14 constructions-infinitives | drafting |
-| `connecteurs-logiques` (sub-theme « la cause et la conséquence ») | 1800-1999 | b2.15 cause-consequence | drafting |
-| `connecteurs-logiques` (sub-theme « la concession », B1's) | 2000-2199 | b2.16 concession-avancee | drafting |
+| `langue-soignee` (sub-theme « le participe présent et l'adjectif verbal », set 2026-09-30) | 1600-1799 | b2.13 participe-adjectif | 1600-1786 (166) |
+| `faits-et-procedures` (sub-theme « les constructions infinitives »; 1000-1199 are B1) | 1200-1399 | b2.14 constructions-infinitives | 1200-1397 (176) |
+| `connecteurs-logiques` (sub-theme « la cause et la conséquence ») | 1800-1999 | b2.15 cause-consequence | 1800-1991 (189) |
+| `connecteurs-logiques` (sub-theme « la concession », B1's) | 2000-2199 | b2.16 concession-avancee | 2000-2197 (184) |
 
 **Rule for blocks at B2:** pick a block unused at EVERY level in the theme
 (ids carry the level, but a shared number across fr.b1 and fr.b2 in one theme

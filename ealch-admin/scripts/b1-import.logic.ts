@@ -44,6 +44,8 @@ export const B2_SLUGS: readonly string[] = [
   'subjonctif-passe', 'subjonctif-indicatif', 'futur-anterieur', 'passe-simple',
   // wave 4 (Unit 2, first half)
   'subjonctif-litteraire', 'nominalisation', 'pronoms-insistance', 'gerondif',
+  // wave 5 (Unit 2 end, Unit 3 start)
+  'participe-adjectif', 'constructions-infinitives', 'cause-consequence', 'concession-avancee',
   // wave 1 (exam-skill targets and academic style)
   'style-academique', 'argumentation', 'lecture-critique', 'ecoute-vitesse-reelle', 'reunions-negociation',
 ];
