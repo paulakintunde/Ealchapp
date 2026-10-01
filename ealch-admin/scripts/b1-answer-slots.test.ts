@@ -46,6 +46,7 @@ const LESSONS: [string, string][] = [
   ['b2.27', 'langage-juridique'], ['b2.28', 'francais-soins'], ['b2.29', 'science-pour-tous'], ['b2.30', 'lire-litterature'],
   ['b2.31', 'francais-regional'], ['b2.32', 'verlan-argot'], ['b2.33', 'traduire-sans-calquer'], ['b2.34', 'proverbes'],
   ['c1.01', 'bilan-grammatical-c1'], ['c1.20', 'lire-entre-les-lignes'], ['c1.21', 'debats-entretiens'], ['c1.24', 'analyse-presse'],
+  ['c1.02', 'passe-anterieur'], ['c1.03', 'concordance-litteraire'], ['c1.04', 'relatives-complexes'], ['c1.05', 'ellipse-reprise'],
 ];
 
 const OPT_KEYS = ['opts', 'options', 'choices', 'answers'];

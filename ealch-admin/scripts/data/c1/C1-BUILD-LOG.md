@@ -269,6 +269,17 @@ reuses the B1/B2 factory whole; this file records only what is different.
   reused, 0 deadlocks). **Paul: ship it with the next publish (wave 2), not
   alone.** Until then phones show « 1045 » on that card.
 
+**WAVE 2 DRAFTED (2026-10-01).** c1.02, c1.03, c1.04, c1.05 written by four
+fresh authors; slugs in `C1_SLUGS` in trail order, the four in the three house
+tests and in `ART_PENDING` (46 openers). App checks `--band c1 --all` TOTAL 0;
+validators 0; house tests 326/326; C1 import dry run 653 to insert (wave 1's 602
+identical, published), 0 conflicts, 0 blockers, floors litterature 1600,
+pronoms-essentiels 2000, langue-soignee 2000 clear. Postgres-only reused rows:
+c1.02 3 (`fr.b2.communaute.108`, `fr.b2.rp-etiquette.066`, `fr.b2.soins.122`),
+c1.04 4 (2 with straight apostrophes: same typography edit as decision 13).
+Each lesson header lists its open questions; c1.02's roundup may cite « la
+leçon 3 du C1 » since c1.03 publishes in the same wave.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -548,10 +559,10 @@ scratchpad; the report comes back as text.
 | c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | LIVE v85 |
 | c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | LIVE v85 |
 | c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | LIVE v85 |
-| c1.02 | passe-anterieur (recognition) | | | | | | | | dispatched |
-| c1.03 | concordance-litteraire (recognition) | | | | | | | | dispatched |
-| c1.04 | relatives-complexes | | | | | | | | dispatched |
-| c1.05 | ellipse-reprise | | | | | | | | dispatched |
+| c1.02 | passe-anterieur (recognition) | 86 | 12 | 11×8 | 11 | 5 | 159 new / 14 reused | 12 pending | drafted, checks 0 |
+| c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 pending | drafted, checks 0 |
+| c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 pending | drafted, checks 0 |
+| c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 pending | drafted, checks 0 |
 
 ## Id ledger
 
@@ -566,10 +577,10 @@ scratchpad; the report comes back as text.
 | `discours-dexamen` (sub-theme « suivre un débat à l'oral ») | 1400-1599 | c1.21 debats-entretiens | .1400-.1545 (146) |
 | `strategies-de-comprehension` (range widened b1-c1; sub-theme « lire entre les lignes »; b1 1000-1389, b2 1400-1764) | 1800-1999 | c1.20 lire-entre-les-lignes | .1800-.1999 (200, block full) |
 | `strategies-de-comprehension` (sub-theme « analyser la presse ») | 2000-2199 | c1.24 analyse-presse | .2000-.2155 (156) |
-| `litterature` (widened b1-c1; sub-theme « le passé antérieur ») | 1600-1799 | c1.02 passe-anterieur | |
-| `litterature` (sub-theme « la concordance littéraire ») | 1800-1999 | c1.03 concordance-litteraire | |
-| `pronoms-essentiels` (widened a1-c1; sub-theme « les relatives complexes ») | 2000-2199 | c1.04 relatives-complexes | |
-| `langue-soignee` (widened a2-c1; sub-theme « l'ellipse et la reprise ») | 2000-2199 | c1.05 ellipse-reprise | |
+| `litterature` (widened b1-c1; sub-theme « le passé antérieur ») | 1600-1799 | c1.02 passe-anterieur | .1600-.1783 (159) |
+| `litterature` (sub-theme « la concordance littéraire ») | 1800-1999 | c1.03 concordance-litteraire | .1800-.1982 (150) |
+| `pronoms-essentiels` (widened a1-c1; sub-theme « les relatives complexes ») | 2000-2199 | c1.04 relatives-complexes | .2000-.2191 (162) |
+| `langue-soignee` (widened a2-c1; sub-theme « l'ellipse et la reprise ») | 2000-2199 | c1.05 ellipse-reprise | .2000-.2192 (182) |
 
 Later waves: proposed homes for all 24 are in `C1-RESEARCH-PLAN.md`; probe again
 and claim at each wave's dispatch. **Rule:** a block must be unused at EVERY level
