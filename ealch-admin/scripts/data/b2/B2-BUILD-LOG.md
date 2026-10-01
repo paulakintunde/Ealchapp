@@ -169,6 +169,14 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**OTA 22780feb TO PREVIEW, 2026-09-30 (Paul): the B2 art for lessons 17 to 34 reaches installs.** The
+openers are bundled assets, so content v84 alone showed those lessons without art. The fingerprint had
+moved to 514c4cb only because eas.json and .easignore changed (EAS env move); with both swapped back
+to their pre-3d73ce0 versions it resolved to 36c2954, the preview build's runtime, so the update was
+published with them swapped back and restored after. EXPO_PUBLIC values came from the EAS preview
+environment (Supabase ref and PostHog key found in the .hbc). Proven on the Pixel 9: b2.34 opens with
+its art. The NEXT preview build carries runtime 514c4cb; after it, OTAs need no swap.
+
 **B2 COMPLETE: v84 PUBLISHED, 2026-09-30.** All 34 B2 lessons are live (waves 7 + 8, b2.27 to
 b2.34). Gate B2-4 passed (Paul, Pixel 6, temporary preview holding B2 1-34). Before publishing, b2.30's
 Hugo quote lost its « / » (device TTS reads a slash aloud): a line break marks the verse; reapplied as a
