@@ -27,16 +27,17 @@ Sentiment gating ("Enjoying Ealch?" leading to the store for yes and a form for 
 - **D-05:** Guests (no account) are never asked.
 - **D-06:** Skip the request without spending the cap when any of these is true:
   - an error was logged this session (`services/errors.ts` ring is not empty);
-  - the learner sent a problem report recently (planner picks N days);
   - the device is offline;
   - a paywall or a PushBanner kind showed in the same moment.
+
+  *Amended 2026-10-01 (quality review):* the "sent a problem report recently" skip is **dropped**. Not asking people who just complained is sentiment-based selection, the concern behind FTC 16 CFR 465.7. A report never affects review eligibility. Also note that only the ErrorBoundary and the global JS handler feed the `errors.ts` ring (`errors.ts:91-110`). Caught STT, TTS and network failures do not, so the error skip is narrower than it reads.
 
 ### Review request: cap
 - **D-07:** At most 3 requests per rolling 365 days, at least 90 days apart. The cap counts **requests**, because neither platform reports whether the sheet appeared or whether the learner rated.
 - **D-08:** The counter is per install, stored locally (AsyncStorage, alongside the other per-install state from Phase 9). A reinstall resets it. No server column.
 - **D-09:** Send a `review_requested` analytics event each time the request fires, with stable ids only (D-21 rules). No rating outcome is knowable.
 - **D-10:** Requests sit behind a remote flag with a cached value, following the `examGateOn` pattern (`src/services/config.ts`). Because the native module needs a binary, the flag is the only way to pause requests after release.
-- **D-11:** Settings gets a "Rate Ealch" row that opens the **store listing URL**, never the review API. Google says not to put the API behind a button.
+- **D-11:** Settings gets a "Rate Ealch" row that opens the **store listing URL**, never the review API. Google says not to put the API behind a button. *Amended 2026-10-01:* the row is **Android only** until an App Store id exists. The iOS row is a named pre-App-Store launch-checklist item.
 
 ### Report a problem: destination and payload
 - **D-12:** Reports go to a new Supabase table (for example `problem_reports`), written only through an edge function with auth and a rate limit (the Phase 3 TTS pattern). The client gets insert only, with no select, update or delete.
@@ -87,10 +88,20 @@ Sentiment gating ("Enjoying Ealch?" leading to the store for yes and a form for 
   - Le Rapport with a populated log and an empty log.
 
   iOS proof of the review request and report is a named pre-App-Store launch-checklist row, the same route Phase 9 D-22/D-23 option (b) offers.
+
+  *Amended 2026-10-01 (quality review):* the review-sheet proof uses a **Play internal-track build** on the Pixel 9, because a sideloaded build does not show the Play In-App Review sheet. Checking that build's prerequisites is a **wave-1 checkpoint**, not a wave-5 decision. Prerequisites are a Play Console upload, the Pixel 9 account as an internal tester, and an install from the Play link.
 - **D-33:** Adding `expo-store-review` moves the runtime fingerprint, so this phase ships **by binary, not OTA**. Check the fingerprint before any `eas update`.
 
+### Added 2026-10-01 (quality review of discussion, UI-SPEC and plans)
+- **D-34:** A review request is counted against the cap **immediately before** `requestReview()` is called, and it stays counted even if the call rejects. This follows D-07. Only `isAvailableAsync() === false` skips the request without counting it, because then no request is made.
+- **D-35:** Report rate limits are 3 per day per guest install, 10 per day per signed-in learner, 200 per day globally, and 20 per day per IP when the header is present. **Only accepted reports increment the counters.** A rejected or 429 attempt never consumes the global ceiling. When the server returns 429, the client keeps the report in its outbox and retries no sooner than the next calendar day (UTC), never in a backoff loop. If the counter cannot be read, the server returns 503 (fail closed).
+- **D-36:** New Phase 10 French strings use a narrow no-break space (U+202F) before `? ! ;` and a no-break space (U+00A0) before `:`. They use the ellipsis character `…`, never `...`. A test checks the new keys. The existing strings (0 NBSP today) go on the backlog and are not converted in this phase. The no-em-dash and no-"honest" rules still apply.
+- **D-37:** The concurrent 08.1 session gets a per-file guard. Before editing a shared file (`_layout.tsx`, `settings.tsx`, `speak.tsx`, `lesson.tsx`, `den.tsx`, `LessonPager.tsx`, `paywall.tsx`, `strings.ts`, `app.json`, `MissionRich.tsx`, `WordPractice.tsx`, `onboarding.tsx`, `sentence.tsx`, `profile.tsx`), the executor runs `git status --porcelain -- <file>`. If the file has uncommitted hunks the executor did not make, it **stops and waits** for 08.1 to commit. It never builds on top of another session's hunks and never commits them.
+- **D-38:** Review state and the report outbox each serialise every read-modify-write on a single promise queue. A report is **added to the outbox before it is sent** (claim-then-send), so killing the app mid-send cannot lose it.
+- **D-39:** "Retry can never re-arm" holds across visits. The review request arms only on the **first** perfect completion of a given lesson id, and the armed ids are persisted.
+
 ### Claude's Discretion
-- The "recent report" window in D-06, and the per-user and per-install rate limits in D-13.
+- (Superseded by D-35 and the D-06 amendment: the "recent report" window and the rate limits.)
 - The exact edge function and table names, schema and RLS shape, within D-12, D-17, D-20 and D-21.
 - Copy for categories, "What's included", the thank-you and the Settings rows (French first, English toggle). No em dash and no "honest" in copy.
 - How "offline" is detected for D-06.

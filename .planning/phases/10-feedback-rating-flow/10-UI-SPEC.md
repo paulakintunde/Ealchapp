@@ -1,16 +1,16 @@
 ---
 phase: 10
 slug: feedback-rating-flow
-status: approved
-reviewed_at: 2026-10-01
-shadcn_initialized: false
-preset: none
+status: draft
 created: 2026-10-01
+revised: 2026-10-01
 ---
 
 # Phase 10 - UI Design Contract
 
-> Visual and interaction contract for the report-a-problem sheet, its entry points, the Profile row, and the Le Rapport fixes. The existing Ealch visual language is the source of truth. Decisions D-01..D-33 in `10-CONTEXT.md` are locked and are not restated except where they set a visual rule. Items marked **(researcher default)** were not covered by CONTEXT.md and were chosen to match existing screens; the user can override them.
+> Visual and interaction contract for the report-a-problem sheet, its entry points, the Profile row, and the Le Rapport fixes. The existing Ealch visual language is the source of truth. Decisions D-01..D-39 in `10-CONTEXT.md` are locked and are not restated except where they set a visual rule. Items marked **(researcher default)** were not covered by CONTEXT.md and were chosen to match existing screens; the user can override them.
+>
+> Revision 2026-10-01: every control this spec builds on is cited as `file:line` from the live `ealch-v2` tree. Where a control does not exist yet, it is listed under "New component and API changes" so the plans pick it up.
 
 ---
 
@@ -18,30 +18,65 @@ created: 2026-10-01
 
 | Property | Value |
 |----------|-------|
-| Tool | none (Expo / React Native, manual design system; shadcn gate not applicable) |
-| Preset | not applicable |
+| Tool | none (Expo SDK 57 / React Native 0.86, manual design system) |
 | Component library | `src/components/ui.tsx` (`Press`, `Button`, `Card`, `Toggle`, `ProgressBar`, `FocusHeader`), `src/components/Type.tsx` (`TX`), `src/components/Icon.tsx` |
-| Icon library | local `Icon.tsx` on `react-native-svg`. Phase 10 adds ONE glyph: `flag` (24 viewBox, stroke, e.g. `['M5 21V4', 'M5 4h11l-2 4 2 4H5']`). All other icons reuse existing names: `chevronRight`, `chevronDown`, `chevronUp`, `check`, `star`, `wifi`, `x`, `arrowRight`, `book`, `user` |
+| Icon library | local `Icon.tsx` on `react-native-svg`. Phase 10 adds TWO glyphs: `flag` (24 viewBox, stroke, e.g. `['M5 21V4', 'M5 4h11l-2 4 2 4H5']`) and `more` (24 viewBox, fill, three vertical dots, e.g. circles r=1.75 at (12,5), (12,12), (12,19)). All other icons reuse existing names (`Icon.tsx:4-46`): `chevronRight`, `chevronDown`, `chevronUp`, `check`, `star`, `wifi`, `x`, `book` |
 | Font | Instrument Sans (interface), Instrument Serif (display headings only, as on Le Rapport) |
-| Color source | `useTheme()` tokens only (`t.bg`, `t.sheet`, `t.card`, `t.input`, `t.acc`, `t.accInk`, `t.accTx`, `t.danger`, `t.dangerA`, `t.txPrimary`, `t.txSecondary`, `t.txMuted`, `t.txSubtle`, `t.txNonText`, `t.line(pct)`, `t.accA(pct)`) |
+| Color source | `useTheme()` tokens only (`src/theme/palette.ts:99-150`). ErrorScreen is the one exception (provider-free, own hex values at `ErrorScreen.tsx:46-51`) |
 | Localization | `useT()` and `src/i18n/strings.ts`. French first, English toggle. Both language blocks get every new key |
-| Registry | none |
 
-Sources: `10-CONTEXT.md`, `10-PRE-DISCUSSION-AUDIT.md`, `09-UI-SPEC.md`, `src/components/type.logic.ts`, `src/theme/palette.ts`, `app/_layout.tsx` (formSheet), `app/settings.tsx` (row pattern), `app/feedback.tsx`.
+Sources: `10-CONTEXT.md`, `10-PRE-DISCUSSION-AUDIT.md`, `09-UI-SPEC.md`, `src/components/type.logic.ts`, `src/theme/palette.ts`, `src/theme/color.ts`, `app/_layout.tsx` (formSheet), `app/settings.tsx` (row pattern), `app/feedback.tsx`, `app/lesson.tsx`, `app/exam-report.tsx`, `app/profile.tsx`, `src/components/ErrorScreen.tsx`.
+
+---
+
+## New component and API changes (the plans must include these)
+
+| # | Change | Where | Why |
+|---|--------|-------|-----|
+| N1 | `Button` gains `loading?: boolean` | `src/components/ui.tsx:105-157` | `Button` today takes `icon?: IconName` only (`ui.tsx:112,121`) and has no spinner. See S1 "Send button loading" |
+| N2 | `HeaderMenuButton` + `HeaderMenu` (new component, anchored popover) | new `src/components/HeaderMenu.tsx`; replaces the "?" `Press` at `app/lesson.tsx:780-788` | S6: the header has no room for a fourth icon |
+| N3 | `Icon` gains `flag` and `more` | `src/components/Icon.tsx` (`IconName` union at :4, `ICONS` map) | Settings row, overflow button |
+| N4 | `ReportProblemLink` (new shared component) | new `src/components/ReportProblemLink.tsx` | S4 and S5 use one quiet action, one implementation |
+| N5 | `LessonPager` gains `onQuizQuestionChange?: (itemKey: string) => void` (the current quiz question's key in AUTHORED order: `${round.id}.q${i}` for a rounds quiz, `q${authoredIndex}` for the flat deck; fed by QuizRoundsView and QuizDeckView) and `onPageKindChange?: (kind: 'section' \| 'quiz' \| 'other') => void` | `src/components/LessonPager.tsx` (props at :348-370), `QuizRoundsView.tsx`, `LessonRich.tsx` (QuizDeckView) | The pager reports section changes only (`app/lesson.tsx:565`, null on quiz pages); the menu needs the page kind and the current quiz question. Quiz questions have no authored id (`schema.ts:1075`), so the key is positional in authored order, stable per lesson version |
+| N6 | `SectionRow` and `DelfRow` gain a `paperId: string` prop | `app/exam-report.tsx:305` and `:503`; `paperId` comes from `:62` | S5 attaches `paperId` and skill as the item id |
+| N7 | Pure helper `headlineAttempts(attempts)` (drops `activity === 'exam-review'`) | a `*.logic.ts` file, used by `app/report.tsx` and `app/profile.tsx:120-122` | Ring and Profile StatCard must agree (S7, S8) |
+| N8 | `ErrorScreen` restructured: ScrollView root, KeyboardAvoidingView, inline report panel, text through `typeMetrics` | `src/components/ErrorScreen.tsx:61-143` | S3 |
+| N9 | `WordPractice` mic error text loses `numberOfLines={2}` | `src/components/WordPractice.tsx:278` | House rule: no `numberOfLines` on body copy; the link now sits below it |
+| N10 | Settings "Rate Ealch" row is Android only | `app/settings.tsx` About section | No App Store id exists yet |
 
 ---
 
 ## Negative Contract: the native review request has NO app UI
 
-This is a hard rule for FEEDBACK-02 (D-01..D-11), recorded here so the planner and auditor can check for it.
+This is a hard rule for FEEDBACK-02 (D-01..D-11, D-34, D-39), recorded here so the planner and auditor can check for it.
 
 - The review request is a bare call to `expo-store-review` from a pure-logic decision. **No Ealch screen, sheet, modal, banner, toast, emoji row, star row, or text appears before, around, or after it.** Nothing asks "Enjoying Ealch?", "Would you rate us?", or any sentiment or predictive question (Google Play In-App Review guideline; Apple 5.6.1).
 - No pre-prompt, no "Not now" card, no custom stars, no thank-you after it (the app cannot know whether the learner rated).
 - It is not a PushBanner kind and not a Den card (D-24, S3 in the audit). Do not add a banner kind.
 - The only rating UI in the app is the Settings "Rate Ealch" row, which opens the **store listing URL** (D-11). It never calls the review API, and it is never shown as an alternative to, or follow-up of, "Report a problem".
 - The report sheet and the review request never appear in the same flow. The report sheet never contains a rating prompt, a link to the store, or the words "rate" or "review".
+- **D-06 amended: no state anywhere ties a report to rating.** Sending, queuing, failing or dropping a report writes nothing that review eligibility reads, and review eligibility reads nothing the report flow writes. A report outcome is never logged to the `errors.ts` ring (which D-06 does read).
 - The request fires only after the learner has returned to the trail (D-03); it must not delay or cover the trail, celebration, or score.
 - The only visible trace is the OS-owned sheet. The `review_requested` analytics event is invisible.
+
+---
+
+## House copy and text rules (checkable)
+
+Every new Phase 10 string, in both languages, and every new `Text`/`TX` node must pass all of these. The auditor checks each one by grep or test.
+
+| # | Rule | Check |
+|---|------|-------|
+| C1 | No em dash (U+2014 `—`) in any new string. The label separator "·" is allowed | grep new keys for `—` returns nothing |
+| C2 | The word "honest" (any case, either language) never appears | `sons-alphabet.test.ts` pattern, extended to the new keys |
+| C3 | D-36: in NEW French strings, a narrow no-break space U+202F sits before `?`, `!` and `;`, and a no-break space U+00A0 sits before `:`. A plain space or no space before those marks fails | the D-36 test over the new keys |
+| C4 | Ellipsis is the single character `…` (U+2026), never `...`, in both languages | grep new keys for `\.\.\.` returns nothing |
+| C5 | No `flex` style on a `Text`/`TX` node; wrap in a `View` with `flex: 1` instead | review of new JSX |
+| C6 | No `numberOfLines` on body copy. The only allowed use in this phase is the inherited one-line `FocusHeader` title (`ui.tsx:339`), which ellipsizes visibly | grep new JSX |
+| C7 | No `maxFontSizeMultiplier` and no absolute `lineHeight` on new text. Size and line height come from `typeMetrics` (`type.logic.ts:87-95`) through `TX`, or directly in provider-free code. `type.logic.ts:64-80` documents why: a cap on the glyphs with a separately scaled line box dropped word endings at font scale 1.3 | grep new JSX |
+| C8 | Guillemets in new French strings carry U+202F inside: `« texte »` (house choice, matches C3) | the D-36 test |
+
+In the copy table below, every no-break space is written as the real character and also marked: `[NNBSP]` = U+202F, `[NBSP]` = U+00A0. The marker column is documentation only; the string in the French column is the exact value to put in `strings.ts`.
 
 ---
 
@@ -50,12 +85,12 @@ This is a hard rule for FEEDBACK-02 (D-01..D-11), recorded here so the planner a
 | # | Surface | Route / location | New or changed |
 |---|---------|------------------|----------------|
 | S1 | Report-a-problem sheet | `app/report-problem.tsx`, `presentation: 'formSheet'` | New |
-| S2 | Settings rows "Report a problem" and "Rate Ealch" | `app/settings.tsx`, About section | Changed |
-| S3 | Crash fallback report action | `src/components/ErrorScreen.tsx` | Changed |
-| S4 | STT no-speech / mic failure action | existing STT failure UI | Changed |
-| S5 | Exam grading failure / ungraded action | exam report screen | Changed |
-| S6 | Content flag icon | `FocusHeader` `extra` slot on lesson mission and quiz question headers | Changed |
-| S7 | Profile "Your report" row | `app/profile.tsx` | Changed |
+| S2 | Settings rows "Report a problem" and "Rate Ealch" (Android only) | `app/settings.tsx`, About section | Changed |
+| S3 | Crash fallback report panel | `src/components/ErrorScreen.tsx` | Changed |
+| S4 | STT no-speech / mic failure action, 7 surfaces | `speak.tsx`, `voiceflash.tsx`, `sentence.tsx`, `onboarding.tsx`, `roleplay.tsx`, `MissionRich.tsx`, `WordPractice.tsx` | Changed |
+| S5 | Exam section with no band because grading or audio failed | `app/exam-report.tsx` `SectionRow` / `DelfRow` | Changed |
+| S6 | Lesson header overflow menu with the content report | `app/lesson.tsx` `FocusHeader` `extra` slot | Changed |
+| S7 | Profile "Your report" row and accuracy StatCard | `app/profile.tsx` | Changed |
 | S8 | Le Rapport fixes | `app/report.tsx` (renamed from `app/feedback.tsx`) | Changed |
 
 ---
@@ -77,7 +112,7 @@ gestureDirection: 'vertical'
 contentStyle: { backgroundColor: t.sheet }   // mandatory, otherwise the Android sheet paints transparent
 ```
 
-Content is a `ScrollView` with `keyboardShouldPersistTaps="handled"` and `automaticallyAdjustKeyboardInsets`. The **Send button lives in a pinned footer** below the scroll area (not inside it), wrapped in `KeyboardAvoidingView` (`behavior="padding"` on iOS, `behavior="height"` on Android) so the on-screen keyboard can never cover Send. Footer bottom padding is `insets.bottom + 16`. The category list and counter must remain reachable by scrolling at font scale 1.3 and 1.5.
+Content is a `ScrollView` with `keyboardShouldPersistTaps="handled"` and `automaticallyAdjustKeyboardInsets`. The **Send button lives in a pinned footer** below the scroll area (not inside it), wrapped in `KeyboardAvoidingView` with `behavior="padding"` on both platforms (Expo SDK 57 draws edge-to-edge on Android, so the window is not resized under the keyboard and `"height"` does not apply). Footer bottom padding is `insets.bottom + 16`. The category list and counter must remain reachable by scrolling at font scale 1.3 and 1.5. Device proof: Pixel 9, 3-button navigation, font scale 1.3, keyboard open on the details field: Send and the counter are both fully visible above the keyboard and the nav bar. If `padding` double-counts inside the formSheet on device, the executor records it and switches to the variant that passes this check.
 
 The sheet has no `FocusHeader`. Its header is a row: title (left) and a 44x44 close `Press` (`Icon x`, `accessibilityRole="button"`, label "Close") on the right. Closing with unsaved text (more than 0 characters or a category chosen by the learner, not pre-filled) shows no confirmation; the draft is simply discarded (researcher default: a draft this small is not worth a dialog).
 
@@ -93,7 +128,7 @@ The sheet has no `FocusHeader`. Its header is a row: title (left) and a 44x44 cl
 | 1 | Title row | `TX font="semi" role="titleLg"`: "Report a problem". Close button on the right. Screen-reader heading (`accessibilityRole="header"`) |
 | 2 | Intro line | `TX role="body" color={t.txMuted}`: one sentence, see copy |
 | 3 | Category group | Label `TX font="semi" role="meta" ls={2.4} color={t.txSubtle}`: "WHAT WENT WRONG" (required marker is spoken, see a11y). Then 6 rows, one per D-14 category, stacked, `gap: 8`. Container has `accessibilityRole="radiogroup"` |
-| 4 | Details field | Label "Details (optional)". Multiline `TextInput`, min height 120, `maxLength={1000}`, `t.input` background, `t.line(10)` 1px border, radius 16, padding 16, `TX` body metrics (15 px). Counter below right-aligned: `{n}/1000`, `TX role="meta" color={t.txMuted}`; turns `t.danger` (with the text still readable) at 950 or more |
+| 4 | Details field | Label "Details (optional)". Multiline `TextInput`, min height 120, `maxLength={1000}`, `textAlignVertical="top"`, `t.input` background, **`t.txNonText` 1 px border** (1.5 px while focused; the field sits on a same-colour sheet, so the border is its only boundary and must reach 3:1), radius 16, padding 16, `TX` body metrics (15 px, via `typeMetrics`), `placeholderTextColor={t.txSubtle}`. Counter below right-aligned: `{n}/1000`, `TX role="meta" color={t.txMuted}`; turns `t.danger` at 950 or more |
 | 5 | "What's included" | Single collapsible row, see below |
 | 6 | Contact checkbox | Signed-in learners only. Hidden for guests (no disabled placeholder) |
 | 7 | Pinned footer | Primary `Button` "Send report" (54 px, accent fill). Status line above it when a state needs one |
@@ -101,9 +136,9 @@ The sheet has no `FocusHeader`. Its header is a row: title (left) and a 44x44 cl
 ### Category row
 
 - Row: `minHeight: 52`, radius 16, `borderWidth: 1`, padding `12 16`, `flexDirection: 'row'`, `gap: 12`, `alignItems: 'center'`.
-- Unselected: `t.card` background, `t.line(10)` border. Selected: `t.accA(10)` background, `t.acc` border (1.5), `Icon check` 16 px in `t.accTx` on the right. Selection is never signaled by color alone: the check glyph appears on the selected row.
-- Left: a 20 px radio circle (`borderWidth 1.5`, `t.line(30)` unselected; filled `t.acc` dot selected).
-- Label: `TX font="semi" role="body"`. No `numberOfLines`, no `flex` on the `Text` itself (wrap the label in a `View` with `flex: 1`; the Text inside stays unstyled by flex, per the font-scale tail-clip rule).
+- Unselected: `t.card` background, `t.line(10)` border (decorative; the radio circle identifies the control). Selected: `t.accA(10)` background, **`t.accTx` border (1.5)**, `Icon check` 16 px in `t.accTx` on the right. Selection is never signaled by color alone: the check glyph appears on the selected row.
+- Left: a 20 px radio circle, `borderWidth 1.5`. Unselected border **`t.txNonText`**. Selected border **`t.accTx`** with a 10 px **`t.accTx`** dot. (Raw `t.acc` is not used for any border, dot or glyph on this sheet: Riviera `#2FD6C1` on white measures 1.82:1.)
+- Label: `TX font="semi" role="body"`. No `numberOfLines`, no `flex` on the `Text` itself (wrap the label in a `View` with `flex: 1`; the Text inside stays unstyled by flex, per C5).
 - `accessibilityRole="radio"`, `accessibilityState={{ selected }}`, `accessibilityLabel` = the category label.
 - Pre-filled category: row is shown selected on open, learner can change it. Pre-fill is not locked.
 - No category selected: Send is `disabled` (opacity 0.4) and its `accessibilityState.disabled` is true. A short hint line "Choose what went wrong to send" appears above Send in `TX role="meta" color={t.txMuted}` only while no category is chosen.
@@ -111,95 +146,208 @@ The sheet has no `FocusHeader`. Its header is a row: title (left) and a 44x44 cl
 ### "What's included" (D-19)
 
 - Collapsed: a `Press` row, `minHeight: 44`, `accessibilityRole="button"`, `accessibilityState={{ expanded }}`, label = the one-liner text. Right side `Icon chevronDown` (`chevronUp` when open), 14 px, `t.txNonText`.
-- One-liner (collapsed): "What's included: app version, screen, recent errors. Never your answers or recordings."
-- Expanded: inside a `t.card` rounded block (radius 16, padding 16, `gap: 8`), a plain list with one `TX role="body" color={t.txSecondary}` per line, bullet via "·" separator character in the string, covering the full D-16 list:
-  - App version, update and platform
-  - The screen you were on, and the lesson or item number
-  - The last 10 error messages from this session
-  - Phone model, text size, and light or dark theme
-  - Your email, only if you tick "You can contact me"
-  - Never included: your answers, what you said, or your recordings
+- One-liner (collapsed): see copy table.
+- Expanded: inside a `t.card` rounded block (radius 16, padding 16, `gap: 8`), a plain list with one `TX role="body" color={t.txSecondary}` per line, bullet via "·" separator character in the string, covering the full D-16 list (Included list 1 to 6 in the copy table).
 - Expanding scrolls the row into view; focus stays on the toggle row.
 
 ### Contact checkbox (D-17)
 
-- Row: `minHeight: 52`, `Press` with `accessibilityRole="checkbox"`, `accessibilityState={{ checked }}`, label "You can contact me". Left: 24 px square (radius 6, `borderWidth 1.5`, `t.line(30)`; checked: `t.acc` fill with `Icon check` in `t.accInk`). Right: label `TX font="semi" role="body"` and below it `TX role="meta" color={t.txMuted}` "We use your account email to reply. Off unless you tick it."
+- Row: `minHeight: 52`, `Press` with `accessibilityRole="checkbox"`, `accessibilityState={{ checked }}`, label "You can contact me". Left: 24 px square (radius 6, `borderWidth 1.5`). Unchecked: **`t.txNonText`** border, transparent fill. Checked: **`t.accTx`** fill and border, `Icon check` 16 px in **`t.sheet`**. Right: label `TX font="semi" role="body"` and below it `TX role="meta" color={t.txMuted}` (contact sub, see copy).
 - Default off every time the sheet opens (not remembered).
 - Signed-in only. For guests the row is not rendered and the intro line has no mention of contact.
 - Use a custom checkbox, not `Toggle` (switch semantics differ from the "checkbox" role the contract requires).
 
+### Send button loading (NEW: N1, `Button` `loading` prop)
+
+`Button` (`ui.tsx:105-157`) has no loading state today: its props are `label, onPress, variant, cue, disabled, style, icon` (`ui.tsx:106-112`) and the only leading slot is `{icon ? <Icon name={icon} size={18} color={fg} /> : null}` (`ui.tsx:151`). Add:
+
+- `loading?: boolean`. While true: an `ActivityIndicator` `size={18}` `color={fg}` renders in the icon slot (replacing `icon` if one is set); `onPress` is not wired; `accessibilityState={{ disabled: true, busy: true }}`; opacity stays 1 (loading is not the 0.4 disabled look).
+- The label text does not change while loading, so the label width is stable and the button never resizes. Progress is announced by the status line, not by the button label.
+- Default `false`; every existing call site renders exactly as before.
+
 ### States
 
-Every state keeps the user's category and text intact until success.
+Every state keeps the user's category and text intact until success. A report is written to the outbox **before** it is sent (D-38, claim-then-send), so every state below starts from a saved report.
 
 | State | Visual | Announcement | Controls |
 |-------|--------|--------------|----------|
 | idle | Form as above, Send enabled once a category is chosen | none | all active |
-| sending | Send label becomes "Sending..." with a 18 px `ActivityIndicator` (`t.accInk`) left of the label; Send disabled; category rows, text field, checkbox set to `disabled`. Footer stays visible | `accessibilityLiveRegion="polite"`: "Sending" | close stays active. Closing mid-send is allowed; the send continues and the outcome is queued (D-18) |
-| sent | Form replaced by a centered confirmation block: 56 px circle `t.accA(14)` with `Icon check` 24 px `t.accTx`, heading `TX font="semi" role="titleLg"` (Instrument Sans semibold; serif is reserved for the inherited Le Rapport display text), body `TX role="body" color={t.txMuted}` | "Report sent. Thank you." | Primary `Button` "Close". Sheet also auto-dismisses after 2500 ms and returns the learner to where they were (D-26); Close dismisses immediately. Auto-dismiss is suspended while a screen reader is active (TalkBack/VoiceOver on) so the message is fully read; the learner uses Close |
-| queued-offline | Same confirmation layout as sent but with `Icon wifi` instead of check and the queued copy. Calm, not an error: `t.accA(14)` circle, no danger color | "Saved. It will send when you are back online." | "Close"; auto-dismiss 2500 ms (suspended with screen reader). Queue and retry follow D-18; no further UI is shown at retry time |
-| rate-limited (429) | Treated as queued per D-18: shown as queued-offline copy variant "Too many reports right now. We saved it and will send it later." Not an error color | polite live region | "Close" |
-| 5xx / network | Same as queued-offline (saved, retried) | polite live region | "Close" |
-| 4xx error (not 429) | Form stays open with text and category preserved. Inline error block above Send: `t.dangerA(12)` background, `t.danger` 1px border, radius 12, padding 12, text only (no icon), `TX role="body" color={t.danger}`. Send stays enabled, label "Try again". The report is NOT queued (D-18) | `accessibilityLiveRegion="assertive"` and `accessibilityRole="alert"`; focus is not moved away from the field | "Try again", plus the learner can edit the text |
+| sending | Send uses `loading` (N1): spinner in the icon slot, label stays "Send report". Status line above Send: "Sending…" (`TX role="meta" color={t.txMuted}`). Category rows, text field and checkbox are `disabled`. Footer stays visible | status line has `accessibilityLiveRegion="polite"`: "Sending…" | close stays active. Closing mid-send is allowed; the send continues in the background (see "after close" rows) |
+| sent | Form replaced by a centered confirmation block: 56 px circle `t.accA(14)` with `Icon check` 24 px `t.accTx`, heading `TX font="semi" role="titleLg"`, body `TX role="body" color={t.txMuted}` | "Thanks, it is sent." | Primary `Button` "Close". Sheet auto-dismisses after 2500 ms and returns the learner to where they were (D-26); Close dismisses immediately. Auto-dismiss is suspended while a screen reader is active (TalkBack/VoiceOver on) so the message is fully read; the learner uses Close |
+| queued-offline | Same confirmation layout as sent but with `Icon wifi` instead of check. Calm, not an error: `t.accA(14)` circle, no danger color. Heading "Saved", body "Queued body (offline)" | the heading and body | "Close"; auto-dismiss 2500 ms (suspended with screen reader). Retried on next launch and each return to foreground (D-18) |
+| rate-limited (429) | Same layout as queued-offline. Heading "Saved", body **"Queued body (429)"**, word-for-word the copy table row. Not an error color. The report stays in the outbox and is not retried before the next calendar day, UTC (D-35) | the heading and body | "Close" |
+| 5xx / network error | Same layout as queued-offline. Heading "Saved", body "Queued body (5xx)". Retried as offline (D-18) | the heading and body | "Close" |
+| 4xx error (not 429) | Form stays open with text and category preserved. Inline error block above Send: **`t.dangerA(8)` background, `t.danger` 1 px border, radius 12, padding 12, text `TX role="body" color={t.txPrimary}`** (words carry the error; the red border and tint reinforce it). Send stays enabled, label "Try again". The report is removed from the outbox, NOT retried (D-18) | `accessibilityLiveRegion="assertive"` and `accessibilityRole="alert"`; focus is not moved away from the field | "Try again", plus the learner can edit the text |
+| sent, after the learner closed mid-send | No UI. The outbox entry is cleared | none | none |
+| 4xx, after the learner closed mid-send **(researcher default)** | The report is dropped: removed from the outbox, not retried, and the learner is **not** re-notified (no toast, banner, badge or next-open message). Rationale: a 4xx means the payload itself was refused, the learner already left the context, and resurfacing it would interrupt an unrelated screen. The drop is NOT written to the `errors.ts` ring (that ring feeds the D-06 review skip, and a report must never affect review eligibility) | none | none |
+| 429 / 5xx / offline, after close | Stays in the outbox exactly as if the sheet were open. No UI | none | none |
+| repeated 429 from the queue (guest or signed-in) | Still queued. Each retry happens no sooner than the next UTC day (D-35), on launch or foreground. **No UI at any retry, ever:** no toast, no banner, no badge, no repeated "Saved". The learner saw "Saved" once, when they sent it | none | none |
+| app killed mid-send | The claimed report is already in the outbox (D-38) and is retried on next launch. No UI | none | none |
 
-Error text color (`t.danger`) is always paired with words; no state is conveyed by color alone.
+Error text is always paired with words; no state is conveyed by color alone.
 
 ### Pre-fill and context (D-22, D-16)
 
-The route takes params: `category` (one of `audio | grading | content | crash | payment | other`), `screen` (string), `itemId` (string, optional), `lessonId` (string, optional). The pre-filled category is selected and announced on open ("Audio or voice selected"). Screen, item and lesson ids are attached silently and are NOT shown as editable fields; the one-liner covers them. For content flags (S6) the intro line changes to "You are reporting a mistake in this item." (see copy). Item and lesson ids are never displayed.
+The route takes params: `category` (one of `audio | grading | content | crash | payment | other`), `screen` (string), `itemId` (string, optional), `lessonId` (string, optional). The pre-filled category is selected and announced on open ("Audio or voice selected"). Screen, item and lesson ids are attached silently and are NOT shown as editable fields; the one-liner covers them. For content reports (S6) the intro line changes to the content-flag intro (see copy). Item and lesson ids are never displayed.
 
 ---
 
 ## S2. Settings rows
 
-Placed in the existing **About** section of `app/settings.tsx`, directly above the Licences row and in this order: "Report a problem", "Rate Ealch", then the existing Licences row. Reuse the Licences row geometry exactly: `Press`, `minHeight: 58`, radius 16, `borderWidth: 1`, `t.line(10)`, `t.card`, `t.cardShadow`, `gap: 14`, `paddingHorizontal: 16`, `paddingVertical: 10`, `marginBottom: 24` (use `marginBottom: 8` between the first two rows, matching the category-row gap; the last row keeps 24).
+Placed in the existing **About** section of `app/settings.tsx`, directly above the Licences row and in this order: "Report a problem", "Rate Ealch", then the existing Licences row. Reuse the Licences row geometry exactly: `Press`, `minHeight: 58`, radius 16, `borderWidth: 1`, `t.line(10)` (decorative; title and chevron identify the row), `t.card`, `t.cardShadow`, `gap: 14`, `paddingHorizontal: 16`, `paddingVertical: 10`, `marginBottom: 24` (use `marginBottom: 8` between rows, matching the category-row gap; the last row before Licences keeps 24).
+
+**"Rate Ealch" is Android only until an App Store id exists.** Render it only when `Platform.OS === 'android'`. On iOS the row is not rendered at all (no disabled placeholder); adding it is a named row on the pre-App-Store launch checklist, alongside the D-32 iOS proof.
 
 | Row | Icon (18 px, `t.txSecondary`) | Title (`TX font="semi" role="body"`) | Sub (`TX role="meta" color={t.txMuted}`) | Action | a11y |
 |-----|------|-------|-----|--------|------|
 | Report a problem | `flag` | Report a problem | Something broken or wrong? Tell us. | `router.push({ pathname: '/report-problem', params: { screen: 'settings' } })`, no category pre-fill | `accessibilityRole="button"`, label = title |
-| Rate Ealch | `star` | Rate Ealch | Opens the store page. | opens the store listing URL via `Linking.openURL` (never `requestReview`) | `accessibilityRole="link"`, label = "Rate Ealch, opens the store" |
+| Rate Ealch (Android only) | `star` | Rate Ealch | Opens the Play Store page. | `Linking.openURL('market://details?id=app.ealch.mobile')`; if that rejects, `Linking.openURL('https://play.google.com/store/apps/details?id=app.ealch.mobile')` (package from `app.json:26`). Never `requestReview` | `accessibilityRole="link"`, label = "Rate Ealch, opens the Play Store" |
 
-Trailing glyph: `Icon chevronRight` on the report row; `Icon arrowRight` rotated is NOT used. The rate row's trailing glyph is `chevronRight` too (the label says it opens the store). Neither row is in the danger zone and neither uses accent fill.
+**Rate row open failure:** if both `openURL` calls reject, a quiet inline line appears directly below the Rate row (`marginTop: 4`, `marginBottom: 8`, inside the About section): `TX role="meta" color={t.txMuted}` "Could not open the Play Store. Try again later." in a `View` with `accessibilityLiveRegion="polite"`. No icon, no danger color, no dialog. It clears on the next tap of the row or when Settings unmounts.
+
+Trailing glyph: `Icon chevronRight` (14 px, `t.txNonText`) on both rows. Neither row is in the danger zone and neither uses accent fill.
 
 ---
 
 ## S3. Crash fallback (ErrorBoundary)
 
-`ErrorScreen.tsx` is deliberately provider-free (no `useTheme`, `useT`, router, or fonts), because it renders when those may have failed. The report entry must preserve that.
+`ErrorScreen.tsx` is deliberately provider-free (`ErrorScreen.tsx:3-8`: no `useTheme`, `useT`, router, or fonts), because it renders when those may have failed. The report entry must preserve that.
 
-- Add a second action under the existing "Try again" button: ghost/outline "Report this problem" (same 54 px height geometry as the retry button, `borderWidth 1.5`, border and label in the screen's own `tx` colour, not accent). The existing retry stays the single primary action.
-- **(researcher default)** Because the router may be unmounted, tapping it expands an **inline** compact panel inside `ErrorScreen` (not a route and not a formSheet): fixed category "App froze or crashed" shown as read-only text, the same optional 1000-char field with counter, and a "Send report" button. It reuses the pure `*.logic.ts` payload builder and the outbox from S1 but none of S1's themed components. The "You can contact me" checkbox is omitted here (no session read is guaranteed). States are the same words as S1 (sending, sent, saved for later, error) rendered inline. If the planner can prove `router.push('/report-problem?category=crash')` works from the boundary on device, it may use the sheet instead, but must keep this inline panel as the fallback.
-- Hardcoded `COPY` table gets `fr` and `en` entries (existing pattern): `report` button label, panel title, hint, send, sending, sent, saved.
-- A11y: both buttons `accessibilityRole="button"` with labels; the panel is announced when it opens; font scaling uses the screen's existing `maxFontSizeMultiplier` pattern; no `numberOfLines`.
-- The raw error message and stack from the boundary are part of the report (they are also in the errors.ts ring); the learner sees only the existing "Technical details" disclosure.
+### What is wrong with the current layout
+
+- The root is a non-scrolling `View` with `flex: 1` and fixed `paddingTop: 96` (`ErrorScreen.tsx:62`), and the "Technical details" box is a `ScrollView` with `flex: 1` (`ErrorScreen.tsx:115-117`) that takes all remaining height. A text field added to that root has nowhere to go when the keyboard opens.
+- Every `Text` uses `maxFontSizeMultiplier` together with an absolute `lineHeight` (e.g. `ErrorScreen.tsx:72-73`: `maxFontSizeMultiplier={1.25}` with `fontSize: 32, lineHeight: 38`). That is exactly the pattern `type.logic.ts:64-80` identifies as the cause of dropped word endings at font scale 1.3. **Do not reuse it.** Rule C7 applies.
+
+### Layout tree (replaces `ErrorScreen.tsx:61-143`)
+
+```
+View  root                         flex:1, backgroundColor: bg
+└─ KeyboardAvoidingView            flex:1, behavior="padding" (both platforms)
+   └─ ScrollView                   flex:1, keyboardShouldPersistTaps="handled", ref=scrollRef
+      contentContainerStyle        flexGrow:1, paddingHorizontal:28, paddingTop:64,
+                                   paddingBottom: (initialWindowMetrics?.insets.bottom ?? 48) + 24
+      ├─ Text tag                  "ERROR"
+      ├─ Text title                "Something broke."
+      ├─ Text body                 new body (no em dash)
+      ├─ Pressable retry           filled tx, minHeight 54 (unchanged look, the single filled button)
+      ├─ Pressable report          outline, minHeight 54, marginTop 12. Hidden once the panel is open
+      ├─ View panel (when open)    marginTop 24, gap 12, onLayout -> panelY
+      │  ├─ Text panelTitle        accessibilityRole="header"
+      │  ├─ Text categoryLabel     "CATEGORY" (meta, uppercase)
+      │  ├─ Text categoryValue     "App froze or crashed" (read-only text, not a control)
+      │  ├─ Text detailsLabel      "Details (optional)"
+      │  ├─ TextInput              multiline, minHeight 120, maxLength 1000, textAlignVertical top,
+      │  │                         borderWidth 1, borderColor dim, radius 14, padding 14, bg surface
+      │  ├─ Text counter           "{n}/1000", right-aligned
+      │  ├─ Text status            live region (sending / sent / saved / error)
+      │  └─ Pressable send         outline (borderWidth 1.5, tx), minHeight 54
+      ├─ Text detailsHeading       "TECHNICAL DETAILS", marginTop 32
+      └─ View details              radius 14, border line, bg surface, padding 14
+         └─ Text (selectable)      version + formatForReport(entry), full height, no inner ScrollView
+```
+
+- The details box is a plain `View`, not a `flex: 1` `ScrollView`; the outer ScrollView scrolls the whole screen. It sits **below** the panel so the panel is never pushed off screen by a long stack.
+- `initialWindowMetrics` comes from `react-native-safe-area-context` (`package.json:41`) and is static, so it needs no provider. The fallback of 48 covers 3-button navigation.
+- On `TextInput` focus, call `scrollRef.current?.scrollTo({ y: panelY - 16 })` so the field, counter and Send are in view above the keyboard.
+- Proof target: Pixel 9, 3-button navigation, font scale 1.3, keyboard open: the TextInput, the counter and the Send button are all fully visible with no clipped text.
+
+### Text metrics (rule C7)
+
+Every `Text` and the `TextInput` in `ErrorScreen` uses `allowFontScaling={false}` and takes `fontSize` and `lineHeight` from `typeMetrics({ role, fontScale: PixelRatio.getFontScale() })` (`type.logic.ts:87-95`, pure, no RN or provider imports). Roles: tag `meta`, title `titleLg` (replaces the hand-set 32/38), body `body`, buttons `bodyLg`, panel labels and counter `meta`, input `body`, details `meta`. This applies to the existing text in the file too, since the same layout change touches all of it. No `maxFontSizeMultiplier` anywhere in the file after this change.
+
+### Copy changes in `COPY` (`ErrorScreen.tsx:14-31`)
+
+- `body` FR (`:18`) and EN (`:26`) each contain an em dash today. Replace with the copy-table "Crash body" row.
+- `help` FR (`:21`) and EN (`:29`), "send a screenshot of this screen", is **removed**, together with its `Text` (`:135-141`). The "Report this problem" button replaces it.
+- The version fallback `'—'` at `ErrorScreen.tsx:59` becomes `'?'` (C1).
+- New `COPY` keys, FR and EN (values in the copy table): `report`, `panelTitle`, `categoryLabel`, `categoryValue`, `detailsLabel`, `placeholder`, `send`, `sending`, `sent`, `saved`, `error`.
+
+### Behaviour
+
+- Tapping "Report this problem" opens the panel inline (not a route, not a formSheet), hides the report button, and moves screen-reader focus to `panelTitle` (`AccessibilityInfo.setAccessibilityFocus`).
+- The panel reuses the pure `*.logic.ts` payload builder and the outbox from S1 but none of S1's themed components. The "You can contact me" checkbox is omitted (no session read is guaranteed).
+- States reuse the S1 wording: sending, sent, saved (offline, 429 and 5xx all show "saved"), error (4xx). The status line uses the screen's `tx` colour, never `danger`. While sending, the Send `Pressable` is disabled with `accessibilityState={{ disabled: true, busy: true }}` and shows an `ActivityIndicator` (size 18, colour `tx`) before its unchanged label.
+- If the planner proves `router.push('/report-problem?category=crash')` works from the boundary on device, it may use the sheet, but the inline panel stays as the fallback.
+- The raw error message and stack are part of the report; the learner sees only the existing "Technical details" text.
+- Light-mode tag colour: `#E5484D` on `#FAF7F0` measures 3.66:1 (fails 4.5:1 for 12 px text). Use `#C2412F` in light mode (4.80:1); dark mode keeps `#E5484D` (5.00:1 on `#0B0C0E`).
 
 ---
 
-## S4. STT "hears nothing" / mic failure
+## S4. STT "hears nothing" / mic failure (7 surfaces)
 
-Add a quiet text action beside the existing retry on the existing failure state: "Report a problem" (secondary, `TX font="semi" role="meta" color={t.txSecondary}`, 44 px tall hit area, underline not required, `minHeight: 44`, `accessibilityRole="button"`, label "Report an audio problem"). It must never replace or visually outrank the existing retry or skip action. It appears on EVERY "hears nothing" result and on every mic error (permission denied, unavailable, recorder error), per D-22, with no failure-count condition. It stays a quiet text action so it never competes with the retry. Opens S1 with `category=audio`, `screen` set to the current route.
+One shared component, `ReportProblemLink` (N4):
+
+- Props: `category: 'audio' | 'grading'`, `screen: string`, `itemId?: string`, `lessonId?: string`, `a11yLabel: string`, `align?: 'center' | 'flex-start' | 'flex-end'` (default `'center'`).
+- Renders a `Press` with `minHeight: 44`, `justifyContent: 'center'`, `paddingHorizontal: 8`, `alignSelf: align`, `accessibilityRole="button"`, `accessibilityLabel={a11yLabel}`. Inside, `TX font="semi" role="meta" color={t.txSecondary}`: "Report a problem". No icon, no accent, no underline.
+- Opens S1 with the given params.
+- Always placed **on its own line directly below the failure message**, so it never shares a row with, or competes in width against, retry, skip or continue. It never replaces or outranks those actions.
+- Rendered only while the failure message is showing; hidden while listening or recording.
+
+It appears on every no-speech result and every mic error (permission denied, unavailable, recorder error) with no failure-count condition (D-22). `category="audio"`, `a11yLabel` = "Report an audio problem".
+
+| # | File | Failure message today | `ReportProblemLink` placement | `screen` / ids |
+|---|------|------------------------|-------------------------------|----------------|
+| 1 | `app/speak.tsx` | Card text at `:707-719` (`micDenied` / `micUnavail` / `micCantHear` / `micNoSpeechHint` / `micNoSpeech`). The bottom caption at `:798-802` repeats `micCaption` (`:376-387`) | Directly below the `TX` at `:709-719`, inside the same branch, `align="flex-start"`, `marginTop: 4`, above the counter/actions row at `:720`. **Not** under the bottom caption (one link per screen) | `screen: 'speak'`, `itemId` = current card id |
+| 2 | `app/voiceflash.tsx` | `TX role="meta"` at `:524-530` | Directly below it, `align="center"` | `screen: 'voiceflash'`, `itemId` = card id |
+| 3 | `app/sentence.tsx` | `TX role="label"` inside the result card at `:517-519` | Inside the same card, below that text, `align="center"` | `screen: 'sentence'`, `itemId` = sentence id |
+| 4 | `app/onboarding.tsx` | `micError` in a polite live region at `:633-638` (`obMicDenied` / `micUnavail` / `obMicTransient`, built at `:275-278`) | Below the live-region `View`, `align="flex-start"`. Outside the live region so it is not re-announced | `screen: 'onboarding'` |
+| 5 | `src/components/MissionRich.tsx` | `attempt.kind === 'unheard'` block at `:1913-1929` (`rpNotHeard` / `micDenied` / `rpMicBlocked`) | Inside the block's `View` (`:1914`), below the `TX`. `align="flex-end"` when `attempt.reason === 'silent'` (matches the right-aligned message), else `"flex-start"` | `screen: 'lesson'`, `lessonId`, `itemId` = mission anchor |
+| 6 | `src/components/WordPractice.tsx` | `captureErr` `TX` at `:277-280` inside a `minHeight: 20` centered container (`:272`) | Below the `captureErr` `TX`, `align="center"`. Remove `numberOfLines={2}` from that `TX` (`:278`, N9) | `screen` = host screen, `itemId` = word |
+| 7 | `app/roleplay.tsx` | `rpNotHeard` in the learner bubble at `:376-379` (`m.heardOk === false`) | Below the bubble, `align="flex-end"` (learner side), **only under the most recent unheard turn**; earlier turns in the transcript do not carry it | `screen: 'roleplay'`, `itemId` = scenario id |
 
 ---
 
-## S5. Exam grading failure / ungraded answer
+## S5. Exam section with no band (grading or audio failed)
 
-On the exam report item whose state is "grading failed" or "ungraded", add the same quiet text action "Report a problem" below the state explanation, `minHeight: 44`, label "Report a grading problem". Opens S1 with `category=grading`, plus `screen`, and the exam paper/item stable id as `itemId`. It never replaces the existing "Retry grading" or explanation. It does not appear on successfully graded items (a learner who disputes a score still reaches the Settings route).
+There is **no "Retry grading" control** in `app/exam-report.tsx`. What exists: `noBandNote(reason: NoBandReason, T)` (`exam-report.tsx:555-569`), a switch over `NoBandReason` (`src/utils/nclc.logic.ts:83`), rendered as a right-column note by `SectionRow` (`:316-317`, `:340-342`) and `DelfRow` (`:512`, note `TX` near `:533-539`). Two reasons are failures and are already coloured `t.danger` (`:317`, `:536`):
+
+| `NoBandReason` | Existing note (`noBandNote`) | Report action | Pre-filled category | `a11yLabel` |
+|----------------|------------------------------|---------------|---------------------|-------------|
+| `'not-graded'` | `T.examUngraded` (`:557`) | `ReportProblemLink` "Report a problem" | `grading` ("Grading felt wrong") | "Report a grading problem" |
+| `'audio-failed'` | `T.examAudioFailed` (`:556`) | `ReportProblemLink` "Report a problem" | `audio` ("Audio or voice") | "Report an audio problem" |
+| `practice`, `not-sat`, `not-answered`, `no-scoring`, `below-scale`, or scored | unchanged | none | none | none |
+
+Placement: the row's note column is capped at `maxWidth: 140` (`:341`), so the link does not go there. The row container (`:320-326` in `SectionRow`, the matching `View` in `DelfRow`) becomes a column: the existing horizontal row unchanged on top, and below it, only for the two reasons above, `ReportProblemLink` with `align="flex-start"`, `marginTop: 4`, inside the same card. The card's padding (16) and `marginBottom: 10` are unchanged.
+
+Params: `screen: 'exam-report'`, `itemId: \`${paperId}:${skill}\`` (`paperId` from `exam-report.tsx:62`, passed to both rows as a new prop, N6). The link does not appear on scored sections; a learner who disputes a score uses the Settings row.
 
 ---
 
-## S6. Content flag icon (D-23)
+## S6. Lesson header overflow menu (D-23)
 
-- Appears on lesson **mission** pages and **quiz question** pages only. Not on flashcards, dictation, roleplay or exam items (deferred).
-- Placement: the `FocusHeader` `extra` slot (left of the gear), a 44x44 `Press` with a centered `Icon flag` 18 px in `t.txSecondary` (not accent; accent stays reserved for the screen's own primary). `accessibilityRole="button"`, `accessibilityLabel="Report a problem with this item"` (FR label in French mode). No gesture alternative is introduced and none is removed; it is a plain tap.
-- Must not shift the existing header layout or collide with the English-toggle pill at B1+ (verify at font scale 1.3, where header icons stay a fixed 44 px).
-- Tap opens S1 with `category=content`, `screen`, `lessonId` and the current `itemId`/mission id. Opening the sheet never pauses scoring, never marks the question answered, and on dismiss the learner returns to the same mission/question in the same state.
-- The icon is hidden while a quiz answer is being graded or an animation is committing the result (avoid a stray tap changing the sheet stack mid-transition); otherwise always visible.
+### Why the flag cannot be a fourth icon
+
+The `FocusHeader` row (`ui.tsx:307-375`) is: close (38 px visible, `hitSlop` 8, `ui.tsx:316-335`), title (`TX ... numberOfLines={1} style={{ flex: 1, marginHorizontal: 8 }}`, `ui.tsx:337-348`), then a right cluster with `gap: 8` holding `extra` and the gear (38 px, no `hitSlop`, `ui.tsx:354-369`). In `app/lesson.tsx:768-789` the `extra` slot already holds the `LanguageChip` at B1+ (`minHeight 32`, label capped at `maxScale 1.3`, `LanguagePanel.tsx:43-62`), `SheetLink` (32 px, `hitSlop` 8, `ReferenceSheet.tsx:43-53`) and the 32 px "?" help button (`lesson.tsx:780-788`, `hitSlop` 8). On a 412 dp-wide Pixel 9 at B1+ and font scale 1.3 the title is already down to about 108 dp. A fourth 44 px control would take most of what is left.
+
+### Design: one overflow button replaces the "?" (N2)
+
+- Replace the "?" `Press` at `lesson.tsx:780-788` with `HeaderMenuButton`: visible circle **36x36** (radius 18, `borderWidth: 1`, `t.line(14)`, matching its neighbours), centered `Icon more` 16 px `t.txSecondary`.
+- **Hit target 44x44:** `hitSlop={{ top: 4, bottom: 4, left: 0, right: 8 }}`. Right 8 fills the 8 dp gap to the gear exactly (the gear has no `hitSlop`). Left 0 because `SheetLink`'s own `hitSlop` 8 already reaches this button's left edge; this avoids the overlapping touch areas the "?" has today. Net cost to the title: 4 dp.
+- `accessibilityRole="button"`, `accessibilityLabel` "More options", `accessibilityState={{ expanded: menuOpen }}`.
+- Tapping opens `HeaderMenu`: a transparent `Modal` (`onRequestClose` closes it, so Android Back works) with a full-screen dismiss `Press` (no visible scrim) and a card anchored top-right just below the header (`top: insets.top + headerHeight + 4`, `right: 20`). Card: `t.sheet` background, radius 16, `borderWidth: 1`, `t.line(12)`, `t.cardShadow`, `minWidth: 240`, `maxWidth: windowWidth - 40`, `paddingVertical: 4`, `accessibilityViewIsModal`.
+- Menu rows: `Press`, `minHeight: 48`, `paddingHorizontal: 16`, `paddingVertical: 10`, `flexDirection: 'row'`, `gap: 12`, `alignItems: 'center'`; leading icon 18 px `t.txSecondary` in a fixed 18 px box; label `TX role="body" color={t.txPrimary}` inside a `View` with `flex: 1` (wraps, C5 and C6).
+  1. **Help:** label `T.lkHelp` ("How lessons work", `strings.ts:1201`; FR "Comment fonctionnent les leçons", `:690`), no icon box content (empty 18 px spacer keeps labels aligned), action = the existing `setShowKeyOverride(true)` (`lesson.tsx:782`).
+  2. **Report a problem with this item:** icon `flag`, label and `accessibilityLabel` "Report a problem with this item". Action: close the menu, then push S1 with `category=content`, `screen: 'lesson'`, `lessonId: L.id`, and `itemId` = on a mission page the section anchor `${L.id}#s${fullIx}.0` (the `writeResume` format, `lesson.tsx:583`, with `fullIx` from `lastFullIx.current`, `:573`); on a quiz question page the key from the new `onQuizQuestionChange` (N5): rounds quiz `${L.id}#quiz.${round.id}.q${i}`, flat quiz `${L.id}#quiz.q${authoredIndex}` (authored position, never display order). Page kind comes from the new `onPageKindChange` (N5).
+- Row 2 is rendered only on mission pages and quiz question pages. On cover, image and quiz result pages the menu holds Help only.
+- Focus: on open, screen-reader focus goes to the first row; on close (any path), focus returns to `HeaderMenuButton` (the 08.1-01 focus-return pattern, commit `55f3755`).
+- While a quiz answer is being graded or committed, a tap on `HeaderMenuButton` is ignored (no visual change, so the header never shifts). Opening the menu or the sheet never pauses scoring and never marks a question answered; on dismiss the learner is on the same page in the same state.
+- No gesture alternative is introduced and none is removed.
+- Flag scope stays missions and quiz questions (not flashcards, dictation, roleplay or exam items; deferred).
+
+### Title behaviour at font scale 1.3
+
+- The title is the **only** element in the header that may shrink or truncate. It keeps `numberOfLines={1}` (`ui.tsx:339`) and truncates at the tail with a visible `…`. Its `TX` gets `accessibilityLabel={title}` so TalkBack reads the full lesson tag.
+- Close, `LanguageChip`, `SheetLink`, `HeaderMenuButton` and gear are fixed-size and must **never** be clipped, squeezed or pushed off screen. React Native's default `flexShrink: 0` already protects them; no style on them may set `flexShrink` or `flex`.
+- The `LanguageChip` label must never be clipped: it keeps its `maxScale={1.3}` cap (`LanguagePanel.tsx:60`).
+- No change to `FocusHeader` itself. The `flex: 1` on its title `TX` is an inherited exception to C5, acceptable only because the one-line ellipsis is visible.
+- The gear's 38 px target (no `hitSlop`) is an existing gap, out of scope here; do not add a gear `hitSlop` in this phase, because it would overlap the overflow button's right slop.
 
 ---
 
-## S7. Profile "Your report" row
+## S7. Profile "Your report" row and accuracy StatCard
 
-On `app/profile.tsx`, one row linking to `/report`. Reuse the Settings row geometry from S2 (`minHeight: 58`, radius 16, `t.card`, `t.line(10)`, chevron). Icon `book` 18 px `t.txSecondary` is reused (no new glyph). Title "Your report", sub "Your accuracy and the words to review." The row is placed after the stats block and before account/sign-out controls (researcher default: the exact insertion point follows the existing section order in the file; the planner confirms it against the live layout). `accessibilityRole="button"`, label = title, action `router.push('/report')`. Shown to guests too (Le Rapport is local data). The 07.1 trail and home screens are not touched.
+- On `app/profile.tsx`, one row linking to `/report`. Reuse the Settings row geometry from S2 (`minHeight: 58`, radius 16, `t.card`, `t.line(10)`, chevron). Icon `book` 18 px `t.txSecondary`. Title "Your report", sub "Your accuracy and the words to review." Placed after the stats block and before account and sign-out controls (researcher default; the planner confirms the insertion point against the live file). `accessibilityRole="button"`, label = title, action `router.push('/report')`. Shown to guests too (Le Rapport is local data). The 07.1 trail and home screens are not touched.
+- **Accuracy StatCard must agree with the Le Rapport ring.** Today `profile.tsx:120-122` computes `graded = attempts.length` and `correct` over all attempts, including `exam-review`. Change both to use `headlineAttempts(attempts)` (N7), the same helper the ring uses, so a learner never sees two different accuracy numbers. `wordsMet` (`profile.tsx:119`, `itemsPracticed(attempts)`) is unchanged: it counts words met, not accuracy. With zero non-`exam-review` attempts the card shows `'—'` as it does today for a fresh install.
 
 ---
 
@@ -209,10 +357,10 @@ On `app/profile.tsx`, one row linking to `/report`. Reuse the Settings row geome
 |-----|----------|
 | Route rename (D-30) | `/feedback` becomes `/report`. Update `roleplay.tsx`, `speak.tsx`, deep links, analytics screen name, and the `_layout.tsx` registration. A temporary redirect from `/feedback` to `/report` is allowed for stale deep links. The report sheet route is `/report-problem` and must never be confused with `/report` |
 | Activity labels (R1, D-28) | Extend `drillNames` to all 13 `Activity` values (table below). Type becomes `Record<Activity, string>` so a missing key fails typecheck. Add a test that iterates every `Activity` value and asserts a non-empty FR and EN name that is not the raw id |
-| Headline accuracy (R2, D-27) | Compute the ring percent, the `correct / total` figure and the "N attempts" tally from attempts with `activity !== 'exam-review'`. The per-drill list omits `exam-review`. `exam-review` attempts still feed the weak-words list. If after filtering there are zero attempts, show the existing empty state. No visual change to the layout |
-| Ring a11y (R5, D-31) | Wrap the ring (`View` 120x120 plus its caps label) in one accessible element: `accessible`, `accessibilityRole="progressbar"` is NOT used (not a scrubber); use `accessibilityRole="text"` with `accessibilityLabel` = "accuracy, {n} percent" (FR: "précision, {n} pour cent"). The inner number `TX` and the caps label get `importantForAccessibility="no-hide-descendants"` / `accessibilityElementsHidden` so TalkBack reads one phrase, not "83" then "ACCURACY". SVG is decorative |
+| Headline accuracy (R2, D-27) | Compute the ring percent, the `correct / total` figure and the "N attempts" tally from `headlineAttempts(attempts)` (N7). The per-drill list omits `exam-review`. `exam-review` attempts still feed the weak-words list. If after filtering there are zero attempts, show the existing empty state. No visual change to the layout. Profile's StatCard uses the same helper (S7) |
+| Ring a11y (R5, D-31) | Wrap the ring (`View` 120x120 plus its caps label) in one accessible element: `accessible`, `accessibilityRole="text"` (not `progressbar`, it is not a scrubber), `accessibilityLabel` = "accuracy, {n} percent" (FR: "précision, {n} pour cent"). The inner number `TX` and the caps label get `importantForAccessibility="no-hide-descendants"` / `accessibilityElementsHidden` so TalkBack reads one phrase. SVG is decorative |
 | Weak-item links (R6) | Behavior only: rows with an anchor push `/lesson?key=...&at=anchor` and must land on the right block under the Concept C spine. Visual unchanged. Row keeps `accessibilityRole="button"` and gets a label: "{french item}, {correct} of {seen} correct, open the lesson" (FR equivalent). French item text keeps `lang="fr"` |
-| Component test (R4) | Render with a populated log and an empty log; assert ring label, exam-review exclusion, all 13 labels resolve |
+| Component test (R4) | Render with a populated log and an empty log; assert ring label, exam-review exclusion, all 13 labels resolve, and that Profile's StatCard and the ring compute the same percent from the same log |
 
 ### Activity labels (13 values, FR and EN)
 
@@ -232,7 +380,7 @@ On `app/profile.tsx`, one row linking to `/report`. Reuse the Settings row geome
 | `exam` | Examen blanc | Mock exam |
 | `exam-review` | Révision d'examen | Exam review |
 
-The first six keep their existing strings unchanged (flashcards 'Cartes', voiceflash 'Flash vocal', dictation 'Dictée', sentence 'Constructeur', roleplay 'Jeu de rôle', placement 'Niveau', and the EN equivalents). `exam-review` is named for completeness and the test, but is not rendered as a drill row (D-27). Row label wraps; no truncation.
+The six keys that exist today (`strings.ts:64`, values at `:527` FR and `:1038` EN) keep their strings unchanged: `flashcards`, `voiceflash`, `dictation`, `sentence`, `roleplay`, `placement`. The seven new keys are `lesson`, `speak`, `player`, `review`, `narrated`, `exam`, `exam-review`. `exam-review` is named for completeness and the test, but is not rendered as a drill row (D-27). Row label wraps; no truncation.
 
 ---
 
@@ -242,108 +390,167 @@ All new work uses the existing four-point rhythm.
 
 | Token | Value | Phase 10 usage |
 |-------|-------|----------------|
-| xs | 4 px | Icon to text gap, label to sub gap |
-| sm | 8 px | Gap between category rows, counter spacing |
-| md | 16 px | Card and row padding, gap between form groups, footer top padding |
-| lg | 24 px | Section separation inside the sheet, Settings row bottom margin |
-| xl | 32 px | Gap between the intro line and the "WHAT WENT WRONG" label, and the top margin of the sent/saved block (a definite 32 px, not conditional) |
+| xs | 4 px | Icon to text gap, label to sub gap, link `marginTop` under a failure message, Rate-row failure line |
+| sm | 8 px | Gap between category rows and Settings rows, counter spacing, header cluster gap (inherited) |
+| md | 16 px | Card and row padding, gap between form groups, footer top padding, menu row horizontal padding |
+| lg | 24 px | Section separation inside the sheet, Settings row bottom margin, crash panel top margin |
+| xl | 32 px | Gap between the intro line and the "WHAT WENT WRONG" label, the top margin of the sent/saved block, crash "Technical details" top margin |
 | 2xl | 48 px | Sent-state confirmation top spacing |
-| 3xl | 64 px | Not used |
+| 3xl | 64 px | Crash screen top padding (replaces the fixed 96) |
 
-**Exceptions (functional or inherited, not spacing tokens):** touch targets 44 px minimum (close button, flag icon, expandable row, checkbox row at 52, category rows at 52); existing `Button` height 54 px; Settings row `minHeight` 58 and `paddingVertical` 10, copied from the Licences row; 12 px padding in the 4xx error block and category row vertical padding (existing Ealch card rhythm); text field min height 120. Use `minHeight`, wrapping and scrolling instead of fixed heights on any text-bearing element.
+**Exceptions (functional or inherited, not spacing tokens):** touch targets 44 px minimum (close button, `HeaderMenuButton` 36 visible plus slop, `ReportProblemLink`, expandable row, checkbox row at 52, category rows at 52, menu rows at 48); existing `Button` height 54 px; Settings row `minHeight` 58 and `paddingVertical` 10, copied from the Licences row; 12 px padding in the 4xx error block and category row vertical padding (existing Ealch card rhythm); 28 px and 14 px in ErrorScreen (inherited); text field min height 120. Use `minHeight`, wrapping and scrolling instead of fixed heights on any text-bearing element.
 
 ---
 
 ## Typography
 
-New copy uses a subset of the established `TX` ramp (`type.logic.ts`). Four sizes, two weights.
+New copy uses a subset of the established `TX` ramp (`type.logic.ts:20-31`). Four sizes, two weights.
 
 | Role | TX role | Size | Weight | Line height | Phase 10 usage |
 |------|---------|------|--------|-------------|----------------|
-| Meta | `meta` | 12 px | Semibold for section label and quiet text actions, Regular for the rest | 1.35 | "WHAT WENT WRONG", counter, category hint, contact sub-line, Settings and Profile row subs, quiet "Report a problem" actions |
-| Body | `body` | 15 px | Regular; Semibold for row titles | 1.5 | Intro, category labels, details input, checkbox label, "What's included" list, 4xx error text, status lines, sent/saved body |
-| Title | `titleLg` | 21 px | Semibold (Instrument Sans, `font="semi"`) | 1.25 | Sheet title, sent/saved heading |
+| Meta | `meta` | 12 px | Semibold for section label and quiet text actions, Regular for the rest | 1.35 | "WHAT WENT WRONG", counter, category hint, status lines, contact sub-line, Settings and Profile row subs, `ReportProblemLink`, Rate-row failure line |
+| Body | `body` | 15 px | Regular; Semibold for row titles | 1.5 | Intro, category labels, details input, checkbox label, "What's included" list, 4xx error text, sent/saved body, menu rows |
+| Title | `titleLg` | 21 px | Semibold (Instrument Sans, `font="semi"`) | 1.25 | Sheet title, sent/saved heading, crash screen title |
 | Display | `display` | 34 px (Serif regular) | Regular | 1.1 | Existing "Le Rapport" heading only; no new display text |
 
-Weights: Instrument Sans Regular (400) and Semibold (600) only (existing `font="semi"` and default). New copy uses exactly three sizes, 12, 15 and 21, plus the inherited 34. The `label` (13) and `bodySm` (14) roles are NOT used for any new Phase 10 copy. Existing 13 px text that Phase 10 does not author (the `FocusHeader` title, the existing Licences row sub-line, Le Rapport's own `label` text) is inherited and is not changed. Serif (Instrument Serif) is used only by the inherited Le Rapport display text; all new headings are Instrument Sans semibold. Do not set `numberOfLines` on any new text. Do not apply `flex` to a `Text` node (wrap in a `View`); no fixed heights. Font scaling stays through `TX`. Verified requirement: no clipped word endings at OS font scale 1.3 and 1.5 for the category labels, intro, "What's included" list, counter, and sent confirmation.
+Weights: Instrument Sans Regular (400) and Semibold (600) only. New copy uses exactly three sizes, 12, 15 and 21, plus the inherited 34. `Button` labels stay on the inherited `bodyLg` 16 px (`ui.tsx:152`). Existing 13 px text that Phase 10 does not author (the `FocusHeader` title, the existing Licences row sub-line, Le Rapport's own `label` text, the exam row notes) is inherited and is not changed. Rules C5, C6 and C7 apply to every new text node. Verified requirement: no clipped word endings at OS font scale 1.3 and 1.5 for the category labels, intro, "What's included" list, counter, sent confirmation, menu rows, every `ReportProblemLink`, and the full crash screen.
 
 ---
 
 ## Color
 
-Everything resolves through `useTheme()` so Automatic, Dark, Light and the selected accent all work.
+Everything resolves through `useTheme()` so Automatic, Dark, Light and the selected accent all work. ErrorScreen keeps its own provider-free values.
 
 | Role | Dark | Light | Usage |
 |------|------|-------|-------|
-| Dominant (60%) | `t.bg` `#0B0C0E` / sheet `t.sheet` `#13161B` | `t.bg` `#F5F3EE` / sheet `t.sheet` `#FFFFFF` | Sheet background (`contentStyle`), screens behind it |
+| Dominant (60%) | `t.bg` `#0B0C0E` / sheet `t.sheet` `#13161B` | `t.bg` `#F5F3EE` / sheet `t.sheet` `#FFFFFF` | Sheet background (`contentStyle`), screens behind it, menu card |
 | Secondary (30%) | `t.card` `#101216`, `t.input` `#111318` | `t.card` / `t.input` `#FFFFFF` | Category rows (unselected), details field, "What's included" block, Settings rows |
-| Accent (10%) | selected `t.acc` (default Riviera `#2FD6C1`) | selected `t.acc`, `t.accInk` on fills, `t.accTx` for text | Reserved list below |
-| Destructive / error | `t.danger` `#FF6B5C` | `t.danger` `#C2412F` | 4xx error text and its tinted block, counter at 950+; never on Send |
+| Accent (10%) | `t.acc` (default Riviera `#2FD6C1`); `t.accTx` = `t.acc` in dark | `t.acc` for the Send fill only; `t.accTx` (accent blended 50% into `#17181B`) for every selection indicator | Reserved list below |
+| Destructive / error | `t.danger` `#FF6B5C` | `t.danger` `#C2412F` | 4xx block border and tint, counter at 950+; never on Send, never as body text on a tint |
 
-**Accent reserved for:** (1) the Send and sent-state Close primary `Button` fill, (2) the selected category row border, radio dot and check, (3) the checked state of the contact checkbox, (4) the check glyph in the sent confirmation circle, (5) Le Rapport's existing ring stroke and "Back" empty-state button (unchanged). Not used for: the flag icon, Settings row icons, the close button, "What's included" row, the STT/exam quiet "Report a problem" actions, or the crash-screen ghost button.
+**Accent reserved for:** (1) the Send and sent-state Close primary `Button` fill (`t.acc`, label `t.accInk`), (2) the selected category row border, radio border, radio dot and check (`t.accTx`), (3) the checked contact checkbox fill and border (`t.accTx`), (4) the check glyph in the sent confirmation circle (`t.accTx` on `t.accA(14)`), (5) Le Rapport's existing ring stroke and "Back" empty-state button (unchanged). Not used for: the overflow button, the menu, Settings row icons, the close button, the "What's included" row, `ReportProblemLink`, or the crash screen.
 
 Destructive is not used for any action. There is no destructive action in this phase.
+
+### Measured contrast
+
+Computed from `src/theme/palette.ts` (DARK `:18-32`, LIGHT `:34-49`, derived tokens `:99-125`) with `alpha()` composited over the named surface, WCAG 2.x relative luminance. Text needs 4.5:1 (1.4.3); non-text UI needs 3:1 (1.4.11). Accent rows give the worst of the four accents (Riviera, Corail, Champagne, Nuit).
+
+| Pair (foreground / background) | Used for | Dark | Light | Need | Result |
+|--------------------------------|----------|------|-------|------|--------|
+| `txPrimary` / `sheet` | titles, menu rows, 4xx text base | 16.21 | 17.75 | 4.5 | pass |
+| `txSecondary` / `sheet` | "What's included" list | 8.78 | 8.75 | 4.5 | pass |
+| `txSecondary` / `card` | Settings icons, `ReportProblemLink` on cards | 8.97 | 8.75 | 4.5 | pass |
+| `txSecondary` / `bg` | `ReportProblemLink` on screens, overflow glyph | 9.19 | 8.22 | 4.5 | pass |
+| `txSecondary` / `card2` | `ReportProblemLink` near roleplay bubbles | 8.73 | 8.49 | 4.5 | pass |
+| `txMuted` / `sheet` | intro, hint, status, contact sub, counter | 6.09 | 5.70 | 4.5 | pass |
+| `txMuted` / `card` | Settings and Profile subs, Rate failure line | 6.17 | 5.70 | 4.5 | pass |
+| `txSubtle` / `sheet` | "WHAT WENT WRONG" label | 4.56 | 4.80 | 4.5 | pass |
+| `txSubtle` / `input` | details placeholder | 4.58 | 4.80 | 4.5 | pass |
+| `danger` / `sheet` | counter at 950+ | 6.48 | 5.13 | 4.5 | pass |
+| `danger` / `dangerA(12)` over `sheet` | (old 4xx text) | 5.54 | **4.32** | 4.5 | **fail, removed** |
+| `txPrimary` / `dangerA(8)` over `sheet` | **new** 4xx text | 14.70 | 15.85 | 4.5 | pass |
+| `danger` border / `sheet` | 4xx block border | 6.48 | 5.13 | 3.0 | pass |
+| `accInk` / `acc` (worst: Corail) | Send label on accent fill | 6.86 | 6.86 | 4.5 | pass |
+| `accTx` / `accA(10)` over `card` (worst) | selected check, radio dot, selected border inner edge | 5.94 (Corail) | 4.99 (Riviera) | 3.0 | pass |
+| `accTx` / `sheet` (worst) | selected border outer edge, checkbox fill edge | 6.48 (Corail) | 5.34 (Riviera) | 3.0 | pass |
+| `sheet` glyph / `accTx` fill (worst) | check inside checked checkbox | 6.48 (Corail) | 5.34 (Riviera) | 3.0 | pass |
+| `accTx` / `accA(14)` over `sheet` (worst) | sent/saved circle glyph | 5.37 (Corail) | 4.87 (Riviera) | 3.0 | pass |
+| `txPrimary` / `accA(10)` over `card` (worst) | selected row label | 14.12 | 16.05 | 4.5 | pass |
+| `acc` raw / `sheet` (worst) | (old selected border, dot, checkbox fill) | 6.48 | **1.82** (Riviera) | 3.0 | **fail, replaced by `accTx`** |
+| `line(30)` / `card` | (old radio and checkbox borders) | **2.68** | **1.95** | 3.0 | **fail, replaced by `txNonText`** |
+| `txNonText` / `card` | radio, checkbox, chevrons | 3.55 | 3.38 | 3.0 | pass |
+| `txNonText` / `sheet` | details field border, chevrons | 3.55 | 3.38 | 3.0 | pass |
+| `input` / `sheet` | field fill vs sheet (why the border must carry 3:1) | 1.02 | 1.00 | n/a | border required |
+| `line(10)` / `card` | unselected row and Settings row borders | 1.26 | 1.28 | n/a | decorative only; radio, text and chevron identify the controls |
+| ErrorScreen `tx` / `bg` | title, input text | 17.49 | 16.59 | 4.5 | pass |
+| ErrorScreen `dim` / `bg` | body, labels, counter, status | 6.24 | 5.54 | 4.5 | pass |
+| ErrorScreen `dim` / `surface` | details text, input placeholder | 6.05 | 5.36 | 4.5 | pass |
+| ErrorScreen `bg` / `tx` | retry label on filled button | 17.49 | 16.59 | 4.5 | pass |
+| ErrorScreen `dim` border / `bg` | TextInput border | 6.24 | 5.54 | 3.0 | pass |
+| ErrorScreen tag `#E5484D` / `bg` | (old light tag) | 5.00 | **3.66** | 4.5 | **fail, light uses `#C2412F`: 4.80** |
+
+Disabled Send (opacity 0.4) is exempt from 1.4.3 as an inactive control; the hint line states why it is disabled. The Send fill's own edge against the sheet (Riviera light 1.82) is not a 1.4.11 failure because the 4.5:1 label identifies the button.
 
 ---
 
 ## Copywriting Contract
 
-Rules: no em dash in any string; no word "honest"; label separators "·" are fine; French first; French text rendered through `TX` gets `lang="fr"` only where the learner is reading authored French content (interface FR copy is the interface voice and needs no `lang` tag unless the app already tags it; follow existing screens). Straight/curly apostrophes follow `strings.ts`.
+Rules C1 to C8 above apply to every row. Label separators "·" are fine. French first. French text rendered through `TX` gets `lang="fr"` only where the learner is reading authored French content (interface FR copy follows existing screens). Apostrophes are straight `'`, as in `strings.ts`.
 
-| Element | French | English |
-|---------|--------|---------|
-| Sheet title | Signaler un problème | Report a problem |
-| Intro (default) | Dites-nous ce qui ne va pas. Nous lisons chaque message. | Tell us what is wrong. We read every report. |
-| Intro (content flag) | Vous signalez une erreur dans cet élément. | You are reporting a mistake in this item. |
-| Category group label | QU'EST-CE QUI NE VA PAS | WHAT WENT WRONG |
-| Cat: audio | Audio ou voix | Audio or voice |
-| Cat: grading | La correction semble fausse | Grading felt wrong |
-| Cat: content | Erreur de contenu | Content mistake |
-| Cat: crash | L'appli a planté ou s'est figée | App froze or crashed |
-| Cat: payment | Paiement ou accès | Payment or access |
-| Cat: other | Autre chose | Something else |
-| Category hint (none chosen) | Choisissez ce qui ne va pas pour envoyer | Choose what went wrong to send |
-| Details label | Détails (facultatif) | Details (optional) |
-| Details placeholder | Que s'est-il passé ? | What happened? |
-| Counter | {n}/1000 | {n}/1000 |
-| What's included (collapsed) | Ce qui est envoyé : version, écran, erreurs récentes. Jamais vos réponses ni votre voix. | What's included: app version, screen, recent errors. Never your answers or recordings. |
-| Included list 1 | Version de l'appli, mise à jour et plateforme | App version, update and platform |
-| Included list 2 | L'écran où vous étiez, et le numéro de la leçon ou de l'élément | The screen you were on, and the lesson or item number |
-| Included list 3 | Les 10 derniers messages d'erreur de cette session | The last 10 error messages from this session |
-| Included list 4 | Modèle du téléphone, taille du texte, thème clair ou sombre | Phone model, text size, and light or dark theme |
-| Included list 5 | Votre e-mail, seulement si vous cochez « Vous pouvez me contacter » | Your email, only if you tick "You can contact me" |
-| Included list 6 | Jamais : vos réponses, ce que vous avez dit, vos enregistrements | Never included: your answers, what you said, or your recordings |
-| Contact checkbox | Vous pouvez me contacter | You can contact me |
-| Contact sub | Nous utilisons l'e-mail de votre compte pour répondre. Désactivé tant que vous ne cochez pas. | We use your account email to reply. Off unless you tick it. |
-| Primary CTA | Envoyer le signalement | Send report |
-| Sending | Envoi en cours... | Sending... |
-| Sent heading | Merci, c'est envoyé | Thanks, it is sent |
-| Sent body | Votre signalement nous est bien parvenu. | Your report reached us. |
-| Queued heading | Enregistré | Saved |
-| Queued body (offline) | Il sera envoyé dès que vous serez de nouveau en ligne. | It will send when you are back online. |
-| Queued body (429 / 5xx) | Trop de signalements en ce moment, ou le service est occupé. Nous l'avons enregistré et l'enverrons plus tard. | We could not send it right now. We saved it and will send it later. |
-| 4xx error | Nous n'avons pas pu envoyer ce signalement. Vérifiez le texte et réessayez. | We could not send this report. Check the text and try again. |
-| 4xx retry CTA | Réessayer | Try again |
-| Close (header button and sent/saved button) | Fermer | Close |
-| Settings row title | Signaler un problème | Report a problem |
-| Settings row sub | Quelque chose ne marche pas ? Dites-le-nous. | Something broken or wrong? Tell us. |
-| Rate row title | Noter Ealch | Rate Ealch |
-| Rate row sub | Ouvre la page du magasin. | Opens the store page. |
-| Rate row a11y label | Noter Ealch, ouvre le magasin | Rate Ealch, opens the store |
-| Crash button | Signaler ce problème | Report this problem |
-| STT action | Signaler un problème | Report a problem |
-| STT a11y label | Signaler un problème audio | Report an audio problem |
-| Exam action | Signaler un problème | Report a problem |
-| Exam a11y label | Signaler un problème de correction | Report a grading problem |
-| Flag a11y label | Signaler un problème avec cet élément | Report a problem with this item |
-| Profile row title | Votre rapport | Your report |
-| Profile row sub | Votre précision et les mots à revoir. | Your accuracy and the words to review. |
-| Ring a11y label | précision, {n} pour cent | accuracy, {n} percent |
-| Weak row a11y label | {fr}, {c} sur {s} réussis, ouvrir la leçon | {fr}, {c} of {s} correct, open the lesson |
+`[NNBSP]` = U+202F narrow no-break space. `[NBSP]` = U+00A0 no-break space. The French column contains the real characters.
 
-**Empty state:** the report sheet has no empty data state (a blank form is idle). Le Rapport keeps its existing empty heading and body (`reportEmptyT`, `reportEmptyS`); it is shown when no non-`exam-review` attempts exist.
+| Element | French | NBSP marks (FR) | English |
+|---------|--------|-----------------|---------|
+| Sheet title | Signaler un problème | none | Report a problem |
+| Intro (default) | Dites-nous ce qui ne va pas. Nous lisons chaque message. | none | Tell us what is wrong. We read every report. |
+| Intro (content flag) | Vous signalez une erreur dans cet élément. | none | You are reporting a mistake in this item. |
+| Category group label | QU'EST-CE QUI NE VA PAS | none | WHAT WENT WRONG |
+| Cat: audio | Audio ou voix | none | Audio or voice |
+| Cat: grading | La correction semble fausse | none | Grading felt wrong |
+| Cat: content | Erreur de contenu | none | Content mistake |
+| Cat: crash | L'appli a planté ou s'est figée | none | App froze or crashed |
+| Cat: payment | Paiement ou accès | none | Payment or access |
+| Cat: other | Autre chose | none | Something else |
+| Category hint (none chosen) | Choisissez ce qui ne va pas pour envoyer | none | Choose what went wrong to send |
+| Details label | Détails (facultatif) | none | Details (optional) |
+| Details placeholder | Que s'est-il passé ? | `passé[NNBSP]?` | What happened? |
+| Counter | {n}/1000 | none | {n}/1000 |
+| What's included (collapsed) | Ce qui est envoyé : version, écran, erreurs récentes. Jamais vos réponses ni votre voix. | `envoyé[NBSP]:` | What's included: app version, screen, recent errors. Never your answers or recordings. |
+| Included list 1 | Version de l'appli, mise à jour et plateforme | none | App version, update and platform |
+| Included list 2 | L'écran où vous étiez, et le numéro de la leçon ou de l'élément | none | The screen you were on, and the lesson or item number |
+| Included list 3 | Les 10 derniers messages d'erreur de cette session | none | The last 10 error messages from this session |
+| Included list 4 | Modèle du téléphone, taille du texte, thème clair ou sombre | none | Phone model, text size, and light or dark theme |
+| Included list 5 | Votre e-mail, seulement si vous cochez « Vous pouvez me contacter » | `«[NNBSP]Vous`, `contacter[NNBSP]»` | Your email, only if you tick "You can contact me" |
+| Included list 6 | Jamais : vos réponses, ce que vous avez dit, vos enregistrements | `Jamais[NBSP]:` | Never included: your answers, what you said, or your recordings |
+| Contact checkbox | Vous pouvez me contacter | none | You can contact me |
+| Contact sub | Nous utilisons l'e-mail de votre compte pour répondre. Désactivé tant que vous ne cochez pas. | none | We use your account email to reply. Off unless you tick it. |
+| Primary CTA | Envoyer le signalement | none | Send report |
+| Sending (status line) | Envoi en cours… | `…` is U+2026 | Sending… |
+| Sent heading | Merci, c'est envoyé | none | Thanks, it is sent |
+| Sent body | Votre signalement nous est bien parvenu. | none | Your report reached us. |
+| Queued heading (offline, 429, 5xx) | Enregistré | none | Saved |
+| Queued body (offline) | Il sera envoyé dès que vous serez de nouveau en ligne. | none | It will send when you are back online. |
+| Queued body (429) | Nous ne pouvons pas l'envoyer aujourd'hui. Il est enregistré et partira demain ou plus tard. | none | We cannot send it today. It is saved and will go tomorrow or later. |
+| Queued body (5xx) | Nous n'avons pas pu l'envoyer pour le moment. Il est enregistré et nous réessaierons plus tard. | none | We could not send it right now. It is saved and we will try again later. |
+| 4xx error | Nous n'avons pas pu envoyer ce signalement. Vérifiez le texte et réessayez. | none | We could not send this report. Check the text and try again. |
+| 4xx retry CTA | Réessayer | none | Try again |
+| Close (header button and sent/saved button) | Fermer | none | Close |
+| Settings row title | Signaler un problème | none | Report a problem |
+| Settings row sub | Quelque chose ne marche pas ? Dites-le-nous. | `pas[NNBSP]?` | Something broken or wrong? Tell us. |
+| Rate row title (Android only) | Noter Ealch | none | Rate Ealch |
+| Rate row sub | Ouvre la page du Play Store. | none | Opens the Play Store page. |
+| Rate row a11y label | Noter Ealch, ouvre le Play Store | none | Rate Ealch, opens the Play Store |
+| Rate row open failure | Impossible d'ouvrir le Play Store. Réessayez plus tard. | none | Could not open the Play Store. Try again later. |
+| Crash body (replaces `COPY.body`) | L'application a rencontré une erreur inattendue. Vos données sont intactes. Vous pouvez réessayer. | none | The app hit an unexpected error. Your data is intact. You can try again. |
+| Crash button | Signaler ce problème | none | Report this problem |
+| Crash panel title | Signaler ce problème | none | Report this problem |
+| Crash category label | CATÉGORIE | none | CATEGORY |
+| Crash category value | L'appli a planté ou s'est figée | none | App froze or crashed |
+| Crash details label | Détails (facultatif) | none | Details (optional) |
+| Crash placeholder | Que faisiez-vous ? | `vous[NNBSP]?` | What were you doing? |
+| Crash send | Envoyer le signalement | none | Send report |
+| Crash sending | Envoi en cours… | `…` is U+2026 | Sending… |
+| Crash sent | Merci, c'est envoyé. | none | Thanks, it is sent. |
+| Crash saved | Enregistré. Il sera envoyé plus tard. | none | Saved. It will send later. |
+| Crash error (4xx) | Nous n'avons pas pu envoyer ce signalement. Réessayez. | none | We could not send this report. Try again. |
+| Report link (STT, exam) | Signaler un problème | none | Report a problem |
+| Audio link a11y label (STT, exam audio-failed) | Signaler un problème audio | none | Report an audio problem |
+| Grading link a11y label (exam not-graded) | Signaler un problème de correction | none | Report a grading problem |
+| Overflow button a11y label | Plus d'options | none | More options |
+| Menu row: help | (existing `lkHelp`) Comment fonctionnent les leçons | none | How lessons work |
+| Menu row: report (label and a11y) | Signaler un problème avec cet élément | none | Report a problem with this item |
+| Profile row title | Votre rapport | none | Your report |
+| Profile row sub | Votre précision et les mots à revoir. | none | Your accuracy and the words to review. |
+| Ring a11y label | précision, {n} pour cent | none | accuracy, {n} percent |
+| Weak row a11y label | {fr}, {c} sur {s} réussis, ouvrir la leçon | none | {fr}, {c} of {s} correct, open the lesson |
+| Radio group a11y label | Ce qui ne va pas, obligatoire | none | What went wrong, required |
 
-**Error state:** 4xx copy above states the problem and the next step. Offline, 429 and 5xx are never shown as errors; they are the calm "Saved" state with the next step stated.
+The 429 body is the same string in the States table (S1) and here. It promises only that the report is saved and will go no earlier than tomorrow, which matches D-35 (retry no sooner than the next UTC day). FR and EN say the same thing.
+
+**Empty state:** the report sheet has no empty data state (a blank form is idle). Le Rapport keeps its existing empty heading and body (`reportEmptyT`, `reportEmptyS`); it is shown when `headlineAttempts(attempts)` is empty.
+
+**Error state:** 4xx copy states the problem and the next step. Offline, 429 and 5xx are never shown as errors; they are the calm "Saved" state with the next step stated. Background outcomes after the sheet closes are silent (S1 States).
 
 **Destructive actions in this phase:** none. Report submission is not destructive, discarding a draft needs no confirmation, and nothing deletes learner data (report deletion on account delete is server-side, D-20).
 
@@ -351,48 +558,64 @@ Rules: no em dash in any string; no word "honest"; label separators "·" are fin
 
 ## Accessibility and Interaction (Phase 8 / 8.1 rules applied)
 
-- Every control has a role and label. Category rows: `radio` with `selected`. Contact row: `checkbox` with `checked`. "What's included": `button` with `expanded`. Send: `button` with `disabled`. Close, flag, Settings rows, Profile row: `button` (Rate row: `link`). Radio group container: `radiogroup` with label "What went wrong, required" (FR: "Ce qui ne va pas, obligatoire").
-- No gesture-only action: the flag is a visible icon button, not a long-press; sheet dismiss has a visible Close button in addition to the swipe-down grabber.
-- All touch targets 44 pt or larger (rows 52 to 58, buttons 54).
+- Every control has a role and label. Category rows: `radio` with `selected`. Contact row: `checkbox` with `checked`. "What's included": `button` with `expanded`. Send: `button` with `disabled`, plus `busy` while loading. Close, `HeaderMenuButton` (with `expanded`), menu rows, `ReportProblemLink`, Settings rows, Profile row: `button` (Rate row: `link`). Radio group container: `radiogroup` with the radio-group label.
+- No gesture-only action: the content report is a visible menu row, not a long-press; sheet dismiss has a visible Close button in addition to the swipe-down grabber; the menu closes with Back and an outside tap.
+- All touch targets 44 dp or larger: rows 48 to 58, buttons 54, `HeaderMenuButton` 44x44 via `hitSlop`, `ReportProblemLink` `minHeight: 44`.
 - Screen-reader order in S1: title, intro, category group (rows in order), details field, counter, what's included, contact checkbox, status text, Send. Status or error text is announced via live region when it appears, and precedes Send in order.
-- On open, focus moves to the sheet title. After an error, focus stays where the learner was (do not steal it from the text field). After sent/queued, focus moves to the confirmation heading.
-- Font scale 1.3 and 1.5: no clipped tails; no `flex` on any `Text`; all text-bearing containers use `minHeight` and wrap; the form scrolls; Send stays visible in its pinned footer and never sits under the keyboard.
-- Reduced motion: no new animation beyond the OS sheet and the existing `Press` feedback. Sent confirmation appears without scale-in or confetti; no celebratory motion on a report.
+- On open, focus moves to the sheet title. After an error, focus stays where the learner was. After sent/queued, focus moves to the confirmation heading. Menu: focus to the first row on open, back to `HeaderMenuButton` on close. Crash panel: focus to the panel title on open.
+- Font scale 1.3 and 1.5: no clipped tails; rules C5 to C7; all text-bearing containers use `minHeight` and wrap; the form scrolls; Send stays visible in its pinned footer and never sits under the keyboard; the crash screen scrolls as a whole.
+- Reduced motion: no new animation beyond the OS sheet, the `Modal` fade, and the existing `Press` feedback. Sent confirmation appears without scale-in or confetti.
 - French text in S8 weak-item rows keeps `lang="fr"` (existing). Interface FR copy follows existing screens.
-- Contrast: all text uses theme tokens that already pass; new sub-lines use `t.txMuted` (not `t.txSubtle`), and `t.txSubtle` appears only on the uppercase "WHAT WENT WRONG" label as on existing section labels; never for the 4xx error or the required hint.
+- Contrast: see the measured table in Color. `t.txSubtle` appears only on the "WHAT WENT WRONG" label and the placeholder; never for the 4xx error, a status line or the required hint.
 
 ---
 
-## Registry Safety
+## Verification checks (replaces the stock sign-off)
 
-| Registry | Blocks Used | Safety Gate |
-|----------|-------------|-------------|
-| none | none | not applicable (Expo native app; no shadcn or third-party registry) |
+These are the dimensions the quality review failed. The checker and auditor tick each against the code and the device, not against this document.
 
----
+**Grounding (every referenced control exists, or is listed as new)**
+- [ ] `noBandNote` and the `'not-graded'` / `'audio-failed'` reasons exist at `app/exam-report.tsx:555-569`; no "Retry grading" control is referenced anywhere
+- [ ] The "?" help `Press` being replaced is at `app/lesson.tsx:780-788`; `FocusHeader` title is `flex: 1` + `numberOfLines={1}` at `ui.tsx:337-348`
+- [ ] `Button` props at `ui.tsx:105-122` have no loading slot before N1 lands; N1 adds it
+- [ ] The 7 STT surfaces are at the file:line refs in S4 (re-grep `micNoSpeech|micDenied|micUnavail|rpNotHeard` before executing; lines drift)
+- [ ] `ErrorScreen.tsx:62` root `View` and `:115-117` `flex: 1` ScrollView are replaced by the S3 tree
+- [ ] `profile.tsx:120-122` uses `headlineAttempts`
+- [ ] Every item in "New component and API changes" maps to a plan task
 
-## Checker Sign-Off
+**Measured contrast**
+- [ ] The Color "Measured contrast" table is recomputed from `palette.ts` after any token change; every row used by a new element passes (text 4.5:1, non-text 3:1)
+- [ ] No raw `t.acc` on any border, dot or glyph in S1; no `t.line(30)` on any control boundary; 4xx text is `t.txPrimary`
 
-- [x] Dimension 1 Copywriting: PASS
-- [x] Dimension 2 Visuals: PASS
-- [x] Dimension 3 Color: PASS
-- [x] Dimension 4 Typography: PASS
-- [x] Dimension 5 Spacing: PASS
-- [x] Dimension 6 Registry Safety: PASS
+**House copy rules**
+- [ ] C1 no `—` in new keys, including ErrorScreen `COPY` and the version fallback
+- [ ] C2 no "honest"
+- [ ] C3 / C8 U+202F before `? ! ;` and inside `« »`, U+00A0 before `:` in every new FR string (D-36 test green)
+- [ ] C4 no `...` in new keys
+- [ ] C5 / C6 / C7 no `flex` on `Text`, no `numberOfLines` on body copy, no `maxFontSizeMultiplier` or absolute `lineHeight` on new text (including all of ErrorScreen)
 
-**Approval:** approved 2026-10-01 (gsd-ui-checker, after 1 revision)
+**Layout at font scale 1.3 with 3-button navigation (Pixel 9, Android device evidence)**
+- [ ] S1 sheet: keyboard open on the details field, Send and counter fully visible; every category label ends in full
+- [ ] S3 crash screen: keyboard open, TextInput, counter and Send visible; title and body end in full
+- [ ] S6 header at B1+ (chip present): title ellipsizes with `…`; close, chip, book, overflow and gear all fully visible and tappable; menu rows wrap without clipping
+- [ ] S4: each of the 7 surfaces shows the failure message and the link in full
+- [ ] S5: a `not-graded` and an `audio-failed` section each show the link under the row
+- [ ] S2: Rate row absent on iOS; on Android it opens the Play Store page
 
 ---
 
 ## Researcher Defaults (not in CONTEXT.md; overridable)
 
 1. Unsaved draft closes without a confirmation dialog.
-2. 429 and 5xx show the calm "Saved" state (consistent with D-18), not an error.
+2. 429 and 5xx show the calm "Saved" state (consistent with D-18 and D-35), not an error, each with its own body copy.
 3. Auto-dismiss of Sent/Saved after 2500 ms, suspended while a screen reader is on.
-4. Crash screen uses an inline compact report panel (provider-free), because the router may be down.
-5. STT report action appears on every hears-nothing result and every mic error (D-22), as a quiet text action below or beside the existing retry.
-6. Content flag is hidden while an answer is being graded or committed.
+4. Crash screen uses an inline compact report panel (provider-free), because the router may be down; its Send is an outline button so the retry stays the single filled action.
+5. STT report action appears on every hears-nothing result and every mic error (D-22), on its own line below the failure message, on 7 surfaces.
+6. The content report lives in a header overflow menu that replaces the "?" button; the overflow ignores taps while an answer is being graded or committed.
 7. Profile row insertion point after stats, before account controls; planner confirms against the live file.
 8. Activity names: "Leçons / Lessons", "Parler / Speaking", "Lecteur / Player", "Révision / Review", "Leçons audio / Narrated lessons", "Examen blanc / Mock exam", "Révision d'examen / Exam review".
-9. New `flag` icon is added to `Icon.tsx`.
+9. New `flag` and `more` icons are added to `Icon.tsx`.
 10. Ring a11y is a single text element reading "accuracy, N percent".
+11. A 4xx that arrives after the learner closed the sheet drops the report silently; nothing re-notifies the learner.
+12. Exam `audio-failed` pre-fills "Audio or voice", not "Grading felt wrong", because the failure was the audio.
+13. Rate row: `market://` first, `https://play.google.com/...` fallback, quiet inline line if both fail.

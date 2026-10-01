@@ -56,6 +56,16 @@ Filled by the planner/executor per task. Requirement-level map (from 10-RESEARCH
 | FEEDBACK-03 | Edge fn limits + validation + email-from-token only | unit | `node --test supabase/functions/report-problem/limits.test.ts` | ❌ W0 | ⬜ pending |
 | FEEDBACK-03 | Sheet states, pre-fill, guest hides contact | component | `npx jest __tests__/report-problem-phase10.test.tsx` | ❌ W0 | ⬜ pending |
 | FEEDBACK-03 | `problem_reports` RLS enabled, zero policies | unit | `node --test src/services/problemReportSchema.test.ts` | ❌ W0 | ⬜ pending |
+| All | D-36 NBSP/ellipsis, no em dash, no "honest" on new strings.ts keys (10-01) | unit | `node --test src/i18n/phase10Copy.test.ts` | ❌ W0 | ⬜ pending |
+| FEEDBACK-02 | Config read error / timeout / paused project → offline skip (10-02) | component | `npx jest __tests__/config-reachable-phase10.test.tsx` | ❌ W0 | ⬜ pending |
+| FEEDBACK-02 | Queue concurrency, spend→track→request, no-spend skips, no refund, D-39, seed (10-07) | component | `npx jest __tests__/reviewPrompt-phase10.test.tsx` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Claim-before-send, kill mid-send, submit during flush, 429 next UTC day, 4xx drop (10-06) | component | `npx jest __tests__/problemReport-queue-phase10.test.tsx` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Client/server verdict parity on the shared fixture (10-04, 10-03) | unit | `node --test src/services/problemReport.contract.test.ts supabase/functions/report-problem/limits.test.ts` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Crash panel states, ErrorScreen COPY rules, exam row actions (10-10) | component | `npx jest __tests__/report-entry-phase10.test.tsx` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Header overflow menu rows, focus return, report params (10-14) | component | `npx jest __tests__/header-menu-phase10.test.tsx __tests__/a11y-lesson-navigation.test.tsx` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Content report wiring in lesson.tsx / LessonPager (10-14) | wiring | `node --test src/services/contentFlagWiring.test.ts` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Every STT failure surface renders ReportProblemLink (10-08) | wiring | `node --test src/services/reportEntryWiring.test.ts` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Concurrent admission: 6 parallel guest reports → 3×201 + 3×429, usage and g:all +3 (10-09) | live smoke | curl + execute_sql, recorded in 10-DEVICE-EVIDENCE.md | n/a | ⬜ pending |
 | All | No em dash, no "honest" in new copy | existing | `npm test` | ✅ | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*

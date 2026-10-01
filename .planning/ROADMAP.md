@@ -367,30 +367,35 @@ Plans:
   4. A "Report a problem" flow (categorised options + free text) is reachable from Settings at any time and from the failure surfaces chosen in discussion. It writes to a developer-only destination with a rate limit, carries no answer text, transcripts or email, and is never shown as the alternative to rating.
   5. Android device evidence covers the review request at the trigger moment, the cap holding on a repeat trigger, and one report reaching the destination end to end.
 **Pitfall Watch**: Do not reintroduce sentiment gating ("Enjoying Ealch?" → store / form). It is prohibited on Play and a rejection risk on iOS (audit S1). The `/feedback` route name means Le Rapport, not the bug report.
-**Plans**: 12 plans (re-specified 2026-10-01, see `phases/10-feedback-rating-flow/10-PRE-DISCUSSION-AUDIT.md`)
+**Plans**: 15 plans (re-specified 2026-10-01, see `phases/10-feedback-rating-flow/10-PRE-DISCUSSION-AUDIT.md`; revised after quality review, D-34..D-39)
 
 Plans:
 **Wave 1** *(parallel, no shared files)*
-- [ ] 10-01-PLAN.md -- All Phase 10 FR+EN copy, the 13 activity names with an exhaustive test, and the flag glyph
-- [ ] 10-02-PLAN.md -- Pure review decision/cap logic, expo-store-review install, reviewPromptOn flag with an online probe, review_requested event
-- [ ] 10-03-PLAN.md -- problem_reports schema, counters and retention, report-problem edge function, delete-account guest cleanup
-- [ ] 10-04-PLAN.md -- TDD: report wire contract, payload allowlist and outbox model
+- [ ] 10-01-PLAN.md -- All Phase 10 FR+EN copy inserted by script with the D-36 NBSP test, 13 activity names, flag and more glyphs
+- [ ] 10-02-PLAN.md -- Pure review decision (no report input), cap, first-perfect arming, seed; expo-store-review; fail-safe offline signal; review_requested
+- [ ] 10-04-PLAN.md -- TDD: report wire contract, strict validator, shared fixture, claim-then-send outbox model with the 429 next-UTC-day rule
+- [ ] 10-15-PLAN.md -- [checkpoint] Play internal-track prerequisites for the review-sheet proof (D-32)
 
-**Wave 2** *(blocked on Wave 1)*
-- [ ] 10-05-PLAN.md -- Le Rapport: /report rename, exam-review exclusion, labels, ring a11y, Profile row, component test
-- [ ] 10-07-PLAN.md -- Review request wiring: score plumbing, arm on a perfect quiz, fire from trail focus, no-UI wiring test
-- [ ] 10-09-PLAN.md -- [BLOCKING, approval] Apply the schema block live, deploy report-problem and delete-account, smoke-test
+**Wave 2**
+- [ ] 10-03-PLAN.md -- Schema with atomic accepted-only problem_report_submit, report-problem edge function (deno check), delete-account cleanup
+- [ ] 10-05-PLAN.md -- Le Rapport: /report rename, headlineAttempts shared with the Profile StatCard, labels, ring a11y, Profile row, tests
+- [ ] 10-07-PLAN.md -- Review wiring on one queue: score plumbing, first-perfect arming, trail-focus firing, behaviour and wiring tests
 
-**Wave 3** *(blocked on 10-01, 10-04, 10-05)*
-- [ ] 10-06-PLAN.md -- Report service with outbox, the formSheet, Settings report and Rate rows, sheet test
+**Wave 3**
+- [ ] 10-06-PLAN.md -- Report service: claim-then-send on one queue, launch/foreground flush, behaviour tests
+- [ ] 10-09-PLAN.md -- [BLOCKING, approval] Live schema apply, deploys, smoke incl. signed-in contact_email and g:all unchanged by 429
 
-**Wave 4** *(blocked on Wave 3)*
-- [ ] 10-08-PLAN.md -- STT and mic-failure report entry on every failure surface
-- [ ] 10-10-PLAN.md -- Crash fallback inline panel, exam not-graded action, lesson content flag
+**Wave 4**
+- [ ] 10-13-PLAN.md -- Button loading, report sheet with every S1 state, ReportProblemLink, Settings report row and Android Rate row
 
-**Wave 5-6** *(device checkpoints)*
-- [ ] 10-11-PLAN.md -- Binary + fingerprint check, Pixel 9 rows for the review request and Le Rapport
-- [ ] 10-12-PLAN.md -- Pixel 9 rows for every report entry point, offline delivery, deletion, verdict and pre-App-Store gate
+**Wave 5** *(parallel)*
+- [ ] 10-08-PLAN.md -- Audio report link on all 7 STT surfaces; WordPractice numberOfLines removed
+- [ ] 10-10-PLAN.md -- ErrorScreen restructure with the inline crash panel; exam not-graded/audio-failed actions
+- [ ] 10-14-PLAN.md -- Lesson header overflow menu (Help + Report) and quiz-question plumbing
+
+**Wave 6-7** *(device checkpoints)*
+- [ ] 10-11-PLAN.md -- Internal-track + dev-client builds; review rows and Le Rapport rows on the Pixel 9
+- [ ] 10-12-PLAN.md -- Report rows for every entry point, background states, font-scale/keyboard rows, verdict, pre-App-Store gate
 **UI hint**: yes
 
 ### Phase 11: Brix Mascot Rive Animation Rollout — Core States

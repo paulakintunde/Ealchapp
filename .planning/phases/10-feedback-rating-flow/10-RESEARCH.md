@@ -355,17 +355,17 @@ I was not able to re-fetch the Apple and Play pages in this session; the policy 
 ## Open Questions (RESOLVED)
 
 1. **Play-delivered test build for D-32.** Which track (internal testing) will carry the Pixel 9 evidence build, and is the Play listing/internal track already live? Without it the "sheet appears" row can only be proven by logs. Recommendation: plan an early wave-0 task to confirm.
-   RESOLVED: deferred to the 10-11 Task 1 build-route decision, with a named pre-launch row in 10-12 (plans 10-11, 10-12)
+   RESOLVED: checked in the wave-1 checkpoint plan 10-15 (D-32 amended); 10-11 R-01 uses the Play internal-track build, with a sideload only as a recorded failure path (plans 10-15, 10-11, 10-12)
 2. **12-month cleanup mechanism (D-20).** No `cron` usage exists in `schema.sql` (grep found none). Recommendation: `pg_cron` daily `delete from problem_reports where created_at < now() - interval '12 months'`, enabled via the dashboard; fall back to a scheduled edge function. Verify on the live project.
    RESOLVED: problem_reports_purge() is scheduled by pg_cron only if the extension exists (verified live in 10-09); fallback is the edge function's opportunistic daily purge (plans 10-03, 10-09)
 3. **Guest reports and delete-account.** Cascade covers account-linked reports only. Recommendation: accept; mention in the closing note. Alternative is sending `install_id` to delete-account.
    RESOLVED: auth.ts sends install_id and delete-account removes that install's guest-era rows where user_id is null (plan 10-03)
 4. **iOS Rate row.** No App Store id exists (no Apple developer account). Recommendation: render the Rate row on Android only until an iOS store URL exists.
-   RESOLVED: the Rate Ealch row is Android only; the iOS row is a pre-App-Store gate row (plans 10-06, 10-12)
+   RESOLVED: the Rate Ealch row is Android only; the iOS row is a pre-App-Store gate row (plans 10-13, 10-12)
 5. **`QuizRoundsView` quizzes.** Does a 100% there count? Confirm whether it shares `onQuizComplete` and has a score concept.
    RESOLVED: QuizRoundsView reports a percent; LessonPager converts it with percentToCorrect so only an exact 100% counts as perfect (plans 10-02, 10-07)
 6. **Which screen is "the trail" for focus-triggered firing** (A8) and how to detect "paywall or PushBanner showed in the same moment" (D-06): read `useUI` banner slot state (`bannerSlotWiring.test.ts` shows a single global slot). Recommendation: decision function takes `useUI.getState().banner != null` plus a "paywall visited this session" flag.
-   RESOLVED: the request fires from act.tsx and den.tsx focus via useReviewPromptOnFocus; banner via useUI.getState().banner, paywall via notePaywallShown within 10 minutes (plan 10-07)
+   RESOLVED: the request fires from act.tsx and den.tsx focus via useReviewPromptOnFocus; banner via useUI.getState().banner, paywall via notePaywallShown within 10 minutes; the recent-report skip is dropped (D-06 amended) (plan 10-07)
 
 ## Environment Availability
 
