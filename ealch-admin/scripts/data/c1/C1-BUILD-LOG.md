@@ -51,6 +51,23 @@ reuses the B1/B2 factory whole; this file records only what is different.
 8. **The two TEF C1 tasks** (`ce_mcq.006`, `co_mcq.006`) are repointed from
    A1/A2 rows to c1.20 / c1.21 rows with the other ten, at the wave 1 import.
 
+**Wave 1 pre-gate decisions (Paul, 2026-09-30):**
+
+9. c1.24's topics approved (festival, school calendar, urban works).
+10. The listening screen ENFORCES `maxPlays: 1` on exam-format items (app
+    change), so c1.21's one-play practice matches the exam.
+11. c1.20 act 9's billet gets a new situation (not B2 lesson 24's closed counter
+    and phone loop); the act 9 image and prompt stay as they are.
+12. c1.20 keeps « présupposé » / « sous-entendu » as linguists use them, with one
+    bridge line: B2 lesson 24 used « présupposé » for both.
+13. The 23 Postgres-only legacy rows (c1.20 9, c1.21 11, c1.24 3) stay reused by
+    id; their typography (straight apostrophes, space before ?) is fixed as a
+    text edit at the import.
+14. Task rubrics stay 6 criteria / 20 points (c1.20, c1.24).
+15. Verify the TEF reportage section label (pack says F, prep sources say G);
+    if G is right, relabel the pack and c1.21 together for v85.
+16. Up to 4 tapTables per lesson at C1 (playbook open point 11.2).
+
 **Open, for Paul** (raised by the research; detail in C1-RESEARCH-PLAN.md):
 
 - PE@c1 / PO@c1: a `dalf_c1` format (schema + enum migration) or TEF/TCF tasks

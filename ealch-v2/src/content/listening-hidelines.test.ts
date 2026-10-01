@@ -146,3 +146,19 @@ test('a hidden section never reprints its own passage in a question', () => {
   }
   deepStrictEqual(leaks, [], `hidden lines reprinted in their own questions:\n  ${leaks.join('\n  ')}`);
 });
+
+test('audio.maxPlays caps a hidden listening at one recording control, then gives the dots back', () => {
+  // C1 wave 1 (Paul): exam-format listenings are heard ONCE. Declared but not
+  // enforced, the cap was an honour system; ListeningView now plays the whole
+  // recording from one counted control while the lines are hidden, withholds
+  // the per-line dots, and returns them once every question is answered.
+  const src = readFileSync(resolve(here, '../components/MissionRich.tsx'), 'utf8');
+  const view = src.slice(src.indexOf('export function ListeningView'), src.indexOf('function ListeningQuestionLauncher'));
+  ok(view.length > 0, 'ListeningView must exist');
+  ok(/const cap = masked \? s\.audio\?\.maxPlays \?\? null : null;/.test(view), 'the cap applies only while the lines are hidden');
+  ok(view.includes('{cap === null ? <PlayDot text={l.fr} /> : null}'), 'per-line replays are withheld while capped');
+  ok(view.includes('playsLeft <= 0') && view.includes('T.lsPlaysSpent'), 'a spent cap says so and stops playing');
+  ok(view.includes("s.lines.map((l) => l.fr).join(' ')"), 'one play is the whole recording, every line in order');
+  const strings = readFileSync(resolve(here, '../i18n/strings.ts'), 'utf8');
+  ok(strings.includes('lsPlayRecording') && strings.includes('lsPlaysSpent'));
+});

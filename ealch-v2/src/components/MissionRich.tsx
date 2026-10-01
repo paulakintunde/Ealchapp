@@ -2062,8 +2062,42 @@ export function ListeningView({ s }: { s: ListeningSec }) {
   const answered = Object.keys(answers).length;
   const masked = s.hideLines === true && answered < s.questions.length;
 
+  // `audio.maxPlays` (exam format, Paul at C1 wave 1): while the lines are
+  // hidden, the recording is ONE control that plays every line in order and
+  // counts down, and the per-line replay dots are withheld, so "heard once"
+  // is enforced rather than requested. Once every question is answered the
+  // transcript reveals and the dots come back for review, as the exam shows
+  // its transcript after the questions. Without maxPlays nothing changes.
+  const cap = masked ? s.audio?.maxPlays ?? null : null;
+  const [playsUsed, setPlaysUsed] = useState(0);
+  const [playingAll, setPlayingAll] = useState(false);
+  const playsLeft = cap === null ? 0 : Math.max(0, cap - playsUsed);
+  const playAll = () => {
+    if (playingAll || playsLeft <= 0) return;
+    sound.play('tap');
+    setPlaysUsed((n) => n + 1);
+    setPlayingAll(true);
+    const done = () => setPlayingAll(false);
+    tts.speak(s.lines.map((l) => l.fr).join(' '), { onDone: done, onError: done });
+  };
+
   return (
     <View>
+      {cap !== null ? (
+        <Press
+          accessibilityRole="button"
+          cue={null}
+          onPress={playAll}
+          disabled={playsLeft <= 0 || playingAll}
+          accessibilityState={{ disabled: playsLeft <= 0 || playingAll }}
+          accessibilityLabel={playsLeft > 0 ? T.lsPlayRecording.replace('{n}', String(playsLeft)) : T.lsPlaysSpent}
+          style={{ borderRadius: 14, borderWidth: 1, borderColor: playingAll ? t.acc : t.accA(45), backgroundColor: playingAll ? t.accA(14) : 'transparent', padding: 14, marginBottom: 12, alignItems: 'center' }}
+        >
+          <TX font="semi" role="body" color={playsLeft > 0 ? t.accTx : t.txMuted}>
+            {playsLeft > 0 ? T.lsPlayRecording.replace('{n}', String(playsLeft)) : T.lsPlaysSpent}
+          </TX>
+        </Press>
+      ) : null}
       <View style={{ gap: 8, marginBottom: 18 }}>
         {s.lines.map((l, i) => (
           <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
@@ -2104,7 +2138,7 @@ export function ListeningView({ s }: { s: ListeningSec }) {
                 </>
               )}
             </View>
-            <PlayDot text={l.fr} />
+            {cap === null ? <PlayDot text={l.fr} /> : null}
           </View>
         ))}
       </View>

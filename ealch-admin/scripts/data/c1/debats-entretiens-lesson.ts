@@ -129,12 +129,10 @@
 //  OPEN QUESTIONS FOR PAUL
 // ══════════════════════════════════════════════════════════════════════════
 //
-//   1. ONCE-ONLY LISTENING IS DECLARED, NOT ENFORCED. Acts 9 to 12 set
-//      `audio.speeds: [1]` and `audio.maxPlays: 1` on their anchors, and say
-//      « une seule écoute » in the frSub. ListeningView does not read
-//      `maxPlays` (only dictation budgets plays), and the 28-30 s read window
-//      is an instruction, not a timer. Teach the honour system, or add a
-//      play cap to ListeningView?
+//   1. RESOLVED (Paul, C1 wave 1 decision 10): ListeningView now enforces
+//      `audio.maxPlays` while the lines are hidden: one counted control plays
+//      the whole recording, the per-line dots return after the questions.
+//      The 28-30 s read window stays an instruction, not a timer.
 //   2. THREE VOICES, ONE TTS VOICE. Until the studio delivers, every anchor
 //      is spoken by one fr-FR voice; the moderator names every speaker
 //      before the turn so the lines stay followable. Every anchor has a
