@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { TX } from '@/components/Type';
 import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { SheetGrabber, SHEET_CONTENT_PADDING } from '@/components/SheetChrome';
+import { useEntryFocus } from '@/a11y/useEntryFocus';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content } from '@/services/content';
@@ -33,6 +34,8 @@ export default function Fiche() {
   const t = useTheme();
   const T = useT();
   useReadingBrightness();
+  const titleRef = useRef<View>(null);
+  useEntryFocus(titleRef);
   const router = useRouter();
   const params = useLocalSearchParams<{ key?: string }>();
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
@@ -98,7 +101,9 @@ export default function Fiche() {
         ) : null}
 
         {/* Title + French subtitle */}
-        <TX font="serifI" role="display">{ov?.titleEn ?? L.title}</TX>
+        <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={ov?.titleEn ?? L.title}>
+          <TX font="serifI" role="display">{ov?.titleEn ?? L.title}</TX>
+        </View>
         {ov?.subFr ? (
           <TX font="serifI" role="body" color={t.txMuted} style={{ marginTop: 8 }}>
             {'« ' + ov.subFr + ' »'}

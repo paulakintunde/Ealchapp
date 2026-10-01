@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import * as ReactNative from 'react-native';
-import { AccessibilityInfo, Linking, ScrollView, View } from 'react-native';
+import { Linking, ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Crypto from 'expo-crypto';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -8,6 +7,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { useEntryFocus } from '@/a11y/useEntryFocus';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { CURRENCIES, PRICES } from '@/content/pricing';
@@ -77,10 +77,9 @@ export default function Paywall() {
   const [notice, setNotice] = useState<string | null>(null);
   const [purchased, setPurchased] = useState(false);
   const titleRef = useRef<View>(null);
-  const focusTitle = () => {
-    const node = ReactNative.findNodeHandle(titleRef.current);
-    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-  };
+  // D-03: the title takes screen-reader focus once the slide-up has ended
+  // (onLayout-time focus was overridden by TalkBack's Close button on device).
+  useEntryFocus(titleRef);
 
   useEffect(() => {
     track('paywall_viewed', { from: paywallSource(from) });
@@ -213,7 +212,7 @@ export default function Paywall() {
           <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center', marginBottom: 6 }}>
             <Icon name="check" size={26} color={t.acc} strokeWidth={2.4} />
           </View>
-          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.pwSuccessT} onLayout={focusTitle}>
+          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.pwSuccessT}>
             <TX font="serif" role="display" size={28} style={{ textAlign: 'center' }}>{T.pwSuccessT}</TX>
           </View>
           <TX role="bodySm" color={t.txMuted} style={{ textAlign: 'center', maxWidth: 300 }}>
@@ -241,7 +240,7 @@ export default function Paywall() {
         <TX font="semi" role="eyebrow" ls={2.6} color={t.accTx} style={{ marginBottom: 10 }}>
           {T.pwTag}
         </TX>
-        <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={copy.title} onLayout={focusTitle} style={{ marginBottom: 8 }}>
+        <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={copy.title} style={{ marginBottom: 8 }}>
           <TX font="serif" role="display" size={34}>{copy.title}</TX>
         </View>
         <TX role="bodySm" color={t.txMuted} style={{ maxWidth: 320, marginBottom: 22 }}>

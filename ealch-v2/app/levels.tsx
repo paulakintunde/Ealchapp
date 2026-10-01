@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { ScrollView, View } from 'react-native';
+import { useEntryFocus } from '@/a11y/useEntryFocus';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
@@ -35,6 +37,8 @@ export default function Levels() {
   const setBand = useUI((s) => s.setTrailBand);
   const levelsAll = useFeature('levels.all');
   const counts = useBandCounts();
+  const titleRef = useRef<View>(null);
+  useEntryFocus(titleRef);
 
   // Two ways in. From home's Refresher Course card (`from=home`) this page is
   // the course's front door, so a pick goes FORWARD to the trail and back from
@@ -67,9 +71,11 @@ export default function Levels() {
           <View style={{ width: 44, height: 44, marginRight: -12 }} />
         </View>
 
-        <TX font="serif" role="display" size={38}>
-          {T.bandPanelTitle}
-        </TX>
+        <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.bandPanelTitle}>
+          <TX font="serif" role="display" size={38}>
+            {T.bandPanelTitle}
+          </TX>
+        </View>
         <TX role="bodySm" color={t.txMuted} style={{ marginTop: 8, marginBottom: 20 }}>
           {T.levelsLead}
         </TX>

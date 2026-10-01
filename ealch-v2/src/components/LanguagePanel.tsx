@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Ref } from 'react';
-import * as ReactNative from 'react-native';
-import { AccessibilityInfo, Animated, BackHandler, Pressable, ScrollView, View } from 'react-native';
+import { focusAfterOpen } from '@/a11y/focusNode';
+import { Animated, BackHandler, Pressable, ScrollView, View } from 'react-native';
 import { TX } from './Type';
 import { Press } from './ui';
 import { PanelRow } from './PanelRow';
@@ -86,11 +86,7 @@ export function LanguagePanel({
   const op = useRef(new Animated.Value(0)).current;
   const [mounted, setMounted] = useState<boolean>(open);
   const titleRef = useRef<View>(null);
-  const focusTitle = () => {
-    if (!open) return;
-    const node = ReactNative.findNodeHandle(titleRef.current);
-    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-  };
+  const focusTitle = () => focusAfterOpen(() => titleRef.current, () => open);
 
   useEffect(() => {
     if (open) {

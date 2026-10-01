@@ -15,8 +15,8 @@
 // answer to "wait, what was the rule for -c again" is always one tap away.
 
 import { useRef, useState } from 'react';
-import * as ReactNative from 'react-native';
-import { AccessibilityInfo, ScrollView, View } from 'react-native';
+import { focusAfterOpen } from '@/a11y/focusNode';
+import { ScrollView, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
@@ -236,10 +236,7 @@ function SheetHeader({ title, onBack }: { title: string; onBack: () => void }) {
       >
         <Icon name="arrowLeft" size={18} color={t.txSecondary} />
       </Press>
-      <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={title} onLayout={() => {
-        const node = ReactNative.findNodeHandle(titleRef.current);
-        if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-      }} style={{ flex: 1 }}>
+      <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={title} onLayout={() => focusAfterOpen(() => titleRef.current)} style={{ flex: 1 }}>
         <TX role="titleSm" font="semi" numberOfLines={1}>{title}</TX>
       </View>
     </View>

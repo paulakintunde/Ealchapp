@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { View } from 'react-native';
+import { useFocusReturnRegister } from '@/a11y/focusReturn';
 import { useRouter } from 'expo-router';
 import { TX } from './Type';
 import { Press } from './ui';
@@ -32,8 +34,12 @@ export function TrailGateRow({ variant }: TrailGateRowProps) {
   const t = useTheme();
   const T = useT();
   const router = useRouter();
+  const rowRef = useRef<View>(null);
+  const registerReturn = useFocusReturnRegister();
 
   const onPress = () => {
+    // D-03: Back from the paywall lands on this row, not the top of the den.
+    registerReturn(rowRef);
     trackEvent('gate_blocked', { feature: 'levels.all', from: 'den' });
     router.push({ pathname: '/paywall', params: { from: 'gate:levels' } });
   };
@@ -42,6 +48,7 @@ export function TrailGateRow({ variant }: TrailGateRowProps) {
 
   return (
     <Press
+      ref={rowRef}
       onPress={onPress}
       cue="tap"
       accessibilityRole="button"

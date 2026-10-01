@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import * as ReactNative from 'react-native';
-import { AccessibilityInfo, Animated, Pressable, ScrollView, View } from 'react-native';
+import { focusAfterOpen } from '@/a11y/focusNode';
+import { Animated, Pressable, ScrollView, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import Svg, { Path } from 'react-native-svg';
 import { TX } from './Type';
@@ -28,11 +28,7 @@ export function BottomSheet() {
   const op = useRef(new Animated.Value(0)).current;
   const [mounted, setMounted] = useState<boolean>(!!sheet);
   const titleRef = useRef<View>(null);
-  const focusTitle = () => {
-    if (!sheet) return;
-    const node = ReactNative.findNodeHandle(titleRef.current);
-    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-  };
+  const focusTitle = () => focusAfterOpen(() => titleRef.current, () => !!sheet);
 
   useEffect(() => {
     if (sheet) {

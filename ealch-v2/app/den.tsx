@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { AccessibilityInfo, findNodeHandle, View } from 'react-native';
+import { View } from 'react-native';
+import { useEntryFocus } from '@/a11y/useEntryFocus';
+import { useFocusReturn } from '@/a11y/focusReturn';
+import { focusAfterOpen } from '@/a11y/focusNode';
 import { useRouter, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList, type FlashListRef } from '@shopify/flash-list';
@@ -57,10 +60,14 @@ export default function Den() {
   const levelPanelOpen = useUI((s) => s.levelPanelOpen);
   const setLevelPanelOpen = useUI((s) => s.setLevelPanelOpen);
   const levelChipRef = useRef<View>(null);
-  const focusLevelChip = useCallback(() => {
-    const node = findNodeHandle(levelChipRef.current);
-    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-  }, []);
+  // Panel closed: focus returns to the chip that opened it, after the close
+  // animation (D-03), through the same deferred path as every overlay.
+  const focusLevelChip = useCallback(() => focusAfterOpen(() => levelChipRef.current), []);
+  const titleRef = useRef<View>(null);
+  useEntryFocus(titleRef);
+  // Back from the paywall (or a lesson gate): focus returns to the locked row
+  // that opened it, not the top of the screen.
+  useFocusReturn();
   const trailAnchor = useUI((s) => s.trailAnchor);
   const setTrailAnchor = useUI((s) => s.setTrailAnchor);
 
@@ -263,7 +270,7 @@ export default function Den() {
 
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 }}>
           {/* flex lives on the wrapper, never on a TX, or the title clips */}
-          <View style={{ flex: 1, minWidth: 0 }}>
+          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={T.denT} style={{ flex: 1, minWidth: 0 }}>
             <TX font="serif" role="display" size={38}>
               {T.denT}
             </TX>

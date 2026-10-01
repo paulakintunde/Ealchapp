@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import * as ReactNative from 'react-native';
+import { focusAfterOpen } from '@/a11y/focusNode';
 import {
-  AccessibilityInfo,
   Modal,
   Pressable,
   ScrollView,
@@ -45,10 +44,7 @@ export function LessonModal({
   const t = useTheme();
   const T = useT();
   const titleRef = useRef<View>(null);
-  const focusTitle = () => {
-    const node = ReactNative.findNodeHandle(titleRef.current);
-    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-  };
+  const focusTitle = () => focusAfterOpen(() => titleRef.current);
   const [more, setMore] = useState(false);
   const layoutH = useRef(0);
   const contentH = useRef(0);

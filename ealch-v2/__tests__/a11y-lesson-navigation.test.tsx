@@ -1,8 +1,7 @@
 /// <reference types="jest" />
-import * as RN from 'react-native';
 import { AccessibilityInfo, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import Lesson from '../app/lesson';
 import { LanguageChip, LanguagePanel } from '@/components/LanguagePanel';
 import { useStore } from '@/store/useStore';
@@ -42,14 +41,15 @@ test('language chip remains a three-choice panel button', async () => {
 });
 
 test('language panel focuses its title and reports the selected choice', async () => {
-  const node = jest.spyOn(RN, 'findNodeHandle').mockReturnValue(47);
-  const focus = jest.spyOn(AccessibilityInfo, 'setAccessibilityFocus').mockImplementation(() => {});
+  const focus = jest.spyOn(AccessibilityInfo, 'sendAccessibilityEvent').mockImplementation(() => {});
   await render(<View><LanguagePanel mode="onDemand" open onClose={jest.fn()} onSelect={jest.fn()} /></View>);
   const title = screen.getByRole('header', { name: 'Lesson language' });
   fireEvent(title, 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 120, height: 40 } } });
-  expect(focus).toHaveBeenCalledWith(47);
+  // D-03: deferred until the open animation settles, sent as a focus event.
+  await waitFor(() => expect(focus).toHaveBeenCalledTimes(1));
+  expect(focus.mock.calls[0][1]).toBe('focus');
+  expect((focus.mock.calls[0][0] as unknown as { props: { accessibilityLabel?: string } }).props.accessibilityLabel).toBe('Lesson language');
   expect(screen.getByRole('button', { name: /English on demand/ }).props.accessibilityState.selected).toBe(true);
   expect(screen.getAllByRole('button').length).toBeGreaterThanOrEqual(4);
-  node.mockRestore();
   focus.mockRestore();
 });

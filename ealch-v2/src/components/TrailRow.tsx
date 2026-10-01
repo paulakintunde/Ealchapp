@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useFocusReturnRegister } from '@/a11y/focusReturn';
 import { Animated, Easing, View } from 'react-native';
 import { TX } from './Type';
 import { Press } from './ui';
@@ -108,11 +109,23 @@ export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: Trail
   // row never shows a start marker (only an `act` row carries the field at
   // all), but a hook cannot itself be conditional.
   const reduceMotion = useReduceMotion();
+  // D-03: a locked row that opens the paywall registers itself so Back lands
+  // on it (a FlashList row can be recycled; the ref then names whichever row
+  // now occupies the same host view, which is still a row in the same spot).
+  const rowRef = useRef<View>(null);
+  const registerReturn = useFocusReturnRegister();
+  const rememberOpener = () => {
+    if (row.locked) registerReturn(rowRef);
+  };
 
   if (row.kind === 'acte0') {
-    const onPress = () => (row.locked ? onPressLocked() : onPressActe0(row.lessonId));
+    const onPress = () => {
+      rememberOpener();
+      return row.locked ? onPressLocked() : onPressActe0(row.lessonId);
+    };
     return (
       <Press
+        ref={rowRef}
         cue={row.locked ? null : 'tap'}
         onPress={onPress}
         accessibilityRole="button"
@@ -156,9 +169,13 @@ export function TrailRow({ row, onPressAct, onPressActe0, onPressLocked }: Trail
     );
   }
 
-  const onPress = () => (row.locked ? onPressLocked() : onPressAct(row.lessonId, row.actIx));
+  const onPress = () => {
+    rememberOpener();
+    return row.locked ? onPressLocked() : onPressAct(row.lessonId, row.actIx);
+  };
   return (
     <Press
+      ref={rowRef}
       cue={row.locked ? null : 'tap'}
       scale={0.99}
       onPress={onPress}

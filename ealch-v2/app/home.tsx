@@ -1,4 +1,5 @@
-import { useCallback, useMemo, type ReactNode } from 'react';
+import { useCallback, useMemo, useRef, type ReactNode } from 'react';
+import { useFocusReturn, useFocusReturnRegister } from '@/a11y/focusReturn';
 import { Image, LayoutAnimation, Platform, ScrollView, UIManager, View, useWindowDimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect, useRouter } from 'expo-router';
@@ -56,6 +57,10 @@ export default function Home() {
   const t = useTheme();
   const T = useT();
   const router = useRouter();
+  // D-03: Back from the paywall lands on the Première row that opened it.
+  const premRef = useRef<View>(null);
+  const registerReturn = useFocusReturnRegister();
+  useFocusReturn();
   const insets = useSafeAreaInsets();
   // Papers available across every format. The section's right slot used to
   // read 'TEF · TCF · DELF', which repeats the card titles; the count is the
@@ -495,7 +500,11 @@ export default function Home() {
             it disappears entirely once the entitlement is real. */}
         {!isPremium ? (
           <Press
-            onPress={() => router.push({ pathname: '/paywall', params: { from: 'home' } })}
+            ref={premRef}
+            onPress={() => {
+              registerReturn(premRef);
+              router.push({ pathname: '/paywall', params: { from: 'home' } });
+            }}
             accessibilityRole="button"
             accessibilityLabel={`${T.homePremT}. ${T.homePremS}`}
             style={{ marginTop: 22, minHeight: 54, borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 16, paddingVertical: 10 }}

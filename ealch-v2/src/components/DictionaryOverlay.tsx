@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import * as ReactNative from 'react-native';
-import { AccessibilityInfo, Pressable, View } from 'react-native';
+import { focusAfterOpen } from '@/a11y/focusNode';
+import { Pressable, View } from 'react-native';
 import { TX } from './Type';
 import { Press, Button } from './ui';
 import { Icon } from './Icon';
@@ -50,10 +50,7 @@ export function DictionaryOverlay() {
         </View>
 
         <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, marginTop: 8 }}>
-          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={`${T.wordOfDay}. ${e.word}`} onLayout={() => {
-            const node = ReactNative.findNodeHandle(titleRef.current);
-            if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-          }}>
+          <View ref={titleRef} accessible accessibilityRole="header" accessibilityLabel={`${T.wordOfDay}. ${e.word}`} onLayout={() => focusAfterOpen(() => titleRef.current)}>
             <TX font="serif" role="display" size={30}>{e.word}</TX>
           </View>
           <Press onPress={() => tts.speak(e.speak)} accessibilityRole="button" accessibilityLabel={T.playAudioA11y} style={{ padding: 4 }}>

@@ -1,6 +1,5 @@
 /// <reference types="jest" />
-import { fireEvent, screen } from '@testing-library/react-native';
-import * as RN from 'react-native';
+import { fireEvent, screen, waitFor } from '@testing-library/react-native';
 import { AccessibilityInfo } from 'react-native';
 import { Button } from '@/components/ui';
 import { TrailRow } from '@/components/TrailRow';
@@ -40,15 +39,16 @@ describe.each(['fr', 'en'] as Locale[])('trail a11y (%s)', (lang) => {
   });
 
   test('opening the level panel focuses its title before the choices', async () => {
-    const focus = jest.spyOn(AccessibilityInfo, 'setAccessibilityFocus').mockImplementation(() => {});
-    const node = jest.spyOn(RN, 'findNodeHandle').mockReturnValue(42);
+    const focus = jest.spyOn(AccessibilityInfo, 'sendAccessibilityEvent').mockImplementation(() => {});
     const counts = Object.fromEntries((['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as Level[]).map((key) => [key, { total: 1, met: 0, mastered: 0 }])) as Record<Level, { total: number; met: number; mastered: number }>;
     await renderInLocale(<LevelPanel open onClose={jest.fn()} band="a1" onSelect={jest.fn()} unitCounts={counts} levelsAll />, lang);
     expect(screen.getByRole('header', { name: L.bandPanelTitle })).toBeTruthy();
     expect(screen.getByRole('button', { name: /A1/ }).props.accessibilityState.selected).toBe(true);
     await fireEvent(screen.getByRole('header', { name: L.bandPanelTitle }), 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 100, height: 40 } } });
-    expect(focus).toHaveBeenCalledWith(42);
-    node.mockRestore();
+    // D-03: in-screen overlays focus after the open animation, via sendAccessibilityEvent.
+    await waitFor(() => expect(focus).toHaveBeenCalledTimes(1));
+    expect(focus.mock.calls[0][1]).toBe('focus');
+    expect((focus.mock.calls[0][0] as unknown as { props: { accessibilityLabel?: string } }).props.accessibilityLabel).toBe(L.bandPanelTitle);
     focus.mockRestore();
   });
 });

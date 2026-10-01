@@ -1,4 +1,5 @@
-import { useState, type ReactNode } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
+import { useFocusReturn, useFocusReturnRegister } from '@/a11y/focusReturn';
 import { Image, ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -88,6 +89,10 @@ export default function Settings() {
   const t = useTheme();
   const T = useT();
   const router = useRouter();
+  // D-03: Back from the paywall lands on the plan row that opened it.
+  const planRef = useRef<View>(null);
+  const registerReturn = useFocusReturnRegister();
+  useFocusReturn();
   const insets = useSafeAreaInsets();
   const s = useStore();
   const {
@@ -181,7 +186,11 @@ export default function Settings() {
         {/* Current plan — the real entitlement, tappable through to the
             paywall (free: to subscribe; premium: to see the plan stated). */}
         <Press accessibilityRole="button"
-          onPress={() => router.push({ pathname: '/paywall', params: { from: 'settings' } })}
+          ref={planRef}
+          onPress={() => {
+            registerReturn(planRef);
+            router.push({ pathname: '/paywall', params: { from: 'settings' } });
+          }}
           style={{
             borderRadius: 18,
             borderWidth: 1,

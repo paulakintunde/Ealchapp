@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AccessibilityInfo, BackHandler, findNodeHandle, View } from 'react-native';
+import { BackHandler, View } from 'react-native';
+import { focusAfterOpen } from '@/a11y/focusNode';
 import { useRouter, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
@@ -140,10 +141,7 @@ function LessonScreenBody() {
   const setLessonEnglishMode = useStore((s) => s.setLessonEnglishMode);
   const [langPanelOpen, setLangPanelOpen] = useState(false);
   const langChipRef = useRef<View>(null);
-  const focusLangChip = useCallback(() => {
-    const node = findNodeHandle(langChipRef.current);
-    if (node != null) AccessibilityInfo.setAccessibilityFocus(node);
-  }, []);
+  const focusLangChip = useCallback(() => focusAfterOpen(() => langChipRef.current), []);
 
   const [playingId, setPlayingId] = useState<string | null>(null);
   // itemIds self-rated this visit — purely a UI dim/highlight cue, never read

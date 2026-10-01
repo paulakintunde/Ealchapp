@@ -1,5 +1,4 @@
 /// <reference types="jest" />
-import * as RN from 'react-native';
 import { AccessibilityInfo } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { fireEvent, screen } from '@testing-library/react-native';
@@ -29,13 +28,16 @@ describe.each(['fr', 'en'] as Locale[])('paywall a11y (%s)', (lang) => {
   const L = T[lang];
   beforeEach(() => useStore.setState({ planPick: 'yr', mode: 'dark' }));
 
-  test('paywall focuses its title and exposes selected plan, legal links, and free recovery', async () => {
-    const node = jest.spyOn(RN, 'findNodeHandle').mockReturnValue(57);
-    const focus = jest.spyOn(AccessibilityInfo, 'setAccessibilityFocus').mockImplementation(() => {});
+  test('paywall exposes selected plan, legal links, and free recovery', async () => {
+    const focus = jest.spyOn(AccessibilityInfo, 'sendAccessibilityEvent').mockImplementation(() => {});
     await renderInLocale(<SafeAreaProvider initialMetrics={metrics}><Paywall /></SafeAreaProvider>, lang);
     const title = screen.getByRole('header', { name: L.pwTitleLevels });
     await fireEvent(title, 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 200, height: 40 } } });
-    expect(focus).toHaveBeenCalledWith(57);
+    // D-03 (device finding): layout-time focus is overridden by TalkBack's move
+    // to the Close button when the slide-up ends, so the title no longer takes
+    // focus on layout. The transitionEnd contract is pinned in
+    // a11y-entry-focus.test.tsx.
+    expect(focus).not.toHaveBeenCalled();
     expect(screen.getByRole('radio', { name: new RegExp(L.annualL) }).props.accessibilityState.selected).toBe(true);
     const monthly = screen.getByRole('radio', { name: new RegExp(L.monthlyL) });
     await fireEvent.press(monthly);
@@ -44,7 +46,6 @@ describe.each(['fr', 'en'] as Locale[])('paywall a11y (%s)', (lang) => {
     expect(screen.getByRole('link', { name: new RegExp(`^${L.legalTerms}$`, 'i') })).toBeTruthy();
     expect(screen.getByRole('link', { name: new RegExp(`^${L.legalPrivacy}$`, 'i') })).toBeTruthy();
     expect(screen.getByRole('button', { name: L.pwReturnFree })).toBeTruthy();
-    node.mockRestore();
     focus.mockRestore();
   });
 });
