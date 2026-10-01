@@ -479,6 +479,67 @@ each agent gets the common block plus its own lesson block.
 > list them in the header for Paul; France and Québec press differences in one
 > sentence, no caricature.
 
+## Wave 2 author briefs (dispatched 2026-10-01)
+
+Wave 2 setup (Paul's OK, 2026-10-01, `scratch/_c1w2_themes.mts`): litterature,
+pronoms-essentiels and langue-soignee widened to c1; sub-themes « le passé
+antérieur », « la concordance littéraire » (litterature), « les relatives
+complexes » (pronoms-essentiels), « l'ellipse et la reprise » (langue-soignee);
+blocks re-probed free at every level. Each author gets the wave 1 common block
+with these changes: the SHAPE is the structural model's (a grammar or
+recognition mission journey, not a workshop): copy its act count (11-12), its
+mission range (80-90), its quiz (11-12 × 8), its sheets (4-5) and whether and
+how it ends on a task; recognition lessons never ask for production. Gate C1-1
+kept the C1 voice. Scratch files go in a `<slug>/` subfolder of the session
+scratchpad; the report comes back as text.
+
+- **c1.02 « Le passé antérieur »** (slug `passe-anterieur`, recognition):
+  `litterature` 1600-1799, unit c1.02. Model `../b2/passe-simple-*`. Builds on
+  « la leçon 8 du B2 » (one card and one trap on the passé antérieur, act 7),
+  « la leçon 18 du B2 » (« Dès qu'il eut fini »), « la leçon 9 du B2 » act 5
+  (eut / eût), « la leçon 1 du B2 ». NEW: the full paradigm with être; « À peine
+  eut-il… que »; main-clause use with bientôt / en un instant; passé antérieur vs
+  plus-que-parfait on one page; the surcomposé as its spoken counterpart (regional
+  and marked: recognise, never prescribe); the effect on pace. Owns the passé
+  antérieur only (concordance is c1.03). Public-domain pages verified word for
+  word (Mérimée, Maupassant, Flaubert « Trois contes », Hémon « Maria
+  Chapdelaine »). Risk: padding (thin ground after B2 8, 9, 18).
+- **c1.03 « La concordance littéraire »** (slug `concordance-litteraire`,
+  recognition): `litterature` 1800-1999, unit c1.03. Model
+  `../b2/subjonctif-litteraire-*`. Builds on « la leçon 9 du B2 » (act 7 owns the
+  core concordance map, act 9 fût-ce / dût-il), lessons 5, 6 and 8 of B2; reuse
+  `fr.b2.litterature.1326`, `.1327`, `.1345`. NEW (Paul's refocus): simultaneity
+  vs anteriority in full; a conditionnel main clause (« je voudrais qu'il
+  vînt »); concessive and hypothetical inversion (« eût-il su », « fût-il
+  roi »); deliberate non-concordance in modern prose and press; the register
+  effect (solemnity, irony, pastiche). Heaviest B2 overlap of the band: one recap
+  card, then only the NEW list; modern strictness is contested, present both and
+  cite Grevisse. PD candidates: Corneille « Horace » III 6, La Fayette, Stendhal,
+  Balzac « Eugénie Grandet », Chateaubriand.
+- **c1.04 « Les relatives complexes »** (slug `relatives-complexes`, grammar):
+  `pronoms-essentiels` 2000-2199, unit c1.04. Model
+  `../b2/subjonctif-indicatif-*`. Builds on « les leçons 11, 12 et 13 du B1 »
+  (qui/que, dont and où, lequel/auquel/duquel, ce qui/ce que/ce dont) and « la
+  leçon 6 du B2 » acts 5-6. NEW: partitive dont (« dont deux enfants »); ce à
+  quoi, sans quoi, de quoi + infinitive; relative + infinitive (« un endroit où
+  dormir »); lequel as subject to disambiguate; attachment ambiguity in long noun
+  groups; nested relatives by register; explicative vs déterminative as meaning;
+  où vs dans lequel with abstract antecedents. 54 published c1 rows already
+  carry advanced relatives (read before reusing). Traps: « que je crois qui » is
+  colloquial (recognise, label); « c'est de cela dont » per the Académie / BDL;
+  b1.13 owns duquel after a compound preposition. Indirect CE/CO link.
+- **c1.05 « L'ellipse et la reprise »** (slug `ellipse-reprise`, grammar):
+  `langue-soignee` 2000-2199, unit c1.05. Model `../b2/pronoms-insistance-*`.
+  Builds on « la leçon 11 du B2 » act 3, « la leçon 10 du B2 », « la leçon 37 du
+  B1 » act 8 (ce dernier, le premier / le second), « la leçon 33 de l'A2 ». NEW:
+  neuter le (« il l'est », « comme je l'ai dit »); faire as pro-verb; verb
+  ellipsis (« Pierre lit Proust ; Marie, Zola », « plus qu'on ne le pense »);
+  celui de / celle que; ledit, susdit, le cas échéant; interrogative ellipsis;
+  repairing an ambiguous anaphor; reprise by a hypernym. Name the difference
+  from b2.30's narrative « ellipse »; « fatiguée, je le suis » (invariable le)
+  is the learner trap; ledit is administrative, comic in talk. Include one quiz
+  round in CE format (« à quoi renvoie… »).
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
@@ -487,6 +548,10 @@ each agent gets the common block plus its own lesson block.
 | c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | LIVE v85 |
 | c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | LIVE v85 |
 | c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | LIVE v85 |
+| c1.02 | passe-anterieur (recognition) | | | | | | | | dispatched |
+| c1.03 | concordance-litteraire (recognition) | | | | | | | | dispatched |
+| c1.04 | relatives-complexes | | | | | | | | dispatched |
+| c1.05 | ellipse-reprise | | | | | | | | dispatched |
 
 ## Id ledger
 
@@ -501,6 +566,10 @@ each agent gets the common block plus its own lesson block.
 | `discours-dexamen` (sub-theme « suivre un débat à l'oral ») | 1400-1599 | c1.21 debats-entretiens | .1400-.1545 (146) |
 | `strategies-de-comprehension` (range widened b1-c1; sub-theme « lire entre les lignes »; b1 1000-1389, b2 1400-1764) | 1800-1999 | c1.20 lire-entre-les-lignes | .1800-.1999 (200, block full) |
 | `strategies-de-comprehension` (sub-theme « analyser la presse ») | 2000-2199 | c1.24 analyse-presse | .2000-.2155 (156) |
+| `litterature` (widened b1-c1; sub-theme « le passé antérieur ») | 1600-1799 | c1.02 passe-anterieur | |
+| `litterature` (sub-theme « la concordance littéraire ») | 1800-1999 | c1.03 concordance-litteraire | |
+| `pronoms-essentiels` (widened a1-c1; sub-theme « les relatives complexes ») | 2000-2199 | c1.04 relatives-complexes | |
+| `langue-soignee` (widened a2-c1; sub-theme « l'ellipse et la reprise ») | 2000-2199 | c1.05 ellipse-reprise | |
 
 Later waves: proposed homes for all 24 are in `C1-RESEARCH-PLAN.md`; probe again
 and claim at each wave's dispatch. **Rule:** a block must be unused at EVERY level
