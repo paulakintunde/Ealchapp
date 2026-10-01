@@ -79,7 +79,8 @@
         { "enforceContrast": false }
       ],
       "expo-status-bar",
-      "react-native-adapty"
+      "react-native-adapty",
+      "./plugins/withConfigChanges"
     ],
     "experiments": {
       "typedRoutes": false

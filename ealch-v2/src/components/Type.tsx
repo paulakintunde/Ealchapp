@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PixelRatio, Text, type TextProps, type TextStyle } from 'react-native';
+import { PixelRatio, Text, useWindowDimensions, type TextProps, type TextStyle } from 'react-native';
 import { F } from '@/theme/fonts';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -107,6 +107,13 @@ export function TX({
 }: TXProps) {
   const t = useTheme();
   const T = useT();
+  // SUBSCRIBED, not read once: MainActivity handles fontScale|density itself
+  // (plugins/withConfigChanges.js, D-20), so the activity is no longer recreated
+  // when the learner changes the OS font scale and PixelRatio.getFontScale() in
+  // render would never re-run. useWindowDimensions re-renders on the change.
+  // Same value PixelRatio.getFontScale() returns, same fallback.
+  const { fontScale: windowFontScale } = useWindowDimensions();
+  const osFontScale = windowFontScale || PixelRatio.get();
   // The three-valued English mode (B1+, content/english.logic.ts). Read
   // before any early return so the hook order never changes. 'fr' hides a
   // gloss entirely; 'onDemand' hides it behind a tap; 'both' (and every
@@ -124,7 +131,7 @@ export function TX({
   // closes (text silently losing its tail on a Pixel 9 at font scale 1.3).
   const { fontSize, lineHeight } = typeMetrics({
     role,
-    fontScale: PixelRatio.getFontScale(),
+    fontScale: osFontScale,
     size,
     maxScale,
     lhMult,
