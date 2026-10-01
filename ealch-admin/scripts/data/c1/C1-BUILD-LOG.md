@@ -40,16 +40,19 @@ reuses the B1/B2 factory whole; this file records only what is different.
    strategies-de-comprehension « lire entre les lignes » (c1.20) and « analyser
    la presse » (c1.24).
 
+**Exam link decision (Paul, 2026-09-30, wave 1):**
+
+7. **Both.** (a) The 12 C1 closed tasks' `targetItemIds` are repointed to c1.20
+   rows (CE) and c1.21 rows (CO), so a miss re-queues the C1 reading or
+   listening atoms. (b) The exam report also offers the prep lesson for a failed
+   closed section: `dueExamSkills` resolves closed misses through
+   `EXAM_PREP_TARGETS` too, which also makes `CE@b2 → b2.24` and
+   `CO@b2 → b2.25` live.
+8. **The two TEF C1 tasks** (`ce_mcq.006`, `co_mcq.006`) are repointed from
+   A1/A2 rows to c1.20 / c1.21 rows with the other ten, at the wave 1 import.
+
 **Open, for Paul** (raised by the research; detail in C1-RESEARCH-PLAN.md):
 
-- Closed CE/CO exam misses never reach `EXAM_PREP_TARGETS` (`dueExamSkills`
-  routes only open tasks), so `CE@c1 → c1.20` and `CO@c1 → c1.21` cannot send a
-  learner anywhere, exactly like `CE@b2` and `CO@b2` today. Choose: repoint the
-  12 C1 tasks' `targetItemIds` to c1.20 / c1.21 rows, change the exam report to
-  offer a prep lesson for closed skills, or both. Needed before gate C1-1 if the
-  exam link is to be real.
-- The two TEF C1 tasks target A1/A2 rows (a failed C1 reportage re-queues « la
-  maison »).
 - PE@c1 / PO@c1: a `dalf_c1` format (schema + enum migration) or TEF/TCF tasks
   tagged c1; c1.10's task shape.
 - Later-wave range widenings (litterature, pronoms-essentiels, langue-soignee,
@@ -101,6 +104,25 @@ reuses the B1/B2 factory whole; this file records only what is different.
   briefs below. Authors NOT dispatched (Paul's call).
 - **Research plan:** `C1-RESEARCH-PLAN.md`, all 24 lessons, from five read-only
   inventories (one per unit).
+
+**WAVE 1, 2026-09-30.**
+
+- **Drafts (four fresh authors, one per lesson).** c1.01, c1.20, c1.21, c1.24
+  written; slugs in `C1_SLUGS` (trail order), the four lessons in the three
+  house tests and in `ART_PENDING` (48 openers). c1.01's tag made unpadded
+  (« C1 · LEÇON 1 », as B2). Checks: app checks `--band c1 --all` TOTAL 0; house
+  tests 310/310; C1 import dry run 602 rows to insert, 0 conflicts, 0 blockers,
+  136 reused published rows, floors discours-dexamen 1000 and
+  strategies-de-comprehension 1800 clear. Each author's open questions sit in
+  its lesson header.
+- **Postgres-only reused rows** (c1.20: 9 legacy c1 rows in `PG_ROWS`; c1.21:
+  11 in `DB_ROWS`; c1.24: 3 in `DB_ONLY_ROWS`): published but absent from the
+  seed cut. The merge must carry them into the seed, and the gate preview needs
+  them.
+- **Exam report (`085b98d`):** closed CE/CO misses now offer the named prep
+  lesson (decision 7b). The `targetItemIds` repoint (7a, 8) goes with the
+  import; c1.20 proposes its rule cards .1808 .1827 .1842 .1866 .1888 .1906
+  .1930 .1942 .1949 .1974 .1985 .1998 as CE targets.
 
 ## Wave plan
 
@@ -156,7 +178,9 @@ each agent gets the common block plus its own lesson block.
 > `ealch-admin/`). Write ONLY your four files in `ealch-admin/scripts/data/c1/`:
 > `<slug>-corpus.ts`, `<slug>-terms.ts`, `<slug>-lesson.ts`,
 > `<slug>-image-prompts.md`. Touch nothing else: no git, no seed.json, no
-> Postgres writes, no `find /`.
+> Postgres writes, no `find /`. The session scratchpad is shared by parallel
+> authors: put your scratch scripts in a `<slug>/` subfolder (wave 1 authors
+> overwrote each other's probe files).
 >
 > Read first: `ealch-admin/scripts/data/c1/C1-BUILD-LOG.md` (decisions, "What is
 > different at C1"), your lesson's section in `C1-RESEARCH-PLAN.md` (scope,
@@ -314,10 +338,10 @@ each agent gets the common block plus its own lesson block.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|
-| c1.20 | lire-entre-les-lignes (CE target) | | | | | | | | brief written |
-| c1.21 | debats-entretiens (CO target) | | | | | | | | brief written |
-| c1.01 | bilan-grammatical-c1 (diagnostic) | | | | | | | | brief written |
-| c1.24 | analyse-presse | | | | | | | | brief written |
+| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 pending | drafted, checks 0 |
+| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 pending | drafted, checks 0 |
+| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 pending | drafted, checks 0 |
+| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 pending | drafted, checks 0 |
 
 ## Id ledger
 
@@ -328,10 +352,10 @@ each agent gets the common block plus its own lesson block.
 | `discours-dexamen` (NEW row: education, c1-c2, exam) | 1-165 legacy | Speak stage 6.5 | |
 | `culture-profonde` (NEW row: culture, c1-c2) | 1-161 legacy | Speak stage 6.4 | |
 | `rhetorique` (NEW row: concepts, c1-c2) | 1-160 legacy | Speak stage 6.2 | |
-| `discours-dexamen` (sub-theme « faire le point sur sa grammaire ») | 1000-1199 | c1.01 bilan-grammatical-c1 | |
-| `discours-dexamen` (sub-theme « suivre un débat à l'oral ») | 1400-1599 | c1.21 debats-entretiens | |
-| `strategies-de-comprehension` (range widened b1-c1; sub-theme « lire entre les lignes »; b1 1000-1389, b2 1400-1764) | 1800-1999 | c1.20 lire-entre-les-lignes | |
-| `strategies-de-comprehension` (sub-theme « analyser la presse ») | 2000-2199 | c1.24 analyse-presse | |
+| `discours-dexamen` (sub-theme « faire le point sur sa grammaire ») | 1000-1199 | c1.01 bilan-grammatical-c1 | .1000-.1099 (100) |
+| `discours-dexamen` (sub-theme « suivre un débat à l'oral ») | 1400-1599 | c1.21 debats-entretiens | .1400-.1545 (146) |
+| `strategies-de-comprehension` (range widened b1-c1; sub-theme « lire entre les lignes »; b1 1000-1389, b2 1400-1764) | 1800-1999 | c1.20 lire-entre-les-lignes | .1800-.1999 (200, block full) |
+| `strategies-de-comprehension` (sub-theme « analyser la presse ») | 2000-2199 | c1.24 analyse-presse | .2000-.2155 (156) |
 
 Later waves: proposed homes for all 24 are in `C1-RESEARCH-PLAN.md`; probe again
 and claim at each wave's dispatch. **Rule:** a block must be unused at EVERY level

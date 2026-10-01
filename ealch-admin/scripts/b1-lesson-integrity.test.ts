@@ -33,7 +33,7 @@ const IMAGES = resolve(HERE, '../../ealch-v2/src/content/lessonImages.ts');
  *  EMPTY since 2026-09-25: the 110 openers for b1.15 to b1.24 landed and are
  *  registered. Add a lesson here when it is authored ahead of its art, and
  *  delete it when the art lands. */
-const ART_PENDING = new Set<string>([]);
+const ART_PENDING = new Set<string>(['c1.01', 'c1.20', 'c1.21', 'c1.24']);
 
 const LESSONS: [string, string][] = [
   ['b1.01', 'imparfait-formation'], ['b1.02', 'imparfait-usage'],
@@ -56,6 +56,7 @@ const LESSONS: [string, string][] = [
   ['b2.17', 'expression-but'], ['b2.18', 'subordonnees-temps'], ['b2.19', 'restriction'], ['b2.20', 'tournures-impersonnelles'], ['b2.21', 'negations-combinees'],
   ['b2.27', 'langage-juridique'], ['b2.28', 'francais-soins'], ['b2.29', 'science-pour-tous'], ['b2.30', 'lire-litterature'],
   ['b2.31', 'francais-regional'], ['b2.32', 'verlan-argot'], ['b2.33', 'traduire-sans-calquer'], ['b2.34', 'proverbes'],
+  ['c1.01', 'bilan-grammatical-c1'], ['c1.20', 'lire-entre-les-lignes'], ['c1.21', 'debats-entretiens'], ['c1.24', 'analyse-presse'],
 ];
 
 /** The two maps in lessonImages.ts, read as text so the test needs no bundler. */

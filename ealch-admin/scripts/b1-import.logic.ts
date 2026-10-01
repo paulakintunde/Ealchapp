@@ -56,9 +56,12 @@ export const B2_SLUGS: readonly string[] = [
   'style-academique', 'argumentation', 'lecture-critique', 'ecoute-vitesse-reelle', 'reunions-negociation',
 ];
 
-/** Every C1 lesson authored so far, in trail order (files in data/c1/). Empty
- *  until wave 1 lands; a wave adds its slugs here. */
-export const C1_SLUGS: readonly string[] = [];
+/** Every C1 lesson authored so far, in trail order (files in data/c1/). A
+ *  wave adds its slugs here. */
+export const C1_SLUGS: readonly string[] = [
+  // wave 1 (exam-skill targets and the diagnostic)
+  'bilan-grammatical-c1', 'lire-entre-les-lignes', 'debats-entretiens', 'analyse-presse',
+];
 
 /** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
 export const BANDS = ['b1', 'b2', 'c1'] as const;
