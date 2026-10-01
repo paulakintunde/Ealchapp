@@ -8,6 +8,8 @@ import { resolveAppearance } from './appearance.logic';
 export function useTheme(): Theme {
   const accent = useStore((s) => s.accent);
   const mode = useStore((s) => s.mode);
+  // Always the OS value: the app never writes a native color-scheme override
+  // (08.1-02, D-21), so this cannot echo the app's own previous choice.
   const systemScheme = useColorScheme();
   return useMemo(() => buildTheme(accent, resolveAppearance(mode, systemScheme)), [accent, mode, systemScheme]);
 }

@@ -1,6 +1,6 @@
 import '../global.css';
 import { useEffect, useRef } from 'react';
-import { AppState, Appearance, Platform, View } from 'react-native';
+import { AppState, Platform, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -82,7 +82,6 @@ export default function RootLayout() {
   const contentHydrated = useContent((s) => s.hydrated);
   const ready = fontsLoaded && hydrated && progressHydrated && contentHydrated;
   const t = useTheme();
-  const appearancePreference = useStore((s) => s.mode);
   const rootOverlayOpen = useUI((s) => !!s.sheet || s.dictOpen);
   useAlarmWatcher();
   useAuthSession();
@@ -104,11 +103,12 @@ export default function RootLayout() {
     return () => subscription.remove();
   }, []);
 
-  useEffect(() => {
-    Appearance.setColorScheme(
-      appearancePreference === 'automatic' ? 'unspecified' : appearancePreference,
-    );
-  }, [appearancePreference]);
+  // D-21 / 08-QUALITY-AUDIT E1: there is deliberately no Appearance.setColorScheme
+  // here. A native override makes useColorScheme() return the app's own last
+  // choice, so Automatic could resolve from a stale Dark or Light. Everything
+  // that needs the resolved mode is driven from the theme `t` below (status bar,
+  // navigation bar, system UI background, contentStyle), so useColorScheme() now
+  // always equals the OS value. See __tests__/a11y-appearance-runtime.test.tsx.
 
   useEffect(() => {
     void SystemUI.setBackgroundColorAsync(t.bg).catch(() => {});
