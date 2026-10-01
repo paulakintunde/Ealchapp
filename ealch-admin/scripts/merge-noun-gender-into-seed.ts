@@ -49,6 +49,7 @@
 //   pnpm tsx scripts/merge-noun-gender-into-seed.ts
 
 import { readFileSync, writeFileSync } from 'node:fs';
+import { seedPlusPacks } from '../../ealch-v2/src/content/seed-plus-packs.ts';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
@@ -85,6 +86,11 @@ function die(msg: string): never {
 type Seed = { items: Item[]; lessons: Lesson[]; units: Unit[]; [k: string]: unknown };
 
 const seed = JSON.parse(readFileSync(SEED, 'utf8')) as Seed;
+// The figures are MEASURED on seed + packs layer, as the app's a1.03 tests and
+// _a1_genre_remeasure.ts read them: since premium packs (v79) seed.json alone is
+// only the free core. The lesson itself still lives in, and is written to, the
+// core seed.json.
+const measuredItems = (seedPlusPacks() as { items: Seed['items'] }).items;
 const LESSON = GENRE_LESSON;
 const UNIT_ID = LESSON.unitId;
 
@@ -140,7 +146,7 @@ if (quizzes.length !== 1) {
 // other ships as false to whichever half the learner receives.
 const claimErrors: string[] = [];
 for (const r of ENDING_RULES) {
-  const m = measureEnding(seed.items, r.ending);
+  const m = measureEnding(measuredItems, r.ending);
   if (!m) { claimErrors.push(`-${r.ending}: no nouns in the seed end this way`); continue; }
   if (m.accuracy !== r.accuracy) claimErrors.push(`-${r.ending}: card says ${r.accuracy}%, seed says ${m.accuracy}%`);
   if (m.n !== r.items) claimErrors.push(`-${r.ending}: card says ${r.items} nouns, seed says ${m.n}`);
@@ -156,14 +162,14 @@ for (const r of ENDING_RULES) {
   }
 }
 for (const w of WORTHLESS_ENDINGS) {
-  const m = measureEnding(seed.items, w.ending);
+  const m = measureEnding(measuredItems, w.ending);
   if (!m) { claimErrors.push(`-${w.ending}: nothing ends this way`); continue; }
   if (m.accuracy !== w.accuracy) claimErrors.push(`-${w.ending}: card says ${w.accuracy}%, seed says ${m.accuracy}%`);
   if (m.n !== w.items) claimErrors.push(`-${w.ending}: card says ${w.items} nouns, seed says ${m.n}`);
   if (m.accuracy >= RULE_FLOOR) claimErrors.push(`-${w.ending}: ${m.accuracy}% now clears the floor and is no longer worthless`);
 }
 for (const e of MORE_ENDINGS) {
-  const m = measureEnding(seed.items, e.ending);
+  const m = measureEnding(measuredItems, e.ending);
   if (!m || m.accuracy !== e.accuracy || m.n !== e.items || m.predicts !== e.predicts) {
     claimErrors.push(`sheet -${e.ending}: sheet says ${e.predicts} ${e.accuracy}% over ${e.items}, seed says ${m ? `${m.predicts} ${m.accuracy}% over ${m.n}` : 'nothing'}`);
   }

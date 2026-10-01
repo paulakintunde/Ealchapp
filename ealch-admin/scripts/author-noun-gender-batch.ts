@@ -46,6 +46,7 @@
 // './env' MUST be imported first — see the incident note in migrate.ts.
 import './env';
 import { readFileSync } from 'node:fs';
+import { seedPlusPacks } from '../../ealch-v2/src/content/seed-plus-packs.ts';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { describeTarget } from './env';
@@ -187,9 +188,10 @@ async function main() {
     // Two candidates failed exactly that and were cut before this shipped:
     // -eur (93% in the seed, 86% here) and -oire (90% in the seed, 61% here).
     // The dismissed endings are held to the mirror: under the floor in both.
-    const seedItems = (
-      JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../ealch-v2/src/content/seed.json'), 'utf8')) as { items: GenderRow[] }
-    ).items;
+    // Seed + packs layer, as the app's a1.03 tests and _a1_genre_remeasure.ts
+    // read it: since premium packs (v79) seed.json alone is only the free core,
+    // and the printed figures describe the whole bundled corpus.
+    const seedItems = (seedPlusPacks() as { items: GenderRow[] }).items;
 
     const claimErrors: string[] = [];
     for (const r of ENDING_RULES) {

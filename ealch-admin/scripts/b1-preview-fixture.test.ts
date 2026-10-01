@@ -32,8 +32,11 @@ import { BAND_SLUGS } from './b1-import.logic.ts';
 const HERE = dirname(fileURLToPath(import.meta.url));
 // Under premium packs seed.json is the free core; the published B1/B2 lessons
 // are in seed.json plus the paid layer, which is what seedPlusPacks() reads.
-// Every authored lesson is in BAND_SLUGS (B1 and B2); an imported one (in the seed) leaves the fixture.
-const SEEDED = (seedPlusPacks<any>().lessons ?? []).filter((l: any) => /^b[12]\./.test(l.id)).length;
+// Every authored lesson is in BAND_SLUGS (every band the pipeline imports); an
+// imported one (in the seed) leaves the fixture. Keyed on the band list, not a
+// b1/b2 regex: the C1 wave 1 merge left four c1 lessons counted as drafts.
+const BAND_IDS = new Set(Object.keys(BAND_SLUGS));
+const SEEDED = (seedPlusPacks<any>().lessons ?? []).filter((l: any) => BAND_IDS.has(String(l.id).split('.')[0])).length;
 const AUTHORED = Object.values(BAND_SLUGS).reduce((n, l) => n + l.length, 0);
 const EXPECTED_LESSONS = AUTHORED - SEEDED;
 

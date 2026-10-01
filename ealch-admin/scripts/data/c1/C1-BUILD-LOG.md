@@ -220,6 +220,27 @@ reuses the B1/B2 factory whole; this file records only what is different.
   after one play; while it plays it now says « Listening… » (it said « done »
   during playback).
 
+- **IMPORT (Paul's OK, 2026-10-01).** Trial merge first: 5735 / 5737, only
+  a1.03's two printed figures. Postgres: legacy typography 14 rows (re-run 0);
+  `b1-import.ts --band c1 ... --apply` 602 inserted, 4 units + 4 lessons, read
+  back published and identical; exam repoint 12/12 read back. Merge: +4 units,
+  +4 lessons, +625 items, +3 themes, validateCorpus 0 (core as free sees it 0),
+  additive against HEAD (0 lost; only a1.03.l1 changed). a1.03 re-measured
+  (-tion 52 → 53, -on 173 → 174), `pnpm content:gender` (version stays 14),
+  merged. Two scripts still read seed.json alone since packs (v79) and were
+  fixed to seed + packs: `author-noun-gender-batch.ts`,
+  `merge-noun-gender-into-seed.ts` (its id lookup stays on the core: a1.03 is
+  free). `b1-preview-fixture.test.ts` counted only b1/b2 lessons as seeded; now
+  every band. Suites: app 5737/5737, admin all pass. `pnpm content:parity` is
+  not a gate under packs (it reads seed.json alone; 2145 « missing » rows live
+  in the layer).
+- **v85 DRY RUN found a deadlock (2026-10-01):** legacy full v82 + exam only
+  never converged, the first exam-pack change since packs (the 8 paid C1 tasks'
+  new targets). Paul: fix the app first. `f77a81e` (trialBands): a pack is
+  judged against the bands the base really holds. Dry run after: 0 deadlocks in
+  12 states, valid, checksum 292a8b45..., packs b2/c1/exam at v85, a2 v81 and
+  b1 v79 reused. Publish waits for the fix to reach phones (OTA).
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -434,10 +455,10 @@ each agent gets the common block plus its own lesson block.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|
-| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 in | pre-reviewed, art in |
-| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | pre-reviewed, art in |
-| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | pre-reviewed, art in |
-| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | pre-reviewed, art in |
+| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 in | imported + merged |
+| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | imported + merged |
+| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | imported + merged |
+| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | imported + merged |
 
 ## Id ledger
 

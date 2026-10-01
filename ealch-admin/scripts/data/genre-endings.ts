@@ -297,7 +297,8 @@ const FEMININE: EndingRule[] = [
     // `une notification` on 2026-08-16. Both feminine, so the accuracy did not
     // move. Back to a carries-only move: neither joiner is authored.
         // 52 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 52,
+        // 53 since 2026-10-01: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
+    items: 53,
     article: 'une',
     example: { id: 'fr.a1.ecole.046', fr: 'la question', en: 'the question' },
     sheetExamples: ['la direction', 'la natation', 'la récréation', 'la destination'],
@@ -598,7 +599,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // FEMININE slice, so every unit like this one drives -on further from the
     // masculine reading a learner would guess.
         // 173 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 173,
+        // 174 since 2026-10-01: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
+    items: 174,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
