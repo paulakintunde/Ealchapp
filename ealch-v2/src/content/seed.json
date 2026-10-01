@@ -1,5 +1,5 @@
 {
-  "version": 84,
+  "version": 85,
   "domains": [
     {
       "slug": "fondations",
@@ -485,6 +485,18 @@
       "subThemes": []
     },
     {
+      "slug": "culture-profonde",
+      "title": "La culture en profondeur",
+      "domain": "culture",
+      "levelRange": [
+        "c1",
+        "c2"
+      ],
+      "examFlag": false,
+      "immigFlag": false,
+      "subThemes": []
+    },
+    {
       "slug": "decouvertes",
       "title": "Les découvertes",
       "domain": "sciences",
@@ -799,6 +811,18 @@
       "levelRange": [
         "sons",
         "sons"
+      ],
+      "examFlag": false,
+      "immigFlag": false,
+      "subThemes": []
+    },
+    {
+      "slug": "francais-professionnel-avance",
+      "title": "Le français professionnel avancé",
+      "domain": "travail",
+      "levelRange": [
+        "c1",
+        "c2"
       ],
       "examFlag": false,
       "immigFlag": false,
@@ -1653,7 +1677,7 @@
       "domain": "education",
       "levelRange": [
         "b1",
-        "b2"
+        "c1"
       ],
       "examFlag": false,
       "immigFlag": false,
@@ -1662,7 +1686,9 @@
         "écouter",
         "deviner le sens",
         "lire de façon critique",
-        "écouter à vitesse réelle"
+        "écouter à vitesse réelle",
+        "lire entre les lignes",
+        "analyser la presse"
       ]
     },
     {
@@ -2933,18 +2959,6 @@
       ]
     },
     {
-      "id": "a1.03",
-      "seq": 5,
-      "sub": "Le genre des noms",
-      "canDo": "Can tell masculine from feminine nouns and pick un or une",
-      "level": "a1",
-      "title": "Noun Gender",
-      "track": "a1",
-      "lessonIds": [
-        "a1.03.l1"
-      ]
-    },
-    {
       "id": "a2.36",
       "seq": 35,
       "sub": "Les pronoms toniques",
@@ -2990,6 +3004,18 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "id": "a1.03",
+      "seq": 5,
+      "sub": "Le genre des noms",
+      "canDo": "Can tell masculine from feminine nouns and pick un or une",
+      "level": "a1",
+      "title": "Noun Gender",
+      "track": "a1",
+      "lessonIds": [
+        "a1.03.l1"
       ]
     },
     {
@@ -41447,7 +41473,7 @@
               "head": "Nouns ending in e are feminine",
               "fr": "la table · la porte · la voiture",
               "sub": "three that obey it",
-              "body": "You have almost certainly been given this one. Over the 1045 nouns in this app that end in e, it is right 70% of the time."
+              "body": "You have almost certainly been given this one. Over the 1043 nouns in this app that end in e, it is right 70% of the time."
             },
             {
               "label": "What that costs",
@@ -41494,12 +41520,12 @@
               "cells": [
                 "-e",
                 "70%",
-                "1045"
+                "1043"
               ],
               "say": "le livre, la table",
               "detail": {
                 "title": "-e",
-                "body": "The rule every course gives you. Right seven times in ten, across 1045 nouns. le livre is masculine and la table is feminine, and nothing on the page separates them.",
+                "body": "The rule every course gives you. Right seven times in ten, across 1043 nouns. le livre is masculine and la table is feminine, and nothing on the page separates them.",
                 "say": "le livre, la table"
               }
             },
@@ -42397,7 +42423,7 @@
             {
               "wrong": "Trusting « ends in e, so feminine » on le livre.",
               "right": "Treating the final e as a lean and checking anything you are about to say.",
-              "why": "It is right seven times in ten over 1045 nouns, which makes you wrong about one in three."
+              "why": "It is right seven times in ten over 1043 nouns, which makes you wrong about one in three."
             },
             {
               "wrong": "Reading « l’escalier » and moving straight on.",
@@ -42801,7 +42827,7 @@
                     "it is never right"
                   ],
                   "correct": 2,
-                  "why": "Seven in ten across 1045 nouns, which makes you wrong about one noun in three.",
+                  "why": "Seven in ten across 1043 nouns, which makes you wrong about one noun in three.",
                   "ref": "s04-finale"
                 },
                 {
@@ -281127,63 +281153,6 @@
       ]
     },
     {
-      "id": "exam.tef_canada.blanc-01.co_mcq.006",
-      "format": "tef_canada",
-      "variant": "blanc-01",
-      "taskType": "co_mcq",
-      "skill": "CO",
-      "level": "c1",
-      "formatVersion": "tef-canada-2025.09",
-      "prompt": "Vous allez entendre un reportage. Répondez à la question.",
-      "label": "Section F",
-      "parts": [
-        {
-          "text": "LA NARRATRICE : Meillac, trois mille deux cents habitants, une école, deux commerces et, depuis dix-huit mois, quarante nouveaux habitants. La commune n’avait pas gagné un habitant depuis vingt ans.\nUNE HABITANTE : On nous avait dit : ils viendront, ils repartiront. Bon. Il y en a qui sont repartis, c’est vrai. Mais la moitié est restée. Ça, personne ne l’avait prévu.\nLA NARRATRICE : Ce que la commune a fait n’a rien de spectaculaire. Pas de subvention, pas de campagne. Une liste, tenue par une bénévole, de ce qui manque à quelqu’un qui arrive : un garagiste, un médecin, une place à la cantine, quelqu’un qui parle un peu anglais le premier mois.\nLA NARRATRICE : Sur cette liste, à la ligne du mois de mars, on lit : famille de quatre, arrivée le douze, cherche un dentiste et quelqu’un pour garder les enfants le mercredi. En face, deux prénoms et un numéro de téléphone. La bénévole appelle. C’est tout ce que la méthode contient.\nLE MAIRE : Nous, on n’a pas d’argent. On a du temps, et on se connaît. Quand une famille arrive, dans la semaine quelqu’un passe. Ce n’est pas une politique, ça. C’est juste… c’est ce qu’on ferait pour un cousin. On n’a rien inventé, vous savez. On a seulement décidé que ce serait toujours la même personne qui rappelle.\nLA NARRATRICE : L’Institut Verlune a suivi douze communes comparables. Celles qui ont misé sur des aides financières ont vu repartir sept nouveaux arrivants sur dix en trois ans. Meillac, qui n’a rien dépensé, en garde un sur deux.\nUNE HABITANTE : Le problème, ce n’est jamais le logement. Du logement, on en trouve. C’est le deuxième hiver. Le deuxième hiver, s’il n’y a personne à qui parler, ils s’en vont.\nUN NOUVEL ARRIVANT : Le premier hiver, on ne connaît personne. On se dit qu’on a fait une bêtise, franchement. Moi, ce qui m’a retenu, c’est une voisine qui est passée un dimanche de novembre avec une tarte, et qui est restée deux heures. Ce n’est rien, une tarte. Mais après ça, j’avais quelqu’un à qui dire bonjour le matin.\nLA NARRATRICE : La commune a aujourd’hui une liste d’attente pour les logements communaux. Le maire, lui, s’inquiète d’autre chose : la bénévole qui tient la liste a soixante-treize ans, et personne ne s’est proposé pour la remplacer.",
-          "items": [
-            {
-              "q": "Quelle est l’idée principale de ce reportage ?",
-              "why": "Meillac ne dépense rien et garde un arrivant sur deux ; les communes qui paient en perdent sept sur dix. L’habitante ajoute que le logement n’est jamais le problème.",
-              "band": "c1",
-              "opts": [
-                "Les petites communes doivent verser des aides pour attirer des habitants",
-                "Le manque de logements freine l’installation dans les zones rurales",
-                "Ce qui retient les nouveaux arrivants tient plus au lien qu’à l’argent",
-                "Les nouveaux arrivants repartent presque tous au bout de trois ans"
-              ],
-              "correct": 2
-            }
-          ],
-          "label": "Reportage · une commune qui retient ceux qui arrivent",
-          "audioRef": "audio/3C1zYzXNXNzrB66ON8rj/116431dad9717e99a39546b292103a6b.mp3",
-          "durationS": 123,
-          "playCount": 1,
-          "readWindowS": 25
-        }
-      ],
-      "examinerNotes": [
-        "Épreuve blanche rédigée par Ealch d’après le format publié. Ce n’est pas un sujet officiel et aucun extrait ne provient d’un sujet réel.",
-        "Le barème brut vers échelle est une estimation experte, pas une équivalence officielle. Les seuils NCLC proviennent de la grille IRCC."
-      ],
-      "timingS": 190,
-      "targetItemIds": [
-        "fr.a2.immigration-et-citoyennete.001",
-        "fr.a2.immigration-et-citoyennete.002",
-        "fr.a2.immigration-et-citoyennete.003",
-        "fr.a2.immigration-et-citoyennete.004",
-        "fr.a2.immigration-et-citoyennete.005",
-        "fr.a2.communaute.001",
-        "fr.a2.communaute.002",
-        "fr.a2.communaute.012",
-        "fr.a2.communaute.013",
-        "fr.a2.communaute.014",
-        "fr.a1.maison.001",
-        "fr.a1.maison.002",
-        "fr.a1.maison.003",
-        "fr.a1.maison.010",
-        "fr.a1.maison.011"
-      ]
-    },
-    {
       "id": "exam.tcf_canada.blanc-01.co_mcq.006",
       "format": "tcf_canada",
       "variant": "blanc-01",
@@ -282711,26 +282680,18 @@
       ],
       "timingS": 780,
       "targetItemIds": [
-        "fr.a1.transports-quotidiens.001",
-        "fr.a1.transports-quotidiens.002",
-        "fr.a1.transports-quotidiens.003",
-        "fr.a1.transports-quotidiens.004",
-        "fr.a1.transports-quotidiens.005",
-        "fr.a2.bureau.001",
-        "fr.a2.bureau.002",
-        "fr.a2.bureau.003",
-        "fr.a2.bureau.004",
-        "fr.a2.bureau.015",
-        "fr.a2.collegues.001",
-        "fr.a2.collegues.002",
-        "fr.a2.collegues.003",
-        "fr.a2.collegues.012",
-        "fr.a2.collegues.013",
-        "fr.a1.la-ville.001",
-        "fr.a1.la-ville.002",
-        "fr.a1.la-ville.003",
-        "fr.a1.la-ville.004",
-        "fr.a1.la-ville.005"
+        "fr.c1.strategies-de-comprehension.1808",
+        "fr.c1.strategies-de-comprehension.1827",
+        "fr.c1.strategies-de-comprehension.1842",
+        "fr.c1.strategies-de-comprehension.1866",
+        "fr.c1.strategies-de-comprehension.1888",
+        "fr.c1.strategies-de-comprehension.1906",
+        "fr.c1.strategies-de-comprehension.1930",
+        "fr.c1.strategies-de-comprehension.1942",
+        "fr.c1.strategies-de-comprehension.1949",
+        "fr.c1.strategies-de-comprehension.1974",
+        "fr.c1.strategies-de-comprehension.1985",
+        "fr.c1.strategies-de-comprehension.1998"
       ]
     },
     {
@@ -283431,6 +283392,60 @@
         "fr.a2.maison.004",
         "fr.a2.maison.005",
         "fr.a2.maison.006"
+      ]
+    },
+    {
+      "id": "exam.tef_canada.blanc-01.co_mcq.006",
+      "format": "tef_canada",
+      "variant": "blanc-01",
+      "taskType": "co_mcq",
+      "skill": "CO",
+      "level": "c1",
+      "formatVersion": "tef-canada-2025.09",
+      "prompt": "Vous allez entendre un reportage. Répondez à la question.",
+      "label": "Section F",
+      "parts": [
+        {
+          "text": "LA NARRATRICE : Meillac, trois mille deux cents habitants, une école, deux commerces et, depuis dix-huit mois, quarante nouveaux habitants. La commune n’avait pas gagné un habitant depuis vingt ans.\nUNE HABITANTE : On nous avait dit : ils viendront, ils repartiront. Bon. Il y en a qui sont repartis, c’est vrai. Mais la moitié est restée. Ça, personne ne l’avait prévu.\nLA NARRATRICE : Ce que la commune a fait n’a rien de spectaculaire. Pas de subvention, pas de campagne. Une liste, tenue par une bénévole, de ce qui manque à quelqu’un qui arrive : un garagiste, un médecin, une place à la cantine, quelqu’un qui parle un peu anglais le premier mois.\nLA NARRATRICE : Sur cette liste, à la ligne du mois de mars, on lit : famille de quatre, arrivée le douze, cherche un dentiste et quelqu’un pour garder les enfants le mercredi. En face, deux prénoms et un numéro de téléphone. La bénévole appelle. C’est tout ce que la méthode contient.\nLE MAIRE : Nous, on n’a pas d’argent. On a du temps, et on se connaît. Quand une famille arrive, dans la semaine quelqu’un passe. Ce n’est pas une politique, ça. C’est juste… c’est ce qu’on ferait pour un cousin. On n’a rien inventé, vous savez. On a seulement décidé que ce serait toujours la même personne qui rappelle.\nLA NARRATRICE : L’Institut Verlune a suivi douze communes comparables. Celles qui ont misé sur des aides financières ont vu repartir sept nouveaux arrivants sur dix en trois ans. Meillac, qui n’a rien dépensé, en garde un sur deux.\nUNE HABITANTE : Le problème, ce n’est jamais le logement. Du logement, on en trouve. C’est le deuxième hiver. Le deuxième hiver, s’il n’y a personne à qui parler, ils s’en vont.\nUN NOUVEL ARRIVANT : Le premier hiver, on ne connaît personne. On se dit qu’on a fait une bêtise, franchement. Moi, ce qui m’a retenu, c’est une voisine qui est passée un dimanche de novembre avec une tarte, et qui est restée deux heures. Ce n’est rien, une tarte. Mais après ça, j’avais quelqu’un à qui dire bonjour le matin.\nLA NARRATRICE : La commune a aujourd’hui une liste d’attente pour les logements communaux. Le maire, lui, s’inquiète d’autre chose : la bénévole qui tient la liste a soixante-treize ans, et personne ne s’est proposé pour la remplacer.",
+          "items": [
+            {
+              "q": "Quelle est l’idée principale de ce reportage ?",
+              "why": "Meillac ne dépense rien et garde un arrivant sur deux ; les communes qui paient en perdent sept sur dix. L’habitante ajoute que le logement n’est jamais le problème.",
+              "band": "c1",
+              "opts": [
+                "Les petites communes doivent verser des aides pour attirer des habitants",
+                "Le manque de logements freine l’installation dans les zones rurales",
+                "Ce qui retient les nouveaux arrivants tient plus au lien qu’à l’argent",
+                "Les nouveaux arrivants repartent presque tous au bout de trois ans"
+              ],
+              "correct": 2
+            }
+          ],
+          "label": "Reportage · une commune qui retient ceux qui arrivent",
+          "audioRef": "audio/3C1zYzXNXNzrB66ON8rj/116431dad9717e99a39546b292103a6b.mp3",
+          "durationS": 123,
+          "playCount": 1,
+          "readWindowS": 25
+        }
+      ],
+      "examinerNotes": [
+        "Épreuve blanche rédigée par Ealch d’après le format publié. Ce n’est pas un sujet officiel et aucun extrait ne provient d’un sujet réel.",
+        "Le barème brut vers échelle est une estimation experte, pas une équivalence officielle. Les seuils NCLC proviennent de la grille IRCC."
+      ],
+      "timingS": 190,
+      "targetItemIds": [
+        "fr.c1.discours-dexamen.1404",
+        "fr.c1.discours-dexamen.1416",
+        "fr.c1.discours-dexamen.1429",
+        "fr.c1.discours-dexamen.1443",
+        "fr.c1.discours-dexamen.1453",
+        "fr.c1.discours-dexamen.1467",
+        "fr.c1.discours-dexamen.1479",
+        "fr.c1.discours-dexamen.1495",
+        "fr.c1.discours-dexamen.1505",
+        "fr.c1.discours-dexamen.1516",
+        "fr.c1.discours-dexamen.1525",
+        "fr.c1.discours-dexamen.1545"
       ]
     },
     {
@@ -285000,24 +285015,18 @@
       ],
       "timingS": 475,
       "targetItemIds": [
-        "fr.c1.methode-scientifique.001",
-        "fr.c1.methode-scientifique.002",
-        "fr.c1.methode-scientifique.003",
-        "fr.c1.methode-scientifique.004",
-        "fr.c1.methode-scientifique.005",
-        "fr.c1.methode-scientifique.006",
-        "fr.c1.philosophie.001",
-        "fr.c1.philosophie.002",
-        "fr.c1.philosophie.003",
-        "fr.c1.philosophie.004",
-        "fr.c1.philosophie.005",
-        "fr.c1.philosophie.006",
-        "fr.c1.ethique.001",
-        "fr.c1.ethique.002",
-        "fr.c1.ethique.003",
-        "fr.c1.ethique.004",
-        "fr.c1.ethique.005",
-        "fr.c1.ethique.006"
+        "fr.c1.discours-dexamen.1404",
+        "fr.c1.discours-dexamen.1416",
+        "fr.c1.discours-dexamen.1429",
+        "fr.c1.discours-dexamen.1443",
+        "fr.c1.discours-dexamen.1453",
+        "fr.c1.discours-dexamen.1467",
+        "fr.c1.discours-dexamen.1479",
+        "fr.c1.discours-dexamen.1495",
+        "fr.c1.discours-dexamen.1505",
+        "fr.c1.discours-dexamen.1516",
+        "fr.c1.discours-dexamen.1525",
+        "fr.c1.discours-dexamen.1545"
       ]
     },
     {
@@ -285844,17 +285853,18 @@
       ],
       "timingS": 720,
       "targetItemIds": [
-        "fr.c1.ethique.001",
-        "fr.c1.ethique.002",
-        "fr.c1.ethique.003",
-        "fr.c1.ethique.004",
-        "fr.c1.ethique.005",
-        "fr.c1.ethique.006",
-        "fr.c1.decouvertes.001",
-        "fr.c1.decouvertes.002",
-        "fr.c1.decouvertes.003",
-        "fr.c1.decouvertes.004",
-        "fr.c1.decouvertes.005"
+        "fr.c1.strategies-de-comprehension.1808",
+        "fr.c1.strategies-de-comprehension.1827",
+        "fr.c1.strategies-de-comprehension.1842",
+        "fr.c1.strategies-de-comprehension.1866",
+        "fr.c1.strategies-de-comprehension.1888",
+        "fr.c1.strategies-de-comprehension.1906",
+        "fr.c1.strategies-de-comprehension.1930",
+        "fr.c1.strategies-de-comprehension.1942",
+        "fr.c1.strategies-de-comprehension.1949",
+        "fr.c1.strategies-de-comprehension.1974",
+        "fr.c1.strategies-de-comprehension.1985",
+        "fr.c1.strategies-de-comprehension.1998"
       ]
     },
     {

@@ -1,18 +1,18 @@
 # Publish report
 
-Generated: 2026-10-01T00:10:09.198Z
+Generated: 2026-10-01T15:34:41.344Z
 Mode: publish
-Status: v83 → v84
+Status: v84 → v85
 
 ## What changed
 
 | kind | previous | now | delta |
 |---|---|---|---|
 | domains | 14 | 14 | +0 |
-| themes | 136 | 136 | +0 |
-| units | 141 | 149 | +8 |
-| lessons | 144 | 152 | +8 |
-| items | 60668 | 62182 | +1514 |
+| themes | 136 | 141 | +5 |
+| units | 149 | 153 | +4 |
+| lessons | 152 | 156 | +4 |
+| items | 62182 | 62784 | +602 |
 | scenarios | 107 | 107 | +0 |
 | playlists | 20 | 20 | +0 |
 | speakPath | 31 | 31 | +0 |
@@ -23,7 +23,7 @@ Status: v83 → v84
 
 | | previous | now | delta |
 |---|---|---|---|
-| snapshot bytes | — | 52215635 | — |
+| snapshot bytes | — | 53662529 | — |
 
-checksum: 4955ae3753cafcb0bb8ecaedb8bc632273191e0c0dadd4762f3e15bdf7ab06e0
-content digest: 5d1d3c86483d29219aa80ae9b402e0b7abd67464a61b2e3536a8a9a923fe5ed1
+checksum: 292a8b454f9a7c9bc908902c003a969d3251bc0c0c6dd3d0a6ac7bc5e4caf32d
+content digest: 6bc831c35d1fdd69057ae695dbc2ca9bdb9ae8a0c4afc66b307e52d4b2d09023
