@@ -262,6 +262,13 @@ reuses the B1/B2 factory whole; this file records only what is different.
   (delete when convenient); the Pixel 6 now runs the dev build; the TEF pack
   divergence (decision 15) and the open items below stay open.
 
+- **After v85 (2026-10-01):** the publish's cut dropped six fr.c1.ethique rows
+  the repoint freed (still published), moving a1.03's « -e » card 1045 → 1043.
+  Re-measured, content:gender (v14), merged, committed (`a207431`); app
+  5741/5741. A core-only v86 dry run is valid (checksum 39784708..., 5 packs
+  reused, 0 deadlocks). **Paul: ship it with the next publish (wave 2), not
+  alone.** Until then phones show « 1045 » on that card.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
