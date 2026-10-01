@@ -109,6 +109,39 @@ test('core + every pack merged == the legacy full snapshot', () => {
   strictEqual(corpusFingerprint(mergeSplit(split.core, split.packs)), corpusFingerprint(full));
 });
 
+test('a C1 unit splits like B2: skeleton in the core, body in the c1 pack, borrowed B2 rows stay in b2', () => {
+  // C1 Phase 0 (2026-09-30). The c1 pack already ships the Speak trail's world 6
+  // rows; the first C1 lesson must add to it without moving anything else.
+  const full = tiny();
+  full.units.push(unit('c1.20', ['c1.20.l1']));
+  full.lessons.push(lesson('c1.20.l1', ['fr.c1.y.1800', 'fr.b2.x.001']));
+  full.items.push(item('fr.c1.y.1800'), item('fr.c1.y.001'));
+  full.speakPath!.push({ id: 'speak.6.1', world: 6, seq: 1, level: 'c1', blocks: [{ itemIds: ['fr.c1.y.001'] }] } as unknown as Corpus['speakPath'][number]);
+  const split = splitCorpus(full);
+  const sk = split.core.units.find((u) => u.id === 'c1.20')!;
+  deepStrictEqual(sk.outline, [{ lessonId: 'c1.20.l1', title: 'T c1.20.l1', acts: [{ title: 'Act', cards: 2 }] }]);
+  ok(!split.core.lessons.some((l) => l.id === 'c1.20.l1'), 'no C1 lesson body in the free core');
+  const c1 = split.packs.find((p) => p.pack === 'c1')!;
+  deepStrictEqual(c1.units.map((u) => u.id), ['c1.20']);
+  deepStrictEqual(c1.lessons.map((l) => l.id), ['c1.20.l1']);
+  deepStrictEqual(c1.items.map((i) => i.id).sort(), ['fr.c1.y.001', 'fr.c1.y.1800']);
+  deepStrictEqual(c1.speakPath.map((s) => s.id), ['speak.6.1']);
+  const places = Object.fromEntries(itemPlacements(split));
+  deepStrictEqual(places['fr.b2.x.001'], ['b2'], 'a C1 lesson never pulls a B2 row up');
+  deepStrictEqual(split.packs.map((p) => p.pack), ['a2', 'b1', 'b2', 'c1', 'exam']);
+  strictEqual(corpusFingerprint(mergeSplit(split.core, split.packs)), corpusFingerprint(full));
+});
+
+test('a C1 pack with no lesson yet (today) holds only its Speak rows and adds no unit to the core', () => {
+  const full = tiny();
+  full.items.push(item('fr.c1.y.001'));
+  full.speakPath!.push({ id: 'speak.6.1', world: 6, seq: 1, level: 'c1', blocks: [{ itemIds: ['fr.c1.y.001'] }] } as unknown as Corpus['speakPath'][number]);
+  const split = splitCorpus(full);
+  ok(!split.core.units.some((u) => u.id.startsWith('c1.')));
+  const c1 = split.packs.find((p) => p.pack === 'c1')!;
+  deepStrictEqual([c1.units.length, c1.lessons.length, c1.items.length], [0, 0, 1]);
+});
+
 test('skeletonUnit carries act titles and card counts, never lesson content', () => {
   const l = lesson('b1.02.l1', ['fr.b1.x.001'], { narration: { stages: [] }, features: ['narrated'] } as unknown as Partial<Lesson>);
   const sk = skeletonUnit(unit('b1.02', ['b1.02.l1']), new Map([[l.id, l]]));

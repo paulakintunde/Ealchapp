@@ -198,6 +198,28 @@ test('locked is true on every heading/acte0/act row of a band outside freeBands 
   ok(freeRelevant.every((r) => 'locked' in r && r.locked === false));
 });
 
+test('SYNTHESISED: the C1 tab draws a published C1 unit from its core skeleton, gated for a free learner, open once entitled', () => {
+  // C1 Phase 0 (2026-09-30): today no C1 unit exists, so the tab is empty. The
+  // first C1 unit reaches a free phone as a skeleton (outline, no lesson body).
+  const c1: Unit = {
+    id: 'c1.20', seq: 20, title: 'Reading between the lines', sub: 'Lire entre les lignes', lessonIds: ['c1.20.l1'],
+    outline: [{ lessonId: 'c1.20.l1', title: 'Lire entre les lignes', acts: [{ title: 'Acte 1', cards: 4 }, { title: 'Acte 2', cards: 0 }] }],
+  } as Unit;
+  strictEqual(unitBand(c1.id), 'c1');
+  const input: TrailInput = { ...baseInput('c1', [c1]), lessonsOf: () => [] };
+  strictEqual(trailRows({ ...input, units: [] }).filter((r) => r.kind === 'heading').length, 0, 'no C1 unit, no heading');
+
+  const locked = trailRows({ ...input, levelsAll: false });
+  strictEqual(locked[0]?.kind, 'gate');
+  strictEqual(locked.filter((r) => r.kind === 'heading').length, 1);
+  strictEqual(locked.filter((r) => r.kind === 'act').length, 2);
+  ok(locked.filter((r) => r.kind === 'heading' || r.kind === 'act').every((r) => 'locked' in r && r.locked === true));
+
+  const open = trailRows(input);
+  strictEqual(open.filter((r) => r.kind === 'gate').length, 0);
+  ok(open.filter((r) => r.kind === 'act').every((r) => 'locked' in r && r.locked === false));
+});
+
 test('a gate row is emitted at index 0 iff the band is locked, and never alongside a boundary row', () => {
   const lockedRows = trailRows({ ...baseInput('a2', unitsOfBand(seedUnits, 'a2')), levelsAll: false, freeBands: ['sons', 'a1'] });
   strictEqual(lockedRows[0]?.kind, 'gate');
