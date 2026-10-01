@@ -113,6 +113,16 @@ The next product decision is the canonical activation point: whether `onboarding
 - Asked what gaps block Phase 9 completion. The user chose to keep the phase incomplete until all roadmap-critical paths and events pass, with unrelated findings logged for later.
 - Asked whether local `track()` calls alone satisfy the analytics gate. The user chose to prove that the configured capture endpoint accepted each event.
 
+## 2026-09-30 - review revisit
+
+A review of the executed phase found that the first discussion locked proof gates nobody had checked were achievable, never decided what happens to analytics while offline, never raised consent, never named who builds the funnel, and let an audit phase grow into a build phase. The phase was blocked on exactly the unchecked gates. Questions put to Paul:
+
+- Asked how Phase 9 should treat iPhone proof, given no Apple developer account or registered device. Paul has an iPhone XR, has not enrolled yet, and is waiting on a D-U-N-S number. He asked what is needed to run the iPhone and what works. The decision stays open until he has that answer; see D-22/D-23 in `09-CONTEXT.md` and "iPhone readiness" in `09-DEVICE-EVIDENCE.md`.
+- Asked whether proof of a parsed Play campaign stays in Phase 9. Paul chose to defer it to launch (D-26).
+- Asked what happens to a one-time event when capture fails offline or is rejected. Paul chose a persistent outbox (D-27).
+- Asked how consent and opt-out should be handled. Paul chose a separate, launch-blocking decision outside Phase 9 (D-28).
+- Recorded without a question, from the review: the definition of `initial_result` and first-occurrence funnel counting (D-29), the scope label (D-30), and a feasibility check for every future proof gate.
+
 ## Alternatives considered
 
 > Confirmed choices above are canonical in `09-CONTEXT.md`. This table preserves the other options presented during discussion.
@@ -201,10 +211,19 @@ The next product decision is the canonical activation point: whether `onboarding
 | What gaps block Phase 9 completion? | All roadmap-critical onboarding paths and acquisition, activation, and engagement events must pass; unrelated findings may be logged for later. | Block on critical gaps; Complete with critical gaps logged |
 | Must a configured test build prove analytics endpoint acceptance beyond local track calls? | Yes. Prove the capture endpoint accepted each event. | Prove accepted capture; Local call is enough |
 
+### 2026-09-30 review revisit
+
+| Question | Selected answer | Other options presented |
+|---|---|---|
+| How should Phase 9 treat iPhone proof without an Apple developer account? | Open. Paul asked what running the XR needs before deciding. | Defer to a pre-iOS phase; Keep as a Phase 9 gate |
+| Keep Play-delivered campaign proof in Phase 9? | Defer to launch. | Keep, with an upfront setup task |
+| What happens to a one-time event whose capture fails offline or is rejected? | Persistent outbox, retried on launch and foreground. | Release the claim only; Accept the loss |
+| How should analytics consent and opt-out be handled? | Separate launch-blocking decision outside Phase 9. | Add an opt-out in Phase 9; Not needed |
+
 ## Implementation Discretion
 
 Exact event names, required metadata fields, idempotency keys, placement-abandonment timing, and test transport mechanics are left to Phase 9 research and planning within the decisions in `09-CONTEXT.md`.
 
 ## Deferred Ideas
 
-None from this discussion.
+None from the 2026-09-29 discussion. The 2026-09-30 revisit deferred consent (D-28), Play campaign proof (D-26) and the PostHog funnel build (D-29); see `09-CONTEXT.md`.

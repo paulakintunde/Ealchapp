@@ -1,7 +1,8 @@
 # Phase 9: Onboarding & Analytics Audit - Context
 
 **Gathered:** 2026-09-29
-**Status:** Ready for planning
+**Amended:** 2026-09-30 (review revisit: D-22/D-23 open, D-26 to D-30 added)
+**Status:** Executing; iPhone gate awaiting decision
 
 <domain>
 ## Phase Boundary
@@ -55,6 +56,18 @@ Audit and fix the existing first-run onboarding and optional placement journey e
 - **D-23:** Verify purchase analytics with a store sandbox purchase and automated capture checks; do not require a real charge.
 - **D-24:** A configured analytics test build must prove the capture endpoint accepted each event, beyond proving a local `track()` call. If analytics is offline or rejects a request, the learner’s onboarding, placement, lesson, and purchase flows continue, while QA records the missing event as a failure to fix.
 - **D-25:** Phase 9 remains incomplete until every roadmap-critical onboarding path and acquisition, activation, and engagement event passes. Log unrelated findings for later work.
+
+### Amendments from the 2026-09-30 review
+
+The first discussion locked proof gates without checking they could be met, and it left offline delivery, consent and funnel ownership undecided. These amendments supersede the decisions they name. The audit trail is in `09-DISCUSSION-LOG.md` under "2026-09-30 - review revisit".
+
+- **D-22 / D-23 amended (iPhone proof) - OPEN, awaiting Paul's decision.** iPhone walkthroughs and an iPhone sandbox purchase remain written gates, but they cannot run yet. The Apple Developer Program enrollment is waiting on a D-U-N-S number, and there is no registered device. Available hardware: an iPhone XR, which the app supports (Expo SDK 57 needs iOS 16.4+; the XR runs up to iOS 18). What each route needs is in `09-DEVICE-EVIDENCE.md` under "iPhone readiness". Phase 9 cannot close until Paul either (a) enrolls and the XR walkthrough runs, or (b) moves iPhone proof to a named pre-App-Store gate. Android work proceeds meanwhile.
+- **D-26 (Play campaign proof deferred to launch).** Proving a parsed campaign from a Play-delivered install moves to the launch checklist. Phase 9 accepts the parser and status unit tests plus one device-observed `install_attribution` with a non-campaign status (`no_campaign`, `lookup_failed` or `unavailable`) and an accepted capture. This supersedes the Play-delivered part of D-22 and the Plan 06 truth "A Play-delivered Android install proves parsed attribution".
+- **D-27 (offline delivery: persistent outbox).** A capture that fails because the device is offline, throttled (429) or the server errors (5xx) is saved and retried on the next launch and each return to foreground. The saved copy keeps the original event ID and timestamp, contains only the already-allowlisted properties, and never stores the PostHog key. A 4xx rejection is not retried; it stays a QA failure under D-24. The outbox holds at most 200 events for 14 days; when full, the oldest events win because one-time milestones come first. A milestone stays claimed while it waits, so it is sent once, late, rather than lost or duplicated. Learner flows never wait on the outbox.
+- **D-28 (consent and opt-out: separate launch-blocking decision).** Analytics links install and journey IDs to accounts, and learners are likely in Quebec (Law 25) or the EU. Whether that needs a consent screen, an opt-out toggle, or privacy-policy wording only is decided in its own discussion before public launch. Phase 9 builds none of it. Logged under Deferred.
+- **D-29 (funnel semantics).** `placement_result.initial_result` is true only when that attempt's result was the learner's first terminal placement outcome (D-05 to D-08). A result after a voluntary skip, a confirmed abandonment, or Continue after a load failure is a later result (`false`), matching `placement_started.source: 'later'`. Activation milestones are deduplicated per device, so an account signing in on a second device can send `first_lesson_started` again; the PostHog funnel must count each person's first occurrence ("first time for user"), not raw events.
+- **D-30 (scope label).** QA-01 says the phase "verifies rather than builds". Wizard resume, placement resume, exit confirmation and the identity model were built because the audit found the shipped behaviour broke D-01 to D-12. They are treated as defect fixes inside this phase. Any further feature found during device QA goes to `09-GAPS.md` as a later-phase item unless it blocks a critical path (D-25).
+- **Process rule for later phases.** Every proof gate is checked for feasibility in the discussion: accounts, devices, store tracks, test projects and credentials it depends on, and who supplies them.
 
 ### Implementation Discretion
 
@@ -120,7 +133,10 @@ Audit and fix the existing first-run onboarding and optional placement journey e
 <deferred>
 ## Deferred Ideas
 
-None — discussion stayed within Phase 9 scope. Unrelated issues found during QA may be logged for a later phase under D-25.
+- **Analytics consent and opt-out (D-28).** Launch-blocking. Needs its own discussion: consent screen versus opt-out toggle, what clearing analytics IDs means, privacy-policy wording for Law 25 and GDPR.
+- **Play-delivered campaign attribution proof (D-26).** Launch checklist: upload to the Play internal track, install from an encoded campaign link, confirm parsed `source`/`medium`/`campaign` with an accepted capture.
+- **PostHog activation funnel build (D-29).** Plan 06 writes the funnel definition. Building the saved insight needs a PostHog token with write scope or Paul in the PostHog UI; the agent's current token is read-only.
+- Unrelated issues found during QA may be logged for a later phase under D-25.
 
 </deferred>
 

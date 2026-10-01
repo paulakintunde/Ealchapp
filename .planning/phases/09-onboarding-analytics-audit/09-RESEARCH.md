@@ -93,6 +93,13 @@ Pitfalls: an unguarded `useEffect` duplicates events on rerender; `AsyncStorage`
 
 Use existing `npm test` for pure date, schema, identity, parser, idempotency, and placement checkpoint functions. Use `npm run test:component -- --runInBand` for wizard/placement action paths and route boundary assertions; `npm run typecheck` for event map/call-site parity. Use a local HTTP stub for rejected/accepted capture and a configured disposable PostHog project for real accepted capture. Gate first-open, signup, each onboarding step, placement skip/result/abandon, first lesson, lesson complete, exam submit, streak, purchase, and D1 with exact event counts/order, required IDs/outcomes, and forbidden answer/transcript/email fields. Prove no-key and rejected/offline analytics leave flows usable. Run guest and email wizard plus placement skip/result/abandon on both Android and iPhone; use a Play internal-test install for campaign attribution and store sandbox for purchase. A controlled-clock D1 unit test and a device foreground check satisfy D-14 without waiting a day. Record build IDs, OS, account kind, scenario, event IDs, endpoint responses, and failures in phase evidence; do not set Nyquist or phase verification to passing until these are observed.
 
+## Corrections (2026-09-30 review)
+
+- **Missed existing library.** The table above proposes a local Expo Android module for the Play Install Referrer. Expo SDK 57's `expo-application` already provides `getInstallReferrerAsync()`, and execution used it. A research pass should check the installed SDK's own modules before proposing native code.
+- **Offline delivery not researched.** The capture path was treated as one fire-and-forget POST. With milestones claimed before sending, an offline send lost a one-time event permanently. D-27 adds a persistent outbox.
+- **External prerequisites not listed.** The validation architecture names Apple, Play internal-track, PostHog test project and sandbox-tester dependencies but does not check they exist. Plan 06 Task 0 now does.
+- **Not independent.** Research, pattern mapping, planning, UI-spec approval and the plan check were all done by one agent because the dedicated GSD agents were unavailable in that runtime. A separate checker reviewed the revised plans on 2026-09-30; see 09-PLAN-CHECK.md.
+
 ## Open Risks
 
 - Supabase may return an obfuscated/fake signup user for an existing confirmed email when confirmation is enabled. An accepted signup response alone does not prove a new account. Plan 01 requires a later authenticated session matching both the signup response user ID and a random `options.data.ealch_signup_nonce` before linking the guest journey; see [Supabase signup behavior](https://supabase.com/docs/reference/javascript/v1/auth-signup).

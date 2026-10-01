@@ -36,6 +36,7 @@ The shadcn initialization gate does not apply: Ealch is an Expo native app with 
 | Wizard resume | Current unfinished step | Reopen directly at the last unfinished step with earlier choices shown. Preserve the familiar step label and progress bar; do not replay Welcome or add a resume modal. Return focus to the step heading, then its controls. |
 | Den placement offer | Trail start remains the primary visual action | Keep the existing quiet `TrailCard` appearance. The card opens the check; a specifically labeled “Skip quick check” dismisses it. Dismissing must not obscure or delay the trail start marker. |
 | Placement question | Current French word and options | Keep the current progress bar, word/audio card, answer rows, and Continue action. After process death, reopening the check restores the same attempt, chosen answers, and the next unanswered question. Show one low-emphasis “Quick check resumed” status line if useful; do not reset progress or present a blocking modal. |
+| Placement checkpoint outdated (added 2026-09-30) | Current question | A saved attempt that names an item an update removed is discarded and a fresh check is drawn, without the unavailable state. No new copy. |
 | Placement content unavailable | Problem and recovery actions | Replace the current sole back action with an actionable empty/error state: “Retry quick check” as the main recovery, “Continue without quick check” as the quiet route to the Den. The learner never sees an empty question area or a disabled Continue control. |
 | Explicit exit during placement | Clear consequence before leaving | Intercept header Close and back navigation while a result is unfinished. Confirm “End this quick check?” with “Keep checking” and “End quick check.” Confirmed exit marks the attempt abandoned; an app background or process kill retains the attempt for resume and does not show this confirmation. |
 | Placement result | Estimated level and start action | Preserve the existing large level, score, starting lesson, contextual Première offer, “Start here,” and retake layout. Retake starts a new attempt without changing the recorded first funnel outcome. |
@@ -111,6 +112,7 @@ Add these localized strings or map to an existing equivalent only when its visib
 | Reminder skip | Continuer sans rappels | Continue without reminders |
 | Microphone transient error | Le micro n’a pas saisi votre voix. Réessayez ou continuez sans test micro. | The microphone did not catch your voice. Try again or continue without the mic check. |
 | Microphone denied | L’accès au micro est refusé. Activez-le dans les réglages du téléphone, ou continuez sans test micro. | Microphone access is denied. Enable it in phone settings, or continue without the mic check. |
+| Microphone unavailable (existing `micUnavail`, added to contract 2026-09-30) | Existing app string | Existing app string; keep the retry and skip actions below it |
 | Microphone retry | Réessayer le micro | Try microphone again |
 | Microphone skip | Continuer sans test micro | Continue without mic check |
 | Placement offer skip | Passer la vérification | Skip quick check |
@@ -146,5 +148,7 @@ Add these localized strings or map to an existing equivalent only when its visib
 - [x] Dimension 4 Typography: PASS — four new-copy sizes, two weights, and explicit line heights; existing display styles are inherited.
 - [x] Dimension 5 Spacing: PASS — new spacing uses the seven-value scale; inherited geometry and functional touch sizes are scoped separately.
 - [x] Dimension 6 Registry Safety: PASS — manual native design system with no registry blocks.
+
+**Independent check 2026-09-30:** a separate UI checker found no blocker and flagged copywriting for two uncovered states, now added above. Its code mismatches were fixed in Plan 08 Task 4: danger variant on "End quick check", 44 dp guest route, announced signup error, focused unavailable heading on the 4-point scale. Still open as minor: the microphone error copy uses `bodySm` rather than `body`.
 
 **Approval:** approved 2026-09-29 after applying the six GSD UI checker dimensions to the written contract. The dedicated `gsd-ui-researcher` and `gsd-ui-checker` agent types are not exposed in this Codex runtime, so research and review were performed locally, as for Phase 8.

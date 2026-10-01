@@ -306,24 +306,27 @@ Plans:
   2. Key engagement user actions (lesson complete, purchase, exam submit, streak event, etc.) are confirmed to fire the correct `services/analytics.ts` events with correct payloads, or gaps are logged and closed.
   3. Acquisition events are confirmed to exist and fire correctly: first-open, signup started, signup completed, and store-listing referrer capture.
   4. An activation funnel is confirmed instrumented end-to-end at step granularity — `onboarding_started` → per-step events → `placement_result` → `first_lesson_started` — and D1 return is measurable, so real acquisition/activation data is available post-launch, not just crash/correctness verification.
-**Plans**: 7 plans in 4 waves
+**Plans**: 8 plans in 5 waves
 
 **Wave 1**
 - [x] 09-01-PLAN.md — typed events, guest/account identity boundaries, and accepted-capture diagnostics
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [x] 09-02-PLAN.md — resumable wizard, explicit skip/recovery actions, and onboarding/signup milestones
-- [x] 09-04-PLAN.md — per-install first open, local-day D1, Android Play referrer, and iPhone unavailable status
+- [x] 09-04-PLAN.md — per-install first open, local-day D1, Android Play referrer (via `expo-application`), and iPhone unavailable status
 - [x] 09-05-PLAN.md — first lesson, completion, exam, streak, and purchase events
+
+**Wave 3** *(09-03 blocked on Plan 02 because both edit `useStore.ts` and `strings.ts`; 09-07 blocked on Plan 05)*
+- [x] 09-03-PLAN.md — durable placement attempts, outcome boundaries, and recovery UI
 - [x] 09-07-PLAN.md — close identity carryover and direct event-path test gaps found in the audit
 
-**Wave 3** *(blocked on Plan 02 because both plans edit `useStore.ts` and `strings.ts`)*
-- [x] 09-03-PLAN.md — durable placement attempts, outcome boundaries, and recovery UI
+**Wave 4** *(blocked on Plans 03, 04 and 07)*
+- [x] 09-08-PLAN.md — close review findings: initial_result semantics, offline outbox, once-per-status attribution, outdated placement checkpoint
 
-**Wave 4** *(blocked on Wave 3 and Plans 04–05)*
-- [ ] 09-06-PLAN.md — automated event audit, Android/iPhone walkthrough, accepted capture, and store sandbox proof
+**Wave 5** *(blocked on all of the above)*
+- [ ] 09-06-PLAN.md — prerequisites check, automated event audit, Android walkthrough and accepted capture, store sandbox proof; iPhone rows wait on the amended D-22/D-23 decision, Play campaign proof deferred to launch (D-26)
 
-**Cross-cutting constraints:** Analytics failures never interrupt learner actions; every event has an idempotent milestone boundary and excludes answer text, speech transcripts, email, and raw referrers. UI changes obey 09-UI-SPEC.md. Phase 9 completion requires accepted-capture evidence and passing Android/iPhone critical paths, not merely green unit tests.
+**Cross-cutting constraints:** Analytics failures never interrupt learner actions; every event has an idempotent milestone boundary and excludes answer text, speech transcripts, email, and raw referrers. UI changes obey 09-UI-SPEC.md. Phase 9 completion requires accepted-capture evidence and passing Android critical paths, not merely green unit tests; iPhone proof follows the amended D-22/D-23 decision in 09-CONTEXT.md. Failed captures wait in a persistent outbox (D-27). Analytics consent is a separate launch-blocking decision (D-28).
 **UI hint**: yes
 
 ### Phase 10: Feedback & Rating Flow
