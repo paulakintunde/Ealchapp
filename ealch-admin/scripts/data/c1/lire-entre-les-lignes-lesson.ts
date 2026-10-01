@@ -53,9 +53,10 @@
 //    8  Le présupposé             7  an essay on « Pourquoi les jeunes ne
 //                                    lisent-ils plus ? » · grammatical
 //                                    presupposition, the negation test
-//    9  L'ironie au C1            7  a billet on an insurer's « pôle
-//                                    expérience » · echo, impossible praise,
-//                                    mock modesty, irony as a topic, the cue
+//    9  L'ironie au C1            7  a billet on a day spent waiting for
+//                                    the radiator technician · echo,
+//                                    impossible praise, mock modesty, irony
+//                                    as a topic, the cue
 //   10  L'agent caché             6  a chronicle on a school email · who acts
 //                                    behind passives and nominalisations
 //   11  À l'épreuve               7  two TCF-style documents · the four
@@ -150,15 +151,6 @@
 //      cardDeck?
 //   8. The task brief keeps `briefEn` (schema.ts says « B2 drops it »; the C1
 //      build log says English on every learner string). Keep?
-//   9. (Pre-review 2026-09-30.) Act 9's billet re-runs b2.24 act 6's blog:
-//      a counter closed for a digital service, a loop back to the phone
-//      number, mock modesty, the official word quoted, a sincere character at
-//      the end. The cards now cite b2.24 and lead with the C1 step (unmarked
-//      echo, the cue quoted). Rewrite the billet's situation once the act 9
-//      art is drawn?
-//  10. (Pre-review.) Act 8 relabels b2.24's « présupposé » (the unstated
-//      assumption) as « sous-entendu ». Linguistically right; it renames a
-//      term the learner holds from B2. Keep?
 
 import type {
   Lesson, LessonSection, LessonAct, LessonDrill, SectionAudio, ReferenceSheet,
@@ -1164,7 +1156,7 @@ const A8_TEST: Sec<'groupDrill'> = {
     ], chk('Dans quelle phrase le musée est-il fermé, pour celui qui parle ?', ['dans la première', 'dans la seconde'], 0,
       '« Savoir » tient le fait pour vrai ; « croire », non. EN: savoir is factive, croire is not.')),
     ctl('Le sous-entendu', '« Il est déjà 22 heures », dit à un invité. L’idée « tu devrais partir »...', ['est un présupposé', 'est un sous-entendu, qu’on peut démentir'], 1,
-      'On peut répondre « je ne disais pas ça pour toi » : l’idée n’est pas dans la grammaire. EN: it can be denied, so it is only implied.'),
+      `On peut le démentir : l’idée n’est pas dans la grammaire. ${Cap(CRITIQUE_REF)} appelait présupposé ces deux choses ; au C1, on les distingue. EN: it can be denied, so it is implied. B2 lesson 24 called both a presupposition; C1 tells them apart.`),
   ],
   audio: AUDIO, say: REFRAME, terms: ['presuppose'],
 };
@@ -1253,17 +1245,17 @@ const ACT8: ActDef = {
 
 const A9_BILLET: Sec<'reading'> = {
   type: 'reading', id: 'a9-billet', layer: 'core', questionsInModal: true,
-  title: 'Le pôle expérience', frSub: 'Une note, une soirée au téléphone',
+  title: 'Ma journée tranquille', frSub: 'Une note, une journée à attendre',
   text: POLE_TEXT,
   glossary: [
-    { word: 'file d’attente', en: 'queue', note: 'La file où l’on attend son tour.' },
+    { word: 'purgé', en: 'bled (a radiator)', note: 'Purger un radiateur, c’est en chasser l’air pour qu’il chauffe bien.' },
   ],
   questions: [
-    { q: 'Devine le sens : « J’ai donc appelé, en adhérente centrée. » D’où vient le mot « centrée » ?', a: 'De la note de la direction (« centré sur l’adhérent ») : l’auteure le reprend pour le faire entendre creux.' },
-    { q: 'Comment sait-on que « tout le loisir d’apprécier » la musique est ironique ?', a: 'Par la situation : quarante minutes d’attente. L’éloge est contredit par le récit.' },
-    { q: 'Que fait la phrase « Je ne voudrais pas paraître ingrate » ?', a: 'C’est une fausse modestie : elle feint de se reprocher une critique qu’elle maintient.' },
-    { q: 'Le « vocabulaire en avance sur les faits » est-il une excuse ?', a: 'C’est une feinte indulgence : l’excuse dit, poliment, que le mot ne correspond encore à rien.' },
-    { q: 'La phrase de la conseillère est-elle ironique ?', a: 'Non : rien ne la contredit, et l’auteure dit qu’elle lui a servi. C’est la seule phrase sincère de la soirée.' },
+    { q: 'Devine le sens : « J’ai donc pris ma journée, en toute tranquillité. » D’où vient le mot « tranquillité » ?', a: 'De la note de la régie (« pour préserver votre tranquillité ») : l’auteure le reprend, sans guillemets, pour le faire entendre creux.' },
+    { q: 'Comment sait-on que « tout le loisir d’admirer mes radiateurs » est ironique ?', a: 'Par la situation : dix heures d’attente devant un téléphone. L’éloge est contredit par le récit.' },
+    { q: 'Que fait la phrase « Loin de moi l’idée de me plaindre » ?', a: 'C’est une fausse modestie : elle feint de renoncer à une plainte qu’elle vient de faire, et qu’elle poursuit.' },
+    { q: 'Le créneau « aussi large que la journée » est-il une excuse ?', a: 'C’est une feinte indulgence : l’excuse dit, poliment, que le créneau ne promettait rien de précis.' },
+    { q: 'La phrase du technicien est-elle ironique ?', a: 'Non : rien ne la contredit, et l’auteure dit qu’elle lui a servi. C’est la seule phrase sincère de la journée.' },
   ],
   audio: REC('rec-c1-20-pole'), say: REFRAME, terms: ['ironie'],
 };
@@ -1275,13 +1267,13 @@ const A9_SIGNAUX: Sec<'cardDeck'> = {
   audio: REC('rec-c1-20-signaux'), say: REFRAME, terms: ['ironie'],
   cards: [
     { head: 'L’écho', label: 'reprendre les mots de l’autre', fr: src(E(1946)).fr, sub: rsOf(E(1946)),
-      body: `${Cap(CRITIQUE_REF)} repérait le mot de l’autre entre guillemets. Ici, pas de guillemets : « centrée » vient de la note, et il est déplacé. C’est l’indice. EN: echo irony with no quotation marks; the borrowed word is the cue.` },
+      body: `${Cap(CRITIQUE_REF)} repérait le mot de l’autre entre guillemets. Ici, pas de guillemets : « tranquillité » vient de la note, et il est déplacé. C’est l’indice. EN: echo irony with no quotation marks; the borrowed word is the cue.` },
     { head: 'L’éloge impossible', label: 'l’antiphrase et son indice', fr: src(E(1947)).fr, sub: rsOf(E(1947)),
-      body: 'L’antiphrase est un acquis du B2. Au C1, cite l’indice : quarante minutes d’attente. Sans elles, la phrase serait sincère. EN: antiphrasis is known; at C1, quote the cue that proves it.' },
-    { head: 'La fausse modestie', label: 'je ne voudrais pas paraître', fr: src(E(1948)).fr, sub: rsOf(E(1948)),
-      body: 'On feint de se reprocher ce qu’on reproche à l’autre. La critique reste entière, sous une forme polie. EN: feigned self-reproach keeps the criticism intact.' },
+      body: 'L’antiphrase est un acquis du B2. Au C1, cite l’indice : dix heures d’attente. Sans elles, la phrase serait sincère. EN: antiphrasis is known; at C1, quote the cue that proves it.' },
+    { head: 'La fausse modestie', label: 'loin de moi l’idée de', fr: src(E(1948)).fr, sub: rsOf(E(1948)),
+      body: 'On feint de renoncer à se plaindre au moment même où l’on se plaint. La critique reste entière, sous une forme polie. EN: feigned restraint keeps the criticism intact.' },
     { head: 'Pas d’indice, pas d’ironie', label: 'la règle', fr: src(E(1949)).fr, sub: rsOf(E(1949)),
-      body: 'Une phrase n’est ironique que si le texte la contredit. Sinon, lis-la au premier degré, comme la phrase de la conseillère. EN: no contradicting cue, no irony.' },
+      body: 'Une phrase n’est ironique que si le texte la contredit. Sinon, lis-la au premier degré, comme la phrase du technicien. EN: no contradicting cue, no irony.' },
   ],
 };
 
@@ -1292,9 +1284,9 @@ const A9_DEGRE: Sec<'groupDrill'> = {
     grp('Dans le billet', [
       it(E(1951), 'la promesse tenue'),
       it(E(1952), 'l’excuse'),
-      it(E(1955), 'la conseillère'),
+      it(E(1955), 'le technicien'),
     ], chk('Laquelle de ces trois phrases se lit au premier degré ?', ['la troisième', 'la première', 'la deuxième'], 0,
-      'Rien ne contredit la phrase de la conseillère : elle est sincère. EN: nothing contradicts it.')),
+      'Rien ne contredit la phrase du technicien : elle est sincère. EN: nothing contradicts it.')),
     grp('Dans d’autres textes', [
       free('Merci pour ce délai de six mois, il nous a laissé tout le temps de réfléchir.', 'Thank you for this six-month delay, it gave us all the time in the world to think.', 'texte A'),
       free('Merci pour votre réponse rapide : nous avons pu ouvrir à temps.', 'Thank you for your quick reply: we were able to open on time.', 'texte B'),
@@ -1325,13 +1317,13 @@ const A9_ERREURS: Sec<'commonErrors'> = {
   type: 'commonErrors', id: 'a9-erreurs', layer: 'core', swipe: true, size: 'lg',
   title: 'Quatre façons de rater l’ironie',
   errors: [
-    { wrong: 'L’auteure trouve l’expérience réussie : « c’en fut une ».', right: 'L’auteure reprend le mot « expérience » pour dire que la soirée fut pénible.',
+    { wrong: 'L’auteure a passé une journée tranquille : elle n’a pas bougé.', right: 'L’auteure reprend le mot « tranquillité » pour dire que la journée fut pénible.',
       why: 'Normal : la phrase est positive. Mais tout le billet la contredit. EN: the whole text contradicts it.' },
-    { wrong: 'L’auteure présente un « pôle expérience » innovant.', right: 'L’auteure cite le mot de la direction pour s’en moquer.',
+    { wrong: 'L’auteure salue un créneau pensé pour sa tranquillité.', right: 'L’auteure reprend le mot de la régie pour s’en moquer.',
       why: 'Le mot n’est pas le sien : c’est un écho. Le reprendre à son compte, c’est rater l’ironie. EN: it is an echo, not her word.' },
-    { wrong: 'Même la conseillère se moque de la mutuelle.', right: 'La conseillère donne un conseil sincère, le seul utile de la soirée.',
+    { wrong: 'Même le technicien se moque de la régie.', right: 'Le technicien donne un conseil sincère, le seul utile de la journée.',
       why: 'Voir de l’ironie partout est l’autre erreur : rien ne contredit sa phrase. EN: seeing irony everywhere is the other mistake.' },
-    { wrong: 'L’auteure s’excuse d’être ingrate.', right: 'L’auteure feint de s’excuser pour mieux maintenir sa critique.',
+    { wrong: 'L’auteure renonce à se plaindre.', right: 'L’auteure feint de renoncer à se plaindre pour mieux maintenir sa critique.',
       why: 'La fausse modestie garde la critique entière. EN: mock modesty keeps the criticism whole.' },
   ],
   audio: AUDIO, say: REFRAME, terms: ['ironie'],
@@ -1345,8 +1337,8 @@ const A9_ANALYSE = pourTonAnalyse('a9-analyse', 'Tu nommes l’ironie, et tu cit
     'Le procédé, puis l’indice : sinon, ce n’est qu’une impression. EN: name the device, then the cue.')),
   grp('Ne pas en voir partout', [
     it(E(1955), 'la phrase sincère'),
-  ], chk('Dans ton analyse, la phrase de la conseillère...', ['montre le seul moment sincère du billet', 'est un exemple d’ironie'], 0,
-    'Elle sert de contraste : c’est la seule phrase sans un mot de la note. EN: it is the sincere contrast.')),
+  ], chk('Dans ton analyse, la phrase du technicien...', ['montre le seul moment sincère du billet', 'est un exemple d’ironie'], 0,
+    'Elle sert de contraste : c’est la seule phrase qui ne sort pas de la note. EN: it is the sincere contrast.')),
 ], ['ironie']);
 
 const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
@@ -1362,7 +1354,7 @@ const ACT9: ActDef = {
   act: {
     id: 'act9', title: 'L’ironie au C1',
     opener: {
-      line: 'Une adhérente remercie sa mutuelle pour une soirée au téléphone : ici tu prouves l’ironie par un indice du texte. EN: A member thanks her insurer for an evening on the phone: here you prove irony with a cue from the text.',
+      line: 'Une locataire raconte la journée tranquille que sa régie lui avait promise : ici tu prouves l’ironie par un indice du texte. EN: A tenant tells of the peaceful day her building manager promised her: here you prove irony with a cue from the text.',
       imageRef: 'lessons/lire-entre-les-lignes/act09.jpg',
     },
     sections: [],
@@ -1979,13 +1971,13 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r8-ironie', label: 'L’ironie', targets: ['ironie-sans-indice'],
       questions: [
-        mc('« J’ai donc appelé, en adhérente centrée. » Le procédé est...', ['l’écho : reprendre le mot de la note', 'un compliment', 'une définition'], 0, 'Le mot vient de la direction. EN: the word comes from the memo.', 'a9-signaux'),
-        mc('Qu’est-ce qui prouve que « tout le loisir d’apprécier » la musique est ironique ?', ['quarante minutes d’attente', 'le mot musique', 'un point d’exclamation'], 0, 'La situation contredit l’éloge. EN: the situation contradicts the praise.', 'a9-billet'),
-        mc('La phrase de la conseillère est...', ['ironique, comme le reste', 'sincère : rien ne la contredit'], 1, 'Pas d’indice, pas d’ironie. EN: no cue, no irony.', 'a9-degre'),
+        mc('« J’ai donc pris ma journée, en toute tranquillité. » Le procédé est...', ['l’écho : reprendre le mot de la note', 'un compliment', 'une définition'], 0, 'Le mot vient de la régie. EN: the word comes from the memo.', 'a9-signaux'),
+        mc('Qu’est-ce qui prouve que « tout le loisir d’admirer mes radiateurs » est ironique ?', ['dix heures d’attente', 'le mot radiateurs', 'un point d’exclamation'], 0, 'La situation contredit l’éloge. EN: the situation contradicts the praise.', 'a9-billet'),
+        mc('La phrase du technicien est...', ['ironique, comme le reste', 'sincère : rien ne la contredit'], 1, 'Pas d’indice, pas d’ironie. EN: no cue, no irony.', 'a9-degre'),
         mc('Dans la chronique radio sur l’ironie à l’écrit, le chroniqueur...', ['est ironique d’un bout à l’autre', 'parle de l’ironie sans en faire', 'se moque des émoticônes', 'refuse toute ironie'], 1, 'L’ironie est le sujet, pas le procédé. EN: irony is the topic.', 'a9-sujet'),
         tI('Complète. Un mot.', 'Pas d’..., pas d’ironie.', 'indice', 'La règle de l’acte. EN: no cue, no irony.', 'a9-signaux'),
         tI('Complète. Un mot.', 'Lire une phrase au ... degré, c’est la prendre au pied de la lettre.', 'premier', 'Premier degré : sens littéral. EN: literally.', 'a9-degre'),
-        eS('L’auteure trouve que le pôle expérience est une réussite.', 'L’auteure se moque du pôle expérience en reprenant le mot de la note.', 'Tout le billet contredit l’éloge. EN: the whole text contradicts the praise.', 'a9-erreurs', ['L’auteure se moque du pôle expérience.', 'L’auteure trouve que le pôle expérience est un échec.']),
+        eS('L’auteure trouve que sa journée fut tranquille.', 'L’auteure se moque de la tranquillité promise en reprenant le mot de la note.', 'Tout le billet contredit l’éloge. EN: the whole text contradicts the praise.', 'a9-erreurs', ['L’auteure se moque de la tranquillité promise.', 'L’auteure trouve que sa journée fut pénible.']),
         lC('Écoute. Que font les bons ironistes, selon le chroniqueur ?', src(E(1963)).fr, ['ils laissent un détail qui contredit l’éloge', 'ils ajoutent un visage qui cligne de l’œil'], 0, 'Le détail est l’indice. EN: the detail is the cue.', 'a9-sujet'),
       ],
     },
@@ -2197,12 +2189,12 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['retourner un camp', 'même… reconnaît', 'Même les défenseurs les plus fervents le reconnaissent.'],
     ]),
     table('sheet-voix-ironie', 'L’ironie au C1', ['Procédé', 'Exemple', 'L’indice'], [
-      ['l’écho', 'J’ai donc appelé, en adhérente centrée.', 'le mot vient de la note de la direction'],
-      ['l’éloge impossible', 'une musique que j’ai eu tout le loisir d’apprécier', 'quarante minutes d’attente'],
-      ['la fausse modestie', 'Je ne voudrais pas paraître ingrate.', 'elle n’a aucune raison d’être reconnaissante'],
-      ['la feinte indulgence', 'Le vocabulaire est en avance sur les faits.', 'l’excuse est elle-même une critique'],
+      ['l’écho', 'J’ai donc pris ma journée, en toute tranquillité.', 'le mot vient de la note de la régie'],
+      ['l’éloge impossible', 'tout le loisir d’admirer mes radiateurs', 'dix heures d’attente'],
+      ['la fausse modestie', 'Loin de moi l’idée de me plaindre.', 'elle se plaint juste avant et juste après'],
+      ['la feinte indulgence', 'Le créneau est aussi large que la journée.', 'l’excuse est elle-même une critique'],
       ['l’ironie comme sujet', 'À l’écrit, l’ironie n’a que les mots.', 'le texte parle de l’ironie, sans en faire'],
-      ['le premier degré', 'Passez à l’agence tant qu’elle est ouverte.', 'rien ne contredit la phrase'],
+      ['le premier degré', 'Demandez le premier passage du matin.', 'rien ne contredit la phrase'],
     ]),
   ]),
   sheet('sheet-implicite', 'Ce que la grammaire tient pour acquis', ['les déclencheurs du présupposé', 'le test de la négation', 'l’agent caché'], [
@@ -2325,7 +2317,7 @@ const REC_DESC: Record<string, string> = {
   'rec-c1-20-question': 'The essay on the reading question (act 8), ONE VOICE, one take, a man, West African or France French, calm and exact. The title question read as a real question; « plus » in « Le petit mot « plus » » said as a quoted word, /plys/.',
   'rec-c1-20-declencheurs': 'The four presupposition cards, read plainly. Card four with a real question intonation.',
   'rec-c1-20-piege-presuppose': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace, with no stress on the trigger word (encore, cessé, aussi, regrette, sait): the learner must find it.',
-  'rec-c1-20-pole': 'The insurer billet (act 9), ONE VOICE, one take, a Québec woman in her forties reading her own billet, DEADPAN throughout: the irony lives in the words, never in a laugh or a sigh. The adviser’s quoted sentence in a lower, sincere voice; the last two sentences plainly.',
+  'rec-c1-20-pole': 'The radiator billet (act 9), ONE VOICE, one take, a Québec woman in her forties reading her own billet, DEADPAN throughout: the irony lives in the words, never in a laugh or a sigh. The technician’s quoted sentences in a lower, sincere voice; the last two sentences plainly.',
   'rec-c1-20-signaux': 'The four irony cards, read deadpan, with no ironic intonation: the cue is in the text.',
   'rec-c1-20-ironie-ecrit': 'REQUIRED FOR THE EAR MISSION (act 9): eight lines, ONE TAKE, ONE VOICE, in authored order, a radio chronicler talking ABOUT irony, entirely serious and warm. « Merci pour ta rapidité » read flat, as a quoted message: the chronicler is not being ironic.',
   'rec-c1-20-sorties': 'The school-email chronicle (act 10), ONE VOICE, one take, a Québec woman columnist, precise and calm. The quoted email phrases with the slight lift of a quotation; the rewritten sentence with an agent read a touch more firmly.',

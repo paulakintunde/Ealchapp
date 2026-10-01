@@ -9514,7 +9514,7 @@
           "id": "act9",
           "title": "L’ironie au C1",
           "opener": {
-            "line": "Une adhérente remercie sa mutuelle pour une soirée au téléphone : ici tu prouves l’ironie par un indice du texte. EN: A member thanks her insurer for an evening on the phone: here you prove irony with a cue from the text.",
+            "line": "Une locataire raconte la journée tranquille que sa régie lui avait promise : ici tu prouves l’ironie par un indice du texte. EN: A tenant tells of the peaceful day her building manager promised her: here you prove irony with a cue from the text.",
             "imageRef": "lessons/lire-entre-les-lignes/act09.jpg"
           },
           "sections": [
@@ -10580,22 +10580,22 @@
               "rows": [
                 [
                   "l’écho",
-                  "J’ai donc appelé, en adhérente centrée.",
-                  "le mot vient de la note de la direction"
+                  "J’ai donc pris ma journée, en toute tranquillité.",
+                  "le mot vient de la note de la régie"
                 ],
                 [
                   "l’éloge impossible",
-                  "une musique que j’ai eu tout le loisir d’apprécier",
-                  "quarante minutes d’attente"
+                  "tout le loisir d’admirer mes radiateurs",
+                  "dix heures d’attente"
                 ],
                 [
                   "la fausse modestie",
-                  "Je ne voudrais pas paraître ingrate.",
-                  "elle n’a aucune raison d’être reconnaissante"
+                  "Loin de moi l’idée de me plaindre.",
+                  "elle se plaint juste avant et juste après"
                 ],
                 [
                   "la feinte indulgence",
-                  "Le vocabulaire est en avance sur les faits.",
+                  "Le créneau est aussi large que la journée.",
                   "l’excuse est elle-même une critique"
                 ],
                 [
@@ -10605,7 +10605,7 @@
                 ],
                 [
                   "le premier degré",
-                  "Passez à l’agence tant qu’elle est ouverte.",
+                  "Demandez le premier passage du matin.",
                   "rien ne contredit la phrase"
                 ]
               ]
@@ -11379,12 +11379,12 @@
             },
             {
               "situation": "Une note interne annonce « une nouvelle phase »",
-              "fr": "Il faut lire entre les lignes, ils cherchent en réalité à vendre l'entreprise.",
+              "fr": "Il faut lire entre les lignes, ils cherchent en réalité à vendre l’entreprise.",
               "en": "You have to read between the lines, they are actually looking to sell the company."
             },
             {
               "situation": "L’administration répond à ta demande de permis",
-              "fr": "On m'a répondu que le dossier suivait son cours, autant dire qu'il dort dans un tiroir.",
+              "fr": "On m’a répondu que le dossier suivait son cours, autant dire qu’il dort dans un tiroir.",
               "en": "I was told the file was moving along, which is to say it's sleeping in a drawer."
             },
             {
@@ -11600,7 +11600,7 @@
                   "note": "accordé pour l’hypothèse"
                 },
                 {
-                  "fr": "Certes, l'intelligence artificielle rédige vite, il n'en demeure pas moins qu'elle invente parfois.",
+                  "fr": "Certes, l’intelligence artificielle rédige vite, il n’en demeure pas moins qu’elle invente parfois.",
                   "itemId": "fr.c1.rhetorique.027",
                   "en": "Granted, artificial intelligence writes quickly, the fact remains that it sometimes makes things up.",
                   "note": "accordé : elle rédige vite"
@@ -14430,7 +14430,7 @@
                   "est un présupposé"
                 ],
                 "correct": 0,
-                "why": "On peut répondre « je ne disais pas ça pour toi » : l’idée n’est pas dans la grammaire. EN: it can be denied, so it is only implied."
+                "why": "On peut le démentir : l’idée n’est pas dans la grammaire. La leçon 24 du B2 appelait présupposé ces deux choses ; au C1, on les distingue. EN: it can be denied, so it is implied. B2 lesson 24 called both a presupposition; C1 tells them apart."
               }
             }
           ],
@@ -14668,7 +14668,7 @@
               "label": "Une question d’un autre essai",
               "items": [
                 {
-                  "fr": "Si la mesure est aussi efficace qu'on le prétend, pourquoi aucun des pays voisins ne l'a-t-il encore adoptée ?",
+                  "fr": "Si la mesure est aussi efficace qu’on le prétend, pourquoi aucun des pays voisins ne l’a-t-il encore adoptée ?",
                   "itemId": "fr.c1.rhetorique.113",
                   "en": "If the measure is as effective as claimed, why has none of the neighbouring countries adopted it yet?",
                   "note": "une question qui présuppose"
@@ -14765,36 +14765,36 @@
           "id": "a9-billet",
           "layer": "core",
           "questionsInModal": true,
-          "title": "Le pôle expérience",
-          "frSub": "Une note, une soirée au téléphone",
-          "text": "NOTRE NOUVEAU « PÔLE EXPÉRIENCE ». Billet de Léonie Fréchette. La note est arrivée lundi, signée de la direction de la Mutuelle des Trois-Rivages : l’accueil téléphonique « évolue vers un pôle expérience centré sur l’adhérent ». J’ai donc appelé, en adhérente centrée. Le pôle expérience commence par une musique, que j’ai eu tout le loisir d’apprécier. Une voix m’a ensuite assuré que mon appel était important, ce que je n’avais aucune raison de mettre en doute, puisqu’on me l’a répété onze fois. J’ai fini par la croire : un appel moins important aurait sans doute été pris plus vite. Au bout de quarante minutes, une conseillère très aimable m’a expliqué qu’elle ne pouvait pas modifier mon dossier, mais qu’elle pouvait m’envoyer un lien. Le lien menait à la page d’accueil. De la page d’accueil, un autre lien menait au numéro que je venais d’appeler. Je ne voudrais pas paraître ingrate. On m’avait promis une expérience, et c’en fut une. Peu de gens peuvent se vanter d’avoir passé une soirée entière centrés sur eux-mêmes. Je comprends d’ailleurs l’intention. Un service qui ferme ses agences doit bien donner un nom à ce qui les remplace, et « pôle expérience » sonne mieux que « file d’attente ». Le vocabulaire n’est pas mensonger : il est simplement en avance sur les faits, comme ces brochures d’hôtel où la « vue sur mer » exige un balcon et un peu de bonne volonté. Un jour, il y aura peut-être une expérience derrière le mot ; en attendant, il y a la musique. La conseillère, elle, n’y était pour rien. À la fin de l’appel, elle m’a dit à voix basse : « Si je peux me permettre, passez à l’agence de Rimouski tant qu’elle est ouverte. » C’est la seule phrase de la soirée qui ne contenait aucun mot de la note. C’est aussi la seule qui m’ait servi.",
+          "title": "Ma journée tranquille",
+          "frSub": "Une note, une journée à attendre",
+          "text": "MA JOURNÉE TRANQUILLE. Billet de Léonie Fréchette. La note a été glissée sous ma porte lundi, signée de la Régie du Vieux-Pommier : l’entretien annuel des radiateurs aura lieu jeudi, « entre 8 h et 18 h, pour préserver votre tranquillité ». Le technicien, précisait-elle, appellerait trente minutes avant son passage. J’ai donc pris ma journée, en toute tranquillité. J’ai posé mon téléphone sur la table de la cuisine, face visible, le son au plus fort, et j’ai attendu. J’ai eu tout le loisir d’admirer mes radiateurs. Mon thé a refroidi deux fois. À midi, j’ai mangé debout, près de la fenêtre, pour voir arriver la camionnette. À quinze heures, une voisine a frappé pour savoir si le technicien était passé chez moi : il n’était passé chez personne. Loin de moi l’idée de me plaindre. On m’avait promis la tranquillité : je n’ai pas bougé de la journée. Peu de gens peuvent se vanter d’avoir passé une journée aussi tranquille, les yeux sur un téléphone. Je comprends d’ailleurs la régie. Elle gère une quarantaine d’immeubles avec trois techniciens, et il faut bien qu’un créneau couvre tout le monde. Le créneau n’est pas faux : il est simplement aussi large que la journée, comme ces horoscopes qui promettent, cette semaine, une rencontre. Un jour, il y aura peut-être une heure précise derrière la promesse ; en attendant, il y a la fenêtre. Le technicien, lui, n’y était pour rien. Il n’a pas appelé : il a sonné, à 17 h 55, essoufflé, et il a purgé mes quatre radiateurs en dix minutes. En rangeant sa clé, il m’a dit : « La prochaine fois, appelez la régie la veille et demandez le premier passage du matin. Ils le donnent à ceux qui le demandent. » De toute la journée, c’est la seule phrase qui ne sortait pas de la note. C’est aussi la seule qui m’ait servi.",
           "glossary": [
             {
-              "word": "file d’attente",
-              "en": "queue",
-              "note": "La file où l’on attend son tour."
+              "word": "purgé",
+              "en": "bled (a radiator)",
+              "note": "Purger un radiateur, c’est en chasser l’air pour qu’il chauffe bien."
             }
           ],
           "questions": [
             {
-              "q": "Devine le sens : « J’ai donc appelé, en adhérente centrée. » D’où vient le mot « centrée » ?",
-              "a": "De la note de la direction (« centré sur l’adhérent ») : l’auteure le reprend pour le faire entendre creux."
+              "q": "Devine le sens : « J’ai donc pris ma journée, en toute tranquillité. » D’où vient le mot « tranquillité » ?",
+              "a": "De la note de la régie (« pour préserver votre tranquillité ») : l’auteure le reprend, sans guillemets, pour le faire entendre creux."
             },
             {
-              "q": "Comment sait-on que « tout le loisir d’apprécier » la musique est ironique ?",
-              "a": "Par la situation : quarante minutes d’attente. L’éloge est contredit par le récit."
+              "q": "Comment sait-on que « tout le loisir d’admirer mes radiateurs » est ironique ?",
+              "a": "Par la situation : dix heures d’attente devant un téléphone. L’éloge est contredit par le récit."
             },
             {
-              "q": "Que fait la phrase « Je ne voudrais pas paraître ingrate » ?",
-              "a": "C’est une fausse modestie : elle feint de se reprocher une critique qu’elle maintient."
+              "q": "Que fait la phrase « Loin de moi l’idée de me plaindre » ?",
+              "a": "C’est une fausse modestie : elle feint de renoncer à une plainte qu’elle vient de faire, et qu’elle poursuit."
             },
             {
-              "q": "Le « vocabulaire en avance sur les faits » est-il une excuse ?",
-              "a": "C’est une feinte indulgence : l’excuse dit, poliment, que le mot ne correspond encore à rien."
+              "q": "Le créneau « aussi large que la journée » est-il une excuse ?",
+              "a": "C’est une feinte indulgence : l’excuse dit, poliment, que le créneau ne promettait rien de précis."
             },
             {
-              "q": "La phrase de la conseillère est-elle ironique ?",
-              "a": "Non : rien ne la contredit, et l’auteure dit qu’elle lui a servi. C’est la seule phrase sincère de la soirée."
+              "q": "La phrase du technicien est-elle ironique ?",
+              "a": "Non : rien ne la contredit, et l’auteure dit qu’elle lui a servi. C’est la seule phrase sincère de la journée."
             }
           ],
           "audio": {
@@ -14838,30 +14838,30 @@
             {
               "head": "L’écho",
               "label": "reprendre les mots de l’autre",
-              "fr": "J’ai donc appelé, en adhérente centrée.",
-              "sub": "[zhay dohⁿk a-puh-LAY ahⁿ-na-day-RAHⁿT sahⁿ-TRAY]",
-              "body": "La leçon 24 du B2 repérait le mot de l’autre entre guillemets. Ici, pas de guillemets : « centrée » vient de la note, et il est déplacé. C’est l’indice. EN: echo irony with no quotation marks; the borrowed word is the cue."
+              "fr": "J’ai donc pris ma journée, en toute tranquillité.",
+              "sub": "[zhay dohⁿk pree ma zhoor-NAY ahⁿ toot trahⁿ-kee-lee-TAY]",
+              "body": "La leçon 24 du B2 repérait le mot de l’autre entre guillemets. Ici, pas de guillemets : « tranquillité » vient de la note, et il est déplacé. C’est l’indice. EN: echo irony with no quotation marks; the borrowed word is the cue."
             },
             {
               "head": "L’éloge impossible",
               "label": "l’antiphrase et son indice",
-              "fr": "Une musique, que j’ai eu tout le loisir d’apprécier.",
-              "sub": "[ün mü-ZEEK kuh zhay ü too luh lwa-ZEER da-pray-SYAY]",
-              "body": "L’antiphrase est un acquis du B2. Au C1, cite l’indice : quarante minutes d’attente. Sans elles, la phrase serait sincère. EN: antiphrasis is known; at C1, quote the cue that proves it."
+              "fr": "J’ai eu tout le loisir d’admirer mes radiateurs.",
+              "sub": "[zhay ü too luh lwa-ZEER dad-mee-RAY may ra-dya-TUHR]",
+              "body": "L’antiphrase est un acquis du B2. Au C1, cite l’indice : dix heures d’attente. Sans elles, la phrase serait sincère. EN: antiphrasis is known; at C1, quote the cue that proves it."
             },
             {
               "head": "La fausse modestie",
-              "label": "je ne voudrais pas paraître",
-              "fr": "Je ne voudrais pas paraître ingrate.",
-              "sub": "[zhuh nuh voo-dreh pa pa-RETR ehⁿ-GRAT]",
-              "body": "On feint de se reprocher ce qu’on reproche à l’autre. La critique reste entière, sous une forme polie. EN: feigned self-reproach keeps the criticism intact."
+              "label": "loin de moi l’idée de",
+              "fr": "Loin de moi l’idée de me plaindre.",
+              "sub": "[lwehⁿ duh mwa lee-DAY duh muh PLEHⁿDR]",
+              "body": "On feint de renoncer à se plaindre au moment même où l’on se plaint. La critique reste entière, sous une forme polie. EN: feigned restraint keeps the criticism intact."
             },
             {
               "head": "Pas d’indice, pas d’ironie",
               "label": "la règle",
               "fr": "Sans indice dans le texte, je lis au premier degré.",
               "sub": "[sahⁿ-zehⁿ-DEESS dahⁿ luh TEKST zhuh lee oh pruh-myay duh-GRAY]",
-              "body": "Une phrase n’est ironique que si le texte la contredit. Sinon, lis-la au premier degré, comme la phrase de la conseillère. EN: no contradicting cue, no irony."
+              "body": "Une phrase n’est ironique que si le texte la contredit. Sinon, lis-la au premier degré, comme la phrase du technicien. EN: no contradicting cue, no irony."
             }
           ]
         },
@@ -14877,22 +14877,22 @@
               "label": "Dans le billet",
               "items": [
                 {
-                  "fr": "On m’avait promis une expérience, et c’en fut une.",
+                  "fr": "On m’avait promis la tranquillité : je n’ai pas bougé de la journée.",
                   "itemId": "fr.c1.strategies-de-comprehension.1951",
-                  "en": "I had been promised an experience, and an experience it was.",
+                  "en": "I had been promised peace and quiet: I did not move all day.",
                   "note": "la promesse tenue"
                 },
                 {
-                  "fr": "Le vocabulaire n’est pas mensonger : il est simplement en avance sur les faits.",
+                  "fr": "Le créneau n’est pas faux : il est simplement aussi large que la journée.",
                   "itemId": "fr.c1.strategies-de-comprehension.1952",
-                  "en": "The vocabulary is not untruthful: it is simply ahead of the facts.",
+                  "en": "The time slot is not wrong: it is simply as wide as the day.",
                   "note": "l’excuse"
                 },
                 {
-                  "fr": "La phrase de la conseillère est sincère : rien ne la contredit.",
+                  "fr": "La phrase du technicien est sincère : rien ne la contredit.",
                   "itemId": "fr.c1.strategies-de-comprehension.1955",
-                  "en": "The adviser’s sentence is sincere: nothing contradicts it.",
-                  "note": "la conseillère"
+                  "en": "The technician’s sentence is sincere: nothing contradicts it.",
+                  "note": "le technicien"
                 }
               ],
               "check": {
@@ -14903,7 +14903,7 @@
                   "la troisième"
                 ],
                 "correct": 2,
-                "why": "Rien ne contredit la phrase de la conseillère : elle est sincère. EN: nothing contradicts it."
+                "why": "Rien ne contredit la phrase du technicien : elle est sincère. EN: nothing contradicts it."
               }
             },
             {
@@ -15071,23 +15071,23 @@
           "title": "Quatre façons de rater l’ironie",
           "errors": [
             {
-              "wrong": "L’auteure trouve l’expérience réussie : « c’en fut une ».",
-              "right": "L’auteure reprend le mot « expérience » pour dire que la soirée fut pénible.",
+              "wrong": "L’auteure a passé une journée tranquille : elle n’a pas bougé.",
+              "right": "L’auteure reprend le mot « tranquillité » pour dire que la journée fut pénible.",
               "why": "Normal : la phrase est positive. Mais tout le billet la contredit. EN: the whole text contradicts it."
             },
             {
-              "wrong": "L’auteure présente un « pôle expérience » innovant.",
-              "right": "L’auteure cite le mot de la direction pour s’en moquer.",
+              "wrong": "L’auteure salue un créneau pensé pour sa tranquillité.",
+              "right": "L’auteure reprend le mot de la régie pour s’en moquer.",
               "why": "Le mot n’est pas le sien : c’est un écho. Le reprendre à son compte, c’est rater l’ironie. EN: it is an echo, not her word."
             },
             {
-              "wrong": "Même la conseillère se moque de la mutuelle.",
-              "right": "La conseillère donne un conseil sincère, le seul utile de la soirée.",
+              "wrong": "Même le technicien se moque de la régie.",
+              "right": "Le technicien donne un conseil sincère, le seul utile de la journée.",
               "why": "Voir de l’ironie partout est l’autre erreur : rien ne contredit sa phrase. EN: seeing irony everywhere is the other mistake."
             },
             {
-              "wrong": "L’auteure s’excuse d’être ingrate.",
-              "right": "L’auteure feint de s’excuser pour mieux maintenir sa critique.",
+              "wrong": "L’auteure renonce à se plaindre.",
+              "right": "L’auteure feint de renoncer à se plaindre pour mieux maintenir sa critique.",
               "why": "La fausse modestie garde la critique entière. EN: mock modesty keeps the criticism whole."
             }
           ],
@@ -15122,9 +15122,9 @@
                   "note": "nommer l’écho"
                 },
                 {
-                  "fr": "Quarante minutes d’attente contredisent l’éloge.",
+                  "fr": "Dix heures d’attente contredisent l’éloge.",
                   "itemId": "fr.c1.strategies-de-comprehension.1954",
-                  "en": "Forty minutes of waiting contradict the praise.",
+                  "en": "Ten hours of waiting contradict the praise.",
                   "note": "citer l’indice"
                 }
               ],
@@ -15142,20 +15142,20 @@
               "label": "Ne pas en voir partout",
               "items": [
                 {
-                  "fr": "La phrase de la conseillère est sincère : rien ne la contredit.",
+                  "fr": "La phrase du technicien est sincère : rien ne la contredit.",
                   "itemId": "fr.c1.strategies-de-comprehension.1955",
-                  "en": "The adviser’s sentence is sincere: nothing contradicts it.",
+                  "en": "The technician’s sentence is sincere: nothing contradicts it.",
                   "note": "la phrase sincère"
                 }
               ],
               "check": {
-                "q": "Dans ton analyse, la phrase de la conseillère...",
+                "q": "Dans ton analyse, la phrase du technicien...",
                 "opts": [
                   "montre le seul moment sincère du billet",
                   "est un exemple d’ironie"
                 ],
                 "correct": 0,
-                "why": "Elle sert de contraste : c’est la seule phrase sans un mot de la note. EN: it is the sincere contrast."
+                "why": "Elle sert de contraste : c’est la seule phrase qui ne sort pas de la note. EN: it is the sincere contrast."
               }
             }
           ],
@@ -17714,23 +17714,23 @@
               "questions": [
                 {
                   "format": "mcq",
-                  "q": "« J’ai donc appelé, en adhérente centrée. » Le procédé est...",
+                  "q": "« J’ai donc pris ma journée, en toute tranquillité. » Le procédé est...",
                   "opts": [
                     "un compliment",
                     "une définition",
                     "l’écho : reprendre le mot de la note"
                   ],
                   "correct": 2,
-                  "why": "Le mot vient de la direction. EN: the word comes from the memo.",
+                  "why": "Le mot vient de la régie. EN: the word comes from the memo.",
                   "ref": "a9-signaux"
                 },
                 {
                   "format": "mcq",
-                  "q": "Qu’est-ce qui prouve que « tout le loisir d’apprécier » la musique est ironique ?",
+                  "q": "Qu’est-ce qui prouve que « tout le loisir d’admirer mes radiateurs » est ironique ?",
                   "opts": [
-                    "le mot musique",
+                    "le mot radiateurs",
                     "un point d’exclamation",
-                    "quarante minutes d’attente"
+                    "dix heures d’attente"
                   ],
                   "correct": 2,
                   "why": "La situation contredit l’éloge. EN: the situation contradicts the praise.",
@@ -17738,7 +17738,7 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "La phrase de la conseillère est...",
+                  "q": "La phrase du technicien est...",
                   "opts": [
                     "sincère : rien ne la contredit",
                     "ironique, comme le reste"
@@ -17785,12 +17785,12 @@
                 {
                   "format": "errorSpot",
                   "q": "Une partie de la phrase trahit le texte. Écris la phrase juste. EN: Part of the sentence betrays the text; write it correctly.",
-                  "prompt": "L’auteure trouve que le pôle expérience est une réussite.",
-                  "answer": "L’auteure se moque du pôle expérience en reprenant le mot de la note.",
+                  "prompt": "L’auteure trouve que sa journée fut tranquille.",
+                  "answer": "L’auteure se moque de la tranquillité promise en reprenant le mot de la note.",
                   "accept": [
-                    "L’auteure se moque du pôle expérience en reprenant le mot de la note.",
-                    "L’auteure se moque du pôle expérience.",
-                    "L’auteure trouve que le pôle expérience est un échec."
+                    "L’auteure se moque de la tranquillité promise en reprenant le mot de la note.",
+                    "L’auteure se moque de la tranquillité promise.",
+                    "L’auteure trouve que sa journée fut pénible."
                   ],
                   "why": "Tout le billet contredit l’éloge. EN: the whole text contradicts the praise.",
                   "ref": "a9-erreurs"
@@ -18180,7 +18180,7 @@
             {
               "front": "reprendre les mots de l’autre",
               "back": "l’ironie par écho",
-              "say": "J’ai donc appelé, en adhérente centrée."
+              "say": "J’ai donc pris ma journée, en toute tranquillité."
             },
             {
               "front": "by whom?",
@@ -18524,7 +18524,7 @@
           },
           {
             "id": "rec-c1-20-pole",
-            "desc": "The insurer billet (act 9), ONE VOICE, one take, a Québec woman in her forties reading her own billet, DEADPAN throughout: the irony lives in the words, never in a laugh or a sigh. The adviser’s quoted sentence in a lower, sincere voice; the last two sentences plainly."
+            "desc": "The radiator billet (act 9), ONE VOICE, one take, a Québec woman in her forties reading her own billet, DEADPAN throughout: the irony lives in the words, never in a laugh or a sigh. The technician’s quoted sentences in a lower, sincere voice; the last two sentences plainly."
           },
           {
             "id": "rec-c1-20-signaux",
@@ -19980,9 +19980,9 @@
                   "trois, puis deux, puis deux"
                 ],
                 [
-                  "TEF Canada, épreuve blanche (section F)",
+                  "TEF Canada, épreuve blanche de l’application",
                   "un reportage d'environ deux minutes, une écoute",
-                  "une seule : l'idée principale"
+                  "une seule : l'idée principale (deux à l'examen réel)"
                 ]
               ]
             },
@@ -20254,7 +20254,7 @@
         "idee": {
           "term": "idée centrale",
           "title": "L'idée centrale d'un reportage",
-          "body": "Dans l'épreuve blanche TEF Canada de l'application, un reportage d'environ deux minutes, une écoute, une question : l'idée principale. Elle n'est presque jamais le premier chiffre. Elle arrive avec le retournement (« mais ») et revient dans la dernière phrase du narrateur ; c'est elle qui donne un sens à tous les détails. EN: The main idea comes with the turn and the narrator's last line; it is what makes sense of every detail.",
+          "body": "Dans l'épreuve blanche TEF Canada de l'application, un reportage d'environ deux minutes, une écoute, une question : l'idée principale (à l'examen réel, le reportage radio en porte deux). Elle n'est presque jamais le premier chiffre. Elle arrive avec le retournement (« mais ») et revient dans la dernière phrase du narrateur ; c'est elle qui donne un sens à tous les détails. EN: The main idea comes with the turn and the narrator's last line; it is what makes sense of every detail.",
           "examples": [
             {
               "itemId": "fr.c1.discours-dexamen.1525",
@@ -21547,7 +21547,7 @@
               "label": "Un seul accord, annoncé",
               "items": [
                 {
-                  "fr": "S'il y a un point où je vous rejoins, c'est celui-là.",
+                  "fr": "S’il y a un point où je vous rejoins, c’est celui-là.",
                   "itemId": "fr.c1.rhetorique.141",
                   "en": "If there is one point where I agree with you, it is that one.",
                   "note": "un accord sur un seul point"
@@ -22039,13 +22039,13 @@
                   "note": "ouvrir la question du mot"
                 },
                 {
-                  "fr": "Il me paraît essentiel de distinguer d'emblée deux réalités que l'on confond souvent.",
+                  "fr": "Il me paraît essentiel de distinguer d’emblée deux réalités que l’on confond souvent.",
                   "itemId": "fr.c1.discours-dexamen.098",
                   "en": "It seems essential to me to distinguish from the outset two realities that are often confused.",
                   "note": "distinguer deux réalités"
                 },
                 {
-                  "fr": "C'est justement cette nuance qui change tout le débat.",
+                  "fr": "C’est justement cette nuance qui change tout le débat.",
                   "itemId": "fr.c1.rhetorique.133",
                   "en": "It is precisely this nuance that changes the whole debate.",
                   "note": "la nuance qui change tout"
@@ -22584,7 +22584,7 @@
               "detail": {
                 "title": "Je le concède",
                 "body": "La concession est glissée au milieu de la phrase : la suite porte sa vraie position. EN: the concession sits mid-sentence; the rest carries the position.",
-                "say": "La réforme part d'une bonne intention, je le concède, mais l'intention ne suffit pas."
+                "say": "La réforme part d’une bonne intention, je le concède, mais l’intention ne suffit pas."
               }
             }
           ],
@@ -22612,13 +22612,13 @@
               "label": "Trois concessions",
               "items": [
                 {
-                  "fr": "La réforme part d'une bonne intention, je le concède, mais l'intention ne suffit pas.",
+                  "fr": "La réforme part d’une bonne intention, je le concède, mais l’intention ne suffit pas.",
                   "itemId": "fr.c1.rhetorique.032",
                   "en": "The reform comes from a good intention, I concede that, but intention is not enough.",
                   "note": "il accorde l'intention"
                 },
                 {
-                  "fr": "Je vous l'accorde, il travaille, n'empêche qu'il arrive toujours en retard.",
+                  "fr": "Je vous l’accorde, il travaille, n’empêche qu’il arrive toujours en retard.",
                   "itemId": "fr.c1.rhetorique.016",
                   "en": "I grant you he works hard, still, he always shows up late.",
                   "note": "il accorde le travail"
@@ -23054,7 +23054,7 @@
                   "note": "la thèse réfutée n'est pas la sienne"
                 },
                 {
-                  "fr": "Ce n'est pas la réforme que je rejette, c'est sa brutalité.",
+                  "fr": "Ce n’est pas la réforme que je rejette, c’est sa brutalité.",
                   "itemId": "fr.c1.rhetorique.139",
                   "en": "It is not the reform I reject, it is its harshness.",
                   "note": "pas la réforme : sa brutalité"
@@ -23495,13 +23495,13 @@
                   "note": "l'objection devient l'argument"
                 },
                 {
-                  "fr": "Votre objection se tient, sauf qu'elle ignore complètement le principal intéressé.",
+                  "fr": "Votre objection se tient, sauf qu’elle ignore complètement le principal intéressé.",
                   "itemId": "fr.c1.rhetorique.020",
                   "en": "Your objection holds up, except that it completely ignores the person most affected.",
                   "note": "elle tient, mais oublie quelqu'un"
                 },
                 {
-                  "fr": "En admettant que les chiffres soient exacts, la conclusion ne s'impose pas forcément.",
+                  "fr": "En admettant que les chiffres soient exacts, la conclusion ne s’impose pas forcément.",
                   "itemId": "fr.c1.rhetorique.092",
                   "en": "Even granting that the figures are accurate, the conclusion does not necessarily follow.",
                   "note": "même si vos chiffres sont justes"
@@ -23522,7 +23522,7 @@
               "label": "Une objection annoncée",
               "items": [
                 {
-                  "fr": "On pourrait m'objecter que les jeunes s'adaptent plus vite, et c'est vrai en partie.",
+                  "fr": "On pourrait m’objecter que les jeunes s’adaptent plus vite, et c’est vrai en partie.",
                   "itemId": "fr.c1.discours-dexamen.150",
                   "en": "One could object that young people adapt faster, and that is partly true.",
                   "note": "il formule lui-même l'objection"
@@ -24949,7 +24949,7 @@
               "label": "un reportage",
               "fr": "L'idée principale n'est pas le premier chiffre.",
               "sub": "[lee-day prehⁿ-see-PAL | neh pa luh pruh-myay SHEEFR]",
-              "body": "Un reportage d'environ deux minutes, une écoute, une seule question : l'idée principale. EN: one reportage, one play, one main-idea question."
+              "body": "Dans l'épreuve blanche de l'application, un reportage d'environ deux minutes, une écoute, une question : l'idée principale. À l'examen réel, le reportage radio porte deux questions. EN: in the app's mock paper, one reportage, one play, one main-idea question; the real test asks two."
             },
             {
               "head": "Les questions types",
@@ -28043,7 +28043,7 @@
           },
           {
             "id": "rec-c1-21-vernay",
-            "desc": "REQUIRED, EXAM FORMAT, ONE PLAY (act 11, TEF section F): the Vernay reportage, fourteen lines, about 110 seconds, ONE TAKE, THREE VOICES: the narrator, a radio reporter (1, 2, 3, 6, 9, 10, 12, 14), Mme Delorme, a resident in her sixties, candid (4, 5, 11), Marc Fayolle, garage owner, warm (7, 8, 13). Outdoor ambience under the two residents. The turn (« Mais quand le prix de l'électricité est redescendu ») at normal weight; the last line read as a reporter's closing line, not stressed."
+            "desc": "REQUIRED, EXAM FORMAT, ONE PLAY (act 11, TEF reportage): the Vernay reportage, fourteen lines, about 110 seconds, ONE TAKE, THREE VOICES: the narrator, a radio reporter (1, 2, 3, 6, 9, 10, 12, 14), Mme Delorme, a resident in her sixties, candid (4, 5, 11), Marc Fayolle, garage owner, warm (7, 8, 13). Outdoor ambience under the two residents. The turn (« Mais quand le prix de l'électricité est redescendu ») at normal weight; the last line read as a reporter's closing line, not stressed."
           },
           {
             "id": "rec-c1-21-debat",
@@ -32674,7 +32674,7 @@
                   "note": "la règle"
                 },
                 {
-                  "fr": "un article d'opinion",
+                  "fr": "un article d’opinion",
                   "itemId": "fr.b2.journalisme.050",
                   "en": "an opinion piece",
                   "note": "le mot du B2"
@@ -42538,10 +42538,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "J’ai donc appelé, en adhérente centrée.",
-      "en": "So I called, as a centred member.",
-      "ipa": "/ʒe dɔ̃k a.pə.le ɑ̃.na.de.ʁɑ̃t sɑ̃.tʁe/",
-      "respell": "zhay dohⁿk a-puh-LAY ahⁿ-na-day-RAHⁿT sahⁿ-TRAY",
+      "fr": "J’ai donc pris ma journée, en toute tranquillité.",
+      "en": "So I took the day off, in complete peace and quiet.",
+      "ipa": "/ʒe dɔ̃k pʁi ma ʒuʁ.ne ɑ̃ tut tʁɑ̃.ki.li.te/",
+      "respell": "zhay dohⁿk pree ma zhoor-NAY ahⁿ toot trahⁿ-kee-lee-TAY",
       "tags": [
         "ironie",
         "echo"
@@ -42561,10 +42561,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "Une musique, que j’ai eu tout le loisir d’apprécier.",
-      "en": "Some music, which I had ample leisure to appreciate.",
-      "ipa": "/yn my.zik kə ʒe y tu lə lwa.ziʁ da.pʁe.sje/",
-      "respell": "ün mü-ZEEK kuh zhay ü too luh lwa-ZEER da-pray-SYAY",
+      "fr": "J’ai eu tout le loisir d’admirer mes radiateurs.",
+      "en": "I had ample leisure to admire my radiators.",
+      "ipa": "/ʒe y tu lə lwa.ziʁ dad.mi.ʁe me ʁa.dja.tœʁ/",
+      "respell": "zhay ü too luh lwa-ZEER dad-mee-RAY may ra-dya-TUHR",
       "tags": [
         "ironie",
         "antiphrase"
@@ -42584,10 +42584,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "Je ne voudrais pas paraître ingrate.",
-      "en": "I would not want to seem ungrateful.",
-      "ipa": "/ʒə nə vu.dʁɛ pa pa.ʁɛtʁ ɛ̃.ɡʁat/",
-      "respell": "zhuh nuh voo-dreh pa pa-RETR ehⁿ-GRAT",
+      "fr": "Loin de moi l’idée de me plaindre.",
+      "en": "Far be it from me to complain.",
+      "ipa": "/lwɛ̃ də mwa li.de də mə plɛ̃dʁ/",
+      "respell": "lwehⁿ duh mwa lee-DAY duh muh PLEHⁿDR",
       "tags": [
         "ironie",
         "modestie"
@@ -42623,7 +42623,7 @@
         "lire-entre-les-lignes"
       ],
       "cardType": "grammar",
-      "prompt": "« Passez à l’agence tant qu’elle est ouverte. » La conseillère est-elle ironique ?",
+      "prompt": "« Demandez le premier passage du matin. » Le technicien est-il ironique ?",
       "notes": "Non : rien dans le texte ne contredit sa phrase. Sans indice dans le texte, je lis au premier degré."
     },
     {
@@ -42631,10 +42631,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "Notre nouveau « pôle expérience »",
-      "en": "Our new « experience hub »",
-      "ipa": "/nɔtʁ nu.vo pol ɛks.pe.ʁjɑ̃s/",
-      "respell": "notr noo-VOH pohl ex-pay-RYAHⁿSS",
+      "fr": "Ma journée tranquille",
+      "en": "My peaceful day",
+      "ipa": "/ma ʒuʁ.ne tʁɑ̃.kil/",
+      "respell": "ma zhoor-nay trahⁿ-KEEL",
       "tags": [
         "titre",
         "echo"
@@ -42654,10 +42654,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "On m’avait promis une expérience, et c’en fut une.",
-      "en": "I had been promised an experience, and an experience it was.",
-      "ipa": "/ɔ̃ ma.vɛ pʁɔ.mi y.nɛks.pe.ʁjɑ̃s e sɑ̃ fy.tyn/",
-      "respell": "ohⁿ ma-veh pro-MEE ü-nex-pay-RYAHⁿSS ay sahⁿ fü-TÜNN",
+      "fr": "On m’avait promis la tranquillité : je n’ai pas bougé de la journée.",
+      "en": "I had been promised peace and quiet: I did not move all day.",
+      "ipa": "/ɔ̃ ma.vɛ pʁɔ.mi la tʁɑ̃.ki.li.te ʒə ne pa bu.ʒe də la ʒuʁ.ne/",
+      "respell": "ohⁿ ma-veh pro-MEE la trahⁿ-kee-lee-TAY zhuh nay pa boo-ZHAY duh la zhoor-NAY",
       "tags": [
         "ironie",
         "echo"
@@ -42677,10 +42677,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "Le vocabulaire n’est pas mensonger : il est simplement en avance sur les faits.",
-      "en": "The vocabulary is not untruthful: it is simply ahead of the facts.",
-      "ipa": "/lə vɔ.ka.by.lɛʁ nɛ pa mɑ̃.sɔ̃.ʒe i.lɛ sɛ̃.plə.mɑ̃ ɑ̃.na.vɑ̃s syʁ le fɛ/",
-      "respell": "luh vo-ka-bü-LEHR neh pa mahⁿ-sohⁿ-ZHAY ee-leh sehⁿ-pluh-MAHⁿ ahⁿ-na-vahⁿss sür lay FEH",
+      "fr": "Le créneau n’est pas faux : il est simplement aussi large que la journée.",
+      "en": "The time slot is not wrong: it is simply as wide as the day.",
+      "ipa": "/lə kʁe.no nɛ pa fo i.lɛ sɛ̃.plə.mɑ̃ o.si laʁʒ kə la ʒuʁ.ne/",
+      "respell": "luh kray-NOH neh pa FOH ee-leh sehⁿ-pluh-MAHⁿ oh-see LARZH kuh la zhoor-NAY",
       "tags": [
         "ironie",
         "modestie"
@@ -42724,10 +42724,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "Quarante minutes d’attente contredisent l’éloge.",
-      "en": "Forty minutes of waiting contradict the praise.",
-      "ipa": "/ka.ʁɑ̃t mi.nyt da.tɑ̃t kɔ̃.tʁə.diz le.lɔʒ/",
-      "respell": "ka-rahⁿt mee-NÜT da-TAHⁿT kohⁿ-truh-DEEZ lay-LOZH",
+      "fr": "Dix heures d’attente contredisent l’éloge.",
+      "en": "Ten hours of waiting contradict the praise.",
+      "ipa": "/di.zœʁ da.tɑ̃t kɔ̃.tʁə.diz le.lɔʒ/",
+      "respell": "dee-ZUHR da-TAHⁿT kohⁿ-truh-DEEZ lay-LOZH",
       "tags": [
         "analyse",
         "indice"
@@ -42747,10 +42747,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "La phrase de la conseillère est sincère : rien ne la contredit.",
-      "en": "The adviser’s sentence is sincere: nothing contradicts it.",
-      "ipa": "/la fʁaz də la kɔ̃.sɛ.jɛʁ ɛ sɛ̃.sɛʁ ʁjɛ̃ nə la kɔ̃.tʁə.di/",
-      "respell": "la FRAHZ duh la kohⁿ-seh-YEHR eh sehⁿ-SEHR ryehⁿ nuh la kohⁿ-truh-DEE",
+      "fr": "La phrase du technicien est sincère : rien ne la contredit.",
+      "en": "The technician’s sentence is sincere: nothing contradicts it.",
+      "ipa": "/la fʁaz dy tɛk.ni.sjɛ̃ ɛ sɛ̃.sɛʁ ʁjɛ̃ nə la kɔ̃.tʁə.di/",
+      "respell": "la FRAHZ dü tek-nee-SYEHⁿ eh sehⁿ-SEHR ryehⁿ nuh la kohⁿ-truh-DEE",
       "tags": [
         "analyse",
         "premier-degre"
@@ -42974,10 +42974,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "strategies-de-comprehension",
-      "fr": "Peu de gens peuvent se vanter d’avoir passé une soirée entière centrés sur eux-mêmes.",
-      "en": "Few people can boast of having spent a whole evening centred on themselves.",
-      "ipa": "/pø də ʒɑ̃ pœv sə vɑ̃.te da.vwaʁ pa.se yn swa.ʁe ɑ̃.tjɛʁ sɑ̃.tʁe syʁ ø.mɛm/",
-      "respell": "peu duh ZHAHⁿ puhv suh vahⁿ-TAY da-vwar pa-say ün swa-ray ahⁿ-TYEHR sahⁿ-tray sür eu-MEM",
+      "fr": "Peu de gens peuvent se vanter d’avoir passé une journée aussi tranquille, les yeux sur un téléphone.",
+      "en": "Few people can boast of having spent such a peaceful day, eyes on a phone.",
+      "ipa": "/pø də ʒɑ̃ pœv sə vɑ̃.te da.vwaʁ pa.se yn ʒuʁ.ne o.si tʁɑ̃.kil le.zjø syʁ œ̃ te.le.fɔn/",
+      "respell": "peu duh ZHAHⁿ puhv suh vahⁿ-TAY da-vwar pa-say ün zhoor-nay oh-see trahⁿ-KEEL lay-ZYEU sür uhⁿ tay-lay-FONN",
       "tags": [
         "ironie",
         "echo"

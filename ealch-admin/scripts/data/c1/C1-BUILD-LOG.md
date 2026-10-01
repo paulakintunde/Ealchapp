@@ -190,6 +190,18 @@ reuses the B1/B2 factory whole; this file records only what is different.
   re-measure and re-render a1.03 (`pnpm content:gender`,
   `merge-noun-gender-into-seed.ts`; a text edit, no version bump).
 
+- **Pre-gate decisions applied (2026-10-01).** c1.20 act 9's billet is new (a
+  tenant's day waiting for the radiator technician, « la Régie du Vieux-Pommier »;
+  rows .1946-.1955 and .1965 rewritten in place, act 9 image unchanged) and act 8
+  carries the présupposé / sous-entendu bridge line (decisions 11, 12). One-play
+  cap in ListeningView (`23c5e80`). c1.21 drops the TEF letter (`b16d2d1`).
+  Legacy typography script and synced source copies (`77564cd`).
+- **Art registered (2026-10-01).** Paul's 48 openers landed and were registered
+  by an outside process with double-quoted alt lines, converted to single quotes
+  (alt = each prompt's « The subject is » line). Count per lesson: 12 files, 12
+  require, 12 alt, 0 duplicates. ART_PENDING cleared. Suites: admin 1027 pass /
+  0 fail / 1 skipped, app 5735/5735.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -404,10 +416,10 @@ each agent gets the common block plus its own lesson block.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|
-| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 pending | pre-reviewed, checks 0 |
-| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 pending | pre-reviewed, checks 0 |
-| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 pending | pre-reviewed, checks 0 |
-| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 pending | pre-reviewed, checks 0 |
+| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 in | pre-reviewed, art in |
+| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | pre-reviewed, art in |
+| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | pre-reviewed, art in |
+| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | pre-reviewed, art in |
 
 ## Id ledger
 

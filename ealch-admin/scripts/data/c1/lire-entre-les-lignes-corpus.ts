@@ -132,13 +132,12 @@
 //         Claire (the tutor), Samir (the study partner).
 //       ORGANISATIONS: la plateforme Escale, le réseau de Valcourt-sur-Orne,
 //         l’Observatoire Hestia, l’Institut Corvelle, le musée de Corvelle,
-//         la Mutuelle des Trois-Rivages, l’école des Érables, les Ateliers
+//         la Régie du Vieux-Pommier, l’école des Érables, les Ateliers
 //         Saveur, l’association des embouteilleurs (unnamed).
 //       TOWNS: Valcourt-sur-Orne, Saint-Aubert-des-Monts, Corvelle, Vauberge
 //         (a one-line example in act 5); « la fédération des commerçants »
 //         and « le rapport » in act 7's practice lines are unnamed.
-//       REAL PLACES, AS PLACES ONLY: Montréal (the scene), Rimouski (an agency
-//         in act 9).
+//       REAL PLACES, AS PLACES ONLY: Montréal (the scene).
 //       FIGURES, ALL INVENTED, NONE STATED AS A REAL-WORLD FACT: 9 profiles in
 //         10 above 4,6 on Escale; Valcourt attendance +30 % in five years;
 //         Hestia’s 2 300 pupils, eight pages, no effect on details; the
@@ -158,7 +157,7 @@
 //  8. LOW-HEAT TOPICS ONLY, none needing French political culture: online
 //     ratings, library silence, reading on screens, lawns, museum labels,
 //     notifications, homework, the « Why don’t young people read » question,
-//     a mutual insurer’s call centre, school trips, pay ranges, bottle
+//     a day waiting for the radiator technician, school trips, pay ranges, bottle
 //     deposits, cooking at school. No living politician, no party, no
 //     election, no real campaign.
 //
@@ -339,14 +338,14 @@ export const IMPORT_IDS = [...new Set(Object.values(IMPORTED).flat())];
 /** Published in Postgres, absent from the local seed cut. Copied VERBATIM
  *  (fr, en, drills) from Postgres on 2026-09-30. `src()` falls back here. */
 export const PG_ROWS: Record<string, { id: string; fr: string; en: string; drills: string[] }> = Object.fromEntries([
-  { id: 'fr.c1.nuances-et-registres.094', fr: "Il faut lire entre les lignes, ils cherchent en réalité à vendre l'entreprise.", en: 'You have to read between the lines, they are actually looking to sell the company.', drills: ['sentence', 'review'] },
-  { id: 'fr.c1.nuances-et-registres.107', fr: "On m'a répondu que le dossier suivait son cours, autant dire qu'il dort dans un tiroir.", en: "I was told the file was moving along, which is to say it's sleeping in a drawer.", drills: ['sentence', 'review'] },
+  { id: 'fr.c1.nuances-et-registres.094', fr: "Il faut lire entre les lignes, ils cherchent en réalité à vendre l’entreprise.", en: 'You have to read between the lines, they are actually looking to sell the company.', drills: ['sentence', 'review'] },
+  { id: 'fr.c1.nuances-et-registres.107', fr: "On m’a répondu que le dossier suivait son cours, autant dire qu’il dort dans un tiroir.", en: "I was told the file was moving along, which is to say it's sleeping in a drawer.", drills: ['sentence', 'review'] },
   { id: 'fr.c1.rhetorique.052', fr: 'Je veux bien admettre que le streaming a sauvé la musique, reste que les artistes touchent des miettes.', en: 'I will admit that streaming saved the music industry, still, artists are paid crumbs.', drills: ['sentence', 'review'] },
   { id: 'fr.c1.rhetorique.022', fr: 'Mettons que le marché se calme, toujours est-il que les loyers étouffent.', en: 'Say the market does cool down, the fact remains that rents are suffocating people.', drills: ['sentence', 'review'] },
-  { id: 'fr.c1.rhetorique.027', fr: "Certes, l'intelligence artificielle rédige vite, il n'en demeure pas moins qu'elle invente parfois.", en: 'Granted, artificial intelligence writes quickly, the fact remains that it sometimes makes things up.', drills: ['sentence', 'review'] },
+  { id: 'fr.c1.rhetorique.027', fr: "Certes, l’intelligence artificielle rédige vite, il n’en demeure pas moins qu’elle invente parfois.", en: 'Granted, artificial intelligence writes quickly, the fact remains that it sometimes makes things up.', drills: ['sentence', 'review'] },
   { id: 'fr.c1.rhetorique.024', fr: 'Bien sûr, la critique est facile, cela dit certaines critiques visent juste.', en: 'Of course criticism is easy, that said, some criticism hits the mark.', drills: ['sentence', 'review'] },
   { id: 'fr.c1.rhetorique.005', fr: 'Sans doute, mais votre conclusion va trop loin.', en: 'Perhaps so, but your conclusion goes too far.', drills: ['sentence', 'review'] },
-  { id: 'fr.c1.rhetorique.113', fr: "Si la mesure est aussi efficace qu'on le prétend, pourquoi aucun des pays voisins ne l'a-t-il encore adoptée ?", en: 'If the measure is as effective as claimed, why has none of the neighbouring countries adopted it yet?', drills: ['sentence', 'review'] },
+  { id: 'fr.c1.rhetorique.113', fr: "Si la mesure est aussi efficace qu’on le prétend, pourquoi aucun des pays voisins ne l’a-t-il encore adoptée ?", en: 'If the measure is as effective as claimed, why has none of the neighbouring countries adopted it yet?', drills: ['sentence', 'review'] },
   { id: 'fr.c1.discours-dexamen.142', fr: 'Certes, les chiffres semblent encourageants, mais ils masquent de fortes disparités régionales.', en: 'Granted, the figures look encouraging, but they mask major regional disparities.', drills: ['sentence', 'review'] },
 ].map((r) => [r.id, r]));
 
@@ -591,17 +590,17 @@ export const ACT8_ROWS: Row[] = [
 /* ── ACT 9 · L’IRONIE AU C1 ────────────────────────────────────────────── */
 
 export const ACT9_ROWS: Row[] = [
-  sent(1946, 'J’ai donc appelé, en adhérente centrée.', 'So I called, as a centred member.', '/ʒe dɔ̃k a.pə.le ɑ̃.na.de.ʁɑ̃t sɑ̃.tʁe/', 'zhay dohⁿk a-puh-LAY ahⁿ-na-day-RAHⁿT sahⁿ-TRAY', ['ironie', 'echo']),
-  sent(1947, 'Une musique, que j’ai eu tout le loisir d’apprécier.', 'Some music, which I had ample leisure to appreciate.', '/yn my.zik kə ʒe y tu lə lwa.ziʁ da.pʁe.sje/', 'ün mü-ZEEK kuh zhay ü too luh lwa-ZEER da-pray-SYAY', ['ironie', 'antiphrase']),
-  sent(1948, 'Je ne voudrais pas paraître ingrate.', 'I would not want to seem ungrateful.', '/ʒə nə vu.dʁɛ pa pa.ʁɛtʁ ɛ̃.ɡʁat/', 'zhuh nuh voo-dreh pa pa-RETR ehⁿ-GRAT', ['ironie', 'modestie']),
+  sent(1946, 'J’ai donc pris ma journée, en toute tranquillité.', 'So I took the day off, in complete peace and quiet.', '/ʒe dɔ̃k pʁi ma ʒuʁ.ne ɑ̃ tut tʁɑ̃.ki.li.te/', 'zhay dohⁿk pree ma zhoor-NAY ahⁿ toot trahⁿ-kee-lee-TAY', ['ironie', 'echo']),
+  sent(1947, 'J’ai eu tout le loisir d’admirer mes radiateurs.', 'I had ample leisure to admire my radiators.', '/ʒe y tu lə lwa.ziʁ dad.mi.ʁe me ʁa.dja.tœʁ/', 'zhay ü too luh lwa-ZEER dad-mee-RAY may ra-dya-TUHR', ['ironie', 'antiphrase']),
+  sent(1948, 'Loin de moi l’idée de me plaindre.', 'Far be it from me to complain.', '/lwɛ̃ də mwa li.de də mə plɛ̃dʁ/', 'lwehⁿ duh mwa lee-DAY duh muh PLEHⁿDR', ['ironie', 'modestie']),
   sent(1949, 'Sans indice dans le texte, je lis au premier degré.', 'Without a cue in the text, I read literally.', '/sɑ̃.zɛ̃.dis dɑ̃ lə tɛkst ʒə li o pʁə.mje də.ɡʁe/', 'sahⁿ-zehⁿ-DEESS dahⁿ luh TEKST zhuh lee oh pruh-myay duh-GRAY', ['regle', 'ironie'], FC,
-    rule('« Passez à l’agence tant qu’elle est ouverte. » La conseillère est-elle ironique ?', 'Non : rien dans le texte ne contredit sa phrase. Sans indice dans le texte, je lis au premier degré.')),
-  sent(1950, 'Notre nouveau « pôle expérience »', 'Our new « experience hub »', '/nɔtʁ nu.vo pol ɛks.pe.ʁjɑ̃s/', 'notr noo-VOH pohl ex-pay-RYAHⁿSS', ['titre', 'echo']),
-  sent(1951, 'On m’avait promis une expérience, et c’en fut une.', 'I had been promised an experience, and an experience it was.', '/ɔ̃ ma.vɛ pʁɔ.mi y.nɛks.pe.ʁjɑ̃s e sɑ̃ fy.tyn/', 'ohⁿ ma-veh pro-MEE ü-nex-pay-RYAHⁿSS ay sahⁿ fü-TÜNN', ['ironie', 'echo']),
-  sent(1952, 'Le vocabulaire n’est pas mensonger : il est simplement en avance sur les faits.', 'The vocabulary is not untruthful: it is simply ahead of the facts.', '/lə vɔ.ka.by.lɛʁ nɛ pa mɑ̃.sɔ̃.ʒe i.lɛ sɛ̃.plə.mɑ̃ ɑ̃.na.vɑ̃s syʁ le fɛ/', 'luh vo-ka-bü-LEHR neh pa mahⁿ-sohⁿ-ZHAY ee-leh sehⁿ-pluh-MAHⁿ ahⁿ-na-vahⁿss sür lay FEH', ['ironie', 'modestie']),
+    rule('« Demandez le premier passage du matin. » Le technicien est-il ironique ?', 'Non : rien dans le texte ne contredit sa phrase. Sans indice dans le texte, je lis au premier degré.')),
+  sent(1950, 'Ma journée tranquille', 'My peaceful day', '/ma ʒuʁ.ne tʁɑ̃.kil/', 'ma zhoor-nay trahⁿ-KEEL', ['titre', 'echo']),
+  sent(1951, 'On m’avait promis la tranquillité : je n’ai pas bougé de la journée.', 'I had been promised peace and quiet: I did not move all day.', '/ɔ̃ ma.vɛ pʁɔ.mi la tʁɑ̃.ki.li.te ʒə ne pa bu.ʒe də la ʒuʁ.ne/', 'ohⁿ ma-veh pro-MEE la trahⁿ-kee-lee-TAY zhuh nay pa boo-ZHAY duh la zhoor-NAY', ['ironie', 'echo']),
+  sent(1952, 'Le créneau n’est pas faux : il est simplement aussi large que la journée.', 'The time slot is not wrong: it is simply as wide as the day.', '/lə kʁe.no nɛ pa fo i.lɛ sɛ̃.plə.mɑ̃ o.si laʁʒ kə la ʒuʁ.ne/', 'luh kray-NOH neh pa FOH ee-leh sehⁿ-pluh-MAHⁿ oh-see LARZH kuh la zhoor-NAY', ['ironie', 'modestie']),
   sent(1953, 'L’auteure reprend le mot de la note pour le faire entendre creux.', 'The writer repeats the memo’s word to make it sound hollow.', '/lo.tœʁ ʁə.pʁɑ̃ lə mo də la nɔt puʁ lə fɛʁ ɑ̃.tɑ̃dʁ kʁø/', 'loh-TUHR ruh-prahⁿ luh MOH duh la NOT poor luh fehr ahⁿ-tahⁿdr KREU', ['analyse', 'echo'], FCVDR),
-  sent(1954, 'Quarante minutes d’attente contredisent l’éloge.', 'Forty minutes of waiting contradict the praise.', '/ka.ʁɑ̃t mi.nyt da.tɑ̃t kɔ̃.tʁə.diz le.lɔʒ/', 'ka-rahⁿt mee-NÜT da-TAHⁿT kohⁿ-truh-DEEZ lay-LOZH', ['analyse', 'indice']),
-  sent(1955, 'La phrase de la conseillère est sincère : rien ne la contredit.', 'The adviser’s sentence is sincere: nothing contradicts it.', '/la fʁaz də la kɔ̃.sɛ.jɛʁ ɛ sɛ̃.sɛʁ ʁjɛ̃ nə la kɔ̃.tʁə.di/', 'la FRAHZ duh la kohⁿ-seh-YEHR eh sehⁿ-SEHR ryehⁿ nuh la kohⁿ-truh-DEE', ['analyse', 'premier-degre']),
+  sent(1954, 'Dix heures d’attente contredisent l’éloge.', 'Ten hours of waiting contradict the praise.', '/di.zœʁ da.tɑ̃t kɔ̃.tʁə.diz le.lɔʒ/', 'dee-ZUHR da-TAHⁿT kohⁿ-truh-DEEZ lay-LOZH', ['analyse', 'indice']),
+  sent(1955, 'La phrase du technicien est sincère : rien ne la contredit.', 'The technician’s sentence is sincere: nothing contradicts it.', '/la fʁaz dy tɛk.ni.sjɛ̃ ɛ sɛ̃.sɛʁ ʁjɛ̃ nə la kɔ̃.tʁə.di/', 'la FRAHZ dü tek-nee-SYEHⁿ eh sehⁿ-SEHR ryehⁿ nuh la kohⁿ-truh-DEE', ['analyse', 'premier-degre']),
   phrase(1956, 'au second degré', 'tongue in cheek, not to be taken literally', '/o sə.ɡɔ̃ də.ɡʁe/', 'oh suh-gohⁿ duh-GRAY', ['ironie']),
   sent(1957, 'À l’écrit, l’ironie n’a que les mots, et c’est là qu’elle échoue le plus souvent.', 'In writing, irony has only words, and that is where it most often fails.', '/a le.kʁi li.ʁɔ.ni na kə le mo e sɛ la kɛ.le.ʃu lə ply su.vɑ̃/', 'a lay-KREE lee-ro-NEE na kuh lay MOH ay seh LA keh-lay-SHOO luh plü soo-VAHⁿ', ['radio', 'ironie']),
   sent(1958, 'À l’oral, l’ironie a un complice : la voix.', 'In speech, irony has an accomplice: the voice.', '/a lɔ.ʁal li.ʁɔ.ni a œ̃ kɔ̃.plis la vwa/', 'a lo-RAL lee-ro-NEE a uhⁿ kohⁿ-PLEESS la VWA', ['radio', 'ironie']),
@@ -611,7 +610,7 @@ export const ACT9_ROWS: Row[] = [
   sent(1962, 'Je ne m’en moque pas : c’est l’aveu que la phrase seule ne suffisait pas.', 'I am not mocking it: it is an admission that the sentence alone was not enough.', '/ʒə nə mɑ̃ mɔk pa sɛ la.vø kə la fʁaz sœl nə sy.fi.zɛ pa/', 'zhuh nuh mahⁿ MOK PA seh la-VEU kuh la frahz SUHL nuh sü-fee-zeh PA', ['radio', 'ironie']),
   sent(1963, 'Les bons ironistes laissent dans le texte un détail qui contredit l’éloge.', 'Good ironists leave in the text a detail that contradicts the praise.', '/le bɔ̃.zi.ʁɔ.nist lɛs dɑ̃ lə tɛkst œ̃ de.taj ki kɔ̃.tʁə.di le.lɔʒ/', 'lay bohⁿ-zee-ro-NEEST less dahⁿ luh TEKST uhⁿ day-TAHY kee kohⁿ-truh-dee lay-LOZH', ['radio', 'ironie'], FCVDR),
   sent(1964, 'Le lecteur le trouve, et il a le plaisir de l’avoir trouvé lui-même.', 'The reader finds it, and has the pleasure of having found it himself.', '/lə lɛk.tœʁ lə tʁuv e i.la lə plɛ.ziʁ də la.vwaʁ tʁu.ve lɥi.mɛm/', 'luh lek-TUHR luh TROOV ay ee-la luh pleh-ZEER duh la-vwar troo-vay lwee-MEM', ['radio', 'ironie']),
-  sent(1965, 'Peu de gens peuvent se vanter d’avoir passé une soirée entière centrés sur eux-mêmes.', 'Few people can boast of having spent a whole evening centred on themselves.', '/pø də ʒɑ̃ pœv sə vɑ̃.te da.vwaʁ pa.se yn swa.ʁe ɑ̃.tjɛʁ sɑ̃.tʁe syʁ ø.mɛm/', 'peu duh ZHAHⁿ puhv suh vahⁿ-TAY da-vwar pa-say ün swa-ray ahⁿ-TYEHR sahⁿ-tray sür eu-MEM', ['ironie', 'echo']),
+  sent(1965, 'Peu de gens peuvent se vanter d’avoir passé une journée aussi tranquille, les yeux sur un téléphone.', 'Few people can boast of having spent such a peaceful day, eyes on a phone.', '/pø də ʒɑ̃ pœv sə vɑ̃.te da.vwaʁ pa.se yn ʒuʁ.ne o.si tʁɑ̃.kil le.zjø syʁ œ̃ te.le.fɔn/', 'peu duh ZHAHⁿ puhv suh vahⁿ-TAY da-vwar pa-say ün zhoor-nay oh-see trahⁿ-KEEL lay-ZYEU sür uhⁿ tay-lay-FONN', ['ironie', 'echo']),
 ];
 
 /* ── ACT 10 · L’AGENT CACHÉ ────────────────────────────────────────────── */
@@ -725,7 +724,7 @@ export const QUESTION_TEXT =
 
 /** Act 9: a billet whose irony is all echo, with one sincere line at the end. */
 export const POLE_TEXT =
-  'NOTRE NOUVEAU « PÔLE EXPÉRIENCE ». Billet de Léonie Fréchette. La note est arrivée lundi, signée de la direction de la Mutuelle des Trois-Rivages : l’accueil téléphonique « évolue vers un pôle expérience centré sur l’adhérent ». J’ai donc appelé, en adhérente centrée. Le pôle expérience commence par une musique, que j’ai eu tout le loisir d’apprécier. Une voix m’a ensuite assuré que mon appel était important, ce que je n’avais aucune raison de mettre en doute, puisqu’on me l’a répété onze fois. J’ai fini par la croire : un appel moins important aurait sans doute été pris plus vite. Au bout de quarante minutes, une conseillère très aimable m’a expliqué qu’elle ne pouvait pas modifier mon dossier, mais qu’elle pouvait m’envoyer un lien. Le lien menait à la page d’accueil. De la page d’accueil, un autre lien menait au numéro que je venais d’appeler. Je ne voudrais pas paraître ingrate. On m’avait promis une expérience, et c’en fut une. Peu de gens peuvent se vanter d’avoir passé une soirée entière centrés sur eux-mêmes. Je comprends d’ailleurs l’intention. Un service qui ferme ses agences doit bien donner un nom à ce qui les remplace, et « pôle expérience » sonne mieux que « file d’attente ». Le vocabulaire n’est pas mensonger : il est simplement en avance sur les faits, comme ces brochures d’hôtel où la « vue sur mer » exige un balcon et un peu de bonne volonté. Un jour, il y aura peut-être une expérience derrière le mot ; en attendant, il y a la musique. La conseillère, elle, n’y était pour rien. À la fin de l’appel, elle m’a dit à voix basse : « Si je peux me permettre, passez à l’agence de Rimouski tant qu’elle est ouverte. » C’est la seule phrase de la soirée qui ne contenait aucun mot de la note. C’est aussi la seule qui m’ait servi.';
+  'MA JOURNÉE TRANQUILLE. Billet de Léonie Fréchette. La note a été glissée sous ma porte lundi, signée de la Régie du Vieux-Pommier : l’entretien annuel des radiateurs aura lieu jeudi, « entre 8 h et 18 h, pour préserver votre tranquillité ». Le technicien, précisait-elle, appellerait trente minutes avant son passage. J’ai donc pris ma journée, en toute tranquillité. J’ai posé mon téléphone sur la table de la cuisine, face visible, le son au plus fort, et j’ai attendu. J’ai eu tout le loisir d’admirer mes radiateurs. Mon thé a refroidi deux fois. À midi, j’ai mangé debout, près de la fenêtre, pour voir arriver la camionnette. À quinze heures, une voisine a frappé pour savoir si le technicien était passé chez moi : il n’était passé chez personne. Loin de moi l’idée de me plaindre. On m’avait promis la tranquillité : je n’ai pas bougé de la journée. Peu de gens peuvent se vanter d’avoir passé une journée aussi tranquille, les yeux sur un téléphone. Je comprends d’ailleurs la régie. Elle gère une quarantaine d’immeubles avec trois techniciens, et il faut bien qu’un créneau couvre tout le monde. Le créneau n’est pas faux : il est simplement aussi large que la journée, comme ces horoscopes qui promettent, cette semaine, une rencontre. Un jour, il y aura peut-être une heure précise derrière la promesse ; en attendant, il y a la fenêtre. Le technicien, lui, n’y était pour rien. Il n’a pas appelé : il a sonné, à 17 h 55, essoufflé, et il a purgé mes quatre radiateurs en dix minutes. En rangeant sa clé, il m’a dit : « La prochaine fois, appelez la régie la veille et demandez le premier passage du matin. Ils le donnent à ceux qui le demandent. » De toute la journée, c’est la seule phrase qui ne sortait pas de la note. C’est aussi la seule qui m’ait servi.';
 
 /** Act 10: a chronicle that reads a school email for the agent it hides. */
 export const SORTIES_TEXT =
