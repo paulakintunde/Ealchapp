@@ -155,9 +155,10 @@ export default function ExamReportScreen() {
       });
   }, [paperId, results, corpus]);
 
-  // Open-task misses for this paper, so the report can send the candidate to a
-  // prep lesson. dueExamSkills returns prepLessonId: null when no lesson exists
-  // at that band — a real gap, surfaced rather than silently dropped.
+  // Misses for this paper, so the report can send the candidate to a prep
+  // lesson. An open miss with no lesson at its band comes back as
+  // prepLessonId: null, a real gap surfaced rather than dropped; a closed miss
+  // appears only when EXAM_PREP_TARGETS names a lesson that exists.
   const due: DueExamSkill[] = useMemo(() => {
     if (!paperId) return [];
     const mine = results.filter((r) => r.paperId === paperId && !r.passed);

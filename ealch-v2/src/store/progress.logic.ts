@@ -1189,7 +1189,9 @@ export function topWeaknesses(errors: ErrorEvent[], today: string, days = 7, lim
 //   targetItemIds into ordinary SRS attempts. The learner does not see an
 //   "exam result", they just find those words due for review — the exam was
 //   never really testing "can you pass this task", it was testing the atoms
-//   underneath it, and this is where that fiction gets corrected.
+//   underneath it, and this is where that fiction gets corrected. Since C1
+//   wave 1 a closed miss ALSO reaches dueExamSkills(), which offers a prep
+//   lesson only when EXAM_PREP_TARGETS names one that exists (CE@b2 → b2.24).
 //
 //   OPEN (po_*/pe_*) miss → dueExamSkills() groups misses by (format, skill,
 //   band) and resolves each to a REAL prep lesson via Lesson.skill. There is
@@ -1399,7 +1401,9 @@ export const EXAM_PREP_TARGETS: Readonly<Record<string, string>> = {
   'PO@b2': 'b2.26.l1',
   // C1 Phase 0 (2026-09-30): wave 1's reading and listening workshops. Inert
   // until c1.20 and c1.21 publish: a target absent from the corpus falls back
-  // to the first-match rule, exactly as before. PE@c1 (c1.10) and PO@c1
+  // to the first-match rule for an open miss, and offers nothing for a closed
+  // one. CE and CO tasks are all closed, so these (and CE@b2, CO@b2) answer the
+  // closed branch of dueExamSkills. PE@c1 (c1.10) and PO@c1
   // (c1.09) wait for C1 writing and speaking tasks, of which none exist.
   'CE@c1': 'c1.20.l1',
   'CO@c1': 'c1.21.l1',
@@ -1415,13 +1419,22 @@ export const EXAM_PREP_TARGETS: Readonly<Record<string, string>> = {
 export function dueExamSkills(results: ExamResult[], lessons: Lesson[]): DueExamSkill[] {
   const seen = new Map<string, DueExamSkill>();
   for (const r of results) {
-    if (!OPEN_EXAM_TASK_TYPES.has(r.taskType) || r.passed) continue;
+    if (r.passed) continue;
     const key = `${r.format}::${r.skill}::${r.band}`;
     if (seen.has(key)) continue;
     const target = EXAM_PREP_TARGETS[`${r.skill}@${r.band}`];
-    const lesson =
-      (target ? lessons.find((l) => l.id === target) : undefined) ??
-      lessons.find((l) => l.skill === r.skill && l.level === r.band);
+    const named = target ? lessons.find((l) => l.id === target) : undefined;
+    if (!OPEN_EXAM_TASK_TYPES.has(r.taskType)) {
+      // A CLOSED miss already re-queues its atoms (decomposeExamMiss). It also
+      // offers a prep lesson, but only a NAMED one that exists (Paul, C1 wave
+      // 1): a paper's closed tasks span every band, and a "no lesson" row for
+      // each band without a reading or listening workshop would bury the
+      // report. No first-match fallback either: at most bands the first lesson
+      // tagged CE is not a reading lesson in any useful sense.
+      if (named) seen.set(key, { format: r.format, skill: r.skill, band: r.band, prepLessonId: named.id });
+      continue;
+    }
+    const lesson = named ?? lessons.find((l) => l.skill === r.skill && l.level === r.band);
     seen.set(key, { format: r.format, skill: r.skill, band: r.band, prepLessonId: lesson?.id ?? null });
   }
   return [...seen.values()];

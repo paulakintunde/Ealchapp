@@ -1291,9 +1291,26 @@ test('dueExamSkills reports null, not silently nothing, when no prep lesson exis
   deepStrictEqual(due, [{ format: 'delf_b2', skill: 'PE', band: 'b2', prepLessonId: null }]);
 });
 
-test('dueExamSkills ignores passed results and closed task types', () => {
+test('dueExamSkills ignores passed results, and a closed miss with no named lesson', () => {
   deepStrictEqual(dueExamSkills([examResult({ passed: true })], []), []);
+  // No null row for a closed miss: its atoms are re-queued, and a paper's
+  // closed tasks span every band, so a "no lesson" row per band would bury
+  // the report.
   deepStrictEqual(dueExamSkills([examResult({ taskType: 'co_mcq', skill: 'CO' })], []), []);
+  deepStrictEqual(dueExamSkills([examResult({ taskType: 'ce_mcq', skill: 'CE', band: 'a2' })], []), []);
+});
+
+test('a failed closed reading or listening task offers its named prep lesson (C1 wave 1)', () => {
+  const mk = (id: string, level: Lesson['level'], skill: Lesson['skill']): Lesson => ({
+    id, unitId: id.slice(0, 5), seq: 1, title: id, level, tag: level.toUpperCase(),
+    intro: '', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1, skill,
+  });
+  const ce = examResult({ format: 'tcf_canada' as ExamResult['format'], taskType: 'ce_mcq', skill: 'CE', band: 'b2' });
+  const co = examResult({ format: 'tcf_canada' as ExamResult['format'], taskType: 'co_mcq', skill: 'CO', band: 'c1' });
+  const lessons = [mk('b2.01.l1', 'b2', 'CE'), mk('b2.24.l1', 'b2', 'CE'), mk('c1.21.l1', 'c1', 'CO')];
+  deepStrictEqual(dueExamSkills([ce, co], lessons).map((d) => d.prepLessonId), ['b2.24.l1', 'c1.21.l1']);
+  // Named target not in the corpus: nothing, never the first CE-tagged lesson.
+  deepStrictEqual(dueExamSkills([ce], [mk('b2.01.l1', 'b2', 'CE')]), []);
 });
 
 test('dueExamSkills sends a failed B1 writing section to the B1 capstone, not the first PE lesson', () => {
@@ -1325,7 +1342,8 @@ test('C1 reading and listening route to c1.20 and c1.21, and stay inert until th
     id, unitId: id.slice(0, 5), seq: 1, title: id, level: 'c1', tag: 'C1',
     intro: '', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1, skill,
   });
-  // dueExamSkills only routes OPEN task types, so the route is exercised with one.
+  // Exercised with an open task type, where an absent target answers null;
+  // the closed branch has its own test above.
   const r = examResult({ band: 'c1', skill: 'CE' });
   // No C1 lesson published (today): unchanged, null.
   deepStrictEqual(dueExamSkills([r], []).map((d) => d.prepLessonId), [null]);
