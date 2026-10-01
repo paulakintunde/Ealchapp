@@ -298,6 +298,11 @@ leçon 3 du C1 » since c1.03 publishes in the same wave.
   run 653 / 0 conflicts / 0 blockers, floors clear. No act, id or version change;
   image prompts untouched.
 
+- **Wave 2 art registered (2026-10-01).** Paul's 46 openers landed, registered
+by an outside process with single-quoted alt lines (each prompt's « The subject
+is » sentence). Per lesson files = require = alt, 0 duplicates, all JPEG; the
+registry diff is exactly 92 added lines. ART_PENDING cleared.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -577,10 +582,10 @@ scratchpad; the report comes back as text.
 | c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | LIVE v85 |
 | c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | LIVE v85 |
 | c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | LIVE v85 |
-| c1.02 | passe-anterieur (recognition) | 86 | 12 | 11×8 | 11 | 5 | 159 new / 14 reused | 12 pending | pre-reviewed |
-| c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 pending | pre-reviewed |
-| c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 pending | pre-reviewed |
-| c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 pending | pre-reviewed |
+| c1.02 | passe-anterieur (recognition) | 86 | 12 | 11×8 | 11 | 5 | 159 new / 14 reused | 12 in | pre-reviewed, art in |
+| c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 in | pre-reviewed, art in |
+| c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 in | pre-reviewed, art in |
+| c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 in | pre-reviewed, art in |
 
 ## Id ledger
 
