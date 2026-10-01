@@ -173,6 +173,15 @@ each agent gets the common block plus its own lesson block.
 > audio spec in your block), art prompt per act. `version: 1`. Tag
 > « C1 · LEÇON NN ».
 >
+> Art (playbook §8): `<slug>-image-prompts.md` copies the header of your
+> structural model's prompt file, one prompt per act, each standing alone with
+> the house STYLE block repeated verbatim (the flat editorial vector block in
+> `../b2/lecture-critique-image-prompts.md`), one visual metaphor for the
+> lesson, no lettering, no close-up faces. Save folder
+> `ealch-v2/assets/lessons/<slug>/`, files `act01.jpg` … `actNN.jpg`, landscape
+> 4:3. Paul draws them in ChatGPT; never register them in `lessonImages.ts`
+> yourself, and never use Fal.
+>
 > C1 language: unsimplified French; English authored on every learner string
 > (`en` field or a trailing « EN: », never on an answer); learner is tu. Act 1
 > recaps the B1/B2 lessons your section names, by trail position in words, and
