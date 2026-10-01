@@ -2,9 +2,11 @@
 import * as RN from 'react-native';
 import { AccessibilityInfo } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, screen } from '@testing-library/react-native';
 import Paywall from '../app/paywall';
 import { useStore } from '@/store/useStore';
+import { T } from '@/i18n/strings';
+import { renderInLocale, type Locale } from './helpers/renderInLocale';
 
 jest.mock('expo-router', () => ({
   ...jest.requireActual('expo-router'),
@@ -23,23 +25,26 @@ const metrics = {
   insets: { top: 47, left: 0, right: 0, bottom: 34 },
 };
 
-beforeEach(() => useStore.setState({ lang: 'en', planPick: 'yr', mode: 'dark' }));
+describe.each(['fr', 'en'] as Locale[])('paywall a11y (%s)', (lang) => {
+  const L = T[lang];
+  beforeEach(() => useStore.setState({ planPick: 'yr', mode: 'dark' }));
 
-test('paywall focuses its title and exposes selected plan, legal links, and free recovery', async () => {
-  const node = jest.spyOn(RN, 'findNodeHandle').mockReturnValue(57);
-  const focus = jest.spyOn(AccessibilityInfo, 'setAccessibilityFocus').mockImplementation(() => {});
-  await render(<SafeAreaProvider initialMetrics={metrics}><Paywall /></SafeAreaProvider>);
-  const title = screen.getByRole('header', { name: 'Unlock A2 and beyond' });
-  fireEvent(title, 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 200, height: 40 } } });
-  expect(focus).toHaveBeenCalledWith(57);
-  expect(screen.getByRole('radio', { name: /Annual/ }).props.accessibilityState.selected).toBe(true);
-  const monthly = screen.getByRole('radio', { name: /Monthly/ });
-  await fireEvent.press(monthly);
-  expect(useStore.getState().planPick).toBe('mo');
-  expect(screen.getByRole('radio', { name: /Monthly/ }).props.accessibilityState.selected).toBe(true);
-  expect(screen.getByRole('link', { name: 'Terms of Use' })).toBeTruthy();
-  expect(screen.getByRole('link', { name: 'Privacy Policy' })).toBeTruthy();
-  expect(screen.getByRole('button', { name: 'Return to the free path' })).toBeTruthy();
-  node.mockRestore();
-  focus.mockRestore();
+  test('paywall focuses its title and exposes selected plan, legal links, and free recovery', async () => {
+    const node = jest.spyOn(RN, 'findNodeHandle').mockReturnValue(57);
+    const focus = jest.spyOn(AccessibilityInfo, 'setAccessibilityFocus').mockImplementation(() => {});
+    await renderInLocale(<SafeAreaProvider initialMetrics={metrics}><Paywall /></SafeAreaProvider>, lang);
+    const title = screen.getByRole('header', { name: L.pwTitleLevels });
+    await fireEvent(title, 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 200, height: 40 } } });
+    expect(focus).toHaveBeenCalledWith(57);
+    expect(screen.getByRole('radio', { name: new RegExp(L.annualL) }).props.accessibilityState.selected).toBe(true);
+    const monthly = screen.getByRole('radio', { name: new RegExp(L.monthlyL) });
+    await fireEvent.press(monthly);
+    expect(useStore.getState().planPick).toBe('mo');
+    expect(screen.getByRole('radio', { name: new RegExp(L.monthlyL) }).props.accessibilityState.selected).toBe(true);
+    expect(screen.getByRole('link', { name: new RegExp(`^${L.legalTerms}$`, 'i') })).toBeTruthy();
+    expect(screen.getByRole('link', { name: new RegExp(`^${L.legalPrivacy}$`, 'i') })).toBeTruthy();
+    expect(screen.getByRole('button', { name: L.pwReturnFree })).toBeTruthy();
+    node.mockRestore();
+    focus.mockRestore();
+  });
 });

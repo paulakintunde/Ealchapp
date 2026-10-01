@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef, type ReactNode } from 'react';
+import { Children, forwardRef, isValidElement, useEffect, useRef, type ReactNode } from 'react';
 import {
   Animated,
   Easing,
@@ -23,7 +23,35 @@ export type PressProps = PressableProps & {
   children?: ReactNode;
 };
 
+function isIconOnly(children: ReactNode): boolean {
+  const kids = Children.toArray(children);
+  if (kids.length === 0) return false;
+  return kids.every((k) => {
+    if (!isValidElement(k)) return false;
+    const t = k.type as { displayName?: string; name?: string } | string;
+    const name = typeof t === 'string' ? t : t.displayName ?? t.name ?? '';
+    return t === Icon || name === 'Icon' || name === 'Svg';
+  });
+}
+
+// Dev-only guardrail: a role-less or unlabeled icon-only Press is poor TalkBack output.
+function warnPressA11y(props: PressableProps, children: ReactNode) {
+  if (props.accessible === false) return;
+  const site = props.accessibilityLabel ?? props.testID ?? 'unknown call site';
+  if (props.accessibilityRole === undefined && props.role === undefined) {
+    console.warn(`[a11y] Press has no accessibilityRole (${site})`);
+  }
+  if (isIconOnly(children) && !props.accessibilityLabel && !props['aria-label']) {
+    console.warn(`[a11y] Press has only an icon child and no accessibilityLabel (${site})`);
+  }
+}
+
 export const Press = forwardRef<View, PressProps>(function Press({ cue = 'tap', scale = 0.96, onPress, style, children, ...rest }, ref) {
+  const warned = useRef(false);
+  if (__DEV__ && !warned.current) {
+    warned.current = true;
+    warnPressA11y(rest, children);
+  }
   return (
     <Pressable
       ref={ref}
