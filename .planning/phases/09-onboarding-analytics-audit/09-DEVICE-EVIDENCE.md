@@ -1,6 +1,6 @@
 # Phase 9 device and capture evidence
 
-Status: **partial Android debug proof; release gate pending**. On 2026-09-30, local and EAS preview PostHog key/host/test-flag values were compared without printing the key. The preview host was missing and was set to the valid US ingest URL. A new Android preview build was submitted; its last confirmed status was queued. Three Pixel debug events received accepted HTTP capture responses, and a read-only PostHog API query confirmed their exact IDs and timestamps in test project `637014`. The same query confirmed `first_open` and `install_attribution` for that Pixel install, though their client HTTP responses were not observed. The other critical events remain unverified. This is the execution sheet for Plan 09-06 Task 2; blank results do not count as passes. Record build ID, device model/OS, account kind, event ID, accepted/rejected HTTP status, and outcome. Do not record email, credentials, answers, transcripts, raw referrer URLs, payment details, or the PostHog key.
+Status: **Android preview walkthrough in progress (2026-10-01); release gate pending**. On 2026-09-30, local and EAS preview PostHog key/host/test-flag values were compared without printing the key. The preview host was missing and was set to the valid US ingest URL. A new Android preview build was submitted; its last confirmed status was queued. Three Pixel debug events received accepted HTTP capture responses, and a read-only PostHog API query confirmed their exact IDs and timestamps in test project `637014`. The same query confirmed `first_open` and `install_attribution` for that Pixel install, though their client HTTP responses were not observed. The other critical events remain unverified. This is the execution sheet for Plan 09-06 Task 2; blank results do not count as passes. Record build ID, device model/OS, account kind, event ID, accepted/rejected HTTP status, and outcome. Do not record email, credentials, answers, transcripts, raw referrer URLs, payment details, or the PostHog key.
 
 ## Prerequisites (Plan 06 Task 0)
 
@@ -12,10 +12,10 @@ Fill before any device scenario. Status is Ready, Blocked (owner and next step) 
 | Read-scoped PostHog token | Event ID lookup | Ready (ignored local `.env`) |
 | Write-scoped PostHog token, or Paul in the UI | Saving the activation funnel (D-29) | Blocked: owner Paul |
 | Android build with `EXPO_PUBLIC_ANALYTICS_TEST_BUILD=true` | `[analytics-capture]` diagnostics | Ready (debug); preview pending |
-| Approval to clear app data on the Pixel 6, or an alternative (uninstall and reinstall, or the Pixel 9) | Fresh-install `first_open` and onboarding | Blocked: owner Paul |
+| Approval to clear app data on the Pixel 6, or an alternative (uninstall and reinstall, or the Pixel 9) | Fresh-install `first_open` and onboarding | Approved for the Pixel 6 on 2026-09-30; waiting for it to be connected. Paul chose not to wipe the Pixel 9. |
 | Supabase test email inbox | Verified email signup | Pending check |
-| Build under test made from a commit that includes Plan 08 | Every device row (outbox, initial_result, attribution dedupe) | Blocked: Plan 08 not yet committed; preview `7c519ae0` predates it |
-| Play internal-track upload and a licence tester (purchase only) | Android sandbox purchase; Google Play Billing needs a Play-installed build even though campaign proof is deferred (D-26) | Blocked: owner Paul (Play Console upload) |
+| Build under test made from a commit that includes Plan 08 | Every device row (outbox, initial_result, attribution dedupe) | In progress: Plan 08 committed as `2235332`; preview `07271469-38d7-4fbb-bbf1-0a30586d2d9a` building from `085b98d`, which contains it. The earlier preview `7c519ae0` **errored**, not queued: its local fingerprint was computed from another directory (config-plugin paths began `../../../../../Downloads/...`) and did not match EAS. From the main checkout the fingerprint is `514c4cb` with no such paths. |
+| Play internal-track upload and a licence tester (purchase only) | Android sandbox purchase; Google Play Billing needs a Play-installed build even though campaign proof is deferred (D-26) | Blocked: owner Paul. Production AAB `75017d7f-81cf-4ab9-9b84-9819f4dadbfb` (versionCode 2) building. Nothing has ever been uploaded to Play and `play-service-account.json` does not exist, so the first upload is manual in Play Console. Also needed: Première monthly/yearly subscriptions in Play Console, the same product IDs on the Adapty `premiere` placement with Play credentials in Adapty, and a licence tester account. |
 | Play internal track and campaign link | Campaign attribution | Deferred (D-26, launch checklist) |
 | Apple Developer Program, XR registered with EAS, App Store sandbox tester | All iPhone rows | Blocked: G-09-12 |
 
@@ -58,23 +58,29 @@ A property-name check of those five stored events found no email, password, answ
 
 The Android debug build was installed with app data preserved. Fresh-install `first_open` and onboarding cannot be inferred from this run. The user has not yet approved clearing local app data for a fresh-install check. A sideloaded APK cannot prove Play-delivered attribution. On 2026-09-30 only Metro's port `8083` was listening, no `8082` listener or competing Gradle/Expo build process was present, and ADB reverse listed only `tcp:8083`. No signed-in PostHog browser view was available to the agent; the user inspected the test project instead.
 
+## Android preview walkthrough 2026-10-01
+
+Build: EAS preview `07271469-38d7-4fbb-bbf1-0a30586d2d9a` (commit `085b98d`, contains Plan 08). Device: Pixel 6, Android 17. The debug build was uninstalled first (approved), so install A (`00a63fc1`) is a true fresh install; install B (`4b429efa`) followed `pm clear` on the same phone. Evidence is the PostHog query API on test project `637014` by event ID; the client `[analytics-capture]` log was read until the logcat stream stopped, after which PostHog is the record. Ingestion lag was one to two minutes. Account kind: guest for both. Not recorded: email, password, answers, transcripts, referrer strings.
+
+Unrelated findings logged under D-30: an IPA string offered as a meaning option in the quick check (G-09-16), an em dash in the lesson tutorial copy (G-09-17), the placement offer card still showing after a completed check (G-09-18). Android's "Allow wireless debugging on this network?" dialog appeared when Wi-Fi returned and swallowed a tap; it is a test-environment artefact.
+
 ## Onboarding and placement, on each platform
 
 For every row, record **Pass/Fail**, screen or route, expected versus observed result, and relevant accepted event IDs. Use fresh installs/accounts where the event is a one-time milestone.
 
 | Scenario | Android | iPhone | Expected event or behavior |
 |---|---|---|---|
-| First launch, guest wizard, Back/edit, force-stop/resume | Pending | Pending | One `first_open`, `onboarding_started`, each step once, preserved choices |
-| Reminders skip, mic denial/failure and skip | Pending | Pending | Clear way forward; `onboarding_mic_failed` category where applicable |
-| Email signup, service failure with Retry/Continue as guest, verified signup | Pending | Pending | `signup_started` on each tap; completion only after verified session |
-| Guest completion and existing-account sign-in | Pending | Pending | Completion only from first-run wizard; existing sign-in leaves guest journey separate |
-| Placement offer dismissal | Pending | Pending | One voluntary `placement_skipped`; lesson remains available |
-| Placement all-correct and all-wrong result fixtures | Pending | Pending | Expected level and one `placement_result` per attempt |
-| Placement confirmed exit; force-stop and resume | Pending | Pending | `placement_abandoned` once on exit; same attempt and answers on resume |
-| Empty/unavailable questions, Retry/Continue | Pending | Pending | `placement_load_failed`, distinct from voluntary skip; no dead end |
-| Retake placement | Pending | Pending | First result retained; later attempt/result separate |
-| Unlocked lesson, locked A2 paywall, quiz/no-quiz completion | A1 content open and locked A2 gate/paywall observed; completion pending | Pending | First lesson only when content opens; completion after progress save |
-| Exam with ungraded open answer; new-day practice | Pending | Pending | `exam_submitted` outcome counts; one `streak_updated` per practiced local day |
+| First launch, guest wizard, Back/edit, force-stop/resume | **Pass** (install A `00a63fc1`, install B `4b429efa`): one `first_open`, one `onboarding_started`, steps 1 to 10 once each; Back to step 4 and a changed answer added no second step-4 event; force-stop on step 5 reopened step 5 with choices kept and no repeat `onboarding_started`. Ordering defect G-09-14 found here | Pending | One `first_open`, `onboarding_started`, each step once, preserved choices |
+| Reminders skip, mic denial/failure and skip | Reminders skip **Pass**: no permission dialog, `POST_NOTIFICATIONS` still not granted. Mic no-speech **Pass**: retry and skip shown, `onboarding_mic_failed` `no_speech` (`bc9809a6`). Mic **denied** branch not exercised: `RECORD_AUDIO` showed granted one-time with no dialog observed | Pending | Clear way forward; `onboarding_mic_failed` category where applicable |
+| Email signup, service failure with Retry/Continue as guest, verified signup | Service failure (offline) **Pass**: error text, Retry, guest route, both fields kept; `signup_started` (`1159a0db`) queued and delivered after reconnect, no `signup_completed`. Verified signup **Pending** (needs a test inbox) | Pending | `signup_started` on each tap; completion only after verified session |
+| Guest completion and existing-account sign-in | Guest completion **Pass**: `onboarding_completed` `52cc8b43` (A), `40963254` (B). Existing-account sign-in **Pending** | Pending | Completion only from first-run wizard; existing sign-in leaves guest journey separate |
+| Placement offer dismissal | **Pass** (B): `placement_skipped` `2911eb64` (`offer`); a later check sent `placement_started` `source: later` and `placement_result` `a43bc243` with `initial_result: false`. G-09-07 fix proven on device | Pending | One voluntary `placement_skipped`; lesson remains available |
+| Placement all-correct and all-wrong result fixtures | Partial: real results A0 6/9 (`dd28046e`, `initial_result: true`) and A0 3/9; both consistent with the per-band rule (A1 items must pass). Fixed all-correct/all-wrong fixtures not run | Pending | Expected level and one `placement_result` per attempt |
+| Placement confirmed exit; force-stop and resume | **Pass**: force-stop on question 3 reopened question 3 with "Quick check resumed"; confirmed End on the retake sent one `placement_abandoned` (`13357ddc`, attempt `4e84adc1`) and returned to the Den | Pending | `placement_abandoned` once on exit; same attempt and answers on resume |
+| Empty/unavailable questions, Retry/Continue | Automated only: the device corpus has questions; needs a fixture build | Pending | `placement_load_failed`, distinct from voluntary skip; no dead end |
+| Retake placement | **Pass**: retake sent `placement_started` `cc7ee539` with `source: later`; the first result stayed | Pending | First result retained; later attempt/result separate |
+| Unlocked lesson, locked A2 paywall, quiz/no-quiz completion | `first_lesson_started` **Pass** (`280f1da6`, `sons.01.l1`): sent when the pager mounted after skipping the first-run tutorial; flashcards and the tutorial sent nothing. Locked A2 gate seen on the earlier debug build. Completion **Pending** | Pending | First lesson only when content opens; completion after progress save |
+| Exam with ungraded open answer; new-day practice | `streak_updated` **Pass** (`b2576293`, days 1, from the placement session). Exam **Pending** | Pending | `exam_submitted` outcome counts; one `streak_updated` per practiced local day |
 
 Check focused headings, readable recovery text, and absence of route crashes or dead ends in each run.
 
@@ -82,12 +88,12 @@ Check focused headings, readable recovery text, and absence of route crashes or 
 
 | Check | Evidence to record | Status |
 |---|---|---|
-| Android attribution status | One device-observed `install_attribution` status with event ID and accepted status. Pixel debug `lookup_failed` ID found in PostHog; client diagnostic pending | Partial |
+| Android attribution status | Preview installs A and B each sent one accepted `install_attribution`, but as `campaign` with `google-play`/`organic`: Play's default for an install with no campaign. Defect G-09-15, fixed in code (now `no_campaign`); needs a rebuild to observe | Fix pending rebuild |
 | Android Play internal-test install via encoded campaign link | Parsed `source`/`medium`/`campaign` with accepted capture | Deferred to launch (D-26) |
-| Offline outbox delivery | Airplane mode, trigger a milestone, see it queued with the flow continuing; reconnect and foreground; same event ID accepted | Pending |
+| Offline outbox delivery | **Pass** (A): with airplane mode, Wi-Fi and data off, 13 events from the signup attempt through step 10 were recorded `offline` while the wizard carried on; after reconnecting, all arrived in PostHog once, in order, with their original timestamps, followed by `onboarding_completed` | Pass |
 | iPhone app attribution | `install_attribution` with `unavailable`, event ID and accepted status | Blocked: G-09-12 |
 | App Store Connect campaign report | Aggregate campaign view and date; do not infer a per-person iPhone source | Pending |
-| D1 return | Controlled next-local-day boundary test plus real device foreground detection and accepted `d1_return` | Pending |
+| D1 return | Unit tests pass; device **Pass**: `d1_return` `37545f10` on foreground at 01:46 PDT on Oct 1 after first open at 21:46 PDT on Sep 30 (install A) | Pass |
 | Android store sandbox | Test product/entitlement outcome and accepted `purchase_started`/terminal event with one attempt ID; no real charge | Pending. The connected Pixel 9 displays a Stripe-managed Première Monthly plan, and no purchase/restore event was found in the PostHog test project; this is not a Google Play sandbox transaction. |
 | iPhone store sandbox | Test product/entitlement outcome and accepted `purchase_started`/terminal event with one attempt ID; no real charge | Pending |
 
