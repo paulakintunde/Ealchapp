@@ -113,8 +113,15 @@
 //          dont mark the same complement); careful usage writes « c’est de
 //          cela qu’il s’agit » or « c’est cela dont il s’agit » (act 9, rule
 //          2161, sheet-registre). Attributed in the lesson to « les guides de
-//          bon usage, en France comme au Québec ». To verify against the
-//          Académie « Dire, ne pas dire » and the OQLF BDL (exact wording).
+//          bon usage, en France comme au Québec ». CHECKED 2026-10-01: the
+//          Académie (« Dire, ne pas dire », DNP0650) calls « C’est de cette
+//          affaire dont je vous parle » a pleonasm and a grammatical fault,
+//          classical usage aside; the BDL (« Le pronom relatif dont ») says
+//          dont « ne doit pas être utilisé avec un antécédent précédé de la
+//          préposition de » and prescribes que « pour éviter le pléonasme ».
+//          Both also condemn dont + en. BDL (lequel): lequel subject only in
+//          an explicative, always after a comma; « parmi » always takes
+//          lequel, whatever the antecedent.
 //       b. « Que je crois qui » (« un livre que je crois qui te plaira ») is
 //          popular / familiar speech; « dont je sais qu’il » is written and
 //          soutenu; « que je crois que » is correct but heavy (act 9). To
@@ -139,7 +146,8 @@
 //          lequel (act 8). « Le contexte où » and « le contexte dans
 //          lequel » are both accepted.
 //       i. Act 10 reading: paper made with a mould leaves a watermark
-//          (filigrane) and chain lines (vergeures) that help date a sheet;
+//          (filigrane) and laid and chain lines (vergeures, pontuseaux) that
+//          help date a sheet (checked 2026-10-01, memoryofpaper.eu Briquet);
 //          machine-made wove paper spreads in the nineteenth century. Kept
 //          general, no date given.
 //     QUOTATIONS: none.
@@ -553,8 +561,8 @@ export const ACT4_ROWS: Row[] = [
     '« Un endroit où dormir » : qui dort ?',
     'Le sujet de la phrase, ou n’importe qui. Pas de sujet écrit, pas de verbe conjugué : un but.',
     ['infinitif']),
-  rule(2069, 'Jamais que suivi d’un infinitif : un livre à lire, quelqu’un à qui parler.', 'Never que followed by an infinitive: a book to read, someone to talk to.',
-    '/ʒa.mɛ kə sɥi.vi dœ̃.nɛ̃.fi.ni.tif œ̃ livʁ a liʁ kɛl.kœ̃ a ki paʁ.le/', 'zha-meh KUH | swee-VEE | duhⁿ-nehⁿ-fee-nee-TEEF | uhⁿ LEEVR a LEER | kel-KUHⁿ a kee par-LAY',
+  rule(2069, 'Jamais que relatif suivi d’un infinitif : un livre à lire, quelqu’un à qui parler.', 'Never relative que followed by an infinitive: a book to read, someone to talk to.',
+    '/ʒa.mɛ kə ʁə.la.tif sɥi.vi dœ̃.nɛ̃.fi.ni.tif œ̃ livʁ a liʁ kɛl.kœ̃ a ki paʁ.le/', 'zha-meh kuh ruh-la-TEEF | swee-VEE | duhⁿ-nehⁿ-fee-nee-TEEF | uhⁿ LEEVR a LEER | kel-KUHⁿ a kee par-LAY',
     'Something to read : un livre que lire ?',
     'Non : un livre à lire. L’infinitif ne suit que où, ou une préposition et son pronom.',
     ['infinitif']),
@@ -583,9 +591,9 @@ export const ACT5_ROWS: Row[] = [
     '/le.ze.lɛv e le pʁɔ.fɛ.sœʁ ki lə swɛt pu.ʁɔ̃ vi.zi.te la sal/', 'lay-zay-LEV | ay lay pro-feh-SUHR | kee luh SWET | poo-rohⁿ vee-zee-TAY la SAL', ['ambigu', 'coordination']),
   sent(2080, 'Les résultats de l’enquête dont tu parlais ont été publiés.', 'The results of the survey you mentioned have been published.',
     '/le ʁe.zyl.ta də lɑ̃.kɛt dɔ̃ ty paʁ.lɛ ɔ̃.te.te py.bli.je/', 'lay ray-zül-TA | duh lahⁿ-KET | dohⁿ tü par-LEH | ohⁿ-tay-tay pü-blee-YAY', ['ambigu', 'n-de-n']),
-  sent(2081, 'La copie du contrat que le notaire a signée est au dossier.', 'The copy of the contract which the notary signed is on file.',
+  sent(2081, 'La copie du contrat que le notaire a signée est au dossier.', 'The copy of the contract, the one the notary signed, is on file.',
     '/la kɔ.pi dy kɔ̃.tʁa kə lə nɔ.tɛʁ a si.ɲe ɛ.to dɔ.sje/', 'la ko-PEE dü kohⁿ-TRA | kuh luh no-TEHR a see-NYAY | eh-toh do-SYAY', ['indice', 'participe'], FCVDR),
-  sent(2082, 'La copie du contrat que le notaire a signé est au dossier.', 'The copy of the contract the notary signed is on file.',
+  sent(2082, 'La copie du contrat que le notaire a signé est au dossier.', 'The copy of the notary-signed contract is on file.',
     '/la kɔ.pi dy kɔ̃.tʁa kə lə nɔ.tɛʁ a si.ɲe ɛ.to dɔ.sje/', 'la ko-PEE dü kohⁿ-TRA | kuh luh no-TEHR a see-NYAY | eh-toh do-SYAY', ['indice', 'participe']),
   rule(2083, 'Après « le nom de nom », une relative peut s’accrocher à l’un ou à l’autre : cherche l’indice.', 'After « noun de noun », a relative can hook onto either one: look for the clue.',
     '/a.pʁɛ lə nɔ̃ də nɔ̃ yn ʁə.la.tiv pø sa.kʁɔ.ʃe a lœ̃ u a lotʁ ʃɛʁʃ lɛ̃.dis/', 'a-preh luh NOHⁿ duh NOHⁿ | ünn ruh-la-TEEV | peu sa-kro-SHAY | a LUHⁿ oo a LOHTR | shehrsh lehⁿ-DEESS',
@@ -630,7 +638,7 @@ export const ACT6_ROWS: Row[] = [
     '/œ̃ te.mwɛ̃ a paʁ.le a la.vɔ.kat la.kɛl a o.si.to pʁe.və.ny la ʒyʒ/', 'uhⁿ tay-MWEHⁿ | a par-LAY a la-vo-KAT | la-KEL a oh-see-TOH | pray-vuh-NÜ la ZHÜZH', ['lequel-sujet']),
   sent(2098, 'La salle sera peut-être pleine, auquel cas nous ouvrirons la seconde.', 'The room may be full, in which case we will open the second one.',
     '/la sal sə.ʁa pø.tɛtʁ plɛn o.kɛl ka nu.zu.vʁi.ʁɔ̃ la sə.ɡɔ̃d/', 'la SAL suh-ra peu-tetr PLENN | oh-kel KA | noo-zoo-vree-ROHⁿ | la suh-GOHⁿD', ['auquel-cas'], FCVDR),
-  sent(2099, 'Le locataire et le propriétaire, lequel prend les travaux en charge, signent le bail.', 'The tenant and the landlord, the one who covers the repairs, sign the lease.',
+  sent(2099, 'Le locataire et le propriétaire, lequel prend les travaux en charge, signent le bail.', 'The tenant and the landlord, one of whom (but which?) covers the repairs, sign the lease.',
     '/lə lɔ.ka.tɛʁ e lə pʁɔ.pʁi.je.tɛʁ lə.kɛl pʁɑ̃ le tʁa.vo ɑ̃ ʃaʁʒ siɲ lə baj/', 'luh lo-ka-TEHR | ay luh pro-pree-yay-TEHR | luh-KEL prahⁿ lay tra-VOH ahⁿ SHARZH | seeny luh BAÏ', ['lequel-limite'], FCVR, { register: S }),
   sent(2100, 'Le propriétaire, qui prend les travaux en charge, signe le bail avec le locataire.', 'The landlord, who covers the repairs, signs the lease with the tenant.',
     '/lə pʁɔ.pʁi.je.tɛʁ ki pʁɑ̃ le tʁa.vo ɑ̃ ʃaʁʒ siɲ lə baj a.vɛk lə lɔ.ka.tɛʁ/', 'luh pro-pree-yay-TEHR | kee prahⁿ lay tra-VOH ahⁿ SHARZH | seeny luh BAÏ | a-vek luh lo-ka-TEHR', ['reparer', 'rapprocher']),
@@ -745,7 +753,7 @@ export const ACT8_ROWS: Row[] = [
   gap(2146, 'C’était une époque où tout semblait possible.', 'It was a time when everything seemed possible.',
     '/se.tɛ.tyn e.pɔk u tu sɑ̃.blɛ pɔ.sibl/', 'say-teh-tünn ay-POK | oo too sahⁿ-bleh po-SEEBL',
     'C’était une époque ___ tout semblait possible. (un moment)',
-    'Une époque est un moment : où, jamais quand. EN: où for a time.',
+    `Une époque est un moment : où, jamais quand, comme dans ${DONT_OU_REF}. EN: où for a time, as in B1.`,
     ['abstrait', 'ou'], FCVDR),
   sent(2147, 'Le contexte dans lequel ces lettres ont été écrites explique leur ton.', 'The context in which these letters were written explains their tone.',
     '/lə kɔ̃.tɛkst dɑ̃ lə.kɛl se lɛtʁ ɔ̃.te.te e.kʁit ɛk.splik lœʁ tɔ̃/', 'luh kohⁿ-TEKST | dahⁿ luh-KEL | say LETR ohⁿ-tay-tay ay-KREET | ek-spleek luhr TOHⁿ', ['abstrait', 'lequel']),
@@ -827,7 +835,7 @@ export const ACT10_ROWS: Row[] = [
   gap(2176, 'La visite, à l’issue de laquelle un verre sera servi, commence à dix-huit heures.', 'The tour, after which drinks will be served, starts at six p.m.',
     '/la vi.zit a li.sy də la.kɛl œ̃ vɛʁ sə.ʁa sɛʁ.vi kɔ.mɑ̃s a di.zɥi.tœʁ/', 'la vee-ZEET | a lee-SÜ duh la-KEL | uhⁿ VEHR suh-ra sehr-VEE | ko-mahⁿs a dee-zwee-TUHR',
     'La visite, à l’issue ___ un verre sera servi, commence à dix-huit heures. (à l’issue de · la visite)',
-    'Après une locution qui finit par de, pas dont : de laquelle. EN: de laquelle after à l’issue.',
+    `Rappel de ${LEQUEL_REF} : après une locution qui finit par de, pas dont, mais de laquelle. EN: a reminder from B1: de laquelle after à l’issue.`,
     ['locution']),
 ];
 

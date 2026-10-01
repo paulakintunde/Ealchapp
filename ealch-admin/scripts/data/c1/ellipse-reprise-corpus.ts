@@ -17,7 +17,7 @@
 //   KEEPING THE THREAD: WHAT A TEXT HAS ALREADY SAID IS PICKED UP BY A SMALL
 //   WORD, BY ANOTHER NOUN, OR LEFT UNSAID, AND THE READER ALWAYS KNOWS WHAT.
 //
-//     le neutre (1)     le picks up an adjective or a noun complement and
+//     le neutre (1)     le picks up an adjective or a bare noun and
 //                       never agrees: « il l’est », « fatiguée, je le suis »,
 //                       « ils ne le sont plus »; the English truncation « she
 //                       isn’t » as the learner trap (act 2)
@@ -455,10 +455,10 @@ export const ACT2_ROWS: Row[] = [
     '/ɛ.la e.te tʁɛ pa.sjɑ̃t lɥi nə la ʒa.mɛ e.te/', 'eh-la ay-TAY | treh pa-SYAHⁿT | lwee nuh la zha-meh ay-TAY', ['neutre', 'compose'], FCVDR),
   sent(2022, 'Être ponctuel n’est pas difficile ; encore faut-il vouloir l’être.', 'Being punctual is not hard; you still have to want to be.',
     '/ɛtʁ pɔ̃k.tɥɛl nɛ pa di.fi.sil ɑ̃.kɔʁ fo.til vu.lwaʁ lɛtʁ/', 'etr pohⁿk-TWEL | neh pa dee-fee-SEEL | ahⁿ-kor foh-TEEL | voo-lwar LETR', ['neutre', 'infinitif'], FCVR, { register: SOU }),
-  rule(2023, 'Le reprend un adjectif ou un nom attribut, et il ne s’accorde jamais.', 'Le picks up an adjective or a noun complement, and it never agrees.',
+  rule(2023, 'Le reprend un adjectif ou un nom sans article, et il ne s’accorde jamais.', 'Le picks up an adjective or a bare noun, and it never agrees.',
     '/lə ʁə.pʁɑ̃ œ̃.na.dʒɛk.tif u œ̃ nɔ̃ a.tʁi.by e il nə sa.kɔʁd ʒa.mɛ/', 'luh ruh-PRAHⁿ | uhⁿ-nad-zhek-TEEF | oo uhⁿ nohⁿ a-tree-BÜ | ay eel nuh sa-kord zha-MEH',
     'Fatiguée, je la suis ou je le suis ?',
-    'Je le suis. Ce le est neutre : il reprend l’idée d’être fatiguée, pas une personne. Il reste le au féminin comme au pluriel : elles le sont.',
+    'Je le suis. Ce le est neutre : il reprend l’idée d’être fatiguée, pas une personne. Il reste le au féminin comme au pluriel : elles le sont. Un nom avec article (la directrice) se reprend plutôt par c’est elle.',
     ['neutre', 'invariable']),
   gap(2024, 'Prêtes, elles le sont depuis lundi.', 'Ready? They have been since Monday.',
     '/pʁɛt ɛl lə sɔ̃ də.pɥi lœ̃.di/', 'PRET | el luh SOHⁿ | duh-pwee luhⁿ-DEE',
@@ -804,13 +804,13 @@ export const ACT9_ROWS: Row[] = [
 /* ── ACT 10 · QUI EST « ELLE » ? (.2151-.2165) ────────────────────────────── */
 
 export const ACT10_ROWS: Row[] = [
-  sent(2151, 'Marie a téléphoné à sa sœur quand elle est rentrée de Lyon.', 'Marie phoned her sister when she got back from Lyon.',
+  sent(2151, 'Marie a téléphoné à sa sœur quand elle est rentrée de Lyon.', 'Marie phoned her sister when she got back from Lyon (ambiguous: Marie or her sister?).',
     '/ma.ʁi a te.le.fɔ.ne a sa sœʁ kɑ̃.tɛ.lɛ ʁɑ̃.tʁe də ljɔ̃/', 'ma-REE | a tay-lay-fo-NAY | a sa SUHR | kahⁿ-teh-leh rahⁿ-TRAY | duh LYOHⁿ', ['ambiguite', 'ambigu'], FC),
   sent(2152, 'Marie a téléphoné à sa sœur quand cette dernière est rentrée de Lyon.', 'Marie phoned her sister when the latter got back from Lyon.',
     '/ma.ʁi a te.le.fɔ.ne a sa sœʁ kɑ̃ sɛt dɛʁ.njɛʁ ɛ ʁɑ̃.tʁe də ljɔ̃/', 'ma-REE | a tay-lay-fo-NAY | a sa SUHR | kahⁿ set dehr-NYEHR | eh rahⁿ-TRAY | duh LYOHⁿ', ['ambiguite', 'ce-dernier'], FCVDR),
   sent(2153, 'De retour de Lyon, Marie a téléphoné à sa sœur.', 'Back from Lyon, Marie phoned her sister.',
     '/də ʁə.tuʁ də ljɔ̃ ma.ʁi a te.le.fɔ.ne a sa sœʁ/', 'duh ruh-TOOR duh LYOHⁿ | ma-REE | a tay-lay-fo-NAY | a sa SUHR', ['ambiguite', 'construction'], FCVDR),
-  sent(2154, 'Paul a croisé Marc avec sa femme.', 'Paul ran into Marc with his wife.',
+  sent(2154, 'Paul a croisé Marc avec sa femme.', 'Paul ran into Marc with his wife (ambiguous: whose wife?).',
     '/pɔl a kʁwa.ze maʁk a.vɛk sa fam/', 'POL a krwa-ZAY MARK | a-vek sa FAMM', ['ambiguite', 'ambigu'], FC),
   sent(2155, 'Paul a croisé Marc avec la femme de ce dernier.', 'Paul ran into Marc with Marc’s wife.',
     '/pɔl a kʁwa.ze maʁk a.vɛk la fam də sə dɛʁ.nje/', 'POL a krwa-ZAY MARK | a-vek la FAMM | duh suh dehr-NYAY', ['ambiguite', 'ce-dernier']),
@@ -818,11 +818,11 @@ export const ACT10_ROWS: Row[] = [
     '/pɔl e sa fam ɔ̃ kʁwa.ze maʁk/', 'POL ay sa FAMM | ohⁿ krwa-zay MARK', ['ambiguite', 'construction']),
   sent(2157, 'Le gérant a reçu le plombier, qui avait oublié ses outils.', 'The manager saw the plumber, who had forgotten his tools.',
     '/lə ʒe.ʁɑ̃ a ʁə.sy lə plɔ̃.bje ki a.vɛ u.bli.je se.zu.ti/', 'luh zhay-RAHⁿ | a ruh-SÜ | luh plohⁿ-BYAY | kee a-veh oo-blee-YAY | say-zoo-TEE', ['ambiguite', 'relative']),
-  sent(2158, 'La présidente a écrit à la trésorière pour lui dire qu’elle démissionnait.', 'The president wrote to the treasurer to tell her she was resigning.',
+  sent(2158, 'La présidente a écrit à la trésorière pour lui dire qu’elle démissionnait.', 'The president wrote to the treasurer to tell her she was resigning (ambiguous: which of them?).',
     '/la pʁe.zi.dɑ̃t a e.kʁi a la tʁe.zɔ.ʁjɛʁ puʁ lɥi diʁ kɛl de.mi.sjɔ.nɛ/', 'la pray-zee-DAHⁿT | a ay-KREE | a la tray-zo-RYEHR | poor lwee DEER | kel day-mee-syo-NEH', ['ambiguite', 'ambigu'], FC),
   sent(2159, 'La présidente a écrit à la trésorière pour lui annoncer sa propre démission.', 'The president wrote to the treasurer to announce her own resignation.',
     '/la pʁe.zi.dɑ̃t a e.kʁi a la tʁe.zɔ.ʁjɛʁ puʁ lɥi a.nɔ̃.se sa pʁɔpʁ de.mi.sjɔ̃/', 'la pray-zee-DAHⁿT | a ay-KREE | a la tray-zo-RYEHR | poor lwee a-nohⁿ-SAY | sa propr day-mee-SYOHⁿ', ['ambiguite', 'propre']),
-  sent(2160, 'La présidente a écrit à la trésorière, qui lui a annoncé sa démission.', 'The president wrote to the treasurer, who told her she was resigning.',
+  sent(2160, 'La présidente a écrit à la trésorière, qui lui a annoncé sa démission.', 'The president wrote to the treasurer, who then announced her own resignation to her.',
     '/la pʁe.zi.dɑ̃t a e.kʁi a la tʁe.zɔ.ʁjɛʁ ki lɥi a a.nɔ̃.se sa de.mi.sjɔ̃/', 'la pray-zee-DAHⁿT | a ay-KREE | a la tray-zo-RYEHR | kee lwee a a-nohⁿ-SAY | sa day-mee-SYOHⁿ', ['ambiguite', 'relative']),
   rule(2161, 'Si deux noms peuvent répondre au pronom, change d’outil.', 'If two nouns could answer the pronoun, change tools.',
     '/si dø nɔ̃ pœv ʁe.pɔ̃dʁ o pʁɔ.nɔ̃ ʃɑ̃ʒ du.til/', 'see deu NOHⁿ | puhv ray-POHⁿDR | oh pro-NOHⁿ | shahⁿzh doo-TEEL',
@@ -836,7 +836,7 @@ export const ACT10_ROWS: Row[] = [
     ['ambiguite', 'ce-dernier'], FCVDR),
   sent(2163, 'Le directeur a rencontré l’architecte, et c’est ce dernier qui a proposé de reporter le chantier.', 'The director met the architect, and it was the architect who proposed postponing the works.',
     '/lə di.ʁɛk.tœʁ a ʁɑ̃.kɔ̃.tʁe laʁ.ʃi.tɛkt e sɛ sə dɛʁ.nje ki a pʁɔ.po.ze də ʁə.pɔʁ.te lə ʃɑ̃.tje/', 'luh dee-rek-TUHR | a rahⁿ-kohⁿ-TRAY | lar-shee-TEKT | ay seh suh dehr-NYAY | kee a pro-poh-ZAY | duh ruh-por-tay luh shahⁿ-TYAY', ['ambiguite', 'ce-dernier']),
-  sent(2164, 'Hugo a dit à son frère qu’il avait gagné.', 'Hugo told his brother he had won.',
+  sent(2164, 'Hugo a dit à son frère qu’il avait gagné.', 'Hugo told his brother he had won (ambiguous: which of them?).',
     '/y.ɡo a di a sɔ̃ fʁɛʁ ki.la.vɛ ɡa.ɲe/', 'ü-GOH | a DEE | a sohⁿ FREHR | kee-la-veh ga-NYAY', ['ambiguite', 'ambigu'], FC),
   sent(2165, 'Hugo a dit à son frère : « J’ai gagné. »', 'Hugo told his brother: « I won. »',
     '/y.ɡo a di a sɔ̃ fʁɛʁ ʒe ɡa.ɲe/', 'ü-GOH | a DEE | a sohⁿ FREHR | zhay ga-NYAY', ['ambiguite', 'discours-direct']),

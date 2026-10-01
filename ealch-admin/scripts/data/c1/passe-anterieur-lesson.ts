@@ -21,7 +21,7 @@
 //   Rhythm per act: meet (scene, story, reading, examples), name (cardDeck,
 //   tapTable, hacks), spot and map (groupDrill, gated), trap (trapDrill
 //   stepped or commonErrors), then from act 2 on the form INSIDE A PAGE
-//   (« Dans un texte »: five of them are public-domain extracts verified
+//   (« Dans un texte »: six of them are public-domain extracts verified
 //   word for word on Wikisource), then the gated act check.
 //
 //    1  Un cran avant              6   the problem; the ONE recap of lessons
@@ -82,8 +82,8 @@
 //           B1, re-exported from their corpus files; their rows reused BY
 //           ID in act 1 (two more in act 2, one in act 8).
 //   LEAVES  producing either tense (never, by decision); the concordance of
-//           tenses in literary texts to another C1 lesson (named in words,
-//           never by position, since it is not built); the literary
+//           tenses in literary texts to c1.03 (« la leçon 3 du C1 », same
+//           wave, cited in the roundup); the literary
 //           subjunctive beyond the eut / eût line already owned by lesson 9
 //           in B2.
 //
@@ -112,16 +112,15 @@
 //      `review`, which can show the English and ask for the French of a
 //      passé antérieur line. They were published that way. Keep them, or
 //      drop `review` from them in a text edit at the import?
-//   3. FIVE PUBLIC-DOMAIN EXTRACTS (Flaubert ×2 tales, Hémon ×3, one
-//      Mérimée line) are quoted word for word from Wikisource; one cut is
+//   3. SIX PUBLIC-DOMAIN EXTRACTS (Flaubert ×3 from two tales, Hémon ×3)
+//      and two single lines (Flaubert, Mérimée) are quoted word for word from Wikisource; one cut is
 //      marked « […] » where Flaubert has an em dash the house forbids. OK?
 //   4. THE SURCOMPOSÉ (act 11): taught as spoken in time clauses everywhere
 //      and regional without one (south of France, Suisse romande), never
 //      prescribed; every answer maps it to the passé composé. The regional
 //      claim needs the pre-review's fact check (corpus §A.7b).
-//   5. THE ROUNDUP names « la concordance des temps dans les textes
-//      littéraires » as what comes next in C1 without a position, since that
-//      lesson is not built. Cite it by position once it publishes?
+//   5. RESOLVED (pre-review 2026-10-01): c1.03 publishes in the same wave,
+//      so the roundup now cites « la leçon 3 du C1 ».
 //   6. TWELVE TERMS (shipped range 8 to 11). The twelfth is `relais`, the
 //      reframe's own chip. Keep, or fold it into the reframe?
 //   7. `Lesson.skill` is 'CE', as b2.08; the task is a written retelling
@@ -350,9 +349,9 @@ const A1_RAPPEL: Sec<'groupDrill'> = {
       it(CL(2581), 'la règle : le lire, pas l’écrire'),
     ], chk('« Quand il eut fini, il se leva. » Aujourd’hui, tu dis…',
       ['quand il a fini, il s’est levé', 'quand il avait fini, il se levait'], 0,
-      `« ${B208_REFRAME} » Et dès que suit le temps de l’autre verbe. EN: ${B208_REFRAME_EN}`)),
+      `« ${B208_REFRAME} » De même, eut fini devient a fini. EN: ${B208_REFRAME_EN}`)),
     grp(Cap(SUBJ_REF), [
-      it(LIT(1286), 'eût fini, avec l’accent : un subjonctif'),
+      it(LIT(1286), 'qu’il ait fini : ce que devient eût fini, un subjonctif'),
       it(LIT(1243), 'fut et fût : l’oreille ne suffit pas'),
     ], chk('Eut fini sans accent, eût fini avec : lequel est un passé antérieur ?',
       ['eut fini', 'eût fini'], 0,
@@ -529,7 +528,7 @@ const A2_REPERER: Sec<'groupDrill'> = {
       it(E(1620), 'eurent traversé : un participe suit'),
       it(CL(2584), 'fut partie : un participe suit'),
       it(E(1624), 'fûmes arrivés : un participe suit'),
-    ], chk('Laquelle de ces quatre phrases ne contient pas de passé antérieur ?',
+    ], chk('Laquelle de ces phrases ne contient pas de passé antérieur ?',
       ['Quand il eut sept ans, on l’envoya chez son oncle.', 'Lorsqu’ils eurent traversé le pont, la nuit tomba.', 'Aussitôt qu’elle fut partie, la maison sembla vide.'], 0,
       'Eut sept ans : avoir tout seul, au passé simple. EN: no participle, no passé antérieur.')),
     ctl('La personne', '« Quand j’eus compris mon erreur, je revins sur mes pas. » Qui a compris ?',
@@ -675,7 +674,7 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1633), 'se fut assis : s’est assis'),
       it(E(1635), 'se furent installées : se sont installées'),
       it(E(1641), 'se fut levée : s’est levée'),
-      it(E(1643), 'nous fûmes reposés : nous sommes reposés'),
+      it(E(1643), 'nous nous fûmes reposés : nous nous sommes reposés'),
     ], chk('« Après qu’elle se fut levée, la salle se tut. » Aujourd’hui, la salle…',
       ['s’est tue', 'a tu', 's’est tu'], 0,
       'Se taire est pronominal : être, et l’accord avec la salle. EN: s’est tue.')),
@@ -1069,7 +1068,7 @@ const A5_EXEMPLES: Sec<'examples'> = {
   examples: [
     ex(E(1668), 'après que + eut donné : l’indicatif'),
     ex(E(1677), 'la règle, et l’usage critiqué'),
-    ex(LIT(1286), 'eût fini, avec l’accent : un subjonctif'),
+    ex(LIT(1286), 'qu’il ait fini : ce que devient eût fini, un subjonctif'),
     ex(E(1676), 'les six charnières'),
   ],
   audio: AUDIO,
@@ -1154,7 +1153,7 @@ const A6_HISTOIRE: Sec<'story'> = {
   bubbles: [
     { from: 'narrator', fr: 'Trois phrases sont écrites au tableau.', en: 'Three sentences are written on the board.' },
     { from: 'user', fr: fr(E(1680)), en: en(E(1680)) },
-    { from: 'coach', fr: 'À peine en tête, eut-il inversé, puis que : le chien bondit pendant que la porte s’ouvre encore.', en: 'À peine first, eut-il inverted, then que: the dog leaps while the door is still opening.', warn: 'à peine… que' },
+    { from: 'coach', fr: 'À peine en tête, eut-il inversé, puis que : la porte à peine ouverte, le chien bondit déjà.', en: 'À peine first, eut-il inverted, then que: the door barely open, the dog is already leaping.', warn: 'à peine… que' },
     { from: 'user', fr: fr(E(1682)), en: en(E(1682)) },
     { from: 'coach', fr: 'Le sujet est un nom : le train, puis fut-il. Le il reprend le train.', en: 'The subject is a noun: le train, then fut-il. The il takes up the train.', warn: 'nom sujet repris par il' },
     { from: 'user', fr: fr(E(1688)), en: en(E(1688)) },
@@ -1198,7 +1197,7 @@ const A6_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Ne… pas plus tôt… que', label: 'la variante très écrite',
       fr: fr(E(1688)), sub: rsOf(E(1688)),
-      body: 'Elle n’eut pas plus tôt signé qu’elle regretta : à peine eut-elle signé qu’elle regretta. Plus tôt, en deux mots : le temps. EN: No sooner… than.',
+      body: 'Elle n’eut pas plus tôt signé qu’elle regretta sa décision : à peine eut-elle signé qu’elle la regretta. Plus tôt, en deux mots : le temps. EN: No sooner… than.',
     },
   ],
 };
@@ -1211,7 +1210,7 @@ const A6_REPERER: Sec<'groupDrill'> = {
   title: 'La première action, la seconde',
   frSub: 'Deux groupes, deux gâchettes',
   groups: [
-    grp('Ce qui à peine a eu lieu', [
+    grp('Ce qui vient à peine d’avoir lieu', [
       it(E(1680), 'la porte ouverte'),
       it(E(1684), 'le discours commencé'),
       it(E(1690), 'la sortie'),
@@ -1279,7 +1278,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptSay: '« À peine le train fut-il parti que la pluie tomba. » D’abord…', opts: ['le train part', 'la pluie tombe'], correct: 0 },
     { promptSay: 'Dans « à peine… que », que introduit…', opts: ['la seconde action', 'un complément du nom'], correct: 0 },
     { promptSay: '« Il eut à peine fini qu’on l’interrompit. » Aujourd’hui, il…', opts: ['venait à peine de finir', 'avait fini depuis longtemps'], correct: 0 },
-    { promptSay: '« Elle n’eut pas plus tôt signé qu’elle regretta. » Pas plus tôt veut dire…', opts: ['à peine', 'plutôt'], correct: 0 },
+    { promptSay: '« Elle n’eut pas plus tôt signé qu’elle regretta sa décision. » Pas plus tôt veut dire…', opts: ['à peine', 'plutôt'], correct: 0 },
     { promptSay: '« À peine fûmes-nous sortis… » Qui sort ?', opts: ['nous', 'ils'], correct: 0 },
     { promptSay: '« À peine l’oratrice eut-elle commencé… » Elle reprend…', opts: ['l’oratrice', 'la salle'], correct: 0 },
     { promptSay: '« À peine eut-il ouvert la porte… » Le registre est…', opts: ['écrit et soutenu', 'familier'], correct: 0 },
@@ -1472,7 +1471,7 @@ const ACT7: ActDef = {
   act: {
     id: 'act7', title: 'Il eut bientôt fini',
     opener: {
-      line: 'En un instant, le feu fut maîtrisé, et le récit saute à la fin : ici tu lis le passé antérieur sans charnière. EN: In an instant the fire was out and the story jumps to the end: here you read the passé antérieur with no hinge.',
+      line: 'En un instant, les pompiers eurent maîtrisé le feu, et le récit saute à la fin : ici tu lis le passé antérieur sans charnière. EN: In an instant the firefighters had the fire under control and the story jumps to the end: here you read the passé antérieur with no hinge.',
       imageRef: 'lessons/passe-anterieur/act07.jpg',
     },
     sections: [],
@@ -1506,7 +1505,7 @@ const A8_LECTURE: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Globale : quelle différence y a-t-il entre les deux soirs ?', a: 'Pendant trente ans, le même rituel ; le soir des quatre-vingts ans, une rupture : le grand-père part chercher la bague de mariage.' },
-    { q: 'Relève les plus-que-parfaits du premier paragraphe. Que disent-ils ?', a: 'avait suivi, avait soupé, avait fini : une habitude répétée, avec l’imparfait (sortait, rentrait).' },
+    { q: 'Relève les plus-que-parfaits du rituel, au début du texte. Que disent-ils ?', a: 'avait suivi, avait soupé, avait fini : une habitude répétée, avec l’imparfait (sortait, rentrait).' },
     { q: 'Relève les passés antérieurs du soir de l’anniversaire.', a: 'eut soupé, eut disparu, l’eut posé : chaque étape bouclée, puis la suivante au passé simple.' },
     { q: '« Il avait commandé la bague trente ans plus tôt » : pourquoi pas un passé antérieur ?', a: 'C’est un fait lointain, sans lien immédiat avec l’action suivante : le plus-que-parfait recule loin en arrière.' },
     { q: 'Inférence : pourquoi la grand-mère reste-t-elle la bouche ouverte ?', a: 'Le rituel est cassé pour la première fois en trente ans : elle ne comprend pas, et l’inquiétude commence.' },
@@ -1674,7 +1673,7 @@ const A8_TEXTE = dansUnTexte('a8-texte', 'Louis Hémon, « Maria Chapdelaine » 
   { q: 'Que dit chacun ?', a: 'Avaient travaillé : un travail fait plus tôt, vu de loin, qui explique l’état du terrain. Eurent disparu : l’étape du jour bouclée, juste avant la suivante.' },
   { q: 'Après eurent disparu, pourquoi un imparfait, restait ?', a: 'L’étape finie laisse une situation : les souches sont là, et le travail continue. Ce n’est pas un événement, c’est ce qui reste.' },
   { q: 'Dis la dernière phrase en français d’aujourd’hui.', a: 'Une fois les aunes arrachés, il restait les souches. Ou : quand les aunes ont disparu, il restait les souches.' },
-  { q: 'Que fait la phrase très courte de la fin, après la longue phrase des gestes ?', a: 'Elle tombe comme un constat : tout ce travail, et il reste le plus dur. Le passé antérieur boucle l’effort en trois mots.' },
+  { q: 'Que fait la phrase très courte de la fin, après la longue phrase des gestes ?', a: 'Elle tombe comme un constat : tout ce travail, et il reste le plus dur. Le passé antérieur boucle l’effort en une courte subordonnée.' },
 ], 'rec-c1-02-texte-a8', ['pqp', 'relais']);
 
 const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
@@ -1846,9 +1845,9 @@ const A9_FOCUS: Sec<'focus'> = {
 const A9_TEXTE = dansUnTexte('a9-texte', 'Flaubert, « La Légende de saint Julien l’Hospitalier » (1877)', EXTRAIT_CHASSE, [
   { q: 'Repère le passé antérieur. Que boucle-t-il ?', a: 'il les eut tous occis : la chasse aux quatre premières bêtes, d’un seul coup, juste avant l’arrivée des autres.' },
   { q: 'Que se passe-t-il avant lui, et après lui ?', a: 'Avant : quatre passés simples en rafale (bondit, parut, sortit, déploya). Après : d’autres bêtes se présentèrent, une liste qui enfle.' },
-  { q: 'Quel effet produit ce passé antérieur au milieu de la phrase ?', a: 'Un pivot : la tuerie tient en trois mots, et la phrase repart aussitôt vers une liste sans fin. Le massacre devient mécanique.' },
+  { q: 'Quel effet produit ce passé antérieur au milieu de la phrase ?', a: 'Un pivot : la tuerie tient en quelques mots, et la phrase repart aussitôt vers une liste sans fin. Le massacre devient mécanique.' },
   { q: 'Dis la partie centrale en français d’aujourd’hui.', a: 'Et quand il les a tous tués, d’autres chevreuils sont apparus. (Occire : tuer, verbe ancien ; occis est son participe.)' },
-  { q: 'Que signale « […] » dans l’extrait ?', a: 'Une coupe de la leçon : Flaubert a un tiret à cet endroit. Aucun mot n’est changé.' },
+  { q: 'Que signale « […] » dans l’extrait ?', a: 'Pas une coupe de mots : à cet endroit, Flaubert met un tiret, que la leçon remplace par ce signe. Aucun mot n’est retiré ni changé.' },
 ], 'rec-c1-02-texte-a9', ['rythme', 'relais']);
 
 const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
@@ -1902,7 +1901,7 @@ const A10_LECTURE: Sec<'reading'> = {
     { q: 'Relève les équivalents d’aujourd’hui des passés antérieurs de la nouvelle.', a: 'venait à peine de refermer… quand ; après avoir retiré ; dès qu’elle a lu ; une fois la lettre terminée ; a vite compris ; quand il a raccroché.' },
     { q: 'Pour « Elle eut bientôt compris », qu’a choisi l’animatrice ?', a: 'Elle a vite compris : un passé composé, et vite à la place de bientôt.' },
     { q: 'Pourquoi « parti depuis trois ans » ne change-t-il pas ?', a: 'C’est un participe qui décrit un état ancien : rien à transposer.' },
-    { q: 'Quel temps l’animatrice n’emploie-t-elle jamais ?', a: 'Ni le passé simple ni le passé antérieur : elle parle, elle raconte au passé composé.' },
+    { q: 'Quels temps l’animatrice n’emploie-t-elle jamais ?', a: 'Ni le passé simple ni le passé antérieur : elle parle, elle raconte au passé composé.' },
     { q: 'Que dit sa dernière phrase du passé antérieur ?', a: 'Qu’il fait le rythme du livre : tout s’enchaîne. En le racontant, elle garde l’ordre, mais pas cette vitesse.' },
   ],
   audio: REC('rec-c1-02-balado'),
@@ -1929,7 +1928,7 @@ const A10_TABLE: Sec<'tapTable'> = {
     { cells: ['une fois que le jury eut délibéré', 'une fois que le jury a délibéré', 'l’étape franchie'], say: fr(E(1751)),
       detail: { title: 'une fois que', body: 'La charnière reste, le temps change. EN: keep the hinge.', say: fr(E(1752)) } },
     { cells: ['quand les travaux eurent été terminés', 'une fois les travaux terminés', 'le passif'], say: fr(E(1654)),
-      detail: { title: 'une fois + participe', body: 'Le passif antérieur se dit en trois mots. EN: three words.', say: fr(E(1655)) } },
+      detail: { title: 'une fois + participe', body: 'Le passif antérieur se dit sans verbe conjugué. EN: no conjugated verb.', say: fr(E(1655)) } },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1983,7 +1982,7 @@ const A10_PIEGE: Sec<'trapDrill'> = {
   cards: [
     { promptLabel: 'le livre resté dans la phrase', promptSound: 'Quand elle eut terminé son rapport, elle l’a envoyé à la direction.', fr: fr(E(1745)), ipa: ipaOf(E(1745)), tip: 'Dans un récit au passé composé, eut terminé détonne : a terminé. EN: register clash.' },
     { promptLabel: 'accord inventé', promptSound: 'Après avoir terminé son rapport, elle l’a envoyée à la direction.', fr: fr(E(1746)), ipa: ipaOf(E(1746)), tip: 'Le rapport est masculin : envoyé. EN: envoyé.' },
-    { promptLabel: 'à peine sans venir de', promptSound: 'Il est à peine arrivé quand on l’a appelé au téléphone.', fr: fr(E(1748)), ipa: ipaOf(E(1748)), tip: 'Il venait à peine d’arriver quand. EN: venait à peine de.' },
+    { promptLabel: 'l’écart perdu', promptSound: 'Il est arrivé, et plus tard on l’a appelé au téléphone.', fr: fr(E(1748)), ipa: ipaOf(E(1748)), tip: 'À peine… que dit un écart presque nul : il venait à peine d’arriver quand. EN: keep the near-zero gap.' },
     { promptLabel: 'le résultat perdu', promptSound: 'Ils oubliaient vite l’incident.', fr: fr(E(1750)), ipa: ipaOf(E(1750)), tip: 'Un résultat, et vite : ils ont vite oublié. EN: a result.' },
     { promptLabel: 'la forme du livre gardée', promptSound: 'Une fois que le jury a délibéré, la présidente a lut les résultats.', fr: fr(E(1752)), ipa: ipaOf(E(1752)), tip: 'Lut est le passé simple ; le participe est lu. EN: lu.' },
     { promptLabel: 'le plus-que-parfait changé', promptSound: 'Quand la lettre est arrivée, elle a quitté la ville depuis un mois.', fr: fr(E(1719)), ipa: ipaOf(E(1719)), tip: 'Avait quitté reste : un mois avant. EN: keep the pluperfect.' },
@@ -1991,12 +1990,12 @@ const A10_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: '« Quand elle eut terminé son rapport, elle l’envoya. » Aujourd’hui, le plus simple :', opts: ['quand elle a terminé, elle l’a envoyé', 'quand elle terminait, elle l’envoyait'], correct: 0 },
     { promptSay: 'Après avoir terminé son rapport, elle l’a…', opts: ['envoyé', 'envoyée'], correct: 0 },
-    { promptSay: '« À peine fut-il arrivé qu’on l’appela. » Aujourd’hui, il…', opts: ['venait à peine d’arriver', 'est à peine arrivé'], correct: 0 },
+    { promptSay: '« À peine fut-il arrivé qu’on l’appela. » Aujourd’hui, il…', opts: ['venait à peine d’arriver', 'était arrivé depuis longtemps'], correct: 0 },
     { promptSay: '« Ils eurent vite oublié l’incident. » Aujourd’hui, ils…', opts: ['ont vite oublié', 'oubliaient vite'], correct: 0 },
     { promptSay: '« La présidente lut les résultats. » Aujourd’hui, elle a…', opts: ['lu', 'lut'], correct: 0 },
     { promptSay: '« Elle avait quitté la ville depuis un mois. » Aujourd’hui :', opts: ['elle avait quitté la ville depuis un mois', 'elle a quitté la ville depuis un mois'], correct: 0 },
     { promptSay: '« Une fois que le jury eut délibéré… » Aujourd’hui :', opts: ['une fois que le jury a délibéré', 'une fois que le jury délibérait'], correct: 0 },
-    { promptSay: '« Quand les travaux eurent été terminés… » En trois mots :', opts: ['une fois les travaux terminés', 'les travaux terminant'], correct: 0 },
+    { promptSay: '« Quand les travaux eurent été terminés… » Sans verbe conjugué :', opts: ['une fois les travaux terminés', 'les travaux terminant'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Seuls deux temps changent' },
@@ -2157,7 +2156,7 @@ const A11_TRIER: Sec<'groupDrill'> = {
       it(E(1762), 'après dès que'),
       it(E(1764), 'après une fois que'),
       it(E(1766), 'sans charnière : régional'),
-    ], chk('Laquelle de ces quatre phrases est un usage régional ?',
+    ], chk('Laquelle de ces phrases est un usage régional ?',
       ['Moi, des hivers comme celui-là, j’en ai eu vu.', 'Dès qu’elle a eu payé, elle est partie.', 'Une fois qu’on a eu mangé, on est allés marcher au bord du lac.'], 0,
       'Pas de charnière, une expérience passée : le surcomposé régional. EN: no time clause.')),
     grp('À l’écrit soigné', [
@@ -2534,7 +2533,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Le passé antérieur se forme avec…', ['eut ou fut et un participe', 'avait ou était et un participe', 'aura ou sera et un participe'], 0, 'Un auxiliaire au passé simple. EN: a simple-past auxiliary.', 'a2-cartes'),
         mc('« Quand il eut sept ans, on l’envoya chez son oncle. » Eut sept ans est…', ['le passé simple d’avoir', 'un passé antérieur'], 0, 'Un nombre suit, pas un participe. EN: no participle.', 'a2-cartes'),
         mc('« Lorsqu’ils eurent traversé le pont » : quelle personne ?', ['ils ou elles', 'il ou elle', 'nous'], 0, 'Eurent : le pluriel. EN: plural.', 'a2-table'),
-        tI(`Une phrase de nouvelle. ${RETELL}`, fr(E(1605)), fr(E(1606)), 'Eut lu, reconnut : deux passés composés aujourd’hui. EN: a lu, a reconnu.', 'a1-lecture'),
+        tI(`Une phrase de nouvelle. ${RETELL}`, fr(E(1605)), fr(E(1606)), 'Eut lu, reconnut : deux passés composés aujourd’hui. EN: a lu, a reconnu.', 'a1-lecture', ['Quand elle a lu la première ligne, elle a reconnu l’écriture de son frère.', 'Après avoir lu la première ligne, elle a reconnu l’écriture de son frère.', 'Une fois qu’elle a lu la première ligne, elle a reconnu l’écriture de son frère.']),
         tI('Donne l’infinitif du verbe au participe.', fr(E(1622)), 'sortir', 'Fut sortie : sortir, avec être. EN: sortir.', 'a2-reperer'),
         eS('Quand nous avons arrivé au village, on nous a conduits chez le maire.', fr(E(1625)), 'Arriver prend être : nous sommes arrivés. EN: être.', 'a2-table', ['Quand nous sommes arrivées au village, on nous a conduites chez le maire.']),
         lC('Écoute. Qu’est-ce qui arrive juste après ?', fr(E(1616)), ['l’orage éclate', 'on défait les valises', 'on repart'], 0, 'Les valises à peine posées, l’orage. EN: the storm.', 'a2-ecoute'),
@@ -2546,11 +2545,11 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Il se fut assis » : pourquoi fut ?', ['les pronominaux prennent être', 'fut marque un passif', 'pour un passé lointain'], 0, 'Le pronom impose être. EN: pronominals take être.', 'a3-cartes'),
         mc('« Lorsqu’ils se furent dit adieu » : pourquoi dit reste-t-il invariable ?', ['se veut dire l’un à l’autre', 'le passé antérieur ne s’accorde jamais'], 0, 'On se dit adieu l’un à l’autre : pas d’accord. EN: se is indirect.', 'a3-cartes'),
         mc('« Quand il les eut relues » : relues s’accorde avec…', ['les, c’est-à-dire les lettres', 'il', 'rien'], 0, 'Le complément placé avant. EN: the preceding object.', 'a3-erreurs'),
-        tI(`Une phrase de roman. ${RETELL}`, fr(E(1632)), fr(E(1633)), 'Se fut assis : il s’est assis. EN: s’est assis.', 'a3-construire'),
-        tI(`Une phrase de récit. ${RETELL}`, fr(E(1642)), fr(E(1643)), 'Nous nous fûmes reposés : nous nous sommes reposés. EN: sommes reposés.', 'a3-construire', ['Quand nous nous sommes reposées, nous avons repris la route.']),
+        tI(`Une phrase de roman. ${RETELL}`, fr(E(1632)), fr(E(1633)), 'Se fut assis : il s’est assis. EN: s’est assis.', 'a3-construire', ['Dès qu’il s’est assis, le notaire a ouvert le dossier.', 'Une fois qu’il s’est assis, le notaire a ouvert le dossier.']),
+        tI(`Une phrase de récit. ${RETELL}`, fr(E(1642)), fr(E(1643)), 'Nous nous fûmes reposés : nous nous sommes reposés. EN: sommes reposés.', 'a3-construire', ['Quand nous nous sommes reposées, nous avons repris la route.', 'Après nous être reposés, nous avons repris la route.', 'Après nous être reposées, nous avons repris la route.']),
         eS('Dès qu’elles se sont installé, la conférence a commencé.', fr(E(1635)), 'Accord avec elles : installées. EN: installées.', 'a3-erreurs'),
         eS('Quand il s’a assis, le notaire a ouvert le dossier.', fr(E(1633)), 'Un pronominal garde être. EN: s’est assis.', 'a3-erreurs'),
-        lC('Écoute. Que fait la salle quand elle s’est levée ?', fr(E(1640)), ['elle se tait', 'elle applaudit', 'elle sort'], 0, 'Se tut : se taire. EN: it falls silent.', 'a3-exemples'),
+        lC('Écoute. Que fait la salle, juste après ?', fr(E(1640)), ['elle se tait', 'elle applaudit', 'elle sort'], 0, 'Se tut : se taire. EN: it falls silent.', 'a3-exemples'),
       ],
     },
     {
@@ -2560,8 +2559,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Quand le courrier fut parti » : c’est…', ['un passé antérieur', 'un passif'], 0, 'Partir prend être. EN: a passé antérieur.', 'a4-cartes'),
         mc('Pour trancher entre les deux, le plus sûr est de…', ['transposer au passé composé', 'compter les syllabes', 'chercher un adjectif'], 0, 'Est parti, ou a été envoyée. EN: transpose.', 'a4-hacks'),
         mc('« Quand les travaux eurent été terminés » : quelle voix ?', ['passive', 'active'], 0, 'Eut été et un participe : le passif. EN: passive.', 'a4-cartes'),
-        tI(`Une phrase de roman. ${RETELL}`, fr(E(1650)), fr(E(1651)), 'Fut envoyée : a été envoyée. EN: keep été.', 'a4-piege'),
-        tI(`Une phrase de roman. ${RETELL}`, fr(E(1656)), fr(E(1657)), 'Tomber prend être : est tombée. EN: est tombée.', 'a4-piege'),
+        tI(`Une phrase de roman. ${RETELL}`, fr(E(1650)), fr(E(1651)), 'Fut envoyée : a été envoyée. EN: keep été.', 'a4-piege', ['Une fois la lettre envoyée, elle a fermé le bureau.']),
+        tI(`Une phrase de roman. ${RETELL}`, fr(E(1656)), fr(E(1657)), 'Tomber prend être : est tombée. EN: est tombée.', 'a4-piege', ['Une fois la nuit tombée, on a allumé les feux.', 'Quand la nuit est tombée, on a allumé les feux.']),
         eS('Quand le courrier a été parti, elle a fermé le bureau.', fr(E(1649)), 'Partir n’a pas de passif : est parti. EN: est parti.', 'a4-piege'),
         lC('Écoute. Qui a fermé le pont ?', fr(E(1652)), ['la police', 'les ouvriers', 'personne'], 0, 'Par la police : l’agent. EN: the police.', 'a4-trier'),
       ],
@@ -2584,7 +2583,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Dans « à peine… que », que introduit…', ['la seconde action', 'une proposition relative', 'une comparaison'], 0, 'Pas d’antécédent : que lance la suite. EN: the second action.', 'a6-cartes'),
         mc('« À peine le train fut-il parti » : il reprend…', ['le train', 'le voyageur'], 0, 'Le nom, puis le pronom inversé. EN: le train.', 'a6-cartes'),
-        mc('« Elle n’eut pas plus tôt signé qu’elle regretta. » Le sens est…', ['elle regrette juste après avoir signé', 'elle préfère signer plutôt que réfléchir'], 0, 'Pas plus tôt : le temps. EN: right after signing.', 'a6-cartes'),
+        mc('« Elle n’eut pas plus tôt signé qu’elle regretta sa décision. » Le sens est…', ['elle regrette juste après avoir signé', 'elle préfère signer plutôt que réfléchir'], 0, 'Pas plus tôt : le temps. EN: right after signing.', 'a6-cartes'),
         mc('« Il eut à peine fini sa phrase qu’on l’interrompit. » Ici, à peine…', ['suit l’auxiliaire, sans inversion', 'ouvre une question'], 0, 'Même sens, autre place. EN: after the auxiliary.', 'a6-cartes'),
         tI(`Une phrase de roman. ${RETELL}`, fr(E(1680)), fr(E(1681)), 'Venir à peine de, puis quand. EN: il venait à peine de.', 'a6-piege', ['Il venait d’ouvrir la porte quand le chien s’est jeté sur lui.']),
         tI(`Une phrase de roman. ${RETELL}`, fr(E(1690)), fr(E(1691)), 'Nous venions à peine de sortir. EN: venions à peine de.', 'a6-reperer', ['Nous venions de sortir quand l’alarme a retenti.']),
@@ -2624,10 +2623,10 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Une série de passés antérieurs fait avancer le récit…', ['par paliers, sans temps mort', 'lentement, par descriptions'], 0, 'Chaque étape bouclée avant la suivante. EN: in stages.', 'a9-cartes'),
         mc('« Elle ferma les volets et alluma la lampe. » Sans passé antérieur, l’effet est…', ['plus abrupt', 'plus lié', 'plus lent'], 0, 'Deux gestes juxtaposés. EN: more abrupt.', 'a9-trier'),
         mc('« Quand ils eurent mangé, bu et chanté » : le passé antérieur…', ['compresse toute une soirée', 'décrit un décor'], 0, 'Trois participes sous un seul eurent. EN: a whole evening.', 'a9-cartes'),
-        mc('Chez Flaubert, « quand il les eut tous occis » sert de…', ['pivot entre deux rafales', 'pause descriptive'], 0, 'Trois mots pour la tuerie, puis la liste repart. EN: a pivot.', 'a9-texte'),
+        mc('Chez Flaubert, « quand il les eut tous occis » sert de…', ['pivot entre deux rafales', 'pause descriptive'], 0, 'Quelques mots pour la tuerie, puis la liste repart. EN: a pivot.', 'a9-texte'),
         mc('Pour ralentir et décrire, un auteur préfère…', ['l’imparfait', 'le passé antérieur'], 0, 'Le décor dure. EN: the imparfait.', 'a9-trier'),
         tI('Donne l’infinitif d’occis.', 'quand il les eut tous occis', 'occire', 'Occire : tuer, verbe ancien. EN: occire.', 'a9-texte'),
-        tI(`Une phrase de récit. ${RETELL}`, fr(E(1735)), fr(E(1736)), 'Dès qu’il a posé le pied, il a cherché. EN: a posé, a cherché.', 'a9-trier'),
+        tI(`Une phrase de récit. ${RETELL}`, fr(E(1735)), fr(E(1736)), 'Dès qu’il a posé le pied, il a cherché. EN: a posé, a cherché.', 'a9-trier', ['Après avoir posé le pied sur le quai, il a cherché sa sœur des yeux.']),
         lC('Écoute. Les deux gestes sont-ils liés par une charnière ?', fr(E(1729)), ['non, ils sont juxtaposés', 'oui, par quand'], 0, 'Ferma, alluma, sans quand. EN: no.', 'a9-ecoute'),
       ],
     },
@@ -2721,7 +2720,7 @@ const A12_ROUNDUP: Sec<'roundup'> = {
   id: 'a12-roundup',
   layer: 'core',
   title: 'Le relais',
-  body: `${REFRAME} Tu as repris le passé simple de ${PS_REF}, l’antériorité de ${PQP_REF} et de ${TEMPS_REF}, le eut et le eût de ${SUBJ_REF} et l’inversion de ${INVERSION_REF}, et tu lis maintenant le passé antérieur partout où il vit : ses formes, ses tournures, son rythme, sa traduction d’aujourd’hui, et le surcomposé qui lui répond à l’oral. La suite, au C1 : la concordance des temps dans les textes littéraires, à reconnaître elle aussi. EN: Next in C1: the sequence of tenses in literary texts, again for recognition.`,
+  body: `${REFRAME} Tu as repris le passé simple de ${PS_REF}, l’antériorité de ${PQP_REF} et de ${TEMPS_REF}, le eut et le eût de ${SUBJ_REF} et l’inversion de ${INVERSION_REF}, et tu lis maintenant le passé antérieur partout où il vit : ses formes, ses tournures, son rythme, sa traduction d’aujourd’hui, et le surcomposé qui lui répond à l’oral. La suite, dans la leçon 3 du C1 : la concordance des temps dans les textes littéraires, à reconnaître elle aussi. EN: Next, in lesson 3 of C1: the sequence of tenses in literary texts, again for recognition.`,
   points: [
     'Eut ou fut et un participe, mais pas tout eut ni tout fut.',
     'Une charnière, à peine… que, ou bientôt dans une phrase seule.',
@@ -2908,7 +2907,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-surcompose', 'Le surcomposé', ['à l’oral', 'les usages régionaux', 'à l’écrit'], [
     teach('sheet-surcompose-teach', 'Le pendant parlé',
-      'Le passé surcomposé ajoute un auxiliaire au passé composé : j’ai eu fini, elle a eu payé. Après quand, dès que ou une fois que, il dit l’action bouclée juste avant, comme le passé antérieur à l’écrit ; on l’entend dans la conversation, et on l’évite à l’écrit soigné. Employé sans subordonnée (j’en ai eu vu), il exprime une expérience passée : c’est un usage régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; tu ne le corriges pas chez ceux qui parlent, et tu écris le passé composé. EN: recognise it; write the passé composé.'),
+      'Le passé surcomposé ajoute un auxiliaire au passé composé : j’ai eu fini, elle a eu payé. Après quand, dès que ou une fois que, il dit l’action bouclée juste avant, comme le passé antérieur à l’écrit ; on l’entend dans la conversation, et on l’évite à l’écrit soigné. Employé sans subordonnée pour dire une expérience passée (j’en ai eu vu), c’est un usage régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; tu ne le corriges pas chez ceux qui parlent, et tu écris le passé composé. EN: recognise it; write the passé composé.'),
     table('sheet-surcompose-table', 'Entendu, écrit', ['Entendu', 'Où', 'À l’écrit soigné'], [
       ['quand j’ai eu fini mon service', 'à l’oral, après une charnière', 'quand j’ai fini mon service'],
       ['dès qu’elle a eu payé', 'à l’oral, après une charnière', 'dès qu’elle a payé'],
@@ -2984,7 +2983,7 @@ const REC_DESC: Record<string, string> = {
   'rec-c1-02-texte-a6': TEXTE('The concert in the dark (act 6)'),
   'rec-c1-02-texte-a7': TEXTE('The storm and the roof (act 7)'),
   'rec-c1-02-texte-a8': TEXTE('Hémon, Maria Chapdelaine, clearing the alders (act 8)'),
-  'rec-c1-02-texte-a9': TEXTE('Flaubert, Saint Julien, the hunt; the cut marked « […] » is read as a short pause'),
+  'rec-c1-02-texte-a9': TEXTE('Flaubert, Saint Julien, the hunt; the « […] » (Flaubert’s dash) is read as a short pause'),
   'rec-c1-02-texte-a10': TEXTE('The prize-giving (act 10)'),
   'rec-c1-02-texte-a11': 'The spoken testimony of a grandmother in Fribourg (act 11), one elderly female voice from French-speaking Switzerland, one take, read as speech, NOT as a book: the surcomposés are ordinary and unstressed.',
 };
@@ -2996,7 +2995,7 @@ export const LESSON: Lesson = {
   title: UNIT.sub,
   level: LEVEL,
   tag: 'C1 · LEÇON 2',
-  intro: 'The passé antérieur is the literary tense of an action wrapped up just before the next one: « dès qu’il eut fini, il sortit ». You met it once or twice in B2; here you learn to read it everywhere it lives, without ever producing it. You recognise its full paradigm with avoir and être and in pronominal verbs, and you learn its two false friends: eut followed by a noun, and fut followed by the participle of a transitive verb, which is a passive. You follow the order it sets after a time hinge, after « à peine… que », and in a main clause with bientôt; you tell it from the plus-que-parfait on one page and say what it does to the pace of a story. Then you retell it in today’s French and learn to recognise the passé surcomposé, its spoken counterpart. Five extracts are public-domain pages by Flaubert, Hémon and Mérimée. The task: retell a page for your book club in 220 to 320 words and say what the passé antérieur does to its rhythm.',
+  intro: 'The passé antérieur is the literary tense of an action wrapped up just before the next one: « dès qu’il eut fini, il sortit ». You met it once or twice in B2; here you learn to read it everywhere it lives, without ever producing it. You recognise its full paradigm with avoir and être and in pronominal verbs, and you learn its two false friends: eut followed by a noun, and fut followed by the participle of a transitive verb, which is a passive. You follow the order it sets after a time hinge, after « à peine… que », and in a main clause with bientôt; you tell it from the plus-que-parfait on one page and say what it does to the pace of a story. Then you retell it in today’s French and learn to recognise the passé surcomposé, its spoken counterpart. Six extracts and two single lines are public-domain pages by Flaubert, Hémon and Mérimée. The task: retell a page for your book club in 220 to 320 words and say what the passé antérieur does to its rhythm.',
   skill: 'CE',
   grammarAssumed: [PQP_UNIT, PS_UNIT, SUBJ_UNIT, TEMPS_UNIT, INVERSION_UNIT],
   grammarIntroduced: [

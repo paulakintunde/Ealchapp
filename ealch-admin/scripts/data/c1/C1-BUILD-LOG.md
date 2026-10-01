@@ -280,6 +280,24 @@ c1.04 4 (2 with straight apostrophes: same typography edit as decision 13).
 Each lesson header lists its open questions; c1.02's roundup may cite « la
 leçon 3 du C1 » since c1.03 publishes in the same wave.
 
+- **Wave 2 pre-review (one fresh reviewer per lesson, WebSearch), fixes
+  applied: 16 blockers.** c1.02 5 (« Il est à peine arrivé quand… » taught as
+  an error and offered as a wrong distractor; a passive shown as the example
+  passé antérieur; « eut terminé » note; à peine read as simultaneity; the
+  surcomposé claim too broad: only the « j'en ai eu vu » experience use is
+  regional); all 9 PD quotations match Wikisource. c1.03 6 (« jamais de
+  conditionnel après que » false; « never seriously in speech » contradicted by
+  its own act 8 text; row .1968 false; a mislabelled anteriority; a review card
+  with literary forms on its back; seven typeIns refusing the modern subjunctive);
+  Corneille verified; act 4 partly overlaps b2.09 act 7, now cited. c1.04 2 (a
+  correct sentence taught as an error; « auquel cas » refused); « c'est de cela
+  dont » confirmed by the Académie (DNP0650) and the BDL; lequel as subject is
+  written production (BDL). c1.05 3 (neuter le « ne s'accorde jamais » false for
+  a noun with an article; rubric vs model answer; ~25 correct typed answers
+  refused). After: app checks 0, validators 0, house tests 326/326, import dry
+  run 653 / 0 conflicts / 0 blockers, floors clear. No act, id or version change;
+  image prompts untouched.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -559,10 +577,10 @@ scratchpad; the report comes back as text.
 | c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | LIVE v85 |
 | c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | LIVE v85 |
 | c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | LIVE v85 |
-| c1.02 | passe-anterieur (recognition) | 86 | 12 | 11×8 | 11 | 5 | 159 new / 14 reused | 12 pending | drafted, checks 0 |
-| c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 pending | drafted, checks 0 |
-| c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 pending | drafted, checks 0 |
-| c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 pending | drafted, checks 0 |
+| c1.02 | passe-anterieur (recognition) | 86 | 12 | 11×8 | 11 | 5 | 159 new / 14 reused | 12 pending | pre-reviewed |
+| c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 pending | pre-reviewed |
+| c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 pending | pre-reviewed |
+| c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 pending | pre-reviewed |
 
 ## Id ledger
 

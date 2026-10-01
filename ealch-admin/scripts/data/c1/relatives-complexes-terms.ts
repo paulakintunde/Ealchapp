@@ -51,7 +51,7 @@ export const RELATIVES_COMPLEXES_TERMS: Record<string, LessonTerm> = {
   infinitif: {
     term: 'où dormir',
     title: 'Une relative qui finit sur un infinitif',
-    body: 'Après où ou une préposition suivie de son pronom, l’infinitif peut remplacer le verbe conjugué : un endroit où dormir, quelqu’un à qui parler, de quoi vivre. Elle dit un but, sans sujet. Jamais après que. EN: After où or preposition plus pronoun, an infinitive can end the clause and states a purpose; never after que.',
+    body: 'Après où ou une préposition suivie de son pronom, l’infinitif peut remplacer le verbe conjugué : un endroit où dormir, quelqu’un à qui parler, de quoi vivre. Elle dit un but, sans sujet. Jamais après que relatif. EN: After où or preposition plus pronoun, an infinitive can end the clause and states a purpose; never after relative que.',
     examples: [
       { itemId: E(2055), note: 'un lieu pour dormir' },
       { itemId: E(2056), note: 'quelqu’un à qui parler' },
@@ -132,7 +132,7 @@ export const RELATIVES_COMPLEXES_TERMS: Record<string, LessonTerm> = {
     examples: [
       { itemId: E(2104), note: 'lequel sujet : un tour écrit' },
       { itemId: E(2102), note: 'deux phrases : la version orale' },
-      { itemId: E(2161), note: 'de et dont : jamais ensemble' },
+      { itemId: E(2161), note: 'c’est de cela dont : de répété, à éviter' },
     ],
   },
 };

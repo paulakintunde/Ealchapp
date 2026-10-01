@@ -119,7 +119,7 @@ export const PA_TERMS: Record<string, LessonTerm> = {
   surcompose: {
     term: 'a eu fini',
     title: 'Le passé surcomposé, à reconnaître',
-    body: "Quand j’ai eu fini : à l’oral, surtout après quand, dès que ou une fois que, c’est le pendant parlé du passé antérieur. Sans subordonnée (j’en ai eu vu), il est régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; à l’écrit soigné, on ne l’emploie pas. EN: The spoken counterpart; recognise it, do not prescribe it.",
+    body: "Quand j’ai eu fini : à l’oral, surtout après quand, dès que ou une fois que, c’est le pendant parlé du passé antérieur. Sans subordonnée, pour dire une expérience vécue (j’en ai eu vu), il est régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; à l’écrit soigné, on ne l’emploie pas. EN: The spoken counterpart; recognise it, do not prescribe it.",
     examples: [
       { itemId: E(1760), note: 'après quand, à l’oral' },
       { itemId: E(1766), note: 'régional, sans subordonnée' },

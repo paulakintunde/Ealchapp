@@ -110,12 +110,16 @@
 //   1. THE CORNEILLE EXTRACT (Horace III, 6, vv. 1021-1026) is quoted word
 //      for word from the Marty-Laveaux 1862 text on Wikisource, original
 //      spelling « c’étoit » kept and glossed. Keep the old spelling?
-//   2. GREVISSE is named without a paragraph number (no edition at hand):
-//      add « Le Bon Usage » § and edition at the pre-review, or keep the
-//      name only?
+//      (Pre-review 2026-10-01: text, verse numbers and page 327 verified
+//      word for word on Wikisource; the year line now says « créée en 1640,
+//      imprimée en 1641 ». The spelling choice stays Paul's.)
+//   2. GREVISSE is named without a paragraph number. Pre-review decision:
+//      no reliable online § reference found, so the NAME ONLY is kept.
 //   3. « Serait-il ministre, la règle vaudrait pour lui » (concessive
 //      inversion with the conditional) is taught for recognition as « style
 //      soutenu, encore vivant ». Keep, or drop to the sheet only?
+//      (Pre-review: the construction is attested, « Le voudrait-il, il ne
+//      pourrait mieux réussir », and the label is accurate. Paul's call.)
 //   4. `Lesson.skill` is 'CE', as b2.09. The task is a written presentation
 //      (220 to 320 words, modern French) of a printed original page.
 //   5. RULE CARDS THAT NAME A FORM carry `flashcard` ONLY (as b2.09's open
@@ -263,7 +267,7 @@ const A1_SCENE: Sec<'scene'> = {
         { fr: fr(E(1803)), respell: rsOf(E(1803)), en: en(E(1803)), outcome: 'works', audio: AUDIO },
       ],
       followUp: {
-        works: 'Odile sourit : l’OQLF admet le présent après un passé, et presque tous les romanciers l’écrivent. Malik relit les deux pages autrement : la même histoire, deux siècles.',
+        works: 'Odile sourit : l’OQLF admet le présent après un passé, et la plupart des romanciers l’écrivent. Malik relit les deux pages autrement : la même histoire, deux siècles.',
         breaks: 'Malik écrit « faute » dans la marge. Odile lui montre que l’OQLF admet ce présent : la romancière n’a rien oublié, elle a choisi son siècle.',
       },
     },
@@ -351,9 +355,9 @@ const A1_LECTURE: Sec<'reading'> = {
     { word: 'inquiétude', en: 'worry', note: 'Le souci d’une mère pour un fils au loin.' },
   ],
   questions: [
-    { q: 'Devine le sens : « comme si elles eussent caché quelque chose ». Que soupçonne Madame Ferrand ?', a: 'Que les lettres cachent une mauvaise nouvelle. Après comme si, eussent caché se lit avaient caché, comme dans la seconde version.' },
-    { q: 'Globale : qu’est-ce qui change d’une version à l’autre ?', a: 'Seulement les formes du subjonctif (et la forme après comme si) ; l’histoire, l’ordre et les mots restent les mêmes.' },
-    { q: 'Repère les quatre subjonctifs de la première version et leur forme dans la seconde.', a: 'revînt / revienne, tombât / tombe, prévînt / prévienne, écrivît / écrive.' },
+    { q: 'Devine le sens : « comme si elles eussent caché quelque chose ». Que soupçonne Madame Ferrand ?', a: 'Que les lettres lui cachent quelque chose, peut-être une mauvaise nouvelle. Après comme si, eussent caché se lit avaient caché, comme dans la seconde version.' },
+    { q: 'Globale : qu’est-ce qui change d’une version à l’autre ?', a: 'Seulement les formes du livre : les subjonctifs, eût fallu (aurait fallu) et la forme après comme si ; l’histoire, l’ordre et les mots restent les mêmes.' },
+    { q: 'Repère les quatre imparfaits du subjonctif de la première version et leur forme dans la seconde.', a: 'revînt / revienne, tombât / tombe, prévînt / prévienne, écrivît / écrive.' },
     { q: 'Pourquoi « qu’il ne tombât » devient-il « qu’il tombe », sans ne ?', a: 'Ce ne n’est pas une négation : c’est le ne explétif après craindre que, facultatif aujourd’hui.' },
     { q: 'Inférence : que veut dire « elles ne sonnent simplement pas dans le même siècle » ?', a: 'Que la différence est de registre, pas de correction : la concordance stricte date le texte.' },
   ],
@@ -458,7 +462,7 @@ const A2_LECTURE: Sec<'reading'> = {
     { word: 'c’étoit', en: 'it was (old spelling of c’était)', note: 'Orthographe du XVIIe siècle : oi pour ai.' },
   ],
   questions: [
-    { q: 'Devine le sens : « Il eût avec honneur laissé mes cheveux gris ». Que veut dire le père ?', a: 'Que la mort de son fils aurait honoré sa vieillesse. Eût laissé, sans que, se lit aurait laissé.' },
+    { q: 'Devine le sens : « Il eût avec honneur laissé mes cheveux gris ». Que veut dire le père ?', a: 'Que la mort de son fils aurait honoré sa vieillesse. Eût laissé, sans « que » devant, se lit aurait laissé.' },
     { q: 'Globale : que reproche le vieil Horace à son fils ?', a: 'D’avoir fui le combat au lieu de mourir en se battant.' },
     { q: 'Repère les trois imparfaits du subjonctif et le verbe qui leur donne la note.', a: 'fît, mourût, secourût : la note vient de vouliez, à l’imparfait, dans la question de Julie.' },
     { q: 'Sa mort, dans « qu’il mourût », serait-elle avant ou après la question ?', a: 'Après, ou au même moment que le combat : c’est ce qu’on aurait voulu qu’il fasse. D’où l’imparfait du subjonctif.' },
@@ -890,7 +894,7 @@ const A4_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Je voudrais qu’il vînt', label: 'le conditionnel présent',
       fr: fr(E(1853)), sub: rsOf(E(1853)),
-      body: 'Formé sur les terminaisons de l’imparfait, le conditionnel compte comme un passé pour la concordance classique. Aujourd’hui : qu’il vienne. EN: A conditional counts as a past in classical concordance.',
+      body: `${Cap(SL_REF)} t’a montré il faudrait qu’il vînt : le conditionnel compte comme un passé. Voici toute la famille, présent, passé, deuxième forme. Aujourd’hui : qu’il vienne. EN: A conditional counts as a past; here is the whole family.`,
     },
     {
       head: 'Il serait bon que', label: 'une tournure impersonnelle',
@@ -905,7 +909,7 @@ const A4_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Il eût été juste que', label: 'la deuxième forme',
       fr: fr(E(1863)), sub: rsOf(E(1863)),
-      body: 'Eût été, sans que : le conditionnel passé à l’ancienne, lui aussi principal. Aujourd’hui : il aurait été juste qu’on la consulte. EN: The second form as the main verb.',
+      body: 'Eût été, sans « que » devant : le conditionnel passé à l’ancienne, lui aussi principal. Aujourd’hui : il aurait été juste qu’on la consulte. EN: The second form as the main verb.',
     },
   ],
 };
@@ -933,7 +937,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1870), 'laisse'),
     ], chk('Après un conditionnel, aujourd’hui, tu mets…',
       ['le présent du subjonctif', 'un conditionnel', 'l’imparfait du subjonctif'], 0,
-      'Jamais de conditionnel après que : le présent du subjonctif. EN: the present subjunctive.')),
+      'Après je voudrais que, il serait bon que, jamais de conditionnel : le présent du subjonctif. EN: the present subjunctive.')),
     ctl('Le regret', '« Il aurait voulu qu’elle fût restée. » Est-elle restée ?',
       ['non, il le regrette', 'oui, elle est restée'], 0,
       'Un conditionnel passé : ce qui ne s’est pas fait. EN: no, he regrets it.'),
@@ -974,15 +978,15 @@ const A4_PIEGE: Sec<'trapDrill'> = {
   title: 'Le conditionnel ne passe pas le que',
   frSub: 'Six cartes, huit phrases',
   rule: {
-    title: 'Après que, jamais de conditionnel',
-    body: 'Le conditionnel donne la note ; il ne descend pas dans la subordonnée. Je voudrais qu’il vînt devient je voudrais qu’il vienne, jamais qu’il viendrait. EN: The conditional sets the note but never enters the que clause.',
+    title: 'Après vouloir que, pas de conditionnel',
+    body: 'Le conditionnel donne la note ; il ne descend pas dans une subordonnée au subjonctif. Je voudrais qu’il vînt devient je voudrais qu’il vienne, jamais qu’il viendrait. EN: The conditional sets the note but never enters the que clause.',
   },
   cards: [
     { promptLabel: 'le conditionnel recopié', promptSound: 'Je voudrais qu’il viendrait dès demain.', fr: fr(E(1854)), ipa: ipaOf(E(1854)), tip: 'Vînt : le présent du subjonctif, vienne. EN: vienne.' },
     { promptLabel: 'l’indicatif', promptSound: 'Il serait bon que chacun le sait.', fr: fr(E(1856)), ipa: ipaOf(E(1856)), tip: 'Il serait bon que : subjonctif, sache. EN: sache.' },
     { promptLabel: 'deux conditionnels', promptSound: 'J’aimerais qu’elle me répondrait.', fr: fr(E(1858)), ipa: ipaOf(E(1858)), tip: 'Répondît : réponde. EN: réponde.' },
     { promptLabel: 'le passé composé', promptSound: 'Il aurait fallu qu’on l’a prévenu.', fr: fr(E(1860)), ipa: ipaOf(E(1860)), tip: 'Prévînt : prévienne. EN: prévienne.' },
-    { promptLabel: 'la deuxième forme mal lue', promptSound: 'Il ait été juste qu’on la consulte.', fr: fr(E(1864)), ipa: ipaOf(E(1864)), tip: 'Eût été, sans que : aurait été. EN: aurait été.' },
+    { promptLabel: 'la deuxième forme mal lue', promptSound: 'Il ait été juste qu’on la consulte.', fr: fr(E(1864)), ipa: ipaOf(E(1864)), tip: 'Eût été, sans « que » devant : aurait été. EN: aurait été.' },
     { promptLabel: 'le futur', promptSound: 'Je souhaiterais qu’on me laissera seul.', fr: fr(E(1870)), ipa: ipaOf(E(1870)), tip: 'Laissât : laisse. EN: laisse.' },
   ],
   drill: [
@@ -996,7 +1000,7 @@ const A4_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Le conditionnel est formé sur les terminaisons…', opts: ['de l’imparfait', 'du passé simple'], correct: 0 },
   ],
   steps: [
-    { label: 'La règle', kind: 'rule', title: 'Après que, jamais de conditionnel' },
+    { label: 'La règle', kind: 'rule', title: 'Après vouloir que, pas de conditionnel' },
     { label: 'Six cartes', kind: 'cards', title: 'Ce que le conditionnel fait déraper' },
     { label: 'Écoute', kind: 'audio', title: 'Écoute les six bonnes versions' },
     { label: 'À toi', kind: 'drill', title: 'Huit phrases', gate: true },
@@ -1019,7 +1023,7 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
     'Je voudrais qu’il vînt. EN: a past.'),
   ctl('Aujourd’hui', '« Je voudrais qu’il vînt. » Dans ta bouche…',
     ['je voudrais qu’il vienne', 'je voudrais qu’il viendrait'], 0,
-    'Jamais de conditionnel après que. EN: vienne.'),
+    'Après vouloir que, jamais de conditionnel. EN: vienne.'),
   ctl('La réédition', 'Une réédition d’un roman classique…',
     ['garde la note de l’auteur', 'modernise chaque subjonctif'], 0,
     'Le texte reste le texte ; tu modernises en le racontant. EN: keeps the author’s forms.'),
@@ -1286,7 +1290,7 @@ const A6_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Dussé-je', label: Cap(SL_REF),
       fr: fr(E(1896)), sub: rsOf(E(1896)),
-      body: 'Le dût-il du B2, avec je : le e devient é pour la prononciation. Même si je devais attendre dix ans. EN: Dût-il with je: even if I had to.',
+      body: 'Le dût-il du B2, avec je : le e devient é pour la prononciation (dussè-je en orthographe rectifiée). Même si je devais attendre dix ans. EN: Dût-il with je: even if I had to.',
     },
     {
       head: 'Serait-il ministre', label: 'le conditionnel',
@@ -1636,7 +1640,7 @@ const A8_HISTOIRE: Sec<'story'> = {
   layer: 'core',
   title: 'La rédaction',
   frSub: 'L’Écho de Vercelin, 18 h',
-  setting: 'La rédaction de L’Écho de Vercelin, un quotidien régional. Yanis, jeune journaliste, relit son article avec Nadia, la secrétaire de rédaction.',
+  setting: 'La rédaction de L’Écho de Vercelin, un quotidien régional. Yanis, jeune journaliste, relit son article avec Hélène, la secrétaire de rédaction.',
   bubbles: [
     { from: 'narrator', fr: 'Yanis a écrit une phrase très solennelle sur le conseil municipal.', en: 'Yanis has written a very solemn sentence about the town council.' },
     { from: 'user', fr: fr(E(1927)), en: en(E(1927)) },
@@ -1644,7 +1648,7 @@ const A8_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: fr(E(1935)), en: en(E(1935)) },
     { from: 'coach', fr: 'Une concordance partielle : on eût dit, puis qu’il parle. Beaucoup d’auteurs font ainsi.', en: 'Partial concordance: on eût dit, then qu’il parle. Many writers do this.', warn: 'Le présent est admis' },
     { from: 'user', fr: 'Donc en réunion, je peux dire qu’il fût d’accord.', en: 'So in a meeting I can say qu’il fût d’accord.' },
-    { from: 'coach', fr: 'Seulement pour faire rire la rédaction.', en: 'Only to make the newsroom laugh.', warn: 'À l’oral, jamais sérieusement' },
+    { from: 'coach', fr: 'Seulement pour faire rire la rédaction.', en: 'Only to make the newsroom laugh.', warn: 'À l’oral, presque jamais' },
   ],
   closing: { fr: 'L’usage moderne garde le présent ; la forme rare, quand elle reste, est un choix.', en: 'Modern usage keeps the present; the rare form, when it stays, is a choice.' },
   audio: REC('rec-c1-03-redaction'),
@@ -1669,7 +1673,7 @@ const A8_CARTES: Sec<'cardDeck'> = {
     {
       head: 'La règle de principe', label: 'l’OQLF',
       fr: fr(E(1931)), sub: rsOf(E(1931)),
-      body: 'Après un passé ou un conditionnel, l’imparfait du subjonctif reste la règle de principe ; le présent et le passé du subjonctif sont admis. EN: The imperfect in principle; the present is accepted.',
+      body: 'Après un passé ou un conditionnel, l’imparfait du subjonctif reste la règle de principe ; le présent et le passé du subjonctif sont admis. Certains correcteurs tiennent encore à la règle stricte. EN: The imperfect in principle; the present is accepted.',
     },
     {
       head: 'La concordance partielle', label: 'Grevisse',
@@ -1682,9 +1686,9 @@ const A8_CARTES: Sec<'cardDeck'> = {
       body: 'Un journaliste garde parfois un fût isolé pour donner du poids, au milieu d’un article au passé composé. EN: A journalist may keep one fût for weight.',
     },
     {
-      head: 'La conversation', label: 'jamais sérieusement',
+      head: 'La conversation', label: 'presque jamais',
       fr: fr(E(1932)), sub: rsOf(E(1932)),
-      body: 'À l’oral, on dit qu’il vienne, même après un passé. Qu’il vînt, dit à voix haute, imite les livres. EN: Speech always uses the present.',
+      body: 'À l’oral, on dit qu’il vienne, même après un passé. Qu’il vînt, dit à voix haute, imite les livres ou vise une solennité appuyée. EN: Speech almost always uses the present.',
     },
   ],
 };
@@ -1707,8 +1711,8 @@ const A8_TABLE: Sec<'tapTable'> = {
       detail: { title: 'La presse', body: 'Un fût isolé, solennel. EN: one solemn fût.', say: fr(E(1928)) } },
     { cells: ['un discours', 'parfois', 'que la paix fût rendue'], say: fr(E(1953)),
       detail: { title: 'Le discours', body: 'La forme rare élève le ton. EN: it raises the tone.', say: fr(E(1954)) } },
-    { cells: ['une conversation', 'jamais, sauf par jeu', 'qu’il vienne'], say: fr(E(1867)),
-      detail: { title: 'L’oral', body: 'Le présent, toujours. EN: always the present.', say: fr(E(1937)) } },
+    { cells: ['une conversation', 'presque jamais', 'qu’il vienne'], say: fr(E(1867)),
+      detail: { title: 'L’oral', body: 'Le présent, presque toujours. EN: almost always the present.', say: fr(E(1937)) } },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1741,7 +1745,7 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       'Imparfait : présent ; deuxième forme : conditionnel passé. EN: present, or past conditional.')),
     ctl('L’oral', '« Il fallait qu’il vînt », dit sérieusement en réunion, sonne…',
       ['comique ou très affecté', 'naturel'], 0,
-      'À l’oral, l’imparfait du subjonctif ne s’entend que par jeu. EN: comic or affected.'),
+      'À l’oral, l’imparfait du subjonctif ne s’entend plus guère, sinon par jeu. EN: comic or affected.'),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1794,8 +1798,8 @@ const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
     ['qu’il fût, qu’il eût', 'que nous fussions, qu’ils vinssent'], 0,
     'Être et avoir, à la troisième personne. EN: fût and eût.'),
   ctl('L’oral', 'À l’oral, l’imparfait du subjonctif…',
-    ['ne s’entend que par jeu', 'est courant'], 0,
-    'Le présent, toujours. EN: only as a joke.'),
+    ['est rare, et souvent un jeu', 'est courant'], 0,
+    'Le présent, presque toujours. EN: rare, often in jest.'),
 ], ['norme']);
 
 const ACT8: ActDef = {
@@ -2051,7 +2055,7 @@ const A10_LECTURE: Sec<'reading'> = {
   questions: [
     { q: 'Devine le sens : « elle écoutait comme si elles fussent venues d’un autre monde ». Que ressent Lisette ?', a: 'Que la vallée lui semble lointaine, presque étrangère : comme si elles étaient venues d’ailleurs.' },
     { q: 'Globale : que raconte cette page ?', a: 'Un été de jeunesse dans une auberge de montagne, une rencontre manquée et une auberge vendue l’hiver suivant.' },
-    { q: 'Repère trois subjonctifs du même moment et un subjonctif de l’antériorité.', a: 'Même moment ou après : finît, fût levée, fussent dressées, détestât, racontât, revînt. Antériorité : avant qu’elle eût trouvé le courage.' },
+    { q: 'Repère trois imparfaits du subjonctif (même moment ou après) et deux plus-que-parfaits du subjonctif.', a: 'Imparfaits : finît, fût levée, fussent dressées, détestât, racontât, revînt. Plus-que-parfaits : fussent venues (après comme si : étaient venues) et eût trouvé (avant qu’elle eût trouvé le courage : le résultat, jamais atteint).' },
     { q: 'Les deux inversions : hypothèse ou concession ?', a: 'Deux hypothèses : fût-il resté (s’il était resté), eût-elle su (si elle avait su). Ni l’une ni l’autre ne s’est réalisée.' },
     { q: 'Quelle phrase quitte la note, et pourquoi ?', a: '« Je voudrais que tu reviennes » : une parole de la tante, au présent de celle qui parle. À la fin, Lisette adulte parle aussi au présent d’aujourd’hui.' },
   ],
@@ -2360,7 +2364,7 @@ const A11_MISSION: Sec<'task'> = {
         maxPoints: 4,
         descriptors: [
           '4 : Chaque forme citée a la bonne traduction : il aurait fallu que quelqu’un prenne, qu’on l’accuse, bien que la salle soit pleine, que son nom figure, si on avait écouté, la ligne aurait été sauvée, même si elle était, qu’on note. Aucune forme rare n’est employée hors citation.',
-          '3 : Une ou deux erreurs de forme (qu’on l’accuse pour qu’on ne l’accuse, accepté), mais chaque mode et chaque moment est juste.',
+          '3 : Une ou deux erreurs de forme, mais chaque mode et chaque moment est juste (le ne explétif, gardé ou omis, n’est pas une erreur).',
           '2 : Plusieurs erreurs : un indicatif après un déclencheur, un conditionnel après si ou même si, ou une inversion lue comme un fait.',
           '1 : Les formes sont mal lues ou recopiées sans traduction.',
         ],
@@ -2518,7 +2522,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('Dans un roman classique, le temps du subjonctif dépend…', ['du temps du verbe principal', 'du sujet de la phrase', 'de la longueur de la phrase'], 0, 'Le verbe principal donne la note. EN: the main verb’s tense.', 'a1-check'),
         mc('La concordance stricte, aujourd’hui, est surtout…', ['une marque de registre soutenu', 'une règle obligatoire partout', 'une faute'], 0, 'Elle date le texte ou élève le ton. EN: a register marker.', 'a1-lecture'),
         tI(`Une phrase de roman. ${TODAY}`, fr(E(1800)), fr(E(1801)), 'Revînt : revienne. EN: revienne.', 'a1-rappel'),
-        tI(`Une phrase de roman. ${TODAY}`, fr(E(1806)), fr(E(1807)), 'Pût : puisse. EN: puisse.', 'a1-reperer'),
+        tI(`Une phrase de roman. ${TODAY}`, fr(E(1806)), fr(E(1807)), 'Pût : puisse. EN: puisse.', 'a1-reperer', ['Je ne croyais pas qu’il pourrait revenir.']),
         eS('Madame Ferrand souhaitait que son fils revient avant l’hiver.', 'Madame Ferrand souhaitait que son fils revienne avant l’hiver.', 'Souhaiter que garde le subjonctif : revienne. EN: revienne.', 'a1-lecture'),
         lC('Écoute. Cette phrase vient plutôt…', fr(E(1800)), ['d’un roman ancien', 'd’une conversation'], 0, 'Revînt : la forme du livre. EN: an old novel.', 'a1-usages'),
         lC('Écoute. Que veut dire la phrase ?', fr(E(1810)), ['s’il avait parlé plus tôt, tout aurait changé', 'il a parlé tôt, et tout a changé'], 0, 'Une hypothèse sur le passé. EN: if he had spoken sooner.', 'a1-reperer'),
@@ -2543,8 +2547,8 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('« Il s’étonna qu’elle fût partie. » Quand il s’étonne, elle…', ['est déjà partie', 'est en train de partir', 'partira plus tard'], 0, 'Le temps composé : déjà fait. EN: already gone.', 'a3-cartes'),
         mc('« qu’il terminât » et « qu’il eût terminé » disent…', ['l’action, puis le résultat', 'exactement la même chose'], 0, 'Deux moments, deux sens. EN: action, then result.', 'a3-cartes'),
         mc('« avant que la nouvelle fût connue » : à ce moment-là, la nouvelle…', ['n’est pas encore connue', 'est déjà connue'], 0, 'Avant que regarde la suite. EN: not yet known.', 'a3-exemples'),
-        tI(`Une phrase de roman. ${TODAY}`, fr(E(1835)), fr(E(1836)), 'Fût partie : soit partie ; s’étonna : s’est étonné. EN: soit partie.', 'a3-construire'),
-        tI(`Une phrase de roman. ${TODAY}`, fr(E(1849)), fr(E(1850)), 'Eût cessé : ait cessé. EN: ait cessé.', 'a3-construire'),
+        tI(`Une phrase de roman. ${TODAY}`, fr(E(1835)), fr(E(1836)), 'Fût partie : soit partie ; s’étonna : s’est étonné. EN: soit partie.', 'a3-construire', ['Il s’étonna qu’elle soit partie sans un mot.']),
+        tI(`Une phrase de roman. ${TODAY}`, fr(E(1849)), fr(E(1850)), 'Eût cessé : ait cessé. EN: ait cessé.', 'a3-construire', ['On attendit que la pluie ait cessé pour sortir.']),
         eS('Il s’étonnait qu’elle partait chaque soir sans un mot.', fr(E(1838)), 'S’étonner que : parte. EN: parte.', 'a3-erreurs'),
         eS('Elle a quitté la ville avant que la nouvelle est connue.', fr(E(1846)), 'Avant que : soit connue. EN: soit connue.', 'a3-erreurs', ['Elle a quitté la ville avant que la nouvelle ne soit connue.']),
         lC('Écoute. La pluie est-elle finie au moment de sortir ?', fr(E(1849)), ['oui, déjà', 'non, pas encore'], 0, 'Eût cessé : le résultat. EN: yes.', 'a3-exemples'),
@@ -2558,7 +2562,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('« Il eût été juste qu’on la consultât. » Eût été se lit…', ['aurait été', 'ait été', 'avait été'], 0, 'La deuxième forme : conditionnel passé. EN: aurait été.', 'a4-cartes'),
         tI(`Une phrase de roman. ${TODAY}`, fr(E(1853)), fr(E(1854)), 'Vînt : vienne. EN: vienne.', 'a4-construire'),
         tI(`Une phrase de roman. ${TODAY}`, fr(E(1859)), fr(E(1860)), 'Prévînt : prévienne. EN: prévienne.', 'a4-piege'),
-        eS('Je voudrais qu’il viendrait dès demain.', fr(E(1854)), 'Jamais de conditionnel après que. EN: vienne.', 'a4-piege'),
+        eS('Je voudrais qu’il viendrait dès demain.', fr(E(1854)), 'Après vouloir que, le subjonctif, jamais le conditionnel. EN: vienne.', 'a4-piege'),
         eS('Il serait bon que chacun le sait.', fr(E(1856)), 'Il serait bon que : sache. EN: sache.', 'a4-piege'),
         lC('Écoute. A-t-on prévenu cet homme ?', fr(E(1859)), ['non, il aurait fallu', 'oui, à temps'], 0, 'Un conditionnel passé de regret. EN: no.', 'a4-ecoute'),
       ],
@@ -2609,8 +2613,8 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('« Il fallait qu’elle vienne, bien que ce fût risqué. » C’est…', ['une concordance partielle', 'une concordance stricte', 'une faute'], 0, 'Fût gardé, vienne ailleurs. EN: partial.', 'a8-construire'),
         mc('Quelles formes l’écrit garde-t-il le plus souvent ?', ['qu’il fût, qu’il eût', 'que nous fussions', 'qu’ils vinssent'], 0, 'Être et avoir, à la troisième personne. EN: fût and eût.', 'a8-cartes'),
         mc('Dans un article, « ne fût pas signé » donne…', ['de la solennité', 'un ton familier'], 0, 'Un fût isolé, pour le poids. EN: solemnity.', 'a8-histoire'),
-        tI(`Un article. ${TODAY}`, fr(E(1927)), fr(E(1928)), 'Fût : soit ; déplora : a déploré. EN: ne soit pas signé.', 'a8-exemples', ['La mairie a déploré que l’accord n’ait pas été signé à temps.']),
-        tI(`Une phrase de roman. ${TODAY}`, fr(E(1933)), fr(E(1934)), 'Eût : ait ; écouta : a écouté. EN: ait raison.', 'a8-exemples', ['Bien qu’il ait eu raison, personne ne l’a écouté.']),
+        tI(`Un article. ${TODAY}`, fr(E(1927)), fr(E(1928)), 'Fût : soit ; déplora : a déploré. EN: ne soit pas signé.', 'a8-exemples', ['La mairie a déploré que l’accord n’ait pas été signé à temps.', 'La mairie déplora que l’accord ne soit pas signé à temps.', 'La mairie déplora que l’accord n’ait pas été signé à temps.']),
+        tI(`Une phrase de roman. ${TODAY}`, fr(E(1933)), fr(E(1934)), 'Eût : ait ; écouta : a écouté. EN: ait raison.', 'a8-exemples', ['Bien qu’il ait eu raison, personne ne l’a écouté.', 'Bien qu’il ait raison, personne ne l’écouta.', 'Bien qu’il ait eu raison, personne ne l’écouta.']),
         eS('Bien qu’il a raison, personne ne l’a écouté.', fr(E(1934)), 'Bien que : ait. EN: ait.', 'a8-exemples', ['Bien qu’il ait eu raison, personne ne l’a écouté.']),
         lC('Écoute. Cette phrase garde-t-elle toutes les formes du livre ?', fr(E(1935)), ['non, seulement on eût dit', 'oui, toutes'], 0, 'Qu’il parle, au présent. EN: only on eût dit.', 'a8-construire'),
       ],
@@ -2622,8 +2626,8 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('« Que la paix fût rendue à ce pays » : l’effet est…', ['solennel', 'comique'], 0, 'Un sujet grave. EN: solemn.', 'a9-cartes'),
         mc('Un pastiche, c’est…', ['l’imitation d’un style pour en jouer', 'une copie frauduleuse'], 0, 'Un jeu avec un style. EN: playful imitation.', 'a9-focus'),
         mc('Pour reconnaître l’ironie, tu compares…', ['le style et le sujet', 'la longueur des phrases'], 0, 'Le décalage. EN: style and subject.', 'a9-construire'),
-        tI(`Une phrase de pastiche. ${TODAY}`, fr(E(1945)), fr(E(1946)), 'Cessât : cesse ; exigea : a exigé. EN: cesse.', 'a9-construire'),
-        tI(`Une phrase de pastiche. ${TODAY}`, fr(E(1947)), fr(E(1948)), 'Rendît : rende ; fallut : a fallu. EN: rende.', 'a9-piege', ['Il a fallu que l’on se rende à l’évidence : la photocopieuse était en panne.']),
+        tI(`Une phrase de pastiche. ${TODAY}`, fr(E(1945)), fr(E(1946)), 'Cessât : cesse ; exigea : a exigé. EN: cesse.', 'a9-construire', ['Le conseil exigea que le chien du voisin cesse d’aboyer après vingt-deux heures.']),
+        tI(`Une phrase de pastiche. ${TODAY}`, fr(E(1947)), fr(E(1948)), 'Rendît : rende ; fallut : a fallu. EN: rende.', 'a9-piege', ['Il a fallu que l’on se rende à l’évidence : la photocopieuse était en panne.', 'Il fallut qu’on se rende à l’évidence : la photocopieuse était en panne.', 'Il fallut que l’on se rende à l’évidence : la photocopieuse était en panne.']),
         eS('Le conseil a exigé que le chien du voisin cessait d’aboyer après vingt-deux heures.', fr(E(1946)), 'Exiger que : cesse. EN: cesse.', 'a9-piege'),
         lC('Écoute. Le ton de cette phrase est…', fr(E(1953)), ['grave', 'moqueur'], 0, 'La paix d’un pays. EN: grave.', 'a9-ecoute'),
       ],
@@ -2633,7 +2637,7 @@ const A11_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Dans la page de Lisette, « Fût-il resté une heure de plus » est…', ['une hypothèse', 'une concession'], 0, 'La suite en tire la conséquence. EN: a hypothesis.', 'a10-lecture'),
         mc('Pourquoi la tante dit-elle « que tu reviennes », au présent ?', ['c’est une parole, au présent de celle qui parle', 'l’autrice oublie la concordance'], 0, 'Une voix au présent. EN: it is speech.', 'a10-construire'),
-        mc('« Elle attendit qu’il revînt. » Le garçon est-il revenu ?', ['non', 'oui'], 0, 'Il ne revint pas. EN: no.', 'a10-lecture'),
+        mc('Dans la page de Lisette, « Elle attendit qu’il revînt. » Le garçon est-il revenu ?', ['non', 'oui'], 0, 'Il ne revint pas. EN: no.', 'a10-lecture'),
         mc('Pourquoi la dernière phrase dit-elle « il aurait fallu qu’elle parle » ?', ['Lisette raconte aujourd’hui, en français moderne', 'c’est une erreur'], 0, 'Le récit rejoint le présent. EN: the adult speaks today.', 'a10-construire'),
         tI(`Une phrase de la page. ${TODAY}`, fr(E(1961)), fr(E(1962)), 'Eût voulu : aurait voulu ; finît : finisse. EN: finisse.', 'a10-types'),
         tI(`Une phrase de la page. ${TODAY}`, fr(E(1963)), fr(E(1964)), 'Fût-il resté : s’il était resté. EN: s’il était resté.', 'a10-types'),
@@ -2648,7 +2652,7 @@ const A11_QUIZ: Sec<'quiz'> = {
         mc('« Eût-on écouté les cheminots, la ligne eût été sauvée. » C’est…', ['une hypothèse', 'une concession'], 0, 'La suite en tire la conséquence. EN: a hypothesis.', 'a11-mission'),
         mc('« Fût-elle la dernière voix du village, Madame Lenoir parla pourtant. » C’est…', ['une concession', 'une hypothèse'], 0, 'Pourtant le confirme : même si. EN: a concession.', 'a11-mission'),
         mc('Quelle phrase de la page quitte la concordance ?', ['la phrase citée de Madame Lenoir', 'la phrase sur le chef de gare', 'la phrase sur la salle pleine'], 0, 'Puissent : une parole au présent. EN: Madame Lenoir’s line.', 'a11-lecture'),
-        tI(`Une phrase de la page. ${TODAY}`, 'Bien que la salle fût pleine, personne ne voulut que son nom figurât au procès-verbal.', 'Bien que la salle soit pleine, personne n’a voulu que son nom figure au procès-verbal.', 'Fût : soit ; voulut : a voulu ; figurât : figure. EN: soit, figure.', 'a11-plan', ['Bien que la salle soit pleine, personne ne voulait que son nom figure au procès-verbal.', 'Bien que la salle ait été pleine, personne n’a voulu que son nom figure au procès-verbal.']),
+        tI(`Une phrase de la page. ${TODAY}`, 'Bien que la salle fût pleine, personne ne voulut que son nom figurât au procès-verbal.', 'Bien que la salle soit pleine, personne n’a voulu que son nom figure au procès-verbal.', 'Fût : soit ; voulut : a voulu ; figurât : figure. EN: soit, figure.', 'a11-plan', ['Bien que la salle soit pleine, personne ne voulait que son nom figure au procès-verbal.', 'Bien que la salle ait été pleine, personne n’a voulu que son nom figure au procès-verbal.', 'Bien que la salle soit pleine, personne ne voulut que son nom figure au procès-verbal.']),
         tI('Donne l’infinitif du verbe à chapeau.', '« … qu’on ne l’accusât d’avoir laissé faire »', 'accuser', 'Accusât : accuser, avec -ât. EN: accuser.', 'a11-plan'),
         eS('Le chef de gare craignait qu’on l’accusait d’avoir laissé faire.', 'Le chef de gare craignait qu’on l’accuse d’avoir laissé faire.', 'Craindre que : accuse, avec ou sans ne. EN: accuse.', 'a11-mission', ['Le chef de gare craignait qu’on ne l’accuse d’avoir laissé faire.']),
         lC('Écoute. Que dit l’inversion ?', fr(E(1979)), ['s’il avait plu, la fête n’aurait pas eu lieu', 'il a plu, et la fête a été annulée'], 0, 'Une hypothèse irréelle : il n’a pas plu. EN: if it had rained.', 'a11-lecture'),
@@ -2688,7 +2692,7 @@ const A11_REVIEW: Sec<'reviewDeck'> = {
   cards: [
     { front: 'sous un passé, même moment ou après', back: 'l’imparfait du subjonctif ; aujourd’hui, le présent', say: fr(E(1822)) },
     { front: 'sous un passé, avant', back: 'le plus-que-parfait du subjonctif ; aujourd’hui, le passé', say: fr(E(1824)) },
-    { front: 'le résultat ou l’action', back: 'eût terminé, puis terminât', say: fr(E(1840)) },
+    { front: 'eût terminé ou terminât', back: 'le résultat, puis l’action', say: fr(E(1840)) },
     { front: 'un conditionnel principal', back: 'compte comme un passé', say: fr(E(1854)) },
     { front: 'eût-il su, en tête', back: 's’il avait su', say: fr(E(1872)) },
     { front: 'fût-il roi', back: 'même s’il était roi', say: fr(E(1890)) },
@@ -2745,7 +2749,7 @@ const DRILL_LIST: LessonDrill[] = [
   { id: 'd-ecart', title: 'Le livre ou aujourd’hui', format: 'sort' as const, coach: 'Deux piles : la phrase suit la note du livre, ou l’usage d’aujourd’hui. EN: sort book forms from modern ones.', buckets: ['le livre', 'aujourd’hui'], items: [E(1800), E(1806), E(1810), E(1801), E(1807), E(1811)], audio: AUDIO },
   { id: 'd-grille', title: 'Le moment', format: 'mcq' as const, coach: 'Sous un passé, cherche le moment : même moment ou après, l’imparfait ; avant, le plus-que-parfait. EN: same moment or before?', q: '« Je doutais qu’il fût venu la veille. » Sa venue est…', opts: ['antérieure au doute', 'au même moment'], correct: 0, why: 'Fût venu : déjà fait. EN: before.', items: [E(1822), E(1824), E(1826), E(1830), E(1832), E(1834)], audio: AUDIO },
   { id: 'd-moment', title: 'Le résultat ou l’action', format: 'flashcard' as const, coach: 'Lis chaque phrase d’aujourd’hui et dis si elle regarde un résultat ou une action. EN: result or action?', items: [E(1836), E(1838), E(1840), E(1842), E(1850), E(1852)], audio: AUDIO },
-  { id: 'd-conditionnel', title: 'Après un conditionnel', format: 'mcq' as const, coach: 'Le conditionnel donne la note ; il ne descend jamais dans la subordonnée. EN: never a conditional after que.', q: '« Je voudrais qu’il vînt. » Aujourd’hui…', opts: ['je voudrais qu’il vienne', 'je voudrais qu’il viendrait'], correct: 0, why: 'Le présent du subjonctif. EN: vienne.', items: [E(1854), E(1856), E(1858), E(1860), E(1862), E(1870)], audio: AUDIO },
+  { id: 'd-conditionnel', title: 'Après un conditionnel', format: 'mcq' as const, coach: 'Le conditionnel donne la note ; il ne descend jamais dans une subordonnée au subjonctif. EN: never a conditional after vouloir que.', q: '« Je voudrais qu’il vînt. » Aujourd’hui…', opts: ['je voudrais qu’il vienne', 'je voudrais qu’il viendrait'], correct: 0, why: 'Le présent du subjonctif. EN: vienne.', items: [E(1854), E(1856), E(1858), E(1860), E(1862), E(1870)], audio: AUDIO },
   { id: 'd-hypothese', title: 'Si ou même si', format: 'sort' as const, coach: 'Deux piles : la suite tire la conséquence (si), ou va contre l’attente (même si). EN: sort hypotheses from concessions.', buckets: ['une hypothèse', 'une concession'], items: [E(1871), E(1873), E(1877), E(1889), E(1891), E(1893)], audio: AUDIO },
   { id: 'd-concession', title: 'Même si, aujourd’hui', format: 'flashcard' as const, coach: 'Lis chaque phrase à voix haute : même si, puis l’indicatif. EN: même si plus the indicative.', items: [E(1890), E(1892), E(1894), E(1897), E(1899), E(1902)], audio: AUDIO },
   { id: 'd-discordance', title: 'L’écart et son sens', format: 'mcq' as const, coach: 'Un écart voulu dit un conditionnel ou un autre moment. Cherche la condition, ou le moment de l’écriture. EN: what does the break say?', q: '« Je ne crois pas qu’il le fît sans y être forcé. » Fît veut dire…', opts: ['qu’il le ferait', 'qu’il l’a fait'], correct: 0, why: 'Un conditionnel déguisé. EN: he would do it.', items: [E(1908), E(1910), E(1912), E(1915), E(1913), E(1916)], audio: AUDIO },
@@ -2856,13 +2860,13 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-norme', 'La norme et l’usage', ['l’OQLF', 'Grevisse', 'la presse', 'l’oral'], [
     teach('sheet-norme-teach', 'Ce que disent les références',
-      'L’OQLF donne l’imparfait du subjonctif comme règle de principe après un verbe principal au passé ou au conditionnel, et admet le présent ou le passé du subjonctif. Grevisse constate que l’imparfait du subjonctif a quitté l’oral et que l’écrit le garde surtout pour être et avoir, et à la troisième personne du singulier des autres verbes. Presque tous les auteurs d’aujourd’hui écrivent le présent ; certains gardent fût et eût ; la presse garde parfois un fût pour la solennité. À l’oral, jamais sérieusement. EN: the present is accepted; the rare forms survive in writing as a choice.'),
+      'L’OQLF donne l’imparfait du subjonctif comme règle de principe après un verbe principal au passé ou au conditionnel, et admet le présent ou le passé du subjonctif. Les avis restent partagés : certains correcteurs exigent encore la règle stricte dans l’écrit très soutenu, d’autres, avec l’usage, la tiennent pour facultative. Grevisse constate que l’imparfait du subjonctif a quitté l’oral et que l’écrit le garde surtout pour être et avoir, et à la troisième personne du singulier des autres verbes. La plupart des auteurs d’aujourd’hui écrivent le présent ; certains gardent fût et eût ; la presse garde parfois un fût pour la solennité. À l’oral, presque jamais. EN: the present is accepted; the rare forms survive in writing as a choice.'),
     table('sheet-norme-table', 'Qui fait quoi', ['Texte', 'Concordance stricte ?', 'Exemple'], [
       ['un roman classique', 'oui', 'elle souhaitait qu’il revînt'],
       ['un roman d’aujourd’hui', 'non, le présent', 'elle voulait qu’il parte'],
       ['un auteur qui aime la concordance', 'en partie : fût, eût', 'il fallait qu’elle vienne, bien que ce fût risqué'],
       ['la presse', 'parfois, pour le poids', 'la mairie déplora que l’accord ne fût pas signé'],
-      ['une conversation', 'jamais, sauf par jeu', 'il fallait qu’il vienne'],
+      ['une conversation', 'presque jamais, sinon par jeu', 'il fallait qu’il vienne'],
     ]),
   ]),
   sheet('sheet-lecture', 'Lire et présenter une page', ['l’effet', 'les quatre questions', 'la liste de contrôle'], [
@@ -2937,7 +2941,7 @@ const REC_DESC: Record<string, string> = {
   'rec-c1-03-hortense': 'Tante Hortense’s letters (act 7), one male narrator voice, one take, reflective. The two quoted lines from the letters are read in a slightly older, precise voice, clearly as quotations.',
   'rec-c1-03-ecarts': DECK('deliberate-break (act 7)'),
   'rec-c1-03-ecarts-ecoute': `${ONE_TAKE} Eight lines; read the literary and modern versions with the same intonation so the meaning, not the form, carries the questions.`,
-  'rec-c1-03-redaction': 'Yanis and Nadia in a regional newsroom (act 8), two voices: Yanis young and keen, Nadia experienced and dry. Yanis reads his solemn sentence a little too proudly. One take.',
+  'rec-c1-03-redaction': 'Yanis and Hélène in a regional newsroom (act 8), two voices: Yanis young and keen, Hélène experienced and dry. Yanis reads his solemn sentence a little too proudly. One take.',
   'rec-c1-03-norme': DECK('norm-and-usage (act 8)'),
   'rec-c1-03-tilleuls': 'The « nuit des Tilleuls » chronicle (act 9), one male voice, one take, mock-solemn: the grand sentences read with straight-faced gravity, the small details (pantoufles, poubelles) deadpan.',
   'rec-c1-03-effets': DECK('effect (act 9)'),
@@ -2974,7 +2978,7 @@ export const LESSON: Lesson = {
     'Hypothetical inversion read as si plus pluperfect (eût-il su, fût-il arrivé, eût-on écouté) and the fixed phrase n’eût été (sans)',
     'Concessive inversion read as même si (fût-il roi, l’eût-il voulu, dussé-je, si riche fût-il, serait-il ministre), told apart from hypothesis by the rest of the sentence',
     'Deliberate breaks in the sequence and their meaning: an imperfect or pluperfect subjunctive after a present with a conditional sense; a present subjunctive after a past for what still holds or comes after the moment of writing',
-    'Modern practice and norm: OQLF’s principle and accepted present, partial concordance keeping fût and eût, the solemn fût of the press, never in speech',
+    'Modern practice and norm: OQLF’s principle and accepted present, partial concordance keeping fût and eût, the solemn fût of the press, rare in speech',
     'The register effect of a strict sequence in a modern text: solemnity, irony, pastiche',
   ],
   overview: {

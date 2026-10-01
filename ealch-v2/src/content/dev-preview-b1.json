@@ -77,7 +77,7 @@
       "title": "Le passé antérieur",
       "level": "c1",
       "tag": "C1 · LEÇON 2",
-      "intro": "The passé antérieur is the literary tense of an action wrapped up just before the next one: « dès qu’il eut fini, il sortit ». You met it once or twice in B2; here you learn to read it everywhere it lives, without ever producing it. You recognise its full paradigm with avoir and être and in pronominal verbs, and you learn its two false friends: eut followed by a noun, and fut followed by the participle of a transitive verb, which is a passive. You follow the order it sets after a time hinge, after « à peine… que », and in a main clause with bientôt; you tell it from the plus-que-parfait on one page and say what it does to the pace of a story. Then you retell it in today’s French and learn to recognise the passé surcomposé, its spoken counterpart. Five extracts are public-domain pages by Flaubert, Hémon and Mérimée. The task: retell a page for your book club in 220 to 320 words and say what the passé antérieur does to its rhythm.",
+      "intro": "The passé antérieur is the literary tense of an action wrapped up just before the next one: « dès qu’il eut fini, il sortit ». You met it once or twice in B2; here you learn to read it everywhere it lives, without ever producing it. You recognise its full paradigm with avoir and être and in pronominal verbs, and you learn its two false friends: eut followed by a noun, and fut followed by the participle of a transitive verb, which is a passive. You follow the order it sets after a time hinge, after « à peine… que », and in a main clause with bientôt; you tell it from the plus-que-parfait on one page and say what it does to the pace of a story. Then you retell it in today’s French and learn to recognise the passé surcomposé, its spoken counterpart. Six extracts and two single lines are public-domain pages by Flaubert, Hémon and Mérimée. The task: retell a page for your book club in 220 to 320 words and say what the passé antérieur does to its rhythm.",
       "skill": "CE",
       "grammarAssumed": [
         "b2.01",
@@ -249,7 +249,7 @@
           "id": "act7",
           "title": "Il eut bientôt fini",
           "opener": {
-            "line": "En un instant, le feu fut maîtrisé, et le récit saute à la fin : ici tu lis le passé antérieur sans charnière. EN: In an instant the fire was out and the story jumps to the end: here you read the passé antérieur with no hinge.",
+            "line": "En un instant, les pompiers eurent maîtrisé le feu, et le récit saute à la fin : ici tu lis le passé antérieur sans charnière. EN: In an instant the firefighters had the fire under control and the story jumps to the end: here you read the passé antérieur with no hinge.",
             "imageRef": "lessons/passe-anterieur/act07.jpg"
           },
           "sections": [
@@ -1351,7 +1351,7 @@
               "layer": "deep",
               "render": "sheet",
               "title": "Le pendant parlé",
-              "body": "Le passé surcomposé ajoute un auxiliaire au passé composé : j’ai eu fini, elle a eu payé. Après quand, dès que ou une fois que, il dit l’action bouclée juste avant, comme le passé antérieur à l’écrit ; on l’entend dans la conversation, et on l’évite à l’écrit soigné. Employé sans subordonnée (j’en ai eu vu), il exprime une expérience passée : c’est un usage régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; tu ne le corriges pas chez ceux qui parlent, et tu écris le passé composé. EN: recognise it; write the passé composé."
+              "body": "Le passé surcomposé ajoute un auxiliaire au passé composé : j’ai eu fini, elle a eu payé. Après quand, dès que ou une fois que, il dit l’action bouclée juste avant, comme le passé antérieur à l’écrit ; on l’entend dans la conversation, et on l’évite à l’écrit soigné. Employé sans subordonnée pour dire une expérience passée (j’en ai eu vu), c’est un usage régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; tu ne le corriges pas chez ceux qui parlent, et tu écris le passé composé. EN: recognise it; write the passé composé."
             },
             {
               "type": "table",
@@ -1565,7 +1565,7 @@
         "surcompose": {
           "term": "a eu fini",
           "title": "Le passé surcomposé, à reconnaître",
-          "body": "Quand j’ai eu fini : à l’oral, surtout après quand, dès que ou une fois que, c’est le pendant parlé du passé antérieur. Sans subordonnée (j’en ai eu vu), il est régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; à l’écrit soigné, on ne l’emploie pas. EN: The spoken counterpart; recognise it, do not prescribe it.",
+          "body": "Quand j’ai eu fini : à l’oral, surtout après quand, dès que ou une fois que, c’est le pendant parlé du passé antérieur. Sans subordonnée, pour dire une expérience vécue (j’en ai eu vu), il est régional, surtout dans le sud de la France et en Suisse romande. Tu le reconnais ; à l’écrit soigné, on ne l’emploie pas. EN: The spoken counterpart; recognise it, do not prescribe it.",
           "examples": [
             {
               "itemId": "fr.c1.litterature.1760",
@@ -1900,7 +1900,7 @@
                   "quand il avait fini, il se levait"
                 ],
                 "correct": 0,
-                "why": "« Le passé simple, c’est le passé composé des livres : tu le lis, tu ne le dis pas. » Et dès que suit le temps de l’autre verbe. EN: The passé simple is the passé composé of books: you read it, you do not say it."
+                "why": "« Le passé simple, c’est le passé composé des livres : tu le lis, tu ne le dis pas. » De même, eut fini devient a fini. EN: The passé simple is the passé composé of books: you read it, you do not say it."
               }
             },
             {
@@ -1910,7 +1910,7 @@
                   "fr": "Elle a attendu qu'il ait fini pour se lever.",
                   "itemId": "fr.b2.litterature.1286",
                   "en": "She waited until he had finished before getting up.",
-                  "note": "eût fini, avec l’accent : un subjonctif"
+                  "note": "qu’il ait fini : ce que devient eût fini, un subjonctif"
                 },
                 {
                   "fr": "À l'oreille, fut et fût sonnent pareil : écoute ce qui vient avant.",
@@ -2384,7 +2384,7 @@
                 }
               ],
               "check": {
-                "q": "Laquelle de ces quatre phrases ne contient pas de passé antérieur ?",
+                "q": "Laquelle de ces phrases ne contient pas de passé antérieur ?",
                 "opts": [
                   "Lorsqu’ils eurent traversé le pont, la nuit tomba.",
                   "Aussitôt qu’elle fut partie, la maison sembla vide.",
@@ -2770,7 +2770,7 @@
                   "fr": "Quand nous nous sommes reposés, nous avons repris la route.",
                   "itemId": "fr.c1.litterature.1643",
                   "en": "When we had rested, we set off again.",
-                  "note": "nous fûmes reposés : nous sommes reposés"
+                  "note": "nous nous fûmes reposés : nous nous sommes reposés"
                 }
               ],
               "check": {
@@ -3847,7 +3847,7 @@
             {
               "fr": "Elle a attendu qu'il ait fini pour se lever.",
               "en": "She waited until he had finished before getting up.",
-              "note": "eût fini, avec l’accent : un subjonctif"
+              "note": "qu’il ait fini : ce que devient eût fini, un subjonctif"
             },
             {
               "fr": "Quand, lorsque, dès que, aussitôt que, après que, une fois que : la subordonnée au passé antérieur, la principale au passé simple.",
@@ -4097,8 +4097,8 @@
             },
             {
               "from": "coach",
-              "fr": "À peine en tête, eut-il inversé, puis que : le chien bondit pendant que la porte s’ouvre encore.",
-              "en": "À peine first, eut-il inverted, then que: the dog leaps while the door is still opening.",
+              "fr": "À peine en tête, eut-il inversé, puis que : la porte à peine ouverte, le chien bondit déjà.",
+              "en": "À peine first, eut-il inverted, then que: the door barely open, the dog is already leaping.",
               "warn": "à peine… que"
             },
             {
@@ -4192,7 +4192,7 @@
               "label": "la variante très écrite",
               "fr": "Elle n’eut pas plus tôt signé qu’elle regretta sa décision.",
               "sub": "[ehl NÜ pa plü TOH see-NYAY | kehl ruh-greh-TA sa day-see-ZYOHⁿ]",
-              "body": "Elle n’eut pas plus tôt signé qu’elle regretta : à peine eut-elle signé qu’elle regretta. Plus tôt, en deux mots : le temps. EN: No sooner… than."
+              "body": "Elle n’eut pas plus tôt signé qu’elle regretta sa décision : à peine eut-elle signé qu’elle la regretta. Plus tôt, en deux mots : le temps. EN: No sooner… than."
             }
           ]
         },
@@ -4205,7 +4205,7 @@
           "frSub": "Deux groupes, deux gâchettes",
           "groups": [
             {
-              "label": "Ce qui à peine a eu lieu",
+              "label": "Ce qui vient à peine d’avoir lieu",
               "items": [
                 {
                   "fr": "À peine eut-il ouvert la porte que le chien se jeta sur lui.",
@@ -4446,7 +4446,7 @@
               "correct": 0
             },
             {
-              "promptSay": "« Elle n’eut pas plus tôt signé qu’elle regretta. » Pas plus tôt veut dire…",
+              "promptSay": "« Elle n’eut pas plus tôt signé qu’elle regretta sa décision. » Pas plus tôt veut dire…",
               "opts": [
                 "plutôt",
                 "à peine"
@@ -5063,7 +5063,7 @@
               "a": "Pendant trente ans, le même rituel ; le soir des quatre-vingts ans, une rupture : le grand-père part chercher la bague de mariage."
             },
             {
-              "q": "Relève les plus-que-parfaits du premier paragraphe. Que disent-ils ?",
+              "q": "Relève les plus-que-parfaits du rituel, au début du texte. Que disent-ils ?",
               "a": "avait suivi, avait soupé, avait fini : une habitude répétée, avec l’imparfait (sortait, rentrait)."
             },
             {
@@ -5534,7 +5534,7 @@
             },
             {
               "q": "Que fait la phrase très courte de la fin, après la longue phrase des gestes ?",
-              "a": "Elle tombe comme un constat : tout ce travail, et il reste le plus dur. Le passé antérieur boucle l’effort en trois mots."
+              "a": "Elle tombe comme un constat : tout ce travail, et il reste le plus dur. Le passé antérieur boucle l’effort en une courte subordonnée."
             }
           ],
           "audio": {
@@ -5974,7 +5974,7 @@
             },
             {
               "q": "Quel effet produit ce passé antérieur au milieu de la phrase ?",
-              "a": "Un pivot : la tuerie tient en trois mots, et la phrase repart aussitôt vers une liste sans fin. Le massacre devient mécanique."
+              "a": "Un pivot : la tuerie tient en quelques mots, et la phrase repart aussitôt vers une liste sans fin. Le massacre devient mécanique."
             },
             {
               "q": "Dis la partie centrale en français d’aujourd’hui.",
@@ -5982,7 +5982,7 @@
             },
             {
               "q": "Que signale « […] » dans l’extrait ?",
-              "a": "Une coupe de la leçon : Flaubert a un tiret à cet endroit. Aucun mot n’est changé."
+              "a": "Pas une coupe de mots : à cet endroit, Flaubert met un tiret, que la leçon remplace par ce signe. Aucun mot n’est retiré ni changé."
             }
           ],
           "audio": {
@@ -6096,7 +6096,7 @@
               "a": "C’est un participe qui décrit un état ancien : rien à transposer."
             },
             {
-              "q": "Quel temps l’animatrice n’emploie-t-elle jamais ?",
+              "q": "Quels temps l’animatrice n’emploie-t-elle jamais ?",
               "a": "Ni le passé simple ni le passé antérieur : elle parle, elle raconte au passé composé."
             },
             {
@@ -6204,7 +6204,7 @@
               "say": "Quand les travaux eurent été terminés, on rouvrit le pont.",
               "detail": {
                 "title": "une fois + participe",
-                "body": "Le passif antérieur se dit en trois mots. EN: three words.",
+                "body": "Le passif antérieur se dit sans verbe conjugué. EN: no conjugated verb.",
                 "say": "Une fois les travaux terminés, on a rouvert le pont."
               }
             }
@@ -6360,11 +6360,11 @@
               "tip": "Le rapport est masculin : envoyé. EN: envoyé."
             },
             {
-              "promptLabel": "à peine sans venir de",
-              "promptSound": "Il est à peine arrivé quand on l’a appelé au téléphone.",
+              "promptLabel": "l’écart perdu",
+              "promptSound": "Il est arrivé, et plus tard on l’a appelé au téléphone.",
               "fr": "Il venait à peine d’arriver quand on l’a appelé au téléphone.",
               "ipa": "/il və.nɛ.ta pɛn da.ʁi.ve kɑ̃.tɔ̃ la a.pə.le o te.le.fɔn/",
-              "tip": "Il venait à peine d’arriver quand. EN: venait à peine de."
+              "tip": "À peine… que dit un écart presque nul : il venait à peine d’arriver quand. EN: keep the near-zero gap."
             },
             {
               "promptLabel": "le résultat perdu",
@@ -6408,7 +6408,7 @@
             {
               "promptSay": "« À peine fut-il arrivé qu’on l’appela. » Aujourd’hui, il…",
               "opts": [
-                "est à peine arrivé",
+                "était arrivé depuis longtemps",
                 "venait à peine d’arriver"
               ],
               "correct": 1
@@ -6446,7 +6446,7 @@
               "correct": 1
             },
             {
-              "promptSay": "« Quand les travaux eurent été terminés… » En trois mots :",
+              "promptSay": "« Quand les travaux eurent été terminés… » Sans verbe conjugué :",
               "opts": [
                 "une fois les travaux terminés",
                 "les travaux terminant"
@@ -6871,7 +6871,7 @@
                 }
               ],
               "check": {
-                "q": "Laquelle de ces quatre phrases est un usage régional ?",
+                "q": "Laquelle de ces phrases est un usage régional ?",
                 "opts": [
                   "Moi, des hivers comme celui-là, j’en ai eu vu.",
                   "Dès qu’elle a eu payé, elle est partie.",
@@ -7739,7 +7739,10 @@
                   "prompt": "Dès qu’elle eut lu la première ligne, elle reconnut l’écriture de son frère.",
                   "answer": "Dès qu’elle a lu la première ligne, elle a reconnu l’écriture de son frère.",
                   "accept": [
-                    "Dès qu’elle a lu la première ligne, elle a reconnu l’écriture de son frère."
+                    "Dès qu’elle a lu la première ligne, elle a reconnu l’écriture de son frère.",
+                    "Quand elle a lu la première ligne, elle a reconnu l’écriture de son frère.",
+                    "Après avoir lu la première ligne, elle a reconnu l’écriture de son frère.",
+                    "Une fois qu’elle a lu la première ligne, elle a reconnu l’écriture de son frère."
                   ],
                   "why": "Eut lu, reconnut : deux passés composés aujourd’hui. EN: a lu, a reconnu.",
                   "ref": "a1-lecture"
@@ -7830,7 +7833,9 @@
                   "prompt": "Quand il se fut assis, le notaire ouvrit le dossier.",
                   "answer": "Quand il s’est assis, le notaire a ouvert le dossier.",
                   "accept": [
-                    "Quand il s’est assis, le notaire a ouvert le dossier."
+                    "Quand il s’est assis, le notaire a ouvert le dossier.",
+                    "Dès qu’il s’est assis, le notaire a ouvert le dossier.",
+                    "Une fois qu’il s’est assis, le notaire a ouvert le dossier."
                   ],
                   "why": "Se fut assis : il s’est assis. EN: s’est assis.",
                   "ref": "a3-construire"
@@ -7842,7 +7847,9 @@
                   "answer": "Quand nous nous sommes reposés, nous avons repris la route.",
                   "accept": [
                     "Quand nous nous sommes reposés, nous avons repris la route.",
-                    "Quand nous nous sommes reposées, nous avons repris la route."
+                    "Quand nous nous sommes reposées, nous avons repris la route.",
+                    "Après nous être reposés, nous avons repris la route.",
+                    "Après nous être reposées, nous avons repris la route."
                   ],
                   "why": "Nous nous fûmes reposés : nous nous sommes reposés. EN: sommes reposés.",
                   "ref": "a3-construire"
@@ -7871,7 +7878,7 @@
                 },
                 {
                   "format": "listenChoose",
-                  "q": "Écoute. Que fait la salle quand elle s’est levée ?",
+                  "q": "Écoute. Que fait la salle, juste après ?",
                   "say": "Après qu’elle se fut levée, la salle se tut.",
                   "opts": [
                     "elle applaudit",
@@ -7942,7 +7949,8 @@
                   "prompt": "Quand la lettre fut envoyée, elle ferma le bureau.",
                   "answer": "Quand la lettre a été envoyée, elle a fermé le bureau.",
                   "accept": [
-                    "Quand la lettre a été envoyée, elle a fermé le bureau."
+                    "Quand la lettre a été envoyée, elle a fermé le bureau.",
+                    "Une fois la lettre envoyée, elle a fermé le bureau."
                   ],
                   "why": "Fut envoyée : a été envoyée. EN: keep été.",
                   "ref": "a4-piege"
@@ -7953,7 +7961,9 @@
                   "prompt": "Lorsque la nuit fut tombée, on alluma les feux.",
                   "answer": "Lorsque la nuit est tombée, on a allumé les feux.",
                   "accept": [
-                    "Lorsque la nuit est tombée, on a allumé les feux."
+                    "Lorsque la nuit est tombée, on a allumé les feux.",
+                    "Une fois la nuit tombée, on a allumé les feux.",
+                    "Quand la nuit est tombée, on a allumé les feux."
                   ],
                   "why": "Tomber prend être : est tombée. EN: est tombée.",
                   "ref": "a4-piege"
@@ -8118,7 +8128,7 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "« Elle n’eut pas plus tôt signé qu’elle regretta. » Le sens est…",
+                  "q": "« Elle n’eut pas plus tôt signé qu’elle regretta sa décision. » Le sens est…",
                   "opts": [
                     "elle préfère signer plutôt que réfléchir",
                     "elle regrette juste après avoir signé"
@@ -8438,7 +8448,7 @@
                     "pivot entre deux rafales"
                   ],
                   "correct": 1,
-                  "why": "Trois mots pour la tuerie, puis la liste repart. EN: a pivot.",
+                  "why": "Quelques mots pour la tuerie, puis la liste repart. EN: a pivot.",
                   "ref": "a9-texte"
                 },
                 {
@@ -8469,7 +8479,8 @@
                   "prompt": "Dès qu’il eut posé le pied sur le quai, il chercha sa sœur des yeux.",
                   "answer": "Dès qu’il a posé le pied sur le quai, il a cherché sa sœur des yeux.",
                   "accept": [
-                    "Dès qu’il a posé le pied sur le quai, il a cherché sa sœur des yeux."
+                    "Dès qu’il a posé le pied sur le quai, il a cherché sa sœur des yeux.",
+                    "Après avoir posé le pied sur le quai, il a cherché sa sœur des yeux."
                   ],
                   "why": "Dès qu’il a posé le pied, il a cherché. EN: a posé, a cherché.",
                   "ref": "a9-trier"
@@ -8872,7 +8883,7 @@
           "id": "a12-roundup",
           "layer": "core",
           "title": "Le relais",
-          "body": "Le passé antérieur passe le relais : l’action est bouclée, le récit repart. Tu as repris le passé simple de la leçon 8 du B2, l’antériorité de la leçon 1 du B2 et de la leçon 18 du B2, le eut et le eût de la leçon 9 du B2 et l’inversion de la leçon 21 du B1, et tu lis maintenant le passé antérieur partout où il vit : ses formes, ses tournures, son rythme, sa traduction d’aujourd’hui, et le surcomposé qui lui répond à l’oral. La suite, au C1 : la concordance des temps dans les textes littéraires, à reconnaître elle aussi. EN: Next in C1: the sequence of tenses in literary texts, again for recognition.",
+          "body": "Le passé antérieur passe le relais : l’action est bouclée, le récit repart. Tu as repris le passé simple de la leçon 8 du B2, l’antériorité de la leçon 1 du B2 et de la leçon 18 du B2, le eut et le eût de la leçon 9 du B2 et l’inversion de la leçon 21 du B1, et tu lis maintenant le passé antérieur partout où il vit : ses formes, ses tournures, son rythme, sa traduction d’aujourd’hui, et le surcomposé qui lui répond à l’oral. La suite, dans la leçon 3 du C1 : la concordance des temps dans les textes littéraires, à reconnaître elle aussi. EN: Next, in lesson 3 of C1: the sequence of tenses in literary texts, again for recognition.",
           "points": [
             "Eut ou fut et un participe, mais pas tout eut ni tout fut.",
             "Une charnière, à peine… que, ou bientôt dans une phrase seule.",
@@ -9188,7 +9199,7 @@
           },
           {
             "id": "rec-c1-02-texte-a9",
-            "desc": "Flaubert, Saint Julien, the hunt; the cut marked « […] » is read as a short pause, one voice, read as a page of a book at an unhurried literary pace. Every passé antérieur and passé simple is read exactly as written, never modernised and never stressed; the liaisons of eurent, eûmes and fûmes are made in z."
+            "desc": "Flaubert, Saint Julien, the hunt; the « […] » (Flaubert’s dash) is read as a short pause, one voice, read as a page of a book at an unhurried literary pace. Every passé antérieur and passé simple is read exactly as written, never modernised and never stressed; the liaisons of eurent, eûmes and fûmes are made in z."
           },
           {
             "id": "rec-c1-02-balado",
@@ -9250,7 +9261,7 @@
         "Hypothetical inversion read as si plus pluperfect (eût-il su, fût-il arrivé, eût-on écouté) and the fixed phrase n’eût été (sans)",
         "Concessive inversion read as même si (fût-il roi, l’eût-il voulu, dussé-je, si riche fût-il, serait-il ministre), told apart from hypothesis by the rest of the sentence",
         "Deliberate breaks in the sequence and their meaning: an imperfect or pluperfect subjunctive after a present with a conditional sense; a present subjunctive after a past for what still holds or comes after the moment of writing",
-        "Modern practice and norm: OQLF’s principle and accepted present, partial concordance keeping fût and eût, the solemn fût of the press, never in speech",
+        "Modern practice and norm: OQLF’s principle and accepted present, partial concordance keeping fût and eût, the solemn fût of the press, rare in speech",
         "The register effect of a strict sequence in a modern text: solemnity, irony, pastiche"
       ],
       "overview": {
@@ -9738,7 +9749,7 @@
           "id": "d-conditionnel",
           "title": "Après un conditionnel",
           "format": "mcq",
-          "coach": "Le conditionnel donne la note ; il ne descend jamais dans la subordonnée. EN: never a conditional after que.",
+          "coach": "Le conditionnel donne la note ; il ne descend jamais dans une subordonnée au subjonctif. EN: never a conditional after vouloir que.",
           "q": "« Je voudrais qu’il vînt. » Aujourd’hui…",
           "opts": [
             "je voudrais qu’il vienne",
@@ -10306,7 +10317,7 @@
               "layer": "deep",
               "render": "sheet",
               "title": "Ce que disent les références",
-              "body": "L’OQLF donne l’imparfait du subjonctif comme règle de principe après un verbe principal au passé ou au conditionnel, et admet le présent ou le passé du subjonctif. Grevisse constate que l’imparfait du subjonctif a quitté l’oral et que l’écrit le garde surtout pour être et avoir, et à la troisième personne du singulier des autres verbes. Presque tous les auteurs d’aujourd’hui écrivent le présent ; certains gardent fût et eût ; la presse garde parfois un fût pour la solennité. À l’oral, jamais sérieusement. EN: the present is accepted; the rare forms survive in writing as a choice."
+              "body": "L’OQLF donne l’imparfait du subjonctif comme règle de principe après un verbe principal au passé ou au conditionnel, et admet le présent ou le passé du subjonctif. Les avis restent partagés : certains correcteurs exigent encore la règle stricte dans l’écrit très soutenu, d’autres, avec l’usage, la tiennent pour facultative. Grevisse constate que l’imparfait du subjonctif a quitté l’oral et que l’écrit le garde surtout pour être et avoir, et à la troisième personne du singulier des autres verbes. La plupart des auteurs d’aujourd’hui écrivent le présent ; certains gardent fût et eût ; la presse garde parfois un fût pour la solennité. À l’oral, presque jamais. EN: the present is accepted; the rare forms survive in writing as a choice."
             },
             {
               "type": "table",
@@ -10342,7 +10353,7 @@
                 ],
                 [
                   "une conversation",
-                  "jamais, sauf par jeu",
+                  "presque jamais, sinon par jeu",
                   "il fallait qu’il vienne"
                 ]
               ]
@@ -10735,7 +10746,7 @@
                 }
               ],
               "followUp": {
-                "works": "Odile sourit : l’OQLF admet le présent après un passé, et presque tous les romanciers l’écrivent. Malik relit les deux pages autrement : la même histoire, deux siècles.",
+                "works": "Odile sourit : l’OQLF admet le présent après un passé, et la plupart des romanciers l’écrivent. Malik relit les deux pages autrement : la même histoire, deux siècles.",
                 "breaks": "Malik écrit « faute » dans la marge. Odile lui montre que l’OQLF admet ce présent : la romancière n’a rien oublié, elle a choisi son siècle."
               }
             },
@@ -10895,14 +10906,14 @@
           "questions": [
             {
               "q": "Devine le sens : « comme si elles eussent caché quelque chose ». Que soupçonne Madame Ferrand ?",
-              "a": "Que les lettres cachent une mauvaise nouvelle. Après comme si, eussent caché se lit avaient caché, comme dans la seconde version."
+              "a": "Que les lettres lui cachent quelque chose, peut-être une mauvaise nouvelle. Après comme si, eussent caché se lit avaient caché, comme dans la seconde version."
             },
             {
               "q": "Globale : qu’est-ce qui change d’une version à l’autre ?",
-              "a": "Seulement les formes du subjonctif (et la forme après comme si) ; l’histoire, l’ordre et les mots restent les mêmes."
+              "a": "Seulement les formes du livre : les subjonctifs, eût fallu (aurait fallu) et la forme après comme si ; l’histoire, l’ordre et les mots restent les mêmes."
             },
             {
-              "q": "Repère les quatre subjonctifs de la première version et leur forme dans la seconde.",
+              "q": "Repère les quatre imparfaits du subjonctif de la première version et leur forme dans la seconde.",
               "a": "revînt / revienne, tombât / tombe, prévînt / prévienne, écrivît / écrive."
             },
             {
@@ -11153,7 +11164,7 @@
           "questionsInModal": true,
           "title": "Qu’il mourût",
           "frSub": "Corneille, Horace, acte III, scène 6",
-          "text": "Pierre Corneille, « Horace » (1640), acte III, scène 6, vers 1021 à 1026. Le vieil Horace croit que son fils a fui le combat contre les trois Curiaces.\n\nJULIE : Que vouliez-vous qu’il fît contre trois ?\nLE VIEIL HORACE : Qu’il mourût,\nOu qu’un beau désespoir alors le secourût.\nN’eût-il que d’un moment reculé sa défaite,\nRome eût été du moins un peu plus tard sujette ;\nIl eût avec honneur laissé mes cheveux gris,\nEt c’étoit de sa vie un assez digne prix.\n\nTexte établi par Ch. Marty-Laveaux, Œuvres de Corneille, Hachette, 1862, tome 3 (Wikisource). Orthographe d’origine : « c’étoit ».",
+          "text": "Pierre Corneille, « Horace » (créée en 1640, imprimée en 1641), acte III, scène 6, vers 1021 à 1026. Le vieil Horace croit que son fils a fui le combat contre les trois Curiaces.\n\nJULIE : Que vouliez-vous qu’il fît contre trois ?\nLE VIEIL HORACE : Qu’il mourût,\nOu qu’un beau désespoir alors le secourût.\nN’eût-il que d’un moment reculé sa défaite,\nRome eût été du moins un peu plus tard sujette ;\nIl eût avec honneur laissé mes cheveux gris,\nEt c’étoit de sa vie un assez digne prix.\n\nTexte établi par Ch. Marty-Laveaux, Œuvres de Corneille, Hachette, 1862, tome 3 (Wikisource). Orthographe d’origine : « c’étoit ».",
           "glossary": [
             {
               "word": "c’étoit",
@@ -11164,7 +11175,7 @@
           "questions": [
             {
               "q": "Devine le sens : « Il eût avec honneur laissé mes cheveux gris ». Que veut dire le père ?",
-              "a": "Que la mort de son fils aurait honoré sa vieillesse. Eût laissé, sans que, se lit aurait laissé."
+              "a": "Que la mort de son fils aurait honoré sa vieillesse. Eût laissé, sans « que » devant, se lit aurait laissé."
             },
             {
               "q": "Globale : que reproche le vieil Horace à son fils ?",
@@ -12323,7 +12334,7 @@
               "label": "le conditionnel présent",
               "fr": "Je voudrais qu’il vînt dès demain.",
               "sub": "[zhuh voo-DREH | keel VEHⁿ | deh duh-MEHⁿ]",
-              "body": "Formé sur les terminaisons de l’imparfait, le conditionnel compte comme un passé pour la concordance classique. Aujourd’hui : qu’il vienne. EN: A conditional counts as a past in classical concordance."
+              "body": "La leçon 9 du B2 t’a montré il faudrait qu’il vînt : le conditionnel compte comme un passé. Voici toute la famille, présent, passé, deuxième forme. Aujourd’hui : qu’il vienne. EN: A conditional counts as a past; here is the whole family."
             },
             {
               "head": "Il serait bon que",
@@ -12344,7 +12355,7 @@
               "label": "la deuxième forme",
               "fr": "Il eût été juste qu’on la consultât.",
               "sub": "[ee-lü-tay-TAY ZHÜST | kohⁿ la kohⁿ-sül-TA]",
-              "body": "Eût été, sans que : le conditionnel passé à l’ancienne, lui aussi principal. Aujourd’hui : il aurait été juste qu’on la consulte. EN: The second form as the main verb."
+              "body": "Eût été, sans « que » devant : le conditionnel passé à l’ancienne, lui aussi principal. Aujourd’hui : il aurait été juste qu’on la consulte. EN: The second form as the main verb."
             }
           ]
         },
@@ -12431,7 +12442,7 @@
                   "le présent du subjonctif"
                 ],
                 "correct": 2,
-                "why": "Jamais de conditionnel après que : le présent du subjonctif. EN: the present subjunctive."
+                "why": "Après je voudrais que, il serait bon que, jamais de conditionnel : le présent du subjonctif. EN: the present subjunctive."
               }
             },
             {
@@ -12572,8 +12583,8 @@
           "title": "Le conditionnel ne passe pas le que",
           "frSub": "Six cartes, huit phrases",
           "rule": {
-            "title": "Après que, jamais de conditionnel",
-            "body": "Le conditionnel donne la note ; il ne descend pas dans la subordonnée. Je voudrais qu’il vînt devient je voudrais qu’il vienne, jamais qu’il viendrait. EN: The conditional sets the note but never enters the que clause."
+            "title": "Après vouloir que, pas de conditionnel",
+            "body": "Le conditionnel donne la note ; il ne descend pas dans une subordonnée au subjonctif. Je voudrais qu’il vînt devient je voudrais qu’il vienne, jamais qu’il viendrait. EN: The conditional sets the note but never enters the que clause."
           },
           "cards": [
             {
@@ -12609,7 +12620,7 @@
               "promptSound": "Il ait été juste qu’on la consulte.",
               "fr": "Il aurait été juste qu’on la consulte.",
               "ipa": "/i.lo.ʁɛ.te.te ʒyst kɔ̃ la kɔ̃.sylt/",
-              "tip": "Eût été, sans que : aurait été. EN: aurait été."
+              "tip": "Eût été, sans « que » devant : aurait été. EN: aurait été."
             },
             {
               "promptLabel": "le futur",
@@ -12689,7 +12700,7 @@
             {
               "label": "La règle",
               "kind": "rule",
-              "title": "Après que, jamais de conditionnel"
+              "title": "Après vouloir que, pas de conditionnel"
             },
             {
               "label": "Six cartes",
@@ -12794,7 +12805,7 @@
                   "je voudrais qu’il vienne"
                 ],
                 "correct": 1,
-                "why": "Jamais de conditionnel après que. EN: vienne."
+                "why": "Après vouloir que, jamais de conditionnel. EN: vienne."
               }
             },
             {
@@ -13346,7 +13357,7 @@
               "label": "La leçon 9 du B2",
               "fr": "Dussé-je attendre dix ans, je ne renoncerai pas.",
               "sub": "[dü-SEZH | a-tahⁿdr dee-ZAHⁿ | zhuh nuh ruh-nohⁿs-RAY PA]",
-              "body": "Le dût-il du B2, avec je : le e devient é pour la prononciation. Même si je devais attendre dix ans. EN: Dût-il with je: even if I had to."
+              "body": "Le dût-il du B2, avec je : le e devient é pour la prononciation (dussè-je en orthographe rectifiée). Même si je devais attendre dix ans. EN: Dût-il with je: even if I had to."
             },
             {
               "head": "Serait-il ministre",
@@ -14298,7 +14309,7 @@
           "layer": "core",
           "title": "La rédaction",
           "frSub": "L’Écho de Vercelin, 18 h",
-          "setting": "La rédaction de L’Écho de Vercelin, un quotidien régional. Yanis, jeune journaliste, relit son article avec Nadia, la secrétaire de rédaction.",
+          "setting": "La rédaction de L’Écho de Vercelin, un quotidien régional. Yanis, jeune journaliste, relit son article avec Hélène, la secrétaire de rédaction.",
           "bubbles": [
             {
               "from": "narrator",
@@ -14336,7 +14347,7 @@
               "from": "coach",
               "fr": "Seulement pour faire rire la rédaction.",
               "en": "Only to make the newsroom laugh.",
-              "warn": "À l’oral, jamais sérieusement"
+              "warn": "À l’oral, presque jamais"
             }
           ],
           "closing": {
@@ -14387,7 +14398,7 @@
               "label": "l’OQLF",
               "fr": "L’OQLF admet le présent du subjonctif après un verbe principal au passé.",
               "sub": "[loh-kü-eh-LEF | ad-MEH luh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | a-preh-zuhⁿ VEHRB prehⁿ-see-PAL | oh pa-SAY]",
-              "body": "Après un passé ou un conditionnel, l’imparfait du subjonctif reste la règle de principe ; le présent et le passé du subjonctif sont admis. EN: The imperfect in principle; the present is accepted."
+              "body": "Après un passé ou un conditionnel, l’imparfait du subjonctif reste la règle de principe ; le présent et le passé du subjonctif sont admis. Certains correcteurs tiennent encore à la règle stricte. EN: The imperfect in principle; the present is accepted."
             },
             {
               "head": "La concordance partielle",
@@ -14405,10 +14416,10 @@
             },
             {
               "head": "La conversation",
-              "label": "jamais sérieusement",
-              "fr": "À l’oral, l’imparfait du subjonctif ne s’entend plus que par jeu.",
-              "sub": "[a lo-RAL | lehⁿ-par-FEH dü süb-zhohⁿk-TEEF | nuh sahⁿ-TAHⁿ plü kuh | par ZHEU]",
-              "body": "À l’oral, on dit qu’il vienne, même après un passé. Qu’il vînt, dit à voix haute, imite les livres. EN: Speech always uses the present."
+              "label": "presque jamais",
+              "fr": "À l’oral, l’imparfait du subjonctif ne s’entend plus guère, sinon par jeu.",
+              "sub": "[a lo-RAL | lehⁿ-par-FEH dü süb-zhohⁿk-TEEF | nuh sahⁿ-TAHⁿ plü GEHR | see-nohⁿ par ZHEU]",
+              "body": "À l’oral, on dit qu’il vienne, même après un passé. Qu’il vînt, dit à voix haute, imite les livres ou vise une solennité appuyée. EN: Speech almost always uses the present."
             }
           ]
         },
@@ -14492,13 +14503,13 @@
             {
               "cells": [
                 "une conversation",
-                "jamais, sauf par jeu",
+                "presque jamais",
                 "qu’il vienne"
               ],
               "say": "Je voudrais que tu viennes ce soir.",
               "detail": {
                 "title": "L’oral",
-                "body": "Le présent, toujours. EN: always the present.",
+                "body": "Le présent, presque toujours. EN: almost always the present.",
                 "say": "Le comité a souhaité que la salle reste ouverte."
               }
             }
@@ -14612,7 +14623,7 @@
                   "naturel"
                 ],
                 "correct": 0,
-                "why": "À l’oral, l’imparfait du subjonctif ne s’entend que par jeu. EN: comic or affected."
+                "why": "À l’oral, l’imparfait du subjonctif ne s’entend plus guère, sinon par jeu. EN: comic or affected."
               }
             }
           ],
@@ -14788,10 +14799,10 @@
                 "q": "À l’oral, l’imparfait du subjonctif…",
                 "opts": [
                   "est courant",
-                  "ne s’entend que par jeu"
+                  "est rare, et souvent un jeu"
                 ],
                 "correct": 1,
-                "why": "Le présent, toujours. EN: only as a joke."
+                "why": "Le présent, presque toujours. EN: rare, often in jest."
               }
             }
           ],
@@ -15445,8 +15456,8 @@
               "a": "Un été de jeunesse dans une auberge de montagne, une rencontre manquée et une auberge vendue l’hiver suivant."
             },
             {
-              "q": "Repère trois subjonctifs du même moment et un subjonctif de l’antériorité.",
-              "a": "Même moment ou après : finît, fût levée, fussent dressées, détestât, racontât, revînt. Antériorité : avant qu’elle eût trouvé le courage."
+              "q": "Repère trois imparfaits du subjonctif (même moment ou après) et deux plus-que-parfaits du subjonctif.",
+              "a": "Imparfaits : finît, fût levée, fussent dressées, détestât, racontât, revînt. Plus-que-parfaits : fussent venues (après comme si : étaient venues) et eût trouvé (avant qu’elle eût trouvé le courage : le résultat, jamais atteint)."
             },
             {
               "q": "Les deux inversions : hypothèse ou concession ?",
@@ -15521,8 +15532,8 @@
             {
               "head": "Quel écart ?",
               "label": "ce qu’il dit",
-              "fr": "La seule phrase au présent du subjonctif est celle du personnage.",
-              "sub": "[la suhl FRAZ | oh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | eh sel dü pehr-so-NAZH]",
+              "fr": "La seule réplique au présent du subjonctif est celle de la tante.",
+              "sub": "[la suhl ray-PLEEK | oh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | eh sel duh la TAHⁿT]",
               "body": "La phrase de la tante quitte la note : une voix au présent, plus proche que tout le récit. EN: What does the break say?"
             }
           ]
@@ -15577,9 +15588,9 @@
                   "note": "la concordance du récit"
                 },
                 {
-                  "fr": "La seule phrase au présent du subjonctif est celle du personnage.",
+                  "fr": "La seule réplique au présent du subjonctif est celle de la tante.",
                   "itemId": "fr.c1.litterature.1968",
-                  "en": "The only sentence in the present subjunctive is the character’s.",
+                  "en": "The only line of dialogue in the present subjunctive is the aunt’s.",
                   "note": "la parole de la tante"
                 },
                 {
@@ -15866,7 +15877,7 @@
           "questionsInModal": true,
           "title": "La présentation d’Odile",
           "frSub": "Une page, présentée au club",
-          "text": "Bonsoir à tous. Je vous présente une page qui m’a frappée : l’été de Lisette, dans une auberge de montagne. L’autrice garde la concordance classique dans tout le récit. Quand la tante exige que les tables soient dressées à six heures, le texte écrit « fussent dressées » ; quand Lisette attend que le garçon revienne, il écrit « revînt ». Deux inversions portent l’émotion : « Fût-il resté une heure de plus, elle lui eût parlé », c’est-à-dire : s’il était resté, elle lui aurait parlé. Il n’est pas resté. « Eût-elle su que l’auberge serait vendue », c’est-à-dire : si elle avait su. Elle ne savait pas. Une seule phrase s’en écarte, et ce n’est pas un hasard : la tante dit « Je voudrais que tu reviennes ». C’est une parole, au présent de celle qui parle, et elle sonne plus proche que tout le reste. À la fin, Lisette adulte dit « il aurait fallu qu’elle parle » : le français d’aujourd’hui revient avec elle. Selon moi, ce choix rapproche le texte d’un conte : le passé est loin, solennel, et seule la voix de la tante traverse le temps. Qu’en pensez-vous ?",
+          "text": "Bonsoir à tous. Je vous présente une page qui m’a frappée : l’été de Lisette, dans une auberge de montagne. L’autrice garde la concordance classique dans tout le récit. Quand la tante exige que les tables soient dressées avant l’arrivée des marcheurs, le texte écrit « fussent dressées » ; quand Lisette attend que le garçon revienne, il écrit « revînt ». Deux inversions portent l’émotion : « Fût-il resté une heure de plus, elle lui eût parlé », c’est-à-dire : s’il était resté, elle lui aurait parlé. Il n’est pas resté. « Eût-elle su que l’auberge serait vendue », c’est-à-dire : si elle avait su. Elle ne savait pas. Une seule réplique s’en écarte, et ce n’est pas un hasard : la tante dit « Je voudrais que tu reviennes ». C’est une parole, au présent de celle qui parle, et elle sonne plus proche que tout le reste. À la fin, Lisette adulte dit « il aurait fallu qu’elle parle » : le français d’aujourd’hui revient avec elle. Selon moi, ce choix rapproche le texte d’un conte : le passé est loin, solennel, et seule la voix de la tante traverse le temps. Qu’en pensez-vous ?",
           "questions": [
             {
               "q": "Quelles formes Odile cite-t-elle, et comment les explique-t-elle ?",
@@ -16118,7 +16129,7 @@
                 "maxPoints": 4,
                 "descriptors": [
                   "4 : Chaque forme citée a la bonne traduction : il aurait fallu que quelqu’un prenne, qu’on l’accuse, bien que la salle soit pleine, que son nom figure, si on avait écouté, la ligne aurait été sauvée, même si elle était, qu’on note. Aucune forme rare n’est employée hors citation.",
-                  "3 : Une ou deux erreurs de forme (qu’on l’accuse pour qu’on ne l’accuse, accepté), mais chaque mode et chaque moment est juste.",
+                  "3 : Une ou deux erreurs de forme, mais chaque mode et chaque moment est juste (le ne explétif, gardé ou omis, n’est pas une erreur).",
                   "2 : Plusieurs erreurs : un indicatif après un déclencheur, un conditionnel après si ou même si, ou une inversion lue comme un fait.",
                   "1 : Les formes sont mal lues ou recopiées sans traduction."
                 ]
@@ -16530,7 +16541,8 @@
                   "prompt": "Je ne croyais pas qu’il pût revenir.",
                   "answer": "Je ne croyais pas qu’il puisse revenir.",
                   "accept": [
-                    "Je ne croyais pas qu’il puisse revenir."
+                    "Je ne croyais pas qu’il puisse revenir.",
+                    "Je ne croyais pas qu’il pourrait revenir."
                   ],
                   "why": "Pût : puisse. EN: puisse.",
                   "ref": "a1-reperer"
@@ -16720,7 +16732,8 @@
                   "prompt": "Il s’étonna qu’elle fût partie sans un mot.",
                   "answer": "Il s’est étonné qu’elle soit partie sans un mot.",
                   "accept": [
-                    "Il s’est étonné qu’elle soit partie sans un mot."
+                    "Il s’est étonné qu’elle soit partie sans un mot.",
+                    "Il s’étonna qu’elle soit partie sans un mot."
                   ],
                   "why": "Fût partie : soit partie ; s’étonna : s’est étonné. EN: soit partie.",
                   "ref": "a3-construire"
@@ -16731,7 +16744,8 @@
                   "prompt": "On attendit que la pluie eût cessé pour sortir.",
                   "answer": "On a attendu que la pluie ait cessé pour sortir.",
                   "accept": [
-                    "On a attendu que la pluie ait cessé pour sortir."
+                    "On a attendu que la pluie ait cessé pour sortir.",
+                    "On attendit que la pluie ait cessé pour sortir."
                   ],
                   "why": "Eût cessé : ait cessé. EN: ait cessé.",
                   "ref": "a3-construire"
@@ -16845,7 +16859,7 @@
                   "accept": [
                     "Je voudrais qu’il vienne dès demain."
                   ],
-                  "why": "Jamais de conditionnel après que. EN: vienne.",
+                  "why": "Après vouloir que, le subjonctif, jamais le conditionnel. EN: vienne.",
                   "ref": "a4-piege"
                 },
                 {
@@ -17236,7 +17250,9 @@
                   "answer": "La mairie a déploré que l’accord ne soit pas signé à temps.",
                   "accept": [
                     "La mairie a déploré que l’accord ne soit pas signé à temps.",
-                    "La mairie a déploré que l’accord n’ait pas été signé à temps."
+                    "La mairie a déploré que l’accord n’ait pas été signé à temps.",
+                    "La mairie déplora que l’accord ne soit pas signé à temps.",
+                    "La mairie déplora que l’accord n’ait pas été signé à temps."
                   ],
                   "why": "Fût : soit ; déplora : a déploré. EN: ne soit pas signé.",
                   "ref": "a8-exemples"
@@ -17248,7 +17264,9 @@
                   "answer": "Bien qu’il ait raison, personne ne l’a écouté.",
                   "accept": [
                     "Bien qu’il ait raison, personne ne l’a écouté.",
-                    "Bien qu’il ait eu raison, personne ne l’a écouté."
+                    "Bien qu’il ait eu raison, personne ne l’a écouté.",
+                    "Bien qu’il ait raison, personne ne l’écouta.",
+                    "Bien qu’il ait eu raison, personne ne l’écouta."
                   ],
                   "why": "Eût : ait ; écouta : a écouté. EN: ait raison.",
                   "ref": "a8-exemples"
@@ -17337,7 +17355,8 @@
                   "prompt": "Le conseil exigea que le chien du voisin cessât d’aboyer après vingt-deux heures.",
                   "answer": "Le conseil a exigé que le chien du voisin cesse d’aboyer après vingt-deux heures.",
                   "accept": [
-                    "Le conseil a exigé que le chien du voisin cesse d’aboyer après vingt-deux heures."
+                    "Le conseil a exigé que le chien du voisin cesse d’aboyer après vingt-deux heures.",
+                    "Le conseil exigea que le chien du voisin cesse d’aboyer après vingt-deux heures."
                   ],
                   "why": "Cessât : cesse ; exigea : a exigé. EN: cesse.",
                   "ref": "a9-construire"
@@ -17349,7 +17368,9 @@
                   "answer": "Il a fallu qu’on se rende à l’évidence : la photocopieuse était en panne.",
                   "accept": [
                     "Il a fallu qu’on se rende à l’évidence : la photocopieuse était en panne.",
-                    "Il a fallu que l’on se rende à l’évidence : la photocopieuse était en panne."
+                    "Il a fallu que l’on se rende à l’évidence : la photocopieuse était en panne.",
+                    "Il fallut qu’on se rende à l’évidence : la photocopieuse était en panne.",
+                    "Il fallut que l’on se rende à l’évidence : la photocopieuse était en panne."
                   ],
                   "why": "Rendît : rende ; fallut : a fallu. EN: rende.",
                   "ref": "a9-piege"
@@ -17410,7 +17431,7 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "« Elle attendit qu’il revînt. » Le garçon est-il revenu ?",
+                  "q": "Dans la page de Lisette, « Elle attendit qu’il revînt. » Le garçon est-il revenu ?",
                   "opts": [
                     "non",
                     "oui"
@@ -17538,7 +17559,8 @@
                   "accept": [
                     "Bien que la salle soit pleine, personne n’a voulu que son nom figure au procès-verbal.",
                     "Bien que la salle soit pleine, personne ne voulait que son nom figure au procès-verbal.",
-                    "Bien que la salle ait été pleine, personne n’a voulu que son nom figure au procès-verbal."
+                    "Bien que la salle ait été pleine, personne n’a voulu que son nom figure au procès-verbal.",
+                    "Bien que la salle soit pleine, personne ne voulut que son nom figure au procès-verbal."
                   ],
                   "why": "Fût : soit ; voulut : a voulu ; figurât : figure. EN: soit, figure.",
                   "ref": "a11-plan"
@@ -17608,8 +17630,8 @@
               "say": "Je doutais qu’il soit venu la veille."
             },
             {
-              "front": "le résultat ou l’action",
-              "back": "eût terminé, puis terminât",
+              "front": "eût terminé ou terminât",
+              "back": "le résultat, puis l’action",
               "say": "Nous voulions qu’il ait terminé avant midi."
             },
             {
@@ -17959,7 +17981,7 @@
           },
           {
             "id": "rec-c1-03-redaction",
-            "desc": "Yanis and Nadia in a regional newsroom (act 8), two voices: Yanis young and keen, Nadia experienced and dry. Yanis reads his solemn sentence a little too proudly. One take."
+            "desc": "Yanis and Hélène in a regional newsroom (act 8), two voices: Yanis young and keen, Hélène experienced and dry. Yanis reads his solemn sentence a little too proudly. One take."
           },
           {
             "id": "rec-c1-03-norme",
@@ -18255,7 +18277,7 @@
             "a9-texte",
             "a9-check"
           ],
-          "milestone": "Tu glisses une opinion dans une relative avec le registre qui convient, et tu n’écris plus de et dont ensemble. EN: You can fit an opinion into a relative clause in the right register, and never write de with dont.",
+          "milestone": "Tu glisses une opinion dans une relative avec le registre qui convient, et tu n’écris plus « c’est de cela dont ». EN: You can fit an opinion into a relative clause in the right register, and no longer write « c’est de cela dont ».",
           "estScreens": 38,
           "restPoints": [
             "a9-lecture",
@@ -19396,7 +19418,7 @@
               "layer": "deep",
               "render": "sheet",
               "title": "Chaque forme a son registre",
-              "body": "Une relative peut contenir une autre proposition. À l’oral familier, que je crois qui ; à l’écrit, qui, je crois, ou, plus soutenu, dont je crois qu’il ; que je crois que reste correct mais lourd. De et dont disent la même chose : c’est de cela qu’il s’agit, ou c’est cela dont il s’agit. Au-delà de deux relatives sur un même nom, remplace l’une par un participe, un adjectif ou un complément. EN: each nested form has its register; never de and dont together; lighten chains."
+              "body": "Une relative peut contenir une autre proposition. À l’oral familier, que je crois qui ; à l’écrit, qui, je crois, ou, plus soutenu, dont je crois qu’il ; que je crois que reste correct mais lourd. De et dont disent la même chose : c’est de cela qu’il s’agit, ou c’est cela dont il s’agit. Au-delà de deux relatives sur un même nom, remplace l’une par un participe, un adjectif ou un complément. EN: each nested form has its register; never de before the noun and dont after it; lighten chains."
             },
             {
               "type": "table",
@@ -19438,7 +19460,7 @@
                 [
                   "c’est de cela dont",
                   "à éviter à l’écrit",
-                  "deux fois la même préposition"
+                  "de répété : dont contient déjà de"
                 ]
               ]
             },
@@ -19543,7 +19565,7 @@
         "infinitif": {
           "term": "où dormir",
           "title": "Une relative qui finit sur un infinitif",
-          "body": "Après où ou une préposition suivie de son pronom, l’infinitif peut remplacer le verbe conjugué : un endroit où dormir, quelqu’un à qui parler, de quoi vivre. Elle dit un but, sans sujet. Jamais après que. EN: After où or preposition plus pronoun, an infinitive can end the clause and states a purpose; never after que.",
+          "body": "Après où ou une préposition suivie de son pronom, l’infinitif peut remplacer le verbe conjugué : un endroit où dormir, quelqu’un à qui parler, de quoi vivre. Elle dit un but, sans sujet. Jamais après que relatif. EN: After où or preposition plus pronoun, an infinitive can end the clause and states a purpose; never after relative que.",
           "examples": [
             {
               "itemId": "fr.c1.pronoms-essentiels.2055",
@@ -19688,7 +19710,7 @@
             },
             {
               "itemId": "fr.c1.pronoms-essentiels.2161",
-              "note": "de et dont : jamais ensemble"
+              "note": "c’est de cela dont : de répété, à éviter"
             }
           ]
         }
@@ -20694,7 +20716,7 @@
                   "parmi qui"
                 ],
                 "correct": 1,
-                "why": "Parmi demande lequel, surtout pour des choses. EN: parmi lesquels."
+                "why": "Parmi demande toujours lequel, pour des choses comme pour des gens. EN: parmi lesquels."
               }
             }
           ],
@@ -21519,7 +21541,7 @@
               "label": "à + infinitif",
               "fr": "Je cherche quelque chose à lire pour le train.",
               "sub": "[zhuh SHEHRSH | kel-kuh SHOHZ a LEER | poor luh TREHⁿ]",
-              "body": "Something to read : quelque chose à lire, sans relative. Que n’introduit jamais un infinitif. EN: something to read is à lire; que never takes an infinitive."
+              "body": "Something to read : quelque chose à lire, sans relative. Que relatif ne précède jamais un infinitif. EN: something to read is à lire; relative que never takes an infinitive."
             }
           ]
         },
@@ -21725,7 +21747,7 @@
             {
               "wrong": "Je cherche quelque chose que lire pour le train.",
               "right": "Je cherche quelque chose à lire pour le train.",
-              "why": "Normal : que relie si souvent. Mais devant un infinitif, que ne va jamais : quelque chose à lire. EN: à lire, never que lire."
+              "why": "Normal : que relie si souvent. Mais devant un infinitif, que relatif ne va jamais : quelque chose à lire. EN: à lire, never que lire."
             },
             {
               "wrong": "Le dossier ne contient rien à s’appuyer sur.",
@@ -21883,7 +21905,7 @@
                   "quelque chose que lire"
                 ],
                 "correct": 0,
-                "why": "Que n’introduit jamais un infinitif. EN: à lire."
+                "why": "Que relatif ne précède jamais un infinitif. EN: à lire."
               }
             },
             {
@@ -21941,7 +21963,7 @@
             {
               "from": "user",
               "fr": "La copie du contrat que le notaire a signée est au dossier.",
-              "en": "The copy of the contract which the notary signed is on file."
+              "en": "The copy of the contract, the one the notary signed, is on file."
             },
             {
               "from": "coach",
@@ -22054,7 +22076,7 @@
                 {
                   "fr": "La copie du contrat que le notaire a signée est au dossier.",
                   "itemId": "fr.c1.pronoms-essentiels.2081",
-                  "en": "The copy of the contract which the notary signed is on file.",
+                  "en": "The copy of the contract, the one the notary signed, is on file.",
                   "note": "signée : la copie"
                 },
                 {
@@ -22439,7 +22461,7 @@
             },
             {
               "fr": "La copie du contrat que le notaire a signé est au dossier.",
-              "en": "The copy of the contract the notary signed is on file.",
+              "en": "The copy of the notary-signed contract is on file.",
               "note": "signé, au masculin : le contrat"
             },
             {
@@ -22596,7 +22618,7 @@
             {
               "from": "user",
               "fr": "Le locataire et le propriétaire, lequel prend les travaux en charge, signent le bail.",
-              "en": "The tenant and the landlord, the one who covers the repairs, sign the lease."
+              "en": "The tenant and the landlord, one of whom (but which?) covers the repairs, sign the lease."
             },
             {
               "from": "coach",
@@ -22741,7 +22763,7 @@
                 {
                   "fr": "Le locataire et le propriétaire, lequel prend les travaux en charge, signent le bail.",
                   "itemId": "fr.c1.pronoms-essentiels.2099",
-                  "en": "The tenant and the landlord, the one who covers the repairs, sign the lease.",
+                  "en": "The tenant and the landlord, one of whom (but which?) covers the repairs, sign the lease.",
                   "note": "deux masculins"
                 },
                 {
@@ -24746,7 +24768,7 @@
                   "C’est de cela qu’il s’agit."
                 ],
                 "correct": 1,
-                "why": "Jamais de et dont ensemble. EN: never both."
+                "why": "De devant cela, puis dont : le même complément deux fois. EN: not both for the same complement."
               }
             },
             {
@@ -25599,7 +25621,7 @@
             {
               "pattern": "Que je crois qui, a resumptive pronoun (que je sais qu’il), or c’est de cela dont in the notice.",
               "criterion": "registre",
-              "feedback": "À l’écrit : qui, je crois, ou dont je crois qu’il ; jamais de et dont ensemble.",
+              "feedback": "À l’écrit : qui, je crois, ou dont je crois qu’il ; c’est de cela qu’il s’agit, jamais c’est de cela dont.",
               "ref": "a9-erreurs"
             },
             {
@@ -26177,7 +26199,8 @@
                   "answer": "C’est exactement ce à quoi je m’attendais.",
                   "accept": [
                     "C’est exactement ce à quoi je m’attendais.",
-                    "à quoi"
+                    "à quoi",
+                    "ce à quoi"
                   ],
                   "why": "S’attendre à : ce à quoi. EN: ce à quoi.",
                   "ref": "a3-cartes"
@@ -26189,7 +26212,8 @@
                   "answer": "Ce sur quoi il insiste, c’est la date.",
                   "accept": [
                     "Ce sur quoi il insiste, c’est la date.",
-                    "sur quoi"
+                    "sur quoi",
+                    "ce sur quoi"
                   ],
                   "why": "Insister sur : ce sur quoi. EN: ce sur quoi.",
                   "ref": "a3-table"
@@ -26328,7 +26352,7 @@
                   "accept": [
                     "Je cherche quelque chose à lire pour le train."
                   ],
-                  "why": "Que n’introduit jamais un infinitif : à lire. EN: à lire.",
+                  "why": "Que relatif ne précède jamais un infinitif : à lire. EN: à lire.",
                   "ref": "a4-erreurs"
                 },
                 {
@@ -26499,7 +26523,8 @@
                   "answer": "Il pleuvra peut-être, auquel cas la visite aura lieu à l’intérieur.",
                   "accept": [
                     "Il pleuvra peut-être, auquel cas la visite aura lieu à l’intérieur.",
-                    "auquel"
+                    "auquel",
+                    "auquel cas"
                   ],
                   "why": "Auquel cas : la forme figée. EN: auquel cas.",
                   "ref": "a6-table"
@@ -26527,14 +26552,14 @@
                   "ref": "a6-erreurs"
                 },
                 {
-                  "format": "errorSpot",
-                  "q": "Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.",
-                  "prompt": "Le neveu de la donatrice, laquelle n’avait jamais vu les lettres, les a lues en une nuit.",
-                  "answer": "Le neveu de la donatrice, lequel n’avait jamais vu les lettres, les a lues en une nuit.",
-                  "accept": [
-                    "Le neveu de la donatrice, lequel n’avait jamais vu les lettres, les a lues en une nuit."
+                  "format": "mcq",
+                  "q": "C’est le neveu qui n’avait jamais vu les lettres. Laquelle écris-tu ?",
+                  "opts": [
+                    "Le neveu de la donatrice, lequel n’avait jamais vu les lettres, les a lues en une nuit.",
+                    "Le neveu de la donatrice, laquelle n’avait jamais vu les lettres, les a lues en une nuit."
                   ],
-                  "why": "C’est le neveu qui ne les avait jamais vues : lequel. EN: lequel.",
+                  "correct": 0,
+                  "why": "C’est le neveu qui ne les avait jamais vues : lequel, masculin. Laquelle enverrait le lecteur vers la donatrice. EN: lequel.",
                   "ref": "a6-erreurs"
                 },
                 {
@@ -26553,11 +26578,11 @@
                   "format": "mcq",
                   "q": "Où lequel sujet est-il le plus à sa place ?",
                   "opts": [
+                    "dans une conversation au café",
                     "dans un compte rendu officiel",
-                    "dans un texto à un ami",
-                    "dans une conversation au café"
+                    "dans un texto à un ami"
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "why": "Un tour écrit, administratif. EN: formal writing.",
                   "ref": "a6-hacks"
                 },
@@ -26566,10 +26591,10 @@
                   "q": "Écoute. Qui conteste les chiffres ?",
                   "say": "La commission a entendu l’expert, lequel conteste ces chiffres.",
                   "opts": [
-                    "la commission",
-                    "l’expert"
+                    "l’expert",
+                    "la commission"
                   ],
-                  "correct": 1,
+                  "correct": 0,
                   "why": "Lequel, masculin : l’expert. EN: the expert.",
                   "ref": "a6-construire"
                 }
@@ -26586,10 +26611,10 @@
                   "format": "mcq",
                   "q": "« Les candidats qui ont échoué pourront repasser l’épreuve. » Combien ont échoué ?",
                   "opts": [
-                    "une partie des candidats",
-                    "tous les candidats"
+                    "tous les candidats",
+                    "une partie des candidats"
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "why": "Sans virgules, la relative trie. EN: some.",
                   "ref": "a7-cartes"
                 },
@@ -26597,10 +26622,10 @@
                   "format": "mcq",
                   "q": "« Les candidats, qui ont échoué, pourront repasser l’épreuve. » Combien ont échoué ?",
                   "opts": [
-                    "une partie des candidats",
-                    "tous les candidats"
+                    "tous les candidats",
+                    "une partie des candidats"
                   ],
-                  "correct": 1,
+                  "correct": 0,
                   "why": "Entre virgules : tout le groupe. EN: all.",
                   "ref": "a7-cartes"
                 },
@@ -26620,10 +26645,10 @@
                   "format": "mcq",
                   "q": "Tu as un seul frère. Laquelle écris-tu ?",
                   "opts": [
-                    "Mon frère, qui ne boit jamais, a pris le volant au retour.",
-                    "Mon frère qui ne boit jamais a pris le volant au retour."
+                    "Mon frère qui ne boit jamais a pris le volant au retour.",
+                    "Mon frère, qui ne boit jamais, a pris le volant au retour."
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "why": "Un frère unique : la relative commente, entre virgules. EN: commas.",
                   "ref": "a7-piege"
                 },
@@ -26643,10 +26668,10 @@
                   "format": "mcq",
                   "q": "Tous les touristes ont été surpris par la pluie. Laquelle écris-tu ?",
                   "opts": [
-                    "Les touristes que la pluie avait surpris se sont réfugiés au musée.",
-                    "Les touristes, que la pluie avait surpris, se sont réfugiés au musée."
+                    "Les touristes, que la pluie avait surpris, se sont réfugiés au musée.",
+                    "Les touristes que la pluie avait surpris se sont réfugiés au musée."
                   ],
-                  "correct": 1,
+                  "correct": 0,
                   "why": "Tous : des virgules. EN: commas.",
                   "ref": "a7-piege"
                 },
@@ -26654,10 +26679,10 @@
                   "format": "mcq",
                   "q": "« Les employés qui avaient été prévenus ne sont pas venus. » Que peut-on supposer des autres ?",
                   "opts": [
-                    "qu’ils sont peut-être venus",
-                    "que personne n’est venu"
+                    "que personne n’est venu",
+                    "qu’ils sont peut-être venus"
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "why": "La relative trie : seuls ceux-là ne sont pas venus. EN: only those stayed away.",
                   "ref": "a7-construire"
                 },
@@ -26666,10 +26691,10 @@
                   "q": "Écoute bien les pauses. Tous les locataires ont-ils un chien ?",
                   "say": "Les locataires, qui ont un chien, paient un supplément.",
                   "opts": [
-                    "non, seulement certains",
-                    "oui, tous"
+                    "oui, tous",
+                    "non, seulement certains"
                   ],
-                  "correct": 1,
+                  "correct": 0,
                   "why": "Deux pauses : une explicative, donc tous. EN: all of them.",
                   "ref": "a7-ecoute"
                 }
@@ -26703,7 +26728,7 @@
                     "C’était une époque où tout semblait possible.",
                     "où"
                   ],
-                  "why": "Une époque : où. EN: où.",
+                  "why": "Une époque : où, comme dans la leçon 12 du B1. EN: où.",
                   "ref": "a8-table"
                 },
                 {
@@ -26758,10 +26783,10 @@
                   "format": "mcq",
                   "q": "Laquelle est la plus soutenue ?",
                   "opts": [
-                    "Nous sommes dans une situation dans laquelle chaque jour compte.",
-                    "Nous sommes dans une situation où chaque jour compte."
+                    "Nous sommes dans une situation où chaque jour compte.",
+                    "Nous sommes dans une situation dans laquelle chaque jour compte."
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "why": "Dans laquelle : plus soutenu ; les deux sont justes. EN: both correct.",
                   "ref": "a8-exemples"
                 },
@@ -26791,11 +26816,11 @@
                   "format": "mcq",
                   "q": "« C’est un livre que je crois qui te plaira. » Le registre ?",
                   "opts": [
+                    "écrit soutenu",
                     "administratif",
-                    "oral familier",
-                    "écrit soutenu"
+                    "oral familier"
                   ],
-                  "correct": 1,
+                  "correct": 2,
                   "why": "Que je crois qui : du français parlé familier. EN: casual speech.",
                   "ref": "a9-cartes"
                 },
@@ -26818,7 +26843,8 @@
                   "answer": "C’est de cela qu’il s’agit.",
                   "accept": [
                     "C’est de cela qu’il s’agit.",
-                    "C’est cela dont il s’agit."
+                    "C’est cela dont il s’agit.",
+                    "C’est de ça qu’il s’agit."
                   ],
                   "why": "De et dont disent deux fois la même chose. EN: keep one.",
                   "ref": "a9-erreurs"
@@ -26851,11 +26877,11 @@
                   "format": "mcq",
                   "q": "« Ce sont des questions dont je doute qu’elles soient réglées un jour. » Dont reprend…",
                   "opts": [
-                    "un jour",
                     "le doute",
-                    "des questions"
+                    "des questions",
+                    "un jour"
                   ],
-                  "correct": 2,
+                  "correct": 1,
                   "why": "Dont reprend le nom d’avant, repris ensuite par elles. EN: the questions.",
                   "ref": "a9-trier"
                 },
@@ -26863,10 +26889,10 @@
                   "format": "mcq",
                   "q": "Que fait l’incise dans « un livre qui, je crois, te plaira » ?",
                   "opts": [
-                    "elle trie les livres",
-                    "elle glisse l’opinion sans emboîter une proposition"
+                    "elle glisse l’opinion sans emboîter une proposition",
+                    "elle trie les livres"
                   ],
-                  "correct": 1,
+                  "correct": 0,
                   "why": "L’opinion reste entre virgules. EN: an aside.",
                   "ref": "a9-cartes"
                 },
@@ -26896,35 +26922,35 @@
                   "format": "mcq",
                   "q": "« Le rapport, rédigé en mars, contredit l’étude publiée l’an dernier. » Combien de relatives ?",
                   "opts": [
+                    "une",
                     "aucune : deux participes les remplacent",
-                    "deux",
-                    "une"
+                    "deux"
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "why": "Rédigé et publiée remplacent deux relatives. EN: none.",
                   "ref": "a10-cartes"
                 },
                 {
                   "format": "typeIn",
-                  "q": "Complète (à l’issue de · la visite).",
-                  "prompt": "La visite, à l’issue … un verre sera servi, commence à dix-huit heures.",
-                  "answer": "La visite, à l’issue de laquelle un verre sera servi, commence à dix-huit heures.",
+                  "q": "Écris le nom que reprend laquelle.",
+                  "prompt": "La visite, à l’issue de laquelle un verre sera servi, commence à dix-huit heures.",
+                  "answer": "la visite",
                   "accept": [
-                    "La visite, à l’issue de laquelle un verre sera servi, commence à dix-huit heures.",
-                    "de laquelle"
+                    "la visite",
+                    "visite"
                   ],
-                  "why": "Après à l’issue de : de laquelle. EN: de laquelle.",
+                  "why": "Laquelle, féminin singulier, reprend le nom d’avant la locution : la visite. Le verre est servi après elle. EN: the tour.",
                   "ref": "a10-trier"
                 },
                 {
                   "format": "mcq",
                   "q": "« L’accord en vertu duquel la ville gère le fonds expire en 2030. » Qu’est-ce qui expire ?",
                   "opts": [
+                    "le fonds",
                     "la ville",
-                    "l’accord",
-                    "le fonds"
+                    "l’accord"
                   ],
-                  "correct": 1,
+                  "correct": 2,
                   "why": "Le sujet du verbe principal : l’accord. EN: the agreement.",
                   "ref": "a10-trier"
                 },
@@ -26953,13 +26979,13 @@
                 {
                   "format": "errorSpot",
                   "q": "Une forme ne va pas. Écris la phrase correcte. EN: One form is wrong; write the sentence correctly.",
-                  "prompt": "La visite, à l’issue dont un verre sera servi, commence à dix-huit heures.",
-                  "answer": "La visite, à l’issue de laquelle un verre sera servi, commence à dix-huit heures.",
+                  "prompt": "Le rapport, rédigé en mars, contredit l’étude publié l’an dernier.",
+                  "answer": "Le rapport, rédigé en mars, contredit l’étude publiée l’an dernier.",
                   "accept": [
-                    "La visite, à l’issue de laquelle un verre sera servi, commence à dix-huit heures."
+                    "Le rapport, rédigé en mars, contredit l’étude publiée l’an dernier."
                   ],
-                  "why": "Après une locution qui finit par de, jamais dont : de laquelle. EN: de laquelle.",
-                  "ref": "a10-trier"
+                  "why": "Le participe qui remplace la relative s’accorde toujours : l’étude publiée. EN: the participle still agrees.",
+                  "ref": "a10-cartes"
                 },
                 {
                   "format": "typeIn",
@@ -27098,7 +27124,7 @@
               "questions": [
                 {
                   "format": "mcq",
-                  "q": "Format TCF. Choisissez la bonne réponse : « Le projet … nous avons discuté hier sera présenté lundi. »",
+                  "q": "Format TCF tout public (structures de la langue). Choisissez la bonne réponse : « Le projet … nous avons discuté hier sera présenté lundi. »",
                   "opts": [
                     "que",
                     "duquel",
@@ -27111,7 +27137,7 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "Format TCF : « C’est une question … personne n’a encore répondu. »",
+                  "q": "Format TCF tout public : « C’est une question … personne n’a encore répondu. »",
                   "opts": [
                     "dont",
                     "que",
@@ -27124,7 +27150,7 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "Format TCF : « La salle … se tiendra la réunion n’est pas encore choisie. »",
+                  "q": "Format TCF tout public : « La salle … se tiendra la réunion n’est pas encore choisie. »",
                   "opts": [
                     "dont",
                     "que",
@@ -27151,11 +27177,11 @@
                   "format": "mcq",
                   "q": "Compréhension écrite. « Le directeur de l’agence, laquelle a fermé hier, sera reçu par le maire. » Qu’est-ce qui a fermé ?",
                   "opts": [
+                    "l’agence",
                     "le directeur",
-                    "on ne peut pas le savoir",
-                    "l’agence"
+                    "on ne peut pas le savoir"
                   ],
-                  "correct": 2,
+                  "correct": 0,
                   "why": "Laquelle, féminin : l’agence. EN: the agency.",
                   "ref": "a6-cartes"
                 },
@@ -27163,36 +27189,37 @@
                   "format": "mcq",
                   "q": "Compréhension écrite. « Les habitants, qui avaient été consultés, ont approuvé le projet. » Combien d’habitants avaient été consultés ?",
                   "opts": [
+                    "aucun",
                     "tous",
-                    "une partie seulement",
-                    "aucun"
+                    "une partie seulement"
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "why": "Entre virgules : tous. EN: all.",
                   "ref": "a7-cartes"
                 },
                 {
                   "format": "typeIn",
-                  "q": "Format TCF, phrase à compléter.",
+                  "q": "Phrase à compléter.",
                   "prompt": "C’est exactement ce … nous nous attendions.",
                   "answer": "C’est exactement ce à quoi nous nous attendions.",
                   "accept": [
                     "C’est exactement ce à quoi nous nous attendions.",
-                    "à quoi"
+                    "à quoi",
+                    "ce à quoi"
                   ],
                   "why": "S’attendre à : ce à quoi. EN: ce à quoi.",
                   "ref": "a3-cartes"
                 },
                 {
                   "format": "listenChoose",
-                  "q": "Format TEF, compréhension orale. Écoute cette annonce. Que se passe-t-il si l’on ne réserve pas avant jeudi ?",
+                  "q": "Compréhension orale. Écoute cette annonce. Que se passe-t-il si l’on ne réserve pas avant jeudi ?",
                   "say": "Annonce des Archives de Pont-Aurèle. La visite des réserves, à l’issue de laquelle un verre sera servi, aura lieu samedi à seize heures. Les places sont limitées : réservez avant jeudi, faute de quoi nous ne pourrons pas garantir votre accueil.",
                   "opts": [
+                    "la visite est gratuite",
                     "la visite est annulée",
-                    "l’accueil n’est pas garanti",
-                    "la visite est gratuite"
+                    "l’accueil n’est pas garanti"
                   ],
-                  "correct": 1,
+                  "correct": 2,
                   "why": "Faute de quoi : sinon, l’accueil n’est pas garanti. EN: entry not guaranteed.",
                   "ref": "a3-table"
                 }
@@ -27708,7 +27735,7 @@
             "a2-dictee",
             "a2-check"
           ],
-          "milestone": "Tu reprends un adjectif ou un nom attribut par le, toujours invariable, à sa place devant le verbe, l’auxiliaire ou l’infinitif. EN: You can pick up an attribute with an invariable le, in the right place.",
+          "milestone": "Tu reprends un adjectif ou un nom sans article par le, toujours invariable, à sa place devant le verbe, l’auxiliaire ou l’infinitif. EN: You can pick up an attribute with an invariable le, in the right place.",
           "estScreens": 38,
           "restPoints": [
             "a2-cartes",
@@ -28104,7 +28131,7 @@
           "id": "d-neutre",
           "title": "Le, toujours le",
           "format": "mcq",
-          "coach": "Un adjectif ou un nom attribut déjà dit revient par le, sans accord. EN: neutral le, never agreed.",
+          "coach": "Un adjectif ou un nom sans article déjà dit revient par le, sans accord. EN: neutral le, never agreed.",
           "q": "Fatiguée, je … suis.",
           "opts": [
             "la",
@@ -28973,7 +29000,7 @@
                 [
                   "sinon tous",
                   "Ce compromis satisfait la plupart des membres, sinon tous.",
-                  "sinon il les satisfait tous"
+                  "si ce n’est tous : peut-être même tous"
                 ]
               ]
             }
@@ -29203,8 +29230,8 @@
                   "ledit, ladite, le cas échéant"
                 ],
                 [
-                  "courriel professionnel",
-                  "rarement",
+                  "courriel professionnel, compte rendu",
+                  "rarement, une fois au plus",
                   "ce, cette, ce dernier"
                 ],
                 [
@@ -29213,7 +29240,7 @@
                   "il, elle, ce"
                 ],
                 [
-                  "essai, compte rendu",
+                  "essai, article",
                   "non",
                   "un nom plus large, celui de"
                 ]
@@ -30275,7 +30302,7 @@
           "frSub": "Six cartes, huit phrases",
           "rule": {
             "title": "Toujours là, toujours le",
-            "body": "Un adjectif ou un nom attribut déjà dit revient par le, devant le verbe, l’auxiliaire ou l’infinitif. Le ne prend ni e ni s, et il ne disparaît pas. EN: an attribute already said comes back as le, never agreed, never dropped."
+            "body": "Un adjectif ou un nom sans article déjà dit revient par le, devant le verbe, l’auxiliaire ou l’infinitif. Le ne prend ni e ni s, et il ne disparaît pas. EN: an attribute already said comes back as le, never agreed, never dropped."
           },
           "cards": [
             {
@@ -32532,7 +32559,7 @@
           "frSub": "Six cartes, huit phrases",
           "rule": {
             "title": "Un mot, et rien d’autre",
-            "body": "Dans la question réduite, le mot interrogatif reste seul : ni est-ce, ni ce que, ni inversion. Lequel s’accorde avec le nom du choix, et la préposition reste devant. EN: keep the question word alone: no est-ce, no ce que, no inversion."
+            "body": "Dans la question réduite, le mot interrogatif reste seul : ni est-ce (fréquent à l’oral, pas à l’écrit), ni ce que, ni inversion. Lequel s’accorde, la préposition reste devant. EN: the question word alone: no est-ce in writing, no ce que, no inversion."
           },
           "cards": [
             {
@@ -32540,7 +32567,7 @@
               "promptSound": "Quelqu’un a appelé pendant ton absence, mais je ne sais pas qui est-ce.",
               "fr": "Quelqu’un a appelé pendant ton absence, mais je ne sais pas qui.",
               "ipa": "/kɛl.kœ̃ a a.pə.le pɑ̃.dɑ̃ tɔ̃.nap.sɑ̃s mɛ ʒə nə sɛ pa ki/",
-              "tip": "Dans une question indirecte, pas de est-ce : je ne sais pas qui. EN: no est-ce in an indirect question."
+              "tip": "À l’oral, on l’entend ; à l’écrit, une question indirecte n’a pas de est-ce : je ne sais pas qui. EN: common in speech; in writing, no est-ce."
             },
             {
               "promptLabel": "ce que seul",
@@ -32575,7 +32602,7 @@
               "promptSound": "Elle a déménagé, je ne sais plus où est-ce qu’elle habite.",
               "fr": "Elle a déménagé, je ne sais plus où.",
               "ipa": "/ɛ.la de.me.na.ʒe ʒə nə sɛ ply.zu/",
-              "tip": "Pas de est-ce que dans une question indirecte ; ici, le mot seul suffit : je ne sais plus où. EN: no est-ce que."
+              "tip": "Fréquent à l’oral, mais à l’écrit, pas de est-ce que dans une question indirecte ; ici, le mot seul suffit : je ne sais plus où. EN: spoken, not written."
             }
           ],
           "drill": [
@@ -32874,7 +32901,7 @@
               "label": "courant, discuté",
               "fr": "Le calendrier initial et celui proposé par l’entreprise ne concordent pas.",
               "sub": "[luh ka-lahⁿ-dree-YAY | ee-nee-SYAL | ay suh-lwee pro-poh-ZAY | par lahⁿ-truh-PREEZ | nuh kohⁿ-kord PA]",
-              "body": "Très courant dans la presse et l’administration, critiqué par certains guides. À l’écrit très soigné : celui que propose l’entreprise. EN: very common, criticised by some guides; in very careful writing, celui que propose."
+              "body": "Très courant dans la presse et l’administration, toujours avec un complément (proposé par l’entreprise), critiqué par certains guides. À l’écrit très soigné : celui que propose l’entreprise. EN: very common, criticised by some guides; in very careful writing, celui que propose."
             }
           ]
         },
@@ -33016,8 +33043,8 @@
             },
             {
               "wrong": "J’ai lu les deux rapports ; celui est plus clair.",
-              "right": "J’ai lu les deux rapports ; celui-ci est plus clair.",
-              "why": "Normal : celui semble suffire. Mais celui ne reste jamais seul : il lui faut -ci, -là, de, qui ou que. EN: celui never stands alone."
+              "right": "J’ai lu les deux rapports ; celui du conseil est plus clair.",
+              "why": "Normal : celui semble suffire. Mais celui ne reste jamais seul : il lui faut -ci, -là ou une suite (de, qui, que, un participe avec son complément). EN: celui never stands alone."
             }
           ],
           "audio": {
@@ -33118,7 +33145,7 @@
               "label": "Seul ?",
               "items": [],
               "check": {
-                "q": "Celui peut-il rester seul, sans -ci, de, qui ou que ?",
+                "q": "Celui peut-il rester seul, sans -ci, -là ni aucune suite ?",
                 "opts": [
                   "non",
                   "oui"
@@ -34170,7 +34197,7 @@
           "lines": [
             {
               "fr": "Marie a téléphoné à sa sœur quand elle est rentrée de Lyon.",
-              "en": "Marie phoned her sister when she got back from Lyon."
+              "en": "Marie phoned her sister when she got back from Lyon (ambiguous: Marie or her sister?)."
             },
             {
               "fr": "Marie a téléphoné à sa sœur quand cette dernière est rentrée de Lyon.",
@@ -34182,7 +34209,7 @@
             },
             {
               "fr": "Paul a croisé Marc avec sa femme.",
-              "en": "Paul ran into Marc with his wife."
+              "en": "Paul ran into Marc with his wife (ambiguous: whose wife?)."
             },
             {
               "fr": "Paul a croisé Marc avec la femme de ce dernier.",
@@ -34194,7 +34221,7 @@
             },
             {
               "fr": "La présidente a écrit à la trésorière pour lui dire qu’elle démissionnait.",
-              "en": "The president wrote to the treasurer to tell her she was resigning."
+              "en": "The president wrote to the treasurer to tell her she was resigning (ambiguous: which of them?)."
             },
             {
               "fr": "La présidente a écrit à la trésorière pour lui annoncer sa propre démission.",
@@ -34202,7 +34229,7 @@
             },
             {
               "fr": "Hugo a dit à son frère qu’il avait gagné.",
-              "en": "Hugo told his brother he had won."
+              "en": "Hugo told his brother he had won (ambiguous: which of them?)."
             },
             {
               "fr": "Hugo a dit à son frère : « J’ai gagné. »",
@@ -34378,25 +34405,25 @@
                 {
                   "fr": "Marie a téléphoné à sa sœur quand elle est rentrée de Lyon.",
                   "itemId": "fr.c1.langue-soignee.2151",
-                  "en": "Marie phoned her sister when she got back from Lyon.",
+                  "en": "Marie phoned her sister when she got back from Lyon (ambiguous: Marie or her sister?).",
                   "note": "elle : Marie ou la sœur"
                 },
                 {
                   "fr": "Paul a croisé Marc avec sa femme.",
                   "itemId": "fr.c1.langue-soignee.2154",
-                  "en": "Paul ran into Marc with his wife.",
+                  "en": "Paul ran into Marc with his wife (ambiguous: whose wife?).",
                   "note": "sa : la femme de Paul ou de Marc"
                 },
                 {
                   "fr": "La présidente a écrit à la trésorière pour lui dire qu’elle démissionnait.",
                   "itemId": "fr.c1.langue-soignee.2158",
-                  "en": "The president wrote to the treasurer to tell her she was resigning.",
+                  "en": "The president wrote to the treasurer to tell her she was resigning (ambiguous: which of them?).",
                   "note": "elle : la présidente ou la trésorière"
                 },
                 {
                   "fr": "Hugo a dit à son frère qu’il avait gagné.",
                   "itemId": "fr.c1.langue-soignee.2164",
-                  "en": "Hugo told his brother he had won.",
+                  "en": "Hugo told his brother he had won (ambiguous: which of them?).",
                   "note": "il : Hugo ou le frère"
                 }
               ],
@@ -34620,7 +34647,7 @@
             },
             {
               "fr": "La présidente a écrit à la trésorière, qui lui a annoncé sa démission.",
-              "en": "The president wrote to the treasurer, who told her she was resigning.",
+              "en": "The president wrote to the treasurer, who then announced her own resignation to her.",
               "note": "qui : la trésorière, et c’est elle qui démissionne"
             },
             {
@@ -34653,7 +34680,7 @@
           "questions": [
             {
               "q": "La première phrase ?",
-              "a": "Si c’est Sophie : Claire a croisé Sophie à la piscine ; cette dernière venait de s’inscrire au cours du soir. Si c’est Claire : à la piscine, où elle venait de s’inscrire au cours du soir, Claire a croisé Sophie."
+              "a": "Si c’est Sophie : Claire a croisé Sophie à la piscine ; cette dernière venait de s’inscrire au cours du soir. Si c’est Claire : Claire, qui venait de s’inscrire au cours du soir, a croisé Sophie à la piscine."
             },
             {
               "q": "La deuxième ?",
@@ -34942,7 +34969,7 @@
                   "la salle paroissiale"
                 ],
                 "correct": 0,
-                "why": "L’initiative, nommée juste avant. Une personne ne « coûte » pas à la ville, et la ville est le complément de la même phrase. EN: the initiative."
+                "why": "L’initiative, le dernier nom cité : celle-ci renvoie au plus proche, et la suite (le local prêté, les outils donnés) décrit un projet, pas une personne. La ville est le complément de la même phrase. EN: the initiative."
               }
             },
             {
@@ -35433,7 +35460,7 @@
                 "label": "Réalisation de la tâche",
                 "maxPoints": 3,
                 "descriptors": [
-                  "3 : Tous les points des notes sont là, dans l’ordre d’un compte rendu, sans rien inventer, entre 250 et 320 mots.",
+                  "3 : Tous les points des notes sont là, dans l’ordre d’un compte rendu, sans rien déformer (un détail ajouté reste plausible et ne contredit pas les notes), entre 250 et 320 mots.",
                   "2 : Un point manque ou est déformé, ou la longueur sort un peu des limites.",
                   "1 : Le texte recopie les notes, ou en oublie la moitié."
                 ]
@@ -35487,8 +35514,8 @@
             "Cette décision",
             "on ne sait pas qui"
           ],
-          "modelAnswer": "Coopérative d’habitation Les Tilleuls. Compte rendu de l’assemblée du 7 octobre, consacrée au stationnement. Vingt et un membres étaient présents, deux de plus qu’en septembre. Comme le conseil l’avait annoncé, l’assemblée devait décider d’une nouvelle répartition des places de stationnement. Le conseil proposait un tirage au sort chaque année : cette formule, selon lui, donnerait à chacun les mêmes chances, ce que les places attribuées à vie ne font pas. M. Tremblay est favorable à cette formule ; Mme Lavoie ne l’est pas, car elle souhaite garder la place qu’elle occupe depuis dix ans. Les besoins, eux aussi, divergent : les familles voudraient des places près de l’entrée, les retraités près de l’ascenseur. Le conseil avait promis d’apporter un plan des places, et il l’a fait : chacun a pu situer les emplacements dont il était question. Ce plan montre d’ailleurs que les places proches des portes sont moins nombreuses qu’on ne le croyait : six sur trente. Deux règles ont ensuite été comparées, celle du conseil et celle des locataires. La seconde, qui réserve les places proches des portes aux familles et aux personnes âgées, a été retenue par quinze voix contre six. Ce vote met fin à un débat ouvert depuis le printemps, sans satisfaire tout le monde, comme on pouvait le prévoir. Mme Lavoie a demandé que son cas soit réexaminé ; le conseil s’y est engagé. Questions diverses. Une camionnette est stationnée depuis jeudi sur la place des visiteurs ; quelqu’un l’y a laissée, mais on ne sait pas qui. Si le véhicule est encore là lundi, le conseil le fera remorquer ; le cas échéant, les frais seront à la charge de son propriétaire. Le conseil rappelle enfin que les membres qui changent de voiture doivent le signaler au secrétariat. Prochaine assemblée : le 4 novembre. Simon Gagné, secrétaire.\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : tous les points des notes, dans l’ordre, sans ajout.\n2. Le fil : la seconde, le véhicule, son propriétaire ne renvoient chacun qu’à un seul nom.\n3. Étendue : ne l’est pas, qu’on ne le croyait, comme on pouvait le prévoir, il l’a fait, ne font pas, les retraités près de l’ascenseur, celle du conseil et celle des locataires, ce vote, on ne sait pas qui, le cas échéant.\n4. Correction : le invariable, celle accordée avec règle, l’y a laissée accordé avec camionnette.\n5. Registre : un compte rendu soigné, sans ledit, qui n’apporterait rien ici.",
-          "modelAnswerEn": "Les Tilleuls housing cooperative. Minutes of the meeting of 7 October, on parking. Twenty-one members were present, two more than in September. As the board had announced, the meeting was to decide on a new allocation of parking spaces. The board proposed a draw every year: this formula, it argued, would give everyone the same chances, which spaces allocated for life do not. Mr Tremblay is in favour of this formula; Mrs Lavoie is not, as she wishes to keep the space she has had for ten years. Needs differ too: families would like spaces near the entrance, retired members near the lift. The board had promised to bring a plan of the spaces, and it did: everyone could locate the spaces in question. The plan also shows that the spaces close to the doors are fewer than people thought: six out of thirty. Two rules were then compared, the board’s and the tenants’. The latter, which reserves the spaces close to the doors for families and older people, was adopted by fifteen votes to six. This vote ends a debate open since the spring, without satisfying everyone, as could be expected. Mrs Lavoie asked for her case to be reviewed; the board agreed to do so. Any other business. A van has been parked in the visitors’ space since Thursday; someone left it there, but nobody knows who. If the vehicle is still there on Monday, the board will have it towed; should that happen, the costs will be borne by its owner. Finally, the board reminds members who change cars that they must notify the office. Next meeting: 4 November. Simon Gagné, secretary. The marker’s notes (not counted): 1. Task: every point of the notes, in order, nothing added. 2. Thread: la seconde, le véhicule, son propriétaire each point to one noun only. 3. Range: neutral le three times, faire twice, an ellipsis, celle de twice, a summing noun, a reduced question, le cas échéant. 4. Accuracy: invariable le, celle agreed with règle, laissée agreed with camionnette. 5. Register: careful minutes, no ledit, which would add nothing here.",
+          "modelAnswer": "Coopérative d’habitation Les Tilleuls. Compte rendu de l’assemblée du 7 octobre, consacrée au stationnement. Vingt et un membres étaient présents, deux de plus qu’en septembre. Comme le conseil l’avait annoncé, l’assemblée devait décider d’une nouvelle répartition des places de stationnement. Le conseil proposait un tirage au sort chaque année : cette formule, selon lui, donnerait à chacun les mêmes chances, ce que les places attribuées à vie ne font pas. M. Tremblay est favorable à cette formule ; Mme Lavoie ne l’est pas, car elle souhaite garder la place qu’elle occupe depuis dix ans. Les besoins, eux aussi, divergent : les familles voudraient des places près de l’entrée, les retraités près de l’ascenseur. Le conseil avait promis d’apporter un plan des places, et il l’a fait : chacun a pu situer les emplacements dont il était question. Ce plan montre d’ailleurs que les places proches des portes sont moins nombreuses qu’on ne le croyait : six sur trente. Deux règles ont ensuite été comparées, celle du conseil et celle des locataires. La seconde, qui réserve les places proches des portes aux familles et aux personnes âgées, a été retenue par quinze voix contre six. Ce vote met fin à un débat ouvert depuis le printemps, sans satisfaire tout le monde, comme on pouvait le prévoir. Mme Lavoie a demandé que son cas soit réexaminé ; le conseil s’y est engagé. Questions diverses. Une camionnette est stationnée depuis jeudi sur la place des visiteurs ; quelqu’un l’y a laissée, mais on ne sait pas qui. Si le véhicule est encore là lundi, le conseil le fera remorquer ; le cas échéant, les frais seront à la charge de son propriétaire. Le conseil rappelle enfin que les membres qui changent de voiture doivent le signaler au secrétariat. Prochaine assemblée : le 4 novembre. Simon Gagné, secrétaire.\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : tous les points des notes, dans l’ordre ; les détails ajoutés restent plausibles et ne contredisent rien.\n2. Le fil : la seconde, le véhicule, son propriétaire ne renvoient chacun qu’à un seul nom.\n3. Étendue : ne l’est pas, qu’on ne le croyait, comme on pouvait le prévoir, il l’a fait, ne font pas, les retraités près de l’ascenseur, celle du conseil et celle des locataires, ce vote, on ne sait pas qui, le cas échéant.\n4. Correction : le invariable, celle accordée avec règle, l’y a laissée accordé avec camionnette.\n5. Registre : un compte rendu soigné, sans ledit, qui n’apporterait rien ici.",
+          "modelAnswerEn": "Les Tilleuls housing cooperative. Minutes of the meeting of 7 October, on parking. Twenty-one members were present, two more than in September. As the board had announced, the meeting was to decide on a new allocation of parking spaces. The board proposed a draw every year: this formula, it argued, would give everyone the same chances, which spaces allocated for life do not. Mr Tremblay is in favour of this formula; Mrs Lavoie is not, as she wishes to keep the space she has had for ten years. Needs differ too: families would like spaces near the entrance, retired members near the lift. The board had promised to bring a plan of the spaces, and it did: everyone could locate the spaces in question. The plan also shows that the spaces close to the doors are fewer than people thought: six out of thirty. Two rules were then compared, the board’s and the tenants’. The latter, which reserves the spaces close to the doors for families and older people, was adopted by fifteen votes to six. This vote ends a debate open since the spring, without satisfying everyone, as could be expected. Mrs Lavoie asked for her case to be reviewed; the board agreed to do so. Any other business. A van has been parked in the visitors’ space since Thursday; someone left it there, but nobody knows who. If the vehicle is still there on Monday, the board will have it towed; should that happen, the costs will be borne by its owner. Finally, the board reminds members who change cars that they must notify the office. Next meeting: 4 November. Simon Gagné, secretary. The marker’s notes (not counted): 1. Task: every point of the notes, in order; any added detail stays plausible and contradicts nothing. 2. Thread: la seconde, le véhicule, son propriétaire each point to one noun only. 3. Range: neutral le three times, faire twice, an ellipsis, celle de twice, a summing noun, a reduced question, le cas échéant. 4. Accuracy: invariable le, celle agreed with règle, laissée agreed with camionnette. 5. Register: careful minutes, no ledit, which would add nothing here.",
           "watchFor": [
             {
               "pattern": "A truncated English-style ending (Mme Lavoie n’est pas, nous sommes encore) where French needs the neutral le.",
@@ -35965,7 +35992,8 @@
                   "prompt": "Les loyers étaient raisonnables ; ils ne sont plus raisonnables.",
                   "answer": "Les loyers étaient raisonnables ; ils ne le sont plus.",
                   "accept": [
-                    "Les loyers étaient raisonnables ; ils ne le sont plus."
+                    "Les loyers étaient raisonnables ; ils ne le sont plus.",
+                    "ils ne le sont plus"
                   ],
                   "why": "Ils ne le sont plus : le reprend raisonnables. EN: le stands for the adjective.",
                   "ref": "a2-construire"
@@ -35976,7 +36004,9 @@
                   "prompt": "Les comptes sont-ils à jour ? Ils (être) demain.",
                   "answer": "Les comptes sont-ils à jour ? Ils le seront demain.",
                   "accept": [
-                    "Les comptes sont-ils à jour ? Ils le seront demain."
+                    "Les comptes sont-ils à jour ? Ils le seront demain.",
+                    "Ils le seront demain.",
+                    "le seront"
                   ],
                   "why": "Ils le seront : le devant le verbe. EN: le before the verb.",
                   "ref": "a2-cartes"
@@ -36066,7 +36096,9 @@
                   "prompt": "Comme vous savez, l’ascenseur sera fermé en juillet.",
                   "answer": "Comme vous le savez, l’ascenseur sera fermé en juillet.",
                   "accept": [
-                    "Comme vous le savez, l’ascenseur sera fermé en juillet."
+                    "Comme vous le savez, l’ascenseur sera fermé en juillet.",
+                    "Comme vous le savez",
+                    "vous le savez"
                   ],
                   "why": "Comme vous le savez : le reprend l’information. EN: le in the aside.",
                   "ref": "a3-table"
@@ -36077,7 +36109,9 @@
                   "prompt": "Comme nous (annoncer), la salle sera repeinte.",
                   "answer": "Comme nous l’avions annoncé, la salle sera repeinte.",
                   "accept": [
-                    "Comme nous l’avions annoncé, la salle sera repeinte."
+                    "Comme nous l’avions annoncé, la salle sera repeinte.",
+                    "Comme nous l’avions annoncé",
+                    "l’avions annoncé"
                   ],
                   "why": "Comme nous l’avions annoncé. EN: l’avions annoncé.",
                   "ref": "a3-construire"
@@ -36168,7 +36202,9 @@
                   "prompt": "Il faut appeler le plombier ; j’appellerai le plombier demain.",
                   "answer": "Il faut appeler le plombier ; je le ferai demain.",
                   "accept": [
-                    "Il faut appeler le plombier ; je le ferai demain."
+                    "Il faut appeler le plombier ; je le ferai demain.",
+                    "je le ferai demain",
+                    "je le ferai"
                   ],
                   "why": "Je le ferai : faire et le reprennent l’action. EN: je le ferai.",
                   "ref": "a4-cartes"
@@ -36179,7 +36215,9 @@
                   "prompt": "Elle a rendu son rapport à temps, et son collègue a rendu son rapport à temps.",
                   "answer": "Elle a rendu son rapport à temps, et son collègue en a fait autant.",
                   "accept": [
-                    "Elle a rendu son rapport à temps, et son collègue en a fait autant."
+                    "Elle a rendu son rapport à temps, et son collègue en a fait autant.",
+                    "et son collègue en a fait autant",
+                    "son collègue en a fait autant"
                   ],
                   "why": "En a fait autant : la même action. EN: did the same.",
                   "ref": "a4-cartes"
@@ -36191,7 +36229,8 @@
                   "answer": "Ils ont plus de place que nous n’en avons.",
                   "accept": [
                     "Ils ont plus de place que nous n’en avons.",
-                    "Ils ont plus de place que nous."
+                    "Ils ont plus de place que nous.",
+                    "Ils ont plus de place que nous en avons."
                   ],
                   "why": "Avoir se reprend lui-même : que nous n’en avons. EN: avoir, with en.",
                   "ref": "a4-piege"
@@ -36268,7 +36307,8 @@
                   "prompt": "Les jeunes préfèrent le courriel ; les plus âgés préfèrent le téléphone.",
                   "answer": "Les jeunes préfèrent le courriel ; les plus âgés, le téléphone.",
                   "accept": [
-                    "Les jeunes préfèrent le courriel ; les plus âgés, le téléphone."
+                    "Les jeunes préfèrent le courriel ; les plus âgés, le téléphone.",
+                    "les plus âgés, le téléphone"
                   ],
                   "why": "Le verbe se tait ; la virgule marque sa place. EN: drop the second préfèrent.",
                   "ref": "a5-construire"
@@ -36280,7 +36320,8 @@
                   "answer": "Lui part demain, elle non.",
                   "accept": [
                     "Lui part demain, elle non.",
-                    "Lui part demain, pas elle."
+                    "Lui part demain, pas elle.",
+                    "elle non"
                   ],
                   "why": "Elle non : non tient la place du groupe. EN: elle non.",
                   "ref": "a5-construire"
@@ -36373,7 +36414,8 @@
                   "prompt": "Quelqu’un a appelé, mais je ne sais pas qui a appelé.",
                   "answer": "Quelqu’un a appelé, mais je ne sais pas qui.",
                   "accept": [
-                    "Quelqu’un a appelé, mais je ne sais pas qui."
+                    "Quelqu’un a appelé, mais je ne sais pas qui.",
+                    "je ne sais pas qui"
                   ],
                   "why": "Qui suffit : le reste est déjà dit. EN: qui alone.",
                   "ref": "a6-cartes"
@@ -36384,7 +36426,8 @@
                   "prompt": "Les travaux reprendront, mais personne ne sait quand ils reprendront.",
                   "answer": "Les travaux reprendront, mais personne ne sait quand.",
                   "accept": [
-                    "Les travaux reprendront, mais personne ne sait quand."
+                    "Les travaux reprendront, mais personne ne sait quand.",
+                    "personne ne sait quand"
                   ],
                   "why": "Quand suffit. EN: quand alone.",
                   "ref": "a6-piege"
@@ -36409,7 +36452,7 @@
                     "Elle a déménagé, je ne sais plus où.",
                     "Elle a déménagé, je ne sais plus où elle habite."
                   ],
-                  "why": "Pas de est-ce que dans une question indirecte ; le mot seul suffit. EN: où alone.",
+                  "why": "À l’écrit, pas de est-ce que dans une question indirecte (on l’entend à l’oral) ; le mot seul suffit. EN: où alone in writing.",
                   "ref": "a6-piege"
                 },
                 {
@@ -36476,7 +36519,8 @@
                   "answer": "Ma demande a été acceptée, celle de mon voisin refusée.",
                   "accept": [
                     "Ma demande a été acceptée, celle de mon voisin refusée.",
-                    "Ma demande a été acceptée, celle de mon voisin a été refusée."
+                    "Ma demande a été acceptée, celle de mon voisin a été refusée.",
+                    "celle de mon voisin refusée"
                   ],
                   "why": "Celle de mon voisin : celle reprend demande. EN: celle.",
                   "ref": "a7-construire"
@@ -36487,7 +36531,8 @@
                   "prompt": "Les comptes de cette année sont plus clairs que les comptes de l’an passé.",
                   "answer": "Les comptes de cette année sont plus clairs que ceux de l’an passé.",
                   "accept": [
-                    "Les comptes de cette année sont plus clairs que ceux de l’an passé."
+                    "Les comptes de cette année sont plus clairs que ceux de l’an passé.",
+                    "ceux de l’an passé"
                   ],
                   "why": "Ceux de l’an passé. EN: ceux.",
                   "ref": "a7-construire"
@@ -36576,7 +36621,9 @@
                   "prompt": "Le gardien a refusé la livraison. (…) a retardé le chantier.",
                   "answer": "Le gardien a refusé la livraison. Ce refus a retardé le chantier.",
                   "accept": [
-                    "Le gardien a refusé la livraison. Ce refus a retardé le chantier."
+                    "Le gardien a refusé la livraison. Ce refus a retardé le chantier.",
+                    "Ce refus",
+                    "Ce refus a retardé le chantier."
                   ],
                   "why": "Ce refus. EN: ce refus.",
                   "ref": "a8-cartes"
@@ -36587,7 +36634,9 @@
                   "prompt": "Plusieurs locataires ont déménagé. (…) ont libéré trois logements.",
                   "answer": "Plusieurs locataires ont déménagé. Ces départs ont libéré trois logements.",
                   "accept": [
-                    "Plusieurs locataires ont déménagé. Ces départs ont libéré trois logements."
+                    "Plusieurs locataires ont déménagé. Ces départs ont libéré trois logements.",
+                    "Ces départs",
+                    "Ces départs ont libéré trois logements."
                   ],
                   "why": "Ces départs. EN: ces départs.",
                   "ref": "a8-piege"
@@ -36675,7 +36724,9 @@
                   "prompt": "Le locataire signale une fuite ; (…) fuite provient de l’appartement du dessus.",
                   "answer": "Le locataire signale une fuite ; ladite fuite provient de l’appartement du dessus.",
                   "accept": [
-                    "Le locataire signale une fuite ; ladite fuite provient de l’appartement du dessus."
+                    "Le locataire signale une fuite ; ladite fuite provient de l’appartement du dessus.",
+                    "ladite",
+                    "ladite fuite"
                   ],
                   "why": "Ladite, en un mot, au féminin. EN: ladite.",
                   "ref": "a9-table"
@@ -36686,7 +36737,9 @@
                   "prompt": "Toute réclamation relative (à + ledit) règlement doit être écrite.",
                   "answer": "Toute réclamation relative audit règlement doit être écrite.",
                   "accept": [
-                    "Toute réclamation relative audit règlement doit être écrite."
+                    "Toute réclamation relative audit règlement doit être écrite.",
+                    "audit",
+                    "audit règlement"
                   ],
                   "why": "À + ledit : audit. EN: audit.",
                   "ref": "a9-construire"
@@ -36778,7 +36831,8 @@
                   "answer": "Paul a croisé Marc avec la femme de ce dernier.",
                   "accept": [
                     "Paul a croisé Marc avec la femme de ce dernier.",
-                    "Paul a croisé Marc avec la femme de celui-ci."
+                    "Paul a croisé Marc avec la femme de celui-ci.",
+                    "avec la femme de ce dernier"
                   ],
                   "why": "La femme de ce dernier : celle de Marc. EN: de ce dernier.",
                   "ref": "a10-piege"
@@ -36789,7 +36843,8 @@
                   "prompt": "Hugo a dit à son frère qu’il avait gagné.",
                   "answer": "Hugo a dit à son frère : « J’ai gagné. »",
                   "accept": [
-                    "Hugo a dit à son frère : « J’ai gagné. »"
+                    "Hugo a dit à son frère : « J’ai gagné. »",
+                    "Hugo a dit à son frère : J’ai gagné."
                   ],
                   "why": "J’ai gagné : plus de doute. EN: direct speech.",
                   "ref": "a10-cartes"
@@ -36814,7 +36869,8 @@
                   "accept": [
                     "Léa a prêté sa voiture à Nina, mais cette dernière ne la lui a pas rendue.",
                     "Léa a prêté sa voiture à Nina, mais celle-ci ne la lui a pas rendue.",
-                    "Léa a prêté sa voiture à Nina, mais Nina ne la lui a pas rendue."
+                    "Léa a prêté sa voiture à Nina, mais Nina ne la lui a pas rendue.",
+                    "mais cette dernière ne la lui a pas rendue"
                   ],
                   "why": "Cette dernière : Nina. EN: cette dernière.",
                   "ref": "a10-piege"
@@ -36882,7 +36938,9 @@
                   "accept": [
                     "La ville a changé d’avis en mars. Ce revirement vient du bilan.",
                     "La ville a changé d’avis en mars. Ce changement vient du bilan.",
-                    "La ville a changé d’avis en mars. Ce changement d’avis vient du bilan."
+                    "La ville a changé d’avis en mars. Ce changement d’avis vient du bilan.",
+                    "Ce revirement vient du bilan.",
+                    "Ce changement vient du bilan."
                   ],
                   "why": "Ce revirement, ou ce changement : un nom qui résume. EN: a summing noun.",
                   "ref": "a11-texte"
@@ -36895,7 +36953,8 @@
                   "accept": [
                     "Les bénévoles voulaient un second atelier ; la ville, non.",
                     "Les bénévoles voulaient un second atelier ; la ville ne le voulait pas.",
-                    "Les bénévoles voulaient un second atelier, pas la ville."
+                    "Les bénévoles voulaient un second atelier, pas la ville.",
+                    "la ville, non"
                   ],
                   "why": "La ville, non : le groupe est tu. EN: an ellipsis.",
                   "ref": "a11-texte"
@@ -36907,7 +36966,8 @@
                   "answer": "Odile Ferland répare plus vite que les jeunes bénévoles ne le font.",
                   "accept": [
                     "Odile Ferland répare plus vite que les jeunes bénévoles ne le font.",
-                    "Odile Ferland répare plus vite que les jeunes bénévoles."
+                    "Odile Ferland répare plus vite que les jeunes bénévoles.",
+                    "Odile Ferland répare plus vite que les jeunes bénévoles le font."
                   ],
                   "why": "Réparer est une action : ne le font. EN: faire.",
                   "ref": "a11-table"
@@ -36996,7 +37056,9 @@
                   "prompt": "Le gardien a refusé. (…) a surpris tout le monde.",
                   "answer": "Le gardien a refusé. Ce refus a surpris tout le monde.",
                   "accept": [
-                    "Le gardien a refusé. Ce refus a surpris tout le monde."
+                    "Le gardien a refusé. Ce refus a surpris tout le monde.",
+                    "Ce refus",
+                    "Ce refus a surpris tout le monde."
                   ],
                   "why": "« Le verbe raconte, le nom condense : choisis selon qui te lit ou t’écoute. » EN: The verb tells, the noun condenses: choose for whoever reads or hears you.",
                   "ref": "a8-cartes"
@@ -37065,7 +37127,7 @@
                     "l’initiative"
                   ],
                   "correct": 3,
-                  "why": "L’initiative, nommée juste avant ; une personne ne coûte rien à la ville. EN: the initiative.",
+                  "why": "L’initiative, le dernier nom cité ; la suite (le local prêté, les outils donnés) décrit un projet, pas une personne. EN: the initiative.",
                   "ref": "a11-renvoie"
                 },
                 {
@@ -38948,7 +39010,7 @@
       ],
       "cardType": "grammar",
       "prompt": "« Quand les travaux eurent été terminés, on rouvrit le pont. » Aujourd’hui, tu dirais…",
-      "notes": "Eurent été terminés : le passif au passé antérieur. Aujourd’hui, une fois + participe le dit en trois mots."
+      "notes": "Eurent été terminés : le passif au passé antérieur. Aujourd’hui, une fois + participe le dit sans verbe conjugué."
     },
     {
       "id": "fr.c1.litterature.1656",
@@ -39048,7 +39110,7 @@
       ],
       "cardType": "grammar",
       "prompt": "« Quand la séance fut terminée, chacun rentra chez soi. » Aujourd’hui, tu dirais…",
-      "notes": "Fut terminée : un état atteint, au passé simple. Le passé antérieur de terminer serait eut terminé, avec avoir."
+      "notes": "Fut terminée : un passif ou un état atteint, au passé simple, pas un passé antérieur (terminer prend avoir). Aujourd’hui : s’est terminée, ou a été terminée."
     },
     {
       "id": "fr.c1.litterature.1660",
@@ -41398,10 +41460,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "litterature",
-      "fr": "J’en ai eu vu : un surcomposé sans subordonnée, régional, surtout dans le sud de la France et en Suisse romande.",
-      "en": "J’en ai eu vu: a surcomposé with no time clause, regional, chiefly in the south of France and French-speaking Switzerland.",
-      "ipa": "/ʒɑ̃.ne y vy œ̃ syʁ.kɔ̃.po.ze sɑ̃ syb.ɔʁ.dɔ.ne ʁe.ʒjɔ.nal syʁ.tu dɑ̃ lə syd də la fʁɑ̃s e ɑ̃ sɥis ʁɔ.mɑ̃d/",
-      "respell": "zhahⁿ-nay Ü VÜ | uhⁿ sür-kohⁿ-poh-ZAY | sahⁿ süb-or-do-NAY | ray-zhyo-NAL | sür-TOO dahⁿ luh SÜD duh la FRAHⁿS | ay ahⁿ SWEESS ro-MAHⁿD",
+      "fr": "J’en ai eu vu : un surcomposé d’expérience, régional, surtout dans le sud de la France et en Suisse romande.",
+      "en": "J’en ai eu vu: an experiential surcomposé, with no time clause, regional, chiefly in the south of France and French-speaking Switzerland.",
+      "ipa": "/ʒɑ̃.ne y vy œ̃ syʁ.kɔ̃.po.ze dɛk.spe.ʁjɑ̃s ʁe.ʒjɔ.nal syʁ.tu dɑ̃ lə syd də la fʁɑ̃s e ɑ̃ sɥis ʁɔ.mɑ̃d/",
+      "respell": "zhahⁿ-nay Ü VÜ | uhⁿ sür-kohⁿ-poh-ZAY | dek-spay-RYAHⁿS | ray-zhyo-NAL | sür-TOO dahⁿ luh SÜD duh la FRAHⁿS | ay ahⁿ SWEESS ro-MAHⁿD",
       "tags": [
         "regle",
         "forme",
@@ -41418,7 +41480,7 @@
       ],
       "cardType": "grammar",
       "prompt": "J’en ai eu vu : de quelle région vient ce français ?",
-      "notes": "Surtout du sud de la France et de la Suisse romande : il dit une expérience passée. Reconnais-le, ne le prescris pas. EN: regional; recognise it."
+      "notes": "Surtout du sud de la France et de la Suisse romande, sans charnière : il dit une expérience passée. Reconnais-le, ne le prescris pas. EN: regional; recognise it."
     },
     {
       "id": "fr.c1.litterature.1770",
@@ -41965,7 +42027,7 @@
       ],
       "cardType": "grammar",
       "prompt": "« Eût-il parlé plus tôt, tout eût changé. » Aujourd’hui, tu dirais…",
-      "notes": "Eût-il parlé : s’il avait parlé. Tout eût changé, sans que : tout aurait changé."
+      "notes": "Eût-il parlé : s’il avait parlé. Tout eût changé, sans « que » devant : un conditionnel passé, tout aurait changé."
     },
     {
       "id": "fr.c1.litterature.1812",
@@ -43524,7 +43586,7 @@
       ],
       "cardType": "grammar",
       "prompt": "« Eût-il su la vérité, il fût resté. » Aujourd’hui, tu dirais…",
-      "notes": "Eût-il su : s’il avait su. Il fût resté, sans que : il serait resté."
+      "notes": "Eût-il su : s’il avait su. Il fût resté, sans « que » devant : un conditionnel passé, il serait resté."
     },
     {
       "id": "fr.c1.litterature.1873",
@@ -43781,7 +43843,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Eut-il ou eût-il : comment les distinguer ?",
-      "notes": "Eut-il ? pose une question sur un fait raconté. Eût-il, suivi d’une virgule et d’une autre proposition, dit si."
+      "notes": "Eut-il, sans accent, raconte un fait : une question, ou une inversion après à peine (la leçon 8 du B2). Eût-il, suivi d’une virgule et d’une autre proposition, dit si, ou même si."
     },
     {
       "id": "fr.c1.litterature.1883",
@@ -44626,17 +44688,17 @@
       ],
       "cardType": "grammar",
       "prompt": "Je voulais qu’il parte : est-ce correct à l’écrit ?",
-      "notes": "Oui. L’imparfait du subjonctif reste la règle de principe, mais l’OQLF admet le présent, et presque tous les auteurs l’écrivent."
+      "notes": "Oui. L’imparfait du subjonctif reste la règle de principe, mais l’OQLF admet le présent, et la plupart des auteurs l’écrivent. Certains correcteurs tiennent encore à la règle stricte dans l’écrit très soutenu."
     },
     {
       "id": "fr.c1.litterature.1932",
       "kind": "sentence",
       "level": "c1",
       "theme": "litterature",
-      "fr": "À l’oral, l’imparfait du subjonctif ne s’entend plus que par jeu.",
-      "en": "In speech, the imperfect subjunctive is heard only as a joke.",
-      "ipa": "/a lɔ.ʁal lɛ̃.paʁ.fɛ dy syb.ʒɔ̃k.tif nə sɑ̃.tɑ̃ ply kə paʁ ʒø/",
-      "respell": "a lo-RAL | lehⁿ-par-FEH dü süb-zhohⁿk-TEEF | nuh sahⁿ-TAHⁿ plü kuh | par ZHEU",
+      "fr": "À l’oral, l’imparfait du subjonctif ne s’entend plus guère, sinon par jeu.",
+      "en": "In speech, the imperfect subjunctive is hardly heard any more, except in jest.",
+      "ipa": "/a lɔ.ʁal lɛ̃.paʁ.fɛ dy syb.ʒɔ̃k.tif nə sɑ̃.tɑ̃ ply ɡɛʁ si.nɔ̃ paʁ ʒø/",
+      "respell": "a lo-RAL | lehⁿ-par-FEH dü süb-zhohⁿk-TEEF | nuh sahⁿ-TAHⁿ plü GEHR | see-nohⁿ par ZHEU",
       "tags": [
         "regle",
         "norme"
@@ -44652,7 +44714,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Et dans une conversation ?",
-      "notes": "Personne ne le dit sérieusement : quelqu’un qui dit qu’il vînt imite les livres pour faire sourire."
+      "notes": "Presque personne ne le dit sérieusement : qui dit qu’il vînt imite le plus souvent les livres pour faire sourire, ou vise une solennité appuyée."
     },
     {
       "id": "fr.c1.litterature.1933",
@@ -45267,10 +45329,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "litterature",
-      "fr": "La seule phrase au présent du subjonctif est celle du personnage.",
-      "en": "The only sentence in the present subjunctive is the character’s.",
-      "ipa": "/la sœl fʁaz o pʁe.zɑ̃ dy syb.ʒɔ̃k.tif ɛ sɛl dy pɛʁ.sɔ.naʒ/",
-      "respell": "la suhl FRAZ | oh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | eh sel dü pehr-so-NAZH",
+      "fr": "La seule réplique au présent du subjonctif est celle de la tante.",
+      "en": "The only line of dialogue in the present subjunctive is the aunt’s.",
+      "ipa": "/la sœl ʁe.plik o pʁe.zɑ̃ dy syb.ʒɔ̃k.tif ɛ sɛl də la tɑ̃t/",
+      "respell": "la suhl ray-PLEEK | oh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | eh sel duh la TAHⁿT",
       "tags": [
         "page",
         "lecture"
@@ -47022,10 +47084,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "pronoms-essentiels",
-      "fr": "Jamais que suivi d’un infinitif : un livre à lire, quelqu’un à qui parler.",
-      "en": "Never que followed by an infinitive: a book to read, someone to talk to.",
-      "ipa": "/ʒa.mɛ kə sɥi.vi dœ̃.nɛ̃.fi.ni.tif œ̃ livʁ a liʁ kɛl.kœ̃ a ki paʁ.le/",
-      "respell": "zha-meh KUH | swee-VEE | duhⁿ-nehⁿ-fee-nee-TEEF | uhⁿ LEEVR a LEER | kel-KUHⁿ a kee par-LAY",
+      "fr": "Jamais que relatif suivi d’un infinitif : un livre à lire, quelqu’un à qui parler.",
+      "en": "Never relative que followed by an infinitive: a book to read, someone to talk to.",
+      "ipa": "/ʒa.mɛ kə ʁə.la.tif sɥi.vi dœ̃.nɛ̃.fi.ni.tif œ̃ livʁ a liʁ kɛl.kœ̃ a ki paʁ.le/",
+      "respell": "zha-meh kuh ruh-la-TEEF | swee-VEE | duhⁿ-nehⁿ-fee-nee-TEEF | uhⁿ LEEVR a LEER | kel-KUHⁿ a kee par-LAY",
       "tags": [
         "regle",
         "infinitif"
@@ -47290,7 +47352,7 @@
       "level": "c1",
       "theme": "pronoms-essentiels",
       "fr": "La copie du contrat que le notaire a signée est au dossier.",
-      "en": "The copy of the contract which the notary signed is on file.",
+      "en": "The copy of the contract, the one the notary signed, is on file.",
       "ipa": "/la kɔ.pi dy kɔ̃.tʁa kə lə nɔ.tɛʁ a si.ɲe ɛ.to dɔ.sje/",
       "respell": "la ko-PEE dü kohⁿ-TRA | kuh luh no-TEHR a see-NYAY | eh-toh do-SYAY",
       "tags": [
@@ -47315,7 +47377,7 @@
       "level": "c1",
       "theme": "pronoms-essentiels",
       "fr": "La copie du contrat que le notaire a signé est au dossier.",
-      "en": "The copy of the contract the notary signed is on file.",
+      "en": "The copy of the notary-signed contract is on file.",
       "ipa": "/la kɔ.pi dy kɔ̃.tʁa kə lə nɔ.tɛʁ a si.ɲe ɛ.to dɔ.sje/",
       "respell": "la ko-PEE dü kohⁿ-TRA | kuh luh no-TEHR a see-NYAY | eh-toh do-SYAY",
       "tags": [
@@ -47661,7 +47723,7 @@
       "level": "c1",
       "theme": "pronoms-essentiels",
       "fr": "Le locataire et le propriétaire, lequel prend les travaux en charge, signent le bail.",
-      "en": "The tenant and the landlord, the one who covers the repairs, sign the lease.",
+      "en": "The tenant and the landlord, one of whom (but which?) covers the repairs, sign the lease.",
       "ipa": "/lə lɔ.ka.tɛʁ e lə pʁɔ.pʁi.je.tɛʁ lə.kɛl pʁɑ̃ le tʁa.vo ɑ̃ ʃaʁʒ siɲ lə baj/",
       "respell": "luh lo-ka-TEHR | ay luh pro-pree-yay-TEHR | luh-KEL prahⁿ lay tra-VOH ahⁿ SHARZH | seeny luh BAÏ",
       "tags": [
@@ -48570,7 +48632,7 @@
       ],
       "cardType": "gapfill",
       "prompt": "C’était une époque ___ tout semblait possible. (un moment)",
-      "notes": "Une époque est un moment : où, jamais quand. EN: où for a time."
+      "notes": "Une époque est un moment : où, jamais quand, comme dans la leçon 12 du B1. EN: où for a time, as in B1."
     },
     {
       "id": "fr.c1.pronoms-essentiels.2147",
@@ -49238,7 +49300,7 @@
       ],
       "cardType": "gapfill",
       "prompt": "La visite, à l’issue ___ un verre sera servi, commence à dix-huit heures. (à l’issue de · la visite)",
-      "notes": "Après une locution qui finit par de, pas dont : de laquelle. EN: de laquelle after à l’issue."
+      "notes": "Rappel de la leçon 13 du B1 : après une locution qui finit par de, pas dont, mais de laquelle. EN: a reminder from B1: de laquelle after à l’issue."
     },
     {
       "id": "fr.c1.pronoms-essentiels.2180",
@@ -50021,8 +50083,8 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "langue-soignee",
-      "fr": "Le reprend un adjectif ou un nom attribut, et il ne s’accorde jamais.",
-      "en": "Le picks up an adjective or a noun complement, and it never agrees.",
+      "fr": "Le reprend un adjectif ou un nom sans article, et il ne s’accorde jamais.",
+      "en": "Le picks up an adjective or a bare noun, and it never agrees.",
       "ipa": "/lə ʁə.pʁɑ̃ œ̃.na.dʒɛk.tif u œ̃ nɔ̃ a.tʁi.by e il nə sa.kɔʁd ʒa.mɛ/",
       "respell": "luh ruh-PRAHⁿ | uhⁿ-nad-zhek-TEEF | oo uhⁿ nohⁿ a-tree-BÜ | ay eel nuh sa-kord zha-MEH",
       "tags": [
@@ -50041,7 +50103,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Fatiguée, je la suis ou je le suis ?",
-      "notes": "Je le suis. Ce le est neutre : il reprend l’idée d’être fatiguée, pas une personne. Il reste le au féminin comme au pluriel : elles le sont."
+      "notes": "Je le suis. Ce le est neutre : il reprend l’idée d’être fatiguée, pas une personne. Il reste le au féminin comme au pluriel : elles le sont. Un nom avec article (la directrice) se reprend plutôt par c’est elle."
     },
     {
       "id": "fr.c1.langue-soignee.2024",
@@ -52998,7 +53060,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "Marie a téléphoné à sa sœur quand elle est rentrée de Lyon.",
-      "en": "Marie phoned her sister when she got back from Lyon.",
+      "en": "Marie phoned her sister when she got back from Lyon (ambiguous: Marie or her sister?).",
       "ipa": "/ma.ʁi a te.le.fɔ.ne a sa sœʁ kɑ̃.tɛ.lɛ ʁɑ̃.tʁe də ljɔ̃/",
       "respell": "ma-REE | a tay-lay-fo-NAY | a sa SUHR | kahⁿ-teh-leh rahⁿ-TRAY | duh LYOHⁿ",
       "tags": [
@@ -53071,7 +53133,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "Paul a croisé Marc avec sa femme.",
-      "en": "Paul ran into Marc with his wife.",
+      "en": "Paul ran into Marc with his wife (ambiguous: whose wife?).",
       "ipa": "/pɔl a kʁwa.ze maʁk a.vɛk sa fam/",
       "respell": "POL a krwa-ZAY MARK | a-vek sa FAMM",
       "tags": [
@@ -53166,7 +53228,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "La présidente a écrit à la trésorière pour lui dire qu’elle démissionnait.",
-      "en": "The president wrote to the treasurer to tell her she was resigning.",
+      "en": "The president wrote to the treasurer to tell her she was resigning (ambiguous: which of them?).",
       "ipa": "/la pʁe.zi.dɑ̃t a e.kʁi a la tʁe.zɔ.ʁjɛʁ puʁ lɥi diʁ kɛl de.mi.sjɔ.nɛ/",
       "respell": "la pray-zee-DAHⁿT | a ay-KREE | a la tray-zo-RYEHR | poor lwee DEER | kel day-mee-syo-NEH",
       "tags": [
@@ -53213,7 +53275,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "La présidente a écrit à la trésorière, qui lui a annoncé sa démission.",
-      "en": "The president wrote to the treasurer, who told her she was resigning.",
+      "en": "The president wrote to the treasurer, who then announced her own resignation to her.",
       "ipa": "/la pʁe.zi.dɑ̃t a e.kʁi a la tʁe.zɔ.ʁjɛʁ ki lɥi a a.nɔ̃.se sa de.mi.sjɔ̃/",
       "respell": "la pray-zee-DAHⁿT | a ay-KREE | a la tray-zo-RYEHR | kee lwee a a-nohⁿ-SAY | sa day-mee-SYOHⁿ",
       "tags": [
@@ -53315,7 +53377,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "Hugo a dit à son frère qu’il avait gagné.",
-      "en": "Hugo told his brother he had won.",
+      "en": "Hugo told his brother he had won (ambiguous: which of them?).",
       "ipa": "/y.ɡo a di a sɔ̃ fʁɛʁ ki.la.vɛ ɡa.ɲe/",
       "respell": "ü-GOH | a DEE | a sohⁿ FREHR | kee-la-veh ga-NYAY",
       "tags": [

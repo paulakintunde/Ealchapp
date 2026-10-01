@@ -51,8 +51,9 @@
 //       Named, its reframe quoted, no row needed.
 //     - b1.21 « L'inversion » (« la leçon 21 du B1 »): « À peine est-il
 //       arrivé que… ». Rows langue-soignee .1167, .1168 reused.
-//     - The concordance of tenses in literary texts belongs to another C1
-//       lesson of the same wave, not yet built: never cited by position.
+//     - The concordance of tenses in literary texts belongs to c1.03
+//       « La concordance littéraire », same wave, publishing together: cited
+//       as « la leçon 3 du C1 » in the roundup only (pre-review 2026-10-01).
 //
 // ══════════════════════════════════════════════════════════════════════════
 //  §A. MEASURED (Postgres read 2026-10-01 inside BEGIN TRANSACTION READ
@@ -98,7 +99,7 @@
 //
 //  6. TEXTS. Every reading and « dans un texte » paragraph is ORIGINAL,
 //     written for the lesson (« texte original écrit pour la leçon »),
-//     EXCEPT the five public-domain extracts in §I, each fetched from
+//     EXCEPT the six public-domain extracts and two single lines in §I, each fetched from
 //     fr.wikisource.org (rendered page text, API parse, 2026-10-01) and
 //     copied word for word, with the authors' typography (’, « », ; with a
 //     space). One cut is marked « […] »: it replaces an em dash the house
@@ -546,7 +547,7 @@ export const ACT4_ROWS: Row[] = [
     '/kɑ̃ le tʁa.vo yʁ.te.te tɛʁ.mi.ne ɔ̃ ʁu.vʁi lə pɔ̃/', 'kahⁿ lay tra-VOH | ür-tay-TAY tehr-mee-NAY | ohⁿ roo-VREE luh POHⁿ', ['passif', 'avoir']),
   map(1655, 'Quand les travaux eurent été terminés, on rouvrit le pont.', 'Une fois les travaux terminés, on a rouvert le pont.', 'Once the work was done, the bridge was reopened.',
     '/yn fwa le tʁa.vo tɛʁ.mi.ne ɔ̃.na ʁu.vɛʁ lə pɔ̃/', 'ünn FWA lay tra-VOH tehr-mee-NAY | ohⁿ-na roo-VEHR luh POHⁿ',
-    'Eurent été terminés : le passif au passé antérieur. Aujourd’hui, une fois + participe le dit en trois mots.', ['passif', 'avoir'], FCVDR),
+    'Eurent été terminés : le passif au passé antérieur. Aujourd’hui, une fois + participe le dit sans verbe conjugué.', ['passif', 'avoir'], FCVDR),
   pa(1656, 'Lorsque la nuit fut tombée, on alluma les feux.', 'When night had fallen, the fires were lit.',
     '/lɔʁs.kə la nɥi fy tɔ̃.be ɔ̃.na.ly.ma le fø/', 'lors-kuh la NWEE fü tohⁿ-BAY | ohⁿ-na-lü-MA lay FEU', ['etre']),
   map(1657, 'Lorsque la nuit fut tombée, on alluma les feux.', 'Lorsque la nuit est tombée, on a allumé les feux.', 'When night had fallen, the fires were lit.',
@@ -556,7 +557,7 @@ export const ACT4_ROWS: Row[] = [
     '/kɑ̃ la se.ɑ̃s fy tɛʁ.mi.ne ʃa.kœ̃ ʁɑ̃.tʁa ʃe swa/', 'kahⁿ la say-AHⁿS fü tehr-mee-NAY | sha-KUHⁿ rahⁿ-TRA shay SWA', ['passif', 'etat']),
   map(1659, 'Quand la séance fut terminée, chacun rentra chez soi.', 'Quand la séance s’est terminée, chacun est rentré chez soi.', 'When the session was over, everyone went home.',
     '/kɑ̃ la se.ɑ̃s sɛ tɛʁ.mi.ne ʃa.kœ̃ ɛ ʁɑ̃.tʁe ʃe swa/', 'kahⁿ la say-AHⁿS seh tehr-mee-NAY | sha-KUHⁿ eh rahⁿ-TRAY shay SWA',
-    'Fut terminée : un état atteint, au passé simple. Le passé antérieur de terminer serait eut terminé, avec avoir.', ['passif', 'etat']),
+    'Fut terminée : un passif ou un état atteint, au passé simple, pas un passé antérieur (terminer prend avoir). Aujourd’hui : s’est terminée, ou a été terminée.', ['passif', 'etat']),
   rule(1660, 'Fut et un participe : passé antérieur si le verbe prend être (partir, tomber, arriver) ; passif au passé simple si le verbe est transitif (envoyer, fermer).', 'Fut plus a participle: a passé antérieur if the verb takes être (partir, tomber, arriver); a passive in the passé simple if the verb is transitive (envoyer, fermer).',
     '/fy e œ̃ paʁ.ti.sip pa.se ɑ̃.te.ʁjœʁ si lə vɛʁb pʁɑ̃.tɛtʁ pa.sif o pa.se sɛ̃pl si lə vɛʁb ɛ tʁɑ̃.zi.tif/', 'FÜ ay uhⁿ par-tee-SEEP | pa-SAY ahⁿ-tay-RYUHR | see luh VEHRB prahⁿ-TEHTR | pa-SEEF oh pa-SAY SEHⁿPL | see luh VEHRB eh trahⁿ-zee-TEEF',
     'Fut parti, fut envoyée : lequel est un passé antérieur ?', 'Fut parti : partir prend être. Fut envoyée : on envoie quelque chose, c’est un passif. EN: être verb or transitive verb?', ['forme', 'passif']),
@@ -828,9 +829,9 @@ export const ACT11_ROWS: Row[] = [
   rule(1768, 'Quand j’ai eu fini : le passé surcomposé, entendu surtout à l’oral ; à l’écrit soigné, on écrit quand j’ai fini.', 'Quand j’ai eu fini: the passé surcomposé, heard mostly in speech; in careful writing, people write quand j’ai fini.',
     '/kɑ̃ ʒe y fi.ni lə pa.se syʁ.kɔ̃.po.ze ɑ̃.tɑ̃.dy syʁ.tu.ta lɔ.ʁal a le.kʁi swa.ɲe ɔ̃.ne.kʁi kɑ̃ ʒe fi.ni/', 'kahⁿ zhay Ü fee-NEE | luh pa-SAY sür-kohⁿ-poh-ZAY | ahⁿ-tahⁿ-DÜ sür-too-ta lo-RAL | a lay-KREE swa-NYAY | ohⁿ-nay-KREE kahⁿ zhay fee-NEE',
     'Quand j’ai eu fini : où l’entends-tu ?', 'Dans la conversation, après quand, dès que, une fois que. À l’écrit soigné, tu ne le liras presque pas. EN: in speech, after a time hinge.', ['forme', 'oral']),
-  rule(1769, 'J’en ai eu vu : un surcomposé sans subordonnée, régional, surtout dans le sud de la France et en Suisse romande.', 'J’en ai eu vu: a surcomposé with no time clause, regional, chiefly in the south of France and French-speaking Switzerland.',
-    '/ʒɑ̃.ne y vy œ̃ syʁ.kɔ̃.po.ze sɑ̃ syb.ɔʁ.dɔ.ne ʁe.ʒjɔ.nal syʁ.tu dɑ̃ lə syd də la fʁɑ̃s e ɑ̃ sɥis ʁɔ.mɑ̃d/', 'zhahⁿ-nay Ü VÜ | uhⁿ sür-kohⁿ-poh-ZAY | sahⁿ süb-or-do-NAY | ray-zhyo-NAL | sür-TOO dahⁿ luh SÜD duh la FRAHⁿS | ay ahⁿ SWEESS ro-MAHⁿD',
-    'J’en ai eu vu : de quelle région vient ce français ?', 'Surtout du sud de la France et de la Suisse romande : il dit une expérience passée. Reconnais-le, ne le prescris pas. EN: regional; recognise it.', ['forme', 'regional']),
+  rule(1769, 'J’en ai eu vu : un surcomposé d’expérience, régional, surtout dans le sud de la France et en Suisse romande.', 'J’en ai eu vu: an experiential surcomposé, with no time clause, regional, chiefly in the south of France and French-speaking Switzerland.',
+    '/ʒɑ̃.ne y vy œ̃ syʁ.kɔ̃.po.ze dɛk.spe.ʁjɑ̃s ʁe.ʒjɔ.nal syʁ.tu dɑ̃ lə syd də la fʁɑ̃s e ɑ̃ sɥis ʁɔ.mɑ̃d/', 'zhahⁿ-nay Ü VÜ | uhⁿ sür-kohⁿ-poh-ZAY | dek-spay-RYAHⁿS | ray-zhyo-NAL | sür-TOO dahⁿ luh SÜD duh la FRAHⁿS | ay ahⁿ SWEESS ro-MAHⁿD',
+    'J’en ai eu vu : de quelle région vient ce français ?', 'Surtout du sud de la France et de la Suisse romande, sans charnière : il dit une expérience passée. Reconnais-le, ne le prescris pas. EN: regional; recognise it.', ['forme', 'regional']),
   rule(1770, 'Le surcomposé répond au passé antérieur : la même action bouclée juste avant, mais dans la langue parlée.', 'The surcomposé answers the passé antérieur: the same action wrapped up just before, but in spoken French.',
     '/lə syʁ.kɔ̃.po.ze ʁe.pɔ̃ o pa.se ɑ̃.te.ʁjœʁ la mɛm a.ksjɔ̃ bu.kle ʒyst a.vɑ̃ mɛ dɑ̃ la lɑ̃ɡ paʁ.le/', 'luh sür-kohⁿ-poh-ZAY ray-POHⁿ oh pa-SAY ahⁿ-tay-RYUHR | la MEMM ak-SYOHⁿ boo-KLAY zhüst a-VAHⁿ | meh dahⁿ la LAHⁿG par-LAY',
     'Quand il eut fini, quand il a eu fini : quel rapport ?', 'Le même sens. Le premier est écrit et littéraire, le second parlé : deux registres, une seule idée. EN: one idea, two registers.', ['forme', 'oral']),

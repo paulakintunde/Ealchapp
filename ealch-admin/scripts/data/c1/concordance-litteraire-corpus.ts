@@ -103,8 +103,11 @@
 //          speaker layout « NAME : line » is ours. Used in LECTURE_HORACE and
 //          rows 1815 and 1817 (« Que vouliez-vous qu’il fît contre trois ? »,
 //          « Qu’il mourût »), verbatim.
-//       b. « Horace » is dated 1640 (first performance; printed 1641). To
-//          confirm the year printed in the reading's source line.
+//       b. « Horace » is dated 1640 (first performance; printed 1641).
+//          Pre-review 2026-10-01: confirmed (Universalis); the reading's
+//          source line now gives both years. Verse numbers 1021-1026 and
+//          the text checked word for word on the Wikisource page (v. 1020
+//          « Et l’opprobre éternel… », v. 1025 « Il eût avec honneur… »).
 //       c. OQLF, Banque de dépannage linguistique, « Principes de la
 //          correspondance des temps » (read 2026-10-01): « Si le verbe de la
 //          principale est au passé de l’indicatif ou du conditionnel, le verbe
@@ -121,17 +124,22 @@
 //          Content checked against secondary summaries only; the PARAGRAPH
 //          NUMBERS ARE NOT CITED because no edition was at hand. The lesson
 //          names Grevisse without a paragraph (rule 1930, sheet-norme, act 8
-//          cards). Pre-review: confirm, add § and edition if wanted.
+//          cards). Pre-review 2026-10-01: no reliable online paragraph
+//          reference found; the name only is kept (reviewer's call).
 //       e. The conditional is built on the imparfait endings (voudr-ais), which
 //          is why classical grammar treats it with the past for concordance
 //          (rule 1865 notes). Standard description (OQLF c above puts the
 //          conditional with the past).
 //       f. Concessive inversion with the conditional (« Serait-il ministre, la
 //          règle vaudrait pour lui ») is a formal construction (soutenu),
-//          taught for recognition only (row 1898). To confirm against Le Robert
-//          / Grevisse at the pre-review.
+//          taught for recognition only (row 1898). Pre-review 2026-10-01:
+//          attested in descriptive grammars (« Le voudrait-il, il ne
+//          pourrait mieux réussir », « M’offririez-vous un empire, je le
+//          refuserais »); the label « soutenu, encore vivant à l’écrit » holds.
 //       g. « N’eût été » = « sans », « si ce n’avait été » (row 1875): fixed
-//          literary phrase. To confirm against TLFi (« être », locution).
+//          literary phrase. Pre-review 2026-10-01: confirmed (Juriterm
+//          « n’était, n’eût été » = si ce n’avait été, s’il n’y avait pas eu;
+//          literary, past facts, with a conditionnel passé).
 //     All other figures, dates and events are invented and internal to the
 //     lesson (the plaque « en 1902 » of act 7 is invented).
 //
@@ -404,7 +412,7 @@ export const ACT1_ROWS: Row[] = [
     '/y.til paʁ.le ply to tu.ty ʃɑ̃.ʒe/', 'ü-TEEL par-LAY plü TOH | too-tü shahⁿ-ZHAY', ['inversion', 'hypothese']),
   map(1811, 'Eût-il parlé plus tôt, tout eût changé.', 'S’il avait parlé plus tôt, tout aurait changé.', 'Had he spoken sooner, everything would have changed.',
     '/si.la.vɛ paʁ.le ply to tu.to.ʁɛ ʃɑ̃.ʒe/', 'see-la-VEH par-LAY plü TOH | too-toh-REH shahⁿ-ZHAY',
-    'Eût-il parlé : s’il avait parlé. Tout eût changé, sans que : tout aurait changé.', ['inversion', 'hypothese'], FCVDR),
+    'Eût-il parlé : s’il avait parlé. Tout eût changé, sans « que » devant : un conditionnel passé, tout aurait changé.', ['inversion', 'hypothese'], FCVDR),
   sent(1812, 'Dans un roman classique, le subjonctif suit le temps du verbe principal.', 'In a classic novel, the subjunctive follows the tense of the main verb.',
     '/dɑ̃.zœ̃ ʁɔ.mɑ̃ kla.sik lə syb.ʒɔ̃k.tif sɥi lə tɑ̃ dy vɛʁb pʁɛ̃.si.pal/', 'dahⁿ-zuhⁿ ro-mahⁿ kla-SEEK | luh süb-zhohⁿk-TEEF | swee luh TAHⁿ | dü vehrb prehⁿ-see-PAL', ['usage']),
   sent(1813, 'Dans un article, une forme rare donne de la solennité.', 'In an article, a rare form adds solemnity.',
@@ -582,7 +590,7 @@ export const ACT5_ROWS: Row[] = [
     '/y.til sy la ve.ʁi.te il fy ʁɛs.te/', 'ü-TEEL SÜ | la vay-ree-TAY | eel fü res-TAY', ['inversion', 'hypothese']),
   map(1872, 'Eût-il su la vérité, il fût resté.', 'S’il avait su la vérité, il serait resté.', 'Had he known the truth, he would have stayed.',
     '/si.la.vɛ sy la ve.ʁi.te il sə.ʁɛ ʁɛs.te/', 'see-la-veh SÜ | la vay-ree-TAY | eel suh-REH res-TAY',
-    'Eût-il su : s’il avait su. Il fût resté, sans que : il serait resté.', ['inversion', 'hypothese'], FCVDR),
+    'Eût-il su : s’il avait su. Il fût resté, sans « que » devant : un conditionnel passé, il serait resté.', ['inversion', 'hypothese'], FCVDR),
   sl(1873, 'Eût-elle insisté, on l’eût écoutée.', 'Had she insisted, they would have listened to her.',
     '/y.tɛ.lɛ̃.sis.te ɔ̃ ly.te.ku.te/', 'ü-teh-lehⁿ-sees-TAY | ohⁿ lü-tay-koo-TAY', ['inversion', 'hypothese']),
   map(1874, 'Eût-elle insisté, on l’eût écoutée.', 'Si elle avait insisté, on l’aurait écoutée.', 'Had she insisted, they would have listened to her.',
@@ -611,7 +619,7 @@ export const ACT5_ROWS: Row[] = [
   rule(1882, 'Eut-il, sans chapeau, est un passé simple ; eût-il, avec chapeau, ouvre une hypothèse.', 'Eut-il, without the circumflex, is a passé simple; eût-il, with it, opens a hypothesis.',
     '/y.til sɑ̃ ʃa.po ɛ.tœ̃ pa.se sɛ̃pl y.til a.vɛk ʃa.po uvʁ yn i.pɔ.tɛz/', 'ü-TEEL | sahⁿ sha-POH | eh-tuhⁿ pa-say SEHⁿPL | ü-TEEL | a-vek sha-POH | oovr ün ee-po-TEZ',
     'Eut-il ou eût-il : comment les distinguer ?',
-    'Eut-il ? pose une question sur un fait raconté. Eût-il, suivi d’une virgule et d’une autre proposition, dit si.', ['hypothese'], F),
+    'Eut-il, sans accent, raconte un fait : une question, ou une inversion après à peine (la leçon 8 du B2). Eût-il, suivi d’une virgule et d’une autre proposition, dit si, ou même si.', ['hypothese'], F),
   sl(1883, 'Eût-on écouté les anciens, le village n’eût pas été noyé.', 'Had the elders been listened to, the village would not have been flooded.',
     '/y.tɔ̃.ne.ku.te le.zɑ̃.sjɛ̃ lə vi.laʒ ny pa.ze.te nwa.je/', 'ü-tohⁿ-nay-koo-TAY | lay-zahⁿ-SYEHⁿ | luh vee-LAZH | nü pa-zay-TAY nwa-YAY', ['inversion', 'hypothese']),
   map(1884, 'Eût-on écouté les anciens, le village n’eût pas été noyé.', 'Si on avait écouté les anciens, le village n’aurait pas été noyé.', 'Had the elders been listened to, the village would not have been flooded.',
@@ -717,11 +725,11 @@ export const ACT8_ROWS: Row[] = [
   rule(1931, 'L’OQLF admet le présent du subjonctif après un verbe principal au passé.', 'OQLF accepts the present subjunctive after a past main verb.',
     '/lo.ky.ɛ.lɛf ad.mɛ lə pʁe.zɑ̃ dy syb.ʒɔ̃k.tif a.pʁɛ.zœ̃ vɛʁb pʁɛ̃.si.pal o pa.se/', 'loh-kü-eh-LEF | ad-MEH luh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | a-preh-zuhⁿ VEHRB prehⁿ-see-PAL | oh pa-SAY',
     'Je voulais qu’il parte : est-ce correct à l’écrit ?',
-    'Oui. L’imparfait du subjonctif reste la règle de principe, mais l’OQLF admet le présent, et presque tous les auteurs l’écrivent.', ['norme']),
-  rule(1932, 'À l’oral, l’imparfait du subjonctif ne s’entend plus que par jeu.', 'In speech, the imperfect subjunctive is heard only as a joke.',
-    '/a lɔ.ʁal lɛ̃.paʁ.fɛ dy syb.ʒɔ̃k.tif nə sɑ̃.tɑ̃ ply kə paʁ ʒø/', 'a lo-RAL | lehⁿ-par-FEH dü süb-zhohⁿk-TEEF | nuh sahⁿ-TAHⁿ plü kuh | par ZHEU',
+    'Oui. L’imparfait du subjonctif reste la règle de principe, mais l’OQLF admet le présent, et la plupart des auteurs l’écrivent. Certains correcteurs tiennent encore à la règle stricte dans l’écrit très soutenu.', ['norme']),
+  rule(1932, 'À l’oral, l’imparfait du subjonctif ne s’entend plus guère, sinon par jeu.', 'In speech, the imperfect subjunctive is hardly heard any more, except in jest.',
+    '/a lɔ.ʁal lɛ̃.paʁ.fɛ dy syb.ʒɔ̃k.tif nə sɑ̃.tɑ̃ ply ɡɛʁ si.nɔ̃ paʁ ʒø/', 'a lo-RAL | lehⁿ-par-FEH dü süb-zhohⁿk-TEEF | nuh sahⁿ-TAHⁿ plü GEHR | see-nohⁿ par ZHEU',
     'Et dans une conversation ?',
-    'Personne ne le dit sérieusement : quelqu’un qui dit qu’il vînt imite les livres pour faire sourire.', ['norme']),
+    'Presque personne ne le dit sérieusement : qui dit qu’il vînt imite le plus souvent les livres pour faire sourire, ou vise une solennité appuyée.', ['norme']),
   sl(1933, 'Bien qu’il eût raison, personne ne l’écouta.', 'Although he was right, nobody listened to him.',
     '/bjɛ̃ ki.ly ʁɛ.zɔ̃ pɛʁ.sɔn nə le.ku.ta/', 'byehⁿ kee-lü reh-ZOHⁿ | pehr-SONN nuh lay-koo-TA', ['partielle', 'imparfait']),
   map(1934, 'Bien qu’il eût raison, personne ne l’écouta.', 'Bien qu’il ait raison, personne ne l’a écouté.', 'Although he was right, nobody listened to him.',
@@ -791,8 +799,8 @@ export const ACT10_ROWS: Row[] = [
     'Racontât : raconter, en même temps que il fallait. Aujourd’hui : raconte.', ['page', 'imparfait']),
   sent(1967, 'Le narrateur garde la concordance pour donner du poids au récit.', 'The narrator keeps the sequence of tenses to give weight to the story.',
     '/lə na.ʁa.tœʁ ɡaʁd la kɔ̃.kɔʁ.dɑ̃s puʁ dɔ.ne dy pwa o ʁe.si/', 'luh na-ra-TUHR GARD | la kohⁿ-kor-DAHⁿS | poor do-nay dü PWA | oh ray-SEE', ['page', 'lecture']),
-  sent(1968, 'La seule phrase au présent du subjonctif est celle du personnage.', 'The only sentence in the present subjunctive is the character’s.',
-    '/la sœl fʁaz o pʁe.zɑ̃ dy syb.ʒɔ̃k.tif ɛ sɛl dy pɛʁ.sɔ.naʒ/', 'la suhl FRAZ | oh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | eh sel dü pehr-so-NAZH', ['page', 'lecture']),
+  sent(1968, 'La seule réplique au présent du subjonctif est celle de la tante.', 'The only line of dialogue in the present subjunctive is the aunt’s.',
+    '/la sœl ʁe.plik o pʁe.zɑ̃ dy syb.ʒɔ̃k.tif ɛ sɛl də la tɑ̃t/', 'la suhl ray-PLEEK | oh pray-ZAHⁿ dü süb-zhohⁿk-TEEF | eh sel duh la TAHⁿT', ['page', 'lecture']),
   sent(1969, 'L’inversion rend l’hypothèse plus solennelle.', 'The inversion makes the hypothesis more solemn.',
     '/lɛ̃.vɛʁ.sjɔ̃ ʁɑ̃ li.pɔ.tɛz ply sɔ.la.nɛl/', 'lehⁿ-vehr-SYOHⁿ | RAHⁿ lee-po-TEZ | plü so-la-NEL', ['page', 'lecture']),
 ];
@@ -847,7 +855,7 @@ export const LECTURE_DEUX_PAGES =
 /** Act 2: Corneille, « Horace », III, 6, vv. 1021-1026 (Marty-Laveaux 1862,
  *  Wikisource), word for word. Verse kept on separate lines. */
 export const LECTURE_HORACE =
-  'Pierre Corneille, « Horace » (1640), acte III, scène 6, vers 1021 à 1026. Le vieil Horace croit que son fils a fui le combat contre les trois Curiaces.\n\nJULIE : Que vouliez-vous qu’il fît contre trois ?\nLE VIEIL HORACE : Qu’il mourût,\nOu qu’un beau désespoir alors le secourût.\nN’eût-il que d’un moment reculé sa défaite,\nRome eût été du moins un peu plus tard sujette ;\nIl eût avec honneur laissé mes cheveux gris,\nEt c’étoit de sa vie un assez digne prix.\n\nTexte établi par Ch. Marty-Laveaux, Œuvres de Corneille, Hachette, 1862, tome 3 (Wikisource). Orthographe d’origine : « c’étoit ».';
+  'Pierre Corneille, « Horace » (créée en 1640, imprimée en 1641), acte III, scène 6, vers 1021 à 1026. Le vieil Horace croit que son fils a fui le combat contre les trois Curiaces.\n\nJULIE : Que vouliez-vous qu’il fît contre trois ?\nLE VIEIL HORACE : Qu’il mourût,\nOu qu’un beau désespoir alors le secourût.\nN’eût-il que d’un moment reculé sa défaite,\nRome eût été du moins un peu plus tard sujette ;\nIl eût avec honneur laissé mes cheveux gris,\nEt c’étoit de sa vie un assez digne prix.\n\nTexte établi par Ch. Marty-Laveaux, Œuvres de Corneille, Hachette, 1862, tome 3 (Wikisource). Orthographe d’origine : « c’étoit ».';
 
 /** Act 5: the ferryman (original). */
 export const LECTURE_PASSEUR =
@@ -868,7 +876,7 @@ export const LECTURE_LISETTE =
 /** Act 11: the model presentation of Lisette's page to a reading club, in
  *  today's French. */
 export const LECTURE_MODELE =
-  'Bonsoir à tous. Je vous présente une page qui m’a frappée : l’été de Lisette, dans une auberge de montagne. L’autrice garde la concordance classique dans tout le récit. Quand la tante exige que les tables soient dressées à six heures, le texte écrit « fussent dressées » ; quand Lisette attend que le garçon revienne, il écrit « revînt ». Deux inversions portent l’émotion : « Fût-il resté une heure de plus, elle lui eût parlé », c’est-à-dire : s’il était resté, elle lui aurait parlé. Il n’est pas resté. « Eût-elle su que l’auberge serait vendue », c’est-à-dire : si elle avait su. Elle ne savait pas. Une seule phrase s’en écarte, et ce n’est pas un hasard : la tante dit « Je voudrais que tu reviennes ». C’est une parole, au présent de celle qui parle, et elle sonne plus proche que tout le reste. À la fin, Lisette adulte dit « il aurait fallu qu’elle parle » : le français d’aujourd’hui revient avec elle. Selon moi, ce choix rapproche le texte d’un conte : le passé est loin, solennel, et seule la voix de la tante traverse le temps. Qu’en pensez-vous ?';
+  'Bonsoir à tous. Je vous présente une page qui m’a frappée : l’été de Lisette, dans une auberge de montagne. L’autrice garde la concordance classique dans tout le récit. Quand la tante exige que les tables soient dressées avant l’arrivée des marcheurs, le texte écrit « fussent dressées » ; quand Lisette attend que le garçon revienne, il écrit « revînt ». Deux inversions portent l’émotion : « Fût-il resté une heure de plus, elle lui eût parlé », c’est-à-dire : s’il était resté, elle lui aurait parlé. Il n’est pas resté. « Eût-elle su que l’auberge serait vendue », c’est-à-dire : si elle avait su. Elle ne savait pas. Une seule réplique s’en écarte, et ce n’est pas un hasard : la tante dit « Je voudrais que tu reviennes ». C’est une parole, au présent de celle qui parle, et elle sonne plus proche que tout le reste. À la fin, Lisette adulte dit « il aurait fallu qu’elle parle » : le français d’aujourd’hui revient avec elle. Selon moi, ce choix rapproche le texte d’un conte : le passé est loin, solennel, et seule la voix de la tante traverse le temps. Qu’en pensez-vous ?';
 
 /** The task extract (printed in the brief, since `task` has no source field).
  *  Original. */

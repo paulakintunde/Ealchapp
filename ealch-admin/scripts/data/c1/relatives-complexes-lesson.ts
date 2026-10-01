@@ -90,9 +90,18 @@
 //      pleonasm to avoid in careful writing, attributed to « les guides de
 //      bon usage, en France comme au Québec »; « que je crois qui » is
 //      labelled familiar speech (recognise, never write). Keep both lines?
-//   2. LEQUEL SUBJECT is taught as a written, administrative repair, with
-//      its limit (row 2099, two masculine nouns). OK to teach it at C1
-//      production level, or recognition only?
+//      PRE-REVIEW 2026-10-01: « c’est de cela dont » is settled by the
+//      Académie (DNP0650: pleonasm and grammatical fault) and the BDL
+//      (« dont ne doit pas être utilisé avec un antécédent précédé de la
+//      préposition de »); the lesson's « à éviter » is, if anything, mild.
+//      « Que je crois qui »: no online norm source found with an exact
+//      register label; « familier, à reconnaître » kept (reviewer's call).
+//   2. LEQUEL SUBJECT, production or recognition: SETTLED by the norm, not
+//      left open. The BDL (« Le pronom relatif lequel ») gives lequel
+//      subject as standard, explicative only, always after a comma, used to
+//      lift an ambiguity in formal writing. So production in WRITTEN,
+//      formal French stays as drafted; the task accepts it, never requires
+//      it (graderNotes), and speech keeps qui or a split sentence.
 //   3. FOUR POSTGRES-ONLY LEGACY ROWS are reused (corpus §A.3); two keep a
 //      straight apostrophe until the decision 13 typography edit at import.
 //   4. A PUBLISHED B1 ROW reads oddly against act 8: fr.b1.pronoms-
@@ -495,7 +504,7 @@ const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
     'Dont veut déjà dire « d’entre eux ». EN: dont already says it.'),
   ctl('La préposition', '« Le comité a reçu quarante dossiers, … six venaient de l’étranger. »',
     ['parmi lesquels', 'parmi qui', 'dont parmi'], 0,
-    'Parmi demande lequel, surtout pour des choses. EN: parmi lesquels.'),
+    'Parmi demande toujours lequel, pour des choses comme pour des gens. EN: parmi lesquels.'),
 ], ['partitif']);
 
 const ACT2: ActDef = {
@@ -702,8 +711,8 @@ const ACT3: ActDef = {
 ROUNDS.push({
   id: 'r3-quoi', label: 'Ce à quoi, sans quoi', targets: ['quoi-oublie'],
   questions: [
-    tI('Complète.', 'C’est exactement ce … je m’attendais.', fr(E(2035)), 'S’attendre à : ce à quoi. EN: ce à quoi.', 'a3-cartes', ['à quoi']),
-    tI('Complète (insister sur).', 'Ce … il insiste, c’est la date.', fr(E(2048)), 'Insister sur : ce sur quoi. EN: ce sur quoi.', 'a3-table', ['sur quoi']),
+    tI('Complète.', 'C’est exactement ce … je m’attendais.', fr(E(2035)), 'S’attendre à : ce à quoi. EN: ce à quoi.', 'a3-cartes', ['à quoi', 'ce à quoi']),
+    tI('Complète (insister sur).', 'Ce … il insiste, c’est la date.', fr(E(2048)), 'Insister sur : ce sur quoi. EN: ce sur quoi.', 'a3-table', ['sur quoi', 'ce sur quoi']),
     mc('« Prévenez-nous avant midi, faute de quoi la salle sera attribuée à quelqu’un d’autre. » Faute de quoi veut dire…', ['sinon', 'grâce à cela', 'pendant ce temps'], 0, 'Faute de quoi : sinon, en langue soignée. EN: otherwise.', 'a3-table'),
     eS('Voilà ce dont servent les archives.', fr(E(2040)), 'Servir à : à quoi. EN: à quoi.', 'a3-piege'),
     eS('Ce que nous devons nous mettre d’accord, c’est le calendrier.', fr(E(2037)), 'Se mettre d’accord sur : ce sur quoi. EN: ce sur quoi.', 'a3-piege'),
@@ -752,7 +761,7 @@ const A4_CARTES: Sec<'cardDeck'> = {
     { head: 'De quoi + infinitif', label: 'assez pour', fr: fr(E(2059)), sub: rsOf(E(2059)),
       body: 'De quoi vivre : assez pour vivre. Il y a de quoi : il y a une raison ; il n’y a pas de quoi : aucune raison. EN: de quoi means enough to, or good reason to.' },
     { head: 'Jamais que + infinitif', label: 'à + infinitif', fr: fr(E(2070)), sub: rsOf(E(2070)),
-      body: 'Something to read : quelque chose à lire, sans relative. Que n’introduit jamais un infinitif. EN: something to read is à lire; que never takes an infinitive.' },
+      body: 'Something to read : quelque chose à lire, sans relative. Que relatif ne précède jamais un infinitif. EN: something to read is à lire; relative que never takes an infinitive.' },
   ],
 };
 
@@ -808,7 +817,7 @@ const A4_ERREURS: Sec<'commonErrors'> = {
     { wrong: 'Je n’ai personne à parler de ce projet.', right: fr(E(2056)),
       why: 'Normal : nobody to talk to semble donner personne à parler. Mais on parle à quelqu’un : à qui, puis l’infinitif. EN: parler à, so à qui.' },
     { wrong: 'Je cherche quelque chose que lire pour le train.', right: fr(E(2070)),
-      why: 'Normal : que relie si souvent. Mais devant un infinitif, que ne va jamais : quelque chose à lire. EN: à lire, never que lire.' },
+      why: 'Normal : que relie si souvent. Mais devant un infinitif, que relatif ne va jamais : quelque chose à lire. EN: à lire, never que lire.' },
     { wrong: 'Le dossier ne contient rien à s’appuyer sur.', right: fr(E(2062)),
       why: 'Normal : l’anglais finit sur la préposition. En français, elle passe devant : rien sur quoi s’appuyer. EN: the preposition moves in front.' },
     { wrong: 'Il n’y a pas de quoi de s’inquiéter.', right: fr(E(2060)),
@@ -846,7 +855,7 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
     'Sans sujet écrit, l’infinitif renvoie au sujet de la phrase. EN: the sentence’s subject.'),
   ctl('Que', 'Something to read :',
     ['quelque chose à lire', 'quelque chose que lire'], 0,
-    'Que n’introduit jamais un infinitif. EN: à lire.'),
+    'Que relatif ne précède jamais un infinitif. EN: à lire.'),
   ctl('De quoi', '« Il n’y a pas de quoi s’inquiéter. » Ce qui veut dire…',
     ['aucune raison de s’inquiéter', 'beaucoup de raisons', 'rien à manger'], 0,
     'Pas de quoi : aucune raison. EN: nothing to worry about.'),
@@ -874,7 +883,7 @@ ROUNDS.push({
     tI('Complète (un lieu).', 'Il cherche un coin … lire au calme.', fr(E(2066)), 'Un lieu : où, puis l’infinitif. EN: où.', 'a4-cartes', ['où']),
     tI('Complète (assez pour).', 'On a … tenir jusqu’à lundi.', fr(E(2067)), 'Avoir de quoi : avoir assez pour. EN: de quoi.', 'a4-cartes', ['de quoi']),
     eS('Je n’ai personne à parler de ce projet.', fr(E(2056)), 'Parler à quelqu’un : à qui parler. EN: à qui parler.', 'a4-erreurs', ['Je n’ai personne avec qui parler de ce projet.']),
-    eS('Je cherche quelque chose que lire pour le train.', fr(E(2070)), 'Que n’introduit jamais un infinitif : à lire. EN: à lire.', 'a4-erreurs'),
+    eS('Je cherche quelque chose que lire pour le train.', fr(E(2070)), 'Que relatif ne précède jamais un infinitif : à lire. EN: à lire.', 'a4-erreurs'),
     mc('« Il y a de quoi être fier de ce travail. » Le sens :', ['il y a de bonnes raisons d’être fier', 'il n’y a aucune raison d’être fier', 'personne n’est fier'], 0, 'Il y a de quoi : une raison suffisante. EN: good reason to.', 'a4-construire'),
     mc('« Une chaise … s’asseoir aurait suffi. »', ['sur laquelle', 'que', 'dont'], 0, 'S’asseoir sur une chaise : sur laquelle. EN: sur laquelle.', 'a4-construire'),
     lC('Écoute. Que demande-t-on ?', fr(E(2058)), ['si tu as un stylo ou du papier', 'si tu sais écrire', 'si tu as déjà écrit'], 0, 'De quoi écrire : ce qu’il faut pour écrire. EN: something to write with.', 'a4-ecoute'),
@@ -1229,10 +1238,10 @@ ROUNDS.push({
   id: 'r6-lequel', label: 'Lequel, pour lever le doute', targets: ['lequel-mal-employe'],
   questions: [
     tI('Lève le doute : c’est le frère qui a signé.', 'Le frère de la directrice, … a signé le registre, est reparti.', fr(E(2106)), 'Lequel, masculin : le frère. EN: lequel.', 'a6-cartes', ['lequel']),
-    tI('Complète (dans ce cas, en un seul mot).', 'Il pleuvra peut-être, … cas la visite aura lieu à l’intérieur.', fr(E(2107)), 'Auquel cas : la forme figée. EN: auquel cas.', 'a6-table', ['auquel']),
+    tI('Complète (dans ce cas, en un seul mot).', 'Il pleuvra peut-être, … cas la visite aura lieu à l’intérieur.', fr(E(2107)), 'Auquel cas : la forme figée. EN: auquel cas.', 'a6-table', ['auquel', 'auquel cas']),
     mc('« Un témoin a parlé à l’avocate, laquelle a aussitôt prévenu la juge. » Qui a prévenu la juge ?', ['l’avocate', 'le témoin'], 0, 'Laquelle, féminin : l’avocate. EN: the lawyer.', 'a6-construire'),
     eS('La femme laquelle chante est ma voisine.', 'La femme qui chante est ma voisine.', 'Sans virgule, lequel sujet est impossible : qui. EN: qui.', 'a6-erreurs'),
-    eS('Le neveu de la donatrice, laquelle n’avait jamais vu les lettres, les a lues en une nuit.', fr(E(2096)), 'C’est le neveu qui ne les avait jamais vues : lequel. EN: lequel.', 'a6-erreurs'),
+    mc('C’est le neveu qui n’avait jamais vu les lettres. Laquelle écris-tu ?', [fr(E(2096)), 'Le neveu de la donatrice, laquelle n’avait jamais vu les lettres, les a lues en une nuit.'], 0, 'C’est le neveu qui ne les avait jamais vues : lequel, masculin. Laquelle enverrait le lecteur vers la donatrice. EN: lequel.', 'a6-erreurs'),
     mc('« Le locataire et le propriétaire, lequel prend les travaux en charge, signent le bail. » Que faut-il faire ?', ['réécrire, car lequel ne tranche pas', 'rien, car lequel tranche', 'remplacer lequel par laquelle'], 0, 'Deux masculins singuliers : rapproche ou coupe. EN: rewrite.', 'a6-cartes'),
     mc('Où lequel sujet est-il le plus à sa place ?', ['dans un compte rendu officiel', 'dans un texto à un ami', 'dans une conversation au café'], 0, 'Un tour écrit, administratif. EN: formal writing.', 'a6-hacks'),
     lC('Écoute. Qui conteste les chiffres ?', fr(E(2105)), ['l’expert', 'la commission'], 0, 'Lequel, masculin : l’expert. EN: the expert.', 'a6-construire'),
@@ -1578,7 +1587,7 @@ ROUNDS.push({
   id: 'r8-abstrait', label: 'Où, ou dans lequel', targets: ['ou-abstrait'],
   questions: [
     tI('Complète (s’appuyer sur).', 'La théorie … il s’appuie est contestée.', fr(E(2145)), 'S’appuyer sur : sur laquelle. EN: sur laquelle.', 'a8-construire', ['sur laquelle']),
-    tI('Complète (un moment).', 'C’était une époque … tout semblait possible.', fr(E(2146)), 'Une époque : où. EN: où.', 'a8-table', ['où']),
+    tI('Complète (un moment).', 'C’était une époque … tout semblait possible.', fr(E(2146)), `Une époque : où, comme dans ${DONT_OU_REF}. EN: où.`, 'a8-table', ['où']),
     tI('Mets le verbe au bon mode.', 'Dans le cas où la salle (être) fermée, appelez l’accueil.', fr(E(2137)), 'Dans le cas où : conditionnel, serait. EN: serait.', 'a8-table', ['serait']),
     eS('La méthode où l’on date les papiers est récente.', fr(E(2142)), 'On date par une méthode : par laquelle. EN: par laquelle.', 'a8-piege', ['La méthode par laquelle l’on date les papiers est récente.']),
     eS('Je vous aiderai dans la mesure que je le pourrai.', fr(E(2141)), 'Le tour figé est dans la mesure où. EN: dans la mesure où.', 'a8-piege', ['Je vous aiderai dans la mesure où je pourrai.']),
@@ -1698,7 +1707,7 @@ const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
     'À reconnaître, pas à écrire. EN: recognise, do not write.'),
   ctl('De et dont', 'Laquelle est juste ?',
     ['C’est de cela dont il s’agit.', fr(E(2156))], 1,
-    'Jamais de et dont ensemble. EN: never both.'),
+    'De devant cela, puis dont : le même complément deux fois. EN: not both for the same complement.'),
   ctl('L’incise', 'La forme qui convient à tous les registres :',
     ['qui, je crois,', 'dont je crois qu’il', 'que je crois qui'], 0,
     'L’incise passe partout. EN: the aside works everywhere.'),
@@ -1712,7 +1721,7 @@ const ACT9: ActDef = {
       imageRef: 'lessons/relatives-complexes/act09.jpg',
     },
     sections: [],
-    milestone: 'Tu glisses une opinion dans une relative avec le registre qui convient, et tu n’écris plus de et dont ensemble. EN: You can fit an opinion into a relative clause in the right register, and never write de with dont.',
+    milestone: 'Tu glisses une opinion dans une relative avec le registre qui convient, et tu n’écris plus « c’est de cela dont ». EN: You can fit an opinion into a relative clause in the right register, and no longer write « c’est de cela dont ».',
     estScreens: 38, restPoints: ['a9-lecture', 'a9-erreurs'],
   },
   sections: [A9_LECTURE, A9_CARTES, A9_TRIER, A9_ERREURS, A9_DICTEE, A9_TEXTE, A9_CHECK],
@@ -1724,7 +1733,7 @@ ROUNDS.push({
   questions: [
     mc('« C’est un livre que je crois qui te plaira. » Le registre ?', ['oral familier', 'écrit soutenu', 'administratif'], 0, 'Que je crois qui : du français parlé familier. EN: casual speech.', 'a9-cartes'),
     tI('Complète (de est déjà écrit).', 'C’est de ce projet … je voulais te parler.', fr(E(2163)), 'De est déjà devant ce projet : que. EN: que.', 'a9-trier', ['que']),
-    eS('C’est de cela dont il s’agit.', fr(E(2156)), 'De et dont disent deux fois la même chose. EN: keep one.', 'a9-erreurs', ['C’est cela dont il s’agit.']),
+    eS('C’est de cela dont il s’agit.', fr(E(2156)), 'De et dont disent deux fois la même chose. EN: keep one.', 'a9-erreurs', ['C’est cela dont il s’agit.', 'C’est de ça qu’il s’agit.']),
     eS('Voici le témoin que je sais qu’il a menti.', fr(E(2151)), 'Dont reprend le témoin dans la proposition suivante. EN: dont je sais qu’il.', 'a9-erreurs', ['Voici le témoin qui, je le sais, a menti.', 'Voici le témoin qui, je sais, a menti.']),
     mc('Pour une lettre officielle, laquelle choisis-tu ?', [fr(E(2150)), 'C’est un projet que je crois qui va aboutir.'], 0, 'Dont + que : l’écrit soigné. EN: formal writing.', 'a9-trier'),
     mc('« Ce sont des questions dont je doute qu’elles soient réglées un jour. » Dont reprend…', ['des questions', 'un jour', 'le doute'], 0, 'Dont reprend le nom d’avant, repris ensuite par elles. EN: the questions.', 'a9-trier'),
@@ -1889,11 +1898,11 @@ ROUNDS.push({
   id: 'r10-alleger', label: 'Alléger la chaîne', targets: ['chaine-lourde'],
   questions: [
     mc('« Le rapport, rédigé en mars, contredit l’étude publiée l’an dernier. » Combien de relatives ?', ['aucune : deux participes les remplacent', 'deux', 'une'], 0, 'Rédigé et publiée remplacent deux relatives. EN: none.', 'a10-cartes'),
-    tI('Complète (à l’issue de · la visite).', 'La visite, à l’issue … un verre sera servi, commence à dix-huit heures.', fr(E(2176)), 'Après à l’issue de : de laquelle. EN: de laquelle.', 'a10-trier', ['de laquelle']),
+    tI('Écris le nom que reprend laquelle.', 'La visite, à l’issue de laquelle un verre sera servi, commence à dix-huit heures.', 'la visite', 'Laquelle, féminin singulier, reprend le nom d’avant la locution : la visite. Le verre est servi après elle. EN: the tour.', 'a10-trier', ['visite']),
     mc('« L’accord en vertu duquel la ville gère le fonds expire en 2030. » Qu’est-ce qui expire ?', ['l’accord', 'le fonds', 'la ville'], 0, 'Le sujet du verbe principal : l’accord. EN: the agreement.', 'a10-trier'),
     mc('Laquelle est la plus légère ?', [fr(E(2166)), fr(E(2165))], 0, 'Une relative et un complément. EN: one clause only.', 'a10-cartes'),
     mc('« Les habitants, à l’égard desquels la mairie s’était engagée, attendent toujours. » Envers qui la mairie s’était-elle engagée ?', ['envers les habitants', 'envers elle-même'], 0, 'Desquels, masculin pluriel : les habitants. EN: the residents.', 'a10-trier'),
-    eS('La visite, à l’issue dont un verre sera servi, commence à dix-huit heures.', fr(E(2176)), 'Après une locution qui finit par de, jamais dont : de laquelle. EN: de laquelle.', 'a10-trier'),
+    eS('Le rapport, rédigé en mars, contredit l’étude publié l’an dernier.', fr(E(2167)), 'Le participe qui remplace la relative s’accorde toujours : l’étude publiée. EN: the participle still agrees.', 'a10-cartes'),
     tI('Remplace la relative par un participe.', 'Les lettres qui sont datées d’avant 1920 sont conservées à part.', fr(E(2175)), 'Qui sont datées devient datées. EN: dated.', 'a10-hacks'),
     lC('Écoute. Combien de projets seront financés cette année ?', fr(E(2174)), ['un seul', 'trois', 'aucun'], 0, 'Dont un seul : un sur trois. EN: one.', 'a10-exemples'),
   ],
@@ -2083,7 +2092,7 @@ const A11_MISSION: Sec<'task'> = {
     { pattern: 'Que + infinitive, or a stranded preposition calqued on English (une salle pour travailler dans, rien à lire avec).', criterion: 'correction', feedback: 'Une salle où travailler, de quoi lire : la préposition passe devant.', ref: 'a4-erreurs' },
     { pattern: 'Commas that change who is concerned against the notes (les groupes, qui souhaitent une visite, doivent réserver: all groups).', criterion: 'coherence', feedback: 'Tous ou certains ? Sans virgules, la relative trie ; avec, elle parle de tous.', ref: 'a7-piege' },
     { pattern: 'Où after a noun that is neither a place nor a time (le principe où, la condition où), or the future after dans le cas où.', criterion: 'correction', feedback: 'Où pour un lieu, un moment, une situation ; sinon la préposition du verbe et lequel.', ref: 'a8-piege' },
-    { pattern: 'Que je crois qui, a resumptive pronoun (que je sais qu’il), or c’est de cela dont in the notice.', criterion: 'registre', feedback: 'À l’écrit : qui, je crois, ou dont je crois qu’il ; jamais de et dont ensemble.', ref: 'a9-erreurs' },
+    { pattern: 'Que je crois qui, a resumptive pronoun (que je sais qu’il), or c’est de cela dont in the notice.', criterion: 'registre', feedback: 'À l’écrit : qui, je crois, ou dont je crois qu’il ; c’est de cela qu’il s’agit, jamais c’est de cela dont.', ref: 'a9-erreurs' },
     { pattern: 'Three or more relatives hanging on one noun, or a relative nested in a relative.', criterion: 'coherence', feedback: 'Allège : un participe, un complément, ou deux phrases.', ref: 'a10-hacks' },
     { pattern: 'Notes copied in telegraphic style, or the model notice reproduced with the names changed.', criterion: 'tache', feedback: 'Rédige tes propres phrases à partir des notes ; la notice modèle donne le ton, pas le texte.', ref: 'a11-plan' },
     { pattern: 'Only qui and que relatives, with none of the C1 structures; or a body outside 250 to 350 words.', criterion: 'etendue', feedback: 'Ajoute un dont partitif, un ce à quoi ou un faute de quoi, une salle où travailler ; compte tes mots sans le titre.', ref: 'a11-usages' },
@@ -2166,14 +2175,14 @@ ROUNDS.push({
 ROUNDS.push({
   id: 'r12-examen', label: 'Comme à l’examen', targets: ['mode-examen'],
   questions: [
-    mc('Format TCF. Choisissez la bonne réponse : « Le projet … nous avons discuté hier sera présenté lundi. »', ['dont', 'que', 'duquel', 'auquel'], 0, 'Discuter de : dont. EN: dont.', 'a1-rappel'),
-    mc('Format TCF : « C’est une question … personne n’a encore répondu. »', ['à laquelle', 'dont', 'que', 'où'], 0, 'Répondre à une question : à laquelle. EN: à laquelle.', 'a3-cartes'),
-    mc('Format TCF : « La salle … se tiendra la réunion n’est pas encore choisie. »', ['dans laquelle', 'dont', 'que', 'laquelle'], 0, 'Dans la salle : dans laquelle (où aussi). EN: dans laquelle.', 'a8-table'),
+    mc('Format TCF tout public (structures de la langue). Choisissez la bonne réponse : « Le projet … nous avons discuté hier sera présenté lundi. »', ['dont', 'que', 'duquel', 'auquel'], 0, 'Discuter de : dont. EN: dont.', 'a1-rappel'),
+    mc('Format TCF tout public : « C’est une question … personne n’a encore répondu. »', ['à laquelle', 'dont', 'que', 'où'], 0, 'Répondre à une question : à laquelle. EN: à laquelle.', 'a3-cartes'),
+    mc('Format TCF tout public : « La salle … se tiendra la réunion n’est pas encore choisie. »', ['dans laquelle', 'dont', 'que', 'laquelle'], 0, 'Dans la salle : dans laquelle (où aussi). EN: dans laquelle.', 'a8-table'),
     mc('Compréhension écrite. « Le rapport, dont plusieurs passages ont été contestés, sera publié jeudi. » Que dit la phrase ?', ['une partie du rapport a été contestée', 'tout le rapport a été rejeté', 'le rapport ne sera pas publié'], 0, 'Dont plusieurs passages : une partie. EN: part of it.', 'a2-cartes'),
     mc('Compréhension écrite. « Le directeur de l’agence, laquelle a fermé hier, sera reçu par le maire. » Qu’est-ce qui a fermé ?', ['l’agence', 'le directeur', 'on ne peut pas le savoir'], 0, 'Laquelle, féminin : l’agence. EN: the agency.', 'a6-cartes'),
     mc('Compréhension écrite. « Les habitants, qui avaient été consultés, ont approuvé le projet. » Combien d’habitants avaient été consultés ?', ['tous', 'une partie seulement', 'aucun'], 0, 'Entre virgules : tous. EN: all.', 'a7-cartes'),
-    tI('Format TCF, phrase à compléter.', 'C’est exactement ce … nous nous attendions.', 'C’est exactement ce à quoi nous nous attendions.', 'S’attendre à : ce à quoi. EN: ce à quoi.', 'a3-cartes', ['à quoi']),
-    lC('Format TEF, compréhension orale. Écoute cette annonce. Que se passe-t-il si l’on ne réserve pas avant jeudi ?', ANNONCE, ['l’accueil n’est pas garanti', 'la visite est gratuite', 'la visite est annulée'], 0, 'Faute de quoi : sinon, l’accueil n’est pas garanti. EN: entry not guaranteed.', 'a3-table'),
+    tI('Phrase à compléter.', 'C’est exactement ce … nous nous attendions.', 'C’est exactement ce à quoi nous nous attendions.', 'S’attendre à : ce à quoi. EN: ce à quoi.', 'a3-cartes', ['à quoi', 'ce à quoi']),
+    lC('Compréhension orale. Écoute cette annonce. Que se passe-t-il si l’on ne réserve pas avant jeudi ?', ANNONCE, ['l’accueil n’est pas garanti', 'la visite est gratuite', 'la visite est annulée'], 0, 'Faute de quoi : sinon, l’accueil n’est pas garanti. EN: entry not guaranteed.', 'a3-table'),
   ],
 });
 DRILL_LIST.push({ id: 'd-recyclage', title: 'Le B1 et le B2 en renfort', format: 'flashcard' as const, coach: 'Six phrases du B1 et du B2 : dis pour chacune à quel nom tient la relative. EN: say which noun each clause hangs on.', items: [PE1(1150), PE1(1221), PE1(1265), PE1(1472), PE1(1489), OA2(1864)], audio: AUDIO });
@@ -2342,14 +2351,14 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-registre', 'Registre et écriture', ['les relatives emboîtées', 'de et dont', 'alléger', 'la liste de contrôle'], [
     teach('sheet-registre-teach', 'Chaque forme a son registre',
-      'Une relative peut contenir une autre proposition. À l’oral familier, que je crois qui ; à l’écrit, qui, je crois, ou, plus soutenu, dont je crois qu’il ; que je crois que reste correct mais lourd. De et dont disent la même chose : c’est de cela qu’il s’agit, ou c’est cela dont il s’agit. Au-delà de deux relatives sur un même nom, remplace l’une par un participe, un adjectif ou un complément. EN: each nested form has its register; never de and dont together; lighten chains.'),
+      'Une relative peut contenir une autre proposition. À l’oral familier, que je crois qui ; à l’écrit, qui, je crois, ou, plus soutenu, dont je crois qu’il ; que je crois que reste correct mais lourd. De et dont disent la même chose : c’est de cela qu’il s’agit, ou c’est cela dont il s’agit. Au-delà de deux relatives sur un même nom, remplace l’une par un participe, un adjectif ou un complément. EN: each nested form has its register; never de before the noun and dont after it; lighten chains.'),
     table('sheet-registre-table', 'Une phrase, quatre registres', ['Forme', 'Registre', 'Exemple'], [
       ['qui, je crois,', 'tous', 'C’est un livre qui, je crois, te plaira.'],
       ['dont je crois qu’il', 'écrit soutenu', 'C’est un projet dont on peut espérer qu’il aboutira.'],
       ['que je crois que', 'correct, lourd', 'C’est un livre que je crois que tu aimeras.'],
       ['que je crois qui', 'oral familier', 'C’est un livre que je crois qui te plaira.'],
       ['c’est de cela que', 'tous', 'C’est de cela qu’il s’agit.'],
-      ['c’est de cela dont', 'à éviter à l’écrit', 'deux fois la même préposition'],
+      ['c’est de cela dont', 'à éviter à l’écrit', 'de répété : dont contient déjà de'],
     ]),
     table('sheet-registre-controle', 'Ta notice', ['À vérifier', 'Comment'], [
       ['Chaque relative tient à un seul nom', 'un accord, un genre, ou lequel'],

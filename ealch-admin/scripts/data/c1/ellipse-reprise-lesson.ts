@@ -560,7 +560,7 @@ const A2_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Toujours là, toujours le',
-    body: 'Un adjectif ou un nom attribut déjà dit revient par le, devant le verbe, l’auxiliaire ou l’infinitif. Le ne prend ni e ni s, et il ne disparaît pas. EN: an attribute already said comes back as le, never agreed, never dropped.',
+    body: 'Un adjectif ou un nom sans article déjà dit revient par le, devant le verbe, l’auxiliaire ou l’infinitif. Le ne prend ni e ni s, et il ne disparaît pas. EN: an attribute already said comes back as le, never agreed, never dropped.',
   },
   cards: [
     trap(E(2013), 'accord fautif', 'Fatiguée, je la suis, mais pas découragée.', 'Le reprend l’idée d’être fatiguée, pas la personne : le. EN: le, never la.'),
@@ -641,7 +641,7 @@ const ACT2: ActDef = {
       imageRef: 'lessons/ellipse-reprise/act02.jpg',
     },
     sections: [],
-    milestone: 'Tu reprends un adjectif ou un nom attribut par le, toujours invariable, à sa place devant le verbe, l’auxiliaire ou l’infinitif. EN: You can pick up an attribute with an invariable le, in the right place.',
+    milestone: 'Tu reprends un adjectif ou un nom sans article par le, toujours invariable, à sa place devant le verbe, l’auxiliaire ou l’infinitif. EN: You can pick up an attribute with an invariable le, in the right place.',
     estScreens: 38, restPoints: ['a2-cartes', 'a2-piege'],
   },
   sections: [A2_HISTOIRE, A2_CARTES, A2_CONSTRUIRE, A2_PIEGE, A2_ECOUTE, A2_DICTEE, A2_CHECK],
@@ -1355,15 +1355,15 @@ const A6_PIEGE: Sec<'trapDrill'> = {
   frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'Un mot, et rien d’autre',
-    body: 'Dans la question réduite, le mot interrogatif reste seul : ni est-ce, ni ce que, ni inversion. Lequel s’accorde avec le nom du choix, et la préposition reste devant. EN: keep the question word alone: no est-ce, no ce que, no inversion.',
+    body: 'Dans la question réduite, le mot interrogatif reste seul : ni est-ce (fréquent à l’oral, pas à l’écrit), ni ce que, ni inversion. Lequel s’accorde, la préposition reste devant. EN: the question word alone: no est-ce in writing, no ce que, no inversion.',
   },
   cards: [
-    trap(E(2084), 'question pleine', 'Quelqu’un a appelé pendant ton absence, mais je ne sais pas qui est-ce.', 'Dans une question indirecte, pas de est-ce : je ne sais pas qui. EN: no est-ce in an indirect question.'),
+    trap(E(2084), 'question pleine', 'Quelqu’un a appelé pendant ton absence, mais je ne sais pas qui est-ce.', 'À l’oral, on l’entend ; à l’écrit, une question indirecte n’a pas de est-ce : je ne sais pas qui. EN: common in speech; in writing, no est-ce.'),
     trap(E(2087), 'ce que seul', 'Il manque quelque chose à ce texte, mais je ne sais pas ce que.', 'Ce que ne reste jamais seul : je ne sais pas quoi. EN: quoi, not ce que.'),
     trap(E(2085), 'accord', 'Il manque une pièce au dossier ; reste à savoir lequel.', 'Une pièce : laquelle. EN: feminine.'),
     trap(E(2090), 'accord', 'Vous avez des questions ? Si oui, lequel ?', 'Des questions : lesquelles. EN: feminine plural.'),
     trap(E(2086), 'inversion', 'Les travaux reprendront, mais personne ne sait quand reprendront-ils.', 'Pas d’inversion dans une question indirecte, et le mot seul suffit : personne ne sait quand. EN: no inversion.'),
-    trap(E(2091), 'question pleine', 'Elle a déménagé, je ne sais plus où est-ce qu’elle habite.', 'Pas de est-ce que dans une question indirecte ; ici, le mot seul suffit : je ne sais plus où. EN: no est-ce que.'),
+    trap(E(2091), 'question pleine', 'Elle a déménagé, je ne sais plus où est-ce qu’elle habite.', 'Fréquent à l’oral, mais à l’écrit, pas de est-ce que dans une question indirecte ; ici, le mot seul suffit : je ne sais plus où. EN: spoken, not written.'),
   ],
   drill: [
     { promptSay: 'Quelqu’un a appelé, mais je ne sais pas …', opts: ['qui', 'qui est-ce'], correct: 0 },
@@ -1472,7 +1472,7 @@ const A7_CARTES: Sec<'cardDeck'> = {
     {
       head: 'Celui + participe', label: 'courant, discuté',
       fr: fr(E(2108)), sub: rsOf(E(2108)),
-      body: 'Très courant dans la presse et l’administration, critiqué par certains guides. À l’écrit très soigné : celui que propose l’entreprise. EN: very common, criticised by some guides; in very careful writing, celui que propose.',
+      body: 'Très courant dans la presse et l’administration, toujours avec un complément (proposé par l’entreprise), critiqué par certains guides. À l’écrit très soigné : celui que propose l’entreprise. EN: very common, criticised by some guides; in very careful writing, celui que propose.',
     },
   ],
 };
@@ -1535,8 +1535,8 @@ const A7_ERREURS: Sec<'commonErrors'> = {
     },
     {
       wrong: 'J’ai lu les deux rapports ; celui est plus clair.',
-      right: 'J’ai lu les deux rapports ; celui-ci est plus clair.',
-      why: 'Normal : celui semble suffire. Mais celui ne reste jamais seul : il lui faut -ci, -là, de, qui ou que. EN: celui never stands alone.',
+      right: 'J’ai lu les deux rapports ; celui du conseil est plus clair.',
+      why: 'Normal : celui semble suffire. Mais celui ne reste jamais seul : il lui faut -ci, -là ou une suite (de, qui, que, un participe avec son complément). EN: celui never stands alone.',
     },
   ],
   audio: AUDIO,
@@ -1566,7 +1566,7 @@ const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
   ctl('L’accord', '« La salle du bas est plus grande que … du haut. »',
     ['celle', 'celui'], 0,
     'Celle reprend salle. EN: celle for salle.'),
-  ctl('Seul ?', 'Celui peut-il rester seul, sans -ci, de, qui ou que ?',
+  ctl('Seul ?', 'Celui peut-il rester seul, sans -ci, -là ni aucune suite ?',
     ['non', 'oui'], 0,
     'Celui a toujours besoin d’une suite. EN: never alone.'),
   ctl('Le registre', '« Celui proposé par l’entreprise » est…',
@@ -2126,7 +2126,7 @@ const A10_EXEMPLES: Sec<'examples'> = {
 };
 
 const A10_TEXTE = dansUnTexte('a10-texte', 'Réécrire : le message de Nadia', TEXTE_A10, [
-  { q: 'La première phrase ?', a: 'Si c’est Sophie : Claire a croisé Sophie à la piscine ; cette dernière venait de s’inscrire au cours du soir. Si c’est Claire : à la piscine, où elle venait de s’inscrire au cours du soir, Claire a croisé Sophie.' },
+  { q: 'La première phrase ?', a: 'Si c’est Sophie : Claire a croisé Sophie à la piscine ; cette dernière venait de s’inscrire au cours du soir. Si c’est Claire : Claire, qui venait de s’inscrire au cours du soir, a croisé Sophie à la piscine.' },
   { q: 'La deuxième ?', a: 'Le gérant a appelé le plombier pendant que celui-ci dînait (le plombier), ou : pendant son dîner, le gérant a appelé le plombier (le gérant).' },
   { q: 'La troisième ?', a: 'Elle est claire : qui reprend Marc, le nom juste avant. C’est Marc qui a perdu la perceuse.' },
   { q: 'La dernière ?', a: 'Au discours direct : la présidente a dit à la trésorière : « J’ai fait une erreur dans les comptes », ou « Vous avez fait une erreur », selon le sens.' },
@@ -2231,7 +2231,7 @@ const A11_RENVOIE: Sec<'groupDrill'> = {
       it(E(2176), 'ne le font'),
     ], chk('Dans l’article, « celle-ci ne coûte presque rien à la ville » : celle-ci renvoie à…',
       ['l’initiative', 'Odile Ferland', 'la ville', 'la salle paroissiale'], 0,
-      'L’initiative, nommée juste avant. Une personne ne « coûte » pas à la ville, et la ville est le complément de la même phrase. EN: the initiative.')),
+      'L’initiative, le dernier nom cité : celle-ci renvoie au plus proche, et la suite (le local prêté, les outils donnés) décrit un projet, pas une personne. La ville est le complément de la même phrase. EN: the initiative.')),
     grp('Les noms et les ellipses', [
       it(E(2168), 'ce rendez-vous'),
       it(E(2169), 'les autres avec…'),
@@ -2466,7 +2466,7 @@ const A12_MISSION: Sec<'task'> = {
         label: 'Réalisation de la tâche',
         maxPoints: 3,
         descriptors: [
-          '3 : Tous les points des notes sont là, dans l’ordre d’un compte rendu, sans rien inventer, entre 250 et 320 mots.',
+          '3 : Tous les points des notes sont là, dans l’ordre d’un compte rendu, sans rien déformer (un détail ajouté reste plausible et ne contredit pas les notes), entre 250 et 320 mots.',
           '2 : Un point manque ou est déformé, ou la longueur sort un peu des limites.',
           '1 : Le texte recopie les notes, ou en oublie la moitié.',
         ],
@@ -2520,8 +2520,8 @@ const A12_MISSION: Sec<'task'> = {
     'Cette décision',
     'on ne sait pas qui',
   ],
-  modelAnswer: 'Coopérative d’habitation Les Tilleuls. Compte rendu de l’assemblée du 7 octobre, consacrée au stationnement. Vingt et un membres étaient présents, deux de plus qu’en septembre. Comme le conseil l’avait annoncé, l’assemblée devait décider d’une nouvelle répartition des places de stationnement. Le conseil proposait un tirage au sort chaque année : cette formule, selon lui, donnerait à chacun les mêmes chances, ce que les places attribuées à vie ne font pas. M. Tremblay est favorable à cette formule ; Mme Lavoie ne l’est pas, car elle souhaite garder la place qu’elle occupe depuis dix ans. Les besoins, eux aussi, divergent : les familles voudraient des places près de l’entrée, les retraités près de l’ascenseur. Le conseil avait promis d’apporter un plan des places, et il l’a fait : chacun a pu situer les emplacements dont il était question. Ce plan montre d’ailleurs que les places proches des portes sont moins nombreuses qu’on ne le croyait : six sur trente. Deux règles ont ensuite été comparées, celle du conseil et celle des locataires. La seconde, qui réserve les places proches des portes aux familles et aux personnes âgées, a été retenue par quinze voix contre six. Ce vote met fin à un débat ouvert depuis le printemps, sans satisfaire tout le monde, comme on pouvait le prévoir. Mme Lavoie a demandé que son cas soit réexaminé ; le conseil s’y est engagé. Questions diverses. Une camionnette est stationnée depuis jeudi sur la place des visiteurs ; quelqu’un l’y a laissée, mais on ne sait pas qui. Si le véhicule est encore là lundi, le conseil le fera remorquer ; le cas échéant, les frais seront à la charge de son propriétaire. Le conseil rappelle enfin que les membres qui changent de voiture doivent le signaler au secrétariat. Prochaine assemblée : le 4 novembre. Simon Gagné, secrétaire.\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : tous les points des notes, dans l’ordre, sans ajout.\n2. Le fil : la seconde, le véhicule, son propriétaire ne renvoient chacun qu’à un seul nom.\n3. Étendue : ne l’est pas, qu’on ne le croyait, comme on pouvait le prévoir, il l’a fait, ne font pas, les retraités près de l’ascenseur, celle du conseil et celle des locataires, ce vote, on ne sait pas qui, le cas échéant.\n4. Correction : le invariable, celle accordée avec règle, l’y a laissée accordé avec camionnette.\n5. Registre : un compte rendu soigné, sans ledit, qui n’apporterait rien ici.',
-  modelAnswerEn: 'Les Tilleuls housing cooperative. Minutes of the meeting of 7 October, on parking. Twenty-one members were present, two more than in September. As the board had announced, the meeting was to decide on a new allocation of parking spaces. The board proposed a draw every year: this formula, it argued, would give everyone the same chances, which spaces allocated for life do not. Mr Tremblay is in favour of this formula; Mrs Lavoie is not, as she wishes to keep the space she has had for ten years. Needs differ too: families would like spaces near the entrance, retired members near the lift. The board had promised to bring a plan of the spaces, and it did: everyone could locate the spaces in question. The plan also shows that the spaces close to the doors are fewer than people thought: six out of thirty. Two rules were then compared, the board’s and the tenants’. The latter, which reserves the spaces close to the doors for families and older people, was adopted by fifteen votes to six. This vote ends a debate open since the spring, without satisfying everyone, as could be expected. Mrs Lavoie asked for her case to be reviewed; the board agreed to do so. Any other business. A van has been parked in the visitors’ space since Thursday; someone left it there, but nobody knows who. If the vehicle is still there on Monday, the board will have it towed; should that happen, the costs will be borne by its owner. Finally, the board reminds members who change cars that they must notify the office. Next meeting: 4 November. Simon Gagné, secretary. The marker’s notes (not counted): 1. Task: every point of the notes, in order, nothing added. 2. Thread: la seconde, le véhicule, son propriétaire each point to one noun only. 3. Range: neutral le three times, faire twice, an ellipsis, celle de twice, a summing noun, a reduced question, le cas échéant. 4. Accuracy: invariable le, celle agreed with règle, laissée agreed with camionnette. 5. Register: careful minutes, no ledit, which would add nothing here.',
+  modelAnswer: 'Coopérative d’habitation Les Tilleuls. Compte rendu de l’assemblée du 7 octobre, consacrée au stationnement. Vingt et un membres étaient présents, deux de plus qu’en septembre. Comme le conseil l’avait annoncé, l’assemblée devait décider d’une nouvelle répartition des places de stationnement. Le conseil proposait un tirage au sort chaque année : cette formule, selon lui, donnerait à chacun les mêmes chances, ce que les places attribuées à vie ne font pas. M. Tremblay est favorable à cette formule ; Mme Lavoie ne l’est pas, car elle souhaite garder la place qu’elle occupe depuis dix ans. Les besoins, eux aussi, divergent : les familles voudraient des places près de l’entrée, les retraités près de l’ascenseur. Le conseil avait promis d’apporter un plan des places, et il l’a fait : chacun a pu situer les emplacements dont il était question. Ce plan montre d’ailleurs que les places proches des portes sont moins nombreuses qu’on ne le croyait : six sur trente. Deux règles ont ensuite été comparées, celle du conseil et celle des locataires. La seconde, qui réserve les places proches des portes aux familles et aux personnes âgées, a été retenue par quinze voix contre six. Ce vote met fin à un débat ouvert depuis le printemps, sans satisfaire tout le monde, comme on pouvait le prévoir. Mme Lavoie a demandé que son cas soit réexaminé ; le conseil s’y est engagé. Questions diverses. Une camionnette est stationnée depuis jeudi sur la place des visiteurs ; quelqu’un l’y a laissée, mais on ne sait pas qui. Si le véhicule est encore là lundi, le conseil le fera remorquer ; le cas échéant, les frais seront à la charge de son propriétaire. Le conseil rappelle enfin que les membres qui changent de voiture doivent le signaler au secrétariat. Prochaine assemblée : le 4 novembre. Simon Gagné, secrétaire.\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : tous les points des notes, dans l’ordre ; les détails ajoutés restent plausibles et ne contredisent rien.\n2. Le fil : la seconde, le véhicule, son propriétaire ne renvoient chacun qu’à un seul nom.\n3. Étendue : ne l’est pas, qu’on ne le croyait, comme on pouvait le prévoir, il l’a fait, ne font pas, les retraités près de l’ascenseur, celle du conseil et celle des locataires, ce vote, on ne sait pas qui, le cas échéant.\n4. Correction : le invariable, celle accordée avec règle, l’y a laissée accordé avec camionnette.\n5. Registre : un compte rendu soigné, sans ledit, qui n’apporterait rien ici.',
+  modelAnswerEn: 'Les Tilleuls housing cooperative. Minutes of the meeting of 7 October, on parking. Twenty-one members were present, two more than in September. As the board had announced, the meeting was to decide on a new allocation of parking spaces. The board proposed a draw every year: this formula, it argued, would give everyone the same chances, which spaces allocated for life do not. Mr Tremblay is in favour of this formula; Mrs Lavoie is not, as she wishes to keep the space she has had for ten years. Needs differ too: families would like spaces near the entrance, retired members near the lift. The board had promised to bring a plan of the spaces, and it did: everyone could locate the spaces in question. The plan also shows that the spaces close to the doors are fewer than people thought: six out of thirty. Two rules were then compared, the board’s and the tenants’. The latter, which reserves the spaces close to the doors for families and older people, was adopted by fifteen votes to six. This vote ends a debate open since the spring, without satisfying everyone, as could be expected. Mrs Lavoie asked for her case to be reviewed; the board agreed to do so. Any other business. A van has been parked in the visitors’ space since Thursday; someone left it there, but nobody knows who. If the vehicle is still there on Monday, the board will have it towed; should that happen, the costs will be borne by its owner. Finally, the board reminds members who change cars that they must notify the office. Next meeting: 4 November. Simon Gagné, secretary. The marker’s notes (not counted): 1. Task: every point of the notes, in order; any added detail stays plausible and contradicts nothing. 2. Thread: la seconde, le véhicule, son propriétaire each point to one noun only. 3. Range: neutral le three times, faire twice, an ellipsis, celle de twice, a summing noun, a reduced question, le cas échéant. 4. Accuracy: invariable le, celle agreed with règle, laissée agreed with camionnette. 5. Register: careful minutes, no ledit, which would add nothing here.',
   watchFor: [
     { pattern: 'A truncated English-style ending (Mme Lavoie n’est pas, nous sommes encore) where French needs the neutral le.', criterion: 'correction', feedback: 'Reprends l’attribut par le : elle ne l’est pas.', ref: 'a2-piege' },
     { pattern: 'The neutral le agreed (je la suis, ils les sont).', criterion: 'correction', feedback: 'Le neutre ne s’accorde jamais : elles le sont.', ref: 'a2-cartes' },
@@ -2646,8 +2646,8 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Laquelle peut partir dans un compte rendu ?', [fr(E(2000)), WRONG_SCENE.fr], 0, 'L’ reprend favorable au jardin ; sans lui, la phrase s’arrête au milieu. EN: le is needed.', 'a1-scene'),
         mc('« Fatiguée, je … suis, mais pas découragée. »', ['le', 'la', 'les'], 0, 'Le neutre ne s’accorde jamais. EN: le.', 'a2-cartes'),
-        tI('Reprends l’adjectif sans le répéter.', 'Les loyers étaient raisonnables ; ils ne sont plus raisonnables.', fr(E(2018)), 'Ils ne le sont plus : le reprend raisonnables. EN: le stands for the adjective.', 'a2-construire'),
-        tI('Complète avec la reprise, au futur.', 'Les comptes sont-ils à jour ? Ils (être) demain.', fr(E(2025)), 'Ils le seront : le devant le verbe. EN: le before the verb.', 'a2-cartes'),
+        tI('Reprends l’adjectif sans le répéter.', 'Les loyers étaient raisonnables ; ils ne sont plus raisonnables.', fr(E(2018)), 'Ils ne le sont plus : le reprend raisonnables. EN: le stands for the adjective.', 'a2-construire', ['ils ne le sont plus']),
+        tI('Complète avec la reprise, au futur.', 'Les comptes sont-ils à jour ? Ils (être) demain.', fr(E(2025)), 'Ils le seront : le devant le verbe. EN: le before the verb.', 'a2-cartes', ['Ils le seront demain.', 'le seront']),
         eS('Elle semble sûre d’elle, mais elle n’est pas.', fr(E(2015)), 'Il manque le neutre : elle ne l’est pas. EN: le is missing.', 'a2-piege'),
         eS('Prêtes, elles les sont depuis lundi.', fr(E(2024)), 'Le neutre reste le : elles le sont. EN: le, not les.', 'a2-piege'),
         mc('« Elle a été très patiente ; lui ne l’a jamais été. » Que reprend l’ ?', ['patiente', 'elle', 'jamais'], 0, 'L’ reprend l’adjectif, placé devant l’auxiliaire. EN: patiente.', 'a2-cartes'),
@@ -2659,8 +2659,8 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('À l’écrit soigné : « …, le budget est bouclé. »', ['Comme je l’ai dit', 'Comme j’ai dit', 'Comme le j’ai dit'], 0, 'L’incise garde le neutre à l’écrit soigné. EN: keep the le in writing.', 'a3-cartes'),
         mc('« Les travaux ont commencé … »', ['comme prévu', 'comme le prévu'], 0, 'Le participe seul, sans article ni le. EN: comme prévu.', 'a3-cartes'),
-        tI('Ajoute la reprise dans l’incise.', 'Comme vous savez, l’ascenseur sera fermé en juillet.', fr(E(2033)), 'Comme vous le savez : le reprend l’information. EN: le in the aside.', 'a3-table'),
-        tI('Mets le verbe au plus-que-parfait, avec la reprise.', 'Comme nous (annoncer), la salle sera repeinte.', fr(E(2043)), 'Comme nous l’avions annoncé. EN: l’avions annoncé.', 'a3-construire'),
+        tI('Ajoute la reprise dans l’incise.', 'Comme vous savez, l’ascenseur sera fermé en juillet.', fr(E(2033)), 'Comme vous le savez : le reprend l’information. EN: le in the aside.', 'a3-table', ['Comme vous le savez', 'vous le savez']),
+        tI('Mets le verbe au plus-que-parfait, avec la reprise.', 'Comme nous (annoncer), la salle sera repeinte.', fr(E(2043)), 'Comme nous l’avions annoncé. EN: l’avions annoncé.', 'a3-construire', ['Comme nous l’avions annoncé', 'l’avions annoncé']),
         eS('La rénovation coûtera moins cher qu’on la craignait.', fr(E(2037)), 'On reprend une idée : le, jamais la. EN: le for the idea.', 'a3-erreurs', ['La rénovation coûtera moins cher qu’on le craignait.', 'La rénovation coûtera moins cher qu’on ne craignait.']),
         eS('Passe samedi, si tu veux le.', fr(E(2036)), 'Le pronom passe devant le verbe. Si tu veux, sans le, est juste aussi. EN: si tu le veux.', 'a3-erreurs', ['Passe samedi, si tu veux.']),
         mc('« Il viendra, je le crois, mais il ne l’a pas promis. » Que reprend le ?', ['qu’il viendra', 'il', 'promis'], 0, 'Le reprend toute la proposition. EN: that he will come.', 'a3-cartes'),
@@ -2672,9 +2672,9 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Elle est plus patiente que je ne le … »', ['suis', 'fais'], 0, 'Être se reprend lui-même. EN: suis.', 'a4-cartes'),
         mc('« Il lit beaucoup plus que je ne le … »', ['fais', 'suis'], 0, 'Faire reprend lire, un verbe d’action. EN: fais.', 'a4-cartes'),
-        tI('Remplace la seconde action par faire et le pronom.', 'Il faut appeler le plombier ; j’appellerai le plombier demain.', fr(E(2049)), 'Je le ferai : faire et le reprennent l’action. EN: je le ferai.', 'a4-cartes'),
-        tI('Remplace la fin par en faire autant, au passé composé.', 'Elle a rendu son rapport à temps, et son collègue a rendu son rapport à temps.', fr(E(2050)), 'En a fait autant : la même action. EN: did the same.', 'a4-cartes'),
-        eS('Ils ont plus de place que nous ne le faisons.', fr(E(2056)), 'Avoir se reprend lui-même : que nous n’en avons. EN: avoir, with en.', 'a4-piege', ['Ils ont plus de place que nous.']),
+        tI('Remplace la seconde action par faire et le pronom.', 'Il faut appeler le plombier ; j’appellerai le plombier demain.', fr(E(2049)), 'Je le ferai : faire et le reprennent l’action. EN: je le ferai.', 'a4-cartes', ['je le ferai demain', 'je le ferai']),
+        tI('Remplace la fin par en faire autant, au passé composé.', 'Elle a rendu son rapport à temps, et son collègue a rendu son rapport à temps.', fr(E(2050)), 'En a fait autant : la même action. EN: did the same.', 'a4-cartes', ['et son collègue en a fait autant', 'son collègue en a fait autant']),
+        eS('Ils ont plus de place que nous ne le faisons.', fr(E(2056)), 'Avoir se reprend lui-même : que nous n’en avons. EN: avoir, with en.', 'a4-piege', ['Ils ont plus de place que nous.', 'Ils ont plus de place que nous en avons.']),
         eS('Tu voulais repeindre le hall ? Le fais.', fr(E(2054)), 'À l’impératif affirmatif : fais-le. EN: fais-le.', 'a4-piege'),
         mc('« Tu fumes ? » Tu ne fumes plus. Ta réponse :', ['Plus maintenant.', 'Non, je ne fais plus.', 'Je fais plus.'], 0, 'Le français ne répond pas avec faire. EN: no auxiliary do.', 'a4-construire'),
         lC('Écoute. Qu’a fait le collègue ?', fr(E(2050)), ['il a rendu son rapport à temps', 'il n’a rien rendu'], 0, 'En a fait autant : la même chose. EN: the same.', 'a4-cartes'),
@@ -2685,8 +2685,8 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Je ne connais pas le nouveau gérant, mon voisin … »', ['non plus', 'aussi'], 0, 'Après une négative, non plus. EN: non plus.', 'a5-cartes'),
         mc('« Elle a voté pour, moi … »', ['aussi', 'non plus'], 0, 'Après une affirmative, aussi. EN: aussi.', 'a5-erreurs'),
-        tI('Allège la phrase : supprime le verbe répété.', 'Les jeunes préfèrent le courriel ; les plus âgés préfèrent le téléphone.', fr(E(2072)), 'Le verbe se tait ; la virgule marque sa place. EN: drop the second préfèrent.', 'a5-construire'),
-        tI('Remplace la fin par un seul mot après elle.', 'Lui part demain ; elle ne part pas demain.', fr(E(2077)), 'Elle non : non tient la place du groupe. EN: elle non.', 'a5-construire', ['Lui part demain, pas elle.']),
+        tI('Allège la phrase : supprime le verbe répété.', 'Les jeunes préfèrent le courriel ; les plus âgés préfèrent le téléphone.', fr(E(2072)), 'Le verbe se tait ; la virgule marque sa place. EN: drop the second préfèrent.', 'a5-construire', ['les plus âgés, le téléphone']),
+        tI('Remplace la fin par un seul mot après elle.', 'Lui part demain ; elle ne part pas demain.', fr(E(2077)), 'Elle non : non tient la place du groupe. EN: elle non.', 'a5-construire', ['Lui part demain, pas elle.', 'elle non']),
         eS('Lui accepte le compromis, elle ne.', fr(E(2068)), 'Ne ne reste jamais seul : elle non. EN: elle non.', 'a5-erreurs', ['Lui accepte le compromis, elle ne l’accepte pas.', 'Lui accepte le compromis, pas elle.']),
         mc('« Il a trois enfants, sa sœur deux. » Que manque-t-il après sa sœur ?', ['a … enfants', 'trois', 'rien'], 0, 'Sa sœur a deux enfants. EN: has … children.', 'a5-construire'),
         mc('« Elle a pris le bus, et moi une décision. » Le problème ?', ['prendre change de sens : l’ellipse devient un jeu de mots', 'il manque une virgule', 'le temps du verbe'], 0, 'Une ellipse suppose le même verbe au même sens. EN: same verb, same meaning.', 'a5-erreurs'),
@@ -2698,10 +2698,10 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Il manque quelque chose, mais je ne sais pas … »', ['quoi', 'ce que', 'que'], 0, 'Pour une chose, quoi. EN: quoi.', 'a6-cartes'),
         mc('« Il manque une pièce au dossier ; reste à savoir … »', ['laquelle', 'lequel', 'quelle'], 0, 'Une pièce : laquelle, pronom. EN: laquelle.', 'a6-construire'),
-        tI('Réduis la question à son mot.', 'Quelqu’un a appelé, mais je ne sais pas qui a appelé.', 'Quelqu’un a appelé, mais je ne sais pas qui.', 'Qui suffit : le reste est déjà dit. EN: qui alone.', 'a6-cartes'),
-        tI('Réduis la question à son mot.', 'Les travaux reprendront, mais personne ne sait quand ils reprendront.', fr(E(2086)), 'Quand suffit. EN: quand alone.', 'a6-piege'),
+        tI('Réduis la question à son mot.', 'Quelqu’un a appelé, mais je ne sais pas qui a appelé.', 'Quelqu’un a appelé, mais je ne sais pas qui.', 'Qui suffit : le reste est déjà dit. EN: qui alone.', 'a6-cartes', ['je ne sais pas qui']),
+        tI('Réduis la question à son mot.', 'Les travaux reprendront, mais personne ne sait quand ils reprendront.', fr(E(2086)), 'Quand suffit. EN: quand alone.', 'a6-piege', ['personne ne sait quand']),
         eS('Il y a un problème, mais je ne sais pas laquelle.', fr(E(2093)), 'Un problème : lequel. EN: lequel.', 'a6-piege'),
-        eS('Elle a déménagé, je ne sais plus où est-ce qu’elle habite.', fr(E(2091)), 'Pas de est-ce que dans une question indirecte ; le mot seul suffit. EN: où alone.', 'a6-piege', ['Elle a déménagé, je ne sais plus où elle habite.']),
+        eS('Elle a déménagé, je ne sais plus où est-ce qu’elle habite.', fr(E(2091)), 'À l’écrit, pas de est-ce que dans une question indirecte (on l’entend à l’oral) ; le mot seul suffit. EN: où alone in writing.', 'a6-piege', ['Elle a déménagé, je ne sais plus où elle habite.']),
         mc('« Vous avez des questions ? Si oui, … »', ['lesquelles', 'lesquels', 'laquelle'], 0, 'Des questions : lesquelles. EN: lesquelles.', 'a6-construire'),
         lC('Écoute. Sait-on quelle offre est la meilleure ?', fr(E(2089)), ['oui', 'non'], 0, 'Nous savons laquelle. EN: yes.', 'a6-ecoute'),
       ],
@@ -2711,8 +2711,8 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« La question des loyers est réglée, … du chauffage ne l’est pas. »', ['celle', 'celui', 'ce'], 0, 'Celle reprend question. EN: celle.', 'a7-cartes'),
         mc('« Ce plan présente un avantage, … de la simplicité. »', ['celui', 'celle', 'ce'], 0, 'Celui reprend avantage. EN: celui.', 'a7-cartes'),
-        tI('Remplace le nom répété par le démonstratif.', 'Ma demande a été acceptée, la demande de mon voisin refusée.', fr(E(2111)), 'Celle de mon voisin : celle reprend demande. EN: celle.', 'a7-construire', ['Ma demande a été acceptée, celle de mon voisin a été refusée.']),
-        tI('Remplace le nom répété par le démonstratif.', 'Les comptes de cette année sont plus clairs que les comptes de l’an passé.', fr(E(2112)), 'Ceux de l’an passé. EN: ceux.', 'a7-construire'),
+        tI('Remplace le nom répété par le démonstratif.', 'Ma demande a été acceptée, la demande de mon voisin refusée.', fr(E(2111)), 'Celle de mon voisin : celle reprend demande. EN: celle.', 'a7-construire', ['Ma demande a été acceptée, celle de mon voisin a été refusée.', 'celle de mon voisin refusée']),
+        tI('Remplace le nom répété par le démonstratif.', 'Les comptes de cette année sont plus clairs que les comptes de l’an passé.', fr(E(2112)), 'Ceux de l’an passé. EN: ceux.', 'a7-construire', ['ceux de l’an passé']),
         eS('Ces chiffres confirment celui de l’enquête précédente.', fr(E(2116)), 'Le pronom reprend chiffres : ceux. EN: ceux.', 'a7-erreurs'),
         eS('Le budget du comité culturel est modeste, celui-ci du comité des fêtes encore plus.', fr(E(2101)), 'Devant de, celui sans -ci. EN: celui du.', 'a7-erreurs'),
         mc('« Le calendrier initial et celui proposé par l’entreprise ne concordent pas. » Cette tournure est…', ['courante, mais discutée par certains guides', 'fautive en toute situation'], 0, 'On la lit partout ; à l’écrit très soigné, celui que propose. EN: common, debated.', 'a7-cartes'),
@@ -2724,8 +2724,8 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Une camionnette bloquait l’entrée ; … a été déplacé à midi. »', ['le véhicule', 'le camion', 'la chose'], 0, 'Un nom plus large, qui ne désigne qu’elle. EN: le véhicule.', 'a8-cartes'),
         mc('« Le conseil a reporté le vote. … a surpris les locataires. »', ['Cette décision', 'Cette annulation', 'Cette élection'], 0, 'Le nom doit dire ce qui s’est passé. EN: cette décision.', 'a8-piege'),
-        tI('Reprends la première phrase par le nom tiré du verbe, avec ce.', 'Le gardien a refusé la livraison. (…) a retardé le chantier.', fr(E(2128)), 'Ce refus. EN: ce refus.', 'a8-cartes'),
-        tI('Reprends la première phrase par le nom tiré du verbe, au pluriel.', 'Plusieurs locataires ont déménagé. (…) ont libéré trois logements.', fr(E(2129)), 'Ces départs. EN: ces départs.', 'a8-piege'),
+        tI('Reprends la première phrase par le nom tiré du verbe, avec ce.', 'Le gardien a refusé la livraison. (…) a retardé le chantier.', fr(E(2128)), 'Ce refus. EN: ce refus.', 'a8-cartes', ['Ce refus', 'Ce refus a retardé le chantier.']),
+        tI('Reprends la première phrase par le nom tiré du verbe, au pluriel.', 'Plusieurs locataires ont déménagé. (…) ont libéré trois logements.', fr(E(2129)), 'Ces départs. EN: ces départs.', 'a8-piege', ['Ces départs', 'Ces départs ont libéré trois logements.']),
         eS('Un érable est tombé sur le parking ; la chose était malade depuis des années.', fr(E(2118)), 'Trop vague : l’arbre. EN: l’arbre.', 'a8-piege'),
         mc('« Personne n’a répondu au sondage. Ce silence en dit long. » Ce silence…', ['résume la phrase d’avant et l’interprète', 'désigne un nouveau sondage'], 0, 'Le nom résume, et il juge. EN: it sums up and interprets.', 'a8-cartes'),
         mc('Pourquoi cette dans « Cette fermeture inquiète les familles » ?', ['pour dire qu’on reprend ce qui vient d’être dit', 'parce que fermeture est un mot rare'], 0, 'Le démonstratif signale la reprise. EN: it points back.', 'a8-construire'),
@@ -2737,8 +2737,8 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Les membres … comité sont élus pour deux ans. »', ['dudit', 'de ledit'], 0, 'De + ledit : dudit. EN: dudit.', 'a9-cartes'),
         mc('« Le cas échéant » veut dire…', ['si le cas se présente', 'en tout cas', 'finalement'], 0, 'Une condition tue. EN: where applicable.', 'a9-cartes'),
-        tI('Reprends le nom au style officiel.', 'Le locataire signale une fuite ; (…) fuite provient de l’appartement du dessus.', fr(E(2136)), 'Ladite, en un mot, au féminin. EN: ladite.', 'a9-table'),
-        tI('Reprends le nom au style officiel, avec à.', 'Toute réclamation relative (à + ledit) règlement doit être écrite.', fr(E(2139)), 'À + ledit : audit. EN: audit.', 'a9-construire'),
+        tI('Reprends le nom au style officiel.', 'Le locataire signale une fuite ; (…) fuite provient de l’appartement du dessus.', fr(E(2136)), 'Ladite, en un mot, au féminin. EN: ladite.', 'a9-table', ['ladite', 'ladite fuite']),
+        tI('Reprends le nom au style officiel, avec à.', 'Toute réclamation relative (à + ledit) règlement doit être écrite.', fr(E(2139)), 'À + ledit : audit. EN: audit.', 'a9-construire', ['audit', 'audit règlement']),
         eS('Le cas échéant, merci pour ton aide.', 'En tout cas, merci pour ton aide.', 'Le cas échéant veut dire « si le cas se présente », pas « en tout cas ». EN: in any case is en tout cas.', 'a9-erreurs', ['Dans tous les cas, merci pour ton aide.', 'Quoi qu’il en soit, merci pour ton aide.']),
         eS('Avez-vous un animal ? Si oui, précisez laquelle.', fr(E(2145)), 'Un animal : lequel. EN: lequel.', 'a9-construire'),
         mc('Où ledit est-il à sa place ?', ['dans un règlement intérieur', 'dans un message à un ami', 'dans une conversation de bureau'], 0, 'Ledit appartient aux textes officiels. EN: official texts.', 'a9-erreurs'),
@@ -2750,10 +2750,10 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Marie a téléphoné à sa sœur quand elle est rentrée. » Qui est rentrée ?', ['on ne peut pas le savoir', 'Marie', 'la sœur'], 0, 'Elle peut renvoyer aux deux. EN: either.', 'a10-cartes'),
         mc('Laquelle dit que c’est la sœur qui rentre ?', [fr(E(2152)), fr(E(2153))], 0, 'Cette dernière : la sœur. L’autre phrase fait rentrer Marie. EN: cette dernière.', 'a10-cartes'),
-        tI('Lève le doute avec ce dernier : on parle de la femme de Marc.', 'Paul a croisé Marc avec sa femme.', fr(E(2155)), 'La femme de ce dernier : celle de Marc. EN: de ce dernier.', 'a10-piege', ['Paul a croisé Marc avec la femme de celui-ci.']),
-        tI('Passe au discours direct : c’est Hugo qui a gagné.', 'Hugo a dit à son frère qu’il avait gagné.', fr(E(2165)), 'J’ai gagné : plus de doute. EN: direct speech.', 'a10-cartes'),
+        tI('Lève le doute avec ce dernier : on parle de la femme de Marc.', 'Paul a croisé Marc avec sa femme.', fr(E(2155)), 'La femme de ce dernier : celle de Marc. EN: de ce dernier.', 'a10-piege', ['Paul a croisé Marc avec la femme de celui-ci.', 'avec la femme de ce dernier']),
+        tI('Passe au discours direct : c’est Hugo qui a gagné.', 'Hugo a dit à son frère qu’il avait gagné.', fr(E(2165)), 'J’ai gagné : plus de doute. EN: direct speech.', 'a10-cartes', ['Hugo a dit à son frère : J’ai gagné.']),
         mc('« Le gérant a reçu le plombier, qui avait oublié ses outils. » Qui avait oublié ses outils ?', ['le plombier', 'le gérant', 'on ne peut pas le savoir'], 0, 'Qui suit directement plombier. EN: the plumber.', 'a10-trier'),
-        tI('Lève le doute : c’est Nina qui n’a pas rendu la voiture.', 'Léa a prêté sa voiture à Nina, mais elle ne la lui a pas rendue.', fr(E(2162)), 'Cette dernière : Nina. EN: cette dernière.', 'a10-piege', ['Léa a prêté sa voiture à Nina, mais celle-ci ne la lui a pas rendue.', 'Léa a prêté sa voiture à Nina, mais Nina ne la lui a pas rendue.']),
+        tI('Lève le doute : c’est Nina qui n’a pas rendu la voiture.', 'Léa a prêté sa voiture à Nina, mais elle ne la lui a pas rendue.', fr(E(2162)), 'Cette dernière : Nina. EN: cette dernière.', 'a10-piege', ['Léa a prêté sa voiture à Nina, mais celle-ci ne la lui a pas rendue.', 'Léa a prêté sa voiture à Nina, mais Nina ne la lui a pas rendue.', 'mais cette dernière ne la lui a pas rendue']),
         mc('« Marc a croisé Paul au marché ; lui ne l’a pas reconnu. » Qui n’a pas reconnu l’autre ?', ['Paul', 'Marc'], 0, 'Lui, en tête, passe à l’autre homme. EN: Paul.', 'a10-trier'),
         lC('Écoute. Qui démissionne ?', fr(E(2159)), ['la présidente', 'la trésorière'], 0, 'Sa propre démission : celle du sujet. EN: the president.', 'a10-ecoute'),
       ],
@@ -2763,9 +2763,9 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Pour trouver ce que reprend un pronom, tu…', ['remets le nom à sa place et vérifies le sens', 'prends le premier nom du texte'], 0, 'Le test de substitution. EN: substitute and check.', 'a11-hacks'),
         mc('Dans un contrat, le choix le plus sûr est de…', ['répéter le nom', 'varier les synonymes', 'employer il'], 0, 'La précision passe avant l’élégance. EN: repeat the noun.', 'a11-focus'),
-        tI('Réécris la seconde phrase avec un nom qui résume.', 'La ville a changé d’avis en mars. Le changement d’avis de la ville vient du bilan.', 'La ville a changé d’avis en mars. Ce revirement vient du bilan.', 'Ce revirement, ou ce changement : un nom qui résume. EN: a summing noun.', 'a11-texte', ['La ville a changé d’avis en mars. Ce changement vient du bilan.', 'La ville a changé d’avis en mars. Ce changement d’avis vient du bilan.']),
-        tI('Réécris la fin avec une ellipse.', 'Les bénévoles voulaient un second atelier ; la ville ne voulait pas un second atelier.', 'Les bénévoles voulaient un second atelier ; la ville, non.', 'La ville, non : le groupe est tu. EN: an ellipsis.', 'a11-texte', ['Les bénévoles voulaient un second atelier ; la ville ne le voulait pas.', 'Les bénévoles voulaient un second atelier, pas la ville.']),
-        eS('Odile Ferland répare plus vite que les jeunes bénévoles ne le sont.', fr(E(2176)), 'Réparer est une action : ne le font. EN: faire.', 'a11-table', ['Odile Ferland répare plus vite que les jeunes bénévoles.']),
+        tI('Réécris la seconde phrase avec un nom qui résume.', 'La ville a changé d’avis en mars. Le changement d’avis de la ville vient du bilan.', 'La ville a changé d’avis en mars. Ce revirement vient du bilan.', 'Ce revirement, ou ce changement : un nom qui résume. EN: a summing noun.', 'a11-texte', ['La ville a changé d’avis en mars. Ce changement vient du bilan.', 'La ville a changé d’avis en mars. Ce changement d’avis vient du bilan.', 'Ce revirement vient du bilan.', 'Ce changement vient du bilan.']),
+        tI('Réécris la fin avec une ellipse.', 'Les bénévoles voulaient un second atelier ; la ville ne voulait pas un second atelier.', 'Les bénévoles voulaient un second atelier ; la ville, non.', 'La ville, non : le groupe est tu. EN: an ellipsis.', 'a11-texte', ['Les bénévoles voulaient un second atelier ; la ville ne le voulait pas.', 'Les bénévoles voulaient un second atelier, pas la ville.', 'la ville, non']),
+        eS('Odile Ferland répare plus vite que les jeunes bénévoles ne le sont.', fr(E(2176)), 'Réparer est une action : ne le font. EN: faire.', 'a11-table', ['Odile Ferland répare plus vite que les jeunes bénévoles.', 'Odile Ferland répare plus vite que les jeunes bénévoles le font.']),
         mc('« Si possible, apportez la notice. » Que manque-t-il après si ?', ['c’est, ou il est', 'vous'], 0, 'Si c’est possible : être est tu. EN: être is understood.', 'a11-table'),
         mc('Trop de synonymes à la suite…', ['font croire au lecteur qu’on parle d’autre chose', 'rendent toujours le texte plus élégant'], 0, 'Varie les outils, pas les synonymes. EN: vary the tools.', 'a11-hacks'),
         lC('Écoute. Qui souhaite un second atelier ?', fr(E(2175)), ['les bénévoles', 'la ville', 'personne'], 0, 'Les bénévoles le souhaitent ; la ville, pas encore. EN: the volunteers.', 'a11-renvoie'),
@@ -2777,7 +2777,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc(`${Cap(INSISTANCE_REF)} : « Ce livre, je … ai lu en une nuit. »`, ['l’', 'lui'], 0, `« ${B211_REFRAME} » Le mot détaché est repris par l’. EN: ${B211_REFRAME_EN}`, 'a1-rappel'),
         mc(`${Cap(LECTURE_REF)} : « Le ministre est arrivé avec le maire. Ce dernier a parlé. » Qui a parlé ?`, ['le maire', 'le ministre'], 0, `« ${B137_REFRAME} » Ce dernier : le dernier nommé. EN: ${B137_REFRAME_EN}`, 'a1-rappel'),
         mc(`${Cap(DEMONSTRATIFS_REF)} : « Ce livre est à toi ? Non, je veux … de Marie. »`, ['celui', 'celle', 'ce'], 0, `« ${A233_REFRAME} » ${A233_REFRAME_FR} EN: no noun after it, so it replaces.`, 'a1-rappel'),
-        tI(`${Cap(NOMINAL_REF)} : reprends la première phrase par le nom tiré du verbe, avec ce.`, 'Le gardien a refusé. (…) a surpris tout le monde.', 'Le gardien a refusé. Ce refus a surpris tout le monde.', `« ${B210_REFRAME} » EN: ${B210_REFRAME_EN}`, 'a8-cartes'),
+        tI(`${Cap(NOMINAL_REF)} : reprends la première phrase par le nom tiré du verbe, avec ce.`, 'Le gardien a refusé. (…) a surpris tout le monde.', 'Le gardien a refusé. Ce refus a surpris tout le monde.', `« ${B210_REFRAME} » EN: ${B210_REFRAME_EN}`, 'a8-cartes', ['Ce refus', 'Ce refus a surpris tout le monde.']),
         mc(`${Cap(LECTURE_REF)} : « Paul et Marc sont arrivés. Le premier était fatigué. » Qui était fatigué ?`, ['Paul', 'Marc'], 0, 'Le premier : le premier nommé. EN: Paul.', 'a1-rappel'),
         mc(`${Cap(INSISTANCE_REF)} : « Marc a croisé Paul ; il ne l’a pas reconnu. » En général, il renvoie à…`, ['Marc, le sujet', 'Paul'], 0, 'Il continue le sujet ; lui en tête passerait à Paul. EN: il keeps the subject.', 'a10-exemples'),
         mc(`${Cap(JURIDIQUE_REF)} : « Le cas échéant, les frais de réparation seront à la charge du Client. » Le client paiera…`, ['seulement si une réparation est nécessaire', 'dans tous les cas'], 0, `« ${B227_REFRAME} » EN: ${B227_REFRAME_EN}`, 'a9-cartes'),
@@ -2787,7 +2787,7 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r12-examen', label: 'Comme à l’examen : à quoi renvoie', targets: ['renvoi-mal-lu'],
       questions: [
-        mc('Comme à une épreuve de compréhension écrite. Dans l’article sur le café-réparation, « celle-ci ne coûte presque rien à la ville » : « celle-ci » renvoie à…', ['l’initiative', 'Odile Ferland', 'la ville', 'la salle paroissiale'], 0, 'L’initiative, nommée juste avant ; une personne ne coûte rien à la ville. EN: the initiative.', 'a11-renvoie'),
+        mc('Comme à une épreuve de compréhension écrite. Dans l’article sur le café-réparation, « celle-ci ne coûte presque rien à la ville » : « celle-ci » renvoie à…', ['l’initiative', 'Odile Ferland', 'la ville', 'la salle paroissiale'], 0, 'L’initiative, le dernier nom cité ; la suite (le local prêté, les outils donnés) décrit un projet, pas une personne. EN: the initiative.', 'a11-renvoie'),
         mc('Même article. « Celui-ci tient la lampe, dévisse, cherche la panne » : « celui-ci » renvoie…', ['au visiteur', 'au café-réparation', 'à l’appareil', 'au local'], 0, 'Le visiteur, nommé juste avant ; un appareil ne tient pas la lampe. EN: the visitor.', 'a11-lecture'),
         mc('Même article. « Ce geste reste libre, et la plupart le font » : la plupart…', ['laissent un don', 'réparent un objet', 'viennent le samedi', 'tiennent la lampe'], 0, 'Le font reprend « laisser un don », le geste qu’on vient d’évoquer. EN: they leave a donation.', 'a11-lecture'),
         mc('Même article. « Elle attend un bilan, et Odile Ferland le lui fournira » : « lui » renvoie à…', ['la ville', 'la file d’attente', 'une bénévole', 'la salle'], 0, 'Elle, puis lui : la ville, dont parle la phrase d’avant. EN: the town.', 'a11-lecture'),
@@ -2883,7 +2883,7 @@ const ACT12: ActDef = {
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const DRILL_LIST: LessonDrill[] = [
-  { id: 'd-neutre', title: 'Le, toujours le', format: 'mcq' as const, coach: 'Un adjectif ou un nom attribut déjà dit revient par le, sans accord. EN: neutral le, never agreed.', q: 'Fatiguée, je … suis.', opts: ['le', 'la'], correct: 0, why: 'Le neutre ne s’accorde jamais. EN: le.', items: [E(2013), E(2014), E(2015), E(2018), E(2019), E(2024)], audio: AUDIO },
+  { id: 'd-neutre', title: 'Le, toujours le', format: 'mcq' as const, coach: 'Un adjectif ou un nom sans article déjà dit revient par le, sans accord. EN: neutral le, never agreed.', q: 'Fatiguée, je … suis.', opts: ['le', 'la'], correct: 0, why: 'Le neutre ne s’accorde jamais. EN: le.', items: [E(2013), E(2014), E(2015), E(2018), E(2019), E(2024)], audio: AUDIO },
   { id: 'd-idee', title: 'Le pour une idée', format: 'flashcard' as const, coach: 'Lis chaque phrase et remplace le par l’idée qu’il reprend. EN: replace le with the idea it stands for.', items: [E(2032), E(2033), E(2037), E(2038), E(2039), E(2043)], audio: AUDIO },
   { id: 'd-faire', title: 'Faire, ou être et avoir', format: 'sort' as const, coach: 'Deux piles : faire reprend une action ; être et avoir se reprennent eux-mêmes. EN: faire for actions only.', buckets: ['faire reprend le verbe', 'être ou avoir se reprennent'], items: [E(2049), E(2051), E(2058), E(2055), E(2056), E(2021)], audio: AUDIO },
   { id: 'd-ellipse', title: 'Aussi ou non plus', format: 'mcq' as const, coach: 'Le verbe partagé se tait ; aussi suit une affirmative, non plus une négative. EN: aussi after a positive, non plus after a negative.', q: 'Je ne connais pas le gérant, mon voisin …', opts: ['non plus', 'aussi'], correct: 0, why: 'Après une négative, non plus. EN: non plus.', items: [E(2066), E(2068), E(2069), E(2070), E(2071), E(2073)], audio: AUDIO },
@@ -3013,7 +3013,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['si possible, si nécessaire', 'Si possible, apportez la notice de l’appareil.', 's’il est possible'],
       ['une fois + participe', 'Une fois l’objet réparé, le visiteur laisse un don.', 'quand l’objet est réparé'],
       ['quoique, bien que + adjectif', 'Quoique fatiguée, elle ne manque jamais un samedi.', 'quoiqu’elle soit fatiguée'],
-      ['sinon tous', 'Ce compromis satisfait la plupart des membres, sinon tous.', 'sinon il les satisfait tous'],
+      ['sinon tous', 'Ce compromis satisfait la plupart des membres, sinon tous.', 'si ce n’est tous : peut-être même tous'],
     ]),
   ]),
   sheet('sheet-celui', 'Reprendre un nom', ['celui de, celle que', 'celui + participe', 'le nom plus large', 'le nom qui résume'], [
@@ -3055,9 +3055,9 @@ const SHEET_LIST: ReferenceSheet[] = [
     ]),
     table('sheet-ledit-registre', 'Où l’employer', ['Texte', 'Ledit ?', 'Plutôt'], [
       ['avis, règlement, contrat', 'oui', 'ledit, ladite, le cas échéant'],
-      ['courriel professionnel', 'rarement', 'ce, cette, ce dernier'],
+      ['courriel professionnel, compte rendu', 'rarement, une fois au plus', 'ce, cette, ce dernier'],
       ['message à un ami', 'non, sauf pour faire sourire', 'il, elle, ce'],
-      ['essai, compte rendu', 'non', 'un nom plus large, celui de'],
+      ['essai, article', 'non', 'un nom plus large, celui de'],
     ]),
   ]),
   sheet('sheet-fil', 'Tenir le fil', ['réparer une ambiguïté', 'à quoi renvoie', 'quand répéter', 'la liste de contrôle'], [
