@@ -1317,6 +1317,22 @@ test('each B2 exam skill has its own remediation lesson', () => {
   );
 });
 
+test('C1 reading and listening route to c1.20 and c1.21, and stay inert until those lessons exist', () => {
+  deepStrictEqual(['CE', 'CO'].map((k) => EXAM_PREP_TARGETS[`${k}@c1`]), ['c1.20.l1', 'c1.21.l1']);
+  strictEqual(EXAM_PREP_TARGETS['PE@c1'], undefined);
+  strictEqual(EXAM_PREP_TARGETS['PO@c1'], undefined);
+  const mk = (id: string, skill: Lesson['skill']): Lesson => ({
+    id, unitId: id.slice(0, 5), seq: 1, title: id, level: 'c1', tag: 'C1',
+    intro: '', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1, skill,
+  });
+  // dueExamSkills only routes OPEN task types, so the route is exercised with one.
+  const r = examResult({ band: 'c1', skill: 'CE' });
+  // No C1 lesson published (today): unchanged, null.
+  deepStrictEqual(dueExamSkills([r], []).map((d) => d.prepLessonId), [null]);
+  // c1.20 published after another CE lesson: the named target wins.
+  deepStrictEqual(dueExamSkills([r], [mk('c1.19.l1', 'CE'), mk('c1.20.l1', 'CE')]).map((d) => d.prepLessonId), ['c1.20.l1']);
+});
+
 test('dueExamSkills dedupes repeated misses at the same (format, skill, band)', () => {
   const due = dueExamSkills([examResult({ id: 'exr-1' }), examResult({ id: 'exr-2' })], []);
   strictEqual(due.length, 1);

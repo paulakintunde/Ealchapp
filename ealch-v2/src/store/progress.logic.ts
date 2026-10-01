@@ -1397,6 +1397,12 @@ export const EXAM_PREP_TARGETS: Readonly<Record<string, string>> = {
   'CE@b2': 'b2.24.l1',
   'CO@b2': 'b2.25.l1',
   'PO@b2': 'b2.26.l1',
+  // C1 Phase 0 (2026-09-30): wave 1's reading and listening workshops. Inert
+  // until c1.20 and c1.21 publish: a target absent from the corpus falls back
+  // to the first-match rule, exactly as before. PE@c1 (c1.10) and PO@c1
+  // (c1.09) wait for C1 writing and speaking tasks, of which none exist.
+  'CE@c1': 'c1.20.l1',
+  'CO@c1': 'c1.21.l1',
 };
 
 /**
