@@ -1866,7 +1866,7 @@ const A10_FORMATS: Sec<'cardDeck'> = {
       body: "Trois enregistrements d'une minute et demie à deux minutes, une écoute chacun, une trentaine de secondes pour lire avant ; trois questions, puis deux, puis deux. EN: three recordings, one play each, 3 + 2 + 2 items." },
     { head: 'Épreuve blanche TEF Canada', label: 'un reportage',
       fr: S(1522).fr, sub: rsOf(E(1522)),
-      body: "Un reportage d'environ deux minutes, une écoute, une seule question : l'idée principale. EN: one reportage, one play, one main-idea question." },
+      body: "Dans l'épreuve blanche de l'application, un reportage d'environ deux minutes, une écoute, une question : l'idée principale. À l'examen réel, le reportage radio porte deux questions. EN: in the app's mock paper, one reportage, one play, one main-idea question; the real test asks two." },
     { head: 'Les questions types', label: 'six formes',
       fr: S(1512).fr, sub: rsOf(E(1512)),
       body: "Sur quoi s'accordent-ils ? Quel est le désaccord réel ? Que concède-t-il ? Comment répond-elle à l'objection ? Que veut dire la comparaison ? EN: agreement, real disagreement, concession, objection, comparison." },
@@ -2885,7 +2885,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       "Dans les épreuves blanches C1 de l'application, chaque document passe une seule fois, après trente secondes environ pour lire les questions. Lis le mot-clé de chaque question, prévois la forme de l'échange (un accord, puis la ligne, puis une objection et sa réponse), note un mot par question pendant l'écoute, puis élimine les options qui répètent, élargissent ou changent de camp. EN: One play after about thirty seconds to read; spot the key word, predict the shape, one word per question, then eliminate."),
     table('sheet-epreuve-formats', 'Les épreuves blanches de l’application, au C1', ['Épreuve', 'Ce que tu entends', 'Les questions'], [
       ['TCF Canada, compréhension orale C1', "trois enregistrements d'environ une minute et demie à deux minutes, une écoute chacun", 'trois, puis deux, puis deux'],
-      ['TEF Canada, épreuve blanche (section F)', "un reportage d'environ deux minutes, une écoute", "une seule : l'idée principale"],
+      ['TEF Canada, épreuve blanche de l’application', "un reportage d'environ deux minutes, une écoute", "une seule : l'idée principale (deux à l'examen réel)"],
     ]),
     table('sheet-epreuve-questions', 'Les questions types et le moment à guetter', ['La question', 'Le moment à guetter'], [
       ["Sur quoi s'accordent-ils ?", "le début : « sur le constat », « personne ne conteste »"],
@@ -2988,7 +2988,7 @@ const REC_DESC: Record<string, string> = {
   'rec-c1-21-latin': "REQUIRED, EXAM FORMAT, ONE PLAY (act 10, document A): Latin at the lycée, thirteen lines, about 90 seconds, ONE TAKE, THREE VOICES: a moderator (1, 7, 12), Bérénice Aubry, Latin teacher, spirited (2, 4, 5, 8, 10, 13), Gilles Morin, head teacher, friendly, practical (3, 6, 9, 11). Natural speed, no repetition.",
   'rec-c1-21-formats': 'The four exam cards, one voice, the even voice of exam instructions.',
   'rec-c1-21-sieste': "REQUIRED, EXAM FORMAT, ONE PLAY (act 10, document B): the nap room, twelve lines, about 85 seconds, ONE TAKE, THREE VOICES: a moderator (1, 6), Dr Annie Paquette, occupational physician, calm (2, 3, 7, 9, 11), Lucas Bérubé, company head, a little defensive (4, 5, 8, 10, 12). Natural speed, no repetition.",
-  'rec-c1-21-vernay': "REQUIRED, EXAM FORMAT, ONE PLAY (act 11, TEF section F): the Vernay reportage, fourteen lines, about 110 seconds, ONE TAKE, THREE VOICES: the narrator, a radio reporter (1, 2, 3, 6, 9, 10, 12, 14), Mme Delorme, a resident in her sixties, candid (4, 5, 11), Marc Fayolle, garage owner, warm (7, 8, 13). Outdoor ambience under the two residents. The turn (« Mais quand le prix de l'électricité est redescendu ») at normal weight; the last line read as a reporter's closing line, not stressed.",
+  'rec-c1-21-vernay': "REQUIRED, EXAM FORMAT, ONE PLAY (act 11, TEF reportage): the Vernay reportage, fourteen lines, about 110 seconds, ONE TAKE, THREE VOICES: the narrator, a radio reporter (1, 2, 3, 6, 9, 10, 12, 14), Mme Delorme, a resident in her sixties, candid (4, 5, 11), Marc Fayolle, garage owner, warm (7, 8, 13). Outdoor ambience under the two residents. The turn (« Mais quand le prix de l'électricité est redescendu ») at normal weight; the last line read as a reporter's closing line, not stressed.",
   'rec-c1-21-debat': "THE TASK DEBATE (act 12), REQUIRED, ONE PLAY: Le Débat du jeudi, eighteen lines, about two and a half minutes, ONE TAKE, FOUR VOICES: host Romain Gagné (1, 3, 8, 15, 18), Isabelle Nadeau, head of HR, brisk, practical (2, 6, 11, 12, 17), Thomas Lefebvre, employment lawyer, exact, courteous (4, 5, 7, 10, 14), Aïcha Diallo, staff representative, calm and firm (9, 13, 16). Québec French, live radio. INTERRUPTION: line 6 (« Appelez-la comme vous voudrez ») comes in on the end of line 5, and line 7 takes it straight back; TTS cannot overlap, so they are written as successive turns and the studio should play the cut. « Le mot », « j'accorde la distinction », « je soutiens quelque chose de plus étroit » and « on m'objectera » at natural weight; nothing slowed.",
 };
 

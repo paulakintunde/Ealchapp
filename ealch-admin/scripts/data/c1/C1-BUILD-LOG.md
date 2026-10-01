@@ -65,7 +65,19 @@ reuses the B1/B2 factory whole; this file records only what is different.
     text edit at the import.
 14. Task rubrics stay 6 criteria / 20 points (c1.20, c1.24).
 15. Verify the TEF reportage section label (pack says F, prep sources say G);
-    if G is right, relabel the pack and c1.21 together for v85.
+    if G is right, relabel the pack and c1.21 together for v85. **Checked
+    2026-09-30:** no official CCI document letters the listening paper (the
+    Oct 2024 sample booklet uses question ranges: Q21-30 chroniques, interviews,
+    reportage radio), so F vs G is a prep-site convention. c1.21 now drops the
+    letter and says the real reportage carries two questions. Pack labels left
+    as they are. **New, for Paul (outside wave 1):** against the official
+    sample, all five TEF papers' listening diverges: the reportage has 1
+    question (official 2), answering-machine messages are 3 documents inside G
+    (official family of about 6), documents divers are 17 (official 10). The
+    labels also drive voice casting and pacing (`lib/examAudio.ts`,
+    `exam/check-speech-rate.ts`, `exam/marking-sheet.ts`), so any relabel needs
+    an explicit block key first. Sources and file list: the TEF check report
+    (2026-09-30).
 16. Up to 4 tapTables per lesson at C1 (playbook open point 11.2).
 
 **Open, for Paul** (raised by the research; detail in C1-RESEARCH-PLAN.md):

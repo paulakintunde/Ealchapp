@@ -141,7 +141,7 @@ export const DEBATS_ENTRETIENS_TERMS: Record<string, LessonTerm> = {
   idee: {
     term: 'idée centrale',
     title: "L'idée centrale d'un reportage",
-    body: "Dans l'épreuve blanche TEF Canada de l'application, un reportage d'environ deux minutes, une écoute, une question : l'idée principale. Elle n'est presque jamais le premier chiffre. Elle arrive avec le retournement (« mais ») et revient dans la dernière phrase du narrateur ; c'est elle qui donne un sens à tous les détails. EN: The main idea comes with the turn and the narrator's last line; it is what makes sense of every detail.",
+    body: "Dans l'épreuve blanche TEF Canada de l'application, un reportage d'environ deux minutes, une écoute, une question : l'idée principale (à l'examen réel, le reportage radio en porte deux). Elle n'est presque jamais le premier chiffre. Elle arrive avec le retournement (« mais ») et revient dans la dernière phrase du narrateur ; c'est elle qui donne un sens à tous les détails. EN: The main idea comes with the turn and the narrator's last line; it is what makes sense of every detail.",
     examples: [
       { itemId: E(1525), note: 'idée et détails' },
       { itemId: E(1523), note: 'le mais du reportage' },
