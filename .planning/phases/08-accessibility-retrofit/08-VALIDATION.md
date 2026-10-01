@@ -2,11 +2,13 @@
 phase: 8
 slug: accessibility-retrofit
 status: complete
-nyquist_compliant: true
+nyquist_compliant: false
 wave_0_complete: true
 created: 2026-09-27
-updated: 2026-09-29
+updated: 2026-10-01
 ---
+
+> **2026-10-01 correction (08-QUALITY-AUDIT.md):** the hardware sign-off below rests on a one-line user report, not the per-control record Plan 10 Task 2 required; the locked-row paywall was never run on a free account; and defects E1 to E10 are confirmed in code. `nyquist_compliant` is reset to false and the "failures fixed, retested" item is unticked. Closure moves to Phase 08.1.
 
 # Phase 8 validation
 
@@ -54,6 +56,6 @@ The device protocol and partial results are in `08-DEVICE-EVIDENCE.md`. The Pixe
 - [x] Android device/build identity recorded and TalkBack traversal reported passing for all eleven groups.
 - [x] Automatic theme and native bar/paywall/level-panel behavior recorded; clean-install default and Settings resolved label pass.
 - [x] Both large-font flashcard visual runs recorded; one A1 flashcard received a user-reported TalkBack pass.
-- [x] Any failures fixed, retested, and the human checkpoint approved; fresh-install Automatic default passes.
+- [ ] Any failures fixed, retested, and the human checkpoint approved; fresh-install Automatic default passes.
 
 **Approval:** Automated checks passed. Hardware sign-off is complete: the user-reported TalkBack sweep and Pixel 6 fresh-install Automatic check passed.

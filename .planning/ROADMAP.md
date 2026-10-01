@@ -25,6 +25,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 7: Known Bug Fixes** - Fix exam-response-lost-on-process-death (highest priority, revenue-adjacent), lock in the STT continuous-mode regression with a test, and fix audio-doesn't-pause-on-background (lowest priority, cosmetic)
 - [ ] **Phase 7.1: Concept C Spine Rewrite** (INSERTED) - Replace the Den, lesson overview and mission list with the approved Concept C trail, carrying the level panel, acte 00, the three-state language control, the day-one first run and the paywall's two trail positions
 - [x] **Phase 8: Accessibility Retrofit** - Thread correct screen-reader roles/labels per control type across high-traffic screens, fix dark-mode OS-sync and flashcard font-scale clipping
+- [ ] **Phase 8.1: Accessibility Quality Pass** (INSERTED) - Close the gaps found by 08-QUALITY-AUDIT.md: theme override race, font-scale activity restart, learning-path clipping, unannounced grading, gesture-only actions, French voice under TalkBack, per-control verbatim device evidence
 - [ ] **Phase 9: Onboarding & Analytics Audit** - Verify the onboarding/placement flow end-to-end and audit analytics event coverage/correctness across engagement AND the acquisition/activation funnel
 - [ ] **Phase 10: Feedback & Rating Flow** - Verify/fix "Le Rapport" and build a frequency-capped rating flow that routes positive ratings to the store and negative ratings to a private in-app report
 - [ ] **Phase 11: Brix Mascot Rive Animation Rollout — Core States** - Ship idle/listening/speaking/celebrating/thinking states for normal lesson flow, preserving existing accessibility-hiding and reduced-motion behavior
@@ -297,6 +298,31 @@ Plans:
 **Pitfall Watch**: PITFALLS.md Pitfall 3 — do not ship a single blanket `accessibilityRole="button"` default on `Press`; thread role as an explicit per-call-site prop and audit real usage in batches by screen, since a blanket default would misannounce switches/tabs/links. Verification must be a real-device TalkBack sweep per touched screen (not a grep for role presence), and every switch/tab role must be paired with the matching `accessibilityState`/`accessibilityValue`. Also check `position: absolute` elements (modals, overlays, FABs) separately — TalkBack on Android can fail to reach them regardless of role correctness.
 **UI hint**: yes
 
+### Phase 08.1: Accessibility Quality Pass (INSERTED)
+**Goal**: Phase 8's four requirements hold on a real device with per-control evidence, across the main learning path and not just the screens Phase 8 named.
+**Depends on**: Phase 8 (reworks its output). Inserted 2026-10-01 after `08-QUALITY-AUDIT.md` found Phase 8 closed on a one-line device sign-off, with confirmed defects E1 to E10.
+**Requirements**: A11Y-01, A11Y-02, A11Y-03, A11Y-04 (reopened)
+**Success Criteria** (what must be TRUE):
+  1. In Automatic, the resolved theme and the Settings label always match the OS, through a 20-step rapid toggle sequence on device (E1).
+  2. Changing OS font scale or display size mid-task keeps the learner on the same screen with the same state, including flashcards, a lesson mid-mission and an exam draft (E2).
+  3. No card-like surface on the learning path clips or truncates text at font scale 1.3 or the device maximum; the in-lesson flashcard matches the standalone route (E3, E7).
+  4. Every graded answer is announced, and no action is reachable only by swipe or long press (E5, E6, E10).
+  5. How TalkBack speaks authored French on Android is proven on device and enforced by a test (E4, D-13).
+  6. Every touched screen has per-control verbatim TalkBack rows on the final build, a free account proves the locked-row paywall, and all five 08-VERIFICATION human items are closed by cited rows.
+  7. A11Y-01..04 are re-ticked only after an independent gsd-verifier run returns `passed`.
+**Plans**: 7 plans in 7 stages, each ending in its own device gate under `08.1-EVIDENCE-PROTOCOL.md`
+
+Plans:
+- [ ] 08.1-01-PLAN.md - Stage 1: dev-time Press warning, bilingual test helper, free-account locked row and A1 chip on device
+- [ ] 08.1-02-PLAN.md - Stage 2: Automatic resolves from the OS (E1); fontScale/density config plugin (E2); rapid-toggle and live-config device gate
+- [ ] 08.1-03-PLAN.md - Stage 3: clip audit and FlipFace across the learning path (E3, E7); 1.3 / max / largest display device gate
+- [ ] 08.1-04-PLAN.md - Stage 4: graded-answer announcements, swipe and long-press alternatives, 48 dp targets, Speak WordPractice (E5, E6, E10)
+- [ ] 08.1-05-PLAN.md - Stage 5: French voice spike, user decision, implementation and device gate (E4, D-13)
+- [ ] 08.1-06-PLAN.md - Stage 6: behaviour-based action audit, role consistency, focus-return tests (E8, E9)
+- [ ] 08.1-07-PLAN.md - Stage 7: full verbatim sweep, gsd-verifier, bookkeeping only on `passed`
+**Pitfall Watch**: (1) D-13 to D-22 were locked on 2026-10-01; D-13's path is still chosen at Plan 05's checkpoint. Gate rows count only on a preview build (`08.1-EVIDENCE-PROTOCOL.md` § Which build). (2) Phase 9 shares the working tree with uncommitted `useStore.ts`, `onboarding.tsx`, `strings.ts` and `MissionRich.tsx` edits: always `git commit --only`, never stash or revert. (3) Plan 02 changes native config: ship by binary, not OTA. (4) A gate closes on filled rows, never on "approved".
+**UI hint**: yes
+
 ### Phase 9: Onboarding & Analytics Audit
 **Goal**: The onboarding/placement screens and analytics instrumentation are confirmed correct — covering engagement events AND the acquisition/activation funnel — or their bugs are found and fixed.
 **Depends on**: Phase 07.1 (hard — the day-one trail puts a dismissible placement offer and an orientation card on the first screen, which changes the shape of criterion 4's activation funnel and the events between `onboarding_started` and `first_lesson_started`. Instrumenting the old shape first means instrumenting it twice.)
@@ -540,7 +566,8 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 6. Notification Correctness — Body Format & Toggles | 5/5 | Complete - 06-VERIFICATION.md passed, 12/12 must-haves | 2026-09-21 |
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
 | 7.1 Concept C Spine Rewrite (INSERTED) | 11/11 | All plans executed - trail replaces lessonoverview/missions, three-state language control, acte 00, day-one cards, paywall trail positions. Device pass recorded (bd63572, a72f284). Pending gsd-verifier close-out | 2026-09-25 |
-| 8. Accessibility Retrofit | 10/10 | Complete (verification human_needed: 5 device-evidence items open, see 08-VERIFICATION.md) | 2026-09-29 |
+| 8. Accessibility Retrofit | 10/10 | Executed; requirements reopened by 08-QUALITY-AUDIT.md (2026-10-01), closure moves to 8.1 | 2026-09-29 |
+| 8.1 Accessibility Quality Pass (INSERTED) | 0/7 | Planned; D-13..D-22 locked 2026-10-01 | - |
 | 9. Onboarding & Analytics Audit | 3/6 | In progress | Analytics foundation, onboarding recovery, and placement persistence complete; device proof remains |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |
 | 11. Brix Mascot Rive Animation Rollout — Core States | 0/TBD | Not started | - |

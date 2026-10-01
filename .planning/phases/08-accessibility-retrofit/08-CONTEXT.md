@@ -1,7 +1,7 @@
 # Phase 8: Accessibility Retrofit - Context
 
 **Gathered:** 2026-09-27
-**Status:** Ready for planning
+**Status:** Ready for planning (executed). Requalified 2026-10-01: see `08-QUALITY-AUDIT.md` and `../08.1-accessibility-quality-pass/08.1-CONTEXT.md`, which carries D-01..D-12 forward and adds D-13..D-22.
 
 <domain>
 ## Phase Boundary
