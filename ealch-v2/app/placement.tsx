@@ -126,14 +126,13 @@ export default function Placement() {
     return () => clearTimeout(timer);
   }, [questions.length, attempt?.attemptId]);
 
-  useEffect(() => {
-    if (!showExitConfirm) return;
-    const timer = setTimeout(() => {
-      const node = findNodeHandle(exitHeadingRef.current);
-      if (node) AccessibilityInfo.setAccessibilityFocus(node);
-    }, 80);
-    return () => clearTimeout(timer);
-  }, [showExitConfirm]);
+  // The dialog fades in, so a fixed delay can land before it exists and TalkBack
+  // then starts on the body text. onShow fires once it is on screen (device-checked
+  // on the Pixel 9, 2026-10-01).
+  const focusExitHeading = () => {
+    const node = findNodeHandle(exitHeadingRef.current);
+    if (node) AccessibilityInfo.setAccessibilityFocus(node);
+  };
 
   useEffect(() => {
     if (!hydrated) return;
@@ -413,10 +412,10 @@ export default function Placement() {
           </View>
         )}
       </ScrollView>
-      <Modal visible={showExitConfirm} transparent animationType="fade" onRequestClose={keepChecking}>
+      <Modal visible={showExitConfirm} transparent animationType="fade" onRequestClose={keepChecking} onShow={focusExitHeading}>
         <View accessibilityViewIsModal style={{ flex: 1, justifyContent: 'center', padding: 24, backgroundColor: t.isDark ? 'rgba(0,0,0,0.72)' : 'rgba(0,0,0,0.45)' }}>
           <View style={{ borderRadius: 20, backgroundColor: t.card, padding: 24, gap: 16 }}>
-            <View ref={exitHeadingRef} accessible accessibilityLabel={T.plExitTitle}>
+            <View ref={exitHeadingRef} accessible accessibilityRole="header" accessibilityLabel={T.plExitTitle}>
               <TX font="semi" role="titleLg">{T.plExitTitle}</TX>
             </View>
             <TX role="body" color={t.txSecondary}>{T.plExitBody}</TX>
