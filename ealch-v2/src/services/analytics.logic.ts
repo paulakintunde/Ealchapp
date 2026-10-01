@@ -126,6 +126,17 @@ export function carryGuestMilestones(claims: readonly string[], guestId: string,
   return [...next];
 }
 
+/** first_open waits on storage reads, so its send time can fall after events the first screen
+ *  already sent. It carries the launch time it was recorded at; using it keeps first_open
+ *  first in time, which a PostHog funnel starting at first_open requires. */
+export function eventTimestamp(event: AnalyticsEvent, props: Record<string, unknown>, now: Date): string {
+  if (event === 'first_open' && typeof props.opened_at === 'string') {
+    const at = Date.parse(props.opened_at);
+    if (Number.isFinite(at) && at <= now.getTime()) return new Date(at).toISOString();
+  }
+  return now.toISOString();
+}
+
 export type CaptureDiagnostic = { event_id: string; event: string; status: number | 'offline' | 'no_key'; accepted: boolean };
 export type CaptureBody = { api_key: string; event: string; distinct_id: string; uuid: string; properties: Record<string, unknown>; timestamp: string };
 

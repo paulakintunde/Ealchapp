@@ -1,5 +1,5 @@
 import { test } from 'node:test';
-import { strictEqual } from 'node:assert';
+import { deepStrictEqual, strictEqual } from 'node:assert';
 import { firstOpenRecord, isD1Return, parseReferrer } from './acquisition.logic.ts';
 
 test('first open stores install identity, exact time and local calendar day', () => {
@@ -46,4 +46,11 @@ test('campaign fields are bounded and control characters are discarded', () => {
   const result = parseReferrer({ status: 'ok', raw: `utm_source=${'x'.repeat(150)}%0Aprivate` });
   strictEqual(result.source?.length, 100);
   strictEqual(result.source?.includes('\n'), false);
+});
+
+test('the Play default referrer for an install without a campaign is no_campaign', () => {
+  deepStrictEqual(parseReferrer({ status: 'ok', raw: 'utm_source=google-play&utm_medium=organic' }), { status: 'no_campaign' });
+  // A real campaign that happens to come through Play keeps its fields.
+  deepStrictEqual(parseReferrer({ status: 'ok', raw: 'utm_source=google-play&utm_medium=organic&utm_campaign=launch' }),
+    { status: 'campaign', source: 'google-play', medium: 'organic', campaign: 'launch' });
 });

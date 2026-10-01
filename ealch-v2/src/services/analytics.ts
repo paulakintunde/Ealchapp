@@ -7,7 +7,7 @@ import { useStore } from '@/store/useStore';
 import { setPracticeDayListener } from '@/store/useProgress';
 import { practicedDayMilestone } from './engagement.logic';
 import {
-  captureHttp, carryGuestMilestones, claimOnce, distinctId, enqueueOutbox, identityCaptureBody, milestoneKey, pruneOutbox,
+  captureHttp, carryGuestMilestones, claimOnce, distinctId, enqueueOutbox, eventTimestamp, identityCaptureBody, milestoneKey, pruneOutbox,
   retryableCapture, safeProperties, validOutbox, verifiedSignup,
   type AnalyticsEvent, type CaptureBody, type CaptureDiagnostic, type EventProperties,
   type NoPropsEvent, type OutboxEntry, type PendingSignup, type PropsEvent, type VerifiedUser,
@@ -177,7 +177,7 @@ async function send<E extends AnalyticsEvent>(event: E, input: EventProperties[E
     const body: CaptureBody = {
       api_key: ENV.posthogKey, event, distinct_id: identity, uuid: event_id,
       properties: { ...properties, event_id, install_id, journey_id, $lib: 'ealch-app', platform: Platform.OS },
-      timestamp: new Date().toISOString(),
+      timestamp: eventTimestamp(event, properties, new Date()),
     };
     await deliver(body);
   } catch { /* Analytics cannot interrupt the app. */ }

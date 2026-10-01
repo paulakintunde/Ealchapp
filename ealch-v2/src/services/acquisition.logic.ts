@@ -40,5 +40,9 @@ export function parseReferrer(lookup: ReferrerLookup): Attribution {
     if (key === 'utm_medium') found.medium = value;
     if (key === 'utm_campaign') found.campaign = value;
   }
+  // Play answers every install that did not come through a campaign link with
+  // its own default, utm_source=google-play&utm_medium=organic (seen on the
+  // Pixel 6, 2026-10-01). That is "no campaign" (D-15), not a campaign.
+  if (found.source === 'google-play' && found.medium === 'organic' && !found.campaign) return { status: 'no_campaign' };
   return found.source || found.medium || found.campaign ? { status: 'campaign', ...found } : { status: 'no_campaign' };
 }

@@ -2,7 +2,7 @@ import { deepStrictEqual, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import {
   carryGuestMilestones, claimOnce, distinctId, enqueueOutbox, identityCaptureBody, milestoneKey, OUTBOX_LIMIT, OUTBOX_MAX_AGE_MS,
-  captureHttp, paywallSource, pruneOutbox, retryableCapture, safeProperties, validOutbox, verifiedSignup, type OutboxEntry,
+  captureHttp, eventTimestamp, paywallSource, pruneOutbox, retryableCapture, safeProperties, validOutbox, verifiedSignup, type OutboxEntry,
 } from './analytics.logic.ts';
 
 test('only declared properties reach the product event body', () => {
@@ -118,4 +118,13 @@ test('stored outbox entries are validated', () => {
   const good = { event: 'first_open', distinct_id: 'g', uuid: 'u', properties: {}, timestamp: '2026-09-30T00:00:00.000Z' };
   deepStrictEqual(validOutbox([null, 'x', { uuid: 1 }, good]), [good]);
   deepStrictEqual(validOutbox({ not: 'an array' }), []);
+});
+
+test('first_open is stamped with its launch time so it precedes the first screen events', () => {
+  const now = new Date('2026-10-01T04:46:04.036Z');
+  strictEqual(eventTimestamp('first_open', { opened_at: '2026-10-01T04:46:03.100Z' }, now), '2026-10-01T04:46:03.100Z');
+  strictEqual(eventTimestamp('onboarding_started', { opened_at: '2026-10-01T04:46:03.100Z' }, now), now.toISOString());
+  // A future or malformed launch time falls back to the send time.
+  strictEqual(eventTimestamp('first_open', { opened_at: '2026-10-02T00:00:00.000Z' }, now), now.toISOString());
+  strictEqual(eventTimestamp('first_open', { opened_at: 'not a date' }, now), now.toISOString());
 });
