@@ -27,7 +27,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 8: Accessibility Retrofit** - Thread correct screen-reader roles/labels per control type across high-traffic screens, fix dark-mode OS-sync and flashcard font-scale clipping
 - [ ] **Phase 8.1: Accessibility Quality Pass** (INSERTED) - Close the gaps found by 08-QUALITY-AUDIT.md: theme override race, font-scale activity restart, learning-path clipping, unannounced grading, gesture-only actions, French voice under TalkBack, per-control verbatim device evidence
 - [ ] **Phase 9: Onboarding & Analytics Audit** - Verify the onboarding/placement flow end-to-end and audit analytics event coverage/correctness across engagement AND the acquisition/activation funnel
-- [ ] **Phase 10: Feedback & Rating Flow** - Verify/fix "Le Rapport" and build a frequency-capped rating flow that routes positive ratings to the store and negative ratings to a private in-app report
+- [ ] **Phase 10: Feedback & Rating Flow** - Fix Le Rapport's known defects, add a store-compliant native review request at a positive moment (no sentiment gating, 3/year cap), and add an always-available report-a-problem flow
 - [ ] **Phase 11: Brix Mascot Rive Animation Rollout — Core States** - Ship idle/listening/speaking/celebrating/thinking states for normal lesson flow, preserving existing accessibility-hiding and reduced-motion behavior
 - [ ] **Phase 12: Brix Mascot Rive Animation Rollout — Delight States** - Ship tap-easter-egg/dozeOff/transform-in-out states and re-run an accessibility check on the new tap-triggered surface
 - [ ] **Phase 13: UI/UX Polish Audit** - Find and triage general visual-consistency/interaction-quality issues beyond the accessibility/font-scale/dark-mode bugs already identified, after the screens it audits stop changing
@@ -306,21 +306,22 @@ Plans:
   1. In Automatic, the resolved theme and the Settings label always match the OS, through a 20-step rapid toggle sequence on device (E1).
   2. Changing OS font scale or display size mid-task keeps the learner on the same screen with the same state, including flashcards, a lesson mid-mission and an exam draft (E2).
   3. No card-like surface on the learning path clips or truncates text at font scale 1.3 or the device maximum; the in-lesson flashcard matches the standalone route (E3, E7).
-  4. Every graded answer is announced, and no action is reachable only by swipe or long press (E5, E6, E10).
+  4. Every graded answer and user-facing state change is announced, celebrations stay silent, and no action is reachable only by swipe or long press (E5, E6, E10).
   5. How TalkBack speaks authored French on Android is proven on device and enforced by a test (E4, D-13).
   6. Every touched screen has per-control verbatim TalkBack rows on the final build, a free account proves the locked-row paywall, and all five 08-VERIFICATION human items are closed by cited rows.
   7. A11Y-01..04 are re-ticked only after an independent gsd-verifier run returns `passed`.
-**Plans**: 7 plans in 7 stages, each ending in its own device gate under `08.1-EVIDENCE-PROTOCOL.md`
+**Plans**: 8 plans in 8 stages, each ending in its own device gate under `08.1-EVIDENCE-PROTOCOL.md` (plan-checked 2026-10-01: 4 blockers and 9 warnings fixed)
 
 Plans:
 - [ ] 08.1-01-PLAN.md - Stage 1: dev-time Press warning, bilingual test helper, free-account locked row and A1 chip on device
-- [ ] 08.1-02-PLAN.md - Stage 2: Automatic resolves from the OS (E1); fontScale/density config plugin (E2); rapid-toggle and live-config device gate
-- [ ] 08.1-03-PLAN.md - Stage 3: clip audit and FlipFace across the learning path (E3, E7); 1.3 / max / largest display device gate
-- [ ] 08.1-04-PLAN.md - Stage 4: graded-answer announcements, swipe and long-press alternatives, 48 dp targets, Speak WordPractice (E5, E6, E10)
-- [ ] 08.1-05-PLAN.md - Stage 5: French voice spike, user decision, implementation and device gate (E4, D-13)
-- [ ] 08.1-06-PLAN.md - Stage 6: behaviour-based action audit, role consistency, focus-return tests (E8, E9)
-- [ ] 08.1-07-PLAN.md - Stage 7: full verbatim sweep, gsd-verifier, bookkeeping only on `passed`
-**Pitfall Watch**: (1) D-13 to D-22 were locked on 2026-10-01; D-13's path is still chosen at Plan 05's checkpoint. Gate rows count only on a preview build (`08.1-EVIDENCE-PROTOCOL.md` § Which build). (2) Phase 9 shares the working tree with uncommitted `useStore.ts`, `onboarding.tsx`, `strings.ts` and `MissionRich.tsx` edits: always `git commit --only`, never stash or revert. (3) Plan 02 changes native config: ship by binary, not OTA. (4) A gate closes on filled rows, never on "approved".
+- [ ] 08.1-02-PLAN.md - Stage 2: Automatic resolves from the OS (E1); fontScale/density config plugin and live TX re-layout (E2); rapid-toggle and live-config device gate
+- [ ] 08.1-03-PLAN.md - Stage 3: grep-scoped clip audit and FlipFace across the learning path (E3, E7); 1.0 / 1.3 / max / largest display device gate
+- [ ] 08.1-04-PLAN.md - Stage 4: graded-answer announcements (D-14) and polite state announcements with silent celebrations (D-15) (E5)
+- [ ] 08.1-05-PLAN.md - Stage 5: swipe and long-press alternatives (D-16), 48 dp targets (D-17), Speak WordPractice (E6, E10)
+- [ ] 08.1-06-PLAN.md - Stage 6: French voice spike, user decision, implementation and device gate (E4, D-13)
+- [ ] 08.1-07-PLAN.md - Stage 7: behaviour-based action audit, role consistency, focus-return tests (E8, E9)
+- [ ] 08.1-08-PLAN.md - Stage 8: full verbatim sweep; then the orchestrator's gsd-verifier, with bookkeeping only on `passed`
+**Pitfall Watch**: (1) D-13 to D-22 were locked on 2026-10-01; D-13's path is still chosen at Plan 06's checkpoint. Gate rows count only on a preview build (`08.1-EVIDENCE-PROTOCOL.md` § Which build). (2) Phase 9 shares the working tree with uncommitted `useStore.ts`, `onboarding.tsx`, `strings.ts` and `MissionRich.tsx` edits: always `git commit --only`, never stash or revert. (3) Plan 02 changes native config: ship by binary, not OTA. (4) A gate closes on filled rows, never on "approved".
 **UI hint**: yes
 
 ### Phase 9: Onboarding & Analytics Audit
@@ -356,16 +357,17 @@ Plans:
 **UI hint**: yes
 
 ### Phase 10: Feedback & Rating Flow
-**Goal**: Users can report a broken experience and rate the app, without negative ratings leaking to the public store.
-**Depends on**: Nothing
-**Requirements**: FEEDBACK-01, FEEDBACK-02
+**Goal**: Learners see an accurate performance report, can tell the developer when something is broken at any time, and are asked for a store rating only at a moment when things are going well, in a way both stores allow.
+**Depends on**: Phase 9 (the milestone events that define the "positive moment", and the D-28 consent decision that governs report metadata). Phase 5 only if a report-a-problem nudge reuses the PushBanner slot. Native module: `expo-store-review` moves the runtime fingerprint, so this phase ships by binary, not OTA. iOS proof deferred until the Apple developer account exists.
+**Requirements**: FEEDBACK-01, FEEDBACK-02, FEEDBACK-03
 **Success Criteria** (what must be TRUE):
-  1. "Le Rapport" (the performance-report screen, `app/feedback.tsx`) renders and functions correctly end-to-end, with any found defects fixed.
-  2. The app prompts users to rate their experience at a reasonable moment in normal use, using the same shared interruption/nudge visual pattern as Phase 5's upgrade nudge (see Phase 5 criterion 5) rather than a third independently-designed modal/banner/toast treatment.
-  3. The rating prompt is frequency-capped at no more than 3 prompts per user per year — matching Apple's platform-enforced `SKStoreReviewController` cap — with the same discipline self-enforced on the Android path, which has no platform-enforced cap of its own.
-  4. A positive rating routes to the native App Store/Play Store review prompt.
-  5. A negative rating routes to an in-app "tell us more" flow (categorized problem options + free-text box) that reports to the developer, never the public store.
-**Plans**: TBD
+  1. Le Rapport (`app/feedback.tsx`, the learner performance report, not a feedback form) shows a localised label for every `Activity` it can render, computes accuracy without the exam-miss skew, has a component test, and is proven on device with a populated and an empty log (defects R1-R6 in `10-PRE-DISCUSSION-AUDIT.md`).
+  2. The store review request uses the native API (`expo-store-review`) with **no in-app question before or around it** (Google Play In-App Review guideline; Apple 5.6.1). It fires only after a discussed positive milestone, never in a session with an error or crash, and never from a button.
+  3. Review requests are capped at 3 per rolling 365 days per install, counted as requests (neither platform reports whether the sheet appeared), persisted, and covered by a unit test. Any "Rate Ealch" Settings row opens the store listing URL, not the review API.
+  4. A "Report a problem" flow (categorised options + free text) is reachable from Settings at any time and from the failure surfaces chosen in discussion. It writes to a developer-only destination with a rate limit, carries no answer text, transcripts or email, and is never shown as the alternative to rating.
+  5. Android device evidence covers the review request at the trigger moment, the cap holding on a repeat trigger, and one report reaching the destination end to end.
+**Pitfall Watch**: Do not reintroduce sentiment gating ("Enjoying Ealch?" → store / form). It is prohibited on Play and a rejection risk on iOS (audit S1). The `/feedback` route name means Le Rapport, not the bug report.
+**Plans**: TBD (re-specified 2026-10-01, see `phases/10-feedback-rating-flow/10-PRE-DISCUSSION-AUDIT.md`; run `/gsd-discuss-phase 10` fresh)
 **UI hint**: yes
 
 ### Phase 11: Brix Mascot Rive Animation Rollout — Core States
@@ -567,7 +569,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 7. Known Bug Fixes | 5/5 | All plans executed - 07-05 partial: BUG-01/BUG-02 device-verified, but "does a restored spoken answer reach the grader" is still unconfirmed. BUG-04/BUG-05 surfaced here and are filed to Phase 23 | - |
 | 7.1 Concept C Spine Rewrite (INSERTED) | 11/11 | All plans executed - trail replaces lessonoverview/missions, three-state language control, acte 00, day-one cards, paywall trail positions. Device pass recorded (bd63572, a72f284). Pending gsd-verifier close-out | 2026-09-25 |
 | 8. Accessibility Retrofit | 10/10 | Executed; requirements reopened by 08-QUALITY-AUDIT.md (2026-10-01), closure moves to 8.1 | 2026-09-29 |
-| 8.1 Accessibility Quality Pass (INSERTED) | 0/7 | Planned; D-13..D-22 locked 2026-10-01 | - |
+| 8.1 Accessibility Quality Pass (INSERTED) | 0/8 | Planned; D-13..D-22 locked 2026-10-01 | - |
 | 9. Onboarding & Analytics Audit | 3/6 | In progress | Analytics foundation, onboarding recovery, and placement persistence complete; device proof remains |
 | 10. Feedback & Rating Flow | 0/TBD | Not started | - |
 | 11. Brix Mascot Rive Animation Rollout — Core States | 0/TBD | Not started | - |

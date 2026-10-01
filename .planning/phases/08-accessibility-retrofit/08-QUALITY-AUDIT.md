@@ -110,4 +110,4 @@ What execution got right:
   - A11Y-04 is reopened on E2 and E3.
 - 08-VALIDATION's `nyquist_compliant` is set back to `false`, and the "failures fixed, retested" box is unticked, with a pointer here.
 - New decisions D-13..D-22 are drafted in `08.1-CONTEXT.md` as PROPOSED. They need the user's confirmation before execution.
-- Phase 08.1 runs in seven stages. Each ends in its own device gate with a verbatim evidence record, and no stage may start until the previous gate is recorded.
+- Phase 08.1 runs in eight stages (plan-checked; Stage 4 was split into announcements and operability). Each ends in its own device gate with a verbatim evidence record, and no stage may start until the previous gate is recorded.
